@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 7a8bdd911db82a07bfcdd1596b7a8203a19a6442
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0e2406cd35fb2d4dd99da4f5139a9f0f80697912
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341960"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566251"
 ---
 # <a name="set-up-web-endpoints"></a>웹 엔드포인트 설정
 
@@ -54,14 +54,14 @@ ms.locfileid: "92341960"
     > - 헤더 값이 예제 엔드포인트에서 고유한지 확인하려면 applicationId의 처음 8자리를 사용합니다.
     > - 실제 환경에서 웹 엔드포인트는 디바이스를 관리하는 [IOT 허브](https://docs.microsoft.com/azure/iot-hub/about-iot-hub)에 대한 엔드포인트일 수 있습니다.
 
-1. **저장**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
 ## <a name="call-web-endpoints"></a>웹 엔드포인트 호출
 
-1. **TurnOnOff** 명령으로 이동하여 완료 규칙 아래에서 **ConfirmationResponse**를 선택한 다음, **작업 추가**를 선택합니다.
-1. **새 작업 - 유형** 아래에서 **웹 엔드포인트 호출**을 선택합니다.
-1. **작업 편집 - 엔드포인트**에서 만든 웹 엔드포인트인 **UpdateDeviceState**를 선택합니다.  
-1. **구성**에서 다음 값을 입력합니다. 
+1. **TurnOnOff** 명령으로 이동하여 완료 규칙 아래에서 **ConfirmationResponse** 를 선택한 다음, **작업 추가** 를 선택합니다.
+1. **새 작업 - 유형** 아래에서 **웹 엔드포인트 호출** 을 선택합니다.
+1. **작업 편집 - 엔드포인트** 에서 만든 웹 엔드포인트인 **UpdateDeviceState** 를 선택합니다.  
+1. **구성** 에서 다음 값을 입력합니다. 
    > [!div class="mx-imgBorder"]
    > ![웹 엔드포인트 호출 작업 매개 변수](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
@@ -74,9 +74,9 @@ ms.locfileid: "92341960"
     > [!NOTE]
     > - 제안된 쿼리 매개 변수는 예제 엔드포인트에만 필요합니다.
 
-1. **성공 시 - 실행할 작업**에서 **음성 응답 보내기**를 선택합니다.
+1. **성공 시 - 실행할 작업** 에서 **음성 응답 보내기** 를 선택합니다.
     
-    **간단한 편집기**에서 `{SubjectDevice} is {OnOff}`를 입력합니다.
+    **간단한 편집기** 에서 `{SubjectDevice} is {OnOff}`를 입력합니다.
    
    > [!div class="mx-imgBorder"]
    > ![성공 시-실행 화면 작업을 보여 주는 스크린샷](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
@@ -88,9 +88,9 @@ ms.locfileid: "92341960"
    > [!NOTE]
    > - `{YourWebEndpointName.FieldName}`을 사용하여 http 응답의 필드에 직접 액세스할 수도 있습니다. `{UpdateDeviceState.TV}`
 
-1. **실패 시 - 실행할 작업**에서 **음성 응답 보내기**를 선택합니다.
+1. **실패 시 - 실행할 작업** 에서 **음성 응답 보내기** 를 선택합니다.
 
-    **간단한 편집기**에서 `Sorry, {WebEndpointErrorMessage}`를 입력합니다.
+    **간단한 편집기** 에서 `Sorry, {WebEndpointErrorMessage}`를 입력합니다.
 
    > [!div class="mx-imgBorder"]
    > ![실패 시 웹 엔드포인트 호출 작업](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
@@ -120,19 +120,19 @@ ms.locfileid: "92341960"
 
 1. 이전에 추가한 **클라이언트에 작업 보내기** 작업을 삭제합니다.
 1. 웹 엔드포인트 호출을 편집합니다. 
-    1. **구성**에서 **쿼리 매개 변수**가 `item={SubjectDevice}&&value={OnOff}`인지 확인합니다.
-    1. **성공 시**에서 **실행할 작업**을 **클라이언트에 작업 보내기**로 변경합니다.
-    1. 아래 JSON을 **작업 콘텐츠**에 복사합니다.
+    1. **구성** 에서 **쿼리 매개 변수** 가 `item={SubjectDevice}&&value={OnOff}`인지 확인합니다.
+    1. **성공 시** 에서 **실행할 작업** 을 **클라이언트에 작업 보내기** 로 변경합니다.
+    1. 아래 JSON을 **작업 콘텐츠** 에 복사합니다.
    ```json
    {
-     "type": "event",
-     "name": "UpdateDeviceState",
-     "state": "{OnOff}",
-     "device": "{SubjectDevice}"
-   }
+      "type": "event",
+      "name": "UpdateDeviceState",
+      "value": {
+        "state": "{OnOff}",
+        "device": "{SubjectDevice}"
+      }
+    }
    ```
-    > [!div class="mx-imgBorder"]
-    > ![성공 시 작업 보내기](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-activity.png)
    
 이제 웹 엔드포인트에 대한 요청이 성공하는 경우에만 작업을 클라이언트에 보냅니다.
 
@@ -149,7 +149,7 @@ ms.locfileid: "92341960"
 
 ### <a name="sync-device-state"></a>디바이스 상태 동기화 
 
-`MainPage.xaml.cs`에서 `using Windows.Web.Http;`라는 참조를 추가합니다. `MainPage` 클래스에 다음 코드를 추가합니다. 이 메서드는 GET 요청을 예제 엔드포인트에 보내고 앱의 현재 디바이스 상태를 추출합니다. `<your_app_name>`을 사용자 지정 명령 웹 엔드포인트의 **헤더**에서 사용한 것으로 변경해야 합니다.
+`MainPage.xaml.cs`에서 `using Windows.Web.Http;`라는 참조를 추가합니다. `MainPage` 클래스에 다음 코드를 추가합니다. 이 메서드는 GET 요청을 예제 엔드포인트에 보내고 앱의 현재 디바이스 상태를 추출합니다. `<your_app_name>`을 사용자 지정 명령 웹 엔드포인트의 **헤더** 에서 사용한 것으로 변경해야 합니다.
 
 ```C#
 private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs e)
@@ -207,3 +207,4 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
 
 > [!div class="nextstepaction"]
 > [사용자 지정 명령 응용 프로그램을 원격 기술로 내보내기](./how-to-custom-commands-integrate-remote-skills.md)
+

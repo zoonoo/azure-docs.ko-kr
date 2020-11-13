@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 48884e6faa5f26f027c772b44d5f960979a40d1d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: beede74134affeb3ee0d4bdd20d5da3b4c5e6eda
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447904"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566625"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>현재 위치의 업그레이드 Red Hat Enterprise Linux
 
@@ -22,7 +22,9 @@ ms.locfileid: "94447904"
 > Red Hat Enterprise Linux 제품의 SQL Server는 Azure에서 전체 업그레이드를 지원 하지 않습니다.
 
 ## <a name="what-to-expect-during-the-upgrade"></a>업그레이드 하는 동안 발생할 수 있는 작업
-업그레이드 하는 동안 시스템이 몇 번 다시 부팅 되며이는 정상입니다. 마지막 재부팅은 VM을 RHEL 8 최신 부 릴리스로 업그레이드 합니다.
+업그레이드 하는 동안 시스템이 몇 번 다시 부팅 되며이는 정상입니다. 마지막 재부팅은 VM을 RHEL 8 최신 부 릴리스로 업그레이드 합니다. 
+
+업그레이드 프로세스는 20 분에서 몇 시간까지 걸릴 수 있습니다 .이는 VM 크기 및 시스템에 설치 된 패키지의 수와 같은 여러 요소에 따라 달라 집니다.
 
 ## <a name="preparations-for-the-upgrade"></a>업그레이드 준비
 현재 위치의 업그레이드는 Red Hat 및 Azure에서 고객이 시스템을 다음 주 버전으로 업그레이드할 수 있도록 하는 공식적으로 권장 되는 방법입니다. 업그레이드를 수행 하기 전에 다음 사항에 주의 해야 합니다. 
@@ -39,6 +41,12 @@ ms.locfileid: "94447904"
     ```bash
     leapp preupgrade --no-rhsm
     ```
+* 업그레이드 프로세스 중에 모니터링을 허용 하므로 직렬 콘솔이 작동 하는지 확인 합니다.
+
+* 에서 SSH 루트 액세스를 사용 하도록 설정 `/etc/ssh/sshd_config`
+    1. `/etc/ssh/sshd_config` 파일을 엽니다.
+    1. ' #PermitRootLogin 예 '를 검색 합니다.
+    1. 주석 처리를 제거 하려면 ' # '을 제거 하십시오.
 
 ## <a name="steps-for-performing-the-upgrade"></a>업그레이드를 수행 하는 단계
 
@@ -46,7 +54,7 @@ ms.locfileid: "94447904"
 
 1. Yum 업데이트를 수행 하 여 최신 클라이언트 패키지를 가져옵니다.
     ```bash
-    yum update
+    yum update -y
     ```
 
 1. Leapp-client 패키지를 설치 합니다.
@@ -58,35 +66,66 @@ ms.locfileid: "94447904"
     1. 파일을 다운로드 합니다.
     1. 다음 명령을 사용 하 여 콘텐츠를 추출 하 고 파일을 제거 합니다.
     ```bash
-     tar -xzf leapp-data12.tar.gz -C /etc/leapp/files && rm leapp-data12.tar.gz
+    tar -xzf leapp-data12.tar.gz -C /etc/leapp/files && rm leapp-data12.tar.gz
     ```
-    
-
 
 1. ' Leapp '의 ' 응답 ' 파일을 추가 합니다.
     ```bash
     leapp answer --section remove_pam_pkcs11_module_check.confirm=True --add
-    ```
-    
-1. /Etc/ssh/sshd_config에서 PermitRootLogin 사용
-    1. /Etc/ssh/파일을 엽니다 sshd_config
-    1. ' #PermitRootLogin 예 '를 검색 합니다.
-    1. 주석 처리를 제거 하려면 ' # '을 제거 하십시오.
-
-
+    ``` 
 
 1. ' Leapp ' 업그레이드를 수행 합니다.
     ```bash
     leapp upgrade --no-rhsm
     ```
+1.  `leapp upgrade`명령이 성공적으로 완료 되 면 시스템을 수동으로 다시 부팅 하 여 프로세스를 완료 합니다. 시스템은 사용할 수 없게 되는 몇 번의 시간 동안 다시 부팅 됩니다. 직렬 콘솔을 사용 하 여 프로세스를 모니터링 합니다.
+
+1.  업그레이드가 성공적으로 완료 되었는지 확인 합니다.
+    ```bash
+    uname -a && cat /etc/redhat-release
+    ```
+
+1. 업그레이드가 완료 된 후 루트 ssh 액세스를 제거 합니다.
+    1. `/etc/ssh/sshd_config` 파일을 엽니다.
+    1. ' #PermitRootLogin 예 '를 검색 합니다.
+    1. 주석에 ' # ' 추가
+
 1. 변경 내용을 적용 하려면 sshd 서비스를 다시 시작 하십시오.
     ```bash
     systemctl restart sshd
     ```
-1. /Etc/ssh/sshd_config에서 PermitRootLogin 주석 처리
-    1. /Etc/ssh/파일을 엽니다 sshd_config
-    1. ' #PermitRootLogin 예 '를 검색 합니다.
-    1. 주석에 ' # ' 추가
+
+## <a name="common-issues"></a>일반적인 문제
+`leapp preupgrade`또는 프로세스가 실패할 수 있는 몇 가지 일반적인 인스턴스는 다음과 같습니다 `leapp upgrade` .
+
+**오류: 다음 비활성화 된 플러그 인 패턴과 일치 하는 항목이 없습니다.**
+```plaintext
+STDERR:
+No matches found for the following disabled plugin patterns: subscription-manager
+Warning: Packages marked by Leapp for upgrade not found in repositories metadata: gpg-pubkey
+```
+**해결 방법**\
+파일을 편집 하 고 사용을로 변경 하 여 구독 관리자 플러그 인 `/etc/yum/pluginconf.d/subscription-manager.conf` 을 비활성화 `enabled=0` 합니다.
+
+이는 PAYG Vm에 사용 되지 않는 구독 관리자 yum 플러그 인을 사용 하도록 설정 하는 경우에 발생 합니다.
+
+**오류: root를 사용 하 여 원격 로그인에 문제가 있을 수 있습니다.** 는 `leapp preupgrade` 다음 오류와 함께 실패할 수 있습니다.
+```structured-text
+============================================================
+                     UPGRADE INHIBITED
+============================================================
+
+Upgrade has been inhibited due to the following problems:
+    1. Inhibitor: Possible problems with remote login using root account
+Consult the pre-upgrade report for details and possible remediation.
+
+============================================================
+                     UPGRADE INHIBITED
+============================================================
+```
+**해결 방법**\
+에서 루트 액세스를 사용 하도록 설정 `/etc/sshd_conf` 합니다.
+이는 `/etc/sshd_conf` "[업그레이드 준비](#preparations-for-the-upgrade)" 섹션에 따라에서 루트 ssh 액세스를 사용 하도록 설정 하지 않은 경우에 발생 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure의 Red Hat 이미지](./redhat-images.md)에 대해 자세히 알아보세요.

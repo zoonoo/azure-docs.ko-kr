@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory를 사용 하 여 서비스 원격 데스크톱 게이트웨이
-description: 이 인증 패턴을 달성 하는 데 대 한 아키텍처 지침
+description: Azure Active Directory를 사용 하 여 원격 데스크톱 게이트웨이 서비스를 실현 하는 아키텍처 지침입니다.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff099d41970ad4d78d5c6035a60f448f29ab24b1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 57466cccb71444d5711a9221c324a107757c5e82
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114357"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576798"
 ---
 # <a name="remote-desktop-gateway-services"></a>원격 데스크톱 게이트웨이 서비스
 
@@ -32,15 +32,15 @@ ms.locfileid: "92114357"
 
 ## <a name="components-of-system"></a>시스템의 구성 요소
 
-* **사용자**: 응용 프로그램 프록시에서 제공 하는 RDS에 액세스 합니다.
+* **사용자** : 응용 프로그램 프록시에서 제공 하는 RDS에 액세스 합니다.
 
-* **웹 브라우저**: 응용 프로그램의 외부 URL에 액세스 하기 위해 사용자가 상호 작용 하는 구성 요소입니다.
+* **웹 브라우저** : 응용 프로그램의 외부 URL에 액세스 하기 위해 사용자가 상호 작용 하는 구성 요소입니다.
 
-* **AZURE AD**: 사용자를 인증 합니다. 
+* **AZURE AD** : 사용자를 인증 합니다. 
 
-* **응용 프로그램 프록시 서비스**: 사용자의 요청을 RDS로 전달 하는 역방향 프록시 역할을 합니다. 응용 프로그램 프록시는 모든 조건부 액세스 정책을 적용할 수도 있습니다. 
+* **응용 프로그램 프록시 서비스** : 사용자의 요청을 RDS로 전달 하는 역방향 프록시 역할을 합니다. 응용 프로그램 프록시는 모든 조건부 액세스 정책을 적용할 수도 있습니다. 
 
-* **원격 데스크톱 서비스**: 개별 가상화 된 응용 프로그램에 대 한 플랫폼 역할을 하며, 안전한 모바일 및 원격 데스크톱 액세스를 제공 하 고, 최종 사용자에 게 클라우드에서 응용 프로그램과 데스크톱을 실행할 수 있는 기능을 제공 합니다. 
+* **원격 데스크톱 서비스** : 개별 가상화 된 응용 프로그램에 대 한 플랫폼 역할을 하며, 안전한 모바일 및 원격 데스크톱 액세스를 제공 하 고, 최종 사용자에 게 클라우드에서 응용 프로그램과 데스크톱을 실행할 수 있는 기능을 제공 합니다. 
 
 ## <a name="implement-remote-desktop-gateway-services-with-azure-ad"></a>Azure AD를 사용 하 여 원격 데스크톱 게이트웨이 서비스 구현
 

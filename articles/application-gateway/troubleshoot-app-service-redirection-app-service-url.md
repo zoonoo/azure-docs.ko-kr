@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 676d7c2ad18327471c6e95f3cef26185fa49b78b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 51249c68407f6b4ca7793b2fdeceab5aa4f7bc5c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396892"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575988"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>App Service 문제 해결 Application Gateway
 
@@ -93,7 +93,7 @@ V1 SKU를 사용 하는 경우에는 location 헤더를 다시 작성할 수 없
 
 사용자 지정 도메인을 소유 하 고이 프로세스를 수행 해야 합니다.
 
-- App service의 사용자 지정 도메인 목록에 도메인을 등록 합니다. 사용자 지정 도메인에 app service의 FQDN을 가리키는 CNAME이 있어야 합니다. 자세한 내용은 [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](//azure/app-service/app-service-web-tutorial-custom-domain)을 참조 하세요.
+- App service의 사용자 지정 도메인 목록에 도메인을 등록 합니다. 사용자 지정 도메인에 app service의 FQDN을 가리키는 CNAME이 있어야 합니다. 자세한 내용은 [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](/azure/app-service/app-service-web-tutorial-custom-domain)을 참조 하세요.
 
     ![App service 사용자 지정 도메인 목록](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 

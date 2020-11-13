@@ -3,29 +3,27 @@ title: Azure CLI를 사용 하 여 Azure 파일 공유 백업 관리
 description: Azure CLI를 사용 하 여 Azure Backup에서 백업 된 Azure 파일 공유를 관리 하 고 모니터링 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 44c095d58e2da5a74985ce216268aab15922ed1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a8a785016845b836a102663a959e4b2f28696b6
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332749"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566455"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure 파일 공유 백업 관리
 
 Azure CLI은 Azure 리소스를 관리 하기 위한 명령줄 환경을 제공 합니다. Azure 리소스를 사용 하는 사용자 지정 자동화를 빌드하기 위한 좋은 도구입니다. 이 문서에서는 [Azure Backup](./backup-overview.md)에 의해 백업 되는 Azure 파일 공유를 관리 하 고 모니터링 하기 위한 작업을 수행 하는 방법을 설명 합니다. [Azure Portal](https://portal.azure.com/)를 사용 하 여 이러한 단계를 수행할 수도 있습니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-CLI를 로컬로 설치 하 고 사용 하려면 Azure CLI 버전 2.0.18 이상을 이상을 실행 해야 합니다. CLI 버전을 찾으려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
-
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 [Azure Backup](./backup-overview.md)으로 백업 된 Azure 파일 공유가 이미 있다고 가정 합니다. 없으면 [CLI를 사용 하 여 Azure 파일 공유](backup-afs-cli.md) 백업을 참조 하 여 파일 공유에 대 한 백업을 구성 합니다. 이 문서에서는 다음 리소스를 사용 합니다.
-
-* **리소스 그룹**: *azurefiles*
-* **Recoveryservicesvault**: *azurefilesvault*
-* **Storage 계정**: *afsaccount*
-* **파일 공유**: *azurefiles*
+   -  **리소스 그룹** : *azurefiles*
+   -  **Recoveryservicesvault** : *azurefilesvault*
+   -  **Storage 계정** : *afsaccount*
+   -  **파일 공유** : *azurefiles*
+  
+  [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+   - 이 자습서에는 버전 2.0.18 이상을 이상의 Azure CLI 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="monitor-jobs"></a>작업 모니터링
 
@@ -98,9 +96,9 @@ az backup job list --resource-group azurefiles --vault-name azurefilesvault
 
 정책을 변경 하려면 다음 매개 변수를 정의 합니다.
 
-* **--container-name**: 파일 공유를 호스트 하는 저장소 계정의 이름입니다. 컨테이너의 **이름** **또는 이름을 검색** 하려면 [az backup container list](/cli/azure/backup/container#az-backup-container-list) 명령을 사용 합니다.
-* **--name**: 정책을 변경 하려는 파일 공유의 이름입니다. 백업 된 항목 **name** 의 이름 **또는 이름을** 검색 하려면 [az backup item list](/cli/azure/backup/item#az-backup-item-list) 명령을 사용 합니다.
-* **--policy-name**: 파일 공유에 대해 설정 하려는 백업 정책의 이름입니다. [Az backup policy list](/cli/azure/backup/policy#az-backup-policy-list) 를 사용 하 여 자격 증명 모음에 대 한 모든 정책을 볼 수 있습니다.
+* **--container-name** : 파일 공유를 호스트 하는 저장소 계정의 이름입니다. 컨테이너의 **이름** **또는 이름을 검색** 하려면 [az backup container list](/cli/azure/backup/container#az-backup-container-list) 명령을 사용 합니다.
+* **--name** : 정책을 변경 하려는 파일 공유의 이름입니다. 백업 된 항목 **name** 의 이름 **또는 이름을** 검색 하려면 [az backup item list](/cli/azure/backup/item#az-backup-item-list) 명령을 사용 합니다.
+* **--policy-name** : 파일 공유에 대해 설정 하려는 백업 정책의 이름입니다. [Az backup policy list](/cli/azure/backup/policy#az-backup-policy-list) 를 사용 하 여 자격 증명 모음에 대 한 모든 정책을 볼 수 있습니다.
 
 다음 예에서는 *afsaccount* 저장소 계정에 있는 *azurefiles* 파일 공유에 대 한 *schedule2* 백업 정책을 설정 합니다.
 
@@ -110,8 +108,8 @@ az backup item set-policy --policy-name schedule2 --name azurefiles --vault-name
 
 또한 다음과 같은 두 개의 추가 매개 변수를 제공 하 여 컨테이너 및 항목에 대 한 친숙 한 이름을 사용 하 여 이전 명령을 실행할 수 있습니다.
 
-* **--백업 관리-유형**: *azurestorage*
-* **--워크 로드 유형**: *azurefileshare 공유*
+* **--백업 관리-유형** : *azurestorage*
+* **--워크 로드 유형** : *azurefileshare 공유*
 
 ```azurecli-interactive
 az backup item set-policy --policy-name schedule2 --name azurefiles --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --name azurefiles --backup-management-type azurestorage --out table
@@ -136,8 +134,8 @@ Azure Backup에서 생성 되는 기본 스냅숏은 유지 되므로 저장소�
 
 파일 공유에 대 한 보호를 중지 하려면 다음 매개 변수를 정의 합니다.
 
-* **--container-name**: 파일 공유를 호스트 하는 저장소 계정의 이름입니다. 컨테이너의 **이름** **또는 이름을 검색** 하려면 [az backup container list](/cli/azure/backup/container#az-backup-container-list) 명령을 사용 합니다.
-* **--item-name**: 보호를 중지 하려는 파일 공유의 이름입니다. 백업 된 항목 **name** 의 이름 **또는 이름을** 검색 하려면 [az backup item list](/cli/azure/backup/item#az-backup-item-list) 명령을 사용 합니다.
+* **--container-name** : 파일 공유를 호스트 하는 저장소 계정의 이름입니다. 컨테이너의 **이름** **또는 이름을 검색** 하려면 [az backup container list](/cli/azure/backup/container#az-backup-container-list) 명령을 사용 합니다.
+* **--item-name** : 보호를 중지 하려는 파일 공유의 이름입니다. 백업 된 항목 **name** 의 이름 **또는 이름을** 검색 하려면 [az backup item list](/cli/azure/backup/item#az-backup-item-list) 명령을 사용 합니다.
 
 ### <a name="stop-protection-and-retain-recovery-points"></a>보호 중지 및 복구 지점의 보존
 
@@ -151,8 +149,8 @@ az backup protection disable --vault-name azurefilesvault --resource-group azure
 
 또한 다음 두 개의 추가 매개 변수를 제공 하 여 컨테이너 및 항목에 대 한 친숙 한 이름을 사용 하 여 이전 명령을 실행할 수 있습니다.
 
-* **--백업 관리-유형**: *azurestorage*
-* **--워크 로드 유형**: *azurefileshare 공유*
+* **--백업 관리-유형** : *azurestorage*
+* **--워크 로드 유형** : *azurefileshare 공유*
 
 ```azurecli-interactive
 az backup protection disable --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --item-name azurefiles --workload-type azurefileshare --backup-management-type Azurestorage --out table
@@ -168,7 +166,7 @@ fec6f004-0e35-407f-9928-10a163f123e5  azurefiles
 
 ### <a name="stop-protection-without-retaining-recovery-points"></a>복구 지점이 유지 되지 않고 보호 중지
 
-복구 지점이 유지 되지 않고 보호를 중지 하려면 [az backup protection disable](/cli/azure/backup/protection#az-backup-protection-disable) cmdlet을 사용 하 여 **삭제-백업-데이터** 옵션을 **true**로 설정 합니다.
+복구 지점이 유지 되지 않고 보호를 중지 하려면 [az backup protection disable](/cli/azure/backup/protection#az-backup-protection-disable) cmdlet을 사용 하 여 **삭제-백업-데이터** 옵션을 **true** 로 설정 합니다.
 
 다음 예에서는 복구 지점을 유지 하지 않고 *azurefiles* 파일 공유에 대 한 보호를 중지 합니다.
 
@@ -178,8 +176,8 @@ az backup protection disable --vault-name azurefilesvault --resource-group azure
 
 또한 다음 두 개의 추가 매개 변수를 제공 하 여 컨테이너 및 항목에 대 한 친숙 한 이름을 사용 하 여 이전 명령을 실행할 수 있습니다.
 
-* **--백업 관리-유형**: *azurestorage*
-* **--워크 로드 유형**: *azurefileshare 공유*
+* **--백업 관리-유형** : *azurestorage*
+* **--워크 로드 유형** : *azurefileshare 공유*
 
 ```azurecli-interactive
 az backup protection disable --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --item-name azurefiles --workload-type azurefileshare --backup-management-type Azurestorage --delete-backup-data true --out table
@@ -191,9 +189,9 @@ Azure 파일 공유에 대 한 보호를 중지 했지만 복구 지점이 남�
 
 파일 공유에 대 한 보호를 다시 시작 하려면 다음 매개 변수를 정의 합니다.
 
-* **--container-name**: 파일 공유를 호스트 하는 저장소 계정의 이름입니다. 컨테이너의 **이름** **또는 이름을 검색** 하려면 [az backup container list](/cli/azure/backup/container#az-backup-container-list) 명령을 사용 합니다.
-* **--item-name**: 보호를 다시 시작 하려는 파일 공유의 이름입니다. 백업 된 항목 **name** 의 이름 **또는 이름을** 검색 하려면 [az backup item list](/cli/azure/backup/item#az-backup-item-list) 명령을 사용 합니다.
-* **--policy-name**: 파일 공유에 대 한 보호를 다시 시작 하려는 백업 정책의 이름입니다.
+* **--container-name** : 파일 공유를 호스트 하는 저장소 계정의 이름입니다. 컨테이너의 **이름** **또는 이름을 검색** 하려면 [az backup container list](/cli/azure/backup/container#az-backup-container-list) 명령을 사용 합니다.
+* **--item-name** : 보호를 다시 시작 하려는 파일 공유의 이름입니다. 백업 된 항목 **name** 의 이름 **또는 이름을** 검색 하려면 [az backup item list](/cli/azure/backup/item#az-backup-item-list) 명령을 사용 합니다.
+* **--policy-name** : 파일 공유에 대 한 보호를 다시 시작 하려는 백업 정책의 이름입니다.
 
 다음 예에서는 [az backup protection resume](/cli/azure/backup/protection#az-backup-protection-resume) cmdlet을 사용 하 여 *schedule1* backup 정책을 통해 *azurefiles* 파일 공유에 대 한 보호를 다시 시작 합니다.
 
@@ -203,8 +201,8 @@ az backup protection resume --vault-name azurefilesvault --resource-group azuref
 
 또한 다음 두 개의 추가 매개 변수를 제공 하 여 컨테이너 및 항목에 대 한 친숙 한 이름을 사용 하 여 이전 명령을 실행할 수 있습니다.
 
-* **--백업 관리-유형**: *azurestorage*
-* **--워크 로드 유형**: *azurefileshare 공유*
+* **--백업 관리-유형** : *azurestorage*
+* **--워크 로드 유형** : *azurefileshare 공유*
 
 ```azurecli-interactive
 az backup protection resume --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --item-name azurefiles --workload-type azurefileshare --backup-management-type Azurestorage --policy-name schedule2 --out table
@@ -232,7 +230,7 @@ az backup container unregister --vault-name azurefilesvault --resource-group azu
 
 다음 추가 매개 변수를 제공 하 여 컨테이너에 대 한 친숙 한 이름을 사용 하 여 이전 cmdlet을 실행할 수도 있습니다.
 
-* **--백업 관리-유형**: *azurestorage*
+* **--백업 관리-유형** : *azurestorage*
 
 ```azurecli-interactive
 az backup container unregister --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --backup-management-type azurestorage --out table

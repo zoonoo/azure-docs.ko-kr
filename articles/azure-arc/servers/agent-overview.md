@@ -3,19 +3,19 @@ title: Connected Machine Windows 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트 되는 가상 컴퓨터를 모니터링 하는 데 사용할 수 있는 Azure Arc 사용 가능 서버 에이전트에 대 한 자세한 개요를 제공 합니다.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: f1f74ff12d007553c0c0c9b16f56a27371618bbb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8a66f99f535013b8aac52fdee43b91a8c734b10a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370171"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577586"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
 
 Azure Arc 사용 서버 연결 된 컴퓨터 에이전트를 사용 하면 회사 네트워크 또는 다른 클라우드 공급자의 Azure 외부에서 호스트 되는 Windows 및 Linux 컴퓨터를 관리할 수 있습니다. 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항과 다양한 배포 모델을 상세히 살펴봅니다.
 
 >[!NOTE]
->9 월 2020에 Azure Arc 사용이 가능한 서버를 일반적으로 출시 한 후에는 Azure에 연결 된 컴퓨터 에이전트의 모든 시험판 버전 (1.0 보다 낮은 버전의 에이전트)은 **2021 2,를**사용 하 여 **더 이상 사용** 되지 않습니다.  이 시간 프레임을 사용 하면 미리 릴리스된 에이전트가 Azure Arc 사용 서버 서비스와 더 이상 통신할 수 없으므로 버전 1.0 이상으로 업그레이드할 수 있습니다.
+>9 월 2020에 Azure Arc 사용이 가능한 서버를 일반적으로 출시 한 후에는 Azure에 연결 된 컴퓨터 에이전트의 모든 시험판 버전 (1.0 보다 낮은 버전의 에이전트)은 **2021 2,를** 사용 하 여 **더 이상 사용** 되지 않습니다.  이 시간 프레임을 사용 하면 미리 릴리스된 에이전트가 Azure Arc 사용 서버 서비스와 더 이상 통신할 수 없으므로 버전 1.0 이상으로 업그레이드할 수 있습니다.
 
 ## <a name="agent-component-details"></a>에이전트 구성 요소 세부 정보
 
@@ -60,7 +60,7 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 
 * 머신을 등록하려면 **Azure Connected Machine Onboarding** 역할의 멤버여야 합니다.
 
-* 컴퓨터를 읽고, 수정 하 고, 다시 등록 하거나, 삭제 하려면 **Azure 연결 된 컴퓨터 리소스 관리자** 역할의 구성원입니다. 
+* 컴퓨터를 읽고, 수정 하 고, 삭제 하려면 **Azure 연결 된 컴퓨터 리소스 관리자** 역할의 구성원입니다. 
 
 ### <a name="azure-subscription-and-service-limits"></a>Azure 구독 및 서비스 한도
 
@@ -92,7 +92,7 @@ URL:
 
 | 에이전트 리소스 | Description |
 |---------|---------|
-|`management.azure.com`|Azure Resource Manager|
+|`management.azure.com`|Azure 리소스 관리자|
 |`login.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |게스트 구성|
@@ -199,7 +199,7 @@ Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 추�
     |%SystemDrive%\ProgramData\GuestConfig\ ext_mgr_logs|확장 에이전트 구성 요소에 대 한 세부 정보를 기록 합니다.|
     |%SystemDrive%\ProgramData\GuestConfig\ extension_logs\<Extension>|설치 된 확장의 세부 정보를 기록 합니다.|
 
-* 로컬 보안 그룹 **하이브리드 에이전트 확장 애플리케이션**이 만들어집니다.
+* 로컬 보안 그룹 **하이브리드 에이전트 확장 애플리케이션** 이 만들어집니다.
 
 * 에이전트를 제거하는 동안 다음 아티팩트가 제거되지 않습니다.
 

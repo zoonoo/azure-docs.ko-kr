@@ -1,20 +1,20 @@
 ---
-title: 기술 자료 설계-QnA Maker
+title: 기술 자료 QnA Maker 개념 디자인
 description: 기술 자료 QnA Maker를 디자인 하는 방법에 대해 알아봅니다.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: b2661b61e0422f796813be0908d866028ee128a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c21c82b5fd024598da30f4ac7b1ed01e64561e3b
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776904"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576192"
 ---
 # <a name="question-and-answer-pair-concepts"></a>질문 및 답변 쌍 개념
 
-기술 자료는 QnA (질문과 대답) 쌍으로 구성 됩니다.  각 쌍에는 하나의 대답이 있으며 쌍에는 해당 _대답과_연결 된 모든 정보가 포함 됩니다. 대답은 데이터베이스 행 또는 데이터 구조 인스턴스와 느슨하게 유사할 수 있습니다.
+기술 자료는 QnA (질문과 대답) 쌍으로 구성 됩니다.  각 쌍에는 하나의 대답이 있으며 쌍에는 해당 _대답과_ 연결 된 모든 정보가 포함 됩니다. 대답은 데이터베이스 행 또는 데이터 구조 인스턴스와 느슨하게 유사할 수 있습니다.
 
 ## <a name="question-and-answer-pairs"></a>질문 및 대답 쌍
 
@@ -23,13 +23,13 @@ ms.locfileid: "91776904"
 * 기계 학습을 QnA Maker 하는 데 사용 되는 **질문** 텍스트를 사용 하 여 다른 단어를 사용 하는 사용자의 질문 텍스트에 맞추고 동일한 답변을 사용 합니다.
 * **답변** -쌍의 대답은 사용자 쿼리가 관련 질문과 일치 하는 경우 반환 되는 응답입니다.
 
-각 쌍은 **ID**로 표시 됩니다.
+각 쌍은 **ID** 로 표시 됩니다.
 
 쌍에 대 한 **선택적** 설정에는 다음이 포함 됩니다.
 
 * **질문의 대체 형태** -다양 한 질문에 대 한 올바른 답을 반환 QnA Maker 수 있습니다. 위해 구와
-* **메타 데이터**: 메타 데이터는 QnA 쌍과 연결 된 태그 이며 키-값 쌍으로 표현 됩니다. 메타데이터 태그는 QnA 쌍을 필터링하고 쿼리 매칭이 수행되는 집합을 제한하는 데 사용됩니다.
-* 다중 전환 **프롬프트**(멀티 턴 대화를 계속 하는 데 사용 됨)
+* **메타 데이터** : 메타 데이터는 QnA 쌍과 연결 된 태그 이며 키-값 쌍으로 표현 됩니다. 메타데이터 태그는 QnA 쌍을 필터링하고 쿼리 매칭이 수행되는 집합을 제한하는 데 사용됩니다.
+* 다중 전환 **프롬프트** (멀티 턴 대화를 계속 하는 데 사용 됨)
 
 ![QnA Maker 기술 자료](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 

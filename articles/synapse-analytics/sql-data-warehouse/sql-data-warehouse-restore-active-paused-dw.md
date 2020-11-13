@@ -1,6 +1,6 @@
 ---
-title: 기존 전용 SQL 풀 복원
-description: 기존 전용 SQL 풀을 복원 하기 위한 방법 가이드입니다.
+title: Azure Synapse Analytics에서 기존 전용 SQL 풀 복원
+description: Azure Synapse Analytics에서 기존 전용 SQL 풀을 복원 하는 방법에 대 한 가이드입니다.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3b5ced43e1277ffbb1c9988af08ee032ab93a15e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0c3fd0aee0a70743db721f469d91f269b9764e5e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313505"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577552"
 ---
 # <a name="restore-an-existing-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 기존 전용 SQL 풀 복원
 

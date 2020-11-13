@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: b48adfdfda4b3e120b2246e67a70000d25c25f3a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737088"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565928"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>앱 구성 저장소 자동 백업
 
@@ -37,14 +37,17 @@ ms.locfileid: "92737088"
 
 이 자습서에서는 지역 `centralus` 및 해당 지역의 다른 모든 리소스에 보조 저장소를 만듭니다 `westus` .
 
-## <a name="prerequisites"></a>필수 구성 요소
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-- 동작합니다. [체험 계정 만들기](https://azure.microsoft.com/free/) 
-- Azure 개발 워크로드를 사용하는 [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
+## <a name="prerequisites"></a>필수 구성 요소 
+
+- Azure 개발 워크 로드가 포함 된 [Visual Studio 2019](https://visualstudio.microsoft.com/vs) .
+
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
-- 최신 버전의 Azure CLI (2.3.1 이상) 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI 사용 하는 경우 먼저를 사용 하 여 로그인 해야 합니다 `az login` . 필요에 따라 Azure Cloud Shell를 사용할 수 있습니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- 이 자습서에는 버전 2.3.1 이상의 Azure CLI 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

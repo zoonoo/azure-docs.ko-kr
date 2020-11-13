@@ -10,14 +10,17 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: c822aaebb2451d709f6afcdeba959f39c4d491cb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c3fcff5673f4498e92f5d66fe96d806a08527197
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964539"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576022"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>대체 로그인 ID (미리 보기)로 전자 메일을 사용 하 여 Azure Active Directory 로그인
+
+> [!NOTE]
+> 메일을 대체 로그인 ID로 사용하여 Azure AD에 로그인하는 것은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 많은 조직에서 사용자가 온-프레미스 디렉터리 환경과 동일한 자격 증명을 사용 하 여 Azure Active Directory (Azure AD)에 로그인 하도록 하려고 합니다. 하이브리드 인증이라고 하는 이 방법을 사용하면 사용자는 한 세트의 자격 증명만 기억하면 됩니다.
 
@@ -27,12 +30,12 @@ ms.locfileid: "91964539"
 * Azure AD UPN을 변경 하면 특정 응용 프로그램 및 서비스에서 문제를 일으킬 수 있는 온-프레미스 및 Azure AD 환경 간에 잘못 된 일치가 생성 됩니다.
 * 비즈니스 또는 규정 준수 때문에 조직은 온-프레미스 UPN을 사용 하 여 Azure AD에 로그인 하지 않으려고 합니다.
 
-하이브리드 인증으로 이동 하는 데 도움이 되도록 이제 사용자가 확인 된 도메인에서 대체 로그인 ID로 전자 메일에 로그인 할 수 있도록 Azure AD를 구성할 수 있습니다. 예를 들어 *Contoso*가 레거시 `balas@contoso.com` UPN을 사용한 로그인을 지원하는 대신 *Fabrikam*으로 리브랜딩되었다면 이제 메일을 대체 로그인 ID로 사용할 수 있습니다. 응용 프로그램 또는 서비스에 액세스 하기 위해 사용자는 할당 된 전자 메일 (예:)을 사용 하 여 Azure AD에 로그인 `balas@fabrikam.com` 합니다.
+하이브리드 인증으로 이동 하는 데 도움이 되도록 이제 사용자가 확인 된 도메인에서 대체 로그인 ID로 전자 메일에 로그인 할 수 있도록 Azure AD를 구성할 수 있습니다. 예를 들어 *Contoso* 가 레거시 `balas@contoso.com` UPN을 사용한 로그인을 지원하는 대신 *Fabrikam* 으로 리브랜딩되었다면 이제 메일을 대체 로그인 ID로 사용할 수 있습니다. 응용 프로그램 또는 서비스에 액세스 하기 위해 사용자는 할당 된 전자 메일 (예:)을 사용 하 여 Azure AD에 로그인 `balas@fabrikam.com` 합니다.
 
 이 문서에서는 대체 로그인 ID로 전자 메일을 사용 하도록 설정 하 고 사용 하는 방법을 보여 줍니다. 이 기능은 Azure AD Free 버전 이상에서 사용할 수 있습니다.
 
 > [!NOTE]
-> 메일을 대체 로그인 ID로 사용하여 Azure AD에 로그인하는 것은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 기능은 클라우드 인증 Azure AD 사용자 전용입니다.
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Azure AD 로그인 방법 개요
 
@@ -73,7 +76,7 @@ Azure AD에 로그인 하려면 사용자에 게 계정을 고유 하 게 식별
 
 ![통과 인증을 사용하는 Azure AD 하이브리드 ID 다이어그램](media/howto-authentication-use-email-signin/hybrid-pass-through-authentication.png)
 
-Azure AD Connect에 의해 자동으로 동기화되는 사용자 특성 중 하나는 *ProxyAddresses*입니다. 사용자의 메일 주소가 *ProxyAddresses* 특성의 일부로 온-프레미스 AD DS 환경에 정의된 경우 이 특성이 Azure AD에 자동으로 동기화됩니다. 이 메일 주소는 Azure AD 로그인 프로세스에서 대체 로그인 ID로 직접 사용될 수 있습니다.
+Azure AD Connect에 의해 자동으로 동기화되는 사용자 특성 중 하나는 *ProxyAddresses* 입니다. 사용자의 메일 주소가 *ProxyAddresses* 특성의 일부로 온-프레미스 AD DS 환경에 정의된 경우 이 특성이 Azure AD에 자동으로 동기화됩니다. 이 메일 주소는 Azure AD 로그인 프로세스에서 대체 로그인 ID로 직접 사용될 수 있습니다.
 
 > [!IMPORTANT]
 > 테넌트에 대해 확인된 도메인의 메일만 Azure AD에 동기화됩니다. 각 Azure AD 테넌트에는 소유권이 입증되어 테넌트에 고유하게 바인딩된 확인된 도메인이 하나 이상 있습니다.
@@ -94,9 +97,9 @@ Azure AD Connect에 의해 자동으로 동기화되는 사용자 특성 중 하
     Install-Module AzureADPreview
     ```
 
-    메시지가 표시되면 **Y**를 선택하여 NuGet을 설치하거나 신뢰할 수 없는 리포지토리에서 설치합니다.
+    메시지가 표시되면 **Y** 를 선택하여 NuGet을 설치하거나 신뢰할 수 없는 리포지토리에서 설치합니다.
 
-1. [Connect-AzureAD][Connect-AzureAD] cmdlet을 사용하여 Azure AD 테넌트에 *테넌트 관리자*로 로그인합니다.
+1. [Connect-AzureAD][Connect-AzureAD] cmdlet을 사용하여 Azure AD 테넌트에 *테넌트 관리자* 로 로그인합니다.
 
     ```powershell
     Connect-AzureAD
@@ -112,7 +115,7 @@ Azure AD Connect에 의해 자동으로 동기화되는 사용자 특성 중 하
 
 1. 현재 구성된 정책이 없는 경우 이 명령은 아무것도 반환하지 않습니다. 정책이 반환되면 이 단계를 건너뛰고 다음 단계로 넘어가서 기존 정책을 업데이트합니다.
 
-    테넌트에 *HomeRealmDiscoveryPolicy* 정책을 추가하려면 다음 예에서와 같이 [New-AzureADPolicy][New-AzureADPolicy] cmdlet을 사용하여 *AlternateIdLogin* 특성을 *“Enabled”: true*로 설정합니다.
+    테넌트에 *HomeRealmDiscoveryPolicy* 정책을 추가하려면 다음 예에서와 같이 [New-AzureADPolicy][New-AzureADPolicy] cmdlet을 사용하여 *AlternateIdLogin* 특성을 *“Enabled”: true* 로 설정합니다.
 
     ```powershell
     New-AzureADPolicy -Definition @('{"HomeRealmDiscoveryPolicy" :{"AlternateIdLogin":{"Enabled": true}}}') `
@@ -169,13 +172,79 @@ Azure AD Connect에 의해 자동으로 동기화되는 사용자 특성 중 하
 
 사용자가 메일을 사용하여 로그인할 수 있는지 테스트하려면 [https://myprofile.microsoft.com][my-profile]으로 이동하여 `balas@contoso.com` 과 같은 UPN이 아닌 `balas@fabrikam.com` 과 같은 메일 주소 기반 사용자 계정으로 로그인합니다. 로그인 환경은 UPN 기반 로그인 이벤트와 모양과 느낌이 동일합니다.
 
+## <a name="enable-staged-rollout-to-test-user-sign-in-with-an-email-address"></a>사용자 로그인을 테스트 하기 위해 스테이징 된 롤아웃 사용 전자 메일 주소  
+
+[단계적 롤아웃을][staged-rollout] 사용 하면 테 넌 트 관리자가 특정 그룹에 대해 기능을 사용 하도록 설정할 수 있습니다. 테 넌 트 관리자는 사용자 로그인을 사용 하 여 전자 메일 주소로 테스트 하는 것이 좋습니다. 관리자가 전체 테 넌 트에이 기능을 배포할 준비가 되 면 홈 영역 검색 정책을 사용 해야 합니다.  
+
+
+다음 단계를 완료하려면 *테넌트 관리자* 권한이 필요합니다.
+
+1. 관리자 권한으로 PowerShell 세션을 열고 *AzureADPreview* cmdlet을 사용 하 여 설치 모듈을 [설치 합니다.][Install-Module]
+
+    ```powershell
+    Install-Module AzureADPreview
+    ```
+
+    메시지가 표시되면 **Y** 를 선택하여 NuGet을 설치하거나 신뢰할 수 없는 리포지토리에서 설치합니다.
+
+2. [Connect-AzureAD][Connect-AzureAD] cmdlet을 사용하여 Azure AD 테넌트에 *테넌트 관리자* 로 로그인합니다.
+
+    ```powershell
+    Connect-AzureAD
+    ```
+
+    이 명령은 계정, 환경 및 테넌트 ID에 대한 정보를 반환합니다.
+
+3. 다음 cmdlet을 사용 하 여 기존의 모든 준비 된 롤아웃 정책을 나열 합니다.
+   
+   ```powershell
+   Get-AzureADMSFeatureRolloutPolicy
+   ``` 
+
+4. 이 기능에 대 한 기존 준비 된 롤아웃 정책이 없으면 새 준비 된 롤아웃 정책을 만들고 정책 ID를 기록해 둡니다.
+
+   ```powershell
+   New-AzureADMSFeatureRolloutPolicy -Feature EmailAsAlternateId -DisplayName "EmailAsAlternateId Rollout Policy" -IsEnabled $true
+   ```
+
+5. 준비 된 롤아웃 정책에 추가할 그룹의 directoryObject ID를 찾습니다. 다음 단계에서 사용 되기 때문에 *Id* 매개 변수에 대해 반환 된 값을 확인 합니다.
+   
+   ```powershell
+   Get-AzureADMSGroup -SearchString "Name of group to be added to the staged rollout policy"
+   ```
+
+6. 다음 예제와 같이 준비 된 롤아웃 정책에 그룹을 추가 합니다. *-Id* 매개 변수의 값을 4 단계에서 정책 Id에 대해 반환 된 값으로 바꾸고 *-refobjectid* 매개 변수의 값을 5 단계에서 기록한 *id* 로 바꿉니다. 그룹의 사용자가 프록시 주소를 사용 하 여 로그인 할 수 있으려면 최대 1 시간이 걸릴 수 있습니다.
+
+   ```powershell
+   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
+   ```
+   
+그룹에 추가 된 새 구성원의 경우 프록시 주소를 사용 하 여 로그인 하는 데 최대 24 시간이 걸릴 수 있습니다.
+
+### <a name="removing-groups"></a>그룹 제거
+
+준비 된 롤아웃 정책에서 그룹을 제거 하려면 다음 명령을 실행 합니다.
+
+```powershell
+Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
+```
+
+### <a name="removing-policies"></a>정책 제거
+
+준비 된 롤아웃 정책을 제거 하려면 먼저 정책을 사용 하지 않도록 설정한 다음 시스템에서 제거 합니다.
+
+```powershell
+Set-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID" -IsEnabled $false 
+Remove-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID"
+```
+
 ## <a name="troubleshoot"></a>문제 해결
 
 메일 주소를 사용한 로그인 이벤트에 문제가 있는 경우 다음과 같은 문제 해결 단계를 검토하세요.
 
 1. 사용자 계정에서 온-프레미스 AD DS 환경의 *ProxyAddresses* 특성에 메일 주소가 설정되었는지 확인합니다.
 1. Azure AD Connect가 구성되어 있고 온-프레미스 AD DS 환경에서 Azure AD로 사용자 계정을 성공적으로 동기화하는지 확인합니다.
-1. Azure AD *HomeRealmDiscoveryPolicy* 정책의 *AlternateIdLogin* 특성이 *“Enabled”: true*로 설정되었는지 확인합니다.
+1. Azure AD *HomeRealmDiscoveryPolicy* 정책의 *AlternateIdLogin* 특성이 *“Enabled”: true* 로 설정되었는지 확인합니다.
 
     ```powershell
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
@@ -202,4 +271,5 @@ Azure AD 앱 프록시 또는 Azure AD Domain Services와 같은 하이브리드
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy
 [New-AzureADPolicy]: /powershell/module/azuread/new-azureadpolicy
 [Set-AzureADPolicy]: /powershell/module/azuread/set-azureadpolicy
+[staged-rollout]: /powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged-rollout
 [my-profile]: https://myprofile.microsoft.com

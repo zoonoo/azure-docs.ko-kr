@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 08d3d5bcdace113d3319b5af6375fff21405159a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 21562bc17d4bfd4913c9085755d962382d207c79
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790018"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566795"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>자습서: Azure Virtual Machines에서 SQL Server에 가용성 그룹을 만들기 위한 필수 구성 요소
 
@@ -111,7 +111,7 @@ Azure Portal에서 가상 네트워크를 만들려면 다음을 수행 합니�
 
 새 가상 네트워크에는 **Admin** 이라는 하나의 서브넷이 있습니다. 도메인 컨트롤러는 이 서브넷을 사용합니다. SQL Server VM은 **SQL** 이라는 두 번째 서브넷을 사용합니다. 이 서브넷을 구성하려면:
 
-1. 대시보드에서 만든 리소스 그룹을 선택 합니다 ( **sql-dmo-RG)** . 리소스 그룹의 **리소스** 에서 네트워크를 찾습니다.
+1. 대시보드에서 만든 리소스 그룹을 선택 합니다 ( **sql-dmo-RG)**. 리소스 그룹의 **리소스** 에서 네트워크를 찾습니다.
 
     **Sql-dmo-RG** 가 표시 되지 않는 경우 **리소스 그룹을 선택 하** 고 리소스 그룹 이름을 기준으로 필터링 하 여 찾습니다.
 
@@ -249,7 +249,7 @@ Azure Portal에서 가상 네트워크를 만들려면 다음을 수행 합니�
     | **배포 구성** |**새 포리스트 추가**<br/> **루트 도메인 이름** = corp.contoso.com |
     | **도메인 컨트롤러 옵션** |**암호** = Contoso!0000<br/>**암호 확인** = Contoso!0000 |
 
-14. **다음** 을 선택 하 여 마법사의 다른 페이지를 진행 합니다. **필수 구성 요소 확인** 페이지에서 다음 메시지가 표시되는지 확인합니다. **모든 필수 구성 요소 검사를 마쳤습니다** . 해당하는 모든 경고 메시지를 검토할 수 있지만 설치를 계속할 수 있습니다.
+14. **다음** 을 선택 하 여 마법사의 다른 페이지를 진행 합니다. **필수 구성 요소 확인** 페이지에서 다음 메시지가 표시되는지 확인합니다. **모든 필수 구성 요소 검사를 마쳤습니다**. 해당하는 모든 경고 메시지를 검토할 수 있지만 설치를 계속할 수 있습니다.
 15. **설치** 를 선택합니다. **ad-primary-dc** 가상 머신이 자동으로 다시 부팅됩니다.
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>주 도메인 컨트롤러의 IP 주소를 메모합니다.
@@ -387,6 +387,10 @@ Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL S
 * **네트워크 - 프로덕션 환경의 개인 IP 주소**
 
    이 자습서에서는 가상 머신에 대해 공용 IP 주소를 사용합니다. 공용 IP 주소를 사용 하면 인터넷을 통해 가상 컴퓨터에 직접 원격으로 연결할 수 있으며 구성 단계를 더 쉽게 수행할 수 있습니다. 프로덕션 환경에서는 SQL Server 인스턴스 VM 리소스의 취약성을 줄이기 위해 개인 IP 주소만 권장됩니다.
+
+* **네트워크-서버당 단일 NIC 권장** 
+
+서버당 단일 NIC (클러스터 노드) 및 단일 서브넷을 사용 합니다. Azure 네트워킹은 물리적 중복성을 가지 며, Azure 가상 머신 게스트 클러스터에서 추가 Nic 및 서브넷을 불필요 하 게 만듭니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결할 수 있다는 경고를 표시합니다. Azure 가상 컴퓨터 게스트 장애 조치 (failover) 클러스터에서이 경고를 무시할 수 있습니다.
 
 ### <a name="create-and-configure-the-sql-server-vms"></a>SQL Server VM 만들기 및 구성
 
@@ -531,6 +535,10 @@ SQL Server 가용성 그룹의 경우 각 SQL Server VM은 도메인 계정으�
   >[!NOTE]
   > 실제로 장애 조치(failover) 클러스터에 SQL Server VM을 조인하는 단계와 함께 이 단계를 [Azure SQL VM CLI](./availability-group-az-commandline-configure.md) 및 [Azure 빠른 시작 템플릿](availability-group-quickstart-template-configure.md)을 사용하여 자동화할 수 있습니다.
   >
+
+### <a name="tuning-failover-cluster-network-thresholds"></a>장애 조치 (Failover) 클러스터 네트워크 임계값 조정
+
+AlwaysOn SQL Server를 사용 하 여 Azure Vm에서 Windows 장애 조치 (Failover) 클러스터 노드를 실행 하는 경우 클러스터 설정을 보다 낮은 모니터링 상태로 변경 하는 것이 좋습니다.  이렇게 하면 클러스터를 훨씬 안정적으로 안정적으로 만들 수 있습니다.  이에 대 한 자세한 내용은 [SQL AlwaysOn을 사용한 IaaS-장애 조치 (Failover) 클러스터 네트워크 임계값 조정](/windows-server/troubleshoot/iaas-sql-failover-cluser)을 참조 하세요.
 
 
 ## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a> 각 SQL Server VM에서 방화벽 구성

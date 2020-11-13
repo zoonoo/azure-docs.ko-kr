@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e074be91f343e04ba3049aea51f83f7f6364cdb0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e1549dda367105db34272eab8a90c1760dd5bb5c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564041"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576447"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한 설정
 
@@ -179,7 +179,7 @@ IPv4 및 IPv6 주소에 대 한 CIDR (CIDR) 표기법 Inter-Domain으로 IP 주�
 App Service 계획과 동일한 기능을 사용 하는 함수 앱에 대 한 액세스 제한도 사용할 수 있습니다. 액세스 제한을 사용 하는 경우 허용 되지 않는 Ip에 대해 Azure Portal 코드 편집기도 사용 하지 않도록 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Functions에 대 한 액세스 제한](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)  
+[Azure Functions에 대 한 액세스 제한](../azure-functions/functions-networking-options.md#inbound-access-restrictions)  
 [서비스 끝점과 Application Gateway 통합](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->

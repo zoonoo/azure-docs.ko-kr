@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: 5873f28fed492f9ef906a9d7c1364d8ae07033a7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1fbdae2480caef5bf1d190124ca3be6c5b97a2f9
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336064"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576362"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>이미지 버전에서 관리 디스크 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "93336064"
 
 ## <a name="cli"></a>CLI
 
-[Az sig image-version list](/cli/azure/sig/image-version.md#az_sig_image_version_list)를 사용 하 여 갤러리의 이미지 버전을 나열 합니다. 이 예제에서는 *Mygallery* 이미지 갤러리에서 *myimagedefinition* 이미지 정의의 일부인 모든 이미지 버전을 찾습니다.
+[Az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list)를 사용 하 여 갤러리의 이미지 버전을 나열 합니다. 이 예제에서는 *Mygallery* 이미지 갤러리에서 *myimagedefinition* 이미지 정의의 일부인 모든 이미지 버전을 찾습니다.
 
 ```azurecli-interactive
 az sig image-version list \
@@ -33,7 +33,7 @@ az sig image-version list \
    -o table
 ```
 
-변수를 `source` 이미지 버전의 ID로 설정한 다음 [az disk create](/cli/azure/disk.md#az_disk_create) 를 사용 하 여 관리 디스크를 만듭니다. 
+변수를 `source` 이미지 버전의 ID로 설정한 다음 [az disk create](//cli/azure/disk#az_disk_create) 를 사용 하 여 관리 디스크를 만듭니다. 
 
 이 예제에서는 이미지 버전의 OS 디스크를 내보내 *Myresourcegroup* 이라는 리소스 그룹에 있는 *myManagedOSDisk* 라는 관리 되는 디스크를 *eastus* 지역에 만듭니다. 
 

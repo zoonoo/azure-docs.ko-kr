@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: 8eb37b993ee5bc3944228cba72be0557b52e3dc6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 17b070fea422268ec12e0ccd3357ae0549a78916
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149252"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566268"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -37,7 +37,7 @@ Language Understanding의 새로운 기능 (LUIS)에 [대해 자세히 알아보
 
 ### <a name="is-it-important-to-train-the-none-intent"></a>없음 의도를 학습하는 것이 중요한가요?
 
-예. 다른 의도에 더 많은 레이블을 추가할 때처럼 많은 발언으로 **없음** 의도를 학습하는 것이 좋습니다. 좋은 비율은 의도에 추가되는 10개 레이블마다 1개 또는 2개의 레이블을 **없음**에 추가하는 것입니다. 이 비율은 증폭 LUIS의 구분 능력을 높여줍니다.
+예. 다른 의도에 더 많은 레이블을 추가할 때처럼 많은 발언으로 **없음** 의도를 학습하는 것이 좋습니다. 좋은 비율은 의도에 추가되는 10개 레이블마다 1개 또는 2개의 레이블을 **없음** 에 추가하는 것입니다. 이 비율은 증폭 LUIS의 구분 능력을 높여줍니다.
 
 ### <a name="how-can-i-correct-spelling-mistakes-in-utterances"></a>발언에서 맞춤법 오류를 수정하려면 어떻게 해야 하나요?
 
@@ -47,7 +47,7 @@ Language Understanding의 새로운 기능 (LUIS)에 [대해 자세히 알아보
 프로그래밍 방식으로 LUIS 앱을 편집하려면 [작성 API](https://go.microsoft.com/fwlink/?linkid=2092087)를 사용합니다. 작성 API 호출 방법에 대한 예제를 보려면 [LUIS 작성 API 호출](./get-started-get-model-rest-apis.md) 및 [Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드](./luis-tutorial-node-import-utterances-csv.md)를 참조하세요. 작성 API에서는 엔드포인트 키가 아닌 [작성 키](luis-how-to-azure-subscription.md#azure-resources-for-luis)를 사용해야 합니다. 프로그래밍 방식으로 작성할 경우 매월 최대 1,000,000개 호출과 초당 5개의 트랜잭션이 허용됩니다. LUIS에서 사용하는 키에 대한 자세한 내용은 [키 관리](./luis-how-to-azure-subscription.md)를 참조하세요.
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>정규식 일치를 제공하는 패턴 기능은 어디에 있나요?
-이전 **패턴 기능**이 현재는 더 이상 사용되지 않으며 **[패턴](luis-concept-patterns.md)** 으로 바뀌었습니다.
+이전 **패턴 기능** 이 현재는 더 이상 사용되지 않으며 **[패턴](luis-concept-patterns.md)** 으로 바뀌었습니다.
 
 ### <a name="how-do-i-use-an-entity-to-pull-out-the-correct-data"></a>엔터티를 사용하여 올바른 데이터를 끌어오려면 어떻게 해야 하나요?
 [엔터티](luis-concept-entity-types.md) 및 [데이터 추출](luis-concept-data-extraction.md)을 참조하세요.
@@ -91,11 +91,11 @@ LUIS 포털에서 추출 하려는 정확한 엔터티의 텍스트에 레이블
 
 이러한 무료 1000 끝점 쿼리를 모두 사용 하거나 가격 책정 계층의 월간 트랜잭션 할당량을 초과 하는 경우 HTTP 403 오류 상태 코드를 받게 됩니다.
 
-이 오류를 해결 하려면 [가격 책정 계층](luis-how-to-azure-subscription.md#change-pricing-tier) 을 상위 계층으로 변경 하거나 [새 리소스를 만들어](get-started-portal-deploy-app.md#create-the-endpoint-resource) [앱에 할당](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)해야 합니다.
+이 오류를 해결 하려면 [가격 책정 계층](luis-how-to-azure-subscription.md#change-the-pricing-tier) 을 상위 계층으로 변경 하거나 [새 리소스를 만들어](get-started-portal-deploy-app.md#create-the-endpoint-resource) [앱에 할당](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)해야 합니다.
 
 이 오류에 대 한 해결 방법은 다음과 같습니다.
 
-* [Azure Portal](https://portal.azure.com)의 Language Understanding 리소스에서 **리소스 관리-> 가격 책정 계층**에서 가격 책정 계층을 더 높은 TPS 계층으로 변경 합니다. 리소스가 이미 Language Understanding 앱에 할당 된 경우에는 Language Understanding 포털에서 아무것도 수행할 필요가 없습니다.
+* [Azure Portal](https://portal.azure.com)의 Language Understanding 리소스에서 **리소스 관리-> 가격 책정 계층** 에서 가격 책정 계층을 더 높은 TPS 계층으로 변경 합니다. 리소스가 이미 Language Understanding 앱에 할당 된 경우에는 Language Understanding 포털에서 아무것도 수행할 필요가 없습니다.
 *  사용량이 가장 높은 가격 책정 계층을 초과 하는 경우 부하 분산 장치 앞에 더 많은 Language Understanding 리소스를 추가 합니다. Kubernetes 또는 Docker Compose를 사용 하는 [Language Understanding 컨테이너](luis-container-howto.md) 는이를 지원할 수 있습니다.
 
 ### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>HTTP 429 오류 상태 코드를 받았습니다. 이 문제를 어떻게 해결하나요?
@@ -106,7 +106,7 @@ LUIS 포털에서 추출 하려는 정확한 엔터티의 텍스트에 레이블
 
 해결 방법은 다음과 같습니다.
 
-* 가장 높은 계층에 있지 않은 경우 [가격 책정 계층을 늘릴](luis-how-to-azure-subscription.md#change-pricing-tier)수 있습니다.
+* 가장 높은 계층에 있지 않은 경우 [가격 책정 계층을 늘릴](luis-how-to-azure-subscription.md#change-the-pricing-tier)수 있습니다.
 * 사용량이 가장 높은 가격 책정 계층을 초과 하는 경우 부하 분산 장치 앞에 더 많은 Language Understanding 리소스를 추가 합니다. Kubernetes 또는 Docker Compose를 사용 하는 [Language Understanding 컨테이너](luis-container-howto.md) 는이를 지원할 수 있습니다.
 * 이 상태 코드가 표시 될 때 사용자가 직접 구현한 [다시 시도 정책을](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) 사용 하 여 클라이언트 응용 프로그램 요청을 게이트 할 수 있습니다.
 
@@ -132,7 +132,7 @@ Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-se
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>내 앱의 대시보드에서 엔드포인트 적중이 표시되지 않는 이유는 무엇인가요?
 앱의 대시보드에 표시되는 총 엔드포인트 적중은 주기적으로 업데이트되지만 Azure Portal의 LUIS 엔드포인트 키와 연결된 메트릭은 좀 더 자주 업데이트됩니다.
 
-업데이트된 엔드포인트 적중이 대시보드에 보이지 않는 경우 Azure Portal에 로그인하고 LUIS 엔드포인트 키와 연결된 리소스를 찾은 다음, **메트릭**을 열어 **총 호출 수** 메트릭을 선택합니다. 엔드포인트 키가 둘 이상의 LUIS 앱에 사용되는 경우 Azure Portal의 메트릭은 해당 메트릭을 사용하는 모든 LUIS 앱의 집계된 호출 수를 나타냅니다.
+업데이트된 엔드포인트 적중이 대시보드에 보이지 않는 경우 Azure Portal에 로그인하고 LUIS 엔드포인트 키와 연결된 리소스를 찾은 다음, **메트릭** 을 열어 **총 호출 수** 메트릭을 선택합니다. 엔드포인트 키가 둘 이상의 LUIS 앱에 사용되는 경우 Azure Portal의 메트릭은 해당 메트릭을 사용하는 모든 LUIS 앱의 집계된 호출 수를 나타냅니다.
 
 ### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>엔드포인트 할당량을 확인할 수 있는 PowerShell 명령이 있나요?
 
@@ -190,7 +190,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ## <a name="app-publishing"></a>앱 게시
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>"앱에 키 추가" 창에서 테넌트 ID란 무엇인가요?
-Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을 나타냅니다. Azure Portal에서 **Azure Active Directory** > **관리** > **속성**을 선택하여 **디렉터리 ID** 상자에서 테넌트 ID를 찾습니다.
+Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을 나타냅니다. Azure Portal에서 **Azure Active Directory** > **관리** > **속성** 을 선택하여 **디렉터리 ID** 상자에서 테넌트 ID를 찾습니다.
 
 ![Azure Portal의 테넌트 ID](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
@@ -224,7 +224,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 ## <a name="app-management"></a>앱 관리
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>사용자 발언의 로그를 다운로드하려면 어떻게 해야 하나요?
-기본적으로 LUIS 앱은 사용자의 발언을 로깅합니다. 사용자가 LUIS 앱으로 전송하는 발언 로그를 다운로드하려면 **내 앱**으로 이동한 후 앱을 선택합니다. 상황에 맞는 도구 모음에서 **엔드포인트 로그 내보내기**를 선택합니다. 로그 형식은 쉼표로 구분된 값(CSV) 파일로 지정됩니다.
+기본적으로 LUIS 앱은 사용자의 발언을 로깅합니다. 사용자가 LUIS 앱으로 전송하는 발언 로그를 다운로드하려면 **내 앱** 으로 이동한 후 앱을 선택합니다. 상황에 맞는 도구 모음에서 **엔드포인트 로그 내보내기** 를 선택합니다. 로그 형식은 쉼표로 구분된 값(CSV) 파일로 지정됩니다.
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>발언 로깅을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
 클라이언트 애플리케이션이 LUIS를 쿼리하는 사용하는 엔드포인트 URL에서 `log=false`를 설정하여 사용자 발언의 로깅을 해제할 수 있습니다. 그렇지만 로깅을 해제하면 [활성 학습](luis-concept-review-endpoint-utterances.md#what-is-active-learning)에 따라 발언을 제안하거나 성능을 향상시키는 LUIS 앱 기능을 사용할 수 없게 됩니다. 데이터 개인 정보 문제 때문에 `log=false`를 설정하는 경우 LUIS에서 해당 사용자 발언의 기록을 다운로드하거나 해당 발언을 사용하여 앱을 향상시킬 수 없습니다.
@@ -268,17 +268,17 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 #### <a name="resolve-issue-in-luis"></a>LUIS의 문제 해결
 [LUIS 엔드포인트](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint)에서 LUIS로 동일한 발화를 전달합니다. 오류가 표시되면, 오류가 더 이상 반환되지 않을 때까지 LUIS의 문제를 해결합니다. 일반적인 오류는 다음과 같습니다.
 
-* `Out of call volume quota. Quota will be replenished in <time>.` - 이 문제는 작성 키에서 [엔드포인트 키](luis-how-to-azure-subscription.md)로 변경해야 하거나, [서비스 계층](luis-how-to-azure-subscription.md#change-pricing-tier)을 변경해야 함을 나타냅니다.
+* `Out of call volume quota. Quota will be replenished in <time>.` - 이 문제는 작성 키에서 [엔드포인트 키](luis-how-to-azure-subscription.md)로 변경해야 하거나, [서비스 계층](luis-how-to-azure-subscription.md#change-the-pricing-tier)을 변경해야 함을 나타냅니다.
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Azure Bot Service의 문제 해결
 
-Azure Bot Service를 사용 중이며, **웹 채팅에서 테스트**가 `Sorry, my bot code is having an issue`를 반환하는 문제가 있는 경우 로그를 확인합니다.
+Azure Bot Service를 사용 중이며, **웹 채팅에서 테스트** 가 `Sorry, my bot code is having an issue`를 반환하는 문제가 있는 경우 로그를 확인합니다.
 
-1. Azure Portal에서 사용자 봇에 대한 **봇 관리** 섹션의 **빌드**를 선택합니다.
+1. Azure Portal에서 사용자 봇에 대한 **봇 관리** 섹션의 **빌드** 를 선택합니다.
 1. 온라인 코드 편집기를 엽니다.
 1. 맨 위의 파란색 탐색 모음에서 봇 이름(오른쪽에서 두 번째 항목)을 선택합니다.
-1. 결과 드롭다운 목록에서 **Kudu 콘솔 열기**를 선택합니다.
-1. **LogFiles**를 선택한 다음, **애플리케이션**을 선택합니다. 모든 로그 파일을 검토합니다. 애플리케이션 폴더에 오류가 표시되지 않는 경우 **LogFiles** 아래의 모든 로그 파일을 검토합니다.
+1. 결과 드롭다운 목록에서 **Kudu 콘솔 열기** 를 선택합니다.
+1. **LogFiles** 를 선택한 다음, **애플리케이션** 을 선택합니다. 모든 로그 파일을 검토합니다. 애플리케이션 폴더에 오류가 표시되지 않는 경우 **LogFiles** 아래의 모든 로그 파일을 검토합니다.
 1. C# 등의 컴파일된 언어를 사용하는 경우 프로젝트를 다시 빌드해야 합니다.
 
 > [!Tip]

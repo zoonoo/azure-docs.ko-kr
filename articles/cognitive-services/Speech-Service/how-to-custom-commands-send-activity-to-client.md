@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: fc62c87fd12457c60d3eb26cba6814aa1df76f87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52a4dbc4ff01515af8cd7d2503877184a09f7e64
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839217"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566098"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>사용자 지정 명령 작업을 클라이언트 응용 프로그램으로 보내기
 
@@ -36,15 +36,17 @@ ms.locfileid: "91839217"
 ## <a name="setup-send-activity-to-client"></a>클라이언트에 보내기 작업 설정 
 1. 이전에 만든 사용자 지정 명령 응용 프로그램 열기
 1. ConfirmationResponse **명령 선택** 에서 완료 규칙 아래 **ConfirmationResponse** 에 **있는 작업 추가** 를 선택 하 고 작업 추가를 선택 합니다.
-1. **새 작업-형식**에서 **클라이언트에 작업 보내기** 를 선택 합니다.
+1. **새 작업-형식** 에서 **클라이언트에 작업 보내기** 를 선택 합니다.
 1. 아래 JSON을 **활동 내용** 에 복사 합니다.
    ```json
    {
-     "type": "event",
-     "name": "UpdateDeviceState",
-     "state": "{OnOff}",
-     "device": "{SubjectDevice}"
-   }
+      "type": "event",
+      "name": "UpdateDeviceState",
+      "value": {
+        "state": "{OnOff}",
+        "device": "{SubjectDevice}"
+      }
+    }
    ```
 1. **저장** 을 클릭 하 여 작업 보내기 작업으로 새 규칙을 만들고, **학습** 하 고, 변경 내용을 **게시** 합니다.
 
@@ -55,7 +57,7 @@ ms.locfileid: "91839217"
 
 [방법: 음성 sdk (미리 보기)를 사용 하 여 클라이언트 응용 프로그램을 설치](./how-to-custom-commands-setup-speech-sdk.md)하는 경우,와 같은 명령을 처리 하는 speech sdk를 사용 하 여 UWP 클라이언트 응용 프로그램을 만들었습니다 `turn on the tv` `turn off the fan` . 일부 시각적 개체를 추가 하면 해당 명령의 결과를 볼 수 있습니다.
 
-**설정** 또는 **해제**를 나타내는 텍스트가 있는 레이블이 지정 된 상자를 추가 하려면 StackPanel의 다음 XML 블록을에 추가 `MainPage.xaml` 합니다.
+**설정** 또는 **해제** 를 나타내는 텍스트가 있는 레이블이 지정 된 상자를 추가 하려면 StackPanel의 다음 XML 블록을에 추가 `MainPage.xaml` 합니다.
 
 ```xml
 <StackPanel Orientation="Vertical" H......>
@@ -83,8 +85,8 @@ ms.locfileid: "91839217"
 JSON 페이로드를 만들었으므로 [JSON.NET](https://www.newtonsoft.com/json) 라이브러리에 대 한 참조를 추가 하 여 deserialization을 처리 해야 합니다.
 
 1. 솔루션을 마우스 오른쪽 단추로 클라이언트 합니다.
-1. **솔루션용 NuGet 패키지 관리**를 선택 하 고 **찾아보기** 를 선택 합니다. 
-1. **Newtonsoft.js**이미 설치 되어 있는 경우 버전은 12.0.3 이상 인지 확인 합니다. 그렇지 않은 경우 솔루션에 **대 한 NuGet 패키지 관리-업데이트**로 이동 하 여 **Newtonsoft.js에서** 업데이트를 검색 합니다. 이 가이드에서는 버전 12.0.3를 사용 합니다.
+1. **솔루션용 NuGet 패키지 관리** 를 선택 하 고 **찾아보기** 를 선택 합니다. 
+1. **Newtonsoft.js** 이미 설치 되어 있는 경우 버전은 12.0.3 이상 인지 확인 합니다. 그렇지 않은 경우 솔루션에 **대 한 NuGet 패키지 관리-업데이트** 로 이동 하 여 **Newtonsoft.js에서** 업데이트를 검색 합니다. 이 가이드에서는 버전 12.0.3를 사용 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![전송 작업 페이로드](media/custom-commands/send-activity-to-client-json-nuget.png)
@@ -114,8 +116,8 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     if (name.Equals("UpdateDeviceState"))
     {
         Debug.WriteLine("Here");
-        var state = activity?.device != null ? activity.state.ToString() : string.Empty;
-        var device = activity?.device != null ? activity.device.ToString() : string.Empty;
+        var state = activity?.value?.state != null ? activity.value.state.ToString() : string.Empty;
+        var device = activity?.value?.device != null ? activity.value.device.ToString() : string.Empty;
 
         if (state.Equals("on") || state.Equals("off"))
         {

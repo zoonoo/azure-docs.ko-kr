@@ -7,12 +7,12 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 10/14/2020
 ms.author: victorh
-ms.openlocfilehash: 789a60c80d14301c107824d178a3566d358d287f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0f7fec997ec6d0c73fe6d1039ab1033752e0cedf
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056398"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566574"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Azure WAF (웹 응용 프로그램 방화벽) 정책 개요
 
@@ -43,7 +43,7 @@ URI 수준까지 더 많은 사용자 지정을 위해 경로 기반 규칙과 W
 
 사이트별 WAF 정책과 마찬가지로 보다 구체적인 정책은 더 낮은 특정 정책을 재정의 합니다. 이는 URL 경로 맵에 대 한 URI 별 정책이 위의 사이트별 또는 전역 WAF 정책을 재정의 함을 의미 합니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 Contoso.com, fabrikam.com 및 adatum.com의 세 사이트가 동일한 응용 프로그램 게이트웨이 뒤에 있다고 가정해 보겠습니다. 세 사이트 모두에 WAF를 적용 하려고 하지만 고객이 제품을 방문 하 고, 검색 하 고, 구입 하는 경우 adatum.com를 사용 하 여 보안을 추가 해야 합니다.
 
@@ -57,7 +57,7 @@ Adatum.com/payments URI는 주의 해야 하는 곳입니다. 따라서 해당 U
 
 ## <a name="existing-waf-configurations"></a>기존 WAF 구성
 
-모든 새 웹 응용 프로그램 방화벽의 WAF 설정 (사용자 지정 규칙, 관리 되는 규칙 집합 구성, 제외 등)이 WAF 정책에 존재 합니다. 기존 WAF가 있는 경우 이러한 설정은 WAF 구성에 여전히 있을 수 있습니다. 새 WAF 정책으로 이동 하는 방법에 대 한 자세한 내용을 보려면 waf [구성을 Waf 정책으로 마이그레이션합니다](https://docs.microsoft.com/azure/web-application-firewall/ag/migrate-policy). 
+모든 새 웹 응용 프로그램 방화벽의 WAF 설정 (사용자 지정 규칙, 관리 되는 규칙 집합 구성, 제외 등)이 WAF 정책에 존재 합니다. 기존 WAF가 있는 경우 이러한 설정은 WAF 구성에 여전히 있을 수 있습니다. 새 WAF 정책으로 이동 하는 방법에 대 한 자세한 내용을 보려면 waf [구성을 Waf 정책으로 마이그레이션합니다](./migrate-policy.md). 
 
 
 ## <a name="next-steps"></a>다음 단계

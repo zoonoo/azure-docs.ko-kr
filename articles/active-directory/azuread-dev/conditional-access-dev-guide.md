@@ -13,16 +13,19 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 378dab95d8fb3519bb2fc5c934a760e051a18d29
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116306"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575886"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Azure Active Directory 조건부 액세스 기능에 대 한 개발자 지침
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
+
+> [!NOTE]
+> 이 문서의 Microsoft id 플랫폼 버전에 대 한 자세한 내용은 [Azure Active Directory 조건부 액세스를 위한 개발자 가이드](/azure/active-directory/develop/v2-conditional-access-dev-guide)를 참조 하세요.
 
 Azure AD(Azure Active Directory)의 조건부 액세스 기능은 앱의 보안을 유지하고 서비스를 보호하는 데 사용할 수 있는 여러 가지 방법 중 하나를 제공합니다. 조건부 액세스를 통해 개발자 및 기업 고객은 다음과 같은 다양한 방법으로 서비스를 보호할 수 있습니다.
 
@@ -40,7 +43,7 @@ Azure AD(Azure Active Directory)의 조건부 액세스 기능은 앱의 보안�
 
 ### <a name="app-types-impacted"></a>영향을 받는 앱 형식
 
-대부분의 경우, 조건부 액세스는 앱의 동작을 변경하지 않으며 개발자의 변경이 필요하지 않습니다. 앱에서 서비스에 대한 토큰을 간접적으로 또는 자동으로 요청하는 특정한 경우에만 앱에서 조건부 액세스 "챌린지"를 처리하기 위해 코드를 변경해야 합니다. 이것은 대화형 로그인 요청을 수행하는 것처럼 간단할 수도 있습니다.
+대부분의 경우, 조건부 액세스는 앱의 동작을 변경하지 않으며 개발자의 변경이 필요하지 않습니다.  앱에서 서비스에 대한 토큰을 간접적으로 또는 자동으로 요청하는 특정한 경우에만 앱에서 조건부 액세스 "챌린지"를 처리하기 위해 코드를 변경해야 합니다.  이것은 대화형 로그인 요청을 수행하는 것처럼 간단할 수도 있습니다.
 
 특히 다음 시나리오에는 조건부 액세스 "챌린지"를 처리하기 위한 코드가 필요합니다.
 

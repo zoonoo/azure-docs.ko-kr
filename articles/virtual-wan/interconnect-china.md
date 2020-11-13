@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: sukishen
-ms.openlocfilehash: 83cc7757f31a631af755155b49c7c26753618426
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b2595eaf1e373c3a15014d0bc684d6e3914a665
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399111"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566642"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Azure Virtual WAN 및 보안 허브를 사용하여 중국과 상호 연결
 
@@ -111,7 +111,7 @@ Virtual WAN을 사용하는 두 시나리오 모두 [Azure Virtual WAN 보안 �
 
 이러한 모든 옵션은 홍콩에서 직접 Microsoft 365 연결에 대 한 Azure 가상 WAN 보안 허브를 활용 합니다. 이러한 아키텍처는 [Microsoft 365 다중 지역](/microsoft-365/enterprise/microsoft-365-multi-geo) 에 대 한 규정 준수 요구 사항을 지원 하 고 다음 Azure 프런트 도어 위치 근처의 트래픽을 유지 합니다. 따라서 중국 이외의 지역에서 Microsoft 365 사용을 위한 개선 사항이기도 합니다.
 
-인터넷 연결에 Azure Virtual WAN을 사용하면 모든 연결에서 [MAPS(Microsoft Azure Peering Services)](https://docs.microsoft.com/azure/peering-service/about)와 같은 추가 서비스를 활용할 수 있습니다. MAPS는 타사 인터넷 서비스 공급자로부터 Microsoft 글로벌 네트워크로 들어오는 트래픽을 최적화하기 위해 생성되었습니다.
+인터넷 연결에 Azure Virtual WAN을 사용하면 모든 연결에서 [MAPS(Microsoft Azure Peering Services)](../peering-service/about.md)와 같은 추가 서비스를 활용할 수 있습니다. MAPS는 타사 인터넷 서비스 공급자로부터 Microsoft 글로벌 네트워크로 들어오는 트래픽을 최적화하기 위해 생성되었습니다.
 
 ### <a name="option-1-sdwan-or-vpn"></a><a name="option-1"></a>옵션 1: SDWAN 또는 VPN
 
@@ -151,4 +151,4 @@ Virtual WAN을 사용하는 두 시나리오 모두 [Azure Virtual WAN 보안 �
 
 * [Virtual WAN 보안 허브 구성](../firewall-manager/secure-cloud-network.md)
 
-* [Azure Peering Service 미리 보기 개요](https://docs.microsoft.com/azure/peering-service/about)
+* [Azure Peering Service 미리 보기 개요](../peering-service/about.md)

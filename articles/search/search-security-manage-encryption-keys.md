@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: dfea03270dfea3699f7c3508b9f5275a2dd26372
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7f2df005a8d3211ba53aadb16370624c4f530eb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287162"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575869"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Azure Cognitive Search에서 데이터 암호화를 위해 고객이 관리 하는 키 구성
 
@@ -41,7 +41,7 @@ CMK 암호화는 [Azure Key Vault](../key-vault/general/overview.md)에 따라 �
 
 다른 지역 또는 8 월 1 일 이전에 만든 서비스를 사용 하는 경우 CMK 암호화는 서비스에서 사용 하는 임시 디스크를 제외 하 고 데이터 디스크로만 제한 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 시나리오에서 사용 되는 도구 및 서비스는 다음과 같습니다.
 
@@ -169,9 +169,11 @@ Azure Key Vault에 키가 이미 있는 경우이 단계를 건너뜁니다.
 > [!Important]
 > Azure Cognitive Search의 암호화 된 콘텐츠는 특정 **버전** 의 특정 Azure Key Vault 키를 사용 하도록 구성 됩니다. 키 또는 버전을 변경 하는 경우 이전 key\versiona를 삭제 **하기 전에** 새 key\version을 사용 하도록 인덱스 또는 동의어 맵을 업데이트 해야 합니다. 이렇게 하지 않으면 인덱스 또는 동의어 맵을 사용할 수 없게 되며 키 액세스가 손실 된 후에는 콘텐츠의 암호를 해독할 수 없습니다.
 
+<a name="encrypt-content"></a>
+
 ## <a name="5---encrypt-content"></a>5-콘텐츠 암호화
 
-인덱스 또는 동의어 맵에 고객이 관리 하는 키를 추가 하려면 REST API 또는 SDK를 사용 하 여 해당 정의에가 포함 된 개체를 만듭니다 `encryptionKey` .
+인덱스, 데이터 원본, 기술, 인덱서 또는 동의어 맵에 고객이 관리 하는 키를 추가 하려면 [검색 REST API](https://docs.microsoft.com/rest/api/searchservice/) 또는 SDK를 사용 해야 합니다. 포털은 동의어 맵 또는 암호화 속성을 노출 하지 않습니다. 유효한 API 인덱스를 사용 하는 경우 데이터 원본, 기술력과, 인덱서 및 동의어 맵이 최상위 **encryptionKey** 속성을 지원 합니다.
 
 이 예에서는 Azure Key Vault 및 Azure Active Directory에 대 한 값과 함께 REST API를 사용 합니다.
 
@@ -192,6 +194,12 @@ Azure Key Vault에 키가 이미 있는 경우이 단계를 건너뜁니다.
 > [!Note]
 > 이러한 주요 자격 증명 모음 세부 정보는 비밀로 간주 되지 않으며 Azure Portal의 관련 Azure Key Vault 키 페이지로 이동 하 여 쉽게 검색할 수 있습니다.
 
+## <a name="example-index-encryption"></a>예: 인덱스 암호화
+
+[Create Index Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)를 사용 하 여 암호화 된 인덱스를 만듭니다. `encryptionKey`사용할 암호화 키를 지정 하려면 속성을 사용 합니다.
+> [!Note]
+> 이러한 주요 자격 증명 모음 세부 정보는 비밀로 간주 되지 않으며 Azure Portal의 관련 Azure Key Vault 키 페이지로 이동 하 여 쉽게 검색할 수 있습니다.
+
 ## <a name="rest-examples"></a>REST 예제
 
 이 섹션에서는 암호화 된 인덱스 및 동의어 맵에 대 한 전체 JSON을 보여 줍니다.
@@ -202,7 +210,7 @@ REST API를 통해 새 인덱스를 만드는 방법에 대 한 자세한 내용
 
 ```json
 {
- "name": "hotels",  
+ "name": "hotels",
  "fields": [
   {"name": "HotelId", "type": "Edm.String", "key": true, "filterable": true},
   {"name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": true, "facetable": false},
@@ -231,19 +239,19 @@ REST API를 통해 새 인덱스를 만드는 방법에 대 한 자세한 내용
 
 ### <a name="synonym-map-encryption"></a>동의어 맵 암호화
 
-REST API를 통해 새 동의어 맵을 만드는 방법에 대 한 자세한 내용은 동의어 맵 [만들기 (REST API)](/rest/api/searchservice/create-synonym-map)에서 찾을 수 있습니다. 여기서 유일한 차이점은 동의어 맵 정의의 일부로 암호화 키 세부 정보를 지정 하는 것입니다. 
+[동의어 맵 만들기 Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)를 사용 하 여 암호화 된 동의어 맵을 만듭니다. `encryptionKey`사용할 암호화 키를 지정 하려면 속성을 사용 합니다.
 
 ```json
-{   
-  "name" : "synonymmap1",  
-  "format" : "solr",  
+{
+  "name" : "synonymmap1",
+  "format" : "solr",
   "synonyms" : "United States, United States of America, USA\n
   Washington, Wash. => WA",
   "encryptionKey": {
     "keyVaultUri": "https://demokeyvault.vault.azure.net",
     "keyVaultKeyName": "myEncryptionKey",
     "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
-    "activeDirectoryAccessCredentials": {
+    "accessCredentials": {
       "applicationId": "00000000-0000-0000-0000-000000000000",
       "applicationSecret": "myApplicationSecret"
     }
@@ -252,6 +260,86 @@ REST API를 통해 새 동의어 맵을 만드는 방법에 대 한 자세한 �
 ```
 
 이제 동의어 맵 만들기 요청을 보낸 다음 일반적으로 사용을 시작할 수 있습니다.
+
+## <a name="example-data-source-encryption"></a>예: 데이터 원본 암호화
+
+[데이터 원본 만들기 (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-data-source)를 사용 하 여 암호화 된 데이터 원본을 만듭니다. `encryptionKey`사용할 암호화 키를 지정 하려면 속성을 사용 합니다.
+
+```json
+{
+  "name" : "datasource1",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  },
+  "container" : { "name" : "containername" },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+이제 데이터 원본 만들기 요청을 보낸 다음 정상적으로 사용을 시작할 수 있습니다.
+
+## <a name="example-skillset-encryption"></a>예: 기술 encryption
+
+[Create 기술 Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset)를 사용 하 여 암호화 된 기술를 만듭니다. `encryptionKey`사용할 암호화 키를 지정 하려면 속성을 사용 합니다.
+
+```json
+{
+  "name" : "datasource1",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  },
+  "container" : { "name" : "containername" },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+이제 기술 만들기 요청을 보낸 다음 정상적으로 사용을 시작할 수 있습니다.
+
+## <a name="example-indexer-encryption"></a>예: 인덱서 암호화
+
+[Create 인덱서 Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-indexer)를 사용 하 여 암호화 된 인덱서를 만듭니다. `encryptionKey`사용할 암호화 키를 지정 하려면 속성을 사용 합니다.
+
+```json
+{
+  "name": "indexer1",
+  "dataSourceName": "datasource1",
+  "skillsetName": "skillset1",
+  "parameters": {
+      "configuration": {
+          "imageAction": "generateNormalizedImages"
+      }
+  },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+이제 인덱서 생성 요청을 보낸 다음 정상적으로 사용을 시작할 수 있습니다.
 
 >[!Important]
 > 는 `encryptionKey` 기존 검색 인덱스 또는 동의어 맵에 추가할 수 없지만 세 가지 주요 자격 증명 모음 세부 정보 (예: 키 버전 업데이트)에 대해 다른 값을 제공 하 여 업데이트할 수 있습니다. 새 Key Vault 키 또는 새 키 버전으로 변경 하는 경우 이전 key\versiona를 삭제 **하기 전에** 먼저 새 key\version을 사용 하도록 해당 키를 사용 하는 모든 검색 인덱스나 동의어 맵을 업데이트 해야 합니다. 이렇게 하지 않으면 키 액세스가 손실 된 후 콘텐츠를 해독할 수 없으므로 인덱스나 동의어 맵을 사용할 수 없게 됩니다. 키 자격 증명 모음 액세스 권한을 나중에 복원 해도 콘텐츠 액세스가 복원 됩니다.
@@ -265,7 +353,6 @@ REST API를 통해 새 동의어 맵을 만드는 방법에 대 한 자세한 �
 일반적으로 관리 되는 id를 사용 하면 검색 서비스에서 코드에 자격 증명 (ApplicationID 또는 ApplicationSecret)을 저장 하지 않고 Azure Key Vault에 인증할 수 있습니다. 이러한 유형의 관리 되는 id의 수명 주기는 관리 id를 하나만 포함할 수 있는 검색 서비스의 수명 주기에 연결 됩니다. 관리 id의 작동 방식에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 Id 란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조 하세요.
 
 1. 검색 서비스를 신뢰할 수 있는 서비스로 설정 합니다.
-
    ![시스템 할당 관리 ID 켜기](./media/search-managed-identities/turn-on-system-assigned-identity.png "시스템 할당 관리 ID 켜기")
 
 1. Azure Key Vault에서 액세스 정책을 설정할 때 AD에 등록 된 응용 프로그램 대신 신뢰 된 검색 서비스를 보안 주체로 선택 합니다. 액세스 키 권한 부여 단계에 설명 된 것 처럼 동일한 권한 (여러 개의 가져오기, 래핑, 래핑 해제)을 할당 합니다.

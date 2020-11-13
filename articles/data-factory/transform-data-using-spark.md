@@ -1,6 +1,6 @@
 ---
 title: Spark 활동을 사용하여 데이터 변환
-description: Spark 작업을 사용하여 Azure Data Factory 파이프라인에서 Spark 프로그램을 실행함으로써 데이터를 변환하는 방법을 알아봅니다.
+description: Spark 작업을 사용 하 여 Azure Data Factory 파이프라인에서 Spark 프로그램을 실행 하 여 데이터를 변환 하는 방법을 알아봅니다.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: d8cc934ebe8b465bc43e37d0d3a3fc58feda8c0a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cac64b17e7aad9aa2bf88386f21d5f82b3013fa3
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637720"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566778"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]

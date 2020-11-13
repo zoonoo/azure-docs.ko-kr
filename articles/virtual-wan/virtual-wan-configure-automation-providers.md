@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29fff3a6a430e3bc1a0b3a13876b55d22f7cb545
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208355"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566472"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Virtual WAN 파트너를 위한 자동화 지침
 
@@ -27,15 +27,15 @@ ms.locfileid: "88208355"
 * Azure Virtual WAN의 포털 환경을 테스트합니다.
 * 그런 다음, 자동화하려는 연결 단계의 부분을 결정합니다. 최소한 자동화하는 것이 좋습니다.
 
-  * Access Control
+  * 액세스 제어
   * Azure Virtual WAN에 분기 디바이스 정보 업로드
   * Azure 구성 다운로드 및 분기 디바이스에서 Azure Virtual WAN으로 연결 설정
 
 ### <a name="additional-information"></a><a name ="additional"></a>추가 정보
 
-* 가상 허브 만들기를 자동화 하는 [REST API](https://docs.microsoft.com/rest/api/virtualwan/virtualhubs)
-* 가상 WAN에 대 한 Azure VPN gateway를 자동화 하는 [REST API](https://docs.microsoft.com/rest/api/virtualwan/vpngateways)
-* VPNSite를 Azure VPN Hub에 연결 하는 [REST API](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections)
+* 가상 허브 만들기를 자동화 하는 [REST API](/rest/api/virtualwan/virtualhubs)
+* 가상 WAN에 대 한 Azure VPN gateway를 자동화 하는 [REST API](/rest/api/virtualwan/vpngateways)
+* VPNSite를 Azure VPN Hub에 연결 하는 [REST API](/rest/api/virtualwan/vpnconnections)
 * [기본 IPsec 정책](#default)
 
 ## <a name="customer-experience"></a><a name ="ae"></a>사용자 환경
@@ -52,7 +52,7 @@ Azure Virtual WAN과 함께 예상되는 고객 환경을 이해합니다.
 
 ## <a name="automation-details"></a><a name ="understand"></a>자동화 세부 정보
 
-###  <a name="access-control"></a><a name="access"></a>Access Control
+###  <a name="access-control"></a><a name="access"></a>액세스 제어
 
 고객은 디바이스 UI에서 Virtual WAN에 적절한 액세스 제어를 설정할 수 있어야 합니다. 이 경우, Azure 서비스 주체를 사용하는 것이 좋습니다. 서비스 주체 기반 액세스는 분기 정보 업로드에 적합한 인증을 디바이스 컨트롤러에 제공합니다. 자세한 내용은 [서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)를 참조하세요. 이 기능은 Azure Virtual WAN 제품의 외부이지만 관련 세부 정보가 디바이스 관리 대시보드에 입력된 후 Azure에서 액세스를 설정하는 데 수행되는 일반적인 단계를 아래에 나열합니다.
 
@@ -63,11 +63,11 @@ Azure Virtual WAN과 함께 예상되는 고객 환경을 이해합니다.
 
 ###  <a name="upload-branch-device-information"></a><a name="branch"></a>분기 디바이스 정보 업로드
 
-Azure에 분기 (온-프레미스 사이트) 정보를 업로드 하는 사용자 환경을 디자인 해야 합니다. VPNSite 용 [REST api](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) 를 사용 하 여 가상 WAN에서 사이트 정보를 만들 수 있습니다. 모든 분기 SDWAN/VPN 디바이스를 제공하거나 적절하게 디바이스 사용자 지정을 선택할 수 있습니다.
+Azure에 분기 (온-프레미스 사이트) 정보를 업로드 하는 사용자 환경을 디자인 해야 합니다. VPNSite 용 [REST api](/rest/api/virtualwan/vpnsites) 를 사용 하 여 가상 WAN에서 사이트 정보를 만들 수 있습니다. 모든 분기 SDWAN/VPN 디바이스를 제공하거나 적절하게 디바이스 사용자 지정을 선택할 수 있습니다.
 
 ### <a name="device-configuration-download-and-connectivity"></a><a name="device"></a>디바이스 구성 다운로드 및 연결
 
-이 단계는 Azure 구성 다운로드 및 분기 디바이스에서 Azure Virtual WAN으로 연결 설정을 포함합니다. 이 단계에서는 공급자를 사용하지 않는 고객은 수동으로 Azure 구성을 다운로드하고 온-프레미스 SDWAN/VPN 디바이스에 적용합니다. 공급자는 이 단계를 자동화해야 합니다. 추가 정보는 [REST api](https://docs.microsoft.com/rest/api/virtualwan/vpnsitesconfiguration/download) 다운로드를 참조 하세요. 장치 컨트롤러에서 ' GetVpnConfiguration ' REST API를 호출 하 여 Azure 구성을 다운로드할 수 있습니다.
+이 단계는 Azure 구성 다운로드 및 분기 디바이스에서 Azure Virtual WAN으로 연결 설정을 포함합니다. 이 단계에서는 공급자를 사용하지 않는 고객은 수동으로 Azure 구성을 다운로드하고 온-프레미스 SDWAN/VPN 디바이스에 적용합니다. 공급자는 이 단계를 자동화해야 합니다. 추가 정보는 [REST api](/rest/api/virtualwan/vpnsitesconfiguration/download) 다운로드를 참조 하세요. 장치 컨트롤러에서 ' GetVpnConfiguration ' REST API를 호출 하 여 Azure 구성을 다운로드할 수 있습니다.
 
 **구성 정보**
 

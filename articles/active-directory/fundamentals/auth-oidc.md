@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory를 사용 하 여 Openid connect 연결 인증
-description: 이 인증 패턴을 달성 하는 데 대 한 아키텍처 지침
+description: Azure Active Directory를 사용 하 여 Openid connect Connect 인증을 달성 하기 위한 아키텍처 지침을 제공 합니다.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6f2ad3b5e86eebfc2d6f1f42f8a2ab0520144b5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f38da0dd2dc2adc8049e2b307c861651a55ed700
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114369"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576991"
 ---
 # <a name="openid-connect-authentication-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Openid connect 연결 인증
 
@@ -38,13 +38,13 @@ OIDC의 디자인 목표는 "간단 하 고 복잡 한 작업을 수행 하는 �
 
 ## <a name="components-of-system"></a>시스템의 구성 요소
 
-* **User**: 응용 프로그램에서 서비스를 요청 합니다.
+* **User** : 응용 프로그램에서 서비스를 요청 합니다.
 
-* **신뢰할 수 있는 에이전트**: 사용자가 상호 작용 하는 구성 요소입니다. 이 신뢰할 수 있는 에이전트는 일반적으로 웹 브라우저입니다.
+* **신뢰할 수 있는 에이전트** : 사용자가 상호 작용 하는 구성 요소입니다. 이 신뢰할 수 있는 에이전트는 일반적으로 웹 브라우저입니다.
 
-* **응용 프로그램**: 응용 프로그램 또는 리소스 서버는 리소스 또는 데이터가 있는 곳입니다. Id 공급자를 신뢰 하 여 신뢰할 수 있는 에이전트를 안전 하 게 인증 하 고 권한을 부여 합니다. 
+* **응용 프로그램** : 응용 프로그램 또는 리소스 서버는 리소스 또는 데이터가 있는 곳입니다. Id 공급자를 신뢰 하 여 신뢰할 수 있는 에이전트를 안전 하 게 인증 하 고 권한을 부여 합니다. 
 
-* **AZURE AD**: id 공급자 라고도 하는 oidc 공급자는 사용자 정보, 해당 액세스 권한 및 흐름의 파티 간 트러스트 관계를 사용 하 여 수행할 모든 작업을 안전 하 게 관리 합니다. 사용자의 id를 인증 하 고, 리소스에 대 한 액세스 권한을 부여 및 취소 하 고, 토큰을 발급 합니다. 
+* **AZURE AD** : id 공급자 라고도 하는 oidc 공급자는 사용자 정보, 해당 액세스 권한 및 흐름의 파티 간 트러스트 관계를 사용 하 여 수행할 모든 작업을 안전 하 게 관리 합니다. 사용자의 id를 인증 하 고, 리소스에 대 한 액세스 권한을 부여 및 취소 하 고, 토큰을 발급 합니다. 
 
 ## <a name="implement-oidc-with-azure-ad"></a>Azure AD를 사용 하 여 OIDC 구현
 

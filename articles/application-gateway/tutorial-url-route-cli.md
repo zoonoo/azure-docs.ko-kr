@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4aee41bc0188676ac0bd168474f1842199af9620
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e8fed99fe0b1de52d2e2d0018dfd8867b54b63b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595246"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566523"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Azure CLI를 사용하여 URL을 기반으로 웹 트래픽 라우팅
 
@@ -32,17 +32,17 @@ ms.locfileid: "89595246"
 
 원하는 경우 [Azure PowerShell](tutorial-url-route-powershell.md) 또는 [Azure Portal](create-url-route-portal.md)을 사용하여 이 절차를 완료할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하여 사용하기로 선택할 경우 이 문서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+ - 이 자습서에는 버전 2.0.4 이상을 이상의 Azure CLI 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. `az group create`를 사용하여 리소스 그룹을 만듭니다.
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroupAG*라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus* 위치에 *myResourceGroupAG* 라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
@@ -50,7 +50,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-`az network vnet create`를 사용하여 *myVNet*이라는 가상 네트워크와 *myAGSubnet*이라는 서브넷을 만듭니다. 그런 다음, `az network vnet subnet create`를 사용하여 백 엔드 서버에 필요한 *myBackendSubnet*이라는 서브넷을 추가합니다. `az network public-ip create`를 사용하여 *myAGPublicIPAddress*라는 공용 IP 주소를 만듭니다.
+`az network vnet create`를 사용하여 *myVNet* 이라는 가상 네트워크와 *myAGSubnet* 이라는 서브넷을 만듭니다. 그런 다음, `az network vnet subnet create`를 사용하여 백 엔드 서버에 필요한 *myBackendSubnet* 이라는 서브넷을 추가합니다. `az network public-ip create`를 사용하여 *myAGPublicIPAddress* 라는 공용 IP 주소를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -76,7 +76,7 @@ az network public-ip create \
 
 ## <a name="create-the-app-gateway-with-a-url-map"></a>URL 맵을 사용하여 응용 프로그램 게이트웨이 만들기
 
-`az network application-gateway create`를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다.
+`az network application-gateway create`를 사용하여 *myAppGateway* 라는 애플리케이션 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 *myAGSubnet* 및 *myAGPublicIPAddress* 에 할당됩니다.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -107,7 +107,7 @@ az network application-gateway create \
 
 ### <a name="add-image-and-video-backend-pools-and-a-port"></a>이미지와 비디오 백 엔드 풀 및 포트 추가
 
-`az network application-gateway address-pool create`를 사용하여 애플리케이션 게이트웨이에 *imagesBackendPool* 및 *videoBackendPool*이라는 백 엔드 풀을 추가합니다. `az network application-gateway frontend-port create`를 사용하여 풀에 대한 프런트 엔드 포트를 추가합니다.
+`az network application-gateway address-pool create`를 사용하여 애플리케이션 게이트웨이에 *imagesBackendPool* 및 *videoBackendPool* 이라는 백 엔드 풀을 추가합니다. `az network application-gateway frontend-port create`를 사용하여 풀에 대한 프런트 엔드 포트를 추가합니다.
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -129,7 +129,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-a-backend-listener"></a>백 엔드 수신기 추가
 
-`az network application-gateway http-listener create`를 사용하여 트래픽을 라우팅하는 데 필요한 *backendListener*라는 백 엔드 수신기를 추가합니다.
+`az network application-gateway http-listener create`를 사용하여 트래픽을 라우팅하는 데 필요한 *backendListener* 라는 백 엔드 수신기를 추가합니다.
 
 
 ```azurecli-interactive
@@ -143,7 +143,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-a-url-path-map"></a>URL 경로 맵 추가
 
-URL 경로 맵은 특정 URL이 특정 백 엔드 풀로 라우팅되도록 보장합니다. `az network application-gateway url-path-map create` 및 `az network application-gateway url-path-map rule create`를 사용하여 *imagePathRule* 및 *videoPathRule*이라는 URL 경로 맵을 만듭니다.
+URL 경로 맵은 특정 URL이 특정 백 엔드 풀로 라우팅되도록 보장합니다. `az network application-gateway url-path-map create` 및 `az network application-gateway url-path-map rule create`를 사용하여 *imagePathRule* 및 *videoPathRule* 이라는 URL 경로 맵을 만듭니다.
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -168,7 +168,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-a-routing-rule"></a>라우팅 규칙 추가
 
-라우팅 규칙은 URL 맵을 만든 수신기에 연결합니다. `az network application-gateway rule create`를 사용하여 *rule2*라는 규칙을 추가합니다.
+라우팅 규칙은 URL 맵을 만든 수신기에 연결합니다. `az network application-gateway rule create`를 사용하여 *rule2* 라는 규칙을 추가합니다.
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -183,7 +183,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>가상 머신 확장 집합 만들기
 
-이 문서에서는 사용자가 만든 세 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1*, *myvmss2*, *myvmss3*입니다. 각 확장 집합에는 NGINX를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다.
+이 문서에서는 사용자가 만든 세 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1* , *myvmss2* , *myvmss3* 입니다. 각 확장 집합에는 NGINX를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do

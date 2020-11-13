@@ -1,6 +1,6 @@
 ---
 title: Azure AD 사용자 흐름의 사용자 언어 지정
-description: 사용자 흐름에서 언어 환경을 사용자 지정하는 방법을 알아봅니다.
+description: Azure Active Directory에서 사용자 흐름의 언어 환경을 사용자 지정 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c73a5491c0ad543d57a6721f37d81ae661c0a653
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 98ead87ce2bd3b4e3ffc45763aa5151168c72078
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441439"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576515"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Azure Active Directory의 사용자 언어 지정(미리 보기)
 
@@ -37,14 +37,14 @@ Azure AD(Azure Active Directory)의 사용자 언어 지정을 사용하면 사�
 언어 사용자 지정을 통해 사용자 흐름의 모든 문자열을 사용자 지정할 수 있습니다.
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Services** 아래에서 **Azure Active Directory**를 선택합니다.
-3. 왼쪽 메뉴에서 **외부 ID**를 선택합니다.
+2. **Azure Services** 아래에서 **Azure Active Directory** 를 선택합니다.
+3. 왼쪽 메뉴에서 **외부 ID** 를 선택합니다.
 4. **사용자 흐름(미리 보기)** 을 선택합니다.
 3. 번역에 사용할 사용자 흐름을 선택합니다.
-4. **언어**를 선택합니다.
+4. **언어** 를 선택합니다.
 5. 사용자 흐름에 대한 **언어** 페이지에서 사용자 지정하려는 언어를 선택합니다.
-6. **특성 모음 페이지**를 확장합니다.
-7. **기본값 다운로드**(또는 이전에 이 언어를 편집한 경우 **재정의 다운로드**)를 선택합니다.
+6. **특성 모음 페이지** 를 확장합니다.
+7. **기본값 다운로드** (또는 이전에 이 언어를 편집한 경우 **재정의 다운로드** )를 선택합니다.
 
 이러한 단계는 문자열 편집을 시작하는 데 사용할 수 있는 JSON 파일을 제공합니다.
 
@@ -114,10 +114,10 @@ Azure AD(Azure Active Directory)의 사용자 언어 지정을 사용하면 사�
 ### <a name="upload-your-changes"></a>변경 내용 업로드
 
 1. JSON 파일 변경을 완료한 후 테넌트로 돌아갑니다.
-1. **사용자 흐름**을 선택하고 번역에 사용할 사용자 흐름을 클릭합니다.
-1. **언어**를 선택합니다.
+1. **사용자 흐름** 을 선택하고 번역에 사용할 사용자 흐름을 클릭합니다.
+1. **언어** 를 선택합니다.
 1. 번역하려는 언어를 선택합니다.
-1. **특성 모음 페이지**를 선택합니다.
+1. **특성 모음 페이지** 를 선택합니다.
 1. 폴더 아이콘을 선택하고 업로드할 JSON 파일을 선택합니다.
 
 변경 내용이 자동으로 사용자 흐름에 저장됩니다.

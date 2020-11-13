@@ -6,23 +6,23 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.openlocfilehash: c13b71858915ab262ab3e0e99ab8c482d19160ea
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 205600e488822c5ade4b808c29c66741d28a84a7
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318508"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575921"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에서 데이터 공유 및 수신
 
 [!INCLUDE[appliesto-sql](includes/appliesto-sql.md)]
 
-Azure 데이터 공유는 스냅숏 기반 공유 Azure SQL Database 및 Azure Synapse Analytics (이전의 Azure SQL DW)를 지원 합니다. 이 문서에서는 이러한 원본에서 데이터를 공유 하 고 받는 방법을 설명 합니다.
+Azure 데이터 공유는 스냅숏 기반 공유 Azure SQL Database 및 Azure Synapse 분석을 지원 합니다. 이 문서에서는 이러한 원본에서 데이터를 공유 하 고 받는 방법을 설명 합니다.
 
-Azure 데이터 공유는 Azure SQL Database 및 Azure Synapse Analytics (이전의 Azure SQL DW)에서 테이블 또는 뷰를 공유할 수 있도록 지원 합니다. 데이터 소비자는 데이터를 Azure Data Lake Storage Gen2 또는 Azure Blob Storage, csv 또는 parquet 파일, Azure SQL Database 및 Azure Synapse Analytics를 테이블로 수락 하도록 선택할 수 있습니다.
+Azure 데이터 공유는 Azure SQL Database 및 Azure Synapse Analytics (이전의 Azure SQL DW)에서 테이블 또는 뷰를 공유 하 고 Azure Synapse Analytics (작업 영역) SQL 풀에서 테이블을 공유할 수 있도록 지원 합니다. 데이터 소비자는 데이터를 Azure Data Lake Storage Gen2 또는 Azure Blob Storage, csv 또는 parquet 파일, Azure SQL Database 및 Azure Synapse Analytics를 테이블로 수락 하도록 선택할 수 있습니다.
 
 Azure Data Lake Store Gen2 또는 Azure Blob Storage에 데이터를 수락 하는 경우 전체 스냅숏은 이미 있는 경우 대상 파일의 내용을 덮어씁니다.
-테이블에 데이터를 수신 하 고 대상 테이블이 아직 없는 경우 Azure 데이터 공유는 원본 스키마를 사용 하 여 SQL 테이블을 만듭니다. 동일한 이름을 가진 대상 테이블이 이미 있는 경우 삭제 되 고 최신 전체 스냅숏으로 덮어쓰여집니다. 증분 스냅숏은 현재 지원 되지 않습니다.
+SQL 테이블로 데이터를 수신 하 고 대상 테이블이 아직 없는 경우 Azure 데이터 공유는 원본 스키마를 사용 하 여 SQL 테이블을 만듭니다. 동일한 이름을 가진 대상 테이블이 이미 있는 경우 삭제 되 고 최신 전체 스냅숏으로 덮어쓰여집니다. 증분 스냅숏은 현재 지원 되지 않습니다.
 
 ## <a name="share-data"></a>데이터 공유
 
@@ -33,12 +33,15 @@ Azure Data Lake Store Gen2 또는 Azure Blob Storage에 데이터를 수락 하�
 * 원본 Azure 데이터 저장소가 데이터 공유 리소스를 만드는 데 사용하는 것과 다른 Azure 구독에 있는 경우 Azure 데이터 저장소가 있는 구독에 [Microsoft.DataShare 리소스 공급자](concepts-roles-permissions.md#resource-provider-registration)를 등록합니다. 
 
 ### <a name="prerequisites-for-sql-source"></a>SQL 원본에 대 한 필수 구성 요소
-다음은 SQL 원본에서 데이터를 공유 하기 위한 필수 구성 요소 목록입니다. 단계별 [데모](https://youtu.be/hIE-TjJD8Dc) 를 수행 하 여 필수 구성 요소를 구성할 수도 있습니다.
+다음은 SQL 원본에서 데이터를 공유 하기 위한 필수 구성 요소 목록입니다. 
 
-* 공유하려는 테이블 및 보기를 포함하는 Azure SQL Database 또는 Azure Synapse Analytics(이전의 SQL Data Warehouse).
-* SQL 서버에 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write* 에 있습니다. 이 권한은 기여자 역할에 있습니다.
-* 데이터 웨어하우스에 액세스할 수 있는 데이터 공유에 대한 권한. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
-    1. Azure Portal에서 SQL server로 이동 하 고 Azure Active Directory 관리자로 설정 합니다.
+#### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Azure SQL Database 또는 Azure Synapse Analytics (이전의 Azure SQL DW)에서 공유 하기 위한 필수 구성 요소
+단계별 [데모](https://youtu.be/hIE-TjJD8Dc) 를 따라 필수 구성 요소를 구성할 수 있습니다.
+
+* 공유 하려는 테이블 및 뷰를 포함 하는 Azure SQL Database 또는 Azure Synapse Analytics (이전의 Azure SQL DW)
+* SQL 서버에 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write* 에 있습니다. 이 권한은 **기여자** 역할에 있습니다.
+* 데이터베이스에 액세스 하기 위한 데이터 공유 리소스의 관리 되는 id에 대 한 권한입니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
+    1. Azure Portal에서 SQL server로 이동 하 고 **Azure Active Directory 관리자로** 설정 합니다.
     1. Azure Active Directory 인증을 사용 하 여 [쿼리 편집기](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) 또는 SQL Server Management Studio를 사용 하 여 Azure SQL Database/데이터 웨어하우스에 연결 합니다. 
     1. 다음 스크립트를 실행 하 여 데이터 공유 리소스 관리 Id를 db_datareader 추가 합니다. SQL Server 인증이 아닌 Active Directory를 사용하여 연결해야 합니다. 
     
@@ -46,13 +49,34 @@ Azure Data Lake Store Gen2 또는 Azure Blob Storage에 데이터를 수락 하�
         create user "<share_acct_name>" from external provider;     
         exec sp_addrolemember db_datareader, "<share_acct_name>"; 
         ```                   
-       *<share_acc_name>* 은 Data Share 리소스의 이름입니다. 아직 Data Share 리소스를 만들지 않은 경우 나중에 이 필수 조건으로 돌아갈 수 있습니다.  
+       *<share_acc_name>* 은 Data Share 리소스의 이름입니다. Data Share 리소스를 아직 만들지 않은 경우 나중에 이 필수 조건으로 다시 돌아올 수 있습니다.  
 
-* 공유하려는 테이블 및/또는 보기를 탐색하고 선택할 수 있는 ‘db_datareader’가 포함된 Azure SQL Database 사용자입니다. 
+* 공유 하려는 테이블 및/또는 뷰를 탐색 하 고 선택할 수 있는 **' db_datareader '** 액세스 권한이 있는 Azure SQL Database 사용자입니다. 
 
 * 방화벽 액세스를 SQL Server 합니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
-    1. Azure Portal의 SQL 서버에서 *방화벽 및 가상 네트워크* 로 이동합니다.
+    1. Azure Portal에서 SQL server로 이동 합니다. 왼쪽 탐색에서 *방화벽 및 가상 네트워크* 를 선택 합니다.
     1. *Azure 서비스 및 리소스가이 서버에 액세스할 수 있도록 허용* 에 대해 **예** 를 클릭 합니다.
+    1. **+ 클라이언트 IP 추가** 를 클릭 합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다.
+    1. **저장** 을 클릭합니다. 
+
+#### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Azure Synapse Analytics (작업 영역) SQL 풀에서 공유 하기 위한 필수 구성 요소
+
+* 공유 하려는 테이블을 포함 하는 Azure Synapse Analytics (작업 영역) SQL 풀 보기 공유는 현재 지원 되지 않습니다.
+* *Synapse/workspaces/sqlpools/write* 에 있는 Synapse 작업 영역에서 SQL 풀에 쓸 수 있는 권한입니다. 이 권한은 **기여자** 역할에 있습니다.
+* Synapse workspace SQL 풀에 액세스 하기 위한 데이터 공유 리소스의 관리 되는 id에 대 한 권한입니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
+    1. Azure Portal에서 Synapse workspace로 이동 합니다. 왼쪽 탐색에서 SQL Active Directory admin을 선택 하 고 **Azure Active Directory 관리자로** 설정 합니다.
+    1. Synapse Studio를 열고 왼쪽 탐색 모음에서 *관리* 를 선택 합니다. 보안에서 *액세스 제어* 를 선택 합니다. 사용자 고유의 **SQL 관리자** 또는 **작업 영역 관리자** 역할을 할당 합니다.
+    1. Synapse Studio의 왼쪽 탐색 모음에서 *개발* 을 선택 합니다. SQL 풀에서 다음 스크립트를 실행 하 여 데이터 공유 리소스 관리 Id를 db_datareader 추가 합니다. 
+    
+        ```sql
+        create user "<share_acct_name>" from external provider;     
+        exec sp_addrolemember db_datareader, "<share_acct_name>"; 
+        ```                   
+       *<share_acc_name>* 은 Data Share 리소스의 이름입니다. Data Share 리소스를 아직 만들지 않은 경우 나중에 이 필수 조건으로 다시 돌아올 수 있습니다.  
+
+* 작업 영역 방화벽 액세스를 Synapse 합니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
+    1. Azure Portal에서 Synapse workspace로 이동 합니다. 왼쪽 탐색에서 *방화벽* 을 선택 합니다.
+    1. *Azure 서비스 및 리소스가이 작업 영역에 액세스할 수 있도록 허용* 에 대해 **켜기** 를 클릭 합니다.
     1. **+ 클라이언트 IP 추가** 를 클릭 합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다.
     1. **저장** 을 클릭합니다. 
 
@@ -108,11 +132,11 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
     ![AddDatasets](./media/add-datasets.png "데이터 세트 추가")    
 
-1. SQL server를 선택 하 고 자격 증명을 제공 하 고 **다음** 을 선택 하 여 공유할 개체로 이동 하 고 ' 데이터 집합 추가 '를 선택 합니다. 
+1. SQL server 또는 Synapse 작업 영역을 선택 하 고 메시지가 표시 되 면 자격 증명을 제공 하 고 **다음** 을 선택 하 여 공유할 개체로 이동 하 고 ' 데이터 집합 추가 '를 선택 합니다. 
 
     ![SelectDatasets](./media/select-datasets-sql.png "데이터 세트 선택")    
 
-1. 받는 사람 탭에서 '+ 받는 사람 추가'를 선택하여 데이터 소비자의 이메일 주소를 입력합니다. 
+1. 받는 사람 탭에서 '+ 받는 사람 추가'를 선택하여 데이터 소비자의 이메일 주소를 입력합니다. 전자 메일 주소는 받는 사람의 Azure 로그인 전자 메일 이어야 합니다.
 
     ![AddRecipients](./media/add-recipient.png "수신자 추가") 
 
@@ -145,15 +169,19 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 Azure Storage 데이터를 수신 하도록 선택 하는 경우 다음은 필수 구성 요소 목록입니다.
 
 * Azure Storage 계정: 아직 없는 경우 [Azure Storage 계정](../storage/common/storage-account-create.md)을 만들 수 있습니다. 
-* 스토리지 계정에 쓸 수 있는 권한으로, *Microsoft.Storage/storageAccounts/write* 에 있습니다. 이 권한은 기여자 역할에 있습니다. 
-* 스토리지 계정에 역할 할당을 추가할 수 있는 권한입니다. 이 권한은 *Microsoft.Authorization/role assignments/write* 에 있습니다. 이 권한은 소유자 역할에 있습니다.  
+* 스토리지 계정에 쓸 수 있는 권한으로, *Microsoft.Storage/storageAccounts/write* 에 있습니다. 이 권한은 **기여자** 역할에 있습니다. 
+* 데이터 공유 리소스의 관리 되는 id에 대 한 역할 할당을 *Microsoft. 권한 부여/역할 할당/쓰기* 에 있는 저장소 계정에 추가할 수 있는 권한입니다. 이 권한은 **소유자** 역할에 있습니다.  
 
 ### <a name="prerequisites-for-sql-target"></a>SQL 대상에 대 한 필수 구성 요소
-Azure SQL Database으로 데이터를 받도록 선택 하는 경우 Azure Synapse Analytics는 필수 구성 요소 목록입니다. 단계별 [데모](https://youtu.be/aeGISgK1xro) 를 수행 하 여 필수 구성 요소를 구성할 수도 있습니다.
+Azure SQL Database으로 데이터를 받도록 선택 하는 경우 Azure Synapse Analytics는 필수 구성 요소 목록입니다. 
 
-* SQL 서버의 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write* 에 있습니다. 이 권한은 기여자 역할에 있습니다. 
-* 데이터 공유 리소스의 관리 ID가 Azure SQL Database 또는 Azure Synapse Analytics에 액세스할 수 있는 권한입니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
-    1. Azure Portal에서 SQL server로 이동 하 고 Azure Active Directory 관리자로 설정 합니다.
+#### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Azure SQL Database 또는 Azure Synapse Analytics로 데이터를 받기 위한 필수 조건 (이전 Azure SQL DW)
+단계별 [데모](https://youtu.be/aeGISgK1xro) 를 따라 필수 구성 요소를 구성할 수 있습니다.
+
+* Azure SQL Database 또는 Azure Synapse Analytics (이전의 Azure SQL DW).
+* SQL 서버의 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write* 에 있습니다. 이 권한은 **기여자** 역할에 있습니다. 
+* Azure SQL Database 또는 Azure Synapse Analytics에 액세스 하기 위한 데이터 공유 리소스의 관리 되는 id에 대 한 권한입니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
+    1. Azure Portal에서 SQL server로 이동 하 고 **Azure Active Directory 관리자로** 설정 합니다.
     1. Azure Active Directory 인증을 사용 하 여 [쿼리 편집기](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) 또는 SQL Server Management Studio를 사용 하 여 Azure SQL Database/데이터 웨어하우스에 연결 합니다. 
     1. 다음 스크립트를 실행 하 여 데이터 공유 관리 Id를 ' db_datareader, db_datawriter db_ddladmin ' (으)로 추가 합니다. SQL Server 인증이 아닌 Active Directory를 사용하여 연결해야 합니다. 
 
@@ -168,6 +196,29 @@ Azure SQL Database으로 데이터를 받도록 선택 하는 경우 Azure Synap
 * 방화벽 액세스를 SQL Server 합니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
     1. Azure Portal의 SQL 서버에서 *방화벽 및 가상 네트워크* 로 이동합니다.
     1. *Azure 서비스 및 리소스가이 서버에 액세스할 수 있도록 허용* 에 대해 **예** 를 클릭 합니다.
+    1. **+ 클라이언트 IP 추가** 를 클릭 합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다.
+    1. **저장** 을 클릭합니다. 
+ 
+#### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Azure Synapse Analytics (작업 영역) SQL 풀로 데이터를 받기 위한 필수 구성 요소
+
+* Azure Synapse Analytics (작업 영역) SQL 풀.
+* *Synapse/workspaces/sqlpools/write* 에 있는 Synapse 작업 영역에서 SQL 풀에 쓸 수 있는 권한입니다. 이 권한은 **기여자** 역할에 있습니다.
+* Synapse workspace SQL 풀에 액세스 하기 위한 데이터 공유 리소스의 관리 되는 id에 대 한 권한입니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
+    1. Azure Portal에서 Synapse workspace로 이동 합니다. 왼쪽 탐색에서 SQL Active Directory admin을 선택 하 고 **Azure Active Directory 관리자로** 설정 합니다.
+    1. Synapse Studio를 열고 왼쪽 탐색 모음에서 *관리* 를 선택 합니다. 보안에서 *액세스 제어* 를 선택 합니다. 사용자 고유의 **SQL 관리자** 또는 **작업 영역 관리자** 역할을 할당 합니다.
+    1. Synapse Studio의 왼쪽 탐색 모음에서 *개발* 을 선택 합니다. SQL 풀에서 다음 스크립트를 실행 하 여 데이터 공유 리소스 관리 Id를 ' db_datareader, db_datawriter db_ddladmin ' (으)로 추가 합니다. 
+    
+        ```sql
+        create user "<share_acc_name>" from external provider; 
+        exec sp_addrolemember db_datareader, "<share_acc_name>"; 
+        exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
+        exec sp_addrolemember db_ddladmin, "<share_acc_name>";
+        ```                   
+       *<share_acc_name>* 은 Data Share 리소스의 이름입니다. Data Share 리소스를 아직 만들지 않은 경우 나중에 이 필수 조건으로 다시 돌아올 수 있습니다.  
+
+* 작업 영역 방화벽 액세스를 Synapse 합니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
+    1. Azure Portal에서 Synapse workspace로 이동 합니다. 왼쪽 탐색에서 *방화벽* 을 선택 합니다.
+    1. *Azure 서비스 및 리소스가이 작업 영역에 액세스할 수 있도록 허용* 에 대해 **켜기** 를 클릭 합니다.
     1. **+ 클라이언트 IP 추가** 를 클릭 합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다.
     1. **저장** 을 클릭합니다. 
 
@@ -202,7 +253,7 @@ Azure SQL Database으로 데이터를 받도록 선택 하는 경우 Azure Synap
 
    ![수락 옵션](./media/accept-options.png "수락 옵션") 
 
-   그러면 데이터 공유 계정에서 받은 공유로 이동합니다. 
+   그러면 데이터 공유 계정에서 받은 공유로 이동 합니다. 
 
    초대를 수락하지 않으려면 *거부* 를 선택합니다. 
 
@@ -290,7 +341,7 @@ SQL 스냅숏 성능은 여러 가지 요인의 영향을 받습니다. 항상 �
 * 원본 및 대상 데이터 저장소의 위치입니다. 
 
 ## <a name="troubleshoot-sql-snapshot-failure"></a>SQL 스냅숏 오류 문제 해결
-스냅숏 실패의 가장 일반적인 원인은 데이터 공유에 원본 또는 대상 데이터 저장소에 대 한 권한이 없는 것입니다. 원본 또는 대상 SQL 데이터 저장소에 데이터 공유 권한을 부여 하려면 Azure Active Directory 인증을 사용 하 여 SQL 데이터베이스에 연결할 때 제공 된 SQL 스크립트를 실행 해야 합니다. 추가 SQL 스냅숏 실패 문제를 해결 하려면 [스냅숏 오류 문제 해결](data-share-troubleshoot.md#snapshot-failed)을 참조 하세요.
+스냅숏 실패의 가장 일반적인 원인은 데이터 공유에 원본 또는 대상 데이터 저장소에 대 한 권한이 없는 것입니다. 원본 또는 대상 Azure SQL Database 또는 Azure Synapse Analytics (이전의 Azure SQL DW)에 데이터 공유 권한을 부여 하려면 Azure Active Directory 인증을 사용 하 여 SQL Database에 연결할 때 제공 된 SQL 스크립트를 실행 해야 합니다. 추가 SQL 스냅숏 실패 문제를 해결 하려면 [스냅숏 오류 문제 해결](data-share-troubleshoot.md#snapshot-failed)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure 데이터 공유 서비스를 사용 하 여 SQL 원본에서 데이터를 공유 하 고 수신 하는 방법을 배웠습니다. 다른 데이터 원본에서 공유 하는 방법에 대 한 자세한 내용은 [지원 되는 데이터 저장소](supported-data-stores.md)를 계속 확인 하세요.

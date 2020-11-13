@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 348fb301d1a36c8df405c641f7644889417b11ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb9b0da609169288521d21ee6d5e412a786c7549
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91545556"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94574067"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Azure Cognitive Services 컨테이너 보안
 
@@ -33,7 +33,7 @@ ms.locfileid: "91545556"
 
 ### <a name="container-networking"></a>컨테이너 네트워킹
 
-요금 청구를 위해 계량 정보를 제출 하려면 Cognitive Services 컨테이너가 필요 합니다. 유일한 예외는 다른 청구 방법을 따르는 *오프 라인 컨테이너* 입니다. 허용 하지 않으면 Cognitive Services 컨테이너에서 사용 하는 다양 한 네트워크 채널을 나열할 때 컨테이너가 작동 하지 않습니다.
+요금 청구를 위해 계량 정보를 제출 하려면 Cognitive Services 컨테이너가 필요 합니다. 허용 하지 않으면 Cognitive Services 컨테이너에서 사용 하는 다양 한 네트워크 채널을 나열할 때 컨테이너가 작동 하지 않습니다.
 
 #### <a name="allow-list-cognitive-services-domains-and-ports"></a>목록 Cognitive Services 도메인 및 포트 허용
 
