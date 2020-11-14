@@ -45,7 +45,7 @@
     - name: 13 - VM 모니터링
       href: tutorial-monitor.md
     - name: 14 - VM 보안 관리
-      href: tutorial-azure-security.md
+      href: ../tutorial-azure-security.md
     - name: 15a - Jenkins로 빌드
       href: /azure/developer/jenkins/pipeline-with-github-and-docker
     - name: 15b - Azure DevOps와 Jenkins 통합
@@ -687,7 +687,15 @@
         - name: 시간 동기화
           href: time-sync.md
         - name: VM에 태그 지정
-          href: tag.md
+          items:
+            - name: CLI
+              href: ../tag-cli.md
+            - name: 포털
+              href: ../tag-portal.md
+            - name: PowerShell
+              href: ../tag-powershell.md
+            - name: 템플릿
+              href: ../tag-template.md
         - name: VM에서 스크립트 실행
           href: run-scripts-in-vm.md
           items:
@@ -1154,7 +1162,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/compute
     - name: Resource Manager 템플릿
       displayName: ARM

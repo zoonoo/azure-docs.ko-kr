@@ -85,12 +85,14 @@
       href: Tutorials/storage-lab-tutorial.md
 - name: 개념
   items:
-    - name: 콘텐츠 태그
-      href: concept-tagging-images.md
+    - name: OCR(광학 문자 인식)
+      href: concept-recognizing-text.md
     - name: 개체 감지
       href: concept-object-detection.md
     - name: 브랜드 검색
       href: concept-brand-detection.md
+    - name: 콘텐츠 태그
+      href: concept-tagging-images.md
     - name: 이미지 분류
       href: concept-categorizing-images.md
     - name: 이미지 설명
@@ -105,8 +107,6 @@
       href: concept-detecting-color-schemes.md
     - name: 스마트하게 자른 썸네일
       href: concept-generating-thumbnails.md
-    - name: OCR(광학 문자 인식)
-      href: concept-recognizing-text.md
     - name: 성인 콘텐츠 검색
       href: concept-detecting-adult-content.md
 - name: Responsible AI

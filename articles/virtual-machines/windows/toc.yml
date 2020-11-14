@@ -46,7 +46,7 @@
     - name: 13 - VM 모니터링
       href: tutorial-monitor.md
     - name: 14 - VM 보안 관리
-      href: tutorial-azure-security.md
+      href: ../tutorial-azure-security.md
     - name: 15 - SQL\IIS\.NET 스택 설치
       href: tutorial-iis-sql.md
     - name: 16 - SSL로 웹 서버 보안
@@ -648,8 +648,16 @@
         - name: OS 디스크 교환
           href: os-disk-swap.md
         - name: VM에 태그 지정
-          href: tag.md
-        - name: 시간 동기화
+          items:
+            - name: 포털
+              href: ../tag-portal.md
+            - name: PowerShell
+              href: ../tag-powershell.md
+            - name: CLI
+              href: ../tag-cli.md
+            - name: 템플릿
+              href: ../tag-template.md
+            - name: 시간 동기화
           href: time-sync.md
         - name: VM에서 스크립트 실행
           href: run-scripts-in-vm.md
