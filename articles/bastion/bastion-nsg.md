@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5bff5b341dcbdaa7ccae2b02e62e3e6bd4d115f9
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 822a90aa2bd3a19cf3459924e6b577cc416aa3a5
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594269"
+ms.locfileid: "94616827"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>NSG 액세스 및 Azure 방호 작업
 
@@ -40,7 +40,7 @@ Azure 방호는 특별히 * **AzureBastionSubnet** _에 배포 됩니다.
 
    * **공용 인터넷에서 수신 되는 트래픽:** Azure 방호는 수신 트래픽에 대 한 공용 IP에서 포트 443를 사용 하도록 설정 해야 하는 공용 IP를 만듭니다. AzureBastionSubnet에서 포트 3389/22을 열 필요는 없습니다.
    * **Azure 방호 제어 평면의 수신 트래픽:** 제어 평면 연결의 경우 **Gmanager** 서비스 태그에서 포트 443 인바운드를 사용 하도록 설정 합니다. 그러면 제어 평면, 즉 게이트웨이 관리자가 Azure 방호와 통신할 수 있습니다.
-   * **Azure Loadbalancer의 수신 트래픽:** 상태 프로브의 경우 **Azureloadbalancer** 서비스 태그에서 포트 443 인바운드를 사용 하도록 설정 합니다. 그러면 azure 부하 분산 장치가 백 엔드에서의 연결 문제를 검색할 수 있습니다.
+   * **Azure Load Balancer에서 수신 트래픽:** 상태 프로브의 경우 **Azureloadbalancer** 서비스 태그에서 포트 443 인바운드를 사용 하도록 설정 합니다. 이렇게 하면 Azure Load Balancer에서 연결을 검색할 수 있습니다. 
 
 
    :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="스크린샷 Azure 방호 연결에 대 한 인바운드 보안 규칙을 보여 줍니다.":::
