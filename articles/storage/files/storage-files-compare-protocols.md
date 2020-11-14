@@ -8,16 +8,16 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 961ba457136d20fbb63ae3315fe8143cffb56be2
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568474"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629311"
 ---
 # <a name="azure-file-share-protocols"></a>Azure 파일 공유 프로토콜
 
-Azure Files은 Azure 파일 공유를 연결 하 고 탑재 하기 위한 두 가지 프로토콜을 제공 합니다. [SMB (서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) 및 [NFS (네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System) (미리 보기) Azure Files는 현재 다중 프로토콜 액세스를 지원 하지 않으므로 공유는 NFS 공유 이거나 SMB 공유 일 수 있습니다. 이로 인해 Azure 파일 공유를 만들기 전에 요구 사항에 가장 적합 한 프로토콜을 결정 하는 것이 좋습니다.
+Azure Files은 Azure 파일 공유를 연결 하 고 탑재 하기 위한 두 가지 프로토콜을 제공 합니다. [SMB (서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 및 [NFS (네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System) (미리 보기) Azure Files는 현재 다중 프로토콜 액세스를 지원 하지 않으므로 공유는 NFS 공유 이거나 SMB 공유 일 수 있습니다. 이로 인해 Azure 파일 공유를 만들기 전에 요구 사항에 가장 적합 한 프로토콜을 결정 하는 것이 좋습니다.
 
 ## <a name="differences-at-a-glance"></a>한 눈에 차이점
 
@@ -26,7 +26,7 @@ Azure Files은 Azure 파일 공유를 연결 하 고 탑재 하기 위한 두 �
 |액세스 프로토콜     |NFS 4.1         |SMB 2.1, SMB 3.0         |
 |지원되는 OS     |Linux 커널 버전 4.3 이상         |Windows 2008 R2 이상, Linux 커널 버전 4.11 이상         |
 |[사용 가능한 계층](storage-files-planning.md#storage-tiers)     |Premium Storage         |Premium storage, 트랜잭션 최적화, 핫, 쿨         |
-|[중복](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
+|[중복성](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
 |인증     |호스트 기반 인증만        |Id 기반 인증, 사용자 기반 인증         |
 |사용 권한     |UNIX 스타일 사용 권한         |NTFS 스타일 사용 권한         |
 |파일 시스템 의미 체계     |POSIX 규격         |POSIX 규격이 아님         |
@@ -64,7 +64,7 @@ Azure Files 있는 NFS는 다음과 같은 경우에 적합 합니다.
 - [개인 끝점](storage-files-networking-overview.md#private-endpoints)
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
     - [지점 및 사이트 간 (P2S) VPN](../../vpn-gateway/point-to-site-about.md)
-    - [사이트 간](https://docs.microsoft.com/azure/vpn-gateway/design#s2smulti)
+    - [사이트 간](../../vpn-gateway/design.md#s2smulti)
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
 - [제한 된 공용 끝점](storage-files-networking-overview.md#storage-account-firewall-settings)
 

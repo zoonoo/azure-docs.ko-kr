@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 876a96f579bff8d30e454e927054a951734f44ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b29565e18b2da2087cc15966b30b433a42fb603
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441102"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629804"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 
@@ -30,22 +30,22 @@ ms.locfileid: "89441102"
 
 파일은 클라우드의 [Azure 파일 공유](storage-files-introduction.md)에 저장됩니다. Azure 파일 공유는 이러한 서버리스 Azure 파일 공유(SMB)를 직접 탑재하거나 Azure 파일 동기화를 사용하여 온-프레미스에서 Azure 파일 공유를 캐시하는 두 가지 방법으로 사용할 수 있습니다. 선택한 배포 옵션에 따라 배포 계획에서 고려해야 할 측면이 달라집니다. 
 
-- **Azure 파일 공유의 직접 탑재**: Azure Files는 SMB 액세스를 제공하므로 Windows, macOS 및 Linux에서 사용할 수 있는 표준 SMB 클라이언트를 사용하여 온-프레미스 또는 클라우드에서 Azure 파일 공유를 탑재할 수 있습니다. Azure 파일 공유는 서버리스이므로 프로덕션 시나리오를 위해 배포하는 경우 파일 서버 또는 NAS 디바이스를 관리할 필요가 없습니다. 즉 소프트웨어 패치를 적용하거나 실제 디스크를 교환할 필요가 없습니다. 
+- **Azure 파일 공유의 직접 탑재** : Azure Files는 SMB 액세스를 제공하므로 Windows, macOS 및 Linux에서 사용할 수 있는 표준 SMB 클라이언트를 사용하여 온-프레미스 또는 클라우드에서 Azure 파일 공유를 탑재할 수 있습니다. Azure 파일 공유는 서버리스이므로 프로덕션 시나리오를 위해 배포하는 경우 파일 서버 또는 NAS 디바이스를 관리할 필요가 없습니다. 즉 소프트웨어 패치를 적용하거나 실제 디스크를 교환할 필요가 없습니다. 
 
-- **Azure 파일 동기화를 사용하여 온-프레미스에서 Azure 파일 공유 캐시**: Azure 파일 동기화를 사용하면 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 온-프레미스(또는 클라우드) Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. 
+- **Azure 파일 동기화를 사용하여 온-프레미스에서 Azure 파일 공유 캐시** : Azure 파일 동기화를 사용하면 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 온-프레미스(또는 클라우드) Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. 
 
 ## <a name="management-concepts"></a>관리 개념
 Azure 파일 동기화 배포에는 다음과 같은 세 가지 기본 관리 개체가 있습니다.
 
-- **Azure 파일 공유**: Azure 파일 공유는 Azure 파일 동기화 관계의 *클라우드 엔드포인트*를 제공하는 서버리스 클라우드 파일 공유입니다. Azure 파일 공유의 파일은 SMB 또는 FileREST 프로토콜을 통해 직접 액세스할 수 있지만, Azure 파일 공유가 Azure 파일 동기화에서 사용되는 경우 주로 Windows Server 캐시를 통해 파일에 액세스하는 것이 좋습니다. 이는 현재 Windows Server와 같은 효율적인 변경 검색 메커니즘이 Azure Files에 없기 때문입니다. 이에 따라 Azure 파일 공유를 직접 변경하면 서버 엔드포인트로 다시 전파되는 데 시간이 걸립니다.
-- **서버 엔드포인트**: Azure 파일 공유에 동기화되는 Windows Server의 경로입니다. 볼륨 또는 볼륨의 루트에 있는 특정 폴더일 수 있습니다. 해당 네임스페이스가 겹치지 않으면 여러 서버 엔드포인트가 동일한 볼륨에 있을 수 있습니다.
-- **동기화 그룹**: **클라우드 엔드포인트** 또는 Azure 파일 공유와 서버 엔드포인트 간의 동기화 관계를 정의하는 개체입니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 예를 들어 Azure 파일 동기화를 사용하여 관리하려는 두 개의 고유한 파일 세트가 있는 경우 두 개의 동기화 그룹을 만들고 서로 다른 엔드포인트를 각 동기화 그룹에 추가합니다.
+- **Azure 파일 공유** : Azure 파일 공유는 Azure 파일 동기화 관계의 *클라우드 엔드포인트* 를 제공하는 서버리스 클라우드 파일 공유입니다. Azure 파일 공유의 파일은 SMB 또는 FileREST 프로토콜을 통해 직접 액세스할 수 있지만, Azure 파일 공유가 Azure 파일 동기화에서 사용되는 경우 주로 Windows Server 캐시를 통해 파일에 액세스하는 것이 좋습니다. 이는 현재 Windows Server와 같은 효율적인 변경 검색 메커니즘이 Azure Files에 없기 때문입니다. 이에 따라 Azure 파일 공유를 직접 변경하면 서버 엔드포인트로 다시 전파되는 데 시간이 걸립니다.
+- **서버 엔드포인트** : Azure 파일 공유에 동기화되는 Windows Server의 경로입니다. 볼륨 또는 볼륨의 루트에 있는 특정 폴더일 수 있습니다. 해당 네임스페이스가 겹치지 않으면 여러 서버 엔드포인트가 동일한 볼륨에 있을 수 있습니다.
+- **동기화 그룹** : **클라우드 엔드포인트** 또는 Azure 파일 공유와 서버 엔드포인트 간의 동기화 관계를 정의하는 개체입니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 예를 들어 Azure 파일 동기화를 사용하여 관리하려는 두 개의 고유한 파일 세트가 있는 경우 두 개의 동기화 그룹을 만들고 서로 다른 엔드포인트를 각 동기화 그룹에 추가합니다.
 
 ### <a name="azure-file-share-management-concepts"></a>Azure 파일 공유 관리 개념
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
 ### <a name="azure-file-sync-management-concepts"></a>Azure 파일 동기화 관리 개념
-동기화 그룹은 **스토리지 동기화 서비스**에 배포됩니다. 이 서비스는 Azure 파일 동기화에 사용할 서버를 등록하고 동기화 그룹 관계를 포함하는 최상위 개체입니다. Storage 동기화 서비스 리소스는 스토리지 계정 리소스의 피어로, Azure 리소스 그룹에 쉽게 배포할 수 있습니다. 스토리지 동기화 서비스는 여러 스토리지 계정과 여러 등록된 Windows Server에서 Azure 파일 공유를 포함하는 동기화 그룹을 만들 수 있습니다.
+동기화 그룹은 **스토리지 동기화 서비스** 에 배포됩니다. 이 서비스는 Azure 파일 동기화에 사용할 서버를 등록하고 동기화 그룹 관계를 포함하는 최상위 개체입니다. Storage 동기화 서비스 리소스는 스토리지 계정 리소스의 피어로, Azure 리소스 그룹에 쉽게 배포할 수 있습니다. 스토리지 동기화 서비스는 여러 스토리지 계정과 여러 등록된 Windows Server에서 Azure 파일 공유를 포함하는 동기화 그룹을 만들 수 있습니다.
 
 스토리지 동기화 서비스에서 동기화 그룹을 만들려면 먼저 Windows Server를 스토리지 동기화 서비스에 등록해야 합니다. 그러면 서버 또는 클러스터와 스토리지 동기화 서비스 간의 트러스트 관계를 나타내는 **등록된 서버** 개체가 만들어집니다. 스토리지 동기화 서비스를 등록하려면 먼저 Azure 파일 동기화 에이전트를 서버에 설치해야 합니다. 개별 서버 또는 클러스터를 한 번에 하나의 스토리지 동기화 서비스에만 등록할 수 있습니다.
 
@@ -115,7 +115,7 @@ Azure 파일 동기화에는 하나 이상의 CPU 및 2GiB 이상의 메모리�
 ### <a name="evaluation-cmdlet"></a>평가 cmdlet
 Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 cmdlet을 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 cmdlet은 지원되지 않는 문자 또는 운영 체제 버전과 같은 데이터 세트 및 파일 시스템과 관련된 잠재적인 문제를 확인합니다. 이 확인에는 아래에서 설명하는 기능 전부는 아니지만 대부분이 포함됩니다. 배포가 원활하게 진행되도록 하려면 이 섹션의 나머지 부분을 자세히 참조하는 것이 좋습니다. 
 
-평가 cmdlet은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)의 지침에 따라 설치할 수 있는 Az PowerShell 모듈을 설치하면 설치될 수 있습니다.
+평가 cmdlet은 [Azure PowerShell 설치 및 구성](/powershell/azure/install-Az-ps)의 지침에 따라 설치할 수 있는 Az PowerShell 모듈을 설치하면 설치될 수 있습니다.
 
 #### <a name="usage"></a>사용  
 평가 도구는 몇 가지 다른 방법으로 호출할 수 있습니다. 즉 시스템 검사, 데이터 세트 검사 또는 둘 다를 수행할 수 있습니다. 시스템 검사 및 데이터 세트 검사를 모두 수행하려면 다음을 수행합니다. 
@@ -200,7 +200,7 @@ Azure 파일 동기화는 Windows Server 2012 R2에서 동일한 볼륨의 데�
 - 클라우드 계층화를 사용하도록 설정한 후 볼륨에서 데이터 중복 제거를 사용하도록 설정하면, 초기 중복 제거 최적화 작업을 통해 아직 계층화되지 않은 볼륨에서 파일을 최적화하며 클라우드 계층화에 다음과 같은 영향을 미칩니다.
     - 사용 가능한 공간 정책은 열 지도를 사용하여 볼륨의 사용 가능한 공간에 따라 파일을 계속 계층화합니다.
     - 날짜 정책은 파일에 액세스하는 중복 제거 최적화 작업으로 인해 다른 방법으로 계층화될 수 있는 파일의 계층화를 건너뜁니다.
-- 지속적인 중복 제거 최적화 작업의 경우 파일이 아직 계층화되지 않았으면 [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) 데이터 중복 제거 설정에 따라 날짜 정책을 사용하는 클라우드 계층화가 지연됩니다. 
+- 지속적인 중복 제거 최적화 작업의 경우 파일이 아직 계층화되지 않았으면 [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume?view=win10-ps) 데이터 중복 제거 설정에 따라 날짜 정책을 사용하는 클라우드 계층화가 지연됩니다. 
     - 예제: MinimumFileAgeDays 설정이 7일이고 클라우드 계층화 날짜 정책이 30일인 경우 날짜 정책은 37일 후에 파일을 계층화합니다.
     - 참고: 파일이 Azure 파일 동기화를 통해 계층화되면 중복 제거 최적화 작업에서 해당 파일을 건너뜁니다.
 - Azure 파일 동기화 에이전트가 설치된 Windows Server 2012 R2를 실행하는 서버가 Windows Server 2016 또는 Windows Server 2019로 업그레이드되면, 동일한 볼륨에서 데이터 중복 제거 및 클라우드 계층화를 지원하기 위해 다음 단계를 수행해야 합니다.  
@@ -213,7 +213,7 @@ Azure 파일 동기화는 Windows Server 2012 R2에서 동일한 볼륨의 데�
 ### <a name="distributed-file-system-dfs"></a>분산 파일 시스템(DFS)
 Azure 파일 동기화에서는 DFS-N(DFS 네임스페이스) 및 DFS-R(DFS 복제)과의 상호 작용을 지원합니다.
 
-**DFS 네임스페이스(DFS-N)** : DFS-N 서버에서 Azure 파일 동기화가 완전히 지원됩니다. 하나 이상의 DFS-N 멤버에 Azure 파일 동기화 에이전트를 설치하면 서버 엔드포인트 및 클라우드 엔드포인트 간에 데이터를 동기화할 수 있습니다. 자세한 내용은 [DFS 네임스페이스 개요](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)를 참조하세요.
+**DFS 네임스페이스(DFS-N)** : DFS-N 서버에서 Azure 파일 동기화가 완전히 지원됩니다. 하나 이상의 DFS-N 멤버에 Azure 파일 동기화 에이전트를 설치하면 서버 엔드포인트 및 클라우드 엔드포인트 간에 데이터를 동기화할 수 있습니다. 자세한 내용은 [DFS 네임스페이스 개요](/windows-server/storage/dfs-namespaces/dfs-overview)를 참조하세요.
  
 **DFS 복제(DFS-R)** : DFS-R 및 Azure 파일 동기화는 모두 복제 솔루션이므로 대부분의 경우, DFS-R을 Azure 파일 동기화로 대체하는 것이 좋습니다. 하지만 DFS-R과 Azure 파일 동기화를 함께 사용해야 하는 몇 가지 시나리오가 있습니다.
 
@@ -226,7 +226,7 @@ Azure 파일 동기화 및 DFS-R을 나란히 작동하려면 다음을 수행�
 1. Azure 파일 동기화 클라우드 계층화는 DFS-R 복제 폴더를 포함하는 볼륨에서 사용하지 않도록 설정해야 합니다.
 2. 서버 엔드포인트는 DFS-R 읽기 전용 복제 폴더에 대해 구성할 수 없습니다.
 
-자세한 내용은 [DFS 복제 개요](https://technet.microsoft.com/library/jj127250)를 참조하세요.
+자세한 내용은 [DFS 복제 개요](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11))를 참조하세요.
 
 ### <a name="sysprep"></a>Sysprep
 sysprep은 Azure 파일 동기화 에이전트가 설치된 서버에서 사용할 수 없으며, 그렇지 않으면 예기치 않은 결과가 발생할 수 있습니다. 에이전트 설치 및 서버 등록은 서버 이미지 배포 및 sysprep 최소 설치 완료 후 발생해야 합니다.
@@ -263,7 +263,7 @@ Azure 파일 동기화를 사용하는 경우 고려해야 할 세 가지 암호
 ### <a name="windows-server-encryption-at-rest"></a>Windows Server 저장 데이터 암호화 
 일반적으로 Azure 파일 동기화에서 작동하는 Windows Server에서 데이터를 암호화하는 두 가지 전략이 있습니다. 즉 파일 시스템 아래의 암호화(파일 시스템 및 여기에 기록된 모든 데이터가 암호화됨) 및 파일 형식 자체 내의 암호화입니다. 이러한 방법은 상호 배타적이지 않습니다. 암호화 목적이 다르므로 원하는 경우 함께 사용할 수 있습니다.
 
-암호화를 파일 시스템 아래에 제공하기 위해 Windows Server에서 BitLocker 받은 편지함을 제공합니다. BitLocker는 Azure 파일 동기화에 완전히 투명합니다. BitLocker와 같은 암호화 메커니즘을 사용하는 주된 이유는 누군가가 디스크를 도용하여 온-프레미스 데이터 센터에서 데이터가 물리적으로 반출되지 않도록 방지하고 데이터에 대한 무단 읽기/쓰기 작업을 수행하는 권한이 없는 OS를 사이드로드하지 않도록 방지할 수 있기 때문입니다. BitLocker에 대한 자세한 내용은 [BitLocker 개요](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview)를 참조하세요.
+암호화를 파일 시스템 아래에 제공하기 위해 Windows Server에서 BitLocker 받은 편지함을 제공합니다. BitLocker는 Azure 파일 동기화에 완전히 투명합니다. BitLocker와 같은 암호화 메커니즘을 사용하는 주된 이유는 누군가가 디스크를 도용하여 온-프레미스 데이터 센터에서 데이터가 물리적으로 반출되지 않도록 방지하고 데이터에 대한 무단 읽기/쓰기 작업을 수행하는 권한이 없는 OS를 사이드로드하지 않도록 방지할 수 있기 때문입니다. BitLocker에 대한 자세한 내용은 [BitLocker 개요](/windows/security/information-protection/bitlocker/bitlocker-overview)를 참조하세요.
 
 BitLocker와 비슷하게 작동하는 타사 제품은 NTFS 볼륨 아래에 위치한다는 점에서 Azure 파일 동기화와 완전히 투명하게 작동해야 합니다. 
 
@@ -368,7 +368,7 @@ Microsoft의 사내 바이러스 백신 솔루션, Windows Defender 및 SCEP(Sys
 > 바이러스 백신 공급업체는 Microsoft 다운로드 센터에서 다운로드할 수 있는 [Azure 파일 동기화 바이러스 백신 호환성 테스트 도구 모음](https://www.microsoft.com/download/details.aspx?id=58322)을 사용하여 제품과 Azure 파일 동기화 간의 호환성을 확인할 수 있습니다.
 
 ## <a name="backup"></a>Backup 
-클라우드 계층화를 사용 하는 경우 서버 끝점을 직접 백업 하는 솔루션이 나 서버 끝점이 있는 VM을 사용 하면 안 됩니다. 클라우드 계층화를 사용 하면 데이터의 하위 집합만 서버 끝점에 저장 되며 전체 데이터 집합은 Azure 파일 공유에 상주 합니다. 사용 되는 백업 솔루션에 따라 계층화 된 파일은 무시 되 고 백업 되지 않습니다 (FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 특성이 설정 되어 있기 때문에). 또는 디스크로 회수 되어 송신 요금이 높아집니다. 클라우드 백업 솔루션을 사용 하 여 Azure 파일 공유를 직접 백업 하는 것이 좋습니다. 자세한 내용은 [azure 파일 공유 백업 정보](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) 또는 백업 공급자에 게 문의 하 여 azure 파일 공유 백업 지원을 참조 하세요.
+클라우드 계층화를 사용 하는 경우 서버 끝점을 직접 백업 하는 솔루션이 나 서버 끝점이 있는 VM을 사용 하면 안 됩니다. 클라우드 계층화를 사용 하면 데이터의 하위 집합만 서버 끝점에 저장 되며 전체 데이터 집합은 Azure 파일 공유에 상주 합니다. 사용 되는 백업 솔루션에 따라 계층화 된 파일은 무시 되 고 백업 되지 않습니다 (FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 특성이 설정 되어 있기 때문에). 또는 디스크로 회수 되어 송신 요금이 높아집니다. 클라우드 백업 솔루션을 사용 하 여 Azure 파일 공유를 직접 백업 하는 것이 좋습니다. 자세한 내용은 [azure 파일 공유 백업 정보](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) 또는 백업 공급자에 게 문의 하 여 azure 파일 공유 백업 지원을 참조 하세요.
 
 온-프레미스 백업 솔루션을 사용 하려는 경우 클라우드 계층화를 사용 하지 않는 동기화 그룹의 서버에서 백업을 수행 해야 합니다. 복원을 수행할 때 볼륨 수준 또는 파일 수준 복원 옵션을 사용합니다. 파일 수준 복원 옵션을 사용하여 복원된 파일은 동기화 그룹의 모든 엔드포인트에 동기화되고 기존 파일은 백업에서 복원된 버전으로 대체됩니다.  볼륨 수준 복원은 Azure 파일 공유 또는 기타 서버 엔드포인트의 최신 파일 버전을 대체하지 않습니다.
 

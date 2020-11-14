@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: bf75537c0baf029bc3fc63e320f6290a1f41a524
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7680e251d8411ce154e1f7dfb8af1d66514dd579
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738842"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629464"
 ---
 # <a name="how-to-create-an-nfs-share"></a>NFS 공유를 만드는 방법
 
@@ -38,7 +38,7 @@ Azure 파일 공유는 클라우드에 상주 하는 완전히 관리 되는 파
     - [Azure Files와 함께 사용 하기 위해 Linux에서 지점 및 사이트 간 (P2S) VPN을 구성](storage-files-configure-p2s-vpn-linux.md)합니다.
     - [Azure Files와 함께 사용 하기 위해 사이트 간 VPN을 구성](storage-files-configure-s2s-vpn.md)합니다.
     - [Express](../../expressroute/expressroute-introduction.md)경로를 구성 합니다.
-- Azure CLI를 사용하려면 [최신 버전을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하세요.
+- Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)하세요.
 
 ## <a name="register-the-nfs-41-protocol"></a>NFS 4.1 프로토콜 등록
 
@@ -110,7 +110,7 @@ FileStorage 계정을 만들고 네트워킹을 구성 했으므로 NFS 파일 �
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   PowerShell 버전을 업그레이드 하려면 [기존 Windows Powershell 업그레이드](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) 를 참조 하세요.
+   PowerShell 버전을 업그레이드 하려면 [기존 Windows Powershell 업그레이드](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) 를 참조 하세요.
     
 1. PowershellGet 모듈의 최신 버전을 설치 합니다.
 
@@ -126,7 +126,7 @@ FileStorage 계정을 만들고 네트워킹을 구성 했으므로 NFS 파일 �
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   PowerShell 모듈을 설치 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) 를 참조 하세요.
+   PowerShell 모듈을 설치 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps?view=azps-3.0.0) 를 참조 하세요.
    
 1. Azure PowerShell 모듈을 사용 하 여 프리미엄 파일 공유를 만들려면 [AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) cmdlet을 사용 합니다.
 

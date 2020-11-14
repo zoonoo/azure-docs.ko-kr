@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6b201565ae2bcadccf55cee78ade0e011e603a15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb74ab16e51fbb3a157757353d5743e889f993dd
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515382"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629702"
 ---
 # <a name="develop-for-azure-files-with-c"></a>C++를 사용하여 Azure Files 개발
 
@@ -32,7 +32,7 @@ ms.locfileid: "85515382"
 * 공유에 정의된 공유 액세스 정책을 사용하는 파일에 대해 공유 액세스 서명(SAS 키) 만들기
 
 > [!Note]  
-> Azure Files는 SMB를 통해 액세스할 수 있기 때문에 표준 C++ I/O 클래스 및 함수를 사용하여 Azure 파일 공유에 액세스하는 간단한 애플리케이션을 작성할 수 있습니다. 이 문서에서는 [File REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage C++ SDK를 사용하는 애플리케이션을 작성하는 방법에 대해 설명합니다.
+> Azure Files는 SMB를 통해 액세스할 수 있기 때문에 표준 C++ I/O 클래스 및 함수를 사용하여 Azure 파일 공유에 액세스하는 간단한 애플리케이션을 작성할 수 있습니다. 이 문서에서는 [File REST API](/rest/api/storageservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage C++ SDK를 사용하는 애플리케이션을 작성하는 방법에 대해 설명합니다.
 
 ## <a name="create-a-c-application"></a>C++ 애플리케이션 만들기
 
@@ -41,7 +41,7 @@ ms.locfileid: "85515382"
 Azure Storage Client 2.4.0 for C++를 설치하려면 다음 방법 중 하나를 사용할 수 있습니다.
 
 * **Linux:**[Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.
-* **Windows:** Visual Studio에서 **도구 &gt; NuGet 패키지 관리자 &gt; 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 에 다음 명령을 입력하고 **ENTER**를 누릅니다.
+* **Windows:** Visual Studio에서 **도구 &gt; NuGet 패키지 관리자 &gt; 패키지 관리자 콘솔** 을 클릭합니다. [NuGet 패키지 관리자 콘솔](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 에 다음 명령을 입력하고 **ENTER** 를 누릅니다.
   
 
 ```powershell
@@ -79,7 +79,7 @@ azure::storage::cloud_storage_account storage_account =
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 
-Azure Files의 모든 파일 및 디렉터리는 **공유**라는 이름의 컨테이너 안에 있습니다. 스토리지 계정은 계정 용량이 허용하는 만큼의 공유를 가질 수 있습니다. 공유 및 해당 콘텐츠에 액세스하려면 Azure Files 클라이언트를 사용해야 합니다.
+Azure Files의 모든 파일 및 디렉터리는 **공유** 라는 이름의 컨테이너 안에 있습니다. 스토리지 계정은 계정 용량이 허용하는 만큼의 공유를 가질 수 있습니다. 공유 및 해당 콘텐츠에 액세스하려면 Azure Files 클라이언트를 사용해야 합니다.
 
 ```cpp
 // Create the Azure Files client.
@@ -103,7 +103,7 @@ if (share.create_if_not_exists()) {
 }
 ```
 
-이 시점에서 **공유**는 **my-sample-share**라는 이름의 공유에 대해 참조를 포함합니다.
+이 시점에서 **공유** 는 **my-sample-share** 라는 이름의 공유에 대해 참조를 포함합니다.
 
 ## <a name="delete-an-azure-file-share"></a>Azure 파일 공유 삭제
 
@@ -120,7 +120,7 @@ share.delete_share_if_exists();
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
 
-루트 디렉터리에 이들 모두를 포함하는 대신 하위 디렉터리 내에서 파일을 배치하여 스토리지를 구성할 수 있습니다. Azure Files를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. 아래 코드에서는 루트 디렉터리 아래 **my-sample-directory**를 만들고 **my-sample-subdirectory**라는 하위 디렉터리를 만듭니다.
+루트 디렉터리에 이들 모두를 포함하는 대신 하위 디렉터리 내에서 파일을 배치하여 스토리지를 구성할 수 있습니다. Azure Files를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. 아래 코드에서는 루트 디렉터리 아래 **my-sample-directory** 를 만들고 **my-sample-subdirectory** 라는 하위 디렉터리를 만듭니다.
 
 ```cpp
 // Retrieve a reference to a directory
@@ -160,7 +160,7 @@ directory.delete_directory_if_exists();
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Azure 파일 공유의 파일 및 디렉터리 열거
 
-공유 내에서 파일 및 디렉터리 목록을 가져오는 것은 **cloud_file_directory** 참조에서 **list_files_and_directories**를 호출하여 쉽게 수행할 수 있습니다. 반환된 **list_file_and_directory_item**의 메서드 및 다양한 속성에 액세스하려면 **cloud_file** 개체를 가져오는 **list_file_and_directory_item.as_file** 메서드를 호출하거나, **cloud_file_directory** 개체를 가져오는 **list_file_and_directory_item.as_directory** 메서드를 호출해야 합니다.
+공유 내에서 파일 및 디렉터리 목록을 가져오는 것은 **cloud_file_directory** 참조에서 **list_files_and_directories** 를 호출하여 쉽게 수행할 수 있습니다. 반환된 **list_file_and_directory_item** 의 메서드 및 다양한 속성에 액세스하려면 **cloud_file** 개체를 가져오는 **list_file_and_directory_item.as_file** 메서드를 호출하거나, **cloud_file_directory** 개체를 가져오는 **list_file_and_directory_item.as_directory** 메서드를 호출해야 합니다.
 
 다음 코드는 공유의 루트 디렉터리에 있는 각 항목의 URI를 검색하고 출력하는 방법을 보여 줍니다.
 

@@ -1,7 +1,7 @@
 ---
 title: ParallelRunStep 디버그 및 문제 해결
 titleSuffix: Azure Machine Learning
-description: Python용 Azure Machine Learning SDK의 기계 학습 파이프라인에서 ParallelRunStep을 디버그하고 문제를 해결합니다. 파이프라인에서 개발 중 발생하는 일반적인 문제와, 원격 실행 전과 도중에 스크립트를 디버그하는 데 도움이 되는 팁에 대해 알아봅니다.
+description: Python용 Azure Machine Learning SDK의 기계 학습 파이프라인에서 ParallelRunStep을 디버그하고 문제를 해결합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: 93997629b6b30f87769a0154e344215ca52c8ec4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 09f75e9e8f972ec44098e119dc5b30bd44638918
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308393"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630467"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>ParallelRunStep 디버그 및 문제 해결
 

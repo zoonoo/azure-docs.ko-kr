@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 941435e90f91a4c3a4e41c2869e35157da41d8b0
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: ef92895374f07c79f8ba8d626a0aab3d89733f40
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592178"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629651"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Azure IoT Edge 게시 및 구독
 
@@ -31,8 +31,10 @@ Azure IoT Edge MQTT broker를 사용 하 여 메시지를 게시 하 고 구독�
 - SKU의 **IoT Hub** 는 F1, S1, S2 또는 S3 중 하나입니다.
 - **1.2 이상 버전의 IoT Edge 장치가** 있어야 합니다. IoT Edge MQTT broker는 현재 공개 미리 보기로 제공 되므로 edgeHub 컨테이너에서 다음 환경 변수를 true로 설정 하 여 MQTT broker를 사용 하도록 설정 합니다.
 
-    - experimentalFeatures__enabled
-    - mqttbroker__enabled
+   | 속성 | 값 |
+   | - | - |
+   | `experimentalFeatures__enabled` | `true` |
+   | `experimentalFeatures__mqttBrokerEnabled` | `true` |
 
 - IoT Edge 장치에 설치 된 **클라이언트를 Mosquitto** 합니다. 이 문서에서는 [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) 및 [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html)를 포함 하는 널리 사용 되는 Mosquitto 클라이언트를 사용 합니다. 다른 MQTT 클라이언트를 대신 사용할 수 있습니다. Ubuntu 장치에 Mosquitto 클라이언트를 설치 하려면 다음 명령을 실행 합니다.
 

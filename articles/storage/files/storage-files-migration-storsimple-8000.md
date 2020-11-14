@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322216"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630280"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 8100 및 8600 마이그레이션
 
@@ -45,7 +45,7 @@ StorSimple Data Manager 리소스의 데이터 변환 서비스 작업을 통해
 
 Azure 파일 공유는 파일 서비스 배포를 구성 하기 위한 새로운 세계 세계 전체를 엽니다. Azure 파일 공유는 기본적으로 작동 하는 친숙 한 Kerberos 인증 및 기존 NTFS 권한 (파일 및 폴더 Acl)을 사용 하 여 사용자가 SMB 프로토콜을 통해 직접 액세스 하도록 설정할 수 있는 클라우드의 SMB 공유 일 뿐입니다. [Azure 파일 공유에 대 한 id 기반 액세스](storage-files-active-directory-overview.md)에 대해 자세히 알아보세요.
 
-직접 액세스에 대 한 대안은 [Azure File Sync](https://aka.ms/AFS)입니다. Azure File Sync은 온-프레미스에서 자주 사용 하는 파일을 캐시 하는 StorSimple의 직접적인 아날로그 기능입니다.
+직접 액세스에 대 한 대안은 [Azure File Sync](./storage-sync-files-planning.md)입니다. Azure File Sync은 온-프레미스에서 자주 사용 하는 파일을 캐시 하는 StorSimple의 직접적인 아날로그 기능입니다.
 
 Azure File Sync는 다음과 같은 두 가지 주요 구성 요소를 기반으로 하는 Microsoft 클라우드 서비스입니다.
 
@@ -56,7 +56,7 @@ Azure 파일 공유는 특성, 권한, 타임 스탬프 등의 저장 된 파일
 
 이 문서에서는 마이그레이션 단계를 중점적으로 설명 합니다. 마이그레이션하기 전에 Azure File Sync에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
-* [Azure File Sync 개요](https://aka.ms/AFS "개요")
+* [Azure File Sync 개요](./storage-sync-files-planning.md "개요")
 * [Azure File Sync 배포 가이드](storage-sync-files-deployment-guide.md)
 
 ### <a name="storsimple-service-data-encryption-key"></a>StorSimple 서비스 데이터 암호화 키
@@ -209,7 +209,7 @@ Azure 파일 공유 또는 표준 저장소에 대해 premium storage (SSD)를 �
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="새 파일 공유 UI를 보여 주는 Azure Portal 스크린샷.":::
     :::column-end:::
     :::column:::
-        </br>**이름**</br>소문자, 숫자 및 하이픈만 사용할 수 있습니다.</br></br>**할당량**</br>여기에서 할당량은 Windows Server 인스턴스의 SMB 하드 할당량과 비교할 수 있습니다. 할당량에 도달 하면 마이그레이션 및 기타 서비스가 실패 하기 때문에 여기서 할당량을 설정 하지 않는 것이 좋습니다.</br></br>**계층**</br>새 파일 공유에 대해 **최적화 된 트랜잭션** 을 선택 합니다. 마이그레이션 중에는 많은 트랜잭션이 발생 합니다. 계층을 나중에 작업에 가장 적합 한 계층으로 변경 하는 것이 더 비용 효율적입니다.
+        </br>**Name**</br>소문자, 숫자 및 하이픈만 사용할 수 있습니다.</br></br>**할당량**</br>여기에서 할당량은 Windows Server 인스턴스의 SMB 하드 할당량과 비교할 수 있습니다. 할당량에 도달 하면 마이그레이션 및 기타 서비스가 실패 하기 때문에 여기서 할당량을 설정 하지 않는 것이 좋습니다.</br></br>**계층**</br>새 파일 공유에 대해 **최적화 된 트랜잭션** 을 선택 합니다. 마이그레이션 중에는 많은 트랜잭션이 발생 합니다. 계층을 나중에 작업에 가장 적합 한 계층으로 변경 하는 것이 더 비용 효율적입니다.
     :::column-end:::
 :::row-end:::
 
@@ -273,7 +273,7 @@ Azure File Sync를 사용 하면 자주 액세스 하는 파일의 온-프레미
 | **\>**                     | [원본] 및 [대상-매핑] 연산자가 있습니다.     |
 |**\|** 또는 RETURN (새 줄) | 두 폴더 매핑 명령의 구분 기호입니다. </br>또는이 문자를 생략 하 고 **Enter 키** 를 선택 하 여 한 줄에 다음 매핑 식을 가져올 수 있습니다.        |
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 *사용자 데이터* 폴더의 콘텐츠를 대상 파일 공유의 루트로 이동 합니다.
 ``` console
 \User data > \
@@ -385,7 +385,7 @@ Azure File Sync의 일부를 배포할 때입니다.
 * [Windows P2S VPN을 구성 하는 방법](storage-files-configure-p2s-vpn-windows.md)
 * [Linux P2S VPN을 구성 하는 방법](storage-files-configure-p2s-vpn-linux.md)
 * [DNS 전달을 구성 하는 방법](storage-files-networking-dns.md)
-* [DFS 구성-N](https://aka.ms/AzureFiles/Namespaces)
+* [DFS 구성-N](/windows-server/storage/dfs-namespaces/dfs-overview)
    :::column-end:::
 :::row-end:::
 
@@ -535,7 +535,7 @@ Azure File Sync 사용 하는 경우 StorSimple 볼륨에 있는 공유와 일�
 
 DFS N을 배포 하는 경우 DFN-Namespaces 새 서버 폴더 위치를 가리키도록 할 수 있습니다. DFS N이 배포 되지 않은 상태에서 8100 또는 8600 어플라이언스를 Windows Server 인스턴스와 로컬로 제어 되 하는 경우 해당 서버를 도메인에서 사용할 수 있습니다. 그런 다음 새 Azure File Sync 사용 Windows Server 인스턴스에 도메인 가입 합니다. 이 프로세스 중에는 사용자, 그룹 정책 및 스크립트에 대해 잘라내기를 투명 하 게 유지 하도록 서버에 이전 서버와 동일한 서버 이름과 공유 이름을 지정 합니다.
 
-[DFS-N](https://aka.ms/AzureFiles/Namespaces)에 대해 자세히 알아보세요.
+[DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)에 대해 자세히 알아보세요.
 
 ## <a name="deprovision"></a>프로비전 해제
 
@@ -561,7 +561,7 @@ DFS N을 배포 하는 경우 DFN-Namespaces 새 서버 폴더 위치를 가리�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure File Sync: aka.ms/AFS](https://aka.ms/AFS)에 대해 자세히 알아보세요.
+* [Azure File Sync: aka.ms/AFS](./storage-sync-files-planning.md)에 대해 자세히 알아보세요.
 * [클라우드 계층화](storage-sync-cloud-tiering.md) 정책의 유연성을 이해 합니다.
 * Azure 파일 공유에 대 한 [Azure Backup를 사용 하도록 설정](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) 하 여 스냅숏을 예약 하 고 백업 보존 일정을 정의 합니다.
 * Azure Portal에서 일부 파일이 영구적으로 동기화 되지 않는 것을 확인 하는 경우 문제 [해결 가이드](storage-sync-files-troubleshoot.md) 를 검토 하 여 이러한 문제를 해결 합니다.

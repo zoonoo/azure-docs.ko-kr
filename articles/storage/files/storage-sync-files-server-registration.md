@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c457dacd947c7af8a6be94205ed135ce04a49a06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 194b0f2ff94197fe11c189e97dbc65c9d0367932
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85509509"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630586"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Azure 파일 동기화에 등록된 서버 관리
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -20,9 +20,9 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 다음 문서에서는 스토리지 동기화 서비스를 사용하여 서버를 등록하고 관리하는 방법을 보여 줍니다. 엔드투엔드 Azure 파일 동기화를 배포하는 방법에 대한 자세한 내용은 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>스토리지 동기화 서비스로 서버 등록/등록 취소
-Azure 파일 동기화를 사용하여 서버를 등록하면 Windows Server와 Azure 간에 트러스트 관계가 설정됩니다. 그런 다음 이 관계를 사용하여 Azure 파일 공유(*클라우드 엔드포인트*라고도 함)와 동기화해야 하는 특정 폴더를 나타내는 *서버 엔드포인트*를 서버에 만들 수 있습니다. 
+Azure 파일 동기화를 사용하여 서버를 등록하면 Windows Server와 Azure 간에 트러스트 관계가 설정됩니다. 그런 다음 이 관계를 사용하여 Azure 파일 공유( *클라우드 엔드포인트* 라고도 함)와 동기화해야 하는 특정 폴더를 나타내는 *서버 엔드포인트* 를 서버에 만들 수 있습니다. 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 스토리지 동기화 서비스를 사용하여 서버를 등록하려면 먼저 필요한 필수 구성 요소를 갖춘 서버를 준비해야 합니다.
 
 * 서버에서 지원되는 Windows Server 버전을 실행해야 합니다. 자세한 내용은 [Azure 파일 동기화 시스템 요구 사항 및 상호 운용성](storage-sync-files-planning.md#windows-file-server-considerations)을 참조하세요.
@@ -32,7 +32,7 @@ Azure 파일 동기화를 사용하여 서버를 등록하면 Windows Server와 
     
     ![IE 고급 보안 구성이 강조 표시된 서버 관리자 UI](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
-* Azure PowerShell 모듈이 서버에 설치되어 있는지 확인합니다. 서버가 장애 조치(failover) 클러스터의 멤버인 경우 클러스터의 모든 노드에 Az 모듈이 필요합니다. Az 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 참조하세요.
+* Azure PowerShell 모듈이 서버에 설치되어 있는지 확인합니다. 서버가 장애 조치(failover) 클러스터의 멤버인 경우 클러스터의 모든 노드에 Az 모듈이 필요합니다. Az 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/install-Az-ps)을 참조하세요.
 
     > [!Note]  
     > 최신 버전의 Az PowerShell 모듈을 사용하여 서버를 등록/등록 취소하는 것이 좋습니다. Az 패키지가 이전에 이 서버에 설치되었고 이 서버의 PowerShell 버전이 5.* 이상인 경우 `Update-Module` cmdlet을 사용하여 이 패키지를 업데이트할 수 있습니다. 
@@ -58,7 +58,7 @@ Azure 파일 동기화를 사용하여 서버를 등록하면 Windows Server와 
 ```    
 
 ### <a name="register-a-server-with-storage-sync-service"></a>스토리지 동기화 서비스에 서버 등록
-Azure 파일 동기화의 *동기화 그룹*에서 서버를 *서버 엔드포인트*로 사용하려면 먼저 해당 서버를 *스토리지 동기화 서비스*에 등록해야 합니다. 서버는 한 번에 하나의 스토리지 동기화 서비스에만 등록할 수 있습니다.
+Azure 파일 동기화의 *동기화 그룹* 에서 서버를 *서버 엔드포인트* 로 사용하려면 먼저 해당 서버를 *스토리지 동기화 서비스* 에 등록해야 합니다. 서버는 한 번에 하나의 스토리지 동기화 서비스에만 등록할 수 있습니다.
 
 #### <a name="install-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트 설치
 1. [Azure 파일 동기화 에이전트를 다운로드](https://go.microsoft.com/fwlink/?linkid=858257)합니다.
@@ -77,7 +77,7 @@ Azure 파일 동기화의 *동기화 그룹*에서 서버를 *서버 엔드포�
 
 #### <a name="register-the-server-using-the-server-registration-ui"></a>서버 등록 UI를 사용하여 서버 등록
 1. Azure 파일 동기화 에이전트 설치를 완료한 후 바로 서버 등록 UI가 시작되지 않은 경우에는 `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`를 실행하여 수동으로 해당 UI를 시작할 수 있습니다.
-2. *로그인*을 클릭하여 Azure 구독에 액세스합니다. 
+2. *로그인* 을 클릭하여 Azure 구독에 액세스합니다. 
 
     ![서버 등록 UI 대화 상자 열기](media/storage-sync-files-server-registration/server-registration-ui-1.png)
 
@@ -180,7 +180,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ```
 
 ### <a name="use-windows-server-storage-qos"></a>Windows Server 스토리지 QoS 사용 
-Azure 파일 동기화가 Windows Server 가상화 호스트에서 실행되는 가상 머신에 호스팅되는 경우 스토리지 QoS(스토리지 서비스 품질)를 사용하여 스토리지 IO 사용을 제어할 수 있습니다. 스토리지 QoS 정책은 최대(또는 위에서 StorageSyncNetwork 제한이 적용되는 방식과 같은 제한) 또는 최소(또는 예약) 중 하나로 설정할 수 있습니다. 최대 대신 최소를 설정하면 다른 워크로드에서 사용하지 않는 경우 Azure 파일 동기화에서 사용 가능한 스토리지 대역폭을 사용하도록 버스트할 수 있습니다. 자세한 내용은 [스토리지 서비스 품질](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview)을 참조하세요.
+Azure 파일 동기화가 Windows Server 가상화 호스트에서 실행되는 가상 머신에 호스팅되는 경우 스토리지 QoS(스토리지 서비스 품질)를 사용하여 스토리지 IO 사용을 제어할 수 있습니다. 스토리지 QoS 정책은 최대(또는 위에서 StorageSyncNetwork 제한이 적용되는 방식과 같은 제한) 또는 최소(또는 예약) 중 하나로 설정할 수 있습니다. 최대 대신 최소를 설정하면 다른 워크로드에서 사용하지 않는 경우 Azure 파일 동기화에서 사용 가능한 스토리지 대역폭을 사용하도록 버스트할 수 있습니다. 자세한 내용은 [스토리지 서비스 품질](/windows-server/storage/storage-qos/storage-qos-overview)을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 - [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)

@@ -1,7 +1,7 @@
 ---
 title: 새 데이터에 대 한 ML 파이프라인 트리거
 titleSuffix: Azure Machine Learning
-description: Azure Logic Apps를 사용 하 여 ML 파이프라인의 실행을 트리거하는 방법에 대해 알아봅니다.
+description: Azure Logic Apps를 사용 하 여 새 데이터에 응답 하는 Azure Machine Learning 파이프라인의 실행을 트리거하는 방법을 알아봅니다.
 services: machine-learning
 author: NilsPohlmann
 ms.author: nilsp
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: dabcf30488e45fbe6c7c5b9e5aa0c8bd57f28fd8
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 119436cbe03e619b0d09df30ab2c5dc34126b0ce
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443503"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629396"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>논리 앱에서 Machine Learning 파이프라인 실행 트리거
 

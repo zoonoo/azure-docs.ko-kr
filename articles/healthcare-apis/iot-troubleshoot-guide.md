@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 11/09/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 124c3b3667e847a5ee1bb8034ef01088c629d503
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 403b6656a47f56508682dcda2438a85d513fbfb1
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540946"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630501"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>FHIR 용 Azure IoT 커넥터 (미리 보기) 문제 해결 가이드
 
-이 문서에서는 일반적인 Azure IoT 커넥터의 오류 메시지 및 조건에 대 한 문제 해결 단계를 제공 합니다.  
+이 문서에서는 신속한 의료 상호 운용성 리소스 (FHIR&#174;) * 오류 메시지 및 조건에 대 한 일반적인 Azure IoT 커넥터 문제를 해결 하는 단계를 제공 합니다.  
 
 또한 FHIR 변환 매핑 JSON에 대 한 Azure IoT 커넥터의 복사본을 만드는 방법에 대해 알아봅니다 (예: 장치 및 FHIR).  
 
@@ -102,7 +102,7 @@ FHIR 용 Azure IoT 커넥터는 여러 메트릭을 생성 하 여 데이터 흐
 
 |데이터 흐름 단계|Description|
 |---------------|-----------|
-|설치|IoT 커넥터의 인스턴스를 설정 하는 것과 관련 된 작업입니다.|
+|설정|IoT 커넥터의 인스턴스를 설정 하는 것과 관련 된 작업입니다.|
 |표준화|장치 데이터를 정규화 하는 데이터 흐름 단계|
 |그룹화|정규화 된 데이터가 그룹화 되는 데이터 흐름 단계|
 |FHIRConversion|그룹화 된 정규화 된 데이터를 FHIR 리소스로 변환 하는 데이터 흐름 단계|
@@ -114,8 +114,8 @@ FHIR 용 Azure IoT 커넥터는 여러 메트릭을 생성 하 여 데이터 흐
 
 |심각도|설명|
 |---------------|-----------|
-|Warning|데이터 흐름 프로세스에 약간의 사소한 문제가 있지만 장치 메시지 처리가 중지 되지 않습니다.|
-|Error|특정 장치 메시지를 처리 하는 동안 오류가 발생 하 고 다른 메시지가 계속 해 서 정상적으로 실행 될 수 있습니다.|
+|경고|데이터 흐름 프로세스에 약간의 사소한 문제가 있지만 장치 메시지 처리가 중지 되지 않습니다.|
+|오류|특정 장치 메시지를 처리 하는 동안 오류가 발생 하 고 다른 메시지가 계속 해 서 정상적으로 실행 될 수 있습니다.|
 |위험|IoT 커넥터에 일부 시스템 수준 문제가 있으며 처리할 메시지가 없습니다.|
 
 ### <a name="the-type-of-the-error"></a>오류의 유형입니다.
@@ -138,15 +138,15 @@ FHIR 용 Azure IoT 커넥터는 여러 메트릭을 생성 하 여 데이터 흐
 
 |오류 이름|Description|오류 유형|오류 심각도|데이터 흐름 단계|
 |----------|-----------|-------------|--------------|------------------|
-|MultipleResourceFoundException|장치 메시지에 있는 각 식별자에 대해 FHIR 서버에서 여러 환자 또는 장치 리소스를 발견 하는 동안 오류가 발생 했습니다.|FHIRResourceError|Error|FHIRConversion|
+|MultipleResourceFoundException|장치 메시지에 있는 각 식별자에 대해 FHIR 서버에서 여러 환자 또는 장치 리소스를 발견 하는 동안 오류가 발생 했습니다.|FHIRResourceError|오류|FHIRConversion|
 |TemplateNotFoundException|IoT 커넥터의 인스턴스를 사용 하 여 장치 또는 FHIR 매핑 템플릿이 구성 되지 않았습니다.|DeviceTemplateError, Fanr템플릿 오류|위험|정규화, FHIRConversion|
-|CorrelationIdNotDefinedException|상관 관계 ID가 장치 매핑 템플릿에서 지정 되지 않았습니다. CorrelationIdNotDefinedException는 FHIR 관찰에서 상관 관계 ID를 사용 하 여 장치 측정을 그룹화 해야 하지만 올바르게 구성 되지 않은 경우에만 발생 하는 조건부 오류입니다.|DeviceMessageError|Error|표준화|
-|PatientDeviceMismatchException|이 오류는 FHIR 서버의 장치 리소스에 환자 리소스에 대 한 참조가 있을 때 발생 합니다 .이 리소스는 메시지에 있는 환자 식별자와 일치 하지 않습니다.|FHIRResourceError|Error|FHIRConversionError|
-|PatientNotFoundException|장치 메시지에 있는 장치 식별자와 연결 된 장치 FHIR 리소스에서 참조 하는 환자 FHIR 리소스가 없습니다. 참고이 오류는 IoT 커넥터 인스턴스가 *조회* 확인 유형으로 구성 된 경우에만 발생 합니다.|FHIRConversionError|Error|FHIRConversion|
-|DeviceNotFoundException|장치 메시지에 있는 장치 식별자와 연결 된 FHIR 서버에 장치 리소스가 없습니다.|DeviceMessageError|Error|표준화|
+|CorrelationIdNotDefinedException|상관 관계 ID가 장치 매핑 템플릿에서 지정 되지 않았습니다. CorrelationIdNotDefinedException는 FHIR 관찰에서 상관 관계 ID를 사용 하 여 장치 측정을 그룹화 해야 하지만 올바르게 구성 되지 않은 경우에만 발생 하는 조건부 오류입니다.|DeviceMessageError|오류|표준화|
+|PatientDeviceMismatchException|이 오류는 FHIR 서버의 장치 리소스에 환자 리소스에 대 한 참조가 있을 때 발생 합니다 .이 리소스는 메시지에 있는 환자 식별자와 일치 하지 않습니다.|FHIRResourceError|오류|FHIRConversionError|
+|PatientNotFoundException|장치 메시지에 있는 장치 식별자와 연결 된 장치 FHIR 리소스에서 참조 하는 환자 FHIR 리소스가 없습니다. 참고이 오류는 IoT 커넥터 인스턴스가 *조회* 확인 유형으로 구성 된 경우에만 발생 합니다.|FHIRConversionError|오류|FHIRConversion|
+|DeviceNotFoundException|장치 메시지에 있는 장치 식별자와 연결 된 FHIR 서버에 장치 리소스가 없습니다.|DeviceMessageError|오류|표준화|
 |PatientIdentityNotDefinedException|이 오류는 장치 메시지에서 환자 식별자를 구문 분석 하는 식이 장치 매핑 템플릿에서 구성 되지 않았거나 환자 식별자가 장치 메시지에 없는 경우에 발생 합니다. 참고이 오류는 IoT 커넥터의 해상도 유형이 *Create* 로 설정 된 경우에만 발생 합니다.|DeviceTemplateError|위험|표준화|
 |DeviceIdentityNotDefinedException|이 오류는 장치 메시지에서 장치 식별자를 구문 분석 하는 식이 장치 매핑 템플릿에서 구성 되지 않았거나 장치 식별자가 장치 메시지에 없는 경우에 발생 합니다.|DeviceTemplateError|위험|표준화|
-|NotSupportedException|지원 되지 않는 형식의 장치 메시지를 받는 동안 오류가 발생 했습니다.|DeviceMessageError|Error|표준화|
+|NotSupportedException|지원 되지 않는 형식의 장치 메시지를 받는 동안 오류가 발생 했습니다.|DeviceMessageError|오류|표준화|
 
 ## <a name="creating-copies-of-the-azure-iot-connector-for-fhir-preview-conversion-mapping-json"></a>FHIR (미리 보기) 변환에 대 한 Azure IoT 커넥터의 복사본 만들기 JSON 매핑
 
@@ -191,6 +191,4 @@ FHIR 용 Azure IoT 커넥터에 대 한 자주 묻는 질문을 확인 합니다
 >[!div class="nextstepaction"]
 >[FHIR Faq 용 Azure IoT 커넥터](fhir-faq.md)
 
-*Azure Portal에서는 Azure IoT Connector for FHIR을 IoT 커넥터(미리 보기)라고 합니다.
-
-FHIR은 HL7의 등록 상표이며, HL7의 사용 허가 하에 사용됩니다.
+* Azure Portal에서 FHIR 용 Azure IoT 커넥터를 IoT 커넥터 (미리 보기) 라고 합니다. FHIR은 HL7의 등록 상표 이며 HL7의 사용 권한과 함께 사용 됩니다.

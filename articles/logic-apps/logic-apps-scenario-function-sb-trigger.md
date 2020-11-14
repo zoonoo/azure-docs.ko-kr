@@ -1,22 +1,22 @@
 ---
 title: Azure Functions를 사용하여 논리 앱 호출
-description: Azure Service Bus을 수신 하 여 논리 앱을 호출 하거나 트리거하는 Azure 함수를 만듭니다.
+description: Azure Functions 및 Azure Service Bus를 사용 하 여 논리 앱 호출 또는 트리거
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fcf7f1a27633c978c10f541d0a341225fbcb126d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f761d85ebfd0ac16f182941c5b5c29636066bf
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013778"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629736"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Azure Functions 및 Azure Service Bus를 사용 하 여 논리 앱 호출 또는 트리거
 
-장기 실행 수신기 또는 작업을 배포 해야 하는 경우 [Azure Functions](../azure-functions/functions-overview.md) 를 사용 하 여 논리 앱을 트리거할 수 있습니다. 예를 들어 [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) 큐에서 수신 대기 하 고 즉시 논리 앱을 밀어넣기 트리거로 실행 하는 Azure 함수를 만들 수 있습니다.
+장기 실행 수신기 또는 작업을 배포 해야 하는 경우 [Azure Functions](../azure-functions/functions-overview.md) 를 사용 하 여 논리 앱을 트리거할 수 있습니다. 예를 들어 [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) 큐에서 수신 대기 하는 함수를 만들고 논리 앱을 밀어넣기 트리거로 즉시 실행할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -24,7 +24,7 @@ ms.locfileid: "89013778"
 
 * Azure Service Bus 네임 스페이스입니다. 네임 스페이스가 없는 경우 [먼저 네임 스페이스를 만듭니다](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* Azure 함수에 대 한 컨테이너인 Azure 함수 앱입니다. 함수 앱이 없으면 [먼저 함수 앱을 만든](../azure-functions/functions-create-first-azure-function.md)다음 .net을 런타임 스택으로 선택 해야 합니다.
+* 함수 앱으로, 함수에 대 한 컨테이너입니다. 함수 앱이 없으면 [먼저 함수 앱을 만든](../azure-functions/functions-create-first-azure-function.md)다음 .net을 런타임 스택으로 선택 해야 합니다.
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
@@ -48,9 +48,9 @@ ms.locfileid: "89013778"
 
    스키마는 없지만 JSON 형식의 샘플 페이로드가 있는 경우 해당 페이로드로 스키마를 생성할 수 있습니다.
 
-   1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.
+   1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성** 을 선택합니다.
 
-   1. **샘플 JSON 페이로드 입력 또는 붙여넣기**아래에서 샘플 페이로드를 입력 하 고 **완료**를 선택 합니다.
+   1. **샘플 JSON 페이로드 입력 또는 붙여넣기** 아래에서 샘플 페이로드를 입력 하 고 **완료** 를 선택 합니다.
 
       ![샘플 페이로드 입력](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
 
@@ -94,13 +94,13 @@ ms.locfileid: "89013778"
 
    ![트리거에 대해 생성된 콜백 URL](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
 
-## <a name="create-azure-function"></a>Azure 함수 만들기
+## <a name="create-a-function"></a>함수 만들기
 
 다음으로 트리거로 작동하고 큐에 수신 대기하는 함수를 만들겠습니다.
 
 1. 아직 함수 앱을 열지 않았으면 Azure Portal에서 함수 앱을 열고 확장합니다. 
 
-1. 함수 앱 이름 아래에서 **Functions**를 확장합니다. **함수** 창에서 **새 함수**를 선택 합니다.
+1. 함수 앱 이름 아래에서 **Functions** 를 확장합니다. **함수** 창에서 **새 함수** 를 선택 합니다.
 
    !["함수"를 확장 하 고 "새 함수"를 선택 합니다.](./media/logic-apps-scenario-function-sb-trigger/add-new-function-to-function-app.png)
 
@@ -114,7 +114,7 @@ ms.locfileid: "89013778"
 
      ![기존 함수 앱의 템플릿 선택](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
 
-1. **Azure Service Bus 큐 트리거** 창에서 트리거의 이름을 제공 하 고 Azure Service Bus SDK 수신기를 사용 하는 큐에 대 한 **Service Bus 연결** 을 설정 하 `OnMessageReceive()` 고 **만들기**를 선택 합니다.
+1. **Azure Service Bus 큐 트리거** 창에서 트리거의 이름을 제공 하 고 Azure Service Bus SDK 수신기를 사용 하는 큐에 대 한 **Service Bus 연결** 을 설정 하 `OnMessageReceive()` 고 **만들기** 를 선택 합니다.
 
 1. 큐 메시지를 트리거로 사용 하 여 이전에 만든 논리 앱 끝점을 호출 하는 기본 함수를 작성 합니다. 함수를 작성 하기 전에 다음 사항을 검토 하십시오.
 

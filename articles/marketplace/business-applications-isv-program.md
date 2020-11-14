@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 7/14/2020
-ms.openlocfilehash: 345b9447daa9fcb5f97ec5d8d00bcf5ea76d958c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 653e6aad7f57b4d683f2f71ed22e402ed5d1fca8
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126739"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630297"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Microsoft 비즈니스 애플케이션 ISV(Independent Software Vendor) 연결 프로그램 온보딩 가이드
 
@@ -38,10 +38,10 @@ ISV 연결 프로그램에 대 한 계정을 설정 하 고 관리 하려면 [�
 > 이 단계를 수행 하려면 계정에서 법적 계약에 서명 하기 위한 파트너 센터의 *소유자* 또는 *관리자* 역할이 필요 합니다.
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인합니다.
-1. **설정** (기어 아이콘)을 선택 하 고 **개발자 설정** 을 선택 합니다.
+1. **설정** (기어 아이콘)과 **개발자 설정** 을 차례로 선택 합니다.
 1. **계약** 을 선택 합니다.
 1. 버전 링크를 선택 하 고 규약을 확인 합니다.
-1. 동의 하 고 동의 하려면 **동의 함을 선택 합니다** .
+1. 동의 하 고 동의 하려면 **동의 함을 선택 합니다**.
 
 ## <a name="set-up-your-billing-information"></a>청구 정보 설정
 
@@ -51,11 +51,12 @@ Business Applications ISV 연결 프로그램에 대 한 청구 정보를 설정
 > 이 단계를 수행 하려면 계정에서 청구 정보를 업데이트 하기 위한 파트너 센터의 *소유자* 또는 *관리자* 역할이 필요 합니다.
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인합니다.
-1. **설정** (기어 아이콘)을 선택 하 고 **개발자 설정** 을 선택 합니다.
-1. **계정** 아래에서 **청구 프로필** 을 선택 합니다.
-1. 법적 엔터티에서 채운 기본 연락처 및 청구 정보를 검토 하 고 필요한 업데이트를 수행 합니다.
+1. **설정** (기어 아이콘)과 **개발자 설정** 을 차례로 선택 합니다.
+1. **계정 설정** 에서 **청구 프로필** 을 선택 합니다.
+1. 법적 엔터티에서 채워지는 기본 연락처 및 청구 정보를 검토 합니다.
+1. 변경 하려면 **업데이트** 를 선택 합니다.
 1. 해당 하는 경우 세금 ID/VAT ID 설정을 제공 합니다.
-1. 변경 내용을 저장하려면 **Save** (저장)를 클릭합니다.
+1. 변경 내용을 저장 하려면 **업데이트** 를 선택 합니다.
 
 > [!NOTE]
 > 언제 든 지 청구 프로필을 업데이트할 수 있습니다. 그러나 *회사 이름* 및 청구 주소 *국가* 는 나중에 변경할 수 없습니다.

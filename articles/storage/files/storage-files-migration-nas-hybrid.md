@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fd8e845734169bcd73fa0e087c30c0f2fd6ef4f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d8d19256dfca21cc805c2689557099a6785f76b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85510308"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629209"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Azure File Sync를 사용 하 여 NAS (네트워크 연결 저장소)에서 하이브리드 클라우드 배포로 마이그레이션
 
@@ -151,7 +151,7 @@ Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
       /MIR
    :::column-end:::
    :::column span="1":::
-      에서이 RoboCopy 명령을 여러 번 실행 하 여 동일한 대상/대상에 순차적으로 실행할 수 있습니다. 이전에 복사 된 항목을 식별 하 고 생략 합니다. 마지막으로 실행 한 이후에 발생 한 변경 내용, 추가 내용 및 "*삭제*"만 처리 됩니다. 이전에 명령을 실행 하지 않은 경우에는 아무 것도 생략 됩니다. */MIR* 플래그는 여전히 적극적으로 사용 되 고 변경 되는 원본 위치에 대 한 뛰어난 옵션입니다.
+      에서이 RoboCopy 명령을 여러 번 실행 하 여 동일한 대상/대상에 순차적으로 실행할 수 있습니다. 이전에 복사 된 항목을 식별 하 고 생략 합니다. 마지막으로 실행 한 이후에 발생 한 변경 내용, 추가 내용 및 " *삭제* "만 처리 됩니다. 이전에 명령을 실행 하지 않은 경우에는 아무 것도 생략 됩니다. */MIR* 플래그는 여전히 적극적으로 사용 되 고 변경 되는 원본 위치에 대 한 뛰어난 옵션입니다.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -208,13 +208,13 @@ Windows Server 폴더에 대 한 공유를 만들고 DFS-N 배포를 조정 하 
 이러한 복사본 중 일부를 병렬로 실행할 수 있습니다. 한 번에 하나의 Azure 파일 공유의 범위를 처리 하는 것이 좋습니다.
 
 > [!WARNING]
-> 모든 데이터를 NAS에서 Windows Server로 이동 하 고 마이그레이션이 완료 된 후에는 Azure Portal의 ***모든***  동기화 그룹으로 돌아가서 클라우드 계층화 볼륨의 사용 가능한 공간 (%) 값을 캐시 사용률에 더 적합 한 값 (예: 20%)으로 조정 합니다. 
+> NAS의 모든 데이터를 Windows Server로 이동 하 고 마이그레이션이 완료 된 후에는 Azure Portal의 * **모든** _ 동기화 그룹으로 돌아가서 클라우드 계층화 볼륨의 사용 가능한 공간 (%) 값을 캐시 사용률 (20%)에 더 적합 한 값으로 조정 합니다. 
 
 클라우드 계층화 볼륨의 사용 가능한 공간 정책은 잠재적으로 여러 서버 끝점에서 동기화 되는 볼륨 수준에서 작동 합니다. 하나의 서버 끝점에서 사용 가능한 공간을 조정 하는 것을 잊은 경우, 동기화는 가장 제한적인 규칙을 계속 적용 하 고 99%의 사용 가능한 디스크 공간을 유지 하 여 로컬 캐시가 정상적으로 작동 하지 않도록 합니다. 거의 액세스 하지 않는 볼륨에 대 한 네임 스페이스만 보유 하 고 있는 경우에만 보관 데이터를 보관 하 고 나머지는 다른 시나리오에 대 한 저장소 공간을 예약 하는 것입니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 
-실행할 수 있는 가장 가능성이 높은 문제는 RoboCopy 명령이 Windows Server 쪽에서 *"볼륨 전체"* 와 함께 실패 하는 것입니다. 클라우드 계층화는 1 시간 마다 한 번씩 작동 하 여 로컬 Windows Server 디스크에서 콘텐츠를 이동할 동기화 했습니다. 목표는 볼륨에서 99%의 사용 가능한 공간에 도달 하는 것입니다.
+실행할 수 있는 가장 가능성이 높은 문제는 RoboCopy 명령이 Windows Server 쪽에서 _ "Volume full" *로 실패 하는 것입니다. 클라우드 계층화는 1 시간 마다 한 번씩 작동 하 여 로컬 Windows Server 디스크에서 콘텐츠를 이동할 동기화 했습니다. 목표는 볼륨에서 99%의 사용 가능한 공간에 도달 하는 것입니다.
 
 동기화 진행률 및 클라우드 계층화의 디스크 공간을 확보 합니다. Windows 서버의 파일 탐색기에서이를 확인할 수 있습니다.
 
@@ -226,6 +226,6 @@ Azure File Sync 문제를 해결 하려면 다음 섹션의 링크를 확인 하
 
 Azure 파일 공유 및 Azure File Sync에 대해 자세히 알아볼 수 있습니다. 다음 문서는 고급 옵션, 모범 사례 및 문제 해결 도움말을 이해 하는 데 도움이 됩니다. 이러한 문서는 [Azure 파일 공유 설명서](storage-files-introduction.md) 에 대 한 링크를 적절 하 게 합니다.
 
-* [AFS 개요](https://aka.ms/AFS)
+* [AFS 개요](./storage-sync-files-planning.md)
 * [AFS 배포 가이드](storage-files-deployment-guide.md)
 * [AFS 문제 해결](storage-sync-files-troubleshoot.md)

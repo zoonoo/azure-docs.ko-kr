@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: c6f4b932bb8f16af3c0368ab219bd8a12bf2face
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: f6dc523050fdcdbf54a6b9864f0a752698a85eed
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357983"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628937"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Azure Files 모니터링 데이터 참조
 
@@ -36,7 +36,7 @@ Azure Files Azure Monitor에서 다음과 같은 용량 메트릭을 제공 합�
 
 #### <a name="azure-files"></a>Azure 파일
 
-다음 표에서는 [Azure Files 메트릭을](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices)보여 줍니다.
+다음 표에서는 [Azure Files 메트릭을](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices)보여 줍니다.
 
 | 메트릭 | Description |
 | ------------------- | ----------------- |

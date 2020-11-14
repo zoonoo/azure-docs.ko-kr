@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2019
+ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a50554c73958400f1f16348d3b8fb2bac88ac61b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e9811710971b411aaaed64ec0072dcf7b6b116d3
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340280"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630059"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL 문제 해결
 
@@ -39,6 +39,12 @@ ms.locfileid: "93340280"
 | Visual Studio 개체 탐색기에 Azure AD 사용자가 없음           | 이것은 알려진 문제이며  해결 방법으로 [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에서 사용자를 봅니다.  전용 SQL 풀에서 Azure Active Directory 사용에 대해 자세히 알아보려면 [Azure Synapse 인증](sql-data-warehouse-authentication.md) 을 참조 하세요. |
 | 수동 스크립팅, 스크립팅 마법사 사용 또는 SSMS를 통한 연결이 느려지거나 응답하지 않거나 오류를 생성함 | 사용자가 master 데이터베이스에서 만들어졌는지 확인합니다. 스크립팅 옵션에서 엔진 버전이 "Microsoft Azure Synapse Analytics Edition"으로 설정 되어 있고 엔진 유형이 "Microsoft Azure SQL Database" 인지도 확인 합니다. |
 | SSMS에서 스크립트 생성 실패                               | "종속 개체에 대 한 스크립트 생성" 옵션을 "True"로 설정 하면 전용 SQL 풀에 대 한 스크립트 생성이 실패 합니다. 이 문제를 해결하려면 사용자가 수동으로 **도구 -> 옵션 -> SQL Server 개체 탐색기 -> 종속 개체에 대한 스크립트 생성 옵션으로 이동하여 false로 설정** 해야 합니다 |
+
+## <a name="data-ingestion-and-preparation"></a>데이터 수집 및 준비
+
+| 문제                                                        | 해결 방법                                                   |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| CETAS를 사용 하 여 빈 문자열을 내보내면 Parquet 및 ORC 파일에 NULL 값이 생성 됩니다. 참고 NOT NULL 제약 조건이 있는 열에서 빈 문자열을 내보내는 경우 CETAS는 거부 된 레코드를 생성 하며 내보내기에 실패할 수 있습니다. | CETAS의 SELECT 문에서 빈 문자열이 나 잘못 된 열을 제거 합니다. |
 
 ## <a name="performance"></a>성능
 

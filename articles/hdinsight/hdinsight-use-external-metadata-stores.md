@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 08/06/2020
-ms.openlocfilehash: 1c02f9de5b41d58e40001ba103191f3ef015f5c5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bcfd14572b632cdc455babf7b9f8d67be904406c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534909"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629957"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Azure HDInsight에서 외부 메타데이터 저장소 사용
 
@@ -67,7 +67,7 @@ HDInsight 클러스터에 대 한 사용자 지정 Hive metastore를 설정 하�
 
 클러스터를 만드는 동안 HDInsight 서비스는 외부 metastore에 연결 하 여 자격 증명을 확인 해야 합니다. Azure 서비스 및 리소스에서 서버에 액세스할 수 있도록 Azure SQL Database 방화벽 규칙을 구성 합니다. **서버 방화벽 설정** 을 선택 하 여 Azure Portal에서이 옵션을 사용 하도록 설정 합니다. 그런 다음 **공용 네트워크 액세스 거부** 아래에서 **아니요** 를 **선택 하 고,** **Azure 서비스 및 리소스에서** Azure SQL Database에 대 한이 서버에 액세스 하도록 허용 합니다 .를 선택 합니다. 자세한 내용은 [IP 방화벽 규칙 만들기 및 관리](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) 를 참조 하세요.
 
-SQL 저장소에 대 한 개인 끝점은 지원 되지 않습니다.
+SQL 저장소에 대 한 개인 끝점은 resourceproviderconnection을 사용 하 여 만든 클러스터 에서만 지원 됩니다 `outbound` . 자세히 알아보려면이 [documentationa](https://docs.microsoft.com/azure/hdinsight/hdinsight-private-link)를 참조 하세요.
 
 ![서버 방화벽 설정 단추](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 

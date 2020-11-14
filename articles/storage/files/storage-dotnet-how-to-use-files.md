@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 21b407002adce01155b37321c068fb10d2c003f6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0196330df01f98e216c39bcc689eac2bde2f4cd9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319789"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629345"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
 
@@ -41,7 +41,7 @@ Azure Files는 클라이언트 애플리케이션에 SMB(서버 메시지 블록
 
 API | 사용 시기 | 메모
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 사용자 애플리케이션의 경우: <ul><li>SMB를 사용 하 여 파일을 읽고 써야 합니다.</li><li>포트 445를 통해 Azure Files 계정에 대한 액세스 권한이 있는 디바이스에서 실행됩니다.</li><li>파일 공유의 관리 설정을 관리할 필요가 없습니다.</li></ul> | SMB를 통해 Azure Files에서 구현 되는 파일 i/o는 일반적으로 네트워크 파일 공유 또는 로컬 저장 장치를 사용 하는 i/o와 동일 합니다. 파일 i/o를 비롯 한 .NET의 다양 한 기능에 대 한 소개는 [콘솔 응용 프로그램](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) 자습서를 참조 하십시오.
+[System.IO](/dotnet/api/system.io) | 사용자 애플리케이션의 경우: <ul><li>SMB를 사용 하 여 파일을 읽고 써야 합니다.</li><li>포트 445를 통해 Azure Files 계정에 대한 액세스 권한이 있는 디바이스에서 실행됩니다.</li><li>파일 공유의 관리 설정을 관리할 필요가 없습니다.</li></ul> | SMB를 통해 Azure Files에서 구현 되는 파일 i/o는 일반적으로 네트워크 파일 공유 또는 로컬 저장 장치를 사용 하는 i/o와 동일 합니다. 파일 i/o를 비롯 한 .NET의 다양 한 기능에 대 한 소개는 [콘솔 응용 프로그램](/dotnet/csharp/tutorials/console-teleprompter) 자습서를 참조 하십시오.
 [Azure. Files. 공유](/dotnet/api/azure.storage.files.shares) | 사용자 애플리케이션의 경우: <ul><li>방화벽 또는 ISP 제약 조건으로 인해 445 포트에서 SMB를 사용 하 여 Azure Files에 액세스할 수 없음</li><li>파일 공유 할당량을 설정하거나 공유 액세스 서명을 만들 수 있는 기능 등 관리 기능이 필요합니다.</li></ul> | 이 문서에서는 `Azure.Storage.Files.Shares` SMB 및 파일 공유 관리 대신 REST를 사용 하 여 파일 i/o를 사용 하는 방법을 보여 줍니다.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>콘솔 애플리케이션 만들기 및 어셈블리 가져오기
@@ -50,9 +50,9 @@ API | 사용 시기 | 메모
 
 Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다. 다음 단계에서는 Visual Studio 2019에서 콘솔 애플리케이션을 만드는 방법을 보여 줍니다. 이러한 단계는 다른 버전의 Visual Studio에서도 비슷합니다.
 
-1. Visual Studio를 시작하고 **새 프로젝트 만들기**를 선택합니다.
-1. **새 프로젝트 만들기**에서 c #에 대 한 **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음**을 선택 합니다.
-1. **새 프로젝트 구성**에서 앱의 이름을 입력 하 고 **만들기**를 선택 합니다.
+1. Visual Studio를 시작하고 **새 프로젝트 만들기** 를 선택합니다.
+1. **새 프로젝트 만들기** 에서 c #에 대 한 **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음** 을 선택 합니다.
+1. **새 프로젝트 구성** 에서 앱의 이름을 입력 하 고 **만들기** 를 선택 합니다.
 
 이 문서의 모든 코드 예제를 `Program` *Program.cs* 파일의 클래스에 추가 합니다.
 
@@ -67,10 +67,10 @@ Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다.
 - [.Net 용 Azure Storage Files 클라이언트 라이브러리](https://www.nuget.org/packages/Azure.Storage.Files.Shares/):이 패키지는 저장소 계정의 파일 리소스에 대 한 프로그래밍 방식의 액세스를 제공 합니다.
 - [.Net 용 시스템 Configuration Manager 라이브러리](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/):이 패키지는 구성 파일에서 값을 저장 하 고 검색 하는 클래스를 제공 합니다.
 
-NuGet을 사용 하 여 패키지를 가져올 수 있습니다. 다음 단계를 수행합니다.
+NuGet을 사용 하 여 패키지를 가져올 수 있습니다. 아래 단계를 수행합니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리**를 선택 합니다.
-1. **NuGet 패키지 관리자**에서 **찾아보기**를 선택합니다. 그런 다음를 검색 하 고 **Azure. Core**를 선택한 다음 **설치**를 선택 합니다.
+1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리** 를 선택 합니다.
+1. **NuGet 패키지 관리자** 에서 **찾아보기** 를 선택합니다. 그런 다음를 검색 하 고 **Azure. Core** 를 선택한 다음 **설치** 를 선택 합니다.
 
    이 단계에서는 패키지와 해당 종속성을 설치 합니다.
 
@@ -87,10 +87,10 @@ NuGet을 사용 하 여 패키지를 가져올 수 있습니다. 다음 단계�
 - [.Net 용 Microsoft Azure Storage 파일 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/):이 패키지는 저장소 계정의 파일 리소스에 대 한 프로그래밍 방식의 액세스를 제공 합니다.
 - [.Net 용 Microsoft Azure Configuration Manager 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/):이 패키지는 응용 프로그램이 실행 되는 위치에 관계 없이 구성 파일에서 연결 문자열을 구문 분석 하기 위한 클래스를 제공 합니다.
 
-NuGet을 사용 하 여 패키지를 가져올 수 있습니다. 다음 단계를 수행합니다.
+NuGet을 사용 하 여 패키지를 가져올 수 있습니다. 아래 단계를 수행합니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리**를 선택 합니다.
-1. **NuGet 패키지 관리자**에서 **찾아보기**를 선택합니다. 그런 다음를 검색 하 고 **Microsoft Azure. Blob**을 선택 하 고 **설치**를 선택 합니다.
+1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리** 를 선택 합니다.
+1. **NuGet 패키지 관리자** 에서 **찾아보기** 를 선택합니다. 그런 다음를 검색 하 고 **Microsoft Azure. Blob** 을 선택 하 고 **설치** 를 선택 합니다.
 
    이 단계에서는 패키지와 해당 종속성을 설치 합니다.
 1. 다음 패키지를 검색하고 설치합니다.
@@ -103,7 +103,7 @@ NuGet을 사용 하 여 패키지를 가져올 수 있습니다. 다음 단계�
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>저장소 계정 자격 증명을 App.config 파일에 저장 합니다.
 
-그런 다음 프로젝트의 *App.config* 파일에 자격 증명을 저장 합니다. **솔루션 탐색기**에서 다음 예제와 같이 파일을 두 번 클릭 `App.config` 하 여 편집 합니다.
+그런 다음 프로젝트의 *App.config* 파일에 자격 증명을 저장 합니다. **솔루션 탐색기** 에서 다음 예제와 같이 파일을 두 번 클릭 `App.config` 하 여 편집 합니다.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -135,7 +135,7 @@ NuGet을 사용 하 여 패키지를 가져올 수 있습니다. 다음 단계�
 
 ## <a name="add-using-directives"></a>지시문을 사용하여 추가
 
-**솔루션 탐색기**에서 *Program.cs* 파일을 열고 파일 맨 위에 다음 using 지시문을 추가 합니다.
+**솔루션 탐색기** 에서 *Program.cs* 파일을 열고 파일 맨 위에 다음 using 지시문을 추가 합니다.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -316,7 +316,7 @@ if (share.Exists())
 
 Azure Files 클라이언트 라이브러리의 버전 5.x부터 파일을 다른 파일에 복사 하거나 파일을 blob에 복사 하거나 blob을 파일로 복사할 수 있습니다.
 
-AzCopy를 사용 하 여 한 파일을 다른 파일에 복사 하거나 blob을 파일에 복사 하거나 다른 방식으로 복사할 수도 있습니다. [AzCopy 시작](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
+AzCopy를 사용 하 여 한 파일을 다른 파일에 복사 하거나 blob을 파일에 복사 하거나 다른 방식으로 복사할 수도 있습니다. [AzCopy 시작](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)을 참조하세요.
 
 > [!NOTE]
 > BLOB을 파일에 복사하거나 파일을 BLOB에 복사하는 경우 두 항목이 동일한 스토리지 계정 내에 있더라도 SAS(공유 액세스 서명)를 사용하여 원본 개체에 대한 액세스를 인증해야 합니다.
@@ -624,8 +624,8 @@ Azure Files에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
 
 ### <a name="tooling-support-for-file-storage"></a>File Storage용 도구 지원
 
-- [AzCopy 시작](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-- [Windows에서 Azure Files 문제 해결](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+- [AzCopy 시작](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)
+- [Windows에서 Azure Files 문제 해결](./storage-troubleshoot-windows-file-connection-problems.md)
 
 ### <a name="reference"></a>참조
 

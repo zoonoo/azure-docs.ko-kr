@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/12/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85c9111b0b16667e847aaf70d746e87fe524ef87
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 014c9759756a1da922a5141f064991827d593208
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592926"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630263"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -66,7 +66,7 @@ Video Indexer와 함께 사용할 수 있는 파일 형식 목록은 [입력 컨
 
 ### <a name="configurations-and-params"></a>구성 및 매개 변수
 
-이 섹션에서는 선택적 매개 변수 중 일부와 매개 변수를 설정해야 하는 경우에 대해 설명합니다.
+이 섹션에서는 선택적 매개 변수 중 일부와 매개 변수를 설정해야 하는 경우에 대해 설명합니다. 최신 매개 변수 정보는 [video API 업로드](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) 를 참조 하세요.
 
 #### <a name="externalid"></a>externalID 
 
@@ -79,7 +79,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 인덱싱 상태 변경 
     - 속성:    
     
-        |이름|Description|
+        |속성|Description|
         |---|---|
         |id|비디오 ID|
         |state|비디오 상태|  
@@ -87,7 +87,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 비디오에서 식별된 사용자
   - 속성
     
-      |이름|Description|
+      |속성|Description|
       |---|---|
       |id| 비디오 ID|
       |faceId|비디오 인덱스에 표시되는 얼굴 ID|
@@ -337,7 +337,7 @@ public class AccountContractSlim
 
 다음 표에 나열된 상태 코드는 업로드 작업에서 반환될 수 있습니다.
 
-|상태 코드|ErrorType(응답 본문 내)|설명|
+|상태 코드|ErrorType(응답 본문 내)|Description|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|지정된 계정에서 동일한 비디오가 이미 처리되고 있습니다.|
 |400|VIDEO_ALREADY_FAILED|지정된 계정에서 2시간 이내에 동일한 비디오를 처리하지 못했습니다. API 클라이언트에서 2시간 이상 기다린 후에 비디오를 다시 업로드해야 합니다.|

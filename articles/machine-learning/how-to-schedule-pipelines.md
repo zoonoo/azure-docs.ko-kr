@@ -1,7 +1,7 @@
 ---
 title: Azure Machine Learning 파이프라인 예약
 titleSuffix: Azure Machine Learning
-description: Python 용 Azure Machine Learning SDK를 사용 하 여 Azure Machine Learning 파이프라인을 예약 합니다. 예약 된 파이프라인을 사용 하 여 데이터 처리, 학습 및 모니터링과 같은 일상적인 시간 사용 작업을 자동화할 수 있습니다.
+description: 예약 된 파이프라인을 사용 하 여 데이터 처리, 학습 및 모니터링과 같은 일상적인 시간 사용 작업을 자동화할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/12/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 97d0f822e63bb6eb32b1cd2f211621af8ad1c4b8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c931aa6cd170c72654eb9ced6813d26e21ce5d0
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313988"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630314"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Python 용 Azure Machine Learning SDK를 사용 하 여 기계 학습 파이프라인 예약
 

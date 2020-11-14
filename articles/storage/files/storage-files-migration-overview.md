@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 995ae176a8eec58f8dc9522e6fac6fd78170014d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785615"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628920"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Azure 파일 공유로 마이그레이션
 
@@ -134,7 +134,7 @@ Microsoft 및 기타에서 사용할 수 있는 몇 가지 파일 복사 도구�
 
 #### <a name="robocopy-from-microsoft-corporation"></a>Microsoft Corporation의 RoboCopy
 
-RoboCopy는 파일 마이그레이션에 가장 적합 한 도구 중 하나입니다. Windows의 일부로 제공 됩니다. 주요 [RoboCopy 설명서](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) 는이 도구의 여러 옵션에 대 한 유용한 리소스입니다.
+RoboCopy는 파일 마이그레이션에 가장 적합 한 도구 중 하나입니다. Windows의 일부로 제공 됩니다. 주요 [RoboCopy 설명서](/windows-server/administration/windows-commands/robocopy) 는이 도구의 여러 옵션에 대 한 유용한 리소스입니다.
 
 #### <a name="treesize-from-jam-software-gmbh"></a>TreeSize Software GmbH
 

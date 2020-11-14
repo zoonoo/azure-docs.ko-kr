@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 48e9fc4c1efa3517f5de46b7198c868a22331c79
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 93dd73b5a9149474be771537f47b448c5c4d7d8f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486392"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629328"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>SMB 액세스를 위한 Azure Files id 기반 인증 옵션 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -26,11 +26,11 @@ Azure 파일 공유를 위해 SMB를 통한 Azure AD 도메인 서비스 인증�
 
 -   **Kerberos 인증**
 
-    Kerberos는 사용자 또는 호스트의 ID를 확인하는 데 사용되는 인증 프로토콜입니다. Kerberos에 대한 자세한 내용은 [Kerberos 인증 개요](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview)를 참조하세요.
+    Kerberos는 사용자 또는 호스트의 ID를 확인하는 데 사용되는 인증 프로토콜입니다. Kerberos에 대한 자세한 내용은 [Kerberos 인증 개요](/windows-server/security/kerberos/kerberos-authentication-overview)를 참조하세요.
 
 -  **SMB(서버 메시지 블록) 프로토콜**
 
-    SMB는 산업 표준 네트워크 파일 공유 프로토콜입니다. SMB는 CIFS(Common Internet File System)라고도 합니다. SMB에 대한 자세한 내용은 [Microsoft SMB Protocol and CIFS Protocol Overview](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview)(Microsoft SMB 프로토콜 및 CIFS 프로토콜 개요)를 참조하세요.
+    SMB는 산업 표준 네트워크 파일 공유 프로토콜입니다. SMB는 CIFS(Common Internet File System)라고도 합니다. SMB에 대한 자세한 내용은 [Microsoft SMB Protocol and CIFS Protocol Overview](/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview)(Microsoft SMB 프로토콜 및 CIFS 프로토콜 개요)를 참조하세요.
 
 -   **Azure AD(Azure Active Directory)**
 
@@ -42,7 +42,7 @@ Azure 파일 공유를 위해 SMB를 통한 Azure AD 도메인 서비스 인증�
 
 - **온-프레미스 Active Directory Domain Services (AD DS)**
 
-    온-프레미스 Active Directory Domain Services (AD DS) Azure Files와 통합 되어 네트워크 사용자 및 관리자가 사용할 수 있도록 하는 동안 디렉터리 데이터를 저장 하는 방법을 제공 합니다. 보안은 디렉터리의 개체에 대 한 로그온 인증 및 액세스 제어를 통해 AD DS와 통합 됩니다. 관리자는 단일 네트워크 로그온을 통해 네트워크에서 디렉터리 데이터 및 조직을 관리할 수 있으며, 권한 있는 네트워크 사용자는 네트워크의 모든 위치에서 리소스에 액세스할 수 있습니다. AD DS은 일반적으로 온-프레미스 환경에서 기업에 의해 채택 되 고 AD DS 자격 증명은 액세스 제어를 위한 id로 사용 됩니다. 자세한 내용은 [Active Directory Domain Services 개요](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)를 참조 하세요.
+    온-프레미스 Active Directory Domain Services (AD DS) Azure Files와 통합 되어 네트워크 사용자 및 관리자가 사용할 수 있도록 하는 동안 디렉터리 데이터를 저장 하는 방법을 제공 합니다. 보안은 디렉터리의 개체에 대 한 로그온 인증 및 액세스 제어를 통해 AD DS와 통합 됩니다. 관리자는 단일 네트워크 로그온을 통해 네트워크에서 디렉터리 데이터 및 조직을 관리할 수 있으며, 권한 있는 네트워크 사용자는 네트워크의 모든 위치에서 리소스에 액세스할 수 있습니다. AD DS은 일반적으로 온-프레미스 환경에서 기업에 의해 채택 되 고 AD DS 자격 증명은 액세스 제어를 위한 id로 사용 됩니다. 자세한 내용은 [Active Directory Domain Services 개요](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)를 참조 하세요.
 
 -   **Azure RBAC(Azure 역할 기반 액세스 제어)**
 
@@ -116,7 +116,7 @@ Azure AD DS 인증의 경우 파일 데이터에 액세스 하려는 Vm에 대 �
 
 - 둘째, Azure AD에 있는 모든 사용자를 인증 하 고 권한을 부여할 수 있습니다. 사용자는 클라우드 전용 또는 하이브리드 일 수 있습니다. Azure AD에서 Azure AD DS로의 동기화는 사용자 구성을 요구 하지 않고 플랫폼에 의해 관리 됩니다. 그러나 클라이언트는 Azure AD DS에 가입 된 도메인 이어야 하며, Azure AD에 조인 되거나 등록 될 수 없습니다. 
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="SMB를 통해 Azure 파일 공유에 대 한 온-프레미스 AD DS 인증을 보여 주는 다이어그램입니다.":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="다이어그램":::
 
 ### <a name="enable-identity-based-authentication"></a>Id 기반 인증 사용
 
@@ -128,7 +128,7 @@ Azure AD DS 또는 온-프레미스 AD DS 인증을 사용 하는 경우 azure �
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Azure Files에 대 한 디렉터리 또는 파일 수준 권한 구성
 
-Azure 파일 공유는 루트 디렉터리를 포함 하 여 디렉터리와 파일 수준 모두에서 표준 Windows 파일 사용 권한을 적용 합니다. 디렉터리 또는 파일 수준 권한 구성은 SMB와 REST 모두에서 지원 됩니다. VM에서 대상 파일 공유를 탑재 하 고 Windows 파일 탐색기, Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls)또는 [ACL 설정](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6) 명령을 사용 하 여 사용 권한을 구성 합니다.
+Azure 파일 공유는 루트 디렉터리를 포함 하 여 디렉터리와 파일 수준 모두에서 표준 Windows 파일 사용 권한을 적용 합니다. 디렉터리 또는 파일 수준 권한 구성은 SMB와 REST 모두에서 지원 됩니다. VM에서 대상 파일 공유를 탑재 하 고 Windows 파일 탐색기, Windows [icacls](/windows-server/administration/windows-commands/icacls)또는 [ACL 설정](/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6) 명령을 사용 하 여 사용 권한을 구성 합니다.
 
 ### <a name="use-the-storage-account-key-for-superuser-permissions"></a>슈퍼 사용자 권한은 스토리지 계정 키 사용
 
@@ -139,7 +139,7 @@ Azure 파일 공유는 루트 디렉터리를 포함 하 여 디렉터리와 파
 
 ### <a name="preserve-directory-and-file-acls-when-importing-data-to-azure-file-shares"></a>Azure 파일 공유로 데이터를 가져올 때 디렉터리 및 파일 Acl 유지
 
-Azure Files는 Azure 파일 공유에 데이터를 복사할 때 디렉터리 또는 파일 수준 Acl 유지를 지원 합니다. Azure File Sync 또는 공통 파일 이동 도구 집합을 사용 하 여 디렉터리 또는 파일의 Acl을 Azure 파일 공유에 복사할 수 있습니다. 예를 들어, [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) 를 플래그와 함께 사용 `/copy:s` 하 여 Azure 파일 공유에 대 한 acl 뿐만 아니라 데이터를 복사할 수 있습니다. Acl은 기본적으로 유지 되므로 저장소 계정에서 Acl을 유지 하기 위해 id 기반 인증을 사용 하도록 설정할 필요는 없습니다.
+Azure Files는 Azure 파일 공유에 데이터를 복사할 때 디렉터리 또는 파일 수준 Acl 유지를 지원 합니다. Azure File Sync 또는 공통 파일 이동 도구 집합을 사용 하 여 디렉터리 또는 파일의 Acl을 Azure 파일 공유에 복사할 수 있습니다. 예를 들어, [robocopy](/windows-server/administration/windows-commands/robocopy) 를 플래그와 함께 사용 `/copy:s` 하 여 Azure 파일 공유에 대 한 acl 뿐만 아니라 데이터를 복사할 수 있습니다. Acl은 기본적으로 유지 되므로 저장소 계정에서 Acl을 유지 하기 위해 id 기반 인증을 사용 하도록 설정할 필요는 없습니다.
 
 ## <a name="pricing"></a>가격 책정
 저장소 계정에서 SMB를 통한 id 기반 인증을 사용 하도록 설정 하는 추가 서비스 요금은 없습니다. 가격 책정에 대 한 자세한 내용은 [Azure Files 가격](https://azure.microsoft.com/pricing/details/storage/files/) 책정 및 [Azure AD Domain Services 가격](https://azure.microsoft.com/pricing/details/active-directory-ds/)책정을 참조 하세요.

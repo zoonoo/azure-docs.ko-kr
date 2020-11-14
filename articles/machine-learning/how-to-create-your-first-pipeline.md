@@ -1,7 +1,7 @@
 ---
 title: ML 파이프라인 만들기 및 실행
 titleSuffix: Azure Machine Learning
-description: Python용 Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인을 만들고 실행합니다. 기계 학습 (ML) 단계를 함께 사용 하는 워크플로를 만들고 관리 하려면 ML 파이프라인을 사용 합니다. 이러한 단계에는 데이터 준비, 모델 학습, 모델 배포 및 유추/점수 매기기가 포함 됩니다.
+description: 기계 학습 파이프라인을 만들고 실행 하 여 기계 학습 (ML) 단계를 함께 연결 하는 워크플로를 만들고 관리 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 76369d3bc3ed152bf9e0b13f7bf4b4386a974c33
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 452904e18a0910c2dd4781ca978042e0cdd4996d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322084"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630127"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 

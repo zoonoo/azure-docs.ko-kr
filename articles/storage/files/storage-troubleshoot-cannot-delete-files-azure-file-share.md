@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: files
 services: storage
 tags: ''
-ms.openlocfilehash: 1c50f54491e0284005c4b762b0c4b35a8460f5ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4f10745d90ccd83e7251af40d3e92a230f2fcd
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85511968"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629685"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Azure 파일 공유 – Azure 파일 공유에서 파일을 삭제하지 못함
 
@@ -34,7 +34,7 @@ Not enough quota is available to process this command
 
 ## <a name="cause"></a>원인
 
-파일 공유가 탑재 되는 컴퓨터에서 파일에 대해 허용 되는 동시 열린 핸들의 상한에 도달 하면 오류 1816이 발생 합니다. 자세한 내용은 [Azure Storage 성능 및 확장성 검사 목록](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist)을 참조 하세요.
+파일 공유가 탑재 되는 컴퓨터에서 파일에 대해 허용 되는 동시 열린 핸들의 상한에 도달 하면 오류 1816이 발생 합니다. 자세한 내용은 [Azure Storage 성능 및 확장성 검사 목록](../blobs/storage-performance-checklist.md)을 참조 하세요.
 
 ## <a name="resolution"></a>해결 방법
 
@@ -44,7 +44,7 @@ Not enough quota is available to process this command
 
 ### <a name="install-the-latest-azure-powershell-module"></a>최신 Azure PowerShell 모듈 설치
 
-* [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)
 
 ### <a name="connect-to-azure"></a>Azure에 연결:
 

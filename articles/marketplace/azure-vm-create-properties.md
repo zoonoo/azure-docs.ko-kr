@@ -7,23 +7,24 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 30e5ea4df3de0b8a10c9c1f3b4b27a9e0a19359e
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 281553782774c31ec8cfaf614542fd739c4d3dd9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491208"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629532"
 ---
 # <a name="how-to-configure-virtual-machine-offer-properties"></a>가상 컴퓨터 제품 속성을 구성 하는 방법
 
-**속성** 페이지에서 VM (가상 머신) Azure Marketplace 제품을 그룹화 하는 데 사용 되는 범주, 응용 프로그램 버전 및 제품을 지 원하는 법적 계약을 정의 합니다.
+**속성** 페이지 (파트너 센터의 왼쪽 탐색 메뉴에서 선택)에서 VM (가상 머신) Azure Marketplace 제품을 그룹화 하는 데 사용 되는 범주, 응용 프로그램 버전 및 제품을 지 원하는 법적 계약을 정의 합니다.
 
 ## <a name="select-a-category"></a>범주 선택
 
-범주 및 하위 범주를 선택 하 여 적절 한 Azure Marketplace 검색 영역에 제품을 넣습니다. 제품 설명에서 제품이 해당 범주를 지원하는 방법을 설명해야 합니다. 선택:
+범주 및 하위 범주를 선택 하 여 적절 한 Azure Marketplace 검색 영역에 제품을 넣습니다. 제품에서 이러한 범주를 지 원하는 방법에 대 한 자세한 내용은 제품 설명의 뒷부분에서 설명 해야 합니다.
 
-- 기본 및 보조 범주 (선택 사항)를 포함 하 여 적어도 하나 이상의 범주입니다.
-- 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 제안에 적용 되는 하위 범주가 없으면 **해당 없음** 을 선택 합니다.
+- 기본 범주를 선택 합니다.
+- 두 번째 선택적 범주 (보조)를 추가 하려면 **+ 범주** 링크를 선택 합니다.
+- 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주를 선택 합니다. 제안에 적용 되는 하위 범주가 없으면 **해당 없음** 을 선택 합니다. Ctrl + 클릭을 사용 하 여 두 번째 하위 범주를 선택 합니다.
 
 [제품 목록 모범 사례](gtm-offer-listing-best-practices.md)에서 범주 및 하위 범주의 전체 목록을 참조 하세요. 가상 컴퓨터는 항상 Azure Marketplace의 **계산** 범주에 표시 됩니다.
 
@@ -43,39 +44,46 @@ ms.locfileid: "94491208"
 1. **Microsoft의 상용 marketplace에 대 한 표준 계약 사용** 확인란을 선택 합니다.
 
    ![Microsoft의 상용 marketplace에 대 한 표준 계약 사용 확인란을 보여 줍니다.](partner-center-portal/media/use-standard-contract.png)
-1. **확인** 대화 상자에서 **동의** 를 선택 합니다. 표시 하려면 위로 스크롤해야 할 수도 있습니다.
+
+1. **확인** 대화 상자에서 **동의** 를 선택 합니다. 화면 크기에 따라 화면을 표시 하기 위해 스크롤해야 할 수 있습니다.
 1. 계속하기 전에 **초안 저장** 을 선택합니다.
 
    > [!NOTE]
    > 상업적 marketplace에 대 한 표준 계약을 사용 하 여 제품을 게시 한 후에는 사용자 고유의 사용자 지정 약관을 사용할 수 없습니다. 선택적 개정를 사용 하는 표준 계약에 따라 또는 사용자의 사용 약관에 따라 솔루션을 제공 합니다.
 
-### <a name="add-amendments-to-the-standard-contract-optional"></a>표준 계약에 개정 추가 (선택 사항)
+#### <a name="add-amendments-to-the-standard-contract-optional"></a>표준 계약에 개정 추가 (선택 사항)
 
 사용할 수 있는 개정는 *유니버설* 및 *사용자 지정* 의 두 가지 종류가 있습니다.
 
-#### <a name="add-universal-amendment-terms"></a>유니버설 수정 용어 추가
+##### <a name="add-universal-amendment-terms"></a>유니버설 수정 용어 추가
 
 **Microsoft의 상용 marketplace에 대 한 표준 계약에 대 한 범용 수정 약관** 상자에 범용 수정 용어를 입력 합니다. 이 상자에는 문자를 개수 제한 없이 입력할 수 있습니다. 이러한 조건은 검색 및 구매 흐름 중에 AppSource, Azure Marketplace 및/또는 Azure Portal의 고객에게 표시됩니다.
 
-#### <a name="add-one-or-more-custom-amendments"></a>하나 이상의 사용자 지정 개정 추가
+##### <a name="add-one-or-more-custom-amendments"></a>하나 이상의 사용자 지정 개정 추가
 
 1. **Microsoft의 상용 marketplace에 대 한 표준 계약에 대 한 사용자 지정 개정 조건** 에서 **사용자 지정 수정 단어 추가 (최대 10 개)** 링크를 선택 합니다.
-1. **사용자 지정 수정 용어** 상자에 수정 용어를 입력 합니다.
-1. **테 넌 트 id** 상자에 테 넌 트 id를 입력 합니다. 이러한 사용자 지정 약관에 대해 지정 하는 테 넌 트 Id와 연결 된 고객만 Azure Portal의 제품 구매 흐름에서 볼 수 있습니다.
+2. 상자에 **사용자 지정 수정 단어** 를 입력 합니다.
+3. 상자에 **테 넌 트 ID** 를 입력 합니다. 이러한 사용자 지정 약관에 대해 지정 하는 테 넌 트 Id와 연결 된 고객만 Azure Portal의 제품 구매 흐름에서 볼 수 있습니다.
+
    > [!TIP]
    > 테 넌 트 ID는 Azure에서 고객을 식별 합니다. 이 ID를 고객에 게 요청 하 고 [**https://portal.azure.com**](https://portal.azure.com)  >  **Azure Active Directory**  >  **속성** 으로 이동 하 여 찾을 수 있습니다. 디렉터리 ID 값은 테 넌 트 ID (예: `50c464d3-4930-494c-963c-1e951d15360e` )입니다. [내 Microsoft Azure 및 Office 365 테넌트 ID는 무엇인가요?](https://www.whatismytenantid.com/)에서 도메인 이름 URL을 사용하여 고객의 조직 테넌트 ID를 조회할 수도 있습니다.
-1. **설명** 상자에 테 넌 트 ID에 대 한 간단한 설명을 입력 합니다 (선택 사항). 이 설명은 수정으로 대상으로 하는 고객을 식별 하는 데 도움이 됩니다.
-1. 다른 테 넌 트 ID를 추가 하려면 **고객의 테 넌 트 Id 추가** 링크를 선택 하 고 3 단계와 4 단계를 반복 합니다. 최대 20 개의 테 넌 트 Id를 추가할 수 있습니다.
-1. 다른 수정 용어를 추가 하려면 1-5 단계를 반복 합니다. 제품당 최대 10개의 사용자 지정 수정안 사용 약관을 제공할 수 있습니다. 
-2. 계속하기 전에 **초안 저장** 을 선택합니다.
+
+4. 필요에 따라 테 넌 트 ID에 대 한 간단한 **설명을** 입력 합니다. 이 설명은 수정으로 대상으로 하는 고객을 식별 하는 데 도움이 됩니다.
+5. 다른 테 넌 트 ID를 추가 하려면 **고객의 테 넌 트 Id 추가 (최대 10)** 링크를 선택 하 고 3 단계와 4 단계를 반복 합니다. 최대 20 개의 테 넌 트 Id를 추가할 수 있습니다.
+6. 다른 수정 용어를 추가 하려면 1-5 단계를 반복 합니다. 제품당 최대 10개의 사용자 지정 수정안 사용 약관을 제공할 수 있습니다.
+7. 계속하기 전에 **초안 저장** 을 선택합니다.
 
 ### <a name="use-your-own-terms-and-conditions"></a>사용자 고유의 사용 약관 사용
 
 표준 계약 대신 사용자 고유의 사용 약관을 제공 하도록 선택할 수 있습니다. 고객은 이 약관에 동의해야 제품을 사용할 수 있습니다.
 
-1. **법적** 에서 **Microsoft의 상용 marketplace에 대 한 표준 계약 사용** 확인란의 선택을 취소 했는지 확인 합니다.
+1. **법적** 에서 **Microsoft의 상용 marketplace에 대 한 표준 계약 사용** 확인란의 선택을 취소 합니다.
 1. 사용 **약관** 상자에 최대 1만 문자 텍스트를 입력 합니다.
-1. 다음 탭, **제품 목록** 으로 계속 진행 하기 전에 **초안 저장** 을 선택 합니다.
+
+   > [!NOTE]
+   > 더 긴 설명이 필요한 경우 사용 약관을 찾을 수 있는 위치를 가리키는 단일 웹 주소를 입력 합니다. 이는 고객에게 활성 링크로 표시됩니다.
+
+1. 왼쪽 탐색 메뉴에서 다음 탭을 계속 하기 전에 **초안 저장** 을 선택 하 고 **제품 목록** 을 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

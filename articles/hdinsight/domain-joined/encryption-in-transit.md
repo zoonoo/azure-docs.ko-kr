@@ -7,19 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 6f043a1cb870d003e371d2f20d0e1f6614c9201e
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ac210adbc29075f27739b08dcf83eeedbeea3ed5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628986"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630365"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Azure HDInsight에 대 한 전송에서 IPSec 암호화
 
 이 문서에서는 Azure HDInsight 클러스터 노드 간 통신을 위한 전송 암호화 구현에 대해 설명 합니다.
-
-> [!Note]
-> 전송 중인 암호화는 현재 미국 동부, 미국 서 부, 서쪽 미국 지역에 대해 사용 하도록 설정 되어 있습니다.
 
 ## <a name="background"></a>배경
 
@@ -42,7 +39,7 @@ Azure Portal를 사용 하 여 전송 중 암호화가 설정 된 새 클러스�
 
 1. **보안 + 네트워킹** 탭에서 **전송 중 암호화 사용** 확인란을 선택 합니다.
 
-    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="클러스터-보안 및 네트워킹 탭을 만듭니다.":::
+    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="클러스터 만들기-전송 중 암호화를 사용 합니다.":::
 
 ### <a name="create-a-cluster-with-encryption-in-transit-enabled-through-the-azure-cli"></a>Azure CLI를 통해 전송에서 암호화를 사용 하 여 클러스터 만들기
 

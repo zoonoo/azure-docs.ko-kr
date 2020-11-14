@@ -8,16 +8,16 @@ ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperfq1, devx-track-azurecli
-ms.openlocfilehash: 906ec80ecc198675fdb5b163403267be1d13de00
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5d900f105728efc6f58c4f9f7412cea157cbfe20
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746852"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630382"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Azure Files에서 Azure Active Directory Domain Services 인증 사용
 
-[Azure Files](storage-files-introduction.md)   는 온-프레미스 Active Directory Domain Services (AD DS) 및 Azure Active Directory Domain Services (Azure AD DS)의 두 가지 유형의 도메인 서비스를 통해 SMB (서버 메시지 블록)를 통해 id 기반 인증을 지원 합니다. 인증을 위해 올바른 도메인 서비스를 선택 하는 [것은 작동 방법 섹션](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) 을 검토 하는 것이 좋습니다. 설정은 선택한 도메인 서비스에 따라 다릅니다. 이 문서에서는 azure 파일 공유에서 인증을 위해 Azure AD DS를 사용 하도록 설정 하 고 구성 하는 방법을 중점적으로 다룹니다
+[Azure Files](storage-files-introduction.md)   는 온-프레미스 Active Directory Domain Services (AD DS) 및 Azure Active Directory Domain Services (Azure AD DS)의 두 가지 유형의 도메인 서비스를 통해 SMB (서버 메시지 블록)를 통해 id 기반 인증을 지원 합니다. 인증을 위해 올바른 도메인 서비스를 선택 하는 [것은 작동 방법 섹션](./storage-files-active-directory-overview.md#how-it-works) 을 검토 하는 것이 좋습니다. 설정은 선택한 도메인 서비스에 따라 다릅니다. 이 문서에서는 azure 파일 공유에서 인증을 위해 Azure AD DS를 사용 하도록 설정 하 고 구성 하는 방법을 중점적으로 다룹니다
 
 Azure 파일 공유를 처음 접하는 경우 다음 일련의 문서를 읽기 전에 [계획 가이드](storage-files-planning.md) 를 읽어 보는 것이 좋습니다.
 
@@ -33,7 +33,7 @@ Azure 파일 공유에 대해 SMB를 통해 Azure AD를 사용 하도록 설정 
 
     SMB를 통한 Azure AD 인증에는 새 테넌트나 기존 테넌트를 사용할 수 있습니다. 액세스하려는 파일 공유와 테넌트는 같은 구독과 연결되어 있어야 합니다.
 
-    새 Azure AD 테넌트를 만들려는 경우 [Azure AD 테넌트 및 Azure AD 구독을 추가](https://docs.microsoft.com/windows/client-management/mdm/add-an-azure-ad-tenant-and-azure-ad-subscription)하면 됩니다. 기존 Azure AD 테 넌 트가 있지만 Azure 파일 공유에 사용할 새 테 넌 트를 만들려는 경우 [Azure Active Directory 테 넌 트 만들기](https://docs.microsoft.com/rest/api/datacatalog/create-an-azure-active-directory-tenant)를 참조 하세요.
+    새 Azure AD 테넌트를 만들려는 경우 [Azure AD 테넌트 및 Azure AD 구독을 추가](/windows/client-management/mdm/add-an-azure-ad-tenant-and-azure-ad-subscription)하면 됩니다. 기존 Azure AD 테 넌 트가 있지만 Azure 파일 공유에 사용할 새 테 넌 트를 만들려는 경우 [Azure Active Directory 테 넌 트 만들기](/rest/api/datacatalog/create-an-azure-active-directory-tenant)를 참조 하세요.
 
 1.  **Azure AD 테넌트에서 Azure AD Domain Services를 사용하도록 설정합니다.**
 
@@ -97,9 +97,9 @@ Azure AD DS를 Azure AD 테 넌 트에 성공적으로 배포한 후에만 SMB�
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Azure PowerShell에서 SMB를 통해 Azure AD DS 인증을 사용 하도록 설정 하려면 최신 Az module (2.4 이상) 또는 Az. Storage 모듈 (1.5 이상)을 설치 합니다. PowerShell을 설치 하는 방법에 대 한 자세한 내용은 [PowerShellGet을 사용 하 여 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)를 참조 하세요.
+Azure PowerShell에서 SMB를 통해 Azure AD DS 인증을 사용 하도록 설정 하려면 최신 Az module (2.4 이상) 또는 Az. Storage 모듈 (1.5 이상)을 설치 합니다. PowerShell을 설치 하는 방법에 대 한 자세한 내용은 [PowerShellGet을 사용 하 여 Windows에 Azure PowerShell 설치](/powershell/azure/install-Az-ps)를 참조 하세요.
 
-새 저장소 계정을 만들려면 [AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0)를 호출 하 고 **EnableAzureActiveDirectoryDomainServicesForFile** 매개 변수를 **true** 로 설정 합니다. 다음 예제에서는 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다. 이전 미리 보기 모듈을 사용 하는 경우 기능을 사용 하도록 설정 하는 매개 변수는 **EnableAzureFilesAadIntegrationForSMB** 입니다.
+새 저장소 계정을 만들려면 [AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0)를 호출 하 고 **EnableAzureActiveDirectoryDomainServicesForFile** 매개 변수를 **true** 로 설정 합니다. 다음 예제에서는 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다. 이전 미리 보기 모듈을 사용 하는 경우 기능을 사용 하도록 설정 하는 매개 변수는 **EnableAzureFilesAadIntegrationForSMB** 입니다.
 
 ```powershell
 # Create a new storage account
@@ -123,9 +123,9 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI에서 SMB를 통해 Azure AD 인증을 사용 하도록 설정 하려면 최신 CLI 버전 (버전 2.0.70 이상)을 설치 합니다. Azure CLI를 설치 하는 방법에 대 한 자세한 내용은 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조 하세요.
+Azure CLI에서 SMB를 통해 Azure AD 인증을 사용 하도록 설정 하려면 최신 CLI 버전 (버전 2.0.70 이상)을 설치 합니다. Azure CLI를 설치 하는 방법에 대 한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조 하세요.
 
-새 저장소 계정을 만들려면 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 호출 하 고 `--enable-files-aadds` 속성을 **true** 로 설정 합니다. 다음 예제에서는 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다. 이전 미리 보기 모듈을 사용 하는 경우 기능 사용에 대 한 매개 변수는 **file-aad** 입니다.
+새 저장소 계정을 만들려면 [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 호출 하 고 `--enable-files-aadds` 속성을 **true** 로 설정 합니다. 다음 예제에서는 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다. 이전 미리 보기 모듈을 사용 하는 경우 기능 사용에 대 한 매개 변수는 **file-aad** 입니다.
 
 ```azurecli-interactive
 # Create a new storage account

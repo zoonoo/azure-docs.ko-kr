@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: da60d6a2146385e1dfd0717afb1172b378e52533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19fe6be0487772524516172bd32e0562512c4e3c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716000"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630178"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Linux (SMB)의 Azure Files 문제 해결
 
@@ -61,14 +61,14 @@ ms.locfileid: "91716000"
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>원인 1: 암호화되지 않은 통신 채널
 
-보안상 이유로, 통신 채널이 암호화되지 않고 Azure 파일 공유가 있는 같은 데이터 센터에서 연결 시도가 이루어지지 않을 경우 Azure 파일 공유에 대한 연결이 차단됩니다. 스토리지 계정에서 [보안 전송 필요](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하도록 설정한 경우에도 동일한 데이터 센터 내의 암호화되지 않은 연결을 차단할 수 있습니다. 사용자의 클라이언트 OS가 SMB 암호화를 지원하는 경우에만 암호화된 통신 채널이 제공됩니다.
+보안상 이유로, 통신 채널이 암호화되지 않고 Azure 파일 공유가 있는 같은 데이터 센터에서 연결 시도가 이루어지지 않을 경우 Azure 파일 공유에 대한 연결이 차단됩니다. 스토리지 계정에서 [보안 전송 필요](../common/storage-require-secure-transfer.md) 설정을 사용하도록 설정한 경우에도 동일한 데이터 센터 내의 암호화되지 않은 연결을 차단할 수 있습니다. 사용자의 클라이언트 OS가 SMB 암호화를 지원하는 경우에만 암호화된 통신 채널이 제공됩니다.
 
 자세한 내용은 [Linux 및 cifs-utils 패키지와 함께 Azure 파일 공유를 탑재하기 위한 필수 조건](storage-how-to-use-files-linux.md#prerequisites)을 참조하세요. 
 
 ### <a name="solution-for-cause-1"></a>원인 1의 해결 방법
 
 1. SMB 암호화를 지원하는 클라이언트에서 연결하거나, Azure 파일 공유에 사용되는 Azure Storage 계정과 동일한 데이터 센터에 있는 가상 머신에서 연결합니다.
-2. 클라이언트가 SMB 암호화를 지원하지 않는 경우 스토리지 계정에서 [보안 전송 필요](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정이 사용하지 않도록 설정되었는지 확인합니다.
+2. 클라이언트가 SMB 암호화를 지원하지 않는 경우 스토리지 계정에서 [보안 전송 필요](../common/storage-require-secure-transfer.md) 설정이 사용하지 않도록 설정되었는지 확인합니다.
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>원인 2: 저장소 계정에서 가상 네트워크 또는 방화벽 규칙이 사용 됩니다. 
 
@@ -76,7 +76,7 @@ ms.locfileid: "91716000"
 
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 
-가상 네트워크 및 방화벽 규칙이 스토리지 계정에 제대로 구성되어 있는지 확인합니다. 가상 네트워크 또는 방화벽 규칙에서 문제가 발생하는지 테스트하려면 일시적으로 스토리지 계정의 설정을 **모든 네트워크에서 액세스 허용**으로 변경합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)을 참조하세요.
+가상 네트워크 및 방화벽 규칙이 스토리지 계정에 제대로 구성되어 있는지 확인합니다. 가상 네트워크 또는 방화벽 규칙에서 문제가 발생하는지 테스트하려면 일시적으로 스토리지 계정의 설정을 **모든 네트워크에서 액세스 허용** 으로 변경합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../common/storage-network-security.md)을 참조하세요.
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>파일을 열려고 할 때 “[사용 권한 거부됨] 디스크 할당량이 초과됨”
@@ -95,19 +95,19 @@ Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄인 후 작업을 다시 시도하세요.
 
-파일 공유, 디렉터리 또는 파일에 대 한 열린 핸들을 보려면 [AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet을 사용 합니다.  
+파일 공유, 디렉터리 또는 파일에 대 한 열린 핸들을 보려면 [AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet을 사용 합니다.  
 
-파일 공유, 디렉터리 또는 파일에 대 한 열린 핸들을 닫으려면 [AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet을 사용 합니다.
+파일 공유, 디렉터리 또는 파일에 대 한 열린 핸들을 닫으려면 [AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet을 사용 합니다.
 
 > [!Note]  
-> Get-AzStorageFileHandle 및 Close-AzStorageFileHandle cmdlet은 Az PowerShell module version 2.4 이상에 포함 되어 있습니다. 최신 Az PowerShell module을 설치 하려면 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조 하세요.
+> Get-AzStorageFileHandle 및 Close-AzStorageFileHandle cmdlet은 Az PowerShell module version 2.4 이상에 포함 되어 있습니다. 최신 Az PowerShell module을 설치 하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조 하세요.
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Linux에서 Azure Files와 서로 파일을 복사하는 속도 느림
 
 - 최소 I/O 크기에 대한 특정 요구 사항이 없을 경우 최적 성능을 위해 I/O 크기로 1MiB를 사용하는 것이 좋습니다.
 - copy 메서드를 다음과 같이 올바르게 사용합니다.
-    - 두 파일 공유 간의 전송에는 [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 를 사용 합니다.
+    - 두 파일 공유 간의 전송에는 [AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) 를 사용 합니다.
     - Cp 또는 dd를 병렬로 사용 하 여 복사 속도를 향상 시킬 수 있습니다. 스레드 수는 사용 사례 및 워크 로드에 따라 달라 집니다. 다음 예에서는 6을 사용 합니다. 
     - cp 예 (cp는 파일 시스템의 기본 블록 크기를 청크 크기로 사용): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` 를 사용 합니다.
     - dd 예 (이 명령은 명시적으로 청크 크기를 1 MiB로 설정): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
@@ -144,13 +144,13 @@ Linux SMB 클라이언트가 암호화를 지원하지 않는 경우 파일 공�
 
 ### <a name="solution-for-cause-1"></a>원인 1의 해결 방법
 
-가상 네트워크 및 방화벽 규칙이 스토리지 계정에 제대로 구성되어 있는지 확인합니다. 가상 네트워크 또는 방화벽 규칙에서 문제가 발생하는지 테스트하려면 일시적으로 스토리지 계정의 설정을 **모든 네트워크에서 액세스 허용**으로 변경합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)을 참조하세요.
+가상 네트워크 및 방화벽 규칙이 스토리지 계정에 제대로 구성되어 있는지 확인합니다. 가상 네트워크 또는 방화벽 규칙에서 문제가 발생하는지 테스트하려면 일시적으로 스토리지 계정의 설정을 **모든 네트워크에서 액세스 허용** 으로 변경합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../common/storage-network-security.md)을 참조하세요.
 
 ### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>원인 2: 사용자 계정에 저장소 계정에 대 한 액세스 권한이 없습니다.
 
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 
-Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(IAM)** 를 클릭한 다음, 사용자 계정에 스토리지 계정에 대한 액세스 권한이 있는지 확인합니다. 자세히 알아보려면 [azure 역할 기반 액세스 제어를 사용 하 여 저장소 계정을 보호 하는 방법 (AZURE RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection)을 참조 하세요.
+Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(IAM)** 를 클릭한 다음, 사용자 계정에 스토리지 계정에 대한 액세스 권한이 있는지 확인합니다. 자세히 알아보려면 [azure 역할 기반 액세스 제어를 사용 하 여 저장소 계정을 보호 하는 방법 (AZURE RBAC)](../blobs/security-recommendations.md#data-protection)을 참조 하세요.
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Azure 파일 공유의 파일 또는 디렉터리를 삭제할 수 없음
@@ -162,12 +162,12 @@ Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(I
 
 SMB 클라이언트에서 열려 있는 모든 핸들을 닫고 문제가 계속 발생 하면 다음을 수행 합니다.
 
-- [AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet을 사용 하 여 열린 핸들을 볼 수 있습니다.
+- [AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet을 사용 하 여 열린 핸들을 볼 수 있습니다.
 
-- [AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet을 사용 하 여 열린 핸들을 닫습니다. 
+- [AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet을 사용 하 여 열린 핸들을 닫습니다. 
 
 > [!Note]  
-> Get-AzStorageFileHandle 및 Close-AzStorageFileHandle cmdlet은 Az PowerShell module version 2.4 이상에 포함 되어 있습니다. 최신 Az PowerShell module을 설치 하려면 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조 하세요.
+> Get-AzStorageFileHandle 및 Close-AzStorageFileHandle cmdlet은 Az PowerShell module version 2.4 이상에 포함 되어 있습니다. 최신 Az PowerShell module을 설치 하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조 하세요.
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Linux VM에 탑재된 Azure 파일 공유의 성능 저하
@@ -180,7 +180,7 @@ SMB 클라이언트에서 열려 있는 모든 핸들을 닫고 문제가 계속
 
 캐싱의 비활성화 여부를 확인하려면 **cache=** 항목을 찾습니다.
 
-**cache=none**은 캐싱이 비활성화되었음을 나타냅니다. 기본 캐싱이나 “엄격한” 캐싱 모드를 활성화하는 명령을 탑재하기 위해 기본 탑재 명령을 사용하거나 명시적으로 **cache=strict** 옵션을 추가하여 공유를 다시 탑재하세요.
+**cache=none** 은 캐싱이 비활성화되었음을 나타냅니다. 기본 캐싱이나 “엄격한” 캐싱 모드를 활성화하는 명령을 탑재하기 위해 기본 탑재 명령을 사용하거나 명시적으로 **cache=strict** 옵션을 추가하여 공유를 다시 탑재하세요.
 
 일부 시나리오에서는 **serverino** 탑재 옵션으로 **ls** 명령을 유도하여 모든 디렉터리 항목에 대해 stat를 실행할 수 있습니다. 이 동작으로 인해 규모가 많은 디렉터리를 나열할 때 성능이 저하 됩니다. **/Etc/fstab** 항목에서 탑재 옵션을 확인할 수 있습니다.
 
@@ -192,11 +192,11 @@ SMB 클라이언트에서 열려 있는 모든 핸들을 닫고 문제가 계속
 //azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)
 ```
 
-**cache=strict** 또는 **serverino** 옵션이 없는 경우 [설명서](../storage-how-to-use-files-linux.md)의 mount 명령을 실행하여 Azure Files를 분리했다가 다시 탑재합니다. 그런 다음 **/etc/fstab** 항목에 올바른 옵션이 있는지 다시 확인합니다.
+**cache=strict** 또는 **serverino** 옵션이 없는 경우 [설명서](./storage-how-to-use-files-linux.md)의 mount 명령을 실행하여 Azure Files를 분리했다가 다시 탑재합니다. 그런 다음 **/etc/fstab** 항목에 올바른 옵션이 있는지 다시 확인합니다.
 
 ### <a name="cause-2-throttling"></a>원인 2: 제한
 
-제한이 발생 하 고 요청이 큐로 전송 되는 중일 수 있습니다. [Azure Monitor에서 Azure Storage 메트릭을](../common/storage-metrics-in-azure-monitor.md)활용 하 여이를 확인할 수 있습니다.
+제한이 발생 하 고 요청이 큐로 전송 되는 중일 수 있습니다. [Azure Monitor에서 Azure Storage 메트릭을](../blobs/monitor-blob-storage.md)활용 하 여이를 확인할 수 있습니다.
 
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 
@@ -294,7 +294,7 @@ Linux 커널의 이러한 재연결 문제는 현재 다음 변경의 일부로 
 ## <a name="cifs-vfs-error--22-on-ioctl-to-get-interface-list-when-you-mount-an-azure-file-share-by-using-smb-30"></a>SMB 3.0를 사용 하 여 Azure 파일 공유를 탑재 하는 경우 "CIFS VFS: 오류-ioctl에서 인터페이스 목록 가져오기"
 
 ### <a name="cause"></a>원인
-[현재 Azure Files에서 SMB 다중 채널을 지원 하지](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service)않기 때문에이 오류가 기록 됩니다.
+[현재 Azure Files에서 SMB 다중 채널을 지원 하지](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)않기 때문에이 오류가 기록 됩니다.
 
 ### <a name="solution"></a>솔루션
 이 오류는 무시해도 됩니다.

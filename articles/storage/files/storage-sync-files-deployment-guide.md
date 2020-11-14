@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 11/05/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 128a974c41b1c09196ecab2070136d9568b08f5d
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: d39f26d86792214c1ef0300bc39404bf6581826f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331790"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629481"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
 이 문서에 설명된 단계를 완료하기 전에 [Azure Files 배포에 대한 계획](storage-files-planning.md) 및 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)을 읽어보는 것이 좋습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -48,7 +48,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
     > [!Important]  
     > PowerShell에서 직접 등록 하는 대신 서버 등록 UI를 사용할 계획인 경우 PowerShell 5.1을 사용 해야 합니다.
 
-1. PowerShell 5.1을 사용 하기로 한 경우 .NET 4.7.2 이상 버전이 설치 되어 있는지 확인 합니다. 시스템의 [.NET Framework 버전 및 종속성](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) 에 대해 자세히 알아보세요.
+1. PowerShell 5.1을 사용 하기로 한 경우 .NET 4.7.2 이상 버전이 설치 되어 있는지 확인 합니다. 시스템의 [.NET Framework 버전 및 종속성](/dotnet/framework/migration-guide/versions-and-dependencies) 에 대해 자세히 알아보세요.
 
     > [!Important]  
     > Windows Server Core에 .NET 4.7.2 +를 설치 하는 경우 및 플래그를 사용 하 여 설치 해야 합니다 `quiet` `norestart` . 그렇지 않으면 설치에 실패 합니다. 예를 들어 .NET 4.8을 설치 하는 경우 명령은 다음과 같습니다.
@@ -56,7 +56,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-1. Az PowerShell module: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)의 지침에 따라 설치할 수 있습니다.
+1. Az PowerShell module: [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps)의 지침에 따라 설치할 수 있습니다.
      
     > [!Note]  
     > 이제 az PowerShell module을 설치 하면 Microsoft.storagesync 모듈이 자동으로 설치 됩니다.
@@ -70,13 +70,13 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 1. [Azure CLI 설치](/cli/azure/install-azure-cli)
 
-   원한다 면 Azure Cloud Shell를 사용 하 여이 자습서의 단계를 완료할 수도 있습니다.  Azure Cloud Shell는 브라우저를 통해 사용 하는 대화형 셸 환경입니다.  다음 방법 중 하나를 사용 하 여 Cloud Shell를 시작 합니다.
+   원한다면 Azure Cloud Shell을 사용하여 이 자습서의 단계를 완료해도 됩니다.  Azure Cloud Shell은 브라우저를 통해 사용할 수 있는 대화형 셸 환경입니다.  다음 방법 중 하나를 사용하여 Cloud Shell을 시작합니다.
 
    - 코드 블록의 오른쪽 위 모서리에서 **사용** 을 선택합니다. Azure Cloud Shell를 열 수는 있지만 코드를 Cloud Shell 자동으로 복사 **하지 않습니다.**
 
-   - 다음으로 이동 하 여 Cloud Shell을 엽니다. [https://shell.azure.com](https://shell.azure.com)
+   - [https://shell.azure.com](https://shell.azure.com)으로 이동하여 Cloud Shell 열기
 
-   - [Azure Portal](https://portal.azure.com) 의 오른쪽 위 모퉁이에 있는 메뉴 모음에서 **Cloud Shell** 단추를 선택 합니다.
+   - [Azure Portal](https://portal.azure.com)의 오른쪽 위 모서리에 있는 메뉴 모음에서 **Cloud Shell** 단추 선택
 
 1. 로그인합니다.
 
@@ -573,7 +573,7 @@ Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
 
 볼륨 (64)에 대 한 기본 최대 VSS 스냅숏 수와이를 사용 하는 기본 일정은 볼륨에 저장할 수 있는 VSS 스냅숏의 수에 따라 정보 근로자가 복원할 수 있는 이전 버전의 최대 45 일을 초래 합니다.
 
-볼륨 당 최대 64 VSS 스냅숏이 올바른 설정이 아닌 경우 [레지스트리 키를 통해 해당 값을 변경할](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies)수 있습니다.
+볼륨 당 최대 64 VSS 스냅숏이 올바른 설정이 아닌 경우 [레지스트리 키를 통해 해당 값을 변경할](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies)수 있습니다.
 새 한도를 적용 하려면 cmdlet을 다시 실행 하 여 이전에 사용 하도록 설정 된 모든 볼륨에서 이전 버전 호환성을 사용 하도록 설정 하 고-Force 플래그를 사용 하 여 볼륨 당 최대 VSS 스냅숏 수를 고려 합니다. 이렇게 하면 새로 계산 된 수의 호환 되는 일이 발생 합니다. 이 변경은 새로 계층화 된 파일에만 적용 되며 사용자가 수행한 VSS 일정에 따라 사용자 지정을 덮어씁니다.
 
 <a id="proactive-recall"></a>
@@ -599,7 +599,7 @@ Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
 
 # <a name="powershell"></a>[PowerShell](#tab/proactive-powershell)
 
-[AzStorageSyncServerEndpoint](https://docs.microsoft.com/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) cmdlet을 통해 PowerShell에서 서버 끝점 속성을 수정할 수 있습니다.
+[AzStorageSyncServerEndpoint](/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) cmdlet을 통해 PowerShell에서 서버 끝점 속성을 수정할 수 있습니다.
 
 ```powershell
 # Optional parameter. Default: "UpdateLocallyCachedFiles", alternative behavior: "DownloadNewAndModifiedFiles"

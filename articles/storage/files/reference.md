@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: cbbd4960a498516182323748e6609b834b1d4884
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fe6befbfc3c6f12cf804841052795647cd1f76a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90014687"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629838"
 ---
 # <a name="azure-files-reference"></a>Azure 파일 참조
 
@@ -25,7 +25,7 @@ Azure Files API 참조, 라이브러리 패키지, 추가 정보 파일 및 시�
 |  버전  | 참조 설명서 | 패키지 | 빠른 시작 |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [.NET 용 Azure Files 클라이언트 라이브러리 v12](/dotnet/api/overview/azure/storage.files.shares-readme) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Files/) | &nbsp; |
-| 11.x | [Microsoft Azure. Storage. File 네임 스페이스](/dotnet/api/microsoft.azure.storage.file) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/) | [.NET을 사용하여 Azure Files 개발](/azure/storage/files/storage-dotnet-how-to-use-files) |
+| 11.x | [Microsoft Azure. Storage. File 네임 스페이스](/dotnet/api/microsoft.azure.storage.file) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/) | [.NET을 사용하여 Azure Files 개발](./storage-dotnet-how-to-use-files.md) |
 
 ### <a name="storage-management"></a>스토리지 관리
 
@@ -50,7 +50,7 @@ Azure Files API 참조, 라이브러리 패키지, 추가 정보 파일 및 시�
 |  버전  | 참조 설명서 | 패키지 | 빠른 시작 |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Java 용 Azure Files 클라이언트 라이브러리](/java/api/overview/azure/storage-file-share-readme) | [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-file-share) | &nbsp; |
-| 8.x | [.com..](/java/api/com.microsoft.azure.storage.file) | [패키지(Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Java를 사용하여 Azure Files 개발](/azure/storage/files/storage-java-how-to-use-file-storage) |
+| 8.x | [.com..](/java/api/com.microsoft.azure.storage.file) | [패키지(Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Java를 사용하여 Azure Files 개발](./storage-java-how-to-use-file-storage.md) |
 
 ### <a name="storage-management"></a>스토리지 관리
 
@@ -67,7 +67,7 @@ Azure Files API 참조, 라이브러리 패키지, 추가 정보 파일 및 시�
 |  버전  | 참조 설명서 | 패키지 | 빠른 시작 |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Python 용 Azure Storage 클라이언트 라이브러리 v12](/azure/developer/python/sdk/storage/overview) | [패키지 (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [예](/python/api/overview/azure/storage-file-share-readme#examples) |
-| 2.x | [Python 용 Azure Storage 클라이언트 라이브러리 v2](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [패키지 (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Python을 사용하여 Azure Files 개발](/azure/storage/files/storage-python-how-to-use-file-storage) |
+| 2.x | [Python 용 Azure Storage 클라이언트 라이브러리 v2](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [패키지 (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Python을 사용하여 Azure Files 개발](./storage-python-how-to-use-file-storage.md) |
 
 ## <a name="javascript-client-libraries"></a>JavaScript 클라이언트 라이브러리
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1ef24522f688c5ae1176630a2f370cd7ee7c3cd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 785a63d695f7c615ce21fa5714b76988b5e281c4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448035"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629379"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure 파일 동기화 모니터링
 
@@ -28,24 +28,24 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) 를 사용 하 여 메트릭을 확인 하 고 동기화, 클라우드 계층화 및 서버 연결에 대 한 경고를 구성 합니다.  
+[Azure Monitor](../../azure-monitor/overview.md) 를 사용 하 여 메트릭을 확인 하 고 동기화, 클라우드 계층화 및 서버 연결에 대 한 경고를 구성 합니다.  
 
 ### <a name="metrics"></a>메트릭
 
 Azure 파일 동기화의 메트릭은 기본적으로 사용하도록 설정되며 15분마다 Azure Monitor로 전송됩니다.
 
 **Azure Monitor에서 Azure File Sync 메트릭을 보는 방법**
-1. **Azure Portal** 에서 **저장소 동기화 서비스로** 이동 하 고 **메트릭**을 클릭 합니다.
+1. **Azure Portal** 에서 **저장소 동기화 서비스로** 이동 하 고 **메트릭** 을 클릭 합니다.
 2. **메트릭** 드롭다운을 클릭 하 고 보려는 메트릭을 선택 합니다.
 
 ![Azure File Sync 메트릭의 스크린샷](media/storage-sync-files-troubleshoot/file-sync-metrics.png)
 
 Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다음과 같습니다.
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 |-|-|
 | 동기화되는 바이트 수 | 전송되는 데이터 크기(업로드 및 다운로드)입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 끝점 이름, 동기화 방향, 동기화 그룹 이름 |
-| 클라우드 계층화 회수 | 회수되는 데이터의 크기입니다.<br><br>**참고**:이 메트릭은 나중에 제거 될 예정입니다. 클라우드 계층화 회수 크기 메트릭을 사용 하 여 회수 된 데이터의 크기를 모니터링 합니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 이름 |
+| 클라우드 계층화 회수 | 회수되는 데이터의 크기입니다.<br><br>**참고** :이 메트릭은 나중에 제거 될 예정입니다. 클라우드 계층화 회수 크기 메트릭을 사용 하 여 회수 된 데이터의 크기를 모니터링 합니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 이름 |
 | 클라우드 계층화 회수 크기 | 회수되는 데이터의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 이름, 동기화 그룹 이름 |
 | 애플리케이션별 클라우드 계층화 회수 크기 | 응용 프로그램에서 회수 한 데이터의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 응용 프로그램 이름, 서버 이름, 동기화 그룹 이름 |
 | 클라우드 계층화 회수 처리량 | 데이터 회수 처리량의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 이름, 동기화 그룹 이름 |
@@ -56,18 +56,18 @@ Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다�
 
 ### <a name="alerts"></a>경고
 
-경고는 모니터링 데이터에서 중요한 조건이 발견되면 사전에 알려줍니다. Azure Monitor에서 경고를 구성 하는 방법에 대 한 자세한 내용은 [Microsoft Azure의 경고 개요](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)를 참조 하세요.
+경고는 모니터링 데이터에서 중요한 조건이 발견되면 사전에 알려줍니다. Azure Monitor에서 경고를 구성 하는 방법에 대 한 자세한 내용은 [Microsoft Azure의 경고 개요](../../azure-monitor/platform/alerts-overview.md)를 참조 하세요.
 
 **Azure File Sync에 대 한 경고를 만드는 방법**
 
-1. **Azure Portal**에서 **저장소 동기화 서비스로** 이동 합니다. 
-2. 모니터링 섹션에서 **경고** 를 클릭 한 다음 **+ 새 경고 규칙**을 클릭 합니다.
+1. **Azure Portal** 에서 **저장소 동기화 서비스로** 이동 합니다. 
+2. 모니터링 섹션에서 **경고** 를 클릭 한 다음 **+ 새 경고 규칙** 을 클릭 합니다.
 3. **조건 선택** 을 클릭 하 고 경고에 대 한 다음 정보를 제공 합니다. 
     - **메트릭**
     - **차원 이름**
     - **경고 논리**
 4. **작업 그룹 선택** 을 클릭 하 고 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 작업 그룹 (메일, SMS 등)을 추가 합니다.
-5. 경고 **규칙 이름**, **설명** 및 **심각도**와 같은 **경고 정보** 를 입력 합니다.
+5. 경고 **규칙 이름** , **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
 6. 경고 **규칙 만들기** 를 클릭 하 여 경고를 만듭니다.  
 
 다음 표에서는 모니터링할 몇 가지 예제 시나리오와 해당 경고에 사용할 적절 한 메트릭을 보여 줍니다.
@@ -83,7 +83,7 @@ Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다�
 
 ## <a name="storage-sync-service"></a>스토리지 동기화 서비스
 
-**Azure Portal**에서 Azure File Sync 배포의 상태를 보려면 **저장소 동기화 서비스로** 이동 하 여 다음 정보를 사용할 수 있습니다.
+**Azure Portal** 에서 Azure File Sync 배포의 상태를 보려면 **저장소 동기화 서비스로** 이동 하 여 다음 정보를 사용할 수 있습니다.
 
 - 등록 된 서버 상태
 - 서버 끝점 상태
@@ -96,29 +96,29 @@ Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다�
 
 ### <a name="registered-server-health"></a>등록 된 서버 상태
 
-포털에서 **등록 된 서버 상태** 를 보려면 **저장소 동기화 서비스**의 **등록 된 서버** 섹션으로 이동 합니다.
+포털에서 **등록 된 서버 상태** 를 보려면 **저장소 동기화 서비스** 의 **등록 된 서버** 섹션으로 이동 합니다.
 
 ![등록 된 서버 상태의 스크린샷](media/storage-sync-files-troubleshoot/file-sync-registered-servers.png)
 
-- 등록 된 **서버** 상태가 **온라인**인 경우 서버는 서비스와 성공적으로 통신 하 고 있는 것입니다.
-- 등록 된 **서버** 상태가 **오프 라인으로 표시**되는 경우 AzureStorageSyncMonitor.exe (저장소 동기화 모니터 프로세스)가 실행 되 고 있지 않거나 서버에서 Azure File Sync 서비스에 액세스할 수 없습니다. 지침은 [문제 해결 설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) 를 참조 하세요.
+- 등록 된 **서버** 상태가 **온라인** 인 경우 서버는 서비스와 성공적으로 통신 하 고 있는 것입니다.
+- 등록 된 **서버** 상태가 **오프 라인으로 표시** 되는 경우 AzureStorageSyncMonitor.exe (저장소 동기화 모니터 프로세스)가 실행 되 고 있지 않거나 서버에서 Azure File Sync 서비스에 액세스할 수 없습니다. 지침은 [문제 해결 설명서](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity) 를 참조 하세요.
 
 ### <a name="server-endpoint-health"></a>서버 끝점 상태
 
-포털에서 **서버 끝점** 의 상태를 보려면 **저장소 동기화 서비스** 의 **동기화 그룹** 섹션으로 이동 하 여 **동기화 그룹**을 선택 합니다.
+포털에서 **서버 끝점** 의 상태를 보려면 **저장소 동기화 서비스** 의 **동기화 그룹** 섹션으로 이동 하 여 **동기화 그룹** 을 선택 합니다.
 
 ![서버 끝점 상태의 스크린샷](media/storage-sync-files-troubleshoot/file-sync-server-endpoint-health.png)
 
-- 포털의 **서버 끝점 상태** 및 **동기화 작업** 은 서버의 원격 분석 이벤트 로그에 기록 되는 동기화 이벤트 (ID 9102 및 9302)를 기반으로 합니다. 오류 취소와 같은 일시적인 오류로 인해 동기화 세션이 실패 한 경우 현재 동기화 세션이 진행 중인 동안 (파일이 적용 되는 한) 서버 끝점은 여전히 포털에서 **정상** 상태로 표시 됩니다. 동기화 세션이 완료 되 면 이벤트 ID 9302이 동기화 진행률 이벤트 및 이벤트 ID 9102가 기록 됩니다.  자세한 내용은 [동기화 상태](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) 및 [동기화 진행률](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)을 참조 하세요. 서버 끝점 상태에 **오류가** 표시 되거나 **작업이 없는**경우 [문제 해결 설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) 에서 지침을 참조 하세요.
-- 포털에서 **동기화 되지 않는 파일** 은 서버의 원격 분석 이벤트 로그에 기록 된 이벤트 ID 9121을 기반으로 합니다. 이 이벤트는 동기화 세션이 완료 되 면 각 항목당 오류에 대해 기록 됩니다. 항목별 오류를 해결 하려면 [동기화 되지 않는 특정 파일이 나 폴더가 있는지 어떻게 할까요? 참조](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)하십시오.
-- 포털에서 **클라우드 계층화 효율성** 을 보려면 **서버 끝점 속성** 으로 이동 하 여 **클라우드 계층화** 섹션으로 이동 합니다. 클라우드 계층화 효율성을 위해 제공 되는 데이터는 서버의 원격 분석 이벤트 로그에 기록 된 이벤트 ID 9071을 기반으로 합니다. 자세한 내용은 [클라우드 계층화 개요](https://docs.microsoft.com/azure/storage/files/storage-sync-cloud-tiering)를 참조하세요.
-- 포털에서 계층화 및 **회수 오류가 발생** **하지 않은 파일** 을 보려면 **서버 끝점 속성** 으로 이동 하 여 **클라우드 계층화** 섹션으로 이동 합니다. **계층화 되지 않은 파일** 은 서버의 원격 분석 이벤트 로그에 기록 된 이벤트 id 9003을 기반으로 하며, **회수 오류** 는 이벤트 id 9006을 기반으로 합니다. 계층 또는 회수에 실패 한 파일을 조사 하려면 [계층에 실패 한 파일의 문제를 해결 하는 방법](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) 및 [회수에 실패 한 파일의 문제를 해결](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled)하는 방법을 참조 하세요.
+- 포털의 **서버 끝점 상태** 및 **동기화 작업** 은 서버의 원격 분석 이벤트 로그에 기록 되는 동기화 이벤트 (ID 9102 및 9302)를 기반으로 합니다. 오류 취소와 같은 일시적인 오류로 인해 동기화 세션이 실패 한 경우 현재 동기화 세션이 진행 중인 동안 (파일이 적용 되는 한) 서버 끝점은 여전히 포털에서 **정상** 상태로 표시 됩니다. 동기화 세션이 완료 되 면 이벤트 ID 9302이 동기화 진행률 이벤트 및 이벤트 ID 9102가 기록 됩니다.  자세한 내용은 [동기화 상태](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) 및 [동기화 진행률](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)을 참조 하세요. 서버 끝점 상태에 **오류가** 표시 되거나 **작업이 없는** 경우 [문제 해결 설명서](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#common-sync-errors) 에서 지침을 참조 하세요.
+- 포털에서 **동기화 되지 않는 파일** 은 서버의 원격 분석 이벤트 로그에 기록 된 이벤트 ID 9121을 기반으로 합니다. 이 이벤트는 동기화 세션이 완료 되 면 각 항목당 오류에 대해 기록 됩니다. 항목별 오류를 해결 하려면 [동기화 되지 않는 특정 파일이 나 폴더가 있는지 어떻게 할까요? 참조](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)하십시오.
+- 포털에서 **클라우드 계층화 효율성** 을 보려면 **서버 끝점 속성** 으로 이동 하 여 **클라우드 계층화** 섹션으로 이동 합니다. 클라우드 계층화 효율성을 위해 제공 되는 데이터는 서버의 원격 분석 이벤트 로그에 기록 된 이벤트 ID 9071을 기반으로 합니다. 자세한 내용은 [클라우드 계층화 개요](./storage-sync-cloud-tiering.md)를 참조하세요.
+- 포털에서 계층화 및 **회수 오류가 발생** **하지 않은 파일** 을 보려면 **서버 끝점 속성** 으로 이동 하 여 **클라우드 계층화** 섹션으로 이동 합니다. **계층화 되지 않은 파일** 은 서버의 원격 분석 이벤트 로그에 기록 된 이벤트 id 9003을 기반으로 하며, **회수 오류** 는 이벤트 id 9006을 기반으로 합니다. 계층 또는 회수에 실패 한 파일을 조사 하려면 [계층에 실패 한 파일의 문제를 해결 하는 방법](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) 및 [회수에 실패 한 파일의 문제를 해결](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled)하는 방법을 참조 하세요.
 
 ### <a name="metric-charts"></a>메트릭 차트
 
 - 저장소 동기화 서비스 포털에서 다음과 같은 메트릭 차트를 볼 수 있습니다.
 
-  | 메트릭 이름 | 설명 | 블레이드 이름 |
+  | 메트릭 이름 | Description | 블레이드 이름 |
   |-|-|-|
   | 동기화되는 바이트 수 | 전송되는 데이터 크기(업로드 및 다운로드) | 동기화 그룹, 서버 엔드포인트 |
   | 클라우드 계층화 회수 | 회수되는 데이터 크기 | 등록된 서버 |
@@ -126,43 +126,43 @@ Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다�
   | 동기화된 파일 수 | 전송되는 파일 수(업로드 및 다운로드) | 동기화 그룹, 서버 엔드포인트 |
   | 서버 온라인 상태 | 서버에서 수신된 하트비트 수 | 등록된 서버 |
 
-- 자세한 내용은 [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor)를 참조 하세요.
+- 자세한 내용은 [Azure Monitor](#azure-monitor)를 참조 하세요.
 
   > [!Note]  
   > 스토리지 동기화 서비스 포털에서 제공하는 차트의 시간 범위는 24시간입니다. 다른 시간 범위 또는 차원을 보려면 Azure Monitor를 사용하세요.
 
 ## <a name="windows-server"></a>Windows Server
 
-Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤트 로그** 및 **성능 카운터**를 사용 하 여 해당 서버에서 서버 끝점의 상태를 볼 수 있습니다.
+Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤트 로그** 및 **성능 카운터** 를 사용 하 여 해당 서버에서 서버 끝점의 상태를 볼 수 있습니다.
 
 ### <a name="event-logs"></a>이벤트 로그
 
-서버의 원격 분석 이벤트 로그를 사용하여 등록된 서버, 동기화 및 클라우드 계층화 상태를 모니터링합니다. 원격 분석 이벤트 로그는 *응용 프로그램 및 Services\Microsoft\FileSync\Agent*아래 이벤트 뷰어에 있습니다.
+서버의 원격 분석 이벤트 로그를 사용하여 등록된 서버, 동기화 및 클라우드 계층화 상태를 모니터링합니다. 원격 분석 이벤트 로그는 *응용 프로그램 및 Services\Microsoft\FileSync\Agent* 아래 이벤트 뷰어에 있습니다.
 
 상태 동기화
 
-- 동기화 시스템이 완료되면 이벤트 ID 9102가 기록됩니다. 이 이벤트를 사용 하 여 동기화 세션이 성공 하는지 여부 (**HResult = 0**) 및 항목당 동기화 오류가 있는지 확인 합니다 (**PerItemErrorCount**). 자세한 내용은 [동기화 상태](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) 및  [항목 별 오류](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) 설명서를 참조 하세요.
+- 동기화 시스템이 완료되면 이벤트 ID 9102가 기록됩니다. 이 이벤트를 사용 하 여 동기화 세션이 성공 하는지 여부 ( **HResult = 0** ) 및 항목당 동기화 오류가 있는지 확인 합니다 ( **PerItemErrorCount** ). 자세한 내용은 [동기화 상태](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) 및  [항목 별 오류](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) 설명서를 참조 하세요.
 
   > [!Note]  
   > 동기화 세션이 전반적으로 실패 하거나 0이 아닌 PerItemErrorCount을 포함 하는 경우도 있습니다. 그러나 계속 해 서 진행 하 고 일부 파일은 성공적으로 동기화 됩니다. AppliedFileCount, AppliedDirCount, AppliedTombstoneCount 및 AppliedSizeBytes와 같은 적용 된 필드에서이를 확인할 수 있습니다. 이러한 필드는 성공한 세션의 양을 알려줍니다. 한 행에서 여러 동기화 세션이 실패 하 고 적용 되는 개수가 늘어나면 동기화 시간을 제공 하 여 지원 티켓을 열기 전에 다시 시도 하세요.
 
-- 동기화 세션이 완료 되 면 각 항목당 오류에 대해 이벤트 ID 9121이 기록 됩니다. 이 이벤트를 사용 하 여이 오류와 동기화 되지 않는 파일 수를 확인 합니다 (**PersistentCount** 및 **TransientCount**). 영구적 항목 별 오류를 조사 해야 합니다. [동기화 되지 않는 특정 파일이 나 폴더가 있는지 어떻게 할까요? 참조](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)하십시오.
+- 동기화 세션이 완료 되 면 각 항목당 오류에 대해 이벤트 ID 9121이 기록 됩니다. 이 이벤트를 사용 하 여이 오류와 동기화 되지 않는 파일 수를 확인 합니다 ( **PersistentCount** 및 **TransientCount** ). 영구적 항목 별 오류를 조사 해야 합니다. [동기화 되지 않는 특정 파일이 나 폴더가 있는지 어떻게 할까요? 참조](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)하십시오.
 
-- 활성 동기화 세션이 있으면 5~10분마다 이벤트 ID 9302가 기록됩니다. 이 이벤트를 사용 하 여 동기화 할 항목의 수 (**TotalItemCount**), 지금까지 동기화 된 항목 수 (**AppliedItemCount**) 및 항목당 오류로 인해 동기화에 실패 한 항목 수 (**PerItemErrorCount**)를 결정 합니다. 동기화가 진행 되 고 있지 않으면 (**AppliedItemCount = 0**) 동기화 세션이 실패 하 고 이벤트 ID 9102이 오류로 기록 됩니다. 자세한 내용은 [동기화 진행률 설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)를 참조 하세요.
+- 활성 동기화 세션이 있으면 5~10분마다 이벤트 ID 9302가 기록됩니다. 이 이벤트를 사용 하 여 동기화 할 항목의 수 ( **TotalItemCount** ), 지금까지 동기화 된 항목 수 ( **AppliedItemCount** ) 및 항목당 오류로 인해 동기화에 실패 한 항목 수 ( **PerItemErrorCount** )를 결정 합니다. 동기화가 진행 되 고 있지 않으면 ( **AppliedItemCount = 0** ) 동기화 세션이 실패 하 고 이벤트 ID 9102이 오류로 기록 됩니다. 자세한 내용은 [동기화 진행률 설명서](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)를 참조 하세요.
 
 등록 된 서버 상태
 
-- 서버가 서비스에 작업을 쿼리하면 30초마다 이벤트 ID 9301이 기록됩니다. GetNextJob가 **status = 0**으로 완료 되 면 서버는 서비스와 통신할 수 있습니다. 오류가 발생 하 여 GetNextJob이 완료 되 면 [문제 해결 설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) 에서 지침을 확인 합니다.
+- 서버가 서비스에 작업을 쿼리하면 30초마다 이벤트 ID 9301이 기록됩니다. GetNextJob가 **status = 0** 으로 완료 되 면 서버는 서비스와 통신할 수 있습니다. 오류가 발생 하 여 GetNextJob이 완료 되 면 [문제 해결 설명서](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity) 에서 지침을 확인 합니다.
 
 클라우드 계층화 상태
 
-- 서버에서 계층화 작업을 모니터링 하려면 *응용 프로그램 및 Services\Microsoft\FileSync\Agent*아래 이벤트 뷰어에 있는 원격 분석 이벤트 로그에서 이벤트 ID 9003, 9016 및 9029를 사용 합니다.
+- 서버에서 계층화 작업을 모니터링 하려면 *응용 프로그램 및 Services\Microsoft\FileSync\Agent* 아래 이벤트 뷰어에 있는 원격 분석 이벤트 로그에서 이벤트 ID 9003, 9016 및 9029를 사용 합니다.
 
   - 이벤트 ID 9003은 서버 엔드포인트에 대한 오류 분포를 제공합니다. 예: 총 오류 수 및 ErrorCode. 오류 코드 당 하나의 이벤트가 기록 됩니다.
   - 이벤트 ID 9016은 볼륨에 대한 고스팅 결과를 제공합니다. 예: 사용 가능한 공간 백분율은, 세션에서 고스트 된 파일 수 및 고스트에 실패 한 파일 수입니다.
   - 이벤트 ID 9029는 서버 엔드포인트의 고스팅 세션 정보를 제공합니다. 예: 세션에서 시도 된 파일 수, 세션에서 계층화 된 파일 수 및 이미 계층화 된 파일 수입니다.
   
-- 서버에서 회수 활동을 모니터링 하려면 원격 분석 이벤트 로그에서 이벤트 ID 9005, 9006, 9009, 9059 및 9071을 사용 합니다 .이 로그는 *응용 프로그램 및 Services\Microsoft\FileSync\Agent*아래 이벤트 뷰어에 있습니다.
+- 서버에서 회수 활동을 모니터링 하려면 원격 분석 이벤트 로그에서 이벤트 ID 9005, 9006, 9009, 9059 및 9071을 사용 합니다 .이 로그는 *응용 프로그램 및 Services\Microsoft\FileSync\Agent* 아래 이벤트 뷰어에 있습니다.
 
   - 9005 이벤트 ID는 서버 엔드포인트에 대한 회수 안정성을 제공합니다. 예: 액세스 된 총 고유 파일 및 실패 한 액세스의 총 고유 파일.
   - 이벤트 ID 9006은 서버 엔드포인트에 대한 회수 오류 분포를 제공합니다. 예: 실패 한 총 요청 및 ErrorCode. 오류 코드 당 하나의 이벤트가 기록 됩니다.
@@ -178,7 +178,7 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
 
 성능 모니터에서 사용 가능한 Azure 파일 동기화용 성능 카운터는 다음과 같습니다.
 
-| 성능 개체\카운터 이름 | 설명 |
+| 성능 개체\카운터 이름 | Description |
 |-|-|
 | AFS Bytes Transferred\Downloaded Bytes/sec | 초당 다운로드한 바이트 수입니다. |
 | AFS Bytes Transferred\Uploaded Bytes/sec | 초당 업로드한 바이트 수입니다. |
@@ -195,10 +195,10 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
   
 ### <a name="how-to-create-an-alert-if-the-server-endpoint-health-shows-an-error-in-the-portal"></a>서버 끝점 상태가 포털에서 오류를 표시 하는 경우 경고를 만드는 방법
 
-1. **Azure Portal**에서 각 **저장소 동기화 서비스로**이동 합니다. 
-2. **모니터링** 섹션으로 이동 하 고 **경고**를 클릭 합니다. 
+1. **Azure Portal** 에서 각 **저장소 동기화 서비스로** 이동 합니다. 
+2. **모니터링** 섹션으로 이동 하 고 **경고** 를 클릭 합니다. 
 3. **+ 새 경고 규칙** 을 클릭 하 여 새 경고 규칙을 만듭니다. 
-4. **조건 선택**을 클릭 하 여 조건을 구성 합니다.
+4. **조건 선택** 을 클릭 하 여 조건을 구성 합니다.
 5. **신호 논리 구성** 블레이드 내에서 신호 이름 아래의 **동기화 세션 결과** 를 클릭 합니다.  
 6. 다음 차원 구성을 선택 합니다. 
     - 차원 이름: **서버 끝점 이름**  
@@ -212,15 +212,15 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
     - 평가 기준: 집계 세분성 = **24 시간** | 평가 빈도 = **매시간** 
     - **완료를 클릭 합니다.** 
 8. **작업 그룹 선택** 을 클릭 하 여 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 작업 그룹 (전자 메일, SMS 등)을 추가 합니다.
-9. 경고 **규칙 이름**, **설명** 및 **심각도**와 같은 **경고 정보** 를 입력 합니다.
-10. **경고 규칙 만들기**를 클릭합니다. 
+9. 경고 **규칙 이름** , **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
+10. **경고 규칙 만들기** 를 클릭합니다. 
 
 ### <a name="how-to-create-an-alert-if-files-are-failing-to-sync-to-a-server-or-cloud-endpoint"></a>파일이 서버 또는 클라우드 끝점과 동기화 되지 않는 경우 경고를 만드는 방법
 
-1. **Azure Portal**에서 각 **저장소 동기화 서비스로**이동 합니다. 
-2. **모니터링** 섹션으로 이동 하 고 **경고**를 클릭 합니다. 
+1. **Azure Portal** 에서 각 **저장소 동기화 서비스로** 이동 합니다. 
+2. **모니터링** 섹션으로 이동 하 고 **경고** 를 클릭 합니다. 
 3. **+ 새 경고 규칙** 을 클릭 하 여 새 경고 규칙을 만듭니다. 
-4. **조건 선택**을 클릭 하 여 조건을 구성 합니다.
+4. **조건 선택** 을 클릭 하 여 조건을 구성 합니다.
 5. **신호 논리 구성** 블레이드 내에서 신호 이름 아래에 있는 **파일 동기화 안 함** 을 클릭 합니다.  
 6. 다음 차원 구성을 선택 합니다. 
      - 차원 이름: **서버 끝점 이름**  
@@ -234,15 +234,15 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
      - 평가 기준: 집계 세분성 = **5 분** | 평가 빈도 = **5 분 마다** 
      - **완료를 클릭 합니다.** 
 8. **작업 그룹 선택** 을 클릭 하 여 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 작업 그룹 (전자 메일, SMS 등)을 추가 합니다.
-9. 경고 **규칙 이름**, **설명** 및 **심각도**와 같은 **경고 정보** 를 입력 합니다.
-10. **경고 규칙 만들기**를 클릭합니다. 
+9. 경고 **규칙 이름** , **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
+10. **경고 규칙 만들기** 를 클릭합니다. 
 
 ### <a name="how-to-create-an-alert-if-a-registered-server-is-failing-to-communicate-with-the-storage-sync-service"></a>등록 된 서버가 저장소 동기화 서비스와 통신 하지 못할 경우 경고를 만드는 방법
 
-1. **Azure Portal**에서 각 **저장소 동기화 서비스로**이동 합니다. 
-2. **모니터링** 섹션으로 이동 하 고 **경고**를 클릭 합니다. 
+1. **Azure Portal** 에서 각 **저장소 동기화 서비스로** 이동 합니다. 
+2. **모니터링** 섹션으로 이동 하 고 **경고** 를 클릭 합니다. 
 3. **+ 새 경고 규칙** 을 클릭 하 여 새 경고 규칙을 만듭니다. 
-4. **조건 선택**을 클릭 하 여 조건을 구성 합니다.
+4. **조건 선택** 을 클릭 하 여 조건을 구성 합니다.
 5. **신호 논리 구성** 블레이드 내에서 신호 이름 아래의 **서버 온라인 상태** 를 클릭 합니다.  
 6. 다음 차원 구성을 선택 합니다. 
      - 차원 이름: **서버 이름**  
@@ -257,15 +257,15 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
         - 메트릭은 15 ~ 20 분 마다 Azure Monitor으로 전송 됩니다. **평가 빈도** 를 30 분 미만으로 설정 하지 마세요 (에서 거짓 경고 생성).
      - **완료를 클릭 합니다.** 
 8. **작업 그룹 선택** 을 클릭 하 여 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 작업 그룹 (전자 메일, SMS 등)을 추가 합니다.
-9. 경고 **규칙 이름**, **설명** 및 **심각도**와 같은 **경고 정보** 를 입력 합니다.
-10. **경고 규칙 만들기**를 클릭합니다. 
+9. 경고 **규칙 이름** , **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
+10. **경고 규칙 만들기** 를 클릭합니다. 
 
 ### <a name="how-to-create-an-alert-if-the-cloud-tiering-recall-size-has-exceeded-500gib-in-a-day"></a>클라우드 계층화 회수 크기가 하루 500GiB 초과 된 경우 경고를 만드는 방법
 
-1. **Azure Portal**에서 각 **저장소 동기화 서비스로**이동 합니다. 
-2. **모니터링** 섹션으로 이동 하 고 **경고**를 클릭 합니다. 
+1. **Azure Portal** 에서 각 **저장소 동기화 서비스로** 이동 합니다. 
+2. **모니터링** 섹션으로 이동 하 고 **경고** 를 클릭 합니다. 
 3. **+ 새 경고 규칙** 을 클릭 하 여 새 경고 규칙을 만듭니다. 
-4. **조건 선택**을 클릭 하 여 조건을 구성 합니다.
+4. **조건 선택** 을 클릭 하 여 조건을 구성 합니다.
 5. **신호 논리 구성** 블레이드 내에서 신호 이름 아래의 **클라우드 계층화 회수 크기** 를 클릭 합니다.  
 6. 다음 차원 구성을 선택 합니다. 
      - 차원 이름: **서버 이름**  
@@ -279,8 +279,8 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
      - 평가 기준: 집계 세분성 = **24 시간** | 평가 빈도 = **매시간** 
     - **완료를 클릭 합니다.** 
 8. **작업 그룹 선택** 을 클릭 하 여 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 작업 그룹 (전자 메일, SMS 등)을 추가 합니다.
-9. 경고 **규칙 이름**, **설명** 및 **심각도**와 같은 **경고 정보** 를 입력 합니다.
-10. **경고 규칙 만들기**를 클릭합니다. 
+9. 경고 **규칙 이름** , **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
+10. **경고 규칙 만들기** 를 클릭합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)

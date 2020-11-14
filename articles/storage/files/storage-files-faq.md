@@ -7,20 +7,20 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 609f6d5fd0bf75b1a2056c01c8d22ae9e08ab9cb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1eddca26152f27ced20bbae66b3265639b97e64e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746837"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629498"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
-[Azure Files](storage-files-introduction.md) 는 업계 표준 [SMB (서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) 및 [NFS (네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System) (미리 보기)을 통해 액세스할 수 있는 완전히 관리 되는 파일 공유를 클라우드에서 제공 합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
+[Azure Files](storage-files-introduction.md) 는 업계 표준 [SMB (서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 및 [NFS (네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System) (미리 보기)을 통해 액세스할 수 있는 완전히 관리 되는 파일 공유를 클라우드에서 제공 합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
 
 이 문서는 Azure Files와 Azure 파일 동기화 사용을 비롯하여 Azure Files 기능에 대한 일반적인 질문에 대답합니다. 질문에 대한 답을 찾지 못한 경우 다음 채널을 통해 (제시된 채널 순서에 따라) 문의할 수 있습니다.
 
 1. 이 문서의 의견 섹션입니다.
-2. [Azure Storage에 대한 Microsoft Q&A 질문 페이지입니다](https://docs.microsoft.com/answers/topics/azure-file-storage.html).
+2. [Azure Storage에 대한 Microsoft Q&A 질문 페이지입니다](/answers/topics/azure-file-storage.html).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) 
 4. Microsoft 지원 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청** 을 선택합니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "92746837"
 
 * <a id="file-locking"></a>
   **파일 잠금을 지원 Azure Files?**  
-    예, Azure Files는 SMB/Windows 스타일 파일 잠금을 완벽하게 지원합니다. [세부 정보를 참조하세요](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks).
+    예, Azure Files는 SMB/Windows 스타일 파일 잠금을 완벽하게 지원합니다. [세부 정보를 참조하세요](/rest/api/storageservices/managing-file-locks).
 
 * <a id="give-us-feedback"></a>
   **Azure Files에 특정 기능이 추가되는 것을 정말 보고 싶습니다. 추가해줄 수 있나요?**  
@@ -158,7 +158,7 @@ ms.locfileid: "92746837"
     
 * <a id="afs-resource-move"></a>
   **저장소 동기화 서비스 및/또는 저장소 계정을 다른 리소스 그룹, 구독 또는 Azure AD 테 넌 트로 이동할 수 있나요?**  
-   예, 저장소 동기화 서비스 및/또는 저장소 계정을 다른 리소스 그룹, 구독 또는 Azure AD 테 넌 트로 이동할 수 있습니다. 저장소 동기화 서비스 또는 저장소 계정을 이동한 후에는 Microsoft.storagesync 응용 프로그램에 저장소 계정에 대 한 액세스 권한을 부여 해야 합니다 ( [저장소 계정에 액세스할 수 있는지 확인 Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)참조).
+   예, 저장소 동기화 서비스 및/또는 저장소 계정을 다른 리소스 그룹, 구독 또는 Azure AD 테 넌 트로 이동할 수 있습니다. 저장소 동기화 서비스 또는 저장소 계정을 이동한 후에는 Microsoft.storagesync 응용 프로그램에 저장소 계정에 대 한 액세스 권한을 부여 해야 합니다 ( [저장소 계정에 액세스할 수 있는지 확인 Azure File Sync](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)참조).
 
     > [!Note]  
     > 클라우드 엔드포인트를 만들 때 스토리지 동기화 서비스 및 스토리지 계정이 동일한 Azure AD 테넌트에 있어야 합니다. 클라우드 엔드포인트를 만든 후에는 스토리지 동기화 서비스 및 스토리지 계정을 다른 Azure AD 테넌트로 이동할 수 있습니다.
@@ -184,7 +184,7 @@ ms.locfileid: "92746837"
 
     - Azure 파일 동기화는 동기화하는 모든 서버 엔드포인트에 대한 모든 임의 ACL 또는 DACL(Active Directory 기반 또는 로컬 여부)을 유지합니다. 
     
-    Azure Storage 서비스에서 지원되는 모든 프로토콜을 포괄적으로 보려면 [Azure Storage 액세스 권한 부여](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요. 
+    Azure Storage 서비스에서 지원되는 모든 프로토콜을 포괄적으로 보려면 [Azure Storage 액세스 권한 부여](../common/storage-auth.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)를 참조하세요. 
     
 * <a id="encryption-at-rest"></a>
 **Azure 파일 공유가 미사용 암호화되도록 하려면 어떻게 해야 하나요?**  
@@ -209,14 +209,14 @@ ms.locfileid: "92746837"
 * <a id="data-compliance-policies"></a>
 **Azure Files는 어떤 데이터 규정 준수 정책을 지원하나요?**  
 
-   Azure Files는 Azure Storage의 다른 스토리지 서비스에서 사용되는 동일한 스토리지 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure Storage 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Azure Storage 준수 제품](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)을 참조하고, [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx)로 이동하여 참조할 수 있습니다.
+   Azure Files는 Azure Storage의 다른 스토리지 서비스에서 사용되는 동일한 스토리지 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure Storage 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Azure Storage 준수 제품](../common/storage-compliance-offerings.md)을 참조하고, [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx)로 이동하여 참조할 수 있습니다.
 
 * <a id="file-auditing"></a>
 **Azure Files에서 파일 액세스 및 변경 내용을 감사 하려면 어떻게 해야 하나요?**
 
   Azure Files에 대 한 감사 기능을 제공 하는 두 가지 옵션이 있습니다.
-  - 사용자가 직접 Azure 파일 공유에 액세스 하는 경우 [Azure Storage 로그 (미리 보기)](https://docs.microsoft.com/azure/storage/common/monitor-storage?tabs=azure-powershell#logs-in-azure-monitor-preview) 를 사용 하 여 파일 변경 내용 및 사용자 액세스를 추적할 수 있습니다. 이러한 로그는 문제 해결을 위해 사용할 수 있으며, 요청은 최상의 노력을 기반으로 기록 됩니다.
-  - 사용자가 Azure File Sync 에이전트가 설치 된 Windows Server를 통해 Azure 파일 공유에 액세스 하는 경우 [감사 정책](https://docs.microsoft.com/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) 또는 타사 제품을 사용 하 여 Windows server에서 파일 변경 내용 및 사용자 액세스를 추적 합니다. 
+  - 사용자가 직접 Azure 파일 공유에 액세스 하는 경우 [Azure Storage 로그 (미리 보기)](../blobs/monitor-blob-storage.md?tabs=azure-powershell#analyzing-logs) 를 사용 하 여 파일 변경 내용 및 사용자 액세스를 추적할 수 있습니다. 이러한 로그는 문제 해결을 위해 사용할 수 있으며, 요청은 최상의 노력을 기반으로 기록 됩니다.
+  - 사용자가 Azure File Sync 에이전트가 설치 된 Windows Server를 통해 Azure 파일 공유에 액세스 하는 경우 [감사 정책](/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) 또는 타사 제품을 사용 하 여 Windows server에서 파일 변경 내용 및 사용자 액세스를 추적 합니다. 
    
 ### <a name="ad-ds--azure-ad-ds-authentication"></a>AD DS & Azure AD DS 인증
 * <a id="ad-support-devices"></a>
@@ -247,7 +247,7 @@ ms.locfileid: "92746837"
 * <a id="ad-aad-smb-files"></a>
 **스토리지 계정에서 AD DS 인증을 사용하도록 설정했는지 확인하고 도메인 정보를 검색하려면 어떻게 해야 하나요?**
 
-    자세한 내용은 [여기](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account)를 참조하세요.
+    자세한 내용은 [여기](./storage-files-identity-ad-ds-enable.md#confirm-the-feature-is-enabled)를 참조하세요.
 
 * <a id=""></a>
 **Azure Files Azure AD 인증은 Linux VM을 지원하나요?**
@@ -288,19 +288,14 @@ ms.locfileid: "92746837"
     예, Azure 파일 동기화에 의해 관리되는 파일 공유에서 AD 인증을 사용하도록 설정할 수 있습니다. 로컬 파일 서버의 디렉터리/파일 NTFS ACL에 대한 변경 내용은 Azure Files로 계층화되며 그 반대의 경우도 마찬가지입니다.
 
 * <a id="ad-aad-smb-files"></a>
-**스토리지 계정에서 AD 인증을 사용하도록 설정했는지 여부와 도메인 정보를 확인하려면 어떻게 해야 하나요?**
-
-    [여기](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account)서 제공하는 지침을 참조하여 스토리지 계정에서 Azure Files AD 인증이 사용 설정되었는지 여부를 확인하고 AD 도메인 정보를 검색할 수 있습니다.
-
-* <a id="ad-aad-smb-files"></a>
 **AD에서 내 스토리지 계정을 나타내기 위해 만드는 컴퓨터 계정과 서비스 로그온 계정에 어떤 차이가 있나요?**
 
-    [컴퓨터 계정](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory)(기본값) 또는 [서비스 로그온 계정](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts)은 Azure Files에서 인증이 작동하는 방법에는 차이가 없습니다. AD 환경에서 스토리지 계정을 ID로 나타내는 방법을 직접 선택할 수 있습니다. Join-AzStorageAccountForAuth cmdlet에 설정된 기본 DomainAccountType은 컴퓨터 계정입니다. 그러나 AD 환경에서 구성된 암호 만료 기간은 컴퓨터 또는 서비스 로그온 계정에 대해 다를 수 있으며, [AD에서 스토리지 계정 ID의 암호를 업데이트](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#5-update-ad-account-password)하는 것을 고려해야 합니다.
+    [컴퓨터 계정](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory)(기본값) 또는 [서비스 로그온 계정](/windows/win32/ad/about-service-logon-accounts)은 Azure Files에서 인증이 작동하는 방법에는 차이가 없습니다. AD 환경에서 스토리지 계정을 ID로 나타내는 방법을 직접 선택할 수 있습니다. Join-AzStorageAccountForAuth cmdlet에 설정된 기본 DomainAccountType은 컴퓨터 계정입니다. 그러나 AD 환경에서 구성된 암호 만료 기간은 컴퓨터 또는 서비스 로그온 계정에 대해 다를 수 있으며, [AD에서 스토리지 계정 ID의 암호를 업데이트](./storage-files-identity-ad-ds-update-password.md)하는 것을 고려해야 합니다.
  
 * <a id="ad-support-rest-apis"></a>
 **Get/Set/Copy directory/file Windows Acl을 지 원하는 REST Api가 있나요?**
 
-    예, [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) 이상의 REST API를 사용하는 경우 디렉터리 또는 파일의 NTFS ACL을 가져오거나 설정하거나 복사하는 REST API를 지원합니다. REST 기반 도구: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases)에서 Windows acl 유지도 지원 합니다.
+    예, [2019-07-07](/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) 이상의 REST API를 사용하는 경우 디렉터리 또는 파일의 NTFS ACL을 가져오거나 설정하거나 복사하는 REST API를 지원합니다. REST 기반 도구: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases)에서 Windows acl 유지도 지원 합니다.
 
 ## <a name="network-file-system"></a>네트워크 파일 시스템
 
@@ -324,12 +319,12 @@ ms.locfileid: "92746837"
 * <a id="port-445-blocked"></a>
 **ISP 또는 IT가 포트 445를 차단하여 Azure Files 탑재가 실패합니다. 어떻게 해야 하나요?**
 
-    [차단된 포트 445를 해결하는 다양한 방법에 대해 여기](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)에서 알아볼 수 있습니다. Azure Files는 지역 또는 데이터 센터 외부에서 SMB 3.0(암호화 지원)을 사용하는 연결만 허용합니다. SMB 3.0 프로토콜에는 인터넷을 통해 사용하기에 매우 안전한 채널 암호화를 비롯한 많은 보안 기능이 도입되었습니다. 그러나 과거 낮은 SMB 버전에서 발견된 취약점으로 인해 포트 445가 차단되었을 수 있습니다. 이상적으로는 포트는 SMB 1.0 트래픽에 대해서만 차단되어야 하며 SMB 1.0은 모든 클라이언트에서 해제되어야 합니다.
+    [차단된 포트 445를 해결하는 다양한 방법에 대해 여기](./storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked)에서 알아볼 수 있습니다. Azure Files는 지역 또는 데이터 센터 외부에서 SMB 3.0(암호화 지원)을 사용하는 연결만 허용합니다. SMB 3.0 프로토콜에는 인터넷을 통해 사용하기에 매우 안전한 채널 암호화를 비롯한 많은 보안 기능이 도입되었습니다. 그러나 과거 낮은 SMB 버전에서 발견된 취약점으로 인해 포트 445가 차단되었을 수 있습니다. 이상적으로는 포트는 SMB 1.0 트래픽에 대해서만 차단되어야 하며 SMB 1.0은 모든 클라이언트에서 해제되어야 합니다.
 
 * <a id="expressroute-not-required"></a>
 **Azure Files에 연결하거나 온-프레미스에서 Azure 파일 동기화를 사용하려면 Azure ExpressRoute를 사용해야 하나요?**  
 
-    아니요. ExpressRoute는 Azure 파일 공유에 액세스하는 데 필요하지 않습니다. Azure 파일 공유를 온-프레미스에 직접 탑재하는 경우 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)만 열어 두면 됩니다(SMB가 통신하기 위해 사용하는 포트). Azure 파일 동기화를 사용하는 경우에는 HTTPS 액세스를 위해 포트 443(TCP 아웃바운드)만 열어 두면 됩니다(SMB 필요 없음). 그러나 이러한 액세스 옵션 중 하나로 ExpressRoute를 사용 *할 수 있습니다* .
+    아니요. ExpressRoute는 Azure 파일 공유에 액세스하는 데 필요하지 않습니다. Azure 파일 공유를 온-프레미스에 직접 탑재하는 경우 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)만 열어 두면 됩니다(SMB가 통신하기 위해 사용하는 포트). Azure 파일 동기화를 사용하는 경우에는 HTTPS 액세스를 위해 포트 443(TCP 아웃바운드)만 열어 두면 됩니다(SMB 필요 없음). 그러나 이러한 액세스 옵션 중 하나로 ExpressRoute를 사용 *할 수 있습니다*.
 
 * <a id="mount-locally"></a>
 **내 로컬 컴퓨터에서 Azure 파일 공유를 탑재하려면 어떻게 해야 하나요?**  
@@ -339,7 +334,7 @@ ms.locfileid: "92746837"
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **내 Azure 파일 공유를 백업하려면 어떻게 하나요?**  
-    실수로 삭제하지 않도록 보호하기 위해 주기적인 [공유 스냅샷](storage-snapshots-files.md)을 사용할 수 있습니다. 탑재된 파일 공유를 백업할 수 있는 AzCopy, RoboCopy 또는 타사 백업 도구를 사용할 수도 있습니다. Azure Backup에서는 Azure Files의 백업을 제공합니다. [Azure Backup으로 Azure 파일 공유 백업](https://docs.microsoft.com/azure/backup/backup-azure-files)에 대해 자세히 알아봅니다.
+    실수로 삭제하지 않도록 보호하기 위해 주기적인 [공유 스냅샷](storage-snapshots-files.md)을 사용할 수 있습니다. 탑재된 파일 공유를 백업할 수 있는 AzCopy, RoboCopy 또는 타사 백업 도구를 사용할 수도 있습니다. Azure Backup에서는 Azure Files의 백업을 제공합니다. [Azure Backup으로 Azure 파일 공유 백업](../../backup/backup-afs.md)에 대해 자세히 알아봅니다.
 
 ## <a name="share-snapshots"></a>공유 스냅샷
 
@@ -450,11 +445,11 @@ ms.locfileid: "92746837"
 ## <a name="features-and-interoperability-with-other-services"></a>다른 서비스와의 기능 및 상호 운용성
 * <a id="cluster-witness"></a>
 **내 Windows Server 장애 조치(Failover) 클러스터에 대해 Azure 파일 공유를 *파일 공유 감시* 로 사용할 수 있나요?**  
-    현재, 이 구성은 Azure 파일 공유에서 지원되지 않습니다. Azure Blob Storage에 대해 이 기능을 설정하는 방법에 대한 자세한 내용은 [장애 조치(Failover) 클러스터에 대한 클라우드 감시 배포](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)를 참조하세요.
+    현재, 이 구성은 Azure 파일 공유에서 지원되지 않습니다. Azure Blob Storage에 대해 이 기능을 설정하는 방법에 대한 자세한 내용은 [장애 조치(Failover) 클러스터에 대한 클라우드 감시 배포](/windows-server/failover-clustering/deploy-cloud-witness)를 참조하세요.
 
 * <a id="containers"></a>
 **Azure Container Instance에 Azure 파일 공유를 탑재할 수 있나요?**  
-    예, Azure 파일 공유는 컨테이너 인스턴스의 수명을 넘어 정보를 유지하려는 경우 탁월한 옵션입니다. 자세한 내용은 [Azure Container Instances를 사용하여 Azure 파일 공유 탑재](../../container-instances/container-instances-mounting-azure-files-volume.md)를 참조하세요.
+    예, Azure 파일 공유는 컨테이너 인스턴스의 수명을 넘어 정보를 유지하려는 경우 탁월한 옵션입니다. 자세한 내용은 [Azure Container Instances를 사용하여 Azure 파일 공유 탑재](../../container-instances/container-instances-volume-azure-files.md)를 참조하세요.
 
 * <a id="rest-rename"></a>
 **REST API에 이름 바꾸기 작업이 있나요?**  

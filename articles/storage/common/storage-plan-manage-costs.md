@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 11/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: c809a1ae525fb7fab6dceebb3241e229e8a0284e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a30fe70943c5329b36cbe10b75d47cc0ee3827fc
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781841"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630416"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Azure Blob 저장소에 대 한 비용 계획 및 관리
 
@@ -39,6 +39,9 @@ Blob 저장소에 대 한 비용은 Azure 청구서의 월별 비용 중 일부�
    **유형** 드롭다운 목록의 값을 변경 하면이 워크시트에도 표시 되는 다른 옵션도 변경 됩니다. **추가 정보** 섹션의 링크를 사용 하 여 각 옵션의 의미와 이러한 옵션이 저장소 관련 작업의 가격에 미치는 영향에 대해 자세히 알아보세요. 
 
 4. 나머지 옵션을 수정 하 여 예상 값에 대 한 영향을 확인 합니다.
+
+   > [!NOTE]
+   > Azure 기업계약 금액 약정 크레딧을 사용 하 여 Azure Blob 저장소 요금에 대 한 비용을 지불할 수 있습니다. 그러나 현금 약정 금액을 사용 하 여 Azure Marketplace에서 사용 하는 타사 제품 및 서비스에 대 한 요금을 지불할 수 없습니다.
 
 ## <a name="optimize-costs"></a>비용 최적화
 
@@ -99,11 +102,15 @@ Azure Storage에서 Azure 리소스를 사용 하는 경우 비용이 발생 합
 
 앞의 예제에서 서비스에 대 한 현재 비용이 표시 됩니다. Azure 지역 (위치) 및 리소스 그룹별 비용도 표시 됩니다. 다른 필터 (예: 특정 저장소 계정에 대 한 비용을 확인 하는 필터)도 추가할 수 있습니다.
 
+## <a name="export-cost-data"></a>비용 데이터 내보내기
+
+[비용 데이터](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 를 저장소 계정으로 내보낼 수도 있습니다. 이는 또는 다른 사용자가 비용에 대 한 추가 데이터 분석을 수행 해야 하는 경우에 유용 합니다. 예를 들어 재무 팀은 Excel 또는 Power BI를 사용 하 여 데이터를 분석할 수 있습니다. 매일, 매주 또는 매월 일정에 대 한 비용을 내보내고 사용자 지정 날짜 범위를 설정할 수 있습니다. 비용 데이터를 내보내는 것은 비용 데이터 집합을 검색 하는 데 권장 되는 방법입니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-[비용 분석](../../cost-management-billing/costs/quick-acm-cost-analysis.md)으로 비용 관리에 대해 자세히 알아보세요.
-
-Azure Storage에서 가격 책정을 사용 하는 방법에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
-
-- [Azure Storage 개요 가격 책정](https://azure.microsoft.com/pricing/details/storage/)
-- [예약된 용량으로 Blob 스토리지에 대한 비용 최적화](../blobs/storage-blob-reserved-capacity.md)
+- Azure Storage에서 가격 책정을 사용 하는 방법에 대해 자세히 알아보세요. [Azure Storage 개요 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조 하세요.
+- [예약 된 용량의 Blob 저장소에 대 한 비용을 최적화](../blobs/storage-blob-reserved-capacity.md)합니다.
+- [Azure Cost Management를 사용 하 여 클라우드 투자를 최적화 하는 방법을](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)알아봅니다.
+- [비용 분석](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)으로 비용 관리에 대해 자세히 알아보세요.
+- [예기치 않은 비용을 방지](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)하는 방법에 대해 알아봅니다.
+- [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 단계별 학습 과정을 수행 하세요.

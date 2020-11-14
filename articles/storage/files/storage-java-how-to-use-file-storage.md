@@ -8,12 +8,12 @@ ms.date: 09/19/2017
 ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2c80d741ca1cf0b4d66bc18488af8ef1da44fd14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 977777aff4aa32bf6876e1d573970d71ec71584e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462601"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629770"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Java를 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "89462601"
 * 파일 업로드, 다운로드 및 삭제
 
 > [!Note]  
-> Azure Files는 SMB를 통해 액세스할 수 있기 때문에 표준 Java I/O 클래스를 사용하여 Azure 파일 공유에 액세스하는 애플리케이션을 작성할 수 있습니다. 이 문서에서는 [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage Java SDK를 사용하는 애플리케이션을 작성하는 방법에 대해 설명합니다.
+> Azure Files는 SMB를 통해 액세스할 수 있기 때문에 표준 Java I/O 클래스를 사용하여 Azure 파일 공유에 액세스하는 애플리케이션을 작성할 수 있습니다. 이 문서에서는 [Azure Files REST API](/rest/api/storageservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage Java SDK를 사용하는 애플리케이션을 작성하는 방법에 대해 설명합니다.
 
 ## <a name="create-a-java-application"></a>Java 애플리케이션 만들기
 샘플을 빌드하려면 JDK(Java 개발 키트)와 [Java용 Azure Storage SDK](https://github.com/Azure/azure-storage-java)가 필요합니다. Azure Storage 계정도 만들었어야 합니다.
@@ -74,7 +74,7 @@ try {
 **CloudStorageAccount.parse** 는 InvalidKeyException을 발생시키므로 try/catch 블록 안에 넣어야 합니다.
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
-Azure Files의 모든 파일 및 디렉터리는 **공유**라는 이름의 컨테이너 안에 있습니다. 스토리지 계정은 계정 용량이 허용하는 만큼의 공유를 가질 수 있습니다. 공유 및 해당 콘텐츠에 액세스하려면 Azure Files 클라이언트를 사용해야 합니다.
+Azure Files의 모든 파일 및 디렉터리는 **공유** 라는 이름의 컨테이너 안에 있습니다. 스토리지 계정은 계정 용량이 허용하는 만큼의 공유를 가질 수 있습니다. 공유 및 해당 콘텐츠에 액세스하려면 Azure Files 클라이언트를 사용해야 합니다.
 
 ```java
 // Create the Azure Files client.
@@ -96,7 +96,7 @@ if (share.createIfNotExists()) {
 }
 ```
 
-이 시점에서, **공유**는 **sampleshare**라는 이름의 공유에 대한 참조를 보유합니다.
+이 시점에서, **공유** 는 **sampleshare** 라는 이름의 공유에 대한 참조를 보유합니다.
 
 ## <a name="delete-an-azure-file-share"></a>Azure 파일 공유 삭제
 공유 삭제는 CloudFileShare 개체에서 **deleteIfExists** 메서드를 호출하여 수행할 수 있습니다. 다음이 샘플 코드입니다.
@@ -122,7 +122,7 @@ try
 ```
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
-또한 루트 디렉터리에 이들 모두를 포함하는 대신 하위 디렉터리 내에서 파일을 배치하여 스토리지를 구성할 수 있습니다. Azure Files를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. 아래 코드는 루트 디렉터리 아래에 **sampledir**이라는 이름의 하위 디렉터리를 만듭니다.
+또한 루트 디렉터리에 이들 모두를 포함하는 대신 하위 디렉터리 내에서 파일을 배치하여 스토리지를 구성할 수 있습니다. Azure Files를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. 아래 코드는 루트 디렉터리 아래에 **sampledir** 이라는 이름의 하위 디렉터리를 만듭니다.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -204,7 +204,7 @@ System.out.println(file.downloadText());
 ```
 
 ## <a name="delete-a-file"></a>파일 삭제
-다른 일반적인 Azure Files 작업은 파일 삭제입니다. 다음 코드는 **sampledir**라는 이름의 디렉터리 안에 저장된 SampleFile.txt라는 이름의 파일을 삭제합니다.
+다른 일반적인 Azure Files 작업은 파일 삭제입니다. 다음 코드는 **sampledir** 라는 이름의 디렉터리 안에 저장된 SampleFile.txt라는 이름의 파일을 삭제합니다.
 
 ```java
 // Get a reference to the root directory for the share.
@@ -229,7 +229,7 @@ if ( file.deleteIfExists() ) {
 * [Java용 Azure Storage SDK](https://github.com/azure/azure-storage-java)
 * [Android용 Azure Storage SDK](https://github.com/azure/azure-storage-android)
 * [Azure Storage 클라이언트 SDK 참조](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
-* [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure Storage 팀 블로그](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
-* [AzCopy 명령줄 유틸리티로 데이터 전송](../common/storage-use-azcopy.md)
+* [Azure Storage 서비스 REST API](/rest/api/storageservices/)
+* [Azure Storage 팀 블로그](/archive/blogs/windowsazurestorage/)
+* [AzCopy 명령줄 유틸리티로 데이터 전송](../common/storage-use-azcopy-v10.md)
 * [Azure Files 문제 해결 - Windows](storage-troubleshoot-windows-file-connection-problems.md)

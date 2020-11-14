@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b291bd45b4003dd2241f40c810ed9d78af9f8bc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76d97e3312c1df51193d8a881f3ee07fcd155d75
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267791"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629362"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Azure 파일 동기화 네트워킹 고려 사항
 다음 두 가지 방법으로 Azure 파일 공유에 연결할 수 있습니다.
@@ -55,7 +55,7 @@ Azure 파일 동기화에는 서비스 태그로 식별된 다음 서비스의 I
 | Azure 리소스 관리자 | Azure Resource Manager는 Azure용 관리 인터페이스입니다. Azure 파일 동기화 서버 등록 및 지속적인 동기화 서버 작업을 비롯한 모든 관리 호출은 Azure Resource Manager를 통해 수행됩니다. | `AzureResourceManager` |
 | Azure Active Directory | Azure Active Directory 또는 Azure AD에는 스토리지 동기화 서비스에 대해 서버 등록 권한을 부여하는 데 필요한 사용자 계정 및 클라우드 리소스에 대한 액세스 권한이 있는 Azure 파일 동기화에 필요한 서비스 사용자가 포함됩니다. | `AzureActiveDirectory` |
 
-Azure 내에서 Azure 파일 동기화를 사용하는 경우 다른 지역이더라도 네트워크 보안 그룹에서 직접 서비스 태그 이름을 사용하여 해당 서비스에 대한 트래픽을 허용할 수 있습니다. NSG에 대한 자세한 내용은 [네트워크 보안 그룹](../../virtual-network/security-overview.md)을 참조하세요. 
+Azure 내에서 Azure 파일 동기화를 사용하는 경우 다른 지역이더라도 네트워크 보안 그룹에서 직접 서비스 태그 이름을 사용하여 해당 서비스에 대한 트래픽을 허용할 수 있습니다. NSG에 대한 자세한 내용은 [네트워크 보안 그룹](../../virtual-network/network-security-groups-overview.md)을 참조하세요. 
 
 온-프레미스 Azure 파일 동기화를 사용하는 경우 서비스 태그 API를 사용하여 방화벽의 허용 목록에 대한 특정 IP 주소 범위를 가져올 수 있습니다. 이 정보를 가져오는 방법에는 다음 두 가지가 있습니다.
 
@@ -65,9 +65,9 @@ Azure 내에서 Azure 파일 동기화를 사용하는 경우 다른 지역이�
     - [Azure 중국](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure 독일](https://www.microsoft.com/download/details.aspx?id=57064)
 - 서비스 태그 검색 API(미리 보기)를 사용 하면 현재 서비스 태그 목록을 프로그래밍 방식으로 검색할 수 있습니다. 미리 보기에서 서비스 태그 검색 API는 Microsoft 다운로드 센터에 게시된 JSON 문서에서 반환된 정보 보다 최신 정보가 아닌 정보를 반환할 수 있습니다. 자동화 기본 설정에 따라 API surface를 사용할 수 있습니다.
-    - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [Azure CLI](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [REST API](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 서비스 태그 API를 사용하여 서비스의 주소를 검색하는 방법에 대한 자세한 내용은 [Azure 파일 동기화 IP 주소에 대한 허용 목록](storage-sync-files-firewall-and-proxy.md#allow-list-for-azure-file-sync-ip-addresses)을 참조하십시오.
 
