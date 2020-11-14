@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: cherylmc
 ms.openlocfilehash: 92d39b0d39511571701fd092f641cb8ca3ae42c7
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92890171"
 ---
 # <a name="add-additional-s2s-connections-to-a-vnet-azure-portal"></a>VNet에 S2S 연결 추가: Azure Portal
@@ -47,7 +47,7 @@ ms.locfileid: "92890171"
 1. **연결** 페이지에서 **+ 추가** 를 선택 합니다.
 1. 그러면 **연결 추가** 페이지가 열립니다.
 
-   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/add-connection.png" alt-text="VPN gateway 연결":::
+   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/add-connection.png" alt-text="연결 추가 페이지":::
 1. **연결 추가** 페이지에서 다음 필드에 정보를 입력합니다.
 
    * **이름:** 연결을 만들고자 하는 사이트에 부여하고자 하는 이름입니다.
@@ -58,7 +58,7 @@ ms.locfileid: "92890171"
 1. **로컬 네트워크 게이트웨이** 필드에서 **_로컬 네트워크 게이트웨이 선택_ _을 선택 합니다 *. 그러면 _* 로컬 네트워크 게이트웨이 선택 페이지가 열립니다** .
 1. **+ 새로 만들기** 를 선택 하 여 **로컬 네트워크 게이트웨이 만들기** 페이지를 엽니다.
 
-   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/create-local-network-gateway.png" alt-text="VPN gateway 연결":::
+   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/create-local-network-gateway.png" alt-text="로컬 네트워크 게이트웨이 만들기 페이지":::
 1. **로컬 네트워크 게이트웨이 만들기** 페이지에서 다음 필드에 정보를 입력합니다.
 
    * **이름:** 로컬 네트워크 게이트웨이 리소스에 부여하고자 하는 이름입니다.

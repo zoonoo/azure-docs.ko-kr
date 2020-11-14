@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b165741f9f7a4eb7af8424b9175aa5ec9261fbcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa61046ee87c1cac3c8a8bb93ed97b577019e016
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85602723"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628444"
 ---
 # <a name="azure-firewall-certifications"></a>Azure 방화벽 인증
 
@@ -48,7 +48,7 @@ Azure 방화벽은 PCI (결제 카드 산업), SOC (서비스 조직 컨트롤),
 - GLBA(미국)
 - Germany C5
 - GxP(FDA 21 CFR Part 11)
-- HIPPA
+- HIPAA
 - HITECH Act (US)
 - HITRUST
 - ISO 20000-1:2011

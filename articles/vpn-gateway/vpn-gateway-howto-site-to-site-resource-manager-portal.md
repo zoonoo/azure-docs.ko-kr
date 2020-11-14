@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: b8c12048283cb8cc4220cb325762b272cde4a68f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92541318"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Azure Portal에서 사이트 간 연결 만들기
@@ -45,9 +45,9 @@ ms.locfileid: "92541318"
 
 * **리소스 그룹:** TestRG1
 * **이름:** VNet1
-* **지역:** 미국 동부
+* **지역:** (미국) 미국 동부
 * **IPv4 주소 공간:** 10.1.0.0/16
-* **서브넷 이름:** 엔드
+* **서브넷 이름:** FrontEnd
 * **서브넷 주소 공간:** 10.1.0.0/24
 
 [!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
@@ -71,13 +71,13 @@ ms.locfileid: "92541318"
 * **게이트웨이 유형:** VPN
 * **VPN 유형:** 경로 기반
 * **SKU:** VpnGw1
-* **생성:** Generation1.xml
+* **생성:** Generation1
 * **가상 네트워크:** VNet1
 * **게이트웨이 서브넷 주소 범위:** 10.1.255.0/27
 * **공용 IP 주소:** 새로 만들기
 * **공용 IP 주소 이름:** VNet1GWpip
-* **활성-활성 모드를 사용 하도록 설정 합니다.** 해제
-* **BGP 구성:** 해제
+* **active-active 모드를 사용하도록 설정:** 사용 안 함
+* **BGP 구성:** 사용 안 함
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 

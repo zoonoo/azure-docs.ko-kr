@@ -9,10 +9,10 @@ ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: ea5e25473214ccc9090038430642232735aaaf61
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92479644"
 ---
 Azure Portal에서 연결로 이동하여 Resource Manager VPN Gateway의 연결 상태를 볼 수 있습니다. 다음 단계에서는 연결로 이동하고 확인하는 한 가지 방법을 보여 줍니다.

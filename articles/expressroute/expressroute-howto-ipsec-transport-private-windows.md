@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 2dcb8489d94b9afc3ae4df829b37dd9785383d85
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92208246"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>ExpressRoute 프라이빗 피어링을 위한 IPsec 전송 모드 구성
@@ -161,7 +161,7 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
 2. **이름:** 필드에 IP 필터 목록의 이름을 입력합니다. 예: **azure-onpremises-HTTP8080** 그런 다음 **추가** 를 클릭합니다.
 
    [![25]][25]
-3. **IP Filter Description and Mirrored property** (IP 필터 설명 및 미러된 속성) 페이지에서 **Mirrored** (미러됨)을 선택합니다. 미러됨 설정은 양방향으로 이동하는 패킷을 일치시키며 양방향 통신을 허용합니다. 그런 후 **Next** 를 클릭합니다.
+3. **IP Filter Description and Mirrored property** (IP 필터 설명 및 미러된 속성) 페이지에서 **Mirrored** (미러됨)을 선택합니다. 미러됨 설정은 양방향으로 이동하는 패킷을 일치시키며 양방향 통신을 허용합니다. **다음** 을 클릭합니다.
 
    [![26]][26]
 4. **IP 트래픽 원본** 페이지의 **원본 주소:** 드롭다운에서 **특정 IP 주소 또는 서브넷** 을 선택합니다. 
@@ -214,7 +214,7 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
 1. OU에 연결된 **Create an IPsec policy with security ru** (Active Directory의 IPSecurity 정책)을 선택합니다. 마우스 오른쪽 단추를 클릭하고 **IP 보안 정책 만들기** 를 선택합니다.
 
    [![37]][37]
-2. 보안 정책 이름을 지정합니다. 예: **policy-azure-onpremises** . 그런 후 **다음** 을 클릭합니다.
+2. 보안 정책 이름을 지정합니다. 예: **policy-azure-onpremises**. 그런 후 **다음** 을 클릭합니다.
 
    [![38]][38]
 3. 이 확인란을 선택하지 않고 **다음** 을 클릭합니다.

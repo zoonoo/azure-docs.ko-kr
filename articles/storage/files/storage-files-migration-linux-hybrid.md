@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 202f7fd065641f9921df5237fb83e7900819c8f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46bcfd48d8fdfb228670b87df166c1ad8de61e52
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563508"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626353"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Azure File Sync를 사용 하 여 Linux에서 하이브리드 클라우드 배포로 마이그레이션
 
@@ -219,6 +219,6 @@ Azure File Sync 문제를 해결 하려면 다음 섹션의 링크를 확인 하
 
 Azure 파일 공유 및 Azure File Sync에 대해 더 자세히 알아볼 수 있습니다. 다음 문서에는 고급 옵션, 모범 사례 및 문제 해결 도움말이 포함 되어 있습니다. 이러한 문서는 [Azure 파일 공유 설명서](storage-files-introduction.md) 에 대 한 링크를 적절 하 게 합니다.
 
-* [Azure File Sync 개요](https://aka.ms/AFS)
+* [Azure File Sync 개요](./storage-sync-files-planning.md)
 * [Azure File Sync 배포 가이드](storage-files-deployment-guide.md)
 * [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)

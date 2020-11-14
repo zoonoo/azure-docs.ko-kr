@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74be3f4218149f0cdb9f107c8aba0be76d8da27e
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 65c8baa101df5e24780e5e68b5a21b86985608a6
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593079"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628121"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Azure Active Directory 전화 옵션의 인증 방법
 
@@ -56,6 +56,8 @@ SSPR 또는 Azure Multi-Factor Authentication 중에 전화 통화 확인을 사
 
 Azure AD에 관한 전화 인증에 문제가 있는 경우 다음 문제 해결 단계를 검토합니다.
 
+* "인증 통화에 대 한 제한에 도달 했습니다." 또는 "로그인 하는 동안 텍스트 확인 코드에 대 한 제한에 도달 했습니다" 라는 오류 메시지가 표시 됩니다.
+   * Microsoft Authenticator 앱 또는 확인 코드를 사용 하 여 인증을 완료 하거나 나중에 다시 시도 하세요.
 * 단일 디바이스에서 차단된 발신자 ID입니다.
    * 디바이스에 구성된 모든 차단된 숫자를 검토합니다.
 * 전화번호 또는 국가/지역 코드가 잘못되었거나 개인 전화번호와 회사 전화번호 간에 혼란이 있습니다.

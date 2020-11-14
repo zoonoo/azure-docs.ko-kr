@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: bdc03e8c136606ab7768705b0c8dbcc97782966f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "87088396"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Visual Studio에서 Azure Virtual Machine으로 ASP.NET 웹앱 게시
@@ -69,7 +69,7 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 
 11. 게시에 성공하면 브라우저가 실행되어 새로 게시한 사이트의 URL이 열립니다.
 
-**성공할!**
+**성공했습니다.**
 
 이제 Azure Virtual Machine에 웹앱을 게시했습니다.
 

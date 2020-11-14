@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 56bcc4e4936371b58d78f6de5ce4c2d25fbf614d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 465544f1d861fc09d4b843270c6f3527036ee6a8
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442806"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628009"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>웹 Api를 호출 하는 web API: 응용 프로그램에 대 한 토큰 획득
 
@@ -25,7 +25,7 @@ ms.locfileid: "94442806"
 
 ## <a name="code-in-the-controller"></a>컨트롤러의 코드
 
-# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
+### <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 *Microsoft. Identity* 는 Microsoft Graph 또는 다운스트림 웹 API를 호출 하기 위한 편리한 서비스를 제공 하는 확장 메서드를 추가 합니다. 이러한 메서드는 web api를 [호출 하는 WEB api](scenario-web-api-call-api-call-api.md)에 자세히 설명 되어 있습니다. Api를 호출 합니다. 이러한 도우미 메서드를 사용 하 여 토큰을 수동으로 가져올 필요가 없습니다.
 
@@ -63,7 +63,8 @@ public class MyApiController : Controller
 
 메서드에 대 한 자세한 `callTodoListService` 내용은 web api를  [호출 하는 web API: api 호출](scenario-web-api-call-api-call-api.md)을 참조 하세요.
 
-# <a name="java"></a>[Java](#tab/java)
+### <a name="java"></a>[Java](#tab/java)
+
 API 컨트롤러의 작업에서 호출 되는 코드의 예는 다음과 같습니다. 다운스트림 API Microsoft Graph를 호출 합니다.
 
 ```java
@@ -84,9 +85,13 @@ public class ApiController {
 }
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+### <a name="python"></a>[Python](#tab/python)
 
 Python web API를 사용 하려면 미들웨어를 사용 하 여 클라이언트에서 받은 전달자 토큰의 유효성을 검사 해야 합니다. Web API는 메서드를 호출 하 여 MSAL Python 라이브러리를 사용 하 여 다운스트림 API에 대 한 액세스 토큰을 가져올 수 있습니다 [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) . MSAL Python을 사용 하 여이 흐름을 보여 주는 샘플은 아직 사용할 수 없습니다.
+
+## <a name="advanced-accessing-the-signed-in-users-token-cache-from-background-apps-apis-and-services"></a>고급 백그라운드 앱, Api 및 서비스에서 로그인 한 사용자의 토큰 캐시에 액세스
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
 ---
 

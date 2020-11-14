@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 08/27/2020
-ms.openlocfilehash: 9f58d03e2cfa7e1ab9c359cdb6600c42c8970a9a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/02/2020
+ms.openlocfilehash: a9d2c10d665af6899ec79312353676467a623735
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125804"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628886"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업용 Marketplace 계정 관리
 
@@ -40,13 +40,13 @@ ms.locfileid: "93125804"
 
 ### <a name="open-developer-settings"></a>개발자 설정 열기
 
-**계정 설정** 은 파트너 센터에서 [상업용 Marketplace 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace)의 오른쪽 위 모서리에 있습니다. 기어 아이콘(대시보드의 오른쪽 위 모서리 근처)을 선택한 다음  **개발자 설정** 을 선택합니다.
+파트너 센터의 [상용 marketplace 대시보드의](https://partner.microsoft.com/dashboard/commercial-marketplace) 오른쪽 위 모서리에서 **설정** (기어 아이콘), **개발자 설정** 을 차례로 선택 합니다.
 
 ![파트너 센터의 계정 설정 메뉴](./media/dashboard-developer-settings.png)
 
-**계정 설정** 내에서 다음을 확인할 수 있습니다.
+**계정 설정** 에서 다음을 볼 수 있습니다.
 - **계정 세부 정보** : 계정 유형 및 계정 상태
-- **게시자 ID** : 판매자 ID, 사용자 ID, 게시자 ID, Azure AD 테넌트 등
+- **게시자** id: 판매자 Id, 사용자 Id, 게시자 Id, Azure AD 테 넌 트 등
 - **연락처 정보** : 게시자 표시 이름, 판매자 연락처 이름, 전자 메일, 전화 번호 및 주소
 - **추적 GUID** : 계정과 연결된 추적 GUID
 

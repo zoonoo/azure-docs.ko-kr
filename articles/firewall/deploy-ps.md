@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure PowerShell를 사용 하 여 Azure 방화
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 08/28/2020
+ms.date: 11/12/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: c720d7c261421ade9dfce01f0b116123dcab1e55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62640aa02c76c13b2c49b2e33aea742f6b8a09e4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89071706"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628352"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 방화벽 배포 및 구성
 
@@ -29,9 +29,9 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 
 * **AzureFirewallSubnet** - 방화벽은 이 서브넷에 있습니다.
 * **워크로드-SN** - 워크로드 서버는 이 서브넷에 있습니다. 이 서브넷의 네트워크 트래픽은 방화벽을 통해 이동합니다.
-* **점프-SN** - The "점프" 서버는 이 서브넷에 있습니다. 점프 서버에는 원격 데스크톱을 사용하여 연결할 수 있는 공용 IP 주소가 있습니다. 여기에서 다음 워크로드 서버에 연결할 수 있습니다(다른 원격 데스크톱을 사용하여).
+* **AzureBastionSubnet** -작업 서버에 연결 하는 데 사용 되는 Azure 방호에 사용 되는 서브넷입니다. Azure에 대 한 자세한 내용은 [Azure 방호 이란?](../bastion/bastion-overview.md) 을 참조 하세요.
 
-![자습서 네트워크 인프라](media/tutorial-firewall-rules-portal/Tutorial_network.png)
+![자습서 네트워크 인프라](media/deploy-ps/tutorial-network.png)
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -63,56 +63,55 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 ```
 
-### <a name="create-a-vnet"></a>VNet 만들기
+### <a name="create-a-virtual-network-and-azure-bastion-host"></a>가상 네트워크 및 Azure Bastion 호스트 만들기
 
-이 가상 네트워크에는 세 개의 서브넷이 있습니다.
+이 가상 네트워크에는 네 개의 서브넷이 있습니다.
 
 > [!NOTE]
 > AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)를 참조하세요.
 
 ```azurepowershell
+$Bastionsub = New-AzVirtualNetworkSubnetConfig -Name AzureBastionSubnet -AddressPrefix 10.0.0.0/27
 $FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
 $Worksub = New-AzVirtualNetworkSubnetConfig -Name Workload-SN -AddressPrefix 10.0.2.0/24
-$Jumpsub = New-AzVirtualNetworkSubnetConfig -Name Jump-SN -AddressPrefix 10.0.3.0/24
 ```
 이제 가상 네트워크를 만듭니다.
 
 ```azurepowershell
 $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG `
--Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $FWsub, $Worksub, $Jumpsub
+-Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $Bastionsub, $FWsub, $Worksub
 ```
-
-### <a name="create-virtual-machines"></a>가상 머신 만들기
-
-이제 점프 및 워크로드 가상 머신을 만들어 적절한 서브넷에 배치합니다.
-메시지가 표시되면 가상 머신의 사용자 이름 및 암호를 입력합니다.
-
-Srv-Jump 가상 컴퓨터를 만듭니다.
+### <a name="create-public-ip-address-for-azure-bastion-host"></a>Azure Bastion 호스트에 대한 공용 IP 주소 만들기
 
 ```azurepowershell
-New-AzVm `
-    -ResourceGroupName Test-FW-RG `
-    -Name "Srv-Jump" `
-    -Location "East US" `
-    -VirtualNetworkName Test-FW-VN `
-    -SubnetName Jump-SN `
-    -OpenPorts 3389 `
-    -Size "Standard_DS2"
+$publicip = New-AzPublicIpAddress -ResourceGroupName Test-FW-RG -Location "East US" `
+   -Name Bastion-pip -AllocationMethod static -Sku standard
 ```
 
-공용 IP 주소가 없는 워크 로드 가상 머신을 만듭니다.
+### <a name="create-azure-bastion-host"></a>Azure Bastion 호스트 만들기
+
+```azurepowershell
+New-AzBastion -ResourceGroupName Test-FW-RG -Name Bastion-01 -PublicIpAddress $publicip -VirtualNetwork $testVnet
+```
+### <a name="create-a-virtual-machine"></a>가상 머신 만들기
+
+이제 워크 로드 가상 머신을 만들고 적절 한 서브넷에 저장 합니다.
+메시지가 표시되면 가상 머신의 사용자 이름 및 암호를 입력합니다.
+
+
+작업 가상 컴퓨터를 만듭니다.
 메시지가 표시되면 가상 머신의 사용자 이름 및 암호를 입력합니다.
 
 ```azurepowershell
 #Create the NIC
-$NIC = New-AzNetworkInterface -Name Srv-work -ResourceGroupName Test-FW-RG `
- -Location "East US" -Subnetid $testVnet.Subnets[1].Id 
+$wsn = Get-AzVirtualNetworkSubnetConfig -Name  Workload-SN -VirtualNetwork $testvnet
+$NIC01 = New-AzNetworkInterface -Name Srv-Work -ResourceGroupName Test-FW-RG -Location "East us" -Subnet $wsn
 
 #Define the virtual machine
 $VirtualMachine = New-AzVMConfig -VMName Srv-Work -VMSize "Standard_DS2"
 $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName Srv-Work -ProvisionVMAgent -EnableAutoUpdate
-$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC.Id
-$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2016-Datacenter' -Version latest
+$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC01.Id
+$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2019-Datacenter' -Version latest
 
 #Create the virtual machine
 New-AzVM -ResourceGroupName Test-FW-RG -Location "East US" -VM $VirtualMachine -Verbose
@@ -127,7 +126,7 @@ New-AzVM -ResourceGroupName Test-FW-RG -Location "East US" -VM $VirtualMachine -
 $FWpip = New-AzPublicIpAddress -Name "fw-pip" -ResourceGroupName Test-FW-RG `
   -Location "East US" -AllocationMethod Static -Sku Standard
 # Create the firewall
-$Azfw = New-AzFirewall -Name Test-FW01 -ResourceGroupName Test-FW-RG -Location "East US" -VirtualNetworkName Test-FW-VN -PublicIpName fw-pip
+$Azfw = New-AzFirewall -Name Test-FW01 -ResourceGroupName Test-FW-RG -Location "East US" -VirtualNetwork $testVnet -PublicIpAddress $FWpip
 
 #Save the firewall private IP address for future use
 
@@ -205,24 +204,20 @@ Set-AzFirewall -AzureFirewall $Azfw
 이 절차에서 테스트를 위해 서버의 기본 및 보조 DNS 주소를 구성 합니다. 일반적인 Azure Firewall 요구 사항이 아닙니다.
 
 ```azurepowershell
-$NIC.DnsSettings.DnsServers.Add("209.244.0.3")
-$NIC.DnsSettings.DnsServers.Add("209.244.0.4")
-$NIC | Set-AzNetworkInterface
+$NIC01.DnsSettings.DnsServers.Add("209.244.0.3")
+$NIC01.DnsSettings.DnsServers.Add("209.244.0.4")
+$NIC01 | Set-AzNetworkInterface
 ```
 
 ## <a name="test-the-firewall"></a>방화벽 테스트
 
 이제 방화벽이 예상대로 작동하는지 테스트합니다.
 
-1. **Srv 작업** 가상 머신의 개인 IP 주소를 적어둡니다.
+1. 방호를 사용 하 여 **Srv 작업** 가상 머신에 연결 하 고 로그인 합니다. 
 
-   ```
-   $NIC.IpConfigurations.PrivateIpAddress
-   ```
+   :::image type="content" source="media/deploy-ps/bastion.png" alt-text="요새를 사용 하 여 연결 합니다.":::
 
-1. 원격 데스크톱을 **Srv-Jump** 가상 머신과 연결하고 로그인합니다. 여기에서 **Srv-Work** 개인 IP 주소에 대 한 원격 데스크톱 연결을 열고 로그인 합니다.
-
-3. **SRV 작업**에서 PowerShell 창을 열고 다음 명령을 실행 합니다.
+3. **Srv 작업** 에서 PowerShell 창을 열고 다음 명령을 실행 합니다.
 
    ```
    nslookup www.google.com

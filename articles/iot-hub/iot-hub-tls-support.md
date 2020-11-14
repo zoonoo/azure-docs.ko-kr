@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/13/2020
 ms.author: jlian
-ms.openlocfilehash: 08ecb766a1a9bd7ff75bf97647be811577212eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9dd66fe9d71f0a857e4b0821190bceb5d6d4680
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006043"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628801"
 ---
 # <a name="tls-support-in-iot-hub"></a>IoT Hub의 TLS 지원
 
@@ -107,4 +107,4 @@ IoT Edge 디바이스는 IoT Hub와 통신할 때 TLS 1.2를 사용하도록 구
 
 ## <a name="device-authentication"></a>디바이스 인증
 
-TLS 핸드셰이크에 성공한 후 IoT Hub 대칭 키 또는 x.509 인증서를 사용 하 여 장치를 인증할 수 있습니다. 인증서 기반 인증의 경우 ECC를 포함 하 여 모든 x.509 인증서를 사용할 수 있습니다. IoT Hub는 사용자가 제공 하는 지문 또는 CA (인증 기관)에 대해 인증서의 유효성을 검사 합니다. IoT Hub는 아직 x.509 기반 상호 인증 (mTLS)을 지원 하지 않습니다. 자세히 알아보려면 [지원 되는 x.509 인증서](iot-hub-devguide-security.md#supported-x509-certificates)를 참조 하세요.
+TLS 핸드셰이크에 성공한 후 IoT Hub 대칭 키 또는 x.509 인증서를 사용 하 여 장치를 인증할 수 있습니다. 인증서 기반 인증의 경우 ECC를 포함 하 여 모든 x.509 인증서를 사용할 수 있습니다. IoT Hub는 사용자가 제공 하는 지문 또는 CA (인증 기관)에 대해 인증서의 유효성을 검사 합니다. 자세히 알아보려면 [지원 되는 x.509 인증서](iot-hub-devguide-security.md#supported-x509-certificates)를 참조 하세요.

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: ca3cf93329ea84183ef11eec8f8fac52cd84d445
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 11/13/2020
+ms.openlocfilehash: a089631ab199b0fe997bba001561c6b027034e2c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461195"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628750"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Log Analytics 에이전트를 사용 하 여 IIS 로그 수집 Azure Monitor
 인터넷 정보 서비스 (IIS)는 Log Analytics 에이전트가 수집 하 고 [Azure Monitor 로그](data-platform.md)에 저장할 수 있는 로그 파일에 사용자 작업을 저장 합니다.
@@ -26,12 +26,14 @@ Azure Monitor는 IIS에서 생성된 로그 파일의 항목을 수집하므로 
 
 Azure Monitor는 W3C 형식으로 저장된 IIS 로그 파일만 지원하며 사용자 지정 필드 또는 IIS 고급 로깅을 지원하지 않습니다. NCSA 또는 IIS 네이티브 형식의 로그는 수집하지 않습니다.
 
-Log Analytics 에이전트에 대 한 [고급 설정 메뉴](agent-data-sources.md#configuring-data-sources) 에서 Azure Monitor IIS 로그를 구성 합니다.  **W3C 형식 IIS 로그 파일 수집**을 선택하는 것 외에 다른 구성은 필요 없습니다.
+Log Analytics 에이전트에 대 한 [고급 설정 메뉴](agent-data-sources.md#configuring-data-sources) 에서 Azure Monitor IIS 로그를 구성 합니다.  **W3C 형식 IIS 로그 파일 수집** 을 선택하는 것 외에 다른 구성은 필요 없습니다.
 
 
 ## <a name="data-collection"></a>데이터 수집
-Azure Monitor는 로그 타임 스탬프가 변경 될 때마다 각 에이전트에서 IIS 로그 항목을 수집 합니다. **5 분**마다 로그를 읽습니다. 어떤 이유로 든 새 파일이 생성 될 때 IIS가 롤오버 시간 전에 타임 스탬프를 업데이트 하지 않으면 새 파일 생성 후에 항목이 수집 됩니다. 새 파일 생성 빈도는 IIS 사이트에 대 한 **로그 파일 롤오버 일정** 설정에 의해 제어 되며, 기본적으로 하루에 한 번입니다. 설정이 **매시간**인 경우 Azure Monitor는 매시간 로그를 수집 합니다. 설정이 **매일**이면 Azure Monitor 24 시간 마다 로그를 수집 합니다.
+Azure Monitor는 로그 타임 스탬프가 변경 될 때마다 각 에이전트에서 IIS 로그 항목을 수집 합니다. **5 분** 마다 로그를 읽습니다. 어떤 이유로 든 새 파일이 생성 될 때 IIS가 롤오버 시간 전에 타임 스탬프를 업데이트 하지 않으면 새 파일 생성 후에 항목이 수집 됩니다. 새 파일 생성 빈도는 IIS 사이트에 대 한 **로그 파일 롤오버 일정** 설정에 의해 제어 되며, 기본적으로 하루에 한 번입니다. 설정이 **매시간** 인 경우 Azure Monitor는 매시간 로그를 수집 합니다. 설정이 **매일** 이면 Azure Monitor 24 시간 마다 로그를 수집 합니다.
 
+> [!IMPORTANT]
+> **로그 파일 롤오버 일정** 을 **시간별** 로 설정 하는 것이 좋습니다. **매일** 로 설정 된 경우에는 하루에 한 번만 수집 되므로 데이터가 급증 할 수 있습니다.
 
 ## <a name="iis-log-record-properties"></a>IIS 로그 레코드 속성
 IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있습니다.

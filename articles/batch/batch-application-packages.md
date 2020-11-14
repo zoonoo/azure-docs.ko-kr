@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-csharp
 - contperfq1
 ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "91277702"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>애플리케이션을 배포하여 Batch 애플리케이션 패키지에서 노드 컴퓨팅
@@ -77,7 +77,7 @@ Batch 서비스는 Azure Storage를 사용하여 애플리케이션 패키지를
 
 Batch 계정의 응용 프로그램을 보려면 왼쪽 탐색 메뉴에서 **응용 프로그램** 을 선택 합니다.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="응용 프로그램 및 응용 프로그램 패키지의 상위 수준 보기를 보여 주는 다이어그램":::
+:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Azure Portal에서 응용 프로그램 메뉴 항목의 스크린샷":::
 
 이 메뉴 옵션을 선택 하면 **응용 프로그램** 창이 열립니다. 이 창은 계정의 각 애플리케이션 ID 및 다음 속성을 표시합니다.
 
@@ -101,7 +101,7 @@ Batch 계정의 응용 프로그램을 보려면 왼쪽 탐색 메뉴에서 **�
 
 Batch 계정에서 **응용 프로그램** 을 선택 하 고 **추가** 를 선택 합니다.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="응용 프로그램 및 응용 프로그램 패키지의 상위 수준 보기를 보여 주는 다이어그램":::
+:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Azure Portal에서 새 응용 프로그램 만들기 프로세스의 스크린샷":::
 
 다음 정보를 입력합니다.
 
@@ -128,7 +128,7 @@ Batch 계정에서 **응용 프로그램** 을 선택 하 고 **추가** 를 선
 
 기존 응용 프로그램 패키지를 업데이트 하거나 삭제 하려면 Batch 계정의 **응용 프로그램** 섹션에서 응용 프로그램을 선택 합니다. 수정 하려는 응용 프로그램 패키지의 행에서 줄임표를 선택 하 고 수행할 작업을 선택 합니다.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="응용 프로그램 및 응용 프로그램 패키지의 상위 수준 보기를 보여 주는 다이어그램":::
+:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Azure Portal의 응용 프로그램 패키지에 대 한 업데이트 및 삭제 옵션을 보여 주는 스크린샷":::
 
 **업데이트** 를 선택 하면 새 .zip 파일을 업로드할 수 있습니다. 그러면 해당 버전에 대해 업로드 한 이전 .zip 파일이 대체 됩니다.
 
@@ -243,7 +243,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 
 ## <a name="update-a-pools-application-packages"></a>풀의 애플리케이션 패키지 업데이트
 
-기존 풀이 이미 애플리케이션 패키지를 통해 구성된 경우 해당 풀에 대해 새 패키지를 지정할 수 있습니다. 이는 다음을 의미합니다.
+기존 풀이 이미 애플리케이션 패키지를 통해 구성된 경우 해당 풀에 대해 새 패키지를 지정할 수 있습니다. 이것은 다음을 의미합니다.
 
 - Batch 서비스는 풀에 조인하는 모든 새 노드와 다시 부팅되거나 이미지로 다시 설치되는 기존 노드에 새로 지정된 패키지를 설치합니다.
 - 패키지 참조를 업데이트할 때 이미 풀에 있는 Compute 노드는 새 애플리케이션 패키지를 자동으로 설치하지 않습니다. 이러한 컴퓨팅 노드를 재부팅하거나 이미지로 다시 설치하여 새 패키지를 받아야 합니다.

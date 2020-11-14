@@ -3,14 +3,14 @@ title: Azure Functions에 대 한 JavaScript 개발자 참조
 description: JavaScript를 사용하여 함수를 개발하는 방법을 알아봅니다.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5b9ffdec83fb613b7df0b5a3227ca66c55e54fe9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9b920dc8a31967c9d8e1f05a6101fdfcc7a1304e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422555"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628835"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -323,7 +323,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 기본 수준 외에도 다음과 같은 로깅 메서드를 사용 하 여 특정 추적 수준에서 함수 로그를 쓸 수 있습니다.
 
-| 방법                 | Description                                |
+| 메서드                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **오류 ( _메시지_ )**   | 로그에 오류 수준 이벤트를 씁니다.   |
 | **warn( _message_ )**    | 로그에 경고 수준 이벤트를 씁니다. |
@@ -508,12 +508,20 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
 | Functions 버전 | 노드 버전 (Windows) | 노드 버전 (Linux) |
 |---|---| --- |
 | 1.x | 6.11.2(런타임에 의해 잠김) | 해당 없음 |
-| 2.x  | ~ 8<br/>~ 10 (권장)<br/>~ 12<sup>*</sup> | ~ 8 (권장)<br/>~ 10  |
-| 3.x | ~ 10<br/>~ 12 (권장)  | ~ 10<br/>~ 12 (권장) |
+| 2.x  | `~8`<br/>`~10` 바람직하지<br/>`~12` | `node|8`<br/>`node|10` 바람직하지  |
+| 3.x | `~10`<br/>`~12` 바람직하지<br/>`~14`(미리 보기)  | `node|10`<br/>`node|12` 바람직하지<br/>`node|14`(미리 보기) |
 
-<sup>*</sup>노드 ~ 12는 현재 함수 런타임의 버전 2.x에서 허용 됩니다. 그러나 최상의 성능을 위해 노드 ~ 12에서 함수 런타임 버전 3(sp3)을 사용 하는 것이 좋습니다. 
+함수에서 로깅하는 런타임에 사용 하 고 있는 현재 버전을 확인할 수 있습니다 `process.version` .
 
-위의 앱 설정을 확인하거나 함수에서 `process.version`을 인쇄하여 런타임에 사용 중인 현재 버전을 확인할 수 있습니다. WEBSITE_NODE_DEFAULT_VERSION [앱 설정을](functions-how-to-use-azure-function-app-settings.md#settings) 와 같은 지원 되는 lts 버전으로 설정 하 여 Azure의 버전을 대상으로 `~10` 합니다.
+### <a name="setting-the-node-version"></a>노드 버전 설정
+
+Windows 함수 앱의 경우 `WEBSITE_NODE_DEFAULT_VERSION` [앱 설정을](functions-how-to-use-azure-function-app-settings.md#settings) 와 같이 지원 되는 lts 버전으로 설정 하 여 Azure의 버전을 대상으로 `~12` 합니다.
+
+Linux 함수 앱의 경우 다음 Azure CLI 명령을 실행 하 여 노드 버전을 업데이트 합니다.
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
 
 ## <a name="dependency-management"></a>종속성 관리
 아래 예제와 같이 JavaScript 코드에서 커뮤니티 라이브러리를 사용하려면, Azure의 함수 앱에 모든 종속성이 설치되어 있는지 확인해야 합니다.

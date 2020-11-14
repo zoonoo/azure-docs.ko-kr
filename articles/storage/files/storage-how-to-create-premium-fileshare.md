@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 75ba8e1e2037ba8ef249b548dfb38e5fd1618cb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ec8e4a945f8b8277d05c11bf3673d2e4ab15f9a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564188"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626795"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Azure premium 파일 공유를 만드는 방법
 
@@ -24,8 +24,8 @@ ms.locfileid: "90564188"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-- Azure CLI를 사용하려면 [최신 버전을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하세요.
-- Azure PowerShell 모듈을 사용 하려는 경우 [최신 버전을 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0)합니다.
+- Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)하세요.
+- Azure PowerShell 모듈을 사용 하려는 경우 [최신 버전을 설치](/powershell/azure/install-az-ps?view=azps-4.6.0)합니다.
 
 ## <a name="create-a-filestorage-storage-account"></a>FileStorage 저장소 계정 만들기
 
@@ -43,23 +43,23 @@ ms.locfileid: "90564188"
 
     ![Azure Portal 기본 페이지 저장소 계정 선택](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
-1. 나타나는 **Storage 계정** 창에서 **추가**를 선택합니다.
+1. 나타나는 **Storage 계정** 창에서 **추가** 를 선택합니다.
 1. 스토리지 계정을 만들 구독을 선택합니다.
-1. **리소스 그룹** 필드 아래에서 **새로 만들기**를 선택합니다. 다음 이미지에 표시된 대로 새 리소스 그룹의 이름을 입력합니다.
+1. **리소스 그룹** 필드 아래에서 **새로 만들기** 를 선택합니다. 다음 이미지에 표시된 대로 새 리소스 그룹의 이름을 입력합니다.
 
 1. 그런 다음, 스토리지 계정의 이름을 입력합니다. 선택하는 이름이 Azure에서 고유해야 합니다. 또한 이름의 길이가 3~24자여야 하고, 숫자 및 소문자만 포함할 수 있습니다.
 1. 스토리지 계정의 위치를 선택하거나 기본 위치를 사용합니다.
-1. **성능을** 위해 **프리미엄**을 선택 합니다.
+1. **성능을** 위해 **프리미엄** 을 선택 합니다.
 
     **계정 종류** 드롭다운에서 사용 가능한 옵션을 사용 하려면 **Premium** for **FileStorage** 를 선택 해야 합니다.
 
-1. **계정 종류** 를 선택 하 고 **FileStorage**를 선택 합니다.
+1. **계정 종류** 를 선택 하 고 **FileStorage** 를 선택 합니다.
 1. **복제** 를 기본값인 **LRS (로컬 중복 저장소)** 로 설정 된 상태로 둡니다.
 
     ![프리미엄 파일 공유에 대 한 저장소 계정을 만드는 방법](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
-1. **검토 + 만들기**를 선택하여 스토리지 계정 설정을 검토하고 계정을 만듭니다.
-1. **만들기**를 선택합니다.
+1. **검토 + 만들기** 를 선택하여 스토리지 계정 설정을 검토하고 계정을 만듭니다.
+1. **만들기** 를 선택합니다.
 
 저장소 계정 리소스를 만든 후으로 이동 합니다.
 
@@ -144,9 +144,9 @@ FileStorage 계정을 만들었으므로 이제 해당 저장소 계정 내에�
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. 저장소 계정에 대 한 왼쪽 메뉴에서 **파일 서비스** 섹션으로 스크롤한 다음 **파일**을 선택 합니다.
+1. 저장소 계정에 대 한 왼쪽 메뉴에서 **파일 서비스** 섹션으로 스크롤한 다음 **파일** 을 선택 합니다.
 1. **파일 공유** 를 선택 하 여 프리미엄 파일 공유를 만듭니다.
-1. 파일 공유에 대 한 이름 및 원하는 할당량을 입력 한 다음 **만들기**를 선택 합니다.
+1. 파일 공유에 대 한 이름 및 원하는 할당량을 입력 한 다음 **만들기** 를 선택 합니다.
 
 > [!NOTE]
 > 프로 비전 된 공유 크기는 공유 할당량으로 지정 되며 파일 공유는 프로 비전 된 크기에 따라 청구 됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/)를 참조하세요.
