@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: cb783e5da7364f38944ce31ce49a6a6529658fe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f6d2b126cd9a0acbbbdb8d17ce7345bbf17b556
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903212"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635911"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 kubectl를 통해 Kubernetes 클러스터에 연결 하 고 관리 합니다.
 
-Azure Stack Edge Pro 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes 클러스터가 만들어지면 *kubectl*와 같은 네이티브 도구를 통해 클라이언트 컴퓨터에서 로컬로 클러스터에 연결 하 고 관리할 수 있습니다.
+Azure Stack Edge Pro 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes 클러스터가 만들어지면 *kubectl* 와 같은 네이티브 도구를 통해 클라이언트 컴퓨터에서 로컬로 클러스터에 연결 하 고 관리할 수 있습니다.
 
-이 문서에서는 Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 연결 하 고 *kubectl*를 사용 하 여 관리 하는 방법을 설명 합니다. 
+이 문서에서는 Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 연결 하 고 *kubectl* 를 사용 하 여 관리 하는 방법을 설명 합니다. 
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -44,7 +44,7 @@ Kubernetes 클러스터를 만든 후이 클러스터에 액세스 하 여 네�
 [!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 
-## <a name="configure-cluster-access-via-rbac"></a>RBAC를 통해 클러스터 액세스 구성
+## <a name="configure-cluster-access-via-kubernetes-rbac"></a>Kubernetes RBAC를 통해 클러스터 액세스 구성
 
 Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 클러스터에 액세스할 수 있습니다. 
 
@@ -125,7 +125,7 @@ Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 
     예를 들어 Kubernetes 마스터 노드가 v 1.15.2를 실행 하는 경우 클라이언트에 v 1.15.2를 설치 합니다.
 
     > [!IMPORTANT]
-    > 마스터에서 두 개 이상의 부 버전을 기울인 클라이언트를 다운로드 합니다. 클라이언트 버전은 마스터를 최대 1 부 버전까지 만들 수 있습니다. 예를 들어, v 1.3 마스터는 v 1.1, v 1.2 및 v 1.3 노드와 함께 사용 해야 하며, v 1.2, v 1.3 및 v 1.4 클라이언트에서 작동 해야 합니다. Kubernetes client 버전에 대 한 자세한 내용은 [Kubernetes 버전 및 버전 기울기 지원 정책](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew)을 참조 하세요. Edge Pro Azure Stack의 Kubernetes server 버전에 대 한 자세한 내용은 Kubernetes 서버 버전 가져오기로 이동 합니다.<!-- insert link-->
+    > 마스터에서 부 버전이 두 개 이상 왜곡된 클라이언트를 다운로드합니다. 클라이언트 버전은 마스터를 최대 1 부 버전까지 만들 수 있습니다. 예를 들어, v 1.3 마스터는 v 1.1, v 1.2 및 v 1.3 노드와 함께 사용 해야 하며, v 1.2, v 1.3 및 v 1.4 클라이언트에서 작동 해야 합니다. Kubernetes client 버전에 대 한 자세한 내용은 [Kubernetes 버전 및 버전 기울기 지원 정책](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew)을 참조 하세요. Edge Pro Azure Stack의 Kubernetes server 버전에 대 한 자세한 내용은 Kubernetes 서버 버전 가져오기로 이동 합니다.<!-- insert link-->
     > `kubectl`Windows용 Docker 또는 다른 도구를 실행 하는 경우가 시스템에 미리 설치 되어 있는 경우가 있습니다. 이 `kubectl` kubernetes 클러스터를 사용 하려면이 섹션에서 설명한 대로의 특정 버전을 다운로드 해야 합니다. 
 
     설치는 몇 분 정도 걸립니다.
@@ -160,7 +160,7 @@ Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 
 이제 네임 스페이스에 응용 프로그램을 배포한 다음 해당 응용 프로그램 및 로그를 볼 수 있습니다.
 
 > [!IMPORTANT]   
-> 예를 들어 관리자 액세스 권한이 필요한 명령을 실행할 수 없는 많은 명령이 있습니다. 네임 스페이스에 허용 되는 작업만 수행할 수 있습니다.
+> 예를 들어 관리자 액세스 권한이 필요한 명령을 실행할 수 없는 많은 명령이 있습니다. 네임스페이스에서 허용되는 작업만 수행할 수 있습니다.
 
 
 ## <a name="remove-kubernetes-cluster"></a>Kubernetes 클러스터 제거

@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용하도록 설정하고 사용할 때 발생하는 일반적인 문제를 해결하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 42551443fb5af1bd3f783c33f708b231eea68907
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a30ae2d78d682427cf53c8f98b0ca70b441d72e1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364170"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636812"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 
@@ -28,7 +28,7 @@ Visual Studio의 경우 `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` 환경 변�
 
 CLI에서 `--verbose` 전환을 사용하여 명령을 실행하는 동안 자세한 정보를 출력할 수 있습니다. `%TEMP%\Azure Dev Spaces`에서 자세한 로그를 찾아볼 수도 있습니다. Mac의 경우 터미널 창에서 `echo $TMPDIR`을 실행하면 *‘TEMP’* 디렉터리를 찾을 수 있습니다. Linux 컴퓨터에서 *‘TEMP’* 디렉터리는 일반적으로 `/tmp`입니다. 또한 [Azure CLI 구성 파일](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables)에서 로깅을 사용하도록 설정했는지 확인합니다.
 
-또한 Azure Dev Spaces는 단일 인스턴스 또는 Pod를 디버그할 때 가장 원활하게 작동합니다. `azds.yaml` 파일에는 Kubernetes가 서비스용으로 실행하는 Pod 수를 나타내는 설정인 *replicaCount*가 포함되어 있습니다. 지정된 서비스용으로 여러 개의 Pod를 실행하도록 애플리케이션을 구성하기 위해 *replicaCount*를 변경하면 디버거는 첫 번째 Pod(사전순으로 나열된 경우)에 연결됩니다. 원래 Pod가 재순환될 때는 디버거가 다른 Pod에 연결되므로 예기치 않은 동작이 발생할 수 있습니다.
+또한 Azure Dev Spaces는 단일 인스턴스 또는 Pod를 디버그할 때 가장 원활하게 작동합니다. `azds.yaml` 파일에는 Kubernetes가 서비스용으로 실행하는 Pod 수를 나타내는 설정인 *replicaCount* 가 포함되어 있습니다. 지정된 서비스용으로 여러 개의 Pod를 실행하도록 애플리케이션을 구성하기 위해 *replicaCount* 를 변경하면 디버거는 첫 번째 Pod(사전순으로 나열된 경우)에 연결됩니다. 원래 Pod가 재순환될 때는 디버거가 다른 Pod에 연결되므로 예기치 않은 동작이 발생할 수 있습니다.
 
 ## <a name="common-issues-when-enabling-azure-dev-spaces"></a>Azure Dev Spaces를 사용하는 경우 일반적인 이슈
 
@@ -138,7 +138,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-위 명령은 가상 노드인 *virtual-node-aci-linux*에 서비스의 Pod가 할당되었음을 보여 줍니다.
+위 명령은 가상 노드인 *virtual-node-aci-linux* 에 서비스의 Pod가 할당되었음을 보여 줍니다.
 
 이 이슈를 해결하려면 서비스에 대한 Helm 차트를 업데이트하여 가상 노드에서 서비스를 실행할 수 있도록 하는 *nodeSelector* 또는 *tolerations* 값을 제거합니다. 이러한 값은 일반적으로 차트의 `values.yaml` 파일에서 정의됩니다.
 
@@ -160,7 +160,7 @@ Dev Spaces를 통해 빌드 또는 디버그하려는 서비스가 VM 노드에�
 
 ### <a name="existing-dockerfile-not-used-to-build-a-container"></a>기존 Dockerfile이 컨테이너 빌드에 사용되지 않음
 
-프로젝트에서 특정 _Dockerfile_을 가리키도록 Azure Dev Spaces를 구성할 수 있습니다. Azure Dev Spaces가 컨테이너를 빌드하는 데 필요한 _Dockerfile_을 사용하지 않는 것 같으면 Azure Dev Spaces에서 사용할 Dockerfile을 명시적으로 지정해야 할 수 있습니다. 
+프로젝트에서 특정 _Dockerfile_ 을 가리키도록 Azure Dev Spaces를 구성할 수 있습니다. Azure Dev Spaces가 컨테이너를 빌드하는 데 필요한 _Dockerfile_ 을 사용하지 않는 것 같으면 Azure Dev Spaces에서 사용할 Dockerfile을 명시적으로 지정해야 할 수 있습니다. 
 
 이 이슈를 해결하려면 Azure Dev Spaces가 사용자 프로젝트에 생성한 _azds.yaml_ 파일을 엽니다. 사용할 Dockerfile을 가리키도록 *‘configurations: develop: build: dockerfile’* 을 업데이트합니다. 다음은 그 예입니다.
 
@@ -217,8 +217,8 @@ azds up --verbose --output json
 
 Visual Studio에서
 
-1. **도구 > 옵션**을 열고 **프로젝트 및 솔루션** 아래에서 **빌드 및 실행**을 선택합니다.
-2. **MSBuild 프로젝트 빌드 출력 세부 정보 표시**의 설정을 **세부 내용** 또는 **진단**으로 변경합니다.
+1. **도구 > 옵션** 을 열고 **프로젝트 및 솔루션** 아래에서 **빌드 및 실행** 을 선택합니다.
+2. **MSBuild 프로젝트 빌드 출력 세부 정보 표시** 의 설정을 **세부 내용** 또는 **진단** 으로 변경합니다.
 
     ![도구 옵션 대화 상자 스크린샷](media/common/VerbositySetting.PNG)
 
@@ -261,26 +261,26 @@ Service cannot be started.
 
 [Azure Dev Spaces를 사용하여 AKS 클러스터를 개발 머신에 연결](https://code.visualstudio.com/docs/containers/bridge-to-kubernetes)하는 경우 개발 머신과 AKS 클러스터 간에 네트워크 트래픽이 전달되지 않는 이슈가 발생할 수 있습니다.
 
-개발 머신을 AKS 클러스터에 연결하는 경우 Azure Dev Spaces는 개발 머신의 `hosts` 파일을 수정하여 AKS 클러스터와 개발 머신 간에 네트워크 트래픽을 전달합니다. Azure Dev Spaces는 호스트 이름으로 대체하려는 Kubernetes 서비스의 주소를 사용하여 `hosts`에 항목을 만듭니다. 이 항목은 개발 머신과 AKS 클러스터 간에 네트워크 트래픽을 보내기 위해 포트 전달과 함께 사용됩니다. 개발 머신의 서비스가 바꿀 Kubernetes 서비스의 포트와 충돌하는 경우 Azure Dev Spaces는 Kubernetes 서비스의 네트워크 트래픽을 전달할 수 없습니다. 예를 들어, *Windows BranchCache* 서비스는 일반적으로 *0.0.0.0:80*에 바인딩되므로 모든 로컬 IP의 포트 80에 충돌을 유발합니다.
+개발 머신을 AKS 클러스터에 연결하는 경우 Azure Dev Spaces는 개발 머신의 `hosts` 파일을 수정하여 AKS 클러스터와 개발 머신 간에 네트워크 트래픽을 전달합니다. Azure Dev Spaces는 호스트 이름으로 대체하려는 Kubernetes 서비스의 주소를 사용하여 `hosts`에 항목을 만듭니다. 이 항목은 개발 머신과 AKS 클러스터 간에 네트워크 트래픽을 보내기 위해 포트 전달과 함께 사용됩니다. 개발 머신의 서비스가 바꿀 Kubernetes 서비스의 포트와 충돌하는 경우 Azure Dev Spaces는 Kubernetes 서비스의 네트워크 트래픽을 전달할 수 없습니다. 예를 들어, *Windows BranchCache* 서비스는 일반적으로 *0.0.0.0:80* 에 바인딩되므로 모든 로컬 IP의 포트 80에 충돌을 유발합니다.
 
-이 이슈를 해결하려면 바꾸려는 Kubernetes 서비스의 포트와 충돌하는 서비스나 프로세스를 중지해야 합니다. *netstat*와 같은 도구를 사용하여 개발 머신에서 충돌하는 서비스 또는 프로세스를 검사할 수 있습니다.
+이 이슈를 해결하려면 바꾸려는 Kubernetes 서비스의 포트와 충돌하는 서비스나 프로세스를 중지해야 합니다. *netstat* 와 같은 도구를 사용하여 개발 머신에서 충돌하는 서비스 또는 프로세스를 검사할 수 있습니다.
 
 예를 들어 *Windows BranchCache* 서비스를 중지하고 사용하지 않도록 설정하려면 다음을 수행합니다.
 * 명령 프롬프트에서 `services.msc`를 실행합니다.
-* *BranchCache*를 마우스 오른쪽 단추로 클릭하고 *‘속성’* 을 선택합니다.
+* *BranchCache* 를 마우스 오른쪽 단추로 클릭하고 *‘속성’* 을 선택합니다.
 * *‘중지’* 를 클릭합니다.
 * 선택적으로 *‘시작 유형’* 을 *‘사용 안 함’* 으로 설정하여 사용하지 않도록 설정할 수 있습니다.
-* *확인*을 클릭합니다.
+* *확인* 을 클릭합니다.
 
 ### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>"Pod: azds/azds에 대 한 AzureAssignedIdentity를 찾을 수 없음: \<id\> " 할당 된 상태 "오류
 
-[관리 id](../aks/use-managed-identity.md) 및 [pod 관리 id](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) 가 설치 된 AKS 클러스터에서 Azure Dev Spaces로 서비스를 실행 하는 경우 *차트 설치* 단계 후 프로세스가 응답 하지 않을 수 있습니다. *azds* 이름 공간에서 *azds-injector-webhook*를 검사하면 이 오류가 표시될 수 있습니다.
+[관리 id](../aks/use-managed-identity.md) 및 [pod 관리 id](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) 가 설치 된 AKS 클러스터에서 Azure Dev Spaces로 서비스를 실행 하는 경우 *차트 설치* 단계 후 프로세스가 응답 하지 않을 수 있습니다. *azds* 이름 공간에서 *azds-injector-webhook* 를 검사하면 이 오류가 표시될 수 있습니다.
 
 Azure Dev Spaces가 클러스터에서 실행하는 서비스는 클러스터의 관리 ID를 활용하여 클러스터 외부의 Azure Dev Spaces 백 엔드 서비스와 통신합니다. Pod 관리 ID가 설치되면 클러스터의 노드에서 관리 ID 자격 증명에 대한 모든 호출을 [클러스터에 설치된 NMI(Node Managed Identity) DaemonSet](https://github.com/Azure/aad-pod-identity#node-managed-identity)로 리디렉션하는 네트워킹 규칙이 구성됩니다. 이 NMI DaemonSet은 호출 pod를 식별하고 pod에 요청된 관리 ID에 액세스하도록 적절히 레이블이 지정되었는지 확인합니다. Azure Dev Spaces는 클러스터에 pod 관리 ID가 설치되어 있는지와 Azure Dev Spaces 서비스에서 클러스터의 관리 ID에 액세스할 수 있도록 하는 데 필요한 구성을 수행할 수 없는지를 확인할 수 없습니다. Azure Dev Spaces 서비스는 클러스터의 관리 id에 액세스 하도록 구성 되지 않았기 때문에 NMI DaemonSet는 관리 되는 id에 대 한 Azure AD 토큰을 가져오는 것을 허용 하지 않으며 Azure Dev Spaces 백엔드 서비스와 통신 하지 못합니다.
 
-이 이슈를 해결하려면 *azds-injector-webhook*에 [AzurePodIdentityException](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)을 적용하고 Azure Dev Spaces에서 관리 ID에 액세스하기 위해 계측하는 pod를 업데이트합니다.
+이 이슈를 해결하려면 *azds-injector-webhook* 에 [AzurePodIdentityException](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)을 적용하고 Azure Dev Spaces에서 관리 ID에 액세스하기 위해 계측하는 pod를 업데이트합니다.
 
-*webhookException.yaml*이라는 파일을 만들고 다음 YAML 정의를 복사합니다.
+*webhookException.yaml* 이라는 파일을 만들고 다음 YAML 정의를 복사합니다.
 
 ```yaml
 apiVersion: "aadpodidentity.k8s.io/v1"
@@ -293,13 +293,13 @@ spec:
     azds.io/uses-cluster-identity: "true"
 ```
 
-위의 파일은 *azds-injector-webhook*에 대해 *AzurePodIdentityException* 개체를 만듭니다. 이 개체를 배포하려면 `kubectl`을 사용합니다.
+위의 파일은 *azds-injector-webhook* 에 대해 *AzurePodIdentityException* 개체를 만듭니다. 이 개체를 배포하려면 `kubectl`을 사용합니다.
 
 ```cmd
 kubectl apply -f webhookException.yaml
 ```
 
-Azure Dev Spaces에서 관리 ID에 액세스하기 위해 계측하는 pod를 업데이트하려면 아래 YAML 정의에서 *namespace*를 업데이트하고 `kubectl`을 사용하여 각 개발 공간에 적용합니다.
+Azure Dev Spaces에서 관리 ID에 액세스하기 위해 계측하는 pod를 업데이트하려면 아래 YAML 정의에서 *namespace* 를 업데이트하고 `kubectl`을 사용하여 각 개발 공간에 적용합니다.
 
 ```yaml
 apiVersion: "aadpodidentity.k8s.io/v1"
@@ -320,7 +320,7 @@ spec:
 az aks show -g <resourcegroup> -n <cluster> -o json --query "{clientId: identityProfile.kubeletidentity.clientId, resourceId: identityProfile.kubeletidentity.resourceId}"
 ```
 
-위 명령은 관리 ID에 대한 *clientId*와 *resourceId*를 출력합니다. 다음은 그 예입니다.
+위 명령은 관리 ID에 대한 *clientId* 와 *resourceId* 를 출력합니다. 다음은 그 예입니다.
 
 ```json
 {
@@ -329,7 +329,7 @@ az aks show -g <resourcegroup> -n <cluster> -o json --query "{clientId: identity
 }
 ```
 
-*AzureIdentity* 개체를 만들려면 *clusteridentity.yaml*이라는 파일을 만들고 이전 명령에서 관리 ID의 세부 정보로 업데이트한 다음, YAML 정의를 사용합니다.
+*AzureIdentity* 개체를 만들려면 *clusteridentity.yaml* 이라는 파일을 만들고 이전 명령에서 관리 ID의 세부 정보로 업데이트한 다음, YAML 정의를 사용합니다.
 
 ```yaml
 apiVersion: "aadpodidentity.k8s.io/v1"
@@ -342,7 +342,7 @@ spec:
   ClientID: <clientId>
 ```
 
-*AzureIdentityBinding* 개체를 만들려면 *clusteridentitybinding.yaml*이라는 파일을 만들고 다음 YAML 정의를 사용합니다.
+*AzureIdentityBinding* 개체를 만들려면 *clusteridentitybinding.yaml* 이라는 파일을 만들고 다음 YAML 정의를 사용합니다.
 
 ```yaml
 apiVersion: "aadpodidentity.k8s.io/v1"
@@ -424,9 +424,9 @@ Visual Studio Code 디버거를 실행할 때 이 오류가 표시될 수 있습
 
 ### <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Node.js 애플리케이션에 디버깅을 연결할 때 "내부 조사식 실패: ENOSPC 조사" 오류 발생
 
-이 오류는 디버거를 사용하여 연결하려고 하는 Node.js 애플리케이션에서 pod를 실행하는 노드가 *inotify max_user_watches* 값을 초과하는 경우에 발생합니다. 경우에 따라 fs.inotify.max_user_watches의 [기본값*이* 너무 작아서 pod에 대한 디버거 직접 연결을 처리할 수 없습니다](https://github.com/Azure/AKS/issues/772).
+이 오류는 디버거를 사용하여 연결하려고 하는 Node.js 애플리케이션에서 pod를 실행하는 노드가 *inotify max_user_watches* 값을 초과하는 경우에 발생합니다. 경우에 따라 fs.inotify.max_user_watches의 [기본값 *이* 너무 작아서 pod에 대한 디버거 직접 연결을 처리할 수 없습니다](https://github.com/Azure/AKS/issues/772).
 
-이 이슈에 대한 일시적인 해결 방법은 클러스터의 각 노드에서 *fs.inotify.max_user_watches*의 값을 늘리고 해당 노드를 다시 시작하여 변경 내용을 적용하는 것입니다.
+이 이슈에 대한 일시적인 해결 방법은 클러스터의 각 노드에서 *fs.inotify.max_user_watches* 의 값을 늘리고 해당 노드를 다시 시작하여 변경 내용을 적용하는 것입니다.
 
 ## <a name="other-common-issues"></a>기타 일반적인 이슈
 
@@ -459,7 +459,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ### <a name="new-pods-arent-starting"></a>새 pod가 시작되지 않음
 
-Kubernetes 이니셜라이저는 클러스터의 *cluster-admin* 역할에 대한 RBAC 권한 변경으로 인해 새 pod에 PodSpec을 적용할 수 없습니다. 또한 새 pod에 잘못된 PodSpec이 있을 수 있습니다. 예를 들어 pod와 연결된 서비스 계정이 더 이상 존재하지 않을 수 있습니다. 이니셜라이저 문제로 인해 *‘보류 중’* 상태에 있는 pod을 보려면 `kubectl get pods` 명령을 사용합니다.
+Kubernetes 이니셜라이저는 클러스터의 *클러스터 관리자* 역할에 대 한 Kubernetes RBAC 권한 변경으로 인해 new Pod에 PodSpec을 적용할 수 없습니다. 또한 새 pod에 잘못된 PodSpec이 있을 수 있습니다. 예를 들어 pod와 연결된 서비스 계정이 더 이상 존재하지 않을 수 있습니다. 이니셜라이저 문제로 인해 *‘보류 중’* 상태에 있는 pod을 보려면 `kubectl get pods` 명령을 사용합니다.
 
 ```bash
 kubectl get pods --all-namespaces --include-uninitialized
@@ -467,7 +467,7 @@ kubectl get pods --all-namespaces --include-uninitialized
 
 이 이슈는 Azure Dev Spaces를 사용하도록 설정하지 않은 네임스페이스를 포함하여 클러스터의 *‘모든 네임스페이스’* 에 있는 pod에 영향을 줄 수 있습니다.
 
-이 이슈를 해결하려면 [Dev Spaces CLI를 최신 버전으로 업데이트](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools)한 후 Azure Dev Spaces 컨트롤러에서 *azds InitializerConfiguration*을 삭제합니다.
+이 이슈를 해결하려면 [Dev Spaces CLI를 최신 버전으로 업데이트](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools)한 후 Azure Dev Spaces 컨트롤러에서 *azds InitializerConfiguration* 을 삭제합니다.
 
 ```azurecli
 az aks get-credentials --resource-group <resource group name> --name <cluster name>
@@ -477,7 +477,7 @@ az aks get-credentials --resource-group <resource group name> --name <cluster na
 kubectl delete InitializerConfiguration azds
 ```
 
-Azure Dev Spaces 컨트롤러에서 *azds InitializerConfiguration*를 제거한 후 `kubectl delete`를 사용하여 *보류 중* 상태의 모든 pod를 제거합니다. 보류 중인 모든 pod를 제거한 후 pod를 다시 배포합니다.
+Azure Dev Spaces 컨트롤러에서 *azds InitializerConfiguration* 를 제거한 후 `kubectl delete`를 사용하여 *보류 중* 상태의 모든 pod를 제거합니다. 보류 중인 모든 pod를 제거한 후 pod를 다시 배포합니다.
 
 다시 배포한 후에도 새 pod가 *‘보류 중’* 상태로 중지되는 경우 `kubectl delete`를 사용하여 *‘보류 중’* 상태의 모든 pod를 제거합니다. 보류 중인 모든 pod가 제거된 후 클러스터에서 컨트롤러를 삭제했다가 다시 설치합니다.
 
@@ -488,9 +488,9 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 
 컨트롤러를 다시 설치한 후 pod를 다시 배포합니다.
 
-### <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Dev Spaces 컨트롤러 및 API를 호출하기 위한 RBAC 권한이 올바르지 않음
+### <a name="incorrect-azure-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Dev Spaces 컨트롤러 및 Api 호출에 대 한 Azure RBAC 권한이 잘못 되었습니다.
 
-Azure Dev Spaces 컨트롤러에 액세스하는 사용자는 AKS 클러스터에서 관리자 *kubeconfig*를 읽을 수 있는 권한이 있어야 합니다. 예를 들어 이 권한은 [기본 제공 Azure Kubernetes Service 클러스터 관리자 역할](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions)에서 사용할 수 있습니다. 또한 Azure Dev Spaces 컨트롤러에 액세스 하는 사용자에 게는 컨트롤러에 대 한 *참가자* 또는 *소유자* Azure 역할이 있어야 합니다. AKS 클러스터에 대한 사용자 권한을 업데이트하는 방법에 대한 자세한 내용은 [여기](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group)를 참조하세요.
+Azure Dev Spaces 컨트롤러에 액세스하는 사용자는 AKS 클러스터에서 관리자 *kubeconfig* 를 읽을 수 있는 권한이 있어야 합니다. 예를 들어 이 권한은 [기본 제공 Azure Kubernetes Service 클러스터 관리자 역할](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions)에서 사용할 수 있습니다. 또한 Azure Dev Spaces 컨트롤러에 액세스 하는 사용자에 게는 컨트롤러에 대 한 *참가자* 또는 *소유자* Azure 역할이 있어야 합니다. AKS 클러스터에 대한 사용자 권한을 업데이트하는 방법에 대한 자세한 내용은 [여기](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group)를 참조하세요.
 
 컨트롤러에 대 한 사용자의 Azure 역할을 업데이트 하려면:
 
@@ -502,9 +502,9 @@ Azure Dev Spaces 컨트롤러에 액세스하는 사용자는 AKS 클러스터�
 1. *‘역할 할당’* 탭을 클릭합니다.
 1. *‘추가’* 를 클릭한 후 *‘역할 할당 추가’* 를 클릭합니다.
     * *‘역할’* 에 대해 *‘기여자’* 또는 *‘소유자’* 를 선택합니다.
-    * *액세스 할당*에서 *Azure AD 사용자, 그룹 또는 서비스 보안 주체*를 선택합니다.
+    * *액세스 할당* 에서 *Azure AD 사용자, 그룹 또는 서비스 보안 주체* 를 선택합니다.
     * *‘선택’* 에서 사용 권한을 부여하려는 사용자를 검색합니다.
-1. *저장*을 클릭합니다.
+1. *저장* 을 클릭합니다.
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Dev Spaces 서비스에 연결된 공용 URL에 대한 DNS 이름 확인 실패
 
@@ -530,7 +530,7 @@ Azure Dev Spaces 컨트롤러에 액세스하는 사용자는 AKS 클러스터�
 서비스에 액세스하려고 할 때 이 오류가 표시될 수 있습니다. 예를 들어 브라우저에서 서비스의 URL로 이동하는 경우입니다. 이 오류는 컨테이너 포트를 사용할 수 없음을 의미합니다. 이 오류는 다음과 같은 이유로 발생할 수 있습니다.
 
 * 컨테이너가 아직 빌드 및 배포되는 중입니다. `azds up`을 시작하거나 디버거를 시작한 다음, 성공적으로 배포하기 전에 컨테이너에 액세스하려고 하는 경우 이 문제가 발생할 수 있습니다.
-* 포트 구성이 _Dockerfile_, Helm 차트 및 포트를 여는 모든 서버 코드에서 일치하지 않습니다.
+* 포트 구성이 _Dockerfile_ , Helm 차트 및 포트를 여는 모든 서버 코드에서 일치하지 않습니다.
 
 이 문제를 해결하려면
 
@@ -594,7 +594,7 @@ pod를 다시 시작하면 Azure Dev Spaces에서 기존 네임스페이스를 �
 
 ### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>"구독에서 클러스터를 찾을 수 없습니다. \<cluster\> \<subscriptionId\> " 오류
 
-kubeconfig 파일이 Azure Dev Spaces 클라이언트 쪽 도구에서 사용하려는 것과는 다른 클러스터 또는 구독을 대상으로 하는 경우 이 오류가 표시될 수 있습니다. Azure Dev Spaces 클라이언트 쪽 도구는 [하나 이상의 kubeconfig 파일](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/)을 사용하여 클러스터를 선택하고 통신하는 *kubectl*의 동작을 복제합니다.
+kubeconfig 파일이 Azure Dev Spaces 클라이언트 쪽 도구에서 사용하려는 것과는 다른 클러스터 또는 구독을 대상으로 하는 경우 이 오류가 표시될 수 있습니다. Azure Dev Spaces 클라이언트 쪽 도구는 [하나 이상의 kubeconfig 파일](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/)을 사용하여 클러스터를 선택하고 통신하는 *kubectl* 의 동작을 복제합니다.
 
 이 문제를 해결하려면
 

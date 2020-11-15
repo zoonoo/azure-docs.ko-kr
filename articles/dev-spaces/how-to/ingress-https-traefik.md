@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: 사용자 지정 traefik 수신 컨트롤러를 사용 하 고 해당 수신 컨트롤러를 사용 하 여 HTTPS를 구성 하도록 Azure Dev Spaces를 구성 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: fb45c310d306813dc10b667db6ce36048eccf217
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2dcb549078f1f0f5f7168960864d564fd0c169fc
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746117"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636829"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>사용자 지정 traefik 수신 컨트롤러 사용 및 HTTPS 구성
 
@@ -53,7 +53,7 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 Traefik 수신 컨트롤러에 대 한 Kubernetes 네임 스페이스를 만들고를 사용 하 여 설치 `helm` 합니다.
 
 > [!NOTE]
-> AKS 클러스터에서 RBAC를 사용 하도록 설정 하지 않은 경우 *--set RBAC. enabled = true* 매개 변수를 제거 합니다.
+> AKS 클러스터에서 Kubernetes RBAC를 사용 하도록 설정 하지 않은 경우 *--set rbac. enabled = true* 매개 변수를 제거 합니다.
 
 ```console
 kubectl create ns traefik
@@ -103,7 +103,7 @@ cd dev-spaces/samples/BikeSharingApp/charts
 
 [값 .yaml][values-yaml] 을 열고 다음을 업데이트 합니다.
 * *<REPLACE_ME_WITH_HOST_SUFFIX>* 모든 인스턴스를 traefik로 바꿉니다 *.* *MY_CUSTOM_DOMAIN* 에 대해 도메인을 사용 하 여 MY_CUSTOM_DOMAIN 합니다. 
-* Replace *kubernetes.io/ingress.class: traefik-azds # Dev Spaces only* with *kubernetes.io/ingress.class: Traefik # Custom ingress* . 
+* Replace *kubernetes.io/ingress.class: traefik-azds # Dev Spaces only* with *kubernetes.io/ingress.class: Traefik # Custom ingress*. 
 
 업데이트 된 파일의 예는 `values.yaml` 다음과 같습니다.
 
@@ -223,7 +223,7 @@ kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 이전 *traefik* *ClusterRole* 및 *clusterrolebinding* 을 제거한 다음를 사용 하 여 HTTPS를 사용 하도록 traefik를 업그레이드 `helm` 합니다.
 
 > [!NOTE]
-> AKS 클러스터에서 RBAC를 사용 하도록 설정 하지 않은 경우 *--set RBAC. enabled = true* 매개 변수를 제거 합니다.
+> AKS 클러스터에서 Kubernetes RBAC를 사용 하도록 설정 하지 않은 경우 *--set rbac. enabled = true* 매개 변수를 제거 합니다.
 
 ```console
 kubectl delete ClusterRole traefik

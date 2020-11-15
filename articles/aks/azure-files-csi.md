@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745798"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636983"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service) (미리 보기)에서 CSI (Azure Files Container Storage Interface) 드라이버 사용
 
@@ -229,7 +229,7 @@ az provider register --namespace Microsoft.Storage
 [만들기 `Premium_LRS` ](../storage/files/storage-how-to-create-premium-fileshare.md) NFS 공유를 지원 하기 위해 다음 구성이 포함 된 Azure storage 계정:
 - 계정 종류: FileStorage
 - 보안 전송 필요 (HTTPS 트래픽만 사용): false
-- 방화벽 및 가상 네트워크에서 에이전트 노드의 가상 네트워크를 선택 합니다.
+- 방화벽 및 가상 네트워크에서 에이전트 노드의 가상 네트워크를 선택 합니다. 따라서 MC_ 리소스 그룹에서 저장소 계정을 만들 수 있습니다.
 
 ### <a name="create-nfs-file-share-storage-class"></a>NFS 파일 공유 저장소 클래스 만들기
 
@@ -239,7 +239,7 @@ az provider register --namespace Microsoft.Storage
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azurefile-csi
+  name: azurefile-csi-nfs
 provisioner: file.csi.azure.com
 parameters:
   resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, required only when storage account is not in the same resource group as your agent nodes
@@ -275,6 +275,10 @@ Filesystem      Size  Used Avail Use% Mounted on
 accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-556606f5da38  100G     0  100G   0% /mnt/azurefile
 ...
 ```
+
+>[!NOTE]
+> NFS 파일 공유는 프리미엄 계정 이므로 최소 파일 공유 크기는 100GB입니다. 저장소 크기가 작은 PVC를 만들 경우 "파일 공유를 만들지 못했습니다." 오류가 발생할 수 있습니다. size (5) ... "
+
 
 ## <a name="windows-containers"></a>Windows 컨테이너
 

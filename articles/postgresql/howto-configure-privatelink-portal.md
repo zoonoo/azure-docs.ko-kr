@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 98d3beef72d314f93f6a2bc580b1dd5de5735f23
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242469"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636268"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Azure Database for PostgreSQL에 대 한 개인 링크 만들기 및 관리-포털을 사용 하는 단일 서버
 
@@ -222,7 +222,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     Address:  10.1.3.4
     ```
 
-3. 사용 가능한 모든 클라이언트를 사용 하 여 PostgreSQL 서버에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15) 를 사용 하 여 작업을 수행 했습니다.
+3. 사용 가능한 모든 클라이언트를 사용 하 여 PostgreSQL 서버에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) 를 사용 하 여 작업을 수행 했습니다.
 
 4. **새 연결** 에서 다음 정보를 입력 하거나 선택 합니다.
 

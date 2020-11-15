@@ -7,20 +7,20 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 51cb79e942b9d92876bd4d0e2cc27bb5ee0337bf
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070506"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94634874"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스에서 공용 표준 Load Balancer 사용 (AKS)
 
-Azure Load Balancer는 인바운드 및 아웃 바운드 시나리오를 모두 지 원하는 OSI (개방형 시스템 연결) 모델의 L4입니다. 부하 분산 장치의 프런트 엔드에 도착 하는 인바운드 흐름을 백 엔드 풀 인스턴스에 배포 합니다.
+Azure Load Balancer는 인바운드 및 아웃 바운드 시나리오를 모두 지 원하는 OSI (개방형 시스템 연결) 모델의 L4에 있습니다. 부하 분산 장치의 프런트 엔드에 도착 하는 인바운드 흐름을 백 엔드 풀 인스턴스에 배포 합니다.
 
 AKS와 통합 된 **공용** Load Balancer는 두 가지 용도로 사용 됩니다.
 
-1. AKS 가상 네트워크 내의 클러스터 노드에 아웃 바운드 연결을 제공 합니다. 노드 개인 IP 주소를 해당 *아웃 바운드 풀*의 일부인 공용 IP 주소로 변환 하 여이 목표를 달성 합니다.
+1. AKS 가상 네트워크 내의 클러스터 노드에 아웃 바운드 연결을 제공 합니다. 노드 개인 IP 주소를 해당 *아웃 바운드 풀* 의 일부인 공용 IP 주소로 변환 하 여이 목표를 달성 합니다.
 2. 형식의 Kubernetes services를 통해 응용 프로그램에 대 한 액세스를 제공 `LoadBalancer` 합니다. 이를 통해 응용 프로그램을 쉽게 확장 하 고 항상 사용 가능한 서비스를 만들 수 있습니다.
 
 **내부 (또는 개인)** 부하 분산 장치는 개인 ip만 프런트 엔드로 허용 되는 경우에 사용 됩니다. 내부 부하 분산 장치는 트래픽 부하를 가상 네트워크 내에 분산하는 데 사용됩니다. 하이브리드 시나리오에서 온-프레미스 네트워크에서 부하 분산 장치 프런트 엔드에 액세스할 수도 있습니다.
@@ -93,13 +93,13 @@ Azure Load Balancer는 가상 네트워크에서 인바운드 연결 외에도 �
 
 모든 Load Balancer 규칙과 마찬가지로, 아웃바운드 규칙은 부하 분산 및 인바운드 NAT 규칙과 동일한 친숙한 구문을 따릅니다.
 
-***프런트 엔드 Ip + 매개 변수 + 백 엔드 풀***
+***프런트 엔드 ip + 매개 변수 + 백 엔드 풀** _
 
 아웃바운드 규칙은 백 엔드 풀에서 식별된 모든 가상 머신에 대한 아웃바운드 NAT를 프런트 엔드로 변환하도록 구성합니다. 그리고 매개 변수는 아웃바운드 NAT 알고리즘에 대해 세분화된 제어를 추가로 제공합니다.
 
 하나의 아웃바운드 규칙은 하나의 공용 IP 주소에만 사용할 수 있지만, 아웃바운드 규칙은 아웃바운드 NAT를 확장하기 위한 구성에 대한 부담을 덜어줍니다. 여러 IP 주소를 사용하여 대규모 시나리오를 계획하고, 아웃바운드 규칙을 사용하여 SNAT 고갈 가능성이 높은 경향의 패턴을 완화할 수 있습니다. 프런트 엔드에서 제공 되는 각 추가 IP 주소는 Load Balancer에 대 한 64k 삭제 포트를 제공 하 여 SNAT 포트로 사용 합니다. 
 
-기본적으로 생성 되는 관리 되는 아웃 바운드 공용 Ip를 사용 하 여 *표준* SKU 부하 분산 장치를 사용 하는 경우 매개 변수를 사용 하 여 관리 되는 아웃 바운드 공용 ip 수를 조정할 수 있습니다 **`load-balancer-managed-ip-count`** .
+기본적으로 생성 되는 관리 되는 아웃 바운드 공용 Ip를 사용 하 여 _Standard * SKU 부하 분산 장치를 사용 하는 경우 매개 변수를 사용 하 여 관리 되는 아웃 바운드 공용 Ip 수를 조정할 수 있습니다 **`load-balancer-managed-ip-count`** .
 
 기존 클러스터를 업데이트하려면 다음 명령을 실행합니다. 이 매개 변수는 클러스터를 만들 때 여러 개의 관리 아웃바운드 공용 IP를 갖도록 설정될 수도 있습니다.
 
@@ -110,7 +110,7 @@ az aks update \
     --load-balancer-managed-outbound-ip-count 2
 ```
 
-위의 예제에서는 관리 아웃바운드 공용 IP 개수를 *myResourceGroup*의 *myAKSCluster* 클러스터에 대해 *2*로 설정합니다. 
+위의 예제에서는 관리 아웃바운드 공용 IP 개수를 *myResourceGroup* 의 *myAKSCluster* 클러스터에 대해 *2* 로 설정합니다. 
 
 매개 변수를 추가 하 **`load-balancer-managed-ip-count`** **`--load-balancer-managed-outbound-ip-count`** 고 원하는 값으로 설정 하 여 클러스터를 만들 때 매개 변수를 사용 하 여 관리 되는 아웃 바운드 공용 ip의 초기 수를 설정할 수도 있습니다. 관리 아웃바운드 공용 IP의 기본 개수는 1입니다.
 
@@ -261,21 +261,21 @@ az aks update \
 
 ### <a name="requirements-for-customizing-allocated-outbound-ports-and-idle-timeout"></a>할당 된 아웃 바운드 포트 및 유휴 시간 제한 사용자 지정을 위한 요구 사항
 
-- *allocatedOutboundPorts*에 대해 지정하는 값도 8의 배수여야 합니다.
+- *allocatedOutboundPorts* 에 대해 지정하는 값도 8의 배수여야 합니다.
 - 노드 Vm의 수와 필요한 할당 된 아웃 바운드 포트를 기반으로 하는 아웃 바운드 IP 용량이 충분 해야 합니다. 아웃바운드 IP 용량이 충분한지 유효성을 검사하려면 다음 수식을 사용합니다. 
  
 *outboundIPs* \* 64,000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*.
  
-예를 들어 3개의 *nodeVMs* 및 50,000개의 *desiredAllocatedOutboundPorts*가 있는 경우 최소 3개 이상의 *outboundIPs*가 있어야 합니다. 필요한 것보다 더 많은 추가 아웃바운드 IP 용량을 통합하는 것이 좋습니다. 또한 아웃바운드 IP 용량을 계산할 때 클러스터 자동 크기 조정기 및 노드 풀 업그레이드의 가능성을 고려해야 합니다. 클러스터 자동 크기 조정기의 경우 현재 노드 수와 최대 노드 수를 검토하고 더 높은 값을 사용합니다. 업그레이드하는 경우 업그레이드를 허용하는 모든 노드 풀에 대해 추가 노드 VM을 고려합니다.
+예를 들어 3개의 *nodeVMs* 및 50,000개의 *desiredAllocatedOutboundPorts* 가 있는 경우 최소 3개 이상의 *outboundIPs* 가 있어야 합니다. 필요한 것보다 더 많은 추가 아웃바운드 IP 용량을 통합하는 것이 좋습니다. 또한 아웃바운드 IP 용량을 계산할 때 클러스터 자동 크기 조정기 및 노드 풀 업그레이드의 가능성을 고려해야 합니다. 클러스터 자동 크기 조정기의 경우 현재 노드 수와 최대 노드 수를 검토하고 더 높은 값을 사용합니다. 업그레이드하는 경우 업그레이드를 허용하는 모든 노드 풀에 대해 추가 노드 VM을 고려합니다.
 
-- *IdleTimeoutInMinutes*를 기본값 30분이 아닌 다른 값으로 설정할 때는 워크로드에 아웃바운드 연결이 필요한 기간을 고려합니다. 또한 AKS 외부에서 사용되는 ‘표준’ SKU 부하 분산 장치에 대한 기본 시간 제한 값은 4분입니다. 특정 AKS 워크로드를 더 정확하게 반영하는 *IdleTimeoutInMinutes* 값을 지정하면 더 이상 사용되지 않는 연결로 인한 SNAT 고갈을 줄이는 데 도움이 될 수 있습니다.
+- *IdleTimeoutInMinutes* 를 기본값 30분이 아닌 다른 값으로 설정할 때는 워크로드에 아웃바운드 연결이 필요한 기간을 고려합니다. 또한 AKS 외부에서 사용되는 ‘표준’ SKU 부하 분산 장치에 대한 기본 시간 제한 값은 4분입니다. 특정 AKS 워크로드를 더 정확하게 반영하는 *IdleTimeoutInMinutes* 값을 지정하면 더 이상 사용되지 않는 연결로 인한 SNAT 고갈을 줄이는 데 도움이 될 수 있습니다.
 
 > [!WARNING]
 > *AllocatedOutboundPorts* 및 *IdleTimeoutInMinutes* 에 대 한 값을 변경 하면 부하 분산 장치에 대 한 아웃 바운드 규칙의 동작이 크게 변경 될 수 있으며, 절충 및 응용 프로그램의 연결 패턴을 이해 하지 않고도 이러한 값을 [업데이트 하 여][troubleshoot-snat] 변경의 영향을 완전히 이해할 수 있도록 [Azure에서][azure-lb-outbound-connections] [Load Balancer 아웃 바운드 규칙][azure-lb-outbound-rules-overview] 및 아웃 바운드 연결을 검토 합니다.
 
 ## <a name="restrict-inbound-traffic-to-specific-ip-ranges"></a>특정 IP 범위로 인바운드 트래픽 제한
 
-다음 매니페스트는 *loadBalancerSourceRanges*를 사용하여 인바운드 외부 트래픽에 대한 새 IP 범위를 지정합니다.
+다음 매니페스트는 *loadBalancerSourceRanges* 를 사용하여 인바운드 외부 트래픽에 대한 새 IP 범위를 지정합니다.
 
 ```yaml
 apiVersion: v1

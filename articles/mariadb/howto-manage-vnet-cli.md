@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7af824d7cdf0c668e4513cd450a1815b88568b3e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 43d1b7700395bd06960737eae4f318d61aa03717
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540912"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635248"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트 만들기 및 관리
 
@@ -32,9 +32,9 @@ VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의
 
 ## <a name="configure-vnet-service-endpoints"></a>VNet 서비스 엔드포인트 구성
 
-가상 네트워크를 구성하는 데 [az network vnet](/cli/azure/network/vnet?view=azure-cli-latest) 명령이 사용됩니다.
+가상 네트워크를 구성하는 데 [az network vnet](/cli/azure/network/vnet) 명령이 사용됩니다.
 
-구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set) 명령을 사용하여 계정에 속한 특정 구독 ID를 선택합니다. 구독에 대한 **az login** 출력의 **id** 속성을 구독 ID 자리 표시자로 바꿉니다.
+구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. [az account set](/cli/azure/account#az-account-set) 명령을 사용하여 계정에 속한 특정 구독 ID를 선택합니다. 구독에 대한 **az login** 출력의 **id** 속성을 구독 ID 자리 표시자로 바꿉니다.
 
 - 계정에는 가상 네트워크 및 서비스 엔드포인트를 만드는 데 필요한 사용 권한이 있어야 합니다.
 

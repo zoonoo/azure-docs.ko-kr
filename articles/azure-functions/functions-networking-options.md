@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 6b082801a89450e34056be8be88a96fe26b7eeec
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578818"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636472"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -97,8 +97,8 @@ Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 �
 1. 다른 저장소 계정을 만들거나 구성 합니다.  서비스 끝점을 사용 하 여 보안을 설정 하 고 함수를 연결 하는 저장소 계정입니다.
 1. 보안 저장소 계정에서 [파일 공유를 만듭니다](../storage/files/storage-how-to-create-file-share.md#create-file-share) .
 1. 저장소 계정에 대 한 서비스 끝점 또는 개인 끝점을 사용 하도록 설정 합니다.  
-    * 서비스 끝점을 사용 하는 경우 함수 앱 전용 서브넷을 사용 하도록 설정 해야 합니다.
-    * 개인 끝점을 사용 하는 경우 DNS 레코드를 만들고 [개인 끝점 끝점과 함께 작동](#azure-dns-private-zones) 하도록 앱을 구성 해야 합니다.  저장소 계정에는 및 하위 리소스에 대 한 개인 끝점이 필요 합니다 `file` `blob` .  Durable Functions와 같은 특정 기능을 사용 하는 경우 `queue` `table` 개인 끝점 연결을 통해 액세스 하 고 액세스할 수도 있습니다.
+    * 개인 끝점 연결을 사용 하는 경우 저장소 계정에는 및 하위 리소스에 대 한 개인 끝점이 필요 합니다 `file` `blob` .  Durable Functions와 같은 특정 기능을 사용 하는 경우 `queue` `table` 개인 끝점 연결을 통해 액세스 하 고 액세스할 수도 있습니다.
+    * 서비스 끝점을 사용 하는 경우 저장소 계정에 대 한 함수 앱 전용 서브넷을 사용 하도록 설정 합니다.
 1. 필드 함수 앱 저장소 계정에서 보안 저장소 계정 및 파일 공유로 파일 및 blob 콘텐츠를 복사 합니다.
 1. 이 저장소 계정에 대 한 연결 문자열을 복사 합니다.
 1. 함수 앱에 대 한 **구성** 아래의 **응용 프로그램 설정을** 다음으로 업데이트 합니다.
@@ -106,6 +106,9 @@ Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 �
     - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 보안 저장소 계정에 대 한 연결 문자열입니다.
     - `WEBSITE_CONTENTSHARE` 보안 저장소 계정에 생성 된 파일 공유의 이름입니다.
     - 의 이름과 값을 사용 하 여 새 설정을 만듭니다 `WEBSITE_CONTENTOVERVNET` `1` .
+    - 저장소 계정이 개인 끝점 연결을 사용 하는 경우 다음 설정을 확인 하거나 추가 합니다.
+        - `WEBSITE_VNET_ROUTE_ALL` 값을 가진 `1` 입니다.
+        - `WEBSITE_DNS_SERVER` 값이 `168.63.129.16` 
 1. 응용 프로그램 설정을 저장 합니다.  
 
 함수 앱이 다시 시작 되 고 이제 보안 저장소 계정에 연결 됩니다.

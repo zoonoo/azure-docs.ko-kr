@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: 4bad3227e08c0fbe0d280967e45bbef9d477e1b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4b968d0d5e091d72cf718d58b11ade68ddf8c6
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569138"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637091"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Azure Security Center의 권장 사항 교정
 
@@ -38,9 +38,16 @@ ms.locfileid: "89569138"
 
 ## <a name="quick-fix-remediation"></a>빠른 수정 재구성<a name="one-click"></a>
 
-빠른 픽스를 사용 하면 여러 리소스에 대 한 권장 사항을 빠르게 수정할 수 있습니다. 특정 권장 사항에 대해서만 사용할 수 있습니다. 빠른 픽스를 사용 하면 수정을 간소화 하 고 보안 점수를 빠르게 늘리고 환경의 보안을 향상 시킬 수 있습니다.
+빠른 픽스를 사용 하면 수정을 간소화 하 고 보안 점수를 빠르게 늘리고 환경의 보안을 향상 시킬 수 있습니다.
 
-빠른 수정 수정을 구현 하려면:
+빠른 픽스를 사용 하면 여러 리소스에 대 한 권장 사항을 빠르게 수정할 수 있습니다. 
+
+> [!TIP]
+> 빠른 수정은 특정 권장 사항에 대해서만 사용할 수 있습니다. 빠른 수정 옵션을 사용 하는 권장 사항을 찾으려면 권장 사항 목록의 맨 위에 있는 전용 필터를 사용 합니다.
+> 
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="권장 사항 목록 위의 필터를 사용 하 여 빠른 수정 옵션이 있는 권장 사항을 찾습니다.":::
+
+빠른 수정 수정을 구현 하려면 다음을 수행 합니다.
 
 1. **빠른 수정** 이 있는 권장 사항 목록에서 레이블, 권장 사항을 클릭 합니다.
 

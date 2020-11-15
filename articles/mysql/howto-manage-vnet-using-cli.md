@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ac8dcad9c8057f833327ffcde1bc1f42331ddb98
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 237b9bc4d7ac6366a67accb31fdf3c80c778b5d6
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540351"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636761"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL VNet 서비스 엔드포인트 만들기 및 관리
 VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트워크의 프라이빗 주소 공간을 Azure Database for MySQL 서버로 확장합니다. 편리한 Azure CLI(명령줄 인터페이스) 명령을 사용하면 서버를 관리하는 VNet 서비스 엔드포인트 및 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. 제한을 포함하여 Azure Database for MySQL VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for MySQL 서버 VNet 서비스 엔드포인트](concepts-data-access-and-security-vnet.md)를 참조하세요. VNet 서비스 엔드포인트는 Azure Database for MySQL에 대한 지원되는 모든 지역에서 사용할 수 있습니다.
@@ -33,7 +33,7 @@ VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트�
 ## <a name="configure-vnet-service-endpoints-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대한 Vnet 서비스 엔드포인트 구성
 가상 네트워크를 구성하는 데 [az network vnet](/cli/azure/network/vnet) 명령이 사용됩니다.
 
-구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set) 명령을 사용하여 계정에 속한 특정 구독 ID를 선택합니다. 구독에 대 한 **az login** output의 **id** 속성을 구독 id 자리 표시자로 대체 합니다.
+구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. [az account set](/cli/azure/account#az-account-set) 명령을 사용하여 계정에 속한 특정 구독 ID를 선택합니다. 구독에 대 한 **az login** output의 **id** 속성을 구독 id 자리 표시자로 대체 합니다.
 
 - 계정에는 가상 네트워크 및 서비스 엔드포인트를 만드는 데 필요한 사용 권한이 있어야 합니다.
 

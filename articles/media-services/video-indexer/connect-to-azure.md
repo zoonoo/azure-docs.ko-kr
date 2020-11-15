@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: 0d954123b0d48a4b78c0dcda98898b7ab539d502
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3f159a11dc9607daf479c13f6612cab0175dae0c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504512"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94634891"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
 
@@ -140,7 +140,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 대화 상자에서 다음 정보를 입력합니다.
 
-|설정|설명|
+|설정|Description|
 |---|---|
 |Video Indexer 계정 지역|Video Indexer 계정 지역의 이름입니다. 성능 및 비용 절감을 위해 Azure Media Services 리소스 및 Azure Storage 계정이 있는 지역의 이름을 지정 하는 것이 좋습니다. |
 |Azure AD 테넌트|Azure AD 테넌트의 이름입니다(예: "contoso.onmicrosoft.com"). Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 이동합니다. **도메인** 오른쪽에서 이름을 찾습니다.|
@@ -193,6 +193,10 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
     [Media Services 계정 생성 템플릿의](https://github.com/Azure-Samples/media-services-v3-arm-templates)예를 참조 하세요.
 1. [Media Services 및 AZURE AD 응용 프로그램을 사용 하 여 Create-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account)를 호출 합니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서를 완료 한 후에는 사용 하지 않을 리소스를 삭제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

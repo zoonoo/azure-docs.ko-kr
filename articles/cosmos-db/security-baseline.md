@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 21e69cf8d90f004d397778c2eeb6b5f774196574
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 99cad2a4218995ad10488d97ce19eeef36b642ae
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098742"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636999"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Cosmos DB에 대 한 Azure 보안 기준
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -138,7 +138,7 @@ Cosmos DB Advanced Threat Protection을 구성 하는 방법: https://docs.micro
 
 - Cosmos DB는 가상 네트워크 서비스 엔드포인트를 사용해야 함
 
-또한 Azure Blueprints에서 주요 환경 아티팩트(예: Azure Resource Manager 템플릿, RBAC(역할 기반 액세스 제어) 및 정책)를 단일 청사진 정의로 패키지하여 대규모 Azure 배포를 간소화할 수 있습니다. 청사진을 새 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어와 관리를 세부적으로 조정할 수 있습니다.
+또한 Azure 청사진을 사용 하 여 Azure Resource Manager 템플릿, azure RBAC (역할 기반 액세스 제어) 및 단일 청사진 정의의 정책과 같은 주요 환경 아티팩트를 패키지 하 여 대규모 Azure 배포를 간소화할 수 있습니다. 청사진을 새 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어와 관리를 세부적으로 조정할 수 있습니다.
 
 Azure Policy를 구성하고 관리하는 방법: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -285,15 +285,15 @@ Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리: http
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
-**지침** : AZURE PORTAL의 IAM (Id 및 액세스 제어) 창을 사용 하 여 RBAC (역할 기반 액세스 제어)를 구성 하 고 Azure Cosmos DB 리소스에 대 한 인벤토리를 유지 관리할 수 있습니다. 역할은 Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다. 개인 및 그룹에 대 한 기본 제공 역할 또는 사용자 지정 역할을 사용할 수 있습니다.
+**지침** : AZURE PORTAL의 IAM (Id 및 액세스 제어) 창을 사용 하 여 azure RBAC (역할 기반 액세스 제어)를 구성 하 고 Azure Cosmos DB 리소스에 대 한 인벤토리를 유지 관리할 수 있습니다. 역할은 Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다. 개인 및 그룹에 대 한 기본 제공 역할 또는 사용자 지정 역할을 사용할 수 있습니다.
 
-Azure Cosmos DB은 Azure Cosmos DB의 일반적인 관리 시나리오에 대 한 기본 제공 RBAC를 제공 합니다. AD (Azure Active Directory)에 프로필이 있는 개인은 이러한 Azure 역할을 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 할당 하 여 리소스에 대 한 액세스 권한을 부여 하거나 거부 하 고 Azure Cosmos DB 리소스에 대 한 작업을 수행할 수 있습니다.
+Azure Cosmos DB은 Azure Cosmos DB의 일반적인 관리 시나리오에 대 한 Azure RBAC를 기본적으로 제공 합니다. AD (Azure Active Directory)에 프로필이 있는 개인은 이러한 Azure 역할을 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 할당 하 여 리소스에 대 한 액세스 권한을 부여 하거나 거부 하 고 Azure Cosmos DB 리소스에 대 한 작업을 수행할 수 있습니다.
 
 또한 Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색할 수 있습니다. 
 
 또한 Azure Cosmos DB의 일부 동작은 Azure Active Directory 및 계정 관련 기본 키를 사용 하 여 제어할 수 있습니다.  ' DisableKeyBasedMetadataWriteAccess ' 계정 설정을 사용 하 여 키 액세스를 제어 합니다.
 
-Azure Cosmos DB의 역할 기반 액세스 제어를 이해 합니다. https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
+Azure Cosmos DB의 Azure 역할 기반 액세스 제어 이해: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
 Azure Cosmos DB 작업을 사용 하 여 사용자 지정 역할을 빌드합니다 (Microsoft.DocumentDB 네임 스페이스). https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb
 
@@ -529,9 +529,9 @@ Azure의 고객 데이터 보호 이해: https://docs.microsoft.com/azure/securi
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침** : Azure Cosmos DB에서는 Azure Cosmos DB의 일반적인 관리 시나리오에 대 한 기본 제공 RBAC (역할 기반 액세스 제어)를 제공 합니다. Azure Active Directory에 프로필이 있는 개인은 이러한 Azure 역할을 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 할당 하 여 리소스에 대 한 액세스를 부여 하거나 거부 하 고 Azure Cosmos DB 리소스에 대 한 작업을 수행할 수 있습니다. 역할 할당은 제어 평면 액세스 전용으로 범위가 지정 됩니다. 여기에는 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 제안 (처리량)에 대 한 액세스가 포함 됩니다.
+**지침** : Azure Cosmos DB에서는 Azure Cosmos DB 일반적인 관리 시나리오에 대 한 azure RBAC (역할 기반 액세스 제어)를 기본 제공 합니다. Azure Active Directory에 프로필이 있는 개인은 이러한 Azure 역할을 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 할당 하 여 리소스에 대 한 액세스를 부여 하거나 거부 하 고 Azure Cosmos DB 리소스에 대 한 작업을 수행할 수 있습니다. 역할 할당은 제어 평면 액세스 전용으로 범위가 지정 됩니다. 여기에는 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 제안 (처리량)에 대 한 액세스가 포함 됩니다.
 
-Azure Cosmos DB에서 RBAC를 구현 하는 방법: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
+Azure Cosmos DB에서 Azure RBAC를 구현 하는 방법: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
 **Azure Security Center 모니터링** : 해당 없음
 

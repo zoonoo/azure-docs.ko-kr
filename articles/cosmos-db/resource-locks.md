@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5243419d8e2c4780708e9bdee0d57f2734fe78b2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1c8c766208132aec115e1fbeb15af3a057c3de3e
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341963"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636710"
 ---
 # <a name="prevent-azure-cosmos-db-resources-from-being-deleted-or-changed"></a>Azure Cosmos DB 리소스가 삭제 되거나 변경 되지 않도록 방지
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "93341963"
 
 부모 범위에서 잠금을 적용하면 해당 범위 내 모든 리소스가 동일한 잠금을 상속합니다. 나중에 추가하는 리소스도 부모의 잠금을 상속합니다. 상속의 가장 제한적인 잠금이 우선 적용됩니다.
 
-역할 기반 액세스 제어와 달리 관리 잠금을 사용하여 모든 사용자와 역할에 걸쳐 제한을 적용합니다. Azure Cosmos DB RBAC에 대 한 자세한 내용은 [Azure Cosmos DB의 역할 기반 액세스 제어](role-based-access-control.md)를 참조 하세요.
+Azure 역할 기반 액세스 제어와 달리 관리 잠금을 사용 하 여 모든 사용자 및 역할에 제한을 적용 합니다. Azure Cosmos DB에 대 한 Azure RBAC에 대 한 자세한 내용은 [Azure Cosmos DB의 azure 역할 기반 액세스 제어](role-based-access-control.md)를 참조 하세요.
 
 Resource Manager 잠금은 https://management.azure.com에 전송된 작업으로 구성된 관리 평면에서 수행되는 작업에만 적용됩니다. 리소스가 해당 기능을 수행하는 방법은 잠금을 통해 제한되지 않습니다. 리소스 변경은 제한되지만 리소스 작업은 제한되지 않습니다. 예를 들어 Azure Cosmos 컨테이너에 대 한 ReadOnly 잠금을 통해 컨테이너를 삭제 하거나 수정할 수 없습니다. 컨테이너에서 데이터를 생성, 업데이트 또는 삭제 하는 것을 방지 하지 않습니다. 이러한 작업은 https://management.azure.com으로 전송되지 않으므로 데이터 트랜잭션이 허용됩니다.
 

@@ -4,12 +4,12 @@ description: Azure Monitor의 파트너와, 파트너 통합을 위한 설명서
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: dc33e9d8d613b9d0575da069d884e454d9930eac
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d603e130d4e65667edb34121a4c89b7b0e02b819
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555642"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636744"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -46,6 +46,16 @@ AppDynamics APM(Application Performance Management)을 사용하면 애플리케
 Azure Monitor 경고에 JIRA 티켓을 만들 수 있습니다.
 
 [Azure Monitor에 대 한 Atlassian 설명서](https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/)
+
+## <a name="bmc-helix"></a>BMC Helix
+
+![BMC Helix 로고](./media/partners/BMCHelix.png)
+
+BMC Helix는 자치 엔터프라이즈 서비스 및 작업 SaaS 플랫폼입니다. 360 수준 인텔리전스와 통합 되어 있으므로 비즈니스에 대 한 전 세계의 채널 환경을 사전에 변환은 검색, 모니터링, 서비스, 수정, 최적화 및 제공할 수 있습니다.
+또한 ITSM 및 IT 운영 관리 (ITSM)를 원활 하 게 통합 하 여 BMC Helix IT 및 비즈니스 사용자가 IT 사일로를 제거 하 고, 데이터 중심의 비즈니스 의사 결정을 내리고, 업계 최고의 고객 환경을 제공할 수 있습니다.
+고객은 선택 된 클라우드 배포 (공용, 개인 또는 하이브리드)를 사용 하 여 BMC Helix 플랫폼을 배포할 수 있습니다. 또한 고객은 업계 최고의 공급자를 활용할 수 있는 AI/ML 솔루션을 선택할 수 있습니다.
+
+[BMC Helix에 대 한 자세한 정보](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="botmetric"></a>Botmetric
 
@@ -301,15 +311,6 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 
 [Turbonomic 소개](https://turbonomic.com/)
 
-## <a name="bmc-helix"></a>BMC Helix
-
-![BMC Helix 로고](./media/partners/BMCHelix.png)
-
-BMC Helix는 자치 엔터프라이즈 서비스 및 작업 SaaS 플랫폼입니다. 360 수준 인텔리전스와 통합 되어 있으므로 비즈니스에 대 한 전 세계의 채널 환경을 사전에 변환은 검색, 모니터링, 서비스, 수정, 최적화 및 제공할 수 있습니다.
-또한 ITSM 및 IT 운영 관리 (ITSM)를 원활 하 게 통합 하 여 BMC Helix IT 및 비즈니스 사용자가 IT 사일로를 제거 하 고, 데이터 중심의 비즈니스 의사 결정을 내리고, 업계 최고의 고객 환경을 제공할 수 있습니다.
-고객은 선택 된 클라우드 배포 (공용, 개인 또는 하이브리드)를 사용 하 여 BMC Helix 플랫폼을 배포할 수 있습니다. 또한 고객은 업계 최고의 공급자를 활용할 수 있는 AI/ML 솔루션을 선택할 수 있습니다.
-
-[BMC Helix에 대 한 자세한 정보](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="next-steps"></a>다음 단계
 

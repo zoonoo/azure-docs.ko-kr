@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 089476980ff3e8b2d3b72cb2d229934cf7850c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f67a36ac4ccb27d7b955158b7e4a9cf4f5185d0
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899248"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636921"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치의 Kubernetes
 
@@ -61,13 +61,13 @@ Kubernetes 클러스터 아키텍처에 대 한 자세한 내용은 [Kubernetes 
 
 Kubernetes 네트워킹을 사용 하면 컨테이너 간 네트워킹, pod-pod 네트워킹, pod-서비스 네트워킹 및 인터넷-서비스 네트워킹을 비롯 한 Kubernetes 네트워크 내에서 통신을 구성할 수 있습니다. 자세한 내용은 [Azure Stack Edge Pro 장치에 대 한 Kubernetes 네트워킹](azure-stack-edge-gpu-kubernetes-networking.md)의 네트워킹 모델을 참조 하세요.
 
-## <a name="updates"></a>Updates
+## <a name="updates"></a>업데이트
 
 새 Kubernetes 버전을 사용할 수 있게 되 면 Azure Stack Edge Pro 장치에 사용할 수 있는 표준 업데이트를 사용 하 여 클러스터를 업그레이드할 수 있습니다. 업그레이드 하는 방법에 대 한 단계는 [Azure Stack Edge Pro에 업데이트 적용](azure-stack-edge-gpu-install-update.md)을 참조 하세요.
 
 ## <a name="access-monitoring"></a>액세스, 모니터링
 
-Azure Stack Edge Pro 장치의 Kubernetes 클러스터는 RBAC (역할 기반 액세스 제어)를 허용 합니다. 자세한 내용은 [Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 대 한 역할 기반 액세스 제어](azure-stack-edge-gpu-kubernetes-rbac.md)를 참조 하세요.
+Azure Stack Edge Pro 장치의 Kubernetes 클러스터는 Kubernetes (역할 기반 액세스 제어)를 허용 합니다 (Kubernetes RBAC). 자세한 내용은 [Azure Stack Edge PRO GPU 장치에서 역할 기반 액세스 제어 Kubernetes](azure-stack-edge-gpu-kubernetes-rbac.md)를 참조 하세요.
 
 Kubernetes 대시보드를 통해 클러스터 및 리소스의 상태를 모니터링할 수도 있습니다. 컨테이너 로그도 사용할 수 있습니다. 자세한 내용은 [Kubernetes 대시보드를 사용 하 여 Azure Stack Edge Pro 장치에서 Kubernetes 클러스터 상태 모니터링을](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)참조 하세요.
 

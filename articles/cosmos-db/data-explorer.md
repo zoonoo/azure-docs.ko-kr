@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: d5958ea947f6b786e9fbc6c44ab914ea895d6e08
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 691a2e56230d312416aed3d68bffd361f1d63558
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096804"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637118"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Azure Cosmos 탐색기를 사용하여 데이터 작업 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,7 +26,7 @@ Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 �
 
 ## <a name="access-azure-cosmos-db-explorer"></a>Azure Cosmos DB 탐색기 액세스
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인 합니다. 
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. 
 
 2. **모든 리소스** 에서 Azure Cosmos DB 계정을 찾아서 탐색한 다음, 키를 선택하고 **기본 연결 문자열** 을 복사합니다.  
 
@@ -50,7 +50,7 @@ Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 �
 
 현재는 데이터 탐색기에서 UUID가 포함 된 문서 보기를 지원 하지 않습니다. 이러한 문서를 포함 하는 개별 문서 또는 쿼리를 보기만 하 여 컬렉션을 로드 하는 데에는 영향을 주지 않습니다. 이러한 문서를 보고 관리 하려면 사용자가 원래 이러한 문서를 만드는 데 사용 된 도구를 계속 사용 해야 합니다.
 
-HTTP-401 오류를 수신 하는 고객은 고객의 Azure 계정에 대 한 RBAC 권한이 부족 하기 때문일 수 있습니다. 특히 계정에 사용자 지정 RBAC 역할이 있는 경우이 문제가 발생할 수 있습니다. 사용자 지정 역할은 `Microsoft.DocumentDB/databaseAccounts/listKeys/*` Azure Active Directory 자격 증명을 사용 하 여 로그인 하는 경우 데이터 탐색기를 사용 하는 조치가 필요 합니다.
+HTTP-401 오류를 수신 하는 고객은 고객의 Azure 계정에 대 한 Azure RBAC 권한이 부족 하기 때문일 수 있습니다. 특히 계정에 사용자 지정 역할이 있는 경우에 한 합니다. 사용자 지정 역할은 `Microsoft.DocumentDB/databaseAccounts/listKeys/*` Azure Active Directory 자격 증명을 사용 하 여 로그인 하는 경우 데이터 탐색기를 사용 하는 조치가 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

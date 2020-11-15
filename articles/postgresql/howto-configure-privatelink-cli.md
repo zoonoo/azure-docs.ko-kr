@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 45f5a7e66c80dff5e78e575463becd95bcc7fca1
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b8aaebdd37f835201ef549e3f97e0c0b657e4fe9
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242180"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636217"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 개인 링크 만들기 및 관리
 
@@ -67,6 +67,7 @@ az vm create \
   --name myVm \
   --image Win2019Datacenter
 ```
+
  VM의 공용 IP 주소를 적어둡니다. 이 주소를 사용하여 다음 단계에서 인터넷을 통해 VM에 연결합니다.
 
 ## <a name="create-an-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버 만들기 
@@ -99,6 +100,7 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>프라이빗 DNS 영역 구성 
 PostgreSQL 서버 도메인에 대 한 사설 DNS 영역을 만들고 Virtual Network 연결 링크를 만듭니다. 
+
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.postgres.database.azure.com" 
@@ -126,7 +128,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 > [!NOTE]
 > Azure Database for PostgreSQL 및 VNet 서브넷이 서로 다른 구독에 있는 경우도 있습니다. 이러한 경우에는 다음과 같은 구성을 확인해야 합니다.
-> - 두 구독 모두에 **DBforPostgreSQL** 리소스 공급자가 등록 되어 있는지 확인 합니다. 자세한 내용은 [resource-manager-registration][resource-manager-portal]을 참조하세요.
+> - 두 구독 모두에 **DBforPostgreSQL** 리소스 공급자가 등록 되어 있는지 확인 합니다. 자세한 내용은 [리소스 공급자](../azure-resource-manager/management/resource-providers-and-types.md)를 참조 하세요.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
 
@@ -159,27 +161,28 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 2.  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`를 입력합니다. 
 
-    다음과 유사한 메시지가 표시됩니다.
-    ```azurepowershell
-    Server:  UnKnown
-    Address:  168.63.129.16
-    Non-authoritative answer:
-    Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
-    Address:  10.1.3.4
-    ```
+   다음과 유사한 메시지가 표시됩니다.
 
-3. 사용 가능한 모든 클라이언트를 사용 하 여 PostgreSQL 서버에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15) 를 사용 하 여 작업을 수행 했습니다.
+   ```azurepowershell
+   Server:  UnKnown
+   Address:  168.63.129.16
+   Non-authoritative answer:
+   Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
+   Address:  10.1.3.4
+   ```
+
+3. 사용 가능한 모든 클라이언트를 사용 하 여 PostgreSQL 서버에 대 한 개인 링크 연결을 테스트 합니다. 다음 예제에서는 [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) 를 사용 하 여 작업을 수행 합니다.
 
 4. **새 연결** 에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | 값 |
-    | ------- | ----- |
-    | 서버 유형| **PostgreSQL** 를 선택 합니다.|
-    | 서버 이름| *Mydemopostgresserver.privatelink.postgres.database.azure.com* 선택 |
-    | 사용자 이름 | username@servernamePostgreSQL 서버를 만드는 동안 제공 되는 사용자 이름을 입력 합니다. |
-    |암호 |PostgreSQL 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
-    |SSL|**필수** 를 선택 합니다.|
-    ||
+   | 설정 | 값 |
+   | ------- | ----- |
+   | 서버 유형| **PostgreSQL** 를 선택 합니다.|
+   | 서버 이름| *Mydemopostgresserver.privatelink.postgres.database.azure.com* 선택 |
+   | 사용자 이름 | username@servernamePostgreSQL 서버를 만드는 동안 제공 되는 사용자 이름을 입력 합니다. |
+   |암호 |PostgreSQL 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
+   |SSL|**필수** 를 선택 합니다.|
+   ||
 
 5. 연결을 선택합니다.
 
@@ -198,6 +201,3 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure 개인 끝점 이란?](../private-link/private-endpoint-overview.md) 에 대해 자세히 알아보세요.
-
-<!-- Link references, to text, Within this same GitHub repo. -->
-[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

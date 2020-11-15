@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6071a3675b1ad6aa5d49395fb9050c941af9be0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 043a2481647076abb5a6e242ffa2ea8b3f282c4d
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532750"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637169"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대 한 Azure 보안 기준
 
@@ -818,9 +818,9 @@ Azure Policy 효과 이해: https://docs.microsoft.com/azure/governance/policy/c
 
 **지침** : Azure Database for MariaDB 서버 및 관련 리소스에 대 한 사용자 지정 Azure Policy 정의를 사용 하는 경우 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-코드를 Azure DevOps에 저장하는 방법: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true
+[Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-Azure Repos 설명서: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true
+[Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure Security Center 모니터링** : 해당 없음
 

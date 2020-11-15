@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/10/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cfaef4460df040ecc9b055fba83d33a3b687b200
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: cdba4ce36322f9c3fb0f898cb7eb1d1185ed1dc6
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505379"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636948"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>자습서: Video Indexer API 사용
 
@@ -206,6 +206,10 @@ Debug.WriteLine("Player Widget url:");
 Debug.WriteLine(playerWidgetLink);
 
 ```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서를 완료 한 후에는 사용 하지 않을 리소스를 삭제 합니다.
 
 ## <a name="see-also"></a>참고 항목
 

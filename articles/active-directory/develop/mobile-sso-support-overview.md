@@ -1,7 +1,7 @@
 ---
 title: 개발 하는 mobile apps의 Single Sign-On 및 앱 보호 정책 지원 | Microsoft
 titleSuffix: Microsoft identity platform
-description: Single Sign-On 및 앱 보호 정책을 지 원하는 모바일 응용 프로그램 빌드에 대 한 설명 및 개요
+description: Microsoft id 플랫폼을 사용 하 고 Azure Active Directory와 통합 하 여 Single Sign-On 및 앱 보호 정책을 지 원하는 모바일 응용 프로그램 빌드에 대 한 설명 및 개요입니다.
 services: active-directory
 author: knicholasa
 manager: CelesteDG
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 09fc29b54951d2f33acc725c734e01e3d3364ff0
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 4a9282882d23ecbdc3c03ca158ea3de5566143e7
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331609"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94634857"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>개발 하는 mobile apps의 Single Sign-On 및 앱 보호 정책 지원
 
-SSO (Single sign-on)는 앱 사용자에 게 쉽고 안전한 로그인을 제공 합니다. 앱 보호 정책 (앱)을 사용 하면 사용자의 데이터를 안전 하 게 유지 하는 키 보안 정책을 지원할 수 있습니다. 이러한 기능을 함께 사용 하면 앱 데이터를 안전 하 게 사용자 로그인 및 관리할 수 있습니다.
+SSO (Single sign-on)는 Microsoft id 플랫폼 및 Azure Active Directory의 핵심 제품으로 앱 사용자에 게 쉽고 안전한 로그인을 제공 합니다. 또한 앱 보호 정책 (앱)을 사용 하면 사용자의 데이터를 안전 하 게 유지 하는 키 보안 정책을 지원할 수 있습니다. 이러한 기능을 함께 사용 하면 앱 데이터를 안전 하 게 사용자 로그인 및 관리할 수 있습니다.
 
 이 문서에서는 SSO와 앱이 중요 한 이유를 설명 하 고 이러한 기능을 지 원하는 모바일 응용 프로그램을 빌드하기 위한 개략적인 지침을 제공 합니다. 이는 휴대폰 및 태블릿 앱 모두에 적용 됩니다. 조직의 Azure Active Directory 테 넌 트에 SSO를 배포 하려는 IT 관리자 인 경우 [Single Sign-On 배포 계획에 대 한 지침](../manage-apps/plan-sso-deployment.md) 을 확인 하세요.
 
@@ -68,7 +68,7 @@ Apple에는 iOS 응용 프로그램에서 [웹 서비스를 통해 사용자 인
 
 마지막으로 앱에 [INTUNE SDK를 추가](/mem/intune/developer/app-sdk-get-started) 하 여 앱 보호 정책을 사용 하도록 설정 합니다. 대부분의 파트에 대 한 SDK는 가로채기 모델을 따르며 앱 보호 정책을 자동으로 적용 하 여 앱에서 수행 하는 작업이 허용 되는지 여부를 확인 합니다. 특정 작업에 대 한 제한이 있는 경우 앱에 알리기 위해 수동으로 호출할 수 있는 Api도 있습니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - [Azure Active Directory Single Sign-On 배포 계획](../manage-apps/plan-sso-deployment.md)
 - [방법: macOS 및 iOS에서 SSO 구성](single-sign-on-macos-ios.md)
