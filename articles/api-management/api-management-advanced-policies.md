@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 01d50f6228d63801f62ae933a8367f842d89ef97
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 46bcdac41497eea91b5af0c512a7118e33d5d7c3
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071373"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638906"
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
 
@@ -126,17 +126,17 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 
 ### <a name="elements"></a>요소
 
-| 요소   | 설명                                                                                                                                                                                                                                                               | 필수 |
+| 요소   | Description                                                                                                                                                                                                                                                               | 필수 |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| choose    | 루트 요소입니다.                                                                                                                                                                                                                                                             | 예      |
-| when      | `choose` 정책의 `if` 또는 `ifelse` 부분에 사용할 조건입니다. `choose` 정책에 여러 `when` 섹션이 있는 경우 순차적으로 평가됩니다. when 요소의 `condition`이 `true`로 평가되면 `when` 조건이 더 이상 평가되지 않습니다. | 예      |
-| otherwise | `true`로 평가되는 `when` 조건이 없으면 사용할 정책 조각을 포함합니다.                                                                                                                                                                               | 아니요       |
+| choose    | 루트 요소입니다.                                                                                                                                                                                                                                                             | Yes      |
+| when      | `choose` 정책의 `if` 또는 `ifelse` 부분에 사용할 조건입니다. `choose` 정책에 여러 `when` 섹션이 있는 경우 순차적으로 평가됩니다. when 요소의 `condition`이 `true`로 평가되면 `when` 조건이 더 이상 평가되지 않습니다. | Yes      |
+| otherwise | `true`로 평가되는 `when` 조건이 없으면 사용할 정책 조각을 포함합니다.                                                                                                                                                                               | 예       |
 
 ### <a name="attributes"></a>특성
 
-| attribute                                              | 설명                                                                                               | 필수 |
+| attribute                                              | Description                                                                                               | 필수 |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| condition="Boolean expression &#124; Boolean constant" | 포함하는 `when` 정책 문이 평가될 때 평가할 Boolean 식 또는 상수입니다. | 예      |
+| condition="Boolean expression &#124; Boolean constant" | 포함하는 `when` 정책 문이 평가될 때 평가할 Boolean 식 또는 상수입니다. | Yes      |
 
 ### <a name="usage"></a><a name="ChooseUsage"></a> 보려면
 
@@ -156,7 +156,7 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 ### <a name="policy-statement"></a>정책 문
 
 ```xml
-<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
+<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
 ```
 
 ### <a name="examples"></a>예
@@ -244,20 +244,21 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 
 ### <a name="elements"></a>요소
 
-| 요소         | 설명   | 필수 |
+| 요소         | Description   | 필수 |
 | --------------- | ------------- | -------- |
-| forward-request | 루트 요소입니다. | 예      |
+| forward-request | 루트 요소입니다. | Yes      |
 
 ### <a name="attributes"></a>특성
 
-| attribute                                     | 설명                                                                                                                                                                                                                                                                                                    | 필수 | 기본값 |
+| attribute                                     | Description                                                                                                                                                                                                                                                                                                    | 필수 | 기본값 |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | timeout="integer"                             | 시간 초과 오류가 발생 하기 전에 백 엔드 서비스에서 HTTP 응답 헤더가 반환 될 때까지 대기 하는 시간 (초)입니다. 최소값은 0 초입니다. 기본 네트워크 인프라가이 시간 이후에 유휴 연결을 삭제할 수 있으므로 240 초 보다 큰 값은 적용 되지 않을 수 있습니다. | 예       | None    |
-| 따르기-리디렉션 = "false &#124; true"          | 백 엔드 서비스의 리디렉션 뒤에 게이트웨이가 있는지 또는 호출자에게 반환되는지 여부를 지정합니다.                                                                                                                                                                                                    | 아니요       | false   |
-| 버퍼 요청-본문 = "false &#124; true"       | "True"로 설정 하면 요청은 버퍼링 되며 [다시 시도](api-management-advanced-policies.md#Retry)시 다시 사용 됩니다.                                                                                                                                                                                               | 아니요       | false   |
-| 오류 발생 시 상태-코드 = "false &#124; true" | True로 설정 하면 400에서 599 까지의 범위에 있는 응답 코드에 대해 [오류 발생 시](api-management-error-handling-policies.md) 트리거를 트리거합니다.                                                                                                                                                                      | 아니요       | false   |
+| 따르기-리디렉션 = "false &#124; true"          | 백 엔드 서비스의 리디렉션 뒤에 게이트웨이가 있는지 또는 호출자에게 반환되는지 여부를 지정합니다.                                                                                                                                                                                                    | 예       | false   |
+| 버퍼 요청-본문 = "false &#124; true"       | "True"로 설정 하면 요청은 버퍼링 되며 [다시 시도](api-management-advanced-policies.md#Retry)시 다시 사용 됩니다.                                                                                                                                                                                               | 예       | false   |
+| buffer-response = "false &#124; true" | 청크 분할 응답의 처리에 영향을 줍니다. "False"로 설정 된 경우 백 엔드에서 받은 각 청크는 호출자에 게 즉시 반환 됩니다. "True"로 설정 된 청크 (스트림의 끝이 검색 되지 않는 경우 8KB)가 버퍼링 된 후에만 호출자에 게 반환 됩니다. | 예 | true |
+| 오류 발생 시 상태-코드 = "false &#124; true" | True로 설정 하면 400에서 599 까지의 범위에 있는 응답 코드에 대해 [오류 발생 시](api-management-error-handling-policies.md) 트리거를 트리거합니다.                                                                                                                                                                      | 예       | false   |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -296,18 +297,18 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 
 ### <a name="elements"></a>요소
 
-| 요소           | 설명   | 필수 |
+| 요소           | Description   | 필수 |
 | ----------------- | ------------- | -------- |
-| limit-concurrency | 루트 요소입니다. | 예      |
+| limit-concurrency | 루트 요소입니다. | Yes      |
 
 ### <a name="attributes"></a>특성
 
-| attribute | 설명                                                                                        | 필수 | 기본값 |
+| attribute | Description                                                                                        | 필수 | 기본값 |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
 | key       | 문자열 허용되는 식입니다. 동시성 범위를 지정합니다. 여러 정책에서 공유될 수 있습니다. | 예      | 해당 없음     |
 | max-count | 정수입니다. 정책에 들어올 수 있는 요청의 최대 수를 지정합니다.           | 예      | 해당 없음     |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -349,19 +350,19 @@ Event Hubs에 기록할 값으로 모든 문자열을 사용할 수 있습니다
 
 ### <a name="elements"></a>요소
 
-| 요소         | 설명                                                                     | 필수 |
+| 요소         | Description                                                                     | 필수 |
 | --------------- | ------------------------------------------------------------------------------- | -------- |
-| log-to-eventhub | 루트 요소입니다. 이 요소 값은 이벤트 허브에 기록할 문자열입니다. | 예      |
+| log-to-eventhub | 루트 요소입니다. 이 요소 값은 이벤트 허브에 기록할 문자열입니다. | Yes      |
 
 ### <a name="attributes"></a>특성
 
-| attribute     | 설명                                                               | 필수                                                             |
+| attribute     | Description                                                               | 필수                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| logger-id     | API Management 서비스에 등록 된로 거 ID입니다.         | 예                                                                  |
+| logger-id     | API Management 서비스에 등록 된로 거 ID입니다.         | Yes                                                                  |
 | partition-id  | 메시지가 전송된 파티션의 인덱스를 지정합니다.             | 선택 사항입니다. `partition-key`가 사용된 경우에는 이 특성을 사용할 수 없습니다. |
 | 파티션 키 | 메시지가 전송된 파티션 할당에 사용된 값을 지정합니다. | 선택 사항입니다. `partition-id`가 사용된 경우에는 이 특성을 사용할 수 없습니다.  |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -394,18 +395,18 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>요소
 
-| 요소       | 설명   | 필수 |
+| 요소       | Description   | 필수 |
 | ------------- | ------------- | -------- |
-| mock-response | 루트 요소입니다. | 예      |
+| mock-response | 루트 요소입니다. | Yes      |
 
 ### <a name="attributes"></a>특성
 
-| attribute    | 설명                                                                                           | 필수 | 기본값 |
+| attribute    | Description                                                                                           | 필수 | 기본값 |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | status-code  | 응답 상태 코드를 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다.                 | 예       | 200     |
 | content-type | `Content-Type` 응답 헤더 값을 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다. | 예       | None    |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -453,27 +454,27 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>요소
 
-| 요소 | 설명                                                         | 필수 |
+| 요소 | Description                                                         | 필수 |
 | ------- | ------------------------------------------------------------------- | -------- |
-| retry   | 루트 요소입니다. 자식 요소로 다른 정책을 포함할 수 있습니다. | 예      |
+| retry   | 루트 요소입니다. 자식 요소로 다른 정책을 포함할 수 있습니다. | Yes      |
 
 ### <a name="attributes"></a>특성
 
-| attribute        | 설명                                                                                                                                           | 필수 | 기본값 |
+| attribute        | Description                                                                                                                                           | 필수 | 기본값 |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | condition(조건)        | 재시도를 중지(`false`) 또는 진행(`true`)해야 하는지 여부를 지정하는 부울 리터럴 또는 [식](api-management-policy-expressions.md)입니다.      | 예      | 해당 없음     |
 | 개수            | 최대 재시도 횟수를 지정하는 양수입니다.                                                                                | 예      | 해당 없음     |
 | interval         | 재시도 횟수 간에 대기 간격을 지정하는 양수(초)입니다.                                                                 | 예      | 해당 없음     |
-| max-interval     | 재시도 횟수 간에 최대 대기 간격을 지정하는 양수(초)입니다. 지수 재시도 알고리즘을 구현하는 데 사용됩니다. | 아니요       | 해당 없음     |
-| delta            | 대기 간격 증분을 지정하는 양수(초)입니다. 선형 및 지수 재시도 알고리즘을 구현하는 데 사용됩니다.             | 아니요       | 해당 없음     |
-| first-fast-retry | 로 설정 `true` 되 면 첫 번째 다시 시도가 즉시 수행 됩니다.                                                                                  | 아니요       | `false` |
+| max-interval     | 재시도 횟수 간에 최대 대기 간격을 지정하는 양수(초)입니다. 지수 재시도 알고리즘을 구현하는 데 사용됩니다. | 예       | 해당 없음     |
+| delta            | 대기 간격 증분을 지정하는 양수(초)입니다. 선형 및 지수 재시도 알고리즘을 구현하는 데 사용됩니다.             | 예       | 해당 없음     |
+| first-fast-retry | 로 설정 `true` 되 면 첫 번째 다시 시도가 즉시 수행 됩니다.                                                                                  | 예       | `false` |
 
 > [!NOTE]
 > `interval`만 지정된 경우, **고정된** 간격 재시도가 수행됩니다.
 > `interval` 및 `delta`만 지정된 경우 **선형** 간격 재시도 알고리즘이 사용되며 이 경우 재시도 간 대기 시간은 `interval + (count - 1)*delta` 수식에 따라 계산됩니다.
 > `interval`, `max-interval` 및 `delta`가 지정된 경우 **지수** 간격 재시도 알고리즘이 적용되며 이 경우 재시도 간 대기 시간은 `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)` 수식에 따라 `interval` 값에서 `max-interval` 값으로 기하급수적으로 증가합니다.
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다. 이 정책에 의해 자식 정책 사용 제한이 상속됩니다.
 
@@ -510,20 +511,20 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>요소
 
-| 요소         | 설명                                                                               | 필수 |
+| 요소         | Description                                                                               | 필수 |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
-| return-response | 루트 요소입니다.                                                                             | 예      |
-| set-header      | [set-header](api-management-transformation-policies.md#SetHTTPheader) 정책 문. | 아니요       |
-| set-body        | [set-body](api-management-transformation-policies.md#SetBody) 정책 문.         | 아니요       |
-| set-status      | [set-status](api-management-advanced-policies.md#SetStatus) 정책 문.           | 아니요       |
+| return-response | 루트 요소입니다.                                                                             | Yes      |
+| set-header      | [set-header](api-management-transformation-policies.md#SetHTTPheader) 정책 문. | 예       |
+| set-body        | [set-body](api-management-transformation-policies.md#SetBody) 정책 문.         | 예       |
+| set-status      | [set-status](api-management-advanced-policies.md#SetStatus) 정책 문.           | 예       |
 
 ### <a name="attributes"></a>특성
 
-| attribute              | 설명                                                                                                                                                                          | 필수  |
+| attribute              | Description                                                                                                                                                                          | 필수  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
 | response-variable-name | 참조하는 컨텍스트 변수 이름(예: 업스트림 [send-request](api-management-advanced-policies.md#SendRequest) 정책 및 `Response` 개체 포함) | 선택 사항입니다. |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -580,24 +581,24 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>요소
 
-| 요소                    | 설명                                                                                                 | 필수                        |
+| 요소                    | Description                                                                                                 | 필수                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-one-way-request       | 루트 요소입니다.                                                                                               | 예                             |
 | url                        | 요청의 URL입니다.                                                                                     | mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다. |
-| 메서드                     | 요청에 대한 HTTP 메서드입니다.                                                                            | mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다. |
-| header                     | 요청 헤더. 여러 요청 헤더에 여러 헤더 요소를 사용합니다.                                  | 아니요                              |
-| 본문                       | 요청 본문.                                                                                           | 아니요                              |
-| 인증-인증서 | [클라이언트 인증에 사용할 인증서](api-management-authentication-policies.md#ClientCertificate) | 아니요                              |
+| method                     | 요청에 대한 HTTP 메서드입니다.                                                                            | mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다. |
+| header                     | 요청 헤더. 여러 요청 헤더에 여러 헤더 요소를 사용합니다.                                  | 예                              |
+| 본문                       | 요청 본문.                                                                                           | 예                              |
+| 인증-인증서 | [클라이언트 인증에 사용할 인증서](api-management-authentication-policies.md#ClientCertificate) | 예                              |
 
 ### <a name="attributes"></a>특성
 
-| attribute     | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값  |
+| attribute     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string" | 새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 아니요       | 새로 만들기      |
+| mode="string" | 새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 예       | 새로 만들기      |
 | name          | 설정할 헤더의 이름을 지정합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 예      | 해당 없음      |
-| exists-action | 헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> -override-기존 헤더 값을 바꿉니다.<br />-skip-기존 헤더 값을 바꾸지 않습니다.<br />-append-기존 헤더 값에 값을 추가 합니다.<br />-delete-요청에서 헤더를 제거 합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다. | 아니요       | override |
+| exists-action | 헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> -override-기존 헤더 값을 바꿉니다.<br />-skip-기존 헤더 값을 바꾸지 않습니다.<br />-append-기존 헤더 값에 값을 추가 합니다.<br />-delete-요청에서 헤더를 제거 합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다. | 예       | override |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -664,27 +665,27 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>요소
 
-| 요소                    | 설명                                                                                                 | 필수                        |
+| 요소                    | Description                                                                                                 | 필수                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-request               | 루트 요소입니다.                                                                                               | 예                             |
 | url                        | 요청의 URL입니다.                                                                                     | mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다. |
-| 메서드                     | 요청에 대한 HTTP 메서드입니다.                                                                            | mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다. |
-| header                     | 요청 헤더. 여러 요청 헤더에 여러 헤더 요소를 사용합니다.                                  | 아니요                              |
-| 본문                       | 요청 본문.                                                                                           | 아니요                              |
-| 인증-인증서 | [클라이언트 인증에 사용할 인증서](api-management-authentication-policies.md#ClientCertificate) | 아니요                              |
+| method                     | 요청에 대한 HTTP 메서드입니다.                                                                            | mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다. |
+| header                     | 요청 헤더. 여러 요청 헤더에 여러 헤더 요소를 사용합니다.                                  | 예                              |
+| 본문                       | 요청 본문.                                                                                           | 예                              |
+| 인증-인증서 | [클라이언트 인증에 사용할 인증서](api-management-authentication-policies.md#ClientCertificate) | 예                              |
 
 ### <a name="attributes"></a>특성
 
-| attribute                       | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값  |
+| attribute                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string"                   | 새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 아니요       | 새로 만들기      |
+| mode="string"                   | 새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 예       | 새로 만들기      |
 | response-variable-name="string" | 응답 개체를 받을 컨텍스트 변수의 이름입니다. 변수가 없는 경우 정책이 성공적으로 실행 될 때 생성 되며 컬렉션을 통해 액세스할 수 있게 됩니다 [`context.Variable`](api-management-policy-expressions.md#ContextVariables) .                                                                                                                                                                                                                                                                                                                          | 예      | 해당 없음      |
-| timeout="integer"               | URL 호출이 실패하는 시간 초과 간격(초)입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 아니요       | 60       |
-| ignore-error                    | true인 경우 요청 결과 오류가 발생합니다.<br /><br /> -응답이 지정 된 경우 null 값을 포함 하는 변수 이름입니다.<br />-응답-변수 이름이 지정 되지 않은 경우 컨텍스트입니다. 요청은 업데이트 되지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                   | 아니요       | false    |
+| timeout="integer"               | URL 호출이 실패하는 시간 초과 간격(초)입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 예       | 60       |
+| ignore-error                    | true인 경우 요청 결과 오류가 발생합니다.<br /><br /> -응답이 지정 된 경우 null 값을 포함 하는 변수 이름입니다.<br />-응답-변수 이름이 지정 되지 않은 경우 컨텍스트입니다. 요청은 업데이트 되지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                   | 예       | false    |
 | name                            | 설정할 헤더의 이름을 지정합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 예      | 해당 없음      |
-| exists-action                   | 헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> -override-기존 헤더 값을 바꿉니다.<br />-skip-기존 헤더 값을 바꾸지 않습니다.<br />-append-기존 헤더 값에 값을 추가 합니다.<br />-delete-요청에서 헤더를 제거 합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다. | 아니요       | override |
+| exists-action                   | 헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> -override-기존 헤더 값을 바꿉니다.<br />-skip-기존 헤더 값을 바꾸지 않습니다.<br />-append-기존 헤더 값에 값을 추가 합니다.<br />-delete-요청에서 헤더를 제거 합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다. | 예       | override |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -714,19 +715,19 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>요소
 
-| 요소 | 설명  | 필수 |
+| 요소 | Description  | 필수 |
 | ------- | ------------ | -------- |
-| proxy   | 루트 요소 | 예      |
+| proxy   | 루트 요소 | Yes      |
 
 ### <a name="attributes"></a>특성
 
-| attribute         | 설명                                            | 필수 | 기본값 |
+| attribute         | Description                                            | 필수 | 기본값 |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | url="문자열"      | http://host:port 형식의 프록시 URL입니다.             | 예      | 해당 없음     |
-| 사용자 이름="문자열" | 프록시 인증에 사용할 사용자 이름입니다. | 아니요       | 해당 없음     |
-| 암호="문자열" | 프록시 인증에 사용할 암호입니다. | 아니요       | 해당 없음     |
+| 사용자 이름="문자열" | 프록시 인증에 사용할 사용자 이름입니다. | 예       | 해당 없음     |
+| 암호="문자열" | 프록시 인증에 사용할 암호입니다. | 예       | 해당 없음     |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -777,11 +778,11 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>요소
 
-| 요소    | 설명                                                       | 필수 |
+| 요소    | Description                                                       | 필수 |
 | ---------- | ----------------------------------------------------------------- | -------- |
-| set-method | 루트 요소입니다. 이 요소 값은 HTTP 메서드를 지정합니다. | 예      |
+| set-method | 루트 요소입니다. 이 요소 값은 HTTP 메서드를 지정합니다. | Yes      |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -820,18 +821,18 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>요소
 
-| 요소    | 설명   | 필수 |
+| 요소    | Description   | 필수 |
 | ---------- | ------------- | -------- |
-| set-status | 루트 요소입니다. | 예      |
+| set-status | 루트 요소입니다. | Yes      |
 
 ### <a name="attributes"></a>특성
 
-| attribute       | 설명                                                | 필수 | 기본값 |
+| attribute       | Description                                                | 필수 | 기본값 |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
 | code="integer"  | 반환할 HTTP 상태 코드입니다.                            | 예      | 해당 없음     |
 | reason="string" | 상태 코드를 반환하는 이유에 대한 설명입니다. | 예      | 해당 없음     |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -858,18 +859,18 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>요소
 
-| 요소      | 설명   | 필수 |
+| 요소      | Description   | 필수 |
 | ------------ | ------------- | -------- |
-| set-variable | 루트 요소입니다. | 예      |
+| set-variable | 루트 요소입니다. | Yes      |
 
 ### <a name="attributes"></a>특성
 
-| attribute | 설명                                                              | 필수 |
+| attribute | Description                                                              | 필수 |
 | --------- | ------------------------------------------------------------------------ | -------- |
-| name      | 변수의 이름입니다.                                                | 예      |
-| 값     | 변수의 값입니다. 식 또는 리터럴 값일 수 있습니다. | 예      |
+| name      | 변수의 이름입니다.                                                | Yes      |
+| value     | 변수의 값입니다. 식 또는 리터럴 값일 수 있습니다. | Yes      |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -942,22 +943,22 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>요소
 
-| 요소  | 설명                                                                                                                                          | 필수 |
+| 요소  | Description                                                                                                                                          | 필수 |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| 추적    | 루트 요소입니다.                                                                                                                                        | 예      |
-| message  | 로깅할 문자열이 나 식입니다.                                                                                                                 | 예      |
-| metadata | Application Insights [추적](../azure-monitor/app/data-model-trace-telemetry.md) 원격 분석에 사용자 지정 속성을 추가 합니다. | 아니요       |
+| 추적    | 루트 요소입니다.                                                                                                                                        | Yes      |
+| message  | 로깅할 문자열이 나 식입니다.                                                                                                                 | Yes      |
+| metadata | Application Insights [추적](../azure-monitor/app/data-model-trace-telemetry.md) 원격 분석에 사용자 지정 속성을 추가 합니다. | 예       |
 
 ### <a name="attributes"></a>특성
 
-| attribute | 설명                                                                                                               | 필수 | 기본값 |
+| attribute | Description                                                                                                               | 필수 | 기본값 |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | 추적 뷰어에 의미있고 메시지 원본을 지정하는 문자열 리터럴입니다.                                   | 예      | 해당 없음     |
-| severity  | 추적의 심각도 수준을 지정 합니다. 허용 되는 값은 `verbose` , `information` , `error` (가장 낮은 값에서 가장 높은 값)입니다. | 아니요       | 자세히 |
+| severity  | 추적의 심각도 수준을 지정 합니다. 허용 되는 값은 `verbose` , `information` , `error` (가장 낮은 값에서 가장 높은 값)입니다. | 예       | 자세히 |
 | name      | 속성의 이름입니다.                                                                                                     | 예      | 해당 없음     |
-| 값     | 속성의 값입니다.                                                                                                    | 예      | 해당 없음     |
+| value     | 속성의 값입니다.                                                                                                    | 예      | 해당 없음     |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -1017,17 +1018,17 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>요소
 
-| 요소 | 설명                                                                                                   | 필수 |
+| 요소 | Description                                                                                                   | 필수 |
 | ------- | ------------------------------------------------------------------------------------------------------------- | -------- |
-| wait    | 루트 요소입니다. 자식 요소로 `send-request`, `cache-lookup-value`, `choose` 정책만 포함할 수 있습니다. | 예      |
+| wait    | 루트 요소입니다. 자식 요소로 `send-request`, `cache-lookup-value`, `choose` 정책만 포함할 수 있습니다. | Yes      |
 
 ### <a name="attributes"></a>특성
 
-| attribute | 설명                                                                                                                                                                                                                                                                                                                                                                                                            | 필수 | 기본값 |
+| attribute | Description                                                                                                                                                                                                                                                                                                                                                                                                            | 필수 | 기본값 |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| -       | `wait` 정책에서 모든 직계 자식 정책 또는 한 정책이 완료될 때까지 대기할지 여부를 결정합니다. 허용된 값은 다음과 같습니다.<br /><br /> - `all` - 모든 직계 자식 정책이 완료될 때까지 대기합니다.<br />-any-모든 직계 자식 정책이 완료 될 때까지 대기 합니다. 첫 번째 직계 자식 정책이 완료되면 `wait` 정책이 완료되고 다른 직계 자식 정책의 실행이 종료됩니다. | 아니요       | 모두     |
+| for       | `wait` 정책에서 모든 직계 자식 정책 또는 한 정책이 완료될 때까지 대기할지 여부를 결정합니다. 허용된 값은 다음과 같습니다.<br /><br /> - `all` - 모든 직계 자식 정책이 완료될 때까지 대기합니다.<br />-any-모든 직계 자식 정책이 완료 될 때까지 대기 합니다. 첫 번째 직계 자식 정책이 완료되면 `wait` 정책이 완료되고 다른 직계 자식 정책의 실행이 종료됩니다. | 예       | 모두     |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 

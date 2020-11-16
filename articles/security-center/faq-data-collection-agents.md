@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2020
+ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341841"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638817"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - 데이터 수집, 에이전트 및 작업 영역에 대한 질문
 
@@ -91,7 +91,7 @@ Security Center는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합, I
 에이전트에서 모니터링 하는 응용 프로그램 및 서비스의 전체 목록은 [Azure Monitor에서 모니터링 하는 기능](../azure-monitor/monitor-reference.md#azure-services)을 참조 하세요.
 
 > [!IMPORTANT]
-> Azure 방화벽과 같은 일부 서비스의 경우 로깅을 사용 하도록 설정 하 고 번잡 리소스 (예: 로그를 *자세한 정보*로 설정)를 선택한 경우 Log Analytics 작업 영역 저장소 요구에 상당한 영향을 줄 수 있습니다. 
+> Azure 방화벽과 같은 일부 서비스의 경우 로깅을 사용 하도록 설정 하 고 번잡 리소스 (예: 로그를 *자세한 정보* 로 설정)를 선택한 경우 Log Analytics 작업 영역 저장소 요구에 상당한 영향을 줄 수 있습니다. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Security Center에서 만든 기본 작업 영역을 삭제할 수 있나요?
@@ -109,24 +109,28 @@ Security Center는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합, I
 
 기존 Log Analytics 작업 영역을 선택하려면 다음을 수행합니다.
 
-1. **보안 정책 - 데이터 수집** 아래에서 **다른 작업 영역 사용**을 선택합니다.
+1. Security Center 메뉴에서 **가격 책정 및 설정** 을 선택합니다.
+1. 관련 구독을 선택합니다.
+1. **자동 프로 비전** 페이지를 엽니다.
+1. Log Analytics 에이전트의 경우 **구성 편집** 을 선택 합니다. 
 
-    ![다른 작업 영역 사용][4]
+    :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="자동 배포를 사용할 때 사용할 Log Analytics 에이전트의 구성" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::
 
-1. 풀다운 메뉴에서 수집된 데이터를 저장할 작업 영역을 선택합니다.
+1. **다른 작업 영역에 Azure Vm 연결** 을 선택 하 고 기존 작업 영역을 선택 합니다.
+
+    :::image type="content" source="./media/security-center-enable-data-collection/choose-workspace.png" alt-text="보고할 Log Analytics 에이전트에 대 한 기본이 아닌 작업 영역 선택" lightbox="./media/security-center-enable-data-collection/choose-workspace.png":::
+
+    > [!TIP]
+    > 이 목록에는 액세스 권한이 있고 Azure 구독에 있는 작업 영역만 포함 됩니다.
+
+1. **저장** 을 선택합니다. 모니터링되는 VM을 다시 구성할지를 묻는 메시지가 표시됩니다.
+
+    - 새 작업 영역 설정을 **새 VM에만 적용** 하려면 **아니요** 를 선택합니다. 그러면 새 작업 영역 설정이 새 에이전트 설치(Log Analytics 에이전트가 설치되어 있지 않은 새로 검색된 VM)에만 적용됩니다.
+    - 새 작업 영역 설정을 **모든 VM에 적용** 하려면 **예** 를 선택합니다. 이 경우에는 Security Center에서 만든 작업 영역에 연결된 모든 VM이 새 대상 작업 영역에 다시 연결됩니다.
 
     > [!NOTE]
-    > 풀다운 메뉴에는 액세스 권한이 있으며 Azure 구독에 포함된 작업 영역만 표시됩니다.
+    > **예** 를 선택하는 경우 모든 VM이 새 대상 작업 영역에 다시 연결될 때까지는 Security Center에서 생성된 작업 영역을 삭제하면 안 됩니다. 작업 영역을 너무 빨리 삭제하면 이 작업이 실패합니다.
 
-1. **저장**을 선택합니다. 모니터링되는 VM을 다시 구성할지를 묻는 메시지가 표시됩니다.
-
-    - 새 작업 영역 설정을 **새 VM에만 적용**하려면 **아니요**를 선택합니다. 그러면 새 작업 영역 설정이 새 에이전트 설치(Log Analytics 에이전트가 설치되어 있지 않은 새로 검색된 VM)에만 적용됩니다.
-    - 새 작업 영역 설정을 **모든 VM에 적용**하려면 **예**를 선택합니다. 이 경우에는 Security Center에서 만든 작업 영역에 연결된 모든 VM이 새 대상 작업 영역에 다시 연결됩니다.
-
-    > [!NOTE]
-    > **예**를 선택하는 경우 모든 VM이 새 대상 작업 영역에 다시 연결될 때까지는 Security Center에서 생성된 작업 영역을 삭제하면 안 됩니다. 작업 영역을 너무 빨리 삭제하면 이 작업이 실패합니다.
-
-    - 작업을 취소하려면 **취소**를 선택합니다.
 
 ## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>Log Analytics 에이전트가 VM에 확장으로 이미 설치되어 있으면 어떻게 되나요?<a name="mmaextensioninstalled"></a>
 
@@ -162,14 +166,19 @@ Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보�
 
 ## <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>자동 에이전트 설치 및 작업 영역 생성을 중지하려면 어떻게 할까요?
 
-보안 정책에서 구독에 대해 자동 프로비저닝을 해제할 수는 있지만, 해제하지 않는 것이 좋습니다. 자동 프로비저닝을 해제하면 Security Center 권장 사항 및 경고 기능이 제한됩니다. 자동 프로비저닝을 사용하지 않도록 설정하려면 다음을 수행합니다.
+보안 정책에서 구독에 대해 자동 프로비저닝을 해제할 수는 있지만, 해제하지 않는 것이 좋습니다. 자동 프로 비전 제한을 해제 Security Center 권장 사항 및 경고입니다. 자동 프로비저닝을 사용하지 않도록 설정하려면 다음을 수행합니다.
 
-1. 구독에서 Azure Defender를 사용 하는 경우 해당 구독에 대 한 보안 정책을 열고 **Azure defender off**를 선택 합니다.
+1. Security Center 메뉴에서 **가격 책정 및 설정** 을 선택합니다.
+1. 관련 구독을 선택합니다.
+1. 구독에서 Azure Defender를 사용 하는 경우 **Azure defender 요금제** 를 열고 **azure defender off** 를 선택 합니다.
 
     :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Azure Defender 사용 또는 사용 안 함":::
 
-1. 다음으로, **보안 정책 - 데이터 수집** 페이지에서 **끄기**를 선택하여 자동 프로비저닝을 해제합니다.
-   ![데이터 수집][2]
+1. **자동 프로 비전** 페이지에서 펜을 선택 하 고 **보안 정책-데이터 수집** 페이지에서 자동 프로 비전 해제를 선택 합니다.
+
+    :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Log Analytics 에이전트에 대 한 자동 배포 사용":::
+
+1. **저장** 을 선택합니다.
 
 
 ## <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>자동 에이전트 설치 및 작업 영역 생성을 옵트아웃해야 하나요?
@@ -214,11 +223,11 @@ Log Analytics 에이전트를 수동으로 제거할 수 있습니다. Security 
 
 수동으로 에이전트를 제거하려면:
 
-1.    포털에서 **Log Analytics**을 엽니다.
+1.    포털에서 **Log Analytics** 을 엽니다.
 
 1.    Log Analytics 페이지에서 작업 영역을 선택합니다.
 
-1.    모니터링하지 않을 VM을 선택하고 **연결 끊기**를 선택합니다.
+1.    모니터링하지 않을 VM을 선택하고 **연결 끊기** 를 선택합니다.
 
    ![에이전트 제거][3]
 
@@ -232,18 +241,16 @@ Log Analytics 에이전트를 수동으로 제거할 수 있습니다. Security 
 
 사용 하도록 설정 했지만 이제 사용 하지 않도록 설정 하려는 경우:
 
-1. [Azure Portal](https://portal.azure.com)에서 **Security Center** 를 열고 **보안 정책**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Security Center** 를 열고 **가격 책정 및 설정** 을 선택 합니다.
 
 1. 자동 프로비저닝을 사용 하지 않도록 설정할 구독을 선택 합니다.
 
-    **보안 정책-데이터 수집이** 열립니다.
-
-1. **자동 프로비전**에서 **끔**을 선택합니다.
+1. **자동 프로 비전** 에서 Log Analytics 에이전트에 대 한 토글을 해제 합니다.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>데이터 컬렉션을 사용하도록 설정하려면 어떻게 해야 하나요?
 
-보안 정책에서 Azure 구독에 대한 데이터 수집을 사용하도록 설정할 수 있습니다. 데이터 수집을 사용하도록 설정하려면 [Azure Portal에 로그인](https://portal.azure.com)하여 **찾아보기**, **Security Center**, **보안 정책**을 차례로 선택합니다. 자동 프로비전을 사용할 구독을 선택합니다. 구독을 선택하면 **보안 정책 - 데이터 수집**이 열립니다. **자동 프로비전**에서 **켬**을 선택합니다.
+보안 정책에서 Azure 구독에 대한 데이터 수집을 사용하도록 설정할 수 있습니다. 데이터 수집을 사용하도록 설정하려면 [Azure Portal에 로그인](https://portal.azure.com)하여 **찾아보기** , **Security Center** , **보안 정책** 을 차례로 선택합니다. 자동 프로비전을 사용할 구독을 선택합니다. 구독을 선택하면 **보안 정책 - 데이터 수집** 이 열립니다. **자동 프로비전** 에서 **켬** 을 선택합니다.
 
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>데이터 수집을 사용하도록 설정하면 어떻게 될까요?
