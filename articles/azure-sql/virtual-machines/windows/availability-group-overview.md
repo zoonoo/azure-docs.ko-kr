@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eb17b8286ce994146c1fa9867cd8131a909c8ace
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146691"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504393"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Azure VM의 SQL Server에 대한 Always On 가용성 그룹
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -72,13 +72,13 @@ DNN 수신기를 사용하여 기존 VNN 수신기를 대체하거나, 두 개�
 
 가용성 그룹을 Azure VM의 SQL Server에 배포하는 여러 가지 옵션이 있으며, 일부는 다른 옵션보다 더 많은 자동화를 사용합니다. 
 
-사용 가능한 옵션을 비교한 표는 다음과 같습니다. 
+사용 가능한 옵션을 비교한 표는 다음과 같습니다.
 
-| |**[Azure portal](availability-group-azure-portal-configure.md)**|**[Azure CLI/PowerShell](./availability-group-az-commandline-configure.md)**|**[빠른 시작 템플릿](availability-group-quickstart-template-configure.md)**|**[수동](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| | Azure portal | Azure CLI/PowerShell | 빠른 시작 템플릿 | 수동 |
+|---------|---------|---------|---------|---------|
 |**SQL Server 버전** |2016 이상 |2016 이상|2016 이상|2012 이상|
 |**SQL Server 에디션** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
-|**Windows Server 버전**| 2016 이상 | 2016 이상 | 2016 이상 | 모두| 
+|**Windows Server 버전**| 2016 이상 | 2016 이상 | 2016 이상 | 모두|
 |**사용자에 대한 클러스터 만들기**|예|예 | 예 |아니요|
 |**사용자에 대한 가용성 그룹 만들기** |예 |아니요|아니요|예|
 |**독립적으로 수신기 및 부하 분산 장치 만들기** |아니요|아니요|예|예|
@@ -90,9 +90,8 @@ DNN 수신기를 사용하여 기존 VNN 수신기를 대체하거나, 두 개�
 |**동일한 지역의 다중 영역이 포함된 DR**|예|예|예|예|
 |**AD가 없는 분산 AG**|아니요|아니요|아니요|예|
 |**클러스터가 없는 분산 AG** |아니요|아니요|아니요|예|
-||||||
 
-
+자세한 내용은 [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI/PowerShell](./availability-group-az-commandline-configure.md), [빠른 시작 템플릿](availability-group-quickstart-template-configure.md) 및 [설명서](availability-group-manually-configure-prerequisites-tutorial.md)를 참조하세요.
 
 ## <a name="considerations"></a>고려 사항 
 

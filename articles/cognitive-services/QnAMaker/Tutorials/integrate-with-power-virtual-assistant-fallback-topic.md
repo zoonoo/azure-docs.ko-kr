@@ -4,13 +4,13 @@ description: 이 자습서에서는 활성 학습을 통해 기술 자료의 품
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 06/08/2020
-ms.openlocfilehash: 42b50fcf0df27ddbc3e587a7d8e038e4979935ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 322db4e1535e763f4c3e7c87afaa370471ba0b66
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777407"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376301"
 ---
 # <a name="tutorial-add-your-knowledge-base-to-power-virtual-agents"></a>자습서: Power Virtual Agents에 기술 자료 추가
 기술 자료에서 대답을 제공하는 [Power Virtual Agents](https://powervirtualagents.microsoft.com/) 봇을 만들고 확장합니다.
@@ -79,7 +79,7 @@ Power Virtual Agents의 에이전트를 QnA Maker의 기술 자료에 연결하�
 
 1. [Power Virtual Agents에 로그인](https://go.microsoft.com/fwlink/?LinkId=2108000&clcid=0x409)합니다. 학교 또는 회사 이메일 계정을 사용합니다.
 
-1. 첫 번째 봇인 경우 에이전트의 **홈** 페이지가 표시됩니다. 첫 번째 봇이 아닌 경우 페이지의 오른쪽 위 영역에서 봇을 선택하고, **+ 새 봇**을 선택합니다.
+1. 첫 번째 봇인 경우 에이전트의 **홈** 페이지가 표시됩니다. 첫 번째 봇이 아닌 경우 페이지의 오른쪽 위 영역에서 봇을 선택하고, **+ 새 봇** 을 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![Power Virtual Agents 홈 페이지의 스크린샷](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-home.png)
@@ -88,7 +88,7 @@ Power Virtual Agents의 에이전트를 QnA Maker의 기술 자료에 연결하�
 
 에이전트는 항목 컬렉션을 사용하여 주제 영역의 질문에 대답합니다. 이 자습서에서 에이전트는 사용자 항목 및 시스템 항목으로 구분되어 사용자에게 제공되는 많은 항목이 있습니다.
 
-왼쪽 탐색에서 **토픽**를 선택하여 봇에서 제공하는 항목을 확인합니다.
+왼쪽 탐색에서 **토픽** 를 선택하여 봇에서 제공하는 항목을 확인합니다.
 
 > [!div class="mx-imgBorder"]
 > ![에이전트에서 제공되는 항목의 스크린샷](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topics-provided.png)
@@ -98,17 +98,17 @@ Power Virtual Agents의 에이전트를 QnA Maker의 기술 자료에 연결하�
 
 에이전트에서 모든 항목의 기술 자료에 연결할 수 있지만, 이 자습서에서는 *시스템 대체* 항목을 사용합니다. 대체 항목은 에이전트에서 대답을 찾을 수 없을 때 사용됩니다. 에이전트는 사용자의 텍스트를 QnA Maker의 `GenerateAnswer` API에 전달하고, 기술 자료에서 대답을 받고, 사용자에게 이를 메시지로 표시합니다.
 
-1. [Power Virtual Agents](https://powerva.microsoft.com/#/) 포털의 오른쪽 위 모서리에서 **설정**(기어 아이콘)을 선택합니다. 그런 다음, **시스템 대체**를 선택합니다.
+1. [Power Virtual Agents](https://powerva.microsoft.com/#/) 포털의 오른쪽 위 모서리에서 **설정**(기어 아이콘)을 선택합니다. 그런 다음, **시스템 대체** 를 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![시스템 대체에 대한 Power Virtual Agents 메뉴 항목의 스크린샷](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-settings-system-fallback.png)
 
-1. **+ 추가**를 선택하여 시스템 대체 항목을 추가합니다.
+1. **+ 추가** 를 선택하여 시스템 대체 항목을 추가합니다.
 
     > [!div class="mx-imgBorder"]
     > ![대체 항목 추가의 스크린샷](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-settings-add-fallback-topic.png)
 
-1. 항목이 추가되면 **대체 항목으로 이동**을 선택하여 대체 항목을 제작 캔버스에 작성합니다.
+1. 항목이 추가되면 **대체 항목으로 이동** 을 선택하여 대체 항목을 제작 캔버스에 작성합니다.
 
     > [!TIP]
     > 대체 항목으로 돌아가야 하는 경우 **항목** 섹션에서  **시스템** 항목의 일부로 사용할 수 있습니다.
@@ -123,11 +123,11 @@ Power Virtual Agents 제작 캔버스를 사용하여 대체 항목을 기술 �
 
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/delete-escalate-action-using-option-menu.png" alt-text="삭제 옵션이 강조 표시된 대화 흐름의 부분 스크린샷.":::
 
-1. **메시지** 상자에서 **+** 커넥터 흐름을 선택한 다음, **작업 호출**을 선택합니다.
+1. **메시지** 상자에서 **+** 커넥터 흐름을 선택한 다음, **작업 호출** 을 선택합니다.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/create-new-item-call-an-action.png" alt-text="삭제 옵션이 강조 표시된 대화 흐름의 부분 스크린샷.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/create-new-item-call-an-action.png" alt-text="작업 호출의 부분 스크린샷.":::
 
-1. **흐름 만들기**를 선택합니다. 이 프로세스를 통해 Power Automate 포털로 이동합니다.
+1. **흐름 만들기** 를 선택합니다. 이 프로세스를 통해 Power Automate 포털로 이동합니다.
 
     > [!div class="mx-imgBorder"]
     > ![흐름 만들기의 스크린샷](../media/how-to-integrate-power-virtual-agent/create-a-flow.png)
@@ -135,36 +135,39 @@ Power Virtual Agents 제작 캔버스를 사용하여 대체 항목을 기술 �
 
     Power Automate가 새 템플릿으로 열립니다. 이 새 템플릿은 사용하지 않습니다.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-flow-initial-template.png" alt-text="삭제 옵션이 강조 표시된 대화 흐름의 부분 스크린샷.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-flow-initial-template.png" alt-text="새 흐름 템플릿을 사용한 Power Automate의 부분 스크린샷.":::
 
 ## <a name="create-a-power-automate-flow-to-connect-to-your-knowledge-base"></a>기술 자료에 연결하는 Power Automate 흐름 만들기
+
+> [!NOTE]
+> 현재 Power Automate 템플릿은 QnA Maker 관리형(미리 보기) 엔드포인트를 지원하지 않습니다. QnA Maker 관리형(미리 보기) 기술 자료를 Power Automate에 추가하려면 이 단계를 건너뛰고 수동으로 엔드포인트를 추가하세요. 
 
 다음 절차에서는 아래 작업을 수행하는 Power Automate 흐름을 만듭니다.
 * 들어오는 사용자 텍스트를 가져와서 QnA Maker로 보냅니다.
 * 에이전트에 대한 상위 응답을 반환합니다.
 
-1. **Power Automate**의 왼쪽 탐색에서 **템플릿**을 선택합니다. 브라우저 페이지를 떠날 것인지 묻는 메시지가 표시되면 떠나기를 승인합니다.
+1. **Power Automate** 의 왼쪽 탐색에서 **템플릿** 을 선택합니다. 브라우저 페이지를 떠날 것인지 묻는 메시지가 표시되면 떠나기를 승인합니다.
 
-1. 템플릿 페이지에서 템플릿 **QnA Maker를 사용하여 답변 생성**을 검색한 후 템플릿을 선택합니다. 이 템플릿에는 지식 베이스 설정으로 QnA Maker를 호출하고 가장 높은 답을 반환하는 모든 단계가 있습니다.
+1. 템플릿 페이지에서 템플릿 **QnA Maker를 사용하여 답변 생성** 을 검색한 후 템플릿을 선택합니다. 이 템플릿에는 지식 베이스 설정으로 QnA Maker를 호출하고 가장 높은 답을 반환하는 모든 단계가 있습니다.
 
-1. QnA Maker 흐름에 대한 새 화면에서 **계속**을 선택합니다.
+1. QnA Maker 흐름에 대한 새 화면에서 **계속** 을 선택합니다.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-qna-flow-template-continue.png" alt-text="삭제 옵션이 강조 표시된 대화 흐름의 부분 스크린샷.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-qna-flow-template-continue.png" alt-text="계속 단추가 강조 표시된 QnA Maker 템플릿 흐름의 부분 스크린샷.":::
 
-1. **응답 생성** 작업 상자를 선택하고 [지식 베이스 만들기 및 게시](#create-and-publish-a-knowledge-base)라는 이전 섹션에서 QnA Maker 설정을 입력합니다. 다음 이미지의 **서비스 호스트**는 지식 베이스 호스트 **호스트**를 나타내며 `https://YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker`형식입니다.
+1. **응답 생성** 작업 상자를 선택하고 [지식 베이스 만들기 및 게시](#create-and-publish-a-knowledge-base)라는 이전 섹션에서 QnA Maker 설정을 입력합니다. 다음 이미지의 **서비스 호스트** 는 지식 베이스 호스트 **호스트** 를 나타내며 `https://YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker`형식입니다.
 
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="삭제 옵션이 강조 표시된 대화 흐름의 부분 스크린샷.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="답변 생성(미리 보기)이 강조 표시된 QnA Maker 템플릿 흐름의 부분 스크린샷.":::
 
-1. **저장**을 선택하여 흐름을 저장합니다.
+1. **저장** 을 선택하여 흐름을 저장합니다.
 
 ## <a name="create-a-solution-and-add-the-flow"></a>솔루션 만들기 및 흐름 추가
 
 에이전트에서 흐름을 찾아서 연결하려면 해당 흐름이 Power Automate 솔루션에 포함되어 있어야 합니다.
 
-1. 여전히 Power Automate 포털에 있는 동안 왼쪽 탐색 영역에서 **솔루션**을 선택합니다.
+1. 여전히 Power Automate 포털에 있는 동안 왼쪽 탐색 영역에서 **솔루션** 을 선택합니다.
 
-1. **+ 새 솔루션**을 선택합니다.
+1. **+ 새 솔루션** 을 선택합니다.
 
 1. 표시 이름을 입력합니다. 솔루션 목록에는 조직 또는 학교의 모든 솔루션이 포함됩니다. 솔루션으로만 필터링하는 데 도움이 되는 명명 규칙을 선택합니다. 예를 들어 이메일 앞에 접두사로 솔루션 이름(`jondoe-power-virtual-agent-qnamaker-fallback`)을 붙일 수 있습니다.
 
@@ -172,34 +175,34 @@ Power Virtual Agents 제작 캔버스를 사용하여 대체 항목을 기술 �
 
 1. 이름 및 버전에 대한 기본값을 적용합니다.
 
-1. **만들기**를 선택하여 프로세스를 완료합니다.
+1. **만들기** 를 선택하여 프로세스를 완료합니다.
 
 ## <a name="add-your-flow-to-the-solution"></a>솔루션에 흐름 추가
 
 1. 솔루션 목록에서 방금 만든 솔루션을 선택합니다. 목록의 위쪽에 있습니다. 그렇지 않은 경우 솔루션 이름의 일부인 이메일 이름으로 검색합니다.
 
-1. 솔루션에서 **+ 기존 항목 추가**를 선택한 다음, 목록에서 **흐름**을 선택합니다.
+1. 솔루션에서 **+ 기존 항목 추가** 를 선택한 다음, 목록에서 **흐름** 을 선택합니다.
 
-1. **솔루션 외부** 목록에서 흐름을 찾은 후 **추가**를 선택하여 프로세스를 완료합니다. 흐름이 많은 경우 **수정됨** 열을 보고 가장 최근의 흐름을 찾습니다.
+1. **솔루션 외부** 목록에서 흐름을 찾은 후 **추가** 를 선택하여 프로세스를 완료합니다. 흐름이 많은 경우 **수정됨** 열을 보고 가장 최근의 흐름을 찾습니다.
 
 ## <a name="add-your-solutions-flow-to-power-virtual-agents"></a>Power Virtual Agents에 솔루션의 흐름 추가
 
 1. Power Virtual Agents에서 에이전트가 있는 브라우저 탭으로 돌아갑니다. 제작 캔버스는 계속 열려 있어야 합니다.
 
-1. 새 단계를 흐름에 삽입하려면 위의 **메시지** 작업 상자 아래에서 **+** 커넥터를 선택합니다. 그런 다음, **작업 호출**을 선택합니다.
+1. 새 단계를 흐름에 삽입하려면 위의 **메시지** 작업 상자 아래에서 **+** 커넥터를 선택합니다. 그런 다음, **작업 호출** 을 선택합니다.
 
 1. **Flow** 팝업 창에서 **QnA Maker 지식 베이스를 사용하여 답변 생성...** 이라는 이름의 새 흐름을 선택합니다. 새 동작이 흐름에 나타납니다.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-flow-after-adding-action.png" alt-text="삭제 옵션이 강조 표시된 대화 흐름의 부분 스크린샷.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-flow-after-adding-action.png" alt-text="QnA Maker 흐름을 추가한 후 Power Virtual Agent 항목 대화 캔버스의 부분 스크린샷.":::
 
-1. 입력 변수를 QnA Maker 작업으로 올바르게 설정하려면 **변수 선택**을 선택하고 **bot.UnrecognizedTriggerPhrase**을 선택합니다.
+1. 입력 변수를 QnA Maker 작업으로 올바르게 설정하려면 **변수 선택** 을 선택하고 **bot.UnrecognizedTriggerPhrase** 을 선택합니다.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-selection-action-input.png" alt-text="삭제 옵션이 강조 표시된 대화 흐름의 부분 스크린샷.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-selection-action-input.png" alt-text="입력 변수를 선택하는 Power Virtual Agent 항목 대화 캔버스의 부분 스크린샷.":::
 
 
-1. 출력 변수를 QnA Maker 작업으로 올바르게 설정하려면 **메시지** 작업에서 **UnrecognizedTriggerPhrase**를 선택하고, 아이콘을 선택하여 변수 `{x}`를 삽입한 다음, **최종대답**을 선택합니다.
+1. 출력 변수를 QnA Maker 작업으로 올바르게 설정하려면 **메시지** 작업에서 **UnrecognizedTriggerPhrase** 를 선택하고, 아이콘을 선택하여 변수 `{x}`를 삽입한 다음, **최종대답** 을 선택합니다.
 
-1. 상황에 맞는 도구 모음에서 **저장**을 선택하여 항목에 대한 제작 캔버스 세부 정보를 저장합니다.
+1. 상황에 맞는 도구 모음에서 **저장** 을 선택하여 항목에 대한 제작 캔버스 세부 정보를 저장합니다.
 
 최종 에이전트 캔버스는 다음과 같습니다.
 
@@ -208,7 +211,7 @@ Power Virtual Agents 제작 캔버스를 사용하여 대체 항목을 기술 �
 
 ## <a name="test-the-agent"></a>에이전트 테스트
 
-1. 테스트 창에서 **항목 간 추적**을 전환합니다. 이렇게 하면 단일 항목 내에서 뿐만 아니라 항목 간의 진행 상황도 볼 수 있습니다.
+1. 테스트 창에서 **항목 간 추적** 을 전환합니다. 이렇게 하면 단일 항목 내에서 뿐만 아니라 항목 간의 진행 상황도 볼 수 있습니다.
 
 1. 사용자 텍스트를 다음 순서로 입력하여 에이전트를 테스트합니다. 제작 캔버스에서 녹색 확인 표시를 사용하여 성공한 단계를 보고합니다.
 
@@ -221,13 +224,13 @@ Power Virtual Agents 제작 캔버스를 사용하여 대체 항목을 기술 �
     |5|예|`Can I help with anything else?`에 대한 회신에서|
     |6|쿼리 예측의 처리량 성능을 향상하려면 어떻게 해야 하나요?|이 질문은 대답하기 위해 텍스트를 기술 자료에 보내는 대체 작업을 트리거합니다. 그런 다음, 대답이 표시됩니다. 개별 작업에 대한 녹색 확인 표시는 각 작업의 성공 여부를 나타냅니다.|
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png" alt-text="삭제 옵션이 강조 표시된 대화 흐름의 부분 스크린샷.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png" alt-text="성공한 작업에 대한 녹색의 표시 여부를 나타내는 캔버스가 있는 챗봇의 스크린샷.":::
 
 ## <a name="publish-your-bot"></a>봇 게시
 
 학교 또는 조직의 모든 구성원이 에이전트를 사용할 수 있도록 하려면 해당 에이전트를 게시해야 합니다.
 
-1. 왼쪽의 탐색 영역에서 **게시**를 선택합니다. 그런 다음, 페이지에서 **게시**를 선택합니다.
+1. 왼쪽의 탐색 영역에서 **게시** 를 선택합니다. 그런 다음, 페이지에서 **게시** 를 선택합니다.
 
 1. 데모 웹 사이트에서 봇을 사용해 봅니다(**게시** 아래에서 해당 링크를 찾음).
 
@@ -240,11 +243,11 @@ Power Virtual Agents 제작 캔버스를 사용하여 대체 항목을 기술 �
 
 데모 웹 사이트를 공유하려면 해당 웹 사이트를 채널로 구성합니다.
 
-1. 왼쪽의 탐색 영역에서 **관리** > **채널**을 차례로 선택합니다.
+1. 왼쪽의 탐색 영역에서 **관리** > **채널** 을 차례로 선택합니다.
 
-1. 채널 목록에서 **데모 웹 사이트**를 선택합니다.
+1. 채널 목록에서 **데모 웹 사이트** 를 선택합니다.
 
-1. 링크를 복사하고 **저장**을 선택합니다. 데모 웹 사이트에 대한 링크를 학교 또는 조직 구성원에게 보내는 이메일에 붙여넣습니다.
+1. 링크를 복사하고 **저장** 을 선택합니다. 데모 웹 사이트에 대한 링크를 학교 또는 조직 구성원에게 보내는 이메일에 붙여넣습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

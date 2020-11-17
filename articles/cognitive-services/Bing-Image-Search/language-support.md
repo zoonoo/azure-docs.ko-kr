@@ -96,7 +96,7 @@ Bing Image Search API는 수십 개의 국가/지역을 지원하며, 이 중에
 |핀란드|핀란드어|fi-FI|
 |프랑스|프랑스어|fr-FR|
 |독일|독일어|de-DE|
-|홍콩 특별행정구|중국어 번체|zh-HK|
+|홍콩 특별 행정구|중국어 번체|zh-HK|
 |인도|영어|en-IN|
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|
@@ -119,7 +119,7 @@ Bing Image Search API는 수십 개의 국가/지역을 지원하며, 이 중에
 |스위스|독일어|de-CH|
 |대만|중국어 번체|zh-TW|
 |터키|터키어|tr-TR|
-|영국|영어|en-GB|
+|United Kingdom|영어|en-GB|
 |미국|영어|ko-KR|
 |미국|스페인어|es-US|
 

@@ -130,6 +130,8 @@
             - name: Synapse Studio 연결 문제 해결
               href: troubleshoot/troubleshoot-synapse-studio-powershell.md
               displayname: powershell
+            - name: Synapse Studio와 스토리지 간의 연결 문제 해결
+              href: troubleshoot/troubleshoot-synapse-studio-and-storage-connectivity.md
     - name: 방법 가이드
       items:
         - name: 보안
@@ -847,7 +849,7 @@
               href: ../data-factory/transform-data-using-stored-procedure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 컴퓨팅 연결 서비스
               href: ../data-factory/compute-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: 흐름 제어
+        - name: 제어 흐름
           items:
             - name: 변수 작업 추가
               href: ../data-factory/control-flow-append-variable-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

@@ -47,8 +47,6 @@
           href: customize-person-model-overview.md
 - name: 방법 가이드
   items:
-    - name: Azure에 연결
-      href: connect-to-azure.md
     - name: Azure에 연결된 계정 관리
       href: manage-account-connected-to-azure.md
     - name: 비디오 업로드 및 인덱싱

@@ -2,6 +2,8 @@
   href: cut-planes.md
 - name: 디버그 렌더링
   href: debug-rendering.md
+- name: Fresnel 효과
+  href: fresnel-effect.md
 - name: 계층 상태 재정의
   href: override-hierarchical-state.md
 - name: 카메라

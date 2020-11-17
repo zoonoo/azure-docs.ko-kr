@@ -28,8 +28,6 @@
       items:
         - name: 음성 인식 소스 언어 변경
           href: how-to-specify-source-language.md
-        - name: Custom Speech를 사용하여 정확도 향상
-          href: how-to-custom-speech.md
         - name: 압축된 오디오 입력 형식 사용
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
@@ -45,20 +43,18 @@
           href: tutorial-tenant-model.md
     - name: 사용자 지정
       items:
+        - name: Custom Speech란?
+          href: custom-speech-overview.md
         - name: Speech Studio에서 오디오 파일을 사용하여 모델 테스트
           href: quickstarts/speech-studio-test-model.md
         - name: Custom Speech에 대한 데이터 준비
           href: how-to-custom-speech-test-and-train.md
         - name: Custom Speech 데이터 검사
           href: how-to-custom-speech-inspect-data.md
-        - name: Custom Speech 정확도 평가
+        - name: Custom Speech 정확도 평가 및 개선
           href: how-to-custom-speech-evaluate-data.md
-        - name: Custom Speech 정확도 개선
-          href: how-to-custom-speech-improve-accuracy.md
-        - name: Custom Speech 모델 학습
+        - name: Custom Speech 모델 학습 및 배포
           href: how-to-custom-speech-train-model.md
-        - name: 사용자 지정 모델 배포
-          href: how-to-custom-speech-deploy-model.md
         - name: Custom Speech용 CI/CD
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
         - name: 휴먼 레이블 전사 만들기
@@ -391,6 +387,10 @@
                       href: how-to-custom-commands-setup-web-endpoints.md
                     - name: 사용자 지정 명령 앱을 기술로 내보내기
                       href: how-to-custom-commands-integrate-remote-skills.md
+                    - name: 클라이언트 앱에서 명령 업데이트
+                      href: how-to-custom-commands-update-command-from-client.md
+                    - name: 웹 엔드포인트에서 명령 업데이트
+                      href: how-to-custom-commands-update-command-from-web-endpoint.md
                 - name: 배포
                   items:
                     - name: Azure DevOps를 사용한 지속적인 배포

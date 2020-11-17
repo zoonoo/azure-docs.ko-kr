@@ -9,7 +9,7 @@
           href: azure-stack-edge-gpu-overview.md
     - name: 빠른 시작
       items:
-        - name: 시작하기
+        - name: 시작
           href: azure-stack-edge-gpu-quickstart.md
     - name: 자습서
       items:

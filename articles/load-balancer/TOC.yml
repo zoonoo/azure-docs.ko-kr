@@ -67,9 +67,9 @@
       href: load-balancer-ha-ports-overview.md
     - name: 여러 프런트 엔드
       href: load-balancer-multivip-overview.md
-    - name: 아웃바운드 프록시
+    - name: 인터넷에 아웃바운드 연결을 위한 SNAT
       href: load-balancer-outbound-connections.md
-    - name: 아웃바운드 규칙
+    - name: 아웃바운드 규칙 구성
       href: outbound-rules.md
     - name: 유휴 시간 제한에 도달하면 TCP 재설정
       href: load-balancer-tcp-reset.md

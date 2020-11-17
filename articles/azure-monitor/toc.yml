@@ -180,6 +180,21 @@
               href: app/pricing.md
             - name: 로그 데이터 사용량 및 비용
               href: platform/manage-cost-storage.md
+    - name: Azure Monitor 메트릭
+      items:
+        - name: 개요
+          displayname: Metrics
+          href: platform/data-platform-metrics.md
+        - name: 메트릭 탐색기
+          items:
+            - name: 메트릭 탐색기로 시작
+              href: platform/metrics-getting-started.md
+            - name: 메트릭 탐색기의 고급 기능
+              href: platform/metrics-charts.md
+            - name: 메트릭 차트의 예
+              href: platform/metric-chart-samples.md
+            - name: 메트릭 차트 문제 해결
+              href: platform/metrics-troubleshoot.md
     - name: Azure Monitor 로그
       items:
         - name: 개요
@@ -235,7 +250,7 @@
               href: platform/log-standard-columns.md
             - name: 쿼리 최적화
               href: log-query/query-optimization.md
-            - name: 함수
+            - name: Functions
               href: log-query/functions.md
             - name: 텍스트 데이터 구문 분석
               href: log-query/parse-text.md
@@ -262,21 +277,10 @@
               href: platform/logs-export-logic-app.md
             - name: 데이터 탐색기를 사용하여 내보낸 데이터 쿼리
               href: platform/azure-data-explorer-query-storage.md
-    - name: Azure Monitor 메트릭
-      items:
-        - name: 개요
-          displayname: Metrics
-          href: platform/data-platform-metrics.md
-        - name: 메트릭 탐색기
-          items:
-            - name: 메트릭 탐색기로 시작
-              href: platform/metrics-getting-started.md
-            - name: 메트릭 탐색기의 고급 기능
-              href: platform/metrics-charts.md
-            - name: 메트릭 차트의 예
-              href: platform/metric-chart-samples.md
-            - name: 메트릭 차트 문제 해결
-              href: platform/metrics-troubleshoot.md
+            - name: Excel로 보내기
+              href: log-query/log-excel.md
+            - name: Power BI로 보내기
+              href: log-query/log-powerbi.md
     - name: 플랫폼 로그
       items:
         - name: 개요
@@ -575,12 +579,16 @@
                   displayname: 'ilogger, logging, log'
                   href: app/ilogger.md
             - name: ASP.NET
-              displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
-              href: app/asp-net.md
-            - name: HTTP가 아닌 앱/백그라운드 앱
+              items:
+                - name: ASP.NET 앱 모니터링
+                  displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
+                  href: app/asp-net.md
+                - name: ASP.NET 문제 해결
+                  href: app/asp-net-troubleshoot-no-data.md
+            - name: 비 HTTP/백그라운드 앱
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
-            - name: .NET 콘솔
+            - name: ASP.NET 콘솔
               displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
               href: app/console.md
             - name: Java
@@ -590,18 +598,10 @@
                   href: app/java-get-started.md
                 - name: 로그 추적
                   href: app/java-trace-logs.md
-                - name: Unix 메트릭
-                  href: app/java-collectd.md
                 - name: 종속성
                   href: app/java-agent.md
                 - name: 필터 원격 분석
                   href: app/java-filter-telemetry.md
-                - name: 마이크로미터 메트릭
-                  displayname: java
-                  href: app/micrometer-java.md
-                - name: Spring Boot 앱
-                  displayname: java
-                  href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
                 - name: 문제 해결
                   href: app/java-troubleshoot.md
             - name: Node.js
@@ -637,8 +637,6 @@
             - name: Application Insights API 요약
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
-            - name: ASP.NET 문제 해결
-              href: app/asp-net-troubleshoot-no-data.md
             - name: Application Insights 제거
               href: app/remove-application-insights.md
         - name: 코드 없는 모니터링
@@ -1241,6 +1239,8 @@
               href: app/release-notes.md
             - name: 웹앱 확장
               href: app/web-app-extension-release-notes.md
+            - name: 스냅샷 디버거
+              href: app/snapshot-collector-release-notes.md
         - name: 데이터 모델
           items:
             - name: 개요
@@ -1323,6 +1323,11 @@
           href: platform/resource-logs-blob-format.md
         - name: Key Vault Analytics(사용되지 않음)
           href: insights/azure-key-vault-deprecated.md
+        - name: Unix 메트릭
+          href: app/java-collectd.md
+        - name: 마이크로미터 메트릭
+          displayname: java
+          href: app/micrometer-java.md
         - name: 보기
           items:
             - name: 뷰 디자이너

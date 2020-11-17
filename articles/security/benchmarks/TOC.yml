@@ -93,6 +93,8 @@
       href: ../../devtest-labs/security-baseline.md
     - name: Azure Firewall 보안 기준
       href: ../../firewall/security-baseline.md
+    - name: Azure Front Door 보안 기준
+      href: ../../frontdoor/security-baseline.md
     - name: Azure Functions 보안 기준
       href: ../../azure-functions/security-baseline.md
     - name: Azure IoT Hub 보안 기준
@@ -139,6 +141,8 @@
       href: ../../container-registry/security-baseline.md
     - name: Cosmos DB 보안 기준
       href: ../../cosmos-db/security-baseline.md
+    - name: Cost Management 보안 기준
+      href: ../../cost-management-billing/security-baseline.md
     - name: 고객 Lockbox 보안 기준
       href: ../fundamentals/customer-lockbox-security-baseline.md
     - name: Data Lake Analytics 보안 기준

@@ -38,6 +38,21 @@
           href: infrastructure-integrity.md
         - name: 데이터 보호
           href: protection-customer-data.md
+    - name: 플랫폼 무결성 및 보안
+      href: platform.md
+      items:
+        - name: 펌웨어 보안
+          href: firmware.md
+        - name: 보안 부팅
+          href: secure-boot.md
+        - name: 측정된 부팅 및 호스트 증명
+          href: measured-boot-host-attestation.md
+        - name: 프로젝트 Cerberus
+          href: project-cerberus.md
+        - name: 미사용 암호화
+          href: encryption-atrest.md
+        - name: 하이퍼바이저 보안
+          href: hypervisor.md
     - name: Azure 클라우드에서 격리
       href: isolation-choices.md
 - name: ID 관리

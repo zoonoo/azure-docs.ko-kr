@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 문서 처리
-ms.openlocfilehash: 287315440199c4dc3ded1298532167d37d89a877
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976150"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360873"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -29,7 +29,7 @@ ms.locfileid: "91976150"
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Form Recognizer 리소스 만들기"  target="_blank">Form Recognizer 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Form Recognizer 리소스 만들기"  target="_blank">Form Recognizer 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Form Recognizer API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 * 동일한 형식의 양식 6개 이상으로 구성된 세트. 이 데이터를 사용하여 모델을 학습시키고 양식을 테스트합니다. 이 빠른 시작에 대한 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)(*sample_data.zip* 다운로드 및 추출)를 사용할 수 있습니다. 표준 성능 계층 Azure Storage 계정의 Blob 스토리지 컨테이너 루트에 학습 파일을 업로드합니다.
@@ -37,6 +37,14 @@ ms.locfileid: "91976150"
 ## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
+
+## <a name="try-it-out"></a>사용해 보기
+
+온라인으로 Form Recognizer 샘플 레이블 지정 도구를 사용해 보려면 [FOTT 웹 사이트](https://fott-preview.azurewebsites.net/)로 이동합니다.
+
+> [!div class="nextstepaction"]
+> [Form Recognizer 샘플 레이블 지정 도구](https://fott-preview.azurewebsites.net/)
+
 
 ## <a name="set-up-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 설정
 
@@ -99,7 +107,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 ### <a name="configure-cross-domain-resource-sharing-cors"></a>CORS(도메인 간 리소스 공유) 구성
 
-스토리지 계정에서 CORS를 사용하도록 설정합니다. Azure Portal에서 스토리지 계정을 선택하고, 왼쪽 창에서 **CORS** 탭을 클릭합니다. 아래쪽 줄에서 다음 값을 입력합니다. 그런 다음, 위쪽에서 **저장**을 클릭합니다.
+스토리지 계정에서 CORS를 사용하도록 설정합니다. Azure Portal에서 스토리지 계정을 선택하고, 왼쪽 창에서 **CORS** 탭을 클릭합니다. 아래쪽 줄에서 다음 값을 입력합니다. 그런 다음, 위쪽에서 **저장** 을 클릭합니다.
 
 * 허용된 원본 = * 
 * 허용된 메서드 = \[모두 선택\]
@@ -122,7 +130,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 * **표시 이름** - 연결 표시 이름
 * **설명** - 프로젝트 설명
-* **SAS URL** - Azure Blob Storage 컨테이너의 SAS(공유 액세스 서명) URL SAS URL를 검색하려면 Microsoft Azure Storage Explorer를 열고, 컨테이너를 마우스 오른쪽 단추로 클릭하고, **공유 액세스 서명 가져오기**를 선택합니다. 서비스를 사용한 후 만료 시간을 특정 시간으로 설정합니다. **읽기**, **쓰기**, **삭제**및 **목록** 권한이 선택되어 있는지 확인하고 **만들기**를 클릭합니다. 그런 다음 **URL** 섹션의 값을 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
+* **SAS URL** - Azure Blob Storage 컨테이너의 SAS(공유 액세스 서명) URL SAS URL를 검색하려면 Microsoft Azure Storage Explorer를 열고, 컨테이너를 마우스 오른쪽 단추로 클릭하고, **공유 액세스 서명 가져오기** 를 선택합니다. 서비스를 사용한 후 만료 시간을 특정 시간으로 설정합니다. **읽기**, **쓰기**, **삭제** 및 **목록** 권한이 선택되어 있는지 확인하고 **만들기** 를 클릭합니다. 그런 다음 **URL** 섹션의 값을 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="샘플 레이블 지정 도구의 연결 설정.":::
 
@@ -139,7 +147,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 * **API 키** - Form Recognizer 구독 키
 * **설명**(선택 사항) - 프로젝트 설명
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="샘플 레이블 지정 도구의 연결 설정.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="샘플 레이블 지정 도구의 새 프로젝트 페이지.":::
 
 ## <a name="label-your-forms"></a>양식 레이블 지정
 
@@ -151,11 +159,11 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 ### <a name="identify-text-elements"></a>텍스트 요소 식별
 
-왼쪽 창에서 **모든 파일에 대해 OCR 실행**을 클릭하여 각 문서에 대한 텍스트 레이아웃 정보를 가져옵니다. 레이블 지정 도구는 각 텍스트 요소 주위에 경계 상자를 그립니다.
+왼쪽 창에서 **모든 파일에 대해 OCR 실행** 을 클릭하여 각 문서에 대한 텍스트 레이아웃 정보를 가져옵니다. 레이블 지정 도구는 각 텍스트 요소 주위에 경계 상자를 그립니다.
 
 또한 자동으로 추출된 테이블을 보여줍니다. 문서의 왼쪽에 있는 테이블/그리드 아이콘을 클릭하여 추출된 테이블을 확인합니다. 이 빠른 시작에서는 테이블 콘텐츠가 자동으로 추출되므로 테이블 콘텐츠의 레이블을 지정하지 않고 자동화된 추출을 사용합니다.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="샘플 레이블 지정 도구의 연결 설정.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="샘플 레이블 지정 도구의 테이블 시각화.":::
 
 ### <a name="apply-labels-to-text"></a>텍스트에 레이블 적용
 
@@ -185,7 +193,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
    1. **+** 를 클릭하여 새 태그를 만듭니다.
    1. 태그 이름을 입력합니다.
    1. Enter 키를 눌러 태그를 저장합니다.
-1. 주 편집기에서 강조 표시된 텍스트 요소에서 단어를 선택하려면 클릭합니다. _v2.1 미리 보기_에서 클릭하여 라디오 단추 및 확인란과 같은 _선택 표시_를 키 값 쌍으로 선택할 수도 있습니다. Form Recognizer는 선택 표시가 값으로 "선택됨" 또는 "선택되지 않음"인지 여부를 식별합니다.
+1. 주 편집기에서 강조 표시된 텍스트 요소에서 단어를 선택하려면 클릭합니다. _v2.1 미리 보기_ 에서 클릭하여 라디오 단추 및 확인란과 같은 _선택 표시_ 를 키 값 쌍으로 선택할 수도 있습니다. Form Recognizer는 선택 표시가 값으로 "선택됨" 또는 "선택되지 않음"인지 여부를 식별합니다.
 1. 적용하려는 태그를 클릭하거나 해당 키보드 키를 누릅니다. 숫자 키는 처음 10개 태그에 대한 바로 가기 키로 할당됩니다. 태그 편집기 창에서 위쪽 및 아래쪽 화살표 아이콘을 사용하여 태그를 다시 정렬할 수 있습니다.
     > [!Tip]
     > 양식에 레이블을 지정할 때 다음 팁을 참조하세요.
@@ -201,7 +209,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="샘플 레이블 지정 도구의 연결 설정.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="샘플 레이블 지정 도구의 주 편집기 창.":::
 
 
 위의 단계에 따라 5개 이상의 양식에 레이블을 지정합니다.
@@ -256,7 +264,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 * 태그 목록 및 태그당 예상 정확도
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="샘플 레이블 지정 도구의 연결 설정.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="학습 보기.":::
 
 학습이 완료되면 **평균 정확도** 값을 검사합니다. 낮은 경우 더 많은 입력 문서를 추가하고 위의 단계를 반복해야 합니다. 이미 레이블이 지정된 문서는 프로젝트 인덱스에서 유지됩니다.
 
@@ -275,7 +283,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 샘플 레이블 지정 도구에서 모델을 작성하려면 왼쪽에 있는 모델 작성(병합 화살표) 아이콘을 클릭합니다. 왼쪽에서 함께 작성할 모델을 선택합니다. 화살표 아이콘이 있는 모델은 이미 작성된 모델입니다. "작성" 단추를 클릭합니다. 팝업에서 새로 작성된 모델의 이름을 지정하고 "작성"을 클릭합니다. 작업이 완료되면 새로 작성된 모델이 목록에 표시됩니다. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="샘플 레이블 지정 도구의 연결 설정.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="모델 작성 UX 뷰.":::
 
 ---
 
