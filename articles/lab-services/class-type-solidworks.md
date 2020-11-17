@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87290728"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651807"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>SOLIDWORKS를 사용 하 여 엔지니어링 클래스에 대 한 랩 설정
 
@@ -24,18 +24,18 @@ ms.locfileid: "87290728"
 
 SOLIDWORKS 네트워크 라이선스를 사용 하려면 라이선스 서버에 SolidNetWork 라이선스 관리자를 설치 하 고 활성화 해야 합니다.  이 라이선스 서버는 일반적으로 온-프레미스 네트워크 또는 Azure 내의 개인 네트워크에 있습니다.  서버에서 SolidNetWork 라이선스 관리자를 설정 하는 방법에 대 한 자세한 내용은 SOLIDWORKS 설치 가이드에서 [라이선스 관리자 설치 및 활성화](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) 를 참조 하십시오.  이 설정을 사용 하는 경우 이후 단계에서 필요 하므로 사용 되는 **포트 번호** 와 [**일련 번호**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) 를 잊지 마십시오.
 
-라이선스 서버를 설정한 후에는 [가상 네트워크 (VNet)](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) 를 [랩 계정](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account)에 피어 링 해야 합니다.  랩 가상 머신에서 라이선스 서버에 액세스할 수 있고 다른 방법으로는 랩을 만들기 전에 네트워크 피어 링을 수행 해야 합니다.
+라이선스 서버를 설정한 후에는 [가상 네트워크 (VNet)](./how-to-connect-peer-virtual-network.md) 를 [랩 계정](./tutorial-setup-lab-account.md)에 피어 링 해야 합니다.  랩 가상 머신에서 라이선스 서버에 액세스할 수 있고 다른 방법으로는 랩을 만들기 전에 네트워크 피어 링을 수행 해야 합니다.
 
 > [!NOTE]
-> 랩 가상 머신과 라이선스 서버 간의 통신을 허용 하도록 방화벽에서 적절 한 포트가 열려 있는지 확인 해야 합니다.  예를 들어 라이선스 서버의 방화벽에 인바운드 및 아웃 바운드 규칙을 추가 하는 방법을 보여 주는 [Windows 방화벽의 라이선스 관리자 컴퓨터 포트를 수정](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) 하는 방법에 대 한 지침을 참조 하세요.  랩 가상 컴퓨터에 대 한 포트를 열어야 할 수도 있습니다.  랩의 공용 IP 주소를 가져오는 방법을 비롯 하 여이에 대 한 자세한 내용은 랩 [에 대 한 방화벽 설정](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-firewall-settings) 문서의 단계를 따르세요.
+> 랩 가상 머신과 라이선스 서버 간의 통신을 허용 하도록 방화벽에서 적절 한 포트가 열려 있는지 확인 해야 합니다.  예를 들어 라이선스 서버의 방화벽에 인바운드 및 아웃 바운드 규칙을 추가 하는 방법을 보여 주는 [Windows 방화벽의 라이선스 관리자 컴퓨터 포트를 수정](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) 하는 방법에 대 한 지침을 참조 하세요.  랩 가상 컴퓨터에 대 한 포트를 열어야 할 수도 있습니다.  랩의 공용 IP 주소를 가져오는 방법을 비롯 하 여이에 대 한 자세한 내용은 랩 [에 대 한 방화벽 설정](./how-to-configure-firewall-settings.md) 문서의 단계를 따르세요.
 
 ## <a name="lab-configuration"></a>랩 구성
 
-이 랩을 설정 하려면 시작 하려면 Azure 구독 및 랩 계정이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독을 받은 후 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정을 만드는 방법에 대 한 자세한 내용은 [랩 계정을 설정 하는 방법](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account)에 대 한 자습서를 참조 하세요. 기존 랩 계정을 사용할 수도 있습니다.
+이 랩을 설정 하려면 시작 하려면 Azure 구독 및 랩 계정이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독을 받은 후 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정을 만드는 방법에 대 한 자세한 내용은 [랩 계정을 설정 하는 방법](./tutorial-setup-lab-account.md)에 대 한 자습서를 참조 하세요. 기존 랩 계정을 사용할 수도 있습니다.
 
 ### <a name="lab-account-settings"></a>랩 계정 설정
 
-랩 계정에 대해 아래 표에 설명 된 설정을 사용 하도록 설정 합니다. Marketplace 이미지를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [랩 작성자가 사용할 수 있는 marketplace 이미지를 지정 하는 방법](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images)에 대 한 문서를 참조 하세요.
+랩 계정에 대해 아래 표에 설명 된 설정을 사용 하도록 설정 합니다. Marketplace 이미지를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [랩 작성자가 사용할 수 있는 marketplace 이미지를 지정 하는 방법](./specify-marketplace-images.md)에 대 한 문서를 참조 하세요.
 
 | 랩 계정 설정 | Instructions |
 | ------------------- | ------------ |
@@ -76,7 +76,7 @@ SOLIDWORKS 네트워크 라이선스를 사용 하려면 라이선스 서버에 
     > [!NOTE]
     > **서버 추가** 대화 상자에 라이선스 서버에 사용 되는 **포트 번호** 와 라이선스 서버의 이름 또는 IP 주소를 입력 하 라는 메시지가 표시 됩니다.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>비용
 
 이 클래스에 대해 가능한 예상 비용을 살펴보겠습니다. 이러한 예상치는 라이선스 서버를 실행 하는 비용을 포함 하지 않습니다. 25 명의 학생 클래스를 사용 합니다. 예약 된 클래스 시간은 20 시간입니다. 또한 각 학생은 예약 된 클래스 시간 외에도 과제 또는 배정에 대해 10 시간 할당량을 얻습니다. 선택한 가상 컴퓨터 크기는 **작은 GPU (시각화)** 이며 랩 단위는 160입니다.
 

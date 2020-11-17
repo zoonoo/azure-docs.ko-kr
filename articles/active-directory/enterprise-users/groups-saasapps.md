@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c78b61798e72d87ec245082a5822bcfc58a1b61
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 58d5cc64b21207efbdefdafe020248212eed7efe
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377111"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650566"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>그룹을 사용하여 SaaS 애플리케이션에 대한 액세스 관리
 
@@ -32,12 +32,12 @@ Azure AD Premium 라이선스 계획과 함께 Azure Active Directory (Azure AD)
 
 ## <a name="to-assign-access-for-a-user-or-group-to-a-saas-application"></a>사용자 또는 그룹에 대해 SaaS 애플리케이션 액세스 권한을 할당하려면
 
-1. [Azure AD 관리 센터](https://aad.portal.azure.com)에서 **Enterprise 애플리케이션**을 선택합니다.
+1. [Azure AD 관리 센터](https://aad.portal.azure.com)에서 **Enterprise 애플리케이션** 을 선택합니다.
 2. 애플리케이션 갤러리에서 추가한 애플리케이션을 선택하여 엽니다.
-3. **사용자 및 그룹**을 선택한 다음 **사용자 추가**를 선택합니다.
-4. **할당 추가**에서 **사용자 및 그룹**을 선택하여 **사용자 및 그룹** 선택 목록을 엽니다.
-6. 사용자가 원하는 만큼 그룹 또는 사용자를 선택한 다음 **선택**을 클릭하거나 눌러 **할당 추가** 목록에 추가합니다. 이 단계에서 사용자에게 역할을 할당할 수도 있습니다.
-7. **할당**을 선택하여 선택한 엔터프라이즈 애플리케이션에 사용자 또는 그룹을 할당합니다.
+3. **사용자 및 그룹** 을 선택한 다음 **사용자 추가** 를 선택합니다.
+4. **할당 추가** 에서 **사용자 및 그룹** 을 선택하여 **사용자 및 그룹** 선택 목록을 엽니다.
+6. 사용자가 원하는 만큼 그룹 또는 사용자를 선택한 다음 **선택** 을 클릭하거나 눌러 **할당 추가** 목록에 추가합니다. 이 단계에서 사용자에게 역할을 할당할 수도 있습니다.
+7. **할당** 을 선택하여 선택한 엔터프라이즈 애플리케이션에 사용자 또는 그룹을 할당합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.

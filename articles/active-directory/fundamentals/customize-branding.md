@@ -13,18 +13,18 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: bb138ade0f579a7545c0910646b6adfb7d5ac02a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "89565857"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650226"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가
 조직의 로고 및 사용자 지정 색 구성표를 사용하여 Azure AD(Azure Active Directory) 로그인 페이지에 일관된 모양과 느낌을 제공합니다. 사용자의 로그인 페이지는 Azure AD를 id 공급자로 사용 하는 Microsoft 365와 같이 조직의 웹 기반 앱에 로그인 할 때 표시 됩니다.
 
 >[!NOTE]
->사용자 지정 브랜딩을 추가 하려면 Azure Active Directory Premium 1, Premium 2 또는 Basic 버전을 사용 하거나 Microsoft 365 라이선스를 사용 해야 합니다. 라이선스 및 버전에 대한 자세한 내용은 [Azure AD Premium에 등록](active-directory-get-started-premium.md)을 참조하세요.<br><br>Azure AD Premium 및 Basic 버전은 Azure Active Directory의 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure AD Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Azure 서비스에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 문의하세요.
+>사용자 지정 브랜딩을 추가 하려면 1 Azure Active Directory Premium 또는 Premium 2 라이선스가 있어야 합니다. 라이선스 및 버전에 대한 자세한 내용은 [Azure AD Premium에 등록](active-directory-get-started-premium.md)을 참조하세요.<br><br>Azure AD Premium 버전은 전 세계의 Azure Active Directory 인스턴스를 사용 하 여 중국의 고객에 게 제공 됩니다. Azure AD Premium 버전은 현재 중국의 21Vianet에서 운영 하는 Azure 서비스에서 지원 되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 문의하세요.
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Azure AD 로그인 페이지 사용자 지정
 사용자가 조직의 테넌트별 앱(예: `https://outlook.com/contoso.com`)에 로그인하거나 도메인 변수(예: `https://passwordreset.microsoftonline.com/?whr=contoso.com`)를 전달할 때 표시되는 Azure AD 로그인 페이지를 사용자 지정할 수 있습니다.

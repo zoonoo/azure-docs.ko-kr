@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b2563b238bae310d662220d2c244e863249c9c4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367736"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651943"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시의 와일드카드 애플리케이션
 
@@ -45,7 +45,7 @@ Azure AD(Azure Active Directory)에서 다수의 온-프레미스 애플리케�
 
 > http (s)://*입니다.\<domain\>
 
-예: `http(s)://*.adventure-works.com`
+예: `http(s)://*.adventure-works.com`.
 
 내부 및 외부 URL이 서로 다른 도메인을 사용할 수도 있지만 동일한 것이 좋습니다. 애플리케이션을 게시할 때 URL 중 하나에 와일드카드가 없으면 오류가 표시됩니다.
 
@@ -72,7 +72,7 @@ Azure AD(Azure Active Directory)에서 다수의 온-프레미스 애플리케�
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-CNAME을 제대로 구성했는지 확인하려면 대상 엔드포인트 중 하나(예: `expenses.adventure-works.com`)에 대해 [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup)을 사용할 수 있습니다.  응답에 이미 언급된 별칭(`<yourAADTenantId>.tenant.runtime.msappproxy.net`)이 포함되어야 합니다.
+CNAME을 제대로 구성했는지 확인하려면 대상 엔드포인트 중 하나(예: `expenses.adventure-works.com`)에 대해 [nslookup](/windows-server/administration/windows-commands/nslookup)을 사용할 수 있습니다.  응답에 이미 언급된 별칭(`<yourAADTenantId>.tenant.runtime.msappproxy.net`)이 포함되어야 합니다.
 
 ## <a name="considerations"></a>고려 사항
 
@@ -80,11 +80,11 @@ CNAME을 제대로 구성했는지 확인하려면 대상 엔드포인트 중 �
 
 ### <a name="accepted-formats"></a>허용되는 형식
 
-와일드카드 애플리케이션의 경우 **내부 URL**은 `http(s)://*.<domain>` 형식이어야 합니다.
+와일드카드 애플리케이션의 경우 **내부 URL** 은 `http(s)://*.<domain>` 형식이어야 합니다.
 
 ![내부 URL의 경우 http (s)://* 형식을 사용 합니다. \< 도메인>](./media/application-proxy-wildcard/22.png)
 
-**외부 URL**을 구성하는 경우 `https://*.<custom domain>` 형식을 사용해야 합니다.
+**외부 URL** 을 구성하는 경우 `https://*.<custom domain>` 형식을 사용해야 합니다.
 
 ![외부 URL에는 https://* 형식을 사용 합니다. \< 사용자 지정 도메인>](./media/application-proxy-wildcard/21.png)
 
@@ -101,7 +101,7 @@ CNAME을 제대로 구성했는지 확인하려면 대상 엔드포인트 중 �
 
 DNS 관리를 통해 와일드카드를 특정 애플리케이션에 대해서만 작동하도록 제한할 수도 있습니다. 와일드카드를 포함하고 구성한 외부 URL의 형식과 일치하는 CNAME 항목을 만드는 것이 좋습니다. 그러나 특정 애플리케이션 URL이 대신 와일드카드를 가리키도록 설정할 수 있습니다. 예를 들어 `*.adventure-works.com` 대신 `hr.adventure-works.com`, `expenses.adventure-works.com` 및 `travel.adventure-works.com individually`가 `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`을 가리키도록 설정합니다.
 
-이 옵션을 사용하는 경우 동일한 위치를 가리키는 `AppId.domain` 값의 다른 CNAME 항목(예: `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`)도 필요합니다. 와일드카드 애플리케이션의 애플리케이션 속성 페이지에서 **AppId**를 찾을 수 있습니다.
+이 옵션을 사용하는 경우 동일한 위치를 가리키는 `AppId.domain` 값의 다른 CNAME 항목(예: `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`)도 필요합니다. 와일드카드 애플리케이션의 애플리케이션 속성 페이지에서 **AppId** 를 찾을 수 있습니다.
 
 ![앱의 속성 페이지에서 응용 프로그램 ID 찾기](./media/application-proxy-wildcard/01.png)
 
@@ -110,7 +110,7 @@ DNS 관리를 통해 와일드카드를 특정 애플리케이션에 대해서�
 와일드카드 애플리케이션은 [MyApps](https://myapps.microsoft.com) 패널에서 하나의 타일로 표시됩니다. 기본적으로 이 타일은 숨겨집니다. 타일을 표시하고 사용자가 특정 페이지를 방문하게 하려면
 
 1. [홈페이지 URL 설정](application-proxy-configure-custom-home-page.md) 지침을 따릅니다.
-1. 애플리케이션 속성 페이지에서 **애플리케이션 표시**를 **true**로 설정합니다.
+1. 애플리케이션 속성 페이지에서 **애플리케이션 표시** 를 **true** 로 설정합니다.
 
 ### <a name="kerberos-constrained-delegation"></a>Kerberos 제한 위임
 
@@ -169,15 +169,15 @@ DNS 관리를 통해 와일드카드를 특정 애플리케이션에 대해서�
 
 [문서화된 단계](application-proxy-add-on-premises-application.md)에 따라 이 시나리오에는 다음 설정이 필요합니다.
 
-- **내부 URL**에 와일드카드 대신 **재무**를 설정합니다.
+- **내부 URL** 에 와일드카드 대신 **재무** 를 설정합니다.
 
     ![예: 내부 URL에 와일드 카드 대신 재무를 설정 합니다.](./media/application-proxy-wildcard/52.png)
 
-- **외부 URL**에 와일드카드 대신 **재무**를 설정합니다.
+- **외부 URL** 에 와일드카드 대신 **재무** 를 설정합니다.
 
     ![예제: 외부 URL에 와일드 카드 대신 재무를 설정 합니다.](./media/application-proxy-wildcard/53.png)
 
-- 내부 애플리케이션 SPN에 와일드카드 대신 **재무**를 설정합니다.
+- 내부 애플리케이션 SPN에 와일드카드 대신 **재무** 를 설정합니다.
 
     ![예: SPN 구성에서 와일드 카드 대신 재무를 설정 합니다.](./media/application-proxy-wildcard/54.png)
 
@@ -191,5 +191,5 @@ DNS 관리를 통해 와일드카드를 특정 애플리케이션에 대해서�
 
 ## <a name="next-steps"></a>다음 단계
 
-- **사용자 지정 도메인**에 대 한 자세한 내용은 [Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업](application-proxy-configure-custom-domain.md)을 참조 하세요.
-- **응용 프로그램 게시**에 대 한 자세한 내용은 [Azure AD 응용 프로그램 프록시를 사용 하 여 응용 프로그램 게시](application-proxy-add-on-premises-application.md) 를 참조 하세요.
+- **사용자 지정 도메인** 에 대 한 자세한 내용은 [Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업](application-proxy-configure-custom-domain.md)을 참조 하세요.
+- **응용 프로그램 게시** 에 대 한 자세한 내용은 [Azure AD 응용 프로그램 프록시를 사용 하 여 응용 프로그램 게시](application-proxy-add-on-premises-application.md) 를 참조 하세요.

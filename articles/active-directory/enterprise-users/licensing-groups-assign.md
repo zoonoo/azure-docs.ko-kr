@@ -9,24 +9,24 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 04/29/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1b61ca00b83d4c6b43fb5ade68dfb1228f0e0d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 732a92aea321bac0bc9cea4d3eee5a3979a469b1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376595"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650583"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 그룹 멤버 자격별로 사용자에게 라이선스 할당
 
 이 문서에서는 사용자 그룹에 제품 라이선스를 할당 하 고 Azure Active Directory (Azure AD)에서 올바르게 사용이 허가 되었는지 확인 하는 과정을 안내 합니다.
 
-이 예제에서 Azure AD 조직에는 **HR 부서**라는 보안 그룹이 포함 되어 있습니다. 이 그룹에는 인사 부서의 모든 멤버(약 1,000명의 사용자)이 포함되어 있습니다. 사용자가 부서 전체에 Office 365 Enterprise E3 라이선스를 할당하려고 합니다. 제품에 포함된 Yammer Enterprise 서비스는 해당 부서에서 사용할 준비를 갖출 때까지 일시적으로 사용하지 않도록 설정해야 합니다. 또한 동일한 사용자 그룹에 Enterprise Mobility + Security 라이선스를 배포하려고 합니다.
+이 예제에서 Azure AD 조직에는 **HR 부서** 라는 보안 그룹이 포함 되어 있습니다. 이 그룹에는 인사 부서의 모든 멤버(약 1,000명의 사용자)이 포함되어 있습니다. 사용자가 부서 전체에 Office 365 Enterprise E3 라이선스를 할당하려고 합니다. 제품에 포함된 Yammer Enterprise 서비스는 해당 부서에서 사용할 준비를 갖출 때까지 일시적으로 사용하지 않도록 설정해야 합니다. 또한 동일한 사용자 그룹에 Enterprise Mobility + Security 라이선스를 배포하려고 합니다.
 
 > [!NOTE]
 > 일부 Microsoft 서비스는 모든 위치에서 사용할 수 없습니다. 사용자에게 라이선스를 할당하려면 먼저 관리자가 해당 사용자에 대해 사용 위치 속성을 지정해야 합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "92376595"
 
 1. **라이선스** 를 선택 하 여 조직의 모든 라이선스 대상 제품을 보고 관리할 수 있는 페이지를 엽니다.
 
-1. **모든 제품**에서 제품 이름을 선택 하 여 Office 365 Enterprise E5와 Enterprise Mobility + Security E3을 모두 선택 합니다. 할당을 시작 하려면 페이지 위쪽에서 **할당** 을 선택 합니다.
+1. **모든 제품** 에서 제품 이름을 선택 하 여 Office 365 Enterprise E5와 Enterprise Mobility + Security E3을 모두 선택 합니다. 할당을 시작 하려면 페이지 위쪽에서 **할당** 을 선택 합니다.
 
    ![라이선스를 할당할 제품 선택](./media/licensing-groups-assign/licenses-all-products-assign.png)
   
@@ -47,7 +47,7 @@ ms.locfileid: "92376595"
 
 1. 사용자 또는 그룹을 선택 하 고 페이지 맨 아래에 있는 **선택** 단추를 사용 하 여 선택 내용을 확인 합니다.
 
-1. **라이선스 할당** 페이지에서 이전에 선택한 두 제품에 포함 된 모든 서비스 계획을 표시 하는 **할당 옵션**을 클릭 합니다. **Yammer Enterprise** 를 찾은 다음 제품 라이선스에서 해당 **서비스를 사용** 하지 않도록 설정 합니다. **라이선스 옵션**아래에서 **확인을** 클릭 하 여 확인 합니다.
+1. **라이선스 할당** 페이지에서 이전에 선택한 두 제품에 포함 된 모든 서비스 계획을 표시 하는 **할당 옵션** 을 클릭 합니다. **Yammer Enterprise** 를 찾은 다음 제품 라이선스에서 해당 **서비스를 사용** 하지 않도록 설정 합니다. **라이선스 옵션** 아래에서 **확인을** 클릭 하 여 확인 합니다.
 
    ![라이선스에 대 한 서비스 계획 선택](./media/licensing-groups-assign/assignment-options.png)
   
@@ -59,9 +59,9 @@ ms.locfileid: "92376595"
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>2단계: 초기 할당이 완료되었는지 확인
 
-1. **Azure Active Directory**  >  **그룹**으로 이동 합니다. 라이선스가 할당 된 그룹을 선택 합니다.
+1. **Azure Active Directory**  >  **그룹** 으로 이동 합니다. 라이선스가 할당 된 그룹을 선택 합니다.
 
-1. 그룹 페이지에서 **라이선스**를 선택 합니다. 그러면 사용자에게 라이선스가 완전히 할당되었는지, 확인해야 할 오류가 있는지 신속하게 확인합니다. 다음과 같은 정보가 제공됩니다.
+1. 그룹 페이지에서 **라이선스** 를 선택 합니다. 그러면 사용자에게 라이선스가 완전히 할당되었는지, 확인해야 할 오류가 있는지 신속하게 확인합니다. 다음과 같은 정보가 제공됩니다.
 
    - 현재 그룹에 할당 된 서비스 라이선스 사용하도록 설정된 특정 서비스를 표시하고 변경을 수행할 항목을 선택합니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "92376595"
 
    ![라이선스 오류 및 라이선스 상태](./media/licensing-groups-assign/assignment-errors.png)
 
-1. 라이선스 처리에 대 한 자세한 내용은 **Azure Active Directory**  >  **사용자 및 그룹**  >  *그룹 이름*  >  **감사 로그**를 참조 하세요. 다음 작업을 확인 합니다.
+1. 라이선스 처리에 대 한 자세한 내용은 **Azure Active Directory**  >  **사용자 및 그룹**  >  *그룹 이름*  >  **감사 로그** 를 참조 하세요. 다음 작업을 확인 합니다.
 
    - 활동: `Start applying group based license to users` 시스템이 그룹에 대한 라이선스 할당 변경을 선택하고 모든 사용자 구성원에게 적용하기 시작하면 로깅됩니다. 수행된 변경 내용에 대한 정보가 포함됩니다.
 
@@ -81,9 +81,9 @@ ms.locfileid: "92376595"
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>3단계: 라이선스 문제 확인 및 해결
 
-1. **Azure Active Directory**그룹으로 이동 하 여  >  **Groups**라이선스가 할당 된 그룹을 찾습니다.
-1. 그룹 페이지에서 **라이선스**를 선택 합니다. 페이지 맨 위에 있는 알림은 라이선스를 할당할 수 없는 10 명의 사용자가 있음을 보여 줍니다. 이 그룹에 대 한 라이선스 오류 상태의 모든 사용자 목록을 보려면이를 엽니다.
-1. **할당 실패** 열에는 두 제품 라이선스 모두 사용자에게 할당하지 못했다는 내용이 표시됩니다. **상위 실패 원인** 열에는 실패의 원인이 포함되어 있습니다. 이 예에서는 **충돌하는 서비스 계획**이 실패의 원인입니다.
+1. **Azure Active Directory** 그룹으로 이동 하 여  >  **Groups** 라이선스가 할당 된 그룹을 찾습니다.
+1. 그룹 페이지에서 **라이선스** 를 선택 합니다. 페이지 맨 위에 있는 알림은 라이선스를 할당할 수 없는 10 명의 사용자가 있음을 보여 줍니다. 이 그룹에 대 한 라이선스 오류 상태의 모든 사용자 목록을 보려면이를 엽니다.
+1. **할당 실패** 열에는 두 제품 라이선스 모두 사용자에게 할당하지 못했다는 내용이 표시됩니다. **상위 실패 원인** 열에는 실패의 원인이 포함되어 있습니다. 이 예에서는 **충돌하는 서비스 계획** 이 실패의 원인입니다.
 
    ![할당할 수 없는 라이선스](./media/licensing-groups-assign/failed-assignments.png)
 

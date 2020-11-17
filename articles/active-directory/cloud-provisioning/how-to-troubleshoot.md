@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 34796a435536a48100b7434ed5267802cd2d549f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94cf1f34db590abeb084c5e95367781e50c85efc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226950"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650100"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>클라우드 프로 비전 문제 해결
 
@@ -44,14 +44,14 @@ ms.locfileid: "89226950"
 에이전트가 Azure에 표시 되 고 정상 상태 인지 확인 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에 로그인합니다.
-1. 왼쪽에서 **Azure Active Directory** > **Azure AD Connect**를 선택합니다. 가운데에서 **프로비저닝 관리(미리 보기)** 를 선택합니다.
-1. **Azure AD 프로비저닝(미리 보기)** 화면에서 **모든 에이전트 검토**를 선택합니다.
+1. 왼쪽에서 **Azure Active Directory** > **Azure AD Connect** 를 선택합니다. 가운데에서 **프로비저닝 관리(미리 보기)** 를 선택합니다.
+1. **Azure AD 프로비저닝(미리 보기)** 화면에서 **모든 에이전트 검토** 를 선택합니다.
 
-   ![모든 에이전트 검토](media/how-to-install/install7.png)</br>
+   ![모든 에이전트 검토](media/how-to-install/install-7.png)</br>
  
-1. **온-프레미스 프로 비전 에이전트** 화면에 설치한 에이전트가 표시 됩니다. 해당 에이전트가 있고 *정상*으로 표시 되어 있는지 확인 합니다.
+1. **온-프레미스 프로 비전 에이전트** 화면에 설치한 에이전트가 표시 됩니다. 해당 에이전트가 있고 *정상* 으로 표시 되어 있는지 확인 합니다.
 
-   ![온-프레미스 프로비저닝 에이전트 화면](media/how-to-install/install8.png)</br>
+   ![온-프레미스 프로비저닝 에이전트 화면](media/how-to-install/install-8.png)</br>
 
 ### <a name="verify-the-port"></a>포트 확인
 
@@ -59,14 +59,14 @@ Azure가 포트 443에서 수신 대기 하 고 에이전트와 통신할 수 �
 
 이 테스트는 에이전트가 포트 443을 통해 Azure와 통신할 수 있는지 확인 합니다. 브라우저를 열고 에이전트가 설치 된 서버에서 이전 URL로 이동 합니다.
 
-![포트 연결 가능성 확인](media/how-to-install/verify2.png)
+![포트 연결 가능성 확인](media/how-to-install/verify-2.png)
 
 ### <a name="on-the-local-server"></a>로컬 서버에서 에이전트 확인
 
 에이전트가 실행되는지 확인하려면 다음 단계를 수행합니다.
 
-1. 에이전트가 설치 된 서버에서 서비스를 탐색 하거나 **시작**실행으로 이동 하 여 **서비스** 를 엽니다  >  **Run**  >  **Services.msc**.
-1. **서비스** 아래에서 **Microsoft Azure AD Connect 에이전트 업데이트 프로그램** 및 **Microsoft Azure AD Connect Provisioning Agent**가 있고 상태가 *실행 중*인지 확인합니다.
+1. 에이전트가 설치 된 서버에서 서비스를 탐색 하거나 **시작** 실행으로 이동 하 여 **서비스** 를 엽니다  >  **Run**  >  **Services.msc**.
+1. **서비스** 아래에서 **Microsoft Azure AD Connect 에이전트 업데이트 프로그램** 및 **Microsoft Azure AD Connect Provisioning Agent** 가 있고 상태가 *실행 중* 인지 확인합니다.
 
    ![서비스 화면](media/how-to-troubleshoot/troubleshoot1.png)
 
@@ -85,8 +85,8 @@ Azure가 포트 443에서 수신 대기 하 고 에이전트와 통신할 수 �
 이 문제를 해결 하려면 다음 단계를 수행 합니다.
 
 1. 관리자 계정으로 서버에 로그인합니다.
-1. **서비스**를 탐색하거나 **시작** > **실행** > **Services.msc**로 이동하여 서비스를 엽니다.
-1. **서비스**에서 **Microsoft Azure AD 연결 프로 비전 에이전트**를 두 번 클릭 합니다.
+1. **서비스** 를 탐색하거나 **시작** > **실행** > **Services.msc** 로 이동하여 서비스를 엽니다.
+1. **서비스** 에서 **Microsoft Azure AD 연결 프로 비전 에이전트** 를 두 번 클릭 합니다.
 1. **로그온** 탭에서 **이 계정을** 도메인 관리자로 변경 합니다. 그런 다음 서비스를 다시 시작 합니다. 
 
    ![로그온 탭](media/how-to-troubleshoot/troubleshoot3.png)
@@ -99,7 +99,7 @@ Azure가 포트 443에서 수신 대기 하 고 에이전트와 통신할 수 �
 
 이 문제는 일반적으로 에이전트가 하이브리드 ID 서비스에 연결할 수 없기 때문에 발생하며 HTTP 프록시를 구성해야 합니다. 이 문제를 해결하려면 아웃바운드 프록시를 구성합니다. 
 
-프로 비전 에이전트는 아웃 바운드 프록시 사용을 지원 합니다. 에이전트 구성 파일 *C:\Program Files\Microsoft Azure AD Connect 프로 비전 Agent\AADConnectProvisioningAgent.exe.config*을 편집 하 여 구성할 수 있습니다. 닫는 태그 바로 앞에 있는 파일의 끝 부분에 다음 줄을 추가 합니다 `</configuration>` .
+프로 비전 에이전트는 아웃 바운드 프록시 사용을 지원 합니다. 에이전트 구성 파일 *C:\Program Files\Microsoft Azure AD Connect 프로 비전 Agent\AADConnectProvisioningAgent.exe.config* 을 편집 하 여 구성할 수 있습니다. 닫는 태그 바로 앞에 있는 파일의 끝 부분에 다음 줄을 추가 합니다 `</configuration>` .
 및 변수를 `[proxy-server]` `[proxy-port]` 프록시 서버 이름 및 포트 값으로 바꿉니다.
 
 ```xml
@@ -120,17 +120,17 @@ Azure가 포트 443에서 수신 대기 하 고 에이전트와 통신할 수 �
 
 이 문제는 일반적으로 에이전트가 로컬 PowerShell 실행 정책으로 인해 PowerShell 등록 스크립트를 실행할 수 없기 때문에 발생 합니다.
 
-이 문제를 해결 하려면 서버에서 PowerShell 실행 정책을 변경 합니다. 컴퓨터 및 사용자 정책이 *정의 되지 않음* 또는 *RemoteSigned*로 설정 되어 있어야 합니다. *무제한*으로 설정 된 경우이 오류가 표시 됩니다. 자세한 내용은 [PowerShell 실행 정책](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6)을 참조 하세요. 
+이 문제를 해결 하려면 서버에서 PowerShell 실행 정책을 변경 합니다. 컴퓨터 및 사용자 정책이 *정의 되지 않음* 또는 *RemoteSigned* 로 설정 되어 있어야 합니다. *무제한* 으로 설정 된 경우이 오류가 표시 됩니다. 자세한 내용은 [PowerShell 실행 정책](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6)을 참조 하세요. 
 
 ### <a name="log-files"></a>로그 파일
 
-기본적으로 에이전트는 최소한의 오류 메시지 및 스택 추적 정보를 내보냅니다. 이러한 추적 로그는 *C:\PROGRAMDATA\MICROSOFT\AZURE AD Connect 프로 비전 Agent\Trace*폴더에서 찾을 수 있습니다.
+기본적으로 에이전트는 최소한의 오류 메시지 및 스택 추적 정보를 내보냅니다. 이러한 추적 로그는 *C:\PROGRAMDATA\MICROSOFT\AZURE AD Connect 프로 비전 Agent\Trace* 폴더에서 찾을 수 있습니다.
 
 에이전트 관련 문제를 해결 하기 위한 추가 정보를 수집 하려면 다음 단계를 수행 합니다.
 
-1. **프로 비전 에이전트를 연결 Microsoft Azure AD**서비스를 중지 합니다.
-1. *C:\Program Files\Microsoft Azure AD Connect 프로 비전 Agent\AADConnectProvisioningAgent.exe.config*원본 구성 파일의 복사본을 만듭니다.
-1. 기존 섹션을 `<system.diagnostics>` 다음으로 바꿉니다. 그러면 모든 추적 메시지가 *ProvAgentTrace*파일로 이동 합니다.
+1. **프로 비전 에이전트를 연결 Microsoft Azure AD** 서비스를 중지 합니다.
+1. *C:\Program Files\Microsoft Azure AD Connect 프로 비전 Agent\AADConnectProvisioningAgent.exe.config* 원본 구성 파일의 복사본을 만듭니다.
+1. 기존 섹션을 `<system.diagnostics>` 다음으로 바꿉니다. 그러면 모든 추적 메시지가 *ProvAgentTrace* 파일로 이동 합니다.
 
    ```xml
      <system.diagnostics>
@@ -153,7 +153,7 @@ Azure가 포트 443에서 수신 대기 하 고 에이전트와 통신할 수 �
      </system.diagnostics>
     
    ```
-1. **프로 비전 에이전트를 연결 Microsoft Azure AD**서비스를 시작 합니다.
+1. **프로 비전 에이전트를 연결 Microsoft Azure AD** 서비스를 시작 합니다.
 1. 다음 명령을 사용 하 여 파일을 마무리 하 고 문제를 디버그 합니다. 
     ```
     Get-Content “C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log” -Wait
@@ -164,7 +164,7 @@ Azure가 포트 443에서 수신 대기 하 고 에이전트와 통신할 수 �
 
 ### <a name="provisioning-logs"></a>프로비저닝 로그
 
-Azure Portal에서 프로 비전 로그를 사용 하 여 개체 동기화 문제를 추적 하 고 해결할 수 있습니다. 로그를 보려면 **로그**를 선택 합니다.
+Azure Portal에서 프로 비전 로그를 사용 하 여 개체 동기화 문제를 추적 하 고 해결할 수 있습니다. 로그를 보려면 **로그** 를 선택 합니다.
 
 ![로그 단추](media/how-to-troubleshoot/log1.png)
 
@@ -191,7 +191,7 @@ Azure Portal에서 프로 비전 로그를 사용 하 여 개체 동기화 문�
 
 ### <a name="resolve-a-quarantine"></a>격리 해결
 
-- Azure Portal를 사용 하 여 프로 비전 작업을 다시 시작 합니다. 에이전트 구성 페이지에서 **프로 비전 다시 시작**을 선택 합니다.
+- Azure Portal를 사용 하 여 프로 비전 작업을 다시 시작 합니다. 에이전트 구성 페이지에서 **프로 비전 다시 시작** 을 선택 합니다.
 
   ![프로 비전 다시 시작](media/how-to-troubleshoot/quarantine3.png)
 

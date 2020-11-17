@@ -12,20 +12,20 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperfq2
-ms.openlocfilehash: 12b11d6283bbed4e43daf52a65c0c259c476e73f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e75669c70c67d55c94642a0f6dbe3c9dbc3376e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357915"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651552"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>SAML 기반 Single Sign-On 구성 된 앱에 로그인 하는 문제
 아래의 로그인 문제를 해결 하려면 다음을 수행 하 여 진단 및 해결 단계를 자동화 하는 것이 좋습니다.
 
-- Azure Portal에서 테스트 환경을 사용할 때 더 나은 진단 및 해결 방법을 제공 하기 위해 [My Apps 보안 브라우저 확장](access-panel-extension-problem-installing.md) 을 설치 하 여 Azure AD (Azure Active Directory)를 지원 합니다.
-- Azure Portal의 앱 구성 페이지에서 테스트 환경을 사용 하 여 오류를 재현 합니다. [SAML 기반 Single Sign-On 응용 프로그램 디버그](../azuread-dev/howto-v1-debug-saml-sso-issues.md) 에 대 한 자세한 정보
+- Azure Portal에서 테스트 환경을 사용할 때 더 나은 진단 및 해결 방법을 제공 하기 위해 [My Apps 보안 브라우저 확장](./access-panel-deployment-plan.md) 을 설치 하 여 Azure AD (Azure Active Directory)를 지원 합니다.
+- Azure Portal의 앱 구성 페이지에서 테스트 환경을 사용 하 여 오류를 재현 합니다. [SAML 기반 Single Sign-On 응용 프로그램 디버그](./debug-saml-sso-issues.md) 에 대 한 자세한 정보
 
-내 앱 보안 브라우저 확장을 사용 하 여 Azure Portal에서 [테스트 환경을](../azuread-dev/howto-v1-debug-saml-sso-issues.md) 사용 하는 경우 아래 단계를 수동으로 수행 하 여 SAML 기반 Single Sign-On 구성 페이지를 열 필요가 없습니다.
+내 앱 보안 브라우저 확장을 사용 하 여 Azure Portal에서 [테스트 환경을](./debug-saml-sso-issues.md) 사용 하는 경우 아래 단계를 수동으로 수행 하 여 SAML 기반 Single Sign-On 구성 페이지를 열 필요가 없습니다.
 
 SAML 기반 Single Sign-On 구성 페이지를 열려면 다음을 수행 합니다.
 1.  [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인 합니다.
@@ -88,7 +88,7 @@ Azure AD에서는 Single Sign-On의 애플리케이션에서 보낸 SAML 요청�
 
 **해결 방법**
 
-1. SAML 요청을 캡처합니다. Saml [기반 Single Sign-On를 AZURE AD의 응용 프로그램에 디버그](../azuread-dev/howto-v1-debug-saml-sso-issues.md) 하는 방법 자습서에 따라 saml 요청을 캡처하는 방법을 알아봅니다.
+1. SAML 요청을 캡처합니다. Saml [기반 Single Sign-On를 AZURE AD의 응용 프로그램에 디버그](./debug-saml-sso-issues.md) 하는 방법 자습서에 따라 saml 요청을 캡처하는 방법을 알아봅니다.
 1. 애플리케이션 공급 업체에 연락하여 다음 정보를 공유합니다.
     - SAML 요청
     - [Azure AD Single Sign-On SAML 프로토콜 요구 사항](../develop/single-sign-on-saml-protocol.md)
@@ -145,7 +145,7 @@ Single Sign-On 하는 동안 로그인 요청에 명시적 회신 URL (Assertion
 
 응용 프로그램에 대해 구성 된 사용 하지 않는 회신 Url을 삭제 합니다.
 
-SAML 기반 SSO 구성 페이지의 **회신 URL (Assertion Consumer Service URL)** 섹션에서 시스템에 의해 생성 된 사용 하지 않거나 기본 회신 url을 삭제 합니다. 예를 들어 `https://127.0.0.1:444/applications/default.aspx`.
+SAML 기반 SSO 구성 페이지의 **회신 URL (Assertion Consumer Service URL)** 섹션에서 시스템에 의해 생성 된 사용 하지 않거나 기본 회신 url을 삭제 합니다. 예: `https://127.0.0.1:444/applications/default.aspx`.
 
 
 ## <a name="authentication-method-by-which-the-user-authenticated-with-the-service-doesnt-match-requested-authentication-method"></a>사용자가 서비스에 인증 하는 인증 방법이 요청한 인증 방법과 일치 하지 않습니다.
@@ -174,5 +174,5 @@ SAML 기반 SSO 구성 페이지의 **회신 URL (Assertion Consumer Service URL
 
 ## <a name="next-steps"></a>다음 단계
 - [애플리케이션 관리에 대한 빠른 시작 시리즈](add-application-portal-assign-users.md)
-- [Azure AD에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그하는 방법](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
-- [Azure AD Single Sign-On SAML 프로토콜 요구 사항](../develop/active-directory-single-sign-on-protocol-reference.md)
+- [Azure AD에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그하는 방법](./debug-saml-sso-issues.md)
+- [Azure AD Single Sign-On SAML 프로토콜 요구 사항](../develop/single-sign-on-saml-protocol.md)

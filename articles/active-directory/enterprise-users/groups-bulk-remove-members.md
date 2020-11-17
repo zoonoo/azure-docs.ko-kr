@@ -4,21 +4,21 @@ description: Azure 관리 센터에서 대량 작업 시 그룹 멤버를 제거
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/27/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5da3da152fa8d0f568ee0f4075dafb8da8c3bf8a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 83b905faa892cc338b5bdf4f998ad95f7b8a484e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376823"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650857"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>Azure Active Directory에서 그룹 멤버 대량 제거
 
@@ -48,10 +48,10 @@ Azure AD(Azure Active Directory) Portal을 사용하면 CSV(쉼표로 구분된 
 ## <a name="to-bulk-remove-group-members"></a>그룹 멤버를 대량 제거하려면
 
 1. 조직의 사용자 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다. 그룹 소유자는 자신이 소유한 그룹의 구성원을 대량으로 제거할 수 있습니다.
-1. Azure AD에서 **그룹** > **모든 그룹**을 선택합니다.
-1. 멤버를 제거할 그룹을 연 다음, **멤버**를 선택합니다.
-1. **멤버** 페이지에서 **멤버 제거**를 선택합니다.
-1. **그룹 멤버 대량 제거** 페이지에서 **다운로드**를 선택하여 필요한 그룹 멤버 속성이 적용된 CSV 파일 템플릿을 가져옵니다.
+1. Azure AD에서 **그룹** > **모든 그룹** 을 선택합니다.
+1. 멤버를 제거할 그룹을 연 다음, **멤버** 를 선택합니다.
+1. **멤버** 페이지에서 **멤버 제거** 를 선택합니다.
+1. **그룹 멤버 대량 제거** 페이지에서 **다운로드** 를 선택하여 필요한 그룹 멤버 속성이 적용된 CSV 파일 템플릿을 가져옵니다.
 
    ![멤버 제거 명령은 그룹의 프로필 페이지에 있습니다.](./media/groups-bulk-remove-members/remove-panel.png)
 
@@ -59,9 +59,9 @@ Azure AD(Azure Active Directory) Portal을 사용하면 CSV(쉼표로 구분된 
 
     :::image type="content" source="./media/groups-bulk-import-members/csv-file.png" alt-text="CSV 파일에는 제거할 그룹 멤버의 이름 및 ID가 포함됨":::
 
-1. **그룹 멤버 대량 제거** 페이지의 **csv 파일 업로드**에서 해당 파일을 찾습니다. 파일을 선택하면 CSV 파일의 유효성 검사가 시작됩니다.
-1. 파일 콘텐츠의 유효성 검사가 완료되면 대량 가져오기 페이지에 **파일 업로드 성공**이 표시됩니다. 오류가 있는 경우 해당 오류를 해결해야 작업을 제출할 수 있습니다.
-1. 파일이 유효성 검사를 통과하면 **제출**을 선택하여 그룹에서 그룹 멤버를 제거하는 Azure 대량 작업을 시작합니다.
+1. **그룹 멤버 대량 제거** 페이지의 **csv 파일 업로드** 에서 해당 파일을 찾습니다. 파일을 선택하면 CSV 파일의 유효성 검사가 시작됩니다.
+1. 파일 콘텐츠의 유효성 검사가 완료되면 대량 가져오기 페이지에 **파일 업로드 성공** 이 표시됩니다. 오류가 있는 경우 해당 오류를 해결해야 작업을 제출할 수 있습니다.
+1. 파일이 유효성 검사를 통과하면 **제출** 을 선택하여 그룹에서 그룹 멤버를 제거하는 Azure 대량 작업을 시작합니다.
 1. 제거 작업이 완료되면 대량 작업이 성공했다는 알림이 표시됩니다.
 
 ## <a name="check-removal-status"></a>제거 상태 확인

@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45dac4425f4d2f563cbc942f23d81583728139f6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e404b3eeadd8eef45e413eea2bd753d08cc505ca
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489457"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650634"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft 365 그룹에 명명 정책 적용
 
@@ -70,13 +70,13 @@ ms.locfileid: "94489457"
 ### <a name="roles-and-permissions"></a>역할 및 권한
 
 명명 정책을 구성 하려면 다음 역할 중 하나가 필요 합니다.
-- 전역 관리자
+- 글로벌 관리자
 - 그룹 관리자
 
 
 선택한 관리자는 모든 그룹 워크로드와 엔드포인트에서 이러한 정책으로부터 제외될 수 있어 차단된 단어와 고유한 명명 규칙을 사용하여 그룹을 생성할 수 있습니다. 다음은 그룹 명명 정책이 적용되지 않는 관리자 역할 목록입니다.
 
-- 전역 관리자
+- 글로벌 관리자
 - 파트너 계층 1 지원
 - 파트너 계층 2 지원
 - 사용자 관리자

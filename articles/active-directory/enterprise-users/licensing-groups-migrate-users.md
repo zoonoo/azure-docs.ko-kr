@@ -10,18 +10,18 @@ editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 179ad1e552899f8fa92b8191fe78223458f87104
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f202bebd2c9ab6147d8a37fc6109b915065068aa
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376583"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650345"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>라이선스를 위해 개별 라이선스가 있는 사용자를 그룹으로 마이그레이션하는 방법
 
@@ -57,13 +57,13 @@ ms.locfileid: "92376583"
 
 1. Azure Portal를 사용 하 여 Azure AD의 **모든 사용자** 그룹에 Office 365 E3 라이선스를 할당 합니다.
 
-1. 모든 사용자에 대 한 라이선스 할당이 완료 되었는지 확인 합니다. 그룹에 대 한 개요 페이지로 이동 하 여 **라이선스**를 선택 하 고 **라이선스** 블레이드의 위쪽에서 처리 상태를 확인 합니다.
+1. 모든 사용자에 대 한 라이선스 할당이 완료 되었는지 확인 합니다. 그룹에 대 한 개요 페이지로 이동 하 여 **라이선스** 를 선택 하 고 **라이선스** 블레이드의 위쪽에서 처리 상태를 확인 합니다.
 
    - 처리가 완료되었으면 "최신 라이선스 변경 내용이 모든 사용자에게 할당됨"이 표시됩니다.
 
    - 해당 사용자의 라이선스가 성공적으로 할당되지 않았을 수 있다는 알림은 위쪽에 표시됩니다. 일부 사용자의 라이선스가 부족한가요? 일부 사용자가 그룹 라이선스를 상속 하지 못하도록 충돌 하는 라이선스 계획이 충돌 하나요?
 
-1. 일부 사용자를 검토하여 직접 및 그룹 라이선스가 모두 할당되었는지 확인합니다. 사용자의 프로필 페이지로 이동 하 여 **라이선스**를 선택 하 고 라이선스 상태를 검사 합니다.
+1. 일부 사용자를 검토하여 직접 및 그룹 라이선스가 모두 할당되었는지 확인합니다. 사용자의 프로필 페이지로 이동 하 여 **라이선스** 를 선택 하 고 라이선스 상태를 검사 합니다.
 
    - 다음은 마이그레이션 중에 예상되는 사용자 상태입니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "92376583"
 
      이 경우 사용자에게 직접 및 상속된 라이선스가 모두 있는 것입니다. Office 365 E3이 할당 된 것을 볼 수 있습니다.
 
-   - 각 라이선스를 선택 하 여 사용 하도록 설정 된 서비스를 확인 합니다. 직접 및 그룹 라이선스가 사용자에 대해 정확히 동일한 서비스를 사용할 수 있는지 확인 하려면 **할당**을 선택 합니다.
+   - 각 라이선스를 선택 하 여 사용 하도록 설정 된 서비스를 확인 합니다. 직접 및 그룹 라이선스가 사용자에 대해 정확히 동일한 서비스를 사용할 수 있는지 확인 하려면 **할당** 을 선택 합니다.
 
 1. 직접 및 그룹 라이선스가 동일한 것인지 확인한 후에 사용자에게서 직접 라이선스를 제거할 수 있습니다. 포털에 있는 개별 사용자에게서 라이선스를 제거하여 테스트한 다음 자동화 스크립트를 실행하여 대량으로 제거할 수 있습니다. 포털을 통해 같은 사용자에게서 직접 라이선스를 제거하는 예제는 다음과 같습니다. 라이선스 상태는 변경되지 않지만 직접 할당은 더 이상 표시되지 않습니다.
 

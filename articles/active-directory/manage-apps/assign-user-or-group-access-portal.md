@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: f49377743521e27c2312e95491762ca48d8448c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55934e8c33b74740b7398be1ae18a3ef899aee74
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604328"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651280"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Azure Active Directory에서 앱에 대 한 사용자 할당 관리
 
@@ -40,16 +40,16 @@ ms.locfileid: "90604328"
 
 사용자 할당이 필요한 경우 사용자가 직접 사용자 할당을 통해 또는 그룹 멤버 자격을 통해 애플리케이션에 명시적으로 할당하는 사용자만 로그인할 수 있습니다. 내 앱 페이지에서 또는 직접 링크를 사용하여 앱에 액세스할 수 있습니다. 
 
-이 옵션을 **No**로 설정했거나 애플리케이션이 다른 SSO 모드를 사용하기 때문에 할당이 *필요하지 않은* 경우 애플리케이션의 **속성** 페이지에 애플리케이션 또는 **사용자 액세스 URL**에 대한 직접 링크가 있으면 모든 사용자가 애플리케이션에 액세스할 수 있습니다. 
+이 옵션을 **No** 로 설정했거나 애플리케이션이 다른 SSO 모드를 사용하기 때문에 할당이 *필요하지 않은* 경우 애플리케이션의 **속성** 페이지에 애플리케이션 또는 **사용자 액세스 URL** 에 대한 직접 링크가 있으면 모든 사용자가 애플리케이션에 액세스할 수 있습니다. 
 
 이 설정은 응용 프로그램이 내 앱에 표시 되는지 여부에 영향을 주지 않습니다. 사용자 또는 그룹을 애플리케이션에 할당하면 애플리케이션이 사용자의 내 앱 액세스 패널에 표시됩니다. 배경은 [앱에 대한 액세스 관리](what-is-access-management.md)를 참조하세요.
 
 애플리케이션에 대한 사용자 할당을 요구하려면 다음을 수행합니다.
 1. 관리자 계정 또는 애플리케이션 소유자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Active Directory**를 선택합니다. 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 선택합니다.
-3. 목록에서 애플리케이션을 선택합니다. 애플리케이션이 표시되지 않으면 검색 상자에 해당 이름을 입력합니다. 또는 필터 컨트롤을 사용하여 애플리케이션 종류, 상태 또는 표시 유형을 선택한 다음, **적용**을 선택합니다.
-4. 왼쪽 탐색 메뉴에서 **속성**을 선택합니다.
-5. **사용자 할당이 필요한가요?** 토글이 **예**로 설정되어 있는지 확인합니다.
+2. **Azure Active Directory** 를 선택합니다. 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션** 을 선택합니다.
+3. 목록에서 애플리케이션을 선택합니다. 애플리케이션이 표시되지 않으면 검색 상자에 해당 이름을 입력합니다. 또는 필터 컨트롤을 사용하여 애플리케이션 종류, 상태 또는 표시 유형을 선택한 다음, **적용** 을 선택합니다.
+4. 왼쪽 탐색 메뉴에서 **속성** 을 선택합니다.
+5. **사용자 할당이 필요한가요?** 토글이 **예** 로 설정되어 있는지 확인합니다.
    > [!NOTE]
    > **사용자 할당이 필요한가요?** 토글을 사용할 수 없는 경우 PowerShell을 사용하여 서비스 주체에 appRoleAssignmentRequired 속성을 설정할 수 있습니다.
 6. 화면 위쪽에 있는 **저장** 단추를 선택합니다.
@@ -58,7 +58,7 @@ ms.locfileid: "90604328"
 Azure Portal 사용 하 여 사용자 또는 그룹을 할당 하거나 할당을 취소 하는 방법에 대해 알아보려면 [응용 프로그램 관리의 빠른 시작 시리즈](add-application-portal-assign-users.md)를 참조 하세요.
 
 ## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-graph-api"></a>Graph API를 사용 하 여 앱에 대 한 사용자 및 그룹 할당 또는 할당 해제
-Graph API를 사용 하 여 앱에 대 한 사용자 및 그룹을 할당 하거나 할당 취소할 수 있습니다. 자세히 알아보려면 [앱 역할 할당](https://docs.microsoft.com/graph/api/resources/approleassignment)을 참조 하세요.
+Graph API를 사용 하 여 앱에 대 한 사용자 및 그룹을 할당 하거나 할당 취소할 수 있습니다. 자세히 알아보려면 [앱 역할 할당](/graph/api/resources/approleassignment)을 참조 하세요.
 
 ## <a name="assign-users-and-groups-to-an-app-using-powershell"></a>PowerShell을 사용 하 여 앱에 사용자 및 그룹 할당
 1. 관리자 권한 Windows PowerShell 명령 프롬프트를 엽니다.
@@ -81,11 +81,11 @@ Graph API를 사용 하 여 앱에 대 한 사용자 및 그룹을 할당 하거
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-애플리케이션 역할에 사용자를 할당하는 방법에 대한 자세한 내용은 [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)에 대한 설명서를 참조하세요.
+애플리케이션 역할에 사용자를 할당하는 방법에 대한 자세한 내용은 [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)에 대한 설명서를 참조하세요.
 
 그룹을 엔터프라이즈 앱에 할당하려면 `Get-AzureADUser`를 `Get-AzureADGroup`으로 바꾸고 `New-AzureADUserAppRoleAssignment`를 `New-AzureADGroupAppRoleAssignment`로 바꿉어야 합니다.
 
-애플리케이션 역할에 그룹을 할당하는 방법에 대한 자세한 내용은 [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0)에 대한 설명서를 참조하세요.
+애플리케이션 역할에 그룹을 할당하는 방법에 대한 자세한 내용은 [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0)에 대한 설명서를 참조하세요.
 
 ### <a name="example"></a>예제
 
@@ -154,6 +154,6 @@ Graph API를 사용 하 여 앱에 대 한 사용자 및 그룹을 할당 하거
 ## <a name="next-steps"></a>다음 단계
 
 - [내 그룹 모두 보기](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [엔터프라이즈 앱에서 사용자 또는 그룹 할당 제거](remove-user-or-group-access-portal.md)
+- [엔터프라이즈 앱에서 사용자 또는 그룹 할당 제거]()
 - [엔터프라이즈 앱에 대한 사용자 로그인 비활성화](disable-user-sign-in-portal.md)
-- [엔터프라이즈 앱의 이름 또는 로고 변경](change-name-or-logo-portal.md)
+- [엔터프라이즈 앱의 이름 또는 로고 변경](./add-application-portal-configure.md)

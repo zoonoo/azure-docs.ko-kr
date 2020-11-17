@@ -11,18 +11,18 @@ ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 2019802725e36c2400f57952fedf7af40877c8c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8836295e9f54260c4e9ff6c1da333ef2a86d58fb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759932"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651858"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>CORS 문제 Azure Active Directory 응용 프로그램 프록시 이해 및 해결
 
-[CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/)   는 Azure Active Directory 응용 프로그램 프록시를 통해 게시 하는 앱 및 Api에 대 한 문제를 종종 일으킬 수 있습니다. 이 문서에서는 Azure AD 응용 프로그램 프록시 CORS 문제 및 해결 방법에 대해 설명 합니다.
+[CORS (크로스-원본 자원 공유)](https://www.w3.org/TR/cors/) 는 Azure Active Directory 응용 프로그램 프록시을 통해 게시 하는 앱 및 api에 대 한 문제를 종종 일으킬 수 있습니다. 이 문서에서는 Azure AD 응용 프로그램 프록시 CORS 문제 및 해결 방법에 대해 설명 합니다.
 
-브라우저 보안은 일반적으로 웹 페이지에서 다른 도메인에 대 한 AJAX 요청을 수행 하지 못하도록 합니다. 이러한 제한을 *동일한 원본 정책*이라고 하며 악의적인 사이트에서 다른 사이트의 중요 한 데이터를 읽지 못하도록 방지 합니다. 그러나 경우에 따라 다른 사이트에서 web API를 호출 하도록 할 수도 있습니다. CORS는 서버에서 동일한 원본 정책을 완화 하 고 일부 원본 간 요청을 허용 하 여 다른 사용자를 거부할 수 있게 해 주는 W3C 표준입니다.
+브라우저 보안은 일반적으로 웹 페이지에서 다른 도메인에 대 한 AJAX 요청을 수행 하지 못하도록 합니다. 이러한 제한을 *동일한 원본 정책* 이라고 하며 악의적인 사이트에서 다른 사이트의 중요 한 데이터를 읽지 못하도록 방지 합니다. 그러나 경우에 따라 다른 사이트에서 web API를 호출 하도록 할 수도 있습니다. CORS는 서버에서 동일한 원본 정책을 완화 하 고 일부 원본 간 요청을 허용 하 여 다른 사용자를 거부할 수 있게 해 주는 W3C 표준입니다.
 
 ## <a name="understand-and-identify-cors-issues"></a>CORS 문제 이해 및 식별
 
@@ -52,7 +52,7 @@ ms.locfileid: "84759932"
 
 ## <a name="cors-challenges-with-application-proxy"></a>응용 프로그램 프록시를 사용한 CORS 챌린지
 
-다음 예제에서는 일반적인 Azure AD 응용 프로그램 프록시 CORS 시나리오를 보여 줍니다. 내부 서버는 **corswebservice** 웹 API 컨트롤러 및 **corswebservice**를 호출 하는 **corswebservice** 를 호스팅합니다. **Corswebclient** 에서 **CORSWEBCLIENT**로의 AJAX 요청이 있습니다.
+다음 예제에서는 일반적인 Azure AD 응용 프로그램 프록시 CORS 시나리오를 보여 줍니다. 내부 서버는 **corswebservice** 웹 API 컨트롤러 및 **corswebservice** 를 호출 하는 **corswebservice** 를 호스팅합니다. **Corswebclient** 에서 **CORSWEBCLIENT** 로의 AJAX 요청이 있습니다.
 
 ![온-프레미스 동일한 원본 요청](./media/application-proxy-understand-cors-issues/image1.png)
 
@@ -66,13 +66,13 @@ CORSWebClient 앱은 온-프레미스에서 호스트 하는 경우 작동 하�
 
 ### <a name="option-1-set-up-a-custom-domain"></a>옵션 1: 사용자 지정 도메인 설정
 
-앱 원본, 코드 또는 헤더를 변경 하지 않고도 Azure AD 응용 프로그램 프록시 [사용자 지정 도메인](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) 을 사용 하 여 동일한 원본에서 게시할 수 있습니다. 
+앱 원본, 코드 또는 헤더를 변경 하지 않고도 Azure AD 응용 프로그램 프록시 [사용자 지정 도메인](./application-proxy-configure-custom-domain.md) 을 사용 하 여 동일한 원본에서 게시할 수 있습니다. 
 
 ### <a name="option-2-publish-the-parent-directory"></a>옵션 2: 부모 디렉터리 게시
 
 두 앱의 부모 디렉터리를 게시 합니다. 이 솔루션은 웹 서버에 두 개의 앱만 있는 경우에 특히 효과적입니다. 각 앱을 별도로 게시 하는 대신 동일한 원본을 생성 하는 공통 부모 디렉터리를 게시할 수 있습니다.
 
-다음 예에서는 CORSWebClient 앱에 대 한 포털 Azure AD 응용 프로그램 프록시 페이지를 보여 줍니다.  **내부 URL** 이 *contoso.com/CORSWebClient*로 설정 된 경우 응용 프로그램은 교차 원본 이기 때문에 *contoso.com/CORSWebService* 디렉터리에 대 한 성공적인 요청을 수행할 수 없습니다. 
+다음 예에서는 CORSWebClient 앱에 대 한 포털 Azure AD 응용 프로그램 프록시 페이지를 보여 줍니다.  **내부 URL** 이 *contoso.com/CORSWebClient* 로 설정 된 경우 응용 프로그램은 교차 원본 이기 때문에 *contoso.com/CORSWebService* 디렉터리에 대 한 성공적인 요청을 수행할 수 없습니다. 
 
 ![개별적으로 앱 게시](./media/application-proxy-understand-cors-issues/image4.png)
 
@@ -114,7 +114,7 @@ X-구동: ASP.NET \
 
 앱이 인증을 위해 *login.microsoftonline.com* 로 리디렉션되고 액세스 토큰이 만료 되는 경우와 같이 일부 CORS 문제는 해결할 수 없습니다. 그런 다음 CORS 호출이 실패 합니다. 이 시나리오에 대 한 해결 방법은 사용자 세션 중에 만료 되지 않도록 액세스 토큰의 수명을 연장 하는 것입니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [AZURE AD의 구성 가능한 토큰 수명](../develop/active-directory-configurable-token-lifetimes.md)을 참조 하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 - [자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](application-proxy-add-on-premises-application.md) 
 - [Azure AD 애플리케이션 프록시 배포 계획](application-proxy-deployment-plan.md) 
-- [Azure Active Directory 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 원격으로 액세스](application-proxy.md) 
+- [Azure Active Directory 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 원격으로 액세스](application-proxy.md)

@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb51f402cd7032358e6a9d2f9fad9aa64316b809
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f3544d81059cd4c25c584d8af1b6fcd45a41b8bb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377159"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650719"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Microsoft 365 그룹에 대 한 만료 정책 구성
 
@@ -73,7 +73,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 
 1. Azure ad 조직의 전역 관리자 인 계정으로 [AZURE ad 관리 센터](https://aad.portal.azure.com) 를 엽니다.
 
-2. **그룹**을 선택한 다음 **만료** 를 선택 하 여 만료 설정을 엽니다.
+2. **그룹** 을 선택한 다음 **만료** 를 선택 하 여 만료 설정을 엽니다.
   
    ![그룹에 대 한 만료 설정](./media/groups-lifecycle/expiration-settings.png)
 
@@ -85,7 +85,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
       - **모두** Microsoft 365 그룹
       - **선택한** Microsoft 365 그룹 목록
       - 모든 그룹에 대 한 만료를 제한 하는 **없음**
-    - 완료되면 **저장**을 선택하여 설정을 저장합니다.
+    - 완료되면 **저장** 을 선택하여 설정을 저장합니다.
 
 > [!NOTE]
 > - 만료 시간 간격 보다 오래 된 그룹을 처음으로 설정 하는 경우 그룹을 자동으로 갱신 하거나 소유자가 갱신 하지 않는 한 만료 될 때까지 35 일로 설정 됩니다.

@@ -4,8 +4,8 @@ description: Azure Active Directory의 Azure 관리 센터에서 대량으로 �
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/27/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4146fb6bfe6c06e699df1f563e1f26e0716b023
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b312ef8735477e0921bcb9cdec541f97ba3003eb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376522"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650277"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Azure Active Directory에서 사용자 대량 삭제
 
@@ -48,17 +48,17 @@ CSV 템플릿을 다운로드 하 고 입력 하 여 Azure AD 사용자를 대�
 ## <a name="to-bulk-delete-users"></a>사용자를 대량으로 삭제 하려면
 
 1. 조직에서 사용자 관리자인 계정으로 [Azure AD 조직에 로그인](https://aad.portal.azure.com)합니다.
-1. Azure AD에서 **사용자**  >  **대량 삭제**를 선택 합니다.
+1. Azure AD에서 **사용자**  >  **대량 삭제** 를 선택 합니다.
 1. **사용자 대량 삭제** 페이지에서 **다운로드** 를 선택 하 여 사용자 속성의 올바른 CSV 파일을 받습니다.
 
    ![삭제 하려는 사용자를 나열 하는 로컬 CSV 파일을 선택 합니다.](./media/users-bulk-delete/bulk-delete.png)
 
-1. CSV 파일을 열고 삭제할 각 사용자에 대 한 줄을 추가 합니다. 유일 하 게 필요한 값은 **사용자 계정 이름**입니다. 그런 다음, 파일을 저장합니다.
+1. CSV 파일을 열고 삭제할 각 사용자에 대 한 줄을 추가 합니다. 유일 하 게 필요한 값은 **사용자 계정 이름** 입니다. 그런 다음, 파일을 저장합니다.
 
    ![CSV 파일에는 삭제할 사용자의 이름 및 Id가 포함 되어 있습니다.](./media/users-bulk-delete/delete-csv-file.png)
 
-1. **사용자 대량 삭제** 페이지의 **csv 파일 업로드**에서 파일을 찾습니다. 파일을 선택 하 고 제출을 클릭 하면 CSV 파일의 유효성 검사가 시작 됩니다.
-1. 파일 콘텐츠의 유효성 검사가 완료되면 **파일 업로드 성공**이 표시됩니다. 오류가 있는 경우 해당 오류를 해결해야 작업을 제출할 수 있습니다.
+1. **사용자 대량 삭제** 페이지의 **csv 파일 업로드** 에서 파일을 찾습니다. 파일을 선택 하 고 제출을 클릭 하면 CSV 파일의 유효성 검사가 시작 됩니다.
+1. 파일 콘텐츠의 유효성 검사가 완료되면 **파일 업로드 성공** 이 표시됩니다. 오류가 있는 경우 해당 오류를 해결해야 작업을 제출할 수 있습니다.
 1. 파일이 유효성 검사를 통과 하면 **제출** 을 선택 하 여 사용자를 삭제 하는 Azure 대량 작업을 시작 합니다.
 1. 삭제 작업이 완료 되 면 대량 작업이 성공 했다는 알림이 표시 됩니다.
 
@@ -75,9 +75,9 @@ CSV 템플릿을 다운로드 하 고 입력 하 여 Azure AD 사용자를 대�
 ## <a name="verify-deleted-users-in-the-azure-portal"></a>Azure Portal에서 삭제 된 사용자 확인
 
 1. 조직에서 사용자 관리자인 계정으로 Azure Portal에 로그인합니다.
-1. 탐색 창에서 **Azure Active Directory**를 선택합니다.
-1. **관리**에서 **사용자**를 선택합니다.
-1. **표시**아래에서 **모든 사용자** 만을 선택 하 고 삭제 한 사용자가 더 이상 나열 되지 않는지 확인 합니다.
+1. 탐색 창에서 **Azure Active Directory** 를 선택합니다.
+1. **관리** 에서 **사용자** 를 선택합니다.
+1. **표시** 아래에서 **모든 사용자** 만을 선택 하 고 삭제 한 사용자가 더 이상 나열 되지 않는지 확인 합니다.
 
 ### <a name="verify-deleted-users-with-powershell"></a>PowerShell을 사용 하 여 삭제 된 사용자 확인
 

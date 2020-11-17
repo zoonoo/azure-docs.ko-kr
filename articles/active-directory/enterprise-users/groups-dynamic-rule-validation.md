@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: yukarppa
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbbe37938249ee02c7deb4081a96aa1be2d8b7cb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1ccd17dc4112bd286257a6ed95ecc55dd13af428
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377231"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650753"
 ---
 # <a name="validate-a-dynamic-group-membership-rule-preview-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격 규칙 (미리 보기)의 유효성을 검사 합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "92377231"
 
 ## <a name="step-by-step-walk-through"></a>단계별 단계별 연습
 
-시작 하려면 **Azure Active Directory**  >  **그룹**으로 이동 합니다. 기존 동적 그룹을 선택 하거나 새 동적 그룹을 만들고 동적 멤버 자격 규칙을 클릭 합니다. 그러면 **규칙 유효성 검사** 탭을 볼 수 있습니다.
+시작 하려면 **Azure Active Directory**  >  **그룹** 으로 이동 합니다. 기존 동적 그룹을 선택 하거나 새 동적 그룹을 만들고 동적 멤버 자격 규칙을 클릭 합니다. 그러면 **규칙 유효성 검사** 탭을 볼 수 있습니다.
 
 ![규칙 유효성 검사 탭을 찾고 기존 규칙을 사용 하 여 시작](./media/groups-dynamic-rule-validation/validate-tab.png)
 
@@ -35,11 +35,11 @@ ms.locfileid: "92377231"
 
 ![사용자를 추가 하 여 기존 규칙의 유효성을 검사 합니다.](./media/groups-dynamic-rule-validation/validate-tab-add-users.png)
 
-선택에서 사용자 또는 장치를 선택 하 고를 **선택**하면 유효성 검사가 자동으로 시작 되 고 유효성 검사 결과가 표시 됩니다.
+선택에서 사용자 또는 장치를 선택 하 고를 **선택** 하면 유효성 검사가 자동으로 시작 되 고 유효성 검사 결과가 표시 됩니다.
 
 ![규칙 유효성 검사 결과 보기](./media/groups-dynamic-rule-validation/validate-tab-results.png)
 
-결과는 사용자가 그룹의 멤버 인지 여부를 알려 줍니다. 규칙이 유효 하지 않거나 네트워크 문제가 있는 경우 결과는 **알 수 없음**으로 표시 됩니다. **알 수 없는**경우 자세한 오류 메시지에는 필요한 문제 및 작업이 설명 되어 있습니다.
+결과는 사용자가 그룹의 멤버 인지 여부를 알려 줍니다. 규칙이 유효 하지 않거나 네트워크 문제가 있는 경우 결과는 **알 수 없음** 으로 표시 됩니다. **알 수 없는** 경우 자세한 오류 메시지에는 필요한 문제 및 작업이 설명 되어 있습니다.
 
 ![규칙 유효성 검사의 결과에 대 한 세부 정보 보기](./media/groups-dynamic-rule-validation/validate-tab-view-details.png)
 

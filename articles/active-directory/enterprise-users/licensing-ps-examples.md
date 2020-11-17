@@ -7,19 +7,19 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/29/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86b3b44e480ccdc823853b5c790cad02a0821795
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 046a19d41364f7e4db3edcb011c8c65519924b3c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377098"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650328"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD의 그룹 기반 라이선스에 대 한 PowerShell 및 그래프 예제
 
@@ -402,7 +402,7 @@ function UserHasLicenseAssignedFromGroup
 }
 ```
 
-이 스크립트는 SKU ID를 입력으로 사용 하 여 조직의 각 사용자에 대해 해당 함수를 실행 합니다 .이 예제에서는 조직에서 ID *contoso: EMS*로 표시 되는 *Enterprise Mobility + Security*에 대 한 라이선스에 관심이 있습니다.
+이 스크립트는 SKU ID를 입력으로 사용 하 여 조직의 각 사용자에 대해 해당 함수를 실행 합니다 .이 예제에서는 조직에서 ID *contoso: EMS* 로 표시 되는 *Enterprise Mobility + Security* 에 대 한 라이선스에 관심이 있습니다.
 
 ```powershell
 #the license SKU we are interested in. use Get-MsolAccountSku to see a list of all identifiers in your organization
