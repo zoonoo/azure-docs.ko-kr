@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 375dff1dacc949dd4373bbf26908feb504750224
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: c0333f9faeae99ee83beda381f77f4f95b0a9192
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372344"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636123"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -37,7 +37,8 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 
 - [Azure 보안 벤치마크의 적용 범위를 늘리기 위해 29개의 미리 보기 추천 사항이 추가됨](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [Security Center의 규정 준수 대시보드에 NIST SP 800 171 R2가 추가됨](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
-
+- [이제 추천 목록에 필터가 포함됨](#recommendations-list-now-includes-filters)
+- [자동 프로비저닝 환경 향상 및 확장](#auto-provisioning-experience-improved-and-expanded)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Azure 보안 벤치마크의 적용 범위를 늘리기 위해 29개의 미리 보기 권장 사항 추가됨
 
@@ -78,6 +79,30 @@ NIST SP 800-171 R2 표준은 이제 Azure Security Center의 규정 준수 대�
 이 규정 준수 표준에 대한 자세한 내용은 [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final)를 참조하세요.
 
 
+### <a name="recommendations-list-now-includes-filters"></a>이제 추천 목록에 필터가 포함됨
+
+이제 일련의 조건에 따라 보안 추천 목록을 필터링할 수 있습니다. 다음 예에서는 다음과 같은 추천을 보여주기 위해 추천 목록이 필터링되었습니다.
+
+- **일반적으로 사용 가능한** 추천(예: 미리 보기가 아님)
+- **스토리지 계정** 에 대한 추천
+- **빠른 수정** 수정을 지원하는 추천
+
+:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="추천 목록에 대한 필터":::
+
+
+### <a name="auto-provisioning-experience-improved-and-expanded"></a>자동 프로비저닝 환경 향상 및 확장
+
+자동 프로비저닝 기능은 신규 및 기존 Azure VM에 필요한 확장을 설치하여 관리 오버헤드를 줄이는 데 도움이 되므로 Security Center의 보호 기능을 활용할 수 있습니다. 
+
+Azure Security Center가 성장함에 따라 더 많은 확장이 개발되었으며 보안 센터에서 더 많은 리소스 유형을 모니터링할 수 있습니다. 이제 Azure Policy의 기능을 활용하여 추가 확장 및 리소스 유형을 지원하도록 자동 프로비저닝 도구가 확장되었습니다.
+
+이제 다음 항목의 자동 프로비저닝을 구성할 수 있습니다.
+
+- Log Analytics 에이전트
+- (신규) Kubernetes에 대한 Azure Policy 추가 기능
+- (신규) Microsoft Dependency Agent
+
+[Azure Security Center에서 에이전트 및 확장 자동 프로비저닝](security-center-enable-data-collection.md)에서 자세히 알아보세요.
 
 ## <a name="october-2020"></a>2020년 10월
 
@@ -723,7 +748,7 @@ SQL 컴퓨터에 대한 Azure Security Center의 고급 데이터 보안 기능�
 - **Windows 기반 Azure Arc 컴퓨터에 Log Analytics 에이전트를 설치해야 함(미리 보기)**
 - **Linux 기반 Azure Arc 컴퓨터에 Log Analytics 에이전트를 설치해야 함(미리 보기)**
 
-이러한 새 추천 사항은 기존(관련) 추천 사항( **컴퓨터에 모니터링 에이전트를 설치해야 합니다.** )과 동일한 네 가지 보안 제어(보안 구성 수정, 적응형 애플리케이션 제어 적용, 시스템 업데이트 적용 및 엔드포인트 보호 사용)에 나타납니다.
+이러한 새 추천 사항은 기존(관련) 추천 사항(**컴퓨터에 모니터링 에이전트를 설치해야 합니다.** )과 동일한 네 가지 보안 제어(보안 구성 수정, 적응형 애플리케이션 제어 적용, 시스템 업데이트 적용 및 엔드포인트 보호 사용)에 나타납니다.
 
 또한 추천 사항에는 배포 프로세스 속도를 높이는 데 도움이 되는 빠른 수정 기능도 포함됩니다. 
 

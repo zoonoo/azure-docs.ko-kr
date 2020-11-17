@@ -4,7 +4,7 @@ description: Azure Active Directory에서 보안 그룹 또는 Microsoft 365 그
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1730507c022d57495efa56c98215ff72d07e180
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 6425809cfa6dde20b8ef2b1f6d4cfaf04cbef6e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578181"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647089"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 그룹 관리 설정 
 
@@ -49,8 +49,8 @@ Azure Portal 또는 Azure AD PowerShell을 사용 하 여 보안 그룹을 만�
 1. **액세스 패널의 그룹에 대 한 액세스 제한** 을 **아니요** 로 설정 합니다.
 1. **사용자가 azure portal에서 보안 그룹을 만들 수** 있도록 설정 하는 경우 또는 **사용자가 azure portal에서 Microsoft 365 그룹을 만들 수** 있습니다.
 
-    - **예** : Azure AD 조직의 모든 사용자가 새 보안 그룹을 만들고 이러한 그룹에 멤버를 추가할 수 있습니다. 이러한 새 그룹은 다른 모든 사용자에 대한 액세스 패널에도 표시됩니다. 그룹의 정책 설정에서 허용 하는 경우 다른 사용자가 이러한 그룹에 가입 하는 요청을 만들 수 있습니다.
-    - **아니요** : 사용자가 그룹을 만들 수 없고 자신이 소유자 인 기존 그룹을 변경할 수 없습니다. 그러나 여전히 해당 그룹의 구성원을 관리하고 다른 사용자의 해당 그룹 가입 요청을 승인할 수 있습니다.
+    - **예**: Azure AD 조직의 모든 사용자가 새 보안 그룹을 만들고 이러한 그룹에 멤버를 추가할 수 있습니다. 이러한 새 그룹은 다른 모든 사용자에 대한 액세스 패널에도 표시됩니다. 그룹의 정책 설정에서 허용 하는 경우 다른 사용자가 이러한 그룹에 가입 하는 요청을 만들 수 있습니다.
+    - **아니요**: 사용자가 그룹을 만들 수 없고 자신이 소유자 인 기존 그룹을 변경할 수 없습니다. 그러나 여전히 해당 그룹의 구성원을 관리하고 다른 사용자의 해당 그룹 가입 요청을 승인할 수 있습니다.
 
 또한 **Azure Portal에서 그룹 소유자로 구성원을 할당할 수 있는 소유자** 를 사용 하 여 사용자를 위한 셀프 서비스 그룹 관리에 대 한 보다 세부적인 액세스 제어를 구현할 수 있습니다.
 

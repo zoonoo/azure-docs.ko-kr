@@ -100,7 +100,7 @@
         - name: Azure 파일 동기화 배포
           href: storage-sync-files-deployment-guide.md
         - name: 프리미엄 파일 공유 기능이 있는 FCI SQL Server
-          href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+          href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json
     - name: 탑재
       items:
         - name: Windows에 SMB 파일 공유 탑재
@@ -311,7 +311,7 @@
     - name: Azure 파일 동기화 릴리스 정보
       href: storage-files-release-notes.md
     - name: Microsoft Q&A의 Azure Files
-      href: 'https://docs.microsoft.com/answers/topics/azure-files.html'
+      href: /answers/topics/azure-files.html
     - name: Stack Overflow의 Azure Files
       href: 'https://stackoverflow.com/questions/tagged/azure-files'
     - name: Azure Files 가격 책정

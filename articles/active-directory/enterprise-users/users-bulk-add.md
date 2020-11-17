@@ -4,21 +4,21 @@ description: Azure Active Directory의 Azure AD 관리 센터에서 사용자 �
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 08/11/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8e6ab8fd726eaba309f0949020139901dd3712f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 42e26e9b1e3548d3caeff58079ec489c2d282a63
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376534"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646885"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Azure Active Directory에서 사용자 대량 만들기
 
@@ -51,13 +51,13 @@ Azure AD(Azure Active Directory)는 사용자 대량 만들기 및 삭제 작업
 - 필수 열이 먼저 나열됩니다.
 - 템플릿에 새 열을 추가하지 않는 것이 좋습니다. 새로 추가하는 열은 무시되고 처리되지 않습니다.
 - 가능한 자주 최신 버전의 CSV 템플릿을 다운로드하는 것이 좋습니다.
-- 필드 앞/뒤에 의도 하지 않은 공백이 없는지 확인 해야 합니다. **사용자 계정 이름의**경우 이러한 공백이 있으면 가져오기 오류가 발생 합니다.
+- 필드 앞/뒤에 의도 하지 않은 공백이 없는지 확인 해야 합니다. **사용자 계정 이름의** 경우 이러한 공백이 있으면 가져오기 오류가 발생 합니다.
 
 ## <a name="to-create-users-in-bulk"></a>사용자를 대량으로 만들려면
 
 1. 조직에서 사용자 관리자인 계정으로 [Azure AD 조직에 로그인](https://aad.portal.azure.com)합니다.
-1. Azure AD에서 **사용자** > **대량 만들기**를 선택합니다.
-1. **사용자 대량 만들기** 페이지에서 **다운로드**를 선택하여 유효한 사용자 속성의 CSV(쉼표로 구분된 값) 파일을 받은 다음, 만들려는 사용자를 추가합니다.
+1. Azure AD에서 **사용자** > **대량 만들기** 를 선택합니다.
+1. **사용자 대량 만들기** 페이지에서 **다운로드** 를 선택하여 유효한 사용자 속성의 CSV(쉼표로 구분된 값) 파일을 받은 다음, 만들려는 사용자를 추가합니다.
 
    ![추가하려는 사용자를 나열하는 로컬 CSV 파일을 선택합니다.](./media/users-bulk-add/upload-button.png)
 
@@ -65,9 +65,9 @@ Azure AD(Azure Active Directory)는 사용자 대량 만들기 및 삭제 작업
 
    [![CSV 파일에는 만들 사용자의 이름 및 ID가 포함되어 있습니다.](./media/users-bulk-add/add-csv-file.png)](./media/users-bulk-add/add-csv-file.png#lightbox)
 
-1. **사용자 일괄 만들기** 페이지의 CSV 파일 업로드에서 해당 파일을 찾습니다. 파일을 선택하고 **제출**을 클릭하면 CSV 파일의 유효성 검사가 시작됩니다.
-1. 파일 콘텐츠의 유효성 검사가 완료되면 **파일 업로드 성공**이 표시됩니다. 오류가 있는 경우 해당 오류를 해결해야 작업을 제출할 수 있습니다.
-1. 파일이 유효성 검사를 통과하면 **제출**을 선택하여 새 사용자를 가져오는 Azure 대량 작업을 시작합니다.
+1. **사용자 일괄 만들기** 페이지의 CSV 파일 업로드에서 해당 파일을 찾습니다. 파일을 선택하고 **제출** 을 클릭하면 CSV 파일의 유효성 검사가 시작됩니다.
+1. 파일 콘텐츠의 유효성 검사가 완료되면 **파일 업로드 성공** 이 표시됩니다. 오류가 있는 경우 해당 오류를 해결해야 작업을 제출할 수 있습니다.
+1. 파일이 유효성 검사를 통과하면 **제출** 을 선택하여 새 사용자를 가져오는 Azure 대량 작업을 시작합니다.
 1. 가져오기 작업이 완료되면 대량 작업 상태 알림이 표시됩니다.
 
 오류가 있는 경우 **대량 작업 결과** 페이지에서 결과 파일을 다운로드하고 볼 수 있습니다. 파일에는 각 오류의 이유가 포함되어 있습니다. 파일 제출은 제공된 템플릿과 일치하고 정확한 열 이름을 포함해야 합니다.
@@ -83,9 +83,9 @@ Azure AD(Azure Active Directory)는 사용자 대량 만들기 및 삭제 작업
 ## <a name="verify-users-in-the-azure-portal"></a>Azure Portal에서 사용자 확인
 
 1. 조직에서 사용자 관리자인 계정으로 [Azure AD 관리 센터에 로그인](https://aad.portal.azure.com)합니다.
-1. 탐색 창에서 **Azure Active Directory**를 선택합니다.
-1. **관리**에서 **사용자**를 선택합니다.
-1. **표시**에서 **모든 사용자**를 선택하여 만든 사용자가 나열되는지 확인합니다.
+1. 탐색 창에서 **Azure Active Directory** 를 선택합니다.
+1. **관리** 에서 **사용자** 를 선택합니다.
+1. **표시** 에서 **모든 사용자** 를 선택하여 만든 사용자가 나열되는지 확인합니다.
 
 ### <a name="verify-users-with-powershell"></a>PowerShell을 사용하여 사용자 확인
 

@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11708aeb434f3b258377c02f15214f1ac9ae4295
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d0472b2adb3213338b9fbc4e3a17a2c3444eb113
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393628"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647582"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 
@@ -144,12 +144,12 @@ Cmdlet | 사용량
    ```powershell
    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
    ```
-    예를 들면 다음과 같습니다.
+    예를 들어:
    ```
    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 예를 들면 다음과 같습니다.
+4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 예를 들어:
    ```powershell
    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -160,7 +160,7 @@ Cmdlet | 사용량
    Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
-   예를 들면 다음과 같습니다.
+   예를 들어:
   
    ```powershell
    Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force

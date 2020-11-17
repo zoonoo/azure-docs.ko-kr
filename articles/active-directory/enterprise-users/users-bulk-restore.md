@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/27/2020
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4031356c3a2ff51f6f3da8b53dd0dcc9fd5a426
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d141637286ed931701e82d29088186de32ff9f9c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376438"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646783"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Azure Active Directory에서 삭제된 사용자 대량 복원
 
@@ -48,18 +48,18 @@ CSV 템플릿을 다운로드하고 작성하여 Azure AD 사용자를 대량 �
 ## <a name="to-bulk-restore-users"></a>사용자 대량 복원 방법
 
 1. Azure AD 조직에서 사용자 관리자인 계정으로 [Azure AD 조직에 로그인](https://aad.portal.azure.com)합니다.
-1. Azure AD에서 **사용자** > **삭제됨**을 선택합니다.
-1. **삭제된 사용자** 페이지에서 **대량 복원**을 선택하여 복원할 사용자 속성의 유효한 CSV 파일을 업로드합니다.
+1. Azure AD에서 **사용자** > **삭제됨** 을 선택합니다.
+1. **삭제된 사용자** 페이지에서 **대량 복원** 을 선택하여 복원할 사용자 속성의 유효한 CSV 파일을 업로드합니다.
 
     ![삭제된 사용자 페이지에서 대량 복원 명령을 선택합니다.](./media/users-bulk-restore/bulk-restore.png)
 
-1. CSV 템플릿을 열고 복원하려는 각 사용자에 대한 줄을 추가합니다. 유일하게 필요한 값은 **ObjectID**입니다. 그런 다음 파일을 저장합니다.
+1. CSV 템플릿을 열고 복원하려는 각 사용자에 대한 줄을 추가합니다. 유일하게 필요한 값은 **ObjectID** 입니다. 그런 다음 파일을 저장합니다.
 
     :::image type="content" source="./media/users-bulk-restore/upload-button.png" alt-text="추가하려는 사용자를 나열하는 로컬 CSV 파일 선택":::
 
-1. **대량 복원** 페이지의 **CSV 파일 업로드**에서 해당 파일을 찾습니다. 파일을 선택하고 **제출**을 클릭하면 CSV 파일의 유효성 검사가 시작됩니다.
-1. 파일 콘텐츠의 유효성 검사가 완료되면 **파일 업로드 성공**이 표시됩니다. 오류가 있는 경우 해당 오류를 해결해야 작업을 제출할 수 있습니다.
-1. 파일이 유효성 검사를 통과하면 **제출**을 선택하여 사용자를 복원하는 Azure 대량 작업을 시작합니다.
+1. **대량 복원** 페이지의 **CSV 파일 업로드** 에서 해당 파일을 찾습니다. 파일을 선택하고 **제출** 을 클릭하면 CSV 파일의 유효성 검사가 시작됩니다.
+1. 파일 콘텐츠의 유효성 검사가 완료되면 **파일 업로드 성공** 이 표시됩니다. 오류가 있는 경우 해당 오류를 해결해야 작업을 제출할 수 있습니다.
+1. 파일이 유효성 검사를 통과하면 **제출** 을 선택하여 사용자를 복원하는 Azure 대량 작업을 시작합니다.
 1. 복원 작업이 완료되면 대량 작업이 성공했다는 알림이 표시됩니다.
 
 오류가 있는 경우 **대량 작업 결과** 페이지에서 결과 파일을 다운로드하고 볼 수 있습니다. 해당 파일에는 각 오류에 대한 이유가 포함되어 있습니다.
@@ -75,9 +75,9 @@ CSV 템플릿을 다운로드하고 작성하여 Azure AD 사용자를 대량 �
 ## <a name="view-restored-users-in-the-azure-portal"></a>Azure Portal에서 복원된 사용자 보기
 
 1. 조직에서 사용자 관리자 계정으로 [Azure AD 관리 센터에 로그인](https://aad.portal.azure.com)합니다.
-1. 탐색 창에서 **Azure Active Directory**를 선택합니다.
-1. **관리**에서 **사용자**를 선택합니다.
-1. **표시**에서 **모든 사용자**를 선택하여 복원한 사용자가 나열되는지 확인합니다.
+1. 탐색 창에서 **Azure Active Directory** 를 선택합니다.
+1. **관리** 에서 **사용자** 를 선택합니다.
+1. **표시** 에서 **모든 사용자** 를 선택하여 복원한 사용자가 나열되는지 확인합니다.
 
 ### <a name="view-users-with-powershell"></a>PowerShell로 사용자 보기
 

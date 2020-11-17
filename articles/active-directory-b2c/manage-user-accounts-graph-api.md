@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8132eb72b3e448d7ae830b29ccb7dc51528c1250
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a9323cc92567d681ee8c73a62e0b89c17c22b1e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921404"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647616"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리
 
@@ -117,7 +117,7 @@ Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 `identities` [
 
 모든 고객 지향 응용 프로그램에는 수집할 정보에 대 한 고유한 요구 사항이 있습니다. Azure AD B2C 테 넌 트에는 지정 된 이름, 성, 도시 및 우편 번호와 같은 속성에 저장 되는 기본 제공 정보 집합이 제공 됩니다. Azure AD B2C를 사용 하 여 각 고객 계정에 저장 된 속성 집합을 확장할 수 있습니다. 사용자 지정 특성을 정의 하는 방법에 대 한 자세한 내용은 사용자 지정 [특성 (사용자 흐름)](user-flow-custom-attributes.md) 및 [사용자 지정 특성 (사용자 지정 정책)](custom-policy-custom-attributes.md)을 참조 하세요.
 
-Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트하는 것을 지원합니다. Graph API의 확장 특성은 규칙을 사용 하 여 이름이 지정 됩니다 `extension_ApplicationClientID_attributename` . 여기서는 응용 프로그램의 응용 프로그램 `ApplicationClientID` **(클라이언트) ID** 입니다 `b2c-extensions-app` ( **App registrations**  >  Azure Portal의**모든 응용** 프로그램 앱 등록에 있음). 확장 특성 이름에 표시 되는 **응용 프로그램 (클라이언트) ID** 에는 하이픈이 포함 되지 않습니다. 예를 들면 다음과 같습니다.
+Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트하는 것을 지원합니다. Graph API의 확장 특성은 규칙을 사용 하 여 이름이 지정 됩니다 `extension_ApplicationClientID_attributename` . 여기서는 응용 프로그램의 응용 프로그램 `ApplicationClientID` **(클라이언트) ID** 입니다 `b2c-extensions-app` ( **App registrations**  >  Azure Portal의 **모든 응용** 프로그램 앱 등록에 있음). 확장 특성 이름에 표시 되는 **응용 프로그램 (클라이언트) ID** 에는 하이픈이 포함 되지 않습니다. 예를 들어:
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -145,7 +145,7 @@ git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-ma
 1. `dotnet` 명령을 사용하여 애플리케이션을 실행합니다.
 
     ```console
-    dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
+    dotnet bin/Debug/netcoreapp3.1/b2c-ms-graph.dll
     ```
 
 응용 프로그램은 실행할 수 있는 명령 목록을 표시 합니다. 예를 들어 모든 사용자를 가져오고, 단일 사용자를 가져오고, 사용자를 삭제 하 고, 사용자 암호를 업데이트 하 고, 대량 가져오기를 합니다.
@@ -158,7 +158,7 @@ Microsoft Graph API에 대 한 모든 요청에는 인증을 위한 액세스 �
 
 `RunAsync` _Program.cs_ 파일의 메서드는 다음과 같습니다.
 
-1. 파일 _ 의appsettings.js_ 에서 응용 프로그램 설정을 읽습니다.
+1. 파일 _의appsettings.js_ 에서 응용 프로그램 설정을 읽습니다.
 1. [OAuth 2.0 클라이언트 자격 증명 부여](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) 흐름을 사용 하 여 인증 공급자를 초기화 합니다. 클라이언트 자격 증명 부여 흐름을 사용 하 여 앱은 Microsoft Graph API를 호출 하는 액세스 토큰을 가져올 수 있습니다.
 1. 인증 공급자를 사용 하 여 Microsoft Graph 서비스 클라이언트를 설정 합니다.
 

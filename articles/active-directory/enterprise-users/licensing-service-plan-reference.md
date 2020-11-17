@@ -10,22 +10,22 @@ editor: ''
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 04/27/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: kakern
 ms.reviewer: kakern
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7b74fe368e10a0cd6ee63196d4330c456d56ea
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: db07f18b97936389d9b2360f7d4476c67d9f284a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377490"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646902"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>라이선스에 대한 제품 이름 및 서비스 계획 식별자
 
-[Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 또는 [Microsoft 365 관리 센터](https://admin.microsoft.com)에서 라이선스를 관리할 때 *Office 365 E3*와 같은 제품 이름이 표시됩니다. PowerShell v1.0 cmdlet을 사용할 때는 동일한 제품이 구체적이지만 덜 익숙한 *ENTERPRISEPACK* 등의 이름으로 식별됩니다. PowerShell v 2.0 cmdlet 또는 Microsoft Graph 사용 시 같은 제품이 *6fd2c87f-b296-42f0-b197-1e91e994b900* 등의 GUID 값으로 식별됩니다. 다음 표에서는 가장 자주 사용되는 Microsoft Online Services 제품을 나열하고 해당 제품의 여러 ID 값을 제공합니다. 이러한 테이블의 목적은 참조용이며 이 문서가 최종 업데이트된 날짜 기준입니다. Microsoft에서는 새로 추가된 서비스에 대한 정기적인 업데이트 계획이 없습니다.
+[Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 또는 [Microsoft 365 관리 센터](https://admin.microsoft.com)에서 라이선스를 관리할 때 *Office 365 E3* 와 같은 제품 이름이 표시됩니다. PowerShell v1.0 cmdlet을 사용할 때는 동일한 제품이 구체적이지만 덜 익숙한 *ENTERPRISEPACK* 등의 이름으로 식별됩니다. PowerShell v 2.0 cmdlet 또는 Microsoft Graph 사용 시 같은 제품이 *6fd2c87f-b296-42f0-b197-1e91e994b900* 등의 GUID 값으로 식별됩니다. 다음 표에서는 가장 자주 사용되는 Microsoft Online Services 제품을 나열하고 해당 제품의 여러 ID 값을 제공합니다. 이러한 테이블의 목적은 참조용이며 이 문서가 최종 업데이트된 날짜 기준입니다. Microsoft에서는 새로 추가된 서비스에 대한 정기적인 업데이트 계획이 없습니다.
 
 - **제품 이름**: 관리 포털에서 사용됩니다.
 - **문자열 ID**: 라이선스에 대한 작업을 수행할 때 PowerShell v1.0 cmdlet에서 사용됩니다.
@@ -145,7 +145,7 @@ ms.locfileid: "92377490"
 
 ## <a name="service-plans-that-cannot-be-assigned-at-the-same-time"></a>동시에 할당될 수 없는 서비스 계획
 
-일부 제품에는 동시에 할당할 수 없는 서비스 계획이 포함됩니다. 예를 들어 *Office 365 E1* 및 *Office 365 E3*가 테넌트에 있도록 두 라이선스를 같은 사용자에게 할당하면 작업이 실패합니다. 이것은 E3 제품에 E1의 해당 제품과 충돌하는 다음 서비스 계획이 포함되어 있기 때문입니다.
+일부 제품에는 동시에 할당할 수 없는 서비스 계획이 포함됩니다. 예를 들어 *Office 365 E1* 및 *Office 365 E3* 가 테넌트에 있도록 두 라이선스를 같은 사용자에게 할당하면 작업이 실패합니다. 이것은 E3 제품에 E1의 해당 제품과 충돌하는 다음 서비스 계획이 포함되어 있기 때문입니다.
 
 -   SharePoint Online(계획 2)은 SharePoint Online(계획 1)과 충돌합니다.
 -   Exchange Online(계획 2)은 Exchange Online(계획 1)과 충돌합니다.

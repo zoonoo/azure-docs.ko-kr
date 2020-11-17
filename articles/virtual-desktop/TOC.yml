@@ -112,12 +112,22 @@
   items:
     - name: 인증
       href: authentication.md
-    - name: 안전 URL 목록
-      href: safe-url-list.md
     - name: Windows Virtual Desktop 환경
       href: environment-setup.md
-    - name: 사용자 연결 대기 시간 확인
-      href: connection-latency.md
+    - name: 네트워크 연결
+      items:
+        - name: 네트워크 연결 이해
+          href: network-connectivity.md
+        - name: RDP Shortpath
+          href: shortpath.md
+        - name: QoS(서비스 품질) 구현
+          href: rdp-quality-of-service-qos.md
+        - name: 안전 URL 목록
+          href: safe-url-list.md
+        - name: 대역폭 고려 사항
+          href: rdp-bandwidth.md
+        - name: 사용자 연결 대기 시간 확인
+          href: connection-latency.md
     - name: Windows Virtual Desktop에서 위임된 액세스
       href: delegated-access-virtual-desktop.md
     - name: 호스트 풀 부하 분산 메서드
@@ -168,8 +178,6 @@
       href: linux-overview.md
     - name: 지원되는 RDP 파일 설정
       href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
-    - name: 네트워크 지침
-      href: /windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
     - name: 가상 머신 크기 조정 지침
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Azure CLI(명령줄 인터페이스)

@@ -7,20 +7,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7529d72c3d94e3c7bef58c6a26af62b97ac92d9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bd61a33bdcc0d18dee7dba651f097f7cd49e7149
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376558"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647038"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
 
@@ -34,7 +34,7 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 ### <a name="to-find-users-in-an-error-state-in-a-group"></a>그룹에서 오류 상태의 사용자를 찾으려면
 
-1. 개요 페이지에서 그룹을 열고 **라이선스**를 선택 합니다. 오류 상태에 사용자가 있는 경우 알림이 표시 됩니다.
+1. 개요 페이지에서 그룹을 열고 **라이선스** 를 선택 합니다. 오류 상태에 사용자가 있는 경우 알림이 표시 됩니다.
 
    ![그룹 및 오류 알림 메시지](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
@@ -42,7 +42,7 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
    ![그룹 라이선스 오류 상태의 사용자 목록](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-1. 하나 이상의 오류를 포함하는 모든 그룹을 찾으려면 **Azure Active Directory** 블레이드에서 **라이선스** 및 **개요**를 차례로 선택합니다. 그룹에서 주의가 필요한 경우 정보 상자가 표시됩니다.
+1. 하나 이상의 오류를 포함하는 모든 그룹을 찾으려면 **Azure Active Directory** 블레이드에서 **라이선스** 및 **개요** 를 차례로 선택합니다. 그룹에서 주의가 필요한 경우 정보 상자가 표시됩니다.
 
    ![오류 상태의 그룹에 대 한 개요 및 정보](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
@@ -56,17 +56,17 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 **문제:** 그룹에 지정된 제품 중 하나에 사용 가능한 라이선스가 충분하지 않습니다. 제품에 대한 추가 라이선스를 구매하거나 다른 사용자 또는 그룹에서 사용하지 않는 라이선스를 해제해야 합니다.
 
-사용할 수 있는 라이선스 수를 확인 하려면 **Azure Active Directory**  >  **라이선스**  >  **모든 제품**으로 이동 합니다.
+사용할 수 있는 라이선스 수를 확인 하려면 **Azure Active Directory**  >  **라이선스**  >  **모든 제품** 으로 이동 합니다.
 
-라이선스를 사용 중인 사용자와 그룹을 확인하려면 제품을 선택합니다. **사용이 허가된 사용자**에는 라이선스가 직접 할당되었거나 하나 이상의 그룹을 통해 할당된 모든 사용자의 목록이 표시됩니다. **사용이 허가된 그룹**에는 제품이 할당된 모든 그룹이 표시됩니다.
+라이선스를 사용 중인 사용자와 그룹을 확인하려면 제품을 선택합니다. **사용이 허가된 사용자** 에는 라이선스가 직접 할당되었거나 하나 이상의 그룹을 통해 할당된 모든 사용자의 목록이 표시됩니다. **사용이 허가된 그룹** 에는 제품이 할당된 모든 그룹이 표시됩니다.
 
-**PowerShell:** PowerShell cmdlet은 이 오류를 _CountViolation_으로 보고합니다.
+**PowerShell:** PowerShell cmdlet은 이 오류를 _CountViolation_ 으로 보고합니다.
 
 ## <a name="conflicting-service-plans"></a>서비스 계획 충돌
 
 **문제:** 그룹에 지정된 제품 중 하나에 이미 다른 제품을 통해 사용자에게 할당된 다른 서비스 계획과 충돌하는 서비스 계획이 포함되어 있습니다. 일부 서비스 계획은 관련된 다른 서비스 계획과 동일한 사용자에게 할당할 수 없는 방식으로 구성되어 있습니다.
 
-다음 예제를 살펴보십시오. 모든 계획을 사용하도록 설정된 Office 365 Enterprise *E1*의 라이선스가 한 사용자에게 직접 할당되었습니다. 이 사용자는 Office 365 Enterprise *E3* 제품이 할당된 그룹에 추가되었습니다. E3 제품에는 E1에 포함된 계획과 중복될 수 없는 서비스 계획이 포함되어 있으므로 그룹 라이선스 할당은 "서비스 계획 충돌" 오류로 인해 실패합니다. 이 예제에서 충돌하는 서비스 계획은 다음과 같습니다.
+다음 예제를 살펴보십시오. 모든 계획을 사용하도록 설정된 Office 365 Enterprise *E1* 의 라이선스가 한 사용자에게 직접 할당되었습니다. 이 사용자는 Office 365 Enterprise *E3* 제품이 할당된 그룹에 추가되었습니다. E3 제품에는 E1에 포함된 계획과 중복될 수 없는 서비스 계획이 포함되어 있으므로 그룹 라이선스 할당은 "서비스 계획 충돌" 오류로 인해 실패합니다. 이 예제에서 충돌하는 서비스 계획은 다음과 같습니다.
 
 - SharePoint Online(계획 2)은 SharePoint Online(계획 1)과 충돌합니다.
 - Exchange Online(계획 2)은 Exchange Online(계획 1)과 충돌합니다.
@@ -75,7 +75,7 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 충돌하는 제품 라이선스 문제를 해결하는 방법은 항상 관리자가 결정합니다. Azure AD는 라이선스 충돌을 자동으로 해결하지 않습니다.
 
-**PowerShell:** PowerShell cmdlet은 이 오류를 _MutuallyExclusiveViolation_으로 보고합니다.
+**PowerShell:** PowerShell cmdlet은 이 오류를 _MutuallyExclusiveViolation_ 으로 보고합니다.
 
 ## <a name="other-products-depend-on-this-license"></a>기타 제품은 이 라이선스에 종속됨
 
@@ -83,7 +83,7 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 이 문제를 해결하기 위해 다른 메서드를 통해 필수 계획을 사용자에게 이미 할당하거나 해당 사용자에 대한 종속 서비스를 비활성화했는지 확인해야 합니다. 그 후 해당 사용자에서 그룹 라이선스를 적절하게 제거할 수 있습니다.
 
-**PowerShell:** PowerShell cmdlet은 이 오류를 _DependencyViolation_으로 보고합니다.
+**PowerShell:** PowerShell cmdlet은 이 오류를 _DependencyViolation_ 으로 보고합니다.
 
 ## <a name="usage-location-isnt-allowed"></a>사용 위치가 허용되지 않음
 
@@ -93,7 +93,7 @@ Azure AD가 사용 위치가 지원되지 않는 사용자에게 그룹 라이�
 
 이 문제를 해결 하려면 사용이 허가 된 그룹에서 지원 되지 않는 위치의 사용자를 제거 합니다. 또는 현재 사용 위치 값이 실제 사용자의 위치를 나타내지 않는 경우에는 다음에 라이선스가 정확히 할당되도록 사용 위치 값을 수정하면 됩니다(새 위치가 지원되는 경우).
 
-**PowerShell:** PowerShell cmdlet은 이 오류를 _ProhibitedInUsageLocationViolation_으로 보고합니다.
+**PowerShell:** PowerShell cmdlet은 이 오류를 _ProhibitedInUsageLocationViolation_ 으로 보고합니다.
 
 > [!NOTE]
 > Azure AD가 그룹 라이선스를 할당하면 사용 위치가 지정되지 않은 사용자는 디렉터리의 위치를 상속합니다. 현지법 및 규정을 준수하는 그룹 기반 라이선스를 사용하기 전에 관리자가 올바른 사용 위치 값을 사용자에게 설정하는 것이 좋습니다.
@@ -138,7 +138,7 @@ Azure AD는 그룹에 지정된 모든 라이선스를 각 사용자에게 할�
 
 ## <a name="manage-licenses-for-products-with-prerequisites"></a>필수 구성 요소를 사용 하 여 제품의 라이선스 관리
 
-사용자가 보유한 일부 Microsoft Online 제품은 *추가 기능*일 수 있습니다. 추가 기능은 라이선스를 할당하기 전에 사용자나 그룹에 대해 필수 구성 요소 서비스 계획을 활성화해야 합니다. 그룹 기반 라이선스를 사용하는 경우 시스템에서는 필수 구성 요소와 추가 기능 서비스 계획이 동일한 그룹에 있어야 합니다. 이것은 그룹에 추가된 모든 사용자가 완전히 작동하는 제품을 받을 수 있게 하기 위한 것입니다. 다음 예제를 살펴보겠습니다.
+사용자가 보유한 일부 Microsoft Online 제품은 *추가 기능* 일 수 있습니다. 추가 기능은 라이선스를 할당하기 전에 사용자나 그룹에 대해 필수 구성 요소 서비스 계획을 활성화해야 합니다. 그룹 기반 라이선스를 사용하는 경우 시스템에서는 필수 구성 요소와 추가 기능 서비스 계획이 동일한 그룹에 있어야 합니다. 이것은 그룹에 추가된 모든 사용자가 완전히 작동하는 제품을 받을 수 있게 하기 위한 것입니다. 다음 예제를 살펴보겠습니다.
 
 Microsoft Workplace Analytics는 추가 기능 제품입니다. 여기에는 이름이 같은 단일 서비스 계획이 포함됩니다. 다음 필수 구성 요소 중 하나가 함께 할당되었을 때에만 이 서비스 계획을 사용자 또는 그룹에 할당할 수 있습니다.
 
@@ -165,13 +165,13 @@ Microsoft Workplace Analytics는 추가 기능 제품입니다. 여기에는 이
 
 오류를 해결하기 위해 수행한 단계에 따라 그룹의 처리를 수동으로 트리거하여 사용자 상태를 업데이트해야 할 수 있습니다.
 
-예를 들어 사용자에게서 직접 라이선스 할당을 제거하여 라이선스를 확보한 경우 모든 사용자 구성원에게 완전한 사용 권한을 부여하기 위해 이전에 실패한 그룹 처리를 트리거해야 합니다. 그룹을 다시 처리하려면 그룹 창으로 이동하고 **라이선스**를 열고 도구 모음에서 **다시 처리** 단추를 선택합니다.
+예를 들어 사용자에게서 직접 라이선스 할당을 제거하여 라이선스를 확보한 경우 모든 사용자 구성원에게 완전한 사용 권한을 부여하기 위해 이전에 실패한 그룹 처리를 트리거해야 합니다. 그룹을 다시 처리하려면 그룹 창으로 이동하고 **라이선스** 를 열고 도구 모음에서 **다시 처리** 단추를 선택합니다.
 
 ## <a name="force-user-license-processing-to-resolve-errors"></a>사용자 라이선스 처리를 강제 하 여 오류 해결
 
 오류를 해결하기 위해 수행한 단계에 따라 사용자의 처리를 수동으로 트리거하여 사용자 상태를 업데이트해야 할 수 있습니다.
 
-예를 들어 영향을 받은 사용자를 위해 중복 프록시 주소 문제를 해결한 후 사용자 처리를 트리거해야 합니다. 사용자를 다시 처리하려면 사용자 창으로 이동하여 **라이선스**를 연 다음, 도구 모음에서 **다시 처리** 단추를 선택합니다.
+예를 들어 영향을 받은 사용자를 위해 중복 프록시 주소 문제를 해결한 후 사용자 처리를 트리거해야 합니다. 사용자를 다시 처리하려면 사용자 창으로 이동하여 **라이선스** 를 연 다음, 도구 모음에서 **다시 처리** 단추를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 09/04/2020
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8fdeefab150a2992edf40076a44c936d35b14dc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cac88e57ce0135295ac4b7078111102fa69e6838
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376403"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646596"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Azure Active Directory에서 게스트 액세스 권한 (미리 보기) 제한
 
@@ -41,13 +41,13 @@ Azure ad (Azure Active Directory)를 사용 하면 외부 게스트 사용자가
 게스트 사용자 권한을 위해 기존 Azure Portal 컨트롤을 변경 했습니다.
 
 1. 전역 관리자 권한으로 [AZURE AD 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1. 조직의 **Azure Active Directory** 개요 페이지에서 **사용자 설정**을 선택 합니다.
-1. **외부 사용자**에서 **외부 공동 작업 설정 관리**를 선택 합니다.
+1. 조직의 **Azure Active Directory** 개요 페이지에서 **사용자 설정** 을 선택 합니다.
+1. **외부 사용자** 에서 **외부 공동 작업 설정 관리** 를 선택 합니다.
 1. **외부 공동 작업 설정** 페이지에서 **게스트 사용자 액세스는 고유한 디렉터리 개체의 속성 및 멤버 자격으로 제한 됨** 옵션을 선택 합니다.
 
     ![Azure AD 외부 공동 작업 설정 페이지](./media/users-restrict-guest-permissions/external-collaboration-settings.png)
 
-1. **저장**을 선택합니다. 변경 내용은 게스트 사용자에 게 적용 되는 데 최대 15 분이 걸릴 수 있습니다.
+1. **저장** 을 선택합니다. 변경 내용은 게스트 사용자에 게 적용 되는 데 최대 15 분이 걸릴 수 있습니다.
 
 ## <a name="update-with-the-microsoft-graph-api"></a>Microsoft Graph API를 사용 하 여 업데이트
 
@@ -105,7 +105,7 @@ GET https://graph.microsoft.com/beta/policies/authorizationPolicy/authorizationP
 
 ### <a name="get-command-get-azureadmsauthorizationpolicy"></a>Get 명령: Get-AzureADMSAuthorizationPolicy
 
-예제:
+예:
 
 ````PowerShell
 PS C:\WINDOWS\system32> Get-AzureADMSAuthorizationPolicy
@@ -121,7 +121,7 @@ PermissionGrantPolicyIdsAssignedToDefaultUserRole : {user-default-legacy}
 
 ### <a name="set-command-set-azureadmsauthorizationpolicy"></a>명령 설정: Set-AzureADMSAuthorizationPolicy
 
-예제:
+예:
 
 ````PowerShell
 PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84b1e-32c8-42b7-82bc-daa82404023b'

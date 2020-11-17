@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 02/28/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79062b8b1072e40fc9997d5ed6c730801aca20d1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e37a450ad99c37a2468e4cb73ce9f88decb628d5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377135"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647242"
 ---
 # <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Azure Active Directory에서 그룹 및 구성원 검색 (미리 보기)
 
@@ -36,7 +36,7 @@ ms.locfileid: "92377135"
 
 미리 보기에 쉽게 조인할 수 있습니다.
 
-  1. [AZURE AD 포털](https://portal.azure.com)에 로그인 하 고 **그룹**을 선택 합니다.
+  1. [AZURE AD 포털](https://portal.azure.com)에 로그인 하 고 **그룹** 을 선택 합니다.
   2. 그룹-모든 그룹 페이지에서 페이지 맨 위에 있는 배너를 선택 하 여 미리 보기에 참여 합니다.
 
 **모든 그룹** 페이지에서 **미리 보기 정보** 를 선택 하 여 최신 기능과 향상 된 기능을 확인할 수도 있습니다. 미리 보기에 가입한 후에는 향상 된 기능을 포함 하 고 미리 보기의 일부인 모든 그룹 페이지에서 미리 보기 태그를 볼 수 있습니다. 모든 그룹 페이지가이 미리 보기의 일부로 업데이트 되지 않았습니다.

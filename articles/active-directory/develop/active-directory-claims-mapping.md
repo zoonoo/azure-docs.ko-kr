@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: c300faf33f57518d26f82234bdff94a37235cd66
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275794"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647599"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 
@@ -239,6 +239,9 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 
 내보내는 클레임 및 데이터의 출처를 제어하려면 클레임 매핑 정책의 속성을 사용합니다. 정책을 설정하지 않으면 시스템은 핵심 클레임 집합, 기본 클레임 집합 및 애플리케이션이 수신하도록 선택한 [선택적 클레임](active-directory-optional-claims.md)이 포함된 토큰을 발급합니다.
 
+> [!NOTE]
+> 핵심 클레임 집합의 클레임은 이 속성의 설정값에 관계없이 모든 토큰에 표시됩니다.
+
 ### <a name="include-basic-claim-set"></a>기본 클레임 집합 포함
 
 **문자열:** IncludeBasicClaimSet
@@ -250,8 +253,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 - True로 설정된 경우 기본 클레임 집합의 모든 클레임이 정책의 영향을 받는 토큰에 내보내집니다.
 - False로 설정된 경우 기본 클레임 집합의 클레임은 동일한 정책의 클레임 스키마 속성에 개별적으로 추가되지 않는 한 토큰에 포함되지 않습니다.
 
-> [!NOTE]
-> 핵심 클레임 집합의 클레임은 이 속성의 설정값에 관계없이 모든 토큰에 표시됩니다.
+
 
 ### <a name="claims-schema"></a>클레임 스키마
 
@@ -260,7 +262,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 **데이터 형식:** 하나 이상의 클레임 스키마 항목이 있는 JSON Blob입니다.
 
 **요약:** 이 속성은 기본 클레임 집합 및 핵심 클레임 집합 외에도 정책의 영향을 받는 토큰에 포함될 클레임을 정의합니다.
-이 속성에 정의된 각 클레임 스키마 항목의 경우 특정 정보가 필요합니다. 데이터를 가져올 위치를 지정 합니다 (**값**, **원본/i d 쌍**또는 **원본/i d id 쌍**). 그리고 데이터를 내보낼 클레임 (**클레임 유형**)을 지정 합니다.
+이 속성에 정의된 각 클레임 스키마 항목의 경우 특정 정보가 필요합니다. 데이터를 가져올 위치를 지정 합니다 (**값**, **원본/i d 쌍** 또는 **원본/i d id 쌍**). 그리고 데이터를 내보낼 클레임 (**클레임 유형**)을 지정 합니다.
 
 ### <a name="claim-schema-entry-elements"></a>클레임 스키마 항목 요소
 
@@ -367,20 +369,20 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 |Join|string1, string2, 구분 기호|outputClaim|구분 기호를 사용하여 입력 문자열을 조인합니다. 예: string1:"foo@bar.com" , string2:"sandbox" , separator:"."는 outputClaim:"foo@bar.com.sandbox"를 생성합니다.|
 |ExtractMailPrefix|전자 메일 또는 UPN|추출 된 문자열|ExtensionAttributes 1-15 또는 사용자에 대 한 UPN 또는 전자 메일 주소 값을 저장 하는 기타 스키마 확장 (예:) johndoe@contoso.com 메일 주소의 로컬 부분을 추출합니다. 예: mail:"foo@bar.com"은 outputClaim:"foo"를 생성합니다. \@ 기호가 없으면 원본 입력 문자열이 현재 그대로 반환됩니다.|
 
-**InputClaims:** InputClaims 요소를 사용하여 클레임 스키마 항목의 데이터를 변환에 전달합니다. 이 요소에는 두 개의 특성인 **ClaimTypeReferenceId** 및 **TransformationClaimType**이 있습니다.
+**InputClaims:** InputClaims 요소를 사용하여 클레임 스키마 항목의 데이터를 변환에 전달합니다. 이 요소에는 두 개의 특성인 **ClaimTypeReferenceId** 및 **TransformationClaimType** 이 있습니다.
 
-- **ClaimTypeReferenceId**가 클레임 스키마 항목의 ID 요소와 조인되어 적절한 입력 클레임을 찾습니다.
-- **TransformationClaimType**은 이 입력에 고유 이름을 지정하는 데 사용됩니다. 이 이름은 변환 방법에 대한 예상 입력 중 하나와 일치해야 합니다.
+- **ClaimTypeReferenceId** 가 클레임 스키마 항목의 ID 요소와 조인되어 적절한 입력 클레임을 찾습니다.
+- **TransformationClaimType** 은 이 입력에 고유 이름을 지정하는 데 사용됩니다. 이 이름은 변환 방법에 대한 예상 입력 중 하나와 일치해야 합니다.
 
-**InputParameters:** InputParameters 요소를 사용하여 상수 값을 변환에 전달합니다. 이 요소에는 두 개의 특성인 **Value** 및 **ID**가 있습니다.
+**InputParameters:** InputParameters 요소를 사용하여 상수 값을 변환에 전달합니다. 이 요소에는 두 개의 특성인 **Value** 및 **ID** 가 있습니다.
 
-- **Value**는 전달할 실제 상수 값입니다.
-- **ID**는 입력에 고유 이름을 지정하는 데 사용됩니다. 이름은 변환 방법에 필요한 입력 중 하나와 일치해야 합니다.
+- **Value** 는 전달할 실제 상수 값입니다.
+- **ID** 는 입력에 고유 이름을 지정하는 데 사용됩니다. 이름은 변환 방법에 필요한 입력 중 하나와 일치해야 합니다.
 
-**OutputClaims:** OutputClaims 요소를 사용하여 변환에 의해 생성된 데이터를 보관하고 클레임 스키마 항목에 연결합니다. 이 요소에는 두 개의 특성인 **ClaimTypeReferenceId** 및 **TransformationClaimType**이 있습니다.
+**OutputClaims:** OutputClaims 요소를 사용하여 변환에 의해 생성된 데이터를 보관하고 클레임 스키마 항목에 연결합니다. 이 요소에는 두 개의 특성인 **ClaimTypeReferenceId** 및 **TransformationClaimType** 이 있습니다.
 
-- **ClaimTypeReferenceId**가 클레임 스키마 항목의 ID와 조인되어 적절한 출력 클레임을 찾습니다.
-- **TransformationClaimType**은 출력에 고유 이름을 지정하는 데 사용됩니다. 이름은 변환 방법에 필요한 출력 중 하나와 일치해야 합니다.
+- **ClaimTypeReferenceId** 가 클레임 스키마 항목의 ID와 조인되어 적절한 출력 클레임을 찾습니다.
+- **TransformationClaimType** 은 출력에 고유 이름을 지정하는 데 사용됩니다. 이름은 변환 방법에 필요한 출력 중 하나와 일치해야 합니다.
 
 ### <a name="exceptions-and-restrictions"></a>예외 및 제한 사항
 
@@ -439,8 +441,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클레임을 사용자 지정할 수 있는 경우 많은 시나리오가 가능합니다. 이 섹션에서는 클레임 매핑 정책 형식을 사용하는 방법을 이해하는 데 도움이 되는 몇 가지 일반적인 시나리오를 설명합니다.
 
-> [!NOTE]
-> 클레임 매핑 정책을 만들 때 토큰의 디렉터리 스키마 확장 특성에서 클레임을 내보낼 수도 있습니다. 요소에서 *ID* 대신 확장 특성에 *extensionid* 를 사용 `ClaimsSchema` 합니다.  확장 특성에 대 한 자세한 내용은 [디렉터리 스키마 확장 특성 사용](active-directory-schema-extensions.md)을 참조 하세요.
+클레임 매핑 정책을 만들 때 토큰의 디렉터리 스키마 확장 특성에서 클레임을 내보낼 수도 있습니다. 요소에서 *ID* 대신 확장 특성에 *extensionid* 를 사용 `ClaimsSchema` 합니다.  확장 특성에 대 한 자세한 내용은 [디렉터리 스키마 확장 특성 사용](active-directory-schema-extensions.md)을 참조 하세요.
 
 #### <a name="prerequisites"></a>사전 요구 사항
 

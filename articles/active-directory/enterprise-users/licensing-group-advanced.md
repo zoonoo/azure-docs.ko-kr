@@ -9,18 +9,18 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 08/13/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56f16dea1f81f7f6a35409d8481550fd000864b1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c4f298cf7487e00f6ee6a8aa8913fd32f8c6beee
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376702"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647106"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제
 
@@ -28,7 +28,7 @@ ms.locfileid: "92376702"
 
 ## <a name="usage-location"></a>사용 위치
 
-일부 Microsoft 서비스는 모든 위치에서 사용할 수 없습니다. 사용자에게 라이선스를 할당하려면 먼저 관리자가 해당 사용자에 대해 **사용 위치** 속성을 지정해야 합니다. [Azure Portal](https://portal.azure.com)에서는 **사용자** &gt; **프로필** &gt; **설정**에서 사용 위치를 지정할 수 있습니다.
+일부 Microsoft 서비스는 모든 위치에서 사용할 수 없습니다. 사용자에게 라이선스를 할당하려면 먼저 관리자가 해당 사용자에 대해 **사용 위치** 속성을 지정해야 합니다. [Azure Portal](https://portal.azure.com)에서는 **사용자** &gt; **프로필** &gt; **설정** 에서 사용 위치를 지정할 수 있습니다.
 
 그룹 라이선스 할당의 경우 사용 위치가 지정되지 않은 사용자는 디렉터리의 위치를 상속합니다. 여러 위치에 사용자가 있는 경우 라이선스를 사용 하 여 그룹에 사용자를 추가 하기 전에 사용자 리소스에서 해당 사항을 올바르게 반영 해야 합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "92376702"
 
 ### <a name="example"></a>예제
 
-어떤 사용자가 Microsoft 웹 서비스에 액세스해야 하는지 결정하는 온-프레미스 ID 관리 솔루션의 예를 고려하세요. 이 솔루션은 **extensionAttribute1**을 사용하여 사용자가 가지고 있어야 하는 라이선스를 나타내는 문자열 값을 저장합니다. Azure AD Connect는 이 값을 Azure AD와 동기화합니다.
+어떤 사용자가 Microsoft 웹 서비스에 액세스해야 하는지 결정하는 온-프레미스 ID 관리 솔루션의 예를 고려하세요. 이 솔루션은 **extensionAttribute1** 을 사용하여 사용자가 가지고 있어야 하는 라이선스를 나타내는 문자열 값을 저장합니다. Azure AD Connect는 이 값을 Azure AD와 동기화합니다.
 
 사용자에 따라 라이선스 중 하나만 필요하거나 두 라이선스가 모두 필요할 수 있습니다. Office 365 Enterprise E5 및 EMS(Enterprise Mobility + Security) 라이선스를 그룹의 사용자에게 배포하는 예는 다음과 같습니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "92376702"
 
 사용자는 라이선스를 가진 여러 그룹의 구성원이 될 수 있습니다. 다음과 같은 몇 가지 사항을 고려해야 합니다.
 
-- 동일한 제품에 대한 라이선스가 여러 개 있으면 겹칠 수 있어 사용 가능한 모든 서비스가 사용자에게 적용됩니다. 다음 예에서는 두 개의 라이선스 그룹을 보여 줍니다. *E3 기본 서비스*에는 모든 사용자에게 처음 배포할 기본 서비스가 포함되어 있으며, *E3 확장 서비스*에는 일부 사용자에게만 배포할 수 있는 추가 서비스(Sway 및 Planner)가 포함되어 있습니다. 이 예제에서 사용자는 두 그룹 모두에 추가되었습니다.
+- 동일한 제품에 대한 라이선스가 여러 개 있으면 겹칠 수 있어 사용 가능한 모든 서비스가 사용자에게 적용됩니다. 다음 예에서는 두 개의 라이선스 그룹을 보여 줍니다. *E3 기본 서비스* 에는 모든 사용자에게 처음 배포할 기본 서비스가 포함되어 있으며, *E3 확장 서비스* 에는 일부 사용자에게만 배포할 수 있는 추가 서비스(Sway 및 Planner)가 포함되어 있습니다. 이 예제에서 사용자는 두 그룹 모두에 추가되었습니다.
 
   ![사용하도록 설정된 서비스의 스크린샷](./media/licensing-group-advanced/view-enabled-services.png)
 
@@ -106,11 +106,11 @@ Microsoft에서 제품 라이선스 계획에 새 서비스를 추가할 때 제
 
 이 프로세스가 진행되는 과정의 예는 다음과 같습니다.
 
-1. 원래 *Office 365 Enterprise E5* 제품을 여러 그룹에 할당했습니다. 해당 그룹 중 하나인 *O365 E5 - Exchange only*는 해당 구성원에 대해 *Exchange Online(계획 2)* 서비스만 사용할 수 있도록 설계되어 있습니다.
+1. 원래 *Office 365 Enterprise E5* 제품을 여러 그룹에 할당했습니다. 해당 그룹 중 하나인 *O365 E5 - Exchange only* 는 해당 구성원에 대해 *Exchange Online(계획 2)* 서비스만 사용할 수 있도록 설계되어 있습니다.
 
-2. Microsoft에서 E5 제품이 새 서비스인 *Microsoft Stream*을 통해 확장될 것이라는 알림을 받았습니다. 조직에서 서비스를 사용할 수 있게 되 면 다음을 수행할 수 있습니다.
+2. Microsoft에서 E5 제품이 새 서비스인 *Microsoft Stream* 을 통해 확장될 것이라는 알림을 받았습니다. 조직에서 서비스를 사용할 수 있게 되 면 다음을 수행할 수 있습니다.
 
-3. [**Azure Active Directory > 라이선스 > 모든 제품**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 블레이드로 이동하고 *Office 365 Enterprise E5*, **허가된 그룹**을 차례로 선택하여 해당 제품을 가진 모든 그룹 목록을 표시합니다.
+3. [**Azure Active Directory > 라이선스 > 모든 제품**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 블레이드로 이동하고 *Office 365 Enterprise E5*, **허가된 그룹** 을 차례로 선택하여 해당 제품을 가진 모든 그룹 목록을 표시합니다.
 
 4. 검토할 그룹을 클릭합니다(이 경우 *O365 E5 - Exchange only*). 그러면 **라이선스** 탭이 열립니다. E5 라이선스를 클릭 하면 사용 하도록 설정 된 모든 서비스를 나열 하는 블레이드가 열립니다.
    > [!NOTE]
@@ -148,7 +148,7 @@ PowerShell 스크립트를 사용하여 사용자가 라이선스를 직접 할�
 
 ### <a name="find-out-who-modified-a-group-license"></a>라이선스 그룹을 수정한 사용자 확인
 
-1. **작업** 필터를 설정하여 *그룹 라이선스를 설정*하고 **적용**을 클릭합니다.
+1. **작업** 필터를 설정하여 *그룹 라이선스를 설정* 하고 **적용** 을 클릭합니다.
 2. 결과는 그룹에서 설정 또는 수정된 모든 라이선스 사례를 포함합니다.
    >[!TIP]
    > *대상* 필터에서 그룹의 이름을 입력하여 결과 범위를 지정할 수도 있습니다.
@@ -163,7 +163,7 @@ PowerShell 스크립트를 사용하여 사용자가 라이선스를 직접 할�
 
 그룹에 대한 라이선스가 변경되면 Azure AD는 모든 사용자에게 변경 내용을 적용하기 시작합니다.
 
-1. 그룹이 처리를 시작하는 시점을 표시하려면 **작업** 필터를 설정하여 *사용자에게 그룹 기반 라이선스를 적용하기 시작*합니다. 작업의 작업자는 *Microsoft Azure AD 그룹 기반 라이선스*이며 모든 그룹 라이선스 변경을 실행하는 데 사용되는 시스템 계정입니다.
+1. 그룹이 처리를 시작하는 시점을 표시하려면 **작업** 필터를 설정하여 *사용자에게 그룹 기반 라이선스를 적용하기 시작* 합니다. 작업의 작업자는 *Microsoft Azure AD 그룹 기반 라이선스* 이며 모든 그룹 라이선스 변경을 실행하는 데 사용되는 시스템 계정입니다.
    >[!TIP]
    > 목록에서 항목을 클릭하여 *속성 수정* 필드를 확인합니다. 여기서는 처리하기 위해 선택한 라이선스 변경 내용을 표시합니다. 그룹을 변경하고 처리할 항목이 확실하지 않은 경우에 유용합니다.
 
@@ -217,7 +217,7 @@ PowerShell 또는 Graph API를 통해 그룹을 삭제하려고 할 때 비슷�
 
 - 라이선스 관리 자동화는 모든 유형의 환경 변경 사항에 자동으로 응답하지 않습니다. 예를 들어 라이선스가 부족하여 일부 사용자가 오류 상태에 있을 수 있습니다. 사용 가능한 사용자 수를 확보하기 위해 직접 할당된 일부 라이선스를 다른 사용자에게서 제거할 수 있습니다. 그러나 시스템은 이러한 변경에 자동으로 대응하지 않고 해당 오류 상태에 있는 사용자를 수정합니다.
 
-  이러한 제한 사항을 해결하려면 Azure AD의 **그룹** 블레이드로 이동하여 **다시 처리**를 클릭하면 됩니다. 이 명령은 해당 그룹의 모든 사용자를 처리하고 가능한 경우 오류 상태를 해결합니다.
+  이러한 제한 사항을 해결하려면 Azure AD의 **그룹** 블레이드로 이동하여 **다시 처리** 를 클릭하면 됩니다. 이 명령은 해당 그룹의 모든 사용자를 처리하고 가능한 경우 오류 상태를 해결합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

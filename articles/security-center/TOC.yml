@@ -87,7 +87,7 @@
       href: security-center-powershell-onboarding.md
     - name: 관리 그룹에 Security Center 사용
       href: onboard-management-group.md
-    - name: 데이터 수집 구성
+    - name: 자동 프로비저닝 구성
       href: security-center-enable-data-collection.md
     - name: 이메일 알림 설정
       href: security-center-provide-security-contact-details.md
