@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a602405065a41cb26b2ae5303d12c45ed21616f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 224ccaeace91288171db42d2b8b8cf8c21a352e0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91741196"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652521"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
 
@@ -34,7 +34,7 @@ ms.locfileid: "91741196"
 
 ### <a name="check-status-of-the-feature-and-authentication-agents"></a>기능 및 인증 에이전트의 상태 확인
 
-테넌트에서 통과 인증 기능이 여전히 **사용**으로 설정되고 인증 에이전트의 상태가 **비활성**이 아닌 **활성**으로 표시되는지 확인합니다. [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)의 **Azure AD Connect** 블레이드로 이동하여 상태를 확인할 수 있습니다.
+테넌트에서 통과 인증 기능이 여전히 **사용** 으로 설정되고 인증 에이전트의 상태가 **비활성** 이 아닌 **활성** 으로 표시되는지 확인합니다. [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)의 **Azure AD Connect** 블레이드로 이동하여 상태를 확인할 수 있습니다.
 
 ![Azure Active Directory 관리 센터 - Azure AD Connect 블레이드](./media/tshoot-connect-pass-through-authentication/pta7.png)
 
@@ -44,7 +44,7 @@ ms.locfileid: "91741196"
 
 사용자가 통과 인증을 통해 로그인할 수 없는 경우 Azure AD 로그인 화면에서 다음과 같은 사용자 관련 오류 메시지 중 하나가 표시될 수 있습니다. 
 
-|Error|설명|해결 방법
+|오류|설명|해결 방법
 | --- | --- | ---
 |AADSTS80001|Active Directory에 연결할 수 없음|에이전트 서버가 자신의 암호에 대한 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트의 멤버이고 Active Directory에 연결할 수 있는지 확인합니다.  
 |AADSTS8002|Active Directory에 연결하는 동안 시간 초과 발생|Active Directory를 사용할 수 있고 에이전트의 요청에 응답하는지 확인합니다.
@@ -83,7 +83,7 @@ ms.locfileid: "91741196"
 
 ![Azure Active Directory 관리 센터 - 로그인 보고서](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-**Azure Active Directory**  ->  [Azure Active Directory 관리 센터](https://aad.portal.azure.com/) 에서 Azure Active Directory**로그인** 으로 이동 하 고 특정 사용자의 로그인 활동을 클릭 합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
+**Azure Active Directory**  ->  [Azure Active Directory 관리 센터](https://aad.portal.azure.com/) 에서 Azure Active Directory **로그인** 으로 이동 하 고 특정 사용자의 로그인 활동을 클릭 합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
 
 |로그인 오류 코드|로그인 실패 이유|해결 방법
 | --- | --- | ---
@@ -92,7 +92,7 @@ ms.locfileid: "91741196"
 | 80002 | 인증 에이전트의 암호 유효성 검사 요청 시간이 초과되었습니다. | 인증 에이전트에서 Active Directory에 연결할 수 있는지 확인합니다.
 | 80003 | 인증 에이전트에서 받은 응답이 잘못되었습니다. | 여러 사용자 간에 일관되게 재현될 수 있는 문제이면 Active Directory 구성을 확인합니다.
 | 80004 | 로그인 요청에 잘못된 UPN(사용자 계정 이름)이 사용되었습니다. | 사용자에게 올바른 사용자 이름으로 로그인하도록 요청합니다.
-| 80005 | 인증 에이전트: 오류가 발생했습니다. | 일시적인 오류입니다. 나중에 다시 시도하십시오.
+| 80005 | 인증 에이전트: 오류가 발생했습니다. | 일시적인 오류입니다. 나중에 다시 시도하세요.
 | 80007 | 인증 에이전트에서 Active Directory에 연결할 수 없습니다. | 인증 에이전트에서 Active Directory에 연결할 수 있는지 확인합니다.
 | 80010 | 인증 에이전트에서 암호를 해독할 수 없습니다. | 일관되게 재현될 수 있는 문제이면 새 인증 에이전트를 설치하고 등록합니다. 그리고 현재의 인증 에이전트는 제거합니다. 
 | 80011 | 인증 에이전트에서 암호 해독 키를 검색할 수 없습니다. | 일관되게 재현될 수 있는 문제이면 새 인증 에이전트를 설치하고 등록합니다. 그리고 현재의 인증 에이전트는 제거합니다.
@@ -149,17 +149,19 @@ Azure AD Connect가 설치된 서버가 [여기](how-to-connect-pta-quick-start.
 
 ### <a name="azure-ad-connect-logs"></a>Azure AD Connect 로그
 
-설치와 관련된 오류에 대해서는 **%ProgramData%\AADConnect\trace-\*.log**에서 Azure AD Connect 로그를 확인하세요.
+설치와 관련된 오류에 대해서는 **%ProgramData%\AADConnect\trace-\*.log** 에서 Azure AD Connect 로그를 확인하세요.
 
 ### <a name="authentication-agent-event-logs"></a>인증 에이전트 이벤트 로그
 
-인증 에이전트 관련 오류의 경우 서버에서 이벤트 뷰어 애플리케이션을 열고 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**에서 확인합니다.
+인증 에이전트 관련 오류의 경우 서버에서 이벤트 뷰어 애플리케이션을 열고 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin** 에서 확인합니다.
 
 자세한 분석을 위해 "세션" 로그를 활성화합니다(이벤트 뷰어 애플리케이션 내에서 마우스 오른쪽 단추로 클릭하여 이 옵션을 찾습니다). 정상 작동 중에는 이 로그를 활성화한 상태에서 인증 에이전트를 실행하지 마세요. 문제 해결에만 이 로그를 사용하세요. 로그 내용은 로그를 다시 비활성화한 후에만 볼 수 있습니다.
 
+PTA 에이전트 이벤트 매니페스트는 [여기](https://msazure.visualstudio.com/One/_git/AD-AppProxy?path=%2Fsrc%2FProduct%2FMUC%2FPTADiagnosticsResource%2FPTADiagnosticsResource%2FPTAConnectorDiagnosticsResource%2FPTAConnectorEventManifest.man&_a=contents&version=GBmaster)에서 찾을 수 있습니다.
+
 ### <a name="detailed-trace-logs"></a>자세한 추적 로그
 
-사용자 로그인 실패 문제를 해결하려면 **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**에서 추적 로그를 찾습니다. 이러한 로그에는 통과 인증 기능을 통해 특정 사용자 로그인이 실패한 이유가 포함되어 있습니다. 이러한 오류는 이전의 로그인 실패 이유 표에 나오는 로그인 실패 이유에도 매핑됩니다. 다음은 로그 항목의 예제입니다.
+사용자 로그인 실패 문제를 해결하려면 **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\** 에서 추적 로그를 찾습니다. 이러한 로그에는 통과 인증 기능을 통해 특정 사용자 로그인이 실패한 이유가 포함되어 있습니다. 이러한 오류는 이전의 로그인 실패 이유 표에 나오는 로그인 실패 이유에도 매핑됩니다. 다음은 로그 항목의 예제입니다.
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

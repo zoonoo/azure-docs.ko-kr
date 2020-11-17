@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3e6ea6692a81a06bbf3180904dfb465a88b105d1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413006"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653422"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -40,9 +40,9 @@ Azure Firewall은 규칙 및 규칙 컬렉션을 지원합니다. 규칙 컬렉�
 
 다음과 같은 세 가지 유형의 규칙 컬렉션이 있습니다.
 
-* *애플리케이션 규칙* : 서브넷에서 액세스할 수 있는 FQDN(정규화된 도메인 이름)을 구성합니다.
-* *네트워크 규칙* : 원본 주소, 프로토콜, 대상 포트 및 대상 주소를 포함하는 규칙을 구성합니다.
-* *NAT 규칙* : 들어오는 인터넷 연결을 허용하도록 DNAT 규칙을 구성합니다.
+* *애플리케이션 규칙*: 서브넷에서 액세스할 수 있는 FQDN(정규화된 도메인 이름)을 구성합니다.
+* *네트워크 규칙*: 원본 주소, 프로토콜, 대상 포트 및 대상 주소를 포함하는 규칙을 구성합니다.
+* *NAT 규칙*: 들어오는 인터넷 연결을 허용하도록 DNAT 규칙을 구성합니다.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Azure Firewall은 인바운드 트래픽 필터링을 지원하나요?
 
@@ -50,7 +50,7 @@ Azure Firewall은 인바운드 및 아웃바운드 필터링을 지원합니다.
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Azure Firewall에서는 어떤 로깅 및 분석 서비스를 지원하나요?
 
-Azure Firewall은 방화벽 로그를 살펴보고 분석할 수 있도록 Azure Monitor와 통합됩니다. 로그를 Log Analytics, Azure Storage 또는 Event Hubs로 전송할 수 있습니다. 전송된 로그를 Log Analytics 또는 Excel이나 Power BI 같은 다른 도구에서 분석할 수 있습니다. 자세한 내용은 [자습서: Azure Firewall 로그 모니터링](tutorial-diagnostics.md)을 참조하세요.
+Azure Firewall은 방화벽 로그를 살펴보고 분석할 수 있도록 Azure Monitor와 통합됩니다. 로그를 Log Analytics, Azure Storage 또는 Event Hubs로 전송할 수 있습니다. 전송된 로그를 Log Analytics 또는 Excel이나 Power BI 같은 다른 도구에서 분석할 수 있습니다. 자세한 내용은 [자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)을 참조하세요.
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Azure Firewall이 Marketplace의 NVA와 같은 기존 서비스와 어떻게 다르게 작동하나요?
 
@@ -139,9 +139,9 @@ Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewa
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>와일드카드는 애플리케이션 규칙 대상 FQDN에서 어떻게 작동하나요?
 
-와일드 카드는 현재 FQDN의 왼쪽에만 사용할 수 있습니다. 예: * *_. contoso.com_* 및 * *_contoso.com_*.
+와일드 카드는 현재 FQDN의 왼쪽에만 사용할 수 있습니다. 예: **_. contoso.com_* 및 **_contoso.com_*.
 
-* *_. Contoso.com_* 을 구성 하는 경우 contoso.com (도메인 apex)가 아닌 *anyvalue*. contoso.com가 허용 됩니다. 도메인 정점을 허용하려면 대상 FQDN으로 명시적으로 구성해야 합니다.
+**_. Contoso.com_* 을 구성 하는 경우 contoso.com (도메인 apex)가 아닌 *anyvalue*. contoso.com가 허용 됩니다. 도메인 정점을 허용하려면 대상 FQDN으로 명시적으로 구성해야 합니다.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>*프로비저닝 상태: 실패* 는 무엇을 의미하나요?
 
@@ -217,7 +217,7 @@ TCP ping은 실제로는 대상 FQDN에 연결하지 않습니다. 이러한 상
 
 ## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Azure 방화벽에 대 한 TCP 유휴 시간 제한은 무엇 인가요?
 
-네트워크 방화벽의 표준 동작은 TCP 연결을 활성 상태로 유지 하 고 작업이 없는 경우 즉시 종료 하는 것입니다. Azure 방화벽 TCP 유휴 시간 제한은 4 분입니다. 이 설정은 구성할 수 없습니다. 비활성 기간이 시간 제한 값 보다 길면 TCP 또는 HTTP 세션이 유지 되지 않을 수 있습니다. 일반적인 방법은 TCP 연결 유지를 사용하는 것입니다. 이 방법은 더 오랜 기간 동안 연결을 활성 상태로 유지합니다. 자세한 내용은 [.net 예제](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_)를 참조 하십시오.
+네트워크 방화벽의 표준 동작은 TCP 연결을 활성 상태로 유지 하 고 작업이 없는 경우 즉시 종료 하는 것입니다. Azure 방화벽 TCP 유휴 시간 제한은 4 분입니다. 이 설정은 구성할 수 없습니다. 비활성 기간이 시간 제한 값 보다 길면 TCP 또는 HTTP 세션이 유지 되지 않을 수 있습니다. 일반적인 방법은 TCP 연결 유지를 사용하는 것입니다. 이 방법은 더 오랜 기간 동안 연결을 활성 상태로 유지합니다. 자세한 내용은 [.net 예제](/dotnet/api/system.net.servicepoint.settcpkeepalive?view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_)를 참조 하십시오.
 
 ## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>공용 IP 주소 없이 Azure 방화벽을 배포할 수 있나요?
 

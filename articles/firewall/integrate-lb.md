@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: 3bde4c11e9dc34be13efb25864fe75054d22bddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b8fbc47b46f8be6e4ad7636a1d7552445501f0f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91363106"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653167"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Azure 표준 Load Balancer에 Azure Firewall 통합
 
@@ -77,7 +77,7 @@ Azure Firewall을 서브넷에 배포할 때 한 가지 단계는 AzureFirewallS
 
 ![네트워크 보안 그룹](media/integrate-lb/nsg-01.png)
 
-NSGs에 대 한 자세한 내용은 [보안 그룹](../virtual-network/security-overview.md)을 참조 하세요.
+NSGs에 대 한 자세한 내용은 [보안 그룹](../virtual-network/network-security-groups-overview.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
