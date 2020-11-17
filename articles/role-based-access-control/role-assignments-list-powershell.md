@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e27fe0589498de13f5eb6e17f8869bb9d7352a09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53f31bca59bf316b6664a6c9daec886c84c1b072
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372079"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648347"
 ---
 # <a name="list-azure-role-assignments-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 역할 할당 나열
 
@@ -32,7 +32,7 @@ ms.locfileid: "87372079"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure Cloud Shell 또는 [Azure PowerShell](/powershell/azure/install-az-ps) [의 PowerShell](/azure/cloud-shell/overview)
+- Azure Cloud Shell 또는 [Azure PowerShell](/powershell/azure/install-az-ps) [의 PowerShell](../cloud-shell/overview.md)
 
 ## <a name="list-role-assignments-for-the-current-subscription"></a>현재 구독에 대 한 역할 할당 나열
 

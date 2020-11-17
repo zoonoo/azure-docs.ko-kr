@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: badf10da8af0ed3829deb2498b51b5d5c8ce6a93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56b6638462acaf43b6353787495e5b7993acb413
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604410"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648279"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>역할 할당을 추가하는 단계
 
@@ -22,18 +22,18 @@ ms.locfileid: "91604410"
 
 ## <a name="step-1-determine-who-needs-access"></a>1 단계: 액세스 해야 하는 사용자 확인
 
-먼저 액세스 해야 하는 사용자를 결정 해야 합니다. 사용자, 그룹, 서비스 주체 또는 관리 id에 역할을 할당할 수 있습니다. 이를 *보안 주체*라고도 합니다.
+먼저 액세스 해야 하는 사용자를 결정 해야 합니다. 사용자, 그룹, 서비스 주체 또는 관리 id에 역할을 할당할 수 있습니다. 이를 *보안 주체* 라고도 합니다.
 
 ![역할 할당에 대한 보안 주체](./media/shared/rbac-security-principal.png)
 
-- 사용자 - Azure Active Directory에 프로필이 있는 개인. 다른 테넌트의 사용자에게 역할을 할당할 수도 있습니다. 다른 조직의 사용자에 대한 내용은 [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md)를 참조하세요.
+- 사용자 - Azure Active Directory에 프로필이 있는 개인. 다른 테넌트의 사용자에게 역할을 할당할 수도 있습니다. 다른 조직의 사용자에 대한 내용은 [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md)를 참조하세요.
 - 그룹 - Azure Active Directory에서 만든 사용자 집합. 그룹에 역할을 할당하면 해당 그룹의 모든 사용자가 같은 역할을 갖습니다. 
 - 서비스 주체 - 애플리케이션 또는 서비스에서 특정 Azure 리소스에 액세스하기 위해 사용하는 보안 ID. 애플리케이션의 *사용자 ID*(사용자 이름과 암호 또는 인증서)로 생각하시면 됩니다.
 - 관리 ID - Azure에서 자동으로 관리되는 Azure Active Directory의 ID입니다. 일반적으로 Azure 서비스에 인증하기 위한 자격 증명을 관리하는 클라우드 애플리케이션을 개발하는 경우 [ID 관리](../active-directory/managed-identities-azure-resources/overview.md)를 사용합니다.
 
 ## <a name="step-2-find-the-appropriate-role"></a>2 단계: 적절 한 역할 찾기
 
-사용 권한은 *역할 정의*에 함께 그룹화 됩니다. 일반적으로 단지 *역할*이라고 합니다. 여러 기본 제공 역할 목록에서 선택할 수 있습니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들면 됩니다.
+사용 권한은 *역할 정의* 에 함께 그룹화 됩니다. 일반적으로 단지 *역할* 이라고 합니다. 여러 기본 제공 역할 목록에서 선택할 수 있습니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들면 됩니다.
 
 ![역할 할당에 대한 역할 정의](./media/shared/rbac-role-definition.png)
 
@@ -58,11 +58,11 @@ ms.locfileid: "91604410"
 
 ## <a name="step-3-identify-the-needed-scope"></a>3 단계: 필요한 범위 확인
 
-*범위*는 액세스가 적용되는 리소스의 세트입니다. Azure에서 [관리 그룹](../governance/management-groups/overview.md), 구독, [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups)및 리소스의 네 가지 수준으로 범위를 지정할 수 있습니다. 범위는 부모-자식 관계로 구조화되어 있습니다. 계층의 각 수준은 범위를 보다 구체적으로 만듭니다. 이러한 범위 수준에서 역할을 할당할 수 있습니다. 선택한 수준에 따라 역할이 적용 되는 방식이 결정 됩니다. 하위 수준은 상위 수준에서 역할 권한을 상속 합니다. 
+*범위* 는 액세스가 적용되는 리소스의 세트입니다. Azure에서 [관리 그룹](../governance/management-groups/overview.md), 구독, [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups)및 리소스의 네 가지 수준으로 범위를 지정할 수 있습니다. 범위는 부모-자식 관계로 구조화되어 있습니다. 계층의 각 수준은 범위를 보다 구체적으로 만듭니다. 이러한 범위 수준에서 역할을 할당할 수 있습니다. 선택한 수준에 따라 역할이 적용 되는 방식이 결정 됩니다. 하위 수준은 상위 수준에서 역할 권한을 상속 합니다. 
 
 ![역할 할당 범위](./media/shared/rbac-scope.png)
 
-부모 범위에서 역할을 할당 하는 경우 해당 사용 권한은 자식 범위로 상속 됩니다. 예를 들면 다음과 같습니다.
+부모 범위에서 역할을 할당 하는 경우 해당 사용 권한은 자식 범위로 상속 됩니다. 예를 들어:
 
 - 관리 그룹 범위에서 사용자에 게 읽기 [권한자](built-in-roles.md#reader) 역할을 할당 하는 경우 해당 사용자는 관리 그룹의 모든 구독에 있는 모든 항목을 읽을 수 있습니다.
 - 구독 범위에서 그룹에 [청구 읽기 권한자](built-in-roles.md#billing-reader) 역할을 할당 하는 경우 해당 그룹의 구성원은 구독의 모든 리소스 그룹 및 리소스에 대 한 청구 데이터를 읽을 수 있습니다.
@@ -81,7 +81,7 @@ ms.locfileid: "91604410"
 
 ## <a name="step-5-add-role-assignment"></a>5단계. 역할 할당 추가
 
-보안 주체, 역할 및 범위를 알고 있으면 역할을 할당할 수 있습니다. Azure Portal, Azure PowerShell, Azure CLI, Azure Sdk 또는 REST Api를 사용 하 여 역할 할당을 추가할 수 있습니다. 각 구독에서 최대 **2000**개의 역할 할당을 유지할 수 있습니다. 이 제한에는 구독, 리소스 그룹 및 리소스 범위의 역할 할당이 포함됩니다. 각 관리 그룹에서 최대 **500**개의 역할 할당을 유지할 수 있습니다.
+보안 주체, 역할 및 범위를 알고 있으면 역할을 할당할 수 있습니다. Azure Portal, Azure PowerShell, Azure CLI, Azure Sdk 또는 REST Api를 사용 하 여 역할 할당을 추가할 수 있습니다. 각 구독에서 최대 **2000** 개의 역할 할당을 유지할 수 있습니다. 이 제한에는 구독, 리소스 그룹 및 리소스 범위의 역할 할당이 포함됩니다. 각 관리 그룹에서 최대 **500** 개의 역할 할당을 유지할 수 있습니다.
 
 역할 할당을 추가 하는 방법에 대 한 자세한 단계는 다음 문서를 확인 하세요.
 

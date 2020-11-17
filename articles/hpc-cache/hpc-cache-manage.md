@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 19950ca215abbac3a56bdb901448c9d92ad369be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 067b12d4dcfd5ba2b730204ef680b900d79f1b72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613056"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648075"
 ---
 # <a name="manage-your-cache"></a>캐시 관리
 
@@ -46,11 +46,11 @@ Azure Portal의 캐시 개요 페이지에는 캐시에 대 한 프로젝트 세
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
-**중지** 단추를 클릭 하면 활성 캐시가 일시 중단 됩니다. **중지** 단추는 캐시의 상태가 **정상** 이거나 **저하**된 경우에 사용할 수 있습니다.
+**중지** 단추를 클릭 하면 활성 캐시가 일시 중단 됩니다. **중지** 단추는 캐시의 상태가 **정상** 이거나 **저하** 된 경우에 사용할 수 있습니다.
 
 ![중지를 강조 표시 한 위쪽 단추의 스크린샷 및 중지 작업을 설명 하 고 ' 계속 하 시겠습니까? ' 라는 팝업 메시지 예 (기본값) 및 아니요 단추](media/stop-cache.png)
 
-예를 클릭 하 여 캐시 중지를 확인 한 후 캐시에서 해당 콘텐츠를 저장소 대상에 자동으로 플러시합니다. 이 프로세스는 다소 시간이 걸릴 수 있지만 데이터 일관성을 보장 합니다. 마지막으로 캐시 상태가 **중지 됨**으로 변경 됩니다.
+예를 클릭 하 여 캐시 중지를 확인 한 후 캐시에서 해당 콘텐츠를 저장소 대상에 자동으로 플러시합니다. 이 프로세스는 다소 시간이 걸릴 수 있지만 데이터 일관성을 보장 합니다. 마지막으로 캐시 상태가 **중지 됨** 으로 변경 됩니다.
 
 중지 된 캐시를 다시 활성화 하려면 **시작** 단추를 클릭 합니다. 확인은 필요 하지 않습니다.
 
@@ -58,13 +58,13 @@ Azure Portal의 캐시 개요 페이지에는 캐시에 대 한 프로젝트 세
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[AZURE HPC 캐시에 대 한 Azure CLI를 설정](./az-cli-prerequisites.md)합니다.
 
-[Az hpc cache stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) 명령을 사용 하 여 캐시를 임시로 일시 중단 합니다. 이 작업은 캐시 상태가 **정상** 또는 **저하**인 경우에만 유효 합니다.
+[Az hpc cache stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) 명령을 사용 하 여 캐시를 임시로 일시 중단 합니다. 이 작업은 캐시 상태가 **정상** 또는 **저하** 인 경우에만 유효 합니다.
 
 캐시는 중지 하기 전에 해당 콘텐츠를 저장소 대상에 자동으로 플러시합니다. 이 프로세스는 다소 시간이 걸릴 수 있지만 데이터 일관성을 보장 합니다.
 
-작업이 완료 되 면 캐시 상태가 **중지 됨**으로 변경 됩니다.
+작업이 완료 되 면 캐시 상태가 **중지 됨** 으로 변경 됩니다.
 
 [Az hpc-cache start](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-start)를 사용 하 여 중지 된 캐시를 다시 활성화 합니다.
 
@@ -99,11 +99,11 @@ $ az hpc-cache start --name doc-cache0629
 > [!NOTE]
 > 플러시 프로세스 중에 캐시는 클라이언트 요청을 처리할 수 없습니다. 작업이 완료 된 후에 캐시 액세스가 일시 중단 되 고 다시 시작 됩니다.
 
-캐시 플러시 작업을 시작 하면 캐시에서 클라이언트 요청 수락이 중지 되 고 개요 페이지의 캐시 상태가 **플러시하**로 변경 됩니다.
+캐시 플러시 작업을 시작 하면 캐시에서 클라이언트 요청 수락이 중지 되 고 개요 페이지의 캐시 상태가 **플러시하** 로 변경 됩니다.
 
 캐시의 데이터는 적절 한 저장소 대상에 저장 됩니다. 플러시된 데이터 양에 따라 프로세스는 몇 분 정도 걸릴 수 있습니다.
 
-모든 데이터가 저장소 대상에 저장 되 고 나면 캐시가 자동으로 클라이언트 요청을 다시 가져오기 시작 합니다. 캐시 상태가 **정상**으로 돌아갑니다.
+모든 데이터가 저장소 대상에 저장 되 고 나면 캐시가 자동으로 클라이언트 요청을 다시 가져오기 시작 합니다. 캐시 상태가 **정상** 으로 돌아갑니다.
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -113,11 +113,11 @@ $ az hpc-cache start --name doc-cache0629
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[AZURE HPC 캐시에 대 한 Azure CLI를 설정](./az-cli-prerequisites.md)합니다.
 
 [Az hpc-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) 를 사용 하 여 캐시에서 변경 된 모든 데이터를 저장소 대상에 쓰도록 합니다.
 
-예제:
+예:
 
 ```azurecli
 $ az hpc-cache flush --name doc-cache0629 --resource-group doc-rg
@@ -161,7 +161,7 @@ $
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[AZURE HPC 캐시에 대 한 Azure CLI를 설정](./az-cli-prerequisites.md)합니다.
 
 Azure CLI에서 새 소프트웨어 정보는 캐시 상태 보고서의 끝에 포함 됩니다. (확인 하려면 [az hpc cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) 를 사용 하십시오.) 메시지에서 "upgradeStatus" 문자열을 찾습니다.
 
@@ -225,11 +225,11 @@ Microsoft 서비스 및 지원에서 요청 하는 경우이 컨트롤을 사용
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[AZURE HPC 캐시에 대 한 Azure CLI를 설정](./az-cli-prerequisites.md)합니다.
 
 Azure CLI 명령 [az hpc-cache delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) 를 사용 하 여 캐시를 영구적으로 제거 합니다.
 
-예제:
+예:
 ```azurecli
 $ az hpc-cache delete --name doc-cache0629
  - Running ..

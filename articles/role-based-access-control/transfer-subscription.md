@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: 3289f8a22e5601552ec6d44c7d37195b06913fde
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ad0ba3c63f6f0ef6e7e02051031cf215c2e72cce
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545347"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648245"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Azure 구독을 다른 Azure AD 디렉터리에 전송
 
@@ -83,11 +83,11 @@ ms.locfileid: "92545347"
 > [!WARNING]
 > 전송 중인 동일한 구독에 **없는** key vault에 대 한 종속성이 있는 리소스 (예: 저장소 계정 또는 SQL 데이터베이스)에 미사용 암호화를 사용 하는 경우 복구할 수 없는 시나리오가 발생할 수 있습니다. 이러한 상황이 발생 하는 경우 다른 키 자격 증명 모음을 사용 하거나 고객이 관리 하는 키를 일시적으로 사용 하지 않도록 설정 하 여이 복구할 수 없는 시나리오를 방지 해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 단계를 완료 하려면 다음이 필요 합니다.
 
-- Azure Cloud Shell 또는 [Azure CLI](/cli/azure) [의 Bash](/azure/cloud-shell/overview)
+- Azure Cloud Shell 또는 [Azure CLI](/cli/azure) [의 Bash](../cloud-shell/overview.md)
 - 원본 디렉터리에서 전송 하려는 구독의 계정 관리자
 - 대상 디렉터리의 [소유자](built-in-roles.md#owner) 역할
 
@@ -314,7 +314,7 @@ ms.locfileid: "92545347"
 
 1. 시스템 할당 관리 id를 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 합니다.
 
-    | Azure 서비스 | 자세한 정보 | 
+    | Azure 서비스 | 추가 정보 | 
     | --- | --- |
     | 가상 머신 | [Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#system-assigned-managed-identity) |
     | 가상 머신 크기 집합 | [Azure CLI를 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
@@ -330,7 +330,7 @@ ms.locfileid: "92545347"
 
 1. 사용자 할당 관리 id를 삭제 하 고, 다시 만들고, 연결 합니다.
 
-    | Azure 서비스 | 자세한 정보 | 
+    | Azure 서비스 | 추가 정보 | 
     | --- | --- |
     | 가상 머신 | [Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) |
     | 가상 머신 크기 집합 | [Azure CLI를 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |

@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16af484e77787ee1d729ce97eec8c666bf925837
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 873a87ed2c75d41e0a249bde4b6a29921b7e5ce5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763587"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648058"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
@@ -117,13 +117,13 @@ Azure Active Directory PowerShell cmdlet을 사용 하 여 HRD 정책을 만들�
 
 정책 형식은 “HomeRealmDiscoveryPolicy”입니다.
 
-**AccelerateToFederatedDomain**은 선택 사항입니다. **AccelerateToFederatedDomain**이 false인 경우 정책이 자동 가속에 영향을 주지 않습니다. **AccelerateToFederatedDomain**이 true이고 테넌트에 확인되고 페더레이션된 도메인이 하나만 있는 경우, 사용자가 페더레이션된 IdP로 바로 이동되어 로그인할 수 있습니다. true이고 테넌트에 확인된 도메인이 둘 이상 있는 경우 **PreferredDomain**을 지정해야 합니다.
+**AccelerateToFederatedDomain** 은 선택 사항입니다. **AccelerateToFederatedDomain** 이 false인 경우 정책이 자동 가속에 영향을 주지 않습니다. **AccelerateToFederatedDomain** 이 true이고 테넌트에 확인되고 페더레이션된 도메인이 하나만 있는 경우, 사용자가 페더레이션된 IdP로 바로 이동되어 로그인할 수 있습니다. true이고 테넌트에 확인된 도메인이 둘 이상 있는 경우 **PreferredDomain** 을 지정해야 합니다.
 
-**PreferredDomain**은 선택 사항입니다. **PreferredDomain**은 가속화하는 도메인을 나타내야 합니다. 테넌트에 페더레이션된 도메인이 단 하나인 경우 생략할 수 있습니다.  이 항목이 생략되고 확인된 페더레이션된 도메인이 2개 이상 있는 경우 정책은 적용되지 않습니다.
+**PreferredDomain** 은 선택 사항입니다. **PreferredDomain** 은 가속화하는 도메인을 나타내야 합니다. 테넌트에 페더레이션된 도메인이 단 하나인 경우 생략할 수 있습니다.  이 항목이 생략되고 확인된 페더레이션된 도메인이 2개 이상 있는 경우 정책은 적용되지 않습니다.
 
- **PreferredDomain**이 지정된 경우 테넌트에 대한 확인된 페더레이션된 도메인이 일치해야 합니다. 애플리케이션의 모든 사용자가 해당 도메인에 로그인할 수 있어야 합니다.
+ **PreferredDomain** 이 지정된 경우 테넌트에 대한 확인된 페더레이션된 도메인이 일치해야 합니다. 애플리케이션의 모든 사용자가 해당 도메인에 로그인할 수 있어야 합니다.
 
-**AllowCloudPasswordValidation**은 선택 사항입니다. **AllowCloudPasswordValidation**이 true인 경우 애플리케이션에서 사용자 이름/암호 자격 증명을 Azure Active Directory 토큰 엔드포인트에 직접 표시하여 페더레이션 사용자를 인증할 수 있습니다. 암호 해시 동기화가 사용되는 경우에만 작동합니다.
+**AllowCloudPasswordValidation** 은 선택 사항입니다. **AllowCloudPasswordValidation** 이 true인 경우 애플리케이션에서 사용자 이름/암호 자격 증명을 Azure Active Directory 토큰 엔드포인트에 직접 표시하여 페더레이션 사용자를 인증할 수 있습니다. 암호 해시 동기화가 사용되는 경우에만 작동합니다.
 
 ### <a name="priority-and-evaluation-of-hrd-policies"></a>HRD 정책의 우선 순위 및 평가
 HRD 정책을 만들어 특정 조직 및 서비스 주체에 할당할 수 있습니다. 즉, 여러 정책을 특정 애플리케이션에 적용할 수 있습니다. 적용되는 HRD 정책은 다음 규칙을 따릅니다.
@@ -195,7 +195,7 @@ New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPass
 ```
 
 
-새 정책을 보고 해당 **ObjectID**를 가져오려면 다음 명령을 실행 합니다.
+새 정책을 보고 해당 **ObjectID** 를 가져오려면 다음 명령을 실행 합니다.
 
 ``` powershell
 Get-AzureADPolicy
@@ -205,9 +205,9 @@ Get-AzureADPolicy
 HRD 정책을 만든 후에 적용하려면 여러 애플리케이션 서비스 주체에 할당하면 됩니다.
 
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>2단계: 정책을 할당할 서비스 주체 찾기  
-정책을 할당할 서비스 주체의 **ObjectID**가 필요합니다. 여러 가지 방법으로 서비스 주체의 **ObjectID**를 찾을 수 있습니다.    
+정책을 할당할 서비스 주체의 **ObjectID** 가 필요합니다. 여러 가지 방법으로 서비스 주체의 **ObjectID** 를 찾을 수 있습니다.    
 
-포털을 사용하거나 [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)를 쿼리할 수 있습니다. [Graph 탐색기 도구](https://developer.microsoft.com/graph/graph-explorer)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다. 
+포털을 사용하거나 [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta)를 쿼리할 수 있습니다. [Graph 탐색기 도구](https://developer.microsoft.com/graph/graph-explorer)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다. 
 
 PowerShell을 사용 하 고 있기 때문에 다음 cmdlet을 사용 하 여 서비스 주체 및 해당 Id를 나열할 수 있습니다.
 
@@ -216,7 +216,7 @@ Get-AzureADServicePrincipal
 ```
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3단계: 서비스 주체에게 정책 할당  
-자동 가속을 구성하려는 애플리케이션의 서비스 주체 **ObjectID**를 찾은 후 다음 명령을 실행합니다. 이 명령은 1단계에서 만든 HRD 정책을 2단계에서 찾은 서비스 주체에 연결합니다.
+자동 가속을 구성하려는 애플리케이션의 서비스 주체 **ObjectID** 를 찾은 후 다음 명령을 실행합니다. 이 명령은 1단계에서 만든 HRD 정책을 2단계에서 찾은 서비스 주체에 연결합니다.
 
 ``` powershell
 Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
@@ -227,7 +227,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefOb
 이미 애플리케이션에 HomeRealmDiscovery 정책이 할당되어 있는 경우 두 번째 정책은 추가할 수 없습니다.  이 경우 추가 매개 변수를 추가하기 위해 애플리케이션에 할당된 홈 영역 검색 정책의 정의를 변경합니다.
 
 #### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>4단계: HRD 정책에 할당된 애플리케이션 서비스 주체 확인
-HRD 정책이 구성되어 있는 애플리케이션을 확인하려면 **Get-AzureADPolicyAppliedObject** cmdlet을 사용합니다. 확인하려는 정책의 **ObjectID**를 전달합니다.
+HRD 정책이 구성되어 있는 애플리케이션을 확인하려면 **Get-AzureADPolicyAppliedObject** cmdlet을 사용합니다. 확인하려는 정책의 **ObjectID** 를 전달합니다.
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
@@ -243,7 +243,7 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 Get-AzureADPolicy
 ```
 
-할당을 나열하려는 정책의 **ObjectID**를 적어둡니다.
+할당을 나열하려는 정책의 **ObjectID** 를 적어둡니다.
 
 #### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>2단계: 정책이 할당된 서비스 주체 나열  
 
@@ -253,7 +253,7 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 
 ### <a name="example-remove-an-hrd-policy-from-an-application"></a>예: 응용 프로그램에서 HRD 정책을 제거 합니다.
 #### <a name="step-1-get-the-objectid"></a>1단계: ObjectID 가져오기
-앞의 예제를 사용하여 제거하려는 애플리케이션 서비스 주체의 정책 **ObjectID**를 가져옵니다. 
+앞의 예제를 사용하여 제거하려는 애플리케이션 서비스 주체의 정책 **ObjectID** 를 가져옵니다. 
 
 #### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>2단계: 애플리케이션 서비스 주체에서 정책 할당 제거  
 
@@ -267,6 +267,6 @@ Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -P
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>다음 단계
-- Azure AD에서 인증이 작동하는 방법에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../develop/authentication-scenarios.md)를 참조하세요.
+- Azure AD에서 인증이 작동하는 방법에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../develop/authentication-vs-authorization.md)를 참조하세요.
 - 사용자 Single Sign-On에 대 한 자세한 내용은 [Azure Active Directory의 응용 프로그램에 대 한 single sign-on을](what-is-single-sign-on.md)참조 하세요.
 - [Microsoft id 플랫폼](../develop/v2-overview.md) 을 방문 하 여 모든 개발자 관련 콘텐츠에 대 한 개요를 확인 하세요.

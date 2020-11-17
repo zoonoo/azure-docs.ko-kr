@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0b1db07c40a38eec24ab88bb451dbfb46c5edac
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f20a9569121903fd63b919cde223392377872c35
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377062"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649656"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD와 계정 공유
 
@@ -45,7 +45,7 @@ ms.locfileid: "92377062"
 
 Azure AD는 이러한 단점을 제거하는 새로운 방법의 공유 계정 사용을 제공합니다.
 
-Azure AD 관리자는 해당 애플리케이션에 대해 액세스 패널을 사용하고 가장 적합한 Single Sign On 형식을 선택하여 액세스할 수 있는 애플리케이션을 구성합니다. 이러한 유형 중 하나인 *암호 기반 Single Sign-on*을 통해 Azure AD는 해당 앱의 로그온 프로세스 중에 일종의 "broker"로 작동합니다.
+Azure AD 관리자는 해당 애플리케이션에 대해 액세스 패널을 사용하고 가장 적합한 Single Sign On 형식을 선택하여 액세스할 수 있는 애플리케이션을 구성합니다. 이러한 유형 중 하나인 *암호 기반 Single Sign-on* 을 통해 Azure AD는 해당 앱의 로그온 프로세스 중에 일종의 "broker"로 작동합니다.
 
 사용자가 조직 계정으로 한 번 로그인합니다. 정기적으로 데스크톱 또는 이메일에 액세스하는 데 사용하는 것과 동일한 계정입니다. 사용자는 자신에게 할당된 애플리케이션만 확인하고 액세스할 수 있습니다. 공유 계정을 사용하면 이 애플리케이션 목록이 수에 관계없이 공유 자격 증명을 포함할 수 있습니다. 최종 사용자는 자신이 사용하는 다양한 계정을 기억하거나 기록해 둘 필요가 없습니다.
 

@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: e337cef9121dc5992f87b9996cfd01d16d9cc188
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cf8c8e7d56f4eff351361edd148f91e81a07bfbb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309371"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649146"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure 리소스 공급자 작업
 
@@ -792,7 +792,7 @@ Azure 서비스: 클래식 배포 모델 가상 네트워크
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
-Azure 서비스: [Application Gateway](../application-gateway/index.yml), [azure 방호](../bastion/index.yml), [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md), [Azure DNS](../dns/index.yml), [Azure Express](../expressroute/index.yml)경로, Azure [방화벽](../firewall/index.yml), azure [Front 도어 서비스](../frontdoor/index.yml), [azure 개인 링크](../private-link/index.yml), [Load Balancer](../load-balancer/index.yml), Network Watcher [, Traffic Manager](../traffic-manager/index.yml), [Virtual Network](../virtual-network/index.yml), [가상 WAN](../virtual-wan/index.yml), [VPN Gateway](../vpn-gateway/index.yml) [Network Watcher](../network-watcher/index.yml)
+Azure 서비스: [Application Gateway](../application-gateway/index.yml), [azure 방호](../bastion/index.yml), [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md), [Azure DNS](../dns/index.yml), [Azure Express](../expressroute/index.yml)경로, Azure [방화벽](../firewall/index.yml), azure [Front 도어 서비스](../frontdoor/index.yml), [azure 개인 링크](../private-link/index.yml), [Load Balancer](../load-balancer/index.yml), Network Watcher [, Traffic Manager](../traffic-manager/index.yml), [Virtual Network](../virtual-network/index.yml), [가상 WAN](../virtual-wan/index.yml), [VPN Gateway](../vpn-gateway/index.yml) [Network Watcher](../network-watcher/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | 작업 | 설명 |
@@ -3850,7 +3850,7 @@ Azure 서비스: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 ### <a name="microsoftsql"></a>Microsoft.Sql
 
-Azure 서비스: [Azure SQL Database](../azure-sql/database/index.yml), [azure SQL Managed Instance](../azure-sql/managed-instance/index.yml), [azure Synapse Analytics (이전의 SQL Data Warehouse)](../sql-data-warehouse/index.yml)
+Azure 서비스: [Azure SQL Database](../azure-sql/database/index.yml), [azure SQL Managed Instance](../azure-sql/managed-instance/index.yml), [azure Synapse Analytics (이전의 SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | 작업 | 설명 |
@@ -4331,7 +4331,7 @@ Azure 서비스: [Azure Analysis Services](../analysis-services/index.yml)
 
 ### <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
-Azure 서비스: [Azure Databricks](https://docs.microsoft.com/azure/databricks/)
+Azure 서비스: [Azure Databricks](/azure/databricks/)
 
 > [!div class="mx-tableFixed"]
 > | 작업 | 설명 |
@@ -4619,7 +4619,7 @@ Azure 서비스: [azure 데이터 탐색기](/azure/data-explorer/)
 
 ### <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
-Azure 서비스: [Power BI Embedded](https://docs.microsoft.com/azure/power-bi-embedded/)
+Azure 서비스: [Power BI Embedded](/azure/power-bi-embedded/)
 
 > [!div class="mx-tableFixed"]
 > | 작업 | 설명 |
@@ -4712,7 +4712,7 @@ Azure 서비스: [Azure Blockchain 서비스](../blockchain/workbench/index.yml)
 
 ### <a name="microsoftbotservice"></a>Microsoft.BotService
 
-Azure 서비스: [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/)
+Azure 서비스: [Azure Bot Service](/azure/bot-service/)
 
 > [!div class="mx-tableFixed"]
 > | 작업 | 설명 |
@@ -6187,7 +6187,7 @@ Azure 서비스: [Logic Apps](../logic-apps/index.yml)
 
 ### <a name="microsoftrelay"></a>Microsoft.Relay
 
-Azure 서비스: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
+Azure 서비스: [Azure Relay](../azure-relay/relay-what-is-it.md)
 
 > [!div class="mx-tableFixed"]
 > | 작업 | 설명 |
@@ -6257,7 +6257,7 @@ Azure 서비스: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
 
 ### <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
-Azure 서비스: [Service Bus](../service-bus/index.md)
+Azure 서비스: [Service Bus](../service-bus-messaging/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | 작업 | 설명 |
@@ -6957,7 +6957,7 @@ Azure 서비스: [Azure Lab Services](../lab-services/index.yml)
 
 ### <a name="microsoftvisualstudio"></a>Microsoft.VisualStudio
 
-Azure 서비스: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
+Azure 서비스: [Azure DevOps](/azure/devops/)
 
 > [!div class="mx-tableFixed"]
 > | 작업 | 설명 |
@@ -6976,7 +6976,7 @@ Azure 서비스: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
 > | Microsoft.VisualStudio/Project/Delete | 프로젝트를 삭제합니다. |
 > | Microsoft.VisualStudio/Project/Read | 프로젝트를 읽습니다. |
 
-## <a name="migrate"></a>마이그레이션
+## <a name="migrate"></a>Migrate
 
 ### <a name="microsoftmigrate"></a>Microsoft.Migrate
 
@@ -7436,7 +7436,7 @@ Azure 서비스: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/vcenters/read | VMware vCenter 속성을 가져옵니다. |
 > | Microsoft.OffAzure/VMwareSites/vcenters/write | VMware vCenter를 만들거나 업데이트합니다. |
 
-## <a name="monitor"></a>모니터
+## <a name="monitor"></a>Monitor
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
@@ -8367,7 +8367,7 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 > | operationalinsights/작업 영역/scopedPrivateLinkProxies/읽기 | 범위가 지정 된 개인 링크 프록시를 가져옵니다. |
 > | operationalinsights/작업 영역/scopedPrivateLinkProxies/쓰기 | 범위가 지정 된 개인 링크 프록시를 추가 합니다. |
 > | operationalinsights/작업 영역/scopedPrivateLinkProxies/삭제 | 범위가 지정 된 개인 링크 프록시를 삭제 합니다. |
-> | microsoft.operationalinsights/workspaces/search/read | 검색 결과를 가져옵니다. 사용되지 않습니다. |
+> | microsoft.operationalinsights/workspaces/search/read | 검색 결과를 가져옵니다. 더 이상 사용되지 않습니다. |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | 작업 영역에 대한 공유 키를 검색합니다. 이러한 키는 Microsoft Operational Insights 에이전트를 작업 영역에 연결하는 데 사용됩니다. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/write | 새 스토리지 구성을 만듭니다. 이러한 구성은 기존 스토리지 계정의 위치에서 데이터를 가져오는 데 사용됩니다. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/read | 스토리지 구성을 가져옵니다. |
@@ -8824,7 +8824,7 @@ Azure 서비스: [Cost Management](../cost-management-billing/index.yml)
 > | Microsoft.Consumption/reservationTransactions/read | 관리 그룹에서 예약한 인스턴스의 트랜잭션 기록을 나열합니다. |
 > | Microsoft.Consumption/tags/read | EA 및 구독에 대한 태그를 나열합니다. |
 > | Microsoft.Consumption/tenants/register/action | 테넌트에 의한 Microsoft.Consumption 범위에 대한 작업을 등록합니다. |
-> | Microsoft 사용/테 넌 트/읽기 | 테 넌 트 나열 |
+> | Microsoft 사용/테 넌 트/읽기 | 테넌트 나열하기 |
 > | Microsoft.Consumption/terms/read | 구독 또는 관리 그룹의 사용 약관을 나열합니다. |
 > | Microsoft.Consumption/usageDetails/read | EA 및 WebDirect 구독의 범위에 대한 사용량 세부 정보를 나열합니다. |
 
@@ -8924,7 +8924,7 @@ Azure 서비스: [Azure Arc](../azure-arc/index.yml)
 
 ### <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
 
-Azure 서비스: [Azure Arc 사용 Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
+Azure 서비스: [Azure Arc 사용 Kubernetes](../azure-arc/kubernetes/overview.md)
 
 > [!div class="mx-tableFixed"]
 > | 작업 | 설명 |
@@ -9677,7 +9677,7 @@ Azure 서비스: Microsoft Monitoring Insights
 
 ### <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
-Azure 서비스: [Bing 지도](https://docs.microsoft.com/BingMaps/)
+Azure 서비스: [Bing 지도](/BingMaps/)
 
 > [!div class="mx-tableFixed"]
 > | 작업 | 설명 |

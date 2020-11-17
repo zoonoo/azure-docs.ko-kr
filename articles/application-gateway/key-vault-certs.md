@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 3569ae130813eb0aaf14ec3d8d4e5cfac3e98c6f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 95ca4933b97199ba6d8ac1bed7587af5d3bd559f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095650"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648126"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Key Vault 인증서를 사용 하는 TLS 종료
 
@@ -71,7 +71,9 @@ Key Vault와 통합 Application Gateway 하려면 3 단계 구성 프로세스�
 
 1. **응용 프로그램 게이트웨이 구성**
 
-   위의 두 단계를 완료 한 후에는 사용자 할당 관리 id를 사용 하도록 기존 응용 프로그램 게이트웨이를 설정 하거나 수정할 수 있습니다. Key Vault 인증서 또는 암호 ID의 전체 URI를 가리키도록 HTTP 수신기의 TLS/SSL 인증서를 구성할 수도 있습니다.
+   위의 두 단계를 완료 한 후에는 사용자 할당 관리 id를 사용 하도록 기존 응용 프로그램 게이트웨이를 설정 하거나 수정할 수 있습니다. 자세한 내용은 [AzApplicationGatewayIdentity](/powershell/module/az.network/set-azapplicationgatewayidentity)를 참조 하세요.
+
+   Key Vault 인증서 또는 암호 ID의 전체 URI를 가리키도록 HTTP 수신기의 TLS/SSL 인증서를 구성할 수도 있습니다.
 
    ![주요 자격 증명 모음 인증서](media/key-vault-certs/ag-kv.png)
 

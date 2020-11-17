@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9559e22a8396de93bbe46f20b76855d9ff00f753
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa74424dddd7577eb942f72f038f5bd56854abac
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763723"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648194"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>애플리케이션에 로그인할 때 예기치 않은 동의 확인 프롬프트
 
@@ -39,7 +39,7 @@ Azure Active Directory와 통합되는 많은 애플리케이션을 실행하기
 
 * 원래 애플리케이션에 동의한 사용자는 관리자였지만 전체 조직을 대신하여 동의하지는 않았습니다.
 
-* 애플리케이션에서 [증분 및 동적 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent)를 사용하여 처음으로 동의를 받은 후에 추가 권한을 요청합니다. 이것은 추가 애플리케이션의 선택적 기능이 초기 기능에 필요한 것 이상의 권한을 필요로 할 경우에 종종 사용됩니다.
+* 애플리케이션에서 [증분 및 동적 동의](../azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent)를 사용하여 처음으로 동의를 받은 후에 추가 권한을 요청합니다. 이것은 추가 애플리케이션의 선택적 기능이 초기 기능에 필요한 것 이상의 권한을 필요로 할 경우에 종종 사용됩니다.
 
 * 동의가 처음에 부여된 후에 해지되었습니다.
 
@@ -47,8 +47,6 @@ Azure Active Directory와 통합되는 많은 애플리케이션을 실행하기
 
 ## <a name="next-steps"></a>다음 단계
 
--   [Azure Active Directory에서 앱, 사용 권한 및 동의(v1.0 엔드포인트)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
+-   [Azure Active Directory에서 앱, 사용 권한 및 동의(v1.0 엔드포인트)](../develop/quickstart-register-app.md)
 
--   [Azure Active Directory의 범위, 사용 권한 및 동의(v2.0 엔드포인트)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+-   [Azure Active Directory의 범위, 사용 권한 및 동의(v2.0 엔드포인트)](../develop/v2-permissions-and-consent.md)

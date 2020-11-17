@@ -3,22 +3,22 @@ title: Azure Active Directory의 응급 상황에서 사용자 액세스 취소 
 description: Azure Active Directory에서 사용자에 대 한 모든 액세스를 취소 하는 방법
 services: active-directory
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 07/15/2020
+ms.date: 11/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16577c3509c9d3d9b02ead5e69832bacc7d083bb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e12d08acdd9fc869ed766a1bbd78f35eb371cc8a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92376402"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649690"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Azure Active Directory에서 사용자 액세스 취소
 
@@ -113,9 +113,9 @@ Azure Active Directory 관리자 권한으로 PowerShell을 열고를 실행 ``C
 
 관리자가 위의 단계를 수행한 후에는 Azure Active Directory에 연결 된 응용 프로그램에 대 한 새 토큰을 얻을 수 없습니다. 응용 프로그램에서 액세스 권한을 부여 하는 방법에 따라 해지와 사용자의 액세스를 손실 하는 시간 사이의 경과 시간을 결정 합니다.
 
-- 액세스 토큰을 **사용 하는 응용 프로그램**의 경우 액세스 토큰이 만료 되 면 사용자가 액세스 권한을 잃게 됩니다.
+- 액세스 토큰을 **사용 하는 응용 프로그램** 의 경우 액세스 토큰이 만료 되 면 사용자가 액세스 권한을 잃게 됩니다.
 
-- **세션 토큰을 사용 하는 응용 프로그램**의 경우 기존 세션은 토큰이 만료 되는 즉시 종료 됩니다. 사용 하지 않도록 설정 된 사용자의 상태를 응용 프로그램에 동기화 하는 경우 응용 프로그램에서 사용자의 기존 세션을 자동으로 취소할 수 있습니다.  소요 시간은 응용 프로그램과 Azure AD 간의 동기화 빈도에 따라 달라 집니다.
+- **세션 토큰을 사용 하는 응용 프로그램** 의 경우 기존 세션은 토큰이 만료 되는 즉시 종료 됩니다. 사용 하지 않도록 설정 된 사용자의 상태를 응용 프로그램에 동기화 하는 경우 응용 프로그램에서 사용자의 기존 세션을 자동으로 취소할 수 있습니다.  소요 시간은 응용 프로그램과 Azure AD 간의 동기화 빈도에 따라 달라 집니다.
 
 ## <a name="next-steps"></a>다음 단계
 

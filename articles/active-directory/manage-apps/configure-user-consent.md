@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: c1c0c3038c687b7f91d3c75d8c4c9589c5e245a3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1617015d6d4a026d5dadda667dcd03447a20c288
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427625"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649503"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>최종 사용자가 애플리케이션에 동의하는 방법 구성
 
@@ -49,15 +49,15 @@ ms.locfileid: "92427625"
 Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수행합니다.
 
 1. [전역 관리자](../roles/permissions-reference.md#global-administrator--company-administrator)로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory** > **엔터프라이즈 애플리케이션** > **동의 및 권한** > **사용자 동의 설정**을 선택합니다.
-1. **애플리케이션에 대한 사용자 동의**에서 모든 사용자에 대해 구성할 동의 설정을 선택합니다.
-1. **저장**을 선택하여 설정을 저장합니다.
+1. **Azure Active Directory** > **엔터프라이즈 애플리케이션** > **동의 및 권한** > **사용자 동의 설정** 을 선택합니다.
+1. **애플리케이션에 대한 사용자 동의** 에서 모든 사용자에 대해 구성할 동의 설정을 선택합니다.
+1. **저장** 을 선택하여 설정을 저장합니다.
 
 :::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="사용자 동의 설정":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-최신 Azure AD PowerShell 미리 보기 모듈인 [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true)를 사용 하 여 응용 프로그램에 대 한 사용자 동의를 제어 하는 앱 승인 정책을 선택할 수 있습니다.
+최신 Azure AD PowerShell 미리 보기 모듈인 [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview)를 사용 하 여 응용 프로그램에 대 한 사용자 동의를 제어 하는 앱 승인 정책을 선택할 수 있습니다.
 
 #### <a name="disable-user-consent"></a>사용자 동의 사용 안 함
 
@@ -101,7 +101,7 @@ Set-AzureADMSAuthorizationPolicy `
 
 ## <a name="risk-based-step-up-consent"></a>위험 기반 단계 동의
 
-위험 기반 상향 동의는 [불법 동의 요청](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants)을 보내는 악성 앱에 대한 사용자 노출을 줄이는 데 도움이 됩니다. Microsoft가 위험한 최종 사용자 동의 요청을 감지하면 이 요청에서 관리자 동의로의 상향을 대신 요구합니다. 이 기능은 기본적으로 사용하도록 설정되어 있지만 최종 사용자 동의가 허용된 경우에만 동작이 변경됩니다.
+위험 기반 상향 동의는 [불법 동의 요청](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants)을 보내는 악성 앱에 대한 사용자 노출을 줄이는 데 도움이 됩니다. Microsoft가 위험한 최종 사용자 동의 요청을 감지하면 이 요청에서 관리자 동의로의 상향을 대신 요구합니다. 이 기능은 기본적으로 사용하도록 설정되어 있지만 최종 사용자 동의가 허용된 경우에만 동작이 변경됩니다.
 
 위험한 동의 요청이 감지되면 동의 프롬프트에 관리자 승인이 필요함을 나타내는 메시지가 표시됩니다. [관리자 동의 요청 워크플로](configure-admin-consent-workflow.md)가 설정된 경우 사용자는 동의 프롬프트에서 직접 관리자에게 추가 검토가 필요한 요청을 보낼 수 있습니다. 사용하도록 설정되어 있지 않으면 다음 메시지가 표시됩니다.
 
@@ -114,9 +114,9 @@ Set-AzureADMSAuthorizationPolicy `
 
 ### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>PowerShell을 사용하여 위험 기반 상향 동의 사용 안 함 또는 다시 사용
 
-Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)를 사용하여 Microsoft에서 위험을 감지하거나 이전에 사용하지 않도록 설정되어 다시 사용하도록 설정하는 경우에 필요한 관리자 동의로의 상향 기능을 사용하지 않도록 설정할 수 있습니다.
+Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)를 사용하여 Microsoft에서 위험을 감지하거나 이전에 사용하지 않도록 설정되어 다시 사용하도록 설정하는 경우에 필요한 관리자 동의로의 상향 기능을 사용하지 않도록 설정할 수 있습니다.
 
-1. [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) 모듈을 사용하고 있는지 확인하세요. [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) 모듈 및 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) 모듈을 모두 설치한 경우 이 단계가 중요합니다.
+1. [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) 모듈을 사용하고 있는지 확인하세요. [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) 모듈 및 [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) 모듈을 모두 설치한 경우 이 단계가 중요합니다.
 
     ```powershell
     Remove-Module AzureAD
@@ -182,7 +182,7 @@ Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](https://docs.microsoft
 * [관리자 동의 워크플로 구성](configure-admin-consent-workflow.md)
 * [애플리케이션에 대한 동의를 관리하고 동의 요청을 평가하는 방법 알아보기](manage-consent-requests.md)
 * [애플리케이션에 대한 테넌트 전체 관리자 동의 부여](grant-admin-consent.md)
-* [Microsoft ID 플랫폼의 권한 및 동의](../develop/active-directory-v2-scopes.md)
+* [Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
 도움말을 얻거나 질문에 대한 답변을 찾으려면 다음을 수행합니다.
 * [StackOverflow의 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)

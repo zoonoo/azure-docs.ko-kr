@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 873bebc462ce4756d38f966a87edda167bd49501
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 23a620f8031335e5a950df96427b11251f0ec042
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506382"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649316"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -114,7 +114,7 @@ SQL Managed Instance는 파일 공유 및 Windows 폴더에 액세스할 수 없
 
 [CREATE CERTIFICATE](/sql/t-sql/statements/create-certificate-transact-sql) 및 [BACKUP CERTIFICATE](/sql/t-sql/statements/backup-certificate-transact-sql)를 참조하세요. 
  
-**해결 방법** : 인증서의 백업을 만들고 백업을 복원하는 대신 [인증서 이진 콘텐츠 및 프라이빗 키를 가져와서 .sql 파일로 저장하고 이진에서 만듭니다](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database).
+**해결 방법**: 인증서의 백업을 만들고 백업을 복원하는 대신 [인증서 이진 콘텐츠 및 프라이빗 키를 가져와서 .sql 파일로 저장하고 이진에서 만듭니다](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database).
 
 ```sql
 CREATE CERTIFICATE  
@@ -517,12 +517,11 @@ SQL Managed Instance의 연결 된 서버는 제한 된 수의 대상을 지원 
 ### <a name="failover-groups"></a>장애 조치(failover) 그룹
 시스템 데이터베이스는 장애 조치 (failover) 그룹의 보조 인스턴스에 복제 되지 않습니다. 따라서 시스템 데이터베이스의 개체에 종속 된 시나리오는 보조 인스턴스에서 개체를 수동으로 만들지 않는 한 보조 인스턴스에서는 불가능 합니다.
 
-### <a name="failover-groups"></a>장애 조치(failover) 그룹
-시스템 데이터베이스는 장애 조치 (failover) 그룹의 보조 인스턴스에 복제 되지 않습니다. 따라서 시스템 데이터베이스의 개체에 종속 된 시나리오는 보조 인스턴스에서 개체를 수동으로 만들지 않는 한 보조 인스턴스에서는 불가능 합니다.
-
 ### <a name="tempdb"></a>TEMPDB
-
-`tempdb`의 최대 파일 크기는 범용 계층에서 코어당 24GB보다 클 수 없습니다. `tempdb`중요 비즈니스용 계층의 최대 크기는 SQL Managed Instance 저장소 크기에 의해 제한 됩니다. `Tempdb` 로그 파일 크기는 범용 계층에서 120GB로 제한됩니다. 일부 쿼리는 `tempdb`에서 코어당 24GB보다 많이 필요하거나 120GB보다 많이 로그 데이터를 생성하는 경우 오류를 반환할 수 있습니다.
+- `tempdb`의 최대 파일 크기는 범용 계층에서 코어당 24GB보다 클 수 없습니다. `tempdb`중요 비즈니스용 계층의 최대 크기는 SQL Managed Instance 저장소 크기에 의해 제한 됩니다. `Tempdb` 로그 파일 크기는 범용 계층에서 120GB로 제한됩니다. 일부 쿼리는 `tempdb`에서 코어당 24GB보다 많이 필요하거나 120GB보다 많이 로그 데이터를 생성하는 경우 오류를 반환할 수 있습니다.
+- `Tempdb` 는 항상 12 개의 데이터 파일로 분할 됩니다. 주 복제본은 master, data file 및 11 이외의 주 데이터 파일이 라고도 합니다. 파일 구조를 변경할 수 없으며 새 파일을에 추가할 수 없습니다 `tempdb` . 
+- 새 SQL Server 2019 메모리 내 데이터베이스 기능이 있는 [메모리 최적화 `tempdb` 메타 데이터](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata)는 지원 되지 않습니다.
+- 를 `tempdb` 다시 시작 하거나 장애 조치 (failover) 한 후에는에서 `tempdb` 복제 된 모델 데이터베이스의 초기 개체 목록을 가져오지 않으므로 model 데이터베이스에서 만든 개체를에서 자동으로 만들 수 없습니다. 
 
 ### <a name="msdb"></a>MSDB
 

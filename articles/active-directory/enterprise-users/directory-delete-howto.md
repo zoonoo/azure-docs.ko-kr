@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf8eeb2d1f19ca0848ae5c608ba9f0d8e9526e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 189eaf3a08ce0e8411ce67170fdf1a895cbc56d2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377281"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647718"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Azure Active Directory에서 테넌트 삭제
 
@@ -38,17 +38,17 @@ Azure AD의 조직은 여러 가지 검사를 통과한 다음에 삭제할 수 
 
 1. 조직의 전역 관리자 계정을 사용하여 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 
-2. **Azure Active Directory**를 선택합니다.
+2. **Azure Active Directory** 를 선택합니다.
 
 3. 삭제하려는 조직으로 전환합니다.
   
    ![삭제 전 조직 확인](./media/directory-delete-howto/delete-directory-command.png)
 
-4. **테넌트 삭제**를 선택합니다.
+4. **테넌트 삭제** 를 선택합니다.
   
    ![조직을 삭제하는 명령을 선택합니다.](./media/directory-delete-howto/delete-directory-list.png)
 
-5. 조직이 하나 이상의 검사를 통과하지 못하는 경우 통과 방법에 대한 자세한 정보가 포함된 링크가 제공됩니다. 모든 검사를 통과한 후 **삭제**를 선택하여 프로세스를 완료합니다.
+5. 조직이 하나 이상의 검사를 통과하지 못하는 경우 통과 방법에 대한 자세한 정보가 포함된 링크가 제공됩니다. 모든 검사를 통과한 후 **삭제** 를 선택하여 프로세스를 완료합니다.
 
 ## <a name="if-you-cant-delete-the-organization"></a>조직을 삭제할 수 없는 경우
 
@@ -73,19 +73,19 @@ Microsoft 365 관리 센터를 통해 구독을 **프로비저닝 해제됨** �
 
    ![새 M365 관리 센터 환경 미리 보기](./media/directory-delete-howto/preview-toggle.png)
 
-3. 새 관리 센터를 사용하도록 설정한 후에는 구독을 취소해야 삭제할 수 있습니다. **청구**를 선택하고 **제품 및 서비스**를 선택한 다음, 취소하려는 구독에 대해 **구독 취소**를 선택합니다. 피드백 페이지가 표시됩니다.
+3. 새 관리 센터를 사용하도록 설정한 후에는 구독을 취소해야 삭제할 수 있습니다. **청구** 를 선택하고 **제품 및 서비스** 를 선택한 다음, 취소하려는 구독에 대해 **구독 취소** 를 선택합니다. 피드백 페이지가 표시됩니다.
 
    ![취소할 구독 선택](./media/directory-delete-howto/cancel-choose-subscription.png)
 
-4. 피드백 양식을 작성하고 **구독 취소**를 선택하여 구독을 취소합니다.
+4. 피드백 양식을 작성하고 **구독 취소** 를 선택하여 구독을 취소합니다.
 
    ![구독 미리 보기의 취소 명령](./media/directory-delete-howto/cancel-command.png)
 
-5. 이제 구독을 삭제할 수 있습니다. 삭제하려는 구독에 대해 **삭제**를 선택합니다. **제품 및 서비스** 페이지에서 구독을 찾을 수 없는 경우 **구독 상태**가 **모두**로 설정되어 있는지 확인합니다.
+5. 이제 구독을 삭제할 수 있습니다. 삭제하려는 구독에 대해 **삭제** 를 선택합니다. **제품 및 서비스** 페이지에서 구독을 찾을 수 없는 경우 **구독 상태** 가 **모두** 로 설정되어 있는지 확인합니다.
 
    ![구독 삭제를 위한 삭제 링크](./media/directory-delete-howto/delete-command.png)
 
-6. **구독 삭제**를 선택하여 구독을 삭제하고 계약조건에 동의합니다. 모든 데이터는 3일 이내에 영구적으로 삭제됩니다. 마음이 바뀌면 3일 기간 중 [구독을 다시 활성화](/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide)할 수 있습니다.
+6. **구독 삭제** 를 선택하여 구독을 삭제하고 계약조건에 동의합니다. 모든 데이터는 3일 이내에 영구적으로 삭제됩니다. 마음이 바뀌면 3일 기간 중 [구독을 다시 활성화](/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide)할 수 있습니다.
   
    ![계약조건을 자세히 읽기](./media/directory-delete-howto/delete-terms.png)
 
@@ -121,19 +121,19 @@ Microsoft Power BI 또는 Azure Rights Management Services와 같은 셀프 서�
 
 1. 조직의 전역 관리자 계정을 사용하여 [Azure AD 관리 센터](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다. 초기 기본 도메인인 contoso.onmicrosoft.com이 있는 “Contoso” 조직을 삭제하려는 경우 admin@contoso.onmicrosoft.com과 같은 UPN으로 로그온합니다.
 
-2. **라이선스**를 선택한 후 **셀프 서비스 등록 제품**을 선택합니다. 사용자 기반 구독에서 모든 셀프 서비스 등록 제품을 별도로 볼 수 있습니다. 영구적으로 삭제하려는 제품을 선택합니다. Microsoft Power BI의 예제는 다음과 같습니다.
+2. **라이선스** 를 선택한 후 **셀프 서비스 등록 제품** 을 선택합니다. 사용자 기반 구독에서 모든 셀프 서비스 등록 제품을 별도로 볼 수 있습니다. 영구적으로 삭제하려는 제품을 선택합니다. Microsoft Power BI의 예제는 다음과 같습니다.
 
     !["라이선스-셀프 서비스 등록 제품" 페이지를 보여 주는 스크린샷](./media/directory-delete-howto/licenses-page.png)
 
-3. **삭제**를 선택하여 제품을 삭제한 다음, 데이터가 영구적으로 즉시 삭제된다는 사용 약관에 동의합니다. 이 삭제 작업은 모든 사용자를 제거하고 제품에 대한 조직 액세스를 제거합니다. ‘예’를 클릭하여 삭제를 진행합니다.  
+3. **삭제** 를 선택하여 제품을 삭제한 다음, 데이터가 영구적으로 즉시 삭제된다는 사용 약관에 동의합니다. 이 삭제 작업은 모든 사용자를 제거하고 제품에 대한 조직 액세스를 제거합니다. ‘예’를 클릭하여 삭제를 진행합니다.  
 
     !["셀프 서비스 등록 제품 삭제" 창이 열려 있는 "라이선스-셀프 서비스 등록 제품" 페이지를 보여 주는 스크린샷](./media/directory-delete-howto/delete-product.png)
 
-4. **예**를 선택하면 셀프 서비스 제품 삭제가 시작됩니다. 진행 중인 삭제를 알려 주는 알림이 표시됩니다.  
+4. **예** 를 선택하면 셀프 서비스 제품 삭제가 시작됩니다. 진행 중인 삭제를 알려 주는 알림이 표시됩니다.  
 
     !["삭제가 진행 중입니다." 알림이 표시 된 "라이선스-셀프 서비스 등록 제품" 페이지가 표시 된 스크린샷](./media/directory-delete-howto/progress-message.png)
 
-5. 이제 셀프 서비스 등록 제품 상태가 **삭제됨**으로 변경되었습니다. 페이지를 새로 고치면 **셀프 서비스 등록 제품** 페이지에서 제품이 제거되어 있습니다.  
+5. 이제 셀프 서비스 등록 제품 상태가 **삭제됨** 으로 변경되었습니다. 페이지를 새로 고치면 **셀프 서비스 등록 제품** 페이지에서 제품이 제거되어 있습니다.  
 
     !["라이선스-셀프 서비스 등록 제품" 페이지가 표시 되 고 오른쪽에 "셀프 서비스 등록 제품이 삭제 되었습니다." 창이 표시 되는 스크린샷](./media/directory-delete-howto/product-deleted.png)
 

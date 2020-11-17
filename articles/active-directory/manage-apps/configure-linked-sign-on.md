@@ -11,16 +11,16 @@ ms.workload: identity
 ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 49191ffc0033559f0668a5330b8c91643dee39d3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8fc26b00214106aa08e0e6e4c41f9f05aca9344d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073974"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648041"
 ---
 # <a name="understand-linked-sign-on"></a>연결 된 로그온 이해
 
-응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 에서는 응용 프로그램에 대 한 IdP (id 공급자)로 Azure AD를 사용 하는 방법을 알아보았습니다. 빠른 시작 가이드에서는 SAML 기반 또는 OIDC 기반 SSO를 구성 합니다. 다른 옵션을 **연결**합니다. 이 문서에서는 연결 된 옵션에 대해 자세히 설명 합니다.
+응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 에서는 응용 프로그램에 대 한 IdP (id 공급자)로 Azure AD를 사용 하는 방법을 알아보았습니다. 빠른 시작 가이드에서는 SAML 기반 또는 OIDC 기반 SSO를 구성 합니다. 다른 옵션을 **연결** 합니다. 이 문서에서는 연결 된 옵션에 대해 자세히 설명 합니다.
 
 **연결** 된 옵션을 사용 하면 사용자가 조직의 [내 앱](https://myapps.microsoft.com/) 또는 Office 365 포털에서 앱을 선택할 때 대상 위치를 구성할 수 있습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "92073974"
 - 특정 SharePoint 페이지 또는 사용자의 액세스 패널에 표시 하려는 다른 웹 페이지에 딥 링크를 추가 합니다.
 - 인증을 요구 하지 않는 앱에 대 한 링크를 추가 합니다. 
  
- **연결** 된 옵션은 Azure AD 자격 증명을 통해 로그온 기능을 제공 하지 않습니다. 그러나 **엔터프라이즈 응용 프로그램**의 다른 기능 중 일부를 계속 사용할 수 있습니다. 예를 들어 감사 로그를 사용 하 고 사용자 지정 로고 및 앱 이름을 추가할 수 있습니다.
+ **연결** 된 옵션은 Azure AD 자격 증명을 통해 로그온 기능을 제공 하지 않습니다. 그러나 **엔터프라이즈 응용 프로그램** 의 다른 기능 중 일부를 계속 사용할 수 있습니다. 예를 들어 감사 로그를 사용 하 고 사용자 지정 로고 및 앱 이름을 추가할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -38,19 +38,19 @@ ms.locfileid: "92073974"
 **연결** 된 옵션은 Azure AD를 통해 로그인 기능을 제공 하지 않습니다. 옵션은 사용자가 앱에서 앱을 선택 [Microsoft 365 하거나 앱](https://myapps.microsoft.com/) 시작 관리자를 선택 하는 경우 사용자가 전송 되는 위치를 설정 합니다.  로그인은 Azure AD를 통해 로그인 기능을 제공 하지 않으므로 연결 된 Single Sign-On로 구성 된 응용 프로그램에 대 한 조건부 액세스를 사용할 수 없습니다.
 
 > [!IMPORTANT] 
-> **엔터프라이즈 응용**프로그램의 응용 프로그램을 탐색 하는 데에는 **Single sign-on** 옵션이 없는 몇 가지 시나리오가 있습니다. 
+> **엔터프라이즈 응용** 프로그램의 응용 프로그램을 탐색 하는 데에는 **Single sign-on** 옵션이 없는 몇 가지 시나리오가 있습니다. 
 >
-> **앱 등록** 를 사용 하 여 응용 프로그램을 등록 한 경우 Single Sign-On 기능은 기본적으로 Oidc OAuth를 사용 하도록 설정 됩니다. 이 경우 **Enterprise 응용 프로그램**에서 **Single sign-on** 옵션이 탐색에 표시 되지 않습니다. **앱 등록** 를 사용 하 여 사용자 지정 앱을 추가 하는 경우 매니페스트 파일의 옵션을 구성 합니다. 매니페스트 파일에 대 한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)를 참조 하세요. SSO 표준에 대해 자세히 알아보려면 [Microsoft id 플랫폼을 사용한 인증 및 권한 부여](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform)를 참조 하세요. 
+> **앱 등록** 를 사용 하 여 응용 프로그램을 등록 한 경우 Single Sign-On 기능은 기본적으로 Oidc OAuth를 사용 하도록 설정 됩니다. 이 경우 **Enterprise 응용 프로그램** 에서 **Single sign-on** 옵션이 탐색에 표시 되지 않습니다. **앱 등록** 를 사용 하 여 사용자 지정 앱을 추가 하는 경우 매니페스트 파일의 옵션을 구성 합니다. 매니페스트 파일에 대 한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트](../develop/reference-app-manifest.md)를 참조 하세요. SSO 표준에 대해 자세히 알아보려면 [Microsoft id 플랫폼을 사용한 인증 및 권한 부여](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform)를 참조 하세요. 
 >
 > 응용 프로그램이 다른 테 넌 트에 호스트 되거나 사용자 계정에 필요한 권한 (전역 관리자, 클라우드 응용 프로그램 관리자, 응용 프로그램 관리자 또는 서비스 주체의 소유자)이 없는 경우에는 탐색에서 **Single sign-on** 이 누락 되는 경우도 있습니다. 사용 권한은 **Single sign-on** 을 열 수는 있지만 저장할 수 없는 시나리오를 일으킬 수도 있습니다. Azure AD 관리 역할에 대 한 자세한 내용은 (를 참조 https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 하세요.
 
 ### <a name="configure-link"></a>링크 구성
 
-앱에 대 한 링크를 설정 하려면 **Single sign-on** 페이지에서 **연결** 됨을 선택 합니다. 그런 다음 링크를 입력 하 고 **저장**을 선택 합니다. 이러한 옵션을 찾을 수 있는 위치에 대 한 미리 알림이 필요 한가요? [퀵 스타트 시리즈](view-applications-portal.md)를 확인 합니다.
+앱에 대 한 링크를 설정 하려면 **Single sign-on** 페이지에서 **연결** 됨을 선택 합니다. 그런 다음 링크를 입력 하 고 **저장** 을 선택 합니다. 이러한 옵션을 찾을 수 있는 위치에 대 한 미리 알림이 필요 한가요? [퀵 스타트 시리즈](view-applications-portal.md)를 확인 합니다.
  
 앱을 구성한 후에는 사용자 및 그룹을 할당 합니다. 사용자를 할당 하는 경우 응용 프로그램이 [내 앱](https://myapps.microsoft.com/) 또는 Microsoft 365 앱 시작 관리자에 표시 되는 시간을 제어할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [애플리케이션에 사용자 또는 그룹 할당](methods-for-assigning-users-and-groups.md)
+- [애플리케이션에 사용자 또는 그룹 할당](./assign-user-or-group-access-portal.md)
 - [자동 사용자 계정 프로비저닝 구성](../app-provisioning/configure-automatic-user-provisioning-portal.md)

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 6039eeed2e1bcb348920be986e72089164c614ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392653"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649265"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>S2S VPN 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성
 
@@ -34,9 +34,8 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 
 > [!IMPORTANT]
 > 1. IPsec/IKE 정책은 다음 게이트웨이 SKU에만 작동합니다.
->    * ***VpnGw1, VpnGw2, VpnGw3***(경로 기반)
->    * ***Standard*** 및 ***HighPerformance***(경로 기반)
-> 2. 지정된 연결에 대해 ***하나의*** 정책 조합만 지정할 수 있습니다.
+>    * ***VpnGw1, VpnGw2, VpnGw3** _ (경로 기반) _ ***Standard** _ 및 _*_highperformance_*_ (경로 기반)
+> 2. 지정 된 연결에 대해 _*_하나의_*_ 정책 조합만 지정할 수 있습니다.
 > 3. IKE(주 모드)와 IPsec(빠른 모드) 둘 다에 대한 모든 알고리즘 및 매개 변수를 지정해야 합니다. 부분 정책 지정은 허용되지 않습니다.
 > 4. 해당 VPN 디바이스 공급업체 사양을 참조하여 정책이 해당 온-프레미스 VPN 디바이스에서 지원되는지 확인하세요. 정책이 호환되지 않는 경우 S2S 또는 VNet 간 연결을 설정할 수 없습니다.
 
@@ -56,7 +55,7 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 
 다음 표에는 고객이 구성 가능하도록 지원되는 암호화 알고리즘 및 키 강도가 나와 있습니다.
 
-| **IPsec/IKEv2**  | **옵션**    |
+| _ *IPsec/IKEv2**  | **옵션**    |
 | ---  | --- 
 | IKEv2 암호화 | AES256, AES192, AES128, DES3, DES  
 | IKEv2 무결성  | SHA384, SHA256, SHA1, MD5  |
@@ -115,7 +114,7 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 
 S2S VPN 연결을 만드는 자세한 단계별 지침은 [S2S VPN 연결 만들기](vpn-gateway-create-site-to-site-rm-powershell.md)를 참조하세요.
 
-### <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
+### <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
 
 * Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 * Azure Resource Manager PowerShell cmdlet을 설치합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 개요](/powershell/azure/)를 참조하세요.
@@ -153,7 +152,7 @@ $LNGIP6        = "131.107.72.22"
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. 구독에 연결 하 고 새 리소스 그룹을 만듭니다.
 
-리소스 관리자 cmdlet을 사용하려면 PowerShell 모드로 전환해야 합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+리소스 관리자 cmdlet을 사용하려면 PowerShell 모드로 전환해야 합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](../azure-resource-manager/management/manage-resources-powershell.md)을 참조하세요.
 
 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 샘플을 사용합니다.
 

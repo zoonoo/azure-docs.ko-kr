@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bd47e5e39684bd4b684cd1e12dd9a3d420640ee2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f39bd874c1f5a1be42ca1c88e6ea2fe8df22f87
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005822"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648211"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>프로그래밍 방식으로 Service Fabric 클러스터의 크기 조정 
 
@@ -121,5 +121,5 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 사용자 고유의 자동 크기 조정 논리를 구현하려면 먼저 다음과 같은 개념과 유용한 API부터 숙지해야 합니다.
 
 - [수동으로 또는 자동 크기 조정 규칙을 사용하여 크기 조정](./service-fabric-cluster-scale-in-out.md)
-- [.NET용 Fluent Azure Management 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/Fluent)(Service Fabric 클러스터의 기본 가상 가상 머신 확장 집합과 상호 작용하는 데 유용함)
+- [.Net 용 Azure 관리 라이브러리](https://github.com/Azure/azure-libraries-for-net) (Service Fabric 클러스터의 기본 가상 머신 확장 집합과 상호 작용 하는 데 유용)
 - [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient)(Service Fabric 클러스터 및 그 노드와 상호 작용하는 데 유용함)

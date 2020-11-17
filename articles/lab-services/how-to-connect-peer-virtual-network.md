@@ -3,12 +3,12 @@ title: Azure Lab Services에서 피어 네트워크에 연결 | Microsoft Docs
 description: 랩 네트워크를 다른 네트워크와 피어로 연결하는 방법에 대해 알아봅니다. 예를 들어 Azure에서 랩의 가상 네트워크와 온-프레미스 조직/대학 네트워크를 연결합니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 20e47113d5c2439c9c8ea355288442b5f41d90ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 169160005b27f6ab9575749e4a72a26d2df4000b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445834"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647990"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Azure Lab Services에서 랩의 네트워크를 피어 가상 네트워크에 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "85445834"
 특정 온-프레미스 네트워크는 [ExpressRoute](../expressroute/expressroute-introduction.md) 또는 [Virtual Network Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 통해 Azure Virtual Network에 연결됩니다. 이러한 서비스는 Azure Lab Services 외부에서 설정해야 합니다. ExpressRoute를 사용하여 온-프레미스 네트워크를 Azure에 연결하는 방법에 대한 자세한 정보는 [ExpressRoute 개요](../expressroute/expressroute-introduction.md)를 참조하세요. Virtual Network Gateway를 사용하는 온-프레미스 연결의 경우 게이트웨이, 지정된 가상 네트워크 및 랩 계정이 모두 동일한 지역에 있어야 합니다.
 
 > [!NOTE]
-> 랩 계정과 피어링할 Azure Virtual Network를 만들 때는 가상 네트워크의 지역이 클래스룸 랩을 만들 때 영향을 주는 방식을 이해하는 것이 중요합니다.  자세한 내용은 [지역\위치](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regionslocations)에서 관리자 가이드의 섹션을 참조하세요.
+> 랩 계정과 피어링할 Azure Virtual Network를 만들 때는 가상 네트워크의 지역이 클래스룸 랩을 만들 때 영향을 주는 방식을 이해하는 것이 중요합니다.  자세한 내용은 [지역\위치](./administrator-guide.md#regionslocations)에서 관리자 가이드의 섹션을 참조하세요.
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>랩 계정 생성 시 구성
 
@@ -36,9 +36,9 @@ ms.locfileid: "85445834"
 
 ### <a name="address-range"></a>주소 범위
 
-랩의 가상 머신에 대한 **주소 범위**를 제공하는 옵션도 있습니다.  **주소 범위** 속성은 랩에서 **피어 가상 네트워크**를 사용하도록 설정한 경우에만 적용됩니다. 주소 범위가 제공되면 랩 계정에 속하는 랩의 모든 가상 머신이 해당 주소 범위에서 생성됩니다. 주소 범위는 CIDR 표기법(예: 10.20.0.0/20)에 따라야 하고 기존 주소 범위와 겹치지 않아야 합니다.  주소 범위를 제공할 때는 생성되는 *랩* 수를 고려하여 이를 수용하는 주소 범위를 제공하는 것이 중요합니다. Lab Services는 랩당 최대 512대의 가상 머신을 가정합니다.  예를 들어 '/23'인 IP 범위는 랩을 하나만 만들 수 있습니다.  '/21'인 범위에서는 네 개의 랩을 만들 수 있습니다.
+랩의 가상 머신에 대한 **주소 범위** 를 제공하는 옵션도 있습니다.  **주소 범위** 속성은 랩에서 **피어 가상 네트워크** 를 사용하도록 설정한 경우에만 적용됩니다. 주소 범위가 제공되면 랩 계정에 속하는 랩의 모든 가상 머신이 해당 주소 범위에서 생성됩니다. 주소 범위는 CIDR 표기법(예: 10.20.0.0/20)에 따라야 하고 기존 주소 범위와 겹치지 않아야 합니다.  주소 범위를 제공할 때는 생성되는 *랩* 수를 고려하여 이를 수용하는 주소 범위를 제공하는 것이 중요합니다. Lab Services는 랩당 최대 512대의 가상 머신을 가정합니다.  예를 들어 '/23'인 IP 범위는 랩을 하나만 만들 수 있습니다.  '/21'인 범위에서는 네 개의 랩을 만들 수 있습니다.
 
-**주소 범위**를 지정하지 않으면 Lab Services에서 사용자의 가상 네트워크와 피어링할 가상 네트워크를 만들 때 Azure에서 지정한 기본 주소 범위를 사용합니다.  범위는 대개 10.x.0.0/16과 같습니다.  이로 인해 IP 범위가 중복될 수 있으므로 랩 설정에서 주소 범위를 지정하거나 피어링되는 사용자 가상 네트워크의 주소 범위를 확인해야 합니다.
+**주소 범위** 를 지정하지 않으면 Lab Services에서 사용자의 가상 네트워크와 피어링할 가상 네트워크를 만들 때 Azure에서 지정한 기본 주소 범위를 사용합니다.  범위는 대개 10.x.0.0/16과 같습니다.  이로 인해 IP 범위가 중복될 수 있으므로 랩 설정에서 주소 범위를 지정하거나 피어링되는 사용자 가상 네트워크의 주소 범위를 확인해야 합니다.
 
 > [!NOTE]
 > 랩 계정이 가상 네트워크에 피어링되지만 IP 주소 범위가 너무 좁으면 랩 생성이 실패할 수 있습니다. 랩 계정에 너무 많은 랩이 있는 경우(각 랩에서 512개 주소를 사용하는 경우) 주소 범위에서 공간이 부족할 수 있습니다. 
@@ -47,7 +47,7 @@ ms.locfileid: "85445834"
 
 ## <a name="configure-after-the-lab-account-is-created"></a>랩 계정 생성 후 구성
 
-랩 계정 생성 시 피어 네트워크를 설정하지 않은 경우 **랩 계정** 페이지의 **랩 구성** 탭에서 동일한 속성을 사용하도록 설정할 수 있습니다. 이 설정에 대한 변경 내용은 변경 후에 생성된 랩에만 적용됩니다. 이미지에서 볼 수 있듯이 랩 계정에서 랩에 대한 **피어 가상 네트워크**를 사용하거나 사용하지 않도록 설정할 수 있습니다.
+랩 계정 생성 시 피어 네트워크를 설정하지 않은 경우 **랩 계정** 페이지의 **랩 구성** 탭에서 동일한 속성을 사용하도록 설정할 수 있습니다. 이 설정에 대한 변경 내용은 변경 후에 생성된 랩에만 적용됩니다. 이미지에서 볼 수 있듯이 랩 계정에서 랩에 대한 **피어 가상 네트워크** 를 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
 ![랩을 만든 후 VNet 피어링 사용 또는 사용 안 함](./media/how-to-connect-peer-virtual-network/select-vnet-to-peer-existing-lab.png)
 
@@ -65,9 +65,9 @@ ms.locfileid: "85445834"
 - 접두사는 23보다 작거나 같아야 합니다. 
 - 가상 네트워크가 랩 계정에 피어링되는 경우 제공된 주소 범위는 피어링된 가상 네트워크의 주소 범위와 겹칠 수 없습니다.
 
-1. **랩 계정** 페이지의 왼쪽 메뉴에서 **랩 설정**을 선택합니다.
+1. **랩 계정** 페이지의 왼쪽 메뉴에서 **랩 설정** 을 선택합니다.
 2. **주소 범위** 필드에 랩에서 생성할 VM의 주소 범위를 지정합니다. 주소 범위는 CIDR(Classless Inter-Domain Routing) 표기법을 따라야 합니다(예: 10.20.0.0/23). 랩의 가상 머신은 이 주소 범위에서 만들어집니다.
-3. 도구 모음에서 **저장**을 선택합니다. 
+3. 도구 모음에서 **저장** 을 선택합니다. 
 
     ![주소 범위 구성](./media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)
 

@@ -10,23 +10,23 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1
-ms.openlocfilehash: 16ead03af14da70b5aaedc21118488c6dd3012c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75f2eb90e2418b57e5e0a358fbd6282b20ddc9e7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597650"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648364"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Azure CLI를 사용하여 Azure 역할 할당 추가 또는 제거
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] 이 문서에서는 Azure CLI를 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 역할 할당을 추가 하거나 제거 하려면 다음을 수행 해야 합니다.
 
 - `Microsoft.Authorization/roleAssignments/write` 및 `Microsoft.Authorization/roleAssignments/delete` 사용 권한(예: [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 또는 [소유자](built-in-roles.md#owner))
-- Azure Cloud Shell 또는 [Azure CLI](/cli/azure) [의 Bash](/azure/cloud-shell/overview)
+- Azure Cloud Shell 또는 [Azure CLI](/cli/azure) [의 Bash](../cloud-shell/overview.md)
 
 ## <a name="steps-to-add-a-role-assignment"></a>역할 할당을 추가하는 단계
 
@@ -185,7 +185,7 @@ az role assignment create --assignee "{assignee}" \
 
 ### <a name="add-role-assignment-for-a-specific-blob-container-resource-scope"></a>특정 blob 컨테이너 리소스 범위에 대 한 역할 할당 추가
 
-Blob 컨테이너 *-01*이라는 blob 컨테이너에 대 한 리소스 범위에서 개체 ID가 *55555555-5555-5555-5555-555555555555* 인 서비스 사용자에 게 [저장소 Blob 데이터 참가자](built-in-roles.md#storage-blob-data-contributor) 역할을 할당 합니다.
+Blob 컨테이너 *-01* 이라는 blob 컨테이너에 대 한 리소스 범위에서 개체 ID가 *55555555-5555-5555-5555-555555555555* 인 서비스 사용자에 게 [저장소 Blob 데이터 참가자](built-in-roles.md#storage-blob-data-contributor) 역할을 할당 합니다.
 
 ```azurecli
 az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
@@ -195,7 +195,7 @@ az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 
 ### <a name="add-role-assignment-for-all-blob-containers-in-a-storage-account-resource-scope"></a>저장소 계정 리소스 범위에서 모든 blob 컨테이너에 대 한 역할 할당 추가
 
-*Storage12345*라는 저장소 계정에 대 한 리소스 범위에서 개체 ID가 *55555555-5555-5555-5555-555555555555* 인 서비스 사용자에 게 [저장소 Blob 데이터 참가자](built-in-roles.md#storage-blob-data-contributor) 역할을 할당 합니다.
+*Storage12345* 라는 저장소 계정에 대 한 리소스 범위에서 개체 ID가 *55555555-5555-5555-5555-555555555555* 인 서비스 사용자에 게 [저장소 Blob 데이터 참가자](built-in-roles.md#storage-blob-data-contributor) 역할을 할당 합니다.
 
 ```azurecli
 az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
@@ -205,7 +205,7 @@ az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 
 ### <a name="add-role-assignment-for-a-group-in-a-specific-virtual-network-resource-scope"></a>특정 가상 네트워크 리소스 범위에서 그룹에 대 한 역할 할당 추가
 
-*Pharma-sales-projectforcast*이라는 가상 네트워크에 대 한 리소스 범위에서 ID가 22222222-2222-2222-2222-222222222222 인 *Ann mack 팀* 그룹에 [가상 컴퓨터 참가자](built-in-roles.md#virtual-machine-contributor) 역할을 할당 합니다.
+*Pharma-sales-projectforcast* 이라는 가상 네트워크에 대 한 리소스 범위에서 ID가 22222222-2222-2222-2222-222222222222 인 *Ann mack 팀* 그룹에 [가상 컴퓨터 참가자](built-in-roles.md#virtual-machine-contributor) 역할을 할당 합니다.
 
 ```azurecli
 az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
@@ -293,7 +293,7 @@ az role assignment create --assignee-object-id "33333333-3333-3333-3333-33333333
 
 ### <a name="add-role-assignment-for-a-user-at-a-subscription-scope"></a>구독 범위에서 사용자에 대 한 역할 할당 추가
 
-구독 범위에서 * \@ example.com* 사용자에 게 [읽기 권한자](built-in-roles.md#reader) 역할을 할당 합니다.
+구독 범위에서 *\@ example.com* 사용자에 게 [읽기 권한자](built-in-roles.md#reader) 역할을 할당 합니다.
 
 ```azurecli
 az role assignment create --assignee "annm@example.com" \
@@ -362,4 +362,4 @@ az role assignment delete --assignee "alain@example.com" \
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure CLI를 사용 하 여 Azure 역할 할당 나열](role-assignments-list-cli.md)
-- [Azure 리소스 및 리소스 그룹 관리를 위해 Azure CLI 사용](../azure-resource-manager/cli-azure-resource-manager.md)
+- [Azure 리소스 및 리소스 그룹 관리를 위해 Azure CLI 사용](../azure-resource-manager/management/manage-resources-cli.md)

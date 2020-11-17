@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
-ms.openlocfilehash: 8968fd54968f3115641d2315a534ba61a247a06d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bcf45cdfbadbf16f48f8f2ac3bd0c6320a2803f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605127"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649231"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 대한 최종 사용자 환경
 
@@ -37,13 +37,13 @@ Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리�
 
 내 앱은 Azure Portal와 별개 이며, 사용자가 Azure 구독 또는 Microsoft 365 구독을 가질 필요가 없습니다.
 
-Azure AD 내 앱에 대 한 자세한 내용은 [내 앱 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조 하세요.
+Azure AD 내 앱에 대 한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조 하세요.
 
 ## <a name="microsoft-365-application-launcher"></a>Microsoft 365 응용 프로그램 시작 관리자
 
 Microsoft 365 배포 된 조직의 경우 Azure AD를 통해 사용자에 게 할당 된 응용 프로그램은 Office 365 포털 ()에도 표시 됩니다 [https://portal.office.com/myapps](https://portal.office.com/myapps) . 이렇게 하면 조직의 사용자가 두 번째 포털을 사용 하지 않고도 앱을 쉽게 시작할 수 있으며 Microsoft 365를 사용 하는 조직에 권장 되는 앱 시작 솔루션입니다.
 
-Office 365 애플리케이션 실행 프로그램에 대한 자세한 내용은 [Office 365 앱 실행 프로그램에 해당 앱 표시](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher)(영문)를 참조하세요.
+Office 365 애플리케이션 실행 프로그램에 대한 자세한 내용은 [Office 365 앱 실행 프로그램에 해당 앱 표시](/previous-versions/office/office-365-api/)(영문)를 참조하세요.
 
 ## <a name="direct-sign-on-to-federated-apps"></a>페더레이션된 앱에 직접 로그온
 
@@ -53,7 +53,7 @@ SAML 2.0, WS-Federation 또는 OpenID Connect를 지원하는 대부분의 페�
 
 Azure AD는 암호 기반 Single Sign-On, 연결된 Single Sign-On 및 모든 형태의 페더레이션된 Single Sign-On을 지원하는 개별 애플리케이션에 대한 직접 Single Sign-On 링크도 지원합니다.
 
-이러한 링크는 사용자가 Azure AD 내 앱 또는 Microsoft 365에서 시작 하지 않고도 특정 응용 프로그램에 대 한 Azure AD 로그인 프로세스를 통해 사용자를 전송 하는 특별히 제작 된 Url입니다. 이러한 **사용자 액세스 url** 은 사용 가능한 엔터프라이즈 응용 프로그램의 속성에서 찾을 수 있습니다. Azure Portal에서 **Azure Active Directory** > **엔터프라이즈 애플리케이션**을 차례로 선택합니다. 응용 프로그램을 선택한 다음 **속성**을 선택 합니다.
+이러한 링크는 사용자가 Azure AD 내 앱 또는 Microsoft 365에서 시작 하지 않고도 특정 응용 프로그램에 대 한 Azure AD 로그인 프로세스를 통해 사용자를 전송 하는 특별히 제작 된 Url입니다. 이러한 **사용자 액세스 url** 은 사용 가능한 엔터프라이즈 응용 프로그램의 속성에서 찾을 수 있습니다. Azure Portal에서 **Azure Active Directory** > **엔터프라이즈 애플리케이션** 을 차례로 선택합니다. 응용 프로그램을 선택한 다음 **속성** 을 선택 합니다.
 
 ![Twitter 속성의 사용자 액세스 URL 예](media/end-user-experiences/direct-sign-on-link.png)
 

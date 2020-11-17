@@ -3,12 +3,12 @@ title: Project를 사용 하 여 labs를 설정 하는 방법 Azure Lab Services
 description: 프로젝트 리드에 클래스를 소개 하도록 랩을 설정 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 10/28/2020
-ms.openlocfilehash: 8585d09759319eef04da5ed68fec603cfa390093
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e3783ae4fa07bf783841022903c4bcf3ab6fbe23
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497270"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648007"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>프로젝트 리드에 대 한 랩 설정 클래스
 
@@ -53,12 +53,12 @@ ms.locfileid: "94497270"
 각 클래스에 대 한 [소프트웨어의 전체 목록은](https://www.pltw.org/pltw-software) pltw 사이트를 참조 하세요.
 
 ## <a name="lab-configuration"></a>랩 구성
-PLTW을 위한 랩을 설정 하려면 시작 하려면 Azure 구독 및 랩 계정이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독을 받은 후 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정을 만드는 방법에 대 한 자세한 내용은 [랩 계정을 설정 하는 방법](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account)에 대 한 자습서를 참조 하세요. 기존 랩 계정을 사용할 수도 있습니다.
+PLTW을 위한 랩을 설정 하려면 시작 하려면 Azure 구독 및 랩 계정이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독을 받은 후 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정을 만드는 방법에 대 한 자세한 내용은 [랩 계정을 설정 하는 방법](./tutorial-setup-lab-account.md)에 대 한 자습서를 참조 하세요. 기존 랩 계정을 사용할 수도 있습니다.
 
 랩 계정이 있으면 학교에서 제공 하는 PLTW 클래스의 각 세션에 대해 별도의 랩을 만들어야 합니다.  또한 각 PLTW 클래스 유형에 대해 별도의 이미지를 만드는 것이 좋습니다.  실습 및 이미지를 구성 하는 방법에 대 한 자세한 내용은 블로그 게시물 ( [물리적 랩에서 Azure Lab Services로 이동](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931))을 참조 하세요.
 
 ### <a name="lab-account-settings"></a>랩 계정 설정
-랩 계정에 대해 아래 표에 설명 된 설정을 사용 하도록 설정 합니다. Marketplace 이미지를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [랩 작성자가 사용할 수 있는 marketplace 이미지를 지정 하는 방법](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images)에 대 한 문서를 참조 하세요.
+랩 계정에 대해 아래 표에 설명 된 설정을 사용 하도록 설정 합니다. Marketplace 이미지를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [랩 작성자가 사용할 수 있는 marketplace 이미지를 지정 하는 방법](./specify-marketplace-images.md)에 대 한 문서를 참조 하세요.
 
 | 랩 계정 설정 | Instructions |
 | -------------------- | ----- |
@@ -80,19 +80,19 @@ PLTW 클래스에 사용 하는 데 권장 되는 VM의 크기는 학생이 클�
 
 Autodesk의 소프트웨어에서 네트워크 라이선스를 사용 하려면 [Pltw](https://www.pltw.org/pltw-software) 에서 라이선스 서버에 Autodesk의 라이선스 관리자를 설치 하는 자세한 단계를 제공 합니다.  이 라이선스 서버는 일반적으로 온-프레미스 네트워크에 있거나 Azure VNet (가상 네트워크) 내에 있는 Azure VM (가상 머신)에서 호스팅됩니다.
 
-라이선스 서버를 설정한 후에는 VNet을 [랩 계정](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account)으로 [피어](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) 링 해야 합니다. 랩 가상 머신에서 라이선스 서버에 액세스할 수 있도록 네트워크 피어 링을 _before * 랩을 만들고 그 밖의 다른 방법을 수행 해야 합니다.
+라이선스 서버를 설정한 후에는 VNet을 [랩 계정](./tutorial-setup-lab-account.md)으로 [피어](./how-to-connect-peer-virtual-network.md) 링 해야 합니다. 랩 가상 머신에서 라이선스 서버에 액세스할 수 있도록 네트워크 피어 링을 _before * 랩을 만들고 그 밖의 다른 방법을 수행 해야 합니다.
 
 Autodesk의 생성 된 라이선스 파일은 라이선스 서버의 MAC 주소를 포함 합니다.  Azure VM을 사용 하 여 라이선스 서버를 호스팅하려면 라이선스 서버의 MAC 주소가 변경 되지 않는지 확인 하는 것이 중요 합니다.   그렇지 않으면 MAC 주소가 변경 될 때 라이선스 파일을 다시 생성 해야 합니다.  MAC 주소가 변경 되는 것을 방지 하려면 다음 팁을 따르세요.
 
-- 라이선스 서버를 호스트 하는 Azure VM에 대 한 [정적 개인 IP 및 MAC 주소를 설정](https://docs.microsoft.com/azure/lab-services/how-to-create-a-lab-with-shared-resource#static-private-ip-and-mac-address) 합니다.
+- 라이선스 서버를 호스트 하는 Azure VM에 대 한 [정적 개인 IP 및 MAC 주소를 설정](./how-to-create-a-lab-with-shared-resource.md#static-private-ip-and-mac-address) 합니다.
 - 나중에 이러한 리소스를 새 지역으로 이동 하지 않아도 되도록 충분 한 VM 용량이 있는 지역에서 랩 계정 및 라이선스 서버 VNet을 모두 설정 했는지 확인 합니다.
 
-또한 자세한 내용은 [공유 리소스로 라이선스 서버를 설정 하는 방법](https://docs.microsoft.com/azure/lab-services/how-to-create-a-lab-with-shared-resource) 에 대 한 문서를 참조 하세요.
+또한 자세한 내용은 [공유 리소스로 라이선스 서버를 설정 하는 방법](./how-to-create-a-lab-with-shared-resource.md) 에 대 한 문서를 참조 하세요.
 
 ### <a name="template-machine"></a>템플릿 컴퓨터
 PLTW에 필요한 설치 파일 중 일부는 크고 랩의 템플릿 컴퓨터에 다운로드 하는 경우 복사 하는 데 시간이 오래 걸립니다.
 
-설치 파일을 템플릿 컴퓨터에 다운로드 하 고 모든 항목을 설치 하는 대신 물리적 환경에서 PLTW 이미지를 만드는 것이 좋습니다.  그런 다음 사용자 지정 이미지를 사용 하 여 랩을 만들 수 있도록 이미지를 공유 이미지 갤러리로 가져올 수 있습니다.  자세한 내용은 [사용자 지정 이미지를 공유 이미지 갤러리에 업로드](https://docs.microsoft.com/azure/lab-services/upload-custom-image-shared-image-gallery)문서를 참조 하세요.
+설치 파일을 템플릿 컴퓨터에 다운로드 하 고 모든 항목을 설치 하는 대신 물리적 환경에서 PLTW 이미지를 만드는 것이 좋습니다.  그런 다음 사용자 지정 이미지를 사용 하 여 랩을 만들 수 있도록 이미지를 공유 이미지 갤러리로 가져올 수 있습니다.  자세한 내용은 [사용자 지정 이미지를 공유 이미지 갤러리에 업로드](./upload-custom-image-shared-image-gallery.md)문서를 참조 하세요.
 
 이 권장 사항을 따르면 랩을 설정 하는 주요 작업은 다음과 같습니다.
 
@@ -103,11 +103,11 @@ PLTW에 필요한 설치 파일 중 일부는 크고 랩의 템플릿 컴퓨터�
     > [!NOTE]    
     > Autodesk의 응용 프로그램을 설치 하는 경우 Autodesk on을 설치 하는 컴퓨터가 라이선스 서버와 통신할 수 있어야 합니다 (Autodesk의 설치 마법사는 라이선스 서버가 호스트 되는 컴퓨터의 컴퓨터 이름을 지정 하 라는 메시지를 표시 합니다).  Azure VM에서 라이선스 서버를 호스트 하는 경우 Autodesk의 설치 마법사가 라이선스 서버에 액세스할 수 있도록 랩의 템플릿 컴퓨터에 Autodesk를 설치 하기까지 기다려야 할 수 있습니다.
 
-    b.  OneDrive (또는 학교에서 사용할 수 있는 다른 백업 옵션)를 [설치 하 고 구성](https://docs.microsoft.com/azure/lab-services/how-to-prepare-windows-template#install-and-configure-onedrive) 합니다.
+    b.  OneDrive (또는 학교에서 사용할 수 있는 다른 백업 옵션)를 [설치 하 고 구성](./how-to-prepare-windows-template.md#install-and-configure-onedrive) 합니다.
     
-    다.  [Windows 업데이트를 설치 하 고 구성](https://docs.microsoft.com/azure/lab-services/how-to-prepare-windows-template#install-and-configure-updates)합니다.
+    다.  [Windows 업데이트를 설치 하 고 구성](./how-to-prepare-windows-template.md#install-and-configure-updates)합니다.
 
-1.  [랩 계정에 연결 된 공유 이미지 갤러리](https://docs.microsoft.com/azure/lab-services/how-to-attach-detach-shared-image-gallery)에 사용자 지정 이미지를 업로드 합니다.
+1.  [랩 계정에 연결 된 공유 이미지 갤러리](./how-to-attach-detach-shared-image-gallery.md)에 사용자 지정 이미지를 업로드 합니다.
 
 1.  랩을 만들고 이전 단계에서 업로드 한 사용자 지정 이미지를 선택 합니다.
 
@@ -118,9 +118,9 @@ PLTW에 필요한 설치 파일 중 일부는 크고 랩의 템플릿 컴퓨터�
 ## <a name="student-devices"></a>학생 장치
 학생은 Windows\Mac 컴퓨터 및 Chromebooks에서 랩 Vm에 연결할 수 있습니다.  다음은 이러한 각 옵션에 대 한 지침에 대 한 링크입니다.
 
-- [Windows에서 연결](https://docs.microsoft.com/azure/lab-services/how-to-use-classroom-lab#connect-to-the-vm)
-- [Mac에서 연결](https://docs.microsoft.com/azure/lab-services/connect-virtual-machine-mac-remote-desktop)
-- [Chromebook에서 연결](https://docs.microsoft.com/azure/lab-services/connect-virtual-machine-chromebook-remote-desktop)
+- [Windows에서 연결](./how-to-use-classroom-lab.md#connect-to-the-vm)
+- [Mac에서 연결](./connect-virtual-machine-mac-remote-desktop.md)
+- [Chromebook에서 연결](./connect-virtual-machine-chromebook-remote-desktop.md)
 
 ## <a name="cost"></a>비용
 위의 PLTW 클래스에 대해 가능한 예상 비용을 살펴보겠습니다.  이러한 예상치는 라이선스 서버를 실행 하거나 공유 이미지 갤러리를 사용 하는 비용을 포함 하지 않습니다.  25 명의 학생 클래스를 사용 합니다.  예약 된 클래스 시간은 20 시간입니다.  또한 각 학생은 예약 된 클래스 시간 외에도 과제 또는 할당에 대해 10 시간 할당량을 얻습니다.  **크고** **작은 GPU (시각화)** 크기에 대 한 아래 비용 예상을 참조 하세요.
@@ -145,4 +145,4 @@ PLTW에 필요한 설치 파일 중 일부는 크고 랩의 템플릿 컴퓨터�
 - [사용자 추가](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [할당량 설정](how-to-configure-student-usage.md#set-quotas-for-users)
 - [일정 설정](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [이메일로 학생에게 등록 링크 보내기](how-to-configure-student-usage.md#send-invitations-to-users) 
+- [이메일로 학생에게 등록 링크 보내기](how-to-configure-student-usage.md#send-invitations-to-users)
