@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d9a7d7db93e00b9fcccab08522b3363935badf26
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 003203ef1a25102f9fd3c50001603dbd5d33ce5a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203843"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565973"
 ---
 # <a name="tutorial-manipulating-models"></a>자습서: 모델 조작
 
@@ -32,9 +32,9 @@ ms.locfileid: "92203843"
 
 원격 개체와 상호 작용하려면 먼저 상호 작용하기 위한 로컬 표현이 필요합니다. [개체 범위](../../../concepts/object-bounds.md)는 원격 개체를 빠르게 조작하는 데 유용합니다. 원격 범위는 ARR에서 로컬 Entity를 참조로 사용하여 쿼리할 수 있습니다. 모델이 원격 세션에 로드되면 범위가 쿼리됩니다.
 
-모델의 범위는 Unity의 [**BoxCollider**](https://docs.unity3d.com/Manual/class-BoxCollider.html)처럼 x, y, z 축에 대한 중심과 크기가 정의된 전체 모델을 포함하는 상자로 정의됩니다. 실제로 Unity의 **BoxCollider**를 사용하여 원격 모델의 범위를 나타냅니다.
+모델의 범위는 Unity의 [**BoxCollider**](https://docs.unity3d.com/Manual/class-BoxCollider.html)처럼 x, y, z 축에 대한 중심과 크기가 정의된 전체 모델을 포함하는 상자로 정의됩니다. 실제로 Unity의 **BoxCollider** 를 사용하여 원격 모델의 범위를 나타냅니다.
 
-1. 새 스크립트를 **RemoteRenderedModel**과 동일한 디렉터리에 만들고, 이름을 **RemoteBounds**로 지정합니다.
+1. 새 스크립트를 **RemoteRenderedModel** 과 동일한 디렉터리에 만들고, 이름을 **RemoteBounds** 로 지정합니다.
 1. 스크립트의 내용을 다음 코드로 바꿉니다.
 
     ```csharp
@@ -111,9 +111,9 @@ ms.locfileid: "92203843"
     > [!NOTE]
     > Visual Studio에서 *C# 6에서는 'X' 기능을 사용할 수 없습니다. 언어 버전 7.0 이상을 사용하세요.* 라고 요구하는 오류가 표시되는 경우 이러한 오류는 무시할 수 있습니다. 이는 Unity의 솔루션 및 프로젝트 생성과 관련이 있습니다.
 
-    이 스크립트는 **BaseRemoteRenderedModel**을 구현하는 스크립트와 동일한 GameObject에 추가해야 합니다. 이 경우 **RemoteRenderedModel**을 의미합니다. 이전 스크립트와 비슷하게 이 초기 코드는 원격 범위와 관련된 모든 상태 변경, 이벤트 및 데이터를 처리합니다.
+    이 스크립트는 **BaseRemoteRenderedModel** 을 구현하는 스크립트와 동일한 GameObject에 추가해야 합니다. 이 경우 **RemoteRenderedModel** 을 의미합니다. 이전 스크립트와 비슷하게 이 초기 코드는 원격 범위와 관련된 모든 상태 변경, 이벤트 및 데이터를 처리합니다.
 
-    구현해야 할 **QueryBounds** 및 **ProcessQueryResult**의 두 가지 메서드가 있습니다. **QueryBounds**는 범위를 가져오고, **ProcessQueryResult**는 쿼리 결과를 가져와서 로컬 **BoxCollider**에 적용합니다.
+    구현해야 할 **QueryBounds** 및 **ProcessQueryResult** 의 두 가지 메서드가 있습니다. **QueryBounds** 는 범위를 가져오고, **ProcessQueryResult** 는 쿼리 결과를 가져와서 로컬 **BoxCollider** 에 적용합니다.
 
     **QueryBounds** 메서드는 간단합니다. 즉, 쿼리를 원격 렌더링 세션으로 보내고 `Completed` 이벤트를 수신 대기합니다.
 
@@ -129,7 +129,7 @@ ms.locfileid: "92203843"
     }
     ```
 
-    **ProcessQueryResult**도 간단합니다. 결과가 성공적인지 확인합니다. 그렇다면 반환된 범위를 **BoxCollider**에서 허용할 수 있는 형식으로 변환하여 적용합니다.    
+    **ProcessQueryResult** 도 간단합니다. 결과가 성공적인지 확인합니다. 그렇다면 반환된 범위를 **BoxCollider** 에서 허용할 수 있는 형식으로 변환하여 적용합니다.    
 
 1. **ProcessQueryResult** 메서드를 완성된 다음 메서드로 바꿉니다.
 
@@ -152,7 +152,7 @@ ms.locfileid: "92203843"
     }
     ```
 
-이제 **RemoteBounds** 스크립트가 **RemoteRenderedModel**과 동일한 게임 개체에 추가될 때 필요한 경우 **BoxCollider**가 추가되고, 모델이 `Loaded` 상태에 도달하는 경우 범위가 자동으로 쿼리되어 **BoxCollider**에 적용됩니다.
+이제 **RemoteBounds** 스크립트가 **RemoteRenderedModel** 과 동일한 게임 개체에 추가될 때 필요한 경우 **BoxCollider** 가 추가되고, 모델이 `Loaded` 상태에 도달하는 경우 범위가 자동으로 쿼리되어 **BoxCollider** 에 적용됩니다.
 
 1. 이전에 만든 **TestModel** GameObject를 사용하여 **RemoteBounds** 구성 요소를 추가합니다.
 1. 스크립트가 추가되었는지 확인합니다.
@@ -163,11 +163,11 @@ ms.locfileid: "92203843"
 
      ![원격 개체 경계 예제를 보여주는 스크린샷.](./media/updated-bounds.png)
 
-이제 Unity 개체에서 정확한 범위를 사용하여 구성된 로컬 **BoxCollider**가 있습니다. 범위를 사용하면 로컬로 렌더링된 개체에 사용하는 것과 동일한 전략을 사용하여 시각화 및 상호 작용을 수행할 수 있습니다. 예를 들어 Transform(변환), 물리 등을 변경하는 스크립트가 있습니다.
+이제 Unity 개체에서 정확한 범위를 사용하여 구성된 로컬 **BoxCollider** 가 있습니다. 범위를 사용하면 로컬로 렌더링된 개체에 사용하는 것과 동일한 전략을 사용하여 시각화 및 상호 작용을 수행할 수 있습니다. 예를 들어 Transform(변환), 물리 등을 변경하는 스크립트가 있습니다.
 
 ## <a name="move-rotate-and-scale"></a>이동, 회전 및 크기 조정  
 
-원격으로 렌더링된 개체를 이동, 회전 및 크기 조정하는 작업은 다른 Unity 개체와 동일하게 작동합니다. `LateUpdate` 메서드의 **RemoteRenderingCoordinator**는 현재 활성 세션에서 `Update`를 호출합니다. `Update`에서 수행하는 작업의 일부는 로컬 모델 엔터티 변환을 원격 대응 항목과 동기화하는 것입니다. 원격으로 렌더링된 모델을 이동, 회전 또는 크기 조정하려면 원격 모델을 나타내는 GameObject의 변환만 이동, 회전 또는 크기 조정하면 됩니다. 여기서는 **RemoteRenderedModel** 스크립트가 연결된 부모 GameObject의 변환을 수정합니다.
+원격으로 렌더링된 개체를 이동, 회전 및 크기 조정하는 작업은 다른 Unity 개체와 동일하게 작동합니다. `LateUpdate` 메서드의 **RemoteRenderingCoordinator** 는 현재 활성 세션에서 `Update`를 호출합니다. `Update`에서 수행하는 작업의 일부는 로컬 모델 엔터티 변환을 원격 대응 항목과 동기화하는 것입니다. 원격으로 렌더링된 모델을 이동, 회전 또는 크기 조정하려면 원격 모델을 나타내는 GameObject의 변환만 이동, 회전 또는 크기 조정하면 됩니다. 여기서는 **RemoteRenderedModel** 스크립트가 연결된 부모 GameObject의 변환을 수정합니다.
 
 이 자습서에서는 MRTK를 개체 상호 작용에 사용합니다. 개체를 이동, 회전 및 크기 조정하는 MRTK 관련 구현의 대부분은 이 자습서의 범위를 벗어납니다. **AppMenu** 내의 **Model Tools(모델 도구)** 메뉴에는 미리 구성된 모델 보기 컨트롤러가 있습니다.
 
@@ -176,7 +176,7 @@ ms.locfileid: "92203843"
 1. Unity의 Play(재생) 단추를 눌러 장면을 재생하고, **AppMenu** 내에서 **Model Tools(모델 도구)** 메뉴를 엽니다.
 ![보기 컨트롤러](./media/model-with-view-controller.png)
 
-**AppMenu**에는 모델과 바인딩하기 위한 보기 컨트롤러를 구현하는 **Model Tools(모델 도구)** 라는 하위 메뉴가 있습니다. **RemoteBounds** 구성 요소가 GameObject에 포함되어 있으면 보기 컨트롤러에서 [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html) 구성 요소를 추가합니다. 이는 **BoxCollider**를 사용하여 경계 상자를 개체 주위에 렌더링하는 MRTK 구성 요소입니다. [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/api/Microsoft.MixedReality.Toolkit.Experimental.UI.ObjectManipulator.html?q=ObjectManipulator)는 손 상호 작용을 담당합니다. 이러한 스크립트를 결합하면 원격으로 렌더링된 모델을 이동, 회전 및 크기 조정할 수 있습니다.
+**AppMenu** 에는 모델과 바인딩하기 위한 보기 컨트롤러를 구현하는 **Model Tools(모델 도구)** 라는 하위 메뉴가 있습니다. **RemoteBounds** 구성 요소가 GameObject에 포함되어 있으면 보기 컨트롤러에서 [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html) 구성 요소를 추가합니다. 이는 **BoxCollider** 를 사용하여 경계 상자를 개체 주위에 렌더링하는 MRTK 구성 요소입니다. [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/api/Microsoft.MixedReality.Toolkit.Experimental.UI.ObjectManipulator.html?q=ObjectManipulator)는 손 상호 작용을 담당합니다. 이러한 스크립트를 결합하면 원격으로 렌더링된 모델을 이동, 회전 및 크기 조정할 수 있습니다.
 
 1. 마우스를 게임 패널로 이동하고, 이 패널 내부를 클릭하여 포커스를 맞춥니다.
 1. [MRTK의 손 시뮬레이션](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/InputSimulation/InputSimulationService.html#hand-simulation)을 사용하여 왼쪽 Shift 키를 길게 누릅니다.
@@ -196,7 +196,7 @@ ms.locfileid: "92203843"
 
 먼저 정적 래퍼를 원격 광선 캐스팅 쿼리 주위에 만들어 보겠습니다. 이 스크립트는 Unity 공간에서 위치와 방향을 허용하고, 원격 광선 캐스팅에서 허용하는 데이터 형식으로 변환하며, 결과를 반환합니다. 스크립트에서 `RayCastQueryAsync` API를 사용합니다.
 
-1. **RemoteRayCaster**라는 새 스크립트를 만들고, 해당 내용을 다음 코드로 바꿉니다.
+1. **RemoteRayCaster** 라는 새 스크립트를 만들고, 해당 내용을 다음 코드로 바꿉니다.
 
     ```csharp
     // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -237,11 +237,11 @@ ms.locfileid: "92203843"
     ```
 
     > [!NOTE]
-    > Unity에는 [**RaycastHit**](https://docs.unity3d.com/ScriptReference/RaycastHit.html)라는 클래스가 있고, Azure Remote Rendering에는 [**RayCastHit**](/dotnet/api/microsoft.azure.remoterendering.raycasthit)라는 클래스가 있습니다. 대문자 **C**는 컴파일 오류를 방지하기 위한 중요한 차이입니다.
+    > Unity에는 [**RaycastHit**](https://docs.unity3d.com/ScriptReference/RaycastHit.html)라는 클래스가 있고, Azure Remote Rendering에는 [**RayCastHit**](/dotnet/api/microsoft.azure.remoterendering.raycasthit)라는 클래스가 있습니다. 대문자 **C** 는 컴파일 오류를 방지하기 위한 중요한 차이입니다.
 
-    **RemoteRayCaster**는 원격 광선을 현재 세션으로 캐스팅하기 위한 공통 액세스 지점을 제공합니다. 더 구체적으로, MRTK 포인터 처리기는 다음에 구현합니다. 이 스크립트는 스크립트에서 [혼합 현실 포인터](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/Input/Pointers.html) 이벤트를 수신 대기하도록 MRTK에 알려주는 `IMixedRealityPointerHandler` 인터페이스를 구현합니다.
+    **RemoteRayCaster** 는 원격 광선을 현재 세션으로 캐스팅하기 위한 공통 액세스 지점을 제공합니다. 더 구체적으로, MRTK 포인터 처리기는 다음에 구현합니다. 이 스크립트는 스크립트에서 [혼합 현실 포인터](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/Input/Pointers.html) 이벤트를 수신 대기하도록 MRTK에 알려주는 `IMixedRealityPointerHandler` 인터페이스를 구현합니다.
 
-1. **RemoteRayCastPointerHandler**라는 새 스크립트를 만들고, 코드를 다음 코드로 바꿉니다.
+1. **RemoteRayCastPointerHandler** 라는 새 스크립트를 만들고, 코드를 다음 코드로 바꿉니다.
 
     ```csharp
     // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -302,17 +302,17 @@ ms.locfileid: "92203843"
     }
     ```
 
-**RemoteRayCastPointerHandler**의 `OnPointerClicked` 메서드는 상자 collider와 같이 collider에서 포인터를 '클릭'할 때 MRTK를 통해 호출됩니다. 그런 다음, 포인터의 결과를 점과 방향으로 변환하기 위해 `PointerDataToRemoteRayCast`가 호출됩니다. 그러면 해당 지점과 방향을 사용하여 원격 세션에서 원격 광선을 캐스팅합니다.
+**RemoteRayCastPointerHandler** 의 `OnPointerClicked` 메서드는 상자 collider와 같이 collider에서 포인터를 '클릭'할 때 MRTK를 통해 호출됩니다. 그런 다음, 포인터의 결과를 점과 방향으로 변환하기 위해 `PointerDataToRemoteRayCast`가 호출됩니다. 그러면 해당 지점과 방향을 사용하여 원격 세션에서 원격 광선을 캐스팅합니다.
 
 ![업데이트된 범위](./media/raycast-local-remote.png)
 
 클릭 시 광선 캐스팅 요청을 보내는 것은 원격 개체를 쿼리하기 위한 효율적인 전략입니다. 그러나 커서가 모델 자체가 아니라 상자 collider와 충돌하므로 적합한 사용자 환경이 아닙니다.
 
-또한 원격 세션에서 광선을 더 자주 캐스팅하는 새 MRTK 포인터를 만들 수도 있습니다. 이는 더 복잡한 방법이지만 사용자 환경이 더 효율적입니다. 이 전략은 이 자습서의 범위를 벗어나지만, 이 방법의 예제는 [ARR 샘플 리포지토리](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase)에 있는 소개 앱에서 확인할 수 있습니다.
+또한 원격 세션에서 광선을 더 자주 캐스팅하는 새 MRTK 포인터를 만들 수도 있습니다. 이는 더 복잡한 방법이지만 사용자 환경이 더 효율적입니다. 이 전략은 이 자습서의 범위를 벗어나지만, 이 방법의 예제는 [ARR 샘플 리포지토리](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase)에 있는 소개 앱에서 확인할 수 있습니다.
 
-**RemoteRayCastPointerHandler**에서 광선 캐스팅이 성공적으로 완료되면 `OnRemoteEntityClicked` Unity 이벤트에서 `Entity` 적중을 내보냅니다. 해당 이벤트에 응답하기 위해 `Entity`를 허용하고 해당 이벤트에 대한 작업을 수행하는 도우미 스크립트를 만듭니다. 먼저 스크립트에서 `Entity`의 이름을 디버그 로그에 출력하도록 해보겠습니다.
+**RemoteRayCastPointerHandler** 에서 광선 캐스팅이 성공적으로 완료되면 `OnRemoteEntityClicked` Unity 이벤트에서 `Entity` 적중을 내보냅니다. 해당 이벤트에 응답하기 위해 `Entity`를 허용하고 해당 이벤트에 대한 작업을 수행하는 도우미 스크립트를 만듭니다. 먼저 스크립트에서 `Entity`의 이름을 디버그 로그에 출력하도록 해보겠습니다.
 
-1. **RemoteEntityHelper**라는 새 스크립트를 만들고, 해당 내용을 아래와 같이 바꿉니다.
+1. **RemoteEntityHelper** 라는 새 스크립트를 만들고, 해당 내용을 아래와 같이 바꿉니다.
 
     ```csharp
     // Copyright (c) Microsoft Corporation. All rights reserved.

@@ -11,25 +11,25 @@ ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-dotnet
-ms.openlocfilehash: 52241972e283db1c5e000e1e9f5d655dfdd9c8a3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ce75b5465d18f988d9dfd2b329c4157bab41ded9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88928193"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534520"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-20-rest-api-ocr-operation-and-c"></a>빠른 시작: Computer Vision 2.0 REST API OCR 작업 및 C#을 사용하여 텍스트 추출
 
 > [!IMPORTANT]
 > 영어, 네덜란드어, 프랑스어, 독일어, 이탈리아어, 포르투갈어, 스페인어 또는 중국어 간체(미리 보기)로 텍스트를 추출하는 경우 최신 [읽기 작업](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text)을 사용하는 것이 좋습니다. [C# 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text)을 사용할 수 있습니다. 
 
-이 빠른 시작에서는 Computer Vision REST API [OCR 작업](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 기능을 사용하여 이미지에서 인쇄된 텍스트를 추출합니다. 이 작업을 통해 이미지의 인쇄 텍스트를 감지하고, 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
+이 빠른 시작에서는 Computer Vision REST API [OCR 작업](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) 기능을 사용하여 이미지에서 인쇄된 텍스트를 추출합니다. 이 작업을 통해 이미지의 인쇄 텍스트를 감지하고, 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [Visual Studio 2015 이상](https://visualstudio.microsoft.com/downloads/)이 있어야 합니다.
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Computer Vision 서비스에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 * 각각 `COMPUTER_VISION_SUBSCRIPTION_KEY` 및 `COMPUTER_VISION_ENDPOINT`라는 키 및 서비스 엔드포인트 URL에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
@@ -40,9 +40,9 @@ Visual Studio에서 샘플을 만들려면 다음 단계를 수행합니다.
 
 1. Visual C# 콘솔 앱 템플릿을 사용하여 Visual Studio에서 새 Visual Studio 솔루션을 만듭니다.
 1. Newtonsoft.Json NuGet 패키지를 설치합니다.
-    1. 메뉴에서 **도구**를 클릭하고, **NuGet 패키지 관리자**를 선택한 다음, **솔루션에 대한 NuGet 패키지 관리**를 선택합니다.
+    1. 메뉴에서 **도구** 를 클릭하고, **NuGet 패키지 관리자** 를 선택한 다음, **솔루션에 대한 NuGet 패키지 관리** 를 선택합니다.
     1. **찾아보기** 탭을 클릭하고 **검색** 상자에 "Newtonsoft.Json"을 입력합니다.
-    1. **Newtonsoft.Json**이 표시될 때 선택한 다음, 프로젝트 이름 옆의 확인란을 클릭하고, **설치**를 클릭합니다.
+    1. **Newtonsoft.Json** 이 표시될 때 선택한 다음, 프로젝트 이름 옆의 확인란을 클릭하고, **설치** 를 클릭합니다.
 1. 프로그램을 실행합니다.
 1. 프롬프트에서 로컬 이미지에 경로를 입력합니다.
 

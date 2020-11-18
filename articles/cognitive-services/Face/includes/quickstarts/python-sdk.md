@@ -7,24 +7,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: ec23ec58a020cc314f301e33b72b4787f4e32e14
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: cf7b82ec1da660ac68c6031434c0e0748ee67b3d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918723"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523853"
 ---
 Python용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
 Python용 Face 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
-* 이미지에서 얼굴 감지
-* 유사 얼굴 찾기
-* 사람 그룹 만들기 및 학습
-* 얼굴 식별
-* 얼굴 확인
+* [이미지에서 얼굴 감지](#detect-faces-in-an-image)
+* [유사 얼굴 찾기](#find-similar-faces)
+* [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)
+* [얼굴 식별](#identify-a-face)
+* [얼굴 확인](#verify-faces)
 
 [참조 설명서](/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [샘플](/samples/browse/?products=azure&term=face)
 
@@ -48,7 +48,7 @@ pip install --upgrade azure-cognitiveservices-vision-face
 
 ### <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
-예를 들어 새 Python 스크립트( *quickstart-file.py* )를 만듭니다. 그런 다음, 원하는 편집기 또는 IDE에서 이 파일을 열고, 다음 라이브러리를 가져옵니다.
+예를 들어 새 Python 스크립트(*quickstart-file.py*)를 만듭니다. 그런 다음, 원하는 편집기 또는 IDE에서 이 파일을 열고, 다음 라이브러리를 가져옵니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_imports)]
 
@@ -102,7 +102,7 @@ Face Python 클라이언트 라이브러리의 주요 기능 중 일부를 처�
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detect)]
 
 > [!TIP]
-> 로컬 이미지에서 얼굴을 검색할 수도 있습니다. [FaceOperations](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python) 메서드(예: **detect_with_stream** )를 참조하세요.
+> 로컬 이미지에서 얼굴을 검색할 수도 있습니다. [FaceOperations](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python) 메서드(예: **detect_with_stream**)를 참조하세요.
 
 ### <a name="display-and-frame-faces"></a>표시 및 프레임 면
 
@@ -157,7 +157,7 @@ Face Python 클라이언트 라이브러리의 주요 기능 중 일부를 처�
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_assign)]
 
 > [!TIP]
-> URL에서 참조하는 원격 이미지에서 **PersonGroup** 을 만들 수도 있습니다. [PersonGroupPersonOperations](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.persongrouppersonoperations?view=azure-python) 메서드(예: **add_face_from_url** )를 참조하세요.
+> URL에서 참조하는 원격 이미지에서 **PersonGroup** 을 만들 수도 있습니다. [PersonGroupPersonOperations](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.persongrouppersonoperations?view=azure-python) 메서드(예: **add_face_from_url**)를 참조하세요.
 
 ### <a name="train-persongroup"></a>PersonGroup 학습
 
