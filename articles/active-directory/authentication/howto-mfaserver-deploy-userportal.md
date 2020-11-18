@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2982e50a66aeccccd333e2a40b7162a4c6e8579
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: abf6a76a47fdc146af91f912fe8dcb2f37064ae3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966987"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838674"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털
 
@@ -29,9 +29,9 @@ ms.locfileid: "91966987"
 사용자 환경에 따라 Azure Multi-factor Authentication 서버와 동일한 서버 또는 다른 인터넷 연결 서버에서 사용자 포털을 배포하는 것이 좋습니다.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 로그인 이벤트 중에 MFA (multi-factor authentication)를 요구 하려는 신규 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 로그인 이벤트 중에 MFA (multi-factor authentication)를 요구 하려는 신규 고객은 클라우드 기반 Azure AD Multi-Factor Authentication를 사용 해야 합니다.
 >
-> 클라우드 기반 MFA를 시작 하려면 [자습서: Azure Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
+> 클라우드 기반 MFA를 시작 하려면 [자습서: AZURE AD Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
 >
 > 2019 년 7 월 1 일 이전에 MFA 서버를 정품 인증 한 기존 고객은 평소와 같이 최신 버전, 향후 업데이트 및 활성화 자격 증명 생성을 다운로드할 수 있습니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "91966987"
 두 시나리오에서 Azure Multi-Factor Authentication 웹 서비스 SDK가 Azure MFA(Multi-Factor Authentication) 서버에 아직 설치되어 있지 **않으면** 다음 단계를 완료합니다.
 
 1. Multi-Factor Authentication 서버 콘솔을 엽니다.
-2. **웹 서비스 SDK**로 이동하고 **웹 서비스 SDK 설치**를 선택합니다.
+2. **웹 서비스 SDK** 로 이동하고 **웹 서비스 SDK 설치** 를 선택합니다.
 3. 어떤 이유로든 변경해야 하는 경우가 아니면 기본값을 사용하여 설치를 완료합니다.
 4. IIS에서 사이트에 TLS/SSL 인증서를 바인딩합니다.
 
@@ -57,7 +57,7 @@ IIS 서버에 TLS/SSL 인증서를 구성하는 방법에 대한 질문이 있�
 
 ## <a name="deploy-the-user-portal-on-the-same-server-as-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버와 동일한 서버의 사용자 포털 배포
 
-Azure Multi-Factor Authentication 서버와 **동일한 서버**에 사용자 포털을 설치하려면 다음 필수 요건이 충족되어야 합니다.
+Azure Multi-Factor Authentication 서버와 **동일한 서버** 에 사용자 포털을 설치하려면 다음 필수 요건이 충족되어야 합니다.
 
 * ASP.NET 및 IIS 6 메타 베이스 호환성(IIS 7 이상)을 포함하는 IIS
 * 해당되는 경우 컴퓨터 및 도메인에 대해 관리자 권한이 있는 계정 계정에는 Active Directory 보안 그룹을 만들 수 있는 사용 권한이 필요합니다.
@@ -66,7 +66,7 @@ Azure Multi-Factor Authentication 서버와 **동일한 서버**에 사용자 �
 
 사용자 포털을 배포하려면 다음 단계를 따르세요.
 
-1. Azure Multi-Factor Authentication 서버 콘솔을 열고, 왼쪽 메뉴에 있는 **사용자 포털** 아이콘을 클릭한 후 **사용자 포털 설치**를 클릭합니다.
+1. Azure Multi-Factor Authentication 서버 콘솔을 열고, 왼쪽 메뉴에 있는 **사용자 포털** 아이콘을 클릭한 후 **사용자 포털 설치** 를 클릭합니다.
 2. 어떤 이유로든 변경해야 하는 경우가 아니면 기본값을 사용하여 설치를 완료합니다.
 3. IIS에서 사이트에 TLS/SSL 인증서 바인딩
 
@@ -81,13 +81,13 @@ IIS 서버에 TLS/SSL 인증서를 구성하는 방법에 대한 질문이 있�
 
 ## <a name="deploy-the-user-portal-on-a-separate-server"></a>별도 서버에 사용자 포털 배포
 
-Azure Multi-Factor Authentication 서버가 실행되고 있는 서버가 인터넷에 연결되지 않은 경우 **별도의 인터넷 연결 서버**에 사용자 포털을 설치해야 합니다.
+Azure Multi-Factor Authentication 서버가 실행되고 있는 서버가 인터넷에 연결되지 않은 경우 **별도의 인터넷 연결 서버** 에 사용자 포털을 설치해야 합니다.
 
 조직이 확인 방법 중 하나로 Microsoft Authenticator 앱을 사용하여 자체 서버에 사용자 포털을 배포하려는 경우 다음 요구 사항을 완료합니다.
 
 * v6.0 이상의 Azure Multi-Factor Authentication 서버를 사용합니다.
 * Microsoft IIS(인터넷 정보 서비스) 6.x 이상이 실행되는 인터넷 연결 웹 서버에 사용자 포털을 설치합니다.
-* IIS 6.x를 사용하는 경우 ASP.NET v2.0.50727이 설치되고, 등록되고, **허용**으로 설정되어야 합니다.
+* IIS 6.x를 사용하는 경우 ASP.NET v2.0.50727이 설치되고, 등록되고, **허용** 으로 설정되어야 합니다.
 * IIS 7.x 이상, IIS을 사용하는 경우 기본 인증, ASP.NET 및 IIS 6 메타 베이스 호환성을 포함합니다.
 * TLS/SSL 인증서를 사용하여 사용자 포털을 보호합니다.
 * TLS/SSL 인증서를 사용하여 Azure Multi-Factor Authentication 웹 서비스 SDK를 보호합니다.
@@ -103,7 +103,7 @@ Azure Multi-Factor Authentication 서버 이외의 서버에 사용자 포털을
    > [!NOTE]
    > 이 TLS/SSL 인증서는 일반적으로 공개적으로 서명된 TLS/SSL 인증서입니다.
 
-4. **C:\inetpub\wwwroot\MultiFactorAuth**로 이동합니다.
+4. **C:\inetpub\wwwroot\MultiFactorAuth** 로 이동합니다.
 5. 메모장에서 Web.Config 파일을 편집합니다.
 
     * **"USE_WEB_SERVICE_SDK"** 키를 찾고 **value="false"** 를 **value="true"** 로 변경합니다.
@@ -120,7 +120,7 @@ IIS 서버에 TLS/SSL 인증서를 구성하는 방법에 대한 질문이 있�
 
 사용자 포털이 설치되었으므로 해당 포털을 사용하도록 Azure Multi-Factor Authentication 서버를 구성해야 합니다.
 
-1. Azure Multi-Factor Authentication 서버 콘솔에서 **사용자 포털** 아이콘을 클릭합니다. 설정 탭에서 사용자 포털 URL 텍스트 상자에 **사용자 포털 URL**을 입력합니다. 이 URL은 메일 기능이 사용되도록 설정된 경우 Azure Multi-Factor Authentication 서버로 가져올 때 사용자에게 전송되는 메일에 포함됩니다.
+1. Azure Multi-Factor Authentication 서버 콘솔에서 **사용자 포털** 아이콘을 클릭합니다. 설정 탭에서 사용자 포털 URL 텍스트 상자에 **사용자 포털 URL** 을 입력합니다. 이 URL은 메일 기능이 사용되도록 설정된 경우 Azure Multi-Factor Authentication 서버로 가져올 때 사용자에게 전송되는 메일에 포함됩니다.
 2. 사용자 포털에서 사용하려는 설정을 선택합니다. 예를 들어 사용자가 자신의 인증 방법을 선택할 수 있도록 허용되면, 사용자가 선택할 수 있는 방법과 함께 **사용자가 방법을 선택할 수 있도록 허용** 옵션이 선택되어 있는지 확인합니다.
 3. **관리자** 탭에서 관리자가 누구여야 하는지 정의합니다. 추가/편집 상자에서 확인란 및 드롭다운을 사용하여 세분화된 관리 권한을 만들 수 있습니다.
 
@@ -158,7 +158,7 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 
 ### <a name="self-service-user-enrollment"></a>셀프 서비스 사용자 등록
 
-사용자가 로그인하고 등록할 수 있게 하려면 설정 탭에서 **사용자 로그인 허용**과 **사용자 등록 허용** 옵션을 선택해야 합니다. 선택한 설정은 사용자 로그인 환경에 영향을 줍니다.
+사용자가 로그인하고 등록할 수 있게 하려면 설정 탭에서 **사용자 로그인 허용** 과 **사용자 등록 허용** 옵션을 선택해야 합니다. 선택한 설정은 사용자 로그인 환경에 영향을 줍니다.
 
 예를 들어 사용자 포털에 처음으로 로그인하면 [Azure Multi-Factor Authentication 사용자 설정] 페이지로 이동합니다. Azure Multi-Factor Authentication 구성 방식에 따라 사용자는 인증 방법을 선택할 수 있습니다.
 
@@ -166,9 +166,9 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 
 ![기본 및 백업 전화 번호 등록](./media/howto-mfaserver-deploy-userportal/backupphone.png)
 
-사용자가 PIN을 사용해서 인증해야 하는 경우 페이지에 PIN을 만들라는 메시지가 표시됩니다. 전화 번호와 PIN(해당되는 경우)을 입력한 후 **지금 전화로 인증**이라는 단추를 클릭합니다. Azure Multi-Factor Authentication은 사용자의 기본 전화 번호로 전화 통화 확인을 수행합니다. 사용자는 전화 통화에 응답하고 PIN(해당되는 경우)을 입력하고 # 키를 눌러야 자체 등록 프로세스의 다음 단계로 이동할 수 있습니다.
+사용자가 PIN을 사용해서 인증해야 하는 경우 페이지에 PIN을 만들라는 메시지가 표시됩니다. 전화 번호와 PIN(해당되는 경우)을 입력한 후 **지금 전화로 인증** 이라는 단추를 클릭합니다. Azure Multi-Factor Authentication은 사용자의 기본 전화 번호로 전화 통화 확인을 수행합니다. 사용자는 전화 통화에 응답하고 PIN(해당되는 경우)을 입력하고 # 키를 눌러야 자체 등록 프로세스의 다음 단계로 이동할 수 있습니다.
 
-사용자가 텍스트 문자 확인 방법을 선택하거나 해당 방법을 사용하도록 미리 구성했으면 페이지에 휴대폰 번호를 입력하라는 메시지가 표시됩니다. 사용자가 PIN을 사용해서 인증해야 하는 경우 페이지에 PIN을 입력하라는 메시지가 표시됩니다.  전화 번호와 PIN(해당되는 경우)을 입력한 후 **지금 문자로 인증**이라는 단추를 클릭합니다. Azure Multi-Factor Authentication은 사용자의 휴대폰으로 SMS 확인을 수행합니다. 사용자는 일회용 암호(OTP)를 포함한 텍스트 메시지를 받은 다음 적용할 수 있는 경우 해당 OTP와 PIN을 사용하여 메시지에 회신합니다.
+사용자가 텍스트 문자 확인 방법을 선택하거나 해당 방법을 사용하도록 미리 구성했으면 페이지에 휴대폰 번호를 입력하라는 메시지가 표시됩니다. 사용자가 PIN을 사용해서 인증해야 하는 경우 페이지에 PIN을 입력하라는 메시지가 표시됩니다.  전화 번호와 PIN(해당되는 경우)을 입력한 후 **지금 문자로 인증** 이라는 단추를 클릭합니다. Azure Multi-Factor Authentication은 사용자의 휴대폰으로 SMS 확인을 수행합니다. 사용자는 일회용 암호(OTP)를 포함한 텍스트 메시지를 받은 다음 적용할 수 있는 경우 해당 OTP와 PIN을 사용하여 메시지에 회신합니다.
 
 ![SMS를 사용한 사용자 포털 인증](./media/howto-mfaserver-deploy-userportal/text.png)
 
@@ -179,7 +179,7 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 
 그러면 페이지에 활성화 코드와 URL이 바코드 그림과 함께 표시됩니다. 사용자가 PIN을 사용해서 인증해야 하는 경우 페이지에 추가로 PIN을 입력하라는 메시지가 표시됩니다. Microsoft 인증 앱에 활성화 코드와 URL을 입력하거나 바코드 스캐너를 사용하여 바코드 그림을 스캔하고 [활성화] 단추를 클릭합니다.
 
-활성화를 완료한 후에 **지금 인증**이라는 단추를 클릭합니다. Azure Multi-Factor Authentication은 사용자의 모바일 앱에서 인증을 수행합니다. 사용자는 PIN(해당되는 경우)을 입력하고 모바일 앱에서 Authenticate(인증) 단추를 눌러야 자체 등록 프로세스의 다음 단계로 이동할 수 있습니다.
+활성화를 완료한 후에 **지금 인증** 이라는 단추를 클릭합니다. Azure Multi-Factor Authentication은 사용자의 모바일 앱에서 인증을 수행합니다. 사용자는 PIN(해당되는 경우)을 입력하고 모바일 앱에서 Authenticate(인증) 단추를 눌러야 자체 등록 프로세스의 다음 단계로 이동할 수 있습니다.
 
 관리자가 보안 질문 및 답변을 수집하도록 Azure Multi-Factor Authentication 서버를 구성했으면 보안 질문 페이지로 이동됩니다. 사용자는 4개의 보안 질문을 선택하고 해당 질문에 대한 답변을 입력해야 합니다.
 

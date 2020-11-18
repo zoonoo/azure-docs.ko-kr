@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70777c80cdee99f13050d7cd342f22d59da13d73
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3da7c3afa6b414e3d7df3bb58766d1ab7657dbc4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964113"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838964"
 ---
 # <a name="configure-mfa-server-settings"></a>MFA 서버 설정 구성
 
 이 문서에서는 Azure Portal에서 Azure MFA 서버 설정을 관리 하는 방법을 설명 합니다.
 
 > [!IMPORTANT]
-> Microsoft는 2019년 7월 1일부터 더 이상 새 배포를 위한 MFA 서버를 제공하지 않습니다. 신규 사용자의 다단계 인증이 필요한 고객은 클라우드 기반 Azure Multi-Factor Authentication을 사용해야 합니다. 7월 1일 이전에 MFA 서버를 활성화한 기존 고객은 종전과 같이 최신 버전 및 이후 업데이트를 다운로드하고 활성화 자격 증명을 생성할 수 있습니다.
+> Microsoft는 2019년 7월 1일부터 더 이상 새 배포를 위한 MFA 서버를 제공하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure AD Multi-Factor Authentication를 사용 해야 합니다. 7월 1일 이전에 MFA 서버를 활성화한 기존 고객은 종전과 같이 최신 버전 및 이후 업데이트를 다운로드하고 활성화 자격 증명을 생성할 수 있습니다.
 
 다음 MFA 서버 설정을 사용할 수 있습니다.
 
@@ -41,11 +41,11 @@ ms.locfileid: "91964113"
 일회성 바이패스를 만들려면 다음 단계를 완료 합니다.
 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory**를 검색 하 고 선택한 다음 **보안**  >  **MFA**  >  **일회성 바이패스**로 이동 합니다.
-1. **추가**를 선택합니다.
+1. **Azure Active Directory** 를 검색 하 고 선택한 다음 **보안**  >  **MFA**  >  **일회성 바이패스** 로 이동 합니다.
+1. **추가** 를 선택합니다.
 1. 필요한 경우 바이패스에 대한 복제 그룹을 선택합니다.
 1. 사용자 이름을 `username\@domain.com`으로 입력합니다. 바이패스를 마지막으로 해야 하는 시간 (초)과 바이패스의 이유를 입력 합니다.
-1. **추가**를 선택합니다. 시간 제한은 즉시 적용됩니다. 일회성 바이패스가 만료되기 전에 사용자가 로그인해야 합니다.
+1. **추가** 를 선택합니다. 시간 제한은 즉시 적용됩니다. 일회성 바이패스가 만료되기 전에 사용자가 로그인해야 합니다.
 
 동일한 창에서 일회성 바이패스 보고서를 볼 수도 있습니다.
 
@@ -60,11 +60,11 @@ _캐싱_ 기능을 사용하여 사용자가 인증된 후 인증 시도를 할 
 
 캐싱을 설정 하려면 다음 단계를 완료 합니다.
 
-1. **Azure Active Directory** > **보안** > **MFA** > **캐싱 규칙**으로 이동합니다.
-1. **추가**를 선택합니다.
-1. 드롭다운 목록에서 **캐시 형식**을 선택합니다. 최대 **캐시 초 수**를 입력합니다.
+1. **Azure Active Directory** > **보안** > **MFA** > **캐싱 규칙** 으로 이동합니다.
+1. **추가** 를 선택합니다.
+1. 드롭다운 목록에서 **캐시 형식** 을 선택합니다. 최대 **캐시 초 수** 를 입력합니다.
 1. 필요한 경우 인증 유형을 선택하고 애플리케이션을 지정합니다.
-1. **추가**를 선택합니다.
+1. **추가** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

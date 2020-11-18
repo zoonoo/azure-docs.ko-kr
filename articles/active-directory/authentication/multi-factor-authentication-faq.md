@@ -1,6 +1,6 @@
 ---
-title: Azure Multi-Factor Authentication FAQ-Azure Active Directory
-description: Azure Multi-Factor Authentication과 관련된 질문과 대답입니다.
+title: Azure AD Multi-Factor Authentication FAQ-Azure Active Directory
+description: Azure AD Multi-Factor Authentication와 관련 된 질문과 대답입니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de86bc7d083fbf1890ed90c588b5bdb2e8479dfb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 909f4b71e07a20abf4af76fecaaf93bb08e4d6b4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963978"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837909"
 ---
-# <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
+# <a name="frequently-asked-questions-about-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication에 대 한 질문과 대답
 
-이 FAQ에서는 Azure Multi-factor Authentication 및 Multi-Factor Authentication 서비스 사용에 대한 일반적인 질문에 대한 답변을 제공합니다. 서비스 전반, 청구 모델, 사용자 경험 및 문제 해결에 대한 질문으로 세분화됩니다.
+이 FAQ는 Azure AD Multi-Factor Authentication와 Multi-Factor Authentication 서비스 사용에 대 한 일반적인 질문에 답변 합니다. 서비스 전반, 청구 모델, 사용자 경험 및 문제 해결에 대한 질문으로 세분화됩니다.
 
 > [!IMPORTANT]
-> Microsoft는 2019년 7월 1일부터 더 이상 새 배포를 위한 MFA 서버를 제공하지 않습니다. 신규 사용자의 다단계 인증이 필요한 고객은 클라우드 기반 Azure Multi-Factor Authentication을 사용해야 합니다. 7월 1일 이전에 MFA 서버를 활성화한 기존 고객은 종전과 같이 최신 버전 및 이후 업데이트를 다운로드하고 활성화 자격 증명을 생성할 수 있습니다.
+> Microsoft는 2019년 7월 1일부터 더 이상 새 배포를 위한 MFA 서버를 제공하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure AD Multi-Factor Authentication를 사용 해야 합니다. 7월 1일 이전에 MFA 서버를 활성화한 기존 고객은 종전과 같이 최신 버전 및 이후 업데이트를 다운로드하고 활성화 자격 증명을 생성할 수 있습니다.
 >
 > Azure Multi-Factor Authentication 서버와 관련 하 여 아래에서 공유 하는 정보는 이미 MFA 서버를 실행 하는 사용자 에게만 적용 됩니다.
 >
@@ -37,7 +37,7 @@ ms.locfileid: "91963978"
 
 ### <a name="how-does-azure-multi-factor-authentication-server-handle-user-data"></a>Azure Multi-Factor Authentication 서버는 사용자 데이터를 어떻게 처리하나요?
 
-Multi-Factor Authentication 서버에서 사용자 데이터는 온-프레미스 서버에만 저장 됩니다. 영구 사용자 데이터는 클라우드에 저장되지 않습니다. 사용자가 2단계 인증을 수행하는 경우 Multi-factor Authentication 서버는 인증을 위해 Azure Multi-factor Authentication 클라우드 서비스에 데이터를 보냅니다. Multi-factor Authentication 서버와 Multi-factor Authentication 클라우드 서비스 간의 통신에는 포트 443 아웃바운드를 통해 SSL(Secure Sockets Layer) 또는 TLS(전송 계층 보안)가 사용됩니다.
+Multi-Factor Authentication 서버에서 사용자 데이터는 온-프레미스 서버에만 저장 됩니다. 영구 사용자 데이터는 클라우드에 저장되지 않습니다. 사용자가 2 단계 인증을 수행 하는 경우 Multi-Factor Authentication 서버는 인증을 위해 Azure AD Multi-Factor Authentication 클라우드 서비스로 데이터를 보냅니다. Multi-factor Authentication 서버와 Multi-factor Authentication 클라우드 서비스 간의 통신에는 포트 443 아웃바운드를 통해 SSL(Secure Sockets Layer) 또는 TLS(전송 계층 보안)가 사용됩니다.
 
 클라우드 서비스에 인증 요청을 보내는 경우 인증 및 사용 보고서를 위한 데이터를 수집합니다. 2 단계 인증 로그에 포함 되는 데이터 필드는 다음과 같습니다.
 
@@ -56,7 +56,7 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
 
 인증 결과(성공 또는 거부) 및 거부 사유는 인증 데이터와 함께 저장됩니다. 이 데이터는 인증 및 사용 보고서에서 사용할 수 있습니다.
 
-자세한 내용은 [Data 상주 and customer data For Azure Multi-Factor Authentication](concept-mfa-data-residency.md)를 참조 하세요.
+자세한 내용은 [data 상주 and customer data For AZURE AD Multi-Factor Authentication](concept-mfa-data-residency.md)를 참조 하세요.
 
 ### <a name="what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users"></a>사용자에게 SMS 메시지를 보낼 때 사용되는 SMS 짧은 코드는 무엇인가요?
 
@@ -78,19 +78,19 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
 
 ## <a name="billing"></a>결제
 
-[Multi-Factor Authentication 가격 책정 페이지](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) 또는 [Azure Multi-Factor Authentication 버전 및 소비 계획](concept-mfa-licensing.md)에 대 한 설명서를 참조 하 여 대부분의 청구 관련 질문에 대답할 수 있습니다.
+대부분의 청구 질문은 [Multi-Factor Authentication 가격 책정 페이지](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) 또는 [Azure AD Multi-Factor Authentication 버전 및 소비 계획](concept-mfa-licensing.md)에 대 한 설명서를 참조 하 여 대답할 수 있습니다.
 
 * [인증에 사용 되는 전화 통화 및 문자 메시지 전송에 대 한 요금이 조직에 청구 되나요?](#is-my-organization-charged-for-sending-the-phone-calls-and-text-messages-that-are-used-for-authentication)
 * [사용자 당 청구 모델은 사용 하도록 설정 된 모든 사용자 또는 2 단계 인증을 수행 하는 사용자에 대해 요금을 청구 하나요?](#does-the-per-user-billing-model-charge-me-for-all-enabled-users-or-just-the-ones-that-performed-two-step-verification)
 * [Multi-Factor Authentication 대금 청구는 어떻게 작동 하나요?](#how-does-multi-factor-authentication-billing-work)
-* [Azure Multi-Factor Authentication의 무료 버전이 있나요?](#is-there-a-free-version-of-azure-multi-factor-authentication)
+* [Azure AD Multi-Factor Authentication의 무료 버전이 있나요?](#is-there-a-free-version-of-azure-ad-multi-factor-authentication)
 * [조직에서 사용자 당 및 인증 당 소비 청구 모델 간에 언제 든 지 전환할 수 있나요?](#can-my-organization-switch-between-per-user-and-per-authentication-consumption-billing-models-at-any-time)
 * [조직에서 언제 든 지 사용량 기반 요금 청구 및 구독 (라이선스 기반 모델) 사이를 전환할 수 있나요?](#can-my-organization-switch-between-consumption-based-billing-and-subscriptions-a-license-based-model-at-any-time)
-* [조직에서 Azure Multi-Factor Authentication를 사용 하기 위해 id를 사용 하 고 동기화 해야 하나요?](#does-my-organization-have-to-use-and-synchronize-identities-to-use-azure-multi-factor-authentication)
+* [조직에서 Azure AD Multi-Factor Authentication를 사용 하기 위해 id를 사용 하 고 동기화 해야 하나요?](#does-my-organization-have-to-use-and-synchronize-identities-to-use-azure-ad-multi-factor-authentication)
 
 ### <a name="is-my-organization-charged-for-sending-the-phone-calls-and-text-messages-that-are-used-for-authentication"></a>인증하는 데 사용되는 전화 통화 및 문자 메시지에 대한 요금이 조직에 부과되나요?
 
-아니요, Azure Multi-Factor Authentication를 통해 사용자에 게 전달 되는 개별 전화 통화 또는 문자 메시지에 대 한 요금이 청구 되지 않습니다. 인증 당 MFA 공급자를 사용 하는 경우 각 인증에 대 한 요금이 청구 되지만 사용 되는 방법에 대해서는 요금이 청구 되지 않습니다.
+아니요, Azure AD Multi-Factor Authentication를 통해 사용자에 게 전달 되는 개별 전화 통화 또는 문자 메시지에 대 한 요금이 청구 되지 않습니다. 인증 당 MFA 공급자를 사용 하는 경우 각 인증에 대 한 요금이 청구 되지만 사용 되는 방법에 대해서는 요금이 청구 되지 않습니다.
 
 사용자는 자신의 개인 전화 서비스에 따라 수신한 전화 통화 또는 문자 메시지 수신에 대한 요금이 부과될 수 있습니다.
 
@@ -102,11 +102,11 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
 
 사용자 단위 또는 인증 단위 MFA 공급자를 만들 때 해당 조직의 Azure 구독이 사용량을 기준으로 매월 청구됩니다. 이 청구 모델은 Azure에서 가상 컴퓨터 사용 및 Web Apps에 대 한 요금 청구 방법과 비슷합니다.
 
-Azure Multi-Factor Authentication에 대한 구독을 구매하는 경우 조직은 각 사용자에 대해 연간 라이선스 사용료만 지불합니다. MFA 라이선스와 Microsoft 365, Azure AD Premium 또는 Enterprise Mobility + Security 번들은 이러한 방식으로 청구 됩니다.
+Azure AD Multi-Factor Authentication에 대 한 구독을 구매 하는 경우 조직에서는 각 사용자에 대 한 연간 라이선스 요금은 지불 합니다. MFA 라이선스와 Microsoft 365, Azure AD Premium 또는 Enterprise Mobility + Security 번들은 이러한 방식으로 청구 됩니다.
 
-자세한 내용은 [Azure Multi-Factor Authentication 획득 방법](concept-mfa-licensing.md)을 참조하세요.
+자세한 내용은 [AZURE AD Multi-Factor Authentication를 가져오는 방법](concept-mfa-licensing.md)을 참조 하세요.
 
-### <a name="is-there-a-free-version-of-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication의 무료 버전이 있나요?
+### <a name="is-there-a-free-version-of-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication의 무료 버전이 있나요?
 
 보안 기본값은 Azure AD Free 계층에서 사용 하도록 설정할 수 있습니다. 보안 기본값을 사용 하 여 모든 사용자는 Microsoft Authenticator 앱을 사용 하 여 multi-factor authentication을 사용할 수 있습니다. 보안 기본값에는 문자 메시지 또는 전화 확인을 사용할 수 없으며 Microsoft Authenticator 앱만 사용할 수 있습니다.
 
@@ -128,7 +128,7 @@ MFA 공급자가 Azure AD 테 넌 트에 연결 되어 *있지* 않거나 새 mf
 
 디렉터리에 *인증 단위* Azure Multi-Factor Authentication 공급자가 있는 경우 MFA 공급자가 구독에 연결 되어 있기만 하면 항상 각 인증에 대해 요금이 청구 됩니다. 사용자에게 MFA 라이선스를 할당할 수 있지만 사용자의 MFA 라이선스 할당 여부에 관계없이 2단계 인증 요청마다 요금이 계속 청구됩니다.
 
-### <a name="does-my-organization-have-to-use-and-synchronize-identities-to-use-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication을 사용하려는 조직은 ID를 사용하고 동기화해야 하나요?
+### <a name="does-my-organization-have-to-use-and-synchronize-identities-to-use-azure-ad-multi-factor-authentication"></a>조직에서 Azure AD Multi-Factor Authentication를 사용 하기 위해 id를 사용 하 고 동기화 해야 하나요?
 
 조직에서 사용량 기반 청구 모델을 사용하는 경우 Azure Active Directory는 선택 사항이며 필수가 아닙니다. MFA 공급자가 Azure AD 테 넌 트에 연결 되지 않은 경우 Azure Multi-Factor Authentication 서버 온-프레미스만 배포할 수 있습니다.
 
@@ -159,15 +159,15 @@ MFA 공급자가 Azure AD 테 넌 트에 연결 되어 *있지* 않거나 새 mf
 
 ### <a name="what-should-i-do-if-one-of-my-users-cant-get-in-to-their-account"></a>사용자 한 명이 계정에 로그인할 수 없는 경우 어떻게 해야 하나요?
 
-등록 프로세스를 다시 진행하도록 하여 사용자 계정을 재설정할 수 있습니다. [클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 및 디바이스 설정 관리](howto-mfa-userdevicesettings.md)에 대해 자세히 알아보세요.
+등록 프로세스를 다시 진행하도록 하여 사용자 계정을 재설정할 수 있습니다. [클라우드에서 AZURE AD Multi-Factor Authentication를 사용 하 여 사용자 및 장치 설정 관리](howto-mfa-userdevicesettings.md)에 대해 자세히 알아보세요.
 
 ### <a name="what-should-i-do-if-one-of-my-users-loses-a-phone-that-is-using-app-passwords"></a>사용자 한 명이 계정에 앱 암호를 사용하는 전화를 분실한 경우 어떻게 해야 하나요?
 
-무단 액세스를 방지하려면 모든 사용자 앱 암호를 삭제합니다. 사용자에게 교체용 디바이스가 있는 경우 암호를 다시 만들 수 있습니다. [클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 및 디바이스 설정 관리](howto-mfa-userdevicesettings.md)에 대해 자세히 알아보세요.
+무단 액세스를 방지하려면 모든 사용자 앱 암호를 삭제합니다. 사용자에게 교체용 디바이스가 있는 경우 암호를 다시 만들 수 있습니다. [클라우드에서 AZURE AD Multi-Factor Authentication를 사용 하 여 사용자 및 장치 설정 관리](howto-mfa-userdevicesettings.md)에 대해 자세히 알아보세요.
 
 ### <a name="what-if-a-user-cant-sign-in-to-non-browser-apps"></a>사용자가 비브라우저 앱에 로그인할 수 없으면 어떻게 하나요?
 
-조직에서 레거시 클라이언트를 계속 사용하고 [앱 암호 사용을 허용](howto-mfa-app-passwords.md)한 경우 사용자는 자신의 사용자 이름 및 암호로 이러한 레거시 클라이언트에 로그인할 수 없습니다. 대신, [앱 암호를 설정](../user-help/multi-factor-authentication-end-user-app-passwords.md)해야 합니다. 사용자는 로그인 정보를 지우고(삭제)하고 앱을 다시 시작한 후 일반 암호 대신 *앱 암호*와 사용자 이름을 사용하여 로그인해야 합니다.
+조직에서 레거시 클라이언트를 계속 사용하고 [앱 암호 사용을 허용](howto-mfa-app-passwords.md)한 경우 사용자는 자신의 사용자 이름 및 암호로 이러한 레거시 클라이언트에 로그인할 수 없습니다. 대신, [앱 암호를 설정](../user-help/multi-factor-authentication-end-user-app-passwords.md)해야 합니다. 사용자는 로그인 정보를 지우고(삭제)하고 앱을 다시 시작한 후 일반 암호 대신 *앱 암호* 와 사용자 이름을 사용하여 로그인해야 합니다.
 
 조직에 레거시 클라이언트가 없는 경우 사용자가 앱 암호를 만들 수 있도록 허용 해서는 안 됩니다.
 
@@ -190,7 +190,7 @@ MFA 공급자가 Azure AD 테 넌 트에 연결 되어 *있지* 않거나 새 mf
 
 Azure MFA 서버 v7.0 이상을 사용하는 단방향 SMS의 경우 레지스트리 키를 설정하여 시간 제한 설정을 구성할 수 있습니다. MFA 클라우드 서비스가 텍스트 메시지를 보내면 확인 코드(또는 일회용 암호)가 MFA 서버에 반환됩니다. MFA 서버는 코드를 기본적으로 300초 동안 메모리에 저장합니다. 300초가 경과하기 전에 사용자가 코드를 입력하지 않으면 인증이 거부됩니다. 기본 시간 제한 설정을 변경하려면 다음 단계를 사용합니다.
 
-1. `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`로 이동합니다.
+1. `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor` 로 이동합니다.
 2. *Pfsvc_pendingSmsTimeoutSeconds* 라는 **DWORD** 레지스트리 키를 만들고 Azure MFA 서버에서 일회성 암호을 저장 하는 시간 (초)을 설정 합니다.
 
 >[!TIP]
@@ -199,7 +199,7 @@ Azure MFA 서버 v7.0 이상을 사용하는 단방향 SMS의 경우 레지스�
 
 사용자가 정의된 시간 제한 기간 내 SMS에 응답하지 않는 경우 해당 인증이 거부됩니다.
 
-클라우드에서 Azure MFA를 사용 하는 단방향 SMS의 경우 (AD FS 어댑터 또는 네트워크 정책 서버 확장 포함) 시간 제한 설정을 구성할 수 없습니다. Azure AD는 180초 동안 확인 코드를 저장합니다.
+클라우드에서 Azure AD MFA를 사용 하는 단방향 SMS의 경우 (AD FS 어댑터 또는 네트워크 정책 서버 확장 포함) 시간 제한 설정을 구성할 수 없습니다. Azure AD는 180초 동안 확인 코드를 저장합니다.
 
 ### <a name="can-i-use-hardware-tokens-with-azure-multi-factor-authentication-server"></a>Azure Multi-factor Authentication 서버에서 하드웨어 토큰을 사용할 수 있나요?
 
@@ -244,9 +244,9 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authenticat
 사용자에 게 다음 절차를 완료 하 여 Microsoft Authenticator에서 해당 계정을 제거한 다음 다시 추가 합니다.
 
 1. [Azure Portal 프로필](https://account.activedirectory.windowsazure.com/profile/) 로 이동 하 여 조직 계정으로 로그인 합니다.
-2. **추가 보안 확인**을 선택 합니다.
+2. **추가 보안 확인** 을 선택 합니다.
 3. Microsoft Authenticator 앱에서 기존 계정을 제거 합니다.
-4. **구성**을 클릭 한 다음 지침에 따라 Microsoft Authenticator를 다시 구성 합니다.
+4. **구성** 을 클릭 한 다음 지침에 따라 Microsoft Authenticator를 다시 구성 합니다.
 
 ### <a name="what-should-users-do-if-they-see-a-0x800434d4l-error-message-when-signing-in-to-a-non-browser-application"></a>사용자가 비브라우저 애플리케이션에 로그인할 때 0x800434D4L 오류 메시지가 표시되면 어떻게 해야 하나요?
 

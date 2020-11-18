@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ca23c1503b01c1aa9523edc2576599d7b6ab458
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: daa3f3b1687b01005f32cbd2665c84b933c993b8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992811"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837620"
 ---
 # <a name="continuous-access-evaluation"></a>지속적인 액세스 평가
 
@@ -126,8 +126,8 @@ CAE 지원 클라이언트를 사용 하지 않는 경우 [구성 가능한 토�
 ## <a name="enable-or-disable-cae-preview"></a>CAE 사용 또는 사용 안 함 (미리 보기)
 
 1. 조건부 액세스 관리자, 보안 관리자 또는 전역 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
-1. **Azure Active Directory**  >  **보안**  >  **연속 액세스 평가**로 이동 합니다.
-1. **미리 보기 사용**을 선택 합니다.
+1. **Azure Active Directory**  >  **보안**  >  **연속 액세스 평가** 로 이동 합니다.
+1. **미리 보기 사용** 을 선택 합니다.
 
 이 페이지에서 필요에 따라 미리 보기에 적용 될 사용자 및 그룹을 제한할 수 있습니다.
 
@@ -140,11 +140,11 @@ CAE 지원 클라이언트를 사용 하지 않는 경우 [구성 가능한 토�
 CAE의 경우 명명 된 IP 기반 명명 된 위치에 대 한 정보를 제공 합니다. [MFA 신뢰할 수 있는 ip](../authentication/howto-mfa-mfasettings.md#trusted-ips) 또는 국가 기반 위치와 같은 다른 위치 설정에 대 한 정보는 없습니다. 사용자가 mfa 신뢰할 수 있는 IP 또는 MFA 신뢰할 수 있는 IP 또는 국가 위치를 포함 하는 신뢰할 수 있는 위치에서 가져온 경우에는 사용자가 다른 위치로 이동한 후 CAE 적용 되지 않습니다. 이러한 경우에는 즉시 IP 적용 확인 없이 1 시간 CAE 토큰을 발급 합니다.
 
 > [!IMPORTANT]
-> 연속 액세스 평가를 위한 위치를 구성 하는 경우 [ip 기반 조건부 액세스 위치 조건만](../conditional-access/location-condition.md#preview-features) 사용 하 고 id 공급자 및 리소스 공급자가 볼 수 있는 **IPv4 및 IPv6 둘 다를 포함**한 모든 ip 주소를 구성 합니다. Azure Multi-Factor Authentication의 서비스 설정 페이지에서 사용할 수 있는 국가 위치 조건 또는 신뢰할 수 있는 ip 기능을 사용 하지 마세요.
+> 연속 액세스 평가를 위한 위치를 구성 하는 경우 [ip 기반 조건부 액세스 위치 조건만](../conditional-access/location-condition.md#preview-features) 사용 하 고 id 공급자 및 리소스 공급자가 볼 수 있는 **IPv4 및 IPv6 둘 다를 포함** 한 모든 ip 주소를 구성 합니다. Azure AD Multi-Factor Authentication의 서비스 설정 페이지에서 사용할 수 있는 국가 위치 조건 또는 신뢰할 수 있는 ip 기능을 사용 하지 마세요.
 
 ### <a name="ip-address-configuration"></a>IP 주소 구성
 
-Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 예:
+Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - Id 공급자는 클라이언트에서 하나의 IP 주소를 확인 합니다.
 - 리소스 공급자는 프록시를 통과 한 후 클라이언트와 다른 IP 주소를 확인 합니다.
@@ -177,7 +177,7 @@ Azure AD와 리소스 공급자 간의 복제 지연이 발생할 수 있으므�
 
 사용 하지 않도록 설정한 후 사용자를 사용 하도록 설정 하는 경우 계정을 사용 하려면 약간의 대기 시간이 있습니다. SPO 및 팀은 15 분 지연 됩니다. EXO의 지연 시간은 35-40 분입니다.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 ### <a name="how-will-cae-work-with-sign-in-frequency"></a>CAE가 로그인 빈도로 어떻게 작동 하나요?
 

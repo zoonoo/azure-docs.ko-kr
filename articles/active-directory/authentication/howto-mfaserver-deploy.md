@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ea9117d3cce2eec4c143e9fb3df76710a93a664
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: eca3b8f1cd8f27c193e8f8235887e21230f60611
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966970"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838623"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버로 시작하기
 
@@ -27,9 +27,9 @@ ms.locfileid: "91966970"
 이 페이지에서는 서버를 새롭게 설치하고 이를 온-프레미스 Active Directory를 사용하여 설정하는 것을 다룹니다. MFA 서버가 이미 설치되어 있고 업그레이드를 고려하는 경우 [최신 Azure Multi-Factor Authentication 서버로 업그레이드](howto-mfaserver-deploy-upgrade.md)를 참조하세요. 웹 서비스만 설치하는 정보는 [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스 배포](howto-mfaserver-deploy-mobileapp.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 로그인 이벤트 중에 MFA (multi-factor authentication)를 요구 하려는 신규 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 로그인 이벤트 중에 MFA (multi-factor authentication)를 요구 하려는 신규 고객은 클라우드 기반 Azure AD Multi-Factor Authentication를 사용 해야 합니다.
 >
-> 클라우드 기반 MFA를 시작 하려면 [자습서: Azure Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
+> 클라우드 기반 MFA를 시작 하려면 [자습서: AZURE AD Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
 >
 > 2019 년 7 월 1 일 이전에 MFA 서버를 정품 인증 한 기존 고객은 평소와 같이 최신 버전, 향후 업데이트 및 활성화 자격 증명 생성을 다운로드할 수 있습니다.
 
@@ -55,7 +55,7 @@ Azure Multi-Factor Authentication 서버를 다운로드하기 전에 로드 및
 
 Azure Multi-Factor Authentication에 사용 중인 서버가 다음 요구 사항을 충족하는지 확인합니다.
 
-| Azure Multi-Factor Authentication 서버 요구 사항 | Description |
+| Azure Multi-Factor Authentication 서버 요구 사항 | 설명 |
 |:--- |:--- |
 | 하드웨어 |<li>200MB의 하드 디스크 공간</li><li>x32 또는 x64 지원 프로세서</li><li>1GB 이상 RAM</li> |
 | 소프트웨어 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008/R2 ( [Esu](https://docs.microsoft.com/lifecycle/faq/extended-security-updates) 만)</li><li>Windows 10</li><li>Windows 8.1, 모든 버전</li><li>Windows 8, 모든 버전</li><li>Windows 7, 모든 버전 ( [Esu](https://docs.microsoft.com/lifecycle/faq/extended-security-updates) 만 있음)</li><li>Microsoft .NET 4.0 Framework</li><li>사용자 포털 또는 웹 서비스 SDK를 설치하는 경우 IIS 7.0 이상</li> |
@@ -112,16 +112,16 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 다음 단계를 따라 Azure Portal에서 Azure Multi-Factor Authentication 서버를 다운로드합니다.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 사용자 로부터 MFA (multi-factor authentication)를 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 사용자 로부터 MFA (multi-factor authentication)를 요구 하려는 새 고객은 클라우드 기반 Azure AD Multi-Factor Authentication를 사용 해야 합니다.
 >
-> 클라우드 기반 MFA를 시작 하려면 [자습서: Azure Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
+> 클라우드 기반 MFA를 시작 하려면 [자습서: AZURE AD Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
 >
 > 2019 년 7 월 1 일 이전에 MFA 서버를 정품 인증 한 기존 고객은 평소와 같이 최신 버전, 향후 업데이트 및 활성화 자격 증명 생성을 다운로드할 수 있습니다. 다음 단계는 기존 MFA 서버 고객 인 경우에만 작동 합니다.
 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. *Azure Active Directory*를 검색하고 선택합니다. **보안**  >  **MFA**를 선택 합니다.
-3. **관리자 MFA 서버**에서 **서버 설정**을 선택 합니다.
-4. **다운로드**를 선택하고 다운로드 페이지의 지침을 따라 설치 관리자를 저장합니다. 
+2. *Azure Active Directory* 를 검색하고 선택합니다. **보안**  >  **MFA** 를 선택 합니다.
+3. **관리자 MFA 서버** 에서 **서버 설정** 을 선택 합니다.
+4. **다운로드** 를 선택하고 다운로드 페이지의 지침을 따라 설치 관리자를 저장합니다. 
 
    ![Azure Portal에서 MFA 서버 다운로드](./media/howto-mfaserver-deploy/downloadportal.png)
 
@@ -132,13 +132,13 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 서버를 다운로드했으므로 이제 서버를 설치하고 구성할 수 있습니다. 설치하려는 서버가 계획 섹션에 나열된 요구 사항을 충족하는지 확인합니다.
 
 1. 실행 파일을 두 번 클릭합니다.
-2. 설치 폴더 선택 화면에서 해당 폴더가 올바른지 확인 하 고 **다음**을 클릭 합니다.
-3. 설치가 완료되면 **마침**을 클릭합니다. 구성 마법사가 시작됩니다.
-4. 구성 마법사 시작 화면에서 **인증 구성 마법사를 사용하여 건너뛰기**에 체크 표시하고 **다음**을 클릭합니다. 마법사가 닫히고 서버가 시작됩니다.
+2. 설치 폴더 선택 화면에서 해당 폴더가 올바른지 확인 하 고 **다음** 을 클릭 합니다.
+3. 설치가 완료되면 **마침** 을 클릭합니다. 구성 마법사가 시작됩니다.
+4. 구성 마법사 시작 화면에서 **인증 구성 마법사를 사용하여 건너뛰기** 에 체크 표시하고 **다음** 을 클릭합니다. 마법사가 닫히고 서버가 시작됩니다.
 
    ![인증 구성 마법사 사용 건너뛰기](./media/howto-mfaserver-deploy/skip2.png)
 
-5. 서버를 다운로드한 페이지로 돌아가서 **정품 인증 자격 증명 생성** 버튼을 클릭합니다. 이 정보를 제공된 상자의 Azure MFA 서버에 복사하고 **활성화**를 클릭합니다.
+5. 서버를 다운로드한 페이지로 돌아가서 **정품 인증 자격 증명 생성** 버튼을 클릭합니다. 이 정보를 제공된 상자의 Azure MFA 서버에 복사하고 **활성화** 를 클릭합니다.
 
 > [!NOTE]
 > 전역 관리자만 Azure Portal에서 활성화 자격 증명을 생성할 수 있습니다.
@@ -167,20 +167,20 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 
 ### <a name="manual-import-from-active-directory"></a>Active Directory에서 수동 가져오기
 
-1. Azure MFA 서버의 왼쪽에서 **사용자**를 선택합니다.
-2. 아래쪽에서 **Active Directory에서 가져오기**를 선택합니다.
+1. Azure MFA 서버의 왼쪽에서 **사용자** 를 선택합니다.
+2. 아래쪽에서 **Active Directory에서 가져오기** 를 선택합니다.
 3. 이제 개별 사용자를 검색하거나 해당 사용자로 OU에 대한 AD 디렉터리를 검색할 수 있습니다. 이 경우 사용자 OU를 지정합니다.
-4. 오른쪽의 모든 사용자를 강조 표시하고 **가져오기**를 클릭합니다. 성공했음을 알려주는 팝업 메시지가 나타납니다. 가져오기 창을 닫습니다.
+4. 오른쪽의 모든 사용자를 강조 표시하고 **가져오기** 를 클릭합니다. 성공했음을 알려주는 팝업 메시지가 나타납니다. 가져오기 창을 닫습니다.
 
    ![Active Directory에서 MFA 서버 사용자 가져오기](./media/howto-mfaserver-deploy/import2.png)
 
 ### <a name="automated-synchronization-with-active-directory"></a>Active Directory와 자동 동기화
 
-1. Azure MFA 서버의 왼쪽에서 **디렉터리 통합**을 선택합니다.
+1. Azure MFA 서버의 왼쪽에서 **디렉터리 통합** 을 선택합니다.
 2. **동기화** 탭으로 이동합니다.
-3. 아래에서 **추가**를 선택합니다.
-4. 나타나는 **동기화 항목 추가** 상자에서 도메인, OU **또는** 보안 그룹, 설정, 메서드 기본값 및 이 동기화 작업의 기본 언어를 선택하고 **추가**를 클릭합니다.
-5. 레이블이 지정된 **Active Directory와 동기화 사용** 확인란을 선택하고 **동기화 간격**을 1분에서 24시간 사이로 선택합니다.
+3. 아래에서 **추가** 를 선택합니다.
+4. 나타나는 **동기화 항목 추가** 상자에서 도메인, OU **또는** 보안 그룹, 설정, 메서드 기본값 및 이 동기화 작업의 기본 언어를 선택하고 **추가** 를 클릭합니다.
+5. 레이블이 지정된 **Active Directory와 동기화 사용** 확인란을 선택하고 **동기화 간격** 을 1분에서 24시간 사이로 선택합니다.
 
 ## <a name="how-the-azure-multi-factor-authentication-server-handles-user-data"></a>Azure Multi-Factor Authentication 서버에서 사용자 데이터를 처리하는 방법
 
@@ -213,7 +213,7 @@ Azure MFA 서버를 백업하려면 **PhoneFactor.pfdata** 파일을 포함한 *
 1. 새 서버에 Azure MFA 서버를 다시 설치합니다.
 2. 새 Azure MFA 서버를 활성화합니다.
 3. **MultiFactorAuth** 서비스를 중지합니다.
-4. **PhoneFactor.pfdata**를 백업된 복사본으로 덮어씁니다.
+4. **PhoneFactor.pfdata** 를 백업된 복사본으로 덮어씁니다.
 5. **MultiFactorAuth** 서비스를 시작합니다.
 
 이제 원래 백업된 구성 및 사용자 데이터를 사용하여 새 서버가 실행됩니다.

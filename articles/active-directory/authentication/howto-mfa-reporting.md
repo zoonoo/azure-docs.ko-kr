@@ -1,6 +1,6 @@
 ---
-title: Azure Multi-Factor Authentication의 로그인 이벤트 세부 정보 - Azure Active Directory
-description: Azure Multi-Factor Authentication 이벤트의 로그인 활동 및 상태 메시지를 보는 방법에 대해 알아봅니다.
+title: Azure AD Multi-Factor Authentication에 대 한 로그인 이벤트 세부 정보-Azure Active Directory
+description: Azure AD Multi-Factor Authentication 이벤트 및 상태 메시지에 대 한 로그인 활동을 보는 방법에 대해 알아봅니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 676b8b6fbb56536ec3a49100f5de1419ac417bb6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6a103f1f518a838e0746d363ee613dd1625b0bd4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964148"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838981"
 ---
-# <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>로그인 보고서를 사용하여 Azure Multi-Factor Authentication 이벤트 검토
+# <a name="use-the-sign-ins-report-to-review-azure-ad-multi-factor-authentication-events"></a>로그인 보고서를 사용 하 여 Azure AD Multi-Factor Authentication 이벤트를 검토 합니다.
 
-Azure Multi-Factor Authentication 이벤트를 검토하고 이해하려면 Azure AD(Azure Active Directory) 로그인 보고서를 사용하면 됩니다. 이 보고서는 사용자에게 다단계 인증에 대한 메시지가 표시될 때 조건부 액세스 정책이 사용 중인 경우 이벤트에 대한 인증 세부 정보를 표시합니다. 로그인 보고서에 대한 자세한 내용은 [Azure AD의 로그인 활동 보고서 개요](../reports-monitoring/concept-sign-ins.md)를 참조하세요.
+Azure AD Multi-Factor Authentication 이벤트를 검토 하 고 이해 하려면 Azure Active Directory (Azure AD) 로그인 보고서를 사용할 수 있습니다. 이 보고서는 사용자에게 다단계 인증에 대한 메시지가 표시될 때 조건부 액세스 정책이 사용 중인 경우 이벤트에 대한 인증 세부 정보를 표시합니다. 로그인 보고서에 대한 자세한 내용은 [Azure AD의 로그인 활동 보고서 개요](../reports-monitoring/concept-sign-ins.md)를 참조하세요.
 
 이 문서에서는 Azure Portal, MSOnline V1 PowerShell 모듈에서 Azure AD 로그인 보고서를 보는 방법을 보여 줍니다.
 
@@ -39,8 +39,8 @@ Azure Multi-Factor Authentication 이벤트를 검토하고 이해하려면 Azur
 [Azure Portal](https://portal.azure.com)에서 로그인 활동 보고서를 보려면 다음 단계를 완료합니다. [보고 API](../reports-monitoring/concept-reporting-api.md)를 사용하여 데이터를 쿼리할 수도 있습니다.
 
 1. *글로벌 관리자* 권한이 있는 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory**를 검색하여 선택한 다음, 왼쪽 메뉴에서 **사용자**를 선택합니다.
-1. 왼쪽의 메뉴에 있는 *활동*에서 **로그인**을 선택합니다.
+1. **Azure Active Directory** 를 검색하여 선택한 다음, 왼쪽 메뉴에서 **사용자** 를 선택합니다.
+1. 왼쪽의 메뉴에 있는 *활동* 에서 **로그인** 을 선택합니다.
 1. 로그인 이벤트 목록이 표시됩니다(상태 포함). 이벤트를 선택하여 자세한 정보를 볼 수 있습니다.
 
     이벤트 세부 정보의 *인증 세부 정보* 또는 *조건부 액세스* 탭에는 MFA 프롬프트를 트리거한 상태 코드 또는 정책이 표시됩니다.
@@ -121,34 +121,34 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 
 | 통화 결과 | Description | 광범위한 설명 |
 | --- | --- | --- |
-| SUCCESS_WITH_PIN | PIN이 입력됨 | 사용자가 PIN을 입력했습니다.  인증이 성공하면 사용자가 올바른 PIN을 입력한 것이며,  인증이 거부되면 사용자가 잘못된 PIN을 입력했거나 표준 모드로 설정된 것입니다. |
+| SUCCESS_WITH_PIN | PIN이 입력됨 | 사용자가 PIN을 입력했습니다.   인증이 성공하면 사용자가 올바른 PIN을 입력한 것이며,   인증이 거부되면 사용자가 잘못된 PIN을 입력했거나 표준 모드로 설정된 것입니다. |
 | SUCCESS_NO_PIN | #만 입력됨 | PIN 모드로 설정된 사용자의 인증이 거부되는 경우 사용자가 PIN을 입력하지 않고 #만 입력했음을 의미합니다.  사용자가 표준 모드로 설정되었고 인증에 성공했다면 사용자가 #만 입력한 것이며, 이는 표준 모드에서 올바른 동작입니다. |
-| SUCCESS_WITH_PIN_BUT_TIMEOUT | 입력 후 # 단추를 누르지 않음 | 사용자가 #을 입력하지 않았으므로 DTMF 번호를 전송하지 않았습니다.  입력 완료를 나타내는 #이 입력되지 않으면 입력된 다른 번호가 전송되지 않습니다. |
-|SUCCESS_NO_PIN_BUT_TIMEOUT | 전화 입력 없음 - 시간 초과됨 | 전화를 받았지만 응답이 없었습니다.  이는 일반적으로 음성 사서함으로 연결되었음을 나타냅니다. |
+| SUCCESS_WITH_PIN_BUT_TIMEOUT | 입력 후 # 단추를 누르지 않음 | 사용자가 #을 입력하지 않았으므로 DTMF 번호를 전송하지 않았습니다.   입력 완료를 나타내는 #이 입력되지 않으면 입력된 다른 번호가 전송되지 않습니다. |
+|SUCCESS_NO_PIN_BUT_TIMEOUT | 전화 입력 없음 - 시간 초과됨 | 전화를 받았지만 응답이 없었습니다.   이는 일반적으로 음성 사서함으로 연결되었음을 나타냅니다. |
 | SUCCESS_PIN_EXPIRED | PIN이 만료된 후 변경 안 됨 | 사용자의 PIN이 만료되어 PIN을 변경하라는 안내를 받았지만 PIN 변경이 성공적으로 완료되지 않았습니다. |
 | SUCCESS_USED_CACHE | 캐시가 사용됨 | 구성된 캐시 기간 중 이전에 동일한 사용자 이름에 대한 인증이 성공한 이후로 Multi-Factor Authentication 호출 없이 인증에 성공했습니다. |
-| SUCCESS_BYPASSED_AUTH | 인증이 바이패스됨 | 사용자가 시작한 원타임 바이패스를 사용하여 인증에 성공했습니다.  바이패스에 대한 자세한 내용은 바이패스된 사용자 기록 보고서를 참조하세요. |
+| SUCCESS_BYPASSED_AUTH | 인증이 바이패스됨 | 사용자가 시작한 원타임 바이패스를 사용하여 인증에 성공했습니다.  바이패스에 대한 자세한 내용은 바이패스된 사용자 기록 보고서를 참조하십시오. |
 | SUCCESS_USED_IP_BASED_CACHE | IP 기반 캐시가 사용됨 | 구성된 캐시 기간 중 이전에 동일한 사용자 이름, 인증 유형, 애플리케이션 이름 및 IP에 대한 인증이 성공한 이후로 Multi-Factor Authentication 호출 없이 인증에 성공했습니다. |
 | SUCCESS_USED_APP_BASED_CACHE | 앱 기반 캐시가 사용됨 | 구성된 캐시 기간 중 이전에 동일한 사용자 이름, 인증 유형 및 애플리케이션 이름에 대한 인증이 성공한 이후로 Multi-Factor Authentication 호출 없이 인증에 성공했습니다. |
-| SUCCESS_INVALID_INPUT | 잘못된 전화 입력 | 전화에서 보낸 응답이 올바르지 않습니다.  이는 팩스 기기나 모뎀의 문제 때문이거나 사용자가 PIN의 일부로 *를 입력했기 때문일 수 있습니다. |
-| SUCCESS_USER_BLOCKED | 사용자가 차단됨 | 사용자의 전화 번호가 차단되었습니다.  번호 차단은 인증 통화 동안 사용자가 시작하거나 관리자가 Azure Portal을 통해 시작할 수 있습니다. <br> 참고:   차단된 번호는 사기 행위 경고로 인해 차단된 것일 수도 있습니다. |
+| SUCCESS_INVALID_INPUT | 잘못된 전화 입력 | 전화에서 보낸 응답이 올바르지 않습니다.   이는 팩스 기기나 모뎀의 문제 때문이거나 사용자가 PIN의 일부로 *를 입력했기 때문일 수 있습니다. |
+| SUCCESS_USER_BLOCKED | 사용자가 차단됨 | 사용자의 전화 번호가 차단되었습니다.   번호 차단은 인증 통화 동안 사용자가 시작하거나 관리자가 Azure Portal을 통해 시작할 수 있습니다. <br> 참고:   차단된 번호는 사기 행위 경고로 인해 차단된 것일 수도 있습니다. |
 | SUCCESS_SMS_AUTHENTICATED | 문자 메시지 인증됨 | 양방향 문자 메시지의 경우 사용자가 OTP(일회성 암호) + PIN을 포함하여 올바르게 회신했습니다. |
-| SUCCESS_SMS_SENT | 문자 메시지 전송됨 | 문자 메시지의 경우 OTP(일회성 암호)가 포함된 문자 메시지가 성공적으로 전송되었습니다.  사용자는 애플리케이션에 OTP 또는 OTP + PIN을 입력하여 인증을 완료합니다. |
+| SUCCESS_SMS_SENT | 문자 메시지 전송됨 | 문자 메시지의 경우 OTP(일회성 암호)가 포함된 문자 메시지가 성공적으로 전송되었습니다.   사용자는 애플리케이션에 OTP 또는 OTP + PIN을 입력하여 인증을 완료합니다. |
 | SUCCESS_PHONE_APP_AUTHENTICATED | 모바일 앱 인증됨 | 사용자가 모바일 앱을 통해 성공적으로 인증되었습니다. |
 | SUCCESS_OATH_CODE_PENDING | OATH 코드가 보류됨 | 사용자가 OATH 코드를 입력하라는 안내를 받았지만 응답하지 않았습니다. |
 | SUCCESS_OATH_CODE_VERIFIED | OATH 코드가 확인됨 | 사용자가 OATH 코드를 입력하라는 안내를 받고 올바른 OATH 코드를 입력했습니다. |
 | SUCCESS_FALLBACK_OATH_CODE_VERIFIED | 대체 OATH 코드가 확인됨 | 기본 Multi-Factor Authentication 방법을 사용한 인증이 거부된 후 사용자가 대체 방식인 OATH 코드를 올바르게 제공했습니다. |
 | SUCCESS_FALLBACK_SECURITY_QUESTIONS_ANSWERED | 대체 보안 질문이 답변됨 | 기본 Multi-Factor Authentication 방법을 사용한 인증이 거부된 후 사용자가 대체 방식인 보안 질문에 올바르게 답변했습니다. |
-| FAILED_PHONE_BUSY | 인증이 이미 진행 중 | Multi-Factor Authentication에서 해당 사용자에 대한 인증을 처리하고 있습니다.  이는 종종 동일한 로그온 중에 여러 인증 요청을 보내는 RADIUS 클라이언트로 인해 발생할 수 있습니다. |
-| CONFIG_ISSUE | 전화 연결 불가 | 통화를 시도했지만 전화를 걸 수 없거나 응답이 없습니다.  통화 중, 전화망 폭주(연결 끊김), 서비스되지 않는 번호, 시간 초과 등의 이유로 전화가 걸리지 않을 수 있습니다. |
-| FAILED_INVALID_PHONENUMBER | 잘못된 전화 번호 형식 | 전화 번호 형식이 잘못되었습니다.  전화 번호는 숫자여야 하며 국가 코드 + 1(미국 및 캐나다)의 경우 10자리여야 합니다. |
+| FAILED_PHONE_BUSY | 인증이 이미 진행 중 | Multi-Factor Authentication에서 해당 사용자에 대한 인증을 처리하고 있습니다.   이는 종종 동일한 로그온 중에 여러 인증 요청을 보내는 RADIUS 클라이언트로 인해 발생할 수 있습니다. |
+| CONFIG_ISSUE | 전화 연결 불가 | 통화를 시도했지만 전화를 걸 수 없거나 응답이 없습니다.   통화 중, 전화망 폭주(연결 끊김), 서비스되지 않는 번호, 시간 초과 등의 이유로 전화가 걸리지 않을 수 있습니다. |
+| FAILED_INVALID_PHONENUMBER | 잘못된 전화 번호 형식 | 전화 번호 형식이 잘못되었습니다.   전화 번호는 숫자여야 하며 국가 코드 + 1(미국 및 캐나다)의 경우 10자리여야 합니다. |
 | FAILED_USER_HUNGUP_ON_US | 사용자가 전화 끊음 | 사용자가 전화를 받았지만 단추를 누르지 않고 끊었습니다. |
-| FAILED_INVALID_EXTENSION | 잘못된 내선 번호 | 내선 번호에 잘못된 문자가 포함되어 있습니다.  숫자, 쉼표, * 및 #만 허용됩니다.  @ 접미사를 사용할 수도 있습니다. |
+| FAILED_INVALID_EXTENSION | 잘못된 내선 번호 | 내선 번호에 잘못된 문자가 포함되어 있습니다.   숫자, 쉼표, * 및 #만 허용됩니다.   @ 접미사를 사용할 수도 있습니다. |
 | FAILED_FRAUD_CODE_ENTERED | 사기 코드가 입력됨 | 사용자가 전화 통화 시 사기 행위를 보고하여 인증이 거부되고 전화 번호가 차단되었습니다.| 
 | FAILED_SERVER_ERROR | 전화를 걸 수 없음 | Multi-Factor Authentication 서비스에서 전화를 걸 수 없습니다. |
-| FAILED_SMS_NOT_SENT | 문자 메시지를 보낼 수 없음 | 문자 메시지를 보낼 수 없습니다.  인증이 거부되었습니다. |
-| FAILED_SMS_OTP_INCORRECT | 문자 메시지의 OTP가 잘못됨 | 사용자가 수신된 문자 메시지의 OTP(일회성 암호)를 잘못 입력했습니다.  인증이 거부되었습니다. |
-| FAILED_SMS_OTP_PIN_INCORRECT | 문자 메시지의 OTP + PIN이 잘못됨 | 사용자가 잘못된 OTP(일회용 암호) 및/또는 잘못된 사용자 PIN을 입력했습니다.  인증이 거부되었습니다. |
+| FAILED_SMS_NOT_SENT | 문자 메시지를 보낼 수 없음 | 문자 메시지를 보낼 수 없습니다.   인증이 거부되었습니다. |
+| FAILED_SMS_OTP_INCORRECT | 문자 메시지의 OTP가 잘못됨 | 사용자가 수신된 문자 메시지의 OTP(일회성 암호)를 잘못 입력했습니다.   인증이 거부되었습니다. |
+| FAILED_SMS_OTP_PIN_INCORRECT | 문자 메시지의 OTP + PIN이 잘못됨 | 사용자가 잘못된 OTP(일회용 암호) 및/또는 잘못된 사용자 PIN을 입력했습니다.   인증이 거부되었습니다. |
 | FAILED_SMS_MAX_OTP_RETRY_REACHED | 문자 메시지 최대 OTP 시도 횟수를 초과함 | 사용자가 최대 OTP(일회용 암호) 시도 횟수를 초과했습니다. |
 | FAILED_PHONE_APP_DENIED | 모바일 앱이 거부됨 | 사용자가 모바일 앱에서 거부 단추를 눌러 인증을 거부했습니다. |
 | FAILED_PHONE_APP_INVALID_PIN | 모바일 앱의 잘못된 PIN | 사용자가 모바일 앱에서 인증할 때 잘못된 PIN을 입력했습니다. |

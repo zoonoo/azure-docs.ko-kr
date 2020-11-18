@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a685706b09610dc298854093bb242f0bdcf8cf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 267a543e771f33f0cfe1fac7abe225e3db2a8e3f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964097"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838743"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>고가용성을 위한 Azure Multi-Factor Authentication 서버 구성
 
 Azure 서버 MFA 배포로 고가용성을 달성하려면 여러 MFA 서버를 배포해야 합니다. 이 섹션에서는 Azure MFS 서버 배포에서 고가용성 목표를 달성하기 위한 부하가 분산된 디자인에 대한 정보를 제공합니다.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 로그인 이벤트 중에 MFA (multi-factor authentication)를 요구 하려는 신규 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 로그인 이벤트 중에 MFA (multi-factor authentication)를 요구 하려는 신규 고객은 클라우드 기반 Azure AD Multi-Factor Authentication를 사용 해야 합니다.
 >
-> 클라우드 기반 MFA를 시작 하려면 [자습서: Azure Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
+> 클라우드 기반 MFA를 시작 하려면 [자습서: AZURE AD Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
 >
 > 2019 년 7 월 1 일 이전에 MFA 서버를 정품 인증 한 기존 고객은 평소와 같이 최신 버전, 향후 업데이트 및 활성화 자격 증명 생성을 다운로드할 수 있습니다.
 
@@ -49,14 +49,14 @@ MFA 마스터 서버가 오프라인인 경우 인증은 계속 처리될 수 �
 
 Azure MFA 서버 및 관련 구성 요소 간 부하 분산을 위해서는 다음 중요 사항을 고려합니다.
 
-* **RADIUS 표준을 사용하여 고가용성을 달성**합니다. Azure MFA 서버를 RADIUS 서버로 사용하는 경우, 한 MFA 서버를 기본 RADIUS 인증 대상으로, 다른 Azure MFA 서버를 보조 인증 에이전트로 구성할 수 있습니다. 그러나 보조 인증 대상에 대해 인증될 수 있으려면 기본 인증 대상에서 인증이 실패할 경우 시간 제한 기간이 발생할 때까지 기다려야 하므로 고가용성을 달성하는 데 이 방법은 실용적이지 않을 수 있습니다. RADIUS 클라이언트와 RADIUS 서버(이 경우 Azure MFA 서버는 RADIUS 서버 역할로 작동함) 간에 RADIUS 트래픽을 부하 분산시키는 것이 더욱 효율적이므로 클라이언트가 가리킬 수 있는 단일 URL로 RADIUS 클라이언트를 구성할 수 있습니다.
+* **RADIUS 표준을 사용하여 고가용성을 달성** 합니다. Azure MFA 서버를 RADIUS 서버로 사용하는 경우, 한 MFA 서버를 기본 RADIUS 인증 대상으로, 다른 Azure MFA 서버를 보조 인증 에이전트로 구성할 수 있습니다. 그러나 보조 인증 대상에 대해 인증될 수 있으려면 기본 인증 대상에서 인증이 실패할 경우 시간 제한 기간이 발생할 때까지 기다려야 하므로 고가용성을 달성하는 데 이 방법은 실용적이지 않을 수 있습니다. RADIUS 클라이언트와 RADIUS 서버(이 경우 Azure MFA 서버는 RADIUS 서버 역할로 작동함) 간에 RADIUS 트래픽을 부하 분산시키는 것이 더욱 효율적이므로 클라이언트가 가리킬 수 있는 단일 URL로 RADIUS 클라이언트를 구성할 수 있습니다.
 * **수동으로 MFA 하위의 수준을 올려야** 합니다. 마스터 Azure MFA 서버가 오프라인 상태가 되면 보조 Azure MFA 서버는 MFA 요청을 계속해서 처리합니다. 그러나 마스터 MFA 서버가 사용 가능해질 때까지 관리자는 사용자를 추가하거나 MFA 설정을 수정할 수 없으며 사용자는 사용자 포털을 사용하여 변경할 수 없습니다. MFA 하위의 수준을 마스터 역할로 올리는 것은 항상 수동 프로세스입니다.
 * **구성 요소의 분리성**. Azure MFA 서버는 동일한 Windows Server 인스턴스 또는 다른 인스턴스에 설치할 수 있는 여러 구성 요소로 이루어집니다. 이러한 구성 요소에는 사용자 포털, 모바일 앱 웹 서비스 및 ADFS 어댑터(에이전트)가 있습니다. 이 분리성을 통해 웹 애플리케이션 프록시를 사용하여 경계 네트워크로부터 사용자 포털 및 모바일 앱 웹 서버를 게시할 수 있습니다. 다음 다이어그램에 나와 있는 것처럼 이러한 구성이 디자인의 전반적인 보안에 추가됩니다. MFA 사용자 포털 및 모바일 앱 웹 서버는 HA 부하 분산된 구성에도 배포될 수 있습니다.
 
    ![경계 네트워크와 MFA 서버](./media/howto-mfaserver-deploy-ha/mfasecurity.png)
 
 * **SMS(즉, 단방향 SMS)를 통한 OTP(일회용 암호)를 사용하려면 트래픽이 부하 분산된 경우 고정 세션을 사용해야 합니다**. 단방향 SMS는 MFA 서버가 사용자에게 OTP가 포함된 문자 메시지를 보내도록 하는 인증 옵션입니다. 사용자는 프롬프트 창에서 OTP를 입력하고 MFA 챌린지를 완료합니다. Azure MFA 서버를 부하 분산하는 경우 초기 인증 요청을 제공한 동일한 서버는 사용자로부터 OTP 메시지를 받는 서버여야 하며 다른 MFA 서버가 OTP 응답을 수신하는 경우 인증 챌린지는 실패합니다. 자세한 내용은 [SMS를 통한 일회용 암호가 Azure MFA 서버에 추가됨](https://blogs.technet.microsoft.com/enterprisemobility/2015/03/02/one-time-password-over-sms-added-to-azure-mfa-server)을 참조하세요.
-* **사용자 포털 및 모바일 앱 웹 서비스의 부하 분산 배포에는 고정 세션이 필요**합니다. MFA 사용자 포털 및 모바일 앱 웹 서비스를 부하 분산하는 경우 각 세션은 동일한 서버에 유지되어야 합니다.
+* **사용자 포털 및 모바일 앱 웹 서비스의 부하 분산 배포에는 고정 세션이 필요** 합니다. MFA 사용자 포털 및 모바일 앱 웹 서비스를 부하 분산하는 경우 각 세션은 동일한 서버에 유지되어야 합니다.
 
 ## <a name="high-availability-deployment"></a>고가용성 배포
 

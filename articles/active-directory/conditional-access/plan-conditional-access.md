@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e44cb38435ca86ad7cd4709d5e99f5cf41fcf91
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 20b51cc747d3a24b1437eda988397a2e999f6ab3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366329"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837484"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>조건부 액세스 배포 계획
 
@@ -73,7 +73,7 @@ Microsoft는 기본 보안 수준을 보장하는 [보안 기본값](../fundamen
 * [조건부 액세스를 배포하는 방법](https://youtu.be/c_izIRNJNuk)
 * [최종 사용자에게 CA 정책을 롤아웃하는 방법](https://youtu.be/0_Fze7Zpyvc)
 * [디바이스 컨트롤을 사용하는 조건부 액세스](https://youtu.be/NcONUf-jeS4)
-* [Azure MFA를 사용하는 조건부 액세스](https://youtu.be/Tbc-SU97G-w)
+* [Azure AD MFA를 사용 하 여 조건부 액세스](https://youtu.be/Tbc-SU97G-w)
 * [Enterprise Mobility + Security의 조건부 액세스](https://youtu.be/A7IrxAH87wc)
 
 
@@ -105,7 +105,7 @@ Microsoft는 기본 보안 수준을 보장하는 [보안 기본값](../fundamen
 ## <a name="understand-ca-policy-components"></a>CA 정책 구성 요소 이해
 CA 정책은 if then 문: 할당이 충족 되는 경우이 액세스 제어를 적용 합니다.
 
-CA 정책을 구성하는 경우 조건은 *할당*이라고 합니다. CA 정책을 사용하면 특정 할당에 따라 조직의 앱에 대한 액세스 제어를 적용할 수 있습니다.
+CA 정책을 구성하는 경우 조건은 *할당* 이라고 합니다. CA 정책을 사용하면 특정 할당에 따라 조직의 앱에 대한 액세스 제어를 적용할 수 있습니다.
 
 
 자세한 내용은 [CA 정책 빌드](concept-conditional-access-policies.md)를 참조하세요.
