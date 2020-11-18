@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 180490dc79554efa072311e9a2b7f5df348b432b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0812716ab9d952969ccfc14fc0a1e833fae1c9e1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014242"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653796"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -72,7 +72,7 @@ Azure Portal에서 인사이트를 보려면 **모니터** 메뉴의 **인사이
 ### <a name="what-is-a-solution-in-azure-monitor"></a>Azure Monitor의 솔루션은 무엇인가요?
 모니터링 솔루션은 Azure Monitor 기능을 기반으로 하여 특정 애플리케이션 또는 서비스를 모니터링하도록 패키지된 논리 세트입니다. Azure Monitor에서 로그 데이터를 수집하고, Azure Portal의 일반적인 환경을 사용하여 분석을 위한 로그 쿼리와 보기를 제공합니다. [Azure Monitor의 모니터링 솔루션](insights/solutions.md)을 참조하세요.
 
-Azure Portal에서 솔루션을 보려면 **모니터** 메뉴의 **인사이트** 섹션에서 **자세히**를 클릭합니다. **추가**를 클릭하여 추가 솔루션을 작업 영역에 추가합니다.
+Azure Portal에서 솔루션을 보려면 **모니터** 메뉴의 **인사이트** 섹션에서 **자세히** 를 클릭합니다. **추가** 를 클릭하여 추가 솔루션을 작업 영역에 추가합니다.
 
 ## <a name="logs"></a>로그
 
@@ -94,7 +94,7 @@ Azure Monitor에서 수집된 모든 로그 데이터는 Log Analytics 작업 �
 
 ### <a name="why-cant-i-see-query-explorer-and-save-buttons-in-log-analytics"></a>Log Analytics에서 쿼리 탐색기 및 [저장] 단추가 표시되지 않는 이유는 무엇인가요?
 
-[쿼리 범위](log-query/scope.md)가 특정 리소스로 설정되어 있으면 **쿼리 탐색기**, **저장** 및 **새 경고 규칙** 단추를 사용할 수 없습니다. 경고를 만들거나, 쿼리를 저장 또는 로드하려면 Log Analytics의 범위가 작업 영역으로 지정되어야 합니다. 작업 영역 컨텍스트에서 Log Analytics를 열려면 **Azure Monitor** 메뉴에서 **로그**를 선택합니다. 마지막으로 사용한 작업 영역이 선택되지만 다른 작업 영역을 선택할 수 있습니다. [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](log-query/scope.md)를 참조하세요.
+[쿼리 범위](log-query/scope.md)가 특정 리소스로 설정되어 있으면 **쿼리 탐색기**, **저장** 및 **새 경고 규칙** 단추를 사용할 수 없습니다. 경고를 만들거나, 쿼리를 저장 또는 로드하려면 Log Analytics의 범위가 작업 영역으로 지정되어야 합니다. 작업 영역 컨텍스트에서 Log Analytics를 열려면 **Azure Monitor** 메뉴에서 **로그** 를 선택합니다. 마지막으로 사용한 작업 영역이 선택되지만 다른 작업 영역을 선택할 수 있습니다. [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](log-query/scope.md)를 참조하세요.
 
 ### <a name="why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-when-opening-log-analytics-from-a-vm"></a>VM에서 Log Analytics를 열면 "이 구독에 대한 'Microsoft.Insights' 리소스 공급자를 등록하여 이 쿼리를 사용하도록 설정하세요."라는 오류가 표시되는 이유는 무엇인가요? 
 대부분 리소스 공급자는 자동으로 등록되지만 일부 리소스 공급자는 수동으로 등록해야 할 수도 있습니다. 등록 범위는 항상 해당 구독입니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요.
@@ -145,7 +145,7 @@ Azure Monitor로의 트래픽은 Microsoft 피어링 ExpressRoute 회로를 사�
 에이전트 컴퓨터의 제어판에서 **보안 & 설정**, * * Microsoft Monitoring Agent를 선택 합니다. **Azure Log Analytics(OMS)** 탭 아래에서 녹색 확인 표시 아이콘은 에이전트에서 Azure 서비스와 통신할 수 있음을 나타냅니다. 노란색 경고 아이콘은 에이전트에 문제가 있음을 나타냅니다. 한 가지 일반적인 이유는 **Microsoft Monitoring Agent** 서비스가 중지되었다는 것입니다. 서비스 제어 관리자를 사용하여 서비스를 다시 시작합니다.
 
 ### <a name="how-do-i-stop-the-log-analytics-agent-from-communicating-with-azure-monitor"></a>Log Analytics 에이전트에서 Azure Monitor와 통신하지 못하도록 중지하려면 어떻게 해야 하나요?
-Log Analytics에 직접 연결된 에이전트의 경우 [제어판]을 열고, **보안 및 설정**, **Microsoft Monitoring Agent**를 차례로 선택합니다. **Azure Log Analytics(OMS)** 탭 아래에서 나열된 모든 작업 영역을 제거합니다. System Center Operations Manager의 Log Analytics 관리형 컴퓨터 목록에서 컴퓨터를 제거합니다. Operations Manager는 Log Analytics에 더 이상 보고하지 않도록 에이전트의 구성을 업데이트합니다. 
+Log Analytics에 직접 연결된 에이전트의 경우 [제어판]을 열고, **보안 및 설정**, **Microsoft Monitoring Agent** 를 차례로 선택합니다. **Azure Log Analytics(OMS)** 탭 아래에서 나열된 모든 작업 영역을 제거합니다. System Center Operations Manager의 Log Analytics 관리형 컴퓨터 목록에서 컴퓨터를 제거합니다. Operations Manager는 Log Analytics에 더 이상 보고하지 않도록 에이전트의 구성을 업데이트합니다. 
 
 ### <a name="how-much-data-is-sent-per-agent"></a>에이전트당 얼마나 많은 데이터가 전송되나요?
 에이전트당 전송되는 데이터의 양에 따라 달라집니다.
@@ -242,7 +242,7 @@ WireData
 
 ### <a name="how-much-does-it-cost"></a>비용은 얼마나 되나요?
 
-* Application Insights 리소스에서 **사용량 및 예상 비용 페이지**를 엽니다. 최근 사용 현황에 대한 차트가 있습니다. 원하는 경우 데이터 볼륨 한도를 설정할 수 있습니다.
+* Application Insights 리소스에서 **사용량 및 예상 비용 페이지** 를 엽니다. 최근 사용 현황에 대한 차트가 있습니다. 원하는 경우 데이터 볼륨 한도를 설정할 수 있습니다.
 * [Azure 청구 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview)를 열어 모든 리소스에 대한 청구서를 확인합니다.
 
 ### <a name="what-does-application-insights-modify-in-my-project"></a><a name="q14"></a>Application Insights에서 내 프로젝트를 어떻게 수정하나요?
@@ -267,7 +267,7 @@ WireData
 사용자의 애플리케이션 유형에 적합한 SDK는 [릴리스 정보](app/release-notes.md)를 참조하세요.
 
 ### <a name="how-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>내 프로젝트에서 데이터를 보내는 Azure 리소스를 변경하려면 어떻게 해야 하나요?
-솔루션 탐색기에서 `ApplicationInsights.config`를 마우스 오른쪽 단추로 클릭하고 **Application Insights 업데이트**를 선택합니다. Azure에서 기존 또는 새 리소스로 데이터를 보낼 수 있습니다. 업데이트 마법사는 서버 SDK에서 데이터를 전송하는 위치를 결정하는 ApplicationInsights.config의 계측 키를 변경합니다. "모두 업데이트"를 선택 취소하지 않은 한, 웹 페이지에 표시되는 키도 변경됩니다.
+솔루션 탐색기에서 `ApplicationInsights.config`를 마우스 오른쪽 단추로 클릭하고 **Application Insights 업데이트** 를 선택합니다. Azure에서 기존 또는 새 리소스로 데이터를 보낼 수 있습니다. 업데이트 마법사는 서버 SDK에서 데이터를 전송하는 위치를 결정하는 ApplicationInsights.config의 계측 키를 변경합니다. "모두 업데이트"를 선택 취소하지 않은 한, 웹 페이지에 표시되는 키도 변경됩니다.
 
 ### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>`providers('Microsoft.Insights', 'components').apiVersions[0]`는 내 Azure Resource Manager 배포에서 사용할 수 있나요?
 
@@ -405,7 +405,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 2. 새 리소스의 원래 리소스와 관련 된 모든 고유한 사용자 지정 항목을 다시 만듭니다.
 3. 새 지역 리소스의 [계측 키](app/create-new-resource.md#copy-the-instrumentation-key) 또는 [연결 문자열](app/sdk-connection-string.md)을 사용 하도록 응용 프로그램을 수정 합니다.  
 4. 를 테스트 하 여 모든 것이 새 Application Insights 리소스에서 예상 대로 작동 하는지 확인 합니다. 
-5. 이 시점에서 원래 리소스를 삭제 하면 **모든 기록 데이터가 손실**됩니다. 또는 데이터 보존 설정 기간 동안 기록 보고 목적으로 원래 리소스를 유지 합니다.
+5. 이 시점에서 원래 리소스를 삭제 하면 **모든 기록 데이터가 손실** 됩니다. 또는 데이터 보존 설정 기간 동안 기록 보고 목적으로 원래 리소스를 유지 합니다.
 
 일반적으로 새 지역의 리소스에 대해 수동으로 다시 만들거나 업데이트 해야 하는 고유한 사용자 지정 항목은 다음과 같습니다.
 
@@ -599,11 +599,11 @@ OpenTelemetry 수집기는 [GitHub 추가 정보](https://github.com/open-teleme
 
 기능을 추가하고 피드백을 처리하기 위해 일련의 변경을 수행할 예정입니다. 상태 기능은 2020년 6월 말에 공개 미리 보기로 전환되며, 추가 정보에 대해서는 다음 [Azure 업데이트 공지](https://azure.microsoft.com/updates/ci-health-limited-preview/)를 검토하세요.
 
-### <a name="what-does-other-processes-represent-under-the-node-view"></a>[노드] 보기 아래의 *기타 프로세스*에서 나타내는 것은 무엇인가요?
+### <a name="what-does-other-processes-represent-under-the-node-view"></a>[노드] 보기 아래의 *기타 프로세스* 에서 나타내는 것은 무엇인가요?
 
 **다른 프로세스** 는 노드의 리소스 사용량이 많은 근본 원인을 명확 하 게 이해 하는 데 도움을 주기 위한 것입니다. 이렇게 하면 컨테이너화된 프로세스와 컨테이너화되지 않은 프로세스 간의 사용량을 구분할 수 있습니다.
 
-이러한 **기타 프로세스**는 무엇일까요? 
+이러한 **기타 프로세스** 는 무엇일까요? 
 
 이러한 프로세스는 노드에서 실행되는 컨테이너화되지 않은 프로세스입니다.  
 
@@ -611,7 +611,7 @@ OpenTelemetry 수집기는 [GitHub 추가 정보](https://github.com/open-teleme
 
 **기타 프로세스** = *CAdvisor의 총 사용량* - *컨테이너화되지 않은 프로세스의 사용량*
 
-**기타 프로세스**는 다음과 같습니다.
+**기타 프로세스** 는 다음과 같습니다.
 
 - 자체 관리형 또는 Kubernetes 관리형 컨테이너화되지 않은 프로세스 
 
@@ -690,7 +690,7 @@ ContainerInventory 테이블에는 중지된 컨테이너와 실행 중인 컨�
 
 ### <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Helm을 통해 kube-system 네임스페이스의 컨테이너에 대해 로그 수집을 사용하도록 설정하려면 어떻게 하나요?
 
-kube-system 네임스페이스에 포함된 컨테이너의 로그 수집은 기본적으로 사용하지 않도록 설정됩니다. omsagent에 환경 변수를 설정하여 로그 수집을 사용하도록 설정할 수 있습니다. 자세한 내용은 [컨테이너용 Azure Monitor](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) GitHub 페이지를 참조하세요. 
+kube-system 네임스페이스에 포함된 컨테이너의 로그 수집은 기본적으로 사용하지 않도록 설정됩니다. omsagent에 환경 변수를 설정하여 로그 수집을 사용하도록 설정할 수 있습니다. 자세한 내용은 [컨테이너용 Azure Monitor](https://aka.ms/azuremonitor-containers-helm-chart) GitHub 페이지를 참조하세요. 
 
 ### <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>omsagent를 최신 릴리스 버전으로 업데이트하려면 어떻게 하나요?
 
@@ -810,7 +810,7 @@ Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정
 ### <a name="are-there-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Log Analytics 무료 요금제 요금제를 사용 하는 경우 제한이 있나요?
 *무료* 가격 책정 계층을 사용하여 Log Analytics 작업 영역에 Azure Monitor를 구성한 경우 VM용 Azure Monitor 맵 기능은 5대의 작업 영역에 연결된 머신만 지원합니다. 무료 작업 영역에 5대의 VM이 연결되어 있는 경우 VM 중 하나의 연결을 끊은 후 나중에 새 VM을 연결하면 맵 페이지에서 새 VM이 모니터링 및 반영되지 않습니다.  
 
-이 조건에서는 VM을 열고 이미 해당 VM에 설치된 후에도 왼쪽 창에서 **인사이트**를 선택하면 **지금 사용해 보기** 옵션이 포함된 메시지가 표시됩니다.  그러나 이 VM이 VM용 Azure Monitor에 등록되지 않은 경우에는 일반적인 경우처럼 옵션이 포함된 메시지가 표시되지 않습니다. 
+이 조건에서는 VM을 열고 이미 해당 VM에 설치된 후에도 왼쪽 창에서 **인사이트** 를 선택하면 **지금 사용해 보기** 옵션이 포함된 메시지가 표시됩니다.  그러나 이 VM이 VM용 Azure Monitor에 등록되지 않은 경우에는 일반적인 경우처럼 옵션이 포함된 메시지가 표시되지 않습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

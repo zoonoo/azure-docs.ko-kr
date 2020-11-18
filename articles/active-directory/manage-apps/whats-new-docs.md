@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 7c011c55728db53f0c64ac063c3372a610ef8f2f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 10861438334bc804d1b1e4b9a669280f7e09ffde
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542459"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654012"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 응용 프로그램 관리: 새로운 기능
 
@@ -43,7 +43,7 @@ Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능�
 ### <a name="new-articles"></a>새 문서
 - [빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 OIDC 기반 SSO(Single Sign-On) 설정](add-application-portal-setup-oidc-sso.md)
 - [빠른 시작: Azure AD를 ID 공급자로 사용하는 앱에 사용자 할당](add-application-portal-assign-users.md)
-- [문서의 새로운 기능](whats-new-docs.md)
+- [Docs의 새로운 기능](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>업데이트된 문서
@@ -70,7 +70,7 @@ Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능�
 - [SSO(Single Sign-On)란?](what-is-single-sign-on.md)
 - [Azure Active Directory에서 overprivileged 또는 의심 스러운 응용 프로그램에 대 한 조치를 취합니다.](manage-application-permissions.md)
 - [빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션 속성 구성](add-application-portal-configure.md)
-- [Microsoft Graph API를 사용하여 SAML 기반 SSO 앱 구성 자동화](application-saml-sso-configure-api.md)
+- [Microsoft Graph API를 사용하여 SAML 기반 SSO 앱 구성 자동화](/graph/application-saml-sso-configure-api)
 
 
 ## <a name="july-2020"></a>2020년 7월
