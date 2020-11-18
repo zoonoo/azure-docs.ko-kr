@@ -4,18 +4,26 @@ description: 이 문서에서는 Azure CLI를 사용 하 여 하이브리드 클
 ms.date: 11/06/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 59c984f4adaec2261d1b08748aa5a91c8246418d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: bf0a3e0940efc7e79adbe9f763ffdf34ea690fac
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359118"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833268"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure VM 확장을 사용 하도록 설정
 
 이 문서에서는 Azure CLI를 사용 하 여 Azure Arc 사용 서버에서 지 원하는 Azure VM 확장을 Linux 또는 Windows 하이브리드 컴퓨터에 배포 하 고 제거 하는 방법을 보여 줍니다.
 
 [!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
+
+## <a name="install-the-azure-cli-extension"></a>Azure CLI 확장 설치
+
+ConnectedMachine 명령은 Azure CLI의 일부로 제공 되지 않습니다. Azure CLI를 사용 하 여 Arc 사용 서버에서 관리 하는 하이브리드 서버에서 VM 확장을 관리 하기 전에 ConnectedMachine 확장을 로드 해야 합니다. 다음 명령을 실행 하 여 가져옵니다.
+
+```azurecli
+az extension add --name connectedmachine
+```
 
 ## <a name="enable-extension"></a>확장 사용
 
@@ -43,7 +51,7 @@ az connectedmachine machine-extension create --resource-group "resourceGroupName
 
 Arc 사용 서버에서 VM 확장 목록을 가져오려면 및 매개 변수와 함께 [az connectedmachine list](/cli/azure/ext/connectedmachine/connectedmachine/machine-extension#ext_connectedmachine_az_connectedmachine_machine_extension_list) 를 사용 `--machine-name` `--resource-group` 합니다.
 
-예:
+예제:
 
 ```azurecli
 az connectedmachine machine-extension list --machine-name "myMachineName" --resource-group "myResourceGroup"

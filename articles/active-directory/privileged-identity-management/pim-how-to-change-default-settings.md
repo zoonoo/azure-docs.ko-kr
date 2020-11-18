@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 391d4d6cb925eec0ea7be19eb6fa6849aa38985e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fadcf3f5aefa76ab03d6313643fc18df71f6c3b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369746"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835240"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 설정 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "92369746"
 11 월 2019부터 Privileged Identity Management의 Azure AD 역할 부분은 Azure 리소스 역할의 환경과 일치 하는 새 버전으로 업데이트 됩니다. 그러면 [기존 API에 대 한 변경](azure-ad-roles-features.md#api-changes)뿐만 아니라 추가 기능이 생성 됩니다. 새 버전이 롤아웃 되는 동안이 문서에서 수행 하는 절차는 현재 보유 하 고 있는 Privileged Identity Management 버전에 따라 달라 집니다. 이 섹션의 단계에 따라 Privileged Identity Management 버전을 확인 합니다. Privileged Identity Management 버전을 확인 한 후에는이 문서에서 해당 버전과 일치 하는 절차를 선택할 수 있습니다.
 
 1. [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator) 역할에 있는 사용자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
-1. **Azure AD Privileged Identity Management**를 엽니다. 개요 페이지의 맨 위에 배너가 있는 경우이 문서의 **새 버전** 탭에 있는 지침을 따르세요. 그렇지 않으면 **이전 버전** 탭의 지침을 따릅니다.
+1. **Azure AD Privileged Identity Management** 를 엽니다. 개요 페이지의 맨 위에 배너가 있는 경우이 문서의 **새 버전** 탭에 있는 지침을 따르세요. 그렇지 않으면 **이전 버전** 탭의 지침을 따릅니다.
 
   [![Azure AD > Privileged Identity Management를 선택 합니다.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
@@ -44,7 +44,7 @@ ms.locfileid: "92369746"
 
 1. [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator) 역할의 사용자를 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 gt
-1. **Azure AD Privileged Identity Management** &gt; **Azure AD 역할** &gt; **역할 설정**을 엽니다.
+1. **Azure AD Privileged Identity Management** &gt; **Azure AD 역할** &gt; **역할 설정** 을 엽니다.
 
     ![Azure AD 역할을 나열 하는 역할 설정 페이지](./media/pim-how-to-change-default-settings/role-settings.png)
 
@@ -52,7 +52,7 @@ gt
 
     ![몇 가지 할당 및 활성화 설정을 나열 하는 역할 설정 세부 정보 페이지](./media/pim-how-to-change-default-settings/role-settings-page.png)
 
-1. **편집**을 선택하여 역할 설정 페이지를 엽니다.
+1. **편집** 을 선택하여 역할 설정 페이지를 엽니다.
 
     ![할당 및 활성화 설정 업데이트 옵션을 사용 하 여 역할 설정 페이지 편집](./media/pim-how-to-change-default-settings/role-settings-edit.png)
 
@@ -81,7 +81,7 @@ gt
 
 ## <a name="require-multi-factor-authentication"></a>다단계 인증 필요
 
-Privileged Identity Management는 서로 다른 두 가지 시나리오에 대해 선택적인 Azure Multi-Factor Authentication 적용을 제공합니다.
+Privileged Identity Management는 두 가지 고유한 시나리오에 대해 Azure AD Multi-Factor Authentication의 선택적 적용을 제공 합니다.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>활성 할당에 대한 Multi-Factor Authentication 필요
 
@@ -91,9 +91,9 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>활성화 시 Multi-Factor Authentication 필요
 
-역할에 대 한 자격이 있는 사용자가 Azure Multi-Factor Authentication를 사용 하 여 인증을 받을 수 있도록 요구할 수 있습니다. Multi-factor authentication을 사용 하면 사용자에 게 적절 한 확신을 갖고 있다고 사용자에 게 표시 됩니다. 이 옵션을 적용하면 사용자의 계정이 손상되었을 수 있는 상황에서 중요한 리소스를 보호할 수 있습니다.
+역할에 대 한 자격이 있는 사용자가 Azure AD Multi-Factor Authentication를 사용 하 여 정품 인증을 받을 수 있도록 요구할 수 있습니다. Multi-factor authentication을 사용 하면 사용자에 게 적절 한 확신을 갖고 있다고 사용자에 게 표시 됩니다. 이 옵션을 적용하면 사용자의 계정이 손상되었을 수 있는 상황에서 중요한 리소스를 보호할 수 있습니다.
 
-활성화 하기 전에 multi-factor authentication을 요구 하려면 **역할 편집 설정**의 할당 탭에서 **활성화에 대 한 Multi-Factor Authentication 필요** 확인란을 선택 합니다.
+활성화 하기 전에 multi-factor authentication을 요구 하려면 **역할 편집 설정** 의 할당 탭에서 **활성화에 대 한 Multi-Factor Authentication 필요** 확인란을 선택 합니다.
 
 자세한 내용은 [Multi-Factor Authentication 및 Privileged Identity Management](pim-how-to-require-mfa.md)를 참조하세요.
 
@@ -111,11 +111,11 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 1. **활성화하려면 승인 필요** 확인란을 선택합니다.
 
-1. **승인자 선택**을 선택 합니다.
+1. **승인자 선택** 을 선택 합니다.
 
     ![승인자를 선택할 사용자 또는 그룹 창을 선택 합니다.](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. 사용자를 하나 이상 선택한 다음 **선택**을 클릭 합니다. 하나 이상의 승인자를 선택해야 합니다. 기본 승인자가 없습니다.
+1. 사용자를 하나 이상 선택한 다음 **선택** 을 클릭 합니다. 하나 이상의 승인자를 선택해야 합니다. 기본 승인자가 없습니다.
 
     선택한 항목이 선택한 승인자 목록에 표시됩니다.
 
@@ -127,15 +127,15 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 다음 단계에 따라 Azure AD 역할에 대한 설정을 엽니다.
 
-1. **Azure AD Privileged Identity Management**를 엽니다.
+1. **Azure AD Privileged Identity Management** 를 엽니다.
 
-1. **AZURE AD 역할**을 선택 합니다.
+1. **AZURE AD 역할** 을 선택 합니다.
 
-1. **설정**을 선택합니다.
+1. **설정** 을 선택합니다.
 
     ![Azure AD 역할-설정](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
-1. **역할**을 선택합니다.
+1. **역할** 을 선택합니다.
 
 1. 설정을 구성 하려는 역할을 선택 합니다.
 
@@ -151,11 +151,11 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 **알림** 스위치를 사용하여 역할이 활성화될 때 관리자가 이메일 알림을 받을지 여부를 지정합니다. 이 알림은 무단 또는 불법 활성화를 검색 하는 데 유용할 수 있습니다.
 
-**사용**으로 설정되면 다음 사용자에게 알림이 전송됩니다.
+**사용** 으로 설정되면 다음 사용자에게 알림이 전송됩니다.
 
 - 권한 있는 역할 관리자
 - 보안 관리자
-- 전역 관리자
+- 글로벌 관리자
 
 자세한 내용은 [Privileged Identity Management에서 전자 메일 알림](pim-email-notifications.md)을 참조 하세요.
 
@@ -167,11 +167,11 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 **Multi-Factor Authentication** 스위치를 사용하여 사용자가 자신의 역할을 활성화하기 전에 MFA로 신원을 확인하도록 요구할지 여부를 지정할 수 있습니다. 세션 마다 한 번만 id를 확인 하면 되므로 역할을 활성화할 때마다 해당 id를 확인 해야 합니다. MFA를 사용할 때 염두에 두어야 할 두 가지가 있습니다.
 
-- 전자 메일 주소에 대 한 Microsoft 계정을 가진 사용자 (일반적으로는 @outlook.com 항상 그렇지는 않지만 항상 그렇지는 않음)는 Azure Multi-Factor Authentication에 등록할 수 없습니다. Microsoft 계정을 사용 하는 사용자에 게 역할을 할당 하려면 해당 역할에 대해 영구 관리자를 설정 하거나 multi-factor authentication을 사용 하지 않도록 설정 해야 합니다.
-- Azure AD 및 Microsoft 365에 대 한 높은 권한이 있는 역할에 대해서는 Azure Multi-Factor Authentication를 사용 하지 않도록 설정할 수 없습니다. 이 보안 기능은 다음 역할을 보호 하는 데 도움이 됩니다.  
+- 전자 메일 주소에 대 한 Microsoft 계정을 가진 사용자 (일반적으로는 @outlook.com 항상 그렇지는 않지만 항상 그렇지는 않음)는 AZURE AD Multi-Factor Authentication에 등록할 수 없습니다. Microsoft 계정을 사용 하는 사용자에 게 역할을 할당 하려면 해당 역할에 대해 영구 관리자를 설정 하거나 multi-factor authentication을 사용 하지 않도록 설정 해야 합니다.
+- Azure AD 및 Microsoft 365에 대 한 높은 권한이 있는 역할에 대해서는 Azure AD Multi-Factor Authentication를 사용 하지 않도록 설정할 수 없습니다. 이 보안 기능은 다음 역할을 보호 하는 데 도움이 됩니다.  
   
   - Azure Information Protection 관리자
-  - 대금 청구 관리자
+  - 청구 관리자
   - 클라우드 애플리케이션 관리자
   - 규정 준수 관리자
   - 조건부 액세스 관리자
@@ -194,17 +194,17 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 역할을 활성화 하는 데 필요한 승인을 위임 하려는 경우 다음 단계를 수행 합니다.
 
-1. **승인 필요** 스위치를 **사용**으로 설정합니다. 창은 승인자를 선택하는 옵션을 표시하도록 확장합니다.
+1. **승인 필요** 스위치를 **사용** 으로 설정합니다. 창은 승인자를 선택하는 옵션을 표시하도록 확장합니다.
 
     !["사용"이 선택 된 "승인 필요" 스위치를 보여 주는 스크린샷](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     승인자를 지정 하지 않으면 권한 있는 역할 관리자가 기본 승인자가 되며이 역할에 대 한 모든 활성화 요청을 승인 하는 데 필요 합니다.
 
-1. 승인자를 추가 하려면 **승인자 선택**을 클릭 합니다.
+1. 승인자를 추가 하려면 **승인자 선택** 을 클릭 합니다.
 
     ![Azure AD 역할-설정-승인 필요](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
-1. 권한 있는 역할 관리자 외에 승인자를 하나 이상 선택한 다음 **선택**을 클릭 합니다. 승인자를 두 개 이상 추가 하는 것이 좋습니다. 자신을 승인자로 추가 하더라도 역할 활성화를 자체 승인할 수 없습니다. 선택한 항목이 선택한 승인자 목록에 표시됩니다.
+1. 권한 있는 역할 관리자 외에 승인자를 하나 이상 선택한 다음 **선택** 을 클릭 합니다. 승인자를 두 개 이상 추가 하는 것이 좋습니다. 자신을 승인자로 추가 하더라도 역할 활성화를 자체 승인할 수 없습니다. 선택한 항목이 선택한 승인자 목록에 표시됩니다.
 
 1. 모든 역할 설정을 지정한 후에는 **저장** 을 선택 하 여 변경 내용을 저장 합니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 032b63700f2842826de916a8f077975689d56911
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b40be802f30bac8438f10c4ab60e1c196c9f7164
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014905"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833795"
 ---
 # <a name="authentication-and-user-permissions"></a>인증 및 사용자 권한
 
@@ -32,7 +32,7 @@ Excel 및 Power BI Desktop과 같은 클라이언트 애플리케이션과 SSMS 
 
 사용하는 클라이언트 애플리케이션이나 도구에 따라 인증 유형 및 로그인 방법이 달라질 수 있습니다. 각 애플리케이션은 Azure Analysis Services와 같은 클라우드 서비스에 연결하는 다양한 기능을 지원할 수 있습니다.
 
-Power BI Desktop, Visual Studio 및 SSMS는 Azure MFA(Multi-factor Authentication)도 지원하는 대화형 메서드인 Active Directory 유니버설 인증을 지원합니다. Azure MFA는 간단한 로그인 프로세스를 제공하는 동시에 데이터와 애플리케이션에 대한 액세스를 보호하는 데 도움이 됩니다. 전화 통화, 문자 메시지, 모바일 앱 알림 등의 몇 가지 간편한 검증 옵션을 제공하는 강력한 인증을 포함합니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다. **유니버설 인증을 권장**합니다.
+Power BI Desktop, Visual Studio 및 SSMS는 MFA (Azure AD Multi-Factor Authentication)도 지 원하는 대화형 메서드인 유니버설 인증 Active Directory 지원 합니다. Azure AD MFA는 간단한 로그인 프로세스를 제공 하는 동시에 데이터 및 응용 프로그램에 대 한 액세스를 보호 하는 데 도움이 됩니다. 전화 통화, 문자 메시지, 모바일 앱 알림 등의 몇 가지 간편한 검증 옵션을 제공하는 강력한 인증을 포함합니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다. **유니버설 인증을 권장** 합니다.
 
 Windows 계정을 사용하여 Azure에 로그인하고 유니버설 인증을 선택하거나 사용 가능하지 않은 경우(Excel), [AD FS(Active Directory Federation Services)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)가 필요합니다. 페더레이션을 사용 하 여 Azure AD 및 Microsoft 365 사용자는 온-프레미스 자격 증명을 사용 하 여 인증 되며 Azure 리소스에 액세스할 수 있습니다.
 
@@ -44,7 +44,7 @@ Azure Analysis Services 서버는 Windows 인증, Active Directory 암호 인증
 
 *  Azure AS 테넌트에 초대된 Azure B2B 게스트 사용자를 지원합니다. 서버에 연결될 때 게스트 사용자는 Active Directory 유니버설 인증을 선택해야 합니다.
 
-*  MFA(Multi-Factor Authentication)를 지원합니다. Azure MFA는 전화 통화, 문자 메시지, PIN을 사용하는 스마트 카드, 모바일 앱 알림 등 여러 가지 인증 옵션을 사용하여 데이터 및 애플리케이션에 대한 액세스를 보호합니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다.
+*  MFA(Multi-Factor Authentication)를 지원합니다. Azure AD MFA는 전화 통화, 문자 메시지, pin을 사용 하는 스마트 카드 또는 모바일 앱 알림과 같은 다양 한 확인 옵션을 통해 데이터와 응용 프로그램에 대 한 액세스를 보호 합니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다.
 
 ### <a name="visual-studio"></a>Visual Studio
 
@@ -60,11 +60,11 @@ Excel 사용자는 Windows 계정, 조직 ID(메일 주소) 또는 외부 메일
 
 ## <a name="user-permissions"></a>사용자 권한
 
-**서버 관리자**는 Azure Analysis Services 서버 인스턴스와 관련이 있습니다. 서버 관리자는 Azure Portal, SSMS 및 Visual Studio와 같은 도구에 연결하여 데이터베이스 추가, 사용자 역할 관리 등의 작업을 수행합니다. 기본적으로 서버를 만드는 사용자는 Analysis Services 서버 관리자로 자동 추가됩니다. 다른 관리자는 Azure Portal이나 SSMS를 사용하여 추가할 수 있습니다. 서버 관리자는 동일한 구독의 Azure AD 테넌트에 계정이 있어야 합니다. 자세한 내용은 [서버 관리자 관리](analysis-services-server-admins.md)를 참조하세요. 
+**서버 관리자** 는 Azure Analysis Services 서버 인스턴스와 관련이 있습니다. 서버 관리자는 Azure Portal, SSMS 및 Visual Studio와 같은 도구에 연결하여 데이터베이스 추가, 사용자 역할 관리 등의 작업을 수행합니다. 기본적으로 서버를 만드는 사용자는 Analysis Services 서버 관리자로 자동 추가됩니다. 다른 관리자는 Azure Portal이나 SSMS를 사용하여 추가할 수 있습니다. 서버 관리자는 동일한 구독의 Azure AD 테넌트에 계정이 있어야 합니다. 자세한 내용은 [서버 관리자 관리](analysis-services-server-admins.md)를 참조하세요. 
 
-**데이터베이스 사용자**는 Excel 또는 Power BI와 같은 클라이언트 애플리케이션을 사용하여 model 데이터베이스에 연결합니다. 사용자는 데이터베이스 역할에 추가되어야 합니다. 데이터베이스 역할은 데이터베이스에 대해 관리자, 처리 또는 읽기 권한을 정의합니다. 관리자 권한이 있는 역할의 데이터베이스 사용자는 서버 관리자와 다르다는 점을 이해해야 합니다. 그러나 기본적으로 서버 관리자는 데이터베이스 관리자이기도 합니다. 자세한 내용은 [데이터베이스 역할 및 사용자 관리](analysis-services-database-users.md)를 참조하세요.
+**데이터베이스 사용자** 는 Excel 또는 Power BI와 같은 클라이언트 애플리케이션을 사용하여 model 데이터베이스에 연결합니다. 사용자는 데이터베이스 역할에 추가되어야 합니다. 데이터베이스 역할은 데이터베이스에 대해 관리자, 처리 또는 읽기 권한을 정의합니다. 관리자 권한이 있는 역할의 데이터베이스 사용자는 서버 관리자와 다르다는 점을 이해해야 합니다. 그러나 기본적으로 서버 관리자는 데이터베이스 관리자이기도 합니다. 자세한 내용은 [데이터베이스 역할 및 사용자 관리](analysis-services-database-users.md)를 참조하세요.
 
-**Azure 리소스 소유자**. 리소스 소유자는 Azure 구독에 대한 리소스를 관리합니다. 리소스 소유자는 Azure Portal의 **액세스 제어**나 Azure Resource Manager 템플릿을 사용하여 구독 내에서 소유자 또는 참가자 역할에 Azure AD 사용자 ID를 추가할 수 있습니다. 
+**Azure 리소스 소유자**. 리소스 소유자는 Azure 구독에 대한 리소스를 관리합니다. 리소스 소유자는 Azure Portal의 **액세스 제어** 나 Azure Resource Manager 템플릿을 사용하여 구독 내에서 소유자 또는 참가자 역할에 Azure AD 사용자 ID를 추가할 수 있습니다. 
 
 ![Azure Portal의 액세스 제어](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 

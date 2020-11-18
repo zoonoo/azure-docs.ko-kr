@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 08/03/2020
 ms.author: curtand
-ms.openlocfilehash: d9023579b6627e9dab9feac8dfaccd94dc9f5c12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a002254995e42fc586b707e3cb373dac66e678ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798128"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834152"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>내 로그인 페이지에서 최근 로그인 활동 보기 및 검색
 
@@ -46,7 +46,7 @@ ms.locfileid: "88798128"
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>실패 한 로그인이 표시 되는 경우
 
-실패 한 로그인이 표시 되 면 자격 증명을 잘못 입력 한 것일 수 있습니다. 공격자가 암호를 추측 하려고 시도 했을 수도 있습니다. 이 위험에 대처 하기 위해 암호를 변경 하지 않아도 되지만 MFA (Azure Multi-Factor Authentication)에 등록 하는 것이 좋습니다. Multi-factor authentication을 사용 하는 경우 해커가 암호를 추측 하더라도 계정에 액세스 하는 데 충분 하지 않습니다.
+실패 한 로그인이 표시 되 면 자격 증명을 잘못 입력 한 것일 수 있습니다. 공격자가 암호를 추측 하려고 시도 했을 수도 있습니다. 이 위험에 대처 하기 위해 암호를 변경 하지 않아도 되지만 MFA (Azure AD Multi-Factor Authentication)에 등록 하는 것이 좋습니다. Multi-factor authentication을 사용 하는 경우 해커가 암호를 추측 하더라도 계정에 액세스 하는 데 충분 하지 않습니다.
 
 ![실패 한 로그인 타일](media/my-account-portal-sign-ins-page/unsuccessful.png)
 

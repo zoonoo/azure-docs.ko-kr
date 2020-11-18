@@ -6,13 +6,13 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 1e6bace9652ff68bb4cc28d482016b7e7510154b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 86d0569d95df18924ed47682b75d7491c71d4483
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150188"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833557"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 환경 사용
 
@@ -23,7 +23,7 @@ ASE (App Service Environment)는 고객의 Azure Virtual Network 인스턴스에
 - **데이터베이스**: 환경을 정의 하는 정보를 저장 합니다.
 - **저장소**: 고객이 게시 한 앱을 호스트 하는 데 사용 됩니다.
 
-앱 액세스를 위해 외부 또는 내부 VIP (가상 IP)를 사용 하 여 ASE를 배포할 수 있습니다. 외부 VIP를 사용 하는 배포를 일반적으로 *외부 ASE*라고 합니다. 내부 VIP를 사용 하는 배포는 ILB (내부 부하 분산 장치)를 사용 하기 때문에 *ILB ASE* 라고 합니다. ILB ASE에 대해 자세히 알아보려면 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조하세요.
+앱 액세스를 위해 외부 또는 내부 VIP (가상 IP)를 사용 하 여 ASE를 배포할 수 있습니다. 외부 VIP를 사용 하는 배포를 일반적으로 *외부 ASE* 라고 합니다. 내부 VIP를 사용 하는 배포는 ILB (내부 부하 분산 장치)를 사용 하기 때문에 *ILB ASE* 라고 합니다. ILB ASE에 대해 자세히 알아보려면 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조하세요.
 
 ## <a name="create-an-app-in-an-ase"></a>ASE에서 앱 만들기
 
@@ -36,7 +36,7 @@ ASE가 없는 경우 [App Service Environment 만들기][MakeExternalASE]의 지
 
 ASE에서 앱을 만들려면
 
-1. **리소스 만들기**  >  **웹 + 모바일**  >  **웹 앱**을 선택 합니다.
+1. **리소스 만들기**  >  **웹 + 모바일**  >  **웹 앱** 을 선택 합니다.
 
 1. 앱의 이름을 입력합니다. ASE에서 App Service 계획을 이미 선택한 경우 앱의 도메인 이름에 ASE의 도메인 이름이 반영 됩니다.
 
@@ -44,25 +44,25 @@ ASE에서 앱을 만들려면
 
 1. 구독을 선택합니다.
 
-1. 새 리소스 그룹의 이름을 입력하거나 **기존 항목 사용**을 선택하고 드롭다운 목록에서 이름을 선택합니다.
+1. 새 리소스 그룹의 이름을 입력하거나 **기존 항목 사용** 을 선택하고 드롭다운 목록에서 이름을 선택합니다.
 
 1. OS를 선택합니다.
 
 1. ASE에서 기존 App Service 계획을 선택하거나 다음 단계를 통해 새 App Service 계획을 만듭니다.
 
-    a. Azure Portal 왼쪽 메뉴에서 **리소스 만들기 > 웹 앱**을 선택 합니다.
+    a. Azure Portal 왼쪽 메뉴에서 **리소스 만들기 > 웹 앱** 을 선택 합니다.
 
     b. 구독을 선택합니다.
 
-    다. 리소스 그룹을 선택 하거나 만듭니다.
+    c. 리소스 그룹을 선택 하거나 만듭니다.
 
     d. 웹 앱의 이름을 입력 합니다.
 
-    e. **코드** 또는 **dockercontainer**를 선택 합니다.
+    e. **코드** 또는 **dockercontainer** 를 선택 합니다.
 
     f. 런타임 스택을 선택 합니다.
 
-    g. **Linux** 또는 **Windows**를 선택합니다. 
+    g. **Linux** 또는 **Windows** 를 선택합니다. 
 
     h. **지역** 드롭다운 목록에서 ASE를 선택 합니다. 
 
@@ -74,7 +74,7 @@ ASE에서 앱을 만들려면
     > Linux 앱 및 Windows 앱은 동일한 App Service 계획에 있을 수 없지만 동일한 App Service Environment에 있을 수 있습니다.
     >
 
-1. **검토 + 만들기**를 선택 하 고 정보가 올바른지 확인 한 다음 **만들기**를 선택 합니다.
+1. **검토 + 만들기** 를 선택 하 고 정보가 올바른지 확인 한 다음 **만들기** 를 선택 합니다.
 
 ## <a name="how-scale-works"></a>확장이 작동하는 방식
 
@@ -134,12 +134,12 @@ ILB ASE를 사용하여 자체 DNS 서버에서 DNS를 구성하려면 다음을
 
 Azure DNS 프라이빗 영역에서 DNS를 구성하려면 다음을 수행합니다.
 
-1. ASE 이름이 appserviceenvironment.net 인 Azure DNS 개인 영역을 만듭니다 &lt; &gt; .
+1. &lt;ASE 이름&gt;.appserviceenvironment.net이라는 Azure DNS 프라이빗 영역 만들기
 1. 해당 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
 1. 해당 영역에 @로 ILB IP 주소를 가리키는 A 레코드 만들기
 1. 해당 영역에 *.scm으로 ILB IP 주소를 가리키는 A 레코드 만들기
 
-ASE 기본 도메인 접미사에 대한 DNS 설정은 해당 이름으로만 액세스할 수 있도록 앱을 제한하지 않습니다. ILB ASE의 앱에 대한 유효성 검사 없이 사용자 지정 도메인 이름을 설정할 수 있습니다. 그런 다음 *contoso.net*이라는 영역을 만들려는 경우이를 수행 하 고 ILB IP 주소를 가리킬 수 있습니다. 사용자 지정 도메인 이름은 앱 요청에 대해서는 작동하지만 scm 사이트의 경우에는 작동하지 않습니다. Scm 사이트는 * &lt; appname &gt; . scm &lt; 에서만 사용할 수 있습니다. asename &gt; . appserviceenvironment.net*. 
+ASE 기본 도메인 접미사에 대한 DNS 설정은 해당 이름으로만 액세스할 수 있도록 앱을 제한하지 않습니다. ILB ASE의 앱에 대한 유효성 검사 없이 사용자 지정 도메인 이름을 설정할 수 있습니다. 그런 다음 *contoso.net* 이라는 영역을 만들려는 경우이를 수행 하 고 ILB IP 주소를 가리킬 수 있습니다. 사용자 지정 도메인 이름은 앱 요청에 대해서는 작동하지만 scm 사이트의 경우에는 작동하지 않습니다. Scm 사이트는 *&lt; appname &gt; . scm &lt; 에서만 사용할 수 있습니다. asename &gt; . appserviceenvironment.net*. 
 
 이라는 영역 *입니다. &lt; &gt;appserviceenvironment.net* 는 전역적으로 고유 합니다. 2019년 5월 이전에는 고객이 ILB ASE의 도메인 접미사를 지정할 수 있었습니다. 도메인 접미사에 대해 *contoso.com* 를 사용 하려는 경우이 작업을 수행할 수 있으며 scm 사이트를 포함 합니다. 이 모델에는 기본 SSL 인증서 관리, scm 사이트에 Single Sign-On 부족 및 와일드카드 인증서를 사용하기 위한 요구 사항을 비롯한 과제가 있었습니다. ILB ASE 기본 인증서 업그레이드 프로세스도 중단되어 애플리케이션을 다시 시작했습니다. 이러한 문제를 해결하기 위해 ILB ASE 동작은 ASE 이름 및 Microsoft 소유의 접미사에 따라 도메인 접미사를 사용하도록 변경되었습니다. ILB ASE 동작에 대한 변경 사항은 2019년 5월 이후 만들어진 ILB ASE에 적용됩니다. 기존 ILB ASE는 여전히 ASE의 기본 인증서와 해당 DNS 구성을 관리해야 합니다.
 
@@ -149,7 +149,7 @@ ASE 기본 도메인 접미사에 대한 DNS 설정은 해당 이름으로만 �
 
 - 웹 배포
 - FTP
-- CI (연속 통합)
+- CI(연속 통합)
 - Kudu 콘솔에서 끌어서 놓기
 - IDE (예: Visual Studio, Eclipse 또는 IntelliJ 아이디어)
 
@@ -184,15 +184,15 @@ ASE를 Azure Monitor와 통합 하 여 ASE에 대 한 로그를 Azure Storage, A
 
 ASE에서 로깅을 사용 하도록 설정 하려면:
 
-1. 포털에서 **진단 설정**으로 이동 합니다.
-1. **진단 설정 추가**를 선택 합니다.
+1. 포털에서 **진단 설정** 으로 이동 합니다.
+1. **진단 설정 추가** 를 선택 합니다.
 1. 로그 통합에 대 한 이름을 제공 합니다.
 1. 원하는 로그 대상을 선택 하 고 구성 합니다.
-1. **Appservice환경 Platformlogs**를 선택 합니다.
+1. **Appservice환경 Platformlogs** 를 선택 합니다.
 
 ![ASE 진단 로그 설정][4]
 
-Log Analytics와 통합 하는 경우 ASE 포털에서 **로그** 를 선택 하 고 **Appservice환경 platformlogs**에 대 한 쿼리를 만들어 로그를 볼 수 있습니다. 로그는 ASE에 트리거를 트리거하는 이벤트가 있는 경우에만 내보내집니다. ASE에 이러한 이벤트가 없으면 로그가 없는 것입니다. Log Analytics 작업 영역에서 로그의 예제를 신속 하 게 보려면 ASE의 App Service 계획 중 하나를 사용 하 여 크기 조정 작업을 수행 합니다. 그런 다음 **Appservice환경 Platformlogs** 에 대해 쿼리를 실행 하 여 해당 로그를 볼 수 있습니다. 
+Log Analytics와 통합 하는 경우 ASE 포털에서 **로그** 를 선택 하 고 **Appservice환경 platformlogs** 에 대 한 쿼리를 만들어 로그를 볼 수 있습니다. 로그는 ASE에 트리거를 트리거하는 이벤트가 있는 경우에만 내보내집니다. ASE에 이러한 이벤트가 없으면 로그가 없는 것입니다. Log Analytics 작업 영역에서 로그의 예제를 신속 하 게 보려면 ASE의 App Service 계획 중 하나를 사용 하 여 크기 조정 작업을 수행 합니다. 그런 다음 **Appservice환경 Platformlogs** 에 대해 쿼리를 실행 하 여 해당 로그를 볼 수 있습니다. 
 
 **경고 만들기**
 
@@ -207,7 +207,7 @@ Log Analytics와 통합 하는 경우 ASE 포털에서 **로그** 를 선택 하
 
 ## <a name="upgrade-preference"></a>업그레이드 기본 설정
 
-Ase 여러 개 있는 경우 일부 Ase을 다른 사용자 보다 먼저 업그레이드 해야 할 수 있습니다. ASE **HostingEnvironment 리소스 관리자** 개체 내에서 **upgradepreference**설정에 대 한 값을 설정할 수 있습니다. **Upgradepreference** 설정은 템플릿, ARMClient 또는를 사용 하 여 구성할 수 있습니다 https://resources.azure.com . 가능한 세 가지 값은 다음과 같습니다.
+Ase 여러 개 있는 경우 일부 Ase을 다른 사용자 보다 먼저 업그레이드 해야 할 수 있습니다. ASE **HostingEnvironment 리소스 관리자** 개체 내에서 **upgradepreference** 설정에 대 한 값을 설정할 수 있습니다. **Upgradepreference** 설정은 템플릿, ARMClient 또는를 사용 하 여 구성할 수 있습니다 https://resources.azure.com . 가능한 세 가지 값은 다음과 같습니다.
 
 - **없음**: Azure는 특정 일괄 처리 없이 ASE를 업그레이드 합니다. 이 값은 기본값입니다.
 - **초기**: ASE는 App Service 업그레이드의 처음 절반에서 업그레이드 됩니다.
@@ -218,9 +218,9 @@ Ase 여러 개 있는 경우 일부 Ase을 다른 사용자 보다 먼저 업그
 1. Resources.azure.com으로 이동 하 여 Azure 계정으로 로그인 합니다.
 1. 구독 \/ \[ 구독 이름 \] \/ resourcegroups \/ \[ 리소스 그룹 이름 \] \/ 공급자 \/ \/ hostingEnvironments \/ \[ ASE 이름 \] 으로 리소스를 이동 합니다.
 1. 위쪽에서 **읽기/쓰기** 를 선택 합니다.
-1. **편집**을 선택합니다.
+1. **편집** 을 선택합니다.
 1. **Upgradepreference** 를 원하는 세 값 중 하나로 설정 합니다.
-1. **패치**를 선택 합니다.
+1. **패치** 를 선택 합니다.
 
 ![azure com 표시 리소스][5]
 
@@ -250,7 +250,7 @@ ASE를 삭제하려면 다음을 수행합니다.
 
     ![ASE 삭제][3]
 
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 
 ## <a name="ase-cli"></a>ASE CLI
 

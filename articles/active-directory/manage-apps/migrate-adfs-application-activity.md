@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ee1734e61ffe59fccf3ad35c1f0c607882f7f40
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1245010ae0b21c5bb8e3ebd93a9fe851d48c858b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659200"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835512"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>AD FS 응용 프로그램 작업 보고서 (미리 보기)를 사용 하 여 응용 프로그램을 Azure AD로 마이그레이션합니다.
 
@@ -32,7 +32,7 @@ Azure Portal의 AD FS 응용 프로그램 작업 보고서 (미리 보기)를 �
 
 전역 관리자, 보고서 읽기 권한자, 보안 읽기 권한자, 응용 프로그램 관리자 또는 클라우드 응용 프로그램 관리자와 같은 관리 역할이 할당 된 사용자는 AD FS 응용 프로그램 작업 데이터를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * 조직에서 응용 프로그램에 액세스 하려면 현재 AD FS를 사용 해야 합니다.
 * Azure AD 테 넌 트에서 Azure AD Connect Health를 사용 하도록 설정 해야 합니다.
@@ -76,7 +76,7 @@ AD FS 응용 프로그램 작업 보고서는 Azure AD **사용량 & insights** 
 
 |결과  |성공/경고/실패  |설명  |
 |---------|---------|---------|
-|Test-ADFSRPAdditionalAuthenticationRules <br> AdditionalAuthentication에 대해 마이그레이션할 수 있고 규칙이 하나 이상 검색 되지 않았습니다.       | 통과/경고          | 신뢰 당사자에 게 MFA (multi-factor authentication)를 요구 하는 규칙이 있습니다. Azure AD로 이동 하려면 이러한 규칙을 조건부 액세스 정책으로 변환 합니다. 온-프레미스 MFA를 사용 하는 경우 Azure MFA로 이동 하는 것이 좋습니다. [조건부 액세스에 대해 자세히 알아보세요](../authentication/concept-mfa-howitworks.md).        |
+|Test-ADFSRPAdditionalAuthenticationRules <br> AdditionalAuthentication에 대해 마이그레이션할 수 있고 규칙이 하나 이상 검색 되지 않았습니다.       | 통과/경고          | 신뢰 당사자에 게 MFA (multi-factor authentication)를 요구 하는 규칙이 있습니다. Azure AD로 이동 하려면 이러한 규칙을 조건부 액세스 정책으로 변환 합니다. 온-프레미스 MFA를 사용 하는 경우 Azure AD MFA로 이동 하는 것이 좋습니다. [조건부 액세스에 대해 자세히 알아보세요](../authentication/concept-mfa-howitworks.md).        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> 신뢰 당사자가 AdditionalWSFedEndpoint를 true로 설정 했습니다.       | 성공/실패          | AD FS 신뢰 당사자는 여러 WS-Fed 어설션 끝점을 허용 합니다.현재 Azure AD는 하나만 지원 합니다.이 결과가 마이그레이션을 차단 하는 시나리오를 [사용](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints)하는 경우 알려주세요.     |
 |Test-ADFSRPAllowedAuthenticationClassReferences <br> 신뢰 당사자가 AllowedAuthenticationClassReferences를 설정 했습니다.       | 성공/실패          | AD FS에서이 설정을 사용 하면 응용 프로그램이 특정 인증 유형만 허용 하도록 구성 되어 있는지 여부를 지정할 수 있습니다. 조건부 액세스를 사용 하 여이 기능을 구현 하는 것이 좋습니다. 이 결과가 마이그레이션을 차단 하는 시나리오를 [사용](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695672-allow-in-azure-ad-to-specify-certain-authentication)하는 경우 알려주세요.  [조건부 액세스에 대해 자세히 알아보세요](../authentication/concept-mfa-howitworks.md).          |
 |Test-ADFSRPAlwaysRequireAuthentication <br> AlwaysRequireAuthenticationCheckResult      | 성공/실패          | AD FS에서이 설정을 사용 하면 응용 프로그램이 SSO 쿠키를 무시 하도록 구성 되었는지 여부를 지정 하 고 **항상 인증 메시지를 표시** 하도록 구성할 수 있습니다. Azure AD에서 조건부 액세스 정책을 사용 하 여 인증 세션을 관리 하 여 유사한 동작을 달성할 수 있습니다. [조건부 액세스를 사용 하 여 인증 세션 관리를 구성 하는 방법에 대해 자세히 알아보세요](../conditional-access/howto-conditional-access-session-lifetime.md).          |

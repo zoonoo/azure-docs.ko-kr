@@ -15,12 +15,12 @@ ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8458fc11f5e836e290c593d3ad4983f44e6abf6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4ded81389fae5954c0e488f634945b4f1c1fe4c8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370375"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834757"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할 설정 구성
 
@@ -32,15 +32,15 @@ Azure 리소스 역할 설정을 구성 하는 경우 Azure Active Directory (Az
 
 1. [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator) 역할의 사용자를 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 
-1. **Azure AD Privileged Identity Management**를 엽니다.
+1. **Azure AD Privileged Identity Management** 를 엽니다.
 
-1. **Azure 리소스**를 선택 합니다.
+1. **Azure 리소스** 를 선택 합니다.
 
 1. 관리 하려는 리소스 (예: 구독 또는 관리 그룹)를 선택 합니다.
 
     ![관리할 수 있는 리소스를 나열 하는 Azure 리소스 페이지](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-1. **역할 설정**을 선택 합니다.
+1. **역할 설정** 을 선택 합니다.
 
     ![Azure 리소스 역할을 나열 하는 역할 설정 페이지](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
@@ -95,7 +95,7 @@ Azure 리소스 역할 설정을 구성 하는 경우 Azure Active Directory (Az
 
 ## <a name="require-multi-factor-authentication"></a>다단계 인증 필요
 
-Privileged Identity Management는 서로 다른 두 가지 시나리오에 대해 선택적인 Azure Multi-Factor Authentication 적용을 제공합니다.
+Privileged Identity Management는 두 가지 고유한 시나리오에 대해 Azure AD Multi-Factor Authentication의 선택적 적용을 제공 합니다.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>활성 할당에 대한 Multi-Factor Authentication 필요
 
@@ -105,7 +105,7 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>활성화 시 Multi-Factor Authentication 필요
 
-역할에 대 한 자격이 있는 사용자가 Azure Multi-Factor Authentication를 사용 하 여 인증을 받을 수 있도록 요구할 수 있습니다. Multi-factor authentication을 사용 하면 사용자에 게 적절 한 확신을 갖고 있다고 사용자에 게 표시 됩니다. 이 옵션을 적용하면 사용자의 계정이 손상되었을 수 있는 상황에서 중요한 리소스를 보호할 수 있습니다.
+역할에 대 한 자격이 있는 사용자가 Azure AD Multi-Factor Authentication를 사용 하 여 정품 인증을 받을 수 있도록 요구할 수 있습니다. Multi-factor authentication을 사용 하면 사용자에 게 적절 한 확신을 갖고 있다고 사용자에 게 표시 됩니다. 이 옵션을 적용하면 사용자의 계정이 손상되었을 수 있는 상황에서 중요한 리소스를 보호할 수 있습니다.
 
 활성화 하기 전에 multi-factor authentication을 요구 하려면 **활성화 시 Multi-Factor Authentication 필요** 확인란을 선택 합니다.
 
@@ -129,7 +129,7 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
     ![승인자를 선택할 사용자 또는 그룹 창을 선택 합니다.](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. 하나 이상의 사용자 또는 그룹을 선택 하 고 **선택**을 클릭 합니다. 사용자 및 그룹의 조합을 추가할 수 있습니다. 하나 이상의 승인자를 선택해야 합니다. 기본 승인자가 없습니다.
+1. 하나 이상의 사용자 또는 그룹을 선택 하 고 **선택** 을 클릭 합니다. 사용자 및 그룹의 조합을 추가할 수 있습니다. 하나 이상의 승인자를 선택해야 합니다. 기본 승인자가 없습니다.
 
     선택한 항목이 선택한 승인자 목록에 표시됩니다.
 

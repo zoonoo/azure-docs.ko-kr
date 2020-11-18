@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3b4a9547a1bd62b7464b4a79fe68720572630f3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d826b80c11b700d753acc18f8d4c626a65510f93
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961893"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833812"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 가이드
 
@@ -121,13 +121,13 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 많은 애플리케이션에서 일반 작업의 일부로 아웃바운드 연결을 생성하려고 합니다. 예를 들어 요청이 들어오면 노드 앱은 다른 위치에서 REST API에 연결하고 요청을 처리할 일부 정보를 얻습니다. http 또는 https 호출을 수행할 때 연결 유지 에이전트를 사용하려고 합니다. 이러한 아웃바운드 호출을 수행할 때 연결 유지 에이전트로 agentkeepalive 모듈을 사용할 수 있습니다.
 
-agentkeepalive 모듈은 소켓이 Azure 웹앱 VM에서 다시 사용되도록 합니다. 각 아웃바운드 요청에서 새 소켓을 만들면 애플리케이션에 오버 헤드가 추가됩니다. 애플리케이션이 아웃바운드 요청에서 소켓을 재사용하면 애플리케이션이 VM당 할당된 maxSockets를 초과하지 않도록 할 수 있습니다. Azure App Service에 대한 권장 사항은 agentKeepAlive maxSockets 값을 VM당 총 160개 소켓(node.exe의 인스턴스 4 \* 40 maxSockets/인스턴스)으로 설정하는 것입니다.
+agentkeepalive 모듈은 소켓이 Azure 웹앱 VM에서 다시 사용되도록 합니다. 각 아웃바운드 요청에서 새 소켓을 만들면 애플리케이션에 오버 헤드가 추가됩니다. 애플리케이션이 아웃바운드 요청에서 소켓을 재사용하면 애플리케이션이 VM당 할당된 maxSockets를 초과하지 않도록 할 수 있습니다. Azure App Service에 대 한 권장 사항은 agentKeepAlive maxSockets 값을 VM 당 총 (4 개 node.exe \* 32 maxsockets/instance) 128 소켓으로 설정 하는 것입니다.
 
 [Agentkeepalive](https://www.npmjs.com/package/agentkeepalive) 구성 예제:
 
 ```nodejs
 let keepaliveAgent = new Agent({
-    maxSockets: 40,
+    maxSockets: 32,
     maxFreeSockets: 10,
     timeout: 60000,
     keepAliveTimeout: 300000

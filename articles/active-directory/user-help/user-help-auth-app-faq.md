@@ -12,18 +12,18 @@ ms.topic: end-user-help
 ms.date: 10/20/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 017898249f1ad32a37b7ccd6bce17fe3d32843f3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 65bd5a89d132a575817480d0609109a3f379e969
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480312"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833965"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대 한 FAQ (질문과 대답)
 
 이 문서에서는 Microsoft Authenticator 앱에 대한 일반적인 질문에 대답합니다. 질문에 대한 답변을 찾을 수 없는 경우 [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하세요.
 
-Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며, Azure Multi-Factor Authentication를 사용 하는 경우 권장 되는 앱입니다. [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) 및 [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458) 디바이스의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
+Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며 Azure AD Multi-Factor Authentication를 사용 하는 경우 권장 되는 앱입니다. [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) 및 [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458) 디바이스의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -61,7 +61,7 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며, Azur
 
 **Q**: 인증자에서 사용자를 대신 하 여 어떤 데이터를 삭제할 수 있나요?
 
-**A**: Authenticator 앱은 다음과 같은 세 가지 유형의 정보를 수집 합니다.<ul><li>사용자 계정을 추가할 때 제공하는 계정 정보 계정을 제거하여 이 데이터를 제거할 수 있습니다.</li><li>앱의 **도움말** 메뉴에서 **로그 보내기**를 선택하여 Microsoft에 로그를 보낼 때까지만 앱에 남아 있는 진단 로그 데이터. 이러한 로그에는 전자 메일 주소, 서버 주소, IP 주소 등의 개인 데이터가 포함 될 수 있습니다. 장치 이름 및 운영 체제 버전과 같은 장치 데이터를 포함할 수도 있습니다. 수집 된 모든 개인 데이터는 앱 문제를 해결 하는 데 필요한 정보로 제한 됩니다. 언제 든 지 앱에서 이러한 로그 파일을 탐색 하 여 수집 되는 정보를 확인할 수 있습니다. 로그 파일을 보내는 경우 인증 앱 엔지니어는 고객이 보고 한 문제를 해결 하는 데만 사용 합니다.</li><li>"계정 흐름 추가 시작됨/성공적으로 계정을 추가함" 또는 "알림 승인됨"과 같은 비-개인 식별이 가능한 사용량 데이터. 이 데이터는 엔지니어링 결정의 필수적인 부분입니다. 사용량에 따라 사용자에 게 중요 한 방식으로 앱을 개선할 수 있는 위치를 결정 하는 데 도움이 됩니다. 앱을 처음 사용 하는 경우이 데이터 컬렉션에 대 한 알림이 표시 됩니다. 앱의 **설정** 페이지에서이 기능을 해제할 수 있음을 알려줍니다. 언제 든 지이 설정을 켜거나 끌 수 있습니다.</li></ul>
+**A**: Authenticator 앱은 다음과 같은 세 가지 유형의 정보를 수집 합니다.<ul><li>사용자 계정을 추가할 때 제공하는 계정 정보 계정을 제거하여 이 데이터를 제거할 수 있습니다.</li><li>앱의 **도움말** 메뉴에서 **로그 보내기** 를 선택하여 Microsoft에 로그를 보낼 때까지만 앱에 남아 있는 진단 로그 데이터. 이러한 로그에는 전자 메일 주소, 서버 주소, IP 주소 등의 개인 데이터가 포함 될 수 있습니다. 장치 이름 및 운영 체제 버전과 같은 장치 데이터를 포함할 수도 있습니다. 수집 된 모든 개인 데이터는 앱 문제를 해결 하는 데 필요한 정보로 제한 됩니다. 언제 든 지 앱에서 이러한 로그 파일을 탐색 하 여 수집 되는 정보를 확인할 수 있습니다. 로그 파일을 보내는 경우 인증 앱 엔지니어는 고객이 보고 한 문제를 해결 하는 데만 사용 합니다.</li><li>"계정 흐름 추가 시작됨/성공적으로 계정을 추가함" 또는 "알림 승인됨"과 같은 비-개인 식별이 가능한 사용량 데이터. 이 데이터는 엔지니어링 결정의 필수적인 부분입니다. 사용량에 따라 사용자에 게 중요 한 방식으로 앱을 개선할 수 있는 위치를 결정 하는 데 도움이 됩니다. 앱을 처음 사용 하는 경우이 데이터 컬렉션에 대 한 알림이 표시 됩니다. 앱의 **설정** 페이지에서이 기능을 해제할 수 있음을 알려줍니다. 언제 든 지이 설정을 켜거나 끌 수 있습니다.</li></ul>
 
 ### <a name="codes-in-the-app"></a>앱의 코드
 
@@ -84,7 +84,7 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며, Azur
 ### <a name="device-registration"></a>디바이스 등록
 
 **Q**: 장치 등록 이란?
-**A**: 조직에서는 파일 및 앱과 같은 보안 리소스에 대 한 액세스를 추적 하기 위해 장치를 등록 하도록 요구할 수 있습니다. 또한 조건부 액세스를 설정하여 해당 리소스가 원치 않는 방식으로 액세스될 위험을 줄일 수 있습니다. **설정**에서 디바이스 등록을 취소할 수 있지만, Outlook의 이메일과 OneDrive의 파일에 액세스할 수 없게 될 수 있고 휴대폰 로그인 기능을 잃게 됩니다.
+**A**: 조직에서는 파일 및 앱과 같은 보안 리소스에 대 한 액세스를 추적 하기 위해 장치를 등록 하도록 요구할 수 있습니다. 또한 조건부 액세스를 설정하여 해당 리소스가 원치 않는 방식으로 액세스될 위험을 줄일 수 있습니다. **설정** 에서 디바이스 등록을 취소할 수 있지만, Outlook의 이메일과 OneDrive의 파일에 액세스할 수 없게 될 수 있고 휴대폰 로그인 기능을 잃게 됩니다.
 
 ### <a name="verification-codes-when-connected"></a>연결 된 경우의 확인 코드
 
@@ -96,13 +96,13 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며, Azur
 
 **Q**: 앱이 열려 있는 경우에만 알림을 받으려면 어떻게 해야 하나요? 앱이 닫히면 알림이 수신 되지 않습니다.
 
-**A**: 알림이 표시 되지만 경고가 아닌 경우에도 앱 설정을 확인 해야 합니다. 알림이 도착할 때 소리를 내거나 진동이 울리도록 앱을 설정해야 합니다. 알림이 전혀 수신 되지 않으면 다음 조건을 확인 해야 합니다.<ul><li>휴대폰이 방해 금지 또는 자동 모드인가요? 이 모드에서는 앱이 알림을 보내지 않을 수 있습니다.</li><li>다른 앱에서 알림을 받을 수 있나요? 받을 수 없으면 휴대폰의 네트워크 연결 문제이거나 Android 또는 Apple의 알림 채널에 문제가 있는 것일 수 있습니다. 전화 설정을 통해 네트워크 연결을 확인할 수 있습니다. Android 또는 Apple 알림 채널을 사용 하 여 도움을 받을 수 있도록 서비스 공급자에 게 문의 해야 할 수 있습니다.</li><li>앱에서 일부 계정의 알림을 받을 수 있고 나머지 계정의 알림을 받을 수 없나요? 그렇다면 앱에서 문제가 있는 계정을 제거했다가 다시 추가하고 알림을 허용한 다음, 문제가 해결되었는지 확인하세요.</li></ul>이러한 단계를 모두 시도한 후에도 문제가 지속되면 로그 파일을 보내주세요. 앱을 열고, **도움말**로 이동한 다음, **로그 보내기**를 선택합니다. 그런 다음 [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) 으로 이동 하 여 표시 되는 문제와 시도한 단계를 알려 주세요.
+**A**: 알림이 표시 되지만 경고가 아닌 경우에도 앱 설정을 확인 해야 합니다. 알림이 도착할 때 소리를 내거나 진동이 울리도록 앱을 설정해야 합니다. 알림이 전혀 수신 되지 않으면 다음 조건을 확인 해야 합니다.<ul><li>휴대폰이 방해 금지 또는 자동 모드인가요? 이 모드에서는 앱이 알림을 보내지 않을 수 있습니다.</li><li>다른 앱에서 알림을 받을 수 있나요? 받을 수 없으면 휴대폰의 네트워크 연결 문제이거나 Android 또는 Apple의 알림 채널에 문제가 있는 것일 수 있습니다. 전화 설정을 통해 네트워크 연결을 확인할 수 있습니다. Android 또는 Apple 알림 채널을 사용 하 여 도움을 받을 수 있도록 서비스 공급자에 게 문의 해야 할 수 있습니다.</li><li>앱에서 일부 계정의 알림을 받을 수 있고 나머지 계정의 알림을 받을 수 없나요? 그렇다면 앱에서 문제가 있는 계정을 제거했다가 다시 추가하고 알림을 허용한 다음, 문제가 해결되었는지 확인하세요.</li></ul>이러한 단계를 모두 시도한 후에도 문제가 지속되면 로그 파일을 보내주세요. 앱을 열고, **도움말** 로 이동한 다음, **로그 보내기** 를 선택합니다. 그런 다음 [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) 으로 이동 하 여 표시 되는 문제와 시도한 단계를 알려 주세요.
 
 ### <a name="switch-to-push-notifications"></a>푸시 알림으로 전환
 
 **Q**: 앱에서 확인 코드를 사용 하 고 있지만 푸시 알림으로 전환 하려면 어떻게 해야 하나요?
 
-**A**: 회사 또는 학교 계정 (관리자가 허용 하는 경우) 또는 개인 Microsoft 계정에 대 한 알림을 설정할 수 있습니다. Google 또는 Facebook과 같은 타사 계정에 대해서는 알림이 작동 하지 않습니다.<br>개인 계정을 알림으로 전환 하려면 계정을 사용 하 여 장치를 다시 등록 해야 합니다. 이렇게 하려면 **계정 추가**로 이동하여 **개인 Microsoft 계정**을 선택한 다음, 사용자 이름과 암호를 사용하여 로그인합니다.<br>조직에서는 회사 또는 학교 계정에 대해 한 번 클릭 알림 허용 여부를 결정 합니다.
+**A**: 회사 또는 학교 계정 (관리자가 허용 하는 경우) 또는 개인 Microsoft 계정에 대 한 알림을 설정할 수 있습니다. Google 또는 Facebook과 같은 타사 계정에 대해서는 알림이 작동 하지 않습니다.<br>개인 계정을 알림으로 전환 하려면 계정을 사용 하 여 장치를 다시 등록 해야 합니다. 이렇게 하려면 **계정 추가** 로 이동하여 **개인 Microsoft 계정** 을 선택한 다음, 사용자 이름과 암호를 사용하여 로그인합니다.<br>조직에서는 회사 또는 학교 계정에 대해 한 번 클릭 알림 허용 여부를 결정 합니다.
 
 ### <a name="notifications-for-other-accounts"></a>다른 계정에 대 한 알림
 
@@ -198,11 +198,11 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며, Azur
 
 **Q**: 내 Apple Watch 도우미 앱이 충돌 합니다. 크래시 로그를 보내서 조사할 수 있나요?
 
-**A**: 먼저 분석을 microsoft와 공유 하도록 선택 했는지 확인 해야 합니다. TestFlight 사용자인 경우 이미 등록되어 있습니다. 아닌 경우 **설정 > 개인 정보 > 분석**으로 이동하여 **iPhone 및 Watch 분석 공유** 및 **앱 개발자와 공유** 옵션을 모두 선택합니다.<br>가입한 후 크래시를 재현하면 자동으로 크래시 로그가 Microsoft로 전송됩니다. 하지만 크래시를 재현할 수 없는 경우 로그 파일을 수동으로 복사해서 보내주시면 됩니다.<ol><li>휴대폰에서 Watch 앱을 열고 **설정 > 일반**으로 이동한 다음, **Watch 분석 복사**를 클릭합니다.</li><li>**설정 > 개인 정보 > 분석 > 분석 데이터** 아래에서 해당 크래시를 찾은 다음, 전체 텍스트를 수동으로 복사합니다.</li><li>휴대폰에서 Authenticator를 열고 복사 된 텍스트를 **앱 개발자와 공유** 텍스트 **상자에 붙여** 넣습니다.</li></ol>
+**A**: 먼저 분석을 microsoft와 공유 하도록 선택 했는지 확인 해야 합니다. TestFlight 사용자인 경우 이미 등록되어 있습니다. 아닌 경우 **설정 > 개인 정보 > 분석** 으로 이동하여 **iPhone 및 Watch 분석 공유** 및 **앱 개발자와 공유** 옵션을 모두 선택합니다.<br>가입한 후 크래시를 재현하면 자동으로 크래시 로그가 Microsoft로 전송됩니다. 하지만 크래시를 재현할 수 없는 경우 로그 파일을 수동으로 복사해서 보내주시면 됩니다.<ol><li>휴대폰에서 Watch 앱을 열고 **설정 > 일반** 으로 이동한 다음, **Watch 분석 복사** 를 클릭합니다.</li><li>**설정 > 개인 정보 > 분석 > 분석 데이터** 아래에서 해당 크래시를 찾은 다음, 전체 텍스트를 수동으로 복사합니다.</li><li>휴대폰에서 Authenticator를 열고 복사 된 텍스트를 **앱 개발자와 공유** 텍스트 **상자에 붙여** 넣습니다.</li></ol>
 
 ## <a name="next-steps"></a>다음 단계
 
-- 개인 Microsoft 계정에 대한 확인 코드를 가져오는 데 문제가 있는 경우 **Microsoft 계정 보안 정보 및 확인 코드** 문서에서[ 확인 코드 문제 해결](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) 섹션을 참조하세요.
+- 개인 Microsoft 계정에 대한 확인 코드를 가져오는 데 문제가 있는 경우 **Microsoft 계정 보안 정보 및 확인 코드** 문서에서 [ 확인 코드 문제 해결](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) 섹션을 참조하세요.
 
 - 2단계 인증에 대해 더 자세히 알아보려면 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md)을 참조하세요.
 

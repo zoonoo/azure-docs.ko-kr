@@ -17,12 +17,12 @@ ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98b9a2da11ad32e35704a49cfcf1788f95276dda
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: bc5f902d75084d649f211d589e53041f1eb37f0e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393458"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834713"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 저장소에서 데이터를 보고 하는 기간은 얼마 인가요?
 
@@ -65,7 +65,7 @@ ms.locfileid: "93393458"
 | :--                    | :--           | :--                 | :--                 |
 | 감사 로그             | 7 일        | 30일             | 30일             |
 | 로그인               | 7 일        | 30일             | 30일             |
-| Azure MFA 사용        | 30일       | 30일             | 30일             |
+| Azure AD MFA 사용        | 30일       | 30일             | 30일             |
 
 Azure Monitor를 사용하여 스토리지 계정으로 라우팅하여 위에서 설명한 기본 보존 기간보다 오랫동안 감사 및 로그인 활동 데이터를 유지할 수 있습니다. 자세한 내용은 [Azure 스토리지 계정에 Azure AD 로그 보관](quickstart-azure-monitor-route-logs-to-storage-account.md)을 참조하세요.
 
@@ -80,6 +80,6 @@ Azure Monitor를 사용하여 스토리지 계정으로 라우팅하여 위에�
 
 ### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Azure AD Premium 라이선스를 받은 후에 지난 달의 데이터를 확인할 수 있나요?
 
-**아니요** , 할 수 없습니다. Azure는 무료 버전에 대 한 최대 7 일간의 활동 데이터를 저장 합니다. 즉, 무료에서 a를 프리미엄 버전으로 전환 하는 경우 최대 7 일의 데이터만 볼 수 있습니다.
+**아니요**, 할 수 없습니다. Azure는 무료 버전에 대 한 최대 7 일간의 활동 데이터를 저장 합니다. 즉, 무료에서 a를 프리미엄 버전으로 전환 하는 경우 최대 7 일의 데이터만 볼 수 있습니다.
 
 ---
