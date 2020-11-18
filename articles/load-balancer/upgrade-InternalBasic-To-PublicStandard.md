@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 225252f2cd47c36de2c7eed4ed1e5dae3ebd81b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c69f528328d5ff983c7de9d7fad052a7c41285
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078753"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696254"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Azure 내부 Load Balancer 업그레이드-아웃 바운드 연결 필요
-[Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](https://docs.microsoft.com/azure/load-balancer/skus#skus)를 참조 하세요. 표준 내부 Load Balancer는 아웃 바운드 연결을 제공 하지 않으므로 표준 공용 Load Balancer를 대신 만들 수 있는 솔루션을 제공 합니다.
+[Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](./skus.md#skus)를 참조 하세요. 표준 내부 Load Balancer는 아웃 바운드 연결을 제공 하지 않으므로 표준 공용 Load Balancer를 대신 만들 수 있는 솔루션을 제공 합니다.
 
 업그레이드에는 네 단계가 있습니다.
 
@@ -95,30 +95,30 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-Insta
   
 새로 만든 표준 Public Load Balancer의 백 엔드 풀에 Vm을 추가 하는 방법에 대 한 몇 가지 시나리오는 다음과 같습니다. 구성 될 수 있습니다.
 
-* **기존 vm을 이전 기본 공용 Load Balancer의 백 엔드 풀에서 새로 만든 표준 공용 Load Balancer의 백 엔드 풀로 이동**합니다.
+* **기존 vm을 이전 기본 공용 Load Balancer의 백 엔드 풀에서 새로 만든 표준 공용 Load Balancer의 백 엔드 풀로 이동** 합니다.
     1. 이 빠른 시작의 작업을 수행하려면 [Azure Portal](https://portal.azure.com)에 로그인해야 합니다.
  
     1. 왼쪽 메뉴에서 **모든 리소스** 를 선택한 다음, 리소스 목록에서 **새로 만든 표준 Load Balancer** 를 선택 합니다.
    
-    1. **설정**에서 **백 엔드 풀**을 선택합니다.
+    1. **설정** 에서 **백 엔드 풀** 을 선택합니다.
    
     1. 기본 Load Balancer의 백 엔드 풀과 일치 하는 백 엔드 풀을 선택 하 고 다음 값을 선택 합니다. 
       - **가상 컴퓨터**: 기본 Load Balancer의 일치 하는 백 엔드 풀에서 vm을 드롭다운 및 선택 합니다.
-    1. **저장**을 선택합니다.
+    1. **저장** 을 선택합니다.
     >[!NOTE]
     >공용 ip가 있는 Vm의 경우에는 동일한 IP 주소를 보장 하지 않는 표준 IP 주소를 먼저 만들어야 합니다. 기본 Ip에서 Vm의 연결을 끊고 새로 만든 표준 IP 주소에 연결 합니다. 그런 다음 표준 Load Balancer의 백 엔드 풀에 Vm을 추가 하는 지침을 따를 수 있습니다. 
 
 * **새로 만든 표준 공용 Load Balancer의 백 엔드 풀에 추가할 새 vm을 만듭니다**.
-    * VM을 만들고 표준 Load Balancer와 연결 하는 방법에 대 한 자세한 지침은 [여기](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines)에서 찾을 수 있습니다.
+    * VM을 만들고 표준 Load Balancer와 연결 하는 방법에 대 한 자세한 지침은 [여기](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines)에서 찾을 수 있습니다.
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>아웃 바운드 연결에 대 한 아웃 바운드 규칙 만들기
 
-[지침](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) 에 따라 아웃 바운드 규칙을 만들 수 있습니다.
+[지침](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) 에 따라 아웃 바운드 규칙을 만들 수 있습니다.
 * 아웃 바운드 NAT를 처음부터 정의 합니다.
 * 기존 아웃 바운드 NAT의 동작을 확장 하 고 조정 합니다.
 
 ### <a name="create-nsg-rules-for-vms-which-to-refrain-communication-from-or-to-the-internet"></a>또는 인터넷으로 통신 하지 않는 Vm에 대 한 NSG 규칙을 만듭니다.
-인터넷 트래픽이 Vm에 도달 하지 않도록 하려면 Vm의 네트워크 인터페이스에 [Nsg 규칙](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) 을 만들 수 있습니다.
+인터넷 트래픽이 Vm에 도달 하지 않도록 하려면 Vm의 네트워크 인터페이스에 [Nsg 규칙](../virtual-network/manage-network-security-group.md) 을 만들 수 있습니다.
 
 ## <a name="common-questions"></a>일반적인 질문
 

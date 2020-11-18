@@ -3,12 +3,12 @@ title: 컨테이너 이미지 가져오기
 description: Docker 명령을 실행하지 않고도 Azure API를 사용하여 컨테이너 이미지를 Azure Container Registry로 가져옵니다.
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 2c99d3c32bf6dad3a1950da56b29f47d2a988161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3950b9fb24b80db4d9654a615521c0eb82914499
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541580"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695608"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>컨테이너 이미지를 컨테이너 레지스트리로 가져오기
 
@@ -36,7 +36,7 @@ Docker CLI 명령을 사용하는 대신 Azure Container Registry로 이미지�
 > 여러 Azure 지역에 동일한 컨테이너 이미지를 분산해야 하는 경우 Azure Container Registry에서 [지역 복제](container-registry-geo-replication.md)도 지원합니다. 레지스트리 (프리미엄 서비스 계층 필요)를 지리적으로 복제 하 여 단일 레지스트리에서 동일한 이미지 및 태그 이름을 가진 여러 지역을 제공할 수 있습니다.
 >
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Container Registry가 아직 없는 경우 레지스트리를 만듭니다. 단계에 대해서 [는 빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요.
 
@@ -95,7 +95,7 @@ az acr import \
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>동일한 구독의 레지스트리에서 가져오기
 
-예를 들어 원본 레지스트리 *mysourceregistry*에서 동일한 Azure 구독의 *myregistry*로 `aci-helloworld:latest` 이미지를 가져옵니다.
+예를 들어 원본 레지스트리 *mysourceregistry* 에서 동일한 Azure 구독의 *myregistry* 로 `aci-helloworld:latest` 이미지를 가져옵니다.
 
 ```azurecli
 az acr import \
@@ -124,7 +124,7 @@ az acr import \
 
 ### <a name="import-from-a-registry-in-a-different-subscription"></a>다른 구독의 레지스트리에서 가져오기
 
-다음 예제에서 *mysourceregistry*는 동일한 Active Directory 테넌트의 *myregistry*에서 다른 구독에 있습니다. `--registry` 매개 변수를 사용하여 원본 레지스트리의 리소스 ID를 제공합니다. `--source`매개 변수는 레지스트리 로그인 서버 이름이 아니라 원본 리포지토리 및 태그만 지정 합니다.
+다음 예제에서 *mysourceregistry* 는 동일한 Active Directory 테넌트의 *myregistry* 에서 다른 구독에 있습니다. `--registry` 매개 변수를 사용하여 원본 레지스트리의 리소스 ID를 제공합니다. `--source`매개 변수는 레지스트리 로그인 서버 이름이 아니라 원본 리포지토리 및 태그만 지정 합니다.
 
 ```azurecli
 az acr import \
@@ -144,7 +144,7 @@ az acr import \
   --source sourceregistry.azurecr.io/sourcerrepo:tag \
   --image targetimage:tag \
   --username <SP_App_ID> \
-  –-password <SP_Passwd>
+  --password <SP_Passwd>
 ```
 
 ## <a name="import-from-an-azure-container-registry-in-a-different-ad-tenant"></a>다른 AD 테 넌 트의 Azure container registry에서 가져오기
@@ -157,7 +157,7 @@ az acr import \
   --source sourceregistry.azurecr.io/sourcerrepo:tag \
   --image targetimage:tag \
   --username <SP_App_ID> \
-  –-password <SP_Passwd>
+  --password <SP_Passwd>
 ```
 
 ## <a name="import-from-a-non-azure-private-container-registry"></a>비 Azure 프라이빗 컨테이너 레지스트리에서 가져오기

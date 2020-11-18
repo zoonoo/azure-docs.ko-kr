@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3113216b2d8a7572bcb864819a379de6823ee444
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 90aafad2a17b9535bde29f811e630112ccbd02e3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409878"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696101"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 이 문서에서는 클라우드에서 데이터, 리소스 및 응용 프로그램을 보호 하 고 비즈니스의 보안 요구를 충족 하는 데 도움이 되는 Azure의 보안 서비스에 대해 소개 합니다.
@@ -156,9 +156,9 @@ Azure의 액세스 제어는 결제 관점에서 시작합니다. [Azure 계정 
 
 ![보안 리소스 액세스](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
-RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다. 예를 들어 RBAC를 사용하여 한 명의 직원은 구독의 가상 머신을 관리하도록 하고, 다른 직원은 동일한 구독 내에서 SQL 데이터베이스를 관리하도록 할 수 있습니다.
+Azure RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다. 예를 들어 Azure RBAC를 사용 하 여 한 직원이 구독의 가상 컴퓨터를 관리 하 고 다른 직원이 동일한 구독 내에서 SQL 데이터베이스를 관리할 수 있게 합니다.
 
-![Azure의 보안 리소스 액세스 (RBAC)](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
+![Azure RBAC를 사용 하 여 보안 리소스 액세스](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="data-security-and-encryption"></a>데이터 보안 및 암호화
 
@@ -422,7 +422,7 @@ Azure Monitor를 사용 하면 경쟁 솔루션 보다 저렴 한 비용으로 �
 
 - 올바른 순서로 배포되므로 리소스 간의 종속성을 정의할 수 있습니다.
 
-- 역할 기반 Access Control(RBAC)가 관리 플랫폼으로 통합되기 때문에 리소스 그룹의 모든 서비스에 대해 Access Control를 적용할 수 있습니다.
+- Azure 역할 기반 access control (Azure RBAC)은 기본적으로 관리 플랫폼에 통합 되기 때문에 리소스 그룹의 모든 서비스에 액세스 제어를 적용할 수 있습니다.
 
 - 리소스에 태그를 적용하여 구독에서 모든 리소스를 논리적으로 구성할 수 있습니다.
 

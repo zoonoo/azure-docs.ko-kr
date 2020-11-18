@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 8bdc9d588e89f498b973db7d1de299b0b26a3d02
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 974418a1b3c1e7fe93b2f6839c16169e5bd5abc5
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655734"
+ms.locfileid: "94697002"
 ---
 # <a name="step-3-validate-connectivity"></a>3 단계: 연결 유효성 검사
 
@@ -44,7 +44,7 @@ ms.locfileid: "94655734"
 1. 로그 전달자 (자리 표시자 대신 작업 영역 ID 적용)에서 다음 스크립트를 실행 하 여 보안 솔루션, 로그 전달자 및 Azure 센티널 간의 연결을 확인 합니다. 이 스크립트는 데몬이 올바른 포트에서 수신 대기 중인지, 전달이 올바르게 구성 되었는지, 그리고 디먼과 Log Analytics 에이전트 간의 통신을 차단 하 고 있는지를 확인 합니다. 또한 모의 연결을 확인 하기 위해 모의 메시지 ' TestCommonEventFormat '를 보냅니다. <br>
 
     ```bash
-    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
+    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
     ```
 
    - 명령을 실행 하 여 ***컴퓨터* 필드의 매핑에** 대 한 문제를 해결 하도록 지시 하는 메시지가 표시 될 수 있습니다. 자세한 내용은 [유효성 검사 스크립트의 설명을](#mapping-command) 참조 하세요.
@@ -245,6 +245,7 @@ ms.locfileid: "94655734"
 ---
 
 ## <a name="next-steps"></a>다음 단계
+
 이 문서에서는 CEF 어플라이언스를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
 - [Azure Sentinel을 사용하여 위협 검색](./tutorial-detect-threats-built-in.md)을 시작합니다.

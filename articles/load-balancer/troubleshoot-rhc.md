@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855259"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696322"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>리소스 상태, 프런트 엔드 및 백 엔드 가용성 문제 해결 
 
@@ -52,7 +52,7 @@ ms.locfileid: "88855259"
   * 이 NSG 문제를 발견 한 경우 기존 허용 규칙을 이동 하거나 새 높은 우선 순위 규칙을 만들어 AzureLoadBalancer 트래픽을 허용 합니다.
 * OS를 확인 합니다. Vm이 프로브 포트에서 수신 대기 하 고 있는지 확인 하 고 OS 방화벽 규칙을 검토 하 여 IP 주소 168.63.129.16에서 시작 된 프로브 트래픽을 차단 하지 않는지 확인 합니다.
   * Windows 명령 프롬프트 또는 Linux 터미널에서 netstat-l을 실행 하 여 수신 대기 포트를 확인할 수 있습니다.
-* 부하 분산 장치의 백 엔드 풀에 방화벽 NVA VM을 넣지 마세요. [사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) 를 사용 하 여 방화벽을 통해 백 엔드 인스턴스로 트래픽을 라우팅합니다.
+* 부하 분산 장치의 백 엔드 풀에 방화벽 NVA VM을 넣지 마세요. [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md#user-defined) 를 사용 하 여 방화벽을 통해 백 엔드 인스턴스로 트래픽을 라우팅합니다.
 * Http를 사용 하 여 HTTP가 아닌 응용 프로그램을 수신 하는 포트를 검색 하는 경우 올바른 프로토콜을 사용 해야 합니다. 프로브는 실패 합니다.
 
 이 검사 목록을 통해 상태 프로브 오류가 계속 발생 하는 경우 인스턴스에 대 한 프로브 서비스에 영향을 주는 드문 플랫폼 문제가 있을 수 있습니다. 이 경우 Azure는 사용자의 의견을 바탕으로 팀에 게 자동으로 전송 되어 모든 플랫폼 문제를 신속 하 게 해결 합니다.
@@ -61,5 +61,3 @@ ms.locfileid: "88855259"
 
 * [Azure Load Balancer 상태 프로브에 대 한 자세한 정보](load-balancer-custom-probe-overview.md)
 * [Azure Load Balancer 메트릭에 대 한 자세한 정보](load-balancer-standard-diagnostics.md)
-
-

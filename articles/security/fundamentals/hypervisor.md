@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
-ms.openlocfilehash: 1f81285e869bd2c65cce29766de0b2bd39a627f6
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 766266edd663b75b893a5883e30bb48eed7bbfdf
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557970"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696118"
 ---
 # <a name="hypervisor-security-on-the-azure-fleet"></a>Azure 제 제의 하이퍼바이저 보안
 
@@ -26,7 +26,7 @@ Azure 하이퍼바이저는 다음과 같은 보안 목표를 염두에 두기 �
 | 격리 | 보안 정책은 Vm 간에 정보를 전송 하지 않습니다. 이 제약 조건에는 메모리, 장치, 네트워크 및 관리 되는 리소스 (예: 지속형 데이터)의 격리를 위해 Virtual Machine Manager (VMM) 및 하드웨어의 기능이 필요 합니다. |
 | VMM 무결성 | 전반적인 시스템 무결성을 위해 개별 하이퍼바이저 구성 요소의 무결성을 설정 하 고 유지 합니다. |
 | 플랫폼 무결성 | 하이퍼바이저의 무결성은 기반이 되는 하드웨어 및 소프트웨어의 무결성에 따라 달라 집니다. 하이퍼바이저는 플랫폼의 무결성을 직접 제어 하지 않지만, Azure는 기본 플랫폼 무결성을 보호 하 고 검색 하는 [Cerberus](project-cerberus.md) 칩과 같은 하드웨어 및 펌웨어 메커니즘을 사용 합니다. 플랫폼 무결성이 손상 되 면 VMM 및 게스트를 실행할 수 없습니다. |
-| 제한 된 액세스 | 관리 기능은 보안 연결을 통해 연결 된 권한 있는 관리자만 수행 합니다. 최소 권한의 원칙은 RBAC (역할 기반 액세스 제어) 메커니즘에 의해 적용 됩니다. |
+| 제한 된 액세스 | 관리 기능은 보안 연결을 통해 연결 된 권한 있는 관리자만 수행 합니다. 최소 권한의 원칙은 Azure RBAC (역할 기반 액세스 제어) 메커니즘에 의해 적용 됩니다. |
 | 감사 | Azure를 사용 하면 감사 기능이 시스템에서 발생 하는 상황에 대 한 데이터를 캡처하고 보호 하 여 나중에 검사할 수 있습니다. |
 
 Azure 하이퍼바이저 및 가상화 하위 시스템을 강화 하는 Microsoft의 접근 방식은 다음과 같은 세 가지 범주로 나눌 수 있습니다.

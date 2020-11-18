@@ -4,12 +4,12 @@ description: Linux용 Azure Policy 게스트 구성 정책을 만드는 방법�
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 240f22a076b5f185ebe3028b201b66d187c9bb2d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1e81d1a5157cc5872ba2628c8d6cb408e35ab9c6
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346879"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694245"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Linux용 게스트 구성 정책을 만드는 방법
 
@@ -163,10 +163,10 @@ AuditFilePathExists -out ./Config
 
 `New-GuestConfigurationPackage` cmdlet은 패키지를 만듭니다. Linux 콘텐츠를 만들 때 `New-GuestConfigurationPackage` cmdlet의 매개 변수는 다음과 같습니다.
 
-- **Name** : 게스트 구성 패키지 이름입니다.
-- **구성** : 컴파일된 구성 문서 전체 경로입니다.
-- **경로** : 출력 폴더 경로입니다. 이 매개 변수는 선택 사항입니다. 지정하지 않으면 패키지가 현재 디렉터리에 만들어집니다.
-- **ChefInspecProfilePath** : InSpec profile의 전체 경로입니다. 이 매개 변수는 Linux를 감사할 콘텐츠를 만드는 경우에만 지원됩니다.
+- **Name**: 게스트 구성 패키지 이름입니다.
+- **구성**: 컴파일된 구성 문서 전체 경로입니다.
+- **경로**: 출력 폴더 경로입니다. 이 매개 변수는 선택 사항입니다. 지정하지 않으면 패키지가 현재 디렉터리에 만들어집니다.
+- **ChefInspecProfilePath**: InSpec profile의 전체 경로입니다. 이 매개 변수는 Linux를 감사할 콘텐츠를 만드는 경우에만 지원됩니다.
 
 다음 명령을 실행하여 이전 단계에 지정된 구성을 사용하는 패키지를 만듭니다.
 
@@ -183,9 +183,9 @@ New-GuestConfigurationPackage `
 
 `Test-GuestConfigurationPackage` cmdlet의 매개 변수는 다음과 같습니다.
 
-- **Name** : 게스트 구성 정책 이름입니다.
-- **Parameter** : hashtable 형식으로 제공되는 정책 매개 변수입니다.
-- **경로** : 게스트 구성 패키지의 전체 경로입니다.
+- **Name**: 게스트 구성 정책 이름입니다.
+- **Parameter**: hashtable 형식으로 제공되는 정책 매개 변수입니다.
+- **경로**: 게스트 구성 패키지의 전체 경로입니다.
 
 다음 명령을 실행하여 이전 단계에서 만든 패키지를 테스트합니다.
 
@@ -210,13 +210,13 @@ Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName 
 
 `New-GuestConfigurationPolicy` cmdlet의 매개 변수는 다음과 같습니다.
 
-- **ContentUri** : 게스트 구성 콘텐츠 패키지의 공용 http(s) uri입니다.
-- **DisplayName** : 정책 표시 이름입니다.
-- **설명** : 정책 설명입니다.
-- **Parameter** : hashtable 형식으로 제공되는 정책 매개 변수입니다.
-- **버전** : 정책 버전입니다.
-- **경로** : 정책 정의가 만들어지는 대상 경로입니다.
-- **Platform** : 게스트 구성 정책 및 콘텐츠 패키지용 대상 플랫폼(Windows/Linux)입니다.
+- **ContentUri**: 게스트 구성 콘텐츠 패키지의 공용 http(s) uri입니다.
+- **DisplayName**: 정책 표시 이름입니다.
+- **설명**: 정책 설명입니다.
+- **Parameter**: hashtable 형식으로 제공되는 정책 매개 변수입니다.
+- **버전**: 정책 버전입니다.
+- **경로**: 정책 정의가 만들어지는 대상 경로입니다.
+- **Platform**: 게스트 구성 정책 및 콘텐츠 패키지용 대상 플랫폼(Windows/Linux)입니다.
 - **Tag** 는 정책 정의에 하나 이상의 태그 필터를 추가합니다.
 - **Category** 는 정책 정의의 범주 메타데이터 필드를 설정합니다.
 
@@ -330,9 +330,9 @@ Configuration AuditFilePathExists
 > [!NOTE]
 > `version`게스트 구성 할당의 속성은 Microsoft에서 호스팅하는 패키지에만 영향을 주는 것입니다. 사용자 지정 콘텐츠의 버전을 지정 하는 가장 좋은 방법은 버전을 파일 이름에 포함 하는 것입니다.
 
-- **버전** : `New-GuestConfigurationPolicy` cmdlet을 실행할 때 현재 게시된 것보다 큰 버전 번호를 지정해야 합니다.
-- **contenturi** : cmdlet을 실행할 때 `New-GuestConfigurationPolicy` 패키지의 위치에 대 한 URI를 지정 해야 합니다. 패키지 버전을 파일 이름에 포함 하면 각 릴리스에서이 속성의 값이 변경 됩니다.
-- **contentHash** : 이 속성은 `New-GuestConfigurationPolicy` cmdlet에 의해 자동으로 업데이트됩니다. 이는 `New-GuestConfigurationPackage`에서 만든 패키지의 해시 값입니다. 게시하는 `.zip` 파일에 대한 속성이 정확해야 합니다. **contentUri** 속성만 업데이트된 경우 확장에서 콘텐츠 패키지를 수락하지 않습니다.
+- **버전**: `New-GuestConfigurationPolicy` cmdlet을 실행할 때 현재 게시된 것보다 큰 버전 번호를 지정해야 합니다.
+- **contenturi**: cmdlet을 실행할 때 `New-GuestConfigurationPolicy` 패키지의 위치에 대 한 URI를 지정 해야 합니다. 패키지 버전을 파일 이름에 포함 하면 각 릴리스에서이 속성의 값이 변경 됩니다.
+- **contentHash**: 이 속성은 `New-GuestConfigurationPolicy` cmdlet에 의해 자동으로 업데이트됩니다. 이는 `New-GuestConfigurationPackage`에서 만든 패키지의 해시 값입니다. 게시하는 `.zip` 파일에 대한 속성이 정확해야 합니다. **contentUri** 속성만 업데이트된 경우 확장에서 콘텐츠 패키지를 수락하지 않습니다.
 
 업데이트된 패키지를 릴리스하는 가장 쉬운 방법은 이 문서에 설명된 프로세스를 반복하고 업데이트된 버전 번호를 제공하는 것입니다. 해당 프로세스는 모든 속성이 올바르게 업데이트되었음을 보장합니다.
 
@@ -375,8 +375,8 @@ Configuration AuditFilePathExists
 
 `Protect-GuestConfigurationPackage` cmdlet의 매개 변수는 다음과 같습니다.
 
-- **경로** : 게스트 구성 패키지의 전체 경로입니다.
-- **PublicGpgKeyPath** : 공개 GPG 키 경로입니다. 이 매개 변수는 Linux용 콘텐츠에 서명하는 경우에만 지원됩니다.
+- **경로**: 게스트 구성 패키지의 전체 경로입니다.
+- **PublicGpgKeyPath**: 공개 GPG 키 경로입니다. 이 매개 변수는 Linux용 콘텐츠에 서명하는 경우에만 지원됩니다.
 
 Linux 컴퓨터에서 사용할 GPG 키를 만드는 방법에 대한 좋은 참고 자료는 GitHub의 문서, [ 새 GPG 키 만들기](https://help.github.com/en/articles/generating-a-new-gpg-key)에 나와 있습니다.
 
@@ -384,12 +384,6 @@ GuestConfiguration 에이전트는 Linux 컴퓨터의 `/usr/local/share/ca-certi
 Key Vault 액세스 정책은 배포하는 동안 Compute 리소스 공급자가 인증서에 액세스할 수 있도록 허용해야 합니다. 자세한 단계는 [Azure Resource Manager에서 가상 머신에 대한 Key Vault 설정](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault)을 참조하세요.
 
 콘텐츠를 게시한 후에는 이름이 `GuestConfigPolicyCertificateValidation`이고 값이 `enabled`인 태그를 코드 서명이 필요한 모든 가상 머신에 추가합니다. Azure Policy를 사용하여 태그를 대규모로 제공할 수 있는 방법은 [태그 샘플](../samples/built-in-policies.md#tags)을 참조하세요. 이 태그가 준비되면 `New-GuestConfigurationPolicy` cmdlet을 이용하여 생성된 정책 정의에서 게스트 구성 확장을 통해 요구 사항을 사용합니다.
-
-## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>게스트 구성 정책 할당 문제 해결(미리 보기)
-
-Azure Policy 게스트 구성 할당 문제를 해결하는 데 도움이 되는 도구가 미리 보기로 제공됩니다. 이 도구는 미리 보기 상태이며, PowerShell 갤러리에 [게스트 구성 문제 해결사](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/)라는 모듈로 게시되었습니다.
-
-이 도구의 cmdlet에 대한 자세한 내용은 PowerShell에서 Get-help 명령을 사용하여 기본 제공 지침을 확인하세요. 이 도구를 자주 업데이트하는 것이 최신 정보를 얻는 가장 좋은 방법입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

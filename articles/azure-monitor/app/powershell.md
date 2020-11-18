@@ -3,12 +3,12 @@ title: PowerShell 사용하여 Azure Application Insights 자동화 | Microsoft 
 description: Azure Resource Manager 템플릿을 사용하여 PowerShell에서 리소스, 경고 및 가용성 테스트 생성 및 관리를 자동화합니다.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: b5f3ba12fe8a730ce45e64b896ccc9c32b17b30c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dabb29abe4530307ef5204659297f4675376605
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760906"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694586"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용하여 Application Insights 리소스 관리
 
@@ -419,7 +419,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
    
     ![Azure 리소스 탐색기에서 탐색](./media/powershell/01.png)
    
-    *구성 요소*는 애플리케이션을 표시하기 위한 기본 Application Insights 리소스입니다. 연결된 경고 규칙 및 가용성 웹 테스트에 대한 별도의 리소스가 있습니다.
+    *구성 요소* 는 애플리케이션을 표시하기 위한 기본 Application Insights 리소스입니다. 연결된 경고 규칙 및 가용성 웹 테스트에 대한 별도의 리소스가 있습니다.
 2. 구성 요소의 JSON을 `template1.json`의 적절한 위치에 복사합니다.
 3. 다음 속성을 삭제합니다.
    
@@ -431,7 +431,6 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
    
     각 웹 테스트에는 연결된 경고 규칙이 있으므로 둘 다 복사해야 합니다.
    
-    메트릭에 대한 경고를 포함할 수도 있습니다. [메트릭 이름](powershell-alerts.md#metric-names)
 5. 각 리소스에 다음 줄을 삽입합니다.
    
     `"apiVersion": "2015-05-01",`
@@ -470,7 +469,6 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 다른 자동화 문서:
 
 * [Application Insights 리소스 만들기](./create-new-resource.md#creating-a-resource-automatically) - 템플릿을 사용하지 않는 빠른 방법입니다.
-* [경고 설정](powershell-alerts.md)
 * [웹 테스트 만들기](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Application Insights에 Azure Diagnostics 보내기](powershell-azure-diagnostics.md)
 * [릴리스 주석 만들기](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

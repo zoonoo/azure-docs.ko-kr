@@ -4,17 +4,17 @@ description: AKS (Azure Kubernetes Service)에서 PodSecurityPolicy를 사용 �
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: a9f6ead7edea7a3a6240e116d3073ea01fa9f6bb
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 77c618429503caf9aa7bb6abda109504bbf68d71
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900103"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695999"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service에서 pod 보안 정책을 사용 하 여 클러스터 보호 (AKS)
 
 > [!WARNING]
-> **이 문서 pod 보안 정책 (미리 보기)에 설명 된 기능은 사용 중단에 대해 설정 되며,** [AKS에 대 한 Azure Policy](use-pod-security-on-azure-policy.md)의 2021 년 2 월 1 일 이후에는 더 이상 사용할 수 없습니다. 사용 중단 날짜가 2020 년 10 월 15 일 이전 날짜에서 연장 되었습니다.
+> **이 문서 pod 보안 정책 (미리 보기)에 설명 된 기능은 사용 중단에 대해 설정** 되며, [AKS의 Azure Policy](use-pod-security-on-azure-policy.md)에 2021 년 5 월 31 일까 지 더 이상 사용할 수 없습니다. 사용 중단 날짜가 2020 년 10 월 15 일 이전 날짜에서 연장 되었습니다.
 >
 > Pod 보안 정책(미리 보기)이 더 이상 사용되지 않는 경우 향후 클러스터 업그레이드를 수행하고 Azure 지원을 유지하려면 더 이상 사용되지 않는 기능을 사용하여 기존 클러스터에서 이 기능을 사용하지 않도록 설정해야 합니다.
 >

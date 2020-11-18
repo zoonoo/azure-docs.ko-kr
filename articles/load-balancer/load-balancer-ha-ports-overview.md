@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 01f6d5b5ef816127fe5f0c689132326f6157731d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6f089af71e4d32023e9cebd6613872f7db0eed7a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684413"
+ms.locfileid: "94694962"
 ---
 # <a name="high-availability-ports-overview"></a>고가용성 포트 개요
 
@@ -54,7 +54,7 @@ NVA HA 시나리오의 경우 HA 포트는 다음과 같은 장점을 제공합�
 
 ### <a name="load-balancing-large-numbers-of-ports"></a>많은 수의 포트에서 부하 분산
 
-또한 많은 수의 포트에서 부하를 분산해야 하는 애플리케이션에 대해 HA 포트를 사용할 수도 있습니다. HA 포트와 함께 내부 [Standard Load Balancer](load-balancer-standard-overview.md)를 사용하여 이러한 시나리오를 단순화할 수 있습니다. 단일 부하 분산 규칙은 여러 개의 개별 부하 분산 규칙을 모든 포트에 대해 하나씩 대체합니다.
+또한 많은 수의 포트에서 부하를 분산해야 하는 애플리케이션에 대해 HA 포트를 사용할 수도 있습니다. HA 포트와 함께 내부 [Standard Load Balancer](./load-balancer-overview.md)를 사용하여 이러한 시나리오를 단순화할 수 있습니다. 단일 부하 분산 규칙은 여러 개의 개별 부하 분산 규칙을 모든 포트에 대해 하나씩 대체합니다.
 
 ## <a name="region-availability"></a>지역 가용성
 

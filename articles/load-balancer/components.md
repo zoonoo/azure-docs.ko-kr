@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: d2cd05251e7bf1a0b0ebcd24e6d3d0202f277969
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: bf7a35e8cedbe62aafb29aa6d9dc8fcb42e90b2e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685514"
+ms.locfileid: "94693769"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer 구성 요소
 
@@ -128,7 +128,7 @@ Virtual Machine Scale Sets 컨텍스트의 인바운드 NAT 규칙은 인바운�
 
 ## <a name="limitations"></a>제한 사항
 
-- Load Balancer [제한](https://aka.ms/lblimits)에 대해 알아보기 
+- Load Balancer [제한](../azure-resource-manager/management/azure-subscription-service-limits.md)에 대해 알아보기 
 - 부하 분산 장치는 특정 TCP 또는 UDP 프로토콜에 대한 부하 분산 및 포트 전달을 제공합니다. 부하 분산 규칙 및 인바운드 NAT 규칙은 TCP 및 UDP를 지원하지만 ICMP를 비롯한 다른 IP 프로토콜은 지원하지 않습니다.
 - 백 엔드 VM에서 내부 Load Balancer의 프런트 엔드로의 아웃바운드 흐름이 실패합니다.
 - 부하 분산 장치 규칙은 두 개의 가상 네트워크에 걸쳐 있을 수 없습니다.  프런트 엔드 및 해당 백 엔드 인스턴스는 동일한 가상 네트워크에 있어야 합니다.  
@@ -138,12 +138,12 @@ Virtual Machine Scale Sets 컨텍스트의 인바운드 NAT 규칙은 인바운�
 
 - Load Balancer를 사용하여 시작하려면 [공용 표준 Load Balancer 만들기](quickstart-load-balancer-standard-public-portal.md)를 참조하세요.
 - [Azure Load Balancer에 대해 자세히 알아보세요](load-balancer-overview.md).
-- [공용 IP 주소](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)에 대한 자세한 정보
+- [공용 IP 주소](../virtual-network/virtual-network-public-ip-address.md)에 대한 자세한 정보
 - [개인 IP 주소](../virtual-network/private-ip-addresses.md)에 대한 자세한 정보
 - [표준 Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md) 사용에 대해 자세히 알아보세요.
 - [표준 Load Balancer 진단](load-balancer-standard-diagnostics.md)에 대해 자세히 알아보세요.
 - [유휴 상태의 TCP 재설정](load-balancer-tcp-reset.md)에 대해 알아보세요.
 - [HA 포트 부하 분산 규칙을 사용하는 표준 Load Balancer](load-balancer-ha-ports-overview.md)에 대해 자세히 알아보세요.
-- [네트워크 보안 그룹](../virtual-network/security-overview.md)에 대해 자세히 알아보세요.
-- [부사 분산 장치 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)에 대해 자세히 알아봅니다.
-- [포트 전달](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal) 사용에 대해 알아봅니다.
+- [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)에 대해 자세히 알아보세요.
+- [부사 분산 장치 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)에 대해 자세히 알아봅니다.
+- [포트 전달](./tutorial-load-balancer-port-forwarding-portal.md) 사용에 대해 알아봅니다.

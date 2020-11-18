@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: fa2025fa31ac960eb6c61d03bafd582de4f0e55c
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3141d9937591467870ee4a88d16a96cbdb24a05b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410580"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696220"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 퍼블릭 클라우드에서 격리
 
@@ -38,7 +38,7 @@ Azure를 통해 공유 되는 물리적 인프라에서 응용 프로그램 및 
 
 ### <a name="azure-tenancy"></a>Azure 테넌트
 
-Azure 테넌트(Azure 구독)는 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)에서 "고객/청구" 관계 및 고유한 [테넌트](../../active-directory/develop/quickstart-create-new-tenant.md)를 나타냅니다. Microsoft Azure의 테넌트 수준 격리는 Azure Active Directory 및 이 서비스에서 제공하는 [역할 기반 제어](../../role-based-access-control/overview.md)를 사용하여 이루어집니다. 각각의 Azure 구독은 하나의 Azure AD(Active Directory) 디렉터리와 연결됩니다.
+Azure 테넌트(Azure 구독)는 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)에서 "고객/청구" 관계 및 고유한 [테넌트](../../active-directory/develop/quickstart-create-new-tenant.md)를 나타냅니다. Microsoft Azure의 테 넌 트 수준 격리는 Azure Active Directory 및 it에서 제공 하는 [Azure 역할 기반 액세스 제어](../../role-based-access-control/overview.md) 를 사용 하 여 이루어집니다. 각각의 Azure 구독은 하나의 Azure AD(Active Directory) 디렉터리와 연결됩니다.
 
 사용자, 그룹 및 해당 디렉터리에서 애플리케이션은 Azure 구독에서 리소스를 관리할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 이러한 액세스 권한을 할당할 수 있습니다. Azure AD 테넌트는 보안 경계를 사용하여 논리적으로 격리되므로 어떤 고객도 악의적으로 또는 실수로 공동 테넌트에 액세스하거나 손상시킬 수 없습니다. Azure AD는 분리된 네트워크 세그먼트에서 격리된 "운영 체제 미설치(bare metal)" 서버에서 실행되며, 여기서 호스트 수준 패킷 필터링과 Windows 방화벽은 원하지 않는 연결과 트래픽을 차단합니다.
 
@@ -52,7 +52,7 @@ Azure 테넌트(Azure 구독)는 [Azure Active Directory](../../active-directory
 
 - Azure AD 서비스를 구성하고 Azure AD의 백 엔드 시스템에 직접 액세스하는 서버에 대한 물리적 액세스가 제한됩니다.
 
-- Azure AD 사용자는 물리적 자산 또는 위치에 액세스할 수 없으므로 다음과 같은 논리적 RBAC 정책 검사를 무시할 수 없습니다.
+- Azure AD 사용자는 물리적 자산이 나 위치에 액세스할 수 없으므로 다음과 같은 논리 Azure RBAC 정책 검사를 무시할 수 없습니다.
 
 진단 및 유지 관리 요구 사항에 따라 Just-In-Time 권한 상승 시스템을 사용하는 작업 모델이 필요하고 사용됩니다. PIM (Azure AD Privileged Identity Management)은 적격 관리자의 개념을 소개 합니다. [적격 관리자](../../active-directory/privileged-identity-management/pim-configure.md) 는 현재 권한 있는 액세스가 필요한 사용자 여야 하며 매일은 아닙니다. 역할은 사용자가 액세스가 필요할 때까지 비활성으로 있다가, 활성화 프로세스를 완료하고 미리 정해진 시간 동안 활성 관리자가 됩니다.
 
@@ -80,7 +80,7 @@ Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할�
 
 Azure의 나머지 Azure 역할은 특정 Azure 리소스의 관리를 허용 합니다. 예를 들어 Virtual Machine 참여자 역할을 사용하면 사용자가 가상 머신을 만들고 관리할 수 있습니다. 가상 머신이 연결되는 Azure Virtual Network 또는 서브넷에 대한 액세스 권한을 부여하지 않습니다.
 
-[RBAC 기본 제공 역할](../../role-based-access-control/built-in-roles.md)은 Azure에서 사용할 수 있는 역할을 나열합니다. 각 기본 제공 역할이 사용자에게 부여하는 작업 및 범위를 지정합니다. 더 많은 제어를 위해 사용자 고유의 역할을 정의하려는 경우 [Azure RBAC에서 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 빌드하는 방법을 참조하세요.
+[Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 은 azure에서 사용할 수 있는 역할을 나열 합니다. 각 기본 제공 역할이 사용자에게 부여하는 작업 및 범위를 지정합니다. 더 많은 제어를 위해 사용자 고유의 역할을 정의하려는 경우 [Azure RBAC에서 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 빌드하는 방법을 참조하세요.
 
 Azure Active Directory의 몇 가지 다른 기능은 다음과 같습니다.
 
@@ -227,7 +227,7 @@ Azure는 다음과 같은 유형의 암호화를 제공하여 데이터를 보�
 - 또한 [클라이언트 쪽 암호화](../../storage/blobs/security-recommendations.md) 는 미사용 암호화 기능을 제공 합니다.
 - [Azure 디스크 암호화](./azure-disk-encryption-vms-vmss.md) 를 사용하면 IaaS 가상 머신에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다.
 
-#### <a name="azure-disk-encryption"></a>Azure 디스크 암호화
+#### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
 VM(가상 머신)에 대해 [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md)를 사용하면 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에서 제어하는 키와 정책으로 VM 디스크(부팅 및 데이터 디스크 포함)를 암호화하여 조직의 보안 및 규정 준수 요구 사항을 처리할 수 있습니다.
 

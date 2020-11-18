@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 11/17/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1df7afb5a029ff7770a64d6bf698a462c8ab9735
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a52b736efaabdca8b08427f293ebf0cda5f22e44
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230673"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695880"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Blob 버전 관리 설정 및 관리
 
@@ -32,18 +32,18 @@ Blob 저장소 버전 관리를 사용 하도록 설정 하 여 이전 버전의
 Azure Portal에서 blob 버전 관리를 사용 하도록 설정 하려면
 
 1. 포털에서 저장소 계정으로 이동 합니다.
-1. **Blob service**에서 **데이터 보호**를 선택 합니다.
-1. **버전 관리** 섹션에서 **사용**을 선택 합니다.
+1. **Blob service** 에서 **데이터 보호** 를 선택 합니다.
+1. **버전 관리** 섹션에서 **사용** 을 선택 합니다.
 
 :::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Azure Portal에서 blob 버전 관리를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-템플릿에서 blob 버전 관리를 사용 하도록 설정 하려면 **Isversioningenabled** 속성을 **true**로 설정 하 여 템플릿을 만듭니다. 다음 단계에서는 Azure Portal에서 템플릿을 만드는 방법을 설명 합니다.
+템플릿에서 blob 버전 관리를 사용 하도록 설정 하려면 **Isversioningenabled** 속성을 **true** 로 설정 하 여 템플릿을 만듭니다. 다음 단계에서는 Azure Portal에서 템플릿을 만드는 방법을 설명 합니다.
 
-1. Azure Portal에서 **리소스 만들기**를 선택 합니다.
-1. **Marketplace 검색**에서 **템플릿 배포**를 입력 하 고 **enter**키를 누릅니다.
-1. **템플릿 배포**를 선택 하 고 **만들기**를 선택한 다음 **편집기에서 사용자 고유의 템플릿 빌드**를 선택 합니다.
+1. Azure Portal에서 **리소스 만들기** 를 선택 합니다.
+1. **Marketplace 검색** 에서 **템플릿 배포** 를 입력 하 고 **enter** 키를 누릅니다.
+1. **템플릿 배포** 를 선택 하 고 **만들기** 를 선택한 다음 **편집기에서 사용자 고유의 템플릿 빌드** 를 선택 합니다.
 1. 템플릿 편집기에서 다음 JSON을 붙여넣습니다. `<accountName>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
 1. 템플릿을 저장하는 경우
 1. 계정에 대 한 리소스 그룹을 지정한 다음 **구매** 단추를 선택 하 여 템플릿을 배포 하 고 blob 버전 관리를 사용 하도록 설정 합니다.
@@ -77,85 +77,15 @@ Azure Portal 템플릿을 사용 하 여 리소스를 배포 하는 방법에 �
 
 이 예에서는 블록 blob을 만든 다음 blob의 메타 데이터를 업데이트 합니다. Blob의 메타 데이터를 업데이트 하면 새 버전이 생성 됩니다. 이 예에서는 초기 버전 및 현재 버전을 검색 하 고 현재 버전에만 메타 데이터가 포함 되어 있음을 보여 줍니다.
 
-```csharp
-public static async Task UpdateVersionedBlobMetadata(string containerName, string blobName)
-{
-    // Create a new service client from the connection string.
-    BlobServiceClient blobServiceClient = new BlobServiceClient(ConnectionString);
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_TriggerNewBlobVersion":::
 
-    // Create a new container client.
-    BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
+## <a name="list-blob-versions"></a>Blob 버전 나열
 
-    try
-    {
-        // Create the container.
-        await containerClient.CreateIfNotExistsAsync();
+.NET v12 클라이언트 라이브러리를 사용 하 여 blob 버전 또는 스냅숏을 나열 하려면 **버전** 필드를 사용 하 여 [blobstates](/dotnet/api/azure.storage.blobs.models.blobstates) 매개 변수를 지정 합니다.
 
-        // Upload a block blob.
-        BlockBlobClient blockBlobClient = containerClient.GetBlockBlobClient(blobName);
+다음 코드 예제에서는 .NET 버전 [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) 이상 버전의 Azure Storage 클라이언트 라이브러리를 사용 하 여 blob 버전을 나열 하는 방법을 보여 줍니다. 이 예를 실행 하기 전에 저장소 계정에 대 한 버전 관리를 사용 하도록 설정 했는지 확인 합니다.
 
-        string blobContents = string.Format("Block blob created at {0}.", DateTime.Now);
-        byte[] byteArray = Encoding.ASCII.GetBytes(blobContents);
-
-        string initalVersionId;
-        using (MemoryStream stream = new MemoryStream(byteArray))
-        {
-            Response<BlobContentInfo> uploadResponse = await blockBlobClient.UploadAsync(stream, null, default);
-
-            // Get the version ID for the current version.
-            initalVersionId = uploadResponse.Value.VersionId;
-        }
-
-        // Update the blob's metadata to trigger the creation of a new version.
-        Dictionary<string, string> metadata = new Dictionary<string, string>
-        {
-            { "key", "value" },
-            { "key1", "value1" }
-        };
-
-        Response<BlobInfo> metadataResponse = await blockBlobClient.SetMetadataAsync(metadata);
-
-        // Get the version ID for the new current version.
-        string newVersionId = metadataResponse.Value.VersionId;
-
-        // Request metadata on the previous version.
-        BlockBlobClient initalVersionBlob = blockBlobClient.WithVersion(initalVersionId);
-        Response<BlobProperties> propertiesResponse = await initalVersionBlob.GetPropertiesAsync();
-        PrintMetadata(propertiesResponse);
-
-        // Request metadata on the current version.
-        BlockBlobClient newVersionBlob = blockBlobClient.WithVersion(newVersionId);
-        Response<BlobProperties> newPropertiesResponse = await newVersionBlob.GetPropertiesAsync();
-        PrintMetadata(newPropertiesResponse);
-    }
-    catch (RequestFailedException e)
-    {
-        Console.WriteLine(e.Message);
-        Console.ReadLine();
-        throw;
-    }
-    finally
-    {
-        await containerClient.DeleteAsync();
-    }
-}
-
-static void PrintMetadata(Response<BlobProperties> propertiesResponse)
-{
-    if (propertiesResponse.Value.Metadata.Count > 0)
-    {
-        Console.WriteLine("Metadata values for version {0}:", propertiesResponse.Value.VersionId);
-        foreach (var item in propertiesResponse.Value.Metadata)
-        {
-            Console.WriteLine("Key:{0}  Value:{1}", item.Key, item.Value);
-        }
-    }
-    else
-    {
-        Console.WriteLine("Version {0} has no metadata.", propertiesResponse.Value.VersionId);
-    }
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobVersions":::
 
 ## <a name="next-steps"></a>다음 단계
 

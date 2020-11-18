@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: b3924a563d8266cfa38f24106dbb84102031a182
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 5a2d7f9f60253916eae808a7f65bc4b4b289bd67
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331875"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694783"
 ---
 # <a name="using-snat-for-outbound-connections"></a>아웃 바운드 연결에 SNAT 사용
 
@@ -22,13 +22,13 @@ Azure 공용 부하 분산 장치의 프런트 엔드 Ip를 사용 하 여 백 �
 SNAT 백 엔드 인스턴스의 **IP** 를 가장 하는 것을 가능 하 게 합니다. 이렇게 하면 외부 소스에서 백 엔드 인스턴스에 대 한 직접 주소를 갖지 못하게 됩니다. 백 엔드 인스턴스 사이에 IP 주소를 공유 하면 고정 공용 ip의 비용이 줄어들고 알려진 공용 ip의 트래픽이 포함 된 IP 허용 목록을 간소화 하는 등의 시나리오를 지원 합니다. 
 
 >[!Note]
-> 지정 된 가상 네트워크에서 단일 Ip 집합을 사용 해야 하는 많은 수의 아웃 바운드 연결 또는 엔터프라이즈 고객이 필요한 응용 프로그램의 경우 [NAT Virtual Network](https://docs.microsoft.com/azure/virtual-network/nat-overview) 권장 솔루션입니다. 동적 할당은 간단한 구성을 허용 하 고 각 IP 주소에서 SNAT 포트를 가장 효율적으로 사용 하는 > 합니다. 또한 부하 분산 장치 > 공유 하지 않아도 가상 네트워크의 모든 리소스가 IP 주소 집합을 공유할 수 있습니다.
+> 지정 된 가상 네트워크에서 단일 Ip 집합을 사용 해야 하는 많은 수의 아웃 바운드 연결 또는 엔터프라이즈 고객이 필요한 응용 프로그램의 경우 [NAT Virtual Network](../virtual-network/nat-overview.md) 권장 솔루션입니다. 동적 할당은 간단한 구성을 허용 하 고 각 IP 주소에서 SNAT 포트를 가장 효율적으로 사용 하는 > 합니다. 또한 부하 분산 장치 > 공유 하지 않아도 가상 네트워크의 모든 리소스가 IP 주소 집합을 공유할 수 있습니다.
 
 >[!Important]
 > 아웃 바운드 SNAT가 구성 되지 않은 경우에도 동일한 지역 내에서 Azure storage 계정은 여전히 액세스할 수 있으며 백엔드 리소스는 Windows 업데이트와 같은 Microsoft 서비스에 계속 액세스할 수 있습니다.
 
 >[!NOTE] 
->이 문서에서는 Azure Resource Manager 배포에 대해서만 다룹니다. Azure의 모든 클래식 배포 시나리오는 [아웃 바운드 연결(클래식)](load-balancer-outbound-connections-classic.md)을 참조하세요.
+>이 문서에서는 Azure Resource Manager 배포에 대해서만 다룹니다. Azure의 모든 클래식 배포 시나리오는 [아웃 바운드 연결(클래식)](/previous-versions/azure/load-balancer/load-balancer-outbound-connections-classic)을 참조하세요.
 
 ## <a name="sharing-frontend-ip-address-across-backend-resources"></a><a name ="snat"></a> 백 엔드 리소스에서 프런트 엔드 IP 주소 공유
 
@@ -48,7 +48,7 @@ SNAT 백 엔드 인스턴스의 **IP** 를 가장 하는 것을 가능 하 게 �
 >[!NOTE]
 > 부하 분산 또는 인바운드 NAT 규칙에 사용 되는 각 포트는 이러한 64000 포트에서 8 개 포트의 범위를 사용 하 여 SNAT에 적합 한 포트 수를 줄입니다. 부하 > 분산 또는 nat 규칙이 8의 동일한 범위에 있는 경우 추가 포트를 사용 하지 않습니다. 
 
-[아웃 바운드 규칙](https://docs.microsoft.com/azure/load-balancer/outbound-rules) 및 부하 분산 규칙을 통해 이러한 SNAT 포트를 백 엔드 인스턴스에 배포 하 여 아웃 바운드 연결에 대 한 부하 분산 장치의 공용 ip를 공유할 수 있습니다.
+[아웃 바운드 규칙](./outbound-rules.md) 및 부하 분산 규칙을 통해 이러한 SNAT 포트를 백 엔드 인스턴스에 배포 하 여 아웃 바운드 연결에 대 한 부하 분산 장치의 공용 ip를 공유할 수 있습니다.
 
 아래 [시나리오 2](#scenario2) 가 구성 된 경우 각 백 엔드 인스턴스에 대 한 호스트는 아웃 바운드 연결의 일부인 패킷에 대해 SNAT를 수행 합니다. 백 엔드 인스턴스에서 아웃 바운드 연결에 대해 SNAT를 수행 하는 경우 호스트는 원본 IP를 프런트 엔드 Ip 중 하나로 다시 작성 합니다. 고유한 흐름을 유지 하기 위해 호스트는 각 아웃 바운드 패킷의 원본 포트를 백 엔드 인스턴스에 할당 된 SNAT 포트 중 하나로 다시 작성 합니다.
 
@@ -101,7 +101,7 @@ SNAT 백 엔드 인스턴스의 **IP** 를 가장 하는 것을 가능 하 게 �
  부하 분산 장치 프런트 엔드 공용 IP 주소의 삭제 포트는 VM에서 발생 하는 개별 흐름을 구별 하는 데 사용 됩니다. SNAT은 아웃바운드 흐름이 생성될 때 동적으로 [삭제 포트를 미리 할당](#preallocatedports)합니다. 
 
 
- 이 컨텍스트에서 SNAT에 사용되는 임시 포트를 SNAT 포트라고 부릅니다. [아웃 바운드 규칙](https://docs.microsoft.com/azure/load-balancer/outbound-rules) 은 명시적으로 구성 하는 것이 좋습니다. 부하 분산 규칙을 통해 기본 SNAT를 사용 하는 경우 [기본 snat 포트 할당 테이블](#snatporttable)에 설명 된 대로 snat 포트는 미리 할당 됩니다.
+ 이 컨텍스트에서 SNAT에 사용되는 임시 포트를 SNAT 포트라고 부릅니다. [아웃 바운드 규칙](./outbound-rules.md) 은 명시적으로 구성 하는 것이 좋습니다. 부하 분산 규칙을 통해 기본 SNAT를 사용 하는 경우 [기본 snat 포트 할당 테이블](#snatporttable)에 설명 된 대로 snat 포트는 미리 할당 됩니다.
 
 
  ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario3"></a>시나리오 3: 공용 IP가 없고 기본 Load Balancer 뒤에 있는 가상 컴퓨터
@@ -142,7 +142,7 @@ SNAT 백 엔드 인스턴스의 **IP** 를 가장 하는 것을 가능 하 게 �
 
 아웃 바운드 연결이 버스트 될 수 있습니다. 백 엔드 인스턴스에 충분 한 포트를 할당할 수 있습니다. **연결을 다시** 사용 하도록 설정 하지 않으면 SNAT **포트 고갈** 위험이 증가 합니다.
 
-포트 소모가 발생 하면 대상 IP에 대 한 새 아웃 바운드 연결이 실패 합니다. 포트를 사용할 수 있게 되 면 연결에 성공 합니다. 이러한 소모는 IP 주소의 64000 포트가 여러 백 엔드 인스턴스에 씬 확산 될 때 발생 합니다. SNAT 포트 소모를 완화 하는 방법에 대 한 지침은 [문제 해결 가이드](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection)를 참조 하세요.  
+포트 소모가 발생 하면 대상 IP에 대 한 새 아웃 바운드 연결이 실패 합니다. 포트를 사용할 수 있게 되 면 연결에 성공 합니다. 이러한 소모는 IP 주소의 64000 포트가 여러 백 엔드 인스턴스에 씬 확산 될 때 발생 합니다. SNAT 포트 소모를 완화 하는 방법에 대 한 지침은 [문제 해결 가이드](./troubleshoot-outbound-connection.md)를 참조 하세요.  
 
 TCP 연결의 경우 부하 분산 장치는 모든 대상 IP 및 포트에 대해 단일 SNAT 포트를 사용 합니다. 이 이러한 다용도 동일한 SNAT 포트를 사용 하 여 동일한 대상 IP에 여러 연결을 설정할 수 있습니다. 이 이러한 다용도 다른 대상 포트에 연결 되지 않은 경우에는 제한 됩니다.
 
@@ -194,6 +194,5 @@ Azure Virtual Network NAT에 대 한 자세한 내용은 [azure VIRTUAL NETWORK 
 
 ## <a name="next-steps"></a>다음 단계
 
-*   [SNAT 고갈로 인 한 아웃 바운드 연결 오류 해결](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection)
-*   [SNAT 메트릭을 검토](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) 하 고이를 필터링, 분할 및 표시 하는 올바른 방법을 숙지 하세요.
-
+*   [SNAT 고갈로 인 한 아웃 바운드 연결 오류 해결](./troubleshoot-outbound-connection.md)
+*   [SNAT 메트릭을 검토](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) 하 고이를 필터링, 분할 및 표시 하는 올바른 방법을 숙지 하세요.

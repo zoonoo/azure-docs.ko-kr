@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4cec356b8438952327624e71deebb5e23db281a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 10d9a74306fcdf3fe32db7019ba3b095727da4c0
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787808"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694606"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>범용 v2 스토리지 계정으로 업그레이드
 
@@ -45,7 +45,7 @@ PowerShell을 사용하여 범용 v1 계정을 업그레이드 v2 계정으로 �
 그런 다음, 리소스 그룹 이름, 저장소 계정 이름 및 원하는 계정 액세스 계층을 대체 하 여 계정을 업그레이드 하는 다음 명령을 호출 합니다.
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
+Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -78,17 +78,17 @@ V1 저장소 계정을 범용 v2 계정으로 업그레이드 하는 것은 무�
 
 모든 스토리지 계정에서는 각 Blob의 계층에 따라 Blob Storage에 가격 책정 모델을 사용합니다. 스토리지 계정을 사용하는 경우 다음과 같은 청구 고려 사항이 적용됩니다.
 
-* **저장소 비용** : 저장 된 데이터의 양에 더하여 데이터 저장 비용은 저장소 액세스 계층에 따라 달라 집니다. 계층이 차가워질수록 기가바이트당 비용이 감소합니다.
+* **저장소 비용**: 저장 된 데이터의 양에 더하여 데이터 저장 비용은 저장소 액세스 계층에 따라 달라 집니다. 계층이 차가워질수록 기가바이트당 비용이 감소합니다.
 
-* **데이터 액세스 비용** : 계층이 차가워질수록 데이터 액세스 요금이 증가합니다. 쿨 및 보관 스토리지 액세스 계층에 있는 데이터의 경우 읽기에 대해 기가바이트당 데이터 액세스 요금이 부과됩니다.
+* **데이터 액세스 비용**: 계층이 차가워질수록 데이터 액세스 요금이 증가합니다. 쿨 및 보관 스토리지 액세스 계층에 있는 데이터의 경우 읽기에 대해 기가바이트당 데이터 액세스 요금이 부과됩니다.
 
-* **트랜잭션 비용** : 계층이 차가워질수록 증가하는 모든 계층에 대해 트랜잭션당 요금이 부과됩니다.
+* **트랜잭션 비용**: 계층이 차가워질수록 증가하는 모든 계층에 대해 트랜잭션당 요금이 부과됩니다.
 
-* **지역에서 복제 데이터 전송 비용** : 이 요금은 GRS 및 RA-GRS를 포함하여 지역에서 복제가 구성된 계정에만 해당합니다. 지역 복제 데이터 전송에는 기가바이트당 요금이 발생합니다.
+* **지역에서 복제 데이터 전송 비용**: 이 요금은 GRS 및 RA-GRS를 포함하여 지역에서 복제가 구성된 계정에만 해당합니다. 지역 복제 데이터 전송에는 기가바이트당 요금이 발생합니다.
 
-* **아웃바운드 데이터 전송 비용** : 아웃바운드 데이터 전송(Azure 지역 밖으로 전송된 데이터)에서는 기가바이트당 요금을 기준으로 대역폭 사용 요금이 발생하며 범용 스토리지 계정과 같습니다.
+* **아웃바운드 데이터 전송 비용**: 아웃바운드 데이터 전송(Azure 지역 밖으로 전송된 데이터)에서는 기가바이트당 요금을 기준으로 대역폭 사용 요금이 발생하며 범용 스토리지 계정과 같습니다.
 
-* **저장소 액세스 계층 변경** : 계정 저장소 액세스 계층을 쿨에서 핫으로 변경 하면 저장소 계정에 있는 모든 데이터를 읽는 것과 같은 요금이 발생 합니다. 하지만 계정 액세스 계층을 핫에서 쿨로 변경하면 모든 데이터를 쿨 계층에 쓰는 경우와 동일한 금액의 요금이 발생합니다(GPv2 계정에만 해당).
+* **저장소 액세스 계층 변경**: 계정 저장소 액세스 계층을 쿨에서 핫으로 변경 하면 저장소 계정에 있는 모든 데이터를 읽는 것과 같은 요금이 발생 합니다. 하지만 계정 액세스 계층을 핫에서 쿨로 변경하면 모든 데이터를 쿨 계층에 쓰는 경우와 동일한 금액의 요금이 발생합니다(GPv2 계정에만 해당).
 
 > [!NOTE]
 > 스토리지 계정의 가격 책정 모델에 대한 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 페이지를 참조하세요. 아웃바운드 데이터 전송 요금에 대한 자세한 내용은 [데이터 전송 가격 책정 정보](https://azure.microsoft.com/pricing/details/data-transfers/) 페이지를 참조하세요.
@@ -145,7 +145,7 @@ Blob Storage에 대한 데이터 액세스 패턴을 모니터링하려면 API�
 
 트랜잭션은 서로 다른 가격이 책정되므로 Blob Storage 계정에 대한 트랜잭션 비용을 예상하려면 트랜잭션을 3개의 그룹으로 세분화해야 합니다.
 
-* *'PutBlob'* , *'PutBlock'* , *'PutBlockList'* , *'AppendBlock'* , *'ListBlobs'* , *'ListContainers'* , *'CreateContainer'* , *'SnapshotBlob'* 및 *'CopyBlob'* 과 같은 쓰기 트랜잭션.
+* *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* 및 *'CopyBlob'* 과 같은 쓰기 트랜잭션.
 * *'DeleteBlob'* 및 *'DeleteContainer'* 와 같은 삭제 트랜잭션
 * 모든 다른 트랜잭션.
 
@@ -159,7 +159,7 @@ Blob Storage 계정에 대한 데이터 액세스 비용을 예상하려면 트�
 
 * 스토리지 계정에서 검색되는 데이터 크기는 주로 *'GetBlob'* 및 *'CopyBlob'* 작업에 대한 *'TotalEgress'* 합계를 확인하여 예상할 수 있습니다.
 
-* 스토리지 계정에 작성되는 데이터 크기는 주로 *'PutBlob'* , *'PutBlock'* , *'CopyBlob'* 및 *'AppendBlock'* 작업에 대한 *'TotalIngress'* 합계를 확인하여 예상할 수 있습니다.
+* 스토리지 계정에 작성되는 데이터 크기는 주로 *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* 및 *'AppendBlock'* 작업에 대한 *'TotalIngress'* 합계를 확인하여 예상할 수 있습니다.
 
 Blob Storage 계정에 대한 지역에서 복제 데이터 전송의 비용은 GRS 또는 RA-GRS 스토리지 계정을 사용하는 경우 작성된 데이터의 양에 대한 추정을 사용하여 계산할 수도 있습니다.
 

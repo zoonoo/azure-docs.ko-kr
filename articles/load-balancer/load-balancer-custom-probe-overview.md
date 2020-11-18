@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 82763842e6145b3883c46bcb9ddb45b7836c3cf2
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 605692d15a08246dd574b0724a550b4543a237a3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241823"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695523"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브
 
@@ -121,7 +121,7 @@ TCP 프로브가 실패하는 경우는 다음과 같습니다.
 ### <a name="http--https-probe"></a><a name="httpprobe"></a> <a name="httpsprobe"></a> HTTP/HTTPS 프로브
 
 >[!NOTE]
->HTTPS 프로브는 [표준 Load Balancer](load-balancer-standard-overview.md)에만 제공됩니다.
+>HTTPS 프로브는 [표준 Load Balancer](./load-balancer-overview.md)에만 제공됩니다.
 
 HTTP 및 HTTPS 프로브는 TCP 프로브에서 구축되고, 지정된 경로가 포함된 HTTP GET을 실행합니다. 두 프로브 모두 HTTP GET에 대한 상대 경로를 지원합니다. HTTPS 프로브는 TLS(전송 계층 보안, SSL이라고도 함)가 추가되었다는 점을 제외하면 HTTP 프로브와 동일합니다. 인스턴스에서 제한 시간 내에 200 HTTP 상태로 응답하면 상태 프로브가 표시됩니다.  이 상태 프로브는 기본적으로 구성된 상태 프로브 포트를 15초마다 확인하려고 합니다. 최소 프로브 간격은 5초입니다. 모든 간격의 총 지속 시간은 120초를 초과할 수 없습니다.
 
@@ -169,7 +169,7 @@ HTTP/HTTPS 프로브가 실패하는 경우는 다음과 같습니다.
 
 게스트 에이전트 프로브는 VM 내부의 게스트 에이전트를 검사합니다. 그런 다음 인스턴스가 준비 상태인 경우에만 수신 대기하며 HTTP 200 OK로 응답합니다. 다른 상태는 사용 중, 재생 중 또는 중지 중입니다.
 
-자세한 내용은 [상태 프로브에 대한 서비스 정의 파일(csdef) 구성](https://msdn.microsoft.com/library/azure/ee758710.aspx) 또는 [클라우드 서비스를 위한 공용 부하 분산 장치 만들기 시작](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services)을 참조하세요.
+자세한 내용은 [상태 프로브에 대한 서비스 정의 파일(csdef) 구성](/previous-versions/azure/reference/ee758710(v=azure.100)) 또는 [클라우드 서비스를 위한 공용 부하 분산 장치 만들기 시작](/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services)을 참조하세요.
 
 게스트 에이전트가 HTTP 200 OK로 응답하는 데 실패하면 부하 분산 장치가 인스턴스를 응답하지 않음으로 표시합니다. 그런 다음, 해당 인스턴스에 흐름을 보내지 않도록 중지합니다. 부하 분산 장치는 인스턴스를 계속 검사합니다. 
 
@@ -215,7 +215,7 @@ UDP는 비연결형이며 UDP에 대해 추적된 흐름 상태가 없습니다.
 
 Load Balancer는 내부 상태 모델에 분산 프로빙 서비스를 사용합니다. 프로빙 서비스는 VM이 있는 각 호스트에 상주하며, 필요할 때 고객 구성별로 상태 프로브를 생성하도록 프로그래밍할 수 있습니다. 상태 프로브 트래픽은 상태 프로브를 생성하는 프로빙 서비스와 고객 VM 간을 직접 이동합니다. 모든 Load Balancer 상태 프로브는 해당 원본으로 168.63.129.16 IP 주소에서 시작됩니다.  RFC1918 공간이 아닌 VNet 내의 IP 주소 공간을 사용할 수 있습니다.  전역적으로 예약된 Microsoft 소유의 IP 주소를 사용하면 IP 주소가 VNet 내에서 사용하는 IP 주소 공간과 충돌할 가능성이 줄어듭니다.  이 IP 주소는 모든 지역에서 동일하고 변경되지 않으며, 내부 Azure 플랫폼 구성 요소만 이 IP 주소에서 패킷을 소싱할 수 있으므로 보안 위험을 초래하지 않습니다. 
 
-AzureLoadBalancer 서비스 태그는 [네트워크 보안 그룹](../virtual-network/security-overview.md)에서 이 원본 IP 주소를 식별하고 기본적으로 상태 프로브 트래픽을 허용합니다.
+AzureLoadBalancer 서비스 태그는 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)에서 이 원본 IP 주소를 식별하고 기본적으로 상태 프로브 트래픽을 허용합니다.
 
 상태 프로브를 Load Balancer 하는 것 외에도 [다음 작업은이 IP 주소를 사용](../virtual-network/what-is-ip-address-168-63-129-16.md)합니다.
 
@@ -233,15 +233,15 @@ AzureLoadBalancer 서비스 태그는 [네트워크 보안 그룹](../virtual-ne
 
 UDP 부하 분산의 경우, 백 엔드 끝점에서 사용자 지정 상태 프로브 신호를 생성 하 고 해당 수신기를 대상으로 하는 TCP, HTTP 또는 HTTPS 상태 프로브를 사용 하 여 UDP 응용 프로그램의 상태를 반영 해야 합니다.
 
-[표준 Load Balancer](load-balancer-standard-overview.md)와 함께 [HA 포트 부하 분산 규칙](load-balancer-ha-ports-overview.md)을 사용하면, 모든 포트의 부하가 분산되고 단일 상태 프로브 응답에는 전체 인스턴스의 상태가 반영되어야 합니다.
+[표준 Load Balancer](./load-balancer-overview.md)와 함께 [HA 포트 부하 분산 규칙](load-balancer-ha-ports-overview.md)을 사용하면, 모든 포트의 부하가 분산되고 단일 상태 프로브 응답에는 전체 인스턴스의 상태가 반영되어야 합니다.
 
 이 구성을 사용할 경우 시나리오에서 연속 오류로 이어질 수 있으므로 VNet의 다른 인스턴스로 상태 프로브를 받는 인스턴스를 통해 상태 프로브를 변환하거나 프록시하지 않아야 합니다.  타사 어플라이언스 세트가 Load Balancer 리소스의 백 엔드 풀에 배포되어 어플라이언스에 대한 확장 및 중복성을 제공하고, 타사 어플라이언스가 어플라이언스 뒤에 있는 다른 가상 머신으로 프록시 또는 변환하는 포트를 프로브하도록 상태 프로브가 구성되어 있다고 가정합니다.  사용 중인 동일한 포트를 프로브하여 요청을 변환하거나 어플라이언스 뒤의 다른 가상 머신으로 프록시하려는 경우, 어플라이언스 뒤의 단일 가상 머신에서 어떤 프로브 응답이 발생하더라도 어플라이언스 자체는 중단 상태로 표시됩니다. 이 구성을 통해 전체 응용 프로그램 시나리오에 대 한 단일 백엔드 끝점의 결과로 전체 응용 프로그램 시나리오의 연계 오류가 발생할 수 있습니다.  간헐적 프로브 실패는 Load Balancer가 원래 대상(어플라이언스 인스턴스)을 작동 중단으로 표시하도록 하고, 전체 애플리케이션 시나리오를 비활성화하도록 하는 트리거로 작용할 수 있습니다. 대신 어플라이언스 자체의 상태를 프로브합니다. 상태 신호를 판별하기 위한 프로브는 NVA(네트워크 가상 어플라이언스) 시나리오에서 중요한 고려 사항이며, 이러한 시나리오에 적합한 상태 신호는 애플리케이션 공급업체에 문의해야 합니다.
 
 방화벽 정책에서 프로브의 [원본 IP](#probesource)를 허용하지 않으면 인스턴스에 연결할 수 없으므로 상태 프로브가 실패하게 됩니다.  차례로 상태 프로브 실패로 인해 Load Balancer에서 인스턴스를 표시합니다.  이 잘못된 구성으로 인해 부하 분산된 애플리케이션 시나리오가 실패할 수 있습니다.
 
-Load Balancer의 상태 프로브에서 인스턴스를 표시하려면 모든 Azure [네트워크 보안 그룹](../virtual-network/security-overview.md) 및 로컬 방화벽 정책에서 이 IP 주소를 **허용해야 합니다**.  기본적으로, 모든 네트워크 보안 그룹은 상태 프로브 트래픽을 허용하기 위해 [서비스 태그](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer를 포함합니다.
+Load Balancer의 상태 프로브에서 인스턴스를 표시하려면 모든 Azure [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md) 및 로컬 방화벽 정책에서 이 IP 주소를 **허용해야 합니다**.  기본적으로, 모든 네트워크 보안 그룹은 상태 프로브 트래픽을 허용하기 위해 [서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags) AzureLoadBalancer를 포함합니다.
 
-상태 프로브 실패를 테스트하거나 개별 인스턴스를 표시하려는 경우 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하여 상태 프로브(대상 포트 또는 [원본 IP](#probesource))를 명시적으로 차단하고 프로브 실패를 시뮬레이트할 수 있습니다.
+상태 프로브 실패를 테스트하거나 개별 인스턴스를 표시하려는 경우 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 사용하여 상태 프로브(대상 포트 또는 [원본 IP](#probesource))를 명시적으로 차단하고 프로브 실패를 시뮬레이트할 수 있습니다.
 
 168.63.129.16이 포함된 Microsoft 소유의 IP 주소 범위를 사용하여 VNet을 구성하지 않도록 합니다.  이러한 구성은 상태 프로브의 IP 주소와 충돌하여 시나리오 실패를 야기할 수 있습니다.
 
@@ -251,7 +251,7 @@ VM에 여러 인터페이스가 있는 경우 받은 인터페이스의 프로�
 
 ## <a name="monitoring"></a>모니터링
 
-공용 및 내부 [표준 Load Balancer](load-balancer-standard-overview.md) 은 끝점 당 끝점 및 백 엔드 끝점 상태 프로브 상태를 Azure Monitor를 통해 다중 차원 메트릭으로 노출 합니다. 이러한 메트릭은 다른 Azure 서비스 또는 파트너 응용 프로그램에서 사용 될 수 있습니다. 
+공용 및 내부 [표준 Load Balancer](./load-balancer-overview.md) 은 끝점 당 끝점 및 백 엔드 끝점 상태 프로브 상태를 Azure Monitor를 통해 다중 차원 메트릭으로 노출 합니다. 이러한 메트릭은 다른 Azure 서비스 또는 파트너 응용 프로그램에서 사용 될 수 있습니다. 
 
 기본 공용 Load Balancer는 Azure Monitor 로그를 통해 백 엔드 풀에 요약 된 상태 프로브 상태를 노출 합니다.  Azure Monitor 로그는 내부 기본 부하 분산 장치에 사용할 수 없습니다.  [Azure Monitor 로그](load-balancer-monitor-log.md) 를 사용 하 여 공용 부하 분산 장치 프로브 상태 및 프로브 수를 확인할 수 있습니다. Power BI 또는 Azure Operational Insights에서 로깅을 사용하여 부하 분산 장치 상태에 대한 통계를 제공할 수 있습니다.
 
@@ -262,7 +262,7 @@ VM에 여러 인터페이스가 있는 경우 받은 인터페이스의 프로�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [표준 Load Balancer](load-balancer-standard-overview.md) 에 대 한 자세한 정보
+- [표준 Load Balancer](./load-balancer-overview.md) 에 대 한 자세한 정보
 - [PowerShell을 사용하여 Resource Manager에서 공용 부하 분산 장치 만들기 시작](quickstart-load-balancer-standard-public-powershell.md)
-- [상태 프로브용 REST API](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
+- [상태 프로브용 REST API](/rest/api/load-balancer/loadbalancerprobes/)
 - [Load Balancer의 Uservoice](https://aka.ms/lbuservoice)를 사용하여 새 상태 프로브 기능 요청

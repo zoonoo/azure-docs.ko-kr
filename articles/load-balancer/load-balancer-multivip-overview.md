@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c2072d13cab9839a276c0437747d7075918e78a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448100"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696883"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 여러 프런트 엔드
 
 Azure Load Balancer를 사용해 여러 포트, 여러 IP 주소 또는 둘 다에서 부하 분산 서비스를 할 수 있습니다. 공용 및 내부 부하 분산 장치 정의를 VM 집합 전반에 대한 부하 분산 흐름에 사용할 수 있습니다.
 
-이 문서에서는 이 기능, 중요한 개념 및 제약 조건에 대한 기본 사항을 설명합니다. 서비스를 하나의 IP 주소에 노출만 하려는 경우 [공용](load-balancer-get-started-internet-portal.md) 또는 [내부](load-balancer-get-started-ilb-arm-portal.md) 부하 분산 장치 구성에 대한 단순화된 지침을 찾을 수 있습니다. 여러 프런트 엔드를 추가하면 단일 프런트 엔드 구성이 증가합니다. 이 문서의 개념을 사용하여 단순화된 구성을 언제라도 확장할 수 있습니다.
+이 문서에서는 이 기능, 중요한 개념 및 제약 조건에 대한 기본 사항을 설명합니다. 서비스를 하나의 IP 주소에 노출만 하려는 경우 [공용](./quickstart-load-balancer-standard-public-portal.md) 또는 [내부](./quickstart-load-balancer-standard-internal-portal.md) 부하 분산 장치 구성에 대한 단순화된 지침을 찾을 수 있습니다. 여러 프런트 엔드를 추가하면 단일 프런트 엔드 구성이 증가합니다. 이 문서의 개념을 사용하여 단순화된 구성을 언제라도 확장할 수 있습니다.
 
 Azure Load Balancer를 정의할 때 프런트 엔드 및 백 엔드 풀 구성이 규칙과 연결됩니다. 규칙에서 참조하는 상태 프로브는 새로운 흐름을 백 엔드 풀의 노드로 전송하는 방법을 결정하는 데 사용됩니다. 프런트 엔드(일명 VIP)는 IP 주소(공용 또는 내부), 전송 프로토콜(UDP 또는 TCP) 및 부하 분산 규칙의 포트 번호로 구성된 3 튜플로 정의됩니다. 백 엔드 풀은 부하 분산 장치 백 엔드 풀을 참조하는 가상 머신 IP 구성(NIC 리소스의 일부)의 컬렉션입니다.
 

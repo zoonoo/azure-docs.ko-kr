@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 11/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 0904ac36a9453e51dbb1efc50eee2b9bf3c669c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e08b69271ba9d115c26418bc5e421ee6c94b031d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708820"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695710"
 ---
 # <a name="delete-replications"></a>복제 삭제
 
@@ -27,11 +27,14 @@ ms.locfileid: "90708820"
 
 ## <a name="steps"></a>단계
 
+1. 볼륨 복제를 삭제 하기 전에 복제 피어 링이 손상 되었는지 확인 하십시오.    
+    복제 관계 및 [중단 복제 피어 링](cross-region-replication-manage-disaster-recovery.md#break-replication-peering-to-activate-the-destination-volume) [의 상태 표시](cross-region-replication-display-health-status.md) 를 참조 하세요.  
+
 1. 볼륨 복제를 삭제 하려면 원본 또는 대상 볼륨에서 **복제** 를 선택 합니다.  
 
-2. **삭제**를 클릭합니다.    
+2. **삭제** 를 클릭합니다.    
 
-3. **예** 를 입력 하 고 **삭제**를 클릭 하 여 삭제를 확인 합니다.   
+3. **예** 를 입력 하 고 **삭제** 를 클릭 하 여 삭제를 확인 합니다.   
 
     ![복제 삭제](../media/azure-netapp-files/cross-region-replication-delete-replication.png)
 

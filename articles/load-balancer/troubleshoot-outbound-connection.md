@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: b75c85b85674def84d9fcee62549a6458abf9174
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 516576f4e005cc9fe2303945ecb1a13489908a5d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684846"
+ms.locfileid: "94696356"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> 아웃 바운드 연결 오류 문제 해결
 
 이 문서는 Azure Load Balancer의 아웃 바운드 연결에서 일반적인 문제에 대 한 해결 방법을 제공 하기 위한 것입니다. 고객이 경험 하는 아웃 바운드 연결에 대 한 대부분의 문제는 SNAT 포트 소모 및 연결 시간 제한으로 인해 삭제 된 패킷이 전달 되기 때문입니다. 이 문서에서는 이러한 각 문제를 완화 하는 단계를 제공 합니다.
 
 ## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> SNAT(PAT) 포트 고갈 관리
-[PAT](load-balancer-outbound-connections.md) 에 사용 되는 사용 [후 삭제 포트](load-balancer-outbound-connections.md) 는 공용 Ip [주소가 없는 독립 실행형 vm](load-balancer-outbound-connections.md) 및 [공용 ip 주소가 없는 부하 분산 vm](load-balancer-outbound-connections.md)에 설명 된 대로 소모 성 리소스입니다. 사용 후 삭제 포트의 사용량을 모니터링 하 고 현재 할당을 비교 하 여의 위험을 확인 하거나 [이](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) 가이드를 사용 하 여 SNAT 소모를 확인할 수 있습니다.
+[PAT](load-balancer-outbound-connections.md) 에 사용 되는 사용 [후 삭제 포트](load-balancer-outbound-connections.md) 는 공용 Ip [주소가 없는 독립 실행형 vm](load-balancer-outbound-connections.md) 및 [공용 ip 주소가 없는 부하 분산 vm](load-balancer-outbound-connections.md)에 설명 된 대로 소모 성 리소스입니다. 사용 후 삭제 포트의 사용량을 모니터링 하 고 현재 할당을 비교 하 여의 위험을 확인 하거나 [이](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) 가이드를 사용 하 여 SNAT 소모를 확인할 수 있습니다.
 
 동일한 대상 IP 주소 및 포트에 대해 많은 아웃바운드 TCP 또는 UDP 연결을 시작할 것인지 알고 있는 경우 실패하는 아웃바운드 연결을 확인하고, 지원 서비스에서 SNAT 포트([PAT](load-balancer-outbound-connections.md)에서 사용하는 미리 할당된 [삭제 포트](load-balancer-outbound-connections.md#preallocatedports))가 고갈될 것이라는 알림을 받는 경우 몇 가지 일반적인 완화 옵션을 사용할 수 있습니다. 다음 옵션을 검토하고 시나리오에 가장 적합한 옵션을 결정합니다. 한 가지 이상의 옵션이 이 시나리오를 관리하는 데 도움이 될 수 있습니다.
 

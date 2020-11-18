@@ -1,23 +1,22 @@
 ---
 title: Azure Machine Learning 환경 정보
 titleSuffix: Azure Machine Learning
-description: 이 문서에서는 다양 한 계산 대상에서 재현 가능 하 고 감사 가능 하며 이식 가능한 machine learning 종속성 정의를 사용할 수 있는 기계 학습 환경의 이점에 대해 알아봅니다.
+description: 다양 한 계산 대상에 대해 재현 가능 하 고, 감사 가능 하 & 고, 휴대용 machine learning 종속성 정의를 사용할 수 있는 기계 학습 환경에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
-ms.date: 07/08/2020
-ms.openlocfilehash: 9c554abc8aef89ca353e06c14b04fab2622d2827
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: 78f8d6d216659eaad01d512dd45696dd31035885
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322186"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695387"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Azure Machine Learning 환경 이란 무엇 인가요?
-
 
 Azure Machine Learning 환경은 Machine Learning 교육이 발생 하는 환경을 캡슐화 하는 것입니다. 이들은 학습 및 점수 매기기 스크립트와 관련 된 Python 패키지, 환경 변수 및 소프트웨어 설정을 지정 합니다. 실행 시간 (Python, Spark 또는 Docker)도 지정 합니다. 환경은 다양 한 계산 대상에서 재현 가능 하 고 감사 가능 하며 이식 가능한 기계 학습 워크플로를 사용할 수 있도록 하는 Machine Learning 작업 영역 내에서 관리 되는 버전의 엔터티입니다.
 
@@ -35,7 +34,7 @@ Azure Machine Learning 환경은 Machine Learning 교육이 발생 하는 환경
 
 ## <a name="types-of-environments"></a>환경 유형
 
-환경은 *큐 레이트* , *사용자 관리* 및 *시스템 관리* 의 세 가지 범주로 나눌 수 있습니다.
+환경은 *큐 레이트*, *사용자 관리* 및 *시스템 관리* 의 세 가지 범주로 나눌 수 있습니다.
 
 큐 레이트 환경은 Azure Machine Learning에서 제공 하며 기본적으로 작업 영역에서 사용할 수 있습니다. 있는 그대로 사용 하기 위해 다양 한 기계 학습 프레임 워크를 시작 하는 데 도움이 되는 Python 패키지 및 설정 모음이 포함 되어 있습니다. 이러한 미리 만들어진 환경에서는 배포 시간을 단축할 수 있습니다. 전체 목록은 [큐 레이트 환경 문서](resource-curated-environments.md)를 참조 하세요.
 

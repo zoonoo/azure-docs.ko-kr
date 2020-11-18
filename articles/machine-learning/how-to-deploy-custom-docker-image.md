@@ -1,22 +1,22 @@
 ---
 title: 사용자 지정 Docker 이미지를 사용 하 여 모델 배포
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 모델을 배포할 때 사용자 지정 Docker 기본 이미지를 사용 하는 방법에 대해 알아봅니다. Azure Machine Learning 기본 이미지를 제공 하는 동안 고유한 기본 이미지를 사용할 수도 있습니다.
+description: 사용자 지정 Docker 기본 이미지를 사용 하 여 Azure Machine Learning 모델을 배포 하는 방법을 알아봅니다. Azure Machine Learning 기본 이미지를 제공 하는 동안 고유한 기본 이미지를 사용할 수도 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
 ms.reviewer: larryfr
-ms.date: 09/09/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 63089e853be825f9399081f2d39845e22b18ed2a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1ff4d7693a7e493ccb736ab9363fd26c93017c79
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325171"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695353"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 
@@ -207,7 +207,7 @@ Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 �
 
 * 이미지가 __개인 리포지토리에__ 있는 경우 다음 정보가 필요 합니다.
 
-    * 레지스트리 __주소__ 입니다. `myregistry.azureecr.io`)을 입력합니다.
+    * 레지스트리 __주소__ 입니다. 예: `myregistry.azureecr.io`.
     * 레지스트리에 대 한 읽기 권한이 있는 서비스 사용자 __이름__ 및 __암호__ 입니다.
 
     이 정보가 없는 경우 관리자에 게 이미지를 포함 하는 Azure Container Registry에 대해 문의 하십시오.

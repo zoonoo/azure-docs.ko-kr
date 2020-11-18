@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 8b2f8e82cac1d26689659286a5a0f81f06fb68ca
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398014"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695064"
 ---
 # <a name="cross-region-load-balancer-preview"></a>영역 간 부하 분산 장치 (미리 보기)
 
@@ -74,7 +74,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 
 지역 부하 분산 장치의 구성 된 부하 분산 모드는 지리적 근접성에 여러 지역 부하 분산 장치를 사용 하는 경우 최종 라우팅 결정을 내리는 데 사용 됩니다.
 
-자세한 내용은 [Azure Load Balancer의 배포 모드 구성](https://docs.microsoft.com/azure/load-balancer/load-balancer-distribution-mode)을 참조하세요.
+자세한 내용은 [Azure Load Balancer의 배포 모드 구성](./load-balancer-distribution-mode.md)을 참조하세요.
 
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>단일 끝점을 확장/축소 하는 기능
@@ -84,7 +84,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### <a name="static-ip"></a>고정 IP
-영역 간 부하 분산 장치에는 IP 주소가 동일 하 게 유지 되도록 하는 고정 공용 IP가 제공 됩니다. 고정 IP에 대해 자세히 알아보려면 여기를 참조 [하세요](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#allocation-method) .
+영역 간 부하 분산 장치에는 IP 주소가 동일 하 게 유지 되도록 하는 고정 공용 IP가 제공 됩니다. 고정 IP에 대해 자세히 알아보려면 여기를 참조 [하세요](../virtual-network/public-ip-addresses.md#allocation-method) .
 
 ### <a name="client-ip-preservation"></a>클라이언트 IP 유지
 영역 간 부하 분산 장치는 계층 4 통과 네트워크 부하 분산 장치입니다. 이 통과는 패킷의 원래 IP를 유지 합니다.  원본 IP는 가상 머신에서 실행 되는 코드에서 사용할 수 있습니다. 이러한 유지를 통해 IP 주소와 관련 된 논리를 적용할 수 있습니다.
@@ -100,7 +100,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 미국 동부 2
 * 미국 서부
 * 서유럽
-* 동남아시아
+* 동남 아시아
 * 미국 중부
 * 북유럽
 * 동아시아
@@ -124,7 +124,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 미국 중남부 
 * 미국 서부 2 
 * 영국 남부 
-* 동남아시아 
+* 동남 아시아 
 * 미국 중북부 
 * 일본 동부 
 * 동아시아 

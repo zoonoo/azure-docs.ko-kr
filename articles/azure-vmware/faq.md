@@ -1,15 +1,15 @@
 ---
-title: 자주 묻는 질문
+title: 질문과 대답
 description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: 99e9e53693e42f907250331894f55ed0160f9e30
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 2d71c30d2fb08629674c352ae812d8890463abfe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577518"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695104"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -253,7 +253,7 @@ VMware HCX EE(Enterprise Edition)는 Azure VMware Solution에서 *미리 보기*
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 호스트 할당량 증가를 요청 어떻게 할까요??
 
-CSP 관리 구독의 경우 고객은 파트너에 대 한 요청을 수행 해야 하며 파트너 팀은 Microsoft와 협력 하 여 구독에 대 한 할당량을 늘려야 합니다. 
+CSP 관리 구독의 경우 고객은 파트너에 대 한 요청을 수행 해야 하며 파트너 팀은 Microsoft와 협력 하 여 구독에 대 한 할당량을 늘려야 합니다. 자세한 내용은 [Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법 문서](enable-azure-vmware-solution.md) 를 참조 하세요. 
 
 EA 구독의 경우 고객은이 절차를 따라야 합니다.
 
@@ -299,6 +299,10 @@ Azure VMware 솔루션 리소스를 만들기 전에 지원 티켓을 제출 하
 #### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
 
 Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
+
+#### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
+
+No. Currently Azure VMware Solution does not offer multi-tenancy.
 
 
 ## Customer communication

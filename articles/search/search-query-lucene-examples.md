@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 3d2172f76faecfc8347d7e0ca13fb506817f25de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae4dd8b82e40b46da52a1b1f396569fda1dfea2b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740703"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694629"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>"Full" Lucene 검색 구문 사용 (Azure Cognitive Search의 고급 쿼리)
 
@@ -30,13 +30,13 @@ Lucene 파서는 필드 범위 쿼리, 유사 항목 검색, 중 위 및 접미�
 
 다음 예제는 [City of New York OpenData](https://opendata.cityofnewyork.us/) 이니셔티브에서 제공하는 데이터 세트에 기반하여 사용 가능한 작업으로 구성된 NYC Jobs 검색 인덱스를 활용합니다. 이 데이터는 최신 또는 완료로 간주되어서는 안 됩니다. 인덱스는 Microsoft에서 제공 하는 샌드박스 서비스에 있습니다. 즉, 이러한 쿼리를 사용해 볼 수 있는 Azure 구독 또는 Azure Cognitive Search 필요 하지 않습니다.
 
-따라서 GET에서 HTTP 요청을 실행하기 위한 Postman 또는 동급의 도구만 있으면 됩니다. 자세한 내용은 [REST 클라이언트로 탐색](search-get-started-postman.md)을 참조하세요.
+따라서 GET에서 HTTP 요청을 실행하기 위한 Postman 또는 동급의 도구만 있으면 됩니다. 자세한 내용은 [REST 클라이언트로 탐색](search-get-started-rest.md)을 참조하세요.
 
 ### <a name="set-the-request-header"></a>요청 헤더 설정
 
-1. 요청 헤더에서 **Content-Type**을 `application/json`으로 설정합니다.
+1. 요청 헤더에서 **Content-Type** 을 `application/json`으로 설정합니다.
 
-2. **api-key**를 추가한 후 `252044BE3886FE4A8E3BAA4F595114BB` 문자열로 설정합니다. 이것은 NYC Jobs 인덱스를 호스트하는 샌드박스 Search 서비스용 쿼리 키입니다.
+2. **api-key** 를 추가한 후 `252044BE3886FE4A8E3BAA4F595114BB` 문자열로 설정합니다. 이것은 NYC Jobs 인덱스를 호스트하는 샌드박스 Search 서비스용 쿼리 키입니다.
 
 요청 헤더를 지정한 후 **search=** 문자열만 교환하여 이 문서의 모든 쿼리에 다시 사용할 수 있습니다. 
 
@@ -46,7 +46,7 @@ Lucene 파서는 필드 범위 쿼리, 유사 항목 검색, 중 위 및 접미�
 
 Request는 Azure Cognitive Search 끝점 및 검색 문자열을 포함 하는 URL과 쌍을 이루는 GET 명령입니다.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Postman 요청 헤더 가져오기" border="false":::
 
 URL 구성에는 다음 요소가 있습니다.
 
@@ -58,7 +58,7 @@ URL 구성에는 다음 요소가 있습니다.
 
 ## <a name="send-your-first-query"></a>첫 번째 쿼리 전송
 
-확인 단계에서 다음 요청을 GET에 붙여넣고 **보내기**를 클릭합니다. 결과는 자세한 JSON 문서로 반환됩니다. 모든 필드와 모든 값을 볼 수 있는 전체 문서가 반환 됩니다.
+확인 단계에서 다음 요청을 GET에 붙여넣고 **보내기** 를 클릭합니다. 결과는 자세한 JSON 문서로 반환됩니다. 모든 필드와 모든 값을 볼 수 있는 전체 문서가 반환 됩니다.
 
 이 URL을 REST 클라이언트에 유효성 검사 단계로 붙여넣고 문서 구조를 봅니다.
 
@@ -72,7 +72,7 @@ URL 구성에는 다음 요소가 있습니다.
 
 ## <a name="how-to-invoke-full-lucene-parsing"></a>전체 Lucene 구문 분석을 호출하는 방법
 
-**queryType=full**을 추가하여 전체 쿼리 구문을 호출하고 기본 단순 쿼리 구문을 재정의합니다. 
+**queryType=full** 을 추가하여 전체 쿼리 구문을 호출하고 기본 단순 쿼리 구문을 재정의합니다. 
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&search=*
@@ -84,7 +84,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 이 첫 번째 예제는 Lucene에 한정 되지 않지만, 첫 번째 기본 쿼리 개념인 필드 범위를 소개 하는 데 사용 됩니다. 이 예에서는 전체 쿼리와 응답의 범위를 몇 개의 특정 필드로 지정 합니다. 도구가 Postman 또는 Search 탐색기인 경우 판독 가능한 JSON 응답을 구성하는 방법을 파악하는 것이 중요합니다. 
 
-간단히 하기 위해 쿼리는 *business_title*만을 대상으로 하며, 직함만 반환되도록 지정합니다. **Searchfields** 매개 변수는 쿼리 실행을 business_title 필드로 제한 하 고 응답에 포함할 필드 **를 지정 합니다** .
+간단히 하기 위해 쿼리는 *business_title* 만을 대상으로 하며, 직함만 반환되도록 지정합니다. **Searchfields** 매개 변수는 쿼리 실행을 business_title 필드로 제한 하 고 응답에 포함할 필드 **를 지정 합니다** .
 
 ### <a name="search-expression"></a>검색 식
 
@@ -137,7 +137,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
-  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Postman 샘플 응답 검색 식" border="false":::
 
 **FieldName: searchexpression** 구문을 사용 하 여 필드 지정 search 작업을 정의할 수 있습니다. 여기서 검색 식은 단일 단어나 구 또는 괄호 안의 보다 복잡 한 식입니다. 선택적으로 부울 연산자를 사용할 수 있습니다. 몇 가지 예는 다음과 같습니다.
 
@@ -199,7 +199,7 @@ searchFields=business_title&$select=business_title&search=business_title:%22seni
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
 ```
-  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="근접 쿼리" border="false":::
 
 "senior analyst"라는 용어 사이에 단어를 제거하여 다시 시도합니다. 이전 쿼리에서는 10개 문장이 반환되지만 이번 쿼리에서는 8개 문서이 반환됩니다.
 
@@ -212,21 +212,21 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 ### <a name="full-urls"></a>전체 Url
 
-이 “before” 쿼리에서는 *computer analyst* 용어가 포함된 직업을 검색합니다. 여기서 *computer*와 *analyst* 두 단어가 포함된 결과는 없지만, *computer* 직업은 결과의 맨 위에 나옵니다.
+이 “before” 쿼리에서는 *computer analyst* 용어가 포함된 직업을 검색합니다. 여기서 *computer* 와 *analyst* 두 단어가 포함된 결과는 없지만, *computer* 직업은 결과의 맨 위에 나옵니다.
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
 ```
-  :::image type="content" source="media/search-query-lucene-examples/termboostingbefore.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/termboostingbefore.png" alt-text="before 용어 상승" border="false":::
 
-"after" 쿼리에서는 검색을 반복합니다. 이번에는 두 단어가 존재하지 않을 경우 용어 *computer*보다 용어 *analyst*가 포함된 결과를 상승시킵니다. 
+"after" 쿼리에서는 검색을 반복합니다. 이번에는 두 단어가 존재하지 않을 경우 용어 *computer* 보다 용어 *analyst* 가 포함된 결과를 상승시킵니다. 
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst%5e2
 ```
 위의 쿼리에서 인간이 이해하기 쉬운 버전은 `search=business_title:computer analyst^2`입니다. 작동 가능한 쿼리를 위해 `^2`가 이해하기 좀 더 어려운 `%5E2`로 인코딩됩니다.
 
-  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="after 용어 상승" border="false":::
 
 용어 상승은 평가 프로필은 특정 용어가 아닌 특정 필드를 상승시킨다는 점에서 평가 프로필과는 다릅니다. 다음 예제는 차이점을 설명하는 데 도움이 됩니다.
 
@@ -253,7 +253,7 @@ searchFields=business_title&$select=business_title&search=business_title:/(Sen|J
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
 ```
 
-  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Regex 쿼리" border="false":::
 
 > [!Note]
 > 정규식 쿼리는 [분석](./search-lucene-query-architecture.md#stage-2-lexical-analysis)되지 않습니다. 불완전한 쿼리 용어에서는 소문자 변환만 수행됩니다.
@@ -275,14 +275,14 @@ searchFields=business_title&$select=business_title&search=business_title:prog*
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
 ```
-  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="와일드카드 쿼리" border="false":::
 
 > [!Note]
 > 와일드카드 쿼리는 [분석](./search-lucene-query-architecture.md#stage-2-lexical-analysis)되지 않습니다. 불완전한 쿼리 용어에서는 소문자 변환만 수행됩니다.
 >
 
 ## <a name="next-steps"></a>다음 단계
-코드에서 Lucene 쿼리 파서를 지정해 보십시오. 다음 링크에서는 .NET와 REST API 모두에 대한 검색 쿼리를 설정하는 방법에 대해 설명합니다. 링크는 기본 단순 구문을 사용하므로 **queryType**을 지정하려면 이 문서에서 배운 내용을 적용해야 합니다.
+코드에서 Lucene 쿼리 파서를 지정해 보십시오. 다음 링크에서는 .NET와 REST API 모두에 대한 검색 쿼리를 설정하는 방법에 대해 설명합니다. 링크는 기본 단순 구문을 사용하므로 **queryType** 을 지정하려면 이 문서에서 배운 내용을 적용해야 합니다.
 
 * [.NET SDK를 사용 하 여 인덱스 쿼리](./search-get-started-dotnet.md)
 * [REST API를 사용 하 여 인덱스 쿼리](./search-get-started-powershell.md)
@@ -292,4 +292,4 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 + [단순 구문 쿼리 예제](search-query-simple-examples.md)
 + [Azure Cognitive Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)
 + [단순 쿼리 구문](/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [전체 Lucene 쿼리 구문](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Full Lucene 쿼리 구문](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
