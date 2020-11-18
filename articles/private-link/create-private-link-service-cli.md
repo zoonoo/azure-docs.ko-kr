@@ -7,19 +7,20 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: a2b97bcc9fe902480364ade19efdae863556ac1e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 87fe02aed19ae7e5858715748a2b4c4da87a07b3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629430"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658573"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Azure CLI를 사용 하 여 개인 링크 서비스 만들기
 이 문서에서는 Azure CLI를 사용 하 여 Azure에서 개인 링크 서비스를 만드는 방법을 보여 줍니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Azure CLI를 로컬로 설치 하 고 사용 하도록 결정 한 경우이 빠른 시작을 사용 하려면 최신 Azure CLI 버전을 사용 해야 합니다. 설치된 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드 정보는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 최신 버전의 Azure CLI 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+
 ## <a name="create-a-private-link-service"></a>Private Link 서비스 만들기
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -152,7 +153,7 @@ az network private-endpoint create \
 --location westcentralus 
 ```
 개인 링크 서비스를 사용 하 여 *개인 연결 리소스 id* 를 가져올 수 있습니다 `az network private-link-service show` . ID는 다음과 같습니다.   
-/subscription/subID/resourceGroups/ *resourcegroupname* /Providers/privateLinkServices/ **privatelinkservicename** 
+/subscriptions/subID/resourceGroups/*resourcegroupname*/providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** 
  
 ## <a name="show-private-link-service-connections"></a>개인 링크 서비스 연결 표시 
  

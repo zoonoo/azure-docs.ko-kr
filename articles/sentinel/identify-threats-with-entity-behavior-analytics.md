@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 9c5e57f2eb3c38a7df23052a4b3d33bc5a9675fc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 657221a2acbf592a56cb4659ced2199023bc5e5b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425935"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658794"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure 센티널의 UEBA (사용자 및 엔터티 동작 분석)를 사용 하 여 고급 위협 식별
 
@@ -124,7 +124,7 @@ Azure 센티널은 보안 분석가가 컨텍스트의 비정상적인 활동을
 
 타임 라인은 Azure 센티널의 동작 분석에 대 한 엔터티 페이지 기여의 주요 부분입니다. 엔터티 관련 이벤트에 대 한 스토리를 제공 하 여 특정 시간 프레임 내에서 엔터티의 작업을 이해 하도록 도와줍니다.
 
-몇 가지 미리 설정 된 옵션 (예: *최근 24 시간* ) 중에서 **시간 범위** 를 선택 하거나 사용자 지정 된 시간 프레임으로 설정할 수 있습니다. 또한 타임 라인의 정보를 특정 유형의 이벤트 또는 경고로 제한 하는 필터를 설정할 수 있습니다.
+몇 가지 미리 설정 된 옵션 (예: *최근 24 시간*) 중에서 **시간 범위** 를 선택 하거나 사용자 지정 된 시간 프레임으로 설정할 수 있습니다. 또한 타임 라인의 정보를 특정 유형의 이벤트 또는 경고로 제한 하는 필터를 설정할 수 있습니다.
 
 타임 라인에는 다음과 같은 유형의 항목이 포함 되어 있습니다.
 
@@ -155,7 +155,7 @@ Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하�
 
 ### <a name="behavior-analytics-table"></a>동작 분석 테이블
 
-| 필드                     | Description                                                         |
+| 필드                     | 설명                                                         |
 |---------------------------|---------------------------------------------------------------------|
 | TenantId                  | 테 넌 트의 고유 ID 번호                                      |
 | SourceRecordId            | EBA 이벤트의 고유 ID 번호                                   |
@@ -180,7 +180,7 @@ Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하�
 
 ### <a name="querying-behavior-analytics-data"></a>동작 분석 데이터 쿼리
 
-[KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/)를 사용 하 여 동작 분석 테이블을 쿼리할 수 있습니다.
+[KQL](/azure/data-explorer/kusto/query/)를 사용 하 여 동작 분석 테이블을 쿼리할 수 있습니다.
 
 예를 들어 Azure 리소스에 로그인 하지 못한 사용자의 모든 사례를 찾으려고 하 고, 사용자가 지정 된 국가에서 연결을 처음 시도 하는 경우, 해당 국가에서의 연결은 일반적으로 사용자의 피어에 대해서도 발생 하지 않습니다. 다음 쿼리를 사용할 수 있습니다.
 

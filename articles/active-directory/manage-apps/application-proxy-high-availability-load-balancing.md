@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab3b340654fd6d824edef0a33d1ea363a913654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 403fa4cab94ad6149e388b10acccd9d5e7a2b7a8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764590"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658165"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>응용 프로그램 프록시 커넥터 및 응용 프로그램의 고가용성 및 부하 분산
 
@@ -39,7 +39,7 @@ ms.locfileid: "84764590"
 
 1. 클라이언트 장치의 사용자가 응용 프로그램 프록시를 통해 게시 된 온-프레미스 응용 프로그램에 액세스 하려고 합니다.
 2. 요청은 요청을 수행 해야 하는 응용 프로그램 프록시 서비스 인스턴스를 확인 하기 위해 Azure Load Balancer를 거칩니다. 지역에 따라 요청을 수락 하는 데 사용할 수 있는 수만 개의 인스턴스가 있습니다. 이 메서드는 서비스 인스턴스 간에 트래픽을 균등 하 게 분산 하는 데 도움이 됩니다.
-3. 요청은 [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/)전송 됩니다.
+3. 요청은 [Service Bus](../../service-bus-messaging/index.yml)전송 됩니다.
 4. Service Bus 사용 가능한 커넥터에 신호를 보냅니다. 그런 다음 커넥터는 Service Bus에서 요청을 선택 합니다.
    - 2 단계에서 요청은 다른 응용 프로그램 프록시 서비스 인스턴스로 이동 하므로 서로 다른 커넥터를 사용 하 여 연결을 만들 수 있습니다. 결과적으로 커넥터는 그룹 내에서 거의 균등 하 게 사용 됩니다.
 5. 커넥터는 응용 프로그램의 백 엔드 서버에 요청을 전달 합니다. 그런 다음 응용 프로그램은 커넥터에 응답을 다시 보냅니다.
@@ -98,4 +98,4 @@ ms.locfileid: "84764590"
 - [Single Sign-On 사용](application-proxy-configure-single-sign-on-with-kcd.md)
 - [조건부 액세스 사용](application-proxy-integrate-with-sharepoint-server.md)
 - [애플리케이션 프록시에서 발생한 문제 해결](application-proxy-troubleshoot.md)
-- [Azure AD 아키텍처가 고가용성을 지 원하는 방법 알아보기](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
+- [Azure AD 아키텍처가 고가용성을 지 원하는 방법 알아보기](../fundamentals/active-directory-architecture.md)

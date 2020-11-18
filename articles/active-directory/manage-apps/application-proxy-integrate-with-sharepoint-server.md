@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42dd979f6e069addc1067d0018390c358e79a7b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c318c539b1c09761ed81e7602808e415fdaf8b80
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764539"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658182"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
 
@@ -65,10 +65,10 @@ ms.locfileid: "84764539"
 
 1. 앱을 게시 한 후에는 다음 단계에 따라 Single Sign-On 설정을 구성 합니다.
 
-   1. 포털의 애플리케이션 페이지에서 **Single Sign-On**을 선택합니다.
-   1. **Single Sign-On 모드**로 **Windows 통합 인증**을 선택합니다.
+   1. 포털의 애플리케이션 페이지에서 **Single Sign-On** 을 선택합니다.
+   1. **Single Sign-On 모드** 로 **Windows 통합 인증** 을 선택합니다.
    1. **내부 응용 프로그램 SPN** 을 이전에 설정한 값으로 설정 합니다. 이 예제에서 값은 `HTTP/sharepoint` 입니다.
-   1. **위임 된 로그인 id**에서 Active Directory 포리스트 구성에 가장 적합 한 옵션을 선택 합니다. 예를 들어 포리스트에 단일 Active Directory 도메인이 있는 경우 다음 스크린샷에 표시 된 것 처럼 **온-프레미스 SAM 계정 이름** 을 선택 합니다. 그러나 사용자가 SharePoint와 동일한 도메인 및 응용 프로그램 프록시 커넥터 서버에 있지 않은 경우 **온-프레미스 사용자 계정 이름** (스크린샷에는 표시 되지 않음)을 선택 합니다.
+   1. **위임 된 로그인 id** 에서 Active Directory 포리스트 구성에 가장 적합 한 옵션을 선택 합니다. 예를 들어 포리스트에 단일 Active Directory 도메인이 있는 경우 다음 스크린샷에 표시 된 것 처럼 **온-프레미스 SAM 계정 이름** 을 선택 합니다. 그러나 사용자가 SharePoint와 동일한 도메인 및 응용 프로그램 프록시 커넥터 서버에 있지 않은 경우 **온-프레미스 사용자 계정 이름** (스크린샷에는 표시 되지 않음)을 선택 합니다.
 
    ![SSO용 통합 Windows 인증 구성](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 
@@ -103,7 +103,7 @@ SharePoint 웹 응용 프로그램은 Azure AD 응용 프로그램 프록시에�
        ```
 
     2. **SharePoint 중앙 관리** 사이트를 엽니다.
-    1. **시스템 설정** 아래에서 **대체 액세스 매핑 구성**을 선택합니다. **대체 액세스 매핑 컬렉션** 상자가 열립니다.
+    1. **시스템 설정** 아래에서 **대체 액세스 매핑 구성** 을 선택합니다. **대체 액세스 매핑 컬렉션** 상자가 열립니다.
     1. 새 웹 응용 프로그램으로 표시를 필터링 하 고 다음과 같이 표시 되는지 확인 합니다.
 
        ![웹 응용 프로그램의 대체 액세스 매핑](./media/application-proxy-integrate-with-sharepoint-server/new-webapp-aam.png)
@@ -126,7 +126,7 @@ SharePoint 웹 응용 프로그램은 Azure AD 응용 프로그램 프록시에�
        ```
 
     2. **SharePoint 중앙 관리** 사이트를 엽니다.
-    1. **시스템 설정** 아래에서 **대체 액세스 매핑 구성**을 선택합니다. **대체 액세스 매핑 컬렉션** 상자가 열립니다.
+    1. **시스템 설정** 아래에서 **대체 액세스 매핑 구성** 을 선택합니다. **대체 액세스 매핑 컬렉션** 상자가 열립니다.
     1. 확장 된 웹 응용 프로그램을 사용 하 여 디스플레이를 필터링 하 고 다음과 같은 내용이 표시 되는지 확인 합니다.
 
         ![확장 된 응용 프로그램의 대체 액세스 매핑](./media/application-proxy-integrate-with-sharepoint-server/extend-webapp-aam.png)
@@ -136,8 +136,8 @@ SharePoint 웹 응용 프로그램은 Azure AD 응용 프로그램 프록시에�
 SharePoint 웹 응용 프로그램의 응용 프로그램 풀을 실행 하는 계정을 식별 하 고 도메인 계정 인지 확인 하려면 다음 단계를 수행 합니다.
 
 1. **SharePoint 중앙 관리** 사이트를 엽니다.
-1. **보안**으로 이동하고 **서비스 계정 구성**을 선택합니다.
-1. **웹 응용 프로그램 풀-해당 Webapplicationname**을 선택 합니다.
+1. **보안** 으로 이동하고 **서비스 계정 구성** 을 선택합니다.
+1. **웹 응용 프로그램 풀-해당 Webapplicationname** 을 선택 합니다.
 
    ![서비스 계정 구성 옵션](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
 
@@ -159,15 +159,15 @@ SharePoint 웹 응용 프로그램의 응용 프로그램 풀을 실행 하는 �
    > 자체 서명된 인증서는 테스트 목적으로만 적합합니다. 프로덕션 환경에서는 대신 인증 기관에서 발급 한 인증서를 사용 하는 것이 좋습니다.
 
 1. 인터넷 정보 서비스 Manager 콘솔을 엽니다.
-1. 트리 뷰에서 서버를 확장 하 고 **사이트**를 확장 한 다음 **SharePoint-AAD 프록시** 사이트를 선택 하 고 **바인딩**을 선택 합니다.
-1. **Https 바인딩** 을 선택 하 고 **편집**을 선택 합니다.
-1. TLS/SSL 인증서 필드에서 **SharePoint** 인증서를 선택한 다음 **확인**을 선택 합니다.
+1. 트리 뷰에서 서버를 확장 하 고 **사이트** 를 확장 한 다음 **SharePoint-AAD 프록시** 사이트를 선택 하 고 **바인딩** 을 선택 합니다.
+1. **Https 바인딩** 을 선택 하 고 **편집** 을 선택 합니다.
+1. TLS/SSL 인증서 필드에서 **SharePoint** 인증서를 선택한 다음 **확인** 을 선택 합니다.
 
 이제 Azure AD 응용 프로그램 프록시를 통해 외부에서 SharePoint 사이트에 액세스할 수 있습니다.
 
 ## <a name="step-3-configure-kerberos-constrained-delegation"></a>3 단계: Kerberos 제한 된 위임 구성
 
-사용자는 처음에 azure AD에서 인증 한 다음 Azure AD 프록시 커넥터를 통해 Kerberos를 사용 하 여 SharePoint에 인증 합니다. 커넥터가 Azure AD 사용자를 대신 하 여 Kerberos 토큰을 얻을 수 있도록 하려면 프로토콜 전환을 사용 하 여 KCD (Kerberos 제한 위임)를 구성 해야 합니다. KCD에 대 한 자세한 내용은 [Kerberos 제한 위임 개요](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11))를 참조 하세요.
+사용자는 처음에 azure AD에서 인증 한 다음 Azure AD 프록시 커넥터를 통해 Kerberos를 사용 하 여 SharePoint에 인증 합니다. 커넥터가 Azure AD 사용자를 대신 하 여 Kerberos 토큰을 얻을 수 있도록 하려면 프로토콜 전환을 사용 하 여 KCD (Kerberos 제한 위임)를 구성 해야 합니다. KCD에 대 한 자세한 내용은 [Kerberos 제한 위임 개요](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11))를 참조 하세요.
 
 ### <a name="set-the-spn-for-the-sharepoint-service-account"></a>SharePoint 서비스 계정에 대 한 SPN 설정
 
@@ -176,7 +176,7 @@ SharePoint 웹 응용 프로그램의 응용 프로그램 풀을 실행 하는 �
 
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
-`Setspn`명령은 추가 하기 전에 SPN을 검색 합니다. SPN이 이미 있는 경우 **중복 된 Spn 값** 오류가 표시 됩니다. 이 경우 올바른 응용 프로그램 풀 계정에 설정 되어 있지 않은 경우 기존 SPN을 제거 하는 것이 좋습니다. -L 옵션을 사용 하 여 명령을 실행 하 여 SPN이 성공적으로 추가 되었는지 확인할 수 있습니다 `Setspn` . 이 명령에 대해 자세히 알아보려면 [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11))을 참조하세요.
+`Setspn`명령은 추가 하기 전에 SPN을 검색 합니다. SPN이 이미 있는 경우 **중복 된 Spn 값** 오류가 표시 됩니다. 이 경우 올바른 응용 프로그램 풀 계정에 설정 되어 있지 않은 경우 기존 SPN을 제거 하는 것이 좋습니다. -L 옵션을 사용 하 여 명령을 실행 하 여 SPN이 성공적으로 추가 되었는지 확인할 수 있습니다 `Setspn` . 이 명령에 대해 자세히 알아보려면 [Setspn](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11))을 참조하세요.
 
 ### <a name="make-sure-the-connector-is-trusted-for-delegation-to-the-spn-that-was-added-to-the-sharepoint-application-pool-account"></a>커넥터가 SharePoint 응용 프로그램 풀 계정에 추가 된 SPN에 대 한 위임용으로 트러스트 되어 있는지 확인 합니다.
 
@@ -187,8 +187,8 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 수�
 1. 도메인 관리자로 도메인 컨트롤러에 로그인 하 고 Active Directory 사용자 및 컴퓨터를 엽니다.
 1. Azure AD 프록시 커넥터를 실행 하는 컴퓨터를 찾습니다. 이 예제에서는 SharePoint 서버 자체입니다.
 1. 컴퓨터를 두 번 클릭한 후 **위임** 탭을 선택합니다.
-1. 위임 옵션이 **지정 된 서비스에 대 한 위임용 으로만이 컴퓨터 트러스트**로 설정 되어 있는지 확인 합니다. 그런 다음 **모든 인증 프로토콜 사용**을 선택 합니다.
-1. **추가** 단추를 선택 하 고, **사용자 또는 컴퓨터**를 선택 하 고, SharePoint 응용 프로그램 풀 계정을 찾습니다. 예: `Contoso\spapppool`
+1. 위임 옵션이 **지정 된 서비스에 대 한 위임용 으로만이 컴퓨터 트러스트** 로 설정 되어 있는지 확인 합니다. 그런 다음 **모든 인증 프로토콜 사용** 을 선택 합니다.
+1. **추가** 단추를 선택 하 고, **사용자 또는 컴퓨터** 를 선택 하 고, SharePoint 응용 프로그램 풀 계정을 찾습니다. 예: `Contoso\spapppool`.
 1. SPN 목록에서 서비스 계정에 대해 이전에 만든 SPN을 선택합니다.
 1. **확인** 을 선택 하 고 **확인** 을 다시 선택 하 여 변경 내용을 저장 합니다.
   
@@ -198,7 +198,7 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 수�
 
 ## <a name="troubleshoot-sign-in-errors"></a>로그인 오류 문제 해결
 
-사이트에 대 한 로그인이 작동 하지 않는 경우 커넥터 로그에서 문제에 대 한 자세한 정보를 얻을 수 있습니다. 커넥터를 실행 하는 컴퓨터에서 이벤트 뷰어를 열고 **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **AadApplicationProxy**  >  **커넥터로**이동 하 여 **관리자** 로그를 검사 합니다.
+사이트에 대 한 로그인이 작동 하지 않는 경우 커넥터 로그에서 문제에 대 한 자세한 정보를 얻을 수 있습니다. 커넥터를 실행 하는 컴퓨터에서 이벤트 뷰어를 열고 **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **AadApplicationProxy**  >  **커넥터로** 이동 하 여 **관리자** 로그를 검사 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

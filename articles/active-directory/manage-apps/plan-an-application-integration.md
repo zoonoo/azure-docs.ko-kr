@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc691148723e610f0885f7c20fd8684f11a81dc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 913b7975de4598bba7240647c1d9e8c81cd1cec9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182329"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659100"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>애플리케이션과 Azure Active Directory 통합 시작 가이드
 
@@ -45,7 +45,7 @@ ms.locfileid: "89182329"
   * Azure AD
   * 사용자가 소유한 별도 애플리케이션 데이터베이스 내에서
   * 허용되지 않은 애플리케이션에서
-  * 위 항목 모두
+  * 위의 모든 항목
 * 개별 사용자는 현재 어떤 사용 권한 및 역할 할당을 가지고 있습니까? 액세스를 검토해야 하거나 사용자 액세스 및 역할 할당이 적절하다고 생각합니까?
 * 그룹은 온-프레미스 Active Directory 내에 만들어 집니까?
   * 그룹을 어떻게 구성합니까?
@@ -66,9 +66,9 @@ ms.locfileid: "89182329"
 ## <a name="integrating-applications-with-azure-ad"></a>Azure AD와 애플리케이션 통합
 다음 문서에서는 애플리케이션을 Azure AD와 통합하는 여러 가지 방법을 설명하고 일부 지침을 제공합니다.
 
-* [사용할 Active Directory 결정](../fundamentals/active-directory-administer.md)
+* [사용할 Active Directory 결정](../fundamentals/active-directory-whatis.md)
 * [Azure 애플리케이션 갤러리에서 애플리케이션 사용](what-is-single-sign-on.md)
-* [SaaS 애플리케이션 통합 자습서 목록](../active-directory-saas-tutorial-list.md)
+* [SaaS 애플리케이션 통합 자습서 목록](../saas-apps/tutorial-list.md)
 
 ### <a name="authentication-types"></a>인증 유형
 애플리케이션에는 각자 다른 인증 요구 사항이 있을 수 있습니다. Azure AD과 함께 인증서 서명은 SAML 2.0, WS-페더레이션 또는 OpenID 연결 프로토콜 뿐만 아니라 암호 Single Sign-on을 사용하는 애플리케이션을 사용하는 애플리케이션과 사용될 수 있습니다. Azure AD와 함께 사용할 애플리케이션 인증 형식에 대한 자세한 내용은 [Azure Active Directory에서 페더레이션된 Single Sign-on에 대한 인증서 관리](manage-certificates-for-federated-single-sign-on.md) 및 [암호 기반 Single Sign On](what-is-single-sign-on.md)을 참조하세요.
@@ -77,7 +77,7 @@ ms.locfileid: "89182329"
 Microsoft Azure AD 애플리케이션 프록시를 사용하여 어디서든 어떤 디바이스에서든 안전하게 프라이빗 네트워크 내부에 위치한 애플리케이션에 액세스를 제공할 수 있습니다. 환경 내에서 애플리케이션 프록시 커넥터를 설치한 후에 Azure AD를 이용하여 쉽게 구성될 수 있습니다.
 
 ### <a name="integrating-custom-applications"></a>사용자 지정 애플리케이션 통합
-새 응용 프로그램을 작성 하 고 개발자가 Azure AD의 기능을 활용 하도록 지원 하려면 [개발자 가이드](../active-directory-applications-guiding-developers-for-lob-applications.md)를 참조 하세요.
+새 응용 프로그램을 작성 하 고 개발자가 Azure AD의 기능을 활용 하도록 지원 하려면 [개발자 가이드](./developer-guidance-for-integrating-applications.md)를 참조 하세요.
 
 Azure 애플리케이션 갤러리에 사용자 지정 애플리케이션을 추가하려는 경우 [Azure AD 셀프 서비스 SAML 구성을 사용하여 "앱 가져오기"](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)를 참조하세요.
 
@@ -86,16 +86,16 @@ Azure 애플리케이션 갤러리에 사용자 지정 애플리케이션을 추
 
 * [Azure AD를 사용하는 앱에 대한 액세스 관리](what-is-access-management.md)
 * [Azure AD 커넥터를 사용하여 자동화](../app-provisioning/user-provisioning.md)
-* [애플리케이션에 사용자 지정](../active-directory-applications-guiding-developers-assigning-users.md)
-* [응용 프로그램에 그룹 할당](../active-directory-applications-guiding-developers-assigning-groups.md)
-* [계정 공유](../active-directory-sharing-accounts.md)
+* [애플리케이션에 사용자 지정](./assign-user-or-group-access-portal.md)
+* [응용 프로그램에 그룹 할당](./assign-user-or-group-access-portal.md)
+* [계정 공유](../enterprise-users/users-sharing-accounts.md)
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [GitHub](https://aka.ms/deploymentplans)에서 Azure Active Directory 배포 계획을 다운로드할 수 있습니다. 갤러리 응용 프로그램의 경우 [Azure Portal](https://portal.azure.com)를 통해 Single Sign-On, 조건부 액세스 및 사용자 프로 비전을 위한 배포 계획을 다운로드할 수 있습니다. 
+자세한 내용은 [GitHub](../fundamentals/active-directory-deployment-plans.md)에서 Azure Active Directory 배포 계획을 다운로드할 수 있습니다. 갤러리 응용 프로그램의 경우 [Azure Portal](https://portal.azure.com)를 통해 Single Sign-On, 조건부 액세스 및 사용자 프로 비전을 위한 배포 계획을 다운로드할 수 있습니다. 
 
 Azure Portal에서 배포 계획을 다운로드하려면:
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **엔터프라이즈 응용 프로그램**선택  |  **앱**  |  **배포 계획**을 선택 합니다.
+2. **엔터프라이즈 응용 프로그램** 선택  |  **앱**  |  **배포 계획** 을 선택 합니다.
 
 [배포 계획 조사](https://aka.ms/DeploymentPlanFeedback)를 수행하여 배포 계획에 대한 피드백을 제공하세요.

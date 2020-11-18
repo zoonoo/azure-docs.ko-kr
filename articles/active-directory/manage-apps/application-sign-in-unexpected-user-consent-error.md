@@ -16,16 +16,16 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7a1b63864f0fbd945b97d6c2e285bfccbf934f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 558c6dc24f6d0d17c9a82bbc79f39649f63dc7f4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874546"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658488"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>애플리케이션에 대한 동의를 수행할 때 예기치 않은 오류
 
-이 문서에서는 애플리케이션에 대한 동의 프로세스 도중 발생할 수 있는 오류에 대해 설명합니다. 오류 메시지가 포함되지 않는 예기치 않은 동의 프롬프트의 문제를 해결하려는 경우 [Azure AD 인증 시나리오](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios)를 참조하세요.
+이 문서에서는 애플리케이션에 대한 동의 프로세스 도중 발생할 수 있는 오류에 대해 설명합니다. 오류 메시지가 포함되지 않는 예기치 않은 동의 프롬프트의 문제를 해결하려는 경우 [Azure AD 인증 시나리오](../develop/authentication-vs-authorization.md)를 참조하세요.
 
 Azure Active Directory와 통합되는 많은 애플리케이션을 작동시키기 위해 다른 리소스에 대한 사용 권한이 필요합니다. 또한 이러한 리소스가 Azure Active Directory와 통합되면 종종 일반적인 동의 프레임워크를 사용하여 액세스하기 위한 사용 권한을 요청합니다. 일반적으로 애플리케이션을 처음 사용할 때 발생하지만 이후에 애플리케이션을 사용할 때도 발생할 수 있는 동의 확인 프롬프트가 표시됩니다.
 
@@ -90,8 +90,6 @@ Microsoft에서 동의 요청이 위험할 수 있는 것으로 확인 되 면 �
 
 ## <a name="next-steps"></a>다음 단계 
 
-[Azure Active Directory에서 앱, 사용 권한 및 동의(v1 엔드포인트)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
+[Azure Active Directory에서 앱, 사용 권한 및 동의(v1 엔드포인트)](../develop/quickstart-register-app.md)<br>
 
-[Azure Active Directory의 범위, 사용 권한 및 동의(v2.0 엔드포인트)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+[Azure Active Directory의 범위, 사용 권한 및 동의(v2.0 엔드포인트)](../develop/v2-permissions-and-consent.md)

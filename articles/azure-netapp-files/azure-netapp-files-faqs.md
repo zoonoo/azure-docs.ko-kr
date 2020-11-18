@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/16/2020
 ms.author: b-juche
-ms.openlocfilehash: d4e66511ce3017749076615f081a8fb56d8b8452
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 5409f9177116add1fd794ec1e72f276daf34e029
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591549"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659151"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -168,6 +168,10 @@ Azure NetApp Files는 Windows Server 2008 R2sp1-2019 버전의 Active Directory 
 
 SMB 클라이언트에서 보고 하는 볼륨 크기는 Azure NetApp Files 볼륨의 크기를 늘릴 수 있는 최대 크기입니다. SMB 클라이언트에 표시 되는 Azure NetApp Files 볼륨의 크기는 볼륨의 할당량 또는 크기를 반영 하지 않습니다. Azure Portal 또는 API를 통해 Azure NetApp Files 볼륨 크기 또는 할당량을 가져올 수 있습니다.
 
+### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>내 SMB 공유에 연결 하는 데 문제가 있습니다.   어떻게 해야 합니까?
+
+컴퓨터 클록 동기화에 대 한 최대 허용 오차를 5 분으로 설정 하는 것이 가장 좋습니다. 자세한 내용은 [컴퓨터 클록 동기화에 대 한 최대 허용 오차](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11))를 참조 하세요. 
+
 <!--
 ### Does Azure NetApp Files support LDAP signing? 
 
@@ -190,7 +194,7 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 320 디렉터리의 경우 블록 수는 655360 이며 각 블록 크기는 512 바이트입니다.  (즉, 320x1024x1024/512)  
 
-예제:
+예:
 
 ```console
 [makam@cycrh6rtp07 ~]$ stat bin

@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cde5afe01c90b68567f411bcf26063f02ca5a34a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 7fc688ca0981024e5e08c9fb20ecb6704efbd7f2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027247"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658777"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>관리자 동의 워크플로 구성 (미리 보기)
 
@@ -35,7 +35,7 @@ ms.locfileid: "93027247"
 
 1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 탐색 메뉴의 맨 위에 있는 **모든 서비스** 를 클릭합니다. **Azure Active Directory 확장** 이 열립니다.
-3. 필터 검색 상자에 " **Azure Active Directory** "를 입력 하 고 **Azure Active Directory** 항목을 선택 합니다.
+3. 필터 검색 상자에 "**Azure Active Directory**"를 입력 하 고 **Azure Active Directory** 항목을 선택 합니다.
 4. 탐색 메뉴에서 **엔터프라이즈 애플리케이션** 을 클릭합니다. 
 5. **관리** 에서 **사용자 설정** 을 선택 합니다.
 6. **관리자 동의 요청 (미리 보기)** 아래에서 **사용자가 동의할 수 없는 앱에 대해 관리자 동의를 요청할 수 있습니다** .를 **예** 로 설정 합니다.
@@ -45,8 +45,8 @@ ms.locfileid: "93027247"
 6. 다음 설정을 구성합니다.
 
    * **관리자 동의 요청을 검토 하려면 사용자를 선택** 합니다. 전역 관리자, 클라우드 응용 프로그램 관리자 및 응용 프로그램 관리자 역할이 있는 사용자 집합에서이 워크플로에 대 한 검토자를 선택 합니다.
-   * **선택한 사용자는 요청에 대 한 전자 메일 알림을 받게 됩니다** . 요청을 만들 때 검토자에 게 전자 메일 알림을 사용 하거나 사용 하지 않도록 설정 합니다.  
-   * **선택한 사용자는 요청 만료 미리 알림을 받게 됩니다** . 요청이 곧 만료 될 때 검토자에 게 미리 알림 전자 메일 알림을 사용 하거나 사용 하지 않도록 설정 합니다.  
+   * **선택한 사용자는 요청에 대 한 전자 메일 알림을 받게 됩니다**. 요청을 만들 때 검토자에 게 전자 메일 알림을 사용 하거나 사용 하지 않도록 설정 합니다.  
+   * **선택한 사용자는 요청 만료 미리 알림을 받게 됩니다**. 요청이 곧 만료 될 때 검토자에 게 미리 알림 전자 메일 알림을 사용 하거나 사용 하지 않도록 설정 합니다.  
    * **동의 요청은 (일) 후에 만료** 됩니다. 요청이 유효한 상태로 유지 되는 기간을 지정 합니다.
 
 7. **저장** 을 선택합니다. 기능을 사용 하도록 설정 하는 데 최대 한 시간이 걸릴 수 있습니다.
@@ -76,7 +76,7 @@ ms.locfileid: "93027247"
 
 1. 관리자 동의 워크플로의 등록 된 검토자 중 하나로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
 2. 왼쪽 탐색 메뉴의 맨 위에서 **모든 서비스** 를 선택 합니다. **Azure Active Directory 확장** 이 열립니다.
-3. 필터 검색 상자에 " **Azure Active Directory** "를 입력 하 고 **Azure Active Directory** 항목을 선택 합니다.
+3. 필터 검색 상자에 "**Azure Active Directory**"를 입력 하 고 **Azure Active Directory** 항목을 선택 합니다.
 4. 탐색 메뉴에서 **엔터프라이즈 애플리케이션** 을 클릭합니다.
 5. **활동** 에서 **관리자 동의 요청 (미리 보기)** 을 선택 합니다.
 
@@ -147,7 +147,7 @@ ms.locfileid: "93027247"
 
 **검토자는 응용 프로그램을 승인할 수는 있지만 모든 사용자에 게는 그렇지 않나요?**
  
-관리자 동의를 부여 하 고 테 넌 트의 모든 사용자가 응용 프로그램을 사용 하도록 허용 하는 경우 요청을 거부 하는 것이 좋습니다. 그런 다음 사용자 할당을 요구 하 고 응용 프로그램에 사용자 또는 그룹을 할당 하 여 응용 프로그램에 대 한 액세스를 제한 함으로써 관리자 동의를 수동으로 부여 합니다. 자세한 내용은 [사용자 및 그룹을 할당하는 메서드](methods-for-assigning-users-and-groups.md)를 참조하세요.
+관리자 동의를 부여 하 고 테 넌 트의 모든 사용자가 응용 프로그램을 사용 하도록 허용 하는 경우 요청을 거부 하는 것이 좋습니다. 그런 다음 사용자 할당을 요구 하 고 응용 프로그램에 사용자 또는 그룹을 할당 하 여 응용 프로그램에 대 한 액세스를 제한 함으로써 관리자 동의를 수동으로 부여 합니다. 자세한 내용은 [사용자 및 그룹을 할당하는 메서드](./assign-user-or-group-access-portal.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -157,6 +157,6 @@ ms.locfileid: "93027247"
 
 [애플리케이션에 대한 테넌트 전체 관리자 동의 부여](grant-admin-consent.md)
 
-[Microsoft ID 플랫폼의 권한 및 동의](../develop/active-directory-v2-scopes.md)
+[Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
 [StackOverflow의 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)

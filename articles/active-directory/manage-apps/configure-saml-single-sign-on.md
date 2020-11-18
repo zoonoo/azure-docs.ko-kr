@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: c72a2b134fc2c24789ebb75f61d9b64d63d3d48e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: ec020ecd4c2bcf6e9186afb3d2c4a79ef235c371
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339481"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658913"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>SAML 기반 Single Sign-On 이해
 
@@ -32,7 +32,7 @@ IdP (Id 공급자)로 Azure AD를 사용 하 고 SSO (Single Sign-On)를 구성 
 > [!IMPORTANT] 
 > **엔터프라이즈 응용** 프로그램의 응용 프로그램 탐색에는 **Single sign-on** 옵션이 없는 몇 가지 시나리오가 있습니다. 
 >
-> **앱 등록** 를 사용 하 여 응용 프로그램을 등록 한 경우 Single Sign-On 기능은 기본적으로 Oidc OAuth를 사용 하도록 구성 됩니다. 이 경우 **Enterprise 응용 프로그램** 에서 **Single sign-on** 옵션이 탐색에 표시 되지 않습니다. **앱 등록** 를 사용 하 여 사용자 지정 앱을 추가 하는 경우 매니페스트 파일의 옵션을 구성 합니다. 매니페스트 파일에 대 한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)를 참조 하세요. SSO 표준에 대해 자세히 알아보려면 [Microsoft id 플랫폼을 사용한 인증 및 권한 부여](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform)를 참조 하세요. 
+> **앱 등록** 를 사용 하 여 응용 프로그램을 등록 한 경우 Single Sign-On 기능은 기본적으로 Oidc OAuth를 사용 하도록 구성 됩니다. 이 경우 **Enterprise 응용 프로그램** 에서 **Single sign-on** 옵션이 탐색에 표시 되지 않습니다. **앱 등록** 를 사용 하 여 사용자 지정 앱을 추가 하는 경우 매니페스트 파일의 옵션을 구성 합니다. 매니페스트 파일에 대 한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트](../develop/reference-app-manifest.md)를 참조 하세요. SSO 표준에 대해 자세히 알아보려면 [Microsoft id 플랫폼을 사용한 인증 및 권한 부여](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform)를 참조 하세요. 
 >
 > 응용 프로그램이 다른 테 넌 트에 호스트 되거나 사용자 계정에 필요한 권한 (전역 관리자, 클라우드 응용 프로그램 관리자, 응용 프로그램 관리자 또는 서비스 주체의 소유자)이 없는 경우에는 탐색에서 **Single sign-on** 이 누락 되는 경우도 있습니다. 사용 권한은 **Single sign-on** 을 열 수는 있지만 저장할 수 없는 시나리오를 일으킬 수도 있습니다. Azure AD 관리 역할에 대 한 자세한 내용은 (를 참조 https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 하세요.
 
@@ -46,7 +46,7 @@ IdP (Id 공급자)로 Azure AD를 사용 하 고 SSO (Single Sign-On)를 구성 
 
 | 기본 SAML 구성 설정 | SP 시작 | idP 시작 | Description |
 |:--|:--|:--|:--|
-| **ID(엔터티 ID)** | 일부 앱의 경우 필수 | 일부 앱의 경우 필수 | 애플리케이션을 고유하게 식별합니다. Azure AD는 SAML 토큰의 대상 매개 변수로 애플리케이션에 식별자를 보냅니다. 애플리케이션이 식별자의 유효성을 검사해야 합니다. 또한 이 값은 애플리케이션에서 제공하는 모든 SAML 메타데이터 내에서 엔터티 ID로 표시됩니다. 'https://<subdomain>.contoso.com' 패턴을 사용하여 URL을 입력합니다. *이 값은 애플리케이션에서 보낸 **AuthnRequest** (SAML 요청)에서 **Issuer** (발급자) 요소로 찾을 수 있습니다.* |
+| **ID(엔터티 ID)** | 일부 앱의 경우 필수 | 일부 앱의 경우 필수 | 애플리케이션을 고유하게 식별합니다. Azure AD는 SAML 토큰의 대상 매개 변수로 애플리케이션에 식별자를 보냅니다. 애플리케이션이 식별자의 유효성을 검사해야 합니다. 또한 이 값은 애플리케이션에서 제공하는 모든 SAML 메타데이터 내에서 엔터티 ID로 표시됩니다. 'https://<subdomain>.contoso.com' 패턴을 사용하여 URL을 입력합니다. *이 값은 애플리케이션에서 보낸 **AuthnRequest**(SAML 요청)에서 **Issuer**(발급자) 요소로 찾을 수 있습니다.* |
 | **회신 URL** | 필수 | 필수 | 애플리케이션이 SAML 토큰을 수신해야 하는 위치를 지정합니다. 회신 URL은 ACS(Assertion Consumer Service) URL이라고도 합니다. 추가 회신 URL 필드를 사용하여 여러 회신 URL을 지정할 수 있습니다. 예를 들어 여러 하위 도메인에 대해 추가 회신 URL이 필요할 수 있습니다. 또는 테스트를 위해 한 번에 여러 회신 URL(로컬 호스트 및 공용 URL)을 지정할 수 있습니다. |
 | **로그온 URL** | 필수 | 지정하지 않음 | 사용자가 이 URL을 열면 서비스 공급자가 Azure AD를 리디렉션하여 사용자를 인증하고 로그온하도록 합니다. Azure AD는 URL을 사용 하 여 Microsoft 365 또는 Azure AD 내 앱에서 응용 프로그램을 시작 합니다. 비어 있는 경우 Azure AD는 사용자가 Microsoft 365, Azure AD 내 앱 또는 Azure AD SSO URL에서 응용 프로그램을 시작할 때 IdP 시작 로그온을 수행 합니다.|
 | **릴레이 상태** | 옵션 | 옵션 | 인증이 완료되면 사용자를 리디렉션할 위치를 애플리케이션에 지정합니다. 일반적으로 이 값은 애플리케이션에 대한 올바른 URL입니다. 그러나 일부 애플리케이션에서는 이 필드를 다르게 사용합니다. 자세한 내용은 애플리케이션 공급 업체에 요청하세요.
@@ -72,7 +72,7 @@ SAML 클레임을 사용자 지정 하는 방법에 대 한 자세한 내용은 
 >- Azure Portal를 통해 사용자 지정 역할을 만들려면 [역할 클레임 구성](../develop/active-directory-enterprise-app-role-management.md)을 참조하세요.
 >- PowerShell을 통해 클레임을 사용자 지정하려면 [클레임 사용자 지정 - PowerShell](../develop/active-directory-claims-mapping.md)을 참조하세요.
 >- 애플리케이션에 대한 선택적 클레임을 구성하도록 애플리케이션 매니페스트를 수정하려면 [선택적 클레임 구성](../develop/active-directory-optional-claims.md)을 참조하세요.
->- 새로 고침 토큰, 액세스 토큰, 세션 토큰 및 ID 토큰에 대 한 토큰 수명 정책을 설정하려면 [토큰 수명 구성](../develop/active-directory-configurable-token-lifetimes.md)을 참조하세요. 또는 Azure AD 조건부 액세스를 통해 인증 세션을 제한하려면 [인증 세션 관리 기능](https://go.microsoft.com/fwlink/?linkid=2083106)을 참조하세요.
+>- 새로 고침 토큰, 액세스 토큰, 세션 토큰 및 ID 토큰에 대 한 토큰 수명 정책을 설정하려면 [토큰 수명 구성](../develop/active-directory-configurable-token-lifetimes.md)을 참조하세요. 또는 Azure AD 조건부 액세스를 통해 인증 세션을 제한하려면 [인증 세션 관리 기능](../conditional-access/howto-conditional-access-session-lifetime.md)을 참조하세요.
 
 ## <a name="saml-signing-certificate"></a>SAML 서명 인증서
 
@@ -106,7 +106,7 @@ Azure AD에서는 Base64 또는 원시 형식의 활성 인증서를 기본 **SA
 
 **로그인 url** 및 **로그 아웃 url** 값은 모두 동일한 끝점 (Azure AD 테 넌 트의 SAML 요청 처리 끝점)으로 확인 됩니다. 
 
-**Azure AD 식별자** 는 애플리케이션에 발급된 SAML 토큰의 **Issuer** (발급자) 값입니다.
+**Azure AD 식별자** 는 애플리케이션에 발급된 SAML 토큰의 **Issuer**(발급자) 값입니다.
 
 ## <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
@@ -128,12 +128,12 @@ Azure AD를 SAML 기반 ID 공급자로 사용하도록 애플리케이션을 �
 
 4. 성공적으로 완료될 때까지 테스트를 다시 실행합니다.
 
-자세한 내용은 [Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그](../azuread-dev/howto-v1-debug-saml-sso-issues.md)를 참조하세요.
+자세한 내용은 [Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그](./debug-saml-sso-issues.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
 - [애플리케이션 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)
-- [애플리케이션에 사용자 또는 그룹 할당](methods-for-assigning-users-and-groups.md)
+- [애플리케이션에 사용자 또는 그룹 할당](./assign-user-or-group-access-portal.md)
 - [자동 사용자 계정 프로비저닝 구성](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 - [Single Sign-On SAML 프로토콜](../develop/single-sign-on-saml-protocol.md)

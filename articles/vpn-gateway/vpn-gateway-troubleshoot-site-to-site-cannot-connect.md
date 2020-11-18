@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 09056846ee3e531724f597ee35f92d812ce2c335
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 674b8ab8266921a4eef8bbf212f3c556b1e587d7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86037837"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658352"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>문제 해결: Azure 사이트 간 VPN 연결에서 연결할 수 없고 작동이 중지됨
 
@@ -22,7 +22,7 @@ ms.locfileid: "86037837"
 
 ## <a name="troubleshooting-steps"></a>문제 해결 단계
 
-이 문제를 해결하려면 먼저 [Azure VPN 게이트웨이를 다시 설정](vpn-gateway-resetgw-classic.md)하고 온-프레미스 VPN 디바이스에서 터널을 다시 설정해 봅니다. 문제가 계속되면 다음 단계에 따라 문제의 원인을 식별합니다.
+이 문제를 해결하려면 먼저 [Azure VPN 게이트웨이를 다시 설정](./reset-gateway.md)하고 온-프레미스 VPN 디바이스에서 터널을 다시 설정해 봅니다. 문제가 계속되면 다음 단계에 따라 문제의 원인을 식별합니다.
 
 ### <a name="prerequisite-step"></a>필수 조건 단계
 
@@ -50,7 +50,7 @@ Azure VPN 연결에 대한 공유 키를 보려면 다음 방법 중 하나를 �
 
 1. 만든 VPN 게이트웨이 사이트 간 연결로 이동합니다.
 
-2. **설정** 섹션에서 **공유 키**를 클릭 합니다.
+2. **설정** 섹션에서 **공유 키** 를 클릭 합니다.
     
     ![공유 키](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
@@ -70,7 +70,7 @@ Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -Resource
 Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 ```
 
-### <a name="step-3-verify-the-vpn-peer-ips"></a>3단계: VPN 피어 IP 확인
+### <a name="step-3-verify-the-vpn-peer-ips"></a>3단계. VPN 피어 IP 확인
 
 -   Azure의 **로컬 네트워크 게이트웨이** 개체에 있는 IP 정의가 온-프레미스 디바이스 IP와 일치해야 합니다.
 -   온-프레미스 디바이스에 설정된 Azure 게이트웨이 IP 정의는 Azure 게이트웨이 IP와 일치해야 합니다.
@@ -88,7 +88,7 @@ Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>6단계. 서브넷이 정확하게 일치하는지 확인(Azure 정책 기반 게이트웨이)
 
 -   Azure Virtual Network와 온-프레미스 정의 간에 가상 네트워크 주소 공간이 정확하게 일치하는지 확인합니다.
--   **로컬 네트워크 게이트웨이**와 온-프레미스 네트워크에 대한 온-프레미스 정의 간에 서브넷이 정확하게 일치하는지 확인합니다.
+-   **로컬 네트워크 게이트웨이** 와 온-프레미스 네트워크에 대한 온-프레미스 정의 간에 서브넷이 정확하게 일치하는지 확인합니다.
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>7단계. Azure 게이트웨이 상태 프로브 확인
 

@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 38bff38ebe44d9018299444b89d7743c4cc92b72
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ef38c5364a0df1df63be825e2c46009174840b72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424197"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658131"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 
@@ -58,7 +58,7 @@ Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 �
 응용 프로그램 프록시 커넥터는 Azure에 대 한 인증서 기반 인증을 수행 합니다. Tls 종료 (TLS/HTTPS 검사 또는 가속)는이 인증 방법을 중단 하며 지원 되지 않습니다. 커넥터에서 Azure로의 트래픽은 TLS 종료를 수행 하는 모든 장치를 무시 해야 합니다.  
 
 ### <a name="is-tls-12-required-for-all-connections"></a>모든 연결에 TLS 1.2이 필요 한가요?
-예. 고객에게 동급 최고의 암호화를 제공하기 위해 애플리케이션 프록시 서비스는 TLS 1.2 프로토콜에 대한 액세스만 제한합니다. 이러한 변경 내용은 2019년 8월 31일 이후에 점진적으로 롤아웃되고 유효합니다. TLS 1.2를 사용하여 애플리케이션 프록시 서비스에 대한 연결을 유지하도록 모든 클라이언트-서버 및 브라우저-서버 조합을 업데이트해야 합니다. 여기에는 사용자가 애플리케이션 프록시를 통해 게시된 애플리케이션에 액세스할 때 사용하는 클라이언트도 포함됩니다. [Office 365의 TLS 1.2](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365)에서 유용한 참고 자료 및 리소스를 확인하세요.
+예. 고객에게 동급 최고의 암호화를 제공하기 위해 애플리케이션 프록시 서비스는 TLS 1.2 프로토콜에 대한 액세스만 제한합니다. 이러한 변경 내용은 2019년 8월 31일 이후에 점진적으로 롤아웃되고 유효합니다. TLS 1.2를 사용하여 애플리케이션 프록시 서비스에 대한 연결을 유지하도록 모든 클라이언트-서버 및 브라우저-서버 조합을 업데이트해야 합니다. 여기에는 사용자가 애플리케이션 프록시를 통해 게시된 애플리케이션에 액세스할 때 사용하는 클라이언트도 포함됩니다. [Office 365의 TLS 1.2](/microsoft-365/compliance/prepare-tls-1.2-in-office-365)에서 유용한 참고 자료 및 리소스를 확인하세요.
 
 ### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>커넥터 서버와 백 엔드 응용 프로그램 서버 간에 전달 프록시 장치를 놓을 수 있나요?
 예,이 시나리오는 커넥터 버전 1.5.1526.0부터 지원 됩니다. [기존 온-프레미스 프록시 서버 작업을](application-proxy-configure-connectors-with-proxy-servers.md)참조 하세요.
@@ -71,7 +71,7 @@ Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 �
 
 커넥터와 함께 설치 되는 성능 모니터 카운터가 있습니다. 이 내용을 확인하려면 다음을 수행하십시오.  
 
-1. **시작**을 선택 하 고 "Perfmon"을 입력 한 다음 enter 키를 누릅니다.
+1. **시작** 을 선택 하 고 "Perfmon"을 입력 한 다음 enter 키를 누릅니다.
 2. **성능 모니터** 를 선택 하 고 녹색 **+** 아이콘을 클릭 합니다.
 3. 모니터링 하려는 **MICROSOFT AAD 응용 프로그램 프록시 커넥터** 카운터를 추가 합니다.
 
@@ -102,7 +102,7 @@ SSL 인증서를 업로드 한 후에는 포털에서 "잘못 된 인증서, 잘
 
 ### <a name="how-do-i-change-the-landing-page-my-application-loads"></a>응용 프로그램에서 로드 하는 방문 페이지를 변경 어떻게 할까요??
 
-응용 프로그램 등록 페이지에서 홈페이지 URL을 방문 페이지의 원하는 외부 URL로 변경할 수 있습니다. 응용 프로그램이 내 앱 또는 Office 365 포털에서 시작 되 면 지정 된 페이지가 로드 됩니다. 구성 단계는 Azure를 [사용 하 여 게시 된 앱에 대 한 사용자 지정 홈 페이지 설정](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-home-page) 을 참조 하세요 AD 응용 프로그램 프록시
+응용 프로그램 등록 페이지에서 홈페이지 URL을 방문 페이지의 원하는 외부 URL로 변경할 수 있습니다. 응용 프로그램이 내 앱 또는 Office 365 포털에서 시작 되 면 지정 된 페이지가 로드 됩니다. 구성 단계는 Azure를 [사용 하 여 게시 된 앱에 대 한 사용자 지정 홈 페이지 설정](./application-proxy-configure-custom-home-page.md) 을 참조 하세요 AD 응용 프로그램 프록시
 
 ### <a name="can-only-iis-based-applications-be-published-what-about-web-applications-running-on-non-windows-web-servers-does-the-connector-have-to-be-installed-on-a-server-with-iis-installed"></a>IIS 기반 응용 프로그램만 게시할 수 있나요? Windows가 아닌 웹 서버에서 실행 되는 웹 응용 프로그램은 어떻게 되나요? IIS가 설치 된 서버에 커넥터를 설치 해야 하나요?
 
@@ -171,7 +171,7 @@ Azure AD에서 성공적으로 미리 인증 된 사용자에 대해서만 조�
 
 ### <a name="can-i-use-the-sharepoint-mobile-app-ios-android-to-access-a-published-sharepoint-server"></a>SharePoint 모바일 앱 (iOS/Android)을 사용 하 여 게시 된 SharePoint 서버에 액세스할 수 있나요?
 
-[SharePoint 모바일 앱](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) 은 현재 Azure Active Directory 사전 인증을 지원 하지 않습니다.
+[SharePoint 모바일 앱](/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) 은 현재 Azure Active Directory 사전 인증을 지원 하지 않습니다.
 
 ## <a name="active-directory-federation-services-ad-fs-publishing"></a>Active Directory Federation Services (AD FS) 게시 
 
@@ -193,7 +193,7 @@ Windows 관리 센터 (WAC) 또는 원격 데스크톱 웹 클라이언트 (HTML
 
 예. 링크 변환은 성능에 영향을 줍니다. 응용 프로그램 프록시 서비스는 응용 프로그램에서 하드 코드 된 링크를 검색 하 여 해당 링크를 사용자에 게 제공 하기 전에 게시 된 해당 외부 Url로 바꿉니다. 
 
-최상의 성능을 위해 [사용자 지정 도메인](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain)을 구성 하 여 동일한 내부 및 외부 url을 사용 하는 것이 좋습니다. 사용자 지정 도메인을 사용 하는 것이 불가능 한 경우에는 내 앱 보안 로그인 확장 또는 모바일의 Microsoft Edge 브라우저를 사용 하 여 링크 변환 성능을 향상 시킬 수 있습니다. [Azure AD 응용 프로그램 프록시로 게시 된 앱에 대 한 하드 코딩 된 링크 리디렉션](application-proxy-configure-hard-coded-link-translation.md)을 참조 하세요.
+최상의 성능을 위해 [사용자 지정 도메인](./application-proxy-configure-custom-domain.md)을 구성 하 여 동일한 내부 및 외부 url을 사용 하는 것이 좋습니다. 사용자 지정 도메인을 사용 하는 것이 불가능 한 경우에는 내 앱 보안 로그인 확장 또는 모바일의 Microsoft Edge 브라우저를 사용 하 여 링크 변환 성능을 향상 시킬 수 있습니다. [Azure AD 응용 프로그램 프록시로 게시 된 앱에 대 한 하드 코딩 된 링크 리디렉션](application-proxy-configure-hard-coded-link-translation.md)을 참조 하세요.
 
 ## <a name="wildcards"></a>와일드카드
 
@@ -204,5 +204,5 @@ Windows 관리 센터 (WAC) 또는 원격 데스크톱 웹 클라이언트 (HTML
 1. HTTP 및 HTTPS Url 모두 와일드 카드를 사용 하 여 별도의 응용 프로그램으로 게시 하지만 각 응용 프로그램에 서로 다른 사용자 지정 도메인을 제공 합니다. 이 구성은 외부 URL이 다르기 때문에 작동 합니다.
 
 2. 와일드 카드 응용 프로그램을 통해 HTTPS URL을 게시 합니다. 이러한 응용 프로그램 프록시 PowerShell cmdlet을 사용 하 여 HTTP 응용 프로그램을 별도로 게시 합니다.
-   - [응용 프로그램 프록시 응용 프로그램 관리](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
-   - [응용 프로그램 프록시 커넥터 관리](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)
+   - [응용 프로그램 프록시 응용 프로그램 관리](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
+   - [응용 프로그램 프록시 커넥터 관리](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)

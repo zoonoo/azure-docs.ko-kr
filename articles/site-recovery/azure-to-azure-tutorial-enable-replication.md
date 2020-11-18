@@ -1,68 +1,79 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure VM 재해 복구 설정
-description: Azure Site Recovery 서비스를 사용하여 다른 Azure 지역에 Azure VM의 재해 복구를 설정하는 방법을 알아봅니다.
+title: Azure Site Recovery를 사용하여 Azure VM 재해 복구를 설정하는 자습서
+description: 이 자습서에서는 Azure Site Recovery를 사용하여 다른 Azure 지역에 Azure VM에 대한 재해 복구를 설정합니다.
 ms.topic: tutorial
-ms.date: 1/24/2020
-ms.author: raynew
+ms.date: 11/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 50bf1ec7f21ccbc3a3fa8feaea02e45bd08a158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90527ad39055e438e4970ad4686f204f72d20cd2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87421419"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394103"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms"></a>Azure VM에 대한 재해 복구 설정
+# <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>자습서: Azure VM에 대한 재해 복구 설정
 
-[Azure Site Recovery](site-recovery-overview.md) 서비스는 온-프레미스 컴퓨터와 Azure VM(Virtual Machines)의 복제, 장애 조치(failover), 장애 복구(failback)를 관리 및 오케스트레이션하여 재해 복구 전략에 기여합니다.
-
-이 자습서에서는 다른 Azure 지역으로 복제하여 Azure VM의 재해 복구를 설정하는 방법을 보여 줍니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 Azure VM에 대한 재해 복구를 설정하는 방법을 보여줍니다. 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
+> * Azure 설정 및 사용 권한 확인
+> * 복제할 VM 준비
 > * Recovery Services 자격 증명 모음 만들기
-> * 대상 리소스 설정 확인
-> * VM에 대한 아웃바운드 네트워크 연결 설정
-> * VM에 대한 복제 사용
+> * VM 복제를 사용하도록 설정
+
+VM에 복제를 사용하도록 설정하여 재해 복구를 설정하면 Site Recovery Mobility Service 확장이 VM에 설치되고 Azure Site Recovery에 등록됩니다. 복제하는 동안 VM 디스크 쓰기는 원본 지역의 캐시 스토리지 계정으로 전송됩니다. 여기에서 대상 지역으로 데이터가 전송되고 데이터에서 복구 지점이 생성됩니다. 재해 복구 중에 VM을 장애 조치(failover)하면 복구 지점이 대상 지역에서 VM을 복원하는 데 사용됩니다.
 
 > [!NOTE]
-> 이 문서에서는 가장 간단한 설정을 사용하여 재해 복구를 배포하기 위한 지침을 제공합니다. 사용자 지정된 설정을 알아보려면 [방법 섹션](azure-to-azure-how-to-enable-replication.md)의 문서를 검토하세요.
+> 자습서는 가장 간단한 기본 설정을 사용하여 지침을 제공합니다. 사용자 지정된 설정을 사용하여 Azure VM 재해 복구를 설정하려면 [이 문서](azure-to-azure-how-to-enable-replication.md)를 검토하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-이 자습서를 완료하려면 다음이 필요합니다.
+## <a name="prerequisites"></a>필수 구성 요소
 
-- [시나리오 아키텍처 및 구성 요소](./azure-to-azure-architecture.md)를 검토합니다.
-- 시작하기 전에 [지원 요구 사항](./azure-to-azure-support-matrix.md)을 검토합니다.
+이 자습서를 시작하기 전에 먼저 다음을 수행합니다.
 
-## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
+- [지원되는 지역을 검토합니다](azure-to-azure-support-matrix.md#region-support). 동일한 지리적 위치에 있는 두 지역 간에 Azure VM에 대한 재해 복구를 설정할 수 있습니다.
+- 하나 이상의 Azure VM이 필요합니다. [Windows](azure-to-azure-support-matrix.md#windows) 또는 [Linux](azure-to-azure-support-matrix.md#replicated-machines---linux-file-systemguest-storage) VM이 지원되는지 확인합니다.
+- VM [컴퓨팅](azure-to-azure-support-matrix.md#replicated-machines---compute-settings), [스토리지](azure-to-azure-support-matrix.md#replicated-machines---storage) 및 [네트워킹](azure-to-azure-support-matrix.md#replicated-machines---networking)요구 사항을 검토합니다.
+- 이 자습서에서는 VM이 암호화되지 않았다고 가정합니다. 암호화된 VM에 대한 재해 복구를 설정하려면 [이 문서를 참조하세요](azure-to-azure-how-to-enable-replication-ade-vms.md).
 
-원본 지역을 제외한 모든 지역에 자격 증명 모음을 만듭니다.
+## <a name="check-azure-settings"></a>Azure 설정 확인
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다. 그런 다음, **IT 및 관리 도구** > **Backup 및 Site Recovery**를 차례로 선택합니다.
-1. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 적절한 구독을 선택합니다.
-1. 리소스 그룹을 만들거나 기존 그룹을 선택합니다. Azure 지역을 지정합니다. 지원되는 지역을 확인하려면 [Azure Site Recovery 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하세요.
-1. 대시보드에서 자격 증명 모음에 액세스하려면 **대시보드에 고정**, **만들기**를 차례로 선택합니다.
+대상 지역의 사용 권한 및 설정을 확인합니다.
 
-   ![새 자격 증명 모음](./media/azure-to-azure-tutorial-enable-replication/new-vault-settings.png)
+### <a name="check-permissions"></a>사용 권한 확인
 
-**대시보드**의 **모든 리소스** 아래와 주 **Recovery Services 자격 증명 모음** 페이지에 새 자격 증명 모음이 추가됩니다.
+Azure 계정에는 Recovery Services 자격 증명 모음을 만들고 대상 지역에 VM을 만들 수 있는 권한이 필요합니다.
 
-## <a name="verify-target-resource-settings"></a>대상 리소스 설정 확인
+- 무료 Azure 구독을 방금 만든 사용자는 계정 관리자이므로 추가 작업이 필요하지 않습니다.
+- 관리자가 아닌 경우, 관리자와 협력하여 필요한 권한을 얻으십시오.
+    - **자격 증명 모음 만들기**: 구독에 대한 관리자 또는 소유자 권한 
+    - **자격 증명 모음에서 Site Recovery 작업 관리**: *Site Recovery* 기여자 기본 제공 Azure 역할
+    - **대상 지역에서 Azure VM 만들기**: 기본 제공되는 Virtual Machine 기여자 역할 또는 다음을 수행할 수 있는 특정 권한:
+        - 선택한 가상 네트워크에 VM 만들기
+        - Azure Storage 계정에 쓰기
+        - Azure 관리 디스크에 쓰기
 
-대상 지역에 대한 Azure 구독을 확인합니다.
+### <a name="verify-target-settings"></a>대상 설정 확인
 
-- Azure 구독에서 대상 지역에 VM을 만들 수 있도록 허용하는지 확인합니다. 필요한 할당량을 사용하려면 지원 팀에 문의하세요.
-- 구독에 원본 VM과 동일한 크기의 VM을 지원할 수 있을 만큼 충분한 리소스가 있는지 확인합니다. Site Recovery는 대상 VM에 대해 동일한 크기 또는 가장 가깝게 가능한 크기를 선택합니다.
+검색 복구 중에 원본 지역에서 장애 조치(failover)를 수행하면 대상 지역에 VM이 만들어집니다. 
 
-## <a name="set-up-outbound-network-connectivity-for-vms"></a>VM에 대한 아웃바운드 네트워크 연결 설정
+구독이 대상 지역에 충분한 리소스가 있는지 확인합니다. 원본 지역의 VM과 일치하는 크기로 VM을 만들 수 있어야 합니다. 재해 복구를 설정할 때 Site Recovery는 대상 VM에 대해 동일한 크기(또는 가장 가까운 크기)를 선택합니다.
 
-Site Recovery가 예상대로 작동하려면 복제하려는 VM에서 아웃바운드 네트워크 연결을 수정해야 합니다.
+
+## <a name="prepare-vms"></a>VM 준비
+
+VM에 아웃바운드 연결이 있고 최신 루트 인증서가 있는지 확인합니다. 
+
+
+### <a name="set-up-vm-connectivity"></a>VM 연결 설정
+
+복제하려는 VM에는 아웃바운드 네트워크 연결이 필요합니다.
 
 > [!NOTE]
 > Site Recovery는 인증 프록시를 사용하여 네트워크 연결을 제어하도록 지원하지 않습니다.
 
-### <a name="outbound-connectivity-for-urls"></a>URL에 대한 아웃바운드 연결
+#### <a name="outbound-connectivity-for-urls"></a>URL에 대한 아웃바운드 연결
 
 URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 다음 URL에 대한 액세스를 허용합니다.
 
@@ -73,118 +84,107 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 | 복제               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | VM이 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 합니다. |
 
-### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
+#### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
 
-NSG(네트워크 보안 그룹)를 사용하는 경우 Azure Storage, Azure Active Directory, Site Recovery 서비스 및 Site Recovery 모니터링에 액세스할 수 있는 서비스 태그 기반 NSG 규칙을 만듭니다. [자세히 알아보기](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
+NSG(네트워크 보안 그룹)를 사용하여 연결을 제어하는 경우에는 다음 [서비스 태그](../virtual-network/service-tags-overview.md#available-service-tags)(IP 주소 그룹)에 대해 포트 443으로 HTTPS 아웃바운드를 허용하는 서비스 태그 기반 NSG 규칙을 만듭니다.
 
-## <a name="verify-azure-vm-certificates"></a>Azure VM 인증서 확인
+**Tag** | **허용** 
+--- | ---
+스토리지 태그  |VM에서 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다.   
+Azure AD 태그 | Azure AD에 해당하는 모든 IP 주소에 대한 액세스를 허용합니다.   
+EventsHub 태그 | Site Recovery 모니터링에 대한 액세스를 허용합니다.  
+AzureSiteRecovery 태그 | 모든 지역에서 Site Recovery 서비스에 대한 액세스를 허용합니다.   
+GuestAndHybridManagement 태그 | 복제를 사용하도록 설정된 VM에서 실행 중인 Site Recovery Mobility 에이전트를 자동으로 업그레이드하려는 경우에 사용합니다.
 
-복제하려는 VM에 최신 루트 인증서가 있는지 확인합니다. 그렇지 않으면 보안 제약 조건으로 인해 VM을 Site Recovery에 등록할 수 없습니다.
+필요한 태그 및 태그 지정 예제에 대해 [자세히 알아보세요](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
-- Windows VM의 경우 VM에 최신 Windows 업데이트를 모두 설치하여 신뢰할 수 있는 모든 루트 인증서가 컴퓨터에 있도록 합니다. 연결이 끊어진 환경에서 조직의 표준 Windows 업데이트 및 인증서 업데이트 프로세스를 따릅니다.
-- Linux VM의 경우 Linux 배포자가 제공한 지침에 따라 신뢰할 수 있는 최신 루트 인증서 및 인증서 해지 목록을 VM에 가져옵니다.
+### <a name="verify-vm-certificates"></a>VM 인증서 확인
 
-## <a name="set-permissions-on-the-account"></a>계정에 권한 설정
+VM에 최신 루트 인증서가 있는지 확인합니다. 그렇지 않으면 보안 제약 조건으로 인해 VM을 Site Recovery에 등록할 수 없습니다.
 
-Azure Site Recovery는 Site Recovery 관리 작업을 제어하는 3가지 기본 제공 역할을 제공합니다.
+- **Windows VM**: VM에 최신 Windows 업데이트를 모두 설치하여 모든 신뢰할 수 있는 루트 인증서가 머신에 있도록 합니다. 연결이 끊긴 환경에서는 Windows 업데이트 및 인증서 업데이트에 대한 표준 프로세스를 수행합니다.
+- **Linux VM**: Linux 배포자가 제공한 지침에 따라 신뢰할 수 있는 최신 루트 인증서 및 CRL(인증서 해지 목록)을 가져옵니다.
 
-- **Site Recovery 참가자** - 이 역할에는 Recovery Services 자격 증명 모음에서 Azure Site Recovery 작업을 관리하는 데 필요한 모든 사용 권한이 있습니다. 그러나 이 역할의 사용자는 Recovery Services 자격 증명 모음을 만들거나 삭제할 수 없고 액세스 권한을 다른 사용자에게 할당할 수 없습니다. 이 역할은 애플리케이션이나 전체 조직에 재해 복구를 사용하도록 설정하고 관리할 수 있는 재해 복구 관리자에게 가장 적합합니다.
+## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
-- **Site Recovery 연산자** - 이 역할에는 장애 조치 및 장애 복구 작업을 실행하고 관리하는 사용 권한이 있습니다. 이 역할의 사용자는 복제를 활성화하거나 비활성화할 수 없고, 자격 증명 모음을 만들거나 삭제할 수 없으며, 새로운 인프라를 등록하거나 다른 사용자에게 액세스 권한을 할당할 수 없습니다. 이 역할은 애플리케이션 소유자 및 IT 관리자가 지시하는 경우 가상 머신 또는 애플리케이션을 장애 조치할 수 있는 재해 복구 운영자에게 가장 적합합니다. 재해가 해결되면 재해 복구 운영자가 가상 머신을 다시 보호하고 장애 복구(failback)할 수 있습니다.
+VM을 복제할 원본 지역을 제외한 지역에서 Recovery Services 자격 증명 모음을 만듭니다.
 
-- **Site Recovery 읽기 권한자** - 이 역할은 모든 Site Recovery 관리 작업을 볼 수 있는 권한을 갖습니다. 이 역할은 현재 보호 상태를 모니터링하고 지원 티켓을 발행할 수 있는 IT 모니터링 임원에게 가장 적합합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. 검색 상자에 *recovery* 를 입력합니다. **서비스** 에서 **Recovery Services 자격 증명 모음** 을 선택합니다.
 
-[Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md)에 대해 자세히 알아봅니다.
+    ![Recovery Services 자격 증명 모음 검색](./media/azure-to-azure-tutorial-enable-replication/search.png)
 
-## <a name="enable-replication-for-a-vm"></a>VM에 대한 복제 사용
+3. **Recovery Services 자격 증명 모음** 에서 **추가** 를 선택합니다.
+4. **Recovery Services 자격 증명 모음 만들기** > **기본** 에서 자격 증명 모음을 만들 구독을 선택합니다.
+5. **리소스 그룹** 에서 자격 증명 모음에 대한 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
+6. **자격 증명 모음 이름** 에 자격 증명 모음을 식별하기 위한 이름을 지정합니다.
+7. **지역** 에서 자격 증명 모음을 저장할 Azure 지역을 선택합니다. [지원되는 지역을 확인합니다](https://azure.microsoft.com/pricing/details/site-recovery/).
+8. **검토 + 만들기** 를 선택합니다.
 
-다음 섹션에서는 복제를 사용하도록 설정하는 방법에 대해 설명합니다.
+   ![새 자격 증명 모음을 만들기 위한 페이지의 자격 증명 모음 설정](./media/azure-to-azure-tutorial-enable-replication/vault-basics.png)
 
-### <a name="select-the-source"></a>원본 선택
+9. **검토 + 만들기** 에서 **만들기** 를 선택합니다.
 
-복제 설정을 시작하려면 Azure VM이 실행되는 원본을 선택합니다.
+10. 자격 증명 모음 배포가 시작됩니다. 알림에서 진행률을 확인합니다.
+11. 자격 증명 모음이 배포된 후에는 **대시보드에 고정** 을 선택하여 빠른 참조를 위해 저장합니다. **리소스로 이동** 을 선택하여 새 자격 증명 모음을 엽니다. 
+    
+    ![배포 후 자격 증명 모음을 열고 대시보드에 고정하는 단추](./media/azure-to-azure-tutorial-enable-replication/vault-deploy.png)
 
-1. **Recovery Services 자격 증명 모음**으로 이동하여 자격 증명 모음 이름을 선택한 다음, **+복제**를 선택합니다.
-1. **원본**에서 **Azure**를 선택합니다.
-1. **원본 위치**에서 VM이 현재 실행 중인 원본 Azure 지역을 선택합니다.
-1. 가상 머신이 실행되는 **구독 원본**을 선택합니다. 복구 서비스 자격 증명 모음이 있는 동일한 Azure Active Directory 테넌트 내에 있는 구독일 수 있습니다.
-1. **원본 리소스 그룹**을 선택하고, **확인**을 선택하여 설정을 저장합니다.
+### <a name="enable-site-recovery"></a>Site Recovery 사용
 
-   ![원본 설정](./media/azure-to-azure-tutorial-enable-replication/source.png)
+자격 증명 모음 설정에서 **Site Recovery 사용** 을 선택합니다.
+
+![자격 증명 모음에서 Site Recovery를 사용하도록 설정하기 위한 선택](./media/azure-to-azure-tutorial-enable-replication/enable-site-recovery.png)
+
+## <a name="enable-replication"></a>복제 사용
+
+원본 설정을 선택하고 VM 복제를 사용하도록 설정합니다. 
+
+### <a name="select-source-settings"></a>원본 설정 선택
+
+1. 자격 증명 모음 > **Site Recovery** 페이지의 **Azure Virtual Machines** 에서 **복제 사용** 을 선택합니다.
+
+    ![Azure VM에 대한 복제를 사용하도록 설정하는 선택](./media/azure-to-azure-tutorial-enable-replication/enable-replication.png)
+
+2. **원본**> **원본 위치** 에서 VM을 현재 실행 중인 원본 Azure 지역을 선택합니다.
+3. **Azure 가상 머신 배포 모델** 에서 기본 **Resource Manager** 설정을 그대로 둡니다.
+4. **원본 구독** 에서 VM을 실행 중인 구독을 선택합니다. 자격 증명 모음과 동일한 Azure AD(Active Directory) 테넌트에 있는 구독을 선택할 수 있습니다.
+5. **원본 리소스 그룹** 에서 VM이 포함된 리소스 그룹을 선택합니다.
+6. **가용성 영역 간 재해 복구** 에서 기본 **아니요** 설정을 그대로 둡니다.
+
+     ![원본 설정](./media/azure-to-azure-tutorial-enable-replication/source.png)
+
+7. **다음** 을 선택합니다.
 
 ### <a name="select-the-vms"></a>VM 선택
 
-Site Recovery는 구독 및 리소스 그룹/클라우드 서비스와 연결된 VM 목록을 검색합니다.
+Site Recovery는 선택한 구독/리소스 그룹과 연결된 VM을 검색합니다.
 
-1. **Virtual Machines**에서 복제할 VM을 선택합니다.
-1. **확인**을 선택합니다.
+1. **Virtual Machines** 에서 재해 복구를 사용하도록 설정할 VM을 선택합니다.
 
-### <a name="configure-replication-settings"></a>복제 설정 구성
+     ![복제용 VM을 선택하는 페이지](./media/azure-to-azure-tutorial-enable-replication/select-vm.png)
 
-Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만듭니다. 이러한 설정은 필요에 따라 변경할 수 있습니다.
+2. **다음** 을 선택합니다.
 
-1. **설정**을 선택하여 대상 및 복제 설정을 확인합니다.
+### <a name="review-replication-settings"></a>복제 설정 검토
 
-1. 기본 대상 설정을 재정의하려면 **리소스 그룹, 네트워크, 스토리지 및 가용성** 옆의 **사용자 지정**을 선택합니다.
+1. **복제 설정** 에서 설정을 검토합니다. Site Recovery는 대상 지역에 대한 기본 설정/정책을 만듭니다. 이 자습서에서는 기본 설정을 사용합니다.
+2. **복제 사용** 을 선택합니다.
 
-   ![설정 구성](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+    ![설정을 사용자 지정하고 복제를 사용하도록 설정하는 페이지](./media/azure-to-azure-tutorial-enable-replication/enable-vm-replication.png)   
 
-1. 표에 요약된 것처럼 대상 설정을 사용자 지정합니다.
+3. 알림에서 복제 진행률을 추적합니다.
 
-   | **설정** | **세부 정보** |
-   | --- | --- |
-   | **대상 구독** | 기본적으로 대상 구독은 원본 구독과 동일합니다. 동일한 Azure Active Directory 테넌트 내에서 다른 대상 구독을 선택하려면 **사용자 지정**을 선택합니다. |
-   | **대상 위치** | 재해 복구에 사용되는 대상 지역입니다.<br/><br/> 대상 위치가 Site Recovery 자격 증명 모음의 위치와 일치하는 것이 좋습니다. |
-   | **대상 리소스 그룹** | 장애 조치 후 Azure VM을 보유하는 대상 지역의 리소스 그룹입니다.<br/><br/> Site Recovery는 기본적으로 `asr` 접미사를 사용하여 새 리소스 그룹을 대상 지역에 만듭니다. 원본 가상 머신이 호스트되는 지역을 제외한 모든 지역이 대상 리소스 그룹의 위치가 될 수 있습니다. |
-   | **대상 가상 네트워크** | 장애 조치 후 VM이 있는 대상 지역의 네트워크입니다.<br/><br/> Site Recovery는 기본적으로 `asr` 접미사를 사용하여 새 가상 네트워크(및 서브넷)를 대상 지역에 만듭니다. |
-   | **캐시 스토리지 계정** | Site Recovery에서 원본 지역의 스토리지 계정을 사용합니다. 원본 VM의 변경 내용이 이 계정으로 전송된 후 대상 위치에 복제됩니다.<br/><br/> 방화벽 사용 캐시 스토리지 계정을 사용하는 경우 **신뢰할 수 있는 Microsoft 서비스 허용**을 사용하도록 설정해야 합니다. [자세히 알아보기](../storage/common/storage-network-security.md#exceptions). 또한 원본 Vnet의 하나 이상의 서브넷에 대한 액세스를 허용해야 합니다. |
-   | **대상 스토리지 계정(원본 VM에서 비관리형 디스크를 사용하는 경우)** : | 기본적으로 Site Recovery는 대상 지역에 새 스토리지 계정을 만들어서 원본 VM 스토리지 계정을 미러링합니다.<br/><br/> 방화벽 지원 캐시 스토리지 계정을 사용하는 경우 **신뢰할 수 있는 Microsoft 서비스 허용**을 사용하도록 설정합니다. |
-   | **복제본 Managed Disks(원본 VM에서 Managed Disks를 사용하는 경우)** : | Site Recovery는 기본적으로 복제본 관리 디스크를 대상 지역에 만들어 원본 VM의 관리 디스크를 이와 동일한 스토리지 유형(표준 또는 프리미엄)으로 미러링합니다. 디스크 유형만 사용자 지정할 수 있습니다. |
-   | **대상 가용성 집합** | Azure Site Recovery는 기본적으로 원본 지역에 있는 가용성 세트의 VM 부분에 `asr` 접미사가 있는 이름을 사용하여 새 가용성 집합을 대상 지역에 만듭니다. Azure Site Recovery에서 만든 가용성 집합이 이미 있는 경우 해당 가용성 집합이 다시 사용됩니다. |
-   | **대상 가용성 영역** | 기본적으로 Site Recovery는 대상 지역이 가용성 영역을 지원하는 경우 대상 지역의 원본 지역과 동일한 영역 번호를 할당합니다.<br/><br/> 대상 지역이 가용성 영역을 지원하지 않는 경우 대상 VM은 기본적으로 단일 인스턴스로 구성됩니다.<br/><br/> 대상 지역에서 가용성 집합의 일부로 VM을 구성하려면 **사용자 지정**을 선택합니다.<br/><br/> 복제를 사용하도록 설정한 후에는 가용성 유형(단일 인스턴스, 가용성 집합 또는 가용성 영역)을 변경할 수 없습니다. 가용성 유형을 변경하려면 복제를 사용하지 않도록 설정했다가 사용하도록 설정해야 합니다. |
+     ![알림에서 진행 상태 추적](./media/azure-to-azure-tutorial-enable-replication/notification.png) ![성공적인 복제 추적 알림](./media/azure-to-azure-tutorial-enable-replication/notification-success.png)
 
-1. 복제 정책 설정을 사용자 지정하려면 **복제 정책** 옆의 **사용자 지정**을 선택하고 필요에 따라 설정을 수정합니다.
+4. 사용하도록 설정한 VM이 자격 증명 모음 > **복제된 항목** 페이지에 나타납니다.
 
-   | **설정** | **세부 정보** |
-   | --- | --- |
-   | **복제 정책 이름** | 정책 이름입니다. |
-   | **복구 지점 보존** | 기본적으로 Site Recovery는 복구 지점을 24시간 동안 유지합니다. 이 값을 1-72시간 사이에서 구성할 수 있습니다. |
-   | **앱 일치 스냅샷 빈도** | 기본적으로 Site Recovery는 4시간마다 앱 일치 스냅샷을 만듭니다. 이 값을 1-12시간 사이에서 구성할 수 있습니다.<br/><br/> 앱 일치 스냅샷은 VM 내 애플리케이션 데이터의 지정 시간 스냅샷입니다. VSS(볼륨 섀도 복사본 서비스)는 스냅샷을 만들 때 VM의 앱이 일관된 상태가 되도록 합니다. |
-   | **복제 그룹** | 애플리케이션에서 여러 VM 간에 다중 VM 일관성을 유지해야 하는 경우 해당 VM에 대한 복제 그룹을 만들 수 있습니다. 선택한 VM은 기본적으로 복제 그룹에 포함되지 않습니다. |
+    ![복제된 항목 페이지의 VM](./media/azure-to-azure-tutorial-enable-replication/replicated-items.png)
 
-1. 새 또는 기존 복제 그룹에 VM을 추가하려는 경우  **사용자 지정**에서 다중 VM 일관성에 대해 **예**를 선택합니다. 그런 다음, **확인**을 선택합니다.
-
-   > [!NOTE]
-   > - 복제 그룹의 모든 컴퓨터는 장애 조치(failover) 시에 충돌 일치/앱 일치 복구 지점을 공유합니다.
-   > - 다중 VM 일관성을 사용하면 워크로드 성능에 영향을 줄 수 있습니다(CPU 집약적임). 머신이 동일한 워크로드를 실행 중이며 다중 머신에서 일관성이 필요한 경우에만 사용해야 합니다.
-   > - 복제 그룹에는 최대 16개의 VM이 있을 수 있습니다.
-   > - 다중 VM 일관성을 사용하도록 설정하면 복제 그룹의 컴퓨터는 20004 포트를 통해 서로 통신하게 됩니다. 이 포트를 통한 VM 간의 내부 통신을 차단하는 방화벽이 없는지 확인합니다.
-   > - 복제 그룹에 있는 Linux VM의 경우, Linux 버전에 대한 지침에 따라 20004 포트의 아웃바운드 트래픽을 수동으로 열어야 합니다.
-
-### <a name="configure-encryption-settings"></a>암호화 설정 구성
-
-원본 VM에서 ADE(Azure Disk Encryption)가 사용하도록 설정되면 설정을 검토합니다.
-
-1. 설정을 확인합니다.
-   1. **디스크 암호화 Key Vault**: Site Recovery는 기본적으로 `asr` 접미사를 사용하여 새 키 자격 증명 모음을 원본 VM 디스크 암호화 키에 만듭니다. 키 자격 증명 모음이 이미 있는 경우 해당 키 자격 증명 모음이 다시 사용됩니다.
-   1. **키 암호화 Key Vault**: 기본적으로 Site Recovery는 대상 지역에 새 Key Vault를 만듭니다. 이름은 `asr` 접미사를 사용하며, 원본 VM 키 암호화 키를 기반으로 합니다. Site Recovery에서 만든 Key Vault가 이미 있으면 다시 사용됩니다.
-1. **사용자 지정**을 선택하여 사용자 지정 키 자격 증명 모음을 선택합니다.
-
->[!NOTE]
-> 현재 Site Recovery는 Windows 운영 체제를 실행하는 VM에 대해 AAD(Azure Active Directory) 유무에 관계없이 ADE를 지원합니다. Linux 운영 체제의 경우 AAD가 없는 ADE만 지원합니다. 또한 AAD 없이 ADE 1.1을 실행하는 머신의 경우 VM은 관리 디스크를 사용해야 합니다. 비관리 디스크가 있는 VM은 지원되지 않습니다. ADE 0.1(AAD 포함)에서 1.1로 전환하는 경우에는 1.1을 사용하도록 설정한 후 복제를 비활성화하고 VM에 대한 복제를 활성화해야 합니다.
-
-### <a name="track-replication-status"></a>복제 상태 추적
-
-복제를 사용하도록 설정되면 작업 상태를 추적할 수 있습니다.
-
-1. **설정**에서 **새로 고침**을 선택하여 최신 상태를 가져옵니다.
-1. 다음과 같이 진행률 및 상태를 추적합니다.
-   1. **설정** > **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적합니다.
-   1. **설정** > **복제된 항목**에서 VM의 상태 및 초기 복제 진행률을 볼 수 있습니다. 해당 설정으로 드릴다운할 VM을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure VM의 재해 복구를 구성해 보았습니다. 이제 재해 복구 훈련을 실행하여 장애 조치가 예상대로 작동하는지 확인할 수 있습니다.
+이 자습서에서는 Azure VM의 재해 복구를 사용하도록 설정했습니다. 이제 훈련을 실행하여 장애 조치(failover)가 예상대로 작동하는지 확인합니다.
 
 > [!div class="nextstepaction"]
 > [재해 복구 훈련 실행](azure-to-azure-tutorial-dr-drill.md)

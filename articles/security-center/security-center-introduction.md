@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: e72d1161f80ad92c1e4cfc7fd2c9fde0d46e77b9
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d62ed31a68d9469a1bd1fc66e479b0f91db2f916
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332011"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372271"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -54,7 +54,7 @@ Security Center는 기본적으로 Azure의 일부이므로 배포하지 않고�
 
 에이전트 및 Azure에서 수집한 이벤트는 보안 분석 엔진에서 상관 관계가 파악되어, 워크로드 보안을 위해 따라야 하는 맞춤화된 권장 사항(강화 작업) 및 보안 경고를 제공합니다. 이러한 경고를 가능한 한 빨리 조사하여 워크로드가 악의적인 공격을 받지 않도록 해야 합니다.
 
-Security Center를 사용하도록 설정하면 Security Center의 기본 제공 보안 정책이 Security Center 범주의 기본 제공 이니셔티브로 Azure Policy에 반영됩니다. 기본 제공 이니셔티브는 Security Center에 등록된 모든 구독(체험 또는 표준 가격 책정 계층)에 자동으로 할당됩니다. 기본 제공 이니셔티브에는 감사 정책만 포함되어 있습니다. Azure Policy의 Security Center 정책에 대한 자세한 내용은 [보안 정책 작업](tutorial-security-policy.md)을 참조하세요.
+Security Center를 사용하도록 설정하면 Security Center의 기본 제공 보안 정책이 Security Center 범주의 기본 제공 이니셔티브로 Azure Policy에 반영됩니다. 기본 제공 이니셔티브는 모든 Security Center 등록 구독에 자동으로 할당됩니다(Azure Defender 사용 여부와 상관없이). 기본 제공 이니셔티브에는 감사 정책만 포함되어 있습니다. Azure Policy의 Security Center 정책에 대한 자세한 내용은 [보안 정책 작업](tutorial-security-policy.md)을 참조하세요.
 
 ## <a name="strengthen-security-posture"></a>보안 상태 강화
 
@@ -62,27 +62,27 @@ Azure Security Center를 사용하여 보안 상태를 강화할 수 있습니�
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>조직 보안 정책 및 준수 관리
 
-워크로드가 안전한지 알고 확인하는 것이 보안의 기본 사항이며, 이는 맞춤화된 보안 정책을 구현하는 것에서 시작됩니다. Security Center의 모든 정책은 Azure Policy 제어를 기반으로 빌드되므로 **최고 수준의 정책 솔루션**이 제공하는 포괄적인 범위와 유연성을 얻을 수 있습니다. Security Center에서는 관리 그룹, 전체 구독 및 전체 테넌트에 대해 실행할 정책까지 설정할 수 있습니다.
+워크로드가 안전한지 알고 확인하는 것이 보안의 기본 사항이며, 이는 맞춤화된 보안 정책을 구현하는 것에서 시작됩니다. Security Center의 모든 정책은 Azure Policy 제어를 기반으로 빌드되므로 **최고 수준의 정책 솔루션** 이 제공하는 포괄적인 범위와 유연성을 얻을 수 있습니다. Security Center에서는 관리 그룹, 전체 구독 및 전체 테넌트에 대해 실행할 정책까지 설정할 수 있습니다.
 
 :::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="정책 관리 페이지":::
 
-Security Center를 사용하면 **섀도 IT 구독을 확인**할 수 있습니다. 대시보드에서 **검사되지 않음** 레이블이 표시된 구독을 살펴보면 새로 만든 구독이 있을 때 즉시 알 수 있으며, 해당 구독이 정책에 의해 검사되고 Azure Security Center에서 보호되도록 할 수 있습니다.
+Security Center를 사용하면 **섀도 IT 구독을 확인** 할 수 있습니다. 대시보드에서 **검사되지 않음** 레이블이 표시된 구독을 살펴보면 새로 만든 구독이 있을 때 즉시 알 수 있으며, 해당 구독이 정책에 의해 검사되고 Azure Security Center에서 보호되도록 할 수 있습니다.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="정책 관리 페이지":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Security Center 정책 대시보드":::
 
 ### <a name="continuous-assessments"></a>연속 평가
 
 Security Center는 워크로드 전체에 배포되는 새 리소스를 지속적으로 검색하고 보안 모범 사례에 따라 구성되었는지 여부를 평가하며, 그렇지 않은 경우 리소스에 플래그가 지정되어 머신을 보호하기 위해 수정해야 하는 권장 사항 목록이 우선 순위에 따라 작성됩니다.
 
-각 권장 사항이 전체 보안 상태에 얼마나 중요한지 이해하는 데 도움이 되도록 Security Center는 권장 사항을 보안 제어에 그룹화하고 각 제어에 **보안 점수** 값을 추가합니다. 이는 **보안 작업의 우선 순위를 지정**하는 데 중요합니다.
+각 권장 사항이 전체 보안 상태에 얼마나 중요한지 이해하는 데 도움이 되도록 Security Center는 권장 사항을 보안 제어에 그룹화하고 각 제어에 **보안 점수** 값을 추가합니다. 이는 **보안 작업의 우선 순위를 지정** 하는 데 중요합니다.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="정책 관리 페이지":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Security Center 보안 점수":::
 
 ### <a name="network-map"></a>네트워크 맵
 
-Security Center에서 네트워크의 보안 상태를 지속적으로 모니터링하기 위해 제공하는 가장 강력한 도구 중 하나는 **네트워크 맵**입니다. 맵을 사용하여 워크로드의 토폴로지를 살펴보고 각 노드가 제대로 구성되었는지 확인할 수 있습니다. 노드가 연결된 방식을 확인할 수 있으며, 이 정보를 통해 공격자가 네트워크를 쉽게 탐색할 수 있게 하는 원치 않는 연결을 차단할 수 있습니다.
+Security Center에서 네트워크의 보안 상태를 지속적으로 모니터링하기 위해 제공하는 가장 강력한 도구 중 하나는 **네트워크 맵** 입니다. 맵을 사용하여 워크로드의 토폴로지를 살펴보고 각 노드가 제대로 구성되었는지 확인할 수 있습니다. 노드가 연결된 방식을 확인할 수 있으며, 이 정보를 통해 공격자가 네트워크를 쉽게 탐색할 수 있게 하는 원치 않는 연결을 차단할 수 있습니다.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="정책 관리 페이지":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Security Center 네트워크 맵":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>권장 제어를 구성하여 보안 최적화 및 개선
@@ -93,7 +93,7 @@ Azure Security Center 가치의 핵심은 권장 사항에 있습니다. 권장 
 
 권장 사항은 각 리소스의 공격 표면을 줄이는 데 도움이 됩니다. 여기에는 Azure 가상 머신, 비 Azure 서버 및 SQL, Storage 계정 등의 Azure PaaS 서비스가 포함되며 각 리소스 유형이 다르게 평가되고 고유한 표준을 갖습니다.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="정책 관리 페이지":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Security Center 권장 사항 예제":::
 
 ## <a name="protect-against-threats"></a>위협으로부터 보호
 
@@ -101,11 +101,11 @@ Security Center의 위협 방지를 사용하면 Azure의 PaaS(Platforms as a Se
 
 Security Center의 위협 방지에는 사이버 적극 대처(kill-chain) 분석에 따라 사용자 환경의 경고 간에 상관 관계를 자동으로 파악하는 Fusion 적극 대처(kill-chain) 분석이 포함됩니다. 이 분석은 공격 캠페인의 전체 스토리, 시작된 위치 및 리소스에 미치는 영향을 이해하는 데 도움이 됩니다.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="정책 관리 페이지":::
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="보안 경고":::
 
-### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Microsoft Defender Advanced 위협 보호와 통합
+### <a name="integration-with-microsoft-defender-for-endpoint"></a>엔드포인트용 Microsoft Defender와 통합
 
-Security Center는 Microsoft Defender Advanced Threat Protection과 자동, 네이티브 통합을 포함합니다. 따라서 별도 구성 없이도 Windows 및 Linux 머신이 Security Center의 권장 사항 및 평가와 완전히 통합됩니다.
+Security Center에는 엔드포인트용 Microsoft Defender와의 자동 네이티브 통합이 포함되어 있습니다. 따라서 별도 구성 없이도 Windows 및 Linux 머신이 Security Center의 권장 사항 및 평가와 완전히 통합됩니다.
 
 또한 Security Center를 사용하면 서버 환경에서 애플리케이션 제어 정책을 자동화할 수 있습니다. Security Center의 적응형 애플리케이션 제어를 통해 Windows 서버 전체의 엔드투엔드 앱 승인 목록을 만들 수 있습니다. 규칙을 만들고 위반을 확인할 필요가 없으며, 모든 작업이 자동으로 수행됩니다.
 
@@ -123,7 +123,7 @@ Security Center에는 Azure SQL에서 데이터 자동 분류를 수행하는 �
 
 ## <a name="get-secure-faster"></a>보다 신속한 보안 설정
 
-Microsoft Cloud App Security, Windows Defender Advanced Threat Protection 등 다른 Microsoft 보안 솔루션과의 원활한 통합 및 네이티브 Azure 통합(Azure Policy 및 Azure Monitor 로그 포함)이 결합되어 포괄적이면서도 온보드 및 배포가 간단한 보안 솔루션을 만들 수 있습니다.
+Microsoft Cloud App Security, 엔드포인트용 Microsoft Defender 등 다른 Microsoft 보안 솔루션과의 원활한 통합 및 네이티브 Azure 통합(Azure Policy 및 Azure Monitor 로그 포함)이 결합되어 포괄적이면서도 온보딩 및 롤아웃이 간단한 보안 솔루션을 만들 수 있습니다.
 
 또한 Azure 외부의 다른 클라우드 및 온-프레미스 데이터 센터에서 실행되는 워크로드까지 전체 솔루션을 확장할 수 있습니다.
 
@@ -137,6 +137,6 @@ Security Center는 Azure 및 Azure 리소스와의 원활한 네이티브 통합
 
 - 보안 센터를 시작하려면 Microsoft Azure에 대한 구독이 필요합니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/free/)을 등록할 수 있습니다.
 
-- Azure Portal의 Azure Security Center 대시보드를 처음 방문하거나 API를 통해 프로그래밍 방식으로 사용하는 경우 현재 Azure 구독에서 Security Center의 무료 가격 책정 계층을 사용할 수 있습니다. 고급 보안 관리 및 위협 탐지 기능을 활용하려면 표준 가격 책정 계층으로 업그레이드해야 합니다. 표준 계층을 30일 동안 평가판으로 사용해볼 수 있습니다. 자세한 내용은 [Security Center 가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
+- Azure Portal의 Azure Security Center 대시보드를 처음 방문하거나 API를 통해 프로그래밍 방식으로 사용하는 경우 현재 Azure 구독에서 Security Center의 무료 가격 책정 계층을 사용할 수 있습니다. 고급 보안 관리 및 위협 탐지 기능을 활용하려면 Azure Defender를 사용하도록 설정해야 합니다. Azure Defender는 30일 동안 평가판으로 사용해 볼 수 있습니다. 자세한 내용은 [Security Center 가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
-- 지금 Security Center 표준을 사용할 준비가 되었으면 [빠른 시작: Security Center 표준에 Azure 구독 온보드](security-center-get-started.md)에서 단계를 안내합니다.
+- 지금 Azure Defender를 사용할 준비가 되었다면 [빠른 시작: Azure Security Center 설정](security-center-get-started.md)에서 단계를 안내합니다.

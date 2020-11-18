@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 923b83b388b58313e9613f0f8b71f266dcbeb028
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: be5ce5b3eebb2f784469680cf7614df6ca750b55
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282142"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658267"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 애플리케이션 프록시 커넥터 이해
 
@@ -61,13 +61,13 @@ Windows Server는 TLS 1.2를 사용하도록 설정한 후 애플리케이션 �
 
 ![예: Azure AD 응용 프로그램 프록시 커넥터](./media/application-proxy-connectors/app-proxy-connectors.png)
 
-사용하지 않은 커넥터를 수동으로 삭제할 필요가 없습니다. 커넥터가 실행 중인 경우 서비스에 연결됨에 따라 활성 상태가 유지됩니다. 사용되지 않는 커넥터는 _비활성_으로 태그가 지정되고 비활성 상태가 된 지 10일 후에 제거됩니다. 하지만 커넥터를 제거하려면 서버에서 커넥터 서비스와 업데이트 프로그램 서비스를 모두 제거해야 합니다. 서비스를 완전히 제거하려면 컴퓨터를 다시 시작합니다.
+사용하지 않은 커넥터를 수동으로 삭제할 필요가 없습니다. 커넥터가 실행 중인 경우 서비스에 연결됨에 따라 활성 상태가 유지됩니다. 사용되지 않는 커넥터는 _비활성_ 으로 태그가 지정되고 비활성 상태가 된 지 10일 후에 제거됩니다. 하지만 커넥터를 제거하려면 서버에서 커넥터 서비스와 업데이트 프로그램 서비스를 모두 제거해야 합니다. 서비스를 완전히 제거하려면 컴퓨터를 다시 시작합니다.
 
 ## <a name="automatic-updates"></a>자동 업데이트
 
 Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이트를 제공합니다. 애플리케이션 프록시 커넥터 업데이터 서비스가 실행 중인 동안에는 커넥터가 자동으로 업데이트됩니다. 서버에 커넥터 업데이터 서비스가 표시되지 않는 경우 업데이트를 받으려면 [커넥터를 다시 설치](application-proxy-add-on-premises-application.md)해야 합니다.
 
-커넥터에 대한 자동 업데이트를 기다리지 않으려면 수동 업그레이드를 수행할 수 있습니다. 커넥터가 있는 서버에서 [커넥터 다운로드 페이지](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)로 이동하여 **다운로드**를 선택합니다. 그러면 로컬 커넥터의 업그레이드가 시작됩니다.
+커넥터에 대한 자동 업데이트를 기다리지 않으려면 수동 업그레이드를 수행할 수 있습니다. 커넥터가 있는 서버에서 [커넥터 다운로드 페이지](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)로 이동하여 **다운로드** 를 선택합니다. 그러면 로컬 커넥터의 업그레이드가 시작됩니다.
 
 다중 커넥터가 있는 테넌트의 경우 자동 업데이트는 각 그룹에서 한 번에 하나의 커넥터를 대상으로 하여 사용자 환경의 가동 중지 시간을 방지합니다.
 
@@ -104,7 +104,7 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 > [!NOTE]
 > 4, 8, 16개 코어 컴퓨터 간에 최대 TPS는 크게 차이가 없습니다. 주요 차이점은 예상 대기 시간입니다.
 >
-> 또한이 표는 설치 된 컴퓨터의 유형을 기반으로 하는 커넥터의 예상 성능에 중점을 둘 수 있습니다. 이는 응용 프로그램 프록시 서비스의 제한 제한과는 별도로 [서비스 제한 및 제한 사항](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions)을 참조 하세요.
+> 또한이 표는 설치 된 컴퓨터의 유형을 기반으로 하는 커넥터의 예상 성능에 중점을 둘 수 있습니다. 이는 응용 프로그램 프록시 서비스의 제한 제한과는 별도로 [서비스 제한 및 제한 사항](../enterprise-users/directory-service-limits-restrictions.md)을 참조 하세요.
 
 ## <a name="security-and-networking"></a>보안 및 네트워킹
 
@@ -155,7 +155,7 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 
 처음으로 인증서를 갱신 한 후에는 Azure AD 응용 프로그램 프록시 Connector 서비스 (Network Service)에 로컬 컴퓨터 저장소에서 이전 인증서를 제거할 수 있는 권한이 없습니다. 인증서가 만료 되었거나 서비스에서 더 이상 사용 되지 않는 경우 안전 하 게 삭제할 수 있습니다.
 
-인증서 갱신 문제를 방지 하려면 커넥터에서 [문서화 된 대상](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) 으로의 네트워크 통신을 사용 하도록 설정 해야 합니다.
+인증서 갱신 문제를 방지 하려면 커넥터에서 [문서화 된 대상](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) 으로의 네트워크 통신을 사용 하도록 설정 해야 합니다.
 
 몇 달 동안 커넥터가 서비스에 연결되지 않는 경우 인증서가 만료될 수 있습니다. 이 경우 커넥터를 제거 후 다시 설치하여 등록을 트리거합니다. 다음 PowerShell 명령을 실행하면 됩니다.
 
@@ -180,7 +180,7 @@ Register-AppProxyConnector -EnvironmentName "AzureCloud"
 
 커넥터에는 **관리자** 와 **세션** 로그가 모두 있습니다. **관리** 로그에는 주요 이벤트와 해당 오류가 포함 됩니다. **세션** 로그에는 모든 트랜잭션과 해당 처리 정보가 포함 됩니다.
 
-로그를 보려면 **이벤트 뷰어** 를 열고 **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **AadApplicationProxy**  >  **커넥터**로 이동 합니다. **세션** 로그를 표시 하려면 **보기** 메뉴에서 **분석 및 디버그 로그 표시**를 선택 합니다. **세션** 로그는 일반적으로 문제 해결에 사용 되며 기본적으로 사용 하지 않도록 설정 됩니다. 이벤트 수집을 시작 하 고 더 이상 필요 하지 않을 때 사용 하지 않도록 설정할 수 있습니다.
+로그를 보려면 **이벤트 뷰어** 를 열고 **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **AadApplicationProxy**  >  **커넥터** 로 이동 합니다. **세션** 로그를 표시 하려면 **보기** 메뉴에서 **분석 및 디버그 로그 표시** 를 선택 합니다. **세션** 로그는 일반적으로 문제 해결에 사용 되며 기본적으로 사용 하지 않도록 설정 됩니다. 이벤트 수집을 시작 하 고 더 이상 필요 하지 않을 때 사용 하지 않도록 설정할 수 있습니다.
 
 서비스 창에서 서비스 상태를 검사할 수 있습니다. 커넥터는 두 개의 Windows 서비스(실제 커넥터와 업데이터)로 구성됩니다. 둘 다 항상 실행되어야 합니다.
 

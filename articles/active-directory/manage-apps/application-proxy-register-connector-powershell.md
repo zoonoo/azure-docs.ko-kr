@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5fc1b84e624828d7feb64bd53e8fe8ffff2a7ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f46071d15db57f64eb60d9267d4081a2b0b74a50
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054837"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658437"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Azure AD 애플리케이션 프록시 커넥터에 대한 무인 설치 스크립트 만들기
 
@@ -39,7 +39,7 @@ ms.locfileid: "88054837"
 무인 설치를 위한 두 단계가 있습니다. 먼저 커넥터를 설치합니다. 두 번째, Azure AD에 커넥터를 등록합니다.
 
 > [!IMPORTANT]
-> Azure Government 클라우드 용 커넥터를 설치 하는 경우 [필수](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) 구성 요소 및 [설치 단계](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud)를 검토 합니다. 이렇게 하려면 다른 URL 세트에 액세스하도록 설정하고 설치를 실행하기 위한 추가 매개 변수가 필요합니다.
+> Azure Government 클라우드 용 커넥터를 설치 하는 경우 [필수](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) 구성 요소 및 [설치 단계](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud)를 검토 합니다. 이렇게 하려면 다른 URL 세트에 액세스하도록 설정하고 설치를 실행하기 위한 추가 매개 변수가 필요합니다.
 
 ## <a name="install-the-connector"></a>커넥터 설치
 등록 없이 커넥터를 설치하려면 다음 단계를 사용합니다.
@@ -66,7 +66,7 @@ ms.locfileid: "88054837"
    $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
    $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
    ```
-2. **C:\Program Files\Microsoft AAD App Proxy Connector**로 이동하여 사용자가 만든 `$cred` 개체를 사용하여 다음 스크립트를 실행합니다.
+2. **C:\Program Files\Microsoft AAD App Proxy Connector** 로 이동하여 사용자가 만든 `$cred` 개체를 사용하여 다음 스크립트를 실행합니다.
 
    ```powershell
    .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature ApplicationProxy

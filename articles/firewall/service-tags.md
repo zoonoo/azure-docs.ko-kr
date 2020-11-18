@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: ec9fb3c9b27d21ac65888379f59d51ecc8042eb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47377817b62d33e8af79e4a0d2dceb68ba9dbdc5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74168683"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658650"
 ---
 # <a name="azure-firewall-service-tags"></a>Azure Firewall 서비스 태그
 
@@ -22,7 +22,7 @@ Azure Firewall 서비스 태그는 네트워크 규칙 대상 필드에 사용�
 
 ## <a name="supported-service-tags"></a>지원되는 서비스 태그
 
-Azure 방화벽 네트워크 규칙에서 사용할 수 있는 서비스 태그 목록은 [보안 그룹](../virtual-network/security-overview.md#service-tags) 을 참조 하세요.
+Azure 방화벽 네트워크 규칙에서 사용할 수 있는 서비스 태그 목록은 [보안 그룹](../virtual-network/network-security-groups-overview.md#service-tags) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

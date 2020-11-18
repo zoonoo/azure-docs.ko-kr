@@ -15,12 +15,12 @@ ms.date: 03/13/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779d1b73f45f9be5b4bd00d546987b7c1e0b6a43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 820e2cb0d422597f0e649e6934fd8bb11c1521db
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763349"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659032"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>방법: Azure AD SAML 토큰 암호화 구성
 
@@ -59,7 +59,7 @@ Azure Portal 내의 애플리케이션 구성에 공용 인증서를 추가할 �
 
 1. **Azure Active Directory > 엔터프라이즈 애플리케이션** 블레이드로 이동한 후 해당 토큰 암호화를 구성하려는 애플리케이션을 선택합니다.
 
-1. 애플리케이션의 페이지에서 **토큰 암호화**를 선택합니다.
+1. 애플리케이션의 페이지에서 **토큰 암호화** 를 선택합니다.
 
     ![Azure Portal의 토큰 암호화 옵션](./media/howto-saml-token-encryption/token-encryption-option-small.png)
 
@@ -70,19 +70,19 @@ Azure Portal 내의 애플리케이션 구성에 공용 인증서를 추가할 �
 
     ![X.509 인증서를 포함하는 .cer 파일 가져오기](./media/howto-saml-token-encryption/import-certificate-small.png)
 
-1. 인증서를 가져오고, 애플리케이션 쪽에서 사용할 수 있게 프라이빗 키가 구성되면 지문 상태 옆에 있는 **...** 를 선택하여 암호화를 활성화한 다음, 드롭다운 메뉴의 옵션에서 **토큰 암호화 활성화**를 선택합니다.
+1. 인증서를 가져오고, 애플리케이션 쪽에서 사용할 수 있게 프라이빗 키가 구성되면 지문 상태 옆에 있는 **...** 를 선택하여 암호화를 활성화한 다음, 드롭다운 메뉴의 옵션에서 **토큰 암호화 활성화** 를 선택합니다.
 
-1. **예**를 선택하여 토큰 암호화 인증서 활성화를 확인합니다.
+1. **예** 를 선택하여 토큰 암호화 인증서 활성화를 확인합니다.
 
 1. 애플리케이션용으로 내보낸 SAML 어설션이 암호화되었는지 확인합니다.
 
 ### <a name="to-deactivate-token-encryption-in-the-azure-portal"></a>Azure Portal에서 토큰 암호화를 비활성화하려면
 
-1. Azure Portal에서 **Azure Active Directory > 엔터프라이즈 애플리케이션**으로 이동한 후 SAML 토큰 암호화를 사용하도록 설정한 애플리케이션을 선택합니다.
+1. Azure Portal에서 **Azure Active Directory > 엔터프라이즈 애플리케이션** 으로 이동한 후 SAML 토큰 암호화를 사용하도록 설정한 애플리케이션을 선택합니다.
 
-1. 애플리케이션의 페이지에서 **토큰 암호화**를 선택하고 인증서를 찾은 후 **...** 옵션을 선택하여 드롭다운 메뉴를 표시합니다.
+1. 애플리케이션의 페이지에서 **토큰 암호화** 를 선택하고 인증서를 찾은 후 **...** 옵션을 선택하여 드롭다운 메뉴를 표시합니다.
 
-1. **토큰 암호화 비활성화**를 선택합니다.
+1. **토큰 암호화 비활성화** 를 선택합니다.
 
 ## <a name="configure-saml-token-encryption-using-graph-api-powershell-or-app-manifest"></a>Graph API, PowerShell 또는 앱 매니페스트를 사용하여 SAML 토큰 암호화 구성
 
@@ -124,7 +124,7 @@ Graph 또는 PowerShell을 사용하거나 keyId에 사용할 GUID를 생성해�
 
 1. 최신 Azure AD PowerShell 모듈을 사용 하 여 테 넌 트에 연결 합니다.
 
-1. **[Set AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** 명령을 사용 하 여 토큰 암호화 설정을 설정 합니다.
+1. **[Set AzureApplication](/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** 명령을 사용 하 여 토큰 암호화 설정을 설정 합니다.
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
@@ -140,11 +140,11 @@ Graph 또는 PowerShell을 사용하거나 keyId에 사용할 GUID를 생성해�
 
 ### <a name="to-configure-token-encryption-using-the-application-manifest"></a>애플리케이션 매니페스트를 사용하여 토큰 암호화를 구성하려면
 
-1. Azure Portal에서 **Azure Active Directory > 앱 등록**으로 이동합니다.
+1. Azure Portal에서 **Azure Active Directory > 앱 등록** 으로 이동합니다.
 
-1. 드롭다운에서 **모든 앱**을 선택하여 모든 앱을 표시한 다음, 구성하려는 엔터프라이즈 애플리케이션을 선택합니다.
+1. 드롭다운에서 **모든 앱** 을 선택하여 모든 앱을 표시한 다음, 구성하려는 엔터프라이즈 애플리케이션을 선택합니다.
 
-1. 애플리케이션의 페이지에서 **매니페스트**를 선택하여 [애플리케이션 매니페스트](../develop/reference-app-manifest.md)를 편집합니다.
+1. 애플리케이션의 페이지에서 **매니페스트** 를 선택하여 [애플리케이션 매니페스트](../develop/reference-app-manifest.md)를 편집합니다.
 
 1. `tokenEncryptionKeyId` 특성 값을 설정합니다.
 
