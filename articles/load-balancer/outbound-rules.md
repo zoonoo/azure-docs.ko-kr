@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 947ecaa2efbfb013f1f3e8203d1c4296b9ca329f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 645be03df3c8ee2a1451b4bfea0327542c29aa38
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422164"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683117"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>아웃 바운드 규칙 Azure Load Balancer
 
@@ -106,7 +106,7 @@ NSG가 AZURE_LOADBALANCER 기본 태그의 상태 프로브 요청을 차단 하
 
 
 * 공용 Ip 또는 접두사의 특정 집합에 대 한 아웃 바운드 연결을 구성 합니다.
-* [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) 포트 할당을 수정 합니다.
+* [SNAT](load-balancer-outbound-connections.md) 포트 할당을 수정 합니다.
 * 아웃 바운드만 사용 합니다.
 * Vm에 대 한 아웃 바운드 NAT만 (인바운드 없음)
 * 내부 표준 부하 분산 장치에 대 한 아웃 바운드 NAT.
@@ -135,28 +135,28 @@ NSG가 AZURE_LOADBALANCER 기본 태그의 상태 프로브 요청을 차단 하
 5. 프런트 엔드를 사용 하 여 Vm에 대해 아웃 바운드 NAT를 사용 하도록 공용 부하 분산 장치에서 아웃 바운드 규칙을 구성 합니다. 아웃 바운드에 대해 부하 분산 규칙을 사용 하는 것은 권장 되지 않으며, 부하 분산 규칙에서 아웃 바운드 SNAT를 사용 하지 않도록 설정 합니다.
 
 
-### <a name="scenario-2-modify-snat-port-allocation"></a><a name="scenario2out"></a>시나리오 2: [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) 포트 할당 수정
+### <a name="scenario-2-modify-snatport-allocation"></a><a name="scenario2out"></a>시나리오 2: [SNAT](load-balancer-outbound-connections.md)포트 할당 수정
 
 
 #### <a name="details"></a>세부 정보
 
 
-아웃바운드 규칙을 사용하여 [백 엔드 풀 크기를 기준으로 자동 SNAT 포트 할당](load-balancer-outbound-connections.md#preallocatedports)을 튜닝할 수 있습니다. 
+아웃 바운드 규칙을 사용 하 여 [백 엔드 풀 크기에 따라 자동 SNAT 포트 할당](load-balancer-outbound-connections.md#preallocatedports)을 튜닝할 수 있습니다. 
 
 
-SNAT 고갈를 발생 하는 경우 기본값 1024에서 제공 되는 [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) 포트 수를 늘립니다. 
+SNAT 고갈를 발생 하는 경우 기본값 1024에서 제공 되는 [SNAT](load-balancer-outbound-connections.md)포트 수를 늘립니다. 
 
 
-각 공용 IP 주소는 최대 64000 개의 임시 포트를 제공 합니다. 백 엔드 풀의 Vm 수는 각 VM에 배포 되는 포트 수를 결정 합니다. 백 엔드 풀의 한 VM은 최대 64000 포트에 액세스할 수 있습니다. 두 Vm의 경우 아웃 바운드 규칙 (2x 32000 = 64000)을 사용 하 여 최대 32000 [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) 포트를 지정할 수 있습니다. 
+각 공용 IP 주소는 최대 64000 개의 임시 포트를 제공 합니다. 백 엔드 풀의 Vm 수는 각 VM에 배포 되는 포트 수를 결정 합니다. 백 엔드 풀의 한 VM은 최대 64000 포트에 액세스할 수 있습니다. 두 Vm의 경우 아웃 바운드 규칙 (2x 32000 = 64000)을 사용 하 여 최대 32000 [SNAT](load-balancer-outbound-connections.md)포트를 지정할 수 있습니다. 
 
 
-아웃 바운드 규칙을 사용 하 여 기본적으로 제공 되는 SNAT 포트를 튜닝할 수 있습니다. 기본 [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) 포트 할당에 제공 되는 것 보다 더 많은 또는 더 작은 값을 제공 합니다. 아웃 바운드 규칙의 프런트 엔드에 있는 각 공용 IP 주소는 [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) 포트로 사용 하기 위해 최대 64000 개의 임시 포트를 제공 합니다. 
+아웃 바운드 규칙을 사용 하 여 기본적으로 제공 되는 SNAT 포트를 튜닝할 수 있습니다. 기본 [SNAT](load-balancer-outbound-connections.md)포트 할당에 제공 되는 것 보다 더 많은 또는 더 작은 값을 제공 합니다. 아웃 바운드 규칙의 프런트 엔드에 있는 각 공용 IP 주소는 [SNAT](load-balancer-outbound-connections.md)포트로 사용 하기 위해 최대 64000 개의 임시 포트를 제공 합니다. 
 
 
-부하 분산 장치는 [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) 포트를 8의 배수로 제공 합니다. 8로 나눌 수 없는 값을 제공하면 구성 작업이 거부됩니다. 각 부하 분산 규칙 및 인바운드 NAT 규칙은 8 개 포트의 범위를 사용 합니다. 부하 분산 또는 인바운드 NAT 규칙이 다른 범위와 8을 공유 하는 경우 추가 포트가 사용 되지 않습니다.
+부하 분산 장치는 [SNAT](load-balancer-outbound-connections.md)포트를 8의 배수로 제공 합니다. 8로 나눌 수 없는 값을 제공하면 구성 작업이 거부됩니다. 각 부하 분산 규칙 및 인바운드 NAT 규칙은 8 개 포트의 범위를 사용 합니다. 부하 분산 또는 인바운드 NAT 규칙이 다른 범위와 8을 공유 하는 경우 추가 포트가 사용 되지 않습니다.
 
 
-공용 IP 주소의 수를 기준으로 사용할 수 있는 것 보다 더 많은 [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) 포트를 제공 하려고 하면 구성 작업이 거부 됩니다. 예를 들어 VM 당 1만 포트를 제공 하 고 백 엔드 풀에서 7 개의 Vm이 단일 공용 IP를 공유 하는 경우 구성이 거부 됩니다. 7과 1만를 곱하여 64000 포트 제한을 초과 합니다. 아웃 바운드 규칙의 프런트 엔드에 공용 IP 주소를 더 추가 하 여 시나리오를 사용 하도록 설정 합니다. 
+공용 IP 주소의 수를 기준으로 사용할 수 있는 것 보다 더 많은 [SNAT](load-balancer-outbound-connections.md)포트를 제공 하려고 하면 구성 작업이 거부 됩니다. 예를 들어 VM 당 1만 포트를 제공 하 고 백 엔드 풀에서 7 개의 Vm이 단일 공용 IP를 공유 하는 경우 구성이 거부 됩니다. 7과 1만를 곱하여 64000 포트 제한을 초과 합니다. 아웃 바운드 규칙의 프런트 엔드에 공용 IP 주소를 더 추가 하 여 시나리오를 사용 하도록 설정 합니다. 
 
 
 포트 수에 0을 지정 하 여 [기본 포트 할당](load-balancer-outbound-connections.md#preallocatedports) 으로 되돌립니다. 첫 번째 50 VM 인스턴스는 1024 포트를 가져오며, 51-100 VM 인스턴스는 최대 인스턴스 수에 대 한 512을 받습니다. 기본 SNAT 포트 할당에 대 한 자세한 내용은 [snat 포트 할당 표](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)를 참조 하세요.
@@ -195,7 +195,7 @@ SNAT 고갈를 발생 하는 경우 기본값 1024에서 제공 되는 [SNAT](ht
 
 
 
-접두사나 공용 IP를 사용 하 여 [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) 포트의 크기를 조정 합니다. 허용 또는 거부 목록에 아웃 바운드 연결의 원본을 추가 합니다.
+접두사나 공용 IP를 사용 하 여 [SNAT](load-balancer-outbound-connections.md)포트의 크기를 조정 합니다. 허용 또는 거부 목록에 아웃 바운드 연결의 원본을 추가 합니다.
 
 
 
@@ -225,7 +225,7 @@ SNAT 고갈를 발생 하는 경우 기본값 1024에서 제공 되는 [SNAT](ht
 공용 표준 부하 분산 장치를 사용 하는 경우 제공 된 자동 아웃 바운드 NAT가 부하 분산 규칙의 전송 프로토콜과 일치 합니다. 
 
 
-1. 부하 분산 규칙에서 아웃 바운드 [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) 를 사용 하지 않도록 설정 합니다. 
+1. 부하 분산 규칙에서 아웃 바운드 [SNAT](load-balancer-outbound-connections.md)를 사용 하지 않도록 설정 합니다. 
 2. 동일한 부하 분산 장치에서 아웃 바운드 규칙을 구성 합니다.
 3. VM에서 이미 사용하고 있는 백 엔드 풀을 다시 사용합니다. 
 4. 아웃바운드 규칙의 일부로 "프로토콜"을 "모두"로 지정합니다. 

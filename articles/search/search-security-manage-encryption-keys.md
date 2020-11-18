@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7f2df005a8d3211ba53aadb16370624c4f530eb3
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 95ac4ed83a4486665ce378972ea7d6423c2482d5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575869"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682913"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Azure Cognitive Search에서 데이터 암호화를 위해 고객이 관리 하는 키 구성
 
@@ -46,7 +46,7 @@ CMK 암호화는 [Azure Key Vault](../key-vault/general/overview.md)에 따라 �
 이 시나리오에서 사용 되는 도구 및 서비스는 다음과 같습니다.
 
 + [Azure Cognitive Search](search-create-service-portal.md) 는 [청구 가능한 계층](search-sku-tier.md#tiers) (기본 이상, 모든 지역)에 있습니다.
-+ Azure Cognitive Search와 동일한 구독에 [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) 합니다. 키 자격 증명 모음에는 **일시 삭제** 및 **보호 제거** 를 사용 하도록 설정 해야 합니다.
++ [Azure Key Vault](../key-vault/general/overview.md) [Azure Portal](../key-vault//general/quick-create-portal.md), [Azure CLI](../key-vault//general/quick-create-cli.md)또는 [Azure PowerShell](../key-vault//general/quick-create-powershell.md)를 사용 하 여 주요 자격 증명 모음을 만들 수 있습니다. Azure Cognitive Search와 동일한 구독에 있습니다. 키 자격 증명 모음에는 **일시 삭제** 및 **보호 제거** 를 사용 하도록 설정 해야 합니다.
 + [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). 새 테 넌 트를 설치 하지 않은 경우에 [는 새 테 넌 트를 설정](../active-directory/develop/quickstart-create-new-tenant.md)합니다.
 
 암호화 된 개체를 만들 수 있는 검색 응용 프로그램이 있어야 합니다. 이 코드에는 주요 자격 증명 모음 키를 참조 하 고 등록 정보를 Active Directory 합니다. 이 코드는 작업 중인 앱 또는 [c # 코드 샘플 DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)같은 프로토타입 코드 일 수 있습니다.
@@ -116,7 +116,7 @@ Azure Key Vault에 키가 이미 있는 경우이 단계를 건너뜁니다.
 
 1. **만들기** 를 선택 하 여 배포를 시작 합니다.
 
-1. 키 식별자를 적어둡니다. 키 **값은 Uri** , **키 이름** 및 키 **버전** 으로 구성 됩니다. Azure Cognitive Search에서 암호화 된 인덱스를 정의 하려면 식별자가 필요 합니다.
+1. 키 식별자를 적어둡니다. 키 **값은 Uri**, **키 이름** 및 키 **버전** 으로 구성 됩니다. Azure Cognitive Search에서 암호화 된 인덱스를 정의 하려면 식별자가 필요 합니다.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="새 key vault 키 만들기":::
 
@@ -158,7 +158,7 @@ Azure Key Vault에 키가 이미 있는 경우이 단계를 건너뜁니다.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="키 자격 증명 모음 액세스 정책 주체를 선택 합니다.":::
 
-1. **키 권한** 에서 *가져오기* , *키 래핑* 및 *키 래핑* 을 선택 합니다.
+1. **키 권한** 에서 *가져오기*, *키 래핑* 및 *키 래핑* 을 선택 합니다.
 
 1. **비밀 권한** 에서 *가져오기* 를 선택 합니다.
 

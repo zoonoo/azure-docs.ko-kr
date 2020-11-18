@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09f741b37e06010a0bfbab40317980793240e29
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816238"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683508"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -186,13 +186,13 @@ oc adm policy \
 
 ### <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>마스터/인프라/앱 노드에 사용할 수 있는 UNIX 권한 (IaaS)은 무엇 인가요?
 
-4.x 클러스터의 경우 클러스터 관리자 역할을 통해 노드 액세스를 사용할 수 있습니다. 자세한 내용은 [RBAC 개요](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)를 참조 하세요.
+4.x 클러스터의 경우 클러스터 관리자 역할을 통해 노드 액세스를 사용할 수 있습니다. 자세한 내용은 [KUBERNETES RBAC 개요](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)를 참조 하세요.
 
 3.11 클러스터의 경우 노드 액세스는 사용할 수 없습니다.
 
 ### <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>어떤 OCP 권한이 있나요? 클러스터 관리자 인가요? 프로젝트 관리자 인가요?
 
-4.x 클러스터의 경우 클러스터 관리자 역할을 사용할 수 있습니다. 자세한 내용은 [RBAC 개요](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)를 참조 하세요.
+4.x 클러스터의 경우 클러스터 관리자 역할을 사용할 수 있습니다. 자세한 내용은 [KUBERNETES RBAC 개요](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)를 참조 하세요.
 
 3.11 클러스터는 [클러스터 관리 개요](https://docs.openshift.com/aro/admin_guide/index.html) 에서 자세한 내용을 참조 하세요.
 

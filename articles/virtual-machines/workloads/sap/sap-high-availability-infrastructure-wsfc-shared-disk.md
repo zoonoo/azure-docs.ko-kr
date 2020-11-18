@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1af2e741b2ab8a6a0aa6257272798961f5962c43
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4538654b255aad99ff00477134c9eeb5845e50d6
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167341"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682760"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Windows 장애 조치(Failover) 클러스터 및 공유 디스크를 사용하여 SAP ASCS/SCS를 위한 SAP HA용 Azure 인프라 준비
 
@@ -165,7 +165,7 @@ ms.locfileid: "92167341"
 이 문서에서는 SAP ASCS 인스턴스를 클러스터링 하는 옵션으로 *클러스터 공유 디스크* 를 사용 하 여 Windows 장애 조치 (failover) 클러스터에서 고가용성 SAP ascs/SCS 인스턴스를 설치 하 고 구성 하기 위해 Azure 인프라를 준비 하기 위해 수행 하는 단계를 설명 합니다.
 *클러스터 공유 디스크* 에 대 한 두 가지 대안은 설명서에 나와 있습니다.
 
-- [Azure 공유 디스크](../../windows/disks-shared.md)
+- [Azure 공유 디스크](../../disks-shared.md)
 - [Sios DataKeeper 클러스터 버전](https://us.sios.com/products/datakeeper-cluster/) 을 사용 하 여 미러된 저장소를 만들면 클러스터 된 공유 디스크를 시뮬레이션 합니다. 
 
 제공 된 구성은 [Azure 근접 배치 그룹 (PPG)](./sap-proximity-placement-scenarios.md) 에 의존 하 여 SAP 워크 로드에 대 한 최적의 네트워크 대기 시간을 실현 합니다. 설명서는 데이터베이스 계층을 포함 하지 않습니다.  
@@ -174,7 +174,7 @@ ms.locfileid: "92167341"
 > Azure 공유 디스크를 사용 하기 위한 필수 구성 요소는 azure 근접 배치 그룹입니다.
  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 설치를 시작하기 전에 먼저 다음 문서를 검토하세요.
 
@@ -192,9 +192,9 @@ SAP ASCS/SCS 클러스터의 경우 Azure 가용성 집합에 두 개의 Vm을 �
 | --- | --- | --- |---| ---|
 | 첫 번째 클러스터 노드 ASCS/SCS 클러스터 |pr1-ascs-10 |10.0.0.4 |pr1-ascs-avset |PR1PPG |
 | 두 번째 클러스터 노드 ASCS/SCS 클러스터 |pr1-ascs-11 |10.0.0.5 |pr1-ascs-avset |PR1PPG |
-| 클러스터 네트워크 이름 | pr1clust |10.0.0.42 (Win 2016 클러스터에**만** 해당) | 해당 없음 | 해당 없음 |
+| 클러스터 네트워크 이름 | pr1clust |10.0.0.42 (Win 2016 클러스터에 **만** 해당) | 해당 없음 | 해당 없음 |
 | ASCS 클러스터 네트워크 이름 | pr1-ascscl |10.0.0.43 | 해당 없음 | 해당 없음 |
-| ERS 클러스터 네트워크 이름 (ERS2에**만** 해당) | pr1-erscl |10.0.0.44 | 해당 없음 | 해당 없음 |
+| ERS 클러스터 네트워크 이름 (ERS2에 **만** 해당) | pr1-erscl |10.0.0.44 | 해당 없음 | 해당 없음 |
 
 
 ## <a name="create-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Azure 내부 부하 분산 장치 만들기
@@ -213,17 +213,17 @@ SAP ASCS, SAP SCS 및 새 SAP ERS2 가상 호스트 이름 및 가상 IP 주소�
 - 백 엔드 구성  
     (A) SCS/ERS 클러스터의 일부가 되어야 하는 모든 가상 컴퓨터를 추가 합니다. 이 예제에서 Vm **pr1** 및 pr1-ascs- **11**.
 - 프로브 포트
-    - 포트 620**nr** 는 프로토콜 (TCP), 간격 (5), 비정상 임계값 (2)에 대 한 기본 옵션을 그대로 유지 합니다.
+    - 포트 620 **nr** 는 프로토콜 (TCP), 간격 (5), 비정상 임계값 (2)에 대 한 기본 옵션을 그대로 유지 합니다.
 - 부하 분산 규칙
     - 표준 Load Balancer를 사용하는 경우 HA 포트를 선택합니다.
     - 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
-        - 32**nr** TCP
-        - 36**nr** TCP
-        - 39**nr** TCP
-        - 81**nr** TCP
-        - 5**nr**13 TCP
-        - 5**nr**14 TCP
-        - 5**nr**16 TCP
+        - 32 **nr** TCP
+        - 36 **nr** TCP
+        - 39 **nr** TCP
+        - 81 **nr** TCP
+        - 5 **nr** 13 TCP
+        - 5 **nr** 14 TCP
+        - 5 **nr** 16 TCP
 
     - 유휴 시간 제한 (분)이 max value 30으로 설정 되어 있고 부동 IP (direct server return)가 사용 하도록 설정 되어 있는지 확인 합니다.
 
@@ -237,17 +237,17 @@ SAP ASCS, SAP SCS 및 새 SAP ERS2 가상 호스트 이름 및 가상 IP 주소�
   Vm이 ILB 백 엔드 풀에 이미 추가 되었습니다.  
 
 - 두 번째 프로브 포트
-    - 포트 621**nr**  
+    - 포트 621 **nr**  
     프로토콜 (TCP), 간격 (5), 비정상 임계값 (2)에 대 한 기본 옵션을 그대로 둡니다.
 
 - 두 번째 부하 분산 규칙
     - 표준 Load Balancer를 사용하는 경우 HA 포트를 선택합니다.
     - 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
-        - 32**nr** TCP
-        - 33**nr** TCP
-        - 5**nr**13 TCP
-        - 5**nr**14 TCP
-        - 5**nr**16 TCP
+        - 32 **nr** TCP
+        - 33 **nr** TCP
+        - 5 **nr** 13 TCP
+        - 5 **nr** 14 TCP
+        - 5 **nr** 16 TCP
 
     - 유휴 시간 제한 (분)이 max value 30으로 설정 되어 있고 부동 IP (direct server return)가 사용 하도록 설정 되어 있는지 확인 합니다.
 
@@ -466,13 +466,13 @@ SIOS 소프트웨어를 설치하기 전에 DataKeeperSvc 도메인 사용자를
 
    _SIOS DataKeeper 설치의 첫 번째 페이지_
 
-2. 대화 상자에서 **예**를 선택합니다.
+2. 대화 상자에서 **예** 를 선택합니다.
 
    ![그림 32: 서비스를 사용할 수 없다고 알리는 DataKeeper][sap-ha-guide-figure-3032]
 
    _DataKeeper가 서비스를 사용할 수 없음을 알립니다._
 
-3. 대화 상자에서 **도메인 또는 서버 계정**을 선택하는 것이 좋습니다.
+3. 대화 상자에서 **도메인 또는 서버 계정** 을 선택하는 것이 좋습니다.
 
    ![그림 33: SIOS DataKeeper에 대한 사용자 선택][sap-ha-guide-figure-3033]
 
@@ -495,7 +495,7 @@ SIOS 소프트웨어를 설치하기 전에 DataKeeperSvc 도메인 사용자를
 ### <a name="configure-sios-datakeeper"></a>SIOS DataKeeper 구성
 두 노드에 SIOS DataKeeper를 설치한 후 구성을 시작합니다. 이러한 구성의 목표는 각 가상 머신에 연결된 추가 디스크 간에 동기식으로 데이터를 복제하는 것입니다.
 
-1. DataKeeper 관리 및 구성 도구를 시작한 다음 **서버 연결**을 선택합니다.
+1. DataKeeper 관리 및 구성 도구를 시작한 다음 **서버 연결** 을 선택합니다.
 
    ![그림 36: SIOS DataKeeper 관리 및 구성 도구][sap-ha-guide-figure-3036]
 
@@ -539,7 +539,7 @@ SIOS 소프트웨어를 설치하기 전에 DataKeeperSvc 도메인 사용자를
 
    _복제 세부 정보 정의_
 
-8. 복제 작업에 의해 복제되는 볼륨을 Windows Server 장애 조치(Failover) 클러스터 구성에 공유 디스크로 나타낼지 여부를 정의합니다. SAP ASCS/SCS 구성의 경우 Windows 클러스터가 복제된 볼륨을 클러스터 볼륨으로 사용할 수 있는 공유 디스크로 인식하도록 **예**를 선택합니다.
+8. 복제 작업에 의해 복제되는 볼륨을 Windows Server 장애 조치(Failover) 클러스터 구성에 공유 디스크로 나타낼지 여부를 정의합니다. SAP ASCS/SCS 구성의 경우 Windows 클러스터가 복제된 볼륨을 클러스터 볼륨으로 사용할 수 있는 공유 디스크로 인식하도록 **예** 를 선택합니다.
 
    ![그림 43: 예를 선택하여 복제된 볼륨을 클러스터 볼륨으로 설정][sap-ha-guide-figure-3043]
 

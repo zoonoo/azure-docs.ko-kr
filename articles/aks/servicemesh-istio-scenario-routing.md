@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 69541ec652188bc3826b7829fbc5c182193d6ba9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d66f3099ba225fbdd2bfc3d54db56ffd8ed2c43f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670939"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684035"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에서 Istio를 사용하여 인텔리전트 라우팅 및 카나리 릴리스 사용
 
@@ -33,13 +33,13 @@ ms.locfileid: "92670939"
 > [!NOTE]
 > 이 시나리오는 Istio 버전 `1.3.2`에 대해 테스트되었습니다.
 
-이 문서에서 자세히 설명된 단계에서는 AKS 클러스터(Kubernetes `1.13` 이상, RBAC 사용 설정됨)를 만들고 클러스터와 `kubectl`을 연결했다고 가정합니다. 또한 클러스터에 Istio를 설치해야 합니다.
+이 문서에 자세히 설명 된 단계에서는 AKS 클러스터 (Kubernetes `1.13` 이상, KUBERNETES RBAC를 사용 하 여)를 만들고 클러스터와의 연결을 설정 했다고 가정 합니다 `kubectl` . 또한 클러스터에 Istio를 설치해야 합니다.
 
 이 항목에 대한 도움이 필요한 경우 [AKS 빠른 시작][aks-quickstart] 및 [AKS에서 lstio 설치][istio-install]를 참조하세요.
 
 ## <a name="about-this-application-scenario"></a>이 애플리케이션 시나리오에 대한 정보
 
-샘플 AKS 투표 앱은 사용자에게 두 가지 투표 옵션( **고양이** 또는 **개** )을 제공합니다. 각 옵션에 대한 투표 수를 유지하는 스토리지 구성 요소가 있습니다. 또한 각 옵션의 득표에 대한 세부 정보를 제공하는 분석 구성 요소가 있습니다.
+샘플 AKS 투표 앱은 사용자에게 두 가지 투표 옵션(**고양이** 또는 **개**)을 제공합니다. 각 옵션에 대한 투표 수를 유지하는 스토리지 구성 요소가 있습니다. 또한 각 옵션의 득표에 대한 세부 정보를 제공하는 분석 구성 요소가 있습니다.
 
 이 애플리케이션 시나리오에서는 투표 앱 `1.0` 버전 및 분석 구성 요소의 `1.0` 버전을 먼저 배포합니다. 분석 구성 요소는 투표 수에 대한 간단한 수를 제공합니다. 투표 앱과 분석 구성 요소는 Redis에서 지원되는 스토리지 구성 요소의 `1.0` 버전과 상호작용합니다.
 

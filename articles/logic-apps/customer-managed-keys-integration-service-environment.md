@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: d9f25fc419a92d125dffe5c14b9b4c19cd795c6e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30b09d43cbe510318ac4f48e0655d5483491c215
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318457"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682777"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>고객 관리 키를 설정 하 여 ISEs (integration service environment)에 대 한 미사용 데이터를 암호화 Azure Logic Apps
 
@@ -25,7 +25,7 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
 
 * 이 시점에서 ISE에 대 한 고객 관리 키 지원은 미국 서 부 2, 미국 동부 및 미국 서 부와 같은 Azure 지역 에서만 사용할 수 있습니다.
 
-* 이후에는 *ISE를 만들 때만*고객이 관리 하는 키를 지정할 수 있습니다. ISE를 만든 후에는이 키를 사용 하지 않도록 설정할 수 없습니다. 현재 ISE에 대 한 고객 관리 키 회전에 대 한 지원이 없습니다.
+* 이후에는 *ISE를 만들 때만* 고객이 관리 하는 키를 지정할 수 있습니다. ISE를 만든 후에는이 키를 사용 하지 않도록 설정할 수 없습니다. 현재 ISE에 대 한 고객 관리 키 회전에 대 한 지원이 없습니다.
 
 * 고객 관리 키를 지원 하려면 ISE에서 [시스템 할당 관리 id](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) 를 사용 하도록 설정 해야 합니다. 이 id를 사용 하면 ISE가 다른 Azure Active Directory (Azure AD) 테 넌 트의 리소스에 대 한 액세스를 인증 하 여 자격 증명으로 로그인 할 필요가 없습니다.
 
@@ -33,13 +33,13 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
 
 * ISE를 만드는 HTTPS PUT 요청을 보낸 후 *30 분* 이내에 [ise의 시스템 할당 id에 대 한 key vault 액세스 권한을 부여](#identity-access-to-key-vault)해야 합니다. 그렇지 않으면 ISE 만들기가 실패 하 고 권한 오류가 throw 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Portal ISE를 만들 때 [ise에 대 한 액세스를 가능 하 게 하](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) 는 동일한 [필수 구성 요소](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) 및 요구 사항
 
 * **일시 삭제** 및 **제거 안 함** 속성을 사용 하는 Azure key vault
 
-  이러한 속성을 사용 하는 방법에 대 한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](../key-vault/general/soft-delete-overview.md) 및 [Azure Key Vault를 사용 하 여 고객 관리 키 구성](../storage/common/customer-managed-keys-configure-key-vault.md)을 참조 하세요. Azure Key Vault를 처음 사용 하는 경우 Azure Portal를 사용 하거나 Azure PowerShell 명령 [AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault)를 사용 하 여 [주요 자격 증명 모음을 만드는 방법을](../key-vault/secrets/quick-create-portal.md#create-a-vault) 알아봅니다.
+  이러한 속성을 사용 하는 방법에 대 한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](../key-vault/general/soft-delete-overview.md) 및 [Azure Key Vault를 사용 하 여 고객 관리 키 구성](../storage/common/customer-managed-keys-configure-key-vault.md)을 참조 하세요. [Azure Key Vault](../key-vault/general/overview.md)를 처음 접하는 경우 [Azure Portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault/general/quick-create-cli.md)또는 [Azure PowerShell](../key-vault/general/quick-create-powershell.md)를 사용 하 여 주요 자격 증명 모음을 만드는 방법을 알아보세요.
 
 * 키 자격 증명 모음에서 다음 속성 값을 사용 하 여 만든 키입니다.
 
@@ -203,7 +203,7 @@ ISE를 만들기 위해 HTTP PUT 요청을 보낸 후 *30 분* 이내에 ise의 
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure key vault를 엽니다.
 
-1. 키 자격 증명 모음 메뉴에서 **액세스 정책**  >  **추가 액세스 정책**을 선택 합니다. 예를 들면 다음과 같습니다.
+1. 키 자격 증명 모음 메뉴에서 **액세스 정책**  >  **추가 액세스 정책** 을 선택 합니다. 예를 들면 다음과 같습니다.
 
    ![시스템 할당 관리 id에 대 한 액세스 정책 추가](./media/customer-managed-keys-integration-service-environment/add-ise-access-policy-key-vault.png)
 
@@ -219,11 +219,11 @@ ISE를 만들기 위해 HTTP PUT 요청을 보낸 후 *30 분* 이내에 ise의 
 
       !["키 관리" > "키 사용 권한"을 선택 합니다.](./media/customer-managed-keys-integration-service-environment/select-key-permissions.png)
 
-   1. **보안 주체 선택**에서 선택 **안 함**을 선택 합니다. **주** 창이 열리면 검색 상자에서 ISE를 찾아 선택 합니다. 완료 되 면 추가 **선택**을 선택  >  **Add**합니다.
+   1. **보안 주체 선택** 에서 선택 **안 함** 을 선택 합니다. **주** 창이 열리면 검색 상자에서 ISE를 찾아 선택 합니다. 완료 되 면 추가 **선택** 을 선택  >  **Add** 합니다.
 
       ![주 서버로 사용할 ISE를 선택 합니다.](./media/customer-managed-keys-integration-service-environment/select-service-principal-ise.png)
 
-   1. **액세스 정책** 창에서 완료 되 면 **저장**을 선택 합니다.
+   1. **액세스 정책** 창에서 완료 되 면 **저장** 을 선택 합니다.
 
 자세한 내용은 [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md) 및 [Key Vault 액세스 정책 할당](../key-vault/general/assign-access-policy-portal.md)을 참조 하세요.
 

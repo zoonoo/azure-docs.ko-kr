@@ -4,12 +4,12 @@ description: 이 문서에서는 컨테이너에 대해 Azure Monitor와 함께 
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 4966ab0d64745c36ee53f27ba4063714f18e35da
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6fdd2d0a97357a2126ff37c0840b1f7da2859da5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648109"
+ms.locfileid: "94682675"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>라이브 데이터 (미리 보기) 기능을 설정 하는 방법
 
@@ -136,7 +136,7 @@ Kubernetes의 고급 보안 설정에 대 한 자세한 내용은 [Kubernetes �
 >[!IMPORTANT]
 >RBAC 바인딩을 부여한 사용자가 동일한 Azure AD 테 넌 트에 있는 경우 userPrincipalName에 따라 사용 권한을 할당 합니다. 사용자가 다른 Azure AD 테 넌 트에 있는 경우를 쿼리하고 objectId 속성을 사용 합니다.
 
-AKS cluster **Clusterrolebinding** 을 구성 하는 방법에 대 한 추가 도움말은 [RBAC 바인딩 만들기](../../aks/azure-ad-integration-cli.md#create-rbac-binding)를 참조 하세요.
+AKS cluster **Clusterrolebinding** 을 구성 하는 방법에 대 한 추가 도움말은 [Create Kubernetes RBAC binding](../../aks/azure-ad-integration-cli.md#create-kubernetes-rbac-binding)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

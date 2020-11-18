@@ -1,5 +1,5 @@
 ---
-title: Red Hat Enterprise Linux 연장 된 수명 주기 지원
+title: Red Hat Enterprise Linux 연장된 수명 주기 지원
 description: Red Hat Enterprise Extended 수명 주기 지원 추가 기능을 추가 하는 방법에 대해 알아봅니다.
 author: mathapli
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: e7c9f9b158d01204536712f8024ed098cd7a5037
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 124ff65087887a437e0b82fbd7b1e4c72e4f7b4c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372878"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684358"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>RHEL (Red Hat Enterprise Linux) 확장 된 수명 주기 지원
 이 문서에서는 Red Hat Enterprise 이미지에 대 한 연장 된 수명 주기 지원 정보를 제공 합니다.
@@ -40,7 +40,7 @@ ms.locfileid: "94372878"
 
 #### <a name="what-is-the-process-to-add-extended-life-cycle-support-els-repositories-to-continue-to-receive-software-maintenance-bug-and-security-fixes-and--support-for-red-hat-enterprise-linux-6"></a>소프트웨어 유지 관리 (버그 및 보안 픽스)를 계속 받고 Red Hat Enterprise Linux 6에 대 한 지원을 계속 받으려면 확장 된 ELS (수명 주기 지원) 리포지토리를 추가 하는 프로세스는 무엇입니까?
 
-ELS에 등록 하는 종단 간 프로세스는 곧 제공 될 예정입니다 (최근 15 11 월 2020).
+ELS에 등록 하는 종단 간 프로세스는 곧 제공 될 예정입니다 (최근 30 년 11 2020 월 30 일까 지).
 
 ## <a name="next-steps"></a>다음 단계
 

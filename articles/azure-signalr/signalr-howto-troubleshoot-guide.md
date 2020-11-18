@@ -1,19 +1,19 @@
 ---
 title: Azure SignalR Service에 대한 문제 해결 가이드
-description: Learn
+description: 일반적인 문제를 해결 하는 방법 알아보기
 author: YanJin
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 5b8360134ace3852fb3c7fbe458ca2572f45b624
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 11ea348a80bc226b6a96bea1e7c023ee9c06b13a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663789"
+ms.locfileid: "94684120"
 ---
-# <a name="troubleshooting-guide"></a>문제 해결 가이드
+# <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Azure SignalR Service의 일반적인 문제에 대 한 문제 해결 가이드
 
 이 지침은 지난 몇 년간 고객이 충족 하 고 해결 한 일반적인 문제에 따라 유용한 문제 해결 가이드를 제공 하는 것입니다.
 
@@ -347,3 +347,9 @@ finally
 
     * [ASP.NET JavaScript 클라이언트](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
 
+## <a name="next-steps"></a>다음 단계
+
+이 가이드에서는 일반적인 문제를 처리 하는 방법을 배웠습니다. 일반적인 문제 해결 방법에 대해 자세히 알아볼 수도 있습니다. 
+
+> [!div class="nextstepaction"]
+> [연결 및 메시지 배달 문제를 해결 하는 방법](./signalr-howto-troubleshoot-method.md)

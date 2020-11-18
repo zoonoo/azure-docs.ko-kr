@@ -1,20 +1,20 @@
 ---
-title: 클러스터에 Azure AD 및 RBAC 사용
+title: 클러스터에 Azure AD 및 Kubernetes RBAC 사용
 titleSuffix: Azure Kubernetes Service
-description: Azure Kubernetes 서비스에서 RBAC (역할 기반 액세스 제어)를 사용 하 여 클러스터 리소스에 대 한 액세스를 제한 하기 위해 Azure Active Directory 그룹 구성원 자격을 사용 하는 방법에 대해 알아봅니다 (AKS).
+description: AKS (Azure Kubernetes Service)에서 Kubernetes (역할 기반 access control)를 사용 하 여 클러스터 리소스에 대 한 액세스를 제한 하는 Azure Active Directory 그룹 구성원 자격을 사용 하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 2845a091c8a89f22e8892141dd2dad26d6049447
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f49e9f6b4f5aaf58ff055043b52cfe99e3e39f19
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88006845"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684290"
 ---
-# <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 역할 기반 액세스 제어 및 Azure Active Directory id를 사용 하 여 클러스터 리소스에 대 한 액세스 제어
+# <a name="control-access-to-cluster-resources-using-kubernetes-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 Kubernetes 역할 기반 access control 및 Azure Active Directory id를 사용 하 여 클러스터 리소스에 대 한 액세스 제어
 
-사용자 인증을 위해 Azure AD(Active Directory)를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서는 Azure AD 인증 토큰을 사용 하 여 AKS 클러스터에 로그인 합니다. 사용자의 id 또는 그룹 멤버 자격을 기반으로 클러스터 리소스에 대 한 액세스를 제한 하도록 Kubernetes RBAC (역할 기반 액세스 제어)를 구성할 수도 있습니다.
+사용자 인증을 위해 Azure AD(Active Directory)를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서는 Azure AD 인증 토큰을 사용 하 여 AKS 클러스터에 로그인 합니다. 또한 사용자의 id 또는 그룹 멤버 자격을 기반으로 클러스터 리소스에 대 한 액세스를 제한 하도록 Kubernetes (역할 기반 액세스 제어) Kubernetes RBAC (역할 기반 액세스 제어)를 구성할 수 있습니다.
 
 이 문서에서는 Azure AD 그룹 멤버 자격을 사용 하 여 AKS 클러스터에서 Kubernetes RBAC를 사용 하 여 네임 스페이스 및 클러스터 리소스에 대 한 액세스를 제어 하는 방법을 보여 줍니다. 예제 그룹 및 사용자가 Azure AD에 생성 된 다음, 리소스를 만들고 볼 수 있는 적절 한 권한을 부여 하기 위해 역할 및 RoleBindings가 AKS 클러스터에 생성 됩니다.
 
@@ -44,13 +44,13 @@ AKS_ID=$(az aks show \
     --query id -o tsv)
 ```
 
-[Az AD group create][az-ad-group-create] 명령을 사용 하 여 응용 프로그램 개발자를 위한 Azure AD의 첫 번째 예제 그룹을 만듭니다. 다음 예제에서는 *appdev*라는 그룹을 만듭니다.
+[Az AD group create][az-ad-group-create] 명령을 사용 하 여 응용 프로그램 개발자를 위한 Azure AD의 첫 번째 예제 그룹을 만듭니다. 다음 예제에서는 *appdev* 라는 그룹을 만듭니다.
 
 ```azurecli-interactive
 APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query objectId -o tsv)
 ```
 
-이제 [az role 대입문 create][az-role-assignment-create] 명령을 사용 하 여 *appdev* 그룹에 대 한 Azure 역할 할당을 만듭니다. 이 할당을 사용 하면 그룹의 모든 멤버가 `kubectl` *Azure Kubernetes Service 클러스터 사용자 역할*을 부여 하 여 AKS 클러스터와 상호 작용할 수 있습니다.
+이제 [az role 대입문 create][az-role-assignment-create] 명령을 사용 하 여 *appdev* 그룹에 대 한 Azure 역할 할당을 만듭니다. 이 할당을 사용 하면 그룹의 모든 멤버가 `kubectl` *Azure Kubernetes Service 클러스터 사용자 역할* 을 부여 하 여 AKS 클러스터와 상호 작용할 수 있습니다.
 
 ```azurecli-interactive
 az role assignment create \
@@ -62,13 +62,13 @@ az role assignment create \
 > [!TIP]
 > 와 같은 오류가 발생 하는 경우 `Principal 35bfec9328bd4d8d9b54dea6dac57b82 does not exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.` AZURE AD 그룹 개체 ID가 디렉터리를 통해 전파 될 때까지 몇 초 정도 기다린 후 `az role assignment create` 명령을 다시 시도 합니다.
 
-이름이 *opssre*인 sres에 대해 두 번째 예제 그룹을 만듭니다.
+이름이 *opssre* 인 sres에 대해 두 번째 예제 그룹을 만듭니다.
 
 ```azurecli-interactive
 OPSSRE_ID=$(az ad group create --display-name opssre --mail-nickname opssre --query objectId -o tsv)
 ```
 
-다시 Azure 역할 할당을 만들어 그룹 구성원에 게 *Azure Kubernetes Service 클러스터 사용자 역할*을 부여 합니다.
+다시 Azure 역할 할당을 만들어 그룹 구성원에 게 *Azure Kubernetes Service 클러스터 사용자 역할* 을 부여 합니다.
 
 ```azurecli-interactive
 az role assignment create \
@@ -79,7 +79,7 @@ az role assignment create \
 
 ## <a name="create-demo-users-in-azure-ad"></a>Azure AD에서 데모 사용자 만들기
 
-이제 응용 프로그램 개발자 및 SREs에 대해 Azure AD에서 만든 두 가지 예제 그룹을 사용 하 여 두 예제 사용자를 만들 수 있습니다. 문서 끝에서 RBAC 통합을 테스트 하려면 이러한 계정을 사용 하 여 AKS 클러스터에 로그인 합니다.
+이제 응용 프로그램 개발자 및 SREs에 대해 Azure AD에서 만든 두 가지 예제 그룹을 사용 하 여 두 예제 사용자를 만들 수 있습니다. 이 문서의 끝에서 Kubernetes RBAC 통합을 테스트 하려면 이러한 계정을 사용 하 여 AKS 클러스터에 로그인 합니다.
 
 [Az AD user create][az-ad-user-create] 명령을 사용 하 여 Azure AD에서 첫 번째 사용자 계정을 만듭니다.
 
@@ -123,13 +123,13 @@ az ad group member add --group opssre --member-id $AKSSRE_ID
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-[Kubectl create namespace][kubectl-create] 명령을 사용 하 여 AKS 클러스터에 네임 스페이스를 만듭니다. 다음 예제에서는 네임 스페이스 이름 *dev*를 만듭니다.
+[Kubectl create namespace][kubectl-create] 명령을 사용 하 여 AKS 클러스터에 네임 스페이스를 만듭니다. 다음 예제에서는 네임 스페이스 이름 *dev* 를 만듭니다.
 
 ```console
 kubectl create namespace dev
 ```
 
-Kubernetes에서 *역할* 은 부여할 사용 권한을 정의 하 고 *rolebindings* 는 원하는 사용자 또는 그룹에 해당 권한을 적용 합니다. 이러한 할당은 주어진 네임스페이스 또는 전체 클러스터에 적용될 수 있습니다. 자세한 내용은 [RBAC 권한 부여 사용][rbac-authorization]을 참조하세요.
+Kubernetes에서 *역할* 은 부여할 사용 권한을 정의 하 고 *rolebindings* 는 원하는 사용자 또는 그룹에 해당 권한을 적용 합니다. 이러한 할당은 주어진 네임스페이스 또는 전체 클러스터에 적용될 수 있습니다. 자세한 내용은 [KUBERNETES RBAC 권한 부여 사용][rbac-authorization]을 참조 하세요.
 
 먼저 *dev* 네임 스페이스에 대 한 역할을 만듭니다. 이 역할은 네임 스페이스에 대 한 모든 권한을 부여 합니다. 프로덕션 환경에서는 다른 사용자 또는 그룹에 대 한 보다 세부적인 사용 권한을 지정할 수 있습니다.
 
@@ -285,7 +285,7 @@ pod/nginx-dev created
 kubectl get pods --namespace dev
 ```
 
-다음 예제 출력과 같이 NGINX pod가 성공적으로 *실행*되 고 있습니다.
+다음 예제 출력과 같이 NGINX pod가 성공적으로 *실행* 되 고 있습니다.
 
 ```console
 $ kubectl get pods --namespace dev
@@ -410,5 +410,5 @@ Id 및 리소스 제어에 대 한 모범 사례는 [AKS의 인증 및 권한 �
 [az-ad-user-create]: /cli/azure/ad/user#az-ad-user-create
 [az-ad-group-member-add]: /cli/azure/ad/group/member#az-ad-group-member-add
 [az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show
-[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md

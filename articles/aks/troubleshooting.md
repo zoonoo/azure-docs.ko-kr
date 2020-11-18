@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: aefb33325c1a5bf8e94d47106147d4c7c4f0f1ca
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286777"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684171"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -46,7 +46,7 @@ pod, 노드, 클러스터 등의 문제 해결과 관련해서 Microsoft 엔지�
    1. Kubenet를 사용 하는 경우 `number of free IPs in the subnet` 가 보다 **작은** 경우이 오류가 발생 합니다 `number of buffer nodes needed to upgrade` .
    1. Azure CNI를 사용 하는 경우이 `number of free IPs in the subnet` **보다 작은** 경우에 발생 합니다 `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
    
-   기본적으로 AKS 클러스터는 최대 서 수 (업그레이드 버퍼) 값을 1로 설정 하지만이 업그레이드 동작은 업그레이드를 완료 하는 데 필요한 사용 가능한 Ip 수를 늘리는 [노드 풀의 최대 서 수 값](upgrade-cluster.md#customize-node-surge-upgrade-preview) 을 설정 하 여 사용자 지정할 수 있습니다.
+   기본적으로 AKS 클러스터는 최대 서 수 (업그레이드 버퍼) 값을 1로 설정 하지만이 업그레이드 동작은 업그레이드를 완료 하는 데 필요한 사용 가능한 Ip 수를 늘리는 [노드 풀의 최대 서 수 값](upgrade-cluster.md#customize-node-surge-upgrade) 을 설정 하 여 사용자 지정할 수 있습니다.
 
 1. AKS create 또는 AKS Nodepool 추가
    1. Kubenet를 사용 하는 경우 `number of free IPs in the subnet` 가 보다 **작은** 경우이 오류가 발생 합니다 `number of nodes requested for the node pool` .
@@ -86,13 +86,13 @@ AKS에는 Slo (서비스 수준 목표) 및 Sla (서비스 수준 계약)를 보
 
 이러한 시간 제한은 차단 되는 노드 간의 내부 트래픽과 관련 될 수 있습니다. 클러스터의 노드에 대 한 서브넷의 [네트워크 보안 그룹](concepts-security.md#azure-network-security-groups) 등이 트래픽이 차단 되 고 있지 않은지 확인 합니다.
 
-## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>기존 클러스터에서 RBAC(역할 기반 액세스 제어)를 사용하도록 설정하려고 합니다. 어떻게 하면 되나요?
+## <a name="im-trying-to-enable-kubernetes-role-based-access-control-kubernetes-rbac-on-an-existing-cluster-how-can-i-do-that"></a>기존 클러스터에서 Kubernetes (역할 기반 액세스 제어) Kubernetes RBAC (역할 기반 액세스 제어)를 사용 하도록 설정 하려고 합니다. 어떻게 하면 되나요?
 
-현재 기존 클러스터에서 RBAC(역할 기반 액세스 제어)를 사용하도록 설정할 수 없으므로 새 클러스터를 만들 때 이를 설정해야 합니다. `2020-03-01` 이후의 CLI, Portal 또는 API 버전을 사용하는 경우 기본적으로 RBAC를 사용하도록 설정됩니다.
+기존 클러스터에서 Kubernetes (역할 기반 액세스 제어) Kubernetes RBAC (역할 기반 액세스 제어)를 사용 하도록 설정할 수 없습니다. 새 클러스터를 만들 때 설정 해야 합니다. Kubernetes RBAC는 CLI, 포털 또는 이후 버전의 API를 사용할 때 기본적으로 사용 하도록 설정 됩니다 `2020-03-01` .
 
-## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>RBAC를 사용하도록 설정된 클러스터를 만들었으며 이제 Kubernetes 대시보드에 많은 경고가 표시됩니다. 이전에는 대시보드가 경고없이 잘 작동되었습니다. 어떻게 해야 하나요?
+## <a name="i-created-a-cluster-with-kubernetes-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Kubernetes RBAC를 사용 하는 클러스터를 만들었으며 이제 Kubernetes 대시보드에 많은 경고가 표시 됩니다. 이전에는 대시보드가 경고없이 잘 작동되었습니다. 어떻게 해야 하나요?
 
-경고가 발생하는 이유는 클러스터에서 RBAC를 사용하도록 설정되어 있고 대시보드에 대한 액세스가 기본적으로 제한되어 있기 때문입니다. 일반적으로 클러스터의 모든 사용자에게 기본적으로 대시보드를 노출하면 보안 위협이 초래될 수 있으므로 이렇게 하는 것이 적절합니다. 그래도 대시보드를 사용하도록 설정하려면 [이 블로그 게시물](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/)의 단계를 따르세요.
+경고가 발생 하는 이유는 클러스터에서 Kubernetes RBAC를 사용 하도록 설정 하 고 대시보드에 대 한 액세스는 이제 기본적으로 제한 되어 있기 때문입니다. 일반적으로 클러스터의 모든 사용자에게 기본적으로 대시보드를 노출하면 보안 위협이 초래될 수 있으므로 이렇게 하는 것이 적절합니다. 그래도 대시보드를 사용하도록 설정하려면 [이 블로그 게시물](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/)의 단계를 따르세요.
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>kubectl logs를 사용하여 로그를 가져올 수 없고 API 서버에 연결할 수 없습니다. "서버 오류: 백 엔드 전화 접속 오류가 발생했습니다.: dial tcp…"라는 오류가 발생합니다. 어떻게 해야 하나요?
 
@@ -154,7 +154,7 @@ AKS 클러스터를 올바르게 만들려면 해당 문서의 *시작하기 전
 명명 제한은 Azure 플랫폼 및 AKS에서 모두 구현됩니다. 리소스 이름 또는 매개 변수에서 이러한 제한 중 하나를 위반하면 다른 입력을 제공하라는 오류가 반환됩니다. 적용되는 일반적인 명명 지침은 다음과 같습니다.
 
 * 클러스터 이름은 1-63자여야 합니다. 허용되는 문자는 문자, 숫자, 대시 및 밑줄입니다. 첫 번째 및 마지막 문자는 문자 또는 숫자여야 합니다.
-* AKS Node/ *MC_* 리소스 그룹 이름은 리소스 그룹 이름과 리소스 이름을 결합합니다. `MC_resourceGroupName_resourceName_AzureRegion`의 자동 생성 구문은 80자 이하여야 합니다. 필요한 경우 리소스 그룹 이름 또는 AKS 클러스터 이름의 길이를 줄입니다. [노드 리소스 그룹 이름을 사용자 지정할 수도 있습니다](cluster-configuration.md#custom-resource-group-name).
+* AKS Node/*MC_* 리소스 그룹 이름은 리소스 그룹 이름과 리소스 이름을 결합합니다. `MC_resourceGroupName_resourceName_AzureRegion`의 자동 생성 구문은 80자 이하여야 합니다. 필요한 경우 리소스 그룹 이름 또는 AKS 클러스터 이름의 길이를 줄입니다. [노드 리소스 그룹 이름을 사용자 지정할 수도 있습니다](cluster-configuration.md#custom-resource-group-name).
 * *dnsPrefix* 는 영숫자 값으로 시작하고 끝나야 하며, 1-54자여야 합니다. 유효한 문자에는 영숫자 값 및 하이픈(-)이 포함됩니다. *dnsPrefix* 에는 마침표(.)와 같은 특수 문자가 포함될 수 없습니다.
 * AKS 노드 풀 이름은 모두 소문자여야 하고, Linux 노드 풀의 경우 1-11자이고 Windows 노드 풀의 경우 1-6자여야 합니다. 이름은 문자로 시작해야 하며, 허용되는 문자는 문자와 숫자입니다.
 * Linux 노드에 대 한 관리자 사용자 이름을 설정 하는 *관리자 사용자 이름은* 문자로 시작 해야 하 고 문자, 숫자, 하이픈 및 밑줄만 포함할 수 있으며 최대 길이는 64 자입니다.
@@ -167,7 +167,7 @@ AKS 클러스터를 올바르게 만들려면 해당 문서의 *시작하기 전
 
 클러스터 상태의 출력에 따라 다음을 수행합니다.
 
-* 클러스터가 *성공* 또는 *실패* 가 아닌 프로비전 상태에 있는 경우 작업( *업그레이드/업데이트/만들기/크기 조정/삭제/마이그레이션* )이 완료될 때까지 기다립니다. 이전 작업이 완료되면 최근의 클러스터 작업을 다시 시도합니다.
+* 클러스터가 *성공* 또는 *실패* 가 아닌 프로비전 상태에 있는 경우 작업(*업그레이드/업데이트/만들기/크기 조정/삭제/마이그레이션*)이 완료될 때까지 기다립니다. 이전 작업이 완료되면 최근의 클러스터 작업을 다시 시도합니다.
 
 * 클러스터에 업그레이드에 실패한 경우 [클러스터가 실패 상태에 있고 업그레이드 또는 확장이 수정될 때까지 작동하지 않는다는 오류가 표시됩니다.](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed)에서 설명한 단계를 수행합니다.
 

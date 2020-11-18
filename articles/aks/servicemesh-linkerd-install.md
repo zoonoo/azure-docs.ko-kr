@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 419b61527b68299c82dec4f2f5da6b0220859cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5b2ec220bbf14a79247ed2c78a0e84f4717fae3
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77593735"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684239"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에 Linkerd 설치
 
@@ -35,7 +35,7 @@ ms.locfileid: "77593735"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에 설명 된 단계에서는 AKS 클러스터 ( `1.13` RBAC를 사용 하 여 Kubernetes 이상)를 만들고 `kubectl` 클러스터와의 연결을 설정 했다고 가정 합니다. 이 항목에 대한 도움이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요.
+이 문서에 설명 된 단계에서는 AKS 클러스터 (Kubernetes `1.13` 이상, KUBERNETES RBAC를 사용 하 여)를 만들고 클러스터와의 연결을 설정 했다고 가정 합니다 `kubectl` . 이 항목에 대한 도움이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요.
 
 모든 Linkerd pod는 Linux 노드에서 실행 되도록 예약 되어야 합니다 .이 설정은 아래에 자세히 설명 된 설치 방법의 기본값입니다. 추가 구성은 필요 하지 않습니다.
 

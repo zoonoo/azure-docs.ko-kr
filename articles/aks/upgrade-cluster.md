@@ -3,13 +3,13 @@ title: AKS(Azure Kubernetes Service) 클러스터 업그레이드
 description: AKS (Azure Kubernetes Service) 클러스터를 업그레이드 하 여 최신 기능 및 보안 업데이트를 가져오는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 10/21/2020
-ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 11/17/2020
+ms.openlocfilehash: 262905c9f840850795ba9555912e81eca61369d1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461450"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683236"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
@@ -26,20 +26,20 @@ AKS 클러스터의 수명 주기의 일환으로, 최신 Kubernetes 버전으�
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>사용할 수 있는 AKS 클러스터 업그레이드를 위한 확인
 
-클러스터에 사용할 수 있는 Kubernetes 릴리스를 확인하려면 [az aks get-upgrades][az-aks-get-upgrades] 명령을 사용합니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹에서 *myAKSCluster*라는 클러스터로 가능한 업그레이드를 확인합니다.
+클러스터에 사용할 수 있는 Kubernetes 릴리스를 확인하려면 [az aks get-upgrades][az-aks-get-upgrades] 명령을 사용합니다. 다음 예제에서는 *myResourceGroup* 이라는 리소스 그룹에서 *myAKSCluster* 라는 클러스터로 가능한 업그레이드를 확인합니다.
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
 > [!NOTE]
-> 지원 되는 AKS 클러스터를 업그레이드 하는 경우 Kubernetes 부 버전은 건너뛸 수 없습니다. 예를 들어 *1.12*. x  ->  *1.13 x x* x x x x *x x*x x x x x x x x x x x x x x x x x x x x x. x를  ->  사용할 수 있지만*1.14* *1.12.x*  ->  *1.14.x*
+> 지원 되는 AKS 클러스터를 업그레이드 하는 경우 Kubernetes 부 버전은 건너뛸 수 없습니다. 예를 들어 *1.12*. x  ->  *1.13 x x* x x x x *x x* x x x x x x x x x x x x x x x x x x x x x. x를  ->  사용할 수 있지만 *1.14* *1.12.x*  ->  *1.14.x*
 >
-> 1.14에서 업그레이드 하려면 *1.12.x*  ->  *1.14.x*먼저 *1.12*. x  ->  *1.13.* x에서 업그레이드 한 다음 *1.13.* x  ->  *1.14*에서 업그레이드 합니다.
+> 1.14에서 업그레이드 하려면 *1.12.x*  ->  *1.14.x* 먼저 *1.12*. x  ->  *1.13.* x에서 업그레이드 한 다음 *1.13.* x  ->  *1.14* 에서 업그레이드 합니다.
 >
 > 지원 되지 않는 버전에서 지원 되는 버전으로 업그레이드 하는 경우에만 여러 버전을 건너뛸 수 있습니다. 예를 들어 *지원 되는* *1.10* . x >에서 업그레이드를 완료할 수 있습니다.
 
-다음 예제 출력에서는 *1.13.9* 및 *1.13.10*버전으로 클러스터를 업그레이드할 수 있음을 보여 줍니다.
+다음 예제 출력에서는 *1.13.9* 및 *1.13.10* 버전으로 클러스터를 업그레이드할 수 있음을 보여 줍니다.
 
 ```console
 Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
@@ -51,7 +51,7 @@ default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-## <a name="customize-node-surge-upgrade-preview"></a>노드 서 지 업그레이드 사용자 지정 (미리 보기)
+## <a name="customize-node-surge-upgrade"></a>노드 서 지 업그레이드 사용자 지정
 
 > [!Important]
 > 노드 작동에는 각 업그레이드 작업에 대해 요청 된 최대 서 수에 대 한 구독 할당량이 필요 합니다. 예를 들어 노드 풀이 5 개인 클러스터에는 각각 4 개 노드 수가 있는 클러스터에는 총 20 개의 노드가 있습니다. 각 노드 풀의 최대 서 수 값이 50% 이면 업그레이드를 완료 하려면 10 개 노드의 추가 계산 및 IP 할당량 (2 개 노드 * 5 풀)이 필요 합니다.
@@ -66,21 +66,7 @@ AKS는 정수 값과 최대 서 지의 백분율 값을 모두 허용 합니다.
 
 업그레이드 하는 동안 최대 서 수 값은 1이 고 최대 값은 노드 풀의 노드 수와 같아야 합니다. 더 큰 값을 설정할 수 있지만 최대 서 수에 사용 되는 최대 노드 수는 업그레이드 시 풀의 노드 수보다 높아야 합니다.
 
-### <a name="set-up-the-preview-feature-for-customizing-node-surge-upgrade"></a>노드 서 지 업그레이드 사용자 지정을 위한 미리 보기 기능 설정
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "MaxSurgePreview"
-```
-
-등록 하는 데 몇 분 정도 걸릴 수 있습니다. 다음 명령을 사용 하 여 기능이 등록 되었는지 확인 합니다.
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MaxSurgePreview')].{Name:name,State:properties.state}"
-```
-
-미리 보기 중에는 최대 서 수를 사용 하는 *aks-preview* CLI 확장이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
+CLI 버전 2.16.0 이상 까지는 최대 서 수를 사용 하는 *aks-preview* CLI 확장이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -107,7 +93,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>AKS 클러스터 업그레이드
 
-AKS 클러스터에 대한 사용 가능한 버전 목록을 통해 [az aks upgrade][az-aks-upgrade] 명령을 사용하여 업그레이드합니다. 업그레이드 프로세스가 진행 되는 동안 AKS는 지정 된 Kubernetes 버전을 실행 하는 클러스터에 새 버퍼 노드 (또는 [최대 서](#customize-node-surge-upgrade-preview)수에 구성 된 것과 같은 노드)를 추가 합니다. 그런 다음 실행 중인 응용 프로그램의 중단을 최소화 하기 위해 이전 노드 중 하나를 손상 시킬 수 있습니다. 최대 서 수를 사용 [하는 경우][kubernetes-drain] 지정 된 버퍼 노드 수와 동시에 많은 노드를 동시에 [드레이닝][kubernetes-drain] 하지 않습니다. 이전 노드가 완전히 방전 되 면 새 버전을 수신 하는 것이 이미지로 다시 설치 다음 노드를 업그레이드할 버퍼 노드가 됩니다. 이 프로세스는 클러스터의 모든 노드가 업그레이드 될 때까지 반복 됩니다. 프로세스가 끝나면 마지막으로 종료 된 노드가 삭제 되어 기존 에이전트 노드 수가 유지 됩니다.
+AKS 클러스터에 대한 사용 가능한 버전 목록을 통해 [az aks upgrade][az-aks-upgrade] 명령을 사용하여 업그레이드합니다. 업그레이드 프로세스가 진행 되는 동안 AKS는 지정 된 Kubernetes 버전을 실행 하는 클러스터에 새 버퍼 노드 (또는 [최대 서](#customize-node-surge-upgrade)수에 구성 된 것과 같은 노드)를 추가 합니다. 그런 다음 실행 중인 응용 프로그램의 중단을 최소화 하기 위해 이전 노드 중 하나를 손상 시킬 수 있습니다. 최대 서 수를 사용 [하는 경우][kubernetes-drain] 지정 된 버퍼 노드 수와 동시에 많은 노드를 동시에 [드레이닝][kubernetes-drain] 하지 않습니다. 이전 노드가 완전히 방전 되 면 새 버전을 수신 하는 것이 이미지로 다시 설치 다음 노드를 업그레이드할 버퍼 노드가 됩니다. 이 프로세스는 클러스터의 모든 노드가 업그레이드 될 때까지 반복 됩니다. 프로세스가 끝나면 마지막으로 종료 된 노드가 삭제 되어 기존 에이전트 노드 수가 유지 됩니다.
 
 ```azurecli-interactive
 az aks upgrade \
@@ -127,7 +113,7 @@ az aks upgrade \
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-다음 예제 출력에서는 클러스터가 이제 *1.13.10*를 실행 하는 방법을 보여 줍니다.
+다음 예제 출력에서는 클러스터가 이제 *1.13.10* 를 실행 하는 방법을 보여 줍니다.
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

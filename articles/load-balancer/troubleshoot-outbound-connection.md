@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b75c85b85674def84d9fcee62549a6458abf9174
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628998"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684846"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> 아웃 바운드 연결 오류 문제 해결
 
@@ -63,7 +63,7 @@ ms.locfileid: "91628998"
 그다음으로 큰 백 엔드 풀 크기 계층으로 확장하는 경우, 할당된 포트를 다시 할당해야 하면 잠재적으로 일부 아웃바운드 연결이 시간 초과될 수 있습니다.  SNAT 포트 중 일부만 사용하는 경우 그다음으로 큰 백 엔드 풀 크기로 확장하는 것이 중요하지 않습니다.  기존 포트 절반은 다음 백 앤드 풀 계층으로 이동할 때마다 다시 할당됩니다.  이러한 경우를 방지하려면 배포를 계층 크기에 맞게 조정해야 합니다.  또는 애플리케이션이 필요에 따라 검색하고 다시 시도할 수 있게 합니다.  TCP Keepalive는 다시 할당되어 SNAT 포트가 더 이상 작동하지 않는 경우의 검색을 지원할 수 있습니다.
 
 ## <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>keepalive를 사용하여 아웃바운드 유휴 시간 제한 다시 설정
-아웃바운드 연결에는 4분의 유휴 시간 제한이 적용됩니다. 이 시간 제한은 [아웃바운드 규칙](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout)을 통해 조정할 수 있습니다. 전송(예: TCP keepalive) 또는 애플리케이션 계층 keepalive를 사용하여 유휴 흐름을 새로 고치고, 필요한 경우 이 유휴 시간 제한을 다시 설정할 수도 있습니다.  
+아웃바운드 연결에는 4분의 유휴 시간 제한이 적용됩니다. 이 시간 제한은 [아웃바운드 규칙](outbound-rules.md)을 통해 조정할 수 있습니다. 전송(예: TCP keepalive) 또는 애플리케이션 계층 keepalive를 사용하여 유휴 흐름을 새로 고치고, 필요한 경우 이 유휴 시간 제한을 다시 설정할 수도 있습니다.  
 
 TCP Keepalive를 사용하는 경우 연결의 한 쪽에서 사용하도록 설정하는 것으로 충분합니다. 예를 들어 서버 쪽에서만 사용하도록 설정해도 흐름의 유휴 타이머가 다시 설정되며 양쪽에서 TCP Keepalive를 시작하지 않아도 됩니다.  데이터베이스 클라이언트 서버 구성을 포함하여 애플리케이션 계층에 대한 유사한 개념이 있습니다.  서버 쪽에서 응용 프로그램별 keepalives에 대 한 옵션을 확인 합니다.
 

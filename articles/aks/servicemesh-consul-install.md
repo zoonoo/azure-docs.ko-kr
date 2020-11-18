@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 2f47ded22209a9d53510c7d0a2f8270096161354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5ad53c0040009e9ed1f28072540b46ce7b0b9a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86244136"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683922"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Consul 설치 및 사용
 
@@ -33,7 +33,7 @@ ms.locfileid: "86244136"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에 설명 된 단계에서는 AKS 클러스터 ( `1.13` RBAC를 사용 하 여 Kubernetes 이상)를 만들고 `kubectl` 클러스터와의 연결을 설정 했다고 가정 합니다. 이 항목에 대한 도움이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요. 클러스터의 Linux 노드 풀에 노드가 3 개 이상 있는지 확인 합니다.
+이 문서에 설명 된 단계에서는 AKS 클러스터 (Kubernetes `1.13` 이상, KUBERNETES RBAC를 사용 하 여)를 만들고 클러스터와의 연결을 설정 했다고 가정 합니다 `kubectl` . 이 항목에 대한 도움이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요. 클러스터의 Linux 노드 풀에 노드가 3 개 이상 있는지 확인 합니다.
 
 이러한 지침을 따르고 Consul을 설치 하는 [투구][helm] 가 필요 합니다. 클러스터에 제대로 설치 되 고 구성 된 안정적인 최신 버전을 설치 하는 것이 좋습니다. 투구 설치와 관련 하 여 도움이 필요한 경우 [AKS 투구 설치 지침][helm-install]을 참조 하세요. 모든 Consul pod는 Linux 노드에서 실행 되도록 예약 되어야 합니다.
 

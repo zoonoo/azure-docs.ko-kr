@@ -6,18 +6,18 @@ author: TomGeske
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: ab25ec5406c75316aaa1ee8efd0192dc0207ad79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4aa63493bb14db69821ac04db1d2c5a846de7dbe
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88612421"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682471"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Azure CLI (레거시)를 사용 하 여 Azure Kubernetes Service와 Azure Active Directory 통합
 
-사용자 인증을 위해 Azure AD(Active Directory)를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서는 Azure AD 인증 토큰을 사용 하 여 AKS 클러스터에 로그인 할 수 있습니다. 클러스터 운영자는 사용자의 id 또는 디렉터리 그룹 멤버 자격을 기반으로 Kubernetes RBAC (역할 기반 액세스 제어)를 구성할 수도 있습니다.
+사용자 인증을 위해 Azure AD(Active Directory)를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서는 Azure AD 인증 토큰을 사용 하 여 AKS 클러스터에 로그인 할 수 있습니다. 클러스터 운영자는 사용자의 id 또는 디렉터리 그룹 구성원 자격에 따라 Kubernetes Kubernetes RBAC (역할 기반 액세스 제어)를 구성할 수도 있습니다.
 
-이 문서에서는 필요한 Azure AD 구성 요소를 만든 다음 Azure AD 사용 클러스터를 배포 하 고 AKS 클러스터에서 기본 RBAC 역할을 만드는 방법을 보여 줍니다.
+이 문서에서는 필요한 Azure AD 구성 요소를 만든 다음 Azure AD 사용 클러스터를 배포 하 고 AKS 클러스터에서 기본 Kubernetes 역할을 만드는 방법을 보여 줍니다.
 
 이 문서에서 사용 되는 전체 샘플 스크립트는 [Azure CLI 샘플-AZURE AD와 AKS 통합][complete-script]을 참조 하세요.
 
@@ -26,7 +26,7 @@ ms.locfileid: "88612421"
 
 ## <a name="the-following-limitations-apply"></a>다음과 같은 제한 사항이 적용됩니다.
 
-- Azure AD는 RBAC 지원 클러스터 에서만 사용 하도록 설정할 수 있습니다.
+- Azure AD는 Kubernetes RBAC 사용 클러스터 에서만 사용 하도록 설정할 수 있습니다.
 - Azure AD 레거시 통합은 클러스터를 만드는 동안에만 사용할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -35,7 +35,7 @@ Azure CLI 버전 2.0.61 이상이 설치되고 구성되어 있어야 합니다.
 
 [https://shell.azure.com](https://shell.azure.com)으로 이동하여 브라우저에서 Cloud Shell을 엽니다.
 
-일관성을 위해이 문서의 명령을 실행 하는 데 도움이 되도록 원하는 AKS 클러스터 이름에 대 한 변수를 만듭니다. 다음 예에서는 *myakscluster*이름을 사용 합니다.
+일관성을 위해이 문서의 명령을 실행 하는 데 도움이 되도록 원하는 AKS 클러스터 이름에 대 한 변수를 만듭니다. 다음 예에서는 *myakscluster* 이름을 사용 합니다.
 
 ```console
 aksname="myakscluster"
@@ -164,9 +164,9 @@ az aks create \
 az aks get-credentials --resource-group myResourceGroup --name $aksname --admin
 ```
 
-## <a name="create-rbac-binding"></a>RBAC 바인딩 만들기
+## <a name="create-kubernetes-rbac-binding"></a>Kubernetes RBAC 바인딩 만들기
 
-Azure Active Directory 계정을 AKS 클러스터와 함께 사용하려면 역할 바인딩 또는 클러스터 역할 바인딩을 만들어야 합니다. *역할*은 부여할 사용 권한을 정의하고, *바인딩*은 원하는 사용자에게 역할을 적용합니다. 이러한 할당은 주어진 네임스페이스 또는 전체 클러스터에 적용될 수 있습니다. 자세한 내용은 [RBAC 권한 부여 사용][rbac-authorization]을 참조하세요.
+Azure Active Directory 계정을 AKS 클러스터와 함께 사용하려면 역할 바인딩 또는 클러스터 역할 바인딩을 만들어야 합니다. *역할* 은 부여할 사용 권한을 정의하고, *바인딩* 은 원하는 사용자에게 역할을 적용합니다. 이러한 할당은 주어진 네임스페이스 또는 전체 클러스터에 적용될 수 있습니다. 자세한 내용은 [KUBERNETES RBAC 권한 부여 사용][rbac-authorization]을 참조 하세요.
 
 [Az ad signed-user show][az-ad-signed-in-user-show] 명령을 사용 하 여 현재 로그인 한 사용자의 upn (사용자 계정 이름)을 가져옵니다. 이 사용자 계정은 다음 단계에서 Azure AD 통합에 대해 사용 하도록 설정 됩니다.
 
@@ -175,7 +175,7 @@ az ad signed-in-user show --query userPrincipalName -o tsv
 ```
 
 > [!IMPORTANT]
-> RBAC 바인딩을 부여한 사용자가 동일한 Azure AD 테 넌 트에 있는 경우 *userPrincipalName*에 따라 사용 권한을 할당 합니다. 사용자가 다른 Azure AD 테 넌 트에 있는 경우에는를 쿼리하고 *objectId* 속성을 대신 사용 합니다.
+> Kubernetes RBAC 바인딩을 부여한 사용자가 동일한 Azure AD 테 넌 트에 있는 경우 *userPrincipalName* 에 따라 사용 권한을 할당 합니다. 사용자가 다른 Azure AD 테 넌 트에 있는 경우에는를 쿼리하고 *objectId* 속성을 대신 사용 합니다.
 
 이라는 YAML 매니페스트를 만들고 `basic-azure-ad-binding.yaml` 다음 콘텐츠를 붙여 넣습니다. 마지막 줄에서 *userPrincipalName_or_objectId*  을 이전 명령의 UPN 또는 개체 ID 출력으로 바꿉니다.
 
@@ -251,7 +251,7 @@ error: You must be logged in to the server (Unauthorized)
 
 이 문서에 표시 된 명령을 포함 하는 전체 스크립트는 [AKS samples 리포지토리의 AZURE AD 통합 스크립트][complete-script]를 참조 하세요.
 
-Azure AD 사용자 및 그룹을 사용 하 여 클러스터 리소스에 대 한 액세스를 제어 하려면 [AKS에서 역할 기반 액세스 제어 및 AZURE ad id를 사용 하 여 클러스터 리소스에 대 한 액세스 제어][azure-ad-rbac]를 참조 하세요.
+Azure AD 사용자 및 그룹을 사용 하 여 클러스터 리소스에 대 한 액세스를 제어 하려면 [AKS에서 Kubernetes 역할 기반 액세스 제어 및 AZURE ad id를 사용 하 여 클러스터 리소스에 대 한 액세스 제어][azure-ad-rbac]를 참조 하세요.
 
 Kubernetes 클러스터를 보호 하는 방법에 대 한 자세한 내용은 [AKS에 대 한 액세스 및 id 옵션][rbac-authorization]을 참조 하세요.
 
@@ -281,7 +281,7 @@ Id 및 리소스 제어에 대 한 모범 사례는 [AKS의 인증 및 권한 �
 [az-ad-signed-in-user-show]: /cli/azure/ad/signed-in-user#az-ad-signed-in-user-show
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
-[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [managed-aad]: managed-aad.md

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: b42a952b096f533f916879a11fdb6b6583fa8592
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660358"
+ms.locfileid: "94684205"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스에서 공용 표준 Load Balancer 사용 (AKS)
 
@@ -225,7 +225,7 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-이 예제에서는 내 클러스터의 각 노드에 대해 4000의 아웃 바운드 포트를 할당 하 고, 7 개의 Ip를 사용 하 여 *노드당 4000 포트를 가집니다. * 100 node = 400k 총 포트 < = 448k 총 포트 = 7 ip * IP 당 64k 포트* 이를 통해 100 노드로 안전 하 게 확장 하 고 기본 업그레이드 작업을 수행할 수 있습니다. 업그레이드 및 기타 작업에 필요한 추가 노드에 충분 한 포트를 할당 하는 것이 중요 합니다. AKS은 기본적으로 업그레이드를 위해 버퍼 노드 하나를 사용 합니다 .이 예제에서는 지정 된 특정 시점에서 4000의 빈 포트가 필요 합니다. [Maxsurge 수 값](upgrade-cluster.md#customize-node-surge-upgrade-preview)을 사용 하는 경우 노드당 아웃 바운드 포트를 maxsurge 수 값으로 곱합니다.
+이 예제에서는 내 클러스터의 각 노드에 대해 4000의 아웃 바운드 포트를 할당 하 고, 7 개의 Ip를 사용 하 여 *노드당 4000 포트를 가집니다. * 100 node = 400k 총 포트 < = 448k 총 포트 = 7 ip * IP 당 64k 포트* 이를 통해 100 노드로 안전 하 게 확장 하 고 기본 업그레이드 작업을 수행할 수 있습니다. 업그레이드 및 기타 작업에 필요한 추가 노드에 충분 한 포트를 할당 하는 것이 중요 합니다. AKS은 기본적으로 업그레이드를 위해 버퍼 노드 하나를 사용 합니다 .이 예제에서는 지정 된 특정 시점에서 4000의 빈 포트가 필요 합니다. [Maxsurge 수 값](upgrade-cluster.md#customize-node-surge-upgrade)을 사용 하는 경우 노드당 아웃 바운드 포트를 maxsurge 수 값으로 곱합니다.
 
 100 노드를 안전 하 게 진행 하려면 더 많은 Ip를 추가 해야 합니다.
 

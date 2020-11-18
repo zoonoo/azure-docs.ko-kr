@@ -4,18 +4,18 @@ description: 클러스터 관리자 및 클러스터 사용자의 Kubernetes 구
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: c73c4a0ae46c3d2ac3a64543473bd6639d03b434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 371628b02ebecee23697e996ee0d484688167875
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009293"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684817"
 ---
 # <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Azure 역할 기반 액세스 제어를 사용 하 여 AKS (Azure Kubernetes Service)에서 Kubernetes 구성 파일에 대 한 액세스 정의
 
 `kubectl` 도구를 사용하여 Kubernetes 클러스터와 상호 작용할 수 있습니다. Azure CLI는 `kubectl`을 사용하여 AKS 클러스터에 연결하는 데 필요한 액세스 자격 증명 및 구성 정보를 쉽게 받을 수 있는 방법을 제공합니다. *Kubeconfig*(Kubernetes configuration) 정보를 얻을 수 있는 사용자를 제한 하 고 그 정보를 제한할 수 있는 사용자를 제한 하려면 azure RBAC (역할 기반 액세스 제어)를 사용할 수 있습니다.
 
-이 문서에서는 AKS 클러스터의 구성 정보를 받을 수 있는 사람을 제한하는 RBAC 역할을 할당하는 방법을 보여줍니다.
+이 문서에서는 AKS 클러스터에 대 한 구성 정보를 가져올 수 있는 사용자를 제한 하는 Azure 역할을 할당 하는 방법을 보여 줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -25,7 +25,7 @@ ms.locfileid: "88009293"
 
 ## <a name="available-cluster-roles-permissions"></a>사용 가능한 클러스터 역할 권한
 
-`kubectl` 도구를 사용하여 AKS 클러스터와 상호 작용할 때는 클러스터 연결 정보를 정의하는 구성 파일이 사용됩니다. 이 구성 파일은 일반적으로 *~/.kube/config*에 저장 됩니다. 이 *kubeconfig* 파일에 여러 클러스터를 정의할 수 있습니다. [kubectl config use-context][kubectl-config-use-context] 명령을 사용하여 클러스터 간에 전환할 수 있습니다.
+`kubectl` 도구를 사용하여 AKS 클러스터와 상호 작용할 때는 클러스터 연결 정보를 정의하는 구성 파일이 사용됩니다. 이 구성 파일은 일반적으로 *~/.kube/config* 에 저장 됩니다. 이 *kubeconfig* 파일에 여러 클러스터를 정의할 수 있습니다. [kubectl config use-context][kubectl-config-use-context] 명령을 사용하여 클러스터 간에 전환할 수 있습니다.
 
 [az aks get-credentials][az-aks-get-credentials] 명령을 사용하여 AKS 클러스터의 액세스 자격 증명을 가져와 *kubeconfig* 파일에 병합할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 이러한 자격 증명에 대 한 액세스를 제어할 수 있습니다. 이러한 Azure 역할을 사용 하 여 *kubeconfig* 파일을 검색할 수 있는 사용자 및 해당 클러스터 내에 포함 된 사용 권한을 정의할 수 있습니다.
 
@@ -33,12 +33,12 @@ ms.locfileid: "88009293"
 
 * **Azure Kubernetes Service 클러스터 관리자 역할**  
   * *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action* API 호출에 대한 액세스를 허용합니다. 이 API 호출은 [클러스터 관리자 자격 증명을 나열][api-cluster-admin]합니다.
-  * *clusterAdmin* 역할의 *kubeconfig*를 다운로드합니다.
+  * *clusterAdmin* 역할의 *kubeconfig* 를 다운로드합니다.
 * **Azure Kubernetes Service 클러스터 사용자 역할**
   * *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API 호출에 대한 액세스를 허용합니다. 이 API 호출은 [클러스터 사용자 자격 증명을 나열][api-cluster-user]합니다.
-  * *clusterUser* 역할의 *kubeconfig*를 다운로드합니다.
+  * *clusterUser* 역할의 *kubeconfig* 를 다운로드합니다.
 
-이러한 RBAC 역할은 AD (Azure Active Directory) 사용자 또는 그룹에 적용할 수 있습니다.
+이러한 Azure 역할을 AD (Azure Active Directory) 사용자 또는 그룹에 적용할 수 있습니다.
 
 > [!NOTE]
 > Azure AD를 사용 하는 클러스터에서 *Clusteruser* 역할이 있는 사용자에 게 로그인을 요청 하는 빈 *kubeconfig* 파일이 있습니다. 로그인 되 면 사용자는 해당 Azure AD 사용자 또는 그룹 설정에 따라 액세스 권한을 가집니다. *Clusteradmin* 역할이 있는 사용자에 게는 관리자 액세스 권한이 있습니다.
@@ -71,9 +71,9 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Azure AD 그룹에 사용 권한을 할당 하려는 경우 `--assignee` *사용자가*아닌 *그룹* 의 개체 ID를 사용 하 여 이전 예제에 표시 된 매개 변수를 업데이트 합니다. 그룹의 개체 ID를 가져오려면 [az ad group show][az-ad-group-show] 명령을 사용 합니다. 다음 예제에서는 *appdev*라는 Azure AD 그룹의 개체 ID를 가져옵니다. `az ad group show --group appdev --query objectId -o tsv`
+> Azure AD 그룹에 사용 권한을 할당 하려는 경우 `--assignee` *사용자가* 아닌 *그룹* 의 개체 ID를 사용 하 여 이전 예제에 표시 된 매개 변수를 업데이트 합니다. 그룹의 개체 ID를 가져오려면 [az ad group show][az-ad-group-show] 명령을 사용 합니다. 다음 예제에서는 *appdev* 라는 Azure AD 그룹의 개체 ID를 가져옵니다. `az ad group show --group appdev --query objectId -o tsv`
 
-필요에 따라 이전에 할당한 역할을 *클러스터 사용자 역할*로 변경할 수 있습니다.
+필요에 따라 이전에 할당한 역할을 *클러스터 사용자 역할* 로 변경할 수 있습니다.
 
 다음 예제 출력에서는 역할 할당이 성공적으로 생성되었음을 보여줍니다.
 
@@ -92,13 +92,13 @@ az role assignment create \
 
 ## <a name="get-and-verify-the-configuration-information"></a>구성 정보를 가져와서 확인
 
-RBAC 역할이 할당된 경우[az aks get-credentials][az-aks-get-credentials] 명령을 사용하여 AKS 클러스터의 *kubeconfig* 정의를 가져올 수 있습니다. 다음 예에서는 사용자에게 *클러스터 관리자 역할*이 부여된 경우에만 올바르게 작동하는 *--admin* 자격 증명을 가져옵니다.
+Azure 역할을 할당 하 고 [az aks][az-aks-get-credentials] 명령을 사용 하 여 aks 클러스터에 대 한 *kubeconfig* 정의를 가져옵니다. 다음 예에서는 사용자에게 *클러스터 관리자 역할* 이 부여된 경우에만 올바르게 작동하는 *--admin* 자격 증명을 가져옵니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-그런 다음, [kubectl config view][kubectl-config-view] 명령을 사용하여 클러스터의 *context*에 관리자 구성 정보가 적용되었다고 표시되는지 확인할 수 있습니다.
+그런 다음, [kubectl config view][kubectl-config-view] 명령을 사용하여 클러스터의 *context* 에 관리자 구성 정보가 적용되었다고 표시되는지 확인할 수 있습니다.
 
 ```
 $ kubectl config view

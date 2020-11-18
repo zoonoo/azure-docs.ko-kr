@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 23a620f8031335e5a950df96427b11251f0ec042
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 610ab649d64351b0897ef7358cdaf9280fe3ba55
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649316"
+ms.locfileid: "94684922"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -521,7 +521,7 @@ SQL Managed Instance의 연결 된 서버는 제한 된 수의 대상을 지원 
 - `tempdb`의 최대 파일 크기는 범용 계층에서 코어당 24GB보다 클 수 없습니다. `tempdb`중요 비즈니스용 계층의 최대 크기는 SQL Managed Instance 저장소 크기에 의해 제한 됩니다. `Tempdb` 로그 파일 크기는 범용 계층에서 120GB로 제한됩니다. 일부 쿼리는 `tempdb`에서 코어당 24GB보다 많이 필요하거나 120GB보다 많이 로그 데이터를 생성하는 경우 오류를 반환할 수 있습니다.
 - `Tempdb` 는 항상 12 개의 데이터 파일로 분할 됩니다. 주 복제본은 master, data file 및 11 이외의 주 데이터 파일이 라고도 합니다. 파일 구조를 변경할 수 없으며 새 파일을에 추가할 수 없습니다 `tempdb` . 
 - 새 SQL Server 2019 메모리 내 데이터베이스 기능이 있는 [메모리 최적화 `tempdb` 메타 데이터](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata)는 지원 되지 않습니다.
-- 를 `tempdb` 다시 시작 하거나 장애 조치 (failover) 한 후에는에서 `tempdb` 복제 된 모델 데이터베이스의 초기 개체 목록을 가져오지 않으므로 model 데이터베이스에서 만든 개체를에서 자동으로 만들 수 없습니다. 
+- Model 데이터베이스에서 만든 개체는 `tempdb` `tempdb` model 데이터베이스에서 초기 개체 목록을 가져오지 않으므로 다시 시작 또는 장애 조치 (failover) 후에에서 자동으로 만들 수 없습니다. `tempdb`각 다시 시작 또는 장애 조치 (failover) 후에는 수동으로 개체를 만들어야 합니다.
 
 ### <a name="msdb"></a>MSDB
 
