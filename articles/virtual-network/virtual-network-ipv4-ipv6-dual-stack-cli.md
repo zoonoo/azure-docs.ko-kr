@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 2746397e2aa97f3c8c3b98d1c7be65b083dcc425
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e9b8dbaa4877c5bf6e7d300c3bb2fc1abf586ee
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983824"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94742949"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>기본 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-CLI
 
@@ -26,12 +26,11 @@ ms.locfileid: "90983824"
 
 표준 Load Balancer를 사용 하 여 이중 스택 (IPV4 + IPv6) 응용 프로그램을 배포 하려면 [Azure CLI를 사용 하 여 표준 Load Balancer를 사용 하 여 ipv6 이중 스택 응용 프로그램 배포](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md)를 참조 하세요.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 지금 만드세요.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-대신 Azure CLI를 로컬에 설치하고 사용하려는 경우 이 빠른 시작을 진행하려면 Azure CLI 버전 2.0.49 이상을 사용해야 합니다. 설치된 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드 정보는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.0.49 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -95,7 +94,7 @@ az network public-ip create \
 
 ### <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
-이전 단계에서 만든 **DsPublicIP_v4** IPV4 공용 IP 주소와 연결 된 **dsLbBackEndPool_v4** 이라는 백 엔드 풀 인 **dsLbFrontEnd_v4**라는 프런트 엔드 풀을 포함 하는, [az Network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 를 **사용 하 여** 기본 Load Balancer를 만듭니다. 
+이전 단계에서 만든 **DsPublicIP_v4** IPV4 공용 IP 주소와 연결 된 **dsLbBackEndPool_v4** 이라는 백 엔드 풀 인 **dsLbFrontEnd_v4** 라는 프런트 엔드 풀을 포함 하는, [az Network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 를 **사용 하 여** 기본 Load Balancer를 만듭니다. 
 
 ```azurecli-interactive
 az network lb create \
@@ -176,7 +175,7 @@ az network lb rule create \
 ### <a name="create-an-availability-set"></a>가용성 집합 만들기
 앱의 가용성을 향상 시키려면 Vm을 가용성 집합에 저장 합니다.
 
-[az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest)를 사용하여 가용성 집합을 만듭니다. 다음 예에서는 *dsavset*이라는 가용성 집합을 만듭니다.
+[az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest)를 사용하여 가용성 집합을 만듭니다. 다음 예에서는 *dsavset* 이라는 가용성 집합을 만듭니다.
 
 ```azurecli-interactive
 az vm availability-set create \
@@ -259,7 +258,7 @@ az network nsg rule create \
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 서브넷 *dsSubNET_v4* 및 *dsSubNET_v6*를 사용 하 여 *dsvnet* 이라는 가상 네트워크를 만듭니다.
+[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 서브넷 *dsSubNET_v4* 및 *dsSubNET_v6* 를 사용 하 여 *dsvnet* 이라는 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive
 # Create the virtual network
@@ -360,8 +359,8 @@ az vm create \
 
 ## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Azure Portal에서 IPv6 이중 스택 가상 네트워크 보기
 다음과 같이 Azure Portal에서 IPv6 이중 스택 가상 네트워크를 볼 수 있습니다.
-1. 포털의 검색 창에서 *Dsvnet*을 입력 합니다.
-2. 검색 결과에 **myVirtualNetwork**가 표시되면 선택합니다. 그러면 *Dsvnet*이라는 이중 스택 가상 네트워크의 **개요** 페이지가 시작 됩니다. 이중 스택 가상 네트워크는 *Dssubnet*이라는 이중 스택 서브넷에 있는 IPv4 및 IPv6 구성을 모두 사용 하 여 두 개의 nic를 표시 합니다.
+1. 포털의 검색 창에서 *Dsvnet* 을 입력 합니다.
+2. 검색 결과에 **myVirtualNetwork** 가 표시되면 선택합니다. 그러면 *Dsvnet* 이라는 이중 스택 가상 네트워크의 **개요** 페이지가 시작 됩니다. 이중 스택 가상 네트워크는 *Dssubnet* 이라는 이중 스택 서브넷에 있는 IPv4 및 IPv6 구성을 모두 사용 하 여 두 개의 nic를 표시 합니다.
 
   ![Azure의 IPv6 이중 스택 가상 네트워크](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 

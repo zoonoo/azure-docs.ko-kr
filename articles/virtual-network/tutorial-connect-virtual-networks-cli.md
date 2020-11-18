@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 855ea936ff91d4c22b0670cd989f91c692c567c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c6399e437fa314aa82e0b41cbf8a170ea3ab72e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502599"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741776"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -31,21 +31,21 @@ ms.locfileid: "87502599"
 * 각 가상 네트워크에 VM(가상 머신) 배포
 * VM 간 통신
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-virtual-networks"></a>가상 네트워크 만들기
 
-가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-[az network vnet create](/cli/azure/network/vnet)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 주소 접두사 *10.0.0.0/16*을 사용하는 *myVirtualNetwork1*이라는 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 주소 접두사 *10.0.0.0/16* 을 사용하는 *myVirtualNetwork1* 이라는 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -56,7 +56,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-주소 접두사 *10.1.0.0/16*을 사용 하 여 *myVirtualNetwork2* 라는 가상 네트워크를 만듭니다.
+주소 접두사 *10.1.0.0/16* 을 사용 하 여 *myVirtualNetwork2* 라는 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -86,7 +86,7 @@ vNet2Id=$(az network vnet show \
   --out tsv)
 ```
 
-[az network vnet peering create](/cli/azure/network/vnet/peering)를 사용하여 *myVirtualNetwork1*에서 *myVirtualNetwork2*로 피어링을 만듭니다. `--allow-vnet-access` 매개 변수를 지정하지 않으면 피어링이 설정되지만 이를 통해 통신이 전달될 수 없습니다.
+[az network vnet peering create](/cli/azure/network/vnet/peering)를 사용하여 *myVirtualNetwork1* 에서 *myVirtualNetwork2* 로 피어링을 만듭니다. `--allow-vnet-access` 매개 변수를 지정하지 않으면 피어링이 설정되지만 이를 통해 통신이 전달될 수 없습니다.
 
 ```azurecli-interactive
 az network vnet peering create \
@@ -97,7 +97,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-이전 명령이 실행 된 후 반환 된 출력에서 **Peeringstate** 가 *시작*된 것을 확인할 수 있습니다. *myVirtualNetwork2*에서 *myVirtualNetwork1*으로 피어링을 만들 때까지 해당 피어링은 *Initiated* 상태를 유지합니다. *myVirtualNetwork2*에서 *myVirtualNetwork1*으로 피어링을 만듭니다. 
+이전 명령이 실행 된 후 반환 된 출력에서 **Peeringstate** 가 *시작* 된 것을 확인할 수 있습니다. *myVirtualNetwork2* 에서 *myVirtualNetwork1* 으로 피어링을 만들 때까지 해당 피어링은 *Initiated* 상태를 유지합니다. *myVirtualNetwork2* 에서 *myVirtualNetwork1* 으로 피어링을 만듭니다. 
 
 ```azurecli-interactive
 az network vnet peering create \
@@ -108,7 +108,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-이전 명령이 실행 된 후 반환 된 출력에서 **Peeringstate** 가 *연결*된 것을 확인할 수 있습니다. 또한 Azure에서 *myVirtualNetwork1-myVirtualNetwork2* 피어링의 피어링 상태가 *Connected*로 변경되었습니다. [az network vnet peering show](/cli/azure/network/vnet/peering)를 사용하여 *myVirtualNetwork1-myVirtualNetwork2* 피어링에 대한 피어링 상태가 *Connected*로 변경되었는지 확인합니다.
+이전 명령이 실행 된 후 반환 된 출력에서 **Peeringstate** 가 *연결* 된 것을 확인할 수 있습니다. 또한 Azure에서 *myVirtualNetwork1-myVirtualNetwork2* 피어링의 피어링 상태가 *Connected* 로 변경되었습니다. [az network vnet peering show](/cli/azure/network/vnet/peering)를 사용하여 *myVirtualNetwork1-myVirtualNetwork2* 피어링에 대한 피어링 상태가 *Connected* 로 변경되었는지 확인합니다.
 
 ```azurecli-interactive
 az network vnet peering show \
@@ -118,7 +118,7 @@ az network vnet peering show \
   --query peeringState
 ```
 
-한 가상 네트워크의 리소스는 두 가상 네트워크의 피어 링에 대 한 **Peeringstate** 가 *연결*될 때까지 다른 가상 네트워크의 리소스와 통신할 수 없습니다. 
+한 가상 네트워크의 리소스는 두 가상 네트워크의 피어 링에 대 한 **Peeringstate** 가 *연결* 될 때까지 다른 가상 네트워크의 리소스와 통신할 수 없습니다. 
 
 ## <a name="create-virtual-machines"></a>가상 머신 만들기
 
@@ -126,7 +126,7 @@ az network vnet peering show \
 
 ### <a name="create-the-first-vm"></a>첫 번째 VM 만들기
 
-[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 *myVirtualNetwork1* 가상 네트워크에 이름이 *myVm1*인 VM을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. `--no-wait` 옵션은 백그라운드에서 VM을 만들기 때문에 다음 단계를 계속 진행할 수 있습니다.
+[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 *myVirtualNetwork1* 가상 네트워크에 이름이 *myVm1* 인 VM을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. `--no-wait` 옵션은 백그라운드에서 VM을 만들기 때문에 다음 단계를 계속 진행할 수 있습니다.
 
 ```azurecli-interactive
 az vm create \
@@ -168,17 +168,17 @@ VM을 만드는 데 몇 분이 걸립니다. VM을 만든 후 Azure CLI는 다�
 }
 ```
 
-**publicIpAddress**를 기록해 둡니다. 이 주소는 이후 단계에서 인터넷을 통해 VM에 액세스하는 데 사용됩니다.
+**publicIpAddress** 를 기록해 둡니다. 이 주소는 이후 단계에서 인터넷을 통해 VM에 액세스하는 데 사용됩니다.
 
 ## <a name="communicate-between-vms"></a>VM 간 통신
 
-다음 명령을 사용하여 *myVm2* VM으로 SSH 세션을 만듭니다. `<publicIpAddress>`를 VM의 공용 IP 주소로 바꿉니다. 이전 예제의 공용 IP 주소는*13.90.242.231*입니다.
+다음 명령을 사용하여 *myVm2* VM으로 SSH 세션을 만듭니다. `<publicIpAddress>`를 VM의 공용 IP 주소로 바꿉니다. 이전 예제의 공용 IP 주소는 *13.90.242.231* 입니다.
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-*myVirtualNetwork1*에서 VM을 ping합니다.
+*myVirtualNetwork1* 에서 VM을 ping합니다.
 
 ```bash
 ping 10.0.0.4 -c 4

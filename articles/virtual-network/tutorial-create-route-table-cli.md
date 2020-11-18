@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 027165f797977311fd77f3cd3e626b126c26e47b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 043d450a1b968174ad263579d39de06a296a98e4
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494675"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741488"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Azure CLI를 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -36,11 +36,11 @@ ms.locfileid: "87494675"
 * 다른 서브넷에 VM(가상 머신) 배포
 * NVA를 통해 한 서브넷에서 다른 서브넷으로 트래픽 라우팅
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-route-table"></a>경로 테이블 만들기
 
@@ -53,7 +53,7 @@ az group create \
   --location eastus
 ```
 
-[az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)를 사용하여 경로 테이블을 만듭니다. 다음 예제에서는 *myRouteTablePublic*이라는 경로 테이블을 만듭니다. 
+[az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)를 사용하여 경로 테이블을 만듭니다. 다음 예제에서는 *myRouteTablePublic* 이라는 경로 테이블을 만듭니다. 
 
 ```azurecli-interactive
 # Create a route table
@@ -206,11 +206,11 @@ VM을 만드는 데 몇 분이 걸립니다. VM을 만든 후 Azure CLI는 다�
 }
 ```
 
-**publicIpAddress**를 기록해 둡니다. 이 주소는 이후 단계에서 인터넷을 통해 VM에 액세스하는 데 사용됩니다.
+**publicIpAddress** 를 기록해 둡니다. 이 주소는 이후 단계에서 인터넷을 통해 VM에 액세스하는 데 사용됩니다.
 
 ## <a name="route-traffic-through-an-nva"></a>NVA를 통한 트래픽 라우팅
 
-다음 명령을 사용하여 *myVmPrivate* VM으로 SSH 세션을 만듭니다. *\<publicIpAddress>* 를 VM의 공용 IP 주소로 바꿉니다. 위의 예제에서 IP 주소는 *13.90.242.231*입니다.
+다음 명령을 사용하여 *myVmPrivate* VM으로 SSH 세션을 만듭니다. *\<publicIpAddress>* 를 VM의 공용 IP 주소로 바꿉니다. 위의 예제에서 IP 주소는 *13.90.242.231* 입니다.
 
 ```bash
 ssh azureuser@<publicIpAddress>

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: f5523c513cc0bdd08c43bdbed5046bf662f1a3e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f3aa2d727805d3843e07c524bc36878df55eebb
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206578"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743562"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions 준비 트리거
 
@@ -77,7 +77,7 @@ namespace WarmupSample
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 
-다음 예제에서는 파일 * 에 대 한function.js* 의 준비 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [c # 스크립트 함수](functions-reference-csharp.md) 를 보여 줍니다.
+다음 예제에서는 파일 *에 대 한function.js* 의 준비 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [c # 스크립트 함수](functions-reference-csharp.md) 를 보여 줍니다.
 
 함수는 이름을 지정 해야 하며 ```warmup``` (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
 
@@ -97,8 +97,6 @@ namespace WarmupSample
 
 [구성](#trigger---configuration) 섹션에서는 이러한 속성을 설명합니다.
 
-다음은 `HttpRequest`에 바인딩하는 C# 스크립트 코드입니다.
-
 ```cs
 public static void Run(ILogger log)
 {
@@ -108,7 +106,7 @@ public static void Run(ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-다음 예에서는 파일 * 에 대 한function.js* 의 준비 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [JavaScript 함수](functions-reference-node.md)  를 보여 줍니다.
+다음 예에서는 파일 *에 대 한function.js* 의 준비 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [JavaScript 함수](functions-reference-node.md)  를 보여 줍니다.
 
 함수는 이름을 지정 해야 하며 ```warmup``` (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
 

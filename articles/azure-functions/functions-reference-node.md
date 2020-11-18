@@ -3,14 +3,14 @@ title: Azure Functions에 대 한 JavaScript 개발자 참조
 description: JavaScript를 사용하여 함수를 개발하는 방법을 알아봅니다.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 9b920dc8a31967c9d8e1f05a6101fdfcc7a1304e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: d32c63332c530ec05eb9f93661a8f2a0c5d8264c
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628835"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743323"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -323,12 +323,12 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 기본 수준 외에도 다음과 같은 로깅 메서드를 사용 하 여 특정 추적 수준에서 함수 로그를 쓸 수 있습니다.
 
-| 메서드                 | Description                                |
+| 메서드                 | 설명                                |
 | ---------------------- | ------------------------------------------ |
-| **오류 ( _메시지_ )**   | 로그에 오류 수준 이벤트를 씁니다.   |
-| **warn( _message_ )**    | 로그에 경고 수준 이벤트를 씁니다. |
-| **info( _message_ )**    | 정보 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.    |
-| **verbose( _message_ )** | 자세한 정보 표시 수준 로깅에 씁니다.           |
+| **오류 (_메시지_)**   | 로그에 오류 수준 이벤트를 씁니다.   |
+| **warn(_message_)**    | 로그에 경고 수준 이벤트를 씁니다. |
+| **info(_message_)**    | 정보 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.    |
+| **verbose(_message_)** | 자세한 정보 표시 수준 로깅에 씁니다.           |
 
 다음 예에서는 정보 수준 대신 경고 추적 수준에서 동일한 로그를 작성 합니다.
 
@@ -336,7 +336,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 context.log.warn("Something has happened. " + context.invocationId); 
 ```
 
-_error_ (오류)가 가장 높은 추적 수준이므로 로깅이 활성화되어 있는 한 이 추적은 모든 추적 수준에서 출력에 씁니다.
+_error_(오류)가 가장 높은 추적 수준이므로 로깅이 활성화되어 있는 한 이 추적은 모든 추적 수준에서 출력에 씁니다.
 
 ### <a name="configure-the-trace-level-for-logging"></a>로깅에 대 한 추적 수준 구성
 
@@ -426,7 +426,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.req`(요청) 개체의 속성은 다음과 같습니다.
 
-| 속성      | Description                                                    |
+| 속성      | 설명                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 요청의 본문을 포함하는 개체입니다.               |
 | _머리글과_     | 요청 헤더를 포함하는 개체입니다.                   |
@@ -441,7 +441,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.res`(응답) 개체의 속성은 다음과 같습니다.
 
-| 속성  | Description                                               |
+| 속성  | 설명                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 응답의 본문을 포함하는 개체입니다.         |
 | _머리글과_ | 응답 헤더를 포함하는 개체입니다.             |
@@ -563,21 +563,42 @@ module.exports = function(context) {
 
 ## <a name="environment-variables"></a>환경 변수
 
-Functions에서 [앱 설정](functions-app-settings.md)(예: 서비스 연결 문자열)은 실행 중에 환경 변수로 노출됩니다. `process.env` `context.log()` `AzureWebJobsStorage` 및 환경 변수를 기록 하는에 대 한 두 번째 및 세 번째 호출에서 여기에 표시 된 대로를 사용 하 여 이러한 설정에 액세스할 수 있습니다 `WEBSITE_SITE_NAME` .
+운영 비밀 (연결 문자열, 키 및 끝점) 또는 환경 설정 (예: 프로 파일링 변수)과 같은 로컬 및 클라우드 환경에서 함수 앱에 고유한 환경 변수를 추가 합니다. 함수 코드에서를 사용 하 여 이러한 설정 `process.env` 에 액세스 합니다.
+
+### <a name="in-local-development-environment"></a>로컬 개발 환경
+
+로컬로 실행 하는 경우 함수 프로젝트에는 환경 변수를 개체에 저장 하는 [ `local.settings.json` 파일이](/functions-run-local.md?tabs=node#local-settings-file)포함 됩니다 `Values` . 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "translatorTextEndPoint": "https://api.cognitive.microsofttranslator.com/",
+    "translatorTextKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "languageWorkers__node__arguments": "--prof"
+  }
+}
+```
+
+### <a name="in-azure-cloud-environment"></a>Azure 클라우드 환경에서
+
+Azure에서 실행 하는 경우 함수 앱을 사용 하면 서비스 연결 문자열과 같은 [응용 프로그램 설정을](functions-app-settings.md)사용 하 고 실행 중에 이러한 설정을 환경 변수로 노출할 수 있습니다. 
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+### <a name="access-environment-variables-in-code"></a>코드에서 환경 변수 액세스
+
+`process.env` `context.log()` `AzureWebJobsStorage` 및 환경 변수를 기록 하는에 대 한 두 번째 및 세 번째 호출에서 여기에 표시 된 대로를 사용 하 여 응용 프로그램 설정에 환경 변수로 액세스 합니다 `WEBSITE_SITE_NAME` .
 
 ```javascript
 module.exports = async function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
 ```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
-로컬로 실행하는 경우 앱 설정은 [local.settings.json](functions-run-local.md#local-settings-file) 프로젝트 파일에서 읽습니다.
 
 ## <a name="configure-function-entry-point"></a>함수 진입점 구성
 

@@ -1,103 +1,156 @@
 ---
-title: 게시 옵션 결정 - Microsoft 상업용 Marketplace
-description: 이 문서에서는 Microsoft AppSource 및 Azure Marketplace에 제품을 게시하기 위한 자격 조건 및 요구 사항을 설명합니다.
+title: 목록 옵션 소개-Microsoft 상업적 marketplace
+description: 이 문서에서는 Microsoft AppSource 및 Azure Marketplace 게시 된 제품에 대 한 옵션을 나열 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 09/04/2020
-ms.openlocfilehash: 17b53d656d0344e4178b3034a972e26d6aa0bc15
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 11/16/2020
+ms.openlocfilehash: 38f65253791f28d9ae9806bea1264e594b769b19
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94492109"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741912"
 ---
-# <a name="determine-your-publishing-option"></a>게시 옵션 확인
+# <a name="introduction-to-listing-options"></a>목록 옵션 소개
 
-제품에 대해 선택한 게시 옵션은 적격성 요구 사항 및 상업용 Marketplace GTM 혜택 모두와 직접 관련이 있습니다. 무엇보다도 게시 옵션 및 제품 유형의 선택은 사용자가 귀하의 상업용 Marketplace 제품과 상호 작용하는 방법을 정의합니다.
+상업적 marketplace에서 사용 가능한 _목록 옵션_ 을 사용 하 여 다양 한 방법으로 잠재 고객에 게 참여할 수 있습니다. 제품을 게시 한 후 제품에 대해 선택한 목록 옵션이 온라인 상점에서 제품 목록 페이지의 왼쪽 위 모서리에 단추로 표시 되 고, 예를 들어 다음 스크린샷에서는 **연락처** 및 **테스트 드라이브** 단추가 있는 Microsoft AppSource online store의 제품 목록 페이지를 보여 줍니다.
 
-제품을 구성 하려면 게시 옵션, 제품 유형 및 구성, 상업적 marketplace 온라인 상점에서 제품이 표시 되는 방법 및 위치를 제어 하는 옵션을 나열 하는 다음과 같은 주요 상업적 marketplace 개념을 이해 해야 합니다.
+:::image type="content" source="./media/listing-options.png" alt-text="제안에 대 한 목록 페이지를 보여 줍니다. 연락처 및 테스트 드라이브 단추가 표시 됩니다.":::
 
-이 문서에서는 다음에 대해 알아봅니다.
+## <a name="available-listing-options-by-offer-type"></a>제안 유형별로 사용 가능한 목록 옵션
 
-- 솔루션에 적합 한 온라인 저장소를 확인 하는 방법
-- 각 온라인 저장소에서 사용할 수 있는 게시 옵션 및 목록 옵션입니다.
-- 각 게시 옵션에 사용할 수 있는 제품 유형을 제공 합니다.
+제품 유형을 만들 때 하나 이상의 목록 옵션을 선택 합니다. 이러한 옵션은 고객에 게 온라인 상점에서 제품 목록 페이지에 표시 되는 단추를 결정 합니다. 목록 옵션에는 _무료 평가판_, _시험_ 사용, _연락_ 및 _지금 받기_ 가 포함 됩니다.
 
-## <a name="commercial-marketplace-publishing-options"></a>상업용 Marketplace 게시 옵션
+다음 표에서는 각 제품 유형에 사용할 수 있는 목록 옵션을 보여 줍니다.
 
-다음 표에서는 Microsoft AppSource 및 Azure Marketplace의 제품 유형에 대한 게시 옵션을 보여 줍니다.
+| 제품 유형 | 무료 평가판 | 시험 사용 | 연락처 | 지금 다운로드 (불가능) |
+| ------------ | ------------- | ------------- | ------------- | ------------- |
+| Azure 애플리케이션 (관리 되는 앱) |   | &#10004; |   | &#10004; |
+| Azure 애플리케이션 (솔루션 템플릿) |  |  |  |  |
+| 컨설팅 서비스 |  |  | &#10004; |  |
+| Azure 컨테이너 |  |  |  |  |
+| Dynamics 365 비즈니스 중부 | &#10004; | &#10004; | &#10004; |  |
+| Dynamics 365 고객 Engagement & PowerApps | &#10004; | &#10004; | &#10004; |  |
+| 운영을 위한 Dynamics 365 | &#10004; | &#10004; | &#10004; |  |
+| IoT Edge 모듈 |  |  |  |  |
+| 관리 서비스 |  |  |  |  |
+| Power BI App |  |  |  |  |
+| Azure Virtual Machine | &#10004; | &#10004; |  | &#10004; |
+| SaaS(Software as a Service) | &#10004; | &#10004; | &#10004; | &#10004; |
+||||||
 
-|   | **목록(연락처)**  | **목록(평가판)**  | **Free** | **BYOL** | **거래**|
-| :--------- | :----------- | :------------ | :----------- | :---------- |:---------- |
-| **Virtual Machine** |  |  |  | Azure Marketplace |  Azure Marketplace |
-| **Azure 앱(다중 VM)** |  |  | Azure Marketplace | Azure Marketplace | Azure Marketplace  |
-| **컨테이너 이미지** |  |  | Azure Marketplace | Azure Marketplace |   |
-| **IoT Edge 모듈** |  |  | Azure Marketplace | Azure Marketplace |   |
-| **관리되는 서비스** |  |  |  | Azure Marketplace |   |
-| **컨설팅 서비스** | 온라인 상점 모두 |  |  |  |   |
-| **SaaS 앱** | 온라인 상점 모두 | 온라인 상점 모두 | 온라인 상점 모두 |  | 온라인 매장 모두 * |
-| **Microsoft 365 앱** | AppSource | AppSource |  |  | AppSource**  |
-| **Dynamics 365 추가 기능** |  AppSource | AppSource |  |  |   |
-| **PowerApps** | AppSource |AppSource  |  |  |   |
+### <a name="free-trial"></a>무료 평가판
 
-&#42; Microsoft AppSource의 SaaS 앱 거래 제품은 현재 신용 카드로만 제공합니다.
+상업적 marketplace를 사용 하 여 검색 기능을 개선 하 고 솔루션의 평가판 환경을 자동으로 프로 비전 합니다. 이를 통해 잠재 고객은 제품 유형에 따라 30 일에서 6 개월까지 무료로 SaaS (software as a service), IaaS 또는 Microsoft 앱 내 경험을 사용할 수 있습니다.
 
-&#42;&#42; Microsoft 365 제품은 무료로 설치할 수 있으며 라이선스 서비스로 SaaS 제품을 통해 수익화할 수 있습니다. 자세한 내용은 [Microsoft 상업적 marketplace를 통해 수익 창출 your Microsoft 365 추가 기능](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)을 참조 하세요.
+고객은 제품의 목록 페이지에서 _무료 평가판_ 단추를 사용 하 여 제품을 사용해 볼 수 있습니다. 동일한 제품 내에서 여러 요금제에 대 한 무료 평가판을 제공 하는 경우 고객은 다른 계획의 무료 평가판으로 전환할 수 있지만 평가 기간이 다시 시작 되지는 않습니다.
 
-## <a name="choose-a-listing-option"></a>목록 옵션 선택
+Virtual machine 제품의 경우 고객은 평가 기간 동안 제품 사용에 대 한 Azure 인프라 비용을 청구 합니다. 평가판 기간이 만료 되 면 평가 기간이 끝나기 전에 취소 하지 않는 한, 표준 요금을 기준으로 시도한 마지막 요금제에 대 한 요금이 자동으로 청구 됩니다.
 
-사용 가능한 목록 옵션은 잠재 고객 참여를 제공 하는 동시에 잠재 고객의 공유 및 [상업적 marketplace 혜택](./gtm-your-marketplace-benefits.md)에 대 한 액세스를 제공 합니다. 게시 옵션에 해당 하는 나열 옵션을 확인 합니다.
+### <a name="test-drive"></a>시험 사용
 
-| **게시 옵션**    | **설명**  |
-| :------------------- | :-------------------|
-| **목록** | 상업적 marketplace 사용자가 **연락처** 목록 옵션을 통해 고객에 게 연결 하도록 요청할 수 있는 응용 프로그램 또는 서비스를 간단히 나열 합니다. |
-| **평가판** | 상업용 Marketplace를 사용하여 솔루션의 평가판 환경의 자동 프로비저닝 및 검색 기능을 향상시키면서 잠재 사용자가 구입 전에 제한된 시간 동안 무료로 SaaS, IaaS 또는 Microsoft 앱 내 환경을 사용하게 할 수 있습니다. 평가판 게시 옵션에 사용 되는 목록 옵션은 **무료 평가판** 또는 **시험** 사용 중 하나입니다. |
-| **BYOL** | 상업용 Marketplace를 사용하여 검색 기능을 개선하고 솔루션의 프로비저닝을 자동화하며 재무 트랜잭션은 별도로 완료합니다. BYOL 제품 형식은 온-프레미스에서 클라우드로의 마이그레이션에 적합합니다. 목록 옵션은 **지금 가져옵니다**.
-| **거래** | 거래 제품은 상업용 Marketplace를 통해 판매됩니다. Microsoft가 청구 및 수금을 담당합니다. 목록 옵션은 **지금 가져옵니다**.|
+고객은 제품의 목록 페이지에서 _드라이브 시험_ 사용 단추를 사용 하 여 고정 된 시간 동안 미리 구성 된 환경에 액세스할 수 있습니다. 테스트 드라이브에 대해 자세히 알아보려면 [테스트 드라이브인 무엇 인가요?](what-is-test-drive.md) 를 참조 하세요.
 
-> [!Note]
-> Transact 게시 옵션을 사용할 때는 제품 유형을 선택하고 제품을 만들기 전에 가격, 청구, 송장 처리 및 지급 고려 사항을 이해하는 것이 중요합니다. 자세히 알아보려면 [상업용 Marketplace의 거래 기능](./marketplace-commercial-transaction-capabilities-and-considerations.md) 문서를 참조하세요.
+> [!TIP]
+> 시험 사용은 평가판과 다릅니다. 시험 사용, 평가판 또는 둘 다를 제공할 수 있습니다. 사용자는 일정 기간 동안 고객에 게 솔루션을 제공 합니다. 그러나 테스트 드라이브에는 실제 구현 시나리오에서 설명 하는 제품의 주요 기능 및 이점에 대 한 실습 자체 기반 둘러보기도 포함 되어 있습니다.
 
-## <a name="selecting-an-online-store"></a>온라인 스토어 선택
+### <a name="contact-me"></a>연락처
 
-각 온라인 스토어는 비즈니스 및 IT 솔루션에 대 한 다양 한 고객 요구 사항을 제공 합니다. 제품 유형, 거래 기능 및 범주에 따라 제품이 게시 되는 위치가 결정 됩니다. 범주 및 하위 범주는 게시 하는 솔루션의 유형에 따라 각 온라인 저장소에 매핑됩니다.
+응용 프로그램 또는 서비스를 간단히 나열 합니다. 고객은 제품의 목록 페이지에서 _연락처_ 단추를 사용 하 여 제품에 대 한 연결을 요청 합니다.
 
-**Microsoft AppSource** 는 Dynamics 365, Microsoft 365 및 Power Platform에 대 한 업계 솔루션 및 컨설팅 서비스와 같은 비즈니스 솔루션을 제공 합니다.
+### <a name="get-it-now"></a>지금 받기
 
-**Azure Marketplace** 은 azure에서 또는 azure를 사용 하는 고객의 azure 사용을 가속화 하는 컨설팅 서비스 뿐만 아니라 azure에 대해 구축 된 IT 솔루션을 제공 합니다.
+이 목록 옵션에는 불가능 제품 (구독 및 사용자 기반 가격 책정)이 포함 되 고, 사용자 고유의 라이선스가 제공 되며, 지금 (무료)으로 전환 됩니다. 불가능 제안은 상업적 marketplace를 통해 판매 됩니다. Microsoft가 청구 및 수금을 담당합니다. 고객은 _지금 가져오기 단추_ 를 사용 하 여 제품을 가져옵니다.
 
-솔루션 유형과 가장 잘 맞는 범주 및 하위 범주를 선택 합니다. 예를 들어 웹 응용 프로그램 방화벽은 보안 범주 아래에 Azure Marketplace 게시 해야 하는 IT 솔루션입니다. 계약 관리 앱은 판매 범주 아래의 AppSource에 게시 해야 하는 비즈니스 솔루션입니다. 잘못 된 범주 또는 하위 범주를 선택 하면 제품이 잘못 된 온라인 저장소에 게시 될 수 있습니다.
+현재 목록에 표시 옵션은 제품 유형에 따라 다음과 같은 가격 책정 옵션을 포함할 수 있습니다.
 
-### <a name="publishing-to-both-online-stores-saas-offers-only"></a>두 온라인 저장소에 게시 (SaaS 제품에만 해당)
+- 지금 받기 (무료)
+- BYOL(사용자 라이선스 필요)
+- Subscription
+- 사용량 기반 가격 책정
 
-SaaS 제품은 Azure Marketplace 또는 AppSource에 게시할 수 있습니다. SaaS 제품이 IT 솔루션 (Azure Marketplace) 및 비즈니스 솔루션 (AppSource) 인 경우 각 온라인 저장소에 *적용 되는* 범주 및/또는 하위 범주를 선택 합니다. 두 온라인 저장소에 게시 된 제품에는 IT 솔루션 *및* 비즈니스 솔루션으로 가치를 제공 해야 합니다.
+이 표에서는 현재 목록에 포함 된 추가 가격 옵션을 지 원하는 제품 유형을 보여 줍니다.
 
-> [!IMPORTANT]
-> [요금제](partner-center-portal/saas-metered-billing.md) 를 사용 하는 SaaS 제품은 Azure Marketplace 및 Azure Portal를 통해 제공 됩니다. 개인 계획만 포함 된 SaaS 제품은 Azure Portal를 통해 제공 됩니다.
+| 제품 유형 | 지금 받기 (무료) | BYOL | Subscription | 사용량 기반 가격 책정 |
+| ------------ | ------------- | ------------- | ------------- | ------------- |
+| Azure 애플리케이션 (관리 되는 앱) |   |   | &#10004; | &#10004; |
+| Azure 애플리케이션 (솔루션 템플릿) | &#10004; |   |   |   |
+| 컨설팅 서비스 |   |   |   |   |
+| Azure 컨테이너 | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
+| Dynamics 365 비즈니스 중부 | &#10004; |   |   |   |
+| Dynamics 365 고객 Engagement & PowerApps | &#10004; |   |   |   |
+| 운영을 위한 Dynamics 365 | &#10004; |   |   |   |
+| IoT Edge 모듈 | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
+| 관리 서비스 |   | &#10004; |   |   |
+| Power BI App | &#10004; |   |   |   |
+| Azure Virtual Machine |   | &#10004; |   | &#10004;<sup>2</sup> |
+| SaaS(Software as a Service) | &#10004; |   | &#10004; | &#10004; |
+||||||
 
-| 요금제 청구 | 공개 계획 | 비공개 계획 | 사용 가능한 위치: |
-|---|---|---|---|
-| 예             | 예         | 예           | Azure Marketplace 및 Azure Portal |
-| 예             | 예         | 예          | Azure Marketplace 및 Azure Portal * |
-| 예             | 예          | 예          | Azure Portal만 |
-| 예              | 예          | 예          | Azure Portal만 |
+**범례**
 
-&#42; 제품의 비공개 요금제를 통해서만 사용할 수 있습니다 Azure Portal
+<sup>1</sup> **계획 개요** 탭의 **가격 책정 모델** 열에는 _Free_ 또는 _byol_ 이 표시 되지만 선택할 수는 없습니다.
 
-예를 들어, 요금제를 사용 하는 제품 및 비공개 요금제 (공개 요금제 없음)는 Azure Portal 고객이 구매할 예정입니다. [Microsoft 상업적 marketplace의 개인 제품](private-offers.md)에 대해 자세히 알아보세요.
+시간당 <sup>2 개의</sup> 가격이 책정 되며 매달 요금이 청구 됩니다.
 
-### <a name="categories"></a>범주
+#### <a name="get-it-now-free"></a>지금 받기 (무료)
 
-범주 및 하위 범주는 솔루션 유형에 따라 각 온라인 저장소에 매핑됩니다. 솔루션과 가장 잘 맞는 범주와 하위 범주를 선택 합니다. 선택 옵션:
+이 목록 옵션을 사용 하 여 응용 프로그램을 무료로 제공할 수 있습니다. 고객은 _지금 가져오기_ 단추를 사용 하 여 무료 제품을 얻을 수 있습니다.
 
-- 하나 이상의 범주 (최대 2 개) 기본 및 보조 범주를 선택할 수 있습니다.
-- 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 하위 범주를 선택 하지 않은 경우에도 선택한 범주에서 제품을 검색할 수 있습니다.
+#### <a name="byol"></a>BYOL
 
-[!INCLUDE [categories and subcategories](./includes/categories.md)]
+상업적 marketplace를 사용 하 여 검색 기능을 개선 하 고, 솔루션의 프로 비전을 자동화 하 고, marketplace와 별도로 금융 거래를 완료 하세요. BYOL (사용자 라이선스 보유) 목록 옵션은 온-프레미스와 클라우드 간 마이그레이션에 적합 합니다. 고객이 미리 구매한 라이선스를 사용 하 여 제품을 구매 하려면 _지금 가져오기_ 단추를 사용 합니다.
+
+#### <a name="subscription"></a>Subscription
+
+이러한 제품 유형에 대 한 정액 요금을 부과할 수 있습니다.
+
+- Azure 애플리케이션 (관리 되는 앱)는 월간 구독 지원을 제공 합니다.
+- SaaS는 월별 구독과 연간 구독을 모두 지원 합니다.
+
+#### <a name="usage-based-pricing"></a>사용량 기반 가격 책정
+
+다음 제품 유형은 사용량 기반 가격 책정을 지원 합니다.
+
+- Azure 애플리케이션 (관리 되는 앱)은 요금제 청구를 지원 합니다. 자세한 내용은 [관리 되는 응용 프로그램 요금제 청구](./partner-center-portal/azure-app-metered-billing.md)를 참조 하세요.
+- SaaS 제품은 데이터 요금 청구 및 사용자 단위 (사용자 단위) 가격 책정을 지원 합니다. 요금제에 대 한 자세한 내용은 [상용 marketplace 계량 서비스를 사용 하 여 SaaS에 대 한 요금제 청구](./partner-center-portal/saas-metered-billing.md)를 참조 하세요.
+- Azure 가상 머신은 코어, 코어 크기 및 시장 당 코어 및 코어 크기 가격 책정에 따라 지원을 제공 합니다. 이러한 가격 책정 옵션은 시간당 가격이 책정 되며 매달 청구 됩니다.
+
+불가능 제품을 만들 때 제품 유형을 선택 하 고 제품을 만들기 전에 가격 책정, 청구, 청구서 및 지급 고려 사항을 이해 하는 것이 중요 합니다. 자세히 알아보려면 [상업적 marketplace 온라인 상점](overview.md#commercial-marketplace-online-stores)을 참조 하세요.
+
+## <a name="listing-and-pricing-options-by-online-store"></a>온라인 스토어 별 목록 및 가격 옵션
+
+다양 한 조건에 따라 제품이 Azure Marketplace, Microsoft AppSource 또는 온라인 매장 모두에 표시 되는지 여부를 결정 합니다. 두 온라인 상점 간의 차이점에 대 한 자세한 내용은 [상용 marketplace online 스토어](overview.md#commercial-marketplace-online-stores)를 참조 하세요.
+
+다음 표에서는 다양 한 제안 유형 및 추가 기능에 사용할 수 있는 옵션과 제품이 나열 될 수 있는 온라인 상점을 보여 줍니다.
+
+| 제안 형식 및 추가 기능 | 연락처 | 무료 평가판 | 지금 받기 (무료) | BYOL | 지금 가져오기 (Transact-sql) |
+| ------------ | ------------- | ------------- | ------------- | ------------- | ------------- |
+| Azure Virtual Machine |   |   |   | Azure Marketplace | Azure Marketplace |
+| Azure 애플리케이션 |   |   | Azure Marketplace | Azure Marketplace | Azure Marketplace |
+| Azure 컨테이너  |   |   | Azure Marketplace | Azure Marketplace |   |
+| IoT Edge 모듈 |   |   | Azure Marketplace | Azure Marketplace |   |
+| 관리되는 서비스 |   |   |   | Azure Marketplace |   |
+| 컨설팅 서비스 | 온라인 상점 모두 |   |   |   |   |
+| SaaS  | 온라인 상점 모두 | 온라인 상점 모두 | 온라인 상점 모두 |   | 두 온라인 매장 모두 &#42; |
+| Microsoft 365 앱 | AppSource | AppSource |   |   | AppSource &#42;&#42; |
+| Dynamics 365 비즈니스 중부 | AppSource | AppSource |   |   |   |
+| PowerApps & 고객 계약에 대 한 Dynamics 365 | AppSource | AppSource |   |   |   |
+| 운영을 위한 Dynamics 365 | AppSource | AppSource |   |   |   |
+| Power BI App |   |   | AppSource |   |   |
+|||||||
+
+AppSource의 &#42; SaaS 불가능 제품은 현재 신용 카드만 제공 합니다.
+
+&#42;&#42; Microsoft 365 추가 기능은 무료로 설치할 수 있으며 SaaS 제품을 사용 하 여 수익 화할 수 있습니다. 자세한 내용은 [Microsoft 상업용 Marketplace를 통해 Office 365 추가 기능으로 수익 창출](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace.md)을 참조하세요.
+
+## <a name="marketplace-rewards"></a>Marketplace 보상
+
+Marketplace 보상은 선택한 목록 옵션에 따라 차별화 됩니다. 자세히 알아보려면 [상용 marketplace 혜택](gtm-your-marketplace-benefits.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 게시 옵션을 결정 한 후에는 [제품 유형별 게시 가이드](./publisher-guide-by-offer-type.md)를 검토 합니다.
+- 만들 제품 유형을 선택 하려면 [제품 유형별 게시 가이드](./publisher-guide-by-offer-type.md)를 참조 하세요.

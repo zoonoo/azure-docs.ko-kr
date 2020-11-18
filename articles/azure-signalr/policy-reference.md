@@ -1,18 +1,18 @@
 ---
 title: Azure SignalR에 대한 기본 제공 정책 정의
 description: Azure SignalR에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 author: sffamily
 ms.author: zhshang
 ms.service: signalr
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: f02861dd44203a0f2ec28f4c7f7a50a81ce21860
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8c87bcbfbc78f349d8743cd4440a4d9028dddb27
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317794"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745608"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-signalr"></a>Azure SignalR에 대한 Azure Policy 기본 제공 정의
 

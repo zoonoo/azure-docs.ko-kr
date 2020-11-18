@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: 78a79c84060fe6dc8b94e4b977ddaea8b5408ee0
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 7ba8f4e08b1be1af5fa2870494db2c08c2cd7b7e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577892"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94739838"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너 정보
 
@@ -50,15 +50,16 @@ Azure 네트워킹 MSP 파트너가 제공하는 관리형 클라우드 네트�
 |[NTT Data](https://us.nttdata.com/en/digital/cloud-transformation)|[관리형 서비스: 10주 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/nttdata-2932930.managed_service)|||||
 |[Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)|[Enterprise Cloud Foundations: 워크샵(10일 이하)](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/oncore_cloud_services-4944214.oncore_cloud_onboard_201810)|[UniversalEdge for Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oncore_cloud_services-4944214.universaledge_for_expressroute?tab=Overview)||||
 |[OpenSystems](https://open-systems.com/solutions/microsoft-azure-virtual-wan)|||[관리 되는 보안 SD-WAN 활용 Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/open_systems_ag.sdwan_0820?tab=Overview)||
+|[주황색 비즈니스 서비스](https://www.orange-business.com/en/partners/orange-business-services-become-microsoft-azure-networking-managed-services-provider)||[Express 경로 네트워크 연구: 3 주 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/orangebusinessservicessa1603182943272.expressroute_study_obs_connectivity)|||
 |[Orixcom]( https://www.orixcom.com/cloud-solutions/)||[Orixcom 관리 ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_managed_expressroute?tab=Overview)|[Orixcom SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_sd_wan?tab=Overview)|||
 |[SoftBank]( https://www.softbank.jp/biz/nw/nwp/cloud_access/direct_access_for_az/)|[Azure 네트워크 컨설팅 서비스: 1주 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_nw_msp_service_azure), [Azure 평가 서비스: 1주](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_msp_service_azure_01?tab=Overview&pub_source=email&pub_status=success)|||||
 |[TCTS](https://www.tatacommunications-ts.com/index.php)|[Azure 마이그레이션: 3주 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/tcs.azure_migration_assessment)|||||
 |[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)||[관리형 Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tata_communications.managed_expressroute?tab=Overview)|[관리형 Virtual WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tata_communications.managed_azure_vwan_for_sdwan?tab=Overview)|||
 |[Tech Mahindra](https://www.techmahindra.com/en-in/network-services/)|[E2E 관리 네트워크 솔루션](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.techm-network-transformstrategy?tab=Overview)|||[Azure 개인 LTE MSP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.techm-networking-azureprivate5g?tab=Overview)|
 |[Vigilant IT](https://vigilant.it/manage-cloud-service/)|[Azure 상태 확인: 5일 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute: 5일 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
-|[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[Vandis 관리 ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Fortinet에서 제공하는 Vandis 관리 VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Palo Alto Networks에서 제공하는 Vandis 관리 VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
+|[Vandis](https://www.vandis.com/microsoft-azure-practice/)|[아루바 ClearPass 정책 관리자를 사용 하 여 NAC 관리](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_aruba_clearpass?tab=Overview)|[Vandis 관리 ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Fortinet에서 제공하는 Vandis 관리 VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Palo Alto Networks에서 제공하는 Vandis 관리 VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
-다음 Azure 네트워킹 MSP 파트너의 관리 되는 Express 경로, 가상 WAN, 보안 서비스 및 개인에 지 영역 서비스에 대 한 Azure Marketplace 제품은 로드맵에 있습니다. [Amdocs](https://www.amdocs.com/);  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX 도달](https://www.ixreach.com/services/sdn-cloud-connect/)  [Intercloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/); [주황색 비즈니스 서비스](https://www.orange-business.com/en/partners/orange-business-services-become-microsoft-azure-networking-managed-services-provider); [Sejong 통신](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
+다음 Azure 네트워킹 MSP 파트너의 관리 되는 Express 경로, 가상 WAN, 보안 서비스 및 개인에 지 영역 서비스에 대 한 Azure Marketplace 제품은 로드맵에 있습니다. [Amdocs](https://www.amdocs.com/); [Cirrus 핵심 네트워크](https://cirruscorenetworks.com/) [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX 도달](https://www.ixreach.com/services/sdn-cloud-connect/)  [Intercloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/); [Sejong 통신](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
 
 ## <a name="expressroute-partners"></a><a name="expressroute"></a>ExpressRoute 파트너
 

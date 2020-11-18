@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f4238035a6fccb0addb9a481287b31732bd2662
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333123"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744538"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>ARM 템플릿에 대 한 질문과 대답
 
@@ -68,7 +68,7 @@ ms.locfileid: "91333123"
 
 * **ARM 템플릿에서 구독을 만들 수 있나요?**
 
-  아직 하지는 않지만 작업 하는 중입니다.
+  예, 자세한 내용은 [프로그래밍 방식으로 최신 api를 사용 하 여 Azure 구독 만들기](../../cost-management-billing/manage/programmatically-create-subscription.md)를 참조 하세요.
 
 * **템플릿을 배포 하기 전에 테스트 하려면 어떻게 해야 하나요?**
 
@@ -104,9 +104,9 @@ ms.locfileid: "91333123"
 
 ## <a name="template-specs"></a>템플릿 사양
 
-* **템플릿 사양의 preview 릴리스에는 어떻게 참여할 수 있나요?**
+* **템플릿 사양의 preview 릴리스를 시작 하려면 어떻게 해야 하나요?**
 
-  템플릿 사양의 [대기 목록에 조인](https://aka.ms/templateSpecsWaitlist) 합니다.
+  최신 버전의 PowerShell 또는 Azure CLI를 설치 합니다. Azure PowerShell [버전 5.0.0](/powershell/azure/install-az-ps)이상을 사용 합니다. Azure CLI [버전 2.14.2](/cli/azure/install-azure-cli)이상을 사용 합니다.
 
 * **템플릿 사양 및 Azure 청사진은 어떻게 관련 되나요?**
 

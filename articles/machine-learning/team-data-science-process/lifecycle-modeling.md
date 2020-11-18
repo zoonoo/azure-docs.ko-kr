@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3845c5e5d7cf6bb372744fb3c740c44aa2b94236
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4719bd21bc6299373f9dabfe4733541c6fa27b94
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305622"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740184"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 모델링 단계
 
@@ -41,8 +41,8 @@ ms.locfileid: "93305622"
 ## <a name="how-to-do-it"></a>작업 방법
 이 단계에서 설명하는 세 가지 기본 작업은 다음과 같습니다.
 
-  * **기능 엔지니어링** : 모델 학습을 용이하게 하기 위해 원시 데이터로부터 데이터 기능을 만듭니다.
-  * **모델 학습** : 성공 메트릭을 비교하여 질문에 가장 정확하게 대답하는 모델을 찾습니다.
+  * **기능 엔지니어링**: 모델 학습을 용이하게 하기 위해 원시 데이터로부터 데이터 기능을 만듭니다.
+  * **모델 학습**: 성공 메트릭을 비교하여 질문에 가장 정확하게 대답하는 모델을 찾습니다.
   * **프로덕션에 적합한** 모델인지 확인합니다.
 
 ### <a name="feature-engineering"></a>기능 엔지니어링
@@ -59,22 +59,20 @@ ms.locfileid: "93305622"
 
    * 모델링을 위해 **입력 데이터를** 학습 데이터 집합과 테스트 데이터 집합으로 임의로 분할 합니다.
    * 학습 데이터 집합을 사용하여 **모델을 빌드** 합니다.
-   * 학습 및 테스트 데이터 집합을 **평가** 합니다. 현재 데이터로 관심 있는 질문에 대답하는 데 관련된 다양한 튜닝 매개 변수( *매개 변수 스윕* 이라고 함)와 함께 일련의 경쟁적인 컴퓨터 학습 알고리즘을 사용합니다.
+   * 학습 및 테스트 데이터 집합을 **평가** 합니다. 현재 데이터로 관심 있는 질문에 대답하는 데 관련된 다양한 튜닝 매개 변수(*매개 변수 스윕* 이라고 함)와 함께 일련의 경쟁적인 컴퓨터 학습 알고리즘을 사용합니다.
    * 대체 방법 간의 성공 메트릭을 비교하여 질문에 대답하는 **"최상"의 솔루션을 결정** 합니다.
 
 > [!NOTE]
-> **유출 방지** : 모델 또는 Machine Learning 알고리즘을 통해 비현실적으로 좋은 예측을 만들기 위해 학습 데이터 집합 외부의 데이터를 포함하면 데이터 유출이 발생할 수 있습니다. 유출은 데이터 과학자들이 진실하기에는 너무 좋아 보이는 예측 결과를 가져올 때 불안해 하는 일반적 이유입니다. 이러한 종속성은 감지하기 어려울 수 있습니다. 유출을 방지하려면 종종 분석 데이터 집합을 빌드하고 모델을 만들어 결과의 정확성을 평가하는 과정을 반복해야 합니다. 
+> **유출 방지**: 모델 또는 Machine Learning 알고리즘을 통해 비현실적으로 좋은 예측을 만들기 위해 학습 데이터 집합 외부의 데이터를 포함하면 데이터 유출이 발생할 수 있습니다. 유출은 데이터 과학자들이 진실하기에는 너무 좋아 보이는 예측 결과를 가져올 때 불안해 하는 일반적 이유입니다. 이러한 종속성은 감지하기 어려울 수 있습니다. 유출을 방지하려면 종종 분석 데이터 집합을 빌드하고 모델을 만들어 결과의 정확성을 평가하는 과정을 반복해야 합니다. 
 > 
 > 
-
-여러 알고리즘 및 매개 변수 스윕을 통해 실행하여 기본 모델을 생성할 수 있는 [자동화된 모델링 및 보고 도구](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling)에 TDSP를 제공합니다. 또한 각 모델의 성능과 변수 중요도를 포함한 매개 변수 조합을 요약한 기본 모델링 보고서를 생성합니다. 이 프로세스는 추가 기능 엔지니어링을 진행할 수 있으므로 반복적입니다. 
 
 ## <a name="artifacts"></a>Artifacts
 이 단계에서 생성되는 아티팩트는 다음과 같습니다.
 
    * [기능 집합](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): 모델링을 위해 개발 된 기능은 **데이터 정의** 보고서의 **기능 집합** 섹션에 설명 되어 있습니다. 여기에는 기능을 생성하는 코드에 대한 조언과 기능을 생성한 방법에 대한 설명이 있습니다.
    * [모델 보고서](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): 시도하는 각 모델에 대해 각 실험에 대한 세부 정보를 제공하는 템플릿 기반 표준 보고서가 생성됩니다.
-   * **검사점 의사 결정** : 모델이 프로덕션에 대해 충분히 수행 되는지 여부를 평가 합니다. 몇 가지 주요 질문은 다음과 같습니다.
+   * **검사점 의사 결정**: 모델이 프로덕션에 대해 충분히 수행 되는지 여부를 평가 합니다. 몇 가지 주요 질문은 다음과 같습니다.
      * 테스트 데이터가 제공되면 질문에 대해 모델에서 매우 신뢰성 있게 대답합니까? 
      * 대안을 시도해야 할까요? 추가 데이터를 수집하고 더 많은 기능 엔지니어링을 수행하거나 다른 알고리즘으로 시험해 볼까요?
 

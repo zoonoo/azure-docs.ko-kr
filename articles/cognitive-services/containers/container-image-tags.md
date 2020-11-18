@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 11/06/2020
+ms.date: 11/17/2020
 ms.author: aahi
-ms.openlocfilehash: 0efb278c217ede94f67b47250633622501a24414
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ba51776942ad28fc8d4b0db7dd2d0e162e5322b5
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412547"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743340"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Azure Cognitive Services 컨테이너 이미지 태그 및 릴리스 정보
 
@@ -574,6 +574,39 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공 합니다. �
 
 이 컨테이너 이미지에 사용할 수 있는 태그는 다음과 같습니다. [MCR에서 전체 태그](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/neural-text-to-speech/tags/list)목록을 찾을 수도 있습니다.
 
+
+# <a name="latest-version"></a>[최신 버전](#tab/current)
+
+릴리스 정보 `v1.3.0` :
+* 이제 신경망 간 신경망 컨테이너가 출시 되었습니다. 
+
+| 이미지 태그                                  | 참고                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                                    | 로캘과 음성이 포함 된 컨테이너 이미지 `en-US` `en-US-AriaNeural` 입니다.      |
+| `1.3.0-amd64-<locale-and-voice>`    | `<locale>`아래에 나열 된 사용 가능한 로캘 중 하나로 대체 합니다. 예: `1.3.0-amd64-en-us-arianeural`. |
+
+
+| v 1.3.0 로캘 및 음성           | 참고                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `de-de-katjaneural`                 | 로캘과 음성이 포함 된 컨테이너 이미지 `de-DE` `de-DE-KatjaNeural` 입니다.     |
+| `en-au-natashaneural`               | 로캘과 음성이 포함 된 컨테이너 이미지 `en-AU` `en-AU-NatashaNeural` 입니다.   |
+| `en-ca-claraneural`                 | 로캘과 음성이 포함 된 컨테이너 이미지 `en-CA` `en-CA-ClaraNeural` 입니다.     |
+| `en-gb-libbyneural`                 | 로캘과 음성이 포함 된 컨테이너 이미지 `en-GB` `en-GB-LibbyNeural` 입니다.     |
+| `en-gb-mianeural`                   | 로캘과 음성이 포함 된 컨테이너 이미지 `en-GB` `en-GB-MiaNeural` 입니다.       |
+| `en-us-arianeural`                  | 로캘과 음성이 포함 된 컨테이너 이미지 `en-US` `en-US-AriaNeural` 입니다.      |
+| `en-us-guyneural`                   | 로캘과 음성이 포함 된 컨테이너 이미지 `en-US` `en-US-GuyNeural` 입니다.       |
+| `es-es-elviraneural`                | 로캘과 음성이 포함 된 컨테이너 이미지 `es-ES` `es-ES-ElviraNeural` 입니다.    |
+| `es-mx-dalianeural`                 | 로캘과 음성이 포함 된 컨테이너 이미지 `es-MX` `es-MX-DaliaNeural` 입니다.     |
+| `fr-ca-sylvieneural`                | 로캘과 음성이 포함 된 컨테이너 이미지 `fr-CA` `fr-CA-SylvieNeural` 입니다.    |
+| `fr-fr-deniseneural`                | 로캘과 음성이 포함 된 컨테이너 이미지 `fr-FR` `fr-FR-DeniseNeural` 입니다.    |
+| `it-it-elsaneural`                  | 로캘과 음성이 포함 된 컨테이너 이미지 `it-IT` `it-IT-ElsaNeural` 입니다.      |
+| `ja-jp-nanamineural`                | 로캘과 음성이 포함 된 컨테이너 이미지 `ja-JP` `ja-JP-NanamiNeural` 입니다.    |
+| `ko-kr-sunhineural`                 | 로캘과 음성이 포함 된 컨테이너 이미지 `ko-KR` `ko-KR-SunHiNeural` 입니다.     |
+| `pt-br-franciscaneural`             | 로캘과 음성이 포함 된 컨테이너 이미지 `pt-BR` `pt-BR-FranciscaNeural` 입니다. |
+| `zh-cn-xiaoxiaoneural`              | 로캘과 음성이 포함 된 컨테이너 이미지 `zh-CN` `zh-CN-XiaoxiaoNeural` 입니다.  |
+
+# <a name="previous-version"></a>[이전 버전](#tab/previous)
+
 | 이미지 태그                                  | 참고                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | 로캘과 음성이 포함 된 컨테이너 이미지 `en-US` `en-US-AriaNeural` 입니다.      |
@@ -599,6 +632,8 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공 합니다. �
 | `ko-kr-sunhineural-preview`                 | 로캘과 음성이 포함 된 컨테이너 이미지 `ko-KR` `ko-KR-SunHiNeural` 입니다.     |
 | `pt-br-franciscaneural-preview`             | 로캘과 음성이 포함 된 컨테이너 이미지 `pt-BR` `pt-BR-FranciscaNeural` 입니다. |
 | `zh-cn-xiaoxiaoneural-preview`              | 로캘과 음성이 포함 된 컨테이너 이미지 `zh-CN` `zh-CN-XiaoxiaoNeural` 입니다.  |
+
+---
 
 ## <a name="speech-language-detection"></a>음성 언어 감지
 

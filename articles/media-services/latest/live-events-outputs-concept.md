@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: f7f73efff266e012616ac68d956abd921afaac2a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: a74dcb3cae74605e747a63f8fbb102404d8cc80e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337426"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741827"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Media Services의 라이브 이벤트 및 라이브 출력
 
@@ -38,9 +38,9 @@ Azure Media Services를 사용 하면 Azure 클라우드의 고객에 게 라이
 
 [라이브 이벤트](/rest/api/media/liveevents) 는 *통과* (온-프레미스 라이브 인코더는 다중 비트 전송률 스트림) 또는 *라이브 인코딩* (온-프레미스 라이브 인코더가 단일 비트 전송률 스트림을 보냄)으로 설정할 수 있습니다. 형식은 [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype)를 사용 하 여 만드는 동안 설정 됩니다.
 
-* **LiveEventEncodingType** : 온-프레미스 라이브 인코더가 다중 비트 전송률 스트림을 보냅니다. 수집 스트림은 추가 처리 없이 라이브 이벤트를 통과 합니다. 통과 모드 라고도 합니다.
-* **LiveEventEncodingType** : 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 라이브 이벤트로 보내고 Media Services 여러 비트 전송률 스트림을 만듭니다. 기여 피드가 720p 이상 해상도 인 경우 **Default720p** 사전 설정은 6 가지 해상도/비트 전송률 쌍 집합을 인코딩합니다.
-* **LiveEventEncodingType Premium1080p** : 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 라이브 이벤트로 보내고 Media Services 여러 비트 전송률 스트림을 만듭니다. Default1080p 사전 설정은 해상도/비트 전송률 쌍의 출력 집합을 지정 합니다.
+* **LiveEventEncodingType**: 온-프레미스 라이브 인코더가 다중 비트 전송률 스트림을 보냅니다. 수집 스트림은 추가 처리 없이 라이브 이벤트를 통과 합니다. 통과 모드 라고도 합니다.
+* **LiveEventEncodingType**: 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 라이브 이벤트로 보내고 Media Services 여러 비트 전송률 스트림을 만듭니다. 기여 피드가 720p 이상 해상도 인 경우 **Default720p** 사전 설정은 6 가지 해상도/비트 전송률 쌍 집합을 인코딩합니다.
+* **LiveEventEncodingType Premium1080p**: 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 라이브 이벤트로 보내고 Media Services 여러 비트 전송률 스트림을 만듭니다. Default1080p 사전 설정은 해상도/비트 전송률 쌍의 출력 집합을 지정 합니다.
 
 ### <a name="pass-through"></a>통과
 
@@ -136,7 +136,7 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
     베 니 티 모드는 하드웨어 브로드캐스트 인코더를 사용 하 고 라이브 이벤트를 시작할 때 인코더를 다시 구성 하지 않으려는 large media 방송사에서 선호 됩니다. 이러한 방송사는 시간이 지남에 따라 변경 되지 않는 예측 수집 URL을 원합니다.
 
     > [!NOTE]
-    > Azure Portal 베 니 티 URL의 이름은 " *정적 호스트 이름 접두사* "입니다.
+    > Azure Portal 베 니 티 URL의 이름은 "*정적 호스트 이름 접두사*"입니다.
 
     API에서이 모드를 지정 하려면를 `useStaticHostName` `true` 만들 때로 설정 합니다 (기본값은 `false` ). `useStaticHostname`가 true로 설정 되 면는 `hostnamePrefix` 라이브 이벤트 미리 보기에 할당 된 호스트 이름 중 첫 번째 부분을 지정 하 고 끝점을 수집 합니다. 최종 호스트 이름은이 접두사, 미디어 서비스 계정 이름 및 Azure Media Services 데이터 센터에 대 한 간단한 코드의 조합입니다.
 
@@ -150,13 +150,13 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
     |---|---|---|
     |REST (영문)|[vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--베 니 티](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--액세스 토큰](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[라이브. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |.NET|[라이브. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.md?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>라이브 수집 URL 명명 규칙
 
 * 아래 *임의* 문자열은 128비트 16진수 숫자입니다(0-9 a-f의 32문자로 구성됨).
-* *사용자의 액세스 토큰* : 베 니 티 모드를 사용할 때 설정 하는 유효한 GUID 문자열입니다. `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`)을 입력합니다.
-* *스트림 이름* : 특정 연결의 스트림 이름을 나타냅니다. 스트림 이름 값은 일반적으로 사용 하는 라이브 인코더에 의해 추가 됩니다. 연결을 설명 하는 이름을 사용 하도록 라이브 인코더를 구성할 수 있습니다 (예: "video1_audio1", "video2_audio1", "stream").
+* *사용자의 액세스 토큰*: 베 니 티 모드를 사용할 때 설정 하는 유효한 GUID 문자열입니다. 예: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *스트림 이름*: 특정 연결의 스트림 이름을 나타냅니다. 스트림 이름 값은 일반적으로 사용 하는 라이브 인코더에 의해 추가 됩니다. 연결을 설명 하는 이름을 사용 하도록 라이브 인코더를 구성할 수 있습니다 (예: "video1_audio1", "video2_audio1", "stream").
 
 #### <a name="non-vanity-url"></a>비베니티 URL
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/16/2020
+ms.date: 11/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 3aaa5d2bc6fdbda0d1db212539c719aa65cae61b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fbb9b054433905d41d0171ab08b4647618be466
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90709015"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745686"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>지역 간 복제 문제 해결
 
@@ -50,6 +50,7 @@ ms.locfileid: "90709015"
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     복제가 중단 되었거나 초기화 되지 않고 유휴 상태 (초기화 실패) 인지 확인 합니다.    |
 |     `Cannot delete   source replication`    |     원본 쪽에서 복제를 삭제할 수 없습니다. 대상 쪽에서 복제를 삭제 하 고 있는지 확인 합니다.    |
+| `Volume with replication cannot be deleted`  |  볼륨을 삭제 하기 전에 복제를 삭제 합니다. [복제 삭제](cross-region-replication-delete.md)를 참조 하세요. 이 작업을 수행 하려면 볼륨의 복제를 삭제 하기 전에 피어 링을 해제 해야 합니다. 
 
 ## <a name="errors-resyncing-volume"></a>볼륨 다시 동기화 오류
 
