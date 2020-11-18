@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure Toolkit for IntelliJ(Spark 애플리케이션)
-description: 자습서 - Azure Toolkit for IntelliJ를 사용하여 Scala로 작성되는 Spark 애플리케이션을 개발한 후 Apache Spark 풀(미리 보기)에 제출합니다.
+description: 자습서 - Azure Toolkit for IntelliJ를 사용하여 Scala로 작성되는 Spark 애플리케이션을 개발하고 서버리스 Apache Spark 풀(미리 보기)에 제출합니다.
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: be127d4214577e017522aec6a1b61b8f62638ed9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5a9fcf3e13c2f86a11e9626be486a585ec659044
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368743"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325225"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>자습서: Synapse 작업 영역을 통해 IntelliJ를 사용하여 Apache Spark 애플리케이션 만들기
 
-이 자습서에서는 Azure Toolkit for IntelliJ 플러그 인을 사용하여 [Scala](https://www.scala-lang.org/)로 작성되는 Apache Spark 애플리케이션을 개발한 다음, IntelliJ IDE(통합 개발 환경)에서 직접 Spark 풀(미리 보기)에 제출하는 방법을 보여 줍니다. 다음과 같은 몇 가지 방식으로 플러그 인을 사용할 수 있습니다.
+이 자습서에서는 Azure Toolkit for IntelliJ 플러그 인을 사용하여 [Scala](https://www.scala-lang.org/)로 작성되는 Apache Spark 애플리케이션을 개발한 다음, IntelliJ IDE(통합 개발 환경)에서 직접 서버리스 Apache Spark 풀(미리 보기)에 제출하는 방법을 보여 줍니다. 다음과 같은 몇 가지 방식으로 플러그 인을 사용할 수 있습니다.
 
 - Spark 풀에서 Scala Spark 애플리케이션을 개발하여 제출합니다.
 - Spark 풀 리소스에 액세스합니다.
@@ -49,7 +49,7 @@ ms.locfileid: "92368743"
 3. 주 창에서 **샘플이 포함된 Spark 프로젝트(Scala)** 를 선택합니다.
 4. **빌드 도구** 드롭다운 목록에서 다음 형식 중 하나를 선택합니다.
 
-   - **Maven** : Scala 프로젝트 만들기 마법사 지원의 경우
+   - **Maven**: Scala 프로젝트 만들기 마법사 지원의 경우
    - **SBT** - 종속성 관리 및 Scala 프로젝트용 빌드의 경우
 
     ![IntelliJ IDEA 새 프로젝트 대화 상자](./media/intellij-tool-synapse/create-synapse-application01.png)
@@ -166,7 +166,7 @@ Scala 애플리케이션을 만든 후에는 원격으로 실행할 수 있습�
 
 ### <a name="scenario-1-do-local-run"></a>시나리오 1: 로컬 실행
 
-1. **구성 실행/디버그** 대화 상자에서 더하기 기호( **+** )를 선택합니다. **Synapse의 Apache Spark** 옵션을 선택합니다. 저장할 **이름** , **주 클래스 이름** 을 입력합니다.
+1. **구성 실행/디버그** 대화 상자에서 더하기 기호( **+** )를 선택합니다. **Synapse의 Apache Spark** 옵션을 선택합니다. 저장할 **이름**, **주 클래스 이름** 을 입력합니다.
 
     ![Intellij 구성 실행 디버그 로컬 실행 1](./media/intellij-tool-synapse/local-run-synapse.png)
 

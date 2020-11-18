@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 3727e9a83827261bf9e8a526ffedb6d3fc644afa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b02c16c63d83fc33be5512d26eafb0ca0d6c9b98
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745989"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145891"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>자습서: 템플릿을 사용하여 Service Fabric Mesh에 애플리케이션 배포
 
@@ -103,6 +103,11 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry --sku 
 이 자습서에서는 To Do List 샘플 애플리케이션을 예제로 사용합니다.  [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) 및 [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) 서비스용 컨테이너 이미지는 Docker Hub에서 확인할 수 있습니다. Visual Studio에서 애플리케이션을 빌드하는 방법에 대한 정보는 [Service Fabric Mesh 웹앱 빌드](service-fabric-mesh-tutorial-create-dotnetcore.md)를 참조하세요. Service Fabric Mesh는 Windows 또는 Linux Docker 컨테이너를 실행할 수 있습니다.  Linux 컨테이너를 사용 중이라면 Docker에서 **Linux 컨테이너로 전환** 을 선택합니다.  Windows 컨테이너를 사용 중이라면 Docker에서 **Windows 컨테이너로 전환** 을 선택합니다.
 
 ACR 인스턴스로 이미지를 푸시하려면 컨테이너 이미지가 있어야 합니다. 로컬 컨테이너 이미지가 아직 없으면 [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 Docker Hub에서 [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) 및 [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) 이미지를 끌어옵니다.
+
+>[!NOTE]
+> 2020년 11월 2일부터 Docker Free 계획 계정에서 Docker Hub에 대한 익명 및 인증된 요청에 [다운로드 속도 제한이 적용](https://docs.docker.com/docker-hub/download-rate-limit/)되며 IP 주소에 의해 적용됩니다. 
+> 
+> 이러한 명령은 Docker Hub의 공용 이미지를 사용합니다. 요금이 제한될 수 있다는 점에 유의하세요. 자세한 내용은 [Docker Hub를 사용하여 인증](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub)을 참조하세요.
 
 Windows 이미지를 끌어옵니다.
 
@@ -196,7 +201,7 @@ Service Fabric Mesh 애플리케이션은 Azure RM(Resource Manager) 템플릿�
 이 자습서에서는 To Do List 샘플을 예제로 사용합니다.  새 템플릿 및 parameters 파일을 작성하는 대신 [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) and [mesh_rp.windows.parameter.json parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 다운로드하세요.
 
 ### <a name="parameters"></a>매개 변수
-애플리케이션을 배포한 후에 템플릿의 값이 변경될 것으로 예상되거나 배포별로 값을 변경하는 옵션을 포함하려는 경우(다른 배포에 이 템플릿을 다시 사용하려는 경우) 가장 좋은 방법은 값을 매개 변수화하는 것입니다. 이렇게 하려면 배포 템플릿 맨 위에 “parameters” 섹션을 만들고 여기서 매개 변수 이름과 속성을 지정합니다. 그러면 나중에 배포 템플릿에서 해당 이름과 속성이 참조됩니다. 각 매개 변수 정의는 *type* , *defaultValue* 및 *description* 이 있는 선택적 *metadata* 섹션을 포함합니다.
+애플리케이션을 배포한 후에 템플릿의 값이 변경될 것으로 예상되거나 배포별로 값을 변경하는 옵션을 포함하려는 경우(다른 배포에 이 템플릿을 다시 사용하려는 경우) 가장 좋은 방법은 값을 매개 변수화하는 것입니다. 이렇게 하려면 배포 템플릿 맨 위에 “parameters” 섹션을 만들고 여기서 매개 변수 이름과 속성을 지정합니다. 그러면 나중에 배포 템플릿에서 해당 이름과 속성이 참조됩니다. 각 매개 변수 정의는 *type*, *defaultValue* 및 *description* 이 있는 선택적 *metadata* 섹션을 포함합니다.
 
 parameters 섹션은 배포 템플릿 맨 위의 *resources* 섹션 바로 앞에 정의됩니다.
 
@@ -342,8 +347,8 @@ parameters 파일에서 다음 매개 변수 값을 업데이트합니다.
 |registryPassword|이전에 [레지스트리의 자격 증명 검색](#retrieve-credentials-for-the-registry)에서 가져온 암호입니다. 템플릿의 이 매개 변수는 보안 문자열이므로 배포 상태 또는 `az mesh service show` 명령에 표시되지 않습니다.|
 |registryUserName|[레지스트리의 자격 증명 검색](#retrieve-credentials-for-the-registry)에서 가져온 사용자 이름입니다.|
 |registryServer|[레지스트리의 자격 증명 검색](#retrieve-credentials-for-the-registry)에서 가져온 레지스트리 서버 이름입니다.|
-|frontEndImage|프런트 엔드 서비스용 컨테이너 이미지입니다.  `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`)을 입력합니다.|
-|serviceImage|백 엔드 서비스용 컨테이너 이미지입니다.  `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`)을 입력합니다.|
+|frontEndImage|프런트 엔드 서비스용 컨테이너 이미지입니다.  예들 들어 `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`입니다.|
+|serviceImage|백 엔드 서비스용 컨테이너 이미지입니다.  예들 들어 `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`입니다.|
 
 애플리케이션을 배포하려면 다음 명령을 실행합니다.
 
@@ -373,7 +378,7 @@ az mesh deployment create --resource-group myResourceGroup --template-file c:\te
   }
 ```
 
-## <a name="open-the-application"></a>애플리케이션 열기
+## <a name="open-the-application"></a>애플리케이션을 엽니다.
 
 애플리케이션이 정상적으로 배포되고 나면 서비스 엔드포인트의 공용 IP 주소를 가져옵니다. 배포 명령은 서비스 엔드포인트의 공용 IP 주소를 반환합니다. 필요한 경우, 네트워크 리소스를 쿼리하여 서비스 엔드포인트의 공용 IP 주소를 찾을 수도 있습니다. 이 애플리케이션의 네트워크 리소스 이름은 `todolistappNetwork`입니다. 다음 명령을 사용하여 이 정보를 페치합니다. 
 
@@ -408,4 +413,4 @@ az mesh code-package-log get --resource-group myResourceGroup --application-name
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]
-> [Service Fabric Mesh에서 실행되는 애플리케이션 크기 조정](service-fabric-mesh-tutorial-template-scale-services.md)
+> [Service Fabric Mesh에서 실행 중인 애플리케이션 크기 조정](service-fabric-mesh-tutorial-template-scale-services.md)

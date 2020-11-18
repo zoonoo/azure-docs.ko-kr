@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 97873c9f59dc0d99293d2b1ebaf87af309dbcf47
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 432104c7e2cb9486dfb47a793ae73829d8705b60
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208297"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655819"
 ---
 # <a name="connect-data-sources"></a>데이터 원본 연결
 
 Azure 센티널을 사용 하도록 설정 하 고 나면 먼저 데이터 원본에 연결 해야 합니다. Azure 센티널은 Microsoft 솔루션에 대 한 다양 한 커넥터와 함께 제공 되며, 기본적으로 제공 되며, Microsoft 365 Defender (이전의 Microsoft 위협 방지) 솔루션, Microsoft 365 원본 (Office 365 포함), Azure AD, Id 용 Microsoft Defender (이전의 Azure ATP), Microsoft Cloud App Security 등의 실시간 통합을 제공 합니다. 또한 타사 솔루션에 대한 광범위한 보안 에코시스템에 기본 제공 커넥터도 제공됩니다. CEF(Common Event Format), Syslog 또는 REST API를 사용하여 Azure Sentinel에 데이터 원본을 연결할 수도 있습니다.
 
-1. 메뉴에서 **데이터 커넥터**를 선택합니다. 이 페이지를 통해 Azure Sentinel에서 제공하는 커넥터의 전체 목록 및 해당 상태를 확인할 수 있습니다. 연결하려는 커넥터를 선택하고 **커넥터 페이지 열기**를 선택합니다. 
+1. 메뉴에서 **데이터 커넥터** 를 선택합니다. 이 페이지를 통해 Azure Sentinel에서 제공하는 커넥터의 전체 목록 및 해당 상태를 확인할 수 있습니다. 연결하려는 커넥터를 선택하고 **커넥터 페이지 열기** 를 선택합니다. 
 
    ![데이터 연결선 갤러리](./media/collect-data/collect-data-page.png)
 
-1. 특정 커넥터 페이지에서 모든 필수 구성 요소를 충족했는지 확인하고 지침을 따라 Azure Sentinel에 데이터를 연결합니다. 로그와 Azure Sentinel의 동기화를 시작하는 데 약간의 시간이 걸릴 수 있습니다. 연결한 후 **받은 데이터**에 데이터의 요약 및 데이터 형식의 연결 상태가 표시됩니다.
+1. 특정 커넥터 페이지에서 모든 필수 구성 요소를 충족했는지 확인하고 지침을 따라 Azure Sentinel에 데이터를 연결합니다. 로그와 Azure Sentinel의 동기화를 시작하는 데 약간의 시간이 걸릴 수 있습니다. 연결한 후 **받은 데이터** 에 데이터의 요약 및 데이터 형식의 연결 상태가 표시됩니다.
 
    ![데이터 커넥터 구성](./media/collect-data/opened-connector-page.png)
   
@@ -137,17 +137,17 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 | AzureActivity | [Azure 활동 연결](connect-azure-activity.md) 및 [활동 로그 개요](../azure-monitor/platform/platform-logs-overview.md)| &#10003; | |
 | AuditLogs | [Azure AD 연결](connect-azure-active-directory.md)  | &#10003; | |
 | SigninLogs | [Azure AD 연결](connect-azure-active-directory.md)  | &#10003; | |
-| AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | &#10003; | |
-| InformationProtectionLogs_CL  | [Azure Information Protection 보고서](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Azure Information Protection 연결](connect-azure-information-protection.md)  | &#10003; | 일반적으로 데이터 형식 외에도 **InformationProtectionEvents** 함수를 사용합니다. 자세한 내용은 [보고서를 수정하고 사용자 지정 쿼리를 만드는 방법](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)을 참조하세요.|
+| AzureFirewall |[Azure Diagnostics](../firewall/firewall-diagnostics.md) | &#10003; | |
+| InformationProtectionLogs_CL  | [Azure Information Protection 보고서](/azure/information-protection/reports-aip)<br>[Azure Information Protection 연결](connect-azure-information-protection.md)  | &#10003; | 일반적으로 데이터 형식 외에도 **InformationProtectionEvents** 함수를 사용합니다. 자세한 내용은 [보고서를 수정하고 사용자 지정 쿼리를 만드는 방법](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)을 참조하세요.|
 | AzureNetworkAnalytics_CL  | [트래픽 분석 스키마](../network-watcher/traffic-analytics.md) [트래픽 분석](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [CEF 연결](connect-common-event-format.md)  | &#10003; | |
 | OfficeActivity | [Office 365 연결](connect-office-365.md) | &#10003; | |
-| SecurityEvents | [Windows 보안 이벤트 연결](connect-windows-security-events.md)  | &#10003; | 안전하지 않은 프로토콜 통합 문서는 [안전하지 않은 프로토콜 통합 문서 설정](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)을 참조하세요.  |
+| SecurityEvents | [Windows 보안 이벤트 연결](connect-windows-security-events.md)  | &#10003; | 안전하지 않은 프로토콜 통합 문서는 [안전하지 않은 프로토콜 통합 문서 설정](./quickstart-get-visibility.md#use-built-in-workbooks)을 참조하세요.  |
 | syslog | [Syslog 연결](connect-syslog.md) | &#10003; | |
-| Microsoft WAF(웹 애플리케이션 방화벽) - (AzureDiagnostics) |[Microsoft 웹 애플리케이션 방화벽 연결](connect-microsoft-waf.md) | &#10003; | |
+| Microsoft WAF(웹 애플리케이션 방화벽) - (AzureDiagnostics) |[Microsoft 웹 애플리케이션 방화벽 연결](./connect-azure-waf.md) | &#10003; | |
 | SymantecICDx_CL | [Symantec 연결](connect-symantec.md) | &#10003; | |
 | ThreatIntelligenceIndicator  | [위협 인텔리전스 연결](connect-threat-intelligence.md)  | &#10003; | |
-| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Azure Monitor 서비스 맵](../azure-monitor/insights/service-map.md)<br>[Azure Monitor VM 인사이트 온보딩](../azure-monitor/insights/vminsights-onboard.md) <br> [Azure Monitor VM 인사이트 사용](../azure-monitor/insights/vminsights-enable-overview.md) <br> [단일 VM 온보딩 사용](../azure-monitor/insights/vminsights-enable-single-vm.md)<br>  [정책을 통해 온보딩 사용](../azure-monitor/insights/vminsights-enable-at-scale-policy.md)| &#10007; | VM 인사이트 통합 문서  |
+| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Azure Monitor 서비스 맵](../azure-monitor/insights/service-map.md)<br>[Azure Monitor VM 인사이트 온보딩](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Azure Monitor VM 인사이트 사용](../azure-monitor/insights/vminsights-enable-overview.md) <br> [단일 VM 온보딩 사용](../azure-monitor/insights/vminsights-enable-portal.md)<br>  [정책을 통해 온보딩 사용](../azure-monitor/insights/vminsights-enable-policy.md)| &#10007; | VM 인사이트 통합 문서  |
 | DnsEvents | [DNS 연결](connect-dns.md) | &#10003; | |
 | W3CIISLog | [IIS 로그 연결](../azure-monitor/platform/data-sources-iis-logs.md)  | &#10007; | |
 | WireData | [실시간 데이터 연결](../azure-monitor/insights/wire-data.md) | &#10007; | |
@@ -157,7 +157,7 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 | ASC SecurityAlert  | Azure Security Center에서 [Azure Defender 경고 연결](connect-azure-security-center.md)  | &#10003; | |
 | MCAS SecurityAlert  | [Microsoft Cloud App Security 연결](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
-| Sysmon(이벤트) | [Sysmon 연결](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Windows 이벤트 연결](../azure-monitor/platform/data-sources-windows-events.md) <br> [Sysmon Parser 가져오기](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Sysmon 컬렉션은 가상 머신에 기본적으로 설치되지 않습니다. Sysmon 에이전트를 설치하는 방법에 대한 자세한 내용은 [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon)을 참조하세요. |
+| Sysmon(이벤트) | [Sysmon 연결](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Windows 이벤트 연결](../azure-monitor/platform/data-sources-windows-events.md) <br> [Sysmon Parser 가져오기](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Sysmon 컬렉션은 가상 머신에 기본적으로 설치되지 않습니다. Sysmon 에이전트를 설치하는 방법에 대한 자세한 내용은 [Sysmon](/sysinternals/downloads/sysmon)을 참조하세요. |
 | ConfigurationData  | [VM 인벤토리 자동화](../automation/change-tracking/overview.md)| &#10007; | |
 | ConfigurationChange  | [VM 추적 자동화](../automation/change-tracking/overview.md) | &#10007; | |
 | F5 BIG-IP | [F5 BIG-IP 연결](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10007; | |

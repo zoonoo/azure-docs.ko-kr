@@ -1,6 +1,6 @@
 ---
-title: IoT 플러그 앤 플레이 샘플 Python 디바이스 코드를 Azure IoT Hub에 연결 | Microsoft Docs
-description: Python을 사용하여 IoT 허브에 연결되는 IoT 플러그 앤 플레이 샘플 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
+title: 빠른 시작 - IoT 플러그 앤 플레이 샘플 Python 디바이스 코드를 Azure IoT Hub에 연결 | Microsoft Docs
+description: 빠른 시작 - Python을 사용하여 IoT 허브에 연결되는 IoT 플러그 앤 플레이 샘플 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 7/14/2020
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 065e65c0c8ccf61dd67da19fd5a94d4506db73ff
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 38c6b835f0a3ddaaf4c049ca6ea3aeb484ad3280
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737317"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421569"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-python"></a>빠른 시작: 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 IoT Hub에 연결(Python)
 

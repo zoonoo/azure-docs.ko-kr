@@ -4,12 +4,12 @@ description: Azure Container Registry를 만들고 지리적 복제를 구성하
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: c473e3cd891214c2c5789bd43b0d293cb25d660a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 804f07762bef596f4631fbc5f694ecc6b308bfad
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739491"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027230"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry 준비
 
@@ -50,14 +50,14 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 새 레지스트리를 다음 설정으로 구성합니다. **기본 사항** 탭에서 다음을 수행합니다.
 
-* **레지스트리 이름** : Azure 내에서 글로벌로 고유하며, 5~50자의 영숫자가 포함된 레지스트리 이름을 만듭니다.
-* **리소스 그룹** : **새로 만들기** > `myResourceGroup`
-* **위치** : `West US`
-* **SKU** : `Premium` (지역에서 복제에 필요)
+* **레지스트리 이름**: Azure 내에서 글로벌로 고유하며, 5~50자의 영숫자가 포함된 레지스트리 이름을 만듭니다.
+* **리소스 그룹**: **새로 만들기** > `myResourceGroup`
+* **위치**: `West US`
+* **SKU**: `Premium` (지역에서 복제에 필요)
 
 **검토 + 만들기** 를 선택한 다음, **만들기** 를 선택하여 레지스트리 인스턴스를 만듭니다.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Azure Portal에서 컨테이너 레지스트리 구성":::
 
 이 자습서의 나머지 부분에서는 선택한 컨테이너 **레지스트리 이름** 의 자리 표시자로 `<acrName>`을 사용합니다.
 
@@ -70,19 +70,19 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **서비스** 아래에서 **복제** 를 선택합니다.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Azure Portal 컨테이너 레지스트리 UI의 복제":::
 
 지역에서 복제에 사용할 수 있는 Azure 영역을 나타내는 녹색 육각형이 지도에 표시됩니다.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Azure Portal의 지역 지도":::
 
 녹색 육각형을 선택하여 미국 동부 지역에 레지스트리를 복제한 다음 **복제 만들기** 에서 **만들기** 를 선택합니다.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Azure Portal에서 복제 UI 만들기":::
 
 복제가 완료되면 포털에서 두 영역 모두에 *준비* 가 반영됩니다. **새로 고침** 단추를 사용하여 복제 상태를 새로 고치세요. 복제본을 만들고 동기화하는 데 1~2분 정도 걸릴 수 있습니다.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Azure Portal의 복제 상태 UI":::
 
 
 ## <a name="enable-admin-account"></a>관리자 계정 사용
@@ -91,7 +91,7 @@ Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **서비스*
 
 Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **설정** 아래에서 **액세스 키** 를 선택합니다. **관리 사용자** 에서 **사용** 을 선택합니다.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Azure Portal에서 관리자 계정 사용":::
 
 
 ## <a name="container-registry-login"></a>컨테이너 레지스트리 로그인
@@ -110,7 +110,7 @@ az acr login --name <acrName>
 
 이 자습서의 샘플에는 [ASP.NET Core][aspnet-core]로 작성한 작은 웹 애플리케이션이 포함되어 있습니다. 이 응용 프로그램은 Azure Container Registry에서 이미지가 배포된 지역을 표시하는 HTML 페이지를 제공합니다.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="브라우저에 표시된 자습서 앱":::
 
 Git을 사용하여 샘플을 로컬 디렉터리에 다운로드하고 `cd`를 디렉터리에 다운로드합니다.
 
@@ -123,19 +123,19 @@ cd acr-helloworld
 
 ## <a name="update-dockerfile"></a>Dockerfile 업데이트
 
-샘플에 포함된 Dockerfile은 컨테이너가 어떻게 작성되었는지 보여줍니다. 공식 [aspnetcore][dockerhub-aspnetcore] 이미지에서 시작하여 애플리케이션 파일을 컨테이너에 복사하고, 종속성을 설치하고, 공식 [aspnetcore-build][dockerhub-aspnetcore-build] 이미지를 사용하여 출력을 컴파일하고 마지막으로 최적화된 aspnetcore 이미지를 만듭니다.
+샘플에 포함된 Dockerfile은 컨테이너가 어떻게 작성되었는지 보여줍니다. 공식 ASP.NET Core 런타임 이미지에서 시작하여 애플리케이션 파일을 컨테이너에 복사하고, 종속성을 설치하고, 공식 .NET Core SDK 이미지를 사용하여 출력을 컴파일하고 마지막으로 최적화된 aspnetcore 이미지를 빌드합니다.
 
 [Dockerfile][dockerfile]은 복제된 원본의 `./AcrHelloworld/Dockerfile`에 있습니다.
 
 ```Dockerfile
-FROM microsoft/aspnetcore:2.0 AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
 ENV DOCKER_REGISTRY <acrName>.azurecr.io
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.0 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
 WORKDIR /src
 COPY *.sln ./
 COPY AcrHelloworld/AcrHelloworld.csproj AcrHelloworld/
@@ -187,8 +187,8 @@ Docker 이미지가 빌드되면 여러 줄의 출력이 표시됩니다(여기�
 
 ```bash
 Sending build context to Docker daemon  523.8kB
-Step 1/18 : FROM microsoft/aspnetcore:2.0 AS base
-2.0: Pulling from microsoft/aspnetcore
+Step 1/18 : FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
+2.2: Pulling from mcr.microsoft.com/dotnet/core/aspnet
 3e17c6eae66c: Pulling fs layer
 
 [...]
@@ -245,6 +245,4 @@ v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543
 <!-- LINKS - External -->
 [acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip
 [aspnet-core]: https://dot.net
-[dockerhub-aspnetcore]: https://hub.docker.com/r/microsoft/aspnetcore/
-[dockerhub-aspnetcore-build]: https://store.docker.com/community/images/microsoft/aspnetcore-build
 [dockerfile]: https://github.com/Azure-Samples/acr-helloworld/blob/master/AcrHelloworld/Dockerfile

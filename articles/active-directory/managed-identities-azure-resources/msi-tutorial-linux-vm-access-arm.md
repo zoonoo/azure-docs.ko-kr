@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8a898e116ee2d88f4ccc5a0131737b2723f8b8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f899a6c1b4f359f7e8d6e1e05389aa697b4f1bd7
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969082"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359700"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>자습서: Linux VM에서 사용자 할당 관리 ID를 사용하여 Azure Resource Manager에 액세스
 
@@ -39,12 +39,9 @@ ms.locfileid: "90969082"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
-- [Azure Portal에 로그인](https://portal.azure.com)
-
-- [Linux 가상 머신 만들기](../../virtual-machines/linux/quick-create-portal.md)
-
+- 관리 ID에 대한 이해. Azure 리소스에 대한 관리 ID 기능이 익숙하지 않은 경우 [개요](overview.md)를 참조하세요. 
+- Azure 계정, [체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
+- Linux 가상 머신도 필요합니다. 이 자습서에 대한 가상 머신을 만들어야 하는 경우 [Azure Portal을 사용하여 Linux 가상 머신 만들기](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)라는 제목의 문서를 수행하면 됩니다.
 - 예제 스크립트를 실행하려면 다음 두 가지 옵션을 사용합니다.
     - 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보기** 단추를 사용하여 열 수 있는 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
     - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli)를 설치하여 스크립트를 로컬로 실행한 다음, [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure에 로그인합니다.
@@ -76,7 +73,7 @@ az identity create -g <RESOURCE GROUP> -n <UAMI NAME>
 }
 ```
 
-## <a name="assign-a-user-assigned-managed-identity-to-your-linux-vm"></a>Linux VM에 사용자 할당 관리 ID 할당
+## <a name="assign-an-identity-to-your-linux-vm"></a>Linux VM에 ID 할당
 
 사용자 할당 관리 ID는 여러 Azure 리소스에 있는 클라이언트에 사용될 수 있습니다. 다음 명령을 사용하여 사용자 할당 관리 ID를 단일 VM에 할당합니다. 이전 단계에서 반환된 `Id` 속성을 `-IdentityID` 매개 변수에 사용합니다.
 
@@ -86,7 +83,7 @@ az identity create -g <RESOURCE GROUP> -n <UAMI NAME>
 az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAMI NAME>"
 ```
 
-## <a name="grant-your-user-assigned-managed-identity-access-to-a-resource-group-in-azure-resource-manager"></a>사용자 할당 관리 ID에 Azure Resource Manager의 리소스 그룹 액세스 권한 부여 
+## <a name="grant-access-to-a-resource-group-in-azure-resource-manager"></a>Azure Resource Manager의 리소스 그룹에 대한 액세스 권한 부여
 
 Azure 리소스에 대한 관리 ID는 Azure AD 인증을 지원하는 리소스 API를 인증하는 액세스 토큰을 요청하기 위해 코드에 사용할 수 있는 ID를 제공합니다. 이 자습서에서 코드는 Azure Resource Manager API에 액세스합니다.  
 
@@ -120,22 +117,22 @@ az role assignment create --assignee <UAMI PRINCIPALID> --role 'Reader' --scope 
 아래의 단계를 완료하려면 SSH 클라이언트가 필요합니다. Windows를 사용 중인 경우 [Linux용 Windows 하위 시스템](/windows/wsl/about)에서 SSH 클라이언트를 사용할 수 있습니다. 
 
 1. Azure [Portal](https://portal.azure.com)에 로그인합니다.
-2. 포털에서 **Virtual Machines** -> Linux 가상 머신으로 이동한 다음, **개요**에서 **연결**을 클릭합니다. VM에 연결하기 위한 문자열을 복사합니다.
+2. 포털에서 **Virtual Machines** -> Linux 가상 머신으로 이동한 다음, **개요** 에서 **연결** 을 클릭합니다. VM에 연결하기 위한 문자열을 복사합니다.
 3. 선택한 SSH 클라이언트를 사용하여 VM에 연결합니다. Windows를 사용 중인 경우 [Linux용 Windows 하위 시스템](/windows/wsl/about)에서 SSH 클라이언트를 사용할 수 있습니다. SSH 클라이언트의 키 구성에 대한 도움이 필요하면 [Azure에서 Windows를 통해 SSH 키를 사용하는 방법](~/articles/virtual-machines/linux/ssh-from-windows.md) 또는 [Azure에서 Linux VM용 SSH 공개 및 프라이빗 키 쌍을 만들고 사용하는 방법](~/articles/virtual-machines/linux/mac-create-ssh-keys.md)을 참조하세요.
-4. 터미널 창에서 CURL을 사용하여 Azure Instance Metadata Service(IMDS) ID 엔드포인트에 대한 요청을 수행해 Azure Resource Manager용 액세스 토큰을 가져옵니다.  
+4. 터미널 창에서 CURL을 사용하여 Azure Instance Metadata Service(IMDS) ID 엔드포인트에 대한 요청을 수행해 Azure Resource Manager용 액세스 토큰을 가져옵니다.  
 
-   다음 예제에는 액세스 토큰을 획득하는 CURL 요청이 나와 있습니다.`<CLIENT ID>`를 [사용자 할당 관리 ID 만들기](#create-a-user-assigned-managed-identity)의 `az identity create` 명령에서 반환한 `clientId` 속성으로 바꿉니다. 
+   다음 예제에는 액세스 토큰을 획득하는 CURL 요청이 나와 있습니다. `<CLIENT ID>`를 [사용자 할당 관리 ID 만들기](#create-a-user-assigned-managed-identity)의 `az identity create` 명령에서 반환한 `clientId` 속성으로 바꿉니다. 
     
    ```bash
-   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<UAMI CLIENT ID>"   
+   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<UAMI CLIENT ID>"   
    ```
     
     > [!NOTE]
-    > `resource` 매개 변수의 값은 Azure AD에 필요한 값과 정확하게 일치해야 합니다.리소스 관리자 리소스 ID를 사용할 때는 URI에 후행 슬래시를 포함해야 합니다. 
+    > `resource` 매개 변수의 값은 Azure AD에 필요한 값과 정확하게 일치해야 합니다. 리소스 관리자 리소스 ID를 사용할 때는 URI에 후행 슬래시를 포함해야 합니다. 
     
-    응답에는 Azure Resource Manager에 액세스하는 데 필요한 액세스 토큰이 포함되어 있습니다. 
+    응답에는 Azure Resource Manager에 액세스하는 데 필요한 액세스 토큰이 포함되어 있습니다. 
     
-    응답 예제:  
+    응답 예제:  
 
     ```bash
     {
@@ -146,19 +143,19 @@ az role assignment create --assignee <UAMI PRINCIPALID> --role 'Reader' --scope 
     "not_before":"1504126627",
     "resource":"https://management.azure.com",
     "token_type":"Bearer"
-    } 
+    } 
     ```
 
 5. 액세스 토큰을 사용하여 Azure Resource Manager에 액세스하고, 이전에 사용자 할당 관리 ID 액세스 권한을 부여했던 리소스 그룹의 속성을 읽습니다. `<SUBSCRIPTION ID>` 및 `<RESOURCE GROUP>`을 앞에서 지정한 값으로 바꾸고, `<ACCESS TOKEN>`을 이전 단계에서 반환된 토큰으로 바꿔야 합니다.
 
     > [!NOTE]
-    > URL은 대/소문자를 구분하므로 앞서 리소스 그룹의 이름을 지정할 때 사용했던 것과 정확히 동일한 대/소문자 및 `resourceGroups`의 대문자 "G"를 사용해야 합니다.  
+    > URL은 대/소문자를 구분하므로 앞서 리소스 그룹의 이름을 지정할 때 사용했던 것과 정확히 동일한 대/소문자 및 `resourceGroups`의 대문자 "G"를 사용해야 합니다.  
 
     ```bash 
-    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
 
-    응답은 다음 예제와 비슷하게 특정 리소스 그룹 정보를 포함합니다. 
+    응답은 다음 예제와 비슷하게 특정 리소스 그룹 정보를 포함합니다. 
 
     ```bash
     {
@@ -166,9 +163,9 @@ az role assignment create --assignee <UAMI PRINCIPALID> --role 'Reader' --scope 
     "name":"DevTest",
     "location":"westus",
     "properties":{"provisioningState":"Succeeded"}
-    } 
+    } 
     ```
-    
+    
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 사용자 할당 관리 ID를 만들고 이를 Linux 가상 머신에 연결하여 Azure Resource Manager API에 액세스하는 방법을 설명합니다.  Azure Resource Manager에 대한 자세한 내용은 다음을 참조하세요.

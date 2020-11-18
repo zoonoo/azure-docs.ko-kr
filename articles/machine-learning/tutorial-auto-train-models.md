@@ -1,7 +1,7 @@
 ---
 title: '회귀 자습서: 자동화된 ML'
 titleSuffix: Azure Machine Learning
-description: 이 자습서에서는 자동화된 기계 학습을 사용하여 기계 학습 모델을 생성하는 방법에 대해 알아봅니다. Azure Machine Learning은 데이터 전처리, 알고리즘 선택 및 하이퍼 매개 변수 선택을 자동화된 방식으로 수행할 수 있습니다.
+description: 사용자가 제공하는 학습 데이터 및 구성 설정에 따라 회귀 모델을 생성하는 자동화된 기계 학습 실험을 만듭니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: aniththa
 ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: cf6616dcc3935946ad4a7213263bb20281d25354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-python, automl
+ms.openlocfilehash: 811f1c27af660d388ecb875741c073591bd25f7f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896781"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358612"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>자습서: 자동화된 기계 학습을 사용하여 택시 요금 예측
 
@@ -81,7 +81,7 @@ green_taxi_df.head(10)
 |737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0.90|None|None|-73.88|40.76|-73.87|...|2|6.00|0.00|0.50|0.3|0.00|0.00|nan|6.80|1.00
 |113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3.30|None|None|-73.96|40.72|-73.91|...|2|12.50|0.50|0.50|0.3|0.00|0.00|nan|13.80|1.00
 |150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1.19|None|None|-73.94|40.71|-73.95|...|1|7.00|0.00|0.50|0.3|1.75|0.00|nan|9.55|1.00
-|432136|2|2015-01-22 23:16:33   2015-01-22 23:20:13 1   0.65|없음|None|-73.94|40.71|-73.94|...|2|5.00|0.50|0.50|0.3|0.00|0.00|nan|6.30|1.00
+|432136|2|2015-01-22 23:16:33   2015-01-22 23:20:13 1   0.65|없음|없음|-73.94|40.71|-73.94|...|2|5.00|0.50|0.50|0.3|0.00|0.00|nan|6.30|1.00
 
 이제 초기 데이터가 로드되었으므로 태운 날짜/시간 필드에서 다양한 시간 기반 기능을 만들기 위한 함수를 정의합니다. 그러면 월 숫자, 월간 일자, 요일 및 일간 시간에 대한 새 필드가 생성되며 모델에서 시간 기반 계절성을 고려할 수 있게 됩니다. 데이터 프레임에 대해 `apply()` 함수를 사용하여 택시 데이터의 각 행에 `build_time_features()` 함수를 반복해서 적용합니다.
 
@@ -110,7 +110,7 @@ green_taxi_df.head(10)
 |737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0.90|None|None|-73.88|40.76|-73.87|...|2|6.00|0.00|0.50|0.3|0.00|0.00|nan|6.80|1.00|1|3|5|12
 |113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3.30|None|None|-73.96|40.72|-73.91|...|2|12.50|0.50|0.50|0.3|0.00|0.00|nan|13.80|1.00|1|9|4|23
 |150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1.19|None|None|-73.94|40.71|-73.95|...|1|7.00|0.00|0.50|0.3|1.75|0.00|nan|9.55|1.00|1|11|6|17
-|432136|2|2015-01-22 23:16:33   2015-01-22 23:20:13 1   0.65|없음|None|-73.94|40.71|-73.94|...|2|5.00|0.50|0.50|0.3|0.00|0.00|nan|6.30|1.00|1|22|3|23
+|432136|2|2015-01-22 23:16:33   2015-01-22 23:20:13 1   0.65|없음|없음|-73.94|40.71|-73.94|...|2|5.00|0.50|0.50|0.3|0.00|0.00|nan|6.30|1.00|1|22|3|23
 
 학습 또는 추가 기능 만들기에 필요하지 않은 열을 제거합니다.
 
@@ -173,7 +173,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>작업 영역 구성
 
-기존 작업 영역에서 작업 영역 개체를 만듭니다. [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)는 Azure 구독 및 리소스 정보를 허용하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다. `Workspace.from_config()`는 **config.json** 파일을 읽어 `ws`라는 개체에 인증 세부 정보를 로드합니다. `ws`는 이 자습서에서 나머지 코드에 사용됩니다.
+기존 작업 영역에서 작업 영역 개체를 만듭니다. [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py)는 Azure 구독 및 리소스 정보를 허용하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다. `Workspace.from_config()`는 **config.json** 파일을 읽어 `ws`라는 개체에 인증 세부 정보를 로드합니다. `ws`는 이 자습서에서 나머지 코드에 사용됩니다.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -212,7 +212,7 @@ x_train, x_test = train_test_split(final_df, test_size=0.2, random_state=223)
 |**experiment_timeout_hours**|0.3|실험을 종료하기까지 모든 반복 조합에 소요되는 최대 시간(시간)입니다.|
 |**enable_early_stopping**|True|점수가 단기간에 개선되지 않는 경우 조기 종료를 활성화하는 플래그입니다.|
 |**primary_metric**| spearman_correlation | 최적화하려는 메트릭입니다. 이 메트릭에 따라 최적화된 모델이 선택됩니다.|
-|**기능화**| auto | **auto**를 사용하면 실험은 입력 데이터를 전처리할 수 있습니다(누락 데이터 처리, 텍스트를 숫자로 변환 등).|
+|**기능화**| auto | **auto** 를 사용하면 실험은 입력 데이터를 전처리할 수 있습니다(누락 데이터 처리, 텍스트를 숫자로 변환 등).|
 |**verbosity**| logging.INFO | 로깅 수준을 제어합니다.|
 |**n_cross_validations**|5|유효성 검사 데이터가 지정되지 않은 경우 수행할 교차 유효성 검사 분할 수입니다.|
 
@@ -300,7 +300,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-the-results"></a>결과 탐색
 
-[Jupyter 위젯](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)을 통해 자동 학습 결과를 살펴봅니다. 위젯을 사용하면 모든 개별 실행 반복에 대한 그래프와 테이블을 학습 정확도 메트릭 및 메타데이터와 함께 볼 수 있습니다. 또한 드롭다운 선택기를 사용하면 기본 메트릭과 다른 정확도 메트릭을 필터링할 수 있습니다.
+[Jupyter 위젯](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)을 통해 자동 학습 결과를 살펴봅니다. 위젯을 사용하면 모든 개별 실행 반복에 대한 그래프와 테이블을 학습 정확도 메트릭 및 메타데이터와 함께 볼 수 있습니다. 또한 드롭다운 선택기를 사용하면 기본 메트릭과 다른 정확도 메트릭을 필터링할 수 있습니다.
 
 ```python
 from azureml.widgets import RunDetails
@@ -388,12 +388,12 @@ Model Accuracy:
 
 자신이 만든 리소스를 사용하지 않으려는 경우 요금이 발생하지 않도록 삭제하세요.
 
-1. Azure Portal의 맨 왼쪽에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal의 맨 왼쪽에서 **리소스 그룹** 을 선택합니다.
 1. 목록에서 만든 리소스 그룹을 선택합니다.
-1. **리소스 그룹 삭제**를 선택합니다.
-1. 리소스 그룹 이름을 입력합니다. 그런 다음, **삭제**를 선택합니다.
+1. **리소스 그룹 삭제** 를 선택합니다.
+1. 리소스 그룹 이름을 입력합니다. 그런 다음, **삭제** 를 선택합니다.
 
-또한 리소스 그룹을 유지하면서 단일 작업 영역을 삭제할 수도 있습니다. 작업 영역 속성을 표시하고 **삭제**를 선택합니다.
+또한 리소스 그룹을 유지하면서 단일 작업 영역을 삭제할 수도 있습니다. 작업 영역 속성을 표시하고 **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

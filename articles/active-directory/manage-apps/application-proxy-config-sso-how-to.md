@@ -1,34 +1,29 @@
 ---
-title: 응용 프로그램 프록시 앱에 Single Sign-On를 구성 하는 방법
-description: 애플리케이션 프록시 애플리케이션에 대해 Single Sign-On을 신속하게 구성하는 방법
+title: 응용 프로그램 프록시를 사용 하 여 온-프레미스 앱 Single Sign-On 이해
+description: 응용 프로그램 프록시를 사용 하 여 온-프레미스 앱 Single Sign-On 이해 합니다.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 10/07/2020
 ms.author: kenwith
 ms.reviewer: japere, asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54673e0018f83024d1c01599d0096c71b6b1d0ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7df16a797fe0d7a0fd9a0b3857b1b1c32ba07ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642132"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656295"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션에 대해 Single Sign-On을 구성하는 방법
 
 SSO(Single Sign-On)를 사용하면 사용자가 여러 번 인증하지 않고도 애플리케이션에 액세스할 수 있습니다. Azure Active Directory에 대해 클라우드에서 단일 인증을 허용하고 서비스 또는 커넥터가 사용자를 가장하여 애플리케이션에서 추가 인증 질문을 완료할 수 있습니다.
 
 ## <a name="how-to-configure-single-sign-on"></a>Single Sign-On을 구성하는 방법
-SSO를 구성하려면 먼저 애플리케이션이 Azure Active Directory를 통해 사전 인증할 수 있도록 구성되어 있는지 확인합니다. 이 구성을 수행 하려면 **Azure Active Directory**  - &gt; **엔터프라이즈 응용** 프로그램  - &gt; **모든**  - &gt; ** - &gt; **응용 프로그램 응용 프로그램 프록시로 이동 합니다. 이 페이지에서 "사전 인증" 필드가 표시되고 "Azure Active Directory"로 설정되어 있는지 확인합니다. 
+SSO를 구성하려면 먼저 애플리케이션이 Azure Active Directory를 통해 사전 인증할 수 있도록 구성되어 있는지 확인합니다. 이 구성을 수행 하려면 **Azure Active Directory**  - &gt; **엔터프라이즈 응용** 프로그램  - &gt; **모든**  - &gt; **- &gt;** 응용 프로그램 응용 프로그램 프록시로 이동 합니다. 이 페이지에서 "사전 인증" 필드가 표시되고 "Azure Active Directory"로 설정되어 있는지 확인합니다. 
 
 사전 인증 방법에 대한 자세한 내용은 [앱 게시 문서](application-proxy-add-on-premises-application.md)의 4단계를 참조하세요.
 
@@ -41,7 +36,7 @@ SSO를 구성하려면 먼저 애플리케이션이 Azure Active Directory를 �
 
 -   **Windows 통합 인증**: IWA(Windows 통합 인증)를 사용하는 애플리케이션의 경우 KCD(Kerberos 제한 위임)를 통해 Single Sign-On을 사용할 수 있습니다. 이 방법은 Active Directory에서 애플리케이션 프록시 커넥터에 권한을 부여하여 사용자를 가장하고 토큰을 대신 보내고 받습니다. KCD 구성에 대한 자세한 내용은 [Single Sign-on과 KCD 설명서](application-proxy-configure-single-sign-on-with-kcd.md)를 참조하세요.
 
--   **헤더 기반 로그온**: 헤더 기반 로그온은 파트너 관계를 통해 활성화되며 몇 가지 구성이 추가로 필요합니다. 인증에 헤더를 사용하는 애플리케이션에 대해 Single Sign-On을 구성하기 위한 파트너 관계 및 단계별 지침은 [Azure AD용 PingAccess 설명서](application-proxy-configure-single-sign-on-with-ping-access.md)를 참조하세요.
+-   **헤더 기반 로그온**: 헤더 기반 로그온은 HTTP 헤더를 사용 하 여 Single Sign-On 기능을 제공 하는 데 사용 됩니다. 자세히 알아보려면 [헤더 기반 Single Sign-On](application-proxy-configure-single-sign-on-with-headers.md)를 참조 하세요.
 
 -   **Saml Single Sign-On**: saml Single Sign-On를 사용 하 여 azure ad는 사용자의 azure ad 계정을 사용 하 여 응용 프로그램에 인증 합니다. Azure AD는 연결 프로토콜을 통해 애플리케이션에 로그온 정보를 통신합니다. SAML 기반 Single Sign-On을 사용하면 SAML 클레임에서 정의하는 규칙에 따라 사용자를 특정 애플리케이션 역할에 매핑할 수 있습니다. SAML Single Sign-On 설정에 대 한 자세한 내용은 [응용 프로그램 프록시를 사용 하는 Single Sign-On saml](application-proxy-configure-single-sign-on-on-premises-apps.md)
 
@@ -54,5 +49,5 @@ SSO를 구성하려면 먼저 애플리케이션이 Azure Active Directory를 �
 ## <a name="next-steps"></a>다음 단계
 - [애플리케이션 프록시를 사용하여 Single Sign-On에 대한 암호 자격 증명 모음 설정](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [애플리케이션 프록시를 사용하는 Single Sign-On에 대한 Kerberos 제한된 위임](application-proxy-configure-single-sign-on-with-kcd.md)
-- [애플리케이션 프록시를 사용하는 Single Sign-On에 대한 헤더 기반 인증](application-proxy-configure-single-sign-on-with-ping-access.md) 
+- [애플리케이션 프록시를 사용하는 Single Sign-On에 대한 헤더 기반 인증](application-proxy-configure-single-sign-on-with-headers.md) 
 - [응용 프로그램 프록시를 사용 하는 Single Sign-On에 대 한 SAML](application-proxy-configure-single-sign-on-on-premises-apps.md)

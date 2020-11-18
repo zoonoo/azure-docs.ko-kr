@@ -1,18 +1,18 @@
 ---
-title: IoT 플러그 앤 플레이 샘플 Java 디바이스 코드를 IoT Hub에 연결 | Microsoft Docs
-description: IoT 허브에 연결된 IoT 플러그 앤 플레이 샘플 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
+title: 빠른 시작 - IoT 플러그 앤 플레이 샘플 Java 디바이스 코드를 Azure IoT Hub에 연결 | Microsoft Docs
+description: 빠른 시작 - IoT 허브에 연결된 IoT 플러그 앤 플레이 샘플 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6dfd63f92b8c420a3c5281ee2962b211b8779dd1
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 32e610cbd65aafecec9bafb35a78fb8f68279da5
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045060"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421603"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-windows-to-iot-hub-java"></a>빠른 시작: Windows에서 실행되는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 IoT Hub에 연결(Java)
 
@@ -26,7 +26,7 @@ ms.locfileid: "92045060"
 
 Windows에서 이 빠른 시작을 완료하려면 로컬 Windows 환경에 다음 소프트웨어를 설치합니다.
 
-* Java SE Development Kit 8. [Azure 및 Azure Stack에 대한 Java 장기 지원](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)의 **장기 지원** 에서 **Java 8**을 선택합니다.
+* Java SE Development Kit 8. [Azure 및 Azure Stack에 대한 Java 장기 지원](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)의 **장기 지원** 에서 **Java 8** 을 선택합니다.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ## <a name="download-the-code"></a>코드 다운로드

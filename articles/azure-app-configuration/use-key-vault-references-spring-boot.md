@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 849f25f6fdd3fef2e1ebca7dae397d96e6849f10
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 921c3b8afdb6b196e001cdb7c190529e6238c1f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748851"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127096"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>자습서: Java Spring 앱에서 Key Vault 참조 사용
 
@@ -51,7 +51,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 옵션을 선택합니다.
 
-    ![Key Vault 만들기가 완료된 후 출력](./media/quickstarts/search-services.png)
+    ![스크린샷은 Azure Portal의 리소스 만들기 옵션을 보여줍니다.](./media/quickstarts/search-services.png)
 1. 검색 상자에 **Key Vault** 를 입력합니다.
 1. 결과 목록의 왼쪽에서 **Key Vault** 를 선택합니다.
 1. **Key Vault** 에서 **추가** 를 선택합니다.
@@ -65,7 +65,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 이때 사용자의 Azure 계정은 이 새 자격 증명 모음에 액세스할 권한이 있는 유일한 계정입니다.
 
-![Key Vault 만들기가 완료된 후 출력](./media/quickstarts/vault-properties.png)
+![스크린샷은 키 자격 증명 모음을 보여줍니다.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault에 비밀 추가
 
@@ -74,9 +74,9 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 1. Key Vault 속성 페이지에서 **비밀** 을 선택합니다.
 1. **생성/가져오기** 를 선택합니다.
 1. **비밀 만들기** 창에서 다음 값을 입력합니다.
-    * **업로드 옵션** : **수동** 을 입력합니다.
-    * **Name** : **Message** 를 입력합니다.
-    * **값** : **Hello from Key Vault** 를 입력합니다.
+    * **업로드 옵션**: **수동** 을 입력합니다.
+    * **Name**: **Message** 를 입력합니다.
+    * **값**: **Hello from Key Vault** 를 입력합니다.
 1. 다른 **비밀 만들기** 속성은 기본값 그대로 둡니다.
 1. **만들기** 를 선택합니다.
 
@@ -87,10 +87,10 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 1. **구성 탐색기** 를 선택합니다.
 
 1. **+ 만들기** > **Key Vault 참조** 를 선택하고 다음 값을 지정합니다.
-    * **키** : **/application/config.keyvaultmessage** 를 선택합니다.
-    * **레이블** : 이 값은 빈 상태로 둡니다.
-    * **구독** , **리소스 그룹** 및 **Key Vault** : 이전 섹션에서 만든 Key Vault의 값에 해당하는 값을 입력합니다.
-    * **비밀** : 이전 섹션에서 만든 **Message** 라는 비밀을 선택합니다.
+    * **키**: **/application/config.keyvaultmessage** 를 선택합니다.
+    * **레이블**: 이 값은 빈 상태로 둡니다.
+    * **구독**, **리소스 그룹** 및 **Key Vault**: 이전 섹션에서 만든 Key Vault의 값에 해당하는 값을 입력합니다.
+    * **비밀**: 이전 섹션에서 만든 **Message** 라는 비밀을 선택합니다.
 
 ## <a name="connect-to-key-vault"></a>Key Vault에 연결
 
@@ -129,7 +129,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
     az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
-1. 환경 변수 **AZURE_CLIENT_ID** , **AZURE_CLIENT_SECRET** 및 **AZURE_TENANT_ID** 를 만듭니다. 이전 단계에서 표시된 서비스 주체에 대한 값을 사용합니다. 명령줄에서 다음 명령을 실행하고 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
+1. 환경 변수 **AZURE_CLIENT_ID**, **AZURE_CLIENT_SECRET** 및 **AZURE_TENANT_ID** 를 만듭니다. 이전 단계에서 표시된 서비스 주체에 대한 값을 사용합니다. 명령줄에서 다음 명령을 실행하고 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
 
     ```cmd
     setx AZURE_CLIENT_ID "clientId"

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: ced33bb17e9c24faa127b27adacce9cab011e1d8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7ecccd64921b2d95155318fe91c897725e340b7e
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426249"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334672"
 ---
 ::: zone target="docs"
 
@@ -78,7 +78,7 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
     
     ![공유에 대한 사용자 이름 및 암호 가져오기](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. 호스트 컴퓨터에서 스토리지 계정과 연결된 공유(다음 예제의 *utsac1* )에 액세스하려면 명령 창을 엽니다. 명령 프롬프트에 다음을 입력합니다.
+3. 호스트 컴퓨터에서 스토리지 계정과 연결된 공유(다음 예제의 *utsac1*)에 액세스하려면 명령 창을 엽니다. 명령 프롬프트에 다음을 입력합니다.
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -229,11 +229,11 @@ Robocopy 명령에 대한 자세한 내용은 [Robocopy 및 몇 가지 예제](h
 
 **문제 목록 다운로드** 를 선택합니다.
 
-![연결 및 복사 오류 다운로드 및 보기 2](media/data-box-deploy-copy-data/view-errors-2.png)
+![연결 및 복사, 문제 목록 다운로드](media/data-box-deploy-copy-data/view-errors-2.png)
 
 목록을 열어 오류의 세부 정보를 보고 해결 URL을 선택하여 권장 해결 방법을 확인합니다.
 
-![연결 및 복사 오류 다운로드 및 보기 3](media/data-box-deploy-copy-data/view-errors-3.png)
+![연결 및 복사, 다운로드 및 오류 보기](media/data-box-deploy-copy-data/view-errors-3.png)
 
 자세한 내용은 [Data Box로 데이터를 복사하는 동안 오류 로그 보기](data-box-logs.md#view-error-log-during-data-copy)를 참조하세요. 데이터를 복사하는 동안 발생하는 오류에 대한 자세한 목록을 보려면 [Data Box 문제 해결](data-box-troubleshoot.md)을 참조하세요.
 

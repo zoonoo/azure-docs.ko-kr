@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.author: memildin
-ms.openlocfilehash: 549a95b0b2ffc2b2d2bf5670a961e0454683e33a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: df863372cbf7abfb6fee145b7d13bb00d8deb074
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026720"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380168"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Azure Security Center에 예정된 중요한 변경
 
@@ -31,49 +31,48 @@ ms.locfileid: "93026720"
 
 ## <a name="planned-changes"></a>계획된 변경
 
-### <a name="recommendations-related-to-azure-security-benchmark-to-be-added-preview"></a>추가할 Azure 보안 벤치마크와 관련된 추천 사항(미리 보기)
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-getting-sub-recommendations"></a>"시스템 업데이트를 컴퓨터에 설치되어 있어야 합니다." 권장 사항을 가져오는 하위 권장 사항
+
+#### <a name="summary"></a>요약
 
 | 양상 | 세부 정보 |
 |---------|---------|
-|공지 날짜 | 2020년 10월 26일  |
-|이 변경에 대한 날짜  |  2020년 11월 |
-|영향     | 검토할 더 많은 추천 사항이 있을 수 있습니다.<br>보안 점수에 즉각적인 영향을 주지 않음 - 미리 보기 추천 사항은 보안 점수에 영향을 주지 않습니다.<br>리소스 상태에 즉각적인 영향을 주지 않음 - 미리 보기 추천 사항은 리소스를 "비정상"으로 렌더링하지 않습니다.|
+|공지 날짜 | 2020년 11월 9일  |
+|이 변경에 대한 날짜  |  2020년 11월 중순 |
+|영향     | 이 권장 사항의 현재 버전에서 대체 버전으로 전환하는 동안 보안 점수가 변경될 수 있습니다. |
 |  |  |
 
-Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. [Azure 보안 벤치마크에 대해 자세히 알아보세요](../security/benchmarks/introduction.md).
+**시스템 업데이트를 머신에 설치해야 합니다** 권장 사항의 향상된 버전을 릴리스합니다. 새 버전은 시스템 업데이트 적용 보안 제어에서 현재 버전을 *대체* 하고 다음과 같은 개선 사항을 제공합니다.
 
-벤치마크의 적용 범위를 넓히기 위해 다음 18개의 새로운 권장 사항이 Security Center에 추가됩니다.
+- 누락된 각 업데이트에 대한 하위 권장 사항
+- Azure Portal의 Azure Security Center 페이지에서 새롭게 디자인된 환경
+- Azure Resource Graph의 권장 사항에 대한 보강 데이터
 
-미리 보기 추천 사항은 리소스를 비정상으로 렌더링하지 않으며 보안 점수 계산에 포함되지 않습니다. 미리 보기 기간이 끝나면 점수에 기여할 수 있도록 가능한 경우 언제든지 수정합니다. [Azure Security Center의 추천 사항 수정](security-center-remediate-recommendations.md)에서 이러한 추천 사항에 대응하는 방법에 대해 자세히 알아보세요.
+#### <a name="transition-period"></a>전환 기간
 
-- Azure Backup을 가상 머신에 사용하도록 설정해야 합니다.
-- MySQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.
-- PostgreSQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.
-- Azure Database for MariaDB에 대해 지역 중복 백업을 사용하도록 설정해야 함
-- Azure Database for MySQL에 대해 지역 중복 백업을 사용하도록 설정해야 함
-- Azure Database for PostgreSQL에 대해 지역 중복 백업을 사용하도록 설정해야 함
-- Java를 최신 API 앱 버전으로 업데이트해야 합니다.
-- Java를 최신 함수 앱 버전으로 업데이트해야 합니다.
-- Java를 최신 웹앱 버전으로 업데이트해야 합니다.
-- PHP를 최신 API 앱 버전으로 업데이트해야 합니다.
-- PHP를 최신 웹앱 버전으로 업데이트해야 합니다.
-- 프라이빗 엔드포인트를 MariaDB 서버에서 사용할 수 있어야 합니다.
-- 프라이빗 엔드포인트를 MySQL 서버에서 사용할 수 있어야 합니다.
-- 프라이빗 엔드포인트를 PostgreSQL 서버에서 사용할 수 있어야 합니다.
-- Python을 최신 API 앱 버전으로 업데이트해야 합니다.
-- Python을 최신 함수 앱 버전으로 업데이트해야 합니다.
-- Python을 최신 웹앱 버전으로 업데이트해야 합니다.
-- 웹앱에서 들어오는 모든 요청에 대해 SSL 인증서를 요청해야 합니다.
+36시간(약)의 전환 기간이 있습니다. 잠재적 중단을 최소화하기 위해 주말에 업데이트를 수행하도록 예약했습니다. 전환하는 동안 보안 점수가 영향을 받을 수 있습니다.
 
-관련 링크:
+#### <a name="redesigned-portal-experience"></a>새로 디자인한 포털 환경
 
-- [Azure 보안 벤치마크에 대한 자세한 정보](../security/benchmarks/introduction.md)
-- [Azure API 앱에 대한 자세한 정보](../app-service/app-service-web-tutorial-rest-api.md)
-- [Azure 함수 앱에 대한 자세한 정보](../azure-functions/functions-overview.md)
-- [Azure 웹앱에 대한 자세한 정보](../app-service/overview.md)
-- [Azure Database for MariaDB에 대한 자세한 정보](../mariadb/overview.md)
-- [Azure Database for MySQL에 대한 자세한 정보](../mysql/overview.md)
-- [Azure Database for PostgreSQL에 대한 자세한 정보](../postgresql/overview.md)
+**시스템 업데이트는 머신에 설치되어야 합니다** 에 대한 권장 사항 세부 정보 페이지에는 아래와 같은 결과 목록이 포함되어 있습니다. 단일 찾기를 선택하면 재구성 정보 및 영향을 받는 리소스의 목록에 대한 링크가 포함된 세부 정보 창이 열립니다.
+
+:::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="업데이트된 권장 사항에 대한 포털 환경에서 하위 권장 사항 중 하나 열기":::
+
+
+#### <a name="richer-data-from-azure-resource-graph"></a>Azure Resource Graph의 다양한 데이터
+
+Azure Resource Graph는 효율적인 리소스 탐색을 제공하도록 설계된 Azure의 서비스입니다. ARG를 사용하여 사용자 환경을 효과적으로 관리할 수 있도록 지정된 구독 세트에서 대규모로 쿼리할 수 있습니다. 
+
+Azure Security Center의 경우 ARG 및 [KQL(Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)을 사용하여 다양한 보안 태세 데이터를 쿼리할 수 있습니다.
+
+**시스템 업데이트는 머신에 설치되어 있어야 합니다** 의 현재 버전을 쿼리하는 경우 ARG에서 사용할 수 있는 유일한 정보는 권장 사항을 머신에서 재구성되어야 한다는 것입니다. 업데이트된 버전이 릴리스되면 다음 쿼리는 누락된 각 시스템 업데이트를 머신별로 그룹화하여 반환합니다.
+
+```kusto
+securityresources
+| where type =~ "microsoft.security/assessments/subassessments"
+| where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
+| where properties.status.code == "Unhealthy"
+```
 
 ## <a name="next-steps"></a>다음 단계
 

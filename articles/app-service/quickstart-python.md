@@ -2,15 +2,16 @@
 title: '빠른 시작: Python 앱 만들기'
 description: 첫 번째 Python 앱을 App Service의 Linux 컨테이너에 배포하여 Azure App Service를 시작하세요.
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
-ms.openlocfilehash: 8f48f31cdaaa555e0a8f6f0fd4756bb61a9f417d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+adobe-target: true
+ms.openlocfilehash: b32977ac1c8cfe0c461bcd1628c08a0ca215ba93
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741096"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506195"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>빠른 시작: Azure App Service on Linux에서 Python 앱 만들기
 
@@ -63,7 +64,7 @@ az login
 
 로그인하면 Azure CLI에서 Azure 명령을 실행하여 구독의 리소스를 사용할 수 있습니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
+문제가 있나요? [알려주세요](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="clone-the-sample"></a>샘플 복제
 
@@ -95,7 +96,7 @@ cd python-docs-hello-django
 
 이 샘플에는 Azure App Service가 앱을 시작할 때 인식하는 프레임워크 관련 코드가 포함되어 있습니다. 자세한 내용은 [컨테이너 시작 프로세스](configure-language-python.md#container-startup-process)를 참조하세요.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
+문제가 있나요? [알려주세요](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="run-the-sample"></a>샘플 실행
 
@@ -145,11 +146,11 @@ cd python-docs-hello-django
 1. 터미널 창에서 **Ctrl**+**C** 를 눌러 개발 서버를 종료합니다.
 ::: zone-end
 
-[문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
+문제가 있나요? [알려주세요](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="deploy-the-sample"></a>샘플 배포
 
-`az webapp up` 명령을 사용하여 로컬 폴더( *python-docs-hello-world* )에 코드를 배포합니다.
+`az webapp up` 명령을 사용하여 로컬 폴더(*python-docs-hello-world*)에 코드를 배포합니다.
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>
@@ -157,7 +158,7 @@ az webapp up --sku F1 --name <app-name>
 
 - `az` 명령이 인식되지 않는 경우 [초기 환경 설정](#set-up-your-initial-environment)에서 설명한 대로 Azure CLI가 설치되어 있는지 확인합니다.
 - `webapp` 명령이 인식되지 않는 경우 Azure CLI 버전이 2.0.80 이상이기 때문입니다. 그렇지 않은 경우 [최신 버전을 설치합니다](/cli/azure/install-azure-cli).
-- `<app_name>`을 모든 Azure에서 고유한 이름으로 바꿉니다( *유효한 문자는 `a-z`, `0-9` 및 `-`* ). 좋은 패턴은 회사 이름과 앱 식별자의 조합을 사용하는 것입니다.
+- `<app_name>`을 모든 Azure에서 고유한 이름으로 바꿉니다(*유효한 문자는 `a-z`, `0-9` 및 `-`* ). 좋은 패턴은 회사 이름과 앱 식별자의 조합을 사용하는 것입니다.
 - `--sku F1` 인수는 무료 가격 책정 계층에 웹앱을 만듭니다. 이 인수를 생략하여 더 빠른 프리미엄 계층을 사용합니다. 이 경우 시간당 비용이 발생합니다.
 - 선택적으로 인수 `--location <location-name>`을 포함할 수 있습니다. 여기서 `<location_name>`은 사용 가능한 Azure 지역입니다. Azure 계정에 허용되는 지역 목록은 [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) 명령을 실행하여 검색할 수 있습니다.
 - "앱의 런타임 스택을 자동으로 검색할 수 없습니다."라는 오류가 표시되면 *requirements.txt* 파일이 포함된 *python-docs-hello-world* 폴더(Flask) 또는 *python-docs-hello-django* 폴더(Django)에서 명령을 실행하고 있는지 확인합니다. ([az webapp up으로 자동 검색 문제 해결](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)(GitHub)을 참조하세요.)
@@ -166,13 +167,13 @@ az webapp up --sku F1 --name <app-name>
 
 ![az webapp up 명령의 예제 출력](./media/quickstart-python/az-webapp-up-output.png)
 
-[문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
+문제가 있나요? 먼저 [문제 해결 가이드](configure-language-python.md#troubleshooting)를 참조하세요. 그렇지 않으면 [알려주세요](https://aka.ms/FlaskCLIQuickstartHelp).
 
 [!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## <a name="browse-to-the-app"></a>앱으로 이동
 
-웹 브라우저에서 배포된 애플리케이션(URL: `http://<app-name>.azurewebsites.net`)으로 이동합니다. 처음에 앱을 시작하는 데 몇 분이 걸립니다.
+웹 브라우저에서 배포된 애플리케이션(URL: `http://<app-name>.azurewebsites.net`)으로 이동합니다. 앱이 시작되는 데 1~2분 정도 걸릴 수 있으므로 기본 앱 페이지가 표시되면 잠시 기다렸다가 브라우저를 새로 고칩니다.
 
 Python 샘플 코드가 기본 제공 이미지를 사용하여 App Service에서 Linux 컨테이너를 실행 중입니다.
 
@@ -180,7 +181,7 @@ Python 샘플 코드가 기본 제공 이미지를 사용하여 App Service에�
 
 **축하합니다.** Python 앱을 App Service에 배포했습니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
+문제가 있나요? 먼저 [문제 해결 가이드](configure-language-python.md#troubleshooting)를 참조하세요. 그렇지 않으면 [알려주세요](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="redeploy-updates"></a>업데이트 재배포
 
@@ -217,7 +218,7 @@ az webapp up
 
 ![Azure에서 업데이트된 샘플 Python 앱 실행](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
-[문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
+문제가 있나요? 먼저 [문제 해결 가이드](configure-language-python.md#troubleshooting)를 참조하세요. 그렇지 않으면 [알려주세요](https://aka.ms/FlaskCLIQuickstartHelp).
 
 > [!TIP]
 > Visual Studio Code는 Python 웹앱을 App Service에 배포하는 프로세스를 간소화하는 Python 및 Azure App Service에 대한 강력한 확장 기능을 제공합니다. 자세한 내용은 [Visual Studio Code에서 Azure App Service에 Python 앱 배포](/azure/python/tutorial-deploy-app-service-on-linux-01)를 참조하세요.
@@ -240,7 +241,7 @@ az webapp log tail
 
 언제든지 로그 스트리밍을 중지하려면 터미널에서 **Ctrl**+**C** 를 누릅니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
+문제가 있나요? [알려주세요](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="manage-the-azure-app"></a>Azure 앱 관리
 
@@ -258,7 +259,7 @@ Azure 앱의 이름을 선택합니다.
 
 App Service 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
+문제가 있나요? 먼저 [문제 해결 가이드](configure-language-python.md#troubleshooting)를 참조하세요. 그렇지 않으면 [알려주세요](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -274,7 +275,7 @@ az group delete --no-wait
 
 `--no-wait` 인수를 사용하면 작업이 완료되기 전에 명령을 반환할 수 있습니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
+문제가 있나요? [알려주세요](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="next-steps"></a>다음 단계
 

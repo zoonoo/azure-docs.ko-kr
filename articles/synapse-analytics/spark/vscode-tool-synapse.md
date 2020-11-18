@@ -1,6 +1,6 @@
 ---
 title: 자습서 - VSCode용 Spark & Hive Tools(Spark 애플리케이션)
-description: 자습서 - VSCode용 Spark & Hive Tools를 사용하여 Python으로 작성된 Spark 애플리케이션을 개발하여 Apache Spark 풀에 제출합니다(미리 보기).
+description: 자습서 - VSCode용 Spark & Hive Tools를 사용하여 Python으로 작성된 Spark 애플리케이션을 개발하여 서버리스 Apache Spark 풀에 제출합니다(미리 보기).
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
-ms.openlocfilehash: 6778d78ff5e342d97c1c9bc477c1a88eca42a10a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99b2b04d0f29d92b503cc0bed2460b79cfa6c354
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338111"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315656"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>자습서: Synapse 작업 영역을 사용하여 VSCode로 Apache Spark 애플리케이션 만들기
 
@@ -26,11 +26,11 @@ Spark & Hive Tools는 Visual Studio Code가 지원하는 플랫폼에 설치할 
 
 이 문서의 단계를 완료하려면 다음 항목이 필요합니다.
 
-- Apache Spark 풀. Apache Spark 풀을 만들려면 [Azure Portal을 사용하여 Apache Spark 풀 만들기](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)를 참조하세요.
+- 서버리스 Apache Spark 풀. 서버리스 Apache Spark 풀을 만들려면 [Azure Portal을 사용하여 Apache Spark 풀 만들기](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)를 참조하세요.
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono는 Linux 및 macOS에만 필요합니다.
 - [Visual Studio Code용 PySpark 대화형 환경](../../hdinsight/set-up-pyspark-interactive-environment.md)
-- 로컬 디렉터리. 이 문서에서는 **C:\HD\Synaseexample**을 사용합니다.
+- 로컬 디렉터리. 이 문서에서는 **C:\HD\Synaseexample** 을 사용합니다.
 
 ## <a name="install-spark--hive-tools"></a>Spark & Hive Tools 설치
 
@@ -38,27 +38,27 @@ Spark & Hive Tools는 Visual Studio Code가 지원하는 플랫폼에 설치할 
 
 1. Visual Studio Code를 엽니다.
 
-2. 메뉴 모음에서 **보기** > **확장**으로 이동합니다.
+2. 메뉴 모음에서 **보기** > **확장** 으로 이동합니다.
 
-3. 검색 상자에 **Spark & Hive**를 입력합니다.
+3. 검색 상자에 **Spark & Hive** 를 입력합니다.
 
-4. 검색 결과에서 **Spark & Hive Tools**를 선택하고 **설치**를 선택합니다.
+4. 검색 결과에서 **Spark & Hive Tools** 를 선택하고 **설치** 를 선택합니다.
 
      ![Visual Studio Code Python용 Spark & Hive 설치](./media/vscode-tool-synapse/install-hdInsight-plugin.png)
 
-5. 필요한 경우 **다시 로드**를 선택합니다.
+5. 필요한 경우 **다시 로드** 를 선택합니다.
 
 ## <a name="open-a-work-folder"></a>작업 폴더 열기
 
 작업 폴더를 열고 Visual Studio Code에서 파일을 만들려면 다음 단계를 수행합니다.
 
-1. 메뉴 모음에서 **파일** > **폴더 열기...**  > **C:\HD\Synaseexample**로 이동한 다음, **폴더 선택** 단추를 선택합니다. 왼쪽 **탐색기** 뷰에 폴더가 표시됩니다.
+1. 메뉴 모음에서 **파일** > **폴더 열기...**  > **C:\HD\Synaseexample** 로 이동한 다음, **폴더 선택** 단추를 선택합니다. 왼쪽 **탐색기** 뷰에 폴더가 표시됩니다.
 
 2. **탐색기** 보기에서 **Synaseexample** 폴더를 선택한 다음, 작업 폴더 옆에 있는 **새 파일** 아이콘을 선택합니다.
 
      ![Visual Studio Code 새 파일 아이콘](./media/vscode-tool-synapse/visual-studio-code-new-file.png)
 
-3. `.py`(Spark 스크립트) 파일 확장명을 사용하여 새 파일의 이름을 지정합니다. 이 예제에서는 **HelloWorld.py**를 사용합니다.
+3. `.py`(Spark 스크립트) 파일 확장명을 사용하여 새 파일의 이름을 지정합니다. 이 예제에서는 **HelloWorld.py** 를 사용합니다.
 
 ## <a name="connect-to-your-spark-pools"></a>Spark 풀에 연결
 
@@ -68,7 +68,7 @@ Azure 구독에 로그인하여 Spark 풀에 연결합니다.
 
 다음 단계에 따라 Azure에 연결합니다.
 
-1. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동한 다음, **Azure: Sign In**을 입력합니다.
+1. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동한 다음, **Azure: Sign In** 을 입력합니다.
 
      ![Visual Studio Code용 Spark & Hive Tools 로그인](./media/vscode-tool-synapse/hdinsight-for-vscode-extension-login.png)
 
@@ -80,7 +80,7 @@ Azure 구독에 로그인하여 Spark 풀에 연결합니다.
 
 2. [이전에](#open-a-work-folder) 만든 **HelloWorld.py** 파일을 선택합니다. 스크립트 편집기에서 열립니다.
 
-3. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 후 **Synapse: 기본 Spark 풀 설정**을 선택합니다.  
+3. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 후 **Synapse: 기본 Spark 풀 설정** 을 선택합니다.  
 
 4. Azure 계정에 아직 연결하지 않은 경우 [연결](#connect-to-your-spark-pools)합니다.
 
@@ -130,7 +130,7 @@ for (word, count) in sortedCollection:
 
      ![pyspark 커널 설치](./media/vscode-tool-synapse/install-the-pyspark-kernel.png)
 
-5. 나중에 설치해야 하는 경우 **파일** > **기본 설정** > **설정**으로 이동한 다음, 설정에서 **Hdinsight: Pyspark 설치 건너뛰기 사용**을 선택 취소합니다. 
+5. 나중에 설치해야 하는 경우 **파일** > **기본 설정** > **설정** 으로 이동한 다음, 설정에서 **Hdinsight: Pyspark 설치 건너뛰기 사용** 을 선택 취소합니다. 
     
      ![pyspark 설치 건너뛰기 사용](./media/vscode-tool-synapse/enable-skip-pyspark-installation.png)
 
@@ -138,7 +138,7 @@ for (word, count) in sortedCollection:
 
      ![pyspark 설치 성공](./media/vscode-tool-synapse/pyspark-kernel-installed-successfully.png)
 
-7. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Python: Select Interpreter to start Jupyter Server**를 입력합니다.
+7. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Python: Select Interpreter to start Jupyter Server** 를 입력합니다.
 
      ![jupyter 서버를 시작할 인터프리터 선택](./media/vscode-tool-synapse/select-interpreter-to-start-jupyter-server.png)
 
@@ -146,17 +146,17 @@ for (word, count) in sortedCollection:
 
      ![아래 옵션을 선택합니다.](./media/vscode-tool-synapse/choose-the-below-option.png)
     
-9. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Developer: Reload Window**를 입력합니다.
+9. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Developer: Reload Window** 를 입력합니다.
 
      ![창 다시 로드](./media/vscode-tool-synapse/reload-window.png)
 
 10. Azure 계정에 아직 연결하지 않은 경우 [연결](#connect-to-your-spark-pools)합니다.
 
-11. 모든 코드를 선택하고 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음, **Synapse: Pyspark Interactive**를 선택하여 쿼리를 제출합니다. 
+11. 모든 코드를 선택하고 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음, **Synapse: Pyspark Interactive** 를 선택하여 쿼리를 제출합니다. 
 
      ![pyspark 대화형 상황에 맞는 메뉴](./media/vscode-tool-synapse/pyspark-interactive-right-click.png)
 
-12. 기본 Spark 풀을 지정하지 않은 경우 Spark 풀을 선택합니다. 몇 분 후에 **Python 대화형** 결과가 새 탭에 나타납니다. PySpark를 클릭하여 커널을 **Synapse PySpark**로 전환한 다음, 선택한 코드를 다시 제출하면 코드가 성공적으로 실행됩니다. 도구를 사용하면 바로 가기 메뉴를 사용하여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다.
+12. 기본 Spark 풀을 지정하지 않은 경우 Spark 풀을 선택합니다. 몇 분 후에 **Python 대화형** 결과가 새 탭에 나타납니다. PySpark를 클릭하여 커널을 **Synapse PySpark** 로 전환한 다음, 선택한 코드를 다시 제출하면 코드가 성공적으로 실행됩니다. 도구를 사용하면 바로 가기 메뉴를 사용하여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다.
 
      ![대화형](./media/vscode-tool-synapse/pyspark-interactive-python-interactive-window.png)
 
@@ -166,7 +166,7 @@ for (word, count) in sortedCollection:
 
      ![#%% 추가](./media/vscode-tool-synapse/run-cell.png)
 
-2. **셀 실행**을 클릭합니다. 몇 분 후에 Python 대화형 결과가 새 탭에 나타납니다. PySpark를 클릭하여 커널을 **Synapse PySpark**로 전환한 다음, **셀 실행**을 다시 클릭하면 코드가 성공적으로 실행됩니다. 
+2. **셀 실행** 을 클릭합니다. 몇 분 후에 Python 대화형 결과가 새 탭에 나타납니다. PySpark를 클릭하여 커널을 **Synapse PySpark** 로 전환한 다음, **셀 실행** 을 다시 클릭하면 코드가 성공적으로 실행됩니다. 
 
      ![셀 실행 결과](./media/vscode-tool-synapse/run-cell-get-results.png)
 
@@ -174,11 +174,11 @@ for (word, count) in sortedCollection:
 
 1. 명령 팔레트의 명령을 사용하거나 작업 영역에서 새 .ipynb 파일을 생성하여 Jupyter Notebook을 만들 수 있습니다. 자세한 내용은 [Visual Studio Code에서 Jupyter Notebook 작업](https://code.visualstudio.com/docs/python/jupyter-support)을 참조하세요.
 
-2. **셀 실행** 단추를 클릭하고 프롬프트에 따라 **기본 Spark 풀을 설정**한(Notebook을 열기 전에 매번 기본 클러스터/풀을 설정하는 것이 좋음) 다음, 창을 **다시 로드**합니다.
+2. **셀 실행** 단추를 클릭하고 프롬프트에 따라 **기본 Spark 풀을 설정** 한(Notebook을 열기 전에 매번 기본 클러스터/풀을 설정하는 것이 좋음) 다음, 창을 **다시 로드** 합니다.
 
      ![기본 Spark 풀을 설정하고 다시 로드](./media/vscode-tool-synapse/set-the-default-spark-pool-and-reload.png)
 
-3. PySpark를 클릭하여 커널을 **Synapse Pyspark**로 전환한 다음, **셀 실행**을 클릭하면 잠시 후 결과가 표시됩니다.
+3. PySpark를 클릭하여 커널을 **Synapse Pyspark** 로 전환한 다음, **셀 실행** 을 클릭하면 잠시 후 결과가 표시됩니다.
 
      ![ipynb 실행 결과](./media/vscode-tool-synapse/run-ipynb-file-results.png)
 
@@ -222,7 +222,7 @@ for (word, count) in sortedCollection:
 
 4. Azure 계정에 아직 연결하지 않은 경우 [연결](#connect-to-your-spark-pools)합니다.
 
-5. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 후 **Synapse: PySpark 일괄 처리**를 선택합니다.
+5. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 후 **Synapse: PySpark 일괄 처리** 를 선택합니다.
 
 6. PySpark 작업을 제출할 Spark 풀을 선택합니다.
 
@@ -238,7 +238,7 @@ VSCode용 Spark & Hive Tools 내 Azure 탐색기에서 다른 작업을 수행�
 
 ### <a name="launch-workspace"></a>작업 영역 시작
 
-1. Azure 탐색기에서 **SYNAPSE**로 이동하여 펼치고 Synapse 구독 목록을 표시합니다.
+1. Azure 탐색기에서 **SYNAPSE** 로 이동하여 펼치고 Synapse 구독 목록을 표시합니다.
 
      ![synapse 탐색기](./media/vscode-tool-synapse/synapse-explorer.png)
 
@@ -250,21 +250,21 @@ VSCode용 Spark & Hive Tools 내 Azure 탐색기에서 다른 작업을 수행�
 
      ![synapse studio 애플리케이션](./media/vscode-tool-synapse/synapse-studio-application.png)
 
-4. 작업 영역을 펼치면 **기본 스토리지** 및 **Spark 풀**이 표시됩니다.
+4. 작업 영역을 펼치면 **기본 스토리지** 및 **Spark 풀** 이 표시됩니다.
 
-5. **기본 스토리지**를 마우스 오른쪽 단추로 클릭하면 **전체 경로 복사** 및 **Synapse Studio에서 열기**가 표시됩니다. 
+5. **기본 스토리지** 를 마우스 오른쪽 단추로 클릭하면 **전체 경로 복사** 및 **Synapse Studio에서 열기** 가 표시됩니다. 
 
      ![기본 스토리지를 마우스 오른쪽 단추로 클릭](./media/vscode-tool-synapse/right-click-on-default-storage.png)
 
-     - **전체 경로 복사**를 클릭하면, 기본 ADLS Gen2 계정 URL이 복사되고 필요한 곳에 붙여 넣을 수 있습니다.
+     - **전체 경로 복사** 를 클릭하면, 기본 ADLS Gen2 계정 URL이 복사되고 필요한 곳에 붙여 넣을 수 있습니다.
 
-     - **Synapse Studio에서 열기**를 클릭하면 Synapse Studio에 기본 스토리지 계정이 열립니다.
+     - **Synapse Studio에서 열기** 를 클릭하면 Synapse Studio에 기본 스토리지 계정이 열립니다.
 
      ![synapse studio의 기본 스토리지](./media/vscode-tool-synapse/default-storage-in-synapse-studio.png)
 
-6. **기본 스토리지**를 펼치면 기본 스토리지 계정이 표시됩니다.
+6. **기본 스토리지** 를 펼치면 기본 스토리지 계정이 표시됩니다.
 
-7. **Spark 풀**을 펼치면 작업 영역의 모든 Spark 풀이 표시됩니다.
+7. **Spark 풀** 을 펼치면 작업 영역의 모든 Spark 풀이 표시됩니다.
 
      ![스토리지 풀 펼치기](./media/vscode-tool-synapse/expand-storage-pool.png)
 

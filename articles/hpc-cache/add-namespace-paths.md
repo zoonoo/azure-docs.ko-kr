@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 090e3f93d025fe87ad5b89a98193574595f3d632
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a39b6973767b72e69a82750ab8d0d487c733eda0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614630"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657111"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>집계 된 네임 스페이스 설정
 
@@ -57,7 +57,7 @@ Azure Portal에서 **네임 스페이스** 설정 페이지를 로드 합니다.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[AZURE HPC 캐시에 대 한 Azure CLI를 설정](./az-cli-prerequisites.md)합니다.
 
 Azure CLI 사용 하는 경우 저장소 대상을 만들 때 네임 스페이스 경로를 추가 해야 합니다. 자세한 내용은 [새 Azure Blob 저장소 대상 추가를](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target) 참조 하세요.
 
@@ -119,7 +119,7 @@ Azure Portal에서 **네임 스페이스** 설정 페이지를 로드 합니다.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[AZURE HPC 캐시에 대 한 Azure CLI를 설정](./az-cli-prerequisites.md)합니다.
 
 Azure CLI 사용 하는 경우 저장소 대상을 만들 때 네임 스페이스 경로를 하나 이상 추가 해야 합니다. 자세한 내용은 [새 NFS 저장소 대상 추가를](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) 참조 하세요.
 

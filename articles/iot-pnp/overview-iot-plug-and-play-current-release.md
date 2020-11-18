@@ -8,14 +8,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4bd1bb93c9ce0f491c5bf1153917491b88d55109
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5e9d9e762568c01d31f0c3a29be809a5f90b6b44
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043717"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421654"
 ---
-# <a name="whats-in-the-current-iot-plug-and-play-release"></a>현재 IoT 플러그 앤 플레이 릴리스에 포함된 내용
+# <a name="what-is-in-the-current-iot-plug-and-play-release"></a>현재 IoT 플러그 앤 플레이 릴리스에는 무엇이 있나요?
 
 이 문서에서는 현재 IoT 플러그 앤 플레이 릴리스를 지원하는 도구, SDK 및 API를 요약합니다. 표시되는 버전 번호는 IoT 플러그 앤 플레이가 일반 공급될 때의 버전 번호를 반영합니다. 버전 번호는 릴리스 후 증가할 수 있습니다.
 

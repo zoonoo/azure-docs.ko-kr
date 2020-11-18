@@ -9,20 +9,20 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 16e13a18f93da9063a7eb08e3a2df27db9e3090f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2052e27cde3427986dbf7784dcd5dbb179c5b209
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321694"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380932"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Azure Synapse Analytics(작업 영역 미리 보기)란?
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-엔터프라이즈 분석은 원시 데이터, 정제된 데이터 또는 고도로 선별된 데이터 등 모든 종류의 데이터에 대해 대규모로 작동해야 합니다. 이를 위해서는 일반적으로 기업은 빅 데이터 및 데이터 웨어하우징 기술을 관계형 저장소 및 데이터 레이크의 데이터 전반에서 작동하는 복잡한 데이터 파이프라인에 결합해야 합니다. 이와 같은 종류의 솔루션은 빌드, 유지 관리 및 보안이 어렵습니다. 복잡성으로 인해 기업에 필요한 인사이트 제공이 지연됩니다.
+엔터프라이즈 분석은 원시 데이터, 정제된 데이터 또는 고도로 선별된 데이터 등 모든 종류의 데이터에 대해 대규모로 작동해야 합니다. 이를 위해서는 일반적으로 기업은 빅 데이터 및 데이터 웨어하우징 기술을 관계형 저장소 및 데이터 레이크의 데이터 전반에서 작동하는 복잡한 데이터 파이프라인에 결합해야 합니다. 이러한 종류의 솔루션은 빌드, 유지 관리 및 보안이 어렵습니다. 복잡성으로 인해 기업에 필요한 인사이트 제공이 지연됩니다.
 
-**Azure Synapse** 는 데이터 웨어하우스와 빅 데이터 시스템 전체에서 인사이트를 얻는 시간을 앞당길 수 있는 통합 분석 서비스입니다. Azure Synapse는 엔터프라이즈 데이터 웨어하우징에 사용되는 최고의 **SQL** 기술, 빅 데이터에 사용되는 **Spark** 기술, 데이터 통합 및 ETL/ELT를 위한 **파이프라인** 을 결합합니다. **Synapse Studio** 는 관리, 모니터링, 코딩 및 보안을 위한 통합 환경을 제공합니다. Synapse는 **PowerBI** , **CosmosDB** , **AzureML** 과 같은 다른 Azure 서비스와 긴밀하게 통합됩니다.
+**Azure Synapse** 는 데이터 웨어하우스와 빅 데이터 시스템 전체에서 인사이트를 얻는 시간을 앞당길 수 있는 통합 분석 서비스입니다. Azure Synapse는 엔터프라이즈 데이터 웨어하우징에 사용되는 최고의 **SQL** 기술, 빅 데이터에 사용되는 **Spark** 기술, 데이터 통합 및 ETL/ELT를 위한 **파이프라인** 을 결합합니다. **Synapse Studio** 는 관리, 모니터링, 코딩 및 보안을 위한 통합 환경을 제공합니다. Synapse는 **PowerBI**, **CosmosDB**, **AzureML** 과 같은 다른 Azure 서비스와 긴밀하게 통합됩니다.
 
 ## <a name="key-features--benefits"></a>주요 기능 및 이점
 
@@ -74,6 +74,11 @@ Azure Synapse는 엔터프라이즈에서 분석 리소스를 관리하고, 사�
 * 엔드투엔드 분석 솔루션을 한 곳에 구축: 수집, 검색, 준비, 오케스트레이션, 시각화
 * SQL이나 Spark 코드를 작성하는 데이터 엔지니어를 위한 업계 최고의 생산성: 작성, 디버깅 및 성능 최적화
 * 엔터프라이즈 CI/CD 프로세스와 통합
+
+## <a name="engage-with-the-synapse-engineering-team"></a>Synapse 엔지니어링 팀과 협력
+
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): 개발에 관한 질문을 합니다.
+- [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): 기술에 관한 질문을 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,17 +3,17 @@ title: Power BI 앱을 사용하여 Azure 비용 분석
 description: 이 문서에서는 Azure Cost Management Power BI 앱을 설치하고 사용하는 방법에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 7282ef9269c1168214fe57d3faa5488e531af8da
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1c5adf58f670f3cadcedbe710568551004b77b78
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131125"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413244"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Azure Cost Management Power BI 앱을 사용하여 EA(기업계약) 비용 분석
 
@@ -46,7 +46,7 @@ Azure Cost Management Power BI 앱은 현재 [기업계약](https://azure.micros
   ![새 앱 시작 - 연결](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
 9. 표시되는 대화 상자의 **BillingProfileIdOrEnrollmentNumber** 에서 EA 등록 번호를 입력합니다. 가져올 데이터의 개월 수를 지정합니다. 기본 **범위** 값의 **등록 번호** 를 그대로 유지하고, **다음** 을 선택합니다.  
   ![EA 등록 정보 입력](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
-10. 다음 대화 상자에서 Azure에 연결하고 예약 인스턴스 추천 사항에 필요한 데이터를 가져옵니다. *기본값을 구성된 대로 그대로 유지하고* , **로그인** 을 선택합니다.  
+10. 다음 대화 상자에서 Azure에 연결하고 예약 인스턴스 추천 사항에 필요한 데이터를 가져옵니다. *기본값을 구성된 대로 그대로 유지하고*, **로그인** 을 선택합니다.  
   ![스크린샷은 기본값이 입력된 Azure Cost Management 앱에 연결 대화 상자를 보여줍니다.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. 최종 설치 단계가 EA 등록에 연결되며, [엔터프라이즈 관리자](../manage/understand-ea-roles.md) 계정을 요구합니다. **로그인** 을 선택하여 EA 등록으로 인증합니다. 이 단계에서는 Power BI에서 데이터 새로 고침 작업도 시작합니다.  
   ![EA 등록에 연결](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
@@ -188,7 +188,7 @@ AutoFitComboMeter Blob 연결에 대한 인증 방법을 변경하는 경우 이
 #### <a name="solution"></a>해결 방법
 
 1. 데이터에 연결합니다.
-1. EA 등록 및 개월 수를 입력한 후 인증 방법에 대해 **익명** , 개인 정보 수준 설정에 대해 **없음** 의 기본값을 그대로 유지합니다.  
+1. EA 등록 및 개월 수를 입력한 후 인증 방법에 대해 **익명**, 개인 정보 수준 설정에 대해 **없음** 의 기본값을 그대로 유지합니다.  
   ![스크린샷은 익명 및 없음 값이 입력된 Azure Cost Management 앱에 연결 대화 상자를 보여줍니다.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
 1. 다음 페이지에서 인증 방법에 대해 **OAuth2** 를 개인 정보 수준에 대해 **없음** 세트를 설정합니다. 그런 다음, 로그인하여 등록으로 인증합니다. 이 단계에서는 Power BI 데이터 새로 고침을 시작합니다.
 
@@ -204,8 +204,8 @@ AutoFitComboMeter Blob 연결에 대한 인증 방법을 변경하는 경우 이
 | [**예산**](/rest/api/consumption/budgets/get#definitions) | 기존 예산 목표와 비교하여 실제 비용 또는 사용량을 확인할 수 있는 예산 세부 정보입니다. |
 | [**가격표**](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet#see-also) | 제공된 청구 프로필 또는 EA 등록에 적용되는 측정기 요율입니다. |
 | [**RI 요금**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges#response) | 지난 24개월 동안의 예약 인스턴스와 관련된 요금입니다. |
-| [**RI 추천 사항(공유)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | 지난 7, 30일 또는 60일 동안의 모든 구독 사용 추세에 기반한 예약 인스턴스 구매 추천 사항입니다. |
-| [**RI 추천 사항(단일)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | 지난 7, 30일 또는 60일 동안의 단일 구독 사용 추세에 기반한 예약 인스턴스 구매 추천 사항입니다. |
+| [**RI 추천 사항(공유)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | 지난 7일 동안의 모든 구독 사용 추세에 기반한 예약 인스턴스 구매 추천 사항입니다. |
+| [**RI 추천 사항(단일)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | 지난 7일 동안의 단일 구독 사용 추세에 기반한 예약 인스턴스 구매 추천 사항입니다. |
 | [**RI 사용량 세부 정보**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#response) | 지난 한 달 동안의 기존 예약 인스턴스에 대한 사용량 세부 정보입니다. |
 | [**RI 사용 요약**](/rest/api/consumption/reservationssummaries/list) | 일일 Azure 예약 사용률입니다. |
 | [**사용량 세부 정보**](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#usage-details-field-definitions) | EA 등록에서 지정된 청구 프로필의 사용량과 예상 요금에 대한 분석입니다. |

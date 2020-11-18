@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: c9679fec1d9c5d501ead03bcfbf28132d9e3b90a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6ed00931e8cca1febac0b9b72b53eeb7e81042ea
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151817"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94487995"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 설명서의 새로운 기능이란?
 
@@ -157,7 +157,7 @@ ms.locfileid: "92151817"
 ### <a name="alerts"></a>경고
 - [Azure Monitor 경고에 대한 작업 규칙](platform/alerts-action-rules.md) - CLI 프로세스가 추가됨
 - [Azure Portal에서 작업 그룹 만들기 및 관리](platform/action-groups.md) - UI의 변경 내용을 반영하도록 업데이트됨
-- [Azure Monitor Log Analytics에 저장된 쿼리](log-query/saved-queries.md) - 새 문서
+- [Azure Monitor Log Analytics의 예제 쿼리](log-query/example-queries.md) - 새 문서.
 - [Azure Monitor의 로그 경고 문제 해결](platform/alerts-troubleshoot-log.md) - 경고 규칙 할당량에 섹션이 추가됨
 - [Azure 메트릭 경고 문제 해결](platform/alerts-troubleshoot-metric.md) - 아직 내보내지 않은 사용자 지정 메트릭의 경고 규칙에 대한 섹션이 추가됨
 - [Azure Monitor 메트릭 경고의 작동 방식 이해](platform/alerts-metric-overview.md) - 집계 세분성 선택을 위한 권장 사항이 추가됨

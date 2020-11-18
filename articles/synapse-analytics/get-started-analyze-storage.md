@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: c4c7b8da659fa7fe8879ae92c4947b7f0867274c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2a22174fb23a4f0f7bebd58e276a6778e986ce9e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173505"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322920"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>스토리지 계정에서 데이터 분석
 
@@ -42,11 +42,11 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 
 ### <a name="analyze-data-in-a-storage-account"></a>스토리지 계정에서 데이터 분석
 
-1. Synapse Studio에서 **데이터** 허브로 이동한 다음, **연결됨**을 선택합니다.
+1. Synapse Studio에서 **데이터** 허브로 이동한 다음, **연결됨** 을 선택합니다.
 1. **스토리지 계정** > **myworkspace(기본 - contosolake)** 로 차례로 이동합니다.
-1. **users(기본)** 를 선택합니다. **NYCTaxi** 폴더가 표시됩니다. 내부에는 **PassengerCountStats.csv** 및 **PassengerCountStats.parquet**라는 두 개의 폴더가 표시됩니다.
+1. **users(기본)** 를 선택합니다. **NYCTaxi** 폴더가 표시됩니다. 내부에는 **PassengerCountStats.csv** 및 **PassengerCountStats.parquet** 라는 두 개의 폴더가 표시됩니다.
 1. **PassengerCountStats. parquet** 폴더를 엽니다. 내부에 이름이 `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`인 parquet 파일이 표시됩니다.
-1. 마우스 오른쪽 단추로 **.parquet**를 클릭한 다음, **새 Notebook**을 선택합니다. 다음과 같은 셀이 있는 Notebook을 만듭니다.
+1. 마우스 오른쪽 단추로 **.parquet** 를 클릭한 다음, **새 Notebook** 을 선택합니다. 다음과 같은 셀이 있는 Notebook을 만듭니다.
 
     ```py
     %%pyspark
@@ -55,7 +55,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
     ```
 
 1. 셀을 실행합니다.
-1. 마우스 오른쪽 단추로 내부의 parquet 파일을 클릭한 다음, **새 SQL 스크립트** > **상위 100개 행 선택**을 차례로 선택합니다. 다음과 같은 SQL 스크립트를 만듭니다.
+1. 마우스 오른쪽 단추로 내부의 parquet 파일을 클릭한 다음, **새 SQL 스크립트** > **상위 100개 행 선택** 을 차례로 선택합니다. 다음과 같은 SQL 스크립트를 만듭니다.
 
     ```sql
     SELECT TOP 100 *
@@ -65,7 +65,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
     ) AS [r];
     ```
 
-    스크립트 창에서 **연결 대상** 필드가 **SQL 주문형**으로 설정됩니다.
+    스크립트 창에서 **연결 대상** 필드가 **서버리스 SQL 풀** 로 설정됩니다.
 
 1. 스크립트를 실행합니다.
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b2497a49703ab675bde50c7845995c92de32f376
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340311"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657179"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
@@ -56,14 +56,14 @@ Azure Portal에서 캐시 인스턴스를 열고 왼쪽 세로 막대에서 **�
 Azure Blob 컨테이너를 정의 하려면이 정보를 입력 합니다.
 
 * **저장소 대상 이름** -Azure HPC 캐시에서이 저장소 대상을 식별 하는 이름을 설정 합니다.
-* **대상 유형** - **Blob**을 선택 합니다.
+* **대상 유형** - **Blob** 을 선택 합니다.
 * **저장소 계정** -사용 하려는 계정을 선택 합니다.
 
   [액세스 역할 추가](#add-the-access-control-roles-to-your-account)에 설명 된 대로 저장소 계정에 액세스 하려면 캐시 인스턴스에 권한을 부여 해야 합니다.
 
   사용할 수 있는 저장소 계정 종류에 대 한 자세한 내용은 [Blob 저장소 요구 사항](hpc-cache-prerequisites.md#blob-storage-requirements)을 참조 하세요.
 
-* **저장소 컨테이너** -이 대상에 대 한 Blob 컨테이너를 선택 하거나 **새로 만들기**를 클릭 합니다.
+* **저장소 컨테이너** -이 대상에 대 한 Blob 컨테이너를 선택 하거나 **새로 만들기** 를 클릭 합니다.
 
   ![새 컨테이너의 이름 및 액세스 수준 (개인)을 지정 하는 대화 상자의 스크린샷](media/add-blob-new-container.png)
 
@@ -84,7 +84,7 @@ Azure 역할을 추가 하는 단계:
 
 1. 저장소 계정에 대 한 **액세스 제어 (IAM)** 페이지를 엽니다. ( **저장소 대상 추가** 페이지의 링크를 선택 하면 선택한 계정에 대해이 페이지가 자동으로 열립니다.)
 
-1. **+** 페이지 맨 위에서를 클릭 하 고 **역할 할당 추가**를 선택 합니다.
+1. **+** 페이지 맨 위에서를 클릭 하 고 **역할 할당 추가** 를 선택 합니다.
 
 1. 목록에서 "저장소 계정 참가자" 역할을 선택 합니다.
 
@@ -103,9 +103,9 @@ Azure 역할을 추가 하는 단계:
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
-
 ### <a name="prerequisite-storage-account-access"></a>필수 구성 요소: Storage 계정 액세스
+
+[AZURE HPC 캐시에 대 한 Azure CLI를 설정](./az-cli-prerequisites.md)합니다.
 
 Blob 저장소 대상을 추가 하기 전에 저장소 계정에 액세스 하기 위한 올바른 역할이 캐시에 있는지 확인 하 고, 방화벽 설정에서 저장소 대상을 만들 수 있도록 허용 하는지 확인 합니다.
 
@@ -185,9 +185,9 @@ NFS 저장소 시스템을 가리키는 저장소 대상을 만들 때 해당 �
 
 | 사용 모델                   | 캐싱 모드 | 백 엔드 확인 | 최대 다시 쓰기 지연 |
 |-------------------------------|--------------|-----------------------|--------------------------|
-| 자주 발생 하지 않는 매우 많은 쓰기 읽기 | 읽기         | 안 함                 | None                     |
+| 자주 발생 하지 않는 매우 많은 쓰기 읽기 | 읽기         | 안 함                 | 없음                     |
 | 쓰기 15% 초과       | 읽기/쓰기   | 안 함                 | 1시간                   |
-| 클라이언트에서 캐시 무시      | 읽기         | 30초            | None                     |
+| 클라이언트에서 캐시 무시      | 읽기         | 30초            | 없음                     |
 
 ### <a name="create-an-nfs-storage-target"></a>NFS 저장소 대상 만들기
 
@@ -207,7 +207,7 @@ NFS 지원 저장소 대상에 대 한 다음 정보를 제공 합니다.
 
 * **저장소 대상 이름** -Azure HPC 캐시에서이 저장소 대상을 식별 하는 이름을 설정 합니다.
 
-* **대상 유형** - **NFS**를 선택 합니다.
+* **대상 유형** - **NFS** 를 선택 합니다.
 
 * **호스트 이름** -NFS 저장소 시스템에 대 한 IP 주소 또는 정규화 된 도메인 이름을 입력 합니다. (이름을 확인할 수 있는 DNS 서버에 대 한 액세스 권한이 캐시에 있는 경우에만 도메인 이름을 사용 합니다.)
 
@@ -217,7 +217,7 @@ NFS 지원 저장소 대상에 대 한 다음 정보를 제공 합니다.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[AZURE HPC 캐시에 대 한 Azure CLI를 설정](./az-cli-prerequisites.md)합니다.
 
 Azure CLI 명령 [az hpc-cache-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) 를 사용 하 여 저장소 대상을 만듭니다.
 
@@ -293,7 +293,7 @@ Azure Portal 또는 Azure CLI를 사용 하 여 캐시에 대해 이미 정의 �
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Portal에서 캐시 인스턴스를 열고 왼쪽 세로 막대의 설정 제목 아래에 있는 **저장소 대상**을 클릭 합니다. 저장소 대상 페이지에는 해당 항목을 추가 하거나 삭제 하기 위한 모든 기존 대상 및 컨트롤이 나열 됩니다.
+Azure Portal에서 캐시 인스턴스를 열고 왼쪽 세로 막대의 설정 제목 아래에 있는 **저장소 대상** 을 클릭 합니다. 저장소 대상 페이지에는 해당 항목을 추가 하거나 삭제 하기 위한 모든 기존 대상 및 컨트롤이 나열 됩니다.
 
 저장소 대상의 이름을 클릭 하 여 세부 정보 페이지를 엽니다.
 
@@ -301,7 +301,7 @@ Azure Portal에서 캐시 인스턴스를 열고 왼쪽 세로 막대의 설정 
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[AZURE HPC 캐시에 대 한 Azure CLI를 설정](./az-cli-prerequisites.md)합니다.
 
 [Az hpc-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) 옵션을 사용 하 여 캐시에 대 한 기존 저장소 대상을 표시할 수 있습니다. 전역으로 설정 하지 않은 경우 캐시 이름 및 리소스 그룹을 제공 합니다.
 
@@ -311,7 +311,7 @@ az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
 
 [Az hpc-cache storage-target show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) 를 사용 하 여 특정 저장소 대상에 대 한 세부 정보를 볼 수 있습니다. (이름별로 저장소 대상을 지정 합니다.)
 
-예제:
+예:
 
 ```azurecli
 $ az hpc-cache storage-target show --cache-name doc-cache0629 --name nfsd1

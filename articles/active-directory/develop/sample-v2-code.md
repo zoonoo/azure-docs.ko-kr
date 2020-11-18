@@ -12,12 +12,12 @@ ms.date: 10/21/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 49bba8054065123d7409f26b61d1dfc2580ef720
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e56748df2fb69ace4e9b8d9f6908bc8013176a19
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636054"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287809"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft ID 플랫폼 코드 샘플(v2.0 엔드포인트)
 
@@ -55,8 +55,9 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 | 플랫폼 | 사용자만 로그인 | 사용자를 로그인하고 Microsoft Graph를 호출 |
 | -------- | ------------------- | --------------------------------- |
-| ![이 이미지는 ASP.NET Core 로고를 표시](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [ASP.NET Core WebApp 로그인 사용자 자습서](https://aka.ms/aspnetcore-webapp-sign-in) | [ASP.NET Core 웹앱에서 Microsoft Graph 호출](https://aka.ms/aspnetcore-webapp-call-msgraph) 단계와 동일한 샘플 |
-| ![이 이미지는 ASP.NET 로고를 표시](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET 빠른 시작](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+| ![이 이미지는 ASP.NET Core 로고를 표시](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [ASP.NET Core WebApp 로그인 사용자 자습서](https://aka.ms/aspnetcore-webapp-sign-in) | [ASP.NET Core 웹앱에서 Microsoft Graph 호출](https://aka.ms/aspnetcore-webapp-call-msgraph) 단계와 동일한 샘플</p>고급 샘플 [백그라운드 앱, API 및 서비스에서 로그인한 사용자의 토큰 캐시에 액세스](https://github.com/Azure-Samples/ms-identity-dotnet-advanced-token-cache) |
+| ![이 이미지는 ASP.NET Framework 로고를 보여줍니다.](media/sample-v2-code/logo_NETframework.png)</p>ASP.NET Core | [개발자를 위한 AD FS에서 Azure AD로의 애플리케이션 마이그레이션 플레이북](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad): AD FS(Active Directory Federation Services)와 통합된 애플리케이션을 Azure AD(Azure Active Directory)로 안전하게 마이그레이션하는 방법을 알아봅니다. | |
+| ![이 이미지는 ASP.NET Framework 로고를 보여줍니다.](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET 빠른 시작](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![이 이미지는 Java 로고를 표시](media/sample-v2-code/logo_java.png)  |                   | [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
 | ![이 이미지는 Python 로고를 표시](media/sample-v2-code/logo_python.png)  | [ms-identity-python-flask-webapp-authentication](https://github.com/Azure-Samples/ms-identity-python-flask-webapp-authentication) | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
 | ![이 이미지는 Ruby 로고를 표시](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
@@ -67,11 +68,12 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 | 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET Core Web API 호출 |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
-| 데스크톱(WPF)      | ![이 이미지는 .NET/C# 로고를 보여 줍니다.](media/sample-v2-code/logo_NET.png) | [인증 코드](msal-authentication-flows.md#authorization-code)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
-| 데스크톱(콘솔)   | ![이 이미지는 .NET/C#(데스크톱) 로고를 표시](media/sample-v2-code/logo_NET.png) | [Windows 통합 인증](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
+| 바탕 화면 자습서(.NET Core) - 필요에 따라 다음을 사용합니다.</p>- 플랫폼 간 토큰 캐시</p>- 사용자 지정 웹 UI | ![이 이미지는 .NET/C# 로고를 보여 줍니다.](media/sample-v2-code/logo_NETcore.png) | [인증 코드](msal-authentication-flows.md#authorization-code)| [ms-identity-dotnet-desktop-tutorial](https://github.com/azure-samples/ms-identity-dotnet-desktop-tutorial) | |
+| 데스크톱(WPF)      | ![이 이미지는 .NET 데스크톱/C# 로고를 보여줍니다.](media/sample-v2-code/logo_NET.png) | [인증 코드](msal-authentication-flows.md#authorization-code)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
+| 데스크톱(콘솔)   | ![.NET/C#(데스크톱) 로고를 보여주는 이미지](media/sample-v2-code/logo_NET.png) | [Windows 통합 인증](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
 | 데스크톱(콘솔)   | ![이 이미지는 Java 로고를 표시](media/sample-v2-code/logo_java.png) | [Windows 통합 인증](msal-authentication-flows.md#integrated-windows-authentication) |[ms-identity-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
-| 데스크톱(콘솔)   | ![이 이미지는 .NET/C#(데스크톱) 로고를 표시](media/sample-v2-code/logo_NETcore.png) | [사용자 이름/암호](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
-| WAM을 사용하는 데스크톱(콘솔)  | ![이 이미지는 .NET/C#(데스크톱) 로고를 표시](media/sample-v2-code/logo_NETcore.png) | [웹 계정 관리자](/windows/uwp/security/web-account-manager)(WAM)를 사용하는 대화형 |[dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) |  |
+| 데스크톱(콘솔)   | ![.NET/C#(데스크톱) 로고입니다.](media/sample-v2-code/logo_NETcore.png) | [사용자 이름/암호](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
+| WAM을 사용하는 데스크톱(콘솔)  | ![.NET/C#(데스크톱)의 로고입니다.](media/sample-v2-code/logo_NETcore.png) | [웹 계정 관리자](/windows/uwp/security/web-account-manager)(WAM)를 사용하는 대화형 |[dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) |  |
 | 데스크톱(콘솔)   | ![이 이미지는 Java 로고를 표시](media/sample-v2-code/logo_java.png) | [사용자 이름/암호](msal-authentication-flows.md#usernamepassword) |[ms-identity-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
 | 데스크톱(콘솔)   | ![이 이미지는 Python 로고를 표시](media/sample-v2-code/logo_python.png) | [사용자 이름/암호](msal-authentication-flows.md#usernamepassword) |[ms-identity-python-desktop](https://github.com/Azure-Samples/ms-identity-python-desktop) |  |
 | 모바일(Android, iOS, UWP)   | ![이 이미지는 .NET/C#(Xamarin) 로고를 표시](media/sample-v2-code/logo_xamarin.png) | [인증 코드](msal-authentication-flows.md#authorization-code) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
@@ -87,7 +89,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 |
 | ------------------ | -------- | ---------- | -------------------- |
 | 콘솔 | ![이 이미지는 .NET Core 로고를 표시](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [클라이언트 자격 증명](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
-| 웹앱 | ![이 이미지는 ASP.NET 로고를 표시](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [클라이언트 자격 증명](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
+| 웹앱 | ![ASP.NET 로고를 보여주는 스크린샷.](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [클라이언트 자격 증명](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
 | 콘솔 | ![이 이미지는 Java 로고를 표시](media/sample-v2-code/logo_java.png) | [클라이언트 자격 증명](msal-authentication-flows.md#client-credentials) | [ms-identity-java-daemon](https://github.com/Azure-Samples/ms-identity-java-daemon) |
 | 콘솔 | ![이 이미지는 Python 로고를 표시](media/sample-v2-code/logo_python.png) | [클라이언트 자격 증명](msal-authentication-flows.md#client-credentials) | [ms-identity-python-daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) |
 
@@ -141,4 +143,4 @@ Azure AD 인증을 포함하여 Microsoft Graph API에 대한 여러 사용 패�
 
 ## <a name="see-also"></a>참고 항목
 
-[Microsoft Graph API 개념 및 참조](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)
+[Microsoft Graph API 개념 및 참조](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta&preserve-view=true)

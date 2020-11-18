@@ -5,20 +5,39 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 3e84db3aa13ae77f931a46683f0c5e4572f6ce44
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c7d41d889692856a9818aacd265e67b0c2d3d1ad
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87852636"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422879"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>명령줄 도구를 사용하여 Azure Functions를 Azure Storage에 연결
 
-이 문서에서는 [이전 빠른 시작](functions-create-first-azure-function-azure-cli.md)에서 만든 함수 및 스토리지 계정과 Azure Storage 큐를 통합합니다. 이 통합은 데이터를 HTTP 요청에서 큐의 메시지에 쓰는 *출력 바인딩*을 사용하여 달성할 수 있습니다. 이 문서를 완료하면 이전의 빠른 시작에서 소요된 몇 USD 센트를 초과하는 추가 비용이 발생하지 않습니다. 바인딩에 대해 자세히 알아보려면 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
+이 문서에서는 이전 빠른 시작 문서에서 만든 함수 및 스토리지 계정과 Azure Storage 큐를 통합합니다. 이 통합은 데이터를 HTTP 요청에서 큐의 메시지에 쓰는 *출력 바인딩* 을 사용하여 달성할 수 있습니다. 이 문서를 완료하면 이전의 빠른 시작에서 소요된 몇 USD 센트를 초과하는 추가 비용이 발생하지 않습니다. 바인딩에 대해 자세히 알아보려면 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
 
 ## <a name="configure-your-local-environment"></a>로컬 환경 구성
 
-시작하기 전에, [빠른 시작: 명령줄에서 Azure Functions 프로젝트 만들기](functions-create-first-azure-function-azure-cli.md) 문서를 완료해야 합니다. 해당 문서의 끝에서 리소스를 이미 정리한 경우, 해당 단계를 다시 수행하여 Azure에서 함수 앱 및 관련 리소스를 다시 만듭니다.
+시작하기 전에, [빠른 시작: 명령줄에서 Azure Functions 프로젝트 만들기][previous-quickstart] 문서를 완료해야 합니다. 해당 문서의 끝에서 리소스를 이미 정리한 경우, 해당 단계를 다시 수행하여 Azure에서 함수 앱 및 관련 리소스를 다시 만듭니다.
+
+::: zone pivot="programming-language-csharp"  
+시작하기 전에, [빠른 시작: 명령줄에서 Azure Functions 프로젝트 만들기](create-first-function-cli-csharp.md) 문서를 완료해야 합니다. 해당 문서의 끝에서 리소스를 이미 정리한 경우, 해당 단계를 다시 수행하여 Azure에서 함수 앱 및 관련 리소스를 다시 만듭니다.  
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+시작하기 전에, [빠른 시작: 명령줄에서 Azure Functions 프로젝트 만들기](create-first-function-cli-node.md) 문서를 완료해야 합니다. 해당 문서의 끝에서 리소스를 이미 정리한 경우, 해당 단계를 다시 수행하여 Azure에서 함수 앱 및 관련 리소스를 다시 만듭니다.  
+::: zone-end   
+::: zone pivot="programming-language-java"  
+시작하기 전에, [빠른 시작: 명령줄에서 Azure Functions 프로젝트 만들기](create-first-function-cli-java.md) 문서를 완료해야 합니다. 해당 문서의 끝에서 리소스를 이미 정리한 경우, 해당 단계를 다시 수행하여 Azure에서 함수 앱 및 관련 리소스를 다시 만듭니다.  
+::: zone-end   
+::: zone pivot="programming-language-typescript"  
+시작하기 전에, [빠른 시작: 명령줄에서 Azure Functions 프로젝트 만들기](create-first-function-cli-typescript.md) 문서를 완료해야 합니다. 해당 문서의 끝에서 리소스를 이미 정리한 경우, 해당 단계를 다시 수행하여 Azure에서 함수 앱 및 관련 리소스를 다시 만듭니다.  
+::: zone-end   
+::: zone pivot="programming-language-python"  
+시작하기 전에, [빠른 시작: 명령줄에서 Azure Functions 프로젝트 만들기](create-first-function-cli-python.md) 문서를 완료해야 합니다. 해당 문서의 끝에서 리소스를 이미 정리한 경우, 해당 단계를 다시 수행하여 Azure에서 함수 앱 및 관련 리소스를 다시 만듭니다.  
+::: zone-end   
+::: zone pivot="programming-language-powershell"  
+시작하기 전에, [빠른 시작: 명령줄에서 Azure Functions 프로젝트 만들기](create-first-function-cli-powershell.md) 문서를 완료해야 합니다. 해당 문서의 끝에서 리소스를 이미 정리한 경우, 해당 단계를 다시 수행하여 Azure에서 함수 앱 및 관련 리소스를 다시 만듭니다.  
+::: zone-end   
 
 [!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
 
@@ -107,7 +126,7 @@ mvn azure-functions:deploy
 
     # <a name="curl"></a>[curl](#tab/curl)
     
-    **호출 URL**을 사용하고 `&name=Functions` 매개 변수를 추가하여 [`curl`](https://curl.haxx.se/)을 실행합니다. 명령의 출력은 "Hello Functions" 텍스트여야 합니다.
+    **호출 URL** 을 사용하고 `&name=Functions` 매개 변수를 추가하여 [`curl`](https://curl.haxx.se/)을 실행합니다. 명령의 출력은 "Hello Functions" 텍스트여야 합니다.
     
     ![CURL을 사용한 Azure에서 실행되는 함수의 출력](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-curl.png)
 
@@ -129,33 +148,41 @@ Storage 큐에 데이터를 쓰도록 HTTP 트리거 함수를 업데이트했�
 
 + [Azure Functions Core Tools 작업](functions-run-local.md)  
 
++ [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
+
 ::: zone pivot="programming-language-csharp"  
 + [C# 전체 함수 프로젝트에 대한 예제](/samples/browse/?products=azure-functions&languages=csharp)
 
 + [Azure Functions C# 개발자 참조](functions-dotnet-class-library.md)  
+
+[previous-quickstart]: create-first-function-cli-csharp.md
+
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 + [JavaScript 전체 함수 프로젝트에 대한 예제](/samples/browse/?products=azure-functions&languages=javascript)
 
 + [Azure Functions JavaScript 개발자 가이드](functions-reference-node.md)  
+
+[previous-quickstart]: create-first-function-cli-javascript.md
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [TypeScript 전체 함수 프로젝트에 대한 예제](/samples/browse/?products=azure-functions&languages=typescript)
 
 + [Azure Functions TypeScript 개발자 가이드](functions-reference-node.md#typescript)  
+
+[previous-quickstart]: create-first-function-cli-typescript.md
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Python의 전체 함수 프로젝트에 대한 예제](/samples/browse/?products=azure-functions&languages=python)
 
 + [Azure Functions Python 개발자 가이드](functions-reference-python.md)  
+
+[previous-quickstart]: create-first-function-cli-python.md
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [PowerShell 전체 함수 프로젝트에 대한 예제](/samples/browse/?products=azure-functions&languages=azurepowershell)
 
 + [Azure Functions PowerShell 개발자 가이드](functions-reference-powershell.md) 
+
+[previous-quickstart]: create-first-function-cli-powershell.md
 ::: zone-end
-+ [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
-
-+ [Functions 가격 페이지](https://azure.microsoft.com/pricing/details/functions/)
-
-+ [소비 계획 비용 예측](functions-consumption-costs.md) 

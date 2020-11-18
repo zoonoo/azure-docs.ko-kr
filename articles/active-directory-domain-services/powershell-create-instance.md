@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 10/02/2020
 ms.author: joflore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4b2ea0806f70d9f99982b9d9af9c462ff0099966
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 46fdaed4a3e1dbbe5575cd573061a480bf330389
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967956"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041957"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure Active Directory Domain Services 사용
 
@@ -44,15 +44,15 @@ Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Dir
 
 Azure AD DS에는 서비스 주체와 Azure AD 그룹이 필요합니다. 이러한 리소스를 통해 Azure AD DS 관리형 도메인이 데이터를 동기화하고, 관리되는 도메인에서 관리 권한이 있는 사용자를 정의할 수 있습니다.
 
-먼저 Azure AD DS가 통신하고 자체 인증할 수 있도록 Azure AD 서비스 주체를 만듭니다. ID가 *2565bd9d-da50-47d4-8b85-4c97f669dc36*인 *도메인 컨트롤러 서비스*라는 특정 애플리케이션 ID가 사용됩니다. 이 애플리케이션 ID를 변경하지 마세요.
+먼저 Azure AD DS가 통신하고 자체 인증할 수 있도록 Azure AD 서비스 주체를 만듭니다. ID가 *6ba9a5d4-8456-4118-b521-9c5ca10cdf84* 인 *도메인 컨트롤러 서비스* 라는 특정 애플리케이션 ID가 사용됩니다. 이 애플리케이션 ID를 변경하지 마세요.
 
 [New-AzureADServicePrincipal][New-AzureADServicePrincipal] cmdlet을 사용하여 Azure AD 서비스 주체를 만듭니다.
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
-이제 *AAD DC Administrators*라는 Azure AD 그룹을 만듭니다. 그러면 이 그룹에 추가된 사용자에게는 관리되는 도메인에서 관리 작업을 수행할 수 있는 권한이 부여됩니다.
+이제 *AAD DC Administrators* 라는 Azure AD 그룹을 만듭니다. 그러면 이 그룹에 추가된 사용자에게는 관리되는 도메인에서 관리 작업을 수행할 수 있는 권한이 부여됩니다.
 
 먼저 [Get-AzureADGroup][Get-AzureADGroup] cmdlet을 사용하여 *AAD DC 관리자* 그룹 개체 ID를 가져옵니다. 그룹이 없는 경우 [New-AzureADGroup][New-AzureADGroup] cmdlet을 사용하여 *AAD DC 관리자* 그룹으로 만듭니다.
 
@@ -97,7 +97,7 @@ Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjec
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-다음으로 [New-AzResourceGroup][New-AzResourceGroup] cmdlet을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹이 *westus* 지역에 만들어집니다. 자신의 이름과 원하는 지역을 사용합니다.
+다음으로 [New-AzResourceGroup][New-AzResourceGroup] cmdlet을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *myResourceGroup* 이라는 리소스 그룹이 *westus* 지역에 만들어집니다. 자신의 이름과 원하는 지역을 사용합니다.
 
 ```powershell
 $ResourceGroupName = "myResourceGroup"
@@ -109,7 +109,7 @@ New-AzResourceGroup `
   -Location $AzureLocation
 ```
 
-Azure AD Domain Services에 사용할 가상 네트워크 및 서브넷을 만듭니다. 두 개의 서브넷이 생성됩니다. 하나는 *DomainServices*, 다른 하나는 *Workloads*용입니다. Azure AD DS는 전용 *DomainServices* 서브넷에 배포됩니다. 다른 애플리케이션 또는 워크로드를 이 서브넷에 배포하지 마세요. 나머지 VM에는 별도의 *Workloads* 또는 다른 서브넷을 사용합니다.
+Azure AD Domain Services에 사용할 가상 네트워크 및 서브넷을 만듭니다. 두 개의 서브넷이 생성됩니다. 하나는 *DomainServices*, 다른 하나는 *Workloads* 용입니다. Azure AD DS는 전용 *DomainServices* 서브넷에 배포됩니다. 다른 애플리케이션 또는 워크로드를 이 서브넷에 배포하지 마세요. 나머지 VM에는 별도의 *Workloads* 또는 다른 서브넷을 사용합니다.
 
 [New-AzVirtualNetworkSubnetConfig][New-AzVirtualNetworkSubnetConfig] cmdlet을 사용하여 서브넷을 만든 다음, [New-AzVirtualNetwork][New-AzVirtualNetwork] cmdlet을 사용하여 가상 네트워크를 만듭니다.
 
@@ -252,7 +252,7 @@ Connect-AzureAD
 Connect-AzAccount
 
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 
 # First, retrieve the object ID of the 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `

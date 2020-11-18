@@ -1,18 +1,18 @@
 ---
-title: IoT 플러그 앤 플레이 샘플 C# 디바이스 코드를 IoT Hub에 연결 | Microsoft Docs
-description: Windows에서 IoT 허브에 연결하는 IoT 플러그 앤 플레이 샘플 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
+title: 빠른 시작 - IoT 플러그 앤 플레이 샘플 C# 디바이스 코드를 Azure IoT Hub에 연결 | Microsoft Docs
+description: 빠른 시작 - Windows에서 IoT 허브에 연결하는 IoT 플러그 앤 플레이 샘플 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: da1ac77ad2716abf964c835634d049895fe88654
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 01e87b08f8d0abcf3659e0d7bfe081fd3516ff08
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044550"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421620"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-windows-to-iot-hub-c"></a>빠른 시작: Windows에서 실행되는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 IoT Hub에 연결(C#)
 
@@ -45,7 +45,7 @@ git clone  https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 
 1. Visual Studio 2019에서 *azure-iot-samples-csharp\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* 프로젝트 파일을 엽니다.
 
-1. Visual Studio에서 **프로젝트 > 자동 온도 조절기 속성 > 디버그**로 이동합니다. 그런 다음, 프로젝트에 다음 환경 변수를 추가합니다.
+1. Visual Studio에서 **프로젝트 > 자동 온도 조절기 속성 > 디버그** 로 이동합니다. 그런 다음, 프로젝트에 다음 환경 변수를 추가합니다.
 
     | Name | 값 |
     | ---- | ----- |

@@ -3,13 +3,13 @@ title: Azure VMware Solution 배포 및 구성
 description: 계획 단계에서 수집된 정보를 사용하여 Azure VMware Solution 프라이빗 클라우드를 배포하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.author: tredavis
-ms.date: 10/02/2020
-ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.date: 11/09/2020
+ms.openlocfilehash: 264ad99b21150f391c367eba2da31f0d08f4ab08
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152026"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336338"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Azure VMware Solution 배포 및 구성
 
@@ -59,7 +59,7 @@ Azure의 배포 화면에서 가상 네트워크가 이미 정의된 경우 다�
 
 유효한 경로 목록에는 Azure VMware Solution 배포의 일부로 만들어진 네트워크가 표시됩니다. 이 문서의 앞부분에 나오는 [배포 단계](#deploy-azure-vmware-solution)에서 [정의한 `/22` 네트워크](production-ready-deployment-steps.md#ip-address-segment)에서 파생된 여러 네트워크가 표시됩니다.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Azure VMware Solution 점프 상자 만들기" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Azure VMware Solution에서 Azure Virtual Network로 보급된 네트워크 경로 확인" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
 이 예제에서 배포 중에 입력된 10.74.72.0/22 네트워크는 /24 네트워크를 파생합니다.  비슷한 항목이 표시되면 Azure VMware Solution에서 vCenter에 연결할 수 있습니다.
 
@@ -97,10 +97,10 @@ DNS가 필요하므로 사용하려는 DNS 서버를 확인합니다.
 
 NSX-T 세그먼트에서 DHCP를 사용하려면 이 섹션을 계속 진행합니다. 그렇지 않으면 [NSX-T 네트워크 세그먼트에 VM 추가](#add-a-vm-on-the-nsx-t-network-segment) 섹션으로 건너뜁니다.  
 
-이제 NSX-T 네트워크 세그먼트가 만들어졌으므로 다음 방법 중 하나를 수행할 수 있습니다.
+NSX-T 네트워크 세그먼트를 만들었으므로 이제 다음 두 가지 방법으로 Azure VMware Solution에서 DHCP를 만들고 관리할 수 있습니다.
 
-* NSX-T를 만든 세그먼트에 대한 DHCP 서버로 사용합니다. 이 옵션의 경우 [NSX-T에서 DHCP 서버를 만들고](manage-dhcp.md#create-dhcp-server) [해당 서버로 릴레이](manage-dhcp.md#create-dhcp-relay-service)하려고 합니다.
-* DHCP 요청을 NSX-T 세그먼트에서 사용자 환경의 다른 곳에 있는 DHCP 서버로 릴레이합니다. 이 옵션의 경우 [릴레이 구성만 수행](manage-dhcp.md#create-dhcp-relay-service)합니다.
+* NSX-T를 사용하여 DHCP 서버를 호스트하는 경우 [DHCP 서버를 생성](manage-dhcp.md#create-a-dhcp-server)하고 [해당 서버에 릴레이](manage-dhcp.md#create-dhcp-relay-service)해야 합니다. 
+* 네트워크에서 타사의 외부 DHCP 서버를 사용하는 경우 [DHCP 릴레이 서비스를 생성](manage-dhcp.md#create-dhcp-relay-service)해야 합니다.  이 옵션의 경우 [릴레이 구성만 수행](manage-dhcp.md#create-dhcp-relay-service)합니다.
 
 
 ## <a name="add-a-vm-on-the-nsx-t-network-segment"></a>NSX-T 네트워크 세그먼트에 VM 추가

@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa9fa036f86fc822a4bb2175f404cdff1ca81d7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9e6b03a2f9dd0089b1112000804e46f3d214cd3c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362572"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131295"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>자습서: 로그 분석 마법사 구성
 
@@ -66,11 +66,11 @@ ms.locfileid: "92362572"
 
 1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **로그 분석 작업 영역**을 검색합니다.
+2. **로그 분석 작업 영역** 을 검색합니다.
 
     ![리소스 서비스 및 문서 검색](./media/tutorial-log-analytics-wizard/search-services.png)
 
-3. 로그 분석 작업 영역 페이지에서 **추가**를 클릭합니다.
+3. 로그 분석 작업 영역 페이지에서 **추가** 를 클릭합니다.
 
     ![스크린샷은 로그 분석 작업 영역 페이지에 있는 추가 단추를 보여줍니다.](./media/tutorial-log-analytics-wizard/add.png)
 
@@ -86,23 +86,23 @@ ms.locfileid: "92362572"
 
     4. 지역을 선택합니다.
 
-5. **리뷰 + 만들기**를 클릭합니다.
+5. **리뷰 + 만들기** 를 클릭합니다.
 
     ![검토 후 만들기](./media/tutorial-log-analytics-wizard/review-create.png)
 
-6. **만들기**를 클릭하고 배포가 성공할 때까지 기다립니다. 새 작업 영역을 보려면 페이지를 새로 고쳐야 할 수도 있습니다.
+6. **만들기** 를 클릭하고 배포가 성공할 때까지 기다립니다. 새 작업 영역을 보려면 페이지를 새로 고쳐야 할 수도 있습니다.
 
     ![생성](./media/tutorial-log-analytics-wizard/create-workspace.png)
 
 7. **Azure Active Directory** 검색
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![스크린샷은 Azure 검색의 Azure Active Directory를 보여줍니다.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
-8. **모니터링** 섹션에서 **진단 설정**을 클릭합니다.
+8. **모니터링** 섹션에서 **진단 설정** 을 클릭합니다.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
+    ![스크린샷은 모니터링에서 선택한 진단 설정을 보여줍니다.](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
 
-9. **진단 설정** 페이지에서 **진단 설정 추가**를 클릭합니다.
+9. **진단 설정** 페이지에서 **진단 설정 추가** 를 클릭합니다.
 
     ![진단 설정 추가](./media/tutorial-log-analytics-wizard/add-diagnostic-setting.png)
 
@@ -110,11 +110,11 @@ ms.locfileid: "92362572"
 
     ![진단 설정 선택](./media/tutorial-log-analytics-wizard/select-diagnostics-settings.png)
 
-    1. **범주 세부 정보**에서 **AuditLogs** 및 **SigninLogs**를 선택합니다.
+    1. **범주 세부 정보** 에서 **AuditLogs** 및 **SigninLogs** 를 선택합니다.
 
-    2. **대상 세부 정보**에서 **Log Analytics에 보내기**를 선택한 다음, 새 로그 분석 작업 영역을 선택합니다. 
+    2. **대상 세부 정보** 에서 **Log Analytics에 보내기** 를 선택한 다음, 새 로그 분석 작업 영역을 선택합니다. 
    
-    3. **저장**을 클릭합니다. 
+    3. **저장** 을 클릭합니다. 
 
 ## <a name="run-queries"></a>쿼리 실행  
 
@@ -128,15 +128,15 @@ ms.locfileid: "92362572"
 
 2. **Azure Active Directory** 검색
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![스크린샷은 Azure 검색의 Azure Active Directory를 보여줍니다.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
-3. **모니터링** 섹션에서 **로그**를 클릭합니다.
+3. **모니터링** 섹션에서 **로그** 를 클릭합니다.
 
-4. **로그** 페이지에서 **시작**을 클릭합니다.
+4. **로그** 페이지에서 **시작** 을 클릭합니다.
 
 5. **검색* 텍스트 상자에 쿼리를 입력합니다.
 
-6. **실행**을 클릭합니다.  
+6. **실행** 을 클릭합니다.  
 
 
 ### <a name="kql-query-examples"></a>KQL 쿼리 예제
@@ -210,23 +210,23 @@ ms.locfileid: "92362572"
 
 2. **Azure Active Directory** 검색
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![스크린샷은 Azure 검색의 Azure Active Directory를 보여줍니다.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
-3. **모니터링** 섹션에서 **로그**를 클릭합니다.
+3. **모니터링** 섹션에서 **로그** 를 클릭합니다.
 
-4. **로그** 페이지에서 **시작**을 클릭합니다.
+4. **로그** 페이지에서 **시작** 을 클릭합니다.
 
 5. ***검색** 텍스트 상자에 `SigninLogs |where UserDisplayName contains "BreakGlass" | project UserDisplayName`을 입력합니다.
 
-6. **실행**을 클릭합니다.  
+6. **실행** 을 클릭합니다.  
 
-7. 도구 모음에서 **새 경고 규칙**을 클릭합니다.
+7. 도구 모음에서 **새 경고 규칙** 을 클릭합니다.
 
     ![새 경고 규칙](./media/tutorial-log-analytics-wizard/new-alert-rule.png)
 
 8. **경고 규칙 만들기** 페이지에서 범위가 올바른지 확인합니다.
 
-9. **조건**에서 다음 항목을 클릭합니다. **평균 사용자 지정 로그 검색이 <logic undefined>개보다 클 때마다**
+9. **조건** 에서 다음 항목을 클릭합니다. **평균 사용자 지정 로그 검색이 <logic undefined>개보다 클 때마다**
 
     ![기본 조건](./media/tutorial-log-analytics-wizard/default-condition.png)
 
@@ -234,27 +234,27 @@ ms.locfileid: "92362572"
 
     ![경고 논리](./media/tutorial-log-analytics-wizard/alert-logic.png)
 
-    1. **기준**으로 **결과 수**를 선택합니다.
+    1. **기준** 으로 **결과 수** 를 선택합니다.
 
-    2. **연산자**로 **보다 큼**을 선택합니다.
+    2. **연산자** 로 **보다 큼** 을 선택합니다.
 
-    3. **임계값**으로 **0**을 선택합니다. 
+    3. **임계값** 으로 **0** 을 선택합니다. 
 
 11. **신호 논리 구성** 페이지의 **평가 기준** 섹션에서 다음 단계를 수행합니다.
 
     ![평가 기준](./media/tutorial-log-analytics-wizard/evaluated-based-on.png)
 
-    1. **기간(분)** 으로 **5**를 선택합니다.
+    1. **기간(분)** 으로 **5** 를 선택합니다.
 
-    2. **빈도(분)** 로 **5**를 선택합니다.
+    2. **빈도(분)** 로 **5** 를 선택합니다.
 
-    3. **완료**를 클릭합니다. 
+    3. **완료** 를 클릭합니다. 
 
-12. **작업 그룹**에서 **작업 그룹 선택**을 클릭합니다. 
+12. **작업 그룹** 에서 **작업 그룹 선택** 을 클릭합니다. 
 
     ![작업 그룹](./media/tutorial-log-analytics-wizard/action-group.png)
 
-13. **이 경고 규칙에 연결할 작업 그룹 선택**에서 **작업 그룹 만들기**를 클릭합니다. 
+13. **이 경고 규칙에 연결할 작업 그룹 선택** 에서 **작업 그룹 만들기** 를 클릭합니다. 
 
     ![작업 그룹 만들기](./media/tutorial-log-analytics-wizard/create-action-group.png)
 
@@ -262,24 +262,24 @@ ms.locfileid: "92362572"
 
     ![인스턴스 세부 정보](./media/tutorial-log-analytics-wizard/instance-details.png)
 
-    1. **작업 그룹 이름** 텍스트 상자에 **내 작업 그룹**을 입력합니다.
+    1. **작업 그룹 이름** 텍스트 상자에 **내 작업 그룹** 을 입력합니다.
 
-    2. **표시 이름** 텍스트 상자에 **내 작업**을 입력합니다.
+    2. **표시 이름** 텍스트 상자에 **내 작업** 을 입력합니다.
 
-    3. **검토 + 만들기**를 클릭합니다. 
+    3. **검토 + 만들기** 를 클릭합니다. 
 
-    4. **만들기**를 클릭합니다.
+    4. **만들기** 를 클릭합니다.
 
 
-15. **작업 사용자 지정**에서 다음 단계를 수행합니다.
+15. **작업 사용자 지정** 에서 다음 단계를 수행합니다.
 
     ![작업 사용자 지정](./media/tutorial-log-analytics-wizard/customize-actions.png)
 
-    1. **이메일 제목**을 선택합니다.
+    1. **이메일 제목** 을 선택합니다.
 
     2. **제목 줄** 텍스트 상자에 `Breakglass account has been used`를 입력합니다.
 
-16. **경고 규칙 세부 정보**에서 다음 단계를 수행합니다.
+16. **경고 규칙 세부 정보** 에서 다음 단계를 수행합니다.
 
     ![경고 규칙 세부 정보](./media/tutorial-log-analytics-wizard/alert-rule-details.png)
 
@@ -287,7 +287,7 @@ ms.locfileid: "92362572"
 
     2. **설명** 텍스트 상자에 `Your emergency access account has been used`를 입력합니다.
 
-17. **경고 규칙 만들기**를 클릭합니다.   
+17. **경고 규칙 만들기** 를 클릭합니다.   
 
 
 ## <a name="create-a-custom-workbook"></a>사용자 지정 통합 문서 만들기
@@ -301,30 +301,30 @@ ms.locfileid: "92362572"
 
 2. **Azure Active Directory** 검색
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![스크린샷은 Azure 검색의 Azure Active Directory를 보여줍니다.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
-3. **모니터링** 섹션에서 **통합 문서**를 클릭합니다.
+3. **모니터링** 섹션에서 **통합 문서** 를 클릭합니다.
 
     ![스크린샷은 통합 문서가 선택된 Azure Portal 메뉴의 모니터링을 보여줍니다.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
-4. **빠른 시작** 섹션에서 **비어 있음**을 클릭합니다.
+4. **빠른 시작** 섹션에서 **비어 있음** 을 클릭합니다.
 
     ![빠른 시작](./media/tutorial-log-analytics-wizard/quick-start.png)
 
-5. **추가**를 클릭합니다.
+5. **추가** 를 클릭합니다.
 
     ![통합 문서 추가](./media/tutorial-log-analytics-wizard/add-workbook.png)
 
-6. **텍스트 추가**를 클릭합니다.
+6. **텍스트 추가** 를 클릭합니다.
 
     ![텍스트 추가](./media/tutorial-log-analytics-wizard/add-text.png)
 
 
-7. 텍스트 상자에 `# Client apps used in the past week`를 입력한 다음, **편집 완료**를 클릭합니다.
+7. 텍스트 상자에 `# Client apps used in the past week`를 입력한 다음, **편집 완료** 를 클릭합니다.
 
     ![통합 문서 텍스트](./media/tutorial-log-analytics-wizard/workbook-text.png)
 
-8. 새 통합 문서에서 **추가**를 클릭한 다음, **쿼리 추가**를 클릭합니다.
+8. 새 통합 문서에서 **추가** 를 클릭한 다음, **쿼리 추가** 를 클릭합니다.
 
     ![쿼리 추가](./media/tutorial-log-analytics-wizard/add-query.png)
 
@@ -332,13 +332,13 @@ ms.locfileid: "92362572"
 
 10. **쿼리 실행** 클릭
 
-    ![쿼리 실행](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
+    ![스크린샷은 쿼리 실행 단추를 보여줍니다.](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
 
-11. 도구 모음의 **시각화**에서 **원형 차트**를 클릭합니다.
+11. 도구 모음의 **시각화** 에서 **원형 차트** 를 클릭합니다.
 
     ![원형 차트](./media/tutorial-log-analytics-wizard/pie-chart.png)
 
-12. **편집 완료**를 클릭합니다.
+12. **편집 완료** 를 클릭합니다.
 
     ![편집 완료](./media/tutorial-log-analytics-wizard/done-workbook-editing.png)
 
@@ -353,21 +353,21 @@ ms.locfileid: "92362572"
 
 2. **Azure Active Directory** 검색
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![스크린샷은 Azure 검색의 Azure Active Directory를 보여줍니다.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
-3. **모니터링** 섹션에서 **통합 문서**를 클릭합니다.
+3. **모니터링** 섹션에서 **통합 문서** 를 클릭합니다.
 
     ![스크린샷은 통합 문서가 선택된 메뉴의 모니터링을 보여줍니다.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
-4. **조건부 액세스** 섹션에서 **조건부 액세스 인사이트 및 보고**를 클릭합니다.
+4. **조건부 액세스** 섹션에서 **조건부 액세스 인사이트 및 보고** 를 클릭합니다.
 
-    ![조건부 액세스 템플릿](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
+    ![스크린샷은 조건부 액세스 인사이트 및 보고 옵션을 보여줍니다.](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
 
-5. 도구 모음에서 **편집**을 클릭합니다.
+5. 도구 모음에서 **편집** 을 클릭합니다.
 
-    ![조건부 액세스 템플릿](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
+    ![스크린샷은 편집 단추를 보여줍니다.](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
 
-6. 도구 모음에서 줄임표(...)를 클릭한 다음, **추가**를 클릭하고 **쿼리 추가**를 클릭합니다.
+6. 도구 모음에서 줄임표(...)를 클릭한 다음, **추가** 를 클릭하고 **쿼리 추가** 를 클릭합니다.
 
     ![통합 문서 쿼리 추가](./media/tutorial-log-analytics-wizard/add-custom-workbook-query.png)
 
@@ -375,13 +375,13 @@ ms.locfileid: "92362572"
 
 8. **쿼리 실행** 클릭
 
-    ![쿼리 실행](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
+    ![스크린샷은 이 쿼리를 실행하기 위한 쿼리 실행 단추를 보여줍니다.](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
 
-9. **시간 범위**를 클릭한 다음, **쿼리에서 설정**을 선택합니다.
+9. **시간 범위** 를 클릭한 다음, **쿼리에서 설정** 을 선택합니다.
 
-10. **시각화**를 클릭한 다음, **가로 막대형 차트**를 선택합니다. 
+10. **시각화** 를 클릭한 다음, **가로 막대형 차트** 를 선택합니다. 
 
-11. **고급 설정**을 클릭하고 차트 제목으로 `Conditional Access status over the last 20 days`를 입력한 다음, **편집**을 클릭합니다. 
+11. **고급 설정** 을 클릭하고 차트 제목으로 `Conditional Access status over the last 20 days`를 입력한 다음, **편집** 을 클릭합니다. 
 
     ![차트 제목 설정](./media/tutorial-log-analytics-wizard/set-chart-title.png)
 

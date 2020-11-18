@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 7fe47289dcc6b6d6af4d13b36b5c3b1dae3baaf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 247abafd7abec38e43794b76268ee52538aee508
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89664224"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655683"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Logstash를 사용 하 여 데이터 원본을 Azure 센티널에 연결
 
 > [!IMPORTANT]
 > Logstash 출력 플러그 인을 사용 하 여 데이터를 수집 하는 것은 현재 공개 미리 보기 상태입니다. 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-**Logstash 데이터 수집 엔진**에 대 한 azure 센티널의 새 출력 플러그 인을 사용 하 여 이제 Logstash 태에서 원하는 모든 유형의 로그를 azure 센티널의 Log Analytics 작업 영역으로 직접 보낼 수 있습니다. 로그는 출력 플러그 인을 사용 하 여 정의 하는 사용자 지정 테이블로 전송 됩니다.
+**Logstash 데이터 수집 엔진** 에 대 한 azure 센티널의 새 출력 플러그 인을 사용 하 여 이제 Logstash 태에서 원하는 모든 유형의 로그를 azure 센티널의 Log Analytics 작업 영역으로 직접 보낼 수 있습니다. 로그는 출력 플러그 인을 사용 하 여 정의 하는 사용자 지정 테이블로 전송 됩니다.
 
 Logstash 데이터 수집 엔진을 사용 하는 방법에 대해 자세히 알아보려면 [Logstash 태 시 시작](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html)하기를 참조 하세요.
 
@@ -48,8 +48,8 @@ Logstash 태 시 엔진은 다음과 같은 세 가지 구성 요소로 구성 �
 
 Logstash 태 시에 대 한 Azure 센티널 출력 플러그 인은 Log Analytics HTTP 데이터 수집기 REST API를 사용 하 여 JSON 형식 데이터를 Log Analytics 작업 영역에 보냅니다. 데이터는 사용자 지정 로그로 수집 됩니다.
 
-- [Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics/create-request)에 대해 자세히 알아보세요.
-- [사용자 지정 로그](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-custom-logs)에 대해 자세히 알아보세요.
+- [Log Analytics REST API](/rest/api/loganalytics/create-request)에 대해 자세히 알아보세요.
+- [사용자 지정 로그](../azure-monitor/platform/data-sources-custom-logs.md)에 대해 자세히 알아보세요.
 
 ## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>Logstash 태 시에 Azure 센티널 출력 플러그 인 배포
 
@@ -57,7 +57,7 @@ Logstash 태 시에 대 한 Azure 센티널 출력 플러그 인은 Log Analytic
 
 Azure 센티널 출력 플러그 인은 Logstash 태 시 컬렉션에서 사용할 수 있습니다.
 
-- Logstash [플러그 인 작업](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) 문서의 지침에 따라 ***microsoft logstash 태 시-출력-azure-logstash*** 플러그 인을 설치 합니다.
+- Logstash [플러그 인 작업](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) 문서의 지침에 따라 **_microsoft logstash 태 시-출력-azure-logstash_* _ 플러그 인을 설치 합니다.
    
 - Logstash 태 시 시스템에서 인터넷에 액세스할 수 없는 경우 Logstash [오프 라인 플러그 인 관리](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) 문서의 지침에 따라 오프 라인 플러그 인 팩을 준비 하 고 사용 합니다. 이렇게 하려면 인터넷에 액세스할 수 있는 다른 Logstash 태 시 시스템을 구축 해야 합니다.
 
@@ -67,17 +67,17 @@ Azure 센티널 출력 플러그 인은 Logstash 태 시 컬렉션에서 사용�
 
 | 필드 이름 | 데이터 형식 | Description |
 |----------------|---------------|-----------------|
-| `workspace_id` | 문자열 | 작업 영역 ID GUID를 입력 합니다. * |
+| `workspace_id` | 문자열 | 작업 영역 ID GUID를 입력 합니다. _ |
 | `workspace_key` | 문자열 | 작업 영역 기본 키 GUID를 입력 합니다. * |
 | `custom_log_table_name` | 문자열 | 로그를 수집 테이블의 이름을 설정 합니다. 출력 플러그 인 당 하나의 테이블 이름만 구성할 수 있습니다. 로그 테이블은 Azure 센티널의 **로그**, **사용자 지정 로그** 범주의 **테이블** 에서 접미사로 표시 됩니다 `_CL` . |
 | `endpoint` | 문자열 | 선택적 필드입니다. 기본적으로 Log Analytics 끝점입니다. 이 필드를 사용 하 여 대체 끝점을 설정 합니다. |
 | `time_generated_field` | 문자열 | 선택적 필드입니다. 이 속성은 Log Analytics의 기본 **Timegenerated** 필드를 재정의 합니다. 데이터 원본에 타임 스탬프 필드의 이름을 입력 합니다. 필드의 데이터는 ISO 8601 형식 ()을 준수 해야 합니다. `YYYY-MM-DDThh:mm:ssZ` |
 | `key_names` | array | Log Analytics 출력 스키마 필드 목록을 입력 합니다. 각 목록 항목은 작은따옴표로 묶고 쉼표로 구분 된 전체 목록으로 묶어야 합니다. 아래 예제를 참조하세요. |
-| `plugin_flush_interval` | number | 선택적 필드입니다. Log Analytics 메시지 전송 사이의 최대 간격 (초)을 정의 하려면 설정 합니다. 기본값은 5입니다. |
+| `plugin_flush_interval` | 숫자 | 선택적 필드입니다. Log Analytics 메시지 전송 사이의 최대 간격 (초)을 정의 하려면 설정 합니다. 기본값은 5입니다. |
     | `amount_resizing` | boolean | True 또는 False입니다. 수신 되는 로그 데이터의 양에 따라 메시지 버퍼 크기를 조정 하는 자동 크기 조정 메커니즘을 사용 하거나 사용 하지 않도록 설정 합니다. |
-| `max_items` | number | 선택적 필드입니다. `amount_resizing`"False"로 설정 되어 있는 경우에만 적용 됩니다. 를 사용 하 여 메시지 버퍼 크기 (레코드)에 cap를 설정 합니다. 기본값은 2000입니다.  |
+| `max_items` | 숫자 | 선택적 필드입니다. `amount_resizing`"False"로 설정 되어 있는 경우에만 적용 됩니다. 를 사용 하 여 메시지 버퍼 크기 (레코드)에 cap를 설정 합니다. 기본값은 2000입니다.  |
 
-\* 작업 영역 리소스의 **에이전트 관리**아래에서 작업 영역 ID 및 기본 키를 찾을 수 있습니다.
+\* 작업 영역 리소스의 **에이전트 관리** 아래에서 작업 영역 ID 및 기본 키를 찾을 수 있습니다.
 
 #### <a name="sample-configurations"></a>샘플 구성
 
@@ -156,13 +156,13 @@ Azure 센티널 출력 플러그 인은 Logstash 태 시 컬렉션에서 사용�
 
 1. 메시지가 출력 플러그 인으로 전송 되 고 있는지 확인 합니다.
 
-1. Azure 센티널 탐색 메뉴에서 **로그**를 클릭 합니다. **테이블** 머리글 아래에서 **사용자 지정 로그** 범주를 확장 합니다. 구성에서 접미사를 사용 하 여 지정한 테이블의 이름을 찾아 클릭 합니다 `_CL` .
+1. Azure 센티널 탐색 메뉴에서 **로그** 를 클릭 합니다. **테이블** 머리글 아래에서 **사용자 지정 로그** 범주를 확장 합니다. 구성에서 접미사를 사용 하 여 지정한 테이블의 이름을 찾아 클릭 합니다 `_CL` .
 
    :::image type="content" source="./media/connect-logstash/logstash-custom-logs-menu.png" alt-text="로그 스 태 시 사용자 지정 로그의 스크린샷":::
 
 1. 테이블의 레코드를 보려면 테이블 이름을 스키마로 사용 하 여 테이블을 쿼리 합니다.
 
-   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="로그 스 태 시 사용자 지정 로그의 스크린샷":::
+   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="로그 스 태 시 사용자 지정 로그 쿼리의 스크린샷":::
 
 ## <a name="monitor-output-plugin-audit-logs"></a>출력 플러그 인 감사 로그 모니터링
 

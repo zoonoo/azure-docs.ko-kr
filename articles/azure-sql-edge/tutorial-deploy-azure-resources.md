@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 76c45e586ea7101015cb878d198cab73ed32498e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d83745db6c720a2fdc2260a07a4e3e66b1a0771d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018249"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422215"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>자습서를 위한 소프트웨어 설치 및 리소스 설정
 
@@ -23,14 +23,16 @@ ms.locfileid: "89018249"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 1. Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-2. [Python 3.6.8](https://www.python.org/downloads/release/python-368/)을 설치합니다.
-      * Windows x86-x64 실행 파일 설치 관리자 사용
-      * PATH 환경 변수 다운로드에 `python.exe`를 추가 “Visual Studio 2019용 도구”에서 다운로드를 찾을 수 있습니다.
-3. [Microsoft ODBC Driver 17 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)를 설치합니다.
-4. [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)를 설치합니다.
-5. Azure Data Studio를 열고 Notebook에 대해 Python을 구성합니다. 자세한 내용은 [Notebook용 Python 구성](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks)을 참조하세요. 이 단계는 몇 분 정도 걸릴 수 있습니다.
-6. 최신 버전의 [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020)를 설치합니다. 다음 스크립트는 최신 버전(3.5.0, 2020년 2월)의 AZ PowerShell이 필요합니다.
-7. 자습서에 사용할 [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) 및 [AMD/ARM Docker 이미지 파일](https://www.docker.com/blog/multi-arch-images/)을 다운로드합니다.
+2. Visual Studio 2019 설치 
+      * Azure IoT Edge 도구
+      * .NET Core 플랫폼 간 개발
+      * 컨테이너 개발 도구
+3. [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)를 설치합니다.
+4. Azure Data Studio를 열고 Notebook에 대해 Python을 구성합니다. 자세한 내용은 [Notebooks용 Python 구성](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks)을 참조하세요. 이 단계는 몇 분 정도 걸릴 수 있습니다.
+5. 최신 버전의 [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020)를 설치합니다. 다음 스크립트는 최신 버전(3.5.0, 2020년 2월)의 AZ PowerShell이 필요합니다.
+6. [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/)을 설치하여 IoT Edge 솔루션을 디버그, 실행 및 테스트할 환경을 설정합니다.
+7. Docker를 설치합니다.
+8. 자습서에서 활용될 [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) 파일을 다운로드합니다. 
 
 ## <a name="deploy-azure-resources-using-powershell-script"></a>PowerShell 스크립트를 사용하여 Azure 리소스 배포
 
@@ -154,26 +156,7 @@ ms.locfileid: "89018249"
    }
    ```
 
-10. ARM/AMD Docker 이미지를 컨테이너 레지스트리로 푸시합니다.
-
-    ```powershell
-    $containerRegistryCredentials = Get-AzContainerRegistryCredential -ResourceGroupName $ResourceGroup -Name $containerRegistryName
-    
-    $amddockerimageFile = Read-Host "Please Enter the location to the amd docker tar file:"
-    $armdockerimageFile = Read-Host "Please Enter the location to the arm docker tar file:"
-    $amddockertag = $containerRegistry.LoginServer + "/silicaprediction" + ":amd64"
-    $armdockertag = $containerRegistry.LoginServer + "/silicaprediction" + ":arm64"
-    
-    docker login $containerRegistry.LoginServer --username $containerRegistryCredentials.Username --password $containerRegistryCredentials.Password
-    
-    docker import $amddockerimageFile $amddockertag
-    docker push $amddockertag
-    
-    docker import $armdockerimageFile $armdockertag
-    docker push $armdockertag
-    ```
-
-11. 리소스 그룹 내에 네트워크 보안 그룹을 만듭니다.
+10. 리소스 그룹 내에 네트워크 보안 그룹을 만듭니다.
 
     ```powershell
     $nsg = Get-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroup -Name $NetworkSecGroup 
@@ -193,7 +176,7 @@ ms.locfileid: "89018249"
     }
     ```
 
-12. SQL Edge에서 사용하도록 설정된 Azure 가상 머신을 만듭니다. 이 VM은 에지 디바이스 역할을 합니다.
+11. SQL Edge에서 사용하도록 설정된 Azure 가상 머신을 만듭니다. 이 VM은 에지 디바이스 역할을 합니다.
 
     ```powershell
     $AzVM = Get-AzVM -ResourceGroupName $ResourceGroup -Name $EdgeDeviceId
@@ -226,7 +209,7 @@ ms.locfileid: "89018249"
     }
     ```
 
-13. 리소스 그룹 내에 IoT 허브를 만듭니다.
+12. 리소스 그룹 내에 IoT 허브를 만듭니다.
 
     ```powershell
     $iotHub = Get-AzIotHub -ResourceGroupName $ResourceGroup -Name $IoTHubName
@@ -241,7 +224,7 @@ ms.locfileid: "89018249"
     }
     ```
 
-14. 에지 디바이스를 IoT 허브에 추가합니다. 이 단계에서는 디바이스 디지털 ID만 만듭니다.
+13. 에지 디바이스를 IoT 허브에 추가합니다. 이 단계에서는 디바이스 디지털 ID만 만듭니다.
 
     ```powershell
     $deviceIdentity = Get-AzIotHubDevice -ResourceGroupName $ResourceGroup -IotHubName $IoTHubName -DeviceId $EdgeDeviceId
@@ -257,7 +240,7 @@ ms.locfileid: "89018249"
     $deviceIdentity = Get-AzIotHubDevice -ResourceGroupName $ResourceGroup -IotHubName $IoTHubName -DeviceId $EdgeDeviceId
     ```
 
-15. 디바이스 기본 연결 문자열을 가져옵니다. 이는 나중에 VM에 필요합니다. 다음 명령은 배포에 Azure CLI를 사용합니다.
+14. 디바이스 기본 연결 문자열을 가져옵니다. 이는 나중에 VM에 필요합니다. 다음 명령은 배포에 Azure CLI를 사용합니다.
 
     ```powershell
     $deviceConnectionString = az iot hub device-identity show-connection-string --device-id $EdgeDeviceId --hub-name $IoTHubName --resource-group $ResourceGroup --subscription $SubscriptionName
@@ -265,18 +248,19 @@ ms.locfileid: "89018249"
     $connString
     ```
 
-16. 에지 디바이스의 IoT Edge 구성 파일에서 연결 문자열을 업데이트합니다. 다음 명령은 배포에 Azure CLI를 사용합니다.
+15. 에지 디바이스의 IoT Edge 구성 파일에서 연결 문자열을 업데이트합니다. 다음 명령은 배포에 Azure CLI를 사용합니다.
 
     ```powershell
     $script = "/etc/iotedge/configedge.sh '" + $connString + "'"
     az vm run-command invoke -g $ResourceGroup -n $EdgeDeviceId  --command-id RunShellScript --script $script
     ```
 
-17. 리소스 그룹 내에 Azure Machine Learning 작업 영역을 만듭니다.
+16. 리소스 그룹 내에 Azure Machine Learning 작업 영역을 만듭니다.
 
     ```powershell
     az ml workspace create -w $MyWorkSpace -g $ResourceGroup
     ```
+
 
 ## <a name="next-steps"></a>다음 단계
 

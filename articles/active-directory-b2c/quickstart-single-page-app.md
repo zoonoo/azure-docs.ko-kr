@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db18c71b09cd9beb58799ad4fbcbc944061153fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6471d1b5a5ad2b8ba34080ae1220872fa0e2e232
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87921761"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421059"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 단일 페이지 앱에 대한 로그인 설정
 
@@ -29,12 +29,12 @@ Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Node.JS](https://nodejs.org/en/download/)
 - Facebook, Google 또는 Microsoft의 소셜 계정
-- GitHub의 코드 샘플: [active-directory-b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+- GitHub의 코드 샘플: [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)
 
-    [zip 보관을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip)하거나 리포지토리를 복제할 수 있습니다.
+    [zip 보관을 다운로드](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip)하거나 리포지토리를 복제할 수 있습니다.
 
     ```console
-    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+    git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
     ```
 
 ## <a name="run-the-application"></a>애플리케이션 실행
@@ -42,12 +42,11 @@ Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및
 1. Node.js 명령 프롬프트에서 다음 명령을 실행하여 서버를 시작합니다.
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
     npm install && npm update
     npm start
     ```
 
-    *server.js*에서 시작된 서버는 수신 대기 중인 포트를 표시합니다.
+    *server.js* 에서 시작된 서버는 수신 대기 중인 포트를 표시합니다.
 
     ```console
     Listening on port 6420...
@@ -59,8 +58,8 @@ Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및
 
 ## <a name="sign-in-using-your-account"></a>계정을 사용하여 로그인
 
-1. **로그인**을 선택하여 사용자 경험을 시작합니다.
-1. Azure AD B2C는 샘플 웹 애플리케이션용으로 Fabrikam이라는 가상 회사의 로그인 페이지를 제공합니다. 소셜 ID 공급자를 사용하여 등록하려면 사용할 ID 공급자의 단추를 선택합니다.
+1. **로그인** 을 선택하여 사용자 경험을 시작합니다.
+1. Azure AD B2C는 샘플 웹 애플리케이션용으로 "Fabrikam"이라는 가상 회사의 로그인 페이지를 제공합니다. 소셜 ID 공급자를 사용하여 등록하려면 사용할 ID 공급자의 단추를 선택합니다.
 
     ![ID 공급자 단추를 표시하는 로그인 또는 등록 페이지](./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png)
 
@@ -70,7 +69,7 @@ Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및
 
 ## <a name="access-a-protected-api-resource"></a>보호된 API 리소스 액세스
 
-**API 호출**을 선택하여 웹 API에서 반환된 표시 이름을 JSON 개체로 지정합니다.
+**API 호출** 을 선택하여 웹 API에서 반환된 표시 이름을 JSON 개체로 지정합니다.
 
 ![웹 API 응답을 보여 주는 브라우저의 샘플 애플리케이션](./media/quickstart-single-page-app/call-api-spa.png)
 

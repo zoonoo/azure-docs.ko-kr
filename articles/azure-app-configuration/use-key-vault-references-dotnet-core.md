@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 3e6403f41d8e4b52ca64e9fa452524fa25efe870
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff11546225a3b07cbe9f8773dab2139636af787e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213250"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124801"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 Key Vault 참조 사용
 
@@ -51,46 +51,46 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 옵션을 선택합니다.
 
-    ![Key Vault 만들기가 완료된 후 출력](./media/quickstarts/search-services.png)
-1. 검색 상자에 **Key Vault**를 입력합니다.
-1. 결과 목록의 왼쪽에서 **Key Vault**를 선택합니다.
-1. **Key Vault**에서 **추가**를 선택합니다.
-1. 오른쪽에 있는 **Key Vault 만들기**에서 다음 정보를 제공합니다.
-    - **구독**을 선택하여 구독을 선택합니다.
-    - **리소스 그룹**에서 **새로 만들기**를 선택하고 리소스 그룹 이름을 입력합니다.
-    - **Key Vault 이름**에는 고유한 이름이 필요합니다. 이 자습서에서는 **Contoso-vault2**를 입력합니다.
+    ![스크린샷은 Azure Portal의 리소스 만들기 옵션을 보여줍니다.](./media/quickstarts/search-services.png)
+1. 검색 상자에 **Key Vault** 를 입력합니다.
+1. 결과 목록의 왼쪽에서 **Key Vault** 를 선택합니다.
+1. **Key Vault** 에서 **추가** 를 선택합니다.
+1. 오른쪽에 있는 **Key Vault 만들기** 에서 다음 정보를 제공합니다.
+    - **구독** 을 선택하여 구독을 선택합니다.
+    - **리소스 그룹** 에서 **새로 만들기** 를 선택하고 리소스 그룹 이름을 입력합니다.
+    - **Key Vault 이름** 에는 고유한 이름이 필요합니다. 이 자습서에서는 **Contoso-vault2** 를 입력합니다.
     - **지역** 드롭다운 목록에서 위치를 선택합니다.
 1. 다른 **Key Vault 만들기** 옵션은 기본값 그대로 둡니다.
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 이때 사용자의 Azure 계정은 이 새 자격 증명 모음에 액세스할 권한이 있는 유일한 계정입니다.
 
-![Key Vault 만들기가 완료된 후 출력](./media/quickstarts/vault-properties.png)
+![스크린샷은 키 자격 증명 모음을 보여줍니다.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault에 비밀 추가
 
-자격 증명 모음에 비밀을 추가하려면 몇 가지 추가 단계를 수행해야 합니다. 이 경우 Key Vault 검색을 테스트하는 데 사용할 수 있는 메시지를 추가합니다. 메시지는 **Message**라고 하며 여기에 "Hello from Key Vault" 값을 저장합니다.
+자격 증명 모음에 비밀을 추가하려면 몇 가지 추가 단계를 수행해야 합니다. 이 경우 Key Vault 검색을 테스트하는 데 사용할 수 있는 메시지를 추가합니다. 메시지는 **Message** 라고 하며 여기에 "Hello from Key Vault" 값을 저장합니다.
 
-1. Key Vault 속성 페이지에서 **비밀**을 선택합니다.
-1. **생성/가져오기**를 선택합니다.
+1. Key Vault 속성 페이지에서 **비밀** 을 선택합니다.
+1. **생성/가져오기** 를 선택합니다.
 1. **비밀 만들기** 창에서 다음 값을 입력합니다.
-    - **업로드 옵션**: **수동**을 입력합니다.
-    - **Name**: **Message**를 입력합니다.
-    - **값**: **Hello from Key Vault**를 입력합니다.
+    - **업로드 옵션**: **수동** 을 입력합니다.
+    - **Name**: **Message** 를 입력합니다.
+    - **값**: **Hello from Key Vault** 를 입력합니다.
 1. 다른 **비밀 만들기** 속성은 기본값 그대로 둡니다.
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>App Configuration에 Key Vault 참조 추가
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스**를 선택한 다음, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스** 를 선택한 다음, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
 
-1. **구성 탐색기**를 선택합니다.
+1. **구성 탐색기** 를 선택합니다.
 
-1. **+ 만들기** > **Key Vault 참조**를 선택하고 다음 값을 지정합니다.
-    - **키**: **TestApp:Settings:KeyVaultMessage**를 선택합니다.
+1. **+ 만들기** > **Key Vault 참조** 를 선택하고 다음 값을 지정합니다.
+    - **키**: **TestApp:Settings:KeyVaultMessage** 를 선택합니다.
     - **레이블**: 이 값은 빈 상태로 둡니다.
     - **구독**, **리소스 그룹** 및 **Key Vault**: 이전 섹션에서 만든 Key Vault의 값에 해당하는 값을 입력합니다.
-    - **비밀**: 이전 섹션에서 만든 **Message**라는 비밀을 선택합니다.
+    - **비밀**: 이전 섹션에서 만든 **Message** 라는 비밀을 선택합니다.
 
 ## <a name="connect-to-key-vault"></a>Key Vault에 연결
 
@@ -163,7 +163,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
     dotnet add package Azure.Identity
     ```
 
-1. *Program.cs*를 열고 다음과 같은 필요한 패키지에 대한 참조를 추가합니다.
+1. *Program.cs* 를 열고 다음과 같은 필요한 패키지에 대한 참조를 추가합니다.
 
     ```csharp
     using Azure.Identity;
@@ -216,7 +216,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 1. 앱 구성에 대한 연결을 초기화하는 경우 `ConfigureKeyVault` 메서드를 호출하여 Key Vault에 대한 연결을 설정합니다. 초기화한 후 일반적인 App Configuration 키 값에 액세스하는 것과 동일한 방식으로 Key Vault 참조의 값에 액세스할 수 있습니다.
 
-    이 프로세스가 실행되는 것을 보려면 **보기** > **홈** 폴더에서 *Index.cshtml*을 엽니다. 해당 내용을 다음 코드로 바꿉니다.
+    이 프로세스가 실행되는 것을 보려면 **보기** > **홈** 폴더에서 *Index.cshtml* 을 엽니다. 해당 내용을 다음 코드로 바꿉니다.
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -236,7 +236,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
         and @Configuration["TestApp:Settings:KeyVaultMessage"]</h1>
     ```
 
-    **TestApp:Settings:Message** 구성 값과 동일한 방식으로 Key Vault 참조 **TestApp:Settings:KeyVaultMessage**의 값에 액세스합니다.
+    **TestApp:Settings:Message** 구성 값과 동일한 방식으로 Key Vault 참조 **TestApp:Settings:KeyVaultMessage** 의 값에 액세스합니다.
 
 ## <a name="build-and-run-the-app-locally"></a>로컬로 앱 빌드 및 실행
 

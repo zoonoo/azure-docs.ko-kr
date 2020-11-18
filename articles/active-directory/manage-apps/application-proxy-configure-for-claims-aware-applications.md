@@ -15,15 +15,15 @@ ms.date: 11/08/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97def0608251f65aa222e13760877d4287135d08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5c840722ae6b03a0b8a7fa44e5999e14730d4f3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386982"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656278"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>애플리케이션 프록시에서 클레임 인식 앱으로 작업
-[클레임 인식 앱](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx)은 STS(보안 토큰 서비스)에 대한 리디렉션을 수행합니다. STS는 토큰의 교환으로 사용자의 자격 증명을 요청한 다음 애플리케이션에 사용자를 리디렉션합니다. 애플리케이션 프록시를 이러한 리디렉션과 함께 작동하도록 하는 몇 가지 방법이 있습니다. 이 문서를 사용하여 클레임 인식 앱에 대한 배포를 구성합니다. 
+[클레임 인식 앱](/previous-versions/windows/desktop/legacy/bb736227(v=vs.85))은 STS(보안 토큰 서비스)에 대한 리디렉션을 수행합니다. STS는 토큰의 교환으로 사용자의 자격 증명을 요청한 다음 애플리케이션에 사용자를 리디렉션합니다. 애플리케이션 프록시를 이러한 리디렉션과 함께 작동하도록 하는 몇 가지 방법이 있습니다. 이 문서를 사용하여 클레임 인식 앱에 대한 배포를 구성합니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 클레임 인식 앱이 리디렉션되는 STS가 온-프레미스 네트워크 외부에서 사용 가능한지 확인합니다. 프록시를 통해 노출하거나 외부 연결을 허용하여 STS를 사용할 수 있도록 할 수 있습니다. 
@@ -31,8 +31,8 @@ ms.locfileid: "87386982"
 ## <a name="publish-your-application"></a>애플리케이션 게시
 
 1. [애플리케이션 프록시로 애플리케이션 게시](application-proxy-add-on-premises-application.md)에 설명된 지침에 따라 애플리케이션을 게시합니다.
-2. 포털에서 애플리케이션 페이지로 이동하고 **Single Sign-On**을 선택합니다.
-3. **Azure Active Directory**를 **사전 인증 방법**으로 선택했다면 **Azure AD Single Sign-On 비활성화**를 **내부 인증 방법**으로 선택합니다. **사전 인증 방법**으로 **통과**를 선택하면 아무 것도 변경할 필요가 없습니다.
+2. 포털에서 애플리케이션 페이지로 이동하고 **Single Sign-On** 을 선택합니다.
+3. **Azure Active Directory** 를 **사전 인증 방법** 으로 선택했다면 **Azure AD Single Sign-On 비활성화** 를 **내부 인증 방법** 으로 선택합니다. **사전 인증 방법** 으로 **통과** 를 선택하면 아무 것도 변경할 필요가 없습니다.
 
 ## <a name="configure-adfs"></a>ADFS 구성
 
@@ -45,16 +45,14 @@ ms.locfileid: "87386982"
 ### <a name="option-2-ws-federation"></a>옵션 2: WS-Federation
 
 1. ADFS 관리를 엽니다.
-2. **신뢰 당사자 트러스트**로 이동하여 애플리케이션 프록시로 게시하려는 앱을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.  
+2. **신뢰 당사자 트러스트** 로 이동하여 애플리케이션 프록시로 게시하려는 앱을 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다.  
 
    ![신뢰 당사자 트러스트 앱 이름을 마우스 오른쪽 단추로 클릭 - 스크린샷](./media/application-proxy-configure-for-claims-aware-applications/appproxyrelyingpartytrust.png)  
 
-3. **엔드포인트** 탭에 있는 **엔드포인트 유형** 아래에서 **WS-Federation**을 선택합니다.
-4. **신뢰할 수 있는 URL** 아래에 **외부 URL** 아래에 있는 애플리케이션 프록시에 입력한 URL을 입력하고 **확인**을 클릭합니다.  
+3. **엔드포인트** 탭에 있는 **엔드포인트 유형** 아래에서 **WS-Federation** 을 선택합니다.
+4. **신뢰할 수 있는 URL** 아래에 **외부 URL** 아래에 있는 애플리케이션 프록시에 입력한 URL을 입력하고 **확인** 을 클릭합니다.  
 
    ![엔드포인트 추가 - 신뢰할 수 있는 URL 값 설정 - 스크린샷](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>다음 단계
 * [네이티브 클라이언트 앱을 사용하여 프록시 애플리케이션과 상호 작용](application-proxy-configure-native-client-application.md)
-
-

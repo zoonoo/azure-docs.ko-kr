@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372483"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656737"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>내 앱 배포 Azure Active Directory 계획
 
@@ -54,10 +54,10 @@ Azure AD 내 앱은 다음과 같은 방법으로 비즈니스를 활용 합니�
 
 내 앱은 무료 이며 기본 수준에서 사용할 라이선스가 필요 하지 않습니다. 그러나 디렉터리의 개체 수와 배포 하려는 추가 기능에는 추가 라이선스가 필요할 수 있습니다. 라이선스 요구 사항이 있는 몇 가지 일반적인 Azure AD 시나리오는 다음과 같은 보안 기능을 포함 합니다.
 
-* [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-* [그룹 기반 구성원 자격](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-* [셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-* [Azure Active Directory ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+* [Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [그룹 기반 구성원 자격](../fundamentals/active-directory-manage-groups.md)
+* [셀프 서비스 암호 재설정](../authentication/tutorial-enable-sspr.md)
+* [Azure Active Directory ID 보호](../identity-protection/overview-identity-protection.md)
 
 [AZURE AD에 대 한 전체 라이선스 가이드](https://azure.microsoft.com/pricing/details/active-directory/)를 참조 하세요.
 
@@ -65,8 +65,8 @@ Azure AD 내 앱은 다음과 같은 방법으로 비즈니스를 활용 합니�
 
 이 프로젝트를 시작 하기 전에 다음 필수 구성 요소를 완료 하십시오.
 
-* [응용 프로그램 SSO 통합](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-* [Azure AD 사용자 및 그룹 인프라 관리](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
+* [응용 프로그램 SSO 통합](./plan-sso-deployment.md)
+* [Azure AD 사용자 및 그룹 인프라 관리](../fundamentals/active-directory-manage-groups.md)
 
 ## <a name="plan-azure-ad-my-apps-deployment"></a>Azure AD 내 앱 배포 계획
 
@@ -74,8 +74,8 @@ Azure AD 내 앱은 다음과 같은 방법으로 비즈니스를 활용 합니�
 
 | 영역| 설명 |
 | - | - |
-| 액세스 권한| 회사 네트워크 내의 회사 및 개인 장치에서 내 앱 포털에 액세스할 수 있습니다. |
-|액세스 권한 | 회사 네트워크 외부의 회사 장치에서 내 앱 포털에 액세스할 수 있습니다. |
+| Access| 회사 네트워크 내의 회사 및 개인 장치에서 내 앱 포털에 액세스할 수 있습니다. |
+|Access | 회사 네트워크 외부의 회사 장치에서 내 앱 포털에 액세스할 수 있습니다. |
 | 감사| 사용 현황 데이터는 최소 29 일 마다 회사 시스템에 다운로드 됩니다. |
 | 거버넌스| Azure AD에 연결 된 응용 프로그램 및 그룹에 대 한 사용자 할당의 수명 주기는 정의 되 고 모니터링 됩니다. |
 | 보안| 리소스에 대 한 액세스는 사용자 및 그룹 할당을 통해 제어 됩니다. 권한 있는 사용자만 리소스 액세스를 관리할 수 있습니다. |
@@ -117,7 +117,7 @@ Azure AD 내 앱은 다음과 같은 방법으로 비즈니스를 활용 합니�
 
 다음 표에서는 몇 가지 중요 한 내 앱 구성 및 사용할 수 있는 일반적인 값을 보여 줍니다.
 
-| 구성| 일반적인 값 |
+| Configuration| 일반적인 값 |
 | - | - |
 | 파일럿 그룹 결정| 사용할 Azure AD 보안 그룹을 식별 하 고 모든 파일럿 구성원이 그룹에 속해 있는지 확인 합니다. |
 | 프로덕션에 사용할 그룹을 결정 합니다.| 사용할 azure AD 보안 그룹 또는 Azure AD에 동기화 된 Active Directory 그룹을 식별 합니다. 모든 파일럿 구성원이 그룹의 일부 인지 확인 합니다. |
@@ -166,23 +166,23 @@ Microsoft는 [전자 메일에 대 한 사용자 지정 가능한 템플릿과](
 
 암호 기반 SSO 및 ADFS 대신 응용 프로그램에서 지원할 때 Azure AD (Openid connect Connect/SAML)에서 페더레이션된 SSO를 사용 합니다.
 
-SaaS 응용 프로그램을 배포 하 고 구성 하는 방법에 대 한 자세한 내용은 [SAAS SSO 배포 계획](https://aka.ms/deploymentplans/sso)을 참조 하세요.
+SaaS 응용 프로그램을 배포 하 고 구성 하는 방법에 대 한 자세한 내용은 [SAAS SSO 배포 계획](./plan-sso-deployment.md)을 참조 하세요.
 
 #### <a name="plan-to-deploy-the-my-apps-browser-extension"></a>My Apps 브라우저 확장 배포 계획
 
-사용자가 암호 기반 SSO 응용 프로그램에 로그인 하는 경우 내 앱 보안 로그인 확장을 설치 하 고 사용 해야 합니다. 확장은 응용 프로그램의 로그인 양식에 암호를 전송 하는 스크립트를 실행 합니다. 사용자가 암호 기반 SSO 응용 프로그램을 처음 시작할 때 확장을 설치 하 라는 메시지가 표시 됩니다. 확장에 대 한 자세한 내용은이 설명서에서 [내 앱 브라우저 확장 설치](access-panel-extension-problem-installing.md)에 나와 있습니다.
+사용자가 암호 기반 SSO 응용 프로그램에 로그인 하는 경우 내 앱 보안 로그인 확장을 설치 하 고 사용 해야 합니다. 확장은 응용 프로그램의 로그인 양식에 암호를 전송 하는 스크립트를 실행 합니다. 사용자가 암호 기반 SSO 응용 프로그램을 처음 시작할 때 확장을 설치 하 라는 메시지가 표시 됩니다. 확장에 대 한 자세한 내용은이 설명서에서 [내 앱 브라우저 확장 설치]()에 나와 있습니다.
 
-암호 기반 SSO 응용 프로그램을 통합 해야 하는 경우 [지원 되는 브라우저](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 해야 합니다. 다음 옵션을 사용할 수 있습니다.
+암호 기반 SSO 응용 프로그램을 통합 해야 하는 경우 [지원 되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 해야 합니다. 표시되는 옵션은 다음과 같습니다.
 
-* [Internet Explorer에 대 한 그룹 정책](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-* [Internet Explorer에 대 한 Configuration Manager](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-* [Chrome, Firefox, Microsoft Edge 또는 IE에 대 한 사용자 구동 다운로드 및 구성](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* [Internet Explorer에 대 한 그룹 정책]()
+* [Internet Explorer에 대 한 Configuration Manager](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Chrome, Firefox, Microsoft Edge 또는 IE에 대 한 사용자 구동 다운로드 및 구성](../user-help/my-apps-portal-end-user-access.md)
 
 암호 기반 SSO 응용 프로그램을 사용 하지 않는 사용자는 확장의 이점을 누릴 수 있습니다. 이러한 혜택에는 검색 표시줄에서 앱을 시작 하 고 최근에 사용한 응용 프로그램에 대 한 액세스를 찾고 내 앱 페이지에 대 한 링크를 포함 하는 기능이 포함 됩니다.
 
 #### <a name="plan-for-mobile-access"></a>모바일 액세스 계획
 
-모바일 사용자가 암호 기반 SSO 응용 프로그램을 시작 하려면 Intune 정책 (Microsoft Edge 또는 Intune Managed Browser)으로 보호 된 브라우저가 필요 합니다. 정책으로 보호 된 브라우저를 사용 하면 응용 프로그램에 대해 저장 된 암호를 전송할 수 있습니다. Microsoft Edge 또는 managed browser는 웹 데이터 보호 기능 집합을 제공 합니다. IOS 및 Android 장치에서 엔터프라이즈 시나리오용 Microsoft Edge를 사용할 수도 있습니다. Microsoft Edge는 Intune Managed Browser와 동일한 관리 시나리오를 지원 하 고 사용자 환경을 개선 합니다. 자세한 정보: [정책으로 보호 된 Microsoft Intune 브라우저를 사용 하 여 웹 액세스 관리](https://docs.microsoft.com/intune/app-configuration-managed-browser)
+모바일 사용자가 암호 기반 SSO 응용 프로그램을 시작 하려면 Intune 정책 (Microsoft Edge 또는 Intune Managed Browser)으로 보호 된 브라우저가 필요 합니다. 정책으로 보호 된 브라우저를 사용 하면 응용 프로그램에 대해 저장 된 암호를 전송할 수 있습니다. Microsoft Edge 또는 managed browser는 웹 데이터 보호 기능 집합을 제공 합니다. IOS 및 Android 장치에서 엔터프라이즈 시나리오용 Microsoft Edge를 사용할 수도 있습니다. Microsoft Edge는 Intune Managed Browser와 동일한 관리 시나리오를 지원 하 고 사용자 환경을 개선 합니다. 자세한 정보: [정책으로 보호 된 Microsoft Intune 브라우저를 사용 하 여 웹 액세스 관리](/intune/app-configuration-managed-browser)
 
 ## <a name="plan-your-my-apps-deployment"></a>내 앱 배포 계획
 
@@ -248,7 +248,7 @@ Azure AD는 30 일 동안 대부분의 감사 데이터를 유지 합니다. 분
 
 응용 프로그램이 SSO를 사용 하도록 구성 된 후에는 그룹에 액세스 권한이 할당 됩니다. 할당 된 그룹의 사용자는 액세스 권한을 갖게 되 고 내 앱 및 Microsoft 365 앱 시작 관리자에 응용 프로그램이 표시 됩니다.
 
-[Active Directory에서 응용 프로그램에 사용자 및 그룹 할당을](methods-for-assigning-users-and-groups.md)참조 하세요.
+[Active Directory에서 응용 프로그램에 사용자 및 그룹 할당을](./assign-user-or-group-access-portal.md)참조 하세요.
 
 테스트 또는 배포 중에 그룹을 추가 하려고 하지만 응용 프로그램이 내 앱에 표시 되는 것을 허용 하지 않는 경우 [Azure Active Directory의 사용자 환경에서 응용 프로그램 숨기기](hide-application-from-user-portal.md)를 참조 하세요.
 
@@ -294,7 +294,7 @@ Microsoft 365 응용 프로그램의 경우 사용자는 할당 된 라이선스
 
 ### <a name="rollback-steps"></a>롤백 단계
 
-배포가 계획대로 진행되지 않는 경우 수행할 작업을 계획하는 것이 중요합니다. 배포 하는 동안 SSO 구성이 실패할 경우 [sso 문제를 해결](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) 하 고 사용자에 대 한 영향을 줄이는 방법을 이해 해야 합니다. 극단적인 경우 [SSO를 롤백해야](../manage-apps/plan-sso-deployment.md#rollback-process)할 수 있습니다.
+배포가 계획대로 진행되지 않는 경우 수행할 작업을 계획하는 것이 중요합니다. 배포 하는 동안 SSO 구성이 실패할 경우 [sso 문제를 해결](../hybrid/tshoot-connect-sso.md) 하 고 사용자에 대 한 영향을 줄이는 방법을 이해 해야 합니다. 극단적인 경우 [SSO를 롤백해야](../manage-apps/plan-sso-deployment.md#rollback-process)할 수 있습니다.
 
 
 ## <a name="manage-your-implementation"></a>구현 관리
@@ -312,4 +312,4 @@ Microsoft 365 응용 프로그램의 경우 사용자는 할당 된 라이선스
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 를 사용 하 여 디렉터리 권한이 있는 사용자에 게 추가 감사, 제어 및 액세스 검토를 제공할 역할을 관리할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Multi-Factor Authentication 배포 계획](https://aka.ms/deploymentplans/mfa)
+[Azure Multi-Factor Authentication 배포 계획](../authentication/howto-mfa-getstarted.md)

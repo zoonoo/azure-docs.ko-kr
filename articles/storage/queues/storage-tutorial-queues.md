@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 23684dbbc5cb8c2d5fc4880ae8fe1999450928e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d661800c53cc0795efde1f411675d17661fb968
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400573"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345536"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>자습서: .NET에서 Azure 스토리지 큐 작업
 
@@ -47,9 +47,9 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 
 ## <a name="create-the-app"></a>앱 만들기
 
-**QueueApp**이라는 .NET Core 애플리케이션을 만듭니다. 간략한 설명을 위해, 이 앱에서는 큐를 통해 메시지를 보내고 받는 작업을 모두 처리하겠습니다.
+**QueueApp** 이라는 .NET Core 애플리케이션을 만듭니다. 간략한 설명을 위해, 이 앱에서는 큐를 통해 메시지를 보내고 받는 작업을 모두 처리하겠습니다.
 
-1. CMD, PowerShell 또는 Azure CLI 같은 콘솔 창에서 `dotnet new` 명령을 사용하여 **QueueApp**이라는 새 콘솔 앱을 만듭니다. 이 명령은 **Program.cs**라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다.
+1. CMD, PowerShell 또는 Azure CLI 같은 콘솔 창에서 `dotnet new` 명령을 사용하여 **QueueApp** 이라는 새 콘솔 앱을 만듭니다. 이 명령은 **Program.cs** 라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다.
 
    ```console
    dotnet new console -n QueueApp
@@ -94,6 +94,8 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 
    C:\Tutorials\QueueApp>_
    ```
+
+<!-- markdownlint-disable MD023 -->
 
 ## <a name="add-the-azure-client-libraries"></a>Azure 클라이언트 라이브러리 추가
 
@@ -140,7 +142,7 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 
 앱에서 클라우드 리소스를 사용하므로 코드가 비동기적으로 실행됩니다.
 
-1. 비동기 방식으로 실행되도록 **Main** 메서드를 업데이트합니다. **void**를 **비동기 작업** 반환 값으로 바꿉니다.
+1. 비동기 방식으로 실행되도록 **Main** 메서드를 업데이트합니다. **void** 를 **비동기 작업** 반환 값으로 바꿉니다.
 
    ```csharp
    static async Task Main(string[] args)
@@ -170,7 +172,7 @@ Azure API를 호출하기 전에 Azure Portal에서 자격 증명을 가져와�
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_DeclareConnectionString":::
 
-1. 다음 코드를 큐 개체를 만들도록 **Main**에 추가합니다. 이 개체는 나중에 send 및 receive 메서드에 전달됩니다.
+1. 다음 코드를 큐 개체를 만들도록 **Main** 에 추가합니다. 이 개체는 나중에 send 및 receive 메서드에 전달됩니다.
 
    # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -190,13 +192,13 @@ Azure API를 호출하기 전에 Azure Portal에서 자격 증명을 가져와�
 
    # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-   이 메서드는 큐 참조에 전달됩니다. 새 큐가 아직 없는 경우 [CreateIfNotExistsAsync](/dotnet/api/azure.storage.queues.queueclient.createifnotexistsasync)를 호출하여 새로 만들어집니다. 그런 다음, [SendMessageAsync](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync)를 호출하여 *newMessage*를 큐에 추가합니다.
+   이 메서드는 큐 참조에 전달됩니다. 새 큐가 아직 없는 경우 [CreateIfNotExistsAsync](/dotnet/api/azure.storage.queues.queueclient.createifnotexistsasync)를 호출하여 새로 만들어집니다. 그런 다음, [SendMessageAsync](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync)를 호출하여 *newMessage* 를 큐에 추가합니다.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_InsertMessage":::
 
    # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-   이 메서드는 큐 참조에 전달됩니다. 새 큐가 아직 없는 경우 [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync)를 호출하여 새로 만들어집니다. 그런 다음, [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync)를 호출하여 *newMessage*를 큐에 추가합니다.
+   이 메서드는 큐 참조에 전달됩니다. 새 큐가 아직 없는 경우 [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync)를 호출하여 새로 만들어집니다. 그런 다음, [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync)를 호출하여 *newMessage* 를 큐에 추가합니다.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_InsertMessage":::
 
@@ -222,7 +224,7 @@ Azure API를 호출하기 전에 Azure Portal에서 자격 증명을 가져와�
 
 큐에서 메시지를 검색하는 새 메서드를 만듭니다. 메시지가 성공적으로 수신되면 메시지가 여러 번 처리되지 않도록 큐에서 삭제해야 합니다.
 
-1. **RetrieveNextMessageAsync**라는 새 메서드를 **Program** 클래스에 추가합니다.
+1. **RetrieveNextMessageAsync** 라는 새 메서드를 **Program** 클래스에 추가합니다.
 
    # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -262,7 +264,7 @@ Azure API를 호출하기 전에 Azure Portal에서 자격 증명을 가져와�
 
 명령줄 인수가 없는 경우 검색 작업을 시도합니다. **RetrieveNextMessageAsync** 메서드를 호출하여 큐의 다음 메시지를 검색합니다.
 
-마지막으로, 사용자 입력을 기다렸다가 **Console.ReadLine**을 호출하여 종료합니다.
+마지막으로, 사용자 입력을 기다렸다가 **Console.ReadLine** 을 호출하여 종료합니다.
 
 1. 명령줄 인수를 확인하고 사용자 입력을 기다리도록 **Main** 메서드를 확장합니다.
 

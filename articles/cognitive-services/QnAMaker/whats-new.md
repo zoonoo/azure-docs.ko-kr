@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 73044f35b90fd3e5996899fd7c3b0a925056f8ed
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2016d6dfedef68c334758660e9affa0ad9b9d4a3
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87836879"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505243"
 ---
 # <a name="whats-new-in-qna-maker"></a>QnA Maker의 새로운 기능
 
@@ -23,6 +23,14 @@ ms.locfileid: "87836879"
 
 QnA Maker의 새로운 기능에 대해 알아봅니다.
 
+### <a name="november-2020"></a>2020년 11월
+
+* QnA Maker의 새 버전이 무료 공개 미리 보기로 출시되었습니다. 자세한 내용은 [여기](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575)를 읽어보세요.
+* 단순화된 리소스 만들기
+* 엔드투엔드 지역 지원
+* 심층 학습 순위 모델
+* 정확한 답변에 대한 기계 읽기 이해력
+  
 ### <a name="july-2020"></a>2020년 7월
 
 * [메타데이터: `OR` 여러 메타데이터 쌍의 논리적 조합](how-to/metadata-generateanswer-usage.md#logical-or-using-strictfilterscompoundoperationtype-property)

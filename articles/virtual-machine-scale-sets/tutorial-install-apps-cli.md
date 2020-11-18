@@ -9,12 +9,12 @@ ms.subservice: cli
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: f6eda8b3b60658425f4c30850f9f979cf31d32d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9969cf0fa453f857de421dd10934f63f5773f6c
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570154"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516750"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합에 애플리케이션 설치
 확장 집합의 VM(가상 머신) 인스턴스에서 애플리케이션을 실행하려면 먼저 애플리케이션 구성 요소 및 필요한 파일을 설치해야 합니다. 이전 자습서에서는 사용자 지정 VM 이미지를 만들고 사용하여 VM 인스턴스를 배포하는 방법을 알아보았습니다. 이 사용자 지정 이미지에는 수동 애플리케이션 설치 및 구성이 포함되어 있습니다. 또한 각 VM 인스턴스가 배포된 후에 확장 집합에 애플리케이션 설치를 자동화하거나 이미 확장 집합에서 실행되는 애플리케이션을 업데이트할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -24,11 +24,11 @@ ms.locfileid: "91570154"
 > * Azure 사용자 지정 스크립트 확장 사용
 > * 확장 집합에서 실행되는 애플리케이션 업데이트
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.29 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+- 이 문서에는 Azure CLI 버전 2.0.29 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다. 
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>Azure 사용자 지정 스크립트 확장이란?
@@ -42,7 +42,7 @@ Azure CLI를 통해 사용자 지정 스크립트 확장을 사용하려면 가�
 ## <a name="create-custom-script-extension-definition"></a>사용자 지정 스크립트 확장 정의 만들기
 작동 중인 사용자 지정 스크립트 확장을 확인하기 위해 NGINX 웹 서버를 설치하고 확장 집합 VM 인스턴스의 호스트 이름을 출력하는 확장 집합을 만들어 보겠습니다. 다음 사용자 지정 스크립트 확장 정의는 GitHub에서 샘플 스크립트를 다운로드하고, 필요한 패키지를 설치한 다음, VM 인스턴스 호스트 이름을 기본 HTML 페이지에 작성합니다.
 
-현재 셸에서 *customConfig.json*이라는 파일을 만들고 다음 구성을 붙여넣습니다. 예를 들어 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. 원하는 모든 편집기를 사용할 수 있습니다. Cloud Shell에서 `sensible-editor customConfig.json`을 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 확인합니다.
+현재 셸에서 *customConfig.json* 이라는 파일을 만들고 다음 구성을 붙여넣습니다. 예를 들어 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. 원하는 모든 편집기를 사용할 수 있습니다. Cloud Shell에서 `sensible-editor customConfig.json`을 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 확인합니다.
 
 ```json
 {
@@ -56,13 +56,13 @@ Azure CLI를 통해 사용자 지정 스크립트 확장을 사용하려면 가�
 
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
-[az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-이제 [az vmss create](/cli/azure/vmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합을 만들고, SSH 키가 없는 경우 이 키를 생성합니다.
+이제 [az vmss create](/cli/azure/vmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *myScaleSet* 이라는 확장 집합을 만들고, SSH 키가 없는 경우 이 키를 생성합니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -78,7 +78,7 @@ az vmss create \
 
 
 ## <a name="apply-the-custom-script-extension"></a>사용자 지정 스크립트 확장 적용
-[az vmss extension set](/cli/azure/vmss/extension)를 사용하여 사용자 지정 스크립트 확장 구성을 확장 집합의 VM 인스턴스에 적용합니다. 다음 예제에서는 *customConfig.json* 구성을 *myResourceGroup* 리소스 그룹의 *myScaleSet*라는 VM 인스턴스에 적용합니다.
+[az vmss extension set](/cli/azure/vmss/extension)를 사용하여 사용자 지정 스크립트 확장 구성을 확장 집합의 VM 인스턴스에 적용합니다. 다음 예제에서는 *customConfig.json* 구성을 *myResourceGroup* 리소스 그룹의 *myScaleSet* 라는 VM 인스턴스에 적용합니다.
 
 ```azurecli-interactive
 az vmss extension set \
@@ -94,7 +94,7 @@ az vmss extension set \
 
 
 ## <a name="test-your-scale-set"></a>확장 집합 테스트
-트래픽이 웹 서버에 도달하도록 허용하려면 [az network lb rule create](/cli/azure/network/lb/rule)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRuleWeb*이라는 규칙을 만듭니다.
+트래픽이 웹 서버에 도달하도록 허용하려면 [az network lb rule create](/cli/azure/network/lb/rule)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRuleWeb* 이라는 규칙을 만듭니다.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -108,7 +108,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-작업 중인 웹 서버를 보려면 [az network public-ip show](/cli/azure/network/public-ip)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 확장 집합의 일부로 만든 *myScaleSetLBPublicIP*의 IP 주소를 가져옵니다.
+작업 중인 웹 서버를 보려면 [az network public-ip show](/cli/azure/network/public-ip)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 확장 집합의 일부로 만든 *myScaleSetLBPublicIP* 의 IP 주소를 가져옵니다.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -126,9 +126,9 @@ az network public-ip show \
 
 
 ## <a name="update-app-deployment"></a>앱 배포 업데이트
-확장 집합의 수명 주기 전체에서 애플리케이션의 업데이트된 버전을 배포해야 할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 업데이트된 배포 스크립트를 참조한 다음, 해당 확장을 확장 집합에 다시 적용할 수 있습니다. 이전 단계에서 확장 집합을 만든 경우 `--upgrade-policy-mode`가 *automatic*으로 설정되어 있습니다. 이 설정을 사용하면 확장 집합의 VM 인스턴스에서 자동으로 업데이트하여 애플리케이션의 최신 버전을 적용할 수 있습니다.
+확장 집합의 수명 주기 전체에서 애플리케이션의 업데이트된 버전을 배포해야 할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 업데이트된 배포 스크립트를 참조한 다음, 해당 확장을 확장 집합에 다시 적용할 수 있습니다. 이전 단계에서 확장 집합을 만든 경우 `--upgrade-policy-mode`가 *automatic* 으로 설정되어 있습니다. 이 설정을 사용하면 확장 집합의 VM 인스턴스에서 자동으로 업데이트하여 애플리케이션의 최신 버전을 적용할 수 있습니다.
 
-현재 셸에서 *customConfigv2.json*이라는 파일을 만들고 다음 구성을 붙여넣습니다. 이 정의는 업데이트된 *v2* 버전의 애플리케이션 설치 스크립트를 실행합니다.
+현재 셸에서 *customConfigv2.json* 이라는 파일을 만들고 다음 구성을 붙여넣습니다. 이 정의는 업데이트된 *v2* 버전의 애플리케이션 설치 스크립트를 실행합니다.
 
 ```json
 {

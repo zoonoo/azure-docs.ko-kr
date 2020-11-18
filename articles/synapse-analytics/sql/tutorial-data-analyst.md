@@ -1,6 +1,6 @@
 ---
-title: '자습서: 주문형 SQL(미리 보기)을 사용하여 Azure Synapse Studio(미리 보기)에서 Azure Open Datasets 분석'
-description: 이 자습서에서는 SQL 주문형(미리 보기)을 사용하여 여러 Azure Open Datasets를 결합하여 예비 데이터 분석을 쉽게 수행하고 Azure Synapse Studio에서 결과를 시각화하는 방법을 보여줍니다.
+title: '자습서: 서버리스 SQL 풀(미리 보기)을 사용하여 Azure Synapse Studio(미리 보기)에서 Azure Open Datasets 분석'
+description: 이 자습서에서는 서버리스 SQL 풀(미리 보기)을 사용하여 여러 Azure Open Datasets를 결합하여 예비 데이터 분석을 쉽게 수행하고 Azure Synapse Studio에서 결과를 시각화하는 방법을 보여줍니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec16041edd10a57088df4ae9cfe0587906919eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539523"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309285"
 ---
-# <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>자습서: SQL 주문형을 사용하여 Azure Open Datasets를 분석하고 그 결과를 Azure Synapse Studio에서 시각화
+# <a name="tutorial-use-serverless-sql-pool-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>자습서: 서버리스 SQL 풀을 사용하여 Azure Open Datasets를 분석하고 그 결과를 Azure Synapse Studio에서 시각화
 
-이 자습서에서는 주문형 SQL을 사용하여 여러 Azure Open Datasets를 결합하여 예비 데이터 분석을 수행한 다음, 그 결과를 Azure Synapse Studio에서 시각화하는 방법을 알아봅니다.
+이 자습서에서는 서버리스 SQL 풀을 사용하여 여러 Azure Open Datasets를 결합하여 예비 데이터 분석을 수행한 다음, 그 결과를 Azure Synapse Studio에서 시각화하는 방법을 알아봅니다.
 
 특히 다음을 포함하는 [뉴욕시(NYC) 택시 데이터 세트](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)를 분석합니다.
 
@@ -102,7 +102,7 @@ ORDER BY 1 ASC
 
 ![연간 택시 승차 횟수 결과 조각](./media/tutorial-data-analyst/4.png)
 
-Synapse Studio에서 **테이블** 보기를 **차트** 보기로 전환하면 데이터를 시각화할 수 있습니다. 여러 차트 유형(예: **영역**, **막대형**, **세로 막대형**, **꺾은선형**, **원형** 및 **분산형**) 중에 선택할 수 있습니다. 이 경우 **Category** 열을 **current_year**로 설정하여 **세로 막대형** 차트를 그리겠습니다.
+Synapse Studio에서 **테이블** 보기를 **차트** 보기로 전환하면 데이터를 시각화할 수 있습니다. 여러 차트 유형(예: **영역**, **막대형**, **세로 막대형**, **꺾은선형**, **원형** 및 **분산형**) 중에 선택할 수 있습니다. 이 경우 **Category** 열을 **current_year** 로 설정하여 **세로 막대형** 차트를 그리겠습니다.
 
 ![연간 승차 횟수를 보여 주는 세로 막대형 차트](./media/tutorial-data-analyst/5.png)
 
@@ -131,7 +131,7 @@ ORDER BY 1 ASC
 
 ![2016년도 일일 탑승 횟수 결과 조각](./media/tutorial-data-analyst/6.png)
 
-다시, **Category** 열을 **current_day**로 설정하고 **Legend(series)** 열을 **rides_per_day**로 설정하여 **세로 막대형** 차트를 그려서 데이터를 쉽게 시각화할 수 있습니다.
+다시, **Category** 열을 **current_day** 로 설정하고 **Legend(series)** 열을 **rides_per_day** 로 설정하여 **세로 막대형** 차트를 그려서 데이터를 쉽게 시각화할 수 있습니다.
 
 ![2016년도 일일 탑승 횟수를 보여 주는 세로 막대형 차트](./media/tutorial-data-analyst/7.png)
 
@@ -174,7 +174,7 @@ ORDER BY current_day ASC
 
 ![NYC 택시 탑승 횟수 및 공휴일 데이터 세트 결과 시각화](./media/tutorial-data-analyst/8.png)
 
-이번에는 공휴일 중 택시 승차 횟수를 강조하려고 합니다. 이를 위해 **Category** 열에는 **none**을 선택하고 **Legend(series)** 열에는 **rides_per_day**와 **holiday**를 선택하겠습니다.
+이번에는 공휴일 중 택시 승차 횟수를 강조하려고 합니다. 이를 위해 **Category** 열에는 **none** 을 선택하고 **Legend(series)** 열에는 **rides_per_day** 와 **holiday** 를 선택하겠습니다.
 
 ![공휴일 택시 탑승 횟수 그림 차트](./media/tutorial-data-analyst/9.png)
 
@@ -213,9 +213,9 @@ WHERE countryorregion = 'US' AND CAST([datetime] AS DATE) = '2016-01-23' AND sta
 - 추웠습니다(섭씨 영하의 온도).
 - 바람이 불었습니다(초속 10m 이하).
 
-이 자습서에서는 데이터 분석가가 예비 데이터 분석을 신속하게 수행하고, 주문형 SQL을 사용하여 여러 데이터 세트를 쉽게 결합하고 Azure Synapse Studio를 사용하여 결과를 시각화하는 방법을 살펴보았습니다.
+이 자습서에서는 데이터 분석가가 예비 데이터 분석을 신속하게 수행하고, 서버리스 SQL 풀을 사용하여 여러 데이터 세트를 쉽게 결합하고, Azure Synapse Studio를 사용하여 결과를 시각화하는 방법을 살펴보았습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-주문형 SQL을 Power BI Desktop에 연결하고 보고서를 만드는 방법을 알아보려면 [주문형 SQL을 Power BI Desktop에 연결하고 보고서 만들기](tutorial-connect-power-bi-desktop.md)를 참조하세요.
+서버리스 SQL 풀을 Power BI Desktop에 연결하고 보고서를 만드는 방법을 알아보려면 [서버리스 SQL 풀을 Power BI Desktop에 연결하고 보고서 만들기](tutorial-connect-power-bi-desktop.md)를 참조하세요.
  

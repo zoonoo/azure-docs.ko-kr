@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 81a735966b2a0ebdd7c8fcd9e9aa467d68aac354
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2d041782e8df795acb120ba1357cec5ef204dc28
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792755"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656331"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
@@ -116,7 +116,7 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 | &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | 커넥터와 애플리케이션 프록시 클라우드 서비스 간의 통신 |
 | crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | 커넥터는 이러한 URL을 사용하여 인증서를 확인합니다. |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
-| ctldl.windowsupdate.com | 80/HTTP | 커넥터는 등록 과정에서이 URL을 사용 합니다. |
+| ctldl.windowsupdate.com | 80/HTTP | 커넥터는 등록 프로세스 동안 이 URL을 사용합니다. |
 
 방화벽이나 프록시에서 DNS 허용 목록을 허용하면 \*.msappproxy.net 및 \*.servicebus.windows.net에 대한 연결을 허용할 수 있습니다.
 
@@ -208,4 +208,4 @@ SYN 패킷은 TCP 연결을 설정하기 위해 전송된 첫 번째 패킷입�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)
-* 커넥터 연결 문제가 있는 경우 [Azure Active Directory 에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-active-directory.html)에서 질문하거나 지원 팀을 사용하여 티켓을 만드세요.
+* 커넥터 연결 문제가 있는 경우 [Azure Active Directory 에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-active-directory.html)에서 질문하거나 지원 팀을 사용하여 티켓을 만드세요.

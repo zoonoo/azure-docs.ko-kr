@@ -9,12 +9,12 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: b5f1d0712098e4fe331607860f6e0ed488d29c1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 394e735be5da65ffa75e10200589a4adb4e7cad2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848795"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313935"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>자습서: Azure Data Lake Storage Gen2, Azure Databricks 및 Spark
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * Azure Data Lake Storage Gen2 계정을 만듭니다.
 
-  [Azure Data Lake Storage Gen2 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조하세요.
+  [Data Lake Storage Gen2에서 사용할 스토리지 계정 만들기](create-data-lake-storage-account.md)를 참조하세요.
 
 * 사용자 계정에 [Storage Blob 데이터 기여자 역할](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)이 할당되었는지 확인합니다.
 
@@ -66,7 +66,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 섹션에서는 Azure Portal을 사용하여 Azure Databricks 서비스를 만듭니다.
 
-1. Azure Portal에서 **리소스 만들기** > **분석** > **Azure Databricks**를 차례로 선택합니다.
+1. Azure Portal에서 **리소스 만들기** > **분석** > **Azure Databricks** 를 차례로 선택합니다.
 
     ![Azure Portal의 Databricks](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Azure Portal의 Databricks")
 
@@ -77,20 +77,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     |**작업 영역 이름**     | Databricks 작업 영역에 대한 이름을 제공합니다.  |
     |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |
     |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요. |
-    |**위치**     | **미국 서부 2**를 선택합니다. 사용 가능한 다른 영역은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.       |
-    |**가격 책정 계층**     |  **표준**을 선택합니다.     |
+    |**위치**     | **미국 서부 2** 를 선택합니다. 사용 가능한 다른 영역은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.       |
+    |**가격 책정 계층**     |  **표준** 을 선택합니다.     |
 
     ![Azure Databricks 작업 영역 만들기](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Azure Databricks 서비스 만들기")
 
 3. 계정 생성에는 몇 분 정도가 소요됩니다. 작업 상태를 모니터링하려면 맨 위에 있는 진행률 표시줄을 확인합니다.
 
-4. **대시보드에 고정**을 선택한 다음, **만들기**를 선택합니다.
+4. **대시보드에 고정** 을 선택한 다음, **만들기** 를 선택합니다.
 
 ## <a name="create-a-spark-cluster-in-azure-databricks"></a>Azure Databricks에 Spark 클러스터 만들기
 
-1. Azure Portal에서 본인이 만든 Databricks 서비스로 이동한 다음, **작업 영역 시작**을 선택합니다.
+1. Azure Portal에서 본인이 만든 Databricks 서비스로 이동한 다음, **작업 영역 시작** 을 선택합니다.
 
-2. Azure Databricks 포털로 리디렉션됩니다. 포털에서 **클러스터**를 선택합니다.
+2. Azure Databricks 포털로 리디렉션됩니다. 포털에서 **클러스터** 를 선택합니다.
 
     ![Azure의 Databricks](./media/data-lake-storage-use-databricks-spark/databricks-on-azure.png "Azure의 Databricks")
 
@@ -104,7 +104,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
      
     - **Terminate after 120 minutes of inactivity**(비활성 120분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
 
-4. **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 Notebook을 클러스터에 연결하고 Spark 작업을 실행할 수 있습니다.
+4. **클러스터 만들기** 를 선택합니다. 클러스터가 실행되면 Notebook을 클러스터에 연결하고 Spark 작업을 실행할 수 있습니다.
 
 ## <a name="ingest-data"></a>데이터 수집
 
@@ -136,15 +136,15 @@ AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계�
 
 이 섹션에서는 스토리지 계정에 컨테이너와 폴더를 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 본인이 만든 Azure Databricks 서비스로 이동한 다음, **작업 영역 시작**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 본인이 만든 Azure Databricks 서비스로 이동한 다음, **작업 영역 시작** 을 선택합니다.
 
-2. 왼쪽 창에서 **작업 영역**을 선택합니다. **작업 영역** 드롭다운에서 **만들기** > **Notebook**을 차례로 선택합니다.
+2. 왼쪽 창에서 **작업 영역** 을 선택합니다. **작업 영역** 드롭다운에서 **만들기** > **Notebook** 을 차례로 선택합니다.
 
     ![Databricks에서 Notebook 만들기](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Databricks에서 Notebook 만들기")
 
-3. **노트북 만들기** 대화 상자에서 노트북 이름을 입력합니다. 언어로 **Python**을 선택한 다음, 앞에서 만든 Spark 클러스터를 선택합니다.
+3. **노트북 만들기** 대화 상자에서 노트북 이름을 입력합니다. 언어로 **Python** 을 선택한 다음, 앞에서 만든 Spark 클러스터를 선택합니다.
 
-4. **만들기**를 선택합니다.
+4. **만들기** 를 선택합니다.
 
 5. 다음 코드 블록을 복사하여 첫 번째 셀에 붙여넣습니다. 하지만 이 코드를 아직 실행하지 마십시오.
 
@@ -206,7 +206,7 @@ dbutils.fs.ls("/mnt/flightdata/parquet/flights")
 
 ## <a name="query-the-data"></a>데이터 쿼리
 
-다음으로, 스토리지 계정에 업로드한 데이터를 쿼리할 수 있습니다. 다음 코드 블록을 각각 **Cmd 1**에 입력하고, **Cmd+Enter**를 눌러 Python 스크립트를 실행합니다.
+다음으로, 스토리지 계정에 업로드한 데이터를 쿼리할 수 있습니다. 다음 코드 블록을 각각 **Cmd 1** 에 입력하고, **Cmd+Enter** 를 눌러 Python 스크립트를 실행합니다.
 
 데이터 원본에 대한 데이터 프레임을 만들려면 다음 스크립트를 실행합니다.
 
@@ -273,7 +273,7 @@ print('Airlines that fly to/from Texas: ', out1.show(100, False))
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 리소스 그룹 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 스토리지 계정에 대한 리소스 그룹을 선택하고 **삭제**를 선택합니다.
+더 이상 필요하지 않으면 리소스 그룹 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 스토리지 계정에 대한 리소스 그룹을 선택하고 **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

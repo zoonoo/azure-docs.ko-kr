@@ -1,19 +1,19 @@
 ---
-title: IoT 플러그 앤 플레이 샘플 Node.js 구성 요소 디바이스 코드를 IoT Hub에 연결 | Microsoft Docs
-description: 여러 구성 요소를 사용하고 IoT 허브에 연결하는 IoT 플러그 앤 플레이 샘플 Node.js 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
+title: 자습서 - IoT 플러그 앤 플레이 샘플 Node.js 구성 요소 디바이스 코드를 Azure IoT Hub에 연결 | Microsoft Docs
+description: 자습서 - 여러 구성 요소를 사용하고 IoT 허브에 연결하는 IoT 플러그 앤 플레이 샘플 Node.js 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
 author: olivakar
 ms.author: olkar
 ms.date: 07/10/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 2f0bf3b4b6e7091222b98e1743f0fb4f431fdd12
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: devx-track-js
+ms.openlocfilehash: 70fa10f5319de072ee8ea7dad4e73c58d4bdeede
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736049"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421427"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-nodejs"></a>자습서: 샘플 IoT 플러그 앤 플레이 여러 구성 요소 디바이스 애플리케이션을 IoT Hub에 연결(Node.js)
 

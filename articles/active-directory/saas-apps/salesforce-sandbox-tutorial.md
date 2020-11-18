@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: bc27b1fea97471e9ca1991467902e666c1451605
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 12a282b1f53dde570f5f6647a45df82808b20350
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675555"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080824"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce-sandbox"></a>자습서: Salesforce Sandbox와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -117,7 +117,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -149,35 +149,35 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 페이지의 오른쪽 위 모서리에 있는 **설정 아이콘** 아래에서 **설정** 을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![오른쪽 상단에서 선택한 "설정" 아이콘과 드롭다운에서 선택한 "설정"을 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/configure1.png)
 
 3. 왼쪽 탐색 창에서 **설정** 으로 스크롤하고 **ID** 를 클릭하여 관련 섹션을 확장합니다. 그런 다음 **Single Sign-On 설정** 을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    !["ID" 메뉴에서 "Single Sign-On 설정"이 선택된 상태에서 왼쪽 창에 "설정" 메뉴를 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
 4. **Single Sign-on 설정** 페이지에서 **편집** 단추를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/configure3.png)
+    !["편집" 단추가 선택된 "Single Sign-On 설정" 페이지를 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/configure3.png)
 
 5. **SAML 사용** 을 선택한 다음 **저장** 을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    !["SAML 사용" 확인란이 선택되고 "저장" 단추가 선택된 "Single Sign-On 설정" 페이지를 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 6. SAML Single Sign-On 설정을 구성하려면 **메타데이터 파일에서 새로 만들기** 를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    !["메타데이터 파일에서 새로 만들기" 단추가 선택된 "Single Sign-On 설정" 페이지를 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
 7. **파일 선택** 을 클릭하여 Azure Portal에서 다운로드한 메타데이터 XML 파일을 업로드하고 **만들기** 를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    !["파일 선택" 및 "만들기" 단추가 선택된 "Single Sign-On 설정" 페이지를 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
 8. **SAML Single Sign-On 설정** 페이지에서 필드에 내용이 자동으로 입력되면 저장을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/salesforcexml.png)
+    ![필드가 채워지고 "저장" 단추가 선택된 "Single Sign-On 설정" 페이지를 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
 9. **Single Sign On 설정** 페이지에서 **메타데이터 다운로드** 단추를 클릭하여 서비스 공급자 메타데이터 파일을 다운로드합니다. 위에서 설명한 대로 필요한 URL을 구성하는 데 Azure Portal **의 기본 SAML 구성** 섹션에서 이 파일을 사용합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/configure4.png)
+    !["메타데이터 다운로드" 단추가 선택된 "Single Sign-On 설정" 페이지를 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/configure4.png)
 
 10. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 조건을 충족해야 합니다.
 
@@ -202,31 +202,31 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 13. 페이지의 오른쪽 위 모서리에 있는 **설정 아이콘** 아래에서 **설정** 을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![오른쪽 상단에서 선택한 "설정" 아이콘과 드롭다운 메뉴에서 선택한 "설정"을 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/configure1.png)
 
 14. 왼쪽 탐색 창에서 **설정** 으로 스크롤하고 **ID** 를 클릭하여 관련 섹션을 확장합니다. 그런 다음 **Single Sign-On 설정** 을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    !["ID" 메뉴에서 "Single Sign-On 설정"이 선택된 상태에서 왼쪽 탐색 창에 "설정" 메뉴를 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
 15. **Single Sign-on 설정** 페이지에서 **편집** 단추를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/configure3.png)
+    !["편집" 단추가 선택된 "Single Sign-On 설정" 페이지를 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/configure3.png)
 
 16. **SAML 사용** 을 선택한 다음 **저장** 을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![확인된 "SAML 사용" 상자가 선택되고 "저장" 단추가 선택된 "Single Sign-On 설정" 페이지를 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 17. SAML Single Sign-On 설정을 구성하려면 **메타데이터 파일에서 새로 만들기** 를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    !["Single Sign-On 설정" 페이지 및 선택된 "메타데이터 파일에서 새로 만들기" 단추를 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
 18. **파일 선택** 을 클릭하여 메타데이터 XML 파일을 업로드하고 **만들기** 를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    !["파일 선택" 단추 및 "만들기" 단추가 선택된 "Single Sign-On 설정" 페이지를 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-19. **SAML Single Sign-On 설정** 페이지에서 필드가 자동으로 채워지면 구성의 이름(예: *SPSSOWAAD_Test* )을 **이름** 텍스트 상자에 입력하고 저장을 클릭합니다.
+19. **SAML Single Sign-On 설정** 페이지에서 필드가 자동으로 채워지면 구성의 이름(예: *SPSSOWAAD_Test*)을 **이름** 텍스트 상자에 입력하고 저장을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
+    ![필드가 채워진 "Single Sign-On 설정" 페이지, "이름" 텍스트 상자의 예제 이름 및 선택된 "저장" 단추를 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
 20. Salesforce Sandbox에서 도메인을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
@@ -235,11 +235,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 21. Salesforce Sandbox의 왼쪽 탐색 패널에서 **회사 설정** 을 클릭하여 관련 섹션을 확장하고 **내 도메인** 을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
+    ![왼쪽 탐색 창에서 선택한 "회사 설정" 및 "내 도메인"을 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
 
 22. **인증 구성** 섹션에서 **편집** 을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
+    !["편집" 단추가 선택된 "인증 구성" 섹션을 보여주는 스크린샷.](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
 23. **인증 구성** 섹션에서 **인증 서비스** 로 Salesforce Sandbox의 SSO 구성 동안 설정한 SAML Single Sign-on 설정의 이름을 선택한 후 **저장** 을 클릭합니다.
 

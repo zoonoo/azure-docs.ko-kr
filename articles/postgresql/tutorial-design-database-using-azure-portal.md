@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 7af3386a618fdcc58facb1d67c26692312d30a89
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 179d4124e28abfffa83b16cfdb418d8e860192d8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535776"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337135"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for PostgreSQL - 단일 서버 디자인
 
@@ -54,11 +54,11 @@ Azure Database for PostgreSQL 서버는 정의된 [컴퓨팅 및 스토리지 �
     Resource group|*myresourcegroup*| 새 리소스 그룹 이름 또는 구독의 기존 이름입니다.
     서버 이름 |*mydemoserver*|PostgreSQL 서버용 Azure Database를 식별하는 고유한 이름입니다. 사용자가 제공한 서버 이름에 *postgres.database.azure.com* 도메인 이름이 추가됩니다. 서버는 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-63자 이상이어야 합니다.
     데이터 원본 | *없음* | 새 서버를 처음부터 만들려면 *없음* 을 선택합니다. (기존 Azure Database for PostgreSQL 서버의 지역 백업에서 서버를 만든 경우 *백업* 을 선택합니다).
-    관리자 사용자 이름 |*myadmin*| 서버에 연결할 경우 사용할 사용자 고유의 로그인 계정입니다. 관리자 로그인 이름은 **azure_superuser** , **azure_pg_admin** , **admin** , **administrator** , **root** , **guest** 또는 **public** 이 될 수 없습니다. **pg_** 로 시작할 수 없습니다.
+    관리자 사용자 이름 |*myadmin*| 서버에 연결할 경우 사용할 사용자 고유의 로그인 계정입니다. 관리자 로그인 이름은 **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** 또는 **public** 이 될 수 없습니다. **pg_** 로 시작할 수 없습니다.
     암호 |사용자 암호| 서버 관리자 계정의 새 암호입니다. 8-128자여야 합니다. 사용자 암호는 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등).
     위치|사용자와 가장 가까운 지역| 사용자에게 가장 가까운 위치입니다.
     버전|최신 주 버전| 다른 특정 요구 사항이 없는 한 최신 PostgreSQL 주 버전입니다.
-    컴퓨팅 + 스토리지 | **범용** , **5세대** , **vCore 2개** , **5GB** , **7일** , **지역 중복** | 새 서버에 대한 컴퓨팅, 스토리지 및 백업 구성입니다. **서버 구성** 을 선택합니다. 그런 다음, **범용** 탭을 선택합니다. *5세대* , *vCore 4개* , *100GB* 및 *7일* 은 **세대 컴퓨팅** , **vCore** , **스토리지** 및 **백업 보존 기간** 에 대한 기본 값입니다. 해당 슬라이더를 그대로 두거나 조정할 수 있습니다. 지역 중복 스토리지에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션** 에서 **지역 중복** 을 선택합니다. 이 가격 책정 계층 선택을 저장하려면 **확인** 을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
+    컴퓨팅 + 스토리지 | **범용**, **5세대**, **vCore 2개**, **5GB**, **7일**, **지역 중복** | 새 서버에 대한 컴퓨팅, 스토리지 및 백업 구성입니다. **서버 구성** 을 선택합니다. 그런 다음, **범용** 탭을 선택합니다. *5세대*, *vCore 4개*, *100GB* 및 *7일* 은 **세대 컴퓨팅**, **vCore**, **스토리지** 및 **백업 보존 기간** 에 대한 기본 값입니다. 해당 슬라이더를 그대로 두거나 조정할 수 있습니다. 지역 중복 스토리지에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션** 에서 **지역 중복** 을 선택합니다. 이 가격 책정 계층 선택을 저장하려면 **확인** 을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
 
    > [!NOTE]
    > 워크로드에 가벼운 컴퓨팅 및 I/O가 적합한 경우 기본 가격 책정 계층을 고려합니다. 기본 가격 책정 계층에서 만든 서버는 나중에 범용으로 또는 메모리 최적화되도록 확장할 수 없습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요.
@@ -196,21 +196,26 @@ SELECT * FROM inventory;
 
    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png" alt-text="Azure Portal - 복원 양식 옵션":::
 
-   - **복원 지점** : 서버를 변경하기 전 발생한 특정 시점을 선택합니다.
-   - **대상 서버** : 복원해 두려는 새 서버의 이름을 제공합니다.
-   - **위치** : 지역은 선택할 수 없으며, 기본적으로 원본 서버와 동일합니다.
-   - **가격 책정 계층** : 이 값은 서버를 복원할 때 변경할 수 없습니다. 원본 서버와 동일합니다. 
+   - **복원 지점**: 서버를 변경하기 전 발생한 특정 시점을 선택합니다.
+   - **대상 서버**: 복원해 두려는 새 서버의 이름을 제공합니다.
+   - **위치**: 지역은 선택할 수 없으며, 기본적으로 원본 서버와 동일합니다.
+   - **가격 책정 계층**: 이 값은 서버를 복원할 때 변경할 수 없습니다. 원본 서버와 동일합니다. 
 3. **확인** 을 클릭하여 테이블이 삭제되기 전의 [특정 시점으로 서버를 복원](./howto-restore-server-portal.md)합니다. 서버를 다른 특정 시점으로 복원할 때 [가격 책정 계층](./concepts-pricing-tiers.md)에 대한 보존 기간 내에 있으면, 중복된 새 서버가 지정한 특정 시점의 원본 서버로 만들어집니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이전 단계에서 리소스 그룹에 Azure 리소스를 만들었습니다. 이러한 리소스가 더 이상 필요 없으면 서버 그룹을 삭제합니다. 서버 그룹의 *개요* 페이지에서 *삭제* 단추를 누릅니다. 팝업 페이지에 메시지가 표시되면 서버 그룹의 이름을 확인하고 최종 *삭제* 단추를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure Portal 및 기타 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아보았습니다.
 > [!div class="checklist"]
 > * PostgreSQL용 Azure Database 서버 만들기
 > * 서버 방화벽 구성
-> * [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) 유틸리티를 사용하여 데이터베이스 만들기
+> * **psql** 유틸리티를 사용하여 데이터베이스 만들기
 > * 샘플 데이터 로드
 > * 쿼리 데이터
 > * 데이터 업데이트
 > * 데이터 복원
 
-다음으로, Azure CLI를 사용하여 유사한 작업을 수행하는 방법을 알아보려면 이 자습서를 검토합니다. [Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL 디자인](tutorial-design-database-using-azure-cli.md)
+> [!div class="nextstepaction"]
+>[Azure CLI를 사용하여 Azure Database for PostgreSQL을 디자인합니다](tutorial-design-database-using-azure-cli.md)

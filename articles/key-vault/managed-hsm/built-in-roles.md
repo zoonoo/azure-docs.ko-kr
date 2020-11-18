@@ -8,16 +8,16 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 6b39c1d6fe2e84055e7c94dde076514d04a24f36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5ecd8f13a3255a565168f62f358a6a38e3cbab4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992441"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445220"
 ---
 # <a name="managed-hsm-local-rbac-built-in-roles"></a>관리형 HSM 로컬 RBAC 기본 제공 역할
 
-관리형 HSM 로컬 RBAC에는 사용자, 서비스 주체, 그룹 및 관리 ID에 할당할 수 있는 몇 가지 기본 제공 역할이 있습니다. 보안 주체가 작업을 수행할 수 있도록 하려면 해당 작업을 수행할 수 있는 권한을 부여하는 역할을 할당해야 합니다. 이러한 모든 역할 및 작업을 통해 데이터 평면 작업에 대한 권한만 관리할 수 있습니다. 관리형 HSM 리소스에 대한 컨트롤 플레인 권한을 관리하려면(예: 새 관리형 HSM 생성 또는 기존 관리형 HSM 업데이트, 이동, 삭제) [Azure RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 사용해야 합니다.
+관리형 HSM 로컬 RBAC에는 사용자, 서비스 주체, 그룹 및 관리 ID에 할당할 수 있는 몇 가지 기본 제공 역할이 있습니다. 보안 주체가 작업을 수행할 수 있도록 하려면 해당 작업을 수행할 수 있는 권한을 부여하는 역할을 할당해야 합니다. 이러한 모든 역할 및 작업을 통해 데이터 평면 작업에 대한 권한만 관리할 수 있습니다. 관리형 HSM 리소스에 대한 컨트롤 플레인 권한을 관리하려면(예: 새 관리형 HSM 생성 또는 기존 관리형 HSM 업데이트, 이동, 삭제) [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 사용해야 합니다.
 
 ## <a name="built-in-roles"></a>기본 제공 역할
 
@@ -77,5 +77,5 @@ ms.locfileid: "90992441"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 개요를 참조하세요.
+- [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 개요를 참조하세요.
 - [관리형 HSM 역할 관리](role-management.md)에 대한 자습서를 참조하세요.

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 1840bf93cbca73e593465c999b416e7cbd7af201
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 730141d22b318d79c8c2b7d995b98ee1c311aaf5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89536315"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491276"
 ---
 # <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
 
@@ -22,7 +22,7 @@ ms.locfileid: "89536315"
 
 빅 데이터 세계에서 구성되지 않은 원시 데이터는 흔히 관계형, 비관계형 및 기타 스토리지 시스템에 저장됩니다. 그러나 원시 데이터 자체는 분석자, 데이터 과학자 또는 비즈니스 의사 결정자에게 의미 있는 통찰력을 제공하는 적절한 컨텍스트나 의미를 가지고 있지 않습니다. 
 
-빅 데이터는 이처럼 수많은 원시 데이터 저장소를 조치 가능한 비즈니스 통찰력으로 구체화하도록 프로세스를 조율하고 운영할 수 있는 서비스가 필요합니다. Azure Data Factory는 이처럼 복잡한 하이브리드 ETL(추출-변환-로드), ELT(추출-로드-변환) 및 데이터 통합 프로젝트를 위해 만들어진 관리되는 클라우드 서비스입니다.
+빅 데이터는 이처럼 수많은 원시 데이터 저장소를 조치 가능한 비즈니스 인사이트로 구체화하도록 프로세스를 조율하고 운영할 수 있는 서비스가 필요합니다. Azure Data Factory는 이처럼 복잡한 하이브리드 ETL(추출-변환-로드), ELT(추출-로드-변환) 및 데이터 통합 프로젝트를 위해 만들어진 관리되는 클라우드 서비스입니다.
 
 예를 들어, 클라우드의 게임에서 생성되는 페타바이트의 게임 로그를 수집하는 게임 회사를 생각해 보겠습니다. 회사에서는 이러한 로그를 분석하여 고객 선호, 인구 통계 및 사용량 동작에 대한 인사이트를 얻으려고 합니다. 또한 상향 판매 및 교차 판매 기회를 식별하고, 매력적인 새로운 기능을 개발하고, 비즈니스 성장을 이끌고 고객에게 더 나은 환경을 제공하려고 합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "89536315"
 
 인사이트를 추출하기 위해 클라우드의 Spark 클러스터를 사용하여 조인한 데이터를 처리하고(Azure HDInsight), 변환된 데이터를 Azure ynapse Analytics(이전의 SQL Data Warehouse)와 같은 클라우드 데이터 웨어하우스에 게시하여 이 데이터를 바탕으로 보고서를 쉽게 작성하려고 합니다. 이 워크플로를 자동화하고 일일 일정으로 모니터링 및 관리하려고 합니다. 또한 파일이 Blob 저장소 컨테이너에 배치될 때 실행하려고 합니다.
 
-Azure Data Factory는 그러한 데이터 시나리오를 해결하는 플랫폼입니다. 이는 *데이터 이동을 오케스트레이션하고 데이터를 규모에 맞게 변환하는 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 ETL 및 데이터 통합 서비스*입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소의 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 예약할 수 있습니다. 데이터 흐름을 사용하거나 컴퓨팅 서비스(예: Azure HDInsight Hadoop, Azure Databricks 및 Azure SQL Database)를 사용하여 데이터를 시각적으로 변환하는 복잡한 ETL 프로세스를 작성할 수 있습니다. 
+Azure Data Factory는 그러한 데이터 시나리오를 해결하는 플랫폼입니다. 이는 *데이터 이동을 오케스트레이션하고 데이터를 규모에 맞게 변환하는 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 ETL 및 데이터 통합 서비스* 입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소의 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 예약할 수 있습니다. 데이터 흐름을 사용하거나 컴퓨팅 서비스(예: Azure HDInsight Hadoop, Azure Databricks 및 Azure SQL Database)를 사용하여 데이터를 시각적으로 변환하는 복잡한 ETL 프로세스를 작성할 수 있습니다. 
 
 또한 변환된 데이터를 BI(비즈니스 인텔리전스) 애플리케이션용 Azure Synapse Analytics와 같은 데이터 저장소에 게시하여 사용할 수 있습니다. 궁극적으로, Azure Data Factory를 통해 원시 데이터를 더 나은 비즈니스 결정에 의미 있는 데이터 저장소 및 데이터 레이크로 구성할 수 있습니다.
 
@@ -91,9 +91,9 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 데�
 
 연결된 서비스는 데이터 팩터리 내에서 두 가지 용도로 사용됩니다.
 
-- SQL Server 데이터베이스, Oracle 데이터베이스, 파일 공유 또는 Azure Blob 스토리지 계정을 포함하지만 여기에 국한되지 않는 **데이터 저장소**를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록은 [복사 작업](copy-activity-overview.md) 문서를 참조하세요.
+- SQL Server 데이터베이스, Oracle 데이터베이스, 파일 공유 또는 Azure Blob 스토리지 계정을 포함하지만 여기에 국한되지 않는 **데이터 저장소** 를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록은 [복사 작업](copy-activity-overview.md) 문서를 참조하세요.
 
-- 활동의 실행을 호스팅할 수 있는 **컴퓨팅 리소스**를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 변환 작업 및 지원되는 컴퓨팅 환경 목록은 [데이터 변환](transform-data.md) 문서를 참조하세요.
+- 활동의 실행을 호스팅할 수 있는 **컴퓨팅 리소스** 를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 변환 작업 및 지원되는 컴퓨팅 환경 목록은 [데이터 변환](transform-data.md) 문서를 참조하세요.
 
 ### <a name="triggers"></a>트리거
 트리거는 파이프라인 실행을 시작해야 하는 시기를 결정하는 처리 단위를 나타냅니다. 다양한 유형의 이벤트에 대한 다른 종류의 트리거가 있습니다.

@@ -1,18 +1,18 @@
 ---
-title: IoT 플러그 앤 플레이 샘플 C 디바이스 코드를 IoT Hub에 연결 | Microsoft Docs
-description: 여러 구성 요소를 사용하고 IoT 허브에 연결하는 IoT 플러그 앤 플레이 샘플 C 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
+title: 자습서 - IoT 플러그 앤 플레이 샘플 C 디바이스 코드를 Azure IoT Hub에 연결 | Microsoft Docs
+description: 자습서 - 여러 구성 요소를 사용하고 IoT 허브에 연결하는 IoT 플러그 앤 플레이 샘플 C 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: e1a2a45d0f5743874ce0c0b20190d7d396094e43
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0bf0e45f6e9b088567dd48d3eb12ae979ba679e4
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046386"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421484"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-applications-running-on-linux-or-windows-to-iot-hub-c"></a>자습서: Linux 또는 Windows에서 실행되는 IoT 플러그 앤 플레이 다중 구성 요소 디바이스 애플리케이션을 IoT Hub에 연결(C)
 
@@ -41,7 +41,7 @@ sudo apt-get update
 sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
 ```
 
-`cmake` 버전이 **2.8.12**보다 크고, **GCC** 버전이 **4.4.7**보다 큰지 확인합니다.
+`cmake` 버전이 **2.8.12** 보다 크고, **GCC** 버전이 **4.4.7** 보다 큰지 확인합니다.
 
 ```sh
 cmake --version
@@ -79,8 +79,8 @@ Visual Studio를 사용하거나 명령줄에서 `cmake`를 사용하여 코드�
 ### <a name="use-visual-studio"></a>Visual Studio 사용
 
 1. 복제된 리포지토리의 루트 폴더를 엽니다. 몇 초 후에 Visual Studio에서 **CMake** 지원은 프로젝트를 실행하고 디버그하는 데 필요한 모든 작업을 만듭니다.
-1. Visual Studio가 준비되면 **솔루션 탐색기**에서 *iothub_client/samples/pnp/pnp_temperature_controller/* 샘플로 이동합니다.
-1. *pnp_temperature_controller.c* 파일을 마우스 오른쪽 단추로 클릭하고 **디버그 구성 추가**를 선택합니다. **기본값**을 선택합니다.
+1. Visual Studio가 준비되면 **솔루션 탐색기** 에서 *iothub_client/samples/pnp/pnp_temperature_controller/* 샘플로 이동합니다.
+1. *pnp_temperature_controller.c* 파일을 마우스 오른쪽 단추로 클릭하고 **디버그 구성 추가** 를 선택합니다. **기본값** 을 선택합니다.
 1. Visual Studio에서 *launch.vs.json* 파일을 엽니다. 필요한 환경 변수를 설정하려면 다음 코드 조각에 나와 있는 것처럼 이 파일을 편집합니다. [IoT 플러그 앤 플레이 빠른 시작 및 자습서에 대한 환경 설정](set-up-environment.md)을 완료할 때 범위 ID 및 등록 기본 키를 적어 두었습니다.
 
     ```json
@@ -104,7 +104,7 @@ Visual Studio를 사용하거나 명령줄에서 `cmake`를 사용하여 코드�
     }
     ```
 
-1. *pnp_temperature_controller.c* 파일을 마우스 오른쪽 단추로 클릭하고 **시작 항목으로 설정**을 선택합니다.
+1. *pnp_temperature_controller.c* 파일을 마우스 오른쪽 단추로 클릭하고 **시작 항목으로 설정** 을 선택합니다.
 1. Visual Studio에서 코드 실행을 추적하려면 *pnp_temperature_controller.c* 파일의 `main` 함수에 중단점을 추가합니다.
 1. 이제 **디버그** 메뉴에서 샘플을 실행하고 디버그할 수 있습니다.
 
@@ -165,7 +165,7 @@ Visual Studio를 사용하거나 명령줄에서 `cmake`를 사용하여 코드�
 
 이 샘플의 경우 코드는 */common* 폴더의 일부 도우미 함수를 사용합니다.
 
-*pnp_device_client_ll*에는 매개 변수로 포함된 `model-id`를 사용하여 IoT 플러그 앤 플레이에 대한 connect 메서드가 포함되어 있습니다. `PnP_CreateDeviceClientLLHandle`
+*pnp_device_client_ll* 에는 매개 변수로 포함된 `model-id`를 사용하여 IoT 플러그 앤 플레이에 대한 connect 메서드가 포함되어 있습니다. `PnP_CreateDeviceClientLLHandle`
 
 *pnp_protocol*: IoT 플러그 앤 플레이 도우미 함수를 포함합니다.
 
@@ -227,13 +227,13 @@ g_pnpDeviceConfiguration.modelId = g_temperatureControllerModelId;
 deviceClient = PnP_CreateDeviceClientLLHandle(&g_pnpDeviceConfiguration);
 ```
 
-`&g_pnpDeviceConfiguration`에는 연결 정보도 포함되어 있습니다. 환경 변수 **IOTHUB_DEVICE_SECURITY_TYPE**은 샘플에서 연결 문자열 또는 디바이스 프로비저닝 서비스를 사용하여 IoT 허브에 연결하는지 여부를 결정합니다.
+`&g_pnpDeviceConfiguration`에는 연결 정보도 포함되어 있습니다. 환경 변수 **IOTHUB_DEVICE_SECURITY_TYPE** 은 샘플에서 연결 문자열 또는 디바이스 프로비저닝 서비스를 사용하여 IoT 허브에 연결하는지 여부를 결정합니다.
 
 디바이스에서 모델 ID를 보내면 해당 디바이스는 IoT 플러그 앤 플레이 디바이스가 됩니다.
 
 콜백 처리기가 준비되면 디바이스는 쌍 업데이트 및 직접 메서드 호출에 반응합니다.
 
-* 디바이스 쌍 콜백의 경우 `PnP_TempControlComponent_DeviceTwinCallback`은 `PnP_ProcessTwinData` 함수를 호출하여 데이터를 처리합니다. `PnP_ProcessTwinData`는 *방문자 패턴*을 사용하여 JSON을 구문 분석한 다음, 각 요소에 대해 `PnP_TempControlComponent_ApplicationPropertyCallback`을 호출하여 각 속성을 방문합니다.
+* 디바이스 쌍 콜백의 경우 `PnP_TempControlComponent_DeviceTwinCallback`은 `PnP_ProcessTwinData` 함수를 호출하여 데이터를 처리합니다. `PnP_ProcessTwinData`는 *방문자 패턴* 을 사용하여 JSON을 구문 분석한 다음, 각 요소에 대해 `PnP_TempControlComponent_ApplicationPropertyCallback`을 호출하여 각 속성을 방문합니다.
 
 * 명령 콜백의 경우 `PnP_TempControlComponent_DeviceMethodCallback` 함수는 도우미 함수를 사용하여 명령 및 구성 요소 이름을 구문 분석합니다.
 

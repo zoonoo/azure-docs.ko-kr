@@ -1,6 +1,6 @@
 ---
-title: Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용(Java) | Microsoft Docs
-description: Java를 사용하여 Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 상호 작용합니다.
+title: 빠른 시작 - Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용(Java) | Microsoft Docs
+description: 빠른 시작 - Java를 사용하여 Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 상호 작용합니다.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/17/2020
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: ce41e6b502aef1c44cf96f3b4a5efe401fba3173
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7229eedc82dfa7b76ae4a22d095f20c41f102e16
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046488"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421535"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-java"></a>빠른 시작: 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용(Java)
 
@@ -27,7 +27,7 @@ IoT 플러그 앤 플레이를 사용하면 기본 디바이스 구현에 대한
 
 Windows에서 이 빠른 시작을 완료하려면 로컬 Windows 환경에 다음 소프트웨어를 설치합니다.
 
-* Java SE Development Kit 8. [Azure 및 Azure Stack에 대한 Java 장기 지원](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)의 **장기 지원** 에서 **Java 8**을 선택합니다.
+* Java SE Development Kit 8. [Azure 및 Azure Stack에 대한 Java 장기 지원](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)의 **장기 지원** 에서 **Java 8** 을 선택합니다.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ### <a name="clone-the-sdk-repository-with-the-sample-code"></a>샘플 코드를 사용하여 SDK 리포지토리 복제
@@ -76,7 +76,7 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 이 빠른 시작에서는 Java로 작성된 샘플 IoT 솔루션을 사용하여 방금 설정한 샘플 디바이스와 상호 작용합니다.
 
 > [!NOTE]
-> 이 샘플에서는 **IoT Hub 서비스 클라이언트**에서 **com.microsoft.azure.sdk.iot.service** 네임스페이스를 사용합니다. 디지털 쌍 API를 비롯한 API에 대한 자세한 내용은 [서비스 개발자 가이드](concepts-developer-guide-service.md)를 참조하세요.
+> 이 샘플에서는 **IoT Hub 서비스 클라이언트** 에서 **com.microsoft.azure.sdk.iot.service** 네임스페이스를 사용합니다. 디지털 쌍 API를 비롯한 API에 대한 자세한 내용은 [서비스 개발자 가이드](concepts-developer-guide-service.md)를 참조하세요.
 
 1. **서비스** 터미널로 사용할 또 다른 터미널 창을 엽니다.
 
@@ -101,7 +101,7 @@ System.out.println("Model Id of this Twin is: " + twin.getModelId());
 
 ### <a name="update-a-device-twin"></a>디바이스 쌍 업데이트
 
-다음 코드 조각에서는 *패치*를 사용하여 디바이스 쌍을 통해 속성을 업데이트하는 방법을 보여줍니다.
+다음 코드 조각에서는 *패치* 를 사용하여 디바이스 쌍을 통해 속성을 업데이트하는 방법을 보여줍니다.
 
 ```java
 String propertyName = "targetTemperature";
