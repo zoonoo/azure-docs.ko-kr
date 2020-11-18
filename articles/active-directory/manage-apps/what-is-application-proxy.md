@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: dbfe18c84217c741f8dd64481901747d068fcdd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc3352dd57a76cbb0b38455adfa11987ec93781a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604141"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654136"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 사용자용 온-프레미스 앱 게시
 
@@ -57,7 +57,7 @@ Azure AD(Azure Active Directory)는 클라우드 및 온 프레미스의 사용�
 
 ## <a name="the-future-of-remote-access"></a>원격 액세스의 미래
 
-현재 디지털 작업 공간에서는 사용자가 여러 디바이스와 앱을 사용하여 어디서나 작업할 수 있습니다. 유일한 상수는 사용자 ID입니다. 따라서 현재 보안 네트워크의 첫 번째 단계는 [Azure AD의 ID 관리](https://docs.microsoft.com/azure/security/security-identity-management-overview) 기능을 보안 제어 평면으로 사용하는 것입니다. ID를 컨트롤 평면으로 사용하는 모델은 일반적으로 다음과 같은 구성 요소로 이루어집니다.
+현재 디지털 작업 공간에서는 사용자가 여러 디바이스와 앱을 사용하여 어디서나 작업할 수 있습니다. 유일한 상수는 사용자 ID입니다. 따라서 현재 보안 네트워크의 첫 번째 단계는 [Azure AD의 ID 관리](../../security/fundamentals/identity-management-overview.md) 기능을 보안 제어 평면으로 사용하는 것입니다. ID를 컨트롤 평면으로 사용하는 모델은 일반적으로 다음과 같은 구성 요소로 이루어집니다.
 
 * 사용자 및 사용자 관련 정보를 추적하는 ID 공급자.
 * 회사 리소스에 액세스할 수 있는 디바이스 목록을 유지 관리하는 디바이스 디렉터리. 이 디렉터리에는 해당 디바이스 정보(예 : 디바이스 유형, 무결성 등)가 포함됩니다.
@@ -76,7 +76,7 @@ Azure AD는 애플리케이션 프록시를 사용하여 온-프레미스 및 �
 
 이 기능의 구성 요소에는 클라우드에서 실행되는 애플리케이션 프록시 서비스, 온-프레미스 서버에서 실행되는 경량 에이전트인 애플리케이션 프록시 커넥터 및 ID 공급자인 Azure AD가 있습니다. 세 가지 구성 요소가 함께 작동하여 온-프레미스 웹 애플리케이션에 액세스할 수 있는 Single Sign-On 환경을 사용자에게 제공합니다.
 
-로그인 한 후에는 외부 사용자가 바탕 화면 또는 iOS/MAC 장치에서 친숙 한 URL 또는 [My Apps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) 를 사용 하 여 온-프레미스 웹 응용 프로그램에 액세스할 수 있습니다. 예를 들어 앱 프록시는 원격 데스크톱, SharePoint 사이트, Tableau, Qlik, 웹용 Outlook 및 LOB(기간 업무) 애플리케이션에 대한 원격 액세스와 Single Sign-On을 제공할 수 있습니다.
+로그인 한 후에는 외부 사용자가 바탕 화면 또는 iOS/MAC 장치에서 친숙 한 URL 또는 [My Apps](../user-help/my-apps-portal-end-user-access.md) 를 사용 하 여 온-프레미스 웹 응용 프로그램에 액세스할 수 있습니다. 예를 들어 앱 프록시는 원격 데스크톱, SharePoint 사이트, Tableau, Qlik, 웹용 Outlook 및 LOB(기간 업무) 애플리케이션에 대한 원격 액세스와 Single Sign-On을 제공할 수 있습니다.
 
 ![Azure AD 애플리케이션 프록시 아키텍처](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 
@@ -87,7 +87,7 @@ Azure AD는 애플리케이션 프록시를 사용하여 온-프레미스 및 �
 * 웹 애플리케이션
 * 여러 디바이스에서 다양한 애플리케이션을 표시하려는 웹 API
 * 원격 데스크톱 게이트웨이 뒤에서 호스트되는 애플리케이션
-* [MSAL(Microsoft Authentication Library)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)과 통합되는 리치 클라이언트 앱
+* [MSAL(Microsoft Authentication Library)](../develop/v2-overview.md)과 통합되는 리치 클라이언트 앱
 
 앱 프록시는 다음 네이티브 인증 프로토콜을 사용하는 앱에서 작동합니다.
 
@@ -95,7 +95,7 @@ Azure AD는 애플리케이션 프록시를 사용하여 온-프레미스 및 �
 
 앱 프록시는 타사 통합 또는 특정 구성 시나리오에서 다음 인증 프로토콜을 지원합니다.
 
-* [**헤더 기반 인증**](application-proxy-configure-single-sign-on-with-ping-access.md). 이 로그온 메서드 PingAccess라는 타사 인증 서비스를 사용하며 애플리케이션에서 헤더를 사용하여 인증할 때 사용됩니다. 이 시나리오에서는 PingAccess가 인증을 처리합니다.
+* [**헤더 기반 인증**](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers). 이 로그온 메서드 PingAccess라는 타사 인증 서비스를 사용하며 애플리케이션에서 헤더를 사용하여 인증할 때 사용됩니다. 이 시나리오에서는 PingAccess가 인증을 처리합니다.
 * [**폼 또는 암호 기반 인증**](application-proxy-configure-single-sign-on-password-vaulting.md). 이 인증 메서드를 사용하는 경우 사용자는 애플리케이션에 처음 액세스할 때 사용자 이름 및 암호를 사용하여 애플리케이션에 로그온합니다. 첫 번째 로그온 후에는 Azure AD가 사용자 이름 및 암호를 애플리케이션에 제공합니다. 이 시나리오에서는 Azure AD가 인증을 처리합니다.
 * [**SAML 인증**](application-proxy-configure-single-sign-on-on-premises-apps.md). SAML 기반 Single Sign-On은 SAML 2.0 또는 WS-Federation 프로토콜을 사용하는 애플리케이션에 지원됩니다. SAML Single Sign-On을 사용하는 Azure AD는 사용자의 Azure AD 계정을 사용하여 애플리케이션에 인증합니다.
 
@@ -109,11 +109,11 @@ Azure AD는 애플리케이션 프록시를 사용하여 온-프레미스 및 �
 * **조건부 액세스**. 네트워크 연결이 설정되기 전에 보다 풍부한 정책 제어를 적용할 수 있습니다. 조건부 액세스를 사용하면 백 엔드 애플리케이션에 액세스할 수 있는 트래픽에 대한 제한을 정의할 수 있습니다. 위치, 인증 강도 및 사용자 위험 프로필을 기반으로 로그인을 제한하는 정책을 만듭니다. 조건부 액세스가 발전하면서 MCAS(Microsoft Cloud App Security)와 통합과 같은 추가적인 보안 기능을 제공하기 위해 컨트롤이 더 추가되고 있습니다. MCAS 통합을 사용하면, 조건부 액세스를 활용하여 [실시간 모니터링](application-proxy-integrate-with-microsoft-cloud-application-security.md)을 위한 온-프레미스 애플리케이션을 구성하고 조건부 액세스 정책을 기반으로 실시간으로 세션을 모니터링하고 제어할 수 있습니다.
 * **트래픽 종료**. 백 엔드 애플리케이션에 대한 모든 트래픽은 클라우드의 애플리케이션 프록시 서비스에서 종료되고, 백 엔드 서버와의 세션이 다시 설정됩니다. 이러한 연결 전략은 백 엔드 서버가 HTTP 트래픽에 직접 노출되지 않는다는 것을 의미합니다. 방화벽이 공격을 받지 않기 때문에 DoS(서비스 거부) 표적 공격에 대해 더 잘 보호됩니다.
 * **모든 액세스가 아웃바운드임**. 애플리케이션 프록시 커넥터는 포트 80 및 443을 통해 클라우드의 애플리케이션 프록시 서비스에 대한 아웃바운드 연결만 사용합니다. 인바운드 연결이 없으면 DMZ의 구성 요소나 들어오는 연결에 대해 방화벽 포트를 열 필요가 없습니다. 모든 연결은 아웃바운드이며 보안 채널을 통해 이루어집니다.
-* **보안 분석 및 ML(기계 학습) 기반 인텔리전스**. 애플리케이션 프록시는 Azure Active Directory의 일부이기 때문에 [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview)([Premium P2 라이선싱](https://azure.microsoft.com/pricing/details/active-directory/) 필요)을 활용할 수 있습니다. Azure AD Identity Protection은 [Microsoft 보안 대응 센터](https://www.microsoft.com/msrc) 및 Microsoft의 [Digital Crimes Unit](https://news.microsoft.com/stories/cybercrime/index.html)의 데이터 피드와 기계 학습 보안 인텔리전스를 결합하여 손상된 계정을 사전에 식별합니다. Identity Protection은 고위험 로그인으로부터 실시간 보호를 제공합니다. 감염된 디바이스의 액세스, 익명의 네트워크를 통한 액세스, 변칙적이고 가능성이 적은 위치에서 액세스 등을 고려하여 세션의 위험 프로필을 늘립니다. 이러한 위험 프로필은 실시간 보호에 사용됩니다. 이러한 많은 보고서 및 이벤트는 SIEM 시스템과 통합을 위해 API를 통해 이미 제공됩니다.
+* **보안 분석 및 ML(기계 학습) 기반 인텔리전스**. 애플리케이션 프록시는 Azure Active Directory의 일부이기 때문에 [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md)([Premium P2 라이선싱](https://azure.microsoft.com/pricing/details/active-directory/) 필요)을 활용할 수 있습니다. Azure AD Identity Protection은 [Microsoft 보안 대응 센터](https://www.microsoft.com/msrc) 및 Microsoft의 [Digital Crimes Unit](https://news.microsoft.com/stories/cybercrime/index.html)의 데이터 피드와 기계 학습 보안 인텔리전스를 결합하여 손상된 계정을 사전에 식별합니다. Identity Protection은 고위험 로그인으로부터 실시간 보호를 제공합니다. 감염된 디바이스의 액세스, 익명의 네트워크를 통한 액세스, 변칙적이고 가능성이 적은 위치에서 액세스 등을 고려하여 세션의 위험 프로필을 늘립니다. 이러한 위험 프로필은 실시간 보호에 사용됩니다. 이러한 많은 보고서 및 이벤트는 SIEM 시스템과 통합을 위해 API를 통해 이미 제공됩니다.
 
 * **서비스로 제공되는 원격 액세스**. 원격 액세스가 가능하도록 온-프레미스 서버를 유지 관리하고 패치를 적용하는 데 신경을 쓸 필요가 없습니다. 애플리케이션 프록시는 Microsoft가 소유하는 인터넷 규모 서비스이므로 항상 최신 보안 패치 및 업그레이드를 받을 수 있습니다. 패치가 적용되지 않은 소프트웨어는 여전히 다수의 공격 대상입니다. 미국 국토안보부에 따르면 [표적 공격의 85%를 예방할 수 있습니다](https://www.us-cert.gov/ncas/alerts/TA15-119A). 이 서비스 모델을 사용하면 더 이상 에지 서버를 관리할 필요가 없고 급하게 패치를 적용할 필요가 없기 때문에 부담을 덜 수 있습니다.
 
-* **Intune 통합**. Intune을 사용하면 회사 트래픽이 개인 트래픽과 별도로 라우팅됩니다. 애플리케이션 프록시는 회사 트래픽이 인증되도록 합니다. [애플리케이션 프록시와 Intune Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser#how-to-configure-application-proxy-settings-for-protected-browsers) 기능을 함께 사용하면 원격 사용자가 iOS 및 Android 디바이스에서 내부 웹 사이트에 안전하게 액세스할 수 있습니다.
+* **Intune 통합**. Intune을 사용하면 회사 트래픽이 개인 트래픽과 별도로 라우팅됩니다. 애플리케이션 프록시는 회사 트래픽이 인증되도록 합니다. [애플리케이션 프록시와 Intune Managed Browser](/intune/app-configuration-managed-browser#how-to-configure-application-proxy-settings-for-protected-browsers) 기능을 함께 사용하면 원격 사용자가 iOS 및 Android 디바이스에서 내부 웹 사이트에 안전하게 액세스할 수 있습니다.
 
 ### <a name="roadmap-to-the-cloud"></a>클라우드로 이전을 위한 로드맵
 
@@ -137,10 +137,10 @@ Azure AD는 애플리케이션 프록시를 사용하여 온-프레미스 및 �
 
 |**구성 요소**|**설명**|
 |:-|:-|
-|엔드포인트|엔드포인트는 URL 또는  [최종 사용자 포털](end-user-experiences.md)입니다. 사용자는 외부 URL에 액세스하여 네트워크 외부에서 애플리케이션에 연결할 수 있습니다. 네트워크 내 사용자는 URL 또는 최종 사용자 포털을 통해 애플리케이션에 액세스할 수 있습니다. 사용자가 이러한 엔드포인트 중 하나로 이동하면 Azure AD에서 인증한 다음 커넥터를 통해 온-프레미스 애플리케이션에 라우팅됩니다.|
+|엔드포인트|엔드포인트는 URL 또는 [최종 사용자 포털](end-user-experiences.md)입니다. 사용자는 외부 URL에 액세스하여 네트워크 외부에서 애플리케이션에 연결할 수 있습니다. 네트워크 내 사용자는 URL 또는 최종 사용자 포털을 통해 애플리케이션에 액세스할 수 있습니다. 사용자가 이러한 엔드포인트 중 하나로 이동하면 Azure AD에서 인증한 다음 커넥터를 통해 온-프레미스 애플리케이션에 라우팅됩니다.|
 |Azure AD|Azure AD는 클라우드에 저장된 테넌트 디렉터리를 사용하여 인증을 수행합니다.|
 |애플리케이션 프록시 서비스|이 애플리케이션 프록시 서비스는 클라우드에서 Azure AD의 일부로 실행됩니다. 사용자의 로그온 토큰을 애플리케이션 프록시 커넥터에 전달합니다. 애플리케이션 프록시는 요청이 있을 시 액세스 가능한 모든 헤더를 클라이언트 IP 주소에 전달하고 프로토콜에 따라 헤더를 설정합니다. 프록시에 들어오는 요청에 이미 헤더가 있는 경우 헤더의 값인 쉼표로 구분된 목록의 끝에 클라이언트 IP 주소가 추가됩니다.|
-|애플리케이션 프록시 커넥터|커넥터는 네트워크 내부의 Windows Server에서 실행되는 간단한 에이전트입니다. 커넥터는 클라우드 애플리케이션과 온-프레미스 애플리케이션의 애플리케이션 프록시 서비스 사이에서 이루어지는 통신을 관리합니다. 커넥터가 아웃바운드 연결만 사용하므로 인바운드 포트를 열거나 DMZ에 아무 것도 배치할 필요가 없습니다. 커넥터는 상태를 저장하지 않으며 필요에 따라 클라우드에서 정보를 가져옵니다. 부하 분산 및 인증 방식과 같은 커넥터에 대한 자세한 정보는  [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)를 참조하세요.|
+|애플리케이션 프록시 커넥터|커넥터는 네트워크 내부의 Windows Server에서 실행되는 간단한 에이전트입니다. 커넥터는 클라우드 애플리케이션과 온-프레미스 애플리케이션의 애플리케이션 프록시 서비스 사이에서 이루어지는 통신을 관리합니다. 커넥터가 아웃바운드 연결만 사용하므로 인바운드 포트를 열거나 DMZ에 아무 것도 배치할 필요가 없습니다. 커넥터는 상태를 저장하지 않으며 필요에 따라 클라우드에서 정보를 가져옵니다. 커넥터에 대한 정보 및 부하 분산 및 인증하는 방법은 [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)를 참조하세요.|
 |AD(Active Directory)|Active Directory는 온-프레미스에서 실행되어 도메인 계정에 대한 인증을 수행합니다. Single Sign-On이 구성되면 커넥터가 AD와 통신하여 필요한 추가 인증을 수행합니다.|
 |온-프레미스 애플리케이션|마지막으로, 사용자는 온-프레미스 애플리케이션에 액세스할 수 있습니다.|
 
@@ -181,7 +181,7 @@ Azure AD 애플리케이션 프록시는 클라우드 기반 애플리케이션 
 
 지금까지는 애플리케이션 프록시를 사용하여 온-프레미스 애플리케이션을 외부에 게시하는 동시에 모든 클라우드 및 온-프레미스 앱에 대한 Single Sign-On이 가능하도록 설정하는 방법에 중점을 두었습니다. 하지만 앱 프록시에 대해 언급할 만한 다른 사용 사례가 있습니다. 해당 기능은 아래와 같습니다.
 
-* **REST API를 안전하게 게시**. 온-프레미스에서 실행되거나 클라우드의 가상 머신에서 호스팅되는 비즈니스 논리 또는 API가 있는 경우, 애플리케이션 프록시가 API 액세스를 위한 공용 엔드포인트를 제공합니다. API 엔드포인트에 액세스할 수 있으면 수신 포트 없이도 인증 및 권한 부여를 제어할 수 있습니다. Azure AD Premium 기능을 통해 Intune을 사용한 데스크톱, iOS, MAC 및 Android 디바이스에 대한 다단계 인증 및 디바이스 기반 조건부 액세스와 같은 추가 보안 기능이 제공됩니다. 자세한 내용은 [네이티브 클라이언트 애플리케이션이 프록시 애플리케이션과 상호 작용하도록 설정하는 방법](application-proxy-configure-native-client-application.md) 및 [Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API 보호](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad)를 참조하세요.
+* **REST API를 안전하게 게시**. 온-프레미스에서 실행되거나 클라우드의 가상 머신에서 호스팅되는 비즈니스 논리 또는 API가 있는 경우, 애플리케이션 프록시가 API 액세스를 위한 공용 엔드포인트를 제공합니다. API 엔드포인트에 액세스할 수 있으면 수신 포트 없이도 인증 및 권한 부여를 제어할 수 있습니다. Azure AD Premium 기능을 통해 Intune을 사용한 데스크톱, iOS, MAC 및 Android 디바이스에 대한 다단계 인증 및 디바이스 기반 조건부 액세스와 같은 추가 보안 기능이 제공됩니다. 자세한 내용은 [네이티브 클라이언트 애플리케이션이 프록시 애플리케이션과 상호 작용하도록 설정하는 방법](application-proxy-configure-native-client-application.md) 및 [Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API 보호](../../api-management/api-management-howto-protect-backend-with-aad.md)를 참조하세요.
 * **원격 데스크톱 서비스** **(RDS)** . 표준 RDS 배포에는 열린 인바운드 연결이 필요합니다. 하지만 [애플리케이션 프록시가 포함된 RDS 배포](application-proxy-integrate-with-remote-desktop-services.md)에는 커넥터 서비스를 실행하는 서버의 영구적인 아웃바운드 연결이 있습니다. 이렇게 하면 원격 데스크톱 서비스를 통해 온-프레미스 애플리케이션을 게시하여 최종 사용자에게 더 많은 애플리케이션을 제공할 수 있습니다. 또한 RDS에 대한 조건부 액세스 제어 및 2단계 인증 세트가 제한적으로 제공되어 배포의 공격 표면을 줄일 수 있습니다.
 * **WebSocket을 사용하여 연결하는 애플리케이션 게시**. [Qlik Sense](application-proxy-qlik.md) 지원은 공개 미리 보기 상태이며 앞으로 다른 앱으로도 확장될 예정입니다.
 * **네이티브 클라이언트 앱이 프록시 애플리케이션과 상호 작용할 수 있도록 설정**. Azure AD 애플리케이션 프록시를 사용하여 웹 애플리케이션을 게시할 수 있지만 ADAL(Azure AD 인증 라이브러리)로 구성된 [네이티브 클라이언트 애플리케이션](application-proxy-configure-native-client-application.md)을 게시하는 데 사용할 수도 있습니다. 네이티브 클라이언트 애플리케이션은 디바이스에 설치되는 반면 웹앱은 브라우저를 통해 액세스되므로 웹앱과 다릅니다.

@@ -3,12 +3,12 @@ title: 클라우드에 지속적으로 비디오를 녹화하고 클라우드에
 description: 이 자습서에서는 Azure Live Video Analytics on IoT Edge를 사용하여 클라우드에 지속적으로 비디오를 녹화하고, Azure Media Services를 사용하여 비디오에서 원하는 부분을 스트리밍하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 4333ceb9c02f39629e4bd06d3d9634b97bb2e2d7
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 7e8bf1202e95cb4e76b54473f9d84076d24accea
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91774031"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346369"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>자습서: 클라우드에 지속적으로 비디오를 녹화하고 클라우드에서 재생
 
@@ -81,7 +81,7 @@ ms.locfileid: "91774031"
 
 1. GitHub 링크(https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp )의 리포지토리를 복제합니다.
 1. Visual Studio Code를 시작하고, 리포지토리를 다운로드한 폴더를 엽니다.
-1. Visual Studio Code에서 src/cloud-to-device-console-app 폴더로 이동하고, **appsettings.json**이라는 파일을 만듭니다. 이 파일에는 프로그램을 실행하는 데 필요한 설정이 포함되어 있습니다.
+1. Visual Studio Code에서 src/cloud-to-device-console-app 폴더로 이동하고, **appsettings.json** 이라는 파일을 만듭니다. 이 파일에는 프로그램을 실행하는 데 필요한 설정이 포함되어 있습니다.
 1. ~/clouddrive/lva-sample/appsettings.json 파일의 콘텐츠를 복사합니다. 텍스트는 다음과 같습니다.
     ```
     {  
@@ -92,8 +92,8 @@ ms.locfileid: "91774031"
     ```
     IoT Hub 연결 문자열을 사용하면 Visual Studio Code를 사용하여 Azure IoT Hub를 통해 명령을 에지 모듈에 보낼 수 있습니다.
     
-1. 다음으로, src/edge 폴더로 이동하고, **.env**라는 파일을 만듭니다.
-1. ~/clouddrive/lva-sample/.env 파일의 콘텐츠를 복사합니다. 텍스트는 다음과 같습니다.
+1. 다음으로, src/edge 폴더로 이동하고, **.env** 라는 파일을 만듭니다.
+1. ~/clouddrive/lva-sample/edge-deployment/.env 파일의 콘텐츠를 복사합니다. 텍스트는 다음과 같습니다.
 
     ```
     SUBSCRIPTION_ID="<Subscription ID>"  
@@ -135,10 +135,10 @@ Visual Studio Code에서 src/edge/deployment.template.json을 엽니다. 이 템
 1. 왼쪽 아래 모서리에서 **AZURE IOT HUB** 창 옆에 있는 **추가 작업** 아이콘을 선택하여 IoT Hub 연결 문자열을 설정합니다. src/cloud-to-device-console-app/appsettings.json 파일의 문자열을 복사합니다. 
 
     ![IoT Hub 연결 문자열 설정](./media/quickstarts/set-iotconnection-string.png)
-1. src/edge/deployment.template.json 파일을 마우스 오른쪽 단추로 클릭하고, **IoT Edge 배포 매니페스트 생성**을 선택합니다. Visual Studio Code는 .env 파일의 값을 사용하여 배포 템플릿 파일에서 찾은 값을 대체합니다. 이렇게 하면 src/edge/config 폴더에 **deployment.amd64.json**이라는 매니페스트 파일이 생성됩니다.
+1. src/edge/deployment.template.json 파일을 마우스 오른쪽 단추로 클릭하고, **IoT Edge 배포 매니페스트 생성** 을 선택합니다. Visual Studio Code는 .env 파일의 값을 사용하여 배포 템플릿 파일에서 찾은 값을 대체합니다. 이렇게 하면 src/edge/config 폴더에 **deployment.amd64.json** 이라는 매니페스트 파일이 생성됩니다.
 
    ![IoT Edge 배포 매니페스트 생성](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
-1. src/edge/config/deployment.amd64.json 파일을 마우스 오른쪽 단추로 클릭하고, **단일 디바이스용 배포 만들기**를 선택합니다.
+1. src/edge/config/deployment.amd64.json 파일을 마우스 오른쪽 단추로 클릭하고, **단일 디바이스용 배포 만들기** 를 선택합니다.
 
    ![단일 디바이스용 배포 만들기](./media/quickstarts/create-deployment-single-device.png)
 1. **IoT Hub 디바이스 선택** 메시지가 표시됩니다. 드롭다운 목록에서 lva-sample-device를 선택합니다.
@@ -152,23 +152,75 @@ Visual Studio Code에서 src/edge/deployment.template.json을 엽니다. 이 템
 
 Live Video Analytics on IoT Edge 모듈을 사용하여 라이브 비디오 스트림을 녹화할 때 모듈은 IoT Hub에 이벤트를 보냅니다. 이러한 이벤트를 보려면 다음 단계를 수행합니다.
 
-1. Visual Studio Code에서 탐색기 창을 열고, 왼쪽 아래 모서리에서 **Azure IoT Hub**를 찾습니다.
+1. Visual Studio Code에서 탐색기 창을 열고, 왼쪽 아래 모서리에서 **Azure IoT Hub** 를 찾습니다.
 1. **디바이스** 노드를 펼칩니다.
-1. 마우스 오른쪽 단추로 lva-sample-device 파일을 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다.
+1. 마우스 오른쪽 단추로 lva-sample-device 파일을 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작** 을 선택합니다.
 
     ![기본 제공 이벤트 엔드포인트 모니터링 시작](./media/quickstarts/start-monitoring-iothub-events.png)
 
 ## <a name="run-the-program"></a>프로그램 실행 
 
 1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누름) Azure IoT Hub를 검색합니다.
-1. 마우스 오른쪽 단추를 클릭하고 **확장 설정**을 선택합니다.
+1. 마우스 오른쪽 단추를 클릭하고 **확장 설정** 을 선택합니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="미디어 그래프":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="확장 설정":::
 1. "자세한 정보 메시지 표시"를 검색하고 활성화합니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="미디어 그래프"
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="자세한 정보 메시지 표시":::
+1. <!--In Visual Studio Code, go-->src/cloud-to-device-console-app/operations.json으로 이동합니다.
+1. **GraphTopologySet** 노드 아래에서 다음을 편집합니다.
+
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
+1. 그런 다음, **GraphInstanceSet** 및 **GraphTopologyDelete** 노드에서 **topologyName** 값이 이전 그래프 토폴로지의 **name** 속성 값과 일치하는지 확인합니다.
+
+    `"topologyName" : "CVRToAMSAsset"`  
+1. 브라우저에서 [토폴로지](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json)를 열고 assetNamePattern을 확인합니다. 자산에 고유한 이름을 지정하기 위해 operations.json 파일에서 그래프 인스턴스 이름을 (기본값 "Sample-Graph-1"에서 다른 값으로) 변경해야 할 수도 있습니다.
+
+    `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
+1. F5 키를 선택하여 디버깅 세션을 시작합니다. **터미널** 창에 일부 메시지가 출력됩니다.
+1. operations.json 파일이 GraphTopologyList 및 GraphInstanceList를 호출하여 시작됩니다. 이전 빠른 시작 또는 자습서를 마친 후 리소스를 정리했다면 이 작업은 다음과 같이 빈 목록을 반환하고, 사용자가 **Enter** 키를 선택할 수 있도록 일시 중지됩니다.
+
+    ```
+    --------------------------------------------------------------------------
+    Executing operation GraphTopologyList
+    -----------------------  Request: GraphTopologyList  --------------------------------------------------
+    {
+      "@apiVersion": "1.0"
+    }
+    ---------------  Response: GraphTopologyList - Status: 200  ---------------
+    {
+      "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    Press Enter to continue
+    ```
+
+1. **터미널** 창에서 **Enter** 키를 선택하면 다음과 같은 직접 메서드 세트가 호출됩니다.
+   * 이전 topologyUrl을 사용하여 GraphTopologySet 호출
+   * 다음 본문을 사용하여 GraphInstanceSet 호출
+     
+     ```
+     {
+       "@apiVersion": "1.0",
+       "name": "Sample-Graph-1",
+       "properties": {
+         "topologyName": "CVRToAMSAsset",
+         "description": "Sample graph description",
+         "parameters": [
+           {
+             "name": "rtspUrl",
+             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+           },
+           {
+             "name": "rtspUserName",
+             "value": "testuser"
+           },
+           {
+             "name": "rtspPassword",
+             "value": "testpassword"
            }
          ]
        }
@@ -176,11 +228,11 @@ Live Video Analytics on IoT Edge 모듈을 사용하여 라이브 비디오 스�
      ```
    * 그래프 인스턴스를 시작하고 비디오 흐름을 시작하는 GraphInstanceActivate 호출
    * 그래프 인스턴스가 실행 중 상태임을 보여주는 두 번째 GraphInstanceList 호출 
-1. 이제 **터미널** 창의 출력이 **계속하려면 Enter 키를 누르세요**라는 메시지에서 일시 중지됩니다. 지금은 **Enter** 키를 선택하지 마세요. 위로 스크롤하여 호출한 직접 메서드에 대한 JSON 응답 페이로드를 확인합니다.
+1. 이제 **터미널** 창의 출력이 **계속하려면 Enter 키를 누르세요** 라는 메시지에서 일시 중지됩니다. 지금은 **Enter** 키를 선택하지 마세요. 위로 스크롤하여 호출한 직접 메서드에 대한 JSON 응답 페이로드를 확인합니다.
 1. 이제 Visual Studio Code에서 **출력** 창으로 전환하면 Live Video Analytics on IoT Edge 모듈에서 IoT Hub로 보내는 메시지가 표시됩니다.
 
    이러한 메시지에 대한 내용은 다음 섹션에서 다룹니다.
-1. 그래프 인스턴스가 계속 실행되어 비디오를 녹화합니다. RTSP 시뮬레이터가 원본 비디오를 계속 반복합니다. 녹화를 중지하려면 **터미널** 창으로 돌아가서 **Enter**를 선택합니다. 다음과 같은 일련의 호출을 수행하여 리소스를 정리합니다.
+1. 그래프 인스턴스가 계속 실행되어 비디오를 녹화합니다. RTSP 시뮬레이터가 원본 비디오를 계속 반복합니다. 녹화를 중지하려면 **터미널** 창으로 돌아가서 **Enter** 를 선택합니다. 다음과 같은 일련의 호출을 수행하여 리소스를 정리합니다.
 
    * 그래프 인스턴스를 비활성화하는 GraphInstanceDeactivate 호출
    * 인스턴스를 삭제하는 GraphInstanceDelete 호출
@@ -308,20 +360,20 @@ Azure Portal에 로그인하여 비디오를 살펴보면 미디어 그래프에
 
 1. 웹 브라우저를 열고 [Azure Portal](https://portal.azure.com/)로 이동합니다. 자격 증명을 입력하여 포털에 로그인합니다. 기본 보기는 서비스 대시보드입니다.
 1. 구독에 있는 리소스 중에서 Media Services 계정을 찾아 계정 창을 엽니다.
-1. **Media Services** 목록에서 **자산**을 선택합니다.
+1. **Media Services** 목록에서 **자산** 을 선택합니다.
 
     ![Media Services 자산](./media/continuous-video-recording-tutorial/assets.png)
 1. sampleAsset-CVRToAMSAsset-Sample-Graph-1라는 이름으로 나열된 자산을 찾을 수 있습니다. 그래프 토폴로지 파일에서 선택한 명명 패턴입니다.
 1. 자산을 선택합니다.
-1. 자산 세부 정보 페이지의 **스트리밍 URL** 텍스트 상자 아래에서 **새로 만들기**를 선택합니다.
+1. 자산 세부 정보 페이지의 **스트리밍 URL** 텍스트 상자 아래에서 **새로 만들기** 를 선택합니다.
 
     ![새 자산](./media/continuous-video-recording-tutorial/new-asset.png)
 
-1. 열린 마법사에서 기본 옵션을 그대로 적용하고 **추가**를 선택합니다. 자세한 내용은 [비디오 재생](video-playback-concept.md)을 참조하세요.
+1. 열린 마법사에서 기본 옵션을 그대로 적용하고 **추가** 를 선택합니다. 자세한 내용은 [비디오 재생](video-playback-concept.md)을 참조하세요.
 
     > [!TIP]
     > [스트리밍 엔드포인트가 실행 중](../latest/streaming-endpoint-concept.md)인지 확인합니다.
-1. 플레이어에서 비디오를 로드해야 합니다. **재생**을 선택하여 비디오를 봅니다.
+1. 플레이어에서 비디오를 로드해야 합니다. **재생** 을 선택하여 비디오를 봅니다.
 
 > [!NOTE]
 > 비디오 원본은 카메라 피드를 시뮬레이션하는 컨테이너이므로 비디오의 타임스탬프는 그래프 인스턴스를 활성화한 시간 및 비활성화한 시간과 관련이 있습니다. 여러 날의 기록을 찾아서 해당 보관 파일의 일부를 보려면 [여러 날 녹화본 재생](playback-multi-day-recordings-tutorial.md) 자습서를 참조하세요. 또한 이 자습서에서는 화면에 표시되는 비디오에 타임스탬프가 표시됩니다.

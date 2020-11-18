@@ -1,19 +1,19 @@
 ---
-title: IoT 플러그 앤 플레이 샘플 Node.js 디바이스 코드를 Azure IoT Hub에 연결 | Microsoft Docs
-description: Node.js를 사용하여 IoT 허브에 연결되는 IoT 플러그 앤 플레이 샘플 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
+title: 빠른 시작 - IoT 플러그 앤 플레이 샘플 Node.js 디바이스 코드를 Azure IoT Hub에 연결 | Microsoft Docs
+description: 빠른 시작 - Node.js를 사용하여 IoT 허브에 연결되는 IoT 플러그 앤 플레이 샘플 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/10/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 2342577fdd7e42f4b21d1f47348c39e3ed4a46e3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 24f6cc1e9656957d6894ecb6b7c3e0476b233cf6
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747244"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421586"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-nodejs"></a>빠른 시작: 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 IoT Hub에 연결(Node.js)
 

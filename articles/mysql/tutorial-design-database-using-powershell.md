@@ -1,19 +1,19 @@
 ---
 title: '자습서: 서버 디자인 - Azure PowerShell - Azure Database for MySQL'
 description: 이 자습서에서는 PowerShell을 사용하여 Azure Database for MySQL 서버 및 데이터베이스를 만들고 관리하는 방법에 대해 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: b5dd66b16674e1441865f796153e7508acc854d0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fd8294d60ed0af4e8d1eeb8a3cd07c737b69aadd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543749"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533586"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-powershell"></a>자습서: PowerShell을 사용하여 Azure Database for MySQL 디자인
 
@@ -207,6 +207,24 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다. 새 서버에는 복원이 시작된 당시의 기존 서버에 유효한 동일한 서버 관리자 로그인 이름 및 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
 
 복원 중에 만든 새 서버에는 원래 서버에 존재했던 VNet 서비스 엔드포인트가 없습니다. 이러한 규칙은 새 서버에 대해 개별적으로 설정돼야 합니다. 원본 서버의 방화벽 규칙이 복원됩니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서에서 만든 리소스가 다른 빠른 시작 또는 자습서에 필요하지 않은 경우 다음 예제를 실행하여 해당 리소스를 삭제할 수 있습니다.
+
+> [!CAUTION]
+> 다음 예제에서는 지정된 리소스 그룹과 해당 그룹에 포함된 모든 리소스를 삭제합니다.
+> 지정된 리소스 그룹에 이 자습서의 범위에 속하지 않는 리소스가 포함된 경우 해당 리소스도 삭제됩니다.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myresourcegroup
+```
+
+리소스 그룹을 삭제하지 않고 이 자습서에서 만든 서버만 삭제하려면 `Remove-AzMySqlServer` cmdlet을 사용합니다.
+
+```azurepowershell-interactive
+Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
+```
 
 ## <a name="next-steps"></a>다음 단계
 

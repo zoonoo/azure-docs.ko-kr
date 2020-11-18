@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: e16342b4b46a189a5a5c4c0554fb2d870c9cdcac
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: af967c58cdeb2c750178141193a711a66af7477c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876719"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426744"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-openvinotrade"></a>자습서: Azure IoT Central(OpenVINO&trade;)에서 비디오 분석 - 개체 및 동작 감지 애플리케이션 만들기
 
@@ -62,7 +62,7 @@ ms.locfileid: "91876719"
 
 1. 이 템플릿은 IoT Central에서 이러한 속성을 공개하지 않으므로, 배포 매니페스트에 Media Services 구성 값을 추가해야 합니다. `lvaEdge` 모듈을 찾은 다음, 해당 자리 표시자를 Media Services 계정을 만들 때 *scratchpad.txt* 파일에 기록해 둔 값으로 바꿉니다.
 
-    `azureMediaServicesArmId`는 앞에서 Media Services 계정을 만들 때 *scratchpad.txt* 파일에 기록해 둔 **리소스 ID**입니다.
+    `azureMediaServicesArmId`는 앞에서 Media Services 계정을 만들 때 *scratchpad.txt* 파일에 기록해 둔 **리소스 ID** 입니다.
 
     앞에서 Media Services 계정의 서비스 주체를 만들 때 *scratchpad.txt* 파일에 `aadTenantId`, `aadServicePrincipalAppId` 및 `aadServicePrincipalSecret`을 기록해 두었습니다.
 
@@ -109,10 +109,10 @@ ms.locfileid: "91876719"
 
 ### <a name="replace-the-manifest"></a>매니페스트 바꾸기
 
-**LVA Edge 게이트웨이** 페이지에서 **+ 매니페스트 바꾸기**를 선택합니다.
+**LVA Edge 게이트웨이 v2** 페이지에서 **+ 매니페스트 바꾸기** 를 선택합니다.
 
 :::image type="content" source="./media/tutorial-video-analytics-create-app-openvino/replace-manifest.png" alt-text="매니페스트 바꾸기":::
 
-*lva-configuration* 폴더로 이동하고 이전에 편집한 *deployment.openvino.amd64.json* 매니페스트 파일을 선택합니다. **업로드**를 선택합니다. 유효성 검사가 완료되면 **바꾸기**를 선택합니다.
+*lva-configuration* 폴더로 이동하고 이전에 편집한 *deployment.openvino.amd64.json* 매니페스트 파일을 선택합니다. **업로드** 를 선택합니다. 유효성 검사가 완료되면 **바꾸기** 를 선택합니다.
 
 [!INCLUDE [iot-central-video-analytics-part4](../../../includes/iot-central-video-analytics-part4.md)]

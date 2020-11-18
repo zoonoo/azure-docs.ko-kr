@@ -5,15 +5,15 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 6f16e4b1f9728ae8d9cb36ab442603083e83eb92
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: c9dd39ffa68d8261f5c5d301d4c351c52b3f27c1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331382"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654595"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Azure Data Factory 문제 해결
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -28,109 +28,109 @@ ms.locfileid: "94331382"
 
 ### <a name="error-code-3200"></a>오류 코드: 3200
 
-- **메시지** : 오류 403.
+- **메시지**: 오류 403.
 
-- **원인** : `The Databricks access token has expired.`
+- **원인**: `The Databricks access token has expired.`
 
-- **권장 사항** : 기본적으로 Azure Databricks 액세스 토큰은 90일 동안 유효합니다. 새 토큰을 만들고 연결 서비스를 업데이트하세요.
+- **권장 사항**: 기본적으로 Azure Databricks 액세스 토큰은 90일 동안 유효합니다. 새 토큰을 만들고 연결 서비스를 업데이트하세요.
 
 ### <a name="error-code-3201"></a>오류 코드: 3201
 
-- **메시지** : `Missing required field: settings.task.notebook_task.notebook_path.`
+- **메시지**: `Missing required field: settings.task.notebook_task.notebook_path.`
 
-- **원인** : `Bad authoring: Notebook path not specified correctly.`
+- **원인**: `Bad authoring: Notebook path not specified correctly.`
 
-- **권장 사항** : Databricks 활동에서 노트북 경로를 지정하세요.
-
-<br/> 
-
-- **메시지** : `Cluster... does not exist.`
-
-- **원인** : `Authoring error: Databricks cluster does not exist or has been deleted.`
-
-- **권장 사항** : Databricks 클러스터가 있는지 확인하세요.
+- **권장 사항**: Databricks 활동에서 노트북 경로를 지정하세요.
 
 <br/> 
 
-- **메시지** : `Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
+- **메시지**: `Cluster... does not exist.`
 
-- **원인** : `Bad authoring.`
+- **원인**: `Authoring error: Databricks cluster does not exist or has been deleted.`
 
-- **권장 사항** : 작업 영역 주소 지정 스키마의 절대 경로를 지정 하거나, DFS(Databricks File System)에 저장된 파일에 대한 `dbfs:/folder/subfolder/foo.py`를 지정하세요.
-
-<br/> 
-
-- **메시지** : `{0} LinkedService should have domain and accessToken as required properties.`
-
-- **원인** : `Bad authoring.`
-
-- **권장 사항** : [연결 서비스 정의](compute-linked-services.md#azure-databricks-linked-service)를 확인하세요.
+- **권장 사항**: Databricks 클러스터가 있는지 확인하세요.
 
 <br/> 
 
-- **메시지** : `{0} LinkedService should specify either existing cluster ID or new cluster information for creation.`
+- **메시지**: `Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
 
-- **원인** : `Bad authoring.`
+- **원인**: `Bad authoring.`
 
-- **권장 사항** : [연결 서비스 정의](compute-linked-services.md#azure-databricks-linked-service)를 확인하세요.
+- **권장 사항**: 작업 영역 주소 지정 스키마의 절대 경로를 지정 하거나, DFS(Databricks File System)에 저장된 파일에 대한 `dbfs:/folder/subfolder/foo.py`를 지정하세요.
 
 <br/> 
 
-- **메시지** : `Node type Standard_D16S_v3 is not supported. Supported node types: Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3, Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2, Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3, Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2, Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2, Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3, Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s, Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2, Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2, Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3, Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2, Standard_L64s_v2, Standard_L80s_v2.`
+- **메시지**: `{0} LinkedService should have domain and accessToken as required properties.`
 
-- **원인** : `Bad authoring.`
+- **원인**: `Bad authoring.`
 
-- **권장 사항** : 오류 메시지를 참조하세요.
+- **권장 사항**: [연결 서비스 정의](compute-linked-services.md#azure-databricks-linked-service)를 확인하세요.
+
+<br/> 
+
+- **메시지**: `{0} LinkedService should specify either existing cluster ID or new cluster information for creation.`
+
+- **원인**: `Bad authoring.`
+
+- **권장 사항**: [연결 서비스 정의](compute-linked-services.md#azure-databricks-linked-service)를 확인하세요.
+
+<br/> 
+
+- **메시지**: `Node type Standard_D16S_v3 is not supported. Supported node types: Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3, Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2, Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3, Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2, Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2, Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3, Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s, Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2, Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2, Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3, Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2, Standard_L64s_v2, Standard_L80s_v2.`
+
+- **원인**: `Bad authoring.`
+
+- **권장 사항**: 오류 메시지를 참조하세요.
 
 <br/>
 
 ### <a name="error-code-3202"></a>오류 코드: 3202
 
-- **메시지** : `There were already 1000 jobs created in past 3600 seconds, exceeding rate limit: 1000 job creations per 3600 seconds.`
+- **메시지**: `There were already 1000 jobs created in past 3600 seconds, exceeding rate limit: 1000 job creations per 3600 seconds.`
 
-- **원인** : `Too many Databricks runs in an hour.`
+- **원인**: `Too many Databricks runs in an hour.`
 
-- **권장 사항** : 이 Databricks 작업 영역을 사용하는 모든 파이프라인의 작업 생성 비율을 확인하세요. 파이프라인이 집계에 실행되는 Databricks를 너무 많이 시작한 경우 일부 파이프라인을 새 작업 영역으로 마이그레이션하세요.
-
-<br/> 
-
-- **메시지** : `Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead.`
-
-- **원인** : `Authoring error: No value provided for the parameter.`
-
-- **권장 사항** : 파이프라인 JSON을 검사하고 baseParameters 노트북의 모든 매개 변수가 비어 있지 않은 값을 지정하는지 확인하세요.
+- **권장 사항**: 이 Databricks 작업 영역을 사용하는 모든 파이프라인의 작업 생성 비율을 확인하세요. 파이프라인이 집계에 실행되는 Databricks를 너무 많이 시작한 경우 일부 파이프라인을 새 작업 영역으로 마이그레이션하세요.
 
 <br/> 
 
-- **메시지** : `User: `SimpleUserContext{userId=..., name=user@company.com, orgId=...}` is not authorized to access cluster.`
+- **메시지**: `Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead.`
 
-- **원인** : 액세스 토큰을 생성한 사용자는 연결 서비스에 지정된 Databricks 클러스터에 액세스할 수 없습니다.
+- **원인**: `Authoring error: No value provided for the parameter.`
 
-- **권장 사항** : 사용자에게 필요한 권한이 작업 영역에 있는지 확인하세요.
+- **권장 사항**: 파이프라인 JSON을 검사하고 baseParameters 노트북의 모든 매개 변수가 비어 있지 않은 값을 지정하는지 확인하세요.
+
+<br/> 
+
+- **메시지**: `User: `SimpleUserContext{userId=..., name=user@company.com, orgId=...}` is not authorized to access cluster.`
+
+- **원인**: 액세스 토큰을 생성한 사용자는 연결 서비스에 지정된 Databricks 클러스터에 액세스할 수 없습니다.
+
+- **권장 사항**: 사용자에게 필요한 권한이 작업 영역에 있는지 확인하세요.
 
 ### <a name="error-code-3203"></a>오류 코드: 3203
 
-- **메시지** : `The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later.`
+- **메시지**: `The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later.`
 
-- **원인** : 클러스터가 종료되었습니다. 대화형 클러스터의 경우 이 문제로 인해 경합 상태가 발생할 수도 있습니다.
+- **원인**: 클러스터가 종료되었습니다. 대화형 클러스터의 경우 이 문제로 인해 경합 상태가 발생할 수도 있습니다.
 
-- **권장 사항** : 이 오류를 방지 하려면 작업 클러스터를 사용하세요.
+- **권장 사항**: 이 오류를 방지 하려면 작업 클러스터를 사용하세요.
 
 ### <a name="error-code-3204"></a>오류 코드: 3204
 
-- **메시지** : `Job execution failed.`
+- **메시지**: `Job execution failed.`
 
-- **원인** : 오류 메시지는 예기치 않은 클러스터 상태 또는 특정 활동과 같은 다양한 문제를 나타냅니다. 종종 오류 메시지가 나타나지 않는 경우가 있습니다.
+- **원인**: 오류 메시지는 예기치 않은 클러스터 상태 또는 특정 활동과 같은 다양한 문제를 나타냅니다. 종종 오류 메시지가 나타나지 않는 경우가 있습니다.
 
-- **권장 사항** : 해당 없음
+- **권장 사항**: 해당 없음
 
 ### <a name="error-code-3208"></a>오류 코드: 3208
 
-- **메시지** : `An error occurred while sending the request.`
+- **메시지**: `An error occurred while sending the request.`
 
-- **원인** : Databricks 서비스에 대 한 네트워크 연결이 중단 되었습니다.
+- **원인**: Databricks 서비스에 대 한 네트워크 연결이 중단 되었습니다.
 
-- **권장 사항** : 자체 호스팅 통합 런타임을 사용 하는 경우 통합 런타임 노드에서 네트워크 연결이 안정적인 지 확인 합니다. Azure integration runtime을 사용 하는 경우 다시 시도는 일반적으로 작동 합니다.
+- **권장 사항**: 자체 호스팅 통합 런타임을 사용 하는 경우 통합 런타임 노드에서 네트워크 연결이 안정적인 지 확인 합니다. Azure integration runtime을 사용 하는 경우 다시 시도는 일반적으로 작동 합니다.
  
 ## <a name="azure-data-lake-analytics"></a>Azure 데이터 레이크 분석
 
@@ -138,75 +138,75 @@ ms.locfileid: "94331382"
  
 ### <a name="error-code-2709"></a>오류 코드: 2709
 
-- **메시지** : `The access token is from the wrong tenant.`
+- **메시지**: `The access token is from the wrong tenant.`
 
-- **원인** : 잘못된 Azure AD(Azure Active Directory) 테넌트입니다.
+- **원인**: 잘못된 Azure AD(Azure Active Directory) 테넌트입니다.
 
-- **권장 사항** : 잘못된 Azure AD(Azure Active Directory) 테넌트입니다.
+- **권장 사항**: 잘못된 Azure AD(Azure Active Directory) 테넌트입니다.
 
 <br/>
 
-- **메시지** : `We cannot accept your job at this moment. The maximum number of queued jobs for your account is 200. `
+- **메시지**: `We cannot accept your job at this moment. The maximum number of queued jobs for your account is 200. `
 
-- **원인** : 이 오류는 Data Lake Analytics에 대한 제한으로 인해 발생합니다.
+- **원인**: 이 오류는 Data Lake Analytics에 대한 제한으로 인해 발생합니다.
 
-- **권장 사항** : Data Lake Analytics에 제출된 작업 수를 줄이세요. 활동에 대한 Data Factory 트리거 및 동시성 설정을 변경하거나 Data Lake Analytics의 제한을 늘리세요.
+- **권장 사항**: Data Lake Analytics에 제출된 작업 수를 줄이세요. 활동에 대한 Data Factory 트리거 및 동시성 설정을 변경하거나 Data Lake Analytics의 제한을 늘리세요.
 
 <br/> 
 
-- **메시지** : `This job was rejected because it requires 24 AUs. This account's administrator-defined policy prevents a job from using more than 5 AUs.`
+- **메시지**: `This job was rejected because it requires 24 AUs. This account's administrator-defined policy prevents a job from using more than 5 AUs.`
 
-- **원인** : 이 오류는 Data Lake Analytics에 대한 제한으로 인해 발생합니다.
+- **원인**: 이 오류는 Data Lake Analytics에 대한 제한으로 인해 발생합니다.
 
-- **권장 사항** : Data Lake Analytics에 제출된 작업 수를 줄이세요. 활동에 대한 Data Factory 트리거 및 동시성 설정을 변경하거나 Data Lake Analytics의 제한을 늘리세요.
+- **권장 사항**: Data Lake Analytics에 제출된 작업 수를 줄이세요. 활동에 대한 Data Factory 트리거 및 동시성 설정을 변경하거나 Data Lake Analytics의 제한을 늘리세요.
 
 ### <a name="error-code-2705"></a>오류 코드: 2705
 
-- **메시지** : `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
+- **메시지**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
 
-- **원인** : 서비스 주체 또는 인증서가 저장소의 파일에 액세스할 수 없습니다.
+- **원인**: 서비스 주체 또는 인증서가 저장소의 파일에 액세스할 수 없습니다.
 
-- **권장 사항** : Data Lake Analytics 작업을 위해 사용자가 제공하는 서비스 주체 또는 인증서에 Data Lake Analytics 계정에 대한 액세스 권한 및 루트 폴더의 기본 Data Lake Storage 인스턴스가 모두 있는지 확인하세요.
+- **권장 사항**: Data Lake Analytics 작업을 위해 사용자가 제공하는 서비스 주체 또는 인증서에 Data Lake Analytics 계정에 대한 액세스 권한 및 루트 폴더의 기본 Data Lake Storage 인스턴스가 모두 있는지 확인하세요.
 
 ### <a name="error-code-2711"></a>오류 코드: 2711
 
-- **메시지** : `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
+- **메시지**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
 
-- **원인** : 서비스 주체 또는 인증서가 저장소의 파일에 액세스할 수 없습니다.
+- **원인**: 서비스 주체 또는 인증서가 저장소의 파일에 액세스할 수 없습니다.
 
-- **권장 사항** : Data Lake Analytics 작업을 위해 사용자가 제공하는 서비스 주체 또는 인증서에 Data Lake Analytics 계정에 대한 액세스 권한 및 루트 폴더의 기본 Data Lake Storage 인스턴스가 모두 있는지 확인하세요.
+- **권장 사항**: Data Lake Analytics 작업을 위해 사용자가 제공하는 서비스 주체 또는 인증서에 Data Lake Analytics 계정에 대한 액세스 권한 및 루트 폴더의 기본 Data Lake Storage 인스턴스가 모두 있는지 확인하세요.
 
 <br/> 
 
-- **메시지** : `Cannot find the 'Azure Data Lake Store' file or folder.`
+- **메시지**: `Cannot find the 'Azure Data Lake Store' file or folder.`
 
-- **원인** : U-SQL 파일의 경로가 잘못되었거나 연결 서비스 자격 증명에 액세스 권한이 없습니다.
+- **원인**: U-SQL 파일의 경로가 잘못되었거나 연결 서비스 자격 증명에 액세스 권한이 없습니다.
 
-- **권장 사항** : 연결 서비스에서 제공되는 경로 및 자격 증명을 확인하세요.
+- **권장 사항**: 연결 서비스에서 제공되는 경로 및 자격 증명을 확인하세요.
 
 ### <a name="error-code-2704"></a>오류 코드: 2704
 
-- **메시지** : `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
+- **메시지**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
 
-- **원인** : 서비스 주체 또는 인증서가 저장소의 파일에 액세스할 수 없습니다.
+- **원인**: 서비스 주체 또는 인증서가 저장소의 파일에 액세스할 수 없습니다.
 
-- **권장 사항** : Data Lake Analytics 작업을 위해 사용자가 제공하는 서비스 주체 또는 인증서에 Data Lake Analytics 계정에 대한 액세스 권한 및 루트 폴더의 기본 Data Lake Storage 인스턴스가 모두 있는지 확인하세요.
+- **권장 사항**: Data Lake Analytics 작업을 위해 사용자가 제공하는 서비스 주체 또는 인증서에 Data Lake Analytics 계정에 대한 액세스 권한 및 루트 폴더의 기본 Data Lake Storage 인스턴스가 모두 있는지 확인하세요.
 
 ### <a name="error-code-2707"></a>오류 코드: 2707
 
-- **메시지** : `Cannot resolve the account of AzureDataLakeAnalytics. Please check 'AccountName' and 'DataLakeAnalyticsUri'.`
+- **메시지**: `Cannot resolve the account of AzureDataLakeAnalytics. Please check 'AccountName' and 'DataLakeAnalyticsUri'.`
 
-- **원인** : 연결 서비스의 Data Lake Analytics 계정이 잘못 되었습니다.
+- **원인**: 연결 서비스의 Data Lake Analytics 계정이 잘못 되었습니다.
 
-- **권장 사항** : 올바른 계정이 제공되었는지 확인하세요.
+- **권장 사항**: 올바른 계정이 제공되었는지 확인하세요.
 
 ### <a name="error-code-2703"></a>오류 코드: 2703
 
-- **메시지** : `Error Id: E_CQO_SYSTEM_INTERNAL_ERROR (or any error that starts with "Error Id:").`
+- **메시지**: `Error Id: E_CQO_SYSTEM_INTERNAL_ERROR (or any error that starts with "Error Id:").`
 
-- **원인** : Data Lake Analytics에서 오류가 발생했습니다.
+- **원인**: Data Lake Analytics에서 오류가 발생했습니다.
 
-- **권장 사항** : 작업이 Data Lake Analytics에 제출되었으나 해당 스크립트가 모두 실패했습니다. Data Lake Analytics를 조사하세요. 포털에서 Data Lake Analytics 계정으로 이동하고 Data Factory 활동 실행 ID(파이프라인 실행 ID는 사용 안 함)를 사용하여 작업을 찾으세요. 해당 작업은 오류에 대한 자세한 정보를 제공하며 문제를 해결하는 데 도움이 됩니다.
+- **권장 사항**: 작업이 Data Lake Analytics에 제출되었으나 해당 스크립트가 모두 실패했습니다. Data Lake Analytics를 조사하세요. 포털에서 Data Lake Analytics 계정으로 이동하고 Data Factory 활동 실행 ID(파이프라인 실행 ID는 사용 안 함)를 사용하여 작업을 찾으세요. 해당 작업은 오류에 대한 자세한 정보를 제공하며 문제를 해결하는 데 도움이 됩니다.
 
    해결 방법이 명확하지 않으면 Data Lake Analytics 지원 팀에 문의하여 계정 이름 및 작업 ID가 포함된 작업 URL(Universal Resource Locator)을 제공하세요.
  
@@ -214,231 +214,231 @@ ms.locfileid: "94331382"
 
 ### <a name="error-code-3602"></a>오류 코드: 3602
 
-- **메시지** : `Invalid HttpMethod: '%method;'.`
+- **메시지**: `Invalid HttpMethod: '%method;'.`
 
-- **원인** : 활동 페이로드에 지정된 Httpmethod는 Azure 함수 활동에서 지원되지 않습니다.
+- **원인**: 활동 페이로드에 지정된 Httpmethod는 Azure 함수 활동에서 지원되지 않습니다.
 
-- **권장 사항** : 지원되는 Httpmethods는 다음과 같습니다. PUT, POST, GET, DELETE, OPTIONS, HEAD 및 TRACE
+- **권장 사항**: 지원되는 Httpmethods는 다음과 같습니다. PUT, POST, GET, DELETE, OPTIONS, HEAD 및 TRACE
 
 ### <a name="error-code-3603"></a>오류 코드: 3603
 
-- **메시지** : `Response Content is not a valid JObject.`
+- **메시지**: `Response Content is not a valid JObject.`
 
-- **원인** : 호출된 Azure 함수에서 응답에 JSON 페이로드를 반환하지 않았습니다. ADF(Azure Data Factory) Azure 함수 활동은 JSON 응답 콘텐츠만 지원합니다.
+- **원인**: 호출된 Azure 함수에서 응답에 JSON 페이로드를 반환하지 않았습니다. ADF(Azure Data Factory) Azure 함수 활동은 JSON 응답 콘텐츠만 지원합니다.
 
-- **권장 사항** : C# 함수가 반환할 수 있는 것과 같이 유효한 JSON 페이로드를 반환하도록 Azure 함수를 업데이트하세요. `(ActionResult)new OkObjectResult("{\"Id\":\"123\"}");`
+- **권장 사항**: C# 함수가 반환할 수 있는 것과 같이 유효한 JSON 페이로드를 반환하도록 Azure 함수를 업데이트하세요. `(ActionResult)new OkObjectResult("{\"Id\":\"123\"}");`
 
 ### <a name="error-code-3606"></a>오류 코드: 3606
 
-- **메시지** : Azure 함수 활동에 함수 키가 없습니다.
+- **메시지**: Azure 함수 활동에 함수 키가 없습니다.
 
-- **원인** : Azure 함수 활동 정의가 완료되지 않았습니다.
+- **원인**: Azure 함수 활동 정의가 완료되지 않았습니다.
 
-- **권장 사항** : 입력 Azure 함수 활동 JSON 정의에 `functionKey`라는 속성이 있는지 확인하세요.
+- **권장 사항**: 입력 Azure 함수 활동 JSON 정의에 `functionKey`라는 속성이 있는지 확인하세요.
 
 ### <a name="error-code-3607"></a>오류 코드: 3607
 
-- **메시지** : `Azure function activity missing function name.`
+- **메시지**: `Azure function activity missing function name.`
 
-- **원인** : Azure 함수 활동 정의가 완료되지 않았습니다.
+- **원인**: Azure 함수 활동 정의가 완료되지 않았습니다.
 
-- **권장 사항** : 입력 Azure 함수 활동 JSON 정의에 `functionName`이라는 속성이 있는지 확인하세요.
+- **권장 사항**: 입력 Azure 함수 활동 JSON 정의에 `functionName`이라는 속성이 있는지 확인하세요.
 
 ### <a name="error-code-3608"></a>오류 코드: 3608
 
-- **메시지** : `Call to provided Azure function '%FunctionName;' failed with status-'%statusCode;' and message - '%message;'.`
+- **메시지**: `Call to provided Azure function '%FunctionName;' failed with status-'%statusCode;' and message - '%message;'.`
 
-- **원인** : 활동 정의의 Azure 함수 세부 정보가 잘못되었을 수 있습니다.
+- **원인**: 활동 정의의 Azure 함수 세부 정보가 잘못되었을 수 있습니다.
 
-- **권장 사항** : Azure 함수 세부 정보를 수정하고 다시 시도하세요.
+- **권장 사항**: Azure 함수 세부 정보를 수정하고 다시 시도하세요.
 
 ### <a name="error-code-3609"></a>오류 코드: 3609
 
-- **메시지** : `Azure function activity missing functionAppUrl.`
+- **메시지**: `Azure function activity missing functionAppUrl.`
 
-- **원인** : Azure 함수 활동 정의가 완료되지 않았습니다.
+- **원인**: Azure 함수 활동 정의가 완료되지 않았습니다.
 
-- **권장 사항** : 입력 Azure 함수 활동 JSON 정의에 `functionAppUrl`이라는 속성이 있는지 확인하세요.
+- **권장 사항**: 입력 Azure 함수 활동 JSON 정의에 `functionAppUrl`이라는 속성이 있는지 확인하세요.
 
 ### <a name="error-code-3610"></a>오류 코드: 3610
 
-- **메시지** : `There was an error while calling endpoint.`
+- **메시지**: `There was an error while calling endpoint.`
 
-- **원인** : 함수 URL이 잘못되었을 수 있습니다.
+- **원인**: 함수 URL이 잘못되었을 수 있습니다.
 
-- **권장 사항** : 활동 JSON에서 `functionAppUrl`의 값이 올바른지 확인한 후 다시 시도하세요.
+- **권장 사항**: 활동 JSON에서 `functionAppUrl`의 값이 올바른지 확인한 후 다시 시도하세요.
 
 ### <a name="error-code-3611"></a>오류 코드: 3611
 
-- **메시지** : `Azure function activity missing Method in JSON.`
+- **메시지**: `Azure function activity missing Method in JSON.`
 
-- **원인** : Azure 함수 활동 정의가 완료되지 않았습니다.
+- **원인**: Azure 함수 활동 정의가 완료되지 않았습니다.
 
-- **권장 사항** : 입력 Azure 함수 활동 JSON 정의에 `method`라는 속성이 있는지 확인하세요.
+- **권장 사항**: 입력 Azure 함수 활동 JSON 정의에 `method`라는 속성이 있는지 확인하세요.
 
 ### <a name="error-code-3612"></a>오류 코드: 3612
 
-- **메시지** : `Azure function activity missing LinkedService definition in JSON.`
+- **메시지**: `Azure function activity missing LinkedService definition in JSON.`
 
-- **원인** : Azure 함수 활동 정의가 완료되지 않았습니다.
+- **원인**: Azure 함수 활동 정의가 완료되지 않았습니다.
 
-- **권장 사항** : 입력 Azure 함수 활동 JSON 정의에 연결 서비스 정보가 있는지 확인하세요.
+- **권장 사항**: 입력 Azure 함수 활동 JSON 정의에 연결 서비스 정보가 있는지 확인하세요.
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
 ### <a name="error-code-4101"></a>오류 코드: 4101
 
-- **메시지** : `AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
+- **메시지**: `AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
 
-- **원인** : 속성 `%propertyName;`의 형식이 잘못되었거나 정의가 누락되었습니다.
+- **원인**: 속성 `%propertyName;`의 형식이 잘못되었거나 정의가 누락되었습니다.
 
-- **권장 사항** : `%activityName;` 활동에 올바른 데이터로 정의된 `%propertyName;` 속성이 있는지 확인하세요.
+- **권장 사항**: `%activityName;` 활동에 올바른 데이터로 정의된 `%propertyName;` 속성이 있는지 확인하세요.
 
 ### <a name="error-code-4110"></a>오류 코드: 4110
 
-- **메시지** : `AzureMLExecutePipeline activity missing LinkedService definition in JSON.`
+- **메시지**: `AzureMLExecutePipeline activity missing LinkedService definition in JSON.`
 
-- **원인** : AzureMLExecutePipeline 활동 정의가 완료되지 않았습니다.
+- **원인**: AzureMLExecutePipeline 활동 정의가 완료되지 않았습니다.
 
-- **권장 사항** : 입력 AzureMLExecutePipeline 활동 JSON 정의에 올바른 연결 서비스 세부 정보가 있는지 확인하세요.
+- **권장 사항**: 입력 AzureMLExecutePipeline 활동 JSON 정의에 올바른 연결 서비스 세부 정보가 있는지 확인하세요.
 
 ### <a name="error-code-4111"></a>오류 코드: 4111
 
-- **메시지** : `AzureMLExecutePipeline activity has wrong LinkedService type in JSON. Expected LinkedService type: '%expectedLinkedServiceType;', current LinkedService type: Expected LinkedService type: '%currentLinkedServiceType;'.`
+- **메시지**: `AzureMLExecutePipeline activity has wrong LinkedService type in JSON. Expected LinkedService type: '%expectedLinkedServiceType;', current LinkedService type: Expected LinkedService type: '%currentLinkedServiceType;'.`
 
-- **원인** : 활동 정의가 잘못되었습니다.
+- **원인**: 활동 정의가 잘못되었습니다.
 
-- **권장 사항** : 입력 AzureMLExecutePipeline 활동 JSON 정의에 올바른 연결 서비스 세부 정보가 있는지 확인하세요.
+- **권장 사항**: 입력 AzureMLExecutePipeline 활동 JSON 정의에 올바른 연결 서비스 세부 정보가 있는지 확인하세요.
 
 ### <a name="error-code-4112"></a>오류 코드: 4112
 
-- **메시지** : `AzureMLService linked service has invalid value for property '%propertyName;'.`
+- **메시지**: `AzureMLService linked service has invalid value for property '%propertyName;'.`
 
-- **원인** : '%PropertyName;' 속성의 형식이 잘못되었거나 정의가 누락되었습니다.
+- **원인**: '%PropertyName;' 속성의 형식이 잘못되었거나 정의가 누락되었습니다.
 
-- **권장 사항** : 연결 서비스에 올바른 데이터로 정의된 `%propertyName;` 속성이 있는지 확인하세요.
+- **권장 사항**: 연결 서비스에 올바른 데이터로 정의된 `%propertyName;` 속성이 있는지 확인하세요.
 
 ### <a name="error-code-4121"></a>오류 코드: 4121
 
-- **메시지** : `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **메시지**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **원인** : Azure Machine Learning에 액세스하는 데 사용된 자격 증명이 만료되었습니다.
+- **원인**: Azure Machine Learning에 액세스하는 데 사용된 자격 증명이 만료되었습니다.
 
-- **권장 사항** : 자격 증명이 유효한지 확인한 후 다시 시도하세요.
+- **권장 사항**: 자격 증명이 유효한지 확인한 후 다시 시도하세요.
 
 ### <a name="error-code-4122"></a>오류 코드: 4122
 
-- **메시지** : `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **메시지**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **원인** : Azure Machine Learning 연결 서비스에 제공된 자격 증명이 유효하지 않거나 작업에 대한 권한이 없습니다.
+- **원인**: Azure Machine Learning 연결 서비스에 제공된 자격 증명이 유효하지 않거나 작업에 대한 권한이 없습니다.
 
-- **권장 사항** : 연결 서비스의 자격 증명이 유효하고 Azure Machine Learning에 대한 액세스 권한이 있는지 확인하세요.
+- **권장 사항**: 연결 서비스의 자격 증명이 유효하고 Azure Machine Learning에 대한 액세스 권한이 있는지 확인하세요.
 
 ### <a name="error-code-4123"></a>오류 코드: 4123
 
-- **메시지** : `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **메시지**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **원인** : `pipelineParameters`와 같은 활동의 속성은 Azure ML(Machine Learning) 파이프라인에 유효하지 않습니다.
+- **원인**: `pipelineParameters`와 같은 활동의 속성은 Azure ML(Machine Learning) 파이프라인에 유효하지 않습니다.
 
-- **권장 사항** : 활동 속성의 값이 연결 서비스에 지정된 게시된 Azure ML 파이프라인의 예상 페이로드와 일치하는지 확인하세요.
+- **권장 사항**: 활동 속성의 값이 연결 서비스에 지정된 게시된 Azure ML 파이프라인의 예상 페이로드와 일치하는지 확인하세요.
 
 ### <a name="error-code-4124"></a>오류 코드: 4124
 
-- **메시지** : `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **메시지**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **원인** : 게시된 Azure ML 파이프라인 끝점이 존재하지 않습니다.
+- **원인**: 게시된 Azure ML 파이프라인 끝점이 존재하지 않습니다.
 
-- **권장 사항** : 연결 서비스에 지정된 게시된 Azure Machine Learning 파이프라인 끝점이 Azure Machine Learning에 있는지 확인하세요.
+- **권장 사항**: 연결 서비스에 지정된 게시된 Azure Machine Learning 파이프라인 끝점이 Azure Machine Learning에 있는지 확인하세요.
 
 ### <a name="error-code-4125"></a>오류 코드: 4125
 
-- **메시지** : `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **메시지**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **원인** : Azure Machine Learning에 서버 오류가 있습니다.
+- **원인**: Azure Machine Learning에 서버 오류가 있습니다.
 
-- **권장 사항** : 나중에 다시 시도하세요. 문제가 계속되는 경우 Azure Machine Learning 팀에 도움을 요청하세요.
+- **권장 사항**: 나중에 다시 시도하세요. 문제가 계속되는 경우 Azure Machine Learning 팀에 도움을 요청하세요.
 
 ### <a name="error-code-4126"></a>오류 코드: 4126
 
-- **메시지** : `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
+- **메시지**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
 
-- **원인** : Azure ML 파이프라인을 실행하지 못했습니다.
+- **원인**: Azure ML 파이프라인을 실행하지 못했습니다.
 
-- **권장 사항** : 자세한 오류 로그를 알아보려면 Azure Machine Learning를 확인하고 ML 파이프라인을 수정하세요.
+- **권장 사항**: 자세한 오류 로그를 알아보려면 Azure Machine Learning를 확인하고 ML 파이프라인을 수정하세요.
 
 ## <a name="common"></a>일반
 
 ### <a name="error-code-2103"></a>오류 코드: 2103
 
-- **메시지** : `Please provide value for the required property '%propertyName;'.`
+- **메시지**: `Please provide value for the required property '%propertyName;'.`
 
-- **원인** : 속성에 필요한 값이 제공되지 않았습니다.
+- **원인**: 속성에 필요한 값이 제공되지 않았습니다.
 
-- **권장 사항** : 메시지의 값을 제공하고 다시 시도하세요.
+- **권장 사항**: 메시지의 값을 제공하고 다시 시도하세요.
 
 ### <a name="error-code-2104"></a>오류 코드: 2104
 
-- **메시지** : `The type of the property '%propertyName;' is incorrect.`
+- **메시지**: `The type of the property '%propertyName;' is incorrect.`
 
-- **원인** : 제공된 속성 형식이 올바르지 않습니다.
+- **원인**: 제공된 속성 형식이 올바르지 않습니다.
 
-- **권장 사항** : 속성의 형식을 수정하고 다시 시도하세요.
+- **권장 사항**: 속성의 형식을 수정하고 다시 시도하세요.
 
 ### <a name="error-code-2105"></a>오류 코드: 2105
 
-- **메시지** : `An invalid json is provided for property '%propertyName;'. Encountered an error while trying to parse: '%message;'.`
+- **메시지**: `An invalid json is provided for property '%propertyName;'. Encountered an error while trying to parse: '%message;'.`
 
-- **원인** : 속성의 값이 유효하지 않거나 필요한 형식이 아닙니다.
+- **원인**: 속성의 값이 유효하지 않거나 필요한 형식이 아닙니다.
 
-- **권장 사항** : 해당 속성의 설명서를 참조하고 제공된 값에 올바른 형식 및 유형이 포함되어 있는지 확인하세요.
+- **권장 사항**: 해당 속성의 설명서를 참조하고 제공된 값에 올바른 형식 및 유형이 포함되어 있는지 확인하세요.
 
 ### <a name="error-code-2106"></a>오류 코드: 2106
 
-- **메시지** : `The storage connection string is invalid. %errorMessage;`
+- **메시지**: `The storage connection string is invalid. %errorMessage;`
 
-- **원인** : 저장소에 대한 연결 문자열이 유효하지 않거나 형식이 잘못되었습니다.
+- **원인**: 저장소에 대한 연결 문자열이 유효하지 않거나 형식이 잘못되었습니다.
 
-- **권장 사항** : Azure Portal로 이동하여 저장소를 찾은 다음, 연결 문자열을 복사하여 연결 서비스에 붙여넣고 다시 시도하세요.
+- **권장 사항**: Azure Portal로 이동하여 저장소를 찾은 다음, 연결 문자열을 복사하여 연결 서비스에 붙여넣고 다시 시도하세요.
 
 ### <a name="error-code-2108"></a>오류 코드: 2108
 
-- **메시지** : `Error calling the endpoint '%url;'. Response status code: '%code;'`
+- **메시지**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
 
-- **원인** : 네트워크 연결, DNS 오류, 서버 인증서 유효성 검사 또는 시간 초과와 같은 기본 문제로 인해 요청이 실패했습니다.
+- **원인**: 네트워크 연결, DNS 오류, 서버 인증서 유효성 검사 또는 시간 초과와 같은 기본 문제로 인해 요청이 실패했습니다.
 
-- **권장 사항** : Fiddler/Postman을 사용하여 요청의 유효성을 검사하세요.
+- **권장 사항**: Fiddler/Postman을 사용하여 요청의 유효성을 검사하세요.
 
 ### <a name="error-code-2110"></a>오류 코드: 2110
 
-- **메시지** : `The linked service type '%linkedServiceType;' is not supported for '%executorType;' activities.`
+- **메시지**: `The linked service type '%linkedServiceType;' is not supported for '%executorType;' activities.`
 
-- **원인** : 활동에 지정된 연결 서비스가 잘못되었습니다.
+- **원인**: 활동에 지정된 연결 서비스가 잘못되었습니다.
 
-- **권장 사항** : 연결 서비스 유형이 작업에 지원되는 유형 중 하나인지 확인하세요. 예를 들어 HDI 활동에 대한 연결 서비스 유형은 HDInsight 또는 HDInsightOnDemand일 수 있습니다.
+- **권장 사항**: 연결 서비스 유형이 작업에 지원되는 유형 중 하나인지 확인하세요. 예를 들어 HDI 활동에 대한 연결 서비스 유형은 HDInsight 또는 HDInsightOnDemand일 수 있습니다.
 
 ### <a name="error-code-2111"></a>오류 코드: 2111
 
-- **메시지** : `The type of the property '%propertyName;' is incorrect. The expected type is %expectedType;.`
+- **메시지**: `The type of the property '%propertyName;' is incorrect. The expected type is %expectedType;.`
 
-- **원인** : 제공된 속성의 형식이 올바르지 않습니다.
+- **원인**: 제공된 속성의 형식이 올바르지 않습니다.
 
-- **권장 사항** : 속성 형식 수정하고 다시 시도하세요.
+- **권장 사항**: 속성 형식 수정하고 다시 시도하세요.
 
 ### <a name="error-code-2112"></a>오류 코드: 2112
 
-- **메시지** : `The cloud type is unsupported or could not be determined for storage from the EndpointSuffix '%endpointSuffix;'.`
+- **메시지**: `The cloud type is unsupported or could not be determined for storage from the EndpointSuffix '%endpointSuffix;'.`
 
-- **원인** : 클라우드 유형이 지원되지 않거나 EndpointSuffix에서 저장소를 확인할 수 없습니다.
+- **원인**: 클라우드 유형이 지원되지 않거나 EndpointSuffix에서 저장소를 확인할 수 없습니다.
 
-- **권장 사항** : 다른 클라우드에서 저장소를 사용하고 다시 시도하세요.
+- **권장 사항**: 다른 클라우드에서 저장소를 사용하고 다시 시도하세요.
 
 ### <a name="error-code-2128"></a>오류 코드: 2128
 
-- **메시지** : `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
+- **메시지**: `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
 
-- **원인** : 네트워크 연결, DNS 오류, 서버 인증서 유효성 검사 또는 시간 초과 등이 있습니다.
+- **원인**: 네트워크 연결, DNS 오류, 서버 인증서 유효성 검사 또는 시간 초과 등이 있습니다.
 
-- **권장 사항** : 실행하려는 끝점이 요청에 응답하는지 확인하세요. Fiddler/Postman과 같은 도구를 사용할 수 있습니다.
+- **권장 사항**: 실행하려는 끝점이 요청에 응답하는지 확인하세요. Fiddler/Postman과 같은 도구를 사용할 수 있습니다.
 
 ## <a name="custom"></a>사용자 지정
 
@@ -446,122 +446,122 @@ ms.locfileid: "94331382"
  
 ### <a name="error-code-2500"></a>오류 코드: 2500
 
-- **메시지** : `Hit unexpected exception and execution failed.`
+- **메시지**: `Hit unexpected exception and execution failed.`
 
-- **원인** : `Can't launch command, or the program returned an error code.`
+- **원인**: `Can't launch command, or the program returned an error code.`
 
-- **권장 사항** : 실행 파일이 있는지 확인하세요. 프로그램이 시작되면 *stdout.txt* 및 *stderr.txt* 가 저장소 계정에 업로드되었는지 확인하세요. 디버깅을 위해 코드에 로그를 포함하는 것이 좋습니다.
+- **권장 사항**: 실행 파일이 있는지 확인하세요. 프로그램이 시작되면 *stdout.txt* 및 *stderr.txt* 가 저장소 계정에 업로드되었는지 확인하세요. 디버깅을 위해 코드에 로그를 포함하는 것이 좋습니다.
 
 ### <a name="error-code-2501"></a>오류 코드: 2501
 
-- **메시지** : `Cannot access user batch account; please check batch account settings.`
+- **메시지**: `Cannot access user batch account; please check batch account settings.`
 
-- **원인** : 일괄 액세스 키 또는 풀 이름이 잘못되었습니다.
+- **원인**: 일괄 액세스 키 또는 풀 이름이 잘못되었습니다.
 
-- **권장 사항** : 연결 서비스의 풀 이름 및 일괄 액세스 키를 확인하세요.
+- **권장 사항**: 연결 서비스의 풀 이름 및 일괄 액세스 키를 확인하세요.
 
 ### <a name="error-code-2502"></a>오류 코드: 2502
 
-- **메시지** : `Cannot access user storage account; please check storage account settings.`
+- **메시지**: `Cannot access user storage account; please check storage account settings.`
 
-- **원인** : 저장소 계정 이름 또는 액세스 키가 잘못되었습니다.
+- **원인**: 저장소 계정 이름 또는 액세스 키가 잘못되었습니다.
 
-- **권장 사항** : 연결 서비스의 저장소 계정 이름 및 액세스 키를 확인하세요.
+- **권장 사항**: 연결 서비스의 저장소 계정 이름 및 액세스 키를 확인하세요.
 
 ### <a name="error-code-2504"></a>오류 코드: 2504
 
-- **메시지** : `Operation returned an invalid status code 'BadRequest'.`
+- **메시지**: `Operation returned an invalid status code 'BadRequest'.`
 
-- **원인** : 사용자 지정 활동의 `folderPath`에 파일이 너무 많습니다. `resourceFiles`의 총 크기는 32,768자를 초과할 수 없습니다.
+- **원인**: 사용자 지정 활동의 `folderPath`에 파일이 너무 많습니다. `resourceFiles`의 총 크기는 32,768자를 초과할 수 없습니다.
 
-- **권장 사항** : 불필요한 파일을 제거하거나, 압축을 풀고 압축 풀기 명령을 추가하여 압축을 푸세요.
+- **권장 사항**: 불필요한 파일을 제거하거나, 압축을 풀고 압축 풀기 명령을 추가하여 압축을 푸세요.
    
    예를 들어 `powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ; $folder\yourProgram.exe`를 사용합니다.
 
 ### <a name="error-code-2505"></a>오류 코드: 2505
 
-- **메시지** : `Cannot create Shared Access Signature unless Account Key credentials are used.`
+- **메시지**: `Cannot create Shared Access Signature unless Account Key credentials are used.`
 
-- **원인** : 사용자 지정 활동은 액세스 키를 사용하는 저장소 계정만 지원합니다.
+- **원인**: 사용자 지정 활동은 액세스 키를 사용하는 저장소 계정만 지원합니다.
 
-- **권장 사항** : 오류 설명을 참조하세요.
+- **권장 사항**: 오류 설명을 참조하세요.
 
 ### <a name="error-code-2507"></a>오류 코드: 2507
 
-- **메시지** : `The folder path does not exist or is empty: ...`
+- **메시지**: `The folder path does not exist or is empty: ...`
 
-- **원인** : 지정된 경로의 저장소 계정에 파일이 없습니다.
+- **원인**: 지정된 경로의 저장소 계정에 파일이 없습니다.
 
-- **권장 사항** : 폴더 경로에는 실행할 실행 파일이 포함되어 있어야 합니다.
+- **권장 사항**: 폴더 경로에는 실행할 실행 파일이 포함되어 있어야 합니다.
 
 ### <a name="error-code-2508"></a>오류 코드: 2508
 
-- **메시지** : `There are duplicate files in the resource folder.`
+- **메시지**: `There are duplicate files in the resource folder.`
 
-- **원인** : 이름이 동일한 여러 파일이 folderPath의 여러 하위 폴더에 있습니다.
+- **원인**: 이름이 동일한 여러 파일이 folderPath의 여러 하위 폴더에 있습니다.
 
-- **권장 사항** : 사용자 지정 활동은 folderPath에서 폴더 구조를 평면화합니다. 폴더 구조를 유지해야 하는 경우 파일을 압축한 후 압축 풀기 명령을 사용하여 Azure Batch에서 압축을 풉니다.
+- **권장 사항**: 사용자 지정 활동은 folderPath에서 폴더 구조를 평면화합니다. 폴더 구조를 유지해야 하는 경우 파일을 압축한 후 압축 풀기 명령을 사용하여 Azure Batch에서 압축을 풉니다.
    
    예를 들어 `powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ; $folder\yourProgram.exe`를 사용합니다.
 
 ### <a name="error-code-2509"></a>오류 코드: 2509
 
-- **메시지** : `Batch url ... is invalid; it must be in Uri format.`
+- **메시지**: `Batch url ... is invalid; it must be in Uri format.`
 
-- **원인** : 일괄 처리 URL은 `https://mybatchaccount.eastus.batch.azure.com`과 유사해야 합니다.
+- **원인**: 일괄 처리 URL은 `https://mybatchaccount.eastus.batch.azure.com`과 유사해야 합니다.
 
-- **권장 사항** : 오류 설명을 참조하세요.
+- **권장 사항**: 오류 설명을 참조하세요.
 
 ### <a name="error-code-2510"></a>오류 코드: 2510
 
-- **메시지** : `An error occurred while sending the request.`
+- **메시지**: `An error occurred while sending the request.`
 
-- **원인** : 일괄 처리 URL이 유효하지 않습니다.
+- **원인**: 일괄 처리 URL이 유효하지 않습니다.
 
-- **권장 사항** : 일괄 처리 URL을 확인하세요.
+- **권장 사항**: 일괄 처리 URL을 확인하세요.
  
 ## <a name="hdinsight"></a>HDInsight
 
 ### <a name="error-code-206"></a>오류 코드: 206
 
-- **메시지** : `The batch ID for Spark job is invalid. Please retry your job.`
+- **메시지**: `The batch ID for Spark job is invalid. Please retry your job.`
 
-- **원인** : 이 오류를 초래한 서비스에 내부 문제가 발생했습니다.
+- **원인**: 이 오류를 초래한 서비스에 내부 문제가 발생했습니다.
 
-- **권장 사항** : 이 문제는 일시적일 수 있습니다. 잠시 후 작업을 다시 시도 하세요.
+- **권장 사항**: 이 문제는 일시적일 수 있습니다. 잠시 후 작업을 다시 시도 하세요.
 
 ### <a name="error-code-207"></a>오류 코드: 207
 
-- **메시지** : `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI.`
+- **메시지**: `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI.`
 
-- **원인** : 기본 저장소 계정에서 지역을 확인하는 동안 내부 오류가 발생했습니다.
+- **원인**: 기본 저장소 계정에서 지역을 확인하는 동안 내부 오류가 발생했습니다.
 
-- **권장 사항** : 다른 저장소를 사용해 보세요. 
+- **권장 사항**: 다른 저장소를 사용해 보세요. 
 
 ### <a name="error-code-208"></a>오류 코드: 208
 
-- **메시지** : `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again.`
+- **메시지**: `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again.`
 
-- **원인** : 서비스 주체를 읽거나 MSI 인증을 인스턴스화하는 중 내부 오류가 발생했습니다.
+- **원인**: 서비스 주체를 읽거나 MSI 인증을 인스턴스화하는 중 내부 오류가 발생했습니다.
 
-- **권장 사항** : 제공된 구독에서 HDInsight 클러스터를 생성할 권한이 있는 서비스 주체를 제공하고 다시 시도하세요. [ID 관리가 올바르게 설정](../hdinsight/hdinsight-managed-identities.md)되어 있는지 확인하세요.
+- **권장 사항**: 제공된 구독에서 HDInsight 클러스터를 생성할 권한이 있는 서비스 주체를 제공하고 다시 시도하세요. [ID 관리가 올바르게 설정](../hdinsight/hdinsight-managed-identities.md)되어 있는지 확인하세요.
 
 
 ### <a name="error-code-2300"></a>오류 코드: 2300
 
-- **메시지** : `Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
+- **메시지**: `Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
 
-- **원인** : 오류 메시지에 `The remote name could not be resolved.`와 유사한 메시지가 포함되어 있습니다. 제공된 클러스터 URI가 유효하지 않을 수 있습니다.
+- **원인**: 오류 메시지에 `The remote name could not be resolved.`와 유사한 메시지가 포함되어 있습니다. 제공된 클러스터 URI가 유효하지 않을 수 있습니다.
 
-- **권장 사항** : 클러스터가 삭제되지 않았고 제공된 URI가 올바른지 확인하세요. 브라우저에서 URI를 열 때 Ambari UI가 표시되어야 합니다. 클러스터가 가상 네트워크에 있는 경우 URI는 비공개 URI여야 합니다. 이 URI를 열려면 동일한 가상 네트워크에 속한 VM(가상 머신)을 사용합니다.
+- **권장 사항**: 클러스터가 삭제되지 않았고 제공된 URI가 올바른지 확인하세요. 브라우저에서 URI를 열 때 Ambari UI가 표시되어야 합니다. 클러스터가 가상 네트워크에 있는 경우 URI는 비공개 URI여야 합니다. 이 URI를 열려면 동일한 가상 네트워크에 속한 VM(가상 머신)을 사용합니다.
 
    자세한 내용은 [Apache Hadoop 서비스에 직접 연결](../hdinsight/hdinsight-plan-virtual-network-deployment.md#directly-connect-to-apache-hadoop-services)을 참조하세요.
  
  </br>
 
-- **원인** : 오류 메시지에 `A task was canceled.`와 유사한 메시지가 포함되었다면 작업 제출 시간이 초과된 것입니다.
+- **원인**: 오류 메시지에 `A task was canceled.`와 유사한 메시지가 포함되었다면 작업 제출 시간이 초과된 것입니다.
 
-- **권장 사항** : 일반적인 HDInsight 연결 또는 네트워크 연결 문제일 수 있습니다. 먼저 브라우저에서 HDInsight Ambari UI를 사용할 수 있는지 확인하세요. 그리고 나서 자격 증명이 여전히 유효한지 확인합니다.
+- **권장 사항**: 일반적인 HDInsight 연결 또는 네트워크 연결 문제일 수 있습니다. 먼저 브라우저에서 HDInsight Ambari UI를 사용할 수 있는지 확인하세요. 그리고 나서 자격 증명이 여전히 유효한지 확인합니다.
    
    자체 호스팅 IR(Integrated Runtime)을 사용하는 경우 자체 호스팅 IR이 설치된 VM 또는 컴퓨터에서 이 단계를 수행합니다. 그런 다음, Data Factory에서 작업을 다시 제출해 보세요.
 
@@ -569,17 +569,17 @@ ms.locfileid: "94331382"
 
  </br>
 
-- **원인** : 오류 메시지에 `User admin is locked out in Ambari` 또는 `Unauthorized: Ambari user name or password is incorrect`와 유사한 메시지가 포함되어 있는 경우 HDInsight의 자격 증명이 잘못되었거나 만료된 상태입니다.
+- **원인**: 오류 메시지에 `User admin is locked out in Ambari` 또는 `Unauthorized: Ambari user name or password is incorrect`와 유사한 메시지가 포함되어 있는 경우 HDInsight의 자격 증명이 잘못되었거나 만료된 상태입니다.
 
-- **권장 사항** : 자격 증명을 수정하고 연결 서비스를 다시 배포하세요. 먼저 브라우저에서 클러스터 URI를 열고 로그인을 시도하여 자격 증명이 HDInsight에서 작동하는지 확인합니다. 자격 증명이 작동하지 않으면 Azure Portal에서 재설정할 수 있습니다.
+- **권장 사항**: 자격 증명을 수정하고 연결 서비스를 다시 배포하세요. 먼저 브라우저에서 클러스터 URI를 열고 로그인을 시도하여 자격 증명이 HDInsight에서 작동하는지 확인합니다. 자격 증명이 작동하지 않으면 Azure Portal에서 재설정할 수 있습니다.
 
    ESP 클러스터의 경우 [셀프 서비스 암호 재설정](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)을 통해 암호를 재설정합니다.
 
  </br>
 
-- **원인** : 오류 메시지에 `502 - Web server received an invalid response while acting as a gateway or proxy server`와 유사한 메시지가 포함 되어 있으면 HDInsight 서비스에서 이 오류가 반환 됩니다.
+- **원인**: 오류 메시지에 `502 - Web server received an invalid response while acting as a gateway or proxy server`와 유사한 메시지가 포함 되어 있으면 HDInsight 서비스에서 이 오류가 반환 됩니다.
 
-- **권장 사항** : Ambari 서버 프로세스가 종료되면 502 오류가 자주 발생합니다. 헤드 노드를 다시 부팅하여 Ambari 서비스를 다시 시작할 수 있습니다.
+- **권장 사항**: Ambari 서버 프로세스가 종료되면 502 오류가 자주 발생합니다. 헤드 노드를 다시 부팅하여 Ambari 서비스를 다시 시작할 수 있습니다.
 
     1. SSH를 사용하여 HDInsight의 노드 중 하나에 연결합니다.
     1. `ping headnodehost`를 실행하여 활성 헤드 노드 호스트를 식별합니다.
@@ -594,29 +594,29 @@ ms.locfileid: "94331382"
 
  </br>
 
-- **원인** : 오류 메시지에 `Unable to service the submit job request as templeton service is busy with too many submit job requests` 또는 `Queue root.joblauncher already has 500 applications, cannot accept submission of application`와 유사한 메시지가 포함되어 있으면 동시에 너무 많은 작업이 HDInsight에 전송됩니다.
+- **원인**: 오류 메시지에 `Unable to service the submit job request as templeton service is busy with too many submit job requests` 또는 `Queue root.joblauncher already has 500 applications, cannot accept submission of application`와 유사한 메시지가 포함되어 있으면 동시에 너무 많은 작업이 HDInsight에 전송됩니다.
 
-- **권장 사항** : HDInsight에 제출된 동시 작업 수를 제한하세요. 동일한 활동으로 작업을 전송하는 경우 Data Factory 활동 동시성을 참조하세요. 동시 파이프라인 실행이 시간이 지남에 따라 분산되도록 트리거를 변경합니다.
+- **권장 사항**: HDInsight에 제출된 동시 작업 수를 제한하세요. 동일한 활동으로 작업을 전송하는 경우 Data Factory 활동 동시성을 참조하세요. 동시 파이프라인 실행이 시간이 지남에 따라 분산되도록 트리거를 변경합니다.
 
    오류에서 제안된 대로 `templeton.parallellism.job.submit`을 조정하려면 [HDInsight 설명서](../hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors.md)를 참조하세요.
 
 ### <a name="error-code-2301"></a>오류 코드: 2301
 
-- **메시지** : `Could not get the status of the application '%physicalJobId;' from the HDInsight service. Received the following error: %message;. Please refer to HDInsight troubleshooting documentation or contact their support for further assistance.`
+- **메시지**: `Could not get the status of the application '%physicalJobId;' from the HDInsight service. Received the following error: %message;. Please refer to HDInsight troubleshooting documentation or contact their support for further assistance.`
 
-- **원인** : HDInsight 클러스터 또는 서비스에 문제가 있습니다.
+- **원인**: HDInsight 클러스터 또는 서비스에 문제가 있습니다.
 
-- **권장 사항** : 이 오류는 실행 중인 작업의 상태를 요청할 때 ADF가 HDInsight 클러스터로부터 응답을 받지 못하는 경우에 발생합니다. 클러스터 자체에서 이 문제가 발생할 수 있습니다. 또는 HDInsight 서비스에서 중단이 발생할 수 있습니다.
+- **권장 사항**: 이 오류는 실행 중인 작업의 상태를 요청할 때 ADF가 HDInsight 클러스터로부터 응답을 받지 못하는 경우에 발생합니다. 클러스터 자체에서 이 문제가 발생할 수 있습니다. 또는 HDInsight 서비스에서 중단이 발생할 수 있습니다.
 
    https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide 에서 HDInsight 문제 해결 설명서를 참조하고, 추가 지원이 필요한 경우 지원 팀에 문의하세요.
 
 ### <a name="error-code-2302"></a>오류 코드: 2302
 
-- **메시지** : `Hadoop job failed with exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Contact HDInsight team for further support.`
+- **메시지**: `Hadoop job failed with exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Contact HDInsight team for further support.`
 
-- **원인** : 작업이 HDI 클러스터에 제출되었지만 작업이 실패했습니다.
+- **원인**: 작업이 HDI 클러스터에 제출되었지만 작업이 실패했습니다.
 
-- **권장 사항** : 
+- **권장 사항**: 
 
  1. 다음과 같이 Ambari UI를 확인하세요.
     1. 모든 서비스가 계속 실행 중인지 확인합니다.
@@ -634,11 +634,11 @@ ms.locfileid: "94331382"
 
 ### <a name="error-code-2303"></a>오류 코드: 2303
 
-- **메시지** : `Hadoop job failed with transient exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Try again or contact HDInsight team for further support.`
+- **메시지**: `Hadoop job failed with transient exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Try again or contact HDInsight team for further support.`
 
-- **원인** : 작업이 HDI 클러스터에 제출되었지만 작업이 실패했습니다.
+- **원인**: 작업이 HDI 클러스터에 제출되었지만 작업이 실패했습니다.
 
-- **권장 사항** : 
+- **권장 사항**: 
 
  1. 다음과 같이 Ambari UI를 확인하세요.
     1. 모든 서비스가 계속 실행 중인지 확인합니다.
@@ -656,107 +656,107 @@ ms.locfileid: "94331382"
 
 ### <a name="error-code-2304"></a>오류 코드: 2304
 
-- **메시지** : `MSI authentication is not supported on storages for HDI activities.`
+- **메시지**: `MSI authentication is not supported on storages for HDI activities.`
 
-- **원인** : HDI(HDInsight) 연결 서비스 또는 HDI 활동에 사용된 저장소 연결 서비스는 지원되지 않는 MSI 인증으로 구성됩니다.
+- **원인**: HDI(HDInsight) 연결 서비스 또는 HDI 활동에 사용된 저장소 연결 서비스는 지원되지 않는 MSI 인증으로 구성됩니다.
 
-- **권장 사항** : HDI 연결 서비스 또는 HDI 활동에 사용되는 저장소 계정에 대한 전체 연결 문자열을 제공하세요.
+- **권장 사항**: HDI 연결 서비스 또는 HDI 활동에 사용되는 저장소 계정에 대한 전체 연결 문자열을 제공하세요.
 
 ### <a name="error-code-2305"></a>오류 코드: 2305
 
-- **메시지** : `Failed to initialize the HDInsight client for the cluster '%cluster;'. Error: '%message;'`
+- **메시지**: `Failed to initialize the HDInsight client for the cluster '%cluster;'. Error: '%message;'`
 
-- **원인** : HDI 클러스터에 대한 연결 정보가 잘못되었거나, 제공된 사용자에게 필요한 작업을 수행할 수 있는 권한이 없거나, HDInsight 서비스에서 ADF의 요청에 응답하는 동안 문제가 발생했습니다.
+- **원인**: HDI 클러스터에 대한 연결 정보가 잘못되었거나, 제공된 사용자에게 필요한 작업을 수행할 수 있는 권한이 없거나, HDInsight 서비스에서 ADF의 요청에 응답하는 동안 문제가 발생했습니다.
 
-- **권장 사항** : 사용자 정보가 올바른지 확인하고, HDI 클러스터의 Ambari UI가 IR이 설치된 VM(자체 호스팅 IR)의 브라우저에서 열리거나 어떤 컴퓨터(Azure IR)에서든 열 수 있는지 확인하세요.
+- **권장 사항**: 사용자 정보가 올바른지 확인하고, HDI 클러스터의 Ambari UI가 IR이 설치된 VM(자체 호스팅 IR)의 브라우저에서 열리거나 어떤 컴퓨터(Azure IR)에서든 열 수 있는지 확인하세요.
 
 ### <a name="error-code-2306"></a>오류 코드: 2306
 
-- **메시지** : `An invalid json is provided for script action '%scriptActionName;'. Error: '%message;'`
+- **메시지**: `An invalid json is provided for script action '%scriptActionName;'. Error: '%message;'`
 
-- **원인** : 스크립트 작업에 제공된 JSON이 유효하지 않습니다.
+- **원인**: 스크립트 작업에 제공된 JSON이 유효하지 않습니다.
 
-- **권장 사항** : 오류 메시지는 문제를 파악하는 데 도움이 됩니다. Json 구성을 수정하고 다시 시도하세요.
+- **권장 사항**: 오류 메시지는 문제를 파악하는 데 도움이 됩니다. Json 구성을 수정하고 다시 시도하세요.
 
    자세한 내용은 [Azure HDInsight 주문형 연결 서비스](./compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 확인하세요.
 
 ### <a name="error-code-2310"></a>오류 코드: 2310
 
-- **메시지** : `Failed to submit Spark job. Error: '%message;'`
+- **메시지**: `Failed to submit Spark job. Error: '%message;'`
 
-- **원인** : ADF가 Livy API(Livy/일괄 처리)를 사용하여 Spark 클러스터에서 일괄 처리 만들려고 했지만 오류가 발생했습니다.
+- **원인**: ADF가 Livy API(Livy/일괄 처리)를 사용하여 Spark 클러스터에서 일괄 처리 만들려고 했지만 오류가 발생했습니다.
 
-- **권장 사항** : 오류 메시지에 따라 문제를 해결하세요. 해결하는 데 정보가 부족한 경우 HDI 팀에 문의하여 일괄 처리 ID 및 작업 ID를 제공하세요. 이 ID는 ADF 모니터링의 활동 실행 출력 페이지에서 찾을 수 있습니다. 문제를 추가로 해결하려면 일괄 처리 작업의 전체 로그를 수집하세요.
+- **권장 사항**: 오류 메시지에 따라 문제를 해결하세요. 해결하는 데 정보가 부족한 경우 HDI 팀에 문의하여 일괄 처리 ID 및 작업 ID를 제공하세요. 이 ID는 ADF 모니터링의 활동 실행 출력 페이지에서 찾을 수 있습니다. 문제를 추가로 해결하려면 일괄 처리 작업의 전체 로그를 수집하세요.
 
    전체 로그를 수집하는 방법에 대한 자세한 내용은 [일괄 처리 작업의 전체 로그 가져오기](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job)를 참조하세요.
 
 ### <a name="error-code-2312"></a>오류 코드: 2312
 
-- **메시지** : `Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
+- **메시지**: `Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
 
-- **원인** : HDInsight Spark 클러스터에서 작업이 실패했습니다.
+- **원인**: HDInsight Spark 클러스터에서 작업이 실패했습니다.
 
-- **권장 사항** : ADF 모니터링의 활동 실행 출력 페이지 링크를 따라 HDInsight Spark 클러스터에서 실행 문제를 해결할 수 있습니다. 추가 지원이 필요한 경우 HDInsight 지원 팀에 문의하세요.
+- **권장 사항**: ADF 모니터링의 활동 실행 출력 페이지 링크를 따라 HDInsight Spark 클러스터에서 실행 문제를 해결할 수 있습니다. 추가 지원이 필요한 경우 HDInsight 지원 팀에 문의하세요.
 
    전체 로그를 수집하는 방법에 대한 자세한 내용은 [일괄 처리 작업의 전체 로그 가져오기](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job)를 참조하세요.
 
 ### <a name="error-code-2313"></a>오류 코드: 2313
 
-- **메시지** : `The batch with ID '%batchId;' was not found on Spark cluster. Open the Spark History UI and try to find it there. Contact HDInsight support for further assistance.`
+- **메시지**: `The batch with ID '%batchId;' was not found on Spark cluster. Open the Spark History UI and try to find it there. Contact HDInsight support for further assistance.`
 
-- **원인** : HDInsight Spark 클러스터에서 일괄 처리가 삭제되었습니다.
+- **원인**: HDInsight Spark 클러스터에서 일괄 처리가 삭제되었습니다.
 
-- **권장 사항** : HDInsight Spark 클러스터에서 일괄 처리 문제를 해결하세요. 추가 지원이 필요한 경우 HDInsight 지원 팀에 문의하세요. 
+- **권장 사항**: HDInsight Spark 클러스터에서 일괄 처리 문제를 해결하세요. 추가 지원이 필요한 경우 HDInsight 지원 팀에 문의하세요. 
 
    전체 로그를 수집하는 방법에 대한 자세한 내용은 [일괄 처리 작업의 전체 로그 가져오기](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job)를 참조하고, 추가 지원이 필요한 경우 HDInsight 지원 팀에 전체 로그를 공유하세요.
 
 ### <a name="error-code-2328"></a>오류 코드: 2328
 
-- **메시지** : `Failed to create the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
+- **메시지**: `Failed to create the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
 
-- **원인** : 발생한 문제에 대한 세부 정보가 오류 메시지에 표시됩니다.
+- **원인**: 발생한 문제에 대한 세부 정보가 오류 메시지에 표시됩니다.
 
-- **권장 사항** : 오류 메시지는 문제를 해결하는 데 도움이 됩니다.
+- **권장 사항**: 오류 메시지는 문제를 해결하는 데 도움이 됩니다.
 
 ### <a name="error-code-2329"></a>오류 코드: 2329
 
-- **메시지** : `Failed to delete the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
+- **메시지**: `Failed to delete the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
 
-- **원인** : 발생한 문제에 대한 세부 정보가 오류 메시지에 표시됩니다.
+- **원인**: 발생한 문제에 대한 세부 정보가 오류 메시지에 표시됩니다.
 
-- **권장 사항** : 오류 메시지는 문제를 해결하는 데 도움이 됩니다.
+- **권장 사항**: 오류 메시지는 문제를 해결하는 데 도움이 됩니다.
 
 ### <a name="error-code-2331"></a>오류 코드: 2331
 
-- **메시지** : `The file path should not be null or empty.`
+- **메시지**: `The file path should not be null or empty.`
 
-- **원인** : 제공된 파일 경로가 비어 있습니다.
+- **원인**: 제공된 파일 경로가 비어 있습니다.
 
-- **권장 사항** : 존재하는 파일 경로를 제공하세요.
+- **권장 사항**: 존재하는 파일 경로를 제공하세요.
 
 ### <a name="error-code-2340"></a>오류 코드: 2340
 
-- **메시지** : `HDInsightOnDemand linked service does not support execution via SelfHosted IR. Your IR name is '%IRName;'. Please select an Azure IR instead.`
+- **메시지**: `HDInsightOnDemand linked service does not support execution via SelfHosted IR. Your IR name is '%IRName;'. Please select an Azure IR instead.`
 
-- **원인** : HDInsight 주문형 연결 서비스는 자체 호스팅 IR을 통한 실행을 지원하지 않습니다.
+- **원인**: HDInsight 주문형 연결 서비스는 자체 호스팅 IR을 통한 실행을 지원하지 않습니다.
 
-- **권장 사항** : Azure IR을 선택하고 다시 시도하세요.
+- **권장 사항**: Azure IR을 선택하고 다시 시도하세요.
 
 ### <a name="error-code-2341"></a>오류 코드: 2341
 
-- **메시지** : `HDInsight cluster URL '%clusterUrl;' is incorrect, it must be in URI format and the scheme must be 'https'.`
+- **메시지**: `HDInsight cluster URL '%clusterUrl;' is incorrect, it must be in URI format and the scheme must be 'https'.`
 
-- **원인** : 제공된 URL의 형식이 올바르지 않습니다.
+- **원인**: 제공된 URL의 형식이 올바르지 않습니다.
 
-- **권장 사항** : 클러스터 URL을 수정하고 다시 시도하세요.
+- **권장 사항**: 클러스터 URL을 수정하고 다시 시도하세요.
 
 ### <a name="error-code-2342"></a>오류 코드: 2342
 
-- **메시지** : `Failed to connect to HDInsight cluster: '%errorMessage;'.`
+- **메시지**: `Failed to connect to HDInsight cluster: '%errorMessage;'.`
 
-- **원인** : 클러스터에 제공된 자격 증명이 잘못되었거나, 네트워크 구성 또는 연결 문제가 있거나, IR에 클러스터 연결 문제가 있습니다.
+- **원인**: 클러스터에 제공된 자격 증명이 잘못되었거나, 네트워크 구성 또는 연결 문제가 있거나, IR에 클러스터 연결 문제가 있습니다.
 
-- **권장 사항** : 
+- **권장 사항**: 
     1. 브라우저에서 HDInsight 클러스터의 Ambari UI를 열어 자격 증명이 올바른지 확인하세요.
     1. 클러스터가 VNet(가상 네트워크)에 있고 자체 호스팅 IR을 사용 중인 경우 HDI URL은 VNet의 비공개 URL이어야 하며 클러스터 이름 뒤에 '-int'가 있어야 합니다.
     
@@ -770,27 +770,27 @@ ms.locfileid: "94331382"
 
 ### <a name="error-code-2343"></a>오류 코드: 2343
 
-- **메시지** : `User name and password cannot be null or empty to connect to the HDInsight cluster.`
+- **메시지**: `User name and password cannot be null or empty to connect to the HDInsight cluster.`
 
-- **원인** : 사용자 이름 또는 암호가 비어 있습니다.
+- **원인**: 사용자 이름 또는 암호가 비어 있습니다.
 
-- **권장 사항** : HDI에 연결하는 데 올바른 자격 증명을 제공하고 다시 시도 하세요.
+- **권장 사항**: HDI에 연결하는 데 올바른 자격 증명을 제공하고 다시 시도 하세요.
 
 ### <a name="error-code-2345"></a>오류 코드: 2345
 
-- **메시지** : `Failed to read the content of the hive script. Error: '%message;'`
+- **메시지**: `Failed to read the content of the hive script. Error: '%message;'`
 
-- **원인** : 스크립트 파일이 존재하지 않거나 ADF가 스크립트 위치에 연결할 수 없습니다.
+- **원인**: 스크립트 파일이 존재하지 않거나 ADF가 스크립트 위치에 연결할 수 없습니다.
 
-- **권장 사항** : 스크립트가 존재하고 연관된 연결 서비스가 연결에 적합한 자격 증명을 가지고 있는지 확인하세요.
+- **권장 사항**: 스크립트가 존재하고 연관된 연결 서비스가 연결에 적합한 자격 증명을 가지고 있는지 확인하세요.
 
 ### <a name="error-code-2346"></a>오류 코드: 2346
 
-- **메시지** : `Failed to create ODBC connection to the HDI cluster with error message '%message;'.`
+- **메시지**: `Failed to create ODBC connection to the HDI cluster with error message '%message;'.`
 
-- **원인** : ADF가 HDI 클러스터에 대한 ODBC(Open Database Connectivity) 연결을 설정하려고 했지만 오류로 인해 실패했습니다.
+- **원인**: ADF가 HDI 클러스터에 대한 ODBC(Open Database Connectivity) 연결을 설정하려고 했지만 오류로 인해 실패했습니다.
 
-- **권장 사항** : 
+- **권장 사항**: 
 
    1. ODBC/JDBC(Java Database Connectivity) 연결을 올바르게 설정했는지 확인하세요.
       1. JDBC의 경우 동일한 가상 네트워크를 사용한다면 다음을 통해 이 연결을 가져올 수 있습니다.<br>
@@ -806,11 +806,11 @@ ms.locfileid: "94331382"
 
 ### <a name="error-code-2347"></a>오류 코드: 2347
 
-- **메시지** : `Hive execution through ODBC failed with error message '%message;'.`
+- **메시지**: `Hive execution through ODBC failed with error message '%message;'.`
 
-- **원인** : ADF는 ODBC 연결을 통해 HDI 클러스터에 실행할 Hive 스크립트를 제출했지만 HDI에서 스크립트가 실패했습니다.
+- **원인**: ADF는 ODBC 연결을 통해 HDI 클러스터에 실행할 Hive 스크립트를 제출했지만 HDI에서 스크립트가 실패했습니다.
 
-- **권장 사항** : 
+- **권장 사항**: 
 
    1. ODBC/JDBC(Java Database Connectivity) 연결을 올바르게 설정했는지 확인하세요.
       1. JDBC의 경우 동일한 가상 네트워크를 사용한다면 다음을 통해 이 연결을 가져올 수 있습니다.<br>
@@ -826,61 +826,61 @@ ms.locfileid: "94331382"
 
 ### <a name="error-code-2348"></a>오류 코드: 2348
 
-- **메시지** : `The main storage has not been initialized. Please check the properties of the storage linked service in the HDI linked service.`
+- **메시지**: `The main storage has not been initialized. Please check the properties of the storage linked service in the HDI linked service.`
 
-- **원인** : 저장소 연결 서비스 속성이 올바르게 설정되지 않았습니다.
+- **원인**: 저장소 연결 서비스 속성이 올바르게 설정되지 않았습니다.
 
-- **권장 사항** : HDI 활동에 대한 기본 저장소 연결 서비스에서는 전체 연결 문자열만 지원됩니다. MSI 권한 부여 또는 응용 프로그램을 사용하고 있지 않은지 확인합니다.
+- **권장 사항**: HDI 활동에 대한 기본 저장소 연결 서비스에서는 전체 연결 문자열만 지원됩니다. MSI 권한 부여 또는 응용 프로그램을 사용하고 있지 않은지 확인합니다.
 
 ### <a name="error-code-2350"></a>오류 코드: 2350
 
-- **메시지** : `Failed to prepare the files for the run '%jobId;'. HDI cluster: '%cluster;', Error: '%errorMessage;'`
+- **메시지**: `Failed to prepare the files for the run '%jobId;'. HDI cluster: '%cluster;', Error: '%errorMessage;'`
 
-- **원인** : 파일을 배치해야 할 저장소에 연결하기 위해 제공한 자격 증명이 올바르지 않거나 해당 파일이 존재하지 않습니다.
+- **원인**: 파일을 배치해야 할 저장소에 연결하기 위해 제공한 자격 증명이 올바르지 않거나 해당 파일이 존재하지 않습니다.
 
-- **권장 사항** : 이 오류는 ADF가 HDI 활동을 준비하고 HDI에 작업을 제출하기 전에 기본 저장소에 파일을 복사하려고 하는 경우에 발생합니다. 파일이 제공된 위치에 있고 저장소 연결이 올바른지 확인하세요. ADF HDI 활동은 HDI 활동과 관련된 저장소 계정에서 MSI 인증을 지원하지 않으므로 연결 서비스에 전체 키가 있거나 Azure Key Vault를 사용하는지 확인하세요.
+- **권장 사항**: 이 오류는 ADF가 HDI 활동을 준비하고 HDI에 작업을 제출하기 전에 기본 저장소에 파일을 복사하려고 하는 경우에 발생합니다. 파일이 제공된 위치에 있고 저장소 연결이 올바른지 확인하세요. ADF HDI 활동은 HDI 활동과 관련된 저장소 계정에서 MSI 인증을 지원하지 않으므로 연결 서비스에 전체 키가 있거나 Azure Key Vault를 사용하는지 확인하세요.
 
 ### <a name="error-code-2351"></a>오류 코드: 2351
 
-- **메시지** : `Could not open the file '%filePath;' in container/fileSystem '%container;'.`
+- **메시지**: `Could not open the file '%filePath;' in container/fileSystem '%container;'.`
 
-- **원인** : 파일이 지정된 경로에 없습니다.
+- **원인**: 파일이 지정된 경로에 없습니다.
 
-- **권장 사항** : 파일이 실제로 존재하는지, 연결 정보가 이 파일을 가리키는 연결 서비스에 올바른 자격 증명이 있는지 확인하세요.
+- **권장 사항**: 파일이 실제로 존재하는지, 연결 정보가 이 파일을 가리키는 연결 서비스에 올바른 자격 증명이 있는지 확인하세요.
 
 ### <a name="error-code-2352"></a>오류 코드: 2352
 
-- **메시지** : `The file storage has not been initialized. Please check the properties of the file storage linked service in the HDI activity.`
+- **메시지**: `The file storage has not been initialized. Please check the properties of the file storage linked service in the HDI activity.`
 
-- **원인** : 파일 저장소 연결 서비스 속성이 올바르게 설정되지 않았습니다.
+- **원인**: 파일 저장소 연결 서비스 속성이 올바르게 설정되지 않았습니다.
 
-- **권장 사항** : 파일 저장소 연결 서비스의 속성이 제대로 구성되어 있는지 확인하세요.
+- **권장 사항**: 파일 저장소 연결 서비스의 속성이 제대로 구성되어 있는지 확인하세요.
 
 ### <a name="error-code-2353"></a>오류 코드: 2353
 
-- **메시지** : `The script storage has not been initialized. Please check the properties of the script storage linked service in the HDI activity.`
+- **메시지**: `The script storage has not been initialized. Please check the properties of the script storage linked service in the HDI activity.`
 
-- **원인** : 스크립트 저장소 연결 서비스 속성이 올바르게 설정되지 않았습니다.
+- **원인**: 스크립트 저장소 연결 서비스 속성이 올바르게 설정되지 않았습니다.
 
-- **권장 사항** : 스크립트 저장소 연결 서비스의 속성이 제대로 구성되어 있는지 확인하세요.
+- **권장 사항**: 스크립트 저장소 연결 서비스의 속성이 제대로 구성되어 있는지 확인하세요.
 
 ### <a name="error-code-2354"></a>오류 코드: 2354
 
-- **메시지** : `The storage linked service type '%linkedServiceType;' is not supported for '%executorType;' activities for property '%linkedServicePropertyName;'.`
+- **메시지**: `The storage linked service type '%linkedServiceType;' is not supported for '%executorType;' activities for property '%linkedServicePropertyName;'.`
 
-- **원인** : 저장소 연결 서비스 유형은 활동에서 지원되지 않습니다.
+- **원인**: 저장소 연결 서비스 유형은 활동에서 지원되지 않습니다.
 
-- **권장 사항** : 선택한 연결 서비스에 지원되는 활동 유형 중 하나가 있는지 확인하세요. HDI 활동은 AzureBlobStorage 및 AzureBlobFSStorage 연결 서비스를 지원합니다.
+- **권장 사항**: 선택한 연결 서비스에 지원되는 활동 유형 중 하나가 있는지 확인하세요. HDI 활동은 AzureBlobStorage 및 AzureBlobFSStorage 연결 서비스를 지원합니다.
 
    자세한 내용은 [Azure HDInsight 클러스터에 사용할 저장소 옵션 비교](../hdinsight/hdinsight-hadoop-compare-storage-options.md)를 참조하세요.
 
 ### <a name="error-code-2355"></a>오류 코드: 2355
 
-- **메시지** : `The '%value' provided for commandEnvironment is incorrect. The expected value should be an array of strings where each string has the format CmdEnvVarName=CmdEnvVarValue.`
+- **메시지**: `The '%value' provided for commandEnvironment is incorrect. The expected value should be an array of strings where each string has the format CmdEnvVarName=CmdEnvVarValue.`
 
-- **원인** : `commandEnvironment`에 제공된 값이 잘못되었습니다.
+- **원인**: `commandEnvironment`에 제공된 값이 잘못되었습니다.
 
-- **권장 사항** : 제공된 값이 다음과 유사한지 확인하세요.
+- **권장 사항**: 제공된 값이 다음과 유사한지 확인하세요.
  
     ``` \"commandEnvironment\": [
     \"variableName=variableValue\"
@@ -891,11 +891,11 @@ ms.locfileid: "94331382"
 
 ### <a name="error-code-2356"></a>오류 코드: 2356
 
-- **메시지** : `The commandEnvironment already contains a variable named '%variableName;'.`
+- **메시지**: `The commandEnvironment already contains a variable named '%variableName;'.`
 
-- **원인** : `commandEnvironment`에 제공된 값이 잘못되었습니다.
+- **원인**: `commandEnvironment`에 제공된 값이 잘못되었습니다.
 
-- **권장 사항** : 제공된 값이 다음과 유사한지 확인하세요.
+- **권장 사항**: 제공된 값이 다음과 유사한지 확인하세요.
  
     ``` \"commandEnvironment\": [
     \"variableName=variableValue\"
@@ -906,69 +906,69 @@ ms.locfileid: "94331382"
 
 ### <a name="error-code-2357"></a>오류 코드: 2357
 
-- **메시지** : `The certificate or password is wrong for ADLS Gen 1 storage.`
+- **메시지**: `The certificate or password is wrong for ADLS Gen 1 storage.`
 
-- **원인** : 제공된 자격 증명이 잘못되었습니다.
+- **원인**: 제공된 자격 증명이 잘못되었습니다.
 
-- **권장 사항** : ADLS Gen 1의 연결 정보가 서비스에 연결되어 있는지 확인하고 연결 테스트에 성공했는지 확인하세요.
+- **권장 사항**: ADLS Gen 1의 연결 정보가 서비스에 연결되어 있는지 확인하고 연결 테스트에 성공했는지 확인하세요.
 
 ### <a name="error-code-2358"></a>오류 코드: 2358
 
-- **메시지** : `The value '%value;' for the required property 'TimeToLive' in the on demand HDInsight linked service '%linkedServiceName;' has invalid format. It should be a timespan between '00:05:00' and '24:00:00'.`
+- **메시지**: `The value '%value;' for the required property 'TimeToLive' in the on demand HDInsight linked service '%linkedServiceName;' has invalid format. It should be a timespan between '00:05:00' and '24:00:00'.`
 
-- **원인** : 필수 속성 `TimeToLive`에 제공된 값의 형식이 유효하지 않습니다. 
+- **원인**: 필수 속성 `TimeToLive`에 제공된 값의 형식이 유효하지 않습니다. 
 
-- **권장 사항** : 값을 제안된 범위로 업데이트한 후 다시 시도하세요.
+- **권장 사항**: 값을 제안된 범위로 업데이트한 후 다시 시도하세요.
 
 ### <a name="error-code-2359"></a>오류 코드: 2359
 
-- **메시지** : `The value '%value;' for the property 'roles' is invalid. Expected types are 'zookeeper', 'headnode', and 'workernode'.`
+- **메시지**: `The value '%value;' for the property 'roles' is invalid. Expected types are 'zookeeper', 'headnode', and 'workernode'.`
 
-- **원인** : 속성 `roles`에 제공된 값이 유효하지 않습니다.
+- **원인**: 속성 `roles`에 제공된 값이 유효하지 않습니다.
 
-- **권장 사항** : 제안 중 하나로 값을 업데이트하고 다시 시도하세요.
+- **권장 사항**: 제안 중 하나로 값을 업데이트하고 다시 시도하세요.
 
 ### <a name="error-code-2360"></a>오류 코드: 2360
 
-- **메시지** : `The connection string in HCatalogLinkedService is invalid. Encountered an error while trying to parse: '%message;'.`
+- **메시지**: `The connection string in HCatalogLinkedService is invalid. Encountered an error while trying to parse: '%message;'.`
 
-- **원인** : `HCatalogLinkedService`에 제공된 연결 문자열이 유효하지 않습니다.
+- **원인**: `HCatalogLinkedService`에 제공된 연결 문자열이 유효하지 않습니다.
 
-- **권장 사항** : 올바른 Azure SQL 연결 문자열로 값을 업데이트하고 다시 시도하세요.
+- **권장 사항**: 올바른 Azure SQL 연결 문자열로 값을 업데이트하고 다시 시도하세요.
 
 ### <a name="error-code-2361"></a>오류 코드: 2361
 
-- **메시지** : `Failed to create on demand HDI cluster. Cluster name is '%clusterName;'.`
+- **메시지**: `Failed to create on demand HDI cluster. Cluster name is '%clusterName;'.`
 
-- **원인** : 클러스터를 만들지 못했으며 ADF가 HDInsight 서비스에서 오류를 가져오지 못했습니다.
+- **원인**: 클러스터를 만들지 못했으며 ADF가 HDInsight 서비스에서 오류를 가져오지 못했습니다.
 
-- **권장 사항** : Azure Portal을 열고 제공된 이름으로 HDI 리소스를 찾은 다음, 프로비저닝 상태를 확인하세요. 추가 지원이 필요한 경우 HDInsight 지원 팀에 문의하세요.
+- **권장 사항**: Azure Portal을 열고 제공된 이름으로 HDI 리소스를 찾은 다음, 프로비저닝 상태를 확인하세요. 추가 지원이 필요한 경우 HDInsight 지원 팀에 문의하세요.
 
 ### <a name="error-code-2362"></a>오류 코드: 2362
 
-- **메시지** : `Only Azure Blob storage accounts are supported as additional storages for HDInsight on demand linked service.`
+- **메시지**: `Only Azure Blob storage accounts are supported as additional storages for HDInsight on demand linked service.`
 
-- **원인** : 제공된 추가 저장소가 Azure Blob Storage가 아닙니다.
+- **원인**: 제공된 추가 저장소가 Azure Blob Storage가 아닙니다.
 
-- **권장 사항** : HDInsight 주문형 연결 서비스에 대한 추가 저장소로 Azure Blob Storage 계정을 제공하세요.
+- **권장 사항**: HDInsight 주문형 연결 서비스에 대한 추가 저장소로 Azure Blob Storage 계정을 제공하세요.
 
 ## <a name="web-activity"></a>웹 작업
 
 ### <a name="error-code-2128"></a>오류 코드: 2128
 
-- **메시지** : `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
+- **메시지**: `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
 
-- **원인** : 이 문제는 네트워크 연결, DNS 오류, 서버 인증서 유효성 검사 또는 시간 초과로 인해 발생합니다.
+- **원인**: 이 문제는 네트워크 연결, DNS 오류, 서버 인증서 유효성 검사 또는 시간 초과로 인해 발생합니다.
 
-- **권장 사항** : 실행하려는 끝점이 요청에 응답하는지 확인하세요. **Fiddler/Postman** 과 같은 도구를 사용할 수 있습니다.
+- **권장 사항**: 실행하려는 끝점이 요청에 응답하는지 확인하세요. **Fiddler/Postman** 과 같은 도구를 사용할 수 있습니다.
 
 ### <a name="error-code-2108"></a>오류 코드: 2108
 
-- **메시지** : `Error calling the endpoint '%url;'. Response status code: '%code;'`
+- **메시지**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
 
-- **원인** : 네트워크 연결, DNS 오류, 서버 인증서 유효성 검사 또는 시간 초과와 같은 기본 문제로 인해 요청이 실패했습니다.
+- **원인**: 네트워크 연결, DNS 오류, 서버 인증서 유효성 검사 또는 시간 초과와 같은 기본 문제로 인해 요청이 실패했습니다.
 
-- **권장 사항** : Fiddler/Postman을 사용하여 요청의 유효성을 검사하세요.
+- **권장 사항**: Fiddler/Postman을 사용하여 요청의 유효성을 검사하세요.
 
 #### <a name="more-details"></a>자세한 내용
 **Fiddler** 를 사용하여 모니터링되는 웹 응용 프로그램의 HTTP 세션을 만들려면 다음을 수행하세요.
@@ -1008,7 +1008,16 @@ ms.locfileid: "94331382"
 ## <a name="general"></a>일반
 
 ### <a name="activity-stuck-issue"></a>활동 중단 문제
+
 활동이 거의 진행 되지 않는 정상적인 실행 보다 훨씬 더 오래 실행 되는 것을 확인 하면 문제가 발생 한 것일 수 있습니다. 취소 하 고 도움이 되는지 다시 시도할 수 있습니다. 복사 작업 인 경우 [복사 작업 성능 문제 해결](copy-activity-performance-troubleshooting.md)에서 성능 모니터링 및 문제 해결에 대해 알아볼 수 있습니다. 데이터 흐름의 경우 [데이터 흐름 매핑 성능](concepts-data-flow-performance.md) 및 튜닝 가이드에서 알아보세요.
+
+### <a name="payload-is-too-large"></a>페이로드가 너무 큼
+
+**오류 메시지:**`The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
+
+**원인:** 각 작업 실행에 대 한 페이로드에는 활동 구성, 연결 된 데이터 집합 및 연결 된 서비스 구성 (있는 경우) 및 활동 유형별 생성 된 일부 시스템 속성이 포함 됩니다. 이러한 페이로드 크기의 제한은 [Data Factory 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) 섹션에 설명 된 대로 896KB입니다.
+
+**권장 사항:** 이 제한은 업스트림 활동 출력 또는 외부에서 하나 이상의 큰 매개 변수 값을 전달 하는 경우, 특히 제어 흐름의 활동 간에 실제 데이터를 전달 하는 경우에 발생할 수 있습니다. 큰 매개 변수 값의 크기를 줄이거나 파이프라인 논리를 조정 하 여 활동 간에 이러한 값을 전달 하지 않고 활동 내에서 해당 값을 처리 하지 않도록 하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

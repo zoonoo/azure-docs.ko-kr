@@ -5,12 +5,12 @@ ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: 362ff5cd59982c1d848ed59af8381090344f5c5e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1e623405faa89ff41eccdaa57578bc8ac94cd78c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642268"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422827"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>빠른 시작: ARM 템플릿에서 Azure Functions 리소스 만들기 및 배포
 
@@ -38,7 +38,14 @@ ms.locfileid: "88642268"
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-[Visual Studio Code에서 로컬 함수 프로젝트 만들기](functions-create-first-function-vs-code.md#create-an-azure-functions-project)
+Visual Studio Code에서 선택한 언어로 로컬 함수 프로젝트를 만듭니다.  
+
++ [C#](create-first-function-vs-code-csharp.md)
++ [Java](create-first-function-vs-code-java.md)
++ [JavaScript](create-first-function-vs-code-node.md)
++ [PowerShell](create-first-function-vs-code-powershell.md)
++ [Python](create-first-function-vs-code-python.md)
++ [TypeScript](create-first-function-vs-code-typescript.md)
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -46,7 +53,14 @@ ms.locfileid: "88642268"
 
 # <a name="command-line"></a>[명령줄](#tab/command-line)
 
-[명령줄에서 로컬 함수 프로젝트 만들기](functions-create-first-azure-function-azure-cli.md#create-a-local-function-project)
+명령줄에서 선택한 언어로 로컬 함수 프로젝트를 만듭니다.
+
++ [C#](create-first-function-cli-csharp.md)
++ [Java](create-first-function-cli-java.md)
++ [JavaScript](create-first-function-cli-node.md)
++ [PowerShell](create-first-function-cli-powershell.md)
++ [Python](create-first-function-cli-python.md)
++ [TypeScript](create-first-function-cli-typescript.md)
 
 ---
 
@@ -107,17 +121,17 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
 
-1. **게시 대상 선택**에서**기존 항목 선택**으로 **Azure Functions 사용량 과금 플랜**을 선택하고 **프로필 만들기**를 선택합니다.
+1. **게시 대상 선택** 에서 **기존 항목 선택** 으로 **Azure Functions 사용량 과금 플랜** 을 선택하고 **프로필 만들기** 를 선택합니다.
 
     :::image type="content" source="media/functions-create-first-function-arm/choose-publish-target-visual-studio.png" alt-text="기존 게시 대상 선택":::
 
-1. **구독**을 선택하고, 리소스 그룹을 확장하고, 함수 앱을 선택하고, **확인**을 선택합니다.
+1. **구독** 을 선택하고, 리소스 그룹을 확장하고, 함수 앱을 선택하고, **확인** 을 선택합니다.
 
-1. 게시가 완료된 후 **사이트 URL**을 복사합니다.
+1. 게시가 완료된 후 **사이트 URL** 을 복사합니다.
 
-    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="기존 게시 대상 선택":::
+    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="게시 요약에서 사이트 URL 복사":::
 
 1. 경로 `/api/<FUNCTION_NAME>?name=Functions`를 추가합니다. 여기서 `<FUNCTION_NAME>`은 함수의 이름입니다. HTTP 트리거 함수를 호출하는 URL은 다음과 같은 형식입니다.
 

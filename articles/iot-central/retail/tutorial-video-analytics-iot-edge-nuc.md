@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: b74c7c3e9678c89edbe90d648520b9526c8fb569
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e2e97b857f648390ec017a529115b23c4f17a68d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748656"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427992"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>자습서: 비디오 분석용 IoT Edge 인스턴스 만들기(Intel NUC)
 
@@ -117,9 +117,9 @@ IoT Edge를 구성하여 IoT Central 애플리케이션에 등록하고 연결�
 
 1. `{scope_id}`를 이전 자습서의 *scratchpad.txt* 파일에서 기록해 둔 **ID 범위** 로 바꿉니다.
 
-1. `{registration_id}`를 이전 자습서에서 만든 게이트웨이 디바이스인 *lva-gateway-001* 로 바꿉니다.
+1. `{registration_id}`를 이전 자습서에서 만든 디바이스인 *gateway-001* 로 바꿉니다.
 
-1. `{symmetric_key}`를 이전 자습서의 *scratchpad.txt* 파일에서 기록해 둔 파일에서 기록해 둔 **lva-gateway-001** 디바이스에 대한 **기본 키** 로 바꿉니다.
+1. `{symmetric_key}`를 이전 자습서의 *scratchpad.txt* 파일에서 기록해 둔 **gateway-001** 디바이스에 대한 **기본 키** 로 바꿉니다.
 
 1. 다음 명령을 실행하여 IoT Edge 디먼을 다시 시작합니다.
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 10/26/2020
 ms.author: alkohli
-ms.openlocfilehash: a86c4c9c32f78cda1b5183a8651783fdcbb20e85
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 4b54f75b7d90e4b3a0a11d2ecdc676bb48eeee99
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754677"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335685"
 ---
 # <a name="iot-edge-role-management-changes-for-your-azure-stack-edge"></a>Azure Stack Edge용 IoT Edge 역할 관리 변경 내용
 
@@ -41,7 +41,7 @@ API를 통해 IoT Edge 역할 관리를 수행한 경우 나중에 게시되는 
 
 #### <a name="current-http-request"></a>현재 http 요청 
 
-- API 호출은 다음 URI에서 수행됩니다. [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01)
+- API 호출은 'https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01 ' URI에서 수행됩니다.
 
 - 요청 본문은 다음과 같습니다.
 
@@ -86,7 +86,7 @@ API를 통해 IoT Edge 역할 관리를 수행한 경우 나중에 게시되는 
 
 #### <a name="upcoming-http-request"></a>예정된 http 요청 
 
-- Kubernetes 역할에 대한 API 호출은 다음 URI에서 수행됩니다. [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1?api-version=2020-12-01)
+- Kubernetes 역할에 대한 API 호출은 'https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1?api-version=2020-12-01 ' URI에서 수행됩니다.
 
     요청 본문은 다음과 같습니다.
 
@@ -110,7 +110,7 @@ API를 통해 IoT Edge 역할 관리를 수행한 경우 나중에 게시되는 
     }
     ```
 
-- IoT Edge 추가 기능에 대한 API 호출은 다음 URI에서 수행됩니다. [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01)
+- IoT Edge 추가 기능에 대한 API 호출은 'https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01 ' URI에서 수행됩니다.
 
 
     요청 본문은 다음과 같습니다.
@@ -156,7 +156,7 @@ API를 통해 IoT Edge 역할 관리를 수행한 경우 나중에 게시되는 
 
 #### <a name="current-http-response"></a>현재 http 응답
 
-- API 호출은 다음 URI에서 수행됩니다. [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01)
+- API 호출은 'https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01 ' URI에서 수행됩니다.
 
 
 - 응답 본문은 다음과 같습니다.
@@ -192,7 +192,7 @@ API를 통해 IoT Edge 역할 관리를 수행한 경우 나중에 게시되는 
 
 #### <a name="upcoming-http-response"></a>예정된 http 응답
 
-- API 호출은 다음 URI에서 수행됩니다. [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01)
+- API 호출은 'https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01 ' URI에서 수행됩니다.
 - 응답 본문은 다음과 같습니다. 
 
     ```json
@@ -228,11 +228,11 @@ API를 통해 IoT Edge 역할 관리를 수행한 경우 나중에 게시되는 
 
 ### <a name="current"></a>현재
 
-API 호출은 다음 URI에서 수행됩니다. [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01)
+API 호출은 'https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01 ' URI에서 수행됩니다.
 
 ### <a name="upcoming"></a>예정
 
-API 호출은 다음 URI에서 수행됩니다. [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01)
+API 호출은 'https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01 ' URI에서 수행됩니다.
 
 
 ## <a name="sdk-usage"></a>SDK 사용

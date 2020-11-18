@@ -9,9 +9,9 @@
 - name: 자습서
   items:
     - name: 자동화된 기계 학습을 사용하는 회귀
-      href: /azure/machine-learning/tutorial-auto-train-models?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
+      href: ../machine-learning/tutorial-auto-train-models.md?bc=%252fazure%252fopen-datasets%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fopen-datasets%252ftoc.json
     - name: 이미지 분류 모델 보강
-      href: /azure/machine-learning/tutorial-train-models-with-aml?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
+      href: ../machine-learning/tutorial-train-models-with-aml.md?bc=%252fazure%252fopen-datasets%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fopen-datasets%252ftoc.json
 - name: 방법 가이드
   items:
     - name: Azure Machine Learning의 데이터 세트
@@ -40,6 +40,6 @@
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=open-datasets&regions=non-regional'
     - name: Microsoft 질문과 대답
-      href: 'https://docs.microsoft.com/answers/topics/azure-open-datasets.html'
+      href: /answers/topics/azure-open-datasets.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-open-datasets'

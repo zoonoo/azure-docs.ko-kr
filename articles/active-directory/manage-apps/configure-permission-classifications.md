@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: d23ef7b78f5e97ee8a82f46794f37f3baf05ca49
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b72530868b2b12e5f95e79be6ad5a2d7ce170b62
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427667"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654680"
 ---
 # <a name="configure-permission-classifications"></a>권한 분류 구성
 
@@ -35,8 +35,8 @@ ms.locfileid: "92427667"
 Azure Portal를 사용 하 여 사용 권한을 분류 하려면 다음 단계를 따르세요.
 
 1. [전역 관리자](../roles/permissions-reference.md#global-administrator--company-administrator), [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../roles/permissions-reference.md#cloud-application-administrator) 으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
-1. **Azure Active Directory** > **엔터프라이즈 애플리케이션** > **동의 및 권한** > **권한 분류**를 선택합니다.
-1. 다른 권한을 "낮은 영향"으로 분류하려면 **권한 추가**를 선택합니다.
+1. **Azure Active Directory** > **엔터프라이즈 애플리케이션** > **동의 및 권한** > **권한 분류** 를 선택합니다.
+1. 다른 권한을 "낮은 영향"으로 분류하려면 **권한 추가** 를 선택합니다.
 1. API를 선택한 후 위임된 권한을 선택합니다.
 
 이 예에서는 Single Sign-On에 필요한 최소 권한 세트를 분류했습니다.
@@ -45,7 +45,7 @@ Azure Portal를 사용 하 여 사용 권한을 분류 하려면 다음 단계�
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-최신 Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)를 사용하여 권한을 분류할 수 있습니다. 권한 분류는 권한을 게시하는 API의 **ServicePrincipal** 개체에 구성됩니다.
+최신 Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)를 사용하여 권한을 분류할 수 있습니다. 권한 분류는 권한을 게시하는 API의 **ServicePrincipal** 개체에 구성됩니다.
 
 #### <a name="list-the-current-permission-classifications-for-an-api"></a>API에 대 한 현재 사용 권한 분류를 나열 합니다.
 
@@ -123,7 +123,7 @@ Azure Portal를 사용 하 여 사용 권한을 분류 하려면 다음 단계�
 * [관리자 동의 워크플로 구성](configure-admin-consent-workflow.md)
 * [애플리케이션에 대한 동의를 관리하고 동의 요청을 평가하는 방법 알아보기](manage-consent-requests.md)
 * [애플리케이션에 대한 테넌트 전체 관리자 동의 부여](grant-admin-consent.md)
-* [Microsoft ID 플랫폼의 권한 및 동의](../develop/active-directory-v2-scopes.md)
+* [Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
 도움말을 얻거나 질문에 대한 답변을 찾으려면 다음을 수행합니다.
 * [StackOverflow의 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)

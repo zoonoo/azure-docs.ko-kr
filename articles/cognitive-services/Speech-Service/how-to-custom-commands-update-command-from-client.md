@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: 290f9ee9c23071ac56b1ff0c65ddc03decbc7344
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1bffb09d0f49bbd0059e8a528d67bfe215f0650d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94571216"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654350"
 ---
 # <a name="update-a-command-from-the-client"></a>클라이언트에서 명령 업데이트
 
 이 문서에서는 클라이언트 응용 프로그램에서 진행 중인 명령을 업데이트 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 > [!div class = "checklist"]
 > * 이전에 [만든 사용자 지정 명령 앱](quickstart-custom-commands-application.md)
 
@@ -121,19 +121,32 @@ ms.locfileid: "94571216"
 이 시나리오를 테스트 하려면 현재 응용 프로그램에 새 명령을 만들어 보겠습니다.
 1. GetDeviceInfo 라는 새 명령을 만듭니다.
 1. "장치 정보 가져오기"를 사용 하 여 예제 문장을 추가 합니다.
-1. 완료 규칙 "Done"에서 음성 응답 보내기 작업을 추가 합니다.
+1. 완료 규칙 "Done"에서 clientContext의 특성이 포함 된 음성 응답 보내기 작업을 추가 합니다.
     > ![컨텍스트를 사용 하 여 음성 응답 보내기](media/custom-commands/send-speech-response-context.png)
-1. 응용 프로그램을 저장 하 고 학습 합니다.
-1. 애플리케이션을 테스트합니다.
+1. 응용 프로그램을 저장, 학습 및 테스트 합니다.
+1. 테스트 창에서 작업을 보내 클라이언트 컨텍스트를 업데이트 합니다.
+    > ```json
+    >{
+    >   "type": "event",
+    >   "name": "RemoteUpdate",
+    >   "value": {
+    >     "clientContext": {
+    >       "deviceId": "12345",
+    >       "deviceName": "My device"
+    >     },
+    >     "processTurn": false
+    >   }
+    >}
+    > ```
+1. "장치 정보 가져오기" 텍스트를 보냅니다.
     > ![클라이언트 컨텍스트 작업 보내기](media/custom-commands/send-client-context-activity.png)
 
 몇 가지 사항을 참고 하세요.
 1. 이 작업은 한 번만 전송 해야 합니다 (연결을 시작한 직후에).
 1. ClientContext에 복합 개체를 사용할 수 있습니다.
-1. 음성 응답에서 ClientContext를 사용 하 여 작업을 보내고 웹 끝점을 호출할 때 사용할 수 있습니다.
-
+1. 음성 응답에서 clientContext를 사용 하 여 작업을 보내고 웹 끝점을 호출할 때 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [웹 끝점에서 명령 업데이트](./how-to-custom-commands-update-command-from-web-endpoint.md)
+> [웹 엔드포인트에서 명령 업데이트](./how-to-custom-commands-update-command-from-web-endpoint.md)

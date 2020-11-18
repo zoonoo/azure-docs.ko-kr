@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/18/2020
+ms.date: 11/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 59f8148cf6e1d705094e8a6c4ee267b6c77ab7da
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ac7382f60d5c49ac8c784566af4d9db8ea78956b
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518418"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331307"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>자습서: Citrix ShareFile과 Azure Active Directory 통합
 
@@ -26,9 +26,6 @@ Citrix ShareFile을 Azure AD와 통합하면 다음과 같은 이점이 제공�
 * Citrix ShareFile에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 * 사용자가 자신의 Azure AD 계정으로 Citrix ShareFile에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
-
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -42,13 +39,12 @@ Citrix ShareFile과의 Azure AD 통합을 구성하려면 다음 항목이 필�
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 * Citrix ShareFile이 **SP** 에서 시작된 SSO를 지원
-* Citrix ShareFile이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-citrix-sharefile-from-the-gallery"></a>갤러리에서 Citrix ShareFile 추가
 
 Citrix ShareFile의 Azure AD 통합을 구성하려면 갤러리의 Citrix ShareFile을 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. Azure Portal에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
@@ -60,7 +56,7 @@ Citrix ShareFile의 Azure AD 통합을 구성하려면 갤러리의 Citrix Share
 이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 Citrix ShareFile에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 Citrix ShareFile의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-Citrix ShareFile에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+Citrix ShareFile에서 Azure AD Single Sign-on을 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
     
@@ -74,7 +70,7 @@ Citrix ShareFile에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Citrix ShareFile** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On** 을 선택합니다.
+1. Azure Portal의 **Citrix ShareFile** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
 1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
@@ -109,17 +105,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-    a. 로그인 URL
-
-    b. Azure AD 식별자
-
-    다. 로그아웃 URL
-
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -134,22 +124,20 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 애플리케이션 목록에서 **Citrix ShareFile** 을 선택합니다.
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
-
-   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
-
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가 링크](common/add-assign-user.png)
-
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ## <a name="configure-citrix-sharefile-sso"></a>Citrix ShareFile SSO 구성
 
 1. 다른 웹 브라우저 창에서 **Citrix ShareFile** 회사 사이트에 관리자로 로그인합니다.
 
-1. 왼쪽 메뉴에서 **설정 아이콘** -> **보안** -> **로그인 및 보안 정책** 을 클릭합니다.
+1. **대시보드** 에서 **설정** 을 클릭하고 **관리자 설정** 을 선택합니다.
+
+    ![관리](./media/sharefile-tutorial/settings.png)
+
+1. 관리자 설정에서 **보안** -> **로그인 및 보안 정책** 으로 이동합니다.
    
     ![계정 관리](./media/sharefile-tutorial/settings-security.png "계정 관리")
 
@@ -187,7 +175,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    
     b.  **성** 텍스트 상자에 사용자의 **성** 을 **Simon** 으로 입력합니다.
    
-    c. **이메일 주소** 텍스트 상자에 Britta Simon의 이메일 주소(예: **brittasimon\@contoso.com** )를 입력합니다.
+    c. **이메일 주소** 텍스트 상자에 Britta Simon의 이메일 주소(예: **brittasimon\@contoso.com**)를 입력합니다.
 
 4. **사용자 추가** 를 클릭합니다.
   
@@ -196,14 +184,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="test-sso"></a>SSO 테스트 
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-액세스 패널에서 Citrix ShareFile 타일을 클릭하면 SSO를 설정한 Citrix ShareFile에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+1. Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Citrix ShareFile 로그온 URL로 리디렉션됩니다. 
 
-## <a name="additional-resources"></a>추가 리소스
+2. Citrix ShareFile 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Citrix ShareFile 타일을 클릭하면 Citrix ShareFile 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
+## <a name="next-steps"></a>다음 단계
+
+Citrix ShareFile이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

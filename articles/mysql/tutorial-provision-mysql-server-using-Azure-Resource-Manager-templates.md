@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 66d09503f5db95811f807aa7faa83b92facca992
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a6923f0a1d568cc695b86d1538ba55a3eb3444da
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543698"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341487"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버 프로비전
 
@@ -29,6 +29,8 @@ Azure Resource Manager는 기본 REST API를 활용하여 규모에 맞게 배�
 > * 샘플 데이터 로드
 > * 쿼리 데이터
 > * 데이터 업데이트
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -199,13 +201,47 @@ UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 SELECT * FROM inventory;
 ```
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요하지 않은 경우 리소스 그룹을 삭제합니다. 그러면 리소스 그룹의 리소스도 삭제됩니다.
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
+
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹** 을 검색하여 선택합니다.
+
+2. 리소스 그룹 목록에서 리소스 그룹의 이름을 선택합니다.
+
+3. 리소스 그룹의 **개요** 페이지에서 **리소스 그룹 삭제** 를 선택합니다.
+
+4. 확인 대화 상자에서 리소스 그룹의 이름을 입력한 다음, **삭제** 를 선택합니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+---
+
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 다음에 대해 알아보았습니다.
 > [!div class="checklist"]
 > * Azure Resource Manager 템플릿을 사용하여 VNet 서비스 엔드포인트에서 Azure Database for MySQL 서버 만들기
-> * [mysql 명령줄 도구](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)를 사용하여 데이터베이스 만들기
+> * mysql 명령줄 도구를 사용하여 데이터베이스 만들기
 > * 샘플 데이터 로드
 > * 쿼리 데이터
 > * 데이터 업데이트
-> 
+
+> [!div class="nextstepaction"]
 > [MySQL용 Azure Database에 애플리케이션을 연결하는 방법](./howto-connection-string.md)

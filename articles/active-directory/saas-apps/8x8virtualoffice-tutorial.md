@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/20/2020
+ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: a5e7e46041e339646e4813a4cce61046f2a57e5e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2102ea1ef4afb6d7f3ce96e4cd7ead0e7af08bf0
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319058"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129442"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>자습서: 8x8과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -25,8 +25,6 @@ ms.locfileid: "92319058"
 * Azure AD에서 8x8에 액세스할 수 사용자를 제어합니다.
 * 사용자가 해당 Azure AD 계정으로 8x8에 자동으로 로그인되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
-
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -44,8 +42,6 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * 8x8에서 **SP 및 IDP** 시작 SSO를 지원합니다.
 
-* 8x8이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
-
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
@@ -53,18 +49,18 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 8x8이 Azure AD에 통합되도록 구성하려면 갤러리의 8x8을 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. Azure Portal에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
-1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
-1. **갤러리에서 추가** 섹션의 검색 상자에서 **8x8**을 입력합니다.
-1. 결과 패널에서 **8x8**을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에서 **8x8** 을 입력합니다.
+1. 결과 패널에서 **8x8** 을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 ## <a name="configure-and-test-azure-ad-sso-for-8x8"></a>8x8에 대한 Azure AD SSO 구성 및 테스트
 
-**B.Simon**이라는 테스트 사용자를 사용하여 8x8에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 8x8의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+**B.Simon** 이라는 테스트 사용자를 사용하여 8x8에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 8x8의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-8x8에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
+8x8에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
     1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
@@ -77,9 +73,9 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **8x8** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On**을 선택합니다.
-1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. Azure Portal의 **8x8** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -89,7 +85,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **회신 URL** 텍스트 상자에서 `https://sso.8x8.com/saml2` URL을 입력합니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다. 이 인증서는 나중에 자습서의 **8x8 SSO 구성** 섹션에서 사용합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다. 이 인증서는 나중에 자습서의 **8x8 SSO 구성** 섹션에서 사용합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
@@ -101,77 +97,77 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기**를 클릭합니다.
+   1. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 8x8에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
-1. 애플리케이션 목록에서 **8x8**을 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **8x8** 을 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 
    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![사용자 추가 링크](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ## <a name="configure-8x8-sso"></a>8x8 SSO 구성
 
 자습서의 다음 부분에서는 8x8을 사용하는 구독의 종류에 따라 달라집니다.
 
-* 관리를 위해 Configuration Manager(구성 관리자)를 사용하는 8x8 버전 및 X 시리즈 고객은 [8x8 Configuration Manager 구성](#configure-8x8-configuration-manager)을 참조하세요.
+* 관리를 위해 Configuration Manager를 사용하는 8x8 버전 및 X 시리즈 고객은 [8x8 관리 콘솔 구성](#configure-8x8-admin-console)을 참조하세요.
 * 관리를 위해 Account Manager(계정 관리자)를 사용하는 Virtual Office 고객의 경우 [8x8 Account Manager 구성](#configure-8x8-account-manager)을 참조하세요.
 
-### <a name="configure-8x8-configuration-manager"></a>8x8 Configuration Manager 구성
+### <a name="configure-8x8-admin-console"></a>8x8 관리 콘솔 구성
 
-1. 8x8 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
+1. 8x8 내에서 구성을 자동화하려면 **확장 설치** 를 클릭하여 **내 앱 보안 로그인 브라우저 확장** 을 설치해야 합니다.
 
     ![내 앱 확장](common/install-myappssecure-extension.png)
 
-1. 브라우저에 확장을 추가한 후 **8x8 설정**을 클릭하면 8x8 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 8x8에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-6단계를 자동으로 수행합니다.
+1. 브라우저에 확장을 추가한 후 **8x8 설정** 을 클릭하면 8x8 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 8x8에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-6단계를 자동으로 수행합니다.
 
     ![설정 구성](common/setup-sso.png)
 
-1. 8x8을 수동으로 설정하려면 8x8 [Configuration Manager](https://vo-cm.8x8.com/)에 관리자 권한으로 로그인합니다.
+1. 8x8을 수동으로 설정하려면 8x8 [관리 콘솔](https://admin.8x8.com/)에 관리자 권한으로 로그인합니다.
 
 1. 홈 페이지에서 **Identity Management(ID 관리)** 를 클릭합니다.
 
     ![ID 관리 타일을 강조 표시하는 스크린샷.](./media/8x8virtualoffice-tutorial/configure1.png)
 
-1. **SSO(Single Sign-On)** , **Microsoft Azure AD**를 차례로 선택합니다.
+1. **SSO(Single Sign-On)** , **Microsoft Azure AD** 를 차례로 선택합니다.
 
     ![SSO(Single Sign On) 및 Microsoft Azure AD 옵션을 강조 표시하는 스크린샷.](./media/8x8virtualoffice-tutorial/configure2.png)
 
-1. Azure AD의 **SAML로 Single Sign-On 설정** 페이지에 있는 세 개의 URL과 서명 인증서를 8x8 Configuration Manager의 **Microsoft Azure AD SAML Settings(Microsoft Azure AD SAML 설정)** 섹션에 복사합니다.
+1. Azure AD의 **SAML로 Single Sign-On 설정** 페이지에 있는 세 개의 URL과 서명 인증서를 8x8 관리 콘솔의 **Microsoft Azure AD SAML 설정** 섹션에 복사합니다.
 
-    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure3.png)
+    ![8x8 관리 콘솔](./media/8x8virtualoffice-tutorial/configure3.png)
 
-    a. **로그인 URL**을 **IDP Login URL(IDP 로그인 URL)** 에 복사합니다.
+    a. **로그인 URL** 을 **IDP Login URL(IDP 로그인 URL)** 에 복사합니다.
 
-    b. **Azure AD 식별자**를 **IDP Issuer URL/URN(IDP 발급자 URL/URN)** 에 복사합니다.
+    b. **Azure AD 식별자** 를 **IDP Issuer URL/URN(IDP 발급자 URL/URN)** 에 복사합니다.
 
-    다. **로그아웃 URL**을 **IDP Logout URL(IDP 로그아웃 URL)** 에 복사합니다.
+    다. **로그아웃 URL** 을 **IDP Logout URL(IDP 로그아웃 URL)** 에 복사합니다.
 
     d. **인증서(Base64)** 를 다운로드하여 **Certificate(인증서)** 에 업로드합니다.
 
-    e. **저장**을 클릭합니다.
+    e. **저장** 을 클릭합니다.
 
 ### <a name="configure-8x8-account-manager"></a>8x8 Account Manager 구성
 
 1. 8x8 Virtual Office 테넌트에 관리자 권한으로 로그온합니다.
 
-1. 애플리케이션 패널에서 **Virtual Office Account Mgr**를 선택합니다.
+1. 애플리케이션 패널에서 **Virtual Office Account Mgr** 를 선택합니다.
 
     ![Virtual Office Account Mgr 타일을 강조 표시하는 스크린샷.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
@@ -187,7 +183,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Single Sign On 옵션을 강조 표시하는 스크린샷.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
-1. 인증 방법에서 **Single Sign-On**을 선택하고 **SAML**을 클릭합니다.
+1. 인증 방법에서 **Single Sign-On** 을 선택하고 **SAML** 을 클릭합니다.
 
     ![Single Sign On에서 SAML을 강조 표시하는 스크린샷.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
@@ -211,20 +207,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="test-sso"></a>SSO 테스트
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-액세스 패널에서 8x8 타일을 클릭하면 SSO를 설정한 8x8에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+#### <a name="sp-initiated"></a>SP 시작:
 
-## <a name="additional-resources"></a>추가 리소스
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 8x8 로그온 URL로 리디렉션됩니다.  
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+* 8x8 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>IDP 시작:
 
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 8x8에 자동으로 로그인됩니다. 
 
-- [Azure AD에서 8x8 사용해 보기](https://aad.portal.azure.com/)
+Microsoft 액세스 패널을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 액세스 패널에서 8x8 타일을 클릭할 때 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 8x8에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
-- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
 
-- [고급 표시 유형 및 컨트롤을 사용하여 8x8을 보호하는 방법](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>다음 단계
+
+8x8이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

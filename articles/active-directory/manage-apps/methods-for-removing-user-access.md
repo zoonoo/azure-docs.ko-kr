@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: kenwith
-ms.openlocfilehash: 8544c35d77dfc32ece9b21a602f301ab15c22439
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 28b31d98f283dc957927ab2a35f0ab95bf066473
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288318"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654119"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>애플리케이션에 대한 사용자 액세스를 제거하는 방법
 
@@ -23,11 +23,11 @@ ms.locfileid: "93288318"
 
 ## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>애플리케이션에 대한 특정 사용자 또는 그룹의 할당을 제거하려는 경우
 
-애플리케이션에 대한 사용자 또는 그룹 할당을 제거하려면 [Azure Active Directory의 엔터프라이즈 앱에서 사용자 또는 그룹 할당 제거](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) 문서에 나열된 단계를 따릅니다.
+애플리케이션에 대한 사용자 또는 그룹 할당을 제거하려면 [Azure Active Directory의 엔터프라이즈 앱에서 사용자 또는 그룹 할당 제거](./assign-user-or-group-access-portal.md) 문서에 나열된 단계를 따릅니다.
 
 ## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>모든 사용자에 대해 애플리케이션에 대한 모든 액세스를 비활성화하려는 경우
 
-애플리케이션에 대한 모든 사용자 로그인을 비활성화하려면 [Azure Active Directory의 엔터프라이즈 앱에 대한 사용자 로그인 비활성화](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) 문서에 나열된 단계를 따릅니다.
+애플리케이션에 대한 모든 사용자 로그인을 비활성화하려면 [Azure Active Directory의 엔터프라이즈 앱에 대한 사용자 로그인 비활성화](./disable-user-sign-in-portal.md) 문서에 나열된 단계를 따릅니다.
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>애플리케이션을 완전히 삭제하려는 경우
 

@@ -7,18 +7,21 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 70ea5ec9ee91fdba8023b9c6af1ce65b691a17fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 291586bc2e34784a7bbf29016ea1da35d51e844b
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006893"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489950"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>자습서: Azure Stream Analytics 작업에서 Azure Functions 실행 
 
 Functions를 Stream Analytics 작업에 대한 출력 싱크 중 하나로 구성하면 Azure Stream Analytics에서 Azure Functions를 실행할 수 있습니다. Functions는 Azure 또는 타사 서비스에서 발생하는 이벤트로 트리거되는 코드를 구현할 수 있게 해주는 이벤트 중심의 컴퓨팅 온 디맨드 환경입니다. 트리거에 응답하는 이러한 Functions 기능 때문에 Stream Analytics 작업에 대한 출력이 자연스럽게 제공됩니다.
 
 Stream Analytics는 HTTP 트리거를 통해 Functions를 호출합니다. Functions 출력 어댑터를 통해 사용자는 Functions를 Stream Analytics에 연결할 수 있으므로, Stream Analytics 쿼리를 기준으로 그러한 이벤트를 트리거할 수 있습니다. 
+
+> [!NOTE]
+> 다중 테넌트 클러스터에서 실행 중인 Stream Analytics 작업에서 VNet(가상 네트워크) 내의 Azure Functions에 대한 연결은 지원되지 않습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -44,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. [캐시 만들기](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)에서 설명한 단계를 사용하여 캐시를 Azure Cache for Redis에 만듭니다.  
 
-2. 캐시를 만든 다음 **설정** 아래에서 **액세스 키**를 선택합니다. **기본 연결 문자열**을 기록해 둡니다.
+2. 캐시를 만든 다음 **설정** 아래에서 **액세스 키** 를 선택합니다. **기본 연결 문자열** 을 기록해 둡니다.
 
    ![Azure Cache for Redis 연결 문자열의 스크린샷](./media/stream-analytics-with-azure-functions/image2.png)
 
@@ -112,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
         }
    ```
 
-3. 원하는 텍스트 편집기에서 이름이 **project.json**인 JSON 파일을 만듭니다. 다음 코드를 붙여넣고 이를 로컬 컴퓨터에 저장합니다. 이 파일에는 C# 함수에 필요한 NuGet 패키지 종속성이 포함됩니다.  
+3. 원하는 텍스트 편집기에서 이름이 **project.json** 인 JSON 파일을 만듭니다. 다음 코드를 붙여넣고 이를 로컬 컴퓨터에 저장합니다. 이 파일에는 C# 함수에 필요한 NuGet 패키지 종속성이 포함됩니다.  
    
     ```json
     {
@@ -128,19 +131,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    ```
  
-4. Azure 포털로 돌아갑니다. **플랫폼 기능** 탭에서 함수를 찾습니다. **개발 도구** 아래에서 **앱 서비스 편집기**를 선택합니다. 
+4. Azure 포털로 돌아갑니다. **플랫폼 기능** 탭에서 함수를 찾습니다. **개발 도구** 아래에서 **앱 서비스 편집기** 를 선택합니다. 
  
-   ![앱 서비스 편집기 스크린샷](./media/stream-analytics-with-azure-functions/image3.png)
+   ![스크린샷은 App Service 편집기가 선택된 플랫폼 기능 탭을 보여줍니다.](./media/stream-analytics-with-azure-functions/image3.png)
 
-5. 앱 서비스 편집기에서 루트 디렉터리를 마우스 오른쪽 단추로 누르고 **project.json** 파일을 업로드합니다. 업로드가 성공한 후 페이지를 새로 고칩니다. 이제 이름이 **project.lock.json**인 자동 생성된 파일이 표시됩니다. 자동 생성된 파일에는 project.json 파일에 지정된 .dll 파일에 대한 참조가 포함됩니다.  
+5. 앱 서비스 편집기에서 루트 디렉터리를 마우스 오른쪽 단추로 누르고 **project.json** 파일을 업로드합니다. 업로드가 성공한 후 페이지를 새로 고칩니다. 이제 이름이 **project.lock.json** 인 자동 생성된 파일이 표시됩니다. 자동 생성된 파일에는 project.json 파일에 지정된 .dll 파일에 대한 참조가 포함됩니다.  
 
-   ![앱 서비스 편집기 스크린샷](./media/stream-analytics-with-azure-functions/image4.png)
+   ![스크린샷은 메뉴에서 선택한 파일 업로드를 보여줍니다.](./media/stream-analytics-with-azure-functions/image4.png)
 
 ## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>출력으로 사용할 함수로 Stream Analytics 작업 업데이트
 
 1. Azure 포털에서 Stream Analytics 작업을 엽니다.  
 
-2. 함수를 찾아서 **개요** > **출력** > **추가**를 선택합니다. 새 출력을 추가하려면 싱크 옵션에 대해 **Azure Function**을 선택합니다. Functions 출력 어댑터에는 다음과 같은 속성이 있습니다.  
+2. 함수를 찾아서 **개요** > **출력** > **추가** 를 선택합니다. 새 출력을 추가하려면 싱크 옵션에 대해 **Azure Function** 을 선택합니다. Functions 출력 어댑터에는 다음과 같은 속성이 있습니다.  
 
    |**속성 이름**|**설명**|
    |---|---|
@@ -152,9 +155,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    |최대 일괄 처리 수|함수로 전송되는 각 일괄 처리에서 최대 이벤트 수를 지정합니다. 기본값은 100입니다. 이 속성은 선택 사항입니다.|
    |키|다른 구독의 함수를 사용할 수 있습니다. 함수에 액세스하기 위한 키 값을 제공합니다. 이 속성은 선택 사항입니다.|
 
-3. 출력 별칭의 이름을 제공합니다. 이 자습서에서는 이름이 **saop1**로 지정되어 있으며 원하는 이름을 사용할 수 있습니다. 기타 세부 정보를 채웁니다.
+3. 출력 별칭의 이름을 제공합니다. 이 자습서에서는 이름이 **saop1** 로 지정되어 있으며 원하는 이름을 사용할 수 있습니다. 기타 세부 정보를 채웁니다.
 
-4. Stream Analytics 작업을 열고 쿼리를 다음과 같이 업데이트합니다. 출력 싱크 이름을 **saop1**로 지정하지 않은 경우 쿼리에서 변경해야 합니다.  
+4. Stream Analytics 작업을 열고 쿼리를 다음과 같이 업데이트합니다. 출력 싱크 이름을 **saop1** 로 지정하지 않은 경우 쿼리에서 변경해야 합니다.  
 
    ```sql
     SELECT
@@ -177,7 +180,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="check-azure-cache-for-redis-for-results"></a>Azure Cache for Redis에서 결과 확인
 
-1. Azure Portal로 이동하여 Azure Cache for Redis를 찾습니다. **콘솔**을 선택합니다.  
+1. Azure Portal로 이동하여 Azure Cache for Redis를 찾습니다. **콘솔** 을 선택합니다.  
 
 2. [Azure Cache for Redis 명령](https://redis.io/commands)을 사용하여 데이터가 Azure Cache for Redis에 있는지 확인합니다. (이 명령은 Get {key} 형식을 사용합니다.) 다음은 그 예입니다.
 
@@ -198,7 +201,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 Azure 포털에서 최대 일괄 처리 크기/최대 일괄 처리 수 값을 빈 값(기본값)으로 재설정하려고 시도하면, 저장할 때 값이 이전에 입력된 값으로 다시 변경됩니다. 이 경우 이러한 필드에 대해 기본값을 수동으로 입력하십시오.
 
-Azure Functions에서 [HTTP 라우팅](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp)을 사용하는 것은 현재 Stream Analytics에서 지원되지 않습니다.
+Azure Functions에서 [HTTP 라우팅](/sandbox/functions-recipes/routes?tabs=csharp)을 사용하는 것은 현재 Stream Analytics에서 지원되지 않습니다.
 
 가상 네트워크에서 호스팅되는 Azure Functions에 연결하기 위한 지원은 사용하도록 설정되지 않습니다.
 
@@ -206,8 +209,8 @@ Azure Functions에서 [HTTP 라우팅](https://docs.microsoft.com/sandbox/functi
 
 더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용된 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 나중에 필요할 때 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다.  
-2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 클릭한 다음 만든 리소스의 이름을 클릭합니다.  
+2. 리소스 그룹 페이지에서 **삭제** 를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

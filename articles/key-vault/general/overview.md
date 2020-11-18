@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 856c5f106f164a98b60fdb3eeda31d6099d5b7bd
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5025c4ad81433b6eb18f5beded860625791ffce5
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932008"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445101"
 ---
 # <a name="about-azure-key-vault"></a>Azure Key Vault 정보
 
@@ -39,7 +39,7 @@ Azure Key Vault에 애플리케이션 비밀을 중앙 집중식으로 스토리
 
 Key Vault에 액세스하려면 호출자(사용자 또는 애플리케이션)가 액세스할 수 있도록 적절한 인증 및 권한 부여가 필요합니다. 인증은 호출자의 ID를 확인하는 반면 권한 부여는 수행할 수 있는 작업을 결정합니다.
 
-인증은 Azure Active Directory를 통해 수행됩니다. 권한 부여는 RBAC(역할 기반 액세스 제어) 또는 Key Vault 액세스 정책을 통해 수행할 수 있습니다. RBAC는 자격 증명 모음 관리를 처리할 때 사용되며, Key Vault 액세스 정책은 자격 증명 모음에 저장된 데이터에 액세스하려고 할 때 사용됩니다.
+인증은 Azure Active Directory를 통해 수행됩니다. 권한 부여는 Azure RBAC(Azure 역할 기반 액세스 제어) 또는 Key Vault 액세스 정책을 통해 수행할 수 있습니다. Azure RBAC는 자격 증명 모음 관리를 처리할 때 사용되며, 키 자격 증명 모음 액세스 정책은 자격 증명 모음에 저장된 데이터에 액세스하려고 할 때 사용됩니다.
 
 Azure Key Vault는 소프트웨어로 보호되거나 Azure Key Vault 프리미엄 계층을 통해 HSM(하드웨어 보안 모듈)에서 보호될 수 있습니다. 소프트웨어 보호 키, 비밀 및 인증서는 업계 표준 알고리즘 및 키 길이를 사용하여 Azure에서 보호됩니다.  추가 보증이 필요한 경우, HSM 경계를 벗어나지 않는 HSM에서 키를 가져오거나 생성할 수 있습니다. Azure Key Vault는 FIPS(Federal Information Processing Standards) 140-2 수준 2의 유효성이 검사된 nCipher HSM을 사용합니다. nCipher 도구를 사용하여 HSM에서 Azure Key Vault로 키를 이동할 수 있습니다.
 

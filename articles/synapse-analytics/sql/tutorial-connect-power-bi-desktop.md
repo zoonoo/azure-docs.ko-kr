@@ -1,6 +1,6 @@
 ---
-title: '자습서: SQL 주문형을 Power BI Desktop에 연결하고 보고서 만들기'
-description: 이 자습서에서는 Azure Synapse Analytics의 SQL 주문형을 Power BI Desktop에 연결하고, 보기 기반의 데모 보고서를 만드는 방법을 알아봅니다.
+title: '자습서: 서버리스 SQL 풀을 Power BI Desktop에 연결하고 보고서 만들기'
+description: 이 자습서에서는 Azure Synapse Analytics의 서버리스 SQL 풀을 Power BI Desktop에 연결하고, 보기 기반의 데모 보고서를 만드는 방법을 알아봅니다.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c86825d6dce8681e114ec930add751b6beae085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc2b068dd7c5e7fb3f9e3505f93245515d90ae23
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539557"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317195"
 ---
-# <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>자습서: Power BI Desktop으로 SQL 주문형 사용 및 보고서 만들기
+# <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>자습서: Power BI Desktop에서 서버리스 SQL 풀 사용 및 보고서 만들기
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "91539557"
 >
 > - 데모 데이터베이스 만들기
 > - 보고서에 사용되는 보기 만들기
-> - SQL 주문형에 Power BI Desktop 연결
+> - 서버리스 SQL 풀에 Power BI Desktop 연결
 > - 보기 기반의 보고서 만들기
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -42,8 +42,8 @@ ms.locfileid: "91539557"
 
 | 매개 변수                                 | 설명                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| SQL 주문형 서비스 엔드포인트 주소    | 서버 이름으로 사용                                   |
-| SQL 주문형 서비스 엔드포인트 영역     | 샘플에 사용할 스토리지를 확인하는 데 사용 |
+| 서버리스 SQL 풀 서비스 엔드포인트 주소    | 서버 이름으로 사용                                   |
+| 서버리스 SQL 풀 서비스 엔드포인트 지역     | 샘플에 사용할 스토리지를 확인하는 데 사용 |
 | 엔드포인트 액세스를 위한 사용자 이름 및 암호 | 엔드포인트 엑세스에 사용                               |
 | 보기를 만드는 데 사용할 데이터베이스     | 샘플에서 시작점으로 사용되는 데이터베이스       |
 
@@ -65,7 +65,7 @@ GO
 
 ## <a name="2---create-data-source"></a>2 - 데이터 원본 만들기
 
-SQL 주문형 서비스에서 스토리지의 파일에 액세스하려면 데이터 원본이 필요합니다. 엔드포인트와 동일한 영역에 있는 스토리지 계정의 데이터 원본을 만듭니다. SQL 주문형은 다른 영역의 스토리지 계정에 액세스할 수 있지만, 스토리지와 엔드포인트가 같은 영역에 있으면 성능이 향상됩니다.
+서버리스 SQL 풀 서비스에서 스토리지의 파일에 액세스하려면 데이터 원본이 필요합니다. 엔드포인트와 동일한 영역에 있는 스토리지 계정의 데이터 원본을 만듭니다. 서버리스 SQL 풀은 다른 영역의 스토리지 계정에 액세스할 수 있지만, 스토리지와 엔드포인트가 같은 영역에 있으면 성능이 향상됩니다.
 
 다음 T-SQL(Transact-SQL) 스크립트를 실행하여 데이터 원본을 만듭니다.
 
@@ -109,15 +109,15 @@ FROM
 
 다음 단계에 따라 Power BI Desktop에 대한 보고서를 만듭니다.
 
-1. Power BI Desktop 애플리케이션을 열고 **데이터 가져오기**를 선택합니다.
+1. Power BI Desktop 애플리케이션을 열고 **데이터 가져오기** 를 선택합니다.
 
    ![Power BI Desktop 애플리케이션을 열고 [데이터 가져오기] 선택](./media/tutorial-connect-power-bi-desktop/step-0-open-powerbi.png)
 
-2. **Azure** > **Azure SQL Database**를 선택합니다. 
+2. **Azure** > **Azure SQL Database** 를 선택합니다. 
 
    ![데이터 원본을 선택합니다.](./media/tutorial-connect-power-bi-desktop/step-1-select-data-source.png)
 
-3. 데이터베이스가 있는 서버 이름을 **서버** 필드에 입력한 다음, 데이터베이스 이름에 `Demo`를 입력합니다. **가져오기** 옵션을 선택한 다음, **확인**을 선택합니다. 
+3. 데이터베이스가 있는 서버 이름을 **서버** 필드에 입력한 다음, 데이터베이스 이름에 `Demo`를 입력합니다. **가져오기** 옵션을 선택한 다음, **확인** 을 선택합니다. 
 
    ![엔드포인트에서 데이터베이스를 선택합니다.](./media/tutorial-connect-power-bi-desktop/step-2-db.png)
 
@@ -132,11 +132,11 @@ FROM
         ![SQL 로그인 사용](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
 
 
-5. `usPopulationView` 보기를 선택한 다음, **로드**를 선택합니다. 
+5. `usPopulationView` 보기를 선택한 다음, **로드** 를 선택합니다. 
 
    ![선택한 데이터베이스에서 보기를 선택합니다.](./media/tutorial-connect-power-bi-desktop/step-3-select-view.png)
 
-6. 작업이 완료될 때까지 기다리면 `There are pending changes in your queries that haven't been applied`라는 팝업이 표시됩니다. **변경 내용 적용**을 선택합니다. 
+6. 작업이 완료될 때까지 기다리면 `There are pending changes in your queries that haven't been applied`라는 팝업이 표시됩니다. **변경 내용 적용** 을 선택합니다. 
 
    ![[변경 내용 적용] 클릭](./media/tutorial-connect-power-bi-desktop/step-4-apply-changes.png)
 

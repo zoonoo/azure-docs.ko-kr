@@ -2,15 +2,15 @@
 title: 템플릿 사양 만들기 및 배포
 description: ARM 템플릿에서 템플릿 사양을 만드는 방법에 대해 알아봅니다. 그런 다음 구독에서 리소스 그룹에 템플릿 사양을 배포합니다.
 author: tfitzmac
-ms.date: 10/02/2020
+ms.date: 11/10/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: e1bd2f3da8204cf5947d0cf423cd57b023674608
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 96ef5796aac1d0ee02e6bbafc40b7d3bcdea4e2f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728780"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506365"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>빠른 시작: 템플릿 사양 만들기 및 배포(미리 보기)
 
@@ -27,7 +27,7 @@ ms.locfileid: "91728780"
 
 ## <a name="create-template-spec"></a>템플릿 사양 만들기
 
-템플릿 사양은 **Microsoft.Resources/templateSpecs**라는 리소스 형식입니다. 템플릿 사양을 만들려면 Azure PowerShell, Azure CLI 또는 ARM 템플릿을 사용하면 됩니다. 모든 옵션에서 템플릿 사양에 패키징된 ARM 템플릿이 필요합니다.
+템플릿 사양은 **Microsoft.Resources/templateSpecs** 라는 리소스 형식입니다. 템플릿 사양을 만들려면 Azure PowerShell, Azure CLI 또는 ARM 템플릿을 사용하면 됩니다. 모든 옵션에서 템플릿 사양에 패키징된 ARM 템플릿이 필요합니다.
 
 PowerShell 및 CLI를 사용하면 ARM 템플릿이 명령에 매개 변수로 전달됩니다. ARM 템플릿을 사용하면 템플릿 사양에 패키징되는 ARM 템플릿이 템플릿 사양 정의에 포함됩니다.
 
@@ -35,7 +35,7 @@ PowerShell 및 CLI를 사용하면 ARM 템플릿이 명령에 매개 변수로 �
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. PowerShell을 사용하여 템플릿 사양을 만들면 로컬 템플릿을 전달할 수 있습니다. 다음 템플릿을 복사하고 **azuredeploy.json**이라는 파일에 로컬로 저장합니다. 이 빠른 시작에서는 **c:\Templates\azuredeploy.json** 경로에 저장했지만 모든 경로를 사용할 수 있다고 가정합니다.
+1. PowerShell을 사용하여 템플릿 사양을 만들면 로컬 템플릿을 전달할 수 있습니다. 다음 템플릿을 복사하고 **azuredeploy.json** 이라는 파일에 로컬로 저장합니다. 이 빠른 시작에서는 **c:\Templates\azuredeploy.json** 경로에 저장했지만 모든 경로를 사용할 수 있다고 가정합니다.
 
     :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
 
@@ -47,7 +47,7 @@ PowerShell 및 CLI를 사용하면 ARM 템플릿이 명령에 매개 변수로 �
       -Location westus2
     ```
 
-1. 그런 다음 해당 리소스 그룹에 템플릿 사양을 만듭니다. 새 템플릿 사양에 **storageSpec**라는 이름을 지정합니다.
+1. 그런 다음 해당 리소스 그룹에 템플릿 사양을 만듭니다. 새 템플릿 사양에 **storageSpec** 라는 이름을 지정합니다.
 
     ```azurepowershell
     New-AzTemplateSpec `
@@ -60,7 +60,7 @@ PowerShell 및 CLI를 사용하면 ARM 템플릿이 명령에 매개 변수로 �
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
 
-1. CLI를 사용하여 템플릿 사양을 만들 때 로컬 템플릿을 전달할 수 있습니다. 다음 템플릿을 복사하고 **azuredeploy.json**이라는 파일에 로컬로 저장합니다. 이 빠른 시작에서는 **c:\Templates\azuredeploy.json** 경로에 저장했지만 모든 경로를 사용할 수 있다고 가정합니다.
+1. CLI를 사용하여 템플릿 사양을 만들 때 로컬 템플릿을 전달할 수 있습니다. 다음 템플릿을 복사하고 **azuredeploy.json** 이라는 파일에 로컬로 저장합니다. 이 빠른 시작에서는 **c:\Templates\azuredeploy.json** 경로에 저장했지만 모든 경로를 사용할 수 있다고 가정합니다.
 
     :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
 
@@ -72,7 +72,7 @@ PowerShell 및 CLI를 사용하면 ARM 템플릿이 명령에 매개 변수로 �
       --location westus2
     ```
 
-1. 그런 다음 해당 리소스 그룹에 템플릿 사양을 만듭니다. 새 템플릿 사양에 **storageSpec**라는 이름을 지정합니다.
+1. 그런 다음 해당 리소스 그룹에 템플릿 사양을 만듭니다. 새 템플릿 사양에 **storageSpec** 라는 이름을 지정합니다.
 
     ```azurecli
     az ts create \
@@ -85,10 +85,10 @@ PowerShell 및 CLI를 사용하면 ARM 템플릿이 명령에 매개 변수로 �
 
 # <a name="arm-template"></a>[ARM 템플릿](#tab/azure-resource-manager)
 
-1. ARM 템플릿을 사용하여 템플릿 사양을 만들면 템플릿이 리소스 정의에 포함됩니다. 다음 템플릿을 복사하고 **azuredeploy.json**으로 로컬로 저장합니다. 이 빠른 시작에서는 **c:\Templates\azuredeploy.json** 경로에 저장했지만 모든 경로를 사용할 수 있다고 가정합니다.
+1. ARM 템플릿을 사용하여 템플릿 사양을 만들면 템플릿이 리소스 정의에 포함됩니다. 다음 템플릿을 복사하고 **azuredeploy.json** 으로 로컬로 저장합니다. 이 빠른 시작에서는 **c:\Templates\azuredeploy.json** 경로에 저장했지만 모든 경로를 사용할 수 있다고 가정합니다.
 
     > [!NOTE]
-    > 포함된 템플릿에서 모든 왼쪽 대괄호를 두 번째 왼쪽 대괄호로 이스케이프해야 합니다. `[` 대신 `[[`을(를) 사용합니다.
+    > 포함된 템플릿에서 모든 [템플릿 식](template-expressions.md)을 두 번째 왼쪽 대괄호로 이스케이프해야 합니다. `"[` 대신 `"[[`을(를) 사용합니다. JSON 배열은 여전히 하나의 왼쪽 대괄호를 사용합니다.
 
     ```json
     {
@@ -278,7 +278,7 @@ PowerShell 및 CLI를 사용하면 ARM 템플릿이 명령에 매개 변수로 �
 
 # <a name="arm-template"></a>[ARM 템플릿](#tab/azure-resource-manager)
 
-1. 다음 템플릿을 복사하고 **storage.json**이라는 파일에 로컬로 저장합니다.
+1. 다음 템플릿을 복사하고 **storage.json** 이라는 파일에 로컬로 저장합니다.
 
     ```json
        {

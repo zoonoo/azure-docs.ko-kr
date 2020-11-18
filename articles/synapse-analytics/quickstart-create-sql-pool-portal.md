@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c9dcb2fa8be22c21cc2b005cce1bf8bb1c614381
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2230784eedd044acd95b3087793ba664b544f76a
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324255"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505073"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 SQL 풀(미리 보기) 만들기
 
@@ -59,6 +59,9 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 3. 완료되면 **다음: 추가 설정** 을 선택하여 사용자 지정 설정을 더 많이 구성합니다.
 4. **없음** 을 선택하여 데이터 없이 전용 SQL 풀을 프로비저닝합니다. 기본 데이터 정렬을 선택한 상태로 둡니다.
+
+    복원 지점에서 전용 SQL 풀을 복원하려면 **복원 지점** 을 선택합니다. 복원을 수행하는 방법에 대한 자세한 내용은 [방법: 기존 전용 SQL 풀 복원](backuprestore/restore-sql-pool.md)을 참조하세요.
+
 ![전용 SQL 풀 만들기 흐름 - 추가 설정 탭.](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 
 5. **검토 + 만들기** 를 선택합니다.
@@ -84,7 +87,7 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 전용 SQL 풀을 삭제하려면 다음 단계를 완료합니다.
 
 1. 작업 영역에서 SQL 풀 블레이드로 이동합니다.
-1. 삭제할 전용 SQL 풀을 선택합니다(이 경우 **contosowdw** ).
+1. 삭제할 전용 SQL 풀을 선택합니다(이 경우 **contosowdw**).
 1. 선택했으면 **삭제** 를 누릅니다.
 1. 삭제를 확인하고 **삭제** 단추 ![전용 SQL 풀 개요 - 삭제 확인 강조 표시](media/quickstart-create-sql-pool/create-sql-pool-portal-11.png)를 누릅니다.
 1. 프로세스가 성공적으로 완료되면 전용 SQL 풀이 작업 영역 리소스에 더 이상 나열되지 않습니다.

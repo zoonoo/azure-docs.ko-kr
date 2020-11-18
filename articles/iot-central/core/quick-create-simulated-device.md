@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 757575b31bde1a0e25cc3e70aad0cca0fdd45953
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 1c37742b7ed31d8253f7908c3adac35ca0b4d5d8
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170321"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376556"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>빠른 시작: IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가
 
@@ -21,7 +21,7 @@ ms.locfileid: "92170321"
 
 디바이스 템플릿은 IoT Central 애플리케이션에 연결하는 디바이스의 기능을 정의합니다. 기능에는 디바이스에서 보내는 원격 분석, 디바이스 속성 및 디바이스에서 응답하는 명령이 포함됩니다. 디바이스 템플릿에서 빌더 또는 운영자는 애플리케이션에 실제 및 시뮬레이션된 디바이스를 모두 추가할 수 있습니다. 시뮬레이션된 디바이스는 실제 디바이스를 연결하기 전에 IoT Central 애플리케이션의 동작을 테스트하는 데 유용합니다.
 
-이 빠른 시작에서는 *MXChip IoT DevKit* (DevKit) 보드의 디바이스 템플릿을 추가하고 시뮬레이션된 디바이스를 만듭니다. 실제 디바이스가 없어도 이 빠른 시작을 완료할 수 있습니다. 디바이스 시뮬레이션을 사용할 것입니다. DevKit 디바이스:
+이 빠른 시작에서는 [*MXChip IoT DevKit*(DevKit)](https://aka.ms/iot-devkit-purchase) 보드의 디바이스 템플릿을 추가하고 시뮬레이션된 디바이스를 만듭니다. 실제 디바이스가 없어도 이 빠른 시작을 완료할 수 있습니다. 디바이스 시뮬레이션을 사용할 것입니다. DevKit 디바이스:
 
 * 원격 분석(예: 온도)을 보냅니다.
 * 디바이스별 속성(예: 밝기 수준)을 보고합니다.
@@ -60,13 +60,13 @@ IoT Central 애플리케이션에 디바이스 기능 모델을 추가하는 여
 
     ![MXChip IoT DevKit 디바이스 템플릿](./media/quick-create-simulated-device/devkit-template.png)
 
-    MXChip IoT DevKit 기능 모델에는 **mxchip_sensor** , **mxchip_settings** , **디바이스 정보** 등의 인터페이스가 포함되어 있습니다. 인터페이스는 MXChip IoT DevKit 디바이스의 기능을 정의합니다. 기능에는 디바이스에서 보내는 원격 분석, 디바이스에서 보고하는 속성 및 디바이스에서 응답하는 명령이 포함됩니다.
+    MXChip IoT DevKit 기능 모델에는 **mxchip_sensor**, **mxchip_settings**, **디바이스 정보** 등의 인터페이스가 포함되어 있습니다. 인터페이스는 MXChip IoT DevKit 디바이스의 기능을 정의합니다. 기능에는 디바이스에서 보내는 원격 분석, 디바이스에서 보고하는 속성 및 디바이스에서 응답하는 명령이 포함됩니다.
 
 ### <a name="add-cloud-properties"></a>클라우드 속성 추가
 
 디바이스 템플릿에는 클라우드 속성이 포함될 수 있습니다. 클라우드 속성은 IoT Central 애플리케이션에만 있으며 디바이스에서 보내거나 받지 않습니다. 클라우드 속성을 추가하려면 다음을 수행합니다.
 
-1. **클라우드 속성** , **+ 클라우드 속성 추가** 를 차례로 선택합니다. 다음 표의 정보를 사용하여 디바이스 템플릿에 두 가지 클라우드 속성을 추가합니다.
+1. **클라우드 속성**, **+ 클라우드 속성 추가** 를 차례로 선택합니다. 다음 표의 정보를 사용하여 디바이스 템플릿에 두 가지 클라우드 속성을 추가합니다.
 
     | 표시 이름      | 의미 체계 유형 | 스키마 |
     | ----------------- | ------------- | ------ |

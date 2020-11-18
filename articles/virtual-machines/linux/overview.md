@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b205665a0e5fc06fdc784efa91036f26da5d3cde
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 95e4ac884e0eda3b4f469484226962e3fd2e2eea
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88654347"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375383"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신
 
@@ -30,7 +30,7 @@ Azure 가상 머신은 다양한 방식으로 사용할 수 있습니다. 예는
 애플리케이션에서 사용하는 VM의 수는 요구 사항을 충족하는 데 필요한 만큼 늘리거나 줄일 수 있습니다.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>VM을 만들기 전의 고려 사항
-Azure에서 애플리케이션 인프라를 구축하는 경우에는 언제나 다양한 [디자인 고려 사항](/azure/architecture/reference-architectures/n-tier/windows-vm)이 있습니다. VM의 이러한 양상으로 인해 시작하기 전에 다음 항목을 중요하게 고려해야 합니다.
+Azure에서 애플리케이션 인프라를 구축하는 경우에는 언제나 다양한 [디자인 고려 사항](/azure/architecture/reference-architectures/n-tier/linux-vm)이 있습니다. VM의 이러한 양상으로 인해 시작하기 전에 다음 항목을 중요하게 고려해야 합니다.
 
 * 애플리케이션 리소스 이름
 * 리소스가 저장되어 있는 위치
@@ -41,11 +41,11 @@ Azure에서 애플리케이션 인프라를 구축하는 경우에는 언제나 
 * VM에 필요한 관련 리소스
 
 ### <a name="locations"></a>위치
-Azure에서 만든 리소스는 모두 전 세계의 여러 [지리적 지역](https://azure.microsoft.com/regions/)에 걸쳐 배포됩니다. 일반적으로 VM을 만들 때 지역을 **위치**라고 합니다. VM의 경우 가상 하드 디스크가 저장되는 위치가 지정됩니다.
+Azure에서 만든 리소스는 모두 전 세계의 여러 [지리적 지역](https://azure.microsoft.com/regions/)에 걸쳐 배포됩니다. 일반적으로 VM을 만들 때 지역을 **위치** 라고 합니다. VM의 경우 가상 하드 디스크가 저장되는 위치가 지정됩니다.
 
 아래 표에서는 사용할 수 있는 위치 목록을 가져올 수 있는 몇 가지 방법을 보여 줍니다.
 
-| 방법 | 설명 |
+| 메서드 | Description |
 | --- | --- |
 | Azure portal |VM을 만들 때 목록에서 위치를 선택합니다. |
 | Azure PowerShell |[Get-AzLocation](/powershell/module/az.resources/get-azlocation) 명령을 사용합니다. |
@@ -74,24 +74,24 @@ Managed Disks는 백그라운드에서 Azure Storage 계정 만들기 및 관리
 또한 Azure 지역당 하나의 스토리지 계정에서 사용자 지정 이미지를 관리하고 동일한 구독에서 수백 개의 VM을 만드는 데 사용할 수도 있습니다. 관리 디스크에 대한 자세한 내용은 [Managed Disks 개요](../managed-disks-overview.md)를 참조하세요.
 
 ## <a name="distributions"></a>배포 
-Microsoft Azure는 많은 파트너가 제공하고 유지 관리하는 다양하고 인기 있는 Linux 배포를 지원합니다.  Azure Marketplace에서 Red Hat Enterprise, CentOS, SUSE Linux Enterprise, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD 등과 같은 배포를 찾을 수 있습니다. Microsoft에서는 다양한 Linux 커뮤니티와 적극적으로 작업하여 [Azure 인증 Linux 배포판](endorsed-distros.md) 목록에 다양한 옵션을 추가합니다.
+Microsoft Azure는 많은 파트너가 제공하고 유지 관리하는 다양하고 인기 있는 Linux 배포를 지원합니다.  Azure Marketplace에서 사용 가능한 배포를 찾을 수 있습니다. Microsoft에서는 다양한 Linux 커뮤니티와 적극적으로 작업하여 [Azure 인증 Linux 배포판](endorsed-distros.md) 목록에 다양한 옵션을 추가합니다.
 
 선택한 기본 Linux 배포가 현재 갤러리에 없는 경우 [Azure에서 Linux VHD 만들기 및 업로드](create-upload-generic.md)에 따라 "직접 Linux" VM을 가져올 수 있습니다.
 
-Microsoft는 파트너와 긴밀히 협력하여 사용 가능한 이미지가 업데이트되고 Azure 런타임에 대해 최적화되도록 합니다.  Azure 파트너에 대한 자세한 내용은 다음 링크를 참조하세요.
+Microsoft는 파트너와 긴밀히 협력하여 사용 가능한 이미지가 업데이트되고 Azure 런타임에 대해 최적화되도록 합니다.  Azure 파트너 제품에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 * Azure의 Linux - [보증 배포판](endorsed-distros.md)
-* SUSE- [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/marketplace/apps?search=suse%20sles&page=1)
-* Red Hat - [Azure Marketplace - Red Hat Enterprise Linux 8.1](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux81-ARM)
+* SUSE- [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=suse)
+* Red Hat - [Azure Marketplace - Red Hat Enterprise Linux](https://azuremarketplace.microsoft.com/marketplace/apps?search=Red%20Hat%20Enterprise%20Linux)
 * Canonical - [Azure Marketplace - Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer)
-* Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian)
-* FreeBSD - [Azure Marketplace - FreeBSD 10.4](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
-* CoreOS - [Azure Marketplace - CoreOS별 Container Linux](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS)
+* Debian - [Azure Marketplace - Debian](https://azuremarketplace.microsoft.com/marketplace/apps?search=Debian&page=1)
+* FreeBSD - [Azure Marketplace - FreeBSD](https://azuremarketplace.microsoft.com/marketplace/apps?search=freebsd&page=1)
+* Flatcar - [Azure Marketplace - Flatcar Container Linux](https://azuremarketplace.microsoft.com/marketplace/apps?search=Flatcar&page=1)
 * RancherOS - [Azure Marketplace - RancherOS](https://azuremarketplace.microsoft.com/marketplace/apps/rancher.rancheros)
 * Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
 * Mesosphere - [Azure Marketplace - Mesosphere DC/OS on Azure](https://azure.microsoft.com/services/kubernetes-service/mesosphere/)
 * Docker - [Azure Marketplace - Docker 이미지](https://azuremarketplace.microsoft.com/marketplace/apps?search=docker&page=1&filters=virtual-machine-images)
-* Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudbees.cloudbees-core-contact)
+* Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azuremarketplace.microsoft.com/marketplace/apps/cloudbees.cloudbees-core-contact)
 
 
 ## <a name="cloud-init"></a>Cloud-init 
@@ -99,7 +99,7 @@ Microsoft는 파트너와 긴밀히 협력하여 사용 가능한 이미지가 �
 적절한 DevOps 문화권을 얻으려면 모든 인프라가 코드여야 합니다.  모든 인프라가 코드로 되어 있으면 쉽게 다시 만들 수 있습니다.  Azure는 Ansible, Chef, SaltStack 및 Puppet과 같은 모든 주요 자동화 도구와 함께 작동합니다.  또한 Azure는 자체 자동화 도구도 제공합니다.
 
 * [Azure 템플릿](create-ssh-secured-vm-from-template.md)
-* [Azure VMAccess](../extensions/vmaccess.md)
+* [Azure `VMaccess`](../extensions/vmaccess.md)
 
 Azure는 Azure를 지원하는 대부분의 Linux 배포판에서 [cloud-init](https://cloud-init.io/)를 지원합니다.  Azure Marketplace에서 cloud-init 활성화 이미지를 사용할 수 있도록 하기 위해 승인된 Linux 배포판 파트너와 적극적으로 공조하고 있습니다. 이러한 이미지를 사용하면 VM 및 가상 머신 확장 집합에서 cloud-init 배포 및 구성 작업을 원활하게 진행할 수 있습니다.
 
@@ -115,6 +115,11 @@ Azure는 Azure를 지원하는 대부분의 Linux 배포판에서 [cloud-init](h
 * [Azure의 IP 주소](../../virtual-network/public-ip-addresses.md)
 * [Azure에서 Linux VM에 포트 열기](nsg-quickstart.md)
 * [Azure 포털에서 정규화된 도메인 이름 만들기](portal-create-fqdn.md)
+
+
+## <a name="data-residency"></a>데이터 상주
+
+Azure에서 단일 지역에 고객 데이터를 저장할 수 있는 기능은 현재 아시아 태평양 지역의 동남 아시아 지역(싱가포르) 및 브라질 지역의 브라질 남부(상파울루 주)에서만 사용할 수 있습니다. 다른 모든 지역의 경우 고객 데이터는 지역에 저장됩니다. 자세한 내용은 [보안 센터](https://azuredatacentermap.azurewebsites.net/)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

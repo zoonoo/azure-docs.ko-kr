@@ -2,20 +2,20 @@
 title: 포함 파일
 description: 포함 파일
 services: azure-communication-services
-author: matthewrobertson
-manager: nimag
+author: tomaschladek
+manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
-ms.author: marobert
-ms.openlocfilehash: 4be8821a949527fefcc9005b1de7f4f7c438c568
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: tchladek
+ms.openlocfilehash: e307265cc95815f426317cee69d64b210bcd67a9
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945749"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506274"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -30,17 +30,17 @@ ms.locfileid: "90945749"
 1. 터미널 또는 명령 창을 열어 앱에 대한 새 디렉터리를 만들고 해당 디렉터리로 이동합니다.
 
    ```console
-   mkdir user-tokens-quickstart && cd user-tokens-quickstart
+   mkdir access-tokens-quickstart && cd access-tokens-quickstart
    ```
 
-1. 텍스트 편집기를 사용하여 프로젝트 루트 디렉터리에 **issue-tokens.py**라는 파일을 만들고 기본 예외 처리를 비롯한 프로그램의 구조를 추가합니다. 이 빠른 시작의 모든 소스 코드를 다음 섹션의 이 파일에 추가합니다.
+1. 텍스트 편집기를 사용하여 프로젝트 루트 디렉터리에 **issue-access-tokens.py** 라는 파일을 만들고 기본 예외 처리를 비롯한 프로그램의 구조를 추가합니다. 이 빠른 시작의 모든 소스 코드를 다음 섹션의 이 파일에 추가합니다.
 
    ```python
    import os
    from azure.communication.administration import CommunicationIdentityClient
 
    try:
-      print('Azure Communication Services - User Access Tokens Quickstart')
+      print('Azure Communication Services - Access Tokens Quickstart')
       # Quickstart code goes here
    except Exception as ex:
       print('Exception:')
@@ -54,8 +54,6 @@ ms.locfileid: "90945749"
 ```console
 pip install azure-communication-administration
 ```
-
-[!INCLUDE [User Access Tokens Object Model](user-access-tokens-object-model.md)]
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
@@ -72,51 +70,61 @@ connection_string = os.environ['COMMUNICATION_SERVICES_CONNECTION_STRING']
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-## <a name="create-a-user"></a>사용자 만들기
+## <a name="create-an-identity"></a>ID 만들기
 
-Azure Communication Services는 경량 ID 디렉터리를 유지 관리합니다. `create_user` 메서드를 사용하여 고유한 `Id`가 있는 디렉터리에 새 항목을 만듭니다. 애플리케이션의 사용자와 Communication Services에서 생성된 ID 간의 매핑을 유지 관리해야 합니다(예: 애플리케이션 서버의 데이터베이스에 저장).
+Azure Communication Services는 경량 ID 디렉터리를 유지 관리합니다. `create_user` 메서드를 사용하여 고유한 `Id`가 있는 디렉터리에 새 항목을 만듭니다. 애플리케이션 사용자에게 매핑하여 수신된 ID를 저장합니다. 예를 들어 애플리케이션 서버의 데이터베이스에 저장합니다. ID는 나중에 액세스 토큰을 발급하는 데 필요합니다.
 
 ```python
-user = client.create_user()
-print("\nCreated a user with ID: " + user.identifier + ":")
+identity = client.create_user()
+print("\nCreated an identity with ID: " + identity.identifier + ":")
 ```
 
-## <a name="issue-user-access-tokens"></a>사용자 액세스 토큰 발급
+## <a name="issue-access-tokens"></a>액세스 토큰 발급
 
-`issue_token` 메서드를 사용하여 Communication Services 사용자에 대한 액세스 토큰을 발급합니다. 선택적 `user` 매개 변수를 제공하지 않으면 새 사용자가 만들어지고 토큰과 함께 반환됩니다.
+`issue_token` 메서드를 사용하여 이미 존재하는 Communication Services ID에 대한 액세스 토큰을 발급합니다. 매개 변수 `scopes`는 이 액세스 토큰에 권한을 부여하는 기본 형식 세트를 정의합니다. [지원되는 작업 목록](../../concepts/authentication.md)을 참조하세요. 매개 변수 `communicationUser`의 새 인스턴스는 Azure Communication Service ID의 문자열 표현에 따라 구성될 수 있습니다.
 
 ```python
-# Issue an access token with the "voip" scope for a new user
+# Issue an access token with the "voip" scope for an identity
 token_result = client.issue_token(user, ["voip"])
 expires_on = token_result.expires_on.strftime('%d/%m/%y %I:%M %S %p')
-print("\nIssued a token with 'voip' scope that expires at " + expires_on + ":")
+print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token_result.token)
 ```
 
-사용자 액세스 토큰은 사용자에게 서비스 중단이 발생하지 않도록 하기 위해 다시 발급해야 하는 단기 자격 증명입니다. `expires_on` 응답 속성은 토큰의 수명을 나타냅니다.
+액세스 토큰은 다시 발급해야 하는 단기 자격 증명입니다. 이렇게 하지 않으면 애플리케이션의 사용자 환경이 중단될 수 있습니다. `expires_on` 응답 속성은 액세스 토큰의 수명을 나타냅니다.
 
-## <a name="revoke-user-access-tokens"></a>사용자 액세스 토큰 취소
+## <a name="refresh-access-tokens"></a>액세스 토큰 새로 고침
 
-예를 들어, 사용자가 서비스 인증에 사용하는 암호를 변경하는 경우와 같이 사용자 액세스 토큰을 명시적으로 취소해야 하는 경우도 있습니다. 이 기능은 Azure Communication Services 관리 클라이언트 라이브러리를 통해 사용할 수 있습니다.
+액세스 토큰을 새로 고치려면 `CommunicationUser` 개체를 사용하여 다시 발급합니다.
 
 ```python  
-client.revoke_tokens(user)
-print("\nSuccessfully revoked all tokens for user with ID: " + user.identifier)
+# Value existingIdentity represents identity of Azure Communication Services stored during identity creation
+identity = CommunicationUser(existingIdentity)
+token_result = client.issue_token( identity, ["voip"])
 ```
 
-## <a name="delete-a-user"></a>사용자 삭제
+## <a name="revoke-access-tokens"></a>액세스 토큰 취소
 
-ID를 삭제하면 모든 활성 토큰이 취소되고 ID에 대한 후속 토큰을 발급할 수 없게 됩니다. 또한 사용자와 연결된 모든 지속형 콘텐츠를 제거합니다.
+경우에 따라 액세스 토큰을 명시적으로 취소할 수 있습니다. 예를 들어 애플리케이션의 사용자가 서비스에 인증하는 데 사용하는 암호를 변경하는 경우입니다. 메서드 `revoke_tokens`는 ID에 발급된 모든 활성 액세스 토큰을 무효화합니다.
+
+```python  
+client.revoke_tokens(identity)
+print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.identifier)
+```
+
+## <a name="delete-an-identity"></a>ID 삭제
+
+ID를 삭제하면 모든 활성 액세스 토큰이 취소되고 ID에 대한 액세스 토큰을 발급할 수 없게 됩니다. 또한 ID와 연결된 모든 지속형 콘텐츠를 제거합니다.
 
 ```python
-client.delete_user(user)
-print("\nDeleted the user with ID: " + user.identifier)
+client.delete_user(identity)
+print("\nDeleted the identity with ID: " + identity.identifier)
 ```
 
 ## <a name="run-the-code"></a>코드 실행
 
-콘솔 프롬프트에서 *issue-token.py* 파일이 포함된 디렉터리로 이동한 후, 다음 `python` 명령을 실행하여 앱을 실행합니다.
+콘솔 프롬프트에서 *issue-access-token.py* 파일이 포함된 디렉터리로 이동한 후, 다음 `python` 명령을 실행하여 앱을 실행합니다.
 
 ```console
-python ./issue-token.py
+python ./issue-access-token.py
 ```

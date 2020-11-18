@@ -12,20 +12,20 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 890afadc82acc90ab0324058e07aa5c4d34d04e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867349a321f2909d8e568be7e482a5517ddb50b9
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87926164"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517957"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>자습서: Azure CLI를 사용한 Linux 가상 머신 관리에 대해 알아보기
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Azure CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+- 이 자습서에는 Azure CLI 버전 2.0.30 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="understand-scope"></a>범위 이해
 
@@ -63,9 +63,9 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-**보안 주체 \<guid>가 디렉터리에 없다**는 오류 메시지가 표시된다면 새 그룹이 Azure Active Directory 전체에 전파되지 않은 것입니다. 명령을 다시 실행합니다.
+**보안 주체 \<guid>가 디렉터리에 없다** 는 오류 메시지가 표시된다면 새 그룹이 Azure Active Directory 전체에 전파되지 않은 것입니다. 명령을 다시 실행합니다.
 
-일반적으로 *네트워크 참가자*와 *Storage 계정 참가자*를 위한 프로세스를 반복해 배포된 리소스를 관리하도록 사용자가 할당됐는지 확인합니다. 이 문서에서는 이러한 단계를 건너뛸 수 있습니다.
+일반적으로 *네트워크 참가자* 와 *Storage 계정 참가자* 를 위한 프로세스를 반복해 배포된 리소스를 관리하도록 사용자가 할당됐는지 확인합니다. 이 문서에서는 이러한 단계를 건너뛸 수 있습니다.
 
 ## <a name="azure-policy"></a>Azure Policy
 
@@ -139,9 +139,9 @@ az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --ge
 
 ## <a name="lock-resources"></a>리소스 잠금
 
-[리소스 잠금](../../azure-resource-manager/management/lock-resources.md)은 조직의 사용자가 실수로 중요한 리소스를 삭제하거나 수정하는 것을 방지합니다. 역할 기반 액세스 제어와 달리 리소스 잠금은 모든 사용자와 역할 전반에 제한을 적용합니다. 잠금 수준을 *CanNotDelete* 또는 *ReadOnly*로 설정할 수 있습니다.
+[리소스 잠금](../../azure-resource-manager/management/lock-resources.md)은 조직의 사용자가 실수로 중요한 리소스를 삭제하거나 수정하는 것을 방지합니다. 역할 기반 액세스 제어와 달리 리소스 잠금은 모든 사용자와 역할 전반에 제한을 적용합니다. 잠금 수준을 *CanNotDelete* 또는 *ReadOnly* 로 설정할 수 있습니다.
 
-관리 잠금을 만들거나 삭제하려면 `Microsoft.Authorization/locks/*` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 **소유자** 및 **사용자 액세스 관리자**에게만 이러한 작업의 권한이 부여됩니다.
+관리 잠금을 만들거나 삭제하려면 `Microsoft.Authorization/locks/*` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 **소유자** 및 **사용자 액세스 관리자** 에게만 이러한 작업의 권한이 부여됩니다.
 
 가상 머신 및 네트워크 보안 그룹을 잠그려면 [az lock create](/cli/azure/resource/lock?view=azure-cli-latest#az-resource-lock-create) 명령을 사용합니다.
 

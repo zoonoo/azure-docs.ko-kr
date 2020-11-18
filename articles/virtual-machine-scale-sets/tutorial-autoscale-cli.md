@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/18/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: cdad018de9f7683d68f1b6d3b63c722134b2bc80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68f311a949d6c7663c5602c444d1b7b9af09dcad
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783776"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517498"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합의 크기 자동 조정
 
@@ -26,11 +26,11 @@ ms.locfileid: "88783776"
 > * VM 인스턴스 스트레스 테스트 및 자동 크기 조정 규칙 트리거
 > * 요구량이 줄면 자동으로 다시 크기 조정
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.32 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+- 이 자습서에는 Azure CLI 버전 2.0.32 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
 
@@ -40,7 +40,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 az group create --name myResourceGroup --location eastus
 ```
 
-이제 [az vmss create](/cli/azure/vmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 인스턴스 수가 *2*인 확장 집합을 만들고, SSH 키가 없는 경우 이 키를 생성합니다.
+이제 [az vmss create](/cli/azure/vmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 인스턴스 수가 *2* 인 확장 집합을 만들고, SSH 키가 없는 경우 이 키를 생성합니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -55,7 +55,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>자동 크기 조정 프로필 정의
 
-확장 집합에서 자동 크기 조정을 활성화하려면 먼저 자동 크기 조정 프로필을 정의합니다. 이 프로필은 기본, 최소, 최대 확장 집합 용량을 정의합니다. 이러한 제한을 통해 연속적으로 VM 인스턴스를 만들지 않고 비용을 제어하고, 축소 이벤트에 유지되는 최소 인스턴스 수로 허용 가능한 성능의 균형을 유지할 수 있습니다. [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create)를 사용하여 자동 크기 조정 프로필을 만듭니다. 다음 예제에서는 기본 및 최소 용량으로 VM 인스턴스 *2*개를 설정하고 최대 용량으로 *10*개를 설정합니다.
+확장 집합에서 자동 크기 조정을 활성화하려면 먼저 자동 크기 조정 프로필을 정의합니다. 이 프로필은 기본, 최소, 최대 확장 집합 용량을 정의합니다. 이러한 제한을 통해 연속적으로 VM 인스턴스를 만들지 않고 비용을 제어하고, 축소 이벤트에 유지되는 최소 인스턴스 수로 허용 가능한 성능의 균형을 유지할 수 있습니다. [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create)를 사용하여 자동 크기 조정 프로필을 만듭니다. 다음 예제에서는 기본 및 최소 용량으로 VM 인스턴스 *2* 개를 설정하고 최대 용량으로 *10* 개를 설정합니다.
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -123,7 +123,7 @@ SSH를 첫 번째 VM 인스턴스에 연결합니다. 앞의 명령과 같이 `-
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-로그인한 후 **stress** 유틸리티를 설치합니다. CPU 로드를 생성하는 *10*개 **stress** 작업자를 시작합니다. 이러한 작업자는 *420*초 동안 실행되어 자동 크기 조정 규칙에서 원하는 작업을 구현하는 데 충분합니다.
+로그인한 후 **stress** 유틸리티를 설치합니다. CPU 로드를 생성하는 *10* 개 **stress** 작업자를 시작합니다. 이러한 작업자는 *420* 초 동안 실행되어 자동 크기 조정 규칙에서 원하는 작업을 구현하는 데 충분합니다.
 
 ```console
 sudo apt-get update
@@ -131,15 +131,15 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-**stress**에서 *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*와 비슷한 출력이 표시되면 *Enter* 키를 눌러 프롬프트로 돌아갑니다.
+**stress** 에서 *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* 와 비슷한 출력이 표시되면 *Enter* 키를 눌러 프롬프트로 돌아갑니다.
 
-**stress**에서 CPU 로드를 생성하는지 확인하려면 **top** 유틸리티를 사용하여 활성 시스템 로드를 검사합니다.
+**stress** 에서 CPU 로드를 생성하는지 확인하려면 **top** 유틸리티를 사용하여 활성 시스템 로드를 검사합니다.
 
 ```console
 top
 ```
 
-**top**을 종료한 다음, VM 인스턴스에 대한 연결을 닫습니다. **stress**가 VM 인스턴스에서 계속 실행됩니다.
+**top** 을 종료한 다음, VM 인스턴스에 대한 연결을 닫습니다. **stress** 가 VM 인스턴스에서 계속 실행됩니다.
 
 ```console
 Ctrl-c
@@ -152,16 +152,16 @@ exit
 ssh azureuser@13.92.224.66 -p 50003
 ```
 
-**stress**를 설치하고 실행한 다음, 이 두 번째 VM 인스턴스에서 10개의 작업자를 시작합니다.
+**stress** 를 설치하고 실행한 다음, 이 두 번째 VM 인스턴스에서 10개의 작업자를 시작합니다.
 
 ```console
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-다시 **stress**에서 *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*와 비슷한 출력이 표시되면 *Enter* 키를 눌러 프롬프트로 돌아갑니다.
+다시 **stress** 에서 *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* 와 비슷한 출력이 표시되면 *Enter* 키를 눌러 프롬프트로 돌아갑니다.
 
-두 번째 VM 인스턴스에 대한 연결을 닫습니다. **stress**가 VM 인스턴스에서 계속 실행됩니다.
+두 번째 VM 인스턴스에 대한 연결을 닫습니다. **stress** 가 VM 인스턴스에서 계속 실행됩니다.
 
 ```console
 exit
@@ -169,7 +169,7 @@ exit
 
 ## <a name="monitor-the-active-autoscale-rules"></a>활성 자동 크기 조정 규칙 모니터링
 
-확장 집합의 VM 인스턴스 수를 모니터링하려면 **watch**를 사용합니다. 각 VM 인스턴스의 **stress**에서 생성된 CPU 로드에 응답하여 자동 크기 조정 규칙에서 규모 확장 프로세스를 시작하는 데 5분이 걸립니다.
+확장 집합의 VM 인스턴스 수를 모니터링하려면 **watch** 를 사용합니다. 각 VM 인스턴스의 **stress** 에서 생성된 CPU 로드에 응답하여 자동 크기 조정 규칙에서 규모 확장 프로세스를 시작하는 데 5분이 걸립니다.
 
 ```azurecli-interactive
 watch az vmss list-instances \
@@ -192,13 +192,13 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
            6  True                  eastus      myScaleSet_6  Creating             myResourceGroup  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
-**stress**가 초기 VM 인스턴스에서 중지되면 평균 CPU 로드가 정상으로 돌아갑니다. 또 다른 5분이 지나면 자동 크기 조정 규칙에서 VM 인스턴스 수를 축소합니다. 규모 감축 작업에서 가장 높은 ID가 있는 VM 인스턴스를 먼저 제거합니다. 확장 집합에서 가용성 집합 또는 가용성 영역을 사용하는 경우 규모 감축 작업은 해당 VM 인스턴스 간에 균등하게 분산됩니다. 다음 예제 출력에서는 확장 집합의 자동 크기를 확장하면서 삭제된 하나의 VM 인스턴스를 보여 줍니다.
+**stress** 가 초기 VM 인스턴스에서 중지되면 평균 CPU 로드가 정상으로 돌아갑니다. 또 다른 5분이 지나면 자동 크기 조정 규칙에서 VM 인스턴스 수를 축소합니다. 규모 감축 작업에서 가장 높은 ID가 있는 VM 인스턴스를 먼저 제거합니다. 확장 집합에서 가용성 집합 또는 가용성 영역을 사용하는 경우 규모 감축 작업은 해당 VM 인스턴스 간에 균등하게 분산됩니다. 다음 예제 출력에서는 확장 집합의 자동 크기를 확장하면서 삭제된 하나의 VM 인스턴스를 보여 줍니다.
 
 ```output
            6  True                  eastus      myScaleSet_6  Deleting             myResourceGroup  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
-`Ctrl-c`을 사용하여 *watch*를 종료합니다. 확장 집합은 5분마다 계속 축소되며, 최소 인스턴스 수인 2에 도달할 때까지 하나의 VM 인스턴스를 제거합니다.
+`Ctrl-c`을 사용하여 *watch* 를 종료합니다. 확장 집합은 5분마다 계속 축소되며, 최소 인스턴스 수인 2에 도달할 때까지 하나의 VM 인스턴스를 제거합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
