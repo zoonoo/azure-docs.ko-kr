@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.openlocfilehash: d497ff1a829902c0623740f01a457e6496db2401
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2970bb58bb73d52c75729b00a8209a9c576d4ec0
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744959"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427414"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Synapse 작업 영역 모니터링
 
-이 자습서에서는 Synapse 작업 영역에서 작업을 모니터링하는 방법에 대해 알아봅니다. SQL, Apache Spark 및 Pipelines에 대한 현재 및 기록 작업을 모니터링할 수 있습니다. 
+이 자습서에서는 Synapse 작업 영역에서 작업을 모니터링하는 방법에 대해 알아봅니다. SQL, Apache Spark 및 파이프라인에 대한 현재 및 과거의 작업을 모니터링할 수 있습니다. 
 
 ## <a name="introduction-to-the-monitor-hub"></a>모니터 허브 소개
 
@@ -31,8 +31,7 @@ Synapse Studio를 열고 **모니터** 허브로 이동합니다. 여기에서 �
 ## <a name="integration"></a>통합
 
 1. **통합 > 파이프라인** 으로 이동합니다. 이 보기에서는 파이프라인이 작업 영역에서 실행될 때마다 볼 수 있습니다. 
-1. 이전 단계에서 실행한 파이프라인을 찾아 해당 **파이프라인 이름** 를 클릭합니다.
-1. 이제 해당 파이프라인 내의 개별 작업이 어떻게 실행되는지 확인할 수 있습니다.
+1. 이전 단계에서 실행한 파이프라인을 찾아 해당 **파이프라인 이름** 을 클릭하여 세부 정보를 확인합니다.
 1. Synapse Studio 위쪽의 **이동 경로 탐색 막대** 를 클릭하고 **모든 파이프라인 실행** 을 클릭하여 이전 보기로 돌아갑니다.
 
 ## <a name="apache-spark-activities"></a>Apache Spark 작업

@@ -1,23 +1,23 @@
 ---
 title: 영국 공식 및 영국 NHS 청사진 샘플 제어
 description: 영국 공식 및 영국 NHS 청사진 샘플의 제어 매핑입니다. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: b798ac98e057b85cce0faa835575dbb0d50f9c8c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 352ba30a21c638c68401e2f8e471096a777fbde9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931275"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420260"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 영국 NHS 청사진 샘플의 제어 매핑
 
 이 문서에서는 영국 공식 및 영국 NHS 청사진 샘플이 영국 공식 및 영국 NHS 제어에 매핑되는 방법에 대해 자세히 설명합니다. 제어에 대한 자세한 내용은 [영국 공식](https://www.gov.uk/government/publications/government-security-classifications)을 참조하세요.
 
-다음은 **영국 공식** 및 **UK NHS** 제어에 대한 매핑입니다. 특정 컨트롤 매핑으로 바로 점프하려면 오른쪽의 탐색 기능을 사용합니다. 많은 매핑된 컨트롤은 [Azure Policy](../../../policy/overview.md) 이니셔티브를 사용하여 구현됩니다. 전체 이니셔티브를 검토하려면 Azure Portal에서 **정책**을 열고 **정의** 페이지를 선택합니다. 그런 다음, **\[미리 보기\] UK OFFICIAL 및 UK NHS 제어 감사 및 감사 요구 사항을 지원하는 특정 VM 확장 배포** 기본 제공 정책 이니셔티브를 찾아서 선택합니다.
+다음은 **영국 공식** 및 **UK NHS** 제어에 대한 매핑입니다. 특정 컨트롤 매핑으로 바로 점프하려면 오른쪽의 탐색 기능을 사용합니다. 많은 매핑된 컨트롤은 [Azure Policy](../../../policy/overview.md) 이니셔티브를 사용하여 구현됩니다. 전체 이니셔티브를 검토하려면 Azure Portal에서 **정책** 을 열고 **정의** 페이지를 선택합니다. 그런 다음, **\[미리 보기\] UK OFFICIAL 및 UK NHS 제어 감사 및 감사 요구 사항을 지원하는 특정 VM 확장 배포** 기본 제공 정책 이니셔티브를 찾아서 선택합니다.
 
 > [!IMPORTANT]
-> 아래의 각 컨트롤은 하나 이상의 [Azure Policy](../../../policy/overview.md) 정의와 연결되어 있습니다. 이러한 정책은 컨트롤을 사용한 [규정 준수 평가](../../../policy/how-to/get-compliance-data.md)에 도움이 될 수 있지만, 컨트롤과 하나 이상의 정책 간에 일대일 또는 완벽한 일치 관계가 없는 경우도 많습니다. 따라서 Azure Policy의 **규정 준수**는 정책 자체만 가리킬 뿐, 컨트롤의 모든 요구 사항을 완벽하게 준수한다는 것은 아닙니다. 또한 규정 준수 표준에는 현재 Azure Policy 정의에서 처리되지 않은 컨트롤이 포함되어 있습니다. 따라서 Azure Policy의 규정 준수는 전반적인 규정 준수 상태를 부분적으로 표시할 뿐입니다. 이 규정 준수 청사진 샘플에 대한 컨트롤과 Azure Policy 정의 간의 연결은 시간이 지남에 따라 변경될 수 있습니다. 변경 기록을 보려면 [GitHub 커밋 기록](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md)을 참조하세요.
+> 아래의 각 컨트롤은 하나 이상의 [Azure Policy](../../../policy/overview.md) 정의와 연결되어 있습니다. 이러한 정책은 컨트롤을 사용한 [규정 준수 평가](../../../policy/how-to/get-compliance-data.md)에 도움이 될 수 있지만, 컨트롤과 하나 이상의 정책 간에 일대일 또는 완벽한 일치 관계가 없는 경우도 많습니다. 따라서 Azure Policy의 **규정 준수** 는 정책 자체만 가리킬 뿐, 컨트롤의 모든 요구 사항을 완벽하게 준수한다는 것은 아닙니다. 또한 규정 준수 표준에는 현재 Azure Policy 정의에서 처리되지 않은 컨트롤이 포함되어 있습니다. 따라서 Azure Policy의 규정 준수는 전반적인 규정 준수 상태를 부분적으로 표시할 뿐입니다. 이 규정 준수 청사진 샘플에 대한 컨트롤과 Azure Policy 정의 간의 연결은 시간이 지남에 따라 변경될 수 있습니다. 변경 기록을 보려면 [GitHub 커밋 기록](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md)을 참조하세요.
 
 ## <a name="1-data-in-transit-protection"></a>1 전송 중 데이터 보호
 
@@ -26,7 +26,6 @@ ms.locfileid: "91931275"
 - Redis Cache에 보안 연결만 사용하도록 설정해야 합니다.
 - Storage 계정에 보안 전송을 사용하도록 설정해야 합니다.
 - 보안 통신 프로토콜을 사용하지 않는 Windows 웹 서버의 감사 결과 표시
-- 보안 통신 프로토콜을 사용하지 않는 Windows 웹 서버를 감사하기 위한 필수 조건 배포
 - 웹 애플리케이션에 HTTPS를 통해서만 액세스 가능
 - 함수 앱에 HTTPS를 통해서만 액세스 가능
 - API 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.
@@ -55,19 +54,19 @@ ms.locfileid: "91931275"
 - SQL 데이터베이스의 취약성을 수정해야 합니다.
 - 취약성 평가 솔루션으로 취약성을 수정해야 합니다.
 - SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.
-- SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다.
+- SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 함
 - 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.
-- SQL 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
+- SQL 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 함
 - SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 
 ## <a name="53-protective-monitoring"></a>5.3 보호 모니터링
 
 이 청사진은 무제한 액세스, 목록 활동 허용 및 위협에 대한 보호 모니터링을 제공하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 정보 시스템 자산을 보호하는 데 도움이 됩니다.
 
-- 스토리지 계정에 대한 무제한 네트워크 액세스 감사
-- 가상 머신에서 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.
+- 스토리지 계정은 네트워크 액세스를 제한해야 함
+- 머신에서 안전한 애플리케이션을 정의하기 위해 적응형 애플리케이션 제어를 사용하도록 설정해야 함
 - 재해 복구를 구성하지 않고 가상 머신 감사
-- DDoS Protection 표준을 사용하도록 설정해야 합니다.
+- Azure DDoS Protection 표준을 사용하도록 설정해야 함
 - SQL 관리형 인스턴스의 Advanced Data Security 설정에서 Advanced Threat Protection 유형을 '모두'로 설정해야 합니다.
 - SQL Server의 Advanced Data Security 설정에서 Advanced Threat Protection 유형을 '모두'로 설정해야 합니다.
 - SQL 서버에 위협 탐지 배포
@@ -115,11 +114,6 @@ Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있�
 
 이 청사진은 최소 강도 및 기타 암호 요구 사항을 적용하지 않는 Windows VM을 감사하는 Azure Policy 정의를 할당하여 강한 암호를 적용하는 데 도움이 됩니다. 암호 강도 정책을 위반하는 VM을 인식하면 모든 VM 사용자 계정의 암호가 정책을 준수하도록 정정 작업을 수행하는 데 도움이 됩니다.
 
-- 암호 복잡성 설정이 사용되지 않는 Windows VM을 감사하기 위한 필수 조건 배포
-- 암호 최대 사용 기간이 70일로 설정되지 않은 Windows VM을 감사하기 위한 필수 조건 배포
-- 암호 최소 사용 기간이 1일로 설정되지 않은 Windows VM을 감사하기 위한 필수 조건 배포
-- 암호 최소 길이가 14자로 제한되지 않는 Windows VM을 감사하기 위한 필수 조건 배포
-- 이전 24개 암호의 재사용을 허용하는 Windows VM을 감사하기 위한 요구 사항 배포
 - 암호 복잡성 설정이 사용되지 않는 Windows VM의 감사 결과 표시
 - 암호 최대 사용 기간이 70일로 설정되지 않은 Windows VM의 감사 결과 표시
 - 암호 최소 사용 기간이 1일로 설정되지 않은 Windows VM의 감사 결과 표시
@@ -128,8 +122,6 @@ Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있�
 
 또한 이 청사진은 Azure Policy 정의를 할당하여 Azure 리소스에 대한 액세스를 제어하는 데 도움이 됩니다. 이 정책은 리소스에 더 많은 권한의 액세스를 허용할 수 있는 리소스 유형의 사용을 감사합니다. 이 정책을 위반하는 리소스를 이해하면 Azure 리소스 액세스가 권한 있는 사용자로 제한되도록 정정 작업을 수행하는 데 도움이 될 수 있습니다.
 
-- 암호 없는 계정이 있는 Linux VM을 감사하기 위한 요구 사항 배포
-- 암호 없는 계정의 원격 연결을 허용하는 Linux VM을 감사하기 위한 요구 사항 배포
 - 암호 없는 계정이 있는 Linux VM의 감사 결과 표시
 - 암호 없이 계정에서 원격으로 연결할 수 있는 Linux VM의 감사 결과를 표시합니다.
 - 스토리지 계정을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.
@@ -141,15 +133,15 @@ Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있�
 이 청사진은 적절한 보안 사용자 관리를 위해 25개가 넘는 정책을 사용하는 것 외에도 무제한 스토리지 계정을 모니터링하는 [Azure 정책](../../../policy/overview.md) 정의를 할당하여 무단 액세스로부터 서비스 인터페이스를 보호하는 데 도움이 됩니다.
 무제한 액세스 권한이 있는 스토리지 계정을 사용하면 정보 시스템 내에 포함된 정보에 대한 의도하지 않은 액세스를 허용할 수 있습니다. 또한 이 청사진은 가상 머신에서 적응형 애플리케이션 제어를 사용하도록 설정하는 정책을 할당합니다.
 
-- 스토리지 계정에 대한 무제한 네트워크 액세스 감사
-- 가상 머신에서 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.
+- 스토리지 계정은 네트워크 액세스를 제한해야 함
+- 머신에서 안전한 애플리케이션을 정의하기 위해 적응형 애플리케이션 제어를 사용하도록 설정해야 함
 - 인터넷 연결 엔드포인트를 통한 액세스를 제한해야 합니다.
 - 적응형 네트워크 강화 추천 사항은 인터넷에 연결된 가상 머신에 적용해야 합니다.
 - 가상 머신 확장 집합에 Endpoint Protection 솔루션을 설치해야 합니다.
-- 가상 머신에서 Just-In-Time 네트워크 액세스 제어를 적용해야 합니다.
-- 함수 앱에 대해 원격 디버깅을 해제해야 함
-- 웹 애플리케이션에 대해 원격 디버깅을 해제해야 함
-- API 앱에 대해 원격 디버깅을 해제해야 함
+- 가상 머신의 관리 포트는 Just-In-Time 네트워크 액세스 제어로 보호해야 함
+- 함수 앱에 대해 원격 디버깅을 해제해야 합니다.
+- 웹 애플리케이션에 대해 원격 디버깅을 해제해야 합니다.
+- API Apps에 대해 원격 디버깅을 해제해야 합니다.
 
 ## <a name="13-audit-information-for-users"></a>13 사용자 정보 감사
 
@@ -161,6 +153,7 @@ Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있�
 - \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포
 - 가상 네트워크를 만들 때 Network Watcher 배포
+
 
 ## <a name="next-steps"></a>다음 단계
 

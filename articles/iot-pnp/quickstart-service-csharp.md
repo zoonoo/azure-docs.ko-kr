@@ -1,6 +1,6 @@
 ---
-title: Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용(C#) | Microsoft Docs
-description: C#을 사용하여 Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 상호 작용합니다.
+title: 빠른 시작 - Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용(C#) | Microsoft Docs
+description: 빠른 시작 - C#을 사용하여 Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 상호 작용합니다.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 09/21/2020
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: ec38e0849b7f4c1a0ca98d75d4c6c82908c1e16e
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 018edea9a013df55b32ee22020be7226eab27319
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945379"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421552"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-c"></a>빠른 시작: 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용(C#)
 
@@ -46,7 +46,7 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 
 1. Visual Studio 2019에서 *azure-iot-samples-csharp\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* 프로젝트 파일을 엽니다.
 
-1. Visual Studio에서 **프로젝트 > 자동 온도 조절기 속성 > 디버그**로 이동합니다. 그런 다음, 프로젝트에 다음 환경 변수를 추가합니다.
+1. Visual Studio에서 **프로젝트 > 자동 온도 조절기 속성 > 디버그** 로 이동합니다. 그런 다음, 프로젝트에 다음 환경 변수를 추가합니다.
 
     | Name | 값 |
     | ---- | ----- |
@@ -71,7 +71,7 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 
 1. Visual Studio의 다른 인스턴스에서 *azure-iot-samples-csharp\iot-hub\Samples\service\PnpServiceSamples\Thermostat\Thermostat.csproj* 프로젝트를 엽니다.
 
-1. Visual Studio에서 **프로젝트 > 자동 온도 조절기 속성 > 디버그**로 이동합니다. 그런 다음, 프로젝트에 다음 환경 변수를 추가합니다.
+1. Visual Studio에서 **프로젝트 > 자동 온도 조절기 속성 > 디버그** 로 이동합니다. 그런 다음, 프로젝트에 다음 환경 변수를 추가합니다.
 
     | Name | 값 |
     | ---- | ----- |
@@ -91,7 +91,7 @@ s_logger.LogDebug($"Model Id of this Twin is: {twin.ModelId}");
 ```
 
 > [!NOTE]
-> 이 샘플에서는 **IoT Hub 서비스 클라이언트**에서 **Microsoft.Azure.Devices.Client** 네임스페이스를 사용합니다. 디지털 쌍 API를 비롯한 API에 대한 자세한 내용은 [서비스 개발자 가이드](concepts-developer-guide-service.md)를 참조하세요.
+> 이 샘플에서는 **IoT Hub 서비스 클라이언트** 에서 **Microsoft.Azure.Devices.Client** 네임스페이스를 사용합니다. 디지털 쌍 API를 비롯한 API에 대한 자세한 내용은 [서비스 개발자 가이드](concepts-developer-guide-service.md)를 참조하세요.
 
 이 코드는 다음과 같은 출력을 생성합니다.
 
@@ -100,7 +100,7 @@ s_logger.LogDebug($"Model Id of this Twin is: {twin.ModelId}");
       Model Id of this Twin is: dtmi:com:example:Thermostat;1
 ```
 
-다음 코드 조각에서는 *패치*를 사용하여 디바이스 쌍을 통해 속성을 업데이트하는 방법을 보여줍니다.
+다음 코드 조각에서는 *패치* 를 사용하여 디바이스 쌍을 통해 속성을 업데이트하는 방법을 보여줍니다.
 
 ```C#
 // Update the twin

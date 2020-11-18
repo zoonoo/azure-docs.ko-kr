@@ -9,27 +9,27 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: fe30a2a0885e1a579eb32ad84ef467f7162febe4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 03995166df5d40f7f8be7054aed0727be254ed73
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310323"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376896"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Azure Synapse SQL에서 지원되는 Transact-SQL 기능
 
 Azure Synapse SQL은 T-SQL 언어를 사용하여 데이터를 쿼리하고 분석할 수 있는 빅 데이터 분석 서비스입니다. SQL Server 및 Azure SQL Database에 사용되는 SQL 언어의 표준 ANSI 호환 언어를 데이터 분석에 사용할 수 있습니다. 
 
-Transact-SQL 언어는 서버리스 Synapse SQL 서버에서 사용되며 프로비저닝된 모델은 다른 개체를 참조할 수 있고 지원되는 일련의 기능에 약간의 차이가 있습니다. 이 페이지에서는 Synapse SQL의 소비 모델 간의 개략적인 Transact-SQL 언어 차이를 알아볼 수 있습니다.
+Transact-SQL 언어는 서버리스 Synapse SQL에서 사용되며, 전용 모델은 다른 개체를 참조할 수 있고 지원되는 기능 세트에 약간의 차이가 있습니다. 이 페이지에서는 Synapse SQL의 소비 모델 간의 개략적인 Transact-SQL 언어 차이를 알아볼 수 있습니다.
 
 ## <a name="database-objects"></a>데이터베이스 개체
 
 Synapse SQL의 소비 모델을 사용하면 다양한 데이터베이스 개체를 사용할 수 있습니다. 다음 표에서는 지원되는 개체 유형을 비교하여 보여줍니다.
 
-|   | 프로비전됨 | 서버를 사용하지 않음 |
+|   | 전용 | 서버를 사용하지 않음 |
 | --- | --- | --- |
 | **테이블** | [예](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 아니요, 서버리스 모델은 [Azure Storage](#storage-options)에 배치된 외부 데이터만 쿼리할 수 있습니다. |
-| **뷰** | [예](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). 보기는 프로비저닝된 모델에서 사용 가능한 [쿼리 언어 요소](#query-language)를 사용할 수 있습니다. | [예](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). 보기는 서버리스 모델에서 사용 가능한 [쿼리 언어 요소](#query-language)를 사용할 수 있습니다. |
+| **뷰** | [예](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). 보기는 전용 모델에서 사용 가능한 [쿼리 언어 요소](#query-language)를 사용할 수 있습니다. | [예](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). 보기는 서버리스 모델에서 사용 가능한 [쿼리 언어 요소](#query-language)를 사용할 수 있습니다. |
 | **스키마** | [예](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | [예](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |
 | **임시 테이블** | [예](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | 예 |
 | **절차** | [예](/sql/t-sql/statements/create-procedure-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 예 |
@@ -48,7 +48,7 @@ Synapse SQL의 소비 모델을 사용하면 다양한 데이터베이스 개체
 
 Synapse SQL에 사용되는 쿼리 언어는 소비 모델에 따라 지원되는 기능이 다를 수 있습니다. 다음 표에는 Transact-SQL 언어의 가장 중요한 쿼리 언어 차이점이 간략히 설명되어 있습니다.
 
-|   | 프로비전됨 | 서버를 사용하지 않음 |
+|   | 전용 | 서버를 사용하지 않음 |
 | --- | --- | --- |
 | **SELECT 문** | 예. Transact-SQL 쿼리 절인 [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)는 지원되지 않습니다. | 예. Transact-SQL 쿼리 절인 [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [PREDICT](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 쿼리 힌트는 지원되지 않습니다. [OFFSET/FETCH](/sql/t-sql/queries/select-order-by-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#using-offset-and-fetch-to-limit-the-rows-returned) 및 [PIVOT/UNPIVOT](/sql/t-sql/queries/from-using-pivot-and-unpivot?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용하여 시스템 개체(외부 데이터 아님)를 쿼리할 수 있습니다. |
 | **INSERT 문** | 예 | 예 |
@@ -73,7 +73,7 @@ Synapse SQL에 사용되는 쿼리 언어는 소비 모델에 따라 지원되�
 
 Synapse SQL을 사용하면 기본 제공 보안 기능을 사용하여 데이터를 보호하고 액세스를 제어할 수 있습니다. 다음 표에는 Synapse SQL 소비 모델 간의 개략적인 차이를 비교하여 보여줍니다.
 
-|   | 프로비전됨 | 서버를 사용하지 않음 |
+|   | 전용 | 서버를 사용하지 않음 |
 | --- | --- | --- |
 | **로그인** | 해당 없음(포함된 사용자만 데이터베이스에서 지원됨) | 예 |
 | **사용자** |  해당 없음(포함된 사용자만 데이터베이스에서 지원됨) | 예 |
@@ -109,7 +109,7 @@ Synapse SQL을 사용하면 기본 제공 보안 기능을 사용하여 데이�
 
 다양한 도구를 사용하여 Synapse SQL에 연결하여 데이터를 쿼리할 수 있습니다.
 
-|   | 프로비전됨 | 서버를 사용하지 않음 |
+|   | 전용 | 서버를 사용하지 않음 |
 | --- | --- | --- |
 | **Synapse Studio** | 예, SQL 스크립트 | 예, SQL 스크립트 |
 | **Power BI** | 예 | [예](tutorial-connect-power-bi-desktop.md) |
@@ -120,13 +120,13 @@ Synapse SQL을 사용하면 기본 제공 보안 기능을 사용하여 데이�
 > [!NOTE]
 > SSMS를 사용하여 서버리스 SQL 풀(미리 보기) 및 쿼리에 연결할 수 있습니다. 버전 18.5부터 부분적으로 지원되며, 연결 및 쿼리에만 사용할 수 있습니다.
 
-대부분의 애플리케이션은 표준 Transact-SQL 언어를 사용하여 Synapse SQL의 서버리스 및 프로비저닝된 소비 모델을 모두 쿼리할 수 있습니다.
+대부분의 애플리케이션은 표준 Transact-SQL 언어를 사용하여 Synapse SQL의 서버리스 및 전용 소비 모델을 모두 쿼리할 수 있습니다.
 
 ## <a name="storage-options"></a>스토리지 옵션
 
 분석되는 데이터는 다양한 스토리지 유형에 저장할 수 있습니다. 다음 표에는 사용 가능한 모든 스토리지 옵션이 나열되어 있습니다.
 
-|   | 프로비전됨 | 서버를 사용하지 않음 |
+|   | 전용 | 서버를 사용하지 않음 |
 | --- | --- | --- |
 | **내부 스토리지** | 예 | 예 |
 | **Azure Data Lake v2** | 예 | 예 |
@@ -137,7 +137,7 @@ Synapse SQL을 사용하면 기본 제공 보안 기능을 사용하여 데이�
 
 분석되는 데이터는 다양한 스토리지 형식으로 저장할 수 있습니다. 다음 표에는 분석할 수 있는 모든 데이터 형식이 나열되어 있습니다.
 
-|   | 프로비전됨 | 서버를 사용하지 않음 |
+|   | 전용 | 서버를 사용하지 않음 |
 | --- | --- | --- |
 | **구분됨** | [예](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | [예](query-single-csv-file.md) |
 | **CSV** | 예(다중 문자 구분 기호는 지원되지 않음) | [예](query-single-csv-file.md) |

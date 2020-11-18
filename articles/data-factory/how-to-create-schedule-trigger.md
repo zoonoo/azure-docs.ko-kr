@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 0f147a317b16a4a581fad18bd48dbd38059e9a8c
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: a6f53d6ce41085b2348857ccb5b45c06132d6a99
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146073"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655462"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>일정에 따라 파이프라인을 실행하는 트리거 만들기
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "93146073"
 
     ![새 트리거 메뉴](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
 
-1. **트리거 추가** 페이지에서 **트리거 선택** ...을 선택 하 고 **+ 새로 만들기** 를 선택 합니다. 
+1. **트리거 추가** 페이지에서 **트리거 선택**...을 선택 하 고 **+ 새로 만들기** 를 선택 합니다. 
 
     ![트리거 추가 - 새 트리거](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
 
@@ -50,7 +50,7 @@ ms.locfileid: "93146073"
 
     1. **형식** 에 대해 **일정** 이 선택되었는지 확인합니다.
     1. **시작 날짜** 에 대 한 트리거의 시작 날짜/시간을 지정 합니다. 기본적으로 UTC (협정 세계시)로 현재 datetime로 설정 됩니다.
-    1. 트리거를 만들 표준 시간대를 지정 합니다. 표준 시간대 설정은 고급 되풀이 옵션의 **시작 날짜** , **종료 날짜** 및 **예약 실행 시간** 에 적용 됩니다. 표준 시간대 설정을 변경 해도 시작 날짜는 자동으로 변경 되지 않습니다. 지정 된 표준 시간대의 시작 날짜가 올바른지 확인 하십시오.
+    1. 트리거를 만들 표준 시간대를 지정 합니다. 표준 시간대 설정은 고급 되풀이 옵션의 **시작 날짜**, **종료 날짜** 및 **예약 실행 시간** 에 적용 됩니다. 표준 시간대 설정을 변경 해도 시작 날짜는 자동으로 변경 되지 않습니다. 지정 된 표준 시간대에서 시작 날짜가 올바른지 확인 합니다. 실행 예약 된 트리거의 실행 시간은 시작 날짜를 게시 한 것으로 간주 됩니다. 시작 날짜는 다음 되풀이에서 파이프라인을 트리거하는 실행 시간 보다 최소 1 분 미만 이어야 합니다. 
 
         > [!NOTE]
         > 일광 절약을 관찰 하는 표준 시간대의 경우 트리거 시간은 연도를 두 번 변경 하면 자동으로 조정 됩니다. 일광 절약 시간제 변경을 옵트아웃 (opt out) 하려면 일광 절약을 준수 하지 않는 표준 시간대를 선택 하세요. 예를 들면 UTC
@@ -129,7 +129,7 @@ ms.locfileid: "93146073"
     - **endTime** 요소는 **startTime** 요소 값 이후 1시간입니다. 따라서 트리거는 시작 시간 후 15 분, 30 분 및 45 분 후에 파이프라인을 실행 합니다. 시작 시간을 현재 UTC 시간으로 업데이트하고, 종료 시간을 시작 시간의 1시간 후로 업데이트하는 것에 유의하세요. 
 
         > [!IMPORTANT]
-        > UTC 표준 시간대의 경우 startTime 및 endTime은 ' yyyy-MM-Yyyy-mm-ddthh: mm: ss **Z** ' 형식 이어야 하 고, 다른 timezones의 경우 Starttime 및 endtime은 ' Yyyy-mm-dd ' yyyy-mm-ddthh: mm: ss ' 뒤에와 야 합니다. 
+        > UTC 표준 시간대의 경우 startTime 및 endTime은 ' yyyy-MM-Yyyy-mm-ddthh: mm: ss **Z**' 형식 이어야 하 고, 다른 timezones의 경우 Starttime 및 endtime은 ' Yyyy-mm-dd ' yyyy-mm-ddthh: mm: ss ' 뒤에와 야 합니다. 
         > 
         > ISO 8601 표준에 따라 Z 타임 스탬프에 대 한 _Z_ 접미사는 DATETIME을 UTC 표준 시간대로 표시 하 고 표준 시간대 필드 렌더링은 쓸모가 없습니다. UTC 표준 시간대에 대 한 _Z_ 접미사가 없는 경우 트리거 _활성화_ 시 오류가 발생 합니다.
 
@@ -287,7 +287,7 @@ Azure Portal에서 트리거 실행 및 파이프라인 실행을 모니터링�
 Azure Resource Manager 템플릿을 사용하여 트리거를 만들 수 있습니다. 단계별 지침은 [Resource Manager 템플릿을 사용하여 Azure Data Factory 만들기](quickstart-create-data-factory-resource-manager-template.md)를 참조하세요.  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>파이프라인에 트리거 시작 시간 전달
-Azure Data Factory 버전 1은 **SliceStart** , **SliceEnd** , **WindowStart** 및 **WindowEnd** 를 사용하여 분할된 데이터를 읽거나 쓰도록 지원합니다. Azure Data Factory 현재 버전에서는 파이프라인 매개 변수를 사용하여 이 동작을 수행할 수 있습니다. 트리거의 시작 시간 및 예약된 시간은 파이프라인 매개 변수의 값으로 설정됩니다. 다음 예제에서는 트리거의 예약된 시간이 파이프라인 매개 변수 **scheduledRunTime** 에 값으로 전달됩니다.
+Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및 **WindowEnd** 를 사용하여 분할된 데이터를 읽거나 쓰도록 지원합니다. Azure Data Factory 현재 버전에서는 파이프라인 매개 변수를 사용하여 이 동작을 수행할 수 있습니다. 트리거의 시작 시간 및 예약된 시간은 파이프라인 매개 변수의 값으로 설정됩니다. 다음 예제에서는 트리거의 예약된 시간이 파이프라인 매개 변수 **scheduledRunTime** 에 값으로 전달됩니다.
 
 ```json
 "parameters": {
@@ -353,25 +353,25 @@ Azure Data Factory 버전 1은 **SliceStart** , **SliceEnd** , **WindowStart** �
 |:--- |:--- |
 | **startTime** | 날짜-시간 값입니다. 단순한 일정의 경우 **startTime** 속성의 값이 첫 번째 되풀이에 적용됩니다. 복잡한 일정의 경우 트리거는 특정 **startTime** 값 이후에 시작합니다. <br> UTC 표준 시간대의 경우 format은이 `'yyyy-MM-ddTHH:mm:ssZ'` 고 다른 표준 시간대의 경우 형식은입니다 `'yyyy-MM-ddTHH:mm:ss'` . |
 | **endTime** | 트리거의 종료 날짜 및 시간입니다. 트리거는 지정된 종료 날짜 및 시간 이후에 실행되지 않습니다. 속성에 대한 값은 이전에 있을 수 없습니다. 이 속성은 선택 사항입니다.  <br> UTC 표준 시간대의 경우 format은이 `'yyyy-MM-ddTHH:mm:ssZ'` 고 다른 표준 시간대의 경우 형식은입니다 `'yyyy-MM-ddTHH:mm:ss'` . |
-| **표준** | 트리거가 만들어지는 표준 시간대입니다. 이 설정은 **startTime** , **endTime** 및 **schedule** 에 영향을 줍니다. [지원 되는 표준 시간대 목록](#time-zone-option) 참조 |
-| **방법** | 트리거에 대한 되풀이 규칙을 지정하는 recurrence 개체입니다. recurrence 개체는 **frequency** , **interval** , **endTime** , **count** 및 **schedule** 요소를 지원합니다. recurrence 개체가 정의된 경우 **frequency** 요소는 필수입니다. 되풀이 개체의 다른 요소는 선택적입니다. |
+| **표준** | 트리거가 만들어지는 표준 시간대입니다. 이 설정은 **startTime**, **endTime** 및 **schedule** 에 영향을 줍니다. [지원 되는 표준 시간대 목록](#time-zone-option) 참조 |
+| **방법** | 트리거에 대한 되풀이 규칙을 지정하는 recurrence 개체입니다. recurrence 개체는 **frequency**, **interval**, **endTime**, **count** 및 **schedule** 요소를 지원합니다. recurrence 개체가 정의된 경우 **frequency** 요소는 필수입니다. 되풀이 개체의 다른 요소는 선택적입니다. |
 | **주기와** | 트리거가 되풀이되는 빈도 단위입니다. 지원되는 값은 "minute", "hour", "day", "week" 및 "month"입니다. |
 | **간격은** | 트리거가 실행되는 빈도를 결정하는 **frequency** 값에 대한 간격을 나타내는 양의 정수입니다. 예를 들어 **interval** 이 3이고 **frequency** 가 "week"인 경우 매 3주마다 트리거가 되풀이됩니다. |
 | **일정과** | 트리거에 대한 되풀이 일정입니다. 지정된 **frequency** 값을 가진 트리거는 되풀이 일정을 기반으로 되풀이를 변경합니다. **schedule** 속성에는 분, 시간, 요일, 날짜, 주차를 기반으로 하는 되풀이에 대한 수정 내용이 포함됩니다.
 
 > [!IMPORTANT]
-> UTC 표준 시간대의 경우 startTime 및 endTime은 ' yyyy-MM-Yyyy-mm-ddthh: mm: ss **Z** ' 형식 이어야 하 고, 다른 timezones의 경우 Starttime 및 endtime은 ' Yyyy-mm-dd ' yyyy-mm-ddthh: mm: ss ' 뒤에와 야 합니다. 
+> UTC 표준 시간대의 경우 startTime 및 endTime은 ' yyyy-MM-Yyyy-mm-ddthh: mm: ss **Z**' 형식 이어야 하 고, 다른 timezones의 경우 Starttime 및 endtime은 ' Yyyy-mm-dd ' yyyy-mm-ddthh: mm: ss ' 뒤에와 야 합니다. 
 > 
 > ISO 8601 표준에 따라 Z 타임 스탬프에 대 한 _Z_ 접미사는 DATETIME을 UTC 표준 시간대로 표시 하 고 표준 시간대 필드 렌더링은 쓸모가 없습니다. UTC 표준 시간대에 대 한 _Z_ 접미사가 없는 경우 트리거 _활성화_ 시 오류가 발생 합니다.
 
 ### <a name="schema-defaults-limits-and-examples"></a>스키마 기본값, 제한 및 예제
 
-| JSON 속성 | 형식 | 필수 | 기본값 | 유효한 값 | 예제 |
+| JSON 속성 | 유형 | 필수 | 기본값 | 유효한 값 | 예제 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | String | 예 | 없음 | ISO-8601 날짜-시간 | UTC 표준 시간대 `"startTime" : "2013-01-09T09:30:00-08:00Z"` <br> 기타 표준 시간대 `"2013-01-09T09:30:00-08:00"` |
 | **표준** | String | 예 | 없음 | [표준 시간대 값](#time-zone-option)  | `"UTC"` |
 | **방법** | Object | 예 | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **간격은** | 숫자 | No | 1 | 1~1,000 | `"interval":10` |
+| **간격은** | Number | No | 1 | 1~1,000 | `"interval":10` |
 | **endTime** | String | 예 | 없음 | 현재 이후의 시간을 나타내는 날짜-시간 값입니다. | UTC 표준 시간대 `"endTime" : "2013-02-09T09:30:00-08:00Z"` <br> 기타 표준 시간대 `"endTime" : "2013-02-09T09:30:00-08:00"`|
 | **일정과** | Object | 예 | None | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
@@ -382,11 +382,11 @@ Azure Data Factory 버전 1은 **SliceStart** , **SliceEnd** , **WindowStart** �
 | 표준 시간대 | UTC 오프셋 (비 일광 절약) | 표준 시간대 값 | 일광 절약 시간 관찰 | 타임 스탬프 형식 |
 | :--- | :--- | :--- | :--- | :--- |
 | 협정 세계시 | 0 | `UTC` | 아니요 | `'yyyy-MM-ddTHH:mm:ssZ'`|
-| 태평양 표준시 (PT) | -8 | `Pacific Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
-| 중부 시간 (CT) | -6 | `Central Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
-| 동부 표준시 (ET) | -5 | `Eastern Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| 태평양 표준시 (PT) | -8 | `Pacific Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
+| 중부 시간 (CT) | -6 | `Central Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
+| 동부 표준시 (ET) | -5 | `Eastern Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
 | GMT (그리니치 표준시) | 0 | `GMT Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
-| 중부 유럽 표준시 | +1 | `W. Europe Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| 중부 유럽 표준시 | +1 | `W. Europe Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
 | 인도 표준시 (IST) | + 5:30 | `India Standard Time` | 아니요 | `'yyyy-MM-ddTHH:mm:ss'` |
 | 중국 표준시 | + 8 | `China Standard Time` | 아니요 | `'yyyy-MM-ddTHH:mm:ss'` |
 
@@ -448,7 +448,7 @@ Azure Data Factory 버전 1은 **SliceStart** , **SliceEnd** , **WindowStart** �
 | `{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | 월요일부터 금요일까지 15분마다 실행됩니다. |
 | `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | 월요일부터 금요일까지 오전 9시에서 오후 4시 45분 사이에 15분마다 실행됩니다. |
 | `{"weekDays":["tuesday", "thursday"]}` | 화요일과 목요일의 지정된 시작 시간에 실행됩니다. |
-| `{"minutes":[0], "hours":[6], "monthDays":[28]}` | 매월 28일 오전 6시에 실행됩니다( **frequency** 값이 "month"라고 가정). |
+| `{"minutes":[0], "hours":[6], "monthDays":[28]}` | 매월 28일 오전 6시에 실행됩니다(**frequency** 값이 "month"라고 가정). |
 | `{"minutes":[0], "hours":[6], "monthDays":[-1]}` | 월의 마지막 날짜 오전 6시에 실행됩니다. 월의 마지막 날짜에 트리거를 실행하려면 28, 29, 30 또는 31 대신 -1을 사용합니다. |
 | `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` | 매월 1일과 말일의 오전 6시에 실행됩니다. |
 | `{monthDays":[1,14]}` | 매월 1일과 14일의 지정된 시작 시간에 실행됩니다. |

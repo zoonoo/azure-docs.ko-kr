@@ -3,7 +3,7 @@ title: '자습서: Postgres를 사용하는 Python Django 앱 배포'
 description: PostgreSQL 데이터베이스를 사용하는 Python 웹앱을 만들어 Azure에 배포합니다. 이 자습서에서는 Django 프레임워크를 사용하고 Linux의 Azure App Service에서 앱을 호스팅합니다.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 11/02/2020
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 63fdee6036580df42f7f965244b5f888c1ec082d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 348721304970a5d1d697ecf546a8c5039e81afc1
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540757"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506110"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>자습서: Azure App Service에서 PostgreSQL을 사용하는 Django 웹앱 배포
 
@@ -79,7 +79,7 @@ az login
 
 로그인하면 Azure CLI에서 Azure 명령을 실행하여 구독의 리소스를 사용할 수 있습니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
+문제가 있나요? [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
 
 ## <a name="clone-or-download-the-sample-app"></a>샘플 앱 복제 또는 다운로드
 
@@ -111,12 +111,12 @@ djangoapp 샘플에는 Django 설명서의 [첫 번째 Django 앱 작성](https:
 
 또한 샘플은 App Service와 같은 프로덕션 환경에서 실행되도록 수정됩니다.
 
-- 프로덕션 설정은 *azuresite/production.py* 파일에 있습니다. 개발 세부 정보는 *azuresite/settings.py* 에 있습니다.
-- `DJANGO_ENV` 환경 변수가 "production"으로 설정되면 앱에서 프로덕션 설정을 사용합니다. 이 환경 변수는 자습서의 뒷부분에서 PostgreSQL 데이터베이스 구성에 사용된 다른 환경 변수와 함께 만듭니다.
+- 프로덕션 설정은 *azuresite/production.py* 파일에 있습니다. 개발 설정은 *azuresite/settings.py* 에 있습니다.
+- `WEBSITE_HOSTNAME` 환경 변수가 설정되면 앱에서 프로덕션 설정을 사용합니다. Azure App Service는 자동으로 이 변수를 웹앱의 URL로 설정합니다(예: `msdocs-django.azurewebsites.net`).
 
-이러한 변경은 모든 프로덕션 환경에서 실행되도록 Django를 구성하는 것과 관련이 있으며 App Service에만 국한되지 않습니다. 자세한 내용은 [Django 배포 검사 목록](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/)을 참조하세요. 또한 일부 변경 내용에 대한 자세한 내용은 [Azure의 Django에 대한 프로덕션 설정](configure-language-python.md#production-settings-for-django-apps)을 참조하세요.
+프로덕션 설정은 모든 프로덕션 환경에서 실행되도록 Django를 구성하는 것과 관련이 있으며 App Service에만 국한되지 않습니다. 자세한 내용은 [Django 배포 검사 목록](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/)을 참조하세요. 또한 일부 변경 내용에 대한 자세한 내용은 [Azure의 Django에 대한 프로덕션 설정](configure-language-python.md#production-settings-for-django-apps)을 참조하세요.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
+문제가 있나요? [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
 
 ## <a name="create-postgres-database-in-azure"></a>Azure에서 Postgres 데이터베이스 만들기
 
@@ -159,7 +159,7 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --
 > [!TIP]
 > `-l <location-name>`은 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/) 중 하나로 설정할 수 있습니다. 구독에 사용할 수 있는 지역은 [`az account list-locations`](/cli/azure/account#az-account-list-locations) 명령을 사용하여 가져올 수 있습니다. 프로덕션 앱의 경우 데이터베이스와 앱을 동일한 위치에 배치합니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
+문제가 있나요? [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
 
 ## <a name="deploy-the-code-to-azure-app-service"></a>Azure App Service에 코드 배포
 
@@ -194,30 +194,27 @@ az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --pl
 
 ![az webapp up 명령 출력 예제](./media/tutorial-python-postgresql-app/az-webapp-up-output.png)
 
-[문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
-
-> [!NOTE]
-> 이 시점에서 앱의 URL을 방문하려고 하면 "DisallowedHost at /" 오류가 발생합니다. 이 오류는 이전에 설명한 프로덕션 설정을 사용하도록 앱을 아직 구성하지 않았기 때문에 발생하며, 관련 작업은 다음 섹션에서 수행합니다.
+문제가 있나요? 먼저 [문제 해결 가이드](configure-language-python.md#troubleshooting)를 참조하세요. 그렇지 않으면 [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
 
 ### <a name="configure-environment-variables-to-connect-the-database"></a>데이터베이스를 연결하도록 환경 변수 구성
 
 이제 코드가 App Service에 배포되면 다음 단계는 Azure에서 앱을 Postgres 데이터베이스에 연결하는 것입니다.
 
-앱 코드는 `DBHOST`, `DBNAME`, `DBUSER` 및 `DBPASS`라는 네 가지 환경 변수에서 데이터베이스 정보를 찾을 수 있어야 합니다. 또한 프로덕션 설정을 사용하려면 `DJANGO_ENV` 환경 변수도 `production`으로 설정해야 합니다.
+앱 코드는 `DBHOST`, `DBNAME`, `DBUSER` 및 `DBPASS`라는 네 가지 환경 변수에서 데이터베이스 정보를 찾을 수 있어야 합니다.
 
 App Service에서 환경 변수를 설정하려면 다음 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 명령을 사용하여 "앱 설정"을 만듭니다.
 
 ```azurecli
-az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
+az webapp config appsettings set --settings DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
 - *\<postgres-server-name>* 을 이전에 `az postgres up` 명령에서 사용한 이름으로 바꿉니다. *azuresite/production.py* 의 코드는 자동으로 `.postgres.database.azure.com`을 추가하여 전체 Postgres 서버 URL을 만듭니다.
 - *\<username>* 및 *\<password>* 를 이전 `az postgres up` 명령에서 사용한 관리자 자격 증명 또는 `az postgres up`에서 생성한 자격 증명으로 바꿉니다. *azuresite/production.py* 의 코드는 `DBUSER` 및 `DBHOST`에서 전체 Postgres 사용자 이름을 자동으로 구성하므로 `@server` 부분을 포함하지 마세요. (또한 앞에서 설명한 것처럼 Linux 환경 변수에 대해 특별한 의미를 가지므로 두 값 중 어느 값에도 `$` 문자를 사용하면 안됩니다.)
 - 리소스 그룹 및 앱 이름은 *.azure/config* 파일의 캐시된 값에서 가져옵니다.
 
-Python 코드에서 `os.environ.get('DJANGO_ENV')`과 같은 명령문을 사용하여 이러한 설정을 환경 변수로 액세스합니다. 자세한 내용은 [환경 변수 액세스](configure-language-python.md#access-environment-variables)를 참조하세요.
+Python 코드에서 `os.environ.get('DBHOST')`과 같은 명령문을 사용하여 이러한 설정을 환경 변수로 액세스합니다. 자세한 내용은 [환경 변수 액세스](configure-language-python.md#access-environment-variables)를 참조하세요.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
+문제가 있나요? 먼저 [문제 해결 가이드](configure-language-python.md#troubleshooting)를 참조하세요. 그렇지 않으면 [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
 
 ### <a name="run-django-database-migrations"></a>Django 데이터베이스 마이그레이션 실행
 
@@ -235,7 +232,7 @@ Django 데이터베이스 마이그레이션은 Azure 데이터베이스에서 P
 
     SSH 세션에 연결할 수 없으면 앱 자체를 시작하지 못한 것입니다. 자세한 내용은 [진단 로그를 확인](#stream-diagnostic-logs)하세요. 예를 들어 이전 섹션에서 필요한 앱 설정을 만들지 않은 경우 로그에 `KeyError: 'DBNAME'`이 표시됩니다.
 
-1. SSH 세션에서 다음 명령을 실행합니다( **Ctrl**+**Shift**+**V** 를 사용하여 명령을 붙여넣을 수 있음).
+1. SSH 세션에서 다음 명령을 실행합니다(**Ctrl**+**Shift**+**V** 를 사용하여 명령을 붙여넣을 수 있음).
 
     ```bash
     # Change to the folder where the app code is deployed
@@ -258,7 +255,7 @@ Django 데이터베이스 마이그레이션은 Azure 데이터베이스에서 P
 
 1. 데이터베이스가 잠겨 있다는 오류가 표시되면 이전 섹션의 `az webapp settings` 명령을 실행했는지 확인합니다. 이러한 설정이 없으면 마이그레이션 명령이 데이터베이스와 통신할 수 없으므로 오류가 발생합니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
+문제가 있나요? 먼저 [문제 해결 가이드](configure-language-python.md#troubleshooting)를 참조하세요. 그렇지 않으면 [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
     
 ### <a name="create-a-poll-question-in-the-app"></a>앱에서 설문 조사 질문 만들기
 
@@ -274,7 +271,7 @@ Django 데이터베이스 마이그레이션은 Azure 데이터베이스에서 P
 
 **축하합니다.** Linux용 Azure App Service에서 활성 Postgres 데이터베이스를 사용하는 Python Django 웹앱이 실행되고 있습니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
+문제가 있나요? [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
 
 > [!NOTE]
 > App Service는 각 하위 폴더에서 기본적으로 `manage.py startproject`를 통해 만드는 *wsgi.py* 파일을 찾아서 Django 프로젝트를 검색합니다. App Service에서 해당 파일을 찾으면 Django 웹앱이 로드됩니다. 자세한 내용은 [기본 제공 Python 이미지 구성](configure-language-python.md)을 참조하세요.
@@ -356,7 +353,7 @@ python manage.py runserver
 
 로컬로 실행하는 경우 앱에서 로컬 Sqlite3 데이터베이스를 사용하며 프로덕션 데이터베이스를 방해하지 않습니다. 필요한 경우 로컬 PostgreSQL 데이터베이스를 사용하여 프로덕션 환경을 더 효율적으로 시뮬레이션할 수도 있습니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
+문제가 있나요? [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
 
 ### <a name="update-the-app"></a>앱 업데이트
 
@@ -378,7 +375,7 @@ python manage.py migrate
 
 다시 한 번 **Ctrl**+**C** 를 사용하여 Django 웹 서버를 중지합니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
+문제가 있나요? 먼저 [문제 해결 가이드](configure-language-python.md#troubleshooting)를 참조하세요. 그렇지 않으면 [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
 
 ### <a name="redeploy-the-code-to-azure"></a>Azure에 코드 다시 배포
 
@@ -390,7 +387,7 @@ az webapp up
 
 이 명령은 *.azure/config* 파일에 캐시된 매개 변수를 사용합니다. App Service에서 앱이 이미 있음을 검색하므로 코드를 다시 배포하기만 하면 됩니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
+문제가 있나요? 먼저 [문제 해결 가이드](configure-language-python.md#troubleshooting)를 참조하세요. 그렇지 않으면 [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
 
 ### <a name="rerun-migrations-in-azure"></a>Azure에서 마이그레이션 다시 실행
 
@@ -407,13 +404,13 @@ source /antenv/bin/activate
 python manage.py migrate
 ```
 
-[문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
+문제가 있나요? 먼저 [문제 해결 가이드](configure-language-python.md#troubleshooting)를 참조하세요. 그렇지 않으면 [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
 
 ### <a name="review-app-in-production"></a>프로덕션에서 앱 검토
 
 `http://<app-name>.azurewebsites.net`으로 이동하여 프로덕션에서 앱을 다시 테스트합니다. (데이터베이스 필드의 길이만 변경했으므로 질문을 만들 때 더 긴 응답을 입력하려고 하는 경우에만 변경 내용이 인식됩니다.)
 
-[문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
+문제가 있나요? 먼저 [문제 해결 가이드](configure-language-python.md#troubleshooting)를 참조하세요. 그렇지 않으면 [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
 
 ## <a name="stream-diagnostic-logs"></a>진단 로그 스트림
 
@@ -429,7 +426,7 @@ az webapp log tail
 
 언제든지 로그 스트리밍을 중지하려면 **Ctrl**+**C** 를 입력합니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
+문제가 있나요? [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
 
 > [!NOTE]
 > `https://<app-name>.scm.azurewebsites.net/api/logs/docker`의 브라우저에서 로그 파일을 검사할 수도 있습니다.
@@ -450,7 +447,7 @@ az webapp log tail
 
 ![Azure Portal의 개요 페이지에서 Python Django 앱 관리](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
-[문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
+문제가 있나요? 먼저 [문제 해결 가이드](configure-language-python.md#troubleshooting)를 참조하세요. 그렇지 않으면 [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -464,7 +461,7 @@ az group delete --no-wait
 
 모든 리소스를 삭제하는 데 시간이 걸릴 수 있습니다. `--no-wait` 인수를 사용하면 명령이 즉시 반환됩니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
+문제가 있나요? [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
 
 ## <a name="next-steps"></a>다음 단계
 

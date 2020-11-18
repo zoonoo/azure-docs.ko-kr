@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 4b0d2c6c3d70e73be25038c763f05ef572b56ebe
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 8e73ea3650e631bed277ab95092b714eef7596d4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515682"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359160"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Azure Active Directory의 Atlassian Jira 및 Confluence 관리자 가이드
 
@@ -24,7 +24,7 @@ ms.locfileid: "92515682"
 
 Azure AD(Azure Active Directory) SSO(Single Sign-On) 플러그 인을 통해 Microsoft Azure AD 고객은 Atlassian Jira 및 Confluence 서버 기반 제품에 로그인하는 데 해당 회사 또는 학교 계정을 사용할 수 있습니다. SAML 2.0 기반 SSO를 구현합니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 사용자가 Atlassian Jira 또는 Confluence 애플리케이션에 로그인하려는 경우 로그인 페이지에 **Azure AD로 로그인** 단추가 보입니다. 해당 단추를 선택하면 Azure AD 조직 로그인 페이지(즉, 회사 또는 학교 계정)를 사용하여 로그인해야 합니다.
 
@@ -89,15 +89,15 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 1. Jira 또는 Confluence 인스턴스에 관리자로 로그인합니다.
 
-2. Jira/Confluence 관리 콘솔로 이동하고 **추가 기능**을 선택합니다.
+2. Jira/Confluence 관리 콘솔로 이동하고 **추가 기능** 을 선택합니다.
 
-3. Microsoft 다운로드 센터에서 Jira 용 microsoft saml [sso 플러그 인](https://www.microsoft.com/download/details.aspx?id=56506) /  [Confluence 용 microsoft saml sso 플러그 인](https://www.microsoft.com/download/details.aspx?id=56503)을 다운로드 합니다.
+3. Microsoft 다운로드 센터에서 [Jira용 Microsoft SAML SSO 플러그 인](https://www.microsoft.com/download/details.aspx?id=56506)/ [Confluence용 Microsoft SAML SSO 플러그 인](https://www.microsoft.com/download/details.aspx?id=56503)을 다운로드합니다.
 
    적절한 버전의 플러그 인이 검색 결과에 나타납니다.
 
 4. 플러그 인을 선택하면 UPM(범용 플러그 인 관리자)에서 설치합니다.
 
-플러그 인이 설치되면 **추가 기능 관리**의 **사용자가 설치한 추가 기능** 섹션에 표시됩니다.
+플러그 인이 설치되면 **추가 기능 관리** 의 **사용자가 설치한 추가 기능** 섹션에 표시됩니다.
 
 ## <a name="plug-in-configuration"></a>플러그 인 구성
 
@@ -109,11 +109,11 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 * **메타데이터 URL**: Azure AD에서 페더레이션 메타데이터를 가져오기 위한 URL입니다.
 
-* **식별자**: Azure AD가 요청의 원본 유효성을 검사하는 데 사용하는 URL입니다. Azure AD의 **식별자** 요소에 매핑됩니다. 플러그 인은 자동으로이 URL을 https:///로 파생 시킵니다 *\<domain:port>* .
+* **식별자**: Azure AD가 요청의 원본 유효성을 검사하는 데 사용하는 URL입니다. Azure AD의 **식별자** 요소에 매핑됩니다. 플러그 인은 https:// *\<domain:port>* /로 이 URL을 자동으로 파생합니다.
 
-* **회신 URL**: SAML 로그인을 시작하는 IdP(ID 공급자)의 회신 URL입니다. Azure AD의 **회신 URL** 요소에 매핑됩니다. 플러그 인은 자동으로이 URL을 https:///plugins/servlet/saml/auth.로 파생 시킵니다. *\<domain:port>*
+* **회신 URL**: SAML 로그인을 시작하는 IdP(ID 공급자)의 회신 URL입니다. Azure AD의 **회신 URL** 요소에 매핑됩니다. 플러그 인은 https:// *\<domain:port>* /plugins/servlet/saml/auth로 이 URL을 자동으로 파생합니다.
 
-* **로그온 URL**: SAML 로그인을 시작하는 IdP의 로그온 URL입니다. Azure AD의 **로그온** 요소에 매핑됩니다. 플러그 인은 자동으로이 URL을 https:///plugins/servlet/saml/auth.로 파생 시킵니다. *\<domain:port>*
+* **로그온 URL**: SAML 로그인을 시작하는 IdP의 로그온 URL입니다. Azure AD의 **로그온** 요소에 매핑됩니다. 플러그 인은 https:// *\<domain:port>* /plugins/servlet/saml/auth로 이 URL을 자동으로 파생합니다.
 
 * **IdP 엔터티 ID**: IdP에서 사용하는 엔터티 ID입니다. 이 상자는 메타데이터 URL을 확인할 때 채워집니다.
 
@@ -125,7 +125,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 * **로그인 단추 이름**: 조직이 사용자에게 로그인 페이지에 표시하려는 로그인 단추의 이름입니다.
 
-* **SAML 사용자 ID 위치**: SAML 응답에서 Jira 또는 Confluence 사용자 ID가 필요한 위치입니다. **NameID**에 있을 수도 있고 사용자 지정 특성 이름에 있을 수도 있습니다.
+* **SAML 사용자 ID 위치**: SAML 응답에서 Jira 또는 Confluence 사용자 ID가 필요한 위치입니다. **NameID** 에 있을 수도 있고 사용자 지정 특성 이름에 있을 수도 있습니다.
 
 * **특성 이름**: 사용자 ID가 필요한 특성 이름입니다.
 

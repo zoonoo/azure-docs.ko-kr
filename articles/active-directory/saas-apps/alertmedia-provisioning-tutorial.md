@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 AlertMedia 구성 Microsoft Docs'
-description: 사용자 계정을 Azure AD에서 AlertMedia로 자동으로 프로 비전 및 프로 비전 해제 하는 방법을 알아봅니다.
+title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 AlertMedia 구성 | Microsoft Docs'
+description: 사용자 계정을 Azure AD에서 AlertMedia로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -12,79 +12,79 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 98cca99ab0e088bbae047fa64ec52429e531dfed
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: MT
+ms.openlocfilehash: 086f79239fd4f6b01f4b76d1385598bac52bb471
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096088"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358973"
 ---
-# <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 AlertMedia 구성
+# <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 AlertMedia 구성
 
-이 자습서에서는 자동 사용자 프로 비전을 구성 하기 위해 AlertMedia 및 Azure Active Directory (Azure AD)에서 수행 해야 하는 단계를 설명 합니다. 구성 된 경우 azure AD는 Azure AD 프로 비전 서비스를 사용 하 여 사용자 및 그룹을 [Alertmedia](https://www.alertmedia.com/) 에 자동으로 프로 비전 하 고 프로 비전 해제 합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요. 
+이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 AlertMedia 및 Azure AD(Azure Active Directory)에서 수행해야 하는 단계를 설명합니다. 구성된 경우 Azure AD는 Azure AD 프로비저닝 서비스를 사용하여 사용자 및 그룹을 [AlertMedia](https://www.alertmedia.com/)로 자동으로 프로비저닝 및 프로비저닝 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요. 
 
 
 ## <a name="capabilities-supported"></a>지원되는 기능
 > [!div class="checklist"]
 > * AlertMedia에서 사용자 만들기
-> * 더 이상 액세스할 필요가 없는 경우 AlertMedia에서 사용자 제거
-> * Azure AD와 AlertMedia 간에 사용자 특성을 동기화 상태로 유지
-> * AlertMedia에서 그룹 및 그룹 멤버 자격 프로 비전
-> * AlertMedia에 [대 한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/alertmedia-tutorial) (권장)
+> * AlertMedia에서 더 이상 액세스할 필요가 없는 사용자 제거
+> * Azure AD와 AlertMedia 간에 사용자 특성을 동기화된 상태로 유지
+> * AlertMedia에서 그룹 및 그룹 멤버 자격 프로비저닝
+> * AlertMedia에 대한 [Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/alertmedia-tutorial)(권장)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
 * [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 * 프로비저닝을 구성할 [권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
-* [Alertmedia 테 넌 트](https://dashboard.alertmedia.com/#/login).
-* API 통합을 구성 하기 위한 관리자 권한이 있는 AlertMedia의 사용자 계정
+* [AlertMedia 테넌트](https://dashboard.alertmedia.com/#/login)
+* API 통합을 구성하기 위한 관리자 권한이 있는 AlertMedia의 사용자 계정
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
 1. [프로비저닝 서비스의 작동 방식](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)에 대해 알아봅니다.
 2. [프로비저닝 범위](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)에 있는 사용자를 결정합니다.
-3. [AZURE AD와 AlertMedia 간에 매핑할](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)데이터를 결정 합니다. 
+3. [Azure AD와 AlertMedia 간에 매핑](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)할 데이터를 결정합니다. 
 
-## <a name="step-2-configure-alertmedia-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD를 사용 하 여 프로 비전을 지원 하도록 AlertMedia 구성
+## <a name="step-2-configure-alertmedia-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD에서 프로비저닝을 지원하도록 AlertMedia 구성
 
-1. AlertMedia 계정에 로그인 합니다. **회사 > API** 로 이동 합니다.
-2. **새로 추가** 를 클릭 합니다.
-3. 키가 사용 되는 위치를 쉽게 인식할 수 있도록 **API 통합** 이름을 지정 하려면 선택 합니다.
-4. 통합을 연결 하려는 관리자를 선택 합니다.
-5. **키 생성** 및 **저장** 단추를 클릭 합니다.
-6. 통합에서 **클라이언트 토큰** 을 복사 하 고 저장 합니다. 이는 Azure Portal의 AlertMedia 응용 프로그램의 프로 비전 탭에서 **비밀 토큰** 으로 사용 됩니다.
+1. AlertMedia 계정에 로그인합니다. **회사 > API** 로 이동합니다.
+2. **새로 추가** 를 클릭합니다.
+3. **API 통합** 에 키가 사용되는 위치를 쉽게 인식할 수 있는 이름을 지정하도록 선택합니다.
+4. 통합을 연결하려는 관리자를 선택합니다.
+5. **키 생성** 을 클릭하고 **저장** 단추를 클릭합니다.
+6. 통합에서 **클라이언트 토큰** 을 복사하고 저장합니다. 이는 Azure Portal에서 AlertMedia 애플리케이션에 대한 프로비저닝 탭의 **비밀 토큰** 으로 사용됩니다.
 
 
-## <a name="step-3-add-alertmedia-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 AlertMedia 추가
+## <a name="step-3-add-alertmedia-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 애플리케이션 갤러리에서 AlertMedia 추가
 
-Azure AD 응용 프로그램 갤러리에서 AlertMedia를 추가 하 여 AlertMedia 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 AlertMedia를 설정 했으면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
+Azure AD 애플리케이션 갤러리에서 AlertMedia를 추가하여 AlertMedia에 대한 프로비저닝 관리를 시작합니다. 이전에 SSO에 대해 AlertMedia를 설정한 경우 동일한 애플리케이션을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>4단계. 프로비저닝 범위에 있는 사용자 정의 
 
 Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 할당 또는 사용자/그룹의 특성을 기반으로 프로비저닝되는 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 선택하려면 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) 설명된 대로 범위 지정 필터를 사용할 수 있습니다. 
 
-* 사용자 및 그룹을 AlertMedia에 할당할 때 **기본 액세스** 이외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)하여 역할을 더 추가할 수 있습니다. 
+* 사용자 및 그룹을 AlertMedia에 할당하는 경우 **기본 액세스** 이외의 역할을 선택해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)하여 역할을 더 추가할 수 있습니다. 
 
 * 소규모로 시작합니다. 모든 사용자에게 배포하기 전에 소수의 사용자 및 그룹 집합으로 테스트합니다. 할당된 사용자 및 그룹으로 프로비저닝 범위가 설정된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당하여 범위를 제어할 수 있습니다. 모든 사용자 및 그룹으로 범위가 설정된 경우 [특성 기반 범위 지정 필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 지정할 수 있습니다. 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-alertmedia"></a>5단계. AlertMedia에 자동 사용자 프로 비전 구성 
+## <a name="step-5-configure-automatic-user-provisioning-to-alertmedia"></a>5단계. AlertMedia에 대한 자동 사용자 프로비저닝 구성 
 
 이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 TestApp에서 사용자 및/또는 그룹을 만들고, 업데이트하고, 사용 해제하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
 
-### <a name="to-configure-automatic-user-provisioning-for-alertmedia-in-azure-ad"></a>Azure AD에서 AlertMedia에 대 한 자동 사용자 프로 비전을 구성 하려면:
+### <a name="to-configure-automatic-user-provisioning-for-alertmedia-in-azure-ad"></a>Azure AD에서 AlertMedia에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
 2. 애플리케이션 목록에서 **AlertMedia** 를 선택합니다.
 
-    ![응용 프로그램 목록의 AlertMedia 링크](common/all-applications.png)
+    ![애플리케이션 목록의 AlertMedia 링크](common/all-applications.png)
 
 3. **프로비전** 탭을 선택합니다.
 
@@ -92,14 +92,14 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
-    ![자동 프로 비전 탭](common/provisioning-automatic.png)
+    ![프로비저닝 탭 자동](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에서 다음 중 하나로 Alertmedia **테 넌 트 URL** 을 입력 합니다.
-      * (사용자 지정 도메인 없음) https://docs.gitlab.com/ee/api/scim.html
+5. **관리자 자격 증명** 섹션 아래에서 다음 중 하나로 AlertMedia **테넌트 URL** 을 입력합니다.
+      * (사용자 지정 도메인 없음) https://dashboard.alertmedia.com/api/scim/v3
 
-      * (사용자 지정 도메인) https://developer.github.com/v3/scim/
+      * (사용자 지정 도메인) https://subdomain.alertmedia.com/api/scim/v3
 
-      2 단계에서 이전에 검색 한 **비밀 토큰** 을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 alertmedia에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 AlertMedia 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
+      2단계에서 이전에 검색된 **비밀 토큰** 을 입력합니다. **연결 테스트** 를 클릭하여 Azure AD가 AlertMedia에 연결할 수 있는지 확인합니다. 연결에 실패하면 AlertMedia 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
       ![토큰](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -109,43 +109,43 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 7. **저장** 을 선택합니다.
 
-8. **매핑** 섹션에서 **사용자 Azure Active Directory Alertmedia에 동기화를** 선택 합니다.
+8. **매핑** 섹션에서 **Azure Active Directory 사용자를 AlertMedia에 동기화** 를 선택합니다.
 
-9. **특성 매핑** 섹션에서 Azure AD에서 alertmedia로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 alertmedia의 사용자 계정을 일치 시키는 데 사용 됩니다. 일치 하는 [대상 특성](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 변경 하도록 선택 하는 경우 ALERTMEDIA API가 해당 특성에 따라 사용자 필터링을 지원 하는지 확인 해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+9. **특성-매핑** 섹션에서 Azure AD에서 AlertMedia로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 AlertMedia의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 변경하는 경우 AlertMedia API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
    |attribute|Type|
    |---|---|
    |userName|String|
    |활성|부울|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: first_name|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: last_name|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: email|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: email2|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: email3|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: title|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: mobile_phone|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: mobile_phone_post_dial|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: mobile_phone2|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: mobile_phone2_post_dial|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: mobile_phone3|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: mobile_phone3_post_dial|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: home_phone|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: home_phone_post_dial|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: office_phone|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: office_phone_post_dial|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: address|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: address2|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: city|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: state|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: country|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: zipcode|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: note|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: customer_user_id|String|
-   |urn: ietf: params: scim: 스키마: 확장: alertmedia: 2.0: CustomAttribute: User: user_type|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:first_name|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:last_name|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:email|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:email2|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:email3|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:title|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone_post_dial|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone2|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone2_post_dial|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone3|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone3_post_dial|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:home_phone|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:home_phone_post_dial|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:office_phone|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:office_phone_post_dial|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:address|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:address2|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:city|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:state|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:country|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:zipcode|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:notes|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:customer_user_id|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:user_type|String|
 
-10. **매핑** 섹션에서 **alertmedia에 Azure Active Directory 그룹 동기화를** 선택 합니다.
+10. **매핑** 섹션 아래에서 **Azure Active Directory 그룹을 AlertMedia에 동기화** 를 선택합니다.
 
-11. **특성 매핑** 섹션에서 Azure AD에서 alertmedia로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 alertmedia의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+11. **특성-매핑** 섹션에서 Azure AD에서 AlertMedia로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 AlertMedia의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
       |attribute|Type|
       |---|---|
@@ -154,11 +154,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-13. AlertMedia에 대해 Azure AD 프로 비전 서비스를 사용 하도록 설정 하려면 **설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
+13. AlertMedia에 대한 Azure AD 프로비저닝 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태** 를 **켜기** 로 변경합니다.
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-14. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 alertmediaalertmedia에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
+14. **설정** 섹션의 **범위** 에서 원하는 값을 선택하여 AlertMedia에 프로비저닝하려는 사용자 및/또는 그룹을 정의합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 

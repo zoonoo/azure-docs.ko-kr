@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: af8479f6460a6cc555d7ea67dcfe65c779878624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 057b211179c6932d4214e6118e3fa97b95145ba0
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357865"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926634"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 
@@ -46,12 +46,12 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 ## <a name="analyze-failures"></a>실패 분석
 Application Insights는 애플리케이션에서 모든 오류를 수집하고 여러 작업 간에 빈도를 볼 수 있도록 하여 가장 높은 영향으로 해당 내용에 집중할 수 있도록 돕습니다.  그런 다음 이러한 실패의 세부 정보를 드릴다운하여 근본 원인을 식별할 수 있습니다.   
 
-1. **Application Insights**를 선택한 다음, 구독을 선택합니다.  
-2. **실패** 패널을 열려면 **조사** 메뉴 아래의 **실패**를 선택하거나 **실패한 요청** 그래프를 클릭합니다.
+1. **Application Insights** 를 선택한 다음, 구독을 선택합니다.  
+2. **실패** 패널을 열려면 **조사** 메뉴 아래의 **실패** 를 선택하거나 **실패한 요청** 그래프를 클릭합니다.
 
     ![실패한 요청](media/tutorial-runtime-exceptions/failed-requests.png)
 
-3. **실패한 요청** 패널은 실패한 요청 수 및 애플리케이션의 각 작업에 대해 영향을 받는 사용자 수를 표시합니다.  사용자가 이 정보를 정렬하여 사용자에게 가장 큰 영향을 주는 이러한 오류를 식별할 수 있습니다.  이 예제에서는 **직원 가져오기/만들기** 및 **고객/세부 정보 가져오기**는 큰 실패 수 및 영향을 받는 사용자로 인해 조사할 후보일 가능성이 있습니다.  작업을 선택하면 이 작업에 대한 자세한 정보가 오른쪽 패널에 표시됩니다.
+3. **실패한 요청** 패널은 실패한 요청 수 및 애플리케이션의 각 작업에 대해 영향을 받는 사용자 수를 표시합니다.  사용자가 이 정보를 정렬하여 사용자에게 가장 큰 영향을 주는 이러한 오류를 식별할 수 있습니다.  이 예제에서는 **직원 가져오기/만들기** 및 **고객/세부 정보 가져오기** 는 큰 실패 수 및 영향을 받는 사용자로 인해 조사할 후보일 가능성이 있습니다.  작업을 선택하면 이 작업에 대한 자세한 정보가 오른쪽 패널에 표시됩니다.
 
     ![실패한 요청 패널](media/tutorial-runtime-exceptions/failed-requests-blade.png)
 
@@ -74,16 +74,16 @@ Application Insights는 애플리케이션에서 모든 오류를 수집하고 �
 ## <a name="identify-failing-code"></a>실패 코드 식별
 스냅샷 디버거는 애플리케이션에서 가장 빈번한 예외의 스냅샷을 수집하여 프로덕션에서 해당 근본 원인을 진단하는 데 도움을 줍니다.  포털에서 디버그 스냅샷을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 그 후 스냅샷을 다운로드하여 Visual Studio 2019 Enterprise에서 열고 소스 코드를 디버그할 수 있습니다.
 
-1. 예외 속성에서 **디버그 스냅샷 열기**를 클릭합니다.
+1. 예외 속성에서 **디버그 스냅샷 열기** 를 클릭합니다.
 2. **디버그 스냅샷** 패널이 요청에 대한 호출 스택과 함께 열립니다.  메서드를 클릭하여 요청 시 모든 지역 변수의 값을 봅니다.  이 예제에서는 맨 위 메서드에서부터 시작하여 값이 없는 지역 변수를 볼 수 있습니다.
 
     ![디버그 스냅샷](media/tutorial-runtime-exceptions/debug-snapshot-01.png)
 
-3. 유효한 값을 가진 첫 번째 호출은 **ValidZipCode**이며 우편 번호가 정수로 변환할 수 없는 문자와 함께 제공된 것을 볼 수 있습니다.  이는 코드에서 수정되어야 하는 오류로 보입니다.
+3. 유효한 값을 가진 첫 번째 호출은 **ValidZipCode** 이며 우편 번호가 정수로 변환할 수 없는 문자와 함께 제공된 것을 볼 수 있습니다.  이는 코드에서 수정되어야 하는 오류로 보입니다.
 
-    ![디버그 스냅샷](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
+    ![수정해야 하는 코드의 오류를 보여주는 스크린샷.    ](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-4. 그러면 수정해야 하는 실제 코드를 찾을 수 있는 Visual Studio로 이 스냅샷을 다운로드할 수 있습니다. 이렇게 하려면 **스냅샷 다운로드**를 클릭합니다.
+4. 그러면 수정해야 하는 실제 코드를 찾을 수 있는 Visual Studio로 이 스냅샷을 다운로드할 수 있습니다. 이렇게 하려면 **스냅샷 다운로드** 를 클릭합니다.
 5. 스냅샷이 Visual Studio로 로드됩니다.
 6. 이제 Visual Studio Enterprise에서 예외를 발생시킨 코드 줄을 신속하게 식별하는 디버그 세션을 실행할 수 있습니다.
 
@@ -97,13 +97,13 @@ Application Insights에 의해 수집된 모든 데이터는 여러 가지 방�
 
     ![코드](media/tutorial-runtime-exceptions/codelens.png)
 
-1. **영향 분석**을 클릭하여 Application Insights Analytics를 엽니다.  영향을 받는 사용자, 브라우저 및 지역과 같은 실패한 요청의 세부 정보를 제공하는 여러 쿼리로 채워집니다.<br><br>![스크린샷은 여러 쿼리가 포함된 Application Insights 창을 보여줍니다.](media/tutorial-runtime-exceptions/analytics.png)<br>
+1. **영향 분석** 을 클릭하여 Application Insights Analytics를 엽니다.  영향을 받는 사용자, 브라우저 및 지역과 같은 실패한 요청의 세부 정보를 제공하는 여러 쿼리로 채워집니다.<br><br>![스크린샷은 여러 쿼리가 포함된 Application Insights 창을 보여줍니다.](media/tutorial-runtime-exceptions/analytics.png)<br>
 
 ## <a name="add-work-item"></a>작업 항목 추가
 Application Insights를 Azure DevOps 또는 GitHub와 같은 추적 시스템에 연결하는 경우 Application Insights에서 직접 작업 항목을 만들 수 있습니다.
 
 1. Application Insights의 **예외 속성** 패널로 돌아옵니다.
-2. **새 작업 항목**을 클릭합니다.
+2. **새 작업 항목** 을 클릭합니다.
 3. **새 작업 항목** 패널이 이미 채워진 예외에 대한 세부 정보와 함께 열립니다.  저장하기 전에 추가 정보를 추가할 수 있습니다.
 
     ![새 작업 항목](media/tutorial-runtime-exceptions/new-work-item.png)

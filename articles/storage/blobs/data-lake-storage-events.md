@@ -9,12 +9,12 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8b4b86656e7b1b4dfd8b69cbc8386f5b6ff6a8c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 791b50f1458ba7ee127d45ee374b5589ade588e0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674938"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308206"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>자습서: 데이터 레이크 캡처 패턴을 구현하여 Databricks Delta 테이블 업데이트
 
@@ -37,7 +37,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 * 계층 구조 네임스페이스(Azure Data Lake Storage Gen2)가 있는 스토리지 계정을 만듭니다. 이 자습서에서는 `contosoorders`라는 스토리지 계정을 사용합니다. 사용자 계정에 [Storage Blob 데이터 기여자 역할](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)이 할당되었는지 확인합니다.
 
-  [Azure Data Lake Storage Gen2 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조하세요.
+   [Data Lake Storage Gen2에서 사용할 스토리지 계정 만들기](create-data-lake-storage-account.md)를 참조하세요.
 
 * 서비스 주체를 생성합니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)를 참조하세요.
 
@@ -112,7 +112,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
     다음 항목 이외의 다른 모든 기본값을 허용합니다.
 
     * 클러스터의 이름을 입력합니다.
-    * **Terminate after 120 minutes of inactivity** (비활성 120분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
+    * **Terminate after 120 minutes of inactivity**(비활성 120분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
 
 4. **클러스터 만들기** 를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 
@@ -351,7 +351,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
    ![새 이벤트 구독](./media/data-lake-storage-events/new-event-subscription-2.png "새 이벤트 구독")
 
-3. **이벤트 유형으로 필터링** 드롭다운 목록에서 **Blob Created** (Blob 만들어짐) 및 **Blob Deleted** (Blob 삭제됨) 이벤트를 선택한 다음, **만들기** 단추를 클릭합니다.
+3. **이벤트 유형으로 필터링** 드롭다운 목록에서 **Blob Created**(Blob 만들어짐) 및 **Blob Deleted**(Blob 삭제됨) 이벤트를 선택한 다음, **만들기** 단추를 클릭합니다.
 
 ## <a name="test-the-event-grid-subscription"></a>Event Grid 구독 테스트
 

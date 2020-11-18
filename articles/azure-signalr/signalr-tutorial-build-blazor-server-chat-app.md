@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
-ms.openlocfilehash: d1c13c5d4bea8bfdb0f70e67ce8f264a1929b8a2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 16fd15a5939cc6c268a80e88401f05042a206075
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150894"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516818"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>자습서: Blazor Server 채팅 앱 빌드
 
@@ -96,7 +96,7 @@ Visual Studio 2019 버전 16.2.0부터 Azure SignalR Service는 기본 제공 �
    dotnet add package Microsoft.AspNetCore.SignalR.Client --version 3.1.7
    ```
 
-1. SignalR 클라이언트를 구현하는 `ChartRoom.razor`를 `Pages` 폴더 아래에 만듭니다. 아래 단계를 수행하거나 [ChatRoom.razor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BlazorChat/Pages/ChatRoom.razor)를 복사하기만 하면 됩니다.
+1. SignalR 클라이언트를 구현하는 `ChatRoom.razor`를 `Pages` 폴더 아래에 만듭니다. 아래 단계를 수행하거나 [ChatRoom.razor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BlazorChat/Pages/ChatRoom.razor)를 복사하기만 하면 됩니다.
 
    1. 페이지 링크와 참조를 추가합니다.
       
@@ -285,7 +285,7 @@ Visual Studio 2019 버전 16.2.0부터 Azure SignalR Service는 기본 제공 �
    </li>
    ```
    
-1. 차트 영역 거품형 보기에 맞게 최적화하도록 `site.css`를 업데이트합니다. 아래 코드를 끝 부분에 추가합니다.
+1. 채팅 영역 거품형 보기에 맞게 최적화하도록 `site.css`를 업데이트합니다. 아래 코드를 끝 부분에 추가합니다.
 
    ```css
    /* improved for chat text box */
@@ -372,14 +372,14 @@ Visual Studio 2019 버전 16.2.0부터 Azure SignalR Service는 기본 제공 �
 1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, `Publish`로 이동합니다.
 
    * 대상: Azure
-   * 특정 대상: 모든 유형의 **Azure App Service**가 지원됩니다.
+   * 특정 대상: 모든 유형의 **Azure App Service** 가 지원됩니다.
    * App Service: 새로 만들거나 기존 앱 서비스를 선택합니다.
 
    [ ![blazor-chat-profile](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif#lightbox)
 
 1. Azure SignalR Service 종속성을 추가합니다.
 
-   게시 프로필이 만들어지면 **서비스 종속성** 아래에서 추천 메시지를 확인할 수 있습니다. **구성**을 클릭하여 패널에서 새로 만들거나 기존 Azure SignalR Service를 선택합니다.
+   게시 프로필이 만들어지면 **서비스 종속성** 아래에서 추천 메시지를 확인할 수 있습니다. **구성** 을 클릭하여 패널에서 새로 만들거나 기존 Azure SignalR Service를 선택합니다.
 
    [ ![blazor-chat-dependency](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png#lightbox)
 

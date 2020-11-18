@@ -1,18 +1,18 @@
 ---
-title: IoT 플러그 앤 플레이 샘플 C# 구성 요소 디바이스 코드를 IoT Hub에 연결 | Microsoft Docs
-description: 여러 구성 요소를 사용하고 IoT 허브에 연결하는 IoT 플러그 앤 플레이 샘플 C# 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
+title: 자습서 - IoT 플러그 앤 플레이 샘플 C# 구성 요소 디바이스 코드를 Azure IoT Hub에 연결 | Microsoft Docs
+description: 자습서 - 여러 구성 요소를 사용하고 IoT 허브에 연결하는 IoT 플러그 앤 플레이 샘플 C# 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 72b85388bf80a6ed2b9617b606940c243c5711f1
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: f7a1aa85c4456bdcf7ed50e42382fc440618ec7d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945535"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421450"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-application-running-on-windows-to-iot-hub-c"></a>자습서: Windows에서 실행되는 IoT 플러그 앤 플레이 다중 구성 요소 디바이스 애플리케이션을 IoT Hub에 연결(C#)
 
@@ -45,7 +45,7 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 
 1. Visual Studio 2019에서 *azure-iot-samples-csharp\iot-hub\Samples\device\PnpDeviceSamples\TemperatureController\TemperatureController.csproj* 프로젝트 파일을 엽니다.
 
-1. Visual Studio에서 **프로젝트 > TemperatureController 속성 > 디버그**로 이동합니다. 그런 다음, 프로젝트에 다음 환경 변수를 추가합니다.
+1. Visual Studio에서 **프로젝트 > TemperatureController 속성 > 디버그** 로 이동합니다. 그런 다음, 프로젝트에 다음 환경 변수를 추가합니다.
 
     | Name | 값 |
     | ---- | ----- |

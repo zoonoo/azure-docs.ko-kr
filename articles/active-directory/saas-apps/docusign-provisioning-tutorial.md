@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 3a0a69784be3b03b030ef599037b57c2c20ea2c6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 185b61f77b275ed78050f5d8efb820c5333f6e1f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454680"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358578"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 DocuSign 구성
 
@@ -57,15 +57,15 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 이 섹션에서는 DocuSign에 Active Directory 사용자 계정을 프로비전할 수 있도록 설정하는 방법을 간략하게 설명합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > Enterprise Apps > 모든 응용 프로그램** 섹션으로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 
-1. Single Sign-On에 대한 DocuSign을 이미 구성한 경우 검색 필드를 사용하여 DocuSign의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **DocuSign**을 검색합니다. 검색 결과에서 DocuSign을 선택하고 애플리케이션의 목록에 추가합니다.
+1. Single Sign-On에 대한 DocuSign을 이미 구성한 경우 검색 필드를 사용하여 DocuSign의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가** 를 선택하고 애플리케이션 갤러리에서 **DocuSign** 을 검색합니다. 검색 결과에서 DocuSign을 선택하고 애플리케이션의 목록에 추가합니다.
 
 1. DocuSign의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 
-1. **프로비전 모드**를 **자동**으로 설정합니다. 
+1. **프로비전 모드** 를 **자동** 으로 설정합니다. 
 
-    ![Azure Portal에서 DocuSign에 대 한 프로 비전 탭의 스크린샷 프로 비전 모드를 자동으로 설정 하 고, 관리자 사용자 이름으로 설정 하 고, 암호 및 연결 테스트를 강조 표시 합니다.](./media/docusign-provisioning-tutorial/provisioning.png)
+    ![Azure Portal에서 DocuSign에 대한 프로비저닝 탭의 스크린샷 프로비저닝 모드를 자동으로 설정하고, 관리자 사용자 이름, 암호 및 연결 테스트를 강조 표시합니다.](./media/docusign-provisioning-tutorial/provisioning.png)
 
 1. **관리자 자격 증명** 섹션에서 다음 구성 설정을 제공합니다.
    
@@ -74,34 +74,34 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
     b. **관리자 암호** 텍스트 상자에 이 계정의 암호를 입력합니다.
 
 > [!NOTE]
-> SSO 및 사용자 프로비저닝을 모두 설정 하는 경우 프로 비전에 사용 되는 권한 부여 자격 증명을 SSO 및 사용자 이름/암호 둘 다에서 작동 하도록 구성 해야 합니다.
+> SSO 및 사용자 프로비저닝이 모두 설정된 경우 프로비저닝에 사용되는 권한 부여 자격 증명을 SSO 및 사용자 이름/암호 둘 다에서 작동하도록 구성해야 합니다.
 
-1. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 DocuSign 앱에 연결되었는지 확인합니다.
+1. Azure Portal에서 **연결 테스트** 를 클릭하여 Azure AD가 DocuSign 앱에 연결되었는지 확인합니다.
 
 1. 프로비전 오류 알림을 받을 개인 또는 그룹의 메일 주소를 **알림 메일** 필드에 입력하고 확인란을 선택합니다.
 
-1. **저장**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
-1. [매핑] 섹션에서 **Azure Active Directory 사용자를 DocuSign에 동기화**를 선택합니다.
+1. [매핑] 섹션에서 **Azure Active Directory 사용자를 DocuSign에 동기화** 를 선택합니다.
 
 1. **특성 매핑** 섹션에서 Azure AD에서 DocuSign으로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 DocuSign의 사용자 계정을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
-1. DocuSign에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 [설정] 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
+1. DocuSign에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 [설정] 섹션에서 **프로비전 상태** 를 **켜기** 로 변경합니다.
 
-1. **저장**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
 사용자 및 그룹 섹션에서 DocuSign에 할당된 모든 사용자의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 클릭하여 DocuSign 앱의 프로비저닝 서비스에서 수행한 모든 작업을 설명하는 프로비저닝 활동 로그를 확인할 수 있습니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
-* Docusign에서 사용자에 대 한 역할 또는 권한 프로필을 프로 비전 하려면 [스위치](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#switch) 및 [Singleapproleassignment](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#singleapproleassignment) 을 사용 하 여 특성 매핑에 식을 사용 하면 됩니다. 예를 들어, 아래 식은 사용자에 게 Azure AD에서 "DS Admin" 역할이 할당 된 경우 ID "8032066"을 프로 비전 합니다. 사용자가 Azure AD 쪽에서 역할을 할당 하지 않은 경우에는 사용 권한 프로필을 프로 비전 하지 않습니다. ID는 DocuSign [포털](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles)에서 검색할 수 있습니다.
+* [스위치](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#switch) 및 [singleAppRoleAssignment](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#singleapproleassignment) 함수를 사용하는 특성 매핑에 식을 사용하여 Docusign에서 사용자에 대한 역할 또는 권한 프로필 프로비저닝을 수행할 수 있습니다. 예를 들어 아래 식은 사용자에게 Azure AD에서 "DS Admin" 역할이 할당된 경우 ID "8032066"을 프로비저닝합니다. 사용자에게 Azure AD 쪽에서 역할이 할당되지 않은 경우에는 권한 프로필을 프로비저닝하지 않습니다. ID는 DocuSign [포털](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles)에서 검색할 수 있습니다.
 
-Switch (SingleAppRoleAssignment ([appRoleAssignments]), "", "8032066", "DS Admin")
+Switch(SingleAppRoleAssignment([appRoleAssignments])," ", "8032066", "DS Admin")
 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [Single Sign-on 구성](docusign-tutorial.md)
+* [Single Sign-On 구성](docusign-tutorial.md)

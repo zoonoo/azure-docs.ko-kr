@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: f942525f1360a134f58f18e0ec76a84b0ceee50b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b8c7792a09dd86e7d4ac043c572f69fc47ee6e63
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738181"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307179"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>자습서: Synapse Studio에서 Apache Spark 작업 정의 만들기
 
-이 자습서에서는 Azure Synapse Studio를 사용하여 Apache Spark 작업 정의를 만든 다음, Apache Spark 풀에 제출하는 방법을 보여 줍니다.
+이 자습서에서는 Azure Synapse Studio를 사용하여 Apache Spark 작업 정의를 만든 다음, 서버리스 Apache Spark 풀에 제출하는 방법을 보여 줍니다.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ ms.locfileid: "92738181"
 이 자습서를 시작하기 전에 다음 요구 사항이 충족되는지 확인합니다.
 
 * Azure Synapse Analytics 작업 영역. 지침은 [Azure Synapse Analytics 작업 영역 만들기](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace)를 참조하세요.
-* Apache Spark 풀.
+* 서버리스 Apache Spark 풀.
 * ADLS Gen2 스토리지 계정 작업하려는 ADLS Gen2 파일 시스템의 **Storage Blob 데이터 소유자** 여야 합니다. 그렇지 않으면, 권한을 수동으로 추가해야 합니다.
 * 작업 영역 기본 스토리지를 사용하지 않으려면 Synapse Studio에서 필요한 ADLS Gen2 스토리지 계정을 연결합니다. 
 
@@ -187,7 +187,7 @@ Apache Spark 작업 정의를 만든 후에 Apache Spark 풀에 제출할 수 �
 
 ### <a name="scenario-3-check-output-file"></a>시나리오 3: 출력 파일 확인
 
- 1. **데이터** -> **연결됨** -> **Azure Data Lake Storage Gen2** (hozhaobdbj)를 선택하고 이전에 만든 **결과** 폴더를 열어 결과 폴더로 이동하여 출력이 생성되었는지 확인할 수 있습니다.
+ 1. **데이터** -> **연결됨** -> **Azure Data Lake Storage Gen2**(hozhaobdbj)를 선택하고 이전에 만든 **결과** 폴더를 열어 결과 폴더로 이동하여 출력이 생성되었는지 확인할 수 있습니다.
 
      ![출력 파일 보기](./media/apache-spark-job-definitions/view-output-file.png)
 

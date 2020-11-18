@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ace58bd3bb89f9e8545bf125f272e62c3a134061
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: f327749d1bdfb8cf2cba00cf4c5f68b4b2b77999
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949833"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379556"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>자습서: 사용자 지정 작업 및 리소스가 있는 관리형 애플리케이션 만들기
 
@@ -41,7 +41,7 @@ ms.locfileid: "91949833"
 
 이 자습서에서는 관리형 애플리케이션을 만들고, 사용자 지정 공급자 인스턴스, 스토리지 계정 및 함수가 해당 관리형 리소스 그룹에 포함됩니다. 이 예제에서 사용되는 Azure Function은 작업 및 리소스에 대한 사용자 지정 공급자 작업을 처리하는 API를 구현합니다. Azure Storage 계정은 사용자 지정 공급자 리소스에 대한 기본 스토리지로 사용됩니다.
 
-관리형 애플리케이션 인스턴스를 만들기 위한 사용자 인터페이스 정의에는 `funcname` 및 `storagename` 입력 요소가 포함됩니다. 스토리지 계정 이름 및 함수 이름은 전역적으로 고유해야 합니다. 기본적으로 함수 파일은 [함수 패키지 샘플](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip)에서 배포되지만 *createUIDefinition.json*의 패키지 링크에 대한 입력 요소를 추가하여 변경할 수 있습니다.
+관리형 애플리케이션 인스턴스를 만들기 위한 사용자 인터페이스 정의에는 `funcname` 및 `storagename` 입력 요소가 포함됩니다. 스토리지 계정 이름 및 함수 이름은 전역적으로 고유해야 합니다. 기본적으로 함수 파일은 [함수 패키지 샘플](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip)에서 배포되지만 *createUiDefinition.json* 의 패키지 링크에 대한 입력 요소를 추가하여 변경할 수 있습니다.
 
 ```json
 {
@@ -74,7 +74,7 @@ ms.locfileid: "91949833"
 }
 ```
 
-그리고 *createUIDefinition.json*의 출력은 다음과 같습니다.
+그리고 *createUiDefinition.json* 의 출력은 다음과 같습니다.
 
 ```json
   "funcname": "[steps('applicationSettings').funcname]",
@@ -82,13 +82,13 @@ ms.locfileid: "91949833"
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
-전체 *createUIDefinition.json* 샘플은 [참고 자료: 사용자 인터페이스 요소 아티팩트](reference-createuidefinition-artifact.md)에서 찾을 수 있습니다.
+전체 *createUiDefinition.json* 샘플은 [참고 자료: 사용자 인터페이스 요소 아티팩트](reference-createuidefinition-artifact.md)에서 찾을 수 있습니다.
 
 ## <a name="template-with-custom-provider"></a>사용자 지정 공급자가 포함된 템플릿
 
-사용자 지정 공급자가 있는 관리형 애플리케이션 인스턴스를 만들려면 **mainTemplate.json**에서 **public**이라는 이름의 사용자 지정 공급자 리소스를 정의하고 **Microsoft.CustomProviders/resourceProviders**를 입력해야 합니다. 해당 리소스에서 서비스에 대한 리소스 종류 및 작업을 정의합니다. Azure Function 및 Azure Storage 계정 인스턴스를 배포하려면 각각 `Microsoft.Web/sites` 및 `Microsoft.Storage/storageAccounts` 종류의 리소스를 정의합니다.
+사용자 지정 공급자가 있는 관리형 애플리케이션 인스턴스를 만들려면 **mainTemplate.json** 에서 **public** 이라는 이름의 사용자 지정 공급자 리소스를 정의하고 **Microsoft.CustomProviders/resourceProviders** 를 입력해야 합니다. 해당 리소스에서 서비스에 대한 리소스 종류 및 작업을 정의합니다. Azure Function 및 Azure Storage 계정 인스턴스를 배포하려면 각각 `Microsoft.Web/sites` 및 `Microsoft.Storage/storageAccounts` 종류의 리소스를 정의합니다.
 
-이 자습서에서는 하나의 `users` 리소스 종류, `ping` 사용자 지정 작업 및 `users` 사용자 지정 리소스의 컨텍스트에서 수행될 `users/contextAction` 사용자 지정 작업을 만듭니다. 각 리소스 종류 및 작업에 대해 [createUIDefinition.json](#user-interface-definition)에 제공된 이름으로 함수를 가리키는 엔드포인트를 제공합니다. 리소스 종류에 대해 **routingType**을 `Proxy,Cache`로 지정하고, 작업에 대해 `Proxy`로 지정합니다.
+이 자습서에서는 하나의 `users` 리소스 종류, `ping` 사용자 지정 작업 및 `users` 사용자 지정 리소스의 컨텍스트에서 수행될 `users/contextAction` 사용자 지정 작업을 만듭니다. 각 리소스 종류 및 작업에 대해 [createUiDefinition.json](#user-interface-definition)에 제공된 이름으로 함수를 가리키는 엔드포인트를 제공합니다. 리소스 종류에 대해 **routingType** 을 `Proxy,Cache`로 지정하고, 작업에 대해 `Proxy`로 지정합니다.
 
 ```json
 {
@@ -247,28 +247,28 @@ az managedapp definition create \
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **관리형 애플리케이션 센터**를 입력하고 선택합니다.
-2. **관리형 애플리케이션 센터**에서 **서비스 카탈로그 애플리케이션 정의**를 선택하고, **추가**를 클릭합니다. 
+1. Azure Portal에서 **모든 서비스** 를 선택합니다. 리소스 목록에서 **관리형 애플리케이션 센터** 를 입력하고 선택합니다.
+2. **관리형 애플리케이션 센터** 에서 **서비스 카탈로그 애플리케이션 정의** 를 선택하고, **추가** 를 클릭합니다. 
     
     ![서비스 카탈로그 추가](./media/tutorial-create-managed-app-with-custom-provider/service-catalog-managed-application.png)
 
 3. 서비스 카탈로그 정의를 만드는 데 필요한 값을 제공합니다.
 
     * 서비스 카탈로그 정의에 대한 고유 **이름**, **표시 이름** 및 *설명*(선택 사항)을 제공합니다.
-    * 애플리케이션 정의가 만들어지는 **구독**, **리소스 그룹** 및 **위치**를 선택합니다. zip 패키지에 사용되는 것과 동일한 리소스 그룹을 사용하거나 새 리소스 그룹을 만들 수 있습니다.
-    * **패키지 파일 URI**에 대해 이전 단계에서 만든 zip 파일의 경로를 제공합니다.
+    * 애플리케이션 정의가 만들어지는 **구독**, **리소스 그룹** 및 **위치** 를 선택합니다. zip 패키지에 사용되는 것과 동일한 리소스 그룹을 사용하거나 새 리소스 그룹을 만들 수 있습니다.
+    * **패키지 파일 URI** 에 대해 이전 단계에서 만든 zip 파일의 경로를 제공합니다.
 
     ![값 제공](./media/tutorial-create-managed-app-with-custom-provider/add-service-catalog-managed-application.png)
 
-4. [인증 및 잠금 수준] 섹션에 도달하면 **권한 부여 추가**를 선택합니다.
+4. [인증 및 잠금 수준] 섹션에 도달하면 **권한 부여 추가** 를 선택합니다.
 
     ![권한 부여 추가](./media/tutorial-create-managed-app-with-custom-provider/add-authorization.png)
 
-5. 리소스를 관리할 Azure Active Directory 그룹을 선택하고 **확인**을 선택합니다.
+5. 리소스를 관리할 Azure Active Directory 그룹을 선택하고 **확인** 을 선택합니다.
 
    ![권한 부여 그룹 추가](./media/tutorial-create-managed-app-with-custom-provider/add-auth-group.png)
 
-6. 모든 값을 입력했으면 **만들기**를 선택합니다.
+6. 모든 값을 입력했으면 **만들기** 를 선택합니다.
 
    ![관리되는 애플리케이션 정의 만들기](./media/tutorial-create-managed-app-with-custom-provider/create-service-catalog-definition.png)
 
@@ -303,23 +303,23 @@ az managedapp create \
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **관리형 애플리케이션 센터**를 입력하고 선택합니다.
-2. **관리형 애플리케이션 센터**에서 **서비스 카탈로그 애플리케이션**을 선택하고, **추가**를 클릭합니다. 
+1. Azure Portal에서 **모든 서비스** 를 선택합니다. 리소스 목록에서 **관리형 애플리케이션 센터** 를 입력하고 선택합니다.
+2. **관리형 애플리케이션 센터** 에서 **서비스 카탈로그 애플리케이션** 을 선택하고, **추가** 를 클릭합니다. 
 
     ![관리형 애플리케이션 추가](./media/tutorial-create-managed-app-with-custom-provider/add-managed-application.png)
 
-3. **서비스 카탈로그 애플리케이션** 페이지의 검색 상자에서 서비스 카탈로그 정의 표시 이름을 입력합니다. 이전 단계에서 만든 정의를 선택하고, **만들기**를 클릭합니다.
+3. **서비스 카탈로그 애플리케이션** 페이지의 검색 상자에서 서비스 카탈로그 정의 표시 이름을 입력합니다. 이전 단계에서 만든 정의를 선택하고, **만들기** 를 클릭합니다.
 
     ![서비스 카탈로그 선택](./media/tutorial-create-managed-app-with-custom-provider/select-service-catalog-definition.png)
 
 4. 서비스 카탈로그 정의에서 관리형 애플리케이션 인스턴스를 만드는 데 필요한 값을 제공합니다.
 
-    * 애플리케이션 인스턴스가 만들어지는 **구독**, **리소스 그룹** 및 **위치**를 선택합니다.
+    * 애플리케이션 인스턴스가 만들어지는 **구독**, **리소스 그룹** 및 **위치** 를 선택합니다.
     * 고유한 Azure Function 이름과 Azure Storage 계정 이름을 제공합니다.
 
     ![애플리케이션 설정](./media/tutorial-create-managed-app-with-custom-provider/application-settings.png)
 
-5. 유효성 검사가 통과되면 **확인**을 클릭하여 관리형 애플리케이션의 인스턴스를 배포합니다. 
+5. 유효성 검사가 통과되면 **확인** 을 클릭하여 관리형 애플리케이션의 인스턴스를 배포합니다. 
     
     ![관리형 애플리케이션 배포](./media/tutorial-create-managed-app-with-custom-provider/deploy-managed-application.png)
 
@@ -327,11 +327,11 @@ az managedapp create \
 
 ## <a name="custom-actions-and-resources"></a>사용자 지정 작업 및 리소스
 
-서비스 카탈로그 애플리케이션 인스턴스가 배포되면 두 개의 새 리소스 그룹이 있습니다. 첫 번째 리소스 그룹인 `applicationGroup`에는 관리형 애플리케이션의 인스턴스가 포함되어 있고, 두 번째 리소스 그룹인 `managedResourceGroup`에는 **사용자 지정 공급자**를 포함하여 관리형 애플리케이션용 리소스가 포함되어 있습니다.
+서비스 카탈로그 애플리케이션 인스턴스가 배포되면 두 개의 새 리소스 그룹이 있습니다. 첫 번째 리소스 그룹인 `applicationGroup`에는 관리형 애플리케이션의 인스턴스가 포함되어 있고, 두 번째 리소스 그룹인 `managedResourceGroup`에는 **사용자 지정 공급자** 를 포함하여 관리형 애플리케이션용 리소스가 포함되어 있습니다.
 
 ![애플리케이션 리소스 그룹](./media/tutorial-create-managed-app-with-custom-provider/application-resource-groups.png)
 
-관리형 애플리케이션 인스턴스로 이동하여 "Overview"(개요) 페이지에서 **사용자 지정 작업**을 수행하고, "Users"(사용자) 페이지에서 **users** 사용자 지정 리소스를 만들고, 사용자 지정 리소스에서 **사용자 지정 컨텍스트 작업**을 실행할 수 있습니다.
+관리형 애플리케이션 인스턴스로 이동하여 "Overview"(개요) 페이지에서 **사용자 지정 작업** 을 수행하고, "Users"(사용자) 페이지에서 **users** 사용자 지정 리소스를 만들고, 사용자 지정 리소스에서 **사용자 지정 컨텍스트 작업** 을 실행할 수 있습니다.
 
 * "Overview" 페이지로 이동하여 "Ping Action"(Ping 작업) 단추를 클릭합니다.
 
@@ -339,11 +339,11 @@ az managedapp create \
 
 * "Users" 페이지로 이동하여 "Add"(추가) 단추를 클릭합니다. 리소스를 만드는 데 필요한 입력을 제공하고 양식을 제출합니다.
 
-![사용자 지정 리소스 만들기](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
+![스크린샷은 사용자에서 선택한 추가 단추를 보여줍니다.](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
 
 * "Users" 페이지로 이동하여 "users" 리소스를 선택하고 "Custom Context Action"(사용자 지정 컨텍스트 작업)을 클릭합니다.
 
-![사용자 지정 리소스 만들기](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
+![스크린샷은 선택된 사용자 지정 컨텍스트 작업을 보여줍니다.](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
 
 [!INCLUDE [clean-up-section-portal](../../../includes/clean-up-section-portal.md)]
 

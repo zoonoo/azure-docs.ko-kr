@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 02/07/2019
-ms.openlocfilehash: f8b5e344fc963d466571e75ff16f17367dc32971
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37086a925d65a80f219c8e0a3358c834a2691701
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87844850"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145653"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Postman을 사용하여 Azure API for FHIR 액세스
 
@@ -121,7 +121,7 @@ Azure API for FHIR에 대한 메타데이터 URL은 `https://MYACCOUNT.azureheal
 
 “보내기”를 누르면 환자가 성공적으로 생성된 것을 알 수 있습니다.
 
-![환자 생성됨](media/tutorial-postman/postman-patient-created.png)
+![환자가 성공적으로 생성되었음을 보여주는 스크린샷.](media/tutorial-postman/postman-patient-created.png)
 
 환자 검색을 반복하면 이제 환자 레코드가 표시됩니다.
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e7713239391b49663328a7a058f8f6fd5b444335
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b08e834233e1ce12392d940cb0ccc0bef7e96158
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341334"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337749"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 OPENROWSET를 사용하는 방법
 
@@ -261,12 +261,12 @@ Parquet 파일에는 모든 열에 대한 형식 설명이 포함되어 있습�
 | BINARY |UTF8 |varchar \*(UTF8 데이터 정렬) |
 | BINARY |STRING |varchar \*(UTF8 데이터 정렬) |
 | BINARY |ENUM|varchar \*(UTF8 데이터 정렬) |
-| BINARY |UUID |uniqueidentifier |
+| FIXED_LEN_BYTE_ARRAY |UUID |uniqueidentifier |
 | BINARY |DECIMAL |decimal |
-| BINARY |JSON |varchar(max) \*(UTF8 데이터 정렬) |
-| BINARY |BSON |varbinary(max) |
+| BINARY |JSON |varchar(8000) \*(UTF8 데이터 정렬) |
+| BINARY |BSON | 지원되지 않음 |
 | FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
-| BYTE_ARRAY |INTERVAL |varchar(max), 표준화된 형식으로 직렬화됨 |
+| BYTE_ARRAY |INTERVAL | 지원되지 않음 |
 | INT32 |INT(8, true) |smallint |
 | INT32 |INT(16, true) |smallint |
 | INT32 |INT(32, true) |int |
@@ -275,14 +275,14 @@ Parquet 파일에는 모든 열에 대한 형식 설명이 포함되어 있습�
 | INT32 |INT(32, false) |bigint |
 | INT32 |DATE |date |
 | INT32 |DECIMAL |decimal |
-| INT32 |TIME(MILLIS )|time |
+| INT32 |TIME(MILLIS)|time |
 | INT64 |INT(64, true) |bigint |
 | INT64 |INT(64, false) |decimal(20,0) |
 | INT64 |DECIMAL |decimal |
-| INT64 |TIME(MICROS / NANOS) |time |
-|INT64 |TIMESTAMP(MILLIS / MICROS / NANOS) |datetime2 |
-|[복합 형식](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |명단 등록 |varchar(max), JSON으로 직렬화됨 |
-|[복합 형식](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max), JSON으로 직렬화됨 |
+| INT64 |TIME(MICROS) |시간 - TIME(NANOS)은 지원되지 않습니다. |
+|INT64 |TIMESTAMP(MILLIS / MICROS) |datetime2 - TIMESTAMP(NANOS)는 지원되지 않습니다. |
+|[복합 형식](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |명단 등록 |varchar(8000), JSON으로 직렬화됨 |
+|[복합 형식](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(8000), JSON으로 직렬화됨 |
 
 ## <a name="examples"></a>예
 

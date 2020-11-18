@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 전역 릴레이 Id 동기화 구성 Microsoft Docs'
-description: Azure AD에서 전역 릴레이 Id 동기화로 사용자 계정을 자동으로 프로 비전 및 프로 비전 해제 하는 방법을 알아봅니다.
+title: '자습서: Azure Active Directory를 사용하여 자동 사용자 프로비저닝을 위한 Global Relay Identity Sync 구성 | Microsoft Docs'
+description: 사용자 계정을 Azure AD에서 Global Relay Identity Sync로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -12,31 +12,31 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9445004170fb06a3d563982da51f89535464e328
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
-ms.translationtype: MT
+ms.openlocfilehash: bdbda77c45e3b1f1533326483ee19aa8ff4af515
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927994"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358340"
 ---
-# <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 전역 릴레이 Id 동기화 구성
+# <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Global Relay Identity Sync 구성
 
-이 자습서에서는 자동 사용자 프로 비전을 구성 하기 위해 전역 릴레이 Id 동기화 및 Azure Active Directory (Azure AD)에서 수행 해야 하는 단계를 설명 합니다. 구성 된 경우 azure AD는 Azure AD 프로 비전 서비스를 사용 하 여 사용자 및 그룹을 전역 릴레이 Id 동기화로 자동으로 프로 비전 및 프로 비전 해제 합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요. 
+이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 Global Relay Identity Sync 및 Azure AD(Azure Active Directory)에서 수행해야 하는 단계를 설명합니다. 구성된 경우 Azure AD는 Azure AD 프로비저닝 서비스를 사용하여 사용자 및 그룹을 Global Relay Identity Sync로 자동으로 프로비저닝 및 프로비저닝 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요. 
 
 
 ## <a name="capabilities-supported"></a>지원되는 기능
 > [!div class="checklist"]
-> * 전역 릴레이 Id 동기화에서 사용자 만들기
-> * 더 이상 액세스할 필요가 없는 경우 전역 릴레이 Id 동기화에서 사용자 제거
-> * Azure AD와 전역 릴레이 Id 동기화 간에 사용자 특성을 동기화 상태로 유지
-> * 전역 릴레이 Id 동기화에서 그룹 및 그룹 멤버 자격 프로 비전
+> * Global Relay Identity Sync에서 사용자 만들기
+> * Global Relay Identity Sync에서 더 이상 액세스할 필요가 없는 사용자 제거
+> * Azure AD와 Global Relay Identity Sync 간에 사용자 특성을 동기화된 상태로 유지
+> * Global Relay Identity Sync에서 그룹 및 그룹 멤버 프로비저닝
 
 
 > [!NOTE]
-> 전역 릴레이 Id 동기화 프로 비전 커넥터는 보안 문제로 인해 더 이상 지원 되지 않는 SCIM 권한 부여 방법을 활용 합니다. 작업은 글로벌 Relay를 진행 하 여 더 안전한 권한 부여 방법으로 전환 됩니다.
+> Global Relay Identity Sync 프로비저닝 커넥터는 보안 문제로 인해 더 이상 지원되지 않는 SCIM 인증 방법을 활용합니다. 보다 안전한 인증 방법으로 전환하기 위한 노력이 Global Relay와 함께 진행 중입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -48,15 +48,15 @@ ms.locfileid: "92927994"
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
 1. [프로비저닝 서비스의 작동 방식](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)에 대해 알아봅니다.
 2. [프로비저닝 범위](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)에 있는 사용자를 결정합니다.
-3. [AZURE AD와 전역 릴레이 Id 동기화 간에 매핑할](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)데이터를 결정 합니다. 
+3. [Azure AD와 Global Relay Identity Sync 간에 매핑](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)할 데이터를 결정합니다. 
 
-## <a name="step-2-configure-global-relay-identity-sync-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD를 사용 하 여 프로 비전을 지원 하도록 전역 릴레이 Id 동기화 구성
+## <a name="step-2-configure-global-relay-identity-sync-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD에서 프로비저닝을 지원하도록 Global Relay Identity Sync 구성
 
-테 넌 트 url을 받으려면 전역 릴레이 Id 동기화 담당자에 게 문의 하세요. 이 값은 Azure Portal의 전역 릴레이 Id 동기화 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL** 필드에 입력 됩니다.
+테넌트 URL을 받으려면 Global Relay Identity Sync 담당자에게 문의하세요. 이 값은 Azure Portal에 있는 Global Relay Identity Sync 애플리케이션에 대한 [프로비저닝] 탭의 **테넌트 URL** 필드에 입력됩니다.
 
-## <a name="step-3-add-global-relay-identity-sync-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 전역 릴레이 Id 동기화 추가
+## <a name="step-3-add-global-relay-identity-sync-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 애플리케이션 갤러리에서 Global Relay Identity Sync 추가
 
-Azure AD 응용 프로그램 갤러리에서 전역 릴레이 Id 동기화를 추가 하 여 전역 릴레이 Id 동기화에 대 한 프로 비전 관리를 시작 합니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)에서 갤러리에서 응용 프로그램을 추가 하는 방법에 대해 자세히 알아보세요. 
+Azure AD 애플리케이션 갤러리에서 Global Relay Identity Sync를 추가하여 Global Relay Identity Sync에 대한 프로비저닝 관리를 시작합니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>4단계. 프로비저닝 범위에 있는 사용자 정의 
 
@@ -65,29 +65,29 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 * 소규모로 시작합니다. 모든 사용자에게 배포하기 전에 소수의 사용자 및 그룹 집합으로 테스트합니다. 할당된 사용자 및 그룹으로 프로비저닝 범위가 설정된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당하여 범위를 제어할 수 있습니다. 모든 사용자 및 그룹으로 범위가 설정된 경우 [특성 기반 범위 지정 필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 지정할 수 있습니다. 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-global-relay-identity-sync"></a>5단계. 전역 릴레이 Id 동기화에 대 한 자동 사용자 프로 비전 구성 
+## <a name="step-5-configure-automatic-user-provisioning-to-global-relay-identity-sync"></a>5단계. Global Relay Identity Sync에 대한 자동 사용자 프로비저닝 구성 
 
-이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당에 따라 전역 릴레이 Id 동기화 앱에서 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 비활성화 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
+이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 Global Relay Identity Sync 앱에서 사용자 및/또는 그룹을 만들고, 업데이트하고, 사용하지 않도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
 
-### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Azure AD에서 전역 릴레이 Id 동기화에 대 한 자동 사용자 프로 비전을 구성 하려면:
+### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Azure AD에서 Cofense Recipient Sync를 위한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 응용 프로그램 목록에서 **전역 릴레이 Id 동기화** 를 선택 합니다.
+2. 애플리케이션 목록에서 **Global Relay Identity Sync** 를 선택합니다.
 
-    ![응용 프로그램 목록의 전역 릴레이 Id 동기화 링크](common/all-applications.png)
+    ![애플리케이션 목록의 Global Relay Identity Sync 링크](common/all-applications.png)
 
-3. **프로비전** 탭을 선택합니다.
+3. **프로비저닝** 탭을 선택합니다.
 
     ![프로비저닝 탭](common/provisioning.png)
 
-4. **프로비전 모드** 를 **자동** 으로 설정합니다.
+4. **프로비저닝 모드** 를 **자동** 으로 설정합니다.
 
-    ![자동 프로 비전 탭](common/provisioning-automatic.png)
+    ![프로비저닝 탭 자동](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션에서 전역 릴레이 Id 동기화 **테 넌 트 url** 을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 전역 릴레이 id 동기화에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 전역 릴레이 Id 동기화 계정에 관리자 권한이 있는지 확인 하 고 글로벌 릴레이 담당자에 게 문의 하 여 문제를 해결 하십시오.
+5. **관리자 자격 증명** 섹션 아래에서 Global Relay Identity Sync **테넌트 URL** 을 입력합니다. **연결 테스트** 를 클릭하여 Azure AD가 Global Relay Identity Sync에 연결할 수 있는지 확인합니다. 연결에 실패하면 Global Relay Identity Sync 계정에 관리자 권한이 있는지 확인하고 Global Relay 담당자에게 문의하여 문제를 해결하세요.
 
     ![권한 부여 단추](media/global-relay-identity-sync-provisioning-tutorial/authorization.png)
 
@@ -97,9 +97,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 7. **저장** 을 선택합니다.
 
-8. **매핑** 섹션에서 **Azure Active Directory 사용자를 전역 릴레이 Id 동기화와 동기화** 를 선택 합니다.
+8. **매핑** 섹션에서 **Azure Active Directory 사용자를 Global Relay Identity Sync에 동기화** 를 선택합니다.
 
-9. **특성 매핑** 섹션에서 Azure AD에서 전역 릴레이 id 동기화로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 전역 릴레이 id 동기화의 사용자 계정을 일치 시키는 데 사용 됩니다. 일치 하는 [대상 특성](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 변경 하도록 선택 하는 경우 전역 릴레이 ID 동기화 API가 해당 특성에 따라 사용자 필터링을 지원 하는지 확인 해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+9. **특성-매핑** 섹션에서 Azure AD에서 Global Relay Identity Sync로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택된 특성은 업데이트 작업을 위해 Global Relay Identity Sync의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 변경하는 경우 Global Relay Identity Sync API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
    |attribute|Type|
    |---|---|
@@ -118,35 +118,35 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |addresses[type eq "work"].region|String|
    |addresses[type eq "work"].postalCode|String|
    |addresses[type eq "work"].country|String|
-   |addresses [type eq "other"]. 서식 지정|String|
+   |addresses[type eq "other"].formatted|String|
    |phoneNumbers[type eq "work"].value|String|
    |phoneNumbers[type eq "mobile"].value|String|
    |phoneNumbers[type eq "fax"].value|String|
    |externalId|String|
    |name.honorificPrefix|String|
-   |이름. honorificSuffix|String|
+   |name.honorificSuffix|String|
    |nickName|String|
    |userType|String|
    |locale|String|
    |timezone|String|
-   |전자 메일 [type eq "home"]. value|String|
-   |전자 메일 [type eq "other"]. 값|String|
-   |phoneNumbers [type eq "home"]. value|String|
-   |phoneNumbers [type eq "other"]. value|String|
-   |phoneNumbers [type eq "pager"]. value|String|
-   |addresses [type eq "home"]. streetAddress|String|
-   |addresses [type eq "home"]. 집약성|String|
-   |addresses [type eq "home"]. region|String|
-   |addresses [type eq "home"]. postalCode|String|
-   |addresses [type eq "home"]. country|String|
-   |addresses [type eq "home"]. 서식 지정|String|
-   |addresses [type eq "other"]. streetAddress|String|
-   |addresses [type eq "other"]. 집약성|String|
-   |addresses [type eq "other"]. region|String|
-   |addresses [type eq "other"]. postalCode|String|
-   |addresses [type eq "other"]. country|String|
-   |역할 [primary eq "True"]. display|String|
-   |역할 [primary eq "True"]. 형식|String|
+   |emails[type eq "home"].value|String|
+   |emails[type eq "other"].value|String|
+   |phoneNumbers[type eq "home"].value|String|
+   |phoneNumbers[type eq "other"].value|String|
+   |phoneNumbers[type eq "pager"].value|String|
+   |addresses[type eq "home"].streetAddress|String|
+   |addresses[type eq "home"].locality|String|
+   |addresses[type eq "home"].region|String|
+   |addresses[type eq "home"].postalCode|String|
+   |addresses[type eq "home"].country|String|
+   |addresses[type eq "home"].formatted|String|
+   |addresses[type eq "other"].streetAddress|String|
+   |addresses[type eq "other"].locality|String|
+   |addresses[type eq "other"].region|String|
+   |addresses[type eq "other"].postalCode|String|
+   |addresses[type eq "other"].country|String|
+   |roles[primary eq "True"].display|String|
+   |roles[primary eq "True"].type|String|
    |roles[primary eq "True"].value|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
@@ -154,28 +154,28 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|참조|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: proxyAddresses|String|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: extensionAttribute1|String|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: extensionAttribute2|String|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: extensionAttribute3|String|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: extensionAttribute4|String|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: extensionAttribute5|String|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: extensionAttribute6|String|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: extensionAttribute7|String|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: extensionAttribute8|String|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: extensionAttribute9|String|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: extensionAttribute10|String|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: extensionAttribute11|String|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: extensionAttribute12|String|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: extensionAttribute13|String|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: extensionAttribute14|String|
-   |urn: ietf: params: scim: 스키마: 확장: GlobalRelay: 2.0: 사용자: extensionAttribute15|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:proxyAddresses|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute1|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute2|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute3|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute4|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute5|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute6|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute7|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute8|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute9|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute10|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute11|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute12|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute13|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute14|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute15|String|
 
 
 
-10. **매핑** 섹션에서 **전역 릴레이 id 동기화에 Azure Active Directory 그룹 동기화를** 선택 합니다.
+10. **매핑** 섹션에서 **Azure Active Directory 그룹을 Global Relay Identity Sync에 동기화** 를 선택합니다.
 
-11. **특성 매핑** 섹션에서 Azure AD에서 전역 릴레이 id 동기화로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 전역 릴레이 id 동기화의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+11. **특성-매핑** 섹션에서 Azure AD에서 Global Relay Identity Sync로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택된 특성은 업데이트 작업을 위해 Global Relay Identity Sync의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
       |attribute|Type|
       |---|---|
@@ -184,17 +184,17 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-13. 전역 릴레이 Id 동기화에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
+13. Global Relay Identity Sync에 Azure AD 프로비저닝 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비저닝 상태** 를 **켜기** 로 변경합니다.
 
-    ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
+    ![프로비저닝 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-14. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 전역 릴레이 id 동기화에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
+14. **설정** 섹션의 **범위** 에서 원하는 값을 선택하여 Global Relay Identity Sync에 프로비저닝하려는 사용자 및/또는 그룹을 정의합니다.
 
-    ![프로비전 범위](common/provisioning-scope.png)
+    ![프로비저닝 범위](common/provisioning-scope.png)
 
-15. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
+15. 프로비저닝할 준비가 되면 **저장** 을 클릭합니다.
 
-    ![프로비전 구성 저장](common/provisioning-configuration-save.png)
+    ![프로비저닝 구성 저장](common/provisioning-configuration-save.png)
 
 이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. 초기 주기는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기보다 더 많은 시간이 걸립니다. 
 
@@ -207,7 +207,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비저닝 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계

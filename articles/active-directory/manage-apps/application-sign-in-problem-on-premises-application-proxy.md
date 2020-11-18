@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29aa4eb0bc40f0b2b960c49cf7b17dc62d92b0ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7abf61d6b10e22a434c42097bf42183c7b39e352
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367719"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654952"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 온-프레미스 애플리케이션에 로그인하는 데 문제가 있음
 
@@ -48,7 +48,7 @@ ms.locfileid: "85367719"
 ## <a name="im-having-a-problem-setting-up-back-end-authentication-to-my-application"></a>내 애플리케이션에 백 엔드 인증을 설정하는 데 문제가 있음
   다음 문서는 이 범주에서 가장 일반적인 몇 가지 문제를 해결하는 데 도움이 될 수 있습니다.
   * [Kerberos 제한 위임을 구성하는 방법을 모름](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-  * [PingAccess로 내 애플리케이션을 구성하는 방법을 모름](application-proxy-back-end-ping-access-how-to.md)
+  * [PingAccess로 내 애플리케이션을 구성하는 방법을 모름](/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide)
 
 ## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>내 애플리케이션에 로그인할 때 문제가 있음
   다음 문서는 이 범주에서 가장 일반적인 몇 가지 문제를 해결하는 데 도움이 될 수 있습니다.

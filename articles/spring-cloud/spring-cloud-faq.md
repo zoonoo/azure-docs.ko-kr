@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: f034cd07b481f9d72cb3f753b30e1779bf672ac2
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: a8180088e5a0db613d5f04106fe102f58594bf72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491939"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655054"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 스프링 클라우드 FAQ
 
@@ -93,6 +93,21 @@ Azure 스프링 클라우드는 스프링 클라우드 응용 프로그램 로�
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>내 응용 프로그램 내에서 영구적 볼륨을 보거나 추가 하거나 이동할 수 있나요?
 
 예.
+
+### <a name="how-many-outbound-public-ip-addresses-does-an-azure-spring-cloud-instance-have"></a>Azure 스프링 클라우드 인스턴스에 있는 아웃 바운드 공용 IP 주소의 수는 몇 개입니까?
+
+아웃 바운드 공용 IP 주소의 수는 계층 및 기타 요인에 따라 달라질 수 있습니다. 
+
+| Azure 스프링 클라우드 인스턴스 유형 | 기본 아웃 바운드 공용 IP 주소 수 |
+| -------------------------------- | ---------------------------------------------- |
+| 기본 계층 인스턴스             | 1                                              |
+| 표준 계층 인스턴스          | 2                                              |
+| VNet 삽입 인스턴스         | 1                                              |
+
+
+### <a name="can-i-increase-the-number-of-outbound-public-ip-addresses"></a>아웃 바운드 공용 IP 주소의 수를 늘릴 수 있나요?
+
+예, 추가 아웃 바운드 공용 IP 주소를 요청 하는 [지원 티켓](https://azure.microsoft.com/support/faq/)  을 열 수 있습니다.
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Azure 스프링 클라우드 서비스 인스턴스를 삭제/이동할 때 확장 리소스도 삭제/이동 됩니까?
 

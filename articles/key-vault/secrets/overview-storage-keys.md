@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e8ae0463633940ba3192815af6a07a6356901044
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 47427f8d3690218060fd1e6221b1b089c68d6e1d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426989"
+ms.locfileid: "94441837"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Key Vault 및 Azure CLI를 사용하여 스토리지 계정 키 관리
 
@@ -34,11 +34,11 @@ Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스인 Azure AD(A
 
 Azure AD를 사용하면 스토리지 계정 자격 증명 대신 애플리케이션 또는 사용자 ID를 사용하여 클라이언트 애플리케이션을 인증할 수 있습니다. Azure에서 실행할 때 [Azure AD 관리 ID](../../active-directory/managed-identities-azure-resources/index.yml)를 사용할 수 있습니다. 관리 ID를 사용하면 클라이언트 인증이 필요 없는 것은 물론이고, 애플리케이션에 또는 애플리케이션을 통해 자격 증명을 저장할 필요가 없습니다.
 
-Azure AD는 Key Vault에서도 지원되는 RBAC(역할 기반 액세스 제어)를 사용하여 권한 부여를 관리합니다.
+Azure AD는 Key Vault에서도 지원되는 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 권한 부여를 관리합니다.
 
 ## <a name="service-principal-application-id"></a>서비스 주체 애플리케이션 ID
 
-Azure AD 테넌트는 등록된 각 애플리케이션에 [서비스 주체](../../active-directory/develop/developer-glossary.md#service-principal-object)를 제공합니다. 서비스 주체는 애플리케이션 ID 역할을 하며, RBAC를 통해 다른 Azure 리소스에 액세스하기 위해 권한 부여를 설정하는 동안 사용됩니다.
+Azure AD 테넌트는 등록된 각 애플리케이션에 [서비스 주체](../../active-directory/develop/developer-glossary.md#service-principal-object)를 제공합니다. 서비스 주체는 애플리케이션 ID 역할을 하며, Azure RBAC를 통해 다른 Azure 리소스에 액세스하기 위해 권한 부여를 설정하는 동안 사용됩니다.
 
 Key Vault는 모든 Azure AD 테넌트에서 미리 등록되는 Microsoft 애플리케이션입니다. Key Vault는 각 Azure 클라우드에서 동일한 애플리케이션 ID로 등록됩니다.
 

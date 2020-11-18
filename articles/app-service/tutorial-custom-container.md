@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: azure app service, 웹앱, linux, windows, docker, 컨테이너
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: f3c687d5c8b4e4c6d0b7f4ff912137066fe10bbb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b5682275a9e5f3993de715ab5f23a708d5df47ae
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743717"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130122"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 사용자 지정 소프트웨어를 Azure App Service로 마이그레이션
 
@@ -62,9 +62,9 @@ Visual Studio에서 *custom-font-win-container/CustomFontSample.sln* 파일을 �
 
 ### <a name="configure-windows-container"></a>Windows 컨테이너 구성
 
-솔루션 탐색기에서 **CustomFontSample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **Container Orchestration Support** (컨테이너 오케스트레이션 지원)를 선택합니다.
+솔루션 탐색기에서 **CustomFontSample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **Container Orchestration Support**(컨테이너 오케스트레이션 지원)를 선택합니다.
 
-:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="기본 브라우저에 표시되는 앱을 보여주는 스크린샷.":::
+:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="CustomFontSample 프로젝트, 추가 및 컨테이너 Orchestrator 지원 메뉴 항목이 선택된 솔루션 탐색기 창의 스크린샷.":::
 
 **Docker Compose** > **확인** 을 선택합니다.
 
@@ -98,13 +98,13 @@ _InstallFont.ps1_ 은 **CustomFontSample** 프로젝트에서 찾을 수 있습�
 
 솔루션 탐색기에서 **CustomFontSample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
 
-:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="기본 브라우저에 표시되는 앱을 보여주는 스크린샷.":::
+:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="CustomFontSample 프로젝트 및 선택한 게시를 보여주는 솔루션 탐색기의 스크린샷.":::
 
 ### <a name="create-registry-and-publish"></a>레지스트리 만들기 및 게시
 
 게시 마법사에서 **Container Registry** > **새 Azure Container Registry 만들기** > **게시** 를 선택합니다.
 
-:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="기본 브라우저에 표시되는 앱을 보여주는 스크린샷.":::
+:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Container Registry, 새 Azure Container Registry 생성 및 선택한 게시 단추를 보여주는 게시 마법사의 스크린샷.":::
 
 ### <a name="sign-in-with-azure-account"></a>Azure 계정으로 로그인
 
@@ -318,6 +318,10 @@ ENTRYPOINT ["init.sh"]
 * 마지막 `ENTRYPOINT ["init.sh"]` 줄은 `init.sh`를 호출하여 SSH 서비스와 Python 서버를 시작합니다.
 
 ## <a name="build-and-test-the-image-locally"></a>로컬로 이미지 빌드 및 테스트
+
+> [!NOTE]
+> Docker Hub에는 [IP당 익명 풀 수와 무료 사용자당 인증된 풀 수에 대한 할당량(**데이터 전송** 참조)](https://www.docker.com/pricing)이 있습니다. Docker Hub에서의 끌어오기가 제한되면 아직 로그인하지 않은 경우 `docker login`을 시도해 보세요.
+> 
 
 1. 다음 명령을 실행하여 이미지를 빌드합니다.
 

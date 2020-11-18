@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: e87985154226369cd47cc6437fc82c59602a78d9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6ffd5670a8b84f0f4a5b7d3dee8a7a5080be26f5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085584"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357320"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - 릴리스 정보 및 다운로드 정보
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,6 +26,10 @@ ms.locfileid: "93085584"
 |**시작**|[Azure Cosmos 에뮬레이터로 로컬에서 개발](local-emulator.md)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="2118-6-november-2020"></a>2.11.8(2020년 11월 6일)
+
+ - 이 릴리스에는 Cosmos 에뮬레이터 Data Explorer 업데이트가 포함되어 있으며, TLS 1.3 클라이언트가 Data Explorer를 열려고 시도하는 문제를 해결합니다.
 
 ### <a name="2116-6-october-2020"></a>2.11.6(2020년 10월 6일)
 

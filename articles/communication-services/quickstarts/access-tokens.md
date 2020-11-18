@@ -3,27 +3,27 @@ title: 빠른 시작 - 액세스 토큰 만들기 및 관리
 titleSuffix: An Azure Communication Services quickstart
 description: Azure Communication Services 관리 클라이언트 라이브러리를 사용하여 ID 및 액세스 토큰을 관리하는 방법을 알아봅니다.
 author: tomaschladek
-manager: jken
+manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
 ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: e323f1f50fe6c67a841c300fcbec1eed3afc4497
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b67d0808643797d88628b626403c1b9d97cf1cad
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074127"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506249"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>빠른 시작: 액세스 토큰 만들기 및 관리
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Communication Services 관리 클라이언트 라이브러리를 사용하여 액세스 토큰을 프로비저닝하고 관리하여 Azure Communication Services를 시작하세요. 액세스 토큰을 통해 채팅 및 호출 클라이언트 라이브러리가 Azure Communication Services에 대해 직접 인증할 수 있습니다. 이러한 토큰은 구현하는 서버 쪽 토큰 프로비저닝 서비스에서 생성됩니다. 그런 다음, 클라이언트 디바이스에서 Communication Services 클라이언트 라이브러리를 초기화하는 데 사용됩니다.
+Communication Services Administration 클라이언트 라이브러리를 사용하여 Azure Communication Services를 시작하세요. 이를 통해 ID를 만들고 액세스 토큰을 관리할 수 있습니다. ID는 Azure Communication Service(예: 사용자 또는 디바이스)에서 애플리케이션의 엔터티를 나타냅니다. 액세스 토큰을 통해 채팅 및 호출 클라이언트 라이브러리가 Azure Communication Services에 대해 직접 인증할 수 있습니다. 서버 쪽 서비스에서 액세스 토큰을 생성하는 것이 좋습니다. 그런 다음, 액세스 토큰을 사용하여 클라이언트 디바이스에서 Communication Services 클라이언트 라이브러리를 초기화합니다.
 
-이 자습서 전체에서 이미지에 표시되는 가격은 예시용일 뿐입니다.
+이 자습서 전체에서 이미지에 표시되는 모든 가격은 데모용일 뿐입니다.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/user-access-token-net.md)]
@@ -46,15 +46,14 @@ Communication Services 관리 클라이언트 라이브러리를 사용하여 �
 ```console
 Azure Communication Services - Access Tokens Quickstart
 
-Issued a access token with 'voip' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
+Created an identity: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+
+Issued a access token with 'voip' scope for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502:
 <token signature here>
 
-Issued a access token with 'chat' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
-<token signature here>
+Successfully deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
-Successfully deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
-
-Deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
+Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 ```
 <!---cSpell:enable --->
 
@@ -81,3 +80,4 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
  - [인증에 대한 자세한 정보](../concepts/authentication.md)
  - [앱에 채팅 추가](./chat/get-started.md)
  - [클라이언트 및 서버 아키텍처에 대한 자세한 정보](../concepts/client-and-server-architecture.md)
+ 

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 555dccbd3c2dfe61bac5891514deface6f8a877d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e17002534d35f477467f0c35833560a0267dd596
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237067"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909780"
 ---
 # <a name="claim-sets"></a>클레임 집합
 
@@ -81,7 +81,7 @@ JWT RFC에서 정의되고 응답 개체의 Azure Attestation에서 사용되는
 ### <a name="outgoing-claims"></a>나가는 클레임
 
 - **policy_hash**:  BASE64URL(SHA256(BASE64URL(UTF8(정책 텍스트))))로 계산된 정책 텍스트의 SHA256 해시가 포함된 문자열 값입니다.
-- **policy_signer**:  서명된 정책 헤더에 있는 공개 키 또는 인증서 체인이 있는 JWK가 포함된 문자열 값입니다.
+- **policy_signer**:  서명된 정책 헤더에 있는 공개 키 또는 인증서 체인이 있는 JWK를 포함합니다.
 - **ver(버전)** :  보고서 버전이 포함된 문자열 값입니다. 현재 1.0입니다.
 - **cnf(확인) 클레임**:  "cnf" 클레임은 소유 증명 키를 식별하는 데 사용됩니다. RFC 7800에 정의된 확인 클레임에는 JWK(JSON Web Key) 개체(RFC 7517)로 표현되는 증명된 enclave 키의 공개 부분이 포함됩니다.
 - **rp_data(신뢰 당사자 데이터)** :  요청에 지정된 신뢰 당사자 데이터(있는 경우)는 보고서의 최신 상태를 보장하기 위해 해당 신뢰 당사자가 nonce로 사용합니다.

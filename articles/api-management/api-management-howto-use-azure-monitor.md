@@ -1,100 +1,106 @@
 ---
-title: Azure API Management에서 게시된 API 모니터링 | Microsoft Docs
-description: 이 자습서의 단계에 따라 Azure API Management에서 API를 모니터링하는 방법을 알아봅니다.
+title: 자습서 - Azure API Management에서 게시된 API 모니터링 | Microsoft Docs
+description: 이 자습서의 단계에 따라 Azure API Management에서 메트릭, 경고, 활동 로그 및 리소스 로그를 사용하여 API를 모니터링하는 방법을 알아봅니다.
 services: api-management
 author: vladvino
-manager: cfowler
 ms.service: api-management
-ms.workload: mobile
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 7080bd98bda5c4280ff7b06b235458bea0e9103c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2317e61111c3ad328e8f112e7d9567f3f5d47990
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093585"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379418"
 ---
-# <a name="monitor-published-apis"></a>게시된 API 모니터링
+# <a name="tutorial-monitor-published-apis"></a>자습서: 게시된 API 모니터링
 
-Azure Monitor를 통해 Azure 리소스의 메트릭 또는 로그에 대해 시각화, 쿼리, 라우팅, 보관 및 조치를 수행할 수 있습니다.
+Azure Monitor를 통해 Azure API Management 서비스의 메트릭 또는 로그를 시각화, 쿼리, 라우팅, 보관하고 필요한 조치를 수행할 수 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 활동 로그 보기
-> * 리소스 로그 보기
 > * API의 메트릭 보기 
-> * API가 무단 호출을 받을 경우의 경고 규칙 설정
-
-다음 비디오는 Azure Monitor를 사용하여 API Management를 모니터링하는 방법을 보여 줍니다. 
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
+> * 경고 규칙 설정 
+> * 활동 로그 보기
+> * 리소스 로그 사용 및 보기
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
-+ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
++ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 + 또한 [첫 번째 API 가져오기 및 게시](import-and-publish.md) 자습서를 완료합니다.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="view-metrics-of-your-apis"></a>API의 메트릭 보기
 
-API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으로 API의 상태를 확인할 수 있도록 합니다. 가장 자주 사용되는 두 메트릭은 다음과 같습니다. 사용 가능한 모든 메트릭 목록은 [지원되는 메트릭](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice)을 참조하세요.
+API Management는 1분 간격으로 [메트릭](../azure-monitor/platform/data-platform-metrics.md)을 내보내므로 거의 실시간으로 API 상태를 확인할 수 있습니다. 다음은 가장 많이 사용되는 두 가지 메트릭입니다. 사용 가능한 모든 메트릭 목록은 [지원되는 메트릭](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice)을 참조하세요.
 
-* 용량: APIM 서비스를 업그레이드/다운그레이드할지 결정하는 데 도움이 됩니다. 메트릭은 1분 간격으로 내보내지며 보고 시점의 게이트웨이 용량을 반영합니다. 메트릭의 범위는 0-100이고, CPU 및 메모리 사용률 등의 게이트웨이 리소스를 기반으로 계산됩니다.
-* 요청: APIM 서비스를 통과하는 API 트래픽을 분석하는 데 도움이 됩니다. 메트릭은 분당 내보내고 응답 코드, 위치, 호스트 이름 및 오류를 포함한 차원으로 게이트웨이 요청 수를 보고합니다. 
+* **용량** - APIM 서비스를 업그레이드/다운그레이드할지 결정하는 데 도움이 됩니다. 메트릭은 1분 간격으로 내보내지며 보고 시점의 게이트웨이 용량을 반영합니다. 메트릭의 범위는 0-100이고, CPU 및 메모리 사용률 등의 게이트웨이 리소스를 기반으로 계산됩니다.
+* **요청** - API Management 서비스를 통과하는 API 트래픽을 분석하는 데 도움이 됩니다. 메트릭은 분당 내보내고 응답 코드, 위치, 호스트 이름 및 오류를 포함한 차원으로 게이트웨이 요청 수를 보고합니다. 
 
 > [!IMPORTANT]
 > 다음 메트릭은 2019년 5월부터 사용되지 않으며 2023년 8월에 사용 중지됩니다. 총 게이트웨이 요청, 성공적인 게이트웨이 요청, 권한이 없는 게이트웨이 요청, 실패한 게이트웨이 요청, 기타 게이트웨이 요청. 동일한 기능을 제공하는 요청 메트릭으로 마이그레이션하세요.
 
-![메트릭 차트](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+:::image type="content" source="media/api-management-howto-use-azure-monitor/apim-monitor-metrics.png" alt-text="API Management 개요의 메트릭 스크린샷":::
 
 메트릭에 액세스하려면
 
-1. 페이지 맨 아래의 메뉴에서 **메트릭** 을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 API Management 인스턴스로 이동합니다. **개요** 페이지에서 API의 주요 메트릭을 검토합니다.
+1. 메트릭을 자세히 조사하려면 페이지 아래쪽에 있는 메뉴에서 **메트릭** 을 선택합니다.
 
-    ![메트릭](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-metrics-blade.png" alt-text="[모니터링] 메뉴의 [메트릭] 항목 스크린샷":::
 
-2. 드롭다운 목록에서 관심 있는 메트릭을 선택합니다. 예: **Requests** 
-3. 차트에는 총 API 호출 수가 표시됩니다.
-4. **요청** 메트릭의 차원을 사용하여 차트를 필터링할 수 있습니다. 예를 들어 **필터 추가** 를 클릭하고 **백 엔드 응답 코드** 를 선택하여 500을 값으로 입력합니다. 이제 차트에는 API 백 엔드에서 실패한 요청의 수가 표시됩니다.   
+1. 드롭다운 목록에서 관심 있는 메트릭을 선택합니다. 예: **Requests** 
+1. 차트에는 총 API 호출 수가 표시됩니다.
+1. **요청** 메트릭의 차원을 사용하여 차트를 필터링할 수 있습니다. 예를 들어 **필터 추가** 를 선택하고, **백 엔드 응답 코드 범주** 를 선택하고, 값으로 500을 입력합니다. 이제 차트에는 API 백 엔드에서 실패한 요청의 수가 표시됩니다.   
 
-## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>권한 없는 요청에 대한 경고 규칙 설정
+## <a name="set-up-an-alert-rule"></a>경고 규칙 설정 
 
-메트릭 및 활동 로그를 기반으로 경고를 수신하도록 구성할 수 있습니다. Azure Monitor를 사용하여 트리거되면 다음을 수행하도록 경고를 구성할 수 있습니다.
+메트릭 및 활동 로그를 기반으로 [경고](../azure-monitor/platform/alerts-metric-overview.md)를 수신할 수 있습니다. Azure Monitor를 사용하여 트리거되면 다음을 수행하도록 [경고를 구성](../azure-monitor/platform/alerts-metric.md)할 수 있습니다.
 
 * 전자 메일 알림 보내기
 * 웹후크 호출
 * Azure 논리 앱 호출
 
-경고를 구성하려면
+요청 메트릭을 기반으로 경고 규칙 예제를 구성하려면 다음을 수행합니다.
 
+1. [Azure Portal](https://portal.azure.com)에서 API Management 인스턴스로 이동합니다.
 1. 페이지 맨 아래의 메뉴 모음에서 **경고** 를 선택합니다.
 
-    ![페이지 하단에 있는 메뉴에 경고를 보여주는 스크린샷.](./media/api-management-azure-monitor/alert-menu-item.png)
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/alert-menu-item.png" alt-text="[모니터링] 메뉴의 [경고] 옵션 스크린샷":::
 
-2. 이 경고의 **새로운 경고 규칙** 을 클릭합니다.
-3. **조건 추가** 를 선택합니다.
-4. 신호 유형 드롭다운에서 **메트릭** 을 선택합니다.
-5. **무단 게이트웨이 요청** 을 모니터링할 신호로 선택합니다.
+1. **+ 새 경고 규칙** 을 선택합니다.
+1. **경고 규칙 만들기** 창에서 **조건 선택** 을 클릭합니다.
+1. **신호 논리 구성** 창에서 다음을 수행합니다.
+    1. **신호 형식** 에서 **메트릭** 을 선택합니다.
+    1. **신호 이름** 에서 **요청** 을 선택합니다.
+    1. **차원으로 분할** 의 **차원 이름** 에서 **게이트웨이 응답 코드 범주** 를 선택합니다.
+    1. **차원 값** 에서 권한이 없거나 잘못된 요청과 같은 클라이언트 오류에 대해 **4xx** 를 선택합니다.
+    1. **경고 논리** 에서, 경고가 트리거되어야 하는 임계값을 지정하고 **완료** 를 선택합니다.
 
-    ![신호 유형 필드 및 권한이 없는 게이트웨이 요청 신호 이름을 강조 표시하는 스크린샷.](./media/api-management-azure-monitor/signal-type.png)
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/threshold.png" alt-text="[신호 논리 구성] 창의 스크린샷":::
 
-6. **신호 논리 구성** 보기에서, 경고가 트리거되어야 하는 임계값을 지정하고 **완료** 를 클릭합니다.
+1. 기존 작업 그룹을 선택하거나 새 작업 그룹을 만듭니다. 다음 예제에서는 새 작업 그룹을 만듭니다. 알림 이메일은 admin@contoso.com으로 전송됩니다. 
 
-    ![신호 논리 구성 보기를 보여주는 스크린샷.](./media/api-management-azure-monitor/threshold.png)
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/action-details.png" alt-text="새 작업 그룹에 대한 알림의 스크린샷":::
 
-7. 기존 작업 그룹을 선택하거나 새 항목을 만듭니다. 아래 예제에서는 이메일이 관리자에게 전송됩니다. 
+1. 경고 규칙의 이름과 설명을 입력하고, 심각도를 선택합니다. 
+1. **경고 규칙 만들기** 를 선택합니다.
+1. 이제 API 키 없이 Conference API를 호출하여 경고 규칙을 테스트합니다. 다음은 그 예입니다. 
 
-    ![경고](./media/api-management-azure-monitor/action-details.png)
+    ```bash
+    curl GET https://apim-hello-world.azure-api.net/conference/speakers HTTP/1.1 
+    ```
 
-8. 경고 규칙의 이름과 설명을 입력하고, 심각도를 선택합니다. 
-9. **경고 규칙 만들기** 를 누릅니다.
-10. 이제, API 키를 사용하지 않고 회의 API를 호출해봅니다. 경고가 트리거되고 이메일이 관리자에게 전송됩니다. 
+    평가 기간에 따라 경고가 트리거되고, 이메일이 admin@contoso.com으로 전송됩니다. 
+
+    API Management 인스턴스의 **경고** 페이지에도 경고가 표시됩니다.
+
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/portal-alerts.png" alt-text="포털의 경고 스크린샷":::
 
 ## <a name="activity-logs"></a>활동 로그
 
@@ -105,16 +111,16 @@ API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으�
 
 API Management 서비스에서 활동 로그에 액세스하거나 Azure Monitor에서 모든 Azure 리소스의 로그에 액세스할 수 있습니다. 
 
-![활동 로그](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+:::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-activity-logs.png" alt-text="포털의 활동 로그 스크린샷":::
 
-활동 로그를 보려면
+활동 로그를 보려면 다음을 수행합니다.
 
-1. APIM 서비스 인스턴스를 선택합니다.
-2. **활동 로그** 를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에서 API Management 인스턴스로 이동합니다.
 
-    ![활동 로그](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+1. **활동 로그** 를 선택합니다.
 
-3. 원하는 필터링 범위를 선택하고 **적용** 을 클릭합니다.
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-activity-logs-blade.png" alt-text="[모니터링] 메뉴의 [활동 로그] 항목 스크린샷":::
+1. 원하는 필터링 범위를 선택하고 **적용** 을 선택합니다.
 
 ## <a name="resource-logs"></a>리소스 로그
 
@@ -122,110 +128,87 @@ API Management 서비스에서 활동 로그에 액세스하거나 Azure Monitor
 
 리소스 로그를 구성하려면 다음을 수행합니다.
 
-1. APIM 서비스 인스턴스를 선택합니다.
-2. **진단 설정** 을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에서 API Management 인스턴스로 이동합니다.
+2. **진단 설정** 을 선택합니다.
 
-    ![리소스 로그](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-diagnostic-logs-blade.png" alt-text="[모니터링] 메뉴의 [진단 설정] 항목 스크린샷":::
 
-3. **진단 켜기** 를 클릭합니다. 리소스 로그를 메트릭과 함께 스토리지 계정에 보관하고, Event Hub로 스트림하고, Azure Monitor 로그로 보낼 수 있습니다. 
+1. **+ 진단 설정 추가** 를 선택합니다.
+1. 수집하려는 로그 또는 메트릭을 선택합니다.
 
-API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 요청에 대한 리소스 로그(시간 단위로 일괄 처리됨)를 제공합니다.
+   리소스 로그를 메트릭과 함께 스토리지 계정에 보관하고, Event Hub로 스트림하고, Log Analytics 작업 영역으로 보낼 수 있습니다. 
 
-```json
-{  
-    "isRequestSuccess" : "",
-    "time": "",
-    "operationName": "",
-    "category": "",
-    "durationMs": ,
-    "callerIpAddress": "",
-    "correlationId": "",
-    "location": "",
-    "httpStatusCodeCategory": "",
-    "resourceId": "",
-    "properties": {   
-        "method": "", 
-        "url": "", 
-        "clientProtocol": "", 
-        "responseCode": , 
-        "backendMethod": "", 
-        "backendUrl": "", 
-        "backendResponseCode": ,
-        "backendProtocol": "",  
-        "requestSize": , 
-        "responseSize": , 
-        "cache": "", 
-        "cacheTime": "", 
-        "backendTime": , 
-        "clientTime": , 
-        "apiId": "",
-        "operationId": "", 
-        "productId": "", 
-        "userId": "", 
-        "apimSubscriptionId": "", 
-        "backendId": "",
-        "lastError": { 
-            "elapsed" : "", 
-            "source" : "", 
-            "scope" : "", 
-            "section" : "" ,
-            "reason" : "", 
-            "message" : ""
-        } 
-    }      
-}  
+자세한 내용은 [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](../azure-monitor/platform/diagnostic-settings.md)를 참조하세요.
+
+## <a name="view-diagnostic-data-in-azure-monitor"></a>Azure Monitor에서 진단 데이터 보기
+
+Log Analytics 작업 영역에서 GatewayLogs 또는 메트릭을 수집하도록 설정하는 경우 Azure Monitor에 데이터가 표시될 때까지 몇 분 정도 걸릴 수 있습니다. 데이터를 보려면 다음을 수행합니다.
+
+1. [Azure Portal](https://portal.azure.com)에서 API Management 인스턴스로 이동합니다.
+1. 페이지 아래쪽의 메뉴에서 **로그** 를 선택합니다.
+
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="[모니터링] 메뉴의 [로그] 항목 스크린샷":::
+
+쿼리를 실행하여 데이터를 봅니다. 여러 [샘플 쿼리](../azure-monitor/log-query/saved-queries.md)가 제공되며, 자체 쿼리를 실행해도 됩니다. 예를 들어 다음 쿼리는 GatewayLogs 테이블에서 최근 24시간 동안의 데이터를 검색합니다.
+
+```kusto
+ApiManagementGatewayLogs
+| where TimeGenerated > ago(1d) 
 ```
 
-| 속성  | Type | Description |
-| ------------- | ------------- | ------------- |
-| isRequestSuccess | boolean | HTTP 요청이 완료되고 응답 상태 코드가 2xx 또는 3xx 범위 이내이면 True입니다. |
-| time | 날짜-시간 | 게이트웨이가 요청을 처리하는 시점의 타임스탬프 |
-| operationName | 문자열 | 상수 값 'Microsoft.ApiManagement/GatewayLogs' |
-| category | 문자열 | 상수 값 'GatewayLogs' |
-| durationMS | integer | 게이트웨이에서 요청을 수신한 순간부터 응답이 완전히 전송될 때까지 걸린 시간(밀리초)입니다. clienTime, cacheTime 및 backendTime이 포함됩니다. |
-| callerIpAddress | 문자열 | 즉각적인 게이트웨이 호출자의 IP 주소(중간자 가능) |
-| correlationId | 문자열 | API Management에서 할당하는 고유의 http 요청 식별자 |
-| 위치 | 문자열 | 요청을 처리한 게이트웨이가 있었던 Azure 지역의 이름 |
-| httpStatusCodeCategory | 문자열 | http 응답 상태 코드의 범주: 성공(301 이하, 304 또는 307), 권한이 없음(401, 403, 429), 오류가 있음(400, 500~600), 기타 |
-| resourceId | 문자열 | API Management 리소스 /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name>의 ID |
-| properties | object | 현재 요청의 속성 |
-| method | 문자열 | 들어오는 요청의 HTTP 메서드 |
-| url | 문자열 | 들어오는 요청의 URL |
-| clientProtocol | 문자열 | 들어오는 요청의 HTTP 프로토콜 버전 |
-| responseCode | integer | 클라이언트로 전송된 HTTP 응답의 상태 코드 |
-| backendMethod | 문자열 | 백 엔드로 전송된 요청의 HTTP 메서드 |
-| backendUrl | 문자열 | 백 엔드로 전송된 요청의 URL |
-| backendResponseCode | integer | 백 엔드에서 받은 HTTP 응답 코드 |
-| backendProtocol | 문자열 | 백 엔드로 전송된 요청의 HTTP 프로토콜 버전 | 
-| requestSize | integer | 요청을 처리하는 동안 클라이언트에서 받은 바이트 수 | 
-| responseSize | integer | 요청을 처리하는 동안 클라이언트로 전송된 바이트 수 | 
-| 캐시 | 문자열 | 요청 처리에서 API Management 캐시 개입 상태(적중, 놓침, 없음) | 
-| cacheTime | integer | 전체 API Management 캐시 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
-| backendTime | integer | 전체 백 엔드 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
-| clientTime | integer | 전체 클라이언트 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
-| apiId | 문자열 | 현재 요청에 대한 API 엔터티 식별자 | 
-| operationId | 문자열 | 현재 요청에 대한 작업 엔터티 식별자 | 
-| productId | 문자열 | 현재 요청에 대한 제품 엔터티 식별자 | 
-| userId | 문자열 | 현재 요청에 대한 사용자 엔터티 식별자 | 
-| apimSubscriptionId | 문자열 | 현재 요청에 대한 구독 엔터티 식별자 | 
-| backendId | 문자열 | 현재 요청에 대한 백 엔드 엔터티 식별자 | 
-| lastError | object | 마지막 요청 처리 오류 | 
-| elapsed | integer | 게이트웨이에서 요청을 받은 순간부터 오류가 발생한 순간 사이에 경과된 시간(밀리초) | 
-| source | 문자열 | 오류를 발생시킨 정책 또는 처리 내부 처리기의 이름 | 
-| scope | 문자열 | 오류를 발생시킨 정책이 포함되어 있는 정책 문서의 범위 | 
-| section | 문자열 | 오류를 발생시킨 정책이 포함되어 있는 정책 문서의 섹션 | 
-| reason | 문자열 | 오류 원인 | 
-| message | 문자열 | 오류 메시지 | 
+API Management에 대한 리소스 로그 사용에 대한 자세한 내용은 다음을 참조하세요.
+
+* [Azure Monitor Log Analytics 시작](../azure-monitor/log-query/get-started-portal.md) 또는 [Log Analytics 데모 환경](https://portal.loganalytics.io/demo) 사용
+
+* [Azure Monitor의 로그 쿼리 개요](../azure-monitor/log-query/log-query-overview.md)
+
+다음 JSON은 GatewayLogs에서 성공한 API 요청의 샘플 항목을 나타냅니다. 자세한 내용은 [스키마 참조](gateway-log-schema-reference.md)에서 확인할 수 있습니다. 
+
+```json
+{
+    "Level": 4,
+    "isRequestSuccess": true,
+    "time": "2020-10-14T17:xx:xx.xx",
+    "operationName": "Microsoft.ApiManagement/GatewayLogs",
+    "category": "GatewayLogs",
+    "durationMs": 152,
+    "callerIpAddress": "xx.xx.xxx.xx",
+    "correlationId": "3f06647e-xxxx-xxxx-xxxx-530eb9f15261",
+    "location": "East US",
+    "properties": {
+        "method": "GET",
+        "url": "https://apim-hello-world.azure-api.net/conference/speakers",
+        "backendResponseCode": 200,
+        "responseCode": 200,
+        "responseSize": 41583,
+        "cache": "none",
+        "backendTime": 87,
+        "requestSize": 526,
+        "apiId": "demo-conference-api",
+        "operationId": "GetSpeakers",
+        "apimSubscriptionId": "master",
+        "clientTime": 65,
+        "clientProtocol": "HTTP/1.1",
+        "backendProtocol": "HTTP/1.1",
+        "apiRevision": "1",
+        "clientTlsVersion": "1.2",
+        "backendMethod": "GET",
+        "backendUrl": "https://conferenceapi.azurewebsites.net/speakers"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/APIM-HELLO-WORLD"
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
-> * 활동 로그 보기
-> * 리소스 로그 보기
 > * API의 메트릭 보기
-> * API가 무단 호출을 받을 경우의 경고 규칙 설정
+> * 경고 규칙 설정 
+> * 활동 로그 보기
+> * 리소스 로그 사용 및 보기
+
 
 다음 자습서를 진행합니다.
 

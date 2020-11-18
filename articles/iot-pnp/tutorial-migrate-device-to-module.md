@@ -1,18 +1,18 @@
 ---
-title: 일반 IoT 플러그 앤 플레이 모듈 연결 | Microsoft Docs
-description: 일반 모듈에서 C# IoT 플러그 앤 플레이 디바이스 코드를 사용합니다.
+title: 자습서 - 일반 Azure IoT 플러그 앤 플레이 모듈 연결 | Microsoft Docs
+description: 자습서 - 일반 모듈에서 샘플 C# IoT 플러그 앤 플레이 디바이스 코드를 사용합니다.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d425152f83821e1d157065370bd02e2d990ec876
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: dc86340026ec7b85afc9e5208ea8ef8c32d8bac6
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426932"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421467"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>자습서: IoT 플러그 앤 플레이 모듈 연결(C#)
 

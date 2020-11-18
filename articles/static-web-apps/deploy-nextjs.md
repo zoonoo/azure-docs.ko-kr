@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Static Web Apps에서 서버에 렌더링된 Next.js 웹 사이트 배포'
+title: '자습서: Azure Static Web Apps에서 정적으로 렌더링된 Next.js 웹 사이트 배포'
 description: Azure Static Web Apps를 사용하여 Next.js 동적 사이트를 생성하고 배포합니다.
 services: static-web-apps
 author: christiannwamba
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 835ee926de776b7a25295485d18ce25f883a2c5f
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 20a3337ab054ca1feefc2f5f08f8e6398417fb9e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951165"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441616"
 ---
-# <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기에서 서버에 렌더링된 Next.js 웹 사이트 배포
+# <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기에서 정적으로 렌더링된 Next.js 웹 사이트 배포
 
 이 자습서에서는 [Azure Static Web Apps](overview.md)에 [Next.js](https://nextjs.org) 생성 정적 웹 사이트를 배포하는 방법을 알아봅니다. 시작하려면 Next.js 앱을 설정, 구성 및 배포하는 방법을 알아봅니다. 이 프로세스 동안 Next.js를 사용하여 정적 페이지를 생성할 때 자주 발생하는 일반적인 문제를 처리하는 방법에 대해서도 알아봅니다.
 
@@ -32,7 +32,7 @@ Next.js CLI를 사용하여 앱을 만드는 대신 기존 Next.js 앱이 포함
 시작하려면 템플릿 리포지토리에서 GitHub 계정 아래에 새 리포지토리를 만듭니다. 
 
 1. <http://github.com/staticwebdev/nextjs-starter/generate>로 이동
-1. 리포지토리 이름을 **nextjs-starter**로 지정
+1. 리포지토리 이름을 **nextjs-starter** 로 지정
 1. 그런 다음, 새 리포지토리를 머신에 복제합니다. `<YOUR_GITHUB_ACCOUNT_NAME>`을 계정 이름으로 바꿔야 합니다.
 
     ```bash
@@ -63,13 +63,13 @@ Next.js CLI를 사용하여 앱을 만드는 대신 기존 Next.js 앱이 포함
 
 프레임워크/라이브러리를 클릭하면 선택한 항목에 대한 세부 정보 페이지가 표시됩니다.
 
-:::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Next.js 앱 시작":::
+:::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="세부 정보 페이지":::
 
 ## <a name="generate-a-static-website-from-nextjs-build"></a>Next.js 빌드에서 정적 웹 사이트 생성
 
 `npm run build`를 사용하여 Next.js를 빌드하면 앱은 정적 사이트가 아닌 기존 웹앱으로 빌드됩니다. 정적 사이트를 생성하려면 다음 애플리케이션 구성을 사용합니다.
 
-1. 정적 경로를 구성하려면 프로젝트 루트에 _next.config.js_라는 파일을 만들고 다음 코드를 추가합니다.
+1. 정적 경로를 구성하려면 프로젝트 루트에 _next.config.js_ 라는 파일을 만들고 다음 코드를 추가합니다.
 
     ```javascript
     module.exports = {
@@ -84,7 +84,7 @@ Next.js CLI를 사용하여 앱을 만드는 대신 기존 Next.js 앱이 포함
     
       이 구성은 `/`를 `/` 경로에 대해 제공되는 Next.js 페이지와 _pages/index.js_ 페이지 파일에 매핑합니다.
 
-1. `next export` 명령을 사용하여 빌드 후 정적 사이트도 생성하도록 _package.json_의 빌드 스크립트를 업데이트합니다. `export` 명령은 정적 사이트를 생성합니다.
+1. `next export` 명령을 사용하여 빌드 후 정적 사이트도 생성하도록 _package.json_ 의 빌드 스크립트를 업데이트합니다. `export` 명령은 정적 사이트를 생성합니다.
 
     ```json
     "scripts": {
@@ -135,29 +135,29 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 배포하고 지정
 ### <a name="create-a-static-app"></a>정적 앱 만들기
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. **리소스 만들기**를 클릭합니다.
+1. **리소스 만들기** 를 클릭합니다.
 1. **Static Web Apps** 검색
 1. **Static Web Apps(미리 보기)** 를 클릭합니다.
 1. **만들기**
 
 1. *구독* 드롭다운 목록에서 구독을 선택하거나 기본값을 사용합니다.
-1. *리소스 그룹* 드롭다운 아래의 **새로 만들기** 링크를 클릭합니다. *새 리소스 그룹 이름*에 **mystaticsite**를 입력하고 **확인**을 클릭합니다.
+1. *리소스 그룹* 드롭다운 아래의 **새로 만들기** 링크를 클릭합니다. *새 리소스 그룹 이름* 에 **mystaticsite** 를 입력하고 **확인** 을 클릭합니다.
 1. **이름** 텍스트 상자에 앱의 전역적으로 고유한 이름을 입력합니다. 유효한 문자에는 `a-z`, `A-Z`, `0-9` 및 `-`가 포함됩니다. 이 값은 `https://<APP_NAME>.azurestaticapps.net` 형식의 정적 앱에 대한 URL 접두사로 사용됩니다.
 1. *지역* 드롭다운에서 가장 가까운 지역을 선택합니다.
-1. SKU 드롭다운에서 **무료**를 선택합니다.
+1. SKU 드롭다운에서 **무료** 를 선택합니다.
 
-   :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Next.js 앱 시작":::
+   :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Static Web App 만들기":::
 
 ### <a name="add-a-github-repository"></a>GitHub 리포지토리 추가
 
 새 Static Web Apps 계정은 Next.js 앱으로 리포지토리에 액세스해야 커밋을 자동으로 배포할 수 있습니다.
 
-1. **GitHub로 로그인 단추**를 클릭합니다.
-1. Next.js 프로젝트의 리포지토리를 만든 **조직**을 선택합니다. 이는 GitHub 사용자 이름일 수 있습니다.
+1. **GitHub로 로그인 단추** 를 클릭합니다.
+1. Next.js 프로젝트의 리포지토리를 만든 **조직** 을 선택합니다. 이는 GitHub 사용자 이름일 수 있습니다.
 1. 이전에 만든 리포지토리의 이름을 찾아서 선택합니다.
-1. *분기* 드롭다운에서 분기로 **마스터**를 선택합니다.
+1. *분기* 드롭다운에서 분기로 **마스터** 를 선택합니다.
 
-   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Next.js 앱 시작":::
+   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="GitHub 연결":::
 
 ### <a name="configure-the-build-process"></a>빌드 프로세스 구성
 
@@ -165,15 +165,15 @@ Azure Static Web Apps는 각 배포 중에 npm 모듈을 설치하고 `npm run b
 
 1. **빌드** 탭을 클릭하여 정적 출력 폴더를 구성합니다.
 
-   :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Next.js 앱 시작":::
+   :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="빌드 탭":::
 
-2. *앱 아티팩트 위치* 텍스트 상자에 **out**을 입력합니다.
+2. *앱 아티팩트 위치* 텍스트 상자에 **out** 을 입력합니다.
 
 ### <a name="review-and-create"></a>검토 및 만들기
 
 1. **검토 + 만들기** 단추를 클릭하여 세부 정보가 모두 올바른지 확인합니다.
-1. **만들기**를 클릭하여 리소스 만들기를 시작하고 배포를 위한 GitHub Action을 프로비저닝합니다.
-1. 배포가 완료되면 **리소스로 이동**을 클릭합니다.
+1. **만들기** 를 클릭하여 리소스 만들기를 시작하고 배포를 위한 GitHub Action을 프로비저닝합니다.
+1. 배포가 완료되면 **리소스로 이동** 을 클릭합니다.
 1. _개요_ 창에서 *URL* 링크를 클릭하여 배포된 애플리케이션을 엽니다. 
 
 웹 사이트에서 즉시 로드를 기록하는 경우 백그라운드 GitHub Actions 워크플로가 계속 실행됩니다. 워크플로가 완료되면 브라우저 새로 고침을 클릭하여 웹앱을 볼 수 있습니다.
@@ -195,7 +195,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 
 새로 배포된 사이트로 이동하여 프레임워크 또는 라이브러리 로고 중 하나를 클릭합니다. 세부 정보 페이지를 가져오는 대신 404 오류 페이지가 표시됩니다.
 
-:::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="Next.js 앱 시작":::
+:::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="동적 경로의 404 오류":::
 
 이 오류가 발생하는 이유는 Next.js가 애플리케이션 구성에 따라 홈페이지만 생성했기 때문입니다.
 
@@ -231,7 +231,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 
 2. GitHub 리포지토리에 새 변경 내용을 푸시하고 GitHub 작업에서 사이트를 다시 빌드하는 동안 몇 분 정도 기다립니다. 빌드가 완료되면 404 오류가 사라집니다.
 
-   :::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="Next.js 앱 시작":::
+   :::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="동적 경로의 404 오류 수정":::
 
 > [!div class="nextstepaction"]
 > [사용자 지정 도메인 설정](custom-domain.md)

@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 BlogIn 구성 Microsoft Docs'
-description: 사용자 계정을 Azure AD에서 BlogIn으로 자동으로 프로 비전 및 프로 비전 해제 하는 방법을 알아봅니다.
+title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 BlogIn 구성 | Microsoft Docs'
+description: 사용자 계정을 Azure AD에서 BlogIn으로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -12,28 +12,28 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4b77208ca7869288ac13e28c6535b1b3972aa22c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
-ms.translationtype: MT
+ms.openlocfilehash: f50c8d612ca088c97754b1eb90ed049113e33c6e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928759"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358267"
 ---
-# <a name="tutorial-configure-blogin-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 BlogIn 구성
+# <a name="tutorial-configure-blogin-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 BlogIn 구성
 
-이 자습서에서는 자동 사용자 프로 비전을 구성 하기 위해 BlogIn 및 Azure Active Directory (Azure AD)에서 수행 해야 하는 단계를 설명 합니다. 구성 된 경우 azure AD는 Azure AD 프로 비전 서비스를 사용 하 여 사용자 및 그룹을 [Blogin](https://blogin.co/) 에 자동으로 프로 비전 하 고 프로 비전 해제 합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요. 
+이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 BlogIn 및 Azure AD(Azure Active Directory)에서 수행해야 하는 단계를 설명합니다. 구성된 경우 Azure AD는 Azure AD 프로비저닝 서비스를 사용하여 사용자 및 그룹을 [BlogIn](https://blogin.co/)으로 자동으로 프로비저닝 및 프로비저닝 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요. 
 
 
 ## <a name="capabilities-supported"></a>지원되는 기능
 > [!div class="checklist"]
 > * BlogIn에서 사용자 만들기
-> * 더 이상 액세스 하지 않아도 되는 경우 BlogIn에서 사용자 제거
-> * Azure AD와 BlogIn 간에 사용자 특성을 동기화 상태로 유지
-> * BlogIn에서 그룹 및 그룹 멤버 자격 프로 비전
-> * BlogIn에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/blogin-tutorial) (권장)
+> * BlogIn에서 더 이상 액세스할 필요가 없는 사용자 제거
+> * Azure AD와 BlogIn 간에 사용자 특성을 동기화된 상태로 유지
+> * BlogIn에서 그룹 및 그룹 멤버 자격 프로비저닝
+> * BlogIn에 대한 [Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/blogin-tutorial)(권장)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -41,50 +41,50 @@ ms.locfileid: "92928759"
 
 * [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * 프로비저닝을 구성할 [권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
-* 관리자 역할을 사용 하는 BlogIn의 사용자 계정
+* 관리자 역할이 있는 BlogIn의 사용자 계정
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
 1. [프로비저닝 서비스의 작동 방식](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)에 대해 알아봅니다.
 2. [프로비저닝 범위](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)에 있는 사용자를 결정합니다.
-3. [AZURE AD와 BlogIn 간에 매핑할](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)데이터를 결정 합니다. 
+3. [Azure AD와 BlogIn 간에 매핑](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)할 데이터를 결정합니다. 
 
-## <a name="step-2-configure-blogin-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD를 사용 하 여 프로 비전을 지원 하도록 BlogIn 구성
+## <a name="step-2-configure-blogin-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD에서 프로비저닝을 지원하도록 BlogIn 구성
 
-**Blogin** 에서 사용자 프로 비전을 구성 하려면 blogin 계정에 로그인 하 고 다음 단계를 수행 합니다.
+**BlogIn** 에 대한 사용자 프로비저닝을 구성하려면 BlogIn 계정에 로그인하고 다음 단계를 수행합니다.
 
-1. **설정**  >  **사용자 인증**  >  **SSO & 사용자 프로 비전 구성** 으로 이동 합니다.
-2. **사용자 프로 비전** 탭으로 전환 하 고 사용자 프로 비전 상태를 **켜기** 로 변경 합니다.
-3. **변경 내용 저장** 단추를 클릭합니다. 처음 저장할 때 **암호 (전달자) 토큰이** 생성 됩니다.
-4. **기본 (테 넌 트) URL** 및 **암호 (전달자) 토큰** 값을 복사 합니다. 이러한 값은 Azure Portal에서 BlogIn 응용 프로그램의 프로 비전 탭에 있는 테 넌 트 URL 및 비밀 토큰 필드에 입력 됩니다.
+1. **설정** > **사용자 인증** > **SSO 및 사용자 프로비저닝 구성** 으로 이동합니다.
+2. **사용자 프로비저닝** 탭으로 전환하고 사용자 프로비전 상태를 **켜기** 로 변경합니다.
+3. **변경 내용 저장** 단추를 클릭합니다. 처음 저장할 때 **비밀(전달자) 토큰** 이 생성됩니다.
+4. **기본(테넌트) URL** 및 **비밀(전달자) 토큰** 값을 복사합니다. 이러한 값은 Azure Portal의 BlogIn 애플리케이션 프로비저닝 탭에서 테넌트 URL 및 비밀 토큰 필드에 입력됩니다.
 
-BlogIn에서 사용자 프로 비전을 설정 하는 방법에 대 한 자세한 설명은 [SCIM을 통한 사용자 프로 비전 설정](https://blogin.co/blog/set-up-user-provisioning-via-scim-254/)을 참조 하세요. 궁금한 사항이 있거나 도움이 필요한 경우 [Blogin 지원 팀](mailto:support@blogin.co) 에 문의 하세요.
+BlogIn에서 사용자 프로비저닝 설정의 자세한 설명은 [SCIM을 통한 사용자 프로비저닝 설정](https://blogin.co/blog/set-up-user-provisioning-via-scim-254/)을 참조하세요. 질문이 있거나 도움이 필요한 경우 [BlogIn 지원 팀](mailto:support@blogin.co)에 문의하세요.
 
-## <a name="step-3-add-blogin-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 BlogIn 추가
+## <a name="step-3-add-blogin-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 애플리케이션 갤러리에서 BlogIn 추가
 
-Azure AD 응용 프로그램 갤러리에서 BlogIn을 추가 하 여 BlogIn에 프로 비전 관리를 시작 합니다. 이전에 SSO에 대해 BlogIn을 설정 했다면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
+Azure AD 애플리케이션 갤러리에서 BlogIn을 추가하여 BlogIn에 대한 프로비저닝 관리를 시작합니다. 이전에 SSO에 대해 BlogIn을 설정한 경우 동일한 애플리케이션을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>4단계. 프로비저닝 범위에 있는 사용자 정의 
 
 Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 할당 또는 사용자/그룹의 특성을 기반으로 프로비저닝되는 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 선택하려면 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) 설명된 대로 범위 지정 필터를 사용할 수 있습니다. 
 
-* BlogIn에 사용자 및 그룹을 할당할 때 **기본 액세스** 외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)하여 역할을 더 추가할 수 있습니다. 
+* 사용자 및 그룹을 BlogIn에 할당하는 경우 **기본 액세스** 이외의 역할을 선택해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)하여 역할을 더 추가할 수 있습니다. 
 
 * 소규모로 시작합니다. 모든 사용자에게 배포하기 전에 소수의 사용자 및 그룹 집합으로 테스트합니다. 할당된 사용자 및 그룹으로 프로비저닝 범위가 설정된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당하여 범위를 제어할 수 있습니다. 모든 사용자 및 그룹으로 범위가 설정된 경우 [특성 기반 범위 지정 필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 지정할 수 있습니다. 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-blogin"></a>5단계. BlogIn에 자동 사용자 프로 비전 구성 
+## <a name="step-5-configure-automatic-user-provisioning-to-blogin"></a>5단계. BlogIn에 대한 자동 사용자 프로비저닝 구성 
 
 이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 TestApp에서 사용자 및/또는 그룹을 만들고, 업데이트하고, 사용 해제하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
 
-### <a name="to-configure-automatic-user-provisioning-for-blogin-in-azure-ad"></a>Azure AD에서 BlogIn에 대 한 자동 사용자 프로 비전을 구성 하려면:
+### <a name="to-configure-automatic-user-provisioning-for-blogin-in-azure-ad"></a>Azure AD에서 BlogIn에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
 2. 애플리케이션 목록에서 **BlogIn** 을 선택합니다.
 
-    ![응용 프로그램 목록의 BlogIn 링크](common/all-applications.png)
+    ![애플리케이션 목록의 BlogIn 링크](common/all-applications.png)
 
 3. **프로비전** 탭을 선택합니다.
 
@@ -92,9 +92,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
-    ![자동 프로 비전 탭](common/provisioning-automatic.png)
+    ![프로비저닝 탭 자동](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에서 Blogin 테 넌 트 URL 및 암호 토큰을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Clarizen에 연결할 수 있는지 확인 합니다. 연결이 실패하면 Clarizen 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
+5. **관리자 자격 증명** 섹션 아래에서 BlogIn 테넌트 URL 및 비밀 토큰을 입력합니다. **연결 테스트** 를 클릭하여 Azure AD가 Clarizen에 연결할 수 있는지 확인합니다. 연결이 실패하면 Clarizen 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
     ![토큰](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -104,9 +104,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 7. **저장** 을 선택합니다.
 
-8. **매핑** 섹션에서 **Azure Active Directory 사용자를 Blogin에 동기화를** 선택 합니다.
+8. **매핑** 섹션에서 **Azure Active Directory 사용자를 BlogIn에 동기화** 를 선택합니다.
 
-9. **특성 매핑** 섹션에서 Azure AD에서 blogin으로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 blogin의 사용자 계정을 일치 시키는 데 사용 됩니다. 일치 하는 [대상 특성](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 변경 하도록 선택 하는 경우 BLOGIN API가 해당 특성에 따라 사용자 필터링을 지원 하는지 확인 해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+9. **특성 매핑** 섹션에서 Azure AD에서 BlogIn으로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 BlogIn의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 변경하는 경우 BlogIn API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
    |attribute|Type|
    |---|---|
@@ -119,9 +119,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |name.formatted|String|
    |phoneNumbers[type eq "work"].value|String|
 
-10. **매핑** 섹션 아래에서 **blogin에 Azure Active Directory 그룹 동기화를** 선택 합니다.
+10. **매핑** 섹션 아래에서 **Azure Active Directory 그룹을 BlogIn에 동기화** 를 선택합니다.
 
-11. **특성 매핑** 섹션에서 Azure AD에서 blogin로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 blogin의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+11. **특성 매핑** 섹션에서 Azure AD에서 BlogIn으로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 BlogIn의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
       |attribute|Type|
       |---|---|
@@ -130,11 +130,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-13. BlogIn에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
+13. BlogIn에 대한 Azure AD 프로비저닝 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태** 를 **켜기** 로 변경합니다.
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-14. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 blogin에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
+14. **설정** 섹션의 **범위** 에서 원하는 값을 선택하여 BlogIn에 프로비저닝하려는 사용자 및/또는 그룹을 정의합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 

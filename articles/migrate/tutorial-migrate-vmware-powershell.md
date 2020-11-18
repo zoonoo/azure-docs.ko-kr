@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
 ms.author: rahugup
-ms.openlocfilehash: eed10f13b9495ab2cccfd9c57ae14ccc5d8e4a63
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 185979fcc0eeaebbe1c3b09d74050e05899737af
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043547"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376802"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음) - PowerShell
 
@@ -87,6 +87,9 @@ Azure Migrate는 경량 [Azure Migrate 어플라이언스](migrate-appliance-arc
 
 Azure Migrate 프로젝트에서 특정 VMware VM을 검색하려면 Azure Migrate 프로젝트의 이름(`ProjectName`), Azure Migrate 프로젝트의 리소스 그룹(`ResourceGroupName`) 및 VM 이름(`DisplayName`)을 지정합니다. 
 
+> [!NOTE]
+> **VM 이름(`DisplayName`) 매개 변수 값은 대/소문자를 구분합니다**.
+
 ```azurepowershell
 # Get a specific VMware VM in an Azure Migrate project
 $DiscoveredServer = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName -DisplayName "MyTestVM"
@@ -146,7 +149,7 @@ Invoke-WebRequest https://raw.githubusercontent.com/Azure/azure-docs-powershell-
 - **대상 가상 네트워크 및 서브넷** - 각각 `TargetNetworkId` 및 `TargetSubnetName` 매개 변수를 사용하여 Azure Virtual Network의 ID와 VM을 마이그레이션해야 하는 서브넷의 이름을 지정합니다. 
 - **대상 VM 이름** - `TargetVMName` 매개 변수를 사용하여 만들 Azure VM의 이름을 지정합니다.
 - **대상 VM 크기** - `TargetVMSize` 매개 변수를 통해 VM 복제에 사용할 Azure VM 크기를 지정합니다. 예를 들어 VM을 Azure의 D2_v2 VM으로 마이그레이션하려면 `TargetVMSize`의 값을 "Standard_D2_v2"로 지정합니다.  
-- **라이선스** - 활성 소프트웨어 보증 또는 Windows Server 구독의 범위에 포함되는 Windows Server 머신에 Azure 하이브리드 혜택을 사용하려면 `LicenseType` 매개 변수의 값을 "AHUB"로 지정합니다. 그렇지 않으면 `LicenseType` 매개 변수의 값을 "NoLicenseType"으로 지정합니다.
+- **라이선스** - 활성 소프트웨어 보증 또는 Windows Server 구독의 범위에 포함되는 Windows Server 머신에 Azure 하이브리드 혜택을 사용하려면 `LicenseType` 매개 변수의 값을 "WindowsServer"로 지정합니다. 그렇지 않으면 `LicenseType` 매개 변수의 값을 "NoLicenseType"으로 지정합니다.
 - **OS 디스크** - 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크의 고유 식별자를 지정합니다. 사용할 디스크 ID는 `Get-AzMigrateServer` cmdlet을 사용하여 검색된 디스크의 고유 식별자(UUID) 속성입니다.
 - **디스크 유형** - 다음과 같이 `DiskType` 매개 변수의 값을 지정합니다.
     - 프리미엄 관리 디스크를 사용하려면 `DiskType` 매개 변수의 값으로 "Premium_LRS"를 지정합니다. 
@@ -156,7 +159,8 @@ Invoke-WebRequest https://raw.githubusercontent.com/Azure/azure-docs-powershell-
     - 마이그레이션된 머신을 지역의 특정 가용성 영역에 고정하는 가용성 영역. 이 옵션을 사용하여 가용성 영역에서 다중 노드 애플리케이션 계층을 구성하는 서버를 배포합니다. 이 옵션은 마이그레이션을 위해 선택한 대상 지역이 가용성 영역을 지원하는 경우에만 사용할 수 있습니다. 가용성 영역을 사용하려면 `TargetAvailabilityZone` 매개 변수의 가용성 영역 값을 지정합니다.
     - 마이그레이션된 머신을 가용성 집합에 배치하기 위한 가용성 집합입니다. 이 옵션을 사용하려면 선택한 대상 리소스 그룹에 하나 이상의 가용성 집합이 있어야 합니다. 가용성 집합을 사용하려면 `TargetAvailabilitySet` 매개 변수의 가용성 집합 ID를 지정합니다. 
 
-이 자습서에서는 검색된 VM의 모든 디스크를 복제하고 Azure에서 VM의 새 이름을 지정할 것입니다. 검색된 서버의 첫 번째 디스크를 OS 디스크로 지정하고 모든 디스크를 표준 HDD로 마이그레이션합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다.
+### <a name="replicate-vms-with-all-disks"></a>모든 디스크를 사용하여 VM 복제
+이 자습서에서는 검색된 VM의 모든 디스크를 복제하고 Azure에서 VM의 새 이름을 지정할 것입니다. 검색된 서버의 첫 번째 디스크를 OS 디스크로 지정하고 모든 디스크를 표준 HDD로 마이그레이션합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다. cmdlet은 작업 상태를 모니터링하기 위해 추적할 수 있는 작업을 반환합니다. 
 
 ```azurepowershell
 # Retrieve the resource group that you want to migrate to
@@ -178,6 +182,7 @@ while (($MigrateJob.State -eq "InProgress") -or ($MigrateJob.State -eq "NotStart
 Write-Output $MigrateJob.State
 ```
 
+### <a name="replicate-vms-with-select-disks"></a>선택 디스크를 사용하여 VM 복제
 `New-AzMigrateDiskMapping` cmdlet을 사용하여 검색된 VM의 디스크를 선별적으로 복제하고 `New-AzMigrateServerReplication` cmdlet의 `DiskToInclude` 매개 변수에 대한 입력으로 제공할 수도 있습니다. 또한 `New-AzMigrateDiskMapping` cmdlet을 사용하여 각 개별 디스크를 복제할 대상 디스크 유형을 서로 다르게 지정할 수 있습니다. 
 
 `New-AzMigrateDiskMapping` cmdlet의 다음 매개 변수 값을 지정합니다.
@@ -186,7 +191,7 @@ Write-Output $MigrateJob.State
 - **IsOSDisk** - 마이그레이션할 디스크가 VM의 OS 디스크이면 "true"로 지정하고, 그렇지 않으면 "false"로 지정합니다.
 - **DiskType** - Azure에서 사용할 디스크 유형을 지정합니다. 
 
-다음 예제에서는 검색된 VM의 디스크 중 2개만 복제합니다. OS 디스크를 지정하고, 복제할 디스크마다 서로 다른 디스크 유형을 사용할 것입니다.
+다음 예제에서는 검색된 VM의 디스크 중 2개만 복제합니다. OS 디스크를 지정하고, 복제할 디스크마다 서로 다른 디스크 유형을 사용할 것입니다. cmdlet은 작업 상태를 모니터링하기 위해 추적할 수 있는 작업을 반환합니다. 
 
 ```azurepowershell
 # View disk details of the discovered server
@@ -308,9 +313,18 @@ $replicatingserver.ProviderSpecificDetail | convertto-json
 - 초기 복제 중에 VM 스냅샷이 만들어집니다. 스냅샷의 디스크 데이터가 Azure의 복제본 관리 디스크에 복제됩니다.
 - 초기 복제가 완료되면 델타 복제가 시작됩니다. 온-프레미스 디스크에 대한 증분 변경 내용은 Azure의 복제본 디스크에 주기적으로 복제됩니다.
 
+## <a name="retrieve-the-status-of-a-job"></a>작업의 상태 검색
+
+`Get-AzMigrateJob` cmdlet을 사용하여 작업의 상태를 모니터링할 수 있습니다. 
+
+```azurepowershell
+# Retrieve the updated status for a job
+$job = Get-AzMigrateJob -InputObject $job
+```
+
 ## <a name="update-properties-of-a-replicating-vm"></a>VM 복제 속성 업데이트
 
-[Azure Migrate: 서버 마이그레이션](migrate-services-overview.md#azure-migrate-server-migration-tool)을 사용하면 이름, 크기, 리소스 그룹, NIC 구성 등과 같은 복제하는 VM의 대상 속성을 변경할 수 있습니다. 
+[Azure Migrate: 서버 마이그레이션](migrate-services-overview.md#azure-migrate-server-migration-tool)을 사용하면 이름, 크기, 리소스 그룹, NIC 구성 등과 같은 복제하는 VM의 대상 속성을 변경할 수 있습니다. cmdlet은 작업 상태를 모니터링하기 위해 추적할 수 있는 작업을 반환합니다. 
 
 ```azurepowershell
 # Retrieve the replicating VM details by using the discovered VM identifier
@@ -348,6 +362,15 @@ $NicMapping += $NicMapping2
 
 # Update the name, size and NIC configuration of a replicating server
 $UpdateJob = Set-AzMigrateServerReplication -InputObject $ReplicatingServer -TargetVMSize "Standard_DS13_v2" -TargetVMName "MyMigratedVM" -NicToUpdate $NicMapping
+
+# Track job status to check for completion
+while (($UpdateJob.State -eq "InProgress") -or ($UpdateJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $UpdateJob = Get-AzMigrateJob -InputObject $UpdateJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $UpdateJob.State
 ```
 
 Azure Migrate 프로젝트의 모든 복제 서버를 나열한 다음, 복제 VM 식별자를 사용하여 VM 속성을 업데이트할 수도 있습니다.
@@ -363,7 +386,7 @@ $ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $Replicating
 
 ## <a name="run-a-test-migration"></a>테스트 마이그레이션 실행
 
-델타 복제가 시작되면 Azure로 전체 마이그레이션을 실행하기 전에 VM의 테스트 마이그레이션을 실행할 수 있습니다. 각 머신을 마이그레이션하기 전에 테스트 마이그레이션을 적어도 한 번 이상 수행하는 것이 좋습니다.
+델타 복제가 시작되면 Azure로 전체 마이그레이션을 실행하기 전에 VM의 테스트 마이그레이션을 실행할 수 있습니다. 각 머신을 마이그레이션하기 전에 테스트 마이그레이션을 적어도 한 번 이상 수행하는 것이 좋습니다. cmdlet은 작업 상태를 모니터링하기 위해 추적할 수 있는 작업을 반환합니다. 
 
 - 테스트 마이그레이션을 실행하면 마이그레이션이 예상대로 작동하는지 확인할 수 있습니다. 테스트 마이그레이션은 온-프레미스 머신에 영향을 미치지 않습니다. 온-프레미스 머신은 계속 작동하고 복제를 지속합니다. 
 - 테스트 마이그레이션은 복제된 데이터를 사용하여 Azure VM을 만들어 마이그레이션을 시뮬레이션합니다(일반적으로 Azure 구독에서 비프로덕션 VNet으로 마이그레이션).
@@ -377,32 +400,69 @@ $TestVirtualNetwork = Get-AzVirtualNetwork -Name MyTestVirtualNetwork
 
 # Start test migration for a replicating server
 $TestMigrationJob = Start-AzMigrateTestMigration -InputObject $ReplicatingServer -TestNetworkID $TestVirtualNetwork.Id
+
+# Track job status to check for completion
+while (($TestMigrationJob.State -eq "InProgress") -or ($TestMigrationJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $TestMigrationJob = Get-AzMigrateJob -InputObject $TestMigrationJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $TestMigrationJob.State
 ```
 
-테스트가 완료되면 `Start-AzMigrateTestMigrationCleanup` cmdlet을 사용하여 테스트 마이그레이션을 정리합니다.
+테스트가 완료되면 `Start-AzMigrateTestMigrationCleanup` cmdlet을 사용하여 테스트 마이그레이션을 정리합니다. cmdlet은 작업 상태를 모니터링하기 위해 추적할 수 있는 작업을 반환합니다. 
 
 ```azurepowershell
 # Clean-up test migration for a replicating server
 $CleanupTestMigrationJob = Start-AzMigrateTestMigrationCleanup -InputObject $ReplicatingServer
+
+# Track job status to check for completion
+while (($CleanupTestMigrationJob.State -eq "InProgress") -or ($CleanupTestMigrationJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $CleanupTestMigrationJob = Get-AzMigrateJob -InputObject $CleanupTestMigrationJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $CleanupTestMigrationJob.State
 ```
 
 ## <a name="migrate-vms"></a>VM 마이그레이션
 
-테스트 마이그레이션이 예상대로 작동하는지 확인한 후에는 다음 cmdlet을 사용하여 복제 서버를 마이그레이션할 수 있습니다.
+테스트 마이그레이션이 예상대로 작동하는지 확인한 후에는 다음 cmdlet을 사용하여 복제 서버를 마이그레이션할 수 있습니다. cmdlet은 작업 상태를 모니터링하기 위해 추적할 수 있는 작업을 반환합니다. 
+
+원본 서버를 끄지 않으려면 `TurnOffSourceServer` 매개 변수를 사용하지 마세요.
 
 ```azurepowershell
 # Start migration for a replicating server and turn off source server as part of migration
 $MigrateJob = Start-AzMigrateServerMigration -InputObject $ReplicatingServer -TurnOffSourceServer 
+
+# Track job status to check for completion
+while (($MigrateJob.State -eq "InProgress") -or ($MigrateJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $MigrateJob = Get-AzMigrateJob -InputObject $MigrateJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $MigrateJob.State
 ```
-원본 서버를 끄지 않으려면 `TurnOffSourceServer` 매개 변수를 사용하지 마세요.
 
 ## <a name="complete-the-migration"></a>마이그레이션 완료
 
-1. 마이그레이션이 완료된 후에는 다음 cmdlet을 사용하여 온-프레미스 머신에 대한 복제를 중지하고 VM의 복제 상태 정보를 정리합니다.
+1. 마이그레이션이 완료된 후에는 다음 cmdlet을 사용하여 온-프레미스 머신에 대한 복제를 중지하고 VM의 복제 상태 정보를 정리합니다. cmdlet은 작업 상태를 모니터링하기 위해 추적할 수 있는 작업을 반환합니다. 
 
 ```azurepowershell
 # Stop replication for a migrated server
 $StopReplicationJob = Remove-AzMigrateServerReplication -InputObject $ReplicatingServer 
+
+# Track job status to check for completion
+while (($StopReplicationJob.State -eq "InProgress") -or ($StopReplicationJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $StopReplicationJob = Get-AzMigrateJob -InputObject $StopReplicationJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $StopReplicationJob.State
 ```
 
 2. Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) 또는 [Linux](../virtual-machines/extensions/agent-linux.md) 에이전트를 마이그레이션된 머신에 설치합니다.

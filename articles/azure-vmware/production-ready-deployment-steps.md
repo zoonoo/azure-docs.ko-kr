@@ -3,12 +3,12 @@ title: Azure VMware Solution 배포 계획
 description: 이 문서에서는 Azure VMware Solution 배포 워크플로를 간략하게 설명합니다.  결국에는 VM(가상 머신)을 만들고 마이그레이션할 수 있는 환경이 준비됩니다.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9b6d04e1e7a60bf812ca2b1e370c5075d306c432
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517364"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287052"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Azure VMware Solution 배포 계획
 
@@ -17,7 +17,7 @@ ms.locfileid: "92517364"
 이 빠른 시작 프로세스는 VM(가상 머신)을 만들고 마이그레이션을 수행할 수 있는 프로덕션 준비 환경을 만듭니다. 
 
 >[!IMPORTANT]
->Azure VMware Solution 리소스를 만들기 전에 [Azure VMware Solution 리소스를 사용하도록 설정하는 방법](enable-azure-vmware-solution.md) 문서에 따라 노드가 할당되도록 지원 티켓을 제출합니다. 지원 팀에서 요청을 받으면 요청을 확인하고 노드를 할당하는 데 최대 5 영업일이 걸립니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 노드를 할당하려는 경우에도 동일한 프로세스를 진행합니다. 
+>Azure VMware Solution 리소스를 만들기 전에 [Azure VMware Solution 리소스를 사용하도록 설정하는 방법](enable-azure-vmware-solution.md) 문서에 따라 호스트가 할당되도록 지원 티켓을 제출합니다. 지원 팀에서 요청을 받으면 요청을 확인하고 호스트를 할당하는 데 최대 5일(영업일 기준)이 걸립니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 호스트를 할당하려는 경우에도 동일한 프로세스를 진행합니다. 
 
 
 ## <a name="subscription"></a>Subscription
@@ -39,9 +39,9 @@ Azure VMware Solution을 배포하려는 지역을 확인합니다.  자세한 �
 
 배포 중에 사용할 리소스 이름을 정의합니다.  리소스 이름은 Azure VMware Solution 프라이빗 클라우드의 제목으로 지정되는 친숙하고 설명이 포함된 이름입니다.
 
-## <a name="size-nodes"></a>크기 노드
+## <a name="size-hosts"></a>호스트 크기 조정
 
-Azure VMware Solution을 배포할 때 사용하려는 크기 노드를 확인합니다.  전체 목록은 [Azure VMware Solution 프라이빗 클라우드 및 클러스터](concepts-private-clouds-clusters.md#hosts) 설명서를 참조하세요.
+Azure VMware Solution을 배포할 때 사용할 호스트 크기를 확인합니다.  전체 목록은 [Azure VMware Solution 프라이빗 클라우드 및 클러스터](concepts-private-clouds-clusters.md#hosts) 설명서를 참조하세요.
 
 ## <a name="number-of-hosts"></a>호스트 수
 

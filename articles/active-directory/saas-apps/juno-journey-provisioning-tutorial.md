@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9880834cf722b1898316ef1dfcfe89ad945ffadf
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: f060a6ee2b5968c1d1daf3c668b6e7009b6ccd69
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459259"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358136"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>자습서: Juno Journey에 자동 사용자 프로비저닝 구성
 
@@ -46,7 +46,7 @@ ms.locfileid: "92459259"
 
 ## <a name="step-2-configure-juno-journey-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD에서 프로비저닝을 지원하도록 Juno Journey 구성
 
-1. **비밀 토큰** 및 **테넌트 URL**은 Juno Journey 지원 팀(support@the-juno.com)에 문의하세요. 이러한 값은 Azure Portal의 Juno Journey 애플리케이션 프로비저닝 탭에서 **비밀 토큰** 및 **테넌트 URL** 필드에 각각 입력합니다. 
+1. **비밀 토큰** 및 **테넌트 URL** 은 Juno Journey 지원 팀(support@the-juno.com)에 문의하세요. 이러한 값은 Azure Portal의 Juno Journey 애플리케이션 프로비저닝 탭에서 **비밀 토큰** 및 **테넌트 URL** 필드에 각각 입력합니다. 
 
 ## <a name="step-3-add-juno-journey-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 Juno Journey 추가
 
@@ -67,33 +67,33 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 ### <a name="to-configure-automatic-user-provisioning-for-juno-journey-in-azure-ad"></a>Azure AD에서 Juno Journey에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Juno Journey**를 선택합니다.
+2. 애플리케이션 목록에서 **Juno Journey** 를 선택합니다.
 
     ![애플리케이션 목록의 Juno Journey 링크](common/all-applications.png)
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
+    ![프로비저닝 옵션이 호출된 관리 옵션의 스크린샷](common/provisioning.png)
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
-    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
+    ![자동 옵션이 호출된 프로비저닝 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션에서 이전에 **테넌트 URL**에서 검색된 테넌트 URL 값을 입력합니다. **비밀 토큰**에 이전에 검색된 비밀 토큰 값을 입력합니다. **연결 테스트**를 클릭하여 Azure AD가 Juno Journey에 연결할 수 있는지 확인합니다. 연결이 실패하면 Juno Journey 계정에 관리자 권한이 있는지 확인한 후 다시 시도합니다.
+5. **관리자 자격 증명** 섹션에서 이전에 **테넌트 URL** 에서 검색된 테넌트 URL 값을 입력합니다. **비밀 토큰** 에 이전에 검색된 비밀 토큰 값을 입력합니다. **연결 테스트** 를 클릭하여 Azure AD가 Juno Journey에 연결할 수 있는지 확인합니다. 연결이 실패하면 Juno Journey 계정에 관리자 권한이 있는지 확인한 후 다시 시도합니다.
 
-    ![스크린샷 U R L 및 비밀 토큰을 입력할 수 있는 관리자 자격 증명 대화 상자가 표시 됩니다.](./media/juno-journey-provisioning-tutorial/provisioning.png)
+    ![스크린샷은 테넌트 URL 및 비밀 토큰을 입력할 수 있는 관리자 자격 증명 대화 상자를 보여 줍니다.](./media/juno-journey-provisioning-tutorial/provisioning.png)
 
 6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 입력하고, **오류가 발생할 경우 이메일 알림 보내기** 확인란을 선택합니다.
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **저장**을 선택합니다.
+7. **저장** 을 선택합니다.
 
-8. **매핑** 섹션에서 **Azure Active Directory 사용자를 Juno Journey에 동기화**를 선택합니다.
+8. **매핑** 섹션에서 **Azure Active Directory 사용자를 Juno Journey에 동기화** 를 선택합니다.
 
 9. **특성 매핑** 섹션에서 Azure AD에서 Juno Journey로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Juno Journey의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경하는 경우 Juno Journey API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
@@ -129,19 +129,19 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 10. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-11. Juno Journey에 대한 Azure AD 프로비저닝 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비저닝 상태**를 **켜기**로 변경합니다.
+11. Juno Journey에 대한 Azure AD 프로비저닝 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비저닝 상태** 를 **켜기** 로 변경합니다.
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-12. **설정** 섹션의 **범위**에서 원하는 값을 선택하여 Juno Journey에 프로비저닝하려는 사용자 및/또는 그룹을 정의합니다.
+12. **설정** 섹션의 **범위** 에서 원하는 값을 선택하여 Juno Journey에 프로비저닝하려는 사용자 및/또는 그룹을 정의합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-13. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+13. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. 초기 주기는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기보다 더 많은 시간이 걸립니다. 
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. 초기 주기는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기보다 더 많은 시간이 걸립니다. 
 
 ## <a name="step-6-monitor-your-deployment"></a>6단계. 배포 모니터링
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.

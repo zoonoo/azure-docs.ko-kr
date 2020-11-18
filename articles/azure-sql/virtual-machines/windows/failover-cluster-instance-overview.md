@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b8dae471729b42b1c302c6c45033ddc808c7b43
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 5845a3bdc4b86fbbe44c92779e5aae95044eb6b2
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289300"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556372"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -60,10 +60,10 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 
 [Azure 공유 디스크](../../../virtual-machines/windows/disks-shared.md)는 [Azure 관리 디스크](../../../virtual-machines/managed-disks-overview.md)의 기능입니다. Windows Server 장애 조치(failover) 클러스터링은 장애 조치(failover) 클러스터 인스턴스에 Azure 공유 디스크를 사용하도록 지원합니다. 
 
-**지원되는 OS** : 모두   
-**지원되는 SQL 버전** : 모두     
+**지원되는 OS**: 모두   
+**지원되는 SQL 버전**: 모두     
 
-**이점** : 
+**이점**: 
 - HADR(고가용성 및 재해 복구) 아키텍처를 그대로 유지하면서 Azure에 마이그레이션하려는 애플리케이션에 유용합니다. 
 - SCSI PR(SCSI 영구 예약) 지원으로 인해, 클러스터링된 애플리케이션을 있는 그대로 Azure에 마이그레이션할 수 있습니다. 
 - 공유 Azure 프리미엄 SSD 및 Azure Ultra Disk Storage를 지원합니다.
@@ -71,7 +71,7 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 - Filestream을 지원합니다.
 
 
-**단점** : 
+**단점**: 
 - 가상 머신은 동일한 가용성 집합 및 근접 배치 그룹에 배치되어야 합니다.
 - 가용성 영역이 지원되지 않습니다.
 - 프리미엄 SSD 디스크 캐싱이 지원되지 않습니다.
@@ -82,8 +82,8 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 
 [스토리지 공간 다이렉트](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)는 Azure Virtual Machines에서 장애 조치(failover) 클러스터링과 함께 지원되는 Windows Server 기능입니다. 소프트웨어 기반 가상 SAN을 제공합니다.
 
-**지원되는 OS** : Windows Server 2016 이상   
-**지원되는 SQL 버전** : SQL Server 2016 이상   
+**지원되는 OS**: Windows Server 2016 이상   
+**지원되는 SQL 버전**: SQL Server 2016 이상   
 
 
 **이점:** 
@@ -104,8 +104,8 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 
 [프리미엄 파일 공유](../../../storage/files/storage-how-to-create-premium-fileshare.md)는 [Azure Files](../../../storage/files/index.yml)의 기능입니다. 프리미엄 파일 공유는 SSD를 지원하며 지연 시간이 지속적으로 짧습니다. Windows Server 2012 이상에서 SQL Server 2012 이상에 대한 장애 조치(failover) 클러스터 인스턴스에 사용할 수 있도록 완벽하게 지원됩니다. 프리미엄 파일 공유를 사용하면 가동 중지 시간 없이 파일 공유 크기를 조정하고 확장할 수 있기 때문에 뛰어난 유연성을 제공합니다.
 
-**지원되는 OS** : Windows Server 2012 이상   
-**지원되는 SQL 버전** : SQL Server 2012 이상   
+**지원되는 OS**: Windows Server 2012 이상   
+**지원되는 SQL 버전**: SQL Server 2012 이상   
 
 **이점:** 
 - 가상 머신을 위한 공유 스토리지 솔루션만 여러 가용성 영역에 분산됩니다. 
@@ -122,8 +122,8 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 
 지원되는 스토리지가 있는 파트너 클러스터링 솔루션이 있습니다. 
 
-**지원되는 OS** : 모두   
-**지원되는 SQL 버전** : 모두   
+**지원되는 OS**: 모두   
+**지원되는 SQL 버전**: 모두   
 
 한 가지 예는 SIOS DataKeeper를 스토리지로 사용합니다. 자세한 내용은 [장애 조치(failover) 클러스터링 및 SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/) 블로그 항목을 참조하세요.
 
@@ -131,8 +131,8 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 
 Azure ExpressRoute를 통해 iSCSI 대상 공유 블록 스토리지를 노출할 수도 있습니다. 
 
-**지원되는 OS** : 모두   
-**지원되는 SQL 버전** : 모두   
+**지원되는 OS**: 모두   
+**지원되는 SQL 버전**: 모두   
 
 예를 들어 NPS(NetApp 프라이빗 스토리지)는 Equinix와 함께 ExpressRoute를 사용하여 iSCSI 대상을 Azure VM에 공개합니다.
 
@@ -148,10 +148,11 @@ Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 
 
 Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스에 대한 다음 제한 사항을 고려하세요. 
 
-### <a name="lightweight-resource-provider"></a>경량 리소스 공급자   
-현재 Azure 가상 머신에서 SQL Server 장애 조치(failover) 클러스터 인스턴스는 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)의 [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)에서만 지원됩니다. 전체 확장 모드에서 경량 모드로 변경하려면 해당 VM에 대한 **SQL 가상 머신** 리소스를 삭제한 후 경량 모드로 SQL VM 리소스 공급자에 등록합니다. Azure Portal을 사용하여 **SQL 가상 머신** 리소스를 삭제하는 경우 올바른 가상 머신 옆에 있는 확인란을 선택 취소합니다. 
+### <a name="lightweight-extension-support"></a>경량 확장 지원   
 
-전체 확장은 자동화된 백업, 패치, 고급 포털 관리 등의 기능을 지원합니다. 이러한 기능은 에이전트가 경량 관리 모드로 다시 설치된 후에는 SQL Server VM에 대해 작동하지 않습니다.
+현재 Azure 가상 머신의 SQL Server 장애 조치(failover) 클러스터 인스턴스는 SQL Server IaaS 에이전트 확장의 [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)에서만 지원됩니다. 전체 확장 모드에서 경량 모드로 변경하려면 해당 VM에 대한 **SQL 가상 머신** 리소스를 삭제한 다음, 경량 모드에서 SQL IaaS 에이전트 확장에 등록합니다. Azure Portal을 사용하여 **SQL 가상 머신** 리소스를 삭제할 때 가상 머신이 삭제되지 않도록 올바른 가상 머신 옆에 있는 확인란을 선택 취소합니다. 
+
+전체 확장은 자동화된 백업, 패치, 고급 포털 관리 등의 기능을 지원합니다. 이러한 기능은 경량 관리 모드로 등록된 SQL Server VM에 대해서는 작동하지 않습니다.
 
 ### <a name="msdtc"></a>MSDTC 
 
