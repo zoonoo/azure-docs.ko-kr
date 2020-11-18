@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc8a23d8cdb923f86d581d1af2967112d226c847
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d61d49fdd90f1f916141ca636e2c2a4dbe0b9bcd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370630"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657744"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 클래식 구독 관리자
 
@@ -48,7 +48,7 @@ Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 Azure 리소
 
     공동 관리자 추가 옵션을 사용할 수 없는 경우 권한이 없는 것입니다.
 
-1. 추가 하려는 사용자를 선택 하 고 **추가**를 클릭 합니다.
+1. 추가 하려는 사용자를 선택 하 고 **추가** 를 클릭 합니다.
 
     ![공동 관리자를 추가하는 스크린샷](./media/classic-administrators/add-coadmin.png)
 
@@ -58,11 +58,11 @@ Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 Azure 리소
 
 - 게스트 사용자는 디렉터리에 있는 상태 여야 합니다. 즉, 사용자가 디렉터리에 초대 되 고 초대를 수락 했음을 의미 합니다.
 
-디렉터리에 게스트 사용자를 추가 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 B2B 공동 작업 사용자 추가 Azure Active Directory](../active-directory/b2b/add-users-administrator.md)를 참조 하세요.
+디렉터리에 게스트 사용자를 추가 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 B2B 공동 작업 사용자 추가 Azure Active Directory](../active-directory/external-identities/add-users-administrator.md)를 참조 하세요.
 
 ### <a name="differences-for-guest-users"></a>게스트 사용자의 차이점
 
-Co-Administrator 역할이 할당 된 게스트 사용자에 게는 Co-Administrator 역할의 멤버 사용자에 비해 몇 가지 차이점이 표시 될 수 있습니다. 다음 스키마를 살펴보세요.
+Co-Administrator 역할이 할당 된 게스트 사용자에 게는 Co-Administrator 역할의 멤버 사용자에 비해 몇 가지 차이점이 표시 될 수 있습니다. 다음 시나리오를 고려하세요.
 
 - Azure AD 계정 (회사 또는 학교 계정)을 사용 하는 사용자 A는 Azure 구독에 대 한 서비스 관리자입니다.
 - 사용자 B에게는 Microsoft 계정이 있습니다.
@@ -89,9 +89,9 @@ Co-Administrator 역할이 할당 된 게스트 사용자에 게는 Co-Administr
 
 1. 제거할 공동 관리자 옆에 확인 표시를 추가합니다.
 
-1. **제거**를 클릭합니다.
+1. **제거** 를 클릭합니다.
 
-1. 표시되는 메시지 상자에서 **예**를 클릭합니다.
+1. 표시되는 메시지 상자에서 **예** 를 클릭합니다.
 
     ![공동 관리자를 제거하는 스크린샷](./media/classic-administrators/remove-coadmin.png)
 
@@ -99,7 +99,7 @@ Co-Administrator 역할이 할당 된 게스트 사용자에 게는 Co-Administr
 
 계정 관리자만 구독에 대한 서비스 관리자를 변경할 수 있습니다. 기본적으로, Azure 구독에 가입할 때 서비스 관리자는 계정 관리자와 같습니다. 계정 관리자 역할의 사용자는 Azure Portal에 액세스할 수 없습니다. 서비스 관리자 역할의 사용자는 Azure Portal에 대한 모든 권한이 있습니다. 계정 관리자 및 서비스 관리자가 동일한 사용자이고 서비스 관리자를 다른 사용자로 변경하는 경우 계정 관리자는 Azure Portal에 액세스할 수 없게 됩니다. 그러나 계정 관리자는 계정 센터를 사용하여 언제든지 서비스 관리자를 다시 자신으로 변경할 수 있습니다.
 
-**계정 센터**에서 서비스 관리자를 변경 하려면 다음 단계를 수행 합니다.
+**계정 센터** 에서 서비스 관리자를 변경 하려면 다음 단계를 수행 합니다.
 
 ### <a name="account-center"></a>계정 센터
 
@@ -109,7 +109,7 @@ Co-Administrator 역할이 할당 된 게스트 사용자에 게는 Co-Administr
 
 1. 구독을 클릭합니다.
 
-1. 오른쪽에서 **구독 세부 정보 편집**을 클릭 합니다.
+1. 오른쪽에서 **구독 세부 정보 편집** 을 클릭 합니다.
 
     ![계정 센터에서 구독 편집 단추를 보여 주는 스크린샷](./media/classic-administrators/editsub.png)
 
@@ -142,7 +142,7 @@ Microsoft 계정 및 Azure AD 계정에 대 한 자세한 내용은 [Azure Activ
 
 1. [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 열고 구독을 선택합니다.
 
-1. **속성**을 클릭합니다.
+1. **속성** 을 클릭합니다.
 
     구독 계정 관리자는 **계정** 관리자 상자에 표시 됩니다.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 086f79239fd4f6b01f4b76d1385598bac52bb471
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9a7c19e30c6c26d7bf7f11d6f03a0acaee160c9a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358973"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578640"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 AlertMedia 구성
 
@@ -95,9 +95,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
     ![프로비저닝 탭 자동](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에서 다음 중 하나로 AlertMedia **테넌트 URL** 을 입력합니다.
-      * (사용자 지정 도메인 없음) https://dashboard.alertmedia.com/api/scim/v3
+      * (사용자 지정 도메인 없음) `https://dashboard.alertmedia.com/api/scim/v3`
 
-      * (사용자 지정 도메인) https://subdomain.alertmedia.com/api/scim/v3
+      * (사용자 지정 도메인) `https://subdomain.alertmedia.com/api/scim/v3`
 
       2단계에서 이전에 검색된 **비밀 토큰** 을 입력합니다. **연결 테스트** 를 클릭하여 Azure AD가 AlertMedia에 연결할 수 있는지 확인합니다. 연결에 실패하면 AlertMedia 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 

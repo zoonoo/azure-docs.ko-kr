@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 0ad60e72300e381b57deb00f3db010e69a006441
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 4ccd668fb6afa6787fadeda6ed92ebd954e2b892
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742943"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657808"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Azure RBAC 변경 내용에 대 한 활동 로그 보기
 
@@ -43,12 +43,12 @@ ms.locfileid: "92742943"
 
 포털에서 활동 로그에는 몇 가지 필터가 있습니다. Azure RBAC 관련 필터는 다음과 같습니다.
 
-| Assert | 값 |
+| 필터 | 값 |
 | --------- | --------- |
 | 이벤트 범주 | <ul><li>관리</li></ul> |
 | 작업(Operation) | <ul><li>역할 할당 만들기</li><li>역할 할당 삭제</li><li>사용자 지정 역할 정의 만들기 또는 업데이트</li><li>사용자 지정 역할 정의 삭제</li></ul> |
 
-활동 로그에 대 한 자세한 내용은 [활동 로그를 확인 하 여 리소스에 대 한 작업 모니터링](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)을 참조 하세요.
+활동 로그에 대 한 자세한 내용은 [활동 로그를 확인 하 여 리소스에 대 한 작업 모니터링](../azure-resource-manager/management/view-activity-logs.md?toc=%252fazure%252fmonitoring-and-diagnostics%252ftoc.json)을 참조 하세요.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -122,7 +122,7 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-[Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 는 모든 azure 리소스에 대 한 azure RBAC 변경을 수집 하 고 분석 하는 데 사용할 수 있는 또 다른 도구입니다. Azure Monitor 로그에는 다음과 같은 이점이 있습니다.
+[Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md) 는 모든 azure 리소스에 대 한 azure RBAC 변경을 수집 하 고 분석 하는 데 사용할 수 있는 또 다른 도구입니다. Azure Monitor 로그에는 다음과 같은 이점이 있습니다.
 
 - 복잡한 쿼리 및 로직 작성
 - 경고, Power BI 및 기타 도구와 통합
@@ -133,13 +133,13 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 1. [Log Analytics 작업 영역을 만듭니다](../azure-monitor/learn/quick-create-workspace.md).
 
-1. 작업 영역에 대해 [활동 로그 분석 솔루션을 구성](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution)합니다.
+1. 작업 영역에 대해 [활동 로그 분석 솔루션을 구성](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution)합니다.
 
-1. [활동 로그를 봅니다](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). 활동 로그 분석 솔루션 개요 페이지로 이동 하는 빠른 방법은 **로그** 옵션을 클릭 하는 것입니다.
+1. [활동 로그를 봅니다](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution). 활동 로그 분석 솔루션 개요 페이지로 이동 하는 빠른 방법은 **로그** 옵션을 클릭 하는 것입니다.
 
    ![포털의 Azure Monitor 로그 옵션](./media/change-history-report/azure-log-analytics-option.png)
 
-1. 필요에 따라 [Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md) 를 사용 하 여 로그를 쿼리하고 볼 수 있습니다. 자세한 내용은 [Azure Monitor 로그 쿼리 시작](../azure-monitor/log-query/get-started-queries.md)을 참조 하세요.
+1. 필요에 따라 [Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) 를 사용 하 여 로그를 쿼리하고 볼 수 있습니다. 자세한 내용은 [Azure Monitor 로그 쿼리 시작](../azure-monitor/log-query/get-started-queries.md)을 참조 하세요.
 
 다음은 대상 리소스 공급자가 구성한 새 역할 할당을 반환하는 쿼리입니다.
 
@@ -162,5 +162,5 @@ AzureActivity
 ![고급 분석 포털을 사용한 활동 로그 - 스크린샷](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [활동 로그의 이벤트 보기](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
-* [Azure 활동 로그로 구독 활동 모니터링](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
+* [활동 로그의 이벤트 보기](../azure-resource-manager/management/view-activity-logs.md?toc=%252fazure%252fmonitoring-and-diagnostics%252ftoc.json)
+* [Azure 활동 로그로 구독 활동 모니터링](../azure-monitor/platform/platform-logs-overview.md)
