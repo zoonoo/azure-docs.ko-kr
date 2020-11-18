@@ -1,25 +1,25 @@
 ---
 title: 개념 - AKS(Azure Kubernetes Service)의 액세스 및 ID
-description: Azure Active Directory 통합, Kubernetes RBAC(역할 기반 액세스 제어), 역할 및 바인딩을 포함하여 AKS(Azure Kubernetes Service)의 액세스 및 ID에 대해 알아봅니다.
+description: Azure Active Directory 통합, Kubernetes Kubernetes RBAC (역할 기반 액세스 제어) 및 역할 및 바인딩을 포함 하 여 AKS (Azure Kubernetes Service)의 액세스 및 id에 대해 알아봅니다.
 services: container-service
 ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 5013f8b7dd88340e397fd3d4d4cd93d4b911fbbb
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: ca167a2ae313c29581d40fe921a8742b9b6b61fe
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378230"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686058"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
 
-여러 가지 방법으로 인증 하 고, 액세스/권한 부여 하 고, Kubernetes 클러스터를 보호할 수 있습니다. Kubernetes RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 및 서비스 계정에 필요한 리소스에만 액세스 권한을 부여할 수 있습니다. AKS (Azure Kubernetes Service)를 사용 하 여 Azure Active Directory 및 Azure RBAC를 사용 하 여 보안 및 사용 권한 구조를 추가로 향상 시킬 수 있습니다. 이러한 접근 방식은 클러스터 액세스를 보호 하 고 개발자 및 운영자에 게 필요한 최소 권한만 제공 하는 데 도움이 됩니다.
+여러 가지 방법으로 인증 하 고, 액세스/권한 부여 하 고, Kubernetes 클러스터를 보호할 수 있습니다. Kubernetes Kubernetes RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 및 서비스 계정에 필요한 리소스에만 액세스 권한을 부여할 수 있습니다. AKS (Azure Kubernetes Service)를 사용 하 여 Azure Active Directory 및 Azure RBAC를 사용 하 여 보안 및 사용 권한 구조를 추가로 향상 시킬 수 있습니다. 이러한 접근 방식은 클러스터 액세스를 보호 하 고 개발자 및 운영자에 게 필요한 최소 권한만 제공 하는 데 도움이 됩니다.
 
 이 문서에서는 AKS에서 권한을 인증하고 할당하는 데 도움이 되는 핵심 개념을 소개합니다.
 
-- [Kubernetes RBAC (역할 기반 액세스 제어)](#kubernetes-role-based-access-control-rbac)
+- [Kubernetes Kubernetes RBAC (역할 기반 액세스 제어)](#kubernetes-role-based-access-control-kubernetes-rbac)
   - [Roles 및 ClusterRoles](#roles-and-clusterroles)
   - [RoleBindings 및 ClusterRoleBindings](#rolebindings-and-clusterrolebindings) 
   - [Kubernetes 서비스 계정](#kubernetes-service-accounts)
@@ -29,11 +29,11 @@ ms.locfileid: "93378230"
   - [Kubernetes 권한 부여에 대 한 Azure RBAC (미리 보기)](#azure-rbac-for-kubernetes-authorization-preview)
 
 
-## <a name="kubernetes-role-based-access-control-rbac"></a>Kubernetes RBAC (역할 기반 액세스 제어)
+## <a name="kubernetes-role-based-access-control-kubernetes-rbac"></a>Kubernetes Kubernetes RBAC (역할 기반 액세스 제어)
 
-사용자가 수행할 수 있는 작업에 대 한 세부적인 필터링을 제공 하기 위해 Kubernetes는 RBAC (역할 기반 액세스 제어)를 사용 합니다. 이 제어 메커니즘을 통해 리소스 만들기 또는 수정, 실행 중인 애플리케이션 워크로드에서 로그 보기 등의 작업을 수행할 수 있는 권한을 사용자 또는 사용자 그룹에 할당할 수 있습니다. 이러한 권한은 단일 네임스페이스로 범위가 지정되거나 전체 AKS 클러스터에서 부여할 수 있습니다. Kubernetes RBAC를 사용하여 권한을 정의하는 *역할* 을 만든 다음, *역할 바인딩* 을 통해 해당 역할을 사용자에게 할당합니다.
+사용자가 수행할 수 있는 작업에 대 한 세부적인 필터링을 제공 하기 위해 Kubernetes는 Kubernetes (역할 기반 access control)를 사용 합니다. 이 제어 메커니즘을 통해 리소스 만들기 또는 수정, 실행 중인 애플리케이션 워크로드에서 로그 보기 등의 작업을 수행할 수 있는 권한을 사용자 또는 사용자 그룹에 할당할 수 있습니다. 이러한 권한은 단일 네임스페이스로 범위가 지정되거나 전체 AKS 클러스터에서 부여할 수 있습니다. Kubernetes RBAC를 사용하여 권한을 정의하는 *역할* 을 만든 다음, *역할 바인딩* 을 통해 해당 역할을 사용자에게 할당합니다.
 
-자세한 내용은 [RBAC 권한 부여 사용][kubernetes-rbac]을 참조하세요.
+자세한 내용은 [KUBERNETES RBAC 권한 부여 사용][kubernetes-rbac]을 참조 하세요.
 
 
 ### <a name="roles-and-clusterroles"></a>Roles 및 ClusterRoles
@@ -46,7 +46,7 @@ ClusterRole은 리소스에 권한을 부여하는 것과 동일한 방식으로
 
 ### <a name="rolebindings-and-clusterrolebindings"></a>RoleBindings 및 ClusterRoleBindings
 
-리소스에 권한을 부여하는 역할이 정의되면 *RoleBinding* 을 사용하여 해당 Kubernetes RBAC 권한을 할당합니다. AKS 클러스터가 [Azure Active Directory와 통합](#azure-active-directory-integration)되는 경우 바인딩은 이러한 Azure AD 사용자에 게 클러스터 내에서 작업을 수행할 수 있는 권한을 부여 하는 방법입니다. [역할 기반 액세스 제어 및 Azure Active Directory id를 사용 하 여 클러스터 리소스에 대 한 액세스를 제어](azure-ad-rbac.md)하는 방법을 참조 하세요.
+리소스에 권한을 부여하는 역할이 정의되면 *RoleBinding* 을 사용하여 해당 Kubernetes RBAC 권한을 할당합니다. AKS 클러스터가 [Azure Active Directory와 통합](#azure-active-directory-integration)되는 경우 바인딩은 이러한 Azure AD 사용자에 게 클러스터 내에서 작업을 수행할 수 있는 권한을 부여 하는 방법입니다. [Kubernetes 역할 기반 액세스 제어 및 Azure Active Directory id를 사용 하 여 클러스터 리소스에 대 한 액세스 제어](azure-ad-rbac.md)방법을 참조 하세요.
 
 역할 바인딩은 지정된 네임스페이스에 대한 역할을 할당하는 데 사용됩니다. 이 방법을 사용하면 사용자가 할당된 네임스페이스의 애플리케이션 리소스에만 액세스할 수 있는 단일 AKS 클러스터를 논리적으로 구분할 수 있습니다. 전체 클러스터 또는 네임스페이스 외부의 리소스에 역할을 바인딩해야 하는 경우 *ClusterRoleBindings* 를 대신 사용할 수 있습니다.
 
@@ -107,7 +107,7 @@ Azure RBAC를 사용하여 적용할 권한을 설명하는 *역할 정의* 를 
 
 AKS 클러스터를 완벽 하 게 운영 하는 데 필요한 액세스 수준에는 다음 두 가지가 있습니다. 
 1. [Azure 구독에서 AKS 리소스에 액세스](#azure-rbac-to-authorize-access-to-the-aks-resource)합니다. 이 프로세스를 통해 AKS Api를 사용 하 여 클러스터를 확장 하거나 업그레이드 하는 작업을 제어 하 고 kubeconfig를 끌어올 수 있습니다.
-2. Kubernetes API에 대 한 액세스. 이 액세스는 [KUBERNETES RBAC](#kubernetes-role-based-access-control-rbac) (일반적으로) 또는 [Kubernetes 권한 부여를 위해 AKS와 Azure RBAC를 통합](#azure-rbac-for-kubernetes-authorization-preview) 하 여 제어 됩니다.
+2. Kubernetes API에 대 한 액세스. 이 액세스는 [KUBERNETES RBAC](#kubernetes-role-based-access-control-kubernetes-rbac) (일반적으로) 또는 [Kubernetes 권한 부여를 위해 AKS와 Azure RBAC를 통합](#azure-rbac-for-kubernetes-authorization-preview) 하 여 제어 됩니다.
 
 ### <a name="azure-rbac-to-authorize-access-to-the-aks-resource"></a>Azure RBAC를 사용 하 여 AKS 리소스에 대 한 액세스 권한 부여
 
@@ -136,7 +136,7 @@ Azure RBAC 통합을 사용 하면 AKS는 Kubernetes 권한 부여 webhook 서�
 
 AKS는 다음과 같은 네 가지 기본 제공 역할을 제공 합니다. [Kubernetes 기본 제공 역할과](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) 비슷하지만 crds 지원과 같은 몇 가지 차이점이 있습니다. 각 기본 제공 역할에서 허용 하는 작업의 전체 목록을 보려면 [여기](../role-based-access-control/built-in-roles.md)를 참조 하세요.
 
-| 역할                                | Description  |
+| 역할                                | 설명  |
 |-------------------------------------|--------------|
 | Azure Kubernetes 서비스 RBAC 뷰어  | 읽기 전용 액세스를 허용 하 여 네임 스페이스의 대부분의 개체를 표시 합니다. 역할 또는 역할 바인딩을 볼 수 없습니다. 암호의 내용을 읽으면 네임 스페이스의 자격 증명에 액세스할 수 있으므로이 역할은 보기를 허용 하지 않습니다 .이 `Secrets` `ServiceAccount` 는 네임 스페이스에서 API 액세스를 허용 합니다 `ServiceAccount` (권한 상승 형태).  |
 | Azure Kubernetes 서비스 RBAC 기록기 | 네임 스페이스의 대부분의 개체에 대 한 읽기/쓰기 액세스를 허용 합니다. 이 역할은 역할이 나 역할 바인딩을 보거나 수정할 수 없습니다. 그러나이 역할을 사용 하 여 `Secrets` 네임 스페이스의 ServiceAccount로 pod를 액세스 하 고 실행할 수 있으므로 네임 스페이스에 있는 모든 ServiceAccount의 API 액세스 수준을 얻는 데 사용할 수 있습니다. |

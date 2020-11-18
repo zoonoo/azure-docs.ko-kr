@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 09/29/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a36e15a56a5a4c8a637120ca730ae1da764d376d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: a543f03cb73d9eae8eaa81eeb3a37fd59e4e6a81
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422904"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685803"
 ---
 # <a name="common-error-codes-for-azure-key-vault"></a>Azure Key Vault에 대 한 일반적인 오류 코드
 
@@ -30,6 +30,7 @@ ms.locfileid: "93422904"
 | 지역 Notsupported |  지정 된 azure 지역은이 리소스에 대해 지원 되지 않습니다. |
 | 지원 되지 않음 |  지정 된 SKU 형식이이 리소스에 대해 지원 되지 않습니다. |
 | ResourceNotFound |  지정 된 azure 리소스를 찾을 수 없습니다. |
+| ResourceGroupNotFound | 지정 된 azure 리소스 그룹을 찾을 수 없습니다. |
 | 인증서가 만료 됨 |  인증서의 만료 날짜 및 유효 기간을 확인 하십시오. |
 
 

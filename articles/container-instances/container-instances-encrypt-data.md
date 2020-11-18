@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: d2cad98267ef1654c4f2d9ad2db75f769dbc0780
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b73ce5c994231a1c7b2f26ad702f2ad5880ba44
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091358"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686279"
 ---
 # <a name="encrypt-deployment-data"></a>배포 데이터 암호화
 
@@ -28,7 +28,7 @@ Microsoft 관리 키를 사용 하 여 컨테이너 데이터의 암호화를 �
 |----|----|----|
 |    **암호화/암호 해독 작업**    |    Azure    |    Azure    |
 |    **키 스토리지**    |    Microsoft 키 저장소    |    Azure Key Vault    |
-|    **키 회전 책임**    |    Microsoft    |    Customer    |
+|    **키 회전 책임**    |    Microsoft    |    고객    |
 |    **키 액세스**    |    Microsoft 전용    |    Microsoft, 고객    |
 
 문서의 나머지 부분에서는 사용자의 키 (고객 관리 키)를 사용 하 여 ACI 배포 데이터를 암호화 하는 데 필요한 단계에 대해 설명 합니다. 
@@ -59,7 +59,7 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 
 ### <a name="create-a-key-vault-resource"></a>Key Vault 리소스 만들기
 
-[Azure Portal](../key-vault/secrets/quick-create-portal.md#create-a-vault), [CLI](../key-vault/secrets/quick-create-cli.md)또는 [PowerShell](../key-vault/secrets/quick-create-powershell.md)을 사용 하 여 Azure Key Vault를 만듭니다. 
+[Azure Portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault/general/quick-create-cli.md)또는 [Azure PowerShell](../key-vault/general/quick-create-powershell.md)를 사용 하 여 Azure Key Vault를 만듭니다.
 
 키 자격 증명 모음의 속성에 대해 다음 지침을 사용 합니다. 
 * Name: 고유 이름은 필수입니다. 

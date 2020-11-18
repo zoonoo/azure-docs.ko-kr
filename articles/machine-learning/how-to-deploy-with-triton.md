@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3a7d750caed297dfa364e2f1ef176ee19ad35480
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: eed1a3d403a6012e2010a6b9a47a60f815044565
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654209"
+ms.locfileid: "94685905"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Triton 유추 서버를 사용 하는 고성능 서비스 (미리 보기) 
 
@@ -50,6 +50,17 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 * 유추 요청은 __점수 매기기 URI__ 를 사용 합니다. 예: `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Triton이 아닌 일반 배포 아키텍처 다이어그램":::
+
+### <a name="setting-the-number-of-workers"></a>작업자 수 설정
+
+배포의 작업자 수를 설정 하려면 환경 변수를 설정 `WORKER_COUNT` 합니다. 라는 [환경](https://docs.microsoft.compython/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) 개체가 있는 경우 다음을 `env` 수행할 수 있습니다.
+
+```{py}
+env.environment_variables["WORKER_COUNT"] = "1"
+```
+
+그러면 지정 하는 작업자 수를 실행 하는 Azure ML에 지시할 수 있습니다.
+
 
 **Triton를 사용한 유추 구성 배포**
 

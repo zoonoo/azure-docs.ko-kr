@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: 2ffa5d65675b8fe6eeecbcc71c49d7aa8ebb7eaf
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a48a13fa18025254ee31344868d10181ae87c65e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657774"
+ms.locfileid: "94685480"
 ---
 # <a name="azure-built-in-roles"></a>Azure 기본 제공 역할
 
@@ -7760,8 +7760,7 @@ Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스
 > | [OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/sharedKeys/action | 작업 영역에 대한 공유 키를 검색합니다. 이러한 키는 Microsoft Operational Insights 에이전트를 작업 영역에 연결하는 데 사용됩니다. |
 > | [OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/storageinsightconfigs/* | 로그 분석 스토리지 인사이트 구성을 읽고 쓰고 삭제합니다. |
 > | [Microsoft 지원](resource-provider-operations.md#microsoftsupport)/* | 지원 티켓을 만들거나 업데이트합니다. |
-> | [WorkloadMonitor](resource-provider-operations.md#microsoftworkloadmonitor)/monitors/* |  |
-> | [WorkloadMonitor](resource-provider-operations.md#microsoftworkloadmonitor)/Notificationsettings/* |  |
+> | [WorkloadMonitor](resource-provider-operations.md#microsoftworkloadmonitor)/monitors/* | 게스트 VM 상태 모니터에 대 한 정보를 가져옵니다.  |
 > | [AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartDetectorAlertRules/* |  |
 > | [AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/actionrules/* |  |
 > | [AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/Smartgroups//* |  |
@@ -7812,7 +7811,6 @@ Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스
         "Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*",
         "Microsoft.Support/*",
         "Microsoft.WorkloadMonitor/monitors/*",
-        "Microsoft.WorkloadMonitor/notificationSettings/*",
         "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
         "Microsoft.AlertsManagement/actionRules/*",
         "Microsoft.AlertsManagement/smartGroups/*"

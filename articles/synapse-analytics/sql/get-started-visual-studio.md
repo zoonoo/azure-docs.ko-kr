@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 098256c3174f5a737bec4f6a62cb1d2af99e6f4f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a284e453a621860c0aebf68bef13d30e77971f88
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311068"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686160"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용하여 Synapse SQL에 연결
 
@@ -52,9 +52,9 @@ Visual Studio를 사용 하 여 Azure Synapse Analytics를 사용 하 여 전용
    
     ![서버에 연결](./media/get-started-visual-studio/connection-dialog.png)
    
-   * **서버 이름** : 이전에 식별한 **서버 이름** 을 입력합니다.
-   * **인증** : **SQL Server 인증** 또는 **Active Directory 통합 인증** 을 선택합니다.
-   * **사용자 이름** 및 **암호** : 위에서 SQL Server 인증을 선택한 경우 사용자 이름 및 암호를 입력합니다.
+   * **서버 이름**: 이전에 식별한 **서버 이름** 을 입력합니다.
+   * **인증**: **SQL Server 인증** 또는 **Active Directory 통합 인증** 을 선택합니다.
+   * **사용자 이름** 및 **암호**: 위에서 SQL Server 인증을 선택한 경우 사용자 이름 및 암호를 입력합니다.
    * **연결** 을 클릭합니다.
 5. 탐색하려면 SQL Azure Server를 확장합니다. 서버와 연결된 데이터베이스를 볼 수 있습니다. AdventureWorksDW를 확장하여 샘플 데이터베이스의 테이블을 확인합니다.
    

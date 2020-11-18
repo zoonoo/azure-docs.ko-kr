@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 13825422358fdddf6742353fbabaac0303b0c82e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d22ff5c863617a3feb2a08d4b1889d0a7c10cd3a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973447"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693402"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>자습서: 푸시 API를 사용하여 인덱싱 최적화
 
-Azure Cognitive Search는 데이터를 검색 인덱스로 가져오기 위한 [두 가지 기본 방법](search-what-is-data-import.md)을 지원합니다. 즉, 프로그래밍 방식으로 데이터를 인덱스로 *푸시*하거나 지원되는 데이터 원본에서 [Azure Cognitive Search 인덱서](search-indexer-overview.md)를 가리켜서 데이터를 *풀*합니다.
+Azure Cognitive Search는 데이터를 검색 인덱스로 가져오기 위한 [두 가지 기본 방법](search-what-is-data-import.md)을 지원합니다. 즉, 프로그래밍 방식으로 데이터를 인덱스로 *푸시* 하거나 지원되는 데이터 원본에서 [Azure Cognitive Search 인덱서](search-indexer-overview.md)를 가리켜서 데이터를 *풀* 합니다.
 
 이 자습서에서는 요청을 일괄 처리하고 지수 백오프 다시 시도 전략을 사용하여 [푸시 모델](search-what-is-data-import.md#pushing-data-to-an-index)을 통해 데이터를 효율적으로 인덱싱하는 방법에 대해 설명합니다. [샘플 애플리케이션을 다운로드하여 실행](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing)할 수 있습니다. 이 문서에서는 애플리케이션의 주요 측면과 데이터를 인덱싱할 때 고려해야 하는 요소에 대해 설명합니다.
 
@@ -71,14 +71,14 @@ API 호출에는 서비스 URL과 액세스 키가 필요합니다. 검색 서�
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
-1. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
+1. **설정** > **키** 에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-   ![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-postman/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
+   ![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-rest/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
 
 ## <a name="2---set-up-your-environment"></a>2 - 환경 설정
 
-1. Visual Studio를 시작하고 **OptimizeDataIndexing.sln**을 엽니다.
-1. 솔루션 탐색기에서 **appsettings.json**을 열고 연결 정보를 제공합니다.
+1. Visual Studio를 시작하고 **OptimizeDataIndexing.sln** 을 엽니다.
+1. 솔루션 탐색기에서 **appsettings.json** 을 열고 연결 정보를 제공합니다.
 
 ```json
 {
@@ -90,7 +90,7 @@ API 호출에는 서비스 URL과 액세스 키가 필요합니다. 검색 서�
 
 ## <a name="3---explore-the-code"></a>3 - 코드 살펴보기
 
-*appsettings.json*이 업데이트되면 **OptimizeDataIndexing.sln**의 샘플 프로그램을 빌드하고 실행할 준비가 됩니다.
+*appsettings.json* 이 업데이트되면 **OptimizeDataIndexing.sln** 의 샘플 프로그램을 빌드하고 실행할 준비가 됩니다.
 
 이 코드는 [C# 빠른 시작](search-get-started-dotnet.md)에서 파생되었습니다. .NET SDK 작업의 기본 사항에 대한 자세한 정보는 해당 문서에서 확인할 수 있습니다.
 
@@ -162,7 +162,7 @@ List<Hotel> hotels = dg.GetHotels(numDocuments, "large");
 Azure Cognitive Search는 단일 또는 여러 문서를 인덱스에 로드하기 위해 다음 API를 지원합니다.
 
 + [문서 추가, 업데이트 또는 삭제(REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [IndexDocumentsAction 클래스](/dotnet/api/azure.search.documents.models.indexdocumentsaction?view=azure-dotnet) 또는 [IndexDocumentsBatch 클래스](/dotnet/api/azure.search.documents.models.indexdocumentsbatch?view=azure-dotnet)
++ [IndexDocumentsAction 클래스](/dotnet/api/azure.search.documents.models.indexdocumentsaction) 또는 [IndexDocumentsBatch 클래스](/dotnet/api/azure.search.documents.models.indexdocumentsbatch)
 
 문서를 일괄 처리 방식으로 인덱싱하면 인덱싱 성능이 크게 향상됩니다. 이러한 일괄 처리는 최대 1,000개의 문서 또는 일괄 처리당 최대 16MB까지 가능합니다.
 
@@ -394,7 +394,7 @@ Azure Portal에서 검색 서비스 **개요** 페이지를 열고, **인덱스*
 
   ![Azure Cognitive Search 인덱스 목록](media/tutorial-optimize-data-indexing/portal-output.png "Azure Cognitive Search 인덱스 목록")
 
-*문서 수* 및 *스토리지 크기*는 [인덱스 통계 가져오기 API](/rest/api/searchservice/get-index-statistics)를 기반으로 하며 업데이트하는 데 몇 분 정도 걸릴 수 있습니다.
+*문서 수* 및 *스토리지 크기* 는 [인덱스 통계 가져오기 API](/rest/api/searchservice/get-index-statistics)를 기반으로 하며 업데이트하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="reset-and-rerun"></a>다시 설정하고 다시 실행
 

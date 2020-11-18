@@ -5,16 +5,19 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/23/2020
-ms.openlocfilehash: be469ab3b05c54ebc5afa6bd6d129efd8d4ba692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.openlocfilehash: f582f0dc7547a607351fcfc4ff9d39e8c5a077df
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254808"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686180"
 ---
 # <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>VM용 Azure Monitor에서 경고를 만드는 방법
 [Azure Monitor의 경고](../platform/alerts-overview.md) 는 모니터링 데이터에서 관심 있는 데이터 및 패턴을 사전에 알려 줍니다. VM용 Azure Monitor는 미리 구성 된 경고 규칙을 포함 하지 않지만 수집 된 데이터를 기반으로 직접 만들 수 있습니다. 이 문서에서는 샘플 쿼리 집합을 포함 하 여 경고 규칙을 만드는 방법에 대 한 지침을 제공 합니다.
+
+> [!IMPORTANT]
+> 이 문서에서 설명 하는 경고는 VM용 Azure Monitor 수집 된 데이터의 로그 쿼리를 기반으로 합니다. 이 경고는 현재 공개 미리 보기로 제공 되는 기능인 [VM 게스트 상태에 대해 Azure Monitor](vminsights-health-overview.md) 에서 만든 경고와 다릅니다. 이 기능이 일반 공급 되 면 경고에 대 한 지침이 통합 됩니다.
 
 
 ## <a name="alert-rule-types"></a>경고 규칙 유형
@@ -29,11 +32,11 @@ Azure Monitor에서 로그 경고에는 두 가지 유형이 있습니다.
 ## <a name="alert-rule-walkthrough"></a>경고 규칙 연습
 이 섹션에서는 VM용 Azure Monitor의 성능 데이터를 사용 하 여 메트릭 측정 경고 규칙을 만드는 과정을 안내 합니다. 다양 한 성능 카운터에 대 한 경고를 위해 다양 한 로그 쿼리에서이 기본 프로세스를 사용할 수 있습니다.
 
-먼저 [Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리](../platform/alerts-log.md)의 절차에 따라 새 경고 규칙을 만듭니다. **리소스**의 경우 구독에서 Azure Monitor vm이 사용 하는 Log Analytics 작업 영역을 선택 합니다. 로그 경고 규칙에 대 한 대상 리소스는 항상 Log Analytics 작업 영역 이므로 로그 쿼리는 특정 가상 머신 또는 가상 머신 확장 집합에 대 한 필터를 포함 해야 합니다. 
+먼저 [Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리](../platform/alerts-log.md)의 절차에 따라 새 경고 규칙을 만듭니다. **리소스** 의 경우 구독에서 Azure Monitor vm이 사용 하는 Log Analytics 작업 영역을 선택 합니다. 로그 경고 규칙에 대 한 대상 리소스는 항상 Log Analytics 작업 영역 이므로 로그 쿼리는 특정 가상 머신 또는 가상 머신 확장 집합에 대 한 필터를 포함 해야 합니다. 
 
-경고 규칙의 **조건** 에 대해 [아래 섹션](#sample-alert-queries) 의 쿼리 중 하나를 **검색 쿼리로**사용 합니다. 이 쿼리는 *AggregatedValue*라는 숫자 속성을 반환 해야 합니다. 임계값을 초과 하는 각 가상 컴퓨터에 대해 별도의 경고를 만들 수 있도록 컴퓨터 별로 데이터를 요약 해야 합니다.
+경고 규칙의 **조건** 에 대해 [아래 섹션](#sample-alert-queries) 의 쿼리 중 하나를 **검색 쿼리로** 사용 합니다. 이 쿼리는 *AggregatedValue* 라는 숫자 속성을 반환 해야 합니다. 임계값을 초과 하는 각 가상 컴퓨터에 대해 별도의 경고를 만들 수 있도록 컴퓨터 별로 데이터를 요약 해야 합니다.
 
-**경고 논리**에서 **메트릭 측정** 을 선택 하 고 **임계값**을 입력 합니다. **경고에 기반**하 여 경고를 생성 하기 전에 임계값을 초과 해야 하는 횟수를 지정 합니다. 예를 들어 프로세서가 임계값을 한 번 초과 하 고 정상으로 반환 하는 경우에는 문제가 되지 않을 수 있지만 연속 하는 여러 측정에서 임계값을 초과 하는 경우 주의 해야 합니다.
+**경고 논리** 에서 **메트릭 측정** 을 선택 하 고 **임계값** 을 입력 합니다. **경고에 기반** 하 여 경고를 생성 하기 전에 임계값을 초과 해야 하는 횟수를 지정 합니다. 예를 들어 프로세서가 임계값을 한 번 초과 하 고 정상으로 반환 하는 경우에는 문제가 되지 않을 수 있지만 연속 하는 여러 측정에서 임계값을 초과 하는 경우 주의 해야 합니다.
 
 **계산 된 기반** 섹션에서는 쿼리를 실행 하는 빈도와 쿼리의 시간 창을 정의 합니다. 아래에 표시 된 예제에서 쿼리는 15 분 마다 실행 되 고 이전 15 분 동안 수집 된 성능 값을 평가 합니다.
 

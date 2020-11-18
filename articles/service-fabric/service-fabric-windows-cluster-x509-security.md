@@ -3,12 +3,12 @@ title: 인증서를 사용하여 Windows에서 클러스터 보호
 description: 클라이언트와 클러스터 간 통신 보호 및 Azure Service Fabric 독립 실행형 클러스터 또는 온-프레미스 클러스터 내 통신 보호에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 10/15/2017
-ms.openlocfilehash: 18af6fd79e03cd67e77ed4d0d4b3b6291f90301d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34ba457ce0f39705393962d5c5ec8fa11668f413
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841291"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686126"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호
 이 문서에서는 독립 실행형 Windows 클러스터의 다양한 노드 간 통신을 보호하는 방법에 대해 설명합니다. 또한 X.509 인증서를 사용하여 이 클러스터에 연결하는 클라이언트를 인증하는 방법에 대해서도 설명합니다. 인증을 통해 권한 있는 사용자만 클러스터 및 배포된 애플리케이션에 액세스하고 관리 작업을 수행할 수 있습니다. 인증서 보안은 클러스터가 만들어지기 전에 클러스터에서 사용되어야 합니다.  
@@ -104,7 +104,7 @@ ms.locfileid: "91841291"
 },
 ```
 
-이 섹션에서는 독립 실행형 Windows 클러스터를 보호하는 데 필요한 인증서에 대해 설명합니다. 클러스터 인증서를 지정하는 경우 ClusterCredentialType 값을 _X509_로 설정합니다. 외부 연결에 대한 서버 인증서를 지정하는 경우 ServerCredentialType을 _X509_로 설정합니다. 필수는 아니지만 적절히 보호된 클러스터에 대해 이러한 두 인증서를 모두 사용하는 것이 좋습니다. 이러한 값을 *X509*로 설정하면 해당 인증서를 지정해야 합니다. 그러지 않으면 Service Fabric에서 예외를 throw합니다. 일부 시나리오에서는 _ClientCertificateThumbprints_ 또는 _ReverseProxyCertificate_만 지정할 수 있습니다. 이러한 시나리오에서는 _ClusterCredentialType_ 또는 _ServerCredentialType_을 _X509_로 설정할 필요가 없습니다.
+이 섹션에서는 독립 실행형 Windows 클러스터를 보호하는 데 필요한 인증서에 대해 설명합니다. 클러스터 인증서를 지정하는 경우 ClusterCredentialType 값을 _X509_ 로 설정합니다. 외부 연결에 대한 서버 인증서를 지정하는 경우 ServerCredentialType을 _X509_ 로 설정합니다. 필수는 아니지만 적절히 보호된 클러스터에 대해 이러한 두 인증서를 모두 사용하는 것이 좋습니다. 이러한 값을 *X509* 로 설정하면 해당 인증서를 지정해야 합니다. 그러지 않으면 Service Fabric에서 예외를 throw합니다. 일부 시나리오에서는 _ClientCertificateThumbprints_ 또는 _ReverseProxyCertificate_ 만 지정할 수 있습니다. 이러한 시나리오에서는 _ClusterCredentialType_ 또는 _ServerCredentialType_ 을 _X509_ 로 설정할 필요가 없습니다.
 
 
 > [!NOTE]
@@ -122,7 +122,7 @@ ms.locfileid: "91841291"
 | ServerCertificate |테스트 환경에 권장됩니다. 이 인증서가 클러스터에 연결하려고 시도할 때 클라이언트에 표시됩니다. 편의상 ClusterCertificate 및 ServerCertificate에 동일한 인증서를 사용하도록 선택할 수 있습니다. 업그레이드에는 별도의 두 서버 인증서, 기본 및 보조 인증서를 사용할 수 있습니다. 지문 섹션에서 기본 인증서의 지문 및 ThumbprintSecondary 변수에서 보조 인증서의 지문을 설정합니다. |
 | ServerCertificateCommonNames |프로덕션 환경에 권장됩니다. 이 인증서가 클러스터에 연결하려고 시도할 때 클라이언트에 표시됩니다. CertificateIssuerThumbprint는 이 인증서의 발급자 지문에 해당합니다. 동일한 일반 이름이 포함된 인증서가 둘 이상 사용되더라도 여러 발급자의 지문을 지정할 수 있습니다. 편의상 ClusterCertificateCommonNames 및 ServerCertificateCommonNames에 동일한 인증서를 사용하도록 선택할 수 있습니다. 하나 또는 두 개의 서버 인증서 일반 이름을 사용할 수 있습니다. |
 | ServerCertificateIssuerStores |프로덕션 환경에 권장됩니다. 이 인증서는 서버 인증서의 발급자에 해당합니다. ServerCertificateCommonNames에서 발급자 지문을 지정하는 대신 이 섹션에서 발급자 일반 이름 및 해당 저장소 이름을 제공할 수 있습니다.  따라서 서버 발급자 인증서를 쉽게 롤오버할 수 있습니다. 둘 이상의 서버 인증서를 사용하는 경우 여러 발급자를 지정할 수 있습니다. 빈 IssuerCommonName는 X509StoreNames 아래에 지정 된 해당 저장소에 있는 모든 인증서를 허용 합니다.|
-| ClientCertificateThumbprints |이 인증서 집합을 인증된 클라이언트에 설치합니다. 클러스터에 대한 액세스를 허용하려는 컴퓨터에 다양한 클라이언트 인증서가 설치되었을 수도 있습니다. CertificateThumbprint 변수에 각 인증서의 지문을 설정합니다. IsAdmin을 *true*로 설정하면 이 인증서가 설치된 클라이언트에서 클러스터에 대한 관리자 관리 작업을 수행할 수 있습니다. IsAdmin이 *false*이면 이 인증서가 있는 클라이언트에서 사용자 액세스 권한(일반적으로 읽기 전용)에 허용되는 작업만 수행할 수 있습니다. 역할에 대한 자세한 내용은 [RBAC(역할 기반 액세스 제어)](service-fabric-cluster-security.md#role-based-access-control-rbac)를 참조하세요. |
+| ClientCertificateThumbprints |이 인증서 집합을 인증된 클라이언트에 설치합니다. 클러스터에 대한 액세스를 허용하려는 컴퓨터에 다양한 클라이언트 인증서가 설치되었을 수도 있습니다. CertificateThumbprint 변수에 각 인증서의 지문을 설정합니다. IsAdmin을 *true* 로 설정하면 이 인증서가 설치된 클라이언트에서 클러스터에 대한 관리자 관리 작업을 수행할 수 있습니다. IsAdmin이 *false* 이면 이 인증서가 있는 클라이언트에서 사용자 액세스 권한(일반적으로 읽기 전용)에 허용되는 작업만 수행할 수 있습니다. 역할에 대 한 자세한 내용은 [역할 기반 액세스 제어 Service Fabric](service-fabric-cluster-security.md#service-fabric-role-based-access-control)를 참조 하세요. |
 | ClientCertificateCommonNames |CertificateCommonName에 대한 첫 번째 클라이언트 인증서의 일반 이름을 설정합니다. CertificateIssuerThumbprint는 이 인증서의 발급자 지문입니다. 일반 이름과 발급자에 대한 자세한 내용은 [인증서 작업](/dotnet/framework/wcf/feature-details/working-with-certificates)을 참조하세요. |
 | ClientCertificateIssuerStores |프로덕션 환경에 권장됩니다. 이 인증서는 클라이언트 인증서의 발급자에 해당합니다(관리자 및 비관리자 역할 둘 다). ClientCertificateCommonNames에서 발급자 지문을 지정하는 대신 이 섹션에서 발급자 일반 이름 및 해당 저장소 이름을 제공할 수 있습니다.  따라서 클라이언트 발급자 인증서를 쉽게 롤오버할 수 있습니다. 둘 이상의 클라이언트 인증서를 사용하는 경우 여러 발급자를 지정할 수 있습니다. 빈 IssuerCommonName는 X509StoreNames 아래에 지정 된 해당 저장소에 있는 모든 인증서를 허용 합니다.|
 | ReverseProxyCertificate |테스트 환경에 권장됩니다. 이 선택적 인증서는 [역방향 프록시](service-fabric-reverseproxy.md)를 보호하려는 경우에 지정할 수 있습니다. 이 인증서를 사용하는 경우 reverseProxyEndpointPort가 nodeTypes로 설정되어 있는지 확인합니다. |
@@ -250,9 +250,9 @@ ms.locfileid: "91841291"
 
 인증서가 제대로 작동하기 위해 다음과 같은 여러 속성이 필요합니다.
 
-* 인증서의 공급자는 **Microsoft Enhanced RSA and AES Cryptographic Provider**여야 합니다.
+* 인증서의 공급자는 **Microsoft Enhanced RSA and AES Cryptographic Provider** 여야 합니다.
 
-* RSA 키를 만들 때 키가 **2048비트**인지 확인합니다.
+* RSA 키를 만들 때 키가 **2048비트** 인지 확인합니다.
 
 * 키 사용 확장 값이 **디지털 서명, 키 암호화(a0)** 입니다.
 
@@ -266,7 +266,7 @@ ms.locfileid: "91841291"
 올바르게 보호할 수 있는 자체 서명된 인증서를 만드는 한 가지 방법은 C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure 디렉터리의 Service Fabric SDK 폴더에 있는 CertSetup.ps1 스크립트를 사용하는 것입니다. 이 파일을 편집하여 인증서의 기본 이름을 변경합니다. (CN=ServiceFabricDevClusterCert 값을 찾습니다.) 이 스크립트를 `.\CertSetup.ps1 -Install`로 실행합니다.
 
 이제 보호된 암호로 .pfx 파일에 인증서를 내보냅니다. 먼저 인증서의 지문을 가져옵니다. 
-1. **시작** 메뉴에서 **컴퓨터 인증서 관리**를 실행합니다. 
+1. **시작** 메뉴에서 **컴퓨터 인증서 관리** 를 실행합니다. 
 
 2. **로컬 컴퓨터/개인** 폴더로 이동하고 만든 인증서를 찾습니다. 
 
@@ -295,14 +295,14 @@ ms.locfileid: "91841291"
 
 1. .pfx 파일을 노드에 복사합니다.
 
-2. 관리자 권한으로 PowerShell 창을 열고 다음 명령을 입력합니다. *$pswd*를 이 인증서를 만드는 데 사용한 암호로 바꿉니다. *$PfxFilePath*를 이 노드에 복사된 .pfx의 전체 경로로 바꿉니다.
+2. 관리자 권한으로 PowerShell 창을 열고 다음 명령을 입력합니다. *$pswd* 를 이 인증서를 만드는 데 사용한 암호로 바꿉니다. *$PfxFilePath* 를 이 노드에 복사된 .pfx의 전체 경로로 바꿉니다.
    
     ```powershell
     $pswd = "1234"
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
-3. 이제 네트워크 서비스 계정에서 실행되는 Service Fabric 프로세스가 다음 스크립트를 실행하여 사용할 수 있도록 이 인증서에 액세스 제어를 설정해야 합니다. 서비스 계정에 인증서의 지문 및 **네트워크 서비스**를 제공합니다. **시작** > **컴퓨터 인증서 관리**에서 인증서를 열고 **모든 작업** > **프라이빗 키 관리**를 보고 인증서의 ACL이 올바른지 확인할 수 있습니다.
+3. 이제 네트워크 서비스 계정에서 실행되는 Service Fabric 프로세스가 다음 스크립트를 실행하여 사용할 수 있도록 이 인증서에 액세스 제어를 설정해야 합니다. 서비스 계정에 인증서의 지문 및 **네트워크 서비스** 를 제공합니다. **시작** > **컴퓨터 인증서 관리** 에서 인증서를 열고 **모든 작업** > **프라이빗 키 관리** 를 보고 인증서의 ACL이 올바른지 확인할 수 있습니다.
    
     ```powershell
     param
@@ -365,6 +365,6 @@ Connect-ServiceFabricCluster $ConnectArgs
 ```
 
 > [!NOTE]
-> 인증서 구성이 올바르지 않으면 배포 중에 클러스터가 시작되지 않을 수 있습니다. 보안 문제를 자체적으로 진단하려면 **애플리케이션 및 서비스 로그** > **Microsoft-Service Fabric**에서 이벤트 뷰어 그룹을 찾아보세요.
+> 인증서 구성이 올바르지 않으면 배포 중에 클러스터가 시작되지 않을 수 있습니다. 보안 문제를 자체적으로 진단하려면 **애플리케이션 및 서비스 로그** > **Microsoft-Service Fabric** 에서 이벤트 뷰어 그룹을 찾아보세요.
 > 
 > 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 785a63d695f7c615ce21fa5714b76988b5e281c4
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 59c489fac8bf02263cc51833675af414d5de6a52
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629379"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686007"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure 파일 동기화 모니터링
 
@@ -42,10 +42,10 @@ Azure 파일 동기화의 메트릭은 기본적으로 사용하도록 설정되
 
 Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다음과 같습니다.
 
-| 메트릭 이름 | Description |
+| 메트릭 이름 | 설명 |
 |-|-|
 | 동기화되는 바이트 수 | 전송되는 데이터 크기(업로드 및 다운로드)입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 끝점 이름, 동기화 방향, 동기화 그룹 이름 |
-| 클라우드 계층화 회수 | 회수되는 데이터의 크기입니다.<br><br>**참고** :이 메트릭은 나중에 제거 될 예정입니다. 클라우드 계층화 회수 크기 메트릭을 사용 하 여 회수 된 데이터의 크기를 모니터링 합니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 이름 |
+| 클라우드 계층화 회수 | 회수되는 데이터의 크기입니다.<br><br>**참고**:이 메트릭은 나중에 제거 될 예정입니다. 클라우드 계층화 회수 크기 메트릭을 사용 하 여 회수 된 데이터의 크기를 모니터링 합니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 이름 |
 | 클라우드 계층화 회수 크기 | 회수되는 데이터의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 이름, 동기화 그룹 이름 |
 | 애플리케이션별 클라우드 계층화 회수 크기 | 응용 프로그램에서 회수 한 데이터의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 응용 프로그램 이름, 서버 이름, 동기화 그룹 이름 |
 | 클라우드 계층화 회수 처리량 | 데이터 회수 처리량의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 이름, 동기화 그룹 이름 |
@@ -67,7 +67,7 @@ Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다�
     - **차원 이름**
     - **경고 논리**
 4. **작업 그룹 선택** 을 클릭 하 고 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 작업 그룹 (메일, SMS 등)을 추가 합니다.
-5. 경고 **규칙 이름** , **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
+5. 경고 **규칙 이름**, **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
 6. 경고 **규칙 만들기** 를 클릭 하 여 경고를 만듭니다.  
 
 다음 표에서는 모니터링할 몇 가지 예제 시나리오와 해당 경고에 사용할 적절 한 메트릭을 보여 줍니다.
@@ -118,7 +118,7 @@ Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다�
 
 - 저장소 동기화 서비스 포털에서 다음과 같은 메트릭 차트를 볼 수 있습니다.
 
-  | 메트릭 이름 | Description | 블레이드 이름 |
+  | 메트릭 이름 | 설명 | 블레이드 이름 |
   |-|-|-|
   | 동기화되는 바이트 수 | 전송되는 데이터 크기(업로드 및 다운로드) | 동기화 그룹, 서버 엔드포인트 |
   | 클라우드 계층화 회수 | 회수되는 데이터 크기 | 등록된 서버 |
@@ -141,14 +141,14 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
 
 상태 동기화
 
-- 동기화 시스템이 완료되면 이벤트 ID 9102가 기록됩니다. 이 이벤트를 사용 하 여 동기화 세션이 성공 하는지 여부 ( **HResult = 0** ) 및 항목당 동기화 오류가 있는지 확인 합니다 ( **PerItemErrorCount** ). 자세한 내용은 [동기화 상태](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) 및  [항목 별 오류](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) 설명서를 참조 하세요.
+- 동기화 시스템이 완료되면 이벤트 ID 9102가 기록됩니다. 이 이벤트를 사용 하 여 동기화 세션이 성공 하는지 여부 (**HResult = 0**) 및 항목당 동기화 오류가 있는지 확인 합니다 (**PerItemErrorCount**). 자세한 내용은 [동기화 상태](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) 및  [항목 별 오류](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) 설명서를 참조 하세요.
 
   > [!Note]  
   > 동기화 세션이 전반적으로 실패 하거나 0이 아닌 PerItemErrorCount을 포함 하는 경우도 있습니다. 그러나 계속 해 서 진행 하 고 일부 파일은 성공적으로 동기화 됩니다. AppliedFileCount, AppliedDirCount, AppliedTombstoneCount 및 AppliedSizeBytes와 같은 적용 된 필드에서이를 확인할 수 있습니다. 이러한 필드는 성공한 세션의 양을 알려줍니다. 한 행에서 여러 동기화 세션이 실패 하 고 적용 되는 개수가 늘어나면 동기화 시간을 제공 하 여 지원 티켓을 열기 전에 다시 시도 하세요.
 
-- 동기화 세션이 완료 되 면 각 항목당 오류에 대해 이벤트 ID 9121이 기록 됩니다. 이 이벤트를 사용 하 여이 오류와 동기화 되지 않는 파일 수를 확인 합니다 ( **PersistentCount** 및 **TransientCount** ). 영구적 항목 별 오류를 조사 해야 합니다. [동기화 되지 않는 특정 파일이 나 폴더가 있는지 어떻게 할까요? 참조](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)하십시오.
+- 동기화 세션이 완료 되 면 각 항목당 오류에 대해 이벤트 ID 9121이 기록 됩니다. 이 이벤트를 사용 하 여이 오류와 동기화 되지 않는 파일 수를 확인 합니다 (**PersistentCount** 및 **TransientCount**). 영구적 항목 별 오류를 조사 해야 합니다. [동기화 되지 않는 특정 파일이 나 폴더가 있는지 어떻게 할까요? 참조](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)하십시오.
 
-- 활성 동기화 세션이 있으면 5~10분마다 이벤트 ID 9302가 기록됩니다. 이 이벤트를 사용 하 여 동기화 할 항목의 수 ( **TotalItemCount** ), 지금까지 동기화 된 항목 수 ( **AppliedItemCount** ) 및 항목당 오류로 인해 동기화에 실패 한 항목 수 ( **PerItemErrorCount** )를 결정 합니다. 동기화가 진행 되 고 있지 않으면 ( **AppliedItemCount = 0** ) 동기화 세션이 실패 하 고 이벤트 ID 9102이 오류로 기록 됩니다. 자세한 내용은 [동기화 진행률 설명서](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)를 참조 하세요.
+- 활성 동기화 세션이 있으면 5~10분마다 이벤트 ID 9302가 기록됩니다. 이 이벤트를 사용 하 여 동기화 할 항목의 수 (**TotalItemCount**), 지금까지 동기화 된 항목 수 (**AppliedItemCount**) 및 항목당 오류로 인해 동기화에 실패 한 항목 수 (**PerItemErrorCount**)를 결정 합니다. 동기화가 진행 되 고 있지 않으면 (**AppliedItemCount = 0**) 동기화 세션이 실패 하 고 이벤트 ID 9102이 오류로 기록 됩니다. 자세한 내용은 [동기화 진행률 설명서](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)를 참조 하세요.
 
 등록 된 서버 상태
 
@@ -178,7 +178,7 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
 
 성능 모니터에서 사용 가능한 Azure 파일 동기화용 성능 카운터는 다음과 같습니다.
 
-| 성능 개체\카운터 이름 | Description |
+| 성능 개체\카운터 이름 | 설명 |
 |-|-|
 | AFS Bytes Transferred\Downloaded Bytes/sec | 초당 다운로드한 바이트 수입니다. |
 | AFS Bytes Transferred\Uploaded Bytes/sec | 초당 업로드한 바이트 수입니다. |
@@ -212,7 +212,7 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
     - 평가 기준: 집계 세분성 = **24 시간** | 평가 빈도 = **매시간** 
     - **완료를 클릭 합니다.** 
 8. **작업 그룹 선택** 을 클릭 하 여 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 작업 그룹 (전자 메일, SMS 등)을 추가 합니다.
-9. 경고 **규칙 이름** , **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
+9. 경고 **규칙 이름**, **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
 10. **경고 규칙 만들기** 를 클릭합니다. 
 
 ### <a name="how-to-create-an-alert-if-files-are-failing-to-sync-to-a-server-or-cloud-endpoint"></a>파일이 서버 또는 클라우드 끝점과 동기화 되지 않는 경우 경고를 만드는 방법
@@ -229,12 +229,12 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
 7. **경고 논리** 로 이동 하 고 다음을 완료 합니다. 
      - **정적** 으로 설정 되는 임계값 
      - 연산자: **보다 큼** 
-     - 집계 유형: **합계**  
+     - 집계 유형: **평균**  
      - 임계값: **100** 
      - 평가 기준: 집계 세분성 = **5 분** | 평가 빈도 = **5 분 마다** 
      - **완료를 클릭 합니다.** 
 8. **작업 그룹 선택** 을 클릭 하 여 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 작업 그룹 (전자 메일, SMS 등)을 추가 합니다.
-9. 경고 **규칙 이름** , **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
+9. 경고 **규칙 이름**, **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
 10. **경고 규칙 만들기** 를 클릭합니다. 
 
 ### <a name="how-to-create-an-alert-if-a-registered-server-is-failing-to-communicate-with-the-storage-sync-service"></a>등록 된 서버가 저장소 동기화 서비스와 통신 하지 못할 경우 경고를 만드는 방법
@@ -257,7 +257,7 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
         - 메트릭은 15 ~ 20 분 마다 Azure Monitor으로 전송 됩니다. **평가 빈도** 를 30 분 미만으로 설정 하지 마세요 (에서 거짓 경고 생성).
      - **완료를 클릭 합니다.** 
 8. **작업 그룹 선택** 을 클릭 하 여 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 작업 그룹 (전자 메일, SMS 등)을 추가 합니다.
-9. 경고 **규칙 이름** , **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
+9. 경고 **규칙 이름**, **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
 10. **경고 규칙 만들기** 를 클릭합니다. 
 
 ### <a name="how-to-create-an-alert-if-the-cloud-tiering-recall-size-has-exceeded-500gib-in-a-day"></a>클라우드 계층화 회수 크기가 하루 500GiB 초과 된 경우 경고를 만드는 방법
@@ -279,7 +279,7 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
      - 평가 기준: 집계 세분성 = **24 시간** | 평가 빈도 = **매시간** 
     - **완료를 클릭 합니다.** 
 8. **작업 그룹 선택** 을 클릭 하 여 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 작업 그룹 (전자 메일, SMS 등)을 추가 합니다.
-9. 경고 **규칙 이름** , **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
+9. 경고 **규칙 이름**, **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
 10. **경고 규칙 만들기** 를 클릭합니다. 
 
 ## <a name="next-steps"></a>다음 단계

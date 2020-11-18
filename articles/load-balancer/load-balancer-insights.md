@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 2168ee05ab93655cc0ad87221bff29c1b6b1035d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d57dfd0a496e71c1f0e6ddea839723da35bc5f76
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897594"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686245"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>정보를 사용 하 여 Azure Load Balancer 모니터링 및 구성
 
-[네트워크에 대 한 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/insights-overview#azure-monitor-for-networks-preview)를 통해 부하 분산 장치에 대 한 기능 종속성 시각화 및 미리 구성 된 메트릭 대시보드를 제공 합니다. 이러한 시각적 개체는 적절 한 디자인 결정을 하 고 오류를 신속 하 게 지역화, 진단 및 해결 하는 데 도움이 됩니다.
+네트워크에 대 한 Azure Monitor를 통해 부하 분산 장치에 대 한 기능 종속성 시각화 및 미리 구성 된 메트릭 대시보드를 제공 합니다. 이러한 시각적 개체는 적절 한 디자인 결정을 하 고 오류를 신속 하 게 지역화, 진단 및 해결 하는 데 도움이 됩니다.
 
 >[!NOTE] 
 >이 기능은 미리 보기 상태 이며, 기능 종속성 보기 및 미리 구성 된 대시보드가이 환경을 개선 하기 위해 변경 될 수 있습니다.

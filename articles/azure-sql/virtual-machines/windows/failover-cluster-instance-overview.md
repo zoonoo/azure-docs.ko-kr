@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 5845a3bdc4b86fbbe44c92779e5aae95044eb6b2
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d5bd2fc150ee1d35127eeb9dbf3dc1eeffdc9659
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556372"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685939"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +46,7 @@ Azure Virtual Machines의 SQL Server를 사용하는 장애 조치(failover) 클
 
 Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스턴스 배포를 위한 공유 스토리지 솔루션으로 다양한 옵션을 제공합니다. 
 
-||[Azure 공유 디스크](../../../virtual-machines/windows/disks-shared.md)|[프리미엄 파일 공유](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[S2D(스토리지 공간 다이렉트)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Azure 공유 디스크](../../../virtual-machines/disks-shared.md)|[프리미엄 파일 공유](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[S2D(스토리지 공간 다이렉트)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**최소 OS 버전**| 모두 |Windows Server 2012|Windows Server 2016|
 |**최소 SQL Server 버전**|모두|SQL Server 2012|SQL Server 2016|
@@ -58,7 +58,7 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 
 ### <a name="azure-shared-disks"></a>Azure 공유 디스크
 
-[Azure 공유 디스크](../../../virtual-machines/windows/disks-shared.md)는 [Azure 관리 디스크](../../../virtual-machines/managed-disks-overview.md)의 기능입니다. Windows Server 장애 조치(failover) 클러스터링은 장애 조치(failover) 클러스터 인스턴스에 Azure 공유 디스크를 사용하도록 지원합니다. 
+[Azure 공유 디스크](../../../virtual-machines/disks-shared.md)는 [Azure 관리 디스크](../../../virtual-machines/managed-disks-overview.md)의 기능입니다. Windows Server 장애 조치(failover) 클러스터링은 장애 조치(failover) 클러스터 인스턴스에 Azure 공유 디스크를 사용하도록 지원합니다. 
 
 **지원되는 OS**: 모두   
 **지원되는 SQL 버전**: 모두     

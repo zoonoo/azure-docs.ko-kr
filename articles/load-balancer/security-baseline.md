@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2786a45ef779b9c66edda4c765a1cf2140f1bf9f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37db72b2b5dadfba930ca003121140fd99c4736d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425282"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686075"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 Azure 보안 기준
 
@@ -30,7 +30,7 @@ Azure는 Standard 및 Basic 이라는 두 가지 유형의 Load Balancer 제공 
 
 프로덕션 워크 로드에는 표준 Load Balancer를 사용 하는 것이 좋으며, 일반적으로 기본 Load Balancer는 기본적으로 인터넷에서 연결에 대 한 기본 유형이 열려 있기 때문에 테스트에만 사용 되며 작업에 네트워크 보안 그룹이 필요 하지 않습니다. 
 
-- [Azure에서 아웃바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#outboundrule)
+- [Azure에서 아웃바운드 연결](load-balancer-outbound-connections.md)
 
 - [Azure Public Load Balancer 업그레이드](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard)
 
@@ -442,7 +442,7 @@ Azure의 고객 데이터를 안전 하 게 유지 하기 위해 Microsoft는 �
 
 테 넌 트에서 적절 한 (읽기) 권한을 확인 하 고 구독의 모든 Azure 구독 및 리소스를 열거 합니다.
 
-- [Azure 리소스 그래프 탐색기를 사용 하 여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
 - [Azure 구독을 보는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
@@ -496,7 +496,7 @@ Azure의 고객 데이터를 안전 하 게 유지 하기 위해 Microsoft는 �
 
 - [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-- [Azure 리소스 그래프 탐색기를 사용 하 여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -656,7 +656,7 @@ Security Center data connector를 활용 하 여 경고를 Azure 센티널로 �
 
 **지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다. 
 
-- [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+- [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
 - [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 

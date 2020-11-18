@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a21d2f0debb2ade8e46b0cdb5b3fa5b51f0a180c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a5d167ef06e8319004a1f33bead29485b22abc3d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323868"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685786"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Synapse SQL 내의 사용자 정의 스키마
 
@@ -50,7 +50,7 @@ ms.locfileid: "93323868"
 > 
 > 
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 데이터베이스 이름을 기반으로 사용자 정의 스키마를 구현 합니다.
 

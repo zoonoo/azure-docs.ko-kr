@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f06c5f2b2938505380ea668a7c4113015c852b1d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 7c5c536b95360c536998a5de87e9307918b15630
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913962"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685990"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Windows용 Key Vault 가상 머신 확장
 
@@ -27,7 +27,7 @@ Key Vault VM 확장은 다음 버전의 Windows를 지원 합니다.
 - Windows Server 2016
 - Windows Server 2012
 
-Key Vault VM 확장는 Windows Server 2019 core 설치를 사용 하 여 Azure에서 사용 하기 위해 업로드 하 고 특수 이미지로 변환 되는 사용자 지정 로컬 VM 에서도 지원 됩니다.
+Key Vault VM 확장은 Windows Server 2019 core 설치를 사용 하 여 Azure에서 사용 하기 위해 업로드 하 고 특수 이미지로 변환 되는 사용자 지정 로컬 VM 에서도 지원 됩니다.
 
 ### <a name="supported-certificate-content-types"></a>지원되는 인증서 콘텐츠 형식
 

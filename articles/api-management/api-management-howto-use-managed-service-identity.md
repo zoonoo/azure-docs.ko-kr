@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 11/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1a8238cf9ddae57d73438d43daa54294ce6860
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85558038"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686228"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Azure API Management에서 관리 되는 id 사용
 
@@ -34,8 +34,8 @@ ms.locfileid: "85558038"
 Azure Portal에서 관리 되는 id를 설정 하려면 먼저 API Management 인스턴스를 만든 후 기능을 사용 하도록 설정 합니다.
 
 1. 평소처럼 포털에서 API Management 인스턴스를 만듭니다. 포털에서 찾습니다.
-2. **관리 id**를 선택 합니다.
-3. **시스템 할당 됨** 탭에서 **상태** 를 **켜기**로 전환 합니다. **저장**을 선택합니다.
+2. **관리 id** 를 선택 합니다.
+3. **시스템 할당 됨** 탭에서 **상태** 를 **켜기** 로 전환 합니다. **저장** 을 선택합니다.
 
     :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="시스템 할당 관리 id 사용을 위한 선택 항목" border="true":::
 
@@ -123,12 +123,12 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
 > [!NOTE]
 > API Management 인스턴스에는 시스템 할당 id와 사용자 할당 id가 동시에 있을 수 있습니다. 이 경우 `type` 속성은 `SystemAssigned,UserAssigned` 입니다.
 
-### <a name="supported-scenarios"></a>지원되는 시나리오
+## <a name="supported-scenarios-using-system-assigned-identity"></a>시스템 할당 Id를 사용 하는 지원 되는 시나리오
 
-#### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Azure Key Vault에서 API Management 인스턴스에 대 한 사용자 지정 TLS/SSL 인증서를 가져옵니다.
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Azure Key Vault에서 API Management 인스턴스에 대 한 사용자 지정 TLS/SSL 인증서를 가져옵니다.
 API Management 인스턴스의 시스템 할당 id를 사용 하 여 Azure Key Vault에 저장 된 사용자 지정 TLS/SSL 인증서를 검색할 수 있습니다. 그런 다음 API Management 인스턴스의 사용자 지정 도메인에 이러한 인증서를 할당할 수 있습니다. 다음 고려 사항을 염두에 두십시오.
 
-- 비밀의 콘텐츠 형식은 *application/x pkcs12*이어야 합니다.
+- 비밀의 콘텐츠 형식은 *application/x pkcs12* 이어야 합니다.
 - 비밀을 포함 하는 Key Vault 인증서 비밀 끝점을 사용 합니다.
 
 > [!Important]
@@ -262,7 +262,7 @@ API Management 인스턴스의 시스템 할당 id를 사용 하 여 Azure Key V
 }
 ```
 
-#### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>API Management id를 사용 하 여 백 엔드에 인증
+### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>API Management id를 사용 하 여 백 엔드에 인증
 
 시스템이 할당 한 id를 사용 하 여 [인증 관리 id](api-management-authentication-policies.md#ManagedIdentity) 정책을 통해 백 엔드에 인증할 수 있습니다.
 
@@ -277,11 +277,11 @@ API Management 인스턴스의 시스템 할당 id를 사용 하 여 Azure Key V
 포털에서 관리 id를 설정 하려면 먼저 API Management 인스턴스를 만든 후 기능을 사용 하도록 설정 합니다.
 
 1. 평소처럼 포털에서 API Management 인스턴스를 만듭니다. 포털에서 찾습니다.
-2. **관리 id**를 선택 합니다.
-3. **사용자 할당 됨** 탭에서 **추가**를 선택 합니다.
-4. 이전에 만든 id를 검색 하 여 선택 합니다. **추가**를 선택합니다.
+2. **관리 id** 를 선택 합니다.
+3. **사용자 할당 됨** 탭에서 **추가** 를 선택 합니다.
+4. 이전에 만든 id를 검색 하 여 선택 합니다. **추가** 를 선택합니다.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="시스템 할당 관리 id 사용을 위한 선택 항목" border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="사용자 할당 관리 id 사용을 위한 선택 항목" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -387,9 +387,32 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
 > [!NOTE]
 > API Management 인스턴스에는 시스템 할당 id와 사용자 할당 id가 동시에 있을 수 있습니다. 이 경우 `type` 속성은 `SystemAssigned,UserAssigned` 입니다.
 
-### <a name="supported-scenarios"></a>지원되는 시나리오
+## <a name="supported-scenarios-using-user-assigned-managed-identity"></a>사용자 할당 관리 Id를 사용 하 여 지원 되는 시나리오
 
-#### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>사용자 할당 id를 사용 하 여 백 엔드 인증
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault-ua"></a>Azure Key Vault에서 API Management 인스턴스에 대 한 사용자 지정 TLS/SSL 인증서를 가져옵니다.
+사용자 할당 id를 사용 하 여 API Management 인스턴스와 KeyVault 간의 신뢰를 설정할 수 있습니다. 그런 다음이 트러스트를 사용 하 여 Azure Key Vault에 저장 된 사용자 지정 TLS/SSL 인증서를 검색할 수 있습니다. 그런 다음 API Management 인스턴스의 사용자 지정 도메인에 이러한 인증서를 할당할 수 있습니다. 
+
+다음 고려 사항을 염두에 두십시오.
+
+- 비밀의 콘텐츠 형식은 *application/x pkcs12* 이어야 합니다.
+- 비밀을 포함 하는 Key Vault 인증서 비밀 끝점을 사용 합니다.
+
+> [!Important]
+> 인증서의 개체 버전을 제공 하지 않으면 API Management는 Key Vault에서 업데이트 된 후 4 시간 이내에 최신 버전의 인증서를 자동으로 가져옵니다.
+
+전체 템플릿은 [사용자 할당 id를 사용 하는 KeyVault 기반 SSL을 사용 하 여 API Management](https://github.com/Azure/azure-quickstart-templates/blob/master/101-api-management-key-vault-create/azuredeploy.json)를 참조 하세요.
+
+이 서식 파일에서 다음을 배포합니다:
+
+* Azure API Management
+* Azure 관리 되는 사용자 할당 Id
+* SSL/TLS 인증서를 저장 하기 위한 Azure KeyVault
+
+배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-api-management-key-vault-create%2Fazuredeploy.json)
+
+### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>사용자 할당 id를 사용 하 여 백 엔드 인증
 
 사용자 할당 id를 사용 하 여 [인증 관리 id](api-management-authentication-policies.md#ManagedIdentity) 정책을 통해 백 엔드에 인증할 수 있습니다.
 
