@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5a958228d79c86550604109d7aaf19e68593a57
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a9f58a9cdf8dea9631443d499548f2aee61eda69
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314959"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553678"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Synapse SQL에서 외부 테이블 사용
 
@@ -323,7 +323,7 @@ column_name <data_type>
 
 만들려는 테이블의 한 부분에서 세 부분으로 이루어진 이름입니다. 외부 테이블의 경우 서버리스 SQL 풀은 테이블 메타데이터만 저장합니다. 서버리스 SQL 풀에서는 실제 데이터가 이동하거나 저장되지 않습니다.
 
-<column_definition>, ... *n* ]
+<column_definition>, ...*n* ]
 
 CREATE EXTERNAL TABLE은 열 이름, 데이터 형식, Null 허용 여부 및 데이터 정렬을 구성하는 기능을 지원합니다. 외부 테이블에 DEFAULT CONSTRAINT를 사용할 수 없습니다.
 
@@ -332,7 +332,7 @@ CREATE EXTERNAL TABLE은 열 이름, 데이터 형식, Null 허용 여부 및 �
 
 Parquet 파일에서 읽는 경우 읽으려는 열만 지정하고 나머지는 건너뛸 수 있습니다.
 
-LOCATION = ' *folder_or_filepath* '
+LOCATION = '*folder_or_filepath*'
 
 Azure Blob Storage의 실제 데이터에 대한 폴더 또는 파일 경로 및 파일 이름을 지정합니다. 위치는 루트 폴더에서 시작합니다. 루트 폴더는 외부 데이터 원본에 지정된 데이터 위치입니다.
 
@@ -388,8 +388,6 @@ SELECT TOP 1 * FROM census_external_table
 - 작업 영역에 대한 액세스 권한(ADLS Gen2 계정에 대한 Storage Blob 데이터 기여자 ARM 액세스 역할 이상)이 있어야 합니다.
 
 - SQL 풀 또는 SQL OD에서 외부 테이블을 [만들고 쿼리할 수 있는 권한](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) 이상이 있어야 합니다.
-
-- ADLS Gen2 계정과 연결되는 연결된 서비스에는 **파일에 대한 액세스 권한** 이 있어야 합니다. 예를 들어 연결된 서비스 인증 메커니즘이 관리 ID인 경우 작업 영역 관리 ID에는 스토리지 계정에 대한 Storage Blob 읽기 권한자 이상의 권한이 있어야 합니다.
 
 [데이터] 패널에서 외부 테이블을 만드는 데 사용할 파일을 선택합니다.
 > [!div class="mx-imgBorder"]

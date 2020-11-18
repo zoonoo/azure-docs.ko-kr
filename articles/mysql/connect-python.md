@@ -1,8 +1,8 @@
 ---
 title: '빠른 시작: Python을 사용하여 연결 - Azure Database for MySQL'
 description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터를 연결하고 쿼리하는 데 사용할 수 있는 몇 가지 Python 코드 샘플을 제공합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom:
 - mvc
@@ -11,12 +11,12 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: 12452367de0e8f936d30387df709d5d2779bfcb1
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 8aa0ea4b1e01cc7363f49d5897695c7c237b339b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427635"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535591"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: Python을 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 

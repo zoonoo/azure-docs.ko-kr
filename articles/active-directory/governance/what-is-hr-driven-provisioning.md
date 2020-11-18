@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45b8ed75a87d1ac638e5ca55058a3d1ad7fcdffa
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: eaf033f7da7a5bd4882d0c78a2321640aa64d8ac
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135010"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646562"
 ---
 # <a name="what-is-hr-driven-provisioning"></a>HR 기반 프로비저닝이란?
 
@@ -46,4 +46,3 @@ Microsoft Identity Manager 및 지원되는 시스템에 대한 자세한 내용
 - [프로비저닝이란?](what-is-provisioning.md)
 - [앱 프로비저닝이란?](what-is-app-provisioning.md)
 - [디렉터리 간 프로비저닝이란?](what-is-inter-directory-provisioning.md)
-- [디렉터리 프로비저닝란?](what-is-inter-directory-provisioning.md)

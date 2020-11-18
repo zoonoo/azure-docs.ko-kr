@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: overview
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dc0429ae4507172e95618bc95e6a2c51034d352
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8a448b510662eb2c3c4c8ae5a68c2ebc2ed448dc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378890"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647361"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -100,11 +100,11 @@ user.department -eq "Sales"
 | companyName | 임의의 문자열 값 또는 *null* 입니다. | (user.companyName -eq "value") |
 | department |임의의 문자열 값 또는 *null* 입니다. |(user.department -eq "value") |
 | displayName |임의의 문자열 값 |(user.displayName -eq "value") |
-| employeeId |임의의 문자열 값 |(user.employeeId -eq "value")<br>(user.employeeId -ne *null* ) |
+| employeeId |임의의 문자열 값 |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
 | facsimileTelephoneNumber |임의의 문자열 값 또는 *null* 입니다. |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |임의의 문자열 값 또는 *null* 입니다. |(user.givenName -eq "value") |
 | jobTitle |임의의 문자열 값 또는 *null* 입니다. |(user.jobTitle -eq "value") |
-| mail |임의의 문자열 값 또는 *null* (사용자의 SMTP 주소)입니다. |(user.mail -eq "value") |
+| mail |임의의 문자열 값 또는 *null*(사용자의 SMTP 주소)입니다. |(user.mail -eq "value") |
 | mailNickName |임의의 문자열 값(사용자의 메일 별칭) |(user.mailNickName -eq "value") |
 | mobile |임의의 문자열 값 또는 *null* 입니다. |(user.mobile -eq "value") |
 | objectId |사용자 개체의 GUID입니다. |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |

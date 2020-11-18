@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 659d136695943d846fe57986d4b64a37f0d8f30e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 677c9c0123c174fdf2cf8e94f9c8110656d21306
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89300122"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649401"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트에서 애플리케이션 삭제
 
@@ -40,12 +40,12 @@ Azure AD 테넌트에서 애플리케이션을 삭제하려면 다음이 필요�
 
 Azure AD 테넌트에서 애플리케이션을 삭제하려면 다음을 수행합니다.
 
-1. Azure AD Portal에서 **엔터프라이즈 애플리케이션**을 선택합니다. 그런 다음, 삭제하려는 애플리케이션을 찾아서 선택합니다. 이 경우 이전 빠른 시작에서 추가한 **GitHub_test** 애플리케이션이 삭제됩니다.
-1. 왼쪽 창의 **관리** 섹션에서 **속성**을 선택합니다.
-1. **삭제**를 선택한 다음, **예**를 선택하여 Azure AD 테넌트에서 앱을 삭제할지 확인합니다.
+1. Azure AD Portal에서 **엔터프라이즈 애플리케이션** 을 선택합니다. 그런 다음, 삭제하려는 애플리케이션을 찾아서 선택합니다. 이 경우 이전 빠른 시작에서 추가한 **GitHub_test** 애플리케이션이 삭제됩니다.
+1. 왼쪽 창의 **관리** 섹션에서 **속성** 을 선택합니다.
+1. **삭제** 를 선택한 다음, **예** 를 선택하여 Azure AD 테넌트에서 앱을 삭제할지 확인합니다.
 
 > [!TIP]
-> Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](https://docs.microsoft.com/graph/application-saml-sso-configure-api)를 참조하세요.
+> Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](/graph/application-saml-sso-configure-api)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

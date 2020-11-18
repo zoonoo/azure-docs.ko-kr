@@ -5,21 +5,21 @@ keywords: ''
 author: curtand
 manager: daveba
 ms.author: curtand
-ms.reviewer: vincesm
-ms.date: 06/16/2020
+ms.reviewer: krbain
+ms.date: 11/15/2020
 ms.topic: overview
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3083bd524ee7918535c3c3915fe14cc0906f3c0f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e86d61f71a49a502a91b16761fc9feccea6faafd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378902"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650940"
 ---
 # <a name="what-is-enterprise-user-management"></a>엔터프라이즈 사용자 관리란?
 
@@ -68,7 +68,7 @@ Azure AD를 사용하여 [Azure AD 조직에 배포된 엔터프라이즈 앱](.
 * 앱의 사용자 관리 API에 연결하기 위한 자격 증명 제공
 * 사용자 계정이 프로비전되거나 업데이트될 때 Azure AD와 앱 사이에 흐르는 사용자 특성을 제어하는 매핑 설정
 * 앱에 대한 Azure AD 프로비전 서비스를 시작 및 중지하거나 프로비저닝 캐시를 지우거나 서비스를 다시 시작
-* Azure AD와 앱 사이에 생성되고, 업데이트되고, 제거된 모든 사용자 및 그룹의 로그를 제공하는 **프로비저닝 활동 보고서** , 그리고 더 자세한 오류 메시지를 제공하는 **프로비저닝 오류 보고서** 확인
+* Azure AD와 앱 사이에 생성되고, 업데이트되고, 제거된 모든 사용자 및 그룹의 로그를 제공하는 **프로비저닝 활동 보고서**, 그리고 더 자세한 오류 메시지를 제공하는 **프로비저닝 오류 보고서** 확인
 
 ## <a name="next-steps"></a>다음 단계
 

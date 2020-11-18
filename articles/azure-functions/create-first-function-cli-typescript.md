@@ -4,12 +4,12 @@ description: 명령줄에서 TypeScript 함수를 만든 다음, 로컬 프로�
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 11a1094ff389463045da567fe129d7eccff5ea9e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 981c96bb8775a3fdd3f951d079cd7ad285d09680
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424898"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637033"
 ---
 # <a name="quickstart-create-a-typescript-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 TypeScript 함수 만들기
 
@@ -155,10 +155,12 @@ HTTP 트리거의 경우 함수는 *function.json* 에 정의된 **HttpRequest**
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
     
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -FunctionsVersion 3 -Location 'West Europe'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -RuntimeVersion 12 -FunctionsVersion 3 -Location 'West Europe'
     ```
     
     [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet은 Azure에서 함수 앱을 만듭니다. Node.js 10을 사용하는 경우 `-RuntimeVersion`을 `10`으로 변경합니다.
+
+    ---
         
     이전 예제에서는 `<STORAGE_NAME>`을 이전 단계에서 사용한 계정의 이름으로 바꾸고, `<APP_NAME>`을 적절하고 전역적으로 고유한 이름으로 바꿉니다. `<APP_NAME>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 
     

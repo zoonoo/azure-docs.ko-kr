@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3ed5f3940a9b02701ad2f3c779b791e128e288c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3644891f12a6475ec9cfec51f572df4742481e8f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506348"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541847"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>빠른 시작: Synapse Studio를 사용하여 전용 SQL 풀 만들기
 
@@ -110,6 +110,7 @@ Synapse Studio를 사용하여 작업 영역에서 전용 SQL 풀을 삭제하�
 1. 삭제를 확인하고 **삭제** 단추를 누릅니다.
 1. 프로세스가 성공적으로 완료되면 전용 SQL 풀이 작업 영역 리소스에 더 이상 나열되지 않습니다.
 
-## <a name="next-steps"></a>다음 단계 
+## <a name="next-steps"></a>다음 단계
+ 
 - [빠른 시작: Apache Spark Notebook 만들기](quickstart-apache-spark-notebook.md)를 참조하세요.
 - [빠른 시작: Azure Portal을 사용하여 전용 SQL 풀 만들기](quickstart-create-sql-pool-portal.md)를 참조하세요.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
-ms.custom: identityplatformtop40
-ms.openlocfilehash: e63d2cac97a16674c4e2e880f94373b0af1510de
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.custom: identityplatformtop40, contperfq2
+ms.openlocfilehash: 3f18913bb0d05c45ae57152d438b229b8bcc1d48
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056415"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94627917"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼이란?
 
@@ -26,7 +26,7 @@ Microsoft ID 플랫폼을 통해 사용자 및 고객이 Microsoft ID 또는 소
 
 Microsoft ID 플랫폼을 구성하는 몇 가지 구성 요소가 있습니다.
 
-- **OAuth 2.0 및 OpenID Connect 표준 규격 인증 서비스**를 통해 개발자는 다음을 비롯한 여러 가지 ID 유형을 인증할 수 있습니다.
+- **OAuth 2.0 및 OpenID Connect 표준 규격 인증 서비스** 를 통해 개발자는 다음을 비롯한 여러 가지 ID 유형을 인증할 수 있습니다.
   - Azure AD를 통해 프로비저닝된 회사 또는 학교 계정
   - 개인 Microsoft 계정(예: Skype, Xbox 및 Outlook.com)
   - Azure AD B2C를 통한 소셜 또는 로컬 계정

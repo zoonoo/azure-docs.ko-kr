@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e7e140e26da79475bea032c8190ee64740370d04
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6c565be3aea43fc4dc86fd793e0dc2dea0b08d4c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312883"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563752"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure 알림 허브 만들기
 
@@ -32,13 +32,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
-> Notification Hubs를 사용하려면 Azure CLI 2.0.67 이상 버전이 필요합니다. [az version](/cli/azure/reference-index?#az_version)을 실행하여 설치된 버전과 종속 라이브러리를 찾습니다. 최신 버전으로 업그레이드하려면 [az upgrade](/cli/azure/reference-index?#az_upgrade)를 실행합니다.
+> Notification Hubs를 사용하려면 Azure CLI 2.0.67 이상 버전이 필요합니다. [az version](/cli/azure/reference-index#az_version)을 실행하여 설치된 버전과 종속 라이브러리를 찾습니다. 최신 버전으로 업그레이드하려면 [az upgrade](/cli/azure/reference-index#az_upgrade)를 실행합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 모든 Azure 리소스와 마찬가지로 Azure Notification Hubs는 리소스 그룹에 배포해야 합니다.  리소스 그룹을 사용하면 관련 Azure 리소스를 구성하고 관리할 수 있습니다.  리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager란?](../azure-resource-manager/management/overview.md)을 참조하세요.
 
-이 빠른 시작에서는 다음과 같이 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 **eastus** 위치에 **spnhubrg**라는 리소스 그룹을 만듭니다.
+이 빠른 시작에서는 다음과 같이 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 **eastus** 위치에 **spnhubrg** 라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name spnhubrg --location eastus

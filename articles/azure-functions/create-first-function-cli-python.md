@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 9c88feca5bf4bdac91af7f88c24cd342dc1b04cf
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: b4c14417a31f28ea5d6475b3f84ee079d990dd6b
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426292"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637067"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Python 함수 만들기
 
@@ -250,7 +250,8 @@ HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location 'West Europe'
     ```
     
-    <a name="the-new-azfunctionapp-cmdlet-creates-the-function-app-in-azure-if-youre-using-python-37-or-36-change--runtimeversion-to-37-or-36-respectively"></a>[New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet은 Azure에서 함수 앱을 만듭니다. Python 3.7 또는 3.6을 사용하는 경우 `-RuntimeVersion`을 `3.7` 또는 `3.6`으로 각각 변경합니다.
+    [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet은 Azure에서 함수 앱을 만듭니다. Python 3.7 또는 3.6을 사용하는 경우 `-RuntimeVersion`을 `3.7` 또는 `3.6`으로 각각 변경합니다.
+
     ---
     
     이전 예제에서는 `<STORAGE_NAME>`을 이전 단계에서 사용한 계정의 이름으로 바꾸고, `<APP_NAME>`을 적절하고 전역적으로 고유한 이름으로 바꿉니다.  `<APP_NAME>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 
@@ -275,3 +276,5 @@ func azure functionapp logstream <APP_NAME> --browser
 
 > [!div class="nextstepaction"]
 > [Azure Storage 큐에 연결](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python)
+
+[문제가 있나요? 알려주세요.](https://aka.ms/python-functions-qs-survey)

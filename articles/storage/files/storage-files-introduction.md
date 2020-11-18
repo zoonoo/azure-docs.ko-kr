@@ -7,15 +7,15 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2b5fa5211ad8d4de01f2b63e8267e297e13c4485
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 9ce2044f3ee0bff3335f46d8cf712e64394af2d3
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570020"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628869"
 ---
 # <a name="what-is-azure-files"></a>Azure Files란?
-Azure Files는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) 또는 [NFS(네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System)을 통해 액세스할 수 있는, 클라우드에서 완전 관리형 파일 공유를 제공합니다. Azure File 공유는 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. Azure Files SMB 파일 공유는 Windows, Linux 및 macOS 클라이언트에서 액세스할 수 있습니다. Azure Files NFS 파일 공유는 Linux 또는 macOS 클라이언트에서 액세스할 수 있습니다. 또한 데이터가 사용되는 위치 근처에서 빠르게 액세스하기 위해 Azure 파일 동기화를 사용하여 Azure Files SMB 파일 공유를 Windows Server에서 캐시할 수 있습니다.
+Azure Files는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 또는 [NFS(네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System)을 통해 액세스할 수 있는, 클라우드에서 완전 관리형 파일 공유를 제공합니다. Azure File 공유는 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. Azure Files SMB 파일 공유는 Windows, Linux 및 macOS 클라이언트에서 액세스할 수 있습니다. Azure Files NFS 파일 공유는 Linux 또는 macOS 클라이언트에서 액세스할 수 있습니다. 또한 데이터가 사용되는 위치 근처에서 빠르게 액세스하기 위해 Azure 파일 동기화를 사용하여 Azure Files SMB 파일 공유를 Windows Server에서 캐시할 수 있습니다.
 
 ## <a name="videos"></a>동영상
 | Azure 파일 동기화 소개 | 동기화된 Azure Files(Ignite 2019)  |
@@ -53,7 +53,7 @@ Azure 파일 공유를 사용하여 다음을 수행할 수 있습니다.
 * **완벽한 관리** - Azure 파일 공유는 하드웨어 또는 OS를 관리할 필요 없이 만들 수 있습니다. 즉 서버 OS를 중요한 보안 업그레이드로 패치하거나 결함이 있는 하드 디스크를 교체하지 않아도 된다는 것입니다.
 * **스크립팅 및 도구 지원** - PowerShell cmdlet 및 Azure CLI를 사용하여 Azure 애플리케이션 관리의 일부로 Azure File 공유를 만들고, 탑재하고, 관리할 수 있습니다. Azure Portal 및 Azure Storage Explorer를 사용하여 Azure File 공유를 만들고 관리할 수 있습니다. 
 * **복원력**. Azure Files는 처음부터 항상 사용할 수 있도록 빌드되었습니다. 온-프레미스 파일 공유를 Azure Files로 바꾸는 경우 로컬 정전 또는 네트워크 문제를 처리하기 위해 더 이상 주의할 필요가 없습니다. 
-* **친숙한 프로그래밍** - Azure에서 실행 중인 애플리케이션은 [파일 시스템 I/O API](https://msdn.microsoft.com/library/system.io.file.aspx)를 통해 공유 데이터에 액세스할 수 있습니다. 따라서 개발자는 기존의 코드와 기술을 이용하여 기존 애플리케이션을 마이그레이션할 수 있습니다. 시스템 IO API 외에도 [Azure Storage 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn261237.aspx) 또는 [Azure Storage REST API](/rest/api/storageservices/file-service-rest-api)를 사용할 수 있습니다.
+* **친숙한 프로그래밍** - Azure에서 실행 중인 애플리케이션은 [파일 시스템 I/O API](/dotnet/api/system.io.file)를 통해 공유 데이터에 액세스할 수 있습니다. 따라서 개발자는 기존의 코드와 기술을 이용하여 기존 애플리케이션을 마이그레이션할 수 있습니다. 시스템 IO API 외에도 [Azure Storage 클라이언트 라이브러리](/previous-versions/azure/dn261237(v=azure.100)) 또는 [Azure Storage REST API](/rest/api/storageservices/file-service-rest-api)를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [사용 가능한 파일 공유 프로토콜에 대한 자세한 정보](storage-files-compare-protocols.md)

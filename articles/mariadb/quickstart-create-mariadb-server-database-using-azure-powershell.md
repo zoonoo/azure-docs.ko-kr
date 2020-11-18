@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: 서버 만들기 - Azure PowerShell - Azure Database for MariaDB'
 description: 이 빠른 시작에서는 PowerShell을 사용하여 Azure 리소스 그룹에서 Azure Database for MariaDB 서버를 만드는 방법에 대해 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 7db89d315e0df51aad7f4660ec5da64425eae2aa
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 05082ffa891b72b472ed5433282198c61080f073
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424431"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537801"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Database for MariaDB 서버 만들기
 
@@ -70,7 +70,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 | SslEnforcement             | 사용          | 이 서버에 SSL을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. 사용, 사용 안 함                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | 서버의 스토리지 용량입니다(단위는 메가바이트). 유효한 StorageInMb는 최소 5,120MB이며, 1,024MB씩 증가합니다. 스토리지 크기 제한에 대한 자세한 내용은 [Azure Database for MariaDB 가격 책정 계층](./concepts-pricing-tiers.md)을 참조하세요.                                                                               |
 | 버전                    | 5.7              | MariaDB 주 버전입니다.                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | 관리자 로그인에 대한 사용자 이름입니다. **azure_superuser** , **admin** , **administrator** , **root** , **guest** 또는 **public** 을 사용할 수 없습니다.                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | 관리자 로그인에 대한 사용자 이름입니다. **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public** 을 사용할 수 없습니다.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | 관리자 사용자에 대한 보안 문자열 형식의 암호입니다. 8-128자여야 합니다. 사용자 암호는 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자 및 영숫자가 아닌 문자                                       |
 
 **Sku** 매개 변수 값은 다음 예제와 같이 **pricing-tier\_compute-generation\_vCores** 규칙을 따릅니다.

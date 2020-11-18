@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 994cf78a9a9b8c418d0f29f5d595f88f021659b4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 95626836afb09ada286cf7e171f97db450167999
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341909"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564347"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>빠른 시작: Azure CLI를 사용하여 기밀 컴퓨팅 노드가 있는 AKS(Azure Kubernetes Service) 클러스터 배포(미리 보기)
 
@@ -19,7 +19,7 @@ ms.locfileid: "92341909"
 
 ## <a name="overview"></a>개요
 
-이 빠른 시작에서는 Azure CLI를 사용하여 기밀 컴퓨팅 노드가 있는 AKS(Azure Kubernetes Service) 클러스터를 배포하고, enclave에서 hello world 애플리케이션을 실행하는 방법에 대해 알아봅니다. AKS는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. AKS에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/aks/intro-kubernetes)를 참조하세요.
+이 빠른 시작에서는 Azure CLI를 사용하여 기밀 컴퓨팅 노드가 있는 AKS(Azure Kubernetes Service) 클러스터를 배포하고, enclave에서 hello world 애플리케이션을 실행하는 방법에 대해 알아봅니다. AKS는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. AKS에 대한 자세한 내용은 [여기](../aks/intro-kubernetes.md)를 참조하세요.
 
 > [!NOTE]
 > 기밀 컴퓨팅 DCsv2 VM은 더 높은 가격 책정 및 지역 가용성이 적용되는 특별한 하드웨어를 활용합니다. 자세한 내용은 [사용 가능한 SKU 및 지원되는 지역](virtual-machine-solutions.md)에 대한 가상 머신 페이지를 참조하세요.
@@ -27,17 +27,17 @@ ms.locfileid: "92341909"
 ### <a name="deployment-pre-requisites"></a>배포 필수 구성 요소
 
 1. 활성 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-1. Azure CLI 버전 2.0.64 이상이 배포 머신에 설치되고 구성되어 있어야 합니다(버전을 확인하려면 `az --version` 실행). 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)를 참조하세요.
+1. Azure CLI 버전 2.0.64 이상이 배포 머신에 설치되고 구성되어 있어야 합니다(버전을 확인하려면 `az --version` 실행). 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](../container-registry/container-registry-get-started-azure-cli.md)를 참조하세요.
 1. [aks-preview 확장](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) 최소 버전 0.4.62 
-1. 구독에서 사용할 수 있는 6개 이상의 **DC<x>s-v2** 코어가 있어야 합니다. 기본적으로 Azure 구독 8개 코어당 기밀 컴퓨팅에 대한 VM 코어 할당량입니다. 8개 초과된 코어가 필요한 클러스터를 프로비저닝하려면 [이러한](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) 지침에 따라 할당량 증가 티켓을 제출합니다.
+1. 구독에서 사용할 수 있는 6개 이상의 **DC<x>s-v2** 코어가 있어야 합니다. 기본적으로 Azure 구독 8개 코어당 기밀 컴퓨팅에 대한 VM 코어 할당량입니다. 8개 초과된 코어가 필요한 클러스터를 프로비저닝하려면 [이러한](../azure-portal/supportability/per-vm-quota-requests.md) 지침에 따라 할당량 증가 티켓을 제출합니다.
 
 ### <a name="confidential-computing-node-features-dcxs-v2"></a>기밀 컴퓨팅 노드 기능(DC<x>s-v2)
 
 1. Linux 컨테이너만 지원하는 Linux 작업자 노드
 1. Ubuntu Generation 2 18.04 Virtual Machines
-1. EPC(암호화된 페이지 캐시) 메모리가 있는 Intel SGX 기반 CPU. [여기](https://docs.microsoft.com/azure/confidential-computing/faq)에서 자세히 알아보기
+1. EPC(암호화된 페이지 캐시) 메모리가 있는 Intel SGX 기반 CPU. [여기](./faq.md)에서 자세히 알아보기
 1. Kubernetes version 1.16 이상
-1. 미리 설치된 Intel SGX DCAP 드라이버. [여기](https://docs.microsoft.com/azure/confidential-computing/faq)에서 자세히 알아보기
+1. 미리 설치된 Intel SGX DCAP 드라이버. [여기](./faq.md)에서 자세히 알아보기
 1. 미리 보기 중에 배포된 CLI 기반
 
 
@@ -81,7 +81,7 @@ az provider register --namespace Microsoft.ContainerService
 az group create --name myResourceGroup --location westus2
 ```
 
-이제 az aks create 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 단일 노드의 크기가 `Standard_DC2s_v2`인 클러스터를 만듭니다. [여기](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)서 지원되는 다른 DCsv2 SKU 목록을 선택할 수 있습니다.
+이제 az aks create 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 단일 노드의 크기가 `Standard_DC2s_v2`인 클러스터를 만듭니다. [여기](../virtual-machines/dcv2-series.md)서 지원되는 다른 DCsv2 SKU 목록을 선택할 수 있습니다.
 
 ```azurecli-interactive
 az aks create \
@@ -244,6 +244,3 @@ az aks nodepool delete --cluster-name myAKSCluster --name myNodePoolName --resou
 [기밀 컨테이너 샘플](https://github.com/Azure-Samples/confidential-container-samples)을 방문하여 기밀 컨테이너를 통해 Python, Node 등의 애플리케이션을 기밀로 실행합니다.
 
 [enclave 인식 Azure 컨테이너 샘플](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/)을 방문하여 enclave 인식 애플리케이션을 실행합니다.
-
-
-

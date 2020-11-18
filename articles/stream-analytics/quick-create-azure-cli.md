@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 8c2e7b6a02c0a0fea32fb1effb30b682971c3f6f
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fa7919f54663387ddef811d02137da6d3ffb9d9b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348800"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646630"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Stream Analytics 작업 만들기
 
@@ -23,41 +23,11 @@ ms.locfileid: "93348800"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-* Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prepare-your-environment"></a>환경 준비
-
-1. 로그인합니다.
-
-   로컬에 설치된 CLI를 사용하는 경우 [az login](/cli/azure/reference-index#az-login) 명령을 사용하여 로그인합니다.
-
-    ```azurecli
-    az login
-    ```
-
-    터미널에 표시된 단계에 따라 인증 프로세스를 완료합니다.
-
-2. Azure CLI 확장을 설치합니다.
-
-   Azure CLI에 대한 확장 참조를 사용하는 경우 먼저 확장을 설치해야 합니다.  Azure CLI 확장은 아직 핵심 CLI의 일부로 제공되지 않는 실험적 명령과 시험판 명령에 대한 액세스를 제공합니다.  확장 업데이트 및 제거를 포함하여 확장에 대해 자세한 내용을 보려면 [Azure CLI에서 확장 사용](/cli/azure/azure-cli-extensions-overview)을 참조하세요.
-
-   다음 명령을 실행하여 [Stream Analytics 확장](/cli/azure/ext/stream-analytics/stream-analytics)을 설치합니다.
-
-    ```azurecli
-    az extension add --name stream-analytics
-    ```
-
-   다음 명령을 실행하여 [Azure IoT 확장](/cli/azure/ext/azure-iot)을 설치합니다.
-
-    ```azurecli
-    az extension add --name azure-iot
-    ```
-
-3. 리소스 그룹을 만듭니다.
-
-   모든 Azure 리소스는 리소스 그룹에 배포되어야 합니다. 리소스 그룹을 사용하면 관련 Azure 리소스를 구성하고 관리할 수 있습니다.
+- 리소스 그룹을 만듭니다. 모든 Azure 리소스는 리소스 그룹에 배포되어야 합니다. 리소스 그룹을 사용하면 관련 Azure 리소스를 구성하고 관리할 수 있습니다.
 
    이 빠른 시작에서는 다음과 같이 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 *eastus* 위치에 *streamanalyticsrg* 라는 리소스 그룹을 만듭니다.
 
@@ -270,7 +240,7 @@ az stream-analytics job start
 
 더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용된 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 삭제를 건너뛰고 지금은 작업을 중지할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음과 같은 cmdlet을 실행하여 빠른 시작에서 만든 리소스를 모두 삭제합니다.
 
-```powershell
+```azurecli
 az group delete \
     --name streamanalyticsrg \
     --no-wait

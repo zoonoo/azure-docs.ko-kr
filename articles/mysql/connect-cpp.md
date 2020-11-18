@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: C++를 사용하여 연결 - Azure Database for MySQL'
 description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터를 연결하고 쿼리하는 데 사용할 수 있는 C++ 코드 샘플을 제공합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 28957235dc5c90beebf834101a481187909ab6bb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e8b2842300e43a9de88cc0b9b3ae9ce6cd754612
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332222"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535846"
 ---
 # <a name="quickstart-use-connectorc-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: Connector/C++를 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 
@@ -54,7 +54,7 @@ ms.locfileid: "93332222"
 MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver** ).
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
 3. 서버 이름을 클릭합니다.
 4. 서버의 **개요** 패널에 있는 **서버 이름** 과 **서버 관리자 로그인 이름** 을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
  :::image type="content" source="./media/connect-cpp/1_server-overview-name-login.png" alt-text="MySQL용 Azure Database 서버 이름":::
