@@ -7,15 +7,15 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4d1488d6dd2e5d08ae774ca88b7ab41b2020efe5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d47935f76347b2d5272b386942a85643a732e643
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998392"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831755"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Key Vault 관리형 HSM 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "90998392"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료하려면 다음 항목이 있어야 합니다.
 
@@ -76,14 +76,13 @@ az ad user show --id <your-email-address> --query "objectId"
     지정되지 않은 경우에는 기본 값을 사용하여 키 자격 증명 모음과 비밀을 만듭니다.
 
     - **구독**: Azure 구독을 선택합니다.
-    - **리소스 그룹**: **새로 만들기**를 선택하고 리소스 그룹의 고유한 이름을 입력한 다음, **확인**을 클릭합니다.
-    - **위치**: 위치를 선택합니다. 예를 들어 **미국 중남부**입니다.
+    - **리소스 그룹**: **새로 만들기** 를 선택하고 리소스 그룹의 고유한 이름을 입력한 다음, **확인** 을 클릭합니다.
+    - **위치**: 위치를 선택합니다. 예를 들어 **미국 중남부** 입니다.
     - **managedHSMName**: 관리형 HSM의 이름을 입력합니다.
-    - **SKU**: 만들려는 관리형 HSM의 이름과 제품군을 입력합니다.  이 빠른 시작의 경우 이름에 "Standard_B1"을 입력하고 제품군에 "B"를 입력합니다.
     - **테넌트 ID**: 템플릿 함수는 테넌트 ID를 자동으로 검색하므로 기본값을 변경하지 마세요.  값이 없는 경우 [필수 구성 요소](#prerequisites)에서 검색한 테넌트 ID를 입력합니다.
     * **initialAdminObjectIds**: [필수 구성 요소](#prerequisites)에서 검색한 개체 ID를 입력합니다.
 
-3. **구매**를 선택합니다. 키 자격 증명 모음이 성공적으로 배포되면 알림을 받게 됩니다.
+3. **구매** 를 선택합니다. 키 자격 증명 모음이 성공적으로 배포되면 알림을 받게 됩니다.
 
 Azure Portal은 템플릿을 배포하는데 사용됩니다. Azure Portal 외에도 Azure PowerShell, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
 

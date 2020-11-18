@@ -6,13 +6,13 @@ ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: d624d332fa35bf458e9158e00aaf83ce495b9061
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
+ms.openlocfilehash: ec3929219a6297bd4a3d8d3e0eff93d2ed847ba0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88961346"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835223"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure에서 정적 HTML 웹앱 만들기
 
@@ -108,7 +108,7 @@ az webapp up --location westeurope --name <app_name> --html
 
 ## <a name="manage-your-new-azure-app"></a>새 Azure 앱 관리
 
-만든 웹앱을 관리하려면 [Azure Portal](https://portal.azure.com)에서 **App Services**를 검색하여 선택합니다. 
+만든 웹앱을 관리하려면 [Azure Portal](https://portal.azure.com)에서 **App Services** 를 검색하여 선택합니다. 
 
 ![Azure Portal에서 App Services 선택](./media/quickstart-html/portal0.png)
 

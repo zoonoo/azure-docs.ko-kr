@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: fb4c7f8ba49cf701ef13cb57ab2b323a94c928cc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3af28ef575f770a5b8c3fb73ade1f9c53be66843
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323824"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685752"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Azure Data Studio를 사용하여 Synapse SQL에 연결(미리 보기)
 
@@ -50,7 +50,7 @@ Synapse SQL에 연결하려면 Azure Data Studio를 열고 **새 연결** 을 �
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
-**인증 유형** 으로 **Windows 인증** , **Azure Active Directory** 또는 **SQL 로그인** 을 선택합니다.
+**인증 유형** 으로 **Windows 인증**, **Azure Active Directory** 또는 **SQL 로그인** 을 선택합니다.
 
 인증 유형으로 **SQL 로그인** 을 사용하려면 사용자 이름/암호 매개 변수를 추가합니다.
 

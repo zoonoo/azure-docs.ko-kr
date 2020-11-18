@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 44f6ba313ab57933a1078e96533c88cc4b4b59b3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6ac76b3d3cc8fb27734730275836fba0dbfb08fe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490852"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700310"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -45,7 +45,7 @@ Azure Portal에서 Azure Load Balancer를 시작하여 내부 부하 분산 장�
 
 내부 부하 분산 장치를 만들 때 가상 네트워크는 부하 분산 장치의 네트워크로 구성됩니다. 
 
-가상 네트워크의 개인 IP 주소는 부하 분산 장치의 프런트 엔드로 구성됩니다(기본 이름은 **LoadBalancerFrontend** ). 
+가상 네트워크의 개인 IP 주소는 부하 분산 장치의 프런트 엔드로 구성됩니다(기본 이름은 **LoadBalancerFrontend**). 
 
 프런트 엔드 IP 주소는 **고정** 일 수도 있고 **동적** 일 수도 있습니다.
 
@@ -162,7 +162,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | Name | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **HTTP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다.|
-    | 간격 | 프로브 시도 **간격** (초)으로 **15** 를 입력합니다. |
+    | 간격 | 프로브 시도 **간격**(초)으로 **15** 를 입력합니다. |
     | 비정상 임계값 | **비정상 임계값** 또는 VM이 비정상 상태로 간주되는 데 필요한 연속 프로브 오류 횟수로 **2** 를 선택합니다.|
     | | |
 
@@ -202,7 +202,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 4. 나머지는 기본값으로 둔 다음, **확인** 을 선택합니다.
 
 >[!NOTE]
->백 엔드 풀의 가상 머신은 이 구성과 아웃바운드 인터넷 연결을 사용하지 않습니다. </br> 아웃바운드 연결 제공에 대한 자세한 내용은 다음을 참조하세요. </br> **[Azure에서 아웃바운드 연결](load-balancer-outbound-connections.md)**</br> 연결 제공 옵션: </br> **[아웃바운드 전용 부하 분산 장치 구성](egress-only.md)** </br> **[Virtual Network NAT란?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+>백 엔드 풀의 가상 머신은 이 구성과 아웃바운드 인터넷 연결을 사용하지 않습니다. </br> 아웃바운드 연결 제공에 대한 자세한 내용은 다음을 참조하세요. </br> **[Azure에서 아웃바운드 연결](load-balancer-outbound-connections.md)**</br> 연결 제공 옵션: </br> **[아웃바운드 전용 부하 분산 장치 구성](egress-only.md)** </br> **[Virtual Network NAT란?](../virtual-network/nat-overview.md)**
 
 ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
@@ -213,7 +213,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-이 섹션에서는 두 개의 VM( **myVM1** 및 **myVM2** )을 만듭니다.
+이 섹션에서는 두 개의 VM(**myVM1** 및 **myVM2**)을 만듭니다.
 
 이러한 VM은 이전에 만든 부하 분산 장치의 백 엔드 풀에 추가됩니다.
 
@@ -239,7 +239,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | 암호 | 암호를 입력합니다. |
     | 암호 확인 | 암호를 다시 입력합니다. |
 
-3. **네트워킹** 탭을 선택하거나 **다음: 디스크** , **다음: 네트워킹** 을 차례로 선택합니다.
+3. **네트워킹** 탭을 선택하거나 **다음: 디스크**, **다음: 네트워킹** 을 차례로 선택합니다.
   
 4. [네트워킹] 탭에서 다음을 선택하거나 입력합니다.
 
@@ -280,7 +280,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
 내부 부하 분산 장치를 만들 때 가상 네트워크는 부하 분산 장치의 네트워크로 구성됩니다. 
 
-가상 네트워크의 개인 IP 주소는 부하 분산 장치의 프런트 엔드로 구성됩니다(기본 이름은 **LoadBalancerFrontend** ). 
+가상 네트워크의 개인 IP 주소는 부하 분산 장치의 프런트 엔드로 구성됩니다(기본 이름은 **LoadBalancerFrontend**). 
 
 프런트 엔드 IP 주소는 **고정** 일 수도 있고 **동적** 일 수도 있습니다.
 
@@ -405,7 +405,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | 프로토콜 | **HTTP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다.|
     | 경로 | **/** 를 입력합니다. |
-    | 간격 | 프로브 시도 **간격** (초)으로 **15** 를 입력합니다. |
+    | 간격 | 프로브 시도 **간격**(초)으로 **15** 를 입력합니다. |
     | 비정상 임계값 | **비정상 임계값** 또는 VM이 비정상 상태로 간주되는 데 필요한 연속 프로브 오류 횟수로 **2** 를 선택합니다.|
 
 3. **확인** 을 선택합니다.
@@ -451,7 +451,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-이 섹션에서는 두 개의 VM( **myVM1** 및 **myVM2** )을 만듭니다.
+이 섹션에서는 두 개의 VM(**myVM1** 및 **myVM2**)을 만듭니다.
 
 두 VM은 **myAvailabilitySet** 라는 가용성 집합에 추가됩니다.
 
@@ -479,7 +479,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | 암호 | 암호를 입력합니다. |
     | 암호 확인 | 암호를 다시 입력합니다. |
 
-3. **네트워킹** 탭을 선택하거나 **다음: 디스크** , **다음: 네트워킹** 을 차례로 선택합니다.
+3. **네트워킹** 탭을 선택하거나 **다음: 디스크**, **다음: 네트워킹** 을 차례로 선택합니다.
   
 4. [네트워킹] 탭에서 다음을 선택하거나 입력합니다.
 
@@ -550,7 +550,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | 암호 | 암호를 입력합니다. |
     | 암호 확인 | 암호를 다시 입력합니다. |
 
-3. **네트워킹** 탭을 선택하거나 **다음: 디스크** , **다음: 네트워킹** 을 차례로 선택합니다.
+3. **네트워킹** 탭을 선택하거나 **다음: 디스크**, **다음: 네트워킹** 을 차례로 선택합니다.
   
 4. [네트워킹] 탭에서 다음을 선택하거나 입력합니다.
 
@@ -635,4 +635,4 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
 Azure Load Balancer에 대해 자세히 알아보려면 계속 진행하세요.
 > [!div class="nextstepaction"]
-> [Azure Load Balancer란?](load-balancer-overview.md) 
+> [Azure Load Balancer란?](load-balancer-overview.md)

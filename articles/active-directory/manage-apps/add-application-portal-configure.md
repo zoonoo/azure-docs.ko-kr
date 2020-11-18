@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 50c1cd62f52583a005e6e7fe8fb29ee8eafd1af9
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 18e40d0e62a69954b0e3c1e5770a71c8b0bcba8b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044465"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656686"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션 속성 구성
 
@@ -39,9 +39,9 @@ Azure AD 테넌트에 애플리케이션 추가를 마치면 개요 페이지가
 
 애플리케이션 속성을 편집하려면:
 
-1. Azure AD Portal에서 **엔터프라이즈 애플리케이션**을 선택합니다. 그런 다음, 구성하려는 애플리케이션을 찾아 선택합니다.
-2. **관리** 섹션에서 **속성**을 선택하여 편집할 **속성** 창을 엽니다.
-3. 사용할 수 있는 옵션을 잠시 살펴봅니다. 사용 가능한 옵션은 앱이 Azure AD와 통합되는 방식에 따라 달라집니다. 예를 들어 SAML 기반 Single Sign-On을 사용하는 앱에는 *사용자 액세스 URL*과 같은 필드가 있지만 OIDC 기반 Single Sign-On을 사용하는 앱에는 그렇지 않습니다. 또한 **Azure Active Directory > 앱 등록**을 통해 추가된 앱은 기본적으로 OIDC 기반 앱입니다. **Azure Active Directory > 엔터프라이즈 애플리케이션**을 통해 추가된 앱은 여러 Single Sign-On 표준 중 하나를 사용할 수 있습니다. 모든 앱에는 앱이 표시되고 사용할 수 있는 시기를 구성하는 필드가 있습니다. 이러한 필드는 다음과 같습니다.
+1. Azure AD Portal에서 **엔터프라이즈 애플리케이션** 을 선택합니다. 그런 다음, 구성하려는 애플리케이션을 찾아 선택합니다.
+2. **관리** 섹션에서 **속성** 을 선택하여 편집할 **속성** 창을 엽니다.
+3. 사용할 수 있는 옵션을 잠시 살펴봅니다. 사용 가능한 옵션은 앱이 Azure AD와 통합되는 방식에 따라 달라집니다. 예를 들어 SAML 기반 Single Sign-On을 사용하는 앱에는 *사용자 액세스 URL* 과 같은 필드가 있지만 OIDC 기반 Single Sign-On을 사용하는 앱에는 그렇지 않습니다. 또한 **Azure Active Directory > 앱 등록** 을 통해 추가된 앱은 기본적으로 OIDC 기반 앱입니다. **Azure Active Directory > 엔터프라이즈 애플리케이션** 을 통해 추가된 앱은 여러 Single Sign-On 표준 중 하나를 사용할 수 있습니다. 모든 앱에는 앱이 표시되고 사용할 수 있는 시기를 구성하는 필드가 있습니다. 이러한 필드는 다음과 같습니다.
     - **사용자가 로그인할 수 있습니까?** 는 애플리케이션에 할당된 사용자가 로그인할 수 있는지 여부를 결정합니다.
     - **사용자 할당이 필요하나요?** 는 애플리케이션에 할당되지 않은 사용자가 로그인할 수 있는지 여부를 결정합니다.
     - **사용자에게 표시되나요?** 는 앱에 할당된 사용자가 [내 앱](https://myapps.microsoft.com) 및 Microsoft 365 앱 시작 관리자에서 앱을 볼 수 있는지 여부를 결정합니다. (Microsoft 365 웹 사이트의 왼쪽 위 모서리에 있는 와플 메뉴를 참조하세요.)
@@ -62,17 +62,17 @@ Azure AD 테넌트에 애플리케이션 추가를 마치면 개요 페이지가
     | 예  | 예  | 예 | 할당된 사용자는 앱을 볼 수 없고 로그인할 수 없습니다.<br>할당되지 않은 사용자는 앱을 볼 수 없고 로그인할 수 없습니다. |
     | 예  | 아니요  | 아니요  | 할당된 사용자는 앱을 볼 수 없고 로그인할 수 없습니다.<br>할당되지 않은 사용자는 앱을 볼 수 없고 로그인할 수 없습니다. |
 
-4. 완료되면 **저장**을 선택합니다.
+4. 완료되면 **저장** 을 선택합니다.
 
 ## <a name="use-a-custom-logo"></a>사용자 지정 로고 사용
 
 사용자 지정 로고를 사용하려면:
 
 1. 215 x 215 픽셀 로고를 만들어 .png 형식으로 저장합니다.
-2. Azure AD Portal에서 **엔터프라이즈 애플리케이션**을 선택합니다. 그런 다음, 구성하려는 애플리케이션을 찾아 선택합니다.
-3. **관리** 섹션에서 **속성**을 선택하여 편집할 **속성** 창을 엽니다. 
+2. Azure AD Portal에서 **엔터프라이즈 애플리케이션** 을 선택합니다. 그런 다음, 구성하려는 애플리케이션을 찾아 선택합니다.
+3. **관리** 섹션에서 **속성** 을 선택하여 편집할 **속성** 창을 엽니다. 
 4. 아이콘을 선택하여 로고를 업로드합니다.
-5. 완료되면 **저장**을 선택합니다.
+5. 완료되면 **저장** 을 선택합니다.
 
     ![로고를 변경하는 방법을 보여주는 속성 화면의 스크린샷.](media/add-application-portal/change-logo.png)
 
@@ -81,15 +81,15 @@ Azure AD 테넌트에 애플리케이션 추가를 마치면 개요 페이지가
 
 
 > [!TIP]
-> Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](https://docs.microsoft.com/graph/application-saml-sso-configure-api)를 참조하세요.
+> Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](/graph/application-saml-sso-configure-api)를 참조하세요.
 
 ## <a name="add-notes"></a>메모 추가
 
 메모 필드를 사용하여 Azure AD의 애플리케이션 관리와 관련된 정보를 추가할 수 있습니다. 메모는 최대 크기가 1024자인 무료 텍스트 필드입니다.
 
-1. Azure AD Portal에서 **엔터프라이즈 애플리케이션**을 선택합니다. 그런 다음, 구성하려는 애플리케이션을 찾아 선택합니다.
-2. **관리** 섹션에서 **속성**을 선택하여 편집할 **속성** 창을 엽니다.
-3. 메모 필드를 업데이트하고 **저장**을 선택합니다.
+1. Azure AD Portal에서 **엔터프라이즈 애플리케이션** 을 선택합니다. 그런 다음, 구성하려는 애플리케이션을 찾아 선택합니다.
+2. **관리** 섹션에서 **속성** 을 선택하여 편집할 **속성** 창을 엽니다.
+3. 메모 필드를 업데이트하고 **저장** 을 선택합니다.
 
     ![메모를 변경하는 방법을 보여주는 속성 화면의 스크린샷](media/add-application-portal/notes-application.png)
 

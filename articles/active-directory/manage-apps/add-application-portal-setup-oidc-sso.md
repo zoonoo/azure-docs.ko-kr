@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 0a25d910b694968802e853a81c16e34dd0539f7a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9ea4ec748ca37f93e9711970b10746a009543d00
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203503"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656601"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 OIDC 기반 SSO(Single Sign-On) 설정
 
@@ -54,13 +54,13 @@ SSO에 대한 OIDC 표준을 사용하는 앱을 추가하는 경우 설정 단�
 
 3. 인증에 성공하면 관리자 동의를 요청하는 대화 상자가 나타납니다. **조직 대신 동의** 를 선택하고 **수락** 을 선택합니다. 
 
-    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Single Sign-On 옵션 및 가입 단추를 보여 주는 스크린샷" lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
+    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="앱에 대한 동의 화면을 보여 주는 스크린샷" lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
 4. 애플리케이션이 테넌트에 추가되고 애플리케이션 홈 페이지가 표시됩니다.
 
 
 > [!TIP]
-> Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](https://docs.microsoft.com/graph/application-saml-sso-configure-api)를 참조하세요.
+> Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](/graph/application-saml-sso-configure-api)를 참조하세요.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

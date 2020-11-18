@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3fd3a94efd6e7870ae3919a011fc24f66b97c559
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c7a8fb63f775a76342849957f070861fd200a9d3
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310957"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685667"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 스토리지 파일 쿼리
 
@@ -66,7 +66,7 @@ WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 - ESCAPE_CHAR = 'char' - 자체 및 파일의 모든 구분 기호 값을 이스케이프하는 데 사용되는 파일의 문자를 지정합니다. 이스케이프 문자 뒤에 자체 또는 구분 기호 값 이외의 값이 있으면 값을 읽을 때 이스케이프 문자가 삭제됩니다.
 ESCAPE_CHAR 매개 변수는 FIELDQUOTE를 사용하도록 설정되었는지 여부에 관계없이 적용됩니다. 따옴표로 묶은 문자를 이스케이프하는 데 사용되지 않습니다. 따옴표 문자는 다른 따옴표 문자로 이스케이프해야 합니다. 따옴표로 묶은 문자는 값이 따옴표 문자로 캡슐화된 경우에만 열 값 내에 나타날 수 있습니다.
 - FIELDTERMINATOR ='field_terminator' - 사용할 필드 종결자를 지정합니다. 기본 필드 종결자는 쉼표(" **,** ")입니다.
-- ROWTERMINATOR ='row_terminator' - 사용할 행 종결자를 지정합니다. 기본 행 종결자는 줄 바꿈 문자( **\r\n** )입니다.
+- ROWTERMINATOR ='row_terminator' - 사용할 행 종결자를 지정합니다. 기본 행 종결자는 줄 바꿈 문자( **\r\n**)입니다.
 
 ## <a name="file-schema"></a>파일 스키마
 

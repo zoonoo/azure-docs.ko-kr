@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f6c75337c27e14fb77161cf641cde0a582901e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff2651d2fed9c307bbb90623572b4a74d750d3a4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90014636"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836073"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
@@ -65,7 +65,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 **Q: Azure AD Connect 데이터베이스를 로컬 데이터베이스에서 원격 SQL Server 인스턴스로 이동할 수 있나요?**    
 예, 이 작업을 수행하는 방법에 대한 일반적인 지침은 다음과 같습니다. 현재 문서를 더 자세히 준비하고 있습니다.
 1. LocalDB ADSync 데이터베이스를 백업합니다.
-이 작업을 수행하는 가장 간단한 방법은 Azure AD Connect와 동일한 컴퓨터에 설치된 SQL Server Management Studio를 사용하는 것입니다. *(LocalDb).\ADSync*에 연결한 후 ADSync 데이터베이스를 백업합니다.
+이 작업을 수행하는 가장 간단한 방법은 Azure AD Connect와 동일한 컴퓨터에 설치된 SQL Server Management Studio를 사용하는 것입니다. *(LocalDb).\ADSync* 에 연결한 후 ADSync 데이터베이스를 백업합니다.
 
 2. ADSync 데이터베이스를 원격 SQL Server 인스턴스에 복원합니다.
 
@@ -218,7 +218,7 @@ PowerShell 스크립트를 실행하려면 [스크립트를 다운로드](https:
 초기에 Azure AD Connect를 업그레이드하는 데 사용된 사용자 이름과 암호를 알 필요가 없습니다. 전역 관리자 역할이 있는 Azure AD 계정을 사용하세요.
 
 **Q: 사용 중인 Azure AD Connect 버전을 확인하려면 어떻게 해야 하나요?**  
-서버에 설치된 Azure AD Connect의 버전을 확인하려면 제어판으로 이동하고, 다음과 같이 **프로그램** > **프로그램 및 기능**에서 설치된 Microsoft Azure AD Connect 버전을 찾으세요.
+서버에 설치된 Azure AD Connect의 버전을 확인하려면 제어판으로 이동하고, 다음과 같이 **프로그램** > **프로그램 및 기능** 에서 설치된 Microsoft Azure AD Connect 버전을 찾으세요.
 
 ![제어판에 표시된 Azure AD Connect 버전](./media/reference-connect-faq/faq1.png)
 
@@ -261,7 +261,7 @@ Office 팀은 Office 포털 업데이트에서 현재 제품 이름을 반영하
 ## <a name="operational-best-practice"></a>운영 모범 사례    
 다음은 Windows Server Active Directory와 Azure Active Directory 간에 동기화 할 때 구현 해야 하는 몇 가지 모범 사례입니다.
 
-**동기화 된 모든 계정에 대 한 Multi-Factor Authentication 적용** Azure Multi-Factor Authentication는 사용자의 편의를 유지 하면서 데이터와 응용 프로그램에 대 한 액세스를 보호 합니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 사용하기 쉬운 다양한 인증 방법을 통해 강력한 인증을 제공합니다. 관리자가 결정한 구성에 따라 사용자에게 MFA 챌린지가 표시될 수도 있고 그렇지 않을 수도 있습니다. MFA에 대 한 자세한 내용은 다음을 참조 하세요. https://www.microsoft.com/security/business/identity/mfa?rtc=1
+**동기화 된 모든 계정에 대 한 Multi-Factor Authentication 적용** Azure AD Multi-Factor Authentication는 사용자의 편의를 유지 하면서 데이터와 응용 프로그램에 대 한 액세스를 보호 합니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 사용하기 쉬운 다양한 인증 방법을 통해 강력한 인증을 제공합니다. 관리자가 결정한 구성에 따라 사용자에게 MFA 챌린지가 표시될 수도 있고 그렇지 않을 수도 있습니다. MFA에 대 한 자세한 내용은 다음을 참조 하세요. https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
 **Azure AD Connect 서버 보안 지침을 따릅니다** . Azure AD Connect 서버는 중요 한 id 데이터를 포함 하며, [Active Directory 관리 계층 모델](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)에 설명 된 대로 계층 0 구성 요소로 처리 되어야 합니다. 또한 [AADConnect 서버를 보호 하기 위한 지침](./how-to-connect-install-prerequisites.md#azure-ad-connect-server)을 참조 하세요.
 

@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5c9b47bf5d638f3c15416416a435653eeb68505
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 46ab1df1b776bf8dc9d6d917e5394c3efeec0de4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172053"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659389"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Synapse 작업 영역 만들기
 
@@ -22,7 +22,7 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
 
 이 빠른 시작에서는 Azure CLI를 사용하여 Synapse 작업 영역을 만드는 방법을 알아봅니다.
 
-Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -30,30 +30,9 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 - [Azure Data Lake Storage Gen2 스토리지 계정](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
     > [!IMPORTANT]
-    > 선택한 ADLS Gen2 계정을 Azure Synapse 작업 영역에서 읽고 쓸 수 있어야 합니다. 또한 기본 스토리지 계정으로 연결하는 모든 스토리지 계정의 경우 [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account) 페이지에 설명된 대로 스토리지 계정을 만들 때 **계층 구조 네임스페이스**를 사용하도록 설정해야 합니다. 
+    > 선택한 ADLS Gen2 계정을 Azure Synapse 작업 영역에서 읽고 쓸 수 있어야 합니다. 또한 기본 스토리지 계정으로 연결하는 모든 스토리지 계정의 경우 [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account) 페이지에 설명된 대로 스토리지 계정을 만들 때 **계층 구조 네임스페이스** 를 사용하도록 설정해야 합니다. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="install-the-azure-cli-locally"></a>로컬로 Azure CLI 설치
-
-Azure CLI를 로컬로 설치하고 사용하도록 선택한 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
-
-Azure CLI를 로컬로 실행하는 경우 로그인하여 인증해야 합니다. Azure Cloud Shell을 사용하는 경우 이 단계가 필요하지 않습니다. Azure CLI에 로그인하려면 `az login`을 실행하고 브라우저 창에서 인증합니다.
-
-```azurecli
-az login
-```
-
-Azure CLI의 인증에 대한 자세한 내용은 [Azure CLI를 사용하여 로그인](/cli/azure/authenticate-azure-cli)을 참조하세요.
-
-## <a name="install-azure-synapse-extension-for-azure-cli"></a>Azure CLI용 Azure Synapse 확장 설치
-
-```azurecli
-az extension add --name synapse
-```
-
-> [!WARNING]
-> Azure CLI용 Azure Synapse 확장은 미리 보기로 제공됩니다.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-an-azure-synapse-workspace-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Synapse 작업 영역 만들기
 

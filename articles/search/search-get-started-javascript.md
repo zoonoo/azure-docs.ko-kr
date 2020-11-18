@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5ccbe1035c5cc73993e069c7683d6b15ae18e21c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 0e1b7aa0eb56d5668b6561b36a0f63e719974573
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795532"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698899"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>빠른 시작: JavaScript SDK를 사용하여 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -24,10 +24,10 @@ ms.locfileid: "92795532"
 > * [포털](search-get-started-portal.md)
 > * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
-> * [Postman](search-get-started-postman.md)
+> * [REST (영문)](search-get-started-rest.md)
 
 
-[Azure Cognition Search용 JavaScript/Typescript SDK](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest)를 사용하여 JavaScript에서 검색 인덱스를 만들고, 로드하고, 쿼리하는 Node.js 애플리케이션을 만듭니다.
+[Azure Cognition Search용 JavaScript/Typescript SDK](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme)를 사용하여 JavaScript에서 검색 인덱스를 만들고, 로드하고, 쿼리하는 Node.js 애플리케이션을 만듭니다.
 
 이 문서에서는 애플리케이션을 단계별로 만드는 방법을 보여 줍니다. 또는 [소스 코드와 데이터를 다운로드](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11)하고 명령줄에서 애플리케이션을 실행할 수 있습니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "92795532"
 
 2. **설정** > **키** 에서 서비스에 대한 모든 권한이 있는 관리자 키를 가져옵니다. 개체를 만들거나 삭제할 때 필요합니다. 상호 교환 가능한 기본 키와 보조 키가 있습니다. 둘 중 아무 키나 사용할 수 있습니다.
 
-   ![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-postman/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
+   ![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-rest/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "92795532"
     ```
      기본값을 그대로 사용하되, 라이선스는 "MIT"로 설정해야 합니다. 
 
-3. `@azure/search-documents`([Azure Cognition Search용 Javascript/Typscript SDK](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest))를 설치합니다.
+3. `@azure/search-documents`([Azure Cognition Search용 Javascript/Typscript SDK](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme))를 설치합니다.
 
     ```cmd
     npm install @azure/search-documents
@@ -480,7 +480,7 @@ let indexDocumentsResult = await searchClient.mergeOrUploadDocuments(hotelData['
 console.log(`Index operations succeeded: ${JSON.stringify(indexDocumentsResult.results[0].succeeded)}`);
 ```
 
-`node index.js`를 사용하여 프로그램을 다시 실행합니다. 1단계에서 본 것과 약간 다른 메시지 세트가 표시됩니다. 이번에는 인덱스가 *있으며* , 앱에서 새 인덱스를 만들어 데이터를 이 인덱스에 게시하기 전에 해당 인덱스를 삭제하라는 메시지가 표시됩니다. 
+`node index.js`를 사용하여 프로그램을 다시 실행합니다. 1단계에서 본 것과 약간 다른 메시지 세트가 표시됩니다. 이번에는 인덱스가 *있으며*, 앱에서 새 인덱스를 만들어 데이터를 이 인덱스에 게시하기 전에 해당 인덱스를 삭제하라는 메시지가 표시됩니다. 
 
 다음 단계에서 쿼리를 실행하기 전에 프로그램에서 1초 동안 대기하도록 함수를 정의합니다. 이 작업은 인덱싱이 완료되고 쿼리에 대한 인덱스에서 문서를 사용할 수 있도록 하기 위해 테스트/데모 용도로만 수행됩니다.
 

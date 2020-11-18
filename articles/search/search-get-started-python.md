@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: e4141bc4887a166876d1fc4590b73f382abd0b95
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dca53dc27eacc5c7e04bbf6cb5df82a8e8da0dfc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88936676"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694554"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>빠른 시작: Jupyter Notebook을 사용하여 Python에서 Azure Cognitive Search 인덱스 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "88936676"
 > * [Python(REST)](search-get-started-python.md)
 > * [PowerShell(REST)](./search-get-started-powershell.md)
 > * [C#](./search-get-started-dotnet.md)
-> * [Postman(REST)](search-get-started-postman.md)
+> * [REST (영문)](search-get-started-rest.md)
 > * [포털](search-get-started-portal.md)
 > 
 
@@ -45,9 +45,9 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
-1. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
+1. **설정** > **키** 에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-postman/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
+![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-rest/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
@@ -95,7 +95,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 포털을 사용하지 않는 경우 데이터를 로드하려면 먼저 서비스에 인덱스가 있어야 합니다. 이 단계에서는 [인덱스 만들기 REST API](/rest/api/searchservice/create-index)를 사용하여 인덱스 스키마를 서비스로 푸시합니다.
 
-인덱스의 필수 요소에는 name, fields 컬렉션 및 key가 포함됩니다. fields 컬렉션은 *문서*의 구조를 정의합니다. 각 필드에는 필드가 사용되는 방법(예: 검색 결과에서 전체 텍스트 검색 가능, 필터링 가능 또는 조회 가능 여부)을 결정하는 이름, 형식 및 속성이 있습니다. 인덱스 내에서 `Edm.String` 형식의 필드 중 하나는 문서 ID에 대한 *key*로 지정해야 합니다.
+인덱스의 필수 요소에는 name, fields 컬렉션 및 key가 포함됩니다. fields 컬렉션은 *문서* 의 구조를 정의합니다. 각 필드에는 필드가 사용되는 방법(예: 검색 결과에서 전체 텍스트 검색 가능, 필터링 가능 또는 조회 가능 여부)을 결정하는 이름, 형식 및 속성이 있습니다. 인덱스 내에서 `Edm.String` 형식의 필드 중 하나는 문서 ID에 대한 *key* 로 지정해야 합니다.
 
 이 인덱스의 이름은 "hotels-quickstart"이며 아래에 표시된 필드 정의가 있습니다. 다른 연습에서 사용되는 더 큰 [Hotels 인덱스](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON)의 하위 세트입니다. 이 빠른 시작에서는 간단히 하기 위해 다듬었습니다.
 
@@ -322,7 +322,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 간단히 하기 위해 단축된 버전의 Hotels 인덱스를 사용합니다. 전체 버전을 만들어 더 흥미로운 쿼리를 사용해 볼 수 있습니다. 전체 버전과 50개 문서를 모두 가져오려면 **데이터 가져오기** 마법사를 실행하여 기본 제공 데이터 원본 샘플에서 *hotels-sample*을 선택합니다.
+이 빠른 시작에서는 간단히 하기 위해 단축된 버전의 Hotels 인덱스를 사용합니다. 전체 버전을 만들어 더 흥미로운 쿼리를 사용해 볼 수 있습니다. 전체 버전과 50개 문서를 모두 가져오려면 **데이터 가져오기** 마법사를 실행하여 기본 제공 데이터 원본 샘플에서 *hotels-sample* 을 선택합니다.
 
 > [!div class="nextstepaction"]
 > [빠른 시작: Azure Portal에서 인덱스 만들기](search-get-started-portal.md)

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7edb7b498450625faf90f0601e19745ad632635a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656737"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835665"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>내 앱 배포 Azure Active Directory 계획
 
@@ -26,7 +26,7 @@ Azure AD 내 앱을 사용 하 여 다음을 수행할 수 있습니다.
 * 모든 회사의 Azure AD 연결 리소스 (예: 응용 프로그램)를 검색 하 고 액세스 합니다.
 * 새 앱 및 그룹에 대 한 액세스 요청
 * 다른 사용자를 위해 이러한 리소스에 대 한 액세스 관리
-* 셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication 설정 관리
+* 셀프 서비스 암호 재설정 및 Azure AD Multi-Factor Authentication 설정 관리
 * 장치 관리
 
 또한 관리자는 다음을 관리할 수 있습니다.
@@ -54,7 +54,7 @@ Azure AD 내 앱은 다음과 같은 방법으로 비즈니스를 활용 합니�
 
 내 앱은 무료 이며 기본 수준에서 사용할 라이선스가 필요 하지 않습니다. 그러나 디렉터리의 개체 수와 배포 하려는 추가 기능에는 추가 라이선스가 필요할 수 있습니다. 라이선스 요구 사항이 있는 몇 가지 일반적인 Azure AD 시나리오는 다음과 같은 보안 기능을 포함 합니다.
 
-* [Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 * [그룹 기반 구성원 자격](../fundamentals/active-directory-manage-groups.md)
 * [셀프 서비스 암호 재설정](../authentication/tutorial-enable-sspr.md)
 * [Azure Active Directory ID 보호](../identity-protection/overview-identity-protection.md)
@@ -172,7 +172,7 @@ SaaS 응용 프로그램을 배포 하 고 구성 하는 방법에 대 한 자�
 
 사용자가 암호 기반 SSO 응용 프로그램에 로그인 하는 경우 내 앱 보안 로그인 확장을 설치 하 고 사용 해야 합니다. 확장은 응용 프로그램의 로그인 양식에 암호를 전송 하는 스크립트를 실행 합니다. 사용자가 암호 기반 SSO 응용 프로그램을 처음 시작할 때 확장을 설치 하 라는 메시지가 표시 됩니다. 확장에 대 한 자세한 내용은이 설명서에서 [내 앱 브라우저 확장 설치]()에 나와 있습니다.
 
-암호 기반 SSO 응용 프로그램을 통합 해야 하는 경우 [지원 되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 해야 합니다. 표시되는 옵션은 다음과 같습니다.
+암호 기반 SSO 응용 프로그램을 통합 해야 하는 경우 [지원 되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 해야 합니다. 다음 옵션을 사용할 수 있습니다.
 
 * [Internet Explorer에 대 한 그룹 정책]()
 * [Internet Explorer에 대 한 Configuration Manager](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
@@ -312,4 +312,4 @@ Microsoft 365 응용 프로그램의 경우 사용자는 할당 된 라이선스
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 를 사용 하 여 디렉터리 권한이 있는 사용자에 게 추가 감사, 제어 및 액세스 검토를 제공할 역할을 관리할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Multi-Factor Authentication 배포 계획](../authentication/howto-mfa-getstarted.md)
+[Azure AD Multi-Factor Authentication의 배포 계획](../authentication/howto-mfa-getstarted.md)

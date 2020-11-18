@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 12190a50579bf5b87685fc4b19ec7b2907e5ee9c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e1fa97fb8a3dcae3a78ba0bc85cf59db2c167dea
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547047"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696781"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -297,7 +297,7 @@ $rule =
 New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -DisableOutboundSNAT -IdleTimeoutInMinutes $idl -EnableTcpReset
 ```
 >[!NOTE]
->백 엔드 풀의 가상 머신은 이 구성과 아웃바운드 인터넷 연결을 사용하지 않습니다. </br> 아웃바운드 연결 제공에 대한 자세한 내용은 다음을 참조하세요. </br> **[Azure에서 아웃바운드 연결](load-balancer-outbound-connections.md)**</br> 연결 제공 옵션: </br> **[아웃바운드 전용 부하 분산 장치 구성](egress-only.md)** </br> **[Virtual Network NAT란?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+>백 엔드 풀의 가상 머신은 이 구성과 아웃바운드 인터넷 연결을 사용하지 않습니다. </br> 아웃바운드 연결 제공에 대한 자세한 내용은 다음을 참조하세요. </br> **[Azure에서 아웃바운드 연결](load-balancer-outbound-connections.md)**</br> 연결 제공 옵션: </br> **[아웃바운드 전용 부하 분산 장치 구성](egress-only.md)** </br> **[Virtual Network NAT란?](../virtual-network/nat-overview.md)**
 
 
 ### <a name="create-load-balancer-resource"></a>부하 분산 장치 리소스 만들기
@@ -399,7 +399,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic2 -LoadBa
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-[Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
+[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell
 $cred = Get-Credential
@@ -832,7 +832,7 @@ New-AzAvailabilitySet -ResourceGroupName $rg -Name $avs -Location $loc
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-[Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
+[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell
 $cred = Get-Credential
@@ -914,7 +914,7 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 
 ## <a name="install-iis"></a>IIS 설치
 
-[Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension?view=latest)을 사용하여 사용자 지정 스크립트 확장을 설치합니다. 
+[Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension?view=latest)을 사용하여 사용자 지정 스크립트 확장을 설치합니다. 
 
 확장은 PowerShell Add-WindowsFeature Web-Server를 실행하여 IIS 웹 서버를 설치한 다음, Default.htm 페이지를 업데이트하여 VM의 호스트 이름을 표시합니다.
 
@@ -986,7 +986,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -Networ
 
 ### <a name="create-virtual-machine"></a>가상 머신 만들기
 
-[Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
+[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell
 $cred = Get-Credential
@@ -1074,5 +1074,3 @@ Remove-AzResourceGroup -Name $rg
 Azure Load Balancer에 대해 자세히 알아보려면 계속 진행하세요.
 > [!div class="nextstepaction"]
 > [Azure Load Balancer란?](load-balancer-overview.md)
-
-

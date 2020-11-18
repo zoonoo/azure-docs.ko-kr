@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a0fbcab194b90bbe89948fee1efb604266dbbb0f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7c6de17e4ed4f5666554908e9b13fb9e299b027a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311748"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682063"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>작업 영역, 데이터 및 파이프라인에 대한 액세스 관리
 

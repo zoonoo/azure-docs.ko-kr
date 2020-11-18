@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: c8b4102968e4b6b633216e29d5e993a1c98fa1c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 478f3454a728871040cdbbf9f817394cffe6b82f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89071723"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660256"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>빠른 시작: 가용성 영역을 사용하여 Azure Firewall 배포 - ARM 템플릿
 
@@ -60,17 +60,17 @@ Azure Firewall에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure
 
 Azure에 ARM 템플릿을 배포합니다.
 
-1. **Azure에 배포**를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 Azure Firewall, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
+1. **Azure에 배포** 를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 Azure Firewall, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
 
    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-with-zones-sandbox%2Fazuredeploy.json)
 
 2. 포털의 **영역을 사용하여 Azure Firewall의 샌드박스 설정 만들기** 페이지에서 다음 값을 입력하거나 선택합니다.
-   - **리소스 그룹**: **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력하고 **확인**을 선택합니다. 
+   - **리소스 그룹**: **새로 만들기** 를 선택하고 리소스 그룹의 이름을 입력하고 **확인** 을 선택합니다. 
    - **가상 네트워크 이름**: 새 VNet의 이름을 입력합니다.
    - **관리자 사용자 이름**: 관리자 사용자 계정에 대한 사용자 이름을 입력합니다.
    - **관리자 암호**: 관리자 암호를 입력합니다.
 
-3. 사용 약관을 읽은 다음, **위에 명시된 사용 약관에 동의함**을 선택한 다음, **구매**를 선택합니다. 배포를 완료하는 데 10분 이상 걸릴 수 있습니다.
+3. 사용 약관을 읽은 다음, **위에 명시된 사용 약관에 동의함** 을 선택한 다음, **구매** 를 선택합니다. 배포를 완료하는 데 10분 이상 걸릴 수 있습니다.
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
@@ -80,7 +80,7 @@ Azure에 ARM 템플릿을 배포합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 `Remove-AzResourceGroup` PowerShell 명령을 실행하여 리소스 그룹, 방화벽 및 모든 관련 리소스를 제거할 수 있습니다. *MyResourceGroup*이라는 리소스 그룹을 제거하려면 다음을 실행합니다.
+더 이상 필요하지 않으면 `Remove-AzResourceGroup` PowerShell 명령을 실행하여 리소스 그룹, 방화벽 및 모든 관련 리소스를 제거할 수 있습니다. *MyResourceGroup* 이라는 리소스 그룹을 제거하려면 다음을 실행합니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
@@ -93,4 +93,4 @@ Remove-AzResourceGroup -Name MyResourceGroup
 그런 다음, Azure Firewall 로그를 모니터링할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [자습서: Azure Firewall 로그 모니터링](tutorial-diagnostics.md)
+> [자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 53deb7dc853de969ad6b6679ee728a3f132b6309
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f3e43a6b72d8de25de3220a9a6ac4e0b3986a467
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759085"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701809"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>빠른 시작: Azure.Search.Documents 클라이언트 라이브러리를 사용하여 검색 인덱스 만들기
 
@@ -50,9 +50,9 @@ ms.locfileid: "91759085"
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
-2. **설정** > **키**에서 서비스에 대한 모든 권한이 있는 관리자 키를 가져옵니다. 개체를 만들거나 삭제할 때 필요합니다. 상호 교환 가능한 기본 키와 보조 키가 있습니다. 둘 중 아무 키나 사용할 수 있습니다.
+2. **설정** > **키** 에서 서비스에 대한 모든 권한이 있는 관리자 키를 가져옵니다. 개체를 만들거나 삭제할 때 필요합니다. 상호 교환 가능한 기본 키와 보조 키가 있습니다. 둘 중 아무 키나 사용할 수 있습니다.
 
-   ![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-postman/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
+   ![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-rest/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
@@ -60,17 +60,17 @@ ms.locfileid: "91759085"
 
 프로젝트를 만든 후 클라이언트 라이브러리를 추가합니다. [Azure.Search.Documents 패키지](https://www.nuget.org/packages/Azure.Search.Documents/)는 .NET에서 검색 서비스를 사용하는 데 필요한 모든 API를 제공하는 하나의 클라이언트 라이브러리로 구성됩니다.
 
-1. **도구** > **NuGet 패키지 관리자**에서 **솔루션의 NuGet 패키지 관리...** 를 선택합니다. 
+1. **도구** > **NuGet 패키지 관리자** 에서 **솔루션의 NuGet 패키지 관리...** 를 선택합니다. 
 
-1. **찾아보기**를 클릭합니다.
+1. **찾아보기** 를 클릭합니다.
 
 1. `Azure.Search.Documents`를 검색하여 11.0 이상 버전을 선택합니다.
 
-1. 오른쪽에서 **설치**를 클릭하여 프로젝트 및 솔루션에 어셈블리를 추가합니다.
+1. 오른쪽에서 **설치** 를 클릭하여 프로젝트 및 솔루션에 어셈블리를 추가합니다.
 
 ### <a name="create-a-search-client"></a>검색 클라이언트 만들기
 
-1. **Program.cs**에서 네임스페이스를 `AzureSearch.SDK.Quickstart.v11`로 변경하고 다음 `using` 지시문을 추가합니다.
+1. **Program.cs** 에서 네임스페이스를 `AzureSearch.SDK.Quickstart.v11`로 변경하고 다음 `using` 지시문을 추가합니다.
 
    ```csharp
    using Azure;
@@ -106,7 +106,7 @@ ms.locfileid: "91759085"
 
 1. 다음과 같이 프로젝트에 빈 클래스 정의를 추가합니다. **Hotel.cs**
 
-1. **Hotel.cs**에서 호텔 문서 구조를 정의합니다.
+1. **Hotel.cs** 에서 호텔 문서 구조를 정의합니다.
 
     ```csharp
     using System;
@@ -134,7 +134,7 @@ ms.locfileid: "91759085"
     }
     ```
 
-1. **Program.cs**에서 [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) 개체를 만든 다음, [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) 메서드를 호출하여 검색 서비스에서 인덱스를 표시합니다.
+1. **Program.cs** 에서 [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) 개체를 만든 다음, [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) 메서드를 호출하여 검색 서비스에서 인덱스를 표시합니다.
 
    ```csharp
     // Define an index schema using SearchIndex
@@ -175,7 +175,7 @@ Azure Cognitive Search에서 검색 문서는 인덱싱에 대한 입력과 쿼�
 
 문서를 업로드할 때 [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) 개체를 사용해야 합니다. `IndexDocumentsBatch` 개체에는 [Actions](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions)의 컬렉션이 포함되며, 각 컬렉션에는 수행할 작업([upload, merge, delete 및 mergeOrUpload](search-what-is-data-import.md#indexing-actions))을 Azure Cognitive Search에 알려주는 속성과 문서가 포함됩니다.
 
-1. **Program.cs**에서 문서 및 인덱스 작업의 배열을 만든 다음, 배열을 `IndexDocumentsBatch`에 전달합니다. 아래 문서는 호텔 클래스에서 정의한 대로 hotels-quickstart-v11 인덱스를 준수합니다.
+1. **Program.cs** 에서 문서 및 인덱스 작업의 배열을 만든 다음, 배열을 `IndexDocumentsBatch`에 전달합니다. 아래 문서는 호텔 클래스에서 정의한 대로 hotels-quickstart-v11 인덱스를 준수합니다.
 
     ```csharp
     // Load documents (using a subset of fields for brevity)
@@ -212,7 +212,7 @@ Azure Cognitive Search에서 검색 문서는 인덱싱에 대한 입력과 쿼�
 
 [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) 클래스는 결과를 나타냅니다.
 
-1. **Program.cs**에서 검색 결과를 콘솔에 출력하는 WriteDocuments 메서드를 만듭니다.
+1. **Program.cs** 에서 검색 결과를 콘솔에 출력하는 WriteDocuments 메서드를 만듭니다.
 
     ```csharp
     private static void WriteDocuments(SearchResults<Hotel> searchResults)

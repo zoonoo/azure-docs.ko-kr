@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 994f2829d260223567dcb5aed859812aa1fef3d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a76c6467dac69fd3d21aa659c52227046c166938
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828946"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816837"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음을 확인해야 합니다.
@@ -28,7 +28,7 @@ ms.locfileid: "91828946"
 
 ### <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
 
-콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `ChatQuickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 **Program.cs**라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다.
+콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `ChatQuickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 **Program.cs** 라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다.
 
 ```console
 dotnet new console -o ChatQuickstart
@@ -46,7 +46,7 @@ dotnet build
 .NET용 Azure 통신 채팅 클라이언트 라이브러리 설치
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.2
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.3
 ``` 
 
 ## <a name="object-model"></a>개체 모델
@@ -77,7 +77,7 @@ ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
 
 `createChatThread` 메서드를 사용하여 채팅 스레드를 만듭니다.
 - `topic`을 사용하여 채팅에 주제를 제공합니다. 주제는 `UpdateThread` 함수를 사용하여 채팅 스레드를 만든 후 업데이트할 수 있습니다.
-- `members` 속성을 사용하여 채팅 스레드에 추가할 `ChatThreadMember` 개체 목록을 전달합니다. `ChatThreadMember` 개체가 `CommunicationUser` 개체로 초기화되었습니다. `CommunicationUser` 개체를 가져오려면 [사용자 생성](../../access-tokens.md#create-a-user) 지침에 따라 만든 액세스 ID를 전달해야 합니다.
+- `members` 속성을 사용하여 채팅 스레드에 추가할 `ChatThreadMember` 개체 목록을 전달합니다. `ChatThreadMember` 개체가 `CommunicationUser` 개체로 초기화되었습니다. `CommunicationUser` 개체를 가져오려면 [사용자 생성](../../access-tokens.md#create-an-identity) 지침에 따라 만든 액세스 ID를 전달해야 합니다.
 
 `chatThreadClient` 응답은 생성된 채팅 스레드에서 작업(예: 채팅 스레드에 멤버 추가, 메시지 보내기, 메시지 삭제 등)을 수행하는 데 사용됩니다. 여기에는 채팅 스레드의 고유 ID인 `Id` 특성이 포함되어 있습니다. 
 

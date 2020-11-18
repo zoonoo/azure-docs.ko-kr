@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: b33f3e58f82d52e77437c29f7e5219926b2578c3
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 21e0cfd56a37304d1ec333f8713894504282541f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106980"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660664"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>빠른 시작: Azure Sentinel 온보딩
 
@@ -32,7 +32,7 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
 
 - 활성 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
-- Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](../log-analytics/log-analytics-quick-create-workspace.md)을 알아봅니다. Log Analytics 작업 영역에 대한 자세한 내용은 [Azure Monitor 로그 배포 디자인](../azure-monitor/platform/design-logs-deployment.md)을 참조하세요.
+- Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/learn/quick-create-workspace.md)을 알아봅니다. Log Analytics 작업 영역에 대한 자세한 내용은 [Azure Monitor 로그 배포 디자인](../azure-monitor/platform/design-logs-deployment.md)을 참조하세요.
 
 - Azure Sentinel을 사용하도록 설정하려면 Azure Sentinel 작업 영역이 있는 구독에 대한 참가자 권한이 필요합니다. 
 - Azure Sentinel을 사용하려면 작업 영역이 속한 리소스 그룹에 대해 참가자 또는 읽기 권한자 권한이 있어야 합니다.
@@ -59,11 +59,11 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
 
 1. Azure Portal에 로그인합니다. Azure Sentinel이 생성된 구독이 선택되었는지 확인합니다.
 
-1. **Azure Sentinel**을 검색하여 선택합니다.
+1. **Azure Sentinel** 을 검색하여 선택합니다.
 
    ![서비스 검색](./media/quickstart-onboard/search-product.png)
 
-1. **추가**를 선택합니다.
+1. **추가** 를 선택합니다.
 
 1. 사용하려는 작업 영역을 선택하거나 새 작업 영역을 만듭니다. Azure Sentinel은 둘 이상의 작업 영역에서 실행할 수 있지만 데이터는 단일 작업 영역으로 격리됩니다.
 
@@ -77,15 +77,15 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
    >
    > - 작업 영역에 배포되면 Azure Sentinel은 해당 작업 영역을 다른 리소스 그룹 또는 구독으로 이동하는 것을 **현재 지원하지 않습니다**. 
    >
-   >   작업 영역을 이미 이동한 경우 **Analytics**에서 모든 활성 규칙을 사용하지 않도록 설정하고 5분 후에 다시 사용하도록 설정합니다. 대부분의 경우에 이를 효과적으로 수행해야 하지만, 이는 지원되지 않으며 사용자의 책임하에 수행됩니다.
+   >   작업 영역을 이미 이동한 경우 **Analytics** 에서 모든 활성 규칙을 사용하지 않도록 설정하고 5분 후에 다시 사용하도록 설정합니다. 대부분의 경우에 이를 효과적으로 수행해야 하지만, 이는 지원되지 않으며 사용자의 책임하에 수행됩니다.
 
-1. **Azure Sentinel 추가**를 선택합니다.
+1. **Azure Sentinel 추가** 를 선택합니다.
 
 ## <a name="connect-data-sources"></a>데이터 원본 연결
 
 Azure Sentinel은 서비스에 연결하고 이벤트 및 로그를 Azure Sentinel에 전달하여 서비스 및 앱에서 데이터를 수집합니다. 실제 및 가상 머신의 경우 로그를 수집하고 Azure Sentinel에 전달하는 Log Analytics 에이전트를 설치할 수 있습니다. 방화벽 및 프록시의 경우 Azure Sentinel은 Linux Syslog 서버에 Log Analytics 에이전트를 설치합니다. 여기서 에이전트는 로그 파일을 수집하여 Azure Sentinel에 전달합니다. 
  
-1. 주 메뉴에서 **데이터 커넥터**를 선택합니다. 그러면 데이터 커넥터 갤러리가 열립니다.
+1. 주 메뉴에서 **데이터 커넥터** 를 선택합니다. 그러면 데이터 커넥터 갤러리가 열립니다.
 
 1. 갤러리는 연결할 수 있는 모든 데이터 원본의 목록입니다. 데이터 원본을 선택한 다음, **커넥터 페이지 열기** 단추를 선택합니다.
 

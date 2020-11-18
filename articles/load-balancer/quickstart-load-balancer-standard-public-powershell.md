@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 0dfb5a68149f4745d17581dcefed6aedcf394106
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 35dc088909522494d6c1cf4c94f9342c95fda59a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487707"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698488"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -421,7 +421,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic3 -LoadBa
 ```
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-[Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
+[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell
 $cred = Get-Credential
@@ -1079,7 +1079,7 @@ New-AzAvailabilitySet -ResourceGroupName $rg -Name $avs -Location $loc
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-[Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
+[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell
 $cred = Get-Credential
@@ -1191,7 +1191,7 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 
 ## <a name="install-iis"></a>IIS 설치
 
-[Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension)을 사용하여 사용자 지정 스크립트 확장을 설치합니다. 
+[Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension)을 사용하여 사용자 지정 스크립트 확장을 설치합니다. 
 
 확장은 PowerShell Add-WindowsFeature Web-Server를 실행하여 IIS 웹 서버를 설치한 다음, Default.htm 페이지를 업데이트하여 VM의 호스트 이름을 표시합니다.
 
@@ -1242,7 +1242,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
 
-[Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다.
+[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다.
 
 ```azurepowershell-interactive
   ## Variables for command. ##
@@ -1281,5 +1281,3 @@ Remove-AzResourceGroup -Name $rg
 Azure Load Balancer에 대해 자세히 알아보려면 계속 진행하세요.
 > [!div class="nextstepaction"]
 > [Azure Load Balancer란?](load-balancer-overview.md)
-
-

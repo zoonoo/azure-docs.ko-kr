@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4337d6bb108042a909250b3d87d13ab60357cfec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4239b5400e919621dfff001ca7e6cb9de1626658
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311120"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686211"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)를 사용하여 Synapse SQL에 연결
 > [!div class="op_single_selector"]
@@ -54,9 +54,9 @@ ms.locfileid: "93311120"
   
     ![서버 1에 연결](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
-   * **서버 이름** : 이전에 식별한 **서버 이름** 을 입력합니다.
-   * **인증** :  **SQL Server 인증** 또는 **Active Directory 통합 인증** 과 같은 인증 유형을 선택합니다.
-   * **사용자 이름** 및 **암호** : 위에서 SQL Server 인증을 선택한 경우 사용자 이름 및 암호를 입력합니다.
+   * **서버 이름**: 이전에 식별한 **서버 이름** 을 입력합니다.
+   * **인증**:  **SQL Server 인증** 또는 **Active Directory 통합 인증** 과 같은 인증 유형을 선택합니다.
+   * **사용자 이름** 및 **암호**: 위에서 SQL Server 인증을 선택한 경우 사용자 이름 및 암호를 입력합니다.
 
 1. **개체 탐색기** 에서 Azure SQL Server를 확장합니다. 예제 AdventureWorksDW 데이터베이스와 같이 서버와 연결된 데이터베이스를 볼 수 있습니다. 데이터베이스를 확장하여 테이블을 볼 수 있습니다.
    
@@ -72,9 +72,9 @@ ms.locfileid: "93311120"
    
     ![서버 2에 연결](./media/get-started-ssms/connect-object-explorer1.png)
    
-   * **서버 이름** : 이전에 식별한 **서버 이름** 을 입력합니다.
-   * **인증** : **SQL Server 인증** 또는 **Active Directory 통합 인증** 과 같은 인증 유형을 선택합니다.
-   * **사용자 이름** 및 **암호** : 위에서 SQL Server 인증을 선택한 경우 사용자 이름 및 암호를 입력합니다.
+   * **서버 이름**: 이전에 식별한 **서버 이름** 을 입력합니다.
+   * **인증**: **SQL Server 인증** 또는 **Active Directory 통합 인증** 과 같은 인증 유형을 선택합니다.
+   * **사용자 이름** 및 **암호**: 위에서 SQL Server 인증을 선택한 경우 사용자 이름 및 암호를 입력합니다.
    * **연결** 을 선택합니다.
 
 4. 탐색하려면 SQL Azure Server를 확장합니다. 서버와 연결된 데이터베이스를 볼 수 있습니다. *데모* 를 확장하여 예제 데이터베이스의 콘텐츠를 확인합니다.

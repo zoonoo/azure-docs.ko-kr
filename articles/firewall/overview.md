@@ -9,12 +9,12 @@ ms.custom: mvc, contperfq1
 ms.date: 11/10/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 07c0169dcbadc6dc8ae293d69e197c2cd1ec2275
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e714e88e47ec20adec44a104c659d03e62d8010a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489797"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658386"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -47,7 +47,7 @@ Azure Firewall의 알려진 문제는 다음과 같습니다.
 
 |문제  |Description  |완화 방법  |
 |---------|---------|---------|
-TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 필터링 규칙은 인터넷 바운드 트래픽에 작동하지 않습니다.|TCP/UDP 프로토콜이 아닌 프로토콜에 대한 네트워크 필터링 규칙은 공용 IP 주소에 대한 SNAT에 작동하지 않습니다. TCP/UDP 프로토콜이 아닌 프로토콜은 스포크 서브넷과 VNet 간에 지원됩니다.|Azure Firewall은 표준 Load Balancer를 사용하기 때문에 [현재 IP 프로토콜을 위한 SNAT를 지원하지 않습니다](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). 향후 릴리스에서 이 시나리오를 지원할 수 있는 옵션을 모색하고 있습니다.|
+TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 필터링 규칙은 인터넷 바운드 트래픽에 작동하지 않습니다.|TCP/UDP 프로토콜이 아닌 프로토콜에 대한 네트워크 필터링 규칙은 공용 IP 주소에 대한 SNAT에 작동하지 않습니다. TCP/UDP 프로토콜이 아닌 프로토콜은 스포크 서브넷과 VNet 간에 지원됩니다.|Azure Firewall은 표준 Load Balancer를 사용하기 때문에 [현재 IP 프로토콜을 위한 SNAT를 지원하지 않습니다](../load-balancer/load-balancer-overview.md). 향후 릴리스에서 이 시나리오를 지원할 수 있는 옵션을 모색하고 있습니다.|
 |ICMP에 대한 PowerShell 및 CLI 지원 누락|Azure PowerShell 및 CLI는 네트워크 규칙에 유효한 프로토콜로 ICMP를 지원하지 않습니다.|여전히 포털 및 REST API를 통해 ICMP를 프로토콜로 사용할 수 있습니다. PowerShell 및 CLI에 ICMP를 조만간 추가하기 위해 노력 중입니다.|
 |FQDN 태그는 프로토콜: 설정할 포트가 필요|FQDN 태그를 사용하는 애플리케이션 규칙에는 포트: 프로토콜 정의가 필요합니다.|**https** 를 포트: 프로토콜 값으로 사용할 수 있습니다. FQDN 태그를 사용할 때 이 필드 옵션이 작동하도록 하기 위한 작업이 진행 중입니다.|
 |방화벽을 다른 리소스 그룹 또는 구독으로 이동하는 기능은 지원되지 않습니다.|방화벽을 다른 리소스 그룹 또는 구독으로 이동하는 기능은 지원되지 않습니다.|이 기능은 로드맵에 있습니다. 방화벽을 다른 리소스 그룹 또는 구독으로 이동하려면 현재 인스턴스를 삭제하고 새 리소스 그룹 또는 구독에서 다시 만들어야 합니다.|
@@ -61,7 +61,7 @@ TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 �
 |활성 FTP는 지원되지 않습니다.|FTP PORT 명령을 사용하여 FTP 바운스 공격으로부터 보호하기 위해 Azure Firewall에서 활성 FTP를 사용하지 않도록 설정합니다.|대신 수동 FTP를 사용할 수 있습니다. 여전히 방화벽에서 TCP 포트 20 및 21을 명시적으로 열어야 합니다.
 |SNAT 포트 사용률 메트릭이 0%를 표시합니다.|SNAT 포트를 사용하는 경우에도 Azure Firewall SNAT 포트 사용률 메트릭이 0% 사용량을 표시할 수 있습니다. 이 경우 방화벽 상태 메트릭의 일부로 메트릭을 사용하면 잘못된 결과가 제공됩니다.|이 문제는 해결되었으며 2020년 5월에 출시될 예정입니다. 방화벽 재배포로 문제가 해결되는 경우도 있지만 일관되지 없습니다. 중간책으로, 방화벽 상태만 사용하여 *status=unhealthy* 가 *status=degraded* 를 찾습니다. 포트 소모는 *성능 저하됨* 으로 표시됩니다. 방화벽 상태에 영향을 주는 더 많은 메트릭이 있는 경우 *정상이 아님* 은 나중에 사용하도록 예약되어 있습니다.
 |DNAT는 강제 터널링을 사용하는 경우 지원되지 않습니다.|강제 터널링을 사용하여 배포된 방화벽은 비대칭 라우팅으로 인해 인터넷에서 인바운드 액세스를 지원할 수 없습니다.|이는 비대칭 라우팅 때문에 의도된 것입니다. 인바운드 연결의 반환 경로는 온-프레미스 방화벽을 통해 전달되며 설정된 연결이 표시되지 않습니다.
-|아웃바운드 수동 FTP는 FTP 서버 구성에 따라 여러 공용 IP 주소가 있는 방화벽에서 작동하지 않을 수 있습니다.|수동 FTP는 제어 및 데이터 채널에 대해 서로 다른 연결을 설정합니다. 공용 IP 주소가 여러 개인 방화벽이 데이터를 아웃바운드로 보내는 경우 원본 IP 주소에 대한 공용 IP 주소 중 하나를 임의로 선택합니다. FTP 서버 구성에 따라 데이터 및 제어 채널에서 다른 원본 IP 주소를 사용하는 경우 FTP가 실패할 수 있습니다.|명시적 SNAT 구성이 계획되어 있습니다. 그 동안에는 FTP 서버를 구성하여 서로 다른 원본 IP 주소에서 데이터를 허용하고 채널을 제어할 수 있습니다([IIS의 예제](https://docs.microsoft.com/iis/configuration/system.applicationhost/sites/sitedefaults/ftpserver/security/datachannelsecurity) 참조). 또는 이 경우에 단일 IP 주소를 사용하는 것이 좋습니다.|
+|아웃바운드 수동 FTP는 FTP 서버 구성에 따라 여러 공용 IP 주소가 있는 방화벽에서 작동하지 않을 수 있습니다.|수동 FTP는 제어 및 데이터 채널에 대해 서로 다른 연결을 설정합니다. 공용 IP 주소가 여러 개인 방화벽이 데이터를 아웃바운드로 보내는 경우 원본 IP 주소에 대한 공용 IP 주소 중 하나를 임의로 선택합니다. FTP 서버 구성에 따라 데이터 및 제어 채널에서 다른 원본 IP 주소를 사용하는 경우 FTP가 실패할 수 있습니다.|명시적 SNAT 구성이 계획되어 있습니다. 그 동안에는 FTP 서버를 구성하여 서로 다른 원본 IP 주소에서 데이터를 허용하고 채널을 제어할 수 있습니다([IIS의 예제](/iis/configuration/system.applicationhost/sites/sitedefaults/ftpserver/security/datachannelsecurity) 참조). 또는 이 경우에 단일 IP 주소를 사용하는 것이 좋습니다.|
 |FTP 서버 구성에 따라 인바운드 수동 FTP가 작동하지 않을 수 있습니다. |수동 FTP는 제어 및 데이터 채널에 대해 서로 다른 연결을 설정합니다. Azure Firewall의 인바운드 연결은 대칭 라우팅을 보장하기 위해 방화벽 개인 IP 주소 중 하나에 SNAT됩니다. FTP 서버 구성에 따라 데이터 및 제어 채널에서 다른 원본 IP 주소를 사용하는 경우 FTP가 실패할 수 있습니다.|원래 원본 IP 주소를 유지하는 동안 조사하고 있습니다. 그 동안에는 FTP 서버를 구성하여 서로 다른 원본 IP 주소에서 데이터를 허용하고 채널을 제어할 수 있습니다.|
 |NetworkRuleHit 메트릭에 프로토콜 차원이 누락됨|ApplicationRuleHit 메트릭은 필터링 기반 프로토콜을 허용하지만 해당 NetworkRuleHit 메트릭에는 이 기능이 없습니다.|수정 사항을 조사하고 있습니다.|
 |64000에서 65535 사이의 포트를 사용하는 NAT 규칙이 지원되지 않음|Azure Firewall은 네트워크 및 애플리케이션 규칙에서 1-65535 범위의 모든 포트를 허용하지만 NAT 규칙은 1-63999 범위의 포트만 지원합니다.|이 문제가 현재 제한 사항입니다.
