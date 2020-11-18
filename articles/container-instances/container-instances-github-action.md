@@ -3,13 +3,13 @@ title: GitHub 작업으로 컨테이너 인스턴스 배포
 description: 컨테이너 이미지를 빌드, 푸시 및 배포 하기 위한 단계를 자동화 하는 GitHub 작업을 구성 하 여 Azure Container Instances
 ms.topic: article
 ms.date: 08/20/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: c01075bcb64aa9b91869daba2e995957da74daf4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: 221ecbe5fbe2cdea4105362c43a5765bcc298d46
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019191"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843658"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>GitHub 작업을 구성하여 컨테이너 인스턴스 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "92019191"
 > [!IMPORTANT]
 > Azure Container Instances에 대 한 GitHub 동작은 현재 미리 보기 상태입니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * **GitHub 계정** -아직 계정이 없는 경우에 계정을 만듭니다 https://github.com .
 * **Azure CLI** -Azure CLI의 Azure Cloud Shell 또는 로컬 설치를 사용 하 여 Azure CLI 단계를 완료할 수 있습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
@@ -45,7 +45,7 @@ ms.locfileid: "92019191"
 
   ![GitHub에 있는 포크 단추(강조 표시됨)의 스크린샷](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
 
-* 리포지토리에 대해 작업을 사용할 수 있는지 확인 합니다. 분기 리포지토리로 이동 하 고 **설정**  >  **작업**을 선택 합니다. **작업 사용 권한**에서 **이 리포지토리에 대해 로컬 및 타사 작업 사용** 이 선택 되어 있는지 확인 합니다.
+* 리포지토리에 대해 작업을 사용할 수 있는지 확인 합니다. 분기 리포지토리로 이동 하 고 **설정**  >  **작업** 을 선택 합니다. **작업 사용 권한** 에서 **이 리포지토리에 대해 로컬 및 타사 작업 사용** 이 선택 되어 있는지 확인 합니다.
 
 ## <a name="configure-github-workflow"></a>GitHub 워크플로 구성
 
@@ -112,7 +112,7 @@ az role assignment create \
 
 ### <a name="save-credentials-to-github-repo"></a>GitHub 리포지토리에 자격 증명 저장
 
-1. GitHub UI에서 분기 리포지토리로 이동 하 고 **설정**  >  **암호**를 선택 합니다. 
+1. GitHub UI에서 분기 리포지토리로 이동 하 고 **설정**  >  **암호** 를 선택 합니다. 
 
 1. **새 비밀 추가** 를 선택 하 여 다음 비밀을 추가 합니다.
 
@@ -126,10 +126,10 @@ az role assignment create \
 
 ### <a name="create-workflow-file"></a>워크플로 파일 만들기
 
-1. GitHub UI에서 **작업**  >  **새 워크플로**를 선택 합니다.
-1. **직접 워크플로 설정**을 선택 합니다.
-1. **새 파일 편집**에서 다음 yaml 콘텐츠를 붙여넣어 샘플 코드를 덮어씁니다. 기본 파일 이름을 그대로 적용 `main.yml` 하거나 선택한 파일 이름을 제공 합니다.
-1. 커밋 **시작**을 선택 하 고 필요에 따라 커밋에 대 한 간단 하 고 확장 된 설명을 제공 하 고 **새 파일 커밋**을 선택 합니다.
+1. GitHub UI에서 **작업**  >  **새 워크플로** 를 선택 합니다.
+1. **직접 워크플로 설정** 을 선택 합니다.
+1. **새 파일 편집** 에서 다음 yaml 콘텐츠를 붙여넣어 샘플 코드를 덮어씁니다. 기본 파일 이름을 그대로 적용 `main.yml` 하거나 선택한 파일 이름을 제공 합니다.
+1. 커밋 **시작** 을 선택 하 고 필요에 따라 커밋에 대 한 간단 하 고 확장 된 설명을 제공 하 고 **새 파일 커밋** 을 선택 합니다.
 
 ```yml
 on: [push]
@@ -173,7 +173,7 @@ jobs:
 
 ### <a name="validate-workflow"></a>워크플로 유효성 검사
 
-워크플로 파일을 커밋한 후 워크플로가 트리거됩니다. 워크플로 진행률을 검토 하려면 **작업**  >  **워크플로**로 이동 합니다. 
+워크플로 파일을 커밋한 후 워크플로가 트리거됩니다. 워크플로 진행률을 검토 하려면 **작업**  >  **워크플로** 로 이동 합니다. 
 
 ![워크플로 진행률 보기](./media/container-instances-github-action/github-action-progress.png)
 
@@ -220,7 +220,7 @@ az extension add \
 
 확장을 찾고, 설치 하 고, 관리 하는 방법에 대 한 자세한 내용은 [Azure CLI에 확장 사용](/cli/azure/azure-cli-extensions-overview)을 참조 하세요.
 
-### <a name="run-az-container-app-up"></a>`az container app up`를 실행합니다.
+### <a name="run-az-container-app-up"></a>`az container app up`을 실행합니다.
 
 [Az container app up][az-container-app-up] 명령을 실행 하려면 최소한 다음을 제공 합니다.
 

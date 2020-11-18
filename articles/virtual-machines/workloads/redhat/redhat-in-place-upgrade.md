@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: beede74134affeb3ee0d4bdd20d5da3b4c5e6eda
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1160bc43db0dc9ec1714b1766c8cadf09660e291
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566625"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844570"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>현재 위치의 업그레이드 Red Hat Enterprise Linux
 
@@ -124,8 +124,8 @@ Consult the pre-upgrade report for details and possible remediation.
 ============================================================
 ```
 **해결 방법**\
-에서 루트 액세스를 사용 하도록 설정 `/etc/sshd_conf` 합니다.
-이는 `/etc/sshd_conf` "[업그레이드 준비](#preparations-for-the-upgrade)" 섹션에 따라에서 루트 ssh 액세스를 사용 하도록 설정 하지 않은 경우에 발생 합니다. 
+에서 루트 액세스를 사용 하도록 설정 `/etc/sshd_config` 합니다.
+이는 `/etc/sshd_config` "[업그레이드 준비](#preparations-for-the-upgrade)" 섹션에 따라에서 루트 ssh 액세스를 사용 하도록 설정 하지 않은 경우에 발생 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure의 Red Hat 이미지](./redhat-images.md)에 대해 자세히 알아보세요.

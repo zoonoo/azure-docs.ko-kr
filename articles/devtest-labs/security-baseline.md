@@ -3,12 +3,12 @@ title: Azure DevTest Labs에 대 한 Azure 보안 기준
 description: Azure DevTest Labs에 대 한 Azure 보안 기준
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 64e5ac46fbeb71706f7b1ae2d3682260e3cbc651
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207294"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843199"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azure DevTest Labs에 대 한 Azure 보안 기준
 
@@ -52,7 +52,7 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: 운영 체제에서 보안 로그 수집
 **지침:** 고객이 Vm (가상 머신)을 만들고 소유 하는 Azure DevTest Labs. 따라서이를 모니터링 하는 것은 조직의 책임입니다. Azure Security Center를 사용 하 여 계산 OS를 모니터링할 수 있습니다. 운영 체제에서 Security Center에 의해 수집 되는 데이터에는 OS 유형 및 버전, OS (Windows 이벤트 로그), 실행 중인 프로세스, 컴퓨터 이름, IP 주소 및 로그인 한 사용자가 포함 됩니다. 또한 Log Analytics 에이전트는 크래시 덤프 파일을 수집 합니다.
 
-자세한 내용은 다음 항목을 참조하세요. 
+자세한 내용은 다음 아티클을 참조하세요. 
 
 - [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](../azure-monitor/learn/quick-collect-azurevm.md)
 - [Azure Security Center 데이터 수집 이해](../security-center/security-center-enable-data-collection.md)
@@ -62,7 +62,7 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 **책임:** Customer
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: 보안 로그 스토리지 보존 기간 구성
-***지침:** Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure DevTest Labs 인스턴스와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
+**_지침:_* Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure DevTest Labs 인스턴스와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
 자세한 내용은 [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 문서를 참조 하세요.
 
@@ -73,7 +73,7 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 ### <a name="26-monitor-and-review-logs"></a>2.6: 로그 모니터링 및 검토
 **지침:** Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 Log Analytics 작업 영역으로 보냅니다. Log Analytics에서 쿼리를 실행 하 여 용어를 검색 하 고, 추세를 식별 하 고, 패턴을 분석 하 고, Azure DevTest Labs에 대해 수집 되었을 수 있는 활동 로그 데이터를 기반으로 다양 한 통찰력을 제공 합니다.
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 - [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/diagnostic-settings.md)
 - [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/platform/activity-log.md)
@@ -175,9 +175,9 @@ DevTest Labs에는 기본 암호 개념이 없습니다.
 - [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)  
 - [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
-**Azure Security Center 모니터링:*** 예
+**Azure Security Center 모니터링:** _ 예
 
-**책임:** Customer
+_ *책임:** 고객
 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: 모든 관리 작업에 전용 컴퓨터(Privileged Access Workstation) 사용
@@ -387,7 +387,7 @@ Microsoft는 Azure DevTest Labs을 지 원하는 기본 리소스에서 취약�
 **책임:** Customer
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: 자동화된 타사 소프트웨어 패치 관리 솔루션 배포
-***지침:*** 랩 관리자는 [DevTest Labs 아티팩트](add-artifact-vm.md) 를 사용 하 여 보안 패치와 기타 업데이트를 포함 하는 랩 사용자 지정 이미지에 대 한 업데이트를 자동화할 수 있습니다. 
+**_지침:_* _ 랩 관리자는 [DevTest Labs 아티팩트](add-artifact-vm.md) 를 사용 하 여 보안 패치와 기타 업데이트를 포함 하는 랩 사용자 지정 이미지에 대 한 업데이트를 자동화할 수 있습니다. 
 
 모든 원하는 구성을 사용 하 여 정기적으로 이미지를 자동으로 빌드 및 배포 하는 [DevTest Labs 이미지 팩터리에](image-factory-create.md)대해 자세히 알아보세요. 
 
@@ -396,7 +396,7 @@ Microsoft는 Azure DevTest Labs을 지 원하는 기본 리소스에서 취약�
 - [Azure의 업데이트 관리 솔루션](../automation/update-management/update-mgmt-overview.md)
 - [Vm에 대 한 업데이트 및 패치 관리](../automation/update-management/update-mgmt-overview.md)
 
-**Azure Security Center 모니터링:** 해당 없음
+_ *Azure Security Center 모니터링:** 해당 사항 없음
 
 **책임:** Customer
 
@@ -692,7 +692,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 - [DevTest Labs에서 Azure Resource Manager 환경을 배포 하도록 관리 되는 id 구성](use-managed-identities-environments.md)
 - [DevTest Labs에서 가상 컴퓨터를 배포 하도록 관리 되는 id 구성](enable-managed-identities-lab-vms.md)
-- [주요 자격 증명 모음을 만드는 방법](../key-vault/secrets/quick-create-portal.md)
+- [주요 자격 증명 모음을 만드는 방법](../key-vault/general/quick-create-portal.md)
 - [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md)
 - [Key Vault 액세스 정책을 할당 하는 방법](../key-vault/general/assign-access-policy-portal.md)
 

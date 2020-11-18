@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: b9b72e8340722f8ddc97b3769ce22e607974a508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4f232d87209a3a5676cac22e67a38b17af6917
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297402"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844321"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Media Services v3 API에 연결 - .NET
 
@@ -38,29 +38,33 @@ ms.locfileid: "89297402"
 ## <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
 1. Visual Studio를 시작합니다. 
-1. **파일** 메뉴에서 **새로 만들기** > **프로젝트**를 클릭합니다. 
+1. **파일** 메뉴에서 **새로 만들기** > **프로젝트** 를 클릭합니다. 
 1. **.NET Core** 콘솔 애플리케이션을 만듭니다.
 
 이 항목의 샘플 앱은 `netcoreapp2.0`을 대상으로 합니다. 이 코드에서는 C# 7.1부터 사용할 수 있는 'async main'을 사용합니다. 자세한 내용은 [이 블로그](/archive/blogs/benwilli/async-main-is-available-but-hidden)를 참조하세요.
 
-## <a name="add-required-nuget-packages"></a>필요한 NuGet 패키지 추가
+## <a name="add-required-nuget-packagesassemblies"></a>필요한 NuGet 패키지/어셈블리 추가
 
-1. Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **NuGet 관리자 콘솔**을 선택합니다.
+1. Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **NuGet 관리자 콘솔** 을 선택합니다.
 2. **패키지 관리자 콘솔** 창에서 `Install-Package` 명령을 사용하여 다음 NuGet 패키지를 추가합니다. `Install-Package Microsoft.Azure.Management.Media`)을 입력합니다.
 
 |패키지|Description|
 |---|---|
 |`Microsoft.Azure.Management.Media`|Azure Media Services SDK <br/>최신 Azure Media Services 패키지를 사용하고 있는지 확인하려면 [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media)를 확인하세요.|
-|`Microsoft.Rest.ClientRuntime.Azure.Authentication`|NET용 Azure SDK에 대한 ADAL 인증 라이브러리|
-|`Microsoft.Extensions.Configuration.EnvironmentVariables`|환경 변수 및 로컬 JSON 파일에서 구성 값을 읽습니다.|
-|`Microsoft.Extensions.Configuration.Json`|환경 변수 및 로컬 JSON 파일에서 구성 값을 읽습니다.
-|`WindowsAzure.Storage`|Storage SDK|
+
+### <a name="other-required-assemblies"></a>기타 필수 어셈블리
+
+- Azure. Storage. Blob
+- Microsoft.Extensions.Configuration
+- Uration를 Microsoft.Extensions.Config합니다. EnvironmentVariables
+- Microsoft.Extensions.Configuration.Json
+- Microsoft.Rest.ClientRuntime.Azure.Authentication
 
 ## <a name="create-and-configure-the-app-settings-file"></a>앱 설정 파일 만들기 및 구성
 
 ### <a name="create-appsettingsjson"></a>appsettings.json 만들기
 
-1. **일반** > **텍스트 파일**로 이동합니다.
+1. **일반** > **텍스트 파일** 로 이동합니다.
 1. "appsettings.json"으로 이름을 지정합니다.
 1. .json 파일의 "출력 디렉터리로 복사" 속성을 "변경된 내용만 복사"로 설정하여 애플리케이션이 게시될 때 액세스할 수 있도록 합니다.
 
@@ -136,9 +140,9 @@ namespace ConsoleApp1
             get { return new Uri(_config["ArmEndpoint"]); }
         }
 
-        public string Region
+        public string Location
         {
-            get { return _config["Region"]; }
+            get { return _config["Location"]; }
         }
     }
 }
@@ -245,5 +249,5 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>참고 항목
 
-* [.NET 참조](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [.NET 참조](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet&preserve-view=true)
 * 더 많은 코드 예제는 [.NET SDK 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet) 리포지토리를 참조하세요.

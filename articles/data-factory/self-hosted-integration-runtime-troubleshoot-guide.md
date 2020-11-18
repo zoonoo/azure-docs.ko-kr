@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: ca8d359638d97f77377f02d47d824fa216acdcc8
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e3a517497a480995b8ce63d36d0427e3bfadfe43
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928113"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844100"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -47,6 +47,21 @@ ms.locfileid: "92928113"
 
 
 ## <a name="self-hosted-ir-general-failure-or-error"></a>자체 호스팅 IR 일반 실패 또는 오류
+
+### <a name="out-of-memory-issue"></a>메모리 부족 문제
+
+#### <a name="symptoms"></a>증상
+
+"OutOfMemoryException" 문제는 연결 된 IR 또는 자체 호스팅 IR을 사용 하 여 조회 작업을 실행 하려고 할 때 발생 합니다.
+
+#### <a name="cause"></a>원인
+
+IR 컴퓨터에서 현재 높은 메모리 사용량이 있는 경우 새 작업은 OOM (OutOfMemory) 문제를 충족할 수 있습니다. 이 문제는 동시 작업 실행의 규모가 크고 오류가 발생 한 것일 수 있습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+IR 노드에서 리소스 사용 및 동시 작업 실행을 확인 하세요. 동일한 IR 노드에서 동시에 너무 많이 실행 되지 않도록 활동 실행의 내부 및 트리거 시간을 조정 합니다.
+
 
 ### <a name="tlsssl-certificate-issue"></a>TLS/SSL 인증서 문제
 
@@ -210,7 +225,7 @@ GAC에 대 한 자세한 내용은 [이 문서](/dotnet/framework/app-domains/ga
 
 #### <a name="symptoms"></a>증상
 
-원본 및 대상 데이터 저장소에 대해 자체 호스팅 IR을 만든 후 두 IR을 함께 연결하여 복사본을 완성하려고 합니다. 데이터 저장소가 다른 Vnet에 구성 되어 있거나 게이트웨이 메커니즘을 이해할 수 없는 경우 다음과 같은 오류가 발생 합니다. *대상 IR에서 원본 드라이버를 찾을 수 없습니다* . *대상 IR에서 원본에 액세스할 수 없습니다* .
+원본 및 대상 데이터 저장소에 대해 자체 호스팅 IR을 만든 후 두 IR을 함께 연결하여 복사본을 완성하려고 합니다. 데이터 저장소가 다른 Vnet에 구성 되어 있거나 게이트웨이 메커니즘을 이해할 수 없는 경우 다음과 같은 오류가 발생 합니다. *대상 IR에서 원본 드라이버를 찾을 수 없습니다*. *대상 IR에서 원본에 액세스할 수 없습니다*.
  
 #### <a name="cause"></a>원인
 
@@ -402,6 +417,47 @@ Localhost 127.0.0.1을 사용 하 여 파일을 호스트 하 고 이러한 문�
 - CPU 사용률이 너무 높습니다.
 - MSI 파일이 저속 네트워크 위치에서 호스트 됨
 - 일부 시스템 파일 또는 레지스트리를 실수로 작업 했습니다.
+
+
+### <a name="ir-service-account-failed-to-fetch-certificate-access"></a>IR 서비스 계정이 인증서 액세스를 가져오지 못함
+
+#### <a name="symptoms"></a>증상
+
+Microsoft Integration Runtime Configuration manager를 통해 자체 호스팅 IR을 설치 하는 경우 신뢰할 수 있는 CA가 포함 된 인증서가 생성 됩니다. 두 노드 간의 통신을 암호화 하기 위해 인증서를 적용할 수 없습니다. 
+
+오류 정보는 다음과 같이 표시 됩니다. 
+
+`Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate 'XXXXXXXXXX'. Error code 103`
+
+![IR 서비스 계정 인증서 액세스를 허용 하지 못했습니다.](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
+
+#### <a name="cause"></a>원인
+
+인증서가 아직 지원 되지 않는 KSP (키 저장소 공급자)를 사용 하 고 있습니다. SHIR은 지금까지 CSP (암호화 서비스 공급자) 인증서만 지원 합니다.
+
+#### <a name="resolution"></a>해결 방법
+
+이 경우 CSP 인증서를 권장 합니다.
+
+**해결 방법 1:** 다음 명령을 사용 하 여 인증서를 가져옵니다.
+
+```
+Certutil.exe -CSP "CSP or KSP" -ImportPFX FILENAME.pfx 
+```
+
+![Certutil 사용](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
+
+**해결 방법 2:** 인증서 변환:
+
+openssl pkcs12-.\xxxx.pfx. \xxxx_new-password pass:*\<EnterPassword>*
+
+openssl pkcs12-xxxx_new export-xxxx_new .pfx
+
+변환 전후:
+
+![인증서 변경 전](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
+
+![인증서 변경 후](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
 
 ## <a name="self-hosted-ir-connectivity-issues"></a>자체 호스팅 IR 연결 문제

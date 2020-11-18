@@ -6,12 +6,12 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 291f1ac093568f50ad6146b70fa1ef69263b7b5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d65a39c1a1d302e565b59db1644af2c08befb6b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85830312"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843165"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Azure 데이터 과학 Virtual Machines 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "85830312"
 
 ## <a name="create-a-dsvm-instance"></a>DSVM 인스턴스 만들기
 
-새 DSVM 인스턴스를 만들려면 [Ubuntu Data Science VM 만들기](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)의 지침을 따르세요. 가격 정보를 비롯 한 자세한 내용은 [데이터 과학 Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)를 참조 하세요.
+새 DSVM 인스턴스를 만들려면 [Ubuntu Data Science VM 만들기](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md)의 지침을 따르세요. 가격 정보를 비롯 한 자세한 내용은 [데이터 과학 Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)를 참조 하세요.
 
 ## <a name="connect-to-the-dsvm"></a>DSVM에 연결
 
@@ -62,10 +62,10 @@ DSVM 인스턴스를 선택하는 경우 Azure Notebooks에서 VM을 만들 때 
 여러 사용자가 DSVM을 공유 하는 경우 각 노트북 사용자에 대해 DSVM 사용자를 만들고 사용 하 여 서로 차단 하지 않도록 방지할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 가상 머신으로 이동 합니다.
-1. 왼쪽 여백의 **지원 + 문제 해결** 에서 **암호 재설정**을 선택 합니다.
-1. 새 **사용자 이름을**입력 합니다. JupyterHub와 함께 사용 하려면 사용자 이름은 소문자 여야 합니다. 암호를 입력합니다. 그런 다음 **업데이트**를 선택 합니다. 기존 사용자 이름은 영향을 받지 않습니다.
+1. 왼쪽 여백의 **지원 + 문제 해결** 에서 **암호 재설정** 을 선택 합니다.
+1. 새 **사용자 이름을** 입력 합니다. JupyterHub와 함께 사용 하려면 사용자 이름은 소문자 여야 합니다. 암호를 입력합니다. 그런 다음 **업데이트** 를 선택 합니다. 기존 사용자 이름은 영향을 받지 않습니다.
 1. 모든 추가 사용자에 대해 이전 단계를 반복 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 데이터 과학 Virtual Machines 소개](/azure/machine-learning/data-science-virtual-machine/overview)에서 dsvms에 대해 자세히 알아보세요.
+[Azure 데이터 과학 Virtual Machines 소개](../machine-learning/data-science-virtual-machine/overview.md)에서 dsvms에 대해 자세히 알아보세요.

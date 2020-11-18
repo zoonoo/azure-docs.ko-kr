@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault에 저장 된 고객 관리 키를 사용 하 여 암호화 구성
+title: Azure Key Vault에 저장된 고객 관리형 키를 사용하여 암호화 구성
 titleSuffix: Azure Storage
 description: Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 Azure Key Vault에 저장 된 고객이 관리 하는 키를 사용 하 여 Azure Storage 암호화를 구성 하는 방법에 대해 알아봅니다.
 services: storage
@@ -10,15 +10,15 @@ ms.date: 09/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 219fe82f16dd9bbc887c9b17b067c706230c63dd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 02661c9c2a581ab21a2ae9dc31e5da95426c0edd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782385"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843386"
 ---
-# <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Azure Key Vault에 저장 된 고객 관리 키를 사용 하 여 암호화 구성
+# <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Azure Key Vault에 저장된 고객 관리형 키를 사용하여 암호화 구성
 
 Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화합니다. 기본적으로 데이터는 Microsoft 관리형 키로 암호화됩니다. 암호화 키에 대 한 추가 제어를 위해 사용자 고유의 키를 관리할 수 있습니다. 고객 관리 키는 Azure Key Vault 또는 Key Vault 관리 되는 HSM (하드웨어 보안 모델) (미리 보기)에 저장 되어야 합니다.
 
@@ -190,7 +190,7 @@ Azure Portal에서 키 버전의 자동 업데이트를 사용 하 여 고객 �
 
 키를 지정한 후에는 키 버전의 자동 업데이트가 사용 하도록 설정 되어 있으며 현재 암호화에 사용 중인 키 버전을 표시 하는 Azure Portal 나타냅니다.
 
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="주요 자격 증명 모음을 만들 때 보호 제거를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="사용할 수 있는 키 버전의 자동 업데이트를 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

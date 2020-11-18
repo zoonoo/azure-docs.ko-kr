@@ -9,19 +9,19 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
-ms.custom: contperfq1
-ms.openlocfilehash: 75f2eb90e2418b57e5e0a358fbd6282b20ddc9e7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: contperfq1, devx-track-azurecli
+ms.openlocfilehash: e23b6513751764063e3d8c85e063a24165d34648
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648364"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844883"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Azure CLI를 사용하여 Azure 역할 할당 추가 또는 제거
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] 이 문서에서는 Azure CLI를 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 역할 할당을 추가 하거나 제거 하려면 다음을 수행 해야 합니다.
 

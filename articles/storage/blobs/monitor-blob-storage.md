@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: cdd5a8b518a374340af35d5f866d51d016e5ac79
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: cb6680482466018f86779d9c0318bbfe4e749be1
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745188"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843148"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Azure Blob storage 모니터링
 
@@ -56,7 +56,7 @@ Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계�
 
 리소스 로그를 수집 하려면 진단 설정을 만들어야 합니다. 설정을 만들 때 로그를 사용 하도록 설정 하려는 저장소 유형으로 **blob** 을 선택 합니다. 그런 다음 로그를 수집 하려는 작업의 다음 범주 중 하나를 지정 합니다. 
 
-| Category | Description |
+| 범주 | Description |
 |:---|:---|
 | StorageRead | 개체에 대 한 읽기 작업입니다. |
 | StorageWrite | 개체에 대 한 쓰기 작업입니다. |

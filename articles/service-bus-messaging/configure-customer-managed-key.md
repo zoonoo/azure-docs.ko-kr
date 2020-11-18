@@ -3,12 +3,12 @@ title: 휴지 상태의 데이터를 암호화 하기 위한 고유한 키 구�
 description: 이 문서에서는 rest Azure Service Bus 데이터를 암호화 하기 위한 고유한 키를 구성 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: e3da167fcdd3bac53de86dae07242cf8bccb621c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32fcdad28b06df1763ab1efb1740d87d0b247b0a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400588"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843403"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 미사용 데이터 Azure Service Bus 데이터를 암호화 하기 위해 고객이 관리 하는 키 구성
 Azure Service Bus Premium은 Azure SSE (Azure Storage 서비스 암호화)를 사용 하 여 미사용 데이터의 암호화를 제공 합니다. Service Bus Premium은 Azure Storage를 사용 하 여 데이터를 저장 하며, 기본적으로 Azure Storage와 함께 저장 되는 모든 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 
@@ -25,16 +25,16 @@ BYOK 기능을 사용 하도록 설정 하는 작업은 네임 스페이스에�
 
 Azure Key Vault를 사용 하 여 키를 관리 하 고 키 사용을 감사할 수 있습니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다. Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault란?](../key-vault/general/overview.md)
 
-이 문서에서는 Azure Portal를 사용 하 여 고객이 관리 하는 키로 key vault를 구성 하는 방법을 보여 줍니다. Azure Portal을 사용하여 키 자격 증명 모음을 만드는 방법은 [빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색](../key-vault/secrets/quick-create-portal.md)을 참조하세요.
+이 문서에서는 Azure Portal를 사용 하 여 고객이 관리 하는 키로 key vault를 구성 하는 방법을 보여 줍니다. Azure Portal를 사용 하 여 주요 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure Portal 사용 하 여 Azure Key Vault 만들기](../key-vault/general/quick-create-portal.md)를 참조 하세요.
 
 > [!IMPORTANT]
-> Azure Service Bus에서 고객 관리 키를 사용 하려면 키 자격 증명 모음에 두 개의 필수 속성이 구성 되어 있어야 합니다. **일시 삭제** 및 **제거 안 함**입니다. 이러한 속성은 Azure Portal에서 새 키 자격 증명 모음을 만들 때 기본적으로 사용 하도록 설정 됩니다. 그러나 기존 키 자격 증명 모음에서 이러한 속성을 사용 하도록 설정 해야 하는 경우에는 PowerShell 또는 Azure CLI를 사용 해야 합니다.
+> Azure Service Bus에서 고객 관리 키를 사용 하려면 키 자격 증명 모음에 두 개의 필수 속성이 구성 되어 있어야 합니다. **일시 삭제** 및 **제거 안 함** 입니다. 이러한 속성은 Azure Portal에서 새 키 자격 증명 모음을 만들 때 기본적으로 사용 하도록 설정 됩니다. 그러나 기존 키 자격 증명 모음에서 이러한 속성을 사용 하도록 설정 해야 하는 경우에는 PowerShell 또는 Azure CLI를 사용 해야 합니다.
 
 ## <a name="enable-customer-managed-keys"></a>고객 관리형 키 사용
 Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 1. Service Bus Premium 네임 스페이스로 이동 합니다.
-2. Service Bus 네임 스페이스의 **설정** 페이지에서 **암호화**를 선택 합니다.
+2. Service Bus 네임 스페이스의 **설정** 페이지에서 **암호화** 를 선택 합니다.
 3. 다음 그림에 표시 된 것 처럼 **미사용에서 고객이 관리 하는 키 암호화** 를 선택 합니다.
 
     ![고객 관리형 키 사용](./media/configure-customer-managed-key/enable-customer-managed-key.png)
@@ -56,11 +56,11 @@ Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다�
     az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
     ```
 1. 다음 단계를 수행 하 여 키를 만듭니다.
-    1. 새 키를 만들려면 **설정** 아래 **키** 메뉴에서 **생성/가져오기**를 선택합니다.
+    1. 새 키를 만들려면 **설정** 아래 **키** 메뉴에서 **생성/가져오기** 를 선택합니다.
         
         ![생성/가져오기 단추를 선택 합니다.](./media/configure-customer-managed-key/select-generate-import.png)
 
-    1. **옵션**을 **생성**으로 설정하고 키에 이름을 지정합니다.
+    1. **옵션** 을 **생성** 으로 설정하고 키에 이름을 지정합니다.
 
         ![키 만들기](./media/configure-customer-managed-key/create-key.png) 
 
@@ -70,7 +70,7 @@ Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다�
         > [!NOTE]
         > 중복성을 위해 최대 3 개의 키를 추가할 수 있습니다. 키 중 하나가 만료 되었거나 액세스할 수 없는 경우 다른 키가 암호화에 사용 됩니다.
         
-    1. 키에 대 한 세부 정보를 입력 하 고 **선택**을 클릭 합니다. 이렇게 하면 고객이 관리 하는 키를 사용 하 여 네임 스페이스에 있는 미사용 데이터를 암호화할 수 있습니다. 
+    1. 키에 대 한 세부 정보를 입력 하 고 **선택** 을 클릭 합니다. 이렇게 하면 고객이 관리 하는 키를 사용 하 여 네임 스페이스에 있는 미사용 데이터를 암호화할 수 있습니다. 
 
 
     > [!IMPORTANT]
@@ -102,9 +102,9 @@ Azure 키 자격 증명 모음 회전 메커니즘을 사용 하 여 키 자격 
 암호화 키가 해지 되 면 암호화 된 네임 스페이스의 Service Bus 서비스가 작동 하지 않게 됩니다. 키에 대 한 액세스를 사용 하도록 설정 하거나 삭제 된 키를 복원 하는 경우 Service Bus 서비스는 암호화 된 Service Bus 네임 스페이스의 데이터에 액세스할 수 있도록 키를 선택 합니다.
 
 ## <a name="use-resource-manager-template-to-enable-encryption"></a>리소스 관리자 템플릿을 사용 하 여 암호화 사용
-이 섹션에서는 **Azure Resource Manager 템플릿을**사용 하 여 다음 작업을 수행 하는 방법을 보여 줍니다. 
+이 섹션에서는 **Azure Resource Manager 템플릿을** 사용 하 여 다음 작업을 수행 하는 방법을 보여 줍니다. 
 
-1. **관리 서비스 id**를 사용 하 여 **프리미엄** Service Bus 네임 스페이스를 만듭니다.
+1. **관리 서비스 id** 를 사용 하 여 **프리미엄** Service Bus 네임 스페이스를 만듭니다.
 2. 주요 자격 **증명 모음** 을 만들고 키 자격 증명 모음에 대 한 서비스 id 액세스 권한을 부여 합니다. 
 3. 키 자격 증명 모음 정보 (키/값)를 사용 하 여 Service Bus 네임 스페이스를 업데이트 합니다. 
 
@@ -160,7 +160,7 @@ Azure 키 자격 증명 모음 회전 메커니즘을 사용 하 여 키 자격 
        }
     }
     ```
-2. 이름: **CreateServiceBusPremiumNamespaceParams.js에**템플릿 매개 변수 파일을 만듭니다. 
+2. 이름: **CreateServiceBusPremiumNamespaceParams.js에** 템플릿 매개 변수 파일을 만듭니다. 
 
     > [!NOTE]
     > 다음 값을 바꿉니다. 
@@ -199,7 +199,7 @@ Azure 키 자격 증명 모음 회전 메커니즘을 사용 하 여 키 자격 
     
     또는
     
-    다음 명령을 실행 하 여 **기존 주요 자격 증명 모음**을 업데이트 합니다. 명령을 실행 하기 전에 리소스 그룹 및 주요 자격 증명 모음 이름에 대 한 값을 지정 합니다. 
+    다음 명령을 실행 하 여 **기존 주요 자격 증명 모음** 을 업데이트 합니다. 명령을 실행 하기 전에 리소스 그룹 및 주요 자격 증명 모음 이름에 대 한 값을 지정 합니다. 
     
     ```powershell
     ($updatedKeyVault = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -ResourceGroupName {RGName} -VaultName {keyVaultName}).ResourceId).Properties| Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"-Force | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true" -Force

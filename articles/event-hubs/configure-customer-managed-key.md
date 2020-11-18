@@ -3,12 +3,12 @@ title: 휴지 상태의 Azure Event Hubs 데이터를 암호화 하기 위한 �
 description: 이 문서에서는 Azure Event Hubs 데이터 rest를 암호화 하기 위한 고유한 키를 구성 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 18a59b74897b074fea9ee56947c78635f2a3509d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f073c42373e75fc1cb34d1c752350f9d2c61872
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537261"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843216"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 미사용 Azure Event Hubs 데이터를 암호화 하기 위한 고객 관리 키 구성
 Azure Event Hubs는 Azure SSE (Azure Storage 서비스 암호화)를 사용 하 여 미사용 데이터의 암호화를 제공 합니다. Event Hubs는 Azure Storage를 사용 하 여 데이터를 저장 하 고, 기본적으로 Azure Storage와 함께 저장 되는 모든 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 
@@ -23,17 +23,17 @@ BYOK 기능을 사용 하도록 설정 하는 작업은 네임 스페이스에�
 
 Azure Key Vault를 사용 하 여 키를 관리 하 고 키 사용을 감사할 수 있습니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다. Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault란?](../key-vault/general/overview.md)
 
-이 문서에서는 Azure Portal를 사용 하 여 고객이 관리 하는 키로 key vault를 구성 하는 방법을 보여 줍니다. Azure Portal을 사용하여 키 자격 증명 모음을 만드는 방법은 [빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색](../key-vault/secrets/quick-create-portal.md)을 참조하세요.
+이 문서에서는 Azure Portal를 사용 하 여 고객이 관리 하는 키로 key vault를 구성 하는 방법을 보여 줍니다. Azure Portal를 사용 하 여 주요 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure Portal 사용 하 여 Azure Key Vault 만들기](../key-vault/general/quick-create-portal.md)를 참조 하세요.
 
 > [!IMPORTANT]
-> Azure Event Hubs에서 고객 관리 키를 사용 하려면 키 자격 증명 모음에 두 개의 필수 속성이 구성 되어 있어야 합니다. **일시 삭제** 및 **제거 안 함**입니다. 이러한 속성은 Azure Portal에서 새 키 자격 증명 모음을 만들 때 기본적으로 사용 하도록 설정 됩니다. 그러나 기존 키 자격 증명 모음에서 이러한 속성을 사용 하도록 설정 해야 하는 경우에는 PowerShell 또는 Azure CLI를 사용 해야 합니다.
+> Azure Event Hubs에서 고객 관리 키를 사용 하려면 키 자격 증명 모음에 두 개의 필수 속성이 구성 되어 있어야 합니다. **일시 삭제** 및 **제거 안 함** 입니다. 이러한 속성은 Azure Portal에서 새 키 자격 증명 모음을 만들 때 기본적으로 사용 하도록 설정 됩니다. 그러나 기존 키 자격 증명 모음에서 이러한 속성을 사용 하도록 설정 해야 하는 경우에는 PowerShell 또는 Azure CLI를 사용 해야 합니다.
 
 ## <a name="enable-customer-managed-keys"></a>고객 관리형 키 사용
 Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 1. Event Hubs Dedicated 클러스터로 이동 합니다.
 1. BYOK를 사용 하도록 설정 하려는 네임 스페이스를 선택 합니다.
-1. Event Hubs 네임 스페이스의 **설정** 페이지에서 **암호화**를 선택 합니다. 
+1. Event Hubs 네임 스페이스의 **설정** 페이지에서 **암호화** 를 선택 합니다. 
 1. 다음 그림에 표시 된 것 처럼 **미사용에서 고객이 관리 하는 키 암호화** 를 선택 합니다. 
 
     ![고객 관리형 키 사용](./media/configure-customer-managed-key/enable-customer-managed-key.png)
@@ -53,16 +53,16 @@ Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다�
     az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
     ```
 1. 다음 단계를 수행 하 여 키를 만듭니다.
-    1. 새 키를 만들려면 **설정** 아래 **키** 메뉴에서 **생성/가져오기**를 선택합니다.
+    1. 새 키를 만들려면 **설정** 아래 **키** 메뉴에서 **생성/가져오기** 를 선택합니다.
         
         ![생성/가져오기 단추를 선택 합니다.](./media/configure-customer-managed-key/select-generate-import.png)
-    1. **옵션**을 **생성**으로 설정하고 키에 이름을 지정합니다.
+    1. **옵션** 을 **생성** 으로 설정하고 키에 이름을 지정합니다.
 
         ![키 만들기](./media/configure-customer-managed-key/create-key.png) 
     1. 이제이 키를 선택 하 여 드롭다운 목록에서 암호화할 Event Hubs 네임 스페이스와 연결할 수 있습니다. 
 
         ![키 자격 증명 모음에서 키 선택](./media/configure-customer-managed-key/select-key-from-key-vault.png)
-    1. 키에 대 한 세부 정보를 입력 하 고 **선택**을 클릭 합니다. 이렇게 하면 고객이 관리 하는 키를 사용 하 여 네임 스페이스에 있는 미사용 데이터를 암호화할 수 있습니다. 
+    1. 키에 대 한 세부 정보를 입력 하 고 **선택** 을 클릭 합니다. 이렇게 하면 고객이 관리 하는 키를 사용 하 여 네임 스페이스에 있는 미사용 데이터를 암호화할 수 있습니다. 
 
 
 ## <a name="rotate-your-encryption-keys"></a>암호화 키 회전
@@ -80,21 +80,21 @@ BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 고객
 고객 관리 키에 대 한 로그를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 BYOK를 사용 하는 네임 스페이스로 이동 합니다.
-1. **모니터링**아래에서 **진단 설정** 을 선택 합니다.
+1. **모니터링** 아래에서 **진단 설정** 을 선택 합니다.
 
     ![진단 설정 선택](./media/configure-customer-managed-key/select-diagnostic-settings.png)
-1. **+ 진단 설정 추가**를 선택 합니다. 
+1. **+ 진단 설정 추가** 를 선택 합니다. 
 
     ![진단 설정 추가를 선택 합니다.](./media/configure-customer-managed-key/select-add-diagnostic-setting.png)
 1. **이름을** 입력 하 고 로그를 스트리밍할 위치를 선택 합니다.
-1. **Customermanagedkeyuserlogs** 를 선택 하 고 **저장**을 선택 합니다. 이 작업을 통해 네임 스페이스에 대 한 BYOK 로그가 활성화 됩니다.
+1. **Customermanagedkeyuserlogs** 를 선택 하 고 **저장** 을 선택 합니다. 이 작업을 통해 네임 스페이스에 대 한 BYOK 로그가 활성화 됩니다.
 
     ![고객 관리 키 사용자 로그 옵션을 선택 합니다.](./media/configure-customer-managed-key/select-customer-managed-key-user-logs.png)
 
 ## <a name="log-schema"></a>로그 스키마 
 모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 표에 설명 된 형식을 사용 하는 문자열 필드가 있습니다. 
 
-| Name | Description |
+| 이름 | Description |
 | ---- | ----------- | 
 | TaskName | 실패한 작업에 대한 설명입니다. |
 | ActivityId | 추적에 사용 되는 내부 ID입니다. |
@@ -140,7 +140,7 @@ BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 고객
 ```
 
 ## <a name="use-resource-manager-template-to-enable-encryption"></a>리소스 관리자 템플릿을 사용 하 여 암호화 사용
-이 섹션에서는 **Azure Resource Manager 템플릿을**사용 하 여 다음 작업을 수행 하는 방법을 보여 줍니다. 
+이 섹션에서는 **Azure Resource Manager 템플릿을** 사용 하 여 다음 작업을 수행 하는 방법을 보여 줍니다. 
 
 1. 관리 서비스 id를 사용 하 여 **Event Hubs 네임 스페이스** 를 만듭니다.
 2. 주요 자격 **증명 모음** 을 만들고 키 자격 증명 모음에 대 한 서비스 id 액세스 권한을 부여 합니다. 
@@ -219,7 +219,7 @@ BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 고객
        }
     }
     ```
-2. 이름: **CreateEventHubClusterAndNamespaceParams.js에**템플릿 매개 변수 파일을 만듭니다. 
+2. 이름: **CreateEventHubClusterAndNamespaceParams.js에** 템플릿 매개 변수 파일을 만듭니다. 
 
     > [!NOTE]
     > 다음 값을 바꿉니다. 
@@ -263,7 +263,7 @@ BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 고객
     
     또는    
     
-    다음 명령을 실행 하 여 **기존 주요 자격 증명 모음**을 업데이트 합니다. 명령을 실행 하기 전에 리소스 그룹 및 주요 자격 증명 모음 이름에 대 한 값을 지정 합니다. 
+    다음 명령을 실행 하 여 **기존 주요 자격 증명 모음** 을 업데이트 합니다. 명령을 실행 하기 전에 리소스 그룹 및 주요 자격 증명 모음 이름에 대 한 값을 지정 합니다. 
     
     ```powershell
     ($updatedKeyVault = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -ResourceGroupName {RGName} -VaultName {keyVaultName}).ResourceId).Properties| Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"-Force | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true" -Force

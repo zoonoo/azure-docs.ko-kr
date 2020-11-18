@@ -11,23 +11,23 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: adc0547e36e9cf996a87c2683b4830541b8cd360
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 7fa6beacf4456145e312494a72dad321dfef3754
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442109"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843930"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정
 
 
 Azure Machine Learning 작업 영역에 대 한 인증을 설정 하는 방법을 알아봅니다. Azure Machine Learning 작업 영역에 대 한 인증은 대부분의 작업에 대해 __Azure Active Directory__ (Azure AD)를 기반으로 합니다. 일반적으로 작업 영역에 연결할 때 사용할 수 있는 인증 워크플로는 세 가지가 있습니다.
 
-* __대화형__ : Azure Active Directory에서 계정을 사용 하 여 직접 인증 하거나 인증에 사용 되는 토큰을 가져옵니다. 대화형 인증은 _실험 및 반복적인 개발_ 중에 사용 됩니다. 대화형 인증을 사용 하면 사용자 별로 리소스 (예: 웹 서비스)에 대 한 액세스를 제어할 수 있습니다.
+* __대화형__: Azure Active Directory에서 계정을 사용 하 여 직접 인증 하거나 인증에 사용 되는 토큰을 가져옵니다. 대화형 인증은 _실험 및 반복적인 개발_ 중에 사용 됩니다. 대화형 인증을 사용 하면 사용자 별로 리소스 (예: 웹 서비스)에 대 한 액세스를 제어할 수 있습니다.
 
-* __서비스 사용자__ : Azure Active Directory에서 서비스 사용자 계정을 만들고이 계정을 사용 하 여 인증 하거나 토큰을 가져옵니다. 서비스 주체는 사용자 상호 작용 없이 서비스에 _인증 하는 자동화 된 프로세스가_ 필요한 경우에 사용 됩니다. 예를 들어 학습 코드가 변경 될 때마다 모델을 학습 하 고 테스트 하는 연속 통합 및 배포 스크립트입니다.
+* __서비스 사용자__: Azure Active Directory에서 서비스 사용자 계정을 만들고이 계정을 사용 하 여 인증 하거나 토큰을 가져옵니다. 서비스 주체는 사용자 상호 작용 없이 서비스에 _인증 하는 자동화 된 프로세스가_ 필요한 경우에 사용 됩니다. 예를 들어 학습 코드가 변경 될 때마다 모델을 학습 하 고 테스트 하는 연속 통합 및 배포 스크립트입니다.
 
-* __관리 id__ : _azure 가상 머신에서_ Azure Machine Learning SDK를 사용 하는 경우 azure에 대 한 관리 id를 사용할 수 있습니다. 이 워크플로를 사용 하면 VM이 관리 id를 사용 하 여 Python 코드에 자격 증명을 저장 하거나 사용자에 게 인증 하 라는 메시지를 표시 하지 않고 작업 영역에 연결할 수 있습니다. _모델 학습_ 시 관리 되는 id를 사용 하 여 작업 영역에 액세스 하도록 계산 클러스터 Azure Machine Learning 구성할 수도 있습니다.
+* __관리 id__: _azure 가상 머신에서_ Azure Machine Learning SDK를 사용 하는 경우 azure에 대 한 관리 id를 사용할 수 있습니다. 이 워크플로를 사용 하면 VM이 관리 id를 사용 하 여 Python 코드에 자격 증명을 저장 하거나 사용자에 게 인증 하 라는 메시지를 표시 하지 않고 작업 영역에 연결할 수 있습니다. _모델 학습_ 시 관리 되는 id를 사용 하 여 작업 영역에 액세스 하도록 계산 클러스터 Azure Machine Learning 구성할 수도 있습니다.
 
 > [!IMPORTANT]
 > 사용 되는 인증 워크플로와 상관 없이, azure RBAC (역할 기반 액세스 제어)를 사용 하 여 리소스에 허용 되는 액세스 수준 (권한 부여)의 범위를 지정할 수 있습니다. 예를 들어 관리 또는 자동화 프로세스는 계산 인스턴스를 만들 수 있지만 사용 하지는 않지만, 데이터 과학자는 사용할 수 있지만 삭제 하거나 만들 수는 없습니다. 자세한 내용은 [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md)를 참조 하세요.
@@ -154,7 +154,7 @@ SP를 만들고 작업 영역에 대 한 액세스 권한을 부여 하는 가�
 ## <a name="use-interactive-authentication"></a>대화형 인증 사용
 
 > [!IMPORTANT]
-> 대화형 인증은 브라우저를 사용 하며 쿠키 (타사 쿠키 포함)가 필요 합니다. 쿠키를 사용 하지 않도록 설정한 경우 "로그인 할 수 없습니다."와 같은 오류가 표시 될 수 있습니다. 이 오류는 [Azure multi-factor authentication](../active-directory/authentication/concept-mfa-howitworks.md)을 사용 하도록 설정한 경우에도 발생할 수 있습니다.
+> 대화형 인증은 브라우저를 사용 하며 쿠키 (타사 쿠키 포함)가 필요 합니다. 쿠키를 사용 하지 않도록 설정한 경우 "로그인 할 수 없습니다."와 같은 오류가 표시 될 수 있습니다. 이 오류는 [AZURE AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)를 사용 하도록 설정한 경우에도 발생할 수 있습니다.
 
 설명서 및 샘플에서 대부분의 예제는 대화형 인증을 사용 합니다. 예를 들어 SDK를 사용 하는 경우 UI 기반 인증 흐름을 자동으로 표시 하는 두 개의 함수 호출이 있습니다.
 

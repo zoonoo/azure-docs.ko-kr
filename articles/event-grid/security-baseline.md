@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2a1396f67c94b34b4fdef0bdaf7e01770da91246
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ccc39513505f299e85cbc270e2daeafeac6ca6fd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331518"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845189"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Event Grid에 대 한 Azure 보안 기준
 
@@ -802,7 +802,7 @@ Azure Key Vault와 함께 관리 되는 id를 사용 하 여 클라우드 응용
 
 - [Azure 리소스에 관리 되는 id를 사용 하는 방법](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [Key Vault를 만드는 방법](../key-vault/secrets/quick-create-portal.md)
+- [Key Vault를 만드는 방법](../key-vault/general/quick-create-portal.md)
 
 - [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md)
 
@@ -986,7 +986,7 @@ Azure Key Vault와 함께 관리 되는 id를 사용 하 여 클라우드 응용
 
 **지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
 
-- [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 - [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/12/2020
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 32e79e12eae9997df8163401d2abc5f06bc02fc0
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 739245a8a17c97f3a8081cfee7e7bb31e4135952
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993482"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843981"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Microsoft Azure의 Oracle VM 이미지 및 배포
 
@@ -110,10 +110,6 @@ Oracle 데이터베이스에는 일반적으로 더 많은 메모리와 IO가 �
 
 Oracle 소프트웨어와 워크로드를 온-프레미스에서 Microsoft Azure로 마이그레이션하는 경우 Oracle은 [Azure의 Oracle FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)에 명시된 대로 라이선스 이동을 제공합니다.
 
-## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle RAC(Oracle Real Application Cluster)
-
-Oracle RAC(Oracle Real Application Cluster)는 온-프레미스 다중 노드 클러스터 구성에서 단일 노드의 오류를 완화하도록 고안되었습니다. 이 기능은 하이퍼스케일(hyper-scale) 퍼블릭 클라우드 환경에 네이티브가 아닌 두 가지 온-프레미스 기술인 네트워크 멀티캐스트 및 공유 디스크에 의존합니다. 데이터베이스 솔루션에 Azure에서 Oracle RAC가 필요한 경우 이러한 기술을 사용 하려면 타사 소프트웨어가 필요 합니다. Oracle RAC에 대한 자세한 내용은 [FlashGrid SkyCluster 페이지](https://www.flashgrid.io/oracle-rac-in-azure/)를 참조하세요.
-
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>높은 가용성 및 재해 복구 고려 사항
 
 Azure에서 Oracle 데이터베이스를 사용할 때, 사용자는 모든 가동 중지 시간을 방지하기 위해 높은 가용성과 재해 복구 솔루션을 구현하는 일을 담당합니다.
@@ -130,7 +126,7 @@ Azure에 HA 및 DR 솔루션이 설계되어 있지만 데이터베이스를 복
 
 ## <a name="support-for-jd-edwards"></a>JD Edwards 지원
 
-Oracle 지원 참고 [Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4)에 따라 JD Edwards EnterpriseOne 버전 9.2 이상은 특정 MTR(`Minimum Technical Requirements`)을 준수하는 **모든 퍼블릭 클라우드 제품**에서 지원됩니다.  OS 및 소프트웨어 애플리케이션 호환성에 대한 해당 MTR 사양을 충족하는 사용자 지정 이미지를 만들어야 합니다.
+Oracle 지원 참고 [Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4)에 따라 JD Edwards EnterpriseOne 버전 9.2 이상은 특정 MTR(`Minimum Technical Requirements`)을 준수하는 **모든 퍼블릭 클라우드 제품** 에서 지원됩니다.  OS 및 소프트웨어 애플리케이션 호환성에 대한 해당 MTR 사양을 충족하는 사용자 지정 이미지를 만들어야 합니다.
 
 ## <a name="oracle-weblogic-server-virtual-machine-offers"></a>Oracle WebLogic Server 가상 머신 제품
 
@@ -140,7 +136,7 @@ Oracle 및 Microsoft는 WebLogic Server를 Azure 애플리케이션 제품 컬�
 
 - **클러스터링은 Enterprise Edition에서만 지원됩니다.** WebLogic Server Enterprise Edition을 사용할 때만 Oracle WebLogic 클러스터링을 사용하도록 허가됩니다. Oracle WebLogic Server Standard Edition에서 클러스터링을 사용하지 마세요.
 - **UDP 멀티 캐스트는 지원되지 않습니다.** Azure는 UDP 유니캐스트를 지원하지만 멀티 캐스팅 및 브로드캐스팅은 지원하지 않습니다. Oracle WebLogic Server는 Azure UDP 유니캐스트 기능에 의존할 수 있습니다. UDP 유니캐스트에 의존하는 최상의 결과를 위해, WebLogic 클러스터 크기를 정적으로 유지하거나 서버를 10개 이하로 유지하는 것이 좋습니다.
-- **Oracle WebLogic Server는 T3 액세스의 공용 및 프라이빗 포트가 동일할 것으로 예상합니다(예: Enterprise JavaBeans 사용 시).** *SLWLS*라는 가상 네트워크에 있는, 둘 이상의 VM으로 구성된 Oracle WebLogic Server 클러스터에서 서비스 계층(EJB) 애플리케이션이 실행되는 다중 계층 시나리오를 고려해 보세요. 동일한 가상 네트워크의 다른 서브넷에 있는 클라이언트 계층은 서비스 계층에서 EJB 호출을 시도하는 간단한 Java 프로그램을 실행합니다. 서비스 계층의 부하를 분산해야 하므로 Oracle WebLogic Server 클러스터에 있는 가상 머신에 부하 분산된 퍼블릭 엔드포인트를 만들어야 합니다. 지정한 프라이빗 포트가 공용 포트와 다른 경우(예: 7006:7008), 다음과 같은 오류가 발생합니다.
+- **Oracle WebLogic Server는 T3 액세스의 공용 및 프라이빗 포트가 동일할 것으로 예상합니다(예: Enterprise JavaBeans 사용 시).** *SLWLS* 라는 가상 네트워크에 있는, 둘 이상의 VM으로 구성된 Oracle WebLogic Server 클러스터에서 서비스 계층(EJB) 애플리케이션이 실행되는 다중 계층 시나리오를 고려해 보세요. 동일한 가상 네트워크의 다른 서브넷에 있는 클라이언트 계층은 서비스 계층에서 EJB 호출을 시도하는 간단한 Java 프로그램을 실행합니다. 서비스 계층의 부하를 분산해야 하므로 Oracle WebLogic Server 클러스터에 있는 가상 머신에 부하 분산된 퍼블릭 엔드포인트를 만들어야 합니다. 지정한 프라이빗 포트가 공용 포트와 다른 경우(예: 7006:7008), 다음과 같은 오류가 발생합니다.
 
 ```bash
    [java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:
@@ -159,7 +155,7 @@ Oracle 및 Microsoft는 WebLogic Server를 Azure 애플리케이션 제품 컬�
    -Dweblogic.rjvm.enableprotocolswitch=true
 ```
 
-관련 정보는 <https://support.oracle.com>에서 KB 문서 **860340.1**을 참조하세요.
+관련 정보는 <https://support.oracle.com>에서 KB 문서 **860340.1** 을 참조하세요.
 
 - **동적 클러스터링 및 부하 분산 제한** Oracle WebLogic Server에서 동적 클러스터를 사용하고 Azure에서 단일, 퍼블릭 부하 분산 엔드포인트를 통해 노출한다고 가정해 보세요. 이 작업을 수행하려면 각 관리 서버에 특정 범위에서 동적으로 할당되지 않은 고정된 포트 번호를 사용하고, 관리자가 추적하는 서버보다 더 많은 관리형 서버를 시작하지 않아야 합니다. 즉, 가상 머신당 관리형 서버는 1개 이하입니다. 사용자 환경의 구성으로 인해 가상 머신 수보다 많은 Oracle WebLogic Server가 시작되면(즉, 여러 개의 Oracle WebLogic Server의 인스턴스가 동일한 가상 머신을 공유할 경우), 지정된 포트 번호에 이러한 Oracle WebLogic Server 인스턴스 여러 개가 바인딩될 수 없습니다. 해당 가상 머신의 다른 서버는 실패합니다.
 

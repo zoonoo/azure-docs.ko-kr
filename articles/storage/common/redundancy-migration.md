@@ -10,13 +10,13 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6f5eab8f53fb4c9e15606223707292261b4615e0
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 228595bf633ef0545a13abe19308e49da82cf75a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330294"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844015"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Change how a storage account is replicated(스토리지 계정이 복제되는 방식 변경)
 
@@ -125,16 +125,16 @@ Microsoft에서는 실시간 마이그레이션에 대한 요청을 신속하게
 
 1. **새 지원 요청** 을 선택 합니다.
 2. 계정 정보를 기반으로 **기본 사항을** 완료 합니다. 
-    - **문제 유형** : **기술** 을 선택 합니다.
-    - **서비스** : **내 서비스** 및 **저장소 계정 관리** 를 선택 합니다.
-    - **리소스** : ZRS로 변환 하려는 리소스를 선택 합니다.
+    - **문제 유형**: **기술** 을 선택 합니다.
+    - **서비스**: **내 서비스** 및 **저장소 계정 관리** 를 선택 합니다.
+    - **리소스**: ZRS로 변환 하려는 리소스를 선택 합니다.
 3. **다음** 을 선택합니다.
 4. **문제** 섹션에서 다음 값을 지정합니다.
-    - **심각도** : 기본값을 그대로 둡니다.
-    - **문제 유형** : **데이터 마이그레이션** 을 선택합니다.
-    - **범주** : **ZRS로 마이그레이션을** 선택 합니다.
-    - **제목** : 설명이 포함된 제목, 예를 들어 **ZRS 계정 마이그레이션** 을 입력합니다.
-    - **세부 정보** : **세부** 정보 상자에 추가 세부 정보를 입력 합니다. 예를 들어, 지역의 [LRS, GRS]에서 ZRS로 마이그레이션해야 \_ \_ 합니다.
+    - **심각도**: 기본값을 그대로 둡니다.
+    - **문제 유형**: **데이터 마이그레이션** 을 선택합니다.
+    - **범주**: **ZRS로 마이그레이션을** 선택 합니다.
+    - **제목**: 설명이 포함된 제목, 예를 들어 **ZRS 계정 마이그레이션** 을 입력합니다.
+    - **세부 정보**: **세부** 정보 상자에 추가 세부 정보를 입력 합니다. 예를 들어, 지역의 [LRS, GRS]에서 ZRS로 마이그레이션해야 \_ \_ 합니다.
 5. **다음** 을 선택합니다.
 6. **연락처 정보** 블레이드에서 연락처 정보가 올바른지 확인합니다.
 7. **만들기** 를 선택합니다.

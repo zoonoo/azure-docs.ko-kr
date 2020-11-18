@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperfq2
 ms.date: 10/30/2020
-ms.openlocfilehash: ed2ce13ab10c09dc738e522566742078819e8341
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 4c0d12e4c37476b9ae71962251105ef92aa39120
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148391"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845206"
 ---
 # <a name="configure-hdinsight-clusters-for-active-directory-integration-with-enterprise-security-package"></a>Enterprise Security Package와 Active Directory 통합을 위해 HDInsight 클러스터 구성
 
@@ -29,7 +29,7 @@ Enterprise Security Package (ESP)는 Azure HDInsight에 대 한 Active Directory
 > [!NOTE]  
 > ESP는 Apache Spark, Interactive, Hadoop 및 HBase 클러스터 유형에 대해 일반적으로 HDInsight 3.6 및 4.0에서 사용할 수 있습니다. Apache Kafka 클러스터 형식에 대 한 ESP는 최상의 지원과 함께 미리 보기 상태입니다. ESP GA 날짜 이전에 만든 ESP 클러스터 (2018 년 10 월 1 일)는 지원 되지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 ESP 사용 HDInsight 클러스터를 만들려면 몇 가지 필수 구성 요소를 완료 해야 합니다.
 
@@ -62,7 +62,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 ```
 
 > [!NOTE]  
-> 테 넌 트 관리자만 Azure AD DS를 사용 하도록 설정할 수 있습니다. 클러스터 저장소가 Azure Data Lake Storage Gen1 되거나 Gen2 경우에는 기본 Kerberos 인증을 사용 하 여 클러스터에 액세스 해야 하는 사용자에 대해서만 Azure Multi-Factor Authentication를 사용 하지 않도록 설정 해야 합니다.
+> 테 넌 트 관리자만 Azure AD DS를 사용 하도록 설정할 수 있습니다. 클러스터 저장소가 Azure Data Lake Storage Gen1 되거나 Gen2 경우에는 기본 Kerberos 인증을 사용 하 여 클러스터에 액세스 해야 하는 사용자에 대해서만 Azure AD Multi-Factor Authentication를 사용 하지 않도록 설정 해야 합니다.
 >
 > HDInsight 클러스터의 가상 네트워크에 대 한 IP 범위에 액세스 하는 경우에 *만* [신뢰할 수 있는 Ip](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) 또는 [조건부 액세스](../../active-directory/conditional-access/overview.md) 를 사용 하 여 특정 사용자에 대해 Multi-Factor Authentication를 사용 하지 않도록 설정할 수 있습니다. 조건부 액세스를 사용 하는 경우의 Active Directory 서비스 끝점이 HDInsight 가상 네트워크에서 사용 하도록 설정 되었는지 확인 합니다.
 >
@@ -136,11 +136,11 @@ ESP를 사용 하도록 설정 하면 Azure AD DS와 관련 된 일반적인 잘
 
 ESP를 사용 하 여 HDInsight 클러스터를 만들 때 다음 매개 변수를 제공 해야 합니다.
 
-* **클러스터 관리 사용자** : 동기화 된 Azure AD DS 인스턴스에서 클러스터에 대 한 관리자를 선택 합니다. 이 도메인 계정은 이미 동기화 되어 Azure AD DS에서 사용할 수 있어야 합니다.
+* **클러스터 관리 사용자**: 동기화 된 Azure AD DS 인스턴스에서 클러스터에 대 한 관리자를 선택 합니다. 이 도메인 계정은 이미 동기화 되어 Azure AD DS에서 사용할 수 있어야 합니다.
 
-* **클러스터 액세스 그룹** : 동기화 하려는 사용자와 클러스터에 대 한 액세스 권한이 있는 보안 그룹은 Azure AD DS에서 사용할 수 있어야 합니다. 예를 들면 HiveUsers 그룹이 있습니다. 자세한 내용은 [Azure Active Directory에서 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
+* **클러스터 액세스 그룹**: 동기화 하려는 사용자와 클러스터에 대 한 액세스 권한이 있는 보안 그룹은 Azure AD DS에서 사용할 수 있어야 합니다. 예를 들면 HiveUsers 그룹이 있습니다. 자세한 내용은 [Azure Active Directory에서 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
-* **LDAPS URL** : 예를 들면 `ldaps://contoso.com:636` 입니다.
+* **LDAPS URL**: 예를 들면 `ldaps://contoso.com:636` 입니다.
 
 사용자가 만든 관리 되는 id는 새 클러스터를 만들 때 **사용자 할당 관리 id** 드롭다운 목록에서 선택할 수 있습니다.
 

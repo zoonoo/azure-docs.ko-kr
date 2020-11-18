@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 908602dff3be2f392bc595f0074db7f95b8936a9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c316aaf02979008b9d2ebc691d54c0fb95a5a52d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660987"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845036"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -317,7 +317,7 @@ SMB 프로토콜은 파일 공유 액세스에 사용됩니다. 연결을 시작
 
 ### <a name="solution"></a>솔루션
 
-RADIUS 서버가 올바르게 구성되어 있는지 확인합니다. 자세한 내용은 [Azure Multi-Factor Authentication 서버와 RADIUS 인증 통합](../active-directory/authentication/howto-mfaserver-dir-radius.md)을 참조하세요.
+RADIUS 서버가 올바르게 구성되어 있는지 확인합니다. 자세한 내용은 [AZURE AD Multi-Factor Authentication 서버와 RADIUS 인증 통합](../active-directory/authentication/howto-mfaserver-dir-radius.md)을 참조 하세요.
 
 ## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>VPN Gateway에서 루트 인증서를 다운로드할 때 "오류 405" 표시
 

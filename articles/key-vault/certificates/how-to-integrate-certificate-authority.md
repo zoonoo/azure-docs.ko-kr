@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d36c6e8ebbb86f9027a4822daa4481b5481523c2
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 50f2515cee92ead8018ffaaf4b4574905f8007d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289540"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844508"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>DigiCert 인증 기관과 Key Vault 통합
 
@@ -31,9 +31,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 가이드를 완료하려면 다음 리소스가 필요합니다.
 * 키 자격 증명 모음. 다음 빠른 시작 중 하나의 단계에 따라 기존 키 자격 증명 모음을 사용하거나 새로 만들 수 있습니다.
-   - [Azure CLI를 사용하여 키 자격 증명 모음 만들기](../secrets/quick-create-cli.md)
-   - [Azure PowerShell을 사용하여 키 자격 증명 모음 만들기](../secrets/quick-create-powershell.md)
-   - [Azure Portal을 사용하여 키 자격 증명 모음 만들기](../secrets/quick-create-portal.md)
+   - [Azure CLI를 사용하여 키 자격 증명 모음 만들기](../general/quick-create-cli.md)
+   - [Azure PowerShell을 사용하여 키 자격 증명 모음 만들기](../general/quick-create-powershell.md)
+   - [Azure Portal을 사용하여 키 자격 증명 모음 만들기](../general/quick-create-portal.md)
 *   DigiCert CertCentral 계정을 활성화해야 합니다. CertCentral 계정에 [가입](https://www.digicert.com/account/signup/)합니다.
 *   계정에서 관리자 수준 권한
 
@@ -56,11 +56,11 @@ DigiCert CertCentral 계정에서 위의 정보를 수집한 후에는 이제 �
 4.  **추가** 옵션을 선택합니다.
  ![인증 기관 추가](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  **인증서 기관 만들기** 화면에서 다음 값을 선택합니다.
-    -   **Name** : 식별 가능한 발급자 이름을 추가합니다. 예제 DigicertCA
-    -   **공급자** : 메뉴에서 DigiCert를 선택합니다.
-    -   **계정 ID** : DigiCert CertCentral 계정 ID를 입력합니다.
-    -   **계정 암호** : DigiCert CertCentral 계정에서 생성한 API 키를 입력합니다.
-    -   **조직 ID** : DigiCert CertCentral 계정에서 수집된 OrgID 입력 
+    -   **Name**: 식별 가능한 발급자 이름을 추가합니다. 예제 DigicertCA
+    -   **공급자**: 메뉴에서 DigiCert를 선택합니다.
+    -   **계정 ID**: DigiCert CertCentral 계정 ID를 입력합니다.
+    -   **계정 암호**: DigiCert CertCentral 계정에서 생성한 API 키를 입력합니다.
+    -   **조직 ID**: DigiCert CertCentral 계정에서 수집된 OrgID 입력 
     -   **만들기** 를 클릭합니다.
    
 6.  이제 DigicertCA가 인증 기관 목록에 추가된 것을 볼 수 있습니다.

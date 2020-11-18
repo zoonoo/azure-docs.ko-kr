@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 4c817194bbe0e4cf211992920bad9deb40bf05f4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b4902e1fb7a2a181d3d5b2ce2ac6d1d458500fce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632212"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844185"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>SSIS integration runtime에서 패키지 실행 문제 해결
 
@@ -121,7 +121,7 @@ SSIS integration runtime에서 많은 패키지가 병렬로 실행 되는 경�
 
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>오류 메시지: "Microsoft OLE DB Provider for Analysis Services. ' Hresult: 0x80004005 설명: ' COM 오류: COM 오류: mscorlib; 호출 대상이 예외를 throw 했습니다. "
 
-한 가지 가능한 원인은 Azure Multi-Factor Authentication 사용 하도록 설정 된 사용자 이름 또는 암호가 Azure Analysis Services 인증에 대해 구성 되어 있기 때문입니다. 이 인증은 SSIS integration runtime에서 지원 되지 않습니다. Azure Analysis Services 인증을 위해 서비스 주체를 사용 하려고 합니다.
+한 가지 가능한 원인은 Azure AD Multi-Factor Authentication 사용 하도록 설정 된 사용자 이름 또는 암호가 Azure Analysis Services 인증에 대해 구성 되어 있기 때문입니다. 이 인증은 SSIS integration runtime에서 지원 되지 않습니다. Azure Analysis Services 인증을 위해 서비스 주체를 사용 하려고 합니다.
 
 1. [서비스 주체를 사용 하 여 자동화](../analysis-services/analysis-services-service-principal.md)에 설명 된 대로 서비스 주체를 준비 합니다.
 2. 연결 관리자에서 **특정 사용자 이름 및 암호 사용** 구성: **AppID** 를 username으로 설정 하 고 **clientSecret** 를 암호로 설정 합니다.

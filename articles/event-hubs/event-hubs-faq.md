@@ -3,12 +3,12 @@ title: 질문과 대답 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에 대한 FAQ(질문과 대답) 목록 및 그에 대한 답변을 제공합니다.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 3b55521c9f90192891b450e3e161607a334c3a00
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 41b010315adaf5a0eca2939b1d42fe4d7c159628
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909712"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843046"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -59,10 +59,10 @@ Event Hubs는 [Azure Monitor](../azure-monitor/overview.md)에 리소스 상태�
 Azure Event Hubs는 고객 데이터를 저장 합니다. 이 데이터는 단일 지역에 Event Hubs 의해 자동으로 저장 되므로이 서비스는 [보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정 된 데이터를 포함 하 여 지역 데이터 상주 요구 사항을 자동으로 충족 합니다.
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 어느 것인가요? 
-Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고받을 수 있습니다.
+Azure Event Hubs에서 다음 프로토콜을 사용 하 여 이벤트를 보내고 받을 수 있습니다.
 
-- AMQP
-- HTTP
+- 고급 메시지 큐 프로토콜 1.0 (AMQP)
+- TLS (HTTPS)를 사용한 하이퍼텍스트 전송 프로토콜 1.1
 - Apache Kafka
 
 이러한 프로토콜을 사용하여 Azure Event Hubs와 통신하기 위해 열어야 하는 아웃바운드 포트는 다음 표를 참조하세요. 
@@ -70,8 +70,21 @@ Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고�
 | 프로토콜 | 포트 | 세부 정보 | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 및 5672 | [AMQP 프로토콜 가이드](../service-bus-messaging/service-bus-amqp-protocol-guide.md)를 참조하세요. | 
-| HTTP, HTTPS | 80, 443 |  |
+| HTTPS | 443 | 이 포트는 HTTP/REST API 및 AMQP over Websocket에 사용 됩니다. |
 | Kafka | 9093 | [Kafka 애플리케이션에서 Event Hubs 사용](event-hubs-for-kafka-ecosystem-overview.md)을 참조하세요.
+
+클라이언트 Sdk에서 수행 하는 여러 관리 작업 및 Azure Active Directory (사용 되는 경우)에서 토큰을 획득 하는 것이 HTTPS를 통해 실행 되기 때문에 포트 5671을 통해 AMQP를 사용 하는 경우에도 HTTPS 포트가 아웃 바운드 통신에 필요 합니다. 
+
+공식 Azure Sdk는 일반적으로 Event Hubs에서 이벤트를 보내고 받기 위한 AMQP 프로토콜을 사용 합니다. AMQP over Websocket 프로토콜 옵션은 HTTP API와 마찬가지로 포트 TCP 443을 통해 실행 되지만 그렇지 않은 경우에는 일반 AMQP와 기능적으로 동일 합니다. 이 옵션은 추가 핸드셰이크 왕복으로 인해 초기 연결 대기 시간이 더 높고 HTTPS 포트를 공유 하기 위한 절충으로 약간 더 많은 오버 헤드가 발생 합니다. 이 모드를 선택 하면 TCP 포트 443이 통신에 충분 합니다. 다음 옵션을 사용 하 여 일반 AMQP 또는 AMQP Websocket 모드를 선택할 수 있습니다.
+
+| 언어 | 옵션   |
+| -------- | ----- |
+| .NET     | EventHubsTransportType [EventHubConnectionOptions TransportType](/dotnet/api/azure.messaging.eventhubs.eventhubconnectionoptions.transporttype?view=azure-dotnet&preserve-view=true) 속성- [AmqpTcp](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) 또는 [EventHubsTransportType](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) |
+| Java     | [Eventhubs EventProcessorClientBuilder. transporttype](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder.transporttype?view=azure-java-stable&preserve-view=true) 와 [AmqpTransportType. amqp](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) 또는 [AmqpTransportType.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) |
+| 노드  | [EventHubConsumerClientOptions](/javascript/api/@azure/event-hubs/eventhubconsumerclientoptions?view=azure-node-latest&preserve-view=true) 에는 `webSocketOptions` 속성이 있습니다. |
+| Python | [TransportType](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python) 또는 TransportType를 사용 하 여 [EventHubConsumerClient.transport_type](/python/api/azure-eventhub/azure.eventhub.eventhubconsumerclient?view=azure-python&preserve-view=true) [. amqpoverwebsocket](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python&preserve-view=true) |
+
+
 
 ### <a name="what-ip-addresses-do-i-need-to-allow"></a>허용 해야 하는 IP 주소는 무엇 인가요?
 연결에 대해 허용 된 목록에 추가할 올바른 IP 주소를 찾으려면 다음 단계를 수행 합니다.
@@ -148,7 +161,7 @@ security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
 ```
-참고: sasl.jaas.config가 프레임워크에서 지원되는 구성이 아닌 경우 SASL 사용자 이름과 암호를 설정하는 데 사용되는 구성을 찾아 대신 사용하세요. 사용자 이름은 $ConnectionString으로 설정하고, 암호는 Event Hubs 연결 문자열로 설정합니다.
+참고: sasl.jaas.config 프레임 워크에서 지원 되는 구성이 아닌 경우 SASL 사용자 이름 및 암호를 설정 하는 데 사용 되는 구성을 찾아 대신 사용 합니다. 사용자 이름은 $ConnectionString으로 설정하고, 암호는 Event Hubs 연결 문자열로 설정합니다.
 
 ### <a name="what-is-the-messageevent-size-for-event-hubs"></a>Event Hubs의 메시지/이벤트 크기는 어떻게 되나요?
 Event Hubs에 허용되는 최대 메시지 크기는 1MB입니다.
@@ -178,7 +191,7 @@ TU(처리량 단위)는 시간 단위로 청구됩니다. 청구는 지정된 �
 예를 들어 2TU와 같이 낮은 TU(처리량 단위)로 시작하는 것이 좋습니다. 트래픽이 15TU까지 증가할 수 있다고 예상하는 경우 네임스페이스에서 자동 팽창 기능을 설정하고 최대 제한을 15TU로 설정합니다. 이제 트래픽이 증가함에 따라 TU를 자동으로 늘릴 수 있습니다.
 
 ### <a name="is-there-a-cost-associated-when-i-turn-on-the-auto-inflate-feature"></a>자동 팽창 기능을 설정하면 관련 비용이 발생하나요?
-이 기능과 관련된 **비용은 없습니다** . 
+이 기능과 관련된 **비용은 없습니다**. 
 
 ### <a name="how-are-throughput-limits-enforced"></a>처리량 제한은 어떻게 적용되나요?
 전체 **수신** 처리량 또는 네임스페이스 내 모든 이벤트 허브에서의 전체 수신 이벤트 비율이 집계 처리량 단위 허용 한도를 초과하면, 발신자가 제한되고 수신 할당량을 초과했음을 나타내는 오류가 표시됩니다.
@@ -193,7 +206,7 @@ Azure Portal에서 기본 또는 표준 계층 네임 스페이스를 만들 때
 
 1. **이벤트 버스 네임 스페이스** 페이지의 왼쪽 메뉴에서 **새 지원 요청** 을 선택 합니다. 
 1. **새 지원 요청** 페이지에서 다음 단계를 수행 합니다.
-    1. **요약 하자면** , 문제를 몇 가지 단어로 설명 합니다. 
+    1. **요약 하자면**, 문제를 몇 가지 단어로 설명 합니다. 
     1. **문제 유형** 으로 **할당량** 을 선택합니다. 
     1. **문제 하위 형식** 에 대해 **처리량 단위 증가 또는 감소 요청** 을 선택 합니다. 
     
@@ -229,11 +242,11 @@ Event Hubs는 소비자 그룹당 단일 파티션 판독기를 허용하도록 
 
 1. **이벤트 버스 네임 스페이스** 페이지의 왼쪽 메뉴에서 **새 지원 요청** 을 선택 합니다. 
 1. **새 지원 요청** 페이지에서 다음 단계를 수행 합니다.
-    1. **요약 하자면** , 문제를 몇 가지 단어로 설명 합니다. 
+    1. **요약 하자면**, 문제를 몇 가지 단어로 설명 합니다. 
     1. **문제 유형** 으로 **할당량** 을 선택합니다. 
     1. **문제 하위 형식** 에 대해 **파티션 변경 요청** 을 선택 합니다. 
     
-        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="지원 요청 페이지":::
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="파티션 수 늘리기":::
 
 파티션 수를 정확 하 게 40으로 늘릴 수 있습니다. 이 경우 Tu 수도 40로 늘려야 합니다. 나중에 TU 한도를 다시 <= 20으로 낮추는 것을 결정 하면 최대 파티션 한도가 32으로 줄어듭니다. 
 
@@ -257,7 +270,7 @@ Event Hubs 표준 계층은 최대 7일 동안 24시간을 초과하는 메시�
 
 이벤트 허브에 전송된 각 이벤트는 청구 가능한 메시지로 계산됩니다. *수신 이벤트* 는 64KB보다 작은 데이터 단위로 정의됩니다. 크기가 64KB 이하인 모든 이벤트는 하나의 청구 가능한 이벤트로 간주됩니다. 이벤트가 64KB보다 큰 경우 64KB의 배수로 이벤트 크기에 따라 청구 가능한 이벤트 수가 계산됩니다. 예를 들어 이벤트 허브에 전송된 8KB 이벤트는 하나의 이벤트로 청구되지만, 이벤트 허브에 전송된 96KB 메시지는 두 개의 이벤트로 청구됩니다.
 
-이벤트 허브에서 사용된 이벤트와 검사점 등의 제어 호출 및 관리 작업은 청구 가능한 수신 이벤트로 계산되지 않고 처리량 단위 허용 한도까지 누적됩니다.
+이벤트 허브에서 사용 된 이벤트 및 검사점과 같은 제어 호출 및 관리 작업은 청구 가능한 수신 이벤트로 계산 되지 않지만 처리량 단위 허용으로 계산 됩니다.
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>조정된 연결 요금이 Event Hubs에 적용됩니까?
 
@@ -299,9 +312,9 @@ SLA에 대한 자세한 내용에 대해 알아보려면 [서비스 수준 계�
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Azure Blob Storage를 검사점 저장소로 사용할 때 특정 버전의 Azure Storage SDK를 대상으로 지정 하려면 어떻게 해야 하나요?
-Azure Stack Hub에서 이 코드를 실행하는 경우 특정 Storage API 버전을 대상으로 하지 않는 한 런타임 오류가 발생합니다. 이는 Event Hub SDK가 Azure에서 사용할 수 있는 최신 Azure Storage API를 사용하지만 Azure Stack Hub 플랫폼에서는 사용할 수 없기 때문입니다. Azure Stack 허브는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수 있습니다. Azure Blog Storage를 검사점 저장소로 사용하는 경우 [Azure Stack Hub 빌드에 대해 지원되는 Azure Storage API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version)을 확인하고 코드에서 해당 버전을 대상으로 지정합니다. 
+Azure Stack 허브에서이 코드를 실행 하는 경우 특정 저장소 API 버전을 대상으로 지정 하지 않으면 런타임 오류가 발생 합니다. 이는 Event Hub SDK가 Azure에서 사용할 수 있는 최신 Azure Storage API를 사용하지만 Azure Stack Hub 플랫폼에서는 사용할 수 없기 때문입니다. Azure Stack 허브는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수 있습니다. Azure 블로그 저장소를 검사점 저장소로 사용 하는 경우 [Azure Stack 허브 빌드에 대해 지원 되는 AZURE STORAGE API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version) 을 확인 하 고 코드에서 해당 버전을 대상으로 합니다. 
 
-예를 들어 Azure Stack 허브 버전 2005에서 실행 중인 경우 저장소 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 가장 높은 버전을 사용합니다(SDK 릴리스 당시 2019-07-07). 이 경우 이 섹션의 다음 단계 외에도 스토리지 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 c #, Java, Python 및 JavaScript/TypeScript에 대 한 다음 샘플을 참조 하세요.  
+예를 들어 Azure Stack 허브 버전 2005에서 실행 중인 경우 저장소 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 가장 높은 버전을 사용합니다(SDK 릴리스 당시 2019-07-07). 이 경우이 섹션의 다음 단계 외에도 저장소 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가 해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 c #, Java, Python 및 JavaScript/TypeScript에 대 한 다음 샘플을 참조 하세요.  
 
 코드에서 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 GitHub의 다음 샘플을 참조 하세요. 
 

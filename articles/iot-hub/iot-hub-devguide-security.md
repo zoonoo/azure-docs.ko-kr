@@ -16,12 +16,13 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 93b692574588396f776c4d62bd24072382ae8471
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+- devx-track-azurecli
+ms.openlocfilehash: 8627681d843d15658882529424375486a4cdb1b9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912143"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845172"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
@@ -43,7 +44,7 @@ IoT Hub 엔드포인트에 액세스하려면 적절한 권한이 있어야 합�
 
 [권한](#iot-hub-permissions)은 다음과 같은 방식으로 부여할 수 있습니다.
 
-* **IoT hub 수준 공유 액세스 정책** . 공유 액세스 정책은 모든 조합의 [권한](#iot-hub-permissions)을 부여할 수 있습니다. [Azure Portal](https://portal.azure.com)에서, [IoT Hub 리소스 REST API](/rest/api/iothub/iothubresource)를 사용하여 프로그래밍 방식으로 또는 [az iot hub policy](/cli/azure/iot/hub/policy) CLI를 사용하여 정책을 정의할 수 있습니다. 새로 만든 IoT Hub에는 다음과 같은 기본 정책이 있습니다.
+* **IoT hub 수준 공유 액세스 정책**. 공유 액세스 정책은 모든 조합의 [권한](#iot-hub-permissions)을 부여할 수 있습니다. [Azure Portal](https://portal.azure.com)에서, [IoT Hub 리소스 REST API](/rest/api/iothub/iothubresource)를 사용하여 프로그래밍 방식으로 또는 [az iot hub policy](/cli/azure/iot/hub/policy) CLI를 사용하여 정책을 정의할 수 있습니다. 새로 만든 IoT Hub에는 다음과 같은 기본 정책이 있습니다.
   
   | 공유 액세스 정책 | 사용 권한 |
   | -------------------- | ----------- |
@@ -53,7 +54,7 @@ IoT Hub 엔드포인트에 액세스하려면 적절한 권한이 있어야 합�
   | registryRead | **RegistryRead** 권한 |
   | registryReadWrite | **RegistryRead** 및 **RegistryWrite** 권한 |
 
-* **디바이스 단위 보안 자격 증명** . 각 IoT Hub에는 [ID 레지스트리](iot-hub-devguide-identity-registry.md)가 포함됩니다. 이 ID 레지스트리의 각 디바이스에 대해 해당 디바이스 엔드포인트로 범위가 지정된 **DeviceConnect** 권한을 부여하는 보안 자격 증명을 구성할 수 있습니다.
+* **디바이스 단위 보안 자격 증명**. 각 IoT Hub에는 [ID 레지스트리](iot-hub-devguide-identity-registry.md)가 포함됩니다. 이 ID 레지스트리의 각 디바이스에 대해 해당 디바이스 엔드포인트로 범위가 지정된 **DeviceConnect** 권한을 부여하는 보안 자격 증명을 구성할 수 있습니다.
 
 예를 들어 일반적인 IoT 솔루션에서는 다음이 적용됩니다.
 
@@ -144,13 +145,13 @@ IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보
 
 | 값 | Description |
 | --- | --- |
-| {signature} |형식의 HMAC-SHA256 서명 문자열은 `{URL-encoded-resourceURI} + "\n" + expiry`입니다. **중요** : 키는 base64에서 디코딩되며 HMAC-SHA256 계산을 수행하는 데 키로 사용됩니다. |
+| {signature} |형식의 HMAC-SHA256 서명 문자열은 `{URL-encoded-resourceURI} + "\n" + expiry`입니다. **중요**: 키는 base64에서 디코딩되며 HMAC-SHA256 계산을 수행하는 데 키로 사용됩니다. |
 | {resourceURI} |이 토큰으로 액세스할 수 있는 엔드포인트의 URI 접두사(세그먼트별)이며 IoT Hub의 호스트 이름으로 시작합니다(프로토콜 없음). 예를 들어 `myHub.azure-devices.net/devices/device1` |
 | {expiry} |1970년 1월 1일 epoch 0시 UTC 이후의 초 수에 대한 UTF8 문자열입니다. |
 | {URL-encoded-resourceURI} |소문자 URL-소문자 리소스 URI의 인코딩 |
 | {policyName} |이 토큰을 참조하는 공유 액세스 정책의 이름입니다. 토큰이 디바이스 레지스트리 자격 증명을 참조하는 경우 없습니다. |
 
-**접두사에 대한 참고** : 문자가 아니라 세그먼트에 의해 계산된 URI 접두사입니다. 예를 들어 `/a/b`는 `/a/b/c`에 대한 접두사이지만 `/a/bc`에 대한 접두사는 아닙니다.
+**접두사에 대한 참고**: 문자가 아니라 세그먼트에 의해 계산된 URI 접두사입니다. 예를 들어 `/a/b`는 `/a/b/c`에 대한 접두사이지만 `/a/bc`에 대한 접두사는 아닙니다.
 
 다음 Node.js 코드 조각은 입력 `resourceUri, signingKey, policyName, expiresInMins`의 토큰을 계산하는 **generateSasToken** 이라는 함수를 보여줍니다. 다음 섹션에서는 여러 토큰 사용 사례에 대해 서로 다른 입력을 초기화하는 방법을 자세히 설명합니다.
 
@@ -377,11 +378,11 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 지원되는 인증서는 다음과 같습니다.
 
-* **기존 X.509 인증서** . 디바이스에 X.509 인증서가 이미 연결되어 있을 수 있습니다. 디바이스는 이 인증서를 사용하여 IoT Hub에서 인증을 받을 수 있습니다. 지문 또는 CA 인증을 사용합니다. 
+* **기존 X.509 인증서**. 디바이스에 X.509 인증서가 이미 연결되어 있을 수 있습니다. 디바이스는 이 인증서를 사용하여 IoT Hub에서 인증을 받을 수 있습니다. 지문 또는 CA 인증을 사용합니다. 
 
-* **CA 서명 X.509 인증서** . 디바이스를 식별하고 IoT Hub에서 디바이스 인증을 받으려면 CA(인증 기관)에서 생성 및 서명한 X.509 인증서를 사용할 수 있습니다. 지문 또는 CA 인증을 사용합니다.
+* **CA 서명 X.509 인증서**. 디바이스를 식별하고 IoT Hub에서 디바이스 인증을 받으려면 CA(인증 기관)에서 생성 및 서명한 X.509 인증서를 사용할 수 있습니다. 지문 또는 CA 인증을 사용합니다.
 
-* **자체 생성 및 자체 서명 X-509 인증서** . 디바이스 제조업체 또는 사내 배포자는 이러한 인증서를 생성하고 디바이스에 해당 프라이빗 키(및 인증서)를 저장할 수 있습니다. 이러한 용도로 [OpenSSL](https://www.openssl.org/) 및 [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 유틸리티와 같은 도구를 사용할 수 있습니다. 지문 인증만 사용합니다.
+* **자체 생성 및 자체 서명 X-509 인증서**. 디바이스 제조업체 또는 사내 배포자는 이러한 인증서를 생성하고 디바이스에 해당 프라이빗 키(및 인증서)를 저장할 수 있습니다. 이러한 용도로 [OpenSSL](https://www.openssl.org/) 및 [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 유틸리티와 같은 도구를 사용할 수 있습니다. 지문 인증만 사용합니다.
 
 디바이스는 인증을 위해 X.509 인증서 또는 보안 토큰 중 하나만 사용할 수 있습니다. X.509 인증서 인증을 사용 하 여 기존 인증서가 만료 될 때 인증서 롤오버를 처리 하는 전략이 있는지 확인 합니다.
 

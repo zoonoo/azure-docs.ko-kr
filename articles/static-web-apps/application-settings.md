@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.custom: devx-track-js
-ms.openlocfilehash: c89ccee430d374d9aee58326627ff800f737324b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 00502c97e3fc06972c27cedf565d77b52f558795
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250031"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844815"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 애플리케이션 설정 구성 미리 보기
 
@@ -63,7 +63,7 @@ JavaScript 프레임워크 또는 라이브러리에서 환경 변수를 사용�
 
 Azure Static Web Apps의 API는 Azure Functions로 제공되며, 이를 통해 _local.settings.json_ 파일에서 애플리케이션 설정을 정의할 수 있습니다. 이 파일은 구성의 `Values` 속성에서 애플리케이션 설정을 정의합니다.
 
-다음 샘플 _local.settings.json_에서는 `DATABASE_CONNECTION_STRING`에 대한 값을 추가하는 방법을 보여 줍니다.
+다음 샘플 _local.settings.json_ 에서는 `DATABASE_CONNECTION_STRING`에 대한 값을 추가하는 방법을 보여 줍니다.
 
 ```json
 {
@@ -96,21 +96,21 @@ Azure Portal은 애플리케이션 설정을 만들고 업데이트하고 삭제
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 
-1. 검색 창에서 **Static Web Apps**를 검색하고 선택합니다.
+1. 검색 창에서 **Static Web Apps** 를 검색하고 선택합니다.
 
 1. 사이드바에서 **구성** 옵션을 클릭합니다.
 
 1. 애플리케이션 설정을 적용하려는 환경을 선택합니다. 스테이징 환경은 끌어오기 요청이 생성될 때 자동으로 만들어지며 끌어오기 요청이 병합되면 프로덕션으로 승격됩니다. 환경마다 애플리케이션 설정을 지정할 수 있습니다.
 
-1. **추가 단추**를 클릭하여 새 앱 설정을 추가합니다.
+1. **추가 단추** 를 클릭하여 새 앱 설정을 추가합니다.
 
     :::image type="content" source="media/application-settings/configuration.png" alt-text="Azure Static Web Apps 구성 보기":::
 
-1. **이름** 및 **값**을 입력 합니다.
+1. **이름** 및 **값** 을 입력 합니다.
 
-1. **확인**을 클릭합니다.
+1. **확인** 을 클릭합니다.
 
-1. **Save**을 클릭합니다.
+1. **Save** 을 클릭합니다.
 
 ### <a name="using-the-azure-cli"></a>Azure CLI 사용
 
@@ -124,7 +124,7 @@ Azure Portal은 애플리케이션 설정을 만들고 업데이트하고 삭제
    local.settings*.json
    ```
 
-2. 다음으로 _local.settings.json_파일의 복사본을 만들고 _local.settings.properties.json_으로 이름을 지정합니다.
+2. 다음으로 _local.settings.json_ 파일의 복사본을 만들고 _local.settings.properties.json_ 으로 이름을 지정합니다.
 
 3. 새 파일 내에서 애플리케이션 설정을 제외한 파일에서 다른 모든 데이터를 제거하고 `Values`를 `properties`로 이름을 바꿉니다.
 
@@ -144,7 +144,7 @@ Azure CLI 명령을 사용하려면 업로드를 실행하기 위해 계정과 �
 2. 리소스 그룹 이름
 3. 구독 ID
 
-:::image type="content" source="media/application-settings/overview.png" alt-text="Azure Static Web Apps 구성 보기":::
+:::image type="content" source="media/application-settings/overview.png" alt-text="Azure Static Web Apps 개요":::
 
 4. 터미널 또는 명령줄에서 다음 명령을 실행합니다. `<YOUR_STATIC_SITE_NAME>`, `<YOUR_RESOURCE_GROUP_NAME>` 및 `<YOUR_SUBSCRIPTION_ID>`의 자리 표시자를 _개요_ 창의 값으로 바꾸어야 합니다.
 

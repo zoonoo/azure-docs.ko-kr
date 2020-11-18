@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: dab065f4d2b025fa15966d81b66b41acb12c54b3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 11/17/2020
+ms.openlocfilehash: 68c211608cfceedaa9d13a595be6d1e5de17f1d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027145"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845009"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>매핑 데이터 흐름에서 열 패턴 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "93027145"
 * 들어오는 원본 필드가 텍스트 파일 또는 NoSQL 데이터베이스에서 열을 변경 하는 경우와 같이 자주 변경 되는 경우 이 시나리오를 [스키마 드리프트](concepts-data-flow-schema-drift.md)라고 합니다.
 * 많은 열 그룹에서 일반적인 작업을 수행 하려는 경우 예를 들어 열 이름에 ' total '이 포함 된 모든 열을 double로 캐스팅 하려고 합니다.
 
-열 패턴은 현재 파생 열, 집계, 선택 및 싱크 변환에서 사용할 수 있습니다.
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4Iui1]
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>파생 열 및 집계의 열 패턴
 
@@ -42,6 +42,12 @@ ms.locfileid: "93027145"
 일치 조건이 올바른지 확인 하기 위해 **검사** 탭에서 정의 된 열의 출력 스키마 유효성을 검사 하거나 **데이터 미리 보기** 탭에서 데이터의 스냅숏을 가져올 수 있습니다. 
 
 ![스크린샷 출력 스키마 탭을 표시 합니다.](media/data-flow/columnpattern3.png "열 패턴")
+
+### <a name="hierarchical-pattern-matching"></a>계층 패턴 일치
+
+복합 계층 구조 내 에서도 패턴 일치를 빌드할 수 있습니다. `Each MoviesStruct that matches`데이터 스트림의 각 계층에 대 한 메시지가 표시 되는 섹션을 확장 합니다. 그런 다음 선택한 계층 내에서 속성에 대해 일치 하는 패턴을 빌드할 수 있습니다.
+
+![계층적 열 패턴을 보여 주는 스크린샷](media/data-flow/patterns-hierarchy.png "계층의 열 패턴")
 
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Select 및 sink의 규칙 기반 매핑
 
@@ -77,7 +83,7 @@ ms.locfileid: "93027145"
 
 ## <a name="pattern-matching-expression-values"></a>패턴 일치 식 값입니다.
 
-* `$$` 런타임에 각 일치 항목의 이름 또는 값으로 변환 합니다.
+* `$$` 런타임에 각 일치 항목의 이름이 나 값으로 변환 합니다. `$$`와 동등한 것으로 간주 `this` 합니다.
 * `name` 들어오는 각 열의 이름을 나타냅니다.
 * `type` 들어오는 각 열의 데이터 형식을 나타냅니다.
 * `stream` 각 스트림 또는 흐름의 변환과 관련 된 이름을 나타냅니다.

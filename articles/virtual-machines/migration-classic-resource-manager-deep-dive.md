@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 233ba17e1ae1b554eff092151ad9f05fd660beb3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e9476b7278cbe64bf90911c3b85a09922a1afbf1
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970013"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843947"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보
 
@@ -28,7 +28,7 @@ Azure 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마�
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>IaaS 리소스를 클래식 배포 모델에서 Azure 리소스 관리자로 마이그레이션
 먼저 서비스(IaaS) 리소스로서 인프라의 데이터 평면과 관리 평면 간의 차이점을 이해해야 합니다.
 
-* *관리/제어 평면*은 리소스를 수정하기 위해 관리/제어 평면 또는 API로 들어오는 호출을 설명합니다. 예를 들어 VM을 만들고, VM을 다시 시작하고, 새 서브넷을 사용하여 가상 네트워크를 업데이트하는 등의 작업은 실행 중인 리소스를 관리합니다. VM을 연결하는 데 직접적으로 영향을 주지 않습니다.
+* *관리/제어 평면* 은 리소스를 수정하기 위해 관리/제어 평면 또는 API로 들어오는 호출을 설명합니다. 예를 들어 VM을 만들고, VM을 다시 시작하고, 새 서브넷을 사용하여 가상 네트워크를 업데이트하는 등의 작업은 실행 중인 리소스를 관리합니다. VM을 연결하는 데 직접적으로 영향을 주지 않습니다.
 * *데이터 평면*(애플리케이션)은 애플리케이션 자체의 런타임을 설명하고, Azure API를 통과하지 않는 인스턴스와의 상호 작용을 포함합니다. 예를 들어 웹 사이트에 액세스하거나 실행 중인 SQL Server 인스턴스 또는 MongoDB 서버에서 데이터를 가져오는 것은 데이터 평면 또는 애플리케이션 상호 작용입니다. 다른 예로 스토리지 계정에서 Blob을 복사하고 가상 머신에 RDP(원격 데스크톱 프로토콜) 또는 SSH(Secure Shell)를 사용하기 위해 공용 IP 주소에 액세스하는 경우가 있습니다. 이러한 작업은 컴퓨팅, 네트워킹, 스토리지에서 애플리케이션을 계속 실행하는 상태에서 수행합니다.
 
 데이터 평면은 클래식 배포 모델 및 리소스 관리자 스택 간에 동일합니다. 차이점은 마이그레이션 프로세스 중에 Microsoft에서 클래식 배포 모델의 리소스 표현을 리소스 관리자 스택의 표현으로 변환한다는 것입니다. 결과적으로 새 도구, API 및 SDK를 사용하여 리소스 관리자 스택에서 리소스를 관리해야 합니다.
@@ -48,7 +48,7 @@ Azure 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마�
 * 업무 외 시간 동안 마이그레이션을 계획하여 마이그레이션 중 발생할 수 있는 예기치 않은 오류를 해결할 수 있도록 계획하십시오.
 * 준비 단계가 완료된 후 쉽게 검증할 수 있도록 PowerShell, CLI(명령줄 인터페이스) 명령 또는 REST API를 사용하여 VM의 현재 구성을 다운로드합니다.
 * 마이그레이션을 시작하기 전에 자동화/운영 스크립트를 업데이트하여 리소스 관리자 배포 모델을 처리합니다. 경우에 따라 리소스가 준비됨 상태일 때 GET 작업을 실행할 수도 있습니다.
-* 클래식 배포 모델의 IaaS 리소스에 구성된 RBAC(역할 기반 Access Control) 정책을 평가하고, 마이그레이션이 완료된 후에 계획합니다.
+* 클래식 배포 모델의 IaaS 리소스에 구성 된 azure RBAC (역할 기반 액세스 제어) 정책을 평가 하 고 마이그레이션이 완료 된 후에 계획 합니다.
 
 마이그레이션 워크플로는 다음과 같습니다.
 

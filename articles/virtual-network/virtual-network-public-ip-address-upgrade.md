@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: blehr
-ms.custom: references_regions
-ms.openlocfilehash: a1bd303390626eaea71e588e325fedbd2d8fa4b9
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.custom: references_regions , devx-track-azurecli
+ms.openlocfilehash: 0c248149694c2bf66b8c94e9c0a29a8f7da9f4e4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353359"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843743"
 ---
 # <a name="upgrade-public-ip-addresses"></a>공용 IP 주소 업그레이드
 
@@ -148,24 +148,14 @@ Azure Resource Manager의 새 리소스 그룹은 마이그레이션된 예약�
 
 ## <a name="limitations"></a>제한 사항
 
-* 이 기능은 현재 다음 지역 에서만 사용할 수 있습니다.<br>
-미국 중서부<br>
-미국 중북부<br>
-미국 서부<br>
-미국 서부 2<br>
-노르웨이 동부<br>
-남아프리카 북부<br>
-미국 동부<br>
-북유럽<br>
-한국 중부<br>
-인도 중부<br>
-미국 동부 2<br>
-스위스 북부<br>
-인도 서부<br>
-독일 북부<br>
-캐나다 중부<br>
-프랑스 남부<br>
-인도 서부
+* 이 기능은 현재 다음 지역에서 사용할 수 없습니다.<br>
+US Gov 버지니아<br>
+US DoD 동부<br>
+US DoD 중부<br>
+중국 동부<br>
+중국 동부 2<br>
+중국 북부<br>
+중국 북부 2
 
 * 기본 공용 IP를 업그레이드 하기 위해 Azure 리소스에 연결할 수 없습니다.  공용 Ip의 연관을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) 를 참조 하세요.  마찬가지로 예약된 IP 마이그레이션하기 위해 클라우드 서비스에 연결할 수 없습니다.  예약 된 Ip의 연관을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) 를 참조 하세요.  
 * 기본에서 표준 SKU로 업그레이드 된 공용 Ip는 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) 을 계속 갖지 않으므로 영역 중복 또는 영역 인 Azure 리소스에 연결할 수 없습니다.  참고이는 가용성 영역을 제공 하는 지역에만 적용 됩니다.

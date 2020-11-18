@@ -6,20 +6,20 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 0fd792684150598449deabd14c0e19f266597bd9
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b2ab22cff7a008cb55c7e3d2170113a2504ff697
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093976"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843675"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>GitHub 작업을 사용 하는 Azure 스프링 클라우드 CI/CD
 
 GitHub 작업은 자동화 된 소프트웨어 개발 수명 주기 워크플로를 지원 합니다. Azure 스프링 클라우드의 GitHub 작업을 사용 하 여 Azure에 빌드, 테스트, 패키지, 릴리스 및 배포를 위해 리포지토리에 워크플로를 만들 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 예에서는 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)필요 합니다.
 
 ::: zone pivot="programming-language-csharp"
@@ -49,11 +49,11 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
 }
 ```
 
-이 예제에서는 [GitHub의 steeltoe 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample)을 사용 합니다.  리포지토리를 포크 하 고, 포크에 대 한 GitHub 리포지토리 페이지를 열고 **설정** 탭을 선택 합니다. **비밀** 메뉴를 열고 **새 비밀**을 선택 합니다.
+이 예제에서는 [GitHub의 steeltoe 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample)을 사용 합니다.  리포지토리를 포크 하 고, 포크에 대 한 GitHub 리포지토리 페이지를 열고 **설정** 탭을 선택 합니다. **비밀** 메뉴를 열고 **새 비밀** 을 선택 합니다.
 
  ![새 비밀 추가](./media/github-actions/actions1.png)
 
-비밀 이름을로 설정 하 `AZURE_CREDENTIALS` 고 해당 값을 *GitHub 리포지토리를 설정 하 고 인증*하는 제목 아래에 있는 JSON 문자열로 설정 합니다.
+비밀 이름을로 설정 하 `AZURE_CREDENTIALS` 고 해당 값을 *GitHub 리포지토리를 설정 하 고 인증* 하는 제목 아래에 있는 JSON 문자열로 설정 합니다.
 
  ![비밀 데이터 설정](./media/github-actions/actions2.png)
 
@@ -167,11 +167,11 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
 }
 ```
 
-이 예제에서는 GitHub의 [PiggyMetrics](https://github.com/Azure-Samples/piggymetrics) 샘플을 사용 합니다.  샘플을 포크 하 고 GitHub 리포지토리 페이지를 연 다음 **설정** 탭을 클릭 합니다. **비밀** 메뉴를 열고 **새 비밀 추가**를 클릭 합니다.
+이 예제에서는 GitHub의 [PiggyMetrics](https://github.com/Azure-Samples/piggymetrics) 샘플을 사용 합니다.  샘플을 포크 하 고 GitHub 리포지토리 페이지를 연 다음 **설정** 탭을 클릭 합니다. **비밀** 메뉴를 열고 **새 비밀 추가** 를 클릭 합니다.
 
  ![새 비밀 추가](./media/github-actions/actions1.png)
 
-비밀 이름을로 설정 하 `AZURE_CREDENTIALS` 고 해당 값을 *GitHub 리포지토리를 설정 하 고 인증*하는 제목 아래에 있는 JSON 문자열로 설정 합니다.
+비밀 이름을로 설정 하 `AZURE_CREDENTIALS` 고 해당 값을 *GitHub 리포지토리를 설정 하 고 인증* 하는 제목 아래에 있는 JSON 문자열로 설정 합니다.
 
  ![비밀 데이터 설정](./media/github-actions/actions2.png)
 
@@ -333,7 +333,7 @@ Github에 푸시 하면 GitHub **작업** 을 자동으로 사용 하도록 설�
 
 ![작업 사용 확인](./media/github-actions/actions3.png)
 
-오류가 발생 한 경우 (예: Azure 자격 증명을 설정 하지 않은 경우) 오류를 수정 하 고 나 서 검사를 다시 실행할 수 있습니다. GitHub 리포지토리 페이지에서 **작업**을 클릭 하 고, 특정 워크플로 작업을 선택한 다음, **다시 실행 확인** 단추를 클릭 하 여 검사를 다시 실행 합니다.
+오류가 발생 한 경우 (예: Azure 자격 증명을 설정 하지 않은 경우) 오류를 수정 하 고 나 서 검사를 다시 실행할 수 있습니다. GitHub 리포지토리 페이지에서 **작업** 을 클릭 하 고, 특정 워크플로 작업을 선택한 다음, **다시 실행 확인** 단추를 클릭 하 여 검사를 다시 실행 합니다.
 
 ![검사 다시 실행](./media/github-actions/actions4.png)
 

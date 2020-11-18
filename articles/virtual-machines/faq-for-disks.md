@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3d199ae202cbe99176f3ca5d0ae82ecdeec84ca4
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d6cf0ba06293a073fc8fbe26e2386f1852429002
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684511"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843998"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -76,7 +76,7 @@ Managed Disks를 사용하는 가용성 집합이 위치한 지역에 따라 지
 
 VM 진단을 위한 프라이빗 스토리지 계정을 설정할 수 있습니다.
 
-**어떤 종류의 역할 기반 Access Control 지원을 Managed Disks에 사용할 수 있나요?**
+**Managed Disks에 대해 사용할 수 있는 Azure 역할 기반 access control 지원 종류는 무엇 인가요?**
 
 Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 

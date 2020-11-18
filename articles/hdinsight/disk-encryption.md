@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 9afab87e0d7f0e7a9e5c05b36ace1dfc09c9aa9f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a9a90fbb2eedd6db2873d4ac2a5fea94c05c7eed
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548033"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844747"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대 한 Azure HDInsight 이중 암호화
 
@@ -71,7 +71,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 �
 
 ### <a name="create-azure-key-vault"></a>Azure Key Vault 만들기
 
-키 자격 증명 모음을 만듭니다. 특정 단계는 [Azure Key Vault 만들기](../key-vault/secrets/quick-create-portal.md) 를 참조 하세요.
+키 자격 증명 모음을 만듭니다. 특정 단계는 [Azure Key Vault 만들기](../key-vault/general/quick-create-portal.md) 를 참조 하세요.
 
 HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 경우 Azure Key Vault로 키를 가져올 수 있습니다. 키 자격 증명 모음에서 **일시 삭제** 를 사용 하도록 설정 해야 합니다. 기존 키를 가져오는 방법에 대한 자세한 내용은 [키, 비밀 및 인증서 정보](../key-vault/general/about-keys-secrets-certificates.md)를 참조하세요.
 
@@ -103,8 +103,8 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
     |속성 |설명|
     |---|---|
-    |키 권한|**가져오기** , **키 래핑** 및 **키 래핑** 을 선택 합니다.|
-    |비밀 권한|**가져오기** , **설정** 및 **삭제** 를 선택 합니다.|
+    |키 권한|**가져오기**, **키 래핑** 및 **키 래핑** 을 선택 합니다.|
+    |비밀 권한|**가져오기**, **설정** 및 **삭제** 를 선택 합니다.|
     |보안 주체 선택|이전에 만든 사용자 할당 관리 id를 선택 합니다.|
 
     ![Azure Key Vault 액세스 정책에 대한 주체 선택 설정](./media/disk-encryption/azure-portal-add-access-policy.png)
@@ -121,7 +121,7 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 #### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-클러스터를 만드는 동안 키 버전을 포함 하 여 전체 **키 식별자** 를 제공 합니다. 정의합니다(예: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`). 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
+클러스터를 만드는 동안 키 버전을 포함 하 여 전체 **키 식별자** 를 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
 
 ![새 클러스터 만들기](./media/disk-encryption/create-cluster-portal.png)
 

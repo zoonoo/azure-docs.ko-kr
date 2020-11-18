@@ -3,12 +3,12 @@ title: Azure Notebooks 미리 보기 개요
 description: 설정 또는 구성이 필요하지 않은 경우 무료 Azure Notebooks 미리 보기 서비스를 사용하여 클라우드에서 Jupyter Notebook을 실행합니다.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: d229e48e5c49a9a672c533fb24231e9329e524c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d59faaf85a1fdbad776e954e974bafa300f93d85
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85831406"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845138"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Azure Notebooks 미리 보기 개요
 
@@ -111,4 +111,4 @@ Azure Notebooks에 대한 질문을 논의하려면 [GitHub 리포지토리](htt
   - [슬라이드 쇼 제공](present-jupyter-notebooks-slideshow.md)
   - [데이터 파일 작업](work-with-project-data-files.md)
   - [데이터 리소스에 액세스](access-data-resources-jupyter-notebooks.md)
-  - [Azure Machine Learning 사용](use-machine-learning-services-jupyter-notebooks.md)
+  - [Azure Machine Learning 사용](../machine-learning/samples-notebooks.md)

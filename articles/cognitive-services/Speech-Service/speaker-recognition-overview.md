@@ -12,14 +12,14 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: 스피커 인식, 음성 생체 측정
-ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5001ac166b37f3a3852bc14261a5b5d199d778cd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397262"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844572"
 ---
-# <a name="what-is-speaker-recognition"></a>Speaker Recognition이란?
+# <a name="what-is-speaker-recognition-preview"></a>Speaker Recognition (미리 보기) 란?
 
 Speaker Recognition 서비스는 음성 biometry을 사용 하 여 고유한 음성 특성에 따라 스피커를 확인 하 고 식별 하는 알고리즘을 제공 합니다. 화자 인식은 "누가 말하고 있나요?"라는 질문에 대답하는 데 사용됩니다. 스피커 음성의 고유한 특성을 기반으로 등록 프로필을 만드는 단일 스피커에 대 한 오디오 학습 데이터를 제공 합니다. 그런 다음이 프로필에 대 한 오디오 음성 샘플을 교차 확인 하 여 스피커가 동일한 사람 (스피커 확인) 인지 확인 하거나 등록 된 스피커 프로필 *그룹* 에 대 한 오디오 음성 샘플을 교차 확인 하 여 그룹의 프로필 (스피커 식별)과 일치 하는지 확인할 수 있습니다. 반면, [스피커 Diarization](batch-transcription.md#speaker-separation-diarization) 는 일괄 처리 작업에서 스피커로 오디오 세그먼트를 그룹화 합니다.
 
@@ -48,7 +48,7 @@ Speaker Identification는 등록 된 스피커 그룹 내에서 알 수 없는 �
 
 ### <a name="how-does-speaker-identification-work"></a>Speaker Identification 작동 방법
 
-발표자 식별에 대 한 등록은 **텍스트 독립적**이므로 발표자가 오디오에 표시 하는 내용에 대 한 제한이 없습니다. Speaker Verification와 마찬가지로 등록 단계에서 스피커 음성이 기록 되 고 음성 기능을 추출 하 여 고유한 음성 서명을 구성 합니다. 식별 단계에서 입력 음성 샘플은 지정 된 등록 된 음성 목록 (각 요청에서 최대 50)과 비교 됩니다.
+발표자 식별에 대 한 등록은 **텍스트 독립적** 이므로 발표자가 오디오에 표시 하는 내용에 대 한 제한이 없습니다. Speaker Verification와 마찬가지로 등록 단계에서 스피커 음성이 기록 되 고 음성 기능을 추출 하 여 고유한 음성 서명을 구성 합니다. 식별 단계에서 입력 음성 샘플은 지정 된 등록 된 음성 목록 (각 요청에서 최대 50)과 비교 됩니다.
 
 ## <a name="data-security-and-privacy"></a>데이터 보안 및 개인 정보
 
@@ -67,7 +67,7 @@ Speaker Identification는 등록 된 스피커 그룹 내에서 알 수 없는 �
 | 텍스트 종속 및 텍스트 독립적인 확인의 차이점은 무엇 인가요? | 텍스트 종속 확인에는 등록과 인식 모두를 위한 특정 구가 필요 합니다. 텍스트 독립적 인증에는 등록을 위한 긴 음성 샘플이 필요 하지만 인식 하는 동안을 비롯 하 여 모든 것을 말할 수 있습니다.|
 | 어떤 언어가 지원되나요? | 영어, 프랑스어, 스페인어, 중국어, 독일어, 이탈리아어, 일본어 및 포르투갈어 |
 | 지원 되는 Azure 지역은 무엇 인가요? | Speaker Recognition는 미리 보기 서비스 이며 현재 미국 서 부 지역 에서만 사용할 수 있습니다.|
-| 지원 되는 오디오 형식은 무엇입니까? | Mono 16 비트, 16kHz PCM-인코드된 WAV |
+| 지원되는 오디오 형식은 무엇인가요? | Mono 16 비트, 16kHz PCM-인코드된 WAV |
 | **수락** 및 **거부** 응답이 정확 하지 않습니다. 임계값을 조정 하는 방법 | 최적 임계값은 시나리오에 따라 달라 지기 때문에 API는 기본 임계값 0.5에 따라 간단히 "수락" 또는 "거부"를 결정 합니다. 고급 사용자는 기본 결정을 재정의 하 고 사용자의 시나리오에 따라 결과를 미세 조정 하는 것이 좋습니다. |
 | 하나의 스피커를 여러 번 등록할 수 있나요? | 예, 텍스트 종속 확인의 경우 최대 50 번 스피커를 등록할 수 있습니다. 텍스트 독립적인 확인 또는 발표자 id의 경우 최대 300 초까지 오디오를 등록할 수 있습니다. |
 | Azure에 저장 되는 데이터는 무엇 인가요? | 등록 오디오는 음성 프로필을 [삭제할](speaker-recognition-basics.md#deleting-voice-profile-enrollments)때까지 서비스에 저장 됩니다. 인식 오디오 샘플은 유지 되거나 저장 되지 않습니다. |

@@ -3,18 +3,18 @@ title: Jupyter 노트북 만들기 및 복제-Azure Notebooks 미리 보기
 description: Azure Notebooks 미리 보기 프로젝트는 다른 원본에서 새로 만들거나 복제할 수 있는 노트북 및 관련 파일의 컬렉션을 관리 합니다.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: 4a51f9b12ca24d16858b41357627ff26d233357f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e5930178b7951ff5f701228cee4ea7cb5f0e6da
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86181502"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844389"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Azure Notebooks 미리 보기에서 프로젝트 만들기 및 복제
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Azure Notebooks는 Jupyter Notebook 및 관련 파일을 *프로젝트*라고 하는 논리 그룹으로 구성합니다. 먼저 프로젝트를 컨테이너로 만든 다음, 폴더 내에 다른 프로젝트 파일과 함께 하나 이상의 Notebook을 새로 만들거나 복제합니다. (이 프로세스는 [자습서](tutorial-create-run-jupyter-notebook.md)에 설명되어 있습니다.)
+Azure Notebooks는 Jupyter Notebook 및 관련 파일을 *프로젝트* 라고 하는 논리 그룹으로 구성합니다. 먼저 프로젝트를 컨테이너로 만든 다음, 폴더 내에 다른 프로젝트 파일과 함께 하나 이상의 Notebook을 새로 만들거나 복제합니다. (이 프로세스는 [자습서](tutorial-create-run-jupyter-notebook.md)에 설명되어 있습니다.)
 
 또한 프로젝트는 사용자 지정 설정 단계 및 패키지 설치를 포함하여 Notebook이 실행되는 서버에 영향을 주는 메타데이터 및 기타 구성 설정을 유지합니다. 자세한 내용은 [프로젝트 관리 및 구성](configure-manage-azure-notebooks-projects.md)을 참조하세요.
 
@@ -28,10 +28,10 @@ Azure Notebooks는 Jupyter Notebook 및 관련 파일을 *프로젝트*라고 �
 
 | 명령 | 제공 대상 | 설명 |
 | --- | --- | --- |
-| **실행** | 소유자 | 프로젝트 서버를 시작하고 Jupyter에서 프로젝트 폴더를 엽니다. (대부분은 프로젝트 폴더로 이동한 후 거기서 Notebook을 시작합니다.) |
+| **Run** | 소유자 | 프로젝트 서버를 시작하고 Jupyter에서 프로젝트 폴더를 엽니다. (대부분은 프로젝트 폴더로 이동한 후 거기서 Notebook을 시작합니다.) |
 | **다운로드** | 모든 사람 | 선택한 프로젝트의 복사본을 ZIP 파일로 다운로드합니다. |
 | **공유** | 모든 사람 | 선택한 프로젝트의 URL을 가져오고, 소셜 미디어에 공유하고, URL이 포함된 이메일을 보내고, URL을 사용하여 "Notebook 시작" 배지([시작 배지 얻기](#obtain-a-launch-badge) 참조)가 있는 HTML 또는 Markdown 코드를 모두 얻을 수 있는 공유 팝업을 표시합니다. |
-| **Delete** | 소유자 | 선택한 프로젝트를 삭제합니다. 이 작업은 실행 취소할 수 없습니다. |
+| **삭제** | 소유자 | 선택한 프로젝트를 삭제합니다. 이 작업은 실행 취소할 수 없습니다. |
 | **터미널** | 소유자 | 프로젝트 서버를 시작한 다음, 해당 서버에 대한 bash 터미널을 사용하여 새 브라우저 창을 엽니다. |
 | **+ 새 프로젝트** | 소유자 | 새 프로젝트를 만듭니다. [새 프로젝트 만들기](#create-a-new-project)를 참조하세요. |
 | **GitHub 리포지토리 업로드** | 소유자 | GitHub에서 프로젝트를 가져옵니다. [GitHub에서 프로젝트를 가져옵니다](#import-a-project-from-github). |
@@ -55,7 +55,7 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 
 ## <a name="create-a-new-project"></a>새 프로젝트 만들기
 
-**+ 새 프로젝트** 명령을 사용하면 Azure Notebooks가 **새 프로젝트 만들기** 팝업을 표시합니다. 이 팝업에서 다음 정보를 입력하고 **만들기**를 선택합니다.
+**+ 새 프로젝트** 명령을 사용하면 Azure Notebooks가 **새 프로젝트 만들기** 팝업을 표시합니다. 이 팝업에서 다음 정보를 입력하고 **만들기** 를 선택합니다.
 
 | 필드 | Description |
 | --- | --- |
@@ -78,7 +78,7 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 - 대시보드
 - 탐험
 - 자주 묻는 질문(FAQ)
-- help
+- 도움말
 - html
 - home
 - import
@@ -102,7 +102,7 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 
 ## <a name="import-a-project-from-github"></a>GitHub에서 프로젝트 가져오기
 
-데이터 및 *README.md* 파일을 포함하여 공개 GitHub 리포지토리 전체를 간단하게 프로젝트로 가져올 수 있습니다. **GitHub 리포지토리 업로드** 명령을 사용하고, 팝업에서 다음 세부 정보를 입력하고, **가져오기**를 선택합니다.
+데이터 및 *README.md* 파일을 포함하여 공개 GitHub 리포지토리 전체를 간단하게 프로젝트로 가져올 수 있습니다. **GitHub 리포지토리 업로드** 명령을 사용하고, 팝업에서 다음 세부 정보를 입력하고, **가져오기** 를 선택합니다.
 
 | 필드 | 설명 |
 | --- | --- |
@@ -138,4 +138,4 @@ GitHub에서 리포지토리를 가져오면 해당 기록도 함께 가져옵�
 - [방법: 슬라이드 쇼 표시](present-jupyter-notebooks-slideshow.md)
 - [방법: 데이터 파일 작업](work-with-project-data-files.md)
 - [방법: 데이터 리소스 액세스](access-data-resources-jupyter-notebooks.md)
-- [방법: Azure Machine Learning 사용](use-machine-learning-services-jupyter-notebooks.md)
+- [방법: Azure Machine Learning 사용](../machine-learning/samples-notebooks.md)

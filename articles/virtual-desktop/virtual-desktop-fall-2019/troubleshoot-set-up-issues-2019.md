@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31219fda04095d48b55165f59c27f3dee85485a9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009259"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843641"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱 (클래식)에서 테 넌 트 및 호스트 풀 만들기
 
@@ -99,7 +99,7 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 
 **수정 2:** **새 Windows 가상 데스크톱 호스트 풀 만들기 및 프로 비전** 을 위한 GitHub 위치로 이동 하 고 다음 지침을 따릅니다.
 
-1. **Azure에 배포** 를 마우스 오른쪽 단추로 클릭 하 고 **링크 주소 복사**를 선택 합니다.
+1. **Azure에 배포** 를 마우스 오른쪽 단추로 클릭 하 고 **링크 주소 복사** 를 선택 합니다.
 2. **메모장** 을 열고 링크를 붙여 넣습니다.
 3. # 문자 앞에 CSP 최종 고객 테 넌 트 이름을 삽입 합니다.
 4. 브라우저에서 새 링크를 열면 Azure Portal 템플릿이 로드 됩니다.
@@ -120,7 +120,7 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 활동 로그에서 오류를 보려면 다음을 수행 합니다.
 
 1. 현재 Azure Marketplace 배포 제품을 종료 합니다.
-2. 위쪽 검색 창에서 **활동 로그**를 검색 하 고 선택 합니다.
+2. 위쪽 검색 창에서 **활동 로그** 를 검색 하 고 선택 합니다.
 3. 상태가 **실패** 인 **배포 유효성 검사** 라는 작업을 찾아 작업을 선택 합니다.
 
    > [!div class="mx-imgBorder"]
@@ -168,13 +168,13 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 
 **수정 2:** [오류: 도메인 이름이](troubleshoot-vm-configuration-2019.md#error-domain-name-doesnt-resolve) [세션 호스트 VM 구성](troubleshoot-vm-configuration-2019.md)에서 확인 되지 않음을 참조 하세요.
 
-**원인 3:** 가상 네트워크 (VNET) DNS 구성이 **기본값으로**설정 되어 있습니다.
+**원인 3:** 가상 네트워크 (VNET) DNS 구성이 **기본값으로** 설정 되어 있습니다.
 
 이 문제를 해결 하려면 다음 작업을 수행 합니다.
 
 1. Azure Portal을 열고 **가상 네트워크** 탭으로 이동 합니다.
-2. VNET을 찾은 후 **DNS 서버**를 선택 합니다.
-3. DNS 서버 메뉴가 화면 오른쪽에 표시 됩니다. 해당 메뉴에서 **사용자 지정**을 선택 합니다.
+2. VNET을 찾은 후 **DNS 서버** 를 선택 합니다.
+3. DNS 서버 메뉴가 화면 오른쪽에 표시 됩니다. 해당 메뉴에서 **사용자 지정** 을 선택 합니다.
 4. 사용자 지정 아래에 나열 된 DNS 서버가 도메인 컨트롤러 또는 Active Directory 도메인과 일치 하는지 확인 합니다. DNS 서버가 표시 되지 않으면 **dns 서버 추가** 필드에 해당 값을 입력 하 여 추가할 수 있습니다.
 
 ### <a name="error-your-deployment-failedunauthorized"></a>오류: 배포하지 못했습니다...\Unauthorized
@@ -375,7 +375,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>오류: 사용자에게 Azure MFA(Multi-Factor Authentication)가 필요합니다.
+### <a name="error-user-requires-azure-ad-multi-factor-authentication-mfa"></a>오류: 사용자에 게 MFA (Azure AD Multi-Factor Authentication)가 필요 합니다.
 
 > [!div class="mx-imgBorder"]
 > ![MFA (Multi-Factor Authentication 부족으로 인 한 배포의 스크린샷 실패](../media/MFARequiredError.png)
@@ -386,7 +386,7 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**원인:** 지정 된 Windows Virtual Desktop 테 넌 트 관리자에 게 로그인 하려면 MFA (Azure Multi-Factor Authentication)가 필요 합니다.
+**원인:** 지정 된 Windows Virtual Desktop 테 넌 트 관리자에 게 로그인 하려면 MFA (Azure AD Multi-Factor Authentication)가 필요 합니다.
 
 **해결 방법:** [자습서: PowerShell을 사용 하 여 서비스 사용자 및 역할 할당 만들기](create-service-principal-role-powershell.md)의 단계에 따라 서비스 주체를 만들고 Windows 가상 데스크톱 테 넌 트의 역할을 할당 합니다. 서비스 주체를 사용 하 여 Windows 가상 데스크톱에 로그인 할 수 있는지 확인 한 후에는 사용 중인 방법에 따라 Azure Marketplace 제공 또는 GitHub Azure Resource Manager 템플릿을 다시 실행 합니다. 메서드에 대 한 올바른 매개 변수를 입력 하려면 아래 지침을 따르세요.
 

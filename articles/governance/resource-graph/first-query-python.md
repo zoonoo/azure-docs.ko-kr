@@ -3,13 +3,13 @@ title: '빠른 시작: 첫 번째 Python 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Python용 Resource Graph 라이브러리를 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: d7ffa8aee7087e77ff14808327251ef495e88f6f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 01e0fd5bfbc5f353474c8305eefc044390c3586a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057402"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845115"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>빠른 시작: Python을 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -32,7 +32,7 @@ Python을 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 �
 1. 최신 Azure CLI가 설치되었는지 확인합니다(**2.5.1** 이상). 아직 설치되지 않았으면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
    > [!NOTE]
-   > 다음 예시에서 **CLI 기반 인증**을 사용하도록 Python을 설정하려면 Azure CLI가 필요합니다. 다른 옵션들에 대한 자세한 내용은 [Python용 Azure 관리 라이브러리를 사용하여 인증](/azure/developer/python/azure-sdk-authenticate)을 참조하세요.
+   > 다음 예시에서 **CLI 기반 인증** 을 사용하도록 Python을 설정하려면 Azure CLI가 필요합니다. 다른 옵션들에 대한 자세한 내용은 [Python용 Azure 관리 라이브러리를 사용하여 인증](/azure/developer/python/azure-sdk-authenticate)을 참조하세요.
 
 1. Azure CLI를 통해 인증을 수행합니다.
 
@@ -65,7 +65,7 @@ Python을 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 �
 
 ## <a name="run-your-first-resource-graph-query"></a>첫 번째 Resource Graph 실행
 
-Python 라이브러리가 선택한 환경에 추가되었으므로 간단한 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식**과 함께 처음 5개 Azure 리소스를 반환합니다.
+Python 라이브러리가 선택한 환경에 추가되었으므로 간단한 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식** 과 함께 처음 5개 Azure 리소스를 반환합니다.
 
 1. 설치된 라이브러리 및 `resources` 메서드를 사용하여 첫 번째 Azure Resource Graph 쿼리를 실행합니다.
 

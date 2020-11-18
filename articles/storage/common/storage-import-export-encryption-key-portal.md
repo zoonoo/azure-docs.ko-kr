@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4362b579b7f01570a2b5fd072bf53ad495797cd8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fb91a490083629101470565a630b659c090e071b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783779"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843369"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Azure Key Vault에서 Import/Export 서비스에 고객 관리형 키 사용
 
@@ -33,7 +33,7 @@ Azure Import/Export 서비스는 암호화 키를 통해 드라이브를 잠그�
     - [파일에 대한 가져오기 작업 만들기](storage-import-export-data-to-files.md)
     - [BLOB에 대한 내보내기 작업 만들기](storage-import-export-data-from-blobs.md)
 
-2. BitLocker 키를 보호하는 데 사용할 수 있는 키가 들어 있는 기존 Azure Key Vault가 있습니다. Azure Portal을 사용하여 키 자격 증명 모음을 만드는 방법은 [빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색](../../key-vault/secrets/quick-create-portal.md)을 참조하세요.
+2. BitLocker 키를 보호하는 데 사용할 수 있는 키가 들어 있는 기존 Azure Key Vault가 있습니다. Azure Portal를 사용 하 여 주요 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure Portal 사용 하 여 Azure Key Vault 만들기](../../key-vault/general/quick-create-portal.md)를 참조 하세요.
 
     - **일시 삭제** 및 **제거 안 함** 은 기존 Key Vault에서 설정됩니다. 이러한 속성은 기본적으로 사용하도록 설정되지 않습니다. 이러한 속성을 사용하려면 다음 문서 중 하나에서 **일시 삭제를 사용하도록 설정** 및 **제거 보호 활성화** 섹션을 참조하세요.
 

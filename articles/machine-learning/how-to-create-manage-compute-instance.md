@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: bdae8d77dc5e51cf4a181459ab2e159f31f06e31
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 40882f2a0c1a65650d633d0784214afbeef9ae63
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543105"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842892"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 계산 인스턴스 만들기 및 관리
 
@@ -42,7 +42,7 @@ Azure Machine Learning 작업 영역에서 [계산 인스턴스](concept-compute
 
 ## <a name="create"></a>만들기
 
-**예상 시간** : 약 5 분.
+**예상 시간**: 약 5 분.
 
 계산 인스턴스를 만드는 작업은 작업 영역에 대 한 일회성 프로세스입니다. 이 계산을 개발 워크스테이션으로 다시 사용 하거나 학습을 위한 계산 대상으로 재사용할 수 있습니다. 여러 계산 인스턴스를 작업 영역에 연결할 수 있습니다.
 
