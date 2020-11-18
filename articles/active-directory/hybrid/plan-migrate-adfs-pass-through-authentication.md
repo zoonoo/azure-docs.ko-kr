@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0edda2a01d6b17aebba3fbe4dbf039bf1d2f2c5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1257c783ffeae68bf338b21a5d2f6bba72ea25b3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411119"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836430"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 통과 인증으로 마이그레이션
 
@@ -92,13 +92,13 @@ Azure AD Connect를 업데이트 하려면 [Azure AD Connect: 최신 버전으�
 Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
 ```
 
-예:
+예제:
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 ```
 
-페더레이션 설계 및 배포 설명서에 맞게 사용자 지정되었을 수 있는 설정을 확인합니다. 특히 **PreferredAuthenticationProtocol** , **SupportsMfa** 및 **PromptLoginBehavior** 에서 사용자 지정을 찾습니다.
+페더레이션 설계 및 배포 설명서에 맞게 사용자 지정되었을 수 있는 설정을 확인합니다. 특히 **PreferredAuthenticationProtocol**, **SupportsMfa** 및 **PromptLoginBehavior** 에서 사용자 지정을 찾습니다.
 
 자세한 내용은 다음 문서를 참조하세요.
 
@@ -108,7 +108,7 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 > [!NOTE]
 > **SupportsMfa** 가 **True** 로 설정되어 있으면 온-프레미스 다단계 인증 솔루션을 사용하여 사용자 인증 흐름에 2단계 챌린지를 삽입합니다. 이 설정은 Azure AD 인증 시나리오에서 더 이상 작동하지 않습니다. 
 >
-> 대신, Azure Multi-Factor Authentication 클라우드 기반 서비스를 사용하여 동일한 기능을 수행합니다. 계속하기 전에 다단계 인증 요구 사항을 신중하게 평가하세요. 도메인을 변환하기 전에 Azure Multi-Factor Authentication을 사용하는 방법, 라이선스 의미 및 사용자 등록 프로세스를 이해해야 합니다.
+> 대신 Azure AD Multi-Factor Authentication 클라우드 기반 서비스를 사용 하 여 동일한 기능을 수행 합니다. 계속하기 전에 다단계 인증 요구 사항을 신중하게 평가하세요. 도메인을 변환 하기 전에 Azure AD Multi-Factor Authentication, 라이선스의 영향 및 사용자 등록 프로세스를 사용 하는 방법을 이해 해야 합니다.
 
 #### <a name="back-up-federation-settings"></a>페더레이션 설정 백업
 
@@ -133,7 +133,7 @@ AD FS 빠른 복원 도구를 사용 하지 않도록 선택 하는 경우 최�
 | 다른 응용 프로그램 (Azure AD 및 Microsoft 365 이외의 다른 응용 프로그램)과 AD FS를 계속 사용 하도록 계획 합니다. | 도메인이 변환되면 AD FS와 Azure AD를 모두 사용할 수 있습니다. 사용자 환경을 고려합니다. 일부 시나리오에서는 사용자가 Azure AD에 한 번, (예: 사용자가 Microsoft 365 같은 다른 응용 프로그램에 대 한 SSO 액세스를 받는 경우), 신뢰 당사자 트러스트로 AD FS에 계속 바인딩되어 있는 모든 응용 프로그램에 대해 두 번 인증 해야 할 수 있습니다. |
 | AD FS 인스턴스는 상당히 많이 사용자 지정되고 onload.js 파일의 특정 사용자 지정 설정에 종속됩니다(예: 사용자가 UPN(사용자 계정 이름) 대신 **SamAccountName** 형식만 사용자 이름에 사용하도록 로그인 환경을 변경한 경우 또는 조직에서 로그인 환경의 브랜드를 많이 지정한 경우). onload.js 파일은 Azure AD에서 중복될 수 없습니다. | 계속하기 전에 Azure AD에서 현재 사용자 지정 요구 사항을 충족할 수 있는지 확인해야 합니다. 자세한 내용과 지침은 AD FS 브랜딩 및 AD FS 사용자 지정 섹션을 참조하세요.|
 | AD FS를 사용하여 이전 버전의 인증 클라이언트를 차단합니다.| [조건부 액세스 제어](../conditional-access/concept-conditional-access-conditions.md) 와 [Exchange Online 클라이언트 액세스 규칙](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules)의 조합을 사용 하 여 이전 버전의 인증 클라이언트를 차단 하는 AD FS 컨트롤을 대체 하는 것이 좋습니다. |
-| 사용자가 AD FS에 대해 인증할 때 온-프레미스 다단계 인증 서버 솔루션에 대해 다단계 인증을 수행해야 합니다.| 관리 ID 도메인에서는 온-프레미스 다단계 인증 솔루션을 통해 인증 흐름에 다단계 인증 챌린지를 삽입할 수 없습니다. 그러나 도메인이 변환되면 다단계 인증에 Azure Multi-Factor Authentication 서비스를 사용할 수 있습니다.<br /><br /> 사용자가 현재 Azure Multi-Factor Authentication을 사용하지 않는 경우 일회성 사용자 등록 단계를 수행해야 합니다. 계획된 등록을 준비하고 사용자에게 전달해야 합니다. |
+| 사용자가 AD FS에 대해 인증할 때 온-프레미스 다단계 인증 서버 솔루션에 대해 다단계 인증을 수행해야 합니다.| 관리 ID 도메인에서는 온-프레미스 다단계 인증 솔루션을 통해 인증 흐름에 다단계 인증 챌린지를 삽입할 수 없습니다. 그러나 도메인을 변환 하 고 나면 multi-factor Authentication에 Azure AD Multi-Factor Authentication 서비스를 사용할 수 있습니다.<br /><br /> 사용자가 현재 Azure AD Multi-Factor Authentication를 사용 하지 않는 경우 onetime 사용자 등록 단계가 필요 합니다. 계획된 등록을 준비하고 사용자에게 전달해야 합니다. |
 | 현재 AD FS에서 액세스 제어 정책 (인증 규칙)을 사용 하 여 Microsoft 365에 대 한 액세스를 제어 합니다.| 정책을 해당 하는 Azure AD [조건부 액세스 정책](../conditional-access/overview.md) 및 [Exchange Online 클라이언트 액세스 규칙](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules)으로 바꾸는 것이 좋습니다.|
 
 ### <a name="common-ad-fs-customizations"></a>일반적인 AD FS 사용자 지정

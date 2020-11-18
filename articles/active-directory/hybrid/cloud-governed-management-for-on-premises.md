@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5374dc2ef4c736535b218d8cd67521e83a24a40b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413448"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836464"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Azure AD가 온-프레미스 워크 로드에 대 한 클라우드 관리 관리를 제공 하는 방법
 
@@ -39,7 +39,7 @@ Azure AD (Azure Active Directory)는 id, 액세스 관리 및 보안의 모든 �
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>클라우드 관리 id 관리에 대 한 Azure AD 접근 방법
 
-조직에서 클라우드로 전환 하는 경우 완벽 한 환경에 대 한 제어 권한을 보유 하 고, 자동화 및 예방적 정보를 지 원하는 활동에 대 한 추가 보안 및 가시성을 보유 하 고 있음을 보장 해야 합니다. " **클라우드 관리 관리** "는 조직이 클라우드에서 사용자, 응용 프로그램, 그룹 및 장치를 관리 하 고 제어 하는 방법을 설명 합니다.
+조직에서 클라우드로 전환 하는 경우 완벽 한 환경에 대 한 제어 권한을 보유 하 고, 자동화 및 예방적 정보를 지 원하는 활동에 대 한 추가 보안 및 가시성을 보유 하 고 있음을 보장 해야 합니다. "**클라우드 관리 관리**"는 조직이 클라우드에서 사용자, 응용 프로그램, 그룹 및 장치를 관리 하 고 제어 하는 방법을 설명 합니다.
 
 이 현대적인 세계에서 조직은 SaaS 응용 프로그램의 확산 및 공동 작업 및 외부 id의 증가에 의해 규모에 맞게 효과적으로 관리할 수 있어야 합니다. 클라우드의 새로운 위험 요소는 조직의 응답성이 향상 됨을 의미 합니다. 클라우드 사용자를 손상 시키는 악의적인 행위자는 클라우드 및 온-프레미스 응용 프로그램에 영향을 줄 수 있습니다.
 
@@ -89,7 +89,7 @@ Azure AD는 필요에 따라 [게스트 사용자를 위해 AD에서 자동으�
 
 ## <a name="cloud-governed-management-for-on-premises-federation-based-applications"></a>온-프레미스 페더레이션 기반 응용 프로그램에 대 한 클라우드 관리 관리
 
-이미 온-프레미스 id 공급자를 사용 하는 조직의 경우 Azure AD로 응용 프로그램을 이동 하면 더 안전한 액세스와 페더레이션 관리를 위한 보다 쉬운 관리 환경이 가능 합니다. Azure AD는 azure AD 조건부 액세스를 사용 하 여 Azure Multi-Factor Authentication를 비롯 한 세부적인 응용 프로그램별 액세스 제어를 구성할 수 있도록 합니다. Azure AD는 응용 프로그램 관련 토큰 서명 인증서 및 구성 가능한 인증서 만료 날짜를 포함 하 여 더 많은 기능을 지원 합니다. 이러한 기능, 도구 및 지침을 사용 하 여 조직에서 온-프레미스 id 공급자를 사용 중지할 수 있습니다. 한 가지 예의 microsoft 자체 IT에서는 17987 응용 프로그램을 Microsoft 내부 Active Directory Federation Services (AD FS)에서 Azure AD로 이동 했습니다.
+이미 온-프레미스 id 공급자를 사용 하는 조직의 경우 Azure AD로 응용 프로그램을 이동 하면 더 안전한 액세스와 페더레이션 관리를 위한 보다 쉬운 관리 환경이 가능 합니다. Azure ad에서는 azure ad 조건부 액세스를 사용 하 여 Azure AD Multi-Factor Authentication를 비롯 한 세부적인 응용 프로그램별 액세스 제어를 구성할 수 있습니다. Azure AD는 응용 프로그램 관련 토큰 서명 인증서 및 구성 가능한 인증서 만료 날짜를 포함 하 여 더 많은 기능을 지원 합니다. 이러한 기능, 도구 및 지침을 사용 하 여 조직에서 온-프레미스 id 공급자를 사용 중지할 수 있습니다. 한 가지 예의 microsoft 자체 IT에서는 17987 응용 프로그램을 Microsoft 내부 Active Directory Federation Services (AD FS)에서 Azure AD로 이동 했습니다.
 
 ![Azure AD 진화](media/cloud-governed-management-for-on-premises/image5.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: baa0aa01c94c4deb35db8a59f7b4f81224ae1fd3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371055"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836991"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 인증 관리 작업 참조 가이드
 
@@ -95,7 +95,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>온-프레미스 중단 인증 복원 력
 
-간단 하 고 누출 된 자격 증명 검색을 사용 하는 것 외에도 Azure AD의 PHS (암호 해시 동기화) 및 Azure MFA를 사용 하면 사용자가 [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/)와 같은 사이버 공격으로 인해 온-프레미스 중단에도 불구 하 고 SaaS 응용 프로그램 및 Microsoft 365에 액세스할 수 있습니다. 페더레이션을 사용 하는 동시에 페더레이션을 사용 하도록 설정할 수도 있습니다. PHS를 사용 하도록 설정 하면 페더레이션 서비스를 사용할 수 없을 때 인증을 대체 합니다.
+간단한 자격 증명 검색 기능 외에도 Azure AD의 PHS (암호 해시 동기화)와 Azure AD MFA를 사용 하면 사용자가 [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/)와 같은 사이버 공격으로 인해 온-프레미스 중단에도 불구 하 고 사용자가 SaaS 응용 프로그램 및 Microsoft 365에 액세스할 수 있습니다. 페더레이션을 사용 하는 동시에 페더레이션을 사용 하도록 설정할 수도 있습니다. PHS를 사용 하도록 설정 하면 페더레이션 서비스를 사용할 수 없을 때 인증을 대체 합니다.
 
 온-프레미스 조직에 중단 복원 력이 없거나 Azure AD와 통합 되지 않은 전략이 있는 경우 Azure AD PHS를 배포 하 고 PHS를 포함 하는 재해 복구 계획을 정의 해야 합니다. Azure AD PHS를 사용 하도록 설정 하면 사용자가 온-프레미스 Active Directory을 사용할 수 없는 경우 Azure AD에 대해 인증할 수 있습니다.
 
@@ -309,7 +309,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 | | Mail. 읽기. 공유 |
 | | Mail. ReadWrite |
 
-- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들어:
+- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들면 다음과 같습니다.
 
 |리소스 | 사용 권한 |
 | :- | :- |

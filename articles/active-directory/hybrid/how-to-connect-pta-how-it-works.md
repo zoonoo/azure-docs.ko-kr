@@ -16,12 +16,12 @@ ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e794b66341d4e7c478fd526107cc35c7c745fa7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe92f761ac0b16da7c3cc3c69c1fa4b00f4e7579
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85358330"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836362"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory 통과 인증: 기술 심층 분석
 이 문서에서는 Azure AD(Azure Active Directory) 통과 인증이 작동하는 방식에 대해 간략히 설명합니다. 심층 기술 및 보안 정보는 [보안 심층](how-to-connect-pta-security-deep-dive.md) 살펴보기 문서를 참조 하세요.
@@ -43,7 +43,7 @@ ms.locfileid: "85358330"
 8. 에이전트에서 표준 Windows API(AD FS(Active Directory Federation Services)에서 사용하는 것과 비슷한 메커니즘)를 사용하여 Active Directory에 대한 사용자 이름과 암호의 유효성을 검사합니다. 사용자 이름은 온-프레미스 기본 사용자 이름(일반적으로 `userPrincipalName`) 또는 Azure AD Connect에 구성된 또 다른 특성(`Alternate ID`라고 함) 중 하나일 수 있습니다.
 9. 온-프레미스 Active Directory DC(도메인 컨트롤러)에서 요청을 평가하고, 적절한 응답(성공, 실패, 암호가 만료됨 또는 사용자가 잠겨 있음)을 에이전트에 반환합니다.
 10. 그러면 인증 에이전트가 이 응답을 다시 Azure AD로 반환합니다.
-11. Azure AD에서 응답을 평가하고 사용자에게 적절하게 응답합니다. 예를 들어 Azure AD가 즉시 사용자에게 로그인하거나 Azure Multi-Factor Authentication을 요청합니다.
+11. Azure AD에서 응답을 평가하고 사용자에게 적절하게 응답합니다. 예를 들어 Azure AD는 즉시 사용자에 게 로그인 하거나 Azure AD Multi-Factor Authentication에 대 한 요청을 서명 합니다.
 12. 사용자 로그인에 성공하면 사용자가 애플리케이션에 액세스할 수 있습니다.
 
 다음 다이어그램에서는 관련된 모든 구성 요소와 단계를 보여 줍니다.

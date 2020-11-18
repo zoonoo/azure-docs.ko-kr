@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd2f49f009a8bd71d8cfc9f442e579bb1ad396b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c2a7c2813919321227bfcdc4ee43ca15186b89df
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371888"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836821"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 배포 계획
 Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 찾으십니까? Azure AD 배포 계획은 일반적인 Azure AD 기능을 성공적으로 배포 하는 데 필요한 비즈니스 가치, 계획 고려 사항 및 운영 절차를 안내 합니다.
@@ -40,13 +40,13 @@ Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 
 
 **참여 수준에는 다음이 포함 될 수 있습니다.**
 
-- 프로젝트 계획 및 결과 구현에 대 한 **R**esponsible 
+- 프로젝트 계획 및 결과 구현에 대 한 **R** esponsible 
 
-- **A**프로젝트 계획 및 결과의 pproval 
+- **A** 프로젝트 계획 및 결과의 pproval 
 
-- 프로젝트 계획 및 결과에 대 한 **C**ontributor 
+- 프로젝트 계획 및 결과에 대 한 **C** ontributor 
 
-- **I**프로젝트 계획 및 결과의 형식입니다.
+- **I** 프로젝트 계획 및 결과의 형식입니다.
 
 
 ## <a name="best-practices-for-a-pilot"></a>파일럿에 대 한 모범 사례
@@ -61,7 +61,7 @@ Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 
 
 | 기능 | 설명|
 | -| -|
-| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용하는 Azure MFA는 간단한 로그인 프로세스에 대한 요구 사항을 충족하는 동시에 데이터와 애플리케이션에 대한 액세스를 보호합니다. |
+| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| MFA (Azure AD Multi-Factor Authentication)는 Microsoft의 2 단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용 하는 경우 Azure AD MFA는 간단한 로그인 프로세스에 대 한 수요를 충족 하면서 데이터와 응용 프로그램에 대 한 액세스를 보호 하는 데 도움이 됩니다. |
 | [조건부 액세스](../conditional-access/plan-conditional-access.md)| 조건부 액세스를 사용하면 조건에 따라 클라우드 앱에 액세스할 수 있는 사용자를 결정하는 자동 액세스 제어 결정 시스템을 구현할 수 있습니다. |
 | [셀프 서비스 암호 재설정](../authentication/howto-sspr-deployment.md)| 셀프 서비스 암호 재설정 기능을 사용 하면 사용자가 관리자 개입 없이 암호를 다시 설정할 수 있습니다 (필요한 경우). |
 | [암호 없음](../authentication/howto-authentication-passwordless-deployment.md) | 조직에서 Microsoft Authenticator 앱 또는 FIDO2 보안 키를 사용 하 여 암호 없는 인증 구현 |
@@ -88,7 +88,7 @@ Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 
 
 | 기능 | 설명|
 | -| -|
-| [사용자 프로 비전](../app-provisioning/plan-auto-user-provisioning.md)| Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드 애플리케이션(SaaS)에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다. |
+| [사용자 프로비전](../app-provisioning/plan-auto-user-provisioning.md)| Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드 애플리케이션(SaaS)에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다. |
 | [클라우드 HR 사용자 프로 비전](../app-provisioning/plan-cloud-hr-provision.md)| Active Directory에 대 한 클라우드 HR 사용자 프로 비전은 지속적인 id 거 버 넌 스를 위한 토대를 만들고 권한 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킵니다. Workday 또는 Successfactors와 같은 클라우드 HR 제품에서이 기능을 사용 하는 경우 Leaver 프로세스 (예: 새 고용, 종료, 전송)를 IT 프로 비전 작업 (만들기, 사용, 사용 안 함)에 매핑하는 규칙을 구성 하 여 직원과 불확정 작업자의 id 수명 주기를 원활 하 게 관리할 수 있습니다. |
 
 ## <a name="deploy-governance-and-reporting"></a>거 버 넌 스 및 보고 배포

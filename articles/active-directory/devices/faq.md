@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ecc23e2969ce4ce26eef7b9a3a485389d08ce0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266785"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837110"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
@@ -24,7 +24,7 @@ ms.locfileid: "89266785"
 
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>Q: 최근에 디바이스를 등록했습니다. Azure Portal에서 내 사용자 정보 아래에 장치가 표시 되지 않는 이유는 무엇 인가요? 또는 하이브리드 Azure AD(Azure Active Directory) 조인 디바이스의 디바이스 소유자가 N/A로 표시되는 이유는 무엇인가요?
 
-**A:** 하이브리드 Azure AD에 가입 된 Windows 10 장치는 **사용자 장치**아래에 표시 되지 않습니다.
+**A:** 하이브리드 Azure AD에 가입 된 Windows 10 장치는 **사용자 장치** 아래에 표시 되지 않습니다.
 Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet을 사용할 수도 있습니다.
 
 다음 디바이스만 **사용자 디바이스** 아래에 나열됩니다.
@@ -37,7 +37,7 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 ### <a name="q-how-do-i-know-what-the-device-registration-state-of-the-client-is"></a>Q: 클라이언트의 디바이스 등록 상태를 어떻게 알 수 있나요?
 
-**A:** Azure Portal에서 **모든 장치**로 이동 합니다. 디바이스 ID를 사용하여 디바이스를 검색합니다. 조인 유형 열 아래의 값을 확인합니다. 경우에 따라 디바이스가 다시 설정되거나 다시 설치될 수 있습니다. 따라서 디바이스에서도 디바이스 등록 상태를 반드시 확인해야 합니다.
+**A:** Azure Portal에서 **모든 장치** 로 이동 합니다. 디바이스 ID를 사용하여 디바이스를 검색합니다. 조인 유형 열 아래의 값을 확인합니다. 경우에 따라 디바이스가 다시 설정되거나 다시 설치될 수 있습니다. 따라서 디바이스에서도 디바이스 등록 상태를 반드시 확인해야 합니다.
 
 - Windows 10 및 Windows Server 2016 이상 디바이스인 경우 `dsregcmd.exe /status` 명령을 실행합니다.
 - 하위 수준 OS 버전인 경우 `%programFiles%\Microsoft Workplace Join\autoworkplace.exe` 명령을 실행합니다.
@@ -51,7 +51,7 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 ### <a name="q-i-see-the-device-record-under-the-user-info-in-the-azure-portal-and-i-see-the-state-as-registered-on-the-device-am-i-set-up-correctly-to-use-conditional-access"></a>Q: Azure Portal의 사용자 정보 아래에 장치 레코드가 표시 됩니다. 그리고 디바이스에서 상태가 등록됨으로 표시됩니다. 조건부 액세스를 사용 하도록 올바르게 설정 되었습니까?
 
-**A:** **DeviceID**로 표시 되는 장치 가입 상태는 Azure AD의 상태와 일치 하 고 조건부 액세스에 대 한 평가 조건을 충족 해야 합니다. 자세한 내용은 [조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위한 관리 되는 장치 필요](../conditional-access/require-managed-devices.md)를 참조 하세요.
+**A:** **DeviceID** 로 표시 되는 장치 가입 상태는 Azure AD의 상태와 일치 하 고 조건부 액세스에 대 한 평가 조건을 충족 해야 합니다. 자세한 내용은 [조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위한 관리 되는 장치 필요](../conditional-access/require-managed-devices.md)를 참조 하세요.
 
 ---
 
@@ -82,14 +82,14 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
       하이브리드 Azure AD에 가입 된 Windows 10 및 Windows Server 2016/2019 장치를 다시 등록 하려면 다음 단계를 수행 합니다.
 
       1. 관리자 권한으로 명령 프롬프트를 엽니다.
-      1. `dsregcmd.exe /debug /leave`을 입력합니다.
+      1. `dsregcmd.exe /debug /leave`를 입력합니다.
       1. 로그아웃했다가 다시 로그인하여 디바이스를 Azure AD에 다시 등록하는 예약된 작업을 트리거합니다. 
 
       하이브리드 Azure AD에 가입 된 하위 수준 Windows OS 버전의 경우 다음 단계를 수행 합니다.
 
       1. 관리자 권한으로 명령 프롬프트를 엽니다.
-      1. `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`을 입력합니다.
-      1. `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`을 입력합니다.
+      1. `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`를 입력합니다.
+      1. `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`를 입력합니다.
 
       Azure AD 조인 장치 Windows 10 장치에 대해 다음 단계를 수행 합니다.
 
@@ -100,8 +100,8 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
       Azure AD에서 등록 된 Windows 10 장치에 대해 다음 단계를 수행 합니다.
 
-      1. **설정**  >  **계정**  >  **회사 또는 학교 액세스**로 이동 합니다. 
-      1. 계정을 선택 하 고 **연결 끊기**를 선택 합니다.
+      1. **설정**  >  **계정**  >  **회사 또는 학교 액세스** 로 이동 합니다. 
+      1. 계정을 선택 하 고 **연결 끊기** 를 선택 합니다.
       1. "+ 연결"을 클릭 하 고 로그인 프로세스를 진행 하 여 장치를 다시 등록 합니다.
 
 ---
@@ -111,7 +111,7 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 **은**
 
 - Windows 10 및 Windows Server 2016의 경우 동일한 디바이스에 조인 취소 및 다시 조인을 반복적으로 시도하면 중복된 항목이 발생할 수 있습니다. 
-- **회사 또는 학교 계정 추가**를 사용하는 각 Windows 사용자는 디바이스 이름이 같은 새 디바이스 레코드를 만듭니다.
+- **회사 또는 학교 계정 추가** 를 사용하는 각 Windows 사용자는 디바이스 이름이 같은 새 디바이스 레코드를 만듭니다.
 - 온-프레미스 Azure Directory 도메인에 조인된 하위 수준 Windows OS 버전의 경우 자동 등록에 의해 디바이스에 로그인하는 각 도메인 사용자의 디바이스와 이름이 같은 새 디바이스 레코드가 생성됩니다. 
 - 초기화되었다가 같은 이름으로 다시 설치되고 다시 조인된 Azure AD 조인 머신은 디바이스 이름이 같은 다른 레코드로 표시됩니다.
 
@@ -148,7 +148,7 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>Q: Azure AD 조인 장치를 장치에서 로컬로 가입을 어떻게 할까요? 하 시겠습니까?
 
-**A:** 순수한 Azure AD 조인 장치의 경우 오프 라인 로컬 관리자 계정이 있는지 확인 하거나 하나를 만들어야 합니다. Azure AD 사용자 자격 증명으로 로그인할 수 없습니다. 그런 다음 **설정**  >  **계정**  >  **회사 또는 학교 액세스**로 이동 합니다. 계정을 선택하고 **연결 끊기**를 선택합니다. 프롬프트를 따르고, 메시지가 표시되면 로컬 관리자 자격 증명을 제공합니다. 디바이스를 다시 부팅하여 조인 취소 프로세스를 완료합니다.
+**A:** 순수한 Azure AD 조인 장치의 경우 오프 라인 로컬 관리자 계정이 있는지 확인 하거나 하나를 만들어야 합니다. Azure AD 사용자 자격 증명으로 로그인할 수 없습니다. 그런 다음 **설정**  >  **계정**  >  **회사 또는 학교 액세스** 로 이동 합니다. 계정을 선택하고 **연결 끊기** 를 선택합니다. 프롬프트를 따르고, 메시지가 표시되면 로컬 관리자 자격 증명을 제공합니다. 디바이스를 다시 부팅하여 조인 취소 프로세스를 완료합니다.
 
 ---
 
@@ -198,7 +198,7 @@ UPN 변경은 Windows 10 2004 업데이트에서 지원 됩니다. 이 업데이
 
 ---
 
-### <a name="q-why-dont-some-of-my-users-get-azure-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>Q: 일부 사용자가 Azure AD 조인 장치에서 Azure Multi-Factor Authentication 프롬프트를 가져오지 않는 이유는 무엇 인가요?
+### <a name="q-why-dont-some-of-my-users-get-azure-ad-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>Q: 일부 사용자가 Azure AD 조인 장치에서 Azure AD Multi-Factor Authentication 프롬프트를 가져오지 않는 이유는 무엇 인가요?
 
 **A:** 사용자가 Multi-Factor Authentication를 사용 하 여 Azure AD에 장치를 연결 하거나 등록할 수 있습니다. 그러면 디바이스 자체가 해당 사용자의 신뢰할 수 있는 두 번째 요소가 됩니다. 동일한 사용자가 디바이스에 로그인하여 애플리케이션에 액세스할 때마다 Azure AD는 디바이스를 두 번째 요소로 간주합니다. 해당 사용자가 추가 Multi-Factor Authentication 프롬프트 없이 원활하게 애플리케이션에 액세스할 수 있게 해줍니다. 
 
@@ -220,7 +220,7 @@ UPN 변경은 Windows 10 2004 업데이트에서 지원 됩니다. 이 업데이
 
 ---
 
-### <a name="q-why-do-i-see-the-oops-an-error-occurred-dialog-when-i-try-to-azure-ad-join-my-pc"></a>Q:이 표시 되는 이유는 무엇 인가요? * 오류가 발생 했습니다.* 내 PC에 Azure AD 가입을 시도 하는 경우 대화 상자
+### <a name="q-why-do-i-see-the-oops-an-error-occurred-dialog-when-i-try-to-azure-ad-join-my-pc"></a>Q:이 표시 되는 이유는 무엇 인가요? *오류가 발생 했습니다.* 내 PC에 Azure AD 가입을 시도 하는 경우 대화 상자
 
 **A:** 이 오류는 Intune을 사용 하 여 Azure Active Directory 등록을 설정할 때 발생 합니다. Azure AD 조인을 시도한 사용자에게 올바른 Intune 라이선스가 할당되어야 합니다. 자세한 내용은 [Windows 디바이스에 대한 등록 설정](/intune/windows-enroll)을 참조하세요.  
 
@@ -259,7 +259,7 @@ UPN 변경은 Windows 10 2004 업데이트에서 지원 됩니다. 이 업데이
  
 ### <a name="q-why-do-i-see-a-duplicate-azure-ad-registered-record-for-my-windows-10-hybrid-azure-ad-joined-device-in-the-azure-ad-devices-list"></a>Q: Azure AD 장치 목록에 Windows 10 하이브리드 Azure AD 조인 장치에 대 한 중복 Azure AD 등록 레코드가 표시 되는 이유는 무엇 인가요?
 
-**A:** 사용자가 도메인에 가입 된 장치의 앱에 계정을 추가 하는 경우 **Windows에 계정 추가** 메시지가 표시 될 수 있습니다. 사용자가 프롬프트에서 **예**를 입력하면 디바이스가 Azure AD에 등록됩니다. 신뢰 유형은 Azure AD 등록으로 표시됩니다. 조직에서 하이브리드 Azure AD 조인을 사용하도록 설정하면 디바이스도 하이브리드 Azure AD에 조인됩니다. 동일한 디바이스에 대한 두 가지 디바이스 상태가 표시됩니다. 
+**A:** 사용자가 도메인에 가입 된 장치의 앱에 계정을 추가 하는 경우 **Windows에 계정 추가** 메시지가 표시 될 수 있습니다. 사용자가 프롬프트에서 **예** 를 입력하면 디바이스가 Azure AD에 등록됩니다. 신뢰 유형은 Azure AD 등록으로 표시됩니다. 조직에서 하이브리드 Azure AD 조인을 사용하도록 설정하면 디바이스도 하이브리드 Azure AD에 조인됩니다. 동일한 디바이스에 대한 두 가지 디바이스 상태가 표시됩니다. 
 
 하이브리드 Azure AD 조인이 Azure AD 등록 상태보다 우선합니다. 따라서 장치는 모든 인증 및 조건부 액세스 평가를 위해 하이브리드 Azure AD에 조인 된 것으로 간주 됩니다. Azure AD 포털에서 Azure AD 등록 디바이스 레코드를 삭제해도 무방합니다. [Windows 10 머신에서 이 이중 상태를 피하는 방법 또는 정리하는 방법](hybrid-azuread-join-plan.md#review-things-you-should-know)을 알아보세요. 
 
@@ -290,8 +290,8 @@ UPN 변경은 Windows 10 2004 업데이트에서 지원 됩니다. 이 업데이
 ### <a name="q-how-do-i-remove-an-azure-ad-registered-state-for-a-device-locally"></a>Q: 로컬에서 장치에 대 한 Azure AD 등록 상태를 제거할 어떻게 할까요? 있나요?
 
 **은** 
-- Windows 10 Azure AD 등록 장치에 대해 **설정**  >  **계정**  >  **회사 또는 학교 액세스**로 이동 합니다. 계정을 선택하고 **연결 끊기**를 선택합니다. 장치 등록은 Windows 10의 사용자 프로필 당입니다.
-- IOS 및 Android의 경우 Microsoft Authenticator 응용 프로그램 **설정**  >  **장치 등록** 을 사용 하 고 **장치 등록 취소**를 선택할 수 있습니다.
+- Windows 10 Azure AD 등록 장치에 대해 **설정**  >  **계정**  >  **회사 또는 학교 액세스** 로 이동 합니다. 계정을 선택하고 **연결 끊기** 를 선택합니다. 장치 등록은 Windows 10의 사용자 프로필 당입니다.
+- IOS 및 Android의 경우 Microsoft Authenticator 응용 프로그램 **설정**  >  **장치 등록** 을 사용 하 고 **장치 등록 취소** 를 선택할 수 있습니다.
 - MacOS의 경우 Microsoft Intune 회사 포털 응용 프로그램을 사용 하 여 관리에서 장치 등록을 취소 하 고 등록을 제거할 수 있습니다. 
 
 ---

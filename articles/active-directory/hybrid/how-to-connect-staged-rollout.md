@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2a79ec9a54ae597bc7e9795029dc4292c2c82345
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646579"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836396"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션(미리 보기)
 
-단계적 롤아웃을 사용 하면 도메인을 자르기 전에 Azure Multi-Factor Authentication (MFA), 조건부 액세스, 누출 된 자격 증명에 대 한 Id 보호, Id 관리 등의 클라우드 인증 기능을 통해 사용자 그룹을 선택적으로 테스트할 수 있습니다.  이 문서에서는 전환 방법을 설명합니다. 단계적 롤아웃을 시작하기 전에, 다음 조건 중 하나 이상에 해당할 때 미치게 되는 영향을 고려해야 합니다.
+단계적 롤아웃을 사용 하면 도메인을 자르기 전에 Azure AD Multi-Factor Authentication (MFA), 조건부 액세스, 누출 된 자격 증명에 대 한 Id 보호, Id 관리 등의 클라우드 인증 기능을 통해 사용자 그룹을 선택적으로 테스트할 수 있습니다.  이 문서에서는 전환 방법을 설명합니다. 단계적 롤아웃을 시작하기 전에, 다음 조건 중 하나 이상에 해당할 때 미치게 되는 영향을 고려해야 합니다.
     
 -  현재 온-프레미스 Multi-Factor Authentication 서버를 사용하고 있습니다. 
 -  인증에 스마트 카드를 사용하고 있습니다. 
@@ -45,7 +45,7 @@ ms.locfileid: "94646579"
 
 -   클라우드 인증으로 마이그레이션되는 사용자에게 필요한 모든 테넌트 브랜딩 및 조건부 액세스 정책을 적절하게 구성했습니다.
 
--   Azure Multi-Factor Authentication를 사용 하려면 [SSPR (셀프 서비스 암호 재설정)에 대해 결합 된 등록](../authentication/concept-registration-mfa-sspr-combined.md) 을 사용 하 고 사용자가 인증 방법을 한 번 등록 하도록 Multi-Factor Authentication 하는 것이 좋습니다. 참고-SSPR를 사용 하 여 암호를 재설정 하거나, MyProfile을 사용 하 여 암호를 변경할 때 준비 된 롤아웃 중에 Azure AD Connect는 다시 설정 후 최대 2 분이 걸릴 수 있는 새 암호 해시를 동기화 해야 합니다.
+-   Azure AD Multi-Factor Authentication를 사용 하려는 경우 [SSPR (셀프 서비스 암호 재설정)에 대해 결합 된 등록](../authentication/concept-registration-mfa-sspr-combined.md) 을 사용 하 고 사용자가 인증 방법을 한 번 등록 하도록 Multi-Factor Authentication 하는 것이 좋습니다. 참고-SSPR를 사용 하 여 암호를 재설정 하거나, MyProfile을 사용 하 여 암호를 변경할 때 준비 된 롤아웃 중에 Azure AD Connect는 다시 설정 후 최대 2 분이 걸릴 수 있는 새 암호 해시를 동기화 해야 합니다.
 
 -   단계적 롤아웃 기능을 사용하려면 테넌트의 전역 관리자여야 합니다.
 

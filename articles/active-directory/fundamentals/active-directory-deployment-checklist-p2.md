@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aebe6fafea7cbbb0b37469a13262529b568e342
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 92d1e5b8ac6492b0b1d819431e4616d32a092cc8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077968"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836923"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory 기능 배포 가이드
 
@@ -26,7 +26,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 
 또한 고객은 해당 [ID 보안 점수](identity-secure-score.md)를 확인하여 Microsoft 모범 사례에 얼마나 잘 맞는지 알 수 있습니다. 이러한 권장 사항을 구현하기 전과 후에 보안 점수를 확인하여 업계의 다른 기업 및 같은 규모의 다른 조직과 비교할 때 얼마나 잘 하고 있는지 파악합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 가이드의 많은 권장 사항은 Azure AD Free 하거나 라이선스 없이 구현할 수 있습니다. 필요한 라이선스는 작업 완료를 위해 최소한으로 필요한 라이선스를 나타냅니다.
 
@@ -57,7 +57,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 | [조건부 액세스 정책을 사용 하 여 Azure AD Multi-Factor Authentication 배포](../authentication/howto-mfa-getstarted.md) | 사용자가 조건부 액세스 정책을 사용 하 여 중요 한 응용 프로그램에 액세스할 때 2 단계 인증을 수행 하도록 요구 합니다. | Azure AD Premium P1 |
 | [Azure Active Directory Identity Protection 사용](../identity-protection/overview-identity-protection.md) | 조직의 사용자를 위해 위험한 로그인 및 손상된 자격 증명을 추적할 수 있도록 설정합니다. | Azure AD Premium P2 |
 | [위험 검색을 사용 하 여 multi-factor authentication 및 암호 변경 트리거](../authentication/tutorial-risk-based-sspr-mfa.md) | Multi-Factor Authentication, 암호 재설정 및 위험 기반 로그인 차단 같은 이벤트를 트리거할 수 있는 자동화를 사용하도록 설정합니다. | Azure AD Premium P2 |
-| [셀프 서비스 암호 재설정 및 Azure AD Multi-Factor Authentication에 대해 결합 된 등록 사용](../authentication/concept-registration-mfa-sspr-combined.md) | 사용자가 Azure Multi-Factor Authentication 및 셀프 서비스 암호 재설정을 위해 하나의 공통된 환경에서 등록할 수 있도록 합니다. | Azure AD Premium P1 |
+| [셀프 서비스 암호 재설정 및 Azure AD Multi-Factor Authentication에 대해 결합 된 등록 사용](../authentication/concept-registration-mfa-sspr-combined.md) | 사용자가 Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정에 대해 하나의 공통 환경에서 등록할 수 있습니다. | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>2 단계: 사용자 가져오기, 동기화 사용 및 장치 관리
 

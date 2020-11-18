@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6db477a288ef41c2946cd550af6ff87999eff2f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb9d9e7c60344a2a4c538c6d3bf59e337e4569c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461277"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836328"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -37,7 +37,7 @@ ms.locfileid: "91461277"
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>[조건부 액세스](../conditional-access/overview.md)는 통과 인증에서 작동하나요?
 
-예. Azure Multi-Factor Authentication을 비롯 한 모든 조건부 액세스 기능이 통과 인증을 사용 합니다.
+예. Azure AD Multi-Factor Authentication를 비롯 한 모든 조건부 액세스 기능이 통과 인증을 사용 합니다.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>통과 인증은 "userPrincipalName" 대신 "Alternate ID"를 사용자 이름으로 지원하나요?
 예, 대체 전자 메일과 같은 UPN이 아닌 값을 사용 하는 로그인은 PTA (통과 인증)와 PHS (암호 해시 동기화) 모두에 대해 지원 됩니다. [대체 로그인 ID](../authentication/howto-authentication-use-email-signin.md)에 대 한 자세한 내용을 보려면
@@ -81,7 +81,7 @@ Azure AD Connect를 사용 하 여 암호 해시 동기화에서 통과 인증�
 예. 온-프레미스 환경에서 WPAD(웹 프록시 자동 검색)를 사용하는 경우 인증 에이전트는 자동으로 네트워크에서 웹 프록시 서버를 찾아서 사용하려고 합니다.
 
 사용자 환경에 WPAD가 없는 경우 프록시 정보를 추가하여(아래 그림 참조) 통과 인증 에이전트가 Azure AD와 통신할 수 있습니다.
-- 서버에 통과 인증 에이전트를 설치하기 전에 Internet Explorer에서 프록시 정보를 구성합니다. 이렇게 하면 인증 에이전트 설치를 완료할 수 있지만 관리자 포털에서는 여전히 **비활성**으로 표시됩니다.
+- 서버에 통과 인증 에이전트를 설치하기 전에 Internet Explorer에서 프록시 정보를 구성합니다. 이렇게 하면 인증 에이전트 설치를 완료할 수 있지만 관리자 포털에서는 여전히 **비활성** 으로 표시됩니다.
 - 서버에서 "C:\Program Files\Microsoft Azure AD Connect 인증 에이전트"로 이동합니다.
 - “AzureADConnectAuthenticationAgentService” 구성 파일을 편집하고 다음 줄을 추가합니다(“http\://contosoproxy.com:8080”을 실제 프록시 주소로 바꾸기).
 
@@ -107,9 +107,9 @@ Azure AD Connect를 사용 하 여 암호 해시 동기화에서 통과 인증�
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>통과 인증 에이전트를 제거하려면 어떻게 해야 하나요?
 
-통과 인증 에이전트는 실행되는 동안 활성 상태를 유지하며, 지속적으로 사용자 로그인 요청을 처리합니다. 인증 에이전트를 제거하려는 경우 **제어판 -> 프로그램 -> 프로그램 및 기능**으이로 동한 후 **Microsoft Azure AD Connect Authentication Agent** 및 **Microsoft Azure AD Connect Agent Updater** 프로그램을 둘 다 제거합니다.
+통과 인증 에이전트는 실행되는 동안 활성 상태를 유지하며, 지속적으로 사용자 로그인 요청을 처리합니다. 인증 에이전트를 제거하려는 경우 **제어판 -> 프로그램 -> 프로그램 및 기능** 으이로 동한 후 **Microsoft Azure AD Connect Authentication Agent** 및 **Microsoft Azure AD Connect Agent Updater** 프로그램을 둘 다 제거합니다.
 
-위의 단계를 완료한 후 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에서 통과 인증 블레이드를 확인하는 경우 인증 에이전트가 **비활성** 상태로 표시됩니다. 이는 _예상_된 것입니다. 인증 에이전트는 10 일 후에 목록에서 자동으로 삭제 됩니다.
+위의 단계를 완료한 후 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에서 통과 인증 블레이드를 확인하는 경우 인증 에이전트가 **비활성** 상태로 표시됩니다. 이는 _예상_ 된 것입니다. 인증 에이전트는 10 일 후에 목록에서 자동으로 삭제 됩니다.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>이미 AD FS를 사용하여 Azure AD에 로그인하고 있습니다. 통과 인증으로 전환하려면 어떻게 하나요?
 

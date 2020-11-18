@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155b359c109de948ab9b9d6862ef7507ee76f619
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 7ec8062eb864c877b0f3659ca2dd8f103e935071
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576815"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836787"
 ---
 # <a name="radius-authentication-with-azure-active-directory"></a>Azure Active Directory로 RADIUS 인증
 
@@ -26,7 +26,7 @@ RADIUS(Remote Authentication Dial-In User Service) (RADIUS)는 중앙 집중식 
 
 Microsoft Windows Server에는 RADIUS 서버 역할을 하 고 RADIUS 인증을 지 원하는 NPS (네트워크 정책 서버) 라는 역할이 있습니다.
 
-Azure Active Directory (Azure AD)는 RADIUS 기반 시스템에서 Multi-factor authentication을 사용 하도록 설정 합니다. 고객이 앞에서 설명한 RADIUS 작업에 Azure Multi-Factor Authentication를 적용 하려는 경우 Windows NPS 서버에 Azure Multi-Factor Authentication NPS 확장을 설치할 수 있습니다. 
+Azure Active Directory (Azure AD)는 RADIUS 기반 시스템에서 Multi-factor authentication을 사용 하도록 설정 합니다. 고객이 앞에서 설명한 RADIUS 작업 중 하나에 Azure AD Multi-Factor Authentication를 적용 하려는 경우 Windows NPS 서버에 Azure AD Multi-Factor Authentication NPS 확장을 설치할 수 있습니다. 
 
 Windows NPS 서버는 Active Directory에 대해 사용자의 자격 증명을 인증 한 다음 Multi-Factor Authentication 요청을 Azure에 보냅니다. 그러면 사용자가 모바일 인증자에 대 한 챌린지를 받게 됩니다. 성공적으로 완료 되 면 클라이언트 응용 프로그램에서 서비스에 연결할 수 있습니다. 
 
@@ -40,30 +40,30 @@ Windows NPS 서버는 Active Directory에 대해 사용자의 자격 증명을 �
 * 사용자를 서비스로 인증 하기 위해 RADIUS 프로토콜에 종속 된 다른 모든. 
 
 > [!NOTE]
-> RADIUS 및 azure Multi-Factor Authentication NPS 확장을 사용 하 여 Azure Multi-Factor Authentication를 VPN 워크 로드에 적용 하는 대신 VPN을 SAML으로 업그레이드 하 고 Azure AD와 VPN을 직접 페더레이션 하는 것이 좋습니다. 이를 통해 조건부 액세스, Multi-Factor Authentication, 장치 준수 및 Id 보호를 포함 하 여 Azure AD 보호의 전체 범위를 VPN에 제공 합니다.
+> RADIUS 및 Azure AD Multi-Factor Authentication NPS 확장을 사용 하 여 Azure AD Multi-Factor Authentication를 VPN 워크 로드에 적용 하는 대신 VPN을 SAML으로 업그레이드 하 고 Azure AD와 VPN을 직접 페더레이션 하는 것이 좋습니다. 이를 통해 조건부 액세스, Multi-Factor Authentication, 장치 준수 및 Id 보호를 포함 하 여 Azure AD 보호의 전체 범위를 VPN에 제공 합니다.
 
 ![아키텍처 다이어그램](./media/authentication-patterns/radius-auth.png)
 
 
 ## <a name="components-of-the-system"></a>시스템의 구성 요소 
 
-* **클라이언트 응용 프로그램 (VPN 클라이언트)** : RADIUS 클라이언트에 인증 요청을 보냅니다.
+* **클라이언트 응용 프로그램 (VPN 클라이언트)**: RADIUS 클라이언트에 인증 요청을 보냅니다.
 
-* **RADIUS 클라이언트** : 클라이언트 응용 프로그램에서 요청을 변환 하 고 NPS 확장이 설치 된 RADIUS 서버에 보냅니다.
+* **RADIUS 클라이언트**: 클라이언트 응용 프로그램에서 요청을 변환 하 고 NPS 확장이 설치 된 RADIUS 서버에 보냅니다.
 
-* **Radius 서버** : Active Directory와 연결 하 여 radius 요청에 대 한 기본 인증을 수행 합니다. 성공 하면에서 Azure Multi-Factor Authentication NPS 확장에 요청을 전달 합니다.
+* **Radius 서버**: Active Directory와 연결 하 여 radius 요청에 대 한 기본 인증을 수행 합니다. 성공 하면에서 요청을 Azure AD Multi-Factor Authentication NPS 확장에 전달 합니다.
 
-* **NPS 확장** : 보조 인증을 위해 Azure Multi-Factor Authentication에 대 한 요청을 트리거합니다. 성공 하면 NPS 확장은 Azure의 보안 토큰 서비스에서 발급 한 Multi-Factor Authentication 클레임을 포함 하는 보안 토큰을 RADIUS 서버에 제공 하 여 인증 요청을 완료 합니다.
+* **NPS 확장**: 보조 인증을 위해 Azure AD Multi-Factor Authentication에 대 한 요청을 트리거합니다. 성공 하면 NPS 확장은 Azure의 보안 토큰 서비스에서 발급 한 Multi-Factor Authentication 클레임을 포함 하는 보안 토큰을 RADIUS 서버에 제공 하 여 인증 요청을 완료 합니다.
 
-* **Azure Multi-Factor Authentication** : azure AD와 통신 하 여 사용자의 세부 정보를 검색 하 고 사용자가 구성한 인증 방법을 사용 하 여 보조 인증을 수행 합니다.
+* **AZURE ad Multi-Factor Authentication**: azure ad와 통신 하 여 사용자의 세부 정보를 검색 하 고 사용자가 구성한 인증 방법을 사용 하 여 보조 인증을 수행 합니다.
 
 ## <a name="implement-radius-with-azure-ad"></a>Azure AD를 사용 하 여 RADIUS 구현 
 
-* [NPS를 사용 하 여 Azure Multi-Factor Authentication 기능 제공](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension) 
+* [NPS를 사용 하 여 Azure AD Multi-Factor Authentication 기능 제공](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension) 
 
-* [Azure Multi-Factor Authentication NPS 확장 구성](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-advanced) 
+* [Azure AD Multi-Factor Authentication NPS 확장 구성](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-advanced) 
 
-* [NPS 확장을 사용 하 여 Azure Multi-Factor Authentication와 VPN](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-vpn) 
+* [NPS 확장을 사용 하 여 Azure AD Multi-Factor Authentication와 VPN](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-vpn) 
 
   
 ‎ 

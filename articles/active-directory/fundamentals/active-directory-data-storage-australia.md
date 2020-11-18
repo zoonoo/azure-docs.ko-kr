@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7ed1d4c49c46673f1a1c2b5cb08b2467490acae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 498b75a6541da97e57e23465ae6eb23a6c854727
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565125"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836957"
 ---
 # <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Azure Active Directory에서 오스트레일리아 및 뉴질랜드 고객에 대 한 id 데이터 저장소
 
@@ -32,9 +32,9 @@ Id 데이터는 Microsoft 365 및 Azure와 같은 Microsoft 온라인 서비스�
 
 다른 모든 Azure AD 서비스는 고객 데이터를 글로벌 데이터 센터에 저장 합니다. 서비스의 데이터 센터를 찾으려면 [Azure Active Directory – 데이터가 어디에 있나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 를 참조 하세요.
 
-## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure multi-factor authentication (MFA)
+## <a name="microsoft-azure-ad-multi-factor-authentication-mfa"></a>MFA (Microsoft Azure AD Multi-Factor Authentication)
 
-MFA는 글로벌 데이터 센터에 Id 고객 데이터를 저장 합니다. 클라우드 기반 Azure MFA 및 Azure MFA 서버에서 수집 하 고 저장 하는 사용자 정보에 대 한 자세한 내용은 [azure Multi-Factor Authentication 사용자 데이터 컬렉션](../authentication/concept-mfa-data-residency.md)을 참조 하세요.
+MFA는 글로벌 데이터 센터에 Id 고객 데이터를 저장 합니다. 클라우드 기반 Azure AD MFA 및 Azure MFA 서버에서 수집 하 고 저장 하는 사용자 정보에 대 한 자세한 내용은 [azure Multi-Factor Authentication 사용자 데이터 컬렉션](../authentication/concept-mfa-data-residency.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 위에서 설명한 특징 및 기능에 대한 자세한 내용은 다음과 같은 문서를 참조하세요.
