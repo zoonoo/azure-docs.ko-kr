@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 28c3e4ade2c78a1a77ef7263463803e40727ba8f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 3f8c288f950f34e1764c50e8eb74a8a73b39b3d7
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315300"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698532"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Azure Load Balancer 알고리즘
 
@@ -63,4 +63,4 @@ ms.locfileid: "92315300"
 - [Azure Load Balancer에 대해 자세히 알아보세요](load-balancer-overview.md).
 - [상태 프로브](load-balancer-custom-probe-overview.md)에 대해 자세히 알아보세요.
 - [표준 Load Balancer 진단](load-balancer-standard-diagnostics.md)에 대해 자세히 알아보세요.
-- [네트워크 보안 그룹](../virtual-network/security-overview.md)에 대해 자세히 알아보세요.
+- [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)에 대해 자세히 알아보세요.

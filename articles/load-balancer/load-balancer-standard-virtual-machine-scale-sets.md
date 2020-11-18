@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: irenehua
-ms.openlocfilehash: 41f1d6c18eab35bd1a41d4cfa98d0cbda69b35ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdca40d5113f06d185255be2e237cb52b47e9793
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650335"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697444"
 ---
 # <a name="azure-load-balancer-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합을 사용 하 여 Azure Load Balancer
 
@@ -54,6 +54,6 @@ ms.locfileid: "88650335"
 
 다음 메서드는 기존 Azure 부하 분산 장치를 사용 하 여 가상 머신 확장 집합을 배포 하는 데 사용할 수 있습니다.
 
-* [Azure Portal를 사용 하 여 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합을 구성](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal)합니다.
-* [Azure PowerShell를 사용 하 여 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합을 구성](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell)합니다.
-* [Azure CLI를 사용 하 여 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합을 구성](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli)합니다.
+* [Azure Portal를 사용 하 여 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합을 구성](./configure-vm-scale-set-portal.md)합니다.
+* [Azure PowerShell를 사용 하 여 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합을 구성](./configure-vm-scale-set-powershell.md)합니다.
+* [Azure CLI를 사용 하 여 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합을 구성](./configure-vm-scale-set-cli.md)합니다.

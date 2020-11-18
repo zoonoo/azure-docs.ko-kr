@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: bc1e477882f3d065dfe89e8511259732129cec30
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 06dfa65236bf1aa5cfde626c5574ffdf487eb045
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746027"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698362"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Azure CLI를 사용하여 여러 IP 구성의 부하 분산
 
@@ -30,7 +30,7 @@ ms.locfileid: "92746027"
 
 이 문서에 설명된 시나리오를 수행하려면 다음 단계에 완료하세요.
 
-1. 연결된 문서의 단계에 따라 [Azure CLI를 설치 및 구성](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하고 Azure 계정에 로그인합니다.
+1. 연결된 문서의 단계에 따라 [Azure CLI를 설치 및 구성](/cli/azure/install-azure-cli?view=azure-cli-latest)하고 Azure 계정에 로그인합니다.
 2. 다음과 같이 *contosofabrikam* 이라는 [리소스 그룹을 만듭니다](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group).
 
     ```azurecli

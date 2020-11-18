@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 37db72b2b5dadfba930ca003121140fd99c4736d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 07dd369ceeefee85f4d9180a0b9b33a0d4c8bbdb
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686075"
+ms.locfileid: "94698209"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 Azure 보안 기준
 
-Microsoft Azure Load Balancer의 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다. 이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다. 자세한 내용은 [Azure 보안 기준 개요](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)를 참조하세요.
+Microsoft Azure Load Balancer의 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다. 이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](../security/benchmarks/overview.md)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다. 자세한 내용은 [Azure 보안 기준 개요](../security/benchmarks/security-baselines-overview.md)를 참조하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조 하세요.*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
@@ -32,7 +32,7 @@ Azure는 Standard 및 Basic 이라는 두 가지 유형의 Load Balancer 제공 
 
 - [Azure에서 아웃바운드 연결](load-balancer-outbound-connections.md)
 
-- [Azure Public Load Balancer 업그레이드](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard)
+- [Azure Public Load Balancer 업그레이드](./upgrade-basic-standard.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -52,13 +52,13 @@ Security Center를 사용 하 고 네트워크 보호 권장 사항을 따라 Az
 
 또한 흐름 로그를 Log Analytics 작업 영역으로 보낸 다음 트래픽 분석를 사용 하 여 Azure 클라우드의 트래픽 패턴에 대 한 통찰력을 제공 합니다. 트래픽 분석의 장점으로는 네트워크 활동을 시각화 하 고, 핫 스폿 및 보안 위협을 식별 하 고, 트래픽 흐름 패턴을 이해 하 고, 네트워크 오류를 정확 하 게 파악할 수 있습니다.
 
-- [네트워크 보안 그룹 흐름 로그를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [네트워크 보안 그룹 흐름 로그를 사용 하도록 설정 하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [트래픽 분석 사용 및 사용 방법](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [트래픽 분석 사용 및 사용 방법](../network-watcher/traffic-analytics.md)
 
-- [Azure Security Center에서 제공 하는 네트워크 보안 이해](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Azure Security Center에서 제공 하는 네트워크 보안 이해](../security-center/security-center-network-recommendations.md)
 
-- [아웃 바운드 연결 통계를 확인 어떻게 할까요?](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-outbound-connection-statistics)
+- [아웃 바운드 연결 통계를 확인 어떻게 할까요?](./load-balancer-standard-diagnostics.md#how-do-i-check-my-outbound-connection-statistics)
 
 **Azure Security Center 모니터링**: 예
 
@@ -68,7 +68,7 @@ Security Center를 사용 하 고 네트워크 보호 권장 사항을 따라 Az
 
 **지침**: 웹 응용 프로그램을 보호 하기 위해 Microsoft의 위협 인텔리전스를 사용 하는 Load Balancer으로 아웃 바운드 규칙 및 네트워크 보안 그룹을 통해 인터넷 연결 및 유효한 원본 ip를 명시적으로 정의 합니다.
 
-- [Azure 방화벽 통합](https://docs.microsoft.com/azure/firewall/integrate-lb)
+- [Azure 방화벽 통합](../firewall/integrate-lb.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -98,17 +98,17 @@ Security Center (표준 계층)은 just-in-time 가상 컴퓨터 액세스를 �
 Security Center의 적응 네트워크 강화 기능을 사용 하 여 실제 트래픽 및 위협 인텔리전스에 따라 포트와 원본 Ip를 제한 하는 네트워크 보안 그룹 구성을 권장 합니다.
  
 
-- [Azure Portal을 사용하여 Azure DDoS Protection 표준 관리](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+- [Azure Portal을 사용하여 Azure DDoS Protection 표준 관리](../ddos-protection/manage-ddos-protection.md)
 
-- [Azure Firewall 위협 인텔리전스 기반 필터링](https://docs.microsoft.com/azure/firewall/threat-intel)
+- [Azure Firewall 위협 인텔리전스 기반 필터링](../firewall/threat-intel.md)
 
-- [위협 방지 및 Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection)
+- [위협 방지 및 Azure Security Center](../security-center/azure-defender.md)
 
-- [Just-In-Time 액세스를 사용하여 관리 포트 보호](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+- [Just-In-Time 액세스를 사용하여 관리 포트 보호](../security-center/security-center-just-in-time.md)
 
-- [Azure Security Center의 적응 네트워크 강화](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+- [Azure Security Center의 적응 네트워크 강화](../security-center/security-center-adaptive-network-hardening.md)
 
-- [Load Balancer와 Azure 방화벽 통합](https://docs.microsoft.com/azure/firewall/overview)
+- [Load Balancer와 Azure 방화벽 통합](../firewall/overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -118,7 +118,7 @@ Security Center의 적응 네트워크 강화 기능을 사용 하 여 실제 �
 
 **지침**: Network Watcher 패킷 캡처를 사용 하도록 설정 하 여 비정상적인 활동을 조사할 수 있습니다.
 
-- [Network Watcher 인스턴스를 만드는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [Network Watcher 인스턴스를 만드는 방법](../network-watcher/network-watcher-create.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -134,9 +134,9 @@ Security Center의 적응 네트워크 강화 기능을 사용 하 여 실제 �
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
-- [Azure 방화벽을 배포 하는 방법](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Azure 방화벽을 사용 하 여 경고를 구성 하는 방법](https://docs.microsoft.com/azure/firewall/threat-intel)
+- [Azure 방화벽을 사용 하 여 경고를 구성 하는 방법](../firewall/threat-intel.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -146,7 +146,7 @@ Security Center의 적응 네트워크 강화 기능을 사용 하 여 실제 �
 
 **지침**: Microsoft의 위협 인텔리전스 기능을 사용 하 여 웹 응용 프로그램을 보호 하는 Load Balancer로 아웃 바운드 규칙 및 네트워크 보안 그룹을 통해 인터넷 연결 및 유효한 원본 ip를 명시적으로 정의 합니다.
 
-- [Azure 방화벽 통합](https://docs.microsoft.com/azure/firewall/integrate-lb)
+- [Azure 방화벽 통합](../firewall/integrate-lb.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -162,7 +162,7 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 
 네트워크 보안 그룹 규칙에서 사용할 수 있는 모든 서비스 태그는 Azure 설명서를 참조 하세요.
 
-- [사용 가능한 서비스 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags)
+- [사용 가능한 서비스 태그](../virtual-network/service-tags-overview.md#available-service-tags)
 
 **Azure Security Center 모니터링**: 예
 
@@ -176,11 +176,11 @@ Azure 청사진을 사용 하 여 Azure 리소스 관리자 템플릿, Azure RBA
 
 청사진을 새 구독에 적용 하 고 버전 관리를 통해 제어 및 관리를 세부적으로 조정 합니다.
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [네트워킹에 대 한 Azure Policy 샘플](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [네트워킹에 대 한 Azure Policy 샘플](../governance/policy/samples/built-in-policies.md#network)
 
-- [Azure Blueprint를 만드는 방법](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -196,11 +196,11 @@ Azure 청사진을 사용 하 여 Azure 리소스 관리자 템플릿, Azure RBA
 
 Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리소스에 대 한 작업을 조회 하거나 수행할 수 있습니다.
 
-- [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-- [Azure Virtual Network을 만드는 방법](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Azure Virtual Network을 만드는 방법](../virtual-network/quick-create-portal.md)
 
-- [네트워크 보안 그룹 규칙을 사용 하 여 네트워크 트래픽을 필터링 하는 방법](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [네트워크 보안 그룹 규칙을 사용 하 여 네트워크 트래픽을 필터링 하는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -212,9 +212,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 중요 한 리소스가 변경 될 때 사용자에 게 알리도록 경고를 Azure Monitor 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인 하 고 검색 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인 하 고 검색 하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -222,7 +222,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
-*자세한 내용은 [Azure 보안 벤치 마크: 로깅 및 모니터링](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 로깅 및 모니터링](../security/benchmarks/security-control-logging-monitoring.md)을 참조 하세요.*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: 중앙 보안 로그 관리 구성
 
@@ -234,15 +234,15 @@ Log Analytics 또는 다른 저장소 플랫폼으로 이러한 로그를 내보
 
 조직의 비즈니스 요구 사항에 따라이 데이터를 Azure 센티널 또는 타사 SIEM에 사용 하도록 설정 합니다.
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
 
-- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](../azure-monitor/learn/quick-collect-azurevm.md)
 
 - [Azure Monitor 및 타사 SIEM 통합을 시작하는 방법](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-- [플랫폼 활동 로그](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log)
+- [플랫폼 활동 로그](../azure-monitor/platform/activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -274,13 +274,13 @@ Azure Audit Logs 콘텐츠 팩을 Microsoft Power BI와 함께 사용 하 여 �
 
 비즈니스 요구 사항에 따라 Azure 센티널 또는 타사 SIEM에 대 한 온-보드 데이터를 사용 하도록 설정 합니다.
 
-- [리소스 관리자 감사 작업에 자세히 설명 된 각 방법에 대 한 단계별 지침을 사용 하 여이 문서를 검토 합니다.](https://docs.microsoft.com/azure/azure-resource-manager/management/view-activity-logs)
+- [리소스 관리자 감사 작업에 자세히 설명 된 각 방법에 대 한 단계별 지침을 사용 하 여이 문서를 검토 합니다.](../azure-resource-manager/management/view-activity-logs.md)
 
-- [공용 기본 Load Balancer용 Azure Monitor 로그](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)
+- [공용 기본 Load Balancer용 Azure Monitor 로그](./load-balancer-monitor-log.md)
 
-- [활동 로그를 확인 하 여 리소스에 대 한 작업 모니터링](https://docs.microsoft.com/azure/azure-resource-manager/management/view-activity-logs)
+- [활동 로그를 확인 하 여 리소스에 대 한 작업 모니터링](../azure-resource-manager/management/view-activity-logs.md)
 
-- [API를 통해 프로그래밍 방식으로 다차원 메트릭 검색](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#retrieve-multi-dimensional-metrics-programmatically-via-apis)
+- [API를 통해 프로그래밍 방식으로 다차원 메트릭 검색](./load-balancer-standard-diagnostics.md#retrieve-multi-dimensional-metrics-programmatically-via-apis)
 
 - [Azure Monitor 및 타사 SIEM 통합을 시작하는 방법](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools)
 
@@ -292,11 +292,11 @@ Azure Audit Logs 콘텐츠 팩을 Microsoft Power BI와 함께 사용 하 여 �
 
 **지침**: 활동 로그는 기본적으로 사용 하도록 설정 되며 Azure의 이벤트 로그 저장소에서 90 일 동안 보존 됩니다. Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정 합니다. 장기 및 보관 저장소에 Azure Storage 계정을 사용 합니다.
 
-- [활동 로그를 확인 하 여 리소스에 대 한 작업 모니터링 문서](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)
+- [활동 로그를 확인 하 여 리소스에 대 한 작업 모니터링 문서](../azure-resource-manager/management/view-activity-logs.md)
 
-- [Log Analytics에서 데이터 보존 기간 변경](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 **Azure Security Center 모니터링**: 예
 
@@ -320,17 +320,17 @@ Azure Audit Logs 콘텐츠 팩과 함께 Microsoft Power BI를 사용 하 여 �
 
 이벤트 허브 또는 Log Analytics 작업 영역으로 로그를 스트리밍합니다. 또한 Azure blob storage에서 추출 하 고 Excel 및 Power BI와 같은 다른 도구에서 볼 수 있습니다. Azure 센티널 또는 타사 SIEM에 대 한 온-보드 데이터를 사용 하도록 설정할 수 있습니다.
 
-- [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+- [Load Balancer 상태 프로브](./load-balancer-custom-probe-overview.md)
 
-- [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor)
+- [Azure Monitor REST API](/rest/api/monitor)
 
-- [REST API를 통해 메트릭을 검색 하는 방법](https://docs.microsoft.com/rest/api/monitor/metrics/list)
+- [REST API를 통해 메트릭을 검색 하는 방법](/rest/api/monitor/metrics/list)
 
-- [메트릭, 경고 및 리소스 상태를 사용 하 여 진단 표준 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
+- [메트릭, 경고 및 리소스 상태를 사용 하 여 진단 표준 Load Balancer](./load-balancer-standard-diagnostics.md)
 
-- [공용 기본 Load Balancer용 Azure Monitor 로그](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)
+- [공용 기본 Load Balancer용 Azure Monitor 로그](./load-balancer-monitor-log.md)
 
-- [Azure Portal에서 부하 분산 장치 메트릭 보기](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#view-your-load-balancer-metrics-in-the-azure-portal)
+- [Azure Portal에서 부하 분산 장치 메트릭 보기](./load-balancer-standard-diagnostics.md#view-your-load-balancer-metrics-in-the-azure-portal)
 
 **Azure Security Center 모니터링**: 예
 
@@ -342,11 +342,11 @@ Azure Audit Logs 콘텐츠 팩과 함께 Microsoft Power BI를 사용 하 여 �
 
 및 온-보드 데이터를 Azure 센티널 또는 타사 SIEM 도구로 사용 하도록 설정 합니다.
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Azure Security Center에서 경고를 관리 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+- [Azure Security Center에서 경고를 관리 하는 방법](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Log analytics 로그 데이터를 경고 하는 방법](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/learn/tutorial-response.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -378,7 +378,7 @@ Azure Audit Logs 콘텐츠 팩과 함께 Microsoft Power BI를 사용 하 여 �
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-*자세한 내용은 [Azure 보안 벤치 마크: id 및 액세스 제어](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: id 및 액세스 제어](../security/benchmarks/security-control-identity-access-control.md)를 참조 하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
@@ -386,9 +386,9 @@ Azure Audit Logs 콘텐츠 팩과 함께 Microsoft Power BI를 사용 하 여 �
 
 Azure CLI, Azure PowerShell 또는 Azure Portal와 같은 도구를 사용 하 여 특정 리소스에 대 한 미리 정의 된 기본 제공 역할을 인벤토리에 포함 합니다.
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center 모니터링**: 예
 
@@ -396,13 +396,13 @@ Azure CLI, Azure PowerShell 또는 Azure Portal와 같은 도구를 사용 하 �
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [Azure 보안 벤치 마크: 데이터 보호](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조 하세요.*
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6: Azure RBAC를 사용 하 여 리소스에 대 한 액세스 관리
 
 **지침**: Azure RBAC를 사용 하 여 Load Balancer 리소스에 대 한 액세스를 제어 합니다.
 
-- [Azure RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -416,7 +416,7 @@ Microsoft는 모든 고객 콘텐츠를 중요 한 것으로 간주 하 고 고�
 
 Azure의 고객 데이터를 안전 하 게 유지 하기 위해 Microsoft는 강력한 데이터 보호 제어 및 기능 모음을 구현 하 고 유지 관리 합니다. 
 
-- [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -426,7 +426,7 @@ Azure의 고객 데이터를 안전 하 게 유지 하기 위해 Microsoft는 �
 
 **지침**: 중요 한 프로덕션 작업에 사용 되는 부하 분산 장치와 같은 중요 한 azure 리소스에 변경 내용이 발생 하는 경우 Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -434,7 +434,7 @@ Azure의 고객 데이터를 안전 하 게 유지 하기 위해 Microsoft는 �
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
-*자세한 내용은 [Azure 보안 벤치 마크: 인벤토리 및 자산 관리](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 인벤토리 및 자산 관리](../security/benchmarks/security-control-inventory-asset-management.md)를 참조 하세요.*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: 자동화 된 asset discovery 솔루션 사용
 
@@ -442,11 +442,11 @@ Azure의 고객 데이터를 안전 하 게 유지 하기 위해 Microsoft는 �
 
 테 넌 트에서 적절 한 (읽기) 권한을 확인 하 고 구독의 모든 Azure 구독 및 리소스를 열거 합니다.
 
-- [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 보는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Azure 구독을 보는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-- [Azure RBAC 이해](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Azure RBAC 이해](../role-based-access-control/overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -456,7 +456,7 @@ Azure의 고객 데이터를 안전 하 게 유지 하기 위해 Microsoft는 �
 
 **지침**: 메타 데이터를 사용 하 여 Azure 리소스에 태그를 적용 하 여 분류에 따라 논리적으로 구성 합니다.
 
-- [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -468,11 +468,11 @@ Azure의 고객 데이터를 안전 하 게 유지 하기 위해 Microsoft는 �
 
 정기적으로 인벤토리를 조정 하 고 권한이 없는 리소스가 적시에 구독에서 삭제 되도록 합니다.
 
-- [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -494,9 +494,9 @@ Azure의 고객 데이터를 안전 하 게 유지 하기 위해 Microsoft는 �
 
 환경에 있는 모든 Azure 리소스가 승인 되었는지 확인 합니다.
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -506,7 +506,7 @@ Azure의 고객 데이터를 안전 하 게 유지 하기 위해 Microsoft는 �
 
 **지침**: Azure AD 조건부 액세스를 사용 하 여 "Microsoft Azure 관리" 앱에 대 한 "액세스 차단"을 구성 함으로써 사용자의 Azure Resource Manager 상호 작용 하는 기능을 제한 합니다.
 
-- [Azure 리소스 관리자에 대 한 액세스를 차단 하도록 조건부 액세스를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Azure 리소스 관리자에 대 한 액세스를 차단 하도록 조건부 액세스를 구성 하는 방법](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -516,9 +516,9 @@ Azure의 고객 데이터를 안전 하 게 유지 하기 위해 Microsoft는 �
 
 **지침**: 비즈니스 운영에 필요 하지만 조직에 대 한 위험을 초래할 수 있는 소프트웨어, 자체 가상 머신 및/또는 가상 네트워크 내에서 격리 하 고 Azure 방화벽 또는 네트워크 보안 그룹을 사용 하 여 충분히 안전 하 게 보호 해야 합니다.
 
-- [가상 네트워크를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [가상 네트워크를 만드는 방법](../virtual-network/quick-create-portal.md)
 
-- [보안 구성을 사용 하 여 네트워크 보안 그룹을 만드는 방법](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [보안 구성을 사용 하 여 네트워크 보안 그룹을 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -526,7 +526,7 @@ Azure의 고객 데이터를 안전 하 게 유지 하기 위해 Microsoft는 �
 
 ## <a name="secure-configuration"></a>보안 구성
 
-*자세한 내용은 [Azure 보안 벤치 마크: 보안 구성](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 보안 구성](../security/benchmarks/security-control-secure-configuration.md)을 참조 하세요.*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
@@ -538,13 +538,13 @@ Azure Resource Manager 템플릿을 JavaScript Object Notation (JSON) 형식으�
 
 Security Center에서 Azure 리소스에 대 한 보안 구성 기준으로 권장 사항을 구현 합니다. 
 
-- [사용 가능한 Azure Policy 별칭을 보는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+- [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](../azure-resource-manager/templates/export-template-portal.md)
 
-- [보안 권장 사항 - 참조 가이드](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [보안 권장 사항 - 참조 가이드](../security-center/recommendations-reference.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -554,11 +554,11 @@ Security Center에서 Azure 리소스에 대 한 보안 구성 기준으로 권�
 
 **지침**: [거부] 및 [존재하지 않으면 배포] Azure 정책을 사용하여 보안 설정을 Azure 리소스 전체에 적용합니다.  또한 Azure Resource Manager 템플릿을 사용 하 여 조직에서 요구 하는 Azure 리소스의 보안 구성을 유지 관리할 수 있습니다. 
 
-- [Azure Policy 효과 이해](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Azure Policy 효과 이해](../governance/policy/concepts/effects.md)
 
-- [규정 준수를 적용 하는 정책 만들기 및 관리](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [규정 준수를 적용 하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Resource Manager 템플릿 개요](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Azure Resource Manager 템플릿 개요](../azure-resource-manager/templates/overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -570,9 +570,9 @@ Security Center에서 Azure 리소스에 대 한 보안 구성 기준으로 권�
 
 Azure DevOps와 통합 된 경우에는 Azure Active Directory (Azure AD)에 정의 된 특정 사용자, 기본 제공 보안 그룹 또는 그룹에 대 한 권한을 부여 하거나 거부 하 고, TFS와 통합 된 경우에는 Active Directory 합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure DevOps의 사용 권한 및 그룹 정보](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+- [Azure DevOps의 사용 권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions)
 
 **Azure Security Center 모니터링**: 예
 
@@ -582,9 +582,9 @@ Azure DevOps와 통합 된 경우에는 Azure Active Directory (Azure AD)에 정
 
 **지침**: Azure Policy을 사용 하 여 Azure 리소스에 대 한 표준 보안 구성을 정의 하 고 구현 합니다.  Azure Policy 별칭을 사용 하 여 Azure 리소스의 네트워크 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다. 특정 Azure Load Balancer 리소스와 관련 된 기본 제공 정책 정의를 구현 합니다.  또한 Azure Automation를 사용 하 여 구성 변경 내용을 배포 합니다. Azure Load Balancer 리소스
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [별칭을 사용 하는 방법](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [별칭을 사용 하는 방법](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Azure Security Center 모니터링**: 예
 
@@ -594,7 +594,7 @@ Azure DevOps와 통합 된 경우에는 Azure Active Directory (Azure AD)에 정
 
 **지침**: Security Center을 사용 하 여 Azure 리소스에 대 한 기준 검사를 수행 하 고 리소스 구성에 대 한 경고 및 감사를 Azure Policy 합니다.
 
-- [Azure Security Center에서 권장 사항을 수정 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+- [Azure Security Center에서 권장 사항을 수정 하는 방법](../security-center/security-center-remediate-recommendations.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -602,7 +602,7 @@ Azure DevOps와 통합 된 경우에는 Azure Active Directory (Azure AD)에 정
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [Azure 보안 벤치 마크: 인시던트 응답](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 인시던트 응답](../security/benchmarks/security-control-incident-response.md)을 참조 하세요.*
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: 인시던트 점수 매기기 및 우선 순위 지정 절차 만들기
 
@@ -614,9 +614,9 @@ Azure DevOps와 통합 된 경우에는 Azure Active Directory (Azure AD)에 정
 
 인시던트가 발생한 Azure 리소스 및 환경의 중요도에 따라 경고의 수정에 대한 우선 순위를 지정해야 합니다.
 
-- [Azure Security Center의 보안 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+- [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 예
 
@@ -630,9 +630,9 @@ Azure DevOps와 통합 된 경우에는 Azure Active Directory (Azure AD)에 정
 
 Security Center data connector를 활용 하 여 경고를 Azure 센티널로 스트리밍합니다.
 
-- [연속 내보내기를 구성하는 방법](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [연속 내보내기를 구성하는 방법](../security-center/continuous-export.md)
 
-- [경고를 Azure Sentinel로 스트림하는 방법](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [경고를 Azure Sentinel로 스트림하는 방법](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -642,7 +642,7 @@ Security Center data connector를 활용 하 여 경고를 Azure 센티널로 �
 
 **지침**: Security Center의 Workflow Automation 기능을 사용 하 여 Azure 리소스를 보호 하기 위해 보안 경고 및 권장 사항에 대 한 응답을 자동으로 트리거합니다.
 
-- [Security enter에서 워크플로 자동화를 구성 하는 방법](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Security enter에서 워크플로 자동화를 구성 하는 방법](../security-center/workflow-automation.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -650,7 +650,7 @@ Security Center data connector를 활용 하 여 경고를 Azure 센티널로 �
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
-*자세한 내용은 [Azure 보안 벤치 마크: 침투 테스트 및 레드 팀 연습](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 침투 테스트 및 레드 팀 연습](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)을 참조 하세요.*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
@@ -666,5 +666,5 @@ Security Center data connector를 활용 하 여 경고를 Azure 센티널로 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: e2c6f627c69316b8f146d3ac82b8d29801ec3902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 834e4fe8c7b3923f40a07c02c0310200db222308
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740686"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697257"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Azure Cognitive Search에서 간단한 쿼리 만들기
 
@@ -27,13 +27,13 @@ Azure Cognitive Search에서는 [단순 쿼리 구문이](query-simple-syntax.md
 
 다음 예제는 [City of New York OpenData](https://nycopendata.socrata.com/) 이니셔티브에서 제공하는 데이터 세트에 기반하여 사용 가능한 작업으로 구성된 NYC Jobs 검색 인덱스를 활용합니다. 이 데이터는 최신 또는 완료로 간주되어서는 안 됩니다. 인덱스는 Microsoft에서 제공 하는 샌드박스 서비스에 있습니다. 즉, 이러한 쿼리를 사용해 볼 수 있는 Azure 구독 또는 Azure Cognitive Search 필요 하지 않습니다.
 
-따라서 GET에서 HTTP 요청을 실행하기 위한 Postman 또는 동급의 도구만 있으면 됩니다. 자세한 내용은 [빠른 시작: Postman을 사용 하 여 Azure Cognitive Search REST API 살펴보기](search-get-started-postman.md)를 참조 하세요.
+따라서 GET에서 HTTP 요청을 실행하기 위한 Postman 또는 동급의 도구만 있으면 됩니다. 자세한 내용은 [빠른 시작: Azure Cognitive Search REST API 살펴보기](search-get-started-rest.md)를 참조 하세요.
 
 ### <a name="set-the-request-header"></a>요청 헤더 설정
 
-1. 요청 헤더에서 **Content-Type**을 `application/json`으로 설정합니다.
+1. 요청 헤더에서 **Content-Type** 을 `application/json`으로 설정합니다.
 
-2. **api-key**를 추가한 후 `252044BE3886FE4A8E3BAA4F595114BB` 문자열로 설정합니다. 이것은 NYC Jobs 인덱스를 호스트하는 샌드박스 Search 서비스용 쿼리 키입니다.
+2. **api-key** 를 추가한 후 `252044BE3886FE4A8E3BAA4F595114BB` 문자열로 설정합니다. 이것은 NYC Jobs 인덱스를 호스트하는 샌드박스 Search 서비스용 쿼리 키입니다.
 
 요청 헤더를 지정한 후 **search=** 문자열만 교환하여 이 문서의 모든 쿼리에 다시 사용할 수 있습니다. 
 
@@ -43,7 +43,7 @@ Azure Cognitive Search에서는 [단순 쿼리 구문이](query-simple-syntax.md
 
 Request는 Azure Cognitive Search 끝점 및 검색 문자열을 포함 하는 URL과 쌍을 이루는 GET 명령입니다.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Postman 요청 헤더 가져오기" border="false":::
 
 URL 구성에는 다음 요소가 있습니다.
 
@@ -55,7 +55,7 @@ URL 구성에는 다음 요소가 있습니다.
 
 ## <a name="send-your-first-query"></a>첫 번째 쿼리 전송
 
-확인 단계에서 다음 요청을 GET에 붙여넣고 **보내기**를 클릭합니다. 결과는 자세한 JSON 문서로 반환됩니다. 모든 필드와 모든 값을 볼 수 있는 전체 문서가 반환 됩니다.
+확인 단계에서 다음 요청을 GET에 붙여넣고 **보내기** 를 클릭합니다. 결과는 자세한 JSON 문서로 반환됩니다. 모든 필드와 모든 값을 볼 수 있는 전체 문서가 반환 됩니다.
 
 이 URL을 REST 클라이언트에 유효성 검사 단계로 붙여넣고 문서 구조를 봅니다.
 
@@ -69,13 +69,13 @@ URL 구성에는 다음 요소가 있습니다.
 
 ## <a name="how-to-invoke-simple-query-parsing"></a>단순 쿼리 구문 분석을 호출하는 방법
 
-대화형 쿼리의 경우 어떤 것도 지정할 필요가 없습니다. simple이 기본값입니다. 코드에서 이전에 전체 쿼리 구문에 대해 **queryType=full**을 호출한 경우 **queryType=simple**을 사용하여 기본값을 재설정할 수 있습니다.
+대화형 쿼리의 경우 어떤 것도 지정할 필요가 없습니다. simple이 기본값입니다. 코드에서 이전에 전체 쿼리 구문에 대해 **queryType=full** 을 호출한 경우 **queryType=simple** 을 사용하여 기본값을 재설정할 수 있습니다.
 
 ## <a name="example-1-field-scoped-query"></a>예제제 1: 필드 범위 쿼리
 
 이 첫 번째 예제는 파서 특정적이지는 않지만 Azure에서는 이를 사용하여 첫 번째 기본 쿼리 개념인 포함을 소개하려고 합니다. 이 예제에서는 쿼리 실행 및 몇 가지 특정 필드에 대한 응답의 범위를 지정합니다. 도구가 Postman 또는 Search 탐색기인 경우 판독 가능한 JSON 응답을 구성하는 방법을 파악하는 것이 중요합니다. 
 
-간단히 하기 위해 쿼리는 *business_title*만을 대상으로 하며, 직함만 반환되도록 지정합니다. 이 구문은 business_title 필드로만 쿼리 실행을 제한하며 응답에 포함되는 필드를 지정하도록 **선택**하는 **searchFields**입니다.
+간단히 하기 위해 쿼리는 *business_title* 만을 대상으로 하며, 직함만 반환되도록 지정합니다. 이 구문은 business_title 필드로만 쿼리 실행을 제한하며 응답에 포함되는 필드를 지정하도록 **선택** 하는 **searchFields** 입니다.
 
 ### <a name="partial-query-string"></a>부분 쿼리 문자열
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 이 쿼리에 대한 응답은 다음 스크린샷과 비슷하게 표시됩니다.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Postman 샘플 응답" border="false":::
 
 응답에서 검색 점수를 보았을 수 있습니다. 순위가 없으면 검색이 전체 텍스트 검색이 아니거나 어떤 조건도 적용되지 않기 때문에 균일하게 점수 1이 지정됩니다. 조건 없는 Null 검색의 경우 행은 임의의 순서로 반환됩니다. 실제 조건을 포함하는 경우 검색 점수가 의미 있는 값으로 바뀌는 것을 볼 수 있습니다.
 
@@ -133,7 +133,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 이러한 항목을 함께 사용하는 경우 필터가 전체 인덱스에 먼저 적용된 다음 필터의 결과에 검색이 수행됩니다. 따라서 필터는 검색 쿼리가 처리해야 하는 일련의 문서를 감소시키기 때문에 쿼리 성능을 개선하는 데 유용한 기술일 수 있습니다.
 
-  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="쿼리 응답 필터링" border="false":::
 
 GET을 사용하여 Postman에서 이 필터링을 시도하려는 경우 이 문자열에 붙여넣을 수 있습니다.
 
@@ -141,7 +141,7 @@ GET을 사용하여 Postman에서 이 필터링을 시도하려는 경우 이 �
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
 ```
 
-필터 및 검색을 결합 하는 또 다른 강력한 방법은 필터 식에서를 사용 하는 것입니다. 여기서 필터는 필터 **`search.ismatch*()`** 내에서 검색 쿼리를 사용할 수 있습니다. 이 필터 식은 plan, planner, planning 등의 용어가 포함된 business_title을 선택하려면 *plan*에 대한 와일드 카드를 사용합니다.
+필터 및 검색을 결합 하는 또 다른 강력한 방법은 필터 식에서를 사용 하는 것입니다. 여기서 필터는 필터 **`search.ismatch*()`** 내에서 검색 쿼리를 사용할 수 있습니다. 이 필터 식은 plan, planner, planning 등의 용어가 포함된 business_title을 선택하려면 *plan* 에 대한 와일드 카드를 사용합니다.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
@@ -167,7 +167,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="숫자 범위에 대한 범위 필터" border="false":::
 
 
 ```http
@@ -181,7 +181,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="텍스트 범위에 대한 범위 필터" border="false":::
 
 GET을 사용하여 Postman에서 이러한 필터를 시도해 볼 수 있습니다.
 
@@ -194,7 +194,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ```
 
 > [!NOTE]
-> 값 범위에 대한 패싯은 일반적인 검색 애플리케이션 요구 사항입니다. 패싯 탐색 구조용 필터 빌딩에 대한 예제 및 자세한 내용은 [*패싯 탐색 구현 방법*의 "범위 기준 필터"](search-faceted-navigation.md#filter-based-on-a-range)를 참조하세요.
+> 값 범위에 대한 패싯은 일반적인 검색 애플리케이션 요구 사항입니다. 패싯 탐색 구조용 필터 빌딩에 대한 예제 및 자세한 내용은 [*패싯 탐색 구현 방법* 의 "범위 기준 필터"](search-faceted-navigation.md#filter-based-on-a-range)를 참조하세요.
 
 ## <a name="example-5-geo-search"></a>예제 5: 지리적 검색
 
@@ -251,14 +251,14 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="모든 검색 모드" border="false":::
 
 searchMode를 `all`로 변경하면 조건에 대해 누적 효과가 적용되고 전체 구인 "fire department"를 포함하는 문서에서 Metrotech Center 주소에 직장이 있는 경우를 제외하여 더 적은 결과 집합인 21개 문서가 반환됩니다.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="모든 검색 모드" border="false":::
 
 ## <a name="example-8-structuring-results"></a>예제 8: 결과 구성
 
@@ -267,7 +267,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"
 ```
-이전 예제에 덧붙여, 제목을 기준으로 정렬할 수 있습니다. civil_service_title이 인덱스에서 *정렬 가능*하므로 이 정렬을 사용할 수 있습니다.
+이전 예제에 덧붙여, 제목을 기준으로 정렬할 수 있습니다. civil_service_title이 인덱스에서 *정렬 가능* 하므로 이 정렬을 사용할 수 있습니다.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title

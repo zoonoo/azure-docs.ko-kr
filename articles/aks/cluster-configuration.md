@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d93a43a44a9ccff4e7918e556b9d759e270d2f42
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 352c057a74d1be5f440041b9f13127e8730edf82
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072087"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698073"
 ---
 # <a name="configure-an-aks-cluster"></a>AKS 클러스터 구성
 
@@ -46,7 +46,7 @@ az extension list
 az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
 ```
 
-상태가 **등록됨**으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+상태가 **등록됨** 으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
@@ -78,27 +78,28 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 
 AKS Ubuntu 16.04 이미지를 사용 하 여 노드 풀을 만들려면 사용자 지정 태그를 생략 하 여이 작업을 수행할 수 있습니다 `--aks-custom-headers` .
 
+## <a name="container-runtime-configuration"></a>컨테이너 런타임 구성
 
-## <a name="container-runtime-configuration-preview"></a>컨테이너 런타임 구성 (미리 보기)
+컨테이너 런타임은 컨테이너를 실행 하 고 노드의 컨테이너 이미지를 관리 하는 소프트웨어입니다. 런타임은 sys 호출 또는 OS (운영 체제) 특정 기능을 추상화 하 여 Linux 또는 Windows에서 컨테이너를 실행 하는 데 도움이 됩니다. Kubernetes 버전 1.19 노드 풀을 사용 하 여 클러스터를 AKS 하 고 컨테이너 런타임으로 더 많이 사용 `containerd` 합니다. 노드 풀에 대해 v 1.19 이전에 Kubernetes를 사용 하는 AKS 클러스터는 [Moby](https://mobyproject.org/) (업스트림 docker)를 컨테이너 런타임으로 사용 합니다.
 
-컨테이너 런타임은 컨테이너를 실행 하 고 노드의 컨테이너 이미지를 관리 하는 소프트웨어입니다. 런타임은 sys 호출 또는 OS (운영 체제) 특정 기능을 추상화 하 여 Linux 또는 Windows에서 컨테이너를 실행 하는 데 도움이 됩니다. 오늘 AKS는 [Moby](https://mobyproject.org/) (업스트림 docker)를 컨테이너 런타임으로 사용 하 고 있습니다. 
-    
 ![Docker CRI 1](media/cluster-configuration/docker-cri.png)
 
-[`Containerd`](https://containerd.io/) 는 노드에서 컨테이너를 실행 하 고 이미지를 관리 하는 데 필요한 최소 기능 집합을 제공 하는 [OCI](https://opencontainers.org/) (Open Container 이니셔티브) 규격 핵심 컨테이너 런타임입니다. 2017 년 3 월의 CNCF (Cloud Native Compute Foundation)로 [기증](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) 되었습니다. AKS에서 현재 사용 하 고 있는 현재 Moby 버전은 위에 표시 된 대로 이미를 활용 하 고 `containerd` 있습니다. 
+[`Containerd`](https://containerd.io/) 는 노드에서 컨테이너를 실행 하 고 이미지를 관리 하는 데 필요한 최소 기능 집합을 제공 하는 [OCI](https://opencontainers.org/) (Open Container 이니셔티브) 규격 핵심 컨테이너 런타임입니다. 2017 년 3 월의 CNCF (Cloud Native Compute Foundation)로 [기증](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) 되었습니다. AKS에서 사용 하는 현재 Moby 버전은 `containerd` 위에 표시 된 것 처럼를 기반으로 합니다.
 
-Containerd 기반 노드 및 노드 풀을 사용 하는 대신, `dockershim` kubelet는 `containerd` CRI (container runtime interface) 플러그 인을 통해 직접 통신 하 여 Docker CRI 구현과 비교할 때 흐름에서 추가 홉을 제거 합니다. 따라서 pod 시작 대기 시간 및 리소스 (CPU 및 메모리) 사용이 더 나은 것을 볼 수 있습니다.
+기반 노드 및 노드 풀을 사용 하 여와 통신 하는 `containerd` 대신, `dockershim` KUBELET는 `containerd` CRI (container runtime interface) 플러그 인을 통해 직접 통신 하므로 Docker CRI 구현과 비교할 때 흐름에서 추가 홉을 제거 합니다. 따라서 pod 시작 대기 시간 및 리소스 (CPU 및 메모리) 사용이 더 나은 것을 볼 수 있습니다.
 
 AKS 노드에 대해를 사용 하 여 `containerd` pod 시작 대기 시간이 향상 되 고 컨테이너 런타임에의 한 노드 리소스 소비가 감소 합니다. 이러한 향상 된 기능은 kubelet이 새 아키텍처에서 사용 하도록 설정 됩니다 .이 아키텍처는 `containerd` Moby/docker 아키텍처 kubelet에서 CRI 플러그 인을 통해 직접 통신 하는 반면 `dockershim` `containerd` , 흐름에 추가 홉이 발생 하기 전에 및 docker 엔진과 통신 합니다.
 
 ![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
-`Containerd` AKS에 있는 kubernetes의 모든 GA 버전 및 v 1.10 위의 모든 업스트림 kubernetes 버전에서 작동 하며 모든 kubernetes 및 AKS 기능을 지원 합니다.
+`Containerd` AKS에 있는 Kubernetes의 모든 GA 버전 및 v 1.19 위의 모든 업스트림 Kubernetes 버전에서 작동 하며 모든 Kubernetes 및 AKS 기능을 지원 합니다.
 
 > [!IMPORTANT]
-> `containerd`가 AKS에서 일반 공급 되 면 새 클러스터의 컨테이너 런타임에 사용할 수 있는 유일한 옵션입니다. 지원 되지 않는 이전 버전에서는 계속 해 서 Moby nodepools 및 클러스터를 사용할 수 있습니다. 
+> Kubernetes v 1.19 이상에서 노드 풀을 만든 클러스터 `containerd` 는 해당 컨테이너 런타임에 대해로 기본 설정 됩니다. 지원 되는 Kubernetes 버전의 노드 풀을 포함 하는 클러스터는 해당 컨테이너 런타임에 대해 수신 1.19 개 미만으로 `Moby` 업데이트 되지만 `ContainerD` 노드 풀 Kubernetes 버전을 v 1.19 이상으로 업데이트 하면로 업데이트 됩니다. 지원 `Moby` 되지 않는 이전 버전에서 노드 풀 및 클러스터를 계속 사용할 수 있습니다.
 > 
-> `containerd`이 컨테이너 런타임을 사용 하 여 새 클러스터를 업그레이드 하거나 만들기 전에 노드 풀에서 작업을 테스트 하는 것이 좋습니다.
+> `containerD`1.19 이상에서 클러스터를 사용 하기 전에를 사용 하 여 AKS node 풀에서 워크 로드를 테스트 하는 것이 좋습니다.
+
+다음 섹션에서는 `containerD` 아직 Kubernetes 버전 1.19 이상을 사용 하지 않거나 컨테이너 런타임 구성 미리 보기를 사용 하 여이 기능을 일반 공급 하기 전에 만든 클러스터에서 AKS를 사용 하 고 테스트 하는 방법을 설명 합니다.
 
 ### <a name="use-containerd-as-your-container-runtime-preview"></a>`containerd`컨테이너 런타임으로 사용 (미리 보기)
 
@@ -124,7 +125,7 @@ az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.Cont
 
 ```
 
-상태가 **등록됨**으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+상태가 **등록됨** 으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedContainerRuntime')].{Name:name,State:properties.state}"
@@ -193,7 +194,7 @@ Azure는 [Gen2 (2 세대) vm (가상 머신)](../virtual-machines/generation-2.m
 az feature register --name Gen2VMPreview --namespace Microsoft.ContainerService
 ```
 
-상태가 **등록됨**으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+상태가 **등록됨** 으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/Gen2VMPreview')].{Name:name,State:properties.state}"
@@ -250,7 +251,7 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
 ```
 
-상태가 **등록됨**으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+상태가 **등록됨** 으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"

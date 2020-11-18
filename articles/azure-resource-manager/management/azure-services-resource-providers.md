@@ -2,13 +2,13 @@
 title: Azure 서비스의 리소스 공급자
 description: Azure Resource Manager에 대 한 모든 리소스 공급자 네임 스페이스를 나열 하 고 해당 네임 스페이스에 대 한 Azure 서비스를 표시 합니다.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: f9e31f902d36cf84fc559337f3c69529cf1c014b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/17/2020
+ms.openlocfilehash: c447a08b4422929f042315370b5888f3db0626e4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949125"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697733"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 서비스의 리소스 공급자
 
@@ -151,7 +151,6 @@ ms.locfileid: "91949125"
 | Microsoft.Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft.Security | [Security Center](../../security-center/index.yml) |
-| Microsoft.SecurityGraph | [Security Center](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
 | SerialConsole<sup>1</sup> | [Windows의 Azure 직렬 콘솔](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
@@ -160,9 +159,9 @@ ms.locfileid: "91949125"
 | Microsoft.Services | core |
 | Microsoft.SignalRService | [Azure SignalR Service](../../azure-signalr/index.yml) |
 | Microsoft.SoftwarePlan | 라이선스 |
-| Microsoft.Solutions | [Azure 관리되는 애플리케이션](../managed-applications/index.yml) |
+| Microsoft.Solutions | [Azure Managed Applications](../managed-applications/index.yml) |
 | Microsoft.Sql | [Azure SQL Database](../../azure-sql/database/index.yml)<br /> [Azure SQL Managed Instance](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
-| Microsoft.SqlVirtualMachine | [Azure Virtual Machines에서 SQL Server](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
+| Microsoft.SqlVirtualMachine | [Azure Virtual Machines의 SQL Server](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
 | Microsoft.Storage | [스토리지](../../storage/index.yml) |
 | Microsoft.StorageCache | [Azure HPC Cache](../../hpc-cache/index.yml) |
 | Microsoft.StorageSync | [스토리지](../../storage/index.yml) |
@@ -174,10 +173,10 @@ ms.locfileid: "91949125"
 | Microsoft.TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft.Token | 토큰 |
 | Microsoft.VirtualMachineImages | [Azure 이미지 작성기](../../virtual-machines/linux/image-builder-overview.md) |
-| microsoft.visualstudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| microsoft.visualstudio | [Azure DevOps](/azure/devops/) |
 | Microsoft.VMware | [Azure VMware 솔루션](../../azure-vmware/index.yml) |
 | Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](../../vmware-cloudsimple/index.md) |
-| Microsoft.VSOnline | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| Microsoft.VSOnline | [Azure DevOps](/azure/devops/) |
 | Microsoft.Web | [App Service](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml) |
 | Microsoft.WindowsDefenderATP | [Microsoft Defender Advanced Threat Protection](../../security-center/security-center-wdatp.md) |
 | Microsoft.WindowsESU | 확장 된 보안 업데이트 |

@@ -6,18 +6,18 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
-ms.openlocfilehash: eb3605249578b15d67bdd9764490d61812b21c18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68a2cb6926cb41956711a9e3c15d21c250d27f0b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808436"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698493"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 내부 Load Balancer을 다른 지역으로 이동
 
 기존 내부 부하 분산 장치를 한 지역에서 다른 지역으로 이동 하려는 다양 한 시나리오가 있습니다. 예를 들어 테스트에 대해 동일한 구성을 사용 하 여 내부 부하 분산 장치를 만들 수 있습니다. 재해 복구 계획의 일부로 내부 부하 분산 장치를 다른 지역으로 이동할 수도 있습니다.
 
-Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동할 수 없습니다. 그러나 Azure Resource Manager 템플릿을 사용 하 여 내부 부하 분산 장치의 기존 구성과 가상 네트워크를 내보낼 수 있습니다.  그런 다음 부하 분산 장치 및 가상 네트워크를 템플릿으로 내보내고 대상 지역과 일치 하도록 매개 변수를 수정한 다음 새 지역에 템플릿을 배포 하 여 다른 지역의 리소스를 준비할 수 있습니다.  Resource Manager 및 템플릿에 대한 자세한 내용은 [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)를 참조하세요.
+Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동할 수 없습니다. 그러나 Azure Resource Manager 템플릿을 사용 하 여 내부 부하 분산 장치의 기존 구성과 가상 네트워크를 내보낼 수 있습니다.  그런 다음 부하 분산 장치 및 가상 네트워크를 템플릿으로 내보내고 대상 지역과 일치 하도록 매개 변수를 수정한 다음 새 지역에 템플릿을 배포 하 여 다른 지역의 리소스를 준비할 수 있습니다.  Resource Manager 및 템플릿에 대한 자세한 내용은 [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)를 참조하세요.
 
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -32,7 +32,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
 - Azure 구독을 사용 하 여 사용 되는 대상 지역에 내부 부하 분산 장치를 만들 수 있는지 확인 합니다. 필요한 할당량을 사용하려면 지원 팀에 문의하세요.
 
-- 구독에이 프로세스에 대 한 부하 분산 장치 추가를 지원할 수 있는 충분 한 리소스가 있는지 확인 합니다.  [Azure 구독 및 서비스 제한, 할당량 및 제약 조건을](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits) 참조 하세요.
+- 구독에이 프로세스에 대 한 부하 분산 장치 추가를 지원할 수 있는 충분 한 리소스가 있는지 확인 합니다.  [Azure 구독 및 서비스 제한, 할당량 및 제약 조건을](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) 참조 하세요.
 
 
 ## <a name="prepare-and-move"></a>준비 및 이동
@@ -43,12 +43,12 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
 ### <a name="export-the-virtual-network-template-and-deploy-from-the-azure-portal"></a>가상 네트워크 템플릿을 내보내고 Azure Portal에서 배포
 
-1. [Azure Portal](https://portal.azure.com)  >  **리소스 그룹**에 로그인 합니다.
+1. [Azure Portal](https://portal.azure.com)  >  **리소스 그룹** 에 로그인 합니다.
 2. 원본 가상 네트워크를 포함 하는 리소스 그룹을 찾아 클릭 합니다.
-3. > **설정**  >  **템플릿 내보내기**를 선택 합니다.
+3. > **설정**  >  **템플릿 내보내기** 를 선택 합니다.
 4. **템플릿 내보내기** 블레이드에서 **배포** 를 선택 합니다.
 5. **템플릿**  >  **매개 변수 편집** 을 클릭 하 여 온라인 편집기에서 파일 **에parameters.js** 를 엽니다.
-6. 가상 네트워크 이름의 매개 변수를 편집 하려면 **매개 변수**에서 **value** 속성을 변경 합니다.
+6. 가상 네트워크 이름의 매개 변수를 편집 하려면 **매개 변수** 에서 **value** 속성을 변경 합니다.
 
     ```json
     {
@@ -87,9 +87,9 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
     ```
 
-11. 지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요.  영역에 대 한 코드는 공백 없이 **미국 중부**  =  **centralus**지역 이름입니다.
+11. 지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요.  영역에 대 한 코드는 공백 없이 **미국 중부**  =  **centralus** 지역 이름입니다.
 
-12. 또한 선택 하는 경우 파일 ** 의template.js** 에 있는 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택 사항입니다.
+12. 또한 선택 하는 경우 파일 **의template.js** 에 있는 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택 사항입니다.
 
     * **주소 공간** - **리소스**  >  **addressSpace** 섹션을 수정 하 고 파일 **의template.js** **addressPrefixes** 속성을 변경 하 여 저장 하기 전에 VNET의 주소 공간을 변경할 수 있습니다.
 
@@ -142,7 +142,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
                 ]
         ```
 
-         파일 ** 의template.js** 에서 주소 접두사를 변경 하려면 위에 나열 된 섹션과 아래에 나열 된 **형식** 섹션에서 두 위치를 편집 해야 합니다.  **AddressPrefix** 속성을 위와 일치 하도록 변경 합니다.
+         파일 **의template.js** 에서 주소 접두사를 변경 하려면 위에 나열 된 섹션과 아래에 나열 된 **형식** 섹션에서 두 위치를 편집 해야 합니다.  **AddressPrefix** 속성을 위와 일치 하도록 변경 합니다.
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -188,15 +188,15 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
 17. 위의 매개 변수 편집기에서 입력 한 이름과 이름이 일치 하는 **설정** 아래를 확인 합니다.
 
-18. 사용 **약관**아래 상자를 선택 합니다.
+18. 사용 **약관** 아래 상자를 선택 합니다.
 
 19. **구매** 단추를 클릭 하 여 대상 가상 네트워크를 배포 합니다.
 
 ### <a name="export-the-internal-load-balancer-template-and-deploy-from-azure-powershell"></a>내부 부하 분산 장치 템플릿을 내보내고 Azure PowerShell에서 배포
 
-1. [Azure Portal](https://portal.azure.com)  >  **리소스 그룹**에 로그인 합니다.
+1. [Azure Portal](https://portal.azure.com)  >  **리소스 그룹** 에 로그인 합니다.
 2. 원본 내부 부하 분산 장치를 포함 하는 리소스 그룹을 찾아 클릭 합니다.
-3. > **설정**  >  **템플릿 내보내기**를 선택 합니다.
+3. > **설정**  >  **템플릿 내보내기** 를 선택 합니다.
 4. **템플릿 내보내기** 블레이드에서 **배포** 를 선택 합니다.
 5. **템플릿**  >  **매개 변수 편집** 을 클릭 하 여 온라인 편집기에서 파일 **에parameters.js** 를 엽니다.
 
@@ -216,11 +216,11 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
              }
     ```
 
-6. 위에서 이동한 대상 가상 네트워크의 값을 편집 하려면 먼저 리소스 ID를 가져온 다음 파일 ** 의parameters.js** 에 복사 하 여 붙여넣어야 합니다. ID를 가져오려면 다음을 수행 합니다.
+6. 위에서 이동한 대상 가상 네트워크의 값을 편집 하려면 먼저 리소스 ID를 가져온 다음 파일 **의parameters.js** 에 복사 하 여 붙여넣어야 합니다. ID를 가져오려면 다음을 수행 합니다.
 
-    1. [Azure portal](https://portal.azure.com)  >  다른 브라우저 탭 또는 창에서 Azure Portal**리소스 그룹** 에 로그인 합니다.
+    1. [Azure portal](https://portal.azure.com)  >  다른 브라우저 탭 또는 창에서 Azure Portal **리소스 그룹** 에 로그인 합니다.
     2. 위의 단계에서 이동 된 가상 네트워크를 포함 하는 대상 리소스 그룹을 찾아 클릭 합니다.
-    3. > **설정**  >  **속성**을 선택 합니다.
+    3. > **설정**  >  **속성** 을 선택 합니다.
     4. 오른쪽 블레이드에서 **리소스 ID** 를 강조 표시 하 고 클립보드에 복사 합니다.  또는 **리소스 ID** 경로 오른쪽의 **클립보드로 복사** 단추를 클릭할 수 있습니다.
     5. **DefaultValue** 속성에 리소스 ID를 다른 브라우저 창이 나 탭에서 연 **매개 변수 편집** 편집기에 붙여넣습니다.
 
@@ -255,7 +255,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
                 },
     ```
 
-9.  지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요.  영역에 대 한 코드는 공백 없이 **미국 중부**  =  **centralus**지역 이름입니다.
+9.  지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요.  영역에 대 한 코드는 공백 없이 **미국 중부**  =  **centralus** 지역 이름입니다.
 
 10. 또한 선택하는 경우 템플릿의 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택적입니다.
 
@@ -273,7 +273,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
                 "tier": "Regional"
             },
         ```
-      기본 및 표준 sku 부하 분산 장치 간의 차이점에 대 한 자세한 내용은 [Azure 표준 Load Balancer 개요](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) 를 참조 하세요.
+      기본 및 표준 sku 부하 분산 장치 간의 차이점에 대 한 자세한 내용은 [Azure 표준 Load Balancer 개요](./load-balancer-overview.md) 를 참조 하세요.
 
     * **부하 분산 규칙** -파일 **template.js** 의 **loadBalancingRules** 섹션에 항목을 추가 하거나 제거 하 여 구성에서 부하 분산 규칙을 추가 하거나 제거할 수 있습니다.
 
@@ -305,7 +305,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
                     }
                 ]
         ```
-       부하 분산 규칙에 대 한 자세한 내용은 [Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 을 참조 하세요.
+       부하 분산 규칙에 대 한 자세한 내용은 [Azure Load Balancer?](./load-balancer-overview.md) 을 참조 하세요.
 
     * **프로브** -파일 **에서template.js** 의 **프로브** 섹션에 항목을 추가 하거나 제거 하 여 구성의 부하 분산 장치에 대 한 프로브를 추가 하거나 제거할 수 있습니다.
 
@@ -325,7 +325,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
                     }
                 ],
         ```
-       Azure Load Balancer 상태 프로브에 대 한 자세한 내용은 [상태 프로브 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) 를 참조 하세요.
+       Azure Load Balancer 상태 프로브에 대 한 자세한 내용은 [상태 프로브 Load Balancer](./load-balancer-custom-probe-overview.md) 를 참조 하세요.
 
     * **인바운드 nat 규칙** -파일 **에template.js** 의 **loadbalancer.inboundnatrules** 섹션에 항목을 추가 하거나 제거 하 여 부하 분산 장치에 대 한 인바운드 nat 규칙을 추가 하거나 제거할 수 있습니다.
 
@@ -373,7 +373,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
             }
         }
         ```
-        인바운드 NAT 규칙에 대 한 자세한 내용은 [Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 을 참조 하세요.
+        인바운드 NAT 규칙에 대 한 자세한 내용은 [Azure Load Balancer?](./load-balancer-overview.md) 을 참조 하세요.
 
 12. 온라인 편집기에서 **저장** 을 클릭 합니다.
 
@@ -385,7 +385,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
 17. 위의 매개 변수 편집기에서 입력 한 이름과 이름이 일치 하는 **설정** 아래를 확인 합니다.  구성의 가상 네트워크에 대 한 리소스 Id가 채워졌는지 확인 합니다.
 
-18. 사용 **약관**아래 상자를 선택 합니다.
+18. 사용 **약관** 아래 상자를 선택 합니다.
 
 19. **구매** 단추를 클릭 하 여 대상 가상 네트워크를 배포 합니다.
 
@@ -402,5 +402,5 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 이 자습서에서는 한 지역에서 다른 지역으로 Azure 내부 부하 분산 장치를 이동 하 고 원본 리소스를 정리 했습니다.  Azure에서 지역 및 재해 복구 간에 리소스를 이동하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 
-- [새 리소스 그룹 또는 구독으로 리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [다른 지역으로 Azure VM 이동](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [다른 지역으로 Azure VM 이동](../site-recovery/azure-to-azure-tutorial-migrate.md)
