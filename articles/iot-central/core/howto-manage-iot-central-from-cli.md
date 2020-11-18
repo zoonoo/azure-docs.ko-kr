@@ -9,12 +9,12 @@ ms.date: 03/27/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: philmea
-ms.openlocfilehash: bd87f15ff63edf1da447faf986cad2f9591610dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 201318a5a5680f248b831bb480888f106286fbe1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502973"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660035"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Azure CLI에서 IoT Central 관리
 
@@ -22,28 +22,15 @@ ms.locfileid: "87502973"
 
 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만들고 관리 하는 대신 [Azure CLI](/cli/azure/) 를 사용 하 여 응용 프로그램을 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-로컬 컴퓨터에서 Azure CLI를 실행 하려면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요. Azure CLI를 로컬로 실행 하는 경우 **az login** 명령을 사용 하 여 Azure에 로그인 한 후이 문서의 명령을 시도 합니다.
-
-> [!TIP]
-> 다른 Azure 구독에서 CLI 명령을 실행 해야 하는 경우 [활성 구독 변경](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription)을 참조 하세요.
-
-## <a name="install-the-extension"></a>확장 설치
-
-이 문서의 명령은 **azure iot** CLI 확장의 일부입니다. 다음 명령을 실행 하 여 확장을 설치 합니다.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+ - 다른 Azure 구독에서 CLI 명령을 실행 해야 하는 경우 [활성 구독 변경](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription)을 참조 하세요.
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
-[Az iot central app create](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-create) 명령을 사용 하 여 Azure 구독에 IoT Central 응용 프로그램을 만듭니다. 예를 들면 다음과 같습니다.
+[Az iot central app create](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-create) 명령을 사용 하 여 Azure 구독에 IoT Central 응용 프로그램을 만듭니다. 예를 들어:
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application
@@ -65,10 +52,10 @@ az iot central app create \
 | 매개 변수         | Description |
 | ----------------- | ----------- |
 | resource-group    | 애플리케이션을 포함하는 리소스 그룹입니다. 리소스 그룹이 구독에 이미 있어야 합니다. |
-| 위치          | 기본적으로이 명령은 리소스 그룹의 위치를 사용 합니다. 현재 **오스트레일리아**, **아시아 태평양**, **유럽** **, 미국, 영국**및 **일본** 지역에서 IoT Central 응용 **프로그램을 만들**수 있습니다. |
+| 위치          | 기본적으로이 명령은 리소스 그룹의 위치를 사용 합니다. 현재 **오스트레일리아**, **아시아 태평양**, **유럽** **, 미국, 영국** 및 **일본** 지역에서 IoT Central 응용 **프로그램을 만들** 수 있습니다. |
 | name              | Azure Portal의 애플리케이션 이름입니다. |
 | 도메인이         | 애플리케이션 URL의 하위 도메인입니다. 예제에서 애플리케이션 URL은 `https://mysubdomain.azureiotcentral.com`입니다. |
-| sku               | 현재 **ST1** 또는 **ST2**중 하나를 사용할 수 있습니다. [Azure IoT Central 가격 책정](https://azure.microsoft.com/pricing/details/iot-central/)을 참조하세요. |
+| sku               | 현재 **ST1** 또는 **ST2** 중 하나를 사용할 수 있습니다. [Azure IoT Central 가격 책정](https://azure.microsoft.com/pricing/details/iot-central/)을 참조하세요. |
 | template          | 사용할 애플리케이션 템플릿입니다. 자세한 내용은 다음 표를 참조하세요. |
 | display-name      | UI에 표시되는 애플리케이션 이름입니다. |
 

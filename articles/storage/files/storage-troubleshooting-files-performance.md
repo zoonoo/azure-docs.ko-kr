@@ -4,15 +4,15 @@ description: Azure 파일 공유의 알려진 성능 문제를 해결 합니다.
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/15/2020
+ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 3e6490babb5a4e68c1ecd931251ea4eb99d6c3f5
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 6e4eb37477a335ae93b9982692c238d05c81000b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630144"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660290"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Azure 파일 공유 성능 문제 해결
 
@@ -35,8 +35,8 @@ ms.locfileid: "94630144"
 1. **트랜잭션을** 메트릭으로 선택 합니다.
 
 1. **응답 형식** 에 대 한 필터를 추가 하 고 요청에 다음 응답 코드가 있는지 확인 합니다.
-   * **SuccessWithThrottling** : SMB (서버 메시지 블록)의 경우
-   * **ClientThrottlingError** : REST
+   * **SuccessWithThrottling**: SMB (서버 메시지 블록)의 경우
+   * **ClientThrottlingError**: REST
 
    !["응답 유형" 속성 필터를 표시 하는 프리미엄 파일 공유에 대 한 메트릭 옵션의 스크린샷](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -83,10 +83,11 @@ ms.locfileid: "94630144"
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>클라이언트에서 네트워크에 의해 지원 되는 최대 처리량을 달성할 수 없습니다.
 
 ### <a name="cause"></a>원인
-한 가지 가능한 원인은 SMB 다중 채널 지원 부족입니다. 현재 Azure Files는 단일 채널만 지원 하므로 클라이언트 VM에서 서버로의 연결은 하나 뿐입니다. 이 단일 연결은 클라이언트 VM의 단일 코어로 해석 VM에서 달성 가능한 최대 처리량은 단일 코어에 의해 바인딩됩니다.
+한 가지 가능한 원인은 표준 파일 공유에 대 한 SMB 다중 채널 지원이 부족 한 것입니다. 현재 Azure Files는 단일 채널만 지원 하므로 클라이언트 VM에서 서버로의 연결은 하나 뿐입니다. 이 단일 연결은 클라이언트 VM의 단일 코어로 해석 VM에서 달성 가능한 최대 처리량은 단일 코어에 의해 바인딩됩니다.
 
 ### <a name="workaround"></a>해결 방법
 
+- 프리미엄 파일 공유의 경우 [FileStorage 계정에서 SMB 다중 채널을 사용 하도록 설정](storage-files-enable-smb-multichannel.md)합니다.
 - 코어 크기가 더 큰 VM을 가져오면 처리량을 향상 시킬 수 있습니다.
 - 여러 Vm에서 클라이언트 응용 프로그램을 실행 하면 처리량이 증가 합니다.
 - 가능한 경우 REST Api를 사용 합니다.
@@ -101,7 +102,7 @@ ms.locfileid: "94630144"
 
 - 부하를 여러 Vm에 분산 합니다.
 - 동일한 VM에서 **nosharesock** 옵션을 사용 하 여 여러 탑재 위치를 사용 하 고 이러한 탑재 지점의 부하를 분산 합니다.
-- Linux에서 **nostrictsync** 옵션으로 탑재를 시도 하 여 모든 **fsync** 호출에서 SMB 플러시를 방지 합니다. Azure Files에서이 옵션은 데이터 일관성을 방해 하지 않지만 디렉터리 목록 ( **ls-l** 명령)에서 오래 된 파일 메타 데이터를 초래할 수 있습니다. **Stat** 명령을 사용 하 여 파일 메타 데이터를 직접 쿼리하면 최신 파일 메타 데이터가 반환 됩니다.
+- Linux에서 **nostrictsync** 옵션으로 탑재를 시도 하 여 모든 **fsync** 호출에서 SMB 플러시를 방지 합니다. Azure Files에서이 옵션은 데이터 일관성을 방해 하지 않지만 디렉터리 목록 (**ls-l** 명령)에서 오래 된 파일 메타 데이터를 초래할 수 있습니다. **Stat** 명령을 사용 하 여 파일 메타 데이터를 직접 쿼리하면 최신 파일 메타 데이터가 반환 됩니다.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>메타 데이터에 대 한 긴 대기 시간-광범위 한 열기/닫기 작업과 관련 된 많은 워크 로드
 
@@ -170,6 +171,53 @@ I/o를 많이 사용 하는 워크 로드의 Azure 파일 공유에 액세스 �
 
 - 사용 가능한 [핫픽스](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1)를 설치 합니다.
 
+## <a name="smb-multichannel-option-not-visible-under-file-share-settings"></a>파일 공유 설정에서 SMB 다중 채널 옵션이 표시 되지 않습니다. 
+
+### <a name="cause"></a>원인
+
+구독이 기능에 대해 등록 되지 않았거나 지역 및 계정 유형이 지원 되지 않습니다.
+
+### <a name="solution"></a>솔루션
+
+구독이 SMB 다중 채널 기능에 등록 되었는지 확인 합니다. [시작](storage-files-enable-smb-multichannel.md#getting-started) 을 참조 하 여 계정 종류가 계정 개요 페이지에서 FileStorage (프리미엄 파일 계정) 인지 확인 합니다. 
+
+## <a name="smb-multichannel-is-not-being-triggered"></a>SMB 다중 채널이 트리거되지 않습니다.
+
+### <a name="cause"></a>원인
+
+다시 탑재 없이 SMB 다중 채널 구성 설정에 대 한 최근 변경 내용입니다.
+
+### <a name="solution"></a>솔루션
+ 
+-   Windows SMB 클라이언트 또는 계정 SMB 다중 채널 구성 설정이 변경 된 후에는 공유를 분리 하 고, 60 초 동안 기다린 다음, 다중 채널을 트리거하기 위해 공유를 다시 탑재 해야 합니다.
+-   Windows 클라이언트 OS의 경우 큐 깊이가 높은 IO 로드를 생성 합니다. 예를 들어 파일을 복사 하 여 SMB 다중 채널을 트리거합니다.  서버 OS의 경우 SMB 다중 채널은 QD = 1로 트리거되고,이는 공유에 대 한 IO를 시작 하는 즉시 발생 합니다.
+
+## <a name="high-latency-on-web-sites-hosted-on-file-shares"></a>파일 공유에서 호스트 되는 웹 사이트의 긴 대기 시간 
+
+### <a name="cause"></a>원인  
+
+파일 공유에 대 한 파일 변경 알림이 높으면 상당한 대기 시간이 발생할 수 있습니다. 이는 일반적으로 중첩 된 디렉터리 구조가 깊은 파일 공유에 호스트 되는 웹 사이트에서 발생 합니다. 일반적인 시나리오는 IIS에서 호스트 되는 웹 응용 프로그램으로, 기본 구성의 각 디렉터리에 대해 파일 변경 알림이 설정 됩니다. SMB 클라이언트에서 등록 된 공유에 대 한 각 변경 내용 (Readdirectorychanges w)은 파일 서비스에서 클라이언트로의 변경 알림을 푸시하 며,이는 시스템 리소스를 사용 하 고 변경 내용 수를 사용 하 여 증가를 발급 합니다. 이로 인해 공유 제한이 발생할 수 있으므로 클라이언트 쪽 대기 시간이 더 높아질 수 있습니다. 
+
+확인 하려면 포털에서 Azure 메트릭을 사용할 수 있습니다. 
+
+1. Azure Portal에서 스토리지 계정으로 이동합니다. 
+1. 왼쪽 메뉴의 모니터링 아래에서 메트릭을 선택 합니다. 
+1. 저장소 계정 범위에 대 한 메트릭 네임 스페이스로 파일을 선택 합니다. 
+1. 트랜잭션을 메트릭으로 선택 합니다. 
+1. ResponseType에 대 한 필터를 추가 하 고 요청에 SuccessWithThrottling (SMB 용) 또는 ClientThrottlingError (REST)의 응답 코드가 있는지 확인 합니다.
+
+### <a name="solution"></a>솔루션 
+
+- 파일 변경 알림이 사용 되지 않으면 파일 변경 알림 (기본 설정)을 사용 하지 않도록 설정 합니다.
+    - FCNMode를 업데이트 하 여 [파일 변경 알림을 사용 하지 않도록 설정](https://support.microsoft.com/help/911272/fix-asp-net-2-0-connected-applications-on-a-web-site-may-appear-to-sto) 합니다. 
+    - `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds `레지스트리에서를 설정 하 고 w3wp 프로세스를 다시 시작 하 여 IIS 작업자 프로세스 (w3wp.exe) 폴링 간격을 0으로 업데이트 합니다. 이 설정에 대 한 자세한 내용은 [IIS의 여러 부분에서 사용 되는 일반적인 레지스트리 키](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp)를 참조 하세요.
+- 볼륨을 줄이기 위해 파일 변경 알림 폴링 간격의 빈도를 늘립니다.
+    - 사용자 요구 사항에 따라 w3wp.exe 작업자 프로세스 폴링 간격을 더 높은 값 (예: 10 분 또는 30 분)으로 업데이트 합니다. `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [레지스트리에서](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) 를 설정 하 고 W3WP 프로세스를 다시 시작 합니다.
+- 웹 사이트의 매핑된 물리적 디렉터리에 중첩 된 디렉터리 구조가 있는 경우 파일 변경 알림 범위를 제한 하 여 알림 볼륨을 줄일 수 있습니다.
+    - 기본적으로 IIS는 가상 디렉터리가 매핑되는 물리적 디렉터리 및 해당 물리적 디렉터리의 모든 자식 디렉터리에 있는 Web.config 파일의 구성을 사용 합니다. 하위 디렉터리에 Web.config 파일을 사용 하지 않으려는 경우 가상 디렉터리의 allowSubDirConfig 특성에 대해 false를 지정 합니다. 자세한 내용은 [여기](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories)에서 찾을 수 있습니다. 
+
+Web.Config에서 IIS 가상 디렉터리 "allowSubDirConfig" 설정을 false로 설정 하 여 범위에서 매핑된 물리적 자식 디렉터리를 제외 합니다.  
+
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>파일 공유를 제한 하는 경우 경고를 만드는 방법
 
 1. Azure Portal에서 스토리지 계정으로 이동합니다.
@@ -189,13 +237,13 @@ I/o를 많이 사용 하는 워크 로드의 Azure 파일 공유에 액세스 �
    > [!NOTE]
    > 파일 공유가 표준 파일 공유 인 경우 **모든 현재 및 미래 값** 을 선택 합니다. 표준 파일 공유에는 공유 별 메트릭을 사용할 수 없으므로 차원 값 드롭다운 목록에 파일 공유가 나열 되지 않습니다. 표준 파일 공유에 대 한 제한 경고는 저장소 계정 내의 파일 공유가 제한 된 경우에 트리거되고, 경고는 제한 된 파일 공유를 식별 하지 않습니다. 표준 파일 공유에는 공유 별 메트릭을 사용할 수 없으므로 저장소 계정 마다 하나의 파일 공유를 사용 하는 것이 좋습니다.
 
-1. **임계값** , **연산자** , **집계 세분성** 및 **평가 빈도** 를 입력 하 여 경고 매개 변수를 정의한 다음 **완료** 를 선택 합니다.
+1. **임계값**, **연산자**, **집계 세분성** 및 **평가 빈도** 를 입력 하 여 경고 매개 변수를 정의한 다음 **완료** 를 선택 합니다.
 
     > [!TIP]
     > 정적 임계값을 사용 하는 경우 메트릭 차트를 사용 하 여 파일 공유를 현재 제한 하 고 있는 경우 적절 한 임계값을 결정할 수 있습니다. 동적 임계값을 사용 하는 경우 메트릭 차트는 최근 데이터를 기반으로 계산 된 임계값을 표시 합니다.
 
 1. **작업 그룹 선택** 을 선택한 다음 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 작업 그룹 (예: 전자 메일 또는 SMS)을 추가 합니다.
-1. 경고 **규칙 이름** , **설명** 및 **심각도** 와 같은 경고 세부 정보를 입력 합니다.
+1. 경고 **규칙 이름**, **설명** 및 **심각도** 와 같은 경고 세부 정보를 입력 합니다.
 1. **경고 규칙 만들기** 를 선택하여 경고를 만듭니다.
 
 Azure Monitor에서 경고를 구성 하는 방법에 대 한 자세한 내용은 [Microsoft Azure의 경고 개요]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)를 참조 하세요.
@@ -213,19 +261,19 @@ Azure Monitor에서 경고를 구성 하는 방법에 대 한 자세한 내용�
 
 1. 아래로 스크롤합니다. **차원 이름** 드롭다운 목록에서 **파일 공유** 를 선택 합니다.
 1. **차원 값** 드롭다운 목록에서 경고를 발생 시킬 파일 공유를 선택 합니다.
-1. **연산자** , **임계값 값** , **집계 세분성** 및 **평가 빈도** 드롭다운 목록에서 값을 선택 하 여 경고 매개 변수를 정의한 다음 **완료** 를 선택 합니다.
+1. **연산자**, **임계값 값**, **집계 세분성** 및 **평가 빈도** 드롭다운 목록에서 값을 선택 하 여 경고 매개 변수를 정의한 다음 **완료** 를 선택 합니다.
 
    수신, 수신 및 트랜잭션 메트릭은 초당 전송, 수신 및 i/o를 프로 비전 하는 경우 분 단위로 표현 됩니다. 예를 들어 프로 비전 된 송신이 초당 90 &nbsp; mebibytes 인 경우 (MiB/s), &nbsp; 프로 비전 된 송신의 80%를 임계값으로 하려면 다음 경고 매개 변수를 선택 합니다. 
-   - **임계값** : *75497472* 
-   - **연산자** : *크거나 같음*
-   - **집계 유형** : *평균*
+   - **임계값**: *75497472* 
+   - **연산자**: *크거나 같음*
+   - **집계 유형**: *평균*
    
    경고를 표시 하려는 경우에 따라 **집계 세분성** 및 **평가 빈도** 값을 선택할 수도 있습니다. 예를 들어 경고를 1 시간 동안 평균 수신 시간을 확인 하 고 1 시간 마다 경고 규칙을 실행 하려면 다음을 선택 합니다.
-   - **집계 세분성** : *1 시간*
-   - **평가 빈도** : *1 시간*
+   - **집계 세분성**: *1 시간*
+   - **평가 빈도**: *1 시간*
 
 1. **작업 그룹 선택** 을 선택한 다음 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 작업 그룹 (예: 전자 메일 또는 SMS)을 추가 합니다.
-1. 경고 **규칙 이름** , **설명** 및 **심각도** 와 같은 경고 세부 정보를 입력 합니다.
+1. 경고 **규칙 이름**, **설명** 및 **심각도** 와 같은 경고 세부 정보를 입력 합니다.
 1. **경고 규칙 만들기** 를 선택하여 경고를 만듭니다.
 
     > [!NOTE]

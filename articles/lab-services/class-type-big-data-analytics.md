@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 6ae4e658985a3974b311171e83e6243dfc4a1ae9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5eb9cd00350c41645d4427e30a6f25a6c163358c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444032"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659899"
 ---
 # <a name="set-up-a-lab-for-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>HortonWorks Data Platform의 Docker 배포를 사용 하 여 빅 데이터 분석에 대 한 랩 설정
 
@@ -28,7 +28,7 @@ ms.locfileid: "85444032"
 
 ### <a name="lab-account-settings"></a>랩 계정 설정
 
-랩 계정에 대해 아래 표에 설명 된 설정을 사용 하도록 설정 합니다. Marketplace 이미지를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [랩 작성자에 게 제공 되는 marketplace 이미지 지정](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images)을 참조 하세요.
+랩 계정에 대해 아래 표에 설명 된 설정을 사용 하도록 설정 합니다. Marketplace 이미지를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [랩 작성자에 게 제공 되는 marketplace 이미지 지정](./specify-marketplace-images.md)을 참조 하세요.
 
 | 랩 계정 설정 | Instructions |
 | ------------------- | ------------ |
@@ -72,7 +72,7 @@ Docker 컨테이너를 사용 하려면 먼저 Docker Desktop을 템플릿 VM에
 1. [Windows 용 메모리](https://www.cloudera.com/tutorials/sandbox-deployment-and-install-guide/3.html#memory-for-windows) 섹션의 단계에 따라 Docker의 메모리 구성을 구성 합니다.
 
     > [!WARNING]
-    > Docker를 설치할 때 **Linux 컨테이너 대신 Windows 컨테이너 사용** 옵션을 실수로 확인 하는 경우 메모리 구성 설정이 표시 되지 않습니다.  이 문제를 해결 하려면 [Windows 시스템 트레이에서 Docker 아이콘을 클릭](https://docs.docker.com/docker-for-windows/#docker-settings-dialog)하 여 Linux 컨테이너를 사용 하도록 전환할 수 있습니다. Docker 바탕 화면 메뉴가 열리면 **Linux 컨테이너로 전환을**선택 합니다.
+    > Docker를 설치할 때 **Linux 컨테이너 대신 Windows 컨테이너 사용** 옵션을 실수로 확인 하는 경우 메모리 구성 설정이 표시 되지 않습니다.  이 문제를 해결 하려면 [Windows 시스템 트레이에서 Docker 아이콘을 클릭](https://docs.docker.com/docker-for-windows/#docker-settings-dialog)하 여 Linux 컨테이너를 사용 하도록 전환할 수 있습니다. Docker 바탕 화면 메뉴가 열리면 **Linux 컨테이너로 전환을** 선택 합니다.
  
 ### <a name="deploy-hdp-sandbox"></a>HDP 샌드박스 배포
 
@@ -89,7 +89,7 @@ Docker 컨테이너를 사용 하려면 먼저 Docker Desktop을 템플릿 VM에
     > HDP에 대 한 최신 .zip 파일을 다운로드 하는 경우 공백이 포함 된 디렉터리 경로에 .zip 파일을 저장 *하지* 않도록 합니다.
 
     > [!NOTE] 
-    > 배포 하는 동안 **드라이브가 공유 되지**않았음을 나타내는 예외가 발생 하는 경우 HDP의 Linux 컨테이너에서 로컬 Windows 파일에 액세스할 수 있도록 Docker를 사용 하 여 C 드라이브를 공유 해야 합니다.  이 문제를 해결 하려면 [Windows 시스템 트레이에서 docker 아이콘을 클릭](https://docs.docker.com/docker-for-windows/#docker-settings-dialog) 하 여 Docker 바탕 화면 메뉴를 열고 **설정**을 선택 합니다.  **Docker의 설정** 대화 상자가 열리면 **리소스 > 파일 공유** 를 선택 하 고 **C** 드라이브를 확인 합니다.  그런 다음 HDP 샌드박스를 배포 하는 단계를 반복할 수 있습니다.
+    > 배포 하는 동안 **드라이브가 공유 되지** 않았음을 나타내는 예외가 발생 하는 경우 HDP의 Linux 컨테이너에서 로컬 Windows 파일에 액세스할 수 있도록 Docker를 사용 하 여 C 드라이브를 공유 해야 합니다.  이 문제를 해결 하려면 [Windows 시스템 트레이에서 docker 아이콘을 클릭](https://docs.docker.com/docker-for-windows/#docker-settings-dialog) 하 여 Docker 바탕 화면 메뉴를 열고 **설정** 을 선택 합니다.  **Docker의 설정** 대화 상자가 열리면 **리소스 > 파일 공유** 를 선택 하 고 **C** 드라이브를 확인 합니다.  그런 다음 HDP 샌드박스를 배포 하는 단계를 반복할 수 있습니다.
 
 1. HDP 샌드박스에서 Docker 컨테이너를 배포 하 고 실행 한 후에는 브라우저를 시작 하 여 환경에 액세스 하 고, [샌드박스 시작 페이지](https://www.cloudera.com/tutorials/learning-the-ropes-of-the-hdp-sandbox.html#welcome-page) 를 열고 HDP 대시보드를 시작 하는 Cloudera의 지침을 따릅니다.
 

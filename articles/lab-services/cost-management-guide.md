@@ -5,12 +5,12 @@ author: rbest
 ms.author: rbest
 ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: 98e04ba6bb1310935c4893a3616dfd68c2e99a55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29f6be5319c5a142ad3ea0d73deb2f95d8cb0d7a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797635"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659729"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Azure Lab Services에 대 한 Cost management
 
@@ -31,7 +31,7 @@ Azure Lab Services 비용 관리는 비용 예측 및 비용 분석의 두 가�
 
 ## <a name="analyze-the-previous-months-usage"></a>이전 월의 사용 현황 분석
 
-비용 분석은 이전 월의 사용량을 검토 하 여 랩에 대 한 조정을 결정 하는 데 사용 됩니다. [구독 비용 분석](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis)에서 과거 비용의 분석을 찾을 수 있습니다. Azure Portal에서 검색 상자에 **구독** 을 입력 하 고 **구독** 옵션을 선택할 수 있습니다. 
+비용 분석은 이전 월의 사용량을 검토 하 여 랩에 대 한 조정을 결정 하는 데 사용 됩니다. [구독 비용 분석](../cost-management-billing/costs/quick-acm-cost-analysis.md)에서 과거 비용의 분석을 찾을 수 있습니다. Azure Portal에서 검색 상자에 **구독** 을 입력 하 고 **구독** 옵션을 선택할 수 있습니다. 
 
 > [!div class="mx-imgBorder"]
 > ![검색 상자와 구독 옵션을 보여 주는 스크린샷](./media/cost-management-guide/subscription-search.png)
@@ -41,12 +41,12 @@ Azure Lab Services 비용 관리는 비용 예측 및 비용 분석의 두 가�
 > [!div class="mx-imgBorder"]
 > ![구독 선택 항목을 보여 주는 스크린샷](./media/cost-management-guide/subscription-select.png)
 
-왼쪽 창에서 **Cost Management**의 **비용 분석** 을 선택 합니다.
+왼쪽 창에서 **Cost Management** 의 **비용 분석** 을 선택 합니다.
 
 > [!div class="mx-imgBorder"]
 > ![그래프에 대 한 구독 비용 분석을 보여 주는 스크린샷](./media/cost-management-guide/subscription-cost-analysis.png)
 
-이 대시보드에서는 일정에 따라 다양 한 파일 형식으로 내보내는 기능을 포함 하 여 심층 비용 분석을 수행할 수 있습니다. 자세한 내용은 [Cost Management + 청구 개요](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview)를 참조 하세요.
+이 대시보드에서는 일정에 따라 다양 한 파일 형식으로 내보내는 기능을 포함 하 여 심층 비용 분석을 수행할 수 있습니다. 자세한 내용은 [Cost Management + 청구 개요](../cost-management-billing/cost-management-billing-overview.md)를 참조 하세요.
 
 리소스 종류를 기준으로 필터링 할 수 있습니다. `microsoft.labservices/labaccounts`를 사용 하면 Lab Services와 관련 된 비용도 표시 됩니다.
 
@@ -57,9 +57,9 @@ Azure Lab Services 비용 관리는 비용 예측 및 비용 분석의 두 가�
 > [!div class="mx-imgBorder"]
 > ![구독에 대 한 예제 비용 분석을 보여 주는 스크린샷](./media/cost-management-guide/cost-analysis.png)
 
-기본적으로 **리소스**, **리소스 종류**, **위치**, **리소스 그룹 이름**, **태그**및 **비용**의 6 개 열이 있습니다. **리소스** 열에는 랩 계정, 랩 이름 및 VM에 대 한 정보가 포함 됩니다. 랩 계정, 랩 이름 및 기본값 (두 번째와 세 번째 행)을 표시 하는 행은 랩에 대 한 비용입니다. 사용 된 Vm에는 랩 계정, 랩 이름, 기본 및 VM 이름을 표시 하는 행에 대해 볼 수 있는 비용이 있습니다. 
+기본적으로 **리소스**, **리소스 종류**, **위치**, **리소스 그룹 이름**, **태그** 및 **비용** 의 6 개 열이 있습니다. **리소스** 열에는 랩 계정, 랩 이름 및 VM에 대 한 정보가 포함 됩니다. 랩 계정, 랩 이름 및 기본값 (두 번째와 세 번째 행)을 표시 하는 행은 랩에 대 한 비용입니다. 사용 된 Vm에는 랩 계정, 랩 이름, 기본 및 VM 이름을 표시 하는 행에 대해 볼 수 있는 비용이 있습니다. 
 
-이 예제에서는 첫 번째 및 두 번째 행 (둘 다 **aaalab/dockerlab**로 시작)을 추가 하 여 "aaalab" 랩 계정의 랩 "dockerlab"에 대 한 총 비용을 제공 합니다.
+이 예제에서는 첫 번째 및 두 번째 행 (둘 다 **aaalab/dockerlab** 로 시작)을 추가 하 여 "aaalab" 랩 계정의 랩 "dockerlab"에 대 한 총 비용을 제공 합니다.
 
 이미지 갤러리의 전체 비용을 얻으려면 리소스 종류를로 변경 합니다 `Microsoft.Compute/Galleries` . 갤러리의 저장 위치에 따라 공유 이미지 갤러리가 비용에 표시 되지 않을 수 있습니다.
 
@@ -70,7 +70,7 @@ Azure Lab Services 비용 관리는 비용 예측 및 비용 분석의 두 가�
 
 일부 대학에서는 클래스를 구분 하는 방법으로 랩 계정 및 리소스 그룹을 사용 했습니다. 각 클래스에는 고유한 랩 계정 및 리소스 그룹이 있습니다. 
 
-비용 분석 창에서 리소스 그룹 이름에 기반 하는 필터를 클래스에 대 한 적절 한 리소스 그룹 이름으로 추가 합니다. 그런 다음 해당 클래스에 대 한 비용도 표시 됩니다. 이렇게 하면 비용을 볼 때 클래스 사이에 더 명확 하 게 경계 수 있습니다. 비용 분석의 [예약 된 내보내기](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) 기능을 사용 하 여 각 클래스의 비용을 별도의 파일로 다운로드할 수 있습니다.
+비용 분석 창에서 리소스 그룹 이름에 기반 하는 필터를 클래스에 대 한 적절 한 리소스 그룹 이름으로 추가 합니다. 그런 다음 해당 클래스에 대 한 비용도 표시 됩니다. 이렇게 하면 비용을 볼 때 클래스 사이에 더 명확 하 게 경계 수 있습니다. 비용 분석의 [예약 된 내보내기](../cost-management-billing/costs/tutorial-export-acm-data.md) 기능을 사용 하 여 각 클래스의 비용을 별도의 파일로 다운로드할 수 있습니다.
 
 ## <a name="manage-costs"></a>비용 관리
 
@@ -90,7 +90,7 @@ Azure Lab Services 비용 관리는 비용 예측 및 비용 분석의 두 가�
 > [!NOTE]
 > 이 설정은 Windows 가상 컴퓨터에만 사용할 수 있습니다.
 
-**가상 컴퓨터가 유휴 상태일 때 사용자 연결 끊기** 설정이 켜져 있으면 Windows OS에서 세션을 유휴 상태로 하다 고 판단 때 (템플릿 가상 컴퓨터 포함) 사용자가 랩의 모든 컴퓨터에서 연결이 끊어집니다. [유휴의 WINDOWS OS 정의](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) 에는 두 가지 기준이 사용 됩니다. 
+**가상 컴퓨터가 유휴 상태일 때 사용자 연결 끊기** 설정이 켜져 있으면 Windows OS에서 세션을 유휴 상태로 하다 고 판단 때 (템플릿 가상 컴퓨터 포함) 사용자가 랩의 모든 컴퓨터에서 연결이 끊어집니다. [유휴의 WINDOWS OS 정의](/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) 에는 두 가지 기준이 사용 됩니다. 
 
 * 사용자 부재: 키보드 또는 마우스 입력이 없습니다.
 * 리소스 사용 부족: 모든 프로세서 및 모든 디스크가 특정 시간 (%) 동안 유휴 상태 였습니다.
@@ -107,7 +107,7 @@ Azure Lab Services 비용 관리는 비용 예측 및 비용 분석의 두 가�
 예를 들어 다음과 같이 설정을 구성 합니다.
  
 * **가상 컴퓨터가 유휴 상태일 때 사용자 연결 끊기**: 유휴 상태가 검색 된 후 15 분
-* 사용자가 연결을 끊으면 5 분 후에 **가상 컴퓨터를 종료**합니다.
+* 사용자가 연결을 끊으면 5 분 후에 **가상 컴퓨터를 종료** 합니다.
  
 Windows 가상 머신은 사용자가 사용을 중지 한 후 자동으로 20 분 후에 종료 됩니다. 
  
@@ -122,13 +122,13 @@ Windows 가상 머신은 사용자가 사용을 중지 한 후 자동으로 20 �
 * Linux의 경우 SSH 연결의 연결이 끊깁니다.
  
 > [!NOTE]
-> [특정 배포 및 Linux 버전만](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions) 지원 됩니다.
+> [특정 배포 및 Linux 버전만](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions) 지원 됩니다.
  
 가상 컴퓨터가 자동으로 종료 되기 전에 사용자가 다시 연결 될 때까지 대기 해야 하는 기간을 지정할 수 있습니다. 
 
 #### <a name="automatically-shut-down-virtual-machines-that-are-started-but-users-dont-connect"></a>시작 되었지만 사용자가 연결 하지 않는 가상 컴퓨터를 자동으로 종료
  
-랩에서 사용자는 가상 컴퓨터를 시작할 수 있지만 연결 하지는 않습니다. 예를 들면 다음과 같습니다.
+랩에서 사용자는 가상 컴퓨터를 시작할 수 있지만 연결 하지는 않습니다. 예를 들어:
  
 * 랩의 일정은 클래스 세션의 모든 가상 컴퓨터를 시작 하지만 일부 학생은 표시 되지 않고 컴퓨터에 연결 되지 않습니다. 
 * 사용자가 가상 컴퓨터를 시작 하지만 연결을 잊어버린 경우 

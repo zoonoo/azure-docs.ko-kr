@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ebf383c1a904027d3ff5a1864ea9f50e87a5fa8
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0bd2b295e5e4d4d5ea6e25869c8c109ff8bbbf38
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093296"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660766"
 ---
 # <a name="list-blobs-with-net"></a>.NET을 사용하여 Blob 나열
 
@@ -51,11 +51,7 @@ ms.locfileid: "92093296"
 
 ### <a name="manage-how-many-results-are-returned"></a>반환되는 결과 수 관리
 
-기본적으로 목록 작업은 한 번에 최대 5000 개의 결과를 반환 하지만 각 나열 작업에서 반환할 결과 수를 지정할 수 있습니다. 이 문서에 제공 된 예제에서는이 작업을 수행 하는 방법을 보여 줍니다.
-
-목록 작업에서 5000 개 이상의 blob을 반환 하거나 사용할 수 있는 blob 수가 지정한 수를 초과 하는 경우 Azure Storage는 blob 목록과 함께 *연속 토큰* 을 반환 합니다. 연속 토큰은 Azure Storage에서 다음 결과 세트를 검색하는 데 사용할 수 있는 불투명 값입니다.
-
-코드에서 연속 토큰의 값을 확인하여 null인지 여부를 확인합니다. 연속 토큰이 null이면 결과 세트가 완료된 것입니다. 연속 토큰이 null이 아닌 경우 목록 작업을 다시 호출하고 연속 토큰을 전달하여 연속 토큰이 null이 될 때까지 다음 결과 세트를 검색합니다.
+기본적으로 목록 작업은 한 번에 최대 5000 개의 결과를 반환 하지만 각 나열 작업에서 반환할 결과 수를 지정할 수 있습니다. 이 문서에 제공 된 예제에서는 페이지에 결과를 반환 하는 방법을 보여 줍니다.
 
 ### <a name="filter-results-with-a-prefix"></a>접두사를 사용하여 결과 필터링
 
@@ -63,7 +59,7 @@ Blob 목록을 필터링 하려면 매개 변수에 대 한 문자열을 지정 
 
 ### <a name="return-metadata"></a>메타데이터 반환
 
-결과를 사용 하 여 blob 메타 데이터를 반환할 수 있습니다. 
+결과를 사용 하 여 blob 메타 데이터를 반환할 수 있습니다.
 
 - .NET v12 SDK를 사용 하는 경우 [Blobtraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) 열거에 대 한 **메타 데이터** 값을 지정 합니다.
 
@@ -71,7 +67,7 @@ Blob 목록을 필터링 하려면 매개 변수에 대 한 문자열을 지정 
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>단순 목록 및 계층 구조 목록
 
-Azure Storage Blob은 계층형 패러다임(예: 클래식 파일 시스템)이 아닌 플랫 패러다임으로 구성됩니다. 그러나 폴더 구조를 모방하기 위해 Blob을 *가상 디렉터리*로 구성할 수 있습니다. 가상 디렉터리는 Blob 이름의 일부를 형성하며 구분 기호 문자로 표시됩니다.
+Azure Storage Blob은 계층형 패러다임(예: 클래식 파일 시스템)이 아닌 플랫 패러다임으로 구성됩니다. 그러나 폴더 구조를 모방하기 위해 Blob을 *가상 디렉터리* 로 구성할 수 있습니다. 가상 디렉터리는 Blob 이름의 일부를 형성하며 구분 기호 문자로 표시됩니다.
 
 Blob을 가상 디렉터리로 구성하려면 Blob 이름에 구분 기호 문자를 사용합니다. 기본 구분 기호 문자는 정방향 슬래시(/)이지만 어떤 문자도 구분 기호로 지정할 수 있습니다.
 
@@ -90,6 +86,10 @@ Blob을 가상 디렉터리로 구성하려면 Blob 이름에 구분 기호 문�
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+목록 작업에서 5000 개 이상의 blob을 반환 하거나 사용할 수 있는 blob 수가 지정한 수를 초과 하는 경우 Azure Storage는 blob 목록과 함께 *연속 토큰* 을 반환 합니다. 연속 토큰은 Azure Storage에서 다음 결과 세트를 검색하는 데 사용할 수 있는 불투명 값입니다.
+
+코드에서 연속 토큰의 값을 확인하여 null인지 여부를 확인합니다. 연속 토큰이 null이면 결과 세트가 완료된 것입니다. 연속 토큰이 null이 아닌 경우 목록 작업을 다시 호출하고 연속 토큰을 전달하여 연속 토큰이 null이 될 때까지 다음 결과 세트를 검색합니다.
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)
@@ -161,7 +161,7 @@ Blob을 계층적으로 나열 하려면 [BlobContainerClient. GetBlobsByHierarc
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
-Blob을 계층형으로 나열하려면 목록 메서드의 `useFlatBlobListing` 매개 변수를 **false**로 설정합니다.
+Blob을 계층형으로 나열하려면 목록 메서드의 `useFlatBlobListing` 매개 변수를 **false** 로 설정합니다.
 
 다음 예제에서는 지정된 선택적 세그먼트 크기를 사용하여 지정된 컨테이너에 있는 Blob을 나열하고 Blob 이름을 콘솔 창에 씁니다.
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: c7f71d24ab516044a0ce48ad40f78bc659268866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59aa6f5560917651d8f60c667145b0953bf72ef5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442177"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660868"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 전환
 
@@ -24,7 +24,7 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 
 * **Openvpn &reg; 프로토콜**, SSL/TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽은 SSL에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 SSL VPN 솔루션은 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS (버전 11.0 이상), Windows, Linux 및 Mac 장치 (OSX 버전 10.13 이상)에서 연결 하는 데 사용할 수 있습니다.
 
-* 독점 SSL 기반 VPN 프로토콜인 **SSTP (Secure Socket Tunneling protocol)** 대부분의 방화벽은 SSL에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 SSL VPN 솔루션은 방화벽을 통과할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다. **SSTP는 게이트웨이 SKU에 관계 없이 최대 128의 동시 연결을 지원**합니다.
+* 독점 SSL 기반 VPN 프로토콜인 **SSTP (Secure Socket Tunneling protocol)** 대부분의 방화벽은 SSL에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 SSL VPN 솔루션은 방화벽을 통과할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다. **SSTP는 게이트웨이 SKU에 관계 없이 최대 128의 동시 연결을 지원** 합니다.
 
 * IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 디바이스(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
 
@@ -58,9 +58,9 @@ SSTP 및 OpenVPN은 모두 TLS 기반 프로토콜 이므로 동일한 게이트
 
 ![지점 및 사이트 간](./media/ikev2-openvpn-from-sstp/sstptoopenvpn.png "OpenVPN")
 
-게이트웨이가 구성 된 후에는 [OpenVPN 클라이언트를 배포 하 고 구성할](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients)때까지 기존 클라이언트를 연결할 수 없습니다.
+게이트웨이가 구성 된 후에는 [OpenVPN 클라이언트를 배포 하 고 구성할](./vpn-gateway-howto-openvpn-clients.md)때까지 기존 클라이언트를 연결할 수 없습니다.
 
-Windows 10을 사용 하는 경우 [windows 용 AZURE VPN 클라이언트](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client#to-download-the-azure-vpn-client) 를 사용할 수도 있습니다.
+Windows 10을 사용 하는 경우 [windows 용 AZURE VPN 클라이언트](./openvpn-azure-ad-client.md#to-download-the-azure-vpn-client) 를 사용할 수도 있습니다.
 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답

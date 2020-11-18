@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: cceeb1fc9715dfd7b1ac714c424421c51d292757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca483d993290e4d66ba257d4cb5de7fc3c952405
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85552286"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660834"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Azure 센티널로 위협 구하기
 
@@ -45,7 +45,7 @@ Azure 센티널 구하기를 사용 하면 다음과 같은 기능을 활용할 
  
 ## <a name="get-started-hunting"></a>구하기 시작
 
-1. Azure 센티널 포털에서 **구하기**를 클릭 합니다.
+1. Azure 센티널 포털에서 **구하기** 를 클릭 합니다.
   ![Azure 센티널에서 구하기 시작](media/tutorial-hunting/hunting-start.png)
 
 2. **구하기** 페이지를 열면 모든 구하기 쿼리가 단일 테이블에 표시 됩니다. 이 표에는 Microsoft의 보안 분석가 팀에서 작성 하거나 수정한 모든 추가 쿼리를 비롯 한 모든 쿼리가 나열 됩니다. 각 쿼리는 시스템적인에 대 한 설명 및 실행 되는 데이터의 종류를 제공 합니다. 이러한 템플릿은 다양 한 전략에 따라 그룹화 됩니다. 오른쪽의 아이콘은 초기 액세스, 지 속성, exfiltration 등의 위협 유형을 분류 합니다. 모든 필드를 사용 하 여 이러한 구하기 쿼리 템플릿을 필터링 할 수 있습니다. 모든 쿼리를 즐겨찾기에 저장할 수 있습니다. 즐겨찾기에 쿼리를 저장 하면 자동으로 **사냥** 페이지가 액세스 될 때마다 쿼리가 자동으로 실행 됩니다. 사용자 고유의 구하기 쿼리를 만들거나 기존 구하기 쿼리 템플릿을 복제 하 고 사용자 지정할 수 있습니다. 
@@ -66,7 +66,7 @@ Azure 센티널 구하기를 사용 하면 다음과 같은 기능을 활용할 
 
 ## <a name="query-language"></a>쿼리 언어 
 
-Azure 센티널의 구하기는 Kusto 쿼리 언어를 기반으로 합니다. 쿼리 언어 및 지원 되는 연산자에 대 한 자세한 내용은 [쿼리 언어 참조](/azure/azure-monitor/log-query/get-started-queries)를 참조 하세요.
+Azure 센티널의 구하기는 Kusto 쿼리 언어를 기반으로 합니다. 쿼리 언어 및 지원 되는 연산자에 대 한 자세한 내용은 [쿼리 언어 참조](../azure-monitor/log-query/get-started-queries.md)를 참조 하세요.
 
 ## <a name="public-hunting-query-github-repository"></a>공용 구하기 쿼리 GitHub 리포지토리
 
@@ -86,7 +86,7 @@ Azure 센티널의 구하기는 Kusto 쿼리 언어를 기반으로 합니다. �
 
 3. cscript.exe 인스턴스만 포함 하는 명령줄의 쿼리에 필터를 추가 합니다.
 
-4. 탐색 하는 데 관심이 있는 열만 프로젝션 하 고 결과를 1000으로 제한 한 다음 **쿼리 실행**을 클릭 합니다.
+4. 탐색 하는 데 관심이 있는 열만 프로젝션 하 고 결과를 1000으로 제한 한 다음 **쿼리 실행** 을 클릭 합니다.
 5. 녹색 삼각형을 클릭 하 고 쿼리를 실행 합니다. 쿼리를 테스트 하 고 실행 하 여 비정상적인 동작을 찾을 수 있습니다.
 
 ## <a name="useful-operators"></a>유용한 연산자
@@ -121,20 +121,20 @@ Azure 센티널의 구하기는 Kusto 쿼리 언어를 기반으로 합니다. �
 
 새 구하기 쿼리를 만듭니다.
 
-1. **새 쿼리** 를 클릭 하 고 **저장**을 선택 합니다.
-2. 모든 빈 필드를 입력 하 고 **저장**을 선택 합니다.
+1. **새 쿼리** 를 클릭 하 고 **저장** 을 선택 합니다.
+2. 모든 빈 필드를 입력 하 고 **저장** 을 선택 합니다.
 
    ![새 쿼리](./media/tutorial-hunting/new-query.png)
 
 기존 구하기 쿼리를 복제 하 고 수정 합니다.
 
 1. 수정 하려는 테이블에서 구하기 쿼리를 선택 합니다.
-2. 수정 하려는 쿼리 줄에서 줄임표 (...)를 선택 하 고 **쿼리 복제**를 선택 합니다.
+2. 수정 하려는 쿼리 줄에서 줄임표 (...)를 선택 하 고 **쿼리 복제** 를 선택 합니다.
 
    ![쿼리 복제](./media/tutorial-hunting/clone-query.png)
  
 
-3. 쿼리를 수정 하 고 **만들기**를 선택 합니다.
+3. 쿼리를 수정 하 고 **만들기** 를 선택 합니다.
 
    ![사용자 지정 쿼리](./media/tutorial-hunting/custom-query.png)
 

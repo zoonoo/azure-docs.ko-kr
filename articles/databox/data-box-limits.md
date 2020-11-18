@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/16/2020
 ms.author: alkohli
-ms.openlocfilehash: b193247fee843796da0cb2fcfc1a874b1a1b72fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00ba711661d69bbaf53ff51fb2cb833d9b1c1ae2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91660924"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660426"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box 제한
 
@@ -28,7 +28,7 @@ Microsoft Azure Data Box를 배포하고 운영할 때 이러한 제한을 고�
 - 가져오기 및 내보내기에 대 한 최대 5억 파일을 저장할 수 Data Box.
 - Data Box는 클라우드에서 최대 512의 컨테이너 또는 공유를 지원 합니다. 사용자 공유 내의 최상위 디렉터리는 클라우드의 컨테이너 또는 Azure 파일 공유로 사용 됩니다. 
 - ReFS 메타 데이터 공간 사용으로 인해 Data Box 사용 용량은 80 TB 미만이 될 수 있습니다.
-- Data Box는 NFS 공유에서 한 번에 최대 5 개의 클라이언트 연결을 지원 합니다. 
+- Data Box는 NFS 공유에서 한 번에 최대 10 개의 클라이언트 연결을 지원 합니다.
 
 ## <a name="azure-storage-limits"></a>Azure Storage 제한
 

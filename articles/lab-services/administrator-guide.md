@@ -3,12 +3,12 @@ title: Azure Lab Services - 관리자 가이드 | Microsoft Docs
 description: 이 가이드는 Azure Lab Services를 사용하여 랩 계정을 만들고 관리하는 관리자에게 도움을 줍니다.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 8670a9d56575dbfb6d3e565ec97191581dc612a8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b1fadc58926b00c75ab888dad86e45b181059a38
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491038"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659848"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - 관리자 가이드
 대학 클라우드 리소스를 관리하는 IT(정보 기술) 관리자가 일반적으로 학교의 랩 계정을 설정합니다. 랩 계정이 설정 되 면 관리자 또는 교육자는 랩 계정 내에 포함 된 랩을 만듭니다. 이 문서에서는 관련 Azure 리소스 및 해당 리소스를 만들기 위한 지침에 대한 대략적인 개요를 제공합니다.
@@ -19,7 +19,7 @@ ms.locfileid: "94491038"
 - 랩 계정, 공유 이미지 갤러리 및 이미지 버전은 구독 내에서 호스팅됩니다.
 - 동일한 리소스 그룹에서 랩 계정 및 공유 이미지 갤러리를 사용할 수 있습니다. 이 다이어그램에서는 서로 다른 리소스 그룹에 있습니다.
 
-아키텍처에 대 한 자세한 내용은 [Labs 아키텍처 기본 사항](https://docs.microsoft.com/azure/lab-services/classroom-labs-fundamentals) 문서를 참조 하세요.
+아키텍처에 대 한 자세한 내용은 [Labs 아키텍처 기본 사항](./classroom-labs-fundamentals.md) 문서를 참조 하세요.
 
 ## <a name="subscription"></a>Subscription
 대학에는 하나 이상의 Azure 구독이 있습니다. 구독은 랩 계정을 포함하여 구독 내에서 사용되는 모든 Azure 리소스\서비스의 청구 및 보안을 관리하는 데 사용됩니다.
@@ -58,7 +58,7 @@ ms.locfileid: "94491038"
 
 - **랩 계정별 별도 예산**
   
-    단일 랩 계정을 통해 모든 랩 비용을 보고 하는 대신 보다 명확 하 게 분리 된 예산이 필요할 수 있습니다. 예를 들어 대학의 수학 부서, 컴퓨터 과학 부서 등을 위한 랩 계정을 만들어 부서별로 예산을 분리할 수 있습니다.  그런 다음 [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview)를 사용하여 각 개별 랩 계정의 비용을 확인할 수 있습니다.
+    단일 랩 계정을 통해 모든 랩 비용을 보고 하는 대신 보다 명확 하 게 분리 된 예산이 필요할 수 있습니다. 예를 들어 대학의 수학 부서, 컴퓨터 과학 부서 등을 위한 랩 계정을 만들어 부서별로 예산을 분리할 수 있습니다.  그런 다음 [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md)를 사용하여 각 개별 랩 계정의 비용을 확인할 수 있습니다.
 
 - **활성\프로덕션 랩에서 파일럿 랩 격리**
   
@@ -119,7 +119,7 @@ Azure Lab Services를 시작 하는 경우 리소스 그룹, 랩 계정, 랩 및
 | Resource group | 하나 이상의 랩 계정과 하나 이상의 공유 이미지 갤러리 포함 | \<organization short name\>-\<environment\>-rg<ul><li>**조직 약식 이름** 은 리소스 그룹이 지원하는 조직의 이름을 식별합니다.</li><li>**환경** 은 파일럿 또는 프로덕션과 같은 리소스의 환경을 식별합니다.</li><li>**Rg** 는 리소스 종류인 리소스 그룹을 나타냅니다.</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
 | 랩 계정 | 하나 이상의 랩 포함 | \<organization short name\>-\<environment\>-la<ul><li>**조직 약식 이름** 은 리소스 그룹이 지원하는 조직의 이름을 식별합니다.</li><li>**환경** 은 파일럿 또는 프로덕션과 같은 리소스의 환경을 식별합니다.</li><li>**La** 는 리소스 종류인 랩 계정을 나타냅니다.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
 | 랩 | 하나 이상의 VM 포함 |\<class name\>-\<timeframe\>-\<educator identifier\><ul><li>**클래스 이름** 은 랩에서 지원하는 클래스의 이름을 식별합니다.</li><li>**시간 범위** 는 클래스가 제공되는 시간 범위를 식별합니다.</li>**교육자 식별자** 는 랩을 소유하는 교육자를 식별합니다.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
-| 공유 이미지 갤러리 | 하나 이상의 VM 이미지 버전 포함 | \<organization short name\>갤러리 | contosouniversitylabsgallery |
+| 공유 이미지 갤러리 | 하나 이상의 VM 이미지 버전 포함 | \<organization short name\>gallery | contosouniversitylabsgallery |
 
 다른 Azure 리소스의 이름을 지정하는 방법에 대한 자세한 내용은 [Azure 리소스에 대한 명명 규칙](/azure/architecture/best-practices/naming-conventions)을 참조하세요.
 
@@ -141,18 +141,18 @@ Azure Lab Services 리소스를 설정하는 경우 리소스를 호스팅할 �
 
   - **랩 계정이 VNet(가상 네트워크)에 피어링됨**
   
-    동일한 지역에 있는 경우 랩 계정을 [VNet과 피어링](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network)할 수 있습니다.  랩 계정이 VNet을 사용 하 여 피어 링 면 랩 계정과 VNet 모두와 동일한 지역에 랩을 자동으로 만듭니다.
+    동일한 지역에 있는 경우 랩 계정을 [VNet과 피어링](./how-to-connect-peer-virtual-network.md)할 수 있습니다.  랩 계정이 VNet을 사용 하 여 피어 링 면 랩 계정과 VNet 모두와 동일한 지역에 랩을 자동으로 만듭니다.
 
     > [!NOTE]
-    > 랩 계정이 VNet과 피어링되면 **랩 작성자가 랩 위치를 선택하도록 허용** 설정을 사용할 수 없습니다. 이 설정에 대한 추가 정보는 다음 문서에서 찾을 수 있습니다. [랩 작성자가 랩의 위치를 선택하도록 허용](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location).
+    > 랩 계정이 VNet과 피어링되면 **랩 작성자가 랩 위치를 선택하도록 허용** 설정을 사용할 수 없습니다. 이 설정에 대한 추가 정보는 다음 문서에서 찾을 수 있습니다. [랩 작성자가 랩의 위치를 선택하도록 허용](./allow-lab-creator-pick-lab-location.md).
     
-  - * * VNet No 피어 링 * *_및_* _ lab 작성자는 lab location_를 선택할 수 없습니다. *
+  - * * VNet No 피어 링 **_및_* _ lab 작성자는 lab location_를 선택할 수 없습니다. *
   
-    랩 *계정을 사용 하는* VNet 피어 링 **없고** [랩 작성자가 랩 위치를 **not** 선택할](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location)수 없는 경우 labs는 사용 가능한 VM 용량이 있는 지역에 자동으로 생성 됩니다.  특히 Azure Lab Services는 [랩 계정과 동일한 지리적 위치 내에 있는 지역](https://azure.microsoft.com/global-infrastructure/regions)에서 가용성을 찾습니다.
+    랩 *계정을 사용 하는* VNet 피어 링 **없고** [랩 작성자가 랩 위치를 **not** 선택할](./allow-lab-creator-pick-lab-location.md)수 없는 경우 labs는 사용 가능한 VM 용량이 있는 지역에 자동으로 생성 됩니다.  특히 Azure Lab Services는 [랩 계정과 동일한 지리적 위치 내에 있는 지역](https://azure.microsoft.com/global-infrastructure/regions)에서 가용성을 찾습니다.
 
-  - * * VNet No 피어 링 * *_및_* _ lab 작성자가 lab location_를 선택할 수 있습니다. *
+  - * * VNet No 피어 링 **_및_* _ lab 작성자가 lab location_를 선택할 수 있습니다. *
        
-    피어링된 VNet이 **없고** [랩 작성자 랩 위치를 선택할 수 있는 경우](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location) 랩 작성자가 선택할 수 있는 위치는 사용 가능한 용량을 기준으로 합니다.
+    피어링된 VNet이 **없고** [랩 작성자 랩 위치를 선택할 수 있는 경우](./allow-lab-creator-pick-lab-location.md) 랩 작성자가 선택할 수 있는 위치는 사용 가능한 용량을 기준으로 합니다.
 
 > [!NOTE]
 > 지역에 충분한 VM 용량이 있는지 확인하려면 랩 계정을 통하거나 랩을 만들 때 먼저 용량을 요청하는 것이 중요합니다.
@@ -169,18 +169,18 @@ Azure Lab Services 리소스를 설정하는 경우 리소스를 호스팅할 �
 
 | 크기 | 사양 | 계열 | 권장 사용 |
 | ---- | ----- | ------ | ------------- |
-| 작음| <ul><li>2개 코어</li><li>3.5GB RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 이 크기는 명령줄, 웹 브라우저 열기, 낮은 트래픽 웹 서버, 중소규모 데이터베이스에 가장 적합합니다. |
-| 중간 | <ul><li>4개 코어</li><li>7GB RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 이 크기는 관계형 데이터베이스, 메모리 내 캐시 및 분석에 가장 적합합니다. |
-| 중간(중첩된 가상화) | <ul><li>4개 코어</li><li>16GB RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | 이 크기는 관계형 데이터베이스, 메모리 내 캐시 및 분석에 가장 적합합니다.
-| 큰 | <ul><li>8개 코어</li><li>16GB RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | 이 크기는 더 빠른 CPU, 향상된 로컬 디스크 성능, 큰 데이터베이스, 큰 메모리 캐시가 필요한 애플리케이션에 가장 적합합니다.  이 크기는 중첩된 가상화도 지원합니다. |
-| 대형(중첩된 가상화) | <ul><li>8개 코어</li><li>32GB RAM</li></ul>  | [Standard_D8s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | 이 크기는 더 빠른 CPU, 향상된 로컬 디스크 성능, 큰 데이터베이스, 큰 메모리 캐시가 필요한 애플리케이션에 가장 적합합니다. |
-| 소형 GPU(시각화) | <ul><li>6개 코어</li><li>56GB RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | 이 크기는 OpenGL 및 DirectX와 같은 프레임워크를 사용하는 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합합니다. |
-| 소형 GPU(컴퓨팅) | <ul><li>6개 코어</li><li>56GB RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |이 크기는 인공 지능과 Deep Learning 같은 컴퓨팅을 많이 사용하는 애플리케이션에 가장 적합합니다. |
-| 중간 GPU(시각화) | <ul><li>12개 코어</li><li>112GB RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 이 크기는 OpenGL 및 DirectX와 같은 프레임워크를 사용하는 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합합니다. |
+| 작음| <ul><li>2개 코어</li><li>3.5GB RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | 이 크기는 명령줄, 웹 브라우저 열기, 낮은 트래픽 웹 서버, 중소규모 데이터베이스에 가장 적합합니다. |
+| 중간 | <ul><li>4개 코어</li><li>7GB RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | 이 크기는 관계형 데이터베이스, 메모리 내 캐시 및 분석에 가장 적합합니다. |
+| 중간(중첩된 가상화) | <ul><li>4개 코어</li><li>16GB RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | 이 크기는 관계형 데이터베이스, 메모리 내 캐시 및 분석에 가장 적합합니다.
+| 큰 | <ul><li>8개 코어</li><li>16GB RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | 이 크기는 더 빠른 CPU, 향상된 로컬 디스크 성능, 큰 데이터베이스, 큰 메모리 캐시가 필요한 애플리케이션에 가장 적합합니다.  이 크기는 중첩된 가상화도 지원합니다. |
+| 대형(중첩된 가상화) | <ul><li>8개 코어</li><li>32GB RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | 이 크기는 더 빠른 CPU, 향상된 로컬 디스크 성능, 큰 데이터베이스, 큰 메모리 캐시가 필요한 애플리케이션에 가장 적합합니다. |
+| 소형 GPU(시각화) | <ul><li>6개 코어</li><li>56GB RAM</li>  | [Standard_NV6](../virtual-machines/nv-series.md) | 이 크기는 OpenGL 및 DirectX와 같은 프레임워크를 사용하는 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합합니다. |
+| 소형 GPU(컴퓨팅) | <ul><li>6개 코어</li><li>56GB RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md) |이 크기는 인공 지능과 Deep Learning 같은 컴퓨팅을 많이 사용하는 애플리케이션에 가장 적합합니다. |
+| 중간 GPU(시각화) | <ul><li>12개 코어</li><li>112GB RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | 이 크기는 OpenGL 및 DirectX와 같은 프레임워크를 사용하는 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합합니다. |
 
 ## <a name="manage-identity"></a>ID 관리
 
-Azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview)를 사용 하 여 랩 계정 및 랩에 대 한 액세스를 제공 하기 위해 다음 역할을 할당할 수 있습니다.
+Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 사용 하 여 랩 계정 및 랩에 대 한 액세스를 제공 하기 위해 다음 역할을 할당할 수 있습니다.
 
 - **랩 계정 소유자**
 
@@ -200,7 +200,7 @@ Azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/r
 
 - **랩 작성자**
 
-    랩 계정 내에서 랩을 만들려면 교육자가 **랩 작성자** 역할의 멤버 여야 합니다.  교육자은 랩을 만들 때 랩의 소유자로 자동 추가 됩니다.  [**랩 작성자** 역할에 사용자를 추가](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role)하는 방법에 대한 자습서를 참조하세요. 
+    랩 계정 내에서 랩을 만들려면 교육자가 **랩 작성자** 역할의 멤버 여야 합니다.  교육자은 랩을 만들 때 랩의 소유자로 자동 추가 됩니다.  [**랩 작성자** 역할에 사용자를 추가](./tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role)하는 방법에 대한 자습서를 참조하세요. 
 
 - **랩 소유자 \ 기여자**
   
@@ -217,7 +217,7 @@ Azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/r
 다음은 역할을 할당하는 데 도움이 되는 팁입니다.
    - 일반적으로 관리자만 랩 계정의 **소유자** 또는 **기여자** 역할의 멤버여야 합니다. 소유자\기여자가 둘 이상 있을 수 있습니다.
    - 교육자 새 랩을 만들고 만든 랩을 관리할 수 있는 기능을 제공 합니다. **랩 작성자** 역할에 액세스 권한을 할당 하기만 하면 됩니다.
-   - 교육자에 게 특정 랩을 관리할 수 있는 기능을 제공 하는 기능을 제공 하기 위해 새 랩을 만들 수는 *없습니다* . 관리 하는 각 랩에 대 한 **소유자** 또는 **참가자** 역할에 액세스 권한을 할당 해야 합니다.  예를 들어 교수 및 학습 도우미가 랩을 공동 소유 하도록 허용할 수 있습니다.  [사용자를 랩에 소유자로 추가](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner)하는 방법에 대 한 가이드를 참조 하세요.
+   - 교육자에 게 특정 랩을 관리할 수 있는 기능을 제공 하는 기능을 제공 하기 위해 새 랩을 만들 수는 *없습니다* . 관리 하는 각 랩에 대 한 **소유자** 또는 **참가자** 역할에 액세스 권한을 할당 해야 합니다.  예를 들어 교수 및 학습 도우미가 랩을 공동 소유 하도록 허용할 수 있습니다.  [사용자를 랩에 소유자로 추가](./how-to-add-user-lab-owner.md)하는 방법에 대 한 가이드를 참조 하세요.
 
 ## <a name="pricing"></a>가격 책정
 
@@ -274,4 +274,3 @@ Azure Lab Services의 가격은 다음 문서에 설명되어 있습니다. [Azu
 - [랩 설정 가이드](setup-guide.md)
 - [랩용 Cost Management](cost-management-guide.md)
 - [팀 내에서 Azure Lab Services 사용](lab-services-within-teams-overview.md)
-

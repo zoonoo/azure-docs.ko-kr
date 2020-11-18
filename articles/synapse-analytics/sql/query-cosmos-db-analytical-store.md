@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 087ee796fbd3c0563b8019a062acab9c7ad80bb1
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 2ffc524c14b9ba281d7e386f7f8c726093f11dbf
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579388"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661021"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Azure Synapse Link에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB 데이터 쿼리 (미리 보기)
 
@@ -25,7 +25,7 @@ Azure Cosmos DB를 쿼리 하는 경우 대부분의 [SQL 함수 및 연산자](
 이 문서에서는 Synapse 링크를 사용 하는 Azure Cosmos DB 컨테이너에서 데이터를 쿼리 하는 서버를 사용 하지 않는 SQL 풀로 쿼리를 작성 하는 방법을 배웁니다. 그런 다음 Azure Cosmos DB 컨테이너를 통해 서버 리스 SQL 풀 뷰를 빌드하고 [이](./tutorial-data-analyst.md) 자습서의 Power BI 모델에 연결 하는 방법에 대해 자세히 알아볼 수 있습니다. 
 
 > [!IMPORTANT]
-> 이 자습서에서는 [Azure Cosmos DB 잘 정의 된 스키마](../../cosmos-db/analytical-store-introduction.md#schema-representation)가 있는 컨테이너를 사용 합니다. 서버를 사용 하지 않는 SQL 풀에서 [Azure Cosmos DB 전체 충실도 스키마](#full-fidelity-schema) 를 제공 하는 쿼리 환경은 미리 보기 피드백에 따라 변경 될 임시 동작입니다. `OPENROWSET` `WITH` 쿼리 환경이 변경 되 고 잘 정의 된 스키마에 맞게 정렬 될 수 있으므로 전체 충실도 스키마를 사용 하 여 컨테이너에서 데이터를 읽는 절이 없는 함수의 결과 집합 스키마를 사용 하지 마세요. 의견을 제공 하려면 [Azure Synapse Analytics 피드백 포럼](https://feedback.azure.com/forums/307516-azure-synapse-analytics) 또는 contact [synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com) 에 의견을 게시 하세요.
+> 이 자습서에서는 [Azure Cosmos DB 잘 정의 된 스키마](../../cosmos-db/analytical-store-introduction.md#schema-representation)가 있는 컨테이너를 사용 합니다. 서버를 사용 하지 않는 SQL 풀에서 [Azure Cosmos DB 전체 충실도 스키마](#full-fidelity-schema) 를 제공 하는 쿼리 환경은 미리 보기 피드백에 따라 변경 되는 임시 동작입니다. `OPENROWSET` `WITH` 쿼리 환경이 잘 정의 된 스키마를 기준으로 정렬 되 고 변경 될 수 있으므로 전체 충실도 스키마를 사용 하 여 컨테이너에서 데이터를 읽는 절 없이 함수의 결과 집합 스키마를 사용 하지 마세요. [Azure Synapse Analytics 피드백 포럼](https://feedback.azure.com/forums/307516-azure-synapse-analytics) 에 피드백을 게시 하거나 [Synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com) 에 연락 하 여 피드백을 제공 하세요.
 
 ## <a name="overview"></a>개요
 

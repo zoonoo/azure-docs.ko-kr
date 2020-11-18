@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 63484361a6d5a331fd9dc646c53627918ce8b246
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: f348a8d8755402d6426f19eabc432f54e3fb8e42
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630552"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659661"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Azure IoT Connector for FHIR(미리 보기) 매핑 템플릿
 이 문서에서는 매핑 템플릿을 사용 하 여 신속한 의료 상호 운용성 리소스 (FHIR&#174;) *에 대 한 Azure IoT 커넥터를 구성 하는 방법을 자세히 설명 합니다.
@@ -60,19 +60,19 @@ FHIR 용 Azure IoT 커넥터에는 두 가지 유형의 JSON 기반 매핑 템�
 ```
 
 ### <a name="mapping-with-json-path"></a>JSON 경로를 사용 하 여 매핑
-현재 지원 되는 두 개의 장치 콘텐츠 템플릿 형식은 모두 JSON 경로를 사용 하 여 필수 템플릿과 추출 된 값과 일치 합니다. JSON 경로에 대 한 자세한 내용은 [여기](https://goessner.net/articles/JsonPath/)를 참조 하세요. 두 템플릿 형식 모두 json [.net 구현을](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) 사용 하 여 json 경로 식을 확인 합니다.
+현재 지원 되는 세 가지 장치 콘텐츠 템플릿 형식은 모두 JSON 경로를 사용 하 여 필수 템플릿과 추출 된 값을 일치 시킵니다. JSON 경로에 대 한 자세한 내용은 [여기](https://goessner.net/articles/JsonPath/)를 참조 하세요. 세 가지 템플릿 형식은 모두 json [.net 구현을](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) 사용 하 여 json 경로 식을 확인 합니다.
 
 #### <a name="jsonpathcontenttemplate"></a>JsonPathContentTemplate
 JsonPathContentTemplate를 사용 하면 JSON 경로를 사용 하 여 이벤트 허브 메시지에서 값을 비교 하 고 추출할 수 있습니다.
 
-| 속성 | Description |<div style="width:150px">예제</div>
+| 속성 | 설명 |<div style="width:150px">예제</div>
 | --- | --- | --- 
 |**T**|템플릿과 일치 하는 측정값과 연결할 형식입니다.|`heartrate`
 |**TypeMatchExpression**|이벤트 허브 페이로드에 대해 평가 되는 JSON 경로 식입니다. 일치 하는 JToken이 있으면 템플릿이 일치 하는 것으로 간주 됩니다. 모든 후속 식은 여기에 일치 하는 추출 된 JToken에 대해 평가 됩니다.|`$..[?(@heartRate)]`
 |**TimestampExpression**|측정 OccurenceTimeUtc의 타임 스탬프 값을 추출 하는 JSON 경로 식입니다.|`$.endDate`
 |**DeviceIdExpression**|장치 식별자를 추출 하는 JSON 경로 식입니다.|`$.deviceId`
-|**PatientIdExpression**|*선택 사항* : 환자 식별자를 추출 하는 JSON 경로 식입니다.|`$.patientId`
-|**EncounterIdExpression**|*선택 사항* : 발생 식별자를 추출 하는 JSON 경로 식입니다.|`$.encounterId`
+|**PatientIdExpression**|*선택 사항*: 환자 식별자를 추출 하는 JSON 경로 식입니다.|`$.patientId`
+|**EncounterIdExpression**|*선택 사항*: 발생 식별자를 추출 하는 JSON 경로 식입니다.|`$.encounterId`
 |**값 []. ValueName**|후속 식에 의해 추출 된 값과 연결할 이름입니다. FHIR 매핑 템플릿의 필수 값/구성 요소를 바인딩하는 데 사용 됩니다. |`hr`
 |**값 []. ValueExpression**|필요한 값을 추출 하는 JSON 경로 식입니다.|`$.heartRate`
 |**값 []. 필수**|에는 값이 페이로드에 있어야 합니다.  이러한 항목이 없으면 측정이 생성 되지 않고 InvalidOperationException이 throw 됩니다.|`true`
@@ -251,10 +251,12 @@ JsonPathContentTemplate를 사용 하면 JSON 경로를 사용 하 여 이벤트
     }
 }
 ```
+
 #### <a name="iotjsonpathcontenttemplate"></a>IotJsonPathContentTemplate
+
 IotJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression가 필요 하지 않은 경우를 제외 하 고 JsonPathContentTemplate와 비슷합니다.
 
-이 템플릿을 사용 하는 경우 평가 중인 메시지가 [Azure IoT Hub 장치 sdk](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks)를 사용 하 여 전송 됩니다. 이러한 Sdk를 사용 하는 경우 장치 id (Azure Iot Hub/Central의 장치 식별자가 대상 FHIR 서버에서 장치 리소스에 대 한 식별자로 등록 됨) 및 메시지의 타임 스탬프를 알 수 있습니다. Azure IoT Hub 장치 Sdk를 사용 하 고 있지만 장치 id 또는 측정 타임 스탬프에 대 한 메시지 본문에 사용자 지정 속성을 사용 하는 경우에도 JsonPathContentTemplate를 사용할 수 있습니다.
+이 템플릿을 사용할 때 평가 되는 메시지는 [Azure IoT Central](../iot-central/core/overview-iot-central.md)의 [Azure IoT Hub 장치 Sdk](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) 또는 [데이터 내보내기 (레거시)](../iot-central/core/howto-export-data-legacy.md) 기능을 사용 하 여 전송 됩니다. 이러한 Sdk를 사용 하는 경우 장치 id (Azure Iot Hub/Central의 장치 식별자가 대상 FHIR 서버에서 장치 리소스에 대 한 식별자로 등록 됨) 및 메시지의 타임 스탬프를 알 수 있습니다. Azure IoT Hub 장치 Sdk를 사용 하 고 있지만 장치 id 또는 측정 타임 스탬프에 대 한 메시지 본문에 사용자 지정 속성을 사용 하는 경우에도 JsonPathContentTemplate를 사용할 수 있습니다.
 
 *참고: IotJsonPathContentTemplate를 사용 하는 경우 TypeMatchExpression는 전체 메시지를 JToken로 확인 해야 합니다. 아래 예제를 참조 하세요.* 
 ##### <a name="examples"></a>예
@@ -332,13 +334,108 @@ IotJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression가 필�
 }
 ```
 
+#### <a name="iotcentraljsonpathcontenttemplate"></a>IotCentralJsonPathContentTemplate
+
+IotCentralJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression 필요 하지 않으며 평가할 메시지가 [Azure IoT Central](../iot-central/core/overview-iot-central.md)의 [데이터 내보내기](../iot-central/core/howto-export-data.md) 기능을 통해 전송 되는 경우에도 사용 됩니다. 이 기능을 사용 하는 경우 장치 id (Azure Iot Central의 장치 식별자가 대상 FHIR 서버에서 장치 리소스에 대 한 식별자로 등록 됨) 및 메시지의 타임 스탬프를 알 수 있습니다. Azure IoT Central의 데이터 내보내기 기능을 사용 중이지만 장치 id 또는 측정 타임 스탬프에 대 한 메시지 본문의 사용자 지정 속성을 사용 하는 경우에도 JsonPathContentTemplate를 사용할 수 있습니다.
+
+*참고: IotCentralJsonPathContentTemplate를 사용 하는 경우 TypeMatchExpression는 전체 메시지를 JToken로 확인 해야 합니다. 아래 예제를 참조 하세요.* 
+##### <a name="examples"></a>예
+---
+**하트 요금**
+
+*Message*
+```json
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@v1",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2020-08-05T22:26:55.455Z",
+    "telemetry": {
+        "HeartRate": "88",
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "messageProperties": {
+      "messageProp": "value"
+    }
+}
+```
+*템플릿*
+```json
+{
+    "templateType": "IotCentralJsonPathContent",
+    "template": {
+        "typeName": "heartrate",
+        "typeMatchExpression": "$..[?(@telemetry.HeartRate)]",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.HeartRate",
+                "valueName": "hr"
+            }
+        ]
+    }
+}
+```
+---
+**블러드 압력**
+
+*Message*
+```json
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@v1",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2020-08-05T22:26:55.455Z",
+    "telemetry": {
+        "BloodPressure": {
+            "Diastolic": "87",
+            "Systolic": "123"
+        }
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "messageProperties": {
+      "messageProp": "value"
+    }
+}
+```
+*템플릿*
+```json
+{
+    "templateType": "IotCentralJsonPathContent",
+    "template": {
+        "typeName": "bloodPressure",
+        "typeMatchExpression": "$..[?(@telemetry.BloodPressure.Diastolic && @telemetry.BloodPressure.Systolic)]",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.BloodPressure.Diastolic",
+                "valueName": "bp_diastolic"
+            },
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.BloodPressure.Systolic",
+                "valueName": "bp_systolic"
+            }
+        ]
+    }
+}
+```
+
 ## <a name="fhir-mapping"></a>FHIR 매핑
 장치 콘텐츠가 정규화 된 모델로 추출 되 면 장치 식별자, 측정 유형 및 기간에 따라 데이터가 수집 되 고 그룹화 됩니다. 이 그룹화의 출력은 FHIR 리소스 (현재[관찰](https://www.hl7.org/fhir/observation.html) )로 변환 하기 위해 전송 됩니다. 여기서 FHIR 매핑 템플릿은 데이터가 FHIR 관찰에 매핑되는 방식을 제어 합니다. 특정 시점 또는 특정 시간에 대 한 관찰을 만들어야 하나요? 관찰에 추가 해야 하는 코드는 무엇입니까? 값은 [Sampleddata](https://www.hl7.org/fhir/datatypes.html#SampledData) 또는 [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)로 표시 되어야 하나요? 이러한 데이터 형식은 모두 FHIR 매핑 구성 컨트롤의 모든 옵션입니다.
 
 ### <a name="codevaluefhirtemplate"></a>Code-efrtemplate
 현재이 템플릿은 현재 FHIR 매핑에서 지원 되는 유일한 템플릿입니다.  코드, 유효 기간 및 관찰 값을 정의할 수 있습니다. 여러 값 형식이 지원 됩니다. [Sampleddata](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept)및 [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity). 이러한 구성 가능한 값과 함께 관찰 리소스의 식별자와 적절 한 장치 및 환자 리소스에 대 한 링크가 자동으로 처리 됩니다.
 
-| 속성 | Description 
+| 속성 | 설명 
 | --- | ---
 |**T**| 이 템플릿이 바인딩될 측정 형식입니다. 이 형식을 출력 하는 장치 매핑 템플릿이 하나 이상 있어야 합니다.
 |**PeriodInterval**|관찰을 만든 기간이 표시 되는 시간입니다. 지원 되는 값은 0 (인스턴스), 60 (1 시간), 1440 (일)입니다.
@@ -357,7 +454,7 @@ IotJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression가 필�
 #### <a name="sampleddata"></a>SampledData
 [Sampleddata](http://hl7.org/fhir/datatypes.html#SampledData) fhir 데이터 형식을 나타냅니다. 관찰 측정은 특정 시점에서 시작 하 고 정의 된 기간을 사용 하 여 전달 하는 값 스트림에 기록 됩니다. 값이 없는 경우이 `E` 데이터 스트림에 기록 됩니다. 두 개 이상의 값이 데이터 스트림의 동일한 위치를 차지 하는 기간이 면 최신 값이 사용 됩니다. SampledData를 사용 하는 관찰이 업데이트 되는 경우에도 동일한 논리가 적용 됩니다.
 
-| 속성 | Description 
+| 속성 | 설명 
 | --- | ---
 |**DefaultPeriod**|사용할 기본 기간 (밀리초)입니다. 
 |**단위**|SampledData의 원점에 설정할 단위입니다. 
@@ -365,16 +462,16 @@ IotJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression가 필�
 #### <a name="quantity"></a>수량
 [수량](http://hl7.org/fhir/datatypes.html#Quantity) fhir 데이터 형식을 나타냅니다. 그룹화에 두 개 이상의 값이 있는 경우 첫 번째 값만 사용 됩니다. 동일한 관찰에 매핑되는 새 값이 도착 하면 이전 값을 덮어씁니다.
 
-| 속성 | Description 
+| 속성 | 설명 
 | --- | --- 
 |**단위**| 단위 표현입니다.
-|‘코드’| 단위의 코딩 된 형태입니다.
+|**코드**| 단위의 코딩 된 형태입니다.
 |**시스템**| 코딩 된 단위 형식을 정의 하는 시스템입니다.
 
 ### <a name="codeableconcept"></a>CodeableConcept
 [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept) fhir 데이터 형식을 나타냅니다. 실제 값은 사용 되지 않습니다.
 
-| 속성 | Description 
+| 속성 | 설명 
 | --- | --- 
 |**Text**|일반 텍스트 표현입니다. 
 |**코드가**|만든 관찰에 적용할 하나 이상의 [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) 입니다.

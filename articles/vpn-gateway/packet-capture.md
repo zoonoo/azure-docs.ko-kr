@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: radwiv
-ms.openlocfilehash: 3be01f6d8e1fb1f6ba541f8d1cb0c92d2a43b0da
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c6aa2b63344ef629d55f5a4efb66e4ee0e55975e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073107"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661038"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>VPN gateway에 대 한 패킷 캡처 구성
 
@@ -318,7 +318,7 @@ ms.locfileid: "92073107"
 
 ## <a name="set-up-packet-capture-by-using-powershell"></a>PowerShell을 사용 하 여 패킷 캡처 설정
 
-다음 예제에서는 패킷 캡처를 시작 및 중지 하는 PowerShell 명령을 보여 줍니다. 매개 변수 옵션에 대 한 자세한 내용은 [AzVirtualnetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture)를 참조 하세요.
+다음 예제에서는 패킷 캡처를 시작 및 중지 하는 PowerShell 명령을 보여 줍니다. 매개 변수 옵션에 대 한 자세한 내용은 [AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture)를 참조 하세요.
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>VPN gateway에 대 한 패킷 캡처 시작
 
@@ -354,7 +354,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - 제안 된 최소 패킷 캡처 기간은 600 초입니다. 경로의 여러 구성 요소 간 동기화 문제로 인해 짧은 패킷 캡처가 전체 데이터를 제공 하지 않을 수 있습니다.
 - 패킷 캡처 데이터 파일은 PCAP 형식으로 생성 됩니다. Wireshark 또는 기타 일반적으로 사용할 수 있는 응용 프로그램을 사용 하 여 PCAP 파일을 엽니다.
 - 패킷 캡처는 정책 기반 게이트웨이에서 지원 되지 않습니다.
-- `SASurl`매개 변수가 올바르게 구성 되지 않은 경우 추적에 저장소 오류가 발생 했을 수 있습니다. 매개 변수를 올바르게 생성 하는 방법에 대 한 예제는 `SASurl` [AzVirtualNetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture)를 참조 하세요.
+- `SASurl`매개 변수가 올바르게 구성 되지 않은 경우 추적에 저장소 오류가 발생 했을 수 있습니다. 매개 변수를 올바르게 생성 하는 방법에 대 한 예제는 `SASurl` [AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture)를 참조 하세요.
 
 
 

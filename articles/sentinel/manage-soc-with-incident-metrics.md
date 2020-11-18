@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 408913fed864ee5f966b96c81afbfee4b2dc8678
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88761726"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660732"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>인시던트 메트릭을 사용하여 SOC를 효율적으로 관리
 
@@ -33,13 +33,13 @@ SOC (보안 작업 센터) 관리자는 팀의 성능을 측정 하기 위해 �
 
 ## <a name="use-the-security-incidents-table"></a>보안 인시던트 표 사용
 
-**Securityincident** 테이블은 Azure 센티널에 기본 제공 됩니다. **Logs**에서 **securityinsights** 컬렉션의 다른 테이블과 함께 찾을 수 있습니다. Log Analytics의 다른 테이블과 마찬가지로 쿼리를 수행할 수 있습니다.
+**Securityincident** 테이블은 Azure 센티널에 기본 제공 됩니다. **Logs** 에서 **securityinsights** 컬렉션의 다른 테이블과 함께 찾을 수 있습니다. Log Analytics의 다른 테이블과 마찬가지로 쿼리를 수행할 수 있습니다.
 
 :::image type="content" source="./media/manage-soc-with-incident-metrics/security-incident-table.png" alt-text="보안 인시던트 표":::
 
 인시던트를 만들거나 업데이트할 때마다 새 로그 항목이 테이블에 추가 됩니다. 이를 통해 인시던트에 대 한 변경 내용을 추적할 수 있으며 더 강력한 SOC 메트릭을 사용할 수 있지만, 인시던트에 대해 중복 항목을 제거 해야 할 수 있으므로 (실행 중인 정확한 쿼리에 따라)이 테이블에 대 한 쿼리를 생성할 때이를 염두에 두어야 합니다. 
 
-예를 들어 인시던트 번호로 정렬 되었지만 인시던트의 가장 최근의 로그만 반환 하려는 모든 인시던트의 목록을 반환 하려는 경우 집계 함수를 사용 하 여 KQL [요약 연산자](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator) 를 사용 하면 됩니다 `arg_max()` [aggregation function](https://docs.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggfunction).
+예를 들어 인시던트 번호로 정렬 되었지만 인시던트의 가장 최근의 로그만 반환 하려는 모든 인시던트의 목록을 반환 하려는 경우 집계 함수를 사용 하 여 KQL [요약 연산자](/azure/data-explorer/kusto/query/summarizeoperator) 를 사용 하면 됩니다 `arg_max()` [aggregation function](/azure/data-explorer/kusto/query/arg-max-aggfunction).
 
 
 ```Kusto
@@ -82,9 +82,9 @@ SecurityIncident
 
 Azure 센티널 탐색 메뉴에서 **통합 문서** 를 선택 하 고 **템플릿** 탭을 선택 하 여이 새 통합 문서 템플릿을 찾을 수 있습니다. 갤러리에서 **보안 작업 효율성** 을 선택 하 고 **저장 된 통합 문서 보기** 및 **템플릿 보기** 단추 중 하나를 클릭 합니다.
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="보안 인시던트 표":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="보안 인시던트 통합 문서 갤러리":::
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="보안 인시던트 표":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="보안 인시던트 통합 문서 완료":::
 
 템플릿을 사용 하 여 특정 요구 사항에 맞게 사용자 고유의 사용자 지정 통합 문서를 만들 수 있습니다.
 

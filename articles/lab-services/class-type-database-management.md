@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 49f1528f1bb8b422374050512a9ae642ad129fac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bed43e586beff890f0aa8947140ae7d8e50439f3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444015"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659831"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>관계형 데이터베이스에 대 한 데이터베이스 관리를 학습 하는 랩 설정
 
@@ -24,7 +24,7 @@ ms.locfileid: "85444015"
 
 ### <a name="lab-account-settings"></a>랩 계정 설정
 
-랩 계정에 대해 아래 표에 설명 된 설정을 사용 하도록 설정 합니다. Marketplace 이미지를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [랩 작성자에 게 제공 되는 marketplace 이미지 지정](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images)을 참조 하세요.
+랩 계정에 대해 아래 표에 설명 된 설정을 사용 하도록 설정 합니다. Marketplace 이미지를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [랩 작성자에 게 제공 되는 marketplace 이미지 지정](./specify-marketplace-images.md)을 참조 하세요.
 
 | 랩 계정 설정 | Instructions |
 | ------------------- | ------------ |
@@ -41,7 +41,7 @@ ms.locfileid: "85444015"
 
 ## <a name="template-machine-configuration"></a>템플릿 컴퓨터 구성
 
-Windows Server 2019에 MySQL을 설치 하려면 [가상 머신에서 Mysql 커뮤니티 서버 설치 및 실행](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine)에 설명 된 단계를 수행 하면 됩니다.
+Windows Server 2019에 MySQL을 설치 하려면 [가상 머신에서 Mysql 커뮤니티 서버 설치 및 실행](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine)에 설명 된 단계를 수행 하면 됩니다.
 
 SQL Server 2019는 새 랩을 만들 때 선택한 가상 머신 이미지에 사전 설치 되어 있습니다.
 

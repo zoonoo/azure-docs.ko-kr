@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 548393353d38082c175cde20eef1e93017cdd31a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: eef78ffefe8fe13e6f160e38a05405a80d6e46f8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639279"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660953"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows 가상 데스크톱 RDP Shortpath (미리 보기)
 
@@ -151,6 +151,7 @@ New-NetFirewallRule -DisplayName 'Remote Desktop - Shortpath (UDP-In)'  -Action 
 
 * **원본**  -  클라이언트가 있는 **모든** 또는 IP 범위
 * **원본 포트 범위** -* *\** _ _ **대상**  -  **Any**
+* **대상 포트 범위**  -  **3390**
 * **프로토콜**  -  **UDP**
 * **작업**  -  **허용**
 * 필요에 따라 **우선 순위** 를 변경 합니다. 이 우선 순위는 규칙이 적용되는 순서에 영향을 줍니다. 숫자 값이 적을수록 규칙이 먼저 적용됩니다.
@@ -245,6 +246,11 @@ RDP Shortpath 전송을 사용 하지 않도록 설정 해야 하는 경우도 �
 1. 세션 호스트에서 **gpedit.msc** 를 실행 합니다.
 2. **컴퓨터 구성 > 관리 템플릿 > Windows 구성 요소 > 원격 데스크톱 서비스 >** 원격 데스크톱 연결 > 연결로 이동 합니다.
 3. **"RDP 전송 프로토콜 선택"** 설정을 **TCP로만** 설정
+
+## <a name="feedback"></a>피드백
+
+이 공개 미리 보기를 사용 하 여 사용자의 경험에 대 한 의견을 듣고 싶습니다.
+* 질문, 요청, 의견 및 기타 피드백은 [이 사용자 의견 양식을 사용](https://aka.ms/RDPShortpathFeedback)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

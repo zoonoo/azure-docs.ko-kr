@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Azure Arc 지원 클러스터 구성에 GitOps 사용(미리 보기)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 1a8839c2463494ba0e165bf9e1a5d22245fac8df
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ce6c754c308d2979db9b1b8eb36e7858e8a91c3c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371259"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659797"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Arc enabled Kubernetes cluster (Preview)에서 GitOps를 사용 하 여 구성 배포
 
@@ -99,7 +99,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 | 시나리오 | 형식 | 설명 |
 | ------------- | ------------- | ------------- |
 | 공용 Git 리포지토리 | http [s]://server/repo.git 또는 git://server/repo.git   | 공용 Git 리포지토리  |
-| 개인 Git 리포지토리 – SSH – Flux에서 만든 키 | ssh://[user@] 서버/리포지토리. git 또는 [user@] 서버: 리포지토리. git | Flux에서 생성 된 공개 키를 Git 서비스 공급자의 사용자 계정 또는 리포지토리에 추가 해야 합니다. 자세한 내용은 [여기](#apply-configuration-from-a-private-git-repository) |
+| 개인 Git 리포지토리 – SSH – Flux에서 만든 키 | ssh://[user@] 서버/리포지토리. git 또는 [user@] 서버: 리포지토리. git | Flux에서 생성 된 공개 키를 Git 서비스 공급자의 사용자 계정에 추가 해야 합니다. 배포 키가 사용자 계정 대신 리포지토리에 추가 되는 경우 대신를 사용 `git@` `user@` 합니다. 자세한 내용은 [여기](#apply-configuration-from-a-private-git-repository) |
 
 이러한 시나리오는 Flux에서 지원 되지만 아직 sourceControlConfiguration에서 지원 되지 않습니다.
 
@@ -220,26 +220,36 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 1. Azure Portal에서 연결된 클러스터 리소스로 이동합니다.
 2. 리소스 페이지에서 "구성"을 선택하고 이 클러스터에 대한 구성 목록을 확인합니다.
 3. 프라이빗 Git 리포지토리를 사용하는 구성을 선택합니다.
-4. 열린 컨텍스트 창의 맨 아래에서 **리포지토리 공개 키**를 복사합니다.
+4. 열린 컨텍스트 창의 맨 아래에서 **리포지토리 공개 키** 를 복사합니다.
 
-**공개 키를 git 리포지토리에 배포 키로 추가**
+GitHub를 사용 하는 경우 다음 두 가지 옵션 중 하나를 사용 합니다.
 
-1. GitHub를 열고 리포지토리로 이동한 다음 **설정**으로 이동한 다음 **키를 배포** 합니다.
-2. **배포 키 추가**를 클릭합니다.
+**옵션 1: 사용자 계정에 공개 키 추가**
+
+1. GitHub를 열고 페이지의 오른쪽 위 모서리에 있는 프로필 아이콘을 클릭 합니다.
+2. **설정** 클릭
+3. **SSH 및 GPG 키** 를 클릭 합니다.
+4. **새 SSH 키** 를 클릭 합니다.
+5. 제목을 제공합니다.
+6. 공개 키를 붙여넣습니다(따옴표 제외).
+7. **SSH 키 추가** 를 클릭 합니다.
+
+**옵션 2: 공개 키를 git 리포지토리에 배포 키로 추가**
+
+1. GitHub를 열고 리포지토리로 이동한 다음 **설정** 으로 이동한 다음 **키를 배포** 합니다.
+2. **배포 키 추가** 를 클릭 합니다.
 3. 제목을 제공합니다.
-4. **쓰기 액세스 허용**을 선택합니다.
+4. **쓰기 액세스 허용** 을 선택합니다.
 5. 공개 키를 붙여넣습니다(따옴표 제외).
-6. **키 추가**를 클릭합니다.
-
-이러한 키를 관리 하는 방법에 대 한 자세한 내용은 GitHub 문서를 참조 하세요.
+6. **키 추가** 를 클릭 합니다.
 
 **Azure DevOps 리포지토리를 사용하는 경우 SSH 키에 키를 추가합니다.**
 
-1. 오른쪽 위(프로필 이미지 옆)에 있는 **사용자 설정**에서 **SSH 공개 키**를 클릭합니다.
-1. **+ 새 키**를 선택합니다.
+1. 오른쪽 위(프로필 이미지 옆)에 있는 **사용자 설정** 에서 **SSH 공개 키** 를 클릭합니다.
+1. **+ 새 키** 를 선택합니다.
 1. 이름을 제공합니다.
 1. 따옴표를 제외하고 공개 키를 붙여넣습니다.
-1. **추가**를 클릭합니다.
+1. **추가** 를 클릭합니다.
 
 ## <a name="validate-the-kubernetes-configuration"></a>Kubernetes 구성의 유효성을 검사합니다.
 
