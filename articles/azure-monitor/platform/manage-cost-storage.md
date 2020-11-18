@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 71a4fba177f5bbbaf9f8d991222b071d0da66d4d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b66d0f20959d196fddeb8356d8171573f1243b58
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660392"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842280"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -627,7 +627,7 @@ union *
 
 ## <a name="data-transfer-charges-using-log-analytics"></a>Log Analytics를 사용하여 데이터 전송 요금 청구
 
-Log Analytics로 데이터를 전송하면 데이터 대역폭 요금이 발생할 수 있습니다. [Azure Bandwidth 가격 책정 페이지](https://azure.microsoft.com/pricing/details/bandwidth/)에 설명된 바와 같이, 두 지역의 Azure 서비스 간 데이터 전송 요금은 일반 요율을 적용한 아웃바운드 데이터 전송 요금으로 청구되었습니다. 인바운드 데이터 전송은 무료입니다. 다만 이 요금은 Log Analytics 데이터 수집에 드는 비용에 비해 매우 적습니다(수% 정도에 불과). 따라서 Log Analytics에 대 한 비용을 제어 하려면 [수집 데이터 볼륨](#understanding-ingested-data-volume)에 집중 해야 합니다. 
+데이터를 Log Analytics에 전송 하면 데이터 대역폭 요금이 발생할 수 있지만,이로 인해 Log Analytics 에이전트가 설치 되 고 진단 설정이 나 Azure 센티널에 기본 제공 되는 다른 커넥터를 사용 하는 경우 Virtual Machines에는 적용 되지 않습니다. [Azure Bandwidth 가격 책정 페이지](https://azure.microsoft.com/pricing/details/bandwidth/)에 설명된 바와 같이, 두 지역에 위치한 Azure 서비스 간의 데이터 전송 시 요금은 일반 요율을 적용한 아웃바운드 데이터 전송 요금으로 청구되었습니다. 인바운드 데이터 전송은 무료입니다. 다만 이 요금은 Log Analytics 데이터 수집에 드는 비용에 비해 매우 적습니다(수% 정도에 불과). 따라서 Log Analytics에 대 한 비용을 제어 하려면 [수집 데이터 볼륨](#understanding-ingested-data-volume)에 집중 해야 합니다. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Log Analytics에서 더 이상 데이터를 수집하지 않는 문제 해결

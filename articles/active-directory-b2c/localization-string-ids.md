@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 45357092784bd9c8821a81b07ce3c381c4ce7989
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7819c934ab97d597d52d4809c11e5c59fb87c89a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410507"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840671"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -27,33 +27,44 @@ ms.locfileid: "94410507"
 
 ID가 인 콘텐츠 정의 `api.signuporsignin` 및 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)에 사용 되는 id는 다음과 같습니다.
 
-| ID | 기본값 |
-| -- | ------------- |
-| **local_intro_email** | 기존 계정으로 로그인 |
-| **logonIdentifier_email** | 메일 주소 |
-| **requiredField_email** | 이메일을 입력하세요. |
-| **invalid_email** | 올바른 이메일 주소를 입력하세요. |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&'' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
-| **local_intro_username** | 사용자 이름으로 로그인 |
-| **logonIdentifier_username** | 사용자 이름 |
-| **requiredField_username** | 사용자 이름을 입력하세요. |
-| **password** | 암호 |
-| **requiredField_password** | 암호를 입력하세요. |
-| **invalid_password** | 입력한 암호의 형식이 잘못되었습니다. |
-| **forgotpassword_link** | 암호를 잊으셨습니까? |
-| **createaccount_intro** | 아직 계정이 없으세요? |
-| **createaccount_link** | 지금 등록하십시오. |
-| **divider_title** | 또는 |
-| **cancel_message** | 사용자가 암호를 잊음 |
-| **button_signin** | 로그인 |
-| **social_intro** | 소셜 계정으로 로그인 |
-  **remember_me** |로그인 상태를 유지 합니다. |
-| **unknown_error** | 로그인하는 동안 문제가 발생했습니다. 나중에 다시 시도하세요. |
+| ID | 기본값 | 페이지 레이아웃 버전 |
+| -- | ------------- | ------ |
+| **forgotpassword_link** | 암호를 잊으셨습니까? | `All` |
+| **createaccount_intro** | 아직 계정이 없으세요? | `All` |
+| **button_signin** | 로그인 | `All` |
+| **social_intro** | 소셜 계정으로 로그인 | `All` |
+| **remember_me** |로그인 상태를 유지 합니다. | `All` |
+| **unknown_error** | 로그인하는 동안 문제가 발생했습니다. 나중에 다시 시도하세요. | `All` |
+| **divider_title** | 또는 | `All` |
+| **local_intro_email** | 기존 계정으로 로그인 | `< 2.0.0` |
+| **logonIdentifier_email** | 메일 주소 | `< 2.0.0` |
+| **requiredField_email** | 이메일을 입력하세요. | `< 2.0.0` |
+| **invalid_email** | 올바른 이메일 주소를 입력하세요. | `< 2.0.0` |
+| **email_pattern** | ^ [A-za-z0-9.! # $% & ' ' \* +/=? ^ \_ \` { \| } ~-] + @ [a-za-z0-9-] + (?: \\ . [ A-za-z0-9-] +) \* $ |`< 2.0.0` |
+| **local_intro_username** | 사용자 이름으로 로그인 | `< 2.0.0` |
+| **logonIdentifier_username** | 사용자 이름 | `< 2.0.0` |
+| **requiredField_username** | 사용자 이름을 입력하세요. | `< 2.0.0` |
+| **password** | 암호 | `< 2.0.0` |
+| **requiredField_password** | 암호를 입력하세요. | `< 2.0.0` |
+| **createaccount_link** | 지금 등록하십시오. | `< 2.0.0` |
+| **cancel_message** | 사용자가 암호를 잊음 | `< 2.0.0` |
+| **invalid_password** | 입력한 암호의 형식이 잘못되었습니다. | `< 2.0.0` |
+| **createaccount_one_link** | 지금 등록하십시오. | `>= 2.0.0` |
+| **createaccount_two_links** | 또는을 사용 하 여 등록 {0}{1} | `>= 2.0.0` |
+| **createaccount_three_links** | {0}, 또는를 사용 하 여 등록 {1}{2} | `>= 2.0.0` |
+| **local_intro_generic** | 을 사용 하 여 로그인 {0} | `>= 2.1.0` |
+| **requiredField_generic** | 다음을 입력 하세요. {0} | `>= 2.1.0` |
+| **invalid_generic** | 올바른를 입력 하세요. {0} | `>= 2.1.1` |
+| **스타일** | 로그인 | `>= 2.1.1` |
+
+
+> [!NOTE]
+> * 와 같은 자리 표시자 {0} 는 값을 사용 하 여 자동으로 채워집니다 `DisplayName` `ClaimType` . 
+> * 지역화 하는 방법에 대 `ClaimType` 한 자세한 내용은 [등록 또는 로그인 예](#signupsigninexample)를 참조 하세요.
 
 다음 예제에서는 등록 또는 로그인 페이지의 몇 가지 사용자 인터페이스 요소 사용 방법을 보여 줍니다.
 
-![등록 또는 로그인 페이지 UX 요소](./media/localization-string-ids/localization-susi.png)
-
+![등록 또는 로그인 페이지 UX 요소](./media/localization-string-ids/localization-susi-2.png)
 
 ### <a name="sign-up-or-sign-in-identity-providers"></a>등록 또는 로그인 id 공급자
 
@@ -95,32 +106,28 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 | **UserMessageIfUserAccountLocked** | 권한 없는 사용을 방지하기 위해 계정이 일시적으로 잠겨 있습니다. 나중에 다시 시도하십시오. |
 | **AADRequestsThrottled** | 현재 요청이 너무 많습니다. 잠시 기다린 후에 다시 시도하세요. |
 
+<a name="signupsigninexample"></a>
 ### <a name="sign-up-or-sign-in-example"></a>등록 또는 로그인 예
 
 ```xml
 <LocalizedResources Id="api.signuporsignin.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="UxElement" StringId="logonIdentifier_email">Email Address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="requiredField_email">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="logonIdentifier_username">Username</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="password">Password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="createaccount_link">Sign up now</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="requiredField_username">Please enter your user name</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="createaccount_intro">Don't have an account?</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="cancel_message">The user has forgotten their password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="heading">Sign in</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="social_intro">Sign in with your social account</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Sign in with your {0}</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="requiredField_password">Please enter your password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="invalid_password">The password you entered is not in the expected format.</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="local_intro_username">Sign in with your user name</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="local_intro_email">Sign in with your existing account</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="invalid_email">Please enter a valid email address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Please enter your {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_one_link">Sign up now</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">Sign up with {0} or {1}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_three_links">Sign up with {0}, {1}, or {2}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="unknown_error">We are having trouble signing you in. Please try again later.</LocalizedString>
     <!-- Uncomment the remember_me only if the keep me signed in is activated. 
     <LocalizedString ElementType="UxElement" StringId="remember_me">Keep me signed in</LocalizedString> -->
-    <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;’'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$</LocalizedString>
     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
@@ -433,9 +440,9 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 </LocalizedResources>
 ```
 
-## <a name="azure-mfa-error-messages"></a>Azure MFA 오류 메시지
+## <a name="azure-ad-mfa-error-messages"></a>Azure AD MFA 오류 메시지
 
-[Azure MFA 기술 프로필](multi-factor-auth-technical-profile.md) 오류 메시지에 대한 ID는 다음과 같습니다.
+다음은 [AZURE AD MFA 기술 프로필](multi-factor-auth-technical-profile.md) 오류 메시지의 id입니다.
 
 | ID | 기본값 |
 | -- | ------------- |
@@ -446,7 +453,7 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 |UserMessageIfThrottled | 요청이 제한되었습니다. 나중에 다시 시도하세요.|
 |UserMessageIfWrongCodeEntered|잘못된 코드를 입력했습니다. 다시 시도하세요.|
 
-### <a name="azure-mfa-example"></a>Azure MFA 예제
+### <a name="azure-ad-mfa-example"></a>Azure AD MFA 예제
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">

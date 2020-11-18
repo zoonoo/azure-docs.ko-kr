@@ -11,12 +11,12 @@ ms.date: 05/06/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b7cc772e2a2e44a72af5e47a794c8b0f36aa9786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48c79306d376c2faa1089886881a7b5e9a792c86
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387646"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840555"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 데이터 관리
 
@@ -34,7 +34,7 @@ Azure AD B2C의 모든 사용자에게는 개체 ID가 할당됩니다. 개체 I
 
 다음 예제에는 가능한 데이터 삭제 흐름을 보여줍니다.
 
-1. 사용자가 로그인하여 **내 데이터 삭제**를 선택합니다.
+1. 사용자가 로그인하여 **내 데이터 삭제** 를 선택합니다.
 2. 애플리케이션이 애플리케이션의 관리 섹션 내에 데이터를 삭제하는 옵션을 제공합니다.
 3. 애플리케이션이 Azure AD B2C에 인증을 강제로 수행합니다. Azure AD B2C가 사용자의 개체 ID가 포함된 토큰을 애플리케이션에 제공합니다.
 4. 토큰은 응용 프로그램에서 수신 되 고 개체 ID는 Microsoft Graph API를 호출 하 여 사용자 데이터를 삭제 하는 데 사용 됩니다. Microsoft Graph API는 사용자 데이터를 삭제 하 고 상태 코드 200 OK를 반환 합니다.
@@ -52,7 +52,7 @@ Azure AD B2C 사용자 데이터는 다음 항목으로 제한됩니다.
 
 다음과 같은 데이터 내보내기 흐름 예제에서 애플리케이션이 수행하는 것으로 언급된 단계는 백 엔드 프로세스 또는 디렉터리의 관리자 역할이 있는 사용자에 의해 수행될 수도 있습니다.
 
-1. 사용자가 애플리케이션에 로그인합니다. Azure AD B2C는 필요한 경우 Azure Multi-Factor Authentication을 사용하여 인증을 적용합니다.
+1. 사용자가 애플리케이션에 로그인합니다. Azure AD B2C 필요한 경우 Azure AD Multi-Factor Authentication 인증을 적용 합니다.
 2. 응용 프로그램은 사용자 자격 증명을 사용 하 여 Microsoft Graph API 작업을 호출 하 여 사용자 특성을 검색 합니다. Microsoft Graph API는 JSON 형식의 특성 데이터를 제공 합니다. 스키마에 따라 사용자에 대한 모든 개인 데이터를 포함하도록 ID 토큰 콘텐츠를 설정할 수 있습니다.
 3. 애플리케이션이 사용자 감사 활동을 검색합니다. Microsoft Graph API는 응용 프로그램에 이벤트 데이터를 제공 합니다.
 4. 애플리케이션이 사용자가 사용할 수 있도록 데이터를 집계합니다.

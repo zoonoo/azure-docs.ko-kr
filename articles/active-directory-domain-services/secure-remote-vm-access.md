@@ -1,6 +1,6 @@
 ---
 title: Azure AD Domain Services에서 보안 원격 VM 액세스 Microsoft Docs
-description: Azure Active Directory Domain Services 관리 되는 도메인에서 원격 데스크톱 서비스 배포를 사용 하 여 NPS (네트워크 정책 서버) 및 Azure Multi-Factor Authentication를 사용 하 여 Vm에 대 한 원격 액세스를 보호 하는 방법을 알아봅니다.
+description: Azure Active Directory Domain Services 관리 되는 도메인에서 원격 데스크톱 서비스 배포를 사용 하 여 NPS (네트워크 정책 서버) 및 Azure AD Multi-Factor Authentication를 사용 하 여 Vm에 대 한 원격 액세스를 보호 하는 방법을 알아봅니다.
 services: active-directory-ds
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: joflore
-ms.openlocfilehash: 2964ca74a05ccbc61646f8a289fc950b46cdad47
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a08b5bf4fb575f0cd2098b3ef180860bb8fbd6e0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967786"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840239"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 가상 컴퓨터에 대 한 보안 원격 액세스
 
-Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인에서 실행 되는 Vm (가상 컴퓨터)에 대 한 원격 액세스를 보호 하기 위해 RDS (원격 데스크톱 서비스)와 NPS (네트워크 정책 서버)를 사용할 수 있습니다. Azure AD DS는 사용자가 RDS 환경을 통해 액세스를 요청 하는 사용자를 인증 합니다. 보안 강화를 위해 Azure Multi-Factor Authentication를 통합 하 여 로그인 이벤트 중에 추가 인증 프롬프트를 제공할 수 있습니다. Azure Multi-Factor Authentication는 NPS 용 확장을 사용 하 여이 기능을 제공 합니다.
+Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인에서 실행 되는 Vm (가상 컴퓨터)에 대 한 원격 액세스를 보호 하기 위해 RDS (원격 데스크톱 서비스)와 NPS (네트워크 정책 서버)를 사용할 수 있습니다. Azure AD DS는 사용자가 RDS 환경을 통해 액세스를 요청 하는 사용자를 인증 합니다. 보안 강화를 위해 Azure AD Multi-Factor Authentication를 통합 하 여 로그인 이벤트 중에 추가 인증 프롬프트를 제공할 수 있습니다. Azure AD Multi-Factor Authentication는 NPS 용 확장을 사용 하 여이 기능을 제공 합니다.
 
 > [!IMPORTANT]
 > Azure AD DS 관리 되는 도메인에서 Vm에 안전 하 게 연결 하는 권장 방법은 가상 네트워크 내에서 프로 비전 하는 완전히 플랫폼 관리 PaaS 서비스인 Azure 방호를 사용 하는 것입니다. 요새 호스트는 SSL을 통해 Azure Portal에서 직접 Vm에 대 한 안정적이 고 원활한 원격 데스크톱 프로토콜 (RDP) 연결을 제공 합니다. 요새 호스트를 통해 연결 하는 경우 Vm에 공용 IP 주소가 필요 하지 않으며, TCP 포트 3389에서 RDP에 대 한 액세스를 노출 하기 위해 네트워크 보안 그룹을 사용할 필요가 없습니다.
@@ -28,7 +28,7 @@ Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인에�
 >
 > 자세한 내용은 [Azure 방호 이란?][bastion-overview]을 참조 하세요.
 
-이 문서에서는 Azure AD DS에서 RDS를 구성 하 고 필요에 따라 Azure Multi-Factor Authentication NPS 확장을 사용 하는 방법을 보여 줍니다.
+이 문서에서는 Azure AD DS에서 RDS를 구성 하 고 필요에 따라 Azure AD Multi-Factor Authentication NPS 확장을 사용 하는 방법을 보여 줍니다.
 
 ![RDS (원격 데스크톱 서비스) 개요](./media/enable-network-policy-server/remote-desktop-services-overview.png)
 
@@ -59,39 +59,39 @@ Vm이 Azure AD DS 가상 네트워크의 *워크 로드* 서브넷에 배포 되
 
 RD 환경 배포에는 여러 단계가 포함 됩니다. 기존 RD 배포 가이드는 관리 되는 도메인에서 사용 하기 위한 특정 변경 없이 사용할 수 있습니다.
 
-1. *Contosoadmin*와 같은 *Azure AD DC 관리자* 그룹의 일부인 계정으로 RD 환경에 대해 만든 vm에 로그인 합니다.
+1. *Contosoadmin* 와 같은 *Azure AD DC 관리자* 그룹의 일부인 계정으로 RD 환경에 대해 만든 vm에 로그인 합니다.
 1. RDS를 만들고 구성 하려면 기존 [원격 데스크톱 환경 배포 가이드][deploy-remote-desktop]를 사용 합니다. 원하는 대로 Azure Vm에서 RD 서버 구성 요소를 배포 합니다.
     * Azure AD DS에 한정-RD 라이선스를 구성 하는 경우 배포 가이드에 설명 된 대로 **사용자 단위** **모드로 설정** 합니다.
 1. 웹 브라우저를 사용 하 여 액세스를 제공 하려는 경우 [사용자에 대 한 원격 데스크톱 웹 클라이언트를 설정][rd-web-client]합니다.
 
 관리 되는 도메인에 RD을 배포 하면 온-프레미스 AD DS 도메인에서와 같이 서비스를 관리 하 고 사용할 수 있습니다.
 
-## <a name="deploy-and-configure-nps-and-the-azure-mfa-nps-extension"></a>NPS 및 Azure MFA NPS 확장 배포 및 구성
+## <a name="deploy-and-configure-nps-and-the-azure-ad-mfa-nps-extension"></a>NPS 및 Azure AD MFA NPS 확장 배포 및 구성
 
-사용자 로그인 환경의 보안을 강화 하려면 선택적으로 RD 환경을 Azure Multi-Factor Authentication와 통합할 수 있습니다. 이 구성을 사용 하면 로그인 하는 동안 사용자에 게 id를 확인 하는 추가 프롬프트가 표시 됩니다.
+사용자 로그인 환경의 보안을 강화 하려면 선택적으로 RD 환경을 Azure AD Multi-Factor Authentication와 통합할 수 있습니다. 이 구성을 사용 하면 로그인 하는 동안 사용자에 게 id를 확인 하는 추가 프롬프트가 표시 됩니다.
 
-이 기능을 제공 하기 위해 추가 NPS (네트워크 정책 서버)는 Azure Multi-Factor Authentication NPS 확장과 함께 사용자 환경에 설치 됩니다. 이 확장은 Azure AD와 통합 되어 multi-factor authentication 프롬프트의 상태를 요청 하 고 반환 합니다.
+이 기능을 제공 하기 위해 Azure AD Multi-Factor Authentication NPS 확장과 함께 사용자 환경에 추가 NPS (네트워크 정책 서버)가 설치 됩니다. 이 확장은 Azure AD와 통합 되어 multi-factor authentication 프롬프트의 상태를 요청 하 고 반환 합니다.
 
-[Azure Multi-Factor Authentication을 사용 하려면][user-mfa-registration]사용자를 등록 해야 합니다. azure AD 라이선스를 추가 해야 할 수도 있습니다.
+[AZURE ad Multi-Factor Authentication를 사용 하려면][user-mfa-registration]사용자를 등록 해야 합니다. azure ad 라이선스를 추가 해야 할 수도 있습니다.
 
-Azure Multi-Factor Authentication를 Azure AD DS 원격 데스크톱 환경에 통합 하려면 NPS 서버를 만들고 확장을 설치 합니다.
+Azure AD Multi-Factor Authentication를 Azure AD DS 원격 데스크톱 환경에 통합 하려면 NPS 서버를 만들고 확장을 설치 합니다.
 
 1. Azure AD DS 가상 네트워크의 *워크 로드* 서브넷에 연결 된 추가 Windows Server 2016 또는 2019 VM (예: *NPSVM01*)을 만듭니다. VM을 관리 되는 도메인에 가입 시킵니다.
 1. *AZURE AD DC 관리자* 그룹의 일부인 계정으로 NPS VM에 로그인 합니다 (예: *contosoadmin*).
-1. **서버 관리자**에서 **역할 및 기능 추가**를 선택 하 고 *네트워크 정책 및 액세스 서비스* 역할을 설치 합니다.
-1. 기존 방법 문서를 사용 하 여 [AZURE MFA NPS 확장을 설치 및 구성][nps-extension]합니다.
+1. **서버 관리자** 에서 **역할 및 기능 추가** 를 선택 하 고 *네트워크 정책 및 액세스 서비스* 역할을 설치 합니다.
+1. 기존 방법 문서를 사용 하 여 [AZURE AD MFA NPS 확장을 설치 및 구성][nps-extension]합니다.
 
-NPS 서버와 Azure Multi-Factor Authentication NPS 확장을 설치한 상태에서 다음 섹션을 완료 하 여 RD 환경에서 사용할 수 있도록 구성 합니다.
+Nps 서버와 Azure AD Multi-Factor Authentication NPS 확장이 설치 된 상태에서 다음 섹션을 완료 하 여 RD 환경에서 사용할 수 있도록 구성 합니다.
 
-## <a name="integrate-remote-desktop-gateway-and-azure-multi-factor-authentication"></a>원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 통합
+## <a name="integrate-remote-desktop-gateway-and-azure-ad-multi-factor-authentication"></a>원격 데스크톱 게이트웨이 및 Azure AD Multi-Factor Authentication 통합
 
-Azure Multi-Factor Authentication NPS 확장을 통합 하려면 기존 방법 문서를 사용 하 여 [nps (네트워크 정책 서버) 확장 및 AZURE AD를 사용 하 여 원격 데스크톱 게이트웨이 인프라를 통합][azure-mfa-nps-integration]합니다.
+Azure AD Multi-Factor Authentication NPS 확장을 통합 하려면 기존 방법 문서를 사용 하 여 [nps (네트워크 정책 서버) 확장 및 AZURE AD를 사용 하 여 원격 데스크톱 게이트웨이 인프라를 통합][azure-mfa-nps-integration]합니다.
 
 관리 되는 도메인과 통합 하는 데 필요한 추가 구성 옵션은 다음과 같습니다.
 
 1. [Active Directory에 NPS 서버를 등록][register-nps-ad]하지 마십시오. 이 단계는 관리 되는 도메인에서 실패 합니다.
-1. [4 단계에서 네트워크 정책을 구성 하려면][create-nps-policy] **사용자 계정 전화 접속 속성 무시**확인란을 선택 합니다.
-1. Nps 서버 및 Azure Multi-Factor Authentication NPS 확장에 대해 Windows Server 2019를 사용 하는 경우 NPS 서버가 올바르게 통신할 수 있도록 다음 명령을 실행 하 여 보안 채널을 업데이트 합니다.
+1. [4 단계에서 네트워크 정책을 구성 하려면][create-nps-policy] **사용자 계정 전화 접속 속성 무시** 확인란을 선택 합니다.
+1. Nps 서버와 Azure AD Multi-Factor Authentication NPS 확장에 대해 Windows Server 2019를 사용 하는 경우 NPS 서버가 올바르게 통신할 수 있도록 다음 명령을 실행 하 여 보안 채널을 업데이트 합니다.
 
     ```powershell
     sc sidtype IAS unrestricted
@@ -103,7 +103,7 @@ Azure Multi-Factor Authentication NPS 확장을 통합 하려면 기존 방법 �
 
 배포의 복원 력을 개선 하는 방법에 대 한 자세한 내용은 [원격 데스크톱 서비스-고가용성][rds-high-availability]을 참조 하세요.
 
-사용자 로그인 보안에 대 한 자세한 내용은 [작동 방법: Azure Multi-Factor Authentication][concepts-mfa]를 참조 하세요.
+사용자 로그인 보안에 대 한 자세한 내용은 [작동 방법: AZURE AD Multi-Factor Authentication][concepts-mfa]를 참조 하세요.
 
 <!-- INTERNAL LINKS -->
 [bastion-overview]: ../bastion/bastion-overview.md

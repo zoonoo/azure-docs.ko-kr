@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e2ebc0033f2d2d55571ba45a38b5e0061716673d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 04852e3081807930ced9fdacc75c956d9a15ff23
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532480"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840732"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책에 대한 개발자 정보
 
@@ -98,7 +98,7 @@ ms.locfileid: "94532480"
 | 기능 | 개발 | 미리 보기 | GA | 메모 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Phone 요소 인증](phone-factor-technical-profile.md) |  |  | X |  |
-| [Azure MFA 인증](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Azure AD MFA 인증](multi-factor-auth-technical-profile.md) |  | X |  |  |
 | [일회용 암호](one-time-password-technical-profile.md) |  | X |  |  |
 | 로컬 디렉터리로서의 [Azure Active Directory](active-directory-technical-profile.md) |  |  | X |  |
 | 이메일 확인을 위한 Azure 이메일 하위 시스템 |  |  | X |  |

@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5988cc7bdc34521bfa75e9f179f88bfbe881b882
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 650c239423db23bcd4329ab38080b82809fa4f09
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925648"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842178"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -27,7 +27,7 @@ ms.locfileid: "92925648"
 
 **시나리오** | **Backup** | **에이전트** |**복원**
 --- | --- | --- | ---
-Azure VM의 직접 백업  | 전체 VM 백업  | Azure VM에 추가 에이전트가 필요하지 않습니다. Azure Backup는 VM에서 실행 되는 [AZURE vm 에이전트](../virtual-machines/extensions/agent-windows.md) 에 대 한 확장을 설치 하 고 사용 합니다. | 다음과 같이 복원합니다.<br/><br/> - **기본 VM 만들기** . VM에 여러 IP 주소와 같은 특별한 구성이 사용되지 않을 때 유용합니다.<br/><br/> - **VM 디스크 복원** . 디스크를 복원합니다. 그런 다음, 기존 VM에 연결하거나 PowerShell을 사용하여 디스크에서 새 VM을 만듭니다.<br/><br/> - **VM 디스크 바꾸기** . VM이 있으며 Managed Disks(암호화되지 않음)를 사용하는 경우 디스크를 복원하고 VM에서 기존 디스크 대신 사용할 수 있습니다.<br/><br/> - **특정 파일/폴더 복원** . 전체 VM 대신 하나의 VM에서 파일/폴더를 복원할 수 있습니다.
+Azure VM의 직접 백업  | 전체 VM 백업  | Azure VM에 추가 에이전트가 필요하지 않습니다. Azure Backup는 VM에서 실행 되는 [AZURE vm 에이전트](../virtual-machines/extensions/agent-windows.md) 에 대 한 확장을 설치 하 고 사용 합니다. | 다음과 같이 복원합니다.<br/><br/> - **기본 VM 만들기**. VM에 여러 IP 주소와 같은 특별한 구성이 사용되지 않을 때 유용합니다.<br/><br/> - **VM 디스크 복원**. 디스크를 복원합니다. 그런 다음, 기존 VM에 연결하거나 PowerShell을 사용하여 디스크에서 새 VM을 만듭니다.<br/><br/> - **VM 디스크 바꾸기**. VM이 있으며 Managed Disks(암호화되지 않음)를 사용하는 경우 디스크를 복원하고 VM에서 기존 디스크 대신 사용할 수 있습니다.<br/><br/> - **특정 파일/폴더 복원**. 전체 VM 대신 하나의 VM에서 파일/폴더를 복원할 수 있습니다.
 Azure VM의 직접 백업(Windows만 해당)  | 특정 파일/폴더/볼륨 백업 | [Azure Recovery Services 에이전트](backup-azure-file-folder-backup-faq.md)를 설치합니다.<br/><br/> 파일/폴더 수준에서 VM을 백업하려면 Azure VM 에이전트에 대한 백업 확장과 함께 MARS 에이전트를 실행할 수 있습니다. | 특정 폴더/파일을 복원합니다.
 백업 서버에 Azure VM 백업  | 파일/폴더/볼륨, 시스템 상태/완전 파일, 앱 데이터를 System Center DPM 또는 MABS(Microsoft Azure Backup Server)에 백업합니다.<br/><br/> 그러면 DPM/MABS에서 백업 자격 증명 모음으로 백업합니다. | VM에 DPM/MABS 보호 에이전트를 설치합니다. MARS 에이전트는 DPM/MABS에 설치됩니다.| 파일/폴더/볼륨, 시스템 상태/완전 파일 및 앱 데이터를 복원합니다.
 
@@ -109,7 +109,7 @@ DPM/MABS 디스크의 복구 지점 수 | 파일 서버의 경우 64개, 앱 서
 
 **복원** | **지원됨**
 --- | ---
-운영 체제에서 파일 복원 | 백업된 VM과 동일한(또는 호환되는) OS가 있는 모든 컴퓨터에서 파일을 복원할 수 있습니다. [호환되는 OS 표](backup-azure-restore-files-from-vm.md#system-requirements)를 참조하세요.
+운영 체제에서 파일 복원 | 백업된 VM과 동일한(또는 호환되는) OS가 있는 모든 컴퓨터에서 파일을 복원할 수 있습니다. [호환되는 OS 표](backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script)를 참조하세요.
 암호화된 VM에서 파일 복원 | 지원되지 않습니다.
 네트워크 제한 스토리지 계정에서 파일 복원 | 지원되지 않습니다.
 Windows 스토리지 공간을 사용하여 VM에서 파일 복원 | 동일한 VM에서 복원이 지원되지 않습니다.<br/><br/> 대신, 호환되는 VM에서 파일을 복원합니다.
@@ -160,13 +160,13 @@ Azure VM 데이터 디스크 수 | 최대 32 디스크를 포함 하는 Azure Vm
 스토리지 유형 | 표준 HDD, 표준 SSD 및 프리미엄 SSD
 관리 디스크 | 지원됩니다.
 암호화된 디스크 | 지원됩니다.<br/><br/> Azure Disk Encryption을 사용하도록 설정된 Azure VM을 백업할 수 있습니다(Azure AD 앱 사용 또는 사용 안 함).<br/><br/> 암호화된 VM은 파일/폴더 수준에서 복구할 수 없습니다. 전체 VM을 복구해야 합니다.<br/><br/> Azure Backup에서 이미 보호되는 VM에 암호화를 사용하도록 설정할 수 있습니다.
-Write Accelerator가 설정된 디스크 | 지원되지 않습니다.<br/><br/> Azure Backup는 백업 중에 쓰기 가속기 (WA)가 사용 하도록 설정 된 디스크를 자동으로 제외 합니다. 이러한 디스크는 백업 되지 않으므로 VM의 복구 시점에서 복원할 수 없습니다. <br><br> **중요 참고** : WA 디스크를 사용하는 가상 머신은 이 디스크가 백업에서 제외된 경우에도 성공적인 백업을 위해 인터넷 연결이 필요합니다.
+Write Accelerator가 설정된 디스크 | 지원되지 않습니다.<br/><br/> Azure Backup는 백업 중에 쓰기 가속기 (WA)가 사용 하도록 설정 된 디스크를 자동으로 제외 합니다. 이러한 디스크는 백업 되지 않으므로 VM의 복구 시점에서 복원할 수 없습니다. <br><br> **중요 참고**: WA 디스크를 사용하는 가상 머신은 이 디스크가 백업에서 제외된 경우에도 성공적인 백업을 위해 인터넷 연결이 필요합니다.
 중복 제거된 VM/디스크 백업 및 복원 | Azure Backup은 중복 제거를 지원 하지 않습니다. 자세한 내용은 관련 [문서](./backup-support-matrix.md#disk-deduplication-support)를 참조하세요. <br/> <br/>  -Azure Backup Recovery Services 자격 증명 모음의 Vm 간에 중복 되지 않습니다. <br/> <br/>  -복원 중에 중복 제거 상태의 Vm이 있는 경우 자격 증명 모음에서 형식을 인식 하지 못하기 때문에 파일을 복원할 수 없습니다. 그러나 전체 VM 복원을 성공적으로 수행할 수 있습니다.
 보호된 VM에 디스크 추가 | 지원됩니다.
 보호된 VM에서 디스크 크기 조정 | 지원됩니다.
 공유 스토리지| CSV (클러스터 공유 볼륨) 또는 Scale-Out 파일 서버를 사용 하 여 Vm을 백업 하는 것은 지원 되지 않습니다. CSV 기록기는 백업 중에 실패할 수 있습니다. 복원 시 CSV 볼륨을 포함하는 디스크가 나타나지 않을 수 있습니다.
 [공유 디스크](../virtual-machines/disks-shared-enable.md) | 지원되지 않습니다.
-울트라 SSD 디스크 | 지원되지 않습니다. 자세한 내용은 이러한 [제한 사항](selective-disk-backup-restore.md#limitations)을 참조 하세요.
+울트라 SSD 디스크 | 지원 안 됨 자세한 내용은 이러한 [제한 사항](selective-disk-backup-restore.md#limitations)을 참조 하세요.
 
 ## <a name="vm-network-support"></a>VM 네트워크 지원
 

@@ -11,16 +11,16 @@ ms.date: 10/15/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e328caa80a0e63f68f2563bc91a6405341ad064e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c0ab4d367d2ca9fd59c26ce8d36b5f80dcb832c8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102071"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840630"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 다단계 인증 사용 | Microsoft Docs
 
-Azure Active Directory B2C (Azure AD B2C)는 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) 와 직접 통합 되므로 응용 프로그램에서 등록 및 로그인 환경에 두 번째 보안 계층을 추가할 수 있습니다. 코드 작성 없이도 다단계 인증을 사용하도록 설정할 수 있습니다. 이미 가입 및 로그인 사용자 흐름을 만든 경우에도 다단계 인증을 사용할 수 있습니다.
+Azure Active Directory B2C (Azure AD B2C)는 [AZURE AD Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) 와 직접 통합 되므로 응용 프로그램에서 등록 및 로그인 환경에 두 번째 보안 계층을 추가할 수 있습니다. 코드 작성 없이도 다단계 인증을 사용하도록 설정할 수 있습니다. 이미 가입 및 로그인 사용자 흐름을 만든 경우에도 다단계 인증을 사용할 수 있습니다.
 
 이 기능을 통해 응용 프로그램은 다음과 같은 시나리오를 처리할 수 있습니다.
 
@@ -31,14 +31,14 @@ Azure Active Directory B2C (Azure AD B2C)는 [Azure Multi-Factor Authentication]
 
 1. [Azure 포털](https://portal.azure.com)
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 사용 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **사용자 흐름**을 선택합니다.
-1. MFA를 사용 하도록 설정할 사용자 흐름을 선택 합니다. 예를 들어 *B2C_1_signinsignup*합니다.
-1. **속성**을 선택합니다.
-1. **다단계 인증** 섹션에서 원하는 **mfa 방법을**선택한 다음 **mfa 적용** 에서 **Always on**또는 ** [조건부](conditional-access-user-flow.md) (권장)** 를 선택 합니다. 조건에 대해 [조건부 액세스 정책](conditional-access-identity-protection-setup.md) 정책을 만들고 정책을 적용할 앱을 지정 합니다. 
+1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **사용자 흐름** 을 선택합니다.
+1. MFA를 사용 하도록 설정할 사용자 흐름을 선택 합니다. 예를 들어 *B2C_1_signinsignup* 합니다.
+1. **속성** 을 선택합니다.
+1. **다단계 인증** 섹션에서 원하는 **mfa 방법을** 선택한 다음 **mfa 적용** 에서 **Always on** 또는 **[조건부](conditional-access-user-flow.md) (권장)** 를 선택 합니다. 조건에 대해 [조건부 액세스 정책](conditional-access-identity-protection-setup.md) 정책을 만들고 정책을 적용할 앱을 지정 합니다. 
 1. [저장]을 선택합니다. 이제이 사용자 흐름에 대해 MFA를 사용할 수 있습니다.
 
-**사용자 흐름 실행**을 사용하여 환경을 확인할 수 있습니다. 다음 시나리오를 확인합니다.
+**사용자 흐름 실행** 을 사용하여 환경을 확인할 수 있습니다. 다음 시나리오를 확인합니다.
 
 다단계 인증 단계가 실행되기 전에 테넌트에 고객 계정이 만들어집니다. 이 단계에서 고객에게 자신의 전화 번호를 제공하고 확인하라는 메시지가 표시됩니다. 확인에 성공한 경우 전화번호는 나중에 사용하도록 고객 계정에 연결됩니다. 고객이 취소 또는 삭제하더라도 다음에 로그인하는 동안 다시 전화 번호를 확인하도록 요청할 수 있습니다(다단계 인증을 사용하도록 설정한 경우).
 

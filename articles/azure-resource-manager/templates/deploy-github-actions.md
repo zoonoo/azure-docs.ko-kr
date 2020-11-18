@@ -3,13 +3,13 @@ title: GitHub Actions를 사용하여 Resource Manager 템플릿 배포
 description: GitHub Actions를 사용하여 Azure Resource Manager 템플릿을 배포하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: 69974a8db30f12b255a4bab57ebfa32ba78f67ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: adb0b9d9a7da19c45904a5d222573e1880915b12
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746097"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841685"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>GitHub Actions를 사용하여 Azure Resource Manager 템플릿 배포
 
@@ -20,7 +20,7 @@ ms.locfileid: "92746097"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- GitHub 계정. 없는 경우 [무료로](https://github.com/join)등록 하세요.  
+- GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요.  
     - 리소스 관리자 템플릿 및 워크플로 파일을 저장할 GitHub 리포지토리입니다. 리포지토리를 만들려면 [새 리포지토리 만들기](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository)를 참조하세요.
 
 
@@ -100,7 +100,7 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
 1. GitHub 리포지토리의 상단 메뉴에서 **작업** 을 선택합니다.
 1. **새 워크플로** 를 선택합니다.
 1. **워크플로 직접 설정** 을 선택합니다.
-1. **main.yml** 이 아닌 다른 이름을 선호하는 경우 워크플로 파일의 이름을 바꿉니다. 예: **deployStorageAccount.yml** .
+1. **main.yml** 이 아닌 다른 이름을 선호하는 경우 워크플로 파일의 이름을 바꿉니다. 예: **deployStorageAccount.yml**.
 1. yml 파일의 내용을 다음으로 바꿉니다.
 
     ```yml
@@ -136,12 +136,12 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
 
     워크플로 파일의 첫 번째 섹션에는 다음이 포함 됩니다.
 
-    - **name** : 워크플로의 이름입니다.
-    - **on** : 워크플로를 트리거하는 GitHub 이벤트의 이름입니다. 마스터 분기에 지정된 두 파일 중 하나 이상을 수정하는 푸시 이벤트가 있는 경우 워크플로가 트리거됩니다. 두 파일은 워크플로 파일 및 템플릿 파일입니다.
+    - **name**: 워크플로의 이름입니다.
+    - **on**: 워크플로를 트리거하는 GitHub 이벤트의 이름입니다. 마스터 분기에 지정된 두 파일 중 하나 이상을 수정하는 푸시 이벤트가 있는 경우 워크플로가 트리거됩니다. 두 파일은 워크플로 파일 및 템플릿 파일입니다.
 
 1. **커밋 시작** 을 선택합니다.
 1. **마스터 분기에 직접 커밋** 을 선택합니다.
-1. **새 파일 커밋** (또는 **변경 내용 커밋** )을 선택합니다.
+1. **새 파일 커밋**(또는 **변경 내용 커밋**)을 선택합니다.
 
 업데이트되는 워크플로 파일이나 템플릿 파일에 의해 트리거되도록 워크플로를 구성했기 때문에 변경 내용을 커밋하면 워크플로가 바로 시작됩니다.
 

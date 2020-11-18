@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ea77540e5fcaac0c4231403473d25ebae46aac
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85384960"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840256"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C 사용자 지정 정책 및 Identity Experience Framework 문제 해결
 
@@ -29,7 +29,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하는
 
 즐겨 사용 하는 두 편집기는 [Visual Studio Code](https://code.visualstudio.com/) 및 [메모장 + +](https://notepad-plus-plus.org/)입니다.
 
-XML 파일을 업로드하기 전에 XML 스키마 유효성 검사가 오류를 식별합니다. [시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)의 루트 폴더에서 XML 스키마 정의 파일 *TrustFrameworkPolicy_0 3.0.0*를 가져옵니다. 편집기에서 XSD 스키마 파일을 유효성 검사에 사용 하는 방법을 알아보려면 편집기 설명서에서 *xml 도구* 및 *xml 유효성 검사* 를 찾아보십시오.
+XML 파일을 업로드하기 전에 XML 스키마 유효성 검사가 오류를 식별합니다. [시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)의 루트 폴더에서 XML 스키마 정의 파일 *TrustFrameworkPolicy_0 3.0.0* 를 가져옵니다. 편집기에서 XSD 스키마 파일을 유효성 검사에 사용 하는 방법을 알아보려면 편집기 설명서에서 *xml 도구* 및 *xml 유효성 검사* 를 찾아보십시오.
 
 XML 규칙 검토가 도움이 될 수도 있습니다. Azure AD B2C는 검색된 XML 형식 오류를 거부합니다. 경우에 따라 형식이 잘못된 XML로 인해 잘못된 오류 메시지가 발생할 수 있습니다.
 
@@ -64,7 +64,7 @@ XML 규칙 검토가 도움이 될 수도 있습니다. Azure AD B2C는 검색�
 
 * 클라이언트 브라우저와 Azure AD B2C 간의 메시지 교환을 추적하려면 [Fiddler](https://www.telerik.com/fiddler)를 사용합니다. 오케스트레이션 단계에서 사용자 환경이 실패한 위치를 확인하는 데 도움이 될 수 있습니다.
 
-* [개발 모드](troubleshoot-with-application-insights.md)에서 **Application Insights**를 사용하여 Identity Experience Framework 사용자 환경의 활동을 추적합니다. **개발 모드**에서는 id 공급자, API 기반 서비스, Azure AD B2C 사용자 디렉터리 및 기타 서비스 (예: Azure Multi-Factor Authentication)와 같은 기술 프로필에 정의 된 다양 한 클레임 공급자와 Id 경험 프레임 워크 간의 클레임 교환을 관찰할 수 있습니다.
+* [개발 모드](troubleshoot-with-application-insights.md)에서 **Application Insights** 를 사용하여 Identity Experience Framework 사용자 환경의 활동을 추적합니다. **개발 모드** 에서는 id 공급자, API 기반 서비스, Azure AD B2C 사용자 디렉터리 및 기타 서비스 (예: Azure AD Multi-Factor Authentication)와 같은 기술 프로필에 정의 된 다양 한 클레임 공급자와 Id 경험 프레임 워크 간의 클레임 교환을 관찰할 수 있습니다.
 
 ## <a name="recommended-practices"></a>권장 사례
 

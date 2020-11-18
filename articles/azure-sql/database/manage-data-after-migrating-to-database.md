@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: f0f9d2affe39eaf74d4c0a537658d655a0c150d7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fe49dce276a15d9d7bc8ddaa5618c0e43dec62e9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789576"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841226"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>클라우드의 새로운 DBA – 마이그레이션 후 Azure SQL Database 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -65,9 +65,9 @@ Azure SQL Database에서 백업을 만들지 않습니다 .이는 필요 하지 
 
 |서비스 계층|보존 기간(일)|
 |---|:---:|
-|기본|7|
-|Standard|35|
-|프리미엄|35|
+|Basic|7|
+|표준|35|
+|Premium|35|
 |||
 
 또한 [LTR(장기 보존)](long-term-retention-overview.md) 기능을 사용하면 훨씬 더 긴 기간(최대 10년) 동안 백업 파일을 보유하고 해당 기간 내의 어느 시점이든 이러한 백업에서 데이터를 복원할 수 있습니다. 뿐만 아니라 데이터베이스 백업은 지역 복제 스토리지에 보관되므로 지역 참사에서 복원력이 확보됩니다. 또한 이러한 백업을 보존 기간 내의 어느 시점이든 Azure 지역에서 복원할 수 있습니다. [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)를 참조하세요.
@@ -106,7 +106,7 @@ SQL Database에서 두 가지 사용자 인증 방법이 제공됩니다.
 
 기존 Windows 인증은 지원되지 않습니다. Azure Active Directory (Azure AD)는 중앙 집중식 id 및 액세스 관리 서비스입니다. 이 서비스를 사용하면 조직의 모든 인원에게 SSO(Single Sign-On)를 아주 편리하게 제공할 수 있습니다. 즉, 더 간단한 인증을 위해 자격 증명이 모든 Azure 서비스에 걸쳐 공유됩니다. 
 
-Azure AD는 azure [Multi-Factor Authentication](authentication-mfa-ssms-overview.md) 을 지원 하 고 몇 번의 [클릭](../../active-directory/hybrid/how-to-connect-install-express.md) 으로 Azure ad를 Windows Server Active Directory와 통합할 수 있습니다. SQL 인증은 과거에 사용하던 것과 똑같이 작동합니다. 사용자 이름/암호를 제공 하 고 지정 된 서버의 모든 데이터베이스에 대해 사용자를 인증할 수 있습니다. 이를 통해 SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)가 Azure AD 도메인 내에서 Multi-Factor Authentication 및 게스트 사용자 계정을 제공할 수도 있습니다. 이미 Active Directory 온-프레미스가 있는 경우, Azure Active Directory로 디렉터리를 페더레이션하여 디렉터리를 Azure로 확장할 수 있습니다.
+Azure ad는 azure ad [Multi-Factor Authentication](authentication-mfa-ssms-overview.md) 를 지원 하며 [몇 번의 클릭](../../active-directory/hybrid/how-to-connect-install-express.md) 으로 Azure ad를 Windows Server Active Directory와 통합할 수 있습니다. SQL 인증은 과거에 사용하던 것과 똑같이 작동합니다. 사용자 이름/암호를 제공 하 고 지정 된 서버의 모든 데이터베이스에 대해 사용자를 인증할 수 있습니다. 이를 통해 SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)가 Azure AD 도메인 내에서 Multi-Factor Authentication 및 게스트 사용자 계정을 제공할 수도 있습니다. 이미 Active Directory 온-프레미스가 있는 경우, Azure Active Directory로 디렉터리를 페더레이션하여 디렉터리를 Azure로 확장할 수 있습니다.
 
 |**...**|**SQL Database/Azure Synapse 분석**|
 |---|---|
@@ -127,7 +127,7 @@ Azure AD는 azure [Multi-Factor Authentication](authentication-mfa-ssms-overview
 - VNet 서비스 엔드포인트
 - 예약된 IP
 
-#### <a name="firewall"></a>방화벽
+#### <a name="firewall"></a>Firewall
 
 방화벽은 특정 엔터티만 서버에 액세스 하도록 허용 하 여 외부 엔터티에서 서버에 액세스 하지 못하도록 합니다. 기본적으로 다른 Azure 서비스에서 들어오는 (optionally7) 연결은 제외 하 고 서버 내의 데이터베이스에 대 한 모든 연결은 허용 되지 않습니다. 방화벽 규칙을 사용하여 방화벽을 통해 개발자 컴퓨터의 IP 주소를 허용하면 직접 승인하는 엔터티(예: 개발자 머신)에 대해서만 서버 액세스를 개방할 수 있습니다. 또한 서버에 대 한 액세스를 허용 하려는 Ip 범위를 지정할 수 있습니다. 예를 들어 방화벽 설정 페이지에서 범위를 지정하여 조직의 개발자 머신 IP 주소들을 동시에 추가할 수 있습니다.
 
@@ -222,7 +222,7 @@ TDE에는 두 키 계층이 있습니다 – 각 사용자 데이터베이스의
 Express 경로를 사용 하면 추가 요금 없이 구입할 대역폭 제한을 2 배까지 버스트 할 수도 있습니다. Express 경로를 사용 하 여 지역 간 연결을 구성할 수도 있습니다. Express 경로 연결 공급자 목록을 보려면 [express 경로 파트너 및 피어 링 위치](../../expressroute/expressroute-locations.md)를 참조 하세요. 다음 문서에서 Express Route를 자세히 설명합니다.
 
 - [기본 경로 소개](../../expressroute/expressroute-introduction.md)
-- [전제 조건](../../expressroute/expressroute-prerequisites.md)
+- [필수 구성 요소](../../expressroute/expressroute-prerequisites.md)
 - [워크플로](../../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL Database가 규정 요구 사항을 준수하나요? 그리고 이것이 조직의 규정 준수에 어떤 도움이 되나요?
@@ -320,11 +320,11 @@ SQL Database는 특정 부류의 데이터 손상을 자동으로 데이터 손�
 
 ### <a name="how-do-i-export-and-import-data-as-bacpac-files-from-sql-database-using-the-azure-portal"></a>Azure Portal를 사용 하 여 SQL Database에서 BACPAC 파일로 데이터를 내보내고 가져올 어떻게 할까요?
 
-- **내보내기** : AZURE PORTAL에서 BACPAC 파일로 Azure SQL Database의 데이터베이스를 내보낼 수 있습니다.
+- **내보내기**: AZURE PORTAL에서 BACPAC 파일로 Azure SQL Database의 데이터베이스를 내보낼 수 있습니다.
 
    ![데이터베이스 내보내기](./media/manage-data-after-migrating-to-database/database-export1.png)
 
-- **가져오기** : Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스에 BACPAC 파일로 데이터를 가져올 수도 있습니다.
+- **가져오기**: Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스에 BACPAC 파일로 데이터를 가져올 수도 있습니다.
 
    ![데이터베이스 가져오기](./media/manage-data-after-migrating-to-database/import1.png)
 

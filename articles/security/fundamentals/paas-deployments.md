@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0429eec2a84c22f3d998baa4dde4f543d4927f16
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 77a2a32b9a6358c39a14cfe37eeb44f7cb90af0a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695336"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841991"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -82,14 +82,14 @@ ID 경계 관리를 위한 모범 사례는 다음과 같습니다.
 **모범 사례**: VM을 직접 원격 관리하는 데 사용할 수 있는 관리 인터페이스를 사용하여 하이브리드 PaaS 및 IaaS 서비스의 VM 관리 인터페이스를 보호합니다.   
 **세부 정보**: [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [RDP](https://support.microsoft.com/kb/186607), [PowerShell 원격](/powershell/module/microsoft.powershell.core/enable-psremoting) 등의 원격 관리 프로토콜을 사용할 수 있습니다. 일반적으로는 인터넷에서 VM에 대해 직접 원격 액세스를 사용하지 않는 것이 좋습니다.
 
-가능한 경우에는 Azure Virtual Network에서 가상 사설망을 사용하는 등의 다른 방법을 사용해야 합니다. 다른 방법을 사용할 수 없는 경우 복잡한 암호 구문을 사용하고 2단계 인증(예: [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md))을 사용해야 합니다.
+가능한 경우에는 Azure Virtual Network에서 가상 사설망을 사용하는 등의 다른 방법을 사용해야 합니다. 다른 방법을 사용할 수 없는 경우에는 복잡 한 암호 및 2 단계 인증 (예: [AZURE AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md))을 사용 해야 합니다.
 
 **모범 사례**: 강력한 인증 및 권한 부여 플랫폼을 사용합니다.   
 **세부 정보**: 사용자 지정 사용자 저장소 대신 Azure AD의 페더레이션 ID를 사용합니다. 페더레이션 ID를 사용하면 플랫폼 기반 접근 방식을 활용하고 권한 있는 ID 관리를 파트너에게 위임합니다. 페더레이션 ID 접근 방식은 직원 퇴사 시에 여러 ID와 권한 부여 시스템을 통해 퇴사 정보를 반영해야 하는 경우에 특히 중요합니다.
 
 사용자 지정 코드 대신 플랫폼에서 제공하는 인증 및 권한 부여 메커니즘을 사용합니다. 이는 사용자 지정 인증 코드를 개발하면 오류가 발생할 수 있기 때문입니다. 대부분의 개발자는 보안 전문가가 아니며 인증 및 권한 부여의 미묘한 측면과 최신 개발 정보를 알지 못할 것입니다. Microsoft에서 제공하는 코드와 같은 상용 코드의 경우 광범위하게 보안을 검토하는 경우가 많습니다.
 
-따라서 2단계 인증을 사용해야 합니다. 2단계 인증은 인증의 사용자 이름과 암호 유형에 내재된 보안 약점을 방지할 수 있기 때문에 인증 및 권한 부여의 현재 표준입니다. Azure 관리(포털/원격 PowerShell) 인터페이스와 고객 대상 서비스에 대한 액세스는 [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)을 사용하도록 설계되고 구성되어야 합니다.
+따라서 2단계 인증을 사용해야 합니다. 2단계 인증은 인증의 사용자 이름과 암호 유형에 내재된 보안 약점을 방지할 수 있기 때문에 인증 및 권한 부여의 현재 표준입니다. Azure 관리 (포털/원격 PowerShell) 인터페이스 및 고객 지향 서비스 모두에 대 한 액세스는 [AZURE AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)를 사용 하도록 설계 및 구성 해야 합니다.
 
 OAuth2 및 Kerberos와 같은 표준 인증 프로토콜을 사용합니다. 이러한 프로토콜은 광범위하게 검토되었으며 인증 및 권한 부여를 위한 플랫폼 라이브러리의 일부로 구현될 수 있습니다.
 

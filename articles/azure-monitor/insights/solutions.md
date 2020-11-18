@@ -6,13 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c64e01253652ea3b49ad6221f161bb78f499b6ed
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: c38fa77951aaeb5559dc2030f1401a896d7c238d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150542"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841923"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 모니터링 솔루션
 
@@ -20,7 +20,7 @@ Azure Monitor의 모니터링 솔루션은 특정 Azure 응용 프로그램 또�
 
 ## <a name="use-monitoring-solutions"></a>모니터링 솔루션 사용
 
-Azure Monitor의 솔루션 **개요** 페이지에는 Log Analytics 작업 영역에 설치 된 각 솔루션에 대 한 타일이 표시 됩니다. 이 페이지를 열려면 [Azure Portal](https://ms.portal.azure.com)의 **Azure Monitor** 로 이동 합니다. **Insights** 메뉴에서 **자세히** 를 선택 하 여 **insights 허브**를 열고 **Log Analytics 작업 영역**을 클릭 합니다.
+Azure Monitor의 솔루션 **개요** 페이지에는 Log Analytics 작업 영역에 설치 된 각 솔루션에 대 한 타일이 표시 됩니다. 이 페이지를 열려면 [Azure Portal](https://ms.portal.azure.com)의 **Azure Monitor** 로 이동 합니다. **Insights** 메뉴에서 **자세히** 를 선택 하 여 **insights 허브** 를 열고 **Log Analytics 작업 영역** 을 클릭 합니다.
 
 [![정보 허브](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
@@ -37,7 +37,7 @@ Azure Monitor의 솔루션 **개요** 페이지에는 Log Analytics 작업 영�
 
 다음 절차를 사용하여 구독에 설치된 모니터링 솔루션을 나열할 수 있습니다.
 
-1. [Azure 포털](https://ms.portal.azure.com)로 이동합니다. **솔루션**을 검색하고 선택합니다.
+1. [Azure 포털](https://ms.portal.azure.com)로 이동합니다. **솔루션** 을 검색하고 선택합니다.
 1. 모든 작업 영역에 설치된 솔루션이 나열됩니다. 솔루션 이름 뒤에는 솔루션이 설치된 작업 영역의 이름이 나옵니다.
 1. 화면 맨 위에 있는 드롭다운 상자를 사용하여 구독 또는 리소스 그룹으로 필터링할 수 있습니다.
 
@@ -85,10 +85,10 @@ Get-AzMonitorLogAnalyticsSolution -ResourceGroupName MyResourceGroup
 
 Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https://azuremarketplace.microsoft.com)에서 사용할 수 있습니다. 다음 절차를 사용하여 사용 가능한 솔루션을 검색하고 설치할 수 있습니다. 솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../platform/manage-access.md)을 선택해야 합니다.
 
-1. [구독의 솔루션 목록](#list-installed-monitoring-solutions)에서 **추가**를 클릭합니다.
+1. [구독의 솔루션 목록](#list-installed-monitoring-solutions)에서 **추가** 를 클릭합니다.
 1. 솔루션을 찾아보거나 검색합니다. [이 검색 링크](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions)에서 솔루션을 찾아볼 수도 있습니다.
 1. 원하는 모니터링 솔루션을 찾아서 해당 설명을 자세히 읽습니다.
-1. 설치 프로세스를 시작하려면 **만들기**를 클릭합니다.
+1. 설치 프로세스를 시작하려면 **만들기** 를 클릭합니다.
 1. 설치 프로세스가 시작되면 Log Analytics 작업 영역을 지정하고 솔루션에 필요한 구성을 제공하라는 메시지가 표시됩니다.
 
 ![솔루션 설치](media/solutions/install-solution.png)
@@ -103,7 +103,7 @@ Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https:/
 4. 해당 정보를 보려면 결과에서 솔루션을 선택합니다.
 5. **Azure에 배포** 단추를 클릭합니다.
 6. 솔루션의 매개 변수 값 외에도 리소스 그룹 및 위치 같은 정보를 제공해야 합니다.
-7. **구매**를 클릭하여 솔루션을 설치합니다.
+7. **구매** 를 클릭하여 솔루션을 설치합니다.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -111,11 +111,11 @@ Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https:/
 
 1. Azure CLI 설치
 
-   CLI 참조 명령을 실행 하기 전에 [Azure CLI을 설치](/cli/azure/install-azure-cli) 해야 합니다.  원한다 면 Azure Cloud Shell를 사용 하 여이 문서의 단계를 완료할 수도 있습니다.  Azure Cloud Shell는 브라우저를 통해 사용 하는 대화형 셸 환경입니다.  다음 방법 중 하나를 사용 하 여 Cloud Shell를 시작 합니다.
+   CLI 참조 명령을 실행 하기 전에 [Azure CLI을 설치](/cli/azure/install-azure-cli) 해야 합니다.  원한다 면 Azure Cloud Shell를 사용 하 여이 문서의 단계를 완료할 수도 있습니다.  Azure Cloud Shell은 브라우저를 통해 사용할 수 있는 대화형 셸 환경입니다.  다음 방법 중 하나를 사용하여 Cloud Shell을 시작합니다.
 
-   - 다음으로 이동 하 여 Cloud Shell을 엽니다. [https://shell.azure.com](https://shell.azure.com)
+   - [https://shell.azure.com](https://shell.azure.com)으로 이동하여 Cloud Shell 열기
 
-   - [Azure Portal](https://portal.azure.com) 의 오른쪽 위 모퉁이에 있는 메뉴 모음에서 **Cloud Shell** 단추를 선택 합니다.
+   - [Azure Portal](https://portal.azure.com)의 오른쪽 위 모서리에 있는 메뉴 모음에서 **Cloud Shell** 단추 선택
 
 1. 로그인합니다.
 
@@ -173,14 +173,14 @@ az monitor log-analytics solution create --resource-group MyResourceGroup \
 
 1. Azure Powershell 설치
 
-   Azure PowerShell 참조 명령을 실행 하기 전에 [Azure PowerShell을 설치](/powershell/azure/install-az-ps) 해야 합니다. 원한다 면 Azure Cloud Shell를 사용 하 여이 문서의 단계를 완료할 수도 있습니다. Azure Cloud Shell는 브라우저를 통해 사용 하는 대화형 셸 환경입니다. 다음 방법 중 하나를 사용 하 여 Cloud Shell를 시작 합니다.
+   Azure PowerShell 참조 명령을 실행 하기 전에 [Azure PowerShell을 설치](/powershell/azure/install-az-ps) 해야 합니다. 원한다 면 Azure Cloud Shell를 사용 하 여이 문서의 단계를 완료할 수도 있습니다. Azure Cloud Shell은 브라우저를 통해 사용할 수 있는 대화형 셸 환경입니다. 다음 방법 중 하나를 사용하여 Cloud Shell을 시작합니다.
 
-   - 다음으로 이동 하 여 Cloud Shell을 엽니다. [https://shell.azure.com](https://shell.azure.com)
+   - [https://shell.azure.com](https://shell.azure.com)으로 이동하여 Cloud Shell 열기
 
-   - [Azure Portal](https://portal.azure.com) 의 오른쪽 위 모퉁이에 있는 메뉴 모음에서 **Cloud Shell** 단추를 선택 합니다.
+   - [Azure Portal](https://portal.azure.com)의 오른쪽 위 모서리에 있는 메뉴 모음에서 **Cloud Shell** 단추 선택
 
    > [!IMPORTANT]
-   > **MonitoringSolutions** PowerShell 모듈은 미리 보기 상태 이지만 cmdlet을 사용 하 여 별도로 설치 해야 합니다 `Install-Module` . 이 PowerShell 모듈은 일반적으로 사용할 수 있게 되 면 이후 Az PowerShell 모듈 릴리스에 포함 되며 Azure Cloud Shell 내에서 기본적으로 사용할 수 있습니다.
+   > **MonitoringSolutions** PowerShell 모듈은 미리 보기 상태 이지만 cmdlet을 사용 하 여 별도로 설치 해야 합니다 `Install-Module` . 이 PowerShell 모듈이 일반 공급되면 이후 Az PowerShell 모듈 릴리스의 일부가 되며 기본적으로 Azure Cloud Shell 내에서 사용할 수 있습니다.
 
    ```azurepowershell-interactive
    Install-Module -Name Az.MonitoringSolutions
@@ -231,14 +231,14 @@ Azure Marketplace를 통해 솔루션을 설치 하는 경우 작업 영역 및 
 다음 절차를 통해 Log Analytics 작업 영역 및 Automation 계정 간의 링크를 확인할 수 있습니다.
 
 1. Azure Portal에서 Automation 계정을 선택합니다.
-1. 메뉴의 **관련 리소스** 섹션으로 스크롤하여 **연결된 작업 영역**을 선택합니다.
-1. **작업 영역**이 Automation 계정에 연결된 경우 이 페이지에는 연결된 작업 영역이 나열됩니다. 나열된 작업 영역 이름을 선택하면 해당 작업 영역의 개요 페이지로 리디렉션됩니다.
+1. 메뉴의 **관련 리소스** 섹션으로 스크롤하여 **연결된 작업 영역** 을 선택합니다.
+1. **작업 영역** 이 Automation 계정에 연결된 경우 이 페이지에는 연결된 작업 영역이 나열됩니다. 나열된 작업 영역 이름을 선택하면 해당 작업 영역의 개요 페이지로 리디렉션됩니다.
 
 ## <a name="remove-a-monitoring-solution"></a>모니터링 솔루션 제거
 
 ### <a name="portal"></a>[포털](#tab/portal)
 
-포털을 사용 하 여 설치 된 솔루션을 제거 하려면 설치 된 솔루션 [목록](#list-installed-monitoring-solutions)에서 해당 솔루션을 찾습니다. 솔루션 이름을 클릭하여 요약 페이지를 열고 **삭제**를 클릭합니다.
+포털을 사용 하 여 설치 된 솔루션을 제거 하려면 설치 된 솔루션 [목록](#list-installed-monitoring-solutions)에서 해당 솔루션을 찾습니다. 솔루션 이름을 클릭하여 요약 페이지를 열고 **삭제** 를 클릭합니다.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

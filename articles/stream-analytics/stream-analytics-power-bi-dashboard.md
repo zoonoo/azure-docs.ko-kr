@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/16/2020
-ms.openlocfilehash: 6dd855695a155e924f7c46bdb17449c5e6504ca6
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 4e3f31442c5fa645e27a640d8facf86aed20aa75
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745363"
+ms.locfileid: "94842484"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
 
@@ -221,7 +221,7 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 ```
 
 ### <a name="renew-authorization"></a>권한 부여 갱신
-작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우 Power BI 계정을 다시 인증해야 합니다. Azure Multi-Factor Authentication가 Azure Active Directory(Azure AD) 테넌트에서 구성된 경우 2주마다 Power BI 권한 부여도 갱신해야 합니다. 갱신하지 않으면 작업 출력 부족 또는 작업 로그에 `Authenticate user error`와 같은 증상을 볼 수 있습니다.
+작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우 Power BI 계정을 다시 인증해야 합니다. Azure AD Multi-Factor Authentication Azure Active Directory (Azure AD) 테 넌 트에서 구성 된 경우 2 주마다 Power BI 권한 부여를 갱신 해야 합니다. 갱신하지 않으면 작업 출력 부족 또는 작업 로그에 `Authenticate user error`와 같은 증상을 볼 수 있습니다.
 
 마찬가지로 토큰이 만료된 후 작업이 시작되면 오류가 발생하고 작업이 실패합니다. 이 문제를 해결하려면 실행 중인 작업을 중지하고 Power BI 출력으로 이동합니다. 데이터 손실을 방지하기 위해 **권한 부여 갱신** 링크를 클릭한 다음 **마지막 중지 시간** 부터 작업을 다시 시작합니다.
 

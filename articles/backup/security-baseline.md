@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 09066d9e51f12923772758b3aebcebd347a59380
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5e688fbf653646fcdd500f36930fd6b46bebeefa
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174131"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842161"
 ---
 # <a name="azure-security-baseline-for-backup"></a>백업용 Azure 보안 기준
 
@@ -186,7 +186,7 @@ ms.locfileid: "92174131"
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: 로그 모니터링 및 검토
 
-**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 이러한 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
+**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 해당 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
 
 Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 Log Analytics 작업 영역으로 보냅니다. Log Analytics에서 쿼리를 수행 하 여 용어를 검색 하 고, 추세를 식별 하 고, 패턴을 분석 하 고, Recovery Services 자격 증명 모음에 대해 수집 되었을 수 있는 활동 로그 데이터를 기반으로 다양 한 통찰력을 제공
 
@@ -202,7 +202,7 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 L
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: 비정상 활동에 대한 경고 사용
 
-**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 이러한 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
+**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 해당 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
 
 경고는 사용자가 관련 작업을 수행할 수 있도록 사용자에 게 알림을 제공 하는 경우 주로 발생 합니다. 백업 경고 섹션에는 Azure Backup 서비스에 의해 생성 된 경고가 표시 됩니다. 이러한 경고는 서비스에 의해 정의 되며 사용자 지정 경고를 만들 수 없습니다.
 
@@ -298,11 +298,11 @@ Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케�
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: 모든 Azure Active Directory 기반 액세스에 다단계 인증 사용
 
-**지침**: Azure Backup에서 중요 한 작업을 수행 하는 경우 Azure Portal에서 사용할 수 있는 보안 PIN을 입력 해야 합니다. Azure Multi-Factor Authentication을 사용하도록 설정하면 보안 계층이 추가됩니다. 유효한 Azure 자격 증명을 가지며 두 번째 디바이스에서 인증을 받은 인증된 사용자만 Azure Portal에 액세스할 수 있습니다.
+**지침**: Azure Backup에서 중요 한 작업을 수행 하는 경우 Azure Portal에서 사용할 수 있는 보안 PIN을 입력 해야 합니다. Azure AD Multi-Factor Authentication를 사용 하도록 설정 하면 보안 계층이 추가 됩니다. 유효한 Azure 자격 증명을 가지며 두 번째 디바이스에서 인증을 받은 인증된 사용자만 Azure Portal에 액세스할 수 있습니다.
 
 - [Azure Backup Multi-Factor Authentication](./backup-azure-security-feature.md)
 
-- [클라우드 기반 Azure Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
+- [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -310,11 +310,11 @@ Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케�
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: 모든 관리 작업에 전용 컴퓨터(Privileged Access Workstation) 사용
 
-**지침**: Azure MULTI-FACTOR AUTHENTICATION (MFA)로 구성 된 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 Azure Backup 사용 가능 리소스에 로그인 하 고 구성 합니다.
+**지침**: Azure AD MULTI-FACTOR AUTHENTICATION (MFA)로 구성 된 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 Azure Backup 사용 가능 리소스에 로그인 하 고 구성 합니다.
 
 - [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [클라우드 기반 Azure Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
+- [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

@@ -11,20 +11,20 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e1e300f2e18d7103cde374c5eba6877602ac3721
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dbfeefc14059785ba82cbf245a60e5e72759db76
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961224"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840409"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OpenID Connect로 웹 로그인
 
 OpenID Connect는 웹 애플리케이션에 사용자를 안전하게 로그인하는 데 사용할 수 있도록 OAuth 2.0을 기반으로 하여 빌드된 인증 프로토콜입니다. OpenID Connect의 Azure AD B2C(Azure Active Directory B2C) 구현을 사용하여 웹 애플리케이션의 등록, 로그인 및 기타 ID 관리 환경을 Azure AD( Azure Active Directory)로 아웃소싱할 수 있습니다. 이 가이드에서는 언어에 관계 없이 이 작업을 수행하는 방법을 보여 줍니다. 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)는 *인증* 프로토콜로 사용하기 위해 OAuth 2.0 *권한 부여* 프로토콜을 확장합니다. 이 인증 프로토콜을 사용 하면 Single Sign-On을 수행할 수 있습니다. 클라이언트에서 사용자의 id를 확인 하 고 사용자에 대 한 기본 프로필 정보를 얻을 수 있도록 하는 *ID 토큰*의 개념을 소개 합니다.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)는 *인증* 프로토콜로 사용하기 위해 OAuth 2.0 *권한 부여* 프로토콜을 확장합니다. 이 인증 프로토콜을 사용 하면 Single Sign-On을 수행할 수 있습니다. 클라이언트에서 사용자의 id를 확인 하 고 사용자에 대 한 기본 프로필 정보를 얻을 수 있도록 하는 *ID 토큰* 의 개념을 소개 합니다.
 
-OAuth 2.0을 확장 하므로 응용 프로그램에서 *액세스 토큰*을 안전 하 게 가져올 수 있습니다. 액세스 토큰을 사용하여 [권한 부여 서버](protocols-overview.md)로 보안이 유지되는 리소스에 액세스할 수 있습니다. 서버에서 호스트 되 고 브라우저를 통해 액세스 되는 웹 응용 프로그램을 빌드하는 경우 Openid connect 연결을 권장 합니다. 토큰에 대 한 자세한 내용은 Azure Active Directory B2C의 [토큰 개요](tokens-overview.md) 를 참조 하세요.
+OAuth 2.0을 확장 하므로 응용 프로그램에서 *액세스 토큰* 을 안전 하 게 가져올 수 있습니다. 액세스 토큰을 사용하여 [권한 부여 서버](protocols-overview.md)로 보안이 유지되는 리소스에 액세스할 수 있습니다. 서버에서 호스트 되 고 브라우저를 통해 액세스 되는 웹 응용 프로그램을 빌드하는 경우 Openid connect 연결을 권장 합니다. 토큰에 대 한 자세한 내용은 Azure Active Directory B2C의 [토큰 개요](tokens-overview.md) 를 참조 하세요.
 
 Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으로 표준 OpenID Connect 프로토콜을 확장합니다. Openid connect Connect를 사용 하 여 등록, 로그인 및 프로필 관리와 같은 사용자 환경을 응용 프로그램에 추가할 수 있는 [사용자 흐름 매개 변수](user-flow-overview.md)를 소개 합니다.
 
@@ -45,7 +45,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &nonce=12345
 ```
 
-| 매개 변수 | 필수 | Description |
+| 매개 변수 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 넌 | 예 | Azure AD B2C 테 넌 트의 이름 |
 | policy | 예 | 실행할 사용자 흐름입니다. Azure AD B2C 테 넌 트에서 만든 사용자 흐름의 이름을 지정 합니다. 예: `b2c_1_sign_in`, `b2c_1_sign_up` 또는 `b2c_1_edit_profile`. |
@@ -71,7 +71,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | id_token | 응용 프로그램이 요청한 ID 토큰입니다. ID 토큰을 사용하여 사용자 ID를 확인하고 사용자와 세션을 시작할 수 있습니다. |
 | code | 를 사용한 경우 응용 프로그램이 요청한 인증 코드입니다 `response_type=code+id_token` . 응용 프로그램은 권한 부여 코드를 사용 하 여 대상 리소스에 대 한 액세스 토큰을 요청할 수 있습니다. 인증 코드는 일반적으로 약 10 분 후에 만료 됩니다. |
@@ -86,7 +86,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | error | 발생 한 오류 유형을 분류 하는 데 사용할 수 있는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별 하는 데 도움이 될 수 있는 특정 오류 메시지입니다. |
@@ -124,7 +124,7 @@ ID 토큰의 서명에 대한 유효성을 검사한 후에는 확인해야 할 
 
 - 사용자/조직이 응용 프로그램에 등록 했는지 확인 합니다.
 - 사용자에게 적절한 권한 부여/권한이 있는지 확인
-- Azure Multi-Factor Authentication과 같은 특정 강도의 인증이 발생했는지 확인
+- Azure AD Multi-Factor Authentication와 같은 특정 수준의 인증이 발생 했는지 확인 합니다.
 
 ID 토큰의 유효성을 검사 한 후 사용자와 세션을 시작할 수 있습니다. ID 토큰의 클레임을 사용 하 여 응용 프로그램의 사용자에 대 한 정보를 가져올 수 있습니다. 이 정보의 용도로 표시, 레코드 및 권한 부여가 있습니다.
 
@@ -144,7 +144,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| 매개 변수 | 필수 | Description |
+| 매개 변수 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 넌 | 예 | Azure AD B2C 테 넌 트의 이름 |
 | policy | 예 | 권한 부여 코드를 획득하는 데 사용된 사용자 흐름입니다. 이 요청에서는 다른 사용자 흐름을 사용할 수 없습니다. 이 매개 변수를 POST 본문이 아니라 쿼리 문자열에 추가 합니다. |
@@ -168,7 +168,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 }
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | not_before | epoch 시간에서 토큰은 유효한 것으로 간주되는 시간입니다. |
 | token_type | 토큰 형식 값입니다. `Bearer` 는 유일 하 게 지원 되는 유형입니다. |
@@ -186,7 +186,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 }
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | error | 발생 한 오류 유형을 분류 하는 데 사용할 수 있는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별 하는 데 도움이 될 수 있는 메시지입니다. |
@@ -213,7 +213,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| 매개 변수 | 필수 | Description |
+| 매개 변수 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 넌 | 예 | Azure AD B2C 테 넌 트의 이름 |
 | policy | 예 | 원래의 새로 고침 토큰을 얻는 데 사용된 사용자 흐름입니다. 이 요청에서는 다른 사용자 흐름을 사용할 수 없습니다. 이 매개 변수를 POST 본문이 아니라 쿼리 문자열에 추가 합니다. |
@@ -237,7 +237,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 }
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | not_before | epoch 시간에서 토큰은 유효한 것으로 간주되는 시간입니다. |
 | token_type | 토큰 형식 값입니다. `Bearer` 는 유일 하 게 지원 되는 유형입니다. |
@@ -255,7 +255,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 }
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | error | 발생 한 오류 유형을 분류 하는 데 사용할 수 있는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별 하는 데 도움이 될 수 있는 메시지입니다. |
@@ -270,7 +270,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fjwt.ms%2F
 ```
 
-| 매개 변수 | 필수 | Description |
+| 매개 변수 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 넌 | 예 | Azure AD B2C 테 넌 트의 이름 |
 | policy | 예 | 애플리케이션에서 사용자를 로그아웃하는 데 사용하려는 사용자 흐름입니다. |

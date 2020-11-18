@@ -6,13 +6,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: eebb0a8dc23a6a442a170dcc6e19495f96ce2921
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.date: 11/17/2020
+ms.openlocfilehash: 83d6e051f520737e750e6c46c192eb698e7bf0e3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930597"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842260"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제 
 
@@ -22,11 +22,11 @@ ms.locfileid: "91930597"
 
 * NFS 볼륨에 액세스할 수 있으려면 하나 이상의 내보내기 정책이 있어야 합니다.
 * NFS 볼륨을 성공적으로 탑재 하려면 다음 NFS 포트가 클라이언트와 NFS 볼륨 사이에서 열려 있는지 확인 합니다.
-    * 111 = `RPCBIND/Portmapper`
-    * 635 = `mountd`
-    * 2049 = `nfs`
-    * 4045 = `nlockmgr` (NFSv3에만 해당)
-    * 4046 = `status` (NFSv3에만 해당)
+    * 111 TCP/UDP = `RPCBIND/Portmapper`
+    * 635 TCP/UDP = `mountd`
+    * 2049 TCP/UDP = `nfs`
+    * 4045 TCP/UDP = `nlockmgr` (NFSv3에만 해당)
+    * 4046 TCP/UDP = `status` (NFSv3에만 해당)
 
 ## <a name="steps"></a>단계
 
@@ -53,7 +53,7 @@ ms.locfileid: "91930597"
 
     a. 먼저 Unix 또는 Linux VM에 볼륨을 탑재 합니다.  
     b. 볼륨에 `chmod 777` `chmod 775` 대해 또는 명령을 실행 합니다.  
-    다. Windows에서 NFS 클라이언트를 통해 볼륨을 탑재 합니다.
+    c. Windows에서 NFS 클라이언트를 통해 볼륨을 탑재 합니다.
     
 5. NFS Kerberos 볼륨을 탑재 하려면 [nfsv 4.1 kerberos 암호화 구성](configure-kerberos-encryption.md) 에서 추가 정보를 참조 하세요. 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ab266e1a94a647c4c1f0c42cc75fe6b6a68d9afa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f9835a0bb67fd276096153c54a569ebb58161799
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205152"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842416"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linux Virtual Machines에 대 한 Azure 보안 기준
 
@@ -978,7 +978,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [Azure 관리 Id와 통합 하는 방법](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Key Vault를 만드는 방법](../../key-vault/secrets/quick-create-portal.md)
+* [Key Vault를 만드는 방법](../../key-vault/general/quick-create-portal.md)
 
 * [Key Vault에 인증 하는 방법](../../key-vault/general/authentication.md)
 
@@ -1184,7 +1184,7 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 **지침**: Microsoft Engagement 규칙에 따라 침투 테스트가 microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
 
-* [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 * [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 

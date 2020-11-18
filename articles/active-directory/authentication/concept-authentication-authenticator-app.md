@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c8fe6c7ead587d58775984854260bd071215e42
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: eab1a3f81666cd3bddea9954f210e5825a538356
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965576"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840120"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Azure Active Directory Microsoft Authenticator 앱의 인증 방법
 
-Microsoft Authenticator 앱은 Azure AD 회사 또는 학교 계정 또는 Microsoft 계정에 대 한 추가 보안 수준을 제공 하며 [Android](https://go.microsoft.com/fwlink/?linkid=866594) 및 [iOS](https://go.microsoft.com/fwlink/?linkid=866594)에서 사용할 수 있습니다. Microsoft Authenticator 앱을 사용하면 사용자가 로그인 중에 암호 없는 방식으로 인증하거나 SSPR(셀프 서비스 암호 재설정) 또는 Azure Multi-Factor Authentication 이벤트 중에 추가 확인 옵션으로 인증할 수 있습니다.
+Microsoft Authenticator 앱은 Azure AD 회사 또는 학교 계정 또는 Microsoft 계정에 대 한 추가 보안 수준을 제공 하며 [Android](https://go.microsoft.com/fwlink/?linkid=866594) 및 [iOS](https://go.microsoft.com/fwlink/?linkid=866594)에서 사용할 수 있습니다. Microsoft Authenticator 앱을 사용 하면 사용자가 로그인 중에 암호 없는 방식으로 인증 하거나 SSPR (셀프 서비스 암호 재설정) 또는 Azure AD Multi-Factor Authentication 이벤트 중에 추가 확인 옵션으로 인증할 수 있습니다.
 
 사용자는 승인 또는 거부를 위해 모바일 앱을 통해 알림을 받거나, Authenticator 앱을 사용하여 로그인 인터페이스에 입력할 수 있는 OATH 확인 코드를 생성할 수 있습니다. 알림 및 확인 코드를 모두 사용하는 경우 Authenticator 앱을 등록하는 사용자는 두 방법 중 하나를 사용하여 해당 ID를 확인할 수 있습니다.
 
@@ -40,7 +40,7 @@ Microsoft Authenticator 앱은 Azure AD 회사 또는 학교 계정 또는 Micro
 
 ## <a name="notification-through-mobile-app"></a>모바일 앱을 통한 알림
 
-Authenticator 앱을 사용하면 스마트폰 또는 태블릿에 알림을 표시하여 계정에 대한 무단 액세스를 방지하고 사기성 트랜잭션을 중지할 수 있습니다. 사용자가 알림을 확인하고 올바르면 **확인**을 선택합니다. 그렇지 않으면 **거부**를 선택할 수 있습니다.
+Authenticator 앱을 사용하면 스마트폰 또는 태블릿에 알림을 표시하여 계정에 대한 무단 액세스를 방지하고 사기성 트랜잭션을 중지할 수 있습니다. 사용자가 알림을 확인하고 올바르면 **확인** 을 선택합니다. 그렇지 않으면 **거부** 를 선택할 수 있습니다.
 
 ![로그인 프로세스를 완료하기 위한 Authenticator 앱 알림의 웹 브라우저 프롬프트 예시 스크린샷](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 

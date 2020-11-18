@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 3b81572266f6ee5bd90662a98988d41479f399cc
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 9afad44bcf67478a81e75c17d0ff8ffc6d8c65aa
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674996"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841133"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Multi-factor Azure Active Directory 인증 사용
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -41,13 +41,13 @@ Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics는 *A
 - `Azure Active Directory - Password`
 - `Azure Active Directory - Integrated`
 
-MFA (Azure Multi-Factor Authentication)도 지 원하는 대화형 메서드는 다음과 같습니다. 
+MFA (Azure AD Multi-Factor Authentication)도 지 원하는 대화형 메서드는 다음과 같습니다. 
 
 - `Azure Active Directory - Universal with MFA`
 
-Azure MFA를 사용하면 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동시에 데이터 및 애플리케이션에 대한 액세스를 보호할 수 있습니다. 또한 전화 통화, 문자 메시지, PIN을 사용하는 스마트 카드, 모바일 앱 알림 등의 여러 가지 간편한 인증 옵션을 통해 강력한 인증을 제공하므로 사용자는 선호하는 방법을 선택할 수 있습니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다.
+Azure AD MFA는 간단한 로그인 프로세스에 대 한 사용자의 요구를 충족 하는 동시에 데이터 및 응용 프로그램에 대 한 액세스를 보호 합니다. 또한 전화 통화, 문자 메시지, PIN을 사용하는 스마트 카드, 모바일 앱 알림 등의 여러 가지 간편한 인증 옵션을 통해 강력한 인증을 제공하므로 사용자는 선호하는 방법을 선택할 수 있습니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다.
 
-Azure Multi-Factor Authentication에 대 한 설명은 [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)를 참조 하세요.
+Azure AD Multi-Factor Authentication에 대 한 설명은 [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)를 참조 하세요.
 [SQL Server Management Studio에 대한 Azure SQL Database multi-factor authentication 구성](authentication-mfa-ssms-configure.md)을 참조하세요.
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Azure AD 도메인 이름 또는 테넌트 ID 매개 변수
@@ -58,7 +58,7 @@ Azure Multi-Factor Authentication에 대 한 설명은 [Multi-Factor Authenticat
 
 
 1. SSMS에서 연결을 엽니다. 서버 이름을 입력 하 고 MFA 인증 **을 사용 하 여 Azure Active Directory-유니버설** 을 선택 합니다. 로그인 할 **사용자 이름을** 추가 합니다.
-1. **옵션** 상자를 선택 하 고 **연결 속성** 탭으로 이동 합니다. **데이터베이스에 연결** 대화 상자에서 데이터베이스에 대 한 대화 상자를 완료 합니다. **AD 도메인 이름 또는 테넌트 ID** 상자를 선택한 다음 인증 기관(예: 도메인 이름, **contosotest.onmicrosoft.com** ) 또는 테넌트 ID의 GUID를 제공합니다. 
+1. **옵션** 상자를 선택 하 고 **연결 속성** 탭으로 이동 합니다. **데이터베이스에 연결** 대화 상자에서 데이터베이스에 대 한 대화 상자를 완료 합니다. **AD 도메인 이름 또는 테넌트 ID** 상자를 선택한 다음 인증 기관(예: 도메인 이름, **contosotest.onmicrosoft.com**) 또는 테넌트 ID의 GUID를 제공합니다. 
 
    ![데이터베이스 및 AD 도메인 이름 또는 테 넌 트 ID에 연결에 대 한 설정을 강조 표시 하는 연결 속성 탭의 스크린샷](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
@@ -100,4 +100,4 @@ SSMS 18.x 이상을 실행 하는 경우에는 18.x 이상이 자동으로 인�
 - [BACPAC 파일을 새 데이터베이스로 가져오기](database-import.md)  
 - [BACPAC 파일로 데이터베이스 내보내기](database-export.md)  
 - C# 인터페이스 [IUniversalAuthProvider Interface](/dotnet/api/microsoft.sqlserver.dac.iuniversalauthprovider)  
-- MFA 인증 **에 Azure Active Directory-유니버설** 를 사용 하는 경우 [SSMS 17.3](/sql/ssms/download-sql-server-management-studio-ssms)부터 ADAL 추적을 사용할 수 있습니다. 기본적으로 꺼짐인 ADAL 추적은 **도구** , **옵션** 메뉴, **Azure Services** , **Azure Cloud** , **ADAL 출력 창 추적 수준** 을 사용하고 **보기** 메뉴의 **출력** 을 활성화하여 켤 수 있습니다. 추적은 **Azure Active Directory 옵션** 을 선택할 때 출력 창에서 사용할 수 있습니다.
+- MFA 인증 **에 Azure Active Directory-유니버설** 를 사용 하는 경우 [SSMS 17.3](/sql/ssms/download-sql-server-management-studio-ssms)부터 ADAL 추적을 사용할 수 있습니다. 기본적으로 꺼짐인 ADAL 추적은 **도구**, **옵션** 메뉴, **Azure Services**, **Azure Cloud**, **ADAL 출력 창 추적 수준** 을 사용하고 **보기** 메뉴의 **출력** 을 활성화하여 켤 수 있습니다. 추적은 **Azure Active Directory 옵션** 을 선택할 때 출력 창에서 사용할 수 있습니다.

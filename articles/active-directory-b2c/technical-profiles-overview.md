@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7417e2d39371066a5c5e8576040cbe22e7632043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d61471e07dda8fcf0c715dcffe85ad3e39ed8ac3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562879"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840375"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 기술 프로필 정보
 
@@ -30,7 +30,7 @@ ms.locfileid: "90562879"
 
 - [Application Insights](../azure-monitor/app/app-insights-overview.md)에 이벤트 데이터를 [Application Insights](application-insights-technical-profile.md) 보냅니다.
 - [Azure Active Directory](active-directory-technical-profile.md) - Azure Active Directory B2C 사용자 관리를 지원합니다.
-- [Azure Multi-Factor Authentication](multi-factor-auth-technical-profile.md) -MFA (azure Multi-Factor Authentication)를 사용 하 여 전화 번호를 확인 하는 기능을 제공 합니다. 
+- [AZURE ad Multi-Factor Authentication](multi-factor-auth-technical-profile.md) -azure ad MULTI-FACTOR AUTHENTICATION (MFA)를 사용 하 여 전화 번호를 확인 하는 기능을 제공 합니다. 
 - [클레임 변환](claims-transformation-technical-profile.md) - 출력 클레임 변환을 호출하여 클레임 값을 조작하거나, 클레임의 유효성을 검사하거나, 출력 클레임 집합의 기본값을 설정합니다.
 - [ID 토큰 힌트](id-token-hint.md) - `id_token_hint` JWT 토큰 서명, 발급자 이름 및 토큰 대상의 유효성을 검사 하 고 인바운드 토큰에서 클레임을 추출 합니다.
 - [JWT 토큰 발급자](jwt-issuer-technical-profile.md) - 다시 신뢰 당사자 애플리케이션으로 반환되는 JWT 토큰을 내보냅니다.
@@ -69,7 +69,7 @@ ms.locfileid: "90562879"
 
 기술 프로필에는 다른 기술 프로필을 포함 하 여 설정을 변경 하거나 새 기능을 추가할 수 있습니다.  `IncludeTechnicalProfile`요소는 기술 프로필이 파생 되는 기본 기술 프로필에 대 한 참조입니다. 수준 수에는 제한이 없습니다.
 
-예를 들어, **AAD-UserReadUsingAlternativeSecurityId-NoError** 기술 프로필에는 **AAD-UserReadUsingAlternativeSecurityId**가 포함됩니다. 이 기술 프로필은 `RaiseErrorIfClaimsPrincipalDoesNotExist` 메타 데이터 항목을로 설정 하 `true` 고, 소셜 계정이 디렉터리에 없으면 오류를 발생 시킵니다. **UserReadUsingAlternativeSecurityId-NoError** 는이 동작을 재정의 하 고 해당 오류 메시지를 비활성화 합니다.
+예를 들어, **AAD-UserReadUsingAlternativeSecurityId-NoError** 기술 프로필에는 **AAD-UserReadUsingAlternativeSecurityId** 가 포함됩니다. 이 기술 프로필은 `RaiseErrorIfClaimsPrincipalDoesNotExist` 메타 데이터 항목을로 설정 하 `true` 고, 소셜 계정이 디렉터리에 없으면 오류를 발생 시킵니다. **UserReadUsingAlternativeSecurityId-NoError** 는이 동작을 재정의 하 고 해당 오류 메시지를 비활성화 합니다.
 
 ```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
@@ -80,7 +80,7 @@ ms.locfileid: "90562879"
 </TechnicalProfile>
 ```
 
-**AAD-UserReadUsingAlternativeSecurityId**에는 `AAD-Common` 기술 프로필이 포함됩니다.
+**AAD-UserReadUsingAlternativeSecurityId** 에는 `AAD-Common` 기술 프로필이 포함됩니다.
 
 ```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">

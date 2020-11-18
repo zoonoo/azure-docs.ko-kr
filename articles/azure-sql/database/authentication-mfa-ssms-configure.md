@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 2de48946088316e9070e13396f124148a4ff6099
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 094e40fe55e1ba51b0539d740ecb449a8327d6a6
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675017"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841243"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>SQL Server Management Studio 및 Azure AD에 대한 Multi-factor Authentication(MFA) 구성
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "92675017"
 ## <a name="configuration-steps"></a>구성 단계
 
 1. **Azure Active Directory 구성** - 자세한 내용은 [Azure AD 디렉터리 관리](/previous-versions/azure/azure-services/hh967611(v=azure.100)), [Azure Active Directory와 온-프레미스 ID 통합](../../active-directory/hybrid/whatis-hybrid-identity.md), [Azure AD에 고유한 도메인 이름 추가](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure는 이제 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) 및 [Windows PowerShell을 사용하여 Azure AD 관리](/previous-versions/azure/jj151815(v=azure.100))를 참조하세요.
-2. **MFA 구성** - 단계별 지침은 [Azure Multi-factor Authentication(MFA)이란?](../../active-directory/authentication/concept-mfa-howitworks.md), [Azure SQL Database 및 데이터웨어 하우스에서의 조건부 액세스(MFA)](conditional-access-configure.md)를 참조하세요. (전체 조건부 액세스에는 프리미엄 Azure Active Directory 필요 합니다. 표준 Azure AD에서는 제한된 MFA가 제공됩니다.
+2. **MFA 구성** -단계별 지침은 [Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md), [Azure SQL Database 및 데이터 웨어하우스가 포함 된 조건부 액세스 (MFA)](conditional-access-configure.md)를 참조 하세요. (전체 조건부 액세스에는 프리미엄 Azure Active Directory 필요 합니다. 표준 Azure AD에서는 제한된 MFA가 제공됩니다.
 3. **Azure AD 인증 구성** -단계별 지침은 [Azure Active Directory 인증을 사용 하 여 SQL Database, SQL Managed Instance 또는 Azure Synapse에 연결](authentication-aad-overview.md)을 참조 하세요.
 4. **SSMS 다운로드** - 클라이언트 컴퓨터에서 최신 SSMS를 [SSMS(SQL Server Management Studio) 다운로드](/sql/ssms/download-sql-server-management-studio-ssms)에서 다운로드합니다.
 
@@ -81,4 +81,4 @@ ms.locfileid: "92675017"
 - Multi-factor authentication에 대 한 개요는 [SQL Database, SQL Managed Instance 및 Azure Synapse를 사용 하는 유니버설 인증 (MFA에 대 한 SSMS 지원)](../database/authentication-mfa-ssms-overview.md)을 참조 하세요.  
 - 데이터베이스에 대한 액세스를 부여합니다. [SQL Database 인증 및 권한 부여: 액세스 부여](logins-create-manage.md)  
 - 다른 사용자가 방화벽을 통해 연결할 수 있는지 확인 [합니다. Azure Portal를 사용 하 여 서버 수준 방화벽 규칙을 구성](./firewall-configure.md) 합니다.  
-- **Active Directory- MFA 유니버설** 인증을 사용할 때 ADAL 추적은 [SSMS 17.3](/sql/ssms/download-sql-server-management-studio-ssms)에서 시작할 수 있습니다. 기본적으로 꺼짐인 ADAL 추적은 **도구** , **옵션** 메뉴, **Azure Services** , **Azure Cloud** , **ADAL 출력 창 추적 수준** 을 사용하고 **보기** 메뉴의 **출력** 을 활성화하여 켤 수 있습니다. 추적은 **Azure Active Directory 옵션** 을 선택할 때 출력 창에서 사용할 수 있습니다.
+- **Active Directory- MFA 유니버설** 인증을 사용할 때 ADAL 추적은 [SSMS 17.3](/sql/ssms/download-sql-server-management-studio-ssms)에서 시작할 수 있습니다. 기본적으로 꺼짐인 ADAL 추적은 **도구**, **옵션** 메뉴, **Azure Services**, **Azure Cloud**, **ADAL 출력 창 추적 수준** 을 사용하고 **보기** 메뉴의 **출력** 을 활성화하여 켤 수 있습니다. 추적은 **Azure Active Directory 옵션** 을 선택할 때 출력 창에서 사용할 수 있습니다.

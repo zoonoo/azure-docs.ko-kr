@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 4fa5ba935e77055936b2abc4faab49b5d10cb5c0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 4703a76ff0a0b55a438f9f0d164cd7f2d3242a02
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410065"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842025"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -48,7 +48,7 @@ ms.locfileid: "94410065"
 
 이 검사 목록을 시작하기 전에 이 검사 목록을 읽는 도중에 손상되지 않도록 해야 합니다. 먼저 권한 있는 계정을 보호해야 합니다.
 
-공격자가 권한 있는 계정의 제어권을 확보하면 엄청난 피해가 발생할 수 있으므로 이러한 계정을 보호하는 것이 무엇보다도 중요합니다. [Azure AD 보안 기본값](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) 또는 [조건부 액세스](../../active-directory/conditional-access/plan-conditional-access.md)를 사용하여 조직의 모든 관리자가 [MFA(Azure Multi-Factor Authentication)](../../active-directory/authentication/concept-mfa-howitworks.md)를 사용하도록 설정하고 제공합니다. MFA를 구현하지 않았다면, 지금 구현하세요! 이 문제는 중요합니다.
+공격자가 권한 있는 계정의 제어권을 확보하면 엄청난 피해가 발생할 수 있으므로 이러한 계정을 보호하는 것이 무엇보다도 중요합니다. [AZURE Ad 보안 기본값](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) 또는 [조건부 액세스](../../active-directory/conditional-access/plan-conditional-access.md)를 사용 하 여 조직의 모든 관리자에 대해 [azure ad Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA)를 사용 하도록 설정 하 고 요구 합니다. MFA를 구현하지 않았다면, 지금 구현하세요! 이 문제는 중요합니다.
 
 모두 준비되었나요? 이제 검사 목록을 시작하겠습니다.
 
@@ -59,9 +59,9 @@ ms.locfileid: "94410065"
 
 ### <a name="make-sure-your-organization-uses-strong-authentication"></a>조직에서 강력한 인증을 사용하도록 해야 함
 
-암호가 추측되고, 피싱되고, 맬웨어로 도난 또는 재사용되는 횟수를 고려할 때 강력한 자격 증명의 형식을 갖춘 암호로 돌아가는 것은 중요합니다. [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)에 대해 자세히 알아보세요.
+암호를 추측 하거나, 피싱, 도난당 하거나, 다시 사용 하는 경우 암호를 다시 사용 하는 것이 중요 합니다. 즉, [AZURE AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)에 대해 자세히 알아보세요.
 
-기본 수준의 ID 보안을 쉽게 사용하도록 설정하려면 [Azure AD 보안 기본값](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)을 사용하여 한 번 클릭 사용을 사용할 수 있습니다. 보안 기본값은 테넌트의 모든 사용자에 대해 Azure MFA를 적용하고 레거시 프로토콜 테넌트 전체의 로그인을 차단합니다.
+기본 수준의 ID 보안을 쉽게 사용하도록 설정하려면 [Azure AD 보안 기본값](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)을 사용하여 한 번 클릭 사용을 사용할 수 있습니다. 보안 기본값은 테 넌 트의 모든 사용자에 대해 Azure AD MFA를 적용 하 고 레거시 프로토콜의 로그인을 차단 합니다.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>자주 공격받는 암호 사용을 금지하고 기존의 복잡성 및 만료 규칙을 해제합니다.
 

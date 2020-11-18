@@ -5,19 +5,19 @@ keywords: 데이터 암호화, 암호화 키, 클라우드 암호화
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 11/02/2020
-ms.openlocfilehash: 45aca00adab8ef5b33a376af34642261c5e73255
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 257abf03994c7006b1c3789174f550515dcd309a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321632"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841464"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Azure Key Vault를 사용 하 여 Always Encrypted 구성 
 
@@ -55,7 +55,7 @@ Azure Active Directory (Azure AD) 응용 프로그램을 설정 하 고 응용 �
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>키를 저장할 주요 자격 증명 모음 만들기
 
-클라이언트 앱이 구성되었고 애플리케이션 ID가 있으므로, 이제 키 자격 증명 모음을 만들고 사용자와 사용자 애플리케이션에서 이 자격 증명 모음의 암호(Always Encrypted 키)에 액세스할 수 있도록 액세스 정책을 구성해야 합니다. 새 열 마스터 키를 만들고 SQL Server Management Studio에서 암호화를 설정하기 위해서는 *create* , *get* , *list* , *sign* , *verify* , *wrapKey* 및 *unwrapKey* 권한이 필요합니다.
+클라이언트 앱이 구성되었고 애플리케이션 ID가 있으므로, 이제 키 자격 증명 모음을 만들고 사용자와 사용자 애플리케이션에서 이 자격 증명 모음의 암호(Always Encrypted 키)에 액세스할 수 있도록 액세스 정책을 구성해야 합니다. 새 열 마스터 키를 만들고 SQL Server Management Studio에서 암호화를 설정하기 위해서는 *create*, *get*, *list*, *sign*, *verify*, *wrapKey* 및 *unwrapKey* 권한이 필요합니다.
 
 다음 스크립트를 실행하여 주요 자격 증명 모음을 빠르게 만들 수 있습니다. 이러한 명령에 대 한 자세한 설명 및 주요 자격 증명 모음을 만들고 구성 하는 방법에 대 한 자세한 내용은 [Azure Key Vault?](../../key-vault/general/overview.md)을 참조 하세요.
 
@@ -151,7 +151,7 @@ SSMS는 쉽게 열 마스터 키, 열 암호화 키 및 암호화된 열을 설�
 
     ![암호화 열을 강조 표시 하는 스크린샷 ... 메뉴 옵션입니다.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
-상시 암호화 마법사에는 **열 선택** , **마스터 키 구성** , **유효성 검사** 및 **요약** 섹션이 포함됩니다.
+상시 암호화 마법사에는 **열 선택**, **마스터 키 구성**, **유효성 검사** 및 **요약** 섹션이 포함됩니다.
 
 ### <a name="column-selection"></a>열 선택
 
@@ -202,7 +202,7 @@ SSN 열에 대한 **암호화 형식** 을 **결정적** 으로 설정하고 Bir
 > [!IMPORTANT]
 > 상시 암호화 열이 있는 서버에 일반 텍스트 데이터를 전달하는 경우 애플리케이션은 [SqlParameter](/dotnet/api/system.data.sqlclient.sqlparameter) 개체를 사용해야 합니다. SqlParameter 개체를 사용하지 않고 리터럴 값을 전달하면 예외가 발생합니다.
 
-1. Visual Studio를 열고 새 C# **콘솔 애플리케이션** (Visual Studio 2015 이전) 또는 **콘솔 앱(.NET Framework)** (Visual Studio 2017 이상)을 만듭니다. 프로젝트가 **.NET Framework 4.6** 이상으로 설정되도록 합니다.
+1. Visual Studio를 열고 새 C# **콘솔 애플리케이션**(Visual Studio 2015 이전) 또는 **콘솔 앱(.NET Framework)**(Visual Studio 2017 이상)을 만듭니다. 프로젝트가 **.NET Framework 4.6** 이상으로 설정되도록 합니다.
 2. 프로젝트 이름을 **AlwaysEncryptedConsoleAKVApp** 으로 지정하고 **확인** 을 클릭합니다.
 3. **도구**  >  **nuget 패키지 관리자**  >  **패키지 관리자 콘솔** 로 이동 하 여 다음 nuget 패키지를 설치 합니다.
 
@@ -576,7 +576,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
    ![암호화 된 열에 일반 텍스트 데이터가 포함 되지 않는 것을 보여 주는 스크린샷](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
-SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면, 먼저 사용자가 Azure Key Vault에 대한 적절한 권한( *get* , *unwrapKey* 및 *verify* )을 갖고 있는지 확인해야 합니다. 자세한 내용은 [열 마스터 키(상시 암호화) 만들기 및 저장](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted)을 참조하세요.
+SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면, 먼저 사용자가 Azure Key Vault에 대한 적절한 권한(*get*, *unwrapKey* 및 *verify*)을 갖고 있는지 확인해야 합니다. 자세한 내용은 [열 마스터 키(상시 암호화) 만들기 및 저장](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted)을 참조하세요.
 
 그런 다음, 연결하는 동안 *Column Encryption Setting=enabled* 매개 변수를 추가합니다.
 

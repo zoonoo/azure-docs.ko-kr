@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: fcc0538dfef1581a244ae5fd9a3515be3470026c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09a5632f969117e69e68bbe0df2bfbab9a8a102b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850934"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842138"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>공용 IP 주소가 없는 Azure Batch 풀 만들기
 
@@ -34,7 +34,7 @@ Azure Batch 풀을 만들 때 공용 IP 주소를 사용 하지 않고 가상 �
 - **Azure VNet**. [가상 네트워크](batch-virtual-network.md)에서 풀을 만드는 경우 다음 요구 사항 및 구성을 따릅니다. 하나 이상의 서브넷으로 VNet을 미리 준비하기 위해 Azure Portal, Azure PowerShell, Azure CLI(명령줄 인터페이스) 또는 기타 방법을 사용할 수 있습니다.
   - VNet은 풀을 만들 때 사용한 Batch 계정과 동일한 구독 및 지역에 있어야 합니다.
   - 풀에 대해 지정한 서브넷에는 풀에 대상이 되는 VM 수를 수용할 만큼 충분한 할당되지 않은 IP 주소가 있어야 합니다. 즉 풀의 `targetDedicatedNodes` 및 `targetLowPriorityNodes` 속성 합계입니다. 서브넷에 할당되지 않은 IP 주소가 충분하지 않으면 풀은 컴퓨팅 노드를 부분적으로 할당하고 크기 조정 오류를 반환합니다.
-  - 개인 링크 서비스 및 끝점 네트워크 정책을 사용 하지 않도록 설정 해야 합니다. Azure CLI를 사용 하 여이 작업을 수행할 수 있습니다. ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+  - 개인 링크 서비스 및 끝점 네트워크 정책을 사용 하지 않도록 설정 해야 합니다. Azure CLI를 사용 하 여이 작업을 수행할 수 있습니다. ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resouce-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > 100 개의 전용 또는 우선 순위가 낮은 노드에 대해 일괄 처리는 하나의 개인 링크 서비스와 하나의 부하 분산 장치를 할당 합니다. 이러한 리소스는 구독의 [리소스 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다. 대량 풀의 경우 이러한 리소스 중 하나 이상에 대 한 [할당량 증가를 요청](batch-quota-limit.md#increase-a-quota) 해야 할 수 있습니다. 또한 일괄 처리로 생성 된 리소스에는 리소스 잠금이 적용 되지 않습니다 .이로 인해 풀을 삭제 하거나 0으로 크기를 조정 하는 등의 사용자 시작 작업의 결과로 리소스 정리가 수행 되지 않습니다.
@@ -48,13 +48,13 @@ Azure Batch 풀을 만들 때 공용 IP 주소를 사용 하지 않고 가상 �
 ## <a name="create-a-pool-without-public-ip-addresses-in-the-azure-portal"></a>Azure Portal에 공용 IP 주소가 없는 풀 만들기
 
 1. Azure Portal에서 Batch 계정으로 이동합니다.
-1. 왼쪽의 **설정** 창에서 **풀**을 선택 합니다.
-1. **풀** 창에서 **추가**를 선택 합니다.
+1. 왼쪽의 **설정** 창에서 **풀** 을 선택 합니다.
+1. **풀** 창에서 **추가** 를 선택 합니다.
 1. **풀 추가** 창의 **이미지 형식** 드롭다운에서 사용할 옵션을 선택합니다.
 1. 이미지의 올바른 **게시자/제품/Sku** 를 선택 합니다.
-1. **노드 크기**, **대상 전용 노드**및 **우선 순위가 낮은 노드**를 포함 하 여 나머지 필수 설정을 지정 하 고 원하는 선택적 설정도 지정 합니다.
+1. **노드 크기**, **대상 전용 노드** 및 **우선 순위가 낮은 노드** 를 포함 하 여 나머지 필수 설정을 지정 하 고 원하는 선택적 설정도 지정 합니다.
 1. 필요에 따라 사용할 가상 네트워크 및 서브넷을 선택 합니다. 이 가상 네트워크는 만들려는 풀과 동일한 리소스 그룹에 있어야 합니다.
-1. **IP 주소 프로 비전 유형**에서 **NoPublicIPAddresses**을 선택 합니다.
+1. **IP 주소 프로 비전 유형** 에서 **NoPublicIPAddresses** 을 선택 합니다.
 
 ![NoPublicIPAddresses가 선택 된 풀 추가 화면의 스크린샷](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
 

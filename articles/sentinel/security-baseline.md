@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ab28c7c592c270cb7b5ba6afa6145bdcfed89099
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: bf249046a30e023a2d7b596fb6424c7005c2a875
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658930"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841940"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Azure 센티널에 대 한 azure 보안 기준
 
@@ -163,11 +163,11 @@ ms.locfileid: "94658930"
 
 ### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3.6: 관리 작업에는 안전한 Azure 관리 워크스테이션 사용
 
-**지침**: MFA (azure Multi-Factor Authentication)를 사용 하는 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 azure 센티널 관련 리소스에 로그인 하 고 구성 합니다. 
+**지침**: MFA (azure AD Multi-Factor Authentication)를 사용 하는 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 azure 센티널 관련 리소스에 로그인 하 고 구성 합니다. 
 
 - [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [클라우드 기반 Azure Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
+- [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
