@@ -4,27 +4,27 @@ description: 이 문서에서는 상업용 Marketplace 거래 옵션에 대한 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: c6ce256db907589ace7e77157397257732564fb6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9a975ee863e81a9f542e717d734f12db850f749e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130326"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738325"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 
-이 문서에서는 Microsoft 상업적 marketplace에 대 한 가격 책정, 청구, 송장 청구 및 지급 고려 사항을 설명 합니다. 
+이 문서에서는 Microsoft 상업적 marketplace에 대 한 가격 책정, 청구, 송장 청구 및 지급 고려 사항을 설명 합니다.
 
 ## <a name="transactions-by-listing-option"></a>목록 옵션으로 트랜잭션
 
-게시자나 Microsoft는 상업용 Marketplace의 제품에 대한 소프트웨어 라이선스 트랜잭션을 관리할 책임이 있습니다. 제품에 대해 선택 하는 목록 옵션에 따라 트랜잭션을 관리 하는 사람이 결정 됩니다. 각 게시 옵션에 대 한 가용성 및 설명은 [목록 옵션 선택](./determine-your-listing-type.md#choose-a-listing-option) 을 참조 하세요.
+게시자나 Microsoft는 상업용 Marketplace의 제품에 대한 소프트웨어 라이선스 트랜잭션을 관리할 책임이 있습니다. 제품에 대해 선택 하는 목록 옵션에 따라 트랜잭션을 관리 하는 사람이 결정 됩니다. 각 게시 옵션에 대 한 가용성 및 설명은 [나열 옵션 소개](determine-your-listing-type.md) 를 참조 하세요.
 
 ### <a name="contact-me-free-trial-and-byol-options"></a>연락처, 무료 평가판 및 BYOL 옵션
 
-게시자는 _연락_ 및 _무료 평가판_ , 판촉 및 사용자 획득 목적 옵션을 선택할 수 있습니다. 일부 제공 유형의 경우, 게시자는 BYOL (사용자 라이선스 가져오기) 옵션을 선택 하 여 고객이 직접 구매한 라이선스를 사용 하 여 제품에 대 한 구독을 구매할 수 있도록 합니다. 이러한 옵션을 사용할 때 Microsoft는 게시자의 소프트웨어 라이선스 트랜잭션에 직접 참여하지 않으며 연결된 트랜잭션 요금은 없습니다. 
+게시자는 _연락_ 및 _무료 평가판_, 판촉 및 사용자 획득 목적 옵션을 선택할 수 있습니다. 일부 제공 유형의 경우, 게시자는 BYOL (사용자 라이선스 가져오기) 옵션을 선택 하 여 고객이 직접 구매한 라이선스를 사용 하 여 제품에 대 한 구독을 구매할 수 있도록 합니다. 이러한 옵션을 사용할 때 Microsoft는 게시자의 소프트웨어 라이선스 트랜잭션에 직접 참여하지 않으며 연결된 트랜잭션 요금은 없습니다.
 
 게시자는 소프트웨어 라이선스 트랜잭션의 모든 측면을 지원할 책임이 있습니다. 여기에는 주문, 배송, 계량, 청구, 송장 청구, 지불 및 수집이 포함 되지만이에 국한 되지 않습니다. 담당자 목록 옵션을 사용 하면 게시자는 고객 으로부터 수집 된 게시자 소프트웨어 라이선스 수수료의 100%를 유지 합니다.
 
@@ -84,7 +84,15 @@ Transact-sql 게시 시나리오의 경우 구독에 따라 30 ~ 120 일간 소�
 
 제품의 수익화를 위해 제품 유형 및 청구 모델을 사용하는 것 외에도, 프라이빗 제품을 거래하거나, 협상된 거래별 가격 책정 또는 사용자 지정 구성을 완료할 수 있습니다. 프라이빗 제품은 3가지 거래 게시 옵션 모두에서 지원됩니다.
 
-이 옵션을 사용 하면 공개적으로 제공되는 제품보다 더 높거나 더 낮은 가격 책정을 사용할 수 있습니다. 프라이빗 제품은 할인하거나 제품에 대한 프리미엄을 추가하는 데 사용될 수 있습니다. 프라이빗 제품은 제품 수준에서 Azure 구독을 허용 목록에 추가하면 둘 이상의 고객이 사용할 수 있습니다.
+이 옵션을 사용 하면 공개적으로 제공되는 제품보다 더 높거나 더 낮은 가격 책정을 사용할 수 있습니다. 비공개 제안을 사용 하 여 할인을 받거나 제안에 프리미엄을 추가할 수 있습니다. 제품 수준에서 Azure 구독을 사용 하 여 하나 이상의 고객에 게 개인 제품을 제공 하도록 할 수 있습니다.
+
+### <a name="commercial-marketplace-service-fees"></a>상업적 marketplace 서비스 요금
+
+고객이 상용 marketplace에서 구입한 제품을 구매할 때 20% standard store 서비스 요금이 부과 됩니다. 이 요금에 대 한 자세한 내용은 [Microsoft Publisher 규약](https://go.microsoft.com/fwlink/?LinkID=699560)의 5c 섹션을 참조 하십시오.
+
+상용 marketplace에 게시 하는 특정 불가능 제품의 경우 절감 된 매장 서비스 요금 (10%)을 한정할 수 있습니다. 제안을 받으려면 Microsoft에서 Azure IP 공동 판매 incentivized로 지정 해야 합니다. 해당 월의 Marketplace 서비스 요금을 절감 하려면 각 월이 끝날 때까지 최소 5 영업일 동안 자격을 충족 해야 합니다.
+
+줄어든 Marketplace 서비스 요금은 Azure IP 공동 판매 incentivized SaaS, Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 솔루션에 적용 됩니다. Microsoft 팀 앱 하나 또는 두 개 이상의 Microsoft 365 추가 기능 (Excel, PowerPoint, Word, Outlook, SharePoint)과 관련 된 유료 SaaS 제품 및이 할인을 받을 Microsoft AppSource에 게시 됩니다.
 
 ### <a name="examples"></a>예
 
@@ -143,10 +151,6 @@ BYOL의 비용 구조는 다음과 같습니다.
 |---------|---------|
 |Microsoft는 라이선스 비용의 80%를 지불합니다. <br> \* Microsoft는 적격 SaaS 앱에 대해 90%의 라이선스 비용을 지급합니다.   |   매월 $80.00 <br> \* 매월 $90.00    |
 |Microsoft는 라이선스 비용의 20%를 유지합니다. <br> \* Microsoft는 적격 SaaS 앱에 대해 10%의 라이선스 비용을 유지합니다.  |  매월 $20.00 <br> \* $10.00     |
-
-### <a name="reduced-service-fee"></a>서비스 요금 절감
-
-상업적 marketplace에 게시 하는 특정 제품의 경우 Microsoft는 [Microsoft 게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560)에 설명 된 대로 20%에서 10%까지 Marketplace 서비스 요금을 절감 합니다. 제품을 자격이 있는 경우 Microsoft에서 귀하의 제품을 Azure IP 공동 판매 incentivized로 지정 해야 합니다. 해당 월의 Marketplace 서비스 요금을 절감 하려면 각 월이 끝날 때까지 최소 5 영업일 동안 자격을 충족 해야 합니다. 줄어든 Marketplace 서비스 요금은 Azure IP 공동 판매 incentivized SaaS, Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 제품에 적용 됩니다. Microsoft 팀 앱 하나 또는 두 개 이상의 Microsoft 365 추가 기능 (Excel, PowerPoint, Word, Outlook 및 SharePoint)과 관련 된 유료 SaaS 제품을 제공 하 고 AppSource에 게시 하 여이 할인을 받을 수도 있습니다.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>고객 송장 처리, 지불, 청구 및 수금
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a1d045e66771026d2b4cf7ad44fd6943d2d407f4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380214"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701605"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -209,8 +209,10 @@ Azure Policy를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN/애
 
 | FQDN                                          | 포트      | 사용      |
 |-----------------------------------------------|-----------|----------|
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | 이 주소는 Azure Policy가 올바르게 작동하는 데 사용됩니다. (현재 AKS의 미리 보기 상태) |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | 이 주소는 Azure Policy가 올바르게 작동하도록 GitHub에서 기본 제공 정책을 끌어오는 데 사용됩니다. (현재 AKS의 미리 보기 상태) |
+| **`data.policy.core.windows.net`** | **`HTTPS:443`** | 이 주소는 Kubernetes 정책을 끌어오고 클러스터 준수 상태를 정책 서비스에 보고 하는 데 사용 됩니다. |
+| **`store.policy.core.windows.net`** | **`HTTPS:443`** | 이 주소는 기본 제공 정책의 게이트 키퍼 아티팩트를 가져오는 데 사용 됩니다. |
+| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | 이 주소는 Azure Policy가 올바르게 작동하는 데 사용됩니다.  |
+| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | 이 주소는 Azure Policy가 올바르게 작동하도록 GitHub에서 기본 제공 정책을 끌어오는 데 사용됩니다. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | 원격 분석 데이터를 Application Insights 엔드포인트로 보내는 Azure Policy 추가 기능입니다. |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Azure 방화벽을 사용 하 여 송신 트래픽 제한

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f950cb63b5083a85ab5420434abdd9a720115b1a
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76119621"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734551"
 ---
 # <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Azure에서 중첩 된 가상화를 사용 하 여 잘못 된 Azure VM 문제 해결
 
 이 문서에서는 Microsoft Azure에서 중첩 된 가상화 환경을 만드는 방법을 보여 줍니다. 따라서 문제 해결을 위해 Hyper-v 호스트 (복구 VM)에서 결함이 있는 VM의 디스크를 탑재할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 오류가 있는 VM을 탑재 하려면 복구 VM에서 잘못 된 VM과 동일한 유형의 저장소 계정 (표준 또는 프리미엄)을 사용 해야 합니다.
 
@@ -42,25 +42,25 @@ ms.locfileid: "76119621"
 
 2.  복구 VM을 만든 후 복구 VM에 데스크톱을 원격 연결합니다.
 
-3.  서버 관리자에서 **관리**  >  **역할 및 기능 추가**를 선택 합니다.
+3.  서버 관리자에서 **관리**  >  **역할 및 기능 추가** 를 선택 합니다.
 
-4.  **설치 유형** 섹션에서 **역할 기반 또는 기능 기반 설치**를 선택합니다.
+4.  **설치 유형** 섹션에서 **역할 기반 또는 기능 기반 설치** 를 선택합니다.
 
 5.  **대상 서버 선택** 섹션에서 복구 VM이 선택되어 있는지 확인합니다.
 
-6.  **Hyper-v 역할**  >  **기능 추가**를 선택 합니다.
+6.  **Hyper-v 역할**  >  **기능 추가** 를 선택 합니다.
 
-7.  **기능** 섹션에서 **다음**을 선택합니다.
+7.  **기능** 섹션에서 **다음** 을 선택합니다.
 
-8.  가상 스위치를 사용할 수 있는 경우 선택합니다. 그렇지 않은 경우 **다음**을 선택 합니다.
+8.  가상 스위치를 사용할 수 있는 경우 선택합니다. 그렇지 않은 경우 **다음** 을 선택 합니다.
 
-9.  **마이그레이션** 섹션에서 **다음**을 선택합니다.
+9.  **마이그레이션** 섹션에서 **다음** 을 선택합니다.
 
-10. **기본 저장소** 섹션에서 **다음**을 선택합니다.
+10. **기본 저장소** 섹션에서 **다음** 을 선택합니다.
 
 11. 확인란을 선택하여 필요한 경우 서버를 자동으로 다시 시작합니다.
 
-12. **설치**를 선택합니다.
+12. **설치** 를 선택합니다.
 
 13. 서버가 Hyper-V 역할을 설치하도록 허용합니다. 몇 분 정도 걸리며 서버가 자동으로 재부팅됩니다.
 
@@ -70,38 +70,38 @@ ms.locfileid: "76119621"
 
 2.  복구 VM에 대 한 원격 데스크톱
 
-3.  디스크 관리(diskmgmt.msc)를 엽니다. 오류가 있는 VM의 디스크가 **오프 라인**으로 설정 되어 있는지 확인 합니다.
+3.  디스크 관리(diskmgmt.msc)를 엽니다. 오류가 있는 VM의 디스크가 **오프 라인** 으로 설정 되어 있는지 확인 합니다.
 
-4.  Hyper-V 관리자 열기: **서버 관리자**에서 **Hyper-V 역할**을 선택합니다. 서버를 마우스 오른쪽 단추로 클릭한 다음 **Hyper-V 관리자**를 선택합니다.
+4.  Hyper-V 관리자 열기: **서버 관리자** 에서 **Hyper-V 역할** 을 선택합니다. 서버를 마우스 오른쪽 단추로 클릭한 다음 **Hyper-V 관리자** 를 선택합니다.
 
-5.  Hyper-v 관리자에서 복구 VM을 마우스 오른쪽 단추로 클릭 하 고 **새**  >  **가상 머신**  >  **다음**을 선택 합니다.
+5.  Hyper-v 관리자에서 복구 VM을 마우스 오른쪽 단추로 클릭 하 고 **새**  >  **가상 머신**  >  **다음** 을 선택 합니다.
 
-6.  VM에 대한 이름을 입력한 후 **다음**을 선택합니다.
+6.  VM에 대한 이름을 입력한 후 **다음** 을 선택합니다.
 
-7.  **1세대**를 선택합니다.
+7.  **1세대** 를 선택합니다.
 
 8.  1024MB 이상에서 시작 메모리를 설정합니다.
 
 9. 해당하는 경우 생성된 Hyper-V 네트워크 스위치를 선택합니다. 그렇지 않으면 다음 페이지로 이동합니다.
 
-10. **나중에 가상 하드 디스크 연결**을 선택합니다.
+10. **나중에 가상 하드 디스크 연결** 을 선택합니다.
 
     ![나중에 가상 하드 디스크 연결 옵션에 대한 이미지](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
-11. VM이 만들어진 경우 **마침**을 선택합니다.
+11. VM이 만들어진 경우 **마침** 을 선택합니다.
 
-12. 만든 VM을 마우스 오른쪽 단추로 클릭한 다음 **설정**을 선택합니다.
+12. 만든 VM을 마우스 오른쪽 단추로 클릭한 다음 **설정** 을 선택합니다.
 
-13. **IDE 컨트롤러 0**을 선택하고, **하드 드라이브**를 선택한 다음 **추가**를 클릭합니다.
+13. **IDE 컨트롤러 0** 을 선택하고, **하드 드라이브** 를 선택한 다음 **추가** 를 클릭합니다.
 
     ![새 하드 드라이브 추가에 대한 이미지](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
-14. **실제 하드 디스크**에서 Azure vm에 연결한 잘못 된 vm의 디스크를 선택 합니다. 디스크가 나열되지 않으면 디스크 관리를 사용하여 디스크가 오프라인으로 설정되어 있는지 확인합니다.
+14. **실제 하드 디스크** 에서 Azure vm에 연결한 잘못 된 vm의 디스크를 선택 합니다. 디스크가 나열되지 않으면 디스크 관리를 사용하여 디스크가 오프라인으로 설정되어 있는지 확인합니다.
 
     ![이미지 탑재에 대한 이미지](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
-15. **적용**을 선택한 다음 **확인**을 선택합니다.
+15. **적용** 및 **확인** 을 차례로 선택합니다.
 
 16. VM을 두 번 클릭한 다음 시작합니다.
 
@@ -111,7 +111,7 @@ ms.locfileid: "76119621"
 
 1.  VM을 온라인으로 다시 가져온 후 Hyper-V 관리자에서 VM을 종료합니다.
 
-2.  [복구 된 OS 디스크를 분리 하 고 분리](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk
+2.  [복구 된 OS 디스크를 분리 하 고 분리](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-the-original-virtual-hard-disk
 )합니다.
 3.  [VM에서 사용 하는 os 디스크를 복구 된 os 디스크로 바꿉니다](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
 ).

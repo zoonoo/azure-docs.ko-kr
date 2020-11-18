@@ -1,20 +1,20 @@
 ---
 title: Azure Machine Learning에 대 한 Git 통합
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 로컬 Git 리포지토리와 통합 하는 방법에 대해 알아봅니다. Git 리포지토리의 로컬 디렉터리에서 학습 실행을 제출할 때 리포지토리, 분기 및 현재 커밋에 대 한 정보는 실행의 일부로 추적 됩니다.
+description: Azure Machine Learning 학습 실행의 일부로 리포지토리, 분기 및 현재 커밋 정보를 추적 하기 위해 로컬 Git 리포지토리와 통합 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 03/05/2020
-ms.openlocfilehash: f13773a8e3e78451dfb587e55c40a20d1b4b385c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: 989fc7cb66cf5381d174a3aad12f84f5b055aab8
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324768"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701639"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Git 통합
 
@@ -123,7 +123,7 @@ SSH는 메시지 가로채기 ( [man-in-the-middle) 공격](/previous-versions/w
 
 Python SDK 또는 Machine Learning CLI에서 학습 실행을 제출 하면 모델을 학습 하는 데 필요한 파일이 작업 영역에 업로드 됩니다. `git`개발 환경에서이 명령을 사용할 수 있는 경우 업로드 프로세스에서이 명령을 사용 하 여 파일이 git 리포지토리에 저장 되었는지 확인 합니다. 그렇다면 git 리포지토리의 정보는 학습 실행의 일부로도 업로드 됩니다. 이 정보는 학습 실행을 위해 다음 속성에 저장 됩니다.
 
-| 속성 | 값을 가져오는 데 사용 되는 Git 명령입니다. | 설명 |
+| 속성 | 값을 가져오는 데 사용 되는 Git 명령입니다. | Description |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | 리포지토리가 복제 된 URI입니다. |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | 리포지토리가 복제 된 URI입니다. |

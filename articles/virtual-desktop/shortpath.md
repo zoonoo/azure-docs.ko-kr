@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: aee3f5602d0bd1ff12717d903d662ce4605de61d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ee37ab90910058378172223a3435047346f5fe7c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683763"
+ms.locfileid: "94701789"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows 가상 데스크톱 RDP Shortpath (미리 보기)
 
@@ -176,7 +176,7 @@ RDP Shortpath 전송을 사용 하 여에서 특정 서브넷을 차단 해야 �
 세션에서 RDP Shortpath 전송을 사용 중인지 확인 하려면 다음을 수행 합니다.
 
 1. Windows Virtual Desktop 클라이언트를 사용하여 VM의 데스크톱에 연결합니다.
-2. 이벤트 뷰어를 시작 하 고 다음 노드로 이동 합니다. **응용 프로그램 및 서비스 로그 > Microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > 운영**
+2. 이벤트 뷰어를 시작 하 고 다음 노드로 이동 합니다. **응용 프로그램 및 서비스 로그 > microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > RdpCoreCDV/Operational**
 3. RDP Shortpath 전송이 사용 되는지 확인 하려면 이벤트 ID 131를 확인 합니다.
 
 ### <a name="using-log-analytics-to-verify-shortpath-connectivity"></a>Log Analytics를 사용 하 여 Shortpath 연결 확인

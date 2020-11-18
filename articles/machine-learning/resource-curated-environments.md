@@ -1,7 +1,7 @@
 ---
 title: 큐레이팅 환경
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 사용할 수 있는 큐 레이트 환경의 컬렉션
+description: 실험 및 배포 준비 시간을 줄이는 데 도움이 되는 미리 구성 된 환경인 Azure Machine Learning 큐 레이트 환경에 대해 알아봅니다.
 services: machine-learning
 author: luisquintanilla
 ms.author: luquinta
@@ -9,13 +9,13 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.date: 09/03/2020
-ms.openlocfilehash: 4ae96976f81aab9a0949594551c82d3a3fec4f0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: 0e6817e03c5e5363ad925367b0632e26fc2da4a2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662083"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701401"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Azure Machine Learning 큐 레이트 환경
 

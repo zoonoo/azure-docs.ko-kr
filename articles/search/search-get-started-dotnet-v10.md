@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c6dd64ae8b7b7307d7dcd510d1fdb877365c6f36
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8dc2eb898c12e374bc503c5a05f00eb20667443b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675954"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701843"
 ---
 # <a name="quickstart-create-a-search-index-using-the-legacy-microsoftazuresearch-v10-client-library"></a>빠른 시작: 레거시 v10 클라이언트 라이브러리를 사용 하 여 검색 인덱스 만들기
 
@@ -55,7 +55,7 @@ Visual Studio 및 [Microsoft Azure Search 클라이언트 라이브러리](/dotn
 
    쿼리 키도 가져옵니다. 쿼리 요청은 읽기 전용 액세스로 발급하는 것이 좋습니다.
 
-![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-postman/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
+![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-rest/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
@@ -201,7 +201,7 @@ Visual Studio 및 [Microsoft Azure Search 클라이언트 라이브러리](/dotn
     > [!NOTE]
     > .NET SDK에서 필드에는 명시적으로 [`IsSearchable`](/dotnet/api/microsoft.azure.search.models.field.issearchable), [`IsFilterable`](/dotnet/api/microsoft.azure.search.models.field.isfilterable), [`IsSortable`](/dotnet/api/microsoft.azure.search.models.field.issortable) 및 [`IsFacetable`](/dotnet/api/microsoft.azure.search.models.field.isfacetable) 특성이 사용되어야 합니다. 이 동작은 데이터 형식에 따라 특성을 암시적으로 사용하도록 설정하는 REST API와는 대조적입니다(예를 들어 단순 문자열 필드는 자동으로 검색 가능함).
 
-    `string` 형식의 인덱스에는 정확히 하나의 필드가 각 문서를 고유하게 식별하는 키( *key* ) 필드여야 합니다. 이 스키마에서 키는 `HotelId`입니다.
+    `string` 형식의 인덱스에는 정확히 하나의 필드가 각 문서를 고유하게 식별하는 키(*key*) 필드여야 합니다. 이 스키마에서 키는 `HotelId`입니다.
 
     이 인덱스에서 설명 필드는 선택적 [`analyzer`](/dotnet/api/microsoft.azure.search.models.field.analyzer) 속성을 사용합니다. 이 속성은 기본 표준 Lucene 분석기를 재정의하려는 경우 지정합니다. `description_fr` 필드는 프랑스어 텍스트를 저장하기 때문에 프랑스어 Lucene 분석기([FrLucene](/dotnet/api/microsoft.azure.search.models.analyzername.frlucene))를 사용합니다. `description`은 선택적 Microsoft 언어 분석기([EnMicrosoft](/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft))를 사용합니다.
 

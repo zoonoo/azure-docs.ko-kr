@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0bd2b295e5e4d4d5ea6e25869c8c109ff8bbbf38
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 906df01587201561fbbfea0661d0885864042925
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660766"
+ms.locfileid: "94701316"
 ---
 # <a name="list-blobs-with-net"></a>.NET을 사용하여 Blob 나열
 
@@ -64,6 +64,10 @@ Blob 목록을 필터링 하려면 매개 변수에 대 한 문자열을 지정 
 - .NET v12 SDK를 사용 하는 경우 [Blobtraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) 열거에 대 한 **메타 데이터** 값을 지정 합니다.
 
 - .NET v11 SDK를 사용 하는 경우 [Bloblistingdetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) 열거에 대 한 **메타 데이터** 값을 지정 합니다. Azure Storage에는 반환된 각 Blob이 있는 메타데이터가 포함되어 있으므로 Blob 메타데이터를 검색하기 위해 이 컨텍스트에서 **FetchAttributes** 메서드 중 하나를 호출할 필요가 없습니다.
+
+### <a name="list-blob-versions-or-snapshots"></a>Blob 버전 또는 스냅숏 나열
+
+.NET v12 클라이언트 라이브러리를 사용 하 여 blob 버전 또는 스냅숏을 나열 하려면 **버전** 또는 **스냅숏** 필드를 사용 하 여 [blobstates](/dotnet/api/azure.storage.blobs.models.blobstates) 매개 변수를 지정 합니다. 버전 및 스냅숏은 가장 오래 된 버전에서 최신 버전으로 나열 됩니다. 버전을 나열 하는 방법에 대 한 자세한 내용은 [blob 버전 나열](versioning-enable.md#list-blob-versions)을 참조 하세요.
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>단순 목록 및 계층 구조 목록
 

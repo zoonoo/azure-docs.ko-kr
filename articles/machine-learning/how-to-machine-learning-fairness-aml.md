@@ -1,26 +1,24 @@
 ---
 title: Python에서 ML 모델의 공평 평가 (미리 보기)
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 모델의 공평을 평가 하는 방법을 알아봅니다.
+description: Fairlearn 및 Azure Machine Learning Python SDK를 사용 하 여 기계 학습 모델의 공평을 평가 하 고 완화 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: bf819e5cff8c6ef008b0e55e156ba3531936b489
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 3fbd4990fd330960bb8dbce2e2a8d1bcb578cf2a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337885"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701187"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Fairlearn 오픈 소스 패키지와 함께 Azure Machine Learning를 사용 하 여 ML 모델의 공평을 평가 (미리 보기)
-
-
 
 이 방법 가이드에서는 다음 작업을 수행 하는 Azure Machine Learning [Fairlearn](https://fairlearn.github.io/) 오픈 소스 Python 패키지를 사용 하는 방법을 배웁니다.
 

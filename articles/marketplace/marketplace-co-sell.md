@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/13/2020
-ms.openlocfilehash: ac56aab233c9d07ea7e82a4eefc4918746e3bdbe
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 11/17/2020
+ms.openlocfilehash: 730178d974ba95db968332ac669f701486b513bd
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592518"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738529"
 ---
 # <a name="co-sell-partner-engagement"></a>공동 판매 파트너 참여
 
@@ -30,7 +30,7 @@ ms.locfileid: "94592518"
 
 **AZURE IP 공동 판매 incentivized** 상태를 얻는 제안은 다음과 같은 추가 marketplace 혜택을 얻습니다.
 
-- Marketplace 서비스 요금은 20%에서 10%로 줄어듭니다. 이 할인은 상업적 marketplace를 통해 판매 된 IaaS 또는 SaaS 제품에 적용 됩니다. 자세한 내용은 [서비스 요금 절감](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) 을 참조 하세요.
+- Marketplace 서비스 요금은 20%에서 10%로 줄어듭니다. 이 할인은 상업적 marketplace를 통해 판매 된 IaaS 또는 SaaS 제품에 적용 됩니다. 자세한 내용은 [상업적 marketplace 서비스 요금](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees) 을 참조 하세요.
 - CSP (클라우드 솔루션 공급자) 파트너는 IaaS 또는 SaaS 제품을 판매 하기 위해 10%의 동기를 받습니다. [클라우드 솔루션 공급자 프로그램](cloud-solution-providers.md)에서 CSP 프로그램에 대해 자세히 알아보세요.
 - 상업적 marketplace를 통한 제품 판매는 고객의 Azure 사용량 약정에 기여 합니다. 적격 고객은 Azure Portal에 **"Azure 혜택 적격"** 으로 표시 된 제품을 볼 수 있습니다. 자세한 내용은 [Azure 사용량 약정 혜택](azure-consumption-commitment-benefit.md)을 참조 하세요.
 - **AZURE IP 공동 판매 incentivized** 또는 **Business Applications 공동 판매 incentivized** 상태를 실현 하는 제품은 상점에서 **"기본 솔루션"** 배지를 받게 됩니다. 배지는 특정 산업 수직 또는 솔루션 영역에서 고객의 요구를 해결 하는 제품의 품질, 성능 및 기능을 홍보 합니다. [Microsoft AppSource 및 Azure Marketplace에서 선호 하는 솔루션](preferred-solutions.md)에 대해 자세히 알아보세요.
@@ -63,15 +63,15 @@ ms.locfileid: "94592518"
 
     :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="이 이미지는 Microsoft와 공동 판매 탭의 위치를 보여 줍니다.":::
 
-1. Microsoft 판매자가 **목록** 섹션에서 제품을 신속 하 게 정렬 하 고 검색 하는 데 도움이 되는 기본 목록 세부 정보를 제공 합니다. ( *필수: 모든 필드* )
+1. Microsoft 판매자가 **목록** 섹션에서 제품을 신속 하 게 정렬 하 고 검색 하는 데 도움이 되는 기본 목록 세부 정보를 제공 합니다. (*필수: 모든 필드*)
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="이 이미지는 공동 판매 탭의 목록 섹션을 보여 줍니다.":::  
 
-1. 제품에 대 한 세부 정보를 제공 하 고 **문서** 섹션에서 참고 자료를 업로드 합니다. Microsoft 판매자는이 정보를 사용 하 여 제품을 권장 하 고 판매 합니다. ( *필수: 고객 1 호출기 및 고객 프레젠테이션 데크* )
+1. 제품에 대 한 세부 정보를 제공 하 고 **문서** 섹션에서 참고 자료를 업로드 합니다. Microsoft 판매자는이 정보를 사용 하 여 제품을 권장 하 고 판매 합니다. (*필수: 고객 1 호출기 및 고객 프레젠테이션 데크*)
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="이 이미지는 공동 판매 탭의 문서 섹션을 보여 줍니다.":::
 
-1. **연락처** 섹션에서 판매 담당자 정보를 업로드 합니다. Microsoft 판매자는 이러한 연락처에 연락 하 여 제품에 대 한 추가 정보를 요청할 수 있습니다. ( *필수: 제품을 사용할 수 있는 각 지리에 대 한 연락처입니다.* )
+1. **연락처** 섹션에서 판매 담당자 정보를 업로드 합니다. Microsoft 판매자는 이러한 연락처에 연락 하 여 제품에 대 한 추가 정보를 요청할 수 있습니다. (*필수: 제품을 사용할 수 있는 각 지리에 대 한 연락처입니다.*)
 
     :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="이 이미지는 공동 판매 탭의 연락처 섹션을 보여 줍니다.":::
 

@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: aad953483749d676844221f7e519f50c50b63ad4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f1fa07b94072d37cf83320b6c8956d3b412f12
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948643"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701119"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Azure Cognitive Search의 동의어
 
@@ -23,7 +23,7 @@ Azure Cognitive Search에서 동의어 확장은 쿼리 시에 수행 됩니다.
 
 ## <a name="create-synonyms"></a>동의어 만들기
 
-동의어를 만들 수 있는 포털 지원은 없지만 REST API 또는 .NET SDK를 사용할 수 있습니다. REST를 시작 하려면이 API를 사용 하 여 Postman 및 공식화 요청을 [사용 하](search-get-started-postman.md) 는 것이 좋습니다. [동의어 맵 만들기](/rest/api/searchservice/create-synonym-map)를 사용 하는 것이 좋습니다. C # 개발자의 경우 [c #을 사용 하 여 Azure 인식 검색에서 동의어 추가](search-synonyms-tutorial-sdk.md)를 시작할 수 있습니다.
+동의어를 만들 수 있는 포털 지원은 없지만 REST API 또는 .NET SDK를 사용할 수 있습니다. REST를 시작 하려면이 API를 사용 하 여 [Postman 또는 Visual Studio Code](search-get-started-rest.md) 및 공식화를 사용 하는 것이 좋습니다. [동의어 맵 만들기](/rest/api/searchservice/create-synonym-map)를 사용 합니다. C # 개발자의 경우 [c #을 사용 하 여 Azure 인식 검색에서 동의어 추가](search-synonyms-tutorial-sdk.md)를 시작할 수 있습니다.
 
 선택적으로 서비스 쪽 암호화를 위해 [고객 관리 키](search-security-manage-encryption-keys.md) 를 사용 하는 경우 해당 보호를 동의어 맵의 내용에 적용할 수 있습니다.
 
@@ -31,7 +31,7 @@ Azure Cognitive Search에서 동의어 확장은 쿼리 시에 수행 됩니다.
 
 Azure Cognitive Search에서 동의어 지원은 사용자가 정의 하 고 서비스에 업로드 하는 동의어 맵을 기반으로 합니다. 이러한 맵은 독립적인 리소스(인덱스 또는 데이터 원본 등)를 구성하며 검색 서비스의 모든 인덱스에서 검색 가능한 필드에 의해 사용될 수 있습니다.
 
-동의어 맵과 인덱스는 독립적으로 유지됩니다. 동의어 맵을 정의하고 서비스에 업로드하면 필드 정의에서 **synonymMaps**라는 새 속성을 추가하여 필드에서 동의어 기능을 사용할 수 있습니다. 동의어 맵 만들기, 업데이트 및 삭제는 항상 전체 문서 작업이므로 증분식으로 동의어 맵의 일부분을 만들거나 업데이트하거나 삭제할 수 없습니다. 단일 항목을 업데이트하는 경우에도 다시 로드해야 합니다.
+동의어 맵과 인덱스는 독립적으로 유지됩니다. 동의어 맵을 정의하고 서비스에 업로드하면 필드 정의에서 **synonymMaps** 라는 새 속성을 추가하여 필드에서 동의어 기능을 사용할 수 있습니다. 동의어 맵 만들기, 업데이트 및 삭제는 항상 전체 문서 작업이므로 증분식으로 동의어 맵의 일부분을 만들거나 업데이트하거나 삭제할 수 없습니다. 단일 항목을 업데이트하는 경우에도 다시 로드해야 합니다.
 
 동의어를 검색 애플리케이션에 통합하는 과정은 다음의 두 단계 프로세스로 이루어집니다.
 
@@ -132,7 +132,7 @@ WA\, USA, WA, Washington
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>인덱스 정의에서 동의어 맵을 사용하도록 검색 가능한 필드를 구성합니다.
 
-새 필드 속성 **synonymMaps**는 검색 가능한 필드에 사용할 동의어 맵을 지정하는 데 사용될 수 있습니다. 동의어 맵은 서비스 수준 리소스이며 서비스 아래 인덱스의 모든 필드에서 참조할 수 있습니다.
+새 필드 속성 **synonymMaps** 는 검색 가능한 필드에 사용할 동의어 맵을 지정하는 데 사용될 수 있습니다. 동의어 맵은 서비스 수준 리소스이며 서비스 아래 인덱스의 모든 필드에서 참조할 수 있습니다.
 
 ```synonym-map
     POST https://[servicename].search.windows.net/indexes?api-version=2020-06-30
@@ -168,7 +168,7 @@ WA\, USA, WA, Washington
     }
 ```
 
-**synonymMaps**은 'Edm.String' 또는 'Collection(Edm.String)' 형식의 검색 가능한 필드에 지정될 수 있습니다.
+**synonymMaps** 은 'Edm.String' 또는 'Collection(Edm.String)' 형식의 검색 가능한 필드에 지정될 수 있습니다.
 
 > [!NOTE]
 > 필드당 하나의 동의어 맵만 있을 수 있습니다. 여러 동의어 맵을 사용하려면 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에 알려 주세요.

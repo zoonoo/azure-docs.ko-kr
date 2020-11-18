@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 6cd696bf0853b1e6bafc06f2e99b2808970fed25
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6bcdb4a48f71e28514229116c10bd25747b55616
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686856"
+ms.locfileid: "94701826"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 JavaScript 코드 샘플
 
 Azure Cognitive Search의 기능을 설명 하는 JavaScript 코드 샘플에 대해 알아봅니다. 기본 리포지토리는 다음과 같습니다.
 
-| 리포지토리 | 설명 |
+| 리포지토리 | Description |
 |------------|-------------|
 | [azure-s e r v e r/s s d/트리/마스터/s i d/검색/검색-문서](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents) | SDK에서 Azure.Search.Documents client 라이브러리와 함께 제공 되는 Azure SDK 팀이 생성 한 샘플입니다. 클라이언트 라이브러리에 대 한 [단위 테스트](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test) 를 검토 하 여 다양 한 api를 호출 하는 방법을 확인할 수도 있습니다. |
 | [Azure-샘플/azure-검색-javascript-샘플](https://github.com/Azure-Samples/azure-search-javascript-samples) | [빠른 시작: JavaScript에서 검색 인덱스 만들기](search-get-started-javascript.md)를 비롯 한 방법 문서와 함께 제공 되는 코드 샘플입니다.|
@@ -38,7 +38,7 @@ Java 용 Azure SDK에는 다양 한 샘플과 패키지 설치, 클라이언트 
 | [인덱서에](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  [인덱서](search-indexer-overview.md)를 만들고, 업데이트 하 고, 나열 하 고, 다시 설정 하 고, 삭제 하는 방법을 보여 줍니다.|
 | [기술](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/skillSets) |   연결 된 인덱서이 고 인덱싱 중 AI 기반 보강를 수행 하는 [기술력과](cognitive-search-working-with-skillsets.md) 를 만들고, 업데이트 하 고, 가져오고, 나열 하 고, 삭제 하는 방법을 보여 줍니다. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | [동의어 맵을](search-synonyms.md)만들고, 업데이트 하 고, 가져오고, 나열 하 고, 삭제 하는 방법을 보여 줍니다.  |
-| [쿼리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | 쿼리는 읽기 전용입니다. 이 샘플 쿼리는 Microsoft에서 호스팅하는 공용 인덱스에 대해 실행 됩니다.  |
+| [쿼리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Microsoft에서 호스팅하는 읽기 전용 공용 인덱스에 대해 쿼리를 실행 하는 방법을 보여 줍니다.  |
 
 ## <a name="typescript-samples"></a>TypeScript 샘플
 
@@ -51,7 +51,7 @@ SDK는 편의를 위해 여기에 나열 된 TypeScript 예제도 제공 합니�
 | [인덱서에](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  [인덱서](search-indexer-overview.md)를 만들고, 업데이트 하 고, 나열 하 고, 다시 설정 하 고, 삭제 하는 방법을 보여 줍니다.|
 | [기술](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/skillSets) |   연결 된 인덱서이 고 인덱싱 중 AI 기반 보강를 수행 하는 [기술력과](cognitive-search-working-with-skillsets.md) 를 만들고, 업데이트 하 고, 가져오고, 나열 하 고, 삭제 하는 방법을 보여 줍니다. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | [동의어 맵을](search-synonyms.md)만들고, 업데이트 하 고, 가져오고, 나열 하 고, 삭제 하는 방법을 보여 줍니다.  |
-| [쿼리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.js) | Microsoft에서 호스팅하는 읽기 전용 공용 인덱스에 대해 쿼리를 실행 하는 방법을 보여 줍니다.  |
+| [쿼리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.ts) | Microsoft에서 호스팅하는 읽기 전용 공용 인덱스에 대해 쿼리를 실행 하는 방법을 보여 줍니다.  |
 
 ## <a name="documentation-samples"></a>설명서 샘플
 
@@ -59,7 +59,7 @@ SDK는 편의를 위해 여기에 나열 된 TypeScript 예제도 제공 합니�
 
 | 샘플 | Description | 
 |---------|-------------|
-| [빠른](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/Quickstart) | 빠른 시작에 대 한 소스 코드 [: JavaScript에서 검색 인덱스를 만듭니다](search-get-started-javascript.md).  |
+| [빠른](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | 빠른 시작에 대 한 소스 코드 [: JavaScript에서 검색 인덱스를 만듭니다](search-get-started-javascript.md).  |
 
 ## <a name="standalone-samples"></a>독립 실행형 샘플
 

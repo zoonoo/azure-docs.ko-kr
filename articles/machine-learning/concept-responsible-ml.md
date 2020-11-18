@@ -1,20 +1,20 @@
 ---
 title: 담당 machine learning (미리 보기) 이란?
 titleSuffix: Azure Machine Learning
-description: 담당 기계 학습 이란 무엇 이며 Azure Machine Learning에서 사용 하는 방법을 알아보세요.
+description: 책임이 있는 기계 학습 이란 무엇 이며, Azure Machine Learning와 함께 사용 하 여 모델을 이해 하 고 데이터를 보호 하 고 모델 수명 주기를 제어 하는 방법을 알아보세요.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 08/05/2020
-ms.openlocfilehash: f2ece76ef3594cadfa1fcda89259ee18eb1f9084
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: ff85ed669fb7c3ac43e322eb747c537a30801920
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324850"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701435"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>담당 기계 학습 이란 무엇 인가요? (미리 보기)
 

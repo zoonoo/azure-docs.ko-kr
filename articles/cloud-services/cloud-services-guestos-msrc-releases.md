@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/13/2020
+ms.date: 11/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 8919ae8f43cd699b0ff79afc7ac39cbb39d2798e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 5a5e448660583204d424358e571c4bfb74890e8d
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626759"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737832"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
@@ -78,34 +78,31 @@ ms.locfileid: "94626759"
 
 
 ## <a name="october-2020-guest-os"></a>2020 년 10 월 게스트 OS
->[!NOTE] 
-
->10월 게스트 OS는 자동 업데이트용으로 구성된 클라우드 서비스 VM으로 롤아웃 중입니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음과 같은 패치가 10월 게스트 OS에 포함됩니다. 이 목록은 변경될 수 있습니다. 
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 20-10 |  [4577010]  |  IE 누적 업데이트 | 2.103, 3.90, 4.83 | 9 월 8 일, 2020 |
-|  Rel 20-10 |  [4580325]  |  플래시 업데이트 | 3.90, 4.83, 5.48, 6.24 | Oct 13, 2020 |
-|  Rel 20-10 |  [4577668]  |  최신 누적 업데이트 | 6.24 | Oct 13, 2020 |
-|  Rel 20-10 |  [4580346]  |  최신 누적 업데이트 | 5.48 | Oct 13, 2020 |
-|  Rel 20-10 |  [4580970]  |  서비스 스택 업데이트 | 2.103 | Oct 13, 2020 |
-|  Rel 20-10 |  [4580345]  |  월간 롤업 | 2.103 | Oct 13, 2020 |
-|  Rel 20-10 |  [4578952]  |  .NET Framework 3.5.1 보안 및 품질 롤업 | 2.103 | Oct 13, 2020 |
-|  Rel 20-10 |  [4578955]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 2.103 | Oct 13, 2020 |
-|  Rel 20-10 |  [4566426]  |  서비스 스택 업데이트 | 3.90 | 2020 년 7 월 14 일 |
-|  Rel 20-10 |  [4580382]  |  월간 롤업 | 3.90 | Oct 13, 2020 |
-|  Rel 20-10 |  [4578950]  |  .NET Framework 3.5 보안 및 품질 롤업 | 3.90 | Oct 13, 2020 |
-|  Rel 20-10 |  [4578954]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 3.90 | Oct 13, 2020 |
-|  Rel 20-10 |  [4566425]  |  서비스 스택 업데이트 | 4.83 | 2020 년 7 월 14 일 |
-|  Rel 20-10 |  [4580347]  |  월간 롤업 | 4.83 | Oct 13, 2020 |
-|  Rel 20-10 |  [4578953]  |  .NET Framework 3.5 보안 및 품질 롤업 | 4.83 | Oct 13, 2020 |
-|  Rel 20-10 |  [4578956]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 4.83 | Oct 13, 2020 |
-|  Rel 20-10 |  [4578013]  |  독립 실행형 보안 업데이트 | 4.83 | 8 월 19 일, 2020 |
-|  Rel 20-10 |  [4576750]  |  서비스 스택 업데이트 | 5.48 | 9 월 8 일, 2020 |
-|  Rel 20-10 |  [4494175]  |  마이크로코드 | 5.48 | 9 월 1 일, 2020 |
-|  Rel 20-10 |  [4577667]  |  서비스 스택 업데이트 | 6.24 | Oct 13, 2020 |
-|  Rel 20-10 |  [4578966]  |  .NET Framework 3.5 및 4.7.2 누적 업데이트 | 6.24 | Oct 13, 2020 |
-|  Rel 20-10 |  [4494174]  |  마이크로코드 | 6.24 | 9 월 3 일, 2020 |
+|  Rel 20-10 |  [4577010]  |  IE 누적 업데이트 | [2.103], [3.90], [4.83] | 9 월 8 일, 2020 |
+|  Rel 20-10 |  [4580325]  |  플래시 업데이트 | [3.90], [4.83], [5.48], [6.24] | Oct 13, 2020 |
+|  Rel 20-10 |  [4577668]  |  최신 누적 업데이트 | [6.24] | Oct 13, 2020 |
+|  Rel 20-10 |  [4580346]  |  최신 누적 업데이트 | [5.48] | Oct 13, 2020 |
+|  Rel 20-10 |  [4580970]  |  서비스 스택 업데이트 | [2.103] | Oct 13, 2020 |
+|  Rel 20-10 |  [4580345]  |  월간 롤업 | [2.103] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578952]  |  .NET Framework 3.5.1 보안 및 품질 롤업 | [2.103] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578955]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | [2.103] | Oct 13, 2020 |
+|  Rel 20-10 |  [4566426]  |  서비스 스택 업데이트 | [3.90] | 2020 년 7 월 14 일 |
+|  Rel 20-10 |  [4580382]  |  월간 롤업 | [3.90] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578950]  |  .NET Framework 3.5 보안 및 품질 롤업 | [3.90] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578954]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | [3.90] | Oct 13, 2020 |
+|  Rel 20-10 |  [4566425]  |  서비스 스택 업데이트 | [4.83] | 2020 년 7 월 14 일 |
+|  Rel 20-10 |  [4580347]  |  월간 롤업 | [4.83] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578953]  |  .NET Framework 3.5 보안 및 품질 롤업 | [4.83] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578956]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | [4.83] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578013]  |  독립 실행형 보안 업데이트 | [4.83] | 8 월 19 일, 2020 |
+|  Rel 20-10 |  [4576750]  |  서비스 스택 업데이트 | [5.48] | 9 월 8 일, 2020 |
+|  Rel 20-10 |  [4494175]  |  마이크로코드 | [5.48] | 9 월 1 일, 2020 |
+|  Rel 20-10 |  [4577667]  |  서비스 스택 업데이트 | [6.24] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578966]  |  .NET Framework 3.5 및 4.7.2 누적 업데이트 | [6.24] | Oct 13, 2020 |
+|  Rel 20-10 |  [4494174]  |  마이크로코드 | [6.24] | 9 월 3 일, 2020 |
 
 
 [4577010]: https://support.microsoft.com/kb/4577010
@@ -130,6 +127,11 @@ ms.locfileid: "94626759"
 [4577667]: https://support.microsoft.com/kb/4577667
 [4578966]: https://support.microsoft.com/kb/4578966
 [4494174]: https://support.microsoft.com/kb/4494174
+[2.103]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.90]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.83]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.48]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.24]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="september-2020-guest-os"></a>2020 년 9 월 게스트 OS
@@ -1885,7 +1887,7 @@ ms.locfileid: "94626759"
 | MS15-014 |[3004361] |SMB의 취약점으로 인한 보안 기능 우회 |4.17, 3.24, 2.36 |해당 없음 |
 | MS15-015 |[3031432] |Microsoft Windows의 취약성으로 인한 권한 상승 |4.17, 3.24, 2.36 |해당 없음 |
 | MS15-016 |[3029944] |Microsoft 그래픽 구성의 취약성으로 인한 정보 공개 |4.17, 3.24, 2.36 |해당 없음 |
-| 해당 없음 |[3004375] |Windows 명령줄 감사 개선 업데이트<p/>**참고** : 설치는 되어 있지만 사용하도록 설정하는 레지스트리 키가 꺼져 있음 |4.17, 3.24, 2.36 |해당 없음 |
+| 해당 없음 |[3004375] |Windows 명령줄 감사 개선 업데이트<p/>**참고**: 설치는 되어 있지만 사용하도록 설정하는 레지스트리 키가 꺼져 있음 |4.17, 3.24, 2.36 |해당 없음 |
 
 ## <a name="january-2015-guest-os"></a>2015년 1월 게스트 OS
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |

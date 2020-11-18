@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bde95006865a2aab2da4a5d6d27ccccc14d74d12
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8e12a74ee689ba7b013b1c4a6881deac78680be0
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408925"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701051"
 ---
 # <a name="security-control-v2-data-protection"></a>보안 제어 V2: 데이터 보호
 
@@ -34,9 +34,9 @@ Azure sql Information Protection를 사용 하 여 Azure SQL Database에 저장 
 
 - [Azure SQL 데이터 검색을 구현 하는 방법](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-**책임** : 공유됨
+**책임**: 공유됨
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -50,19 +50,19 @@ Azure sql Information Protection를 사용 하 여 Azure SQL Database에 저장 
 |--|--|--|--|
 | DP-2 | 13.2, 2.10 | SC-7, AC-4 |
 
-Azure RBAC (azure 역할 기반 Access Control), 네트워크 기반 액세스 제어 및 Azure 서비스의 특정 제어 (예: SQL 및 기타 데이터베이스의 암호화)를 사용 하 여 액세스를 제한 하 여 중요 한 데이터를 보호 합니다. 
+Azure RBAC (역할 기반 액세스 제어), 네트워크 기반 액세스 제어 및 Azure 서비스의 특정 제어 (예: SQL 및 기타 데이터베이스의 암호화)를 사용 하 여 액세스를 제한 하 여 중요 한 데이터를 보호 합니다. 
 
 일관 된 액세스 제어를 보장 하기 위해 모든 종류의 액세스 제어를 기업의 조각화 전략에 맞춰야 합니다. 또한 기업 구분 전략은 중요 한 데이터 나 중요 한 데이터 및 시스템의 위치를 통해 알려 주어 야 합니다.
 
 Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고객 콘텐츠를 중요 한 것으로 간주 하 고 고객 데이터 손실 및 노출을 방지 합니다. Azure 내에서 고객 데이터를 안전 하 게 유지 하기 위해 Microsoft는 몇 가지 기본 데이터 보호 제어 및 기능을 구현 했습니다.
 
-- [Azure RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)
+- [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)
 
 - [Azure의 고객 데이터 보호 이해](../fundamentals/protection-customer-data.md)
 
-**책임** : 공유됨
+**책임**: 공유됨
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -88,9 +88,9 @@ DLP (데이터 손실 방지)의 호환성을 위해 필요한 경우 호스트 
 
 - [ATP Azure Storage 사용](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
-**책임** : 공유됨
+**책임**: 공유됨
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security) 
 
@@ -116,9 +116,9 @@ DLP (데이터 손실 방지)의 호환성을 위해 필요한 경우 호스트 
 
 - [전송 중인 Azure 데이터에 대 한 이중 암호화](../fundamentals/double-encryption.md#data-in-transit)
 
-**책임** : 공유됨
+**책임**: 공유됨
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -146,9 +146,9 @@ Azure는 기본적으로 미사용 데이터에 대 한 암호화를 제공 합�
 
 - [Azure의 미사용 데이터 이중 암호화](../fundamentals/double-encryption.md#data-at-rest)
 
-**책임** : 공유됨
+**책임**: 공유됨
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

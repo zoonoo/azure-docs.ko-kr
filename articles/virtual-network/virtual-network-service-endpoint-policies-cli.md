@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 53f10996a7f15e32261f151600163f41df4e58ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a080c3953c48227301052a0bb151c8cba96e515a
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666775"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737390"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Azure CLI를 사용 하 여 가상 네트워크 서비스 끝점 정책으로 계정을 Azure Storage 하는 데이터 반출 관리
 
@@ -37,15 +37,15 @@ ms.locfileid: "91666775"
 * 서브넷에서 허용 된 저장소 계정에 대 한 액세스를 확인 합니다.
 * 서브넷에서 허용 되지 않는 저장소 계정에 대 한 액세스가 거부 되었는지 확인 합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create \
@@ -66,7 +66,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>서비스 엔드포인트 사용 
 
-이 예제에서는 서브넷 *개인*에 대해 *Microsoft. Storage* 에 대 한 서비스 끝점을 만듭니다. 
+이 예제에서는 서브넷 *개인* 에 대해 *Microsoft. Storage* 에 대 한 서비스 끝점을 만듭니다. 
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -79,7 +79,7 @@ az network vnet subnet create \
 
 ## <a name="restrict-network-access-for-a-subnet"></a>서브넷에 대한 네트워크 액세스 제한
 
-[az network nsg create](/cli/azure/network/nsg)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNsgPrivate*라는 네트워크 보안 그룹을 만듭니다.
+[az network nsg create](/cli/azure/network/nsg)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNsgPrivate* 라는 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli-interactive
 az network nsg create \
@@ -216,7 +216,7 @@ az storage share create \
 
 ### <a name="deny-all-network-access-to-the-storage-account"></a>저장소 계정에 대 한 모든 네트워크 액세스 거부
 
-기본적으로 스토리지 계정은 네트워크에 있는 클라이언트의 네트워크 연결을 허용합니다. 선택한 네트워크에 대한 액세스를 제한하려면 [az storage account update](/cli/azure/storage/account)를 사용하여 기본 작업을 *거부*로 변경합니다. 네트워크 액세스가 거부되면 네트워크에서 스토리지 계정에 액세스할 수 없습니다.
+기본적으로 스토리지 계정은 네트워크에 있는 클라이언트의 네트워크 연결을 허용합니다. 선택한 네트워크에 대한 액세스를 제한하려면 [az storage account update](/cli/azure/storage/account)를 사용하여 기본 작업을 *거부* 로 변경합니다. 네트워크 액세스가 거부되면 네트워크에서 스토리지 계정에 액세스할 수 없습니다.
 
 ```azurecli-interactive
 az storage account update \
@@ -309,7 +309,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-VM을 만드는 데 몇 분이 걸립니다. 만든 후에는 반환된 출력에서 **publicIpAddress**를 적어둡니다. 이 주소는 이후 단계에서 인터넷을 통해 VM에 액세스하는 데 사용됩니다.
+VM을 만드는 데 몇 분이 걸립니다. 만든 후에는 반환된 출력에서 **publicIpAddress** 를 적어둡니다. 이 주소는 이후 단계에서 인터넷을 통해 VM에 액세스하는 데 사용됩니다.
 
 ### <a name="confirm-access-to-storage-account"></a>스토리지 계정에 대한 액세스 확인
 
@@ -325,17 +325,17 @@ ssh <publicIpAddress>
 sudo mkdir /mnt/MyAzureFileShare1
 ```
 
-만든 디렉터리에 Azure 파일 공유를 탑재합니다. 아래 명령을 실행 하기 전에 *\<storage-account-key>* **$saConnectionString 1**에서 *AccountKey* 값으로 대체 합니다.
+만든 디렉터리에 Azure 파일 공유를 탑재합니다. 아래 명령을 실행 하기 전에 *\<storage-account-key>* **$saConnectionString 1** 에서 *AccountKey* 값으로 대체 합니다.
 
 ```bash
 sudo mount --types cifs //allowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare1 --options vers=3.0,username=allowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-`user@myVmPrivate:~$` 프롬프트가 수신됩니다. Azure 파일 공유가 */mnt/MyAzureFileShare*에 탑재되었습니다.
+`user@myVmPrivate:~$` 프롬프트가 수신됩니다. Azure 파일 공유가 */mnt/MyAzureFileShare* 에 탑재되었습니다.
 
 ### <a name="confirm-access-is-denied-to-storage-account"></a>스토리지 계정에 대한 액세스가 거부되는지 확인
 
-동일한 VM *Myvmprivate*에서 탑재 지점에 대 한 디렉터리를 만듭니다.
+동일한 VM *Myvmprivate* 에서 탑재 지점에 대 한 디렉터리를 만듭니다.
 
 ```bash
 sudo mkdir /mnt/MyAzureFileShare2
@@ -343,7 +343,7 @@ sudo mkdir /mnt/MyAzureFileShare2
 
 저장소 계정 *notallowedstorageacc* 에서 만든 디렉터리에 Azure 파일 공유를 탑재 하려고 합니다. 이 문서에서는 최신 버전의 Ubuntu를 배포했다고 가정합니다. 이전 버전의 Ubuntu를 사용하는 경우 [Linux에 탑재](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 파일 공유 탑재에 대한 추가 지침을 참조하세요. 
 
-아래 명령을 실행 하기 전에 *\<storage-account-key>* **$saConnectionString 2**의 *AccountKey* 값으로 대체 합니다.
+아래 명령을 실행 하기 전에 *\<storage-account-key>* **$saConnectionString 2** 의 *AccountKey* 값으로 대체 합니다.
 
 ```bash
 sudo mount --types cifs //notallowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare2 --options vers=3.0,username=notallowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino

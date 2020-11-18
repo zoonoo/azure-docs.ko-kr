@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 7f3f3b2c5927b31bde4575a08888e8844f2a1027
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5a646f7f42a2af8dcf15f7b7b2cd700e159fe88d
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130003"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734398"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 SaaS 제품을 계획 하는 방법
 
@@ -21,7 +21,7 @@ ms.locfileid: "93130003"
 
 ## <a name="listing-options"></a>나열 옵션
 
-새 SaaS 제품 게시를 준비할 때 선택할 _목록_ 옵션을 결정 해야 합니다. 파트너 센터에서 제품을 만들 때 제공 해야 하는 추가 정보를 결정 합니다. [상업적 marketplace에서 SaaS 제품을 만드는 방법](create-new-saas-offer.md)에 설명 된 대로 **제품 설정** 페이지에서 목록 옵션을 정의 합니다.
+새 SaaS 제품 게시를 준비할 때 선택할 _목록_ 옵션을 결정 해야 합니다. 선택한 목록 옵션에 따라 파트너 센터에서 제품을 만들 때 제공 해야 하는 추가 정보가 결정 됩니다. [상업적 marketplace에서 SaaS 제품을 만드는 방법](create-new-saas-offer.md)에 설명 된 대로 **제품 설정** 페이지에서 목록 옵션을 정의 합니다.
 
 다음 표에서는 상업적 marketplace의 SaaS 제품에 대 한 목록 옵션을 보여 줍니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "93130003"
 | 연락처 | 고객은 목록의 정보에서 직접 연락 합니다.``*`` |
 | 평가판 | 고객은 Azure Active Directory (Azure AD)를 통해 대상 URL로 리디렉션됩니다.``*`` |
 | 지금 받기 (무료) | 고객은 Azure AD를 통해 대상 URL로 리디렉션됩니다.``*`` |
-| Microsoft를 통해 판매  | Microsoft를 통해 판매 되는 제품을 _불가능_ 제품 이라고 합니다. 불가능 제품은 Microsoft가 게시자를 대신해 소프트웨어 라이선스에 대 한 비용 교환을 용이 하 게 하는 것입니다. Microsoft는 선택한 가격 책정 모델을 사용 하 여 SaaS 제안을 청구 하 고 사용자 대신 고객 트랜잭션을 관리 합니다. Azure 인프라 사용 요금은 파트너에 게 직접 청구 됩니다. 가격 책정 모델에서 인프라 비용을 고려해 야 합니다. 이 내용은 아래의 [SaaS 청구](#saas-billing) 에 자세히 설명 되어 있습니다.  |
+| Microsoft를 통해 판매  | Microsoft를 통해 판매 되는 제품을 _불가능_ 제품 이라고 합니다. 불가능 제품은 Microsoft가 게시자를 대신해 소프트웨어 라이선스에 대 한 비용 교환을 용이 하 게 하는 것입니다. Microsoft는 선택한 가격 책정 모델을 사용 하 여 SaaS 제안을 청구 하 고 사용자 대신 고객 트랜잭션을 관리 합니다. Azure 인프라 사용 요금은 사용자, 파트너에 게 직접 청구 됩니다. 가격 책정 모델에서 인프라 비용을 고려해 야 합니다. 이 내용은 아래의 [SaaS 청구](#saas-billing) 에 자세히 설명 되어 있습니다.  |
 |||
 
 ``*`` 게시자는 주문, 배송, 계량, 청구, 송장 청구, 지불 및 수집을 포함 하 되이에 제한 되지 않고 소프트웨어 라이선스 트랜잭션의 모든 측면을 지원할 책임이 있습니다.
@@ -45,13 +45,13 @@ ms.locfileid: "93130003"
 
 기술 요구 사항은 제품에 대해 선택 하는 목록 옵션에 따라 다릅니다.
 
-_연락처_ 목록 옵션에는 기술 요구 사항이 없습니다. CRM 시스템을 연결 하 여 고객 리드를 관리할 수 있습니다 .이에 대해서는이 문서의 뒷부분에 나오는 [고객 리더](#customer-leads) 섹션에서 설명 합니다.
+_연락처_ 목록 옵션에는 기술 요구 사항이 없습니다. CRM (고객 관계 관리) 시스템을 연결 하 여 고객 리드를 관리할 수 있는 옵션이 있습니다. 이 내용은이 문서의 뒷부분에 나오는 [고객 리더](#customer-leads) 섹션에 설명 되어 있습니다.
 
-_지금 가져오기 (무료)_ , _무료 평가판_ 및 Microsoft 목록 옵션을 _통해 판매_ 하는 기술 요구 사항은 다음과 같습니다.
+_지금 가져오기 (무료)_, _무료 평가판_ 및 Microsoft 목록 옵션을 _통해 판매_ 하는 기술 요구 사항은 다음과 같습니다.
 
 - SaaS 응용 프로그램은 다중 테 넌 트 솔루션 이어야 합니다.
 - 사용자를 인증 하기 위해 Microsoft 계정 (MSA)과 [Azure Active Directory (AZURE AD)](https://azure.microsoft.com/services/active-directory/) 를 모두 사용 하도록 설정할 수 있습니다.
-- 방문 페이지를 만들어야 합니다. 사용자가 제품을 구매한 후 방문 페이지로 이동 하 여 필요한 추가 프로 비전 또는 설치를 용이 하 게 합니다. 방문 페이지를 만드는 방법에 대 한 지침은 다음 문서를 참조 하세요.
+- 방문 페이지를 만들어야 합니다. 사용자가 제품을 구매한 후에는 방문 페이지로 이동 됩니다. 이를 통해 필요한 추가 프로 비전 또는 설정을 완료할 수 있습니다. 방문 페이지를 만드는 방법에 대 한 지침은 다음 문서를 참조 하세요.
   - [상업적 marketplace에서 불가능 SaaS 제품에 대 한 방문 페이지 빌드](azure-ad-transactable-saas-landing-page.md)
   - [상용 marketplace에서 무료 또는 평가판 SaaS 제품에 대 한 방문 페이지 빌드](azure-ad-free-or-trial-landing-page.md)
 
@@ -66,7 +66,7 @@ _지금 가져오기 (무료)_ , _무료 평가판_ 및 Microsoft 목록 옵션�
 
 불가능 제품을 만드는 경우 **기술 구성** 페이지에 대 한 다음 정보를 수집 해야 합니다. 불가능 제품을 만드는 대신 독립적으로 트랜잭션을 처리 하도록 선택 하는 경우이 섹션을 건너뛰고 [테스트 드라이브로](#test-drives)이동 합니다.
 
-- **방문 페이지 url** : 사용자가 상업적 marketplace에서 제품을 확보 한 후 사용자가 전송 되는 SAAS 사이트 url (예: `https://contoso.com/signup` )은 새로 만든 saas 구독에서 구성 프로세스를 트리거합니다. 이 URL은 대화형 등록 페이지에 대 한 프로 비전 세부 정보를 가져오기 위해 처리 Api를 호출 하는 데 사용할 수 있는 토큰을 수신 합니다.
+- **방문 페이지 url**: 사용자가 상업적 marketplace에서 제품을 확보 한 후 사용자가 전송 되는 SAAS 사이트 url (예: `https://contoso.com/signup` )은 새로 만든 saas 구독에서 구성 프로세스를 트리거합니다. 이 URL은 대화형 등록 페이지에 대 한 프로 비전 세부 정보를 가져오기 위해 처리 Api를 호출 하는 데 사용할 수 있는 토큰을 수신 합니다.
 
   이 URL은 특정 고객의 SaaS 구매를 고유 하 게 식별 하는 marketplace 구매 id 토큰 매개 변수를 사용 하 여 호출 됩니다. [확인 API](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription)를 사용 하 여 해당 SaaS 구독 세부 정보에 대해이 토큰을 교환 해야 합니다. 이러한 세부 정보 및 수집 하려는 다른 사용자는 고객 등록을 완료 하 고 해당 구매를 활성화 하는 사용자의 경험을 기반으로 하는 고객 대화형 웹 페이지의 일부로 사용 해야 합니다. 이 페이지에서 사용자는 Azure Active Directory (Azure AD)를 사용 하 여 한 번의 클릭으로 인증을 통해 등록 해야 합니다.
 
@@ -74,16 +74,16 @@ _지금 가져오기 (무료)_ , _무료 평가판_ 및 Microsoft 목록 옵션�
 
     구성 하는 방문 페이지는 24/7을 실행 해야 합니다. 이는 상업적 marketplace에서 만든 SaaS 제품의 새로운 구매 또는 제품의 활성 구독에 대 한 구성 요청에 대 한 통지를 받는 유일한 방법입니다.
 
-- **연결 webhook** : Microsoft에서 사용자에 게 전송 해야 하는 모든 비동기 이벤트 (예: SaaS 구독이 취소 된 경우)의 경우 연결 webhook URL을 제공 해야 합니다. 이 URL을 호출 하 여 이벤트에 대해 알려줍니다.
+- **연결 webhook**: Microsoft에서 사용자에 게 전송 해야 하는 모든 비동기 이벤트 (예: SaaS 구독이 취소 된 경우)의 경우 연결 webhook URL을 제공 해야 합니다. 이 URL을 호출 하 여 이벤트에 대해 알려줍니다.
 
-  제공 하는 웹 후크는 24/7을 실행 해야 하며,이는 상업적 marketplace를 통해 구매한 고객의 SaaS 구독에 대 한 업데이트에 대 한 알림을 받을 수 있는 유일한 방법입니다.
+  제공 하는 웹 후크는 24/7을 실행 해야 합니다. 이 방법은 상용 marketplace를 통해 구매한 고객의 SaaS 구독에 대 한 업데이트에 대 한 알림을 받을 수 있는 유일한 방법입니다.
 
   > [!NOTE]
   > Azure Portal 내에서 단일 Azure 앱 ID를 사용 하 여 두 서비스 간의 연결을 인증할 수 있도록 하는 단일 테 넌 트 [Azure Active Directory (AZURE AD) 앱](../active-directory/develop/howto-create-service-principal-portal.md) 을 만들어야 합니다. [테 넌 트 ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 고 **속성** 을 선택한 다음 나열 된 디렉터리 ID 번호를 확인 합니다. 예: `50c464d3-4930-494c-963c-1e951d15360e`.
 
-- **Azure Active Directory 테 넌 트 id** : (디렉터리 id 라고도 함) Azure Portal 내에서 API의 ACL (액세스 제어 목록)에 추가 하 여 호출할 권한이 있는지 확인할 수 있도록 [AD (Azure Active Directory) 앱을 등록](../active-directory/develop/howto-create-service-principal-portal.md) 해야 합니다. Azure Active Directory (AD) 앱에 대 한 테 넌 트 ID를 찾으려면 Azure Active Directory의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드로 이동 합니다. **표시 이름** 열에서 앱을 선택 합니다. 그런 다음 나열 된 **디렉터리 (테 넌 트) ID** 번호 (예: `50c464d3-4930-494c-963c-1e951d15360e` )를 찾습니다.
+- **Azure Active Directory 테 넌 트 id**: (디렉터리 id 라고도 함) Azure Portal 내에서 API의 ACL (액세스 제어 목록)에 추가 하 여 호출할 권한이 있는지 확인할 수 있도록 [AD (Azure Active Directory) 앱을 등록](../active-directory/develop/howto-create-service-principal-portal.md) 해야 합니다. Azure Active Directory (AD) 앱에 대 한 테 넌 트 ID를 찾으려면 Azure Active Directory의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드로 이동 합니다. **표시 이름** 열에서 앱을 선택 합니다. 그런 다음 나열 된 **디렉터리 (테 넌 트) ID** 번호 (예: `50c464d3-4930-494c-963c-1e951d15360e` )를 찾습니다.
 
-- **Azure Active Directory 응용 프로그램 id** : [응용 프로그램 id](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)도 필요 합니다. 해당 값을 가져오려면 Azure Active Directory의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드로 이동 합니다. **표시 이름** 열에서 앱을 선택 합니다. 그런 다음 나열 된 응용 프로그램 (클라이언트) ID 번호 (예:)를 찾습니다 `50c464d3-4930-494c-963c-1e951d15360e` .
+- **Azure Active Directory 응용 프로그램 id**: [응용 프로그램 id](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)도 필요 합니다. 해당 값을 가져오려면 Azure Active Directory의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드로 이동 합니다. **표시 이름** 열에서 앱을 선택 합니다. 그런 다음 나열 된 응용 프로그램 (클라이언트) ID 번호 (예:)를 찾습니다 `50c464d3-4930-494c-963c-1e951d15360e` .
 
   Azure AD 응용 프로그램 ID는 파트너 센터 계정에서 게시자 ID와 연결 됩니다. 해당 계정의 모든 제품에 대해 동일한 응용 프로그램 ID를 사용 해야 합니다.
 
@@ -104,7 +104,7 @@ SaaS 앱에 대해 테스트 드라이브를 사용 하도록 선택할 수 있�
 
 ## <a name="selecting-an-online-store"></a>온라인 스토어 선택
 
-SaaS 제안을 게시할 때 Microsoft AppSource, Azure Marketplace 또는 둘 다에 나열 됩니다. 각 온라인 스토어는 고유한 고객 요구 사항을 제공 합니다. AppSource는 비즈니스 솔루션을 위한 것 이며 IT 솔루션에 대 한 Azure Marketplace입니다. 제품 유형, 거래 기능 및 범주에 따라 제품이 게시 되는 위치가 결정 됩니다. 범주 및 하위 범주는 솔루션 유형에 따라 각 온라인 저장소에 매핑됩니다. 온라인 저장소를 선택 하는 방법에 대 한 자세한 내용은 [온라인 저장소 선택](determine-your-listing-type.md#selecting-an-online-store)을 참조 하세요.
+SaaS 제안을 게시할 때 Microsoft AppSource, Azure Marketplace 또는 둘 다에 나열 됩니다. 각 온라인 스토어는 고유한 고객 요구 사항을 제공 합니다. AppSource는 비즈니스 솔루션을 위한 것 이며 IT 솔루션에 대 한 Azure Marketplace입니다. 제품 유형, 거래 기능 및 범주에 따라 제품이 게시 되는 위치가 결정 됩니다. 범주 및 하위 범주는 솔루션 유형에 따라 각 온라인 저장소에 매핑됩니다. 온라인 상점에서 지원 되는 옵션을 나열 하는 방법에 대 한 자세한 내용은 [온라인 상점의 나열 및 가격 옵션](determine-your-listing-type.md#listing-and-pricing-options-by-online-store)을 참조 하십시오. 범주 및 하위 범주에 대 한 자세한 내용은 [상용 marketplace의 범주 및](categories.md)하위 범주를 참조 하세요.
 
 ## <a name="legal-contracts"></a>법적 계약
 
@@ -151,22 +151,22 @@ SaaS 제안을 게시할 때 Microsoft AppSource, Azure Marketplace 또는 둘 �
 
 제품을 보다 쉽게 만들 수 있도록 이러한 항목 중 일부를 미리 준비 합니다. 별도로 언급 하지 않는 한 다음 항목이 필요 합니다.
 
-- **이름** :이 이름은 상용 marketplace에서 제품의 제목으로 표시 됩니다. 이름은 상표로 등록될 수 있습니다. 상표 및 저작권 기호가 아닌 경우 이모지를 포함할 수 없으며 50자로 제한됩니다.
-- **검색 결과 요약** : 100 자 이하의 줄 바꿈 없이 단일 문장으로 제품의 목적 또는 기능을 설명 합니다. 이 요약은 상용 marketplace 목록 검색 결과에 사용 됩니다.
-- **설명** :이 설명은 상업적 marketplace 목록에 표시 됩니다. 가치 제안, 주요 이점, 의도 한 사용자 기반, 범주 또는 업계 연결, 앱 내 구매 기회, 모든 필수 공개 및 자세한 내용을 볼 수 있는 링크를 포함 하는 것이 좋습니다.
-    
+- **이름**:이 이름은 상용 marketplace에서 제품의 제목으로 표시 됩니다. 이름은 상표로 등록될 수 있습니다. 상표 및 저작권 기호가 아닌 경우 이모지를 포함할 수 없으며 50자로 제한됩니다.
+- **검색 결과 요약**: 100 자 이하의 줄 바꿈 없이 단일 문장으로 제품의 목적 또는 기능을 설명 합니다. 이 요약은 상용 marketplace 목록 검색 결과에 사용 됩니다.
+- **설명**:이 설명은 상업적 marketplace 목록에 표시 됩니다. 가치 제안, 주요 이점, 의도 한 사용자 기반, 범주 또는 업계 연결, 앱 내 구매 기회, 모든 필수 공개 및 자세한 내용을 볼 수 있는 링크를 포함 하는 것이 좋습니다.
+
     이 텍스트 상자에는 설명이 더 유용 하 게 만드는 데 사용할 수 있는 다양 한 텍스트 편집기 컨트롤이 있습니다. HTML 태그를 사용 하 여 설명 서식을 지정할 수도 있습니다. HTML 태그를 포함 하 여이 상자에 최대 3000 자의 텍스트를 입력할 수 있습니다. 추가 팁은 [유용한 앱 설명 작성](/windows/uwp/publish/write-a-great-app-description)을 참조하세요.
 
-- **시작 지침** : Microsoft (불가능 제품)를 통해 제품을 판매 하도록 선택 하는 경우이 필드는 필수입니다. 고객이 SaaS 제품에 연결 하는 데 도움이 되는 지침입니다. 최대 3000 문자 텍스트를 추가 하 고 자세한 온라인 설명서에 대 한 링크를 추가할 수 있습니다.
+- **시작 지침**: Microsoft (불가능 제품)를 통해 제품을 판매 하도록 선택 하는 경우이 필드는 필수입니다. 이러한 지침을 통해 고객은 SaaS 제품에 연결할 수 있습니다. 최대 3000 문자 텍스트를 추가 하 고 자세한 온라인 설명서에 대 한 링크를 추가할 수 있습니다.
 - **검색 키워드** (옵션): 고객이 온라인 상점에서 제품을 찾는 데 사용할 수 있는 검색 키워드를 최대 3 개까지 제공 합니다. 제품 **이름** 및 **설명을** 포함할 필요가 없습니다. 해당 텍스트가 검색에 자동으로 포함 됩니다.
-- **개인 정보 취급 방침 링크** : 회사의 개인 정보 취급 방침에 대 한 URL입니다. 유효한 개인 정보 취급 방침을 제공 해야 하며, 앱이 개인 정보 법률 및 규정을 준수 하는지 확인 해야 합니다.
-- **연락처 정보** : 조직에서 다음 연락처를 지정 해야 합니다.
-  - **지원 연락처** : 고객이 티켓을 열 때 사용할 Microsoft 파트너의 이름, 전화 번호 및 전자 메일을 제공 합니다. 또한 지원 웹 사이트에 대 한 URL을 포함 해야 합니다.
-  - **엔지니어링 연락처** : 제품에 문제가 있는 경우 직접 사용할 수 있는 이름, 전화 번호 및 전자 메일을 Microsoft에 제공 합니다. 이 연락처 정보는 상업적 marketplace에 나열 되지 않습니다.
+- **개인 정보 취급 방침 링크**: 회사의 개인 정보 취급 방침에 대 한 URL입니다. 유효한 개인 정보 취급 방침을 제공 해야 하며, 앱이 개인 정보 법률 및 규정을 준수 하는지 확인 해야 합니다.
+- **연락처 정보**: 조직에서 다음 연락처를 제공 해야 합니다.
+  - **지원 연락처**: 고객이 티켓을 열 때 사용할 Microsoft 파트너의 이름, 전화 번호 및 전자 메일을 제공 합니다. 또한 지원 웹 사이트에 대 한 URL을 포함 해야 합니다.
+  - **엔지니어링 연락처**: 제품에 문제가 있는 경우 직접 사용할 수 있는 이름, 전화 번호 및 전자 메일을 Microsoft에 제공 합니다. 이 연락처 정보는 상업적 marketplace에 나열 되지 않습니다.
   - **Csp 프로그램 연락처** (선택 사항): csp 프로그램을 옵트인 (opt in) 하는 경우 이름, 전화 번호 및 전자 메일을 입력 합니다. 그러면 이러한 파트너가 질문에 대해 연락할 수 있습니다. 마케팅 자료에 대 한 URL을 포함할 수도 있습니다.
 - **유용한 링크** (선택 사항): 제품의 사용자에 대 한 다양 한 리소스에 대 한 링크를 제공할 수 있습니다. 예를 들어 포럼, Faq, 릴리스 정보 등이 있습니다.
-- **지원 문서** : 백서, 브로슈어, 검사 목록 또는 PowerPoint 프레젠테이션과 같은 최대 3 개의 고객 관련 문서를 제공할 수 있습니다.
-- **미디어 – 로고** : **큰** 크기의 로고에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작고** **중간** 로고를 만듭니다. 필요에 따라 나중에 다른 이미지로 바꿀 수 있습니다.
+- **지원 문서**: 백서, 브로슈어, 검사 목록 또는 PowerPoint 프레젠테이션과 같은 최대 3 개의 고객 관련 문서를 제공할 수 있습니다.
+- **미디어 – 로고**: **많은** 로고에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작고** **중간** 로고를 만듭니다. 필요에 따라 나중에 다른 이미지로 바꿀 수 있습니다.
 
    - 큼 (216 x 216에서 350 x 350 px, required)
    - 중간 (90 x 90 px, 선택 사항)
@@ -178,12 +178,12 @@ SaaS 제안을 게시할 때 Microsoft AppSource, Azure Marketplace 또는 둘 �
   - Microsoft Azure에서 새 리소스를 만들 때 Medium 로고가 표시 됩니다.
   - Azure Marketplace 및 Microsoft AppSource의 제품 목록 페이지에 많은 로고가 표시 됩니다.
 
-- **미디어 스크린샷** : 제품의 작동 방식을 보여 주는 다음 요구 사항에 따라 하나 이상의 스크린샷을 추가 해야 합니다.
+- **미디어 스크린샷**: 제품의 작동 방식을 보여 주는 다음 요구 사항에 따라 하나 이상의 스크린샷을 추가 해야 합니다.
   - 1280 x 720 픽셀
   - .png 파일
   - 캡션을 포함 해야 합니다.
 - **미디어-비디오** (선택 사항): 제품을 설명 하는 다음과 같은 요구 사항을 사용 하 여 최대 4 개의 비디오를 추가할 수 있습니다.
-  - Name
+  - 이름
   - URL: YouTube 또는 Vimeo에만 호스팅되어야 합니다.
   - 축소판 그림: 1280 x 720 .png 파일
 
@@ -221,7 +221,7 @@ SaaS 제품은 각 요금제를 사용 하는 두 가지 가격 책정 모델 �
 
 Microsoft에서 제공 하는 SaaS 앱 제품은 [요금제 서비스](./partner-center-portal/saas-metered-billing.md)를 사용 하 여 정액 요금, 사용자 당 요금 또는 소비 요금을 기준으로 월별 또는 연간 요금 청구로 판매 됩니다. 상업적 marketplace는 기관 모델에서 작동 합니다. 즉, 게시자가 가격을 설정 하 고, Microsoft 청구서 고객을 원천 하 고, Microsoft는 고객 요금을 지불 하는 동시에 고객에 게 수익
 
-이는 에이전시 모델을 보여 주기 위해 비용 및 지급 분석의 샘플입니다. 이 예제에서 Microsoft는 소프트웨어 라이선스에 대해 고객에게 $100.00를 청구하고 게시자에게 $80.00를 지급합니다.
+다음 예에서는 에이전시 모델을 보여 주기 위해 비용 및 지급 분석 샘플을 보여 줍니다. 이 예제에서 Microsoft는 소프트웨어 라이선스에 대해 고객에게 $100.00를 청구하고 게시자에게 $80.00를 지급합니다.
 
 | 라이선스 비용 | 매월 $100 |
 | ------------ | ------------- |
@@ -237,9 +237,9 @@ Microsoft에서 제공 하는 SaaS 앱 제품은 [요금제 서비스](./partner
 
 Microsoft에서 지 원하는 마케팅 및 판매 채널을 옵트인 (opt in) 하도록 선택할 수 있습니다. 파트너 센터에서 제품을 만들 때 프로세스의 끝에 두 개의 탭이 표시 됩니다.
 
-- **Csp를 통한 재판매** :이 옵션을 사용 하면 csp (Microsoft 클라우드 솔루션 공급자) 파트너가 번들 제안의 일부로 솔루션을 재판매 수 있습니다. 자세한 내용은 [클라우드 솔루션 공급자 프로그램](cloud-solution-providers.md) 을 참조 하세요.
+- **Csp를 통한 재판매**:이 옵션을 사용 하면 csp (Microsoft 클라우드 솔루션 공급자) 파트너가 번들 제안의 일부로 솔루션을 재판매 수 있습니다. 자세한 내용은 [클라우드 솔루션 공급자 프로그램](cloud-solution-providers.md) 을 참조 하세요.
 
-- **Microsoft와 공동 판매** :이 옵션을 사용 하면 microsoft 영업 팀에서 고객의 요구를 평가할 때 IP 공동 판매에 적합 한 솔루션을 고려할 수 있습니다. 평가를 위해 제품을 준비 하는 방법에 대 한 자세한 내용은 [파트너 센터의 공동 판매 옵션](./partner-center-portal/commercial-marketplace-co-sell.md) 을 참조 하세요.
+- **Microsoft와 공동 판매**:이 옵션을 사용 하면 microsoft 영업 팀에서 고객의 요구를 평가할 때 IP 공동 판매에 적합 한 솔루션을 고려할 수 있습니다. 평가를 위해 제품을 준비 하는 방법에 대 한 자세한 내용은 [파트너 센터의 공동 판매 옵션](./partner-center-portal/commercial-marketplace-co-sell.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

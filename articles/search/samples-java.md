@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: babd40e0e3a3b7a254a8410313c5d4e3bb2832f0
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 26e30b42906a3d8d7a3fcdc013537104a85f32fe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686944"
+ms.locfileid: "94701860"
 ---
 # <a name="java-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 Java 코드 샘플
 
 Azure Cognitive Search의 기능을 설명 하는 Java 코드 샘플에 대해 알아봅니다. 기본 리포지토리는 다음과 같습니다.
 
-| 리포지토리 | 설명 |
+| 리포지토리 | Description |
 |------------|-------------|
 | [azure-sdk-java/tree/master/sdk/search/azure-검색-documents/src/samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/samples) | SDK에서 Azure.Search.Documents client 라이브러리와 함께 제공 되는 Azure SDK 팀이 생성 한 샘플입니다. 클라이언트 라이브러리에 대 한 [단위 테스트](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/test) 를 검토 하 여 다양 한 api를 호출 하는 방법을 확인할 수도 있습니다. |
 | [Azure-샘플/azure-검색-java-샘플](https://github.com/Azure-Samples/azure-search-java-samples) | 방법 문서와 함께 제공 되는 코드 샘플입니다. **이 리포지토리의 샘플은 Java 용 AZURE SDK 사용으로 아직 업데이트 되지 않았습니다**. 현재 이러한 샘플은 Java 코드에서 REST Api를 호출 합니다.|
@@ -47,5 +47,5 @@ Java 용 Azure SDK에는 다양 한 샘플과 패키지 설치를 다루는 [시
 
 | 샘플 | Description | 
 |---------|-------------|
-| [빠른](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/Quickstart) | 빠른 시작에 대 한 소스 코드 [: 검색 인덱스를 만듭니다](search-get-started-javascript.md). 이 샘플에서는 REST Api를 호출 합니다. |
+| [빠른](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/quickstart) | 빠른 시작에 대 한 소스 코드 [: Java에서 검색 인덱스를 만듭니다](search-get-started-java.md). 이 샘플에서는 REST Api를 호출 합니다. |
 | [검색-java-인덱서-demo](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/search-java-indexer-demo) | Java의 Azure Cosmos DB 인덱서를 보여 줍니다. 이 샘플에서는 REST Api를 호출 합니다. |

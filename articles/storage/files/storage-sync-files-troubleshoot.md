@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: dd9e67b8cea88421986d4ca9e3545c6dce618672
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: c7405ada800bd5fb9161e9d96bd4c8b0484be620
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626404"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737016"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -134,7 +134,7 @@ Azure 파일 공유가 다른 클라우드 엔드포인트에서 이미 사용�
 1. Azure Portal에서 **리소스 그룹** 을 선택합니다.
 2. 스토리지 계정이 있는 리소스 그룹을 선택하고 **IAM(Access Control)** 를 선택합니다.
 3. **역할 할당** 탭을 선택합니다.
-4. 사용자 계정에 대한 **역할** (예: 소유자 또는 Contributor)을 선택합니다.
+4. 사용자 계정에 대한 **역할**(예: 소유자 또는 Contributor)을 선택합니다.
 5. **리소스 공급자** 목록에서 **Microsoft 인증** 을 선택합니다. 
     * **역할 할당** 에 **읽기** 권한과 **쓰기** 권한이 있어야 합니다.
     * **역할 정의** 에 **읽기**  권한과 **쓰기** 권한이 있어야 합니다.
@@ -1005,7 +1005,7 @@ if ($fileShare -eq $null) {
 # <a name="portal"></a>[포털](#tab/azure-portal)
 1. 왼쪽 목차에서 **액세스 제어(IAM)** 를 클릭합니다.
 1. **역할 할당** 탭을 클릭하여 스토리지 계정에 액세스할 수 있는 사용자 및 애플리케이션(‘서비스 주체’)을 나열합니다.
-1. **Microsoft.StorageSync** 또는 **하이브리드 파일 동기화 서비스** (이전 애플리케이션 이름)가 **읽기 권한자 및 데이터 액세스** 역할이 있는 목록에 나타나는지 확인합니다. 
+1. **Microsoft.StorageSync** 또는 **하이브리드 파일 동기화 서비스**(이전 애플리케이션 이름)가 **읽기 권한자 및 데이터 액세스** 역할이 있는 목록에 나타나는지 확인합니다. 
 
     ![스토리지 계정의 액세스 제어 탭에 표시된 하이브리드 파일 동기화 서비스의 서비스 사용자 스크린샷](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
@@ -1267,6 +1267,23 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 문제가 해결되지 않으면 AFSDiag 도구를 실행하고 추가 진단을 위해 해당 사례에 할당된 지원 엔지니어에게 .zip 파일 출력을 보냅니다.
 
 AFSDiag를 실행 하려면 다음 단계를 수행 합니다.
+
+에이전트 버전 v11 이상:
+1. 관리자 권한으로 PowerShell 창을 열고 다음 명령을 실행합니다(각 명령 후 Enter 키 누름).
+
+    > [!NOTE]
+    >AFSDiag는 로그를 수집하기 전에 출력 디렉터리를 만든 후 그 안에 임시 폴더를 만들고 실행 후에 임시 폴더를 삭제합니다. 데이터를 포함하지 않는 출력 위치를 지정하세요.
+    
+    ```powershell
+    cd "c:\Program Files\Azure\StorageSyncAgent"
+    Import-Module .\afsdiag.ps1
+    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
+    ```
+
+2. 이슈를 재현합니다. 작업을 완료하면 **D** 키를 입력합니다.
+3. 로그 및 추적 파일을 포함하는 .zip 파일은 사용자가 지정한 출력 디렉터리에 저장됩니다. 
+
+에이전트 버전 v10 및 이전 버전의 경우:
 1. AFSDiag 출력이 저장될 디렉터리를 만듭니다(예: C:\output).
     > [!NOTE]
     >AFSDiag는 로그를 수집하기 전에 출력 디렉터리의 모든 내용을 삭제합니다. 데이터를 포함하지 않는 출력 위치를 지정하세요.
@@ -1282,6 +1299,7 @@ AFSDiag를 실행 하려면 다음 단계를 수행 합니다.
 4. Azure 파일 동기화 사용자 모드 추적 수준에 대해 **1** 을 입력하고(더 자세한 추적을 만들기 위해 다르게 지정되지 않은 경우) Enter 키를 누릅니다.
 5. 이슈를 재현합니다. 작업을 완료하면 **D** 키를 입력합니다.
 6. 로그 및 추적 파일을 포함하는 .zip 파일은 사용자가 지정한 출력 디렉터리에 저장됩니다.
+
 
 ## <a name="see-also"></a>참고 항목
 - [Azure 파일 동기화 모니터링](storage-sync-files-monitoring.md)

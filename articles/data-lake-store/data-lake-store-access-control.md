@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d889c82142cda60b920f7b29bd91755cbc34f525
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190160"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701452"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 액세스 제어
 
@@ -25,7 +25,7 @@ Azure Data Lake Storage Gen1은 HDFS에서 파생된 액세스 제어 모델을 
 
 ## <a name="access-control-lists-on-files-and-folders"></a>파일 및 폴더에 대한 액세스 제어 목록
 
-**액세스 ACL** 및 **기본 ACL**이라는 두 가지 ACL(액세스 제어 목록)이 있습니다.
+**액세스 ACL** 및 **기본 ACL** 이라는 두 가지 ACL(액세스 제어 목록)이 있습니다.
 
 * **액세스 ACL** – 개체에 대한 액세스를 제어합니다. 파일과 폴더에는 모두 액세스 ACL이 있습니다.
 
@@ -43,17 +43,17 @@ Azure Data Lake Storage Gen1은 HDFS에서 파생된 액세스 제어 모델을 
 
 ## <a name="permissions"></a>사용 권한
 
-파일 시스템 개체에 대한 권한은 **읽기**, **쓰기** 및 **실행**이며 아래 표에서 보여 주듯이 파일과 폴더에 사용할 수 있습니다.
+파일 시스템 개체에 대한 권한은 **읽기**, **쓰기** 및 **실행** 이며 아래 표에서 보여 주듯이 파일과 폴더에 사용할 수 있습니다.
 
 |            |    파일     |   폴더 |
 |------------|-------------|----------|
 | **읽기(R)** | 파일의 내용을 읽을 수 있습니다. | 폴더의 내용을 나열 하려면 **읽기** 및 **실행** 이 필요 합니다.|
-| **쓰기(W)** | 쓰거나 파일에 추가할 수 있습니다. | 폴더에 자식 항목을 만들려면 **쓰기** 및 **실행**이 필요합니다. |
+| **쓰기(W)** | 쓰거나 파일에 추가할 수 있습니다. | 폴더에 자식 항목을 만들려면 **쓰기** 및 **실행** 이 필요합니다. |
 | **실행(X)** | Data Lake Storage Gen1의 컨텍스트에서 아무것도 의미하지 않습니다. | 폴더의 자식 항목을 트래버스하는 데 필요합니다. |
 
 ### <a name="short-forms-for-permissions"></a>사용 권한에 대한 짧은 형식
 
-**RWX**는 **읽기 + 쓰기 + 실행**을 나타내는 데 사용됩니다. **읽기=4**, **쓰기=2** 및 **실행=1**의 압축된 숫자 형식이 있으며, 그 합계는 권한을 나타냅니다. 다음은 몇 가지 예입니다.
+**RWX** 는 **읽기 + 쓰기 + 실행** 을 나타내는 데 사용됩니다. **읽기=4**, **쓰기=2** 및 **실행=1** 의 압축된 숫자 형식이 있으며, 그 합계는 권한을 나타냅니다. 다음은 몇 가지 예입니다.
 
 | 숫자 형식 | 약식 |      의미     |
 |--------------|------------|------------------------|
@@ -75,8 +75,8 @@ Data Lake Storage Gen1 계정에서 특정 작업을 수행하는 데 필요한 
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | 읽기      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | 추가 | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| DELETE    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| 생성    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| 삭제    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| 만들기    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | 목록      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | 목록      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | 목록      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
@@ -144,7 +144,7 @@ Data Lake Storage Gen1의 사용자와 연결된 “기본 그룹”이 없으�
 > [!NOTE]
 > 소유 그룹은 파일 또는 폴더의 ACL을 *변경할 수 없습니다*.
 >
-> 2018년 9월 이전에 생성된 계정의 경우, 위의 **사례 1**에 대한 루트 폴더의 사례에서 계정을 만든 사용자로 소유 그룹이 설정되었습니다.  단일 사용자 계정이 소유 그룹을 통해 권한을 제공하는 데 유효하지 않으므로 이 기본 설정으로 사용 권한이 부여되지 않습니다. 올바른 사용자 그룹에 이 권한을 할당할 수 있습니다.
+> 2018년 9월 이전에 생성된 계정의 경우, 위의 **사례 1** 에 대한 루트 폴더의 사례에서 계정을 만든 사용자로 소유 그룹이 설정되었습니다.  단일 사용자 계정이 소유 그룹을 통해 권한을 제공하는 데 유효하지 않으므로 이 기본 설정으로 사용 권한이 부여되지 않습니다. 올바른 사용자 그룹에 이 권한을 할당할 수 있습니다.
 
 
 ## <a name="access-check-algorithm"></a>액세스 검사 알고리즘
@@ -194,7 +194,7 @@ def access_check( user, desired_perms, path ) :
 
 ### <a name="the-mask"></a>마스크
 
-액세스 확인 알고리즘에 나와 있는 것처럼 마스크는 **명명된 사용자**, **소유 그룹** 및 **명명된 그룹**에 대한 액세스를 제한합니다.  
+액세스 확인 알고리즘에 나와 있는 것처럼 마스크는 **명명된 사용자**, **소유 그룹** 및 **명명된 그룹** 에 대한 액세스를 제한합니다.  
 
 > [!NOTE]
 > 새 Data Lake Storage Gen1 계정의 경우 루트 폴더(“/”)의 액세스 ACL에 대한 마스크는 기본적으로 RWX를 사용합니다.
@@ -216,7 +216,7 @@ def access_check( user, desired_perms, path ) :
 
 ### <a name="umask"></a>umask
 
-파일이나 폴더를 만들 때는 umask를 사용하여 자식 항목에서 기본 ACL이 설정되는 방식을 수정합니다. umask는 **소유 사용자**, **소유 그룹**및 **기타**에 대 한 RWX 값을 포함 하는 부모 폴더의 9 비트 값입니다.
+파일이나 폴더를 만들 때는 umask를 사용하여 자식 항목에서 기본 ACL이 설정되는 방식을 수정합니다. umask는 **소유 사용자**, **소유 그룹** 및 **기타** 에 대 한 RWX 값을 포함 하는 부모 폴더의 9 비트 값입니다.
 
 Azure Data Lake Storage Gen1에 대 한 umask는 007로 설정 된 상수 값입니다. 이 값은 다음 표와 같이 변환됩니다.
 
@@ -280,7 +280,11 @@ ACL의 항목은 Azure AD의 사용자에 해당하는 GUID로 저장됩니다. 
 
 ### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-im-using-the-azure-portal"></a>Azure Portal을 사용할 때 때때로 ACL에 GUID가 표시되는 이유는 무엇인가요?
 
-사용자가 Azure AD에 더 이상 존재하지 않으면 GUID가 표시됩니다. 일반적으로 사용자가 퇴사하거나 Azure AD에서 해당 계정이 삭제될 때 이러한 현상이 발생합니다.
+사용자가 Azure AD에 더 이상 존재하지 않으면 GUID가 표시됩니다. 일반적으로 사용자가 퇴사하거나 Azure AD에서 해당 계정이 삭제될 때 이러한 현상이 발생합니다. 또한 Acl을 설정 하는 데 올바른 ID를 사용 하 고 있는지 확인 합니다 (아래에서 자세한 내용 참조).
+
+### <a name="when-using-service-principal-what-id-should-i-use-to-set-acls"></a>서비스 주체를 사용 하는 경우 Acl을 설정 하는 데 사용 해야 하는 ID는 무엇입니까?
+
+Azure Portal에서 **Azure Active Directory > 엔터프라이즈 응용 프로그램** 으로 이동 하 고 응용 프로그램을 선택 합니다. **개요** 탭에는 개체 id가 표시 되어야 하며,이는 응용 프로그램 id가 아니라 데이터 액세스를 위해 acl을 추가할 때 사용 해야 합니다.
 
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Data Lake Storage Gen1이 ACL의 상속을 지원하나요?
 
