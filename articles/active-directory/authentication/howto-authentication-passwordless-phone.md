@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05f3d422c9a504a0089290f3c2e1e68d809366ac
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 9da0c00bd8498e3f43d5f8258308fbc010a6a274
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592960"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839525"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Microsoft Authenticator 앱 (미리 보기)을 사용 하 여 암호 없는 로그인 사용
 
@@ -32,11 +32,11 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용 하도록 설정
 2. **승인** 을 선택합니다.
 3. PIN 또는 생체 인식 기능을 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Microsoft Authenticator 앱에서 암호 없는 휴대폰 로그인을 사용 하려면 다음 필수 구성 요소를 충족 해야 합니다.
 
-- Azure Multi-Factor Authentication, 푸시 알림이 확인 방법으로 허용 됩니다.
+- Azure AD Multi-Factor Authentication, 푸시 알림이 확인 방법으로 허용 됩니다.
 - iOS 8.0 이상 또는 Android 6.0 이상을 실행하는 디바이스에 설치된 최신 버전의 Microsoft Authenticator
 
 > [!NOTE]
@@ -68,7 +68,7 @@ Azure AD를 사용 하면 로그인 프로세스 중에 사용할 수 있는 인
 사용자는 다음 단계를 사용 하 여 Azure AD의 암호 없는 인증 방법에 등록 합니다.
 
 1. [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)으로 이동합니다.
-1. 로그인 한 다음 add **메서드 > authenticator 앱** , **추가** 를 차례로 선택 하 여 인증자 앱을 추가 합니다.
+1. 로그인 한 다음 add **메서드 > authenticator 앱**, **추가** 를 차례로 선택 하 여 인증자 앱을 추가 합니다.
 1. 지침에 따라 장치에 Microsoft Authenticator 앱을 설치 하 고 구성 합니다.
 1. **완료** 를 선택 하 여 인증자 구성을 완료 합니다.
 1. **Microsoft Authenticator** 에서 등록 된 계정에 대 한 드롭다운 메뉴에서 **휴대폰 로그인 사용** 을 선택 합니다.
@@ -141,4 +141,4 @@ Azure AD 인증 및 암호 없는 방법에 대해 알아보려면 다음 문서
 
 - [암호 없는의 작동 원리 알아보기](concept-authentication-passwordless.md)
 - [디바이스 등록에 대한 자세한 정보](../devices/overview.md#getting-devices-in-azure-ad)
-- [Azure Multi-Factor Authentication에 대한 자세한 정보](../authentication/howto-mfa-getstarted.md)
+- [Azure AD Multi-Factor Authentication에 대해 알아보기](../authentication/howto-mfa-getstarted.md)

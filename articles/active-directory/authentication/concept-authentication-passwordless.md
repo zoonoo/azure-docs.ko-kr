@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b308b47ff813237bdf90637334f20ac6b5490a19
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: dbe22a1af8fbf61629fa9df1267416ca3822884b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992827"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840086"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
@@ -44,7 +44,7 @@ MFA (multi-factor authentication)와 같은 기능은 조직을 보호 하는 �
 
 ![비즈니스용 Windows Hello에서 사용자 로그인에 관련 된 단계를 간략하게 설명 하는 다이어그램입니다.](./media/concept-authentication-passwordless/windows-hello-flow.png)
 
-1. 사용자가 생체 인식 또는 PIN 제스처를 사용 하 여 Windows에 로그인 합니다. 이 제스처는 비즈니스용 Windows Hello 개인 키의 잠금을 해제 하며 클라우드 *AP 공급자*라고 하는 클라우드 인증 보안 지원 공급자에 게 전송 됩니다.
+1. 사용자가 생체 인식 또는 PIN 제스처를 사용 하 여 Windows에 로그인 합니다. 이 제스처는 비즈니스용 Windows Hello 개인 키의 잠금을 해제 하며 클라우드 *AP 공급자* 라고 하는 클라우드 인증 보안 지원 공급자에 게 전송 됩니다.
 1. 클라우드 AP 공급자는 Azure AD에서 nonce (한 번만 사용할 수 있는 임의의 임의 숫자)를 요청 합니다.
 1. Azure AD는 5 분 동안 유효한 nonce를 반환 합니다.
 1. 클라우드 AP 공급자는 사용자의 개인 키를 사용 하 여 nonce에 서명 하 고 서명 된 nonce를 Azure AD에 반환 합니다.
@@ -62,7 +62,7 @@ MFA (multi-factor authentication)와 같은 기능은 조직을 보호 하는 �
 
 Authenticator 앱은 모든 iOS 또는 Android 휴대폰을 강력 하 고 암호 없는 자격 증명으로 전환 합니다. 사용자는 휴대폰에 대 한 알림을 받고, 화면에 표시 되는 숫자를 휴대폰에 있는 것과 일치 시킨 다음, 생체 인식 (터치 또는 얼굴) 또는 PIN을 사용 하 여 확인 하 여 모든 플랫폼 또는 브라우저에 로그인 할 수 있습니다. 설치에 대 한 자세한 내용은 [Microsoft Authenticator 앱 다운로드 및 설치](../user-help/user-help-auth-app-download-install.md) 를 참조 하세요.
 
-Azure AD에 대 한 Microsoft Authenticator 앱의 passwordless 로그인은 현재 미리 보기로 제공 됩니다. Azure Multi-Factor Authentication에 대 한 보조 인증에 Microsoft Authenticator 앱 사용, SSPR (셀프 서비스 암호 재설정) 또는 OATH 소프트웨어 토큰은 GA입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+Azure AD에 대 한 Microsoft Authenticator 앱의 passwordless 로그인은 현재 미리 보기로 제공 됩니다. Azure AD Multi-Factor Authentication, SSPR (셀프 서비스 암호 재설정) 또는 OATH 소프트웨어 토큰에 대 한 보조 인증에 Microsoft Authenticator 앱을 사용 하는 것은 GA입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Authenticator 앱을 사용 하는 암호 없는 인증은 비즈니스용 Windows Hello와 동일한 기본 패턴을 따릅니다. Azure AD가 사용 되는 Microsoft Authenticator 앱 버전을 찾을 수 있도록 사용자를 식별 해야 하기 때문에 좀 더 복잡 합니다.
 

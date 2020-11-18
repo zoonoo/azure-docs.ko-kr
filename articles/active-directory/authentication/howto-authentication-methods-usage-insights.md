@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03989e37ac05228dade2fdcda43856e8a5240865
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fe8a916f4c3ce8869b6b487e33dcdecc061f8cbf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964913"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839593"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>인증 방법 사용 & insights (미리 보기)
 
-사용 & insights를 사용 하면 Azure Multi-Factor Authentication 및 셀프 서비스 암호 재설정과 같은 기능에 대 한 인증 방법이 조직에서 작동 하는 방식을 이해할 수 있습니다. 이 보고 기능은 사용자의 조직에 등록 되는 방법 및 사용 방법을 이해할 수 있는 수단을 제공 합니다.
+사용 & insights를 사용 하면 Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정과 같은 기능에 대 한 인증 방법이 조직에서 작동 하는 방식을 이해할 수 있습니다. 이 보고 기능은 사용자의 조직에 등록 되는 방법 및 사용 방법을 이해할 수 있는 수단을 제공 합니다.
 
 ## <a name="permissions-and-licenses"></a>권한 및 라이선스
 
@@ -31,14 +31,14 @@ ms.locfileid: "91964913"
 - 보안 관리자
 - 보고서 구독자
 
-사용 및 정보에 액세스 하는 데 추가 라이선스가 필요 하지 않습니다. Azure Multi-Factor Authentication 및 SSPR (셀프 서비스 암호 재설정) 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)에서 찾을 수 있습니다.
+사용 및 정보에 액세스 하는 데 추가 라이선스가 필요 하지 않습니다. Azure AD Multi-Factor Authentication 및 SSPR (셀프 서비스 암호 재설정) 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)에서 찾을 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 인증 방법 사용 및 정보에 액세스 하려면:
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. **Azure Active Directory**  >  **암호 재설정**  >  **사용 & insights**로 이동 합니다.
+1. **Azure Active Directory**  >  **암호 재설정**  >  **사용 & insights** 로 이동 합니다.
 1. **등록** 또는 **사용** 개요에서 필요에 따라 필터링 할 미리 필터링 된 보고서를 열도록 선택할 수 있습니다.
 
 ![사용 & insights 개요](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
@@ -61,11 +61,11 @@ ms.locfileid: "91964913"
 
 ### <a name="registration-details"></a>등록 세부 정보
 
-**등록 된 사용자**, **사용 하도록 설정**된 사용자 또는 **사용자** 가 사용할 수 있는 타일 또는 정보를 클릭 하면 등록 세부 정보로 이동 합니다.
+**등록 된 사용자**, **사용 하도록 설정** 된 사용자 또는 **사용자** 가 사용할 수 있는 타일 또는 정보를 클릭 하면 등록 세부 정보로 이동 합니다.
 
 등록 세부 정보 보고서에는 각 사용자에 대 한 다음 정보가 표시 됩니다.
 
-- Name
+- 이름
 - 사용자 이름
 - 등록 상태 (모두, 등록 됨, 등록 되지 않음)
 - 활성화 상태 (모두, 사용, 사용 안 함)
@@ -80,7 +80,7 @@ ms.locfileid: "91964913"
 
 세부 정보 다시 설정 보고서는 지난 30 일 동안 다음과 같은 등록 및 다시 설정 이벤트를 표시 합니다.
 
-- Name
+- 이름
 - 사용자 이름
 - 기능 (모두, 등록, 다시 설정)
 - 인증 방법 (앱 알림, 앱 코드, 전화 통화, Office 통화, SMS, 전자 메일, 보안 질문)
@@ -92,7 +92,7 @@ ms.locfileid: "91964913"
 
 이러한 보고서에 표시 되는 데이터는 최대 60 분까지 지연 됩니다. 최신 데이터를 식별 하기 위해 Azure Portal에 "마지막 새로 고침" 필드가 있습니다.
 
-사용량 및 통찰력 데이터는 azure AD 로그인 보고서에 포함 된 Azure Multi-Factor Authentication 활동 보고서 또는 정보에 대 한 대체가 아닙니다.
+Azure ad 로그인 보고서에 포함 된 Azure AD Multi-Factor Authentication 활동 보고서 또는 정보에 대 한 사용량 및 통찰력 데이터는 대체 되지 않습니다.
 
 현재 외부 사용자를 제외 하도록 보고서를 필터링 할 수 없습니다.
 

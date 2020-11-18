@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdc0dea825cb32275a2ada3a49d7d622180aa468
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a1da460933269a21afaf8ec7d805ec6f43fce926
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166637"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839408"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Azure Active Directory를 사용한 SMS 기반 인증 구성 및 사용자 활성화(미리 보기)
 
@@ -45,7 +45,7 @@ ms.locfileid: "92166637"
 
 SMS 기반 인증의 공개 미리 보기 중에는 다음과 같은 제한 사항이 적용됩니다.
 
-* SMS 기반 인증은 현재 Azure Multi-Factor Authentication과 호환되지 않습니다.
+* SMS 기반 인증은 현재 Azure AD Multi-Factor Authentication와 호환 되지 않습니다.
 * Teams를 제외하고, SMS 기반 인증은 현재 Office 네이티브 애플리케이션과 호환되지 않습니다.
 * B2B 계정에는 SMS 기반 인증을 사용하지 않는 것이 좋습니다.
 * 페더레이션 사용자는 홈 테넌트에서 인증되지 않습니다. 클라우드에서만 인증됩니다.
@@ -62,13 +62,13 @@ SMS 기반 인증의 공개 미리 보기 중에는 다음과 같은 제한 사�
 먼저 Azure AD 테넌트에 대해 SMS 기반 인증을 사용하도록 설정하겠습니다.
 
 1. 전역 관리자로 [Azure Portal][azure-portal]에 로그인합니다.
-1. **Azure Active Directory**를 검색하고 선택합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. Azure Active Directory 창 왼쪽의 탐색 메뉴에서 **보안 > 인증 방법 > 인증 방법 정책(미리 보기)** 을 선택합니다.
 
     [![Azure Portal에서 인증 방법 정책 (미리 보기) 창으로 이동 하 여 선택 합니다.](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png)](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
 
-1. 사용 가능한 인증 방법 목록에서 **문자 메시지**를 선택합니다.
-1. **사용**을 예로 설정합니다.
+1. 사용 가능한 인증 방법 목록에서 **문자 메시지** 를 선택합니다.
+1. **사용** 을 예로 설정합니다.
 
     ![인증 방법 정책 창에서 텍스트 인증을 사용하도록 설정](./media/howto-authentication-sms-signin/enable-text-authentication-method.png)
 
@@ -78,12 +78,12 @@ SMS 기반 인증의 공개 미리 보기 중에는 다음과 같은 제한 사�
 
 Azure AD 테넌트에서 SMS 기반 인증을 사용하도록 설정한 상태에서 이 인증 방법을 사용할 수 있는 사용자 또는 그룹을 선택합니다.
 
-1. 문자 메시지 인증 정책 창에서 **대상**을 사용자 설정으로 설정합니다.
-1. **사용자 또는 그룹 추가**를 선택한 다음 테스트 사용자 또는 그룹(예: *Contoso User* 또는 *Contoso SMS Users*)을 선택합니다.
+1. 문자 메시지 인증 정책 창에서 **대상** 을 사용자 설정으로 설정합니다.
+1. **사용자 또는 그룹 추가** 를 선택한 다음 테스트 사용자 또는 그룹(예: *Contoso User* 또는 *Contoso SMS Users*)을 선택합니다.
 
     [![Azure Portal에서 SMS 기반 인증을 사용 하도록 설정할 사용자 또는 그룹을 선택 합니다.](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png)](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
 
-1. 사용자 또는 그룹을 선택한 경우 **선택**을 선택하고 업데이트된 인증 방법 정책을 **저장**합니다.
+1. 사용자 또는 그룹을 선택한 경우 **선택** 을 선택하고 업데이트된 인증 방법 정책을 **저장** 합니다.
 
 문자 메시지 인증 방법 정책에서 설정된 각 사용자는 이 방법을 사용하지 않더라도 라이선스가 있어야 합니다. 인증 방법 정책에서 설정하는 사용자를 위한 적절한 라이선스가 있는지 확인하세요. 대규모 사용자 그룹에 대해 이 기능을 사용하도록 설정하는 경우에는 특히 주의해야 합니다.
 
@@ -91,22 +91,22 @@ Azure AD 테넌트에서 SMS 기반 인증을 사용하도록 설정한 상태�
 
 이제 사용자가 SMS 기반 인증을 사용할 수 있지만 로그인하려면 사용자의 전화 번호가 Azure AD의 사용자 프로필과 연결되어 있어야 합니다. 사용자가 내 프로필에서 직접 [이 전화 번호를 설정](../user-help/sms-sign-in-explainer.md)하거나 관리자가 Azure Portal을 사용하여 전화 번호를 할당할 수 있습니다. 전화 번호는 전역 관리자, 인증 관리자 또는 권한 있는 인증 관리자가 설정할 수 있습니다.
 
-SMS 서명에 대해 설정된 전화 번호는 [Azure Multi-Factor Authentication][tutorial-azure-mfa] 및 [셀프 서비스 암호 재설정][tutorial-sspr]에도 사용될 수 있습니다.
+전화 번호가 SMS 서명에 대해 설정 된 경우 [AZURE AD Multi-Factor Authentication][tutorial-azure-mfa] 및 [셀프 서비스 암호 재설정][tutorial-sspr]에도 사용할 수 있습니다.
 
-1. **Azure Active Directory**를 검색하고 선택합니다.
-1. Azure Active Directory 창의 왼쪽 탐색 메뉴에서 **사용자**를 선택합니다.
-1. 이전 섹션에서 SMS 기반 인증을 사용하도록 설정한 사용자(예: *Contoso User*)를 선택한 다음 **인증 방법**을 선택합니다.
-1. **+ 인증 방법 추가**를 선택 하 고 *방법 선택* 드롭다운 메뉴에서 **전화 번호**를 선택 합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
+1. Azure Active Directory 창의 왼쪽 탐색 메뉴에서 **사용자** 를 선택합니다.
+1. 이전 섹션에서 SMS 기반 인증을 사용하도록 설정한 사용자(예: *Contoso User*)를 선택한 다음 **인증 방법** 을 선택합니다.
+1. **+ 인증 방법 추가** 를 선택 하 고 *방법 선택* 드롭다운 메뉴에서 **전화 번호** 를 선택 합니다.
 
     사용자의 전화 번호를 국가 번호를 포함하여 입력합니다(예: *+1 xxxxxxxxx*). Azure Portal은 전화 번호가 올바른 형식인지 확인합니다.
 
-    그런 다음 *휴대폰 유형* 드롭다운 메뉴에서 *모바일*, *대체 모바일*또는 필요에 따라 *기타* 를 선택 합니다.
+    그런 다음 *휴대폰 유형* 드롭다운 메뉴에서 *모바일*, *대체 모바일* 또는 필요에 따라 *기타* 를 선택 합니다.
 
     :::image type="content" source="media/howto-authentication-sms-signin/set-user-phone-number.png" alt-text="Azure Portal에서 SMS 기반 인증에 사용할 사용자의 전화 번호 설정":::
 
     전화 번호는 테넌트에서 고유해야 합니다. 동일한 전화 번호를 여러 사용자에 사용하려고 하면 오류 메시지가 표시됩니다.
 
-1. 사용자의 계정에 전화 번호를 적용 하려면 **추가**를 선택 합니다.
+1. 사용자의 계정에 전화 번호를 적용 하려면 **추가** 를 선택 합니다.
 
 성공적으로 프로비전되면 SMS 로그인 사용에 대한 확인 표시가 나타납니다.
 
@@ -115,8 +115,8 @@ SMS 서명에 대해 설정된 전화 번호는 [Azure Multi-Factor Authenticati
 이제 SMS 기반 로그인을 사용하도록 설정된 사용자 계정을 테스트하려면 다음 단계를 수행합니다.
 
 1. 새 InPrivate 또는 Incognito 웹 브라우저 창을 엽니다. [https://www.office.com][office]
-1. 오른쪽 위 모서리에서 **로그인**을 선택합니다.
-1. 로그인 프롬프트에서 이전 섹션의 사용자와 연결된 전화 번호를 입력하고 **다음**을 선택합니다.
+1. 오른쪽 위 모서리에서 **로그인** 을 선택합니다.
+1. 로그인 프롬프트에서 이전 섹션의 사용자와 연결된 전화 번호를 입력하고 **다음** 을 선택합니다.
 
     ![테스트 사용자 로그인 프롬프트에 전화 번호 입력](./media/howto-authentication-sms-signin/sign-in-with-phone-number.png)
 
@@ -132,9 +132,9 @@ SMS 기반 로그인을 설정 및 사용하는 데 문제가 있는 경우 다�
 
 ### <a name="phone-number-already-set-for-a-user-account"></a>사용자 계정에 이미 전화 번호가 설정됨
 
-사용자가 이미 Azure Multi-Factor Authentication 및/또는 SSPR(셀프 서비스 암호 재설정)에 등록한 경우 해당 계정과 연결된 전화 번호가 있습니다. 이 전화 번호는 SMS 기반 로그인에 자동으로 사용할 수 없습니다.
+사용자가 이미 Azure AD Multi-Factor Authentication 및/또는 SSPR (셀프 서비스 암호 재설정)에 등록 한 경우 해당 계정과 연결 된 전화 번호가 있습니다. 이 전화 번호는 SMS 기반 로그인에 자동으로 사용할 수 없습니다.
 
-계정에 이미 설정된 전화 번호가 있는 사용자는 **내 프로필** 페이지에 SMS 로그인에 사용 단추가 표시됩니다. 이 단추를 선택하면 계정이 SMS 기반 로그인 및 이전 Azure Multi-Factor Authentication 또는 SSPR 등록에 사용할 수 있도록 설정됩니다.
+계정에 이미 설정된 전화 번호가 있는 사용자는 **내 프로필** 페이지에 SMS 로그인에 사용 단추가 표시됩니다. 이 단추를 선택 하면 계정이 SMS 기반 로그인 및 이전 Azure AD Multi-Factor Authentication 또는 SSPR 등록에 사용할 수 있도록 설정 됩니다.
 
 최종 사용자 환경에 대한 자세한 내용은 [SMS 로그인 사용자 환경 - 전화 번호 사용(미리 보기)](../user-help/sms-sign-in-explainer.md)을 참조하세요.
 

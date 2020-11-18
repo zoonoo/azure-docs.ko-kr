@@ -10,20 +10,20 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65c8baa101df5e24780e5e68b5a21b86985608a6
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 39555c5b396e8a8fd3449331cd2fd68b96ad2087
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628121"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840001"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Azure Active Directory 전화 옵션의 인증 방법
 
 문자 메시지를 사용하는 직접 인증의 경우 [SMS 기반 인증(미리 보기)에 대해 사용자를 구성하고 사용하도록 설정](howto-authentication-sms-signin.md)할 수 있습니다. SMS 기반 로그인은 일선 작업자에게 적합합니다. SMS 기반 로그인을 사용하면 사용자가 애플리케이션 및 서비스에 액세스하기 위해 사용자 이름과 암호를 몰라도 됩니다. 대신 사용자가 등록된 휴대폰 번호를 입력하고 확인 코드를 포함하는 문자 메시지를 받은 후 로그인 인터페이스에 입력합니다.
 
-사용자는 Azure Multi-Factor Authentication 또는 SSPR(셀프 서비스 암호 재설정) 중에 사용되는 인증의 보조 형식처럼 휴대폰 또는 사무실 전화를 사용하여 자신을 확인할 수도 있습니다.
+사용자는 Azure AD Multi-Factor Authentication 또는 SSPR (셀프 서비스 암호 재설정) 중에 사용 되는 인증의 보조 양식으로 휴대폰 또는 사무실 전화를 사용 하 여 자신을 확인할 수도 있습니다.
 
-올바르게 작동하려면 전화번호가 *+CountryCode PhoneNumber* 형식으로 저장되어야 합니다(예: *+1 4251234567* ).
+올바르게 작동하려면 전화번호가 *+CountryCode PhoneNumber* 형식으로 저장되어야 합니다(예: *+1 4251234567*).
 
 > [!NOTE]
 > 국가/지역 코드와 전화번호 사이에 공백이 필요합니다.
@@ -32,25 +32,25 @@ ms.locfileid: "94628121"
 
 ## <a name="mobile-phone-verification"></a>휴대폰 확인
 
-Azure Multi-Factor Authentication 또는 SSPR의 경우 사용자는 인증 코드를 사용 하 여 로그인 인터페이스에 입력 하거나 전화 통화를 받을 문자 메시지를 받도록 선택할 수 있습니다.
+Azure AD Multi-Factor Authentication 또는 SSPR의 경우 사용자는 인증 코드를 사용 하 여 로그인 인터페이스에 입력 하거나 전화 통화를 받을 문자 메시지를 받도록 선택할 수 있습니다.
 
 사용자가 자신의 휴대폰 번호를 디렉터리에 표시하지 않는 대신 암호 재설정에는 사용하도록 하려면 관리자가 디렉터리에 해당 휴대폰 번호를 채우지 않아야 합니다. 대신 사용자가 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)에서 조합된 보안 정보 등록을 통해 **인증 전화** 특성을 채워야 합니다. 관리자는 사용자의 프로필에서 이 정보를 볼 수 있지만 다른 곳에 게시되지는 않습니다.
 
 :::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="전화번호가 채워진 인증 방법을 보여 주는 Azure Portal의 스크린샷":::
 
-Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Azure Multi-Factor Authentication 즉시 이행을 보장하지 않습니다. 사용자를 위해 SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하면서 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 이외의 국가/지역에는 짧은 코드를 지원하지 않습니다.
+Microsoft는 동일한 번호를 사용 하 여 일관 된 SMS 또는 음성 기반 Azure AD Multi-Factor Authentication 메시지를 배달 하는 것을 보장 하지 않습니다. 사용자를 위해 SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하면서 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 이외의 국가/지역에는 짧은 코드를 지원하지 않습니다.
 
 ### <a name="text-message-verification"></a>문자 메시지 확인
 
-SSPR 또는 Azure Multi-Factor Authentication 중에 문자 메시지를 확인하면 확인 코드를 포함한 SMS가 휴대폰 번호로 전송됩니다. 로그인 프로세스를 완료하려면 제공된 확인 코드를 로그인 인터페이스에 입력합니다.
+SSPR 또는 Azure AD Multi-Factor Authentication 중에 문자 메시지를 확인 하면 SMS가 확인 코드를 포함 하는 휴대폰 번호로 전송 됩니다. 로그인 프로세스를 완료하려면 제공된 확인 코드를 로그인 인터페이스에 입력합니다.
 
 ### <a name="phone-call-verification"></a>전화 통화 확인
 
-SSPR 또는 Azure Multi-Factor Authentication 중에 전화 통화 확인을 사용하면 사용자가 등록한 전화번호로 자동 음성 전화가 걸려옵니다. 로그인 프로세스를 완료 하려면 해당 키패드에서 #을 누르라는 메시지가 사용자에 게 표시 됩니다.
+SSPR 또는 Azure AD Multi-Factor Authentication 중에 전화 통화 확인을 사용 하 여 사용자가 등록 한 전화 번호로 자동 음성 통화가 이루어집니다. 로그인 프로세스를 완료 하려면 해당 키패드에서 #을 누르라는 메시지가 사용자에 게 표시 됩니다.
 
 ## <a name="office-phone-verification"></a>사무실 전화 확인
 
-SSPR 또는 Azure Multi-Factor Authentication 중에 전화 통화 확인을 사용하면 사용자가 등록한 전화번호로 자동 음성 전화가 걸려옵니다. 로그인 프로세스를 완료 하려면 해당 키패드에서 #을 누르라는 메시지가 사용자에 게 표시 됩니다.
+SSPR 또는 Azure AD Multi-Factor Authentication 중에 전화 통화 확인을 사용 하 여 사용자가 등록 한 전화 번호로 자동 음성 통화가 이루어집니다. 로그인 프로세스를 완료 하려면 해당 키패드에서 #을 누르라는 메시지가 사용자에 게 표시 됩니다.
 
 ## <a name="troubleshooting-phone-options"></a>전화 옵션 문제 해결
 
@@ -75,11 +75,11 @@ Azure AD에 관한 전화 인증에 문제가 있는 경우 다음 문제 해결
 
 ## <a name="next-steps"></a>다음 단계
 
-시작하려면 [SSPR(셀프 서비스 암호 재설정)에 대한 자습서][tutorial-sspr] 및 [Azure Multi-Factor Authentication][tutorial-azure-mfa]을 참조하세요.
+시작 하려면 [SSPR (셀프 서비스 암호 재설정)][tutorial-sspr] 및 [Azure AD Multi-Factor Authentication][tutorial-azure-mfa]에 대 한 자습서를 참조 하세요.
 
 SSPR 개념에 대한 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정 작동 방법][concept-sspr]을 참조하세요.
 
-MFA 옵션에 대해 자세히 알아보려면 [Azure Multi-Factor Authentication 작동 방법][concept-mfa]을 참조하세요.
+MFA 개념에 대해 자세히 알아보려면 [AZURE AD Multi-Factor Authentication 작동 방법][concept-mfa]을 참조 하세요.
 
 [Microsoft Graph REST API 베타](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true)를 사용 하 여 인증 방법 구성에 대해 자세히 알아보세요.
 

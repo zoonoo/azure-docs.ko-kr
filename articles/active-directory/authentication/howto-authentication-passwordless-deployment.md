@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f0c19e33ab6f91e69f9c7dbc5bc29fef1fd53bb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0143da9c1961b4123467120210135f7db2c582c8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964879"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839576"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory에서 암호 없는 인증 배포 계획
 
@@ -34,8 +34,8 @@ Microsoft research는 이러한 노력으로 사용자를 annoy 하 고 지원 �
 
 ### <a name="benefits-of-passwordless-authentication"></a>암호 없는 인증의 이점
 
-- **보안이 강화**되었습니다. 공격 노출 영역으로 암호를 제거 하 여 피싱 및 암호 스프레이 공격의 위험을 줄입니다.
--  **사용자 환경을 개선**합니다. 사용자에 게 어디서 나 데이터에 액세스할 수 있는 편리한 방법을 제공 합니다. 모바일을 통해 Outlook, OneDrive 또는 Office와 같은 응용 프로그램 및 서비스에 쉽게 액세스할 수 있습니다.
+- **보안이 강화** 되었습니다. 공격 노출 영역으로 암호를 제거 하 여 피싱 및 암호 스프레이 공격의 위험을 줄입니다.
+-  **사용자 환경을 개선** 합니다. 사용자에 게 어디서 나 데이터에 액세스할 수 있는 편리한 방법을 제공 합니다. 모바일을 통해 Outlook, OneDrive 또는 Office와 같은 응용 프로그램 및 서비스에 쉽게 액세스할 수 있습니다.
 -  **강력한 통찰력**. 강력한 로깅 및 감사를 사용 하 여 암호 없는 작업을 사용자에 게 통찰력을 얻으세요.
 
 Passwordless를 사용 하는 경우 암호는 사용자가 알고 있는 것과 다른 항목으로 대체 됩니다. 예를 들어 비즈니스용 Windows Hello는 얼굴 또는 지문과 같은 생체 인식 제스처 또는 네트워크를 통해 전송 되지 않는 장치 특정 PIN을 사용할 수 있습니다.
@@ -54,33 +54,33 @@ Microsoft의 암호 없는 인증 방법으로 다양 한 시나리오를 사용
 | 시나리오 | 전화 인증 | 보안 키 | 비즈니스용 Windows Hello |
 | --- | --- | --- | --- |
 | **컴퓨터 로그인**: <br> 할당 된 Windows 10 장치에서 | **아니요** | **예** <br> 생체 인식 사용, PIN | **예**<br>생체 인식 인식 및 PIN 사용 |
-| **컴퓨터 로그인**: <br> 공유 Windows 10 장치에서 | **아니요** | **예** <br> 생체 인식 사용, PIN  | ‘아니요’ |
+| **컴퓨터 로그인**: <br> 공유 Windows 10 장치에서 | **아니요** | **예** <br> 생체 인식 사용, PIN  | **아니요** |
 | **웹 앱 로그인**: <br>사용자 전용 컴퓨터에서 | **예** | **예** <br> 컴퓨터 로그인으로 앱에 대 한 Single Sign-On 제공 됨 | **예**<br> 컴퓨터 로그인으로 앱에 대 한 Single Sign-On 제공 됨 |
 | **웹 앱 로그인**: <br> 모바일 또는 비 windows 장치에서 | **예** | **아니요** | **아니요** |
 | **컴퓨터 로그인**: <br> 비 Windows 컴퓨터 | **아니요** | **아니요** | **아니요** |
 
 조직에 가장 적합 한 방법을 선택 하는 방법에 대 한 자세한 내용은 [암호 없는 방법 결정](./concept-authentication-passwordless.md#choose-a-passwordless-method)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 조직에서 암호 없는 배포를 시작 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
 | 필수 조건 | 인증자 앱 | FIDO2 보안 키 |
 | --- | --- | --- |
-| [Azure multi-factor authentication에 대 한 결합 된 등록과 SSPR (셀프 서비스 암호 재설정)](howto-registration-mfa-sspr-combined.md) 사용 | √ | √ |
-| [사용자가 Azure Multi-factor authentication을 수행할 수 있습니다.](howto-mfa-getstarted.md) | √ | √ |
-| [사용자가 Azure Multi-factor authentication 및 SSPR에 등록 했습니다.](howto-registration-mfa-sspr-combined.md) | √ | √ |
+| [AZURE AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정 (SSPR)에 대 한 결합 된 등록](howto-registration-mfa-sspr-combined.md) 을 사용할 수 있습니다. | √ | √ |
+| [사용자는 Azure AD Multi-Factor Authentication를 수행할 수 있습니다.](howto-mfa-getstarted.md) | √ | √ |
+| [사용자가 Azure AD Multi-Factor Authentication 및 SSPR에 등록 했습니다.](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [사용자가 모바일 장치를 Azure Active Directory에 등록 했습니다.](../devices/overview.md) | √ |   |
-| Microsoft Edge 또는 Mozilla Firefox와 같은 지원 되는 브라우저를 사용 하는 Windows 10 버전 1809 이상 <br> (버전 67 이상). <br> *기본 지원에는 버전 1903 이상을 권장*합니다. |   | √ |
+| Microsoft Edge 또는 Mozilla Firefox와 같은 지원 되는 브라우저를 사용 하는 Windows 10 버전 1809 이상 <br> (버전 67 이상). <br> *기본 지원에는 버전 1903 이상을 권장* 합니다. |   | √ |
 | 호환 되는 FIDO2 보안 키. [Microsoft에서 테스트 하 고 확인](./concept-authentication-passwordless.md) 한 FIDO2 보안 장치 또는 다른 호환 FIDO2 보안 장치를 사용 하 고 있는지 확인 합니다. |   | √ |
 
 ### <a name="prerequisites-for-windows-hello-for-business"></a>비즈니스용 Windows Hello에 대 한 필수 구성 요소
 
 Windows Hello에 대 한 필수 구성 요소는 온-프레미스, 하이브리드 또는 클라우드 전용 구성에서 배포 하는지 여부에 따라 달라 집니다. 자세한 내용은 [비즈니스용 Windows Hello에 대 한 전체 필수 구성 요소 목록을](/windows/security/identity-protection/hello-for-business/hello-identity-verification)참조 하세요.
 
-### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
+### <a name="azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication
 
-사용자는 Azure multi-factor authentication 등록 흐름의 일부로 암호 없는 메서드를 등록 합니다. 일부 시나리오에서는 휴대폰 또는 보안 키를 사용할 수 없는 경우 다른 등록 된 방법과 함께 사용자 이름 및 암호를 사용 하는 multi-factor authentication을 대체 방법으로 사용할 수 있습니다.
+사용자는 Azure AD Multi-Factor Authentication 등록 흐름의 일부로 암호 없는 메서드를 등록 합니다. 일부 시나리오에서는 휴대폰 또는 보안 키를 사용할 수 없는 경우 다른 등록 된 방법과 함께 사용자 이름 및 암호를 사용 하는 multi-factor authentication을 대체 방법으로 사용할 수 있습니다.
 
 ### <a name="licensing"></a>라이선스 
 일부 필수 구성 요소에는 프리미엄 구독이 필요할 수도 있지만 암호 없는 인증에 대 한 추가 비용은 없습니다. 자세한 기능 및 라이선스 정보는 [Azure Active Directory 라이선스 페이지](https://azure.microsoft.com/pricing/details/active-directory/)에 있습니다. 
@@ -93,7 +93,7 @@ Windows Hello에 대 한 필수 구성 요소는 온-프레미스, 하이브리�
 
 다음 표에서는이 프로젝트 중에 구현 되는 사용 사례를 간략하게 설명 합니다.
 
-| 영역 | Description |
+| 영역 | 설명 |
 | --- | --- |
 | **Access** | Passwordless 로그인은 회사 네트워크 내부 또는 외부의 회사 또는 개인 장치에서 사용할 수 있습니다. |
 | **감사** | 사용 현황 데이터는 관리자가 거의 실시간으로 감사 하는 데 사용할 수 있습니다. <br> 사용 현황 데이터는 최소 29 일 마다 회사 시스템에 다운로드 되거나 SIEM 도구가 사용 됩니다. |
@@ -140,7 +140,7 @@ IOS 또는 Android 휴대폰을 강력 하 고 암호 없는 자격 증명으로
 
 **AD FS 통합** -사용자가 Microsoft Authenticator 암호 없는 자격 증명을 사용 하도록 설정 하면 해당 사용자에 대 한 인증에서 승인을 위한 알림을 보내도록 설정 됩니다. 하이브리드 테 넌 트의 사용자는 "대신 암호 사용"을 선택 하지 않는 한 로그인을 위해 ADFS로 전달 되지 않습니다. 이 프로세스는 또한 온-프레미스 조건부 액세스 정책 및 통과 인증 흐름을 무시 합니다. 그러나 *login_hint* 지정 된 경우 사용자가 ADFS에 전달 되 고 옵션을 무시 하 여 암호 없는 자격 증명을 사용 합니다.
 
-**Azure multi-factor authentication 서버** -조직의 온-프레미스 Azure MFA 서버를 통해 multi-factor authentication을 사용 하는 최종 사용자는 단일 암호 없는 휴대폰 로그인 자격 증명을 만들고 사용할 수 있습니다. 사용자가 자격 증명을 사용 하 여 Microsoft Authenticator의 여러 설치 (5 개 이상)를 업그레이드 하려는 경우이 변경으로 인해 오류가 발생할 수 있습니다.
+**Azure AD Multi-Factor Authentication 서버** -조직의 온-프레미스 Azure MFA 서버를 통해 multi-factor Authentication을 사용 하는 최종 사용자는 단일 암호 없는 휴대폰 로그인 자격 증명을 만들고 사용할 수 있습니다. 사용자가 자격 증명을 사용 하 여 Microsoft Authenticator의 여러 설치 (5 개 이상)를 업그레이드 하려는 경우이 변경으로 인해 오류가 발생할 수 있습니다.
 
 **장치 등록** -암호 없는 인증을 위해 인증자 앱을 사용 하려면 장치가 Azure AD 테 넌 트에 등록 되어 있어야 하 고 공유 장치 일 수 없습니다. 장치는 단일 테 넌 트에만 등록할 수 있습니다. 이 제한은 인증 앱을 사용한 휴대폰 로그인에 회사 또는 학교 계정이 하나만 지원 됨을 의미 합니다.
 
@@ -152,7 +152,7 @@ IOS 또는 Android 휴대폰을 강력 하 고 암호 없는 자격 증명으로
 -    하이브리드 Azure Active Directory Windows 10 장치에 연결 됨 (미리 보기)
      -    클라우드 기반 및 온-프레미스 리소스 모두에 대 한 액세스를 제공 합니다. 온-프레미스 리소스에 액세스 하는 방법에 대 한 자세한 내용은 [FIDOP2 키를 사용 하 여 온-프레미스 리소스에 SSO](./howto-authentication-passwordless-security-key-on-premises.md) 를 참조 하세요.
 
-**호환 되는 FIDO2 보안 키**를 사용 하도록 설정 해야 합니다. Microsoft [는 FIDO2 키 공급 업체와의 주요 파트너 관계를](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493)발표 했습니다.
+**호환 되는 FIDO2 보안 키** 를 사용 하도록 설정 해야 합니다. Microsoft [는 FIDO2 키 공급 업체와의 주요 파트너 관계를](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493)발표 했습니다.
 
 **AZURE ad 웹 앱 및 AZURE Ad Windows 조인 장치**:
 
@@ -280,7 +280,7 @@ Azure AD는 다음과 같은 경우 감사 로그에 항목을 추가 합니다.
 
 암호 없는은 최종 사용자에 게 미치는 영향을 최소화 하면서 간단한 기능 이지만 롤백해야 할 수 있습니다.
 
-롤백하려면 관리자가 Azure Active Directory 포털에 로그인 하 고 원하는 강력한 인증 방법을 선택한 다음 사용 옵션을 **아니요**로 변경 해야 합니다. 이 프로세스는 모든 사용자에 대해 암호 없는 기능을 해제 합니다.
+롤백하려면 관리자가 Azure Active Directory 포털에 로그인 하 고 원하는 강력한 인증 방법을 선택한 다음 사용 옵션을 **아니요** 로 변경 해야 합니다. 이 프로세스는 모든 사용자에 대해 암호 없는 기능을 해제 합니다.
 
 FIDO2 보안 장치를 이미 등록 한 사용자에 게 다음 로그인 시 보안 장치를 사용 하 라는 메시지가 표시 되 면 다음 오류가 표시 됩니다.
 
@@ -292,7 +292,7 @@ FIDO2 보안 장치를 이미 등록 한 사용자에 게 다음 로그인 시 �
 
 ### <a name="required-administrative-roles"></a>필요한 관리 역할
 
-| Azure AD 역할 | Description |
+| Azure AD 역할 | 설명 |
 | --- | --- |
 | 전역 관리자|결합 된 등록 환경을 구현할 수 있는 최소 권한 있는 역할입니다. |
 | 인증 관리자 | 인증 방법을 구현 하 고 관리할 수 있는 최소 권한 있는 역할입니다. |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4da1066166a3384ffb5f0f94599452829faed1b
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 026f45e715f6d442b27cdd0274f029a68330f7ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356589"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839831"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Azure Active Directory 암호 보호를 사용 하 여 잘못 된 암호 제거
 
@@ -24,7 +24,7 @@ ms.locfileid: "93356589"
 
 Azure AD 암호 보호를 사용 하면 Azure AD 테 넌 트의 모든 사용자에 게 기본 글로벌 금지 된 암호 목록이 자동으로 적용 됩니다. 사용자 고유의 비즈니스 및 보안 요구 사항을 지원 하기 위해 사용자 지정 금지 된 암호 목록에 항목을 정의할 수 있습니다. 사용자가 암호를 변경 하거나 다시 설정 하는 경우 강력한 암호 사용을 적용 하기 위해 이러한 금지 된 암호 목록을 확인 합니다.
 
-Azure AD 암호 보호에 의해 적용 되는 강력한 암호를 사용 하는 것이 아니라 [azure Multi-Factor Authentication](concept-mfa-howitworks.md)와 같은 추가 기능을 사용 해야 합니다. 로그인 이벤트에 대 한 여러 보안 계층 사용에 대 한 자세한 내용은 [Pa $ $word 중요 하지 않음](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984)을 참조 하세요.
+Azure ad 암호 보호에 의해 적용 되는 강력한 암호를 사용 하는 것이 아니라 [AZURE ad Multi-Factor Authentication](concept-mfa-howitworks.md)와 같은 추가 기능을 사용 해야 합니다. 로그인 이벤트에 대 한 여러 보안 계층 사용에 대 한 자세한 내용은 [Pa $ $word 중요 하지 않음](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984)을 참조 하세요.
 
 > [!IMPORTANT]
 > 이 개념 문서에서는 Azure AD 암호 보호의 작동 방식을 관리자에 게 설명 합니다. 이미 셀프 서비스 암호 재설정에 등록 된 최종 사용자가 계정으로 다시 전환 해야 하는 경우으로 이동 [https://aka.ms/sspr](https://aka.ms/sspr) 합니다.
@@ -125,7 +125,7 @@ Azure AD 암호 보호는 암호 스프레이 공격에 사용 될 가능성이 
    | $               | 초                  |
    | \@              | a                  |
 
-다음과 같은 예제를 참조하세요.
+다음 예제를 참조하세요.
 
 * 암호 "blank"는 금지 됩니다.
 * 사용자가 암호를 "" (으)로 변경 하려고 Bl@nK 합니다.
@@ -140,7 +140,7 @@ Azure AD 암호 보호는 암호 스프레이 공격에 사용 될 가능성이 
 
 유사 일치는 정규화된 암호가 전역 또는 사용자 지정 금지된 암호 목록에 있는 암호를 포함하는지를 확인하는 데 사용됩니다. 일치 프로세스는 편집 거리 1 비교를 기준으로 합니다.
 
-다음과 같은 예제를 참조하세요.
+다음 예제를 참조하세요.
 
 * 암호 "abcdef"는 금지 되어 있습니다.
 * 사용자는 암호를 다음 중 하나로 변경 하려고 합니다.
@@ -161,7 +161,7 @@ Azure AD 암호 보호는 암호 스프레이 공격에 사용 될 가능성이 
 > [!IMPORTANT]
 > 부분 문자열 일치는 4 자 이상으로 된 이름 및 기타 조건에만 적용 됩니다.
 
-다음과 같은 예제를 참조하세요.
+다음 예제를 참조하세요.
 
 * 자신의 암호를 "p0LL23fb"로 다시 설정 하려는 설문 이라는 사용자입니다.
 * 정규화 후이 암호는 "poll23fb"이 됩니다.

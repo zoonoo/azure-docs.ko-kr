@@ -1,6 +1,6 @@
 ---
-title: Azure Multi-Factor Authentication 프롬프트 및 세션 수명
-description: Azure Multi-Factor Authentication을 사용 하 여 메시지를 재인증 하 고 세션 수명을 적용 하는 방법에 대 한 권장 구성에 대해 알아봅니다.
+title: Azure AD Multi-Factor Authentication 프롬프트 및 세션 수명
+description: Azure AD Multi-Factor Authentication를 사용 하 여 인증 메시지를 표시 하 고 세션 수명을 적용 하는 방법에 대 한 권장 구성에 대해 알아봅니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a759d4e686f43133716cc1c40237db74a015210
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 87b30b12e75a583ccee9780f97a6492961365cca
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964947"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839678"
 ---
-# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>재인증 프롬프트를 최적화 하 고 Azure Multi-Factor Authentication의 세션 수명 이해
+# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>재인증 프롬프트를 최적화 하 고 Azure AD Multi-Factor Authentication의 세션 수명 이해
 
 Azure AD (Azure Active Directory)에는 사용자가 다시 인증 해야 하는 빈도를 결정 하는 여러 설정이 있습니다. 이러한 재인증은 암호, FIDO 또는 암호 없는 Microsoft Authenticator 같은 첫 번째 요소를 사용 하거나 MFA (multi-factor authentication)를 수행할 수 있습니다. 사용자 환경 및 원하는 사용자 환경에 맞게 필요에 따라 이러한 재인증 설정을 구성할 수 있습니다.
 
@@ -41,7 +41,7 @@ IT 정책 위반으로 인해 세션이 취소 되는 경우 사용자에 게 �
     * 로그인 된 *상태로 유지* 옵션을 사용 하도록 설정 하 고 사용자에 게 동의 하도록 안내 합니다.
 * 모바일 장치 시나리오의 경우 사용자가 Microsoft Authenticator 앱을 사용 하는지 확인 합니다. 이 앱은 다른 Azure AD 페더레이션된 앱에 대 한 브로커로 사용 되며, 장치에서 인증 프롬프트가 줄어듭니다.
 
-Microsoft research는 이러한 설정이 대부분의 테 넌 트에 적합 하다는 것을 보여 줍니다. *MFA를 잊지* 않고 *singed로 유지*하는 등 이러한 설정의 일부 조합은 사용자가 너무 자주 인증 하도록 요청을 받을 수 있습니다. 일반 재인증 메시지는 사용자 생산성에 적합 하지 않으며 공격에 더 취약 해질 수 있습니다.
+Microsoft research는 이러한 설정이 대부분의 테 넌 트에 적합 하다는 것을 보여 줍니다. *MFA를 잊지* 않고 *singed로 유지* 하는 등 이러한 설정의 일부 조합은 사용자가 너무 자주 인증 하도록 요청을 받을 수 있습니다. 일반 재인증 메시지는 사용자 생산성에 적합 하지 않으며 공격에 더 취약 해질 수 있습니다.
 
 ## <a name="azure-ad-session-lifetime-configuration-settings"></a>Azure AD 세션 수명 구성 설정
 
@@ -53,9 +53,9 @@ Microsoft research는 이러한 설정이 대부분의 테 넌 트에 적합 하
 
 사용자에 게 Azure AD에서 id가 없는 장치에 여러 개의 MFA 프롬프트가 표시 될 수 있습니다. 각 응용 프로그램에 다른 클라이언트 앱과 공유 되지 않는 자체 OAuth 새로 고침 토큰이 있는 경우 여러 프롬프트가 표시 됩니다. 이 시나리오에서 mfa는 각 응용 프로그램이 MFA를 사용 하 여 유효성을 검사할 OAuth 새로 고침 토큰을 요청 하므로 여러 번 표시 됩니다.
 
-Azure AD에서 세션 수명에 대해 가장 제한적인 정책은 사용자가 다시 인증 해야 하는 시기를 결정 합니다. 다음과 같은 시나리오를 고려해 보세요.
+Azure AD에서 세션 수명에 대해 가장 제한적인 정책은 사용자가 다시 인증 해야 하는 시기를 결정 합니다. 다음 시나리오를 고려하세요.
 
-* 영구 브라우저 쿠키를 사용 하는 로그인 상태를 *유지*하도록 설정 합니다.
+* 영구 브라우저 쿠키를 사용 하는 로그인 상태를 *유지* 하도록 설정 합니다.
 * *14 일 동안 MFA 기억을* 사용할 수도 있습니다.
 
 이 예제 시나리오에서는 사용자가 14 일 마다 다시 인증 해야 합니다. 이 동작은 *로그인 유지* 가 사용자에 게 브라우저에서 재인증을 요구 하지 않더라도 가장 제한적인 정책을 따릅니다.
@@ -70,7 +70,7 @@ Azure ad 조인 또는 하이브리드 Azure AD Join을 사용 하 여 Azure AD�
 
 ![로그인 상태를 유지 하는 예제 프롬프트 스크린샷](./media/concepts-azure-multi-factor-authentication-prompts-session-lifetime/stay-signed-in-prompt.png)
 
-Azure AD Premium 1 라이선스를 사용 하는 경우 *영구 브라우저 세션*에 대 한 조건부 액세스 정책을 사용 하는 것이 좋습니다. 이 정책은 *로그인 상태 유지* 를 덮어쓰므로 향상 된 사용자 환경을 제공 합니다. Azure AD Premium 1 라이선스가 없는 경우 사용자에 게 로그인 상태 유지 설정을 사용 하는 것이 좋습니다.
+Azure AD Premium 1 라이선스를 사용 하는 경우 *영구 브라우저 세션* 에 대 한 조건부 액세스 정책을 사용 하는 것이 좋습니다. 이 정책은 *로그인 상태 유지* 를 덮어쓰므로 향상 된 사용자 환경을 제공 합니다. Azure AD Premium 1 라이선스가 없는 경우 사용자에 게 로그인 상태 유지 설정을 사용 하는 것이 좋습니다.
 
 사용자가 로그인 상태를 유지 하도록 하는 옵션을 구성 하는 방법에 대 한 자세한 내용은 [AZURE AD 로그인 페이지 사용자 지정](../fundamentals/customize-branding.md#customize-your-azure-ad-sign-in-page)을 참조 하세요.
 
@@ -96,7 +96,7 @@ Azure AD Premium 1 라이선스를 사용 하는 경우 *영구 브라우저 세
 
 ### <a name="configurable-token-lifetimes"></a>구성 가능한 토큰 수명
 
-이 설정은 Azure Active Directory에서 발급 한 토큰의 수명을 구성할 수 있습니다. 이 정책은 *인증 세션 관리에서 조건부 액세스*로 바뀝니다. 지금 *구성 가능한 토큰 수명을* 사용 하는 경우 조건부 액세스 정책으로의 마이그레이션을 시작 하는 것이 좋습니다.
+이 설정은 Azure Active Directory에서 발급 한 토큰의 수명을 구성할 수 있습니다. 이 정책은 *인증 세션 관리에서 조건부 액세스* 로 바뀝니다. 지금 *구성 가능한 토큰 수명을* 사용 하는 경우 조건부 액세스 정책으로의 마이그레이션을 시작 하는 것이 좋습니다.
 
 ## <a name="review-your-tenant-configuration"></a>테 넌 트 구성 검토  
 
@@ -104,26 +104,26 @@ Azure AD Premium 1 라이선스를 사용 하는 경우 *영구 브라우저 세
 
 *로그인 상태 유지* 옵션을 구성 하거나 검토 하려면 다음 단계를 완료 합니다.
 
-1. Azure AD 포털에서 *Azure Active Directory*를 검색 하 고 선택 합니다.
-1. **회사 브랜딩**을 선택 하 고 각 로캘에 대해 **로그인 상태를 유지 하려면 옵션 표시를**선택 합니다.
-1. *예*를 선택 하 고 **저장**을 선택 합니다.
+1. Azure AD 포털에서 *Azure Active Directory* 를 검색 하 고 선택 합니다.
+1. **회사 브랜딩** 을 선택 하 고 각 로캘에 대해 **로그인 상태를 유지 하려면 옵션 표시를** 선택 합니다.
+1. *예* 를 선택 하 고 **저장** 을 선택 합니다.
 
 Multi-factor authentication 설정을 기억을 하려면 다음 단계를 완료 합니다.
 
-1. Azure AD 포털에서 *Azure Active Directory*를 검색 하 고 선택 합니다.
-1. **보안**, **MFA**를 차례로 선택 합니다.
-1. **구성**아래에서 **추가 클라우드 기반 MFA 설정을**선택 합니다.
-1. *Multi-factor authentication 서비스 설정* 페이지에서 **multi-factor authentication 설정 기억을**스크롤합니다. 확인란의 선택을 취소 하 여 설정을 해제 합니다.
+1. Azure AD 포털에서 *Azure Active Directory* 를 검색 하 고 선택 합니다.
+1. **보안**, **MFA** 를 차례로 선택 합니다.
+1. **구성** 아래에서 **추가 클라우드 기반 MFA 설정을** 선택 합니다.
+1. *Multi-factor authentication 서비스 설정* 페이지에서 **multi-factor authentication 설정 기억을** 스크롤합니다. 확인란의 선택을 취소 하 여 설정을 해제 합니다.
 
 로그인 빈도 및 영구 브라우저 세션에 대 한 조건부 액세스 정책을 구성 하려면 다음 단계를 완료 합니다.
 
-1. Azure AD 포털에서 *Azure Active Directory*를 검색 하 고 선택 합니다.
-1. **보안**, **조건부 액세스**를 차례로 선택 합니다.
+1. Azure AD 포털에서 *Azure Active Directory* 를 검색 하 고 선택 합니다.
+1. **보안**, **조건부 액세스** 를 차례로 선택 합니다.
 1. 이 문서에 설명 된 권장 세션 관리 옵션을 사용 하 여 정책을 구성 합니다.
 
 토큰 수명을 검토 하려면 [AZURE Ad PowerShell을 사용 하 여 AZURE ad 정책을 쿼리](../develop/configure-token-lifetimes.md#prerequisites)합니다. 현재 보유 하 고 있는 모든 정책을 사용 하지 않도록 설정 합니다.
 
-테 넌 트에서 둘 이상의 설정을 사용 하는 경우 사용 가능한 라이선스에 따라 설정을 업데이트 하는 것이 좋습니다. 예를 들어 Azure AD premium 라이선스가 있는 경우 *로그인 빈도* 및 *영구 브라우저 세션*의 조건부 액세스 정책만 사용 해야 합니다. Microsoft 365 앱 또는 Azure AD 무료 라이선스를 사용 하는 경우 *로그인 상태 유지?* 구성을 사용 해야 합니다.
+테 넌 트에서 둘 이상의 설정을 사용 하는 경우 사용 가능한 라이선스에 따라 설정을 업데이트 하는 것이 좋습니다. 예를 들어 Azure AD premium 라이선스가 있는 경우 *로그인 빈도* 및 *영구 브라우저 세션* 의 조건부 액세스 정책만 사용 해야 합니다. Microsoft 365 앱 또는 Azure AD 무료 라이선스를 사용 하는 경우 *로그인 상태 유지?* 구성을 사용 해야 합니다.
 
 구성 가능한 토큰 수명을 사용 하는 경우이 기능은 곧 제거 될 예정입니다. 조건부 액세스 정책으로의 마이그레이션을 계획 합니다.
 
@@ -136,4 +136,4 @@ Multi-factor authentication 설정을 기억을 하려면 다음 단계를 완�
 
 ## <a name="next-steps"></a>다음 단계
 
-시작 하려면 [azure Multi-Factor Authentication를 사용 하 여 사용자 로그인 이벤트를 보호](tutorial-enable-azure-mfa.md) 하는 자습서를 완료 하거나 [사용자 로그인에 대 한 위험 검색을 사용 하 여 azure Multi-Factor Authentication를 트리거합니다](tutorial-risk-based-sspr-mfa.md).
+시작 하려면 [AZURE ad Multi-Factor Authentication를 사용 하 여 사용자 로그인 이벤트를 보호](tutorial-enable-azure-mfa.md) 하는 자습서를 완료 하거나 [사용자 로그인에 대 한 위험 검색을 사용 하 여 azure ad Multi-Factor Authentication를 트리거합니다](tutorial-risk-based-sspr-mfa.md).

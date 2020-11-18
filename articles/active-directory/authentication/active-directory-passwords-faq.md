@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 078b24e7fc3668e9b5832f0bfa46024db9b33848
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c154952d41db742c4d33899094a49a65fae72f26
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965559"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840103"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>셀프 서비스 암호 재설정 질문과 대답
 
@@ -36,9 +36,9 @@ ms.locfileid: "91965559"
 
 * **Q:  내 사용자가 자신의 암호 재설정 데이터를 등록할 수 있나요?**
 
-  > **A:** 예. 암호 재설정이 사용되고 라이선스가 부여된 경우 사용자는 암호 재설정 등록 포털(https://aka.ms/ssprsetup) )로 이동하여 인증 정보를 등록할 수 있습니다. 사용자는 액세스 패널 ( https://myapps.microsoft.com) ) 을 통해 등록할 수도 있습니다. 액세스 패널을 통해 등록하려면 프로필 사진을 선택하고 **프로필**을 선택한 다음 **암호 재설정 등록** 옵션을 사용해야 합니다.
+  > **A:** 예. 암호 재설정이 사용되고 라이선스가 부여된 경우 사용자는 암호 재설정 등록 포털(https://aka.ms/ssprsetup) )로 이동하여 인증 정보를 등록할 수 있습니다. 사용자는 액세스 패널 ( https://myapps.microsoft.com) ) 을 통해 등록할 수도 있습니다. 액세스 패널을 통해 등록하려면 프로필 사진을 선택하고 **프로필** 을 선택한 다음 **암호 재설정 등록** 옵션을 사용해야 합니다.
   >
-  > [결합 된 등록](concept-registration-mfa-sspr-combined.md)을 사용 하도록 설정 하는 경우 사용자는 동시에 SSPR 및 Azure Multi-Factor Authentication를 등록할 수 있습니다.
+  > [결합 된 등록](concept-registration-mfa-sspr-combined.md)을 사용 하도록 설정 하는 경우 사용자는 동시에 SSPR 및 Azure AD Multi-Factor Authentication를 등록할 수 있습니다.
 * **Q:  그룹에 대해 암호 재설정을 사용하도록 설정한 후 모든 사용자에게 이를 사용하도록 설정하려는 경우, 사용자가 다시 등록해야 하나요?**
 
   > **A:** 아니요. 인증 데이터를 채운 사용자는 다시 등록할 필요가 없습니다.
@@ -76,7 +76,7 @@ ms.locfileid: "91965559"
   >
 * **Q:  사용자가 등록된 것으로 간주되는 경우는 언제인가요?**
 
-  > **A:** 관리자가 [Azure Portal](https://portal.azure.com)에서 설정한 암호 **재설정에 필요한 메서드의 수**만큼 또는 그 이상 사용자가 등록한 경우 해당 사용자는 SSPR에 등록된 것으로 간주됩니다.
+  > **A:** 관리자가 [Azure Portal](https://portal.azure.com)에서 설정한 암호 **재설정에 필요한 메서드의 수** 만큼 또는 그 이상 사용자가 등록한 경우 해당 사용자는 SSPR에 등록된 것으로 간주됩니다.
   >
   >
 
@@ -174,7 +174,7 @@ ms.locfileid: "91965559"
   >
 * **Q:  사용자가 암호 재설정에 필요한 최대 본인 확인 질문 개수보다 많은 질문을 등록한 경우, 암호 재설정 시 어떤 본인 확인 질문이 선택되나요?**
 
-  > **A:** 사용자가 등록한 모든 질문 중에 *N*개의 본인 확인 질문이 임의로 선택됩니다. 여기서 *N*은 **재설정에 필요한 질문 개수** 옵션에 설정된 개수입니다. 예를 들어, 사용자가 본인 확인 질문을 5개 등록했는데 암호 재설정에 필요한 본인 확인 질문이 3개만 필요한 경우 암호 재설정 시 5개 질문 중 3개가 임의로 선택되어 제시됩니다. 계속되는 질문을 방지하기 위해 사용자가 질문에 대해 잘못된 답을 입력하면 선택 프로세스가 다시 시작됩니다.
+  > **A:** 사용자가 등록한 모든 질문 중에 *N* 개의 본인 확인 질문이 임의로 선택됩니다. 여기서 *N* 은 **재설정에 필요한 질문 개수** 옵션에 설정된 개수입니다. 예를 들어, 사용자가 본인 확인 질문을 5개 등록했는데 암호 재설정에 필요한 본인 확인 질문이 3개만 필요한 경우 암호 재설정 시 5개 질문 중 3개가 임의로 선택되어 제시됩니다. 계속되는 질문을 방지하기 위해 사용자가 질문에 대해 잘못된 답을 입력하면 선택 프로세스가 다시 시작됩니다.
   >
   >
 * **Q:  메일 및 SMS 일회용 암호는 얼마 동안 유효하나요?**
