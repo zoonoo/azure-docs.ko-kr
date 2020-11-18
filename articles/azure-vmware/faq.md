@@ -1,15 +1,15 @@
 ---
-title: 질문과 대답
+title: 자주 묻는 질문
 description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: 2d71c30d2fb08629674c352ae812d8890463abfe
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: f2b46b37fc8c773062402c52f2903a7a10acc2c4
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695104"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874715"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -237,7 +237,7 @@ NSX-T에 대한 모든 관리자 권한이 부여되며 NSX-T 데이터 센터 �
 
 Microsoft는 Azure VMware 솔루션에 대 한 지원을 제공 합니다. [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출할 수 있습니다. 
 
-CSP에서 관리 하는 구독의 경우 다른 Azure 서비스에 대 한 CSP와 동일한 방식으로 솔루션 공급자가 첫 번째 지원 수준을 제공 합니다.
+CSP 관리 구독의 경우 다른 Azure 서비스에 대 한 CSP와 동일한 방식으로 솔루션 공급자가 첫 번째 지원 수준을 제공 합니다.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Azure VMware 솔루션 사설 클라우드를 만들려면 어떤 계정이 필요 한가요?
 
@@ -253,12 +253,12 @@ VMware HCX EE(Enterprise Edition)는 Azure VMware Solution에서 *미리 보기*
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 호스트 할당량 증가를 요청 어떻게 할까요??
 
-CSP 관리 구독의 경우 고객은 파트너에 대 한 요청을 수행 해야 하며 파트너 팀은 Microsoft와 협력 하 여 구독에 대 한 할당량을 늘려야 합니다. 자세한 내용은 [Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법 문서](enable-azure-vmware-solution.md) 를 참조 하세요. 
+CSP 관리 구독의 경우 고객은 파트너에 게 요청을 제출 해야 합니다. 파트너 팀은 Microsoft에 참여 하 여 구독에 대 한 할당량을 늘립니다. 자세한 내용은 [Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법 문서](enable-azure-vmware-solution.md) 를 참조 하세요. 
 
-EA 구독의 경우 고객은이 절차를 따라야 합니다.
+EA 구독의 경우 다음 절차를 사용 합니다. 먼저 다음이 필요 합니다.
 
-* Microsoft와 함께 [Azure 기업계약 (EA)](../cost-management-billing/manage/ea-portal-agreements.md) 가 필요 합니다.
-* Azure 구독의 Azure 계정이 필요합니다.
+* Microsoft를 사용 하는 [Azure 기업계약 (EA)](../cost-management-billing/manage/ea-portal-agreements.md) .
+* Azure 구독의 Azure 계정.
 
 Azure VMware 솔루션 리소스를 만들기 전에 지원 티켓을 제출 하 여 노드를 할당 해야 합니다. 요청을 확인 하 고 노드를 할당 하는 데 최대 5 영업일까지 소요 됩니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 노드를 할당하려는 경우에도 동일한 프로세스를 진행합니다.
 
@@ -298,11 +298,15 @@ Azure VMware 솔루션 리소스를 만들기 전에 지원 티켓을 제출 하
 
 #### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
 
-Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
+Yes. CSP can purchase reserved instances for their customers. For more information, see the [Save costs with a reserved instance](reserved-instance.md) article. 
 
 #### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
 
-No. Currently Azure VMware Solution does not offer multi-tenancy.
+No. Currently Azure VMware Solution doesn't offer multi-tenancy.
+
+#### Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
+
+Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
 
 
 ## Customer communication

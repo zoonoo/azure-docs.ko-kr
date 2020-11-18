@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 09/29/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e90bcfe7238ae998ac677a9d7eebef0ffa8939
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568355"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874256"
 ---
 # <a name="troubleshooting-certificate-errors"></a>인증서 오류 문제 해결
 
@@ -46,6 +46,7 @@ ms.locfileid: "91568355"
 | CertificateManagement_MissingServerOid | 주체 이름이 인 인증서에는 {0} 서버 인증 OID가 없습니다. 인증서 속성을 확인 하 고 필요한 경우 새 인증서를 가져옵니다.|
 | CertificateManagement_NameMismatch | 인증서 유형이 일치 하지 않습니다. 예상 범위: {0} , 개 찾음 {1} 적절 한 인증서를 업로드 합니다.|
 | CertificateManagement_NoPrivateKeyPresent | 주체 이름이 있는 인증서 {0} 에 개인 키가 없습니다. 개인 키가 있는 .pfx 인증서를 업로드 합니다.|
+| CertificateManagement_NoRSACryptoPrivateKey | 주체 이름이 있는 인증서의 개인 키에 {0} 액세스할 수 없습니다. 지원 되는 인증서를 사용 하 고 있는지 확인 합니다. Microsoft RSA/Schannel 암호화 공급자만 지원 됩니다. |
 | CertificateManagement_NotSelfSignedCertificate | 주체 이름이 있는 인증서 {0} 는 자체 서명 되지 않습니다. 루트 인증서는 자체 서명 되어야 합니다. |
 | CertificateManagement_NotSupportedOnVirtualAppliance | 가상 장치에서는이 작업이 지원 되지 않습니다. 이 오류는 전략적 클라우드 어플라이언스에서 실행 되는 Data Box Gateway에만 서명이 발생 함을 나타냅니다. 이 오류는 Windows PowerShell을 통해 장치를 관리 하는 동안 발생 합니다.|
 | CertificateManagement_SelfSignedCertificate | 주체 이름이 있는 인증서 {0} 는 자체 서명 됩니다. 올바르게 서명 된 인증서를 업로드 합니다.|
@@ -57,6 +58,8 @@ ms.locfileid: "91568355"
 | CertificateImportFailure | 지문이 있는 인증서 {0} 를 노드에서 가져오지 못했습니다 {1} . 문제가 지속되면 Microsoft 지원에 문의하세요. |
 | CertificateApplyFailure | 지문이 포함 된 인증서 {0} 가 노드에 적용 되지 않았습니다 {1} . 문제가 지속되면 Microsoft 지원에 문의하세요.|
 | NodeNotReachable | 에서 인증서의 유효성을 검사할 수 없습니다 {0} . 시스템 하드웨어 및 소프트웨어 상태를 확인 합니다.|
+| 오류 코드 가져오기 | 이 인증서의 개인 키에 액세스할 수 없습니다. 지원 되는 인증서를 사용 하 고 있는지 확인 합니다. Microsoft RSA/Schannel 암호화 공급자만 지원 됩니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 

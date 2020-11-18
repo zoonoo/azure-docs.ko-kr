@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd88f6e8eb2ce95c1aa68c63f3d14a14e079d19
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 9055bb9689895a9b74f3d6b5affa325a3b594d65
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396518"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874681"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -233,7 +233,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 >- [Onedrive 관리 센터](https://admin.onedrive.com/) -onedrive 관리 센터는 전역 읽기 권한자 역할을 지원 하지 않습니다.
 >- [M365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage) - 글로벌 읽기 권한자는 고객 lockbox 요청을 읽을 수 없습니다. M365 관리 센터의 왼쪽 창에 있는 **지원** 에서 **고객 lockbox 요청** 탭을 찾을 수 없습니다.
 >- [Office 보안 및 준수 센터](https://sip.protection.office.com/homepage) - 글로벌 읽기 권한자는 SCC 감사 로그를 읽거나, 콘텐츠를 검색하거나, 보안 점수를 볼 수 없습니다.
->- [Teams 관리 센터](https://admin.teams.microsoft.com) - 글로벌 읽기 권한자는 **Teams 수명 주기** , **분석 및 보고서** , **IP 전화 디바이스 관리** 및 **앱 카탈로그** 를 읽을 수 없습니다.
+>- [Teams 관리 센터](https://admin.teams.microsoft.com) - 글로벌 읽기 권한자는 **Teams 수명 주기**, **분석 및 보고서**, **IP 전화 디바이스 관리** 및 **앱 카탈로그** 를 읽을 수 없습니다.
 >- [PAM(Privileged Access Management)](/office365/securitycompliance/privileged-access-management-overview)은 글로벌 읽기 권한자 역할을 지원하지 않습니다.
 >- [Azure Information Protection](/azure/information-protection/what-is-information-protection) - 글로벌 읽기 권한자는 [중앙 보고](/azure/information-protection/reports-aip)에만 지원되고, Azure AD 조직이 [통합 레이블 플랫폼](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)에 있지 않은 경우에만 지원됩니다.
 >
@@ -311,7 +311,7 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 사용하지 마십시오. 이 역할은 상거래에서 자동으로 할당되며 다른 용도로 사용하기에 적합하거나 지원되지 않습니다. 아래에서 자세한 내용을 참조하세요.
 
-최신 상거래 사용자 역할은 Microsoft 365 관리 센터에 액세스할 수 있는 권한을 특정 사용자에 게 제공 하 고 **홈** , **대금 청구** 및 **지원** 에 대 한 왼쪽 탐색 항목을 표시 합니다. 이러한 영역에 제공되는 콘텐츠는 사용자가 직접 구매했거나 조직을 대신해서 구매한 제품을 관리하기 위해 사용자에게 할당하는 [상거래 관련 역할](../../cost-management-billing/manage/understand-mca-roles.md)을 통해 제어됩니다. 여기에는 요금 결제 또는 청구 계정 및 청구 프로필 액세스와 같은 작업이 포함될 수 있습니다. 
+최신 상거래 사용자 역할은 Microsoft 365 관리 센터에 액세스할 수 있는 권한을 특정 사용자에 게 제공 하 고 **홈**, **대금 청구** 및 **지원** 에 대 한 왼쪽 탐색 항목을 표시 합니다. 이러한 영역에 제공되는 콘텐츠는 사용자가 직접 구매했거나 조직을 대신해서 구매한 제품을 관리하기 위해 사용자에게 할당하는 [상거래 관련 역할](../../cost-management-billing/manage/understand-mca-roles.md)을 통해 제어됩니다. 여기에는 요금 결제 또는 청구 계정 및 청구 프로필 액세스와 같은 작업이 포함될 수 있습니다. 
 
 최신 상거래 사용자 역할의 사용자에 게는 일반적으로 다른 Microsoft 구매 시스템에서 관리 권한이 있지만 관리 센터에 액세스 하는 데 사용 되는 전역 관리자 또는 청구 관리자 역할은 없습니다. 
 
@@ -1513,7 +1513,7 @@ Power BI 제품의 모든 측면을 관리할 수 있습니다.
 
 ### <a name="power-platform-administrator-permissions"></a>Power Platform 관리자 권한
 
-Microsoft Dynamics 365, PowerApps 및 Microsoft Flow의 모든 것을 만들고 관리할 수 있습니다. 
+Microsoft Dynamics 365, PowerApps 및 파워 자동화의 모든 측면을 만들고 관리할 수 있습니다.
 
 > [!NOTE]
 > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -1524,7 +1524,7 @@ Microsoft Dynamics 365, PowerApps 및 Microsoft Flow의 모든 것을 만들고 
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | 디렉터리 수준 서비스에 대 한 Azure 지원 티켓을 만들고 관리 합니다. |
 | microsoft.dynamics365/allEntities/allTasks | Dynamics 365의 모든 측면을 관리합니다. |
-| microsoft.flow/allEntities/allTasks | Microsoft Flow의 모든 것을 관리합니다. |
+| microsoft.flow/allEntities/allTasks | 전원 자동화의 모든 측면을 관리 합니다. |
 | microsoft.powerApps/allEntities/allTasks | PowerApps의 모든 것을 관리합니다. |
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 Service Health를 읽고 구성 합니다. |

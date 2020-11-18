@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 544625fe9fd2dbd87ad7330d7277494cbfbe6eb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e5cb077868a224620d1a23e1ff1aac9c8d9f095
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891092"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874477"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Azure Stack 허브 준비 검사 도구를 사용 하 여 Azure Stack Edge Pro에 대 한 인증서 만들기 
 
@@ -37,12 +37,12 @@ Azure Stack 허브 준비 검사기 도구 (AzsReadinessChecker)를 사용 하 �
 - VPN 인증서
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Stack Edge Pro 장치 배포에 대 한 Csr을 만들려면 다음을 확인 합니다. 
 
 - Windows 10 또는 Windows Server 2016 이상을 실행 하는 클라이언트가 있습니다. 
-- 이 시스템의 [PowerShell 갤러리에서](https://aka.ms/AzsReadinessChecker) Microsoft Azure Stack 허브 준비 검사기 도구 1.2002.1133.85를 다운로드 했습니다. 이 패키지를 검색 해야 할 수 있습니다. 이 버전의 도구만 Azure Stack Edge Pro 장치에 대 한 인증서를 만들 수 있습니다.
+- 이 시스템의 [PowerShell 갤러리에서](https://aka.ms/AzsReadinessChecker) Microsoft Azure Stack 허브 준비 검사기 도구를 다운로드 했습니다.
 - 인증서에 대 한 다음 정보가 있습니다.
   - 디바이스 이름
   - 노드 일련 번호
@@ -56,7 +56,7 @@ Azure Stack Edge Pro 장치 배포에 대 한 Csr을 만들려면 다음을 확�
 2. Azure Stack 허브 준비 검사기 도구를 설치 합니다. PowerShell 프롬프트에서 다음을 입력 합니다. 
 
     ```azurepowershell
-    Install-Module -Name Microsoft.AzureStack.ReadinessChecker -RequiredVersion 1.2002.1133.85 -Force
+    Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
     설치 된 버전을 확인 하려면 다음을 입력 합니다.  

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: fb1f1d098970927ba04c840e77ec0a0b8d76ca02
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a9ad018980784a1f809ad28a77dacf9f0328fffa
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561321"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873899"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안 및 거 버 넌 스
 
@@ -30,8 +30,8 @@ ms.locfileid: "94561321"
 
 Azure Machine Learning 리소스에 대 한 대부분의 인증에서는 인증을 위해 Azure AD (Azure Active Directory)를 사용 하 고 권한 부여에 대 한 Azure RBAC (역할 기반 액세스 제어)를 사용 합니다. 이에 대 한 예외는 다음과 같습니다.
 
-* __Ssh__ : Azure Machine Learning 계산 인스턴스와 같은 일부 계산 리소스에 대 한 SSH 액세스를 사용 하도록 설정할 수 있습니다. SSH 액세스는 키 기반 인증을 사용 합니다. SSH 키를 만드는 방법에 대 한 자세한 내용은 [ssh 키 만들기 및 관리](../virtual-machines/linux/create-ssh-keys-detailed.md)를 참조 하세요. SSH 액세스를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning 계산 인스턴스 만들기 및 관리](how-to-create-manage-compute-instance.md)를 참조 하세요.
-* __웹 서비스로 배포 된 모델__ : 웹 서비스 배포는 __키__ 또는 __토큰__ 기반 액세스 제어를 사용할 수 있습니다. 키는 정적 문자열입니다. 토큰은 Azure AD 계정을 사용 하 여 검색 됩니다. 자세한 내용은 [웹 서비스로 배포 된 모델에 대 한 인증 구성](how-to-authenticate-web-service.md)을 참조 하세요.
+* __Ssh__: Azure Machine Learning 계산 인스턴스와 같은 일부 계산 리소스에 대 한 SSH 액세스를 사용 하도록 설정할 수 있습니다. SSH 액세스는 키 기반 인증을 사용 합니다. SSH 키를 만드는 방법에 대 한 자세한 내용은 [ssh 키 만들기 및 관리](../virtual-machines/linux/create-ssh-keys-detailed.md)를 참조 하세요. SSH 액세스를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning 계산 인스턴스 만들기 및 관리](how-to-create-manage-compute-instance.md)를 참조 하세요.
+* __웹 서비스로 배포 된 모델__: 웹 서비스 배포는 __키__ 또는 __토큰__ 기반 액세스 제어를 사용할 수 있습니다. 키는 정적 문자열입니다. 토큰은 Azure AD 계정을 사용 하 여 검색 됩니다. 자세한 내용은 [웹 서비스로 배포 된 모델에 대 한 인증 구성](how-to-authenticate-web-service.md)을 참조 하세요.
 
 Azure 데이터 저장소 서비스와 같이 Azure Machine Learning에 의존 하는 특정 서비스에는 자체 인증 및 권한 부여 방법이 있습니다. 저장소 서비스 인증에 대 한 자세한 내용은 [저장소 서비스에 연결](how-to-access-data.md)을 참조 하세요.
 
@@ -76,6 +76,8 @@ Azure 데이터 저장소 서비스와 같이 Azure Machine Learning에 의존 �
 
 기본 제공 역할이 요구에 맞지 않으면 사용자 지정 역할을 만들 수 있습니다. 사용자 지정 역할은 계산 만들기, 실행 제출, 데이터 저장소 등록 또는 모델 배포와 같은 작업 영역 내의 모든 작업을 제어 합니다. 사용자 지정 역할에는 클러스터, 데이터 저장소, 모델 및 끝점과 같은 작업 영역의 다양 한 리소스에 대 한 읽기, 쓰기 또는 삭제 권한이 있을 수 있습니다. 특정 작업 영역 수준, 특정 리소스 그룹 수준 또는 특정 구독 수준에서 역할을 사용하도록 설정할 수 있습니다. 자세한 내용은 [Azure Machine Learning 작업 영역에서 사용자 및 역할 관리](how-to-assign-roles.md)를 참조하세요.
 
+Kubernetes에서 RBAC를 사용 하는 방법에 대 한 자세한 내용은 [Kubernetes 권한 부여에 대 한 Azure Role-Based Access Control](../aks/manage-azure-rbac.md)를 참조 하세요.
+
 > [!IMPORTANT]
 > Azure Machine Learning Azure Blob Storage 및 Azure Kubernetes 서비스와 같은 다른 Azure 서비스에 따라 달라 집니다. 각 Azure 서비스에는 자체 Azure RBAC 구성이 있습니다. 원하는 액세스 제어 수준을 얻으려면 Azure Machine Learning에 대 한 Azure RBAC 구성과 Azure Machine Learning에 사용 되는 서비스에 대 한 구성을 모두 적용 해야 할 수 있습니다.
 
@@ -115,7 +117,7 @@ Azure Machine Learning 리소스에 대 한 물리적 액세스를 제한 하기
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
-## <a name="data-encryption"></a>데이터 암호화
+## <a name="data-encryption"></a>데이터 암호화.
 
 Azure Machine Learning은 다양 한 계산 리소스 및 데이터 저장소를 사용 합니다. 이러한 각각은 미사용 및 전송 중에 데이터 암호화를 지 원하는 방법에 대해 자세히 알아보려면 [Azure Machine Learning로 데이터 암호화](concept-data-encryption.md)를 참조 하세요.
 
@@ -185,8 +187,8 @@ Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보
 
 [Azure Policy](../governance/policy/index.yml) 은 Azure 리소스가 정책을 준수 하는지 확인할 수 있도록 하는 거 버 넌 스 도구입니다. Azure Machine Learning를 사용 하 여 다음 정책을 할당할 수 있습니다.
 
-* **고객 관리 키** : 작업 영역에서 고객이 관리 하는 키를 사용 해야 하는지 여부를 감사 하거나 적용 합니다.
-* **개인 링크** : 작업 영역에서 개인 끝점을 사용 하 여 가상 네트워크와 통신 하는지 여부를 감사 합니다.
+* **고객 관리 키**: 작업 영역에서 고객이 관리 하는 키를 사용 해야 하는지 여부를 감사 하거나 적용 합니다.
+* **개인 링크**: 작업 영역에서 개인 끝점을 사용 하 여 가상 네트워크와 통신 하는지 여부를 감사 합니다.
 
 Azure Policy에 대 한 자세한 내용은 [Azure Policy 설명서](../governance/policy/overview.md)를 참조 하세요.
 

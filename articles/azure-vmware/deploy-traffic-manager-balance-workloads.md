@@ -3,12 +3,12 @@ title: Traffic Manager를 배포 하 여 Azure VMware 솔루션 (AVS) 워크 로
 description: Azure VMware 솔루션 (AVS)과 Traffic Manager를 통합 하 여 여러 지역의 여러 끝점에서 응용 프로그램 워크 로드의 균형을 조정 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 08/14/2020
-ms.openlocfilehash: 076d9c77d68df3d8acb7b531b3dfbea40fb3cedd
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: ed74bb0dfc533abadd50af32afc06c9cb4106193
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593139"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874309"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-avs-workloads"></a>Traffic Manager를 배포 하 여 Azure VMware 솔루션 (AVS) 워크 로드 균형 조정
 
@@ -30,9 +30,9 @@ Azure Traffic Manager는 글로벌 Azure 지역에서 서비스에 최적의 트
 
 두 개의 AVS 사설 클라우드 지역, 미국 서 부 및 유럽 서부와 미국 동부에 있는 온-프레미스 서버 간에 가상 네트워크를 통해 연결할 때 Express 경로 게이트웨이를 사용 합니다.   
 
-![Azure VMware 솔루션과의 Traffic Manager 통합 아키텍처 다이어그램](media/traffic-manager/traffic-manager-topology.png)
+:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Azure VMware 솔루션과의 Traffic Manager 통합 아키텍처 다이어그램" lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
  
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 다른 AVS 지역에서 실행 되는 Microsoft IIS 서버로 구성 된 세 개의 가상 머신: 미국 서 부, 유럽 서부 및 온-프레미스 
 
@@ -75,7 +75,7 @@ NSX에서 만든 네트워크 세그먼트는 vCenter의 가상 컴퓨터에 대
 
 1. **세그먼트** 를 선택 하 여 구성 된 세그먼트를 표시 합니다. 이 경우 Contoso-segment1가 계층 1의 유연한 라우터인 Contoso-T01 gateway에 연결 된 것을 알 수 있습니다.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="NSX-T 관리자의 세그먼트 프로필을 보여 주는 스크린샷":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="NSX-T 관리자의 세그먼트 프로필을 보여 주는 스크린샷" lightbox="media/traffic-manager/nsx-t-segment-avs.png":::    
 
 2. **계층 1** 게이트웨이를 선택 하 여 연결 된 세그먼트 수와 함께 계층 1 게이트웨이의 목록을 표시 합니다. Contoso-T01에 연결 된 세그먼트를 선택 합니다. 계층 01 라우터에 구성 된 논리 인터페이스를 표시 하는 창이 열립니다. 이는 세그먼트에 연결 된 백 엔드 풀 구성원 가상 컴퓨터에 대 한 게이트웨이로 사용 됩니다.
 
@@ -83,7 +83,7 @@ NSX에서 만든 네트워크 세그먼트는 vCenter의 가상 컴퓨터에 대
 
 3. VM vSphere 클라이언트에서 세부 정보를 볼 가상 컴퓨터를 선택 합니다. IP 주소는 이전 섹션의 3 단계에서 확인 한 것과 일치 합니다. 172.29.1.10.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="VSphere 클라이언트에서 VM 세부 정보를 보여 주는 스크린샷":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="VSphere 클라이언트에서 VM 세부 정보를 보여 주는 스크린샷" lightbox="media/traffic-manager/nsx-t-vm-details.png":::    
 
 4. 가상 컴퓨터를 선택한 다음 작업 > 클릭 하 여 **설정 편집** 을 클릭 하 여 NSX 세그먼트에 대 한 연결을 확인 합니다.
 
@@ -103,7 +103,7 @@ NSX에서 만든 네트워크 세그먼트는 vCenter의 가상 컴퓨터에 대
 
 3. **개요** 를 선택합니다. **DNS 이름** 에서 URL을 복사 합니다.
 
-   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="DNS 이름이 강조 표시 된 Traffic Manager 끝점 개요를 보여 주는 스크린샷"::: 
+   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="DNS 이름이 강조 표시 된 Traffic Manager 끝점 개요를 보여 주는 스크린샷" lightbox="media/traffic-manager/traffic-manager-endpoints.png"::: 
 
 4. DNS 이름 URL을 브라우저에 붙여 넣습니다. 다음 스크린샷은 유럽 서부 지역으로 전송 되는 트래픽을 보여 줍니다.
 

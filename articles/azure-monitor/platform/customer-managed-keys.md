@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 11/09/2020
-ms.openlocfilehash: 62621a36955808ec3f2c796681fe660e6e8524bc
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 11/18/2020
+ms.openlocfilehash: 7bfd951d7cec27e0b8264aaabf9bc3a17875256a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443384"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873525"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -21,11 +21,13 @@ ms.locfileid: "94443384"
 
 ## <a name="customer-managed-key-overview"></a>고객 관리 키 개요
 
-[미사용 암호화](../../security/fundamentals/encryption-atrest.md) 는 조직의 일반적인 개인 정보 및 보안 요구 사항입니다. 암호화 또는 암호화 키를 긴밀 하 게 관리 하는 다양 한 옵션을 사용 하 여 Azure에서 미사용 암호화를 완전히 관리할 수 있습니다.
+[미사용 암호화](../../security/fundamentals/encryption-atrest.md) 는 조직의 일반적인 개인 정보 및 보안 요구 사항입니다. 암호화 및 암호화 키를 긴밀 하 게 관리 하는 다양 한 옵션을 사용 하 여 Azure에서 미사용 암호화를 완전히 관리할 수 있습니다.
 
-Azure Monitor를 사용 하면 모든 데이터 및 저장 된 쿼리가 Microsoft 관리 키 (MMK)를 사용 하 여 미사용 상태로 암호화 됩니다. Azure Monitor은 [Azure Key Vault](../../key-vault/general/overview.md) 에 저장 되 고 데이터 암호화를 위해 저장소에서 사용 하는 고유한 키를 사용 하 여 암호화 옵션을 제공 합니다. 키는 [소프트웨어 또는 하드웨어 HSM으로 보호](../../key-vault/general/overview.md)될 수 있습니다. 암호화 사용 Azure Monitor는 암호화가 작동 하는 [Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) 방식과 동일 합니다.
+Azure Monitor를 사용 하면 모든 데이터 및 저장 된 쿼리가 Microsoft 관리 키 (MMK)를 사용 하 여 미사용 상태로 암호화 됩니다. 또한 Azure Monitor는 [Azure Key Vault](../../key-vault/general/overview.md) 에 저장 된 고유한 키를 사용 하 여 암호화 옵션을 제공 하 고 언제 든 지 데이터에 대 한 액세스를 취소할 수 있는 컨트롤을 제공 합니다. 암호화 사용 Azure Monitor는 암호화가 작동 하는 [Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) 방식과 동일 합니다.
 
-고객 관리 키 기능은 전용 Log Analytics 클러스터에서 제공 됩니다. 이를 통해 [Lockbox](#customer-lockbox-preview) 제어를 사용 하 여 데이터를 보호할 수 있으며 언제 든 지 데이터에 대 한 액세스를 취소할 수 있습니다. 또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. 이 데이터는 고객 관리 키 구성에 관계 없이 Microsoft 키를 사용 하 여 암호화 된 상태로 유지 되지만 SSD 데이터에 대 한 제어는 [키 해지](#key-revocation)를 따릅니다. 2021의 처음 절반에서 Customer-Managed 키로 SSD 데이터를 암호화 하기 위해 노력 하 고 있습니다.
+Customer-Managed 키는 더 높은 보호 수준과 제어를 제공 하는 전용 Log Analytics 클러스터에서 제공 됩니다. 전용 클러스터에 대 한 데이터 수집은 Microsoft에서 관리 하는 키 또는 고객 관리 키를 사용 하 여 서비스 수준에서 한 번, 두 개의 서로 다른 암호화 알고리즘과 두 개의 다른 키를 사용 하 여 인프라 수준에서 두 번 암호화 됩니다. [이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) 는 암호화 알고리즘 또는 키 중 하나가 손상 될 수 있는 시나리오를 방지 합니다. 이 경우 추가 암호화 계층은 계속 해 서 데이터를 보호 합니다. 전용 클러스터를 사용 하 여 [Lockbox](#customer-lockbox-preview) 제어로 데이터를 보호할 수도 있습니다.
+
+또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. 이 데이터는 고객 관리 키 구성에 관계 없이 Microsoft 키를 사용 하 여 암호화 된 상태로 유지 되지만 SSD 데이터에 대 한 제어는 [키 해지](#key-revocation)를 따릅니다. 2021의 처음 절반에서 Customer-Managed 키로 SSD 데이터를 암호화 하기 위해 노력 하 고 있습니다.
 
 [Log Analytics 클러스터 가격 책정 모델](./manage-cost-storage.md#log-analytics-dedicated-clusters) 은 1000 g b/일 수준부터 용량 예약을 사용 합니다.
 
@@ -74,77 +76,18 @@ Customer-Managed 키 구성은 Azure Portal에서 지원 되지 않으며 프로
 
 ### <a name="asynchronous-operations-and-status-check"></a>비동기 작업 및 상태 검사
 
-일부 구성 단계는 신속 하 게 완료할 수 없기 때문에 비동기적으로 실행 됩니다. 구성에서 REST 요청을 사용 하는 경우 응답은 처음에 허용 되는 경우 *Azure-AsyncOperation* 속성을 사용 하 여 HTTP 상태 코드 200 (OK) 및 헤더를 반환 합니다.
+일부 구성 단계는 신속 하 게 완료할 수 없기 때문에 비동기적으로 실행 됩니다. REST를 사용 하는 경우 응답은 처음에 허용 될 때 HTTP 상태 코드 200 (OK) 및 *AsyncOperation* 속성을 사용 하 여 헤더를 반환 합니다.
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
 
-그런 다음 GET 요청을 *Azure AsyncOperation* 헤더 값에 보내서 비동기 작업의 상태를 확인할 수 있습니다.
+GET 요청을 *Azure-AsyncOperation* 헤더 값으로 보내 비동기 작업의 상태를 확인할 수 있습니다.
 ```rst
 GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
-응답에는 작업 및 해당 *상태* 에 대한 정보가 포함됩니다. 다음 중 하나일 수 있습니다.
-
-작업 진행 중
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "InProgress", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-}
-```
-
-키 식별자 업데이트 작업 진행 중
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Updating", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-클러스터 삭제가 진행 중입니다. 연결 된 작업 영역이 있는 클러스터를 삭제 하면 각 작업 영역에 대해 연결 끊기 작업이 비동기적으로 수행 되 고 작업에 시간이 오래 걸릴 수 있습니다.
-연결 된 작업 영역이 없는 클러스터를 삭제 하는 경우에는 관련이 없습니다 .이 경우 클러스터가 즉시 삭제 됩니다.
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Deleting", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-작업 완료
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Succeeded", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-작업 실패
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Failed", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-    "error" : { 
-        "code": "error-code",  
-        "message": "error-message" 
-    }
-}
-```
+`status`응답에 포함 된은 오류 코드를 포함 하 여 ' InProgress ', ' 업데이트 중 ', ' 삭제 중 ', ' 성공 ' 또는 ' 실패 ' 중 하나일 수 있습니다.
 
 ### <a name="allowing-subscription"></a>구독 허용
 
@@ -391,7 +334,7 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
   Authorization: Bearer <token>
   ```
 
-  **응답**
+  **Response**
   
   ```json
   {
@@ -473,7 +416,7 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
 - **클러스터에서 *billingType* 업데이트**
 
   *BillingType* 속성은 클러스터 및 해당 데이터에 대 한 청구 특성을 결정 합니다.
-  - *cluster* (기본값) - 클러스터 리소스를 호스팅하는 구독을 기반으로 하는 청구입니다.
+  - *cluster*(기본값) - 클러스터 리소스를 호스팅하는 구독을 기반으로 하는 청구입니다.
   - *workspaces* - 작업 영역을 비례적으로 호스팅하는 구독을 기반으로 하는 청구입니다.
   
   [업데이트 클러스터](#update-cluster-with-key-identifier-details) 에 따라 새로운 billingType 값을 제공 합니다. 전체 REST 요청 본문을 제공할 필요는 없으며 *billingType* 을 포함해야 합니다.
@@ -595,7 +538,7 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
   1. REST를 사용 하는 경우 응답에서 Azure-AsyncOperation URL 값을 복사 하 고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 따릅니다.
   2. 클러스터 또는 작업 영역에 GET 요청을 보내고 응답을 관찰 합니다. 예를 들어 연결 되지 않은 작업 영역에는 *기능* 아래에 *clusterresourceid* 가 없습니다.
 
-- 고객 관리형 키와 관련된 지원 및 도움을 받으려면 Microsoft에 문의하세요.
+- [이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) 는 지역에 이중 암호화가 있는 경우 10 월 2020에서 만든 클러스터에 대해 자동으로 구성 됩니다. 클러스터를 만들고 "<영역 이름> 클러스터에 대 한 이중 암호화를 지원 하지 않습니다." 라는 오류 메시지가 표시 되 면 클러스터를 만들 수 있지만 이중 암호화를 사용 하지 않도록 설정할 수 있습니다. 클러스터를 만든 후에는 사용 하거나 사용 하지 않도록 설정할 수 없습니다. 지역에서 이중 암호화가 지원 되지 않는 경우 클러스터를 만들려면 `"properties": {"isDoubleEncryptionEnabled": false}` REST 요청 본문을 추가 합니다.
 
 - 오류 메시지
   

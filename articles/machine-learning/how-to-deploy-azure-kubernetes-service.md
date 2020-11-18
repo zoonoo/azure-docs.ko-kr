@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: f2ac565b8c6dfce52daeadd20cf3357bc22cd281
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e041b69d8fc256ff5fe759be9716db032540f2cb
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843811"
+ms.locfileid: "94873797"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 
@@ -333,6 +333,7 @@ Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Kubernetes 권한 부여에 Azure RBAC 사용](../aks/manage-azure-rbac.md)
 * [Azure Virtual Network를 사용 하 여 추론 환경 보호](how-to-secure-inferencing-vnet.md)
 * [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)

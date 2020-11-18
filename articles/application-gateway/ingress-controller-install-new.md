@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 04d8a77cd051823559aba42d5dfc1418e6343ecc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 5e3473a9afefe73fe7b07d3efda1f53675264fc8
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397385"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874630"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>새 Application Gateway를 사용 하 여 AGIC (Application Gateway 수신 컨트롤러)를 설치 하는 방법
 
@@ -40,7 +40,7 @@ ms.locfileid: "93397385"
 
 다음 단계를 수행 하 여 AAD (Azure Active Directory) [서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만듭니다. `appId`, `password` 및 값을 기록 하세요 `objectId` .이 값은 다음 단계에서 사용 됩니다.
 
-1. AD 서비스 주체 만들기 ([RBAC에 대 한 자세한 정보](../role-based-access-control/overview.md)):
+1. AD 서비스 주체 만들기 ([AZURE RBAC에 대 한 자세한 정보](../role-based-access-control/overview.md)):
     ```azurecli
     az ad sp create-for-rbac --skip-assignment -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
@@ -66,7 +66,7 @@ ms.locfileid: "93397385"
     }
     EOF
     ```
-    **RBAC** 사용 클러스터를 배포 하려면 필드를로 설정 합니다. `aksEnableRBAC``true`
+    **KUBERNETES RBAC** 사용 클러스터를 배포 하려면 필드를로 설정 합니다. `aksEnableRBAC``true`
 
 ## <a name="deploy-components"></a>구성 요소 배포
 이 단계에서는 구독에 다음 구성 요소를 추가 합니다.
@@ -131,13 +131,13 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 
 AAD Pod Id를 클러스터에 설치 하려면 다음을 수행 합니다.
 
-   - *RBAC 사용* AKS 클러스터
+   - *KUBERNETES RBAC 사용* AKS 클러스터
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
      ```
 
-   - *RBAC 사용 안 함* AKS 클러스터
+   - *KUBERNETES RBAC 사용 안 함* AKS 클러스터
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
@@ -148,7 +148,7 @@ AAD Pod Id를 클러스터에 설치 하려면 다음을 수행 합니다.
 
 1. [투구](../aks/kubernetes-helm.md) 를 설치 하 고 다음을 실행 하 여 투구 패키지를 추가 합니다 `application-gateway-kubernetes-ingress` .
 
-    - *RBAC 사용* AKS 클러스터
+    - *KUBERNETES RBAC 사용* AKS 클러스터
 
         ```bash
         kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -156,7 +156,7 @@ AAD Pod Id를 클러스터에 설치 하려면 다음을 수행 합니다.
         helm init --tiller-namespace kube-system --service-account tiller-sa
         ```
 
-    - *RBAC 사용 안 함* AKS 클러스터
+    - *KUBERNETES RBAC 사용 안 함* AKS 클러스터
 
         ```bash
         helm init
@@ -228,7 +228,7 @@ AAD Pod Id를 클러스터에 설치 하려면 다음을 수행 합니다.
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     

@@ -4,12 +4,12 @@ description: Azure Application Insights 데이터를 사용하여 사용자 지�
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f35b7cbde7b719a91b23b19481ab704c445485cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d465666ce5d631a234644d1adc85afcf6e3c1e27
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827742"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873713"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
 
@@ -31,7 +31,7 @@ ms.locfileid: "91827742"
 
 [Application Insights 데이터를 프로그래밍 방식으로 쿼리](https://dev.applicationinsights.io/)하여 일정에 따라 사용자 지정 보고서를 생성할 수 있습니다. 다음 옵션은 빠르게 시작할 수 있게 돕습니다.
 
-* [Microsoft Flow를 사용하여 보고서 자동화](../platform/logicapp-flow-connector.md)
+* [전원 자동화를 사용 하 여 보고서 자동화](../platform/logicapp-flow-connector.md)
 * [논리 앱을 사용하여 보고서 자동화](automate-with-logic-apps.md)
 * 모니터링 시나리오에서 "Application Insights 예약된 다이제스트" [Azure 함수](../../azure-functions/functions-create-first-azure-function.md) 템플릿을 사용합니다. 이 함수는 SendGrid를 사용하여 이메일을 배달합니다. 
 
@@ -74,9 +74,9 @@ availabilityResults
 
    [함수 앱을 만드는](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app) 방법에 대해 알아보려면 Azure Functions 설명서를 참조 하세요.
 
-2. 새 함수 앱에서 배포를 완료하면 **리소스로 이동**을 선택합니다.
+2. 새 함수 앱에서 배포를 완료하면 **리소스로 이동** 을 선택합니다.
 
-3. **새 함수**를 선택합니다.
+3. **새 함수** 를 선택합니다.
 
    ![새 함수 만들기 스크린샷](./media/automate-custom-reports/new-function.png)
 
@@ -87,19 +87,19 @@ availabilityResults
 
    ![새 함수 Application Insights 템플릿 스크린샷](./media/automate-custom-reports/function-app-04.png)
 
-5. 보고서에 대한 적절한 받는 사람 이메일 주소를 입력하고 **만들기**를 선택합니다.
+5. 보고서에 대한 적절한 받는 사람 이메일 주소를 입력하고 **만들기** 를 선택합니다.
 
    ![함수 설정 스크린샷](./media/automate-custom-reports/scheduled-digest.png)
 
-6. **함수 앱**  >  **플랫폼 기능**  >  **구성을**선택 합니다.
+6. **함수 앱**  >  **플랫폼 기능**  >  **구성을** 선택 합니다.
 
     ![Azure 함수 애플리케이션 설정 스크린샷](./media/automate-custom-reports/config.png)
 
-7. 적절한 해당 값 ``AI_APP_ID``, ``AI_APP_KEY`` 및 ``SendGridAPI``로 3개의 새 애플리케이션 설정을 만듭니다. **저장**을 선택합니다.
+7. 적절한 해당 값 ``AI_APP_ID``, ``AI_APP_KEY`` 및 ``SendGridAPI``로 3개의 새 애플리케이션 설정을 만듭니다. **저장** 을 선택합니다.
 
      ![함수 통합 인터페이스 스크린샷](./media/automate-custom-reports/app-settings.png)
     
-    (AI_ 값은 보고하려는 Application Insights 리소스에 대한 API 액세스에서 찾을 수 있습니다. Application Insights API 키가 없는 경우 **API 키 만들기**에 대한 옵션이 있습니다.)
+    (AI_ 값은 보고하려는 Application Insights 리소스에 대한 API 액세스에서 찾을 수 있습니다. Application Insights API 키가 없는 경우 **API 키 만들기** 에 대한 옵션이 있습니다.)
     
    * AI_APP_ID = 애플리케이션 ID
    * AI_APP_KEY = API 키
@@ -108,11 +108,11 @@ availabilityResults
      > [!NOTE]
      > SendGrid 계정이 없는 경우 새로 만들 수 있습니다. Azure Functions에 대한 SendGrid의 설명서는 [여기](../../azure-functions/functions-bindings-sendgrid.md)에 있습니다. SendGrid를 설정하고 이 문서의 끝에 제공되는 API 키를 생성하는 방법에 대한 최소한의 설명을 원하는 경우입니다. 
 
-8. **통합**을 선택하고 출력 아래에서 **SendGrid($return)** 를 선택합니다.
+8. **통합** 을 선택하고 출력 아래에서 **SendGrid($return)** 를 선택합니다.
 
      ![출력 스크린샷](./media/automate-custom-reports/integrate.png)
 
-9. **SendGridAPI 키 앱 설정** 아래에서 **SendGridAPI**에 대한 새로 만든 앱 설정을 선택합니다.
+9. **SendGridAPI 키 앱 설정** 아래에서 **SendGridAPI** 에 대한 새로 만든 앱 설정을 선택합니다.
 
      ![함수 앱 실행 스크린샷](./media/automate-custom-reports/sendgrid-output.png)
 
@@ -132,11 +132,11 @@ availabilityResults
 
      ![SendGrid 리소스 만들기 스크린샷](./media/automate-custom-reports/sendgrid.png)
 
-2. 만들어지면 SendGrid 계정에서 **관리**를 선택합니다.
+2. 만들어지면 SendGrid 계정에서 **관리** 를 선택합니다.
 
      ![API 키 설정 스크린샷](./media/automate-custom-reports/sendgrid-manage.png)
 
-3. SendGrid의 사이트가 시작됩니다. **설정**  >  **API 키**를 선택 합니다.
+3. SendGrid의 사이트가 시작됩니다. **설정**  >  **API 키** 를 선택 합니다.
 
      ![API 키 앱 만들기 및 보기 스크린샷](./media/automate-custom-reports/function-app-15.png)
 

@@ -9,12 +9,12 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 0f121caddc6b629920479a34bef7b284dea117a4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ea861dce23e50bc5fcae50116a3e71793d402f8f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677503"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873321"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Microsoft Graph Security 및 Azure Logic Apps와 보안 작업을 통합하여 위협 방지 향상
 
@@ -30,13 +30,13 @@ ms.locfileid: "92677503"
 
 논리 앱의 워크플로는 Microsoft Graph Security 커넥터에서 응답을 가져오고 해당 결과물을 워크플로의 다른 작업에서 사용하도록 제공할 수 있습니다. 워크플로의 다른 작업에서 Microsoft Graph Security 커넥터 작업의 결과물을 사용하게 할 수도 있습니다. 예를 들어 Microsoft Graph Security 커넥터를 통해 높은 심각도 경고를 가져오는 경우 Outlook 커넥터를 사용하여 해당 경고를 메일 메시지로 보낼 수 있습니다. 
 
-Microsoft Graph Security에 대한 자세한 내용은 [Microsoft Graph 보안 API 개요](/graph/security-concept-overview)를 참조하세요. 논리 앱을 처음 접하는 경우 [Azure Logic Apps?](../logic-apps/logic-apps-overview.md)을 검토 하세요. Microsoft Flow 또는 PowerApps를 찾고 있는 경우 [흐름 이란?](https://flow.microsoft.com/) 또는 [powerapps 란?](https://powerapps.microsoft.com/) 을 참조 하세요.
+Microsoft Graph Security에 대한 자세한 내용은 [Microsoft Graph 보안 API 개요](/graph/security-concept-overview)를 참조하세요. 논리 앱을 처음 접하는 경우 [Azure Logic Apps?](../logic-apps/logic-apps-overview.md)을 검토 하세요. 전원 자동화 또는 PowerApps를 찾고 있는 경우 [전원 자동화 란?](https://flow.microsoft.com/) 또는 [powerapps 란?](https://powerapps.microsoft.com/) 을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
-* Microsoft Graph Security 커넥터를 사용하려면  이 동의에는 [Azure Portal](https://portal.azure.com)에서 확인할 수 있는 Microsoft Graph Security 커넥터의 애플리케이션 ID 및 이름이 필요합니다.
+* Microsoft Graph Security 커넥터를 사용하려면 [Microsoft Graph Security 인증 요구 사항](/graph/security-authorization)의 일부인 ‘명시적으로 제공된’ Azure AD(Active Directory) 테넌트 관리자 동의가 있어야 합니다. 이 동의에는 [Azure Portal](https://portal.azure.com)에서 확인할 수 있는 Microsoft Graph Security 커넥터의 애플리케이션 ID 및 이름이 필요합니다.
 
   | 속성 | 값 |
   |----------|-------|
@@ -62,11 +62,11 @@ Microsoft Graph Security에 대한 자세한 내용은 [Microsoft Graph 보안 A
 
 1. 빈 논리 앱의 경우 Microsoft Graph 보안 작업을 추가 하기 전에 트리거 및 원하는 다른 작업을 추가 합니다.
 
-   또는
+   -또는-
 
    기존 논리 앱의 경우 Microsoft Graph 보안 작업을 추가 하려는 마지막 단계에서 **새 단계** 를 선택 합니다.
 
-   또는
+   -또는-
 
    단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시 되는 더하기 기호 (+)를 선택 하 고 **작업 추가** 를 선택 합니다.
 
@@ -94,9 +94,9 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
    | 속성 | 속성(JSON) | 필수 | Type | 설명 |
    |----------|-----------------|----------|------|-------------|
    | **간격** | `interval` | 예 | 정수 | 빈도에 따라 워크플로가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. 다음은 최소 및 최대 간격입니다. <p><p>- 월: 1-16개월 <br>- 일: 1-500일 <br>- 시간: 1-12,000시간 <br>- 분: 1-72,000분 <br>- 초: 1-9,999,999초 <p>예를 들어 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. |
-   | **빈도** | `frequency` | 예 | String | 되풀이 시간 단위: **초** , **분** , **시간** , **일** , **주** 또는 **월** |
+   | **빈도** | `frequency` | 예 | String | 되풀이 시간 단위: **초**, **분**, **시간**, **일**, **주** 또는 **월** |
    | **표준 시간대** | `timeZone` | 예 | String | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 선택합니다. |
-   | **시작 시간** | `startTime` | 예 | String | 시작 날짜와 시간을 다음 형식으로 지정 합니다. <p><p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss <p>또는 <p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ <p>예를 들어 오후 2:00에 2017 년 9 월 18 일을 원하는 경우 "2017-09-18T14:00:00"을 지정 하 고 태평양 표준시와 같은 표준 시간대를 선택 합니다. 또는 표준 시간대 없이 “2017-09-18T14:00:00Z”를 지정합니다. <p>**참고:** 이 시작 시간은 미래의 최대 49 년 이며 utc [오프셋](https://en.wikipedia.org/wiki/UTC_offset)없이 [utc 날짜/시간 형식의](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) [ISO 8601 날짜 시간 사양을](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) 따라야 합니다. 표준 시간대를 선택하지 않으면 공백 없이 맨 끝에 문자 “Z”를 추가해야 합니다. 이 “Z”는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간은 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. [*시작 날짜 및 시간을 사용할 수 있는 방법에는 무엇이 있나요?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **시작 시간** | `startTime` | 예 | String | 시작 날짜와 시간을 다음 형식으로 지정 합니다. <p><p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss <p>-또는- <p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ <p>예를 들어 오후 2:00에 2017 년 9 월 18 일을 원하는 경우 "2017-09-18T14:00:00"을 지정 하 고 태평양 표준시와 같은 표준 시간대를 선택 합니다. 또는 표준 시간대 없이 “2017-09-18T14:00:00Z”를 지정합니다. <p>**참고:** 이 시작 시간은 미래의 최대 49 년 이며 utc [오프셋](https://en.wikipedia.org/wiki/UTC_offset)없이 [utc 날짜/시간 형식의](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) [ISO 8601 날짜 시간 사양을](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) 따라야 합니다. 표준 시간대를 선택하지 않으면 공백 없이 맨 끝에 문자 “Z”를 추가해야 합니다. 이 “Z”는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간은 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. [*시작 날짜 및 시간을 사용할 수 있는 방법에는 무엇이 있나요?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
 1.  완료되면 디자이너 도구 모음에서 **저장** 을 선택합니다.
@@ -109,7 +109,7 @@ Microsoft Graph Security 커넥터에서 사용 가능한 다양한 작업의 �
 
 ### <a name="manage-alerts"></a>경고 관리
 
-가장 최근 결과를 필터링, 정렬 또는 가져오려면  전체 기준 URL이나 HTTP 작업(예: `https://graph.microsoft.com/v1.0/security/alerts`, `GET` 또는 `PATCH` 작업)을 ‘지정하지 마세요’.  높은 심각도 경고 목록을 원하는 경우 **경고 가져오기** 작업의 매개 변수를 표시하는 특정 예제는 다음과 같습니다.
+가장 최근 결과를 필터링, 정렬 또는 가져오려면 [Microsoft Graph에서 지원하는 ODATA 쿼리 매개 변수](/graph/query-parameters)만을 제공합니다. 전체 기준 URL이나 HTTP 작업(예: `https://graph.microsoft.com/v1.0/security/alerts`, `GET` 또는 `PATCH` 작업)을 ‘지정하지 마세요’. 높은 심각도 경고 목록을 원하는 경우 **경고 가져오기** 작업의 매개 변수를 표시하는 특정 예제는 다음과 같습니다.
 
 `Filter alerts value as Severity eq 'high'`
 
@@ -124,7 +124,7 @@ Microsoft Graph Security 커넥터에서 사용 가능한 다양한 작업의 �
 
 ### <a name="manage-alert-subscriptions"></a>경고 구독 관리
 
-Microsoft Graph는  구독을 가져오거나, 업데이트 또는 삭제하려면 [Microsoft Graph에서 지원하는 ODATA 쿼리 매개 변수](/graph/query-parameters)를 Microsoft Graph 엔터티 구문에 제공하고 `security/alerts` 및 ODATA 쿼리를 차례로 포함합니다. 기준 URL(예: `https://graph.microsoft.com/v1.0`)을 ‘포함하지 마세요’.  대신, 다음 예제의 형식을 사용합니다.
+Microsoft Graph는 [구독](/graph/api/resources/subscription) 또는 [웹후크](/graph/api/resources/webhooks)를 지원합니다. 구독을 가져오거나, 업데이트 또는 삭제하려면 [Microsoft Graph에서 지원하는 ODATA 쿼리 매개 변수](/graph/query-parameters)를 Microsoft Graph 엔터티 구문에 제공하고 `security/alerts` 및 ODATA 쿼리를 차례로 포함합니다. 기준 URL(예: `https://graph.microsoft.com/v1.0`)을 ‘포함하지 마세요’. 대신, 다음 예제의 형식을 사용합니다.
 
 `security/alerts?$filter=status eq 'NewAlert'`
 
@@ -138,7 +138,7 @@ Microsoft Graph는  구독을 가져오거나, 업데이트 또는 삭제하려�
 
 ### <a name="manage-threat-intelligence-indicators"></a>위협 인텔리전스 표시기 관리
 
-가장 최근 결과를 필터링, 정렬 또는 가져오려면  전체 기준 URL이나 HTTP 작업(예: `https://graph.microsoft.com/beta/security/tiIndicators`, `GET` 또는 `PATCH` 작업)을 ‘지정하지 마세요’.  다음은 위협 형식이 포함 된 목록을 원할 때 **tiIndicators 가져오기** 작업의 매개 변수를 보여 주는 특정 예제입니다 `DDoS` .
+가장 최근 결과를 필터링, 정렬 또는 가져오려면 [Microsoft Graph에서 지원하는 ODATA 쿼리 매개 변수](/graph/query-parameters)만을 제공합니다. 전체 기준 URL이나 HTTP 작업(예: `https://graph.microsoft.com/beta/security/tiIndicators`, `GET` 또는 `PATCH` 작업)을 ‘지정하지 마세요’. 다음은 위협 형식이 포함 된 목록을 원할 때 **tiIndicators 가져오기** 작업의 매개 변수를 보여 주는 특정 예제입니다 `DDoS` .
 
 `Filter threat intelligence indicator value as threatType eq 'DDoS'`
 
