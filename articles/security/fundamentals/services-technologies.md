@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 46b1cbbd620cf2de8d875927f5745e91fcf608c5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 553cfe0c1a5e7d569c127f23a11f25f4d150b0bc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410048"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700762"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure에서 사용 가능한 보안 서비스 및 기술
 
@@ -67,7 +67,7 @@ ms.locfileid: "94410048"
 ## <a name="identity-and-access-management"></a>ID 및 액세스 관리
 |서비스|Description|
 |------|--------|
-| [Azure&nbsp;역할&nbsp;기반&nbsp;액세스 제어](../../role-based-access-control/role-assignments-portal.md)|사용자가 조직 내 역할을 기반으로 액세스하는 데 필요한 리소스에만 액세스하도록 허용하는 액세스 제어 기능입니다.  |
+| [Azure &nbsp; 역할 기반 &nbsp; 액세스 제어](../../role-based-access-control/role-assignments-portal.md)|사용자가 조직 내 역할을 기반으로 액세스하는 데 필요한 리소스에만 액세스하도록 허용하는 액세스 제어 기능입니다.  |
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|Azure 내에서 다중 테넌트, 클라우드 기반 디렉터리 및 여러 ID 관리 서비스를 지원하는 클라우드 기반 인증 리포지토리입니다.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|Azure 애플리케이션을 사용할 때 고객이 자신의 프로필을 등록, 로그인 및 관리하는 방법을 제어할 수 있도록 해주는 ID 관리 서비스입니다.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| Active Directory Domain Services의 클라우드 기반 및 관리되는 버전입니다. |

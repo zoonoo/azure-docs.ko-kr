@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 7b0ea9cc1788065a92e168e41a0c293bb1f4ea9b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 9dcb1113bb37cb0f5f65c54ae9d6ca76a88330c1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409360"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698668"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 
@@ -87,7 +87,7 @@ Azure Active Directory를 사용하면 파트너 및 고객(비즈니스 또는 
 - 디스크 암호화 유효성 검사
 - 네트워크 기반 공격
 
-Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 사용 하 Security Center입니다. RBAC는 Azure에서 사용자, 그룹 및 서비스에 할당될 수 있는 [기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 제공합니다.
+Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 사용 하 Security Center입니다. Azure RBAC는 Azure에서 사용자, 그룹 및 서비스에 할당할 수 있는 [기본 제공 역할](../../role-based-access-control/built-in-roles.md) 을 제공 합니다.
 
 Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성을 식별합니다. Security Center에서는 리소스가 속한 구독이나 리소스 그룹에 대한 소유자, 참가자 또는 독자 역할을 할당 받은 경우에만 리소스와 관련된 정보를 볼 수 있습니다.
 

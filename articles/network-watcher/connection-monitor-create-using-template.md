@@ -1,7 +1,7 @@
 ---
-title: 연결 모니터 미리 보기 만들기-ARMClient
+title: 연결 모니터 만들기-ARMClient
 titleSuffix: Azure Network Watcher
-description: ARMClient를 사용 하 여 연결 모니터 (미리 보기)를 만드는 방법에 대해 알아봅니다.
+description: ARMClient를 사용 하 여 연결 모니터를 만드는 방법에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 5a351e550cac9edcc8ce1c54fbe5c57d012ee607
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 929a2feeb53e8903d675644dcb72b422eceb2858
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447668"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699103"
 ---
-# <a name="create-a-connection-monitor-preview-using-the-armclient"></a>ARMClient를 사용 하 여 연결 모니터 (미리 보기) 만들기
+# <a name="create-a-connection-monitor-using-the-armclient"></a>ARMClient를 사용 하 여 연결 모니터 만들기
 
-ARMClient를 사용 하 여 리소스 간의 통신을 모니터링 하는 연결 모니터 (미리 보기)를 만드는 방법에 대해 알아봅니다. 하이브리드 및 Azure 클라우드 배포를 지원 합니다.
+ARMClient를 사용 하 여 리소스 간의 통신을 모니터링 하는 연결 모니터를 만드는 방법에 대해 알아봅니다. 하이브리드 및 Azure 클라우드 배포를 지원 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에 
 
-연결 모니터 (미리 보기)에서 만든 연결 모니터에서 온-프레미스 컴퓨터와 Azure Vm을 모두 원본으로 추가할 수 있습니다. 이러한 연결 모니터는 끝점에 대 한 연결을 모니터링할 수도 있습니다. 끝점은 Azure 또는 다른 모든 URL 또는 IP에 있을 수 있습니다.
+연결 모니터에서 만드는 연결 모니터에서 온-프레미스 컴퓨터와 Azure Vm을 모두 원본으로 추가할 수 있습니다. 이러한 연결 모니터는 끝점에 대 한 연결을 모니터링할 수도 있습니다. 끝점은 Azure 또는 다른 모든 URL 또는 IP에 있을 수 있습니다.
 
-연결 모니터 (미리 보기)에는 다음 엔터티가 포함 됩니다.
+연결 모니터에는 다음 엔터티가 포함 됩니다.
 
 * **연결 모니터 리소스** – 지역별 Azure 리소스입니다. 다음 엔터티는 모두 연결 모니터 리소스의 속성입니다.
 * **끝점** – 연결 확인에 참여 하는 원본 또는 대상입니다. 끝점의 예로는 Azure Vm, 온-프레미스 에이전트, Url 및 Ip가 있습니다.
@@ -359,7 +359,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * 엔드포인트
     * 이름 – 각 끝점에 대 한 고유 이름
-    * resourceId – Azure 끝점의 경우 리소스 ID는 가상 머신에 대 한 Azure resource manager 리소스 ID를 나타냅니다. 비 Azure 끝점의 경우 리소스 ID는 비 Azure 에이전트에 연결 된 Log Analytics 작업 영역에 대 한 Azure resource manager 리소스 ID를 나타냅니다.
+    * resourceId – Azure 끝점의 경우 리소스 ID는 가상 머신의 Azure Resource Manager 리소스 ID를 나타냅니다. 비 Azure 끝점의 경우 리소스 ID는 비 Azure 에이전트에 연결 된 Log Analytics 작업 영역에 대 한 Azure Resource Manager 리소스 ID를 나타냅니다.
     * address – 리소스 ID가 지정 되지 않았거나 리소스 ID가 작업 영역 Log Analytics 경우에만 적용 됩니다. Log Analytics 리소스 ID와 함께 사용 하는 경우이는 모니터링에 사용할 수 있는 에이전트의 FQDN을 나타냅니다. 리소스 ID 없이 사용 하는 경우이는 모든 공용 끝점의 URL 또는 IP 일 수 있습니다.
     * filter – 비 Azure 끝점의 경우 필터를 사용 하 여 연결 모니터 리소스의 모니터링에 사용할 Log Analytics 작업 영역에서 에이전트를 선택 합니다. 필터를 설정 하지 않으면 Log Analytics 작업 영역에 속하는 모든 에이전트를 모니터링에 사용할 수 있습니다.
         * 유형 – 유형을 "에이전트 주소"로 설정 합니다.

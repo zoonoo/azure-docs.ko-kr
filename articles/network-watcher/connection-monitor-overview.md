@@ -1,6 +1,6 @@
 ---
-title: 연결 모니터 (미리 보기) | Microsoft Docs
-description: 연결 모니터 (미리 보기)를 사용 하 여 분산 환경에서 네트워크 통신을 모니터링 하는 방법에 대해 알아봅니다.
+title: 연결 모니터 | Microsoft Docs
+description: 연결 모니터를 사용 하 여 분산 환경에서 네트워크 통신을 모니터링 하는 방법에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: na
 author: vinynigam
@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 80934dca73d7f8a205c62a49c418828cab1820e7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5dbb8d508fe824d0264043625c988f43092f3f78
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447823"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699239"
 ---
-# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>연결 모니터를 사용 하 여 네트워크 연결 모니터링 (미리 보기)
+# <a name="network-connectivity-monitoring-with-connection-monitor"></a>연결 모니터를 사용 하 여 네트워크 연결 모니터링
 
-연결 모니터 (미리 보기)는 Azure Network Watcher의 통합 종단 간 연결 모니터링을 제공 합니다. 연결 모니터 (미리 보기) 기능은 하이브리드 및 Azure 클라우드 배포를 지원 합니다. Network Watcher는 Azure 배포에 대 한 연결 관련 메트릭을 모니터링 하 고, 진단 하 고, 볼 수 있는 도구를 제공 합니다.
+연결 모니터는 Azure Network Watcher에서 통합 종단 간 연결 모니터링을 제공 합니다. 연결 모니터 기능은 하이브리드 및 Azure 클라우드 배포를 지원 합니다. Network Watcher는 Azure 배포에 대 한 연결 관련 메트릭을 모니터링 하 고, 진단 하 고, 볼 수 있는 도구를 제공 합니다.
 
-다음은 연결 모니터 (미리 보기)에 대 한 몇 가지 사용 사례입니다.
+다음은 연결 모니터에 대 한 몇 가지 사용 사례입니다.
 
 - 프런트 엔드 웹 서버 VM은 다중 계층 응용 프로그램에서 데이터베이스 서버 VM과 통신 합니다. 두 Vm 간의 네트워크 연결을 확인 하려고 합니다.
 - 미국 동부 지역의 Vm에서 미국 중부 지역의 vm을 ping 하 고 지역 간 네트워크 대기 시간을 비교 하려고 합니다.
@@ -34,9 +34,9 @@ ms.locfileid: "94447823"
 - 하이브리드 응용 프로그램은 Azure Storage 끝점에 연결 해야 합니다. 온-프레미스 사이트와 Azure 응용 프로그램은 동일한 Azure Storage 끝점에 연결 됩니다. 온-프레미스 사이트의 대기 시간을 Azure 응용 프로그램의 대기 시간과 비교 하려고 합니다.
 - 온-프레미스 설정과 클라우드 응용 프로그램을 호스트 하는 Azure Vm 간의 연결을 확인 하려고 합니다.
 
-미리 보기 단계에서 연결 모니터는 Network Watcher [연결 모니터](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) 기능과 네트워크 성능 모니터 (NPM) [서비스 연결 모니터](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [Express 경로 모니터링](https://docs.microsoft.com/azure/expressroute/how-to-npm)및 [성능 모니터링](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) 기능과 같은 두 가지 기능을 결합 합니다.
+연결 모니터는 Network Watcher [연결 모니터 (클래식)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) 기능과 네트워크 성능 모니터 (NPM) [서비스 연결 모니터](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [Express 경로 모니터링](https://docs.microsoft.com/azure/expressroute/how-to-npm)및 [성능 모니터링](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) 기능과 같은 두 가지 기능을 결합 합니다.
 
-연결 모니터 (미리 보기)의 몇 가지 이점은 다음과 같습니다.
+연결 모니터의 몇 가지 이점은 다음과 같습니다.
 
 * Azure 및 하이브리드 모니터링 요구 사항에 대 한 통합 된 직관적인 환경
 * 영역 간, 작업 영역 간 연결 모니터링
@@ -47,7 +47,7 @@ ms.locfileid: "94447823"
 
 ![연결 모니터가 Azure Vm, 비 Azure 호스트, 끝점 및 데이터 저장소 위치와 상호 작용 하는 방법을 보여 주는 다이어그램](./media/connection-monitor-2-preview/hero-graphic.png)
 
-모니터링을 위해 연결 모니터 (미리 보기) 사용을 시작 하려면 다음 단계를 수행 합니다. 
+모니터링에 대 한 연결 모니터 사용을 시작 하려면 다음 단계를 수행 합니다. 
 
 1. 모니터링 에이전트를 설치 합니다.
 1. 구독에서 Network Watcher를 사용 하도록 설정 합니다.
@@ -59,7 +59,7 @@ ms.locfileid: "94447823"
 
 ## <a name="install-monitoring-agents"></a>모니터링 에이전트 설치
 
-연결 모니터는 간단한 실행 파일을 사용 하 여 연결 확인을 실행 합니다.  Azure 환경 및 온-프레미스 환경에서 연결 확인을 지원 합니다. 사용 하는 실행 파일은 VM이 Azure 또는 온-프레미스에서 호스트 되는지에 따라 달라 집니다.
+연결 모니터는 간단한 실행 파일을 사용 하 여 연결 확인을 실행 합니다. Azure 환경 및 온-프레미스 환경에서 연결 확인을 지원 합니다. 사용 하는 실행 파일은 VM이 Azure 또는 온-프레미스에서 호스트 되는지에 따라 달라 집니다.
 
 ### <a name="agents-for-azure-virtual-machines"></a>Azure virtual machines 용 에이전트
 
@@ -89,19 +89,19 @@ Windows 컴퓨터용 Log Analytics 에이전트를 설치 하려면 [windows 용
 
 소스는 모니터링 에이전트가 설치 된 Azure Vm 또는 온-프레미스 컴퓨터 일 수 있습니다. 대상 끝점 Microsoft 365 Url, Dynamics 365 Url, 사용자 지정 Url, Azure VM 리소스 Id, IPv4, IPv6, FQDN 또는 임의의 도메인 이름일 수 있습니다.
 
-### <a name="access-connection-monitor-preview"></a>액세스 연결 모니터 (미리 보기)
+### <a name="access-connection-monitor"></a>액세스 연결 모니터
 
 1. Azure Portal 홈 페이지에서 **Network Watcher** 으로 이동 합니다.
-1. 왼쪽의 **모니터링** 섹션에서 **연결 모니터 (미리 보기)** 를 선택 합니다.
-1. 연결 모니터 (미리 보기)에서 생성 된 모든 연결 모니터가 표시 됩니다. 연결 모니터의 클래식 환경에서 만든 연결 모니터를 보려면 **연결 모니터** 탭으로 이동 합니다.
+1. 왼쪽의 **모니터링** 섹션에서 **연결 모니터** 를 선택 합니다.
+1. 연결 모니터에서 생성 된 모든 연결 모니터가 표시 됩니다. 연결 모니터의 클래식 환경에서 만든 연결 모니터를 보려면 **연결 모니터** 탭으로 이동 합니다.
     
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="연결 모니터 (미리 보기)에서 만든 연결 모니터를 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="연결 모니터에서 만든 연결 모니터를 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
 
 ### <a name="create-a-connection-monitor"></a>연결 모니터 만들기
 
-연결 모니터 (미리 보기)에서 만든 연결 모니터에서 온-프레미스 컴퓨터와 Azure Vm을 모두 원본으로 추가할 수 있습니다. 이러한 연결 모니터는 끝점에 대 한 연결을 모니터링할 수도 있습니다. 끝점은 Azure 또는 다른 모든 URL 또는 IP에 있을 수 있습니다.
+연결 모니터에서 만드는 연결 모니터에서 온-프레미스 컴퓨터와 Azure Vm을 모두 원본으로 추가할 수 있습니다. 이러한 연결 모니터는 끝점에 대 한 연결을 모니터링할 수도 있습니다. 끝점은 Azure 또는 다른 모든 URL 또는 IP에 있을 수 있습니다.
 
-연결 모니터 (미리 보기)에는 다음 엔터티가 포함 됩니다.
+연결 모니터에는 다음 엔터티가 포함 됩니다.
 
 * **연결 모니터 리소스** – 지역별 Azure 리소스입니다. 다음 엔터티는 모두 연결 모니터 리소스의 속성입니다.
 * **끝점** – 연결 확인에 참여 하는 원본 또는 대상입니다. 끝점의 예로는 Azure Vm, 온-프레미스 에이전트, Url 및 Ip가 있습니다.
@@ -111,7 +111,7 @@ Windows 컴퓨터용 Log Analytics 에이전트를 설치 하려면 [windows 용
 
  ![테스트 그룹 및 테스트 간의 관계를 정의 하는 연결 모니터를 보여 주는 다이어그램](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-[Azure Portal](connection-monitor-preview-create-using-portal.md) 또는 [ARMClient](connection-monitor-preview-create-using-arm-client.md) 를 사용 하 여 연결 모니터 미리 보기를 만들 수 있습니다.
+[Azure Portal](connection-monitor-preview-create-using-portal.md) 또는 [ARMClient](connection-monitor-preview-create-using-arm-client.md) 를 사용 하 여 연결 모니터를 만들 수 있습니다.
 
 테스트 그룹에 추가 하는 모든 소스, 대상 및 테스트 구성은 개별 테스트로 분류 됩니다. 원본 및 대상을 분할 하는 방법의 예는 다음과 같습니다.
 
@@ -151,7 +151,7 @@ Windows 컴퓨터용 Log Analytics 에이전트를 설치 하려면 [windows 용
 
 ### <a name="checks-in-a-test"></a>테스트 체크 인
 
-테스트 구성에서 선택한 프로토콜에 따라 연결 모니터 (미리 보기)는 원본-대상 쌍에 대 한 일련의 검사를 실행 합니다. 선택한 테스트 빈도에 따라 검사가 실행 됩니다.
+테스트 구성에서 선택한 프로토콜에 따라 연결 모니터는 원본-대상 쌍에 대 한 일련의 검사를 실행 합니다. 선택한 테스트 빈도에 따라 검사가 실행 됩니다.
 
 HTTP를 사용 하는 경우 서비스는 유효한 응답 코드를 반환 하는 HTTP 응답 수를 계산 합니다. PowerShell 및 CLI를 사용 하 여 유효한 응답 코드를 설정할 수 있습니다. 결과는 실패 한 검사의 백분율을 결정 합니다. RTT를 계산 하기 위해 서비스는 HTTP 호출 및 응답 사이의 시간을 측정 합니다.
 
@@ -164,14 +164,14 @@ TCP 또는 ICMP를 사용 하는 경우 서비스는 패킷 손실 비율을 계
 * **Pass** – 실패 한 검사 및 RTT의 백분율에 대 한 실제 값은 지정 된 임계값 내에 있습니다.
 * **Fail** – 실패 한 검사 또는 RTT의 백분율에 대 한 실제 값이 지정 된 임계값을 초과 했습니다. 임계값을 지정 하지 않으면 실패 한 검사의 백분율이 100 일 때 테스트가 실패 상태에 도달 합니다.
 * **경고** - 
-     * Threshold를 지정 하 고 연결 모니터 (미리 보기)가 임계값의 80%를 초과 하 여 검사를 수행 하지 못한 경우, 테스트는 경고로 표시 됩니다.
-     * 지정 된 임계값이 없으면 연결 모니터 (미리 보기)는 임계값을 자동으로 할당 합니다. 임계값을 초과 하면 테스트 상태가 경고로 변경 됩니다.TCP 또는 ICMP 테스트에서 라운드트립 시간에 대 한 임계값은 750msec입니다. 실패 한 검사 비율의 경우 임계값은 10%입니다. 
+     * Threshold를 지정 하 고 연결 모니터에서 임계값의 80%를 초과 하 여 검사 하는 데 실패 한 경우 테스트는 경고로 표시 됩니다.
+     * 지정 된 임계값이 없으면 연결 모니터에서 자동으로 임계값을 할당 합니다. 임계값을 초과 하면 테스트 상태가 경고로 변경 됩니다.TCP 또는 ICMP 테스트에서 라운드트립 시간에 대 한 임계값은 750msec입니다. 실패 한 검사 비율의 경우 임계값은 10%입니다. 
 * **비활성화**   – Log Analytics 작업 영역에 데이터가 없습니다.메트릭을 확인 합니다. 
 * **실행 중 아님**   – 테스트 그룹을 사용 하지 않도록 설정 하 여 사용 안 함  
 
 ### <a name="data-collection-analysis-and-alerts"></a>데이터 수집, 분석 및 경고
 
-연결 모니터 (미리 보기)가 수집 하는 데이터는 Log Analytics 작업 영역에 저장 됩니다. 연결 모니터를 만들 때이 작업 영역을 설정 합니다. 
+연결 모니터가 수집 하는 데이터는 Log Analytics 작업 영역에 저장 됩니다. 연결 모니터를 만들 때이 작업 영역을 설정 합니다. 
 
 모니터링 데이터는 Azure Monitor 메트릭에도 제공 됩니다. Log Analytics를 사용 하 여 원하는 기간 동안 모니터링 데이터를 유지할 수 있습니다. Azure Monitor은 기본적으로 30 일 동안만 메트릭을 저장 합니다. 
 
@@ -181,7 +181,7 @@ TCP 또는 ICMP를 사용 하는 경우 서비스는 패킷 손실 비율을 계
 
 모니터링 대시보드에는 구독, 지역, 타임 스탬프, 원본 및 대상 유형에 액세스할 수 있는 연결 모니터의 목록이 표시 됩니다.
 
-Network Watcher에서 연결 모니터 (미리 보기)로 이동 하는 경우 다음과 같은 방법으로 데이터를 볼 수 있습니다.
+Network Watcher에서 연결 모니터로 이동 하면 다음 방법으로 데이터를 볼 수 있습니다.
 
 * **연결 모니터** – 구독, 지역, 타임 스탬프, 원본 및 대상 유형에 대해 생성 된 모든 연결 모니터의 목록입니다. 이 보기는 기본값입니다.
 * **테스트 그룹** – 구독, 지역, 타임 스탬프, 원본 및 대상 유형에 대해 만들어진 모든 테스트 그룹의 목록입니다. 이러한 테스트 그룹은 연결 모니터를 기준으로 필터링 되지 않습니다.
@@ -197,20 +197,20 @@ Network Watcher에서 연결 모니터 (미리 보기)로 이동 하는 경우 �
 * **상태 기반 필터** – 연결 모니터, 테스트 그룹 또는 테스트의 상태별로 필터링 합니다. 다음 그림의 상자 2를 참조 하세요.
 * **경고 기반 필터** -연결 모니터 리소스에 대해 발생 하는 경고로 필터링 합니다. 다음 그림의 상자 3을 참조 하세요.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="연결 모니터 (미리 보기)에서 연결 모니터, 테스트 그룹 및 테스트의 뷰를 필터링 하는 방법을 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="연결 모니터, 테스트 그룹 및 테스트 모니터의 뷰를 필터링 하는 방법을 보여 주는 스크린샷 " lightbox="./media/connection-monitor-2-preview/cm-view.png":::
     
-예를 들어 연결 모니터 (미리 보기)에서 원본 IP가 10.192.64.56 인 모든 테스트를 확인 하려면 다음을 수행 합니다.
+예를 들어 연결 모니터의 모든 테스트에서 원본 IP가 10.192.64.56 인 모든 테스트를 확인 하려면 다음을 수행 합니다.
 1. **테스트** 를 위해 보기를 변경 합니다.
 1. 검색 필드에 *10.192.64.56* 을 입력 합니다.
 1. 최상위 수준 필터의 **범위** 에서 **원본** 을 선택 합니다.
 
-원본 IP가 10.192.64.56 인 연결 모니터 (미리 보기)에서 실패 한 테스트만 표시 하려면 다음을 수행 합니다.
+연결 모니터에서 원본 IP가 10.192.64.56 인 실패 한 테스트만 표시 하려면 다음을 수행 합니다.
 1. **테스트** 를 위해 보기를 변경 합니다.
 1. 상태 기반 필터에 대해 **실패** 를 선택 합니다.
 1. 검색 필드에 *10.192.64.56* 을 입력 합니다.
 1. 최상위 수준 필터의 **범위** 에서 **원본** 을 선택 합니다.
 
-연결 모니터 (미리 보기)에서 대상이 outlook.office365.com 실패 한 테스트만 표시 하려면 다음을 수행 합니다.
+연결 모니터에서 대상이 outlook.office365.com 인 실패 한 테스트만 표시 하려면 다음을 수행 합니다.
 1. 뷰를 **테스트** 로 변경 합니다.
 1. 상태 기반 필터에 대해 **실패** 를 선택 합니다.
 1. 검색 필드에 *outlook.office365.com* 를 입력 합니다.
@@ -265,9 +265,9 @@ Log Analytics를 사용 하 여 모니터링 데이터의 사용자 지정 보�
 
 #### <a name="metrics-in-azure-monitor"></a>Azure Monitor의 메트릭
 
-연결 모니터 (미리 보기) 환경 전에 만들어진 연결 모니터에서 4 가지 메트릭을 모두 사용할 수 있습니다 .% 프로브 실패, AverageRoundtripMs, ChecksFailedPercent (미리 보기) 및 RoundTripTimeMs (미리 보기). 연결 모니터 (미리 보기) 환경에서 만든 연결 모니터에서는 *(미리 보기)* 태그가 지정 된 메트릭에 대해서만 데이터를 사용할 수 있습니다.
+연결 모니터 환경 전에 만들어진 연결 모니터에서 4 가지 메트릭을 모두 사용할 수 있습니다 .% 프로브 실패, AverageRoundtripMs, ChecksFailedPercent (미리 보기) 및 RoundTripTimeMs (미리 보기). 연결 모니터 환경에서 만든 연결 모니터에서는 *(미리 보기)* 태그가 지정 된 메트릭에 대해서만 데이터를 사용할 수 있습니다.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="연결 모니터 (미리 보기)의 메트릭을 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="연결 모니터의 메트릭을 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 메트릭을 사용 하는 경우 리소스 종류를 Microsoft. Network/networkWatchers/connectionMonitors로 설정 합니다.
 
@@ -282,18 +282,18 @@ Log Analytics를 사용 하 여 모니터링 데이터의 사용자 지정 보�
 
 아래 방법을 사용 하 여 연결 모니터에 대 한 메트릭 경고를 만들 수 있습니다. 
 
-1. 연결 모니터 (미리 보기)에서 [Azure Portal를 사용 하 여](connection-monitor-preview-create-using-portal.md#) 연결 모니터를 만드는 동안 
-1. 대시보드에서 "경고 구성"을 사용 하 여 연결 모니터 (미리 보기) 사용 
+1. 연결 모니터에서 [Azure Portal를 사용 하 여](connection-monitor-preview-create-using-portal.md#) 연결 모니터를 만드는 동안 
+1. 대시보드에서 "경고 구성"을 사용 하 여 연결 모니터 
 1. Azure Monitor에서 Azure Monitor으로 경고를 만듭니다. 
-    1. 연결 모니터 (미리 보기)에서 만든 연결 모니터 리소스를 선택 합니다.
+    1. 연결 모니터에서 만든 연결 모니터 리소스를 선택 합니다.
     1. **메트릭이** 연결 모니터에 대 한 신호 유형으로 표시 되는지 확인 합니다.
     1. **조건 추가** 에서 **신호 이름** 에 대해 **checksfailedpercent (미리 보기)** 또는 **RoundTripTimeMs (미리 보기)** 를 선택 합니다.
     1. **신호 유형** 에서 **메트릭** 을 선택 합니다. 예를 들어 **Checksfailedpercent (미리 보기)** 를 선택 합니다.
     1. 메트릭에 대 한 모든 차원이 나열 됩니다. 차원 이름 및 차원 값을 선택 합니다. 예를 들어 **원본 주소** 를 선택 하 고 연결 모니터에 모든 원본의 IP 주소를 입력 합니다.
     1. **경고 논리** 에서 다음 세부 정보를 입력 합니다.
-        * **조건 형식** : **Static**
+        * **조건 형식**: **Static**
         * **조건** 및 **임계값**.
-        * **집계 세분성 및 평가 빈도** : 연결 모니터 (미리 보기)는 1 분 마다 데이터를 업데이트 합니다.
+        * **집계 세분성 및 평가 빈도**: 연결 모니터는 1 분 마다 데이터를 업데이트 합니다.
     1. **작업** 에서 작업 그룹을 선택 합니다.
     1. 경고 세부 정보를 제공 합니다.
     1. 경고 규칙을 만듭니다.
@@ -302,7 +302,7 @@ Log Analytics를 사용 하 여 모니터링 데이터의 사용자 지정 보�
 
 ## <a name="diagnose-issues-in-your-network"></a>네트워크에서 문제 진단
 
-연결 모니터 (미리 보기)를 사용 하면 연결 모니터와 네트워크에서 발생 하는 문제를 진단할 수 있습니다. 하이브리드 네트워크의 문제는 이전에 설치한 Log Analytics 에이전트에 의해 검색 됩니다. Azure의 문제는 Network Watcher 확장에 의해 검색 됩니다. 
+연결 모니터를 사용 하면 연결 모니터와 네트워크에서 발생 하는 문제를 진단할 수 있습니다. 하이브리드 네트워크의 문제는 이전에 설치한 Log Analytics 에이전트에 의해 검색 됩니다. Azure의 문제는 Network Watcher 확장에 의해 검색 됩니다. 
 
 네트워크 토폴로지의 Azure 네트워크에서 문제를 볼 수 있습니다.
 
@@ -348,5 +348,5 @@ Log Analytics를 사용 하 여 모니터링 데이터의 사용자 지정 보�
 
 ## <a name="next-steps"></a>다음 단계
     
-   * [Azure Portal를 사용 하 여 연결 모니터 (미리 보기)를 만드는 방법을](connection-monitor-preview-create-using-portal.md) 알아봅니다.  
-   * [ARMClient를 사용 하 여 연결 모니터 (미리 보기)를 만드는 방법](connection-monitor-preview-create-using-arm-client.md) 알아보기  
+   * [Azure Portal를 사용 하 여 연결 모니터를 만드는 방법](connection-monitor-preview-create-using-portal.md) 알아보기  
+   * [ARMClient를 사용 하 여 연결 모니터를 만드는 방법](connection-monitor-preview-create-using-arm-client.md) 알아보기  

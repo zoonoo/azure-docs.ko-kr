@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 133e6b533a3d87ef519d0f586ea59db1bbce28b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96be79a349478db7d0452cae1ff07ee1c48aaa3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83744491"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700090"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>확인 방법으로 Microsoft Authenticator 앱 설정
 
@@ -46,21 +46,26 @@ ms.locfileid: "83744491"
 
 조직 설정에 따라 인증 앱을 보안 정보 메서드 중 하나로 사용할 수 있습니다. Microsoft Authenticator 앱을 사용할 필요는 없으며 설정 과정에서 다른 앱을 선택할 수 있습니다. 단, 이 문서에서는 Microsoft Authenticator 앱을 사용합니다.
 
+>[!Important]
+> 5 개의 장치 또는 5 개의 하드웨어 토큰에 앱 Microsoft Authenticator 설치 하는 경우 여섯 번째를 설정할 수 없으며 다음과 같은 오류 메시지가 표시 될 수 있습니다.
+> 
+> **인증 앱이 5 개 또는 하드웨어 토큰이 이미 있기 때문에 Microsoft Authenticator를 설정할 수 없습니다. 인증자 앱 또는 하드웨어 토큰 중 하나를 삭제 하려면 관리자에 게 문의 하세요.**
+
 ### <a name="to-set-up-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 설정하려면
 
 1. 회사 또는 학교 계정에 로그인한 다음, https://myaccount.microsoft.com/ 페이지로 이동합니다.
 
     ![보안 정보 링크가 강조 표시된 내 프로필 페이지](media/security-info/securityinfo-myprofile-page.png)
 
-2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보**를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가**를 선택합니다.
+2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보** 를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가** 를 선택합니다.
 
     ![메서드 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. **메서드 추가** 페이지의 드롭다운 목록에서 **Authenticator 앱**을 선택한 다음, **추가**를 선택합니다.
+3. **메서드 추가** 페이지의 드롭다운 목록에서 **Authenticator 앱** 을 선택한 다음, **추가** 를 선택합니다.
 
     ![Authenticator 앱이 선택된 상태에서 메서드 상자 추가](media/security-info/securityinfo-myprofile-addauthapp.png)
 
-4. **앱을 받고 시작하기** 페이지에서 **지금 다운로드**를 선택하여 Microsoft Authenticator 앱을 모바일 디바이스에 다운로드하여 설치하고, **다음**을 선택합니다.
+4. **앱을 받고 시작하기** 페이지에서 **지금 다운로드** 를 선택하여 Microsoft Authenticator 앱을 모바일 디바이스에 다운로드하여 설치하고, **다음** 을 선택합니다.
 
     앱을 다운로드하여 설치하는 방법에 대한 자세한 내용은 [Microsoft Authenticator 앱 다운로드 및 설치](user-help-auth-app-download-install.md)를 참조하세요.
 
@@ -69,18 +74,18 @@ ms.locfileid: "83744491"
    > [!Note]
    > Microsoft Authenticator 앱 이외의 인증 앱을 사용하려면 **다른 인증 앱 사용** 링크를 선택합니다.
    >
-   > 조직에서 인증 앱 이외의 다른 메서드를 선택할 수 있게 하려면 **다른 메서드 설정 링크**를 선택하면 됩니다.
+   > 조직에서 인증 앱 이외의 다른 메서드를 선택할 수 있게 하려면 **다른 메서드 설정 링크** 를 선택하면 됩니다.
 
 5. 모바일 디바이스에서 Microsoft Authenticator 앱을 설정하는 동안 **계정 설정** 페이지를 열어 둡니다.
 
     ![인증 앱 설정 페이지](media/security-info/securityinfo-myprofile-setupauthapp.png)
 
-6. Microsoft Authenticator 앱을 열고, 알림을 허용하도록 선택하고(프롬프트되는 경우), 오른쪽 위에 있는 **사용자 지정 및 제어** 아이콘에서 **계정 추가**를 선택한 다음, **회사 또는 학교 계정**을 선택합니다.
+6. Microsoft Authenticator 앱을 열고, 알림을 허용하도록 선택하고(프롬프트되는 경우), 오른쪽 위에 있는 **사용자 지정 및 제어** 아이콘에서 **계정 추가** 를 선택한 다음, **회사 또는 학교 계정** 을 선택합니다.
 
     >[!Note]
-    >Microsoft Authenticator 앱을 처음으로 설정하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지(iOS) 아니면 앱에서 사진을 촬영하고 비디오를 녹화할 수 있도록 허용할지(Android) 묻는 메시지를 받을 수 있습니다. 인증자 앱이 카메라에 액세스하여 다음 단계에서 QR 코드의 사진을 찍을 수 있도록 **허용**을 선택해야 합니다. 카메라를 허용하지 않는 경우에도 여전히 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가해야 합니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
+    >Microsoft Authenticator 앱을 처음으로 설정하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지(iOS) 아니면 앱에서 사진을 촬영하고 비디오를 녹화할 수 있도록 허용할지(Android) 묻는 메시지를 받을 수 있습니다. 인증자 앱이 카메라에 액세스하여 다음 단계에서 QR 코드의 사진을 찍을 수 있도록 **허용** 을 선택해야 합니다. 카메라를 허용하지 않는 경우에도 여전히 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가해야 합니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
 
-7. 컴퓨터에서 **계정 설정** 페이지로 돌아가서 **다음**을 선택합니다.
+7. 컴퓨터에서 **계정 설정** 페이지로 돌아가서 **다음** 을 선택합니다.
 
     **QR 코드 스캔** 페이지가 나타납니다.
 
@@ -90,13 +95,13 @@ ms.locfileid: "83744491"
 
     인증 앱은 추가 정보 없이도 회사 또는 학교 계정을 성공적으로 추가해야 합니다. 하지만 QR 코드 판독기에서 코드를 읽을 수 없으면 **QR 코드를 스캔할 수 없습니까?** 링크를 선택하고, Microsoft Authenticator 앱에 코드와 URL을 수동으로 입력하면 됩니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
 
-9. 컴퓨터의 **QR 코드 스캔** 페이지에서 **다음**을 선택합니다.
+9. 컴퓨터의 **QR 코드 스캔** 페이지에서 **다음** 을 선택합니다.
 
     계정을 테스트하기 위한 알림이 모바일 디바이스의 Microsoft Authenticator 앱으로 보내집니다.
 
     ![인증 앱으로 계정 테스트](media/security-info/securityinfo-myprofile-tryitauthapp.png)
 
-10. Microsoft Authenticator 앱에서 알림을 승인하고, **다음**을 선택합니다.
+10. Microsoft Authenticator 앱에서 알림을 승인하고, **다음** 을 선택합니다.
 
      ![앱과 계정 연결에 대한 성공 알림](media/security-info/securityinfo-myprofile-successauthapp.png)
 
@@ -115,9 +120,9 @@ ms.locfileid: "83744491"
 
     ![보안 정보에서 인증 앱을 삭제하는 링크](media/security-info/securityinfo-myprofile-deleteauthapp.png)
 
-2. 확인 상자에서 **예**를 선택하여 인증 앱을 삭제합니다. 인증 앱이 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다. 인증 앱이 기본 메서드인 경우, 사용 가능한 다른 메서드로 기본값이 바뀝니다.
+2. 확인 상자에서 **예** 를 선택하여 인증 앱을 삭제합니다. 인증 앱이 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다. 인증 앱이 기본 메서드인 경우, 사용 가능한 다른 메서드로 기본값이 바뀝니다.
 
-3. 모바일 디바이스에서 인증 앱을 열고 **계정 편집**을 선택한 다음, 인증 앱에서 회사 또는 학교 계정을 삭제합니다.
+3. 모바일 디바이스에서 인증 앱을 열고 **계정 편집** 을 선택한 다음, 인증 앱에서 회사 또는 학교 계정을 삭제합니다.
 
     2단계 인증 및 암호 재설정 요청을 위한 인증 앱에서 계정이 완전히 삭제됩니다.
 
@@ -131,11 +136,11 @@ ms.locfileid: "83744491"
 
     ![기본 로그인 메서드에 대한 링크 변경](media/security-info/securityinfo-myprofile-changedefaultauthapp.png)
 
-2. 사용 가능한 메서드 드롭다운 목록에서 **Microsoft Authenticator-알림**을 선택합니다. Microsoft Authenticator 앱을 사용하지 않으려면 **인증 앱 또는 하드웨어 토큰** 옵션을 선택합니다.
+2. 사용 가능한 메서드 드롭다운 목록에서 **Microsoft Authenticator-알림** 을 선택합니다. Microsoft Authenticator 앱을 사용하지 않으려면 **인증 앱 또는 하드웨어 토큰** 옵션을 선택합니다.
 
     ![기본 로그인 메서드 선택](media/security-info/securityinfo-myprofile-defaultauthapp.png)
 
-3. **확인**을 선택합니다.
+3. **확인** 을 선택합니다.
 
     로그인에 사용되는 기본 메서드가 Microsoft Authenticator 앱으로 변경됩니다.
 

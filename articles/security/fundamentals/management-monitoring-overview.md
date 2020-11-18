@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0e74b540610d3b6520f4c8e25ca2df7bf628706f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3520cbafc0e9eebfd6057fe92579a45873b25734
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410337"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698761"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
 이 문서에서는 Azure Cloud Services 및 Virtual Machines의 관리 및 모니터링을 지원하기 위해 Azure에서 제공하는 보안 기능 및 서비스에 대한 개요를 제공합니다.
 
-## <a name="role-based-access-control"></a>역할 기반 Access Control
+## <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 
-RBAC(역할 기반 액세스 제어)는 Azure 리소스에 대한 세밀한 액세스 관리를 제공합니다. RBAC를 사용하면 사용자에게 해당 작업을 수행하는 데 필요한 정도의 액세스 권한만 부여할 수 있습니다. 또한 RBAC는 직원 퇴사 시 클라우드의 리소스에 대한 액세스 권한을 잃도록 해줄 수도 있습니다.
+Azure RBAC (역할 기반 액세스 제어)는 Azure 리소스에 대 한 자세한 액세스 관리를 제공 합니다. Azure RBAC를 사용 하 여 사용자에 게 작업을 수행 하는 데 필요한 액세스 권한만 부여할 수 있습니다. Azure RBAC를 사용 하 여 사용자가 조직을 떠날 때 클라우드의 리소스에 대 한 액세스 권한을 잃게 되도록 할 수도 있습니다.
 
 자세한 정보:
 
-* [RBAC의 Active Directory 팀 블로그](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
+* [Azure RBAC의 Active Directory 팀 블로그](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>맬웨어 방지
