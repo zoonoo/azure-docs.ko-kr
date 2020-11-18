@@ -2,15 +2,15 @@
 title: 템플릿 사양 개요
 description: 템플릿 사양을 만들고 조직의 다른 사용자와 공유 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 11/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: b0dfc41bddccc6b5c5c924168044cffc0aa5e2b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83d5a210a5af538173ad0ca5e4c718363639c40a
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728474"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747403"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Azure Resource Manager 템플릿 사양 (미리 보기)
 
@@ -21,7 +21,7 @@ ms.locfileid: "91728474"
 템플릿 사양을 배포 하려면 PowerShell, Azure CLI, Azure Portal, REST 및 기타 지원 되는 Sdk와 클라이언트와 같은 표준 Azure 도구를 사용 합니다. 템플릿과 동일한 명령을 사용 합니다.
 
 > [!NOTE]
-> 템플릿 사양은 현재 미리 보기 상태입니다. 이를 사용하려면 [대기 목록에 등록](https://aka.ms/templateSpecOnboarding)해야 합니다.
+> 템플릿 사양은 현재 미리 보기 상태입니다. 이 버전을 사용 하려면 최신 버전의 PowerShell 또는 Azure CLI를 설치 해야 합니다. Azure PowerShell [버전 5.0.0](/powershell/azure/install-az-ps)이상을 사용 합니다. Azure CLI [버전 2.14.2](/cli/azure/install-azure-cli)이상을 사용 합니다.
 
 ## <a name="why-use-template-specs"></a>템플릿 사양을 사용 하는 이유
 
@@ -294,7 +294,7 @@ az deployment group create \
 
 예를 들어 네트워킹 리소스를 배포 하는 템플릿 사양 및 저장소 리소스를 배포 하는 다른 템플릿 사양을 만들 수 있습니다. ARM 템플릿에서 네트워킹 또는 저장소 리소스를 구성 해야 하는 경우 언제 든 지 이러한 두 템플릿 사양에 연결할 수 있습니다.
 
-다음 예제는 이전 예제와 비슷하지만 속성을 사용 하 여 `id` `relativePath` 로컬 템플릿에 연결 하는 속성이 아닌 템플릿 사양에 연결 합니다. `2020-06-01`배포 리소스에 대 한 API 버전을 사용 합니다. 이 예제에서 템플릿 사양은 **templateSpecsRG**이라는 리소스 그룹에 있습니다.
+다음 예제는 이전 예제와 비슷하지만 속성을 사용 하 여 `id` `relativePath` 로컬 템플릿에 연결 하는 속성이 아닌 템플릿 사양에 연결 합니다. `2020-06-01`배포 리소스에 대 한 API 버전을 사용 합니다. 이 예제에서 템플릿 사양은 **templateSpecsRG** 이라는 리소스 그룹에 있습니다.
 
 ```json
 {

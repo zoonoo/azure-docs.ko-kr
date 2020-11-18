@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 67e1f1dff43939ce7ef279db57bee4b18bd12dc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45393f116149f6cf16763d2d7033f8425df235bf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213945"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832996"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Blob storage 트리거
 
@@ -20,6 +20,16 @@ Blob Storage 트리거는 신규 또는 업데이트된 Blob를 검색할 때 �
 Azure Blob storage 트리거에는 범용 저장소 계정이 필요 합니다. [계층적 네임 스페이스](../storage/blobs/data-lake-storage-namespace.md) 를 사용 하는 저장소 V2 계정도 지원 됩니다. Blob 전용 계정을 사용 하거나 응용 프로그램에 특수 한 요구 사항이 있는 경우이 트리거 사용에 대 한 대안을 검토 합니다.
 
 설정 및 구성 세부 정보에 관한 내용은 [개요](./functions-bindings-storage-blob.md)를 참조하세요.
+
+## <a name="polling"></a>폴링
+
+폴링은 로그 검사와 정기적인 컨테이너 검색 실행 간의 하이브리드 방식으로 작동 합니다. Blob은 간격 간에 사용 되는 연속 토큰을 사용 하 여 한 번에 1만 그룹으로 스캔 됩니다.
+
+> [!WARNING]
+> 또한 [스토리지 로그는 "최선을 다해" 생성됩니다](/rest/api/storageservices/About-Storage-Analytics-Logging). 하지만 모든 이벤트가 캡처되는 것은 아닙니다. 경우에 따라 로그가 누락될 수 있습니다.
+> 
+> 더 빠르거나 안정적인 Blob 처리가 필요한 경우 Blob을 만들 때 [큐 메시지](../storage/queues/storage-dotnet-how-to-use-queues.md)를 만드는 것이 좋습니다. 그런 다음 Blob 트리거 대신 [큐 트리거](functions-bindings-storage-queue.md)를 사용하여 Blob을 처리합니다. 다른 옵션은 Event Grid를 사용하는 겻입니다. [Event Grid를 사용하여 업로드된 이미지 크기 자동 조정](../event-grid/resize-images-on-storage-blob-upload-event.md) 자습서를 참조하세요.
+>
 
 ## <a name="alternatives"></a>대안
 
@@ -59,7 +69,7 @@ blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-다음 예에서는 바인딩을 사용 하는 파일 및 코드 * 의function.js* 에 있는 blob 트리거 바인딩을 보여 줍니다. 함수는 컨테이너에서 blob을 추가 하거나 업데이트할 때 로그를 기록 합니다 `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+다음 예에서는 바인딩을 사용 하는 파일 및 코드 *의function.js* 에 있는 blob 트리거 바인딩을 보여 줍니다. 함수는 컨테이너에서 blob을 추가 하거나 업데이트할 때 로그를 기록 합니다 `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -297,7 +307,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Where를 사용 하 여 blob 데이터 `context.bindings.<NAME>` `<NAME>` 에 액세스 합니다. 여기서는 *function.js*에 정의 된 값과 일치 합니다.
+Where를 사용 하 여 blob 데이터 `context.bindings.<NAME>` `<NAME>` 에 액세스 합니다. 여기서는 *function.js* 에 정의 된 값과 일치 합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -311,7 +321,7 @@ Where를 사용 하 여 blob 데이터 `context.bindings.<NAME>` `<NAME>` 에 �
 
 ## <a name="blob-name-patterns"></a>Blob 이름 패턴
 
-*function.json*의 `path` 속성 또는 `BlobTrigger` 특성 생성자에서 Blob 이름 패턴을 지정할 수 있습니다. 이름 패턴은 [필터 또는 바인딩 식](./functions-bindings-expressions-patterns.md)일 수 있습니다. 다음 섹션에서는 예제를 제공합니다.
+*function.json* 의 `path` 속성 또는 `BlobTrigger` 특성 생성자에서 Blob 이름 패턴을 지정할 수 있습니다. 이름 패턴은 [필터 또는 바인딩 식](./functions-bindings-expressions-patterns.md)일 수 있습니다. 다음 섹션에서는 예제를 제공합니다.
 
 ### <a name="get-file-name-and-extension"></a>파일 이름 및 확장명 가져오기
 
@@ -321,7 +331,7 @@ Where를 사용 하 여 blob 데이터 `context.bindings.<NAME>` `<NAME>` 에 �
 "path": "input/{blobname}.{blobextension}",
 ```
 
-Blob이 *original-Blob1.txt*인 경우 함수 코드에 있는 `blobname` 및 `blobextension` 변수의 값은 *original-Blob1* 및 *txt*입니다.
+Blob이 *original-Blob1.txt* 인 경우 함수 코드에 있는 `blobname` 및 `blobextension` 변수의 값은 *original-Blob1* 및 *txt* 입니다.
 
 ### <a name="filter-on-blob-name"></a>Blob 이름에 대한 필터링
 
@@ -331,7 +341,7 @@ Blob이 *original-Blob1.txt*인 경우 함수 코드에 있는 `blobname` 및 `b
 "path": "input/original-{name}",
 ```
 
-Blob 이름이 *original-Blob1.txt*인 경우 함수 코드에 있는 `name` 변수의 값은 `Blob1.txt`입니다.
+Blob 이름이 *original-Blob1.txt* 인 경우 함수 코드에 있는 `name` 변수의 값은 `Blob1.txt`입니다.
 
 ### <a name="filter-on-file-type"></a>파일 형식에 대한 필터링
 
@@ -349,7 +359,7 @@ Blob 이름이 *original-Blob1.txt*인 경우 함수 코드에 있는 `name` 변
 "path": "images/{{20140101}}-{name}",
 ```
 
-Blob의 이름이 * {20140101}-soundfile.mp3*이면 `name` 함수 코드의 변수 값이 *soundfile.mp3*됩니다.
+Blob의 이름이 *{20140101}-soundfile.mp3* 이면 `name` 함수 코드의 변수 값이 *soundfile.mp3* 됩니다.
 
 ## <a name="metadata"></a>메타데이터
 
@@ -382,11 +392,11 @@ Python에서는 메타 데이터를 사용할 수 없습니다.
 
 ## <a name="blob-receipts"></a>Blob 수신 확인
 
-Azure Functions 런타임은 동일한 새 Blob 또는 업데이트된 Blob에 대해 Blob 트리거 함수가 두 번 이상 호출되지 않도록 합니다. 지정된 Blob 버전이 처리되었는지 확인하려면 *Blob 수신 확인*을 유지 관리합니다.
+Azure Functions 런타임은 동일한 새 Blob 또는 업데이트된 Blob에 대해 Blob 트리거 함수가 두 번 이상 호출되지 않도록 합니다. 지정된 Blob 버전이 처리되었는지 확인하려면 *Blob 수신 확인* 을 유지 관리합니다.
 
-Azure Functions는 사용자 함수 앱에서 사용하는(`AzureWebJobsStorage` 앱 설정에서 지정됨) Azure Storage 계정의 *azure-webjobs-hosts*라는 컨테이너에 Blob 수신 확인을 저장합니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
+Azure Functions는 사용자 함수 앱에서 사용하는(`AzureWebJobsStorage` 앱 설정에서 지정됨) Azure Storage 계정의 *azure-webjobs-hosts* 라는 컨테이너에 Blob 수신 확인을 저장합니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
 
-* 트리거된 함수 ("* &lt; 함수 앱 이름>* 입니다. 역함수. * &lt; 함수 이름>*"(예:" Myfunctionapp. copyblob ")
+* 트리거된 함수 ("*&lt; 함수 앱 이름>* 입니다. 역함수. *&lt; 함수 이름>*"(예:" Myfunctionapp. copyblob ")
 * 컨테이너 이름
 * Blob 유형("BlockBlob" 또는 "PageBlob")
 * Blob 이름
@@ -398,9 +408,9 @@ Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 
 지정된 Blob에 대한 Blob 트리거 함수가 실패한 경우 Azure Functions는 기본적으로 총 5번 해당 함수를 다시 시도합니다.
 
-5번 모두 실패한 경우 Azure Functions는 *webjobs-blobtrigger-poison*이라는 스토리지 큐에 메시지를 추가합니다. 최대 다시 시도 횟수는 구성 가능합니다. 동일한 MaxDequeueCount 설정이 포이즌 Blob 처리와 포이즌 큐 메시지 처리에 사용됩니다. 포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
+5번 모두 실패한 경우 Azure Functions는 *webjobs-blobtrigger-poison* 이라는 스토리지 큐에 메시지를 추가합니다. 최대 다시 시도 횟수는 구성 가능합니다. 동일한 MaxDequeueCount 설정이 포이즌 Blob 처리와 포이즌 큐 메시지 처리에 사용됩니다. 포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
 
-* FunctionId (형식 * &lt; 함수 앱 이름>* 합니다. 역함수. * &lt; 함수 이름>*)
+* FunctionId (형식 *&lt; 함수 앱 이름>* 합니다. 역함수. *&lt; 함수 이름>*)
 * BlobType("BlockBlob" 또는 "PageBlob")
 * ContainerName
 * BlobName
@@ -413,16 +423,6 @@ Blob 트리거는 큐를 내부적으로 사용하므로 동시 함수 호출의
 [소비 계획은](functions-scale.md#how-the-consumption-and-premium-plans-work) 하나의 VM (가상 머신)에서 1.5 GB의 메모리로 함수 앱을 제한 합니다. 메모리는 각각 동시에 함수 인스턴스를 실행하여 함수 런타임 자체에서 사용됩니다. Blob 트리거된 함수에서 전체 Blob을 메모리로 로드하는 경우 Blob에 대해 해당 함수에서 사용되는 최대 메모리는 24 * 최대 Blob 크기입니다. 예를 들어 세 개의 Blob 트리거된 함수 및 기본 설정이 있는 함수 앱은 3*24 = 72 함수 호출의 최대 VM당 동시성을 갖습니다.
 
 JavaScript 및 Java 함수는 전체 blob을 메모리로 로드 하 고 c # 함수는, 또는에 바인딩할 경우이를 수행 `string` `Byte[]` 합니다.
-
-## <a name="polling"></a>폴링
-
-폴링은 로그 검사와 정기적인 컨테이너 검색 실행 간의 하이브리드 방식으로 작동 합니다. Blob은 간격 간에 사용 되는 연속 토큰을 사용 하 여 한 번에 1만 그룹으로 스캔 됩니다.
-
-> [!WARNING]
-> 또한 [스토리지 로그는 "최선을 다해" 생성됩니다](/rest/api/storageservices/About-Storage-Analytics-Logging). 하지만 모든 이벤트가 캡처되는 것은 아닙니다. 경우에 따라 로그가 누락될 수 있습니다.
-> 
-> 더 빠르거나 안정적인 Blob 처리가 필요한 경우 Blob을 만들 때 [큐 메시지](../storage/queues/storage-dotnet-how-to-use-queues.md)를 만드는 것이 좋습니다. 그런 다음 Blob 트리거 대신 [큐 트리거](functions-bindings-storage-queue.md)를 사용하여 Blob을 처리합니다. 다른 옵션은 Event Grid를 사용하는 겻입니다. [Event Grid를 사용하여 업로드된 이미지 크기 자동 조정](../event-grid/resize-images-on-storage-blob-upload-event.md) 자습서를 참조하세요.
->
 
 ## <a name="next-steps"></a>다음 단계
 

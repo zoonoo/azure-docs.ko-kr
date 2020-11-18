@@ -3,13 +3,13 @@ title: Azure Functions에 대 한 모니터링 구성
 description: 모니터링을 위해 함수 앱을 Application Insights에 연결 하 고 데이터 수집을 구성 하는 방법에 대해 알아봅니다.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: contperfq2
-ms.openlocfilehash: 50705eeedf9c985a053600a8c0b27c823231e9a3
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperfq2, devx-track-azurecli
+ms.openlocfilehash: f5b1b00c534abf1e7f82d2aca69dd4763b40d5ad
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217187"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833081"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Azure Functions에 대 한 모니터링을 구성 하는 방법
 
@@ -24,11 +24,11 @@ Azure Functions는 Application Insights와 통합 되어 함수 앱을 보다 �
 
 ## <a name="configure-categories"></a>범주 구성
 
-Azure Functions 로거에는 모든 로그에 대한 *범주*가 포함되어 있습니다. 범주는 런타임 코드 또는 함수 코드의 어느 부분이 로그를 작성했는지를 나타냅니다. 버전 1. x 이상 버전 마다 범주가 다릅니다. 다음 차트에는 런타임에서 만드는 주요 로그 범주가 설명되어 있습니다. 
+Azure Functions 로거에는 모든 로그에 대한 *범주* 가 포함되어 있습니다. 범주는 런타임 코드 또는 함수 코드의 어느 부분이 로그를 작성했는지를 나타냅니다. 버전 1. x 이상 버전 마다 범주가 다릅니다. 다음 차트에는 런타임에서 만드는 주요 로그 범주가 설명되어 있습니다. 
 
 # <a name="v2x"></a>[v2. x +](#tab/v2)
 
-| 범주 | 테이블 | Description |
+| 범주 | 테이블 | 설명 |
 | ----- | ----- | ----- |
 | **`Function.<YOUR_FUNCTION_NAME>`** | **관계도**| 일부 서비스의 경우 종속성 데이터가 자동으로 수집 됩니다. 성공적인 실행의 경우 이러한 로그는 수준에 있습니다 `Information` . 자세히 알아보려면 [종속성](functions-monitoring.md#dependencies)을 참조 하세요. 예외는 수준에서 기록 됩니다 `Error` . 또한 런타임은 `Warning` 큐 메시지가 [포이즌 큐](functions-bindings-storage-queue-trigger.md#poison-messages)로 전송 되는 경우와 같은 수준 로그를 만듭니다. | 
 | **`Function.<YOUR_FUNCTION_NAME>`** | **customMetrics**<br/>**customEvents** | C # 및 JavaScript Sdk를 사용 하면 사용자 지정 메트릭을 수집 하 고 사용자 지정 이벤트를 로그할 수 있습니다. 자세히 알아보려면 [사용자 지정 원격 분석 데이터](functions-monitoring.md#custom-telemetry-data)를 참조 하세요.|
@@ -228,43 +228,43 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 ## <a name="enable-application-insights-integration"></a>Application Insights 통합 사용
 
-함수 앱이 Application Insights로 데이터를 보내려면 Application Insights 리소스의 계측 키를 알고 있어야 합니다. 이 키는 **APPINSIGHTS_INSTRUMENTATIONKEY**라는 앱 설정에 있어야 합니다.
+함수 앱이 Application Insights로 데이터를 보내려면 Application Insights 리소스의 계측 키를 알고 있어야 합니다. 이 키는 **APPINSIGHTS_INSTRUMENTATIONKEY** 라는 앱 설정에 있어야 합니다.
 
 [Azure Portal](functions-create-first-azure-function.md)의 명령줄에서 [Azure Functions Core Tools](functions-create-first-azure-function-azure-cli.md)를 사용하여 또는 [Visual Studio Code](functions-create-first-function-vs-code.md)를 사용하여 함수 앱을 만들 때 Application Insights 통합이 기본적으로 사용하도록 설정됩니다. Application Insights 리소스는 함수 앱과 동일한 이름을 가지며, 동일한 지역 또는 가장 가까운 지역에 생성됩니다.
 
 ### <a name="new-function-app-in-the-portal"></a>포털의 새 함수 앱
 
-생성되는 Application Insights 리소스를 검토하려면 해당 리소스를 선택하여 **Application Insights** 창을 확장합니다. **새 리소스 이름**을 변경하거나 데이터를 저장하려는 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에서 다른 **위치**를 선택합니다.
+생성되는 Application Insights 리소스를 검토하려면 해당 리소스를 선택하여 **Application Insights** 창을 확장합니다. **새 리소스 이름** 을 변경하거나 데이터를 저장하려는 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에서 다른 **위치** 를 선택합니다.
 
 ![함수 앱을 만들 때 Application Insights 사용](media/functions-monitoring/enable-ai-new-function-app.png)
 
-**만들기**를 선택하면 함수 앱을 사용하여 Application Insights 리소스가 생성되고, 이 리소스는 애플리케이션 설정에서 `APPINSIGHTS_INSTRUMENTATIONKEY`로 설정됩니다. 모든 준비가 끝났습니다.
+**만들기** 를 선택하면 함수 앱을 사용하여 Application Insights 리소스가 생성되고, 이 리소스는 애플리케이션 설정에서 `APPINSIGHTS_INSTRUMENTATIONKEY`로 설정됩니다. 모든 준비가 끝났습니다.
 
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>기존 함수 앱에 추가 
 
 함수 앱을 사용 하 여 Application Insights 리소스를 만들지 않은 경우 다음 단계를 사용 하 여 리소스를 만듭니다. 그런 다음, 함수 앱에서 해당 리소스의 계측 키를[애플리케이션 설정](functions-how-to-use-azure-function-app-settings.md#settings)으로 추가할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **함수 앱**을 검색 하 고 선택한 다음 함수 앱을 선택 합니다. 
+1. [Azure Portal](https://portal.azure.com)에서 **함수 앱** 을 검색 하 고 선택한 다음 함수 앱을 선택 합니다. 
 
 1. 창 상단에 있는 **Application Insights가 구성되지 않음** 배너를 선택합니다. 이 배너가 표시되지 않으면 앱이 이미 Application Insights를 사용하도록 설정되어 있을 수 있습니다.
 
     :::image type="content" source="media/configure-monitoring/enable-application-insights.png" alt-text="포털에서 Application Insights를 사용하도록 설정":::
 
-1. **리소스 변경**을 펼치고 다음 표에 지정된 설정을 사용하여 Application Insights 리소스를 만듭니다.  
+1. **리소스 변경** 을 펼치고 다음 표에 지정된 설정을 사용하여 Application Insights 리소스를 만듭니다.  
 
     | 설정      | 제안 값  | 설명                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **새 리소스 이름** | 고유한 앱 이름 | 함수 앱과 동일한 이름을 사용하는 것이 가장 간단하며, 구독 내에서 고유해야 합니다. | 
     | **위치** | 서유럽 | 가능하다면 함수 앱과 동일한 [지역](https://azure.microsoft.com/regions/)을 사용하거나 해당 지역에 근접한 지역을 사용합니다. |
 
-    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="포털에서 Application Insights를 사용하도록 설정":::
+    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Application Insights 리소스 만들기":::
 
-1. **적용**을 선택합니다. 
+1. **적용** 을 선택합니다. 
 
    함수 앱과 동일한 리소스 그룹 및 구독에 Application Insights 리소스가 만들어집니다. 리소스를 만든 후 Application Insights 창을 닫습니다.
 
-1. 함수 앱의 **설정**에서 **구성**을 선택한 다음, **애플리케이션 설정**을 선택합니다. `APPINSIGHTS_INSTRUMENTATIONKEY`라는 설정이 표시되면 Azure에서 실행 중인 함수 앱에 대해 Application Insights 통합이 활성화됩니다. 어떤 이유로이 설정이 존재 하지 않는 경우 Application Insights 계측 키를 사용 하 여 값으로 추가 합니다.
+1. 함수 앱의 **설정** 에서 **구성** 을 선택한 다음, **애플리케이션 설정** 을 선택합니다. `APPINSIGHTS_INSTRUMENTATIONKEY`라는 설정이 표시되면 Azure에서 실행 중인 함수 앱에 대해 Application Insights 통합이 활성화됩니다. 어떤 이유로이 설정이 존재 하지 않는 경우 Application Insights 계측 키를 사용 하 여 값으로 추가 합니다.
 
 > [!NOTE]
 > Functions 초기 버전에서는 기본 제공 모니터링을 사용했지만, 더 이상 권장하지 않습니다. 또한 이러한 함수 앱에 Application Insights 통합을 사용하도록 설정할 때 [기본 제공 로깅을 사용하지 않도록 설정](#disable-built-in-logging)해야 합니다.  

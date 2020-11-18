@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 8f1ea67605be3aee6257c293aea3db617d885645
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3174dbd36d9bb39ce606ec12f88397f795e91526
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370256"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832435"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Blob 인덱스 태그를 사용 하 여 Azure Blob 데이터 관리 및 찾기 (미리 보기)
 
@@ -44,7 +44,7 @@ Blob 인덱스를 사용 하는 방법에 대 한 예제를 시작 하려면 [bl
 - *logs/2020/01/01/logfile.txt*
 
 
-이러한 blob은 *컨테이너/가상 폴더/b*s n 이름의 접두사를 사용 하 여 분리 됩니다. 이러한 다섯 개의 blob에 대 한의 인덱스 태그 특성을 설정 `Project = Contoso` 하 여 현재 접두사 조직을 유지 하면서 함께 범주화 할 수 있습니다. 인덱스 태그를 추가 하면 인덱스를 사용 하 여 데이터를 필터링 하 고 찾는 기능을 노출 하 여 데이터를 이동할 필요가 없습니다.
+이러한 blob은 *컨테이너/가상 폴더/b* s n 이름의 접두사를 사용 하 여 분리 됩니다. 이러한 다섯 개의 blob에 대 한의 인덱스 태그 특성을 설정 `Project = Contoso` 하 여 현재 접두사 조직을 유지 하면서 함께 범주화 할 수 있습니다. 인덱스 태그를 추가 하면 인덱스를 사용 하 여 데이터를 필터링 하 고 찾는 기능을 노출 하 여 데이터를 이동할 필요가 없습니다.
 
 ## <a name="setting-blob-index-tags"></a>Blob 인덱스 태그 설정
 
@@ -164,7 +164,7 @@ Blob 인덱스 태그는 blob 데이터를 분류, 관리 및 검색 하는 데 
 
 태그가 지정 된 데이터에 대 한 작업을 적용 하기 위해 수명 주기 규칙에 있는 독립 실행형 필터 집합으로 blob 인덱스 일치를 설정할 수 있습니다. 또는 접두사와 blob 인덱스를 결합 하 여 보다 구체적인 데이터 집합을 일치 시킬 수 있습니다. 수명 주기 규칙에 여러 필터를 지정 하면 논리적 AND 연산이 적용 됩니다. 작업은 *모든* 필터 조건이 일치 하는 경우에만 적용 됩니다.
 
-다음 샘플 수명 주기 관리 규칙은 *videofiles*라는 컨테이너의 블록 blob에 적용 됩니다. 이 규칙은 데이터가의 blob 인덱스 태그 조건과 일치 하는 경우에만 저장소를 보관 하도록 blob을 계층화 합니다 `"Status" == 'Processed' AND "Source" == 'RAW'` .
+다음 샘플 수명 주기 관리 규칙은 *videofiles* 라는 컨테이너의 블록 blob에 적용 됩니다. 이 규칙은 데이터가의 blob 인덱스 태그 조건과 일치 하는 경우에만 저장소를 보관 하도록 blob을 계층화 합니다 `"Status" == 'Processed' AND "Source" == 'RAW'` .
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -327,6 +327,7 @@ az provider register --namespace 'Microsoft.Storage'
 - 필터링이 단일 컨테이너로 범위가 지정 된 경우 `@container` 필터 식의 모든 인덱스 태그가 같음 검사 (키 = 값) 인 경우에만를 전달할 수 있습니다.
 - 조건에 범위 연산자를 사용 하는 경우 `AND` 동일한 인덱스 태그 키 이름 ()만 지정할 수 있습니다 `"Age" > '013' AND "Age" < '100'` .
 - 버전 관리 및 blob 인덱스는 지원 되지 않습니다. Blob 인덱스 태그는 버전에 대해 유지 되지만 blob 인덱스 엔진에는 전달 되지 않습니다.
+- 인덱스 태그가 인덱싱되어 있는지 여부를 확인 하는 API는 없습니다.
 - 계정 장애 조치 (failover)는 지원 되지 않습니다. 장애 조치 (failover) 후 blob 인덱스가 제대로 업데이트 되지 않을 수 있습니다.
 - 수명 주기 관리는 blob 인덱스 일치를 사용 하는 같음 검사만 지원 합니다.
 - `Copy Blob` 원본 blob의 blob 인덱스 태그를 새 대상 blob에 복사 하지 않습니다. 복사 작업 중에 대상 blob에 적용 하려는 태그를 지정할 수 있습니다.

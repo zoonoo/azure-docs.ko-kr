@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 1eed12593168975b1dfda6e51b07b256cbd0c246
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f01cd6cd8c5f89206888f5123f7b14a524c9f40f
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92145800"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94748495"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics를 사용하여 Avro 데이터 쿼리
 
@@ -56,7 +56,7 @@ U-SQL에는 Avro용 "추출기"가 있습니다. 자세한 내용은 [U-SQL Avro
 
 6. Visual Studio에서 U-SQL 프로젝트를 만듭니다.
 
-   !U-SQL 프로젝트 만들기](./media/iot-hub-query-avro-data/query-avro-data-6.png)
+   ![U-SQL 프로젝트 만들기](./media/iot-hub-query-avro-data/query-avro-data-6.png)
 
 7. 다음과 같은 스크립트의 콘텐츠를 새로 만든 파일로 붙여넣습니다. Data Lake Analytics 계정, 연결된 DLL 파일 경로 및 스토리지 계정에 대한 올바른 경로 등 3개의 강조 표시된 섹션을 수정합니다.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 886597e5490acb94f43d840dc5a3d22092e45849
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 94cb40522a9e463fea2efae329daf910b5386cdd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698766"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832605"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 
@@ -157,7 +157,7 @@ ID 보안 점수는 Microsoft에서 게시하는 권장 보안 컨트롤 세트�
 
 모든 사용자에 대해 2단계 인증을 요구하는 것이 좋습니다. 해당 계정이 노출될 경우 상당한 영향을 미칠 수 있는 조직의 관리자 및 다른 사용자가 포함됩니다(예: 재무 책임자).
 
-2단계 인증을 요구하는 여러 옵션이 있습니다. 최상의 옵션은 목표, 실행하는 Azure AD 버전 및 라이선스 프로그램에 따라 달라집니다. [사용자에 대해 2단계 인증을 요구하는 방법](../../active-directory/authentication/howto-mfa-userstates.md)을 참조하여 최상의 옵션을 결정합니다. 라이선스 및 가격 책정에 대한 자세한 내용은 [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) 및 [Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) 가격 책정 페이지를 참조하세요.
+2단계 인증을 요구하는 여러 옵션이 있습니다. 최상의 옵션은 목표, 실행하는 Azure AD 버전 및 라이선스 프로그램에 따라 달라집니다. [사용자에 대해 2단계 인증을 요구하는 방법](../../active-directory/authentication/howto-mfa-userstates.md)을 참조하여 최상의 옵션을 결정합니다. 라이선스 및 가격 책정에 대 한 자세한 내용은 [AZURE ad](https://azure.microsoft.com/pricing/details/active-directory/) 및 [azure ad Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) 가격 페이지를 참조 하세요.
 
 2단계 인증을 사용하도록 설정하는 옵션 및 혜택은 다음과 같습니다.
 
@@ -170,14 +170,14 @@ ID 보안 점수는 Microsoft에서 게시하는 권장 보안 컨트롤 세트�
 이 방법은 모든 라이선스 계층에 사용할 수 있지만, 기존 조건부 액세스 정책과는 혼합할 수 없습니다. [AZURE AD 보안 기본값](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) 에서 자세한 정보를 찾을 수 있습니다.
 
 **옵션 2**: [사용자 상태를 변경하여 Multi-Factor Authentication을 사용하도록 설정합니다](../../active-directory/authentication/howto-mfa-userstates.md).   
-**혜택**: 2단계 인증을 요구하는 기존 메서드입니다. 이 기능은 [클라우드의 Azure Multi-Factor Authentication 및 Azure Multi-Factor Authentication 서버](../../active-directory/authentication/concept-mfa-howitworks.md)에서 작동합니다. 이 방법을 사용할 경우 사용자는 로그인할 때마다 2단계 인증을 수행해야 하며, 이 방법은 조건부 액세스 정책을 재정의합니다.
+**혜택**: 2단계 인증을 요구하는 기존 메서드입니다. [클라우드 및 azure Multi-Factor Authentication 서버에서 AZURE AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)와 함께 작동 합니다. 이 방법을 사용할 경우 사용자는 로그인할 때마다 2단계 인증을 수행해야 하며, 이 방법은 조건부 액세스 정책을 재정의합니다.
 
-Multi-Factor Authentication을 사용할 위치를 확인하려면 [우리 조직에 적합한 Azure MFA 버전은 무엇입니까?](../../active-directory/authentication/concept-mfa-howitworks.md)를 참조하세요.
+Multi-Factor Authentication를 사용 하도록 설정 해야 하는 위치를 확인 하려면 [조직에 적합 한 AZURE AD MFA의 버전](../../active-directory/authentication/concept-mfa-howitworks.md)을 참조 하세요.
 
 **옵션 3**: [조건부 액세스 정책을 사용하여 Multi-Factor Authentication을 사용하도록 설정합니다](../../active-directory/authentication/howto-mfa-getstarted.md).
 **혜택**: 이 옵션을 사용하면 [조건부 액세스](../../active-directory/conditional-access/concept-conditional-access-policy-common.md)를 사용하여 특정 조건에서 2단계 인증을 요청할 수 있습니다. 특정 조건이란 위험한 것으로 간주하는 다른 위치, 신뢰할 수 없는 디바이스 또는 애플리케이션에서 사용자 로그인이 될 수 있습니다. 2단계 인증이 필요한 특정 조건을 정의하면 번거로운 사용자 환경일 수 있는 지속적인 메시지를 사용자에게 표시하지 않도록 할 수 있습니다.
 
-이것이 사용자에게 2단계 인증을 사용하도록 설정하는 가장 유연한 방법입니다. 조건부 액세스 정책을 사용하도록 설정하는 방법은 클라우드의 Azure Multi-Factor Authentication에서만 가능하며, Azure AD의 프리미엄 기능입니다. [클라우드 기반 Azure Multi-factor Authentication 배포](../../active-directory/authentication/howto-mfa-getstarted.md)에서 이 방법에 대한 자세한 내용을 확인할 수 있습니다.
+이것이 사용자에게 2단계 인증을 사용하도록 설정하는 가장 유연한 방법입니다. 조건부 액세스 정책을 사용 하도록 설정 하는 것은 클라우드의 Azure AD Multi-Factor Authentication에만 적용 되며 Azure AD의 프리미엄 기능입니다. 이 방법에 대 한 자세한 내용은 [클라우드 기반 AZURE AD Multi-Factor Authentication 배포](../../active-directory/authentication/howto-mfa-getstarted.md)에서 확인할 수 있습니다.
 
 **옵션 4**: [위험 기반 조건부 액세스 정책](../../active-directory/conditional-access/howto-conditional-access-policy-risk.md)을 평가하여 조건부 액세스 정책에서 Multi-Factor Authentication을 사용하도록 설정합니다.   
 **혜택**: 이 옵션을 사용하면 다음을 수행할 수 있습니다.
@@ -269,7 +269,7 @@ Azure RBAC와 같은 기능을 사용 하 여 데이터 액세스 제어를 적�
 **모범 사례**: 모든 중요 관리자 계정에 암호 없이 액세스하게 하거나(기본 설정) Multi-Factor Authentication을 요구합니다.
 **세부 정보**: 암호를 사용하지 않고 [Microsoft Authenticator](../../active-directory/authentication/howto-authentication-passwordless-phone.md) 앱을 사용하여 모든 Azure AD 계정에 로그인합니다. [비즈니스용 Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification)와 마찬가지로 Microsoft Authenticator는 키 기반 인증을 사용하여 디바이스에 연결되고 생체 인식 또는 PIN을 사용하는 사용자 자격 증명을 사용하도록 설정합니다.
 
-하나 이상의 Azure AD 관리자 역할에 영구적으로 할당된 개인 사용자, 즉, 전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자 중 하나 이상에 영구적으로 할당된 모든 개별 사용자에게 Azure Multi-Factor Authentication을 요구합니다. [관리자 계정에 Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-userstates.md)을 사용하도록 설정하고, 관리자 계정 사용자를 등록하게 합니다.
+하나 이상의 Azure AD 관리자 역할 (전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자)에 영구적으로 할당 된 모든 개별 사용자에 대해 로그인 시 Azure AD Multi-Factor Authentication 필요 합니다. [관리자 계정에 Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-userstates.md)을 사용하도록 설정하고, 관리자 계정 사용자를 등록하게 합니다.
 
 **모범 사례**: 중요한 관리자 계정의 경우 프로덕션 작업(검색 및 이메일)이 허용되지 않는 관리자 워크스테이션을 사용합니다. 이렇게 하면 검색 및 이메일을 사용하는 공격 벡터로부터 관리자 계정을 보호하고 중대한 사고 발생 위험을 크게 낮출 수 있습니다.
 **세부 정보**: 관리자 워크스테이션을 사용합니다. 워크스테이션 보안 수준을 선택합니다.

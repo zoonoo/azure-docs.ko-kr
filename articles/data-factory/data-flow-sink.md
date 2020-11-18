@@ -4,17 +4,16 @@ description: 데이터 흐름 매핑에서 싱크 변환을 구성 하는 방법
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 2e26028c47e8c96f8c1adabc468ee6f03e3cb19c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.date: 11/17/2020
+ms.openlocfilehash: d45f5d5d1d61372ed959334519aa865c22d70748
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427295"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832520"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 싱크 변환
 
@@ -65,13 +64,9 @@ Azure Data Factory는 90 개 이상의 [기본 커넥터](connector-overview.md)
 
 ![싱크 설정을 보여 주는 스크린샷](media/data-flow/sink-settings.png "싱크 설정을 보여 주는 스크린샷")
 
-**스키마 드리프트** : [스키마 드리프트](concepts-data-flow-schema-drift.md) 는 열 변경 내용을 명시적으로 정의할 필요 없이 데이터 흐름에서 유연한 스키마를 기본적으로 처리 하는 Data Factory 기능입니다. 싱크 데이터 스키마에 정의 된 내용 위에 추가 열을 쓰도록 **허용 schema 드리프트** 를 사용 하도록 설정 합니다.
+**스키마 드리프트**: [스키마 드리프트](concepts-data-flow-schema-drift.md) 는 열 변경 내용을 명시적으로 정의할 필요 없이 데이터 흐름에서 유연한 스키마를 기본적으로 처리 하는 Data Factory 기능입니다. 싱크 데이터 스키마에 정의 된 내용 위에 추가 열을 쓰도록 **허용 schema 드리프트** 를 사용 하도록 설정 합니다.
 
-**스키마 유효성 검사** : 스키마 유효성 검사를 선택한 경우 원본 프로젝션에서 들어오는 원본 스키마의 열을 찾을 수 없거나 데이터 형식이 일치 하지 않는 경우 데이터 흐름이 실패 합니다. 이 설정을 사용 하 여 원본 데이터가 정의 된 프로젝션의 계약을 충족 하도록 적용 합니다. 데이터베이스 소스 시나리오에서 열 이름이 나 형식이 변경 되었다는 신호를 보내는 데 유용 합니다.
-
-**TempDB 사용:** 기본적으로 Data Factory는 로드 프로세스의 일부로 데이터를 저장 하기 위해 전역 임시 테이블을 사용 합니다. 또는 "TempDB 사용" 옵션을 선택 취소 하 고 대신이 싱크에 사용 되는 데이터베이스에 있는 사용자 데이터베이스에 임시 보관 테이블을 저장 하도록 Data Factory 하도록 요청할 수 있습니다.
-
-![임시 DB 사용](media/data-flow/tempdb.png "임시 DB 사용")
+**스키마 유효성 검사**: 스키마 유효성 검사를 선택한 경우 원본 프로젝션에서 들어오는 원본 스키마의 열을 찾을 수 없거나 데이터 형식이 일치 하지 않는 경우 데이터 흐름이 실패 합니다. 이 설정을 사용 하 여 원본 데이터가 정의 된 프로젝션의 계약을 충족 하도록 적용 합니다. 데이터베이스 소스 시나리오에서 열 이름이 나 형식이 변경 되었다는 신호를 보내는 데 유용 합니다.
 
 ## <a name="cache-sink"></a>캐시 싱크
 
@@ -109,9 +104,14 @@ Azure Data Factory는 90 개 이상의 [기본 커넥터](connector-overview.md)
 
 ![사용자 지정 싱크 순서 지정](media/data-flow/cache-2.png "사용자 지정 싱크 순서 지정")
 
+## <a name="error-row-handling"></a>오류 행 처리
+
+데이터베이스에 쓰는 경우 대상에 의해 설정 된 제약 조건으로 인해 특정 행의 데이터가 실패할 수 있습니다. 기본적으로 첫 번째 오류가 발생 하면 데이터 흐름 실행이 실패 합니다. 특정 커넥터에서 개별 행에 오류가 있는 경우에도 데이터 흐름이 완료 될 수 있는 **오류를 계속** 하도록 선택할 수 있습니다. 현재이 기능은 Azure SQL Database 에서만 사용할 수 있습니다. 자세한 내용은 [AZURE SQL DB의 오류 행 처리](connector-azure-sql-database.md#error-row-handling)를 참조 하세요.
+
 ## <a name="data-preview-in-sink"></a>싱크의 데이터 미리 보기
 
 디버그 클러스터에서 데이터 미리 보기를 가져오는 경우 싱크에 데이터가 기록 되지 않습니다. 데이터의 모양에 대 한 스냅숏은 반환 되지만 대상에는 아무것도 기록 되지 않습니다. 싱크에 대 한 데이터 쓰기를 테스트 하려면 파이프라인 캔버스에서 파이프라인 디버그를 실행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 이제 데이터 흐름을 만들었으므로 [파이프라인에 데이터 흐름 활동](concepts-data-flow-overview.md)을 추가 합니다.

@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 9827f79f8407bd04468f1b4456aec9d6a8793a6f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: a7bdc1ee22d3672160122cad65b18de99f743cc7
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506297"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747692"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>VM용 Azure Monitor에 대해 Log Analytics 작업 영역 구성
 VM용 Azure Monitor Azure Monitor의 Log Analytics 작업 영역 하나 이상에서 데이터를 수집 합니다. 에이전트를 온 보 딩 하기 전에 작업 영역을 만들고 구성 해야 합니다. 이 문서에서는 작업 영역에 대 한 요구 사항을 설명 하 고 VM용 Azure Monitor에 대해 구성 합니다.
@@ -78,7 +78,7 @@ VM용 Azure Monitor에서 Log Analytics 작업 영역을 사용 하려면 먼저
 > *VMInsights* 솔루션을 작업 영역에 추가 하면 작업 영역에 연결 된 모든 기존 가상 컴퓨터에서 데이터를 InsightsMetrics로 보내기 시작 합니다. 다른 데이터 형식에 대 한 데이터는 작업 영역에 연결 된 기존 가상 컴퓨터에 Dependency Agent를 추가할 때까지 수집 되지 않습니다.
 
 ### <a name="azure-portal"></a>Azure portal
-Azure Portal에서 기존 작업 영역을 구성 하는 세 가지 옵션이 있습니다.
+Azure Portal를 사용 하 여 기존 작업 영역을 구성 하는 세 가지 옵션이 있습니다. 각각은 아래에 설명 되어 있습니다.
 
 단일 작업 영역을 구성 하려면 **다른 온 보 딩 옵션** 을 선택한 다음 **작업 영역을 구성** 합니다. 구독 및 작업 영역을 선택한 다음 **구성** 을 클릭 합니다.
 

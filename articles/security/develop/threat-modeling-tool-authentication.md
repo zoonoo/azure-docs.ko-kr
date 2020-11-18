@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9a1afd1d998fcb3ba715c890cc4deac1f0a7da5
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ee4dd70faab9ed44b1aa6ca8ca0ec517c7746f66
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517719"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832533"
 ---
 # <a name="security-frame-authentication--mitigations"></a>보안 프레임: 인증 | 완화
 
@@ -30,7 +30,7 @@ ms.locfileid: "94517719"
 | **웹 애플리케이션**    | <ul><li>[표준 인증 메커니즘을 사용 하 여 웹 응용 프로그램 인증 고려](#standard-authn-web-app)</li><li>[애플리케이션에서 실패한 인증 시나리오를 안전하게 처리해야 함](#handle-failed-authn)</li><li>[버전 업그레이드 또는 적응 인증을 사용하도록 설정](#step-up-adaptive-authn)</li><li>[관리 인터페이스가 적절하게 잠겨 있는지 확인](#admin-interface-lockdown)</li><li>[암호 찾기 기능을 안전 하 게 구현](#forgot-pword-fxn)</li><li>[암호 및 계정 정책이 구현 되었는지 확인](#pword-account-policy)</li><li>[사용자 이름 열거를 방지하기 위한 컨트롤 구현](#controls-username-enum)</li></ul> |
 | **데이터베이스** | <ul><li>[가능 하면 Windows 인증을 사용 하 여 SQL Server에 연결 합니다.](#win-authn-sql)</li><li>[가능 하면 Azure Active Directory 인증을 사용 하 여 SQL Database에 연결 합니다.](#aad-authn-sql)</li><li>[SQL 인증 모드가 사용되는 경우 계정 및 암호 정책이 SQL Server에 적용되어야 함](#authn-account-pword)</li><li>[포함 된 데이터베이스에서 SQL 인증 사용 안 함](#autn-contained-db)</li></ul> |
 | **Azure 이벤트 허브** | <ul><li>[SaS 토큰을 사용하여 디바이스당 인증 자격 증명 사용](#authn-sas-tokens)</li></ul> |
-| **Azure 신뢰 경계** | <ul><li>[Azure 관리자에 Azure Multi-Factor Authentication을 사용하도록 설정](#multi-factor-azure-admin)</li></ul> |
+| **Azure 신뢰 경계** | <ul><li>[Azure 관리자에 Azure AD Multi-Factor Authentication 사용](#multi-factor-azure-admin)</li></ul> |
 | **Service Fabric 신뢰 경계** | <ul><li>[Service Fabric 클러스터에 익명 액세스 제한](#anon-access-cluster)</li><li>[Service Fabric 클라이언트-노드 인증서가 노드-노드 인증서와 다른 지 확인 합니다.](#fabric-cn-nn)</li><li>[AAD를 사용 하 여 service fabric 클러스터에 대 한 클라이언트 인증](#aad-client-fabric)</li><li>[Service Fabric 인증서가 승인된 인증 기관(CA)에서 가져온 것인지 확인](#fabric-cert-ca)</li></ul> |
 | **ID 서버** | <ul><li>[Id 서버에서 지 원하는 표준 인증 시나리오 사용](#standard-authn-id)</li><li>[기본 Id 서버 토큰 캐시를 확장 가능한 대체 항목으로 재정의](#override-token)</li></ul> |
 | **컴퓨터 신뢰 경계** | <ul><li>[배포된 애플리케이션의 이진 파일이 디지털로 서명되었는지 확인](#binaries-signed)</li></ul> |
@@ -173,7 +173,7 @@ ms.locfileid: "94517719"
 | **참조**              | [Event Hubs 인증 및 보안 모델 개요](../../event-hubs/authenticate-shared-access-signature.md) |
 | **단계** | <p>Event Hubs 보안 모델은 공유 액세스 서명(SAS) 토큰 및 이벤트 게시자의 조합을 기반으로 합니다. 게시자 이름은 토큰을 받는 DeviceID를 나타냅니다. 해당 디바이스를 사용하여 생성된 토큰을 연결하는 데 도움이 됩니다.</p><p>모든 메시지에는 서비스 쪽 송신자로 태그가 지정되어 페이로드 내 원본 스푸핑 시도를 검색할 수 있습니다. 디바이스를 인증할 경우 고유 게시자로 범위가 지정된 디바이스당 SaS 토큰을 생성합니다.</p>|
 
-## <a name="enable-azure-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Azure 관리자에 Azure Multi-Factor Authentication을 사용하도록 설정
+## <a name="enable-azure-ad-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Azure 관리자에 Azure AD Multi-Factor Authentication 사용
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -181,7 +181,7 @@ ms.locfileid: "94517719"
 | **SDL 단계**               | 배포 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Azure Multi-Factor Authentication이란?](../../active-directory/authentication/concept-mfa-howitworks.md) |
+| **참조**              | [Azure AD Multi-Factor Authentication 이란?](../../active-directory/authentication/concept-mfa-howitworks.md) |
 | **단계** | <p>Multi-Factor Authentication(MFA)에는 두 개 이상의 검증 방법이 필요하며 사용자 로그인 및 트랜잭션에 중요한 두 번째 계층을 추가하는 인증 방법입니다. 이러한 인증에서는 다음 중 두 가지 이상의 검증 방법을 요구합니다.</p><ul><li>사용자가 알고 있는 사항(일반적으로 암호)</li><li>사용자의 소유물(전화기처럼 쉽게 복제되지 않는 신뢰할 수 있는 디바이스)</li><li>사용자의 신원 정보(생체 인식)</li><ul>|
 
 ## <a name="restrict-anonymous-access-to-service-fabric-cluster"></a><a id="anon-access-cluster"></a>Service Fabric 클러스터에 익명 액세스 제한
@@ -272,7 +272,7 @@ ms.locfileid: "94517719"
 | **참조**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)) |
 | **단계** | MSMQ 큐에 연결할 때 프로그램이 인증을 사용하는 데 실패하면 공격자는 처리를 위해 큐에 메시지를 익명으로 제출할 수 있습니다. 다른 프로그램에 메시지를 전달하는 데 사용되는 MSMQ 큐에 연결하는 데 인증이 사용되지 않으면 공격자가 악성인 익명의 메시지를 제출할 수 있습니다.|
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 아래에 보이는 WCF 구성 파일의 `<netMsmqBinding/>` 요소는 메시지 배달을 위한 MSMQ 큐에 연결할 때 WCF가 인증을 사용하지 않도록 지시합니다.
 ```
 <bindings>
@@ -287,7 +287,7 @@ ms.locfileid: "94517719"
 ```
 모든 들어오거나 나가는 메시지에 대해 항상 Windows 도메인 또는 인증서 인증을 요구하도록 MSMQ를 구성합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 아래 WCF 구성 파일의 `<netMsmqBinding/>` 요소는 MSMQ 큐에 연결할 때 WCF가 인증서 인증을 사용하도록 지시합니다. X.509 인증서를 사용하여 클라이언트를 인증합니다. 서버의 인증서 저장소에 클라이언트 인증서가 있어야 합니다.
 ```
 <bindings>
@@ -312,7 +312,7 @@ ms.locfileid: "94517719"
 | **참조**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **단계** | 인증이 없다는 것은 모든 사람이 이 서비스에 액세스할 수 있음을 의미합니다. 해당 클라이언트를 인증하지 않는 서비스는 모든 사용자가 액세스할 수 있습니다. 클라이언트 자격 증명에 대해 인증하도록 애플리케이션을 구성합니다. message clientCredentialType을 Windows 또는 Certificate로 설정하여 이 작업을 수행할 수 있습니다. |
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 ```
 <message clientCredentialType=""Certificate""/>
 ```
@@ -328,7 +328,7 @@ ms.locfileid: "94517719"
 | **참조**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **단계** | 인증이 없다는 것은 모든 사람이 이 서비스에 액세스할 수 있음을 의미합니다. 해당 클라이언트를 인증하지 않는 서비스는 모든 사용자가 해당 기능에 액세스할 수 있습니다. 클라이언트 자격 증명에 대해 인증하도록 애플리케이션을 구성합니다. transport clientCredentialType을 Windows 또는 Certificate로 설정하여 이 작업을 수행할 수 있습니다. |
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 ```
 <transport clientCredentialType=""Certificate""/>
 ```

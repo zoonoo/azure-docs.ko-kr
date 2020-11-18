@@ -10,18 +10,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 4fb62ec8d3a6fa97fe6db5b146ba58d3ad66b1b4
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.custom: how-to, devx-track-python, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: fa1b19ef4ece3011c97c3158d54edd1d39efc09d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441990"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832639"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
 
-Azure Machine Learning 모델을 웹 서비스로 배포 하면 REST API 끝점이 만들어집니다. 이 엔드포인트로 데이터를 보내고 모델에서 반환된 예측을 받을 수 있습니다. 이 문서에서는 C#, Go, Java 및 Python을 사용하여 웹 서비스용 클라이언트를 만드는 방법에 대해 알아봅니다.
+Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API 엔드포인트가 생성됩니다. 이 엔드포인트로 데이터를 보내고 모델에서 반환된 예측을 받을 수 있습니다. 이 문서에서는 C#, Go, Java 및 Python을 사용하여 웹 서비스용 클라이언트를 만드는 방법에 대해 알아봅니다.
 
 로컬 환경, Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로그래밍 가능 게이트 배열)에 모델을 배포할 때 웹 서비스를 만듭니다. [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용 하 여 웹 서비스에 액세스 하는 데 사용 되는 URI를 검색 합니다. 인증을 사용 하는 경우 SDK를 사용 하 여 인증 키 또는 토큰을 가져올 수도 있습니다.
 
@@ -85,7 +85,7 @@ az ml service show -n <service-name>
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Machine Learning studio에서 __끝점__ , __실시간 끝점__ , 끝점 이름을 차례로 선택 합니다. 끝점에 대 한 세부 정보에서 __REST 끝점__ 필드는 점수 매기기 URI를 포함 합니다. __SWAGGER uri__ 에는 swagger uri가 포함 됩니다.
+Azure Machine Learning studio에서 __끝점__, __실시간 끝점__, 끝점 이름을 차례로 선택 합니다. 끝점에 대 한 세부 정보에서 __REST 끝점__ 필드는 점수 매기기 URI를 포함 합니다. __SWAGGER uri__ 에는 swagger uri가 포함 됩니다.
 
 ---
 

@@ -3,13 +3,13 @@ title: Azure Functions에서 스트림 실행 로그
 description: 공백을 포함 하는 115-145 문자 이 추상은 검색 결과에 표시됩니다.
 ms.date: 9/1/2020
 ms.topic: how-to
-ms.custom: contperfq2
-ms.openlocfilehash: 61756afb5111da3d5573e967a6ca13f25354aef5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperfq2, devx-track-azurecli
+ms.openlocfilehash: 68b9d567fe0f2959c809a25c3669b9529cf093b8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216099"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832882"
 ---
 # <a name="enable-streaming-execution-logs-in-azure-functions"></a>Azure Functions에서 스트리밍 실행 로그 사용
 
@@ -29,19 +29,19 @@ ms.locfileid: "92216099"
 
 ### <a name="built-in-log-streaming"></a>기본 제공 로그 스트리밍
 
-포털에서 스트리밍 로그를 보려면 함수 앱에서 **플랫폼 기능** 탭을 선택합니다. 그런 다음, **모니터링**에서 **로그 스트리밍**를 선택합니다.
+포털에서 스트리밍 로그를 보려면 함수 앱에서 **플랫폼 기능** 탭을 선택합니다. 그런 다음, **모니터링** 에서 **로그 스트리밍** 를 선택합니다.
 
 ![포털에서 스트리밍 로그 사용](./media/functions-monitoring/enable-streaming-logs-portal.png)
 
-이렇게 하면 앱이 로그 스트리밍 서비스에 연결하고, 창에 애플리케이션 로그가 표시됩니다. **애플리케이션 로그**와 **웹 서버 로그** 간에 전환할 수 있습니다.  
+이렇게 하면 앱이 로그 스트리밍 서비스에 연결하고, 창에 애플리케이션 로그가 표시됩니다. **애플리케이션 로그** 와 **웹 서버 로그** 간에 전환할 수 있습니다.  
 
 ![포털에서 스트리밍 로그 보기](./media/functions-monitoring/streaming-logs-window.png)
 
 ### <a name="live-metrics-stream"></a>라이브 메트릭 스트림
 
-앱의 라이브 메트릭 스트림을 보려면 함수 앱의 **개요** 탭을 선택합니다. Application Insights를 사용하도록 설정하면 **구성된 기능**에 **Application Insights** 링크가 표시됩니다. 이 링크를 누르면 앱의 Application Insights 페이지로 이동합니다.
+앱의 라이브 메트릭 스트림을 보려면 함수 앱의 **개요** 탭을 선택합니다. Application Insights를 사용하도록 설정하면 **구성된 기능** 에 **Application Insights** 링크가 표시됩니다. 이 링크를 누르면 앱의 Application Insights 페이지로 이동합니다.
 
-Application Insights에서 **라이브 메트릭 스트림**을 선택합니다. [샘플링된 로그 항목](configure-monitoring.md#configure-sampling)이 **샘플 원격 분석** 아래에 표시됩니다.
+Application Insights에서 **라이브 메트릭 스트림** 을 선택합니다. [샘플링된 로그 항목](configure-monitoring.md#configure-sampling)이 **샘플 원격 분석** 아래에 표시됩니다.
 
 ![포털에서 라이브 메트릭 스트림 보기](./media/functions-monitoring/live-metrics-stream.png) 
 

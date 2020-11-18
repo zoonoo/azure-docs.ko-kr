@@ -7,19 +7,19 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: cbe822b75368a1ab72bcd7f73419770b291d2508
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e47dad8498c48a5da5307517efe493fa5c1aa590
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321145"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94748066"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>데이터 과학 작업 실행: 탐색, 모델링 및 배포
 
-일반적인 데이터 과학 작업으로 데이터 탐색, 모델링 및 배포가 있습니다. 이 문서에서는 **IDEAR(대화형 데이터 탐색, 분석 및 보고)** 및 **AMAR(자동 모델링 및 보고)** 유틸리티를 사용하여 대화형 데이터 탐색, 데이터 분석, 보고 및 모델 생성 등과 같은 여러 가지 일반적인 데이터 과학 작업을 완료하는 방법을 보여 줍니다. 프로덕션 환경에 모델을 배포 하기 위한 옵션에는 다음이 포함 될 수 있습니다.
+일반적인 데이터 과학 작업으로 데이터 탐색, 모델링 및 배포가 있습니다. 이 문서에서는 대화형 데이터 탐색, 데이터 분석, 보고 및 모델 작성과 같은 몇 가지 일반적인 데이터 과학 작업을 완료 하는 작업을 설명 합니다. 프로덕션 환경에 모델을 배포 하기 위한 옵션에는 다음이 포함 될 수 있습니다.
 
 - [Azure Machine Learning](../index.yml)
 - [ML 서비스 포함 SQL-Server](/sql/advanced-analytics/r/r-services)
@@ -32,43 +32,11 @@ ms.locfileid: "93321145"
 
 Azure Machine Learning 등의 제품은 기능 생성을 포함 하 여 데이터 랭 글 링 및 탐색을 위한 [고급 데이터 준비](../how-to-create-register-datasets.md) 도 제공 합니다. 사용자는 자신의 요구에 가장 맞는 도구, 라이브러리 및 패키지에 대해 결정해야 합니다. 
 
-이 단계가 종료할 때의 결과물은 데이터 탐색 보고서입니다. 보고서는 모델링 및 데이터가 모델링 단계로 진행하는 데 적합한지 여부를 평가에 사용할 데이터의 매우 포괄적인 뷰를 제공해야 합니다. 반자동화 탐색, 모델링 및 보고에 대해 다음 섹션에서 설명하는 TDSP(팀 데이터 과학 프로세스) 유틸리티도 표준화된 데이터 탐색 및 모델링 보고서를 제공합니다. 
-
-### <a name="interactive-data-exploration-analysis-and-reporting-using-the-idear-utility"></a>IDEAR 유틸리티를 사용한 대화형 데이터 탐색, 분석 및 보고
-
-이 R Markdown 기반 또는 Phython 노트북 기반 유틸리티는 데이터 집합을 평가하고 탐색할 수 있는 유연한 대화형 도구를 제공합니다. 사용자는 최소한의 코딩으로 데이터 집합에서 보고서를 빠르게 생성할 수 있습니다. 사용자가 단추를 클릭하여 대화형 도구에서 표시된 탐색 결과를 최종 보고서로 내보낼 수 있습니다. 이 보고서는 클라이언트에 전달되거나 후속 모델링 단계에 포함될 변수를 결정하는 데 사용됩니다.
-
-현재 이 도구는 메모리 내 데이터 프레임에서만 작동합니다. YAML 파일이 탐색할 데이터 집합의 매개 변수를 지정하는 데 필요합니다. 자세한 내용은 [TDSP 데이터 과학 유틸리티의 IDEAR(영문)](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils)을 참조하세요.
-
+이 단계가 종료할 때의 결과물은 데이터 탐색 보고서입니다. 보고서는 모델링 및 데이터가 모델링 단계로 진행하는 데 적합한지 여부를 평가에 사용할 데이터의 매우 포괄적인 뷰를 제공해야 합니다. 
 
 ## <a name="2--modeling"></a>2. <a name='ModelingUtility-2'></a> 모델링
 
 다양한 언어의 수많은 모델 교육용 도구 키트와 패키지가 있습니다. 데이터 과학자는 관련 비즈니스 사용 사례 및 프로덕션 시나리오에 대한 정확도 및 대기 시간에 관한 성능을 고려하여 편하게 느끼는 키트와 패키지를 자유롭게 사용할 수 있습니다.
-
-다음 섹션에서는 반자동화 모델링을 위해 R 기반 TDSP 유틸리티를 사용하는 방법을 보여 줍니다. 이 AMAR 유틸리티를 사용하여 기준선 모델을 빠르게 생성할 수 있을 뿐만 아니라 더 나은 성능의 모델을 제공하기 위해 조정해야 하는 매개 변수도 생성할 수 있습니다.
-다음 모델 관리 섹션에서는 복수의 모델을 등록하고 관리하기 위한 시스템을 보유하는 방법을 보여 줍니다.
-
-
-### <a name="model-training-modeling-and-reporting-using-the-amar-utility"></a>모델 교육: AMAR 유틸리티를 사용하여 모델링 및 보고
-
-[AMAR(자동화 모델링 및 보고) 유틸리티](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling)는 사용자 지정 가능한 반자동화 도구를 제공하여 하이퍼 파라미터 스윕이 있는 모델을 만들고 이러한 모델의 정확도를 비교합니다. 
-
-모델 생성 유틸리티는 다른 섹션을 쉽게 탐색할 수 있는 목차가 포함된 자체 포함 HTML 출력을 생성하기 위해 실행할 수 있는 R Markdown 파일입니다. Markdown 파일이 실행(knit)될 때 세 가지 알고리즘, 즉 glmnet 패키지를 사용하는 정규화된 회귀, randomForest 패키지를 사용하는 임의의 포리스트, xgboost 패키지를 사용하는 트리 승격이 실행됩니다. 이러한 알고리즘 각각은 학습된 모델을 생성합니다. 이러한 모델의 정확도를 비교한 다음 상대적 기능 중요도 플롯을 보고합니다. 현재 두 가지 유틸리티가 있습니다. 각각 이진 분류 작업과 회귀 작업을 위한 유틸리티입니다. 이들 간의 주요 차이점은 제어 매개 변수와 정확도 메트릭이 이러한 학습 작업에 지정되는 방식에 있습니다. 
-
-YAML 파일은 다음을 지정하는 데 사용됩니다.
-
-- 데이터 입력(SQL 원본 또는 R 데이터 파일) 
-- 학습 및 테스트에 사용되는 부분
-- 실행할 알고리즘 
-- 모델 최적화에 대한 제어 매개 변수 선택:
-    - 교차 검증 
-    - 부트스트래핑
-    - 교차 검증 겹(폴드)
-- 각 알고리즘에 대한 하이퍼 파라미터 집합 
-
-또한 모델을 빠르게 실행하기 위해 Yaml 파일에서 알고리즘 수, 최적화 겹(폴드) 횟수, 하이퍼 파라미터 및 스윕하도록 설정된 하이퍼 파라미터 집합 수를 수정할 수 있습니다. 예를 들어 더 적은 수의 CV(교차 검증) 겹과 파라미터 집합으로 모델을 실행할 수 있습니다. 신뢰할 수 있는 경우 CV 접기 수를 높이거나 매개 변수 집합을 더 많이 사용하면 더 포괄적으로 실행할 수도 있습니다.
-
-자세한 내용은 [TDSP 데이터 과학 유틸리티의 자동화된 모델링 및 보고 유틸리티](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling)를 참조하세요.
 
 ### <a name="model-management"></a>모델 관리
 복수의 모델을 작성한 후에는 일반적으로 모델을 등록하고 관리하기 위한 시스템이 있어야 합니다. 일반적으로 스크립트 또는 API와 백 엔드 데이터베이스 또는 버전 관리 시스템의 조합이 필요합니다. 이러한 관리 작업에 대해 고려할 수 있는 몇 가지 옵션은 같습니다.

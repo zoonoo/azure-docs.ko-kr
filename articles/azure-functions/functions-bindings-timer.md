@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6423ec481c65155b511e398885b4954522bbb376
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 6baebdab06a72d3a4af05b4d2e04bc9eee6acb60
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025904"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833013"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거
 
@@ -300,7 +300,7 @@ Azure Functions [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리
 |Type  |예제  |트리거될 때  |
 |---------|---------|---------|
 |특정 값 |<nobr>"0 5 * * * *"</nobr>|hh:05:00에서 hh는 매시간임(시간당 한 번)|
-|모든 값(`*`)|<nobr>"0 * 5 * * *"</nobr>|5:mm:00에서 mm은 해당 시간의 매분임(하루 60번)|
+|모든 값(`*`)|<nobr>"0 * 5 * * *"</nobr>|매일 5: mm: 00, 여기서 mm은 1 시간의 분 (지정 된 시간 내에 60 시간)입니다.|
 |범위(`-` 연산자)|<nobr>"5-7 * * * * *"</nobr>|hh:mm:05,hh:mm:06 및 hh:mm:07에서 hh:mm은 매시간의 매분임(분당 3번)|
 |값 집합(`,` 연산자)|<nobr>"5,8,10 * * * * *"</nobr>|hh:mm:05,hh:mm:08 및 hh:mm:10에서 hh:mm은 매시간의 매분임(분당 3번)|
 |간격 값(`/` 연산자)|<nobr>"0 */5 * * * *"</nobr>|hh: 00:00, hh: 05:00, hh: 10:00, hh: 55:00, hh는 매시간 (12 번 a 시간)|
@@ -336,7 +336,7 @@ CRON 식에 있는 숫자는 시간 범위가 아닌 시간 및 날짜를 가리
 
 CRON 식과 다르게 `TimeSpan` 값은 각 함수 호출 간의 시간 간격을 지정합니다. 함수가 지정된 간격보다 오랫동안 실행한 후에 완료되면 타이머는 즉시 함수를 다시 호출합니다.
 
-`hh`이 24 미만인 경우 문자열로 표현되는 `TimeSpan` 형식은 `hh:mm:ss`입니다. 처음 두 자리가 24 이상인 경우 형식은 `dd:hh:mm`입니다. 몇 가지 예제는 다음과 같습니다.
+`hh`이 24 미만인 경우 문자열로 표현되는 `TimeSpan` 형식은 `hh:mm:ss`입니다. 처음 두 자리가 24 이상인 경우 형식은 `dd:hh:mm`입니다. 다음은 몇 가지 예입니다.
 
 | 예제      | 트리거될 때 |
 |--------------|----------------|
@@ -353,7 +353,7 @@ CRON 식과 다르게 `TimeSpan` 값은 각 함수 호출 간의 시간 간격�
 
 App service에 배포 되지 않은 함수 앱에서 저장소 계정을 공유 하는 경우 각 앱에 호스트 ID를 명시적으로 할당 해야 할 수 있습니다.
 
-| Functions 버전 | 설정                                              |
+| Functions 버전 | Setting                                              |
 | ----------------- | ---------------------------------------------------- |
 | 2.x 이상  | `AzureFunctionsWebHost__hostid`환경 변수 |
 | 1.x               | `id` 의 *host.js*                                  |

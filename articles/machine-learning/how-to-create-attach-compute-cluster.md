@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: ce80c6bbd3e4a5154e80317c3918776c771e67fb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0bbf70016dc9b93120b3158e8954c336095ea211
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318208"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832690"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Azure Machine Learning 컴퓨팅 클러스터 만들기
 
@@ -58,9 +58,9 @@ Azure Machine Learning 계산 클러스터는 단일 또는 다중 노드 계산
 > 필요한 코어 수만큼 할당량이 있는 경우 일반적으로 클러스터를 최대 100노드까지 스케일 업할 수 있습니다. 예를 들어 기본적으로 클러스터 노드 간에는 노드 간 통신을 사용하도록 설정하여 MPI 작업을 지원합니다. 그러나 [지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 수천 개의 클러스터의 크기를 조정 하 고, 구독 또는 작업 영역을 나열 하도록 요청 하거나, 노드 간 통신을 사용 하지 않도록 설정할 수 있습니다. 
 
 
-## <a name="create"></a>생성
+## <a name="create"></a>만들기
 
-**예상 시간** : 약 5 분.
+**예상 시간**: 약 5 분.
 
 Azure Machine Learning 컴퓨팅은 실행 전반에서 다시 사용할 수 있습니다. 컴퓨팅은 작업 영역에 있는 다른 사용자와 공유할 수 있으며, 실행 간에 유지되고 제출된 실행 수와 클러스터에 설정된 max_nodes 수에 따라 노드를 자동으로 확장 또는 축소합니다. min_nodes 설정은 사용 가능한 최소 노드 수를 제어합니다.
 
@@ -74,8 +74,8 @@ VM 제품군 할당량 당 지역별 전용 코어 및 계산 클러스터 만�
 
 Python에서 영구적 Azure Machine Learning 컴퓨팅 리소스를 만들려면 **vm_size** 및 **max_nodes** 속성을 지정합니다. 그런 다음, Azure Machine Learning은 다른 속성에 스마트 기본값을 사용합니다. 
     
-* **vm_size** : Azure Machine Learning 컴퓨팅에서 만든 노드의 VM 제품군입니다.
-* **max_nodes** : Azure Machine Learning 컴퓨팅에서 작업을 실행할 때 자동으로 확장할 최대 노드 수입니다.
+* **vm_size**: Azure Machine Learning 컴퓨팅에서 만든 노드의 VM 제품군입니다.
+* **max_nodes**: Azure Machine Learning 컴퓨팅에서 작업을 실행할 때 자동으로 확장할 최대 노드 수입니다.
 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]

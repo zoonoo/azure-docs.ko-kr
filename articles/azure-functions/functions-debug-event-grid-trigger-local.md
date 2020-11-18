@@ -1,22 +1,22 @@
 ---
 title: Azure Functions Event Grid의 로컬 디버깅
-description: Event Grid 이벤트에 의해 트리거되는 Azure Functions를 로컬로 디버그하는 방법 알아보기
+description: Event Grid 이벤트에 의해 트리거되는 Azure Functions를 로컬로 디버그 하는 방법을 알아봅니다.
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: fdd046a855c4e2114e96e7911a928165f808710c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be05d237d2799404c3fd8b5733464e23eeb49aa3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530547"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833064"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure Function Event Grid 트리거 로컬 디버깅
 
 이 문서에서는 스토리지 계정에서 발생하는 Azure Event Grid 이벤트를 처리하는 로컬 함수를 디버그하는 방법을 설명합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - 기존 함수 앱 만들기 또는 사용
 - 기존 스토리지 계정 만들기 또는 사용
@@ -24,9 +24,9 @@ ms.locfileid: "91530547"
 
 ## <a name="create-a-new-function"></a>새 함수 만들기
 
-Visual Studio에서 함수 앱을 열고 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후, **추가 > 새 Azure 함수**를 클릭합니다.
+Visual Studio에서 함수 앱을 열고 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후, **추가 > 새 Azure 함수** 를 클릭합니다.
 
-*새 Azure 함수* 창에서 **Event Grid 트리거**를 선택하고 **확인**을 클릭합니다.
+*새 Azure 함수* 창에서 **Event Grid 트리거** 를 선택하고 **확인** 을 클릭합니다.
 
 ![새 함수 만들기](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-function.png)
 
@@ -45,7 +45,7 @@ Visual Studio에서 함수 앱을 열고 솔루션 탐색기에서 프로젝트 
 
 컴퓨터에서 디버깅 중인 함수를 중단하려면 Azure가 클라우드에서 로컬 함수와 통신하는 방법을 설정해야 합니다.
 
-[ngrok](https://ngrok.com/) 유틸리티는 Azure가 컴퓨터에서 실행되는 함수를 호출하는 방법을 제공합니다. 다음 명령을 사용하여 *ngrok*를 시작합니다.
+[ngrok](https://ngrok.com/) 유틸리티는 Azure가 컴퓨터에서 실행되는 함수를 호출하는 방법을 제공합니다. 다음 명령을 사용하여 *ngrok* 를 시작합니다.
 
 ```bash
 ngrok http -host-header=localhost 7071
@@ -54,7 +54,7 @@ ngrok http -host-header=localhost 7071
 
 !["Ngrok" 유틸리티를 시작한 후에 명령 프롬프트를 보여 주는 스크린샷](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
 
-*ngrok*가 실행될 때 생성된 **HTTPS** URL을 복사합니다. 이 값은 Event Grid 이벤트 엔드포인트를 구성할 때 사용됩니다.
+*ngrok* 가 실행될 때 생성된 **HTTPS** URL을 복사합니다. 이 값은 Event Grid 이벤트 엔드포인트를 구성할 때 사용됩니다.
 
 ## <a name="add-a-storage-event"></a>스토리지 이벤트 추가
 
@@ -62,24 +62,24 @@ Azure Portal을 열고 스토리지 계정으로 이동한 후 **이벤트** 옵
 
 ![스토리지 계정 이벤트 추가](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
 
-*이벤트* 창에서 **이벤트 구독** 단추를 클릭합니다. *이벤트 구독* 창에서 *끝점 유형* 드롭다운을 클릭 하 고 **웹 후크**를 선택 합니다.
+*이벤트* 창에서 **이벤트 구독** 단추를 클릭합니다. *이벤트 구독* 창에서 *끝점 유형* 드롭다운을 클릭 하 고 **웹 후크** 를 선택 합니다.
 
 ![구독 유형 선택](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
 
-엔드포인트 유형이 구성되면 **엔드포인트 선택**을 클릭하여 엔드포인트 값을 구성합니다.
+엔드포인트 유형이 구성되면 **엔드포인트 선택** 을 클릭하여 엔드포인트 값을 구성합니다.
 
 ![엔드포인트 유형 선택](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint.png)
 
-*구독자 엔드포인트* 값은 세 가지 다른 값으로 구성됩니다. 접두사는 *ngrok*에서 생성되는 HTTPS URL입니다. URL의 나머지는 함수 코드 파일에 있는 URL과 끝에 파일 이름을 추가하여 생성됩니다. 함수 코드 파일의 URL에서 시작하여, `http://localhost:7071` 대신 *ngrok* URL이 사용되고, `{functionname}` 대신 함수 이름이 사용됩니다.
+*구독자 엔드포인트* 값은 세 가지 다른 값으로 구성됩니다. 접두사는 *ngrok* 에서 생성되는 HTTPS URL입니다. URL의 나머지는 함수 코드 파일에 있는 URL과 끝에 파일 이름을 추가하여 생성됩니다. 함수 코드 파일의 URL에서 시작하여, `http://localhost:7071` 대신 *ngrok* URL이 사용되고, `{functionname}` 대신 함수 이름이 사용됩니다.
 
 다음 스크린샷에서는 마지막 URL 모습을 보여 줍니다.
 
 ![엔드포인트 선택](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint-selection.png)
 
-적절한 값을 입력한 후 **선택 확인**을 클릭합니다.
+적절한 값을 입력한 후 **선택 확인** 을 클릭합니다.
 
 > [!IMPORTANT]
-> *ngrok*를 시작할 때마다 HTTPS URL이 다시 생성되고 값이 변경됩니다. 따라서 *ngrok*를 통해 함수를 Azure에 노출할 때마다 새 이벤트 구독을 만들어야 합니다.
+> *ngrok* 를 시작할 때마다 HTTPS URL이 다시 생성되고 값이 변경됩니다. 따라서 *ngrok* 를 통해 함수를 Azure에 노출할 때마다 새 이벤트 구독을 만들어야 합니다.
 
 ## <a name="upload-a-file"></a>파일 업로드
 
@@ -89,7 +89,7 @@ Azure Portal을 열고 스토리지 계정으로 이동한 후 **이벤트** 옵
 
 - **BLOB 컨테이너** 확장 
 - 마우스 오른쪽 단추를 클릭하고 **BLOB 컨테이너 만들기** 선택
-- 컨테이너 이름을 **test**로 지정
+- 컨테이너 이름을 **test** 로 지정
 - *test* 컨테이너 선택
 - **업로드** 단추를 클릭 합니다.
 - **파일 업로드** 를 클릭 합니다.

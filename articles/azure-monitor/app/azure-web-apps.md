@@ -4,12 +4,12 @@ description: Azure App Services에 대한 애플리케이션 성능 모니터링
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: c78a43f9efb263c08dad21218636f21121b9732c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: f46d00f97dab18b0c7c1d4a5742a87308f814e9e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377805"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832901"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -36,7 +36,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
 ## <a name="enable-agent-based-monitoring"></a>에이전트 기반 모니터링 사용
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 > [!NOTE]
 > APPINSIGHTS_JAVASCRIPT_ENABLED와 urlCompression의 조합은 지원 되지 않습니다. 자세한 내용은 [문제 해결 섹션](#troubleshooting)의 설명을 참조 하세요.
@@ -59,13 +59,13 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
  
  다음은 각 경로에 대해 수집 된 데이터에 대 한 요약입니다.
         
-| 데이터 | .NET 기본 컬렉션 | .NET 권장 컬렉션 |
+| 데이터 | ASP.NET 기본 컬렉션 | 권장 ASP.NET 컬렉션 |
 | --- | --- | --- |
-| CPU, 메모리 및 I/O 사용량 추세를 추가합니다. |yes |yes |
-| 사용량 추세를 수집하고, 가용성 결과와 트랜잭션의 상관 관계를 사용하도록 설정합니다. | yes |yes |
-| 호스트 프로세스에서 처리되지 않은 예외를 수집합니다. | yes |yes |
-| 샘플링을 사용하는 경우 부하 상태에서 APM 메트릭 정확도가 향상됩니다. | yes |yes |
-| 요청/종속성 경계 간에 마이크로 서비스를 상호 연결합니다. | 아니요 (단일 인스턴스 APM 기능만 해당) |yes |
+| CPU, 메모리 및 I/O 사용량 추세를 추가합니다. |예 |예 |
+| 사용량 추세를 수집하고, 가용성 결과와 트랜잭션의 상관 관계를 사용하도록 설정합니다. | 예 |예 |
+| 호스트 프로세스에서 처리되지 않은 예외를 수집합니다. | 예 |예 |
+| 샘플링을 사용하는 경우 부하 상태에서 APM 메트릭 정확도가 향상됩니다. | 예 |예 |
+| 요청/종속성 경계 간에 마이크로 서비스를 상호 연결합니다. | 아니요 (단일 인스턴스 APM 기능만 해당) |예 |
 
 3. 이전에 applicationinsights.config 파일을 통해 제어할 수 있는 샘플과 같은 설정을 구성 하려면 이제 해당 접두사를 사용 하 여 응용 프로그램 설정을 통해 동일한 설정과 상호 작용할 수 있습니다. 
 
@@ -73,11 +73,11 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
     * 지원 되는 적응 샘플링 원격 분석 프로세서 설정 목록에 대해서는 [코드](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) 및 [관련 설명서](./sampling.md)를 참조할 수 있습니다.
 
-# <a name="net-core"></a>[.NET Core](#tab/netcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-다음 버전의 .NET Core가 지원 됩니다. ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0, ASP.NET Core 3.1
+지원 되는 ASP.NET Core 버전: ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0, ASP.NET Core 3.1
 
-.NET Core, 자체 포함 배포 및 Linux 기반 응용 프로그램에서 전체 프레임 워크를 대상으로 지정 하는 것은 현재 에이전트/확장 기반 모니터링에서 **지원 되지 않습니다** . 코드를 통한[수동 계측](./asp-net-core.md) 은 모든 이전 시나리오에서 작동 합니다.
+ASP.NET Core, 자체 포함 된 배포 및 Linux 기반 응용 프로그램에서 전체 프레임 워크를 대상으로 지정 하는 기능은 현재 에이전트/확장 기반 모니터링에서 **지원 되지 않습니다** . 코드를 통한[수동 계측](./asp-net-core.md) 은 모든 이전 시나리오에서 작동 합니다.
 
 1. App Service의 Azure 제어판에서 **Application Insights를 선택** 합니다.
 
@@ -90,7 +90,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
      ![웹앱 계측](./media/azure-web-apps/create-resource-01.png)
 
-2. 사용할 리소스를 지정한 후에는 응용 프로그램에 대 한 플랫폼별 데이터 수집 Application Insights 방법을 선택할 수 있습니다. .NET Core는 ASP.NET Core 2.1, 2.2, 3.0 및 3.1에 대해 **권장 되는 컬렉션** 을 제공 하거나 **사용 하지 않도록 설정** 합니다.
+2. 사용할 리소스를 지정한 후에는 응용 프로그램에 대 한 플랫폼별 데이터 수집 Application Insights 방법을 선택할 수 있습니다. ASP.NET Core ASP.NET Core 2.1, 2.2, 3.0 및 3.1에 대해 **권장 되는 컬렉션** 을 제공 하거나 **사용 하지 않도록 설정** 합니다.
 
     ![플랫폼별 옵션 선택](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -111,7 +111,7 @@ Python App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/
 
 ## <a name="enable-client-side-monitoring"></a>클라이언트 쪽 모니터링 사용
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 클라이언트 쪽 모니터링이 ASP.NET에 대해 옵트인 (opt in) 됩니다. 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면:
 
@@ -126,9 +126,9 @@ Python App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/
 
 클라이언트 쪽 모니터링을 사용 하지 않도록 설정 하려면 응용 프로그램 설정에서 연결 된 키 값 쌍을 제거 하거나 값을 false로 설정 합니다.
 
-# <a name="net-core"></a>[.NET Core](#tab/netcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-클라이언트 쪽 모니터링은 앱 설정 ' APPINSIGHTS_JAVASCRIPT_ENABLED '이 있는지 여부에 관계 없이 **권장 컬렉션이** 있는 .net Core 앱에 대해 **기본적으로 사용 하도록 설정** 됩니다.
+클라이언트 쪽 모니터링은 앱 설정 ' APPINSIGHTS_JAVASCRIPT_ENABLED '이 있는지 여부에 관계 없이 **권장 컬렉션이** 있는 ASP.NET Core 앱에 대해 **기본적으로 사용 하도록 설정** 됩니다.
 
 어떤 이유로 든 클라이언트 쪽 모니터링을 사용 하지 않도록 설정 하려는 경우:
 
@@ -348,7 +348,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 ## <a name="troubleshooting"></a>문제 해결
 
-다음은 Azure 앱 서비스에서 실행 되는 .NET 및 .NET Core 기반 응용 프로그램에 대 한 확장/에이전트 기반 모니터링에 대 한 단계별 문제 해결 가이드입니다.
+다음은 Azure 앱 서비스에서 실행 되는 ASP.NET 및 ASP.NET Core 기반 응용 프로그램에 대 한 확장/에이전트 기반 모니터링에 대 한 단계별 문제 해결 가이드입니다.
 
 > [!NOTE]
 > Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)에 대 한 지침을 따르세요.
@@ -372,16 +372,31 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
     * , 및에 대 한 항목이 없는지 `AppAlreadyInstrumented` 확인 `AppContainsDiagnosticSourceAssembly` `AppContainsAspNetTelemetryCorrelationAssembly` 합니다.
         * 이러한 항목이 있는 경우 응용 프로그램에서, 및 패키지를 제거 `Microsoft.ApplicationInsights` `System.Diagnostics.DiagnosticSource` `Microsoft.AspNet.TelemetryCorrelation` 합니다.
+        * ASP.NET Core 앱에만 해당: 응용 프로그램이 Application Insights 패키지를 참조 하는 경우, 예를 들어 [ASP.NET CORE SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)를 사용 하 여 앱을 이전에 계측 했거나 계측 하려고 한 경우 App Service 통합을 사용 하도록 설정 하지 않을 수 있으며 데이터가 Application Insights에 표시 되지 않을 수 있습니다. 이 문제를 해결 하려면 포털에서 "Application Insights SDK를 사용 하 여 Interop"를 켜고에서 데이터를 확인 하기 시작 Application Insights 
+        > [!IMPORTANT]
+        > 이 기능은 미리 보기 상태입니다. 
+
+        ![기존 앱 설정 사용](./media/azure-web-apps/netcore-sdk-interop.png)
+
+        Application Insights SDK를 원래 사용 했거나 사용 하려고 하는 경우에도 이제 코드 없는 방법을 사용 하 여 데이터를 전송 합니다.
+
+        > [!IMPORTANT]
+        > 응용 프로그램에서 SDK를 Application Insights 사용 하 여 원격 분석을 보내는 경우 해당 원격 분석을 사용 하지 않도록 설정 됩니다. 즉, 예를 들어 Track * () 메서드와 같은 사용자 지정 원격 분석 (있는 경우) 및 사용자 지정 설정 (예: 샘플링)을 사용할 수 없게 됩니다. 
+
+
+### <a name="php-and-wordpress-are-not-supported"></a>PHP 및 WordPress는 지원 되지 않습니다.
+
+PHP 및 WordPress 사이트는 지원 되지 않습니다. 현재 이러한 워크 로드의 서버 쪽 모니터링에 대 한 공식적으로 지원 되는 SDK/에이전트가 없습니다. 그러나 클라이언트 쪽 JavaScript를 웹 페이지에 추가 하 여 클라이언트 쪽 JavaScript를 PHP 또는 WordPress 사이트에 수동으로 계측 하면 [JAVASCRIPT SDK](./javascript.md)를 사용 하 여 수행할 수 있습니다.
 
 아래 표에서는 이러한 값의 의미, 기본적인 원인 및 권장 픽스를 보다 자세히 설명 합니다.
 
 |문제 값|설명|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | 이 값은 확장에서 SDK의 일부 측면이 응용 프로그램에 이미 있고 백오프 됨을 감지 했음을 나타냅니다. `System.Diagnostics.DiagnosticSource`, 또는에 대 한 참조로 인 한 것일 수 있습니다. `Microsoft.AspNet.TelemetryCorrelation``Microsoft.ApplicationInsights`  | 참조를 제거 합니다. 이러한 참조 중 일부는 특정 Visual Studio 템플릿에서 기본적으로 추가 되며 이전 버전의 Visual Studio는에 대 한 참조를 추가할 수 있습니다 `Microsoft.ApplicationInsights` .
-|`AppAlreadyInstrumented:true` | 응용 프로그램이 .NET Core 2.1 또는 2.2를 대상으로 하 고 [AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore.All) 를 참조 하는 경우에는 Application Insights를 가져오고 확장이 백오프 됩니다. | .NET Core 2.1, 2.2의 고객은 AspNetCore를 대신 사용 하는 [것이 좋습니다](https://github.com/aspnet/Announcements/issues/287) .|
+|`AppAlreadyInstrumented:true` | 응용 프로그램이 ASP.NET Core 2.1 또는 2.2를 대상으로 하는 경우이 값은 SDK의 일부 측면이 응용 프로그램에 이미 있고 백오프 됨을 검색 했음을 나타냅니다. | .NET Core 2.1, 2.2의 고객은 AspNetCore를 대신 사용 하는 [것이 좋습니다](https://github.com/aspnet/Announcements/issues/287) . 또한 포털에서 "Application Insights SDK를 사용 하 여 상호 운용성"을 켭니다 (위의 지침 참조).|
 |`AppAlreadyInstrumented:true` | 이 값은 이전 배포에서 앱 폴더에 위의 dll이 있는 경우에도 발생할 수 있습니다. | 이러한 dll이 제거 되도록 앱 폴더를 정리 합니다. 로컬 앱의 bin 디렉터리와 App Service의 wwwroot 디렉터리를 모두 확인 합니다. App Service 웹 앱의 wwwroot 디렉터리를 확인 하려면: 고급 도구 (Kudu) > 디버그 콘솔 > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | 이 값은 확장 `Microsoft.AspNet.TelemetryCorrelation` 에서 응용 프로그램의에 대 한 참조를 검색 하 여 백오프 함을 나타냅니다. | 참조를 제거합니다.
-|`AppContainsDiagnosticSourceAssembly**:true`|이 값은 확장 `System.Diagnostics.DiagnosticSource` 에서 응용 프로그램의에 대 한 참조를 검색 하 여 백오프 함을 나타냅니다.| 참조를 제거합니다.
+|`AppContainsDiagnosticSourceAssembly**:true`|이 값은 확장 `System.Diagnostics.DiagnosticSource` 에서 응용 프로그램의에 대 한 참조를 검색 하 여 백오프 함을 나타냅니다.| ASP.NET에 대 한 참조를 제거 합니다. 
 |`IKeyExists:false`|이 값은 AppSetting,에 계측 키가 없음을 나타냅니다 `APPINSIGHTS_INSTRUMENTATIONKEY` . 가능한 원인: 값이 실수로 제거 되었거나 자동화 스크립트에서 값을 설정 하는 것을 잊은 경우 | 설정이 App Service 응용 프로그램 설정에 표시 되는지 확인 합니다.
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED 및 urlCompression은 지원 되지 않습니다.
@@ -397,13 +412,9 @@ Application Insights 에이전트/확장에 대 한 최신 정보는 [릴리스]
 
 ### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>웹 앱으로 배포 된 기본 웹 사이트에서 자동 클라이언트 쪽 모니터링을 지원 하지 않음
 
-Azure 앱 Services에서 또는 런타임을 사용 하 여 웹 앱을 만들 때 `ASP.NET` `.NET Core` 단일 정적 HTML 페이지가 스타터 웹 사이트로 배포 됩니다. 또한 정적 웹 페이지는 IIS에서 .NET 관리 웹 파트를 로드 합니다. 이를 통해 코드 없는 서버 쪽 모니터링을 테스트할 수 있지만 자동 클라이언트 쪽 모니터링은 지원 하지 않습니다.
+Azure 앱 Services에서 또는 런타임을 사용 하 여 웹 앱을 만들 때 `ASP.NET` `ASP.NET Core` 단일 정적 HTML 페이지가 스타터 웹 사이트로 배포 됩니다. 또한 정적 웹 페이지에서는 IIS에서 ASP.NET 관리 되는 웹 파트를 로드 합니다. 이를 통해 코드 없는 서버 쪽 모니터링을 테스트할 수 있지만 자동 클라이언트 쪽 모니터링은 지원 하지 않습니다.
 
 코드 없는 서버 및 ASP.NET Core ASP.NET에 대 한 클라이언트 쪽 모니터링을 테스트 하려는 경우 Azure 앱 Services 웹 앱에서 [ASP.NET Core 웹 앱](../../app-service/quickstart-dotnetcore.md) 을 만들고 [ASP.NET Framework 웹 앱을 만든](../../app-service/quickstart-dotnet-framework.md) 다음 현재 문서의 지침을 사용 하 여 모니터링을 사용 하도록 설정 하는 공식 가이드를 따르는 것이 좋습니다.
-
-### <a name="php-and-wordpress-are-not-supported"></a>PHP 및 WordPress는 지원 되지 않습니다.
-
-PHP 및 WordPress 사이트는 지원 되지 않습니다. 현재 이러한 워크 로드의 서버 쪽 모니터링에 대 한 공식적으로 지원 되는 SDK/에이전트가 없습니다. 그러나 클라이언트 쪽 JavaScript를 웹 페이지에 추가 하 여 클라이언트 쪽 JavaScript를 PHP 또는 WordPress 사이트에 수동으로 계측 하면 [JAVASCRIPT SDK](./javascript.md)를 사용 하 여 수행할 수 있습니다.
 
 ### <a name="connection-string-and-instrumentation-key"></a>연결 문자열 및 계측 키
 

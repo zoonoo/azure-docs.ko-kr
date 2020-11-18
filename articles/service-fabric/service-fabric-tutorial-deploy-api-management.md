@@ -3,13 +3,13 @@ title: Azure에서 Service Fabric과 API Management 통합
 description: Azure API Management를 빠르게 시작하고 Service Fabric에서 백 엔드 서비스로 트래픽을 라우팅하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.custom: mvc
-ms.openlocfilehash: 40f8c53394292a85f6fd032e445d79ed82e2d4e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 61a13d80fd67751d77bc77199fa433143ad92048
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260257"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831704"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Azure에서 Service Fabric과 API Management 통합
 
@@ -89,7 +89,7 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
 
     Azure에서 API Management를 통해 노출될 엔드포인트입니다.
 
- 7. 마지막으로, Azure에서 애플리케이션을 클러스터에 배포합니다. Visual Studio에서 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 클러스터 엔드포인트(예: `mycluster.southcentralus.cloudapp.azure.com:19000`)를 제공하여 Azure에서 Service Fabric 클러스터에 애플리케이션을 배포합니다.
+ 7. 마지막으로, Azure에서 애플리케이션을 클러스터에 배포합니다. Visual Studio에서 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다. 클러스터 엔드포인트(예: `mycluster.southcentralus.cloudapp.azure.com:19000`)를 제공하여 Azure에서 Service Fabric 클러스터에 애플리케이션을 배포합니다.
 
 `fabric:/ApiApplication/WebApiService`로 명명된 ASP.NET Core 상태 비저장 서비스는 이제 Azure의 Service Fabric 클러스터에서 실행되어야 합니다.
 
@@ -120,24 +120,24 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
 
 [Microsoft.ApiManagement/service/backends](/azure/templates/microsoft.apimanagement/service/backends)에서는 트래픽이 전달되는 백 엔드 서비스에 대해 설명합니다.
 
-Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라 Service Fabric 클러스터가 백 엔드입니다. 이렇게 하면 단일 정책에서 클러스터에 있는 둘 이상의 서비스로 라우팅할 수 있습니다. 여기서 **url** 필드는 백 엔드 정책에 지정된 서비스 이름이 없는 경우 기본적으로 모든 요청이 라우팅되는 클러스터 서비스의 정규화된 서비스 이름입니다. 대체 서비스를 포함하지 않으려는 경우 "fabric:/fake/service" 같은 가짜 서비스 이름을 사용할 수 있습니다. **resourceId**는 클러스터 관리 엔드포인트를 지정합니다.  **clientCertificateThumbprint** 및 **serverCertificateThumbprints**는 클러스터로 인증받는 데 사용되는 인증서를 식별합니다.
+Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라 Service Fabric 클러스터가 백 엔드입니다. 이렇게 하면 단일 정책에서 클러스터에 있는 둘 이상의 서비스로 라우팅할 수 있습니다. 여기서 **url** 필드는 백 엔드 정책에 지정된 서비스 이름이 없는 경우 기본적으로 모든 요청이 라우팅되는 클러스터 서비스의 정규화된 서비스 이름입니다. 대체 서비스를 포함하지 않으려는 경우 "fabric:/fake/service" 같은 가짜 서비스 이름을 사용할 수 있습니다. **resourceId** 는 클러스터 관리 엔드포인트를 지정합니다.  **clientCertificateThumbprint** 및 **serverCertificateThumbprints** 는 클러스터로 인증받는 데 사용되는 인증서를 식별합니다.
 
 ### <a name="microsoftapimanagementserviceproducts"></a>Microsoft.ApiManagement/service/products
 
 [Microsoft.ApiManagement/service/products](/azure/templates/microsoft.apimanagement/service/products)에서는 제품을 만듭니다. Azure API Management에서 제품은 하나 이상의 API뿐만 아니라 사용 할당량 및 사용 약관을 포함합니다. 제품이 게시되면 개발자는 제품을 구독하고 제품의 API를 사용할 수 있습니다.
 
-제품을 설명하는 **displayName** 및 **description**을 입력합니다. 이 문서에서는 구독이 필요하지만 관리자의 구독 승인은 필요하지 않습니다.  이 제품의 **state**는 "게시됨"이며 구독자에게 표시됩니다.
+제품을 설명하는 **displayName** 및 **description** 을 입력합니다. 이 문서에서는 구독이 필요하지만 관리자의 구독 승인은 필요하지 않습니다.  이 제품의 **state** 는 "게시됨"이며 구독자에게 표시됩니다.
 
 ### <a name="microsoftapimanagementserviceapis"></a>Microsoft.ApiManagement/service/apis
 
 [Microsoft.ApiManagement/service/apis](/azure/templates/microsoft.apimanagement/service/apis)에서는 API를 만듭니다. API Management에서 API는 클라이언트 애플리케이션이 호출할 수 있는 작업 집합을 나타냅니다. 작업이 추가되면 API가 제품에 추가되므로, 이 API를 게시할 수 있습니다. API가 게시되면 개발자가 구독하고 사용할 수 있습니다.
 
-* **displayName**은 API에 대한 어떤 이름도 될 수 있습니다. 이 문서에서는 "Service Fabric 앱"을 사용합니다.
-* **name**은 API를 설명하는 고유한 이름(예: "service-fabric-app")을 제공합니다. 개발자 및 게시자 포털에 표시됩니다.
-* **serviceUrl**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 이 문서의 경우 (예: "http: \/ /servicefabric").
-* **path**는 API Management 서비스의 기본 URL에 추가됩니다. 기본 URL은 API Management 서비스 인스턴스에서 호스트되는 모든 API에 공통으로 사용됩니다. API Management는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.
-* **protocols**는 API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다. 이 문서에서는 **http** 및 **https**가 나열됩니다.
-* **path**는 API에 대한 접미사입니다. 이 문서에서는 "myapp"을 사용합니다.
+* **displayName** 은 API에 대한 어떤 이름도 될 수 있습니다. 이 문서에서는 "Service Fabric 앱"을 사용합니다.
+* **name** 은 API를 설명하는 고유한 이름(예: "service-fabric-app")을 제공합니다. 개발자 및 게시자 포털에 표시됩니다.
+* **serviceUrl** 은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 이 문서의 경우 (예: "http: \/ /servicefabric").
+* **path** 는 API Management 서비스의 기본 URL에 추가됩니다. 기본 URL은 API Management 서비스 인스턴스에서 호스트되는 모든 API에 공통으로 사용됩니다. API Management는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.
+* **protocols** 는 API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다. 이 문서에서는 **http** 및 **https** 가 나열됩니다.
+* **path** 는 API에 대한 접미사입니다. 이 문서에서는 "myapp"을 사용합니다.
 
 ### <a name="microsoftapimanagementserviceapisoperations"></a>Microsoft.ApiManagement/service/apis/operations
 
@@ -145,9 +145,9 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 
 프런트 엔드 API 작업을 추가하려면 다음 값을 채웁니다.
 
-* **displayName** 및 **description**은 작업에 대해 설명합니다. 이 문서에서는 "Values"를 사용합니다.
-* **method**는 HTTP 동사를 지정합니다.  이 문서에서는 **GET**을 지정합니다.
-* **urlTemplate**은 API의 기준 URL에 추가되며 단일 HTTP 작업을 식별합니다.  이 문서에서는 .NET 백 엔드 서비스를 추가한 경우에는 `/api/values`를, Java 백 엔드 서비스를 추가한 경우에는 `getMessage`를 사용합니다.  기본적으로 여기에 지정된 URL 경로는 백 엔드 Service Fabric 서비스로 전송되는 URL 경로입니다. 여기에 서비스에서 사용하는 것과 동일한 URL 경로(예: "/api/values")를 사용하면 추가 수정 없이 작업이 이루어집니다. 여기에 백 엔드 Service Fabric 서비스에서 사용하는 URL 경로와 다른 URL 경로를 지정할 수도 있습니다. 이 경우 나중에 작업 정책에서도 경로 다시 쓰기를 지정해야 합니다.
+* **displayName** 및 **description** 은 작업에 대해 설명합니다. 이 문서에서는 "Values"를 사용합니다.
+* **method** 는 HTTP 동사를 지정합니다.  이 문서에서는 **GET** 을 지정합니다.
+* **urlTemplate** 은 API의 기준 URL에 추가되며 단일 HTTP 작업을 식별합니다.  이 문서에서는 .NET 백 엔드 서비스를 추가한 경우에는 `/api/values`를, Java 백 엔드 서비스를 추가한 경우에는 `getMessage`를 사용합니다.  기본적으로 여기에 지정된 URL 경로는 백 엔드 Service Fabric 서비스로 전송되는 URL 경로입니다. 여기에 서비스에서 사용하는 것과 동일한 URL 경로(예: "/api/values")를 사용하면 추가 수정 없이 작업이 이루어집니다. 여기에 백 엔드 Service Fabric 서비스에서 사용하는 URL 경로와 다른 URL 경로를 지정할 수도 있습니다. 이 경우 나중에 작업 정책에서도 경로 다시 쓰기를 지정해야 합니다.
 
 ### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
 
@@ -160,7 +160,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 * 상태 저장 서비스 복제본 선택
 * 서비스 위치를 다시 확인하고 요청을 다시 보내는 조건을 지정할 수 있는 다시 확인 시도 조건
 
-**policyContent**는 정책의 Json 이스케이프 XML 콘텐츠입니다.  이 문서에서는 이전에 배포한 .NET 또는 Java 상태 비저장 서비스로 직접 요청을 라우팅하는 백 엔드 정책을 만듭니다. 인바운드 정책 아래에 `set-backend-service` 정책을 추가합니다.  이전에 .NET 백 엔드 서비스를 배포한 경우에는 *sf-service-instance-name* 값을 `fabric:/ApiApplication/WebApiService`로 바꾸고, Java 서비스를 배포한 경우에는 `fabric:/EchoServerApplication/EchoServerService`로 바꿉니다.  *backend-id*는 백 엔드 리소스를 참조하며, 이 경우에는 *apim.json* 템플릿에 정의된 `Microsoft.ApiManagement/service/backends` 리소스입니다. *backend-id*는 또한 API Management API를 사용하여 생성된 다른 백 엔드 리소스를 참조할 수 있습니다. 이 문서에서는 *backend-id*를 *service_fabric_backend_name* 매개 변수 값으로 설정합니다.
+**policyContent** 는 정책의 Json 이스케이프 XML 콘텐츠입니다.  이 문서에서는 이전에 배포한 .NET 또는 Java 상태 비저장 서비스로 직접 요청을 라우팅하는 백 엔드 정책을 만듭니다. 인바운드 정책 아래에 `set-backend-service` 정책을 추가합니다.  이전에 .NET 백 엔드 서비스를 배포한 경우에는 *sf-service-instance-name* 값을 `fabric:/ApiApplication/WebApiService`로 바꾸고, Java 서비스를 배포한 경우에는 `fabric:/EchoServerApplication/EchoServerService`로 바꿉니다.  *backend-id* 는 백 엔드 리소스를 참조하며, 이 경우에는 *apim.json* 템플릿에 정의된 `Microsoft.ApiManagement/service/backends` 리소스입니다. *backend-id* 는 또한 API Management API를 사용하여 생성된 다른 백 엔드 리소스를 참조할 수 있습니다. 이 문서에서는 *backend-id* 를 *service_fabric_backend_name* 매개 변수 값으로 설정합니다.
 
 ```xml
 <policies>
@@ -184,7 +184,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 
 ## <a name="set-parameters-and-deploy-api-management"></a>매개 변수 설정 및 API Management 배포
 
-사용자 배포의 *cluster.parameters.json*에 다음의 빈 매개 변수를 입력합니다.
+사용자 배포의 *cluster.parameters.json* 에 다음의 빈 매개 변수를 입력합니다.
 
 |매개 변수|값|
 |---|---|
@@ -199,9 +199,9 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 |clusterHttpManagementEndpoint|`https://mysfcluster.southcentralus.cloudapp.azure.com:19080`|
 |inbound_policy|&lt;XML 문자열&gt;|
 
-*certificatePassword* 및 *serviceFabricCertificateThumbprint*는 클러스터를 설정하는 데 사용되는 클러스터 인증서와 일치해야 합니다.
+*certificatePassword* 및 *serviceFabricCertificateThumbprint* 는 클러스터를 설정하는 데 사용되는 클러스터 인증서와 일치해야 합니다.
 
-*serviceFabricCertificate*는 다음 스크립트를 사용하여 생성할 수 있는 base-64로 인코딩된 문자열로 나타낸 인증서입니다.
+*serviceFabricCertificate* 는 다음 스크립트를 사용하여 생성할 수 있는 base-64로 인코딩된 문자열로 나타낸 인증서입니다.
 
 ```powershell
 $bytes = [System.IO.File]::ReadAllBytes("C:\mycertificates\sfclustertutorialgroup220171109113527.pfx");
@@ -209,7 +209,7 @@ $b64 = [System.Convert]::ToBase64String($bytes);
 [System.Io.File]::WriteAllText("C:\mycertificates\sfclustertutorialgroup220171109113527.txt", $b64);
 ```
 
-*inbound_policy*에서 이전에 .NET 백 엔드 서비스를 배포한 경우에는 *sf-service-instance-name* 값을 `fabric:/ApiApplication/WebApiService`로 바꾸고, Java 서비스를 배포한 경우에는 `fabric:/EchoServerApplication/EchoServerService`로 바꿉니다. *backend-id*는 백 엔드 리소스를 참조하며, 이 경우에는 *apim.json* 템플릿에 정의된 `Microsoft.ApiManagement/service/backends` 리소스입니다. *backend-id*는 또한 API Management API를 사용하여 생성된 다른 백 엔드 리소스를 참조할 수 있습니다. 이 문서에서는 *backend-id*를 *service_fabric_backend_name* 매개 변수 값으로 설정합니다.
+*inbound_policy* 에서 이전에 .NET 백 엔드 서비스를 배포한 경우에는 *sf-service-instance-name* 값을 `fabric:/ApiApplication/WebApiService`로 바꾸고, Java 서비스를 배포한 경우에는 `fabric:/EchoServerApplication/EchoServerService`로 바꿉니다. *backend-id* 는 백 엔드 리소스를 참조하며, 이 경우에는 *apim.json* 템플릿에 정의된 `Microsoft.ApiManagement/service/backends` 리소스입니다. *backend-id* 는 또한 API Management API를 사용하여 생성된 다른 백 엔드 리소스를 참조할 수 있습니다. 이 문서에서는 *backend-id* 를 *service_fabric_backend_name* 매개 변수 값으로 설정합니다.
 
 ```xml
 <policies>
@@ -252,7 +252,7 @@ az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGr
 
 이제 [Azure Portal](https://portal.azure.com)에서 직접 API Management를 통해 Service Fabric의 백 엔드 서비스에 요청을 전송하는 것을 시도해 볼 수 있습니다.
 
- 1. API Management 서비스에서 **API**를 선택합니다.
+ 1. API Management 서비스에서 **API** 를 선택합니다.
  2. 이전 단계에서 만든 **Service Fabric 앱** API에서 **테스트** 탭 및 **값** 작업을 차례로 선택합니다.
  3. **전송** 단추를 클릭하여 백 엔드 서비스로 테스트 요청을 보냅니다.  다음과 유사한 HTTP 응답이 표시됩니다.
 

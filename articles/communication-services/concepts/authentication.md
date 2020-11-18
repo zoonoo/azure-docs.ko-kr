@@ -9,25 +9,25 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 96e10bc19d59b60824a908c67816a21ca80326d0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202959"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832809"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Azure 통신 서비스에 인증
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-이 문서에서는 *액세스 키* 및 *사용자 액세스 토큰*을 사용 하 여 Azure Communication Services에 대 한 클라이언트 인증에 대 한 정보를 제공 합니다. 모든 클라이언트와 Azure 통신 서비스 간의 상호 작용을 인증 해야 합니다.
+이 문서에서는 *액세스 키* 및 *사용자 액세스 토큰* 을 사용 하 여 Azure Communication Services에 대 한 클라이언트 인증에 대 한 정보를 제공 합니다. 모든 클라이언트와 Azure 통신 서비스 간의 상호 작용을 인증 해야 합니다.
 
 다음 표에서는 Azure Communication Services 클라이언트 라이브러리에서 지원 되는 인증 옵션을 설명 합니다.
 
 | 클라이언트 라이브러리 | 액세스 키    | 사용자 액세스 토큰 |
 | -------------- | ------------- | ------------------ |
 | 관리 | 지원됨     | 지원되지 않음      |
-| SMS            | 지원됨     | 지원되지 않음      |
+| sms            | 지원됨     | 지원되지 않음      |
 | 채팅           | 지원되지 않음 | 지원됨          |
 | 호출        | 지원되지 않음 | 지원됨          |
 
@@ -72,11 +72,11 @@ Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signatur
 
 사용자 액세스 토큰을 통해 클라이언트 응용 프로그램에서 Azure Communication Services에 대해 직접 인증할 수 있습니다. 이를 위해서는 응용 프로그램 사용자를 인증 하 고 관리 클라이언트 라이브러리를 사용 하 여 사용자 액세스 토큰을 발급 하는 신뢰할 수 있는 서비스를 설정 해야 합니다. 아키텍처 고려 사항에 대해 자세히 알아보려면 [클라이언트 및 서버 아키텍처](./client-and-server-architecture.md) 개념 설명서를 참조 하세요.
 
-클래스에는 `CommunicationClientCredential` 클라이언트 라이브러리에 사용자 액세스 토큰 자격 증명을 제공 하 고 수명 주기를 관리 하는 논리가 포함 되어 있습니다.
+클래스에는 `CommunicationUserCredential` 클라이언트 라이브러리에 사용자 액세스 토큰 자격 증명을 제공 하 고 수명 주기를 관리 하는 논리가 포함 되어 있습니다.
 
 ### <a name="initialize-the-client-libraries"></a>클라이언트 라이브러리 초기화
 
-사용자 액세스 토큰 인증이 필요한 Azure Communication Services 클라이언트 라이브러리를 초기화 하려면 먼저 클래스의 인스턴스 `CommunicationClientCredential` 를 만든 다음이를 사용 하 여 API 클라이언트를 초기화 합니다.
+사용자 액세스 토큰 인증이 필요한 Azure Communication Services 클라이언트 라이브러리를 초기화 하려면 먼저 클래스의 인스턴스 `CommunicationUserCredential` 를 만든 다음이를 사용 하 여 API 클라이언트를 초기화 합니다.
 
 다음 코드 조각은 사용자 액세스 토큰을 사용 하 여 채팅 클라이언트 라이브러리를 초기화 하는 방법을 보여 줍니다.
 
@@ -192,5 +192,5 @@ CommunicationUserCredential credential = new CommunicationUserCredential(tokenRe
 > [!div class="nextstepaction"]
 > [사용자 액세스 토큰 만들기](../quickstarts/access-tokens.md)
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 - [클라이언트 및 서버 아키텍처에 대한 자세한 정보](../concepts/client-and-server-architecture.md)
