@@ -6,14 +6,14 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 11/10/2020
 ms.author: banders
-ms.openlocfilehash: 21ceb3dadbdf43a3752aea60b102b43175348bbe
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 0b500d76adfc81cc336d30bdc7dc3a931a684bae
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442584"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636557"
 ---
 # <a name="azure-ea-portal-administration-for-partners"></a>파트너 대신 Azure EA Portal 관리
 
@@ -28,17 +28,17 @@ Azure EA Portal 내의 각 파트너 관리자는 다른 파트너 관리자를 
 현재 사용자와 동일한 파트너 조직에 연결된 모든 등록계약의 목록을 보려면 **등록계약** 탭을 선택하고 원하는 등록계약 상자를 선택합니다.
 
 1. 파트너 관리자 권한으로 로그인합니다.
-1. 왼쪽 탐색 영역에서 **관리**를 선택합니다.
+1. 왼쪽 탐색 영역에서 **관리** 를 선택합니다.
 1. **파트너** 탭을 선택합니다.
-1. **+ 관리자 추가**를 선택하고, 이메일 주소, 알림 연락처 및 알림 세부 정보를 입력합니다.
-1. **추가**를 선택합니다.
+1. **+ 관리자 추가** 를 선택하고, 이메일 주소, 알림 연락처 및 알림 세부 정보를 입력합니다.
+1. **추가** 를 선택합니다.
 
 ### <a name="remove-a-partner-administrator"></a>파트너 관리자 제거
 
 현재 사용자와 동일한 파트너 조직에 연결된 모든 등록계약의 목록을 보려면 **등록계약** 탭을 선택하고 원하는 등록계약 상자를 선택합니다.
 
 1. 파트너 관리자 권한으로 로그인합니다.
-1. 왼쪽 탐색 영역에서 **관리**를 선택합니다.
+1. 왼쪽 탐색 영역에서 **관리** 를 선택합니다.
 1. **파트너** 탭을 선택합니다.
 1. [관리자] 섹션 아래에서 제거하려는 관리자에 해당하는 행을 선택합니다.
 1. 오른쪽에서 X 기호를 선택합니다.
@@ -55,8 +55,8 @@ Azure EA Portal 내의 각 파트너 관리자는 다른 파트너 관리자를 
 3. [관리자] 섹션 아래에서 관리자 목록을 확인합니다.
 4. 알림 기본 설정을 편집하려면 마우스로 적절한 관리자 위를 가리키고 연필 기호를 선택합니다.
 5. 필요에 따라 알림 빈도 및 수명 주기 알림 횟수를 늘립니다.
-6. 필요한 경우 연락처를 추가하고 **추가**를 선택합니다.
-7. **저장**을 선택합니다.
+6. 필요한 경우 연락처를 추가하고 **추가** 를 선택합니다.
+7. **저장** 을 선택합니다.
 
 ![연락처 추가 상자를 보여주는 예제 ](./media/ea-partner-portal-administration/create-ea-manage-partner-notification.png)
 
@@ -67,7 +67,7 @@ Azure EA Portal 내의 각 파트너 관리자는 다른 파트너 관리자를 
 ### <a name="view-a-list-of-enrollments"></a>등록 목록 보기
 
 1. 파트너 관리자 권한으로 로그인합니다.
-1. 페이지 왼쪽의 탐색 영역에서 **관리**를 선택합니다.
+1. 페이지 왼쪽의 탐색 영역에서 **관리** 를 선택합니다.
 1. **등록** 탭을 선택합니다.
 1. 등록계약에 대한 상자를 선택합니다.
 

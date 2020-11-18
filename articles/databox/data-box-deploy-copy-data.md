@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 11/11/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 7ecccd64921b2d95155318fe91c897725e340b7e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: c68f76e56f49f055466f7332d7751ac468e034d8
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94334672"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616742"
 ---
 ::: zone target="docs"
 
@@ -74,7 +74,7 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
 
     ![SMB 공유에 대한 공유 자격 증명 가져오기](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. [액세스 공유 및 데이터 복사] 대화 상자에서 공유에 해당하는 **사용자 이름** 및 **암호** 를 복사합니다. 암호에 특수 문자가 있으면 앞뒤에 큰따옴표를 추가합니다. 그런 다음, **확인** 을 선택합니다.
+2. [액세스 공유 및 데이터 복사] 대화 상자에서 공유에 해당하는 **사용자 이름** 및 **암호** 를 복사합니다. 그런 다음, **확인** 을 선택합니다.
     
     ![공유에 대한 사용자 이름 및 암호 가져오기](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
@@ -87,11 +87,11 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
     - Azure 페이지 Blob - `\\10.126.76.138\utSAC1_202006051000_PageBlob`
     - Azure 파일 - `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
-4. 메시지가 표시되면 공유 암호를 입력합니다. 다음 샘플은 이전 명령을 통해 공유에 연결하는 방법을 보여줍니다.
+4. 메시지가 표시되면 공유 암호를 입력합니다. 암호에 특수 문자가 있으면 앞뒤에 큰따옴표를 추가합니다. 다음 샘플은 이전 명령을 통해 공유에 연결하는 방법을 보여줍니다.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
-    Enter the password for 'testuser1' to connect to '10.126.76.138':
+    Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```
 
