@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 82220a63cfe470344951e4276bc9eaccd9600428
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8bfe6f07fead700ae71bba1c28ccb13aa700513c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677357"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842773"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>성능을 위해 Azure Data Lake Storage Gen2 최적화
 
@@ -57,7 +57,7 @@ Azure의 VM 또는 온-프레미스 컴퓨터를 사용하는 경우 적절한 �
 
 일반적으로 HDInsight, Azure Data Lake Analytics 등의 분석 엔진에서는 파일당 오버헤드가 발생합니다. 데이터를 많은 작은 파일로 저장하는 경우 성능이 저하될 수 있습니다. 일반적으로 더 나은 성능을 얻으려면 데이터를 더 큰 크기의 파일(256MB ~ 100GB)로 구성합니다. 일부 엔진과 애플리케이션에서 100GB를 초과하는 파일을 효율적으로 처리하는 데 어려움을 겪을 수 있습니다.
 
-때로는 다수의 작은 파일로 이루어진 원시 데이터에 대한 데이터 파이프라인의 제어가 제한됩니다. 다운스트림 애플리케이션에 사용할 더 큰 파일을 생성하는 "처리" 프로세스를 포함하는 것이 좋습니다.
+때로는 다수의 작은 파일로 이루어진 원시 데이터에 대한 데이터 파이프라인의 제어가 제한됩니다. 일반적으로 시스템에는 다운스트림 응용 프로그램에서 사용 하기 위해 작은 파일을 더 큰 값으로 집계 하는 일종의 프로세스를 사용 하는 것이 좋습니다.
 
 ### <a name="organizing-time-series-data-in-folders"></a>폴더에 시계열 데이터 구성
 

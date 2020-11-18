@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc39c1e43580c5cf302e85664783dba4509889af
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002298"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842637"
 ---
 # <a name="security-best-practices"></a>보안 모범 사례
 
@@ -70,7 +70,7 @@ Windows 가상 데스크톱에는 여러 가지 기본 제공 보안 컨트롤�
 
 ### <a name="require-multi-factor-authentication"></a>다단계 인증 필요
 
-Windows 가상 데스크톱의 모든 사용자 및 관리자에 대해 multi-factor authentication을 요구 하면 전체 배포의 보안이 향상 됩니다. 자세한 내용은 [Windows 가상 데스크톱에 대 한 Azure Multi-Factor Authentication 사용](set-up-mfa.md)을 참조 하세요.
+Windows 가상 데스크톱의 모든 사용자 및 관리자에 대해 multi-factor authentication을 요구 하면 전체 배포의 보안이 향상 됩니다. 자세히 알아보려면 [Windows 가상 데스크톱에 대해 AZURE AD Multi-Factor Authentication 사용](set-up-mfa.md)을 참조 하세요.
 
 ### <a name="enable-conditional-access"></a>조건부 액세스 사용
 
@@ -80,7 +80,7 @@ Windows 가상 데스크톱의 모든 사용자 및 관리자에 대해 multi-fa
 
 감사 로그 수집을 사용 하도록 설정 하면 Windows 가상 데스크톱과 관련 된 사용자 및 관리자 활동을 볼 수 있습니다. 키 감사 로그의 몇 가지 예는 다음과 같습니다.
 
--   [Azure 활동 로그](../azure-monitor/platform/activity-log-collect.md)
+-   [Azure 동작 로그](../azure-monitor/platform/activity-log-collect.md)
 -   [활동 로그 Azure Active Directory](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [세션 호스트](../azure-monitor/platform/agent-windows.md)

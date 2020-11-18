@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: e5456c53ca891a7c88797f9661a6a3b9b9935e08
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 208e99f61694f5a81a98dbc649e2a6035f57891b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660910"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842586"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Multi-Factor Authentication을 위한 NPS 서버와 Azure VPN Gateway RADIUS 인증 통합 
 
@@ -49,9 +49,9 @@ MFA를 사용하려면 사용자가 Azure AD(Azure Active Directory)에 있어�
 
 
  
-### <a name="step-2-configure-the-nps-for-azure-mfa"></a>2단계 Azure MFA용 NPS 구성
+### <a name="step-2-configure-the-nps-for-azure-ad-mfa"></a>2 단계 Azure AD MFA에 대 한 NPS 구성
 
-1. NPS 서버에서 [Azure MFA용 NPS 확장을 설치](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension)합니다.
+1. NPS 서버에서 [AZURE AD MFA에 대 한 nps 확장을 설치](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension)합니다.
 2. NPS 콘솔을 열고 **RADIUS 클라이언트** 를 마우스 오른쪽 단추로 클릭 한 다음 **새로 만들기** 를 선택 합니다. 다음 설정을 지정 하 여 RADIUS 클라이언트를 만듭니다.
 
     - **식별 이름**: 이름을 입력합니다.
@@ -81,5 +81,5 @@ MFA를 사용하려면 사용자가 Azure AD(Azure Active Directory)에 있어�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)
-- [기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합](../active-directory/authentication/howto-mfa-nps-extension.md)
+- [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)
+- [기존 NPS 인프라를 Azure AD Multi-Factor Authentication와 통합](../active-directory/authentication/howto-mfa-nps-extension.md)
