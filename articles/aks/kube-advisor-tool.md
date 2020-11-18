@@ -7,12 +7,12 @@ author: seanmck
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 2b0078f1aff3ef81ee270f67de0fffddec3abab9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7730146f30487eb5d20f0d3138e9e5ba799daa99
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86255254"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681519"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>클러스터에서 Kubernetes 모범 사례 확인
 
@@ -29,7 +29,7 @@ Kube-advisor 도구는 Linux 애플리케이션뿐만 아니라 Windows 애플�
 
 ## <a name="running-kube-advisor"></a>kube-advisor 실행
 
-[RBAC(역할 기반 액세스 제어)](./azure-ad-integration-cli.md)용으로 구성된 클러스터에서 도구를 실행하려면 다음 명령을 사용합니다. 첫 번째 명령은 Kubernetes 서비스 계정을 만듭니다. 두 번째 명령은 이 서비스 계정을 사용하여 Pod에서 도구를 실행하고 종료 후 Pod를 삭제하도록 구성합니다. 
+[KUBERNETES RBAC (역할 기반 액세스 제어)를 Kubernetes](./azure-ad-integration-cli.md)하도록 구성 된 클러스터에서 도구를 실행 하려면 다음 명령을 사용 합니다. 첫 번째 명령은 Kubernetes 서비스 계정을 만듭니다. 두 번째 명령은 이 서비스 계정을 사용하여 Pod에서 도구를 실행하고 종료 후 Pod를 삭제하도록 구성합니다. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
@@ -37,7 +37,7 @@ kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }" --namespace default
 ```
 
-RBAC를 사용하지 않는 경우 다음과 같이 명령을 실행할 수 있습니다.
+Kubernetes RBAC를 사용 하지 않는 경우 다음과 같이 명령을 실행할 수 있습니다.
 
 ```bash
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never
@@ -59,13 +59,13 @@ Kubernetes는 [Pod 사양에 대한 리소스 요청 및 제한][kube-cpumem]을
 
 ## <a name="cleaning-up"></a>정리
 
-클러스터에 RBAC를 사용하도록 설정된 경우 다음 명령을 사용하여 도구를 실행한 후에 `ClusterRoleBinding`을 정리할 수 있습니다.
+클러스터에서 Kubernetes RBAC를 사용 하는 경우 `ClusterRoleBinding` 다음 명령을 사용 하 여 도구를 실행 한 후에를 정리할 수 있습니다.
 
 ```bash
 kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 ```
 
-RBAC를 사용할 수 없는 클러스터에 대해 도구를 실행하는 경우 정리가 필요하지 않습니다.
+Kubernetes RBAC를 사용 하지 않는 클러스터에 대해 도구를 실행 하는 경우 정리가 필요 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

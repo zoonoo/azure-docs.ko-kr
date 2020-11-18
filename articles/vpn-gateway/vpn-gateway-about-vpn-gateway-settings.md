@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 94ad0a05dafe2c405b1b9cb62242675aa54c4432
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1aba87b2139fb8a7d395fb3180d2074e47310fa9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424341"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661157"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
 
@@ -37,9 +37,9 @@ VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 �
 * Vpn
 * ExpressRoute
 
-VPN Gateway에는 `-GatewayType` *Vpn*이 필요합니다.
+VPN Gateway에는 `-GatewayType` *Vpn* 이 필요합니다.
 
-예제:
+예:
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -104,7 +104,7 @@ Resource Manager 배포 모델에서 각 구성이 작동하려면 특정 가상
 * ExpressRoute
 * VPNClient
 
-다음 PowerShell 예제에서는 *IPsec*연결 유형이 필요한 S2S 연결을 만듭니다.
+다음 PowerShell 예제에서는 *IPsec* 연결 유형이 필요한 S2S 연결을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
@@ -122,7 +122,7 @@ VPN Gateway 구성에 대한 가상 네트워크 게이트웨이 만들 때 VPN 
 
 [!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-다음 PowerShell 예제에서는 `-VpnType` 를 *RouteBased*로 지정합니다. 게이트웨이를 만들 때 -VpnType이 구성에 정확한지 확인해야 합니다.
+다음 PowerShell 예제에서는 `-VpnType` 를 *RouteBased* 로 지정합니다. 게이트웨이를 만들 때 -VpnType이 구성에 정확한지 확인해야 합니다.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -176,7 +176,7 @@ VPN Gateway를 구성하기 위해 REST API, PowerShell cmdlet 또는 Azure CLI�
 | **클래식** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
-| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
+| [REST API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](/rest/api/network/virtualnetworkgateways) |
 | 지원되지 않음 | [Azure CLI](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>다음 단계

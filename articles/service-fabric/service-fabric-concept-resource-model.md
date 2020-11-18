@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Resource Manager를 사용 하 여 Azure 
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3968fde0222dcee8047e7490dba78879ab6110e2
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258737"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681689"
 ---
 # <a name="service-fabric-application-resource-model"></a>응용 프로그램 리소스 모델 Service Fabric
 
@@ -50,12 +50,12 @@ Service Fabric 클러스터에 Azure Service Fabric 응용 프로그램을 배�
 
 ### <a name="configure-your-storage-account"></a>저장소 계정 구성
 
-저장소 계정을 만든 후에는 응용 프로그램이 준비 될 수 있는 blob 컨테이너를 만듭니다. Azure Portal에서 응용 프로그램을 저장 하려는 Azure Storage 계정으로 이동 합니다. **Blob**  >  **컨테이너 추가**를 선택 합니다. 
+저장소 계정을 만든 후에는 응용 프로그램이 준비 될 수 있는 blob 컨테이너를 만듭니다. Azure Portal에서 응용 프로그램을 저장 하려는 Azure Storage 계정으로 이동 합니다. **Blob**  >  **컨테이너 추가** 를 선택 합니다. 
 
-공용 액세스 수준을 **개인**으로 설정 하 여 클러스터의 리소스를 보호할 수 있습니다. 다음과 같은 여러 가지 방법으로 액세스 권한을 부여할 수 있습니다.
+공용 액세스 수준을 **개인** 으로 설정 하 여 클러스터의 리소스를 보호할 수 있습니다. 다음과 같은 여러 가지 방법으로 액세스 권한을 부여할 수 있습니다.
 
 * [Azure Active Directory](../storage/common/storage-auth-aad-app.md)를 사용 하 여 blob 및 큐에 대 한 액세스 권한을 부여 합니다.
-* [Azure Portal에서 RBAC](../storage/common/storage-auth-aad-rbac-portal.md)를 사용 하 여 Azure blob에 대 한 액세스 권한을 부여 하 고 데이터를 큐에 부여 합니다.
+* [Azure Portal에서 AZURE RBAC](../storage/common/storage-auth-aad-rbac-portal.md)를 사용 하 여 azure blob에 대 한 액세스 권한을 부여 하 고 데이터를 큐에 부여 합니다.
 * [공유 액세스 서명을](/rest/api/storageservices/delegate-access-with-shared-access-signature)사용 하 여 액세스를 위임 합니다.
 
 다음 스크린샷 예제에서는 blob에 대 한 익명 읽기 액세스를 사용 합니다.
@@ -68,15 +68,15 @@ Service Fabric 클러스터에 Azure Service Fabric 응용 프로그램을 배�
 
 이 자습서에서는 [투표 샘플 응용 프로그램](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)을 사용 합니다.
 
-1. Visual Studio에서 **투표** 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **패키지**를 선택 합니다.
+1. Visual Studio에서 **투표** 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **패키지** 를 선택 합니다.
 
    ![패키지 응용 프로그램][PackageApplication]  
-1. *.\Service-fabric-dotnet-quickstart\Voting\pkg\Debug* 디렉터리로 이동 합니다. 콘텐츠를 *Voting.zip*이라는 파일로 압축 합니다. *ApplicationManifest.xml* 파일은 zip 파일의 루트에 있어야 합니다.
+1. *.\Service-fabric-dotnet-quickstart\Voting\pkg\Debug* 디렉터리로 이동 합니다. 콘텐츠를 *Voting.zip* 이라는 파일로 압축 합니다. *ApplicationManifest.xml* 파일은 zip 파일의 루트에 있어야 합니다.
 
    ![Zip 응용 프로그램][ZipApplication]  
-1. 파일의 이름을 변경 하 여 확장명을 .zip에서 *. .sfpkg*로 변경 합니다.
+1. 파일의 이름을 변경 하 여 확장명을 .zip에서 *. .sfpkg* 로 변경 합니다.
 
-1. Azure Portal의 저장소 계정에 대 한 **앱** 컨테이너에서 **업로드**를 선택 하 고 **.sfpkg**를 업로드 합니다. 
+1. Azure Portal의 저장소 계정에 대 한 **앱** 컨테이너에서 **업로드** 를 선택 하 고 **.sfpkg** 를 업로드 합니다. 
 
    ![앱 패키지 업로드][UploadAppPkg]
 
@@ -84,10 +84,10 @@ Service Fabric 클러스터에 Azure Service Fabric 응용 프로그램을 배�
 
 ### <a name="create-the-resource-manager-template"></a>리소스 관리자 템플릿 만들기
 
-샘플 응용 프로그램에는 응용 프로그램을 배포 하는 데 사용할 수 있는 [Azure Resource Manager 템플릿이](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) 포함 되어 있습니다. 템플릿 파일 이름은 *UserApp.js설정* 되 고 *UserApp.Parameters.js*됩니다.
+샘플 응용 프로그램에는 응용 프로그램을 배포 하는 데 사용할 수 있는 [Azure Resource Manager 템플릿이](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) 포함 되어 있습니다. 템플릿 파일 이름은 *UserApp.js설정* 되 고 *UserApp.Parameters.js* 됩니다.
 
 > [!NOTE]
-> 파일 * 의UserApp.Parameters.js* 은 클러스터의 이름으로 업데이트 해야 합니다.
+> 파일 *의UserApp.Parameters.js* 은 클러스터의 이름으로 업데이트 해야 합니다.
 >
 >
 

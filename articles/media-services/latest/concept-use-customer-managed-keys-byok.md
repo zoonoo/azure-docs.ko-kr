@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: a89ff56eb9e0f0a29b5b1fed7543c5f718425e51
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a56922c972efeb21c188413522bd05f83b74ca12
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92326036"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681825"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Media Services를 사용 하 여 사용자 고유의 키 (고객 관리 키) 가져오기
 
@@ -37,9 +37,11 @@ Media Services는 Media Services 계정의 관리 Id를 사용 하 여 사용자
 > [!WARNING]
 > Media Services은 고객 키에 대 한 액세스를 모니터링 합니다. 사용자 키에 액세스할 수 없는 경우 (예: 키가 삭제 되었거나 Key Vault 삭제 되었거나 액세스 권한이 제거 된 경우) Media Services는 계정을 고객 키에 액세스할 수 없는 상태로 전환 합니다 (사실상 계정을 사용 하지 않도록 설정 함). 그러나이 상태에서는 계정을 삭제할 수 있습니다. 유일 하 게 지원 되는 작업은 account GET, LIST 및 DELETE입니다. 다른 모든 요청 (인코딩, 스트리밍 등)은 계정 키에 대 한 액세스가 복원 될 때까지 실패 합니다.
 
-## <a name="tutorial"></a>자습서
-[고객 관리 키 사용 또는 사용자 키 (BYOK Media Services)를 사용](tutorial-byok.md) 하 여 Postman 및 Azure REST API에서 고객 관리 키를 설정 하 고 사용 하는 방법에 대해 알아보려면 자습서를 사용해 보세요.
+## <a name="tutorials"></a>자습서
+
+- [Azure Portal를 사용 하 여 고객 관리 키 또는 BYOK를 Media Services 사용 합니다.](tutorial-byok-portal.md)
+- [Media Services REST API에서 고객이 관리 하는 키 또는 BYOK를 사용](tutorial-byok-postman.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [자습서:를 사용 하 여 고객 관리 키를 사용 하거나 사용자 고유의 키 (BYOK) 가져오기 Media Services](tutorial-byok.md)
+[Media Services 동적 암호화를 사용 하 여 콘텐츠 보호](content-protection-overview.md)
