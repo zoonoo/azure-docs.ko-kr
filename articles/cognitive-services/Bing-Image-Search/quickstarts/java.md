@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: aed96bab233a815091009278349627343cc5efd8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aeda148f52669d947d2e4fae0e664313ee747487
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099949"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592093"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-and-java"></a>빠른 시작: Bing Image Search API 및 Java를 사용하여 이미지 검색 
 
@@ -32,7 +32,7 @@ ms.locfileid: "93099949"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [JDK(Java Development Kit)](https://aka.ms/azure-jdks)
+* [JDK(Java Development Kit)](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * [Gson 라이브러리](https://github.com/google/gson)
 
@@ -166,8 +166,8 @@ Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답
 
 ## <a name="see-also"></a>참고 항목
 
-* [Bing Image Search API란?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Bing Image Search API란?](../overview.md)  
 * [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
 * [Bing Search API에 대한 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-* [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services).
-* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Azure Cognitive Services 설명서](../../index.yml).
+* [Bing Image Search API 참조](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

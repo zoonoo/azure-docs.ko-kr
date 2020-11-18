@@ -12,18 +12,18 @@ ms.date: 09/14/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 이미지 인식, 이미지 식별자, 이미지 인식 앱, custom vision
-ms.openlocfilehash: 47227a60b1ed45499afdb42fbc062abc5ae51ff9
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: aa338bf708abaa49d65b6a817009224973f3fb29
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605504"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616912"
 ---
 # <a name="what-is-custom-vision"></a>Custom Vision이란?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Custom Vision은 이미지 인식 서비스입니다. 이를 통해 자체 이미지 식별자를 빌드, 배포 및 개선할 수 있습니다. 이미지 식별자는 시각적 특성에 따라 이미지에 레이블(클래스 또는 개체를 나타냄)을 적용합니다. [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) 서비스와 달리 Custom Vision을 사용하면 레이블을 지정하고 이를 감지하도록 사용자 지정 모델을 학습시킬 수 있습니다.
+Azure Custom Vision은 이미지 인식 서비스입니다. 이를 통해 자체 이미지 식별자를 빌드, 배포 및 개선할 수 있습니다. 이미지 식별자는 시각적 특성에 따라 이미지에 레이블(클래스 또는 개체를 나타냄)을 적용합니다. [Computer Vision](../computer-vision/overview.md) 서비스와 달리 Custom Vision을 사용하면 레이블을 지정하고 이를 감지하도록 사용자 지정 모델을 학습시킬 수 있습니다.
 
 ## <a name="what-it-does"></a>수행하는 작업
 
@@ -31,7 +31,7 @@ Custom Vision Service는 기계 학습 알고리즘을 사용하여 이미지를
 
 ### <a name="classification-and-object-detection"></a>분류 및 개체 검색
 
-Custom Vision 기능을 두 가지로 나눌 수 있습니다. **이미지 분류**는 하나 이상의 레이블을 이미지에 적용합니다. **개체 감지**도 이와 비슷하지만, 적용된 레이블이 있는 이미지의 좌표를 반환합니다.
+Custom Vision 기능을 두 가지로 나눌 수 있습니다. **이미지 분류** 는 하나 이상의 레이블을 이미지에 적용합니다. **개체 감지** 도 이와 비슷하지만, 적용된 레이블이 있는 이미지의 좌표를 반환합니다.
 
 ### <a name="optimization"></a>Optimization
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d7d66e247c6a6240bd6fde08612b8eb770bd3b92
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b85b2d9b81e84ec6c6e09fef16c66a919aa30cd7
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737539"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616759"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>자습서: 카메라 사진에서 Azure 서비스 로고 인식
 
@@ -34,9 +34,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)
-- Visual Studio용 Xamarin 워크로드([Xamarin 설치](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows) 참조)
+- Visual Studio용 Xamarin 워크로드([Xamarin 설치](/xamarin/cross-platform/get-started/installation/windows) 참조)
 - Visual Studio용 iOS 또는 Android 에뮬레이터
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)(선택 사항)
+- [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest)(선택 사항)
 
 ## <a name="get-the-source-code"></a>소스 코드 가져오기
 
@@ -94,7 +94,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 자습서의 Custom Vision 부분이 완료되었습니다. 앱을 실행하려는 경우 Computer Vision 서비스도 통합해야 합니다. 이 앱은 로고 감지 프로세스를 보완하기 위해 Computer Vision의 문자 인식 기능을 사용합니다. Azure 로고는 그 모양으로 *또는* 로고 근처에 인쇄되는 텍스트를 통해 인식할 수 있습니다. Custom Vision 모델과 달리, Computer Vision은 이미지 또는 비디오에서 특정 작업을 수행하도록 미리 학습되어 있습니다.
 
-Computer Vision 서비스를 구독하고 키 및 엔드포인트 URL을 가져옵니다. 이 단계에 대한 도움말은 [구독 키를 가져오는 방법](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe)을 참조하세요.
+Computer Vision 서비스를 구독하고 키 및 엔드포인트 URL을 가져옵니다. 이 단계에 대한 도움말은 [구독 키를 가져오는 방법](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows)을 참조하세요.
 
 ![[빠른 시작] 메뉴를 선택한 경우 Azure Portal의 Computer Vision 서비스. 키에 대한 링크와 API 엔드포인트 URL에 윤곽선이 표시됨](media/azure-logo-tutorial/comvis-keys.png)
 
@@ -104,7 +104,7 @@ Computer Vision 서비스를 구독하고 키 및 엔드포인트 URL을 가져�
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
-Azure 구독에 서비스를 배포하려면 앱에 Azure 서비스 주체 계정이 필요합니다. 서비스 주체를 통해 Azure 역할 기반 액세스 제어를 사용하여 앱에 특정 권한을 위임할 수 있습니다. 자세한 내용은 [서비스 주체 가이드](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals)를 참조하세요.
+Azure 구독에 서비스를 배포하려면 앱에 Azure 서비스 주체 계정이 필요합니다. 서비스 주체를 통해 Azure 역할 기반 액세스 제어를 사용하여 앱에 특정 권한을 위임할 수 있습니다. 자세한 내용은 [서비스 주체 가이드](/azure-stack/operator/azure-stack-create-service-principals)를 참조하세요.
 
 다음과 같이 Azure Cloud Shell 또는 Azure CLI를 사용하여 서비스 주체를 만들 수 있습니다. 시작하려면 로그인하고 사용할 구독을 선택합니다.
 

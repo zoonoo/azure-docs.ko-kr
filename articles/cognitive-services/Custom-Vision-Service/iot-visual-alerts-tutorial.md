@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: ebc6ca630ea3cabb519805ae8505abf336a2a9ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 833ec0f706786ebb86a54fb3c5b13d9c6e5c6062
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604294"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616232"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>자습서: IoT 디바이스에서 Custom Vision을 사용하여 시각적 상태 보고
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 * 또한 Azure에서 [IoT Hub 리소스 만들기](https://ms.portal.azure.com/#create/Microsoft.IotHub)를 수행해야 합니다.
 * [Visual Studio 2015 이상](https://www.visualstudio.com/downloads/)
 * 필요에 따라 Windows 10 IoT Core 버전 17763 이상을 실행하는 IoT 디바이스가 있어야 합니다. 사용자 PC에서 직접 앱을 실행할 수도 있습니다.
-   * Raspberry Pi 2 및 3의 경우 IoT 대시보드 앱에서 직접 Windows 10을 설정할 수 있습니다. DrangonBoard와 같은 다른 디바이스의 경우 [eMMC 메서드](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices)를 사용하여 이를 플래시해야 합니다. 새 디바이스를 설정하는 데 도움이 필요한 경우 Windows IoT 설명서의 [디바이스 설정](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup)을 참조하세요.
+   * Raspberry Pi 2 및 3의 경우 IoT 대시보드 앱에서 직접 Windows 10을 설정할 수 있습니다. DrangonBoard와 같은 다른 디바이스의 경우 [eMMC 메서드](/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices)를 사용하여 이를 플래시해야 합니다. 새 디바이스를 설정하는 데 도움이 필요한 경우 Windows IoT 설명서의 [디바이스 설정](/windows/iot-core/tutorials/quickstarter/devicesetup)을 참조하세요.
 
 ## <a name="about-the-visual-alerts-app"></a>시각적 경고 앱 정보
 
@@ -76,13 +76,13 @@ IoT 시각적 경고 앱은 연속 루프에서 실행되며, 다음과 같은 �
     1. `targetCVSProjectGuid` 변수를 사용하려는 Custom Vision 프로젝트의 해당 ID로 업데이트합니다. 
 1. IoT Hub 리소스를 설정합니다.
     1. _IoTHub\IotHubWrapper.cs_ 스크립트에서 디바이스에 대한 적절한 연결 문자열로 `s_connectionString` 변수를 업데이트합니다. 
-    1. Azure Portal에서 IoT Hub 인스턴스를 로드하고 **탐색기**에서 **IoT 디바이스**를 클릭하고 대상 디바이스를 선택(또는 필요한 경우 디바이스 만들기)하고 **기본 연결 문자열**에서 연결 문자열을 찾습니다. 문자열에는 IoT Hub 이름, 디바이스 ID 및 공유 액세스 키가 포함되며 형식은 다음과 같습니다. `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}`
+    1. Azure Portal에서 IoT Hub 인스턴스를 로드하고 **탐색기** 에서 **IoT 디바이스** 를 클릭하고 대상 디바이스를 선택(또는 필요한 경우 디바이스 만들기)하고 **기본 연결 문자열** 에서 연결 문자열을 찾습니다. 문자열에는 IoT Hub 이름, 디바이스 ID 및 공유 액세스 키가 포함되며 형식은 다음과 같습니다. `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}`
 
 ## <a name="run-the-app"></a>앱 실행
 
-PC에서 앱을 실행하는 경우 Visual Studio에서 대상 디바이스에 대해 **로컬 컴퓨터**를 선택하고, 대상 플랫폼에 대해 **x64** 또는 **x86**을 선택합니다. 그런 다음 F5 키를 눌러 프로그램을 실행합니다. 앱이 시작되고 카메라의 라이브 피드와 상태 메시지가 표시되어야 합니다.
+PC에서 앱을 실행하는 경우 Visual Studio에서 대상 디바이스에 대해 **로컬 컴퓨터** 를 선택하고, 대상 플랫폼에 대해 **x64** 또는 **x86** 을 선택합니다. 그런 다음 F5 키를 눌러 프로그램을 실행합니다. 앱이 시작되고 카메라의 라이브 피드와 상태 메시지가 표시되어야 합니다.
 
-ARM 프로세서를 사용하여 IoT 디바이스에 배포하는 경우 대상 플랫폼으로 **ARM**을 선택하고 대상 디바이스로 **원격 컴퓨터**를 선택해야 합니다. 메시지가 표시되면 디바이스의 IP 주소를 입력합니다(PC와 동일한 네트워크에 있어야 함). 디바이스를 부팅하고 네트워크에 연결하면 Windows IoT 기본 앱에서 IP 주소를 가져올 수 있습니다. F5 키를 눌러 프로그램을 실행합니다.
+ARM 프로세서를 사용하여 IoT 디바이스에 배포하는 경우 대상 플랫폼으로 **ARM** 을 선택하고 대상 디바이스로 **원격 컴퓨터** 를 선택해야 합니다. 메시지가 표시되면 디바이스의 IP 주소를 입력합니다(PC와 동일한 네트워크에 있어야 함). 디바이스를 부팅하고 네트워크에 연결하면 Windows IoT 기본 앱에서 IP 주소를 가져올 수 있습니다. F5 키를 눌러 프로그램을 실행합니다.
 
 앱을 처음 실행하는 경우 시각적 상태에 대한 지식이 없습니다. 사용할 수 있는 모델이 없다는 상태 메시지가 표시됩니다. 
 
@@ -107,8 +107,8 @@ ARM 프로세서를 사용하여 IoT 디바이스에 배포하는 경우 대상 
 1. [Custom Vision 웹 사이트](http://customvision.ai)에 로그인합니다.
 1. 이제 앱에서 업로드한 모든 학습 이미지를 포함하는 대상 프로젝트를 찾습니다.
 1. 식별하려는 각 시각적 상태에 대해 적절한 이미지를 선택하고 태그를 수동으로 적용합니다.
-    * 예를 들어, 빈 방과 사람이 있는 방을 구분하려면 사람이 있는 5개 이상의 이미지에 새 클래스 **People**로 태그를 지정하고 사람이 없는 5개 이상의 이미지에 **Negative** 태그를 지정하는 것이 좋습니다. 이렇게 하면 모델을 두 상태로 구분할 수 있습니다.
-    * 또 다른 예로, 선반이 채워진 정도를 가늠하려면 **EmptyShelf**, **PartiallyFullShelf** 및 **FullShelf**와 같은 태그를 사용할 수 있습니다.
+    * 예를 들어, 빈 방과 사람이 있는 방을 구분하려면 사람이 있는 5개 이상의 이미지에 새 클래스 **People** 로 태그를 지정하고 사람이 없는 5개 이상의 이미지에 **Negative** 태그를 지정하는 것이 좋습니다. 이렇게 하면 모델을 두 상태로 구분할 수 있습니다.
+    * 또 다른 예로, 선반이 채워진 정도를 가늠하려면 **EmptyShelf**, **PartiallyFullShelf** 및 **FullShelf** 와 같은 태그를 사용할 수 있습니다.
 1. 작업이 완료되면 **학습** 단추를 선택합니다.
 1. 학습이 완료되면 앱은 학습된 반복을 사용할 수 있음을 감지합니다. 학습된 모델을 ONNX로 내보내고 디바이스로 다운로드하는 프로세스가 시작됩니다.
 
@@ -116,7 +116,7 @@ ARM 프로세서를 사용하여 IoT 디바이스에 배포하는 경우 대상 
 
 앱이 학습된 모델을 다운로드한 후에는 **점수 매기기** 상태로 전환되고 카메라의 이미지 점수 매기기가 연속 루프로 시작됩니다.
 
-캡처된 각 이미지에 대해 앱은 맨 위 태그를 화면에 표시합니다. 시각적 상태를 인식하지 못하는 경우 **일치 항목 없음**이 표시됩니다. 또한 앱은 이 메시지를 IoT Hub로 보내며 검색되는 클래스가 있는 경우 메시지에는 레이블, 신뢰도 점수 및 `detectedClassAlert`라는 속성이 포함됩니다 .이 속성은 속성 기반 빠른 메시지 라우팅을 수행하는 데 관심이 있는 IoT Hub 클라이언트가 사용할 수 있습니다.
+캡처된 각 이미지에 대해 앱은 맨 위 태그를 화면에 표시합니다. 시각적 상태를 인식하지 못하는 경우 **일치 항목 없음** 이 표시됩니다. 또한 앱은 이 메시지를 IoT Hub로 보내며 검색되는 클래스가 있는 경우 메시지에는 레이블, 신뢰도 점수 및 `detectedClassAlert`라는 속성이 포함됩니다 .이 속성은 속성 기반 빠른 메시지 라우팅을 수행하는 데 관심이 있는 IoT Hub 클라이언트가 사용할 수 있습니다.
 
 또한 이 샘플에서는 [Sense HAT 라이브러리](https://github.com/emmellsoft/RPi.SenseHat)를 사용하여 Sense HAT 단위를 사용하여 Raspberry Pi에서 실행되는 경우를 검색하므로 이를 출력 표시로 사용하려면 클래스가 검색될 때마다 모든 표시 광원을 빨간색으로 설정하고 아무 것도 검색되지 않을 경우 빈 칸으로 설정하면 됩니다.
 
@@ -130,7 +130,7 @@ ARM 프로세서를 사용하여 IoT 디바이스에 배포하는 경우 대상 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Custom Vision 프로젝트를 더 이상 유지 관리하지 않으려면 삭제합니다. [Custom Vision 웹 사이트](https://customvision.ai)에서 **프로젝트**로 이동하여 새 프로젝트 아래에서 휴지통을 선택합니다.
+Custom Vision 프로젝트를 더 이상 유지 관리하지 않으려면 삭제합니다. [Custom Vision 웹 사이트](https://customvision.ai)에서 **프로젝트** 로 이동하여 새 프로젝트 아래에서 휴지통을 선택합니다.
 
 ![내 새 프로젝트라는 레이블과 휴지통 아이콘이 있는 패널의 스크린샷](./media/csharp-tutorial/delete_project.png)
 
@@ -142,5 +142,5 @@ Custom Vision 프로젝트를 더 이상 유지 관리하지 않으려면 삭제
 > [IoTVisualAlerts 샘플(GitHub)](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts)
 
 * IoT Hub 메서드를 추가하여 앱을 **학습된 모델 대기** 상태로 직접 전환합니다. 이러한 방식으로 디바이스 자체에서 캡처되지 않은 이미지를 사용하여 모델을 학습한 다음 명령에서 디바이스에 새 모델을 푸시할 수 있습니다.
-* [실시간 센서 데이터 시각화](https://docs.microsoft.com/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi) 자습서에 따라 샘플에서 전송한 IoT Hub 경고를 시각화하는 Power BI 대시보드를 만듭니다.
-* [IoT 원격 모니터링](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps) 자습서에 따라 시각적 상태가 검색되면 IoT Hub 경고에 응답하는 논리 앱을 만듭니다.
+* [실시간 센서 데이터 시각화](../../iot-hub/iot-hub-live-data-visualization-in-power-bi.md) 자습서에 따라 샘플에서 전송한 IoT Hub 경고를 시각화하는 Power BI 대시보드를 만듭니다.
+* [IoT 원격 모니터링](../../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md) 자습서에 따라 시각적 상태가 검색되면 IoT Hub 경고에 응답하는 논리 앱을 만듭니다.
