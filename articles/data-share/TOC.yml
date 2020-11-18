@@ -19,8 +19,10 @@
   items:
     - name: 데이터 공유
       href: share-your-data.md
+      displayName: 'Azure CLI, az datashare account create, az datashare create'
     - name: 데이터 수락 및 받기
       href: subscribe-to-data-share.md
+      displayName: 'Azure CLI, az datashare consumer invitation, az datashare consumer share-subscription'
 - name: 개념
   items:
     - name: Azure Data Share 용어

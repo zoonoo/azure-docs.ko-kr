@@ -35,6 +35,10 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
 - name: 개념
   items:
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 캐싱 작동 방식
       href: cdn-how-caching-works.md
     - name: 중국 콘텐츠 전송
@@ -90,7 +94,7 @@
           items:
             - name: Azure 웹 콘텐츠
               href: cdn-manage-expiration-of-cloud-service-content.md
-            - name: Azure Blob Storage
+            - name: Azure Blob 스토리지
               href: cdn-manage-expiration-of-blob-content.md
         - name: 토큰 인증
           href: cdn-token-auth.md
