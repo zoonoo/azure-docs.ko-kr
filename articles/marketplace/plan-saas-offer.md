@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 5a646f7f42a2af8dcf15f7b7b2cd700e159fe88d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 9034757539a3dfd8b5e43e97ec518479da396456
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734398"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917548"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 SaaS 제품을 계획 하는 방법
 
@@ -79,7 +79,7 @@ _지금 가져오기 (무료)_, _무료 평가판_ 및 Microsoft 목록 옵션�
   제공 하는 웹 후크는 24/7을 실행 해야 합니다. 이 방법은 상용 marketplace를 통해 구매한 고객의 SaaS 구독에 대 한 업데이트에 대 한 알림을 받을 수 있는 유일한 방법입니다.
 
   > [!NOTE]
-  > Azure Portal 내에서 단일 Azure 앱 ID를 사용 하 여 두 서비스 간의 연결을 인증할 수 있도록 하는 단일 테 넌 트 [Azure Active Directory (AZURE AD) 앱](../active-directory/develop/howto-create-service-principal-portal.md) 을 만들어야 합니다. [테 넌 트 ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 고 **속성** 을 선택한 다음 나열 된 디렉터리 ID 번호를 확인 합니다. 예: `50c464d3-4930-494c-963c-1e951d15360e`.
+  > Azure Portal 내에서 단일 Azure 앱 ID를 사용 하 여 두 서비스 간의 연결을 인증할 수 있도록 하는 단일 테 넌 트 [Azure Active Directory (AZURE AD) 앱](../active-directory/develop/howto-create-service-principal-portal.md) 을 만들어야 합니다. [테 넌 트 ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 고 **속성** 을 선택한 다음 나열 된 디렉터리 ID 번호를 확인 합니다. 예들 들어 `50c464d3-4930-494c-963c-1e951d15360e`입니다.
 
 - **Azure Active Directory 테 넌 트 id**: (디렉터리 id 라고도 함) Azure Portal 내에서 API의 ACL (액세스 제어 목록)에 추가 하 여 호출할 권한이 있는지 확인할 수 있도록 [AD (Azure Active Directory) 앱을 등록](../active-directory/develop/howto-create-service-principal-portal.md) 해야 합니다. Azure Active Directory (AD) 앱에 대 한 테 넌 트 ID를 찾으려면 Azure Active Directory의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드로 이동 합니다. **표시 이름** 열에서 앱을 선택 합니다. 그런 다음 나열 된 **디렉터리 (테 넌 트) ID** 번호 (예: `50c464d3-4930-494c-963c-1e951d15360e` )를 찾습니다.
 
@@ -104,7 +104,26 @@ SaaS 앱에 대해 테스트 드라이브를 사용 하도록 선택할 수 있�
 
 ## <a name="selecting-an-online-store"></a>온라인 스토어 선택
 
-SaaS 제안을 게시할 때 Microsoft AppSource, Azure Marketplace 또는 둘 다에 나열 됩니다. 각 온라인 스토어는 고유한 고객 요구 사항을 제공 합니다. AppSource는 비즈니스 솔루션을 위한 것 이며 IT 솔루션에 대 한 Azure Marketplace입니다. 제품 유형, 거래 기능 및 범주에 따라 제품이 게시 되는 위치가 결정 됩니다. 범주 및 하위 범주는 솔루션 유형에 따라 각 온라인 저장소에 매핑됩니다. 온라인 상점에서 지원 되는 옵션을 나열 하는 방법에 대 한 자세한 내용은 [온라인 상점의 나열 및 가격 옵션](determine-your-listing-type.md#listing-and-pricing-options-by-online-store)을 참조 하십시오. 범주 및 하위 범주에 대 한 자세한 내용은 [상용 marketplace의 범주 및](categories.md)하위 범주를 참조 하세요.
+SaaS 제안을 게시할 때 Microsoft AppSource, Azure Marketplace 또는 둘 다에 나열 됩니다. 각 온라인 스토어는 고유한 고객 요구 사항을 제공 합니다. AppSource는 비즈니스 솔루션을 위한 것 이며 IT 솔루션에 대 한 Azure Marketplace입니다. 제품 유형, 거래 기능 및 범주에 따라 제품이 게시 되는 위치가 결정 됩니다. 범주 및 하위 범주는 솔루션 유형에 따라 각 온라인 저장소에 매핑됩니다. 
+
+SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (AppSource) 인 경우 각 온라인 저장소에 *적용 되는* 범주와 하위 범주를 선택 합니다. 두 온라인 저장소에 게시 된 제품에는 IT 솔루션 *및* 비즈니스 솔루션으로 가치를 제공 해야 합니다.
+
+> [!IMPORTANT]
+> [요금제](partner-center-portal/saas-metered-billing.md) 를 사용 하는 SaaS 제품은 Azure Marketplace 및 Azure Portal를 통해 제공 됩니다. 개인 계획만 포함 된 SaaS 제품은 Azure Portal를 통해 제공 됩니다.
+
+| 요금제 청구 | 공개 계획 | 비공개 계획 | 사용 가능한 위치: |
+|---|---|---|---|
+| 예             | 예         | 예           | Azure Marketplace 및 Azure Portal |
+| 예             | 예         | 예          | Azure Marketplace 및 Azure Portal * |
+| 예             | 예          | 예          | Azure Portal만 |
+| 예              | 예          | 예          | Azure Portal만 |
+|||||
+
+&#42; 제품의 비공개 요금제를 통해서만 사용할 수 있습니다 Azure Portal
+
+예를 들어, 요금제를 사용 하는 제품 및 비공개 요금제 (공개 요금제 없음)는 Azure Portal 고객이 구매할 예정입니다. [Microsoft 상업적 marketplace의 개인 제품](private-offers.md)에 대해 자세히 알아보세요.
+
+온라인 상점에서 지원 되는 옵션을 나열 하는 방법에 대 한 자세한 내용은 [온라인 상점의 나열 및 가격 옵션](determine-your-listing-type.md#listing-and-pricing-options-by-online-store)을 참조 하십시오. 범주 및 하위 범주에 대 한 자세한 내용은 [상용 marketplace의 범주 및](categories.md)하위 범주를 참조 하세요.
 
 ## <a name="legal-contracts"></a>법적 계약
 
@@ -131,7 +150,7 @@ SaaS 제안을 게시할 때 Microsoft AppSource, Azure Marketplace 또는 둘 �
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. 설명
+9. Description
 10. 스크린샷/비디오
 11. 문서
 
@@ -142,7 +161,7 @@ SaaS 제안을 게시할 때 Microsoft AppSource, Azure Marketplace 또는 둘 �
 **호출 설명**
 
 1. 제목
-1. 설명
+1. Description
 1. 유용한 링크
 1. 스크린샷
 
@@ -183,7 +202,7 @@ SaaS 제안을 게시할 때 Microsoft AppSource, Azure Marketplace 또는 둘 �
   - .png 파일
   - 캡션을 포함 해야 합니다.
 - **미디어-비디오** (선택 사항): 제품을 설명 하는 다음과 같은 요구 사항을 사용 하 여 최대 4 개의 비디오를 추가할 수 있습니다.
-  - 이름
+  - 속성
   - URL: YouTube 또는 Vimeo에만 호스팅되어야 합니다.
   - 축소판 그림: 1280 x 720 .png 파일
 

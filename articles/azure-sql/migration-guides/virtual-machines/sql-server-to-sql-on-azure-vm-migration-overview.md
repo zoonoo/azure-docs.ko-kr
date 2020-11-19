@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 64334b17060879a2e587b13b062c81e86df33831
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d47abaade13958b4e28d3ad5f62b88e8a53e89a9
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94743442"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917844"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 개요: Azure Vm에서 SQL Server으로 SQL Server
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -57,6 +57,8 @@ Azure Vm에서 사용자 데이터베이스를 SQL Server 인스턴스로 마이
 - 기존 제품의 지원 가능성 수명 주기
 - 마이그레이션 중 응용 프로그램 가동 중지 시간에 대 한 창
 
+:::image type="content" source="media/sql-server-to-sql-on-azure-vm-individual-databases-guide/virtual-machine-migration-downtime.png" alt-text="가상 컴퓨터 마이그레이션 가동 중지 시간":::
+
 다음 표에서는 두 마이그레이션 전략의 차이점을 설명 합니다.
 <br />
 
@@ -75,7 +77,7 @@ Azure Vm에서 사용자 데이터베이스를 SQL Server 인스턴스로 마이
 | --- | --- | --- | --- | --- |
 | [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  기존 SQL Server를 Azure VM에서 SQL Server 인스턴스로 이동 합니다. 최대 35000 Vm의 마이그레이션 워크 로드를 확장할 수 있습니다. <br /><br /> 원본 서버는 서버 데이터 동기화 중 온라인 상태에서 요청을 처리 하 여 가동 중지 시간을 최소화 합니다. <br /><br /> **자동화 & 스크립팅**: [Azure에 대 한 확장 된 마이그레이션 및 계획의](/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale) [Azure Site Recovery 스크립트](../../../migrate/how-to-migrate-at-scale.md) 및 예제|
 
-## <a name="migrate"></a>Migrate  
+## <a name="migrate"></a>마이그레이션  
 
 설치의 용이성 때문에 권장 되는 마이그레이션 방법은 네이티브 SQL Server [백업을](/sql/t-sql/statements/backup-transact-sql) 로컬로 수행 하 고 파일을 Azure에 복사 하는 것입니다. 이 메서드는 2008 이상의 데이터베이스 백업 (>1tb)부터 시작 하 여 모든 버전의 SQL Server에 대해 더 큰 데이터베이스 (>1tb)를 지원 합니다. 그러나 SQL Server 2014에서 시작 하 고 1TB 보다 작고 Azure에 대 한 연결이 좋은 데이터베이스의 경우 [URL에 백업 SQL Server](/sql/relational-databases/backup-restore/sql-server-backup-to-url) 하는 것이 더 나은 방법입니다. 
 

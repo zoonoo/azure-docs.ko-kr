@@ -5,29 +5,29 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 84336051fc3d653fbe73f650f2fc2badb2ec58da
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 10c9b165041f0a4a1f09511f17bef3629353c3b2
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148928"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917531"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Azure Event Grid 리소스에 대 한 네트워크 보안
 이 문서에서는 Azure Event Grid에서 다음 보안 기능을 사용 하는 방법을 설명 합니다. 
 
 - 송신에 대 한 서비스 태그
-- 수신에 대 한 IP 방화벽 규칙 (미리 보기)
+- 수신에 대 한 IP 방화벽 규칙
 - 수신에 대 한 개인 끝점
 
 
 ## <a name="service-tags"></a>서비스 태그
-서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft에서는 서비스 태그에서 압축한 주소 접두사를 관리하고 주소를 변경하는 대로 서비스 태그를 자동으로 업데이트하여 네트워크 보안 규칙을 자주 업데이트할 때 발생하는 복잡성을 최소화합니다. 서비스 태그에 대 한 자세한 내용은 [서비스 태그 개요](../virtual-network/service-tags-overview.md)를 참조 하세요.
+서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트하여 네트워크 보안 규칙을 자주 업데이트할 때 발생하는 복잡성을 최소화합니다. 서비스 태그에 대 한 자세한 내용은 [서비스 태그 개요](../virtual-network/service-tags-overview.md)를 참조 하세요.
 
-서비스 태그를 사용하여 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules) 또는 [Azure Firewall](../firewall/service-tags.md)에 대한 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용합니다. 규칙의 적절 한 *원본*또는 대상 필드에서 서비스 태그 이름 (예: **azureeventgrid**)을 지정 하 여    *destination*   해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다.
+서비스 태그를 사용 하 여 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules) 또는 [Azure 방화벽](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용합니다. 규칙의 적절 한 *원본* 또는 *대상* 필드에서 서비스 태그 이름 (예: **azureeventgrid**)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다.
 
 | 서비스 태그 | 목적 | 인바운드 또는 아웃바운드를 사용할 수 있나요? | 지역 범위를 지원할 수 있나요? | Azure Firewall에서 사용할 수 있나요? |
 | --- | -------- |:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. | 모두 | 예 | 아니요 |
+| AzureEventGrid | Azure Event Grid. | 모두 | 예 | 예 |
 
 
 ## <a name="ip-firewall"></a>IP 방화벽 
@@ -45,7 +45,7 @@ Azure Event Grid는 항목과 도메인에 게시 하기 위한 IP 기반 액세
 Event Grid 리소스에 대해 개인 끝점을 사용 하면 다음 작업을 수행할 수 있습니다.
 
 - 공용 인터넷이 아닌 Microsoft 백본 네트워크를 통해 VNet에서 토픽 또는 도메인에 안전 하 게 액세스할 수 있습니다.
-- 개인 피어 링을 사용 하 여 VPN 또는 연결할 expressroutes를 사용 하 여 VNet에 연결 하는 온-프레미스 네트워크에서 안전 하 게 연결 합니다.
+- 개인 피어 링을 사용 하 여 VPN 또는 Express 경로를 사용 하 여 VNet에 연결 하는 온-프레미스 네트워크에서 안전 하 게 연결 합니다.
 
 VNet에서 토픽 또는 도메인에 대 한 개인 끝점을 만드는 경우 승인 요청이 리소스 소유자에 게 전송 됩니다. 개인 끝점의 생성을 요청 하는 사용자가 리소스의 소유자 이기도 한 경우이 동의 요청은 자동으로 승인 됩니다. 그렇지 않으면 승인 될 때까지 연결이 **보류 중** 상태입니다. VNet의 응용 프로그램은 다른 방법으로 사용 하는 것과 동일한 연결 문자열 및 권한 부여 메커니즘을 사용 하 여 개인 끝점을 통해 Event Grid 서비스에 원활 하 게 연결할 수 있습니다. 리소스 소유자는 Azure Portal 리소스의 **전용 끝점** 탭을 통해 동의 요청 및 개인 끝점을 관리할 수 있습니다.
 
@@ -57,7 +57,7 @@ VNet에서 토픽 또는 도메인에 대 한 개인 끝점을 만드는 경우 
 
 개인 끝점을 사용 하 여 VNet 외부에서 토픽 또는 도메인 끝점 URL을 확인 하면 서비스의 공용 끝점으로 확인 됩니다. ' TopicA '의 DNS 리소스 레코드는 개인 끝점을 호스트 하는 **VNet 외부** 에서 확인 되는 경우 다음과 같습니다.
 
-| Name                                          | Type      | 값                                         |
+| 속성                                          | 유형      | 값                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
@@ -66,7 +66,7 @@ VNet에서 토픽 또는 도메인에 대 한 개인 끝점을 만드는 경우 
 
 개인 끝점을 호스트 하는 VNet에서 확인 되 면 토픽 또는 도메인 끝점 URL은 개인 끝점의 IP 주소로 확인 됩니다. ' TopicA ' 항목에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 **VNet 내부** 에서 확인 되는 경우 다음과 같습니다.
 
-| Name                                          | Type      | 값                                         |
+| 속성                                          | 유형      | 값                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | A         | 10.0.0.5
@@ -84,11 +84,11 @@ VNet에서 토픽 또는 도메인에 대 한 개인 끝점을 만드는 경우 
 | 연결 상태   |  게시 함 (예/아니요) |
 | ------------------ | -------------------------------|
 | 승인됨           | 예                            |
-| 거부됨           | No                             |
-| Pending            | No                             |
-| 연결 끊김       | No                             |
+| 거부됨           | 예                             |
+| Pending            | 예                             |
+| 연결 끊김       | 예                             |
 
-게시에 성공 하려면 개인 끝점 연결 상태를 **승인**해야 합니다. 연결이 거부 되 면 Azure Portal를 사용 하 여 승인할 수 없습니다. 유일한 방법은 연결을 삭제 하 고 새 연결을 만드는 것입니다.
+게시에 성공 하려면 개인 끝점 연결 상태를 **승인** 해야 합니다. 연결이 거부 되 면 Azure Portal를 사용 하 여 승인할 수 없습니다. 유일한 방법은 연결을 삭제 하 고 새 연결을 만드는 것입니다.
 
 ## <a name="pricing-and-quotas"></a>가격 책정 및 할당량
 **개인 끝점** 은 Event Grid의 기본 및 프리미엄 계층에서 모두 사용할 수 있습니다. Event Grid는 토픽 또는 도메인 당 최대 64 개의 개인 끝점 연결을 만들 수 있습니다. 

@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 8437c83faf8dfcec0a21add2006b6cf627447dd1
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: a26a618d4f1bd9900136561d95c21c1ecbaadfaa
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516444"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916477"
 ---
-# <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>공개 미리 보기: Azure 하이브리드 혜택-Linux Virtual Machines에 적용 되는 방법
+# <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Azure 하이브리드 혜택 – Linux Virtual Machines에 적용 되는 방법
 
 ## <a name="overview"></a>개요
 
 Azure 하이브리드 혜택를 사용 하면 기존 Red Hat 또는 SUSE software 구독을 직접 사용 하 여 온-프레미스 Red Hat Enterprise Linux (RHEL) SUSE Linux Enterprise Server 및 SLES (가상 머신) Vm (가상 머신)을 Azure로 보다 쉽게 마이그레이션할 수 있습니다. 이 혜택을 통해 소프트웨어 요금은 RHEL 또는 SLES 구독에 포함 되므로 VM의 인프라 비용에 대해서만 비용을 지불 하면 됩니다. 이 혜택은 모든 RHEL 및 SLES Marketplace 종 량 제 (PAYG) 이미지에 적용 됩니다.
 
 > [!IMPORTANT]
-> Linux Vm에 대 한 Azure 하이브리드 혜택는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이제 Linux Vm에 대 한 Azure 하이브리드 혜택를 공용에서 사용할 수 있습니다.
+
 
 ## <a name="benefit-description"></a>혜택 설명
 
@@ -44,12 +44,6 @@ Azure 하이브리드 혜택은 모든 RHEL 및 SLES Marketplace PAYG 이미지�
 Linux Vm에 대 한 혜택을 이미 사용 하 고 있는 경우 예약 된 인스턴스, 전용 호스트 및 SQL 하이브리드 혜택은 Azure 하이브리드 혜택에 적합 하지 않습니다.
 
 ## <a name="how-to-get-started"></a>시작하는 방법
-
-Azure 하이브리드 혜택 현재 Linux Vm에 대 한 미리 보기 단계입니다. 미리 보기에 대 한 액세스 권한을 얻은 후 Azure CLI를 사용 하 여 혜택을 사용 하도록 설정할 수 있습니다.
-
-### <a name="public-preview"></a>공개 미리 보기
-
-Azure 하이브리드 혜택 (Linux의 경우)은 (는) 현재 공개 미리 보기 단계입니다. 아래 단계를 사용 하 여 Red Hat 및 SUSE 배포판의 혜택을 사용 하도록 설정할 수 있습니다. 
 
 ### <a name="red-hat-customers"></a>Red Hat 고객
 
@@ -156,7 +150,7 @@ A: red hat Cloud Access 구독 등록이 Red Hat에서 Azure로 전파 되는 �
 ## <a name="common-issues"></a>일반적인 문제
 이 섹션에는 발생할 수 있는 일반적인 문제 및 완화 단계에 대 한 목록이 포함 되어 있습니다.
 
-| Error | 완화 방법 |
+| 오류 | 완화 방법 |
 | ----- | ---------- |
 | "Azure 구독에 대 한 Red Hat Cloud Access를 성공적으로 사용 하도록 설정 하지 않았기 때문에 작업을 완료할 수 없습니다." | RHEL Vm에서 혜택을 사용 하려면 먼저 Red Hat Cloud Access를 사용 하 여 Azure 구독을 등록 해야 합니다. Red Hat Cloud Access에 대 한 Azure 구독을 등록 하는 방법에 대 한 자세한 내용을 보려면이 링크를 방문 하세요.
 

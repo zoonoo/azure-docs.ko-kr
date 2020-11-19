@@ -4,12 +4,12 @@ description: 사용자 지정 이미지 풀은 Batch 워크 로드를 실행 하
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f0ba6270e6b6b4fcd258d8f5b3668931706f95b5
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c24da435540f62a793620fe6005d176ce10c7b05
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888354"
+ms.locfileid: "94917786"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 풀 만들기
 
@@ -73,6 +73,7 @@ Azure에서는 다음을 통해 만들 수 있는 관리 되는 이미지에서 
 - 사용자 지정 스크립트 확장 등의 Azure 확장을 VM에 설치해서는 안 됩니다. 이미지에 미리 설치된 확장이포함되어 있으면 Batch 풀을 배포할 때 Azure에서 문제가 발생할 수 있습니다.
 - 연결된 데이터 디스크를 사용하는 경우 VM 내에서 디스크를 탑재하고 포맷하여 사용해야 합니다.
 - 제공하는 기본 OS 이미지가 기본 임시 드라이브를 사용하도록 해야 합니다. Batch 노드 에이전트는 현재 기본 임시 드라이브를 예상합니다.
+- OS 디스크가 암호화 되지 않았는지 확인 합니다.
 - VM이 실행되면 RDP(Windows용) 또는 SSH(Linux용)를 통해 연결합니다. 필요한 소프트웨어를 설치하거나 원하는 데이터를 복사합니다.  
 
 ### <a name="create-a-vm-snapshot"></a>VM 스냅샷 만들기

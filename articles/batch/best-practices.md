@@ -1,18 +1,18 @@
 ---
 title: 모범 사례
-description: Azure Batch 솔루션을 개발하기 위한 모범 사례와 유용한 팁에 대해 알아봅니다.
-ms.date: 08/12/2020
+description: Azure Batch 솔루션을 개발 하는 데 유용한 모범 사례 및 유용한 팁을 알아보세요.
+ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: dff6668050e45d9179cd985aa10670b56afe5377
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a799aa7de19b9d5b0b8e085252cb172efebd05dc
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913231"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916868"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
-이 문서에서는 실제의 Batch 환경을 기반으로 하여 Azure Batch 서비스를 효과적이고 효율적으로 사용하기 위한 모범 사례 모음에 대해 설명합니다. 이 문서를 참조하여 Batch를 개발하고 사용하면서 설계 문제, 잠재적 성능 문제 및 안티패턴을 방지합니다.
+이 문서에서는 Batch의 실제 경험을 기반으로 Azure Batch 서비스를 효과적으로 사용 하기 위한 모범 사례 및 유용한 팁의 컬렉션을 설명 합니다. 이러한 팁은 Azure Batch 솔루션에서 성능을 향상 시키고 디자인 문제를 방지 하는 데 도움이 됩니다.
 
 ## <a name="pools"></a>풀
 
@@ -41,7 +41,7 @@ ms.locfileid: "92913231"
 풀 수명은 풀 구성에 적용되는 할당 방법 및 옵션에 따라 달라질 수 있습니다. 풀의 수명은 임의로 지정할 수 있으며, 풀의 컴퓨팅 노드 수는 언제든지 달라질 수 있습니다. 사용자가 풀의 컴퓨팅 노드를 명시적으로 관리하거나 서비스에서 제공하는 기능(자동 크기 조정 또는 자동 풀)을 통해 관리해야 합니다.
 
 - **풀을 새로 유지합니다.**
-    [최신 노드 에이전트 업데이트 및 버그 수정을](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md)얻으려면 몇 개월 마다 풀 크기를 0으로 조정 해야 합니다. 풀을 다시 만들거나 풀 크기를 0개의 컴퓨팅 노드로 조정하지 않으면 풀에서 노드 에이전트 업데이트를 받지 않습니다. 풀을 다시 만들거나 크기를 조정하기 전에 [노드](#nodes) 섹션에서 설명한 대로 디버깅을 위해 노드 에이전트 로그를 다운로드하는 것이 좋습니다.
+    [최신 노드 에이전트 업데이트 및 버그 수정을](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md)얻으려면 몇 개월 마다 풀 크기를 0으로 조정 합니다. 풀을 다시 만들거나 풀 크기를 0개의 컴퓨팅 노드로 조정하지 않으면 풀에서 노드 에이전트 업데이트를 받지 않습니다. 풀을 다시 만들거나 크기를 조정하기 전에 [노드](#nodes) 섹션에서 설명한 대로 디버깅을 위해 노드 에이전트 로그를 다운로드하는 것이 좋습니다.
 
 - **풀 다시 만들기** 마찬가지로 매일 풀을 삭제하고 다시 만드는 것은 추천되지 않습니다. 대신 새 풀을 만들고 기존 작업에서 새 풀을 가리키도록 업데이트합니다. 모든 태스크가 새 풀로 이동되었으면 이전 풀을 삭제합니다.
 
@@ -175,7 +175,7 @@ Resource Manager 및 템플릿에 대한 자세한 내용은 [빠른 시작: Azu
 
 ## <a name="connectivity"></a>연결
 
-Batch 솔루션의 연결을 고려하는 경우 다음 지침을 검토합니다.
+Batch 솔루션의 연결과 관련 된 다음 지침을 검토 합니다.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>NSG(네트워크 보안 그룹) 및 UDR(사용자 정의 경로)
 
@@ -198,6 +198,10 @@ Batch 서비스 클라이언트에는 서비스 유지 관리 기간 동안만�
 
 일반적으로 Batch 풀의 가상 머신은 풀의 수명 동안 변경 될 수 있는 공용 IP 주소를 통해 액세스 됩니다. 이를 통해 특정 IP 주소에 대 한 액세스를 제한 하는 데이터베이스 또는 다른 외부 서비스와 상호 작용 하기가 어려울 수 있습니다. 풀의 공용 IP 주소가 예기치 않게 변경 되지 않도록 하려면 제어 하는 고정 공용 IP 주소 집합을 사용 하 여 풀을 만들 수 있습니다. 자세한 내용은 [지정 된 공용 IP 주소를 사용 하 여 Azure Batch 풀 만들기](create-pool-public-ip.md)를 참조 하세요.
 
+### <a name="testing-connectivity-with-cloud-services-configuration"></a>Cloud Services 구성을 사용 하 여 연결 테스트
+
+Azure 부하 분산 장치를 통해 ICMP 프로토콜이 허용 되지 않기 때문에 클라우드 서비스에서 일반적인 "ping"/ICMP 프로토콜을 사용할 수 없습니다. 자세한 내용은 [Azure Cloud Services에 대 한 연결 및 네트워킹](../cloud-services/cloud-services-connectivity-and-networking-faq.md#can-i-ping-a-cloud-service)을 참조 하세요.
+
 ## <a name="batch-node-underlying-dependencies"></a>Batch 노드 기본 종속성
 
 Batch 솔루션을 설계하는 경우 고려해야 할 종속성 및 제한 사항은 다음과 같습니다.
@@ -206,12 +210,12 @@ Batch 솔루션을 설계하는 경우 고려해야 할 종속성 및 제한 사
 
 Azure Batch는 VM에서 사용자 및 그룹 세트를 만들고 관리합니다. 이러한 사용자 및 그룹 세트는 변경할 수 없습니다. 다음과 같습니다.
 
-#### <a name="windows"></a>Windows
+Windows:
 
 - **PoolNonAdmin** 사용자
 - **WATaskCommon** 사용자 그룹
 
-#### <a name="linux"></a>Linux
+Linux:
 
 - **_azbatch** 사용자
 
@@ -220,3 +224,9 @@ Azure Batch는 VM에서 사용자 및 그룹 세트를 만들고 관리합니다
 보존 시간이 만료되면 Batch에서 태스크가 실행되는 작업 디렉터리를 적극적으로 정리하려고 시도합니다. 이 디렉터리 외부에 작성된 파일은 디스크 공간을 채우지 않도록 [사용자가 정리](#manage-task-lifetime)해야 합니다.
 
 startTask 작업 디렉터리에서 Windows의 서비스를 실행하는 경우 폴더가 아직 사용 중이므로 작업 디렉터리에 대한 자동화된 정리가 차단됩니다. 이로 인해 성능이 저하됩니다. 이 문제를 해결하려면 해당 서비스의 디렉터리를 Batch에서 관리하지 않는 별도의 디렉터리로 변경합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure Portal을 사용하여 Azure Batch 계정을 만듭니다](batch-account-create-portal.md).
+- 풀, 노드, 작업 및 태스크와 같은 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)에 대해 알아봅니다.
+- [기본 Azure Batch 할당량, 제한 및 제약 조건 및 할당량을 요청 하는 방법](batch-quota-limit.md)에 대해 알아봅니다.

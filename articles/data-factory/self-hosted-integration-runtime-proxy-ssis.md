@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 11/15/2020
-ms.openlocfilehash: 48bd32569b7eb7fa09f83f81190bf96baa42fae0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.date: 11/19/2020
+ms.openlocfilehash: a79055a77ec73ce2b267bb4f16fa91f37e22ea75
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659984"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916783"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성
 
@@ -175,8 +175,10 @@ Azure-SSIS IR에서 실행 되는 클라우드 스테이징 작업은 별도로 
 
 1. [표준/express 사용자 지정](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)설치를 통해 Azure-SSIS IR에 SQL Server 2017를 대상으로 하는 사용자 지정/타사 구성 요소를 설치 합니다.
 
-1. 아직 존재 하지 않는 경우 자체 호스팅 IR에서 다음 DTSPath 레지스트리 키를 만듭니다. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` 및 `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` .
- 
+1. 아직 존재 하지 않는 경우 자체 호스팅 IR에서 다음 DTSPath 레지스트리 키를 만듭니다.
+   1. `C:\Program Files\Microsoft SQL Server\140\DTS\`로 설정된 `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath`
+   1. `C:\Program Files (x86)\Microsoft SQL Server\140\DTS\`로 설정된 `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath`
+   
 1. 위의 DTSPath에서 자체 호스팅 IR에 SQL Server 2017를 대상으로 하는 사용자 지정/타사 구성 요소를 설치 하 고 설치 프로세스를 확인 합니다.
 
    1. `<DTSPath>`,, `<DTSPath>/Connections` `<DTSPath>/PipelineComponents` 및 `<DTSPath>/UpgradeMappings` 폴더가 아직 없는 경우 새로 만듭니다.
@@ -185,7 +187,7 @@ Azure-SSIS IR에서 실행 되는 클라우드 스테이징 작업은 별도로 
    
    1. 사용자 지정/타사 구성 요소 어셈블리에서 참조 하는 모든 어셈블리를 GAC (전역 어셈블리 캐시)에 설치 합니다.
 
-다음은 Azure-SSIS IR의 프록시로 express 사용자 지정 설정 및 자체 호스팅 IR을 사용 하는 [타사 구성 요소의 예](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir) 입니다.
+다음은 Azure-SSIS IR의 프록시로 express 사용자 지정 설정 및 자체 호스팅 IR을 사용 하도록 구성 요소를 조정 하는 파트너 ( [Theobald Software](https://kb.theobald-software.com/xtract-is/XIS-for-Azure-SHIR) and [Aecorsoft](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir))의 예입니다.
 
 ## <a name="enforce-tls-12"></a>TLS 1.2 적용
 

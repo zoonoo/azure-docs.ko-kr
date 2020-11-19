@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 11/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-python
-ms.openlocfilehash: 1a72b0d90a33b011468b5ac42d529befb7acae42
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 76df8baaf170b05762b93478a496eb1e9ed802d5
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844900"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916749"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Media Services v3 API에 연결-Python
 
@@ -27,7 +27,7 @@ ms.locfileid: "94844900"
 
 이 문서에서는 서비스 사용자 로그인 메서드를 사용 하 여 Azure Media Services v3 Python SDK에 연결 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Python.org](https://www.python.org/downloads/) 에서 Python 다운로드
 - 환경 변수를 설정 해야 합니다. `PATH`
@@ -43,6 +43,8 @@ Python을 사용 하 여 Azure Media Services 작업 하려면 이러한 모듈�
 
 * `azure-mgmt-resource`모듈은 Active Directory 용 Azure 모듈을 포함 합니다.
 * `azure-mgmt-media`Media Services 엔터티를 포함 하는 모듈입니다.
+
+    [최신 버전의 Python 용 MEDIA SERVICES SDK](https://pypi.org/project/azure-mgmt-media/)를 다운로드 해야 합니다.
 
 명령줄 도구를 열고 다음 명령을 사용 하 여 모듈을 설치 합니다.
 

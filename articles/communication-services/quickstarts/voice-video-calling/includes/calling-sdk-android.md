@@ -4,14 +4,14 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 1f71c01d53a89ce1b459826689eb5b2e4899b3a2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c015561e66d77e6df352e601bf1a67da5996d4d5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886670"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915322"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
@@ -136,7 +136,7 @@ startCallOptions.setVideoOptions(videoOptions);
 Call call = callAgent.call(context, participants, startCallOptions);
 ```
 
-### <a name="join-a-group-call"></a>그룹 호출 조인
+### <a name="join-a-group-call"></a>그룹 통화 참가
 새 그룹 호출을 시작 하거나 진행 중인 그룹 호출을 조인 하려면 ' join ' 메서드를 호출 하 고 속성을 사용 하 여 개체를 전달 해야 `groupId` 합니다. 값은 GUID 여야 합니다.
 ```java
 Context appContext = this.getApplicationContext();
@@ -151,9 +151,9 @@ call = callAgent.join(context, groupCallContext, joinCallOptions);
 ### <a name="overview"></a>개요
 모바일 푸시 알림은 모바일 장치에 표시 되는 팝업 알림입니다. 을 호출 하는 경우 VoIP (Voice over Internet Protocol) 푸시 알림에 집중 하겠습니다. 푸시 알림을 등록 하 고, 푸시 알림을 처리 하 고, 푸시 알림을 등록 취소 합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
-FCM (Cloud Messaging)를 사용 하도록 설정 하 고 Azure Notification Hub 인스턴스에 연결 된 Firebase 클라우드 메시징 서비스로 설정 된 Firebase 계정 자세한 내용은 [Communication Services 알림](https://docs.microsoft.com/azure/communication-services/concepts/notifications) 을 참조 하세요.
+FCM (Cloud Messaging)를 사용 하도록 설정 하 고 Azure Notification Hub 인스턴스에 연결 된 Firebase 클라우드 메시징 서비스로 설정 된 Firebase 계정 자세한 내용은 [Communication Services 알림](../../../concepts/notifications.md) 을 참조 하세요.
 또한이 자습서에서는 Android Studio 버전 3.6 이상을 사용 하 여 응용 프로그램을 빌드하는 것으로 가정 합니다.
 
 Firebase 클라우드 메시징에서 알림 메시지를 받을 수 있으려면 Android 응용 프로그램에 대 한 권한 집합이 필요 합니다. 파일에서 `AndroidManifest.xml` *<매니페스트 ... >* 또는 태그 바로 뒤에 다음 권한 집합을 추가 합니다. *</application>*

@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 498934c01970b296c1491e7ccd36ad947324306a
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e90c1d1cfa02f63a2b5115124dee2a9da68e2f3f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445339"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917276"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
@@ -54,7 +54,7 @@ Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-i
 
 반면에 제안 사항은 필드를 선택 하는 경우 더 나은 결과를 생성 합니다. 제안에는 검색 문서에 대 한 프록시가 있으므로 단일 결과를 가장 잘 나타내는 필드를 사용할 수 있습니다. 여러 일치 항목을 구분 하는 이름, 제목 또는 기타 고유 필드가 가장 잘 작동 합니다. 필드가 반복 되는 값으로 구성 된 경우 제안 사항은 동일한 결과로 구성 되며 사용자는 어떤 항목을 클릭할 지 알지 못합니다.
 
-검색에 사용 되는 환경을 모두 만족 시키려면 자동 완성에 필요한 모든 필드를 추가한 다음 **$select** , **$top** , **$filter** 및 **searchfields** 를 사용 하 여 제안에 대 한 결과를 제어 합니다.
+검색에 사용 되는 환경을 모두 만족 시키려면 자동 완성에 필요한 모든 필드를 추가한 다음 **$select**, **$top**, **$filter** 및 **searchfields** 를 사용 하 여 제안에 대 한 결과를 제어 합니다.
 
 ### <a name="choose-analyzers"></a>분석기 선택
 
@@ -120,20 +120,20 @@ REST API에서 [Create index](/rest/api/searchservice/create-index) 또는 [Upda
 C #에서 [SearchSuggester 개체](/dotnet/api/azure.search.documents.indexes.models.searchsuggester)를 정의 합니다. `Suggesters` 는 SearchIndex 개체의 컬렉션 이지만 하나의 항목만 사용할 수 있습니다. 
 
 ```csharp
-private static void CreateIndex(string indexName, SearchIndexClient indexClient)
+private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
 {
-    FieldBuilder fieldBuilder = new FieldBuilder();
-    var searchFields = fieldBuilder.Build(typeof(Hotel));
+    var definition = new SearchIndex()
+    {
+        FieldBuilder builder = new FieldBuilder();
+        Fields = builder.Build(typeof(Hotel);
+        Suggesters = new List<Suggester>() {new Suggester()
+            {
+                Name = "sg",
+                SourceFields = new string[] { "HotelName", "Category" }
+            }}
+    }
 
-    //var suggester = new SearchSuggester("sg", sourceFields = "HotelName", "Category");
-
-    var definition = new SearchIndex(indexName, searchFields);
-
-    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category"});
-
-    definition.Suggesters.Add(suggester);
-
-    indexClient.CreateOrUpdateIndex(definition);
+    await indexClient.CreateIndexAsync(definition);
 }
 ```
 

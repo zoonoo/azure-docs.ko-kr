@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: cac14687c6193d58069240529955e69fc680b2e8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 503d3d5ed9b099e01a88ee40ef80e88105beb340
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491820"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917735"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -41,26 +41,48 @@ ms.locfileid: "94491820"
 > [!NOTE]
 > 파티션 키의 스토리지 또는 처리량 제한을 높여야 하는 워크로드 관리에 대한 모범 사례는 [가상 파티션 키 만들기](synthetic-partition-keys.md)를 참조하세요.
 
-Cosmos 컨테이너(또는 공유 처리량 데이터베이스)의 처리량이 400RU/s 이상이어야 합니다. 컨테이너가 확장될 때 다음 요소에 따라 지원되는 최소 처리량도 달라집니다.
+### <a name="minimum-throughput-limits"></a>최소 처리량 제한
 
-* 지금까지 컨테이너에 프로비저닝된 최대 처리량. 예를 들어 처리량이 5만 r u/초로 증가 한 경우 프로 비전 된 가장 낮은 처리량은 500 r u/초입니다.
-* 컨테이너의 현재 스토리지(GB). 예를 들어 컨테이너의 저장소가 100 GB 인 경우 프로 비전 된 가장 낮은 처리량은 1000 r u/초입니다. **참고:** 컨테이너 또는 데이터베이스에 1tb가 넘는 데이터가 포함 된 경우 계정에 ["높은 저장소/낮은 처리량" 프로그램](set-throughput.md#high-storage-low-throughput-program)을 사용할 수 있습니다.
-* 공유 처리량 데이터베이스의 최소 처리량 역시 공유 처리량 데이터베이스에서 만든 컨테이너의 총 수에 따라 다르며, 컨테이너당 100RU/s로 측정됩니다. 예를 들어 공유 처리량 데이터베이스 내에 5 개의 컨테이너를 만든 경우 처리량은 500 r u/초 이상 이어야 합니다.
+Cosmos 컨테이너(또는 공유 처리량 데이터베이스)의 처리량이 400RU/s 이상이어야 합니다. 컨테이너가 확장 됨에 따라 Cosmos DB는 데이터베이스 또는 컨테이너가 작업에 충분 한 리소스를 갖도록 하기 위해 최소 처리량이 필요 합니다.
 
 컨테이너 또는 데이터베이스의 현재 및 최소 처리량은 Azure Portal 또는 SDK에서 검색할 수 있습니다. 자세한 내용은 [컨테이너 및 데이터베이스의 처리량 프로비저닝](set-throughput.md)을 참조하세요. 
 
-> [!NOTE]
-> 경우에 따라 처리량을 10% 미만으로 낮출 수 있습니다. API를 사용하여 정확한 컨테이너당 최소 RU를 가져옵니다.
+실제 최소/s는 계정 구성에 따라 다를 수 있습니다. [Azure Monitor 메트릭을](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) 사용 하 여 리소스에서 프로 비전 된 처리량 (r u/초) 및 저장소의 기록을 볼 수 있습니다. 
+
+#### <a name="minimum-throughput-on-container"></a>컨테이너의 최소 처리량 
+
+수동 처리량이 있는 컨테이너에 필요한 최소 처리량을 예측 하려면 다음의 최대값을 찾습니다.
+
+* 400RU/s 
+* 현재 저장소 (GB) * 10 r u/초
+* 컨테이너에서 프로 비전 된 최고 r u/초/100
+
+예: 400 r u/s 및 5GB 저장소로 프로 비전 된 컨테이너가 있다고 가정 합니다. 처리량을 5만 r u/초까지 늘리고 20gb의 데이터를 가져옵니다. 이제 최소 r u/s가 `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 r u/초입니다. 시간이 지남에 따라 저장소는 200 GB로 확장 됩니다. 이제 최소 r u/s가 `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 r u/초입니다. 
+
+**참고:** 컨테이너 또는 데이터베이스에 1tb가 넘는 데이터가 포함 된 경우 계정에 ["높은 저장소/낮은 처리량" 프로그램](set-throughput.md#high-storage-low-throughput-program)을 사용할 수 있습니다.
+
+#### <a name="minimum-throughput-on-shared-throughput-database"></a>공유 처리량 데이터베이스의 최소 처리량 
+수동 처리량을 포함 하는 공유 처리량 데이터베이스에 필요한 최소 처리량을 예측 하려면 다음의 최대값을 찾습니다.
+
+* 400RU/s 
+* 현재 저장소 (GB) * 10 r u/초
+* 데이터베이스에 프로 비전 된 최고 r u/초/100
+* 400 + 최대 (컨테이너 수-25, 0) * 100 r u/초
+
+예: 400 r u/초, 15gb의 저장소 및 10 개의 컨테이너로 프로 비전 된 데이터베이스가 있다고 가정 합니다. 최소 r u/s는 `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 r u/초입니다. 데이터베이스에 30 개 컨테이너가 있는 경우 최소 r u/초는 `400 + MAX(30 - 5, 0) * 100 RU/s` = 900 r u/초입니다. 
+
+**참고:** 컨테이너 또는 데이터베이스에 1tb가 넘는 데이터가 포함 된 경우 계정에 ["높은 저장소/낮은 처리량" 프로그램](set-throughput.md#high-storage-low-throughput-program)을 사용할 수 있습니다.
 
 요약하자면, 최소 프로비저닝 RU 제한은 다음과 같습니다. 
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 컨테이너당 최소 RU([전용 처리량 프로비저닝 모드](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| 데이터베이스당 최소 RU([공유 처리량 프로비저닝 모드](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| 공유 처리량 데이터베이스 내의 컨테이너당 최소 RU | 100 |
+| 컨테이너 당 최소 RUs ([프로 비전 된 전용 처리량 모드](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| 데이터베이스당 최소 RUs ([공유 처리량 프로 비전 된 모드](databases-containers-items.md#azure-cosmos-containers)) | 처음 25 개 컨테이너에 대해 400 r u/초 이후 각 컨테이너에 대 한 추가 100 o s/s를 추가 합니다. |
 
-Cosmos DB는 SDK 또는 포털을 통해 컨테이너당 또는 데이터베이스당 처리량을 탄력적으로 스케일링할 수 있습니다. 각 컨테이너를 스케일링 범위 10~100회 내에서 최솟값~최댓값 사이에서 동기적으로, 즉시 스케일링할 수 있습니다. 요청된 처리량 값이 범위를 벗어나면 스케일링이 비동기적으로 수행됩니다. 요청된 처리량과 컨테이너의 데이터 스토리지 크기에 따라 비동기 스케일링을 완료하는 데 몇 분에서 몇 시간이 걸릴 수 있습니다.  
+Cosmos DB는 Sdk 또는 포털을 통해 컨테이너 또는 데이터베이스당 처리량 (r u/초)의 프로그래밍 방식 크기 조정을 지원 합니다.    
+
+현재 프로 비전 된 리소스 설정과 리소스 설정에 따라 각 리소스를 동기적으로 확장 하 고 최소 r u/초 사이에서 최소 r u/초까지 다시 사용할 수 있습니다. 요청된 처리량 값이 범위를 벗어나면 스케일링이 비동기적으로 수행됩니다. 요청된 처리량과 컨테이너의 데이터 스토리지 크기에 따라 비동기 스케일링을 완료하는 데 몇 분에서 몇 시간이 걸릴 수 있습니다.  
 
 ### <a name="serverless"></a>서버를 사용하지 않음
 
@@ -172,9 +194,9 @@ Azure Cosmos DB는 각 계정에 대 한 시스템 메타 데이터를 유지 �
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-|분당 최대 컬렉션 생성 률| 5|
-|분당 최대 데이터베이스 생성 율|   5|
-|분당 프로 비전 된 최대 처리량 업데이트 속도| 5|
+|분당 최대 컬렉션 생성 률|    5|
+|분당 최대 데이터베이스 생성 율|    5|
+|분당 프로 비전 된 최대 처리량 업데이트 속도|    5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>자동 스케일링 프로비저닝 처리량 제한
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 6e4eb37477a335ae93b9982692c238d05c81000b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a49dbdace01396656c3114df0bc0d4589aff57c1
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660290"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916494"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Azure 파일 공유 성능 문제 해결
 
@@ -43,7 +43,7 @@ ms.locfileid: "94660290"
    > [!NOTE]
    > 경고를 수신 하려면이 문서의 뒷부분에 나오는 ["파일 공유를 제한 하는 경우 경고를 만드는 방법"](#how-to-create-an-alert-if-a-file-share-is-throttled) 섹션을 참조 하세요.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 - 표준 파일 공유를 사용 하는 경우 저장소 계정에서 [대량 파일 공유](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) 를 사용 하도록 설정 합니다. 대량 파일 공유는 공유 당 최대 1만 IOPS를 지원 합니다.
 - 프리미엄 파일 공유를 사용 하는 경우 프로 비전 된 파일 공유 크기를 늘려 IOPS 제한을 늘립니다. 자세히 알아보려면 [Azure Files 계획 가이드](./storage-files-planning.md#understanding-provisioning-for-premium-file-shares)의 "프리미엄 파일 공유에 대 한 프로 비전 이해" 섹션을 참조 하세요.
@@ -65,7 +65,7 @@ ms.locfileid: "94660290"
 
 사용 중인 응용 프로그램이 단일 스레드 인 경우 프로 비전 된 공유 크기에 따라이 설정으로 인해 가능한 최대 처리량 보다 IOPS 처리량이 상당히 줄어들 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 - 스레드 수를 늘려 응용 프로그램 병렬 처리를 늘립니다.
 - 병렬 처리를 사용할 수 있는 응용 프로그램으로 전환 합니다. 예를 들어 복사 작업의 경우 Windows 클라이언트 또는 Linux 클라이언트의 **병렬** 명령에서 AzCopy 또는 RoboCopy를 사용할 수 있습니다.
@@ -76,7 +76,7 @@ ms.locfileid: "94660290"
 
 클라이언트 VM (가상 컴퓨터)은 파일 공유와 다른 지역에 있을 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 - 파일 공유와 동일한 지역에 있는 VM에서 응용 프로그램을 실행 합니다.
 
@@ -177,7 +177,7 @@ I/o를 많이 사용 하는 워크 로드의 Azure 파일 공유에 액세스 �
 
 구독이 기능에 대해 등록 되지 않았거나 지역 및 계정 유형이 지원 되지 않습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 구독이 SMB 다중 채널 기능에 등록 되었는지 확인 합니다. [시작](storage-files-enable-smb-multichannel.md#getting-started) 을 참조 하 여 계정 종류가 계정 개요 페이지에서 FileStorage (프리미엄 파일 계정) 인지 확인 합니다. 
 
@@ -187,7 +187,7 @@ I/o를 많이 사용 하는 워크 로드의 Azure 파일 공유에 액세스 �
 
 다시 탑재 없이 SMB 다중 채널 구성 설정에 대 한 최근 변경 내용입니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
  
 -   Windows SMB 클라이언트 또는 계정 SMB 다중 채널 구성 설정이 변경 된 후에는 공유를 분리 하 고, 60 초 동안 기다린 다음, 다중 채널을 트리거하기 위해 공유를 다시 탑재 해야 합니다.
 -   Windows 클라이언트 OS의 경우 큐 깊이가 높은 IO 로드를 생성 합니다. 예를 들어 파일을 복사 하 여 SMB 다중 채널을 트리거합니다.  서버 OS의 경우 SMB 다중 채널은 QD = 1로 트리거되고,이는 공유에 대 한 IO를 시작 하는 즉시 발생 합니다.
@@ -196,7 +196,7 @@ I/o를 많이 사용 하는 워크 로드의 Azure 파일 공유에 액세스 �
 
 ### <a name="cause"></a>원인  
 
-파일 공유에 대 한 파일 변경 알림이 높으면 상당한 대기 시간이 발생할 수 있습니다. 이는 일반적으로 중첩 된 디렉터리 구조가 깊은 파일 공유에 호스트 되는 웹 사이트에서 발생 합니다. 일반적인 시나리오는 IIS에서 호스트 되는 웹 응용 프로그램으로, 기본 구성의 각 디렉터리에 대해 파일 변경 알림이 설정 됩니다. SMB 클라이언트에서 등록 된 공유에 대 한 각 변경 내용 (Readdirectorychanges w)은 파일 서비스에서 클라이언트로의 변경 알림을 푸시하 며,이는 시스템 리소스를 사용 하 고 변경 내용 수를 사용 하 여 증가를 발급 합니다. 이로 인해 공유 제한이 발생할 수 있으므로 클라이언트 쪽 대기 시간이 더 높아질 수 있습니다. 
+파일 공유에 대 한 파일 변경 알림이 높으면 상당한 대기 시간이 발생할 수 있습니다. 이는 일반적으로 중첩 된 디렉터리 구조가 깊은 파일 공유에 호스트 되는 웹 사이트에서 발생 합니다. 일반적인 시나리오는 IIS에서 호스트 되는 웹 응용 프로그램으로, 기본 구성의 각 디렉터리에 대해 파일 변경 알림이 설정 됩니다. SMB 클라이언트에서 등록 된 공유에 대 한 각 변경 내용 ([Readdirectorychanges w](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw))은 파일 서비스에서 클라이언트로의 변경 알림을 푸시하 며,이는 시스템 리소스를 사용 하 고 변경 내용 수를 사용 하 여 증가를 발급 합니다. 이로 인해 공유 제한이 발생할 수 있으므로 클라이언트 쪽 대기 시간이 더 높아질 수 있습니다. 
 
 확인 하려면 포털에서 Azure 메트릭을 사용할 수 있습니다. 
 
@@ -206,17 +206,15 @@ I/o를 많이 사용 하는 워크 로드의 Azure 파일 공유에 액세스 �
 1. 트랜잭션을 메트릭으로 선택 합니다. 
 1. ResponseType에 대 한 필터를 추가 하 고 요청에 SuccessWithThrottling (SMB 용) 또는 ClientThrottlingError (REST)의 응답 코드가 있는지 확인 합니다.
 
-### <a name="solution"></a>솔루션 
+### <a name="solution"></a>해결 방법 
 
 - 파일 변경 알림이 사용 되지 않으면 파일 변경 알림 (기본 설정)을 사용 하지 않도록 설정 합니다.
     - FCNMode를 업데이트 하 여 [파일 변경 알림을 사용 하지 않도록 설정](https://support.microsoft.com/help/911272/fix-asp-net-2-0-connected-applications-on-a-web-site-may-appear-to-sto) 합니다. 
     - `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds `레지스트리에서를 설정 하 고 w3wp 프로세스를 다시 시작 하 여 IIS 작업자 프로세스 (w3wp.exe) 폴링 간격을 0으로 업데이트 합니다. 이 설정에 대 한 자세한 내용은 [IIS의 여러 부분에서 사용 되는 일반적인 레지스트리 키](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp)를 참조 하세요.
 - 볼륨을 줄이기 위해 파일 변경 알림 폴링 간격의 빈도를 늘립니다.
     - 사용자 요구 사항에 따라 w3wp.exe 작업자 프로세스 폴링 간격을 더 높은 값 (예: 10 분 또는 30 분)으로 업데이트 합니다. `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [레지스트리에서](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) 를 설정 하 고 W3WP 프로세스를 다시 시작 합니다.
-- 웹 사이트의 매핑된 물리적 디렉터리에 중첩 된 디렉터리 구조가 있는 경우 파일 변경 알림 범위를 제한 하 여 알림 볼륨을 줄일 수 있습니다.
-    - 기본적으로 IIS는 가상 디렉터리가 매핑되는 물리적 디렉터리 및 해당 물리적 디렉터리의 모든 자식 디렉터리에 있는 Web.config 파일의 구성을 사용 합니다. 하위 디렉터리에 Web.config 파일을 사용 하지 않으려는 경우 가상 디렉터리의 allowSubDirConfig 특성에 대해 false를 지정 합니다. 자세한 내용은 [여기](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories)에서 찾을 수 있습니다. 
-
-Web.Config에서 IIS 가상 디렉터리 "allowSubDirConfig" 설정을 false로 설정 하 여 범위에서 매핑된 물리적 자식 디렉터리를 제외 합니다.  
+- 웹 사이트의 매핑된 물리적 디렉터리에 중첩 된 디렉터리 구조가 있는 경우 파일 변경 알림 범위를 제한 하 여 알림 볼륨을 줄일 수 있습니다. 기본적으로 IIS는 가상 디렉터리가 매핑되는 물리적 디렉터리 및 해당 물리적 디렉터리의 모든 자식 디렉터리에 있는 Web.config 파일의 구성을 사용 합니다. 하위 디렉터리에 Web.config 파일을 사용 하지 않으려는 경우 가상 디렉터리의 allowSubDirConfig 특성에 대해 false를 지정 합니다. 자세한 내용은 [여기](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories)에서 찾을 수 있습니다. 
+    - Web.Config에서 IIS 가상 디렉터리 "allowSubDirConfig" 설정을 *false* 로 설정 하 여 범위에서 매핑된 물리적 자식 디렉터리를 제외 합니다.  
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>파일 공유를 제한 하는 경우 경고를 만드는 방법
 

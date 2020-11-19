@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4b3256591c0aa2536fd42bcdbb2ef339fc1d5c48
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3ceead297ea726e256d806c08c22810b39296793
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356810"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917174"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>C # .NET 응용 프로그램에서 Azure.Search.Documents를 사용 하는 방법
 
@@ -230,6 +230,22 @@ private static void WriteDocuments(SearchResults<Hotel> searchResults)
     Console.WriteLine();
 }
 ```
+
+또 다른 방법은 인덱스에 필드를 직접 추가 하는 것입니다. 다음 예제에서는 몇 개의 필드만 보여 줍니다.
+
+   ```csharp
+    SearchIndex index = new SearchIndex(indexName)
+    {
+        Fields =
+            {
+                new SimpleField("hotelId", SearchFieldDataType.String) { IsKey = true, IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelName") { IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelCategory") { IsFilterable = true, IsSortable = true },
+                new SimpleField("baseRate", SearchFieldDataType.Int32) { IsFilterable = true, IsSortable = true },
+                new SimpleField("lastRenovationDate", SearchFieldDataType.DateTimeOffset) { IsFilterable = true, IsSortable = true }
+            }
+    };
+   ```
 
 ### <a name="field-definitions"></a>필드 정의
 

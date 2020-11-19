@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: d48add78eb73ba1aea248e95ddc5ebc0900ee000
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: b900373c7e6a3b3701ae30274ff27629b7f47ef9
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888337"
+ms.locfileid: "94916851"
 ---
 # <a name="supported-devices"></a>지원되는 디바이스
 
@@ -33,7 +33,7 @@ ms.locfileid: "94888337"
 운영 체제와 호환되는 가장 최신 브라우저를 사용하는 것이 좋습니다. 다음과 같은 브라우저가 지원됩니다.
 
 * Microsoft Edge(최신 버전)
-* Internet Explorer 11 (2021 년 3 월 31 일까 지 지원 됨)
+* Internet Explorer 11
 * Safari(최신 버전, Mac만 해당)
 * Chrome(최신 버전)
 * Firefox(최신 버전)

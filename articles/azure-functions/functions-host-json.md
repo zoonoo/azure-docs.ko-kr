@@ -3,12 +3,12 @@ title: Azure Functions 2.x에 대한 host.json 참조
 description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: aaea37b100d6fadd271f48490628b38cba6cf822
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: c12a9244cdc1a76f678578e281532c73bc9385ba
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377125"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917242"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 이상에 대한 host.json 참조 
 
@@ -161,6 +161,8 @@ ms.locfileid: "93377125"
 | snapshotConfiguration | 해당 없음 | [Applicationinsights](#applicationinsightssnapshotconfiguration)를 참조 하세요. |
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
+
+이러한 설정에 대 한 자세한 내용은 [Application Insights 샘플링](../azure-monitor/app/sampling.md)을 참조 하세요. 
 
 |속성 | 기본값 | Description |
 | --------- | --------- | --------- | 
@@ -371,8 +373,8 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 
 |속성  |기본값 | Description |
 |---------|---------|---------| 
-|방식의|null|필수 사항입니다. 사용하는 재시도 전략입니다. 유효한 값은 `fixedDelay` 또는 `exponentialBackoff`입니다.|
-|maxRetryCount|null|필수 사항입니다. 함수 실행 당 허용 되는 최대 다시 시도 횟수입니다. `-1` 무기한으로 다시 시도 하는 것을 의미 합니다.|
+|방식의|null|필수 요소. 사용하는 재시도 전략입니다. 유효한 값은 `fixedDelay` 또는 `exponentialBackoff`입니다.|
+|maxRetryCount|null|필수 요소. 함수 실행 당 허용 되는 최대 다시 시도 횟수입니다. `-1` 무기한으로 다시 시도 하는 것을 의미 합니다.|
 |delayInterval|null|전략을 통해 재시도 사이에 사용 되는 지연입니다 `fixedDelay` .|
 |minimumInterval|null|전략을 사용 하는 경우 최소 재시도 지연 `exponentialBackoff` 입니다.|
 |maximumInterval|null|전략을 사용 하는 경우 다시 시도 하는 최대 시간 `exponentialBackoff` 입니다.| 

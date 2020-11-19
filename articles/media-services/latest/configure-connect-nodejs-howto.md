@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: 1fc9d38827b8c00a6c90280a89e520e28f1763b2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c6ea238edd68413646dda59b22d1c0dc2557d57e
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844304"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916834"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Media Services v3 API에 연결-Node.js
 
@@ -27,7 +27,7 @@ ms.locfileid: "94844304"
 
 이 문서에서는 서비스 사용자 로그인 방법을 사용 하 여 Azure Media Services v3 node.js SDK에 연결 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Node.js](https://nodejs.org/en/download/)를 설치합니다.
 - [Media Services 계정 만들기](./create-account-howto.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해야 합니다.
@@ -39,6 +39,8 @@ ms.locfileid: "94844304"
 
 1. 선호 하는 편집기를 사용 하 여 파일에 package.js를 만듭니다.
 1. 파일을 열고 다음 코드를 붙여 넣습니다.
+
+   최신 버전의 [JavaScript 용 AZUREMEDIASERVICES SDK](https://www.npmjs.com/package/@azure/arm-mediaservices)를 다운로드 해야 합니다.
 
 ```json
 {
