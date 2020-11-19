@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: philmea
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5092aa0b5b23f04af1f49933bca234815f03f454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 857ae8d824443e9a8abdac7c4a66e2b014be2be0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604598"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566353"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>자습서: Event Grid 및 Logic Apps를 사용하여 Azure IoT Hub 이벤트에 대한 이메일 알림 보내기
 
@@ -21,13 +21,13 @@ Azure Event Grid를 사용하면 다운스트림 비즈니스 애플리케이션
 
 이 문서에서는 IoT Hub 및 Event Grid를 사용하는 샘플 구성을 안내합니다. 마지막으로 디바이스가 IoT 허브에 연결되거나 연결이 끊길 때마다 Azure 논리 앱에서 알림 이메일을 보내도록 설정합니다. Event Grid를 사용하여 중요한 디바이스 연결 해제에 대한 알림을 적시에 받을 수 있습니다. 메트릭 및 진단은 로그/경고에 표시되는 데 몇 분(예: 20분 이상 -- 숫자를 입력하고 싶지 않음)이 걸릴 수 있습니다. 이는 중요한 인프라에서는 허용되지 않을 수 있습니다.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* 활성화된 Azure 구독. 구독이 없는 경우 [체험 Azure 계정을 만들](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
+* Office 365 Outlook 또는 Outlook.com과 같이 Azure Logic Apps에서 지원하는 이메일 공급자의 이메일 계정입니다. 이 이메일 계정은 이벤트 알림을 보내는 데 사용됩니다.
 
-* Office 365 Outlook 또는 Outlook.com과 같이 Azure Logic Apps에서 지원하는 이메일 공급자의 이메일 계정입니다. 이 이메일 계정은 이벤트 알림을 보내는 데 사용됩니다. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-an-iot-hub"></a>IoT 허브 만들기
 
@@ -59,39 +59,39 @@ Azure Event Grid를 사용하면 다운스트림 비즈니스 애플리케이션
 
 ### <a name="create-a-logic-app-resource"></a>논리 앱 리소스 만들기
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기**를 선택한 다음, 검색 상자에서 "논리 앱"을 입력하고, Enter 키를 선택합니다. 결과에서 **논리 앱**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** 를 선택한 다음, 검색 상자에서 "논리 앱"을 입력하고, Enter 키를 선택합니다. 결과에서 **논리 앱** 을 선택합니다.
 
    ![논리 앱 만들기](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
-1. 다음 화면에서 **만들기**를 선택합니다. 
+1. 다음 화면에서 **만들기** 를 선택합니다. 
 
 1. 구독에서 논리 앱에 고유한 이름을 제공하고 동일한 구독과 리소스 그룹 및 위치를 IoT 허브로 선택합니다. 
 
    ![논리 앱을 만들기 위한 필드](./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png)
 
-1. **검토 + 만들기**를 선택합니다.
+1. **검토 + 만들기** 를 선택합니다.
 
-1. 설정을 확인한 다음, **만들기**를 선택합니다.
+1. 설정을 확인한 다음, **만들기** 를 선택합니다.
 
-1. 리소스가 생성되면 **리소스로 이동**을 선택합니다. 
+1. 리소스가 생성되면 **리소스로 이동** 을 선택합니다. 
 
-1. Logic Apps 디자이너에서 페이지 아래쪽으로 이동하여 **템플릿**을 확인합니다. 논리 앱을 처음부터 빌드할 수 있도록 **비어 있는 논리 앱**을 선택합니다.
+1. Logic Apps 디자이너에서 페이지 아래쪽으로 이동하여 **템플릿** 을 확인합니다. 논리 앱을 처음부터 빌드할 수 있도록 **비어 있는 논리 앱** 을 선택합니다.
 
 ### <a name="select-a-trigger"></a>트리거 선택
 
 트리거는 논리 앱을 시작하는 특정 이벤트입니다. 이 자습서에서는 워크플로를 시작하는 트리거를 HTTP를 통해 요청을 받습니다.  
 
-1. 커넥터 및 트리거 검색 표시줄에서 **HTTP**를 입력합니다.
+1. 커넥터 및 트리거 검색 표시줄에서 **HTTP** 를 입력합니다.
 
-1. 결과를 스크롤하고 **요청 - HTTP 요청을 수신한 경우**를 트리거로 선택합니다. 
+1. 결과를 스크롤하고 **요청 - HTTP 요청을 수신한 경우** 를 트리거로 선택합니다. 
 
    ![HTTP 요청 트리거 선택](./media/publish-iot-hub-events-to-logic-apps/http-request-trigger.png)
 
-1. **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다. 
+1. **샘플 페이로드를 사용하여 스키마 생성** 을 선택합니다. 
 
    ![샘플 페이로드 사용](./media/publish-iot-hub-events-to-logic-apps/sample-payload.png)
 
-1. *디바이스 연결 이벤트 스키마* JSON을 텍스트 상자에 붙여넣은 다음, **완료**를 선택합니다.
+1. *디바이스 연결 이벤트 스키마* JSON을 텍스트 상자에 붙여넣은 다음, **완료** 를 선택합니다.
 
    ```json
      [{  
@@ -117,23 +117,23 @@ Azure Event Grid를 사용하면 다운스트림 비즈니스 애플리케이션
    이 이벤트는 디바이스가 IoT 허브에 연결될 때 게시됩니다.
 
 > [!NOTE]
-> **요청할 때 Content-Type 헤더 집합을 애플리케이션/json에 포함해야 합니다**라고 표시되는 팝업 알림을 받을 수도 있습니다. 이 제안을 안전하게 무시하고 다음 섹션으로 이동할 수 있습니다. 
+> **요청할 때 Content-Type 헤더 집합을 애플리케이션/json에 포함해야 합니다** 라고 표시되는 팝업 알림을 받을 수도 있습니다. 이 제안을 안전하게 무시하고 다음 섹션으로 이동할 수 있습니다. 
 
 ### <a name="create-an-action"></a>작업 만들기
 
 트리거가 논리 앱 워크플로를 시작한 후에 발생하는 모든 단계가 작업할 대상입니다. 이 자습서의 경우 작업은 메일 공급자의 이메일 알림을 보내는 것입니다. 
 
-1. **새 단계**를 선택합니다. 그러면 **작업 선택** 창이 열립니다.
+1. **새 단계** 를 선택합니다. 그러면 **작업 선택** 창이 열립니다.
 
-1. **Outlook**을 검색합니다.
+1. **Outlook** 을 검색합니다.
 
-1. 전자 메일 공급자에 따라 일치하는 커넥터를 찾아 선택합니다. 이 자습서에서는 **Outlook.com**을 사용합니다. 다른 이메일 공급자를 위한 단계들도 비슷합니다. 
+1. 전자 메일 공급자에 따라 일치하는 커넥터를 찾아 선택합니다. 이 자습서에서는 **Outlook.com** 을 사용합니다. 다른 이메일 공급자를 위한 단계들도 비슷합니다. 
 
    ![이메일 공급자 커넥터 선택](./media/publish-iot-hub-events-to-logic-apps/outlook-step.png)
 
 1. **이메일 보내기(V2)** 작업을 선택합니다. 
 
-1. **로그인**을 선택하고 이메일 계정에 로그인합니다. **예**를 선택하여 앱이 사용자의 정보에 액세스할 수 있도록 합니다.
+1. **로그인** 을 선택하고 이메일 계정에 로그인합니다. **예** 를 선택하여 앱이 사용자의 정보에 액세스할 수 있도록 합니다.
 
 1. 이메일 템플릿을 빌드합니다. 
 
@@ -141,13 +141,13 @@ Azure Event Grid를 사용하면 다운스트림 비즈니스 애플리케이션
 
    * **주체**: 제목의 텍스트를 입력합니다. [제목] 텍스트 상자를 클릭하면 포함할 동적 콘텐츠를 선택할 수 있습니다. 예를 들어 이 자습서에서는 `IoT Hub alert: {eventType}`을 사용합니다. 동적 콘텐츠가 표시되지 않으면 **동적 콘텐츠 추가** 하이퍼링크를 선택합니다. 그러면 이 링크가 설정/해제됩니다.
 
-   * **본문**: 이메일의 텍스트를 작성합니다. 이벤트 데이터를 기반으로 하는 동적 콘텐츠를 포함하도록 선택기 도구에서 JSON 속성을 선택합니다. 동적 콘텐츠가 표시되지 않으면 **본문** 텍스트 상자에서 **동적 콘텐츠 추가** 하이퍼링크를 선택합니다. 원하는 필드가 표시되지 않으면 동적 콘텐츠 화면에서 *자세히*를 클릭하여 이전 작업의 필드를 포함시킵니다.
+   * **본문**: 이메일의 텍스트를 작성합니다. 이벤트 데이터를 기반으로 하는 동적 콘텐츠를 포함하도록 선택기 도구에서 JSON 속성을 선택합니다. 동적 콘텐츠가 표시되지 않으면 **본문** 텍스트 상자에서 **동적 콘텐츠 추가** 하이퍼링크를 선택합니다. 원하는 필드가 표시되지 않으면 동적 콘텐츠 화면에서 *자세히* 를 클릭하여 이전 작업의 필드를 포함시킵니다.
 
    이메일 템플릿은 다음 예와 같습니다.
 
    ![이메일 정보 입력](./media/publish-iot-hub-events-to-logic-apps/email-content.png)
 
-1. Logic Apps 디자이너에서 **저장**을 선택합니다.  
+1. Logic Apps 디자이너에서 **저장** 을 선택합니다.  
 
 ### <a name="copy-the-http-url"></a>HTTP URL 복사
 
@@ -155,7 +155,7 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 1. **HTTP 요청을 받을 경우** 트리거 구성 상자를 클릭하여 확장합니다. 
 
-1. **HTTP POST URL**의 값을 그 옆에 있는 복사 단추를 선택하여 복사합니다. 
+1. **HTTP POST URL** 의 값을 그 옆에 있는 복사 단추를 선택하여 복사합니다. 
 
    ![HTTP POST URL 복사](./media/publish-iot-hub-events-to-logic-apps/copy-url.png)
 
@@ -165,25 +165,25 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 이 섹션에서는 일어나는 순서대로 이벤트를 게시하도록 Azure IoT Hub 를 구성합니다. 
 
-1. Azure Portal에서 IoT Hub로 이동합니다. 이 작업은 **리소스 그룹**을 선택하여 수행할 수 있습니다. 그러면 이 자습서의 리소스 그룹을 선택한 다음, 리소스 목록에서 IoT 허브를 선택합니다.
+1. Azure Portal에서 IoT Hub로 이동합니다. 이 작업은 **리소스 그룹** 을 선택하여 수행할 수 있습니다. 그러면 이 자습서의 리소스 그룹을 선택한 다음, 리소스 목록에서 IoT 허브를 선택합니다.
 
-1. **이벤트**를 선택합니다.
+1. **이벤트** 를 선택합니다.
 
    ![Event Grid 세부 정보 열기](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
 
-1. **이벤트 구독**을 선택합니다. 
+1. **이벤트 구독** 을 선택합니다. 
 
    ![새 이벤트 구독 만들기](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 1. 다음 값을 가진 이벤트 구독을 만듭니다. 
 
    1. **이벤트 구독 세부 정보** 섹션에서 다음을 수행합니다.
-      1. 이벤트 구독의 **이름**을 입력합니다. 
-      2. **이벤트 그리드**에 대해 **이벤트 그리드 스키마**를 선택합니다. 
+      1. 이벤트 구독의 **이름** 을 입력합니다. 
+      2. **이벤트 그리드** 에 대해 **이벤트 그리드 스키마** 를 선택합니다. 
    2. **항목 세부 정보** 섹션에서 다음을 수행합니다.
-      1. **토픽 유형**이 **IoT Hub**로 설정되어 있는지 확인합니다. 
+      1. **토픽 유형** 이 **IoT Hub** 로 설정되어 있는지 확인합니다. 
       2. IoT hub 이름이 **원본 리소스** 필드의 값으로 설정되어 있는지 확인합니다. 
-      3. 생성될 **시스템 토픽**의 이름을 입력합니다. 시스템 항목에 대한 자세한 내용은 [시스템 항목 개요](system-topics.md)를 참조하십시오.
+      3. 생성될 **시스템 토픽** 의 이름을 입력합니다. 시스템 항목에 대한 자세한 내용은 [시스템 항목 개요](system-topics.md)를 참조하십시오.
    3. **이벤트 유형** 섹션에서 다음을 수행합니다.
       1. **이벤트 유형 필터링** 드롭다운을 선택합니다.
       1. **디바이스 연결됨** 및 **디바이스 연결이 해제됨** 확인란만 선택된 상태로 두고 **디바이스 생성됨** 및 **디바이스 삭제됨** 확인란을 선택 취소합니다.
@@ -191,8 +191,8 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
          ![구독 이벤트 유형 선택](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
    
    4. **엔드포인트 세부 정보** 섹션에서 다음을 수행합니다. 
-       1. **엔드포인트 유형**을 **webhook**으로 선택합니다.
-       2. **엔드포인트 선택하기**를 클릭하고 논리 앱에서 복사한 URL을 붙여넣은 다음 선택 사항을 확인합니다.
+       1. **엔드포인트 유형** 을 **webhook** 으로 선택합니다.
+       2. **엔드포인트 선택하기** 를 클릭하고 논리 앱에서 복사한 URL을 붙여넣은 다음 선택 사항을 확인합니다.
 
          ![엔드포인트 URL 선택](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
 
@@ -200,7 +200,7 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
          ![샘플 이벤트 구독 양식](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
-1.  **만들기**를 선택합니다.
+1.  **만들기** 를 선택합니다.
 
 ## <a name="simulate-a-new-device-connecting-and-sending-telemetry"></a>원격 분석을 연결하고 보내는 새 디바이스 시뮬레이션
 
@@ -232,9 +232,9 @@ Azure CLI를 사용하여 디바이스 연결을 신속하게 시뮬레이션하
 
 이 자습서에서 만든 리소스를 모두 삭제하려면 리소스 그룹을 삭제합니다. 
 
-1. **리소스 그룹**을 선택한 다음, 이 자습서에서 만든 리소스 그룹을 선택합니다.
+1. **리소스 그룹** 을 선택한 다음, 이 자습서에서 만든 리소스 그룹을 선택합니다.
 
-2. [리소스 그룹] 창에서 **리소스 그룹 삭제**를 선택합니다. 리소스 그룹 이름을 입력하라는 메시지가 표시되면 해당 그룹을 삭제할 수 있습니다. 여기에 포함된 리소스도 모두 제거됩니다.
+2. [리소스 그룹] 창에서 **리소스 그룹 삭제** 를 선택합니다. 리소스 그룹 이름을 입력하라는 메시지가 표시되면 해당 그룹을 삭제할 수 있습니다. 여기에 포함된 리소스도 모두 제거됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
