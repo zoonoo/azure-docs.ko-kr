@@ -147,7 +147,7 @@
   items:
     - name: 이미지
       href: shared-image-galleries.md
-    - name: Azure 리소스 관리자
+    - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
         - name: 리소스 관리자 템플릿
@@ -330,7 +330,9 @@
         - name: 디스크의 복구 및 재해 복구
           href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 공유 디스크
-          href: disks-shared.md
+          href: ../disks-shared.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: 디스크 성능 계층
+          href: ../disks-change-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 사용 후 삭제 OS 디스크
           href: ../ephemeral-os-disks.md
     - name: 네트워킹
@@ -886,8 +888,10 @@
               href: attach-disk-ps.md
             - name: Azure portal
               href: attach-managed-disk-portal.md
-        - name: 디스크 계층 변경
+        - name: 디스크 계층 변경 - PowerShell/CLI
           href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: 디스크 계정 변경 - 포털
+          href: ../disks-performance-tiers-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 디스크 분리
           href: detach-disk.md
         - name: ARM 템플릿을 사용하여 디스크 배포

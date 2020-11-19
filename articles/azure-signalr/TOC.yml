@@ -98,6 +98,12 @@
           href: signalr-howto-diagnostic-logs.md
         - name: Azure Policy를 사용하여 규정 준수 감사
           href: signalr-howto-azure-policy.md
+    - name: 문제 해결
+      items:
+        - name: 문제 해결 가이드
+          href: signalr-howto-troubleshoot-guide.md
+        - name: 문제 해결 방법
+          href: signalr-howto-troubleshoot-method.md
 - name: 참조
   items:
     - name: Azure CLI

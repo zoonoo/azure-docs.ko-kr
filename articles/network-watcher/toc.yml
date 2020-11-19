@@ -28,7 +28,7 @@
       href: network-watcher-nsg-flow-logging-portal.md
 - name: 개념
   items:
-    - name: 연결 모니터(미리 보기)
+    - name: 연결 모니터
       href: connection-monitor-overview.md
     - name: VM 네트워크 트래픽 필터 문제 진단
       href: network-watcher-ip-flow-verify-overview.md
@@ -58,7 +58,7 @@
   items:
     - name: Network Watcher 구성
       href: network-watcher-create.md
-    - name: 연결 모니터 만들기(미리 보기)
+    - name: 연결 모니터 만들기
       items:
         - name: Azure Portal 사용
           href: connection-monitor-create-using-portal.md
@@ -66,11 +66,11 @@
           href: connection-monitor-create-using-template.md
         - name: PowerShell 사용
           href: connection-monitor-create-using-powershell.md
-    - name: 연결 모니터 마이그레이션(미리 보기)
+    - name: 연결 모니터로 마이그레이션
       items:
         - name: 네트워크 성능 모니터에서
           href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
-        - name: 연결 모니터에서
+        - name: 연결 모니터에서(클래식)
           href: migrate-to-connection-monitor-preview-from-connection-monitor.md
     - name: VM 네트워크 문제 진단
       items:

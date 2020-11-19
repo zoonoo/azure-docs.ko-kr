@@ -68,8 +68,8 @@
       items:
         - name: 원격 파일 REST 인코딩 및 스트리밍
           href: stream-files-tutorial-with-rest.md
-        - name: Media Services를 사용하는 고객 관리형 키
-          href: tutorial-byok.md
+        - name: REST API를 사용하는 고객 관리형 키
+          href: tutorial-byok-postman.md
     - name: CLI
       items:
         - name: 원격 파일 CLI 인코딩 및 스트리밍
@@ -80,6 +80,8 @@
           href: stream-files-nodejs-quickstart.md
     - name: Azure portal
       items:
+        - name: 고객 관리형 키 또는 BYOK 자습서
+          href: tutorial-byok-portal.md
         - name: Azure Log Analytics에 AMS 이벤트 저장
           href: tutorial-events-log-analytics.md
 - name: 샘플
@@ -102,6 +104,11 @@
         - name: 스토리지 계정
           href: storage-account-concept.md
           displayName: Storage side encryption
+        - name: 관리 ID 및 미디어 서비스
+          displayName: content protection
+          href: concept-managed-identities.md
+        - name: 고객 관리 키
+          href: concept-use-customer-managed-keys-byok.md
     - name: 자산
       items:
         - name: 자산
@@ -178,8 +185,6 @@
         - name: 동적 암호화 및 키 전달
           displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
-        - name: 고객 관리 키
-          href: concept-use-customer-managed-keys-byok.md
         - name: 다중 DRM 시스템 디자인
           displayName: 'drm, access control'
           href: design-multi-drm-system-with-access-control.md

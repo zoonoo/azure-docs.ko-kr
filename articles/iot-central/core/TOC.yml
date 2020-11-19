@@ -10,6 +10,8 @@
       href: overview-iot-central-developer.md
     - name: 최근 업데이트
       items:
+        - name: 2020년 10월 새로운 기능 및 업데이트된 기능
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-upadates-october-2020/'
         - name: 2020년 9월 새로운 기능 및 업데이트된 기능
           href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-september-2020/'
         - name: 2020년 8월 새로운 기능 및 업데이트된 기능

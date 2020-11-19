@@ -139,6 +139,8 @@
       href: ../../container-instances/security-baseline.md
     - name: Container Registry 보안 기준
       href: ../../container-registry/security-baseline.md
+    - name: 콘텐츠 배달 네트워크 보안 옵션
+      href: ../../cdn/security-baseline.md
     - name: Cosmos DB 보안 기준
       href: ../../cosmos-db/security-baseline.md
     - name: Cost Management 보안 기준

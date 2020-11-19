@@ -63,14 +63,24 @@
           href: plan-sso-deployment.md
         - name: Single Sign-On 옵션
           href: sso-options.md
+        - name: 온-프레미스 앱을 사용한 Single Sign-On
+          href: application-proxy-config-sso-how-to.md
         - name: OIDC 기반 SSO
           href: configure-oidc-single-sign-on.md
         - name: SAML 기반 SSO
           href: configure-saml-single-sign-on.md
+        - name: SAML 기반 SSO(온-프레미스 앱)
+          href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: 암호 기반 SSO
           href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: 암호 기반 SSO(온-프레미스 앱)
+          href: application-proxy-configure-single-sign-on-password-vaulting.md
         - name: 연결 기반 SSO
           href: configure-linked-sign-on.md
+        - name: 헤더 기반 SSO(온-프레미스 앱)
+          href: application-proxy-configure-single-sign-on-with-headers.md
+        - name: Kerberos 기반 SSO(온-프레미스 앱)
+          href: application-proxy-configure-single-sign-on-with-kcd.md
         - name: 한 번 클릭 SSO
           href: one-click-sso-tutorial.md
     - name: 애플리케이션 보안
@@ -182,24 +192,16 @@
           href: application-proxy-remove-personal-data.md
         - name: 사용자 지정 도메인 구성
           href: application-proxy-configure-custom-domain.md
-        - name: 애플리케이션 프록시를 사용하는 Single Sign-On
-          items:
-            - name: KCD(Kerberos 제한 위임)
-              href: application-proxy-configure-single-sign-on-with-kcd.md
-            - name: 암호 보관
-              href: application-proxy-configure-single-sign-on-password-vaulting.md
-            - name: headers
-              href: application-proxy-configure-single-sign-on-with-ping-access.md
-            - name: SAML SSO
-              href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: 앱 제공 컨트롤러 또는 네트워크를 사용하여 레거시 앱 보호
           href: secure-hybrid-access.md
         - name: 게시 연습
           items:
             - name: NDES 서버에서 애플리케이션 프록시와 통합
               href: active-directory-app-proxy-protect-ndes.md
+            - name: PingAccess를 사용하여 애플리케이션 프록시와 통합
+              href: application-proxy-ping-access-publishing-guide.md
             - name: Azure AD Domain Services와 통합
-              href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
+              href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
             - name: Power BI와 통합
               href: application-proxy-integrate-with-power-bi.md
             - name: Cloud App Security와 통합
@@ -256,14 +258,12 @@
               href: application-proxy-connectivity-no-working-connector.md
             - name: 관리자 포털에서 구성
               href: application-proxy-config-how-to.md
-            - name: 내 앱에 Single Sign-On 구성
-              href: application-proxy-config-sso-how-to.md
             - name: 관리 포털에서 앱을 만드는 문제
               href: application-proxy-config-problem.md
             - name: Kerberos 제한된 위임 구성
               href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
             - name: PingAccess를 사용하여 구성
-              href: application-proxy-back-end-ping-access-how-to.md
+              href: /azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide
             - name: 회사 애플리케이션에 액세스할 수 없음 오류
               href: application-proxy-sign-in-bad-gateway-timeout-error.md
             - name: 애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생
@@ -281,11 +281,11 @@
 - name: 리소스
   items:
     - name: 개발자를 위한 지원 및 도움말 옵션
-      href: /azure/active-directory/develop/developer-support-help-options?context=azure/active-directory/manage-apps/context/manage-apps-context
+      href: ../develop/developer-support-help-options.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
     - name: Azure 피드백 포럼
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+      href: /answers/topics/azure-active-directory.html
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/active-directory'
     - name: 서비스 업데이트

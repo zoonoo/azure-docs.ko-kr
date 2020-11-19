@@ -287,6 +287,10 @@
           items:
             - name: MySQL 서버 시작 중지
               href: how-to-stop-start-server.md
+        - name: 주 버전 업그레이드
+          items:
+            - name: 주 버전 업그레이드
+              href: how-to-major-version-upgrade.md
         - name: 자동 증가 스토리지
           items:
             - name: Azure portal
