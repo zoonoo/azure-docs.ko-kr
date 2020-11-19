@@ -4,12 +4,12 @@ description: Backup 및 Recovery Services를 사용하여 Azure VM에서 파일 
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cf55b9d64d7d716aee9862b0e1e3e24966629286
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 236b2c2c7799ef6a0df1da2ddded0e689349e222
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746695"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842212"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Azure에서 가상 머신에 파일 복원
 
@@ -119,7 +119,7 @@ Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시�
 이제 VM에 복사된 복구 스크립트를 사용하여 복구 지점을 연결하고 파일을 복원할 수 있습니다.
 
 >[!NOTE]
-> 계속하기 전에 [여기](backup-azure-restore-files-from-vm.md#selecting-the-right-machine-to-run-the-script)를 확인하여 VM에서 스크립트를 실행할 수 있는지 확인합니다.
+> 계속하기 전에 [여기](backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script)를 확인하여 VM에서 스크립트를 실행할 수 있는지 확인합니다.
 
 1. SSH를 사용하여 VM에 연결합니다. 다음과 같이 *publicIpAddress* 를 VM의 공용 IP 주소로 바꿉니다.
 

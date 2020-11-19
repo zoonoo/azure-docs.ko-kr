@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 69a9b9401f25893ec94b282f52730d92d372268d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b12a595c9b59b40ee6982f123baddaa818dd87ef
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355705"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836294"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Cofense Recipient Sync 구성
 
@@ -33,7 +33,7 @@ ms.locfileid: "94355705"
 > * Cofense Recipient Sync에서 더 이상 액세스할 필요가 없는 사용자 제거
 > * Azure AD와 Cofense Recipient Sync 간에 사용자 특성을 동기화된 상태로 유지
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -107,32 +107,32 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 9. **특성-매핑** 섹션에서 Azure AD에서 Cofense Recipient Sync로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택된 특성은 업데이트 작업을 위해 Cofense Recipient Sync의 사용자 계정을 일치시키는 데 사용됩니다.  **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-   |attribute|Type|
-   |---|---|
+   |attribute|Type|필터링에 지원됨|
+   |---|---|---|
+   |externalId|String|&check;|
    |userName|String|
-   |externalId|String|
    |활성|부울|
    |displayName|String|
    |name.formatted|String|
    |name.givenName|String|
    |name.familyName|String|
-   |name.honorificSuffix|String|
-   |phoneNumbers[type eq"work"].value|String|
-   |phoneNumbers[type eq"home"].value|String|
-   |phoneNumbers[type eq"other"].value|String|
-   |phoneNumbers[type eq"pager"].value|String|
-   |phoneNumbers[type eq"mobile"].value|String|
-   |phoneNumbers[type eq"fax"].value|String|
-   |addresses[type eq"other"].formatted|String|
-   |addresses[type eq"work"].formatted|String|
-   |addresses[type eq"work"].streetAddress|String|
-   |addresses[type eq"work"].locality|String|
-   |addresses[type eq"work"].region|String|
-   |addresses[type eq"work"].postalCode|String|
+   |name.honorificSuffix|문자열|
+   |phoneNumbers[type eq"work"].value|문자열|
+   |phoneNumbers[type eq"home"].value|문자열|
+   |phoneNumbers[type eq"other"].value|문자열|
+   |phoneNumbers[type eq"pager"].value|문자열|
+   |phoneNumbers[type eq"mobile"].value|문자열|
+   |phoneNumbers[type eq"fax"].value|문자열|
+   |addresses[type eq"other"].formatted|문자열|
+   |addresses[type eq"work"].formatted|문자열|
+   |addresses[type eq"work"].streetAddress|문자열|
+   |addresses[type eq"work"].locality|문자열|
+   |addresses[type eq"work"].region|문자열|
+   |addresses[type eq"work"].postalCode|문자열|
    |addresses[type eq"work"].country|String|
    |title|String|
    |emails[type eq "work"].value|String|
-   |emails[type eq "home"].value|String|
+   |emails[type eq "home"].value|문자열|
    |emails[type eq "other"].value|String|
    |preferredLanguage|String|
    |nickName|String|

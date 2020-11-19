@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
-ms.custom: mvc
-ms.openlocfilehash: 38665cdf42450b09d14211f7ed44d62e4adb75b1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 426cf59c9fb9d88039231ed441b2ffc7246716c7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537935"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844440"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>자습서: Azure App Service에서 PHP(Laravel) 및 MySQL 유연한 서버(미리 보기) 앱 빌드
 
@@ -134,7 +134,7 @@ php artisan serve
 
 브라우저에서 `http://localhost:8000` 으로 이동합니다. 해당 페이지에서 몇 가지 작업을 추가합니다.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="유연한 서버를 사용하는 Azure의 PHP 웹앱":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP가 MySQL 연결에 성공":::
 
 PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
@@ -257,7 +257,7 @@ php artisan serve --env=production
 
 해당 페이지에서 몇 가지 작업을 추가합니다.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="유연한 서버를 사용하는 Azure의 PHP 웹앱":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP가 Azure Database for MySQL에 성공적으로 연결됨":::
 
 PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
@@ -414,7 +414,7 @@ remote: Running deployment command...
 
 `http://<app-name>.azurewebsites.net`으로 이동한 후 목록에 몇 가지 작업을 추가합니다.
 
-:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="유연한 서버를 사용하는 Azure의 PHP 웹앱":::
+:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="Azure의 PHP 웹앱":::
 
 축하합니다! Azure App Service에서 데이터 기반 PHP 앱을 실행하고 있습니다.
 
@@ -466,7 +466,7 @@ public function down()
 php artisan migrate
 ```
 
-[Laravel 명명 규칙](https://laravel.com/docs/5.4/eloquent#defining-models)에 따라 `Task`( _app/Task.php_ 참조) 모델은 기본적으로 `tasks` 테이블에 매핑됩니다.
+[Laravel 명명 규칙](https://laravel.com/docs/5.4/eloquent#defining-models)에 따라 `Task`(_app/Task.php_ 참조) 모델은 기본적으로 `tasks` 테이블에 매핑됩니다.
 
 ### <a name="update-application-logic"></a>애플리케이션 논리 업데이트
 
@@ -534,7 +534,7 @@ php artisan serve
 
 작업 상태 변경을 확인하려면 `http://localhost:8000`으로 이동하고 확인란을 선택합니다.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="유연한 서버를 사용하는 Azure의 PHP 웹앱":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="작업에 확인란이 추가됨":::
 
 PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
@@ -556,7 +556,7 @@ git push azure master
 
 `git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트합니다.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="유연한 서버를 사용하는 Azure의 PHP 웹앱":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="Azure에 게시된 모델 및 데이터베이스 변경 내용":::
 
 모든 작업을 추가했으면 데이터베이스에서 유지됩니다. 데이터 스키마를 업데이트하는 경우 기존 데이터는 그대로 유지됩니다.
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Database for MariaDB에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Database for MariaDB에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 3d6a7fe1f1e6ba6e553b6bb7a7f7b6d1168312d4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 542c65e369edbb0e5523ddad06be03637657e6f5
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532667"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700266"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대한 Azure Policy 규정 준수 컨트롤
 

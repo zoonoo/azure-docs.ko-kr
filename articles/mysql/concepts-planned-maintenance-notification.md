@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c85624d9eced3130a1c7b99943095688beee62bd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 63cc4448034b6a2ae2d74f4a2d9a0a62296678cf
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93417591"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886484"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Azure Database for MySQL의 계획 된 유지 관리 알림-단일 서버
 
@@ -21,7 +21,7 @@ Azure Database for MySQL에서 계획 된 유지 관리 이벤트를 준비 하�
 
 Azure Database for MySQL 서비스는 기본 하드웨어, OS 및 데이터베이스 엔진의 자동화 된 패치를 수행 합니다. 패치에는 새로운 서비스 기능, 보안 및 소프트웨어 업데이트가 포함 되어 있습니다. MySQL 엔진의 경우 부 버전 업그레이드는 자동으로 적용되며 패치 주기에 포함됩니다. 패치를 적용하는 데 필요한 사용자 작업 또는 구성 설정은 없습니다. 패치는 광범위 하 게 테스트 되 고 안전한 배포 방법을 사용 하 여 롤아웃 됩니다.
 
-계획 된 유지 관리는 이러한 서비스 업데이트가 지정 된 Azure 지역의 서버에 배포 되는 경우 유지 관리 기간입니다. 계획 된 유지 관리 중에는 서비스 업데이트가 서버를 호스팅하는 Azure 지역에 배포 될 때 고객에 게 알리기 위해 알림 이벤트가 생성 됩니다. 계획 된 두 유지 관리 사이의 최소 기간은 30 일입니다. 다음 유지 관리 기간 72 시간에 대 한 알림을 미리 받게 됩니다.
+계획 된 유지 관리는 이러한 서비스 업데이트가 지정 된 Azure 지역의 서버에 배포 되는 경우 유지 관리 기간입니다. 계획된 유지 관리 중에 서버를 호스팅하는 Azure 지역에 서비스 업데이트가 배포되면 고객에게 알리기 위해 알림 이벤트가 만들어집니다. 계획 된 두 유지 관리 사이의 최소 기간은 30 일입니다. 다음 유지 관리 기간 72시간에 대한 알림을 미리 받습니다.
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>계획 된 유지 관리-기간 및 고객에 게 미치는 영향
 
@@ -48,7 +48,7 @@ Azure Portal에 대 한 계획 된 유지 관리 알림을 확인 하거나 알�
 
 1. [Azure Portal](https://portal.azure.com)에서 **Service Health** 를 선택 합니다.
 2. **계획 된 유지 관리** 탭 선택
-3. 계획 된 유지 관리 알림을 확인 하려는 **구독** , **지역** 및 **서비스** 를 선택 합니다. 
+3. 계획 된 유지 관리 알림을 확인 하려는 **구독**, **지역** 및 **서비스** 를 선택 합니다. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>계획 된 유지 관리 알림을 받으려면
 
@@ -78,7 +78,7 @@ Azure Portal에 대 한 계획 된 유지 관리 알림을 확인 하거나 알�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Database for MySQL 작업에 대 한 질문이 나 제안 사항은에서 Azure Database for MySQL 팀에 전자 메일을 보냅니다 *AskAzureDBforMySQL@service.microsoft.com* .
+- Azure Database for MySQL 작업에 대 한 질문이 나 제안 사항은에서 Azure Database for MySQL 팀에 전자 메일을 보냅니다 **AskAzureDBforMySQL@service.microsoft.com** .
 - 메트릭에 대 한 경고를 만드는 방법에 대 한 지침은 [경고를 설정 하는 방법을](howto-alert-on-metric.md) 참조 하세요.
 - [Azure Database for MySQL 단일 서버에 대 한 연결 문제 해결](howto-troubleshoot-common-connection-issues.md)
 - [일시적인 오류를 처리 하 고 Azure Database for MySQL-단일 서버에 효율적으로 연결](concepts-connectivity.md)

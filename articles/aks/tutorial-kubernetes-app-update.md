@@ -4,13 +4,13 @@ description: 이 AKS(Azure Kubernetes Service) 자습서에서는 새 버전의 
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: 6619d7c9f7d2b0cd78f3941ce431e80342b6f563
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: c8401a81a36d86b871df9fc428c393007b97c400
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576441"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833914"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 업데이트
 
@@ -76,7 +76,7 @@ docker-compose up --build -d
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-[docker tag][docker-tag]를 사용하여 이미지에 태그를 지정합니다. 다음과 같이 `<acrLoginServer>`를 ACR 로그인 서버 이름 또는 공용 레지스트리 호스트 이름으로 바꾸고, 이미지 버전을 *:v2*로 업데이트합니다.
+[docker tag][docker-tag]를 사용하여 이미지에 태그를 지정합니다. 다음과 같이 `<acrLoginServer>`를 ACR 로그인 서버 이름 또는 공용 레지스트리 호스트 이름으로 바꾸고, 이미지 버전을 *:v2* 로 업데이트합니다.
 
 ```console
 docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v2
@@ -145,7 +145,7 @@ kubectl get service azure-vote-front
 
 로컬 웹 브라우저를 서비스의 IP 주소로 엽니다.
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="로컬 웹 브라우저 및 로컬 호스트를 사용하여 연 업데이트된 컨테이너 이미지 Azure 투표 앱의 예를 보여주는 스크린샷.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="로컬 웹 브라우저에서 열린 업데이트된 애플리케이션 Azure 투표 앱의 예를 보여주는 스크린샷.":::
 
 ## <a name="next-steps"></a>다음 단계
 

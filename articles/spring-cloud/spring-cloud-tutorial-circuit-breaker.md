@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: c189411b13baf2497f0752c15550dd419f88f754
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 0edcdbfec07c032f095cc03eb91be8cf0785b58a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088604"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844849"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Azure Spring Cloud를 사용하는 회로 차단기 대시보드 사용
 
@@ -45,7 +45,7 @@ mvn clean package -D skipTests -f hystrix-turbine/pom.xml
 [Azure CLI에서 서비스 인스턴스 프로비저닝](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud) 절차를 따르세요.
 
 ## <a name="deploy-your-applications-to-azure-spring-cloud"></a>Azure Spring Cloud에 애플리케이션 배포
-이러한 앱은 **구성 서버**를 사용하지 않으므로 Azure Spring Cloud용 **구성 서버**를 설정할 필요가 없습니다.  다음과 같이 만들고 배포합니다.
+이러한 앱은 **구성 서버** 를 사용하지 않으므로 Azure Spring Cloud용 **구성 서버** 를 설정할 필요가 없습니다.  다음과 같이 만들고 배포합니다.
 ```azurecli
 az spring-cloud app create -n user-service --is-public
 az spring-cloud app create -n recommendation-service
@@ -68,7 +68,7 @@ az spring-cloud app deploy -n hystrix-turbine --jar-path hystrix-turbine/target/
 
 ![Hystrix 대시보드](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
 
-텍스트 상자에 Turbine 스트림 URL `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/turbine.stream?cluster=default`를 복사하고 **스트림 모니터링**을 클릭합니다.  그러면 대시보드가 표시됩니다. 뷰어에 아무것도 표시되지 않는 경우 `user-service` 엔드포인트를 눌러 스트림을 생성합니다.
+텍스트 상자에 Turbine 스트림 URL `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/turbine.stream?cluster=default`를 복사하고 **스트림 모니터링** 을 클릭합니다.  그러면 대시보드가 표시됩니다. 뷰어에 아무것도 표시되지 않는 경우 `user-service` 엔드포인트를 눌러 스트림을 생성합니다.
 
 ![Hystrix 스트림](media/spring-cloud-circuit-breaker/hystrix-stream.png) 이제 회로 차단기 대시보드를 사용해 볼 수 있습니다.
 > [!NOTE] 

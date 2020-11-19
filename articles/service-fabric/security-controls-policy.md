@@ -1,22 +1,22 @@
 ---
 title: Azure Service Fabric에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Service Fabric에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 author: erikadoyle
 ms.author: edoyle
 ms.service: service-fabric
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 3102c602f76dde7bf7a80ea83b1cc9b2b7175898
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 86d66b9890cdcc5b80951c1ee3aa8c0a416a9823
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316685"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700834"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-service-fabric"></a>Azure Service Fabric에 대한 Azure Policy 규정 준수 컨트롤
 
-[Azure Policy의 규정 준수](../governance/policy/concepts/regulatory-compliance.md)는 서로 다른 규정 준수 표준과 관련된 **규정 준수 도메인** 및 **보안 제어**에 대해 _기본 제공_으로 알려진 Microsoft 생성 및 관리형 이니셔티브 정의를 제공합니다. 이 페이지에는 Azure Service Fabric에 대한 **규정 준수 도메인** 및 **보안 제어**가 나열되어 있습니다. **보안 제어**에 대한 기본 제공 기능을 개별적으로 할당하여 Azure 리소스가 특정 표준을 준수하도록 할 수 있습니다.
+[Azure Policy의 규정 준수](../governance/policy/concepts/regulatory-compliance.md)는 서로 다른 규정 준수 표준과 관련된 **규정 준수 도메인** 및 **보안 제어** 에 대해 _기본 제공_ 으로 알려진 Microsoft 생성 및 관리형 이니셔티브 정의를 제공합니다. 이 페이지에는 Azure Service Fabric에 대한 **규정 준수 도메인** 및 **보안 제어** 가 나열되어 있습니다. **보안 제어** 에 대한 기본 제공 기능을 개별적으로 할당하여 Azure 리소스가 특정 표준을 준수하도록 할 수 있습니다.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 86b5c1dc396a755d898f0c3c332ab59933236afe
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0d98f3c61191d5d5b333072682abe740761901f0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747442"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831891"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>빠른 시작: Node.js 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -30,13 +30,15 @@ ms.locfileid: "92747442"
 
 * [Node.js 10 이상](https://nodejs.org).
 
+    다음 명령을 사용하여 개발 머신에서 Node.js의 현재 버전을 확인할 수 있습니다.
+
+    ```cmd/sh
+    node --version
+    ```
+
 * [샘플 Node.js 프로젝트](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
-다음 명령을 사용하여 개발 머신에서 Node.js의 현재 버전을 확인할 수 있습니다.
-
-```cmd/sh
-node --version
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)으로 지원합니다.
 
@@ -47,8 +49,6 @@ Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기�
 > * 미국 중부 EUAP
 > * 북유럽
 > * 동남아시아
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ### <a name="add-azure-iot-extension"></a>Azure IoT 확장 추가
 

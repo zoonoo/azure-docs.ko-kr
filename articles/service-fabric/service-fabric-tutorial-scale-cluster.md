@@ -3,13 +3,13 @@ title: Azure에서 Service Fabric 클러스터 크기 조정
 description: 이 자습서에서는 Azure에서 Service Fabric 클러스터의 크기를 확장 및 축소하는 방법과 남은 리소스를 정리하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: d9699103f5e13301cce408d2e54f0e15780e0a35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 7f92ca28afd9d1894867aaa2c18df3a02ee0bd79
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88716897"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842688"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 크기 조정
 
@@ -68,11 +68,11 @@ Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
 
 1. [Azure Portal](https://portal.azure.com)에서 클러스터가 포함된 리소스 그룹(이 자습서를 따르는 경우 **sfclustertutorialgroup**)으로 이동합니다. 
 
-2. 왼쪽 창에서 **배포**를 선택하거나 **배포** 아래에 있는 링크를 선택합니다. 
+2. 왼쪽 창에서 **배포** 를 선택하거나 **배포** 아래에 있는 링크를 선택합니다. 
 
 3. 목록에서 가장 최근에 성공한 배포를 선택합니다.
 
-4. 왼쪽 창에서 **템플릿**을 선택한 다음, **다운로드**를 선택하여 템플릿을 ZIP 파일로 내보냅니다.  템플릿과 매개 변수를 로컬 컴퓨터에 저장합니다.
+4. 왼쪽 창에서 **템플릿** 을 선택한 다음, **다운로드** 를 선택하여 템플릿을 ZIP 파일로 내보냅니다.  템플릿과 매개 변수를 로컬 컴퓨터에 저장합니다.
 
 ## <a name="add-nodes-to-or-remove-nodes-from-a-node-type"></a>노드 유형에서 노드 추가 또는 제거
 
@@ -82,7 +82,7 @@ Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
 
 가장 최근 배포에 대한 리소스 그룹에서 [템플릿 및 매개 변수 파일을 내보냅니다](#export-the-template-for-the-resource-group).  *parameters.json* 파일을 엽니다.  이 자습서에서 [샘플 템플릿][template]을 사용하여 클러스터를 배포한 경우 클러스터에는 3개의 노드 유형과 각 노드 유형의 노드 수가 설정되는 3개의 매개 변수(*nt0InstanceCount*, *nt1InstanceCount* 및 *nt2InstanceCount*)가 있습니다.  예를 들어 *nt1InstanceCount* 매개 변수는 두 번째 노드 유형에 대한 인스턴스 수 및 연결되는 가상 머신 확장 집합의 VM 수를 설정합니다.
 
-따라서 *nt1InstanceCount*의 값을 업데이트하여 두 번째 노드 유형의 노드 수를 변경합니다.  한 노드 유형의 노드 수는 100개를 초과할 수 없습니다.  상태 저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 5개 이상의 노드가 있어야 합니다. 상태 비저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 둘 이상의 노드가 있어야 합니다.
+따라서 *nt1InstanceCount* 의 값을 업데이트하여 두 번째 노드 유형의 노드 수를 변경합니다.  한 노드 유형의 노드 수는 100개를 초과할 수 없습니다.  상태 저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 5개 이상의 노드가 있어야 합니다. 상태 비저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 둘 이상의 노드가 있어야 합니다.
 
 Bronze [내구성 수준][durability]의 노드 유형에서 노드를 확장하거나 제거하려는 경우 [해당 노드의 상태를 수동으로 제거](service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set)해야 합니다.  Silver 및 Gold 내구성 계층의 경우 이러한 단계는 플랫폼에서 자동으로 수행됩니다.
 

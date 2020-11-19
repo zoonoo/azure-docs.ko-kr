@@ -3,12 +3,12 @@ title: Azure Notebooks 미리 보기용 샘플 Jupyter Notebook
 description: 샘플은 체험판 Azure Notebooks 클라우드 서비스에서 실행되는 Jupyter Notebook을 경험할 수 있는 좋은 방법입니다.
 ms.topic: sample
 ms.date: 01/11/2019
-ms.openlocfilehash: 397e40f628e6e935fef74d2225d2e477aac7b276
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8282a4047ede7d1344551a052ccf1b0143dae66
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85833998"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845060"
 ---
 # <a name="discover-and-use-sample-notebooks-in-azure-notebooks-preview"></a>Azure Notebooks 미리 보기에서 샘플 Notebooks 검색 및 사용
 
@@ -36,4 +36,4 @@ ms.locfileid: "85833998"
 - [방법: 프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)
 - [방법: 데이터 파일 작업](work-with-project-data-files.md)
 - [방법: 데이터 리소스에 액세스](access-data-resources-jupyter-notebooks.md)
-- [방법: Azure Machine Learning 사용](use-machine-learning-services-jupyter-notebooks.md)
+- [방법: Azure Machine Learning 사용](../machine-learning/samples-notebooks.md)
