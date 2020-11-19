@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: a9d5988f25b833480c4809ba116c48022566b7a0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f4fe368e9a56e5ac4c9dfa2648ce4af15a1b5ac0
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458186"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684443"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>자습서: Maverics Identity Orchestrator SAML Connector와 Azure AD Single Sign-On 통합
 
@@ -158,7 +158,7 @@ Azure Key Vault는 Azure Portal 또는 Azure CLI를 사용하여 설정할 수 �
 
 **Azure Portal 사용**
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. [새 키 자격 증명 모음을 만듭니다.](../../key-vault/secrets/quick-create-portal.md#create-a-vault)
+1. [새 키 자격 증명 모음을 만듭니다.](../../key-vault/general/quick-create-portal.md)
 1. [키 자격 증명 모음에 비밀을 추가합니다.](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)
 1. [Azure AD에 애플리케이션을 등록합니다](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 1. [비밀을 사용하도록 애플리케이션에 권한을 부여합니다](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
@@ -207,7 +207,7 @@ Azure Key Vault는 Azure Portal 또는 Azure CLI를 사용하여 설정할 수 �
 
 1. Maverics Identity Orchestrator SAML Connector **개요** 창에서 **Single Sign-On 설정** 을 선택하고 **SAML** 을 선택합니다.
 
-1. Maverics Identity Orchestrator SAML Connector **SAML 기반 로그온** 창에서 **편집** (연필 아이콘) 단추를 선택하여 **기본 SAML 구성** 을 편집합니다.
+1. Maverics Identity Orchestrator SAML Connector **SAML 기반 로그온** 창에서 **편집**(연필 아이콘) 단추를 선택하여 **기본 SAML 구성** 을 편집합니다.
 
    !["기본 SAML 구성" 편집 단추 스크린샷](common/edit-urls.png)
 
@@ -388,7 +388,7 @@ connectors:
 
 마이그레이션 워크플로를 구성하려면 다음을 수행합니다.
 
-1. 워크플로의 이름을 지정합니다(예: **SiteMinder에서 Azure AD로 마이그레이션** ).
+1. 워크플로의 이름을 지정합니다(예: **SiteMinder에서 Azure AD로 마이그레이션**).
 1. 요청에 대한 응답으로 해당 워크플로의 `actions`를 트리거하는 워크플로가 노출되는 HTTP 경로인 `endpoint`를 지정합니다. `endpoint`는 일반적으로 프록시 설정된 앱(예: `/my_app`)에 해당합니다. 이 값은 선행 슬래시와 후행 슬래시를 모두 포함해야 합니다.
 1. 워크플로에 적절한 `actions`를 추가합니다.
 
@@ -428,7 +428,7 @@ Azure 커넥터는 `login` 메서드를 사용하여 사용자를 로그인 URL�
 
 인증된 후 결과로 생성된 세션 토큰이 Maverics에 전달됩니다. SiteMinder 커넥터의 `emulate` 메서드는 쿠키 기반 세션 또는 헤더 기반 세션을 에뮬레이션한 다음, 애플리케이션에 필요한 추가 특성으로 요청을 데코레이트하는 데 사용됩니다.
 
-1. 워크플로에 이름을 지정합니다(예: **SiteMinder 세션 추상화** ).
+1. 워크플로에 이름을 지정합니다(예: **SiteMinder 세션 추상화**).
 1. 프록시 설정되는 앱에 해당하는 `endpoint`를 지정합니다. 이 값은 선행 슬래시와 후행 슬래시를 모두 포함해야 합니다(예: `/my_app/`).
 1. 워크플로에 적절한 `actions`를 추가합니다.
 

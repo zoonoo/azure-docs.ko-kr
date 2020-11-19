@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: f69b62f39b7e62eea26cc4d8511505056c6821bf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 119f1eaa838b404a3dbdc22f692f559816810dde
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321266"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578691"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>자습서: CLI에서 모델 학습 및 배포
 
@@ -128,7 +128,7 @@ az group create --name <resource-group-name> --location <location>
 }
 ```
 
-리소스 그룹 작업에 대한 자세한 내용은 [az 그룹](//cli/azure/group?preserve-view=true&view=azure-cli-latest)을 참조하세요.
+리소스 그룹 작업에 대한 자세한 내용은 [az 그룹](/cli/azure/group?preserve-view=true&view=azure-cli-latest)을 참조하세요.
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 

@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: c3d35940a445b73ecb9285355f36b141c3a151b8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 48fc9f7e021ba5158182344ddfdba3c8eafaf781
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475059"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659219"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Azure VM에 Elastic Stack 설치
 
@@ -211,7 +211,7 @@ sudo /usr/share/logstash/bin/logstash -f vm-syslog-logstash.conf
 `/etc/kibana/kibana.yml`을 수정하고 Kibana가 수신 대기하는 IP 주소를 웹 브라우저에서 액세스할 수 있도록 변경합니다.
 
 ```bash
-server.host:"0.0.0.0"
+server.host: "0.0.0.0"
 ```
 
 다음 명령으로 Kibana를 시작합니다.

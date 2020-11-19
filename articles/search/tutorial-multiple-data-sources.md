@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6a1a7e19e598980b21ee6c41f6984de38d6a6f2b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c9d9c43ae1be755ccb30fc377692257a81332ea8
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791616"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593725"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 여러 데이터 원본에서 인덱스
 
@@ -66,21 +66,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. [Azure Portal](https://portal.azure.com)에 로그인한 다음, Azure Cosmos DB 계정 개요 페이지를 탐색합니다.
 
-1. **데이터 탐색기** , **새 데이터베이스** 를 차례로 선택합니다.
+1. **데이터 탐색기**, **새 데이터베이스** 를 차례로 선택합니다.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-newdb.png" alt-text="새 데이터베이스 만들기" border="false":::
 
 1. **hotel-rooms-db** 라는 이름을 입력합니다. 나머지 설정에 대해 기본값을 그대로 적용합니다.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="새 데이터베이스 만들기" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="데이터베이스 구성" border="false":::
 
 1. 새 컨테이너를 만듭니다. 방금 만든 기존 데이터베이스를 사용합니다. 컨테이너 이름에 대해 **hotels** 를 입력하고, 파티션 키에 대해 **/HotelId** 를 사용합니다.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="새 데이터베이스 만들기" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="컨테이너 추가" border="false":::
 
 1. **hotels** 아래에서 **항목** 을 선택한 다음, 명령 모음에서 **항목 업로드** 를 클릭합니다. 프로젝트 폴더에서 **cosmosdb/HotelsDataSubset_CosmosDb.json** 파일을 찾아서 선택합니다.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="새 데이터베이스 만들기" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="Azure Cosmos DB 컬렉션에 업로드" border="false":::
 
 1. [새로 고침] 단추를 사용하여 호텔 컬렉션의 항목 보기를 새로 고칩니다. 7개의 새 데이터베이스 문서가 나열됩니다.
 
@@ -92,11 +92,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 샘플 호텔 객실 JSON 파일을 저장할 **hotel-rooms** 라는 [Blob 컨테이너를 만듭니다](../storage/blobs/storage-quickstart-blobs-portal.md). 유효한 값에 대한 공용 액세스 수준을 설정할 수 있습니다.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="새 데이터베이스 만들기" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Blob 컨테이너 만들기" border="false":::
 
 1. 컨테이너를 만들었으면 연 다음, 명령 모음에서 **업로드** 를 선택합니다. 샘플 파일이 포함된 폴더로 이동합니다. 모두 선택한 다음, **업로드** 를 클릭합니다.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="새 데이터베이스 만들기" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="파일 업로드" border="false":::
 
 1. 스토리지 계정 이름과 연결 문자열을 **액세스 키** 페이지에서 메모장으로 복사합니다. 두 값은 모두 이후 단계에서 **appsettings.json** 에 필요합니다.
 
@@ -112,17 +112,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **설정** > **키** 에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="새 데이터베이스 만들기" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="서비스 이름과 관리자 및 쿼리 키 확인" border="false":::
 
 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 ## <a name="2---set-up-your-environment"></a>2 - 환경 설정
 
-1. Visual Studio를 시작하고, **도구** 메뉴에서 **NuGet 패키지 관리자** , **솔루션용 NuGet 패키지 관리...** 를 차례로 선택합니다. 
+1. Visual Studio를 시작하고, **도구** 메뉴에서 **NuGet 패키지 관리자**, **솔루션용 NuGet 패키지 관리...** 를 차례로 선택합니다. 
 
-1. **찾아보기** 탭에서 **Azure.Search.Documents** (버전 11.0 이상)를 찾아서 설치합니다. 설치를 완료하려면 추가 대화 상자를 클릭해야 합니다.
+1. **찾아보기** 탭에서 **Azure.Search.Documents**(버전 11.0 이상)를 찾아서 설치합니다. 설치를 완료하려면 추가 대화 상자를 클릭해야 합니다.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="새 데이터베이스 만들기" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="NuGet을 사용하여 Azure 라이브러리 추가" border="false":::
 
 1. **Microsoft.Extensions.Configuration** 및 **Microsoft.Extensions.Configuration.Json** NuGet 패키지도 검색하여 설치합니다.
 
@@ -350,7 +350,7 @@ await indexerClient.CreateOrUpdateIndexerAsync(blobIndexer);
 try
 {
     // Run the indexer.
-    await searchService.Indexers.RunAsync(cosmosDbIndexer.Name);
+    await searchService.Indexers.RunAsync(blobIndexer.Name);
 }
 catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
 {
@@ -369,7 +369,7 @@ catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
 
 Azure Portal에서 검색 서비스 **개요** 페이지를 열고, **인덱스** 목록에서 **hotel-rooms-sample** 인덱스를 찾습니다.
 
-  :::image type="content" source="media/tutorial-multiple-data-sources/index-list.png" alt-text="새 데이터베이스 만들기" border="false":::
+  :::image type="content" source="media/tutorial-multiple-data-sources/index-list.png" alt-text="Azure Cognitive Search 인덱스 목록" border="false":::
 
 목록에서 hotel-rooms-sample 인덱스를 클릭합니다. 인덱스에 대한 검색 탐색기 인터페이스가 표시됩니다. "Luxury"(특실)와 같은 용어에 대한 쿼리를 입력합니다. 결과에서 하나 이상의 문서가 표시되며, 이 문서에는 객실 배열에 객실 개체 목록이 표시되어 있습니다.
 

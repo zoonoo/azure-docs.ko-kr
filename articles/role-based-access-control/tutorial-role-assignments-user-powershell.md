@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 9c35c08889892e877ecfac20910607ddf85b2282
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9b66d7b37397fe509cce5c66d30da0a3ae63465
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82735490"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648262"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 - Azure Active Directory에서 사용자를 만드는(또는 기존 사용자를 사용하는) 권한
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)
+- [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md)
 
 ## <a name="role-assignments"></a>역할 할당
 
@@ -268,7 +268,7 @@ Azure RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
     ```
     
-1. 확인을 묻는 메시지가 나타나면 **Y**를 선택합니다. 삭제에 몇 초 정도 걸립니다.
+1. 확인을 묻는 메시지가 나타나면 **Y** 를 선택합니다. 삭제에 몇 초 정도 걸립니다.
 
 1. [Remove-AzureADUser](/powershell/module/azuread/remove-azureaduser) 명령을 사용하여 사용자를 삭제합니다.
 

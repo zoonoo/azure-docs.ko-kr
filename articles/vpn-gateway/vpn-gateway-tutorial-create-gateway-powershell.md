@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 91004b9cb545275746f75dbd6ad46981fe4b04d5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b70a3fe4884ef209e57fbb954c27aa83486b5c98
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461161"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661004"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>자습서: PowerShell을 사용하여 VPN 게이트웨이 만들기 및 관리
 
@@ -133,7 +133,7 @@ TryIt을 사용하는 경우 세션 시간이 초과될 수 있습니다. 그래
 
 ## <a name="view-the-gateway-public-ip-address"></a>게이트웨이 공용 IP 주소 보기
 
-공용 IP 주소의 이름을 알고 있는 경우 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 명령을 사용하여 게이트웨이에 할당된 공용 IP 주소를 표시합니다.
+공용 IP 주소의 이름을 알고 있는 경우 [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) 명령을 사용하여 게이트웨이에 할당된 공용 IP 주소를 표시합니다.
 
 세션 시간이 초과되면 이 자습서 시작 부분의 일반 네트워크 매개 변수를 세 세션에 복사하고 계속 진행합니다.
 
@@ -151,7 +151,7 @@ $gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
 Resize-AzVirtualNetworkGateway -GatewaySku VpnGw2 -VirtualNetworkGateway $gateway
 ```
 
-또한 VPN 게이트웨이 크기 조정 작업이 기존 연결 및 구성을 중단하거나 제거하지는 **않지만** , 완료하는 데 약 30-45분이 걸립니다.
+또한 VPN 게이트웨이 크기 조정 작업이 기존 연결 및 구성을 중단하거나 제거하지는 **않지만**, 완료하는 데 약 30-45분이 걸립니다.
 
 ## <a name="reset-a-gateway"></a>게이트웨이 다시 설정
 
@@ -162,11 +162,11 @@ $gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
 Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 ```
 
-자세한 내용은 [VPN 게이트웨이 다시 설정](vpn-gateway-resetgw-classic.md)을 참조하세요.
+자세한 내용은 [VPN 게이트웨이 다시 설정](./reset-gateway.md)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[다음 자습서](vpn-gateway-tutorial-vpnconnection-powershell.md)를 이어서 진행하는 경우 이러한 리소스가 계속 필요하므로 그대로 유지하세요.
+[다음 자습서](./vpn-gateway-create-site-to-site-rm-powershell.md)를 이어서 진행하는 경우 이러한 리소스가 계속 필요하므로 그대로 유지하세요.
 
 그러나 게이트웨이가 프로토타입, 테스트 또는 개념 증명 배포의 일부인 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용하여 리소스 그룹, VPN 게이트웨이 및 모든 관련 리소스를 제거할 수 있습니다.
 

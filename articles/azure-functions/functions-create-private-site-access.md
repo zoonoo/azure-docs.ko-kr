@@ -6,16 +6,16 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 6c87fcf4f56b7092436fa16658a72ead24d9fec2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: e367e4f2a704d8c718551fb031164520b3ff5bb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423031"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579133"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>자습서: Azure Functions 프라이빗 사이트 액세스 설정
 
-이 자습서에서는 Azure Functions를 사용하여 [프라이빗 사이트 액세스](./functions-networking-options.md#private-site-access)를 설정하는 방법을 보여 줍니다. 프라이빗 사이트 액세스를 사용하면 함수 코드가 특정 가상 네트워크에서만 트리거되도록 요구할 수 있습니다.
+이 자습서에서는 Azure Functions를 사용하여 [프라이빗 사이트 액세스](./functions-networking-options.md#private-endpoint-connections)를 설정하는 방법을 보여 줍니다. 프라이빗 사이트 액세스를 사용하면 함수 코드가 특정 가상 네트워크에서만 트리거되도록 요구할 수 있습니다.
 
 프라이빗 사이트 액세스는 함수 앱에 대한 액세스를 특정 가상 네트워크로 제한해야 하는 시나리오에서 유용합니다. 예를 들어 함수 앱은 특정 조직의 직원 또는 지정된 가상 네트워크 내에 있는 서비스(예: 다른 Azure Function, Azure Virtual Machine 또는 AKS 클러스터)에만 적용할 수 있습니다.
 
@@ -85,12 +85,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     | _이름_ | myResourceGroup-vnet | 가상 네트워크에 대해 생성된 기본 이름을 사용할 수 있습니다. |
     | _주소 범위_ | 10.10.0.0/16 | 가상 네트워크에 단일 주소 범위를 사용합니다. |
     | _서브넷 이름_ | 자습서 | 서브넷 이름입니다. |
-    | _주소 범위_ (서브넷) | 10.10.1.0/24 | 서브넷 크기는 서브넷에 추가할 수 있는 인터페이스 수를 정의합니다. 이 서브넷은 VM에서 사용합니다. /24 서브넷은 254개의 호스트 주소를 제공합니다. |
+    | _주소 범위_(서브넷) | 10.10.1.0/24 | 서브넷 크기는 서브넷에 추가할 수 있는 인터페이스 수를 정의합니다. 이 서브넷은 VM에서 사용합니다. /24 서브넷은 254개의 호스트 주소를 제공합니다. |
 
 1. **확인** 을 선택하여 가상 네트워크를 만듭니다.
 1. _네트워킹_ 탭으로 돌아가서 _공용 IP_ 에 대해 **없음** 이 선택되어 있는지 확인합니다.
 1. _관리_ 탭을 선택한 다음, _진단 스토리지 계정_ 에서 **새로 만들기** 를 선택하여 새 스토리지 계정을 만듭니다.
-1. _ID_ , _자동 종료_ 및 _백업_ 섹션의 기본값을 그대로 둡니다.
+1. _ID_, _자동 종료_ 및 _백업_ 섹션의 기본값을 그대로 둡니다.
 1. _검토 + 만들기_ 를 선택합니다. 유효성 검사가 완료되면 **만들기** 를 선택합니다. VM 만들기 프로세스는 몇 분 정도 걸립니다.
 
 ## <a name="configure-azure-bastion"></a>Azure Bastion 구성
@@ -145,7 +145,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     | _지역_ | 미국 중북부 | 사용자 근처 또는 함수가 액세스할 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)을 선택합니다. |
 
     페이지 맨 아래에서 **다음: 호스팅 >** 단추를 선택합니다.
-1. _호스팅_ 섹션에서 다음 표에 설명된 대로 적절한 _스토리지 계정_ , _운영 체제_  및 _계획_ 을 선택합니다.
+1. _호스팅_ 섹션에서 다음 표에 설명된 대로 적절한 _스토리지 계정_, _운영 체제_  및 _계획_ 을 선택합니다.
 
     | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
@@ -159,20 +159,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 다음 단계는 가상 네트워크의 리소스만 이 함수를 호출할 수 있도록 [액세스 제한](../app-service/app-service-ip-restrictions.md)을 구성하는 것입니다.
 
-함수 앱과 지정된 가상 네트워크 간에 Azure Virtual Network [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 만들어 [프라이빗 사이트](functions-networking-options.md#private-site-access) 액세스를 사용하도록 설정합니다. 액세스 제한은 서비스 엔드포인트를 통해 구현됩니다. 서비스 엔드포인트는 지정된 가상 네트워크 내에서 발생하는 트래픽만 지정된 리소스에 액세스할 수 있도록 보장합니다. 이 경우 지정된 리소스는 Azure Function입니다.
+함수 앱과 지정된 가상 네트워크 간에 Azure Virtual Network [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 만들어 [프라이빗 사이트](functions-networking-options.md#private-endpoint-connections) 액세스를 사용하도록 설정합니다. 액세스 제한은 서비스 엔드포인트를 통해 구현됩니다. 서비스 엔드포인트는 지정된 가상 네트워크 내에서 발생하는 트래픽만 지정된 리소스에 액세스할 수 있도록 보장합니다. 이 경우 지정된 리소스는 Azure Function입니다.
 
 1. 함수 앱 내에서 _설정_ 섹션 헤더 아래의 **네트워킹** 링크를 선택합니다.
 1. _네트워킹_ 페이지는 Azure Front Door, Azure CDN 및 액세스 제한을 구성하기 위한 시작 지점입니다.
 1. **액세스 제한 구성** 을 선택하여 프라이빗 사이트 액세스를 구성합니다.
 1. _액세스 제한_ 페이지에서 기본 제한만 표시됩니다. 기본값은 함수 앱에 대한 액세스를 제한하지 않습니다.  **규칙 추가** 를 선택하여 프라이빗 사이트 액세스 제한 구성을 만듭니다.
-1. _액세스 제한 추가_ 창에서 새 규칙에 대한 _이름_ , _우선 순위_ 및 _설명_ 을 제공합니다.
+1. _액세스 제한 추가_ 창에서 새 규칙에 대한 _이름_, _우선 순위_ 및 _설명_ 을 제공합니다.
 1. _형식_ 드롭다운 상자에서 **Virtual Network** 를 선택한 후, 이전에 만든 가상 네트워크를 선택한 다음, **자습서** 서브넷을 선택합니다. 
     > [!NOTE]
     > 서비스 엔드포인트를 활성화하는 데 몇 분 정도 걸릴 수 있습니다.
 1. _액세스 제한_ 페이지에서 이제 새 제한이 있음을 보여 줍니다. _엔드포인트 상태_ 가 프로비저닝을 통해 비활성화에서 활성화로 변경되는 데 몇 초 정도 걸릴 수 있습니다.
 
     >[!IMPORTANT]
-    > 각 함수 앱에는 함수 앱 배포를 관리하는 데 사용되는 [고급 도구(Kudu) 사이트](../app-service/app-service-ip-restrictions.md#scm-site)가 있습니다. 이 사이트는 `<FUNCTION_APP_NAME>.scm.azurewebsites.net`과 같은 URL에서 액세스합니다. Kudu 사이트에서 액세스 제한을 사용하도록 설정하면 로컬 개발자 워크스테이션에서 프로젝트 코드를 배포할 수 없으므로 가상 네트워크 내에서 배포를 수행하는 에이전트가 필요합니다.
+    > 각 함수 앱에는 함수 앱 배포를 관리하는 데 사용되는 [고급 도구(Kudu) 사이트](../app-service/app-service-ip-restrictions.md#restrict-access-to-an-scm-site)가 있습니다. 이 사이트는 `<FUNCTION_APP_NAME>.scm.azurewebsites.net`과 같은 URL에서 액세스합니다. Kudu 사이트에서 액세스 제한을 사용하도록 설정하면 로컬 개발자 워크스테이션에서 프로젝트 코드를 배포할 수 없으므로 가상 네트워크 내에서 배포를 수행하는 에이전트가 필요합니다.
 
 ## <a name="access-the-functions-app"></a>함수 앱에 액세스
 

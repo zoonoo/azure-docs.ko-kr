@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e771a988faca98d009b97b1e705ddac7110a255f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a8e6948b9912061801fefaa63d2f49611014aa
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266499"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651705"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>기존 동기화된 AD 포리스트에 파일럿 클라우드 프로비저닝 
 
@@ -31,7 +31,7 @@ ms.locfileid: "91266499"
 3. 파일럿 테스트 범위에 속한 개체에 ms-ds-consistencyGUID가 채워져 클라우드 프로비저닝이 개체와 일치하는지 확인합니다. 
 
    > [!NOTE]
-   > Azure AD Connect 동기화는 기본적으로 그룹 개체에 대한 *ms-ds-consistencyGUID*를 채우지 않습니다.
+   > Azure AD Connect 동기화는 기본적으로 그룹 개체에 대한 *ms-ds-consistencyGUID* 를 채우지 않습니다.
 
 4. 이는 고급 시나리오입니다. 이 자습서에서 설명하는 단계를 정확히 수행해야 합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "91266499"
 - Azure AD Connect 동기화 버전 1.4.32.0 이상인 테스트 환경
 - 동기화 범위에 속하고 파일럿 테스트에 사용할 수 있는 OU 또는 그룹. 작은 개체 세트로 시작하는 것이 좋습니다.
 - Windows Server 2012 R2 이상을 실행하고 프로비저닝 에이전트를 호스팅하는 서버.  이 서버는 Azure AD Connect 서버와 동일한 서버일 수 없습니다.
-- Azure AD Connect 동기화에 대한 원본 앵커는 *objectGuid* 또는 *ms-ds-consistencyGUID*여야 합니다.
+- Azure AD Connect 동기화에 대한 원본 앵커는 *objectGuid* 또는 *ms-ds-consistencyGUID* 여야 합니다.
 
 ## <a name="update-azure-ad-connect"></a>Azure AD Connect 업데이트
 
@@ -61,10 +61,10 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
  1. 아래와 같이 데스크톱의 애플리케이션 메뉴에서 동기화 편집기를 시작합니다.</br>
  ![동기화 규칙 편집기 메뉴](media/how-to-cloud-custom-user-rule/user8.png)</br>
  
- 2. [방향] 드롭다운 목록에서 **인바운드**를 선택하고, **새 규칙 추가**를 클릭합니다.
+ 2. [방향] 드롭다운 목록에서 **인바운드** 를 선택하고, **새 규칙 추가** 를 클릭합니다.
  !["인바운드" 및 "새 규칙 추가" 단추가 선택된 "동기화 규칙 보기 및 관리" 창을 보여 주는 스크린샷](media/how-to-cloud-custom-user-rule/user1.png)</br>
  
- 3. **설명** 페이지에서 다음을 입력하고, **다음**을 클릭합니다.
+ 3. **설명** 페이지에서 다음을 입력하고, **다음** 을 클릭합니다.
 
     **이름:** 의미 있는 이름을 규칙에 지정합니다.<br>
     **설명:** 의미 있는 설명을 추가합니다.<br>
@@ -85,18 +85,18 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 
     ![범위 지정 필터 값이 입력된 "인바운드 동기화 규칙 만들기 - 범위 지정 필터" 페이지를 보여 주는 스크린샷](media/how-to-cloud-custom-user-rule/user3.png)</br>
  
- 5. **조인** 규칙 페이지에서 **다음**을 클릭합니다.
- 6. **변환** 페이지에서 cloudNoFlow 특성을 True로 지정한 상수 변환을 추가합니다. **추가**를 클릭합니다.
+ 5. **조인** 규칙 페이지에서 **다음** 을 클릭합니다.
+ 6. **변환** 페이지에서 cloudNoFlow 특성을 True로 지정한 상수 변환을 추가합니다. **추가** 를 클릭합니다.
  !["상수 변환" 흐름이 추가된 "인바운드 동기화 규칙 만들기 - 변환" 페이지를 보여 주는 스크린샷](media/how-to-cloud-custom-user-rule/user4.png)</br>
 
 모든 개체 형식(사용자, 그룹 및 연락처)에 대해서도 동일한 단계를 수행해야 합니다. 구성된 AD 커넥터 및 AD 포리스트별로 단계를 반복합니다. 
 
 ## <a name="create-custom-user-outbound-rule"></a>사용자 지정 사용자 아웃바운드 규칙 만들기
 
- 1. [방향] 드롭다운 목록에서 **아웃바운드**를 선택하고, **새 규칙 추가**를 클릭합니다.
+ 1. [방향] 드롭다운 목록에서 **아웃바운드** 를 선택하고, **새 규칙 추가** 를 클릭합니다.
  !["아웃바운드" 방향이 선택되고 "새 규칙 추가" 단추가 강조 표시됨을 보여 주는 스크린샷](media/how-to-cloud-custom-user-rule/user5.png)</br>
  
- 2. **설명** 페이지에서 다음을 입력하고, **다음**을 클릭합니다.
+ 2. **설명** 페이지에서 다음을 입력하고, **다음** 을 클릭합니다.
 
     **이름:** 의미 있는 이름을 규칙에 지정합니다.<br>
     **설명:** 의미 있는 설명을 추가합니다.<br>
@@ -109,11 +109,11 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
     
     ![속성이 입력된 "설명" 페이지를 보여 주는 스크린샷](media/how-to-cloud-custom-user-rule/user6.png)</br>
  
- 3. **범위 지정 필터** 페이지에서 **cloudNoFlow**, 같음, **True**를 차례로 선택합니다. 그런 후 **Next** 를 클릭합니다.
+ 3. **범위 지정 필터** 페이지에서 **cloudNoFlow**, 같음, **True** 를 차례로 선택합니다. 그런 후 **Next** 를 클릭합니다.
  ![사용자 지정 규칙](media/how-to-cloud-custom-user-rule/user7.png)</br>
  
- 4. **조인** 규칙 페이지에서 **다음**을 클릭합니다.
- 5. **변환** 페이지에서 **추가**를 클릭합니다.
+ 4. **조인** 규칙 페이지에서 **다음** 을 클릭합니다.
+ 5. **변환** 페이지에서 **추가** 를 클릭합니다.
 
 모든 개체 형식(사용자, 그룹 및 연락처)에 대해서도 동일한 단계를 수행해야 합니다.
 
@@ -121,19 +121,19 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 1. 사용할 서버에 엔터프라이즈 관리자 권한으로 로그인합니다.  [기본 AD 및 Azure 환경](tutorial-basic-ad-azure.md) 자습서를 사용하는 경우 CP1이 됩니다.
 2. [여기](how-to-install.md#install-the-agent)에서 설명된 단계를 사용하여 Azure AD Connect 클라우드 프로비저닝 에이전트를 다운로드합니다.
 3. Azure AD Connect 클라우드 프로비저닝을 실행합니다(AADConnectProvisioningAgent.Installer).
-3. 시작 화면에서 사용 조건을 **수락**하고 **설치**를 클릭합니다.</br>
-!["Microsoft Azure AD Connect 프로비저닝 에이전트" 시작 화면을 보여 주는 스크린샷](media/how-to-install/install1.png)</br>
+3. 시작 화면에서 사용 조건을 **수락** 하고 **설치** 를 클릭합니다.</br>
+!["Microsoft Azure AD Connect 프로비저닝 에이전트" 시작 화면을 보여 주는 스크린샷](media/how-to-install/install-1.png)</br>
 
 4. 이 작업이 완료되면 구성 마법사가 시작됩니다.  Azure AD 글로벌 관리자 계정으로 로그인합니다.
-5. **Active Directory 연결** 화면에서 **디렉터리 추가**를 클릭한 다음, Active Directory 관리자 계정으로 로그인합니다.  이 작업을 수행하면 온-프레미스 디렉터리가 추가됩니다.  **다음**을 클릭합니다.</br>
-![디렉터리 값이 입력된 "Active Directory 연결" 화면을 보여 주는 스크린샷](media/how-to-install/install3.png)</br>
+5. **Active Directory 연결** 화면에서 **디렉터리 추가** 를 클릭한 다음, Active Directory 관리자 계정으로 로그인합니다.  이 작업을 수행하면 온-프레미스 디렉터리가 추가됩니다.  **다음** 을 클릭합니다.</br>
+![디렉터리 값이 입력된 "Active Directory 연결" 화면을 보여 주는 스크린샷](media/how-to-install/install-3.png)</br>
 
-6. **구성 완료** 화면에서 **확인**을 클릭합니다.  이 작업을 수행하면 에이전트가 등록되고 다시 시작됩니다.</br>
-!["확인" 단추가 선택된 "구성 완료" 화면을 보여 주는 스크린샷](media/how-to-install/install4.png)</br>
+6. **구성 완료** 화면에서 **확인** 을 클릭합니다.  이 작업을 수행하면 에이전트가 등록되고 다시 시작됩니다.</br>
+!["확인" 단추가 선택된 "구성 완료" 화면을 보여 주는 스크린샷](media/how-to-install/install-4a.png)</br>
 
-7. 이 작업이 완료되면 **확인했습니다** 알림이 표시됩니다.  **끝내기**를 클릭할 수 있습니다.</br>
-![시작 화면](media/how-to-install/install5.png)</br>
-8. 초기 시작 화면이 계속 표시되는 경우 **닫기**를 클릭합니다.
+7. 이 작업이 완료되면 **확인했습니다** 알림이 표시됩니다.  **끝내기** 를 클릭할 수 있습니다.</br>
+![시작 화면](media/how-to-install/install-5.png)</br>
+8. 초기 시작 화면이 계속 표시되는 경우 **닫기** 를 클릭합니다.
 
 ## <a name="verify-agent-installation"></a>에이전트 설치 확인
 에이전트 확인은 Azure Portal 및 에이전트를 실행하는 로컬 서버에서 수행됩니다.
@@ -142,39 +142,39 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수행합니다.
 
 1. Azure Portal에 로그인합니다.
-2. 왼쪽에서 **Azure Active Directory**를 선택하고, **Azure AD Connect**를 클릭하고, 가운데에서 **프로비저닝 관리(미리 보기)** 를 선택합니다.</br>
-![Azure Portal](media/how-to-install/install6.png)</br>
+2. 왼쪽에서 **Azure Active Directory** 를 선택하고, **Azure AD Connect** 를 클릭하고, 가운데에서 **프로비저닝 관리(미리 보기)** 를 선택합니다.</br>
+![Azure Portal](media/how-to-install/install-6.png)</br>
 
-3.  **Azure AD 프로비저닝(미리 보기)** 화면에서 **모든 에이전트 검토**를 클릭합니다.
-![Azure AD 프로비저닝](media/how-to-install/install7.png)</br>
+3.  **Azure AD 프로비저닝(미리 보기)** 화면에서 **모든 에이전트 검토** 를 클릭합니다.
+![Azure AD 프로비저닝](media/how-to-install/install-7.png)</br>
  
-4. **온-프레미스 프로비저닝 에이전트 화면**에서 설치한 에이전트가 표시됩니다.  해당 에이전트가 있고 **사용 안 함**으로 표시되어 있는지 확인합니다.  에이전트는 기본적으로 ![프로비저닝 에이전트](media/how-to-install/verify1.png)를 사용되지 않도록 설정됩니다.</br>
+4. **온-프레미스 프로비저닝 에이전트 화면** 에서 설치한 에이전트가 표시됩니다.  해당 에이전트가 있고 **사용 안 함** 으로 표시되어 있는지 확인합니다.  에이전트는 기본적으로 ![프로비저닝 에이전트](media/how-to-install/verify-1.png)를 사용되지 않도록 설정됩니다.</br>
 
 ### <a name="on-the-local-server"></a>로컬 서버에서 에이전트 확인
 에이전트가 실행되는지 확인하려면 다음 단계를 수행합니다.
 
 1.  관리자 계정으로 서버에 로그온합니다.
-2.  **서비스**를 탐색하거나 Services.msc를 시작하고 실행하여 엽니다.
-3.  **서비스** 아래에서 **Microsoft Azure AD Connect 에이전트 업데이트 프로그램** 및 **Microsoft Azure AD Connect 프로비저닝 에이전트**가 있고 상태가 **실행 중**인지 확인합니다.
-![Services](media/how-to-troubleshoot/troubleshoot1.png)
+2.  **서비스** 를 탐색하거나 Services.msc를 시작하고 실행하여 엽니다.
+3.  **서비스** 아래에서 **Microsoft Azure AD Connect 에이전트 업데이트 프로그램** 및 **Microsoft Azure AD Connect 프로비저닝 에이전트** 가 있고 상태가 **실행 중** 인지 확인합니다.
+![Services](media/how-to-install/troubleshoot-1.png)
 
 ## <a name="configure-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 클라우드 프로비저닝 구성
 다음 단계를 사용하여 프로비저닝을 구성합니다.
 
  1. Azure AD 포털에 로그인합니다.
- 2. **Azure Active Directory**를 클릭합니다.
- 3. **Azure AD Connect**를 클릭합니다.
+ 2. **Azure Active Directory** 를 클릭합니다.
+ 3. **Azure AD Connect** 를 클릭합니다.
  4. **프로비저닝 관리(미리 보기)** 
  !["프로비저닝 관리(미리 보기)" 링크를 표시하는 스크린샷을 선택합니다.](media/how-to-configure/manage1.png)</br>
  5.  **새 구성**
  !["새 구성" 링크가 강조 표시된 Azure AD 프로비저닝(미리 보기) 화면의 스크린샷을 클릭합니다.](media/tutorial-single-forest/configure1.png)</br>
- 6.  구성 화면에서 **알림 이메일**을 입력하고, 선택기를 **사용**으로 이동하고, **저장**을 클릭합니다.
+ 6.  구성 화면에서 **알림 이메일** 을 입력하고, 선택기를 **사용** 으로 이동하고, **저장** 을 클릭합니다.
  ![알림 이메일이 채워지고 사용이 선택된 구성 화면의 스크린샷](media/tutorial-single-forest/configure2.png)</br>
- 7. **구성** 아래에서 **모든 사용자**를 선택하여 구성 규칙의 범위를 변경합니다.
+ 7. **구성** 아래에서 **모든 사용자** 를 선택하여 구성 규칙의 범위를 변경합니다.
  !["범위 사용자" 옆에 "모든 사용자"가 강조 표시된 구성 화면의 스크린샷.](media/how-to-configure/scope2.png)</br>
  8. 오른쪽에서 방금 만든 특정 OU("OU=CPUsers, DC=contoso,DC=com")를 포함하도록 범위를 변경합니다.
  ![사용자가 만든 OU로 변경된 범위를 강조 표시하는 범위 사용자 화면의 스크린샷.](media/tutorial-existing-forest/scope2.png)</br>
- 9.  **완료**, **저장**을 차례로 클릭합니다.
+ 9.  **완료**, **저장** 을 차례로 클릭합니다.
  10. 이제 범위가 하나의 조직 구성 단위로 설정됩니다. 
  !["범위 사용자" 옆에 "1 조직 단위"가 강조 표시된 구성 화면의 스크린샷.](media/tutorial-existing-forest/scope3.png)</br>
  
@@ -183,8 +183,8 @@ Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수
 이제 온-프레미스 디렉터리에 있는 사용자가 동기화되었고 Azure AD 테넌트에 있는지 확인합니다.  이 작업을 완료하는 데 몇 시간이 걸릴 수 있습니다.  사용자가 클라우드 프로비저닝을 통해 프로비저닝되는지 확인하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동하여 Azure 구독이 있는 계정으로 로그인합니다.
-2. 왼쪽에서 **Azure Active Directory**를 선택합니다.
-3. **Azure AD Connect**를 클릭합니다.
+2. 왼쪽에서 **Azure Active Directory** 를 선택합니다.
+3. **Azure AD Connect** 를 클릭합니다.
 4. **프로비저닝 관리(미리 보기)** 를 클릭합니다.
 5. **로그** 단추를 클릭합니다.
 6. 사용자 이름을 검색하여 사용자가 클라우드 프로비저닝을 통해 프로비저닝되었는지 확인합니다.
@@ -212,16 +212,16 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 파일럿 OU의 사용자가 클라우드 프로비저닝을 통해 성공적으로 관리되는지 확인한 후에는 위에서 만든 파일럿 테스트 OU를 제외하도록 Azure AD Connect를 다시 구성할 수 있습니다.  클라우드 프로비저닝 에이전트는 앞으로 이러한 사용자에 대한 동기화를 처리합니다.  다음 단계를 사용하여 Azure AD Connect의 범위를 지정합니다.
 
  1. Azure AD Connect를 실행하는 서버에서 Azure AD Connect 아이콘을 두 번 클릭합니다.
- 2. **구성**을 클릭합니다.
- 3. **동기화 옵션 사용자 지정**을 선택하고, [다음]을 클릭합니다.
- 4. Azure AD에 로그인하고, **다음**을 클릭합니다.
- 5. **디렉터리 연결** 화면에서 **다음**을 클릭합니다.
- 6. **도메인 및 OU 필터링** 화면에서 **선택한 도메인 및 OU 동기화**를 선택합니다.
- 7. 도메인을 펼치고, **CPUsers** OU를 **선택 취소**합니다.  **다음**을 클릭합니다.
+ 2. **구성** 을 클릭합니다.
+ 3. **동기화 옵션 사용자 지정** 을 선택하고, [다음]을 클릭합니다.
+ 4. Azure AD에 로그인하고, **다음** 을 클릭합니다.
+ 5. **디렉터리 연결** 화면에서 **다음** 을 클릭합니다.
+ 6. **도메인 및 OU 필터링** 화면에서 **선택한 도메인 및 OU 동기화** 를 선택합니다.
+ 7. 도메인을 펼치고, **CPUsers** OU를 **선택 취소** 합니다.  **다음** 을 클릭합니다.
 ![범위](media/tutorial-existing-forest/scope1.png)</br>
- 9. **선택적 기능** 화면에서 **다음**을 클릭합니다.
- 10. **구성 준비 완료** 화면에서 **구성**을 클릭합니다.
- 11. 완료되면 **끝내기**를 클릭합니다. 
+ 9. **선택적 기능** 화면에서 **다음** 을 클릭합니다.
+ 10. **구성 준비 완료** 화면에서 **구성** 을 클릭합니다.
+ 11. 완료되면 **끝내기** 를 클릭합니다. 
 
 ## <a name="next-steps"></a>다음 단계 
 

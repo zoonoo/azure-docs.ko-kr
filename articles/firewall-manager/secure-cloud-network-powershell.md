@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.service: firewall-manager
 ms.date: 10/22/2020
 ms.author: victorh
-ms.openlocfilehash: d9d9da9cd01b4bb9b3cabcf069990cd3cbd38d38
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e2bcdf947db60fb50b44abba9d6a224768840b28
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428554"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656142"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 허브 보호
 
@@ -31,7 +31,7 @@ ms.locfileid: "92428554"
 
 - PowerShell 7
 
-   이 자습서에서는 PowerShell 7에서 Azure PowerShell을 로컬로 실행해야 합니다. PowerShell 7을 설치하려면 [Windows PowerShell 5.1에서 PowerShell 7로 마이그레이션](https://docs.microsoft.com/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7)을 참조하세요.
+   이 자습서에서는 PowerShell 7에서 Azure PowerShell을 로컬로 실행해야 합니다. PowerShell 7을 설치하려면 [Windows PowerShell 5.1에서 PowerShell 7로 마이그레이션](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7)을 참조하세요.
 - Az.Network 버전 3.2.0
 
     Az.Network 버전 3.4.0 이상이 있는 경우 이 자습서의 일부 명령을 사용하려면 다운그레이드해야 합니다. Az.Network 모듈의 버전은 `Get-InstalledModule -Name Az.Network` 명령을 사용하여 확인할 수 있습니다. Az.Network 모듈을 제거하려면 `Uninstall-Module -name az.network`를 실행합니다. Az.Network 3.2.0 모듈을 설치하려면 `Install-Module az.network -RequiredVersion 3.2.0 -force`를 실행합니다.

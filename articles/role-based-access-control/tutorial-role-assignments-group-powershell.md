@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 0d72ea23b74137e7e57f892b831b0be1b4a89de5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b1a2f87498d7869b21e6a8ab44fc1f9660456ad
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82735524"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648301"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure 리소스에 대한 그룹 액세스 권한 부여
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 - Azure Active Directory에서 그룹을 만드는(또는 기존 그룹을 사용하는) 권한
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)
+- [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md)
 
 ## <a name="role-assignments"></a>역할 할당
 
@@ -281,7 +281,7 @@ Azure RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
     ```
     
-1. 확인을 묻는 메시지가 나타나면 **Y**를 선택합니다. 삭제에 몇 초 정도 걸립니다.
+1. 확인을 묻는 메시지가 나타나면 **Y** 를 선택합니다. 삭제에 몇 초 정도 걸립니다.
 
 1. [Remove-AzureADGroup](/powershell/module/azuread/remove-azureadgroup) 명령을 사용하여 그룹을 삭제합니다.
 
