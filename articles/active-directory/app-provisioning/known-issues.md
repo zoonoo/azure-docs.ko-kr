@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/11/2020
+ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 4b4c02efffb39e88a01c35d3c818930a0f6fd9cf
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8a1c789759f1119a6170fffc2c70874cd9a32fde
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069758"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919688"
 ---
 # <a name="known-issues-application-provisioning"></a>알려진 문제: 응용 프로그램 프로 비전
 앱 프로 비전을 사용 하는 경우 알고 있어야 하는 알려진 문제입니다. UserVoice의 응용 프로그램 프로 비전 서비스에 대 한 피드백을 제공할 수 있습니다. [AZURE AD 응용 프로그램 프로 비전 uservoice](https://aka.ms/appprovisioningfeaturerequest)를 참조 하세요. 서비스를 개선할 수 있도록 UserVoice를 면밀 하 게 감시 합니다. 
@@ -60,7 +60,7 @@ Azure AD는 현재 null 특성을 프로 비전 할 수 없습니다. 사용자 
 
 ## <a name="service-issues"></a>서비스 문제 
 
-**지원되지 않는 시나리오**
+**지원 되지 않는 시나리오**
 
 - 프로 비전 암호는 지원 되지 않습니다. 
 - 중첩 그룹 프로 비전은 지원 되지 않습니다. 
@@ -86,6 +86,9 @@ Azure AD는 현재 null 특성을 프로 비전 할 수 없습니다. 사용자 
 
 그룹이 범위 내에 있고 멤버가 범위를 벗어난 경우 그룹이 프로 비전 됩니다. 범위를 벗어난 사용자는 프로 비전 되지 않습니다. 멤버가 범위에 다시 들어오면 서비스에서 즉시 변경 내용을 검색 하지 않습니다. 프로 비전을 다시 시작 하면 문제가 해결 됩니다. 정기적으로 서비스를 다시 시작 하 여 모든 사용자가 적절히 프로 비전 되도록 하는 것이 좋습니다.  
 
+**관리자가 프로 비전 되지 않음**
+
+사용자와 해당 관리자가 둘 다 프로 비전 범위에 있는 경우 서비스에서 사용자를 프로 비전 한 다음 관리자를 업데이트 합니다. 그러나 사용자가 범위 내에 있고 관리자가 범위를 벗어난 경우 관리자가 참조 하지 않고 사용자를 프로 비전 합니다. 관리자가 범위에 들어오면 프로 비전을 다시 시작 하 고 서비스에서 모든 사용자를 다시 평가할 때까지 관리자 참조가 업데이트 되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 - [프로비저닝 작동 방법](how-provisioning-works.md)

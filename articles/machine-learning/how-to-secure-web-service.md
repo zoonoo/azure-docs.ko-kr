@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 03/05/2020
+ms.date: 11/18/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: a9b68b2d4298c5e692782e529bae9a9df6359953
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 97017e104ecff38ebf4e475fb5f6ae42707ef10e
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331161"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919593"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호
 
@@ -87,6 +87,9 @@ AKS에 배포할 때 새 AKS 클러스터를 만들거나 기존 클러스터를
 
 **Enable_ssl** 방법은 Microsoft에서 제공 하는 인증서 또는 구입한 인증서를 사용할 수 있습니다.
 
+> [!WARNING]
+> AKS 클러스터가 내부 부하 분산 장치를 사용 하 여 구성 된 경우 Microsoft 제공 인증서를 사용 하는 것은 __지원 되지__ 않습니다. Microsoft에서 제공한 인증서를 사용 하려면 Azure에서 공용 IP 리소스가 필요 하며,이는 내부 부하 분산 장치에 대해 구성 된 경우 AKS에서 사용할 수 없습니다.
+
   * Microsoft에서 인증서를 사용 하는 경우 *leaf_domain_label* 매개 변수를 사용 해야 합니다. 이 매개 변수는 서비스에 대 한 DNS 이름을 생성 합니다. 예를 들어 "contoso" 값은 도메인 이름 "contoso \<six-random-characters> . \<azureregion> cloudapp.azure.com ", 여기서 \<azureregion> 은 서비스를 포함 하는 지역입니다. 필요에 따라 *overwrite_existing_domain* 매개 변수를 사용 하 여 기존 *leaf_domain_label* 를 덮어쓸 수 있습니다.
 
     TLS를 사용 하는 서비스를 배포 (또는 다시 배포) 하려면 해당 되는 모든 위치에서 *ssl_enabled* 매개 변수를 "True"로 설정 합니다. *Ssl_certificate* 매개 변수를 *인증서* 파일의 값으로 설정 합니다. *Ssl_key* 를 *키* 파일의 값으로 설정 합니다.
@@ -115,7 +118,7 @@ AKS에 배포할 때 새 AKS 클러스터를 만들거나 기존 클러스터를
     attach_config.enable_ssl(leaf_domain_label = "contoso")
     ```
 
-  * *구매한 인증서* 를 사용 하는 경우 *ssl_cert_pem_file* , *ssl_key_pem_file* 및 *ssl_cname* 매개 변수를 사용 합니다. 다음 예제에서는 *pem* 파일을 사용 하 여 구매한 TLS/SSL 인증서를 사용 하는 구성을 만드는 방법을 보여 줍니다.
+  * *구매한 인증서* 를 사용 하는 경우 *ssl_cert_pem_file*, *ssl_key_pem_file* 및 *ssl_cname* 매개 변수를 사용 합니다. 다음 예제에서는 *pem* 파일을 사용 하 여 구매한 TLS/SSL 인증서를 사용 하는 구성을 만드는 방법을 보여 줍니다.
 
     ```python
     from azureml.core.compute import AksCompute
@@ -132,7 +135,7 @@ AKS에 배포할 때 새 AKS 클러스터를 만들거나 기존 클러스터를
 
 *Enable_ssl* 에 대 한 자세한 내용은 [AksProvisioningConfiguration.enable_ssl ()](/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) 및 [AksAttachConfiguration.enable_ssl ()](/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-)를 참조 하세요.
 
-### <a name="deploy-on-azure-container-instances"></a>Azure Container Instances에 배포
+### <a name="deploy-on-azure-container-instances"></a>Azure Container Instances에서 배포
 
 Azure Container Instances에 배포 하는 경우 다음 코드 조각에 나와 있는 것 처럼 TLS 관련 매개 변수에 대 한 값을 제공 합니다.
 
@@ -159,7 +162,8 @@ aci_config = AciWebservice.deploy_configuration(
 
   > [!WARNING]
   > Microsoft의 인증서를 사용 하 여 서비스를 만드는 *leaf_domain_label* 사용 하는 경우 클러스터에 대 한 DNS 값을 수동으로 업데이트 하지 마십시오. 값은 자동으로 설정 해야 합니다.
-
+  >
+  > AKS 클러스터가 내부 부하 분산 장치를 사용 하 여 구성 된 경우 *leaf_domain_label* 를 설정 하 여 Microsoft에서 제공 하는 인증서를 사용 하는 것은 __지원 되지 않습니다__. Microsoft에서 제공한 인증서를 사용 하려면 Azure에서 공용 IP 리소스가 필요 하며,이는 내부 부하 분산 장치에 대해 구성 된 경우 AKS에서 사용할 수 없습니다.
   왼쪽 창의 **설정** 아래에 있는 **구성** 탭에서 AKS 클러스터의 공용 IP 주소에 대 한 DNS를 업데이트 합니다. 다음 이미지를 참조 하세요. 공용 IP 주소는 AKS 에이전트 노드 및 기타 네트워킹 리소스를 포함 하는 리소스 그룹에 생성 된 리소스 형식입니다.
 
   [![Azure Machine Learning: TLS를 사용 하 여 웹 서비스 보안](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)

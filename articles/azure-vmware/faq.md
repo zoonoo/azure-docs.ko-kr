@@ -1,15 +1,15 @@
 ---
-title: 자주 묻는 질문
+title: 질문과 대답
 description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: f83413bc54164107b8e8a4e6010f8a826a5fe327
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c9a8b5f9e02cc76789755bf81d309826de1459c5
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888422"
+ms.locfileid: "94920596"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -237,7 +237,7 @@ NSX에 대 한 모든 관리자 권한을 보유 하 고 NSX 데이터 센터 �
 
 Microsoft는 Azure VMware 솔루션에 대 한 지원을 제공 합니다. [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출할 수 있습니다. 
 
-CSP 관리 구독의 경우 다른 Azure 서비스에 대 한 CSP와 동일한 방식으로 솔루션 공급자가 첫 번째 지원 수준을 제공 합니다.
+CSP에서 관리 하는 구독의 경우 다른 Azure 서비스에 대 한 CSP와 동일한 방식으로 솔루션 공급자가 첫 번째 수준의 지원을 제공 합니다.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Azure VMware 솔루션 사설 클라우드를 만들려면 어떤 계정이 필요 한가요?
 
@@ -247,9 +247,9 @@ Azure 구독의 Azure 계정이 필요합니다.
 
 Microsoft 및 Red Hat는 Azure 플랫폼에서 실행 되는 Red Hat 에코 시스템에 대 한 통합 연결 지점을 제공 하는 통합 된 공동 배치 지원 팀을 공유 합니다.  Red Hat Enterprise Linux를 사용 하는 다른 Azure platform 서비스와 마찬가지로, Azure VMware 솔루션은 클라우드 액세스 및 통합 지원에 포함 되며, Red Hat Enterprise Linux azure 내 Azure VMware 솔루션을 기반으로 실행 될 수 있습니다.
 
-#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise Edition을 사용할 수 있으며, 그렇다면 비용은 얼마나 되나요?
+#### <a name="is-vmware-hcx-enterprise-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise를 사용할 수 있으며, 그렇다면 비용은 얼마나 되나요?
 
-VMware HCX EE(Enterprise Edition)는 Azure VMware Solution에서 *미리 보기* 기능/서비스로 사용할 수 있습니다. Azure VMware 솔루션에 대 한 VMware HCX EE는 미리 보기 상태 이지만 무료 기능/서비스 이며 미리 보기 서비스 사용 약관에 적용 됩니다. VMware HCX EE 서비스가 일반 공급으로 전환되면 요금 청구 방식이 변경된다는 내용의 알림을 30일 전에 받게 됩니다. 서비스를 끄거나 옵트아웃 (opt out) 할 수 있습니다.
+VMware HCX Enterprise는 *미리 보기* 기능/서비스로 Azure vmware 솔루션에서 사용할 수 있습니다. Azure VMware 솔루션에 대 한 VMware HCX Enterprise는 미리 보기 상태 이며, 무료 기능/서비스 이며 미리 보기 서비스 사용 약관에 적용 됩니다. VMware HCX Enterprise 서비스가 GA로 전환 되 면 요금이 청구 되는 30 일 알림이 표시 됩니다. 전환 하거나 서비스를 옵트아웃 (opt out) 할 수 있습니다.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 호스트 할당량 증가를 요청 어떻게 할까요??
 
@@ -260,8 +260,7 @@ EA 구독의 경우 다음 절차를 사용 합니다. 먼저 다음이 필요 �
 * Microsoft를 사용 하는 [Azure 기업계약 (EA)](../cost-management-billing/manage/ea-portal-agreements.md) .
 * Azure 구독의 Azure 계정.
 
-Azure VMware 솔루션 리소스를 만들기 전에 지원 티켓을 제출 하 여 노드를 할당 해야 합니다. 요청을 확인 하 고 노드를 할당 하는 데 최대 5 영업일까지 소요 됩니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 노드를 할당하려는 경우에도 동일한 프로세스를 진행합니다.
-
+Azure VMware 솔루션 리소스를 만들기 전에 노드가 할당 되도록 지원 티켓을 제출 합니다. 요청을 확인 하 고 노드를 할당 하는 데 최대 5 영업일까지 소요 됩니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 노드를 할당하려는 경우에도 동일한 프로세스를 진행합니다.
 
 1. Azure Portal의 **도움말 + 지원** 에서 **[새 지원 요청](https://rc.portal.azure.com/#create/Microsoft.Support)** 을 만들고 티켓에 대 한 다음 정보를 제공 합니다.
    - **문제 유형:** 기술

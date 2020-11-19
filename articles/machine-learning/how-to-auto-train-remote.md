@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: how-to, automl
 ms.date: 03/09/2020
-ms.openlocfilehash: a79fc0311e940b9b4eb3e14838ef22e09342a066
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 65ce11581972c83b0294c0afcbe95e5a35ef2471
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358000"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920579"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>클라우드의 자동화된 기계 학습을 사용하여 모델 학습
 
@@ -45,7 +45,7 @@ ws = Workspace.from_config()
 
 [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?preserve-view=true&view=azure-ml-py)아직 없는 경우 작업 영역 ()에 대상을 만듭니다 `ws` .
 
-**예상 시간** : AmlCompute 대상을 만드는 데 약 5 분이 걸립니다.
+**예상 시간**: AmlCompute 대상을 만드는 데 약 5 분이 걸립니다.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -220,9 +220,9 @@ Jupyter 노트북에 없는 경우 실행 자체에서 URL을 표시할 수 있�
 remote_run.get_portal_url()
 ```
 
-작업 영역에서 동일한 정보를 사용할 수 있습니다.  이러한 결과에 대해 자세히 알아보려면 자동화 된 [machine learning 결과 이해](how-to-understand-automated-ml.md)를 참조 하세요.
+작업 영역에서 동일한 정보를 사용할 수 있습니다.  이러한 결과에 대해 자세히 알아보려면 자동화 된 [기계 학습 결과 평가](how-to-understand-automated-ml.md)를 참조 하세요.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음 [노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb) 은이 문서의 개념을 보여 줍니다.
 

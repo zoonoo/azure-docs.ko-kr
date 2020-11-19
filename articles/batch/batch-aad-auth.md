@@ -4,12 +4,12 @@ description: Batch는 Batch 서비스의 인증을 위해 Azure AD를 지원합�
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: cb8306da4022ea1819e2da32a2f513c83bed309f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 685b84f1e628ea67689d3de8bf64c9641edba6fc
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309369"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920511"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -17,8 +17,8 @@ Azure Batch는 Azure AD([Azure Active Directory](../active-directory/fundamental
 
 Azure Batch와 함께 Azure AD 인증을 사용할 때 다음 두 가지 방법 중 하나로 인증할 수 있습니다.
 
-- **통합 인증**을 사용하여 애플리케이션과 상호 작용하는 사용자를 인증합니다. 통합 인증을 사용하는 애플리케이션에서는 사용자의 자격 증명을 수집하고 해당 자격 증명을 사용하여 Batch 리소스에 대한 액세스를 인증합니다.
-- **서비스 주체**를 사용하여 무인으로 실행되는 애플리케이션을 인증합니다. 서비스 주체는 런타임에 리소스에 액세스할 때 애플리케이션을 나타내기 위해 애플리케이션에 대한 정책과 권한을 정의합니다.
+- **통합 인증** 을 사용하여 애플리케이션과 상호 작용하는 사용자를 인증합니다. 통합 인증을 사용하는 애플리케이션에서는 사용자의 자격 증명을 수집하고 해당 자격 증명을 사용하여 Batch 리소스에 대한 액세스를 인증합니다.
+- **서비스 주체** 를 사용하여 무인으로 실행되는 애플리케이션을 인증합니다. 서비스 주체는 런타임에 리소스에 액세스할 때 애플리케이션을 나타내기 위해 애플리케이션에 대한 정책과 권한을 정의합니다.
 
 Azure AD에 대한 자세한 내용은 [Azure Active Directory 설명서](../active-directory/index.yml)를 참조하세요.
 
@@ -45,7 +45,7 @@ Azure AD 끝점에 대 한 자세한 내용은 [인증 및 권한 부여]()를 �
 
 ### <a name="batch-resource-endpoint"></a>Batch 리소스 엔드포인트
 
-**Azure Batch 리소스 엔드포인트**를 사용하여 Batch 서비스에 대한 요청을 인증하는 토큰을 얻습니다.
+**Azure Batch 리소스 엔드포인트** 를 사용하여 Batch 서비스에 대한 요청을 인증하는 토큰을 얻습니다.
 
 `https://batch.core.windows.net/`
 
@@ -53,9 +53,9 @@ Azure AD 끝점에 대 한 자세한 내용은 [인증 및 권한 부여]()를 �
 
 Azure AD를 사용하여 인증하는 첫 번째 단계는 Azure AD 테넌트에 애플리케이션을 등록하는 것입니다. 애플리케이션을 등록하면 코드에서 ADAL(Azure [Active Directory 인증 라이브러리](../active-directory/azuread-dev/active-directory-authentication-libraries.md))을 호출할 수 있습니다. ADAL은 애플리케이션에서 Azure AD로 인증하는 API를 제공합니다. 통합 인증 또는 서비스 주체를 사용하려면 애플리케이션을 등록해야 합니다.
 
-애플리케이션을 등록할 때 애플리케이션에 대한 정보를 Azure AD에 제공합니다. 그런 다음, Azure AD는 런타임 시 애플리케이션을 Azure AD와 연결하는 데 사용하는 애플리케이션 ID(*클라이언트 ID*라고도 함)를 제공합니다. 애플리케이션 ID에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
+애플리케이션을 등록할 때 애플리케이션에 대한 정보를 Azure AD에 제공합니다. 그런 다음, Azure AD는 런타임 시 애플리케이션을 Azure AD와 연결하는 데 사용하는 애플리케이션 ID(*클라이언트 ID* 라고도 함)를 제공합니다. 애플리케이션 ID에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
 
-Batch **응용 프로그램을** 등록 하려면 빠른 시작 [: Microsoft id 플랫폼을 사용 하 여 응용 프로그램 등록](../active-directory/develop/quickstart-register-app.md)섹션의 단계를 따르세요. 애플리케이션을 네이티브 애플리케이션으로 등록하는 경우 **리디렉션 URI**에 유효한 URI를 지정할 수 있습니다. 실제 엔드포인트일 필요는 없습니다.
+Batch **응용 프로그램을** 등록 하려면 빠른 시작 [: Microsoft id 플랫폼을 사용 하 여 응용 프로그램 등록](../active-directory/develop/quickstart-register-app.md)섹션의 단계를 따르세요. 애플리케이션을 네이티브 애플리케이션으로 등록하는 경우 **리디렉션 URI** 에 유효한 URI를 지정할 수 있습니다. 실제 엔드포인트일 필요는 없습니다.
 
 애플리케이션을 등록하면 애플리케이션 ID가 표시됩니다.
 
@@ -66,8 +66,8 @@ Batch **응용 프로그램을** 등록 하려면 빠른 시작 [: Microsoft id 
 테넌트 ID는 애플리케이션에 인증 서비스를 제공하는 Azure AD 테넌트를 식별합니다. 테넌트 ID를 얻으려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 Active Directory를 선택합니다.
-1. **속성**을 선택합니다.
-1. **디렉터리 ID**에 제공된 GUID 값을 복사합니다. 이 값은 테넌트 ID라고도 합니다.
+1. **속성** 을 선택합니다.
+1. **디렉터리 ID** 에 제공된 GUID 값을 복사합니다. 이 값은 테넌트 ID라고도 합니다.
 
 ![Azure Portal 디렉터리 ID의 스크린샷](./media/batch-aad-auth/aad-directory-id.png)
 
@@ -77,15 +77,15 @@ Batch **응용 프로그램을** 등록 하려면 빠른 시작 [: Microsoft id 
 
 애플리케이션을 등록했으면 Azure Portal에서 다음 단계에 따라 Batch 서비스에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **모든 서비스**를 선택 하 고 **앱 등록**을 선택 합니다.
+1. Azure Portal에서 **모든 서비스** 를 선택 하 고 **앱 등록** 을 선택 합니다.
 1. 앱 등록 목록에서 애플리케이션의 이름을 검색합니다.
-1. 애플리케이션을 선택하고 **API 사용 권한**을 선택합니다.
-1. **API 권한** 섹션에서 **권한 추가**를 선택합니다.
-1. **API 선택**에서 일괄 처리 API를 검색합니다. API를 찾을 때까지 다음 문자열 각각을 검색합니다.
+1. 애플리케이션을 선택하고 **API 사용 권한** 을 선택합니다.
+1. **API 권한** 섹션에서 **권한 추가** 를 선택합니다.
+1. **API 선택** 에서 일괄 처리 API를 검색합니다. API를 찾을 때까지 다음 문자열 각각을 검색합니다.
     1. **Microsoft Azure Batch**
-    1. **ddbf3205-c6bd-46ae-8127-60eb93363864**는 Batch API에 대한 ID입니다.
-1. Batch API를 찾으면 해당 API를 선택한 다음 **선택**을 선택 합니다.
-1. **권한 선택**에서 **Azure Batch 서비스에 액세스** 옆의 확인란을 선택하고 **권한 추가**를 선택합니다.
+    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** 는 Batch API에 대한 ID입니다.
+1. Batch API를 찾으면 해당 API를 선택한 다음 **선택** 을 선택 합니다.
+1. **권한 선택** 에서 **Azure Batch 서비스에 액세스** 옆의 확인란을 선택하고 **권한 추가** 를 선택합니다.
 
 이제 **API 사용 권한** 섹션에 Azure AD 애플리케이션이 Microsoft Graph 및 Batch 서비스 API 모두에 액세스할 수 있다고 표시됩니다. Azure AD에 앱을 처음 등록할 때 자동으로 Microsoft Graph에 대한 사용 권한이 부여됩니다.
 
@@ -102,11 +102,11 @@ Batch **응용 프로그램을** 등록 하려면 빠른 시작 [: Microsoft id 
 
 Azure Portal에서 다음 단계를 따릅니다.
 
-1. Azure Portal에서 **모든 서비스**를 선택 합니다. **앱 등록**을 선택합니다.
+1. Azure Portal에서 **모든 서비스** 를 선택 합니다. **앱 등록** 을 선택합니다.
 1. 앱 등록 목록에서 애플리케이션을 선택합니다.
-1. 애플리케이션을 선택한 다음 **인증서 & 비밀**을 선택합니다. **클라이언트 비밀** 섹션에서 **새 클라이언트 비밀**을 선택합니다.
+1. 애플리케이션을 선택한 다음 **인증서 & 비밀** 을 선택합니다. **클라이언트 비밀** 섹션에서 **새 클라이언트 비밀** 을 선택합니다.
 1. 비밀을 만들려면 비밀에 대한 설명을 입력합니다. 그런 다음 1 년, 2 년 또는 만료 없음의 비밀에 대 한 만료를 선택 합니다.
-1. **추가**를 선택하여 비밀을 만들고 표시합니다. 페이지를 닫은 후에 다시 액세스할 수 없으므로 비밀 값을 안전한 곳에 복사해 둡니다.
+1. **추가** 를 선택하여 비밀을 만들고 표시합니다. 페이지를 닫은 후에 다시 액세스할 수 없으므로 비밀 값을 안전한 곳에 복사해 둡니다.
 
 ### <a name="assign-azure-rbac-to-your-application"></a>응용 프로그램에 Azure RBAC 할당
 
@@ -115,9 +115,9 @@ Azure Portal에서 다음 단계를 따릅니다.
 1. Azure Portal에서 애플리케이션에서 사용되는 Batch 계정으로 이동합니다.
 1. Batch 계정의 **설정** 섹션에서 **Access Control(IAM)** 을 선택합니다.
 1. **역할 할당** 탭을 선택합니다.
-1. **역할 할당 추가**를 선택합니다.
+1. **역할 할당 추가** 를 선택합니다.
 1. **역할** 드롭다운에서 애플리케이션에 대한 *기여자* 또는 *읽기 권한자* 역할을 선택합니다. 이러한 역할에 대 한 자세한 내용은 [Azure Portal에서 Azure 역할 기반 액세스 제어 시작](../role-based-access-control/overview.md)을 참조 하세요.
-1. **선택** 필드에서 애플리케이션의 이름을 입력합니다. 목록에서 애플리케이션을 선택하고 **저장**을 선택합니다.
+1. **선택** 필드에서 애플리케이션의 이름을 입력합니다. 목록에서 애플리케이션을 선택하고 **저장** 을 선택합니다.
 
 이제 응용 프로그램이 Azure 역할이 할당 된 액세스 제어 설정에 표시 됩니다.
 
@@ -192,8 +192,8 @@ Azure Portal에서 다음 단계를 따릅니다.
 테넌트 ID는 애플리케이션에 인증 서비스를 제공하는 Azure AD 테넌트를 식별합니다. 테넌트 ID를 얻으려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 Active Directory를 선택합니다.
-1. **속성**을 선택합니다.
-1. **디렉터리 ID**에 제공된 GUID 값을 복사합니다. 이 값은 테넌트 ID라고도 합니다.
+1. **속성** 을 선택합니다.
+1. **디렉터리 ID** 에 제공된 GUID 값을 복사합니다. 이 값은 테넌트 ID라고도 합니다.
 
 ![디렉터리 ID 복사](./media/batch-aad-auth/aad-directory-id.png)
 
@@ -268,13 +268,13 @@ public static async Task<string> GetAuthenticationTokenAsync()
 매개 변수로 대리자를 사용자는 **BatchTokenCredentials** 개체를 생성합니다. 이러한 자격 증명을 사용하여 **BatchClient** 개체를 엽니다. Batch 서비스에 대한 후속 작업에 대해 해당 **BatchClient** 개체를 사용할 수 있습니다.
 
 ```csharp
-public static async Task PerformBatchOperations()
+public static void PerformBatchOperations()
 {
     Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
 
-    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
+    using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
     {
-        await client.JobOperations.ListJobs().ToListAsync();
+        client.JobOperations.ListJobs();
     }
 }
 ```
@@ -336,13 +336,13 @@ public static async Task<string> GetAuthenticationTokenAsync()
 매개 변수로 대리자를 사용자는 **BatchTokenCredentials** 개체를 생성합니다. 이러한 자격 증명을 사용하여 **BatchClient** 개체를 엽니다. 그런 다음, Batch 서비스에 대한 후속 작업에 해당 **BatchClient** 개체를 사용합니다.
 
 ```csharp
-public static async Task PerformBatchOperations()
+public static void PerformBatchOperations()
 {
     Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
 
-    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
+    using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
     {
-        await client.JobOperations.ListJobs().ToListAsync();
+        client.JobOperations.ListJobs();
     }
 }
 ```

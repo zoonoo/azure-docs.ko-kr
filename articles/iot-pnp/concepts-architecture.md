@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 32e67bd7f30fecee3449935a35235844a047957b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a87617e1cc6910b4c807aa90f413efe94b6e6953
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574327"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920307"
 ---
 # <a name="iot-plug-and-play-architecture"></a>IoT 플러그 앤 플레이 아키텍처
 
@@ -36,7 +36,7 @@ IoT 플러그 앤 플레이를 사용하면 솔루션 빌더가 수동으로 구
 
 웹 UI를 사용 하 여 모델 및 인터페이스를 관리할 수 있습니다.
 
-모델 리포지토리는 RBAC를 사용 하 여 인터페이스 정의에 대 한 액세스를 제한할 수 있습니다.
+모델 리포지토리에는 인터페이스 정의에 대 한 액세스를 제한할 수 있도록 하는 기본 제공 역할 기반 액세스 제어가 있습니다.
 
 ## <a name="devices"></a>디바이스
 

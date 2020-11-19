@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 11/16/2020
-ms.openlocfilehash: 78c35e42cefa8897d9f93c3a941b4c0e8b81e5f9
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4dd4729589e429cb1b028b183fdfd144617d1d1b
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686956"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920647"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server-using-the-azure-portal"></a>Azure Portal를 사용 하 Azure Database for MySQL 단일 서버에서 주 버전 업그레이드
 
@@ -33,6 +33,9 @@ ms.locfileid: "94686956"
 ## <a name="perform-major-version-upgrade-from-mysql-56-to-mysql-57"></a>MySQL 5.6에서 MySQL 5.7로 주 버전 업그레이드 수행
 
 MySQL 5.6 서버의 Azure 데이터베이스에 대 한 주 버전 업그레이드를 수행 하려면 다음 단계를 따르세요.
+
+> [!IMPORTANT]
+> 프로덕션을 직접 업그레이드 하는 대신 복원 된 서버 복사본에서 업그레이드를 먼저 수행 하는 것이 좋습니다. 지정 [시간 복원을 수행 하는 방법을](howto-restore-server-portal.md#point-in-time-restore)참조 하세요.
 
 1. [Azure Portal](https://portal.azure.com/)에서 기존 Azure Database for MySQL 5.6 서버를 선택 합니다.
 

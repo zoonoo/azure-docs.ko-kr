@@ -3,16 +3,16 @@ title: 장치 모델 리포지토리의 개념 이해 | Microsoft Docs
 description: 솔루션 개발자 또는 IT 전문가는 장치 모델 리포지토리의 기본 개념에 대해 알아봅니다.
 author: rido-min
 ms.author: rmpablos
-ms.date: 09/30/2020
+ms.date: 11/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4e15ef5256c1552fc8ab7fb9bd84f15bb3433834
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: b567efe2541bb33c905def73bb78398799b4ed69
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131363"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920545"
 ---
 # <a name="device-model-repository"></a>장치 모델 리포지토리
 
@@ -30,7 +30,7 @@ Microsoft는 다음과 같은 특징을 가진 공용 DMR을 호스팅합니다.
 
 ## <a name="custom-device-model-repository"></a>사용자 지정 장치 모델 리포지토리
 
-로컬 파일 시스템 또는 사용자 지정 HTTP 웹 서버와 같은 모든 저장소 미디어에서 동일한 DMR 패턴을 사용 하 여 사용자 지정 DMR을 만들 수 있습니다. DMR에 액세스 하는 데 사용 되는 기본 URL을 변경 하 여 public DMR와 동일한 방식으로 사용자 지정 DMR에서 장치 모델을 검색할 수 있습니다.
+동일한 DMR 패턴을 사용 하 여 로컬 파일 시스템 또는 사용자 지정 HTTP 웹 서버와 같은 모든 저장소 미디어에서 사용자 지정 DMR를 만듭니다. DMR에 액세스 하는 데 사용 되는 기본 URL을 변경 하 여 공용 DMR와 동일한 방식으로 사용자 지정 DMR에서 장치 모델을 검색할 수 있습니다.
 
 > [!NOTE]
 > Microsoft는 공용 DMR에서 장치 모델의 유효성을 검사 하는 도구를 제공 합니다. 사용자 지정 리포지토리에서 이러한 도구를 다시 사용할 수 있습니다.
@@ -47,9 +47,9 @@ Microsoft는 다음과 같은 특징을 가진 공용 DMR을 호스팅합니다.
 
 ### <a name="resolve-models"></a>모델 확인
 
-이러한 인터페이스에 프로그래밍 방식으로 액세스 하려면 DTMI를 공용 끝점을 쿼리 하는 데 사용할 수 있는 상대 경로로 변환 해야 합니다. 다음 코드 샘플에서는이 작업을 수행 하는 방법을 보여 줍니다.
+이러한 인터페이스에 프로그래밍 방식으로 액세스 하려면 DTMI를 공용 끝점을 쿼리 하는 데 사용할 수 있는 상대 경로로 변환 해야 합니다.
 
-DTMI를 절대 경로로 변환 하려면 `DtmiToPath` 함수를 사용 합니다 `IsValidDtmi` .
+DTMI를 절대 경로로 변환 하려면 `DtmiToPath` 함수와 함께 함수를 사용 합니다 `IsValidDtmi` .
 
 ```cs
 static string DtmiToPath(string dtmi)
@@ -87,45 +87,80 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 
 1. 공용 GitHub 리포지토리를 포크 [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models) 합니다.
 1. 분기 리포지토리를 복제 합니다. 필요에 따라 분기에서 변경 내용을 격리 되도록 새 분기를 만듭니다 `main` .
-1. `dtmi`폴더/파일 이름 규칙을 사용 하 여 폴더에 새 인터페이스를 추가 합니다. [모델 추가](#add-model) 도구를 참조 하세요.
-1. [변경 내용의 유효성을 검사 하기 위해 스크립트](#validate-files) 를 사용 하 여 로컬로 장치 모델의 유효성을 검사 합니다.
+1. `dtmi`폴더/파일 이름 규칙을 사용 하 여 폴더에 새 인터페이스를 추가 합니다. 자세히 알아보려면 [ `dtmi/` 폴더로 모델 가져오기](#import-a-model-to-the-dtmi-folder)를 참조 하세요.
+1. 도구를 사용 하 여 로컬로 모델의 유효성을 검사 합니다 `dmr-client` . 자세히 알아보려면 [모델 유효성 검사](#validate-models)를 참조 하세요.
 1. 로컬에서 변경 내용을 커밋하고 포크로 푸시합니다.
 1. 포크에서 분기를 대상으로 하는 끌어오기 요청을 만듭니다 `main` . [문제 만들기 또는 끌어오기 요청](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) 문서를 참조 하세요.
 1. [끌어오기 요청 요구 사항을](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md)검토 합니다.
 
-끌어오기 요청은 제출 된 새 인터페이스의 유효성을 검사 하 고 끌어오기 요청이 모든 검사를 충족 하는지 확인 하는 일련의 GitHub 작업을 트리거합니다.
+끌어오기 요청은 제출 된 인터페이스의 유효성을 검사 하는 GitHub 작업 집합을 트리거하고 끌어오기 요청이 모든 요구 사항을 충족 하는지 확인 합니다.
 
 Microsoft는 영업일 3 일 이내에 모든 검사를 수행 하 여 끌어오기 요청에 응답 합니다.
 
-### <a name="add-model"></a>모델 추가
+### <a name="dmr-client-tools"></a>`dmr-client` 도구
 
-다음 단계에서는 add-model.js 스크립트를 사용 하 여 새 인터페이스를 추가 하는 방법을 보여 줍니다. 이 스크립트를 실행 하려면 Node.js 필요 합니다.
+PR 검사 중 모델의 유효성을 검사 하는 데 사용 되는 도구를 사용 하 여 DTDL 인터페이스를 로컬로 추가 하 고 유효성을 검사할 수도 있습니다.
 
-1. 명령 프롬프트에서 로컬 git 리포지토리로 이동 합니다.
-1. `npm install`을 실행합니다.
-1. `npm run add-model <path-to-file-to-add>`을 실행합니다.
+> [!NOTE]
+> 이 도구를 사용 하려면 [.NET SDK](https://dotnet.microsoft.com/download) 버전 3.1 이상이 필요 합니다.
 
-오류 메시지에 대 한 콘솔 출력을 시청 합니다.
+### <a name="install-dmr-client"></a>`dmr-client` 설치
 
-### <a name="local-validation"></a>로컬 유효성 검사
+```bash
+curl -L https://aka.ms/install-dmr-client-linux | bash
+```
 
-문제를 사전에 진단 하는 데 도움이 되도록 끌어오기 요청을 제출 하기 전에 로컬에서 동일한 유효성 검사를 실행할 수 있습니다.
+```powershell
+iwr https://aka.ms/install-dmr-client-windows -UseBasicParsing | iex
+```
 
-#### <a name="validate-files"></a>파일 유효성 검사
+### <a name="import-a-model-to-the-dtmi-folder"></a>모델을 `dtmi/` 폴더로 가져오기
 
-`npm run validate-files <file1.json> <file2.json>` 파일 경로가 예상 폴더 및 파일 이름과 일치 하는지 확인 합니다.
+모델이 json 파일에 이미 저장 되어 있는 경우 `dmr-client import` 명령을 사용 하 여 `dtmi/` 올바른 파일 이름으로 폴더에 추가할 수 있습니다.
 
-#### <a name="validate-ids"></a>id 유효성 검사
+```bash
+# from the local repo root folder
+dmr-client import --model-file "MyThermostat.json"
+```
 
-`npm run validate-ids <file1.json> <file2.json>` 문서에 정의 된 모든 Id가 주 ID와 동일한 루트를 사용 하는지 확인 합니다.
+> [!TIP]
+> 인수를 사용 `--local-repo` 하 여 로컬 리포지토리 루트 폴더를 지정할 수 있습니다.
 
-#### <a name="validate-deps"></a>유효성 검사-deps
+### <a name="validate-models"></a>모델 유효성 검사
 
-`npm run validate-deps <file1.json> <file2.json>` 폴더에서 모든 종속성을 사용할 수 있는지 검사 `dtmi` 합니다.
+다음 명령을 사용 하 여 모델의 유효성을 검사할 수 있습니다 `dmr-client validate` .
 
-#### <a name="validate-models"></a>모델 유효성 검사
+```bash
+dmr-client validate --model-file ./my/model/file.json
+```
 
-[Dtdl 유효성 검사 샘플](https://github.com/Azure-Samples/DTDL-Validator) 을 실행 하 여 로컬에서 장치 모델의 유효성을 검사할 수 있습니다.
+> [!NOTE]
+> 유효성 검사에서는 최신 DTDL 파서 버전을 사용 하 여 모든 인터페이스가 DTDL 언어 사양과 호환 되는지 확인 합니다.
+
+외부 종속성의 유효성을 검사 하려면 로컬 리포지토리에 있어야 합니다. 모델의 유효성을 검사 하려면 다음 옵션을 사용 하 여 `--repo` `local` 종속성을 확인할 또는 폴더를 지정 합니다 `remote` .
+
+```bash
+# from the repo root folder
+dmr-client validate --model-file ./my/model/file.json --repo .
+```
+
+### <a name="strict-validation"></a>엄격한 유효성 검사
+
+DMR에는 추가 [요구 사항이](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md)포함 되어 있습니다 `stict` . 플래그를 사용 하 여 모델의 유효성을 검사 합니다.
+
+```bash
+dmr-client validate --model-file ./my/model/file.json --repo . --strict true
+```
+
+콘솔 출력에서 오류 메시지를 확인 합니다.
+
+### <a name="export-models"></a>모델 내보내기
+
+JSON 배열을 사용 하 여 지정 된 리포지토리 (로컬 또는 원격)에서 단일 파일로 모델을 내보낼 수 있습니다.
+
+```bash
+dmr-client export --dtmi "dtmi:com:example:TemperatureController;1" -o TemperatureController.expanded.json
+```
 
 ## <a name="next-steps"></a>다음 단계
 

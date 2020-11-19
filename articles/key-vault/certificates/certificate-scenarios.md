@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9c1a08161dafa500e9cab2038621c2329cfe6d27
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 85f17897c0e3089a2d2bc5b172e98fa24e8085ff
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286884"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920443"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -113,7 +113,6 @@ AKV는 2 개의 PEM 기반 형식을 지원 합니다. 단일 PKCS # 8로 인코
 
 인증서----------끝 인증서를 시작----------
 
-현재는 PEM 형식의 EC 키를 지원 하지 않습니다.
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Key Vault와 협력하지 않는 CA를 통해 인증서 만들기  
  이 방법을 통해 Key Vault의 파트너 공급자가 아닌 다른 CA와 작업할 수 있습니다. 즉, 조직은 선택한 CA와 작업할 수 있습니다.  

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 61313a1790fe51cb26168622cc871076c40bb511
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1c9ae694fefcede599331d5d57a298bda4739f53
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887436"
+ms.locfileid: "94920528"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 계획 된 유지 관리 알림
 
@@ -78,7 +78,7 @@ Azure Portal에 대 한 계획 된 유지 관리 알림을 확인 하거나 알�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Database for MariaDB 작업에 대 한 질문이 나 제안 사항은에서 Azure Database for MariaDB 팀에 전자 메일을 보냅니다. **AskAzureDBforMariaDB@service.microsoft.com**
+- Azure Database for MariaDB 작업에 대 한 질문이 나 제안 사항은에서 Azure Database for MariaDB 팀에 전자 메일을 보냅니다. AskAzureDBforMariaDB@service.microsoft.com
 - 메트릭에 대 한 경고를 만드는 방법에 대 한 지침은 [경고를 설정 하는 방법을](howto-alert-metric.md) 참조 하세요.
 - [Azure Database for MariaDB에 대한 연결 문제 해결](howto-troubleshoot-common-connection-issues.md)
 - [일시적인 오류를 처리 하 고 Azure Database for MariaDB에 효율적으로 연결](concepts-connectivity.md)

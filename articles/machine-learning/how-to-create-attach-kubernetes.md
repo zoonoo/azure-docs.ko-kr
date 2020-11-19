@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: c8b3ab965c5a85bd6f25e5325fdca24026aec787
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 0f2b9476c9b8c0b5164bfbf29d65d260340effe4
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873831"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919763"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 
@@ -43,6 +43,8 @@ Azure Kubernetes Service에 학습 된 기계 학습 모델을 배포할 수 Azu
 - [API 서버에 액세스할 수 있는 권한이 부여 된 IP 범위가](../aks/api-server-authorized-ip-ranges.md)있는 AKS 클러스터를 **연결** 하는 경우 AKS 클러스터에 대해 AML 제어 평면 IP 범위를 사용 하도록 설정 합니다. AML 컨트롤 평면은 쌍을 이루는 지역에 배포 되 고 AKS 클러스터에 유추 pod를 배포 합니다. API 서버에 대 한 액세스 권한이 없으면 유추 pod를 배포할 수 없습니다. AKS 클러스터에서 IP 범위를 사용 하도록 설정 하는 경우 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md) 에 대 한 [ip 범위](https://www.microsoft.com/download/confirmation.aspx?id=56519) 를 사용 합니다.
 
     권한 있는 IP 범위는 표준 Load Balancer 에서만 작동 합니다.
+
+- AKS 클러스터를 **연결** 하는 경우 Azure Machine Learning 작업 영역과 동일한 Azure 구독에 있어야 합니다.
 
 - Azure 개인 링크를 사용 하 여 개인 AKS 클러스터를 사용 하려면 먼저 클러스터를 만든 다음 작업 영역에 **연결** 해야 합니다. 자세한 내용은 [개인 Azure Kubernetes Service 클러스터 만들기](../aks/private-clusters.md)를 참조 하세요.
 

@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: adac986cfa1a975ced7ef579c088ed2739778bf5
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1813da8a8a812eeded235d71c351ec352c42707c
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841810"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920086"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용 하면 Log Analytics 작업 영역의 선택한 테이블에서 Azure storage 계정 또는 Azure Event Hubs 수집 된 데이터를 지속적으로 내보낼 수 있습니다. 이 문서에서는이 기능 및 작업 영역에서 데이터 내보내기를 구성 하는 단계에 대 한 세부 정보를 제공 합니다.
@@ -81,7 +81,7 @@ Log Analytics 데이터 내보내기는 시간 기반 보존 정책에서 *allow
 1. ' 기본 ' 이벤트 허브 sku는 낮은 이벤트 크기 [제한을](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) 지원 하 고 작업 영역의 일부 로그는이를 초과 하 여 삭제할 수 있습니다. ' 표준 ' 또는 ' 전용 ' 이벤트 허브를 내보내기 대상으로 사용 하는 것이 좋습니다.
 2. 내보내는 데이터의 볼륨은 시간이 지남에 따라 증가 하 고, 더 큰 전송 속도를 처리 하 고 제한 시나리오와 데이터 대기 시간을 방지 하려면 이벤트 허브 크기를 늘려야 합니다. Event Hubs의 자동 확장 기능을 사용 하 여 처리량 단위 수를 자동으로 확장 하 고 늘리고 사용 요구를 충족 해야 합니다. 자세한 내용은 [Azure Event Hubs 처리량 단위 자동 확장](../../event-hubs/event-hubs-auto-inflate.md) 을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 다음은 Log Analytics 데이터 내보내기를 구성 하기 전에 완료 해야 하는 필수 구성 요소입니다.
 
 - 저장소 계정 및 이벤트 허브는 이미 만들고 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다. 데이터를 다른 저장소 계정에 복제 해야 하는 경우 [Azure Storage 중복성 옵션](../../storage/common/storage-redundancy.md)중 하나를 사용할 수 있습니다.  
@@ -117,7 +117,11 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 ### <a name="create-or-update-data-export-rule"></a>데이터 내보내기 규칙 만들기 또는 업데이트
 데이터 내보내기 규칙은 테이블 집합에 대해 내보낼 데이터를 단일 대상으로 정의 합니다. 각 대상에 대 한 규칙을 만들 수 있습니다.
 
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 다음 CLI 명령을 사용 하 여 작업 영역의 테이블을 볼 수 있습니다. 이를 통해 원하는 테이블을 복사 하 고 데이터 내보내기 규칙에 포함할 수 있습니다.
+
 ```azurecli
 az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
 ```
@@ -133,6 +137,8 @@ CLI를 사용 하 여 이벤트 허브에 대 한 데이터 내보내기 규칙�
 ```azurecli
 az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesId
 ```
+
+# <a name="rest"></a>[REST (영문)](#tab/rest)
 
 REST API를 사용 하 여 데이터 내보내기 규칙을 만들려면 다음 요청을 사용 합니다. 요청은 전달자 토큰 권한 부여 및 콘텐츠 형식 application/json을 사용 해야 합니다.
 
@@ -193,26 +199,38 @@ PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
   }
 }
 ```
+---
 
 ## <a name="view-data-export-configuration"></a>데이터 내보내기 구성 보기
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 CLI를 사용 하 여 데이터 내보내기 규칙의 구성을 보려면 다음 명령을 사용 합니다.
 
 ```azurecli
 az monitor log-analytics workspace data-export show --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
 
+# <a name="rest"></a>[REST (영문)](#tab/rest)
+
 REST API를 사용 하 여 데이터 내보내기 규칙의 구성을 보려면 다음 요청을 사용 합니다. 요청은 전달자 토큰 권한 부여를 사용 해야 합니다.
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+---
 
 ## <a name="disable-an-export-rule"></a>내보내기 규칙 사용 안 함
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 테스트를 수행 하는 경우와 같이 특정 기간에 대 한 데이터를 유지할 필요가 없는 경우 내보내기 규칙을 사용 하지 않도록 설정 하 여 내보내기를 중지할 수 있습니다. CLI를 사용 하 여 데이터 내보내기 규칙을 사용 하지 않도록 설정 하려면 다음 명령을 사용 합니다.
 
 ```azurecli
 az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --enable false
 ```
+
+# <a name="rest"></a>[REST (영문)](#tab/rest)
 
 REST API를 사용 하 여 데이터 내보내기 규칙을 사용 하지 않도록 설정 하려면 다음 요청을 사용 합니다. 요청은 전달자 토큰 권한 부여를 사용 해야 합니다.
 
@@ -234,32 +252,45 @@ Content-type: application/json
     }
 }
 ```
+---
 
 ## <a name="delete-an-export-rule"></a>내보내기 규칙 삭제
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 CLI를 사용 하 여 데이터 내보내기 규칙을 삭제 하려면 다음 명령을 사용 합니다.
 
 ```azurecli
 az monitor log-analytics workspace data-export delete --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
 
+# <a name="rest"></a>[REST (영문)](#tab/rest)
+
 REST API를 사용 하 여 데이터 내보내기 규칙을 삭제 하려면 다음 요청을 사용 합니다. 요청은 전달자 토큰 권한 부여를 사용 해야 합니다.
 
 ```rest
 DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+---
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>작업 영역에서 모든 데이터 내보내기 규칙 보기
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 CLI를 사용 하 여 작업 영역에서 모든 데이터 내보내기 규칙을 보려면 다음 명령을 사용 합니다.
 
 ```azurecli
 az monitor log-analytics workspace data-export list --resource-group resourceGroupName --workspace-name workspaceName
 ```
 
+# <a name="rest"></a>[REST (영문)](#tab/rest)
+
 REST API를 사용 하 여 작업 영역에서 모든 데이터 내보내기 규칙을 보려면 다음 요청을 사용 합니다. 요청은 전달자 토큰 권한 부여를 사용 해야 합니다.
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports?api-version=2020-08-01
 ```
+---
 
 ## <a name="unsupported-tables"></a>지원 되지 않는 테이블
 데이터 내보내기 규칙에 지원 되지 않는 테이블이 포함 되어 있으면 구성이 성공 하지만 해당 테이블에 대 한 데이터는 내보내지 않습니다. 테이블이 나중에 지원 되는 경우 해당 데이터는 해당 시점에 내보내집니다.
