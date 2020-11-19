@@ -1,5 +1,5 @@
 ---
-title: DDoS protection 원격 분석 보기 및 구성
+title: DDoS 보호 원격 분석 보기 및 구성
 description: DDoS protection 원격 분석을 보고 구성 하는 방법에 대해 알아봅니다.
 services: ddos-protection
 documentationcenter: na
@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 050533151b927efc8a4f1fd2d0245accdba424ec
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: eefb658c689128c1d91858ac906c09e71d05cda6
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905526"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888949"
 ---
-# <a name="view-and-configure-ddos-protection-telemetry"></a>DDoS protection 원격 분석 보기 및 구성
+# <a name="view-and-configure-ddos-protection-telemetry"></a>DDoS 보호 원격 분석 보기 및 구성
 
 Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 인사이트와 시각화를 제공합니다. DDoS 공격으로부터 자신의 가상 네트워크를 보호하는 고객은 공격 완화 보고서 및 완화 흐름 로그를 통해 공격 트래픽 및 공격을 완화하는 데 수행된 작업에 대해 자세히 파악할 수 있습니다. 다양 한 원격 분석은 DDoS 공격 기간 동안 상세 메트릭을 포함 하 여 Azure Monitor를 통해 노출 됩니다. DDoS Protection에서 노출하는 Azure Monitor 메트릭에 대한 경고를 구성할 수 있습니다. 로깅은 Azure Monitor 진단 인터페이스를 통한 고급 분석을 위해 [Azure 센티널](https://docs.microsoft.com/azure/sentinel/connect-azure-ddos-protection), Splunk (azure Event Hubs), OMS Log Analytics 및 Azure Storage와 추가로 통합 될 수 있습니다.
 
-이 자습서에서 학습할 방법은 다음과 같습니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * DDoS 보호 메트릭에 대한 경고 구성
@@ -30,7 +30,7 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 > * DDoS 완화 정책 보기
 > * Azure Security Center에서 DDoS protection 경고 보기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 이 자습서의 단계를 완료 하기 전에 먼저 [Azure DDoS Standard 보호 계획](manage-ddos-protection.md)을 만들어야 합니다.
@@ -46,9 +46,9 @@ Azure Monitor 경고 구성을 사용하면 공격 중에 활성 완화가 있�
 
     |설정                  |값                                                                                               |
     |---------                |---------                                                                                           |
-    |이름                     | _MyDdosAlert_ 를 입력 합니다.                                                                                |
-    |구독             | 경고를 받으려는 공용 IP 주소가 포함된 구독을 선택합니다.        |
-    |리소스 그룹           | 경고를 받으려는 공용 IP 주소가 포함된 리소스 그룹을 선택합니다.      |
+    |Name                     | _MyDdosAlert_ 를 입력 합니다.                                                                                |
+    |Subscription             | 경고를 받으려는 공용 IP 주소가 포함된 구독을 선택합니다.        |
+    |Resource group           | 경고를 받으려는 공용 IP 주소가 포함된 리소스 그룹을 선택합니다.      |
     |리소스                 | 경고를 받으려는 공용 IP 주소가 포함된 공용 IP 주소를 선택합니다. DDoS는 가상 네트워크 내의 리소스에 할당된 공용 IP 주소를 모니터링합니다. 가상 네트워크에 공용 IP 주소가 있는 리소스가 없으면 먼저 공용 IP 주소를 사용하여 리소스를 만들어야 합니다. Azure App Service 환경 및 Azure VPN Gateway를 제외하고 [Azure 서비스에 대한 가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services#services-that-can-be-deployed-into-a-virtual-network)에 나열된 Resource Manager(클래식이 아님)를 통해 배포된 모든 리소스의 공용 IP 주소를 모니터링할 수 있습니다. 이 자습서를 계속 진행하려면 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신을 빠르게 만들면 됩니다.                   |
     |메트릭                   | **DDoS 공격을** 선택 합니다.                                                                |
     |임계값                | 1 - **1** 은 공격을 받고 있음을 나타냅니다. **0** 은 공격을 받고 있지 않음을 나타냅니다.                         |
@@ -79,11 +79,11 @@ DDoS 공격을 시뮬레이션하여 경고의 유효성을 검사하려면 [DDo
 
 메트릭 이름은 다양한 패킷 유형과 바이트 및 패킷을 나타내며, 각 메트릭에서 태그 이름의 기본 구조는 다음과 같습니다.
 
-- **Dropped 태그 이름** (예: **Inbound Packets Dropped DDoS** ): DDoS 보호 시스템에서 삭제/스크럽한 패킷의 수입니다.
-- **Forwarded 태그 이름** (예: **Inbound Packets Forwarded DDoS** ): DDoS 시스템에서 대상 VIP로 전달한 패킷의 수입니다(필터링되지 않은 트래픽).
-- **태그 이름 없음** (예: **Inbound Packets DDoS** ): 스크럽 시스템으로 들어온 패킷의 총 수입니다(삭제 및 전달된 패킷의 합계를 나타냄).
+- **Dropped 태그 이름**(예: **Inbound Packets Dropped DDoS**): DDoS 보호 시스템에서 삭제/스크럽한 패킷의 수입니다.
+- **Forwarded 태그 이름**(예: **Inbound Packets Forwarded DDoS**): DDoS 시스템에서 대상 VIP로 전달한 패킷의 수입니다(필터링되지 않은 트래픽).
+- **태그 이름 없음**(예: **Inbound Packets DDoS**): 스크럽 시스템으로 들어온 패킷의 총 수입니다(삭제 및 전달된 패킷의 합계를 나타냄).
 
-DDoS 공격을 시뮬레이션하여 원격 분석의 유효성을 검사하려면 [DDoS 탐지 유효성 검사](test-through-simulations.md)를 참조하세요.
+이 [Azure Monitor 경고 규칙](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20Monitor%20Alert%20-%20DDoS%20Mitigation%20Started) 은 활성 DDoS 완화가 발생 한 경우를 검색 하는 간단한 쿼리를 실행 합니다. DDoS 공격을 시뮬레이션하여 원격 분석의 유효성을 검사하려면 [DDoS 탐지 유효성 검사](test-through-simulations.md)를 참조하세요. 
 
 ## <a name="view-ddos-mitigation-policies"></a>DDoS 완화 정책 보기
 
@@ -98,8 +98,8 @@ DDoS 보호 표준은 DDoS를 사용하도록 설정된 가상 네트워크에�
 Azure Security Center는 문제를 조사 하 고 수정 하는 데 도움이 되는 정보를 제공 하는 [보안 경고](/azure/security-center/security-center-managing-and-responding-alerts)의 목록을 제공 합니다. 이 기능을 사용 하면 DDoS 공격 관련 경고 및 가까운 공격을 완화 하기 위해 수행 하는 작업을 포함 하 여 경고에 대 한 통합 된 보기를 얻을 수 있습니다.
 DDoS 공격 감지 및 완화에 대해 다음과 같은 두 가지 특정 경고가 표시 됩니다.
 
-- **공용 ip에 대 한 DDoS 공격 검색** :이 경고는 DDoS protection 서비스에서 공용 ip 주소 중 하나가 DDoS 공격의 대상인 것을 감지할 때 생성 됩니다.
-- **공용 ip에 대 한 DDoS 공격 완화** :이 경고는 공용 ip 주소에 대 한 공격이 완화 된 경우에 생성 됩니다.
+- **공용 ip에 대 한 DDoS 공격 검색**:이 경고는 DDoS protection 서비스에서 공용 ip 주소 중 하나가 DDoS 공격의 대상인 것을 감지할 때 생성 됩니다.
+- **공용 ip에 대 한 DDoS 공격 완화**:이 경고는 공용 ip 주소에 대 한 공격이 완화 된 경우에 생성 됩니다.
 경고를 보려면 Azure Portal에서 **Security Center** 를 엽니다. **위협 방지** 에서 **보안 경고** 를 선택 합니다. 다음 스크린샷은 DDoS 공격 경고의 예를 보여 줍니다.
 
 ![Azure Security Center의 DDoS 경고](./media/manage-ddos-protection/ddos-alert-asc.png)

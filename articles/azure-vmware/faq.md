@@ -4,12 +4,12 @@ description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 �
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: f2b46b37fc8c773062402c52f2903a7a10acc2c4
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: f83413bc54164107b8e8a4e6010f8a826a5fe327
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874715"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888422"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -218,7 +218,7 @@ CloudAdmin 그룹 권한을 얻게 됩니다. 자세한 내용은 [액세스 및
 
 #### <a name="what-privileges-and-permissions-will-i-have-on-the-nsx-t-manager"></a>NSX-T 관리자에서 어떤 권한을 얻게 되나요?
 
-NSX-T에 대한 모든 관리자 권한이 부여되며 NSX-T 데이터 센터 온-프레미스와 마찬가지로 역할 기반 액세스 제어를 관리할 수 있습니다. 자세한 내용은 [액세스 및 ID 개념](concepts-identity.md)을 참조하세요.
+NSX에 대 한 모든 관리자 권한을 보유 하 고 NSX 데이터 센터 온-프레미스와 마찬가지로 vSphere 역할 기반 액세스 제어를 관리할 수 있습니다. 자세한 내용은 [액세스 및 ID 개념](concepts-identity.md)을 참조하세요.
 
 > [!NOTE]
 > 프라이빗 클라우드 배포의 한 과정으로 T0 라우터가 생성 및 구성됩니다. 이 논리 라우터 또는 NSX-T 에지 노드 VM을 수정하면 프라이빗 클라우드에 연결하는 데 영향을 줄 수 있습니다.

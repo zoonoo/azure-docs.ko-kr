@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 11/18/2020
 ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: 63bfb7c92e77c4059a46a83b76b3818fcb6d63be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d48add78eb73ba1aea248e95ddc5ebc0900ee000
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090213"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888337"
 ---
 # <a name="supported-devices"></a>지원되는 디바이스
 
@@ -33,7 +33,7 @@ ms.locfileid: "90090213"
 운영 체제와 호환되는 가장 최신 브라우저를 사용하는 것이 좋습니다. 다음과 같은 브라우저가 지원됩니다.
 
 * Microsoft Edge(최신 버전)
-* Internet Explorer 11
+* Internet Explorer 11 (2021 년 3 월 31 일까 지 지원 됨)
 * Safari(최신 버전, Mac만 해당)
 * Chrome(최신 버전)
 * Firefox(최신 버전)

@@ -9,12 +9,12 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f172bfcb6e4f11520eb9082052968626efe6fecb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: dd2ffacb176ed3733acba8699d4e870b15dd3c42
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651246"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888711"
 ---
 # <a name="identity-model"></a>ID 모델
 
@@ -83,6 +83,6 @@ Azure 통신 서비스에서 액세스 키를 회전 하면 이전 액세스 키
 
 ## <a name="next-steps"></a>다음 단계
 
-* 액세스 토큰 관리에 대 한 소개는 [액세스 토큰 만들기 및 관리](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)를 참조 하세요.
-* 인증에 대 한 소개는 [Azure 통신 서비스에 인증](https://docs.microsoft.com/azure/communication-services/concepts/authentication)을 참조 하세요.
-* 데이터 상주 및 개인 정보에 대 한 소개는 [지역 가용성 및 데이터 상주](https://docs.microsoft.com/azure/communication-services/concepts/privacy)를 참조 하세요.
+* 액세스 토큰 관리에 대 한 소개는 [액세스 토큰 만들기 및 관리](../quickstarts/access-tokens.md)를 참조 하세요.
+* 인증에 대 한 소개는 [Azure 통신 서비스에 인증](./authentication.md)을 참조 하세요.
+* 데이터 상주 및 개인 정보에 대 한 소개는 [지역 가용성 및 데이터 상주](./privacy.md)를 참조 하세요.

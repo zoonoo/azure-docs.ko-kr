@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 3c6bee570312009af5fbdf42a018ad2b387662d9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 66c9a3afb91aaff448d6eadc86175d8515be766c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422300"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889085"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>개인 링크를 사용 하 여 Azure HDInsight 클러스터 보호 및 격리 (미리 보기)
 
@@ -86,7 +86,8 @@ Azure에서 관리 되는 공용 DNS 영역에서 만든 개인 링크 항목은
 
 :::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="개인 링크 아키텍처 다이어그램":::
 
-## <a name="arm-template-properties"></a>ARM 템플릿 속성
+## <a name="how-to-create-clusters"></a>클러스터를 만드는 방법
+### <a name="use-arm-template-properties"></a>ARM 템플릿 속성 사용
 
 다음 JSON 코드 조각에는 개인 HDInsight 클러스터를 만들기 위해 ARM 템플릿에서 구성 해야 하는 두 가지 네트워크 속성이 포함 되어 있습니다.
 
@@ -98,6 +99,13 @@ networkProperties: {
 ```
 
 개인 링크를 비롯 한 다양 한 HDInsight 엔터프라이즈 보안 기능이 포함 된 전체 템플릿은 [hdinsight enterprise security template (hdinsight enterprise security 템플릿](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template))을 참조 하세요.
+
+### <a name="use-azure-powershell"></a>Azure Powershell 사용
+
+Powershell을 사용 하려면 [여기](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature)에서 예제를 참조 하세요.
+
+### <a name="use-azure-cli"></a>Azure CLI 사용
+Azure CLI를 사용 하려면 [여기](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples)의 예제를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

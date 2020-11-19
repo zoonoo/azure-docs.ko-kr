@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e1dbf5e20aa206189397cab26e9b867f4942e1d5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332504"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886841"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Linux 머신에 Log Analytics 에이전트 설치
 이 문서에서는 다음 방법을 사용 하 여 Linux 컴퓨터에 Log Analytics 에이전트를 설치 하는 방법에 대해 자세히 설명 합니다.
@@ -30,13 +30,17 @@ Log Analytics 에이전트에서 지 원하는 Linux 배포 목록은 [Azure Mon
 
 >[!NOTE]
 >OpenSSL 1.1.0은 x86_x64 플랫폼(64비트)에서만 지원되고, OpenSSL 1.x 미만은 어떤 플랫폼에서도 지원되지 않습니다.
->
+
+>[!NOTE]
+>컨테이너에서 Log Analytics Linux 에이전트를 실행 하는 것은 지원 되지 않습니다. 컨테이너를 모니터링 해야 하는 경우 Docker 호스트의 [컨테이너 모니터링 솔루션](../insights/containers.md) 또는 Kubernetes의 [컨테이너에](../insights/container-insights-overview.md) 대 한 Azure Monitor를 활용 하세요.
+
 2018년 8월 이후에 출시된 버전부터 지원 모델이 다음과 같이 변경됩니다.  
 
 * 서버 버전만 지원되고 클라이언트 버전은 지원되지 않습니다.  
 * [Azure Linux 보증 배포](../../virtual-machines/linux/endorsed-distros.md)를 집중적으로 지원합니다. 새 배포/버전이 Azure Linux 보증 배포가 되고 Log Analytics Linux 에이전트에 대해 지원되는 데 약간의 지연이 있을 수 있습니다.
 * 나열된 각 주 버전의 모든 부 버전이 지원됩니다.
-* 제조업체의 지원 종료 날짜가 지난 버전은 지원되지 않습니다.  
+* 제조업체의 지원 종료 날짜가 지난 버전은 지원되지 않습니다.
+* VM 이미지만 지원 합니다. 컨테이너는 공식 배포판 게시자 이미지에서 파생 된 컨테이너를 포함 하 여 지원 되지 않습니다.
 * 새 AMI 버전은 지원되지 않습니다.  
 * 기본적으로 SSL 1.x를 실행하는 버전만 지원됩니다.
 
@@ -53,7 +57,7 @@ Log Analytics 에이전트에서 지 원하는 Linux 배포 목록은 [Azure Mon
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-Python2 실행 파일은 *python*으로 별칭을 지정 해야 합니다. 다음은이 별칭을 설정 하는 데 사용할 수 있는 한 가지 방법입니다.
+Python2 실행 파일은 *python* 으로 별칭을 지정 해야 합니다. 다음은이 별칭을 설정 하는 데 사용할 수 있는 한 가지 방법입니다.
 
 1. 다음 명령을 실행 하 여 기존 별칭을 제거 합니다.
  
@@ -128,9 +132,9 @@ Linux 패키지용 Log Analytics 에이전트를 설치한 후 다음과 같은 
 
 Linux 컴퓨터가 프록시 서버를 통해 Log Analytics를 통해 통신 해야 하는 경우를 포함 하 여 명령줄에서이 구성을 지정할 수 있습니다 `-p [protocol://][user:password@]proxyhost[:port]` . *프로토콜* 속성은 `http` 또는을 허용 `https` 하 고, *proxyhost* 속성은 프록시 서버의 정규화 된 도메인 이름 또는 IP 주소를 허용 합니다. 
 
-`https://proxy01.contoso.com:30443`
+예: `https://proxy01.contoso.com:30443`
 
-두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. `https://user01:password@proxy01.contoso.com:30443`
+두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예: `https://user01:password@proxy01.contoso.com:30443`
 
 1. Log Analytics 작업 영역에 연결 하도록 Linux 컴퓨터를 구성 하려면 작업 영역 ID 및 기본 키를 제공 하는 다음 명령을 실행 합니다. 다음 명령은 에이전트를 다운로드하고, 해당 체크섬의 유효성을 검사한 다음, 설치합니다.
     
@@ -215,7 +219,7 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 버전 1.0.0-47부터 이전 버전에서 업그레이드 하는 것은 각 릴리스에서 지원 됩니다. 매개 변수를 사용 하 여 설치를 수행 `--upgrade` 하 여 에이전트의 모든 구성 요소를 최신 버전으로 업그레이드 합니다.
 
 ## <a name="cache-information"></a>캐시 정보
-Linux 용 Log Analytics 에이전트의 데이터가 Azure Monitor로 전송 되기 전에 *% STATE_DIR_WS/out_oms_common*. buffer *의 로컬 컴퓨터에 캐시 됩니다. 사용자 지정 로그 데이터가 *% STATE_DIR_WS %1 out_oms_blob*에 버퍼링 됩니다. *. 경로는 일부 [솔루션 및 데이터 형식](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=)에 대해 다를 수 있습니다.
+Linux 용 Log Analytics 에이전트의 데이터가 Azure Monitor로 전송 되기 전에 *% STATE_DIR_WS/out_oms_common*. buffer *의 로컬 컴퓨터에 캐시 됩니다. 사용자 지정 로그 데이터가 *% STATE_DIR_WS %1 out_oms_blob* 에 버퍼링 됩니다. *. 경로는 일부 [솔루션 및 데이터 형식](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=)에 대해 다를 수 있습니다.
 
 에이전트는 20 초 마다 업로드 하려고 합니다. 실패 하는 경우 성공할 때까지 계속 해 서 점점 더 많은 시간이 소요 됩니다. 두 번째 시도 전 30 초, 120 초 전 60 초 다시 연결할 때까지 다시 시도 하는 최대 16 분까지 허용 됩니다. 에이전트는 지정 된 데이터 청크를 삭제 하 고 다음으로 이동 하기 전에 최대 6 회까지 다시 시도 합니다. 에이전트가 다시 업로드 될 때까지 계속 됩니다. 즉, 데이터를 삭제 하기 전에 약 30 분까지 버퍼링 될 수 있습니다.
 

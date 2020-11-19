@@ -2,17 +2,17 @@
 title: Azure Service Bus SQLFilter 구문 참조 | Microsoft Docs
 description: 이 문서에서는 SQLFilter 문법에 대 한 세부 정보를 제공 합니다. SqlFilter는 SQL-92 표준의 하위 집합을 지원합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 8412dea583ae119b30976e53d4751411b45339a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/17/2020
+ms.openlocfilehash: 7f3c744b691e678ef18c8fa721ccfaecaee9c1e2
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85341590"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888473"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 구문
 
-*SqlFilter* 개체는 [SqlFilter 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)의 인스턴스이며 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)에 대해 평가되는 SQL 언어 기반 필터 식을 나타냅니다. SqlFilter는 SQL-92 표준의 하위 집합을 지원합니다.  
+*Sqlfilter* 개체는 [sqlfilter 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)의 인스턴스이며에 대해 평가 되는 SQL 언어 기반 필터 식을 나타냅니다 [`BrokeredMessage`](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . SqlFilter는 SQL-92 표준의 하위 집합을 지원합니다.  
   
  이 항목에서는 SqlFilter 문법에 대한 세부 정보를 나열합니다.  
   
@@ -49,11 +49,11 @@ ms.locfileid: "85341590"
   
 ## <a name="arguments"></a>인수  
   
--   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. `sys`값은 `<property_name>` 이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)의 공용 속성 이름인 시스템 범위를 나타냅니다. `user``<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 사전의 키인 사용자 범위를 나타냅니다. `<scope>`가 지정되지 않은 경우 `user` 범위가 기본 범위입니다.  
+-   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. `sys`값은 `<property_name>` 이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)의 공용 속성 이름인 시스템 범위를 나타냅니다. `user``<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 사전의 키인 사용자 범위를 나타냅니다. `user` 범위는가 지정 되지 않은 경우의 기본 범위입니다 `<scope>` .  
   
 ## <a name="remarks"></a>설명
 
-존재하지 않는 시스템 속성에 대한 액세스 시도는 오류이지만 존재하지 않는 사용자 속성에 대한 액세스 시도는 오류가 아닙니다. 대신, 존재하지 않는 사용자 속성은 알 수 없는 값;으로 내부적으로 평가됩니다. 알 수 없는 값은 연산자 평가 중에 특별히 처리됩니다.  
+존재 하지 않는 시스템 속성에 액세스 하려고 하면 오류가 발생 하는 반면, 존재 하지 않는 사용자 속성에 액세스 하려고 하면 오류가 발생 하지 않습니다. 대신, 존재하지 않는 사용자 속성은 알 수 없는 값;으로 내부적으로 평가됩니다. 알 수 없는 값은 연산자 평가 중에 특별히 처리됩니다.  
   
 ## <a name="property_name"></a>property_name  
   
@@ -81,7 +81,7 @@ ms.locfileid: "85341590"
   
 `[:IsDigit:]`는 10진수 문자로 분류된 유니코드 문자를 의미합니다. `System.Char.IsDigit(c)`에서는 `c`가 유니코드 숫자인 경우 `true`를 반환합니다.  
   
-`<regular_identifier>`는 예약된 키워드일 수 없습니다.  
+는 `<regular_identifier>` 예약 된 키워드가 될 수 없습니다.  
   
 `<delimited_identifier>`는 왼쪽/오른쪽 대괄호([])로 묶인 문자열입니다. 오른쪽 대괄호는 두 개의 오른쪽 대괄호로 표시됩니다. 다음은 `<delimited_identifier>`에 대한 예입니다.  
   
@@ -91,7 +91,7 @@ ms.locfileid: "85341590"
   
 ```  
   
-`<quoted_identifier>`는 큰따옴표로 묶인 문자열입니다. 식별자에서 큰따옴표는 두 개의 큰따옴표로 표시됩니다. 문자열 상수와 혼동될 수 있으므로 따옴표가 있는 식별자를 사용하지 않는 것이 좋습니다. 가능하면 구분된 식별자를 사용하세요. 다음은 `<quoted_identifier>`의 예입니다.  
+`<quoted_identifier>`는 큰따옴표로 묶인 문자열입니다. 식별자에서 큰따옴표는 두 개의 큰따옴표로 표시됩니다. 문자열 상수와 쉽게 혼동 될 수 있으므로 따옴표 붙은 식별자를 사용 하지 않는 것이 좋습니다. 가능하면 구분된 식별자를 사용하세요. 예를 들면 `<quoted_identifier>` 다음과 같습니다.  
   
 ```  
 "Contoso & Northwind"  
@@ -106,7 +106,7 @@ ms.locfileid: "85341590"
   
 ### <a name="remarks"></a>설명
   
-`<pattern>`은 문자열로 평가할 식이어야 합니다. LIKE 연산자에 대한 패턴으로 사용됩니다.      다음 와일드 카드 문자를 포함할 수 있습니다.  
+`<pattern>`은 문자열로 평가할 식이어야 합니다. LIKE 연산자에 대 한 패턴으로 사용 됩니다.      다음 와일드 카드 문자를 포함할 수 있습니다.  
   
 -   `%`: 0개 이상의 문자입니다.  
   
@@ -121,7 +121,7 @@ ms.locfileid: "85341590"
   
 ### <a name="remarks"></a>설명  
 
-`<escape_char>`은 길이가 1인 문자열로 평가할 식이어야 합니다. LIKE 연산자에 대한 이스케이프 문자로 사용됩니다.  
+`<escape_char>`은 길이가 1인 문자열로 평가할 식이어야 합니다. LIKE 연산자에 대 한 이스케이프 문자로 사용 됩니다.  
   
  예를 들어 `property LIKE 'ABC\%' ESCAPE '\'`는 `ABC`로 시작되는 문자열 대신 `ABC%`와 일치합니다.  
   
@@ -134,18 +134,18 @@ ms.locfileid: "85341590"
   
 ### <a name="arguments"></a>인수  
   
--   `<integer_constant>`는 따옴표로 묶이지 않고 소수점을 포함하지 않는 숫자의 문자열입니다. 값은 내부적으로는 `System.Int64`로 저장되며 동일한 범위를 따릅니다.  
+-   `<integer_constant>` 는 따옴표로 묶지 않고 소수점을 포함 하지 않는 숫자의 문자열입니다. 값은 내부적으로는 `System.Int64`로 저장되며 동일한 범위를 따릅니다.  
   
-     다음은 long 상수에 대한 예입니다.  
+     Long 상수의 예는 다음과 같습니다.  
   
     ```  
     1894  
     2  
     ```  
   
--   `<decimal_constant>`는 따옴표로 묶이지 않고 소수점을 포함하는 숫자의 문자열입니다. 값은 내부적으로는 `System.Double`로 저장되며 동일한 범위/자릿수를 따릅니다.  
+-   `<decimal_constant>` 는 따옴표로 묶지 않고 소수점이 포함 된 숫자의 문자열입니다. 값은 내부적으로는 `System.Double`로 저장되며 동일한 범위/자릿수를 따릅니다.  
   
-     이후 버전에서는 이 숫자가 정확한 숫자 의미 체계를 지원하기 위해 다른 데이터 형식으로 저장될 수 있으므로 `<decimal_constant>`에 대한 기본 데이터 형식이 `System.Double`이라는 사실이 해당되지 않습니다.  
+     이후 버전에서이 숫자는 정확한 숫자 의미 체계를 지원 하기 위해 다른 데이터 형식에 저장 될 수 있으므로 기본 데이터 형식이에 대 한 팩트를 사용 하면 안 `System.Double` 됩니다 `<decimal_constant>` .  
   
      다음은 10진수 상수에 대한 예입니다.  
   
@@ -192,7 +192,7 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
   
 ### <a name="remarks"></a>설명
   
-`newid()` 함수는 `System.Guid.NewGuid()` 메서드에 의해 생성된 **System.Guid**를 반환합니다.  
+`newid()`함수는 `System.Guid` 메서드에 의해 생성 된을 반환 합니다 `System.Guid.NewGuid()` .  
   
 `property(name)` 함수는 `name`으로 참조되는 속성 값을 반환합니다. `name` 값은 문자열 값을 반환하는 유효한 식일 수 있습니다.  
   
@@ -214,25 +214,25 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
   
 - 존재하지 않는 시스템 속성을 평가하려고 시도하면 [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) 예외가 throw됩니다.  
   
-- 존재하지 않는 속성은 내부적으로 **알 수 없음**으로 평가됩니다.  
+- 존재 하지 않는 속성은 내부적으로 **알 수 없음** 으로 평가 됩니다.  
   
   알 수 없음 평가는 산술 연산자입니다.  
   
-- 이항 연산자의 경우 왼쪽 및/또는 오른쪽 피연산자 중 하나가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
+- 이항 연산자의 경우 왼쪽 또는 오른쪽 피연산자 중 하나가 **알 수 없음** 으로 평가 되는 경우 결과를 **알 수** 없습니다.  
   
-- 단항 연산자의 경우 피연산자가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
+- 단항 연산자의 경우 피연산자가 **알 수 없음** 으로 평가되는 경우 결과는 **알 수 없음** 입니다.  
   
   알 수 없음 평가는 이항 비교 연산자입니다.  
   
-- 왼쪽 및/또는 오른쪽 피연산자 중 하나가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
+- 왼쪽 또는 오른쪽 피연산자 중 하나가 **알 수 없음** 으로 평가 되는 경우 결과를 **알 수** 없습니다.  
   
   `[NOT] LIKE`에서 알 수 없음 평가:  
   
-- 피연산자가 **알 수 없음**으로 평가 되는 경우 결과를 **알 수**없습니다.  
+- 피연산자가 **알 수 없음** 으로 평가 되는 경우 결과를 **알 수** 없습니다.  
   
   `[NOT] IN`에서 알 수 없음 평가:  
   
-- 왼쪽 피연산자가 **알 수 없음**으로 평가 되는 경우 결과를 **알 수**없습니다.  
+- 왼쪽 피연산자가 **알 수 없음** 으로 평가 되는 경우 결과를 **알 수** 없습니다.  
   
   **AND** 연산자에서 알 수 없음 평가:  
   
@@ -267,6 +267,58 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
 -   `>`, `>=`, `<`, `<=`, `!=`, `=`과 같은 비교 연산자는 데이터 형식 승격 및 암시적 변환에서 C# 연산자 바인딩과 동일한 의미 체계를 따릅니다.  
   
 -   `+`, `-`, `*`, `/`, `%`와 같은 산술 연산자는 데이터 형식 승격 및 암시적 변환에서 C# 연산자 바인딩과 동일한 의미 체계를 따릅니다.
+
+
+## <a name="examples"></a>예
+
+### <a name="set-rule-action-for-a-sql-filter"></a>SQL 필터에 대 한 규칙 동작 설정
+
+```csharp
+// instantiate the ManagementClient
+this.mgmtClient = new ManagementClient(connectionString);
+
+// create the SQL filter
+var sqlFilter = new SqlFilter("source = @stringParam");
+
+// assign value for the parameter
+sqlFilter.Parameters.Add("@stringParam", "orders");
+
+// instantiate the Rule = Filter + Action
+var filterActionRule = new RuleDescription
+{
+    Name = "filterActionRule",
+    Filter = sqlFilter,
+    Action = new SqlRuleAction("SET source='routedOrders'")
+};
+
+// create the rule on Service Bus
+await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
+```
+
+### <a name="sql-filter-on-a-system-property"></a>시스템 속성에 대 한 SQL 필터
+
+```csharp
+sys.Label LIKE '%bus%'`
+```
+
+### <a name="using-or"></a>또는 사용 
+
+```csharp
+ sys.Label LIKE '%bus%'` OR `user.tag IN ('queue', 'topic', 'subscription')
+```
+
+### <a name="using-in-and-not-in"></a>IN 및 NOT IN 사용
+
+```csharp
+StoreId IN('Store1', 'Store2', 'Store3')"
+
+sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
+
+sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
+```
+
+C # 샘플은 [GitHub의 토픽 필터 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters)을 참조 하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

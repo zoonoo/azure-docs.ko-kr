@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 5396845e13e94b4d957f42618baaf19c408f559d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fdd8c752e8cf610ef3c32e1af91b3ad6454c0813
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843777"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887181"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 개인 제품
 
@@ -42,6 +42,8 @@ ms.locfileid: "94843777"
 비공개 요금제는 제품의 구성 요소 이며 대상 고객 에게만 표시 되 고 구입 가능 됩니다. 비공개 요금제는 공개 계획에 이미 게시 된 기본 이미지 및/또는 제안 메타 데이터를 다시 사용할 수 있습니다. 이 옵션을 통해 게시자가 동일한 기본 이미지의 여러 버전을 게시하고 메타데이터를 제공하지 않고 공용 제품의 여러 프라이빗 변형을 만들 수 있습니다. 가상 컴퓨터 및 Azure 응용 프로그램의 경우에만 비공개 요금제에서 공개 요금제를 사용 하 여 기본 이미지를 공유 하는 경우 제품의 기본 이미지에 대 한 모든 변경 내용이 해당 기본 이미지를 사용 하 여 모든 공용 및 개인 계획에 전파 됩니다.
 
 *비공개 요금제만 포함 된 새 제품* 의 경우, 게시자는 해당 제품을 다른 제품으로 만든 다음 해당 계획을 비공개로 표시할 수 있습니다. 비공개 요금제만 있는 제품은 Microsoft 상용 marketplace 또는 제품과 연결 되지 않은 고객의 [Azure Portal](https://azure.microsoft.com/features/azure-portal/) 을 통해 검색 되거나 액세스할 수 없게 됩니다.
+
+개인 계획은 Azure Global 및 Azure Government 모두에 사용할 수 있습니다.
 
 >[!NOTE]
 >비공개 계획만 포함 된 제안은 공용 Azure Marketplace 또는 AppSource에 표시 되지 않습니다.

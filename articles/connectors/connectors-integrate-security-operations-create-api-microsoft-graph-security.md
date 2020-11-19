@@ -3,18 +3,18 @@ title: 보안 작업 & Microsoft Graph 보안 통합 및 관리
 description: Microsoft Graph Security &를 사용 하 여 앱의 위협 방지, 검색 및 응답을 개선 Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: preetikr
+author: ecfan
 ms.author: preetikr
 ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: ea861dce23e50bc5fcae50116a3e71793d402f8f
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: a83cd68df2f1d722517d6239bf6959075860d0b8
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873321"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888541"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Microsoft Graph Security 및 Azure Logic Apps와 보안 작업을 통합하여 위협 방지 향상
 
@@ -30,9 +30,9 @@ ms.locfileid: "94873321"
 
 논리 앱의 워크플로는 Microsoft Graph Security 커넥터에서 응답을 가져오고 해당 결과물을 워크플로의 다른 작업에서 사용하도록 제공할 수 있습니다. 워크플로의 다른 작업에서 Microsoft Graph Security 커넥터 작업의 결과물을 사용하게 할 수도 있습니다. 예를 들어 Microsoft Graph Security 커넥터를 통해 높은 심각도 경고를 가져오는 경우 Outlook 커넥터를 사용하여 해당 경고를 메일 메시지로 보낼 수 있습니다. 
 
-Microsoft Graph Security에 대한 자세한 내용은 [Microsoft Graph 보안 API 개요](/graph/security-concept-overview)를 참조하세요. 논리 앱을 처음 접하는 경우 [Azure Logic Apps?](../logic-apps/logic-apps-overview.md)을 검토 하세요. 전원 자동화 또는 PowerApps를 찾고 있는 경우 [전원 자동화 란?](https://flow.microsoft.com/) 또는 [powerapps 란?](https://powerapps.microsoft.com/) 을 참조 하세요.
+Microsoft Graph Security에 대한 자세한 내용은 [Microsoft Graph 보안 API 개요](/graph/security-concept-overview)를 참조하세요. 논리 앱을 처음 접하는 경우 [Azure Logic Apps?](../logic-apps/logic-apps-overview.md)을 검토 하세요. 전원 자동화 또는 PowerApps를 찾고 있는 경우 전원 자동화 란 [?](https://flow.microsoft.com/) 또는 [power Apps 란?](https://powerapps.microsoft.com/) 을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
@@ -115,7 +115,7 @@ Microsoft Graph Security 커넥터에서 사용 가능한 다양한 작업의 �
 
 이 커넥터에서 사용할 수 있는 쿼리에 대한 자세한 내용은 [Microsoft Graph Security 경고 참조 문서](/graph/api/alert-list)를 참조하세요. 이 커넥터를 사용하여 향상된 환경을 빌드하려면 커넥터가 지원하는 [스키마 속성 경고](/graph/api/resources/alert)를 자세히 알아보세요.
 
-| 작업 | Description |
+| 작업 | 설명 |
 |--------|-------------|
 | **경고 받기** | 하나 이상의 [경고 속성](/graph/api/resources/alert)(예:)에 따라 필터링 된 경고를 가져옵니다 `Provider eq 'Azure Security Center' or 'Palo Alto Networks'` . | 
 | **ID로 경고 가져오기** | 경고 ID를 기준으로 특정 경고를 가져옵니다. | 
@@ -128,7 +128,7 @@ Microsoft Graph는 [구독](/graph/api/resources/subscription) 또는 [웹후크
 
 `security/alerts?$filter=status eq 'NewAlert'`
 
-| 작업 | Description |
+| 작업 | 설명 |
 |--------|-------------|
 | **구독 만들기** | 변경 내용에 대해 알리는 [구독을 만듭니다](/graph/api/subscription-post-subscriptions). 원하는 특정 경고 유형에 대해 이 구독을 필터링할 수 있습니다. 예를 들어 높은 심각도 경고에 대해 알리는 구독을 만들 수 있습니다. |
 | **활성 구독 가져오기** | [만료되지 않은 구독을 가져옵니다](/graph/api/subscription-list). | 
@@ -144,7 +144,7 @@ Microsoft Graph는 [구독](/graph/api/resources/subscription) 또는 [웹후크
 
 이 커넥터에서 사용할 수 있는 쿼리에 대 한 자세한 내용은 [Microsoft Graph 보안 위협 인텔리전스 표시기 참조 설명서의 "선택적 쿼리 매개 변수"](/graph/api/tiindicators-list)를 참조 하세요. 이 커넥터를 사용 하 여 향상 된 환경을 구축 하려면 커넥터에서 지 원하는 [스키마 속성 위협 인텔리전스 표시기](/graph/api/resources/tiindicator) 에 대해 자세히 알아보세요.
 
-| 작업 | Description |
+| 작업 | 설명 |
 |--------|-------------|
 | **위협 인텔리전스 지표 가져오기** | 하나 이상의 [tiindicators 속성](/graph/api/resources/tiindicator)을 기반으로 필터링 된 tiindicators를 가져옵니다. 예를 들면 `threatType eq 'MaliciousUrl' or 'DDoS'` |
 | **ID 별로 위협 인텔리전스 지표 가져오기** | TiIndicator ID를 기준으로 특정 tiIndicator를 가져옵니다. | 
