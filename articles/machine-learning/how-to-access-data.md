@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: 30ece529b141f3a50191c532d85265d8e9555b34
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3c8e18a3a216240a624b3b14f5e2e397d6c06012
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538600"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961331"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Azure에서 저장소 서비스에 연결
 
@@ -92,7 +92,7 @@ Azure storage 서비스에 안전 하 게 연결 하려면 해당 하는 데이�
 
 ### <a name="access-validation"></a>액세스 유효성 검사
 
-**초기 데이터 저장소 만들기 및 등록 프로세스의 일부로** , Azure Machine Learning는 기본 저장소 서비스가 존재 하 고 사용자가 제공한 주체 (사용자 이름, 서비스 주체 또는 SAS 토큰)가 지정 된 저장소에 액세스할 수 있는지 자동으로 검사 합니다.
+**초기 데이터 저장소 만들기 및 등록 프로세스의 일부로**, Azure Machine Learning는 기본 저장소 서비스가 존재 하 고 사용자가 제공한 주체 (사용자 이름, 서비스 주체 또는 SAS 토큰)가 지정 된 저장소에 액세스할 수 있는지 자동으로 검사 합니다.
 
 **데이터 저장소를 만든 후** 에는 데이터 저장소 개체가 검색 **될 때마다 기본** 저장소 컨테이너에 액세스 해야 하는 메서드에 대해서만이 유효성 검사가 수행 됩니다. 예를 들어 데이터 저장소에서 파일을 다운로드하려는 경우에는 유효성 검사가 수행되지만, 기본 데이터 저장소만 변경하려는 경우에는 유효성 검사가 수행되지 않습니다.
 
@@ -110,7 +110,7 @@ Azure storage 서비스에 안전 하 게 연결 하려면 해당 하는 데이�
 
 > [!IMPORTANT]
 > * Azure Storage 계정 (계정 키 또는 SAS 토큰)에 대 한 액세스 키를 변경 해야 하는 경우 새 자격 증명과 해당 작업 영역에 연결 된 데이터 저장소를 동기화 해야 합니다. [업데이트 된 자격 증명을 동기화](how-to-change-storage-access-key.md)하는 방법을 알아봅니다. 
-### <a name="permissions"></a>권한
+### <a name="permissions"></a>사용 권한
 
 Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)에 대해 자세히 알아보세요. 계정 SAS 토큰의 기본값은 사용 권한 없음입니다. 
 * 데이터 **읽기 액세스** 의 경우 인증 자격 증명에는 최소한의 목록 및 컨테이너와 개체에 대 한 읽기 권한이 있어야 합니다. 
@@ -180,7 +180,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 Azure Data Lake Storage Generation 2(ADLS Gen 2) 데이터 저장소의 경우 [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-)를 사용하여 Azure DataLake Gen 2 스토리지에 연결된 자격 증명 데이터 저장소를 [서비스 주체 권한](../active-directory/develop/howto-create-service-principal-portal.md)에 등록합니다.  
 
-서비스 주체를 활용 하려면 [응용 프로그램을 등록](../active-directory/develop/app-objects-and-service-principals.md) 하 고 Azure RBAC (역할 기반 액세스 제어) 또는 ACL (액세스 제어 목록)을 통해 서비스 사용자 데이터 액세스 권한을 부여 해야 합니다. [ADLS Gen 2의 액세스 제어 설정](../storage/blobs/data-lake-storage-access-control-model.md)에 대해 자세히 알아보세요. 
+서비스 주체를 활용 하려면 [응용 프로그램을 등록](../active-directory/develop/app-objects-and-service-principals.md) 하 고 azure RBAC (역할 기반 액세스 제어) 또는 ACL (액세스 제어 목록)을 통해 서비스 사용자 데이터 액세스 권한을 부여 해야 합니다. [ADLS Gen 2의 액세스 제어 설정](../storage/blobs/data-lake-storage-access-control-model.md)에 대해 자세히 알아보세요. 
 
 다음 코드는 `adlsgen2_datastore_name` 데이터 저장소를 만들어 `ws` 작업 영역에 등록합니다. 이 데이터 저장소는 제공된 서비스 주체 자격 증명을 사용하여 `account_name` 스토리지 계정의 `test` 파일 시스템에 액세스합니다. 가상 네트워크 시나리오에 대 한 지침과 필요한 인증 자격 증명을 찾을 수 있는 위치에 대 한 [저장소 액세스 & 권한](#storage-access-and-permissions) 섹션을 검토 합니다. 
 

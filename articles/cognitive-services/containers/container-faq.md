@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 3d35a1f6913d0b657956489d0e57836a05f9eb1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 188a348b497a485be0a8091b50a3f2c11b6493c0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90900044"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960753"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Azure Cognitive Services 컨테이너 FAQ (질문과 대답)
 
@@ -50,7 +50,7 @@ ms.locfileid: "90900044"
 
 **A:** "소 버린 클라우드" 라는 용어를 모두 사용 하는 것은 아니므로 정의로 시작 하겠습니다.
 
-> "소 버린 클라우드"는 [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure 독일](../../germany/germany-welcome.md)및 [azure 중국 21vianet](https://docs.microsoft.com/azure/china/overview-operations) 클라우드로 구성 됩니다.
+> "소 버린 클라우드"는 [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure 독일](../../germany/germany-welcome.md)및 [azure 중국 21vianet](/azure/china/overview-operations) 클라우드로 구성 됩니다.
 
 아쉽게도 Cognitive Services 컨테이너는 소 버린 클라우드에서 기본적으로 지원 *되지 않습니다* . 컨테이너는 이러한 클라우드에서 실행할 수 있지만 공용 클라우드에서 끌어온 다음 사용 데이터를 공용 끝점으로 보내야 합니다.
 
@@ -129,7 +129,7 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
 * [Form Recognizer][fr-containers-billing]
 * [언어 이해(LUIS)][lu-containers-billing]
 * [Speech Service API][sp-containers-billing]
-* [텍스트 분석][ta-containers-billing]
+* [Text Analytics][ta-containers-billing]
 
 > [!IMPORTANT]
 > Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터를 Microsoft로 보내지 않습니다.
@@ -156,7 +156,7 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
 * [Form Recognizer][fr-containers-recommendations]
 * [언어 이해(LUIS)][lu-containers-recommendations]
 * [Speech Service API][sp-containers-recommendations]
-* [텍스트 분석][ta-containers-recommendations]
+* [Text Analytics][ta-containers-recommendations]
  
 **Q: 이러한 컨테이너는 현재 Windows에서 지원 되나요?**
 

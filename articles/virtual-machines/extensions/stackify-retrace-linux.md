@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
-ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f9ac4f7c88e72cb6ddadc2450947697b0e3c6ef
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088855"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961977"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Linux 에이전트 확장
 
@@ -191,7 +192,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 40 | 설치 오류 | activationKey가 필요합니다. |
 | 51 | 설치 오류 | OS 배포판이 지원되지 않습니다. |
 | 60 | 설치 오류 | 환경이 필요합니다. |
-| 70 | 설치 오류 | Unknown |
+| 70 | 설치 오류 | 알 수 없음 |
 | 80 | 사용 설정 오류 | 서비스를 설치하지 못했습니다. |
 | 90 | 사용 설정 오류 | 서비스를 시작하지 못했습니다. |
 | 100 | 사용 해제 오류 | 서비스를 중지하지 못했습니다. |

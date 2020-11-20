@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 181f5433de6653c8b6a2cda085f04e21c64082b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 316b513f761aa422f87c83658e6c50efec25efb4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514664"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961144"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>StorSimple 5000-7000 시리즈에서 데이터를 마이그레이션하는 옵션 
 
@@ -43,7 +43,7 @@ StorSimple 8000 시리즈를 사용하여 데이터를 마이그레이션하는 
 
 이 새 마이그레이션 옵션을 사용하면 고객이 조직의 파일 공유를 Azure Files에 저장할 수 있습니다. 그러면 이러한 파일 공유에서 AFS(Azure 파일 동기화)를 사용하여 온-프레미스 액세스를 위해 중앙 집중화됩니다. AFS는 Windows Server 호스트에 배포할 수 있습니다. 그러면 실제 데이터 마이그레이션이 호스트 복사본으로 수행되거나 마이그레이션 도구를 사용하여 수행됩니다.
 
-데이터를 Azure 파일 동기화로 마이그레이션하는 방법에 대한 자세한 내용은 [StorSimple 5000-7000 시리즈에서 Azure 파일 동기화로 데이터 마이그레이션](storsimple-5000-7000-afs-migration.md)을 참조하세요.
+데이터를 Azure 파일 동기화로 마이그레이션하는 방법에 대한 자세한 내용은 [StorSimple 5000-7000 시리즈에서 Azure 파일 동기화로 데이터 마이그레이션](../storage/files/storage-files-migration-storsimple-8000.md)을 참조하세요.
 
 ### <a name="third-party-options"></a>타사 옵션
 
@@ -127,4 +127,4 @@ A. StorSimple 8000 시리즈의 지원 종료 날짜는 [여기](https://support
 
 ## <a name="next-steps"></a>다음 단계
  - [StorSimple 5000-7000 시리즈에서 8000 시리즈 디바이스로 데이터 마이그레이션](storsimple-8000-migrate-from-5000-7000.md)
- - [StorSimple 5000-7000 시리즈에서 Azure 파일 동기화로 데이터 마이그레이션](storsimple-5000-7000-afs-migration.md)
+ - [StorSimple 5000-7000 시리즈에서 Azure 파일 동기화로 데이터 마이그레이션](../storage/files/storage-files-migration-storsimple-8000.md)

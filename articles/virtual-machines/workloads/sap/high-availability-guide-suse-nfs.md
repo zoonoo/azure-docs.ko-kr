@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: d121430452e0ed445af19f9b1ac89cfdfccdcdae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 05bcb0aebd44dee60fa3f323e1f109e4c0761ec8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167324"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961960"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성
 
@@ -51,7 +52,7 @@ ms.locfileid: "92167324"
 [sap-hana-ha]:sap-hana-high-availability.md
 
 이 문서에서는 가상 머신을 배포하고, 가상 머신을 구성하고, 클러스터 프레임워크를 설치하고, 가용성이 높은 SAP 시스템의 공유 데이터를 저장하는 데 사용할 수 있는 고가용성 NFS 서버를 설치하는 방법을 설명합니다.
-이 가이드에서는 NW1 및 NW2라는 두 개의 SAP 시스템에 사용되는 고가용성 NFS 서버를 설정하는 방법에 대해 설명합니다. 예제에 포함된 리소스(예: 가상 머신, 가상 네트워크) 이름은 [SAP 파일 서버 템플릿][template-file-server]을 리소스 접두사인 **prod**와 함께 사용한 것으로 가정합니다.
+이 가이드에서는 NW1 및 NW2라는 두 개의 SAP 시스템에 사용되는 고가용성 NFS 서버를 설정하는 방법에 대해 설명합니다. 예제에 포함된 리소스(예: 가상 머신, 가상 네트워크) 이름은 [SAP 파일 서버 템플릿][template-file-server]을 리소스 접두사인 **prod** 와 함께 사용한 것으로 가정합니다.
 
 먼저 다음 SAP 참고와 문서 읽기
 
@@ -120,7 +121,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    4. 관리자 사용자 이름 및 관리자 암호 -  
       컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
    5. 서브넷 ID  
-      서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로/subscriptions/** &lt; subscription &gt; ID**/Resourcegroups//** &lt; 리소스 그룹 이름 &gt; **/providers/Microsoft.Network/virtualNetworks/** &lt; 가상 네트워크 이름 &gt; **/subnets/** &lt; 서브넷 이름 &gt; ** 처럼 보입니다.
+      서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로/subscriptions/**&lt; subscription &gt; ID**/Resourcegroups//**&lt; 리소스 그룹 이름 &gt;**/providers/Microsoft.Network/virtualNetworks/**&lt; 가상 네트워크 이름 &gt;**/subnets/**&lt; 서브넷 이름 &gt;** 처럼 보입니다.
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Azure Portal을 통해 Linux를 수동으로 배포
 
@@ -158,7 +159,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. NW1의 경우 포트 61000
             1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
             1. 새 상태 프로브의 이름 입력(예: **nw1-hp**)
-            1. 프로토콜로 TCP를 선택하고 포트 610**00**을 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
+            1. 프로토콜로 TCP를 선택하고 포트 610 **00** 을 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
             1. 확인을 클릭합니다.
          1. NW2의 경우 포트 61001
             * 위의 단계를 반복하여 NW2용 상태 프로브 만들기
@@ -166,7 +167,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. 부하 분산 장치를 열고 부하 분산 규칙을 선택한 다음 추가를 클릭 합니다.
          1. 새 부하 분산 장치 규칙의 이름 입력 (예: **n w 1-lb**)
          1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **n w 1**)를 선택 합니다. **nw-백 엔드** 및 **n w 1-hp**)
-         1. **HA 포트**를 선택합니다.
+         1. **HA 포트** 를 선택합니다.
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
          1. 확인 클릭
@@ -192,7 +193,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. NW1의 경우 포트 61000
             1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
             1. 새 상태 프로브의 이름 입력(예: **nw1-hp**)
-            1. 프로토콜로 TCP를 선택하고 포트 610**00**을 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
+            1. 프로토콜로 TCP를 선택하고 포트 610 **00** 을 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
             1. 확인을 클릭합니다.
          1. NW2의 경우 포트 61001
             * 위의 단계를 반복하여 NW2용 상태 프로브 만들기
@@ -219,7 +220,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps**를 **0**으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](../../../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
+> Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps** 를 **0** 으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](../../../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 

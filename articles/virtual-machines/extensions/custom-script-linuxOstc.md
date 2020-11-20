@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 8b2099a6a48c9393b6e9e8b983a4acac2933bf06
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: afce76c8f5330f7d73ff58cc9b9307af2b8832f4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973838"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962130"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 1 사용
 
@@ -118,7 +119,7 @@ ms.locfileid: "91973838"
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.OSTCExtensions | 문자열 |

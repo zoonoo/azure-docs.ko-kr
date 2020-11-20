@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: e34701640de24a4c3c13f8d10073b4392af2f28a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b18627d2806662d6d966af95d51873d5623b2393
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88183652"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961127"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>.NET SDK를 사용하여 데이터 변환 시작
 
@@ -26,14 +26,14 @@ ms.locfileid: "88183652"
  
   이 문서에서는 샘플 .NET 콘솔 애플리케이션을 만들어 데이터 변환 작업을 시작하고 완료하기 위해 추적하는 방법을 자세히 설명합니다. 자동화를 통해 데이터 변환을 시작하는 방법에 대한 자세한 내용을 보려면 [Azure Automation Runbook을 사용하여 데이터 변환 작업 트리거](storsimple-data-manager-job-using-automation.md)로 이동합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목이 있어야 합니다.
 *   다음을 실행하는 컴퓨터:
 
     - Visual Studio 2012, 2013, 2015 또는 2017.
 
-    - Azure Powershell. [Azure Powershell을 다운로드합니다](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+    - Azure Powershell. [Azure Powershell을 다운로드합니다](/powershell/azure/).
 *   리소스 그룹 내 StorSimple 데이터 관리자에 올바르게 구성된 작업 정의
 *   모든 필수 dll입니다. 이러한 dll을 [GitHub 리포지토리](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls)에서 다운로드합니다.
 *   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) GitHub 리포지토리에서 스크립트를 시작 합니다.
@@ -61,25 +61,25 @@ ms.locfileid: "88183652"
 
 3. Visual Studio 2012, 2013 또는 2015를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
 
-    1. **Visual Studio 2012/2013/2015**를 시작 합니다.
-    1. **파일 > 새로 만들기 > 프로젝트**를 선택합니다.
+    1. **Visual Studio 2012/2013/2015** 를 시작 합니다.
+    1. **파일 > 새로 만들기 > 프로젝트** 를 선택합니다.
 
         ![프로젝트 1 만들기](media/storsimple-data-manager-dotnet-jobs/create-new-project-7.png)        
-    2. **설치됨 &gt; 템플릿 &gt; Visual C# &gt; 콘솔 애플리케이션**을 선택합니다.
-    3. **이름**으로 **DataTransformationApp**을 입력합니다.
-    4. **위치**로 **C:\DataTransformation**을 선택합니다.
-    6. **확인**을 클릭하여 프로젝트를 만듭니다.
+    2. **설치됨 &gt; 템플릿 &gt; Visual C# &gt; 콘솔 애플리케이션** 을 선택합니다.
+    3. **이름** 으로 **DataTransformationApp** 을 입력합니다.
+    4. **위치** 로 **C:\DataTransformation** 을 선택합니다.
+    6. **확인** 을 클릭하여 프로젝트를 만듭니다.
 
         ![프로젝트 2 만들기](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4. 이제 만든 프로젝트에서 [dlls 폴더](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls)에서 **참조**로 나타난 모든 DLL을 추가합니다. dll 파일을 추가하려면 다음 단계를 수행합니다.
+4. 이제 만든 프로젝트에서 [dlls 폴더](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls)에서 **참조** 로 나타난 모든 DLL을 추가합니다. dll 파일을 추가하려면 다음 단계를 수행합니다.
 
-   1. Visual Studio에서 **보기 > 솔루션 탐색기**로 이동합니다.
-   2. 데이터 변환 앱 프로젝트의 왼쪽에 있는 화살표를 클릭합니다. **참조**를 클릭하고 **참조 추가**를 마우스 오른쪽 단추로 선택합니다.
+   1. Visual Studio에서 **보기 > 솔루션 탐색기** 로 이동합니다.
+   2. 데이터 변환 앱 프로젝트의 왼쪽에 있는 화살표를 클릭합니다. **참조** 를 클릭하고 **참조 추가** 를 마우스 오른쪽 단추로 선택합니다.
     
        ![dll 1 추가](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
 
-   3. 패키지 폴더의 위치로 이동하고 모든 DLL을 선택한 다음 **추가**를 클릭한 다음 **확인**을 클릭합니다.
+   3. 패키지 폴더의 위치로 이동하고 모든 DLL을 선택한 다음 **추가** 를 클릭한 다음 **확인** 을 클릭합니다.
 
        ![dll 2 추가](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 
@@ -94,7 +94,7 @@ ms.locfileid: "88183652"
     using Microsoft.Internal.Dms.DmsWebJob.Contracts;
     ```
     
-6. 다음 코드는 데이터 변환 작업 인스턴스를 초기화합니다. **Main 메서드**에 이 코드를 추가합니다. 앞에서 가져온 대로 구성 매개 변수 값을 바꿉니다. **ResourceGroupName** 및 **ResourceName**의 값에 연결합니다. **ResourceGroupName**은 작업 정의가 구성된 StorSimple 데이터 관리자와 연결됩니다. **ResourceName**은 StorSimple 데이터 관리자 서비스의 이름입니다.
+6. 다음 코드는 데이터 변환 작업 인스턴스를 초기화합니다. **Main 메서드** 에 이 코드를 추가합니다. 앞에서 가져온 대로 구성 매개 변수 값을 바꿉니다. **ResourceGroupName** 및 **ResourceName** 의 값에 연결합니다. **ResourceGroupName** 은 작업 정의가 구성된 StorSimple 데이터 관리자와 연결됩니다. **ResourceName** 은 StorSimple 데이터 관리자 서비스의 이름입니다.
 
     ```
     // Setup the configuration parameters.
@@ -149,7 +149,7 @@ ms.locfileid: "88183652"
     };
     ```
 
-8. 초기화 후에 작업 정의에서 다음 코드를 추가하여 데이터 변환 작업을 트리거합니다. 적절한 **작업 정의 이름**에 연결합니다.
+8. 초기화 후에 작업 정의에서 다음 코드를 추가하여 데이터 변환 작업을 트리거합니다. 적절한 **작업 정의 이름** 에 연결합니다.
 
     ```
     // Trigger a job, retrieve the jobId and the retry interval for polling.

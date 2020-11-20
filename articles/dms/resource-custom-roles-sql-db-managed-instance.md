@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: e950e34a1965e309d226c42bf4b3128cbe3bf3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad02735228bb639981bf3f053a74f29d1944e5a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291506"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961484"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Azure SQL Managed Instance 온라인 마이그레이션에 SQL Server 하기 위한 사용자 지정 역할
 
@@ -32,7 +32,7 @@ Azure Database Migration Service는 앱 ID를 사용 하 여 Azure 서비스와 
 > [!NOTE]
 > 새 SQL Managed Instance 코드가 Azure에 배포 되 면 최종적으로 마지막 사용자 지정 역할 요구 사항이 제거 될 수 있습니다.
 
-**앱 ID에 대 한 사용자 지정 역할**입니다. 이 역할은 *리소스* 또는 *리소스 그룹* 수준에서 마이그레이션을 Azure Database Migration Service 하는 데 필요 합니다. 앱 ID에 대 한 자세한 내용은 포털을 [사용 하 여 리소스에 액세스할 수 있는 Azure AD 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)문서를 참조 하세요.
+**앱 ID에 대 한 사용자 지정 역할** 입니다. 이 역할은 *리소스* 또는 *리소스 그룹* 수준에서 마이그레이션을 Azure Database Migration Service 하는 데 필요 합니다. 앱 ID에 대 한 자세한 내용은 포털을 [사용 하 여 리소스에 액세스할 수 있는 Azure AD 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)문서를 참조 하세요.
 
 ```json
 {
@@ -63,7 +63,7 @@ Azure Database Migration Service는 앱 ID를 사용 하 여 Azure 서비스와 
 }
 ```
 
-**앱 ID-구독에 대 한 사용자 지정 역할**입니다. 이 역할은 *구독* 수준에서 Azure Database Migration Service 마이그레이션을 위해 필요 합니다.
+**앱 ID-구독에 대 한 사용자 지정 역할** 입니다. 이 역할은 *구독* 수준에서 Azure Database Migration Service 마이그레이션을 위해 필요 합니다.
 
 ```json
 {
@@ -83,7 +83,7 @@ Azure Database Migration Service는 앱 ID를 사용 하 여 Azure 서비스와 
 
 위의 json은 3 개의 텍스트 파일에 저장 해야 하며, AzureRM, AZ PowerShell cmdlet 또는 Azure CLI를 사용 하 여 **get-azurermroledefinition (AzureRM)** 또는 **AzRoleDefinition (AZ)** 를 사용 하 여 역할을 만들 수 있습니다.
 
-자세한 내용은 [Azure 사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)문서를 참조 하세요.
+자세한 내용은 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)문서를 참조 하세요.
 
 이러한 사용자 지정 역할을 만든 후에는 사용자 및 앱 ID에 역할 할당을 적절 한 리소스 또는 리소스 그룹에 추가 해야 합니다.
 
@@ -142,7 +142,7 @@ Azure Active Directory의 사용자 지정 역할 수가 별로 중요 하지 �
 
 사용자/앱 ID에 역할을 할당 하려면 Azure Portal을 열고 다음 단계를 수행 합니다.
 
-1. 리소스 그룹 또는 리소스 (구독에 부여 해야 하는 역할 제외)로 이동 하 고 **Access Control**로 이동한 다음 스크롤하여 방금 만든 사용자 지정 역할을 찾습니다.
+1. 리소스 그룹 또는 리소스 (구독에 부여 해야 하는 역할 제외)로 이동 하 고 **Access Control** 로 이동한 다음 스크롤하여 방금 만든 사용자 지정 역할을 찾습니다.
 
 2. 적절 한 역할을 선택 하 고 앱 ID를 선택한 다음 변경 내용을 저장 합니다.
 

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: f13e402344111dea28514ed7b0d381b46ff73064
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d0103857b6f759560129dbe8e693ec6c0d7291e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743610"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961212"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Azure Automation을 사용하여 작업 트리거
 
@@ -22,11 +22,11 @@ ms.locfileid: "91743610"
  
 이 문서에서는 Azure Automation Runbook을 만든 후 사용하여 데이터 변환 작업을 시작하는 방법을 자세히 설명합니다. .NET SDK를 통해 데이터 변환을 시작하는 방법에 대한 자세한 내용은 [.NET SDK를 사용하여 데이터 변환 작업 트리거](storsimple-data-manager-dotnet-jobs.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목이 있어야 합니다.
 
-*   클라이언트 컴퓨터에 설치된 Azure PowerShell. [Azure PowerShell를 다운로드](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)합니다.
+*   클라이언트 컴퓨터에 설치된 Azure PowerShell. [Azure PowerShell를 다운로드](/powershell/azure/azurerm/install-azurerm-ps)합니다.
 *   리소스 그룹 내의 StorSimple 데이터 관리자 서비스에서 올바르게 구성된 작업 정의.
 *   [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip)GitHub 리포지토리에서 파일을 다운로드 합니다. 
 *   [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1)GitHub 리포지토리에서 스크립트를 다운로드 합니다.
@@ -35,22 +35,22 @@ ms.locfileid: "91743610"
 
 ### <a name="set-up-the-automation-account"></a>Automation 계정 설정
 
-1. Azure Portal에서 Azure 실행 자동화 계정을 만듭니다. 이렇게 하려면 **Azure Marketplace > 모두**로 이동한 다음 **자동화**를 검색합니다. **Automation 계정**을 선택 합니다.
+1. Azure Portal에서 Azure 실행 자동화 계정을 만듭니다. 이렇게 하려면 **Azure Marketplace > 모두** 로 이동한 다음 **자동화** 를 검색합니다. **Automation 계정** 을 선택 합니다.
 
     ![Automation 실행 계정 만들기](./media/storsimple-data-manager-job-using-automation/search-automation-account1.png)
 
-2. 새 Automation 계정을 추가하려면 **+ 추가**를 클릭합니다.
+2. 새 Automation 계정을 추가하려면 **+ 추가** 를 클릭합니다.
 
     ![실행 automation 계정 만들기 2](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
 
-3. **Automation 추가**에서
+3. **Automation 추가** 에서
 
    1. Automation 계정의 **이름을** 제공 합니다.
-   2. StorSimple 데이터 관리자 서비스에 연결된 **구독**을 선택합니다.
+   2. StorSimple 데이터 관리자 서비스에 연결된 **구독** 을 선택합니다.
    3. 새 리소스 그룹을 만들거나 기존 리소스 그룹에서 선택합니다.
-   4. **위치**를 선택합니다.
+   4. **위치** 를 선택합니다.
    5. 기본 **실행 계정 만들기** 옵션을 선택된 상태로 둡니다.
-   6. 대시보드에 빠른 액세스에 대한 링크를 표시하려면 **대시보드에 고정**을 선택합니다. **만들기**를 클릭합니다.
+   6. 대시보드에 빠른 액세스에 대한 링크를 표시하려면 **대시보드에 고정** 을 선택합니다. **만들기** 를 클릭합니다.
 
       ![실행 automation 계정 만들기 3](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
@@ -58,13 +58,13 @@ ms.locfileid: "91743610"
     
       ![Automation 계정 배포 알림](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-      자세한 내용은 [실행 계정 만들기](../automation/automation-create-runas-account.md)로 이동합니다.
+      자세한 내용은 [실행 계정 만들기](../automation/manage-runas-account.md)로 이동합니다.
 
-3. 새로 만든 계정에서 **공유 리소스 > 모듈**로 이동한 다음 **+ 모듈 추가**를 클릭합니다.
+3. 새로 만든 계정에서 **공유 리소스 > 모듈** 로 이동한 다음 **+ 모듈 추가** 를 클릭합니다.
 
     ![가져오기 모듈 1](./media/storsimple-data-manager-job-using-automation/import-module-1.png)
 
-4. 로컬 컴퓨터에서 `DataTransformationApp.zip` 파일 위치를 찾은 후 모듈을 선택하여 엽니다. **확인**을 클릭하여 모듈을 가져옵니다.
+4. 로컬 컴퓨터에서 `DataTransformationApp.zip` 파일 위치를 찾은 후 모듈을 선택하여 엽니다. **확인** 을 클릭하여 모듈을 가져옵니다.
 
     ![가져오기 모듈 2](./media/storsimple-data-manager-job-using-automation/import-module-2.png)
 
@@ -72,7 +72,7 @@ ms.locfileid: "91743610"
 
    ![가져오기 모듈 4](./media/storsimple-data-manager-job-using-automation/import-module-4.png)
 
-5. 모듈이 배포되는 도중 및 완료 시점에 알림이 표시됩니다.  **모듈**의 상태가 **사용 가능**으로 변경됩니다.
+5. 모듈이 배포되는 도중 및 완료 시점에 알림이 표시됩니다.  **모듈** 의 상태가 **사용 가능** 으로 변경됩니다.
 
     ![가져오기 모듈 5](./media/storsimple-data-manager-job-using-automation/import-module-5.png)
 
@@ -80,13 +80,13 @@ ms.locfileid: "91743610"
 
 다음 단계에 따라 Runbook을 가져오기, 게시 및 실행하여 작업 정의를 트리거합니다.
 
-1. Azure Portal에서 Automation 계정을 엽니다. **프로세스 자동화 > Runbook**으로 이동한 다음 **+ Runbook 추가**를 클릭합니다.
+1. Azure Portal에서 Automation 계정을 엽니다. **프로세스 자동화 > Runbook** 으로 이동한 다음 **+ Runbook 추가** 를 클릭합니다.
 
     ![Runbook 추가 1](./media/storsimple-data-manager-job-using-automation/add-runbook-1.png)
 
-2. **Runbook 추가**에서 **기존 Runbook 가져오기**를 클릭합니다.
+2. **Runbook 추가** 에서 **기존 Runbook 가져오기** 를 클릭합니다.
 
-3. **Runbook 파일**의 Azure PowerShell 스크립트 파일 `Trigger-DataTransformation-Job.ps1`을 가리킵니다. Runbook 유형이 자동으로 선택됩니다. Runbook의 이름과 선택적 설명을 입력합니다. **만들기**를 클릭합니다.
+3. **Runbook 파일** 의 Azure PowerShell 스크립트 파일 `Trigger-DataTransformation-Job.ps1`을 가리킵니다. Runbook 유형이 자동으로 선택됩니다. Runbook의 이름과 선택적 설명을 입력합니다. **만들기** 를 클릭합니다.
 
     ![Runbook 추가 2](./media/storsimple-data-manager-job-using-automation/add-runbook-2.png)
 
@@ -98,21 +98,21 @@ ms.locfileid: "91743610"
 
     ![Runbook 추가 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
 
-6. StorSimple Data Manager 서비스의 이름, 연결된 리소스 그룹 및 작업 정의 이름 등의 매개 변수를 제공합니다. 테스트를 **시작**합니다. 실행이 완료되면 보고서가 생성됩니다. 자세한 내용은 [Runbook 테스트](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook) 방법을 참조하세요.
+6. StorSimple Data Manager 서비스의 이름, 연결된 리소스 그룹 및 작업 정의 이름 등의 매개 변수를 제공합니다. 테스트를 **시작** 합니다. 실행이 완료되면 보고서가 생성됩니다. 자세한 내용은 [Runbook 테스트](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook) 방법을 참조하세요.
 
     ![Runbook 추가 5](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
 
-7. 테스트 창에서 Runbook의 출력을 검사합니다. 만족스러우면 창을 닫습니다. **게시**를 클릭하고, 확인 메시지가 표시되면 Runbook을 확인 및 게시합니다.
+7. 테스트 창에서 Runbook의 출력을 검사합니다. 만족스러우면 창을 닫습니다. **게시** 를 클릭하고, 확인 메시지가 표시되면 Runbook을 확인 및 게시합니다.
 
     ![Runbook 추가 6](./media/storsimple-data-manager-job-using-automation/add-runbook-6.png)
 
-8. **Runbook**으로 돌아간 후 새로 만든 Runbook을 선택합니다.
+8. **Runbook** 으로 돌아간 후 새로 만든 Runbook을 선택합니다.
 
     ![Runbook 추가 7](./media/storsimple-data-manager-job-using-automation/add-runbook-7.png)
 
-9. Runbook을 **시작** 합니다. **Runbook 시작**에서 모든 매개 변수를 입력합니다. **확인**을 클릭하여 제출하고 데이터 변환 작업을 시작합니다.
+9. Runbook을 **시작** 합니다. **Runbook 시작** 에서 모든 매개 변수를 입력합니다. **확인** 을 클릭하여 제출하고 데이터 변환 작업을 시작합니다.
 
-10. Azure Portal에서 작업 진행 상황을 모니터링하려면 StorSimple 데이터 관리자 서비스의 **작업**으로 이동합니다. 작업을 선택한 후 클릭하여 작업 세부 정보를 확인합니다.
+10. Azure Portal에서 작업 진행 상황을 모니터링하려면 StorSimple 데이터 관리자 서비스의 **작업** 으로 이동합니다. 작업을 선택한 후 클릭하여 작업 세부 정보를 확인합니다.
 
     ![Runbook 추가 10](./media/storsimple-data-manager-job-using-automation/add-runbook-10.png)
 

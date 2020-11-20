@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f107741dc3e601d0a46c295932a745c99dadb96d
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ed1c183281aea830e9cd61c1d95c6c092adbe05c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328079"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960685"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Azure DNS에 대 한 Azure 보안 기준
 
@@ -20,7 +20,7 @@ Microsoft Azure DNS의 Azure 보안 기준에는 배포의 보안 상태를 개�
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
-*자세한 내용은 [Azure 보안 벤치 마크: 로깅 및 모니터링](/azure/security/benchmarks/security-control-logging-monitoring)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 로깅 및 모니터링](../security/benchmarks/security-control-logging-monitoring.md)을 참조 하세요.*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: 중앙 보안 로그 관리 구성
 
@@ -90,7 +90,7 @@ Azure Monitor를 통해 로그를 수집 하 여 끝점 장치, 네트워크 리
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-*자세한 내용은 [Azure 보안 벤치 마크: id 및 액세스 제어](/azure/security/benchmarks/security-control-identity-access-control)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: id 및 액세스 제어](../security/benchmarks/security-control-identity-access-control.md)를 참조 하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
@@ -98,9 +98,9 @@ Azure Monitor를 통해 로그를 수집 하 여 끝점 장치, 네트워크 리
 
 Azure DNS에는 DNS 영역 참가자 역할 뿐만 아니라 영역 수준 및 레코드 집합 수준 Azure RBAC도 있습니다. 또한 세부적인 제어를 제공 하기 위해 사용자 지정 Azure 역할을 빌드할 수 있습니다. 개인 DNS 영역 리소스는 다른 역할 이름 사설 DNS 영역 기여자를 사용 합니다.
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 - [Azure DNS의 Azure RBAC 이해](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
@@ -128,7 +128,7 @@ Azure DNS에는 DNS 영역 참가자 역할 뿐만 아니라 영역 수준 및 �
 
 Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하 여 관리자 계정에 대 한 just-in-time 액세스를 사용 하도록 설정할 수도 있습니다. 
 
-- [Privileged Identity Management에 대 한 자세한 정보](/azure/active-directory/privileged-identity-management/)
+- [Privileged Identity Management에 대 한 자세한 정보](../active-directory/privileged-identity-management/index.yml)
 
 - [Azure Policy를 사용하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -178,7 +178,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: Azure Active Directory 보안 보고서 및 모니터링을 사용 하 여 환경에서 의심 스러운 활동이 나 안전 하지 않은 활동이 발생 하는 시기를 검색 합니다. Azure Security Center를 사용하여 ID 및 액세스 활동을 모니터링합니다.
 
-- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Azure Security Center에서 사용자의 ID 및 액세스 활동을 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
@@ -210,7 +210,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: Azure Active Directory는 부실 계정을 검색하는 데 도움이 되는 로그를 제공합니다. 또한 Azure AD id 및 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리 합니다. 사용자 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 할 수 있습니다. 
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure AD id 및 액세스 검토를 사용 하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -224,7 +224,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성할 수 있습니다.
 
-- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -234,7 +234,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure AD ID 보호 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -246,13 +246,13 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [Azure 보안 벤치 마크: 데이터 보호](/azure/security/benchmarks/security-control-data-protection)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조 하세요.*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요한 정보의 인벤토리 유지 관리
 
 **지침**: 태그를 사용하여 중요한 정보를 저장하거나 처리하는 Azure 리소스를 추적할 수 있도록 지원합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -286,7 +286,7 @@ Azure DNS에는 DNS 영역 참가자 역할 뿐만 아니라 영역 수준 및 �
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
-*자세한 내용은 [Azure 보안 벤치 마크: 인벤토리 및 자산 관리](/azure/security/benchmarks/security-control-inventory-asset-management)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 인벤토리 및 자산 관리](../security/benchmarks/security-control-inventory-asset-management.md)를 참조 하세요.*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: 자동화 된 asset discovery 솔루션 사용
 
@@ -294,9 +294,9 @@ Azure DNS에는 DNS 영역 참가자 역할 뿐만 아니라 영역 수준 및 �
 
 클래식 Azure 리소스는 Azure 리소스 그래프 탐색기를 통해 검색 될 수 있지만 앞으로 Azure Resource Manager 리소스를 만들고 사용 하는 것이 좋습니다.
 
-- [Azure 리소스 그래프 탐색기를 사용 하 여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
+- [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 보는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Azure 구독을 보는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -308,7 +308,7 @@ Azure DNS에는 DNS 영역 참가자 역할 뿐만 아니라 영역 수준 및 �
 
 **지침**: 정책 이름, 설명 및 범주를 사용 하 여 분류에 따라 자산을 논리적으로 구성 합니다.
 
-- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태깅 결정 가이드를 참조 하세요.](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태깅 결정 가이드를 참조 하세요.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -318,11 +318,11 @@ Azure DNS에는 DNS 영역 참가자 역할 뿐만 아니라 영역 수준 및 �
 
 **지침**: 해당하는 경우 태그 지정, 관리 그룹 및 별도의 구독을 사용하여 Azure 리소스를 구성하고 추적합니다. 정기적으로 인벤토리를 조정하고, 구독에서 권한 없는 리소스가 적시에 삭제되도록 합니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -362,7 +362,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -380,13 +380,13 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 ## <a name="secure-configuration"></a>보안 구성
 
-*자세한 내용은 [Azure 보안 벤치 마크: 보안 구성](/azure/security/benchmarks/security-control-secure-configuration)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 보안 구성](../security/benchmarks/security-control-secure-configuration.md)을 참조 하세요.*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
 **지침**: Azure Policy를 사용 하 여 Azure DNS에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Microsoft. Network" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Recovery Services 자격 증명 모음 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다.
 
-- [사용 가능한 Azure Policy 별칭을 보는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -416,9 +416,9 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: 사용자 지정 Azure Policy 정의를 사용 하는 경우 Azure devops 또는 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -456,7 +456,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 ## <a name="malware-defense"></a>맬웨어 방어
 
-*자세한 내용은 [Azure 보안 벤치 마크: 맬웨어 방어](/azure/security/benchmarks/security-control-malware-defense)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 맬웨어 방어](../security/benchmarks/security-control-malware-defense.md)를 참조 하세요.*
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: 비 컴퓨팅 Azure 리소스에 업로드할 파일 미리 검사
 
@@ -470,7 +470,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [Azure 보안 벤치 마크: 인시던트 응답](/azure/security/benchmarks/security-control-incident-response)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 인시던트 응답](../security/benchmarks/security-control-incident-response.md)을 참조 하세요.*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
@@ -494,7 +494,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 예
 
@@ -544,13 +544,13 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
-*자세한 내용은 [Azure 보안 벤치 마크: 침투 테스트 및 레드 팀 연습](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 침투 테스트 및 레드 팀 연습](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)을 참조 하세요.*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
 **지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
 
-- [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 - [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
@@ -560,5 +560,5 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

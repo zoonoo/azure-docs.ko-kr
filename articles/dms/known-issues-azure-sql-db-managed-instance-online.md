@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 6393624cb4520ccd28dff41dd97746873bc13f59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d5c79a141dbe1310762dc90b447fe78848ac10d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330301"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962487"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 온라인 마이그레이션과 관련 하 여 알려진 문제/마이그레이션 제한 사항
 
@@ -31,7 +31,7 @@ SQL Server에서 Azure SQL Managed Instance로의 온라인 마이그레이션�
 
     Azure Database Migration Service는 백업 및 복원 방법을 사용 하 여 온-프레미스 데이터베이스를 SQL Managed Instance 마이그레이션합니다. Azure Database Migration Service는 checksum을 사용 하 여 만든 백업만 지원 합니다.
 
-    [백업 또는 복원 중 백업 체크섬 사용 또는 사용 안 함 (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
+    [백업 또는 복원 중 백업 체크섬 사용 또는 사용 안 함 (SQL Server)](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
 
     > [!NOTE]
     > 압축을 사용 하 여 데이터베이스 백업을 수행 하는 경우 명시적으로 사용 하지 않는 한 체크섬은 기본 동작입니다.

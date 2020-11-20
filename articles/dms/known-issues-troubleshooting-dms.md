@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: f0ec9d2a3794ea910339b4d329bb28f23c5a76b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4baca7f261aa7544b54992a5e1ddf620794774f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297361"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962283"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>일반적인 Azure Database Migration Service 문제 및 오류 해결
 
@@ -25,7 +25,7 @@ ms.locfileid: "91297361"
 > [!NOTE]
 > 바이어스 없는 통신
 >
-> Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word _슬레이브_에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 _slave(슬레이브)_ 라는 단어에 대한 참조가 포함되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md)에서는 이 단어를 '배제(exclusionary)'라는 단어로 인식합니다. 이 단어는 현재 소프트웨어에 표시되는 단어이므로 일관성을 위해 이 문서에서 사용됩니다. 이 단어를 제거하도록 소프트웨어가 업데이트되면 이 문서도 이에 맞춰 업데이트됩니다.
 >
 
 ## <a name="migration-activity-in-queued-state"></a>대기 상태의 마이그레이션 작업
@@ -54,7 +54,7 @@ Azure Database Migration Service를 사용 하 여 MySQL에서 Azure Database fo
 
 | 원인         | 해결 방법 |
 | ------------- | ------------- |
-| 이 오류는 마이그레이션을 수행 하는 사용자에 게 게 replicationadmin 역할이 역할 및/또는 복제 클라이언트, 복제 복제본 및 슈퍼 (MySQL 5.6.6 이전 버전)의 권한이 없는 경우에 발생할 수 있습니다.<br><br><br><br><br><br><br><br><br><br><br><br><br> | 사용자 계정에 대 한 필수 구성 요소 [권한이](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) Azure Database for MySQL 인스턴스에서 정확 하 게 구성 되었는지 확인 합니다. 예를 들어 다음 단계를 수행 하 여 필요한 권한이 있는 ' migrateuser ' 라는 사용자를 만들 수 있습니다.<br>1. ' secret '로 식별 된 사용자 migrateuser@ '% '을 (를) 만듭니다. <br>2. ' migrateuser ' @ '% '에 대 db_name 한 모든 권한을 ' secret '로 식별 된 모든 권한을 부여 합니다. 이 단계를 반복 하 여 더 많은 데이터베이스에 대 한 액세스 권한 부여 <br>3. 복제 종속 *을에 부여 합니다.* ' secret '로 식별 되는 ' migrateuser ' @ '% '<br>4 .에 복제 클라이언트를 *부여 합니다.* ' secret '로 식별 되는 ' migrateuser ' @ '% '<br>5. Flush 권한; |
+| 이 오류는 마이그레이션을 수행 하는 사용자에 게 게 replicationadmin 역할이 역할 및/또는 복제 클라이언트, 복제 복제본 및 슈퍼 (MySQL 5.6.6 이전 버전)의 권한이 없는 경우에 발생할 수 있습니다.<br><br><br><br><br><br><br><br><br><br><br><br><br> | 사용자 계정에 대 한 필수 구성 요소 [권한이](./tutorial-mysql-azure-mysql-online.md#prerequisites) Azure Database for MySQL 인스턴스에서 정확 하 게 구성 되었는지 확인 합니다. 예를 들어 다음 단계를 수행 하 여 필요한 권한이 있는 ' migrateuser ' 라는 사용자를 만들 수 있습니다.<br>1. ' secret '로 식별 된 사용자 migrateuser@ '% '을 (를) 만듭니다. <br>2. ' migrateuser ' @ '% '에 대 db_name 한 모든 권한을 ' secret '로 식별 된 모든 권한을 부여 합니다. 이 단계를 반복 하 여 더 많은 데이터베이스에 대 한 액세스 권한 부여 <br>3. 복제 종속 *을에 부여 합니다.* ' secret '로 식별 되는 ' migrateuser ' @ '% '<br>4 .에 복제 클라이언트를 *부여 합니다.* ' secret '로 식별 되는 ' migrateuser ' @ '% '<br>5. Flush 권한; |
 
 ## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Azure Database Migration Service를 중지 하는 동안 오류 발생
 
@@ -84,7 +84,7 @@ SQL Server에서 Azure SQL Managed Instance로 온라인 마이그레이션을 �
 
 | 원인         | 해결 방법    |
 | ------------- | ------------- |
-| 이 오류는 SQL Server에서 SQL Managed Instance로의 온라인 마이그레이션에 사용 되는 응용 프로그램 보안 주체가 구독에 대 한 참가 권한이 없음을 나타냅니다. 현재 Managed Instance 있는 특정 API 호출에는 복원 작업에 대 한 구독에 대 한이 권한이 필요 합니다. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | `Get-AzureADServicePrincipal` `-ObjectId` 오류 메시지에서 사용할 수 있는 PowerShell cmdlet을 사용 하 여 사용 중인 응용 프로그램 ID의 표시 이름을 나열 합니다.<br><br> 이 응용 프로그램에 대 한 사용 권한의 유효성을 검사 하 고 구독 수준에서 [참가자 역할이](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) 있는지 확인 합니다. <br><br> Azure Database Migration Service 엔지니어링 팀에서 구독에 대 한 현재 참가 역할의 필수 액세스를 제한 하기 위해 작업 중입니다. 참가 역할의 사용을 허용 하지 않는 비즈니스 요구 사항이 있는 경우 Azure 지원에 문의 하 여 추가 도움을 요청 합니다. |
+| 이 오류는 SQL Server에서 SQL Managed Instance로의 온라인 마이그레이션에 사용 되는 응용 프로그램 보안 주체가 구독에 대 한 참가 권한이 없음을 나타냅니다. 현재 Managed Instance 있는 특정 API 호출에는 복원 작업에 대 한 구독에 대 한이 권한이 필요 합니다. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | `Get-AzureADServicePrincipal` `-ObjectId` 오류 메시지에서 사용할 수 있는 PowerShell cmdlet을 사용 하 여 사용 중인 응용 프로그램 ID의 표시 이름을 나열 합니다.<br><br> 이 응용 프로그램에 대 한 사용 권한의 유효성을 검사 하 고 구독 수준에서 [참가자 역할이](../role-based-access-control/built-in-roles.md#contributor) 있는지 확인 합니다. <br><br> Azure Database Migration Service 엔지니어링 팀에서 구독에 대 한 현재 참가 역할의 필수 액세스를 제한 하기 위해 작업 중입니다. 참가 역할의 사용을 허용 하지 않는 비즈니스 요구 사항이 있는 경우 Azure 지원에 문의 하 여 추가 도움을 요청 합니다. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Azure Database Migration Service와 연결 된 NIC를 삭제 하는 동안 오류 발생
 
@@ -102,7 +102,7 @@ Azure Database Migration 서비스 프로젝트 마법사에서 원본에 연결
 
 | 원인         | 해결 방법    |
 | ------------- | ------------- |
-| [Express](https://azure.microsoft.com/services/expressroute/)경로를 사용 하는 경우 서비스와 연결 된 Virtual Network 서브넷에서 3 개의 서비스 끝점을 프로 비전 [해야](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) Azure Database Migration Service.<br> --Service Bus 끝점<br> --저장소 끝점<br> --대상 데이터베이스 끝점 (예: SQL 끝점, Cosmos DB 끝점)<br><br><br><br><br> | 원본 및 Azure Database Migration Service 간 Express 경로 연결에 필요한 서비스 끝점을 [사용 하도록 설정](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) 합니다. <br><br><br><br><br><br><br><br> |
+| [Express](https://azure.microsoft.com/services/expressroute/)경로를 사용 하는 경우 서비스와 연결 된 Virtual Network 서브넷에서 3 개의 서비스 끝점을 프로 비전 [해야](./tutorial-sql-server-azure-sql-online.md) Azure Database Migration Service.<br> --Service Bus 끝점<br> --저장소 끝점<br> --대상 데이터베이스 끝점 (예: SQL 끝점, Cosmos DB 끝점)<br><br><br><br><br> | 원본 및 Azure Database Migration Service 간 Express 경로 연결에 필요한 서비스 끝점을 [사용 하도록 설정](./tutorial-sql-server-azure-sql-online.md) 합니다. <br><br><br><br><br><br><br><br> |
 
 ## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Mysql 용 Azure DB로 MySQL 데이터베이스를 마이그레이션할 때 잠금 대기 시간 초과 오류가 발생 했습니다.
 
@@ -126,13 +126,13 @@ Azure Database Migration Service를 통해 MySQL 데이터베이스를 Azure Dat
 
 ## <a name="additional-known-issues"></a>추가 알려진 문제
 
-* [Azure SQL Database에 대 한 온라인 마이그레이션과 관련 하 여 알려진 문제/마이그레이션 제한 사항](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
-* [Azure Database for MySQL에 대 한 온라인 마이그레이션과 관련 하 여 알려진 문제/마이그레이션 제한 사항](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
-* [Azure Database for PostgreSQL에 대 한 온라인 마이그레이션과 관련 하 여 알려진 문제/마이그레이션 제한 사항](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
+* [Azure SQL Database에 대 한 온라인 마이그레이션과 관련 하 여 알려진 문제/마이그레이션 제한 사항](./known-issues-azure-sql-online.md)
+* [Azure Database for MySQL에 대 한 온라인 마이그레이션과 관련 하 여 알려진 문제/마이그레이션 제한 사항](./known-issues-azure-mysql-online.md)
+* [Azure Database for PostgreSQL에 대 한 온라인 마이그레이션과 관련 하 여 알려진 문제/마이그레이션 제한 사항](./known-issues-azure-postgresql-online.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [PowerShell Azure Database Migration Service](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration)문서를 참조 하세요.
-* [Azure Portal를 사용 하 여 Azure Database for MySQL에서 서버 매개 변수를 구성 하는 방법](https://docs.microsoft.com/azure/mysql/howto-server-parameters)문서를 참조 하세요.
-* [Azure Database Migration Service 사용을 위한 필수 구성 요소 개요](https://docs.microsoft.com/azure/dms/pre-reqs)문서를 참조 하세요.
-* [Azure Database Migration Service 사용에 대 한 FAQ](https://docs.microsoft.com/azure/dms/faq)를 참조 하세요.
+* [PowerShell Azure Database Migration Service](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration)문서를 참조 하세요.
+* [Azure Portal를 사용 하 여 Azure Database for MySQL에서 서버 매개 변수를 구성 하는 방법](../mysql/howto-server-parameters.md)문서를 참조 하세요.
+* [Azure Database Migration Service 사용을 위한 필수 구성 요소 개요](./pre-reqs.md)문서를 참조 하세요.
+* [Azure Database Migration Service 사용에 대 한 FAQ](./faq.md)를 참조 하세요.

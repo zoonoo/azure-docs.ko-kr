@@ -11,19 +11,19 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: dd8eff01cd52f8d80eb56f3a1ebe924763c8b70c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6cd4bbec89e955c398f7cb6e37ba5c3dcc6427ea
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441702"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961229"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대한 액세스 관리
 
 이 문서에서는 Azure Machine Learning 작업 영역에 대 한 액세스 (권한 부여)를 관리 하는 방법에 대해 알아봅니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) 는 새 리소스를 만들거나 기존 리소스를 사용 하는 기능과 같은 azure 리소스에 대 한 액세스를 관리 하는 데 사용 됩니다. Azure AD (Azure Active Directory)의 사용자에 게는 리소스에 대 한 액세스 권한을 부여 하는 특정 역할이 할당 됩니다. Azure는 기본 제공 역할 및 사용자 지정 역할을 만드는 기능을 모두 제공 합니다.
 
 > [!TIP]
-> 이 문서에서는 Azure Machine Learning에 중점을 둔 반면, Azure ML에 의존 하는 개별 서비스는 자체 RBAC 설정을 제공 합니다. 예를 들어이 문서의 정보를 사용 하 여 Azure Kubernetes Service에서 웹 서비스로 배포 된 모델에 점수 매기기 요청을 제출할 수 있는 사람을 구성할 수 있습니다. 그러나 Azure Kubernetes Service는 자체 Azure RBAC 역할 집합을 제공 합니다. Azure Machine Learning에 유용할 수 있는 서비스별 RBAC 정보는 다음 링크를 참조 하세요.
+> 이 문서에서는 Azure Machine Learning에 중점을 둔 반면, Azure ML에 의존 하는 개별 서비스는 자체 RBAC 설정을 제공 합니다. 예를 들어이 문서의 정보를 사용 하 여 Azure Kubernetes Service에서 웹 서비스로 배포 된 모델에 점수 매기기 요청을 제출할 수 있는 사람을 구성할 수 있습니다. 그러나 Azure Kubernetes Service는 자체 Azure 역할 집합을 제공 합니다. Azure Machine Learning에 유용할 수 있는 서비스별 RBAC 정보는 다음 링크를 참조 하세요.
 >
 > * [Azure Kubernetes 클러스터 리소스에 대 한 액세스 제어](../aks/azure-ad-rbac.md)
 > * [Kubernetes 권한 부여에 Azure RBAC 사용](../aks/manage-azure-rbac.md)
@@ -168,7 +168,7 @@ az role definition update --role-definition update_def.json --subscription <sub-
 > [!IMPORTANT]
 > 이 테이블에서로 시작 하는 모든 경로 `/` 는 다음에 대 한 **상대 경로** 입니다 `Microsoft.MachineLearningServices/` .
 
-| 활동 | 구독 수준 범위 | 리소스 그룹 수준 범위 | 작업 영역 수준 범위 |
+| 작업 | 구독 수준 범위 | 리소스 그룹 수준 범위 | 작업 영역 수준 범위 |
 | ----- | ----- | ----- | ----- |
 | 새 작업 영역 만들기 | 필요하지 않음 | 소유자 또는 참가자 | 해당 없음 (소유자가 되거나 생성 후 상위 범위 역할 상속) |
 | 구독 수준 Amlcompute 할당량을 요청 하거나 작업 영역 수준 할당량을 설정 합니다. | 소유자, 참가자 또는 사용자 지정 역할 </br>있어 `/locations/updateQuotas/action`</br> 구독 범위 | 권한 없음 | 권한 없음 |
@@ -192,7 +192,7 @@ az role definition update --role-definition update_def.json --subscription <sub-
 
 Azure Machine Learning 작업 영역을 사용 하 여 MLflow 작업을 수행 하려면 사용자 지정 역할에 다음 범위를 사용 합니다.
 
-| MLflow 작업 | Scope |
+| MLflow 작업 | 범위 |
 | --- | --- |
 | 작업 영역 추적 저장소의 모든 실험을 나열 하 고, id로 실험을 가져오고, 이름별로 실험을 가져옵니다. | `Microsoft.MachineLearningServices/workspaces/experiments/read` |
 | 이름으로 실험을 만들고, 실험에서 태그를 설정 하 고, 삭제 하도록 표시 된 실험을 복원 합니다.| `Microsoft.MachineLearningServices/workspaces/experiments/write` | 

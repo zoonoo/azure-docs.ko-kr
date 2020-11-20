@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: damendo
-ms.openlocfilehash: f4c601184a060c3dfc4f033bcf983bf773f7167f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d172ba7353b7ac4c490584cd7c84871c6244f214
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87022653"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961824"
 ---
 # <a name="introduction-to-effective-security-rules-view-in-azure-network-watcher"></a>Azure Network Watcher의 효과적인 보안 규칙 보기 소개
 
@@ -35,20 +35,11 @@ ms.locfileid: "87022653"
 ### <a name="next-steps"></a>다음 단계
 
 또한 아래에 나열 된 다른 방법을 통해 *유효한 보안 그룹* 기능을 사용할 수 있습니다.
-* [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/NetworkInterfaces/ListEffectiveNetworkSecurityGroups)
-* [PowerShell](https://docs.microsoft.com/powershell/module/az.network/get-azeffectivenetworksecuritygroup?view=azps-4.4.0)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-list-effective-nsg)
+* [REST API](/rest/api/virtualnetwork/NetworkInterfaces/ListEffectiveNetworkSecurityGroups)
+* [PowerShell](/powershell/module/az.network/get-azeffectivenetworksecuritygroup?view=azps-4.4.0)
+* [Azure CLI](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-list-effective-nsg)
 
 [PowerShell을 사용하여 네트워크 보안 그룹 설정 감사](network-watcher-nsg-auditing-powershell.md)를 방문하여 네트워크 보안 그룹 설정을 감사하는 방법에 대해 알아보기
 
 [1]: ./media/network-watcher-security-group-view-overview/securitygroupview.png
 [2]: ./media/network-watcher-security-group-view-overview/figure1.png
-
-
-
-
-
-
-
-
-

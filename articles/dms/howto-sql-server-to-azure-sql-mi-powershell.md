@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: c82acb66266fd36e5b7155adbfa5bd5ade1b765c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e1c45b99138a05ef78976b90f65f57304e676ff
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291990"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962776"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>PowerShell &를 사용 하 여 SQL Managed Instance로 SQL Server 마이그레이션 Azure Database Migration Service
 
@@ -35,35 +35,35 @@ ms.locfileid: "91291990"
 
 이 문서에는 온라인 및 오프 라인 마이그레이션을 모두 수행 하는 방법에 대 한 세부 정보가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 단계를 완료하려면 다음이 필요합니다.
 
 * [SQL Server 2016 이상](https://www.microsoft.com/sql-server/sql-server-downloads) (모든 버전)
-* [여기](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017)에서 다운로드할 수 있는 **AdventureWorks2016** 데이터베이스의 로컬 복사본입니다.
-* SQL Server Express 설치에서 기본적으로 사용하지 않도록 설정된 TCP/IP 프로토콜을 사용하도록 설정합니다. [서버 네트워크 프로토콜 설정 또는 해제](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure) 문서에 따라 TCP/IP 프로토콜을 사용하도록 설정합니다.
-* [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성하려면
+* [여기](/sql/samples/adventureworks-install-configure?view=sql-server-2017)에서 다운로드할 수 있는 **AdventureWorks2016** 데이터베이스의 로컬 복사본입니다.
+* SQL Server Express 설치에서 기본적으로 사용하지 않도록 설정된 TCP/IP 프로토콜을 사용하도록 설정합니다. [서버 네트워크 프로토콜 설정 또는 해제](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure) 문서에 따라 TCP/IP 프로토콜을 사용하도록 설정합니다.
+* [데이터베이스 엔진 액세스를 위한 Windows 방화벽](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성하려면
 * Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
-* SQL Managed Instance입니다. [ASQL Managed Instance 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started)문서의 세부 정보에 따라 SQL Managed Instance를 만들 수 있습니다.
+* SQL Managed Instance입니다. [ASQL Managed Instance 만들기](../azure-sql/managed-instance/instance-create-quickstart.md)문서의 세부 정보에 따라 SQL Managed Instance를 만들 수 있습니다.
 * [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v 3.3 이상을 다운로드 하 여 설치 합니다.
-* [Express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 원본 서버에 대 한 사이트 간 연결을 제공 하는 Azure Database Migration Service를 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 만든 Microsoft Azure Virtual Network입니다.
-* [SQL Server 마이그레이션 평가 수행](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)문서에 설명 된 대로 Data Migration Assistant를 사용 하 여 온-프레미스 데이터베이스 및 스키마 마이그레이션의 평가를 완료 했습니다.
-* `Az.DataMigration` [Install-module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)을 사용 하 여 PowerShell 갤러리에서 모듈 (버전 0.7.2 이상)을 다운로드 하 고 설치 합니다.
-* 원본 SQL Server 인스턴스에 연결 하는 데 사용 되는 자격 증명에 [CONTROL Server](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) 권한이 있는지 확인 합니다.
+* [Express](../expressroute/expressroute-introduction.md) 경로 또는 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)을 사용 하 여 온-프레미스 원본 서버에 대 한 사이트 간 연결을 제공 하는 Azure Database Migration Service를 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 만든 Microsoft Azure Virtual Network입니다.
+* [SQL Server 마이그레이션 평가 수행](/sql/dma/dma-assesssqlonprem)문서에 설명 된 대로 Data Migration Assistant를 사용 하 여 온-프레미스 데이터베이스 및 스키마 마이그레이션의 평가를 완료 했습니다.
+* `Az.DataMigration` [Install-module PowerShell cmdlet](/powershell/module/powershellget/Install-Module?view=powershell-5.1)을 사용 하 여 PowerShell 갤러리에서 모듈 (버전 0.7.2 이상)을 다운로드 하 고 설치 합니다.
+* 원본 SQL Server 인스턴스에 연결 하는 데 사용 되는 자격 증명에 [CONTROL Server](/sql/t-sql/statements/grant-server-permissions-transact-sql) 권한이 있는지 확인 합니다.
 * 대상 SQL Managed Instance에 연결 하는 데 사용 되는 자격 증명에 대상 SQL Managed Instance 데이터베이스에 대 한 CONTROL DATABASE 권한이 있는지 확인 합니다.
 
     > [!IMPORTANT]
-    > 온라인 마이그레이션의 경우 이미 Azure Active Directory 자격 증명을 설정 해야 합니다. 자세한 내용은 [포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)문서를 참조 하세요.
+    > 온라인 마이그레이션의 경우 이미 Azure Active Directory 자격 증명을 설정 해야 합니다. 자세한 내용은 [포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)문서를 참조 하세요.
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Microsoft Azure 구독에 로그인
 
-PowerShell을 사용 하 여 Azure 구독에 로그인 합니다. 자세한 내용은 [Azure PowerShell를 사용 하 여 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)문서를 참조 하세요.
+PowerShell을 사용 하 여 Azure 구독에 로그인 합니다. 자세한 내용은 [Azure PowerShell를 사용 하 여 로그인](/powershell/azure/authenticate-azureps)문서를 참조 하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-명령을 사용 하 여 리소스 그룹을 만듭니다 [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) .
+명령을 사용 하 여 리소스 그룹을 만듭니다 [`New-AzResourceGroup`](/powershell/module/az.resources/new-azresourcegroup) .
 
 다음 예제에서는 *미국 동부* 지역에 *myresourcegroup* 이라는 리소스 그룹을 만듭니다.
 
@@ -76,13 +76,13 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 `New-AzDataMigrationService` cmdlet을 사용하여 새 Azure Database Migration Service 인스턴스를 만들 수 있습니다.
 이 cmdlet에는 다음 매개 변수가 필요합니다.
 
-* *Azure 리소스 그룹 이름*입니다. [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)명령을 사용 하 여 이전에 표시 된 대로 Azure 리소스 그룹을 만들고 해당 이름을 매개 변수로 제공할 수 있습니다.
-* *서비스 이름*입니다. Azure Database Migration Service의 원하는 고유 서비스 이름에 해당 하는 문자열입니다.
+* *Azure 리소스 그룹 이름* 입니다. [`New-AzResourceGroup`](/powershell/module/az.resources/new-azresourcegroup)명령을 사용 하 여 이전에 표시 된 대로 Azure 리소스 그룹을 만들고 해당 이름을 매개 변수로 제공할 수 있습니다.
+* *서비스 이름* 입니다. Azure Database Migration Service의 원하는 고유 서비스 이름에 해당 하는 문자열입니다.
 * *위치*. 서비스의 위치를 지정합니다. 미국 서 부 또는 동남 아시아와 같은 Azure 데이터 센터 위치를 지정 합니다.
-* *Sku*. 이 매개 변수는 DMS Sku 이름에 해당합니다. 현재 지원 되는 Sku 이름은 *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*입니다.
-* *가상 서브넷 식별자*. Cmdlet을 사용 하 여 [`New-AzVirtualNetworkSubnetConfig`](https://docs.microsoft.com//powershell/module/az.network/new-azvirtualnetworksubnetconfig) 서브넷을 만들 수 있습니다.
+* *Sku*. 이 매개 변수는 DMS Sku 이름에 해당합니다. 현재 지원 되는 Sku 이름은 *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores* 입니다.
+* *가상 서브넷 식별자*. Cmdlet을 사용 하 여 [`New-AzVirtualNetworkSubnetConfig`](//powershell/module/az.network/new-azvirtualnetworksubnetconfig) 서브넷을 만들 수 있습니다.
 
-다음 예제에서는 *Mydms* 이라는 가상 네트워크와 *mydms*이라는 서브넷을 사용 하 여 *미국 동부* 지역에 있는 *Mydmsresourcegroup* 리소스 그룹에 *mydms* 라는 서비스를 만듭니다.
+다음 예제에서는 *Mydms* 이라는 가상 네트워크와 *mydms* 이라는 서브넷을 사용 하 여 *미국 동부* 지역에 있는 *Mydmsresourcegroup* 리소스 그룹에 *mydms* 라는 서비스를 만듭니다.
 
 > [!IMPORTANT]
 > 아래 코드 조각은 프리미엄 SKU를 기반으로 Azure Database Migration Service 인스턴스를 필요로 하지 않는 오프 라인 마이그레이션을 위한 것입니다. 온라인 마이그레이션의 경우-Sku 매개 변수 값에 Premium SKU가 포함 되어야 합니다.
@@ -161,9 +161,9 @@ $project = New-AzDataMigrationProject -ResourceGroupName myResourceGroup `
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>원본 및 대상에 대한 자격 증명 매개 변수 만들기
 
-연결 보안 자격 증명을 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) 개체로 만듭니다.
+연결 보안 자격 증명을 [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) 개체로 만듭니다.
 
-다음 예제에서는 원본 및 대상 연결에 대 한 *PSCredential* 개체를 만드는 방법을 보여 줍니다. *$sourcePassword* 는 암호를 문자열 변수로 제공 하 고 *$targetPassword*합니다.
+다음 예제에서는 원본 및 대상 연결에 대 한 *PSCredential* 개체를 만드는 방법을 보여 줍니다. *$sourcePassword* 는 암호를 문자열 변수로 제공 하 고 *$targetPassword* 합니다.
 
 ```powershell
 $secpasswd = ConvertTo-SecureString -String $sourcePassword -AsPlainText -Force
@@ -226,7 +226,7 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 ```
 
 > [!NOTE]
-> Azure Database Migration Service는 계정 수준 SAS 토큰 사용을 지원 하지 않습니다. 저장소 계정 컨테이너에 대 한 SAS URI를 사용 해야 합니다. [Blob 컨테이너에 대한 SAS URI를 가져오는 방법을 알아봅니다](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).
+> Azure Database Migration Service는 계정 수준 SAS 토큰 사용을 지원 하지 않습니다. 저장소 계정 컨테이너에 대 한 SAS URI를 사용 해야 합니다. [Blob 컨테이너에 대한 SAS URI를 가져오는 방법을 알아봅니다](../vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container).
 
 ### <a name="additional-configuration-requirements"></a>추가 구성 요구 사항
 
@@ -236,7 +236,7 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 
 오프 라인 마이그레이션의 경우에만 다음 추가 구성 작업을 수행 합니다.
 
-* **로그인을 선택**합니다. 다음 예제와 같이 마이그레이션할 로그인 목록을 만듭니다.
+* **로그인을 선택** 합니다. 다음 예제와 같이 마이그레이션할 로그인 목록을 만듭니다.
 
     ```powershell
     $selectedLogins = @("user1", "user2")
@@ -245,7 +245,7 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
     > [!IMPORTANT]
     > 현재 Azure Database Migration Service는 SQL 로그인의 마이그레이션만 지원 합니다.
 
-* **에이전트 작업을 선택**합니다. 다음 예제와 같이 마이그레이션할 에이전트 작업 목록을 만듭니다.
+* **에이전트 작업을 선택** 합니다. 다음 예제와 같이 마이그레이션할 에이전트 작업 목록을 만듭니다.
 
     ```powershell
     $selectedAgentJobs = @("agentJob1", "agentJob2")
@@ -284,14 +284,14 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 오프 라인 또는 온라인 마이그레이션을 수행 하 고 있는지 여부에 관계 없이 `New-AzDataMigrationTask` cmdlet에는 다음 매개 변수가 필요 합니다.
 
 * *TaskType* Azure SQL Managed Instance SQL Server에 대해 만들 마이그레이션 작업의 유형 *MigrateSqlServerSqlDbMi* 이 필요 합니다. 
-* *리소스 그룹 이름*입니다. 작업을 만들 Azure 리소스 그룹의 이름입니다.
+* *리소스 그룹 이름* 입니다. 작업을 만들 Azure 리소스 그룹의 이름입니다.
 * *ServiceName*. 작업을 만들 Azure Database Migration Service 인스턴스입니다.
 * *ProjectName*. 작업을 만들 Azure Database Migration Service 프로젝트의 이름입니다. 
 * *TaskName*. 만들 작업의 이름입니다. 
 * *SourceConnection*. 원본 SQL Server 연결을 나타내는 AzDmsConnInfo 개체입니다.
 * *TargetConnection*. 대상 Azure SQL Managed Instance 연결을 나타내는 AzDmsConnInfo 개체입니다.
-* *SourceCred*. 원본 서버에 연결할 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) 개체입니다.
-* *TargetCred*. 대상 서버에 연결할 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) 개체입니다.
+* *SourceCred*. 원본 서버에 연결할 [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) 개체입니다.
+* *TargetCred*. 대상 서버에 연결할 [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) 개체입니다.
 * *SelectedDatabase*. 원본 및 대상 데이터베이스 매핑을 나타내는 AzDataMigrationSelectedDB 개체입니다.
 * *BackupFileShare*. Azure Database Migration Service에서 원본 데이터베이스 백업을 수행할 수 있는 로컬 네트워크 공유를 나타내는 FileShare 개체입니다.
 * *BackupBlobSasUri*. 서비스에서 백업 파일을 업로드하는 스토리지 계정 컨테이너에 대한 액세스를 Azure Database Migration Service에 제공하는 SAS URI입니다. Blob 컨테이너에 대한 SAS URI를 가져오는 방법을 알아보세요.
@@ -314,7 +314,7 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 
 #### <a name="create-and-start-an-offline-migration-task"></a>오프 라인 마이그레이션 작업 만들기 및 시작
 
-다음 예에서는 **myDMSTask**이라는 오프 라인 마이그레이션 작업을 만들고 시작 합니다.
+다음 예에서는 **myDMSTask** 이라는 오프 라인 마이그레이션 작업을 만들고 시작 합니다.
 
 ```powershell
 $migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDbMi `
@@ -335,7 +335,7 @@ $migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDbMi `
 
 #### <a name="create-and-start-an-online-migration-task"></a>온라인 마이그레이션 작업 만들기 및 시작
 
-다음 예에서는 **myDMSTask**라는 온라인 마이그레이션 작업을 만들고 시작 합니다.
+다음 예에서는 **myDMSTask** 라는 온라인 마이그레이션 작업을 만들고 시작 합니다.
 
 ```powershell
 $migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDbMiSync `
@@ -422,4 +422,4 @@ Remove-AzDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Database Migration Service 이란?](https://docs.microsoft.com/azure/dms/dms-overview)문서에서 Azure Database Migration Service에 대해 자세히 알아보세요.
+[Azure Database Migration Service 이란?](./dms-overview.md)문서에서 Azure Database Migration Service에 대해 자세히 알아보세요.

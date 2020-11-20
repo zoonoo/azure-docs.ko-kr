@@ -5,17 +5,18 @@ services: virtual-machines-windows
 manager: carmonm
 author: bobbytreed
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: 0bb1e4cb9b24c9b46f623e1604930367b82a47eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8d11ff6eaab8ed6a13c3c2aa1b712cc57e7825ea
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973821"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960974"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -67,7 +68,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드�
 * 사용자 지정 스크립트 확장은 기본적으로 프록시 서버를 지원하지 않지만, 스크립트 내에서 프록시 서버를 지원하는 파일 전송 도구(예: *Curl*)를 사용할 수 있습니다.
 * 스크립트 또는 명령에서 사용할 수 있는 기본 디렉터리가 아닌 위치를 알고 있어야 하고, 이 상황을 처리할 논리가 있어야 합니다.
 * 사용자 지정 스크립트 확장이 LocalSystem 계정으로 실행됩니다.
-* *Storageaccountname* 및 *storageAccountKey* 속성을 사용 하려는 경우 이러한 속성은 *protectedSettings*에서 배치 된 해야 합니다.
+* *Storageaccountname* 및 *storageAccountKey* 속성을 사용 하려는 경우 이러한 속성은 *protectedSettings* 에서 배치 된 해야 합니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -122,7 +123,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드�
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | 문자열 |
@@ -159,7 +160,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드�
 
 ####  <a name="property-managedidentity"></a>속성: managedIdentity
 > [!NOTE]
-> 이 속성은 보호 설정에서만 지정**해야 합니다**.
+> 이 속성은 보호 설정에서만 지정 **해야 합니다**.
 
 CustomScript(버전 1.10 이상)는 “fileUris” 설정에 제공된 URL에서 파일을 다운로드하기 위한 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 지원합니다. 사용자가 SAS 토큰 또는 스토리지 계정 키와 같은 비밀을 전달하지 않아도 CustomScript가 Azure Storage 프라이빗 Blob 또는 컨테이너에 액세스할 수 있습니다.
 
@@ -223,7 +224,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="using-multiple-scripts"></a>여러 스크립트 사용
 
-이 예제에는 서버를 빌드하는 데 사용되는 세 가지 스크립트가 있습니다. **commandToExecute**가 첫 번째 스크립트를 호출한 다음, 다른 스크립트를 호출하는 방법에 대한 옵션이 제공됩니다. 예를 들어 올바른 오류 처리, 로깅 및 상태 관리를 사용하여 실행을 제어하는 마스터 스크립트를 포함할 수 있습니다. 스크립트는 실행을 위해 로컬 머신에 다운로드됩니다. 예를 들어 `1_Add_Tools.ps1`에서 스크립트에 `.\2_Add_Features.ps1`을 추가하여 `2_Add_Features.ps1`을 호출하고 `$settings`에서 정의하는 다른 스크립트에 대해 이 프로세스를 반복합니다.
+이 예제에는 서버를 빌드하는 데 사용되는 세 가지 스크립트가 있습니다. **commandToExecute** 가 첫 번째 스크립트를 호출한 다음, 다른 스크립트를 호출하는 방법에 대한 옵션이 제공됩니다. 예를 들어 올바른 오류 처리, 로깅 및 상태 관리를 사용하여 실행을 제어하는 마스터 스크립트를 포함할 수 있습니다. 스크립트는 실행을 위해 로컬 머신에 다운로드됩니다. 예를 들어 `1_Add_Tools.ps1`에서 스크립트에 `.\2_Add_Features.ps1`을 추가하여 `2_Add_Features.ps1`을 호출하고 `$settings`에서 정의하는 다른 스크립트에 대해 이 프로세스를 반복합니다.
 
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
@@ -250,7 +251,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="running-scripts-from-a-local-share"></a>로컬 공유에서 스크립트 실행
 
-이 예제에서는 스크립트 위치에 로컬 SMB 서버를 사용할 수 있습니다. 이렇게 하면 **commandToExecute**를 제외한 다른 설정을 제공할 필요가 없습니다.
+이 예제에서는 스크립트 위치에 로컬 SMB 서버를 사용할 수 있습니다. 이렇게 하면 **commandToExecute** 를 제외한 다른 설정을 제공할 필요가 없습니다.
 
 ```powershell
 $protectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
@@ -273,7 +274,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 * 확장 **Name** 매개 변수는 확장의 이전 배포와 같습니다.
 * 구성을 업데이트합니다. 그렇지 않으면 명령을 다시 실행할 수 없습니다. 타임스탬프와 같은 명령으로 동적 속성을 추가할 수 있습니다.
 
-또는 [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) 속성을 **true**로 설정할 수 있습니다.
+또는 [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) 속성을 **true** 로 설정할 수 있습니다.
 
 ### <a name="using-invoke-webrequest"></a>Invoke-WebRequest 사용
 
@@ -294,11 +295,11 @@ The response content cannot be parsed because the Internet Explorer engine is no
 
 ### <a name="azure-portal"></a>Azure portal
 
-클래식 VM 리소스로 이동합니다. **설정**에서 **확장**을 선택합니다.
+클래식 VM 리소스로 이동합니다. **설정** 에서 **확장** 을 선택합니다.
 
-**+ 추가**를 클릭하고 리소스 목록에서 **사용자 지정 스크립트 확장**을 선택합니다.
+**+ 추가** 를 클릭하고 리소스 목록에서 **사용자 지정 스크립트 확장** 을 선택합니다.
 
-**확장 설치** 페이지에서 로컬 PowerShell 파일을 선택하고, 인수를 입력한 다음, **확인**을 클릭합니다.
+**확장 설치** 페이지에서 로컬 PowerShell 파일을 선택하고, 인수를 입력한 다음, **확인** 을 클릭합니다.
 
 ### <a name="powershell"></a>PowerShell
 
