@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 721389b557fde41b1461654b03299601e2384108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 469f6a1021fde661c4eae7951b86c9bb500c7050
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361333"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958577"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링
 
@@ -32,7 +33,7 @@ Windows Server 장애 조치(Failover) 클러스터링은 Windows에서 고가�
 
 장애 조치 클러스터는 함께 작동하여 애플리케이션 및 서비스의 가용성을 높이는 1+n개 독립 서버(노드) 그룹입니다. 노드에 장애가 발생하는 경우 Windows Server 장애 조치(Failover) 클러스터링은 애플리케이션 및 서비스를 제공하기 위해 발생할 수 있으며 정상 클러스터를 유지 관리하는 장애 횟수를 계산합니다. 장애 조치 클러스터링을 달성하기 위해 여러 다른 쿼럼 모드 중에서 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서 설명하는 작업을 시작하기 전에 먼저 다음 문서를 검토하세요.
 
 * [SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오][sap-high-availability-architecture-scenarios]
@@ -50,7 +51,7 @@ Windows Server 장애 조치(Failover) 클러스터링은 Windows에서 고가�
 
 Azure 클라우드 플랫폼은 부동 IP 주소와 같은 가상 IP 주소를 구성하는 옵션을 제공하지 않습니다. 클라우드의 클러스터 리소스에 연결하도록 가상 IP 주소를 설정하기 위한 대체 솔루션이 필요합니다. 
 
-Azure Load Balancer 서비스는 Azure에서 ‘내부 부하 분산 장치’를 제공합니다.** 내부 부하 분산 장치를 사용하면 클라이언트는 클러스터 가상 IP 주소를 통해 클러스터에 도달합니다. 
+Azure Load Balancer 서비스는 Azure에서 ‘내부 부하 분산 장치’를 제공합니다. 내부 부하 분산 장치를 사용하면 클라이언트는 클러스터 가상 IP 주소를 통해 클러스터에 도달합니다. 
 
 클러스터 노드를 포함하는 리소스 그룹에 부하 분산 장치를 배포합니다. 그런 후 내부 부하 분산 장치의 프로브 포트를 사용하여 필요한 모든 포트 전달 규칙을 구성합니다. 클라이언트는 가상 호스트 이름을 통해 연결할 수 있습니다. DNS 서버는 클러스터 IP 주소를 확인하고 내부 부하 분산 장치는 클러스터의 활성 노드에 대한 포트 전달을 처리합니다.
 
@@ -123,7 +124,7 @@ _**그림 4:** SAP 글로벌 호스트 파일을 보호하는 데 사용되는 �
 
 * 스케일 아웃 파일 공유에 사용할 둘 이상의 클러스터 노드.
 * 각 노드는 둘 이상의 로컬 디스크를 가져야 합니다.
-* 성능상의 이유로 ‘미러링 복원’을 사용해야 합니다.**
+* 성능상의 이유로 ‘미러링 복원’을 사용해야 합니다.
     * 2방향 미러링: 클러스터 노드가 2개인 스케일 아웃 파일 공유
     * 3방향 미러링: 클러스터 노드가 3개 이상인 스케일 아웃 파일 공유
 * 스케일 아웃 파일 공유에는 3방향 미러링이 사용된 3개 이상의 클러스터 노드를 사용하는 것이 좋습니다.

@@ -8,12 +8,13 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 9189be5f2f513cd27fe8783d6a1825aac016522c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.subservice: workloads
+ms.openlocfilehash: ad3dbd8cdc6fff7eca8c24bb6e5258022d52cb9b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677744"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959461"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Azure에 TmaxSoft OpenFrame 설치
 
@@ -96,7 +97,7 @@ Windows 용 Eclipse: TmaxSoft에서 지원 되는 개발 플랫폼<br/>
 
 <!-- markdownlint-enable MD033 -->
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 필요한 모든 소프트웨어를 조합 하 고 모든 수동 프로세스를 완료 하는 데 며칠의 비용을 계획 합니다.
 
@@ -134,7 +135,7 @@ Windows 용 Eclipse: TmaxSoft에서 지원 되는 개발 플랫폼<br/>
 
      ![Azure Portal의 운영 체제 옵션](media/vm-04.png)
 
-6. **기본** 설정에서 **이름** , **사용자 이름** , **인증 유형** , **구독** (지불의 AWS 스타일) 및 **리소스 그룹** (기존 항목 사용 또는 tmaxsoft 그룹 만들기)을 입력 합니다.
+6. **기본** 설정에서 **이름**, **사용자 이름**, **인증 유형**, **구독** (지불의 AWS 스타일) 및 **리소스 그룹** (기존 항목 사용 또는 tmaxsoft 그룹 만들기)을 입력 합니다.
 
 7. **인증 유형에** 대 한 공개/개인 키 쌍을 포함 하 여 완료 되 면 **제출** 을 클릭 합니다.
 
@@ -189,7 +190,7 @@ Windows 운영 체제를 사용 하는 경우 공개/개인 키 쌍을 생성 �
 
 6. PuTTY를 엽니다.
 
-7. **호스트 이름** 에 사용자 이름 및 복사한 공용 IP 주소를 입력 합니다. 예: **사용자 이름 \@ publicip** .
+7. **호스트 이름** 에 사용자 이름 및 복사한 공용 IP 주소를 입력 합니다. 예: **사용자 이름 \@ publicip**.
 
     ![PuTTY 구성 대화 상자를 표시 하 고 호스트 이름 (또는 IP 주소) 필드를 강조 표시 하는 스크린샷](media/putty-01.png)
 
@@ -1359,7 +1360,7 @@ JEUS를 설치 하기 전에 JEUS을 설치 하는 데 필요한 라이브러리
      [oframe7@ofdemo setup]$ . .bash_profile
      ```
 
-11. *선택 사항입니다* . JEUS 구성 요소를 쉽게 종료 하 고 부팅 하기 위한 별칭을 만듭니다.
+11. *선택 사항입니다*. JEUS 구성 요소를 쉽게 종료 하 고 부팅 하기 위한 별칭을 만듭니다.
 
      ```     
      # JEUS alias

@@ -3,16 +3,17 @@ title: Azure VM에서 SAP S/4HANA 또는 BW/4HANA 배포 | Microsoft Docs
 description: Azure VM에서 SAP S/4HANA 또는 BW/4HANA 배포
 author: hermanndms
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: hermannd
 ms.reviewer: cynthn
-ms.openlocfilehash: 116de28501b77262ef126ed420982d853376da4e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6492e770479042a5a1b4da6f61917832adad4873
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993410"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959291"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Azure에서 SAP S/4HANA 또는 BW/4HANA 배포
 이 문서에서는 SAP CAL(SAP 클라우드 어플라이언스 라이브러리) 3.0을 통해 Azure에서 S/4HANA를 배포하는 방법을 설명합니다. BW/4HANA와 같은 다른 SAP HANA 기반 솔루션을 배포하려면 동일한 단계를 수행합니다.
@@ -27,7 +28,7 @@ ms.locfileid: "91993410"
 
 다음과 같은 일련의 스크린샷은 Azure에서 SAP CAL을 사용하여 S/4HANA를 배포하는 방법을 보여 줍니다. 이 프로세스는 BW/4HANA와 같은 다른 솔루션과 동일한 방식으로 작동합니다.
 
-**솔루션** 페이지에서는 Azure에서 사용할 수 있는 일부 SAP CAL HANA 기반 솔루션을 보여 줍니다. **SAP S/4HANA 1610 FPS01, 완전히 활성화된 어플라이언스**는 중간 행에 있습니다.
+**솔루션** 페이지에서는 Azure에서 사용할 수 있는 일부 SAP CAL HANA 기반 솔루션을 보여 줍니다. **SAP S/4HANA 1610 FPS01, 완전히 활성화된 어플라이언스** 는 중간 행에 있습니다.
 
 ![SAP CAL 솔루션](./media/cal-s4h/s4h-pic-1c.png)
 
@@ -47,19 +48,19 @@ ms.locfileid: "91993410"
 
     a. **Microsoft Azure(클래식)** 는 클래식 배포 모델이며 더 이상 선호하지 않습니다.
 
-    b. **Microsoft Azure**는 새 리소스 관리자 배포 모델입니다.
+    b. **Microsoft Azure** 는 새 리소스 관리자 배포 모델입니다.
 
-    c. **21Vianet에서 운영하는 Windows Azure**는 클래식 배포 모델을 사용하는 중국의 옵션입니다.
+    c. **21Vianet에서 운영하는 Windows Azure** 는 클래식 배포 모델을 사용하는 중국의 옵션입니다.
 
-    리소스 관리자 모델을 배포하려면 **Microsoft Azure**를 선택합니다.
+    리소스 관리자 모델을 배포하려면 **Microsoft Azure** 를 선택합니다.
 
     ![SAP CAL 계정 세부 정보](./media/cal-s4h/s4h-pic-2a.png)
 
-1. Azure Portal에서 찾을 수 있는 Azure **구독 ID**를 입력합니다.
+1. Azure Portal에서 찾을 수 있는 Azure **구독 ID** 를 입력합니다.
 
    ![SAP CAL 계정](./media/cal-s4h/s4h-pic3c.png)
 
-1. 정의한 Azure 구독에 배포하도록 SAP CAL에 권한을 부여하려면 **권한 부여**를 클릭합니다. 다음 페이지가 브라우저 탭에 나타납니다.
+1. 정의한 Azure 구독에 배포하도록 SAP CAL에 권한을 부여하려면 **권한 부여** 를 클릭합니다. 다음 페이지가 브라우저 탭에 나타납니다.
 
    ![Internet Explorer 클라우드 서비스 로그인](./media/cal-s4h/s4h-pic4c.png)
 
@@ -67,15 +68,15 @@ ms.locfileid: "91993410"
 
    ![Internet Explorer 클라우드 서비스 확인](./media/cal-s4h/s4h-pic5a.png)
 
-1. **Accept**를 클릭합니다. 권한 부여에 성공한 경우 SAP CAL 계정 정의가 다시 표시됩니다. 짧은 시간 후 메시지에서 권한 부여 프로세스 성공적으로 수행되었는지 확인합니다.
+1. **Accept** 를 클릭합니다. 권한 부여에 성공한 경우 SAP CAL 계정 정의가 다시 표시됩니다. 짧은 시간 후 메시지에서 권한 부여 프로세스 성공적으로 수행되었는지 확인합니다.
 
-1. 새로 만든 SAP CAL 계정을 사용자에게 할당하려면 오른쪽의 텍스트 상자에 **사용자 ID**를 입력하고 **추가**를 클릭합니다.
+1. 새로 만든 SAP CAL 계정을 사용자에게 할당하려면 오른쪽의 텍스트 상자에 **사용자 ID** 를 입력하고 **추가** 를 클릭합니다.
 
    ![사용자 연결에 대한 계정](./media/cal-s4h/s4h-pic8a.png)
 
-1. SAP CAL에 로그인하는 데 사용하는 사용자로 계정을 연결하려면 **검토**를 클릭합니다. 
+1. SAP CAL에 로그인하는 데 사용하는 사용자로 계정을 연결하려면 **검토** 를 클릭합니다. 
  
-1. 사용자와 새로 만든 SAP CAL 계정 간의 연결을 만들려면 **만들기**를 클릭합니다.
+1. 사용자와 새로 만든 SAP CAL 계정 간의 연결을 만들려면 **만들기** 를 클릭합니다.
 
    ![SAP CAL 계정 연결에 대한 사용자](./media/cal-s4h/s4h-pic9b.png)
 
@@ -105,23 +106,23 @@ SAP CAL의 **솔루션** 페이지에서 솔루션을 배포해 보겠습니다.
 
     a. SAP CAL 계정을 선택합니다. (리소스 관리자 배포 모델을 사용하여 배포하도록 연결된 계정을 사용합니다.)
 
-    b. 인스턴스 **이름**을 입력합니다.
+    b. 인스턴스 **이름** 을 입력합니다.
 
-    c. Azure **지역을**선택 합니다. SAP CAL은 지역을 제안합니다. 다른 Azure 지역이 필요하고 SAP CAL 구독이 없는 경우 SAP로 CAL 구독을 주문해야 합니다.
+    c. Azure **지역을** 선택 합니다. SAP CAL은 지역을 제안합니다. 다른 Azure 지역이 필요하고 SAP CAL 구독이 없는 경우 SAP로 CAL 구독을 주문해야 합니다.
 
-    d. 8자 또는 9자로 솔루션에 대한 마스터 **암호**를 입력합니다. 암호는 다양한 구성 요소의 관리자에서 사용됩니다.
+    d. 8자 또는 9자로 솔루션에 대한 마스터 **암호** 를 입력합니다. 암호는 다양한 구성 요소의 관리자에서 사용됩니다.
 
    ![SAP CAL 기본 모드: 인스턴스 만들기](./media/cal-s4h/s4h-pic10a.png)
 
-1. **만들기**를 클릭하고 나타나는 메시지 상자에서 **확인**을 클릭합니다.
+1. **만들기** 를 클릭하고 나타나는 메시지 상자에서 **확인** 을 클릭합니다.
 
    ![SAP CAL 지원되는 VM 크기](./media/cal-s4h/s4h-pic10b.png)
 
-1. **프라이빗 키** 대화 상자에서 **저장**을 클릭하여 SAP CAL에 프라이빗 키를 저장합니다. 프라이빗 키에 대해 암호 보호를 사용하려면 **다운로드**를 클릭합니다. 
+1. **프라이빗 키** 대화 상자에서 **저장** 을 클릭하여 SAP CAL에 프라이빗 키를 저장합니다. 프라이빗 키에 대해 암호 보호를 사용하려면 **다운로드** 를 클릭합니다. 
 
    ![SAP CAL 프라이빗 키](./media/cal-s4h/s4h-pic10c.png)
 
-1. SAP CAL **경고** 메시지를 읽고 **확인**을 클릭합니다.
+1. SAP CAL **경고** 메시지를 읽고 **확인** 을 클릭합니다.
 
    ![SAP CAL 경고](./media/cal-s4h/s4h-pic10d.png)
 
@@ -131,11 +132,11 @@ SAP CAL의 **솔루션** 페이지에서 솔루션을 배포해 보겠습니다.
 
    ![새 포털에 배포된 SAP CAL 개체](./media/cal-s4h/sapcaldeplyment_portalview.png)
 
-1. SAP CAL 포털에서 상태는 **활성**으로 나타납니다. 솔루션에 연결하려면 **연결**을 클릭합니다. 다양한 구성 요소에 연결하기 위한 다른 옵션이 이 솔루션 내에서 배포됩니다.
+1. SAP CAL 포털에서 상태는 **활성** 으로 나타납니다. 솔루션에 연결하려면 **연결** 을 클릭합니다. 다양한 구성 요소에 연결하기 위한 다른 옵션이 이 솔루션 내에서 배포됩니다.
 
    ![SAP CAL 인스턴스](./media/cal-s4h/active_solution.png)
 
-1. 배포된 시스템에 연결하는 옵션 중 하나를 사용하려면 **시작 가이드**를 클릭합니다. 
+1. 배포된 시스템에 연결하는 옵션 중 하나를 사용하려면 **시작 가이드** 를 클릭합니다. 
 
    ![인스턴스에 연결](./media/cal-s4h/connect_to_solution.png)
 

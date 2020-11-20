@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df611e01fefacd22f4dc026a819d4c71ede6e7e3
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 43abdd1db2e8e24033332f99c583e30efbf64a00
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686092"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957404"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Windows server 장애 조치 (failover) 클러스터링 및 Azure 공유 디스크를 사용 하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
 
@@ -61,7 +62,7 @@ Windows Server 2016 및 Windows Server 2019이 모두 지원 됩니다 (최신 �
 - Azure 일정 이벤트를 모니터링 하 여 Azure 호스트 유지 관리 및 향상 된 환경에 대 한 통합 및 인식 기능이 추가 되었습니다.
 - 분산 네트워크 이름 (기본 옵션)을 사용할 수 있습니다. 따라서 클러스터 네트워크 이름에 대 한 전용 IP 주소를 가질 필요가 없습니다. 또한 Azure 내부 Load Balancer에서이 IP 주소를 구성할 필요가 없습니다. 
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 다중 SID 구성에서는 큐에 넣기 복제 서버 1 (ERS1)과 큐에 넣기 복제 서버 2 (ERS2)가 모두 지원 됩니다.  ERS1와 ERS2의 혼합은 동일한 클러스터에서 지원 되지 않습니다. 
 

@@ -3,16 +3,17 @@ title: Red Hat Enterprise Linux 연장된 수명 주기 지원
 description: Red Hat Enterprise Extended 수명 주기 지원 추가 기능을 추가 하는 방법에 대해 알아봅니다.
 author: mathapli
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: 124ff65087887a437e0b82fbd7b1e4c72e4f7b4c
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 71ff00dbf32ef32ead85be60cdbe53f23c8e35c7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684358"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957574"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>RHEL (Red Hat Enterprise Linux) 확장 된 수명 주기 지원
 이 문서에서는 Red Hat Enterprise 이미지에 대 한 연장 된 수명 주기 지원 정보를 제공 합니다.
@@ -29,7 +30,7 @@ ms.locfileid: "94684358"
 
 #### <a name="what-is-the-additional-charge-for-using-red-hat-enterprise-linux-extended-life-cycle-support-els-add-on"></a>Red Hat Enterprise Linux 확장 된 ELS (수명 주기 지원) 추가 기능을 사용 하기 위한 추가 요금은 무엇 인가요?
 
-|VM 크기|추가 요금 청구 시간 프레임|추가 달러 금액 (USD)| 참고|
+|VM 크기|추가 요금 청구 시간 프레임|추가 달러 금액 (USD)| 메모|
 |---|---|---|---|
 | 작은 가상 게스트 (<= 4 코어) | 시간당 추가 요금 | TBC | |
 |  | 월간 추가 요금 | TBC | 예약 된 인스턴스의 경우 |

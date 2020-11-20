@@ -3,16 +3,17 @@ title: Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포 | Microsoft Docs
 description: Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포
 author: hermanndms
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.reviewer: cynthn
-ms.openlocfilehash: 2e1c20ba5549a1d9660b6e30fafa040d545a6a37
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: dc0c1744c2943d33d516de4ed9d28893541773ad
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993433"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957880"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포
 이 문서에서는 SAP CAL(SAP 클라우드 어플라이언스 라이브러리) 3.0을 통해 Azure에서 SQL Server 및 Windows OS와 함께 실행되는 SAP IDES 시스템을 배포하는 방법을 설명합니다. 스크린샷은 단계별 프로세스를 보여 줍니다. 다른 솔루션을 배포하려면 동일한 단계를 수행합니다.
@@ -44,19 +45,19 @@ SAP CAL에 로그인한 후 첫 번째 페이지는 일반적으로 **솔루션*
 
     a. **Microsoft Azure(클래식)** 는 클래식 배포 모델이며 더 이상 선호하지 않습니다.
 
-    b. **Microsoft Azure**는 새 리소스 관리자 배포 모델입니다.
+    b. **Microsoft Azure** 는 새 리소스 관리자 배포 모델입니다.
 
     ![스크린샷 Microsoft Azure 이라는 S P CAL 계정을 보여 줍니다.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
-    리소스 관리자 모델을 배포하려면 **Microsoft Azure**를 선택합니다.
+    리소스 관리자 모델을 배포하려면 **Microsoft Azure** 를 선택합니다.
 
     ![A P CAL 계정을 보여 주는 스크린샷](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
-1. Azure Portal에서 찾을 수 있는 Azure **구독 ID**를 입력합니다. 
+1. Azure Portal에서 찾을 수 있는 Azure **구독 ID** 를 입력합니다. 
 
     ![SAP CAL 구독 ID](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
-1. 정의한 Azure 구독에 배포하도록 SAP CAL에 권한을 부여하려면 **권한 부여**를 클릭합니다. 다음 페이지가 브라우저 탭에 나타납니다.
+1. 정의한 Azure 구독에 배포하도록 SAP CAL에 권한을 부여하려면 **권한 부여** 를 클릭합니다. 다음 페이지가 브라우저 탭에 나타납니다.
 
     ![Internet Explorer 클라우드 서비스 로그인](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic4c.PNG)
 
@@ -64,15 +65,15 @@ SAP CAL에 로그인한 후 첫 번째 페이지는 일반적으로 **솔루션*
 
     ![Internet Explorer 클라우드 서비스 확인](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic5a.PNG)
 
-1. **Accept**를 클릭합니다. 권한 부여에 성공한 경우 SAP CAL 계정 정의가 다시 표시됩니다. 짧은 시간 후 메시지에서 권한 부여 프로세스 성공적으로 수행되었는지 확인합니다.
+1. **Accept** 를 클릭합니다. 권한 부여에 성공한 경우 SAP CAL 계정 정의가 다시 표시됩니다. 짧은 시간 후 메시지에서 권한 부여 프로세스 성공적으로 수행되었는지 확인합니다.
 
-1. 새로 만든 SAP CAL 계정을 사용자에게 할당하려면 오른쪽의 텍스트 상자에 **사용자 ID**를 입력하고 **추가**를 클릭합니다. 
+1. 새로 만든 SAP CAL 계정을 사용자에게 할당하려면 오른쪽의 텍스트 상자에 **사용자 ID** 를 입력하고 **추가** 를 클릭합니다. 
 
     ![사용자 연결에 대한 계정](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic8a.PNG)
 
-1. SAP CAL에 로그인하는 데 사용하는 사용자로 계정을 연결하려면 **검토**를 클릭합니다. 
+1. SAP CAL에 로그인하는 데 사용하는 사용자로 계정을 연결하려면 **검토** 를 클릭합니다. 
 
-1. 사용자와 새로 만든 SAP CAL 계정 간의 연결을 만들려면 **만들기**를 클릭합니다.
+1. 사용자와 새로 만든 SAP CAL 계정 간의 연결을 만들려면 **만들기** 를 클릭합니다.
 
     ![계정 연결에 대한 사용자](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic9b.PNG)
 
@@ -82,22 +83,22 @@ SAP CAL에 로그인한 후 첫 번째 페이지는 일반적으로 **솔루션*
 - Azure 구독에 SAP 시스템을 배포합니다.
 
 > [!NOTE]
-> Windows 및 SQL Server를 기반으로 SAP IDE 솔루션을 배포하려면 먼저 SAP CAL 구독에 등록해야 합니다. 그렇지 않은 경우 솔루션은 개표 페이지에 **잠금**으로 표시될 수 있습니다.
+> Windows 및 SQL Server를 기반으로 SAP IDE 솔루션을 배포하려면 먼저 SAP CAL 구독에 등록해야 합니다. 그렇지 않은 경우 솔루션은 개표 페이지에 **잠금** 으로 표시될 수 있습니다.
 
 ### <a name="deploy-a-solution"></a>솔루션 배포
-1. SAP CAL 계정을 설정한 후 **Windows 및 SQL Server의 SAP IDE 솔루션** 솔루션을 선택합니다. **인스턴스 만들기**를 클릭하고 사용 및 약관을 확인합니다. 
+1. SAP CAL 계정을 설정한 후 **Windows 및 SQL Server의 SAP IDE 솔루션** 솔루션을 선택합니다. **인스턴스 만들기** 를 클릭하고 사용 및 약관을 확인합니다. 
 
 1. **기본 모드: 인스턴스 만들기** 페이지에서 다음을 수행해야 합니다.
 
-    a. 인스턴스 **이름**을 입력합니다.
+    a. 인스턴스 **이름** 을 입력합니다.
 
-    b. Azure **지역을**선택 합니다. 제공된 여러 Azure 지역을 가져오려면 SAP CAL 구독이 필요할 수 있습니다.
+    b. Azure **지역을** 선택 합니다. 제공된 여러 Azure 지역을 가져오려면 SAP CAL 구독이 필요할 수 있습니다.
 
-    c.  표시된 것처럼 솔루션에 대한 마스터 **암호**를 입력합니다.
+    c.  표시된 것처럼 솔루션에 대한 마스터 **암호** 를 입력합니다.
 
     ![SAP CAL 기본 모드: 인스턴스 만들기](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
-1. **만들기**를 클릭합니다. 솔루션의 크기 및 복잡성에 따라 잠시 후에(SAP CAL에서 예측값 제공) 상태가 활성으로 표시되고 사용할 준비가 됩니다. 
+1. **만들기** 를 클릭합니다. 솔루션의 크기 및 복잡성에 따라 잠시 후에(SAP CAL에서 예측값 제공) 상태가 활성으로 표시되고 사용할 준비가 됩니다. 
 
     ![SAP CAL 인스턴스](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 
@@ -105,11 +106,11 @@ SAP CAL에 로그인한 후 첫 번째 페이지는 일반적으로 **솔루션*
 
     ![리소스 그룹 개체](./media/cal-ides-erp6-ehp7-sp3-sql/ides_resource_group.PNG)
 
-1. SAP CAL 포털에서 배포된 인스턴스로 이동하고 **연결**을 클릭합니다. 다음과 같은 팝업 창이 나타납니다. 
+1. SAP CAL 포털에서 배포된 인스턴스로 이동하고 **연결** 을 클릭합니다. 다음과 같은 팝업 창이 나타납니다. 
 
     ![인스턴스에 연결](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic14a.PNG)
 
-1. 배포된 시스템에 연결하는 옵션 중 하나를 사용하려면 **시작 가이드**를 클릭합니다. 설명서는 각 연결 방법에 대한 사용자 이름을 지정합니다. 해당 사용자에 대한 암호는 배포 프로세스의 시작 부분에서 정의한 마스터 암호로 설정됩니다. 설명서에서 배포된 시스템에 로그인하는 데 사용할 수 있는 암호와 함께 더 많은 기능 사용자가 나열됩니다.
+1. 배포된 시스템에 연결하는 옵션 중 하나를 사용하려면 **시작 가이드** 를 클릭합니다. 설명서는 각 연결 방법에 대한 사용자 이름을 지정합니다. 해당 사용자에 대한 암호는 배포 프로세스의 시작 부분에서 정의한 마스터 암호로 설정됩니다. 설명서에서 배포된 시스템에 로그인하는 데 사용할 수 있는 암호와 함께 더 많은 기능 사용자가 나열됩니다.
 
     ![SAP 시작 설명서](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic15.jpg)
 

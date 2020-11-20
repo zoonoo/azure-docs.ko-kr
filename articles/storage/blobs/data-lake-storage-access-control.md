@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 80c27613ad3956d565b858b02ed32ac13af3a62c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 03117b9f0c3cbaea22f36703f689264549b851e8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320467"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959138"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 Acl (액세스 제어 목록)
 
@@ -47,7 +47,7 @@ Azure Data Lake Storage Gen2은 azure RBAC (역할 기반 액세스 제어) 및 
 
 ## <a name="types-of-acls"></a>Acl 유형
 
-액세스 제어 목록에는 *액세스 acl* 및 *기본 acl*의 두 종류가 있습니다.
+액세스 제어 목록에는 *액세스 acl* 및 *기본 acl* 의 두 종류가 있습니다.
 
 액세스 ACL은 개체에 대한 액세스를 제어합니다. 파일과 디렉터리 모두에 액세스 ACL이 있습니다.
 
@@ -60,12 +60,12 @@ Azure Data Lake Storage Gen2은 azure RBAC (역할 기반 액세스 제어) 및 
 
 ## <a name="levels-of-permission"></a>권한 수준
 
-컨테이너 개체에 대 한 사용 권한은 **읽기**, **쓰기**및 **실행**이며 다음 표에 나와 있는 것 처럼 파일 및 디렉터리에서 사용할 수 있습니다.
+컨테이너 개체에 대 한 사용 권한은 **읽기**, **쓰기** 및 **실행** 이며 다음 표에 나와 있는 것 처럼 파일 및 디렉터리에서 사용할 수 있습니다.
 
 |            |    파일     |   디렉터리 |
 |------------|-------------|----------|
-| **읽기(R)** | 파일의 내용을 읽을 수 있습니다. | 디렉터리의 내용을 나열하려면 **읽기** 및 **실행**이 필요합니다. |
-| **쓰기(W)** | 쓰거나 파일에 추가할 수 있습니다. | 디렉터리에 자식 항목을 만들려면 **쓰기** 및 **실행**이 필요합니다. |
+| **읽기(R)** | 파일의 내용을 읽을 수 있습니다. | 디렉터리의 내용을 나열하려면 **읽기** 및 **실행** 이 필요합니다. |
+| **쓰기(W)** | 쓰거나 파일에 추가할 수 있습니다. | 디렉터리에 자식 항목을 만들려면 **쓰기** 및 **실행** 이 필요합니다. |
 | **실행(X)** | Data Lake Storage Gen2의 컨텍스트에서는 의미가 없습니다. | 디렉터리의 자식 항목을 트래버스하는 데 필요합니다. |
 
 > [!NOTE]
@@ -73,13 +73,13 @@ Azure Data Lake Storage Gen2은 azure RBAC (역할 기반 액세스 제어) 및 
 
 ### <a name="short-forms-for-permissions"></a>사용 권한에 대한 짧은 형식
 
-**RWX**는 **읽기 + 쓰기 + 실행**을 나타내는 데 사용됩니다. **읽기=4**, **쓰기=2** 및 **실행=1**의 압축된 숫자 형식이 있으며, 그 합계는 권한을 나타냅니다. 다음은 몇 가지 예입니다.
+**RWX** 는 **읽기 + 쓰기 + 실행** 을 나타내는 데 사용됩니다. **읽기=4**, **쓰기=2** 및 **실행=1** 의 압축된 숫자 형식이 있으며, 그 합계는 권한을 나타냅니다. 다음은 몇 가지 예입니다.
 
 | 숫자 형식 | 약식 |      의미     |
 |--------------|------------|------------------------|
 | 7            | `RWX`        | 읽기 + 쓰기 + 실행 |
 | 5            | `R-X`        | 읽기 + 실행         |
-| 4            | `R--`        | Read                   |
+| 4            | `R--`        | 읽기                   |
 | 0            | `---`        | 사용 권한 없음         |
 
 ### <a name="permissions-inheritance"></a>권한 상속
@@ -90,9 +90,9 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 
 다음 표에서는 보안 주체가 **작업** 열에 나열 된 작업을 수행할 수 있도록 하는 데 필요한 ACL 항목을 보여 줍니다. 
 
-다음 표에서는 가상 디렉터리 계층 구조의 각 수준을 나타내는 열을 보여 줍니다. 컨테이너 ()의 루트 디렉터리에 대 한 열, `\` **Oregon**라는 하위 디렉터리, **포틀랜드**라는 Oregon 디렉터리의 하위 디렉터리 및 **Data.txt**라는 포틀랜드 디렉터리의 텍스트 파일이 있습니다. 
+다음 표에서는 가상 디렉터리 계층 구조의 각 수준을 나타내는 열을 보여 줍니다. 컨테이너 ()의 루트 디렉터리에 대 한 열, `\` **Oregon** 라는 하위 디렉터리, **포틀랜드** 라는 Oregon 디렉터리의 하위 디렉터리 및 **Data.txt** 라는 포틀랜드 디렉터리의 텍스트 파일이 있습니다. 
 
-> [! IMPORANT]이 테이블에서는 Azure RBAC 역할 할당 없이 acl **만** 사용 한다고 가정 합니다. Azure RBAC와 Acl을 결합 하는 비슷한 표를 보려면 [사용 권한 테이블: AZURE rbac 및 ACL 결합](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl)을 참조 하세요.
+> [! IMPORANT]이 테이블에서는 Azure 역할 할당 없이 acl **만** 사용 한다고 가정 합니다. Azure RBAC와 Acl을 결합 하는 비슷한 표를 보려면 [사용 권한 테이블: AZURE rbac 및 ACL 결합](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl)을 참조 하세요.
 
 |    작업(Operation)             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -119,7 +119,7 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 - 명명 된 관리 id
 - 기타 모든 사용자
 
-사용자 및 그룹의 ID는 Azure AD(Azure Active Directory) ID입니다. 별도로 언급 하지 않는 한, Data Lake Storage Gen2 컨텍스트에서 *사용자*는 Azure AD 사용자, 서비스 주체, 관리 id 또는 보안 그룹을 참조할 수 있습니다.
+사용자 및 그룹의 ID는 Azure AD(Azure Active Directory) ID입니다. 별도로 언급 하지 않는 한, Data Lake Storage Gen2 컨텍스트에서 *사용자* 는 Azure AD 사용자, 서비스 주체, 관리 id 또는 보안 그룹을 참조할 수 있습니다.
 
 ### <a name="the-owning-user"></a>소유 그룹
 
@@ -133,11 +133,11 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 
 ### <a name="the-owning-group"></a>소유 그룹
 
-POSIX Acl에서 모든 사용자는 *주 그룹과*연결 됩니다. 예를 들어 "Alice" 사용자는 "재무" 그룹에 속할 수 있습니다. Alice는 여러 그룹에 속할 수도 있지만 하나의 그룹은 항상 주 그룹으로 지정 됩니다. POSIX에서 Alice가 파일을 만들 때는 해당 파일의 소유 그룹이 자신의 주 그룹(여기서는 "finance"임)으로 설정됩니다. 그렇지 않으면 소유 그룹은 다른 사용자/그룹에 할당된 사용 권한과 유사하게 동작합니다.
+POSIX Acl에서 모든 사용자는 *주 그룹과* 연결 됩니다. 예를 들어 "Alice" 사용자는 "재무" 그룹에 속할 수 있습니다. Alice는 여러 그룹에 속할 수도 있지만 하나의 그룹은 항상 주 그룹으로 지정 됩니다. POSIX에서 Alice가 파일을 만들 때는 해당 파일의 소유 그룹이 자신의 주 그룹(여기서는 "finance"임)으로 설정됩니다. 그렇지 않으면 소유 그룹은 다른 사용자/그룹에 할당된 사용 권한과 유사하게 동작합니다.
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>새 파일 또는 디렉터리에 대한 소유 그룹 할당
 
-* **사례 1**: 루트 디렉터리 "/"입니다. 이 디렉터리는 Data Lake Storage Gen2 컨테이너를 만들 때 생성 됩니다. 이 경우 소유 그룹은 OAuth를 사용 하 여 완료 된 경우 컨테이너를 만든 사용자로 설정 됩니다. 공유 키, 계정 SAS 또는 서비스 SAS를 사용 하 여 컨테이너를 만든 경우 소유자 및 소유 그룹은 **$superuser**로 설정 됩니다.
+* **사례 1**: 루트 디렉터리 "/"입니다. 이 디렉터리는 Data Lake Storage Gen2 컨테이너를 만들 때 생성 됩니다. 이 경우 소유 그룹은 OAuth를 사용 하 여 완료 된 경우 컨테이너를 만든 사용자로 설정 됩니다. 공유 키, 계정 SAS 또는 서비스 SAS를 사용 하 여 컨테이너를 만든 경우 소유자 및 소유 그룹은 **$superuser** 로 설정 됩니다.
 * **사례 2** (다른 모든 경우): 새 항목이 만들어지면 소유 그룹이 부모 디렉터리에서 복사 됩니다.
 
 #### <a name="changing-the-owning-group"></a>소유 그룹 변경
@@ -199,7 +199,7 @@ return ( (desired_perms & perms & mask ) == desired_perms)
 
 새 Data Lake Storage Gen2 컨테이너의 경우 루트 디렉터리 ("/")의 액세스 ACL에 대 한 마스크는 기본적으로 디렉터리의 경우 **750** 이 고 파일의 경우 **640** 입니다. 다음 표에서는 이러한 권한 수준의 기호화 된 표기법을 보여 줍니다.
 
-|엔터티|디렉터리|파일|
+|엔터티|디렉터리|Files|
 |--|--|--|
 |소유 사용자|`rwx`|`r-w`|
 |소유 그룹|`r-x`|`r--`|
@@ -224,7 +224,7 @@ return ( (desired_perms & perms & mask ) == desired_perms)
 
 ### <a name="umask"></a>umask
 
-파일 또는 디렉터리를 만들 때는 umask를 사용하여 자식 항목에 기본 ACL이 설정되는 방식을 수정합니다. umask는 **소유 사용자**, **소유 그룹** 및 **기타**에 대한 RWX 값이 포함된 부모 디렉터리의 9비트 값입니다.
+파일 또는 디렉터리를 만들 때는 umask를 사용하여 자식 항목에 기본 ACL이 설정되는 방식을 수정합니다. umask는 **소유 사용자**, **소유 그룹** 및 **기타** 에 대한 RWX 값이 포함된 부모 디렉터리의 9비트 값입니다.
 
 Azure Data Lake Storage Gen2에 대한 umask는 007로 설정된 상수 값입니다. 이 값은 다음과 같이 변환됩니다.
 
@@ -270,7 +270,7 @@ HNS가 꺼져 있으면 Azure Azure RBAC 권한 부여 규칙이 계속 적용 �
 
 시스템에서 Azure RBAC 및 Acl을 평가 하 여 저장소 계정 리소스에 대 한 권한 부여 결정을 내리는 방법을 알아보려면 [사용 권한 평가 방법](data-lake-storage-access-control-model.md#how-permissions-are-evaluated)을 참조 하세요.
 
-### <a name="what-are-the-limits-for-azure-rbac-role-assignments-and-acl-entries"></a>Azure RBAC 역할 할당 및 ACL 항목에 대 한 제한은 무엇 인가요?
+### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Azure 역할 할당 및 ACL 항목에 대 한 제한은 무엇 인가요?
 
 다음 표에서는 Azure RBAC를 사용 하 여 "정교 하지 않은" 권한 (저장소 계정 또는 컨테이너에 적용 되는 권한)을 관리 하 고 Acl을 사용 하 여 "세분화 된" 권한 (파일 및 디렉터리에 적용 되는 권한)을 관리 하는 동안 고려해 야 하는 제한 사항에 대 한 요약 보기를 제공 합니다. ACL 할당에 보안 그룹을 사용 합니다. 그룹을 사용 하 여 구독 당 최대 역할 할당 수와 파일 또는 디렉터리 당 ACl 항목의 최대 수를 초과할 가능성이 줄어듭니다. 
 
@@ -324,7 +324,7 @@ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 
 OID가 표시 됩니다.
 
-서비스 사용자에 대 한 올바른 OID가 있는 경우 **액세스 관리** Storage 탐색기 페이지로 이동 하 여 oid를 추가 하 고 oid에 대 한 적절 한 사용 권한을 할당 합니다. **저장**을 선택해야 합니다.
+서비스 사용자에 대 한 올바른 OID가 있는 경우 **액세스 관리** Storage 탐색기 페이지로 이동 하 여 oid를 추가 하 고 oid에 대 한 적절 한 사용 권한을 할당 합니다. **저장** 을 선택해야 합니다.
 
 ### <a name="can-i-set-the-acl-of-a-container"></a>컨테이너의 ACL을 설정할 수 있나요?
 
@@ -343,6 +343,6 @@ Azure Storage REST API에는 [Set CONTAINER ACL](https://docs.microsoft.com/rest
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Linux에서 액세스 제어 목록을 사용 하는 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Azure Data Lake Storage Gen2의 액세스 제어 모델](data-lake-storage-access-control-model.md)

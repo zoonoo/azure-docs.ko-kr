@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: be7cfef5c7121d918c375dae216d293d9d56526b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: e3f541e28f47bb6456b441811d23baa9e020fde7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890482"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959155"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure용 SAP LaMa 커넥터
 
@@ -60,7 +61,7 @@ SAP LaMa는 많은 고객이 SAP 환경을 운영 및 모니터링하는 데 사
 
 ## <a name="general-remarks"></a>일반적인 설명
 
-* 설치 -> 설정 -> 엔진에서 *Automatic Mountpoint Creation* (자동 탑재 지점 만들기)을 사용하도록 설정해야 합니다.  
+* 설치 -> 설정 -> 엔진에서 *Automatic Mountpoint Creation*(자동 탑재 지점 만들기)을 사용하도록 설정해야 합니다.  
   SAP LaMa가 가상 머신에서 SAP Adaptive Extensions를 사용하여 볼륨을 마운트하는 경우, 이 설정을 사용하지 않으면 마운트 지점이 있어야 합니다.
 
 * 새 VM을 배포할 때 및 SAP 인스턴스가 준비가 되지 않은 경우에는 별도의 서브넷을 사용하며 IP 주소가 "도용"되지 않도록 동적 IP 주소를 사용하지 않습니다.  
@@ -319,7 +320,7 @@ NetApp 계정 내에서 용량 풀은 각 풀의 디스크 크기와 유형을 �
 
 ![SAP LaMa NetApp 용량 풀이 만들어짐 ](media/lama/sap-lama-capacitypool-list.png)
 
-이제 NFS 볼륨을 정의할 수 있습니다. 하나의 풀에 여러 시스템에 대 한 볼륨이 있으므로 자체 설명 명명 스키마를 선택 해야 합니다. SID를 추가 하면 관련 볼륨을 함께 그룹화 하는 데 도움이 됩니다. Ascs 및 AS 인스턴스의 경우 */sapmnt/ \<SID\>* , */usr/sap/ \<SID\>* 및 */home/ \<sid\> adm* 이 필요 합니다. 필요에 따라 중앙 전송 디렉터리에 대해 */usr/sap/trans* 가 필요 합니다 .이 디렉터리는 최소한 한 곳의 모든 시스템에서 사용 됩니다.
+이제 NFS 볼륨을 정의할 수 있습니다. 하나의 풀에 여러 시스템에 대 한 볼륨이 있으므로 자체 설명 명명 스키마를 선택 해야 합니다. SID를 추가 하면 관련 볼륨을 함께 그룹화 하는 데 도움이 됩니다. Ascs 및 AS 인스턴스의 경우 */sapmnt/ \<SID\>*, */usr/sap/ \<SID\>* 및 */home/ \<sid\> adm* 이 필요 합니다. 필요에 따라 중앙 전송 디렉터리에 대해 */usr/sap/trans* 가 필요 합니다 .이 디렉터리는 최소한 한 곳의 모든 시스템에서 사용 됩니다.
 
 > [!NOTE]
 > 베타 단계에서 볼륨 이름은 구독 내에서 고유 해야 합니다.
@@ -417,7 +418,7 @@ SAP NetWeaver 프로필 매개 변수 dbs/hdb/hdb_use_ident를 사용하여 HDB 
 /usr/sap/AH1/hdbclient/hdbuserstore SET DEFAULT ah1-db:35041@AH1 SAPABAP1 <password>
 ```
 
-*Primary Application Server Instance* (기본 애플리케이션 서버 인스턴스) 대화 상자의 *PAS 인스턴스 호스트 이름* 에 대해 *ah1-di-0* 을 사용합니다.
+*Primary Application Server Instance*(기본 애플리케이션 서버 인스턴스) 대화 상자의 *PAS 인스턴스 호스트 이름* 에 대해 *ah1-di-0* 을 사용합니다.
 
 #### <a name="post-installation-steps-for-sap-hana"></a>SAP HANA의 설치 후 단계
 
@@ -447,7 +448,7 @@ SWPM을 실행하고 *ASCS 인스턴스 호스트 이름* 에 *as1-ascs* 를 사
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db -n 255.255.255.128
 ```
 
-SQL Server 가상 머신에서 SWPM의 데이터베이스 인스턴스 설치를 실행합니다. Use SAPINST_USE_HOSTNAME= *as1-db* 를 사용하여 SQL Server에 연결하는 데 사용되는 호스트 이름을 재정의합니다. Azure Resource Manager 템플릿을 사용하여 가상 머신을 배포한 경우에는 데이터베이스 데이터 파일에 사용되는 디렉터리를 *C:\sql\data* 로 설정하고 데이터베이스 로그 파일에 설정되는 디렉터리를 *C:\sql\log* 로 설정해야 합니다.
+SQL Server 가상 머신에서 SWPM의 데이터베이스 인스턴스 설치를 실행합니다. Use SAPINST_USE_HOSTNAME=*as1-db* 를 사용하여 SQL Server에 연결하는 데 사용되는 호스트 이름을 재정의합니다. Azure Resource Manager 템플릿을 사용하여 가상 머신을 배포한 경우에는 데이터베이스 데이터 파일에 사용되는 디렉터리를 *C:\sql\data* 로 설정하고 데이터베이스 로그 파일에 설정되는 디렉터리를 *C:\sql\log* 로 설정해야 합니다.
 
 사용자 *NT AUTHORITY\SYSTEM* 에게는 SQL Server에 대한 액세스 권한과 *sysadmin* 이라는 서버 역할이 있어야 합니다. 자세한 내용은 SAP Note [1877727] 및 [2562184]를 참조하세요.
 
@@ -460,7 +461,7 @@ SAP SWPM(Software Provisioning Manager)을 시작하기 전에 애플리케이�
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di-0 -n 255.255.255.128
 ```
 
-*Primary Application Server Instance* (기본 애플리케이션 서버 인스턴스) 대화 상자의 *PAS 인스턴스 호스트 이름* 에 대해 *as1-di-0* 을 사용합니다.
+*Primary Application Server Instance*(기본 애플리케이션 서버 인스턴스) 대화 상자의 *PAS 인스턴스 호스트 이름* 에 대해 *as1-di-0* 을 사용합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -489,19 +490,19 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
   * 해결 방법  
     원본 HANA 시스템의 모든 데이터베이스를 백업합니다.
 
-* 시스템 복사 단계 데이터베이스 인스턴스의 시작( *Start* )
+* 시스템 복사 단계 데이터베이스 인스턴스의 시작(*Start*)
   * 호스트 에이전트 작업 '000D3A282BC91EE8A1D76CF1F92E2944' 실패(OperationException. FaultCode: '127', 메시지: '명령을 실행하지 못했습니다. : [Microsoft][ODBC SQL Server Driver][SQL Server]사용자에게 'AS2' 데이터베이스를 변경할 권한이 없거나, 데이터베이스가 없거나, 데이터베이스가 액세스 검사를 허용하지 않는 상태입니다.')
   * 해결 방법  
     *NT AUTHORITY\SYSTEM* 이 SQL Server에 액세스할 수 있는지 확인합니다. SAP Note [2562184]를 참조하세요.
 
 ### <a name="errors-and-warnings-during-a-system-clone"></a>시스템 복제 중 오류 및 경고
 
-* ASCS 또는 애플리케이션 서버의 *Forced Register and Start Instance Agent* (강제 등록 및 인스턴스 에이전트 시작) 단계에서 인스턴스 에이전트 등록을 시도하는 중 오류가 발생했습니다.
+* ASCS 또는 애플리케이션 서버의 *Forced Register and Start Instance Agent*(강제 등록 및 인스턴스 에이전트 시작) 단계에서 인스턴스 에이전트 등록을 시도하는 중 오류가 발생했습니다.
   * 인스턴스 에이전트 등록을 시도하는 중 오류가 발생했습니다. (RemoteException: '프로필 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'에서 인스턴스 데이터를 로드하지 못했습니다. 프로필 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'에 액세스할 수 없습니다. 해당하는 파일이나 디렉터리가 없습니다.')
   * 해결 방법  
    ASCS/SCS의 sapmnt 공유에 SAP_AS1_GlobalAdmin에 대한 전체 액세스 권한이 있는지 확인합니다.
 
-* *Enable Startup Protection for Clone* (복제에 대한 시작 보호 사용) 단계의 오류
+* *Enable Startup Protection for Clone*(복제에 대한 시작 보호 사용) 단계의 오류
   * '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' 파일을 열지 못했습니다. 원인: 해당하는 파일이나 디렉터리가 없습니다.
   * 해결 방법  
     애플리케이션 서버의 컴퓨터 계정에 프로필에 대한 쓰기 권한이 필요합니다.
@@ -589,7 +590,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
   iaxxbaccount.cpp: 430: CIaOsAccount::validatePasswordPolicy_impl()  
   synxcaccmg.cpp: 297: ISyAccountMgt::PasswordValidationMessage CSyAccountMgtImpl::validatePasswordPolicy(saponazure,*****) const )
   * 해결 방법  
-    *Isolation* (격리) 단계에서 호스트를 추가하여 VM에서 도메인 컨트롤러로의 통신을 허용해야 합니다.
+    *Isolation*(격리) 단계에서 호스트를 추가하여 VM에서 도메인 컨트롤러로의 통신을 허용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 운영 가이드의 SAP HANA][hana-ops-guide]

@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: fd5c0905b4a5d050eaf35456353122fd26f8cbf7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 75d013b863671246e6249f367676e4de86bc1de8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445271"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960023"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Machine learning 파이프라인 게시 및 추적
 
@@ -74,7 +74,7 @@ Machine learning 파이프라인은 기계 학습 작업에 다시 사용할 수
 게시된 모든 파이프라인에는 REST 엔드포인트가 있습니다. 파이프라인 끝점을 사용 하 여 Python이 아닌 클라이언트를 비롯 한 모든 외부 시스템에서 파이프라인 실행을 트리거할 수 있습니다. 이 엔드포인트는 일괄 처리 채점 및 다시 학습 시나리오에서 “관리되는 반복 가능성”을 지원합니다.
 
 > [!IMPORTANT]
-> RBAC (역할 기반 액세스 제어)를 사용 하 여 파이프라인에 대 한 액세스를 관리 하는 경우 [파이프라인 시나리오에 대 한 사용 권한을 설정 합니다 (학습 또는 점수 매기기)](how-to-assign-roles.md#common-scenarios).
+> Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 파이프라인에 대 한 액세스를 관리 하는 경우 [파이프라인 시나리오에 대 한 사용 권한을 설정 합니다 (학습 또는 점수 매기기)](how-to-assign-roles.md#common-scenarios).
 
 이전 파이프라인의 실행을 호출 하려면 Azure Active Directory 인증 헤더 토큰이 필요 합니다. 이러한 토큰을 가져오는 방법은 [Azurecliauthentication 클래스](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?preserve-view=true&view=azure-ml-py) 참조 및 [Azure Machine Learning 노트북의 인증](https://aka.ms/pl-restep-auth) 에 설명 되어 있습니다.
 

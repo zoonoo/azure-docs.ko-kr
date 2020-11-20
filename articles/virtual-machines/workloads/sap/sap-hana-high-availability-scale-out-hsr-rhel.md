@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 520a7649942fc5186d32020853b98297ef8b34d7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 36c101acc9e272ca0860649aad1a5e18fb5000a5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152112"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957336"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에서 SAP HANA 스케일 아웃 시스템의 고가용성 
 
@@ -57,7 +58,7 @@ ms.locfileid: "92152112"
 
 이 문서에서는 Azure Red Hat Enterprise Linux Vm (가상 머신)에서 HSR (HANA system replication) 및 Pacemaker를 사용 하 여 스케일 아웃 구성에서 항상 사용 가능한 SAP HANA 시스템을 배포 하는 방법을 설명 합니다. 제공 된 아키텍처의 공유 파일 시스템은 [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) 에서 제공 하며 NFS를 통해 탑재 됩니다.  
 
-예제 구성, 설치 명령 등에서 HANA 인스턴스는 **03** 이 고 HANA 시스템 ID는 **h n 1**입니다. 예제는 HANA 2.0 SP4 및 SAP 7.6 용 Red Hat Enterprise Linux을 기반으로 합니다. 
+예제 구성, 설치 명령 등에서 HANA 인스턴스는 **03** 이 고 HANA 시스템 ID는 **h n 1** 입니다. 예제는 HANA 2.0 SP4 및 SAP 7.6 용 Red Hat Enterprise Linux을 기반으로 합니다. 
 
 시작 하기 전에 다음 SAP note 및 백서를 참조 하세요.
 
@@ -122,7 +123,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 이 문서에 나와 있는 구성의 경우 7 개의 가상 머신을 배포 합니다. 
    - hana 복제 사이트 1에 대 한 HANA DB 노드로 사용할 3 개의 가상 머신: **hana-s1-db1**, **hana-s1-db2** 및 hana- **s1-db3**  
    - hana 복제 사이트 2에 대 한 HANA DB 노드로 사용할 3 개의 가상 머신 ( **db1**, **hana-s2-db2** 및 hana- **s2-db3**  
-   - *과반수 작성자*역할을 하는 작은 가상 머신: **hana-s-mm**
+   - *과반수 작성자* 역할을 하는 작은 가상 머신: **hana-s-mm**
 
    SAP DB HANA 노드로 배포 된 Vm은 [SAP HANA 하드웨어 디렉터리](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)에 게시 된 대로 sap에 대해 sap에서 인증 되어야 합니다. HANA DB 노드를 배포할 때 [가속화 된 네트워크](../../../virtual-network/create-vm-accelerated-networking-cli.md) 가 선택 되어 있는지 확인 합니다.  
   
@@ -146,13 +147,13 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
     a. [Azure Portal](https://portal.azure.com/#home)의 가상 머신으로 이동 합니다.  
 
-    b. 왼쪽 창에서 **Virtual Machines**을 선택 합니다. 가상 컴퓨터 이름 (예: **db1**)을 필터링 한 다음 가상 컴퓨터를 선택 합니다.  
+    b. 왼쪽 창에서 **Virtual Machines** 을 선택 합니다. 가상 컴퓨터 이름 (예: **db1**)을 필터링 한 다음 가상 컴퓨터를 선택 합니다.  
 
-    다. **개요** 창에서 **중지** 를 선택 하 여 가상 컴퓨터의 할당을 취소 합니다.  
+    c. **개요** 창에서 **중지** 를 선택 하 여 가상 컴퓨터의 할당을 취소 합니다.  
 
-    d. **네트워킹**을 선택 하 고 네트워크 인터페이스를 연결 합니다. **네트워크 인터페이스 연결** 드롭다운 목록에서 및 서브넷에 대해 이미 생성 된 네트워크 인터페이스를 선택 합니다 `inter` `hsr` .  
+    d. **네트워킹** 을 선택 하 고 네트워크 인터페이스를 연결 합니다. **네트워크 인터페이스 연결** 드롭다운 목록에서 및 서브넷에 대해 이미 생성 된 네트워크 인터페이스를 선택 합니다 `inter` `hsr` .  
     
-    e. **저장**을 선택합니다. 
+    e. **저장** 을 선택합니다. 
  
     f. 나머지 가상 머신에 대해 b ~ e 단계를 반복 합니다 (이 예제에서는  **hana-s1-db2**, hana- **db3**, **hana-s2-db1**, **hana-s2** - **db3**).
  
@@ -187,37 +188,37 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 1. 표준 부하 분산 장치를 사용 하는 것이 좋습니다. 표준 부하 분산 장치를 배포 하려면 다음 구성 단계를 따르세요.
    1. 먼저 프런트 엔드 IP 풀을 만듭니다.
 
-      1. 부하 분산 장치를 열고, **프런트 엔드 IP 풀**을 선택하고, **추가**를 선택합니다.
+      1. 부하 분산 장치를 열고, **프런트 엔드 IP 풀** 을 선택하고, **추가** 를 선택합니다.
       1. 새 프런트 엔드 IP 풀의 이름을 입력합니다(예: **hana-frontend**).
       1. **할당** 을 **정적** 으로 설정 하 고 IP 주소를 입력 합니다 (예: **10.23.0.18**).
-      1. **확인**을 선택합니다.
+      1. **확인** 을 선택합니다.
       1. 새 프런트 엔드 IP 풀을 만든 후, 풀 IP 주소를 적어 둡니다.
 
    1. 다음으로 백 엔드 풀을 만들고 모든 클러스터 Vm을 백 엔드 풀에 추가 합니다.
 
-      1. 부하 분산 장치를 열고, **백 엔드 풀**을 선택한 다음, **추가**를 클릭합니다.
+      1. 부하 분산 장치를 열고, **백 엔드 풀** 을 선택한 다음, **추가** 를 클릭합니다.
       1. 새 백 엔드 풀의 이름 입력합니다(예: **hana-backend**).
-      1. **가상 머신 추가**를 선택합니다.
-      1. **가상 머신**을 선택합니다.
+      1. **가상 머신 추가** 를 선택합니다.
+      1. **가상 머신** 을 선택합니다.
       1. SAP HANA 클러스터의 가상 머신 및 서브넷에 대 한 IP 주소를 선택 합니다 `client` .
-      1. **추가**를 선택합니다.
+      1. **추가** 를 선택합니다.
 
    1. 다음으로, 상태 프로브를 만듭니다.
 
-      1. 부하 분산 장치를 열고, **상태 프로브**를 선택한 다음, **추가**를 선택합니다.
+      1. 부하 분산 장치를 열고, **상태 프로브** 를 선택한 다음, **추가** 를 선택합니다.
       1. 새 상태 프로브의 이름을 입력합니다(예: **hana-hp**).
-      1. 프로토콜 및 포트 625**03**으로 **TCP**를 선택합니다. 5로 설정된 **간격** 값, 2로 설정된 **비정상 임계값** 값을 유지합니다.
-      1. **확인**을 선택합니다.
+      1. 프로토콜 및 포트 625 **03** 으로 **TCP** 를 선택합니다. 5로 설정된 **간격** 값, 2로 설정된 **비정상 임계값** 값을 유지합니다.
+      1. **확인** 을 선택합니다.
 
    1. 다음으로 부하 분산 규칙을 만듭니다.
    
-      1. 부하 분산 장치를 열고, **부하 분산 규칙**을 선택한 다음, **추가**를 선택합니다.
+      1. 부하 분산 장치를 열고, **부하 분산 규칙** 을 선택한 다음, **추가** 를 선택합니다.
       1. 새 부하 분산 장치 규칙의 이름을 입력합니다(예: **hana-lb**).
       1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택합니다(예: **hana-frontend**, **hana-backend** 및 **hana-hp**).
-      1. **HA 포트**를 선택합니다.
-      1. **유휴 상태 시간 제한**을 30분으로 증가시킵니다.
-      1. **부동 IP를 사용하도록 설정**했는지 확인합니다.
-      1. **확인**을 선택합니다.
+      1. **HA 포트** 를 선택합니다.
+      1. **유휴 상태 시간 제한** 을 30분으로 증가시킵니다.
+      1. **부동 IP를 사용하도록 설정** 했는지 확인합니다.
+      1. **확인** 을 선택합니다.
 
    > [!IMPORTANT]
    > 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원 되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations)을 참조 하세요. VM에 대 한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포 합니다.    
@@ -227,7 +228,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 
    > [!IMPORTANT]
-   > Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps**를 **0**으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](../../../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
+   > Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps** 를 **0** 으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](../../../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
    > 또한 SAP 참고 [2382421](https://launchpad.support.sap.com/#/notes/2382421)을 참조하세요.  
 
 ### <a name="deploy-the-azure-netapp-files-infrastructure"></a>Azure NetApp Files 인프라 배포 
@@ -322,7 +323,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
     Nobody-Group = nobody
     ```
 
-3. **[AH]** 확인 `nfs4_disable_idmapping` . **Y**로 설정되어야 합니다. `nfs4_disable_idmapping`이 있는 디렉터리 구조를 만들려면 mount 명령을 실행합니다. 커널/드라이버용으로 액세스가 예약되어 있기 때문에 /sys/modules 아래에 디렉터리를 수동으로 만들 수 없습니다.  
+3. **[AH]** 확인 `nfs4_disable_idmapping` . **Y** 로 설정되어야 합니다. `nfs4_disable_idmapping`이 있는 디렉터리 구조를 만들려면 mount 명령을 실행합니다. 커널/드라이버용으로 액세스가 예약되어 있기 때문에 /sys/modules 아래에 디렉터리를 수동으로 만들 수 없습니다.  
    이 단계는 Azure NetAppFiles NFSv 4.1을 사용 하는 경우에만 필요 합니다.  
 
     ```
@@ -352,7 +353,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
     ```
 
 
-10. **[AH]** 해당 `/hana/shared/` 파일 시스템이 NFS 프로토콜 버전 **NFSv4**를 사용 하는 모든 HANA DB vm에 탑재 되어 있는지 확인 합니다.  
+10. **[AH]** 해당 `/hana/shared/` 파일 시스템이 NFS 프로토콜 버전 **NFSv4** 를 사용 하는 모든 HANA DB vm에 탑재 되어 있는지 확인 합니다.  
 
     ```
     sudo nfsstat -m
@@ -395,7 +396,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
     ```
 
 4. **[AH]** 논리 볼륨을 만듭니다. 
-   `-i` 스위치 없이 `lvcreate`를 사용하는 경우 선형 볼륨이 만들어집니다. 더 나은 I/O 성능을 위해 스트라이프 볼륨을 만들고 [SAP HANA VM 스토리지 구성](./hana-vm-operations-storage.md)에 설명된 값에 스트라이프 크기를 정렬하는 것이 좋습니다. `-i` 인수는 기본 실제 볼륨의 수여야 하며 `-I` 인수는 스트라이프 크기입니다. 이 문서에서는 2개의 물리적 볼륨이 데이터 볼륨에 사용되므로 `-i` 스위치 인수가 **2**로 설정됩니다. 데이터 볼륨의 스트라이프 크기는 **256 KiB**입니다. 로그 볼륨에는 하나의 실제 볼륨이 사용되므로 `-i` 또는 `-I` 스위치는 로그 볼륨 명령에 명시적으로 사용되지 않습니다.  
+   `-i` 스위치 없이 `lvcreate`를 사용하는 경우 선형 볼륨이 만들어집니다. 더 나은 I/O 성능을 위해 스트라이프 볼륨을 만들고 [SAP HANA VM 스토리지 구성](./hana-vm-operations-storage.md)에 설명된 값에 스트라이프 크기를 정렬하는 것이 좋습니다. `-i` 인수는 기본 실제 볼륨의 수여야 하며 `-I` 인수는 스트라이프 크기입니다. 이 문서에서는 2개의 물리적 볼륨이 데이터 볼륨에 사용되므로 `-i` 스위치 인수가 **2** 로 설정됩니다. 데이터 볼륨의 스트라이프 크기는 **256 KiB** 입니다. 로그 볼륨에는 하나의 실제 볼륨이 사용되므로 `-i` 또는 `-I` 스위치는 로그 볼륨 명령에 명시적으로 사용되지 않습니다.  
 
    > [!IMPORTANT]
    > 스위치를 사용 `-i` 하 여 각 데이터 또는 로그 볼륨에 둘 이상의 실제 볼륨을 사용 하는 경우 기본 실제 볼륨의 수로 설정 합니다. 스트라이프 볼륨을 만들 때 `-I` 스위치를 사용하여 스트라이프 크기를 지정합니다.  
@@ -494,7 +495,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
      * **설치용 추가 구성 요소**: **2, 3** 입력
      * 설치 경로: Enter 키를 누릅니다 (기본값은/hana/shared).
      * **로컬 호스트 이름**: 기본값을 적용 하려면 enter 키를 누릅니다.
-     * **시스템에 호스트를 추가**하 시겠습니까?: **n** 을 입력 합니다.
+     * **시스템에 호스트를 추가** 하 시겠습니까?: **n** 을 입력 합니다.
      * **SAP HANA 시스템 ID**: **h n 1** 을 입력 합니다.
      * **인스턴스 번호** [00]: **03** 을 입력 합니다.
      * **로컬 호스트 작업자 그룹** [기본값]: enter 키를 눌러 기본값을 적용 합니다.
@@ -578,7 +579,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
      * **쉼표로 구분 된 호스트 이름 입력**: hana-s1-db2, hana-s1-db3
      * **설치용 추가 구성 요소**: **2, 3** 입력
      * **Root 사용자 이름 입력 [root]**: enter 키를 눌러 기본값을 적용 합니다.
-     * **' Hana-s1-db2 ' [1]에 대 한 역할 선택**의 경우: 1 (작업자의 경우)
+     * **' Hana-s1-db2 ' [1]에 대 한 역할 선택** 의 경우: 1 (작업자의 경우)
      * **' Hana-s1-db2 ' 호스트에 대 한 호스트 장애 조치 (Failover) 그룹 입력 [기본값]**: enter 키를 눌러 기본값을 적용 합니다.
      * **' Hana-s1-db2 ' 호스트에 대 한 저장소 파티션 번호 입력 [<<assign automatically>>]**: enter 키를 눌러 기본값을 적용 합니다.
      * **' Hana-s1-db2 ' 호스트에 대 한 작업자 그룹 입력 [기본값]**: enter 키를 눌러 기본값을 적용 합니다.
@@ -587,7 +588,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
      * **' Hana-db3 ' 호스트에 대 한 저장소 파티션 번호 입력 [<<assign automatically>>]**: enter 키를 눌러 기본값을 적용 합니다.
      * **' Hana-db3 ' 호스트에 대 한 작업자 그룹 입력 (기본값)**: enter 키를 눌러 기본값을 적용 합니다.
      * **Hn1adm (시스템 관리자) 암호**: 암호를 입력 합니다.
-     * **SAP 호스트 에이전트 사용자 (sapadm) 암호 입력**에 대해 암호를 입력 합니다.
+     * **SAP 호스트 에이전트 사용자 (sapadm) 암호 입력** 에 대해 암호를 입력 합니다.
      * **SAP 호스트 에이전트 사용자 확인 (sapadm) 암호**: 암호를 입력 합니다.
      * **호스트 hana-s1-d b 2에 대 한 인증서 호스트 이름** [hana-s1-db2]: enter 키를 눌러 기본값을 적용 합니다.
      * 호스트 hana-s1-db3 [hana-s1-db3] **에 대 한 인증서 호스트 이름** : 기본값을 적용 하려면 enter 키를 누릅니다.
@@ -599,7 +600,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 1. **[1]** 사이트 1에서 시스템 복제 구성:
 
-   **H n 1**adm으로 데이터베이스를 백업 합니다.
+   **H n 1** adm으로 데이터베이스를 백업 합니다.
 
     ```
     hdbsql -d SYSTEMDB -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupSYS')"
@@ -936,7 +937,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
    3. 다음으로 HANA 인스턴스 리소스를 만듭니다.  
       > [!NOTE]
-      > 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *종속*용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.  
+      > 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *종속* 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.  
  
       RHEL **7.x** 클러스터를 빌드하는 경우 다음 명령을 사용 합니다.    
       ```
@@ -961,7 +962,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
        meta master-max="1" clone-node-max=1 interleave=true
       ```
       > [!IMPORTANT]
-      > 철저 한 장애 조치 (failover) 테스트를 수행 하는 동안 AUTOMATED_REGISTER를 **아니요**로 설정 하 여 실패 한 주 인스턴스가 보조로 자동으로 등록 되는 것을 방지 하는 것이 좋습니다. 장애 조치 (failover) 테스트가 성공적으로 완료 되 면 AUTOMATED_REGISTER를 **예**로 설정 하 여 인수 시스템 복제를 자동으로 다시 시작할 수 있도록 합니다. 
+      > 철저 한 장애 조치 (failover) 테스트를 수행 하는 동안 AUTOMATED_REGISTER를 **아니요** 로 설정 하 여 실패 한 주 인스턴스가 보조로 자동으로 등록 되는 것을 방지 하는 것이 좋습니다. 장애 조치 (failover) 테스트가 성공적으로 완료 되 면 AUTOMATED_REGISTER를 **예** 로 설정 하 여 인수 시스템 복제를 자동으로 다시 시작할 수 있도록 합니다. 
 
    4. 가상 IP 및 연결 된 리소스를 만듭니다.  
       ```
@@ -1068,7 +1069,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 2. 노드가 NFS 공유에 대 한 액세스를 잃으면 () 장애 시나리오에 대 한 클러스터 구성을 확인 `/hana/shared` 합니다.  
 
-   SAP HANA 리소스 에이전트는 `/hana/shared` 장애 조치 (failover) 중에 작업을 수행 하기 위해에 저장 된 이진 파일에 종속 됩니다. 파일 시스템 `/hana/shared` 은 제공 된 구성에서 NFS를 통해 탑재 됩니다. 실행할 수 있는 테스트는 `/hana/shared` 파일 시스템을 *읽기 전용*으로 다시 탑재 하는 것입니다. 이 접근 방식은 `/hana/shared` 활성 시스템 복제 사이트에 대 한 액세스가 손실 된 경우 클러스터가 장애 조치 (failover) 되는 것을 확인 합니다.  
+   SAP HANA 리소스 에이전트는 `/hana/shared` 장애 조치 (failover) 중에 작업을 수행 하기 위해에 저장 된 이진 파일에 종속 됩니다. 파일 시스템 `/hana/shared` 은 제공 된 구성에서 NFS를 통해 탑재 됩니다. 실행할 수 있는 테스트는 `/hana/shared` 파일 시스템을 *읽기 전용* 으로 다시 탑재 하는 것입니다. 이 접근 방식은 `/hana/shared` 활성 시스템 복제 사이트에 대 한 액세스가 손실 된 경우 클러스터가 장애 조치 (failover) 되는 것을 확인 합니다.  
 
    **예상 결과**: 읽기 전용으로 다시 탑재 하는 경우 파일 시스템에 `/hana/shared` 대 한 읽기/쓰기 작업을 수행 하는 모니터링 작업이 실패 하 고 HANA 리소스 장애 조치 (failover)가 트리거됩니다. *Read only* HANA 노드가 NFS 공유에 액세스할 수 없는 경우에도 동일한 결과가 예상 됩니다.  
      

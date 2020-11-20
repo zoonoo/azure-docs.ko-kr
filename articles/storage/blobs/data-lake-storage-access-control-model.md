@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.author: normesta
-ms.openlocfilehash: a5cdeba654440e666bc79df361b3f90db8a73b0a
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 3ddcbe57112251a428e11d6c164cdb1224553f98
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578651"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959206"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어 모델
 
@@ -53,16 +53,16 @@ Acl을 사용 하면 디렉터리 및 파일에 대 한 "세분화 된" 수준�
 
 보안 주체 기반 권한 부여 중에는 다음과 같은 순서로 권한이 평가 됩니다.
 
-: 1: &nbsp; &nbsp; Azure RBAC 역할 할당이 먼저 평가 되 고 ACL 할당 보다 우선 합니다.
+: 1: &nbsp; &nbsp; Azure 역할 할당이 먼저 평가 되 고 ACL 할당 보다 우선 합니다.
 
-: 2: &nbsp; &nbsp; Azure RBAC 역할 할당에 따라 작업이 완전히 승인 된 경우 acl이 전혀 평가 되지 않습니다.
+: 2: &nbsp; &nbsp; Azure 역할 할당에 따라 작업이 완전히 승인 된 경우 acl은 전혀 평가 되지 않습니다.
 
 : 3: &nbsp; &nbsp; 작업이 완전히 승인 되지 않은 경우 acl이 평가 됩니다.
 
 > [!div class="mx-imgBorder"]
 > ![data lake storage 권한 흐름](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
-시스템에서 액세스 권한을 평가 하는 방식 때문에 역할 할당에 의해 이미 부여 된 액세스는 ACL을 사용 하 여 **제한할** **수 없습니다** . 이는 시스템에서 Azure RBAC 역할 할당을 먼저 평가 하 고, 할당에서 충분 한 액세스 권한을 부여 하는 경우 Acl이 무시 되기 때문입니다. 
+시스템에서 액세스 권한을 평가 하는 방식 때문에 역할 할당에 의해 이미 부여 된 액세스는 ACL을 사용 하 여 **제한할** **수 없습니다** . 시스템이 Azure 역할 할당을 먼저 평가 하 고 할당에서 충분 한 액세스 권한을 부여 하는 경우 Acl은 무시 됩니다. 
 
 다음 다이어그램에서는 디렉터리 내용 나열, 파일 읽기 및 파일 쓰기와 같은 세 가지 일반적인 작업에 대 한 사용 권한 흐름을 보여 줍니다.
 
@@ -71,38 +71,38 @@ Acl을 사용 하면 디렉터리 및 파일에 대 한 "세분화 된" 수준�
 
 ## <a name="permissions-table-combining-azure-rbac-and-acl"></a>사용 권한 테이블: Azure RBAC 및 ACL 결합
 
-다음 표에서는 보안 주체가 **작업** 열에 나열 된 작업을 수행할 수 있도록 Azure RBAC 역할 및 ACL 항목을 결합 하는 방법을 보여 줍니다. 다음 표에서는 가상 디렉터리 계층 구조의 각 수준을 나타내는 열을 보여 줍니다. 컨테이너 ()의 루트 디렉터리에 대 한 열, `/` **Oregon** 라는 하위 디렉터리, **포틀랜드** 라는 Oregon 디렉터리의 하위 디렉터리 및 **Data.txt** 라는 포틀랜드 디렉터리의 텍스트 파일이 있습니다. 이러한 열에는 사용 권한을 부여 하는 데 필요한 ACL 항목의 [약식](data-lake-storage-access-control.md#short-forms-for-permissions) 표현이 표시 됩니다. **N/A** 작업을 수행 하는 데 ACL 항목이 필요 하지 않은 경우 _해당 없음 (해당 없음_ )이 열에 표시 됩니다.
+다음 표에서는 보안 주체가 **작업** 열에 나열 된 작업을 수행할 수 있도록 Azure 역할 및 ACL 항목을 결합 하는 방법을 보여 줍니다. 다음 표에서는 가상 디렉터리 계층 구조의 각 수준을 나타내는 열을 보여 줍니다. 컨테이너 ()의 루트 디렉터리에 대 한 열, `/` **Oregon** 라는 하위 디렉터리, **포틀랜드** 라는 Oregon 디렉터리의 하위 디렉터리 및 **Data.txt** 라는 포틀랜드 디렉터리의 텍스트 파일이 있습니다. 이러한 열에는 사용 권한을 부여 하는 데 필요한 ACL 항목의 [약식](data-lake-storage-access-control.md#short-forms-for-permissions) 표현이 표시 됩니다. **N/A** 작업을 수행 하는 데 ACL 항목이 필요 하지 않은 경우 _해당 없음 (해당 없음_)이 열에 표시 됩니다.
 
 |    작업(Operation)             | 할당 된 RBAC 역할               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
-| Read Data.txt            |   Storage Blob 데이터 소유자        | N/A      | N/A      | N/A       | N/A    |  
-|                          |   Storage Blob 데이터 기여자  | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob 데이터 읽기 권한자       | N/A      | N/A      | N/A       | N/A    |
+| Read Data.txt            |   Storage Blob 데이터 소유자        | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |  
+|                          |   Storage Blob 데이터 기여자  | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |
+|                          |   Storage Blob 데이터 읽기 권한자       | 해당 없음      | 해당 없음      | 해당 없음       | N/A    |
 |                          |   없음                           | `--X`    | `--X`    | `--X`     | `R--`  |
-| Append to Data.txt       |   Storage Blob 데이터 소유자        | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob 데이터 기여자  | N/A      | N/A      | N/A       | N/A    |
+| Append to Data.txt       |   Storage Blob 데이터 소유자        | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |
+|                          |   Storage Blob 데이터 기여자  | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |
 |                          |   Storage Blob 데이터 읽기 권한자       | `--X`    | `--X`    | `--X`     | `-W-`  |
-|                          |   None                           | `--X`    | `--X`    | `--X`     | `RW-`  |
-| Delete Data.txt          |   Storage Blob 데이터 소유자        | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob 데이터 기여자  | N/A      | N/A      | N/A       | N/A    |
+|                          |   없음                           | `--X`    | `--X`    | `--X`     | `RW-`  |
+| Delete Data.txt          |   Storage Blob 데이터 소유자        | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |
+|                          |   Storage Blob 데이터 기여자  | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |
 |                          |   Storage Blob 데이터 읽기 권한자       | `--X`    | `--X`    | `-WX`     | N/A    |
-|                          |   없음                           | `--X`    | `--X`    | `-WX`     | N/A    |
-| Create Data.txt          |   Storage Blob 데이터 소유자        | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob 데이터 기여자  | N/A      | N/A      | N/A       | N/A    |
+|                          |   없음                           | `--X`    | `--X`    | `-WX`     | 해당 없음    |
+| Create Data.txt          |   Storage Blob 데이터 소유자        | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |
+|                          |   Storage Blob 데이터 기여자  | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |
 |                          |   Storage Blob 데이터 읽기 권한자       | `--X`    | `--X`    | `-WX`     | N/A    |
-|                          |   없음                           | `--X`    | `--X`    | `-WX`     | N/A    |
-| List /                   |   Storage Blob 데이터 소유자        | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob 데이터 기여자  | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob 데이터 읽기 권한자       | N/A      | N/A      | N/A       | N/A    |
-|                          |   없음                           | `R-X`    | N/A      | N/A       | N/A    |
-| List /Oregon/            |   Storage Blob 데이터 소유자        | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob 데이터 기여자  | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob 데이터 읽기 권한자       | N/A      | N/A      | N/A       | N/A    |
-|                          |   없음                           | `--X`    | `R-X`    | N/A       | N/A    |
-| List /Oregon/Portland/   |   Storage Blob 데이터 소유자        | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob 데이터 기여자  | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob 데이터 읽기 권한자       | N/A      | N/A      | N/A       | N/A    |
-|                          |   없음                           | `--X`    | `--X`    | `R-X`     | N/A    |
+|                          |   없음                           | `--X`    | `--X`    | `-WX`     | 해당 없음    |
+| List /                   |   Storage Blob 데이터 소유자        | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |
+|                          |   Storage Blob 데이터 기여자  | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |
+|                          |   Storage Blob 데이터 읽기 권한자       | 해당 없음      | 해당 없음      | 해당 없음       | N/A    |
+|                          |   없음                           | `R-X`    | 해당 없음      | 해당 없음       | 해당 없음    |
+| List /Oregon/            |   Storage Blob 데이터 소유자        | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |
+|                          |   Storage Blob 데이터 기여자  | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |
+|                          |   Storage Blob 데이터 읽기 권한자       | 해당 없음      | 해당 없음      | 해당 없음       | N/A    |
+|                          |   없음                           | `--X`    | `R-X`    | 해당 없음       | 해당 없음    |
+| List /Oregon/Portland/   |   Storage Blob 데이터 소유자        | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |
+|                          |   Storage Blob 데이터 기여자  | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |
+|                          |   Storage Blob 데이터 읽기 권한자       | 해당 없음      | 해당 없음      | 해당 없음       | N/A    |
+|                          |   없음                           | `--X`    | `--X`    | `R-X`     | 해당 없음    |
 
 
 > [!NOTE] 
@@ -112,7 +112,7 @@ Acl을 사용 하면 디렉터리 및 파일에 대 한 "세분화 된" 수준�
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-groups.md)]
 
-## <a name="limits-on-azure-rbac-role-assignments-and-acl-entries"></a>Azure RBAC 역할 할당 및 ACL 항목에 대 한 제한
+## <a name="limits-on-azure-role-assignments-and-acl-entries"></a>Azure 역할 할당 및 ACL 항목에 대 한 제한
 
 그룹을 사용 하 여 구독 당 최대 역할 할당 수와 파일 또는 디렉터리 당 ACL 항목의 최대 수를 초과할 가능성이 줄어듭니다. 다음 표에서는 이러한 제한에 대해 설명 합니다.
 

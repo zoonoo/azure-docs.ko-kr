@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 7cdd70a44a090b03a3f11626805565469c7c04e7
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: df4d777ad78240b3ca84c51152b37861c4ccc486
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554668"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960005"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning studio 사용
 
@@ -39,7 +39,7 @@ ms.locfileid: "94554668"
 > 작업 영역이 Azure Government 또는 Azure 중국 21Vianet과 같은 __소 버린 클라우드에__ 있는 경우 통합 된 노트북은 가상 네트워크에 있는 저장소 사용을 지원 _하지 않습니다_ . 대신 컴퓨팅 인스턴스에서 Jupyter Notebook을 사용할 수 있습니다. 자세한 내용은 [Compute Instance 노트북의 데이터 액세스](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) 섹션을 참조 하세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 + [네트워크 보안 개요](how-to-network-security-overview.md) 를 읽고 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 합니다.
 
@@ -90,7 +90,7 @@ Azure Machine Learning는 데이터 저장소를 사용 [하 여 저장소](conc
 1. 데이터 저장소 설정에서 __작업 영역 관리 id를 사용 하 여 Azure Machine Learning 서비스에서 저장소에 액세스 하도록 허용__ 에 대해 __예__ 를 선택 합니다.
 
 
-이러한 단계는 azure 리소스 기반 액세스 제어 (Azure RBAC)를 사용 하 여 작업 영역 관리 id를 저장소 서비스에 __판독기__ 로 추가 합니다. __읽기 권한자__ 액세스를 통해 작업 영역에서 방화벽 설정을 검색 하 고 데이터가 가상 네트워크를 떠나지 않도록 할 수 있습니다.
+이러한 단계에서는 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 작업 영역 관리 id를 __판독기__ 로 저장소 서비스에 추가 합니다. __읽기 권한자__ 액세스를 통해 작업 영역에서 방화벽 설정을 검색 하 고 데이터가 가상 네트워크를 떠나지 않도록 할 수 있습니다.
 
 > [!NOTE]
 > 이러한 변경 내용을 적용 하는 데 최대 10 분이 걸릴 수 있습니다.
@@ -102,7 +102,7 @@ Azure Machine Learning는 데이터 저장소를 사용 [하 여 저장소](conc
 > [!IMPORTANT]
 > 이러한 고려 사항은 액세스 하는 __저장소 계정 유형에 대해__ 고유 합니다.
 
-### <a name="azure-blob-storage"></a>Azure Blob Storage
+### <a name="azure-blob-storage"></a>Azure Blob 스토리지
 
 __Azure blob storage__ 의 경우 blob storage에서 데이터를 읽을 수 있도록 작업 영역 관리 Id도 [blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 로 추가 됩니다.
 

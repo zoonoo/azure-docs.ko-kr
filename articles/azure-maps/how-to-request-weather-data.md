@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b5db19a6549e7e4675213973554ff18bf46dda1e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3e0dce10d582006ab8c1dabf6d4b3efc82d8f39f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92915425"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957115"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Azure Maps 날씨 서비스를 사용 하 여 실시간 및 예측 날씨 데이터 요청
 
@@ -27,6 +27,12 @@ Azure Maps [날씨 서비스](https://docs.microsoft.com/rest/api/maps/weather) 
 * [매일 예측 예측 API](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview)를 사용 하 여 매일 예측을 요청 합니다.
 * [시간별 예측 API](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview)를 사용 하 여 시간별 예측을 요청 합니다.
 * [Get Minute 예측 API](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview)를 사용 하 여 분 단위로 예측을 요청 합니다.
+
+이 비디오는 Azure Maps REST 호출 예제에서 날씨 서비스의 개요를 제공 합니다.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player" width="960" height="540" allowFullScreen frameBorder="0" title="개발자를 위한 날씨 서비스 Azure Maps-Microsoft Channel 9 비디오"></iframe>
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

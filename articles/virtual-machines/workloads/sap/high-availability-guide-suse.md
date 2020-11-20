@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 63adf2b1ca7ae795e35e8245440093fe0f6e6c49
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 508fff16f96d0dfddb77b219bb545fb8580b4048
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486177"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958900"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성
 
@@ -93,7 +94,7 @@ NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HAN
 * 프로브 포트
   * 포트 620<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
-  * 표준 Load Balancer를 사용하는 경우 **HA 포트**를 선택합니다.
+  * 표준 Load Balancer를 사용하는 경우 **HA 포트** 를 선택합니다.
   * 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
     * 32<strong>&lt;nr&gt;</strong> TCP
     * 36<strong>&lt;nr&gt;</strong> TCP
@@ -110,7 +111,7 @@ NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HAN
 * 프로브 포트
   * 포트 621<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
-  * 표준 Load Balancer를 사용하는 경우 **HA 포트**를 선택합니다.
+  * 표준 Load Balancer를 사용하는 경우 **HA 포트** 를 선택합니다.
   * 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
     * 32<strong>&lt;nr&gt;</strong> TCP
     * 33<strong>&lt;nr&gt;</strong> TCP
@@ -156,7 +157,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    9. 관리자 사용자 이름 및 관리자 암호 -  
       컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
    10. 서브넷 ID  
-   서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로/subscriptions/** &lt; subscription &gt; ID**/Resourcegroups//** &lt; 리소스 그룹 이름 &gt; **/providers/Microsoft.Network/virtualNetworks/** &lt; 가상 네트워크 이름 &gt; **/subnets/** &lt; 서브넷 이름 &gt; ** 처럼 보입니다.
+   서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로/subscriptions/**&lt; subscription &gt; ID**/Resourcegroups//**&lt; 리소스 그룹 이름 &gt;**/providers/Microsoft.Network/virtualNetworks/**&lt; 가상 네트워크 이름 &gt;**/subnets/**&lt; 서브넷 이름 &gt;** 처럼 보입니다.
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Azure Portal을 통해 Linux를 수동으로 배포
 
@@ -193,13 +194,13 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
       1. (A)SCS 클러스터의 가상 머신 및 해당 IP 주소 선택
       1. 추가를 클릭합니다.
    1. 상태 프로브 만들기
-      1. 포트: 620**00**(ASCS용)
+      1. 포트: 620 **00**(ASCS용)
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브의 이름 입력(예: **nw1-ascs-hp**)
-         1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
+         1. 프로토콜로 TCP를 선택하고, 620 **00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
          1. 확인 클릭
-      1. 포트: 621**02**(ASCS ERS용)
-         * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621**02** 및 **nw1-aers-hp**).
+      1. 포트: 621 **02**(ASCS ERS용)
+         * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621 **02** 및 **nw1-aers-hp**).
    1. 부하 분산 규칙
       1. ASCS에 대 한 부하 분산 규칙
          1. 부하 분산 장치를 열고 부하 분산 규칙을 선택한 다음 추가를 클릭 합니다.
@@ -227,26 +228,26 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
       1. (A)SCS 클러스터의 가상 머신 선택
       1. 확인 클릭
    1. 상태 프로브 만들기
-      1. 포트: 620**00**(ASCS용)
+      1. 포트: 620 **00**(ASCS용)
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브의 이름 입력(예: **nw1-ascs-hp**)
-         1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
+         1. 프로토콜로 TCP를 선택하고, 620 **00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
          1. 확인 클릭
-      1. 포트: 621**02**(ASCS ERS용)
-         * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621**02** 및 **nw1-aers-hp**).
+      1. 포트: 621 **02**(ASCS ERS용)
+         * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621 **02** 및 **nw1-aers-hp**).
    1. 부하 분산 규칙
-      1. TCP: 32**00**(ASCS용)
+      1. TCP: 32 **00**(ASCS용)
          1. 부하 분산 장치를 열고 부하 분산 규칙을 선택한 다음 추가를 클릭 합니다.
          1. 새 부하 분산 장치 규칙의 이름 입력(예: **nw1-lb-3200**)
          1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: **nw1-ascs-frontend**)
-         1. 프로토콜로 **TCP**를 유지하고. 포트로 **3200** 입력
+         1. 프로토콜로 **TCP** 를 유지하고. 포트로 **3200** 입력
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
          1. 확인 클릭
       1. ASCS에 대한 추가 포트
-         * ASCS의 경우 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 포트 및 TCP에 대해 위의 단계를 반복합니다.
+         * ASCS의 경우 36 **00**, 39 **00**, 81 **00**, 5 **00** 13, 5 **00** 14, 5 **00** 16 포트 및 TCP에 대해 위의 단계를 반복합니다.
       1. ASCS ERS에 대한 추가 포트
-         * ASCS ERS의 경우 33**02**, 5**02**13, 5**02**14, 5**02**16 포트 및 TCP에 대해 위의 단계를 반복합니다.
+         * ASCS ERS의 경우 33 **02**, 5 **02** 13, 5 **02** 14, 5 **02** 16 포트 및 TCP에 대해 위의 단계를 반복합니다.
 
 > [!IMPORTANT]
 > 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원 되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations)을 참조 하세요. VM에 대 한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포 합니다.  
@@ -255,7 +256,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps**를 **0**으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](../../../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
+> Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps** 를 **0** 으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](../../../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 
@@ -271,9 +272,9 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    </code></pre>
 
    > [!NOTE]
-   > 호스트 이름에 대시 사용과 관련된 알려진 문제는 패키지 **sap-suse-cluster-connector**의 버전 **3.1.1**에서 해결되었습니다. 호스트 이름에 대시가 있는 클러스터 노드를 사용하는 경우 패키지 sap-suse-cluster-connector의 버전 3.1.1 이상을 사용하고 있는지 확인하세요. 대시를 사용하면 클러스터가 작동하지 않습니다. 
+   > 호스트 이름에 대시 사용과 관련된 알려진 문제는 패키지 **sap-suse-cluster-connector** 의 버전 **3.1.1** 에서 해결되었습니다. 호스트 이름에 대시가 있는 클러스터 노드를 사용하는 경우 패키지 sap-suse-cluster-connector의 버전 3.1.1 이상을 사용하고 있는지 확인하세요. 대시를 사용하면 클러스터가 작동하지 않습니다. 
 
-   SAP SUSE 클러스터 커넥터의 새 버전을 설치했는지 확인합니다. 기존 버전은 sap_suse_cluster_connector라고 하며 새 버전은 **sap suse-cluster-connector**라고 합니다.
+   SAP SUSE 클러스터 커넥터의 새 버전을 설치했는지 확인합니다. 기존 버전은 sap_suse_cluster_connector라고 하며 새 버전은 **sap suse-cluster-connector** 라고 합니다.
 
    ```
    sudo zypper info sap-suse-cluster-connector
@@ -450,7 +451,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-   설치에서 /usr/sap/**NW1**/ASCS**00**에 하위 폴더를 만들지 못하면 ASCS**00** 폴더의 소유자와 그룹을 설정하고 다시 시도합니다.
+   설치에서 /usr/sap/**NW1**/ASCS **00** 에 하위 폴더를 만들지 못하면 ASCS **00** 폴더의 소유자와 그룹을 설정하고 다시 시도합니다.
 
    <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
@@ -507,7 +508,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    > [!NOTE]
    > SWPM SP 20 PL 05 이상을 사용합니다. 그 이전 버전은 권한을 올바르게 설정하지 않으므로 설치가 실패합니다.
 
-   설치에서 /usr/sap/**NW1**/ERS**02**에 하위 폴더를 만들지 못하면 ERS**02** 폴더의 소유자와 그룹을 설정하고 다시 시도합니다.
+   설치에서 /usr/sap/**NW1**/ERS **02** 에 하위 폴더를 만들지 못하면 ERS **02** 폴더의 소유자와 그룹을 설정하고 다시 시도합니다.
 
    <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>

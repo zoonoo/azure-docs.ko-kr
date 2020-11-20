@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7195e3c9f2d38c16bd9cad59a2489157c7c1340f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4257fcca1172502560c182651d649745e494cc1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654636"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958968"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Azure VM에서 SAP MaxDB, liveCache 및 Content Server 배포
 
@@ -380,7 +381,7 @@ Azure 가용성 집합 또는 SAP 모니터링과 같은 다른 모든 일반 �
 
 ## <a name="specifics-for-sap-livecache-deployments-on-windows"></a>Windows에서의 SAP liveCache 배포에 대한 세부 정보
 ### <a name="sap-livecache-version-support"></a>SAP liveCache 버전 지원
-Azure Virtual Machines에서 지원되는 SAP liveCache의 최소 버전은 **EhP 2 for SAP SCM 7.0** 이상 릴리스용으로 출시된 **liveCache 7.9.08.31** 및 **LCA-Build 25**가 포함된 **SAP LC/LCAPPS 10.0 SP 25**입니다.
+Azure Virtual Machines에서 지원되는 SAP liveCache의 최소 버전은 **EhP 2 for SAP SCM 7.0** 이상 릴리스용으로 출시된 **liveCache 7.9.08.31** 및 **LCA-Build 25** 가 포함된 **SAP LC/LCAPPS 10.0 SP 25** 입니다.
 
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-livecache-dbms"></a>SAP liveCache DBMS에 대해 지원되는 Microsoft Windows 버전 및 Azure VM 유형
 Azure에서 지원되는 SAP liveCache용 Microsoft Windows 버전을 찾으려면 다음을 참조하세요.
@@ -425,7 +426,7 @@ SAP에서 현재 다음을 지원합니다.
 * **SAP MaxDB 버전 7.9**
 * **Microsoft IIS(인터넷 정보 서비스) 버전 8.0 이상**
 
-최신 버전의 SAP Content Server 및 **Microsoft IIS**를 사용하는 것이 좋습니다. 
+최신 버전의 SAP Content Server 및 **Microsoft IIS** 를 사용하는 것이 좋습니다. 
 
 지원되는 최신 버전의 SAP Content Server 및 Microsoft IIS는 [SAP PAM(제품 가용성 매트릭스)][sap-pam]을 참조하세요.
 

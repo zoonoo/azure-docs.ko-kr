@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b48e4223e4e5fc5100de250d85441fcb96d50a3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aae822665702300064e82e80d74b5c2256423ea1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977241"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957285"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>SAP 응용 프로그램을 사용 하 여 최적의 네트워크 대기 시간을 위한 Azure 근접 배치 그룹
 Sap NetWeaver 또는 SAP S/4HANA 아키텍처를 기반으로 하는 SAP 응용 프로그램은 SAP 응용 프로그램 계층과 SAP 데이터베이스 계층 간의 네트워크 대기 시간을 구분 합니다. 이러한 민감도는 응용 프로그램 계층에서 실행 되는 대부분의 비즈니스 논리에 대 한 결과입니다. SAP 응용 프로그램 계층은 비즈니스 논리를 실행 하기 때문에 데이터베이스 계층에 대 한 쿼리를 초당 수천 또는 수만 개의 속도로 데이터베이스 계층에 보냅니다. 대부분의 경우 이러한 쿼리의 특성은 간단 합니다. 500 마이크로초 이하로 데이터베이스 계층에서 실행 되는 경우가 많습니다.

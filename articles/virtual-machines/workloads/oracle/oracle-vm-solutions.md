@@ -3,16 +3,17 @@ title: Azure 가상 머신의 Oracle 솔루션 | Microsoft Docs
 description: Microsoft Azure의 Oracle 가상 머신 이미지에 지원되는 구성 및 제한 사항을 알아봅니다.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 739245a8a17c97f3a8081cfee7e7bb31e4135952
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 093d3c0da0b40f2a287b1cb451a419f71ce4b8d7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843981"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957591"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Microsoft Azure의 Oracle VM 이미지 및 배포
 

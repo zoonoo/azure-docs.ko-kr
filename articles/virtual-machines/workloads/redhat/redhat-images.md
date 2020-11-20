@@ -3,16 +3,17 @@ title: Azure의 Red Hat Enterprise Linux 이미지 개요
 description: Microsoft Azure Red Hat Enterprise Linux 이미지에 대해 알아봅니다.
 author: asinn826
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 46504f7d6d3a989119a3c851fc029bdf4494e01f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 5cac21046b6b4afdefc4213f6a1fab438d62cca3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994301"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957540"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Red Hat Enterprise Linux 이미지 개요
 
@@ -145,7 +146,7 @@ RedHat:RHEL:7.6:7.6.2019102813
 RHEL 7.4      |RedHat: RHEL: 7.4:7.4.2019041718 | 4 월 2019 일에 게시 된 이미지는 기본적으로 EUS입니다.|
 RHEL 7.5      |RedHat: RHEL: 7.5:7.5.2019060305 | 6 월 2019 이상 게시 된 이미지는 기본적으로 EUS입니다. |
 RHEL 7.6      |RedHat: RHEL: 7.6:7.6.2019052206 | 2019 이상 게시 된 이미지는 기본적으로 EUS입니다. |
-RHEL 8.0      |N/A                            | Red Hat에서는 EUS를 사용할 수 없습니다.                               |
+RHEL 8.0      |해당 없음                            | Red Hat에서는 EUS를 사용할 수 없습니다.                               |
 
 ### <a name="update-services-for-sap"></a>SAP 용 업데이트 서비스
 

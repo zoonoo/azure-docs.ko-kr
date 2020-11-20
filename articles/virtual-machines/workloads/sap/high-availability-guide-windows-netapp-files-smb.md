@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
-ms.openlocfilehash: cd974377637f535383c4e099ac408bea88f887a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90b0ab4fdabd40e803d1f85a640e4cb387e40c44
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88853105"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958951"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>SAP 응용 프로그램용 SMB (Azure NetApp Files)를 사용 하는 Windows의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
 
@@ -120,7 +121,7 @@ Azure NetApp Files 사용 준비로 다음 단계를 수행 합니다.
 7. Windows 가상 머신에 SMB 볼륨을 탑재 합니다.
 
 > [!TIP]
-> Azure NetApp Files 볼륨을 탑재 하는 방법에 대 한 지침을 찾을 수 있습니다. [Azure Portal](https://portal.azure.com/#home) 에서 Azure NetApp Files 개체로 이동 하는 경우 **볼륨** 블레이드를 클릭 한 다음 **탑재 지침**을 클릭 합니다.  
+> Azure NetApp Files 볼륨을 탑재 하는 방법에 대 한 지침을 찾을 수 있습니다. [Azure Portal](https://portal.azure.com/#home) 에서 Azure NetApp Files 개체로 이동 하는 경우 **볼륨** 블레이드를 클릭 한 다음 **탑재 지침** 을 클릭 합니다.  
 
 ## <a name="prepare-the-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster"></a>Windows 장애 조치 (failover) 클러스터를 사용 하 여 SAP HA에 대 한 인프라 준비 
 
@@ -146,7 +147,7 @@ SAP에서 다음 소프트웨어가 필요 합니다.
 1. 첫 번째 클러스터 노드에 SAP ASCS/SCS 인스턴스를 설치 합니다. SAP swpm 설치 도구를 시작한 다음 **Product**  >  **DBMS** > 설치 > 응용 프로그램 서버 abap (또는 Java) > High-Availability System > ascs/SCS 인스턴스 > 첫 번째 클러스터 노드로 이동 합니다.  
 
 2. SWPM에서 클러스터 공유 구성으로 **파일 공유 클러스터** 를 선택 합니다.  
-3. **SAP 시스템 클러스터 매개 변수**단계에서 메시지가 표시 되 면 **파일 공유 호스트 이름**으로 이미 만든 Azure NetApp Files SMB 공유의 호스트 이름을 입력 합니다.  이 예제에서 SMB 공유 호스트 이름은 **anfsmb-9562**입니다. 
+3. **SAP 시스템 클러스터 매개 변수** 단계에서 메시지가 표시 되 면 **파일 공유 호스트 이름** 으로 이미 만든 Azure NetApp Files SMB 공유의 호스트 이름을 입력 합니다.  이 예제에서 SMB 공유 호스트 이름은 **anfsmb-9562** 입니다. 
 
    > [!IMPORTANT]
    > SWPM에서 필수 구성 요소 검사기의 결과로 지속적인 가용성 기능 조건이 충족 되지 않으면 [Windows에 더 이상 존재 하지 않는 공유 폴더에 액세스 하려고 할 때 지연 된 오류 메시지](https://support.microsoft.com/help/2820470/delayed-error-message-when-you-try-to-access-a-shared-folder-that-no-l)의 지침에 따라 해결할 수 있습니다.  

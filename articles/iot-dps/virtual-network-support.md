@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: d90b18094a26830ee6909251d46837eff95a812a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f1409a931195d236b2729e629e4603c606137593
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998579"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959784"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>가상 네트워크에 대 한 DPS (Azure IoT Hub 장치 프로 비전 서비스) 지원
 
@@ -38,12 +38,12 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
 
 연결을 제한 하는 일반적인 방법으로는 [DPS IP 필터 규칙](./iot-dps-ip-filtering.md) 및 [개인 끝점이](../private-link/private-endpoint-overview.md)있는 가상 네트워킹 (VNET)이 있습니다. 이 문서의 목표는 개인 끝점을 사용 하는 DPS에 대 한 VNET 접근 방식을 설명 하는 것입니다. 
 
-온-프레미스 네트워크에서 작동 하는 장치는 [VPN (가상 사설망)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 또는 [express](https://azure.microsoft.com/services/expressroute/) 경로 개인 피어 링을 사용 하 여 Azure의 VNET에 연결 하 고 개인 끝점을 통해 DPS 리소스에 액세스할 수 있습니다. 
+온-프레미스 네트워크에서 작동 하는 장치는 [VPN (가상 사설망)](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [express](https://azure.microsoft.com/services/expressroute/) 경로 개인 피어 링을 사용 하 여 Azure의 VNET에 연결 하 고 개인 끝점을 통해 DPS 리소스에 액세스할 수 있습니다. 
 
 개인 끝점은 Azure 리소스에 액세스할 수 있는 고객 소유의 VNET 내에 할당 된 개인 IP 주소입니다. DPS 리소스에 대 한 개인 끝점을 사용 하 여 VNET 내에서 작동 하는 장치가 공용 끝점에 대 한 트래픽을 허용 하지 않고 DPS 리소스에의 한 프로 비전을 요청할 수 있습니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 계속하기 전에 다음과 같은 전제 조건을 충족하는지 확인하세요.
 
@@ -51,7 +51,7 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
 
 * 개인 끝점이 생성 되는 서브넷을 사용 하 여 Azure VNET을 프로 비전 했습니다. 자세한 내용은 [Azure CLI를 사용 하 여 가상 네트워크 만들기](../virtual-network/quick-create-cli.md)를 참조 하세요.
 
-* 온-프레미스 네트워크 내에서 작동 하는 장치의 경우 Azure VNET에 [VPN (가상 사설망)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 또는 [express](https://azure.microsoft.com/services/expressroute/) 경로 개인 피어 링을 설정 합니다.
+* 온-프레미스 네트워크 내에서 작동 하는 장치의 경우 Azure VNET에 [VPN (가상 사설망)](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [express](https://azure.microsoft.com/services/expressroute/) 경로 개인 피어 링을 설정 합니다.
 
 ## <a name="private-endpoint-limitations"></a>개인 끝점 제한 사항
 
@@ -69,7 +69,7 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
 
 개인 끝점을 설정 하려면 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 DPS 리소스를 열고 **네트워킹** 탭을 클릭 합니다. **개인 끝점 연결** 및 **+ 개인 끝점**을 클릭 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 DPS 리소스를 열고 **네트워킹** 탭을 클릭 합니다. **개인 끝점 연결** 및 **+ 개인 끝점** 을 클릭 합니다.
 
     ![DPS에 대 한 새 개인 끝점 추가](./media/virtual-network-support/networking-tab-add-private-endpoint.png)
 
@@ -93,9 +93,9 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
     | 필드 | 값 |
     | :---- | :-----|
     | **구독**        | 개인 끝점이 가리키는 DPS 리소스를 포함 하는 Azure 구독을 선택 합니다.  |
-    | **리소스 종류**       | **Microsoft. Devices/ProvisioningServices**를 선택 합니다. |
+    | **리소스 종류**       | **Microsoft. Devices/ProvisioningServices** 를 선택 합니다. |
     | **리소스**            | 개인 끝점이 매핑될 DPS 리소스를 선택 합니다. |
-    | **대상 하위 리소스** | **Iotdps**를 선택 합니다. |
+    | **대상 하위 리소스** | **Iotdps** 를 선택 합니다. |
 
     > [!TIP]
     > **리소스 ID 또는 별칭으로 Azure 리소스에 연결** 설정에 대 한 정보는이 문서의 [개인 끝점 요청](#request-a-private-endpoint) 섹션에 제공 됩니다.
@@ -105,7 +105,7 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
 
 4. _개인 끝점 구성 만들기_ 페이지에서 개인 끝점을 만들 가상 네트워크 및 서브넷을 선택 합니다.
  
-    **다음: 태그**를 클릭 하 고 필요에 따라 리소스에 대 한 태그를 제공 합니다.
+    **다음: 태그** 를 클릭 하 고 필요에 따라 리소스에 대 한 태그를 제공 합니다.
 
     ![개인 끝점 구성](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
@@ -129,13 +129,13 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
     | :---- | :-----|
     | **리소스 ID 또는 별칭** | DPS 리소스의 리소스 ID를 입력 합니다. |
     | **대상 하위 리소스** | **Iotdps** 입력 |
-    | **요청 메시지** | DPS 리소스 소유자에 대 한 요청 메시지를 입력 합니다.<br>예를 들면 <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
+    | **요청 메시지** | DPS 리소스 소유자에 대 한 요청 메시지를 입력 합니다.<br>예를 들면 다음과 같습니다. <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
 
     **다음: 구성** 을 클릭 하 여 개인 끝점에 대 한 VNET을 구성 합니다.
 
 3. _개인 끝점 구성 만들기_ 페이지에서 개인 끝점을 만들 가상 네트워크 및 서브넷을 선택 합니다.
  
-    **다음: 태그**를 클릭 하 고 필요에 따라 리소스에 대 한 태그를 제공 합니다.
+    **다음: 태그** 를 클릭 하 고 필요에 따라 리소스에 대 한 태그를 제공 합니다.
 
 4. **검토 + 만들기** 를 클릭 한 다음 **만들기** 를 클릭 하 여 개인 끝점 요청을 만듭니다.
 
@@ -154,5 +154,5 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
 
 다음 링크를 사용 하 여 DPS 보안 기능에 대해 자세히 알아보세요.
 
-* [보안](concepts-security.md)
+* [보안](./concepts-service.md#attestation-mechanism)
 * [TLS 1.2 지원](tls-support.md)
