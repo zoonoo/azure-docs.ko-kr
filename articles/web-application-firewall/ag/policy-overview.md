@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 11/19/2020
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: 9fb8bf689e2767f681994258c4d2c51be41d6c68
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b546b043b856fd6ec69acd63fd69a01c48d0553b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952134"
+ms.locfileid: "94990128"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Azure WAF (웹 응용 프로그램 방화벽) 정책 개요
 
@@ -41,15 +41,15 @@ Application Gateway에 글로벌 정책이 적용되었다고 가정해 보겠�
 
 URI 수준까지 더 많은 사용자 지정을 위해 경로 기반 규칙과 WAF 정책을 연결할 수 있습니다. 단일 사이트 내에 다른 정책이 필요한 특정 페이지가 있으면 지정 된 URI에만 영향을 주는 WAF 정책을 변경할 수 있습니다. 이는 WAF 뒤의 다른 사이트 보다 훨씬 더 구체적인 WAF 정책을 필요로 하는 지불 또는 로그인 페이지나 기타 모든 Uri에 적용 될 수 있습니다.
 
-사이트별 WAF 정책과 마찬가지로 보다 구체적인 정책은 더 낮은 특정 정책을 재정의 합니다. 이는 URL 경로 맵에 대 한 URI 별 정책이 위의 사이트별 또는 전역 WAF 정책을 재정의 함을 의미 합니다.
+사이트별 WAF 정책과 마찬가지로 보다 구체적인 정책은 더 낮은 특정 정책을 무시 합니다. 이는 URL 경로 맵에 대 한 URI 별 정책이 위의 사이트별 또는 전역 WAF 정책을 재정의 함을 의미 합니다.
 
-## <a name="example"></a>예
+### <a name="example"></a>예제
 
 Contoso.com, fabrikam.com 및 adatum.com의 세 사이트가 동일한 응용 프로그램 게이트웨이 뒤에 있다고 가정해 보겠습니다. 세 사이트 모두에 WAF를 적용 하려고 하지만 고객이 제품을 방문 하 고, 검색 하 고, 구입 하는 경우 adatum.com를 사용 하 여 보안을 추가 해야 합니다.
 
 몇 가지 기본 설정, 제외 또는 사용자 지정 규칙을 사용 하 여 전역 정책을 WAF에 적용할 수 있습니다 .이 경우 일부 거짓 긍정을 차단 하는 트래픽을 중지할 수 있습니다. 이 경우 fabrikam.com 및 contoso.com가 SQL 백 엔드가 없는 정적 페이지 이기 때문에 전역 SQL 삽입 규칙을 실행할 필요가 없습니다. 따라서 전역 정책에서 이러한 규칙을 사용 하지 않도록 설정할 수 있습니다.
 
-이 글로벌 정책은 contoso.com 및 fabrikam.com에 적합 하지만 로그인 정보 및 지불이 처리 되는 adatum.com에 대 한 주의가 필요 합니다. Adatum 수신기에 사이트별 정책을 적용 하 고 SQL 규칙을 계속 실행할 수 있습니다. 또한 일부 트래픽을 차단 하는 쿠키가 있다고 가정 하므로 해당 쿠키에 대 한 제외를 만들어 거짓 긍정을 중지할 수 있습니다. 
+이 글로벌 정책은 contoso.com 및 fabrikam.com에 적합 하지만 로그인 정보 및 지불을 처리 하는 adatum.com에 대 한 추가 주의가 필요 합니다. Adatum 수신기에 사이트별 정책을 적용 하 고 SQL 규칙을 계속 실행할 수 있습니다. 또한 일부 트래픽을 차단 하는 쿠키가 있다고 가정 하므로 해당 쿠키에 대 한 제외를 만들어 거짓 긍정을 중지할 수 있습니다. 
 
 Adatum.com/payments URI는 주의 해야 하는 곳입니다. 따라서 해당 URI에 다른 정책을 적용 하 고 모든 규칙을 사용 하도록 설정 된 상태로 두고 모든 제외 항목을 제거 합니다.
 

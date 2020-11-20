@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: a133cdb72e304a254305833b9ae6e8a7ebe30ab3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 211ef9571b5a126686b4583330dc0f80863fd47e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540011"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992049"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Azure Machine Learning 사용 하 여 데이터 암호화
 
@@ -129,6 +129,12 @@ Azure Storage에 저장된 각 컴퓨팅 노드의 OS 디스크는 Azure Machine
 ### <a name="azure-databricks"></a>Azure Databricks
 
 Azure Databricks는 Azure Machine Learning 파이프라인에서 사용할 수 있습니다. 기본적으로 Azure Databricks에 사용되는 DBFS(Databricks 파일 시스템)는 Microsoft 관리형 키를 사용하여 암호화됩니다. 고객 관리형 키를 사용하도록 Azure Databricks를 구성하려면 [기본(루트) DBFS에서 고객 관리형 키 구성](/azure/databricks/security/customer-managed-keys-dbfs)을 참조하세요.
+
+### <a name="microsoft-generated-data"></a>Microsoft에서 생성된 데이터
+
+자동화된 Machine Learning과 같은 서비스를 사용하는 경우 Microsoft는 여러 모델을 학습시키기 위해 전처리된 일시적 데이터를 생성할 수 있습니다. 이런 데이터는 사용자 작업 영역의 데이터 저장소에 저장되므로 액세스 제어 및 암호화를 적절하게 적용할 수 있습니다.
+
+[배포된 엔드포인트에서 기록된 진단 정보](how-to-enable-app-insights.md)를 Azure Application Insights 인스턴스로 암호화할 수도 있습니다.
 
 ## <a name="encryption-in-transit"></a>전송 중 암호화
 

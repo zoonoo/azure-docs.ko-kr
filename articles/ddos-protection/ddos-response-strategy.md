@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 23822ce5b311dc479824128d66bc18a15473862d
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 0a80f03ee82e8d1216353482dc867402adcf7d09
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905316"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992236"
 ---
 # <a name="components-of-a-ddos-response-strategy"></a>DDoS 대응 전략의 구성 요소
 
@@ -44,9 +44,9 @@ Microsoft는 중요한 인프라 공급자로써 위협에 대한 조기 경고�
 
 - 내 서비스가 여러 지역에서 활성화/장애 조치(failover)와 함께 활성화됩니까?
 
-응용 프로그램의 정상적인 동작을 이해 하 고 응용 프로그램이 DDoS 공격 중에 예상 대로 작동 하지 않는 경우 작업을 준비 하는 것이 중요 합니다. 클라이언트 동작을 모방 하는 업무상 중요 한 응용 프로그램에 대해 모니터를 구성 하 고 관련 된 변칙이 검색 되 면 사용자에 게 알립니다. 응용 프로그램의 상태에 대 한 정보를 얻으려면 [모니터링 및 진단 모범 사례](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios) 를 참조 하세요.
+응용 프로그램의 정상적인 동작을 이해 하 고 응용 프로그램이 DDoS 공격 중에 예상 대로 작동 하지 않는 경우 작업을 준비 하는 것이 중요 합니다. 클라이언트 동작을 모방 하는 업무상 중요 한 응용 프로그램에 대해 모니터를 구성 하 고 관련 된 변칙이 검색 되 면 사용자에 게 알립니다. 응용 프로그램의 상태에 대 한 정보를 얻으려면 [모니터링 및 진단 모범 사례](/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios) 를 참조 하세요.
 
-[Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. Application Insights를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 검색합니다. 여기에는 문제를 진단 하 고 사용자가 앱에서 수행 하는 작업을 이해 하는 데 도움이 되는 분석 도구가 포함 됩니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
+[Azure Application Insights](../azure-monitor/app/app-insights-overview.md)는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. Application Insights를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 검색합니다. 여기에는 문제를 진단 하 고 사용자가 앱에서 수행 하는 작업을 이해 하는 데 도움이 되는 분석 도구가 포함 됩니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
 
 ## <a name="customer-ddos-response-team"></a>고객 DDoS 대응 팀
 

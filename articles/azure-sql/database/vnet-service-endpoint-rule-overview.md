@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5c5276f11da687f14630bafd007532d172ef3737
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325001"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990808"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Azure SQL Database의 서버에 대 한 가상 네트워크 서비스 끝점 및 규칙 사용
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -55,7 +55,7 @@ Virtual Network 서비스 엔드포인트 관리에는 보안 역할 분리가 �
 - **네트워크 관리자:** &nbsp; 엔드포인트를 켭니다.
 - **데이터베이스 관리자:** &nbsp; ACL (액세스 제어 목록)을 업데이트 하 여 지정 된 서브넷을 서버에 추가 합니다.
 
-*RBAC 대체:*
+*Azure RBAC 대안:*
 
 네트워크 관리자 및 데이터베이스 관리자 역할에는 가상 네트워크 규칙을 관리하는 데 필요한 것보다 많은 기능이 포함됩니다. 해당 기능의 하위 집합만 필요합니다.
 
@@ -89,7 +89,7 @@ Azure SQL Database의 경우 가상 네트워크 규칙 기능에는 다음과 �
 
 Azure SQL Database에 대해 서비스 엔드포인트를 사용하는 경우 다음 고려 사항을 검토합니다.
 
-- **Azure SQL Database 공용 IP에 대한 아웃 바운드가 필요함** : 연결을 허용하려면 Azure SQL Database IP에 대해 NSG(네트워크 보안 그룹)를 열어야 합니다. Azure SQL Database에 대해 NSG [서비스 태그](../../virtual-network/network-security-groups-overview.md#service-tags)를 사용하면 됩니다.
+- **Azure SQL Database 공용 IP에 대한 아웃 바운드가 필요함**: 연결을 허용하려면 Azure SQL Database IP에 대해 NSG(네트워크 보안 그룹)를 열어야 합니다. Azure SQL Database에 대해 NSG [서비스 태그](../../virtual-network/network-security-groups-overview.md#service-tags)를 사용하면 됩니다.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -110,7 +110,7 @@ Azure Storage는 사용자가 Azure Storage 계정에 대한 연결성을 제한
 
 PolyBase와 COPY 문은 일반적으로 처리량이 높은 데이터 수집을 위해 Azure Storage 계정에서 Azure Synapse Analytics로 데이터를 로드 하는 데 사용 됩니다. 데이터를 로드 하는 Azure Storage 계정에서 VNet 서브넷 집합 으로만 액세스를 제한 하는 경우 PolyBase를 사용 하는 경우 연결이 중단 되 고 저장소 계정에 대 한 COPY 문이 중단 됩니다. VNet에 보안이 설정 된 Azure Storage에 연결 하는 Azure Synapse Analytics에서 복사 및 PolyBase를 사용 하 여 가져오기 및 내보내기 시나리오를 사용 하도록 설정 하려면 아래에 나와 있는 단계를 따르세요.
 
-#### <a name="prerequisites"></a>필수 구성 요소
+#### <a name="prerequisites"></a>사전 요구 사항
 
 - [이 가이드](/powershell/azure/install-az-ps)를 사용하여 Azure PowerShell을 설치합니다.
 - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](../../storage/common/storage-account-upgrade.md)를 사용하여 범용 v2로 업그레이드해야 합니다.
@@ -192,7 +192,7 @@ PowerShell을 사용하여 **IgnoreMissingVNetServiceEndpoint** 플래그를 설
 
 ### <a name="error-40914"></a>오류 40914
 
-*메시지 텍스트* : 로그인에서 요청한 ' *[server-name]* ' 서버를 열 수 없습니다. 클라이언트가 서버에 액세스할 수 없습니다.
+*메시지 텍스트*: 로그인에서 요청한 '*[server-name]*' 서버를 열 수 없습니다. 클라이언트가 서버에 액세스할 수 없습니다.
 
 *오류 설명:* 클라이언트가 가상 네트워크 서버 엔드포인트가 있는 서브넷에 있습니다. 그러나 서버에는 데이터베이스와 통신 하는 권한을 서브넷에 부여 하는 가상 네트워크 규칙이 없습니다.
 
@@ -227,7 +227,7 @@ PowerShell을 사용하여 **IgnoreMissingVNetServiceEndpoint** 플래그를 설
 
 - [가상 네트워크 규칙: 작업][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure SQL Database에 관련된 특정 Virtual Network 서비스 엔드포인트 *형식 이름* 으로 태그가 지정된 서브넷이 있어야 합니다.
 
@@ -275,7 +275,7 @@ Azure SQL Database에 관련된 특정 Virtual Network 서비스 엔드포인트
 
 <a name="anchor-how-to-links-60h"></a>
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 
 - [Azure 가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]
 - [서버 수준 및 데이터베이스 수준 방화벽 규칙][sql-db-firewall-rules-config-715d]

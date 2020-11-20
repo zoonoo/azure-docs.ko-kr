@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: a386ea5149b36a4e82b4c935e2373f505c6c83cf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: db270224a753f815a2d94e6a1fa79ebbedf49278
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789882"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991573"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Azure VM에서 SQL Server의 백업 및 복원
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -55,23 +55,23 @@ SQL Server 2016 이상 VM은 자동화된 백업 v2와 함께 더 많은 사용�
 
 SQL VM에 대해 자동화된 백업을 구성하는 방법에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
 
-- **SQL Server 2016/2017** : [Azure Virtual Machines의 자동화된 Backup v2](automated-backup.md)
-- **SQL Server 2014** : [SQL Server 2014 Virtual Machines의 자동화된 백업](automated-backup-sql-2014.md)
+- **SQL Server 2016/2017**: [Azure Virtual Machines의 자동화된 Backup v2](automated-backup.md)
+- **SQL Server 2014**: [SQL Server 2014 Virtual Machines의 자동화된 백업](automated-backup-sql-2014.md)
 
 ## <a name="azure-backup-for-sql-vms"></a><a id="azbackup"></a> SQL VM에 대한 Azure Backup
 
 [Azure Backup](../../../backup/index.yml)은 Azure VM에서 SQL Server의 Enterprise 클래스 백업 기능을 제공합니다. 모든 백업은 Recovery Services 자격 증명 모음에서 저장되고 관리됩니다. 이 솔루션이 제공하는(특히 Enterprises에 대해) 다양한 이점이 있습니다.
 
-- **인프라가 없는 백업** : 백업 서버 또는 스토리지 위치를 관리할 필요가 없습니다.
-- **크기 조정** : 많은 SQL VM 및 수 천개의 데이터베이스를 보호합니다.
-- **종량제** : 이 기능은 Azure Backup에서 제공하는 별도 서비스이지만 모든 Azure 서비스와 마찬가지로 사용한 양만큼만 요금을 지불합니다.
-- **중앙 관리 및 모니터링** : Azure의 단일 대시보드에서 Azure Backup이 지원하는 다른 작업을 포함한 모든 백업을 중앙에서 관리합니다.
-- **정책 기반 백업 및 보존** : 정기 백업에 대한 표준 백업 정책을 만듭니다. 몇 년 동안 백업을 유지 관리하는 보존 정책을 설정합니다.
-- **SQL Always On에 대한 지원** : SQL Server Always On 구성을 검색 및 보호하고 백업 가용성 그룹 백업 기본 설정을 적용합니다.
+- **인프라가 없는 백업**: 백업 서버 또는 스토리지 위치를 관리할 필요가 없습니다.
+- **크기 조정**: 많은 SQL VM 및 수 천개의 데이터베이스를 보호합니다.
+- **종량제**: 이 기능은 Azure Backup에서 제공하는 별도 서비스이지만 모든 Azure 서비스와 마찬가지로 사용한 양만큼만 요금을 지불합니다.
+- **중앙 관리 및 모니터링**: Azure의 단일 대시보드에서 Azure Backup이 지원하는 다른 작업을 포함한 모든 백업을 중앙에서 관리합니다.
+- **정책 기반 백업 및 보존**: 정기 백업에 대한 표준 백업 정책을 만듭니다. 몇 년 동안 백업을 유지 관리하는 보존 정책을 설정합니다.
+- **SQL Always On에 대한 지원**: SQL Server Always On 구성을 검색 및 보호하고 백업 가용성 그룹 백업 기본 설정을 적용합니다.
 - **15분 RPO(복구 지점 목표)** : 최대 15분마다 SQL 트랜잭션 로그 백업을 구성합니다.
-- **특정 시점 복원** : 전체, 차등 및 로그 백업을 수동으로 복원할 필요 없이 포털을 사용하여 데이터베이스를 특정 시점으로 복구합니다.
-- **오류에 대한 통합된 이메일 경고** : 오류에 대한 통합된 이메일 알림을 구성합니다.
-- **역할 기반 액세스 제어** : 포털을 통해 백업 및 복원 작업을 관리할 수 있는 사용자를 결정합니다.
+- **특정 시점 복원**: 전체, 차등 및 로그 백업을 수동으로 복원할 필요 없이 포털을 사용하여 데이터베이스를 특정 시점으로 복구합니다.
+- **오류에 대한 통합된 이메일 경고**: 오류에 대한 통합된 이메일 알림을 구성합니다.
+- **Azure 역할 기반 액세스 제어**: 포털을 통해 백업 및 복원 작업을 관리할 수 있는 사람을 결정 합니다.
 
 데모와 함께 작동 방법에 대한 간략한 개요는 다음 비디오를 봅니다.
 
@@ -108,9 +108,9 @@ SQL Server 2012 SP1 CU2부터 URL에 백업이라고도 하는 Microsoft Azure B
 
 자세한 내용은 SQL Server의 버전에 따라 다음 문서 중 하나를 참조하세요.
 
-- **SQL Server 2016/2017** : [URL에 SQL Server Backup](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
-- **SQL Server 2014** : [URL에 SQL Server 2014 Backup](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service?viewFallbackFrom=sql-server-2014)
-- **SQL Server 2012** : [URL에 SQL Server 2012 Backup](/previous-versions/sql/sql-server-2012/jj919148(v=sql.110))
+- **SQL Server 2016/2017**: [URL에 SQL Server Backup](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
+- **SQL Server 2014**: [URL에 SQL Server 2014 Backup](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service?viewFallbackFrom=sql-server-2014)
+- **SQL Server 2012**: [URL에 SQL Server 2012 Backup](/previous-versions/sql/sql-server-2012/jj919148(v=sql.110))
 
 ### <a name="managed-backup"></a>관리되는 백업
 

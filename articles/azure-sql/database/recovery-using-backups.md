@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 415c9fdcbf0e8bfecaa48b8199702d4159bc32d9
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 138cd03989008aa4fbd7d6ca3e06aff94fa76e33
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629192"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989465"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 데이터베이스 백업을 사용 하 여 복구-SQL Managed Instance & Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,7 +60,7 @@ Standard 또는 Premium 서비스 계층을 사용 하는 경우 데이터베이
 전체 서버를 복원 하는 기본 제공 메서드는 없습니다. 이 작업을 수행 하는 방법에 대 한 예제는 [Azure SQL Database: 전체 서버 복구](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666)를 참조 하세요.
 
 > [!IMPORTANT]
-> 자동화 된 백업을 사용 하 여 복구 하려면 구독에서 SQL Server 참여자 역할 또는 SQL Managed Instance 참가자 역할 (복구 대상에 따라 다름)의 멤버 이거나 구독 소유자 여야 합니다. 자세한 내용은 [RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요. Azure Portal, PowerShell 또는 REST API를 사용 하 여 복구할 수 있습니다. Transact-sql은 사용할 수 없습니다.
+> 자동화 된 백업을 사용 하 여 복구 하려면 구독에서 SQL Server 참여자 역할 또는 SQL Managed Instance 참가자 역할 (복구 대상에 따라 다름)의 멤버 이거나 구독 소유자 여야 합니다. 자세한 내용은 [AZURE RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요. Azure Portal, PowerShell 또는 REST API를 사용 하 여 복구할 수 있습니다. Transact-sql은 사용할 수 없습니다.
 
 ## <a name="point-in-time-restore"></a>지정 시간 복원
 
@@ -168,7 +168,7 @@ Azure Portal에서 새 단일 또는 관리 되는 인스턴스 데이터베이�
 
 #### <a name="sql-managed-instance"></a>SQL Managed Instance
 
-Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 지역에 있는 기존 관리 되는 인스턴스로 지역 복원 하려면 데이터베이스를 복원할 관리 되는 인스턴스를 선택 합니다. 아래 단계를 수행합니다.
+Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 지역에 있는 기존 관리 되는 인스턴스로 지역 복원 하려면 데이터베이스를 복원할 관리 되는 인스턴스를 선택 합니다. 다음 단계를 수행합니다.
 
 1. **새 데이터베이스** 를 선택 합니다.
 2. 원하는 데이터베이스 이름을 입력 합니다.

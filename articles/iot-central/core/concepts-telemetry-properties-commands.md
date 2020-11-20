@@ -3,17 +3,17 @@ title: Azure IoT Central에서 원격 분석, 속성 및 명령 페이로드 Mic
 description: Azure IoT Central 장치 템플릿을 사용 하면 장치에서를 구현 해야 하는 원격 분석, 속성 및 명령을 지정할 수 있습니다. 장치가 IoT Central 교환할 수 있는 데이터의 형식을 이해 합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/12/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 9e5288bb177d5827f05003e4561bc79240a71b59
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 24fbe347aeb0b47ffd1ba694f761d909ff2950f8
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427871"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989550"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>원격 분석, 속성 및 명령 페이로드
 
@@ -29,12 +29,12 @@ Azure IoT Central의 장치 템플릿은 다음을 정의 하는 청사진입니
 
 이 문서에서는 가능한 모든 유형의 원격 분석, 속성 및 명령 페이로드를 설명 하지는 않지만이 예제에서는 모든 주요 유형을 설명 합니다.
 
-각 예제에서는 장치에서 IoT Central 응용 프로그램과 상호 작용 하는 방법을 설명 하는 형식 및 예제 JSON 페이로드를 정의 하는 DCM (장치 기능 모델)의 조각을 보여 줍니다.
+각 예제에서는 장치에서 IoT Central 응용 프로그램과 상호 작용 하는 방법을 설명 하는 형식 및 예제 JSON 페이로드를 정의 하는 장치 모델의 조각을 보여 줍니다.
 
 > [!NOTE]
-> IoT Central는 유효한 모든 JSON을 허용 하지만 DCM의 정의와 일치 하는 경우 시각화에만 사용할 수 있습니다. 정의와 일치 하지 않는 데이터를 내보낼 수 있습니다. [Azure에서 IoT 데이터를 대상으로 내보내기](howto-export-data.md)를 참조 하세요.
+> IoT Central는 유효한 모든 JSON을 허용 하지만 장치 모델의 정의와 일치 하는 경우에만 시각화에 사용할 수 있습니다. 정의와 일치 하지 않는 데이터를 내보낼 수 있습니다. [Azure에서 IoT 데이터를 대상으로 내보내기](howto-export-data.md)를 참조 하세요.
 
-DCM을 정의 하는 JSON 파일은 [DTDL (디지털 쌍 정의 언어) V1](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/dtdlv1.md)을 사용 합니다. 이 사양에는 속성 형식에 대 한 정의가 포함 됩니다 `@id` .
+장치 모델을 정의 하는 JSON 파일은 [DTDL (디지털 쌍 정의 언어) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)를 사용 합니다.
 
 사용 중인 이러한 페이로드 중 일부를 표시 하는 샘플 장치 코드는 [클라이언트 응용 프로그램을 만들어 azure IoT Central 응용 프로그램에 연결 (Node.js)](tutorial-connect-device-nodejs.md) 하 고 [클라이언트 응용 프로그램을 만들어 azure IoT Central 응용 프로그램 (Python) 자습서에 연결](tutorial-connect-device-python.md) 을 참조 하세요.
 
@@ -56,11 +56,10 @@ IoT Central를 사용 하 여 장치가 응용 프로그램에 전송 하는 원
 
 이 섹션에서는 장치가 IoT Central 응용 프로그램으로 스트리밍하는 기본 원격 분석 형식의 예를 보여 줍니다.
 
-DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `boolean` .
+장치 모델의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `boolean` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "BooleanTelemetry"
@@ -76,11 +75,10 @@ DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니�
 { "BooleanTelemetry": true }
 ```
 
-DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `string` .
+장치 모델의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `string` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "StringTelemetry"
@@ -96,11 +94,10 @@ DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니�
 { "StringTelemetry": "A string value - could be a URL" }
 ```
 
-DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `integer` .
+장치 모델의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `integer` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "IntegerTelemetry"
@@ -117,11 +114,10 @@ DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니�
 { "IntegerTelemetry": 23 }
 ```
 
-DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `double` .
+장치 모델의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `double` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DoubleTelemetry"
@@ -137,11 +133,10 @@ DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니�
 { "DoubleTelemetry": 56.78 }
 ```
 
-DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `dateTime` .
+장치 모델의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `dateTime` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DateTimeTelemetry"
@@ -151,17 +146,16 @@ DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니�
 }
 ```
 
-장치 클라이언트는 다음 예제와 같이 JSON으로 원격 분석을 전송 해야 합니다 `DateTime` . 형식은 ISO 8061 규격 이어야 합니다.
+장치 클라이언트는 다음 예제와 같이 JSON으로 원격 분석을 전송 해야 합니다 `DateTime` . 형식은 ISO 8061 형식 이어야 합니다.
 
 ```json
 { "DateTimeTelemetry": "2020-08-30T19:16:13.853Z" }
 ```
 
-DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `duration` .
+장치 모델의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `duration` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DurationTelemetry"
@@ -171,7 +165,7 @@ DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니�
 }
 ```
 
-장치 클라이언트는 다음 예제와 같이 JSON으로 원격 분석을 전송 해야 합니다. 기간은 ISO 8601 기간 규격 이어야 합니다.
+장치 클라이언트는 다음 예와 같이 JSON으로 원격 분석을 전송 해야 합니다. 기간은 ISO 8601 형식 이어야 합니다.
 
 ```json
 { "DurationTelemetry": "PT10H24M6.169083011336625S" }
@@ -181,11 +175,10 @@ DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니�
 
 이 섹션에서는 장치가 IoT Central 응용 프로그램으로 스트리밍하는 복잡 한 원격 분석 형식의 예를 보여 줍니다.
 
-DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `geopoint` .
+장치 모델의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `geopoint` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "GeopointTelemetry"
@@ -207,18 +200,16 @@ DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니�
 }
 ```
 
-DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `Enum` .
+장치 모델의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `Enum` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "EnumTelemetry"
   },
   "name": "EnumTelemetry",
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -226,8 +217,6 @@ DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니�
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
         },
@@ -235,8 +224,6 @@ DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니�
         "name": "Item1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
         },
@@ -244,8 +231,6 @@ DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니�
         "name": "Item2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
         },
@@ -263,26 +248,22 @@ DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니�
 { "EnumTelemetry": 1 }
 ```
 
-DCM의 다음 코드 조각은 원격 분석 형식에 대 한 정의를 보여 줍니다 `Object` . 이 개체에는, 및 형식의 세 필드가 있습니다 `dateTime` `integer` `Enum` .
+장치 모델의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `Object` . 이 개체에는, 및 형식의 세 필드가 있습니다 `dateTime` `integer` `Enum` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "ObjectTelemetry"
   },
   "name": "ObjectTelemetry",
   "schema": {
-    "@id": "<element id>",
     "@type": "Object",
     "displayName": {
       "en": "Object"
     },
     "fields": [
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Property1"
         },
@@ -290,8 +271,6 @@ DCM의 다음 코드 조각은 원격 분석 형식에 대 한 정의를 보여 
         "schema": "dateTime"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Property2"
         },
@@ -299,14 +278,11 @@ DCM의 다음 코드 조각은 원격 분석 형식에 대 한 정의를 보여 
         "schema": "integer"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Property3"
         },
         "name": "Property3",
         "schema": {
-          "@id": "<element id>",
           "@type": "Enum",
           "displayName": {
             "en": "Enum"
@@ -314,8 +290,6 @@ DCM의 다음 코드 조각은 원격 분석 형식에 대 한 정의를 보여 
           "valueSchema": "integer",
           "enumValues": [
             {
-              "@id": "<element id>",
-              "@type": "EnumValue",
               "displayName": {
                 "en": "Item1"
               },
@@ -323,8 +297,6 @@ DCM의 다음 코드 조각은 원격 분석 형식에 대 한 정의를 보여 
               "name": "Item1"
             },
             {
-              "@id": "<element id>",
-              "@type": "EnumValue",
               "displayName": {
                 "en": "Item2"
               },
@@ -332,8 +304,6 @@ DCM의 다음 코드 조각은 원격 분석 형식에 대 한 정의를 보여 
               "name": "Item2"
             },
             {
-              "@id": "<element id>",
-              "@type": "EnumValue",
               "displayName": {
                 "en": "Item3"
               },
@@ -360,11 +330,10 @@ DCM의 다음 코드 조각은 원격 분석 형식에 대 한 정의를 보여 
 }
 ```
 
-DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `vector` .
+장치 모델의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니다 `vector` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "VectorTelemetry"
@@ -390,14 +359,13 @@ DCM의 다음 코드 조각은 원격 분석 유형의 정의를 보여 줍니�
 
 이 섹션에서는 장치가 IoT Central 응용 프로그램으로 보내는 원격 분석 이벤트 및 상태의 예를 보여 줍니다.
 
-DCM의 다음 코드 조각은 이벤트 유형 정의를 보여 줍니다 `integer` .
+장치 모델의 다음 코드 조각은 이벤트 유형에 대 한 정의를 보여 줍니다 `integer` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": [
     "Telemetry",
-    "SemanticType/Event"
+    "Event"
   ],
   "displayName": {
     "en": "IntegerEvent"
@@ -413,27 +381,23 @@ DCM의 다음 코드 조각은 이벤트 유형 정의를 보여 줍니다 `inte
 { "IntegerEvent": 74 }
 ```
 
-DCM의 다음 코드 조각은 상태 유형에 대 한 정의를 보여 줍니다 `integer` .
+장치 모델의 다음 코드 조각은 상태 형식의 정의를 보여 줍니다 `integer` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": [
     "Telemetry",
-    "SemanticType/State"
+    "State"
   ],
   "displayName": {
     "en": "IntegerState"
   },
   "name": "IntegerState",
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Level1"
         },
@@ -441,8 +405,6 @@ DCM의 다음 코드 조각은 상태 유형에 대 한 정의를 보여 줍니�
         "name": "Level1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Level2"
         },
@@ -450,8 +412,6 @@ DCM의 다음 코드 조각은 상태 유형에 대 한 정의를 보여 줍니�
         "name": "Level2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Level3"
         },
@@ -478,17 +438,17 @@ DCM의 다음 코드 조각은 상태 유형에 대 한 정의를 보여 줍니�
 
 이 섹션에서는 장치가 IoT Central 응용 프로그램으로 전송 하는 기본 속성 형식의 예를 보여 줍니다.
 
-DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `boolean` .
+장치 모델의 다음 코드 조각은 속성 형식의 정의를 보여 줍니다 `boolean` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "BooleanProperty"
   },
   "name": "BooleanProperty",
-  "schema": "boolean"
+  "schema": "boolean",
+  "writable": false
 }
 ```
 
@@ -498,17 +458,17 @@ DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `boolean
 { "BooleanProperty": false }
 ```
 
-DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `boolean` .
+장치 모델의 다음 코드 조각은 속성 형식의 정의를 보여 줍니다 `boolean` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "LongProperty"
   },
   "name": "LongProperty",
-  "schema": "long"
+  "schema": "long",
+  "writable": false
 }
 ```
 
@@ -518,17 +478,17 @@ DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `boolean
 { "LongProperty": 439 }
 ```
 
-DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `date` .
+장치 모델의 다음 코드 조각은 속성 형식의 정의를 보여 줍니다 `date` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "DateProperty"
   },
   "name": "DateProperty",
-  "schema": "date"
+  "schema": "date",
+  "writable": false
 }
 ```
 
@@ -538,17 +498,17 @@ DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `date` .
 { "DateProperty": "2020-05-17" }
 ```
 
-DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `duration` .
+장치 모델의 다음 코드 조각은 속성 형식의 정의를 보여 줍니다 `duration` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "DurationProperty"
   },
   "name": "DurationProperty",
-  "schema": "duration"
+  "schema": "duration",
+  "writable": false
 }
 ```
 
@@ -558,17 +518,17 @@ DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `duratio
 { "DurationProperty": "PT10H24M6.169083011336625S" }
 ```
 
-DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `float` .
+장치 모델의 다음 코드 조각은 속성 형식의 정의를 보여 줍니다 `float` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "FloatProperty"
   },
   "name": "FloatProperty",
-  "schema": "float"
+  "schema": "float",
+  "writable": false
 }
 ```
 
@@ -578,17 +538,17 @@ DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `float` 
 { "FloatProperty": 1.9 }
 ```
 
-DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `string` .
+장치 모델의 다음 코드 조각은 속성 형식의 정의를 보여 줍니다 `string` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "StringProperty"
   },
   "name": "StringProperty",
-  "schema": "string"
+  "schema": "string",
+  "writable": false
 }
 ```
 
@@ -602,17 +562,17 @@ DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `string`
 
 이 섹션에서는 장치가 IoT Central 응용 프로그램으로 보내는 복합 속성 형식의 예를 보여 줍니다.
 
-DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `geopoint` .
+장치 모델의 다음 코드 조각은 속성 형식의 정의를 보여 줍니다 `geopoint` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "GeopointProperty"
   },
   "name": "GeopointProperty",
-  "schema": "geopoint"
+  "schema": "geopoint",
+  "writable": false
 }
 ```
 
@@ -628,18 +588,17 @@ DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `geopoin
 }
 ```
 
-DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `Enum` .
+장치 모델의 다음 코드 조각은 속성 형식의 정의를 보여 줍니다 `Enum` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "EnumProperty"
   },
   "name": "EnumProperty",
+  "writable": false,
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -647,8 +606,6 @@ DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `Enum` .
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
         },
@@ -656,8 +613,6 @@ DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `Enum` .
         "name": "Item1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
         },
@@ -665,8 +620,6 @@ DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `Enum` .
         "name": "Item2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
         },
@@ -684,26 +637,23 @@ DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `Enum` .
 { "EnumProperty": 1 }
 ```
 
-DCM의 다음 코드 조각은 속성 형식의 정의를 보여 줍니다 `Object` . 이 개체에는 및 형식의 두 필드가 있습니다 `string` `integer` .
+장치 모델의 다음 코드 조각은 속성 형식의 정의를 보여 줍니다 `Object` . 이 개체에는 및 형식의 두 필드가 있습니다 `string` `integer` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "ObjectProperty"
   },
   "name": "ObjectProperty",
+  "writable": false,
   "schema": {
-    "@id": "<element id>",
     "@type": "Object",
     "displayName": {
       "en": "Object"
     },
     "fields": [
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Field1"
         },
@@ -711,8 +661,6 @@ DCM의 다음 코드 조각은 속성 형식의 정의를 보여 줍니다 `Obje
         "schema": "integer"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Field2"
         },
@@ -735,17 +683,17 @@ DCM의 다음 코드 조각은 속성 형식의 정의를 보여 줍니다 `Obje
 }
 ```
 
-DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `vector` .
+장치 모델의 다음 코드 조각은 속성 형식의 정의를 보여 줍니다 `vector` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "VectorProperty"
   },
   "name": "VectorProperty",
-  "schema": "vector"
+  "schema": "vector",
+  "writable": false
 }
 ```
 
@@ -773,18 +721,17 @@ IoT Central 장치에서 쓰기 가능한 속성 업데이트에 대 한 응답�
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completed | 속성 변경 작업을 성공적으로 완료 했습니다. |
 | `'ac': 202`  디스크나 `'ac': 201` | Pending | 속성 변경 작업이 보류 중이거나 진행 중입니다. |
-| `'ac': 4xx` | Error | 요청 된 속성 변경이 잘못 되었거나 오류가 발생 했습니다. |
-| `'ac': 5xx` | Error | 장치에서 요청 된 변경을 처리 하는 동안 예기치 않은 오류가 발생 했습니다. |
+| `'ac': 4xx` | 오류 | 요청 된 속성 변경이 잘못 되었거나 오류가 발생 했습니다. |
+| `'ac': 5xx` | 오류 | 장치에서 요청 된 변경을 처리 하는 동안 예기치 않은 오류가 발생 했습니다. |
 
 `av` 장치에 전송 된 버전 번호입니다.
 
 `ad` 는 옵션 문자열 설명입니다.
 
-DCM의 다음 코드 조각은 쓰기 가능한 속성 형식의 정의를 보여 줍니다 `string` .
+장치 모델의 다음 코드 조각은 쓰기 가능한 속성 형식의 정의를 보여 줍니다 `string` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "StringPropertyWritable"
@@ -816,11 +763,10 @@ DCM의 다음 코드 조각은 쓰기 가능한 속성 형식의 정의를 보�
 }
 ```
 
-DCM의 다음 코드 조각은 쓰기 가능한 속성 형식의 정의를 보여 줍니다 `Enum` .
+장치 모델의 다음 코드 조각은 쓰기 가능한 속성 형식의 정의를 보여 줍니다 `Enum` .
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "EnumPropertyWritable"
@@ -828,7 +774,6 @@ DCM의 다음 코드 조각은 쓰기 가능한 속성 형식의 정의를 보�
   "name": "EnumPropertyWritable",
   "writable": true,
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -836,8 +781,6 @@ DCM의 다음 코드 조각은 쓰기 가능한 속성 형식의 정의를 보�
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
         },
@@ -845,8 +788,6 @@ DCM의 다음 코드 조각은 쓰기 가능한 속성 형식의 정의를 보�
         "name": "Item1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
         },
@@ -854,8 +795,6 @@ DCM의 다음 코드 조각은 쓰기 가능한 속성 형식의 정의를 보�
         "name": "Item2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
         },
@@ -890,36 +829,30 @@ DCM의 다음 코드 조각은 쓰기 가능한 속성 형식의 정의를 보�
 
 ## <a name="commands"></a>명령
 
-### <a name="synchronous-command-types"></a>동기 명령 유형
+> [!NOTE]
+> IoT Central 웹 UI에서 명령에 대 한 **오프 라인 상태인 경우 큐** 옵션을 선택할 수 있습니다. 이 설정은 장치 템플릿에서 모델 또는 인터페이스를 내보내는 경우에는 포함 되지 않습니다.
 
-DCM의 다음 코드 조각은 매개 변수가 없고 장치에서 아무것도 반환 하지 않는 동기 명령의 정의를 보여 줍니다.
+장치 모델의 다음 코드 조각은 매개 변수가 없고 장치에서 아무것도 반환 하지 않는 명령의 정의를 보여 줍니다.
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "synchronous",
-  "durable": false,
   "displayName": {
-    "en": "SynchronousCommandBasic"
+    "en": "CommandBasic"
   },
-  "name": "SynchronousCommandBasic"
+  "name": "CommandBasic"
 }
 ```
 
 장치는 요청에서 빈 페이로드를 받고 `200` 성공 여부를 나타내는 HTTP 응답 코드와 함께 응답에 빈 페이로드를 반환 해야 합니다.
 
-DCM의 다음 코드 조각은 정수 매개 변수를 포함 하 고 장치에서 정수 값을 반환 해야 하는 동기 명령의 정의를 보여 줍니다.
+장치 모델의 다음 코드 조각은 정수 매개 변수를 포함 하 고 장치에서 정수 값을 반환 해야 하는 명령의 정의를 보여 줍니다.
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "synchronous",
-  "durable": false,
   "request": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "RequestParam"
     },
@@ -927,8 +860,7 @@ DCM의 다음 코드 조각은 정수 매개 변수를 포함 하 고 장치에�
     "schema": "integer"
   },
   "response": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "ResponseParam"
     },
@@ -936,39 +868,32 @@ DCM의 다음 코드 조각은 정수 매개 변수를 포함 하 고 장치에�
     "schema": "integer"
   },
   "displayName": {
-    "en": "SynchronousCommandSimple"
+    "en": "CommandSimple"
   },
-  "name": "SynchronousCommandSimple"
+  "name": "CommandSimple"
 }
 ```
 
 장치는 요청 페이로드에서 정수 값을 받습니다. 장치는 `200` 성공 여부를 나타내는 HTTP 응답 코드를 사용 하 여 응답 페이로드로 정수 값을 반환 해야 합니다.
 
-DCM의 다음 코드 조각은 개체 매개 변수를 포함 하며 장치에서 개체를 반환할 것으로 예상 하는 동기 명령의 정의를 보여 줍니다. 이 예제에서는 두 개체 모두에 정수 및 문자열 필드가 있습니다.
+장치 모델의 다음 코드 조각은 개체 매개 변수를 포함 하 고 장치에서 개체를 반환 해야 하는 명령의 정의를 보여 줍니다. 이 예제에서는 두 개체 모두에 정수 및 문자열 필드가 있습니다.
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "synchronous",
-  "durable": false,
   "request": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "RequestParam"
     },
     "name": "RequestParam",
     "schema": {
-      "@id": "<element id>",
       "@type": "Object",
       "displayName": {
         "en": "Object"
       },
       "fields": [
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field1"
           },
@@ -976,8 +901,6 @@ DCM의 다음 코드 조각은 개체 매개 변수를 포함 하며 장치에�
           "schema": "integer"
         },
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field2"
           },
@@ -988,22 +911,18 @@ DCM의 다음 코드 조각은 개체 매개 변수를 포함 하며 장치에�
     }
   },
   "response": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "ResponseParam"
     },
     "name": "ResponseParam",
     "schema": {
-      "@id": "<element id>",
       "@type": "Object",
       "displayName": {
         "en": "Object"
       },
       "fields": [
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field1"
           },
@@ -1011,8 +930,6 @@ DCM의 다음 코드 조각은 개체 매개 변수를 포함 하며 장치에�
           "schema": "integer"
         },
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field2"
           },
@@ -1023,9 +940,9 @@ DCM의 다음 코드 조각은 개체 매개 변수를 포함 하며 장치에�
     }
   },
   "displayName": {
-    "en": "SynchronousCommandComplex"
+    "en": "CommandComplex"
   },
-  "name": "SynchronousCommandComplex"
+  "name": "CommandComplex"
 }
 ```
 
@@ -1041,19 +958,15 @@ DCM의 다음 코드 조각은 개체 매개 변수를 포함 하며 장치에�
 { "Field1": 87, "Field2": "Another string value" }
 ```
 
-### <a name="asynchronous-command-types"></a>비동기 명령 유형
+### <a name="long-running-commands"></a>장기 실행 명령
 
-DCM의 다음 코드 조각은 비동기 명령의 정의를 보여 줍니다. 명령에는 정수 매개 변수가 있으며 장치에서 정수 값을 반환 해야 합니다.
+장치 모델의 다음 코드 조각은 명령의 정의를 보여 줍니다. 명령에는 정수 매개 변수가 있으며 장치에서 정수 값을 반환 해야 합니다.
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "asynchronous",
-  "durable": false,
   "request": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "RequestParam"
     },
@@ -1061,8 +974,7 @@ DCM의 다음 코드 조각은 비동기 명령의 정의를 보여 줍니다. �
     "schema": "integer"
   },
   "response": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "ResponseParam"
     },
@@ -1070,19 +982,19 @@ DCM의 다음 코드 조각은 비동기 명령의 정의를 보여 줍니다. �
     "schema": "integer"
   },
   "displayName": {
-    "en": "AsynchronousCommandSimple"
+    "en": "LongRunningCommandSimple"
   },
-  "name": "AsynchronousCommandSimple"
+  "name": "LongRunningCommandSimple"
 }
 ```
 
-장치는 요청 페이로드에서 정수 값을 받습니다. 장치는 `202` 비동기 처리에 대 한 요청을 수락 했음을 나타내는 HTTP 응답 코드와 함께 빈 응답 페이로드를 반환 해야 합니다.
+장치는 요청 페이로드에서 정수 값을 받습니다. 장치에서이 명령을 처리 하는 데 시간이 필요한 경우 `202` 장치에서 처리 요청을 수락 했음을 나타내는 HTTP 응답 코드와 함께 빈 응답 페이로드를 반환 해야 합니다.
 
 장치에서 요청 처리가 완료 되 면 다음 예제와 같이 IoT Central에 속성을 보내야 합니다. 속성 이름은 명령 이름과 동일 해야 합니다.
 
 ```json
 {
-  "AsynchronousCommandSimple": {
+  "LongRunningCommandSimple": {
     "value": 87
   }
 }

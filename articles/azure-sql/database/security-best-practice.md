@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: c7a94a24bd825249859ff699ab82ce4d3ae8fce1
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b309ce01595e2e62bea7f78ae728d83bc7d9b9be
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842246"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992168"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -107,7 +107,7 @@ ms.locfileid: "94842246"
 > [!NOTE]
 >
 > - Azure AD 인증은 azure SQL 감사 로그에 기록 되지만 Azure AD 로그인 로그에는 기록 되지 않습니다.
-> - Azure에 부여 된 RBAC 권한은 Azure SQL Database 또는 SQL Managed Instance 권한에 적용 되지 않습니다. 이러한 권한은 기존 SQL 사용 권한을 사용 하 여 수동으로 만들거나 매핑해야 합니다.
+> - Azure에 부여 된 azure RBAC 권한은 Azure SQL Database 또는 SQL Managed Instance 권한에 적용 되지 않습니다. 이러한 권한은 기존 SQL 사용 권한을 사용 하 여 수동으로 만들거나 매핑해야 합니다.
 > - 클라이언트 쪽에서 Azure AD 인증은 인터넷 또는 가상 네트워크에 대 한 UDR (사용자 정의 경로)을 통해 액세스 해야 합니다.
 > - Azure AD 액세스 토큰은 클라이언트 쪽에서 캐시 되 고 수명은 토큰 구성에 따라 달라 집니다. [Azure Active Directory에서 구성 가능한 토큰 수명](../../active-directory/develop/active-directory-configurable-token-lifetimes.md) 문서를 참조 하세요.
 > - Azure AD 인증 문제를 해결 하는 방법에 대 한 지침은 [AZURE AD 문제](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991)해결 블로그를 참조 하세요.

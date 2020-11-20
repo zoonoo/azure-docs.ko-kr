@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 47733f4b141b0064e966d0c083fd6414405f65f9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e2f5528fde977520dc0aa0215a480a40ef8f1e7d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095546"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989618"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>빠른 시작: Azure CLI를 사용 하 여 Azure DDoS Protection Standard 만들기 및 구성
 
@@ -26,7 +26,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 
 이 빠른 시작에서는 DDoS 보호 계획을 만들고 가상 네트워크에 연결 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 로컬로 설치된 Azure CLI 또는 Azure Cloud Shell
@@ -39,7 +39,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 
 Azure에서 관련 리소스를 리소스 그룹에 할당합니다. 기존 리소스 그룹을 사용하거나 리소스 그룹을 새로 만들 수 있습니다.
 
-리소스 그룹을 만들려면 [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true)를 사용합니다. 이 예제에서는 리소스 그룹 _Myresourcegroup_ 의 이름을로 하 고 _미국 동부_ 위치를 사용 합니다.
+리소스 그룹을 만들려면 [az group create](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-create)를 사용합니다. 이 예제에서는 리소스 그룹 _Myresourcegroup_ 의 이름을로 하 고 _미국 동부_ 위치를 사용 합니다.
 
 ```azurecli-interactive
 az group create \
@@ -111,7 +111,7 @@ az network ddos-protection show \
 
 다음 자습서에 대 한 리소스를 유지할 수 있습니다. 더 이상 필요 하지 않은 경우 _Myresourcegroup_ 리소스 그룹을 삭제 합니다. 리소스 그룹을 삭제 하면 DDoS 보호 계획과 관련 된 모든 리소스도 삭제 됩니다. 
 
-리소스 그룹을 삭제하려면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true)를 사용합니다.
+리소스 그룹을 삭제하려면 [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az_group_delete)를 사용합니다.
 
 ```azurecli-interactive
 az group delete \

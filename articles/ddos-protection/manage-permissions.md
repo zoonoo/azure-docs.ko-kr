@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 10b10309e438bab3c99cb2ed7202eaa272d24abe
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: dec2c845780b62e9a595c73504037142c511c0e6
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905441"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989414"
 ---
 # <a name="manage-ddos-protection-plans-permissions-and-restrictions"></a>DDoS Protection 계획 관리: 사용 권한 및 제한 사항
 
 DDoS 보호 계획은 지역 및 구독에서 작동 합니다. 동일한 계획은 테 넌 트 전체에서 다른 지역의 다른 구독에서 가상 네트워크에 연결할 수 있습니다. 보호된 공용 IP 주소의 수가 100개를 초과하는 경우 계획이 연결된 구독에 따라 계획에 대한 월별 정기 요금과 초과분 요금이 부과됩니다. DDoS 가격 책정에 대한 자세한 내용은 [가격 정보](https://azure.microsoft.com/pricing/details/ddos-protection/)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 이 자습서의 단계를 완료 하기 전에 먼저 [Azure DDoS Standard 보호 계획](manage-ddos-protection.md)을 만들어야 합니다.
 
@@ -30,14 +30,14 @@ DDoS 보호 계획은 지역 및 구독에서 작동 합니다. 동일한 계획
 
 DDoS 보호 계획을 사용하려면 다음 표에 나열된 적절한 작업이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
-| 작업                                            | 이름                                     |
+| 작업                                            | Name                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | DDoS 보호 계획 읽기              |
 | Microsoft.Network/ddosProtectionPlans/write       | DDoS 보호 계획 만들기 또는 업데이트  |
 | Microsoft.Network/ddosProtectionPlans/delete      | DDoS 보호 계획 삭제            |
 | Microsoft.Network/ddosProtectionPlans/join/action | DDoS 보호 계획에 조인              |
 
-가상 네트워크에 DDoS 보호를 사용하도록 설정하려면 계정에도 [가상 네트워크에 적절한 작업](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#permissions)을 할당해야 합니다.
+가상 네트워크에 DDoS 보호를 사용하도록 설정하려면 계정에도 [가상 네트워크에 적절한 작업](../virtual-network/manage-virtual-network.md#permissions)을 할당해야 합니다.
 
 ## <a name="azure-policy"></a>Azure Policy
 
@@ -51,4 +51,4 @@ DDoS 보호 계획을 사용하려면 다음 표에 나열된 적절한 작업�
 DDoS 보호 계획에 대 한 원격 분석을 보고 구성 하는 방법을 알아보려면 자습서를 계속 진행 합니다.
 
 > [!div class="nextstepaction"]
-> [DDoS protection 원격 분석 보기 및 구성](telemetry-monitoring-alerting.md)
+> [DDoS 보호 원격 분석 보기 및 구성](telemetry-monitoring-alerting.md)

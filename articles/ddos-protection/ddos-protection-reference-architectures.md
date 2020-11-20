@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 3371b9cc0848e387c0150ca9aa7e7a971cecba1a
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e5472620fe9b07d152a5325b0654044cb1505fd7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905396"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992440"
 ---
 # <a name="ddos-protection-reference-architectures"></a>DDoS Protection 참조 아키텍처
 
-DDoS Protection Standard는 [가상 네트워크에 배포 된 서비스를 위해](/azure/virtual-network/virtual-network-for-azure-services)설계 되었습니다. 다른 서비스에는 기본 DDoS Protection 기본 서비스가 적용됩니다. 다음과 같은 참조 아키텍처는 시나리오별로 정렬되어 있으며, 아키텍처 패턴이 함께 그룹화되어 있습니다.
+DDoS Protection Standard는 [가상 네트워크에 배포 된 서비스를 위해](../virtual-network/virtual-network-for-azure-services.md)설계 되었습니다. 다른 서비스에는 기본 DDoS Protection 기본 서비스가 적용됩니다. 다음과 같은 참조 아키텍처는 시나리오별로 정렬되어 있으며, 아키텍처 패턴이 함께 그룹화되어 있습니다.
 
 ## <a name="virtual-machine-windowslinux-workloads"></a>가상 머신(Windows/Linux) 워크로드
 
@@ -54,7 +54,7 @@ N 계층 아키텍처를 구현하는 방법은 여러 가지가 있습니다. �
 
 Azure Traffic Manager는 들어오는 요청을 한 지역의 Application Gateway로 라우팅합니다. 정상 작동 중에는 요청을 활성 지역의 Application Gateway로 라우팅합니다. 해당 지역을 사용할 수 없게 되면 Traffic Manager가 대기 지역의 Application Gateway로 장애 조치(failover) 됩니다.
 
-웹 애플리케이션을 대상으로 하는 인터넷의 모든 트래픽이 Traffic Manager를 통해 [Application Gateway 공용 IP 주소](/azure/application-gateway/application-gateway-web-app-overview)로 라우팅됩니다. 이 시나리오에서 앱 서비스(웹앱) 자체는 외부와 직접 연결되지 않고 Application Gateway를 통해 보호됩니다. 
+웹 애플리케이션을 대상으로 하는 인터넷의 모든 트래픽이 Traffic Manager를 통해 [Application Gateway 공용 IP 주소](../application-gateway/application-gateway-web-app-overview.md)로 라우팅됩니다. 이 시나리오에서 앱 서비스(웹앱) 자체는 외부와 직접 연결되지 않고 Application Gateway를 통해 보호됩니다. 
 
 레이어 7(HTTP/HTTPS/WebSocket) 공격에 대해 보호할 수 있도록 Application Gateway WAF SKU(금지 모드)를 구성하는 것이 좋습니다. 또한 웹앱은 [Application Gateway IP 주소에서 오는 트래픽만 수락](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/)하도록 구성됩니다.
 
@@ -64,7 +64,7 @@ Azure Traffic Manager는 들어오는 요청을 한 지역의 Application Gatewa
 
 ### <a name="hdinsight-on-azure"></a>Azure의 HDInsight
 
-이 참조 아키텍처는 [Azure HDInsight 클러스터](/azure/hdinsight/)에 대해 DDoS Protection 표준을 구성하는 방법을 보여줍니다. HDInsight 클러스터가 가상 네트워크에 연결되어 있고 DDoS Protection이 해당 가상 네트워크에서 사용되는지 확인해야 합니다.
+이 참조 아키텍처는 [Azure HDInsight 클러스터](../hdinsight/index.yml)에 대해 DDoS Protection 표준을 구성하는 방법을 보여줍니다. HDInsight 클러스터가 가상 네트워크에 연결되어 있고 DDoS Protection이 해당 가상 네트워크에서 사용되는지 확인해야 합니다.
 
 ![가상 네트워크 설정을 포함한 "HDInsight" 및 "고급 설정" 창](./media/ddos-best-practices/image-12.png)
 
@@ -72,7 +72,7 @@ Azure Traffic Manager는 들어오는 요청을 한 지역의 Application Gatewa
 
 이 아키텍처에서 인터넷의 HDInsight 클러스터를 대상으로 하는 트래픽은 HDInsight 게이트웨이 부하 분산 장치와 연결된 공용 IP 주소로 라우팅됩니다. 그러면 게이트웨이 부하 분산 장치가 트래픽을 헤드 노드 또는 작업자 노드로 직접 보냅니다. HDInsight 가상 네트워크에서 DDoS Protection 표준을 사용하기 때문에 가상 네트워크의 모든 공용 IP가 레이어3 및 4에 대해 DDoS Protection을 받습니다. 이 참조 아키텍처를 N 계층 및 다중 지역 참조 아키텍처와 결합할 수 있습니다.
 
-이 참조 아키텍처에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 Azure HDInsight 확장](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json) 설명서를 참조하세요.
+이 참조 아키텍처에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 Azure HDInsight 확장](../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 설명서를 참조하세요.
 
 
 > [!NOTE]

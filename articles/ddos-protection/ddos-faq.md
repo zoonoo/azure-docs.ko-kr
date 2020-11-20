@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 871ededce1db5e4c3179c187fc46a828cd157456
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 6c475971f604c951280d0351d593cd5d96879d31
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886280"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992406"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Azure DDoS Protection 표준 질문과 대답
 
@@ -29,7 +29,7 @@ ms.locfileid: "94886280"
 응용 프로그램 설계 모범 사례와 결합 된 Azure DDoS Protection 표준은 DDoS 공격 으로부터 보호 하는 향상 된 DDoS 완화 기능을 제공 합니다. 가상 네트워크의 특정 Azure 리소스를 보호 하도록 자동으로 조정 됩니다. 보호는 새 가상 네트워크 또는 기존 가상 네트워크에서 간단하게 설정할 수 있으며 애플리케이션 또는 리소스를 변경할 필요가 없습니다. 로깅, 경고 및 원격 분석을 포함하여 기본 서비스에 비해 여러 가지 장점이 있습니다. 자세한 내용은 [Azure DDoS Protection 표준 개요](ddos-protection-overview.md) 를 참조 하세요. 
 
 ## <a name="what-about-protection-at-the-service-layer-layer-7"></a>서비스 계층 (계층 7)의 보호는 어떻습니까?
-고객은 [APPLICATION GATEWAY WAF sku](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) 와 함께 Azure DDoS Protection 서비스를 사용 하 여 네트워크 계층 (계층 3 및 4, Azure DDoS Protection 서비스에서 제공 하는 계층) 및 응용 프로그램 계층 (계층 7은 Application Gateway WAF sku에서 제공)을 보호할 수 있습니다.
+고객은 [APPLICATION GATEWAY WAF sku](../web-application-firewall/ag/ag-overview.md) 와 함께 Azure DDoS Protection 서비스를 사용 하 여 네트워크 계층 (계층 3 및 4, Azure DDoS Protection 서비스에서 제공 하는 계층) 및 응용 프로그램 계층 (계층 7은 Application Gateway WAF sku에서 제공)을 보호할 수 있습니다.
 
 ## <a name="are-services-unsafe-in-azure-without-the-service"></a>서비스 없이 Azure에서 서비스를 안전 하 게 사용할 수 있나요?
 Azure에서 실행 되는 서비스는 기본적으로 Azure의 인프라를 보호 하는 Azure DDoS Protection Basic에 의해 보호 됩니다. 그러나 인프라를 보호 하는 보호는 대부분의 응용 프로그램에서 처리할 수 있는 용량을 가지 며, 원격 분석 또는 경고를 제공 하지 않으므로, 트래픽 볼륨이 플랫폼에서 무해 한 것으로 인식 될 수 있지만 응용 프로그램에서이를 수신 하는 데 큰 영향을 미칠 수 있습니다. 
@@ -64,6 +64,3 @@ DDoS 보호를 사용 하도록 설정 하려면 Azure의 VNet에 연결 된 서
 ## <a name="how-long-does-it-take-for-the-metrics-to-load-on-portal"></a>포털이 포털에서 로드 하는 데 얼마나 걸립니까?
 메트릭은 5 분 이내에 포털에 표시 되어야 합니다. 리소스가 공격을 받고 있는 경우 다른 메트릭은 5-7 분 내에 포털에 표시 되기 시작 합니다. 
     
-
-
-

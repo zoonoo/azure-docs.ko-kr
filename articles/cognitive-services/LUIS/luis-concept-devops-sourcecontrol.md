@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 25f2c4f4698785326f80c24d3749e7585e85d5bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e49b713aca23c0373fa71d772ef7567372abe456
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309509"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990570"
 ---
 # <a name="devops-practices-for-luis"></a>LUIS에 대한 DevOps 사례
 
@@ -54,11 +54,11 @@ LUIS 앱을 형식으로 저장 하 `.lu` 고 소스 제어에 추가 하려면 
 
 > [!TIP]
 > LUIS 앱의 JSON 내보내기로 작업 하는 경우 [BOTBUILDER LUIS CLI](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS)를 사용 하 여 [이를 ludown으로 변환할](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert) 수 있습니다. 옵션을 사용 하 여 `--sort` 의도 및 길이 발언 사전순으로 정렬 되도록 합니다.  
-> 에 유의 **하십시오. ** LUIS 포털에 기본 제공 되는 LU 내보내기 기능은 이미 출력을 정렬 합니다.
+> 에 유의 **하십시오.** LUIS 포털에 기본 제공 되는 LU 내보내기 기능은 이미 출력을 정렬 합니다.
 
 ### <a name="build-the-luis-app-from-source"></a>원본에서 LUIS 앱 빌드
 
-LUIS 앱의 경우 *원본에서 빌드하려면* [ `.lu` 원본을 가져와 새 LUIS app 버전을 만들어](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) [버전을 학습](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) 하 고[게시](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app)합니다. LUIS 포털에서 또는 명령줄에서이 작업을 수행할 수 있습니다.
+LUIS 앱의 경우 *원본에서 빌드하려면* [ `.lu` 원본을 가져와 새 LUIS app 버전을 만들어](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) [버전을 학습](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) 하 고 [게시](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app)합니다. LUIS 포털에서 또는 명령줄에서이 작업을 수행할 수 있습니다.
 
 - LUIS 포털을 사용 하 여 소스 제어에서 앱 [ `.lu` 버전을 가져오고](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) 앱을 [학습](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) 하 고 [게시할](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) 수 있습니다.
 
@@ -74,7 +74,7 @@ LUIS 응용 프로그램에 대 한 다음 형식의 파일은 소스 제어에�
 
 - 성능 테스트에 사용 되는 [배치 테스트 파일](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-file-format) (길이 발언 및 예상 결과)
 
-### <a name="credentialsand-keys-are-not-checked-in"></a>자격 증명 및 키가 체크 인 되지 않음
+### <a name="credentials-and-keys-are-not-checked-in"></a>자격 증명 및 키가 체크 인 되지 않음
 
 권한 없는 사용자에 게 표시 될 수 있는 리포지토리에 체크 인하는 파일에 구독 키 또는 유사한 기밀 값을 포함 하지 마세요. 체크 인을 방지 해야 하는 키와 기타 값은 다음과 같습니다.
 
