@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 929a2feeb53e8903d675644dcb72b422eceb2858
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c80f2aaf26c0f0e89014c997151599c8bddbe903
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699103"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948819"
 ---
 # <a name="create-a-connection-monitor-using-the-armclient"></a>ARMClient를 사용 하 여 연결 모니터 만들기
 
@@ -368,7 +368,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 * 테스트 그룹
     * 이름-테스트 그룹 이름을로 합니다.
     * testConfigurations-대상 끝점에 연결 하는 소스 끝점을 기준으로 하는 테스트 구성
-    * 소스-위에서 만든 끝점에서 선택 합니다. Azure 기반 소스 끝점은 Azure Network Watcher 확장을 설치 해야 하며 Azure 기반이 아닌 소스 끝점은 haveAzure Log Analytics 에이전트가 설치 되어야 합니다. 원본에 대 한 에이전트를 설치 하려면 [모니터링 에이전트 설치](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents)를 참조 하세요.
+    * 소스-위에서 만든 끝점에서 선택 합니다. Azure 기반 소스 끝점은 Azure Network Watcher 확장을 설치 해야 하며 Azure 기반이 아닌 소스 끝점은 haveAzure Log Analytics 에이전트가 설치 되어야 합니다. 원본에 대 한 에이전트를 설치 하려면 [모니터링 에이전트 설치](./connection-monitor-overview.md#install-monitoring-agents)를 참조 하세요.
     * 대상-위에서 만든 끝점에서 선택 합니다. 대상으로 지정 하 여 Azure Vm 또는 끝점 (공용 IP, URL 또는 FQDN)에 대 한 연결을 모니터링할 수 있습니다. 단일 테스트 그룹에서 Azure Vm, Office 365 Url, Dynamics 365 Url 및 사용자 지정 끝점을 추가할 수 있습니다.
     * disable-이 필드를 사용 하 여 테스트 그룹에서 지정 하는 모든 원본 및 대상에 대해 모니터링을 사용 하지 않도록 설정 합니다.
 
@@ -400,5 +400,5 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 ## <a name="next-steps"></a>다음 단계
 
-* [모니터링 데이터를 분석 하 고 경고를 설정 하는 방법](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts) 알아보기
-* [네트워크에서 문제를 진단 하는 방법을](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network) 알아봅니다.
+* [모니터링 데이터를 분석 하 고 경고를 설정 하는 방법](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts) 알아보기
+* [네트워크에서 문제를 진단 하는 방법을](./connection-monitor-overview.md#diagnose-issues-in-your-network) 알아봅니다.

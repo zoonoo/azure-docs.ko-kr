@@ -13,12 +13,12 @@ ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 7a5157c955a51215a9e62711ebb7838b61fda496
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e35d44d197e1ca4e8f8036cb7920a96e5a60a5f9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424262"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948785"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -44,15 +44,15 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 
 ## <a name="key-components"></a>핵심 구성 요소
 
-- **NSG(네트워크 보안 그룹)** : Azure Virtual Network에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다. NSG는 서브넷, 개별 VM(클래식) 또는 VM(Resource Manager)에 연결된 개별 NIC(네트워크 인터페이스)와 연결될 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
+- **NSG(네트워크 보안 그룹)** : Azure Virtual Network에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다. NSG는 서브넷, 개별 VM(클래식) 또는 VM(Resource Manager)에 연결된 개별 NIC(네트워크 인터페이스)와 연결될 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json)를 참조하세요.
 - **NSG(네트워크 보안 그룹) 흐름 로그**: 네트워크 보안 그룹을 통한 송/수신 IP 트래픽에 대한 정보를 볼 수 있습니다. NSG 흐름 로그는 json 형식으로 작성되고 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP 주소, 원본/대상 포트, 프로토콜)를 보여줍니다. NSG 흐름 로그에 대한 자세한 내용은 [NSG 흐름 로그](network-watcher-nsg-flow-logging-overview.md)를 참조하세요.
-- **Log Analytics**: 모니터링 데이터를 수집하고 중앙 리포지토리에 데이터를 저장하는 Azure 서비스입니다. 이 데이터에는 이벤트, 성능 데이터 또는 Azure API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다. 네트워크 성능 모니터 및 트래픽 분석 같은 애플리케이션 모니터링은 Azure Monitor 로그를 기반으로 사용하여 빌드됩니다. 자세한 내용은 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
+- **Log Analytics**: 모니터링 데이터를 수집하고 중앙 리포지토리에 데이터를 저장하는 Azure 서비스입니다. 이 데이터에는 이벤트, 성능 데이터 또는 Azure API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다. 네트워크 성능 모니터 및 트래픽 분석 같은 애플리케이션 모니터링은 Azure Monitor 로그를 기반으로 사용하여 빌드됩니다. 자세한 내용은 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json)를 참조하세요.
 - **Log Analytics 작업 영역**: Azure 계정과 관련된 데이터가 저장되는 Azure Monitor 로그의 인스턴스입니다. Log Analytics 작업 영역에 대한 자세한 내용은 [Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 - **Network Watcher**: Azure에서 네트워크 시나리오 수준으로 상태를 모니터링하고 진단할 수 있는 지역 서비스입니다. Network Watcher에서 NSG 흐름 로그를 켜고 끌 수 있습니다. 자세한 내용은 [Network Watcher](network-watcher-monitoring-overview.md)를 참조하세요.
 
 ## <a name="how-traffic-analytics-works"></a>트래픽 분석의 작동 원리
 
-트래픽 분석은 동일한 원본 IP 주소, 대상 IP 주소, 대상 포트 및 프로토콜 사이에서 공통적인 흐름을 집계하여 원시 NSG 흐름 로그를 검사하고 감소된 로그를 캡처합니다. 예를 들어 호스트 1(IP 주소: 10.10.10.10)은 포트(예: 80) 및 프로토콜(예: http)을 사용하여 1시간에 100회 호스트 2(IP 주소: 10.10.20.10)와 통신합니다. 축소된 로그에는 100개의 항목 대신 호스트 1과 호스트2가 포트 *80* 및 프로토콜 *HTTP*를 사용하여 1시간 동안 100회 통신했다는 항목 하나가 있습니다. 축소된 로그는 지리, 보안 및 토폴로지 정보를 통해 강화된 다음, Log Analytics 작업 영역에 저장됩니다. 다음 그림은 데이터 흐름을 보여줍니다.
+트래픽 분석은 동일한 원본 IP 주소, 대상 IP 주소, 대상 포트 및 프로토콜 사이에서 공통적인 흐름을 집계하여 원시 NSG 흐름 로그를 검사하고 감소된 로그를 캡처합니다. 예를 들어 호스트 1(IP 주소: 10.10.10.10)은 포트(예: 80) 및 프로토콜(예: http)을 사용하여 1시간에 100회 호스트 2(IP 주소: 10.10.20.10)와 통신합니다. 축소된 로그에는 100개의 항목 대신 호스트 1과 호스트2가 포트 *80* 및 프로토콜 *HTTP* 를 사용하여 1시간 동안 100회 통신했다는 항목 하나가 있습니다. 축소된 로그는 지리, 보안 및 토폴로지 정보를 통해 강화된 다음, Log Analytics 작업 영역에 저장됩니다. 다음 그림은 데이터 흐름을 보여줍니다.
 
 ![NSG 흐름 로그 처리의 데이터 흐름](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
@@ -89,7 +89,7 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
       남아프리카 북부  
       미국 중남부  
       인도 남부  
-      동남 아시아  
+      동남아시아  
       스위스 북부  
       스위스 서부  
       영국 남부  
@@ -139,7 +139,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
       미국 중남부  
    :::column-end:::
    :::column span="":::
-      동남 아시아  
+      동남아시아  
       스위스 북부  
       스위스 서부  
       아랍에미리트 중부  
@@ -197,7 +197,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 NSG 흐름 로깅을 활성화하려면 흐름을 기록할 네트워크 보안 그룹이 있어야 합니다. 네트워크 보안 그룹이 없는 경우 [네트워크 보안 그룹 만들기](../virtual-network/manage-network-security-group.md#create-a-network-security-group)를 참조하여 새로 만듭니다.
 
-Azure Portal에서 **네트워크 감시자**로 이동한 다음, **NSG 흐름 로그**를 선택합니다. 다음 그림과 같이 NSG 흐름 로그를 사용하도록 설정할 네트워크 보안 그룹을 선택합니다.
+Azure Portal에서 **네트워크 감시자** 로 이동한 다음, **NSG 흐름 로그** 를 선택합니다. 다음 그림과 같이 NSG 흐름 로그를 사용하도록 설정할 네트워크 보안 그룹을 선택합니다.
 
 ![NSG 흐름 로그를 사용하도록 설정해야 하는 NSG 선택](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
@@ -226,18 +226,18 @@ New-AzStorageAccount `
 
 그림에 나와 있는 것처럼 다음 옵션을 선택합니다.
 
-1. *상태*에 대해 **켜기**를 선택합니다.
-2. **Flow Logs 버전**에 대해 *버전 2*를 선택합니다. 버전 2에는 흐름 세션 통계(바이트 및 패킷)가 포함됩니다.
+1. *상태* 에 대해 **켜기** 를 선택합니다.
+2. **Flow Logs 버전** 에 대해 *버전 2* 를 선택합니다. 버전 2에는 흐름 세션 통계(바이트 및 패킷)가 포함됩니다.
 3. 흐름 로그를 저장할 기존 스토리지 계정을 선택합니다. 스토리지에 "Data Lake Storage Gen2 계층 구조 네임스페이스 사용"이 true로 설정되어 있지 않은지 확인합니다.
-4. **보존**을 데이터를 저장하려는 일 수로 설정합니다. 데이터를 무기한 저장하려면 값을 *0*으로 설정합니다. 스토리지 계정에 대한 Azure Storage 요금이 발생합니다. 
-5. **트래픽 분석 상태**를 *켜기*로 선택합니다.
+4. **보존** 을 데이터를 저장하려는 일 수로 설정합니다. 데이터를 무기한 저장하려면 값을 *0* 으로 설정합니다. 스토리지 계정에 대한 Azure Storage 요금이 발생합니다. 
+5. **트래픽 분석 상태** 를 *켜기* 로 선택합니다.
 6. 처리 간격을 선택합니다. 선택에 따라 흐름 로그는 스토리지 계정에서 수집되고 트래픽 분석에 의해 처리됩니다. 1시간마다 또는 10분마다 처리 간격을 선택할 수 있습니다. 
-7. 기존 Log Analytics(OMS) 작업 영역을 선택하거나 **새 작업 영역 만들기**를 클릭하여 새로 만듭니다. Log Analytics 작업 영역은 트래픽 분석에서 집계 및 인덱싱된 데이터를 저장하는 데 사용되며, 이 데이터는 분석을 생성하는 데 사용됩니다. 기존 작업 영역을 선택하는 경우 해당 작업 영역이 [지원되는 지역](#supported-regions-log-analytics-workspaces) 중 하나에 있어야 하고 새 쿼리 언어로 업그레이드되어야 합니다. 기존 작업 영역을 업그레이드하지 않으려면 또는 지원되는 지역에 작업 영역이 없으면 새로 만듭니다. 쿼리 언어에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
+7. 기존 Log Analytics(OMS) 작업 영역을 선택하거나 **새 작업 영역 만들기** 를 클릭하여 새로 만듭니다. Log Analytics 작업 영역은 트래픽 분석에서 집계 및 인덱싱된 데이터를 저장하는 데 사용되며, 이 데이터는 분석을 생성하는 데 사용됩니다. 기존 작업 영역을 선택하는 경우 해당 작업 영역이 [지원되는 지역](#supported-regions-log-analytics-workspaces) 중 하나에 있어야 하고 새 쿼리 언어로 업그레이드되어야 합니다. 기존 작업 영역을 업그레이드하지 않으려면 또는 지원되는 지역에 작업 영역이 없으면 새로 만듭니다. 쿼리 언어에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 업그레이드](../azure-monitor/log-query/log-query-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json)를 참조하세요.
 
 > [!NOTE]
 >트래픽 분석 솔루션 및 NSG를 호스팅하는 로그 분석 작업 영역이 같은 지역에 있어야 하는 것은 아닙니다. 예를 들어 서유럽의 작업 영역에 트래픽 분석이 있고, 미국 동부 및 미국 서부에 NSG가 있을 수 있습니다. 여러 NSG를 동일한 작업 영역에 구성해도 됩니다.
 
-8. **저장**을 선택합니다.
+8. **저장** 을 선택합니다.
 
     ![스토리지 계정 선택, Log Analytics 작업 영역 및 트래픽 분석 사용](./media/traffic-analytics/ta-customprocessinginterval.png)
 
@@ -247,7 +247,7 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
 
 ## <a name="view-traffic-analytics"></a>트래픽 분석 보기
 
-트래픽 분석을 보려면 포털 검색 창에서 **Network Watcher**를 검색합니다. Network Watcher 내에서 트래픽 분석 및 해당 기능을 탐색하려면 왼쪽 메뉴에서 **트래픽 분석**을 선택합니다. 
+트래픽 분석을 보려면 포털 검색 창에서 **Network Watcher** 를 검색합니다. Network Watcher 내에서 트래픽 분석 및 해당 기능을 탐색하려면 왼쪽 메뉴에서 **트래픽 분석** 을 선택합니다. 
 
 ![트래픽 분석 대시보드에 액세스](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 
@@ -271,7 +271,7 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
 - 허용된/차단된 악성 트래픽 통계
   - 호스트가 악성 트래픽을 수신하는 이유 및 악성 원본의 흐름이 허용되는 이유 이 동작을 수행하려면 더 많은 조사와 구성의 최적화가 필요합니다.
 
-    다음 그림과 같이 **호스트** 아래에서 **모두 보기**를 선택합니다.
+    다음 그림과 같이 **호스트** 아래에서 **모두 보기** 를 선택합니다.
 
     ![트래픽이 가장 많은 호스트의 세부 정보를 보여주는 대시보드](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 
@@ -287,7 +287,7 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
     - 호스트가 상당한 양의 트래픽을 허용 또는 차단하는 이유
 - 가장 대화가 많은 호스트 쌍 중에서 가장 많이 사용되는 애플리케이션 프로토콜:
     - 이러한 애플리케이션이 이 네트워크에서 허용되는지 여부
-    - 애플리케이션이 올바르게 구성되었는지 여부 통신에 적절한 프로토콜을 사용하는지 여부 다음 그림처럼 **자주 하는 대화** 아래에서 **모두 보기**를 선택합니다.
+    - 애플리케이션이 올바르게 구성되었는지 여부 통신에 적절한 프로토콜을 사용하는지 여부 다음 그림처럼 **자주 하는 대화** 아래에서 **모두 보기** 를 선택합니다.
 
         ![빈도가 가장 높은 대화를 보여주는 대시보드](./media/traffic-analytics/dashboard-showcasing-most-frequent-conversation.png)
 
@@ -299,7 +299,7 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
 
 - 환경에서 가장 많이 사용되는 애플리케이션 프로토콜 및 애플리케이션 프로토콜을 가장 많이 사용하는 호스트 쌍
     - 이러한 애플리케이션이 이 네트워크에서 허용되는지 여부
-    - 애플리케이션이 올바르게 구성되었는지 여부 통신에 적절한 프로토콜을 사용하는지 여부 예상되는 동작은 80 및 443 같은 공통 포트입니다. 표준 통신의 겨우 비정상적인 포트가 표시되는 경우 구성 변경이 필요할 수 있습니다. 다음 그림처럼 **애플리케이션 포트** 아래에서 **모두 보기**를 선택합니다.
+    - 애플리케이션이 올바르게 구성되었는지 여부 통신에 적절한 프로토콜을 사용하는지 여부 예상되는 동작은 80 및 443 같은 공통 포트입니다. 표준 통신의 겨우 비정상적인 포트가 표시되는 경우 구성 변경이 필요할 수 있습니다. 다음 그림처럼 **애플리케이션 포트** 아래에서 **모두 보기** 를 선택합니다.
 
         ![상위 애플리케이션 프로토콜을 표시하는 대시보드](./media/traffic-analytics/dashboard-showcasing-top-application-protocols.png)
 
@@ -315,7 +315,7 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
     - 각 VPN SKU는 일정량의 대역폭을 허용합니다. VPN 게이트웨이 사용률이 낮습니까?
     - 게이트웨이가 용량 제한에 근접했습니까? 그 다음 상위 SKU로 업그레이드해야 합니까?
 - 가장 대화가 많은 호스트는 어떤 것입니까? 어떤 VPN 게이트웨이, 어떤 포트를 통해 대화가 이루어집니까?
-    - 이 패턴이 정상입니까? 다음 그림처럼 **VPN 게이트웨이** 아래에서 **모두 보기**를 선택합니다.
+    - 이 패턴이 정상입니까? 다음 그림처럼 **VPN 게이트웨이** 아래에서 **모두 보기** 를 선택합니다.
 
         ![상위 활성 VPN 연결을 보여주는 대시보드](./media/traffic-analytics/dashboard-showcasing-top-active-vpn-connections.png)
 
@@ -331,7 +331,7 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
   - 데이터 센터에서 더 많은 부하가 목격되는 경우 효율적인 트래픽 분포를 계획할 수 있습니다.
   - 불량 네트워크가 데이터 센터에서 대화하는 경우 해당 네트워크를 차단하도록 NSG 규칙을 수정합니다.
 
-    다음 그림처럼 **환경** 아래에서 **맵 보기**를 선택합니다.
+    다음 그림처럼 **환경** 아래에서 **맵 보기** 를 선택합니다.
 
     ![트래픽 분포를 보여주는 대시보드](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
@@ -353,7 +353,7 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
   - 어떤 가상 네트워크가 어떤 가상 네트워크와 대화하는지 파악. 대화가 예상되지 않는 경우 수정할 수 있습니다.
   - 불량 네트워크가 가상 네트워크와 대화하는 경우 불량 네트워크를 차단하도록 NSG 규칙을 수정할 수 있습니다.
  
-    다음 그림처럼 **환경** 아래에서 **VNet 보기**를 선택합니다.
+    다음 그림처럼 **환경** 아래에서 **VNet 보기** 를 선택합니다.
 
     ![가상 네트워크 분포를 표시하는 대시보드](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 

@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e80332b172eeb4c49ae068e1781ffcaf1657f13
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ac75ab31f8c9cdd9405115db4f5c35d28707e29f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978223"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950366"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -135,7 +136,7 @@ ms.locfileid: "91978223"
             - Oracle Linux 7.5. RHCKL 커널을 사용 하는 경우 3.10.0-862.13.1 el7가 필요 합니다. Oracle UEK 커널을 사용 하는 경우 릴리스 5가 필요 합니다.
         - Sap 지원 정보 [#500235](https://launchpad.support.sap.com/#/notes/500235) 및 [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E)에 따라 Sap 응용 프로그램 계층 vm과 DBMS vm 간의 네트워크 대기 시간을 테스트 하 고 평가 합니다. [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E)의 네트워크 대기 시간 지침에 따라 결과를 평가 합니다. 네트워크 대기 시간은 보통 또는 적절 한 범위에 있어야 합니다. [이 문서](./hana-network-architecture.md#networking-architecture-for-hana-large-instance)에서 설명 하는 것 처럼 VM과 HANA Large Instance 단위 간의 트래픽에는 예외가 적용 됩니다.
         - ILB 배포가 Direct Server Return을 사용 하도록 설정 되었는지 확인 합니다. 이 설정은 DBMS 계층에서 고가용성 구성에 Azure ILBs를 사용 하는 경우 대기 시간을 줄입니다.
-        - Linux 게스트 운영 체제와 함께 Azure Load Balancer를 사용 하는 경우 Linux 네트워크 매개 변수 **net.ipv4.tcp_timestamps** **0**으로 설정 되어 있는지 확인 합니다. 이 권장 사항은 이전 버전의 [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421)권장 사항과 충돌 합니다. 이제 SAP note가 Azure 부하 분산 장치를 사용 하려면이 매개 변수를 **0** 으로 설정 해야 한다는 상태를 업데이트 합니다.
+        - Linux 게스트 운영 체제와 함께 Azure Load Balancer를 사용 하는 경우 Linux 네트워크 매개 변수 **net.ipv4.tcp_timestamps** **0** 으로 설정 되어 있는지 확인 합니다. 이 권장 사항은 이전 버전의 [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421)권장 사항과 충돌 합니다. 이제 SAP note가 Azure 부하 분산 장치를 사용 하려면이 매개 변수를 **0** 으로 설정 해야 한다는 상태를 업데이트 합니다.
         - 최적의 네트워크 대기 시간을 얻으려면 [Azure 근접 배치 그룹](../../linux/co-location.md) 을 사용 하는 것이 좋습니다. 자세한 내용은 [SAP 응용 프로그램의 최적의 네트워크 대기 시간에 대 한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)을 참조 하세요.
    4. 고가용성 및 재해 복구 배포.
         - 특정 Azure 가용성 영역을 정의 하지 않고 SAP 응용 프로그램 계층을 배포 하는 경우 sap 대화 상자 인스턴스 또는 단일 SAP 시스템의 미들웨어 인스턴스를 실행 하는 모든 Vm이 [가용성 집합](../../manage-availability.md)에 배포 되었는지 확인 합니다.
@@ -150,7 +151,7 @@ ms.locfileid: "91978223"
         - 온-프레미스 SAP GUI 인터페이스와 Azure에 배포 된 SAP 응용 프로그램 계층 간의 GUI 시간 제한을 방지 하려면 이러한 매개 변수가 default.pfl 또는 인스턴스 프로필에 설정 되어 있는지 확인 합니다.
             - rdisp/keepalive_timeout = 3600
             - rdisp/keepalive = 20
-        - SAP 큐에 넣기 프로세스와 SAP 작업 프로세스 간에 설정 된 연결이 중단 되지 않도록 하려면 **넣지/encni/set_so_keepalive** 매개 변수를 **true**로 설정 해야 합니다. [SAP note #2743751](https://launchpad.support.sap.com/#/notes/2743751)를 참조 하세요.  
+        - SAP 큐에 넣기 프로세스와 SAP 작업 프로세스 간에 설정 된 연결이 중단 되지 않도록 하려면 **넣지/encni/set_so_keepalive** 매개 변수를 **true** 로 설정 해야 합니다. [SAP note #2743751](https://launchpad.support.sap.com/#/notes/2743751)를 참조 하세요.  
         - Windows 장애 조치 (failover) 클러스터 구성을 사용 하는 경우 응답 하지 않는 노드에 대 한 응답 시간이 Azure에 대해 올바르게 설정 되어 있는지 확인 합니다. [장애 조치 (Failover) 클러스터 네트워크 임계값 조정](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) 문서는 매개 변수와 장애 조치 (failover) 구분 영향을 줍니다. 클러스터 노드가 동일한 서브넷에 있다고 가정할 경우 다음 매개 변수를 변경 해야 합니다.
             - SameSubNetDelay = 2000
             - SameSubNetThreshold = 15

@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: e9033caf903967432b713afa00a509bd2d966d8b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ff70df225b5ed27960c96889d409d7005f0fbcc4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972019"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950736"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>백업 세트에서 StorSimple 볼륨 복원
 
@@ -45,7 +45,7 @@ ms.locfileid: "91972019"
 
 ## <a name="how-does-restore-work"></a>복원 작업 방법
 
-업데이트 4 이상을 실행하는 디바이스의 경우 heatmap 기반 복원이 구현됩니다. 데이터에 액세스하는 호스트의 요청이 디바이스에 도달하면 이러한 요청이 추적되고 heatmap이 만들어집니다. 요청 비율이 높으면 열이 많은 데이터 청크가 발생하고 요청 비율이 낮으면 열이 더 낮은 청크로 변환됩니다. _hot_으로 표시되려면 최소한 두 번 이상 데이터에 액세스해야 합니다. 수정된 파일도 _hot_으로 표시됩니다. 복원을 시작하면 heatmap을 기반으로 데이터의 자동 관리 하이드레이션이 발생합니다. 업데이트 4 이전 버전의 경우 데이터는 액세스 시에만 복원 중에 다운로드됩니다.
+업데이트 4 이상을 실행하는 디바이스의 경우 heatmap 기반 복원이 구현됩니다. 데이터에 액세스하는 호스트의 요청이 디바이스에 도달하면 이러한 요청이 추적되고 heatmap이 만들어집니다. 요청 비율이 높으면 열이 많은 데이터 청크가 발생하고 요청 비율이 낮으면 열이 더 낮은 청크로 변환됩니다. _hot_ 으로 표시되려면 최소한 두 번 이상 데이터에 액세스해야 합니다. 수정된 파일도 _hot_ 으로 표시됩니다. 복원을 시작하면 heatmap을 기반으로 데이터의 자동 관리 하이드레이션이 발생합니다. 업데이트 4 이전 버전의 경우 데이터는 액세스 시에만 복원 중에 다운로드됩니다.
 
 열 지도 기반 복원에는 다음 주의 사항이 적용됩니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "91972019"
 
 * `Set-HcsRehydrationJob` - 이 cmdlet을 사용하면 리하이드레이션이 진행 중일 때 해당 작업을 일시 중지, 중지 또는 재개할 수 있습니다.
 
-리하이드레이션 cmdlet에 대한 자세한 내용은 [StorSimple용 Windows PowerShell cmdlet 참조](https://technet.microsoft.com/library/dn688168.aspx)로 이동하세요.
+리하이드레이션 cmdlet에 대한 자세한 내용은 [StorSimple용 Windows PowerShell cmdlet 참조](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps)로 이동하세요.
 
 자동 리하이드레이션을 사용하면 일반적으로 일시적인 더 높은 읽기 성능이 예상됩니다. 실제 개선되는 정도는 액세스 패턴, 데이터 변동 및 데이터 형식 등 다양한 요인에 따라 달라집니다. 
 
@@ -95,14 +95,14 @@ ms.locfileid: "91972019"
 
 
 ### <a name="to-restore-your-volume"></a>볼륨을 복원하려면
-1. StorSimple 디바이스 관리자 서비스로 이동한 다음 **Backup 카탈로그**를 클릭합니다.
+1. StorSimple 디바이스 관리자 서비스로 이동한 다음 **Backup 카탈로그** 를 클릭합니다.
 
 2. 백업 세트를 다음과 같이 선택합니다.
    
    1. 시간 범위를 지정합니다.
    2. 해당 디바이스를 선택합니다.
    3. 드롭다운 목록에서 선택하려는 백업에 대 한 볼륨 또는 백업 정책을 선택합니다.
-   4. **적용**을 클릭하여 이 쿼리를 실행합니다.
+   4. **적용** 을 클릭하여 이 쿼리를 실행합니다.
 
       선택한 볼륨와 연결된 백업을 또는 백업 정책이 백업 세트의 목록에 나타나야 합니다.
    
@@ -113,7 +113,7 @@ ms.locfileid: "91972019"
    > [!IMPORTANT]
    > 해당 볼륨을 오프 라인으로 전환하기 전에, 먼저 호스트에서 해당 볼륨을 오프라인으로 전환했는지 확인합니다. 호스트에서 볼륨을 오프라인으로 전환하지 않은 경우 잠재적으로 데이터가 손상될 수입니다.
    
-4. **Backup 카탈로그** 탭으로 다시 이동하고 Backup 세트를 선택합니다. 마우스 오른쪽 단추를 클릭하고 상황에 맞는 메뉴에서 **복원**을 선택합니다.
+4. **Backup 카탈로그** 탭으로 다시 이동하고 Backup 세트를 선택합니다. 마우스 오른쪽 단추를 클릭하고 상황에 맞는 메뉴에서 **복원** 을 선택합니다.
 
     ![백업 세트 목록 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
 
@@ -121,7 +121,7 @@ ms.locfileid: "91972019"
    
     ![확인 페이지](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7. **복원**을 클릭합니다. 그러면 **작업** 페이지에 액세스하여 볼 수 있는 복원 작업이 시작됩니다.
+7. **복원** 을 클릭합니다. 그러면 **작업** 페이지에 액세스하여 볼 수 있는 복원 작업이 시작됩니다.
 
    ![확인 페이지 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
@@ -137,4 +137,3 @@ ms.locfileid: "91972019"
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 볼륨을 관리](storsimple-8000-manage-volumes-u2.md)하는 방법을 알아봅니다.
 * [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 관리](storsimple-8000-manager-service-administration.md)하는 방법을 알아봅니다.
-

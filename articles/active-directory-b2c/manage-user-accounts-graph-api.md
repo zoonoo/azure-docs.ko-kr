@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4a9323cc92567d681ee8c73a62e0b89c17c22b1e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a5fcbf80850fd9de77e6f9a431afea6d48cb14d1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647616"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949414"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리
 
@@ -35,13 +35,13 @@ Microsoft Graph를 사용 하면 Microsoft Graph API에서 만들기, 읽기, �
 
 ## <a name="user-management-microsoft-graph-operations"></a>사용자 관리 Microsoft Graph 작업
 
-[MICROSOFT GRAPH API](https://docs.microsoft.com/graph/api/resources/user)에서 사용할 수 있는 사용자 관리 작업은 다음과 같습니다.
+[MICROSOFT GRAPH API](/graph/api/resources/user)에서 사용할 수 있는 사용자 관리 작업은 다음과 같습니다.
 
-- [사용자 목록 가져오기](https://docs.microsoft.com/graph/api/user-list)
-- [사용자 만들기](https://docs.microsoft.com/graph/api/user-post-users)
-- [사용자 가져오기](https://docs.microsoft.com/graph/api/user-get)
-- [사용자 업데이트](https://docs.microsoft.com/graph/api/user-update)
-- [사용자 삭제](https://docs.microsoft.com/graph/api/user-delete)
+- [사용자 목록 가져오기](/graph/api/user-list)
+- [사용자 만들기](/graph/api/user-post-users)
+- [사용자 가져오기](/graph/api/user-get)
+- [사용자 업데이트](/graph/api/user-update)
+- [사용자 삭제](/graph/api/user-delete)
 
 ## <a name="user-properties"></a>사용자 속성
 
@@ -60,7 +60,7 @@ Microsoft Graph를 사용 하면 Microsoft Graph API에서 만들기, 읽기, �
 
 Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 `identities` [objectIdentity][graph-objectIdentity]형식의 user 특성에 저장 됩니다. `identities`컬렉션은 사용자 계정에 로그인 하는 데 사용 되는 id 집합을 나타냅니다. 이 컬렉션을 통해 사용자는 연결 된 id를 사용 하 여 사용자 계정에 로그인 할 수 있습니다.
 
-| 속성   | 유형 |설명|
+| 속성   | 유형 |Description|
 |:---------------|:--------|:----------|
 |signInType|문자열| 디렉터리에서 사용자 로그인 유형을 지정 합니다. 로컬 계정:,,,,  `emailAddress` `emailAddress1` 또는 원하는 `emailAddress2` `emailAddress3`  `userName` 다른 모든 형식 소셜 계정은로 설정 되어야 합니다  `federated` .|
 |발급자|문자열|Id의 발급자를 지정 합니다. 로컬 계정 (여기서 **signInType** 가이 아닌 경우)의 경우 `federated` 이 속성은 로컬 B2C 테 넌 트 기본 도메인 이름입니다 (예:) `contoso.onmicrosoft.com` . 소셜 id (여기서 **signInType** 는)의 경우  `federated` 값은 발급자의 이름입니다 (예:). `facebook.com`|
@@ -117,7 +117,7 @@ Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 `identities` [
 
 모든 고객 지향 응용 프로그램에는 수집할 정보에 대 한 고유한 요구 사항이 있습니다. Azure AD B2C 테 넌 트에는 지정 된 이름, 성, 도시 및 우편 번호와 같은 속성에 저장 되는 기본 제공 정보 집합이 제공 됩니다. Azure AD B2C를 사용 하 여 각 고객 계정에 저장 된 속성 집합을 확장할 수 있습니다. 사용자 지정 특성을 정의 하는 방법에 대 한 자세한 내용은 사용자 지정 [특성 (사용자 흐름)](user-flow-custom-attributes.md) 및 [사용자 지정 특성 (사용자 지정 정책)](custom-policy-custom-attributes.md)을 참조 하세요.
 
-Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트하는 것을 지원합니다. Graph API의 확장 특성은 규칙을 사용 하 여 이름이 지정 됩니다 `extension_ApplicationClientID_attributename` . 여기서는 응용 프로그램의 응용 프로그램 `ApplicationClientID` **(클라이언트) ID** 입니다 `b2c-extensions-app` ( **App registrations**  >  Azure Portal의 **모든 응용** 프로그램 앱 등록에 있음). 확장 특성 이름에 표시 되는 **응용 프로그램 (클라이언트) ID** 에는 하이픈이 포함 되지 않습니다. 예를 들어:
+Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트하는 것을 지원합니다. Graph API의 확장 특성은 규칙을 사용 하 여 이름이 지정 됩니다 `extension_ApplicationClientID_attributename` . 여기서는 응용 프로그램의 응용 프로그램 `ApplicationClientID` **(클라이언트) ID** 입니다 `b2c-extensions-app` ( **App registrations**  >  Azure Portal의 **모든 응용** 프로그램 앱 등록에 있음). 확장 특성 이름에 표시 되는 **응용 프로그램 (클라이언트) ID** 에는 하이픈이 포함 되지 않습니다. 예를 들면 다음과 같습니다.
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -125,7 +125,7 @@ Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이�
 
 ## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>코드 샘플: 프로그래밍 방식으로 사용자 계정을 관리 하는 방법
 
-이 코드 샘플은 [MICROSOFT GRAPH SDK](https://docs.microsoft.com/graph/sdks/sdks-overview) 를 사용 하 여 Microsoft Graph API와 상호 작용 하는 .net Core 콘솔 응용 프로그램입니다. 이 코드에서는 API를 호출 하 여 Azure AD B2C 테 넌 트에서 사용자를 프로그래밍 방식으로 관리 하는 방법을 보여 줍니다.
+이 코드 샘플은 [MICROSOFT GRAPH SDK](/graph/sdks/sdks-overview) 를 사용 하 여 Microsoft Graph API와 상호 작용 하는 .net Core 콘솔 응용 프로그램입니다. 이 코드에서는 API를 호출 하 여 Azure AD B2C 테 넌 트에서 사용자를 프로그래밍 방식으로 관리 하는 방법을 보여 줍니다.
 [샘플 아카이브](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (* .zip)를 다운로드 하거나 GitHub에서 [리포지토리를 찾아보거나](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) 리포지토리를 복제할 수 있습니다.
 
 ```cmd
@@ -152,7 +152,7 @@ git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-ma
 
 ### <a name="code-discussion"></a>코드 토론
 
-이 샘플 코드는 Microsoft Graph에 액세스 하는 고품질의 효율적이 고 복원 력 있는 응용 프로그램을 간편 하 게 빌드할 수 있도록 설계 된 [MICROSOFT GRAPH SDK](https://docs.microsoft.com/graph/sdks/sdks-overview)를 사용 합니다.
+이 샘플 코드는 Microsoft Graph에 액세스 하는 고품질의 효율적이 고 복원 력 있는 응용 프로그램을 간편 하 게 빌드할 수 있도록 설계 된 [MICROSOFT GRAPH SDK](/graph/sdks/sdks-overview)를 사용 합니다.
 
 Microsoft Graph API에 대 한 모든 요청에는 인증을 위한 액세스 토큰이 필요 합니다. 이 솔루션은 Microsoft Graph SDK에 사용할 MSAL (Microsoft 인증 라이브러리)의 인증 시나리오 기반 래퍼를 제공 하는 [Microsoft Graph. Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet 패키지를 사용 합니다.
 
@@ -203,7 +203,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Microsoft Graph sdk를 사용 하 여 API 호출을 수행](https://docs.microsoft.com/graph/sdks/create-requests) 하면 Microsoft Graph에서 정보를 읽고 쓰고,를 사용 하 여 `$select` 반환 된 속성을 제어 하 고, 사용자 지정 쿼리 매개 변수를 제공 하 고, `$filter` `$orderBy` 쿼리 매개 변수를 사용 하는 방법에 대 한 정보가
+[Microsoft Graph sdk를 사용 하 여 API 호출을 수행](/graph/sdks/create-requests) 하면 Microsoft Graph에서 정보를 읽고 쓰고,를 사용 하 여 `$select` 반환 된 속성을 제어 하 고, 사용자 지정 쿼리 매개 변수를 제공 하 고, `$filter` `$orderBy` 쿼리 매개 변수를 사용 하는 방법에 대 한 정보가
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -211,5 +211,5 @@ Azure AD B2C 리소스에 대해 지원 되는 Microsoft Graph API 작업의 전
 
 <!-- LINK -->
 
-[graph-objectIdentity]: https://docs.microsoft.com/graph/api/resources/objectidentity
+[graph-objectIdentity]: /graph/api/resources/objectidentity
 [graph-user]: (https://docs.microsoft.com/graph/api/resources/user)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 0896df301718c74e63a9e18c74615130fa80c952
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18ffc5aa9c56451099afc4ddbe8b6ac5bd588974
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986247"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948768"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>오픈 소스 도구를 사용하여 Azure Network Watcher NSG 흐름 로그 시각화
 
@@ -41,7 +41,7 @@ NSG 흐름 로그를 탄력적 스택과 연결하여 로그에서 정보를 검
 
 #### <a name="install-elasticsearch"></a>Elasticsearch 설치
 
-1. 이번 5.0 이상의 탄력적 스택에는 Java 8이 필요합니다. `java -version` 명령을 실행하여 버전을 확인합니다. java가 설치되지 않은 경우 [Azure 지원 JDK](https://aka.ms/azure-jdks)에 대한 설명서를 참조하세요.
+1. 이번 5.0 이상의 탄력적 스택에는 Java 8이 필요합니다. `java -version` 명령을 실행하여 버전을 확인합니다. java가 설치되지 않은 경우 [Azure 지원 JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)에 대한 설명서를 참조하세요.
 2. 시스템에 맞는 이진 패키지를 다운로드합니다.
 
    ```bash
@@ -195,7 +195,7 @@ sudo /etc/init.d/logstash start
 
 3. Kibana 웹 인터페이스를 보려면 `http://localhost:5601`로 이동합니다.
 4. 이 시나리오에서 흐름 로그에 사용된 인덱스 패턴은 "nsg-flow-logs"입니다. logstash.conf 파일의 "output" 섹션에서 인덱스 패턴을 변경할 수 있습니다.
-5. Kibana 대시보드를 원격으로 보려면 **포트 5601**에 대해 액세스를 허용하는 인바운드 NSG 규칙을 만듭니다.
+5. Kibana 대시보드를 원격으로 보려면 **포트 5601** 에 대해 액세스를 허용하는 인바운드 NSG 규칙을 만듭니다.
 
 ### <a name="create-a-kibana-dashboard"></a>Kibana 대시보드 만들기
 
@@ -205,7 +205,7 @@ sudo /etc/init.d/logstash start
 
 [대시보드 파일](https://aka.ms/networkwatchernsgflowlogdashboard), [시각화 파일](https://aka.ms/networkwatchernsgflowlogvisualizations) 및 [저장된 검색 파일](https://aka.ms/networkwatchernsgflowlogsearch)을 다운로드합니다.
 
-Kibana의 **관리** 탭 아래에서 **저장된 개체**로 이동하고 세 개 파일을 모두 가져옵니다. 그런 다음 **대시보드** 탭에서 샘플 대시보드를 열고 로드할 수 있습니다.
+Kibana의 **관리** 탭 아래에서 **저장된 개체** 로 이동하고 세 개 파일을 모두 가져옵니다. 그런 다음 **대시보드** 탭에서 샘플 대시보드를 열고 로드할 수 있습니다.
 
 사용자가 관심 있는 메트릭에 맞는 시각화 및 대시보드를 만들 수 있습니다. Kibana의 [공식적인 설명서](https://www.elastic.co/guide/en/kibana/current/visualize.html)에서 Kibana 시각화 만들기에 대해 자세히 알아보세요.
 

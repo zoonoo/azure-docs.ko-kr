@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: damendo
-ms.openlocfilehash: a603f55bd5bff7b2ed68623e9c712faaf8ac766f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 54b87da73d4427234e65e406d183525d55c6c00d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877030"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948547"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>빠른 시작: Azure Policy을 사용 하 여 NSG 흐름 로그 배포 및 관리 
 
@@ -25,8 +25,8 @@ ms.locfileid: "91877030"
 Azure Policy를 사용하면 조직의 표준을 적용하고 규정 준수를 규모에 맞게 평가할 수 있습니다. Azure Policy에 대한 일반적인 사용 사례에는 리소스 일관성, 규정 준수, 보안, 비용 및 관리에 대한 거버넌스 구현이 포함됩니다. 이 문서에서는 NSG 흐름 로그에 사용할 수 있는 두 가지 기본 제공 정책을 사용 하 여 흐름 로그 설정을 관리할 것입니다. 첫 번째 정책은 흐름 로그가 없는 모든 NSGs에 플래그를 설정 합니다. 두 번째 정책은 흐름 로그를 사용 하지 않고 NSGs에 대 한 흐름 로그를 자동으로 배포 합니다. 
 
 처음으로 Azure 정책을 만드는 경우 다음을 읽을 수 있습니다. 
-- [Azure Policy 개요](https://docs.microsoft.com/azure/governance/policy/overview) 
-- [정책을 만드는 방법에 대 한 자습서](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal#create-a-policy-assignment)입니다.
+- [Azure Policy 개요](../governance/policy/overview.md) 
+- [정책을 만드는 방법에 대 한 자습서](../governance/policy/assign-policy-portal.md#create-a-policy-assignment)입니다.
 
 
 ## <a name="locate-the-policies"></a>정책 찾기
@@ -134,5 +134,5 @@ Network Watcher 서비스는 지역 서비스입니다. 이러한 매개 변수�
 
 ## <a name="next-steps"></a>다음 단계 
 
--   이 [자습서](https://docs.microsoft.com/azure/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template) 에서는 ARM 템플릿을 사용 하 여 흐름 로그 및 트래픽 분석을 배포 하는 방법에 대해 자세히 살펴보겠습니다.
--   [Network Watcher](https://docs.microsoft.com/azure/network-watcher/) 에 대 한 자세한 정보
+-   이 [자습서](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md) 에서는 ARM 템플릿을 사용 하 여 흐름 로그 및 트래픽 분석을 배포 하는 방법에 대해 자세히 살펴보겠습니다.
+-   [Network Watcher](./index.yml) 에 대 한 자세한 정보

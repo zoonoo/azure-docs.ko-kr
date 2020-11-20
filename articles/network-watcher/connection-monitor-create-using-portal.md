@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 8c4df64334957a78fcf05c11625335214f8e032a
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: d652f1eae62270fa8968d64a2bd15a1261dca673
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699375"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949193"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 연결 모니터에서 모니터 만들기
 
@@ -102,7 +102,7 @@ Azure Portal에서 연결 모니터에 테스트 그룹을 만들려면 다음 �
 
 * **테스트 그룹 사용 안 함**:이 확인란을 선택 하면 테스트 그룹에서 지정 하는 모든 원본 및 대상에 대해 모니터링을 사용 하지 않도록 설정할 수 있습니다. 이 선택 항목은 기본적으로 선택 되어 있지 않습니다.
 * **이름**: 테스트 그룹의 이름을로 합니다.
-* **원본**: 에이전트가 설치 되어 있는 경우 Azure vm 및 온-프레미스 컴퓨터를 모두 원본으로 지정할 수 있습니다. 원본에 대 한 에이전트를 설치 하는 방법에 대 한 자세한 내용은 [monitoring Agent 설치](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents)를 참조 하세요.
+* **원본**: 에이전트가 설치 되어 있는 경우 Azure vm 및 온-프레미스 컴퓨터를 모두 원본으로 지정할 수 있습니다. 원본에 대 한 에이전트를 설치 하는 방법에 대 한 자세한 내용은 [monitoring Agent 설치](./connection-monitor-overview.md#install-monitoring-agents)를 참조 하세요.
    * Azure 에이전트를 선택 하려면 **azure 끝점** 탭을 선택 합니다. 여기서는 연결 모니터를 만들 때 지정한 지역에 바인딩된 Vm만 표시 됩니다. 기본적으로 Vm은 속한 구독으로 그룹화 됩니다. 이러한 그룹은 축소 됩니다. 
    
        **구독** 수준에서 계층의 다른 수준으로 드릴 다운할 수 있습니다.
@@ -117,7 +117,7 @@ Azure Portal에서 연결 모니터에 테스트 그룹을 만들려면 다음 �
 
    * 온-프레미스 에이전트를 선택 하려면 **비-Azure 끝점** 탭을 선택 합니다. 기본적으로 에이전트는 지역별로 작업 영역으로 그룹화 됩니다. 이러한 모든 작업 영역에는 네트워크 성능 모니터 구성 되어 있습니다. 
    
-       작업 영역에 네트워크 성능 모니터를 추가 해야 하는 경우 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 가져옵니다. 네트워크 성능 모니터를 추가 하는 방법에 대 한 자세한 내용은 [Azure Monitor에서 솔루션 모니터링](https://docs.microsoft.com/azure/azure-monitor/insights/solutions)을 참조 하세요. 
+       작업 영역에 네트워크 성능 모니터를 추가 해야 하는 경우 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 가져옵니다. 네트워크 성능 모니터를 추가 하는 방법에 대 한 자세한 내용은 [Azure Monitor에서 솔루션 모니터링](../azure-monitor/insights/solutions.md)을 참조 하세요. 
    
        **연결 모니터 만들기** 의 기본 **정보** 탭에서 기본 지역이 선택 되어 있습니다. 영역을 변경 하는 경우 새 지역의 작업 영역에서 에이전트를 선택할 수 있습니다. 하나 이상의 에이전트 또는 서브넷을 선택할 수 있습니다. **서브넷** 보기에서 모니터링할 특정 ip를 선택할 수 있습니다. 여러 서브넷을 추가 하는 경우 **OnPremises_Network_1** 이라는 사용자 지정 온-프레미스 네트워크가 만들어집니다. **Group** by 선택기를 에이전트로 그룹화 하도록 변경할 수도 있습니다.
 
@@ -140,7 +140,7 @@ Azure Portal에서 연결 모니터에 테스트 그룹을 만들려면 다음 �
     
     * 비 Azure 에이전트를 대상으로 선택 하려면 **비 azure 끝점** 탭을 선택 합니다. 기본적으로 에이전트는 지역별로 작업 영역으로 그룹화 됩니다. 이러한 작업 영역은 모두 네트워크 성능 모니터 구성 되어 있습니다. 
     
-      작업 영역에 네트워크 성능 모니터를 추가 해야 하는 경우 Azure Marketplace에서 가져옵니다. 네트워크 성능 모니터를 추가 하는 방법에 대 한 자세한 내용은 [Azure Monitor에서 솔루션 모니터링](https://docs.microsoft.com/azure/azure-monitor/insights/solutions)을 참조 하세요. 
+      작업 영역에 네트워크 성능 모니터를 추가 해야 하는 경우 Azure Marketplace에서 가져옵니다. 네트워크 성능 모니터를 추가 하는 방법에 대 한 자세한 내용은 [Azure Monitor에서 솔루션 모니터링](../azure-monitor/insights/solutions.md)을 참조 하세요. 
 
        **연결 모니터 만들기** 의 기본 **정보**   탭에서 기본 지역이 선택 되어 있습니다. 영역을 변경 하는 경우 새 지역의 작업 영역에서 에이전트를 선택할 수 있습니다. 하나 이상의 에이전트 또는 서브넷을 선택할 수 있습니다. **서브넷** 보기에서 모니터링할 특정 ip를 선택할 수 있습니다. 여러 서브넷을 추가 하는 경우 **OnPremises_Network_1** 이라는 사용자 지정 온-프레미스 네트워크가 만들어집니다.  
 
@@ -182,7 +182,7 @@ Azure Portal에서 연결 모니터에 대 한 경고를 만들려면 다음 필
 
 - **조건 이름**: 메트릭에 대해 경고가 생성 됩니다 `Test Result(preview)` . 연결 모니터 테스트 결과가 실패 결과일 경우 경고 규칙이 실행 됩니다. 
 
-- **작업 그룹 이름**: 전자 메일을 직접 입력 하거나 작업 그룹을 통해 경고를 만들 수 있습니다. 전자 메일을 직접 입력 하면 이름이 **NPM Email actiongroup** 인 작업 그룹이 만들어집니다. 전자 메일 ID가 해당 작업 그룹에 추가 됩니다. 작업 그룹을 사용 하도록 선택 하는 경우 이전에 만든 작업 그룹을 선택 해야 합니다. 작업 그룹을 만드는 방법에 대 한 자세한 내용은 [Azure Portal에서 작업 그룹 만들기](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)를 참조 하세요. 경고가 생성 되 면 [경고를 관리할](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal)수 있습니다. 
+- **작업 그룹 이름**: 전자 메일을 직접 입력 하거나 작업 그룹을 통해 경고를 만들 수 있습니다. 전자 메일을 직접 입력 하면 이름이 **NPM Email actiongroup** 인 작업 그룹이 만들어집니다. 전자 메일 ID가 해당 작업 그룹에 추가 됩니다. 작업 그룹을 사용 하도록 선택 하는 경우 이전에 만든 작업 그룹을 선택 해야 합니다. 작업 그룹을 만드는 방법에 대 한 자세한 내용은 [Azure Portal에서 작업 그룹 만들기](../azure-monitor/platform/action-groups.md)를 참조 하세요. 경고가 생성 되 면 [경고를 관리할](../azure-monitor/platform/alerts-metric.md#view-and-manage-with-azure-portal)수 있습니다. 
 
 - **경고 규칙 이름**: 연결 모니터의 이름입니다.
 
@@ -201,5 +201,5 @@ Azure Portal에서 연결 모니터에 대 한 경고를 만들려면 다음 필
 
 ## <a name="next-steps"></a>다음 단계
 
-* [모니터링 데이터를 분석 하 고 경고를 설정 하는 방법을](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)알아봅니다.
-* [네트워크에서 문제를 진단 하는 방법을](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)알아봅니다.
+* [모니터링 데이터를 분석 하 고 경고를 설정 하는 방법을](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)알아봅니다.
+* [네트워크에서 문제를 진단 하는 방법을](./connection-monitor-overview.md#diagnose-issues-in-your-network)알아봅니다.

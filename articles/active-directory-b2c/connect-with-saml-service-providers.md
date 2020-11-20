@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 80ecd02f9aebbca66169d64d6c6d0302d58ca439
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4426a305d72fdd86ee58b3f4a05153593515d4b5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647667"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949652"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에 SAML 애플리케이션 등록
 
@@ -73,7 +73,7 @@ SAML 서비스 공급자와 연결된 메타데이터 엔드포인트가 아직 
 
 ### <a name="11-prepare-a-self-signed-certificate"></a>1.1 자체 서명된 인증서 준비
 
-인증서가 아직 없는 경우 이 자습서에서는 자체 서명된 인증서를 사용할 수 있습니다. Windows에서는 PowerShell의 [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet을 사용하여 인증서를 생성할 수 있습니다.
+인증서가 아직 없는 경우 이 자습서에서는 자체 서명된 인증서를 사용할 수 있습니다. Windows에서는 PowerShell의 [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet을 사용하여 인증서를 생성할 수 있습니다.
 
 1. 이 PowerShell 명령을 실행하여 자체 서명된 인증서를 생성합니다. `-Subject` 인수를 애플리케이션 및 Azure AD B2C 테넌트 이름에 적절하게 수정합니다. `-NotAfter` 날짜를 조정하여 인증서에 다른 만료 날짜를 지정할 수도 있습니다.
 
@@ -340,7 +340,7 @@ SAML 테스트 애플리케이션을 사용하는 이 자습서에서는 `logout
 일반적으로 다음 중 일부 또는 전부가 필요합니다.
 
 * **메타데이터**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **발급자**: SAML 요청 `issuer` 값은 `identifierUris` 응용 프로그램 등록 매니페스트의 요소에 구성 된 uri 중 하 나와 일치 해야 합니다. SAML 요청 `issuer` 이름이 요소에 없으면 `identifierUris` [응용 프로그램 등록 매니페스트에 추가](#identifieruris)합니다. 예: `https://contoso.onmicrosoft.com/app-name`. 
+* **발급자**: SAML 요청 `issuer` 값은 `identifierUris` 응용 프로그램 등록 매니페스트의 요소에 구성 된 uri 중 하 나와 일치 해야 합니다. SAML 요청 `issuer` 이름이 요소에 없으면 `identifierUris` [응용 프로그램 등록 매니페스트에 추가](#identifieruris)합니다. 예들 들어 `https://contoso.onmicrosoft.com/app-name`입니다. 
 * **로그인 Url/saml 끝점/Saml Url**: Azure AD B2C SAML 정책 메타 데이터 파일에서 XML 요소에 대 한 값을 확인 합니다. `<SingleSignOnService>`
 * **인증서**: *B2C_1A_SamlIdpCert* 이며, 프라이빗 키가 없습니다. 인증서의 퍼블릭 키를 가져오려면:
 
@@ -443,7 +443,7 @@ Microsoft에서는 SAML 테스트 앱을 사용하여 테스트하는 데 사용
 
 SAML 토큰은 성공적으로 로그인 한 후 Azure AD B2C에서 발급 하는 보안 토큰입니다. 사용자에 대 한 정보, 토큰을 사용 하는 서비스 공급자, 서명 및 유효 시간에 대 한 정보를 포함 합니다. 다음 표에서는 Azure AD B2C에서 발급 한 SAML 토큰에서 사용할 수 있는 클레임 및 속성을 나열 합니다.
 
-|요소  |속성  |참고  |
+|요소  |속성  |메모  |
 |---------|---------|---------|
 |`<Response>`| `ID` | 자동으로 생성 된 응답의 고유 식별자입니다. | 
 |`<Response>`| `InResponseTo` | 이 메시지가 응답 하는 SAML 요청의 ID입니다. | 

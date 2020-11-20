@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9fc34a85f8a858adea2161e1734ead589180ea4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ad9820cc3227c788582a9c2a452abe1886a4a2d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978240"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950315"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure 가용성 영역을 사용하는 SAP 워크로드 구성
 [Azure 가용성 영역](../../../availability-zones/az-overview.md)은 Azure가 제공하는 고가용성 기능 중 하나입니다. 가용성 영역을 사용하면 Azure에서 SAP 워크로드의 전반적인 가용성이 향상됩니다. 이 기능은 일부 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 이미 사용할 수 있습니다. 향후에는 더 많은 지역에서 사용할 수 있게 될 것입니다.
@@ -74,7 +75,7 @@ Azure 가용성 영역을 사용하여 동일한 아키텍처를 배포하려면
 
 - DBMS 인스턴스에 사용하려는 VM SKU를 세 가지 영역 모두에 배포합니다. 이러한 측정을 수행할 때 [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)을 사용하도록 설정해야 합니다.
 - 최소 네트워크 대기 시간을 나타내는 두 영역을 찾으면 세 가용성 영역에 걸쳐 애플리케이션 계층 VM으로 사용하려는 VM SKU의 다른 3개 VM을 배포합니다. 선택한 두 개의 ‘DBMS’ 영역에서 두 ‘DBMS VM’의 네트워크 대기 시간을 측정합니다. 
-- 측정 도구로 **niping**을 사용합니다. SAP의 이 도구는 SAP support note [#500235](https://launchpad.support.sap.com/#/notes/500235) 및 [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E)에서 설명합니다. 대기 시간 측정에 대한 명령을 중심으로 참조하세요. **ping**은 Azure Accelerated Networking 코드 경로를 통해 작동하지 않으므로 사용하지 않는 것이 좋습니다.
+- 측정 도구로 **niping** 을 사용합니다. SAP의 이 도구는 SAP support note [#500235](https://launchpad.support.sap.com/#/notes/500235) 및 [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E)에서 설명합니다. 대기 시간 측정에 대한 명령을 중심으로 참조하세요. **ping** 은 Azure Accelerated Networking 코드 경로를 통해 작동하지 않으므로 사용하지 않는 것이 좋습니다.
 
 이러한 테스트는 수동으로 수행할 필요가 없습니다. 설명 된 대기 시간 테스트를 자동화 하는 PowerShell 절차 [가용성 영역 대기 시간 테스트](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) 를 찾을 수 있습니다. 
 

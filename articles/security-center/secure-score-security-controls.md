@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: fd01e7e6853d69889d0ffba3d8775a0fd92f7cd2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b7c4c0565d17e62226a518bc443223df8339faec
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842535"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949380"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
@@ -206,8 +206,8 @@ Security Center의 기본 보안 이니셔티브는 업계 모범 사례 및 표
     <td class="tg-lboi"; width=55%>- API 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.<br>- 함수 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.<br>- Redis Cache에 보안 연결만 사용하도록 설정해야 합니다.<br>- 스토리지 계정에 보안 전송을 사용하도록 설정해야 합니다.<br>- 웹 애플리케이션은 HTTPS를 통해서만 액세스할 수 있어야 합니다.<br>- PostgreSQL 서버에 대해 개인 끝점을 사용 하도록 설정 해야 합니다.<br>- PostgreSQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용 하도록 설정 해야 합니다.<br>- MySQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용 하도록 설정 해야 함<br>- TLS는 API 앱에 대 한 최신 버전으로 업데이트 해야 합니다.<br>- TLS는 함수 앱에 대 한 최신 버전으로 업데이트 해야 합니다.<br>- TLS는 웹 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- FTPS는 API 앱에 필요 합니다.<br>- FTPS는 함수 앱에 필요 합니다.<br>- 웹 앱에서 FTPS가 필요 합니다.</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">액세스 및 사용 권한 관리(최대 점수 4)</p></strong>보안 프로그램의 핵심 부분은 사용자에 게 작업을 수행하는 데 필요한 액세스 권한만 있는지 확인하는 것입니다. 즉, <a href="/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models">최소 권한 액세스 모델</a>을 따릅니다.<br><a href="/azure/role-based-access-control/overview">RBAC(역할 기반 Access Control)</a>에서 역할 할당을 만들어 리소스에 대한 액세스를 제어합니다. 역할 할당은 다음과 같은 세 가지 요소로 구성됩니다.<br>- <strong>보안 주체</strong>: 사용자가 해당 액세스를 요청하는 개체입니다.<br>- <strong>역할 정의</strong>: 사용 권한<br>- <strong>범위</strong>: 권한이 적용되는 리소스 세트입니다.</td>
-    <td class="tg-lboi"; width=55%>- 더 이상 사용되지 않는 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 구독에 둘 이상의 소유자를 할당해야 합니다.<br>- Kubernetes Service(미리 보기)에서 RBAC(역할 기반 액세스 제어)를 사용해야 합니다.<br>- Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용해야 합니다.<br>- 관리 인증서 대신 서비스 주체를 사용 하 여 구독을 보호 해야 합니다.<br>- 컨테이너 (미리 보기)에 대해 최소 권한 Linux 기능을 적용 해야 함<br>- 컨테이너 (미리 보기)에 대해 변경할 수 없는 (읽기 전용) 루트 파일 시스템을 적용 해야 함<br>- 권한 에스컬레이션이 있는 컨테이너를 사용 하지 않아야 함 (미리 보기)<br>- 루트 사용자로 컨테이너를 실행 하는 것을 피해 야 함 (미리 보기)<br>- 중요 한 호스트 네임 스페이스를 공유 하는 컨테이너를 피해 야 함 (미리 보기)<br>- Pod HostPath 볼륨 탑재 사용은 알려진 목록 (미리 보기)으로 제한 되어야 합니다.<br>- 권한 있는 컨테이너를 피해 야 함 (미리 보기)<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).<br>- 웹 앱은 들어오는 모든 요청에 대해 SSL 인증서를 요청 해야 합니다.<br>- API 앱에서 관리 id를 사용 해야 합니다.<br>- 관리 id는 함수 앱에서 사용 해야 합니다.<br>- 관리 id는 웹 앱에서 사용 해야 합니다.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">액세스 및 사용 권한 관리(최대 점수 4)</p></strong>보안 프로그램의 핵심 부분은 사용자에 게 작업을 수행하는 데 필요한 액세스 권한만 있는지 확인하는 것입니다. 즉, <a href="/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models">최소 권한 액세스 모델</a>을 따릅니다.<br>Azure <a href="/azure/role-based-access-control/overview">RBAC (역할 기반 액세스 제어)</a>를 사용 하 여 역할 할당을 만들어 리소스에 대 한 액세스를 제어 합니다. 역할 할당은 다음과 같은 세 가지 요소로 구성됩니다.<br>- <strong>보안 주체</strong>: 사용자가 해당 액세스를 요청하는 개체입니다.<br>- <strong>역할 정의</strong>: 사용 권한<br>- <strong>범위</strong>: 권한이 적용되는 리소스 세트입니다.</td>
+    <td class="tg-lboi"; width=55%>- 더 이상 사용되지 않는 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 구독에 둘 이상의 소유자를 할당해야 합니다.<br>- Azure RBAC (역할 기반 액세스 제어)는 Kubernetes Services (미리 보기)에서 사용 해야 합니다.<br>- Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용해야 합니다.<br>- 관리 인증서 대신 서비스 주체를 사용 하 여 구독을 보호 해야 합니다.<br>- 컨테이너 (미리 보기)에 대해 최소 권한 Linux 기능을 적용 해야 함<br>- 컨테이너 (미리 보기)에 대해 변경할 수 없는 (읽기 전용) 루트 파일 시스템을 적용 해야 함<br>- 권한 에스컬레이션이 있는 컨테이너를 사용 하지 않아야 함 (미리 보기)<br>- 루트 사용자로 컨테이너를 실행 하는 것을 피해 야 함 (미리 보기)<br>- 중요 한 호스트 네임 스페이스를 공유 하는 컨테이너를 피해 야 함 (미리 보기)<br>- Pod HostPath 볼륨 탑재 사용은 알려진 목록 (미리 보기)으로 제한 되어야 합니다.<br>- 권한 있는 컨테이너를 피해 야 함 (미리 보기)<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).<br>- 웹 앱은 들어오는 모든 요청에 대해 SSL 인증서를 요청 해야 합니다.<br>- API 앱에서 관리 id를 사용 해야 합니다.<br>- 관리 id는 함수 앱에서 사용 해야 합니다.<br>- 관리 id는 웹 앱에서 사용 해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">보안 구성 수정(최대 점수 4)</p></strong>잘못 구성된 IT 자산은 공격 당할 위험이 높습니다. 자산을 배포하고 마감일을 충족해야 할 때는 기본 강화 작업을 잊는 경우가 많습니다. 보안 구성 오류는 운영 체제 및 네트워크 어플라이언스에서 클라우드 리소스에 이르는 인프라의 모든 수준에서 나타날 수 있습니다.<br>Azure Security Center는 리소스 구성을 업계 표준, 규정 및 벤치마크의 요구 사항과 지속적으로 비교합니다. 조직에 중요한 관련 "규정 준수 패키지"(표준 및 기준)를 구성할 때 나타나는 간격을 토대로 CCEID와 잠재적 보안 영향에 대한 설명을 포함 하는 보안 권장 사항이 제공됩니다.<br>일반적으로 사용되는 패키지는 <a href="/azure/security/benchmarks/introduction">Azure Security 벤치마크</a> 및 <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure Foundations 벤치마크 버전 1.1.0</a>입니다.</td>

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 857429ab5fd2e2ea9a0cb0173015ceba4bb0bacb
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 47885e64b40db07ca3b4a7380389967a36abbd9e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504114"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949839"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>등록 사용자 흐름에 API 커넥터 추가 (미리 보기)
 
@@ -27,22 +27,22 @@ ms.locfileid: "92504114"
 ## <a name="create-an-api-connector"></a>API 커넥터 만들기
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **Azure 서비스**에서 **Azure AD B2C**를 선택 합니다.
-4. **Api 커넥터 (미리 보기)** 를 선택한 다음 **새 api 커넥터**를 선택 합니다.
+2. **Azure 서비스** 에서 **Azure AD B2C** 를 선택 합니다.
+4. **Api 커넥터 (미리 보기)** 를 선택한 다음 **새 api 커넥터** 를 선택 합니다.
 
    ![새 API 커넥터 추가](./media/add-api-connector/api-connector-new.png)
 
-5. 호출에 대 한 표시 이름을 제공 합니다. 예를 들어 **사용자 정보를 확인**합니다.
+5. 호출에 대 한 표시 이름을 제공 합니다. 예를 들어 **사용자 정보를 확인** 합니다.
 6. API 호출에 대 한 **끝점 URL** 을 제공 합니다.
 7. API에 대 한 인증 정보를 제공 합니다.
 
-   - 현재 기본 인증만 지원 됩니다. 개발 목적으로 기본 인증 없이 API를 사용 하려면 API에서 무시할 수 있는 ' 더미 ' **사용자 이름** 및 **암호** 를 입력 하면 됩니다. API 키를 사용 하 여 Azure 함수와 함께 사용 하기 위해 코드를 **끝점 URL** 에 쿼리 매개 변수로 포함할 수 있습니다 (예: https []() ://contoso.azurewebsites.net/api/endpoint<b>? code = 0123456789</b>).
+   - 현재 기본 인증만 지원 됩니다. 개발 목적으로 기본 인증 없이 API를 사용 하려면 API에서 무시할 수 있는 ' 더미 ' **사용자 이름** 및 **암호** 를 입력 하면 됩니다. API 키를 사용 하 여 Azure 함수와 함께 사용 하기 위해 코드를 **끝점 URL** 에 쿼리 매개 변수로 포함할 수 있습니다 (예: https []() ://contoso.azurewebsites.net/api/endpoint <b>? code = 0123456789</b>).
 
    ![새 API 커넥터 구성](./media/add-api-connector/api-connector-config.png)
-8. **저장**을 선택합니다.
+8. **저장** 을 선택합니다.
 
 ## <a name="the-request-sent-to-your-api"></a>API로 전송 된 요청
-API 커넥터는 **HTTP POST** 요청으로 구체화 되어 사용자 특성 (' 클레임 ')을 JSON 본문의 키-값 쌍으로 보냅니다. 특성은 [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) 사용자 속성과 유사 하 게 직렬화 됩니다. 
+API 커넥터는 **HTTP POST** 요청으로 구체화 되어 사용자 특성 (' 클레임 ')을 JSON 본문의 키-값 쌍으로 보냅니다. 특성은 [Microsoft Graph](/graph/api/resources/user#properties) 사용자 속성과 유사 하 게 직렬화 됩니다. 
 
 **요청 예**
 ```http
@@ -83,23 +83,23 @@ Content-type: application/json
 > API 끝점이 호출 될 때 클레임에 값이 없으면 클레임은 API로 보내지지 않습니다. API는 클레임이 요청에 없는 경우를 명시적으로 확인 하 고 처리 하도록 설계 해야 합니다.
 
 > [!TIP] 
-> [**id (' id ')**](https://docs.microsoft.com/graph/api/resources/objectidentity) 및 **전자 메일 주소 (' 메일 ')** 클레임은 API에서 사용자가 테 넌 트에 계정을 포함 하기 전에 사용자를 식별 하는 데 사용할 수 있습니다. 
+> [**id (' id ')**](/graph/api/resources/objectidentity) 및 **전자 메일 주소 (' 메일 ')** 클레임은 API에서 사용자가 테 넌 트에 계정을 포함 하기 전에 사용자를 식별 하는 데 사용할 수 있습니다. 
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>사용자 흐름에서 API 커넥터를 사용 하도록 설정
 
 등록 사용자 흐름에 API 커넥터를 추가 하려면 다음 단계를 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **Azure 서비스**에서 **Azure AD B2C**를 선택 합니다.
-4. **사용자 흐름**을 선택 하 고 API 커넥터를 추가 하려는 사용자 흐름을 선택 합니다.
-5. **Api 커넥터**를 선택 하 고 사용자 흐름에서 다음 단계에 호출 하려는 api 끝점을 선택 합니다.
+2. **Azure 서비스** 에서 **Azure AD B2C** 를 선택 합니다.
+4. **사용자 흐름** 을 선택 하 고 API 커넥터를 추가 하려는 사용자 흐름을 선택 합니다.
+5. **Api 커넥터** 를 선택 하 고 사용자 흐름에서 다음 단계에 호출 하려는 api 끝점을 선택 합니다.
 
    - **Id 공급자를 사용 하 여 로그인 한 후**
    - **사용자를 만들기 전에**
 
    ![사용자 흐름에 Api 추가](./media/add-api-connector/api-connectors-user-flow-select.png)
 
-6. **저장**을 선택합니다.
+6. **저장** 을 선택합니다.
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Id 공급자를 사용 하 여 로그인 한 후
 
@@ -242,7 +242,7 @@ Content-type: application/json
 | 버전                                            | String            | 예      | API 버전입니다.                                                                                                                                                                                                                                                                |
 | action                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | 예       | 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. _ * 응용 프로그램 클레임 * *로 선택한 경우 토큰에서 반환 될 수도 있습니다.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 예       | 클레임은를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. **응용 프로그램 클레임**으로 선택 된 경우 토큰에서 반환 될 수도 있습니다.  |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 예       | 클레임은를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. **응용 프로그램 클레임** 으로 선택 된 경우 토큰에서 반환 될 수도 있습니다.  |
 
 ### <a name="example-of-a-blocking-response"></a>차단 응답의 예
 

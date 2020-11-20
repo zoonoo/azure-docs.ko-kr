@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 6d16d878b0cf7a73c87b5d6e9263a24c4dfb4383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8db4d4ae56a5a0ee0c92de5d9822614a3270b1c5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738144"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948683"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 NSG 흐름 로그 구성
 
@@ -31,15 +31,15 @@ ms.locfileid: "84738144"
 > - [Azure 리소스 관리자](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)는 [인프라를 코드로 관리](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)하는 Azure의 기본적이고 강력한 방법입니다.
+[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)는 [인프라를 코드로 관리](/azure/devops/learn/what-is-infrastructure-as-code)하는 Azure의 기본적이고 강력한 방법입니다.
 
-이 문서에서는 Azure Resource Manager 템플릿 및 Azure PowerShell을 사용하여 [NSG 흐름 로그](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)를 프로그래밍 방식으로 사용하도록 설정하는 방법을 보여 줍니다. 먼저 NSG 흐름 로그 개체의 속성에 대한 개요를 제공하고 몇 가지 샘플 템플릿을 제공합니다. 그런 다음 로컬 PowerShell 인스턴스를 사용하여 템플릿을 배포합니다.
+이 문서에서는 Azure Resource Manager 템플릿 및 Azure PowerShell을 사용하여 [NSG 흐름 로그](./network-watcher-nsg-flow-logging-overview.md)를 프로그래밍 방식으로 사용하도록 설정하는 방법을 보여 줍니다. 먼저 NSG 흐름 로그 개체의 속성에 대한 개요를 제공하고 몇 가지 샘플 템플릿을 제공합니다. 그런 다음 로컬 PowerShell 인스턴스를 사용하여 템플릿을 배포합니다.
 
 
 ## <a name="nsg-flow-logs-object"></a>NSG 흐름 로그 개체
 
 모든 매개 변수를 포함하는 NSG 흐름 로그 개체는 다음과 같습니다.
-속성에 대한 전체 개요를 보려면 [NSG 흐름 로그 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters)를 참조하세요.
+속성에 대한 전체 개요를 보려면 [NSG 흐름 로그 템플릿 참조](/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters)를 참조하세요.
 
 ```json
 {
@@ -76,8 +76,8 @@ Microsoft. Network/networkWatchers/flowLogs 리소스를 만들려면 위의 JSO
 
 Azure Resource Manager 템플릿을 처음 사용하는 경우 아래 링크를 사용하여 자세히 알아볼 수 있습니다.
 
-* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
-* [자습서: 첫 번째 Azure Resource Manager 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
+* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+* [자습서: 첫 번째 Azure Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
 
 다음은 NSG 흐름 로그를 설정하는 전체 템플릿의 두 가지 예제입니다.
@@ -172,14 +172,14 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 ## <a name="verifying-your-deployment"></a>배포 확인
 
-배포가 성공했는지 확인하는 몇 가지 방법이 있습니다. PowerShell 콘솔에 "ProvisioningState"가 "Succeeded"로 표시되어야 합니다. 또한 [NSG 흐름 로그 포털 페이지](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs)를 방문하여 변경 내용을 확인할 수 있습니다. 배포에 문제가 있는 경우 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors)을 살펴봅니다.
+배포가 성공했는지 확인하는 몇 가지 방법이 있습니다. PowerShell 콘솔에 "ProvisioningState"가 "Succeeded"로 표시되어야 합니다. 또한 [NSG 흐름 로그 포털 페이지](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs)를 방문하여 변경 내용을 확인할 수 있습니다. 배포에 문제가 있는 경우 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../azure-resource-manager/templates/common-deployment-errors.md)을 살펴봅니다.
 
 ## <a name="deleting-your-resource"></a>리소스 삭제
-Azure에서는 "전체" 배포 모드를 통해 리소스를 삭제할 수 있습니다. 흐름 로그 리소스를 삭제하려면 삭제하려는 리소스를 포함하지 않고 배포를 전체 모드로 지정합니다. [전체 배포 모드](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode)에 대해 자세히 알아봅니다.
+Azure에서는 "전체" 배포 모드를 통해 리소스를 삭제할 수 있습니다. 흐름 로그 리소스를 삭제하려면 삭제하려는 리소스를 포함하지 않고 배포를 전체 모드로 지정합니다. [전체 배포 모드](../azure-resource-manager/templates/deployment-modes.md#complete-mode)에 대해 자세히 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 다음을 사용하여 NSG 흐름 데이터를 시각화하는 방법을 알아봅니다.
 * [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 * [오픈 소스 도구](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-* [Azure 트래픽 분석](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Azure 트래픽 분석](./traffic-analytics.md)

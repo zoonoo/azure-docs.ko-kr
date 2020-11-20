@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6f2608dafb77aeba98f188ec04f78649656ef969
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b74de2bdf1f6239f1006c820579a336946939421
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089658"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949584"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Mailjet를 사용 하 여 사용자 지정 전자 메일 확인
 
 Azure Active Directory B2C (Azure AD B2C)의 사용자 지정 전자 메일을 사용 하 여 응용 프로그램을 사용 하기 위해 등록 하는 사용자에 게 사용자 지정 전자 메일을 보냅니다. [Displaycontrols](display-controls.md) (현재 미리 보기 상태) 및 타사 전자 메일 공급자 mailjet를 사용 하 여 사용자 고유의 전자 메일 템플릿 및 *의* 주소와 주체를 사용할 수 있을 뿐만 아니라 지역화 및 사용자 지정 OTP (일회용 암호) 설정을 지원할 수 있습니다.
 
-사용자 지정 전자 메일을 확인 하려면 [Mailjet](https://Mailjet.com), [SendGrid](custom-email.md)또는 [SparkPost](https://sparkpost.com)와 같은 타사 전자 메일 공급자, 사용자 지정 REST API 또는 HTTP 기반 메일 공급자 (자체 포함)를 사용 해야 합니다. 이 문서에서는 Mailjet를 사용 하는 솔루션을 설정 하는 방법을 설명 합니다.
+사용자 지정 전자 메일을 확인 하려면 [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md)또는 [SparkPost](https://sparkpost.com)와 같은 타사 전자 메일 공급자, 사용자 지정 REST API 또는 HTTP 기반 메일 공급자 (자체 포함)를 사용 해야 합니다. 이 문서에서는 Mailjet를 사용 하는 솔루션을 설정 하는 방법을 설명 합니다.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -40,28 +40,28 @@ Azure Active Directory B2C (Azure AD B2C)의 사용자 지정 전자 메일을 �
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **개요** 페이지에서 **Id 경험 프레임 워크**를 선택 합니다.
-1. **정책 키**, **추가**를 차례로 선택합니다.
-1. **옵션**에 대해 **수동**을 선택 합니다.
-1. 정책 키의 **이름**을 입력합니다. 예들 들어 `MailjetApiKey`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
-1. **비밀**에서 이전에 기록한 Mailjet **API 키** 를 입력 합니다.
-1. **키 사용**으로는 **서명**을 선택합니다.
-1. **만들기**를 선택합니다.
-1. **정책 키**, **추가**를 차례로 선택합니다.
-1. **옵션**에 대해 **수동**을 선택 합니다.
-1. 정책 키의 **이름**을 입력합니다. 예들 들어 `MailjetSecretKey`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
-1. **비밀**에서 이전에 기록한 Mailjet **비밀 키** 를 입력 합니다.
-1. **키 사용**으로는 **서명**을 선택합니다.
-1. **만들기**를 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **개요** 페이지에서 **Id 경험 프레임 워크** 를 선택 합니다.
+1. **정책 키**, **추가** 를 차례로 선택합니다.
+1. **옵션** 에 대해 **수동** 을 선택 합니다.
+1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `MailjetApiKey`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+1. **비밀** 에서 이전에 기록한 Mailjet **API 키** 를 입력 합니다.
+1. **키 사용** 으로는 **서명** 을 선택합니다.
+1. **만들기** 를 선택합니다.
+1. **정책 키**, **추가** 를 차례로 선택합니다.
+1. **옵션** 에 대해 **수동** 을 선택 합니다.
+1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `MailjetSecretKey`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+1. **비밀** 에서 이전에 기록한 Mailjet **비밀 키** 를 입력 합니다.
+1. **키 사용** 으로는 **서명** 을 선택합니다.
+1. **만들기** 를 선택합니다.
 
 ## <a name="create-a-mailjet-template"></a>Mailjet 템플릿 만들기
 
 Mailjet 계정이 만들어지고 Mailjet API 키가 Azure AD B2C 정책 키에 저장 된 상태에서 Mailjet [동적 트랜잭션 템플릿을](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)만듭니다.
 
-1. Mailjet 사이트에서 [트랜잭션 템플릿](https://app.mailjet.com/templates/transactional) 페이지를 열고 **새 템플릿 만들기**를 선택 합니다.
-1. **HTML로 코딩 하 여**선택한 다음, **처음부터 코드**를 선택 합니다.
-1. 과 같은 고유한 템플릿 이름을 입력 한 `Verification email` 다음 **만들기**를 선택 합니다.
+1. Mailjet 사이트에서 [트랜잭션 템플릿](https://app.mailjet.com/templates/transactional) 페이지를 열고 **새 템플릿 만들기** 를 선택 합니다.
+1. **HTML로 코딩 하 여** 선택한 다음, **처음부터 코드** 를 선택 합니다.
+1. 과 같은 고유한 템플릿 이름을 입력 한 `Verification email` 다음 **만들기** 를 선택 합니다.
 1. HTML 편집기에서 다음 HTML 템플릿을 붙여넣거나 사용자 고유의를 사용 합니다. `{{var:otp:""}}`및 `{{var:email:""}}` 매개 변수는 일회성 암호 값 및 사용자 전자 메일 주소를 사용 하 여 동적으로 교체 됩니다.
 
     ```HTML
@@ -159,11 +159,11 @@ Mailjet 계정이 만들어지고 Mailjet API 키가 Azure AD B2C 정책 키에 
     ```
 
 1. 왼쪽 맨 위에 있는 **제목 편집** 을 확장 합니다.
-    1. **제목**에 대해 제목의 기본값을 입력 합니다. Mailjet는 API에 주체 매개 변수가 포함 되지 않은 경우이 값을 사용 합니다.
-    1. **이름**에 회사 이름을 입력 합니다.
-    1. **주소**에서 전자 메일 주소를 선택 합니다.
-    1. **저장**을 선택합니다.
-1. 오른쪽 맨 위에 있는 **저장 & 게시**를 선택 하 고 **예, 변경 내용 게시** 를 클릭 합니다.
+    1. **제목** 에 대해 제목의 기본값을 입력 합니다. Mailjet는 API에 주체 매개 변수가 포함 되지 않은 경우이 값을 사용 합니다.
+    1. **이름** 에 회사 이름을 입력 합니다.
+    1. **주소** 에서 전자 메일 주소를 선택 합니다.
+    1. **저장** 을 선택합니다.
+1. 오른쪽 맨 위에 있는 **저장 & 게시** 를 선택 하 고 **예, 변경 내용 게시** 를 클릭 합니다.
 1. 이후 단계에서 사용 하기 위해 만든 템플릿의 **템플릿 ID** 를 기록 합니다. [클레임 변환을 추가할](#add-the-claims-transformation)때이 ID를 지정 합니다.
 
 

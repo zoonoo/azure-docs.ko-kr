@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8f2498dbb3a555db262c591c9badacbe0e4e2548
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 62bc309bf20186654cb32fb84fb1a07667405ab0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874664"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950808"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Azure 보안 기준
 
@@ -526,7 +526,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6: Azure RBAC를 사용 하 여 리소스에 대 한 액세스 관리
 
-**지침**: Azure Machine Learning에서는 Azure Active Directory (Azure AD)를 사용 하 여 Machine Learning 리소스에 대 한 요청에 권한을 부여할 수 있습니다. Azure AD를 사용 하면 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다.
+**지침**: Azure Machine Learning에서는 Azure Active Directory (Azure AD)를 사용 하 여 Machine Learning 리소스에 대 한 요청에 권한을 부여할 수 있습니다. Azure AD를 사용 하면 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다.
 
 - [Azure Machine Learning 작업 영역에 대한 액세스 관리](how-to-assign-roles.md)
 - [Kubernetes 권한 부여에 Azure RBAC 사용](../aks/manage-azure-rbac.md)

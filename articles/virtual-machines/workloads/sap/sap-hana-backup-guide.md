@@ -7,21 +7,22 @@ author: msjuergent
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: b5a83b3976dd3d3af1bfd5695815f7571d73dd9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 522af4bf6cc711bbfdfd30d0443ee58dad56b87e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88652188"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950026"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA Backup 가이드
 
-## <a name="getting-started"></a>시작하기
+## <a name="getting-started"></a>시작
 
 Azure 가상 머신에서 실행되는 SAP HANA에 대한 백업 가이드에서는 Azure 관련 항목만 설명합니다. 일반적인 SAP HANA 백업 관련 항목은 SAP HANA 설명서를 확인 하세요. 사용자는 주요 데이터베이스 백업 전략, 이유 및 동기를 사용 하 여 사운드 및 유효한 백업 전략에 대해 잘 알고 있어야 하며, 백업 절차, 백업 보존 기간 및 복원 절차에 대 한 회사의 요구 사항을 알고 있어야 합니다.
 
@@ -116,12 +117,12 @@ Azure에서 Azure blob snapshot&#39;기능이 여러 디스크 간에 파일 시
 > 여러 데이터베이스 컨테이너를 사용 하는 배포의 SAP HANA에 대 한 디스크 스냅숏 기반 백업, 최소 버전의 HANA 2.0 SP04 필요
 > 
 
-Azure storage는 스냅숏 프로세스 중에 VM에 연결 된 여러 디스크 또는 볼륨에서 파일 시스템 일관성을 제공 하지 않습니다. 즉, 응용 프로그램에서 스냅숏에서 응용 프로그램 일관성을 전달 해야 합니다 .이 경우에는 SAP HANA 자체입니다. [SAP Note 2039883](https://launchpad.support.sap.com/#/notes/2039883) 에는 저장소 스냅숏으로 SAP HANA 백업에 대 한 중요 한 정보가 있습니다. 예를 들어 XFS 파일 시스템을 사용 하는 경우 응용 프로그램 일관성을 제공 하기 위해 저장소 스냅숏을 시작 하기 전에 **XFS \_ freeze** 를 실행 해야 합니다 (XFS 고정에 대 한 자세한 내용은 [XFS 고정 \_ (8)-Linux 매뉴얼 페이지](https://linux.die.net/man/8/xfs_freeze) ** \_ 참조).**
+Azure storage는 스냅숏 프로세스 중에 VM에 연결 된 여러 디스크 또는 볼륨에서 파일 시스템 일관성을 제공 하지 않습니다. 즉, 응용 프로그램에서 스냅숏에서 응용 프로그램 일관성을 전달 해야 합니다 .이 경우에는 SAP HANA 자체입니다. [SAP Note 2039883](https://launchpad.support.sap.com/#/notes/2039883) 에는 저장소 스냅숏으로 SAP HANA 백업에 대 한 중요 한 정보가 있습니다. 예를 들어 XFS 파일 시스템을 사용 하는 경우 응용 프로그램 일관성을 제공 하기 위해 저장소 스냅숏을 시작 하기 전에 **XFS \_ freeze** 를 실행 해야 합니다 (XFS 고정에 대 한 자세한 내용은 [XFS 고정 \_ (8)-Linux 매뉴얼 페이지](https://linux.die.net/man/8/xfs_freeze) **\_ 참조).**
 
 다음 단계에서는 네 개의 Azure 가상 디스크를 확장하는 XFS 파일 시스템이 있다고 가정하여 HANA 데이터 영역을 나타내는 일관된 스냅샷을 제공합니다.
 
 1. HANA 데이터 스냅숏 만들기 준비
-1. 모든 디스크/볼륨의 파일 시스템을 고정 합니다 (예: **xfs \_ freeze**사용).
+1. 모든 디스크/볼륨의 파일 시스템을 고정 합니다 (예: **xfs \_ freeze** 사용).
 1. Azure에서 필요한 모든 Blob 스냅샷 만들기
 1. 파일 시스템 고정 취소(unfreeze)
 1. HANA 데이터 스냅숏 확인 (스냅숏이 삭제 됨)

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: bba3666fbce6a8ea591654d1abdad319f1e0857c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65e9657c3948d8ce5883cd33ca8720f501352105
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999520"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950672"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>StorSimple용 Windows PowerShell을 사용하여 디바이스 관리
 
@@ -28,7 +28,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
 * StorSimple용 Windows PowerShell에서 도움말 보기
 
 > [!NOTE]
-> * StorSimple용 Windows PowerShell cmdlet을 사용하면 직렬 콘솔에서 또는 Windows PowerShell 원격을 통해 원격으로 StorSimple 디바이스를 관리할 수 있습니다. 이 인터페이스에서 사용할 수 있는 개별 cmdlet에 대한 자세한 내용은 [StorSimple용 Windows PowerShell에 대한 cmdlet 참조](https://technet.microsoft.com/library/dn688168.aspx)를 참조하세요.
+> * StorSimple용 Windows PowerShell cmdlet을 사용하면 직렬 콘솔에서 또는 Windows PowerShell 원격을 통해 원격으로 StorSimple 디바이스를 관리할 수 있습니다. 이 인터페이스에서 사용할 수 있는 개별 cmdlet에 대한 자세한 내용은 [StorSimple용 Windows PowerShell에 대한 cmdlet 참조](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps)를 참조하세요.
 > * Azure PowerShell StorSimple cmdlet은 명령줄에서 StorSimple 서비스 수준 및 마이그레이션 작업을 자동화할 수 있게 해주는 다른 cmdlet 컬렉션입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [Azure StorSimplecmdlet 참조](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure)를 참조하세요.
 
 
@@ -47,7 +47,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
 
 #### <a name="to-configure-putty"></a>PuTTY를 구성하려면
 
-1. PuTTY **재구성** 대화 상자의 **범주** 창에서 **키보드**를 선택합니다.
+1. PuTTY **재구성** 대화 상자의 **범주** 창에서 **키보드** 를 선택합니다.
 2. 다음 옵션이 선택되었는지 확인합니다(새 세션을 시작할 때의 기본 설정임).
    
    | 키보드 항목 | 선택 |
@@ -60,13 +60,13 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
    | 추가 키보드 기능 사용 |Ctrl-Alt는 AltGr과 다름 |
    
     ![지원되는 Putty 설정](./media/storsimple-windows-powershell-administration/IC740877.png)
-3. **적용**을 클릭합니다.
-4. **범주** 창에서 **변환**을 선택합니다.
-5. **원격 문자 집합** 목록 상자에서 **UTF-8**을 선택합니다.
-6. **선 그리기 문자 처리** 아래에서 **유니코드 선 그리기 코드 포인트 사용**을 선택합니다. 다음 스크린샷은 올바른 PuTTY 선택 항목을 보여 줍니다.
+3. **적용** 을 클릭합니다.
+4. **범주** 창에서 **변환** 을 선택합니다.
+5. **원격 문자 집합** 목록 상자에서 **UTF-8** 을 선택합니다.
+6. **선 그리기 문자 처리** 아래에서 **유니코드 선 그리기 코드 포인트 사용** 을 선택합니다. 다음 스크린샷은 올바른 PuTTY 선택 항목을 보여 줍니다.
    
     ![UTF Putty 설정](./media/storsimple-windows-powershell-administration/IC740878.png)
-7. **적용**을 클릭합니다.
+7. **적용** 을 클릭합니다.
 
 이제 PuTTY에서 다음 단계를 수행하여 디바이스 직렬 콘솔에 연결할 수 있습니다.
 
@@ -81,7 +81,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
 ![직렬 배너 메시지](./media/storsimple-windows-powershell-administration/IC741098.png)
 
 > [!IMPORTANT]
-> 배너 메시지를 사용하여 연결된 컨트롤러가 _능동_ 또는 _수동_인지 식별할 수 있습니다.
+> 배너 메시지를 사용하여 연결된 컨트롤러가 _능동_ 또는 _수동_ 인지 식별할 수 있습니다.
 
 다음 그림은 직렬 콘솔 메뉴에서 사용할 수 있는 다양한 Runspace 옵션을 보여 줍니다.
 
@@ -114,7 +114,7 @@ Windows PowerShell 원격을 사용하여 StorSimple 디바이스에 연결할 �
 표시 언어는 직렬 콘솔 메뉴에서 **언어 변경** 옵션을 사용하여 설정하는 언어와 독립적입니다. 지정되지 않은 경우 원격 PowerShell은 연결에 사용되는 디바이스의 로캘을 자동으로 선택합니다.
 
 > [!NOTE]
-> Microsoft Azure 가상 호스트 및 StorSimple Cloud Appliance로 작업하는 경우 Windows PowerShell 원격 및 가상 호스트를 사용하여 클라우드 어플라이언스에 연결할 수 있습니다. Windows PowerShell 세션에서 정보를 저장할 호스트의 공유 위치를 설정한 경우 _Everyone_ 사용자 보안 주체에 인증된 사용자만 포함된다는 것을 알아야 합니다. 따라서 _Everyone_의 액세스를 허용하도록 공유를 설정한 후 자격 증명을 지정하지 않고 연결하면 인증되지 않은 익명 보안 주체가 사용되며 오류가 표시됩니다. 이 문제를 해결하려면 공유 호스트에서 게스트 계정을 사용하도록 설정한 다음 공유에 대한 모든 권한을 게스트 계정에 부여하거나 Windows PowerShell cmdlet과 함께 유효한 자격 증명을 지정해야 합니다.
+> Microsoft Azure 가상 호스트 및 StorSimple Cloud Appliance로 작업하는 경우 Windows PowerShell 원격 및 가상 호스트를 사용하여 클라우드 어플라이언스에 연결할 수 있습니다. Windows PowerShell 세션에서 정보를 저장할 호스트의 공유 위치를 설정한 경우 _Everyone_ 사용자 보안 주체에 인증된 사용자만 포함된다는 것을 알아야 합니다. 따라서 _Everyone_ 의 액세스를 허용하도록 공유를 설정한 후 자격 증명을 지정하지 않고 연결하면 인증되지 않은 익명 보안 주체가 사용되며 오류가 표시됩니다. 이 문제를 해결하려면 공유 호스트에서 게스트 계정을 사용하도록 설정한 다음 공유에 대한 모든 권한을 게스트 계정에 부여하거나 Windows PowerShell cmdlet과 함께 유효한 자격 증명을 지정해야 합니다.
 
 
 HTTP 또는 HTTPS를 사용하여 Windows PowerShell 원격을 통해 연결할 수 있습니다. 다음 자습서의 지침을 사용합니다.
@@ -178,4 +178,3 @@ Windows PowerShell 인터페이스에서 도움말을 쉽게 업데이트할 수
 ## <a name="next-steps"></a>다음 단계
 
 위의 워크플로 중 하나를 수행할 때 StorSimple 디바이스에서 문제가 발생하는 경우 [StorSimple 배포 문제를 해결하는 도구](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments)를 참조하세요.
-

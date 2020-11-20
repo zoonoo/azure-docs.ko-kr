@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 5dbb8d508fe824d0264043625c988f43092f3f78
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 13b379fd3b4f788d79cbb6a9bf6d40cb1693eaf9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699239"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949004"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>연결 모니터를 사용 하 여 네트워크 연결 모니터링
 
@@ -34,7 +34,7 @@ ms.locfileid: "94699239"
 - 하이브리드 응용 프로그램은 Azure Storage 끝점에 연결 해야 합니다. 온-프레미스 사이트와 Azure 응용 프로그램은 동일한 Azure Storage 끝점에 연결 됩니다. 온-프레미스 사이트의 대기 시간을 Azure 응용 프로그램의 대기 시간과 비교 하려고 합니다.
 - 온-프레미스 설정과 클라우드 응용 프로그램을 호스트 하는 Azure Vm 간의 연결을 확인 하려고 합니다.
 
-연결 모니터는 Network Watcher [연결 모니터 (클래식)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) 기능과 네트워크 성능 모니터 (NPM) [서비스 연결 모니터](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [Express 경로 모니터링](https://docs.microsoft.com/azure/expressroute/how-to-npm)및 [성능 모니터링](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) 기능과 같은 두 가지 기능을 결합 합니다.
+연결 모니터는 Network Watcher [연결 모니터 (클래식)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) 기능과 네트워크 성능 모니터 (NPM) [서비스 연결 모니터](../azure-monitor/insights/network-performance-monitor-service-connectivity.md), [Express 경로 모니터링](../expressroute/how-to-npm.md)및 [성능 모니터링](../azure-monitor/insights/network-performance-monitor-performance-monitor.md) 기능과 같은 두 가지 기능을 결합 합니다.
 
 연결 모니터의 몇 가지 이점은 다음과 같습니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "94699239"
 
 연결 모니터가 Azure Vm을 모니터링 원본으로 인식 하도록 하려면 에이전트에 Network Watcher 에이전트 가상 머신 확장을 설치 합니다. 이 확장을 *Network Watcher 확장* 이 라고도 합니다. Azure virtual machines에는 종단 간 모니터링 및 기타 고급 기능을 트리거하기 위해 확장이 필요 합니다. 
 
-[VM을 만들](https://docs.microsoft.com/azure/network-watcher/connection-monitor#create-the-first-vm)때 Network Watcher 확장을 설치할 수 있습니다. 또한 [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux) 및 [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows)용 Network Watcher 확장을 별도로 설치, 구성 및 문제 해결할 수 있습니다.
+[VM을 만들](./connection-monitor.md#create-the-first-vm)때 Network Watcher 확장을 설치할 수 있습니다. 또한 [Linux](../virtual-machines/extensions/network-watcher-linux.md) 및 [Windows](../virtual-machines/extensions/network-watcher-windows.md)용 Network Watcher 확장을 별도로 설치, 구성 및 문제 해결할 수 있습니다.
 
 NSG (네트워크 보안 그룹) 또는 방화벽에 대 한 규칙은 원본과 대상 간의 통신을 차단할 수 있습니다. 연결 모니터는이 문제를 감지 하 고 토폴로지에 진단 메시지로 표시 합니다. 연결 모니터링을 사용 하도록 설정 하려면 NSG 및 방화벽 규칙이 원본 및 대상 간에 TCP 또는 ICMP를 통한 패킷을 허용 하는지 확인 합니다.
 
@@ -73,7 +73,7 @@ NSG (네트워크 보안 그룹) 또는 방화벽에 대 한 규칙은 원본과
 
 연결 모니터가 온-프레미스 컴퓨터를 모니터링 원본으로 인식 하도록 하려면 컴퓨터에 Log Analytics 에이전트를 설치 합니다. 그런 다음 네트워크 성능 모니터 솔루션을 사용 하도록 설정 합니다. 이러한 에이전트는 Log Analytics 작업 영역에 연결 되므로 에이전트가 모니터링을 시작 하려면 먼저 작업 영역 ID 및 기본 키를 설정 해야 합니다.
 
-Windows 컴퓨터용 Log Analytics 에이전트를 설치 하려면 [windows 용 가상 컴퓨터 확장 Azure Monitor](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)을 참조 하세요.
+Windows 컴퓨터용 Log Analytics 에이전트를 설치 하려면 [windows 용 가상 컴퓨터 확장 Azure Monitor](../virtual-machines/extensions/oms-windows.md)을 참조 하세요.
 
 경로에 방화벽 또는 Nva (네트워크 가상 어플라이언스)가 포함 된 경우 대상에 연결할 수 있는지 확인 합니다.
 
@@ -81,7 +81,7 @@ Windows 컴퓨터용 Log Analytics 에이전트를 설치 하려면 [windows 용
 
 가상 네트워크가 있는 모든 구독은 Network Watcher 사용 하도록 설정 됩니다. 구독에서 가상 네트워크를 만들 때 가상 네트워크의 지역 및 구독에서 Network Watcher 자동으로 사용 하도록 설정 됩니다. 이러한 자동 사용은 리소스에 영향을 주거나 요금을 부과 하지 않습니다. Network Watcher 구독에서 명시적으로 사용 하지 않도록 설정 되어 있는지 확인 합니다. 
 
-자세한 내용은 [Network Watcher 사용](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)을 참조 하세요.
+자세한 내용은 [Network Watcher 사용](./network-watcher-create.md)을 참조 하세요.
 
 ## <a name="create-a-connection-monitor"></a>연결 모니터 만들기 
 
@@ -111,7 +111,7 @@ Windows 컴퓨터용 Log Analytics 에이전트를 설치 하려면 [windows 용
 
  ![테스트 그룹 및 테스트 간의 관계를 정의 하는 연결 모니터를 보여 주는 다이어그램](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-[Azure Portal](connection-monitor-preview-create-using-portal.md) 또는 [ARMClient](connection-monitor-preview-create-using-arm-client.md) 를 사용 하 여 연결 모니터를 만들 수 있습니다.
+[Azure Portal](./connection-monitor-create-using-portal.md) 또는 [ARMClient](./connection-monitor-create-using-template.md) 를 사용 하 여 연결 모니터를 만들 수 있습니다.
 
 테스트 그룹에 추가 하는 모든 소스, 대상 및 테스트 구성은 개별 테스트로 분류 됩니다. 원본 및 대상을 분할 하는 방법의 예는 다음과 같습니다.
 
@@ -213,7 +213,7 @@ Network Watcher에서 연결 모니터로 이동 하면 다음 방법으로 데�
 연결 모니터에서 대상이 outlook.office365.com 인 실패 한 테스트만 표시 하려면 다음을 수행 합니다.
 1. 뷰를 **테스트** 로 변경 합니다.
 1. 상태 기반 필터에 대해 **실패** 를 선택 합니다.
-1. 검색 필드에 *outlook.office365.com* 를 입력 합니다.
+1. 검색 필드에 *office.live.com* 를 입력 합니다.
 1. 최상위 수준 필터의 **범위** 에서 **대상** 을 선택 합니다.
   
   :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Outlook.Office365.com 대상에 대해 실패 한 테스트만 표시 하도록 필터링 된 보기를 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
@@ -348,5 +348,5 @@ Log Analytics를 사용 하 여 모니터링 데이터의 사용자 지정 보�
 
 ## <a name="next-steps"></a>다음 단계
     
-   * [Azure Portal를 사용 하 여 연결 모니터를 만드는 방법](connection-monitor-preview-create-using-portal.md) 알아보기  
-   * [ARMClient를 사용 하 여 연결 모니터를 만드는 방법](connection-monitor-preview-create-using-arm-client.md) 알아보기  
+   * [Azure Portal를 사용 하 여 연결 모니터를 만드는 방법](./connection-monitor-create-using-portal.md) 알아보기  
+   * [ARMClient를 사용 하 여 연결 모니터를 만드는 방법](./connection-monitor-create-using-template.md) 알아보기

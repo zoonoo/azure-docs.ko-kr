@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 2ce38add-1078-4bb9-a1da-6f407a9bc910
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 14ffcbf2e111e052f4b45259b0b25664049d3b3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62803bd450db351290bbc12d650d23a4148a4536
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855377"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951199"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비
 
@@ -259,9 +260,9 @@ Azure 인프라를 준비하려면 다음을 완료합니다.
 * Windows Server 2016을 사용하는 경우 [Azure Cloud Witness][deploy-cloud-witness]를 구성하는 것이 좋습니다.
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>수동으로 스케일 아웃 파일 서버 클러스터 배포 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>수동으로 스케일 아웃 파일 서버 클러스터 배포 
 
-다음 코드를 실행하여 [Azure의 스토리지 공간 다이렉트][ms-blog-s2d-in-azure] 블로그에 설명된 대로 Microsoft 스케일 아웃 파일 서버 클러스터를 수동으로 배포할 수 있습니다.  
+다음 코드를 실행하여 [Azure의 스토리지 공간 다이렉트][ms-blog-s2d-in-azure] 블로그에 설명된 대로 Microsoft 스케일 아웃 파일 서버 클러스터를 수동으로 배포할 수 있습니다.  
 
 
 ```powershell
@@ -315,10 +316,10 @@ Managed Disks를 사용하는 것이 좋습니다.
 _**그림 1**: managed disks가 있는 Scale-Out 파일 서버 리소스 관리자 템플릿에 대 한 UI 화면_
 
 템플릿에서 다음 작업을 수행합니다.
-1. **VM 수** 상자에 **2**라는 최소 수를 입력합니다.
-2. **VM 디스크 수** 상자에 **3**이라는 최소 디스크 수를 입력합니다(2개 디스크 + 1개 예비 디스크 = 3개 디스크).
-3. **SOFS 이름**에 SAP 전역 호스트 네트워크 이름인 **sapglobalhost**를 입력합니다.
-4. **공유 이름** 상자에 파일 공유 이름인 **sapmnt**를 입력합니다.
+1. **VM 수** 상자에 **2** 라는 최소 수를 입력합니다.
+2. **VM 디스크 수** 상자에 **3** 이라는 최소 디스크 수를 입력합니다(2개 디스크 + 1개 예비 디스크 = 3개 디스크).
+3. **SOFS 이름** 에 SAP 전역 호스트 네트워크 이름인 **sapglobalhost** 를 입력합니다.
+4. **공유 이름** 상자에 파일 공유 이름인 **sapmnt** 를 입력합니다.
 
 ### <a name="use-unmanaged-disks"></a>관리되지 않는 디스크 사용
 
@@ -328,7 +329,7 @@ _**그림 1**: managed disks가 있는 Scale-Out 파일 서버 리소스 관리�
 
 _**그림 2**: managed disks가 없는 Scale-Out 파일 서버 Azure Resource Manager 템플릿에 대 한 UI 화면_
 
-**스토리지 계정 형식** 상자에서 **Premium Storage**를 선택합니다. 다른 모든 설정은 Managed Disks와 동일합니다.
+**스토리지 계정 형식** 상자에서 **Premium Storage** 를 선택합니다. 다른 모든 설정은 Managed Disks와 동일합니다.
 
 ## <a name="adjust-cluster-timeout-settings"></a>클러스터 제한 시간 설정 조정
 

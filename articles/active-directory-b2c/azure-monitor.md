@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
-ms.openlocfilehash: 68a7dd1b9a7af9f2667785c8b822b2771510d00e
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562828"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949958"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure AD B2C 모니터링
 
@@ -25,7 +25,7 @@ Azure Monitor를 사용 하 여 Azure Active Directory B2C (Azure AD B2C) 로그
 다음과 같이 로그 이벤트를 라우팅할 수 있습니다.
 
 * Azure [저장소 계정](../storage/blobs/storage-blobs-introduction.md).
-* 데이터를 분석 하 고, 대시보드를 만들고, 특정 이벤트에 대해 경고 하는 [Log Analytics 작업 영역](../azure-monitor/platform/resource-logs-collect-workspace.md) 입니다.
+* 데이터를 분석 하 고, 대시보드를 만들고, 특정 이벤트에 대해 경고 하는 [Log Analytics 작업 영역](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) 입니다.
 * Azure [이벤트 허브](../event-hubs/event-hubs-about.md) (및 Splunk 및 Sumo 논리 인스턴스와 통합)
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
@@ -34,7 +34,7 @@ Azure Monitor를 사용 하 여 Azure Active Directory B2C (Azure AD B2C) 로그
 
 ## <a name="deployment-overview"></a>배포 개요
 
-Azure AD B2C는 [Azure Active Directory 모니터링](../active-directory/reports-monitoring/overview-monitoring.md)을 활용 합니다. Azure AD B2C 테 넌 트 내의 Azure Active Directory에서 *진단 설정을* 사용 하도록 설정 하려면 [azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) 를 사용 하 여 [리소스를 위임](../lighthouse/concepts/azure-delegated-resource-management.md)합니다 .이를 통해 Azure AD B2C ( **서비스 공급자** )가 azure AD ( **고객** ) 리소스를 관리할 수 있습니다. 이 문서의 단계를 완료 하면 **Azure AD B2C** 포털에서 [Log Analytics 작업 영역](../azure-monitor/learn/quick-create-workspace.md) 을 포함 하는 *azure-b2c-monitor* 리소스 그룹에 액세스할 수 있습니다. 또한 Azure AD B2C에서 Log Analytics 작업 영역으로 로그를 전송할 수 있습니다.
+Azure AD B2C는 [Azure Active Directory 모니터링](../active-directory/reports-monitoring/overview-monitoring.md)을 활용 합니다. Azure AD B2C 테 넌 트 내의 Azure Active Directory에서 *진단 설정을* 사용 하도록 설정 하려면 [azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) 를 사용 하 여 [리소스를 위임](../lighthouse/concepts/azure-delegated-resource-management.md)합니다 .이를 통해 Azure AD B2C ( **서비스 공급자**)가 azure AD ( **고객**) 리소스를 관리할 수 있습니다. 이 문서의 단계를 완료 하면 **Azure AD B2C** 포털에서 [Log Analytics 작업 영역](../azure-monitor/learn/quick-create-workspace.md) 을 포함 하는 *azure-b2c-monitor* 리소스 그룹에 액세스할 수 있습니다. 또한 Azure AD B2C에서 Log Analytics 작업 영역으로 로그를 전송할 수 있습니다.
 
 이 배포 중에는 Azure 구독이 포함 된 테 넌 트 내에서 Log Analytics 작업 영역 인스턴스를 구성 하도록 Azure AD B2C 디렉터리의 사용자 또는 그룹에 권한을 부여 합니다. 권한 부여를 만들려면 구독이 포함 된 Azure AD 테 넌 트에 [Azure Resource Manager](../azure-resource-manager/index.yml) 템플릿을 배포 합니다.
 
@@ -87,7 +87,7 @@ Azure AD B2C는 [Azure Active Directory 모니터링](../active-directory/report
 
 ### <a name="33-create-an-azure-resource-manager-template"></a>3.3 Azure Resource Manager 템플릿 만들기
 
-다음으로, 이전에 만든 Azure AD 리소스 그룹 (예: *B2C* )에 대 한 Azure AD B2C 액세스 권한을 부여 하는 Azure Resource Manager 템플릿을 만듭니다. **Azure에 배포** 단추를 사용 하 여 GitHub 샘플에서 템플릿을 배포 합니다. 그러면 Azure Portal 열리며 포털에서 직접 템플릿을 구성 하 고 배포할 수 있습니다. 이러한 단계를 수행 하려면 Azure AD 테 넌 트 (Azure AD B2C 테 넌 트 아님)에 로그인 해야 합니다.
+다음으로, 이전에 만든 Azure AD 리소스 그룹 (예: *B2C*)에 대 한 Azure AD B2C 액세스 권한을 부여 하는 Azure Resource Manager 템플릿을 만듭니다. **Azure에 배포** 단추를 사용 하 여 GitHub 샘플에서 템플릿을 배포 합니다. 그러면 Azure Portal 열리며 포털에서 직접 템플릿을 구성 하 고 배포할 수 있습니다. 이러한 단계를 수행 하려면 Azure AD 테 넌 트 (Azure AD B2C 테 넌 트 아님)에 로그인 해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 **Azure AD** 테 넌 트가 포함 된 디렉터리를 선택 합니다.

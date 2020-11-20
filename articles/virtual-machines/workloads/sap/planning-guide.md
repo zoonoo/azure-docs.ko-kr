@@ -5,18 +5,19 @@ author: MSSedusch
 manager: juergent
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: ea53eda3863ea5164142fa0d37fff7be365a4d5c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: c186e7beeed3a1729560d7deb002d573e0014508
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92894103"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950978"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -914,8 +915,8 @@ Azure VM 이미지로 사용하기 위해 온-프레미스 네트워크에서 �
 * *Add-AzVhd* 를 사용하여 Azure Storage 계정에 VHD 업로드 - <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd> 참조
 * (선택 사항) *New-AzImage* 를 사용하여 VHD에서 관리 디스크 이미지 만들기 - <https://docs.microsoft.com/powershell/module/az.compute/new-Azimage> 참조
 * 새 VM 구성의 OS 디스크를
-  * VHD로 설정( *Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage* 사용) - <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk> 참조
-  * 관리 디스크 이미지로 설정( *Set-AzVMSourceImage* 사용) - <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage> 참조
+  * VHD로 설정(*Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage* 사용) - <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk> 참조
+  * 관리 디스크 이미지로 설정(*Set-AzVMSourceImage* 사용) - <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage> 참조
 * *New-AzVM* 을 사용하여 VM 구성에서 새 VM 만들기 - <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm> 참조
 
 **Azure CLI**
@@ -1178,7 +1179,7 @@ OS를 포함 하는 디스크와 SAP 및 데이터베이스 (기본 VM)의 이�
 
 대부분의 시나리오에서는 VM으로 SAP 데이터베이스를 배포하기 위해 추가 디스크를 만들 필요가 있습니다. 이 문서의 [SAP 배포를 위한 VM/디스크 구조][planning-guide-5.5.1] 챕터에서 디스크 수에 대한 고려 사항을 설명했습니다. Azure Portal을 사용하면 기본 VM을 배포한 후 디스크를 연결 및 분리할 수 있습니다. VM이 가동 및 실행 중일 때와 중지될 때 디스크를 연결/분리할 수 있습니다. 디스크를 연결할 때 Azure Portal은 빈 디스크 또는 기존 디스크(이 시점에 다른 VM에 연결되지 않은)에 연결할 수 있도록 합니다.
 
-**참고** : 디스크는 언제나 한 번에 하나의 VM에만 연결할 수 있습니다.
+**참고**: 디스크는 언제나 한 번에 하나의 VM에만 연결할 수 있습니다.
 
 ![Azure Standard Storage에서 디스크 연결/분리][planning-guide-figure-1400]
 
@@ -1186,7 +1187,7 @@ OS를 포함 하는 디스크와 SAP 및 데이터베이스 (기본 VM)의 이�
 
 다음으로는 비어 있는 새 디스크를 만들지 아니면 이전에 업로드되었으며 이제 VM에 연결해야 하는 기존 디스크를 선택할지를 결정해야 합니다.
 
-**중요** : Azure Standard Storage에서 호스트 캐싱을 사용하지 **않도록** 합니다. 호스트 캐시 기본 설정을 기본값인 NONE으로 유지해야 합니다. Azure Premium Storage를 사용하는 경우 I/O 특성이 데이터베이스 데이터 파일에 대한 일반적인 I/O 트래픽으로 해석되는 경우 읽기 캐싱을 사용하도록 설정해야 합니다. 데이터베이스 트랜잭션 로그 파일의 경우 캐싱 없음이 권장됩니다.
+**중요**: Azure Standard Storage에서 호스트 캐싱을 사용하지 **않도록** 합니다. 호스트 캐시 기본 설정을 기본값인 NONE으로 유지해야 합니다. Azure Premium Storage를 사용하는 경우 I/O 특성이 데이터베이스 데이터 파일에 대한 일반적인 I/O 트래픽으로 해석되는 경우 읽기 캐싱을 사용하도록 설정해야 합니다. 데이터베이스 트랜잭션 로그 파일의 경우 캐싱 없음이 권장됩니다.
 
 ---
 > ![Windows 로고.][Logo_Windows] Windows

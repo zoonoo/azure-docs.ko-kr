@@ -11,16 +11,16 @@ ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 416e2c767b5afd40fea38e6f75fcd3f01440b49a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edff5354d0565bd32cd0332b4aa0f215c2980d73
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89255352"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949788"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 청구 모델
 
-Azure Active Directory B2C (Azure AD B2C) 가격은 월별 활성 사용자 (MAU)를 기반으로 하며,이는 일정 월 내에 인증 활동이 있는 고유한 사용자의 수입니다. 이 청구 모델은 Azure AD B2C 테 넌 트와 [AZURE AD 게스트 사용자 공동 작업 (B2B)](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing)모두에 적용 됩니다. MAU 청구는 무료 계층과 유연 하 고 예측 가능한 가격을 제공 하 여 비용을 절감 하는 데 도움이 됩니다. 이 문서에서는 MAU 청구에 대해 알아보고, Azure AD B2C 테 넌 트를 구독에 연결 하 고, 가격 책정 계층을 변경 합니다.
+Azure Active Directory B2C (Azure AD B2C) 가격은 월별 활성 사용자 (MAU)를 기반으로 하며,이는 일정 월 내에 인증 활동이 있는 고유한 사용자의 수입니다. 이 청구 모델은 Azure AD B2C 테 넌 트와 [AZURE AD 게스트 사용자 공동 작업 (B2B)](../active-directory/external-identities/external-identities-pricing.md)모두에 적용 됩니다. MAU 청구는 무료 계층과 유연 하 고 예측 가능한 가격을 제공 하 여 비용을 절감 하는 데 도움이 됩니다. 이 문서에서는 MAU 청구에 대해 알아보고, Azure AD B2C 테 넌 트를 구독에 연결 하 고, 가격 책정 계층을 변경 합니다.
 
 > [!IMPORTANT]
 > 이 문서에는 가격 정보가 포함 되어 있지 않습니다. 사용량 청구 및 가격 책정에 대 한 최신 정보는 [Azure Active Directory B2C 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)을 참조 하세요.
@@ -39,7 +39,7 @@ MAU 청구 기능을 활용 하려면 Azure AD B2C 테 넌 트가 Azure 구독�
 
 ## <a name="about-the-monthly-active-users-mau-billing-model"></a>MAU (월간 활성 사용자) 청구 모델 정보
 
-MAU 요금은 **2019 년 11 월 1 일**에 Azure AD B2C 테 넌 트에 적용 되었습니다. 사용자가 만들고 해당 날짜 이후에 구독에 연결 된 모든 Azure AD B2C 테 넌 트는 MAU 단위로 청구 됩니다. 구독에 연결 되지 않은 Azure AD B2C 테 넌 트가 있는 경우 지금이 작업을 수행 해야 합니다. 2019 년 11 월 1 일 이전에 구독에 연결 된 기존 Azure AD B2C 테 넌 트가 있는 경우 MAU (월간 활성 사용자) 청구 모델로 업그레이드 하거나 인증 당 청구 모델을 유지 하는 것이 좋습니다.
+MAU 요금은 **2019 년 11 월 1 일** 에 Azure AD B2C 테 넌 트에 적용 되었습니다. 사용자가 만들고 해당 날짜 이후에 구독에 연결 된 모든 Azure AD B2C 테 넌 트는 MAU 단위로 청구 됩니다. 구독에 연결 되지 않은 Azure AD B2C 테 넌 트가 있는 경우 지금이 작업을 수행 해야 합니다. 2019 년 11 월 1 일 이전에 구독에 연결 된 기존 Azure AD B2C 테 넌 트가 있는 경우 MAU (월간 활성 사용자) 청구 모델로 업그레이드 하거나 인증 당 청구 모델을 유지 하는 것이 좋습니다.
   
 Azure AD B2C 테 넌 트는 사용 하려는 기능에 따라 적절 한 Azure 가격 책정 계층에도 연결 되어야 합니다. 프리미엄 기능을 Azure AD B2C [프리미엄 P1 또는 P2 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)이 필요 합니다. 새 기능을 사용 하 여 가격 책정 계층을 업그레이드 해야 할 수 있습니다. 예를 들어 조건부 액세스의 경우 테 넌 트에 대 한 Azure AD B2C 프리미엄 P2 가격 책정 계층을 선택 해야 합니다.
 
@@ -59,14 +59,14 @@ Azure AD B2C 테 넌 트에 연결 된 구독은 추가 Azure AD B2C 리소스�
 ### <a name="create-the-link"></a>링크 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 사용 하려는 Azure 구독을 포함 하는 디렉터리 (Azure AD B2C 테 넌 트를 포함 하는 디렉터리*아님* )를 선택 합니다.
-3. **리소스 만들기**를 선택 하 고 `Active Directory B2C` **Marketplace 검색** 필드에를 입력 한 다음 **Azure Active Directory B2C**를 선택 합니다.
-4. **만들기**를 선택합니다.
-5. **내 Azure 구독에 기존 Azure AD B2C 테 넌 트 연결을**선택 합니다.
+2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 사용 하려는 Azure 구독을 포함 하는 디렉터리 (Azure AD B2C 테 넌 트를 포함 하는 디렉터리 *아님* )를 선택 합니다.
+3. **리소스 만들기** 를 선택 하 고 `Active Directory B2C` **Marketplace 검색** 필드에를 입력 한 다음 **Azure Active Directory B2C** 를 선택 합니다.
+4. **만들기** 를 선택합니다.
+5. **내 Azure 구독에 기존 Azure AD B2C 테넌트 연결** 을 선택합니다.
 6. 드롭다운에서 **Azure AD B2C 테 넌 트** 를 선택 합니다. 사용자가 전역 관리자이 고 구독에 아직 연결 되지 않은 테 넌 트만 표시 됩니다. **Azure AD B2C 리소스 이름** 필드는 선택한 Azure AD B2C 테 넌 트의 도메인 이름으로 채워집니다.
 7. 관리자 인 활성 Azure **구독** 을 선택 합니다.
-8. **리소스 그룹**에서 **새로 만들기**를 선택 하 고 **리소스 그룹 위치**를 지정 합니다. 여기에 리소스 그룹 설정은 Azure AD B2C 테 넌 트 위치, 성능 또는 청구 상태에 영향을 주지 않습니다.
-9. **만들기**를 선택합니다.
+8. **리소스 그룹** 에서 **새로 만들기** 를 선택 하 고 **리소스 그룹 위치** 를 지정 합니다. 여기에 리소스 그룹 설정은 Azure AD B2C 테 넌 트 위치, 성능 또는 청구 상태에 영향을 주지 않습니다.
+9. **만들기** 를 선택합니다.
 
     ![Azure Portal의 Azure AD B2C 리소스 생성 페이지](./media/billing/portal-01-create-b2c-resource-page.png)
 
@@ -80,11 +80,11 @@ Azure AD B2C 테 넌 트에 대해 이러한 단계를 완료 한 후에는 azur
 
 1. Azure Portal에 로그인합니다.
 
-2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 azure B2C 테 넌 트가 연결 된 azure 구독이 포함 된 디렉터리를 선택 합니다 (Azure AD B2C 테 넌 트 자체를 선택*하지 않음* ).
+2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 azure B2C 테 넌 트가 연결 된 azure 구독이 포함 된 디렉터리를 선택 합니다 (Azure AD B2C 테 넌 트 자체를 선택 *하지 않음* ).
 
-3. 포털 맨 위에 있는 검색 상자에 Azure AD B2C 테 넌 트의 이름을 입력 합니다. 그런 다음 **리소스**의 검색 결과에서 테 넌 트를 선택 합니다.
+3. 포털 맨 위에 있는 검색 상자에 Azure AD B2C 테 넌 트의 이름을 입력 합니다. 그런 다음 **리소스** 의 검색 결과에서 테 넌 트를 선택 합니다.
 
-4. 리소스 **개요** 페이지의 **가격 책정 계층**에서 **변경**을 선택 합니다.
+4. 리소스 **개요** 페이지의 **가격 책정 계층** 에서 **변경** 을 선택 합니다.
 
    ![가격 책정 계층 변경](media/billing/change-pricing-tier.png)
  
@@ -94,9 +94,9 @@ Azure AD B2C 테 넌 트에 대해 이러한 단계를 완료 한 후에는 azur
 
 ## <a name="switch-to-mau-billing-pre-november-2019-azure-ad-b2c-tenants"></a>MAU 청구로 전환 (11 월 2019 Azure AD B2C 테 넌 트)
 
-Azure AD B2C 테 넌 트를 **2019 년 11 월 1 일**이전 구독에 연결 하는 경우 이전 인증 기준 청구 모델이 사용 됩니다. MAU (월간 활성 사용자) 청구 모델로 업그레이드 하는 것이 좋습니다. 청구 옵션은 Azure AD B2C 리소스에서 구성 됩니다.
+Azure AD B2C 테 넌 트를 **2019 년 11 월 1 일** 이전 구독에 연결 하는 경우 이전 인증 기준 청구 모델이 사용 됩니다. MAU (월간 활성 사용자) 청구 모델로 업그레이드 하는 것이 좋습니다. 청구 옵션은 Azure AD B2C 리소스에서 구성 됩니다.
 
-MAU (월간 활성 사용자) 청구는 **취소할**수 없습니다. Azure AD B2C 리소스를 MAU 기반 청구 모델로 변환한 후에는 해당 리소스를 인증 당 청구 모델로 되돌릴 수 없습니다.
+MAU (월간 활성 사용자) 청구는 **취소할** 수 없습니다. Azure AD B2C 리소스를 MAU 기반 청구 모델로 변환한 후에는 해당 리소스를 인증 당 청구 모델로 되돌릴 수 없습니다.
 
 기존 Azure AD B2C 리소스에 대해 MAU 청구로 전환 하는 방법은 다음과 같습니다.
 
@@ -106,13 +106,13 @@ MAU (월간 활성 사용자) 청구는 **취소할**수 없습니다. Azure AD 
 
     ![Azure Portal의 디렉터리 및 구독 필터](./media/billing/portal-mau-01-select-b2c-directory.png)
 
-3. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+3. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 
-4. Azure AD B2C 테 넌 트의 **개요** 페이지에 있는 **리소스 이름**에서 링크를 선택 합니다. Azure AD 테 넌 트에서 Azure AD B2C 리소스로 리디렉션됩니다.<br/>
+4. Azure AD B2C 테 넌 트의 **개요** 페이지에 있는 **리소스 이름** 에서 링크를 선택 합니다. Azure AD 테 넌 트에서 Azure AD B2C 리소스로 리디렉션됩니다.<br/>
 
     ![Azure Portal에 강조 표시 된 Azure AD B2C 리소스 링크](./media/billing/portal-mau-02-b2c-resource-link.png)
 
-5. Azure AD B2C 리소스의 **개요** 페이지에 있는 **청구 단위**에서 **인증 당 (mau로 변경)** 링크를 선택 합니다.<br/>
+5. Azure AD B2C 리소스의 **개요** 페이지에 있는 **청구 단위** 에서 **인증 당 (mau로 변경)** 링크를 선택 합니다.<br/>
 
     ![Azure Portal에 강조 표시 된 MAU 링크로 변경](./media/billing/portal-mau-03-change-to-mau-link.png)
 
@@ -129,7 +129,7 @@ MAU 기반 계량은 구독/리소스 소유자가 변경 내용을 확인 하�
 
 * Contoso B2C 테 넌 트에는 1000 명의 사용자가 있습니다. 250 사용자는 지정 된 달에 활성화 됩니다. 구독 관리자는 해당 월 10 일에 인증 단위를 MAU (월간 활성 사용자)로 변경 합니다.
 * 1-10에 대 한 청구는 인증 당 모델을 사용 하 여 청구 됩니다.
-  * 이 기간 동안 100 사용자가 로그인 하면 (1-10) 해당 사용자는 해당 *월에 유료*으로 태그가 지정 됩니다.
+  * 이 기간 동안 100 사용자가 로그인 하면 (1-10) 해당 사용자는 해당 *월에 유료* 으로 태그가 지정 됩니다.
 * 10의 요금 청구 (유효한 전환 시간)는 MAU 율로 청구 됩니다.
   * 이 기간 (10-30) 동안 추가 150 사용자가 로그인 한 경우에는 추가 150 청구 됩니다.
   * 처음 100 사용자의 지속적인 활동은 해당 월의 나머지 기간에 대 한 청구에 영향을 주지 않습니다.
@@ -177,7 +177,7 @@ Azure AD B2C 테 넌 트와 같은 Azure 리소스를 다른 구독으로 이동
 
 ### <a name="move-by-unlinking-and-relinking"></a>연결을 해제 하 고 다시 링크 하 여 이동
 
-원본 및 대상 구독이 다른 Azure Active Directory 테 넌 트와 연결 된 경우 위에 설명 된 대로 Azure Resource Manager를 통해 이동을 수행할 수 없습니다. 그러나 원본 구독에서 Azure AD B2C 테 넌 트의 연결을 해제 하 고 대상 구독에 다시 링크 하 여 동일한 결과를 얻을 수 있습니다. 이 메서드는 삭제 하는 개체만 Azure AD B2C 테 넌 트 자체가 아닌 *청구 링크*이므로 안전 합니다. 사용자, 앱, 사용자 흐름 등은 영향을 받지 않습니다.
+원본 및 대상 구독이 다른 Azure Active Directory 테 넌 트와 연결 된 경우 위에 설명 된 대로 Azure Resource Manager를 통해 이동을 수행할 수 없습니다. 그러나 원본 구독에서 Azure AD B2C 테 넌 트의 연결을 해제 하 고 대상 구독에 다시 링크 하 여 동일한 결과를 얻을 수 있습니다. 이 메서드는 삭제 하는 개체만 Azure AD B2C 테 넌 트 자체가 아닌 *청구 링크* 이므로 안전 합니다. 사용자, 앱, 사용자 흐름 등은 영향을 받지 않습니다.
 
 1. Azure AD B2C 디렉터리 자체에서 대상 azure AD 테 넌 트 (대상 Azure 구독이 연결 된 테 넌 트)에서 [게스트 사용자를 초대](user-overview.md#guest-user) 하 고이 사용자에 게 Azure AD B2C **전역 관리자** 역할이 있는지 확인 합니다.
 1. 위의 [Azure AD B2C 테 넌 트 리소스 관리](#manage-your-azure-ad-b2c-tenant-resources) 섹션에 설명 된 대로 원본 azure 구독에서 Azure AD B2C를 나타내는 *azure 리소스로* 이동 합니다. 실제 Azure AD B2C 테 넌 트로 전환 하지 않습니다.
