@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 07/13/2020
 ms.author: magoedte
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 900273ec48c71e6f88d28bccff6f1e2abd412c1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17ada83f6fa1b57f8dd72d591b6625f25e9a2388
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079577"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955857"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
 
@@ -37,7 +38,7 @@ VM에서 로컬이 아닌 진행 중인 보고를 사용할 수 없습니다.
 
 이 문서에서는 두 가지 시나리오, 즉 Automation 온보딩을 위해 DSC 확장을 사용하는 경우와 Azure SDK를 사용하여 VM에 구성을 할당하기 위한 도구로 DSC 확장을 사용하는 경우에 대한 정보를 제공합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - **로컬 컴퓨터**: Azure VM 확장과 상호 작용하려면 Azure Portal 또는 Azure PowerShell SDK를 사용해야 합니다.
 - **게스트 에이전트**: DSC 구성을 통해 구성된 Azure VM은 WMF(Windows Management Framework) 4.0 이상을 지원하는 OS여야 합니다. 지원되는 OS 버전의 전체 목록은 [DSC 확장 버전 기록](../../automation/automation-dsc-extension-history.md)을 참조하세요.
@@ -177,27 +178,27 @@ az vm extension set \
 포털에서 DSC를 설정하려면
 
 1. VM으로 이동합니다.
-2. **설정**에서 **확장**을 선택합니다.
-3. 만들어진 새 페이지에서 **+ 추가**를 선택한 다음, **PowerShell Desired State Configuration**을 선택합니다.
-4. 확장 정보 페이지의 아래쪽에서 **만들기**를 클릭합니다.
+2. **설정** 에서 **확장** 을 선택합니다.
+3. 만들어진 새 페이지에서 **+ 추가** 를 선택한 다음, **PowerShell Desired State Configuration** 을 선택합니다.
+4. 확장 정보 페이지의 아래쪽에서 **만들기** 를 클릭합니다.
 
 포털에서는 다음 입력을 수집합니다.
 
 - **구성 모듈 또는 스크립트**: 이 필드는 필수입니다(양식이 [기본 구성 스크립트](#default-configuration-script)에 대해 업데이트되지 않음). 구성 모듈 및 스크립트에는 구성 스크립트가 있는 .ps1 파일 또는 루트에 .ps1 구성 스크립트가 있는 .zip 파일이 필요합니다. .zip 파일을 사용하는 경우 모든 종속 리소스를 .zip의 모듈 폴더에 포함해야 합니다. Azure PowerShell SDK에 포함된 **Publish-AzureVMDscConfiguration -OutputArchivePath** cmdlet을 사용하여 .zip 파일을 만들 수 있습니다. .zip 파일은 사용자 Blob Storage로 업로드되고 SAS 토큰에 의해 보호됩니다.
 
-- **구성의 모듈 정규화 된 이름**: ps1 파일에 여러 구성 함수를 포함할 수 있습니다. 구성 .ps1 스크립트의 이름 뒤에 \\ 및 구성 함수의 이름을 입력합니다. 예를 들어, .ps1 스크립트 이름이 configuration.ps1이고 구성이 **IisInstall**이면 **configuration.ps1\IisInstall**을 입력합니다.
+- **구성의 모듈 정규화 된 이름**: ps1 파일에 여러 구성 함수를 포함할 수 있습니다. 구성 .ps1 스크립트의 이름 뒤에 \\ 및 구성 함수의 이름을 입력합니다. 예를 들어, .ps1 스크립트 이름이 configuration.ps1이고 구성이 **IisInstall** 이면 **configuration.ps1\IisInstall** 을 입력합니다.
 
 - **구성 인수**: 구성 함수가 인수를 사용하는 경우 **argumentName1=value1,argumentName2=value2** 형식으로 여기에 입력합니다. 이 형식은 PowerShell cmdlet 또는 Resource Manager 템플릿에서 구성 인수가 수락되는 형식과는 다릅니다.
 
 - **구성 데이터 PSD1 파일**: 구성에에서 구성 데이터 파일이 필요한 경우 `.psd1` 이 필드를 사용 하 여 데이터 파일을 선택 하 고 사용자 blob 저장소에 업로드 합니다. 구성 데이터 파일은 Blob Storage의 SAS 토큰에 의해 보호됩니다.
 
-- **WMF 버전**: VM에 설치해야 하는 WMF(Windows Management Framework)의 버전을 지정합니다. 이 속성을 최신으로 설정하면 WMF의 가장 최신 버전이 설치됩니다. 현재, 이 속성에 대해 사용할 수 있는 값은 4.0, 5.0, 5.1 및 최신뿐입니다. 가능한 값은 업데이트에 따라 달라집니다. 기본값은 **latest**입니다.
+- **WMF 버전**: VM에 설치해야 하는 WMF(Windows Management Framework)의 버전을 지정합니다. 이 속성을 최신으로 설정하면 WMF의 가장 최신 버전이 설치됩니다. 현재, 이 속성에 대해 사용할 수 있는 값은 4.0, 5.0, 5.1 및 최신뿐입니다. 가능한 값은 업데이트에 따라 달라집니다. 기본값은 **latest** 입니다.
 
 - **데이터 컬렉션**: 확장에서 원격 분석을 수집할지를 결정합니다. 자세한 내용은 [Azure DSC 확장 데이터 컬렉션](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/)을 참조하세요.
 
 - **버전**: 설치할 DSC 확장의 버전을 지정합니다. 버전에 대한 정보는 [DSC 확장 버전 기록](/powershell/scripting/dsc/getting-started/azuredscexthistory)을 참조하세요.
 
-- **부 버전 자동 업그레이드**: 이 필드는 cmdlet에서 **AutoUpdate** 스위치에 매핑하고 설치하는 동안 확장을 최신 버전으로 자동 업데이트할 수 있습니다. **예**는 확장 처리기가 최신 버전을 사용하도록 지시하고, **아니요**는 **버전**을 강제로 설치되도록 지정합니다. **예** 또는 **아니요**를 선택하지 않으면 **아니요**를 선택한 것과 동일합니다.
+- **부 버전 자동 업그레이드**: 이 필드는 cmdlet에서 **AutoUpdate** 스위치에 매핑하고 설치하는 동안 확장을 최신 버전으로 자동 업데이트할 수 있습니다. **예** 는 확장 처리기가 최신 버전을 사용하도록 지시하고, **아니요** 는 **버전** 을 강제로 설치되도록 지정합니다. **예** 또는 **아니요** 를 선택하지 않으면 **아니요** 를 선택한 것과 동일합니다.
 
 ## <a name="logs"></a>로그
 

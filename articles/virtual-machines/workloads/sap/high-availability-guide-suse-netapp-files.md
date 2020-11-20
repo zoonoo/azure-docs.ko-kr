@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 7e42fb43fee4d3f8097b7ac530056d948e3f98c8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 044a8c119c8a881983a7e2bab08c0a670bc3bf0f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486194"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956299"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SAP 애플리케이션용 Azure NetApp Files를 사용하여 SUSE Linux Enterprise Server에서 Azure VM의 SAP NetWeaver 고가용성 실현
 
@@ -105,7 +106,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 * 프로브 포트
   * 포트 620<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
-  * 표준 Load Balancer를 사용하는 경우 **HA 포트**를 선택합니다.
+  * 표준 Load Balancer를 사용하는 경우 **HA 포트** 를 선택합니다.
   * 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
     * 32<strong>&lt;nr&gt;</strong> TCP
     * 36<strong>&lt;nr&gt;</strong> TCP
@@ -122,7 +123,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 * 프로브 포트
   * 포트 621<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
-  * 표준 Load Balancer를 사용하는 경우 **HA 포트**를 선택합니다.
+  * 표준 Load Balancer를 사용하는 경우 **HA 포트** 를 선택합니다.
   * 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
     * 32<strong>&lt;nr&gt;</strong> TCP
     * 33<strong>&lt;nr&gt;</strong> TCP
@@ -204,7 +205,7 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
 
 이 섹션의 지침은 NFSv4.1 프로토콜과 함께 Azure NetApp Files 볼륨을 사용하는 경우에만 해당됩니다. Azure NetApp Files NFSv4.1 볼륨이 탑재될 모든 VM에서 구성을 수행합니다.  
 
-1. NFS 도메인 설정 확인 도메인이 기본 Azure NetApp Files 도메인(예: **`defaultv4iddomain.com`** )으로 구성되어 있고 매핑이 **nobody**로 설정되어 있는지 확인합니다.  
+1. NFS 도메인 설정 확인 도메인이 기본 Azure NetApp Files 도메인(예: **`defaultv4iddomain.com`** )으로 구성되어 있고 매핑이 **nobody** 로 설정되어 있는지 확인합니다.  
 
     > [!IMPORTANT]
     > VM의 `/etc/idmapd.conf`에서 NFS 도메인을 Azure NetApp Files의 기본 도메인 구성( **`defaultv4iddomain.com`** )과 일치하도록 설정해야 합니다. NFS 클라이언트(예: VM)의 도메인 구성과 NFS 서버(예: Azure NetApp 구성)가 일치하지 않는 경우 VM에 탑재된 Azure NetApp 볼륨의 파일에 대한 사용 권한이 `nobody`로 표시됩니다.  
@@ -221,7 +222,7 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** `nfs4_disable_idmapping`을 확인합니다. **Y**로 설정되어야 합니다. `nfs4_disable_idmapping`이 있는 디렉터리 구조를 만들려면 mount 명령을 실행합니다. 커널/드라이버용으로 액세스가 예약되어 있기 때문에 /sys/modules 아래에 디렉터리를 수동으로 만들 수 없습니다.  
+4. **[A]** `nfs4_disable_idmapping`을 확인합니다. **Y** 로 설정되어야 합니다. `nfs4_disable_idmapping`이 있는 디렉터리 구조를 만들려면 mount 명령을 실행합니다. 커널/드라이버용으로 액세스가 예약되어 있기 때문에 /sys/modules 아래에 디렉터리를 수동으로 만들 수 없습니다.  
 
     <pre><code>
     # Check nfs4_disable_idmapping 
@@ -261,13 +262,13 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
       1. (A)SCS 클러스터의 가상 머신 및 해당 IP 주소 선택
       1. 추가를 클릭합니다.
    1. 상태 프로브 만들기
-      1. 포트: 620**00**(ASCS용)
+      1. 포트: 620 **00**(ASCS용)
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브의 이름 입력(예: **health.QAS.ASCS**)
-         1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
+         1. 프로토콜로 TCP를 선택하고, 620 **00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
          1. 확인 클릭
-      1. ASCS ERS용 포트 621**01**
-            * 위의 "c" 단계를 반복하여 ERS에 대한 상태 프로브 만들기(예: 621**01** 및 **health.QAS.ERS**)
+      1. ASCS ERS용 포트 621 **01**
+            * 위의 "c" 단계를 반복하여 ERS에 대한 상태 프로브 만들기(예: 621 **01** 및 **health.QAS.ERS**)
    1. 부하 분산 규칙
       1. ASCS에 대한 백 엔드 풀 만들기
          1. 부하 분산 장치를 열고, 부하 분산 규칙을 설정하고, 추가 클릭
@@ -295,26 +296,26 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
       1. (A)SCS 클러스터의 가상 머신 선택
       1. 확인 클릭
    1. 상태 프로브 만들기
-      1. 포트: 620**00**(ASCS용)
+      1. 포트: 620 **00**(ASCS용)
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브의 이름 입력(예: **health.QAS.ASCS**)
-         1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
+         1. 프로토콜로 TCP를 선택하고, 620 **00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
          1. 확인 클릭
-      1. ASCS ERS용 포트 621**01**
-            * 위의 "c" 단계를 반복하여 ERS에 대한 상태 프로브 만들기(예: 621**01** 및 **health.QAS.ERS**)
+      1. ASCS ERS용 포트 621 **01**
+            * 위의 "c" 단계를 반복하여 ERS에 대한 상태 프로브 만들기(예: 621 **01** 및 **health.QAS.ERS**)
    1. 부하 분산 규칙
-      1. TCP: 32**00**(ASCS용)
+      1. TCP: 32 **00**(ASCS용)
          1. 부하 분산 장치를 열고, 부하 분산 규칙을 설정하고, 추가 클릭
          1. 새 부하 분산 장치 규칙의 이름 입력(예: **lb.QAS.ASCS.3200**)
          1. 이전에 만든 ASCS의 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: **frontend.QAS.ASCS**)
-         1. 프로토콜로 **TCP**를 유지하고. 포트로 **3200** 입력
+         1. 프로토콜로 **TCP** 를 유지하고. 포트로 **3200** 입력
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
          1. 확인 클릭
       1. ASCS에 대한 추가 포트
-         * 포트 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 및 ASCS용 TCP에 대해 위의 "d" 단계를 반복
+         * 포트 36 **00**, 39 **00**, 81 **00**, 5 **00** 13, 5 **00** 14, 5 **00** 16 및 ASCS용 TCP에 대해 위의 "d" 단계를 반복
       1. ASCS ERS에 대한 추가 포트
-         * 포트 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 및 ASCS ERS용 TCP에 대해 위의 "d" 단계를 반복
+         * 포트 32 **01**, 33 **01**, 5 **01** 13, 5 **01** 14, 5 **01** 16 및 ASCS ERS용 TCP에 대해 위의 "d" 단계를 반복
 
       
       > [!IMPORTANT]
@@ -324,7 +325,7 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
       > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
 
       > [!IMPORTANT]
-      > Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps**를 **0**으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](../../../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
+      > Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps** 를 **0** 으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](../../../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 
@@ -340,9 +341,9 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
    </code></pre>
 
    > [!NOTE]
-   > 호스트 이름에 대시 사용과 관련된 알려진 문제는 패키지 **sap-suse-cluster-connector**의 버전 **3.1.1**에서 해결되었습니다. 호스트 이름에 대시가 있는 클러스터 노드를 사용하는 경우 패키지 sap-suse-cluster-connector의 버전 3.1.1 이상을 사용하고 있는지 확인하세요. 대시를 사용하면 클러스터가 작동하지 않습니다. 
+   > 호스트 이름에 대시 사용과 관련된 알려진 문제는 패키지 **sap-suse-cluster-connector** 의 버전 **3.1.1** 에서 해결되었습니다. 호스트 이름에 대시가 있는 클러스터 노드를 사용하는 경우 패키지 sap-suse-cluster-connector의 버전 3.1.1 이상을 사용하고 있는지 확인하세요. 대시를 사용하면 클러스터가 작동하지 않습니다. 
 
-   SAP SUSE 클러스터 커넥터의 새 버전을 설치했는지 확인합니다. 기존 버전은 sap_suse_cluster_connector라고 하며 새 버전은 **sap suse-cluster-connector**라고 합니다.
+   SAP SUSE 클러스터 커넥터의 새 버전을 설치했는지 확인합니다. 기존 버전은 sap_suse_cluster_connector라고 하며 새 버전은 **sap suse-cluster-connector** 라고 합니다.
 
    <pre><code>sudo zypper info sap-suse-cluster-connector
    
@@ -560,7 +561,7 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
 
-   설치에서 /usr/sap/**QAS**/ASCS**00**에 하위 폴더를 만들지 못하면 ASCS**00** 폴더의 소유자와 그룹을 설정하고 다시 시도합니다. 
+   설치에서 /usr/sap/**QAS**/ASCS **00** 에 하위 폴더를 만들지 못하면 ASCS **00** 폴더의 소유자와 그룹을 설정하고 다시 시도합니다. 
 
    <pre><code>
    chown <b>qas</b>adm /usr/sap/<b>QAS</b>/ASCS<b>00</b>
@@ -625,7 +626,7 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
    > [!NOTE]
    > SWPM SP 20 PL 05 이상을 사용합니다. 그 이전 버전은 권한을 올바르게 설정하지 않으므로 설치가 실패합니다.
 
-   설치에서 /usr/sap/**QAS**/ERS**01**에 하위 폴더를 만들지 못하면 ERS**01** 폴더의 소유자와 그룹을 설정하고 다시 시도합니다.
+   설치에서 /usr/sap/**QAS**/ERS **01** 에 하위 폴더를 만들지 못하면 ERS **01** 폴더의 소유자와 그룹을 설정하고 다시 시도합니다.
 
    <pre><code>
    chown qasadm /usr/sap/<b>QAS</b>/ERS<b>01</b>

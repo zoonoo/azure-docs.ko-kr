@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: 06c355b913d5b786455cae20d1a57eb8c63c3ee1
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6ec146a05df1b896f8ca594d29cf13341b70765a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842965"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954565"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Azure Portal를 사용 하 여 장치 등록을 관리 하는 방법
 
@@ -40,7 +40,7 @@ ms.locfileid: "94842965"
      
         [![포털을 사용 하 여 등록 그룹 추가](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
         
-        | 필드 | 설명 |
+        | 필드 | Description |
         | :--- | :--- |
         | **그룹 이름** | 장치 그룹의 필수 이름입니다. |
         | **증명 유형** | 장치에서 사용 하는 증명 방법에 따라 증명 형식에 대 한 **인증서** 또는 **대칭 키** 를 클릭 합니다. |
@@ -64,7 +64,7 @@ ms.locfileid: "94842965"
      
         [![포털의 개별 등록](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
     
-        | 필드 | 설명 |
+        | 필드 | Description |
         | :--- | :--- |
         | **메커니즘** | 장치가 사용 하는 증명 방법에 따라 사용할 증명 메커니즘에 대해 **x.509**, **TPM** 또는 **대칭 키** 를 선택 합니다. |
         | 증명 설정 | 대칭 키 또는 x.509 인증서를 사용 하 여 개별 등록을 만들고 사용 하는 방법에 대 한 단계별 지침은 [대칭 장치 프로 비전](quick-create-simulated-device-symmetric-key-java.md#create-a-device-enrollment) 또는 [X.509 인증서 장치 프로 비전](quick-create-simulated-device-x509-java.md#create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry) (영문)을 참조 하세요.<br><br>TPM 증명을 사용 하 여 개별 등록을 만들고 사용 하는 방법에 대 한 단계별 지침은 [시뮬레이션 된 tpm 장치 샘플 프로 비전](quick-create-simulated-device-tpm-java.md#create-a-device-enrollment-entry) 중 하나를 참조 하세요.|
@@ -91,5 +91,3 @@ ms.locfileid: "94842965"
 1. 작업이 완료 되 면 장치 등록 목록에서 제거 된 항목이 표시 됩니다. 
  
     ![포털에서 등록 제거](./media/how-to-manage-enrollments/remove-enrollment.png)
-
-

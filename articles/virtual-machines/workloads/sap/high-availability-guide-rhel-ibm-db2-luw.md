@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: d613da4d9abdfe22fc20f1b74da41e4a65cbff33
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: be455de2a1f8aebc7327af4741e0652a4be76665
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151576"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956435"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Red Hat Enterprise Linux Server의 Azure VM에서 IBM DB2 LUW의 고가용성
 
@@ -47,7 +48,7 @@ HADR (고가용성 [및 재해 복구) 구성](https://www.ibm.com/support/knowl
 | [1612105] | DB6: d b 2에서 HADR에 대 한 FAQ |
 
 
-| 설명서 | 
+| 문서 | 
 | --- |
 | [Sap Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Linux에 필요한 모든 sap note |
 | [Linux에서 SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide] 가이드 |
@@ -113,7 +114,7 @@ IBM Db2 구성을 배포 하려면 다음 단계를 수행 해야 합니다.
 | IBM Db2 LUW을 호스트 하는 가상 머신 | VM 크기, 저장소, 네트워킹, IP 주소입니다. |
 | IBM Db2 데이터베이스용 가상 호스트 이름 및 가상 IP| SAP 응용 프로그램 서버 연결에 사용 되는 가상 IP 또는 호스트 이름입니다. **virt-hostname**, **db-virt-ip**. |
 | Azure 펜스 | 분할을 방지 하는 메서드를 사용 하는 것이 금지 됩니다. |
-| Azure Load Balancer | 기본 또는 표준 (권장)을 사용 하 고 Db2 데이터베이스용 프로브 포트 (권장 62500) **프로브 포트**를 사용 합니다. |
+| Azure Load Balancer | 기본 또는 표준 (권장)을 사용 하 고 Db2 데이터베이스용 프로브 포트 (권장 62500) **프로브 포트** 를 사용 합니다. |
 | 이름 확인| 환경에서 이름 확인이 작동 하는 방식입니다. DNS 서비스는 매우 권장 됩니다. 로컬 호스트 파일을 사용할 수 있습니다. |
     
 Azure의 Linux Pacemaker에 대 한 자세한 내용은 [azure에서 Pacemaker on Red Hat Enterprise Linux 설정][rhel-pcs-azr]을 참조 하세요.
@@ -144,7 +145,7 @@ IBM Db2 LUW의 리소스 에이전트는 Red Hat Enterprise Linux Server HA 추�
 
 ## <a name="create-the-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
     
-이 IBM Db2 서버에 대 한 기본 Pacemaker 클러스터를 만들려면 [Azure에서 Pacemaker on Red Hat Enterprise Linux 설정][rhel-pcs-azr]을 참조 하세요. 
+이 IBM Db2 서버에 대 한 기본 Pacemaker 클러스터를 만들려면 [Azure에서 Pacemaker on Red Hat Enterprise Linux 설정][rhel-pcs-azr]을 참조 하세요. 
 
 ## <a name="install-the-ibm-db2-luw-and-sap-environment"></a>IBM Db2 LUW 및 SAP 환경 설치
 
@@ -197,9 +198,9 @@ sudo firewall-cmd --add-port=4237/tcp</code></pre>
    
 > [!NOTE]
 > Azure 및 Pacemaker와 관련 된 설치 및 구성의 경우: SAP 소프트웨어 프로 비전 관리자를 통해 설치 절차를 진행 하는 동안 IBM Db2 LUW의 고가용성에 대 한 명시적인 질문이 있습니다.
->+ **IBM Db2 pureScale**는 선택 하지 마세요.
->+ **다중 플랫폼용 IBM Tivoli 시스템 자동화 설치**를 선택 하지 마십시오.
->+ **클러스터 구성 파일 생성**을 선택 하지 않습니다.
+>+ **IBM Db2 pureScale** 는 선택 하지 마세요.
+>+ **다중 플랫폼용 IBM Tivoli 시스템 자동화 설치** 를 선택 하지 마십시오.
+>+ **클러스터 구성 파일 생성** 을 선택 하지 않습니다.
 >![SAP SWPM-DB2 HA 옵션](./media/high-availability-guide-rhel-ibm-db2-luw/swpm-db2ha-opt.png)
 
 
@@ -218,7 +219,7 @@ D b 2에 대 한 트래픽을 허용 하는 방화벽 규칙을 추가 하 고 d
 sudo firewall-cmd --reload</code></pre>
 
 #### <a name="ibm-db2-hadr-check"></a>IBM Db2 HADR 검사
-데모용 및이 문서에 설명 된 절차에 대 한 데이터베이스 SID는 **ID2**입니다.
+데모용 및이 문서에 설명 된 절차에 대 한 데이터베이스 SID는 **ID2** 입니다.
 
 HADR을 구성 하 고 상태가 피어 이며 기본 및 대기 노드에 연결 된 후에는 다음 검사를 수행 합니다.
 
@@ -337,7 +338,7 @@ SOCK_RECV_BUF_REQUESTED,ACTUAL(bytes) = 0, 367360
 
 **[A]** Pacemaker 구성에 대 한 필수 구성 요소:
 1. Db2stop를 사용 하 여 사용자 db2를 사용 하는 두 데이터베이스 서버를 종료 \<sid> 합니다.
-1. Db2 사용자에 대 한 셸 환경을 \<sid> */bin/ksh*로 변경 합니다.
+1. Db2 사용자에 대 한 셸 환경을 \<sid> */bin/ksh* 로 변경 합니다.
 <pre><code># Install korn shell:
 sudo yum install ksh
 # Change users shell:
@@ -409,55 +410,55 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
 1. 프런트 엔드 IP 풀을 만듭니다.
 
-   a. Azure Portal에서 Azure Load Balancer를 열고 **프런트 엔드 IP 풀**을 선택한 다음 **추가**를 선택 합니다.
+   a. Azure Portal에서 Azure Load Balancer를 열고 **프런트 엔드 IP 풀** 을 선택한 다음 **추가** 를 선택 합니다.
 
    b. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **Db2 연결**).
 
-   다. **할당** 을 **정적**으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
+   c. **할당** 을 **정적** 으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
 
-   d. **확인**을 선택합니다.
+   d. **확인** 을 선택합니다.
 
    e. 새 프런트 엔드 IP 풀을 만든 후, 풀 IP 주소를 적어 둡니다.
 
 1. 백 엔드 풀을 만듭니다.
 
-   a. Azure Portal에서 Azure Load Balancer를 열고 **백 엔드 풀**을 선택한 다음 **추가**를 선택 합니다.
+   a. Azure Portal에서 Azure Load Balancer를 열고 **백 엔드 풀** 을 선택한 다음 **추가** 를 선택 합니다.
 
-   b. 새 백 엔드 풀의 이름 (예: **Db2-백**엔드)을 입력 합니다.
+   b. 새 백 엔드 풀의 이름 (예: **Db2-백** 엔드)을 입력 합니다.
 
-   다. **가상 머신 추가**를 선택합니다.
+   c. **가상 머신 추가** 를 선택합니다.
 
    d. 이전 단계에서 만든 IBM Db2 데이터베이스를 호스트 하는 가용성 집합 또는 가상 머신을 선택 합니다.
 
    e. IBM Db2 클러스터의 가상 머신을 선택 합니다.
 
-   f. **확인**을 선택합니다.
+   f. **확인** 을 선택합니다.
 
 1. 상태 프로브를 만듭니다.
 
-   a. Azure Portal에서 Azure Load Balancer를 열고 **상태 프로브**를 선택한 다음 **추가**를 선택 합니다.
+   a. Azure Portal에서 Azure Load Balancer를 열고 **상태 프로브** 를 선택한 다음 **추가** 를 선택 합니다.
 
    b. 새 상태 프로브 (예: **Db2-hp**)의 이름을 입력 합니다.
 
-   다. 프로토콜 및 포트 **62500**로 **TCP** 를 선택 합니다. **간격** 값을 **5**로 유지 하 고 **비정상 임계값** 을 **2**로 설정 된 상태로 유지 합니다.
+   c. 프로토콜 및 포트 **62500** 로 **TCP** 를 선택 합니다. **간격** 값을 **5** 로 유지 하 고 **비정상 임계값** 을 **2** 로 설정 된 상태로 유지 합니다.
 
-   d. **확인**을 선택합니다.
+   d. **확인** 을 선택합니다.
 
 1. 부하 분산 규칙을 만듭니다.
 
-   a. Azure Portal에서 Azure Load Balancer를 열고 **부하 분산 규칙**을 선택한 다음 **추가**를 선택 합니다.
+   a. Azure Portal에서 Azure Load Balancer를 열고 **부하 분산 규칙** 을 선택한 다음 **추가** 를 선택 합니다.
 
    b. 새 Load Balancer 규칙의 이름 (예: **Db2-SID**)을 입력 합니다.
 
-   다. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
+   c. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
 
-   d. **프로토콜** 을 **TCP**로 설정 된 상태로 유지 하 고 포트 *데이터베이스 통신 포트*를 입력 합니다.
+   d. **프로토콜** 을 **TCP** 로 설정 된 상태로 유지 하 고 포트 *데이터베이스 통신 포트* 를 입력 합니다.
 
-   e. **유휴 상태 시간 제한**을 30분으로 증가시킵니다.
+   e. **유휴 상태 시간 제한** 을 30분으로 증가시킵니다.
 
-   f. **부동 IP를 사용하도록 설정**했는지 확인합니다.
+   f. **부동 IP를 사용하도록 설정** 했는지 확인합니다.
 
-   g. **확인**을 선택합니다.
+   g. **확인** 을 선택합니다.
 
 **[A]** 프로브 포트에 대 한 방화벽 규칙 추가:
 <pre><code>sudo firewall-cmd --add-port=<b><probe-port></b>/tcp --permanent
@@ -491,13 +492,13 @@ J2EE 구성 도구를 사용 하 여 JDBC URL을 확인 하거나 업데이트�
     
     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
     
-1. 왼쪽 프레임에서 **보안 저장소**를 선택 합니다.
+1. 왼쪽 프레임에서 **보안 저장소** 를 선택 합니다.
 1. 오른쪽 프레임에서 키를 선택 `jdbc/pool/\<SAPSID>/url` 합니다.
 1. JDBC URL의 호스트 이름을 가상 호스트 이름으로 변경 합니다.
     
     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
     
-1. **추가**를 선택합니다.
+1. **추가** 를 선택합니다.
 1. 변경 내용을 저장 하려면 왼쪽 위에서 디스크 아이콘을 선택 합니다.
 1. 구성 도구를 닫습니다.
 1. Java 인스턴스를 다시 시작 합니다.
@@ -616,8 +617,8 @@ sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
 </code></pre>
 
 - **pc 리소스 이동 \<res_name> <host> :** 위치 제약 조건을 만들며 인수와 관련 된 문제를 일으킬 수 있습니다.
-- **pc 리소스 지우기 \<res_name> **: 위치 제약 조건 지우기
-- **pc 리소스 정리 \<res_name> **: 리소스의 모든 오류를 지웁니다.
+- **pc 리소스 지우기 \<res_name>**: 위치 제약 조건 지우기
+- **pc 리소스 정리 \<res_name>**: 리소스의 모든 오류를 지웁니다.
 
 ### <a name="test-a-manual-takeover"></a>수동 인수 테스트
 
@@ -646,7 +647,7 @@ Daemon Status:
   pacemaker: active/disabled
   pcsd: active/enabled</code></pre>
 
-장애 조치 (failover) 후에는 *az-idb01*에서 서비스를 다시 시작할 수 있습니다.
+장애 조치 (failover) 후에는 *az-idb01* 에서 서비스를 다시 시작할 수 있습니다.
 <pre><code>systemctl start  pacemaker</code></pre>
 
 

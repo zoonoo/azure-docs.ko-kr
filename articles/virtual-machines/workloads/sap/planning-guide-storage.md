@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ed99145a2d3860849c4a8117a93a9a0f24d227c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1cd6f5f7865d18461ac7a635530e9aabfde380a6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540929"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955415"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>SAP 워크로드에 대한 Azure Storage 형식
 Azure에는 용량, 처리량, 대기 시간 및 가격이 크게 다른 많은 저장소 유형이 있습니다. 일부 저장소 유형은 또는 SAP 시나리오에 사용할 수 있는 제한 되지 않습니다. 반면, 몇 가지 Azure storage 유형은 특정 SAP 워크 로드 시나리오에 적합 하거나 최적화 되어 있습니다. 특히 SAP HANA의 경우 일부 Azure storage 유형은 SAP HANA 사용에 대해 인증을 받았습니다. 이 문서에서는 다양 한 유형의 저장소를 살펴보고 SAP 워크 로드 및 SAP 구성 요소에 대 한 기능 및 유용성을 설명 합니다.
@@ -90,15 +91,15 @@ S/4HANA의 SAP NetWeaver/응용 프로그램 계층에 대 한 Azure storage 형
 
 | 사용 시나리오 | 표준 HDD | 표준 SSD | Premium Storage | Ultra disk | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| 처리량/IOPS SLA | 아니요 | 아니요 | 예 | 예 | 예 |
+| 처리량/IOPS SLA | no | no | 예 | 예 | 예 |
 | 대기 시간 읽기 | high | 중간에서 높음 | low | 하위 밀리초 | 하위 밀리초 |
 | 대기 시간 쓰기 | high | 중간에서 높음  | 낮음 (1-밀리초<sup>1</sup>) | 하위 밀리초 | 하위 밀리초 |
-| HANA 지원 | 아니요 | 아니요 | 예<sup>1</sup> | 예 | 예 |
-| 디스크 스냅숏 가능 | 예 | 예 | 예 | 아니요 | 예 |
+| HANA 지원 | no | no | 예<sup>1</sup> | 예 | 예 |
+| 디스크 스냅숏 가능 | 예 | 예 | 예 | no | 예 |
 | 가용성 집합을 사용 하는 경우 다른 저장소 클러스터에 디스크 할당 | 관리 디스크를 통해 | 관리 디스크를 통해 | 관리 디스크를 통해 | 가용성 집합을 통해 배포 된 Vm에서 지원 되지 않는 디스크 유형 | 아니요<sup>3</sup> |
 | 가용성 영역 정렬 | 예 | 예 | 예 | 예 | Microsoft 참여 요구 |
-| 영역 중복성 | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | 아니요 | 아니요 |
-| 지리적 중복성 | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | 아니요 | 아니요 | 아니요 |
+| 영역 중복성 | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | no | no |
+| 지리적 중복성 | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | no | no | no |
 
 
 <sup>1</sup> 로그/다시 실행 로그 볼륨에 대 한 M/Mv2 VM 제품군에 대해 [Azure 쓰기 가속기](../../how-to-enable-write-accelerator.md) 사용
@@ -134,7 +135,7 @@ Azure에는 Azure premium storage 또는 Azure Ultra disk 저장소 사용에 �
 
 SAP 워크 로드에 대 한 기능 행렬은 다음과 같습니다.
 
-| 기능| 의견| 노트/링크 | 
+| 기능| 주석| 노트/링크 | 
 | --- | --- | --- | 
 | OS 기본 VHD | 낫지만 | 모든 시스템 |
 | 데이터 디스크 | 낫지만 | 모든 시스템- [특히 SAP HANA](../../how-to-enable-write-accelerator.md) |
@@ -192,7 +193,7 @@ Azure ultra disks는Azure IaaS VM에 대해 높은 처리량, 높은 IOPS 및 �
 
 SAP 워크 로드에 대 한 기능 행렬은 다음과 같습니다.
 
-| 기능| 의견| 노트/링크 | 
+| 기능| 주석| 노트/링크 | 
 | --- | --- | --- | 
 | OS 기본 VHD | 작동 하지 않음 | - |
 | 데이터 디스크 | 낫지만 | 모든 시스템  |
@@ -247,7 +248,7 @@ Azure premium storage를 사용 하는 것 처럼 GB 당 고정 또는 선형 �
 
 SAP 워크 로드에 대 한 기능 행렬은 다음과 같습니다.
 
-| 기능| 의견| 노트/링크 | 
+| 기능| 주석| 노트/링크 | 
 | --- | --- | --- | 
 | OS 기본 VHD | 작동 하지 않음 | - |
 | 데이터 디스크 | 낫지만 | SAP HANA만  |
@@ -273,14 +274,14 @@ ANF 저장소의 추가 기본 제공 기능:
 - 스냅숏에서 ANF 볼륨 복제
 - 스냅숏에서 볼륨 복원 (맞춤 되돌리기)
 
-**요약** : AZURE NETAPP FILES는 NFS 및 SMB 볼륨이 나 공유를 배포할 수 있도록 하는 HANA 인증 짧은 대기 시간 저장소입니다. 저장소에는 볼륨의 GiB 용량 당 선형 방식으로 다양 한 처리량과 IOPS를 제공 하는 세 가지 서비스 수준이 제공 됩니다. ANF 저장소는 대기 노드를 사용 하 여 SAP HANA 스케일 아웃 시나리오를 배포할 수 있도록 합니다. 저장소는/sapmnt 또는 SAP 전역 전송 디렉터리에 필요한 파일 공유를 제공 하는 데 적합 합니다. ANF 저장소는 네이티브 NetApp 기능으로 사용할 수 있는 기능 가용성과 함께 제공 됩니다.  
+**요약**: AZURE NETAPP FILES는 NFS 및 SMB 볼륨이 나 공유를 배포할 수 있도록 하는 HANA 인증 짧은 대기 시간 저장소입니다. 저장소에는 볼륨의 GiB 용량 당 선형 방식으로 다양 한 처리량과 IOPS를 제공 하는 세 가지 서비스 수준이 제공 됩니다. ANF 저장소는 대기 노드를 사용 하 여 SAP HANA 스케일 아웃 시나리오를 배포할 수 있도록 합니다. 저장소는/sapmnt 또는 SAP 전역 전송 디렉터리에 필요한 파일 공유를 제공 하는 데 적합 합니다. ANF 저장소는 네이티브 NetApp 기능으로 사용할 수 있는 기능 가용성과 함께 제공 됩니다.  
 
 
 
 ## <a name="azure-standard-ssd-storage"></a>Azure 표준 SSD 저장소
 Azure standard HDD 저장소에 비해 Azure standard SSD 저장소는 더 나은 가용성, 일관성, 안정성 및 대기 시간을 제공 합니다. 낮은 IOPS 수준에서 일관 된 성능을 필요로 하는 워크 로드에 최적화 되어 있습니다. 이 저장소는 IOPS 및 처리량 요구가 낮은 비프로덕션 SAP 시스템에 사용 되는 최소 저장소입니다. SAP 워크 로드에 대 한 기능 행렬은 다음과 같습니다.
 
-| 기능| 의견| 노트/링크 | 
+| 기능| 주석| 노트/링크 | 
 | --- | --- | --- | 
 | OS 기본 VHD | 적절 한 제한 됨 | 비프로덕션 시스템 |
 | 데이터 디스크 | 적절 한 제한 됨 | 낮은 IOPS 및 대기 시간 요구가 있는 일부 비프로덕션 시스템 |
@@ -307,7 +308,7 @@ Azure standard HDD 저장소에 비해 Azure standard SSD 저장소는 더 나�
 ## <a name="azure-standard-hdd-storage"></a>Azure 표준 HDD 저장소
 Azure 표준 HDD 저장소는 2014 년에 SAP NetWeaver 워크 로드에 대 한 인증을 받은 경우 유일한 저장소 유형 이었습니다. 2014 년에 Azure virtual machines는 작고 저장소 처리량이 적습니다. 따라서이 저장소 유형은 요구를 충족 하기만 하면 됩니다. 저장소는 대기 시간을 구분 하지 않는 워크 로드에 이상적 이며 SAP 공간에서 경험을 경험 하지 않습니다. Azure Vm의 처리량이 증가 하 고 이러한 Vm이 생성 되는 워크 로드가 증가 함에 따라서이 저장소 유형은 SAP 시나리오에서 더 이상 사용 되는 것으로 간주 되지 않습니다. SAP 워크 로드에 대 한 기능 행렬은 다음과 같습니다.
 
-| 기능| 의견| 노트/링크 | 
+| 기능| 주석| 노트/링크 | 
 | --- | --- | --- | 
 | OS 기본 VHD | 적합 하지 않음 | - |
 | 데이터 디스크 | 적합 하지 않음 | - |

@@ -8,17 +8,18 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 592c731d1851ac36cf9b57864750df0603b6c3fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fe788677a084575d41f2f28154b74b28ea9d3d8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84689489"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955738"
 ---
 # <a name="powershell-dsc-extension"></a>Powershell DSC 확장
 
@@ -120,7 +121,7 @@ Windows 용 DSC 확장을 사용 하려면 대상 가상 머신이 azure와 통�
 
 ### <a name="protected-settings-property-values"></a>protectedSettings(보호된 설정) 속성 값
 
-| Name | 데이터 형식 | 설명
+| Name | 데이터 형식 | Description
 | ---- | ---- | ---- |
 | protectedSettings.configurationArguments | 문자열 | DSC 구성을 전달하려는 매개 변수를 정의합니다. 이 속성은 암호화됩니다. |
 | protectedSettings.configurationUrlSasToken | 문자열 | configuration.url에서 정의한 URL에 액세스하기 위해 SAS 토큰을 지정합니다. 이 속성은 암호화됩니다. |

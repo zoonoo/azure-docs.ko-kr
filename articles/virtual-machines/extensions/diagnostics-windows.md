@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: 2e6d88f2-1980-4a24-827e-a81616a0d247
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: mimckitt
-ms.openlocfilehash: 3b46ae07d4bbbcd02b9880a394b72c790553f95c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9561f96dafd936244831cff2ed05cda4d915d27d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837026"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955976"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure Diagnostics를 사용하도록 설정
 
@@ -40,7 +41,7 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_na
 ```
 
 
-*$diagnosticsconfig_path*는 아래 [샘플](#sample-diagnostics-configuration)에 설명된 XML의 진단 구성이 포함된 파일의 경로입니다.  
+*$diagnosticsconfig_path* 는 아래 [샘플](#sample-diagnostics-configuration)에 설명된 XML의 진단 구성이 포함된 파일의 경로입니다.  
 
 진단 구성 파일이 스토리지 계정 이름으로 **StorageAccount** 요소를 지정할 경우 *Set-AzVMDiagnosticsExtension* 스크립트에서 해당 스토리지 계정으로 진단 데이터를 보내도록 진단 확장을 자동으로 설정합니다. 이렇게 작동하려면, 스토리지 계정이 VM과 동일한 구독 내에 있어야 합니다.
 
@@ -58,7 +59,7 @@ VM에서 진단 확장을 사용하도록 설정하면 [Get-AzVmDiagnosticsExten
 Get-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
 ```
 
-cmdlet은 *PublicSettings*를 반환하며, 여기에는 진단 구성이 포함됩니다. WadCfg 및 xmlCfg의 두 종류의 구성이 지원됩니다. WadCfg는 JSON 구성이며 xmlCfg는 Base64 인코딩 형식의 XML 구성입니다. XML을 읽으려면 디코딩해야 합니다.
+cmdlet은 *PublicSettings* 를 반환하며, 여기에는 진단 구성이 포함됩니다. WadCfg 및 xmlCfg의 두 종류의 구성이 지원됩니다. WadCfg는 JSON 구성이며 xmlCfg는 Base64 인코딩 형식의 XML 구성입니다. XML을 읽으려면 디코딩해야 합니다.
 
 ```azurepowershell
 $publicsettings = (Get-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name).PublicSettings
@@ -98,7 +99,7 @@ Update-AzureVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
 * *Metrics* 요소의 **resourceID** 특성을 VM의 리소스 ID로 업데이트해야 합니다.
   
   * 리소스 ID는 "/subscriptions/{*VM과 관련된 구독의 구독 ID*}/resourceGroups/{*VM의 리소스 그룹 이름*}/providers/Microsoft.Compute/virtualMachines/{*VM 이름*}"과 같은 패턴을 사용하여 생성할 수 있습니다.
-  * 예를 들어 VM이 실행 중인 구독의 구독 ID가 **11111111-1111-1111-1111-111111111111**이고, 리소스 그룹의 리소스 그룹 이름이 **MyResourceGroup**이고, VM 이름이 **MyWindowsVM**일 경우 *resourceID* 값은 다음과 같습니다.
+  * 예를 들어 VM이 실행 중인 구독의 구독 ID가 **11111111-1111-1111-1111-111111111111** 이고, 리소스 그룹의 리소스 그룹 이름이 **MyResourceGroup** 이고, VM 이름이 **MyWindowsVM** 일 경우 *resourceID* 값은 다음과 같습니다.
     
       ```xml
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >

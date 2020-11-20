@@ -7,18 +7,19 @@ author: saghorpa
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b02c669439c54f34afb4212949b20f6793784103
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e690f6abc9c597cc1facb7b3e59604bb711cf274
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359428"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955670"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>수정 버전 3 스탬프의 유형 II Sku에 대 한 OS 백업 및 복원
 
@@ -73,7 +74,7 @@ OS 파일 시스템 백업은 이미 **cron 작업** 을 사용 하 여 예약 �
 
 ## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>ReaR 도구를 설치하고 구성을 변경하는 방법 
 
-ReaR(Relax-and-Recover) 패키지는 HANA 큰 인스턴스의 **형식 II SKU**에 **미리 설치되어** 있고 추가 작업이 필요하지 않습니다. 운영 체제 백업을 위해 ReaR를 사용하여 직접 시작할 수 있습니다.
+ReaR(Relax-and-Recover) 패키지는 HANA 큰 인스턴스의 **형식 II SKU** 에 **미리 설치되어** 있고 추가 작업이 필요하지 않습니다. 운영 체제 백업을 위해 ReaR를 사용하여 직접 시작할 수 있습니다.
 그러나 고유한 패키지를 설치해야 하는 경우에 ReaR 도구를 설치하고 구성하는 나열된 단계를 따르면 됩니다.
 
 **ReaR** 백업 패키지를 설치하려면 다음 명령을 사용합니다.
@@ -86,7 +87,7 @@ ReaR(Relax-and-Recover) 패키지는 HANA 큰 인스턴스의 **형식 II SKU**�
 ```
 #yum install rear -y
 ```
-ReaR 도구를 구성하려면 *file /etc/rear/local.conf*에서 **OUTPUT_URL** 및 **BACKUP_URL** 매개 변수를 업데이트해야 합니다.
+ReaR 도구를 구성하려면 *file /etc/rear/local.conf* 에서 **OUTPUT_URL** 및 **BACKUP_URL** 매개 변수를 업데이트해야 합니다.
 ```
 OUTPUT=ISO
 ISO_MKISOFS_BIN=/usr/bin/ebiso

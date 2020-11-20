@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c7f4ab92e4cce3937a933fec97008c281a0eae
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742250"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954123"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에서 공유 또는 볼륨 백업
 
@@ -28,7 +28,7 @@ ms.locfileid: "91742250"
 
 StorSimple Virtual Array는 파일 서버 또는 iSCSI 서버로 구성할 수 있는 하이브리드 클라우드 스토리지 온-프레미스 가상 디바이스입니다. 가상 배열을 사용하면 사용자가 디바이스에서 모든 공유 또는 볼륨의 예약된 백업과 수동 백업을 만들 수 있습니다. 파일 서버로 구성하면 항목 수준 복구도 가능합니다. 이 자습서에서는 예약된 백업과 수동 백업을 만들고 가상 배열에서 삭제된 파일을 복원하는 항목 수준 복구를 수행하는 방법을 설명합니다.
 
-이 자습서는 StorSimple 가상 배열만에 적용됩니다. 8000 시리즈에 대한 내용은 [8000 시리즈 디바이스에 대한 백업 만들기](storsimple-manage-backup-policies-u2.md)로 이동합니다.
+이 자습서는 StorSimple 가상 배열만에 적용됩니다. 8000 시리즈에 대한 내용은 [8000 시리즈 디바이스에 대한 백업 만들기](./storsimple-8000-manage-backup-policies-u2.md)로 이동합니다.
 
 ## <a name="back-up-shares-and-volumes"></a>공유 및 볼륨 백업
 
@@ -46,11 +46,11 @@ StorSimple Virtual Array에는 하루 중 지정된 시간(22:30)에 시작하�
 
 #### <a name="to-change-the-start-time-for-the-default-backup-policy"></a>기본 백업 정책의 시작 시간을 변경하려면
 
-1. **디바이스**로 이동합니다. StorSimple Device Manager 서비스에 등록된 디바이스 목록이 표시됩니다. 
+1. **디바이스** 로 이동합니다. StorSimple Device Manager 서비스에 등록된 디바이스 목록이 표시됩니다. 
    
     ![디바이스로 이동](./media/storsimple-virtual-array-backup/changebuschedule1.png)
 
-2. 디바이스를 선택하고 클릭합니다. **설정** 블레이드가 표시됩니다. **관리 > Backup 정책**으로 이동합니다.
+2. 디바이스를 선택하고 클릭합니다. **설정** 블레이드가 표시됩니다. **관리 > Backup 정책** 으로 이동합니다.
    
     ![디바이스 선택](./media/storsimple-virtual-array-backup/changebuschedule2.png)
 
@@ -58,7 +58,7 @@ StorSimple Virtual Array에는 하루 중 지정된 시간(22:30)에 시작하�
    
     ![백업 정책으로 이동](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
-4. **Save**을 클릭합니다.
+4. **저장** 을 클릭합니다.
 
 ### <a name="take-a-manual-backup"></a>수동 백업 수행
 
@@ -66,11 +66,11 @@ StorSimple Virtual Array에는 하루 중 지정된 시간(22:30)에 시작하�
 
 #### <a name="to-create-a-manual-backup"></a>수동 백업을 만들려면
 
-1. **디바이스**로 이동합니다. 디바이스를 선택하고 선택한 행의 오른쪽 끝에 있는 **...** 를 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **백업 수행**을 선택합니다.
+1. **디바이스** 로 이동합니다. 디바이스를 선택하고 선택한 행의 오른쪽 끝에 있는 **...** 를 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **백업 수행** 을 선택합니다.
    
     ![백업 수행으로 이동](./media/storsimple-virtual-array-backup/takebackup1m.png)
 
-2. **백업 수행** 블레이드에서 **백업 수행**을 클릭합니다. 그러면 파일 서버의 모든 공유 또는 iSCSI 서버의 모든 볼륨을 백업합니다. 
+2. **백업 수행** 블레이드에서 **백업 수행** 을 클릭합니다. 그러면 파일 서버의 모든 공유 또는 iSCSI 서버의 모든 볼륨을 백업합니다. 
    
     ![백업 시작](./media/storsimple-virtual-array-backup/takebackup2m.png)
    
@@ -82,11 +82,11 @@ StorSimple Virtual Array에는 하루 중 지정된 시간(22:30)에 시작하�
    
     ![백업 작업 생성됨](./media/storsimple-virtual-array-backup/takebackup4m.png)
 
-3. 백업 진행 상황을 추적하고 작업 세부 정보를 확인하려면 알림을 클릭합니다. 그러면 **작업 세부 정보**로 이동합니다.
+3. 백업 진행 상황을 추적하고 작업 세부 정보를 확인하려면 알림을 클릭합니다. 그러면 **작업 세부 정보** 로 이동합니다.
    
      ![백업 작업 세부 정보](./media/storsimple-virtual-array-backup/takebackup5m.png)
 
-4. 백업이 완료되면 **관리 > Backup 카탈로그**로 이동합니다. 디바이스에서 모든 공유 또는 볼륨의 클라우드 스냅샷을 확인합니다.
+4. 백업이 완료되면 **관리 > Backup 카탈로그** 로 이동합니다. 디바이스에서 모든 공유 또는 볼륨의 클라우드 스냅샷을 확인합니다.
    
     ![백업 완료됨](./media/storsimple-virtual-array-backup/takebackup19m.png) 
 
@@ -95,24 +95,23 @@ StorSimple Virtual Array에는 하루 중 지정된 시간(22:30)에 시작하�
 
 #### <a name="to-view-existing-backups"></a>기존 백업을 보려면
 
-1. **디바이스** 블레이드로 이동합니다. 디바이스를 선택하고 클릭합니다. **설정** 블레이드에서 **관리 > Backup 카탈로그**로 이동합니다.
+1. **디바이스** 블레이드로 이동합니다. 디바이스를 선택하고 클릭합니다. **설정** 블레이드에서 **관리 > Backup 카탈로그** 로 이동합니다.
    
     ![백업 카탈로그로 이동](./media/storsimple-virtual-array-backup/viewbackups1.png)
 2. 필터링에 사용할 다음 기준을 지정합니다.
    
-   - **시간 범위** – **지난 1시간**, **지난 24시간**, **지난 7일**, **지난 30일**, **지난 해** 및 **사용자 지정 날짜**일 수 있습니다.
+   - **시간 범위** – **지난 1시간**, **지난 24시간**, **지난 7일**, **지난 30일**, **지난 해** 및 **사용자 지정 날짜** 일 수 있습니다.
     
    - **디바이스** – StorSimple Device Manager 서비스에 등록된 파일 서버 또는 iSCSI 서버 목록에서 선택합니다.
    
-   - **시작** – 백업 정책에 의해 자동으로 **예약**되거나 사용자에 의해 **수동으로** 시작될 수 있습니다.
+   - **시작** – 백업 정책에 의해 자동으로 **예약** 되거나 사용자에 의해 **수동으로** 시작될 수 있습니다.
    
      ![필터 백업](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
-3. **적용**을 클릭합니다. 필터링된 백업 목록은 **Backup 카탈로그** 블레이드에 표시됩니다. 100개의 백업 요소만이 지정된 시간에 표시될 수 있습니다.
+3. **적용** 을 클릭합니다. 필터링된 백업 목록은 **Backup 카탈로그** 블레이드에 표시됩니다. 100개의 백업 요소만이 지정된 시간에 표시될 수 있습니다.
    
     ![업데이트된 백업 카탈로그](./media/storsimple-virtual-array-backup/viewbackups3.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 [StorSimple 가상 배열 관리](storsimple-ova-web-ui-admin.md)에 대해 자세히 알아봅니다.
-

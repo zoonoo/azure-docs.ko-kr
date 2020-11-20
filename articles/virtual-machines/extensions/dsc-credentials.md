@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: ea76b7e8-b576-445a-8107-88ea2f3876b9
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: f7edbd0fd8791829a2d9ffaa4e7c0ee0e561cc5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f191ab5819cd69ce90699db60be1665ef77e10a9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73748979"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955891"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Azure DSCExtension 처리기에 자격 증명 전달
 
@@ -60,7 +61,7 @@ configuration Main
 }
 ```
 
-**node localhost**를 구성의 일부로 포함하는 것이 중요합니다. 확장 처리기는 특히 **node localhost** 문을 찾습니다. 이 구문이 없으면 다음 단계가 작동하지 않습니다. typecast **[PsCredential]** 을 포함하는 것도 중요합니다. 이 특정 형식은 확장을 트리거하여 자격 증명을 암호화합니다.
+**node localhost** 를 구성의 일부로 포함하는 것이 중요합니다. 확장 처리기는 특히 **node localhost** 문을 찾습니다. 이 구문이 없으면 다음 단계가 작동하지 않습니다. typecast **[PsCredential]** 을 포함하는 것도 중요합니다. 이 특정 형식은 확장을 트리거하여 자격 증명을 암호화합니다.
 
 이 스크립트를 Azure Blob Storage에 게시하려면:
 
@@ -83,7 +84,7 @@ $vm | Update-AzVM
 
 이 코드를 실행하면 자격 증명을 묻는 메시지가 나타납니다. 자격 증명이 제공되면 메모리에 간단히 저장됩니다. **Set-AzVMDscExtension** cmdlet을 사용하여 자격 증명이 게시되면, 자격 증명은 HTTPS를 통해 VM에 전송됩니다. VM에서 Azure는 로컬 VM 자격 증명을 사용하여 디스크에 암호화된 자격 증명을 저장합니다. 자격 증명은 메모리에서 간단히 암호 해독된 다음, DSC로 전달하기 위해 다시 암호화됩니다.
 
-이러한 프로세스는 [확장 처리기 없이 보안 구성을 사용](/powershell/scripting/dsc/pull-server/securemof)하는 방법과는 다릅니다. Azure 환경에는 자격 증명을 통해 구성 데이터를 안전하게 전송하는 방법이 제공됩니다. DSC 확장 처리기를 사용할 때는 **ConfigurationData**에 **$CertificatePath** 또는 **$CertificateID**/ **$Thumbprint** 항목을 제공할 필요가 없습니다.
+이러한 프로세스는 [확장 처리기 없이 보안 구성을 사용](/powershell/scripting/dsc/pull-server/securemof)하는 방법과는 다릅니다. Azure 환경에는 자격 증명을 통해 구성 데이터를 안전하게 전송하는 방법이 제공됩니다. DSC 확장 처리기를 사용할 때는 **ConfigurationData** 에 **$CertificatePath** 또는 **$CertificateID**/ **$Thumbprint** 항목을 제공할 필요가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3a374dae89ddf22d33bc44cafd9db3b4b6a9e6fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 024dbf6518748a4048873de4eb54a53f9d9a6362
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336823"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954327"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service에 대한 액세스 제어
 
-이 문서에서는 IoT Device Provisioning 서비스를 보호하는 옵션을 설명합니다. 프로비전 서비스는 *권한*을 사용하여 각 엔드포인트에 대한 액세스를 부여합니다. 사용 권한은 기능에 따라 서비스 인스턴스에 대한 액세스를 제한합니다.
+이 문서에서는 IoT Device Provisioning 서비스를 보호하는 옵션을 설명합니다. 프로비전 서비스는 *권한* 을 사용하여 각 엔드포인트에 대한 액세스를 부여합니다. 사용 권한은 기능에 따라 서비스 인스턴스에 대한 액세스를 제한합니다.
 
 이 문서에서는 다음을 설명합니다.
 
@@ -51,7 +51,7 @@ Azure IoT Hub Device Provisioning Service는 공유 액세스 정책에 대한 �
 
 HTTP는 유일하게 지원되는 프로토콜이며 **권한 부여** 요청 헤더에서 유효한 토큰을 포함하여 인증을 구현합니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 ```csharp
 SharedAccessSignature sr = 
    mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`\
@@ -85,7 +85,7 @@ Device Provisioning Service는 네트워크에서 키가 전송되는 것을 피
 
 **접두사에 대한 참고**: 문자가 아니라 세그먼트에 의해 계산된 URI 접두사입니다. 예를 들어 `/a/b`는 `/a/b/c`에 대한 접두사이지만 `/a/bc`에 대한 접두사는 아닙니다.
 
-다음 Node.js 코드 조각은 입력 `resourceUri, signingKey, policyName, expiresInMins`의 토큰을 계산하는 **generateSasToken**이라는 함수를 보여줍니다. 다음 섹션에서는 여러 토큰 사용 사례에 대해 서로 다른 입력을 초기화하는 방법을 자세히 설명합니다.
+다음 Node.js 코드 조각은 입력 `resourceUri, signingKey, policyName, expiresInMins`의 토큰을 계산하는 **generateSasToken** 이라는 함수를 보여줍니다. 다음 섹션에서는 여러 토큰 사용 사례에 대해 서로 다른 입력을 초기화하는 방법을 자세히 설명합니다.
 
 ```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
@@ -149,7 +149,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 | `{your-service}.azure-devices-provisioning.net/registrations/{id}` |디바이스 등록 상태를 검색 및 관리하기 위한 작업을 제공합니다. |
 
 
-예를 들어 **enrollmentread**라는 미리 생성된 공유 액세스 정책을 사용하여 생성하는 서비스는 다음 매개 변수로 토큰을 만듭니다.
+예를 들어 **enrollmentread** 라는 미리 생성된 공유 액세스 정책을 사용하여 생성하는 서비스는 다음 매개 변수로 토큰을 만듭니다.
 
 * 리소스 URI: `{mydps}.azure-devices-provisioning.net`,
 * 서명 키: `enrollmentread` 정책의 키 중 하나,
@@ -192,4 +192,4 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-management-portal]: https://portal.azure.com
 [lnk-azure-resource-manager]: ../azure-resource-manager/management/overview.md
-[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iot-dps/
+[lnk-resource-provider-apis]: /rest/api/iot-dps/

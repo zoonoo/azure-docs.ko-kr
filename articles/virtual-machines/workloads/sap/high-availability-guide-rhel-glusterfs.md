@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: radeltch
-ms.openlocfilehash: e6b8708edeeb4b3b69dab82265d13db2a4c22e08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41699625b7062daa005e6908ce9e4249dd86f1fa
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87051653"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956401"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>SAP NetWeaver에 대한 Red Hat Enterprise Linux에 있는 Azure VM의 GlusterFS
 
@@ -43,7 +44,7 @@ ms.locfileid: "87051653"
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 
 이 문서에서는 가상 머신을 배포하고, 가상 머신을 구성하고, 클러스터 프레임워크를 설치하고, 가용성이 높은 SAP 시스템의 공유 데이터를 저장하는 데 사용할 수 있는 고가용성 GlusterFS 서버를 설치하는 방법을 설명합니다.
-이 가이드에서는 NW1 및 NW2라는 두 개의 SAP 시스템에 사용되는 GlusterFS 서버를 설정하는 방법에 대해 설명합니다. 예제에 포함된 리소스(예: 가상 머신, 가상 네트워크) 이름은 [SAP 파일 서버 템플릿][template-file-server]을 리소스 접두사인 **glust**와 함께 사용한 것으로 가정합니다.
+이 가이드에서는 NW1 및 NW2라는 두 개의 SAP 시스템에 사용되는 GlusterFS 서버를 설정하는 방법에 대해 설명합니다. 예제에 포함된 리소스(예: 가상 머신, 가상 네트워크) 이름은 [SAP 파일 서버 템플릿][template-file-server]을 리소스 접두사인 **glust** 와 함께 사용한 것으로 가정합니다.
 
 먼저 다음 SAP 참고와 문서 읽기
 
@@ -98,7 +99,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    4. 관리자 사용자 이름, 관리자 암호 또는 SSH 키  
       컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
    5. 서브넷 ID  
-      서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로/subscriptions/** &lt; subscription &gt; ID**/Resourcegroups//** &lt; 리소스 그룹 이름 &gt; **/providers/Microsoft.Network/virtualNetworks/** &lt; 가상 네트워크 이름 &gt; **/subnets/** &lt; 서브넷 이름 &gt; ** 처럼 보입니다.
+      서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로/subscriptions/**&lt; subscription &gt; ID**/Resourcegroups//**&lt; 리소스 그룹 이름 &gt;**/providers/Microsoft.Network/virtualNetworks/**&lt; 가상 네트워크 이름 &gt;**/subnets/**&lt; 서브넷 이름 &gt;** 처럼 보입니다.
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Azure Portal을 통해 Linux를 수동으로 배포
 

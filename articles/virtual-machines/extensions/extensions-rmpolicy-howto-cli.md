@@ -7,18 +7,19 @@ author: axayjo
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 2129130dab58c9e1fb98878efc3ec668eeb45359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26874c33c496b57bf6317a7b837b3afddc2f5e37
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87069780"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955653"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Azure Policy를 사용하여 Linux VM의 확장 설치 제한
 
@@ -64,7 +65,7 @@ vim ~/clouddrive/azurepolicy.rules.json
 }
 ```
 
-완료되면 **Esc** 키를 누르고 **:wq**를 입력하여 파일을 저장하고 닫습니다.
+완료되면 **Esc** 키를 누르고 **:wq** 를 입력하여 파일을 저장하고 닫습니다.
 
 
 ## <a name="create-a-parameters-file"></a>매개 변수 파일 만들기
@@ -93,7 +94,7 @@ vim ~/clouddrive/azurepolicy.parameters.json
 }
 ```
 
-완료되면 **Esc** 키를 누르고 **:wq**를 입력하여 파일을 저장하고 닫습니다.
+완료되면 **Esc** 키를 누르고 **:wq** 를 입력하여 파일을 저장하고 닫습니다.
 
 ## <a name="create-the-policy"></a>정책 만들기
 
@@ -147,7 +148,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-VM 액세스 확장을 사용하여 **myNewUser**라는 새 사용자를 만듭니다.
+VM 액세스 확장을 사용하여 **myNewUser** 라는 새 사용자를 만듭니다.
 
 ```azurecli-interactive
 az vm user update \

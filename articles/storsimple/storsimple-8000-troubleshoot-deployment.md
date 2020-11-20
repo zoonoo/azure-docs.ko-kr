@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 5806266955eafab8c3c8c99695ff82736de92e9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 600934e2d46c1a84a83fa1290db13b3d0d1508f4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187067"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956894"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>StorSimple 디바이스 배포 문제 해결
 ## <a name="overview"></a>개요
@@ -46,14 +46,14 @@ ms.locfileid: "86187067"
 ## <a name="first-time-setup-wizard-process"></a>처음 설치 마법사 프로세스
 다음 단계에서는 설치 마법사 프로세스를 간략하게 설명합니다. 자세한 설치 정보는 [온-프레미스 StorSimple 디바이스 배포](storsimple-8000-deployment-walkthrough-u2.md)를 참조하세요.
 
-1. [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) cmdlet을 실행하여 나머지 과정을 안내하는 설치 마법사를 시작합니다. 
+1. [Invoke-HcsSetupWizard](/previous-versions/windows/powershell-scripting/dn688135(v=wps.630)) cmdlet을 실행하여 나머지 과정을 안내하는 설치 마법사를 시작합니다. 
 2. 네트워크 구성: 설치 마법사를 사용하면 StorSimple 디바이스에서 데이터 0 네트워크 인터페이스에 대한 네트워크 설정을 구성합니다. 이 설정은 다음을 포함합니다.
-   * 가상 IP(VIP), 서브넷 마스크 및 게이트웨이 – [Set-HcsNetInterface](https://technet.microsoft.com/library/dn688161.aspx) cmdlet이 백그라운드에서 실행됩니다. StorSimple 디바이스의 데이터 0 네트워크 인터페이스에 대한 IP 주소, 서브넷 마스크 및 게이트웨이를 구성합니다.
-   * 기본 DNS 서버 - [Set-HcsDnsClientServerAddress](https://technet.microsoft.com/library/dn688172.aspx) cmdlet이 백그라운드에서 실행됩니다. StorSimple 솔루션에 대한 DNS 설정을 구성합니다.
-   * NTP 서버 – [Set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet이 백그라운드에서 실행됩니다. StorSimple 솔루션에 대한 NTP 서버 설정을 구성합니다.
-   * 선택적 웹 프록시 - [Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) cmdlet이 백그라운드에서 실행됩니다. StorSimple 솔루션에 대한 웹 프록시 구성을 설정하고 사용합니다.
+   * 가상 IP(VIP), 서브넷 마스크 및 게이트웨이 – [Set-HcsNetInterface](/previous-versions/windows/powershell-scripting/dn688161(v=wps.630)) cmdlet이 백그라운드에서 실행됩니다. StorSimple 디바이스의 데이터 0 네트워크 인터페이스에 대한 IP 주소, 서브넷 마스크 및 게이트웨이를 구성합니다.
+   * 기본 DNS 서버 - [Set-HcsDnsClientServerAddress](/previous-versions/windows/powershell-scripting/dn688172(v=wps.630)) cmdlet이 백그라운드에서 실행됩니다. StorSimple 솔루션에 대한 DNS 설정을 구성합니다.
+   * NTP 서버 – [Set-HcsNtpClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) cmdlet이 백그라운드에서 실행됩니다. StorSimple 솔루션에 대한 NTP 서버 설정을 구성합니다.
+   * 선택적 웹 프록시 - [Set-HcsWebProxy](/previous-versions/windows/powershell-scripting/dn688154(v=wps.630)) cmdlet이 백그라운드에서 실행됩니다. StorSimple 솔루션에 대한 웹 프록시 구성을 설정하고 사용합니다.
 3. 암호 설정: 다음 단계는 디바이스 관리자 암호 설정입니다.
-   디바이스 관리자 암호는 디바이스에 로그온하는 데 사용됩니다. 기본 디바이스 암호는 **Password1**입니다.
+   디바이스 관리자 암호는 디바이스에 로그온하는 데 사용됩니다. 기본 디바이스 암호는 **Password1** 입니다.
         
      > [!IMPORTANT]
      > 등록 하기 전에 암호가 수집되지만 디바이스를 성공적으로 등록한 후에만 적용됩니다. 암호를 적용하지 못한 경우 필요한 암호(복잡성 요구 사항에 맞는)가 수집될 때까지 다시 암호를 입력하라는 메시지가 표시됩니다.
@@ -89,7 +89,7 @@ ms.locfileid: "86187067"
 | 5 |Invoke-HcsSetupWizard: 클러스터 리소스가 온라인 상태가 아님(HRESULT: 0x8007138c에서 예외 발생) |클러스터 리소스가 온라인 상태가 아닙니다. |[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
 
 ## <a name="errors-related-to-device-administrator-password"></a>디바이스 관리자 암호 관련 오류
-기본 디바이스 관리자 암호는 **Password1**입니다. 처음 로그온한 후 이 암호가 만료되므로 변경하려면 설치 마법사를 사용해야 합니다. 처음으로 디바이스를 등록하는 경우 새 디바이스 관리자 암호를 입력해야 합니다. 
+기본 디바이스 관리자 암호는 **Password1** 입니다. 처음 로그온한 후 이 암호가 만료되므로 변경하려면 설치 마법사를 사용해야 합니다. 처음으로 디바이스를 등록하는 경우 새 디바이스 관리자 암호를 입력해야 합니다. 
 
 암호는 다음 요구 사항을 충족하는지 확인합니다.
 
@@ -112,7 +112,7 @@ ms.locfileid: "86187067"
 | 5 |암호는 특수 문자를 포함해야 합니다. |암호는 소문자, 대문자, 숫자 및 특수 문자의 4가지 문자 유형 중 3가지 문자 유형을 포함해야 합니다. 암호가 이 요구 사항을 충족하는지 확인합니다. |
 | 6 |암호는 대문자, 소문자, 숫자 및 특수 문자의 4가지 문자 유형 중 3가지 유형을 포함해야 합니다. |암호는 필요한 종류의 문자를 포함하지 않습니다. 암호가 이 요구 사항을 충족하는지 확인합니다. |
 | 7 |매개 변수는 확인과 일치하지 않습니다. |암호 요구 사항을 모두 만족하고 이를 올바르게 입력했는지 확인합니다. |
-| 8 |암호는 기본값과 일치할 수 없습니다. |기본 암호는 *Password1*입니다. 처음으로 로그온 한 후에 이 암호를 변경해야 합니다. |
+| 8 |암호는 기본값과 일치할 수 없습니다. |기본 암호는 *Password1* 입니다. 처음으로 로그온 한 후에 이 암호를 변경해야 합니다. |
 | 9 |입력한 암호는 디바이스 암호와 일치하지 않습니다. 암호를 다시 입력하십시오. |암호를 확인하고 다시 입력합니다. |
 
 디바이스를 등록하기 전에 암호가 수집되지만 디바이스를 성공적으로 등록한 후에만 적용됩니다. 암호 복구 워크플로를 사용하려면 디바이스를 등록해야 합니다.
@@ -139,7 +139,7 @@ Microsoft Azure에서 실행되는 StorSimple 디바이스 관리자 서비스�
 | 9 |경고: 디바이스를 활성화할 수 없습니다. 디바이스 관리자 및 StorSimple Snapshot Manager 암호가 변경되지 않습니다. |등록이 실패하면, 디바이스 관리자 및 StorSimple Snapshot Manager 암호가 변경되지 않습니다. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>StorSimple 배포 문제 해결을 위한 팁
-StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있는 여러 도구를 포함합니다. 내용은 다음과 같습니다.
+StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있는 여러 도구를 포함합니다. 이러한 위협은 다음과 같습니다.
 
 * 지원 패키지 및 디바이스 로그
 * 문제 해결을 위해 특별히 설계된 Cmdlet
@@ -154,10 +154,10 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
 4. 암호 해독된 지원 패키지 로그는 etw/etvx 형식입니다. 다음 단계를 수행하여 Windows 이벤트 뷰어에서 이 파일을 볼 수 있습니다.
    
    1. Windows 클라이언트에서 **eventvwr** 명령을 실행하세요. 이벤트 뷰어를 시작합니다.
-   2. **작업** 창에서 **저장된 로그 열기**를 클릭하고 etvx/etw 형식의 로그 파일(지원 패키지)을 지정하세요. 이제 파일을 볼 수 있습니다. 파일을 연 후 마우스 오른쪽 단추로 클릭하고 텍스트로 파일을 저장할 수 있습니다.
+   2. **작업** 창에서 **저장된 로그 열기** 를 클릭하고 etvx/etw 형식의 로그 파일(지원 패키지)을 지정하세요. 이제 파일을 볼 수 있습니다. 파일을 연 후 마우스 오른쪽 단추로 클릭하고 텍스트로 파일을 저장할 수 있습니다.
       
       > [!IMPORTANT]
-      > **Get-WinEvent** cmdlet을 사용하여 Windows PowerShell에서 이 파일을 열 수도 있습니다. 자세한 내용은 Windows PowerShell cmdlet 참조 설명서의 [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx)를 참조하세요.
+      > **Get-WinEvent** cmdlet을 사용하여 Windows PowerShell에서 이 파일을 열 수도 있습니다. 자세한 내용은 Windows PowerShell cmdlet 참조 설명서의 [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent)를 참조하세요.
      
 5. 로그가 이벤트 뷰어에서 열리면, 디바이스 구성과 관련된 문제를 포함하는 다음 로그를 찾습니다.
    
@@ -184,12 +184,12 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
 1. StorSimple용 Windows PowerShell을 시작한 다음 `Get-NetAdapter`를 입력합니다. 
 2. `Get-NetAdapter` cmdlet의 출력 및 다음 지침을 사용하여 네트워크 인터페이스의 상태를 이해합니다.
    
-   * 인터페이스의 상태가 정상이고 사용 가능한 경우 **ifIndex** 상태가 **Up**으로 표시됩니다.
-   * 인터페이스의 상태가 정상이지만 실제로 연결되지 않은 경우(네트워크 케이블 이용) **ifIndex**가 **Disabled**로 표시됩니다.
-   * 인터페이스의 상태가 정상이지만 사용되지 않는 경우 **ifIndex** 상태가 **NotPresent**로 표시됩니다.
+   * 인터페이스의 상태가 정상이고 사용 가능한 경우 **ifIndex** 상태가 **Up** 으로 표시됩니다.
+   * 인터페이스의 상태가 정상이지만 실제로 연결되지 않은 경우(네트워크 케이블 이용) **ifIndex** 가 **Disabled** 로 표시됩니다.
+   * 인터페이스의 상태가 정상이지만 사용되지 않는 경우 **ifIndex** 상태가 **NotPresent** 로 표시됩니다.
    * 인터페이스가 없는 경우 이 목록에 나타나지 않습니다. StorSimple 디바이스 관리자 서비스 UI에서는 이 인터페이스가 계속 실패한 상태로 표시됩니다.
 
-이 cmdlet을 사용 하는 방법에 대 한 자세한 내용은 Windows PowerShell cmdlet 참조에서 [get-netadapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) 를 참조 하세요.
+이 cmdlet을 사용 하는 방법에 대 한 자세한 내용은 Windows PowerShell cmdlet 참조에서 [get-netadapter](/powershell/module/netadapter/get-netadapter?view=win10-ps) 를 참조 하세요.
 
 다음 섹션에서는 샘플 `Get-NetAdapter` cmdlet의 출력 샘플을 표시합니다.
 
@@ -284,7 +284,7 @@ HCSNODE0      outlook.com     132.245.92.194
    * ErrorCode.CiSDeviceDecommissioned – 디바이스가 비활성화되었음을 표시합니다.
    * ErrorCode.DeviceNotReady – 디바이스가 유지 관리 모드에 있음을 나타냅니다.
    * ErrorCode.DeviceNotReady – 디바이스가 온라인 상태가 아님을 나타냅니다.
-3. StorSimple 디바이스 관리자 서비스가 실행 중인지 확인합니다([Get-ClusterResource](https://technet.microsoft.com/library/ee461004.aspx) cmdlet 사용). 서비스를 실행하지 않는 경우 다음 오류가 나타날 수 있습니다.
+3. StorSimple 디바이스 관리자 서비스가 실행 중인지 확인합니다([Get-ClusterResource](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee461004(v=technet.10)) cmdlet 사용). 서비스를 실행하지 않는 경우 다음 오류가 나타날 수 있습니다.
    
    * ErrorCode.CiSApplianceAgentNotOnline
    * ErrorCode.CisPowershellScriptHcsError – Get-ClusterResource를 실행할 때 예외가 있음을 나타냅니다.
@@ -308,7 +308,7 @@ HCSNODE0      outlook.com     132.245.92.194
 
 로그 파일 CiSCommandletLog0Curr.errlog 및 CiSAgentsvc0Curr.errlog에는 예외 세부 정보와 같은 추가 정보가 있습니다.
 
-Cmdlet을 사용하는 방법에 대한 자세한 내용을 보려면 Windows PowerShell 참조 설명서의 [HcsmConnection 테스트](https://technet.microsoft.com/library/dn715782.aspx)로 이동합니다.
+Cmdlet을 사용하는 방법에 대한 자세한 내용을 보려면 Windows PowerShell 참조 설명서의 [HcsmConnection 테스트](/previous-versions/windows/powershell-scripting/dn715782(v=wps.630))로 이동합니다.
 
 > [!IMPORTANT]
 > 활성 및 수동 컨트롤러 모두에 대해 이 cmdlet을 실행할 수 있습니다.
@@ -526,7 +526,7 @@ Invoke-HcsSetupWizard: An error has occurred while registering the device. This 
 3. 네트워크 인터페이스의 상태를 확인합니다.
    
    * Get-NetAdapter cmdlet를 사용하여 데이터 0에 대한 네트워크 인터페이스의 상태를 감지합니다. 
-   * 링크가 작동하지 않는 경우 상태가 **ifindex**이면 인터페이스가 작동하지 않는 것입니다. 그런 다음 기기 및 스위치에 대한 네트워크 연결을 확인해야 합니다. 잘못된 케이블을 제거해야 합니다. 
+   * 링크가 작동하지 않는 경우 상태가 **ifindex** 이면 인터페이스가 작동하지 않는 것입니다. 그런 다음 기기 및 스위치에 대한 네트워크 연결을 확인해야 합니다. 잘못된 케이블을 제거해야 합니다. 
    * 활성 컨트롤러의 데이터 0 포트가 의심되는 경우, 컨트롤러 1의 데이터 0 포트에 연결하여 확인할 수 있습니다. 이를 확인하려면, 컨트롤러 0의 디바이스 뒷면에서 네트워크 케이블을 분리하고 컨트롤러 1에 케이블을 연결한 다음 Get-NetAdapter cmdlet을 다시 실행합니다.
      컨트롤러의 DATA 0 포트에서 오류가 발생하면 다음 단계를 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. 시스템에서 컨트롤러를 교체해야할 수 있습니다.
 4. 스위치에 연결을 확인합니다.
@@ -536,7 +536,7 @@ Invoke-HcsSetupWizard: An error has occurred while registering the device. This 
    * 연결에 사용할 스위치에는 동일한 vLAN의 두 컨트롤러에 대해 데이터 0이 있는지 확인합니다.
 5. 모든 사용자 오류를 제거합니다.
    
-   * 설치 마법사를 다시 실행하고( **Invoke-HcsSetupWizard**실행), 값을 다시 입력하여 오류가 없는지 확인합니다. 
+   * 설치 마법사를 다시 실행하고( **Invoke-HcsSetupWizard** 실행), 값을 다시 입력하여 오류가 없는지 확인합니다. 
    * 사용된 등록 확인 키를 확인합니다. 동일한 등록 키를 여러 디바이스에서 StorSimple 디바이스 관리자 서비스에 연결하는데 사용할 수 있습니다. [서비스 등록 키 받기](storsimple-8000-manage-service.md#get-the-service-registration-key) 의 절차를 사용하여 올바른 등록 키를 사용하고 있는지 확인합니다.
      
      > [!IMPORTANT]
@@ -553,5 +553,5 @@ Invoke-HcsSetupWizard: An error has occurred while registering the device. This 
 
 <!--Link references-->
 
-[1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
-[2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx 
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd379547(v=ws.10)
+[2]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd392266(v=ws.10)

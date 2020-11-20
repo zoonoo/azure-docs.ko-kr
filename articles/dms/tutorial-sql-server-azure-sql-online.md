@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/21/2020
-ms.openlocfilehash: 8a34b0ae819f7bbb29a0004a89ea5417b52c127e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 29a154e33d8025f53b929bf0bb7602b2d0a64b13
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392676"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955024"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>자습서: DMS를 사용하여 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 온라인 마이그레이션
 
-Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 SQL Server 인스턴스에서 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)로 데이터베이스를 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service를 사용하여 SQL Server 2016 이상의 온-프레미스 인스턴스에 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 마이그레이션합니다.
+Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 SQL Server 인스턴스에서 [Azure SQL Database](/azure/sql-database/)로 데이터베이스를 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service를 사용하여 SQL Server 2016 이상의 온-프레미스 인스턴스에 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 마이그레이션합니다.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 > [!div class="checklist"]
@@ -49,34 +49,34 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - [SQL Server 2012 이상](https://www.microsoft.com/sql-server/sql-server-downloads)을 다운로드하여 설치합니다.
-- 문서 [서버 네트워크 프로토콜 사용 또는 사용 안 함](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure)의 지침을 수행하여 SQL Server Express를 설치하는 동안 기본적으로 사용 안 함으로 설정되어 있는 TCP/IP 프로토콜을 사용하도록 설정합니다.
-- [Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started) 문서의 세부 지침에 따라 Azure SQL Database에 단일(또는 풀링된) 데이터베이스를 만듭니다.
+- 문서 [서버 네트워크 프로토콜 사용 또는 사용 안 함](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure)의 지침을 수행하여 SQL Server Express를 설치하는 동안 기본적으로 사용 안 함으로 설정되어 있는 TCP/IP 프로토콜을 사용하도록 설정합니다.
+- [Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서의 세부 지침에 따라 Azure SQL Database에 단일(또는 풀링된) 데이터베이스를 만듭니다.
 
     > [!NOTE]
-    > SSIS(SQL Server Integration Services)를 사용하고 있고, SSIS 프로젝트/패키지(SSISDB)용 카탈로그 데이터베이스를 SQL Server에서 Azure SQL Database로 마이그레이션하려는 경우 ADF(Azure Data Factory)에서 SSIS를 프로비저닝할 때 대상 SSISDB가 자동으로 생성되고 관리됩니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 문서를 참조하세요.
+    > SSIS(SQL Server Integration Services)를 사용하고 있고, SSIS 프로젝트/패키지(SSISDB)용 카탈로그 데이터베이스를 SQL Server에서 Azure SQL Database로 마이그레이션하려는 경우 ADF(Azure Data Factory)에서 SSIS를 프로비저닝할 때 대상 SSISDB가 자동으로 생성되고 관리됩니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](./how-to-migrate-ssis-packages.md) 문서를 참조하세요.
 
 - [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 이상을 다운로드하여 설치합니다.
-- Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 Microsoft Azure Virtual Network를 만듭니다. 그러면 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/)를 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
+- Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 Microsoft Azure Virtual Network를 만듭니다. 그러면 [ExpressRoute](../expressroute/expressroute-introduction.md) 또는 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](../virtual-network/index.yml)를 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
 
     > [!NOTE]
-    > 가상 네트워크 설정 중에 Microsoft에 대한 네트워크 피어링에서 ExpressRoute를 사용하는 경우 서비스가 프로비저닝되는 서브넷에 다음 서비스 [엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)를 추가합니다.
+    > 가상 네트워크 설정 중에 Microsoft에 대한 네트워크 피어링에서 ExpressRoute를 사용하는 경우 서비스가 프로비저닝되는 서브넷에 다음 서비스 [엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 추가합니다.
     > - 대상 데이터베이스 엔드포인트(예: SQL 엔드포인트, Cosmos DB 엔드포인트 등)
     > - 스토리지 엔드포인트
     > - Service Bus 엔드포인트
     >
     > Azure Database Migration Service에는 인터넷 연결이 없으므로 이 구성이 필요합니다.
 
-- 가상 네트워크의 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 인바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445, 12000. Azure Virtual Network NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
-- [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
+- 가상 네트워크의 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 인바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445, 12000. Azure Virtual Network NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
+- [데이터베이스 엔진 액세스를 위한 Windows 방화벽](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 - Azure Database Migration Service가 기본적으로 TCP 포트 1433인 원본 SQL Server에 액세스하도록 허용하려면 Windows 방화벽을 엽니다. 기본 인스턴스가 일부 다른 포트에서 수신 중인 경우 해당 포트를 방화벽에 추가합니다.
 - 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우, SQL Browser 서비스를 사용하도록 설정하고 방화벽을 통해 1434 UDP 포트에 액세스하도록 허용하여 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있습니다.
 - 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 원본 데이터베이스에 액세스할 수 있게 허용하는 방화벽 규칙을 추가해야 합니다.
-- Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 Azure SQL Database에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용되는 가상 네트워크의 서브넷 범위를 입력합니다.
-- 원본 SQL Server 인스턴스에 연결하는 데 사용되는 자격 증명에는 [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) 권한이 있어야 합니다.
+- Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 Azure SQL Database에 대한 서버 수준 [방화벽 규칙](../azure-sql/database/firewall-configure.md)을 만듭니다. Azure Database Migration Service에 사용되는 가상 네트워크의 서브넷 범위를 입력합니다.
+- 원본 SQL Server 인스턴스에 연결하는 데 사용되는 자격 증명에는 [CONTROL SERVER](/sql/t-sql/statements/grant-server-permissions-transact-sql) 권한이 있어야 합니다.
 - 대상 Azure SQL Database 인스턴스에 연결하는 데 사용되는 자격 증명에는 대상 Azure SQL Database 인스턴스에 대한 CONTROL DATABASE 권한이 있어야 합니다.
 - 원본 SQL Server 버전은 SQL Server 2005 이상이어야 합니다. SQL Server 인스턴스에서 실행하는 버전을 확인하려면 [SQL Server의 버전, 에디션 및 업데이트 수준과 해당 구성 요소를 확인하는 방법 ](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an) 문서를 참조하세요.
-- 데이터베이스는 대량 로그 또는 전체 복구 모드에 있어야 합니다. SQL Server 인스턴스에 대해 구성된 복구 모델을 확인하려면 [데이터베이스 복구 모델 보기 또는 변경(SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server?view=sql-server-2017)을 참조하세요.
-- 데이터베이스에 대해 전체 데이터베이스 백업을 수행해야 합니다. 전체 데이터베이스 백업을 만들려면 [방법: 전체 데이터베이스 백업 만들기(Transact-SQL)](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms191304(v=sql.105)) 문서를 참조하세요.
+- 데이터베이스는 대량 로그 또는 전체 복구 모드에 있어야 합니다. SQL Server 인스턴스에 대해 구성된 복구 모델을 확인하려면 [데이터베이스 복구 모델 보기 또는 변경(SQL Server)](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server?view=sql-server-2017)을 참조하세요.
+- 데이터베이스에 대해 전체 데이터베이스 백업을 수행해야 합니다. 전체 데이터베이스 백업을 만들려면 [방법: 전체 데이터베이스 백업 만들기(Transact-SQL)](/previous-versions/sql/sql-server-2008-r2/ms191304(v=sql.105)) 문서를 참조하세요.
 - 테이블 중 하나에 기본 키가 없으면 데이터베이스 및 특정 테이블에서 CDC(변경 데이터 캡처)를 사용하도록 설정합니다.
     > [!NOTE]
     > 아래 스크립트를 사용하여 기본 키가 없는 테이블을 찾을 수 있습니다.
@@ -89,7 +89,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     OBJECTPROPERTY(OBJECT_ID, 'TableHasPrimaryKey') = 0;
     ```
 
-    결과에 'is_tracked_by_cdc'가 '0'인 하나 이상의 테이블이 표시되면, [변경 데이터 캡처 설정 및 해제(SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017) 문서에서 설명하는 프로세스에 따라 데이터베이스 및 특정 테이블에 대한 변경 캡처를 사용하도록 설정합니다.
+    결과에 'is_tracked_by_cdc'가 '0'인 하나 이상의 테이블이 표시되면, [변경 데이터 캡처 설정 및 해제(SQL Server)](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017) 문서에서 설명하는 프로세스에 따라 데이터베이스 및 특정 테이블에 대한 변경 캡처를 사용하도록 설정합니다.
 
 - 원본 SQL Server에 대한 배포자 역할을 구성합니다.
 
@@ -103,7 +103,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     SELECT @installed as installed;
     ```
 
-    결과에서 복제 구성 요소를 설치하도록 제안하는 오류 메시지가 반환되면 [SQL Server 복제 설치](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-replication?view=sql-server-2017) 문서의 프로세스에 따라 SQL Server 복제 구성 요소를 설치합니다.
+    결과에서 복제 구성 요소를 설치하도록 제안하는 오류 메시지가 반환되면 [SQL Server 복제 설치](/sql/database-engine/install-windows/install-sql-server-replication?view=sql-server-2017) 문서의 프로세스에 따라 SQL Server 복제 구성 요소를 설치합니다.
 
     복제가 이미 설치되어 있으면 아래의 T-SQL 명령을 사용하여 원본 SQL Server에 배포 역할이 구성되어 있는지 확인합니다.
 
@@ -111,7 +111,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     EXEC sp_get_distributor;
     ```
 
-    배포가 설정되지 않은 경우, 즉 배포 서버에서 위 명령 출력에 대해 NULL을 표시하면 [배포 구성](https://docs.microsoft.com/sql/relational-databases/replication/configure-publishing-and-distribution?view=sql-server-2017) 문서에 제공된 지침에 따라 배포를 구성합니다.
+    배포가 설정되지 않은 경우, 즉 배포 서버에서 위 명령 출력에 대해 NULL을 표시하면 [배포 구성](/sql/relational-databases/replication/configure-publishing-and-distribution?view=sql-server-2017) 문서에 제공된 지침에 따라 배포를 구성합니다.
 
 - 대상 Azure SQL Database에서 데이터베이스 트리거를 사용하지 않도록 설정합니다.
     >[!NOTE]
@@ -123,11 +123,11 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     DISABLE TRIGGER (Transact-SQL)
     ```
 
-    자세한 내용은 [DISABLE TRIGGER(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017) 문서를 참조하세요. 
+    자세한 내용은 [DISABLE TRIGGER(Transact-SQL)](/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017) 문서를 참조하세요. 
 
 ## <a name="assess-your-on-premises-database"></a>온-프레미스 데이터베이스 평가
 
-SQL Server 인스턴스에서 Azure SQL Database로 데이터를 마이그레이션하려면 먼저 SQL Server 데이터베이스를 평가하여 마이그레이션을 방해할 수 있는 차단 문제가 있는지 확인해야 합니다. Data Migration Assistant v3.3 이상에서 [SQL Server 마이그레이션 평가 수행](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) 문서에 설명된 단계를 수행하여 온-프레미스 데이터베이스 평가를 완료합니다.
+SQL Server 인스턴스에서 Azure SQL Database로 데이터를 마이그레이션하려면 먼저 SQL Server 데이터베이스를 평가하여 마이그레이션을 방해할 수 있는 차단 문제가 있는지 확인해야 합니다. Data Migration Assistant v3.3 이상에서 [SQL Server 마이그레이션 평가 수행](/sql/dma/dma-assesssqlonprem) 문서에 설명된 단계를 수행하여 온-프레미스 데이터베이스 평가를 완료합니다.
 
 온-프레미스 데이터베이스를 평가하려면 다음 단계를 수행합니다.
 
@@ -146,7 +146,7 @@ SQL Server 인스턴스에서 Azure SQL Database로 데이터를 마이그레이
 5. **원본 추가** 대화 상자에서 **AdventureWorks2012** 를 선택하고 **추가** 를 선택한 후 **평가 시작** 을 선택합니다.
 
     > [!NOTE]
-    > SSIS를 사용하는 경우 DMA가 현재 원본 SSISDB의 평가를 지원하지 않습니다. 그러나 SSIS 프로젝트/패키지는 Azure SQL Database에서 호스팅하는 대상 SSISDB에 재배포되므로 평가/유효성 검사되지 않습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 문서를 참조하세요.
+    > SSIS를 사용하는 경우 DMA가 현재 원본 SSISDB의 평가를 지원하지 않습니다. 그러나 SSIS 프로젝트/패키지는 Azure SQL Database에서 호스팅하는 대상 SSISDB에 재배포되므로 평가/유효성 검사되지 않습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](./how-to-migrate-ssis-packages.md) 문서를 참조하세요.
 
     평가가 완료되면 다음 그래픽에 표시된 대로 결과가 표시됩니다.
 
@@ -167,7 +167,7 @@ SQL Server 인스턴스에서 Azure SQL Database로 데이터를 마이그레이
 > DMA에서 마이그레이션 프로젝트를 만들기 전에 필수 구성 요소에서 설명한 대로 Azure에서 SQL 데이터베이스를 이미 프로비저닝했는지 확인합니다. 이 자습서에서는 Azure SQL Database의 이름은 **AdventureWorksAzure** 로 가정하지만, 원하는 이름으로 지정할 수 있습니다.
 
 > [!IMPORTANT]
-> SSIS를 사용하는 경우 DMA는 현재 원본 SSISDB 마이그레이션을 지원하지 않지만 Azure SQL Database에서 호스팅하는 대상 SSISDB에 SSIS 프로젝트/패키지를 재배포할 수 있습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 문서를 참조하세요.
+> SSIS를 사용하는 경우 DMA는 현재 원본 SSISDB 마이그레이션을 지원하지 않지만 Azure SQL Database에서 호스팅하는 대상 SSISDB에 SSIS 프로젝트/패키지를 재배포할 수 있습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](./how-to-migrate-ssis-packages.md) 문서를 참조하세요.
 
 **AdventureWorks2012** 스키마를 단일 데이터베이스 또는 풀링된 데이터베이스 Azure SQL Database로 마이그레이션하려면 다음 단계를 수행합니다.
 
@@ -234,7 +234,7 @@ SQL Server 인스턴스에서 Azure SQL Database로 데이터를 마이그레이
 
     가상 네트워크는 원본 SQL Server 및 대상 Azure SQL Database 인스턴스에 대한 액세스 권한이 있는 Azure Database Migration Service를 제공합니다.
 
-    Azure Portal에서 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](https://aka.ms/DMSVnet) 문서를 참조하세요.
+    Azure Portal에서 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md) 문서를 참조하세요.
 
 6. 가격 책정 계층을 선택합니다.
 
@@ -287,7 +287,7 @@ SQL Server 인스턴스에서 Azure SQL Database로 데이터를 마이그레이
    ![원본 세부 정보](media/tutorial-sql-server-to-azure-sql-online/dms-source-details3.png)
 
     > [!IMPORTANT]
-    > SSIS를 사용하는 경우 DMS는 현재 원본 SSISDB 마이그레이션을 지원하지 않지만 Azure SQL Database에서 호스팅하는 대상 SSISDB에 SSIS 프로젝트/패키지를 재배포할 수 있습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 문서를 참조하세요.
+    > SSIS를 사용하는 경우 DMS는 현재 원본 SSISDB 마이그레이션을 지원하지 않지만 Azure SQL Database에서 호스팅하는 대상 SSISDB에 SSIS 프로젝트/패키지를 재배포할 수 있습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](./how-to-migrate-ssis-packages.md) 문서를 참조하세요.
 
 ## <a name="specify-target-details"></a>대상 세부 정보 지정
 
@@ -336,7 +336,7 @@ SQL Server 인스턴스에서 Azure SQL Database로 데이터를 마이그레이
     ![중단 시작](media/tutorial-sql-server-to-azure-sql-online/dms-start-cutover.png)
 
 2. 원본 데이터베이스로 들어오는 모든 트랜잭션을 중지해야 합니다. **보류 중인 변경 내용** 카운터가 **0** 으로 표시될 때까지 기다립니다.
-3. **확인** , **적용** 을 차례로 선택합니다.
+3. **확인**, **적용** 을 차례로 선택합니다.
 4. 데이터베이스 마이그레이션 상태가 **완료됨** 으로 표시되면 애플리케이션을 새 대상 Azure SQL Database에 연결합니다.
 
     ![작업 상태 - 완료됨](media/tutorial-sql-server-to-azure-sql-online/dms-activity-completed.png)
@@ -344,5 +344,5 @@ SQL Server 인스턴스에서 Azure SQL Database로 데이터를 마이그레이
 ## <a name="next-steps"></a>다음 단계
 
 - Azure SQL Database로 온라인 마이그레이션을 수행할 때 발생하는 알려진 문제 및 제한 사항에 대한 자세한 내용은 [Azure SQL Database 온라인 마이그레이션의 알려진 문제 및 해결 방법](known-issues-azure-sql-online.md) 문서를 참조하세요.
-- Azure Database Migration Service에 대한 자세한 내용은 [Azure Database Migration Service란?](https://docs.microsoft.com/azure/dms/dms-overview) 문서를 참조하세요.
-- Azure SQL Database에 대한 자세한 내용은 [Azure SQL Database 서비스란?](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) 문서를 참조하세요.
+- Azure Database Migration Service에 대한 자세한 내용은 [Azure Database Migration Service란?](./dms-overview.md) 문서를 참조하세요.
+- Azure SQL Database에 대한 자세한 내용은 [Azure SQL Database 서비스란?](../azure-sql/database/sql-database-paas-overview.md) 문서를 참조하세요.

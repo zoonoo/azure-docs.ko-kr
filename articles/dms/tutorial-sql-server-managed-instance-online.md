@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 744f71f0d9d20d6a815d26f89696898ebdbaab3d
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 3674c6a0579eb901cc490d08bb8a4893296884c4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392598"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954905"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 SQL Managed Instance로 온라인 마이그레이션
 
@@ -35,7 +35,7 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
 
 > [!IMPORTANT]
 > Azure Database Migration Service를 사용하여 SQL Server에서 SQL Managed Instance로 온라인 마이그레이션하려면 서버에서 데이터베이스를 마이그레이션하는 데 사용할 수 있는 SMB 네트워크의 전체 데이터베이스 백업 및 후속 로그 백업을 제공해야 합니다. Azure Database Migration Service는 백업을 새로 시작하는 것이 아니라 사용자가 재해 복구 계획의 일부로 보유한 기존 백업을 마이그레이션에 사용합니다.
-> [WITH CHECKSUM 옵션을 사용하여 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017&preserve-view=true)을 만들어야 합니다. 또한 여러 백업(즉, 전체 및 t-로그)을 단일 백업 미디어에 추가하면 안 됩니다. 각 백업을 별도의 백업 파일에 만들어야 합니다. 마지막으로, 압축된 백업을 사용하여 대량 백업 마이그레이션과 관련된 잠재적인 문제 발생 가능성을 줄일 수 있습니다.
+> [WITH CHECKSUM 옵션을 사용하여 백업](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?preserve-view=true&view=sql-server-2017)을 만들어야 합니다. 또한 여러 백업(즉, 전체 및 t-로그)을 단일 백업 미디어에 추가하면 안 됩니다. 각 백업을 별도의 백업 파일에 만들어야 합니다. 마지막으로, 압축된 백업을 사용하여 대량 백업 마이그레이션과 관련된 잠재적인 문제 발생 가능성을 줄일 수 있습니다.
 
 > [!NOTE]
 > Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다.
@@ -54,10 +54,10 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 Microsoft Azure Virtual Network를 만듭니다. 그러면 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. [Azure Database Migration Service를 사용한 SQL Managed Instance 마이그레이션에 대한 네트워크 토폴로지를 알아봅니다](https://aka.ms/dmsnetworkformi). 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/)를 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
+* Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 Microsoft Azure Virtual Network를 만듭니다. 그러면 [ExpressRoute](../expressroute/expressroute-introduction.md) 또는 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. [Azure Database Migration Service를 사용한 SQL Managed Instance 마이그레이션에 대한 네트워크 토폴로지를 알아봅니다](./resource-network-topologies.md). 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](../virtual-network/index.yml)를 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
 
     > [!NOTE]
-    > 가상 네트워크 설정 중에 Microsoft에 대한 네트워크 피어링에서 ExpressRoute를 사용하는 경우 서비스가 프로비저닝되는 서브넷에 다음 서비스 [엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)를 추가합니다.
+    > 가상 네트워크 설정 중에 Microsoft에 대한 네트워크 피어링에서 ExpressRoute를 사용하는 경우 서비스가 프로비저닝되는 서브넷에 다음 서비스 [엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 추가합니다.
     >
     > * 대상 데이터베이스 엔드포인트(예: SQL 엔드포인트, Cosmos DB 엔드포인트 등)
     > * 스토리지 엔드포인트
@@ -65,32 +65,32 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
     >
     > Azure Database Migration Service에는 인터넷 연결이 없으므로 이 구성이 필요합니다.
     >
-    >온-프레미스 네트워크와 Azure 사이에 사이트 간 연결이 없거나 사이트 간 연결 대역폭이 제한된 경우 하이브리드 모드(미리 보기)에서 Azure Database Migration Service를 사용하는 것이 좋습니다. 하이브리드 모드는 클라우드에서 실행 중인 Azure Database Migration Service 인스턴스와 함께 온-프레미스 마이그레이션 작업자를 활용합니다. 하이브리드 모드에서 Azure Database Migration Service의 인스턴스를 만들려면 [Azure Portal을 사용하여 하이브리드 모드에서 Azure Database Migration Service 인스턴스 만들기](https://aka.ms/dms-hybrid-create) 문서를 참조하세요.
+    >온-프레미스 네트워크와 Azure 사이에 사이트 간 연결이 없거나 사이트 간 연결 대역폭이 제한된 경우 하이브리드 모드(미리 보기)에서 Azure Database Migration Service를 사용하는 것이 좋습니다. 하이브리드 모드는 클라우드에서 실행 중인 Azure Database Migration Service 인스턴스와 함께 온-프레미스 마이그레이션 작업자를 활용합니다. 하이브리드 모드에서 Azure Database Migration Service의 인스턴스를 만들려면 [Azure Portal을 사용하여 하이브리드 모드에서 Azure Database Migration Service 인스턴스 만들기](./quickstart-create-data-migration-service-portal.md) 문서를 참조하세요.
 
     > [!IMPORTANT]
     > 마이그레이션의 일부로 사용되는 스토리지 계정과 관련하여 다음 중 하나를 수행해야 합니다.
     > * 모든 네트워크에서 스토리지 계정에 액세스할 수 있도록 허용합니다.
-    > * MI 서브넷에서 [서브넷 위임](https://docs.microsoft.com/azure/virtual-network/manage-subnet-delegation)을 켜고 이 서브넷을 허용하도록 스토리지 계정 방화벽 규칙을 업데이트합니다.
+    > * MI 서브넷에서 [서브넷 위임](../virtual-network/manage-subnet-delegation.md)을 켜고 이 서브넷을 허용하도록 스토리지 계정 방화벽 규칙을 업데이트합니다.
 
-* 가상 네트워크의 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 아웃바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445, 12000. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
-* [소스 데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
+* 가상 네트워크의 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 아웃바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445, 12000. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
+* [소스 데이터베이스 엔진 액세스를 위한 Windows 방화벽](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 * Azure Database Migration Service가 원본 SQL Server(기본적으로 1433 TCP 포트)에 액세스할 수 있도록 Windows 방화벽을 엽니다. 기본 인스턴스가 일부 다른 포트에서 수신 중인 경우 이를 방화벽에 추가합니다.
 * 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우 SQL Browser 서비스를 사용하도록 설정하고, 방화벽을 통해 1434 UDP 포트에 액세스하도록 허용하여 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있습니다.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service에서 마이그레이션을 위해 445 SMB 포트를 통해 파일뿐만 아니라 원본 데이터베이스에 액세스할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
-* [Azure Portal에서 SQL Managed Instance 만들기](https://aka.ms/sqldbmi) 문서의 세부 정보에 따라 SQL Managed Instance를 만듭니다.
+* [Azure Portal에서 SQL Managed Instance 만들기](../azure-sql/managed-instance/instance-create-quickstart.md) 문서의 세부 정보에 따라 SQL Managed Instance를 만듭니다.
 * 원본 SQL Server와 대상 SQL Managed Instance를 연결하는 데 사용되는 로그인이 sysadmin 서버 역할의 멤버인지 확인합니다.
 * Azure Database Migration Service가 데이터베이스 마이그레이션에 사용할 수 있는 모든 데이터베이스 전체 데이터베이스 백업 파일과 후속 트랜잭션 로그 백업 파일이 포함된 SMB 네트워크 공유를 제공합니다.
 * 원본 SQL Server 인스턴스를 실행 중인 서비스 계정에 본인이 만든 네트워크 공유에 대한 쓰기 권한이 있고, 원본 서버의 컴퓨터 계정에 동일한 공유에 대한 읽기/쓰기 액세스 권한이 있는지 확인합니다.
 * 이전에 만든 네트워크 공유에 대한 전체 제어 권한을 갖고 있는 Windows 사용자(및 암호)를 메모해 둡니다. Azure Database Migration Service는 사용자 자격 증명을 가장하여 복원 작업을 위한 Azure Storage 컨테이너에 백업 파일을 업로드합니다.
-* Azure Database Migration Service가 대상 Azure Database Managed Instance 및 Azure Storage 컨테이너에 연결하는 데 사용할 수 있는 애플리케이션 ID 키를 생성하는 Azure Active Directory 애플리케이션 ID를 만듭니다. 자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.
+* Azure Database Migration Service가 대상 Azure Database Managed Instance 및 Azure Storage 컨테이너에 연결하는 데 사용할 수 있는 애플리케이션 ID 키를 생성하는 Azure Active Directory 애플리케이션 ID를 만듭니다. 자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
   > [!NOTE]
-  > Azure Database Migration Service를 사용하려면 지정된 애플리케이션 ID용 구독에 대한 기여자 권한이 필요합니다. 또는 Azure Database Migration Service에 필요한 특정 권한을 부여하는 사용자 지정 역할을 만들 수 있습니다. 사용자 지정 역할을 사용하는 방법에 대한 단계별 지침은 [SQL Server에서 SQL Managed Instance로 온라인 마이그레이션하기 위한 사용자 지정 역할](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance) 문서를 참조하세요.
+  > Azure Database Migration Service를 사용하려면 지정된 애플리케이션 ID용 구독에 대한 기여자 권한이 필요합니다. 또는 Azure Database Migration Service에 필요한 특정 권한을 부여하는 사용자 지정 역할을 만들 수 있습니다. 사용자 지정 역할을 사용하는 방법에 대한 단계별 지침은 [SQL Server에서 SQL Managed Instance로 온라인 마이그레이션하기 위한 사용자 지정 역할](./resource-custom-roles-sql-db-managed-instance.md) 문서를 참조하세요.
 
-* DMS 서비스가 데이터베이스 백업 파일을 업로드하여 데이터베이스를 마이그레이션하는 데 사용할 수 있는 **표준 성능 계층** , Azure Storage 계정을 만들거나 기록합니다.  Azure Database Migration Service 인스턴스와 동일한 지역에 Azure Storage 계정을 만들어야 합니다.
+* DMS 서비스가 데이터베이스 백업 파일을 업로드하여 데이터베이스를 마이그레이션하는 데 사용할 수 있는 **표준 성능 계층**, Azure Storage 계정을 만들거나 기록합니다.  Azure Database Migration Service 인스턴스와 동일한 지역에 Azure Storage 계정을 만들어야 합니다.
 
   > [!NOTE]
-  > 온라인 마이그레이션을 사용하여 [투명한 데이터 암호화](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview)로 보호되는 데이터베이스를 관리형 인스턴스로 마이그레이션하는 경우 데이터베이스 복원 전에 온-프레미스 또는 Azure VM SQL Server 인스턴스의 해당 인증서를 마이그레이션해야 합니다. 자세한 단계는 [TDE 인증서를 관리형 인스턴스로 마이그레이션](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview)을 참조하세요.
+  > 온라인 마이그레이션을 사용하여 [투명한 데이터 암호화](../azure-sql/database/transparent-data-encryption-tde-overview.md)로 보호되는 데이터베이스를 관리형 인스턴스로 마이그레이션하는 경우 데이터베이스 복원 전에 온-프레미스 또는 Azure VM SQL Server 인스턴스의 해당 인증서를 마이그레이션해야 합니다. 자세한 단계는 [TDE 인증서를 관리형 인스턴스로 마이그레이션](../azure-sql/database/transparent-data-encryption-tde-overview.md)을 참조하세요.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
 
@@ -124,9 +124,9 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
 
     가상 네트워크는 원본 SQL Server 및 대상 SQL Managed Instance에 대한 액세스 권한이 있는 Azure Database Migration Service를 제공합니다.
 
-    Azure Portal에서 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](https://aka.ms/DMSVnet) 문서를 참조하세요.
+    Azure Portal에서 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md) 문서를 참조하세요.
 
-    자세한 내용은 [Azure Database Migration Service를 사용한 SQL Managed Instance 마이그레이션에 대한 네트워크 토폴로지](https://aka.ms/dmsnetworkformi) 문서를 참조하세요.
+    자세한 내용은 [Azure Database Migration Service를 사용한 SQL Managed Instance 마이그레이션에 대한 네트워크 토폴로지](./resource-network-topologies.md) 문서를 참조하세요.
 
 6. 프리미엄 가격 책정 계층에서 SKU를 선택합니다.
 
@@ -177,7 +177,7 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
    ![원본 데이터베이스 선택](media/tutorial-sql-server-to-managed-instance-online/dms-source-database1.png)
 
     > [!IMPORTANT]
-    > SSIS(SQL Server Integration Services)를 사용하는 경우 DMS는 현재 SSIS 프로젝트/패키지의 카탈로그 데이터베이스(SSISDB)를 SQL Server에서 SQL Managed Instance로 마이그레이션하는 기능을 지원하지 않습니다. 하지만 ADF(Azure Data Factory)에 SSIS를 프로비저닝하고 SQL Managed Instance에서 호스팅하는 대상 SSISDB에 SSIS 프로젝트/패키지를 재배포할 수 있습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 문서를 참조하세요.
+    > SSIS(SQL Server Integration Services)를 사용하는 경우 DMS는 현재 SSIS 프로젝트/패키지의 카탈로그 데이터베이스(SSISDB)를 SQL Server에서 SQL Managed Instance로 마이그레이션하는 기능을 지원하지 않습니다. 하지만 ADF(Azure Data Factory)에 SSIS를 프로비저닝하고 SQL Managed Instance에서 호스팅하는 대상 SSISDB에 SSIS 프로젝트/패키지를 재배포할 수 있습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](./how-to-migrate-ssis-packages.md) 문서를 참조하세요.
 
 5. **저장** 을 선택합니다.
 
@@ -185,11 +185,11 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
 
 1. **마이그레이션 대상 세부 정보** 화면에서 DMS 인스턴스가 SQL Managed Instance 및 Azure Storage Account의 대상 인스턴스에 연결하는 데 사용할 수 있는 **애플리케이션 ID** 와 **키** 를 지정합니다.
 
-    자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.
+    자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
 2. SQL Managed Instance의 대상 인스턴스가 포함된 **구독** 을 선택한 다음, 대상 인스턴스를 선택합니다.
 
-    SQL Managed Instance를 아직 프로비저닝하지 않은 경우 인스턴스를 프로비저닝하는 데 도움이 되는 [링크](https://aka.ms/SQLDBMI)를 선택합니다. SQL Managed Instance가 준비되면 이 프로젝트로 돌아가서 마이그레이션을 실행합니다.
+    SQL Managed Instance를 아직 프로비저닝하지 않은 경우 인스턴스를 프로비저닝하는 데 도움이 되는 [링크](../azure-sql/managed-instance/instance-create-quickstart.md)를 선택합니다. SQL Managed Instance가 준비되면 이 프로젝트로 돌아가서 마이그레이션을 실행합니다.
 
 3. SQL Managed Instance에 연결할 **SQL 사용자** 와 **암호** 를 입력합니다.
 
@@ -220,7 +220,7 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
     ![마이그레이션 설정 구성](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
     > [!NOTE]
-    > Azure Database Migration Service에 '시스템 오류 53' 또는 '시스템 오류 57' 오류가 표시되면 이로 인해 Azure Database Migration Service에서 Azure 파일 공유에 액세스하지 못할 수 있습니다. 이러한 오류 중 하나가 발생하면 [여기](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)의 지침을 사용하여 가상 네트워크에서 스토리지 계정에 대한 액세스 권한을 부여합니다.
+    > Azure Database Migration Service에 '시스템 오류 53' 또는 '시스템 오류 57' 오류가 표시되면 이로 인해 Azure Database Migration Service에서 Azure 파일 공유에 액세스하지 못할 수 있습니다. 이러한 오류 중 하나가 발생하면 [여기](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network)의 지침을 사용하여 가상 네트워크에서 스토리지 계정에 대한 액세스 권한을 부여합니다.
 
     > [!IMPORTANT]
     > 루프백 확인 기능을 사용하도록 설정되어 있고 원본 SQL Server와 파일 공유가 동일한 컴퓨터에 있으면 원본은 FQDN을 사용하여 파일 공유에 액세스할 수 없습니다. 이 문제를 해결하려면 [여기](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd)의 지침을 사용하여 루프백 확인 기능을 사용하지 않도록 설정합니다.
@@ -272,6 +272,6 @@ SQL Managed Instance의 대상 인스턴스에서 전체 데이터베이스 백�
 
 ## <a name="next-steps"></a>다음 단계
 
-* T-SQL RESTORE 명령을 사용하여 SQL Managed Instance로 데이터베이스를 마이그레이션하는 방법을 보여주는 자습서는 [복원 명령을 사용하여 백업을 SQL Managed Instance에 복원](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조하세요.
+* T-SQL RESTORE 명령을 사용하여 SQL Managed Instance로 데이터베이스를 마이그레이션하는 방법을 보여주는 자습서는 [복원 명령을 사용하여 백업을 SQL Managed Instance에 복원](../azure-sql/managed-instance/restore-sample-database-quickstart.md)을 참조하세요.
 * SQL Managed Instance에 대한 자세한 내용은 [SQL Managed Instance란?](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)을 참조하세요.
 * SQL Managed Instance에 앱을 연결하는 방법에 대한 자세한 내용은 [애플리케이션 연결](../azure-sql/managed-instance/connect-application-instance.md)을 참조하세요.

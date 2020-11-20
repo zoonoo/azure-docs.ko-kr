@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 1319b1b7a53303bad78c0b8e6701676755aa1484
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b6365e9488dc00ae1bec3217b52fefa534bb0671
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167851"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956316"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-for-sap-applications-multi-sid-guide"></a>SAP 응용 프로그램에 대 한 Red Hat Enterprise Linux Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드
 
@@ -128,9 +129,9 @@ Sap NetWeaver ASCS, sap NetWeaver SCS 및 SAP NetWeaver ERS는 가상 호스트 
   * NW3에 대 한 IP 주소: 10.3.1.54
 
 * 프로브 포트
-  * 포트 620<strong> &lt; NR &gt; </strong>, N W 1, n w 2 및 NW3 프로브 포트 620**00**, 620**10** 및 620**20**
+  * 포트 620 <strong> &lt; NR &gt;</strong>, N W 1, n w 2 및 NW3 프로브 포트 620 **00**, 620 **10** 및 620 **20**
 * 부하 분산 규칙-각 인스턴스, 즉 N W 1/ASCS, N W 2/ASCS 및 NW3/ASCS에 대해 하나씩 만듭니다.
-  * 표준 Load Balancer를 사용하는 경우 **HA 포트**를 선택합니다.
+  * 표준 Load Balancer를 사용하는 경우 **HA 포트** 를 선택합니다.
   * 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
     * 32<strong>&lt;nr&gt;</strong> TCP
     * 36<strong>&lt;nr&gt;</strong> TCP
@@ -148,9 +149,9 @@ Sap NetWeaver ASCS, sap NetWeaver SCS 및 SAP NetWeaver ERS는 가상 호스트 
   * NW3 10.3.1.55에 대 한 IP 주소
 
 * 프로브 포트
-  * 포트 621<strong> &lt; NR &gt; </strong>, N w 1, n w 2 및 N3 프로브 포트인 621**02**, 621**12** 및 621**22**
+  * 포트 621 <strong> &lt; NR &gt;</strong>, N w 1, n w 2 및 N3 프로브 포트인 621 **02**, 621 **12** 및 621 **22**
 * 부하 분산 규칙-각 인스턴스, 즉 N W 1/ERS, N W 2/ERS 및 NW3/ERS에 대해 하나를 만듭니다.
-  * 표준 Load Balancer를 사용하는 경우 **HA 포트**를 선택합니다.
+  * 표준 Load Balancer를 사용하는 경우 **HA 포트** 를 선택합니다.
   * 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
     * 32<strong>&lt;nr&gt;</strong> TCP
     * 33<strong>&lt;nr&gt;</strong> TCP
@@ -168,7 +169,7 @@ Sap NetWeaver ASCS, sap NetWeaver SCS 및 SAP NetWeaver ERS는 가상 호스트 
 > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps**를 **0**으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](../../../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
+> Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps** 를 **0** 으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](../../../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
 
 ## <a name="sap-shares"></a>SAP 공유
 
@@ -190,11 +191,11 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 ## <a name="deploy-additional-sap-systems-in-the-cluster"></a>클러스터에 추가 SAP 시스템 배포
 
-이 예제에서는 system **n w 1** 가 클러스터에 이미 배포 되어 있다고 가정 합니다. **N w 2** 및 **NW3**클러스터에서 배포 하는 방법을 보여 줍니다. 
+이 예제에서는 system **n w 1** 가 클러스터에 이미 배포 되어 있다고 가정 합니다. **N w 2** 및 **NW3** 클러스터에서 배포 하는 방법을 보여 줍니다. 
 
 다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소 
+### <a name="prerequisites"></a>사전 요구 사항 
 
 > [!IMPORTANT]
 > 클러스터에 추가 SAP 시스템을 배포 하기 위한 지침을 수행 하기 전에 첫 번째 시스템 배포 중에만 필요한 단계를 설명 하는 지침에 따라 클러스터의 첫 번째 SAP 시스템을 배포 합니다.  
@@ -246,7 +247,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
     sudo chattr +i /usr/sap/NW3/ERS22
    ```
 
-4. **[A]** 클러스터에 배포 하는 추가 sap 시스템에 대 한/Sapmnt/SID 및/usr/sap/SID/SYS 파일 시스템의 탑재 항목을 추가 합니다. 이 예제에서는 **n w 2** 및 **NW3**입니다.  
+4. **[A]** 클러스터에 배포 하는 추가 sap 시스템에 대 한/Sapmnt/SID 및/usr/sap/SID/SYS 파일 시스템의 탑재 항목을 추가 합니다. 이 예제에서는 **n w 2** 및 **NW3** 입니다.  
 
    `/etc/fstab`클러스터에 배포 하는 추가 SAP 시스템의 파일 시스템을 사용 하 여 파일을 업데이트 합니다.  
 
@@ -287,7 +288,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 2. **[1]** SAP NetWeaver ASCS 설치  
 
-   ASCS에 대 한 부하 분산 장치 프런트 엔드 구성의 IP 주소에 매핑되는 가상 호스트 이름을 사용 하 여 SAP NetWeaver ASCS를 루트로 설치 합니다. 예를 들어 시스템 **n w 2**의 경우 가상 호스트 이름은 <b>msnw2ascs</b>, <b>10.3.1.52</b> 및 부하 분산 장치 프로브에 사용한 인스턴스 번호 (예: <b>10</b>)입니다. 시스템 **NW3**경우 가상 호스트 이름은 <b>msnw3ascs</b>, <b>10.3.1.54</b> 및 부하 분산 장치 프로브에 사용한 인스턴스 번호 (예: <b>20</b>)입니다. 각 SAP SID에 대해 ASCS를 설치한 클러스터 노드를 적어둡니다.  
+   ASCS에 대 한 부하 분산 장치 프런트 엔드 구성의 IP 주소에 매핑되는 가상 호스트 이름을 사용 하 여 SAP NetWeaver ASCS를 루트로 설치 합니다. 예를 들어 시스템 **n w 2** 의 경우 가상 호스트 이름은 <b>msnw2ascs</b>, <b>10.3.1.52</b> 및 부하 분산 장치 프로브에 사용한 인스턴스 번호 (예: <b>10</b>)입니다. 시스템 **NW3** 경우 가상 호스트 이름은 <b>msnw3ascs</b>, <b>10.3.1.54</b> 및 부하 분산 장치 프로브에 사용한 인스턴스 번호 (예: <b>20</b>)입니다. 각 SAP SID에 대해 ASCS를 설치한 클러스터 노드를 적어둡니다.  
 
    sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다. 매개 변수 SAPINST_USE_HOSTNAME를 사용 하 여 가상 호스트 이름을 사용 하 여 SAP를 설치할 수 있습니다.  
 
@@ -297,7 +298,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
     sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
     ```
 
-   /Usr/sap/**sid**/ASCS**instance #** 에서 하위 폴더를 만들지 못한 경우에는 소유자를 **SID**adm으로 설정 하 고 sapsys를 ascs**인스턴스 #** 로 설정 하 고 다시 시도 하세요.
+   /Usr/sap/**sid**/ASCS **instance #** 에서 하위 폴더를 만들지 못한 경우에는 소유자를 **SID** adm으로 설정 하 고 sapsys를 ascs **인스턴스 #** 로 설정 하 고 다시 시도 하세요.
 
 3. **[1]** 클러스터에 배포 하는 추가 SAP 시스템의 ERS 인스턴스에 대 한 가상 IP 및 상태 프로브 클러스터 리소스를 만듭니다. 여기에 나와 있는 예제는 **n w 2** 및 **NW3** ERS에 대 한 것 이며, NFSv3 프로토콜을 사용 하는 Azure NetApp Files 볼륨에서 NFS를 사용 합니다.  
 
@@ -337,7 +338,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 4. **[2]** SAP NetWeaver ERS 설치
 
-   해당 ERS에 대 한 부하 분산 장치 프런트 엔드 구성의 IP 주소에 매핑되는 가상 호스트 이름을 사용 하 여 다른 노드에 SAP NetWeaver ERS를 루트로 설치 합니다. 예를 들어 system **n w 2**의 경우 가상 호스트 이름은 <b>msnw2ers</b>, <b>10.3.1.53</b> 및 부하 분산 장치 프로브에 사용한 인스턴스 번호 (예: <b>12</b>)가 됩니다. 시스템 **NW3**경우 가상 호스트 이름 <b>msnw3ers</b>, <b>10.3.1.55</b> 및 부하 분산 장치 프로브에 사용한 인스턴스 번호 (예: <b>22</b>). 
+   해당 ERS에 대 한 부하 분산 장치 프런트 엔드 구성의 IP 주소에 매핑되는 가상 호스트 이름을 사용 하 여 다른 노드에 SAP NetWeaver ERS를 루트로 설치 합니다. 예를 들어 system **n w 2** 의 경우 가상 호스트 이름은 <b>msnw2ers</b>, <b>10.3.1.53</b> 및 부하 분산 장치 프로브에 사용한 인스턴스 번호 (예: <b>12</b>)가 됩니다. 시스템 **NW3** 경우 가상 호스트 이름 <b>msnw3ers</b>, <b>10.3.1.55</b> 및 부하 분산 장치 프로브에 사용한 인스턴스 번호 (예: <b>22</b>). 
 
    sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다. 매개 변수 SAPINST_USE_HOSTNAME를 사용 하 여 가상 호스트 이름을 사용 하 여 SAP를 설치할 수 있습니다.  
 
@@ -350,9 +351,9 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
    > [!NOTE]
    > SWPM SP 20 PL 05 이상을 사용합니다. 그 이전 버전은 권한을 올바르게 설정하지 않으므로 설치가 실패합니다.
 
-   /Usr/sap/**n w 2**/ers**인스턴스 #** 에서 하위 폴더를 만들지 못한 경우에는 소유자를 **sid**adm으로 설정 하 고 그룹을 ERS**인스턴스 #** 폴더의 sapsys로 설정 하 고 다시 시도 하세요.
+   /Usr/sap/**n w 2**/ers **인스턴스 #** 에서 하위 폴더를 만들지 못한 경우에는 소유자를 **sid** adm으로 설정 하 고 그룹을 ERS **인스턴스 #** 폴더의 sapsys로 설정 하 고 다시 시도 하세요.
 
-   새로 배포 된 SAP 시스템의 ERS 그룹을 다른 클러스터 노드로 마이그레이션하려는 경우에는 해당 그룹에 대 한 위치 제약 조건을 제거 해야 합니다. 다음 명령을 실행 하 여 제약 조건을 제거할 수 있습니다. 예는 SAP systems **n w 2** and **NW3**에 대해 제공 됩니다. 명령에서 사용한 것과 같은 리소스에 대 한 임시 제약 조건을 제거 하 여 ERS 클러스터 그룹을 이동 해야 합니다.
+   새로 배포 된 SAP 시스템의 ERS 그룹을 다른 클러스터 노드로 마이그레이션하려는 경우에는 해당 그룹에 대 한 위치 제약 조건을 제거 해야 합니다. 다음 명령을 실행 하 여 제약 조건을 제거할 수 있습니다. 예는 SAP systems **n w 2** and **NW3** 에 대해 제공 됩니다. 명령에서 사용한 것과 같은 리소스에 대 한 임시 제약 조건을 제거 하 여 ERS 클러스터 그룹을 이동 해야 합니다.
 
     ```
       pcs resource clear fs_NW2_AERS
@@ -391,7 +392,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 6. **[A]** /usr/sap/sapservices 파일 업데이트
 
-   Sapinit 시작 스크립트를 통해 인스턴스의 시작을 방지 하려면 Pacemaker에서 관리 하는 모든 인스턴스를 파일에서 주석 처리 해야 합니다 `/usr/sap/sapservices` .  아래에 표시 된 예제는 SAP systems **n w 2** 및 **NW3**에 대 한 것입니다.  
+   Sapinit 시작 스크립트를 통해 인스턴스의 시작을 방지 하려면 Pacemaker에서 관리 하는 모든 인스턴스를 파일에서 주석 처리 해야 합니다 `/usr/sap/sapservices` .  아래에 표시 된 예제는 SAP systems **n w 2** 및 **NW3** 에 대 한 것입니다.  
 
    ```
     # On the node where ASCS was installed, comment out the line for the ASCS instacnes
@@ -542,7 +543,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
         rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
     ```
 
-8. **[A]** 두 노드에 ascs 및 ERS에 대 한 방화벽 규칙을 추가 합니다.  아래 예제에서는 SAP systems **n w 2** 및 **NW3**둘 다에 대 한 방화벽 규칙을 보여 줍니다.  
+8. **[A]** 두 노드에 ascs 및 ERS에 대 한 방화벽 규칙을 추가 합니다.  아래 예제에서는 SAP systems **n w 2** 및 **NW3** 둘 다에 대 한 방화벽 규칙을 보여 줍니다.  
 
    ```
     # NW2 - ASCS
