@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
-ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bbfca4d890440574ee6717ca910969226fc781a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283431"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987068"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Azure에서 Ethereum 증명 기관 컨소시엄 솔루션 템플릿 배포
 
@@ -48,7 +48,7 @@ Ethereum 솔루션 템플릿을 사용 하 여 단일 또는 다중 지역 기�
 * 로그 및 성능 통계를 집계하기 위한 Azure Monitor
 * 프라이빗 VNet 간 VPN 연결을 허용하기 위한 VNet 게이트웨이(선택 사항)
 
-기본적으로 RPC 및 피어링 엔드포인트는 공용 IP를 통해 액세스할 수 있으므로 구독 및 클라우드 간 연결을 간소화할 수 있습니다. 응용 프로그램 수준 액세스 제어의 경우 [패리티의 권한 부여 계약](https://wiki.parity.io/Permissioning)을 사용할 수 있습니다. 구독 간 연결에 VNet 게이트웨이를 활용 하는 Vpn을 통해 배포 된 네트워크를 지원 합니다. VPN 및 VNet 배포는 더 복잡 하기 때문에 솔루션을 프로토타입 할 때 공용 IP 모델을 시작 하는 것이 좋습니다.
+기본적으로 RPC 및 피어링 엔드포인트는 공용 IP를 통해 액세스할 수 있으므로 구독 및 클라우드 간 연결을 간소화할 수 있습니다. 응용 프로그램 수준 액세스 제어의 경우 패리티의 권한 부여 계약을 사용할 수 있습니다. 구독 간 연결에 VNet 게이트웨이를 활용 하는 Vpn을 통해 배포 된 네트워크를 지원 합니다. VPN 및 VNet 배포는 더 복잡 하기 때문에 솔루션을 프로토타입 할 때 공용 IP 모델을 시작 하는 것이 좋습니다.
 
 Docker 컨테이너는 안정성 및 모듈화에 사용 됩니다. Azure Container Registry는 각 배포의 일부로 버전이 지정 된 이미지를 호스트 하 고 제공 하는 데 사용 됩니다. 컨테이너 이미지는 다음과 같이 구성됩니다.
 
@@ -71,10 +71,10 @@ Id 저장소는 생성 된 Ethereum id를 안전 하 게 보관 하는 각 멤�
 
 1. 세 명의 멤버가 각각 MetaMask를 사용하여 Ethereum 계정을 생성합니다.
 1. *Member a* 가 Ethereum poa를 배포 하 고 해당 Ethereum 공용 주소를 제공 합니다.
-1. *멤버 A*가 *멤버 B* 및 *멤버 C*에게 컨소시엄 URL을 제공합니다.
-1. *멤버 B* 및 *멤버 C*가 Ethereum PoA를 배포하여 해당 Ethereum 공용 주소 및 *멤버 A*의 컨소시엄 URL을 제공합니다.
-1. *멤버 A*가 *멤버 B*에게 관리자로 투표합니다.
-1. *멤버 A* 및 *멤버 B*가 모두 *멤버 C*에게 관리자로 투표합니다.
+1. *멤버 A* 가 *멤버 B* 및 *멤버 C* 에게 컨소시엄 URL을 제공합니다.
+1. *멤버 B* 및 *멤버 C* 가 Ethereum PoA를 배포하여 해당 Ethereum 공용 주소 및 *멤버 A* 의 컨소시엄 URL을 제공합니다.
+1. *멤버 A* 가 *멤버 B* 에게 관리자로 투표합니다.
+1. *멤버 A* 및 *멤버 B* 가 모두 *멤버 C* 에게 관리자로 투표합니다.
 
 다음 섹션에서는 네트워크에서 첫 번째 구성원의 공간을 구성 하는 방법을 보여 줍니다.
 
@@ -84,13 +84,13 @@ Id 저장소는 생성 된 Ethereum id를 안전 하 게 보관 하는 각 멤�
 
 **Blockchain**  >  **Ethereum 인증 기관 Consortium (미리 보기)** 를 선택 합니다.
 
-### <a name="basics"></a>기본 사항
+### <a name="basics"></a>기본
 
-**기본**에서 배포에 대 한 표준 매개 변수의 값을 지정 합니다.
+**기본** 에서 배포에 대 한 표준 매개 변수의 값을 지정 합니다.
 
-![기본 사항](./media/ethereum-poa-deployment/basic-blade.png)
+![기본](./media/ethereum-poa-deployment/basic-blade.png)
 
-매개 변수 | 설명 | 예제 값
+매개 변수 | Description | 예제 값
 ----------|-------------|--------------
 새 네트워크를 만들거나 기존 네트워크에 가입 | 새 consortium 네트워크를 만들거나 기존 컨소시엄 네트워크에 가입할 수 있습니다. 기존 네트워크를 조인 하려면 추가 매개 변수가 필요 합니다. | 새로 만들기
 메일 주소 | 배포가 완료 되 면 배포에 대 한 정보를 사용 하 여 전자 메일 알림을 받게 됩니다. | 유효한 전자 메일 주소
@@ -101,29 +101,29 @@ Subscription | 컨소시엄 네트워크를 배포하는 구독 |
 리소스 그룹| 컨소시엄 네트워크를 배포하는 리소스 그룹. | myResourceGroup
 위치 | 리소스 그룹에 대한 Azure 지역입니다. | 미국 서부 2
 
-**확인**을 선택합니다.
+**확인** 을 선택합니다.
 
 ### <a name="deployment-regions"></a>배포 지역
 
-*배포 지역*에서 각에 대 한 지역 및 위치 수를 지정 합니다. 최대 5 개 지역에 배포할 수 있습니다. 첫 번째 지역은 *기본 사항* 섹션의 리소스 그룹 위치와 일치 해야 합니다. 개발 또는 테스트 네트워크의 경우에는 멤버 당 단일 지역을 사용할 수 있습니다. 프로덕션의 경우 고가용성을 위해 둘 이상의 지역에 배포 합니다.
+*배포 지역* 에서 각에 대 한 지역 및 위치 수를 지정 합니다. 최대 5 개 지역에 배포할 수 있습니다. 첫 번째 지역은 *기본 사항* 섹션의 리소스 그룹 위치와 일치 해야 합니다. 개발 또는 테스트 네트워크의 경우에는 멤버 당 단일 지역을 사용할 수 있습니다. 프로덕션의 경우 고가용성을 위해 둘 이상의 지역에 배포 합니다.
 
 ![배포 지역](./media/ethereum-poa-deployment/deployment-regions.png)
 
-매개 변수 | 설명 | 예제 값
+매개 변수 | Description | 예제 값
 ----------|-------------|--------------
 지역 수|컨소시엄 네트워크를 배포하는 지역 수| 2
 첫 번째 지역 | 컨소시엄 네트워크를 배포하는 첫 번째 지역 | 미국 서부 2
 두 번째 지역 | 컨소시엄 네트워크를 배포 하는 두 번째 지역입니다. 영역 수가 둘 이상인 경우에는 추가 지역이 표시 됩니다. | 미국 동부 2
 
-**확인**을 선택합니다.
+**확인** 을 선택합니다.
 
 ### <a name="network-size-and-performance"></a>네트워크 크기 및 성능
 
-*네트워크 크기 및 성능*에서 consortium 네트워크 크기에 대 한 입력을 지정 합니다. 유효성 검사기 노드 저장소 크기는 블록 체인의 잠재적 크기를 결정 합니다. 배포 후에 크기를 변경할 수 있습니다.
+*네트워크 크기 및 성능* 에서 consortium 네트워크 크기에 대 한 입력을 지정 합니다. 유효성 검사기 노드 저장소 크기는 블록 체인의 잠재적 크기를 결정 합니다. 배포 후에 크기를 변경할 수 있습니다.
 
 ![네트워크 크기 및 성능](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
-매개 변수 | 설명 | 예제 값
+매개 변수 | Description | 예제 값
 ----------|-------------|--------------
 부하가 분산된 유효성 검사기 노드 수 | 네트워크의 일부로 프로 비전 할 유효성 검사기 노드의 수입니다. | 2
 유효성 검사기 노드 스토리지 성능 | 배포 된 각 유효성 검사기 노드에 대 한 관리 디스크의 유형입니다. 가격 책정에 대 한 자세한 내용은 [저장소 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) 을 참조 하세요. | 표준 SSD
@@ -137,15 +137,15 @@ F1|표준 SSD|low|low|high
 D2_v3|표준 SSD|중간|중간|중간
 F16s|프리미엄 SSD|high|high|low
 
-**확인**을 선택합니다.
+**확인** 을 선택합니다.
 
 ### <a name="ethereum-settings"></a>Ethereum 설정
 
-*Ethereum 설정*에서 Ethereum 관련 구성 설정을 지정 합니다.
+*Ethereum 설정* 에서 Ethereum 관련 구성 설정을 지정 합니다.
 
 ![Ethereum 설정](./media/ethereum-poa-deployment/ethereum-settings.png)
 
-매개 변수 | 설명 | 예제 값
+매개 변수 | Description | 예제 값
 ----------|-------------|--------------
 컨소시엄 멤버 ID | 컨소시엄 네트워크에 참여 하는 각 멤버와 연결 된 ID입니다. 이는 충돌을 방지 하기 위해 IP 주소 공간을 구성 하는 데 사용 됩니다. 개인 네트워크의 경우 구성원 ID는 동일한 네트워크에 있는 여러 조직에서 고유 해야 합니다.  고유 멤버 ID는 같은 조직이 여러 지역에 배포하는 경우에도 필요합니다. 충돌이 발생 하지 않도록 하기 위해 다른 조인 멤버와 공유 해야 하므로이 매개 변수의 값을 기록해 둡니다. 유효한 범위는 0에서 255 까지입니다. | 0
 네트워크 ID | 배포하는 컨소시엄 Ethereum 네트워크의 네트워크 ID입니다. 각 Ethereum 네트워크에는 공용 네트워크에 대한 ID를 1로 하는 자체의 네트워크 ID가 있습니다. 유효한 범위는 5에서 999999999 까지입니다. | 10101010
@@ -156,7 +156,7 @@ F16s|프리미엄 SSD|high|high|low
 블록 다시 봉인 기간(초) | 네트워크에 트랜잭션이 없을 때 빈 블록이 작성되는 빈도입니다. 빈도가 높으면 블록이 더 빨리 작성되지만 스토리지 비용이 증가합니다. | 15
 트랜잭션 권한 계약 | 트랜잭션 권한 지정 계약에 대한 바이트 코드입니다. 허용 되는 Ethereum 계정 목록으로 스마트 계약 배포 및 실행을 제한 합니다. |
 
-**확인**을 선택합니다.
+**확인** 을 선택합니다.
 
 ### <a name="monitoring"></a>모니터링
 
@@ -164,7 +164,7 @@ F16s|프리미엄 SSD|high|high|low
 
 ![Azure Monitor](./media/ethereum-poa-deployment/azure-monitor.png)
 
-매개 변수 | 설명 | 예제 값
+매개 변수 | Description | 예제 값
 ----------|-------------|--------------
 모니터링 | 모니터링을 사용 하도록 설정 하는 옵션 | 사용
 기존 Azure Monitor 로그에 연결 | 새 Azure Monitor 로그 인스턴스를 만들거나 기존 인스턴스에 조인 하는 옵션 | 새로 만들기
@@ -172,7 +172,7 @@ F16s|프리미엄 SSD|high|high|low
 기존 log analytics 작업 영역 ID (기존 Azure Monitor 로그에 연결 = 기존 조인)|기존 Azure Monitor logs 인스턴스의 작업 영역 ID||해당 없음
 기존 log analytics 기본 키 (기존 Azure Monitor 로그에 연결 = 기존 조인)|기존 Azure Monitor logs 인스턴스에 연결 하는 데 사용 되는 기본 키입니다.||해당 없음
 
-**확인**을 선택합니다.
+**확인** 을 선택합니다.
 
 ### <a name="summary"></a>요약
 
@@ -197,7 +197,7 @@ F16s|프리미엄 SSD|high|high|low
 배포가 성공적으로 완료 되 고 모든 리소스가 프로 비전 되 면 리소스 그룹에서 출력 매개 변수를 볼 수 있습니다.
 
 1. 포털에서 리소스 그룹으로 이동 합니다.
-1. **개요 > 배포**를 선택 합니다.
+1. **개요 > 배포** 를 선택 합니다.
 
     ![리소스 그룹 개요](./media/ethereum-poa-deployment/resource-group-overview.png)
 
@@ -220,7 +220,7 @@ F16s|프리미엄 SSD|high|high|low
 
 배포 구성원은 다음 지침을 사용 하 여 네트워크 상태를 배포할 때 동일한 Ethereum 증명 기관 컨소시엄 솔루션 템플릿을 사용 해야 합니다.
 
-* **기존 조인**을 선택합니다.
+* **기존 조인** 을 선택합니다.
 * 공평 하 게 표현할 수 있도록 네트워크에서 나머지 멤버와 동일한 수의 유효성 검사기 노드를 선택 합니다.
 * 동일한 Admin Ethereum 주소를 사용 합니다.
 * *Ethereum 설정* 에서 제공 된 *Consortium 데이터 Url* 사용
@@ -313,7 +313,7 @@ ParityLog_CL
 
 ## <a name="ssh-access"></a>SSH 액세스
 
-보안상의 이유로 SSH 포트 액세스는 기본적으로 네트워크 그룹 보안 규칙에 의해 거부됩니다. PoA 네트워크의 가상 머신 인스턴스에 액세스 하려면 다음 보안 규칙을 *허용*으로 변경 해야 합니다.
+보안상의 이유로 SSH 포트 액세스는 기본적으로 네트워크 그룹 보안 규칙에 의해 거부됩니다. PoA 네트워크의 가상 머신 인스턴스에 액세스 하려면 다음 보안 규칙을 *허용* 으로 변경 해야 합니다.
 
 1. Azure Portal에서 배포 된 리소스 그룹의 **개요** 섹션으로 이동 합니다.
 
@@ -331,7 +331,7 @@ ParityLog_CL
 
     ![SSH 사용 허용](./media/ethereum-poa-deployment/ssh-enable-allow.png)
 
-1. **저장**을 선택합니다. 변경 내용을 적용 하는 데 몇 분 정도 걸릴 수 있습니다.
+1. **저장** 을 선택합니다. 변경 내용을 적용 하는 데 몇 분 정도 걸릴 수 있습니다.
 
 제공 된 관리자 사용자 이름 및 암호/s s p 키를 사용 하 여 SSH를 통해 유효성 검사기 노드의 가상 컴퓨터에 원격으로 연결할 수 있습니다. 첫 번째 유효성 검사기 노드에 액세스 하는 SSH 명령이 템플릿 배포 출력에 나열 됩니다. 예를 들면 다음과 같습니다.
 
@@ -341,7 +341,7 @@ ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
 
 추가 트랜잭션 노드를 가져오려면 포트 번호를 1 씩 증가 시킵니다.
 
-둘 이상의 지역에 배포 하는 경우 명령을 해당 지역에서 부하 분산 장치의 DNS 이름이 나 IP 주소로 변경 합니다. 다른 지역의 dns 이름 또는 IP 주소를 찾으려면 명명 규칙 ** \* \* \* \* \* -lbpip-reg \# ** 를 사용 하 여 리소스를 찾고 해당 dns 이름 및 ip 주소 속성을 확인 합니다.
+둘 이상의 지역에 배포 하는 경우 명령을 해당 지역에서 부하 분산 장치의 DNS 이름이 나 IP 주소로 변경 합니다. 다른 지역의 dns 이름 또는 IP 주소를 찾으려면 명명 규칙 **\* \* \* \* \* -lbpip-reg \#** 를 사용 하 여 리소스를 찾고 해당 dns 이름 및 ip 주소 속성을 확인 합니다.
 
 ## <a name="azure-traffic-manager-load-balancing"></a>Azure Traffic Manager 부하 분산
 
@@ -354,7 +354,7 @@ Traffic Manager 프로필을 만들려는 경우 네트워크에 액세스하기
 ### <a name="creating-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 위 모서리에서 **리소스 만들기** 를 선택 합니다.
-1. **Traffic Manager 프로필**을 검색 합니다.
+1. **Traffic Manager 프로필** 을 검색 합니다.
 
     ![Azure Traffic Manager 검색](./media/ethereum-poa-deployment/traffic-manager-search.png)
 
@@ -370,7 +370,7 @@ Traffic Manager 프로필을 만들려는 경우 네트워크에 액세스하기
 
 1. **끝점** 탭을 선택 하 고 **추가** 단추를 선택 합니다.
 1. 그런 다음 엔드포인트에 고유한 이름을 지정하고
-1. **대상 리소스 종류**에 대해 **공용 IP 주소**를 선택 합니다.
+1. **대상 리소스 종류** 에 대해 **공용 IP 주소** 를 선택 합니다.
 1. 첫 번째 지역의 부하 분산 장치에 대 한 공용 IP 주소를 선택 합니다.
 
     ![Traffic Manager 라우팅](./media/ethereum-poa-deployment/traffic-manager-routing.png)
@@ -523,7 +523,7 @@ MetaMask를 설치한 후 브라우저에서 거버넌스 DApp로 이동합니�
 
 ### <a name="candidates"></a>후보
 
-**후보** 탭을 선택 하면 현재 후보 관리자 집합이 표시 됩니다.  현재 관리자의 과반수 투표에 도달 하면 후보는 관리자로 승격 됩니다.  후보에 투표 하려면 행을 선택 하 고 **투표**를 선택 합니다. 투표를 변경 하는 경우 후보를 선택 하 고 **Rescind 투표**를 선택 합니다.
+**후보** 탭을 선택 하면 현재 후보 관리자 집합이 표시 됩니다.  현재 관리자의 과반수 투표에 도달 하면 후보는 관리자로 승격 됩니다.  후보에 투표 하려면 행을 선택 하 고 **투표** 를 선택 합니다. 투표를 변경 하는 경우 후보를 선택 하 고 **Rescind 투표** 를 선택 합니다.
 
 ![후보](./media/ethereum-poa-deployment/governance-dapp-candidates.png)
 
@@ -535,7 +535,7 @@ MetaMask를 설치한 후 브라우저에서 거버넌스 DApp로 이동합니�
 
 ### <a name="validators"></a>유효성 검사기
 
-**유효성 검사기** 탭을 선택 하면 인스턴스에 대 한 현재 배포 된 패리티 노드와 현재 상태 (노드 유형)가 표시 됩니다. 이 보기는 현재 배포 된 컨소시엄 멤버를 나타내므로 각 consortium 구성원에는이 목록에 있는 다른 유효성 검사기 집합이 있습니다. 인스턴스를 새로 배포 하 고 유효성 검사기를 추가 하지 않은 경우에는 **유효성 검사기를 추가할**수 있는 옵션이 제공 됩니다. 유효성 검사기를 추가 하면 자동으로 지역적으로 분산 된 패리티 노드 집합이 선택 되 고 유효성 검사기 집합에 할당 됩니다. 허용 된 용량 보다 더 많은 노드를 배포한 경우 나머지 노드는 네트워크의 트랜잭션 노드가 됩니다.
+**유효성 검사기** 탭을 선택 하면 인스턴스에 대 한 현재 배포 된 패리티 노드와 현재 상태 (노드 유형)가 표시 됩니다. 이 보기는 현재 배포 된 컨소시엄 멤버를 나타내므로 각 consortium 구성원에는이 목록에 있는 다른 유효성 검사기 집합이 있습니다. 인스턴스를 새로 배포 하 고 유효성 검사기를 추가 하지 않은 경우에는 **유효성 검사기를 추가할** 수 있는 옵션이 제공 됩니다. 유효성 검사기를 추가 하면 자동으로 지역적으로 분산 된 패리티 노드 집합이 선택 되 고 유효성 검사기 집합에 할당 됩니다. 허용 된 용량 보다 더 많은 노드를 배포한 경우 나머지 노드는 네트워크의 트랜잭션 노드가 됩니다.
 
 각 유효성 검사기의 주소는 Azure의 [ID 저장소](#identity-store)를 통해 자동으로 할당됩니다.  노드가 다운 되 면 해당 id를 내어 줍니다 배포의 다른 노드가 해당 위치를 사용할 수 있습니다. 이 프로세스를 통해 합의 참여를 항상 사용할 수 있습니다.
 
@@ -561,7 +561,7 @@ MetaMask를 설치한 후 브라우저에서 거버넌스 DApp로 이동합니�
 
 다음 예제에서는 간단한 스마트 계약을 만듭니다. Truffle를 사용 하 여 스마트 계약을 컴파일하여 blockchain 네트워크에 배포 합니다. 배포 된 후에는 트랜잭션을 통해 스마트 계약 함수를 호출 합니다.
 
-#### <a name="prerequisites"></a>필수 구성 요소
+#### <a name="prerequisites"></a>필수 조건
 
 * [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)를 설치합니다. Python은 Truffle 및 Web3에 필요 합니다. 설치 옵션을 선택 하 여 경로에 Python을 포함 합니다.
 * Truffle v 5.0.5 `npm install -g truffle@v5.0.5` 를 설치 합니다. Truffle을 사용하려면 [Node.js](https://nodejs.org), [Git](https://git-scm.com/)를 포함한 여러 도구를 설치해야 합니다. 자세한 내용은 [Truffle 설명서](https://github.com/trufflesuite/truffle)를 참조 하세요.
@@ -582,7 +582,7 @@ MetaMask를 설치한 후 브라우저에서 거버넌스 DApp로 이동합니�
 Truffle 프로젝트의 **계약** 하위 디렉터리에서 스마트 계약을 만듭니다.
 
 1. `postBox.sol`Truffle 프로젝트의 **계약** 하위 디렉터리에 있는 라는 파일을 만듭니다.
-1. **Postbox**에 다음 농담 코드를 추가 합니다.
+1. **Postbox** 에 다음 농담 코드를 추가 합니다.
 
     ```javascript
     pragma solidity ^0.5.0;
@@ -605,7 +605,7 @@ Truffle 프로젝트에는 blockchain 네트워크 연결 정보에 대 한 구�
 > [!WARNING]
 > 네트워크를 통해 Ethereum 개인 키를 보내지 마세요. 각 트랜잭션을 로컬에서 먼저 서명한 다음, 네트워크를 통해 서명된 트랜잭션을 보내도록 합니다.
 
-1. [Blockchain 네트워크를 배포할 때 사용 되는 Ethereum 관리자 계정](#ethereum-settings)에 대 한 니모닉 구가 필요 합니다. MetaMask를 사용 하 여 계정을 만든 경우 MetaMask에서 니모닉을 검색할 수 있습니다. MetaMask 확장의 오른쪽 위에 있는 관리자 계정 아이콘을 선택 하 고 **설정 > 보안 & 개인 정보 > 초기값 단어**를 표시 합니다.
+1. [Blockchain 네트워크를 배포할 때 사용 되는 Ethereum 관리자 계정](#ethereum-settings)에 대 한 니모닉 구가 필요 합니다. MetaMask를 사용 하 여 계정을 만든 경우 MetaMask에서 니모닉을 검색할 수 있습니다. MetaMask 확장의 오른쪽 위에 있는 관리자 계정 아이콘을 선택 하 고 **설정 > 보안 & 개인 정보 > 초기값 단어** 를 표시 합니다.
 1. `truffle-config.js`Truffle 프로젝트의 내용을 다음 콘텐츠로 바꿉니다. 자리 표시자 끝점 및 니모닉 값을 바꿉니다.
 
     ```javascript
@@ -654,7 +654,7 @@ Truffle는 마이그레이션 스크립트를 사용 하 여 블록 체인 네�
 이제 스마트 계약이 배포 되었으므로 트랜잭션을 전송 하 여 함수를 호출할 수 있습니다.
 
 1. Truffle 프로젝트 디렉터리에서 라는 새 파일을 만듭니다 `sendtransaction.js` .
-1. **sendtransaction.js**에 다음 콘텐츠를 추가 합니다.
+1. **sendtransaction.js** 에 다음 콘텐츠를 추가 합니다.
 
     ``` javascript
     var postBox = artifacts.require("postBox");
@@ -685,7 +685,7 @@ Truffle는 마이그레이션 스크립트를 사용 하 여 블록 체인 네�
 
 ## <a name="webassembly-wasm-support"></a>WebAssembly(WASM) 지원
 
-WebAssembly 지원은 새로 배포된 PoA 네트워크에서 이미 사용하도록 설정되어 있습니다. 이를 통해 스마트 계약을 웹 어셈블리로 변환 컴파일되는 모든 언어(Rust, C, C++)로 개발할 수 있습니다. 자세한 내용은 패리티 기술 개요: 패리티 [기술](https://github.com/paritytech/pwasm-tutorial) [개요](https://wiki.parity.io/WebAssembly-Home) 를 참조 하세요.
+WebAssembly 지원은 새로 배포된 PoA 네트워크에서 이미 사용하도록 설정되어 있습니다. 이를 통해 스마트 계약을 웹 어셈블리로 변환 컴파일되는 모든 언어(Rust, C, C++)로 개발할 수 있습니다. 자세한 내용은 [패리티 기술 자습서](https://github.com/paritytech/pwasm-tutorial)를 참조 하십시오.
 
 ## <a name="faq"></a>FAQ
 

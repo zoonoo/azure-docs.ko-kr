@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb66d8a197a33d6d0ad46502b510662f43ea1ca
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532520"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988564"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
 
@@ -53,7 +53,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 이 매개 변수는 REST 요청의 쿼리 문자열에 포함할 수 있습니다.
 
-| 매개 변수 | 설명 | 필수/선택 |
+| 매개 변수 | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `language` | 인식되는 음성 언어를 식별합니다. [지원 되는 언어](language-support.md#speech-to-text)를 참조 하세요. | 필수 |
 | `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. 자세한 응답에는 표시 텍스트의 네 가지 표현이 포함 되어 있습니다. 기본 설정은 `simple`입니다. | 선택 사항 |
@@ -78,7 +78,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 오디오는 HTTP `POST` 요청 본문에서 전송됩니다. 오디오는 이 테이블의 형식 중 하나여야 합니다.
 
-| 형식 | Codec | 비트 전송률 | 샘플링 주기  |
+| 서식 | Codec | 비트 전송률 | 샘플링 주기  |
 |--------|-------|----------|--------------|
 | WAV    | PCM   | 256 kbps | 16kHz, mono |
 | OGG    | OPUS  | 256 kpbs | 16kHz, mono |
@@ -90,10 +90,10 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 다음 표에서는 발음 평가를 위한 필수 및 선택적 매개 변수를 보여 줍니다.
 
-| 매개 변수 | 설명 | 필수/선택 |
+| 매개 변수 | Description | 필수 여부 |
 |-----------|-------------|---------------------|
 | ReferenceText | 발음이 계산 될 텍스트입니다. | 필수 |
-| GradingSystem | 점수 보정의 시점 시스템입니다. 허용되는 값은 `FivePoint` 및 `HundredMark`입니다. 기본 설정은 `FivePoint`입니다. | 선택 사항 |
+| GradingSystem | 점수 보정의 시점 시스템입니다. `FivePoint`시스템은 0-5 부동 소수점 점수를 제공 하 고 `HundredMark` 0-100 부동 소수점 점수를 제공 합니다. 기본값: `FivePoint`. | 선택 사항 |
 | 세분성 | 평가 세분성입니다. 허용 되는 값은 전체 텍스트의 점수를 표시 하는 전체 텍스트, word 및 음소 수준에 대 한 점수를 표시 하는입니다 .이 값은 전체 텍스트 `Phoneme` `Word` `FullText` 수준 에서만 점수를 표시 합니다. 기본 설정은 `Phoneme`입니다. | 선택 사항 |
 | 차원 | 출력 조건을 정의 합니다. 허용 되는 값은 정확도 점수를 표시 하는 이며, `Basic` `Comprehensive` 더 많은 차원에 대 한 점수를 표시 합니다 (예: 전체 텍스트 수준에서 점수와 완전성 점수, 단어 수준의 오류 유형 능숙). [응답 매개 변수](#response-parameters) 를 확인 하 여 다른 점수 차원 및 단어 오류 유형의 정의를 확인 합니다. 기본 설정은 `Basic`입니다. | 선택 사항 |
 | EnableMiscue | Miscue 계산을 사용 합니다. 이 기능을 사용 하도록 설정 하면 단어를 참조 텍스트와 비교 하 여 비교에 따라 생략/삽입으로 표시 됩니다. 허용되는 값은 `False` 및 `True`입니다. 기본 설정은 `False`입니다. | 선택 사항 |
@@ -147,7 +147,7 @@ Pronunciation-Assessment: eyJSZWZlcm...
 
 각 응답의 HTTP 상태 코드는 성공 또는 일반 오류를 나타냅니다.
 
-| HTTP 상태 코드 | 설명 | 가능한 원인 |
+| HTTP 상태 코드 | Description | 가능한 원인 |
 |------------------|-------------|-----------------|
 | `100` | 계속 | 초기 요청이 수락되었습니다. 나머지 데이터의 전송을 계속합니다. (청크 분할 전송에 사용 됨) |
 | `200` | 정상 | 요청이 성공했습니다. 응답 본문이 JSON 개체입니다. |
@@ -195,7 +195,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 결과는 JSON으로 제공됩니다. `simple` 형식에는 이러한 최상위 수준 필드가 포함됩니다.
 
-| 매개 변수 | 설명  |
+| 매개 변수 | Description  |
 |-----------|--------------|
 |`RecognitionStatus`|상태(예: 인식 성공에 `Success`)입니다. 다음 표를 참조하세요.|
 |`DisplayText`|대/소문자, 문장 부호, 역 텍스트 정규화 (음성 텍스트를 "200"의 경우 200, "의사 smith"의 경우 "Dr. Smith"의 경우) 및 불경 마스킹을 통해 인식 되는 텍스트입니다. 성공 시만 표시합니다.|
@@ -204,7 +204,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 `RecognitionStatus` 필드에는 다음 값이 포함될 수 있습니다.
 
-| 상태 | 설명 |
+| 상태 | Description |
 |--------|-------------|
 | `Success` | 성공적으로 인식했고 `DisplayText` 필드가 있습니다. |
 | `NoMatch` | 오디오 스트림에서 음성이 감지되었지만 대상 언어의 단어가 일치하지 않습니다. 일반적으로 인식 언어는 사용자가 말하는 것과 다른 언어를 의미합니다. |
@@ -220,7 +220,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 목록의 개체는 `NBest` 다음을 포함할 수 있습니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |-----------|-------------|
 | `Confidence` | 0.0(신뢰도 없음)에서 1.0(완전 신뢰도)까지 항목의 신뢰도 점수입니다. |
 | `Lexical` | 인식된 텍스트의 어휘 형태, 즉 인식된 실제 단위입니다. |

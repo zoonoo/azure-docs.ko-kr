@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec45ce7634b7bc0a8f38f354112cdc2e172f1e17
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 58f0ffa8bd43a8428603334b6c89fa1cf36315b5
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288364"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987340"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Azure Active Directory의 질문과 대답 Id 보호
 
@@ -69,7 +69,7 @@ IP 지리적 위치 매핑은 업계 전체에서 사용되는 챌린지입니�
 
 ### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>ID 보호의 피드백 메커니즘은 어떤 방식으로 작동하나요?
 
-**손상됨 확인** (로그인 시) – ID 소유자가 로그인을 수행하지 않았음을 Azure AD ID 보호에 알리고 손상을 표시합니다.
+**손상됨 확인**(로그인 시) – ID 소유자가 로그인을 수행하지 않았음을 Azure AD ID 보호에 알리고 손상을 표시합니다.
 
 - 이 피드백이 수신되면 로그인 및 사용자 위험 상태가 **손상됨 확인** 으로 전환되며 위험 수준은 **높음** 으로 설정됩니다.
 
@@ -78,7 +78,7 @@ IP 지리적 위치 매핑은 업계 전체에서 사용되는 챌린지입니�
     > [!NOTE]
     > 사용자의 문제가 이미 수정된 경우에는 **손상됨 확인** 을 클릭하면 안 됩니다. 이렇게 하면 로그인 및 사용자 위험 상태가 **손상됨 확인** 으로 전환되고 위험 수준이 **높음** 으로 설정되기 때문입니다.
 
-**안전 확인** (로그인 시) – ID 소유자가 로그인을 수행했음을 Azure AD ID 보호에 알리고 손상을 표시하지 않습니다.
+**안전 확인**(로그인 시) – ID 소유자가 로그인을 수행했음을 Azure AD ID 보호에 알리고 손상을 표시하지 않습니다.
 
 - 이 피드백이 수신되면 사용자가 아닌 로그인 위험 상태가 **안전 확인** 으로 전환되며 위험 수준은 **-** 로 설정됩니다.
 
@@ -95,6 +95,4 @@ IP 지리적 위치 매핑은 업계 전체에서 사용되는 챌린지입니�
 
 로그인에 대해 여러 위험이 검색되었거나 로그인의 기타 기능이 사용되면 집계 위험 점수가 높아질 수 있습니다. 반면 로그인과 관련하여 검색된 위험의 점수가 높음이라도 로그인 위험(집계) 점수는 중간일 수 있습니다. 
 
-### <a name="why-is-the-detection-which-is-linked-to-a-risky-sign-in-have-a-different-risk-level-than-the-sign-in-risk-level-real-time"></a>위험한 로그인에 연결 된 검색의 위험 수준이 로그인 위험 수준 (실시간)과 다른 이유는 무엇 인가요? 
 
-최근 실시간 로그인 위험을 계산 하는 방법에 대 한 개선 사항이 있습니다. 위험 검색 수준과 로그인 위험 수준 간에 관찰 되는 불일치는 이러한 변경의 결과입니다. 실시간 로그인 위험은 정책 적용 중에 사용 되는 값입니다. 

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 5c51649e742f6e314e0e324ae19c38f1a83b02ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c4248246be845aa8608aac8b8a3ce761ea1ef86
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016863"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987051"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 연결
 
@@ -23,13 +23,13 @@ ms.locfileid: "90016863"
 
 IoT Edge는 다음 세 가지 구성 요소로 구성됩니다.
 
-* **IoT Edge 모듈**은 Azure 서비스, 파트너 서비스 또는 사용자 고유의 코드를 실행하는 컨테이너입니다. 모듈은 IoT Edge 디바이스에 배포되며, 해당 디바이스에서 로컬로 실행됩니다.
+* **IoT Edge 모듈** 은 Azure 서비스, 파트너 서비스 또는 사용자 고유의 코드를 실행하는 컨테이너입니다. 모듈은 IoT Edge 디바이스에 배포되며, 해당 디바이스에서 로컬로 실행됩니다.
 * **IoT Edge 런타임은** 각 IoT Edge 장치에서 실행 되며 각 장치에 배포 된 모듈을 관리 합니다.
-* **클라우드 기반 인터페이스**를 사용하여 IoT Edge 디바이스를 원격으로 모니터링 및 관리할 수 있습니다. IoT Central은 클라우드 인터페이스입니다.
+* **클라우드 기반 인터페이스** 를 사용하여 IoT Edge 디바이스를 원격으로 모니터링 및 관리할 수 있습니다. IoT Central은 클라우드 인터페이스입니다.
 
 **Azure IoT Edge** 디바이스는 다운스트림 디바이스가 IoT Edge 디바이스에 연결되는 게이트웨이 디바이스일 수 있습니다. 이 문서에서는 다운스트림 장치 연결 패턴에 대 한 자세한 정보를 공유 합니다.
 
-**디바이스 템플릿**은 디바이스 및 IoT Edge 모듈의 기능을 정의합니다. 기능에는 모듈에서 보내는 원격 분석 데이터, 디바이스 속성 및 디바이스에서 응답하는 명령이 포함됩니다.
+**디바이스 템플릿** 은 디바이스 및 IoT Edge 모듈의 기능을 정의합니다. 기능에는 모듈에서 보내는 원격 분석 데이터, 디바이스 속성 및 디바이스에서 응답하는 명령이 포함됩니다.
 
 ## <a name="downstream-device-relationships-with-a-gateway-and-modules"></a>게이트웨이 및 모듈과의 다운스트림 디바이스 관계
 
@@ -63,9 +63,9 @@ Azure IoT Central에서 배포 매니페스트를 가져와서 장치 템플릿�
 
 IoT Central은 다음과 같이 IoT Edge 장치를 모델링 합니다.
 
-* 모든 IoT Edge 디바이스 템플릿에는 디바이스 기능 모델이 있습니다.
+* 모든 IoT Edge 장치 템플릿에는 장치 모델이 있습니다.
 * 배포 매니페스트에 나열된 모든 사용자 지정 모듈에 대한 모듈 기능 모델이 생성됩니다.
-* 각 모듈 기능 모델과 디바이스 기능 모델 간의 관계가 설정됩니다.
+* 각 모듈 기능 모델과 장치 모델 간에 관계가 설정 됩니다.
 * 모듈 기능 모델에서 모듈 인터페이스를 구현합니다.
 * 각 모듈 인터페이스에는 원격 분석, 속성 및 명령이 포함됩니다.
 
@@ -73,7 +73,7 @@ IoT Central은 다음과 같이 IoT Edge 장치를 모델링 합니다.
 
 ## <a name="iot-edge-gateway-devices"></a>IoT Edge 게이트웨이 장치
 
-IoT Edge 디바이스를 게이트웨이 디바이스로 선택한 경우 게이트웨이 디바이스에 연결하려는 디바이스의 디바이스 기능 모델에 다운스트림 관계를 추가할 수 있습니다.
+게이트웨이 장치로 IoT Edge 장치를 선택한 경우 게이트웨이 장치에 연결할 장치에 대 한 장치 모델에 다운스트림 관계를 추가할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

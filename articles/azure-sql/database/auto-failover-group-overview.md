@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 11/16/2020
-ms.openlocfilehash: e91a3cc0a96add1f53d220e04fb98d63cc7c33f4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0d2248b9c0a289f5e4f9f2f8e987365ab58c49c0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841090"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988547"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -142,15 +142,15 @@ ms.locfileid: "94841090"
 
 ### <a name="create-failover-group"></a>장애 조치 그룹 만들기
 
-장애 조치 (failover) 그룹을 만들려면 주 서버와 보조 서버 및 장애 조치 (failover) 그룹의 모든 데이터베이스에 대 한 RBAC 쓰기 권한이 필요 합니다. SQL Managed Instance의 경우 기본 및 보조 SQL Managed Instance에 대 한 RBAC 쓰기 권한이 필요 하지만 개별 SQL Managed Instance 데이터베이스를 장애 조치 (failover) 그룹에 추가 하거나 장애 조치 (failover) 그룹에서 제거할 수 없기 때문에 개별 데이터베이스에 대 한 사용 권한은 관련이 없습니다.
+장애 조치 (failover) 그룹을 만들려면 주 서버와 보조 서버 모두에 대 한 Azure RBAC 쓰기 액세스와 장애 조치 (failover) 그룹의 모든 데이터베이스에 대 한 쓰기 권한이 있어야 합니다. SQL Managed Instance의 경우 기본 및 보조 SQL Managed Instance에 대 한 Azure RBAC 쓰기 권한이 필요 하지만 개별 SQL Managed Instance 데이터베이스를 장애 조치 (failover) 그룹에 추가 하거나 장애 조치 (failover) 그룹에서 제거할 수 없기 때문에 개별 데이터베이스에 대 한 사용 권한은 관련이 없습니다.
 
 ### <a name="update-a-failover-group"></a>장애 조치 (failover) 그룹 업데이트
 
-장애 조치 (failover) 그룹을 업데이트 하려면 장애 조치 (failover) 그룹 및 현재 주 서버 또는 관리 되는 인스턴스의 모든 데이터베이스에 대 한 RBAC 쓰기 권한이 필요 합니다.  
+장애 조치 (failover) 그룹을 업데이트 하려면 장애 조치 (failover) 그룹 및 현재 주 서버 또는 관리 되는 인스턴스의 모든 데이터베이스에 대 한 Azure RBAC 쓰기 권한이 필요 합니다.  
 
 ### <a name="fail-over-a-failover-group"></a>장애 조치 (failover) 그룹 장애 조치 (failover)
 
-장애 조치 (failover) 그룹을 장애 조치 (failover) 하려면 새 주 서버 또는 관리 되는 인스턴스에서 장애 조치 (failover) 그룹에 대 한 RBAC 쓰기 권한이 필요 합니다.
+장애 조치 (failover) 그룹을 장애 조치 (failover) 하려면 새로운 주 서버 또는 관리 되는 인스턴스에서 장애 조치 (failover) 그룹에 대 한 Azure RBAC 쓰기 권한이 필요 합니다.
 
 ## <a name="best-practices-for-sql-database"></a>SQL Database에 대 한 모범 사례
 
@@ -409,13 +409,13 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 ## <a name="programmatically-managing-failover-groups"></a>프로그래밍 방식으로 장애 조치(failover) 그룹 관리
 
-앞에서 설명한 대로, 자동 장애 조치(failover) 그룹과 활성 지역 복제는 Azure PowerShell 및 REST API를 사용하여 프로그래밍 방식으로 관리할 수도 있습니다. 다음 표는 사용 가능한 명령의 집합을 보여 줍니다. 활성 지역 복제는 관리를 위해 [Azure SQL Database REST API](/rest/api/sql/) 및 [Azure PowerShell cmdlet](/powershell/azure/)을 비롯한 Azure Resource Manager API 세트를 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현 하는 방법에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md)를 참조 하세요.
+앞에서 설명한 대로, 자동 장애 조치(failover) 그룹과 활성 지역 복제는 Azure PowerShell 및 REST API를 사용하여 프로그래밍 방식으로 관리할 수도 있습니다. 다음 표는 사용 가능한 명령의 집합을 보여 줍니다. 활성 지역 복제는 관리를 위해 [Azure SQL Database REST API](/rest/api/sql/) 및 [Azure PowerShell cmdlet](/powershell/azure/)을 비롯한 Azure Resource Manager API 세트를 포함합니다. 이러한 Api는 리소스 그룹을 사용 해야 하며 azure RBAC (역할 기반 액세스 제어)를 지원 합니다. 액세스 역할을 구현 하는 방법에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md)를 참조 하세요.
 
 ### <a name="manage-sql-database-failover"></a>SQL Database 장애 조치 (failover) 관리
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-| Cmdlet | 설명 |
+| Cmdlet | Description |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | 서버에서 장애 조치 (failover) 그룹을 제거 합니다. |
@@ -426,7 +426,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 | [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [az sql 장애 조치 (failover) 그룹 삭제](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | 서버에서 장애 조치 (failover) 그룹을 제거 합니다. |
@@ -453,7 +453,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-| Cmdlet | 설명 |
+| Cmdlet | Description |
 | --- | --- |
 | [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |이 명령은 장애 조치 (failover) 그룹을 만들고 주 및 보조 인스턴스에 등록 합니다.|
 | [AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |장애 조치 (failover) 그룹의 구성을 수정 합니다.|
@@ -464,7 +464,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 | [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [az sql 장애 조치 (failover) 그룹 삭제](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | 서버에서 장애 조치 (failover) 그룹을 제거 합니다. |

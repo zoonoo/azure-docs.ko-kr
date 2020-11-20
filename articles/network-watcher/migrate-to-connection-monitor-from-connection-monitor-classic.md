@@ -1,5 +1,5 @@
 ---
-title: 연결 모니터에서 연결 모니터로 마이그레이션
+title: 연결 모니터에서 연결 모니터 (미리 보기)로 마이그레이션
 titleSuffix: Azure Network Watcher
 description: 연결 모니터에서 연결 모니터로 마이그레이션하는 방법에 대해 알아봅니다.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
-ms.openlocfilehash: 0ae1a1f36b9f81145b49245d8e6ace37ab36f834
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d785ecd48816150cd33d8e2f5fcce2ff36f1603f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94974915"
+ms.locfileid: "94985793"
 ---
-# <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>연결 모니터에서 연결 모니터로 마이그레이션 (클래식)
+# <a name="migrate-to-connection-monitor-preview-from-connection-monitor-classic"></a>연결 모니터 (클래식)에서 연결 모니터 (미리 보기)로 마이그레이션
 
-몇 번의 클릭 만으로 가동 중지 시간 없이 기존 연결 모니터를 새로운 향상 된 연결 모니터로 마이그레이션할 수 있습니다. 이점에 대 한 자세한 내용은 [연결 모니터](./connection-monitor-overview.md)를 참조 하세요.
+몇 번의 클릭 만으로 가동 중지 시간 없이 기존 연결 모니터를 새롭게 향상 된 연결 모니터 (미리 보기)로 마이그레이션할 수 있습니다. 이점에 대 한 자세한 내용은 [연결 모니터](./connection-monitor-overview.md)를 참조 하세요.
+
+> [!IMPORTANT]
+> 연결 모니터는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="key-points-to-note"></a>핵심 사항
 
@@ -34,7 +38,7 @@ ms.locfileid: "94974915"
    * **경고**: 새 메트릭에 자동으로 마이그레이션됩니다.
    * **대시보드 및 통합**: 메트릭 집합을 수동으로 편집 해야 합니다. 
     
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 사용자 지정 작업 영역을 사용 하는 경우 구독 및 Log Analytics 작업 영역의 지역에서 Network Watcher를 사용 하도록 설정 해야 합니다. 
 

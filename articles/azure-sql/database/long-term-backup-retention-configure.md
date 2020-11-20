@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/14/2020
-ms.openlocfilehash: 42f6badabd27ceaa302f635a7a33b0161b870dc5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3cab3b262f9116903d0b423cd5e4a0ebd03c46fa
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782861"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984433"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -100,7 +100,7 @@ LTR 정책으로 특정 데이터베이스에 대해 유지 되는 백업을 보
 > [!NOTE]
 > SQL Server 참여자 역할에는 LTR 백업을 삭제할 수 있는 권한이 없습니다.
 
-RBAC 권한은 *구독* 또는 *리소스 그룹* 범위에서 부여할 수 있습니다. 그러나 삭제 된 서버에 속하는 LTR 백업에 액세스 하려면 해당 서버의 *구독* 범위에서 사용 권한을 부여 해야 합니다.
+Azure RBAC 권한은 *구독* 또는 *리소스 그룹* 범위에서 부여할 수 있습니다. 그러나 삭제 된 서버에 속하는 LTR 백업에 액세스 하려면 해당 서버의 *구독* 범위에서 사용 권한을 부여 해야 합니다.
 
 - Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 

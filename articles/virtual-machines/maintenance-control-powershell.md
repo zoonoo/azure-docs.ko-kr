@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: f4cb57eb8d3396667e6c9cb40b7e41b1e97622ed
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: f33cb7d4d005f15d0a5fcc70d56ebd4698f86694
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981190"
+ms.locfileid: "94988224"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>유지 관리 제어 및 Azure PowerShell를 사용 하 여 업데이트 제어
 
@@ -69,7 +69,7 @@ Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 
 ### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>예약 된 기간을 사용 하 여 유지 관리 구성 만들기
 
-Azure가 리소스에 대 한 업데이트를 적용 하는 경우 예약 된 기간을 사용 하 여 유지 관리 구성을 만들려면 New-AzMaintenanceConfiguration를 사용 합니다. 이 예제에서는 매월 네 번째 월요일에 예약 된 기간이 5 시간인 myConfig 라는 유지 관리 구성을 만듭니다. 예약 된 기간을 만든 후에는 더 이상 수동으로 업데이트를 적용할 필요가 없습니다.
+Azure가 리소스에 대 한 업데이트를 적용 하는 경우 예약 된 기간을 선언할 수도 있습니다. 이 예제에서는 매월 네 번째 월요일에 예약 된 기간이 5 시간인 myConfig 라는 유지 관리 구성을 만듭니다. 예약 된 기간을 만든 후에는 더 이상 수동으로 업데이트를 적용할 필요가 없습니다.
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -85,12 +85,10 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > 유지 관리 **기간은** *2 시간* 이상 이어야 합니다. 유지 관리 **되풀이** 는 35 일에 한 번 이상 발생 하도록 설정 되어야 합니다.
 
-유지 관리 **되풀이** 는 다음과 같이 표현 될 수 있습니다.
- | 값 | 예제 |
-      |-------|-------------|
-      | 매일 | recurEvery: Day **또는** RecurEvery: 3 일 | 
-      | weekly | recurEvery: 3 주 **또는** RecurEvery: 주 토요일, 일요일 | 
-      | 월별 | recurEvery: Month day23, day24 **또는** recurEvery: Month Last 일요일이 **나** RecurEvery: month 4 월요일 | 
+유지 관리 **되풀이** 는 매일, 매주 또는 매월로 표시 될 수 있습니다. 예는 다음과 같습니다.
+ - 매일-"recurEvery: Day" **또는** "RecurEvery: 3days" 
+ - 주별-"recurEvery: 3Weeks" **또는** "RecurEvery: Week 토요일, 일요일" 
+ - 매월-"recurEvery: Month day23, day24" **or** "RecurEvery: Month Last 일요일이" **또는** "recurEvery: month 4"  
       
 
 ## <a name="assign-the-configuration"></a>구성 할당

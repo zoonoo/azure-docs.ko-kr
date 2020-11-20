@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 11/15/2020
+ms.date: 11/17/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cac88e57ce0135295ac4b7078111102fa69e6838
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e89793ed8404bf36f2857f228d94fdf2a8828d43
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646596"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984263"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Azure Active Directory에서 게스트 액세스 권한 (미리 보기) 제한
 
@@ -105,7 +105,7 @@ GET https://graph.microsoft.com/beta/policies/authorizationPolicy/authorizationP
 
 ### <a name="get-command-get-azureadmsauthorizationpolicy"></a>Get 명령: Get-AzureADMSAuthorizationPolicy
 
-예:
+예제:
 
 ````PowerShell
 PS C:\WINDOWS\system32> Get-AzureADMSAuthorizationPolicy
@@ -121,7 +121,7 @@ PermissionGrantPolicyIdsAssignedToDefaultUserRole : {user-default-legacy}
 
 ### <a name="set-command-set-azureadmsauthorizationpolicy"></a>명령 설정: Set-AzureADMSAuthorizationPolicy
 
-예:
+예제:
 
 ````PowerShell
 PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84b1e-32c8-42b7-82bc-daa82404023b'
@@ -155,7 +155,8 @@ PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84
 질문 | Answer
 -------- | ------
 이러한 사용 권한은 어디에 적용 되나요? | 이러한 디렉터리 수준 권한은 Microsoft Graph, PowerShell v2, Azure Portal 및 My Apps 포털을 포함 하 여 Azure AD 서비스 및 포털 전체에 적용 됩니다. 공동 작업 시나리오에 대 한 Microsoft 365 그룹을 활용 하는 Microsoft 365 서비스는 특히 Outlook, Microsoft 팀 및 SharePoint에도 영향을 줍니다.
-이 기능에 영향을 주는 내 앱 포털의 부분은 무엇입니까? | 내 앱 포털의 그룹 기능에는 이러한 새 사용 권한이 적용 됩니다. 여기에는 내 앱의 그룹 목록 및 그룹 멤버 자격을 볼 수 있는 모든 경로가 포함 됩니다. 그룹 타일 가용성이 변경 되지 않았습니다. 그룹 타일 가용성은 여전히 Azure 관리 포털의 기존 그룹 설정에 의해 제어 됩니다.
+게스트에서 볼 수 있는 그룹에 영향을 주는 제한 된 권한은 무엇입니까? | 게스트는 기본 또는 제한 된 게스트 사용 권한에 관계 없이 그룹 또는 사용자 목록을 열거할 수 없습니다. 게스트는 사용 권한에 따라 Azure Portal 및 My Apps 포털에서 구성원 인 그룹을 볼 수 있습니다.<li>**기본 권한**: Azure Portal에서 구성원 인 그룹을 찾으려면 게스트는 **모든 사용자** 목록에서 개체 ID를 검색 한 다음 **그룹** 을 선택 해야 합니다. 여기에서 이름, 전자 메일 등을 비롯 한 모든 그룹 세부 정보를 포함 하 여 자신이 속한 그룹의 목록을 볼 수 있습니다. 내 앱 포털에서 자신이 소유 하 고 있는 그룹과 그룹이 속한 그룹 목록을 볼 수 있습니다.</li><li>**제한 된 게스트 권한**: Azure Portal에서는 모든 사용자 목록에서 개체 ID를 검색 한 다음 그룹을 선택 하 여 구성원으로 속해 있는 그룹 목록을 찾을 수 있습니다. 그룹에 대 한 매우 제한적인 세부 정보 (특히 개체 ID)만 볼 수 있습니다. 기본적으로 이름 및 전자 메일 열이 비어 있고 그룹 유형을 인식할 수 없습니다. 내 앱 포털에서 소유 하 고 있는 그룹 또는 자신이 속한 그룹 목록에 액세스할 수 없습니다.</li><br>Graph API에서 제공 하는 디렉터리 사용 권한에 대 한 자세한 비교는 [기본 사용자 권한](../fundamentals/users-default-permissions.md#member-and-guest-users)을 참조 하세요.
+이 기능에 영향을 주는 내 앱 포털의 부분은 무엇입니까? | 내 앱 포털의 그룹 기능에는 이러한 새 사용 권한이 적용 됩니다. 여기에는 내 앱의 그룹 목록 및 그룹 멤버 자격을 볼 수 있는 모든 경로가 포함 됩니다. 그룹 타일 가용성이 변경 되지 않았습니다. 그룹 타일 가용성은 계속 Azure Portal의 기존 그룹 설정에 의해 제어 됩니다.
 이러한 권한은 SharePoint 또는 Microsoft 팀 게스트 설정 보다 우선 합니다. | 아니요. 이러한 기존 설정은 여전히 이러한 응용 프로그램의 경험과 액세스를 제어 합니다. 예를 들어 SharePoint에서 문제가 표시 되는 경우 외부 공유 설정을 다시 확인 합니다.
 Planner 및 Yammer에서 알려진 호환성 문제는 무엇 인가요? | <li>사용 권한이 ' 제한 됨 '으로 설정 되 면 Planner 앱에 로그인 하거나 Microsoft 팀의 Planner에 액세스 하면 해당 계획 또는 작업에 액세스할 수 없습니다.<li>사용 권한이 ' 제한 됨 '으로 설정 된 경우 Yammer에 로그인 한 게스트는 그룹을 벗어날 수 없습니다.
 내 테 넌 트에서 기존 게스트 권한이 변경 됩니까? | 현재 설정이 변경 되지 않았습니다. 기존 설정과의 호환성을 유지 합니다. 변경 하려는 경우를 결정 합니다.

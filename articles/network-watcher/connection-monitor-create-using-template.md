@@ -1,5 +1,5 @@
 ---
-title: 연결 모니터 만들기-ARMClient
+title: 연결 모니터 만들기 (미리 보기)-ARM 템플릿
 titleSuffix: Azure Network Watcher
 description: ARMClient를 사용 하 여 연결 모니터를 만드는 방법에 대해 알아봅니다.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: c80f2aaf26c0f0e89014c997151599c8bddbe903
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e1a0ecd85d07aa4fdf5482c5104c17eb4a068688
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948819"
+ms.locfileid: "94984229"
 ---
-# <a name="create-a-connection-monitor-using-the-armclient"></a>ARMClient를 사용 하 여 연결 모니터 만들기
+# <a name="create-a-connection-monitor-using-the-arm-template"></a>ARM 템플릿을 사용 하 여 연결 모니터 만들기
 
 ARMClient를 사용 하 여 리소스 간의 통신을 모니터링 하는 연결 모니터를 만드는 방법에 대해 알아봅니다. 하이브리드 및 Azure 클라우드 배포를 지원 합니다.
+
+> [!IMPORTANT]
+> 연결 모니터는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에 
 

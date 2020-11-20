@@ -11,15 +11,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/21/2020
+ms.date: 11/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b65190c0fd2fcac132f762116a63357a08e6bf02
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7777888bd27325e9094032458922969494a9a64e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967740"
+ms.locfileid: "94984960"
 ---
 # <a name="know-the-terms"></a>용어 알아보기
 
@@ -45,6 +45,7 @@ ms.locfileid: "94967740"
 - **수정 버전**: HANA Large Instance 스탬프에 대해 두 개의 다른 스탬프 수정이 있습니다. 아키텍처와 Azure 가상 컴퓨터 호스트의 차이가 다릅니다.
     - "수정 버전 3" (Rev 3): 2016 년 중반에 배포 된 원본 디자인입니다.
     - "수정 버전 4" (Rev 4):은 azure 가상 머신 호스트에 더 근접 하 게 사용할 수 있는 새로운 디자인 이며, Azure Vm과 HANA Large Instance 단위 간의 네트워크 대기 시간이 줄어듭니다. 
+    - "수정 버전 4.2" (Rev 4.2): 기존 수정 버전 4 Dc에서는 리소스가 BareMetal 인프라에 다시 브랜드 됩니다.  고객은 Azure Portal에서 BareMetal 인스턴스로 리소스에 액세스할 수 있습니다. 
 
 클라우드에서 SAP 워크로드를 배포하는 방법에 대해 다양한 추가 리소스를 사용할 수 있습니다. Azure에서 SAP HANA 배포를 실행하려는 경우, Azure IaaS의 원칙 및 Azure IaaS에 대한 SAP 워크로드 배포를 경험하고 숙지해야 합니다. 계속하기 전에 먼저 [Azure 가상 머신에서 SAP 솔루션 사용](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. 
 

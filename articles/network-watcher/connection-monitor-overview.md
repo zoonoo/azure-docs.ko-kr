@@ -1,5 +1,5 @@
 ---
-title: 연결 모니터 | Microsoft Docs
+title: Azure의 연결 모니터 (미리 보기) | Microsoft Docs
 description: 연결 모니터를 사용 하 여 분산 환경에서 네트워크 통신을 모니터링 하는 방법에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: na
@@ -15,18 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 13b379fd3b4f788d79cbb6a9bf6d40cb1693eaf9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cb24cc55844d7c42d68e75d6f6ef947b1315a306
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949004"
+ms.locfileid: "94984365"
 ---
-# <a name="network-connectivity-monitoring-with-connection-monitor"></a>연결 모니터를 사용 하 여 네트워크 연결 모니터링
+# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>연결 모니터를 사용 하 여 네트워크 연결 모니터링 (미리 보기)
 
 연결 모니터는 Azure Network Watcher에서 통합 종단 간 연결 모니터링을 제공 합니다. 연결 모니터 기능은 하이브리드 및 Azure 클라우드 배포를 지원 합니다. Network Watcher는 Azure 배포에 대 한 연결 관련 메트릭을 모니터링 하 고, 진단 하 고, 볼 수 있는 도구를 제공 합니다.
 
-다음은 연결 모니터에 대 한 몇 가지 사용 사례입니다.
+> [!IMPORTANT]
+> 연결 모니터는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 다음은 연결 모니터에 대 한 몇 가지 사용 사례입니다.
 
 - 프런트 엔드 웹 서버 VM은 다중 계층 응용 프로그램에서 데이터베이스 서버 VM과 통신 합니다. 두 Vm 간의 네트워크 연결을 확인 하려고 합니다.
 - 미국 동부 지역의 Vm에서 미국 중부 지역의 vm을 ping 하 고 지역 간 네트워크 대기 시간을 비교 하려고 합니다.

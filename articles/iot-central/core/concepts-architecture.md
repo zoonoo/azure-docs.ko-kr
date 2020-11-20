@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cc33d3c07461b5662e1454ec131dbc2b5f19a390
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7b048581b29fa4244c42261810f382b229a627dd
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126176"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985970"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central 아키텍처
 
@@ -54,7 +54,7 @@ IoT Central IoT Edge 장치에 대해 다음 기능을 사용 하도록 설정 �
   - 각 모듈이 보내는 원격 분석입니다.
   - 각 모듈이 보고 하는 속성입니다.
   - 각 모듈이 응답 하는 명령입니다.
-  - IoT Edge 게이트웨이 장치 기능 모델과 다운스트림 장치 기능 모델 간의 관계입니다.
+  - IoT Edge 게이트웨이 장치와 다운스트림 장치 간의 관계입니다.
   - IoT Edge 장치에 저장 되지 않는 클라우드 속성
   - IoT Central 애플리케이션의 일부인 사용자 지정, 대시보드 및 양식
 
@@ -123,7 +123,7 @@ Azure IoT Central은 디바이스에서 보낸 측정값 데이터에 시계열 
 
 분석 서비스는 애플리케이션에서 표시하는 사용자 지정 보고 데이터를 생성합니다. 운영자는 애플리케이션에 표시되는 [분석을 사용자 지정](howto-create-analytics.md)할 수 있습니다. 분석 서비스는 [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) 위에 빌드되며, 디바이스에서 보낸 측정값 데이터를 처리합니다.
 
-## <a name="rules-and-actions"></a>규칙 및 작업
+## <a name="rules-and-actions"></a>규칙 및 동작
 
 [규칙 및 동작](tutorial-create-telemetry-rules.md)은 서로 긴밀하게 작동하여 애플리케이션 내의 작업을 자동화합니다. 작성자는 정의된 임계값을 초과하는 온도 같은 디바이스 원격 분석 데이터를 기반으로 규칙을 정의할 수 있습니다. Azure IoT Central은 스트림 프로세서를 사용하여 규칙 조건 충족 여부를 확인합니다. 규칙 조건이 충족되면 작성자가 정의한 작업을 트리거합니다. 예를 들어 디바이스 온도가 너무 높다고 엔지니어에게 알리는 이메일을 작업에서 보낼 수 있습니다.
 
@@ -133,12 +133,12 @@ Azure IoT Central 애플리케이션에서 디바이스 템플릿은 디바이�
 
 ![템플릿 아키텍처](media/concepts-architecture/template-architecture.png)
 
-IoT Central 응용 프로그램 장치 템플릿에는 다음이 포함 됩니다.
+IoT Central [장치 템플릿에](concepts-device-templates.md) 는 다음이 포함 됩니다.
 
-- **장치 기능 모델** 은 송신 원격 분석, 장치 상태를 정의 하는 속성 및 장치가 응답 하는 명령과 같은 장치의 기능을 지정 합니다. 장치 기능은 하나 이상의 인터페이스로 구성 됩니다.
+- 장치의 기능 (예: 송신 하는 원격 분석, 장치 상태를 정의 하는 속성 및 장치가 응답 하는 명령)을 지정 하는 **장치 모델** 장치 기능은 하나 이상의 인터페이스로 구성 됩니다.
 - **클라우드 속성** 은 장치에 대 한 저장소 IoT Central 속성을 지정 합니다. 이러한 속성은 IoT Central에만 저장 되며 장치에 전송 되지 않습니다.
 - **보기** 는 운영자가 장치를 모니터링 하 고 관리할 수 있도록 작성기에서 만드는 대시보드 및 폼을 지정 합니다.
-- **사용자 지정** 을 통해 빌더는 장치 기능 모델의 일부 정의를 재정의 하 여 IoT Central 응용 프로그램에 더 적합 하 게 만들 수 있습니다.
+- **사용자 지정** 을 통해 빌더는 장치 모델의 일부 정의를 재정의 하 여 IoT Central 응용 프로그램에 더 적합 하 게 만들 수 있습니다.
 
 각 디바이스 템플릿에 따라 한 애플리케이션에서 시뮬레이션된 디바이스 및 실제 디바이스를 하나 이상 사용할 수 있습니다.
 
@@ -152,7 +152,7 @@ Azure IoT Central 응용 프로그램에서 연결 된 장치를 관리 하는 [
 
 ## <a name="role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)
 
-관리자는 미리 정의 된 역할 중 하나를 사용 하거나 사용자 지정 역할을 만들어 Azure IoT Central 응용 프로그램에 대 한 [액세스 규칙을 정의할 수 있습니다](howto-manage-users-roles.md) . 역할은 사용자가 액세스할 수 있는 애플리케이션의 영역과 수행할 수 있는 작업을 결정합니다.
+모든 IoT Central 응용 프로그램에는 자체 기본 제공 RBAC 시스템이 있습니다. 관리자는 미리 정의 된 역할 중 하나를 사용 하거나 사용자 지정 역할을 만들어 Azure IoT Central 응용 프로그램에 대 한 [액세스 규칙을 정의할 수 있습니다](howto-manage-users-roles.md) . 역할은 사용자가 액세스할 수 있는 애플리케이션의 영역과 수행할 수 있는 작업을 결정합니다.
 
 ## <a name="security"></a>보안
 

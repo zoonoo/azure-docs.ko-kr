@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 7c16e3b991bffd9c6bbcc4759a07b9e122ef5b72
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c7a24dbe93bf0096e327804be07acc3f67d2f03b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125345"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985759"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>활성 지역 복제 만들기 및 사용-Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,8 +64,8 @@ ms.locfileid: "93125345"
 
 활성 지역 복제는 재해 복구 외에도 다음과 같은 시나리오에서 사용할 수 있습니다.
 
-- **데이터베이스 마이그레이션** : 활성 지역 복제를 사용하여 최소 가동 중지 시간으로 하나의 서버에서 다른 온라인으로 데이터베이스를 마이그레이션할 수 있습니다.
-- **애플리케이션 업그레이드** : 애플리케이션을 업그레이드하는 동안 추가 보조 데이터베이스를 장애 복구 복사본으로 만들 수 있습니다.
+- **데이터베이스 마이그레이션**: 활성 지역 복제를 사용하여 최소 가동 중지 시간으로 하나의 서버에서 다른 온라인으로 데이터베이스를 마이그레이션할 수 있습니다.
+- **애플리케이션 업그레이드**: 애플리케이션을 업그레이드하는 동안 추가 보조 데이터베이스를 장애 복구 복사본으로 만들 수 있습니다.
 
 실제 비즈니스 연속성을 달성하기 위해 데이터 센터 간에 데이터베이스 중복을 추가하는 것은 솔루션의 일부입니다. 치명적인 오류 후 애플리케이션(서비스) 엔드투엔드 복구에는 서비스 및 모든 종속성 서비스를 구성하는 모든 구성 요소의 복구가 필요합니다. 이러한 구성 요소의 예에는 클라이언트 소프트웨어(예: 사용자 지정 JavaScript를 사용한 브라우저), 웹 프런트 엔드, 스토리지 및 DNS가 포함됩니다. 모든 구성 요소는 동일한 오류에 탄력적이며 애플리케이션의 복구 시간 목표(RTO) 내에서 사용할 수 있는 것이 중요합니다. 따라서 모든 종속성 서비스를 확인하고 제고하는 보장 사항 및 기능을 이해해야 합니다. 그런 다음 의존하는 서비스 장애 조치 중 서비스 기능을 확인하도록 적절한 단계를 수행해야 합니다. 재해 복구를 위한 솔루션 설계에 대 한 자세한 내용은 [활성 지역 복제를 사용 하 여 재해 복구를 위한 클라우드 솔루션 설계](designing-cloud-solutions-for-disaster-recovery.md)를 참조 하세요.
 
@@ -235,23 +235,23 @@ SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비
 
 ## <a name="monitoring-geo-replication-lag"></a>지역에서 복제 지연 시간 모니터링
 
-RPO와 관련 된 지연 시간을 모니터링 하려면 주 데이터베이스에서 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 의 *replication_lag_sec* 열을 사용 합니다. 주 데이터베이스에서 커밋되고 보조 데이터베이스에서 지속 되는 트랜잭션 간의 지연 시간 (초)을 보여 줍니다. 예를 들어 지연 값이 1 초 이면 주 복제본이 현재 가동 중단의 영향을 받을 수 있고 장애 조치 (failover)가 시작 됨을 의미 합니다. 최근 전환 중 1 초가 저장 되지 않습니다.
+RPO와 관련 된 지연 시간을 모니터링 하려면 주 데이터베이스에서 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 의 *replication_lag_sec* 열을 사용 합니다. 주 데이터베이스에서 커밋되고 보조 데이터베이스에서 지속 되는 트랜잭션 간의 지연 시간 (초)을 보여 줍니다. 예: 지연 값이 1 초 이면 주 복제본이 현재 가동 중단의 영향을 받을 수 있고 장애 조치 (failover)가 시작 됨을 의미 합니다. 최근 전환 중 1 초가 저장 되지 않습니다.
 
 보조 복제본에서 적용 된 주 데이터베이스의 변경 내용에 대해 지연 시간을 측정 하려면 (예: 보조 데이터베이스에서 읽기 가능) 보조 데이터베이스의 *last_commit* 시간을 주 데이터베이스의 동일한 값과 비교 합니다.
 
 > [!NOTE]
-> 주 데이터베이스에 대 한 *REPLICATION_LAG_SEC* NULL 값을 가지는 경우가 있습니다. 즉, 주 데이터베이스에서 현재 보조 복제본이 얼마나 떨어져 있는지 알 수 없습니다.   이는 일반적으로 프로세스가 다시 시작 된 후에 발생 하며 일시적인 상태 여야 합니다. *Replication_lag_sec* 에서 오랜 시간 동안 NULL을 반환 하는 경우 응용 프로그램을 경고 하는 것이 좋습니다. 영구적 연결 오류로 인해 보조 데이터베이스가 주 데이터베이스와 통신할 수 없음을 나타낼 수 있습니다. 보조 데이터베이스와 주 데이터베이스에서 *last_commit* 시간 사이의 차이를 일으킬 수 있는 조건도 있습니다. 예를 들어 변경 내용이 없는 긴 기간 후 주 복제본에서 커밋이 수행 되는 경우에는 0으로 빠르게 반환 하기 전에 차이가 큰 값으로 이동 합니다. 이러한 두 값 간의 차이가 오랜 시간 동안 크게 유지 되는 경우 오류 상태를 고려해 야 합니다.
+> 주 데이터베이스에 대 한 *REPLICATION_LAG_SEC* NULL 값을 가지는 경우가 있습니다. 즉, 주 데이터베이스에서 현재 보조 복제본이 얼마나 떨어져 있는지 알 수 없습니다.   이는 일반적으로 프로세스가 다시 시작 된 후에 발생 하며 일시적인 상태 여야 합니다. *Replication_lag_sec* 에서 오랜 시간 동안 NULL을 반환 하는 경우 응용 프로그램을 경고 하는 것이 좋습니다. 영구적 연결 오류로 인해 보조 데이터베이스가 주 데이터베이스와 통신할 수 없음을 나타낼 수 있습니다. 보조 데이터베이스와 주 데이터베이스에서 *last_commit* 시간 사이의 차이를 일으킬 수 있는 조건도 있습니다. 예: 변경 내용이 없는 긴 기간 후 주 복제본에서 커밋이 수행 되는 경우에는 0으로 빠르게 반환 하기 전에 차이가 큰 값으로 이동 합니다. 이러한 두 값 간의 차이가 오랜 시간 동안 크게 유지 되는 경우 오류 상태를 고려해 야 합니다.
 
 ## <a name="programmatically-managing-active-geo-replication"></a>활성 지역 복제를 프로그래밍 방식으로 관리
 
-앞서 설명한 것처럼 Azure PowerShell 및 REST API를 사용하여 활성 지역 복제를 프로그래밍 방식으로 관리할 수 있습니다. 다음 표는 사용 가능한 명령의 집합을 보여 줍니다. 활성 지역 복제는 관리를 위해 [Azure SQL Database REST API](/rest/api/sql/) 및 [Azure PowerShell cmdlet](/powershell/azure/)을 비롯한 Azure Resource Manager API 세트를 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현 하는 방법에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md)를 참조 하세요.
+앞서 설명한 것처럼 Azure PowerShell 및 REST API를 사용하여 활성 지역 복제를 프로그래밍 방식으로 관리할 수 있습니다. 다음 표는 사용 가능한 명령의 집합을 보여 줍니다. 활성 지역 복제는 관리를 위해 [Azure SQL Database REST API](/rest/api/sql/) 및 [Azure PowerShell cmdlet](/powershell/azure/)을 비롯한 Azure Resource Manager API 세트를 포함합니다. 이러한 Api는 리소스 그룹을 사용 해야 하며 azure RBAC (역할 기반 액세스 제어)를 지원 합니다. 액세스 역할을 구현 하는 방법에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md)를 참조 하세요.
 
 ### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-sql: 단일 및 풀링된 데이터베이스의 장애 조치 (failover) 관리
 
 > [!IMPORTANT]
 > 이러한 Transact-SQL 명령은 활성 지역 복제에만 적용되고 장애 조치(failover) 그룹에는 적용되지 않습니다. 따라서 장애 조치 (failover) 그룹만 지원 하므로 SQL Managed Instance 인스턴스에는 적용 되지 않습니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 | [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작하려면 ADD SECONDARY ON SERVER 인수를 사용합니다. |
 | [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |장애 조치를 시작하기 위해 보조 데이터베이스를 기본 데이터베이스로 전환하려면 FAILOVER 또는 FORCE_FAILOVER_ALLOW_DATA_LOSS를 사용합니다. |
@@ -268,7 +268,7 @@ RPO와 관련 된 지연 시간을 모니터링 하려면 주 데이터베이스
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
 
-| cmdlet | 설명 |
+| Cmdlet | Description |
 | --- | --- |
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
 | [New-AzSqlDatabaseSecondary](/powershell/module/az.sql/new-azsqldatabasesecondary) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다. |

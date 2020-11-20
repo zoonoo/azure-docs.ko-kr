@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/26/2020
 ms.author: duau
-ms.openlocfilehash: 064c9e77876423d0c46f5f9890497a76331481ae
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 8eb4fd4cf0645248804ca31e310933167ba9a39b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336763"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987833"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>ExpressRoute 연결 파트너 및 피어링 위치
 
@@ -121,7 +121,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |지원됨 |지원됨 |케이프타운, 요하네스버그, 런던 |
 | **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |지원됨 |지원됨 |암스테르담, 암스테르담2, 코펜하겐, 더블린, 프랑크푸르트, 런던, 마르세이유, 파리, 취리히 |
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|지원됨 |지원됨 | 암스테르담, 런던2, 실리콘밸리, 토론토, 워싱턴 DC |
-| **Jaguar Network** |지원됨 |지원됨 |마르세이유|
+| **Jaguar Network** |지원됨 |지원됨 |마르세유에, 파리 |
 | **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |지원됨 |지원됨 |런던, Newport (Wales) |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |지원됨 |지원됨 |서울 |
 | **[Kordia](https://www.kordia.co.nz/cloudconnect)** | 지원됨 |지원됨 |오클랜드, 시드니 |
@@ -138,7 +138,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **[NOS](https://www.nos.pt/empresas/corporate/cloud/cloud/Pages/nos-cloud-connect.aspx)** |지원됨 |지원됨 |암스테르담2 |
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** |지원됨 |지원됨 |암스테르담, 홍콩 특별 행정구, 런던, 로스앤젤레스, 오사카, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
 | **[NTT EAST](https://business.ntt-east.co.jp/service/crossconnect/)** |지원됨 |지원됨 |도쿄 |
-| **[NTT Global DataCenters EMEA](https://www.ntt.com/en/services/data-center.html)** |지원됨 |지원됨 |베를린 |
+| **[NTT Global DataCenters EMEA](https://hello.global.ntt/)** |지원됨 |지원됨 |Amsterdam2, 베를린 |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |지원됨 |지원됨 |오사카 |
 | **[Ooredoo Cloud Connect](https://www.ooredoo.qa/portal/OoredooQatar/cloud-connect-expressroute)** |지원됨 |지원됨 |마르세이유 |
 | **[Optus](https://www.optus.com.au/enterprise/)** |지원됨 |지원됨 |멜버른, 시드니 |
@@ -152,6 +152,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |지원됨 |지원됨 |첸나이, 뭄바이2 |
 | **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |지원됨 |지원됨 |홍콩 Kong2, 싱가포르, 싱가포르 2 |
 | **[Softbank](https://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |지원됨 |지원됨 |오사카, 도쿄 |
+| **[Sohonet](https://www.sohonet.com/fastlane/)** |지원됨 |지원됨 |런던2 |
 | **[Spark NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** |지원됨 |지원됨 |오클랜드, 시드니 |
 | **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |지원됨 |지원됨 |시카고, 실리콘밸리, 워싱턴 DC |
 | **[Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center/microsoft-cloud-services/microsoft-azure-von-swisscom.html)** | 지원됨 | 지원됨 | 취리히 |
@@ -160,6 +161,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |지원됨 |지원됨 |런던, 런던2 |
 | **Telenor** |지원됨 |지원됨 |암스테르담, 런던, 오슬로 |
 | **[Telia Carrier](https://www.teliacarrier.com/)** | 지원됨 | 지원됨 |암스테르담, 시카고, 댈러스, 프랑크푸르트, 홍콩, 런던, 오슬로, 파리, 실리콘밸리, 스톡홀름, 워싱턴 DC |
+| **[다음에서의 통신](https://www.telin.net/)** | 지원됨 | 지원됨 |자카르타 |
 | **Telmex Uninet**| 지원됨 | 지원됨 | 댈러스 |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |지원됨 |지원됨 |멜버른, 싱가포르, 시드니 |
 | **[Telus](https://www.telus.com)** |지원됨 |지원됨 |몬트리올, 시애틀, 전, 밴쿠버 |

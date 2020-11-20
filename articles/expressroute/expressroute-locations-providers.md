@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: duau
-ms.openlocfilehash: 6d58f0178535cf01a413056b2096553e4bd06371
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 9b7b88124837e85874f4f29828a3d4146bb29257
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981020"
+ms.locfileid: "94987816"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -78,7 +78,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **위치** | **주소** | **영역** | **로컬 Azure 지역** | **ER Direct** | **서비스 공급자** |
 | --- | --- | --- | --- | --- | --- |
 | **암스테르담** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 1 | 서유럽 | 10G, 100G | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
-| **암스테르담2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | 서유럽 | 10G, 100G | 영국령 텔레콤, CenturyLink Cloud Connect, Colt, DE-DE x, euNetworks, GÉANT, Interxion, NOS, 주황, Vodafone |
+| **암스테르담2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | 서유럽 | 10G, 100G | 영국령 텔레콤, CenturyLink Cloud Connect, Colt, DE-DE x, euNetworks, GÉANT, Interxion, NOS, NTT 글로벌 데이터 센터 EMEA, 주황, Vodafone |
 | **애틀랜타** | [Equinix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | 1 | 해당 없음 | 10G, 100G | Equinix, Megaport |
 | **오클랜드** | [Vocus Group NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | 해당 없음 | 10G | Devoli, Kordia, Megaport, Spark NZ, Vocus Group NZ |
 | **방콕** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | 해당 없음 | 10G | AIS, UIH |

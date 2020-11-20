@@ -1,15 +1,15 @@
 ---
 title: 지원 되는 Azure Resource Manager 리소스 유형
 description: Azure 리소스 그래프에서 지원 되는 Azure Resource Manager 리소스 유형 목록 및 변경 기록을 제공 합니다.
-ms.date: 10/28/2020
+ms.date: 11/20/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: e604fe7c5e3a7f40e31f43db64bcd59ae0545ac0
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: fa5a5f5741f05e6f5f30a3d04958ba0b450a1bb7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927569"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988343"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure Resource Graph 테이블 및 리소스 종류 참조
 
@@ -68,6 +68,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.aisupercomputer/accounts/jobgroups
 - microsoft.aisupercomputer/accounts/jobgroups/jobs
 - microsoft.alertsmanagement/actionrules
+- alertsmanagement/resourcehealthalertrules
 - microsoft.alertsmanagement/smartdetectoralertrules
 - microsoft.analysisservices/servers
 - microsoft.apimanagement/service
@@ -88,6 +89,10 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.azconfig/configurationstores
 - microsoft.azureactivedirectory/b2cdirectories
 - azureactivedirectory/guestusages
+- microsoft azurearcdata/datacontrollers
+- microsoft azurearcdata/postgresinstances
+- microsoft azurearcdata/sqlmanagedinstances
+- microsoft azurearcdata/sqlserverinstances
 - microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
@@ -103,6 +108,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.baremetal/consoleconnections
 - microsoft.baremetal/crayservers
 - microsoft.baremetal/monitoringservers
+- baremetalinfrastructure/baremetalinstances
 - microsoft.batch/batchaccounts
 - microsoft.batchai/clusters
 - microsoft.batchai/fileservers
@@ -131,6 +137,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.cloudes/accounts
 - microsoft.cloudsearch/indexes
 - microsoft cloudtest/accounts
+- microsoft cloudtest/hostedpools
 - microsoft cloudtest/images
 - microsoft cloudtest/풀
 - microsoft codespaces/요금제
@@ -177,6 +184,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.containerservice/openshiftmanagedclusters
 - microsoft. contoso/클러스터
 - microsoft.contoso/employees
+- microsoft. contoso/타워
 - microsoft.costmanagement/connectors
 - microsoft.customproviders/resourceproviders
 - d365customerinsights/인스턴스
@@ -205,6 +213,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.dbforpostgresql/servers
 - microsoft.dbforpostgresql/serversv2
 - microsoft.dbforpostgresql/singleservers
+- delegatednetwork/컨트롤러
 - delegatednetwork/delegatedsubnets
 - delegatednetwork/orchestratorinstances
 - microsoft.deploymentmanager/artifactsources
@@ -302,6 +311,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.machinelearning/workspaces
 - microsoft.machinelearningcompute/operationalizationclusters
 - microsoft.machinelearningservices/workspaces
+- machinelearningservices/작업 영역/batchendpoints
 - machinelearningservices/작업 영역/inferenceendpoints
 - machinelearningservices/작업 영역/inferenceendpoints/배포
 - machinelearningservices/작업 영역/onlineendpoints
@@ -316,6 +326,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.managednetwork/managednetworks/managednetworkgroups
 - microsoft.managednetwork/managednetworks/managednetworkpeeringpolicies
 - microsoft.maps/accounts
+- microsoft maps/계정/작성자
 - microsoft.maps/accounts/privateatlases
 - microsoft.marketplaceapps/classicdevservices
 - microsoft.media/mediaservices
@@ -389,6 +400,8 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.network/serviceendpointpolicies
 - microsoft.network/trafficmanagerprofiles
 - microsoft.network/virtualhubs
+- microsoft. network/virtualhubs/bgpconnections
+- microsoft. network/virtualhubs/ipconfigurations
 - microsoft.network/virtualnetworkgateways
 - microsoft.network/virtualnetworks
 - microsoft.network/virtualnetworktaps
@@ -424,6 +437,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.powerbi/workspacecollections
 - microsoft.powerbidedicated/capacities
 - microsoft.projectbabylon/accounts
+- 부서의 범위/계정
 - microsoft.quantum/workspaces
 - microsoft.recoveryservices/vaults
 - microsoft.redhatopenshift/openshiftclusters

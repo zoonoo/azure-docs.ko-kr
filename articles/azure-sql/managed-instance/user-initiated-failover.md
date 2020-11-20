@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: 7bcdabdb4e49d198b9acb7a1c57312b31a5b4fff
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 51e9e66e2fd8ff60dd20c275a66fd13c047cc629
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842229"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985521"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치
 
@@ -37,9 +37,9 @@ ms.locfileid: "94842229"
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 수동 장애 조치 (failover) 시작
 
-### <a name="rbac-permissions-required"></a>RBAC 권한 필요
+### <a name="azure-rbac-permissions-required"></a>Azure RBAC 권한 필요
 
-장애 조치 (failover)를 시작 하는 사용자에 게는 다음 RBAC 역할 중 하나가 있어야 합니다.
+장애 조치 (failover)를 시작 하는 사용자에 게는 다음 Azure 역할 중 하나가 있어야 합니다.
 
 - 구독 소유자 역할 또는
 - Managed Instance 참가자 역할 또는

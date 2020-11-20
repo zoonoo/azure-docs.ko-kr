@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/29/2020
-ms.openlocfilehash: 8b0d6665b440516d29cc9aeb0b6e50f509528574
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ec193eab02d937e9d93b8632fa171fec8227d6c2
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503439"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987510"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Azure SQL Managed Instance 장기 백업 보존 관리 (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -24,13 +24,13 @@ ms.locfileid: "92503439"
 Azure SQL Managed Instance에서 LTR ( [장기 백업 보존](../database/long-term-retention-overview.md#sql-managed-instance-support) 정책)을 제한 된 공개 미리 보기 기능으로 구성할 수 있습니다. 이를 통해 최대 10 년 동안 별도의 Azure Blob storage 컨테이너에 데이터베이스 백업을 자동으로 유지할 수 있습니다. 그런 다음 PowerShell을 사용 하 여 이러한 백업을 사용 하 여 데이터베이스를 복구할 수 있습니다.
 
    > [!IMPORTANT]
-   > 관리 되는 인스턴스의 경우 LTR은 현재 제한 된 미리 보기로 제공 되며 소문자를 기준으로 EA 및 CSP 구독에 사용할 수 있습니다. 등록을 요청 하려면 [Azure 지원 티켓](https://azure.microsoft.com/support/create-ticket/)을 만드세요. 문제 유형에서 기술 문제를 선택 하 고, 서비스에 대해 SQL Database Managed Instance를 선택 하 고, 문제 유형에 대해 **백업, 복원 및 비즈니스 연속성/장기 백업 보존**을 선택 합니다. 요청에서 관리 되는 인스턴스의 제한 된 공개 미리 보기에 등록 하려는 상태를 선택 하십시오.
+   > 관리 되는 인스턴스의 경우 LTR은 현재 제한 된 미리 보기로 제공 되며 소문자를 기준으로 EA 및 CSP 구독에 사용할 수 있습니다. 등록을 요청 하려면 [Azure 지원 티켓](https://azure.microsoft.com/support/create-ticket/)을 만드세요. 문제 유형에서 기술 문제를 선택 하 고, 서비스에 대해 SQL Database Managed Instance를 선택 하 고, 문제 유형에 대해 **백업, 복원 및 비즈니스 연속성/장기 백업 보존** 을 선택 합니다. 요청에서 관리 되는 인스턴스의 제한 된 공개 미리 보기에 등록 하려는 상태를 선택 하십시오.
 
 다음 섹션에서는 PowerShell을 사용하여 장기 백업 보존을 구성하고 Azure SQL 스토리지에서 백업을 확인하고 Azure SQL 스토리지의 백업에서 복원하는 방법을 보여줍니다.
 
 ## <a name="azure-roles-to-manage-long-term-retention"></a>장기 보존을 관리 하기 위한 Azure 역할
 
-**AzSqlInstanceDatabaseLongTermRetentionBackup** 및 **AzSqlInstanceDatabase**의 경우 다음 역할 중 하나가 있어야 합니다.
+**AzSqlInstanceDatabaseLongTermRetentionBackup** 및 **AzSqlInstanceDatabase** 의 경우 다음 역할 중 하나가 있어야 합니다.
 
 - 구독 소유자 역할 또는
 - Managed Instance 참가자 역할 또는
@@ -39,7 +39,7 @@ Azure SQL Managed Instance에서 LTR ( [장기 백업 보존](../database/long-t
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read`
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read`
 
-**AzSqlInstanceDatabaseLongTermRetentionBackup**의 경우 다음 역할 중 하나가 있어야 합니다.
+**AzSqlInstanceDatabaseLongTermRetentionBackup** 의 경우 다음 역할 중 하나가 있어야 합니다.
 
 - 구독 소유자 역할 또는
 - 다음 권한이 있는 사용자 지정 역할:
@@ -48,7 +48,7 @@ Azure SQL Managed Instance에서 LTR ( [장기 백업 보존](../database/long-t
 > [!NOTE]
 > Managed Instance 참여자 역할에는 LTR 백업을 삭제할 수 있는 권한이 없습니다.
 
-RBAC 권한은 *구독* 또는 *리소스 그룹* 범위에서 부여할 수 있습니다. 그러나 삭제 된 인스턴스에 속한 LTR 백업에 액세스 하려면 해당 인스턴스의 *구독* 범위에서 사용 권한을 부여 해야 합니다.
+Azure RBAC 권한은 *구독* 또는 *리소스 그룹* 범위에서 부여할 수 있습니다. 그러나 삭제 된 인스턴스에 속한 LTR 백업에 액세스 하려면 해당 인스턴스의 *구독* 범위에서 사용 권한을 부여 해야 합니다.
 
 - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 

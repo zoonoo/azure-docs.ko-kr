@@ -1,5 +1,5 @@
 ---
-title: 연결 모니터 만들기-PowerShell
+title: 연결 모니터 만들기 (미리 보기)-PowerShell
 titleSuffix: Azure Network Watcher
 description: PowerShell을 사용 하 여 연결 모니터를 만드는 방법에 대해 알아봅니다.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: fa8b2d967a336343d23c5f6aa4477ebcf2396407
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b1ffce75d5c38177c70db3ec1fc024a01821d3ab
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949040"
+ms.locfileid: "94984246"
 ---
-# <a name="create-a-connection-monitor-using-powershell"></a>PowerShell을 사용 하 여 연결 모니터 만들기
+# <a name="create-a-connection-monitor-preview-using-powershell"></a>PowerShell을 사용 하 여 연결 모니터 (미리 보기) 만들기
 
 PowerShell을 사용 하 여 리소스 간의 통신을 모니터링 하는 연결 모니터를 만드는 방법에 대해 알아봅니다.
+
+> [!IMPORTANT]
+> 연결 모니터는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에 
 
@@ -80,7 +84,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 * 엔드포인트
     * 이름 – 각 끝점에 대 한 고유 이름
-    * resourceId – Azure 끝점의 경우 리소스 ID는 가상 머신의 Azure Resource Manager 리소스 ID를 나타냅니다. 비 Azure 끝점의 경우 리소스 ID는 azure 에이전트 이외의 에이전트에 연결 된 Log Analytics 작업 영역에 대 한 Azure resource manager의 리소스 ID를 나타냅니다.
+    * resourceId – Azure 끝점의 경우 리소스 ID는 가상 머신의 Azure Resource Manager 리소스 ID를 나타냅니다. 비 Azure 끝점의 경우 리소스 ID는 비 Azure 에이전트에 연결 된 Log Analytics 작업 영역에 대 한 Azure Resource Manager 리소스 ID를 나타냅니다.
     * address – 리소스 ID가 지정 되지 않았거나 리소스 ID가 작업 영역 Log Analytics 경우에만 적용 됩니다. Log Analytics 리소스 ID와 함께 사용 하는 경우이는 모니터링에 사용할 수 있는 에이전트의 FQDN을 나타냅니다. 리소스 ID 없이 사용 하는 경우이는 모든 공용 끝점의 URL 또는 IP 일 수 있습니다.
     * filter – 비 Azure 끝점의 경우 필터를 사용 하 여 연결 모니터 리소스의 모니터링에 사용할 Log Analytics 작업 영역에서 에이전트를 선택 합니다. 필터를 설정 하지 않으면 Log Analytics 작업 영역에 속하는 모든 에이전트를 모니터링에 사용할 수 있습니다.
         * 유형 – 유형을 "에이전트 주소"로 설정 합니다.
@@ -100,6 +104,10 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
         * preferHTTPS-HTTP를 통해 HTTPS를 사용할지 여부를 지정 합니다.
         * 포트-선택한 대상 포트를 지정 합니다.
         * disableTraceRoute-프로토콜이 TCP 또는 ICMP 인 테스트 그룹에 적용 됩니다. 원본 토폴로지 및 홉 단위 RTT를 검색 하지 못하도록 합니다.
+        * 메서드-프로토콜이 HTTP 인 테스트 구성에 적용 됩니다. HTTP 요청 메서드 (GET 또는 POST)를 선택 합니다.
+        * 경로-URL에 추가할 경로 매개 변수를 지정 합니다.
+        * 유효한 Statuscode-적용 가능한 상태 코드를 선택 합니다. 응답 코드가이 목록과 일치 하지 않으면 진단 메시지를 받게 됩니다.
+        * requestHeaders-대상에 전달 될 사용자 지정 요청 헤더 문자열을 지정 합니다.
     * successThreshold-다음 네트워크 매개 변수에 대 한 임계값을 설정할 수 있습니다.
         * checksFailedPercent-원본에서 지정 된 조건을 사용 하 여 대상에 대 한 연결을 확인할 때 실패할 수 있는 검사 비율을 설정 합니다. TCP 또는 ICMP 프로토콜의 경우 실패 한 검사의 백분율이 패킷 손실의 백분율에 동일시 수 있습니다. HTTP 프로토콜의 경우이 필드는 응답을 받지 못한 HTTP 요청 비율을 나타냅니다.
         * roundTripTimeMs-소스에서 테스트 구성을 통해 대상에 연결 하는 데 걸리는 시간 (밀리초)을 설정 합니다.
