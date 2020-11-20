@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b6cb195f44bf6c868402481480d9b10802c4d59
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975065"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965678"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>경고 및 Azure Functions를 통한 사전 네트워크 모니터링을 위해 패킷 캡처 사용
 
@@ -35,11 +35,11 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 최신 버전의 [Azure PowerShell](/powershell/azure/install-Az-ps)
 * Network Watcher의 기존 인스턴스. [Network Watcher 인스턴스](network-watcher-create.md)가 아직 없는 경우에는 새로 만듭니다.
-* [Windows 확장](../virtual-machines/windows/extensions-nwa.md) 또는 [Linux 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md)이 있고 Network Watcher와 동일한 지역에 기존 가상 머신이 있음
+* [Windows 확장](../virtual-machines/extensions/network-watcher-windows.md) 또는 [Linux 가상 머신 확장](../virtual-machines/extensions/network-watcher-linux.md)이 있고 Network Watcher와 동일한 지역에 기존 가상 머신이 있음
 
 ## <a name="scenario"></a>시나리오
 
@@ -68,11 +68,11 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
 
 첫 번째 단계는 경고를 처리할 Azure Function을 만들고 패킷 캡처를 만드는 것입니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **Compute** > **함수 앱**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **Compute** > **함수 앱** 을 선택합니다.
 
     ![함수 앱 만들기][1-1]
 
-2. **함수 앱** 블레이드에서 다음 값을 입력한 다음, **확인**을 선택하여 앱을 만듭니다.
+2. **함수 앱** 블레이드에서 다음 값을 입력한 다음, **확인** 을 선택하여 앱을 만듭니다.
 
     |**설정** | **값** | **세부 정보** |
     |---|---|---|
@@ -85,7 +85,7 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
 
 3. **PacketCaptureExample 함수 앱** 블레이드에서 **함수** > **사용자 지정 함수** >**+** 를 선택합니다.
 
-4. **HttpTrigger-Powershell**을 선택하고 나머지 정보를 입력합니다. 마지막으로 함수를 만들려면 **만들기**를 선택합니다.
+4. **HttpTrigger-Powershell** 을 선택하고 나머지 정보를 입력합니다. 마지막으로 함수를 만들려면 **만들기** 를 선택합니다.
 
     |**설정** | **값** | **세부 정보** |
     |---|---|---|
@@ -120,11 +120,11 @@ Network Watcher PowerShell cmdlet을 사용하려면 최신 PowerShell 모듈을
 
      ![PowerShell 폴더][functions5]
 
-1. **함수 앱 설정**선택  >  **App Service 편집기로 이동**합니다.
+1. **함수 앱 설정** 선택  >  **App Service 편집기로 이동** 합니다.
 
     ![함수 앱 설정][functions2]
 
-1. **AlertPacketCapturePowershell** 폴더를 마우스 오른쪽 단추로 클릭하고 **azuremodules**라는 폴더를 만듭니다. 
+1. **AlertPacketCapturePowershell** 폴더를 마우스 오른쪽 단추로 클릭하고 **azuremodules** 라는 폴더를 만듭니다. 
 
 4. 필요한 각 모듈에 대한 하위 폴더를 만듭니다.
 
@@ -136,11 +136,11 @@ Network Watcher PowerShell cmdlet을 사용하려면 최신 PowerShell 모듈을
 
     * Az.Resources
 
-1. **Az. Network** 하위 폴더를 마우스 오른쪽 단추로 클릭 하 고 **파일 업로드**를 선택 합니다. 
+1. **Az. Network** 하위 폴더를 마우스 오른쪽 단추로 클릭 하 고 **파일 업로드** 를 선택 합니다. 
 
-6. Azure 모듈로 이동합니다. 로컬 **Az. Network** 폴더에서 폴더의 모든 파일을 선택 합니다. 그런 다음, **확인**을 선택합니다. 
+6. Azure 모듈로 이동합니다. 로컬 **Az. Network** 폴더에서 폴더의 모든 파일을 선택 합니다. 그런 다음, **확인** 을 선택합니다. 
 
-7. **Az. Accounts** 및 **az .resources**에 대해 이러한 단계를 반복 합니다.
+7. **Az. Accounts** 및 **az .resources** 에 대해 이러한 단계를 반복 합니다.
 
     ![파일 업로드][functions6]
 
@@ -157,7 +157,7 @@ PowerShell cmdlet을 사용하려면 인증해야 합니다. 함수 앱에서 �
 
 #### <a name="encrypted-credentials"></a>암호화된 자격 증명
 
-다음 PowerShell 스크립트는 **PassEncryptKey.key**라는 키 파일을 만듭니다. 또한 제공된 암호의 암호화된 버전을 제공합니다. 이 암호는 인증에 사용되는 Azure Active Directory 애플리케이션에 대해 정의된 것과 동일한 암호입니다.
+다음 PowerShell 스크립트는 **PassEncryptKey.key** 라는 키 파일을 만듭니다. 또한 제공된 암호의 암호화된 버전을 제공합니다. 이 암호는 인증에 사용되는 Azure Active Directory 애플리케이션에 대해 정의된 것과 동일한 암호입니다.
 
 ```powershell
 #Variables
@@ -176,7 +176,7 @@ $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
 $Encryptedpassword
 ```
 
-함수 앱의 App Service 편집기에서 **AlertPacketCapturePowerShell** 아래에 **keys**라는 폴더를 만듭니다. 그런 다음 이전 PowerShell 샘플에서 만든 **PassEncryptKey.key** 파일을 업로드합니다.
+함수 앱의 App Service 편집기에서 **AlertPacketCapturePowerShell** 아래에 **keys** 라는 폴더를 만듭니다. 그런 다음 이전 PowerShell 샘플에서 만든 **PassEncryptKey.key** 파일을 업로드합니다.
 
 ![함수 키][functions8]
 
@@ -207,11 +207,11 @@ $Encryptedpassword
    > [!NOTE]
    > 애플리케이션을 만들 때 사용되는 암호는 이전에 키 파일을 저장할 때 만든 암호와 동일해야 합니다.
 
-1. Azure Portal에서 **구독**을 선택합니다. 사용할 구독을 선택하고 **액세스 제어(IAM)** 를 선택합니다.
+1. Azure Portal에서 **구독** 을 선택합니다. 사용할 구독을 선택하고 **액세스 제어(IAM)** 를 선택합니다.
 
     ![함수 IAM][functions9]
 
-1. 사용할 계정을 선택하고 **속성**을 클릭합니다. 애플리케이션 ID를 복사합니다.
+1. 사용할 계정을 선택하고 **속성** 을 클릭합니다. 애플리케이션 ID를 복사합니다.
 
     ![함수 애플리케이션 ID][functions10]
 
@@ -246,11 +246,11 @@ $Encryptedpassword
 
 ### <a name="store-the-environment-variables"></a>환경 변수 저장
 
-1. 함수 앱으로 돌아갑니다. 그런 다음 **함수 앱 설정**  >  **앱 설정 구성**을 선택 합니다.
+1. 함수 앱으로 돌아갑니다. 그런 다음 **함수 앱 설정**  >  **앱 설정 구성** 을 선택 합니다.
 
     ![앱 설정 구성][functions11]
 
-1. 환경 변수와 해당 값을 앱 설정에 추가하고 **저장**을 선택합니다.
+1. 환경 변수와 해당 값을 앱 설정에 추가하고 **저장** 을 선택합니다.
 
     ![앱 설정][functions12]
 
@@ -264,7 +264,7 @@ $Encryptedpassword
 4. 완료될 때까지 패킷 캡처를 주기적으로 폴링합니다.
 5. 사용자에게 패킷 캡처 세션이 완료되었음을 알립니다.
 
-다음 예제는 함수에서 사용할 수 있는 PowerShell 코드입니다. **subscriptionId**, **resourceGroupName** 및 **storageAccountName**에 대해 바꿔야 하는 값이 있습니다.
+다음 예제는 함수에서 사용할 수 있는 PowerShell 코드입니다. **subscriptionId**, **resourceGroupName** 및 **storageAccountName** 에 대해 바꿔야 하는 값이 있습니다.
 
 ```powershell
             #Import Azure PowerShell modules required to make calls to Network Watcher
@@ -340,34 +340,34 @@ $Encryptedpassword
 
 ### <a name="create-the-alert-rule"></a>경고 규칙 만들기
 
-기존 가상 머신으로 이동하고 경고 규칙을 추가합니다. 경고 구성에 대한 보다 자세한 설명서는 [Azure 서비스에 대한 Azure Monitor에서 경고 만들기 - Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)에서 확인할 수 있습니다. **경고 규칙** 블레이드에 다음 값을 입력하고 **확인**을 선택합니다.
+기존 가상 머신으로 이동하고 경고 규칙을 추가합니다. 경고 구성에 대한 보다 자세한 설명서는 [Azure 서비스에 대한 Azure Monitor에서 경고 만들기 - Azure Portal](../azure-monitor/platform/alerts-classic-portal.md)에서 확인할 수 있습니다. **경고 규칙** 블레이드에 다음 값을 입력하고 **확인** 을 선택합니다.
 
   |**설정** | **값** | **세부 정보** |
   |---|---|---|
   |**이름**|TCP_Segments_Sent_Exceeded|경고 규칙의 이름입니다.|
   |**설명**|전송된 TCP 세그먼트가 임계값을 초과함|경고 규칙에 대한 설명입니다.|
   |**메트릭**|전송된 TCP 세그먼트| 경고를 트리거하는 데 사용할 메트릭입니다. |
-  |**Condition**|초과| 메트릭을 평가할 때 사용할 조건입니다.|
+  |**Condition**|보다 큼| 메트릭을 평가할 때 사용할 조건입니다.|
   |**임계값**|100| 경고를 트리거하는 메트릭의 값입니다. 이 값은 사용자 환경에 적합한 값으로 설정해야 합니다.|
   |**간격이**|지난 5분 이상| 메트릭에서 임계값을 검색할 기간을 결정합니다.|
   |**웹후크**|[함수 앱에서 웹후크 URL]| 이전 단계에서 만든 함수 앱의 웹후크 URL입니다.|
 
 > [!NOTE]
-> 기본적으로 TCP 세그먼트 메트릭은 사용되지 않도록 설정됩니다. [모니터링 및 진단 사용](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)을 방문하여 추가 메트릭을 설정하는 방법에 대해 자세히 알아보세요.
+> 기본적으로 TCP 세그먼트 메트릭은 사용되지 않도록 설정됩니다. [모니터링 및 진단 사용](../azure-monitor/overview.md)을 방문하여 추가 메트릭을 설정하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="review-the-results"></a>결과 검토
 
-경고 트리거에 대한 기준에 도달하면 패킷 캡처가 만들어집니다. Network Watcher로 이동한 다음 **패킷 캡처**를 선택합니다. 이 페이지에서 패킷 캡처 파일 링크를 선택하여 패킷 캡처를 다운로드할 수 있습니다.
+경고 트리거에 대한 기준에 도달하면 패킷 캡처가 만들어집니다. Network Watcher로 이동한 다음 **패킷 캡처** 를 선택합니다. 이 페이지에서 패킷 캡처 파일 링크를 선택하여 패킷 캡처를 다운로드할 수 있습니다.
 
 ![패킷 캡처 보기][functions14]
 
 캡처 파일이 로컬에 저장된 경우 가상 머신에 로그인하여 캡처 파일을 검색합니다.
 
-Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 [Storage Explorer](https://storageexplorer.com/)입니다.
+Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-quickstart-blobs-dotnet.md)을 참조하세요. 사용할 수 있는 다른 도구는 [Storage Explorer](https://storageexplorer.com/)입니다.
 
 캡처를 다운로드했으면 **.cap** 파일을 읽을 수 있는 도구를 사용하여 볼 수 있습니다. 다음은 이러한 두 도구에 대한 링크입니다.
 
-- [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)
+- [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide)
 - [WireShark](https://www.wireshark.org/)
 
 ## <a name="next-steps"></a>다음 단계

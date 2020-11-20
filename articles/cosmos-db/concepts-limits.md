@@ -5,15 +5,16 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 503d3d5ed9b099e01a88ee40ef80e88105beb340
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 11/19/2020
+ms.openlocfilehash: f1a7ffc8225ea20b48df4e1d9a049655ca4776a4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917735"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964663"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
+
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 이 문서에서는 Azure Cosmos DB의 다른 리소스에 제공되는 기본 할당량에 대한 개요를 제공합니다.
@@ -194,8 +195,8 @@ Azure Cosmos DB는 각 계정에 대 한 시스템 메타 데이터를 유지 �
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-|분당 최대 컬렉션 생성 률|    5|
-|분당 최대 데이터베이스 생성 율|    5|
+|분당 최대 컬렉션 생성 률|    100|
+|분당 최대 데이터베이스 생성 율|    100|
 |분당 프로 비전 된 최대 처리량 업데이트 속도|    5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>자동 스케일링 프로비저닝 처리량 제한

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5aa6906f7f06e109342d81db6171773a68642e0c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 76695d4d8dbc3e3a6b04b89b8f34e41b83a92963
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342283"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965190"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
@@ -44,9 +44,9 @@ Security Center은 보안 정책을 사용 하기 위한 다음과 같은 옵션
 
 Security Center에서 보안 정책을 보려면
 
-1. **Security Center** 대시보드에서 **보안 정책**을 선택합니다.
+1. **Security Center** 대시보드에서 **보안 정책** 을 선택합니다.
 
-    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="정책 관리 페이지&quot;:::
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="정책 관리 페이지":::
 
    **정책 관리** 화면에서 관리 그룹 구조뿐만 아니라 관리 그룹, 구독 및 작업 영역 수를 확인할 수 있습니다.
 
@@ -57,29 +57,18 @@ Security Center에서 보안 정책을 보려면
    ![정책 페이지](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
-    > 기본 정책과 함께 &quot;MG 상속" 이라는 레이블이 있으면 정책이 관리 그룹에 할당 되 고 사용자가 보고 있는 구독에서 상속 된 것입니다.
+    > 기본 정책과 함께 "MG 상속" 이라는 레이블이 있으면 정책이 관리 그룹에 할당 되 고 사용자가 보고 있는 구독에서 상속 된 것입니다.
 
 
 1. 이 페이지에서 사용할 수 있는 옵션 중에서 선택 합니다.
 
-    1. 산업 정책을 사용 하려면 **추가 표준**을 선택 합니다. 자세한 내용은 [동적 준수 패키지 업데이트를](update-regulatory-compliance-packages.md)참조 하세요.
+    1. 산업 정책을 사용 하려면 **추가 표준** 을 선택 합니다. 자세한 내용은 [동적 준수 패키지 업데이트를](update-regulatory-compliance-packages.md)참조 하세요.
 
-    1. 사용자 지정 이니셔티브를 할당 하 고 관리 하려면 **사용자 지정 이니셔티브 추가**를 선택 합니다. 자세한 내용은 [사용자 지정 보안 정책 사용](custom-security-policies.md)을 참조 하세요.
+    1. 사용자 지정 이니셔티브를 할당 하 고 관리 하려면 **사용자 지정 이니셔티브 추가** 를 선택 합니다. 자세한 내용은 [사용자 지정 보안 정책 사용](custom-security-policies.md)을 참조 하세요.
 
     1. 기본 정책을 보고 편집 하려면 **유효한 정책 보기** 를 선택 하 고 아래에 설명 된 대로 진행 합니다. 
 
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="정책 관리 페이지&quot;:::
-
-   **정책 관리** 화면에서 관리 그룹 구조뿐만 아니라 관리 그룹, 구독 및 작업 영역 수를 확인할 수 있습니다.
-
-1. 확인하려는 구독 또는 관리 그룹의 정책을 선택합니다.
-
-1. 해당 구독 또는 관리 그룹에 대 한 보안 정책 페이지가 나타납니다. 사용 가능한 정책과 할당 된 정책을 표시 합니다.
-
-   ![정책 페이지](./media/tutorial-security-policy/security-policy-page.png)
-
-    > [!NOTE]
-    > 기본 정책과 함께 &quot;MG 상속":::
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="유효 정책 화면":::
 
        이 **보안 정책** 화면은 선택한 구독 또는 관리 그룹에 할당 된 정책에 의해 수행 된 작업을 반영 합니다.
        
@@ -97,10 +86,10 @@ Security Center에서 보안 정책을 보려면
 
 REST API를 통해 또는 Windows PowerShell을 사용하여 Azure Policy 포털을 통해 보안 정책을 편집할 수 있습니다.
 
-Security Center는 Azure 사용자, 그룹 및 서비스에 할당할 수 있는 기본 제공 역할을 제공 하는 RBAC (Role-Based Access Control)를 사용 합니다. 사용자가 Security Center 열면 액세스할 수 있는 리소스와 관련 된 정보만 표시 됩니다. 즉, 사용자에 게 리소스 구독에 대 한 *소유자*, *참가자*또는 *읽기 권한자* 역할이 할당 됩니다. 또한 두 가지 특정 Security Center 역할이 있습니다.
+Security Center는 azure 사용자, 그룹 및 서비스에 할당할 수 있는 기본 제공 역할을 제공 하는 azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 합니다. 사용자가 Security Center 열면 액세스할 수 있는 리소스와 관련 된 정보만 표시 됩니다. 즉, 사용자에 게 리소스 구독에 대 한 *소유자*, *참가자* 또는 *읽기 권한자* 역할이 할당 됩니다. 또한 두 가지 특정 Security Center 역할이 있습니다.
 
 - **보안 읽기 권한자**: 권장 사항, 경고, 정책 및 상태와 같은 Security Center 항목을 볼 수 있는 권한을 가집니다. 변경할 수 없습니다.
-- **보안 관리자**: *보안 판독기*와 동일한 보기 권한을 가집니다. 보안 정책을 업데이트 하 고 경고를 해제할 수도 있습니다.
+- **보안 관리자**: *보안 판독기* 와 동일한 보기 권한을 가집니다. 보안 정책을 업데이트 하 고 경고를 해제할 수도 있습니다.
 
 
 ## <a name="disable-security-policies-and-disable-recommendations"></a>보안 정책 사용 안 함 및 권장 구성 사용 안 함
@@ -111,7 +100,7 @@ Security Center는 Azure 사용자, 그룹 및 서비스에 할당할 수 있는
 
 권장 사항에 대 한 자세한 내용은 [보안 권장 사항 관리](security-center-recommendations.md)를 참조 하세요.
 
-1. Security Center의 **정책 & 준수** 섹션에서 **보안 정책**을 선택 합니다.
+1. Security Center의 **정책 & 준수** 섹션에서 **보안 정책** 을 선택 합니다.
 
    ![정책 관리](./media/tutorial-security-policy/policy-management.png)
 
@@ -120,7 +109,7 @@ Security Center는 Azure 사용자, 그룹 및 서비스에 할당할 수 있는
    > [!NOTE]
    > 관리 그룹은 해당 구독에 정책을 적용합니다. 따라서 정책을 사용하지 않도록 설정한 구독이 동일한 정책을 사용하는 관리 그룹에 속해 있는 경우 정책 권장 사항을 계속 받게 됩니다. 관리 수준에서 계속 정책이 적용되고 권장 사항이 생성됩니다.
 
-1. **유효 정책 보기**를 선택 합니다.
+1. **유효 정책 보기** 를 선택 합니다.
 
    ![정책 보기](./media/tutorial-security-policy/view-effective-policy.png)
 
@@ -132,7 +121,7 @@ Security Center는 Azure 사용자, 그룹 및 서비스에 할당할 수 있는
 
    ![정책 사용 안 함](./media/tutorial-security-policy/disable-policy.png)
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
    > [!NOTE]
    > 정책 사용 안 함 변경을 적용 하는 데 최대 12 시간이 걸릴 수 있습니다.

@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 1d7d477e50ef4fc47042d57aa973d483a784465d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 792908236c4f240db64bd3899474d779d5b0570c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127338"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966516"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
 ## <a name="introduction"></a>소개
 
-Nsg ( [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ) 흐름 로그는 nsg를 통과 하는 IP 트래픽에 대 한 정보를 로깅할 수 있는 Azure Network Watcher의 기능입니다. 흐름 데이터는 액세스할 수 있는 위치에서 Azure Storage 계정으로 전송 되며 원하는 시각화 도구, SIEM 또는 ID로 내보낼 수 있습니다.
+Nsg ( [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules) ) 흐름 로그는 nsg를 통과 하는 IP 트래픽에 대 한 정보를 로깅할 수 있는 Azure Network Watcher의 기능입니다. 흐름 데이터는 액세스할 수 있는 위치에서 Azure Storage 계정으로 전송 되며 원하는 시각화 도구, SIEM 또는 ID로 내보낼 수 있습니다.
 
 ![흐름 로그 개요](./media/network-watcher-nsg-flow-logging-overview/homepage.jpg)
 
@@ -54,12 +54,12 @@ Nsg ( [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-netw
 - 흐름 로그에는 생성 후 최대 1 년까지 로그를 자동으로 삭제할 수 있는 보존 기능이 있습니다. 
 
 > [!NOTE]
-> 보존은 범용 [V2 저장소 계정 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts)을 사용 하는 경우에만 사용할 수 있습니다. 
+> 보존은 범용 [V2 저장소 계정 (GPv2)](../storage/common/storage-account-overview.md#types-of-storage-accounts)을 사용 하는 경우에만 사용할 수 있습니다. 
 
 **핵심 개념**
 
 - 소프트웨어 정의 네트워크는 Vnet (가상 네트워크) 및 서브넷을 중심으로 구성 됩니다. 이러한 Vnet 및 서브넷의 보안은 NSG를 사용 하 여 관리할 수 있습니다.
-- NSG (네트워크 보안 그룹)에는 연결 된 리소스의 네트워크 트래픽을 허용 하거나 거부 하는 _보안 규칙_ 목록이 포함 되어 있습니다. NSGs는 서브넷, 개별 Vm 또는 Vm에 연결 된 개별 NIC (네트워크 인터페이스)에 연결 될 수 있습니다 (리소스 관리자). 자세한 내용은 [네트워크 보안 그룹 개요](https://docs.microsoft.com/azure/virtual-network/security-overview?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json)를 참조하세요.
+- NSG (네트워크 보안 그룹)에는 연결 된 리소스의 네트워크 트래픽을 허용 하거나 거부 하는 _보안 규칙_ 목록이 포함 되어 있습니다. NSGs는 서브넷, 개별 Vm 또는 Vm에 연결 된 개별 NIC (네트워크 인터페이스)에 연결 될 수 있습니다 (리소스 관리자). 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json)를 참조하세요.
 - 네트워크의 모든 트래픽 흐름은 해당 NSG의 규칙을 사용 하 여 평가 됩니다.
 - 이러한 평가 결과는 NSG 흐름 로그입니다. 흐름 로그는 Azure 플랫폼을 통해 수집 되며 고객 리소스를 변경할 필요가 없습니다.
 - 참고: 규칙은 종료 & 두 가지 유형으로, 각각 서로 다른 로깅 동작을 포함 합니다.
@@ -74,7 +74,7 @@ Nsg ( [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-netw
 
 * **시간** - 이벤트가 로그된 시간
 * **systemid** -네트워크 보안 그룹 시스템 id입니다.
-* **범주** - 이벤트의 범주입니다. 범주는 항상 **NetworkSecurityGroupFlowEvent**입니다.
+* **범주** - 이벤트의 범주입니다. 범주는 항상 **NetworkSecurityGroupFlowEvent** 입니다.
 * **resourceid** -nsg의 리소스 ID
 * **operationName** - 항상 NetworkSecurityGroupFlowEvents
 * **속성** - 흐름의 속성 컬렉션
@@ -89,9 +89,9 @@ Nsg ( [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-netw
                     * **대상 IP** - 대상 IP
                     * **원본 포트** - 원본 포트
                     * **대상 포트** - 대상 포트
-                    * **프로토콜** - 흐름의 프로토콜입니다. 유효한 값은 TCP에 대해서 **T**이며 UDP에 대해서 **U**입니다.
-                    * **트래픽 흐름** - 트래픽 흐름의 방향입니다. 유효한 값은 인바운드에 대해서 **I**이며 아웃바운드에 대해서 **O**입니다.
-                    * **트래픽 의사 결정** - 트래픽이 허용되었는지 또는 거부되었는지 여부입니다. 유효한 값은 허용에 대해 **A**이며 거부에 대해 **D**입니다.
+                    * **프로토콜** - 흐름의 프로토콜입니다. 유효한 값은 TCP에 대해서 **T** 이며 UDP에 대해서 **U** 입니다.
+                    * **트래픽 흐름** - 트래픽 흐름의 방향입니다. 유효한 값은 인바운드에 대해서 **I** 이며 아웃바운드에 대해서 **O** 입니다.
+                    * **트래픽 의사 결정** - 트래픽이 허용되었는지 또는 거부되었는지 여부입니다. 유효한 값은 허용에 대해 **A** 이며 거부에 대해 **D** 입니다.
                     * **흐름 상태 - 버전 2만** - 흐름의 상태를 캡처합니다. 가능한 상태는 다음과 같습니다. **B**: 흐름이 만들어질 때 시작합니다. 통계가 제공되지 않습니다. **C**: 지속적인 흐름에 대해 계속됩니다. 통계가 5분 간격으로 제공됩니다. **E**: 흐름이 종료되면 끝납니다. 통계가 제공됩니다.
                     * **패킷 - 원본에서 대상으로 - 버전 2만** 마지막 업데이트 이후 원본에서 대상으로 전송된 TCP 또는 UDP 패킷의 총 수입니다.
                     * **전송된 바이트 - 원본에서 대상으로 - 버전 2만** 마지막 업데이트 이후 원본에서 대상으로 전송된 TCP 또는 UDP 패킷 바이트의 총 수입니다. 패킷 바이트에는 패킷 헤더 및 페이로드가 포함됩니다.
@@ -103,7 +103,7 @@ Nsg ( [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-netw
 
 로그 버전 2는 흐름 상태의 개념을 소개 합니다. 수신하는 흐름 로그 버전을 구성할 수 있습니다.
 
-흐름이 시작되면 흐름 상태 _B_가 기록됩니다. 흐름 상태 _C_ 및 흐름 상태 _E_는 각각 흐름의 연속 및 흐름 종료를 나타내는 상태입니다. _C_ 및 _E_ 상태 둘 다 트래픽 대역폭 정보를 포함합니다.
+흐름이 시작되면 흐름 상태 _B_ 가 기록됩니다. 흐름 상태 _C_ 및 흐름 상태 _E_ 는 각각 흐름의 연속 및 흐름 종료를 나타내는 상태입니다. _C_ 및 _E_ 상태 둘 다 트래픽 대역폭 정보를 포함합니다.
 
 ### <a name="sample-log-records"></a>샘플 로그 레코드
 
@@ -309,11 +309,11 @@ Nsg ( [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-netw
 
 흐름 로그 사용에 대 한 지침을 보려면 아래에서 관련 링크를 사용 하십시오.
 
-- [Azure Portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
-- [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-powershell)
-- [CLI](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-cli)
-- [REST (영문)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-rest)
-- [Azure Resource Manager](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-azure-resource-manager)
+- [Azure Portal](./network-watcher-nsg-flow-logging-portal.md)
+- [PowerShell](./network-watcher-nsg-flow-logging-powershell.md)
+- [CLI](./network-watcher-nsg-flow-logging-cli.md)
+- [REST (영문)](./network-watcher-nsg-flow-logging-rest.md)
+- [Azure Resource Manager](./network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 ## <a name="updating-parameters"></a>매개 변수 업데이트
 
@@ -329,8 +329,8 @@ Azure Portal에서 Network Watcher의 NSG 흐름 로그 섹션으로 이동 합�
 
 *흐름 로그 읽기 및 내보내기*
 
-- [&amp;포털에서 보기 흐름 로그 다운로드](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#download-flow-log)
-- [PowerShell 함수를 사용 하 여 흐름 로그 읽기](https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs)
+- [&amp;포털에서 보기 흐름 로그 다운로드](./network-watcher-nsg-flow-logging-portal.md#download-flow-log)
+- [PowerShell 함수를 사용 하 여 흐름 로그 읽기](./network-watcher-read-nsg-flow-logs.md)
 - [NSG 흐름 로그를 Splunk로 내보내기](https://www.splunk.com/en_us/blog/tips-and-tricks/splunking-microsoft-azure-network-watcher-data.html)
 
 흐름 로그는 NSG를 대상으로 하지만 다른 로그와 동일하게 표시되지 않습니다. 흐름 로그는 스토리지 계정 내에만 저장되며 다음 예제와 같이 로깅 경로를 따릅니다.
@@ -341,11 +341,11 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 *흐름 로그 시각화*
 
-- [Azure 트래픽 분석](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) 은 흐름 로그를 처리 하 고, 통찰력을 추출 하 고, 흐름 로그를 시각화 하는 azure native service입니다. 
-- [자습서 Power BI를 사용 하 여 NSG 흐름 로그 시각화](https://docs.microsoft.com/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-power-bi)
-- [자습서 탄력적 스택을 사용 하 여 NSG 흐름 로그 시각화](https://docs.microsoft.com/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-open-source-tools)
-- [자습서 Grafana를 사용 하 여 NSG 흐름 로그 관리 및 분석](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-grafana)
-- [자습서 Graylog를 사용 하 여 NSG 흐름 로그 관리 및 분석](https://docs.microsoft.com/azure/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog)
+- [Azure 트래픽 분석](./traffic-analytics.md) 은 흐름 로그를 처리 하 고, 통찰력을 추출 하 고, 흐름 로그를 시각화 하는 azure native service입니다. 
+- [자습서 Power BI를 사용 하 여 NSG 흐름 로그 시각화](./network-watcher-visualize-nsg-flow-logs-power-bi.md)
+- [자습서 탄력적 스택을 사용 하 여 NSG 흐름 로그 시각화](./network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+- [자습서 Grafana를 사용 하 여 NSG 흐름 로그 관리 및 분석](./network-watcher-nsg-grafana.md)
+- [자습서 Graylog를 사용 하 여 NSG 흐름 로그 관리 및 분석](./network-watcher-analyze-nsg-flow-logs-graylog.md)
 
 
 ## <a name="nsg-flow-logging-considerations"></a>NSG 흐름 로깅 고려 사항
@@ -357,7 +357,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **흐름 로깅 비용**: nsg 흐름 로깅은 생성 된 로그의 양에 따라 청구 됩니다. 트래픽 볼륨이 많으면 흐름 로그 볼륨과 관련 비용도 증가할 수 있습니다. NSG 흐름 로그의 가격에는 스토리지의 기본 비용이 포함되지 않습니다. NSG 흐름 로깅에서 보존 정책 기능을 사용 하는 것은 오랜 시간 동안 별도의 저장소 비용을 발생 시킵니다. 보존 정책 기능이 필요하지 않은 경우 이 값을 0으로 설정하는 것이 좋습니다. 자세한 내용은 [Network Watcher 가격](https://azure.microsoft.com/pricing/details/network-watcher/) 책정 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 을 참조 하세요.
 
-**사용자 정의 인바운드 TCP 규칙에**대 한 문제: [nsgs (네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/security-overview) 는 [상태 저장 방화벽](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true)으로 구현 됩니다. 그러나 현재 플랫폼 제한으로 인해 인바운드 TCP 흐름에 영향을 주는 사용자 정의 규칙은 상태 비저장 방식으로 구현 됩니다. 이로 인해 사용자 정의 인바운드 규칙의 영향을 받는 흐름이 종료 되지 않습니다. 이러한 흐름에 대해서는 바이트 및 패킷 수가 추가로 기록 되지 않습니다. 결과적으로 NSG 흐름 로그 (및 트래픽 분석)에서 보고 되는 바이트 수와 패킷은 실제 숫자와 다를 수 있습니다. 이러한 문제를 해결 하는 옵트인 플래그는 12 월 2020 최신 버전에서 사용할 수 있도록 예약 되어 있습니다. 이 문제로 인해 발생 하는 심각한 문제를 야기 하는 고객은 지원을 통해 옵트인을 요청할 수 있습니다. Network Watcher > NSG 흐름 로그에서 지원 요청을 발생 시킵니다.  
+**사용자 정의 인바운드 TCP 규칙에** 대 한 문제: [nsgs (네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md) 는 [상태 저장 방화벽](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true)으로 구현 됩니다. 그러나 현재 플랫폼 제한으로 인해 인바운드 TCP 흐름에 영향을 주는 사용자 정의 규칙은 상태 비저장 방식으로 구현 됩니다. 이로 인해 사용자 정의 인바운드 규칙의 영향을 받는 흐름이 종료 되지 않습니다. 이러한 흐름에 대해서는 바이트 및 패킷 수가 추가로 기록 되지 않습니다. 결과적으로 NSG 흐름 로그 (및 트래픽 분석)에서 보고 되는 바이트 수와 패킷은 실제 숫자와 다를 수 있습니다. 이러한 문제를 해결 하는 옵트인 플래그는 12 월 2020 최신 버전에서 사용할 수 있도록 예약 되어 있습니다. 이 문제로 인해 발생 하는 심각한 문제를 야기 하는 고객은 지원을 통해 옵트인을 요청할 수 있습니다. Network Watcher > NSG 흐름 로그에서 지원 요청을 발생 시킵니다.  
 
 **인터넷 ip에서 공용 ip가 없는 vm으로 로그온 하는 인바운드 흐름**: 인스턴스 수준 공용 IP로 NIC와 연결 된 공용 ip 주소를 통해 할당 되거나 기본 부하 분산 장치 백 엔드 풀의 일부인 vm은 [기본 SNAT](../load-balancer/load-balancer-outbound-connections.md) 를 사용 하 고 AZURE에서 할당 된 IP 주소를 사용 하 여 아웃 바운드 연결을 용이 하 게 합니다. 따라서 흐름이 SNAT에 할당 된 포트 범위의 포트를 대상으로 하는 경우 인터넷 IP 주소에서 흐름에 대 한 흐름 로그 항목이 표시 될 수 있습니다. Azure는 VM에 대 한 이러한 흐름을 허용 하지 않지만, 시도는 기록 되 고 Network Watcher의 NSG 흐름 로그에 설계상 표시 됩니다. 원치 않는 인바운드 인터넷 트래픽이 NSG를 사용 하 여 명시적으로 차단 되도록 하는 것이 좋습니다.
 
@@ -379,13 +379,13 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 - **Microsoft Insights** 리소스 공급자가 등록 되지 않았습니다.
 
-_Authorizationfailed_ 또는 _GatewayAuthenticationFailed_ 오류를 받은 경우 구독에서 Microsoft Insights 리소스 공급자를 사용하도록 설정하지 않았을 수 있습니다. [지침에 따라](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#register-insights-provider) Microsoft Insights 공급자를 사용 하도록 설정 합니다.
+_Authorizationfailed_ 또는 _GatewayAuthenticationFailed_ 오류를 받은 경우 구독에서 Microsoft Insights 리소스 공급자를 사용하도록 설정하지 않았을 수 있습니다. [지침에 따라](./network-watcher-nsg-flow-logging-portal.md#register-insights-provider) Microsoft Insights 공급자를 사용 하도록 설정 합니다.
 
 **NSG 흐름 로그를 사용하도록 설정했지만 스토리지 계정에 데이터가 표시되지 않습니다.**
 
 - **설치 시간**
 
-스토리지 계정에 NSG 흐름 로그가 표시되는 데 최대 5분이 걸릴 수 있습니다(올바르게 구성된 경우). [여기에 설명된 대로](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#download-flow-log) 액세스할 수 있는 PT1H.json이 나타납니다.
+스토리지 계정에 NSG 흐름 로그가 표시되는 데 최대 5분이 걸릴 수 있습니다(올바르게 구성된 경우). [여기에 설명된 대로](./network-watcher-nsg-flow-logging-portal.md#download-flow-log) 액세스할 수 있는 PT1H.json이 나타납니다.
 
 - **NSG에 트래픽이 없음**
 
@@ -399,7 +399,7 @@ ARM 템플릿을 통한 자동화 지원은 현재 NSG 흐름 로그에 대해 �
 
 **NSG 흐름 로그는 어떻게 되나요?**
 
-Azure 네트워크 리소스는 [NSGs (네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/security-overview)를 통해 결합 및 관리할 수 있습니다. NSG 흐름 로그를 사용 하 여 Nsg를 통한 모든 트래픽에 대 한 5 튜플 흐름 정보를 기록할 수 있습니다. 원시 흐름 로그는 필요에 따라 추가로 처리, 분석, 쿼리 또는 내보낼 수 있는 Azure Storage 계정에 기록 됩니다.
+Azure 네트워크 리소스는 [NSGs (네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md)를 통해 결합 및 관리할 수 있습니다. NSG 흐름 로그를 사용 하 여 Nsg를 통한 모든 트래픽에 대 한 5 튜플 흐름 정보를 기록할 수 있습니다. 원시 흐름 로그는 필요에 따라 추가로 처리, 분석, 쿼리 또는 내보낼 수 있는 Azure Storage 계정에 기록 됩니다.
 
 **흐름 로그를 사용 하 여 네트워크 대기 시간 또는 성능에 영향을 미칩니까?**
 
@@ -411,7 +411,7 @@ Azure 네트워크 리소스는 [NSGs (네트워크 보안 그룹)](https://docs
 
 - 포털의 전역 검색 또는 [저장소 계정 페이지](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) 에서 저장소 계정 이름을 입력 하 여 저장소 계정으로 이동 합니다.
 - **설정** 섹션 아래에서 **방화벽 및 가상 네트워크** 를 선택 합니다.
-- 다음 **에서 액세스 허용**에서  **선택한 네트워크**를 선택 합니다. 그런 다음  **예외**아래에서 * * * *이 저장소 계정에 액세스할 수 있는 신뢰할 수 있는 Microsoft 서비스 허용 * * * * 옆의 상자를 선택 합니다.
+- 다음 **에서 액세스 허용** 에서  **선택한 네트워크** 를 선택 합니다. 그런 다음  **예외** 아래에서 * * * *이 저장소 계정에 액세스할 수 있는 신뢰할 수 있는 Microsoft 서비스 허용 * * * * 옆의 상자를 선택 합니다.
 - 이미 선택되어 있는 경우에는 변경할 필요가 없습니다.
 - [Nsg 흐름 로그 개요 페이지](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) 에서 대상 nsg를 찾고, 위의 저장소 계정을 선택 하 여 Nsg 흐름 로그를 사용 하도록 설정 합니다.
 
@@ -419,15 +419,14 @@ Azure 네트워크 리소스는 [NSGs (네트워크 보안 그룹)](https://docs
 
 **서비스 끝점 뒤의 저장소 계정으로 NSG 흐름 로그를 사용 어떻게 할까요??**
 
-NSG 흐름 로그는 추가 구성이 필요 없이 서비스 끝점과 호환 됩니다. 가상 네트워크에서 [서비스 끝점을 사용 하도록 설정 하는 방법에 대 한 자습서](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) 를 참조 하세요.
+NSG 흐름 로그는 추가 구성이 필요 없이 서비스 끝점과 호환 됩니다. 가상 네트워크에서 [서비스 끝점을 사용 하도록 설정 하는 방법에 대 한 자습서](../virtual-network/tutorial-restrict-network-access-to-resources.md#enable-a-service-endpoint) 를 참조 하세요.
 
 **흐름 로그 버전 1 & 2의 차이점은 무엇 인가요?**
 
-흐름 로그 버전 2에는 전송 되는 바이트와 패킷에 대 한 정보를 저장 하 & _흐름 상태의_ 개념이 도입 되었습니다. [자세히 알아보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)
+흐름 로그 버전 2에는 전송 되는 바이트와 패킷에 대 한 정보를 저장 하 & _흐름 상태의_ 개념이 도입 되었습니다. [자세히 알아보기](#log-format)
 
 ## <a name="pricing"></a>가격 책정
 
 NSG 흐름 로그는 수집 된 로그의 GB 당 요금이 청구 되며 구독 당 5gb/월의 무료 계층으로 제공 됩니다. 해당 지역의 현재 가격은 가격 [책정 페이지를 Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/)참조 하세요.
 
 로그의 저장소는 별도로 청구 됩니다. 관련 가격은 [Azure Storage 블록 blob 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/) 를 참조 하세요.
- 

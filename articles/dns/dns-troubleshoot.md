@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: rohink
-ms.openlocfilehash: a63a0c1e0044f5dcd6babb4941e1f4409404cdd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fae63c61949302e25c9dee2899577fa4f0d2a975
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711190"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965581"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS 문제 해결 가이드
 
 이 문서에서는 일반적인 Azure DNS 질문에 대한 문제 해결 정보를 제공합니다.
 
-이러한 단계를 수행해도 문제가 해결되지 않으면 [커뮤니티를 지원하기 위한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-virtual-network.html)에서 문제를 검색하거나 게시할 수 있습니다. 또는 Azure 지원 요청을 방문할 수 있습니다.
+이러한 단계를 수행해도 문제가 해결되지 않으면 [커뮤니티를 지원하기 위한 Microsoft Q&A 질문 페이지](/answers/topics/azure-virtual-network.html)에서 문제를 검색하거나 게시할 수 있습니다. 또는 Azure 지원 요청을 방문할 수 있습니다.
 
 
 ## <a name="i-cant-create-a-dns-zone"></a>DNS 영역을 만들 수 없습니다.
@@ -34,7 +34,7 @@ ms.locfileid: "84711190"
 ### <a name="recommended-articles"></a>추천 문서
 
 * [DNS 영역 및 레코드](dns-zones-records.md)
-* [DNS 영역 만들기](dns-getstarted-create-dnszone-portal.md)
+* [DNS 영역 만들기](./dns-getstarted-portal.md)
 
 ## <a name="i-cant-create-a-dns-record"></a>DNS 레코드를 만들 수 없습니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "84711190"
 ### <a name="recommended-articles"></a>추천 문서
 
 * [DNS 영역 및 레코드](dns-zones-records.md)
-* [DNS 영역 만들기](dns-getstarted-create-dnszone-portal.md)
+* [DNS 영역 만들기](./dns-getstarted-portal.md)
 
 
 
@@ -85,13 +85,12 @@ SRV 레코드 이름(서비스 이름 'sip', 프로토콜 'tcp') 예제:
 ### <a name="recommended-articles"></a>추천 문서
 
 * [DNS 영역 및 레코드](dns-zones-records.md)
-* [Azure Portal을 사용하여 DNS 레코드 집합 및 레코드 만들기](dns-getstarted-create-recordset-portal.md)
+* [Azure Portal을 사용하여 DNS 레코드 집합 및 레코드 만들기](./dns-getstarted-portal.md)
 * [SRV 레코드 형식(Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure DNS 영역 및 레코드](dns-zones-records.md) 알아보기
-* Azure DNS 사용을 시작하려면 [DNS 영역 만들기](dns-getstarted-create-dnszone-portal.md) 및 [DNS 레코드 만들기](dns-getstarted-create-recordset-portal.md) 방법에 대해 알아보세요.
+* Azure DNS 사용을 시작하려면 [DNS 영역 만들기](./dns-getstarted-portal.md) 및 [DNS 레코드 만들기](./dns-getstarted-portal.md) 방법에 대해 알아보세요.
 * 기존 DNS 영역을 마이그레이션하려면 [DNS 영역 파일 가져오기 및 내보내기](dns-import-export.md) 방법에 대해 알아보세요.
-

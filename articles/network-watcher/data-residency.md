@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: damendo
-ms.openlocfilehash: a6be3a7fd19b43bd1b18af05d0dbfaf5053fb181
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2e6a92a4d08f1603f480a990ad437a90302a8189
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682964"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966091"
 ---
 # <a name="data-residency-for-azure-network-watcher"></a>Azure Network Watcher에 대 한 데이터 상주
 연결 모니터 (미리 보기) 서비스를 제외 하 고 Azure Network Watcher는 고객 데이터를 저장 하지 않습니다.
@@ -32,4 +32,4 @@ Azure에서 단일 지역에 고객 데이터를 저장할 수 있도록 하는 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)개요를 참조 하세요.
+* [Network Watcher](./network-watcher-monitoring-overview.md)개요를 참조 하세요.

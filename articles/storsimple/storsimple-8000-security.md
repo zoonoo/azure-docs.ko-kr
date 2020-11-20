@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 4598f71f9b611e68f8eb00676138784833c39f32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72bf252488878c8b6fabb2ea2d61658a2cd87e14
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75891509"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966210"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 보안 및 데이터 보호
 
@@ -258,7 +258,7 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 * [서비스 데이터 암호화 키 변경](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [StorSimple 디바이스에 대한 CHAP 구성](storsimple-8000-configure-chap.md)
 
-**Q:** StorSimple 디바이스에 연결하는 호스트에 StorSimple 스냅샷 관리자 암호를 입력하고 싶지만 암호가 없습니다. 어떻게 해야 합니까?
+**Q:** StorSimple 디바이스에 연결하는 호스트에 StorSimple 스냅샷 관리자 암호를 입력하고 싶지만 암호가 없습니다. 어떻게 해야 하나요?
 
 **A:** 암호를 잊어버린 경우 새 암호를 만들어야 합니다. 그런 다음 기존의 모든 사용자에게 암호가 변경되었으며 클라이언트를 업데이트해야 새 암호를 사용할 수 있음을 알려야 합니다. 자세한 내용은 다음을 참조하세요.
 
@@ -269,7 +269,7 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 
 **A:** StorSimple 디바이스 관리자 서비스에서 새 인증서를 다운로드하여 원격 액세스 클라이언트의 인증서 저장소에 설치될 수 있도록 제공합니다. 자세한 내용은 다음을 참조하세요.
 
-* [가져오기-Certificate cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
+* [가져오기-Certificate cmdlet](/powershell/module/pkiclient/import-certificate)
 
 **Q:** StorSimple 디바이스 관리자 서비스가 손상되어도 데이터가 보호되나요?
 
@@ -288,4 +288,3 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 ## <a name="next-steps"></a>다음 단계
 
 [StorSimple 디바이스 배포](storsimple-8000-deployment-walkthrough-u2.md)
-

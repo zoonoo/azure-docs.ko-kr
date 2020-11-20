@@ -8,18 +8,19 @@ manager: juergent
 editor: ''
 keywords: HLI, HANA, Sku, S896, S224, S448, S672, Optane, SAP
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08872b95c4cff3c261a545f117cc4e6bf24e15a5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: fd979f553ff03d8373948d73c416a96bb140b544
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411476"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964765"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>HANA Large Instances에 대해 사용 가능한 Sku
 
@@ -48,7 +49,7 @@ ms.locfileid: "94411476"
 
 
 
-| SAP HANA 인증 됨 | 모델 | 총 메모리 | 메모리 DRAM | 메모리 Optane | Storage | 가용성 |
+| SAP HANA 인증 됨 | 모델 | 총 메모리 | 메모리 DRAM | 메모리 Optane | 스토리지 | 가용성 |
 | --- | --- | --- | --- | --- | --- | --- |
 | YES <br />[OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2185), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2265) | Azure의 SAP HANA S96<br /> – 2 x Intel® Xeon® Processor E7-8890 v4 <br /> 48개 CPU 코어 및 96개 CPU 스레드 |  768 GB | 768 GB | --- | 3.0 TB | 사용 가능 |
 | YES <br /> [OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2186), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2269) | Azure S224의 SAP HANA<br /> – 4 x Intel® Xeon® Platinum 8276 프로세서 <br /> 112 CPU 코어 및 224 CPU 스레드 |  3.0 TB | 3.0 TB | --- | 6.3 TB | 사용 가능 |
@@ -104,9 +105,9 @@ SKU를 구분하는 두 가지 하드웨어 클래스는 다음과 같습니다.
 
 HANA 대규모 인스턴스 스탬프 전체는 단일 고객용으로만 할당되지 않습니다. 이 사실은 Azure에 배포된 네트워크 패브릭을 통해 연결된 컴퓨팅 및 스토리지 리소스 랙에도 적용됩니다. HANA 대규모 인스턴스 인프라는 Azure와 마찬가지로 다음 세 가지 수준에서 서로 격리된 서로 다른 고객 &quot;테넌트&quot;를 배포합니다.
 
-- **네트워크** : HANA Large Instance 스탬프 내의 가상 네트워크를 통해 격리 됩니다.
-- **저장소** : 저장소 볼륨이 할당 되 고 테 넌 트 간 저장소 볼륨을 격리 하는 저장소 가상 머신을 통해 격리 됩니다.
-- **Compute** : 서버 단위를 단일 테 넌 트에 전용으로 할당 합니다. 서버 장치에 대한 하드 분할 또는 소프트 분할이 없습니다. 테넌트 간 단일 서버 또는 호스트 단위의 공유 없음. 
+- **네트워크**: HANA Large Instance 스탬프 내의 가상 네트워크를 통해 격리 됩니다.
+- **저장소**: 저장소 볼륨이 할당 되 고 테 넌 트 간 저장소 볼륨을 격리 하는 저장소 가상 머신을 통해 격리 됩니다.
+- **Compute**: 서버 단위를 단일 테 넌 트에 전용으로 할당 합니다. 서버 장치에 대한 하드 분할 또는 소프트 분할이 없습니다. 테넌트 간 단일 서버 또는 호스트 단위의 공유 없음. 
 
 서로 다른 테넌트 간의 HANA 대규모 인스턴스 장치 배포는 상호 간에 표시되지 않습니다. 서로 다른 테넌트에 배포된 HANA 대규모 인스턴스 장치는 HANA 대규모 인스턴스 스탬프 수준에서 서로 직접 통신 할 수 없습니다. 한 테넌트 내의 HANA 대규모 인스턴스 장치만 HANA 대규모 인스턴스 스탬프 수준에서 서로 통신할 수 있습니다.
 

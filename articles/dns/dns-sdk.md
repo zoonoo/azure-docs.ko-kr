@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: rohink
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92509ff96af0ed2a7d77799edca8447ff6839ab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e116096afbd01af4914be49d5675881724d5069
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019660"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965598"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
 
@@ -43,9 +43,9 @@ ms.locfileid: "89019660"
 
 Azure DNS .NET SDK를 사용하려면 **Azure DNS 관리 라이브러리** NuGet 패키지 및 기타 필수 Azure 패키지를 설치해야 합니다.
 
-1. **Visual Studio**에서 프로젝트 또는 새 프로젝트를 엽니다.
+1. **Visual Studio** 에서 프로젝트 또는 새 프로젝트를 엽니다.
 2. **도구** **>** **nuget 패키지 관리자** **>** **솔루션용 NuGet 패키지 관리**...로 이동 합니다.
-3. **찾아보기**를 클릭하고 **시험판 포함** 확인란을 사용하도록 설정한 후, 검색 상자에 **Microsoft.Azure.Management.Dns**를 입력합니다.
+3. **찾아보기** 를 클릭하고 **시험판 포함** 확인란을 사용하도록 설정한 후, 검색 상자에 **Microsoft.Azure.Management.Dns** 를 입력합니다.
 4. 패키지를 선택하고 **설치** 를 클릭하여 Visual Studio 프로젝트에 추가합니다.
 5. 또한 위의 프로세스를 반복하여 **Microsoft.Rest.ClientRuntime.Azure.Authentication** 및 **Microsoft.Azure.Management.ResourceManager** 패키지를 설치합니다.
 
@@ -79,7 +79,7 @@ DNS 영역을 만들려면 먼저 "영역" 개체가 DNS 영역 매개 변수를
 > [!NOTE]
 > DnsManagementClient는 동기('CreateOrUpdate'), 비동기('CreateOrUpdateAsync') 또는 HTTP 응답에 액세스 권한을 가진 비동기('CreateOrUpdateWithHttpMessagesAsync') 등 세 가지 작업 모드를 지원합니다.  애플리케이션 요구 사항에 따라 이러한 모드 중 하나를 선택할 수 있습니다.
 
-Azure DNS는 [Etag](dns-getstarted-create-dnszone.md)라는 낙관적 동시성을 지원합니다. 이 예제에서 'If-None-Match' 헤더에 "*"를 지정하면 DNS 영역이 아직 없는 경우 Azure DNS에서 만들도록 지시합니다.  지정된 이름을 가진 영역이 지정된 리소스 그룹에 이미 있는 경우 호출은 실패합니다.
+Azure DNS는 [Etag](./dns-getstarted-powershell.md)라는 낙관적 동시성을 지원합니다. 이 예제에서 'If-None-Match' 헤더에 "*"를 지정하면 DNS 영역이 아직 없는 경우 Azure DNS에서 만들도록 지시합니다.  지정된 이름을 가진 영역이 지정된 리소스 그룹에 이미 있는 경우 호출은 실패합니다.
 
 ```cs
 // Create zone parameters

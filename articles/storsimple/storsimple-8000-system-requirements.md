@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dcaa83980210a1f5449e8a2e0982cb8e39ff03d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80297719"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966193"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000 시리즈 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
 
@@ -61,18 +61,18 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 
 ## <a name="networking-requirements-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 네트워킹 요구 사항
 
-StorSimple 디바이스는 잠긴 디바이스입니다. 하지만 iSCSI, 클라우드 및 관리 트래픽에 허용하도록 포트가 방화벽에서 열려야 합니다. 다음 표에서 방화벽에서 열려야 하는 포트를 나열합니다. 이 테이블에서 *인* 또는 *인바운드*는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 디바이스에서 방향을 참조합니다.
+StorSimple 디바이스는 잠긴 디바이스입니다. 하지만 iSCSI, 클라우드 및 관리 트래픽에 허용하도록 포트가 방화벽에서 열려야 합니다. 다음 표에서 방화벽에서 열려야 하는 포트를 나열합니다. 이 테이블에서 *인* 또는 *인바운드* 는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드* 는 배포 후 데이터를 외부로 보내는 StorSimple 디바이스에서 방향을 참조합니다.
 
 | 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 메모 |
 | --- | --- | --- | --- | --- |
-| TCP 80(HTTP)<sup>3</sup> |아웃 |WAN |아니요 |<ul><li>업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li></ul> |
+| TCP 80(HTTP)<sup>3</sup> |아웃 |WAN |예 |<ul><li>업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li></ul> |
 | TCP 443(HTTPS)<sup>3</sup> |아웃 |WAN |예 |<ul><li>아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li><li>이 포트도 가비지 수집을 위한 두 컨트롤러에 대해 사용됩니다.</li></ul> |
 | UDP 53(DNS) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 DNS 서버로 사용하는 경우에만 필요합니다. |
 | UDP 123(NTP) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다. |
 | TCP 9354 |아웃 |WAN |예 |아웃바운드 포트는 StorSimple 디바이스에서 StorSimple 디바이스 관리자 서비스와 통신하는 데 사용됩니다. |
-| 3260(iSCSI) |In(다음 안에) |LAN |아니요 |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
-| 5985 |In(다음 안에) |LAN |아니요 |인바운드 포트는 StorSimple 디바이스와의 통신을 위해 StorSimple 스냅샷 관리자에 사용됩니다.<br>이 포트는 HTTP를 통해 StorSimple용 Windows PowerShell에 원격으로 연결할 때에도 사용됩니다. |
-| 5986 |In(다음 안에) |LAN |아니요 |이 포트는 HTTPS를 통해 StorSimple에 대해 Windows PowerShell에 원격으로 연결할 때 사용됩니다. |
+| 3260(iSCSI) |In(다음 안에) |LAN |예 |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
+| 5985 |In(다음 안에) |LAN |예 |인바운드 포트는 StorSimple 디바이스와의 통신을 위해 StorSimple 스냅샷 관리자에 사용됩니다.<br>이 포트는 HTTP를 통해 StorSimple용 Windows PowerShell에 원격으로 연결할 때에도 사용됩니다. |
+| 5986 |In(다음 안에) |LAN |예 |이 포트는 HTTPS를 통해 StorSimple에 대해 Windows PowerShell에 원격으로 연결할 때 사용됩니다. |
 
 <sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
 
@@ -122,7 +122,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 라우팅 메트릭은 데이터를 특정 네트워크로 라우팅하는 게이트웨이 및 인터페이스와 연결됩니다. 라우팅 메트릭은 주어진 대상에 대해 다수의 경로가 존재한다는 것이 파악되면, 라우팅 프로토콜이 해당 대상에 대한 최상의 경로를 계산하는 데 사용됩니다. 라우팅 메트릭이 낮을수록 기본 설정이 높습니다.
 
-StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이가 트래픽을 전달하기 위해 구성되면 라우팅 메트릭이 인터페이스가 사용될 상대적인 순서를 결정하는 데 작용하게 됩니다. 라우팅 메트릭은 사용자에 의해 변경될 수 없습니다. 하지만 `Get-HcsRoutingTable` cmdlet을 사용하여 StorSimple 디바이스에 라우팅 테이블(및 메트릭)을 출력할 수 있습니다. Get-HcsRoutingTable cmdlet에 대한 자세한 내용은 [StorSimple 배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하세요.
+StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이가 트래픽을 전달하기 위해 구성되면 라우팅 메트릭이 인터페이스가 사용될 상대적인 순서를 결정하는 데 작용하게 됩니다. 라우팅 메트릭은 사용자에 의해 변경될 수 없습니다. 하지만 `Get-HcsRoutingTable` cmdlet을 사용하여 StorSimple 디바이스에 라우팅 테이블(및 메트릭)을 출력할 수 있습니다. Get-HcsRoutingTable cmdlet에 대한 자세한 내용은 [StorSimple 배포 문제 해결](./storsimple-8000-troubleshoot-deployment.md)을 참조하세요.
 
 업데이트 2 이상 버전에 사용되는 라우팅 메트릭 알고리즘은 다음과 같이 설명할 수 있습니다.
 
@@ -223,7 +223,7 @@ StorSimple 디바이스에는 미러링된 공간을 사용하여 보호되는 S
 * SSD 또는 HDD에 문제가 있거나 교체가 필요한 경우, 교체가 필요한 SSD 또는 HDD만 제거해야 합니다.
 * 언제든지 시스템에서 하나 이상의 SSD 또는 HDD를 제거하지 마십시오.
   특정 유형의 2개 이상의 디스크(HDD, SDD) 오류 또는 단시간 프레임 내의 연속된 오류는 시스템 오작동 및 잠재적 데이터 손실을 야기할 수 있습니다. 이 경우 지원을 위해 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md) 합니다.
-* 교체하는 동안 SSD 및 HDD에서 드라이브의 **하드웨어 상태** 블레이드에서 **공유 구성 요소**를 모니터링합니다. 녹색 확인 상태는 디스크가 정상 또는 확인 상태인지 나타내며, 빨간색 느낌표는 오류가 있는 SDD 또는 HDD를 나타냅니다.
+* 교체하는 동안 SSD 및 HDD에서 드라이브의 **하드웨어 상태** 블레이드에서 **공유 구성 요소** 를 모니터링합니다. 녹색 확인 상태는 디스크가 정상 또는 확인 상태인지 나타내며, 빨간색 느낌표는 오류가 있는 SDD 또는 HDD를 나타냅니다.
 * 시스템 오류가 있는 경우 보호가 필요한 모든 볼륨에 대한 클라우드 스냅샷을 구성하는 것이 좋습니다.
 
 #### <a name="ebod-enclosure"></a>EBOD 인클로저
@@ -233,7 +233,7 @@ StorSimple 디바이스 모델 8600에는 기본 인클로저 외에도 확장 E
 * 두 EBOD 인클로저 컨트롤러 모듈, 두 SAS 케이블 및 모든 하드 디스크 드라이브가 설치되어 있어야 합니다.
 * EBOD 인클로저 컨트롤러 모듈에 오류가 있는 경우 즉시 교체를 요청합니다.
 * EBOD 인클로저 컨트롤러 모듈에 오류가 있는 경우 오류가 있는 모듈을 교체하기 전에 다른 컨트롤러 모듈이 활성 상태인지 확인합니다. 컨트롤러가 활성인지 확인하려면 [디바이스의 활성 컨트롤러 식별](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동하세요.
-* Ebod 컨트롤러 모듈을 교체 하는 동안 **모니터**  >  **하드웨어 상태**에 액세스 하 여 StorSimple Device Manager 서비스에서 구성 요소의 상태를 지속적으로 모니터링 합니다.
+* Ebod 컨트롤러 모듈을 교체 하는 동안 **모니터**  >  **하드웨어 상태** 에 액세스 하 여 StorSimple Device Manager 서비스에서 구성 요소의 상태를 지속적으로 모니터링 합니다.
 * SAS 케이블에 오류가 있거나 교체가 필요한 경우(확인을 위해 Microsoft 지원이 포함되어야 함) 교체가 필요한 SAS 케이블만 제거해야 합니다.
 * 언제든지 시스템에서 두 SAS 케이블을 동시에 제거하지 마십시오.
 
@@ -250,4 +250,4 @@ StorSimple 디바이스에 연결된 호스트의 고가용성을 위해 이러�
 * [StorSimple 솔루션 배포 방법을 알아봅니다](storsimple-8000-deployment-walkthrough-u2.md).
 
 <!--Reference links-->
-[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731844(v=ws.10)

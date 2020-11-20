@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: rohink
-ms.openlocfilehash: 9b6cac64d2e3def673f6d7c27e80bd64eead9e97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e17812e1116f1e625685d5a818c18e25cdb2da
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84689166"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965802"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Azure Portal에서 DNS 영역을 관리하는 방법
 
 > [!div class="op_single_selector"]
 > * [포털](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure 클래식 CLI](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure 클래식 CLI](./dns-operations-dnszones-cli.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 
 이 문서는 Azure Portal을 사용하여 DNS 영역을 관리하는 방법을 보여줍니다. 플랫폼 간 [Azure CLI](dns-operations-dnszones-cli.md) 또는 Azure [PowerShell](dns-operations-dnszones.md)을 사용하여 DNS 영역을 관리할 수도 있습니다.
@@ -31,11 +31,11 @@ ms.locfileid: "84689166"
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
 1. Azure Portal에 로그인
-2. 허브 메뉴에서 **리소스 만들기 > 네트워킹 > DNS 영역**으로 이동하여 **DNS 영역 만들기** 블레이드를 엽니다.
+2. 허브 메뉴에서 **리소스 만들기 > 네트워킹 > DNS 영역** 으로 이동하여 **DNS 영역 만들기** 블레이드를 엽니다.
 
     ![DNS 영역](./media/dns-operations-dnszones-portal/openzone650.png)
 
-4. **DNS 영역 만들기** 블레이드에서 다음 값을 입력한 다음 **만들기**를 클릭합니다.
+4. **DNS 영역 만들기** 블레이드에서 다음 값을 입력한 다음 **만들기** 를 클릭합니다.
 
 
    | **설정** | **값** | **세부 정보** |
@@ -50,13 +50,13 @@ ms.locfileid: "84689166"
 
 ## <a name="list-dns-zones"></a>DNS 영역 나열
 
-Azure Portal에서 **더 많은 서비스**  >  **네트워킹**  >  **DNS 영역**으로 이동 합니다. 각 DNS 영역은 자체 리소스이며, 레코드 집합의 수 및 이름 서버와 같은 정보를 이 보기에서 볼 수 있습니다. 열 **이름 서버**는 기본 보기에 없습니다. 이 열을 추가하려면 **열**을 클릭하고 **이름 서버**를 선택한 후 **완료**를 클릭합니다.
+Azure Portal에서 **더 많은 서비스**  >  **네트워킹**  >  **DNS 영역** 으로 이동 합니다. 각 DNS 영역은 자체 리소스이며, 레코드 집합의 수 및 이름 서버와 같은 정보를 이 보기에서 볼 수 있습니다. 열 **이름 서버** 는 기본 보기에 없습니다. 이 열을 추가하려면 **열** 을 클릭하고 **이름 서버** 를 선택한 후 **완료** 를 클릭합니다.
 
 ![DNS 영역 나열](./media/dns-operations-dnszones-portal/listzones.png)
 
 ## <a name="delete-a-dns-zone"></a>DNS 영역 삭제
 
-포털에서 DNS 영역으로 이동합니다. **DNS 영역** 블레이드에서 **영역 삭제**를 클릭합니다. DNS 영역을 삭제할지 확인하라는 메시지가 표시됩니다. DNS 영역을 삭제하면 해당 영역에 포함된 모든 레코드도 삭제됩니다.
+포털에서 DNS 영역으로 이동합니다. **DNS 영역** 블레이드에서 **영역 삭제** 를 클릭합니다. DNS 영역을 삭제할지 확인하라는 메시지가 표시됩니다. DNS 영역을 삭제하면 해당 영역에 포함된 모든 레코드도 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

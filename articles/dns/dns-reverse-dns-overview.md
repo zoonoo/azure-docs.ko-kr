@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: bf3da62e989f0e029efdc8e9c70f5f45e0ddd765
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8af9549efc3e8dab54f55dd404346d87201dee2c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76932307"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965615"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Azure의 역방향 DNS 및 지원 개요
 
@@ -89,7 +89,7 @@ IP 주소 '192.0.2.129'에 대한 역방향 조회는 이름이 '129.2.0.192.in-
 
 IPv6 역방향 조회 영역의 이름은 `<IPv6 network prefix in reverse order>.ip6.arpa` 형식이어야 합니다.
 
-예제: 2001:db8:1000:abdc::/64 접두사에 있는 IP를 갖는 호스트의 레코드를 호스트하기 위해 역방향 영역을 만들 경우 주소의 네트워크 접두사를 분리하여 영역 이름을 만듭니다(2001:db8:abdc::). 그런 다음 [제로 압축](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx)이 IPv6 주소 접두사를 줄이기 위해 사용된 경우 이 압축을 제거하여 IPv6 네트워크 접두사를 확장합니다(2001:0db8:abdc:0000::). 접두사의 각 16진수 숫자 간을 마침표로 구분하고 순서를 뒤집어 역순서의 네트워크 접두사(`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`)를 작성하고 접미사 `.ip6.arpa`를 추가합니다.
+예제: 2001:db8:1000:abdc::/64 접두사에 있는 IP를 갖는 호스트의 레코드를 호스트하기 위해 역방향 영역을 만들 경우 주소의 네트워크 접두사를 분리하여 영역 이름을 만듭니다(2001:db8:abdc::). 그런 다음 [제로 압축](/previous-versions/windows/it-pro/windows-server-2003/cc781672(v=ws.10))이 IPv6 주소 접두사를 줄이기 위해 사용된 경우 이 압축을 제거하여 IPv6 네트워크 접두사를 확장합니다(2001:0db8:abdc:0000::). 접두사의 각 16진수 숫자 간을 마침표로 구분하고 순서를 뒤집어 역순서의 네트워크 접두사(`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`)를 작성하고 접미사 `.ip6.arpa`를 추가합니다.
 
 
 |네트워크 접두사  |확장된 역방향 네트워크 접두사 |표준 접미사 |역방향 영역 이름  |
@@ -114,4 +114,3 @@ Azure DNS를 사용하여 IPv4 및 IPv6 둘 다에 대해 [역방향 조회 영�
 [Azure DNS에서 ISP 할당 IP 범위에 대한 역방향 조회 영역 호스트](dns-reverse-dns-for-azure-services.md) 방법을 알아봅니다.
 <br>
 [Azure 서비스에 대한 역방향 DNS 레코드를 관리](dns-reverse-dns-for-azure-services.md)하는 방법을 알아봅니다.
-

@@ -4,16 +4,17 @@ description: 이 문서에서는 Azure에서 클래식 배포 모델을 사용�
 author: axayjo
 tags: azure-service-management
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: bed1d567aa48a11c01ae952e6a4a2028e260e6e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d6d80287d05517933f066d5e49fa31e78a48943
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288517"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966382"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법
 
@@ -30,21 +31,21 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용하여 만든 기존 VM에는
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>새 VM에 Deep Security Agent 설치
 
-**Marketplace**의 이미지를 사용하여 가상 머신을 만드는 경우 [Azure Portal](https://portal.azure.com)에서 Trend Micro 보안 확장을 설치할 수 있습니다. 포털을 사용하면 단일 가상 머신을 만들 때 Trend Micro의 보호 기능을 쉽게 추가할 수 있습니다.
+**Marketplace** 의 이미지를 사용하여 가상 머신을 만드는 경우 [Azure Portal](https://portal.azure.com)에서 Trend Micro 보안 확장을 설치할 수 있습니다. 포털을 사용하면 단일 가상 머신을 만들 때 Trend Micro의 보호 기능을 쉽게 추가할 수 있습니다.
 
-**Marketplace**의 항목을 사용하면 가상 머신 설치에 도움이 되는 마법사가 열립니다. 마법사의 세 번째 패널인 **설정** 블레이드를 사용하여 Trend Micro 보안 확장을 설치합니다.  일반적인 지침은 [Azure Portal에서 Windows를 실행하는 가상 머신 만들기](../windows/quick-create-portal.md)를 참조하세요.
+**Marketplace** 의 항목을 사용하면 가상 머신 설치에 도움이 되는 마법사가 열립니다. 마법사의 세 번째 패널인 **설정** 블레이드를 사용하여 Trend Micro 보안 확장을 설치합니다.  일반적인 지침은 [Azure Portal에서 Windows를 실행하는 가상 머신 만들기](../windows/quick-create-portal.md)를 참조하세요.
 
 마법사의 **설정** 블레이드로 이동한 후 다음 단계를 수행합니다.
 
-1. **확장**을 클릭한 후 다음 창에서 **확장 추가**를 클릭합니다.
+1. **확장** 을 클릭한 후 다음 창에서 **확장 추가** 를 클릭합니다.
 
    ![확장 추가 시작][1]
 
-2. **새 리소스** 창에서 **Deep Security Agent**를 선택합니다. Deep Security Agent 창에서 **만들기**를 클릭합니다.
+2. **새 리소스** 창에서 **Deep Security Agent** 를 선택합니다. Deep Security Agent 창에서 **만들기** 를 클릭합니다.
 
    ![Deep Security Agent 식별][2]
 
-3. 확장에 대한 **테넌트 식별자** 및 **테넌트 활성화 암호**를 입력합니다. 선택적으로 **보안 정책 식별자**를 입력할 수도 있습니다. 그런 후 **확인**을 클릭하여 클라이언트를 추가합니다.
+3. 확장에 대한 **테넌트 식별자** 및 **테넌트 활성화 암호** 를 입력합니다. 선택적으로 **보안 정책 식별자** 를 입력할 수도 있습니다. 그런 후 **확인** 을 클릭하여 클라이언트를 추가합니다.
 
    ![확장 세부 정보 제공][3]
 
@@ -63,9 +64,9 @@ $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-클라우드 서비스 및 가상 머신 이름을 모르는 경우 **Get-AzureVM**을 실행하여 현재 구독의 모든 가상 머신에 대한 해당 정보를 표시합니다.
+클라우드 서비스 및 가상 머신 이름을 모르는 경우 **Get-AzureVM** 을 실행하여 현재 구독의 모든 가상 머신에 대한 해당 정보를 표시합니다.
 
-**write-host** 명령에서 **True**가 반환되면 VM 에이전트가 설치되어 있는 것입니다. **False**가 반환되면 Azure 블로그 게시물 [VM 에이전트 및 확장 - 2부](https://go.microsoft.com/fwlink/p/?LinkId=403947)에서 지침 및 다운로드 링크를 참조합니다.
+**write-host** 명령에서 **True** 가 반환되면 VM 에이전트가 설치되어 있는 것입니다. **False** 가 반환되면 Azure 블로그 게시물 [VM 에이전트 및 확장 - 2부](https://go.microsoft.com/fwlink/p/?LinkId=403947)에서 지침 및 다운로드 링크를 참조합니다.
 
 VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 
@@ -82,7 +83,7 @@ Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Versio
 * 가상 머신 구성을 위한 [샘플 Windows PowerShell 스크립트](https://go.microsoft.com/fwlink/?LinkId=404100)
 * [지침](https://go.microsoft.com/fwlink/?LinkId=404099)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 [Windows Server를 실행 하는 가상 컴퓨터에 로그온 하는 방법]
 
 [Azure VM 확장 및 기능]

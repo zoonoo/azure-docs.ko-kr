@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: damendo
-ms.openlocfilehash: a16e99df57da66d2633947f8aecdf1d2cef9ab15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 115adb7a71d820a75261837f4c14b1b84adb98da
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84737413"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965530"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Network Watcher로 연결 문제 해결
 
@@ -37,21 +37,21 @@ ms.locfileid: "84737413"
 * 연결 문제를 해결할 가상 머신
 
 > [!IMPORTANT]
-> 연결 문제 해결은 문제를 해결하는 VM에 `AzureNetworkWatcherExtension` VM 확장이 설치되어 있어야 합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 방문하세요. 확장은 대상 엔드포인트에서 필요하지 않습니다.
+> 연결 문제 해결은 문제를 해결하는 VM에 `AzureNetworkWatcherExtension` VM 확장이 설치되어 있어야 합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/extensions/network-watcher-windows.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/extensions/network-watcher-linux.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json)을 방문하세요. 확장은 대상 엔드포인트에서 필요하지 않습니다.
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>가상 머신에 대한 연결 확인
 
 이 예제에서는 포트 80을 통해 대상 가상 머신에 대한 연결을 확인합니다.
 
-Network Watcher로 이동하여 **연결 문제 해결**을 클릭합니다. 가상 머신을 선택하여 연결을 확인합니다. **대상** 섹션에서 **가상 머신 선택**을 선택하고 테스트할 가상 머신과 포트를 정확히 선택합니다.
+Network Watcher로 이동하여 **연결 문제 해결** 을 클릭합니다. 가상 머신을 선택하여 연결을 확인합니다. **대상** 섹션에서 **가상 머신 선택** 을 선택하고 테스트할 가상 머신과 포트를 정확히 선택합니다.
 
-**확인**을 클릭하면 지정된 포트의 가상 머신 간 연결이 확인됩니다. 이 예에서는 대상 VM이 연결될 수 없으며 홉 목록이 표시됩니다.
+**확인** 을 클릭하면 지정된 포트의 가상 머신 간 연결이 확인됩니다. 이 예에서는 대상 VM이 연결될 수 없으며 홉 목록이 표시됩니다.
 
 ![가상 머신에 대한 연결 결과 확인][1]
 
 ## <a name="check-remote-endpoint-connectivity"></a>원격 엔드포인트 연결 확인
 
-원격 엔드포인트에 대한 연결 및 대기 시간을 확인하려면 **대상** 섹션에서 **수동으로 지정** 라디오 단추를 선택하고 URL 및 포트를 입력한 다음 **확인**을 클릭합니다.  이 방법은 웹 사이트 및 스토리지 엔드포인트와 같은 원격 엔드포인트에 사용됩니다.
+원격 엔드포인트에 대한 연결 및 대기 시간을 확인하려면 **대상** 섹션에서 **수동으로 지정** 라디오 단추를 선택하고 URL 및 포트를 입력한 다음 **확인** 을 클릭합니다.  이 방법은 웹 사이트 및 스토리지 엔드포인트와 같은 원격 엔드포인트에 사용됩니다.
 
 ![웹 사이트에 대한 연결 확인 결과][2]
 

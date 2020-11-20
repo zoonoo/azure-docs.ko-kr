@@ -3,16 +3,17 @@ title: Oracle 클라우드 인프라와 Azure Express 경로 연결 | Microsoft 
 description: Azure Express 경로를 OCI (Oracle Cloud Infrastructure) FastConnect와 연결 하 여 클라우드 간 Oracle 응용 프로그램 솔루션 사용
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: rogardle
 ms.reviewer: cynthn
-ms.openlocfilehash: e932bf7381e1246f4b489e7d564cf5486c3ec635
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2717ba307cac82465e0c5df996ef3b668af5e7d4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996230"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963711"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Azure와 Oracle 클라우드 인프라 간의 직접 상호 관계 설정  
 
@@ -43,12 +44,12 @@ ms.locfileid: "91996230"
     * Azure Express 경로 회로는 세분화 된 대역폭 옵션을 제공 하는 반면 FastConnect는 1, 2, 5 또는 10gbps를 지원 합니다. 따라서 Express 경로 아래에서 이러한 일치 하는 대역폭 옵션 중 하나를 선택 하는 것이 좋습니다.
 
     ![Express 경로 회로 만들기](media/configure-azure-oci-networking/exr-create-new.png)
-1. Express 경로 **서비스 키**를 적어둡니다. FastConnect 회로를 구성 하는 동안 키를 제공 해야 합니다.
+1. Express 경로 **서비스 키** 를 적어둡니다. FastConnect 회로를 구성 하는 동안 키를 제공 해야 합니다.
 
     ![Express 경로 서비스 키](media/configure-azure-oci-networking/exr-service-key.png)
 
     > [!IMPORTANT]
-    > **공급자 상태가** **프로 비전 되지 않은**경우에도 express 경로 회로가 프로 비전 되는 즉시 express 경로 요금이 청구 됩니다.
+    > **공급자 상태가** **프로 비전 되지 않은** 경우에도 express 경로 회로가 프로 비전 되는 즉시 express 경로 요금이 청구 됩니다.
 
 1. Azure virtual network 또는 OCI 가상 클라우드 네트워크 IP 주소 공간과 겹치지 않는/30의 두 개인 IP 주소 공간을 일정 합니다. 첫 번째 IP 주소 공간은 기본 주소 공간으로, 두 번째 IP 주소 공간은 보조 주소 공간으로 참조 합니다. FastConnect 회로를 구성할 때 필요한 주소를 적어둡니다.
 1. DRG (동적 라우팅 게이트웨이)를 만듭니다. FastConnect 회로를 만들 때 필요 합니다. 자세한 내용은 [동적 라우팅 게이트웨이](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm) 설명서를 참조 하세요.
@@ -57,10 +58,10 @@ ms.locfileid: "91996230"
     * FastConnect 구성에서 공급자로 **Microsoft Azure: express** 경로를 선택 합니다.
     * 이전 단계에서 프로 비전 한 동적 라우팅 게이트웨이를 선택 합니다.
     * 프로 비전 할 대역폭을 선택 합니다. 성능을 최적화 하기 위해 대역폭은 Express 경로 회로를 만들 때 선택한 대역폭과 일치 해야 합니다.
-    * **공급자 서비스 키**에 express 경로 서비스 키를 붙여넣습니다.
+    * **공급자 서비스 키** 에 express 경로 서비스 키를 붙여넣습니다.
     * 이전 단계에서 **주 BGP ip** 주소에 대 한 첫 번째/30 개인 ip 주소 공간을 사용 하 고 **보조 bgp ip** 주소에 대해 두 번째/30 개인 ip 주소 공간을 공백을 만들.
         * Oracle BGP IP 주소 (기본 및 보조)에 대해 두 범위의 첫 번째 가능한 주소를 할당 하 고 두 번째 주소를 FastConnect 관점에서 고객 BGP IP 주소에 할당 합니다. 첫 번째 가능한 IP 주소는/30 주소 공간의 두 번째 IP 주소입니다 (첫 번째 IP 주소는 Microsoft에서 예약 함).
-    * **만들기**를 클릭합니다.
+    * **만들기** 를 클릭합니다.
 1. 경로 테이블을 사용 하 여 동적 라우팅 게이트웨이를 통해 Oracle 테 넌 트의 가상 클라우드 네트워크에 FastConnect 연결을 완료 합니다.
 1. Azure로 이동 하 여 Express 경로 회로에 대 한 **공급자 상태가** **프로 비전** 됨으로 변경 되 고 **azure private** 형식의 피어 링이 프로 비전 되었는지 확인 합니다. 다음 단계를 수행 하기 위한 필수 구성 요소입니다.
 

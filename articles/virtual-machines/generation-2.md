@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 7234c02d387e2fbf21a7f6002e44f84deb851133
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0aedcc3be4cb319dc24990507d85756bd77777e4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977598"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963830"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
 
@@ -101,7 +101,8 @@ Azure는 현재 온-프레미스 Hyper-V가 2세대 VM에 대해 지원하는 �
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | 백업/복원                    | :heavy_check_mark: | :heavy_check_mark: |
 | 공유 이미지 갤러리              | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Disk Encryption             | :heavy_check_mark: | :x:                |
+| [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [서버 쪽 암호화](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="creating-a-generation-2-vm"></a>2세대 VM 만들기
 
@@ -114,12 +115,12 @@ Azure Portal 또는 Azure CLI에서는 UEFI 부팅을 지원하는 Marketplace �
 Azure Portal에서 2세대(Gen2) VM을 만드는 단계는 아래와 같습니다.
 
 1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
-1. **리소스 만들기**를 선택합니다.
+1. **리소스 만들기** 를 선택합니다.
 1. 왼쪽의 Azure Marketplace에서 **모두 보기** 를 클릭 합니다.
 1. Gen2를 지원하는 이미지를 선택합니다.
-1. **만들기**를 클릭합니다.
+1. **만들기** 를 클릭합니다.
 1. **고급** 탭의 **VM 생성** 섹션에서 **Gen 2** 옵션을 선택합니다.
-1. **기본 사항** 탭의 **인스턴스 세부 정보**에서 **크기**로 이동하여 **VM 크기 선택** 블레이드를 엽니다.
+1. **기본 사항** 탭의 **인스턴스 세부 정보** 에서 **크기** 로 이동하여 **VM 크기 선택** 블레이드를 엽니다.
 1. [지원되는 2세대 VM](#generation-2-vm-sizes)을 선택합니다.
 1. 페이지의 나머지 부분을 진행 하 여 VM 만들기를 완료 합니다.
 
@@ -146,7 +147,7 @@ Windows Server 2012를 OS로 사용하여 VM을 만드는 경우, 1세대(BIOS) 
 
 #### <a name="azure-cli"></a>Azure CLI
 
-또는 Azure CLI를 사용하여 **게시자**에 나열된 사용 가능한 2세대 이미지를 볼 수 있습니다.
+또는 Azure CLI를 사용하여 **게시자** 에 나열된 사용 가능한 2세대 이미지를 볼 수 있습니다.
 
 ```azurecli
 az vm image list --publisher Canonical --sku gen2 --output table --all
@@ -192,8 +193,8 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
   1. Azure Portal에서 VM 속성 페이지로 이동합니다.
   1. VM을 종료하고 할당을 취소하려면 **중지** 단추를 선택합니다.
   1. **디스크** 섹션에서 크기를 늘릴 OS 디스크를 선택합니다.
-  1. **디스크** 섹션에서 **구성**을 선택하고 **크기**를 원하는 값으로 업데이트합니다.
-  1. VM 속성 페이지로 돌아가서 VM을 **시작**합니다.
+  1. **디스크** 섹션에서 **구성** 을 선택하고 **크기** 를 원하는 값으로 업데이트합니다.
+  1. VM 속성 페이지로 돌아가서 VM을 **시작** 합니다.
   
   2 TiB 보다 큰 OS 디스크에 대 한 경고가 표시 될 수 있습니다. 이 경고는 2세대 VM에는 적용되지 않습니다. 그러나 4 TiB 보다 큰 OS 디스크 크기는 지원 되지 않습니다.
 
@@ -216,7 +217,7 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
 
     이 문제는 다음을 수행하여 해결할 수 있습니다.
 
-    1. **VM 생성** 속성이 **고급** 탭의 **Gen 2**로 설정되었는지 확인합니다.
+    1. **VM 생성** 속성이 **고급** 탭의 **Gen 2** 로 설정되었는지 확인합니다.
     1. [Gen2 VM을 지원하는 VM 크기](#generation-2-vm-sizes)를 검색하고 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계

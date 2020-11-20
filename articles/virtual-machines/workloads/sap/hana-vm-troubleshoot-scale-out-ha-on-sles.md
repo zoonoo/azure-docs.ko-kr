@@ -7,17 +7,18 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cf18e2d375d7a45c3641876b8a3ed5974882927
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088311"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965428"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>SLES 12 SP3에서 SAP HANA 스케일 아웃 고가용성 설정 확인 및 문제 해결 
 
@@ -85,7 +86,7 @@ SUSE의 지원이 필요한 경우 [가이드][suse-pacemaker-support-log-files]
 
 ## <a name="multiple-subnets-and-vnics"></a>여러 서브넷 및 vNIC
 
-SAP HANA 네트워크 권장 사항에 따라 하나의 Azure 가상 네트워크 내에 세 개의 서브넷이 만들어졌습니다. Azure의 SAP HANA 스케일 아웃은 비공유 모드로 설치해야 합니다. 즉, 노드마다 **/hana/data** 및 **/hana/log**에 대해 로컬 디스크 볼륨이 사용됩니다. 노드에 로컬 디스크 볼륨만 사용되므로 스토리지에 대해 별도의 서브넷을 정의할 필요가 없습니다.
+SAP HANA 네트워크 권장 사항에 따라 하나의 Azure 가상 네트워크 내에 세 개의 서브넷이 만들어졌습니다. Azure의 SAP HANA 스케일 아웃은 비공유 모드로 설치해야 합니다. 즉, 노드마다 **/hana/data** 및 **/hana/log** 에 대해 로컬 디스크 볼륨이 사용됩니다. 노드에 로컬 디스크 볼륨만 사용되므로 스토리지에 대해 별도의 서브넷을 정의할 필요가 없습니다.
 
 - 10.0.2.0/24 - SAP HANA 노드 간 통신용
 - 10.0.1.0/24 - SAP HSR(HANA System Replication)용
@@ -111,7 +112,7 @@ inet addr:10.0.2.42  Bcast:10.0.2.255  Mask:255.255.255.0
 </code></pre>
 
 
-다음으로 이름 서버 및 HSR에 대해 SAP HANA 포트를 확인합니다. SAP HANA는 해당 서브넷에서 수신 대기해야 합니다. SAP HANA 인스턴스 번호에 따라 명령을 조정해야 합니다. 테스트 시스템의 경우 인스턴스 번호는 **00**입니다. 사용되는 포트를 파악할 수 있는 방법은 여러 가지입니다. 
+다음으로 이름 서버 및 HSR에 대해 SAP HANA 포트를 확인합니다. SAP HANA는 해당 서브넷에서 수신 대기해야 합니다. SAP HANA 인스턴스 번호에 따라 명령을 조정해야 합니다. 테스트 시스템의 경우 인스턴스 번호는 **00** 입니다. 사용되는 포트를 파악할 수 있는 방법은 여러 가지입니다. 
 
 다음 SQL 문은 인스턴스 ID, 인스턴스 번호 및 기타 정보를 반환합니다.
 
@@ -127,7 +128,7 @@ select * from M_INIFILE_CONTENTS WHERE KEY LIKE 'listen%'
 
 SAP HANA를 포함한 SAP 소프트웨어 스택에서 사용되는 모든 포트를 찾으려면 [모든 SAP 제품의 TCP/IP 포트][sap-list-port-numbers]를 검색해 보세요.
 
-SAP HANA 2.0 테스트 시스템에서 인스턴스 번호가 **00**인 경우 이름 서버의 포트 번호는 **30001**입니다. HSR 메타데이터 통신의 포트 번호는 **40002**입니다. 한 가지 옵션은 작업자 노드에 로그인한 다음, 마스터 노드 서비스를 확인하는 것입니다. 이 문서의 경우, 사이트 2의 마스터 노드에 연결하려고 시도하면서 사이트 2의 작업자 노드 2를 확인했습니다.
+SAP HANA 2.0 테스트 시스템에서 인스턴스 번호가 **00** 인 경우 이름 서버의 포트 번호는 **30001** 입니다. HSR 메타데이터 통신의 포트 번호는 **40002** 입니다. 한 가지 옵션은 작업자 노드에 로그인한 다음, 마스터 노드 서비스를 확인하는 것입니다. 이 문서의 경우, 사이트 2의 마스터 노드에 연결하려고 시도하면서 사이트 2의 작업자 노드 2를 확인했습니다.
 
 이름 서버 포트를 확인합니다.
 
@@ -137,8 +138,8 @@ nc -vz 10.0.1.40 30001
 nc -vz 10.0.2.40 30001
 </code></pre>
 
-노드 간 통신에 서브넷 **10.0.2.0/24**가 사용되는지 증명하려면 결과가 다음 샘플 출력과 유사하게 표시되야 합니다.
-서브넷 **10.0.2.0/24**를 통한 연결만 성공해야 합니다.
+노드 간 통신에 서브넷 **10.0.2.0/24** 가 사용되는지 증명하려면 결과가 다음 샘플 출력과 유사하게 표시되야 합니다.
+서브넷 **10.0.2.0/24** 를 통한 연결만 성공해야 합니다.
 
 <pre><code>
 nc: connect to 10.0.0.40 port 30001 (tcp) failed: Connection refused
@@ -146,7 +147,7 @@ nc: connect to 10.0.1.40 port 30001 (tcp) failed: Connection refused
 Connection to 10.0.2.40 30001 port [tcp/pago-services1] succeeded!
 </code></pre>
 
-이제 HSR 포트 **40002**를 확인합니다.
+이제 HSR 포트 **40002** 를 확인합니다.
 
 <pre><code>
 nc -vz 10.0.0.40 40002
@@ -154,8 +155,8 @@ nc -vz 10.0.1.40 40002
 nc -vz 10.0.2.40 40002
 </code></pre>
 
-HSR 통신에 서브넷 **10.0.1.0/24**가 사용되는지 증명하려면 결과가 다음 샘플 출력과 유사하게 표시되야 합니다.
-서브넷 **10.0.1.0/24**를 통한 연결만 성공해야 합니다.
+HSR 통신에 서브넷 **10.0.1.0/24** 가 사용되는지 증명하려면 결과가 다음 샘플 출력과 유사하게 표시되야 합니다.
+서브넷 **10.0.1.0/24** 를 통한 연결만 성공해야 합니다.
 
 <pre><code>
 nc: connect to 10.0.0.40 port 40002 (tcp) failed: Connection refused
@@ -168,11 +169,11 @@ nc: connect to 10.0.2.40 port 40002 (tcp) failed: Connection refused
 ## <a name="corosync"></a>Corosync
 
 
-**corosync** 구성 파일은 주 결정자 노드를 비롯한 클러스터의 모든 노드에서 정확해야 합니다. 노드의 클러스터 조인이 예상대로 작동하지 않을 경우 모든 노드에서 **/etc/corosync/corosync.conf**를 수동으로 만들거나 복사하고 서비스를 다시 시작합니다. 
+**corosync** 구성 파일은 주 결정자 노드를 비롯한 클러스터의 모든 노드에서 정확해야 합니다. 노드의 클러스터 조인이 예상대로 작동하지 않을 경우 모든 노드에서 **/etc/corosync/corosync.conf** 를 수동으로 만들거나 복사하고 서비스를 다시 시작합니다. 
 
-테스트 시스템에 있는 **corosync.conf**의 내용은 예제입니다.
+테스트 시스템에 있는 **corosync.conf** 의 내용은 예제입니다.
 
-첫 번째 섹션은 [클러스터 설치](./high-availability-guide-suse-pacemaker.md#cluster-installation), 11단계의 설명대로 **totem**입니다. **mcastaddr**에 대한 값은 무시할 수 있습니다. 기존 항목만 유지합니다. **token** 및 **consensus**에 대한 항목은[Microsoft Azure SAP HANA 설명서][sles-pacemaker-ha-guide]에 따라 설정해야 합니다.
+첫 번째 섹션은 [클러스터 설치](./high-availability-guide-suse-pacemaker.md#cluster-installation), 11단계의 설명대로 **totem** 입니다. **mcastaddr** 에 대한 값은 무시할 수 있습니다. 기존 항목만 유지합니다. **token** 및 **consensus** 에 대한 항목은 [Microsoft Azure SAP HANA 설명서][sles-pacemaker-ha-guide]에 따라 설정해야 합니다.
 
 <pre><code>
 totem {
@@ -202,7 +203,7 @@ totem {
 }
 </code></pre>
 
-두 번째 섹션, **logging**은 지정된 기본값이 변경되지 않았습니다.
+두 번째 섹션, **logging** 은 지정된 기본값이 변경되지 않았습니다.
 
 <pre><code>
 logging {
@@ -220,7 +221,7 @@ logging {
 }
 </code></pre>
 
-세 번째 섹션에서는 **nodelist**를 보여 줍니다. 클러스터의 모든 노드는 해당 **nodeid**를 사용하여 표시해야 합니다.
+세 번째 섹션에서는 **nodelist** 를 보여 줍니다. 클러스터의 모든 노드는 해당 **nodeid** 를 사용하여 표시해야 합니다.
 
 <pre><code>
 nodelist {
@@ -255,7 +256,7 @@ nodelist {
 }
 </code></pre>
 
-마지막 섹션 **quorum**에서는 **expected_votes**에 대한 값을 올바르게 설정하는 것이 중요합니다. 주 결정자 노드를 포함한 노드의 수여야 합니다. 그리고 **two_node** 값은 **0**이어야 합니다. 항목을 완전히 제거하지 마세요. 값만 **0**으로 설정하면 됩니다.
+마지막 섹션 **quorum** 에서는 **expected_votes** 에 대한 값을 올바르게 설정하는 것이 중요합니다. 주 결정자 노드를 포함한 노드의 수여야 합니다. 그리고 **two_node** 값은 **0** 이어야 합니다. 항목을 완전히 제거하지 마세요. 값만 **0** 으로 설정하면 됩니다.
 
 <pre><code>
 quorum {
@@ -268,7 +269,7 @@ quorum {
 </code></pre>
 
 
-**systemctl**을 통해 서비스를 다시 시작합니다.
+**systemctl** 을 통해 서비스를 다시 시작합니다.
 
 <pre><code>
 systemctl restart corosync
@@ -289,7 +290,7 @@ targetcli ls
 </code></pre>
 
 
-테스트 시스템에서 명령에 대한 출력은 다음 샘플과 유사한 모양입니다. VM의 해당 초기자 이름으로 **iqn.2006-04.hso-db-0.local:hso-db-0**과 같은 ACL 이름을 입력해야 합니다. 모든 VM마다 서로 다른 이름이 필요합니다.
+테스트 시스템에서 명령에 대한 출력은 다음 샘플과 유사한 모양입니다. VM의 해당 초기자 이름으로 **iqn.2006-04.hso-db-0.local:hso-db-0** 과 같은 ACL 이름을 입력해야 합니다. 모든 VM마다 서로 다른 이름이 필요합니다.
 
 <pre><code>
  | | o- sbddbhso ................................................................... [/sbd/sbddbhso (50.0MiB) write-thru activated]
@@ -338,7 +339,7 @@ cat /etc/iscsi/initiatorname.iscsi
 InitiatorName=iqn.2006-04.hso-db-1.local:hso-db-1
 </code></pre>
 
-다음으로 **discovery**가 제대로 작동하는지 확인합니다. SBD 서버 VM의 IP 주소를 사용하여 모든 클러스터 노드에서 다음 명령을 실행합니다.
+다음으로 **discovery** 가 제대로 작동하는지 확인합니다. SBD 서버 VM의 IP 주소를 사용하여 모든 클러스터 노드에서 다음 명령을 실행합니다.
 
 <pre><code>
 iscsiadm -m discovery --type=st --portal=10.0.0.19:3260
@@ -376,7 +377,7 @@ systemctl restart iscsid
 sbd -d /dev/sdm list
 </code></pre>
 
-출력에서 클러스터의 모든 노드에 대해 **clear**를 표시해야 합니다.
+출력에서 클러스터의 모든 노드에 대해 **clear** 를 표시해야 합니다.
 
 <pre><code>
 0       hso-hana-vm-s1-0        clear
@@ -389,7 +390,7 @@ sbd -d /dev/sdm list
 </code></pre>
 
 
-또 따른 SBD 확인은 **sbd** 명령의 **dump** 옵션입니다. 주 결정자 노드의 샘플 명령과 출력에서 디바이스 이름은 **sdm**이 아니고 **sdd**입니다.
+또 따른 SBD 확인은 **sbd** 명령의 **dump** 옵션입니다. 주 결정자 노드의 샘플 명령과 출력에서 디바이스 이름은 **sdm** 이 아니고 **sdd** 입니다.
 
 <pre><code>
 sbd -d /dev/sdd dump
@@ -416,15 +417,15 @@ SBD를 한 번 더 확인하면 다른 노드에 메시지를 보낼 수 있습�
 sbd -d /dev/sdm message hso-hana-vm-s2-2 test
 </code></pre>
 
-대상 VM 쪽, 이 예제의 **hso-hana-vm-s2-2**의 경우 **/var/log/messages**에서 다음 항목을 찾을 수 있습니다.
+대상 VM 쪽, 이 예제의 **hso-hana-vm-s2-2** 의 경우 **/var/log/messages** 에서 다음 항목을 찾을 수 있습니다.
 
 <pre><code>
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-**/etc/sysconfig/sbd**에 있는 항목이 [Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정](./high-availability-guide-suse-pacemaker.md#sbd-fencing)의 설명과 일치하는지 확인합니다. **/etc/iscsi/iscsid.conf**의 startup(시작) 설정이 automatic으로 설정되어 있는지 확인합니다.
+**/etc/sysconfig/sbd** 에 있는 항목이 [Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정](./high-availability-guide-suse-pacemaker.md#sbd-fencing)의 설명과 일치하는지 확인합니다. **/etc/iscsi/iscsid.conf** 의 startup(시작) 설정이 automatic으로 설정되어 있는지 확인합니다.
 
-다음 항목은 **/etc/sysconfig/sbd**에 중요합니다. 필요한 경우 **id** 값을 조정합니다.
+다음 항목은 **/etc/sysconfig/sbd** 에 중요합니다. 필요한 경우 **id** 값을 조정합니다.
 
 <pre><code>
 SBD_DEVICE="/dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68;"
@@ -434,7 +435,7 @@ SBD_WATCHDOG=yes
 </code></pre>
 
 
-**/etc/iscsi/iscsid.conf**에서 startup 설정을 확인합니다. 필요한 설정은 설명서의 내용에 따라 다음 **iscsiadm** 명령으로 수행되었어야 합니다. 확인하고 다른 경우 **vi**를 사용하여 조정합니다.
+**/etc/iscsi/iscsid.conf** 에서 startup 설정을 확인합니다. 필요한 설정은 설명서의 내용에 따라 다음 **iscsiadm** 명령으로 수행되었어야 합니다. 확인하고 다른 경우 **vi** 를 사용하여 조정합니다.
 
 이 명령은 startup 동작을 설정합니다.
 
@@ -442,7 +443,7 @@ SBD_WATCHDOG=yes
 iscsiadm -m node --op=update --name=node.startup --value=automatic
 </code></pre>
 
-**/etc/iscsi/iscsid.conf**에 다음 항목을 입력합니다.
+**/etc/iscsi/iscsid.conf** 에 다음 항목을 입력합니다.
 
 <pre><code>
 node.startup = automatic
@@ -504,7 +505,7 @@ Pacemaker에서 구성된 모든 리소스를 보려면 다음 명령을 실행�
 crm status
 </code></pre>
 
-출력이 다음 샘플과 유사하게 표시됩니다. **cln** 및 **msl** 리소스는 주 결정자 VM, **hso-hana-dm**에서 stopped(중지됨)로 표시됩니다. 주 결정자 노드에는 SAP HANA가 설치되어 있지 않습니다. 따라서 **cln** 및 **msl** 리소스가 stopped(중지됨)로 표시됩니다. 올바른 총 Vm 수 ( **7**)를 표시 하는 것이 중요 합니다. 클러스터의 일부인 모든 VM은 **Online**(온라인) 상태에서 나열되어야 합니다. 현재 주 마스터 노드를 올바르게 인식해야 합니다. 이 예제에서는 **hso-hana-vm-s1-0**입니다.
+출력이 다음 샘플과 유사하게 표시됩니다. **cln** 및 **msl** 리소스는 주 결정자 VM, **hso-hana-dm** 에서 stopped(중지됨)로 표시됩니다. 주 결정자 노드에는 SAP HANA가 설치되어 있지 않습니다. 따라서 **cln** 및 **msl** 리소스가 stopped(중지됨)로 표시됩니다. 올바른 총 Vm 수 ( **7**)를 표시 하는 것이 중요 합니다. 클러스터의 일부인 모든 VM은 **Online**(온라인) 상태에서 나열되어야 합니다. 현재 주 마스터 노드를 올바르게 인식해야 합니다. 이 예제에서는 **hso-hana-vm-s1-0** 입니다.
 
 <pre><code>
 Stack: corosync
@@ -538,7 +539,7 @@ Pacemaker의 중요한 기능은 유지 관리 모드입니다. 이 모드에서
 crm configure property maintenance-mode=true
 </code></pre>
 
-**crm status**를 사용하여 확인하면 출력에서 모든 리소스가 **unmanaged**(관리되지 않음)로 표시되는 것을 볼 수 있습니다. 이 상태에서 클러스터는 SAP HANA 시작이나 중지와 같은 변화에 반응하지 않습니다.
+**crm status** 를 사용하여 확인하면 출력에서 모든 리소스가 **unmanaged**(관리되지 않음)로 표시되는 것을 볼 수 있습니다. 이 상태에서 클러스터는 SAP HANA 시작이나 중지와 같은 변화에 반응하지 않습니다.
 다음 샘플은 클러스터가 유지 관리 모드에 있는 동안의 **crm status** 명령의 출력을 보여줍니다.
 
 <pre><code>
@@ -550,7 +551,7 @@ Last change: Wed Sep 12 07:46:54 2018 by root via cibadmin on hso-hana-vm-s2-1
 7 nodes configured
 17 resources configured
 
-              *** Resource management is DISABLED ***
+              **_ Resource management is DISABLED _*_
   The cluster will not attempt to start, stop or recover services
 
 Online: [ hso-hana-dm hso-hana-vm-s1-0 hso-hana-vm-s1-1 hso-hana-vm-s1-2 hso-hana-vm-s2-0 hso-hana-vm-s2-1 hso-hana-vm-s2-2 ]
@@ -586,7 +587,7 @@ crm configure property maintenance-mode=false
 </code></pre>
 
 
-또 다른 **crm** 전체 클러스터 구성을 편집기로 가져와서 편집할 수 있도록 합니다. 변경 내용이 저장된 후 클러스터에서 적절한 작업이 시작됩니다.
+또 다른 _ *crm** 명령은 전체 클러스터 구성을 편집기로 가져와 편집할 수 있습니다. 변경 내용이 저장된 후 클러스터에서 적절한 작업이 시작됩니다.
 
 <pre><code>
 crm configure edit
@@ -633,7 +634,7 @@ Failed Actions:
     last-rc-change='Wed Sep 12 17:01:28 2018', queued=0ms, exec=277663ms
 </code></pre>
 
-실패한 후에는 클러스터 정리가 필요합니다. **crm** 명령을 다시 사용하고 명령 옵션, **cleanup**을 사용하여 실패한 작업 항목을 제거합니다. 해당 클러스터 리소스 이름을 다음과 같이 지정합니다.
+실패한 후에는 클러스터 정리가 필요합니다. **crm** 명령을 다시 사용하고 명령 옵션, **cleanup** 을 사용하여 실패한 작업 항목을 제거합니다. 해당 클러스터 리소스 이름을 다음과 같이 지정합니다.
 
 <pre><code>
 crm resource cleanup rsc_SAPHanaCon_HSO_HDB00
@@ -672,7 +673,7 @@ wicked ifdown eth2
 wicked ifdown eth&ltn&gt
 </code></pre>
 
-[계획된 유지 관리](#planned-maintenance)의 설명대로 클러스터 작업을 모니터링하는 좋은 방법은 **watch** 명령으로 **SAPHanaSR-showAttr**을 실행하는 것입니다.
+[계획된 유지 관리](#planned-maintenance)의 설명대로 클러스터 작업을 모니터링하는 좋은 방법은 **watch** 명령으로 **SAPHanaSR-showAttr** 을 실행하는 것입니다.
 
 <pre><code>
 watch SAPHanaSR-showAttr
@@ -680,9 +681,9 @@ watch SAPHanaSR-showAttr
 
 SAP Python 스크립트에서 제공되는 SAP HANA 랜드스케이프 상태를 살펴보는 것도 좋습니다. 클러스터 설정에서 이 상태 값을 찾습니다. 이는 작업자 노드 실패를 고려하면 분명해집니다. 작업자 노드가 중단되면 SAP HANA에서 전체 스케일 아웃 시스템의 상태에 대한 오류를 즉시 반환하지 않습니다. 
 
-불필요한 장애 조치를 방지하기 위해 몇 가지 재시도가 있습니다. 클러스터는 **Ok** 상태, 반환 값이 **4**가 **error** 및 반환 값 **1**로 변경되는 경우에만 반응합니다. 따라서 **SAPHanaSR-showAttr**의 출력에 **offline** 상태의 VM이 표시되면 맞습니다. 단, 주와 보조를 전환할 작업은 아직 없습니다. SAP HANA에서 오류를 반환하지 않는 한 클러스터 작업은 트리거되지 않습니다.
+불필요한 장애 조치를 방지하기 위해 몇 가지 재시도가 있습니다. 클러스터는 **Ok** 상태, 반환 값이 **4** 가 **error** 및 반환 값 **1** 로 변경되는 경우에만 반응합니다. 따라서 **SAPHanaSR-showAttr** 의 출력에 **offline** 상태의 VM이 표시되면 맞습니다. 단, 주와 보조를 전환할 작업은 아직 없습니다. SAP HANA에서 오류를 반환하지 않는 한 클러스터 작업은 트리거되지 않습니다.
 
-다음과 같이 SAP Python 스크립트를 호출 하 여 SAP HANA 가로 상태를 사용자 ** \<HANA SID\> adm** 으로 모니터링할 수 있습니다. 경로를 조정해야 할 수도 있습니다.
+다음과 같이 SAP Python 스크립트를 호출 하 여 SAP HANA 가로 상태를 사용자 **\<HANA SID\> adm** 으로 모니터링할 수 있습니다. 경로를 조정해야 할 수도 있습니다.
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -704,7 +705,7 @@ overall host status: ok
 </code></pre>
 
 
-현재 클러스터 작업을 확인할 수 있는 또 다른 명령이 있습니다. 주 사이트의 마스터 노드가 중단된 후 다음 명령 및 출력 끝 부분을 참조하세요. 이전의 보조 마스터 노드, **hso-hana-vm-s2-0**을 새 주 마스터로 **승격**시키는 것과 같은 전환 작업 목록을 볼 수 있습니다. 모든 항목이 문제가 없고 모든 작업이 완료되는 경우 다음 **전환 요약** 목록은 비어 있어야 합니다.
+현재 클러스터 작업을 확인할 수 있는 또 다른 명령이 있습니다. 주 사이트의 마스터 노드가 중단된 후 다음 명령 및 출력 끝 부분을 참조하세요. 이전의 보조 마스터 노드, **hso-hana-vm-s2-0** 을 새 주 마스터로 **승격** 시키는 것과 같은 전환 작업 목록을 볼 수 있습니다. 모든 항목이 문제가 없고 모든 작업이 완료되는 경우 다음 **전환 요약** 목록은 비어 있어야 합니다.
 
 <pre><code>
  crm_simulate -Ls
@@ -768,7 +769,7 @@ INFO: Move constraint created for msl_SAPHanaCon_HSO_HDB00
 watch SAPHanaSR-showAttr
 </code></pre>
 
-출력에 수동 장애 조치가 표시되어야 합니다. 이전 보조 마스터 노드가 **승격**(이 샘플의 경우 **hso-hana-vm-s2-0**으로)되었습니다. 이전 기본 사이트가 중지되고, 이전 주 마스터 노드 **hso-hana-vm-s1-0**의 **lss** 값이 **1**입니다. 
+출력에 수동 장애 조치가 표시되어야 합니다. 이전 보조 마스터 노드가 **승격**(이 샘플의 경우 **hso-hana-vm-s2-0** 으로)되었습니다. 이전 기본 사이트가 중지되고, 이전 주 마스터 노드 **hso-hana-vm-s1-0** 의 **lss** 값이 **1** 입니다. 
 
 <pre><code>
 Global cib-time                 prim  sec srHook sync_state
@@ -860,7 +861,7 @@ drwxr-xr-x 3 root root   4096 Sep 13 09:01 hso-hana-vm-s2-2
 </code></pre>
 
 
-지정된 시간 범위 내에서 현재 마스터 노드인 **hso-hana-vm-s1-0**이 중단되었습니다. **journal.log**에서 이 이벤트와 관련된 항목을 찾을 수 있습니다.
+지정된 시간 범위 내에서 현재 마스터 노드인 **hso-hana-vm-s1-0** 이 중단되었습니다. **journal.log** 에서 이 이벤트와 관련된 항목을 찾을 수 있습니다.
 
 <pre><code>
 2018-09-13T07:38:01+0000 hso-hana-vm-s2-1 su[93494]: (to hsoadm) root on none
@@ -882,7 +883,7 @@ drwxr-xr-x 3 root root   4096 Sep 13 09:01 hso-hana-vm-s2-2
 2018-09-13T07:38:03+0000 hso-hana-vm-s2-1 su[93494]: pam_unix(su-l:session): session closed for user hsoadm
 </code></pre>
 
-또 다른 예는 새 주 마스터 노드가 된 보조 마스터 노드의 Pacemaker 로그 파일입니다. 이 발췌 부분에는 중단된 주 마스터 노드의 상태가 **offline**으로 설정된 것이 보입니다.
+또 다른 예는 새 주 마스터 노드가 된 보조 마스터 노드의 Pacemaker 로그 파일입니다. 이 발췌 부분에는 중단된 주 마스터 노드의 상태가 **offline** 으로 설정된 것이 보입니다.
 
 <pre><code>
 Sep 13 07:38:02 [4178] hso-hana-vm-s2-0 stonith-ng:     info: pcmk_cpg_membership:      Node 3 still member of group stonith-ng (peer=hso-hana-vm-s1-2, counter=5.1)
@@ -963,15 +964,15 @@ https://&ltnode&gt:7630
 ![Hawk 제약 조건 나열](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-다음과 같이 Hawk의 **History**에서 **hb_report** 출력을 업로드할 수도 있습니다. 일을 수집하는 hb_report를 참조하세요. 
+다음과 같이 Hawk의 **History** 에서 **hb_report** 출력을 업로드할 수도 있습니다. 일을 수집하는 hb_report를 참조하세요. 
 
 ![Hawk hb_report 출력 업로드](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
-**기록 탐색기**에서 **hb_report** 출력에 포함된 모든 클러스터 전환을 확인할 수 있습니다.
+**기록 탐색기** 에서 **hb_report** 출력에 포함된 모든 클러스터 전환을 확인할 수 있습니다.
 
 ![hb_report 출력의 Hawk 전환](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
 
-마지막 스크린샷은 단일 전환의 **Details**(세부 정보) 섹션을 보여줍니다. 클러스터가 주 마스터 노드 출돌, 노드 **hso-hana-vm-s1-0**에 대응했습니다. 이제 보조 노드가 새 마스터 **hso-hana-vm-s2-0**로 승격됩니다.
+마지막 스크린샷은 단일 전환의 **Details**(세부 정보) 섹션을 보여줍니다. 클러스터가 주 마스터 노드 출돌, 노드 **hso-hana-vm-s1-0** 에 대응했습니다. 이제 보조 노드가 새 마스터 **hso-hana-vm-s2-0** 로 승격됩니다.
 
 ![Hawk 단일 전환](media/hana-vm-scale-out-HA-troubleshooting/hawk-5.png)
 

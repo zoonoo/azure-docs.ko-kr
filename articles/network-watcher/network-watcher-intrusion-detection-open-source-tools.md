@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6a7b4d8c3d2e2b33d8e2a9936670992b1c922b6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a07957a75bfe82d8ce350675f0d29b2f03e069
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84737362"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966142"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색 수행
 
@@ -80,7 +80,7 @@ Suricata에서 생성 하는 로그에는 네트워크에서 발생 하는 상�
 
 #### <a name="install-elasticsearch"></a>Elasticsearch 설치
 
-1. 이번 5.0 이상의 탄력적 스택에는 Java 8이 필요합니다. `java -version` 명령을 실행하여 버전을 확인합니다. java가 설치되지 않은 경우 [Azure 지원 JDK](https://aka.ms/azure-jdks)에 대한 설명서를 참조하세요.
+1. 이번 5.0 이상의 탄력적 스택에는 Java 8이 필요합니다. `java -version` 명령을 실행하여 버전을 확인합니다. java가 설치되지 않은 경우 [Azure 지원 JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)에 대한 설명서를 참조하세요.
 
 1. 시스템에 맞는 이진 패키지를 다운로드합니다.
 
@@ -236,7 +236,7 @@ Logstash 설치에 대한 추가 정보는 [공식 설명서](https://www.elasti
 1. Kibana 웹 인터페이스를 보려면 `http://localhost:5601`로 이동합니다.
 1. 이 시나리오에서 Suricata 로그에 대해 사용된 인덱스 패턴은 "logstash-*"입니다.
 
-1. Kibana 대시보드를 원격으로 보려면 **포트 5601**에 대해 액세스를 허용하는 인바운드 NSG 규칙을 만듭니다.
+1. Kibana 대시보드를 원격으로 보려면 **포트 5601** 에 대해 액세스를 허용하는 인바운드 NSG 규칙을 만듭니다.
 
 ### <a name="create-a-kibana-dashboard"></a>Kibana 대시보드 만들기
 
@@ -244,7 +244,7 @@ Logstash 설치에 대한 추가 정보는 [공식 설명서](https://www.elasti
 
 1. 대시보드 파일은 [여기](https://aka.ms/networkwatchersuricatadashboard)에서, 시각화 파일은 [여기](https://aka.ms/networkwatchersuricatavisualization)에서, 저장된 검색 파일은 [여기](https://aka.ms/networkwatchersuricatasavedsearch)에서 다운로드합니다.
 
-1. Kibana의 **관리** 탭 아래에서 **저장된 개체**로 이동하고 세 개 파일을 모두 가져옵니다. 그런 다음 **대시보드** 탭에서 샘플 대시보드를 열고 로드할 수 있습니다.
+1. Kibana의 **관리** 탭 아래에서 **저장된 개체** 로 이동하고 세 개 파일을 모두 가져옵니다. 그런 다음 **대시보드** 탭에서 샘플 대시보드를 열고 로드할 수 있습니다.
 
 사용자가 관심 있는 메트릭에 맞는 시각화 및 대시보드를 만들 수 있습니다. Kibana의 [공식적인 설명서](https://www.elastic.co/guide/en/kibana/current/visualize.html)에서 Kibana 시각화 만들기에 대해 자세히 알아보세요.
 

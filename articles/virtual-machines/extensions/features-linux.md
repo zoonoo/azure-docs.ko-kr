@@ -9,17 +9,18 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 283eb9b9cbdc03813cf7c765c9ef3be5965919eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 129897d3288a900803efbfba8abf86c276077fa8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978342"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966074"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 머신 확장 및 기능
 
@@ -29,7 +30,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화
 
 ## <a name="use-cases-and-samples"></a>사용 사례 및 샘플
 
-각각 특정 사용 사례가 있는 몇 가지 다른 Azure VM 확장을 사용할 수 있습니다. 일부 사례:
+각각 특정 사용 사례가 있는 몇 가지 다른 Azure VM 확장을 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - Linux용 DSC 확장을 사용하여 VM에 PowerShell의 필요한 상태 구성을 적용합니다. 자세한 내용은 [Azure 필요한 상태 구성 확장](https://github.com/Azure/azure-linux-extensions/tree/master/DSC)을 참조하세요.
 - Microsoft Monitoring Agent VM 확장을 사용하여 VM의 모니터링을 구성합니다. 자세한 내용은 [Linux VM을 모니터링하는 방법](../linux/tutorial-monitor.md)을 참조하세요.
@@ -37,7 +38,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 머신에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Linux용 사용자 지정 스크립트 확장을 사용하면 Bash 스크립트를 VM에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Linux VM 사용자 지정 스크립트 확장](custom-script-linux.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 VM에서 확장을 처리하려면 Azure Linux 에이전트를 설치해야 합니다. 일부 개별 확장에는 리소스에 대한 액세스 권한 또는 종속성 같은 필수 구성 요소가 있습니다.
 
@@ -63,7 +64,7 @@ Linux 에이전트는 여러 OS에서 실행되지만 확장 프레임워크는 
 확장 패키지는 Azure Storage 확장 리포지토리에서 다운로드되고, 확장 상태 업로드는 Azure Storage에 게시됩니다. 에이전트의 [지원](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 버전을 사용하는 경우 에이전트를 사용하여 에이전트 통신을 위한 Azure 패브릭 컨트롤러에 통신을 리디렉션할 수 있는 것처럼 VM 지역에서 Azure Storage에 대한 액세스 권한을 허용하지 않아도 됩니다. 지원되지 않는 버전의 에이전트가 설치된 경우 VM의 해당 지역에서 Azure Storage에 대한 아웃바운드 액세스 권한을 허용해야 합니다.
 
 > [!IMPORTANT]
-> 게스트 방화벽을 사용하여 *168.63.129.16*에 대한 액세스를 차단한 경우 확장은 위와 관계 없이 실패합니다.
+> 게스트 방화벽을 사용하여 *168.63.129.16* 에 대한 액세스를 차단한 경우 확장은 위와 관계 없이 실패합니다.
 
 에이전트는 확장 패키지 및 보고 상태를 다운로드하는 데 사용할 수 있습니다. 예를 들어 확장을 설치하는 데 GitHub에서 스크립트(사용자 지정 스크립트)를 다운로드해야 하거나 Azure Storage(Azure Backup)에 대한 액세스 권한이 필요한 경우 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 확장마다 고유한 권한의 애플리케이션이므로 요구 사항이 다릅니다. Azure Storage에 대한 액세스 권한이 필요한 확장의 경우 [Storage](../../virtual-network/network-security-groups-overview.md#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스할 수 있습니다.
 
@@ -85,7 +86,7 @@ Azure VM 확장은 기존 VM에서 실행됩니다. 이러한 기능은 이미 �
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure VM 확장은 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 명령을 사용하여 기존 VM에 대해 실행할 수 있습니다. 다음 예제에서는 *Myvm*이라는 리소스 그룹에서 *MYVM* 이라는 Vm에 대해 사용자 지정 스크립트 확장을 실행 합니다. 사용자 고유의 정보를 사용 하 여 예제 리소스 그룹 이름, VM 이름 및 스크립트를 실행 (https: \/ /raw.githubusercontent.com/me/project/hello.sh)으로 바꿉니다. 
+Azure VM 확장은 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 명령을 사용하여 기존 VM에 대해 실행할 수 있습니다. 다음 예제에서는 *Myvm* 이라는 리소스 그룹에서 *MYVM* 이라는 Vm에 대해 사용자 지정 스크립트 확장을 실행 합니다. 사용자 고유의 정보를 사용 하 여 예제 리소스 그룹 이름, VM 이름 및 스크립트를 실행 (https: \/ /raw.githubusercontent.com/me/project/hello.sh)으로 바꿉니다. 
 
 ```azurecli
 az vm extension set `
@@ -107,7 +108,7 @@ info:    vm extension set command OK
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure Portal을 통해 기존 VM에 VM 확장을 적용할 수 있습니다. 포털에서 VM을 선택하고, **확장**을 선택한 다음, **추가**를 선택합니다. 사용 가능한 확장 목록에서 원하는 확장을 선택하고 마법사의 지시를 따릅니다.
+Azure Portal을 통해 기존 VM에 VM 확장을 적용할 수 있습니다. 포털에서 VM을 선택하고, **확장** 을 선택한 다음, **추가** 를 선택합니다. 사용 가능한 확장 목록에서 원하는 확장을 선택하고 마법사의 지시를 따릅니다.
 
 다음 이미지는 Azure Portal에서 Linux 사용자 지정 스크립트 확장을 설치하는 경우를 보여 줍니다.
 
@@ -231,11 +232,11 @@ VM 확장을 실행하는 경우 자격 증명, 스토리지 계정 이름 및 �
 
 #### <a name="agent-updates"></a>에이전트 업데이트
 
-Linux VM 에이전트에서는 *프로비저닝 에이전트 코드* 및 *확장 처리 코드*가 분리할 수 없는 한 패키지에 포함되어 있습니다. cloud-init를 사용하여 Azure에서 프로비전하려는 경우 *프로비저닝 에이전트*를 사용하지 않도록 설정할 수 있습니다. 이 작업을 수행하려면 [cloud-init 사용](../linux/using-cloud-init.md)을 참조하세요.
+Linux VM 에이전트에서는 *프로비저닝 에이전트 코드* 및 *확장 처리 코드* 가 분리할 수 없는 한 패키지에 포함되어 있습니다. cloud-init를 사용하여 Azure에서 프로비전하려는 경우 *프로비저닝 에이전트* 를 사용하지 않도록 설정할 수 있습니다. 이 작업을 수행하려면 [cloud-init 사용](../linux/using-cloud-init.md)을 참조하세요.
 
-에이전트의 지원되는 버전은 자동 업데이트를 사용할 수 있습니다. 업데이트할 수 있는 유일한 코드는 프로비저닝 코드가 아닌 *확장 처리 코드*입니다. *프로비저닝 에이전트 코드*는 한 번 실행 코드입니다.
+에이전트의 지원되는 버전은 자동 업데이트를 사용할 수 있습니다. 업데이트할 수 있는 유일한 코드는 프로비저닝 코드가 아닌 *확장 처리 코드* 입니다. *프로비저닝 에이전트 코드* 는 한 번 실행 코드입니다.
 
-*확장 처리 코드*는 Azure 패브릭과 통신하고 설치, 상태 보고, 개별 확장 업데이트 및 제거 등 VM 확장 작업을 처리하는 역할을 담당합니다. 업데이트에는 보안 수정, 버그 수정 및 *확장 처리 코드*에 대한 향상된 기능이 포함됩니다.
+*확장 처리 코드* 는 Azure 패브릭과 통신하고 설치, 상태 보고, 개별 확장 업데이트 및 제거 등 VM 확장 작업을 처리하는 역할을 담당합니다. 업데이트에는 보안 수정, 버그 수정 및 *확장 처리 코드* 에 대한 향상된 기능이 포함됩니다.
 
 에이전트가 설치되면 부모 디먼이 생성됩니다. 그런 다음, 이 부모는 확장을 처리하는 데 사용되는 자식 프로세스를 생성합니다. 에이전트에 대한 업데이트가 있는 경우 해당 업데이트가 다운로드된 후 부모는 자식 프로세스를 중지하고, 업그레이드한 다음, 다시 시작합니다. 업데이트에 문제가 있다면 부모 프로세스는 이전 자식 버전으로 롤백합니다.
 
@@ -255,7 +256,7 @@ Python: 3.5.2
 Goal state agent: 2.2.18
 ```
 
-위의 예제 출력에서 부모 또는 ‘패키지 배포 버전’은 *WALinuxAgent-2.2.17*입니다.
+위의 예제 출력에서 부모 또는 ‘패키지 배포 버전’은 *WALinuxAgent-2.2.17* 입니다.
 
 ‘목표 상태 에이전트’는 자동 업데이트 버전입니다.
 
@@ -289,7 +290,7 @@ Goal state agent: 2.2.18
 az vm show --resource-group myResourceGroup --name myVM
 ```
 
-다음 예제 출력에서는 *autoUpgradeMinorVersion*이 *true*로 설정되었다고 보여줍니다.
+다음 예제 출력에서는 *autoUpgradeMinorVersion* 이 *true* 로 설정되었다고 보여줍니다.
 
 ```json
   "resources": [
@@ -301,9 +302,9 @@ az vm show --resource-group myResourceGroup --name myVM
 
 #### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>autoUpgradeMinorVersion이 발생한 경우 식별
 
-확장에 대한 업데이트가 발생한 경우를 확인하려면 */var/log/waagent.log*에서 VM의 에이전트 로그를 검토합니다.
+확장에 대한 업데이트가 발생한 경우를 확인하려면 */var/log/waagent.log* 에서 VM의 에이전트 로그를 검토합니다.
 
-아래 예제에서는 VM에 *Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9025*가 설치되어 있습니다. 핫픽스는 *Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027*에 사용할 수 있습니다.
+아래 예제에서는 VM에 *Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9025* 가 설치되어 있습니다. 핫픽스는 *Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027* 에 사용할 수 있습니다.
 
 ```bash
 INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Expected handler state: enabled
@@ -326,7 +327,7 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 ## <a name="agent-permissions"></a>에이전트 사용 권한
 
-해당 작업을 수행하려면 에이전트는 *루트*로 실행해야 합니다.
+해당 작업을 수행하려면 에이전트는 *루트* 로 실행해야 합니다.
 
 ## <a name="troubleshoot-vm-extensions"></a>VM 확장 문제 해결
 
@@ -334,7 +335,7 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 다음 문제 해결 단계는 모든 VM 확장에 적용됩니다.
 
-1. Linux 에이전트 로그를 확인하려면 */var/log/waagent.log*에서 확장이 프로비전되었을 때 작업을 확인합니다.
+1. Linux 에이전트 로그를 확인하려면 */var/log/waagent.log* 에서 확장이 프로비전되었을 때 작업을 확인합니다.
 
 2. */var/log/azure/\<extensionName>* 에서 실제 확장 로그의 자세한 내용을 확인합니다.
 
@@ -381,7 +382,7 @@ az vm get-instance-view \
   }
 ```
 
-Azure Portal에서 확장 실행 상태를 찾을 수도 있습니다. 확장의 상태를 확인하려면 VM을 선택하고, **확장**을 선택한 다음, 원하는 확장을 선택합니다.
+Azure Portal에서 확장 실행 상태를 찾을 수도 있습니다. 확장의 상태를 확인하려면 VM을 선택하고, **확장** 을 선택한 다음, 원하는 확장을 선택합니다.
 
 ### <a name="rerun-a-vm-extension"></a>VM 확장 다시 실행
 
@@ -397,13 +398,13 @@ az vm extension delete \
 다음과 같이 Azure Portal에서 확장을 제거할 수도 있습니다.
 
 1. VM을 선택합니다.
-2. **확장**을 선택합니다.
+2. **확장** 을 선택합니다.
 3. 원하는 확장을 선택합니다.
-4. **제거**를 선택합니다.
+4. **제거** 를 선택합니다.
 
 ## <a name="common-vm-extension-reference"></a>일반적인 VM 확장 참조
 
-| 확장 이름 | Description | 자세한 정보 |
+| 확장 이름 | Description | 추가 정보 |
 | --- | --- | --- |
 | Linux용 사용자 지정 스크립트 확장 |Azure Virtual Machine에 대해 스크립트 실행 |[Linux용 사용자 지정 스크립트 확장](custom-script-linux.md) |
 | VM 액세스 확장 |Azure Virtual Machine에 대한 액세스 권한 복구 |[VM 액세스 확장](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

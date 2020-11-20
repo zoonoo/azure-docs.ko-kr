@@ -7,22 +7,22 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
-ms.openlocfilehash: 111d94db1cbec658daabfb1a4c38c8160d6f50b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22ceba69ecf865d906021068a39a9d273b842ca2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84696834"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965734"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Azure 포털을 사용하여 DNS 레코드 및 레코드 집합 관리
 
 이 문서는 Azure 포털을 사용하여 DNS 영역에 대한 레코드 집합 및 레코드를 관리하는 방법을 보여줍니다.
 
-DNS 레코드 집합과 개별 DNS 레코드 사이의 차이를 이해하는 것이 중요합니다. 레코드 집합은 영역 내에서 동일한 이름과 형식을 가진 DNS 레코드 컬렉션입니다. 자세한 내용은 [Azure 포털을 사용하여 DNS 레코드 집합 및 레코드 만들기](dns-getstarted-create-recordset-portal.md)를 참조하세요.
+DNS 레코드 집합과 개별 DNS 레코드 사이의 차이를 이해하는 것이 중요합니다. 레코드 집합은 영역 내에서 동일한 이름과 형식을 가진 DNS 레코드 컬렉션입니다. 자세한 내용은 [Azure 포털을 사용하여 DNS 레코드 집합 및 레코드 만들기](./dns-getstarted-portal.md)를 참조하세요.
 
 ## <a name="create-a-new-record-set-and-record"></a>새 레코드 집합 및 레코드 만들기
 
-Azure 포털에서 레코드 집합을 만들려면 [Azure 포털을 사용하여 DNS 레코드 만들기](dns-getstarted-create-recordset-portal.md)를 참조하세요.
+Azure 포털에서 레코드 집합을 만들려면 [Azure 포털을 사용하여 DNS 레코드 만들기](./dns-getstarted-portal.md)를 참조하세요.
 
 ## <a name="view-a-record-set"></a>레코드 집합 보기
 
@@ -70,7 +70,7 @@ Azure 포털에서 레코드 집합을 만들려면 [Azure 포털을 사용하�
 Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 있습니다. 레코드 집합에서 마지막 레코드를 제거해도 레코드 집합은 삭제되지 않습니다.
 
 1. 레코드 집합에 대한 **레코드 설정 속성** 블레이드에서 레코드를 검색합니다.
-2. 제거하려는 레코드를 클릭합니다. 그런 다음 **제거**를 선택 합니다.
+2. 제거하려는 레코드를 클릭합니다. 그런 다음 **제거** 를 선택 합니다.
 
     ![레코드 제거](./media/dns-operations-recordsets-portal/removerecord500.png)
 
@@ -79,12 +79,12 @@ Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 �
 
 ## <a name="delete-a-record-set"></a><a name="delete"></a>레코드 집합 삭제
 
-1. 레코드 집합에 대한 **레코드 집합 속성** 블레이드에서 **삭제**를 클릭합니다.
+1. 레코드 집합에 대한 **레코드 집합 속성** 블레이드에서 **삭제** 를 클릭합니다.
 
     ![레코드 집합 삭제](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
 
 2. 레코드 집합을 삭제할지 묻는 메시지가 표시됩니다.
-3. 이름이 삭제하려는 레코드 집합과 일치하는지 확인한 다음 **예**를 클릭합니다.
+3. 이름이 삭제하려는 레코드 집합과 일치하는지 확인한 다음 **예** 를 클릭합니다.
 4. **DNS 영역** 블레이드에서 레코드 집합을 더 이상 볼 수 없는지 확인합니다.
 
 ## <a name="work-with-ns-and-soa-records"></a>NS 및 SOA 레코드 작업

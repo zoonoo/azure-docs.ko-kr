@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: a9ad018980784a1f809ad28a77dacf9f0328fffa
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 4e2bcb683c9d4c5248315549bf6d6ee26b2a51ac
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873899"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965037"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안 및 거 버 넌 스
 
@@ -28,7 +28,7 @@ ms.locfileid: "94873899"
 
 ## <a name="authentication--authorization"></a>인증 & 권한 부여
 
-Azure Machine Learning 리소스에 대 한 대부분의 인증에서는 인증을 위해 Azure AD (Azure Active Directory)를 사용 하 고 권한 부여에 대 한 Azure RBAC (역할 기반 액세스 제어)를 사용 합니다. 이에 대 한 예외는 다음과 같습니다.
+Azure Machine Learning 리소스에 대 한 대부분의 인증은 인증을 위해 Azure AD (Azure Active Directory)를 사용 하 고 권한 부여를 위해 azure AD (역할 기반 액세스 제어)를 사용 합니다. 이에 대 한 예외는 다음과 같습니다.
 
 * __Ssh__: Azure Machine Learning 계산 인스턴스와 같은 일부 계산 리소스에 대 한 SSH 액세스를 사용 하도록 설정할 수 있습니다. SSH 액세스는 키 기반 인증을 사용 합니다. SSH 키를 만드는 방법에 대 한 자세한 내용은 [ssh 키 만들기 및 관리](../virtual-machines/linux/create-ssh-keys-detailed.md)를 참조 하세요. SSH 액세스를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning 계산 인스턴스 만들기 및 관리](how-to-create-manage-compute-instance.md)를 참조 하세요.
 * __웹 서비스로 배포 된 모델__: 웹 서비스 배포는 __키__ 또는 __토큰__ 기반 액세스 제어를 사용할 수 있습니다. 키는 정적 문자열입니다. 토큰은 Azure AD 계정을 사용 하 여 검색 됩니다. 자세한 내용은 [웹 서비스로 배포 된 모델에 대 한 인증 구성](how-to-authenticate-web-service.md)을 참조 하세요.
@@ -49,7 +49,7 @@ Azure 데이터 저장소 서비스와 같이 Azure Machine Learning에 의존 �
 
 ### <a name="azure-rbac"></a>Azure RBAC
 
-여러 작업 영역을 만들 수 있고 각 작업 영역을 여러 사용자와 공유할 수 있습니다. Azure AD 계정을 Azure RBAC 역할에 할당 하 여 작업 영역의 사용자가 액세스할 수 있는 기능 또는 작업을 제어할 수 있습니다. 기본 제공 역할은 다음과 같습니다.
+여러 작업 영역을 만들 수 있고 각 작업 영역을 여러 사용자와 공유할 수 있습니다. Azure AD 계정을 Azure 역할에 할당 하 여 작업 영역의 사용자가 액세스할 수 있는 기능 또는 작업을 제어할 수 있습니다. 기본 제공 역할은 다음과 같습니다.
 
 * 소유자
 * 참가자

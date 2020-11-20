@@ -6,17 +6,18 @@ documentationcenter: ''
 author: vikancha-MSFT
 manager: jkabat
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: bc7bfecbcb387fa0da0809a9a2287b243e861c49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0a5074061b190088441ed4f6787b112fb11fe5a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87010872"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966006"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Windows 용 AMD GPU 드라이버 확장
 
@@ -33,9 +34,9 @@ ms.locfileid: "87010872"
 | 배포 | 버전 |
 |---|---|
 | Windows 10 EMS | 빌드 1903 |
-| 윈도우 10 | 빌드 1809 |
-| Windows Server 2016 | 핵심 |
-| Windows Server 2019 | 핵심 |
+| Windows 10 | 빌드 1809 |
+| Windows Server 2016 | 코어 |
+| Windows Server 2019 | 코어 |
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 

@@ -4,16 +4,16 @@ description: 이 문서를 사용 하 여 구성 요소 상태 및 로그 검색
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/27/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 540c4394a73ceff1f68a613561c034ca3bc7efc5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: daae45c9eca45022225ea47aa048815d5eff70c4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046573"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964510"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>IoT Edge 장치 문제 해결
 
@@ -46,6 +46,8 @@ iotedge check
 * *연결 확인* 은 IoT Edge 런타임이 호스트 장치의 포트에 액세스할 수 있고 모든 IoT Edge 구성 요소가 IoT Hub에 연결할 수 있는지 확인 합니다. IoT Edge 장치가 프록시 뒤에 있는 경우이 검사 집합은 오류를 반환 합니다.
 * *프로덕션 준비 검사* 는 장치 인증 기관 (CA) 인증서 및 모듈 로그 파일 구성의 상태와 같은 권장 프로덕션 모범 사례를 확인 합니다.
 
+IoT Edge 검사 도구는 컨테이너를 사용 하 여 진단을 실행 합니다. 컨테이너 이미지는 `mcr.microsoft.com/azureiotedge-diagnostics:latest` [Microsoft Container Registry](https://github.com/microsoft/containerregistry)를 통해 사용할 수 있습니다. 인터넷에 직접 액세스 하지 않고 장치에서 검사를 실행 해야 하는 경우에는 장치에서 컨테이너 이미지에 액세스 해야 합니다.
+
 오류 또는 경고가 발생 하는 경우 수행할 작업을 포함 하 여이 도구를 실행 하는 각 진단 검사에 대 한 자세한 내용은 [IoT Edge 문제 해결 확인](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md)을 참조 하세요.
 
 ## <a name="gather-debug-information-with-support-bundle-command"></a>' Support-번들 ' 명령을 사용 하 여 디버그 정보 수집
@@ -66,6 +68,8 @@ Windows에서:
 iotedge support-bundle --since 6h
 ```
 
+장치에 [직접 메서드](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) 호출을 사용 하 여 Azure Blob Storage에 대 한 지원 번들 명령의 출력을 업로드할 수도 있습니다.
+
 > [!WARNING]
 > 명령의 출력에는 `support-bundle` 호스트, 장치 및 모듈 이름, 모듈에 의해 기록 된 정보 등이 포함 될 수 있습니다. 공개 포럼의 출력을 공유 하는 경우이 점에 유의 하세요.
 
@@ -74,6 +78,23 @@ iotedge support-bundle --since 6h
 이전 버전의 IoT Edge를 실행하는 경우 업그레이드하면 문제가 해결될 수 있습니다. `iotedge check`이 도구는 IoT Edge 보안 데몬이 최신 버전 인지 확인 하지만 IoT Edge 허브 및 에이전트 모듈의 버전을 확인 하지는 않습니다. 장치에서 런타임 모듈의 버전을 확인 하려면 및 명령을 사용 `iotedge logs edgeAgent` `iotedge logs edgeHub` 합니다. 버전 번호는 모듈이 시작될 때 로그에서 선언됩니다.
 
 장치를 업데이트 하는 방법에 대 한 지침은 [IoT Edge 보안 디먼 및 런타임 업데이트](how-to-update-iot-edge.md)를 참조 하세요.
+
+## <a name="verify-the-installation-of-iot-edge-on-your-devices"></a>장치에 IoT Edge 설치 확인
+
+[EdgeAgent 모듈 쌍을 모니터링](https://docs.microsoft.com/azure/iot-edge/how-to-monitor-module-twins)하 여 장치에 IoT Edge 설치를 확인할 수 있습니다.
+
+최신 edgeAgent 모듈 쌍을 가져오려면 [Azure Cloud Shell](https://shell.azure.com/)에서 다음 명령을 실행 합니다.
+
+   ```azurecli-interactive
+   az iot hub module-twin show --device-id <edge_device_id> --module-id $edgeAgent --hub-name <iot_hub_name>
+   ```
+
+이 명령은 보고 된 모든 edgeAgent [속성](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub)을 출력 합니다. 다음은 장치 상태를 모니터링 하는 데 도움이 되는 몇 가지 유용한 항목입니다.
+
+* 런타임 상태
+* 런타임 시작 시간
+* 런타임 마지막 종료 시간
+* 런타임 다시 시작 횟수
 
 ## <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>IoT Edge 보안 관리자 및 해당 로그의 상태를 확인 합니다.
 
@@ -192,6 +213,8 @@ IoT Edge 보안 디먼이 실행 되 면 컨테이너의 로그를 확인 하 �
 ```cmd
 iotedge logs <container name>
 ```
+
+장치에서 모듈에 대 한 [직접 메서드](how-to-retrieve-iot-edge-logs.md#upload-module-logs) 호출을 사용 하 여 Azure Blob Storage에 해당 모듈의 로그를 업로드할 수도 있습니다.
 
 ## <a name="view-the-messages-going-through-the-iot-edge-hub"></a>IoT Edge 허브를 통과 하는 메시지 보기
 

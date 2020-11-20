@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 62c052f2293c670b43f1c77363c8bbbcc03d0de2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48671e7558ea1bd613d33372c96fa3c563407e81
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514292"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966227"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 웹 프록시 구성
 
@@ -59,11 +59,11 @@ ms.locfileid: "85514292"
 
 #### <a name="to-configure-web-proxy-via-the-setup-wizard"></a>설치 마법사를 통해 웹 프록시를 구성하려면
 
-1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택하고 **디바이스 관리자 암호**를 제공합니다. 설치 마법사 세션을 시작하려면 다음 명령을 입력합니다.
+1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인** 을 선택하고 **디바이스 관리자 암호** 를 제공합니다. 설치 마법사 세션을 시작하려면 다음 명령을 입력합니다.
    
     `Invoke-HcsSetupWizard`
-2. 처음으로 디바이스 등록을 위해 설치 마법사를 사용하면 웹 프록시를 구성할 때까지 모든 필요한 네트워크 설정을 구성해야 합니다. 디바이스가 이미 등록되어 있다면 웹 프록시를 구성할 때까지 모든 구성된 네트워크 설정을 적용합니다. 설치 마법사에서 웹 프록시 설정을 구성할 것인지를 묻는 메시지가 표시되면 **예**를 입력합니다.
-3. **웹 프록시 URL**에 대해 웹 프록시 서버의 IP 주소 또는 정규화된 도메인 이름(FQDN) 및 클라우드와 통신할 때 사용하려는 디바이스인 TCP 포트 번호 디바이스를 지정합니다. 다음 형식을 사용합니다.
+2. 처음으로 디바이스 등록을 위해 설치 마법사를 사용하면 웹 프록시를 구성할 때까지 모든 필요한 네트워크 설정을 구성해야 합니다. 디바이스가 이미 등록되어 있다면 웹 프록시를 구성할 때까지 모든 구성된 네트워크 설정을 적용합니다. 설치 마법사에서 웹 프록시 설정을 구성할 것인지를 묻는 메시지가 표시되면 **예** 를 입력합니다.
+3. **웹 프록시 URL** 에 대해 웹 프록시 서버의 IP 주소 또는 정규화된 도메인 이름(FQDN) 및 클라우드와 통신할 때 사용하려는 디바이스인 TCP 포트 번호 디바이스를 지정합니다. 이때 다음 형식을 사용합니다.
    
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
@@ -73,7 +73,7 @@ ms.locfileid: "85514292"
    > [!IMPORTANT]
    > **StorSimple Device Manager 서비스에서 장치에 대 한 프록시 서버 구성에서 기본 또는 NTLM 인증을 사용 하도록 설정 하면 장치 모니터링 차트가 작동 하지 않습니다. 모니터링 차트가 작동 하려면 인증이 없음으로 설정 되어 있는지 확인 해야 합니다.**
   
-5. 인증을 사용하도록 설정한 경우 **웹 프록시 사용자 이름** 및 **웹 프록시 암호**를 제공합니다. 또한 암호를 확인해야 합니다.
+5. 인증을 사용하도록 설정한 경우 **웹 프록시 사용자 이름** 및 **웹 프록시 암호** 를 제공합니다. 또한 암호를 확인해야 합니다.
    
     ![StorSimple 디바이스1에서 웹 프록시 구성](./media/storsimple-configure-web-proxy/IC751830.png)
 
@@ -86,8 +86,8 @@ ms.locfileid: "85514292"
 웹 프록시 설정을 구성하는 다른 방법은 StorSimple cmdlet용 Windows PowerShell을 통한 방법입니다. 다음 단계를 수행하여 웹 프록시를 구성합니다.
 
 #### <a name="to-configure-web-proxy-via-cmdlets"></a>cmdlet를 통해 웹 프록시를 구성하려면
-1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시되면 **디바이스 관리자 암호**를 제공합니다. 기본 암호는 `Password1`입니다.
-2. 명령 프롬프트에서 다음을 입력합니다.
+1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인** 을 선택합니다. 메시지가 표시되면 **디바이스 관리자 암호** 를 제공합니다. 기본 암호는 `Password1`입니다.
+2. 명령 프롬프트에 다음을 입력합니다.
    
     `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
    
@@ -108,8 +108,8 @@ ms.locfileid: "85514292"
 디바이스에서 웹 프록시를 사용하려면 StorSimple용 Windows PowerShell에서 다음 단계를 수행합니다.
 
 #### <a name="to-enable-web-proxy"></a>웹 프록시를 활성화하려면
-1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시되면 **디바이스 관리자 암호**를 제공합니다. 기본 암호는 `Password1`입니다.
-2. 명령 프롬프트에서 다음을 입력합니다.
+1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인** 을 선택합니다. 메시지가 표시되면 **디바이스 관리자 암호** 를 제공합니다. 기본 암호는 `Password1`입니다.
+2. 명령 프롬프트에 다음을 입력합니다.
    
     `Enable-HcsWebProxy`
    
@@ -122,7 +122,7 @@ ms.locfileid: "85514292"
 웹 프록시 설정은 Windows PowerShell 인터페이스를 통해 구성하며 포털에서 변경할 수 없습니다. 하지만 포털에서 이러한 구성된 설정을 볼 수는 있습니다. 다음 단계를 수행하여 웹 프록시를 봅니다.
 
 #### <a name="to-view-web-proxy-settings"></a>웹 프록시 설정을 보려면
-1. **StorSimple 디바이스 관리자 서비스 &gt; 디바이스**로 이동합니다. 디바이스를 선택하여 클릭하고 **디바이스 설정 &gt; 네트워크**로 이동합니다.
+1. **StorSimple 디바이스 관리자 서비스 &gt; 디바이스** 로 이동합니다. 디바이스를 선택하여 클릭하고 **디바이스 설정 &gt; 네트워크** 로 이동합니다.
 
     ![네트워크 클릭](./media/storsimple-8000-configure-web-proxy/view-web-proxy-1.png)
 
@@ -154,6 +154,5 @@ ms.locfileid: "85514292"
 > * 웹 프록시 설정에 관련된 오류는 StorSimple 디바이스 관리자 서비스의 Azure Portal에 나타나지 않습니다. 구성이 완료된 후에 웹 프록시에 문제가 있다면 클래식 포털에서 디바이스 상태가 **오프라인** 으로 변경됩니다. |
 
 ## <a name="next-steps"></a>다음 단계
-* 디바이스를 배포하거나 웹 프록시 설정을 구성하는 동안 문제가 발생하면 [StorSimple 디바이스 배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하세요.
+* 디바이스를 배포하거나 웹 프록시 설정을 구성하는 동안 문제가 발생하면 [StorSimple 디바이스 배포 문제 해결](./storsimple-8000-troubleshoot-deployment.md)을 참조하세요.
 * StorSimple 디바이스 관리자 서비스를 사용하는 방법을 알아보려면 [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스 관리](storsimple-8000-manager-service-administration.md)로 이동하세요.
-

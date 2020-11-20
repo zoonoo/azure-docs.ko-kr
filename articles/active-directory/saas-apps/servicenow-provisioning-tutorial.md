@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 1d6213d49c98f5e09f22e7310183315800d0c6f6
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: fe2d09315dcb2a0958f8a1b8efe7532c64c111d8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359785"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966550"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 ServiceNow 구성
 
@@ -56,13 +56,6 @@ ms.locfileid: "94359785"
 
    ![ServiceNow 관리자 역할](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
 
-3. ServiceNow에서 다음 설정이 **사용 안 함** 으로 설정되어 있는지 확인합니다.
-
-   1. **시스템 보안** > **높은 보안 설정** > **들어오는 SCHEMA 요청에 대한 기본 인증 요구** 를 선택합니다.
-   2. **시스템 속성** > **웹 서비스** > **들어오는 SOAP 요청에 대한 기본 권한 부여 요구** 를 선택합니다.
-     
-   > [!IMPORTANT]
-   > 이러한 설정을 *사용* 으로 설정하는 경우 프로비저닝 엔진은 ServiceNow와 통신하지 못합니다.
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 ServiceNow 추가
 
