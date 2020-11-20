@@ -8,16 +8,16 @@ ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
-ms.openlocfilehash: b3919cbbe0ba7a796a21ae566afb8e2d9fa784db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0362c9ed4f736474dbd49e1bfaf1373e0f48acd6
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88716676"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992712"
 ---
 # <a name="transform-json-and-xml-using-liquid-templates-as-maps-in-azure-logic-apps"></a>Azure Logic Apps의 맵으로 액체 템플릿을 사용 하 여 JSON 및 XML 변환
 
-논리 앱에서 기본 JSON 변환을 수행 하려는 경우 JSON **작성** 또는 **구문**분석과 같은 네이티브 [데이터 작업](../logic-apps/logic-apps-perform-data-operations.md) 을 사용할 수 있습니다. 반복, 제어 흐름, 변수 등의 요소를 포함 하는 JSON 변환과 고급 및 복잡 한 JSON의 경우에는 [액체](https://shopify.github.io/liquid/) 오픈 소스 템플릿 언어를 사용 하 여 이러한 변환을 설명 하는 템플릿을 만들고 사용 합니다. JSON에서 텍스트, XML에서 JSON 및 XML에서 텍스트로의 [다른 변환을 수행할](#other-transformations)수도 있습니다.
+논리 앱에서 기본 JSON 변환을 수행 하려는 경우 JSON **작성** 또는 **구문** 분석과 같은 네이티브 [데이터 작업](../logic-apps/logic-apps-perform-data-operations.md) 을 사용할 수 있습니다. 반복, 제어 흐름, 변수 등의 요소를 포함 하는 JSON 변환과 고급 및 복잡 한 JSON의 경우에는 [액체](https://shopify.github.io/liquid/) 오픈 소스 템플릿 언어를 사용 하 여 이러한 변환을 설명 하는 템플릿을 만들고 사용 합니다. JSON에서 텍스트, XML에서 JSON 및 XML에서 텍스트로의 [다른 변환을 수행할](#other-transformations)수도 있습니다.
 
 논리 앱에서 액체 변환을 수행 하려면 먼저 원하는 매핑을 정의 하는 액체 템플릿을 만들어야 합니다. 그런 다음 템플릿을 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)에 [맵으로 업로드](../logic-apps/logic-apps-enterprise-integration-maps.md) 합니다. Json **을 json으로 변환-액체** 작업을 논리 앱에 추가 하는 경우 사용할 동작에 대 한 맵으로 액체 템플릿을 선택할 수 있습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "88716676"
 * 사용자의 논리 앱에 액체 변형 작업을 추가 합니다.
 * 사용 하려는 맵으로 템플릿을 선택 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "88716676"
 
 1. Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. Azure Portal 검색 상자에를 입력 하 `integration accounts` 고 **통합 계정**을 선택 합니다.
+1. Azure Portal 검색 상자에를 입력 하 `integration accounts` 고 **통합 계정** 을 선택 합니다.
 
    !["통합 계정" 찾기](./media/logic-apps-enterprise-integration-liquid-transform/find-integration-accounts.png)
 
@@ -80,16 +80,16 @@ ms.locfileid: "88716676"
 
    ![통합 계정 선택](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-1. **개요** 창의 **구성 요소**에서 **맵**을 선택 합니다.
+1. **개요** 창의 **구성 요소** 에서 **맵** 을 선택 합니다.
 
     !["맵" 타일 선택](./media/logic-apps-enterprise-integration-liquid-transform/select-maps-tile.png)
 
 1. **지도** 창에서 **추가** 를 선택 하 고 맵에 대 한 세부 정보를 제공 합니다.
 
-   | 속성 | 값 | 설명 |
+   | 속성 | 값 | Description |
    |----------|-------|-------------|
    | **이름** | `JsonToJsonTemplate` | 맵의 이름이며, 이 예제에서는 "JsonToJsonTemplate"입니다. |
-   | **지도 유형** | **liquid** | 맵의 형식입니다. JSON부터 JSON 변환의 경우 **Liquid**를 선택해야 합니다. |
+   | **지도 유형** | **liquid** | 맵의 형식입니다. JSON부터 JSON 변환의 경우 **Liquid** 를 선택해야 합니다. |
    | **Map** | `SimpleJsonToJsonTemplate.liquid` | 변환에 사용할 기존 Liquid 템플릿이나 맵 파일이며 이 예제에서는 "SimpleJsonToJsonTemplate.liquid"입니다. 이 파일을 찾으려면 파일 선택기를 사용할 수 있습니다. 지도 크기 제한에 대해서는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits)을 참조 하세요. |
    |||
 
@@ -101,7 +101,7 @@ ms.locfileid: "88716676"
 
 1. Logic Apps 디자이너에서 논리 앱에 [요청 트리거](../connectors/connectors-native-reqres.md#add-request)를 추가합니다.
 
-1. 트리거 아래에서 **새 단계**를 선택합니다. 검색 상자에서를 필터로 입력 하 `liquid` 고이 작업: json **을 Json으로 변환-액체** 를 선택 합니다.
+1. 트리거 아래에서 **새 단계** 를 선택합니다. 검색 상자에서를 필터로 입력 하 `liquid` 고이 작업: json **을 Json으로 변환-액체** 를 선택 합니다.
 
    ![Liquid 작업 찾기 및 선택](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -112,13 +112,13 @@ ms.locfileid: "88716676"
    맵 목록이 비어 있는 경우 논리 앱이 통합 계정에 연결 되지 않았을 가능성이 높습니다. 
    Liquid 템플릿 또는 지도를 포함한 통합 계정에 논리 앱을 연결하려면 다음 단계를 따릅니다.
 
-   1. 논리 앱 메뉴에서 **워크플로 설정**을 선택합니다.
+   1. 논리 앱 메뉴에서 **워크플로 설정** 을 선택합니다.
 
-   1. **통합 계정 선택** 목록에서 통합 계정을 선택 하 고 **저장**을 선택 합니다.
+   1. **통합 계정 선택** 목록에서 통합 계정을 선택 하 고 **저장** 을 선택 합니다.
 
       ![통합 계정에 논리 앱 연결](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
-1. 이제이 작업에 **Content** 속성을 추가 합니다. **새 매개 변수 추가** 목록을 열고 **콘텐츠**를 선택 합니다.
+1. 이제이 작업에 **Content** 속성을 추가 합니다. **새 매개 변수 추가** 목록을 열고 **콘텐츠** 를 선택 합니다.
 
    ![작업에 "콘텐츠" 속성 추가](./media/logic-apps-enterprise-integration-liquid-transform/add-content-property-to-action.png)
 
@@ -150,9 +150,9 @@ ms.locfileid: "88716676"
 
     DotLiquid은 기본적으로 JSON을 인식 하지 않으므로 백슬래시 문자 ( `\` )와 기타 예약 된 JSON 문자를 이스케이프 해야 합니다.
 
-  * 템플릿이 [액체 필터](https://shopify.github.io/liquid/basics/introduction/#filters)를 사용 하는 경우 [DotLiquid 및 c # 명명 규칙](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers#filter-and-output-casing)을 준수 해야 합니다 .이 규칙은 *문장 대/소문자*를 사용 합니다. 모든 액체 변환에 대해 템플릿의 필터 이름이 문장 대/소문자도 사용 하는지 확인 합니다. 그렇지 않으면 필터가 작동 하지 않습니다.
+  * 템플릿이 [액체 필터](https://shopify.github.io/liquid/basics/introduction/#filters)를 사용 하는 경우 [DotLiquid 및 c # 명명 규칙](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers#filter-and-output-casing)을 준수 해야 합니다 .이 규칙은 *문장 대/소문자* 를 사용 합니다. 모든 액체 변환에 대해 템플릿의 필터 이름이 문장 대/소문자도 사용 하는지 확인 합니다. 그렇지 않으면 필터가 작동 하지 않습니다.
 
-    예를 들어 필터를 사용 하는 경우 `replace` `Replace` not을 사용 `replace` 합니다. [DotLiquid online](http://dotliquidmarkup.org/try-online)에서 예제를 사용해 보면 동일한 규칙이 적용 됩니다. 자세한 내용은 [Shopify 액체 필터](https://shopify.dev/docs/themes/liquid/reference/filters) 및 [DotLiquid 액체 필터](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters)를 참조 하세요. Shopify 사양에는 각 필터에 대 한 예제가 포함 되어 있으므로 비교를 위해 [DotLiquid-온라인](https://dotliquidmarkup.org/try-online)에서 다음 예제를 시도할 수 있습니다.
+    예를 들어 필터를 사용 하는 경우 `replace` `Replace` not을 사용 `replace` 합니다. [DotLiquid online](http://dotliquidmarkup.org/try-online)에서 예제를 사용해 보면 동일한 규칙이 적용 됩니다. 자세한 내용은 [Shopify 액체 필터](https://shopify.dev/docs/themes/liquid/reference/filters) 및 [DotLiquid 액체 필터](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters)를 참조 하세요. Shopify 사양에는 각 필터에 대 한 예제가 포함 되어 있으므로 비교를 위해 [DotLiquid-온라인](http://dotliquidmarkup.org/try-online)에서 다음 예제를 시도할 수 있습니다.
 
   * `json`Shopify 확장 필터의 필터는 현재 [DotLiquid에서 구현 되지 않습니다](https://github.com/dotliquid/dotliquid/issues/384). 일반적으로이 필터를 사용 하 여 JSON 문자열 구문 분석에 대 한 텍스트 출력을 준비할 수 있습니다. 대신 필터를 사용 해야 `Replace` 합니다.
 
@@ -244,7 +244,7 @@ ms.locfileid: "88716676"
 
 * [Shopify 수냉 언어 및 예제](https://shopify.github.io/liquid/basics/introduction/)
 * [DotLiquid](http://dotliquidmarkup.org/)
-* [DotLiquid-온라인으로 시도](https://dotliquidmarkup.org/try-online)
+* [DotLiquid-온라인으로 시도](http://dotliquidmarkup.org/try-online)
 * [DotLiquid GitHub](https://github.com/dotliquid/dotliquid)
 * [DotLiquid GitHub 문제](https://github.com/dotliquid/dotliquid/issues/)
 * [Maps](../logic-apps/logic-apps-enterprise-integration-maps.md) 에 대 한 자세한 정보
