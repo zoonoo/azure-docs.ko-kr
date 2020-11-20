@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e90c1d1cfa02f63a2b5115124dee2a9da68e2f3f
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 9122d6716aa94a7e0164c9c7774c7c8d85be814a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917276"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968012"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
@@ -40,9 +40,11 @@ Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-i
 
 확인 기를 만들려면 [인덱스 정의](/rest/api/searchservice/create-index)에 하나를 추가 합니다. 확인 기에는 이름 및 필드의 컬렉션을 가져옵니다 .이 필드의 형식에 따라 미리 결정 된 형식이 사용 됩니다. [각 속성을 설정](#property-reference)합니다. 확인 기를 만드는 가장 좋은 시기는이를 사용할 필드를 정의 하는 경우입니다.
 
-+ 문자열 필드만 사용
++ 문자열 필드만 사용 합니다.
 
-+ 필드에 기본 표준 Lucene 분석기 ( `"analyzer": null` ) 또는 [언어 분석기](index-add-language-analyzers.md) (예:)를 사용 합니다. `"analyzer": "en.Microsoft"`
++ 문자열 필드가 복합 형식 (예: 주소 내의 City 필드)의 일부인 경우 필드에 부모를 포함 합니다 ( `"Address/City"` REST 및 c # 및 Python) 또는 `["Address"]["City"]` (JavaScript).
+
++ 필드에 기본 표준 Lucene 분석기 ( `"analyzer": null` ) 또는 [언어 분석기](index-add-language-analyzers.md) (예:)를 사용 `"analyzer": "en.Microsoft"` 합니다.
 
 기존 필드를 사용 하 여 확인 기를 만들려고 하면 API에서이를 허용 하지 않습니다. 두 개 이상의 문자 조합에서 부분 용어를 전체 용어와 함께 토큰화 하는 경우 인덱싱을 수행 하는 동안 접두사가 생성 됩니다. 기존 필드가 이미 토큰화 된 경우 확인 기에 추가 하려면 인덱스를 다시 작성 해야 합니다. 자세한 내용은 [Azure Cognitive Search 인덱스를 다시 작성 하는 방법](search-howto-reindex.md)을 참조 하세요.
 

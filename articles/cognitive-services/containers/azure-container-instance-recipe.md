@@ -10,16 +10,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: f247465c7e2c0a212df2821ebc7165d3ee5b15f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ddaed181d017e3167694a9d7edf53c7c09fd5e9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80876660"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968522"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance"></a>Azure Container Instance에서 컨테이너 배포 및 실행
 
-다음 단계를 통해 Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/)를 사용 하 여 클라우드에서 azure Cognitive Services 응용 프로그램을 쉽게 확장할 있습니다. 컨테이너 화를 사용 하면 인프라를 관리 하는 대신 응용 프로그램 빌드에 집중할 수 있습니다. 컨테이너 사용에 대 한 자세한 내용은 [기능 및 이점](../cognitive-services-container-support.md#features-and-benefits)을 참조 하세요.
+다음 단계를 통해 Azure [Container Instances](../../container-instances/index.yml)를 사용 하 여 클라우드에서 azure Cognitive Services 응용 프로그램을 쉽게 확장할 있습니다. 컨테이너 화를 사용 하면 인프라를 관리 하는 대신 응용 프로그램 빌드에 집중할 수 있습니다. 컨테이너 사용에 대 한 자세한 내용은 [기능 및 이점](../cognitive-services-container-support.md#features-and-benefits)을 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -44,7 +44,7 @@ ms.locfileid: "80876660"
 
 1. **서비스 API 설명** 을 선택 하 여 컨테이너에 대 한 swagger 페이지를 표시 합니다.
 
-1. **POST** api 중 하나를 선택 하 고 **사용해 보기**를 선택 합니다.  매개 변수는 입력을 포함 하 여 표시 됩니다. 매개 변수를 입력 합니다.
+1. **POST** api 중 하나를 선택 하 고 **사용해 보기** 를 선택 합니다.  매개 변수는 입력을 포함 하 여 표시 됩니다. 매개 변수를 입력 합니다.
 
 1. **실행** 을 선택 하 여 컨테이너 인스턴스로 요청을 보냅니다.
 

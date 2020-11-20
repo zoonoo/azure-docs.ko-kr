@@ -3,17 +3,18 @@ title: Azure Linux VM 에이전트 개요
 description: Linux 에이전트(waagent)를 설치 및 구성하여 가상 머신과 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다.
 author: axayjo
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19b9259b55332d9f31fdefd166f0509e5443628d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a4a391e52f80ec171d48718a18764f0f88f34133
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965814"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968454"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Azure Linux 에이전트 이해 및 사용
 

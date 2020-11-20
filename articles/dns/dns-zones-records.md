@@ -9,12 +9,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
-ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41eb15a38c97532951723f12d1ac74c90c838eb1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85846845"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968199"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 영역 및 레코드 개요
 
@@ -92,8 +92,8 @@ SOA 레코드의 영역 일련 번호는 영역에 레코드가 변경 될 때 �
 
 [SRV 레코드](https://en.wikipedia.org/wiki/SRV_record)는 다양한 서비스에서 서버 위치를 지정하는 데 사용됩니다. Azure DNS에서 SRV 레코드를 지정할 경우
 
-* *서비스*와 *프로토콜*은 레코드 집합 이름에 포함하여 지정하고 밑줄로 접두사를 지정해야 합니다.  예를 들어 '\_sip.\_tcp.name'입니다.  영역 루트에 있는 레코드의 경우 레코드 이름에 '\@'을 지정하지 않아도 되며 서비스와 프로토콜만 사용합니다(예: '\_sip.\_tcp').
-* *우선 순위*, *가중치*, *포트*, *대상*은 레코드 집합에서 각 레코드의 매개 변수로 지정됩니다.
+* *서비스* 와 *프로토콜* 은 레코드 집합 이름에 포함하여 지정하고 밑줄로 접두사를 지정해야 합니다.  예를 들어 '\_sip.\_tcp.name'입니다.  영역 루트에 있는 레코드의 경우 레코드 이름에 '\@'을 지정하지 않아도 되며 서비스와 프로토콜만 사용합니다(예: '\_sip.\_tcp').
+* *우선 순위*, *가중치*, *포트*, *대상* 은 레코드 집합에서 각 레코드의 매개 변수로 지정됩니다.
 
 ### <a name="txt-records"></a>TXT 레코드
 
@@ -103,7 +103,7 @@ DNS 표준은 여러 문자열을 포함하는 하나의 TXT 레코드를 허용
 
 Azure DNS REST API를 호출할 때 각 TXT 문자열을 별도로 지정해야 합니다.  Azure Portal, PowerShell 또는 CLI 인터페이스를 사용할 때는 레코드당 하나의 문자열을 지정해야 하며 필요한 경우 자동으로 254자 세그먼트로 나뉩니다.
 
-DNS 레코드의 여러 문자열을 TXT 레코드 집합의 여러 TXT 레코드와 혼동해서는 안 됩니다.  TXT 레코드 집합은 여러 레코드를 포함할 수 있으며 *각각의 레코드*는 여러 문자열을 포함할 수 있습니다.  Azure DNS는 모든 레코드가 결합된 각 TXT 레코드 집합에서 총 문자열 길이를 최대 1024자까지 지원합니다.
+DNS 레코드의 여러 문자열을 TXT 레코드 집합의 여러 TXT 레코드와 혼동해서는 안 됩니다.  TXT 레코드 집합은 여러 레코드를 포함할 수 있으며 *각각의 레코드* 는 여러 문자열을 포함할 수 있습니다.  Azure DNS는 모든 레코드가 결합된 각 TXT 레코드 집합에서 총 문자열 길이를 최대 1024자까지 지원합니다.
 
 ## <a name="tags-and-metadata"></a>태그 및 메타데이터
 
@@ -143,5 +143,5 @@ Azure DNS를 사용할 경우 다음과 같은 기본 제한이 적용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure DNS 사용을 시작하려면 [DNS 영역 만들기](dns-getstarted-create-dnszone-portal.md) 및 [DNS 레코드 만들기](dns-getstarted-create-recordset-portal.md) 방법에 대해 알아보세요.
+* Azure DNS 사용을 시작하려면 [DNS 영역 만들기](./dns-getstarted-portal.md) 및 [DNS 레코드 만들기](./dns-getstarted-portal.md) 방법에 대해 알아보세요.
 * 기존 DNS 영역을 마이그레이션하려면 [DNS 영역 파일 가져오기 및 내보내기](dns-import-export.md) 방법에 대해 알아보세요.

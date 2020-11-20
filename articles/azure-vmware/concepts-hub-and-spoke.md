@@ -3,12 +3,12 @@ title: 개념-허브 및 스포크 아키텍처에서 Azure VMware 솔루션 배
 description: Azure의 허브 및 스포크 아키텍처에서 Azure VMware 솔루션 배포를 통합 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: da4a5f5ec6fa2b0a2733e8d1bf0243ec75f38d55
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 788ef9886e0d102a549e84cd01c658e9e4131c63
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577722"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967451"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>허브 및 스포크 아키텍처에서 Azure VMware 솔루션 통합
 
@@ -38,7 +38,7 @@ ms.locfileid: "94577722"
 
 - **온-프레미스 사이트:** Express 경로 연결을 통해 Azure에 연결 된 고객 온-프레미스 데이터 센터.
 
-- **Azure VMware 솔루션 사설 클라우드:** 하나 이상의 vSphere 클러스터로 구성 된 Azure VMware 솔루션 SDDC (각각 최대 16 개의 노드 포함)
+- **Azure VMware 솔루션 사설 클라우드:** 하나 이상의 vSphere 클러스터로 구성 된 Azure VMware 솔루션 SDDC (각각 최대 16 개의 호스트 포함)
 
 - **Express 경로 게이트웨이:** Azure VMware 솔루션 사설 클라우드, 허브 가상 네트워크의 공유 서비스 및 스포크 가상 네트워크에서 실행 되는 워크 로드 간에 통신을 사용 하도록 설정 합니다.
 

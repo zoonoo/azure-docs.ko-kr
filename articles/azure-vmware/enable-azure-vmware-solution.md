@@ -1,17 +1,17 @@
 ---
 title: Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법
-description: 지원 요청을 제출 하 여 Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법을 알아봅니다. 기존 Azure VMware 솔루션 사설 클라우드에서 더 많은 노드를 요청할 수도 있습니다.
+description: 지원 요청을 제출 하 여 Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법을 알아봅니다. 기존 Azure VMware 솔루션 사설 클라우드에서 더 많은 호스트를 요청할 수도 있습니다.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 8e1b891559cb2d01adc9fdf834ef3c9714fe1233
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: cd58611f77c2f2fb1694597fc9ef049420093ccc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888439"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967366"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법
-지원 요청을 제출 하 여 [Azure VMware 솔루션](introduction.md) 리소스를 사용 하도록 설정 하는 방법을 알아봅니다. 기존 Azure VMware 솔루션 사설 클라우드에서 더 많은 노드를 요청할 수도 있습니다.
+지원 요청을 제출 하 여 [Azure VMware 솔루션](introduction.md) 리소스를 사용 하도록 설정 하는 방법을 알아봅니다. 기존 Azure VMware 솔루션 사설 클라우드에서 더 많은 호스트를 요청할 수도 있습니다.
 
 ## <a name="eligibility-criteria"></a>자격 기준
 
@@ -22,7 +22,7 @@ Azure 구독의 Azure 계정이 필요합니다. Azure 구독은 다음 조건 �
 
 
 ## <a name="enable-azure-vmware-solution-for-ea-customers"></a>EA 고객용 Azure VMware 솔루션 사용
-Azure VMware Solution 리소스를 만들기 전에 노드가 할당되도록 지원 티켓을 제출해야 합니다. 지원 팀에서 요청을 받으면 요청을 확인하고 노드를 할당하는 데 최대 5 영업일이 걸립니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 노드를 할당하려는 경우에도 동일한 프로세스를 진행합니다.
+Azure VMware 솔루션 리소스를 만들기 전에 호스트를 할당 하기 위해 지원 티켓을 제출 해야 합니다. 지원 팀에서 요청을 받으면 요청을 확인하고 호스트를 할당하는 데 최대 5일(영업일 기준)이 걸립니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 호스트를 할당하려는 경우에도 동일한 프로세스를 진행합니다.
 
 
 1. Azure Portal의 **도움말 + 지원** 에서 **[새 지원 요청](https://rc.portal.azure.com/#create/Microsoft.Support)** 을 만들고 티켓에 대 한 다음 정보를 제공 합니다.
@@ -38,20 +38,20 @@ Azure VMware Solution 리소스를 만들기 전에 노드가 할당되도록 �
 
    - POC 또는 프로덕션 
    - 지역 이름
-   - 노드 수
+   - 호스트 수
    - 기타 세부 정보
 
    >[!NOTE]
-   >Azure VMware 솔루션은 사설 클라우드를 실행 하 고 중복성 N + 1 노드에 대해 최소 3 개의 노드를 권장 합니다. 
+   >Azure VMware 솔루션은 사설 클라우드를 실행 하 고 중복성 N + 1 호스트에 대해 최소 세 개의 호스트를 권장 합니다. 
 
 1. **검토 + 만들기** 를 선택 하 여 요청을 제출 합니다.
 
    지원 담당자가 요청을 확인 하는 데 최대 5 영업일 소요 됩니다.
 
    >[!IMPORTANT] 
-   >기존 Azure VMware 솔루션이 이미 있고 추가 노드를 요청 하는 경우 5 영업일 이내에 노드를 할당 해야 합니다. 
+   >기존 Azure VMware 솔루션이 이미 있고 추가 호스트를 요청 하는 경우 5 영업일 동안 호스트를 할당 해야 합니다. 
 
-1. 노드를 프로 비전 하기 전에 Azure Portal에서 **MICROSOFT AVS** 리소스 공급자를 등록 했는지 확인 합니다.  
+1. 호스트를 프로 비전 하기 전에 Azure Portal에서 **MICROSOFT AVS** 리소스 공급자를 등록 했는지 확인 합니다.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
@@ -99,21 +99,21 @@ Azure 계획을 구성 하 고 필요한 vSphere RBAC 권한이 CSP로 설정 �
 
    - POC 또는 프로덕션 
    - 지역 이름
-   - 노드 수
+   - 호스트 수
    - 기타 세부 정보
    - 여러 고객을 호스트할 예정 인가요?
 
    >[!NOTE]
-   >Azure VMware 솔루션은 사설 클라우드를 실행 하 고 중복성 N + 1 노드에 대해 최소 3 개의 노드를 권장 합니다. 
+   >Azure VMware 솔루션은 사설 클라우드를 실행 하 고 중복성 N + 1 호스트에 대해 최소 세 개의 호스트를 권장 합니다. 
 
 1. **검토 + 만들기** 를 선택 하 여 요청을 제출 합니다.
 
    지원 담당자가 요청을 확인 하는 데 최대 5 영업일 소요 됩니다.
 
    >[!IMPORTANT] 
-   >기존 Azure VMware 솔루션이 이미 있고 추가 노드를 요청 하는 경우 5 영업일 이내에 노드를 할당 해야 합니다. 
+   >기존 Azure VMware 솔루션이 이미 있고 추가 호스트를 요청 하는 경우 5 영업일 동안 호스트를 할당 해야 합니다. 
 
-1. Azure 계획에 추가 되 고 할당량이 사용 하도록 설정 된 경우 고객 또는 파트너 관리자는 Azure Portal를 통해 Azure VMware 솔루션 사설 클라우드를 배포할 수 있습니다. 노드를 프로 비전 하기 전에 Azure Portal에서 **MICROSOFT AVS** 리소스 공급자를 등록 했는지 확인 합니다.  
+1. Azure 계획에 추가 되 고 할당량이 사용 하도록 설정 된 경우 고객 또는 파트너 관리자는 Azure Portal를 통해 Azure VMware 솔루션 사설 클라우드를 배포할 수 있습니다. 호스트를 프로 비전 하기 전에 Azure Portal에서 **MICROSOFT AVS** 리소스 공급자를 등록 했는지 확인 합니다.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>

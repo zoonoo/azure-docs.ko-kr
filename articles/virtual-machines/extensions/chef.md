@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: 9391bb4867717b6780b50cf90b998254227d2310
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8977563c6b19754eda53686baf85f840a7583e77
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082616"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968369"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Linux 및 Windows에 대한 Chef VM 확장
 
@@ -110,7 +111,7 @@ Chef VM 확장을 포함 하는 샘플 리소스 관리자 템플릿은 [Azure �
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
-Azure CLI를 사용하여 Chef VM 확장을 기존 VM에 배포할 수 있습니다. **validation_key**를 유효성 검사 키의 콘텐츠로 바꿉니다(파일을 `.pem` 확장으로 변환).  **validation_client_name**, **chef_server_url** 및 **run_list**는 시작 키트의 `knife.rb` 파일에서 해당 값으로 바꿉니다.
+Azure CLI를 사용하여 Chef VM 확장을 기존 VM에 배포할 수 있습니다. **validation_key** 를 유효성 검사 키의 콘텐츠로 바꿉니다(파일을 `.pem` 확장으로 변환).  **validation_client_name**, **chef_server_url** 및 **run_list** 는 시작 키트의 `knife.rb` 파일에서 해당 값으로 바꿉니다.
 
 ```azurecli
 az vm extension set \

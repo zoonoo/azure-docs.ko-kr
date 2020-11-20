@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 12e5a6db7257678b3d4d14d7583a1a30da0d3a87
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371072"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967145"
 ---
 # <a name="monitor-identity-and-access"></a>ID 및 액세스 모니터링
 
@@ -30,7 +30,7 @@ Id와 관련 된 활동 및 구성 설정을 모니터링 하 여 인시던트�
 
 Azure Security Center에는 조직의 id 및 보안 요구 사항을 충족 하는 데 사용할 수 있는 두 가지 전용 보안 컨트롤이 있습니다. 
 
- - **액세스 및 사용 권한 관리** - [최소 권한 액세스 모델](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) 을 채택 하 고 사용자에 게 작업을 수행 하는 데 필요한 액세스만 부여 하도록 권장 합니다. 이 컨트롤에는 리소스에 대 한 액세스를 제어 하기 위해 [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) 를 구현 하기 위한 권장 사항도 포함 됩니다.
+ - **액세스 및 사용 권한 관리** - [최소 권한 액세스 모델](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) 을 채택 하 고 사용자에 게 작업을 수행 하는 데 필요한 액세스만 부여 하도록 권장 합니다. 이 컨트롤에는 리소스에 대 한 액세스를 제어 하기 위해 [AZURE RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) 를 구현 하기 위한 권장 사항도 포함 됩니다.
  
  - **Mfa 사용** - [mfa](https://www.microsoft.com/security/business/identity/mfa) 를 사용 하도록 설정 하 고, 계정을 더 안전 하 게 유지 하 고, 사용자가 Single Sign-On를 사용 하 여 거의 모든 응용 프로그램에 인증할 수 있습니다.
 
@@ -65,11 +65,11 @@ MFA를 사용하려면 [Azure AD(Active Directory) 테넌트 권한](../active-d
 
 MFA를 사용 하도록 설정 되지 않은 계정을 확인 하려면 다음 Azure 리소스 그래프 쿼리를 사용 합니다. 이 쿼리는 "구독에 대 한 소유자 권한이 있는 계정에 대해 MFA를 사용 하도록 설정 해야 합니다." 라는 권장 사항의 모든 비정상 리소스-계정을 반환 합니다. 
 
-1. **Azure 리소스 그래프 탐색기**를 엽니다.
+1. **Azure 리소스 그래프 탐색기** 를 엽니다.
 
     :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Azure 리소스 그래프 탐색기 시작 * * 권장 사항 페이지" :::
 
-1. 다음 쿼리를 입력 하 고 **쿼리 실행**을 선택 합니다.
+1. 다음 쿼리를 입력 하 고 **쿼리 실행** 을 선택 합니다.
 
     ```kusto
     securityresources

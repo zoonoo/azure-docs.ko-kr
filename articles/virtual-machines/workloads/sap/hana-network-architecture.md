@@ -7,18 +7,19 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b99e744fb949f707467286c3d79de0f4e76a49c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf9fd361dea43b1cfa6ae45710a3a7bbf4e4de03
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835513"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967672"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA(대규모 인스턴스) 네트워크 아키텍처
 
@@ -167,7 +168,7 @@ Microsoft는 [express 경로 Global Reach](../../../expressroute/expressroute-gl
 Global Reach 제공 되는 Azure 지역에서 HANA Large Instance 장치에 연결 하는 Azure 가상 네트워크에 온-프레미스 네트워크를 연결 하는 Express 경로 회로에 대 한 Global Reach 기능을 사용 하도록 요청할 수 있습니다. Express 경로 회로의 온-프레미스 쪽에는 몇 가지 비용에 영향을 미칩니다. 가격에 대해서는 [Global Reach 추가 기능](https://azure.microsoft.com/pricing/details/expressroute/)에 대 한 가격을 확인 하세요. HANA Large Instance 단위를 Azure에 연결 하는 회로와 관련 된 추가 비용은 없습니다. 
 
 > [!IMPORTANT]  
-> HANA Large Instance 단위와 온-프레미스 자산 간의 직접 액세스를 사용 하도록 Global Reach를 사용 하는 경우 네트워크 데이터 및 제어 흐름은 **Azure virtual network를 통해 라우팅되지**않지만 Microsoft enterprise exchange 라우터 간에 직접 연결 됩니다. 결과적으로 NSG 또는 ASG 규칙 또는 Azure 가상 네트워크에 배포 된 모든 유형의 방화벽, NVA 또는 프록시는 작업을 수행 하지 않습니다. **Express 경로 Global Reach를 사용 하 여 온-프레미스에서 HANA 대량 인스턴스 단위로 직접 액세스할 수 있도록 설정 하는 경우 HANA large Instance 장치에 액세스할 수 있는 권한이 온-프레미스 쪽의 방화벽에서 정의 되어야 합니다.** 
+> HANA Large Instance 단위와 온-프레미스 자산 간의 직접 액세스를 사용 하도록 Global Reach를 사용 하는 경우 네트워크 데이터 및 제어 흐름은 **Azure virtual network를 통해 라우팅되지** 않지만 Microsoft enterprise exchange 라우터 간에 직접 연결 됩니다. 결과적으로 NSG 또는 ASG 규칙 또는 Azure 가상 네트워크에 배포 된 모든 유형의 방화벽, NVA 또는 프록시는 작업을 수행 하지 않습니다. **Express 경로 Global Reach를 사용 하 여 온-프레미스에서 HANA 대량 인스턴스 단위로 직접 액세스할 수 있도록 설정 하는 경우 HANA large Instance 장치에 액세스할 수 있는 권한이 온-프레미스 쪽의 방화벽에서 정의 되어야 합니다.** 
 
 ##### <a name="connecting-hana-large-instances-in-different-azure-regions"></a>다른 Azure 지역에서 HANA Large Instances 연결
 동일한 방식으로 온-프레미스를 HANA Large Instance 장치에 연결 하는 데 사용할 수 있는 Global Reach Express 경로를 사용 하 여 두 개의 다른 지역에 배포 된 두 개의 HANA Large Instance 테 넌 트를 연결 하는 데 사용할 수 있습니다. 격리는 HANA Large Instance 테 넌 트가 두 지역에서 Azure에 연결 하는 데 사용 하는 Express 경로 회로입니다. 두 개의 서로 다른 지역에 배포 된 두 개의 HANA Large Instance 테 넌 트를 연결 하는 데에는 추가 요금이 부과 되지 않습니다. 

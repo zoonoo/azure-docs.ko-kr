@@ -3,12 +3,12 @@ title: 개념-사설 클라우드 및 클러스터
 description: Azure VMware 솔루션 소프트웨어 정의 데이터 센터 및 vSphere 클러스터의 주요 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 0454ade503ce40de46363f65d36a64340219c0b1
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: af34bb0d83d9571ae91dce90cab198a61cfe82a1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874018"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967383"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware 솔루션 사설 클라우드 및 클러스터 개념
 
@@ -38,7 +38,7 @@ VSphere NSX Manager를 사용 하 여 클러스터 구성 또는 작업의 다�
 
 ## <a name="hosts"></a>호스트
 
-Azure VMware 솔루션 사설 클라우드 클러스터는 하이퍼 수렴 형 운영 체제 미 설치 인프라 노드를 사용 합니다. 다음 표에서는 호스트의 RAM, CPU 및 디스크 용량을 보여 줍니다. 
+Azure VMware 솔루션 사설 클라우드 클러스터는 하이퍼 수렴 형 운영 체제 미 설치 인프라 호스트를 사용 합니다. 다음 표에서는 호스트의 RAM, CPU 및 디스크 용량을 보여 줍니다. 
 
 | 호스트 유형              |             CPU             |   RAM(GB)   |  vSAN NVMe 캐시 계층 (TB, 원시)  |  vSAN SSD 용량 계층 (TB, 원시)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |

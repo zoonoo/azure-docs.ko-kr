@@ -7,18 +7,19 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c186b73cb00d03b731cd015b3ee06bf8f2233fa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88b1cd2a5bf33d6401f0d2e15237400e27c72e54
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541155"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967655"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>SUSE Linux용 SMT 서버 설정
 SAP HANA 대규모 인스턴스는 인터넷에 직접 연결되지 않습니다. 이러한 유닛을 운영 체제 공급자에 등록하고 업데이트를 다운로드하여 적용하는 것은 간단한 프로세스가 아닙니다. SUSE Linux용 솔루션은 Azure 가상 머신에 SMT 서버를 설정하는 것입니다. HANA 큰 인스턴스에 연결되는 Azure 가상 네트워크에서 가상 머신을 호스팅합니다. 이러한 SMT 서버를 사용하면 HANA 큰 인스턴스 유닛이 업데이트를 등록하고 다운로드할 수 있습니다. 
@@ -34,13 +35,13 @@ HANA 큰 인스턴스에 대한 작업을 수행하는 SMT 서버를 설치하�
 
 먼저 [SUSE 고객 센터](https://scc.suse.com/)에 로그인합니다.
 
-**조직**  >  **조직 자격 증명**으로 이동 합니다. 해당 섹션에서 SMT 서버를 설치하는 데 필요한 자격 증명을 찾아야 합니다.
+**조직**  >  **조직 자격 증명** 으로 이동 합니다. 해당 섹션에서 SMT 서버를 설치하는 데 필요한 자격 증명을 찾아야 합니다.
 
 그런 다음, Azure 가상 네트워크에 SUSE Linux VM을 설치합니다. 가상 머신을 배포하려면 Azure의 SLES 12 SP2 갤러리 이미지를 사용합니다(BYOS SUSE 이미지 선택). 배포 과정에서 DNS 이름을 정의하지 않고 고정 IP 주소를 사용하지 않습니다.
 
 ![SMT 서버에 대한 가상 머신 배포의 스크린샷](./media/hana-installation/image3_vm_deployment.png)
 
-배포된 가상 머신은 더 작으며, Azure 가상 네트워크에서 내부 IP 주소(10.34.1.4)를 가져왔습니다. 가상 머신 이름은 *smtserver*입니다. 설치 후 HANA 큰 인스턴스 유닛 또는 여러 유닛에 대한 연결이 확인되었습니다. 이름 확인을 구성하는 방법에 따라 Azure 가상 머신의 etc/hosts에 HANA 큰 인스턴스 유닛의 확인을 구성해야 할 수 있습니다. 
+배포된 가상 머신은 더 작으며, Azure 가상 네트워크에서 내부 IP 주소(10.34.1.4)를 가져왔습니다. 가상 머신 이름은 *smtserver* 입니다. 설치 후 HANA 큰 인스턴스 유닛 또는 여러 유닛에 대한 연결이 확인되었습니다. 이름 확인을 구성하는 방법에 따라 Azure 가상 머신의 etc/hosts에 HANA 큰 인스턴스 유닛의 확인을 구성해야 할 수 있습니다. 
 
 가상 머신에 디스크를 추가합니다. 이 디스크를 사용하여 업데이트를 저장하면 부팅 디스크 자체가 너무 작을 수 있습니다. 여기서, 다음 스크린샷처럼 디스크가 /srv/www/htdocs에 탑재되었습니다. 100GB 디스크로 충분합니다.
 
@@ -78,7 +79,7 @@ Resolving package dependencies...
 ```
 
 
-SMT 패키지를 설치하려면 YAST 도구를 사용할 수도 있습니다. YAST에서 **소프트웨어 유지 관리**로 이동하여 SMT를 검색합니다. **SMT**를 선택하면 자동으로 yast2-smt로 전환됩니다.
+SMT 패키지를 설치하려면 YAST 도구를 사용할 수도 있습니다. YAST에서 **소프트웨어 유지 관리** 로 이동하여 SMT를 검색합니다. **SMT** 를 선택하면 자동으로 yast2-smt로 전환됩니다.
 
 ![YAST의 SMT 스크린샷](./media/hana-installation/image5_smt_in_yast.PNG)
 
@@ -123,7 +124,7 @@ systemctl restart apache2
 
 ## <a name="set-up-the-smt-client-on-hana-large-instance-units"></a>HANA 큰 인스턴스 유닛에 SMT 클라이언트 설정
 
-이 경우 클라이언트는 HANA 큰 인스턴스 유닛입니다. SMT 서버 설정이 clientSetup4SMT.sh 스크립트를 Azure 가상 머신에 복사했습니다. 이 스크립트를 SMT 서버에 연결할 HANA 큰 인스턴스 유닛으로 복사합니다. -h 옵션을 사용하여 스크립트를 시작하고 매개 변수로 SMT 서버의 이름을 지정합니다. 이 예제에서 해당 이름은 *smtserver*입니다.
+이 경우 클라이언트는 HANA 큰 인스턴스 유닛입니다. SMT 서버 설정이 clientSetup4SMT.sh 스크립트를 Azure 가상 머신에 복사했습니다. 이 스크립트를 SMT 서버에 연결할 HANA 큰 인스턴스 유닛으로 복사합니다. -h 옵션을 사용하여 스크립트를 시작하고 매개 변수로 SMT 서버의 이름을 지정합니다. 이 예제에서 해당 이름은 *smtserver* 입니다.
 
 ![SMT 클라이언트를 구성하는 스크린샷](./media/hana-installation/image12_configure_client.PNG)
 
@@ -134,7 +135,7 @@ systemctl restart apache2
 등록이 실패하면 [SUSE 지원 문서](https://www.suse.com/de-de/support/kb/doc/?id=7006024)를 참조하여 문서에 설명된 단계를 실행합니다.
 
 > [!IMPORTANT] 
-> 서버 이름의 경우 정규화된 도메인 이름은 사용하지 않고 가상 머신 이름을 제공합니다(이 경우 *smtserver*입니다). 
+> 서버 이름의 경우 정규화된 도메인 이름은 사용하지 않고 가상 머신 이름을 제공합니다(이 경우 *smtserver* 입니다). 
 
 이러한 단계를 실행한 후 HANA 큰 인스턴스 유닛에서 다음 명령을 실행합니다.
 

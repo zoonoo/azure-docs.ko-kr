@@ -7,18 +7,19 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f72342a318e3436fb80fb06b2312f664c9d04969
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77617013"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967621"
 ---
 # <a name="onboarding-requirements"></a>온보딩 요구 사항
 
@@ -61,7 +62,7 @@ Linux 버전이 다른 여러 SAP HANA 버전에 대한 지원 매트릭스는 [
 > 유형 II 단위의 경우 SLES 12 SP2 OS 버전만 지원됩니다. 
 
 
-**Database**
+**데이터베이스**
 
 - SAP HANA에 대한 라이선스 및 소프트웨어 설치 구성 요소(플랫폼 및 Enterprise 버전).
 

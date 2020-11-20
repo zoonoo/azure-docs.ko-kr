@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: 056009c34aec97a8c5c45aea4b93ba41977fa7a6
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 31cba884cff490d43341a4c52f24c32b1e253e42
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518195"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967332"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>텍스트 분석 API 버전 3(sp3)으로 마이그레이션
 
 [!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
-텍스트 분석 API 버전 2.1을 사용 하는 경우이 문서를 참조 하 여 버전 3.x를 사용 하도록 응용 프로그램을 업그레이드할 수 있습니다. 버전 3.0은 일반적으로 사용할 수 있으며 확장 [된 명명 된 엔터티 인식 (NER)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) 및 [모델 버전 관리](concepts/model-versioning.md)와 같은 새로운 기능을 소개 합니다. 또한 평가판 [마이닝](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features)과 같은 기능을 추가 하는 v 3.1 (v 3.1-preview. x)의 미리 보기 버전을 사용할 수 있습니다. V2에서 사용 된 모델은 향후 업데이트를 받지 않습니다. 
+텍스트 분석 API 버전 2.1을 사용 하는 경우이 문서를 참조 하 여 버전 3.x를 사용 하도록 응용 프로그램을 업그레이드할 수 있습니다. 버전 3.0은 일반적으로 사용할 수 있으며 확장 [된 명명 된 엔터티 인식 (NER)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-features-and-versions) 및 [모델 버전 관리](concepts/model-versioning.md)와 같은 새로운 기능을 소개 합니다. 또한 평가판 [마이닝](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features)과 같은 기능을 추가 하는 v 3.1 (v 3.1-preview. x)의 미리 보기 버전을 사용할 수 있습니다. V2에서 사용 된 모델은 향후 업데이트를 받지 않습니다. 
 
 #### <a name="sentiment-analysis"></a>[감정 분석](#tab/sentiment-analysis)
 
@@ -38,7 +38,7 @@ ms.locfileid: "94518195"
 JSON 응답의 예제는 참조 설명서를 참조 하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 * [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
-* [버전 3.1 미리 보기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Sentiment)
+* [버전 3.1 미리 보기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
 ### <a name="client-libraries"></a>클라이언트 라이브러리
 
@@ -70,7 +70,7 @@ NER
 JSON 응답의 예제는 참조 설명서를 참조 하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 * [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
-* [버전 3.1 미리 보기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/EntitiesRecognitionGeneral)
+* [버전 3.1 미리 보기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/EntitiesRecognitionGeneral)
 
 ### <a name="client-libraries"></a>클라이언트 라이브러리
 
@@ -92,7 +92,7 @@ JSON 응답의 예제는 참조 설명서를 참조 하세요.
 JSON 응답의 예제는 참조 설명서를 참조 하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 * [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
-* [버전 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Languages)
+* [버전 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 
 ### <a name="client-libraries"></a>클라이언트 라이브러리
 
@@ -109,7 +109,7 @@ JSON 응답의 예제는 참조 설명서를 참조 하세요.
 
 ### <a name="rest-api"></a>REST API
 
-응용 프로그램에서 REST API 사용 하는 경우 키 구 추출을 위해 요청 끝점을 v3 끝점으로 업데이트 합니다. `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
+응용 프로그램에서 REST API 사용 하는 경우 키 구 추출을 위해 요청 끝점을 v3 끝점으로 업데이트 합니다. 예: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
 
 JSON 응답의 예제는 참조 설명서를 참조 하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)

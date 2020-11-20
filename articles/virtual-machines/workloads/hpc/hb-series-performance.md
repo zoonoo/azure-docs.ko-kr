@@ -3,16 +3,17 @@ title: HB-시리즈 VM 크기 성능
 description: Azure에서 HB-시리즈 VM 크기에 대 한 성능 테스트 결과에 대해 알아봅니다.
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/09/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 2267dc23e2f886d87342fc22c3b12a03e8df6a86
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 10d1bfea4527eb7ab9a341de8f12a32cb59597eb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994858"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966975"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>HB-시리즈 가상 머신 크기
 
@@ -45,7 +46,7 @@ OSU 마이크로 벤치 마크 제품군의 MPI 대역폭 테스트가 실행 �
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-:::image type="content" source="./media/bandwidth-hb.png" alt-text="Azure HB의 MPI 대기 시간.":::
+:::image type="content" source="./media/bandwidth-hb.png" alt-text="Azure HB의 MPI 대역폭.":::
 
 
 ## <a name="mellanox-perftest"></a>Mellanox Perftest

@@ -2,17 +2,18 @@
 title: Azure Kubernetes Service에서 Oracle WebLogic 서버를 실행 하기 위한 솔루션은 무엇 인가요?
 description: Azure Kubernetes 서비스에서 Oracle WebLogic 서버를 실행 하는 방법에 대해 알아봅니다.
 author: rezar
-ms.service: container-service
+ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 10/28/2020
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: ff7b9b0bfcdc0c06eae14ecfdccabf9e337d3649
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: a57d5a00fad9a17e01b96ebdf395fb7a4b857935
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186682"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968692"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-the-azure-kubernetes-service"></a>Azure Kubernetes Service에서 Oracle WebLogic 서버를 실행 하기 위한 솔루션은 무엇 인가요?
 
@@ -42,7 +43,7 @@ _엔지니어링 팀이 이러한 솔루션을 개발 하는 마이그레이션 
 
 Azure Kubernetes 서비스에서 Oracle WebLogic 서버를 실행 하기 위한 솔루션은 비교적 편리 하 게 다양 한 프로덕션 지원 배포 아키텍처를 사용 하도록 설정 합니다.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-aks.png" alt-text="샘플 스크립트를 사용 하 여 AKS에 WebLogic 서버를 배포할 수 있습니다.":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-aks.png" alt-text="AKS에서 복합 WebLogic 서버 배포가 사용 됩니다.":::
 
 솔루션에서 고객에 게 제공 하는 기능 외에도 배포를 더욱 유연 하 게 사용자 지정할 수 있습니다. 응용 프로그램을 배포할 때 고객이 더 많은 Azure 리소스를 배포와 통합 하 게 됩니다. 고객은 솔루션 개선을 위해 설문 조사에 피드백을 제공 하는 것이 좋습니다.
 

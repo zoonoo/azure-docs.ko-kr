@@ -8,23 +8,40 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: f0204f5b923cf3363d85be9642d2866436df155a
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.custom: references_regions
+ms.openlocfilehash: 8743e765a050bfc4a2ba93a1b3e0344a960edb76
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369463"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966890"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
 텍스트 분석 API는 지속적으로 업데이트 됩니다. 최신 개발을 최신 상태로 유지 하기 위해이 문서에서는 새로운 릴리스 및 기능에 대 한 정보를 제공 합니다.
 
+## <a name="november-2020"></a>2020년 11월
+
+* NER, PII 및 키 구 추출 작업을 위한 일괄 처리를 지 원하는 새로운 비동기 [분석 API](how-tos/text-analytics-how-to-call-api.md?tabs=analyze)에 대 한 텍스트 분석 API v 3.1-preview. 3의 [새 끝점](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) 입니다.
+* 일괄 처리를 지 원하는 상태 호스팅 API [에 대 한](how-tos/text-analytics-for-health.md) 새로운 비동기 Text Analytics에 대 한 텍스트 분석 API v 3.1-preview. 3의 [새 끝점](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) 입니다.
+* 위에 나열 된 새 기능은 `West US 2` ,, `East US 2` `Central US` `North Europe` 및 `West Europe` 지역 에서만 사용할 수 있습니다.
+* 포르투갈어 (브라질) `pt-BR` 는 이제 모델 버전부터 실행 되는 [감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md) v3. x에서 지원 됩니다 `2020-04-01` . 이는 `pt-PT` 포르투갈어에 대 한 기존 지원을 추가 합니다.
+* 비동기 분석 및 상태 작업 Text Analytics를 포함 하는 업데이트 된 클라이언트 라이브러리입니다. GitHub에 대 한 예제를 찾을 수 있습니다.
+
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+
+
+> [!div class="nextstepaction"]
+> [텍스트 분석 API v 3.1-미리 보기에 대해 자세히 알아보세요. 3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
+
 ## <a name="october-2020"></a>2020년 10월
 
 * 모델 버전부터 시작 하 여 감정 분석 v3. x에 대 한 힌디어 지원 `2020-04-01` . 
-* `2020-09-01`V3/언어 끝점에 대 한 모델 버전으로, 향상 된 언어 검색 및 정확도 기능 향상을 추가 합니다.
+* 향상 된 `2020-09-01` 언어 검색 및 정확도 기능이 추가 된 v3/언어 끝점에 대 한 모델 버전입니다.
 * 인도 중부 및 아랍에미리트 북부의 v3 가용성.
 
 ## <a name="september-2020"></a>2020년 9월
@@ -147,7 +164,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 ### <a name="text-analytics-api-v31-public-preview"></a>텍스트 분석 API v 3.1 공개 미리 보기
    * 새 감정 분석 기능- [의견 마이닝](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
-   * 보호 된 상태 정보 ()에 대 한 새 [개인 ( `PII` ) 도메인 필터](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) `PHI` 입니다.
+   * `PII`보호 된 상태 정보 ()에 대 한 새 개인 () 도메인 필터 `PHI` 입니다.
 
 > [!div class="nextstepaction"]
 > [텍스트 분석 API v 3.1 Preview에 대 한 자세한 정보](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
@@ -162,7 +179,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
    * [JavaScript(Node.js)](./quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript&tabs=version-3)
    * [Java](./quickstarts/text-analytics-sdk.md?pivots=programming-language-java&tabs=version-3)
    
-   > [!div class="nextstepaction"]
+> [!div class="nextstepaction"]
 > [텍스트 분석 API v3 SDK에 대해 자세히 알아보기](./quickstarts/text-analytics-sdk.md?tabs=version-3)
 
 ### <a name="named-entity-recognition-v3-public-preview"></a>명명 된 엔터티 인식 v3 공개 미리 보기
@@ -185,9 +202,6 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
     * 전화 번호 (미국에만 해당)
     * URL
     * IP 주소
-
-> [!div class="nextstepaction"]
-> [명명 된 엔터티 인식 v3에 대해 자세히 알아보기](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
 
 ### <a name="october-2019"></a>2019년 10월
 

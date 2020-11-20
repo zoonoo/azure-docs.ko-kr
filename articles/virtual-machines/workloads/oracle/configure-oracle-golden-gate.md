@@ -3,16 +3,17 @@ title: Azure Linux VM에서 Oracle Golden Gate 구현 | Microsoft Docs
 description: Oracle Golden Gate를 Azure 환경에서 빠르게 시작하고 실행합니다.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: c480de6da0427b8eda212e02e08c7b3f5426941c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3fff58c240341776a3bb99c059c179cc4f9d96e9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534144"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966873"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Azure Linux VM에서 Oracle Golden Gate 구현 
 
@@ -389,7 +390,7 @@ Oracle Golden Gate 소프트웨어를 다운로드 및 준비하려면 다음 �
 3. PuTTY 키 생성기에서,
 
    - 키를 생성하려면 **생성** 단추를 선택합니다.
-   - 키의 콘텐츠를 복사 합니다 ( **Ctrl + C** ).
+   - 키의 콘텐츠를 복사 합니다 (**Ctrl + C**).
    - **프라이빗 키 저장** 단추를 선택합니다.
    - 표시되는 경고를 무시하고 **확인** 을 선택합니다.
 

@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 7b27aae712843ece27fd61927c4bfecff00399fa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a4670da5f5e89a4e020e26d1d704f172b8ab0864
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747010"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968318"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -25,7 +25,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 |유형|플랫폼|위치|Description|
 |-|-|-|-|
-| 애플리케이션 로깅 | Windows, Linux | App Service 파일 시스템 및/또는 Azure Storage blob | 응용 프로그램 코드에 의해 생성 된 메시지를 기록 합니다. 사용자가 선택한 웹 프레임 워크 또는 사용자 언어의 표준 로깅 패턴을 사용 하 여 직접 응용 프로그램 코드에서 메시지를 생성할 수 있습니다. 각 메시지에는 **중요** , **오류** , **경고** , **정보** , **디버그** 및 **추적** 범주 중 하나가 할당 됩니다. 응용 프로그램 로깅을 사용 하도록 설정할 때 심각도 수준을 설정 하 여 로깅을 원하는 세부 정보를 선택할 수 있습니다.|
+| 애플리케이션 로깅 | Windows, Linux | App Service 파일 시스템 및/또는 Azure Storage blob | 응용 프로그램 코드에 의해 생성 된 메시지를 기록 합니다. 사용자가 선택한 웹 프레임 워크 또는 사용자 언어의 표준 로깅 패턴을 사용 하 여 직접 응용 프로그램 코드에서 메시지를 생성할 수 있습니다. 각 메시지에는 **중요**, **오류**, **경고**, **정보**, **디버그** 및 **추적** 범주 중 하나가 할당 됩니다. 응용 프로그램 로깅을 사용 하도록 설정할 때 심각도 수준을 설정 하 여 로깅을 원하는 세부 정보를 선택할 수 있습니다.|
 | 웹 서버 로깅| Windows | App Service 파일 시스템 또는 Azure Storage blob| [W3C 확장 로그 파일 형식의](/windows/desktop/Http/w3c-logging)원시 HTTP 요청 데이터입니다. 각 로그 메시지에는 HTTP 메서드, 리소스 URI, 클라이언트 IP, 클라이언트 포트, 사용자 에이전트, 응답 코드 등의 데이터가 포함 됩니다. |
 | 자세한 오류 메시지| Windows | App Service 파일 시스템 | 클라이언트 브라우저로 전송 된 *.htm* 오류 페이지의 복사본입니다. 보안상의 이유로, 자세한 오류 페이지는 프로덕션 환경에서 클라이언트로 전송 되어서는 안 되지만 응용 프로그램 오류가 발생할 때마다 HTTP 코드 400 이상이 포함 된 오류 페이지를 저장할 수 App Service. 이 페이지에는 서버에서 오류 코드를 반환 하는 이유를 확인 하는 데 도움이 되는 정보가 포함 될 수 있습니다. |
 | 실패한 요청 추적 | Windows | App Service 파일 시스템 | 요청을 처리 하는 데 사용 되는 IIS 구성 요소 추적 및 각 구성 요소에서 소요 된 시간을 비롯 하 여 실패 한 요청에 대 한 자세한 추적 정보입니다. 사이트 성능을 향상시키거나 특정 HTTP 오류를 분리하려는 경우에 유용합니다. 실패 한 각 요청에 대해 XML 로그 파일이 포함 된 폴더와 로그 파일을 볼 XSL 스타일 시트가 하나씩 생성 됩니다. |
@@ -66,7 +66,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 |**오류** | 오류, 위험 |
 |**경고** | 경고, 오류, 위험|
 |**정보** | 정보, 경고, 오류, 위험|
-|**Verbose** | 추적, 디버그, 정보, 경고, 오류, 위험(모든 범주) |
+|**자세한 정보** | 추적, 디버그, 정보, 경고, 오류, 위험(모든 범주) |
 
 작업을 마쳤으면 **저장** 을 선택합니다.
 
@@ -187,14 +187,14 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 
 | 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | Description |
 |-|-|-|-|-|-|
-| AppServiceConsoleLogs | TBA | TBA | 예 | 예 | 표준 출력 및 표준 오류 |
-| AppServiceHTTPLogs | 예 | TBA | 예 | 예 | 웹 서버 로그 |
+| AppServiceConsoleLogs | Java SE & Tomcat | 예 | 예 | 예 | 표준 출력 및 표준 오류 |
+| AppServiceHTTPLogs | 예 | 예 | 예 | 예 | 웹 서버 로그 |
 | Appservice환경 Platformlogs | 예 | 해당 없음 | 예 | 예 | App Service Environment: 크기 조정, 구성 변경 및 상태 로그|
-| AppServiceAuditLogs | 예 | TBA | 예 | 예 | FTP 및 Kudu를 통한 로그인 활동 |
-| AppServiceFileAuditLogs | 예 | TBA | TBA | TBA | 사이트 콘텐츠에 대 한 파일 변경 내용 프리미엄 계층 이상 에서만 사용할 수 있습니다. |
-| AppServiceAppLogs | ASP .NET | TBA | Java SE & Tomcat | Java SE & Tomcat | 애플리케이션 로그 전송 사용 |
-| AppServiceIPSecAuditLogs  | 예 | TBA | 예 | 예 | IP 규칙의 요청 |
-| AppServicePlatformLogs  | TBA | TBA | 예 | 예 | 컨테이너 작업 로그 |
+| AppServiceAuditLogs | 예 | 예 | 예 | 예 | FTP 및 Kudu를 통한 로그인 활동 |
+| AppServiceFileAuditLogs | 예 | 예 | TBA | TBA | 사이트 콘텐츠에 대 한 파일 변경 내용 프리미엄 계층 이상 에서만 사용할 수 있습니다. |
+| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat 축복 이미지 | Java SE & Tomcat 축복 이미지 | 애플리케이션 로그 전송 사용 |
+| AppServiceIPSecAuditLogs  | 예 | 예 | 예 | 예 | IP 규칙의 요청 |
+| AppServicePlatformLogs  | TBA | 예 | 예 | 예 | 컨테이너 작업 로그 |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> 다음 단계
 * [Azure Monitor를 사용하여 로그 쿼리](../azure-monitor/log-query/log-query-overview.md)

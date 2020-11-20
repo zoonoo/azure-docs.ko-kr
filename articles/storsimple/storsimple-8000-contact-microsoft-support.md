@@ -6,22 +6,22 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: daf54b64e33b83b909fe91455cee2f5c1ec27d3d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c288f59b1cb9a85ed4bc978d1c3fba18ba30b572
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960323"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968760"
 ---
 # <a name="contact-microsoft-support"></a>Microsoft 지원에 문의
 
-StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운 지원 요청을 기록**하는 기능을 제공합니다. StorSimple 솔루션에 문제가 발생하는 경우 기술 지원을 위해 서비스 요청을 할 수 있습니다. 지원 엔지니어와 함께 온라인 세션에서 StorSimple 디바이스에 지원 세션을 시작해야 할 수도 있습니다. 이 문서에서는 다음을 안내합니다.
+StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운 지원 요청을 기록** 하는 기능을 제공합니다. StorSimple 솔루션에 문제가 발생하는 경우 기술 지원을 위해 서비스 요청을 할 수 있습니다. 지원 엔지니어와 함께 온라인 세션에서 StorSimple 디바이스에 지원 세션을 시작해야 할 수도 있습니다. 이 문서에서는 다음을 안내합니다.
 
 * 지원 요청을 만드는 방법
 * 포털 내에서 지원 요청 주기를 관리하는 방법
 * StorSimple 디바이스의 Windows PowerShell 인터페이스에서 지원 세션을 시작하는 방법
 
-지원 요청을 만들기 전에 [StorSimple 8000 시리즈 지원 SLA 및 정보](https://msdn.microsoft.com/library/mt433077.aspx) 를 검토하십시오.
+지원 요청을 만들기 전에 [StorSimple 8000 시리즈 지원 SLA 및 정보](./storsimple-8000-support-options.md) 를 검토하십시오.
 
 ## <a name="create-a-support-request"></a>지원 요청 만들기
 
@@ -29,35 +29,35 @@ StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운
 
 #### <a name="to-create-a-support-request"></a>지원 요청을 만들려면
 
-1. StorSimple 디바이스 관리자 서비스로 이동합니다. 서비스 요약 블레이드 설정에서 **지원 + 문제 해결** 섹션으로 이동한 다음 **새 지원 요청**을 클릭합니다.
+1. StorSimple 디바이스 관리자 서비스로 이동합니다. 서비스 요약 블레이드 설정에서 **지원 + 문제 해결** 섹션으로 이동한 다음 **새 지원 요청** 을 클릭합니다.
      
     ![새 포털을 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport1.png)
    
-2. **새 지원 요청 블레이드**에서 **기본**을 선택합니다. **기본** 블레이드에서 다음 단계를 수행합니다.
-   1. **문제점 유형** 드롭다운 목록에서 **기술**을 선택합니다.
+2. **새 지원 요청 블레이드** 에서 **기본** 을 선택합니다. **기본** 블레이드에서 다음 단계를 수행합니다.
+   1. **문제점 유형** 드롭다운 목록에서 **기술** 을 선택합니다.
    2. 현재 **구독**, **서비스** 유형 및 **리소스**(StorSimple 디바이스 관리자 서비스)가 자동으로 선택됩니다. 
-   3. 구독과 관련된 여러 계획이 있는 경우 드롭다운에서 **지원 계획**을 선택합니다. 기술 지원을 사용하도록 설정하기 위해 유료 지원 계획이 필요합니다.
-   4. **다음**을 클릭합니다.
+   3. 구독과 관련된 여러 계획이 있는 경우 드롭다운에서 **지원 계획** 을 선택합니다. 기술 지원을 사용하도록 설정하기 위해 유료 지원 계획이 필요합니다.
+   4. **다음** 을 클릭합니다.
 
        ![새 포털 2를 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
-3. **새 지원 요청** 블레이드에서 **2단계 문제**를 선택합니다. **문제** 블레이드에서 다음 단계를 수행합니다.
+3. **새 지원 요청** 블레이드에서 **2단계 문제** 를 선택합니다. **문제** 블레이드에서 다음 단계를 수행합니다.
     
-    1. **심각도**를 선택합니다.
+    1. **심각도** 를 선택합니다.
     2. 문제가 어플라이언스 또는 StorSimple 디바이스 관리자 서비스에 관련되어 있는지를 지정합니다.
-    3. 이 문제의 **범주**를 선택하고 문제에 대한 추가 **세부 정보**를 제공합니다.
+    3. 이 문제의 **범주** 를 선택하고 문제에 대한 추가 **세부 정보** 를 제공합니다.
     4. 문제의 시작 날짜 및 시간을 제공합니다.
-    5. **파일 업로드**에서 폴더 아이콘을 클릭하여 지원 패키지를 찾아봅니다.
-    6. **진단 정보 공유**를 선택합니다.
-    7. **다음**을 클릭합니다.
+    5. **파일 업로드** 에서 폴더 아이콘을 클릭하여 지원 패키지를 찾아봅니다.
+    6. **진단 정보 공유** 를 선택합니다.
+    7. **다음** 을 클릭합니다.
 
        ![새 포털 3을 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
-4. **새 지원 요청** 블레이드에서 **3단계 연락처 정보**를 클릭합니다. **연락처 정보** 블레이드에서 다음 단계를 수행합니다.
+4. **새 지원 요청** 블레이드에서 **3단계 연락처 정보** 를 클릭합니다. **연락처 정보** 블레이드에서 다음 단계를 수행합니다.
 
-   1. **연락처 옵션**에서 기본 연락 방법(전화 또는 전자 메일) 및 언어를 지정합니다. 응답 시간은 구독 계획에 따라 자동으로 선택됩니다.
+   1. **연락처 옵션** 에서 기본 연락 방법(전화 또는 전자 메일) 및 언어를 지정합니다. 응답 시간은 구독 계획에 따라 자동으로 선택됩니다.
    2. 연락처 정보에서 이름, 메일, 선택적 연락처, 국가/지역을 지정합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장** 확인란을 선택합니다.
-   3. **만들기**를 클릭합니다.
+   3. **만들기** 를 클릭합니다.
    
        ![새 포털 4를 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
@@ -70,7 +70,7 @@ StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운
 
 #### <a name="to-manage-your-support-requests"></a>지원 요청을 관리하려면
 
-1. 도움말 및 지원 페이지로 이동하려면 **찾아보기 > 도움말 + 지원**으로 이동합니다.
+1. 도움말 및 지원 페이지로 이동하려면 **찾아보기 > 도움말 + 지원** 으로 이동합니다.
 
     ![지원 요청 관리](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
 
@@ -78,7 +78,7 @@ StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운
 
     ![지원 요청 관리 2](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
-3. 지원 요청을 클릭하여 선택합니다. 이 요청의 상태 및 세부 정보를 볼 수 있습니다. 이 요청에 대해 후속 작업을 수행하려는 경우 **+ 새 메시지**를 클릭합니다.
+3. 지원 요청을 클릭하여 선택합니다. 이 요청의 상태 및 세부 정보를 볼 수 있습니다. 이 요청에 대해 후속 작업을 수행하려는 경우 **+ 새 메시지** 를 클릭합니다.
 
     ![지원 요청 관리 3](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
@@ -92,7 +92,7 @@ StorSimple 디바이스에서 발생할 수 있는 문제를 해결하려면 Mic
 
 1. 직렬 콘솔을 사용하여 직접 또는 원격 컴퓨터에서 텔넷 세션을 통해 디바이스에 액세스합니다. 이렇게 하려면 [PuTTY를 사용하여 디바이스 직렬 콘솔에 연결](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)의 단계를 따르세요.
 2. 열린 세션에서 **Enter** 키를 눌러 명령 프롬프트를 엽니다.
-3. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
+3. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인** 을 선택합니다.
 4. 프롬프트에 다음 암호를 입력합니다.
    
     `Password1`

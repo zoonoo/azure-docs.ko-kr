@@ -9,26 +9,27 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP, Azure, ANF, HANA, Azure NetApp Files, 스냅숏
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 02755c164e72e3149497ee8e3c1fdc19141fd54f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 511801962d07e5fb99000b2fc19adce2489b46d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973634"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967485"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨
 
-Azure NetApp Files은 **/hana/shared**, **/hana/data**및 **/hana/log** 볼륨에 사용할 수 있는 네이티브 NFS 공유를 제공 합니다. **/Hana/data** 및 **/hana/log** 볼륨에 대해 anf 기반 nfs 공유를 사용 하려면 v 4.1 nfs 프로토콜을 사용 해야 합니다. NFS 프로토콜 v3은 ANF의 공유를 기반으로 하는 경우 **/hana/data** 및 **/hana/log** 볼륨의 사용에 대해 지원 되지 않습니다. 
+Azure NetApp Files은 **/hana/shared**, **/hana/data** 및 **/hana/log** 볼륨에 사용할 수 있는 네이티브 NFS 공유를 제공 합니다. **/Hana/data** 및 **/hana/log** 볼륨에 대해 anf 기반 nfs 공유를 사용 하려면 v 4.1 nfs 프로토콜을 사용 해야 합니다. NFS 프로토콜 v3은 ANF의 공유를 기반으로 하는 경우 **/hana/data** 및 **/hana/log** 볼륨의 사용에 대해 지원 되지 않습니다. 
 
 
 > [!IMPORTANT]
-> Azure NetApp Files에서 구현 된 NFS v3 프로토콜은 **/hana/data** 및 **/hana/log**에 사용할 수 **없습니다** . NFS 4.1 사용은 기능 관점에서 **/hana/data** 및 **/hana/log** 볼륨에 대해 필수입니다. **/Hana/shared** 볼륨의 경우 기능 관점에서 nfs V3 또는 nfs v 4.1 프로토콜을 사용할 수 있습니다.
+> Azure NetApp Files에서 구현 된 NFS v3 프로토콜은 **/hana/data** 및 **/hana/log** 에 사용할 수 **없습니다** . NFS 4.1 사용은 기능 관점에서 **/hana/data** 및 **/hana/log** 볼륨에 대해 필수입니다. **/Hana/shared** 볼륨의 경우 기능 관점에서 nfs V3 또는 nfs v 4.1 프로토콜을 사용할 수 있습니다.
 
 ## <a name="important-considerations"></a>중요 고려 사항
 
@@ -91,7 +92,7 @@ Azure에서 SAP 용 인프라를 설계할 때 SAP에서 최소 처리량 특성
 > [!IMPORTANT]
 > 단일 NFS 볼륨에 배포하는 용량에 관계없이 처리량은 가상 머신의 소비자가 활용하는 1.2~1.4GB/초 대역폭의 범위에서 안정될 것으로 예상됩니다. 이는 ANF 제품의 기본 아키텍처와 NFS 관련 Linux 세션 제한과 관련이 있습니다. [Azure NetApp Files에 대한 성능 벤치 마크 테스트 결과](../../../azure-netapp-files/performance-benchmarks-linux.md) 문서에 설명된 성능 및 처리량 수치는 여러 클라이언트 VM이 있는 한 공유 NFS 볼륨에서 여러 세션에 걸쳐 테스트한 결과입니다. 이 시나리오는 SAP에서 측정하는 시나리오와 다릅니다. 즉, ANF에서 호스트되는 단일 NFS 볼륨에 대해 단일 VM에서 처리량을 ANF에서 호스트 됩니다.
 
-데이터 및 로그에 대 한 SAP 최소 처리량 요구 사항을 충족 하 고 **/hana/shared**에 대 한 지침에 따라 권장 크기는 다음과 같습니다.
+데이터 및 로그에 대 한 SAP 최소 처리량 요구 사항을 충족 하 고 **/hana/shared** 에 대 한 지침에 따라 권장 크기는 다음과 같습니다.
 
 | 볼륨 | 크기<br /> Premium Storage 계층 | 크기<br /> Ultra Storage 계층 | 지원되는 NFS 프로토콜 |
 | --- | --- | --- |

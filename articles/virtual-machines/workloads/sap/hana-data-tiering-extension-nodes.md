@@ -7,25 +7,26 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3553ac9704ac26d0bdaae0f93b89f41a87ac716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a1fc1c3b332d033e453db11ce4451cd626c4217
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77617154"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967808"
 ---
 # <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>SAP HANA 데이터 계층화 및 확장 노드 사용
 
 SAP는 다양한 SAP NetWeaver 버전의 SAP BW 및 SAP BW/4HANA에 대한 데이터 계층화 모델을 지원합니다. 데이터 계층 모델에 대한 자세한 내용은 [SAP HANA 확장 노드가 있는 SAP BW/4HANA 및 SAP BW on HANA](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#) SAP 문서를 참조하세요.
 HANA 대규모 인스턴스를 사용하면 FAQ 및 SAP 블로그 문서에서 설명한 대로 SAP HANA 확장 노드의 옵션 1 구성을 사용할 수 있습니다. 옵션 2 구성은 다음 HANA 대규모 인스턴스 SKU(S72m, S192, S192m, S384 및 S384m)와 함께 설정될 수 있습니다. 
 
-설명서를 살펴볼 때 장점이 바로 표시되지 않을 수 있습니다. 하지만 SAP 크기 조정 지침을 살펴보면 옵션 1과 옵션 2 SAP HANA 확장 노드를 사용하여 장점을 확인할 수 있습니다. 예는 다음과 같습니다.
+설명서를 살펴볼 때 장점이 바로 표시되지 않을 수 있습니다. 하지만 SAP 크기 조정 지침을 살펴보면 옵션 1과 옵션 2 SAP HANA 확장 노드를 사용하여 장점을 확인할 수 있습니다. 예제는 다음과 같습니다.
 
 - SAP HANA 크기 조정 지침은 일반적으로 메모리로 데이터 볼륨 크기의 두 배를 필요로 합니다. 핫 데이터를 사용하여 SAP HANA 인스턴스를 실행하는 경우 50% 이하의 메모리만 데이터로 채워집니다. 메모리의 나머지 부분은 해당 작업을 수행하는 SAP HANA에 대해 이상적으로 유지됩니다.
 - 즉, SAP BW 데이터베이스를 실행하는 2TB의 메모리가 있는 HANA 대규모 인스턴스 S192 단위에서 데이터 볼륨으로 1TB만을 갖습니다.

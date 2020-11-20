@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: e802f798ade5e6bfe0b40b17bbf15df5387ef7c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 26192c742ab2e010c18c02226252dbb480b72cee
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357847"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967162"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능 보관
 
@@ -120,9 +120,9 @@ Security Center에는 VM의 관리 포트를 보호하는 선택적 기능이 �
 
 이동한 세 가지 권장 사항은 다음과 같습니다.
 
-- **구독에 대한 읽기 권한이 있는 계정에서 MFA를 사용하도록 설정해야 합니다** (원래 "MFA 사용" 컨트롤).
-- **읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다** (원래 "액세스 및 권한 관리" 컨트롤).
-- **구독에 대해 최대 3명의 소유자를 지정해야 합니다** (원래 "액세스 및 권한 관리" 컨트롤).
+- **구독에 대한 읽기 권한이 있는 계정에서 MFA를 사용하도록 설정해야 합니다**(원래 "MFA 사용" 컨트롤).
+- **읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다**(원래 "액세스 및 권한 관리" 컨트롤).
+- **구독에 대해 최대 3명의 소유자를 지정해야 합니다**(원래 "액세스 및 권한 관리" 컨트롤).
 
 컨트롤에 추가된 두 가지 새로운 권장 사항은 다음과 같습니다.
 
@@ -176,7 +176,7 @@ Microsoft는 CDA(Windows 크래시 덤프 분석) 탐지 기능을 [파일리스
 
 ### <a name="dynamic-compliance-packages-are-now-generally-available"></a>이제 일반 공급되는 동적 규정 준수 패키지
 
-Azure Security Center 규제 준수 대시보드에는 이제 추가 산업 및 규제 표준을 추적하는 **동적 규정 준수 패키지** (현재 일반 공급)가 포함되어 있습니다.
+Azure Security Center 규제 준수 대시보드에는 이제 추가 산업 및 규제 표준을 추적하는 **동적 규정 준수 패키지**(현재 일반 공급)가 포함되어 있습니다.
 
 Security Center 보안 정책 페이지에서 구독 또는 관리 그룹에 동적 규정 준수 패키지를 추가할 수 있습니다. 표준 또는 벤치 마크를 온보딩하면 규정 준수 대시보드에 평가로 매핑된 모든 관련 준수 데이터가 포함된 표준이 표시됩니다. 온보딩된 표준에 대한 요약 보고서는 다운로드할 수 있습니다.
 
@@ -316,7 +316,7 @@ Security Center 방어에는 다음이 포함됩니다.
 
 ## <a name="november-2019"></a>2019년 11월
 
-11 월의 업데이트는 다음과 같습니다.
+11월의 업데이트는 다음과 같습니다.
  - [북아메리카 지역에서 Azure Key Vault에 대 한 위협 방지 (미리 보기)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
  - [Azure Storage에 대한 위협 방지에 맬웨어 평판 차단 포함](#threat-protection-for-azure-storage-includes-malware-reputation-screening)
  - [Logic Apps로 워크플로 자동화(미리 보기)](#workflow-automation-with-logic-apps-preview)
@@ -392,7 +392,7 @@ Kubernetes는 클라우드에서 소프트웨어를 배포하고 관리하기 �
 이 공개 미리 보기 릴리스의 새로운 기능은 다음과 같습니다.
 
 - **검색 & 표시 유형** - Security Center의 등록된 구독 내에서 관리되는 AKS 인스턴스를 지속적으로 검색합니다.
-- **Secure Score 권장 사항** - 고객의 Secure Score의 일부로 고객이 AKS의 보안 모범 사례를 준수하도록 돕는 실행 가능한 항목입니다(예: "역할 기반 액세스 제어를 사용하여 Kubernetes 서비스 클러스터에 대한 액세스를 제한해야 합니다.").
+- 보안 **점수 권장 사항** -고객이 AKS에 대 한 보안 모범 사례를 준수 하 고 보안 점수를 늘리는 데 도움이 되는 조치 가능한 항목입니다. 권장 사항에는 "역할 기반 액세스 제어를 사용 하 여 Kubernetes 서비스 클러스터에 대 한 액세스를 제한 해야 합니다."와 같은 항목이 포함 됩니다.
 - **위협 탐지** - "권한 있는 컨테이너 탐지"와 같은 호스트 및 클러스터 기반 분석입니다.
 
 

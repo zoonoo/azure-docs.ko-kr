@@ -10,12 +10,12 @@ ms.author: ravokkar
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 7683f5d60c5d788707e2f89774cee42e7820db87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a7ec2f4f8fdf631a6bc5096296275291ec41751
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87924209"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967128"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용 하 여 DPS와 통신
 
@@ -29,22 +29,22 @@ DPS는 전체 기능을 제공 하는 MQTT broker가 아니므로 MQTT v 3.1.1 �
 DPS와의 모든 장치 통신은 TLS/SSL을 사용 하 여 보호 해야 합니다. 따라서 DPS는 포트 1883을 통한 비보안 연결을 지원 하지 않습니다.
 
  > [!NOTE] 
- > DPS는 현재 MQTT 프로토콜을 통해 TPM [증명 메커니즘](https://docs.microsoft.com/azure/iot-dps/concepts-device#attestation-mechanism) 을 사용 하는 장치를 지원 하지 않습니다.
+ > DPS는 현재 MQTT 프로토콜을 통해 TPM [증명 메커니즘](./concepts-service.md#attestation-mechanism) 을 사용 하는 장치를 지원 하지 않습니다.
 
 ## <a name="connecting-to-dps"></a>DPS에 연결
 
 장치는 MQTT 프로토콜을 사용 하 여 다음 옵션 중 하나를 사용 하 여 DPS에 연결할 수 있습니다.
 
-* [Azure IoT 프로 비전 sdk](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#microsoft-azure-provisioning-sdks)의 라이브러리.
+* [Azure IoT 프로 비전 sdk](../iot-hub/iot-hub-devguide-sdks.md#microsoft-azure-provisioning-sdks)의 라이브러리.
 * 또는 MQTT 프로토콜 직접 사용.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>MQTT 프로토콜 직접 사용(디바이스로)
 
 디바이스가 디바이스 SDK를 사용할 수 없는 경우라도 포트 8883에서 MQTT 프로토콜을 사용하는 공용 디바이스 엔드포인트에 연결할 수 있습니다. **CONNECT** 패킷에서 디바이스는 다음 값을 사용해야 합니다.
 
-* **ClientId** 필드의 경우 **registrationId**를 사용 합니다.
+* **ClientId** 필드의 경우 **registrationId** 를 사용 합니다.
 
-* **Username** 필드에를 사용 합니다 `{idScope}/registrations/{registration_id}/api-version=2019-03-31` . 여기서 `{idScope}` 은 DPS의 [idscope](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope) 입니다.
+* **Username** 필드에를 사용 합니다 `{idScope}/registrations/{registration_id}/api-version=2019-03-31` . 여기서 `{idScope}` 은 DPS의 [idscope](./concepts-service.md#id-scope) 입니다.
 
 * **암호** 필드에는 SAS 토큰을 사용합니다. SAS 토큰의 형식은 HTTPS 및 AMQP 프로토콜에 대해 동일합니다.
 
@@ -57,9 +57,9 @@ DPS와의 모든 장치 통신은 TLS/SSL을 사용 하 여 보호 해야 합니
 
 다음은 DPS 구현 관련 동작 목록입니다.
 
- * DPS는 **Cleansession** 플래그가 **0**으로 설정 된 기능을 지원 하지 않습니다.
+ * DPS는 **Cleansession** 플래그가 **0** 으로 설정 된 기능을 지원 하지 않습니다.
 
- * 장치 앱이 **QoS 2**를 사용 하 여 토픽을 구독할 때 DPS는 **suback** 패킷에서 최대 QoS level 1을 부여 합니다. 그 후 DPS는 QoS 1을 사용 하 여 장치에 메시지를 배달 합니다.
+ * 장치 앱이 **QoS 2** 를 사용 하 여 토픽을 구독할 때 DPS는 **suback** 패킷에서 최대 QoS level 1을 부여 합니다. 그 후 DPS는 QoS 1을 사용 하 여 장치에 메시지를 배달 합니다.
 
 ## <a name="tlsssl-configuration"></a>TLS/SSL 구성
 
@@ -68,10 +68,10 @@ MQTT 프로토콜을 직접 사용 하려면 클라이언트에서 TLS 1.2을 �
 
 ## <a name="registering-a-device"></a>디바이스 등록
 
-DPS를 통해 장치를 등록 하려면 장치는를 `$dps/registrations/res/#` **토픽 필터로**사용 하 여 구독 해야 합니다. 토픽 필터에 다중 레벨 와일드카드 `#`는 디바이스가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. DPS는 하위 항목 `#` `?` 필터링을 위한 또는 와일드 카드의 사용을 허용 하지 않습니다. DPS는 일반적인 용도의 pub-sub 메시징 브로커가 아니므로 문서화 된 토픽 이름 및 토픽 필터만 지원 합니다.
+DPS를 통해 장치를 등록 하려면 장치는를 `$dps/registrations/res/#` **토픽 필터로** 사용 하 여 구독 해야 합니다. 토픽 필터에 다중 레벨 와일드카드 `#`는 디바이스가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. DPS는 하위 항목 `#` `?` 필터링을 위한 또는 와일드 카드의 사용을 허용 하지 않습니다. DPS는 일반적인 용도의 pub-sub 메시징 브로커가 아니므로 문서화 된 토픽 이름 및 토픽 필터만 지원 합니다.
 
-장치는를 `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` **토픽 이름**으로 사용 하 여 DPS에 등록 메시지를 게시 해야 합니다. 페이로드는 JSON 형식의 [장치 등록](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) 개체를 포함 해야 합니다.
-성공적인 시나리오에서 장치는 항목 이름에 대 한 응답을 받게 됩니다 `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` . 여기서 x는 다시 시도-이후 값 (초)입니다. 응답의 페이로드는 JSON 형식의 [Registrationoperationstatus](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) 개체를 포함 합니다.
+장치는를 `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` **토픽 이름** 으로 사용 하 여 DPS에 등록 메시지를 게시 해야 합니다. 페이로드는 JSON 형식의 [장치 등록](/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) 개체를 포함 해야 합니다.
+성공적인 시나리오에서 장치는 항목 이름에 대 한 응답을 받게 됩니다 `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` . 여기서 x는 다시 시도-이후 값 (초)입니다. 응답의 페이로드는 JSON 형식의 [Registrationoperationstatus](/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) 개체를 포함 합니다.
 
 ## <a name="polling-for-registration-operation-status"></a>등록 작업 상태 폴링
 

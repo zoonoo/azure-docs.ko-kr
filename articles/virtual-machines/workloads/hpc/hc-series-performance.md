@@ -3,16 +3,17 @@ title: HC 시리즈 VM 크기 성능
 description: Azure에서 HC 시리즈 VM 크기에 대 한 성능 테스트 결과에 대해 알아봅니다.
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/10/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 34d47e6c10692cc212b6e178e3f9658069b96020
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: e1abe4b87bd5be98dad8e43d604f833eae3854e7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995110"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966958"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>HC 시리즈 가상 머신 크기
 
@@ -44,7 +45,7 @@ OSU 마이크로 벤치 마크 제품군의 MPI 대역폭 테스트가 실행 �
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-:::image type="content" source="./media/bandwidth-hc.png" alt-text="Azure HC의 MPI 대기 시간입니다.":::
+:::image type="content" source="./media/bandwidth-hc.png" alt-text="Azure HC의 MPI 대역폭.":::
 
 
 ## <a name="mellanox-perftest"></a>Mellanox Perftest

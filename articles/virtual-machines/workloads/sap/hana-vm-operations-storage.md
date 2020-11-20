@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP, Azure HANA, 저장소 Ultra disk, Premium storage
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bbaa9d33d3a31b682a66b2a3254fc2265b6f8d7b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: af2eac929e3e3f40e1ac1cd384c943b1e09171a8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357080"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967468"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -46,7 +47,7 @@ IOPS 및 스토리지 처리량에서 스토리지 유형 및 해당 SLA의 목�
 - 최소 **/hana/log** 볼륨에 대 한 Azure Ultra disk. **/Hana/data** 볼륨은 Azure 쓰기 가속기 없는 premium storage에 배치 하거나 Ultra disk를 더 빠르게 다시 시작 하는 데 사용할 수 있습니다.
 - **/Hana/log 및/hana/data** 에 대 한 Azure NetApp Files 위에 있는 **NFS v 4.1** 볼륨 /Hana/shared 볼륨은 NFS v3 또는 NFS v 4.1 프로토콜을 사용할 수 있습니다.
 
-일부 스토리지 유형은 결합할 수 있습니다. 예를 들어 **/hana/data** 를 premium storage에 배치 하 고 필요한 짧은 대기 시간을 얻기 위해 **/hana/log** 를 울트라 디스크 저장소에 배치할 수 있습니다. **/Hana/data** 에 대해 anf를 기반으로 하는 볼륨을 사용 하는 경우 **/hana/log** 볼륨은 anf의 맨 위에 있는 NFS를 기반으로 해야 합니다. 볼륨 중 하나 (예:/hana/data) 및 Azure premium storage 또는 다른 볼륨에 대 한 Ultra disk (예: **/hana/log** )에 대해 ANF 위에 NFS를 사용 하는 것은 **지원 되지 않습니다**.
+일부 스토리지 유형은 결합할 수 있습니다. 예를 들어 **/hana/data** 를 premium storage에 배치 하 고 필요한 짧은 대기 시간을 얻기 위해 **/hana/log** 를 울트라 디스크 저장소에 배치할 수 있습니다. **/Hana/data** 에 대해 anf를 기반으로 하는 볼륨을 사용 하는 경우 **/hana/log** 볼륨은 anf의 맨 위에 있는 NFS를 기반으로 해야 합니다. 볼륨 중 하나 (예:/hana/data) 및 Azure premium storage 또는 다른 볼륨에 대 한 Ultra disk (예: **/hana/log**)에 대해 ANF 위에 NFS를 사용 하는 것은 **지원 되지 않습니다**.
 
 온-프레미스 환경의 경우 I/O 하위 시스템 및 해당 성능은 신경 쓸 필요가 거의 없었습니다. SAP HANA에 대한 최소 스토리지 요구 사항을 충족하는 것은 어플라이언스 공급업체의 몫이었기 때문입니다. 자체적으로 Azure 인프라를 빌드하는 동안에는 그러한 SAP 발행 요구 사항 몇 가지에 대해 알아야 합니다. SAP에서 권장 하는 최소 처리량 특성 중 일부는 다음과 같습니다.
 
@@ -68,7 +69,7 @@ HANA에 대 한 저장소 구성을 선택 하는 몇 가지 지침 원칙을 �
 > 저장소 구성에 대 한 제안 사항은부터 시작 하기 위한 지침을 의미 합니다. 워크 로드를 실행 하 고 저장소 사용률 패턴을 분석 하면 제공 된 모든 저장소 대역폭 또는 IOPS를 활용 하지 않는 것을 알 수 있습니다. 저장소에 대해 다운 크기 조정을 고려할 수 있습니다. 반대로, 워크 로드에는 이러한 구성으로 제안 된 것 보다 더 많은 저장소 처리량이 필요할 수 있습니다. 따라서 용량, IOPS 또는 처리량을 더 많이 배포 해야 할 수 있습니다. 필요한 저장소 용량, 저장소 대기 시간, 저장소 처리량 및 IOPS가 필요 하 고 비용이 많이 드는 구성의 필드에서 Azure는 다양 한 기능을 갖춘 다양 한 저장소 유형과 사용자의 HANA 워크 로드에 대 한 올바른 손상에 대 한 적절 한 손상에 대 한 다양 한 가격 점수를 제공 합니다.
 
 ## <a name="linux-io-scheduler-mode"></a>Linux I/O 스케줄러 모드
-Linux에는 몇 가지 다른 I/O 일정 예약 모드가 있습니다. Linux 공급 업체 및 SAP를 통한 일반적인 권장 사항은 디스크 볼륨에 대한 I/O 스케줄러 모드를 **mq-deadline** 또는 **kyber** 모드에서 **noop** (non-multiqueue) 또는 **없음** (multiqueue) 모드로 다시 구성하는 것입니다. 자세한 내용은 [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787)에서 참조했습니다. 
+Linux에는 몇 가지 다른 I/O 일정 예약 모드가 있습니다. Linux 공급 업체 및 SAP를 통한 일반적인 권장 사항은 디스크 볼륨에 대한 I/O 스케줄러 모드를 **mq-deadline** 또는 **kyber** 모드에서 **noop**(non-multiqueue) 또는 **없음**(multiqueue) 모드로 다시 구성하는 것입니다. 자세한 내용은 [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787)에서 참조했습니다. 
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Azure M 시리즈 가상 머신에 대 한 premium storage 및 Azure 쓰기 가속기 솔루션

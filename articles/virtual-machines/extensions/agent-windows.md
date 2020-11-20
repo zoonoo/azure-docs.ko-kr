@@ -2,17 +2,18 @@
 title: Azure Virtual Machines 에이전트 개요
 description: Azure Virtual Machines 에이전트 개요
 services: virtual-machines-windows
+ms.subservice: extensions
 author: mimckitt
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 07/20/2019
 ms.author: mimckitt
-ms.openlocfilehash: 1ef2c9ef4e2a2296ceb214c89bb6e3fb98dcb26f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3724b8a2afb89594c73f7dae782658ec8978963a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974909"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968437"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure Virtual Machines 에이전트 개요
 Microsoft Azure VM 에이전트(가상 머신 에이전트)는 Azure 패브릭 컨트롤러와 VM(가상 머신)의 상호 작용을 관리하는 안전하고 간단한 프로세스입니다. VM 에이전트는 Azure 가상 머신 확장을 설정하고 실행하는 데 기본적인 역할을 수행합니다. VM 확장을 사용하면 소프트웨어 설치 및 구성과 같은 VM의 배포 후 구성을 설정할 수 있습니다. 또한 VM 확장을 사용하면 VM의 관리 암호를 다시 설정하는 등의 복구 기능도 사용할 수 있습니다. Azure VM 에이전트가 없으면 VM 확장을 실행할 수 없습니다.
@@ -62,7 +63,7 @@ $vm.OSProfile.AllowExtensionOperations = $true
 $vm | Update-AzVM
 ```
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 - Windows VM 에이전트는 .NET Framework 4.0를 사용 하 여 Windows Server 2008 SP2 (64 비트) 이상을 실행 해야 합니다. [Azure의 가상 머신 에이전트에 대 한 최소 버전 지원](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)을 참조 하세요.
 
@@ -105,7 +106,7 @@ foreach ($vm in $vms) {
 
 ### <a name="manual-detection"></a>수동 검색
 
-Microsoft VM에 로그인하면 작업 관리자를 사용하여 실행 중인 프로세스를 검사할 수 있습니다. Azure VM 에이전트를 확인하려면 작업 관리자를 열고 *세부 정보* 탭을 클릭하고 **WindowsAzureGuestAgent.exe**라는 프로세스 이름을 찾습니다. 이 프로세스가 있으면 VM 에이전트가 설치되어 있는 것입니다.
+Microsoft VM에 로그인하면 작업 관리자를 사용하여 실행 중인 프로세스를 검사할 수 있습니다. Azure VM 에이전트를 확인하려면 작업 관리자를 열고 *세부 정보* 탭을 클릭하고 **WindowsAzureGuestAgent.exe** 라는 프로세스 이름을 찾습니다. 이 프로세스가 있으면 VM 에이전트가 설치되어 있는 것입니다.
 
 
 ## <a name="upgrade-the-vm-agent"></a>VM 에이전트 업그레이드

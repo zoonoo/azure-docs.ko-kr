@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: radeltch
-ms.openlocfilehash: 4c444cb84f215ba4f42c14eb64f1d2f441e4280d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e906e6c86d615852191e2fd65a2b1a58695ed34
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598296"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968556"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
 
@@ -169,13 +170,13 @@ ms.locfileid: "91598296"
 
    다음 명령을 실행하여 노드를 인증하고 클러스터를 만듭니다. 메모리 보존 유지 관리를 허용하도록 토큰을 30000으로 설정합니다. 자세한 내용은 [Linux에 대한 관련 문서][virtual-machines-linux-maintenance]를 참조하세요.  
    
-   **RHEL 7.x**에서 클러스터를 빌드하는 경우 다음 명령을 사용 합니다.  
+   **RHEL 7.x** 에서 클러스터를 빌드하는 경우 다음 명령을 사용 합니다.  
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
    </code></pre>
 
-   **RHEL .x**에서 클러스터를 빌드하는 경우 다음 명령을 사용 합니다.  
+   **RHEL .x** 에서 클러스터를 빌드하는 경우 다음 명령을 사용 합니다.  
    <pre><code>sudo pcs host auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> totem token=30000
    sudo pcs cluster start --all
@@ -226,7 +227,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 
 1. [https://editor.swagger.io](<https://portal.azure.com>) 으로 이동합니다.
 1. Azure Active Directory 블레이드 열기  
-   속성으로 이동 하 여 디렉터리 ID를 적어 둡니다. 이 ID는 **테넌트 ID**입니다.
+   속성으로 이동 하 여 디렉터리 ID를 적어 둡니다. 이 ID는 **테넌트 ID** 입니다.
 1. 앱 등록 클릭
 1. 새 등록 클릭
 1. 이름을 입력하고 “이 조직 디렉터리의 계정만” 선택 
@@ -234,7 +235,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
    로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
 1. 인증서 및 암호를 선택한 다음, 새 클라이언트 암호 클릭
 1. 새 키의 설명을 입력하고 “만료되지 않음”을 선택한 다음, 추가 클릭
-1. 노드를 값으로 설정 합니다. 서비스 주체의 **암호**로 사용됨
+1. 노드를 값으로 설정 합니다. 서비스 주체의 **암호** 로 사용됨
 1. 개요를 선택합니다. 응용 프로그램 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 ID**)으로 사용됨
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 펜스 에이전트에 대한 사용자 지정 역할 만들기
@@ -294,13 +295,13 @@ sudo pcs property set stonith-timeout=900
 > [!NOTE]
 > RHEL 호스트 이름 및 Azure 노드 이름이 동일하지 않은 경우에만 ‘pcmk_host_map’ 옵션이 명령에 필요합니다. 명령에서 굵은 섹션을 참조하세요.
 
-**RHEL 4.x의 경우 다음**명령을 사용 하 여 fence 장치를 구성 합니다.    
+**RHEL 4.x의 경우 다음** 명령을 사용 하 여 fence 장치를 구성 합니다.    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 </code></pre>
 
-RHEL **.x**의 경우 다음 명령을 사용 하 여 fence 장치를 구성 합니다.  
+RHEL **.x** 의 경우 다음 명령을 사용 하 여 fence 장치를 구성 합니다.  
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600

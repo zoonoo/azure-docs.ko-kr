@@ -2,18 +2,18 @@
 title: 질문과 대답
 description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/19/2020
 ms.author: dikamath
-ms.openlocfilehash: c9a8b5f9e02cc76789755bf81d309826de1459c5
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 0bc3e0ab5b3017c2d051113a57d79214ffce0836
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920596"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967349"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
-Azure VMware 솔루션에 대 한 자주 묻는 질문에 대 한 대답입니다.
+이 문서에서는 Azure VMware 솔루션에 대 한 자주 묻는 질문에 답변 합니다.
 
 ## <a name="general"></a>일반
 
@@ -33,7 +33,7 @@ Azure VMware 솔루션에 대 한 자주 묻는 질문에 대 한 대답입니�
 
 #### <a name="do-i-use-the-same-tools-that-i-use-now-to-manage-private-cloud-resources"></a>현재 프라이빗 클라우드 리소스를 관리하는 데 사용하는 것과 동일한 도구를 사용하나요?
 
-예. 배포 및 여러 관리 작업에는 Azure Portal을 사용합니다. vSphere 및 NSX-T 리소스 관리에는 vCenter 및 NSX Manager가 사용됩니다.
+예. Azure Portal은 배포 및 여러 관리 작업에 사용 됩니다. vSphere 및 NSX-T 리소스 관리에는 vCenter 및 NSX Manager가 사용됩니다.
 
 #### <a name="can-i-manage-a-private-cloud-with-my-on-premises-vcenter"></a>온-프레미스 vCenter를 사용하여 프라이빗 클라우드를 관리할 수 있나요?
 
@@ -65,7 +65,7 @@ Azure VMware 솔루션은 시작 시 온-프레미스 및 사설 클라우드 �
 예, 설치 된 시스템에서 사설 클라우드 vCenter에 액세스할 수 있고 공용 DNS를 사용 하 여 ESXi 호스트 이름을 확인할 수 있습니다.
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Azure VMware 솔루션 Vm과 함께 VMRC를 설치 하 고 사용 하기 위한 특별 지침이 있나요?
-아니요, [VMware에서 제공](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) 하는 지침을 사용 하 여 해당 지침에 지정 된 VM 필수 구성 요소를 충족 합니다. 
+아니요. [VMware에서 제공](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) 하는 지침을 사용 하 여 해당 지침에 지정 된 VM 필수 조건을 충족 합니다. 
 
 #### <a name="is-vmware-hcx-supported-on-vpns"></a>Vpn에서 VMware HCX가 지원 되나요?
 아니요, 대역폭 및 대기 시간 요구 사항으로 인해 발생 합니다.
@@ -74,7 +74,7 @@ Azure VMware 솔루션은 시작 시 온-프레미스 및 사설 클라우드 �
 Azure는 Azure VMware 솔루션을 인터넷에 노출 하지 않도록 하기 위해 점프 상자에 연결 하는 서비스입니다. Azure 가상 사용자는 azure IaaS 개체가 아니기 때문에 azure 방호를 사용 하 여 azure VMware 솔루션 Vm에 연결할 수 없습니다.
 
 #### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>내부 Azure Load Balancer Azure VMware 솔루션 Vm에 사용할 수 있나요?
-아니요. 내부 Azure Load Balancer는 Azure IaaS Vm만 지원 합니다. Azure Load Balancer는 IP 기반 백 엔드 풀을 지원 하지 않습니다. azure VMware 솔루션 Vm이 azure 개체가 아닌 Azure Vm 또는 가상 머신 확장 집합 개체만.
+아니요. Azure Load Balancer 내부 전용은 Azure IaaS Vm만 지원 합니다. Azure Load Balancer는 IP 기반 백 엔드 풀을 지원 하지 않습니다. azure VMware 솔루션 Vm이 azure 개체가 아닌 Azure Vm 또는 가상 머신 확장 집합 개체만.
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>기존 Express 경로 게이트웨이를 Azure VMware 솔루션에 연결 하는 데 사용할 수 있나요?
 예, 가상 네트워크 당 4 개의 Express 경로 회로 제한을 초과 하지 않는 한 기존 Express 경로 게이트웨이를 사용 하 여 Azure VMware 솔루션에 연결할 수 있습니다.  그러나 ExpressRoute를 통해 온-프레미스에서 Azure VMware Solution에 액세스하려면 ExpressRoute 게이트웨이가 연결된 회로 간에 전이적 라우팅을 제공하지 않으므로 ExpressRoute Global Reach가 있어야 합니다.
@@ -105,7 +105,7 @@ Azure VMware 솔루션의 각 ESXi 호스트는 4 25-Gbps Nic, ESXi 시스템 �
 
 예, 모든 vSAN 데이터는 Azure Key Vault에 저장 된 키를 사용 하 여 기본적으로 암호화 됩니다.
 
-#### <a name="you-document-that-commvault-veritas-and-veeam-have-extended-their-backup-solutions-to-work-with-azure-vmware-solution-what-about-other-independent-software-vendor-isv-backup-solutions"></a>Commvault, Veritas 및 Veeam을 사용 하 여 Azure VMware 솔루션으로 작업 하는 백업 솔루션을 확장 했습니다. 다른 ISV (독립 소프트웨어 공급 업체) 백업 솔루션은 무엇 인가요?
+#### <a name="you-document-that-commvault-veritas-and-veeam-have-extended-their-backup-solutions-to-work-with-azure-vmware-solution-what-about-other-independent-software-vendors-isvs-backup-solutions"></a>Commvault, Veritas 및 Veeam을 사용 하 여 Azure VMware 솔루션으로 작업 하는 백업 솔루션을 확장 했습니다. 다른 Isv (독립 소프트웨어 공급 업체) 백업 솔루션은 무엇 인가요?
 
 앞서 설명한 것 처럼 HotAdd 전송 모드에서 VMware VADP를 사용 하는 모든 백업 솔루션은 Azure VMware 솔루션에서 즉시 작동 해야 합니다.
 
@@ -147,7 +147,7 @@ ESXi 호스트 3~16개 사이에서 클러스터를 스케일링할 수 있습�
 
 #### <a name="what-versions-of-vmware-software-is-used-in-private-clouds"></a>프라이빗 클라우드에 사용되는 VMware 소프트웨어 버전은 무엇인가요?
 
-사설 클라우드는 NSX의 vSphere 6.7, Vsphere 6.7, VMware HCX 및 버전 2.5를 사용 합니다.  
+사설 클라우드는 vSphere 6.7 U3, Vsphere 6.7 U3, VMware HCX 및 NSX 2.5를 사용 합니다.  자세한 내용은 [VMware software version 요구 사항](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html)을 참조 하세요.
 
 #### <a name="do-private-clouds-use-vmware-nsx"></a>프라이빗 클라우드는 VMware NSX를 사용하나요?
 
@@ -163,7 +163,7 @@ ESXi 호스트 3~16개 사이에서 클러스터를 스케일링할 수 있습�
 
 #### <a name="what-is-the-upgrade-and-update-schedule-for-vmware-software-in-a-private-cloud"></a>프라이빗 클라우드에서 VMware 소프트웨어를 업그레이드 및 업데이트하는 일정이 어떻게 되나요?
 
-사설 클라우드 소프트웨어 번들 업그레이드는 VMware에서 최신 소프트웨어 번들 릴리스의 한 버전 내에서 소프트웨어를 유지 하기 위해 수행 됩니다. 사설 클라우드 소프트웨어 버전은 개별 소프트웨어 구성 요소의 최신 버전 (ESXi, NSX, vCenter, vSAN)과 다를 수 있습니다.
+사설 클라우드 소프트웨어 번들 업그레이드는 VMware에서 최신 소프트웨어 번들 릴리스의 한 버전에 있는 소프트웨어를 유지 합니다. 사설 클라우드 소프트웨어 버전은 개별 소프트웨어 구성 요소의 최신 버전 (ESXi, NSX, vCenter, vSAN)과 다를 수 있습니다.
 
 #### <a name="how-often-will-the-private-cloud-software-stack-be-updated"></a>프라이빗 클라우드 소프트웨어 스택은 얼마나 자주 업데이트되나요?
 
@@ -184,7 +184,7 @@ Azure VMware 솔루션 사설 클라우드를 배포 하려면 개인 네트워�
 
 #### <a name="how-do-i-connect-a-workload-vm-to-the-internet-or-an-azure-service-endpoint"></a>워크로드 VM을 인터넷 또는 Azure 서비스 엔드포인트에 연결하려면 어떻게 할까요?
 
-Azure Portal에서 프라이빗 클라우드에 인터넷 연결을 사용하도록 설정합니다. NSX-T 관리자를 사용하여 NSX-T T1 라우터와 논리 스위치를 만듭니다. 그런 다음, vCenter를 사용하여 논리 스위치가 정의한 네트워크 세그먼트에 VM을 배포합니다. 해당 VM은 네트워크를 통해 인터넷 및 Azure 서비스에 액세스할 수 있습니다.
+Azure Portal에서 프라이빗 클라우드에 인터넷 연결을 사용하도록 설정합니다. NSX-T 관리자를 사용하여 NSX-T T1 라우터와 논리 스위치를 만듭니다. 그런 다음, vCenter를 사용하여 논리 스위치가 정의한 네트워크 세그먼트에 VM을 배포합니다. 해당 VM은 인터넷 및 Azure 서비스에 대 한 네트워크 액세스 권한을 가집니다.
 
 #### <a name="do-i-need-to-restrict-access-from-the-internet-to-vms-on-logical-networks-in-a-private-cloud"></a>프라이빗 클라우드의 논리 네트워크에 있는 VM에 대한 인터넷 액세스를 제한해야 하나요?
 
@@ -237,7 +237,7 @@ NSX에 대 한 모든 관리자 권한을 보유 하 고 NSX 데이터 센터 �
 
 Microsoft는 Azure VMware 솔루션에 대 한 지원을 제공 합니다. [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출할 수 있습니다. 
 
-CSP에서 관리 하는 구독의 경우 다른 Azure 서비스에 대 한 CSP와 동일한 방식으로 솔루션 공급자가 첫 번째 수준의 지원을 제공 합니다.
+CSP 관리 구독의 경우 첫 번째 지원 수준에서는 다른 Azure 서비스에 대 한 CSP와 동일한 방식으로 솔루션 공급자를 제공 합니다.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Azure VMware 솔루션 사설 클라우드를 만들려면 어떤 계정이 필요 한가요?
 
@@ -245,11 +245,11 @@ Azure 구독의 Azure 계정이 필요합니다.
 
 #### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Red Hat 솔루션은 Azure VMware 솔루션에서 지원 되나요?
 
-Microsoft 및 Red Hat는 Azure 플랫폼에서 실행 되는 Red Hat 에코 시스템에 대 한 통합 연결 지점을 제공 하는 통합 된 공동 배치 지원 팀을 공유 합니다.  Red Hat Enterprise Linux를 사용 하는 다른 Azure platform 서비스와 마찬가지로, Azure VMware 솔루션은 클라우드 액세스 및 통합 지원에 포함 되며, Red Hat Enterprise Linux azure 내 Azure VMware 솔루션을 기반으로 실행 될 수 있습니다.
+Microsoft 및 Red Hat는 Azure 플랫폼에서 실행 되는 Red Hat 에코 시스템에 대 한 통합 연결 지점을 제공 하는 공동 배치 된 통합 지원 팀을 공유 합니다.  Red Hat Enterprise Linux를 사용 하는 다른 Azure platform 서비스와 마찬가지로 Azure VMware 솔루션은 클라우드 액세스 및 통합 지원 파라솔에 속합니다. Red Hat Enterprise Linux는 Azure 내의 Azure VMware 솔루션을 기반으로 실행 하기 위해 지원 됩니다.
 
 #### <a name="is-vmware-hcx-enterprise-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise를 사용할 수 있으며, 그렇다면 비용은 얼마나 되나요?
 
-VMware HCX Enterprise는 *미리 보기* 기능/서비스로 Azure vmware 솔루션에서 사용할 수 있습니다. Azure VMware 솔루션에 대 한 VMware HCX Enterprise는 미리 보기 상태 이며, 무료 기능/서비스 이며 미리 보기 서비스 사용 약관에 적용 됩니다. VMware HCX Enterprise 서비스가 GA로 전환 되 면 요금이 청구 되는 30 일 알림이 표시 됩니다. 전환 하거나 서비스를 옵트아웃 (opt out) 할 수 있습니다.
+VMware HCX Enterprise는 *미리 보기* 기능/서비스로 Azure vmware 솔루션에서 사용할 수 있습니다. Azure VMware 솔루션에 대 한 VMware HCX Enterprise는 미리 보기 상태 이며, 무료 기능/서비스 이며 미리 보기 서비스 사용 약관에 적용 됩니다. VMware HCX Enterprise 서비스가 GA로 전환 되 면 요금이 청구 되는 30 일 알림이 표시 됩니다. 서비스를 끄거나 옵트아웃 (opt out) 할 수 있습니다.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 호스트 할당량 증가를 요청 어떻게 할까요??
 
@@ -260,7 +260,7 @@ EA 구독의 경우 다음 절차를 사용 합니다. 먼저 다음이 필요 �
 * Microsoft를 사용 하는 [Azure 기업계약 (EA)](../cost-management-billing/manage/ea-portal-agreements.md) .
 * Azure 구독의 Azure 계정.
 
-Azure VMware 솔루션 리소스를 만들기 전에 노드가 할당 되도록 지원 티켓을 제출 합니다. 요청을 확인 하 고 노드를 할당 하는 데 최대 5 영업일까지 소요 됩니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 노드를 할당하려는 경우에도 동일한 프로세스를 진행합니다.
+Azure VMware 솔루션 리소스를 만들기 전에 호스트를 할당 하도록 지원 티켓을 제출 합니다. 요청을 확인 하 고 충족 하는 데 최대 5 영업일까지 소요 됩니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 호스트를 할당하려는 경우에도 동일한 프로세스를 진행합니다.
 
 1. Azure Portal의 **도움말 + 지원** 에서 **[새 지원 요청](https://rc.portal.azure.com/#create/Microsoft.Support)** 을 만들고 티켓에 대 한 다음 정보를 제공 합니다.
    - **문제 유형:** 기술
@@ -275,46 +275,47 @@ Azure VMware 솔루션 리소스를 만들기 전에 노드가 할당 되도록 
 
    - POC 또는 프로덕션 
    - 지역 이름
-   - 노드 수
+   - 호스트 수
    - 기타 세부 정보
 
    >[!NOTE]
-   >Azure VMware 솔루션은 사설 클라우드를 실행 하 고 중복성 N + 1 노드에 대해 최소 3 개의 노드를 권장 합니다. 
+   >Azure VMware 솔루션은 사설 클라우드를 실행 하 고 중복성 N + 1 호스트에 대해 최소 세 개의 호스트를 권장 합니다. 
 
 1. **검토 + 만들기** 를 선택 하 여 요청을 제출 합니다.
 
    지원 담당자가 요청을 확인 하는 데 최대 5 영업일 소요 됩니다.
 
    >[!IMPORTANT] 
-   >기존 Azure VMware 솔루션이 이미 있고 추가 노드를 요청 하는 경우 5 영업일 이내에 노드를 할당 해야 합니다. 
+   >기존 Azure VMware 솔루션이 이미 있고 추가 호스트를 요청 하는 경우 호스트를 할당 하는 데 영업일 5 일이 필요 합니다. 
 
-1. 노드를 프로 비전 하기 전에 Azure Portal에서 **MICROSOFT AVS** 리소스 공급자를 등록 했는지 확인 합니다.  
+1. 호스트를 프로 비전 하기 전에 Azure Portal에서 **MICROSOFT AVS** 리소스 공급자를 등록 했는지 확인 합니다.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
+   ```
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
+   리소스 공급자를 등록하는 추가 방법은 [리소스 공급자 및 유형](../azure-resource-manager/management/resource-providers-and-types.md)을 참조하세요. 
 
-#### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
+#### <a name="are-reserved-instances-available-for-purchasing-through-the-cloud-solution-provider-csp-program"></a>CSP (클라우드 솔루션 공급자) 프로그램을 통해 구매할 수 있는 예약 된 인스턴스 인가요?
 
-Yes. CSP can purchase reserved instances for their customers. For more information, see the [Save costs with a reserved instance](reserved-instance.md) article. 
+예. CSP는 고객에 대 한 예약 인스턴스를 구입할 수 있습니다. 자세한 내용은 [예약 된 인스턴스를 사용 하 여 비용](reserved-instance.md) 절감 문서를 참조 하세요. 
 
-#### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
+#### <a name="does-azure-vmware-solution-offer-multi-tenancy-for-hosting-csp-partners"></a>Azure VMware 솔루션은 CSP 파트너 호스팅을 위한 다중 테 넌 트를 제공 하나요?
 
-No. Currently Azure VMware Solution doesn't offer multi-tenancy.
+아니요. 현재 Azure VMware 솔루션은 다중 테 넌 트를 제공 하지 않습니다.
 
-#### Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
+#### <a name="will-traffic-between-on-premises-and-azure-vmware-solution-over-expressroute-incur-any-outbound-data-transfer-charge-in-the-metered-data-plan"></a>Express 경로를 통해 온-프레미스와 Azure VMware 솔루션 간의 트래픽이 요금제 데이터 요금제의 아웃 바운드 데이터 전송 요금을 초래 하나요?
 
-Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
+Azure VMware 솔루션 Express 경로 회로의 트래픽은 어떤 방식으로든 측정 되지 않습니다. Azure에 온-프레미스에 연결 하는 Express 경로 회로의 트래픽은 Express 경로 요금제에 따라 요금이 청구 됩니다.
 
 
-## Customer communication
+## <a name="customer-communication"></a>고객 통신
 
-#### How can I receive an alert when Azure sends service health notifications to my Azure subscription?
+#### <a name="how-can-i-receive-an-alert-when-azure-sends-service-health-notifications-to-my-azure-subscription"></a>Azure 구독에 서비스 상태 알림을 보낼 때 경고를 받으려면 어떻게 해야 하나요?
 
-Service issues, planned maintenance, health advisories, security advisories notifications are published through **Service Health** in the Azure portal.  You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
+서비스 문제, 계획 된 유지 관리, 상태 권고, 보안 권고 알림은 Azure Portal **Service Health** 을 통해 게시 됩니다.  이러한 알림에 대해 활동 로그 경고를 설정할 때 시기 적절 한 조치를 취할 수 있습니다. 자세한 내용은 [Azure Portal를 사용 하 여 서비스 상태 경고 만들기](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal)를 참조 하세요.
 
-:::image type="content" source="media/service-health.png" alt-text="Screenshot of Service Health notifications":::
+:::image type="content" source="media/service-health.png" alt-text="Service Health 알림 스크린샷":::
 
 
 

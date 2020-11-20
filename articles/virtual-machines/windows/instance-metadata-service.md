@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 49840c2591bc1a991920b00aec020d4f652c9a50
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1de04a9486103af65deb6ca3b653b9efa6707716
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168395"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967077"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -47,7 +47,7 @@ IMDS를 쿼리하는 방법에 대한 추가 예제는 [Azure 인스턴스 메�
 **요청**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01 | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-09-01 | ConvertTo-Json
 ```
 > [!NOTE]
 > `-NoProxy`플래그는 PowerShell 6 이상 에서만 사용할 수 있습니다. 프록시 설정이 없는 경우 플래그를 생략할 수 있습니다.
@@ -62,9 +62,15 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
     "compute": {
         "azEnvironment": "AZUREPUBLICCLOUD",
         "isHostCompatibilityLayerVm": "true",
+        "licenseType":  "Windows_Client",
         "location": "westus",
         "name": "examplevmname",
         "offer": "Windows",
+        "osProfile": {
+            "adminUsername": "admin",
+            "computerName": "examplevmname",
+            "disablePasswordAuthentication": "true"
+        },
         "osType": "linux",
         "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
         "plan": {
@@ -85,7 +91,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
         ],
         "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
         "resourceGroupName": "macikgo-test-may-23",
-        "resourceId": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+        "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
         "securityProfile": {
             "secureBootEnabled": "true",
             "virtualTpmEnabled": "false"
@@ -101,7 +107,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
                 },
                 "lun": "0",
                 "managedDisk": {
-                    "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
                     "storageAccountType": "Standard_LRS"
                 },
                 "name": "exampledatadiskname",
@@ -131,7 +137,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
                     "uri": ""
                 },
                 "managedDisk": {
-                    "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
                     "storageAccountType": "Standard_LRS"
                 },
                 "name": "exampleosdiskname",
@@ -142,13 +148,32 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
                 "writeAcceleratorEnabled": "false"
             }
         },
-        "subscriptionId": "8d10da13-8125-4ba9-a717-bf7490507b3d",
+        "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
         "tags": "baz:bash;foo:bar",
         "version": "15.05.22",
         "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
         "vmScaleSetName": "crpteste9vflji9",
         "vmSize": "Standard_A3",
         "zone": ""
+    },
+    "network": {
+        "interface": [{
+            "ipv4": {
+               "ipAddress": [{
+                    "privateIpAddress": "10.144.133.132",
+                    "publicIpAddress": ""
+                }],
+                "subnet": [{
+                    "address": "10.144.133.128",
+                    "prefix": "26"
+                }]
+            },
+            "ipv6": {
+                "ipAddress": [
+                 ]
+            },
+            "macAddress": "0011AAFFBB22"
+        }]
     }
 }
 ```
@@ -197,8 +222,12 @@ Instance Metadata Service는 버전이 관리되며 HTTP 요청에 API 버전을
 - 2019-08-15
 - 2019-11-01
 - 2020-06-01
+- 2020-07-15
+- 2020-09-01
+- 2020-10-01
 
-새 버전이 출시되면 모든 지역으로 롤아웃하는 데 다소 시간이 소요됩니다.
+> [!NOTE]
+> 버전 2020-10-01은 현재 롤아웃 중 이며, 일부 지역에서는 아직 사용할 수 없습니다.
 
 새로운 버전이 추가되더라도 스크립트가 특정 데이터 형식에 종속성이 있는 경우 이전 버전에 여전히 액세스할 수 있습니다.
 
@@ -219,9 +248,9 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 {
     "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
     "newest-versions": [
-        "2018-10-01",
-        "2018-04-02",
-        "2018-02-01"
+        "2020-10-01",
+        "2020-09-01",
+        "2020-07-15"
     ]
 }
 ```
@@ -246,9 +275,13 @@ API | Description | 도입된 버전
 azEnvironment | VM이 실행되는 Azure 환경 | 2018-10-01
 customData | 이 기능은 현재 사용할 수 없습니다. 이 설명서를 사용할 수 있게 되 면 업데이트 합니다. | 2019-02-01
 isHostCompatibilityLayerVm | VM이 호스트 호환성 계층에서 실행 되는지 확인 합니다. | 2020-06-01
+licenseType | [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit)라이선스의 유형입니다. 이는 AHB 사용 Vm에 대해서만 존재 합니다. | 2020-09-01
 위치 | VM을 실행하는 Azure 지역 | 2017-04-02
 name | VM의 이름 | 2017-04-02
 제품 | VM 이미지에 대한 제품 정보이며 Azure 이미지 갤러리에서 배포된 이미지에만 있습니다. | 2017-04-02
+osProfile.adminUsername | 관리자 계정의 이름을 지정 합니다. | 2020-07-15
+osProfile | 컴퓨터의 이름을 지정 합니다. | 2020-07-15
+osProfile. disablePasswordAuthentication | 암호 인증을 사용할 수 없는지 여부를 지정합니다. Linux Vm에만 존재 합니다. | 2020-10-01
 osType | Linux 또는or Windows | 2017-04-02
 placementGroupId | 가상 머신 확장 집합의 [배치 그룹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
 계획 | Azure Marketplace 이미지에 해당하는 VM의 이름, 제품 및 게시자를 포함하는 [계획](/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
@@ -313,7 +346,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 **요청**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01
 ```
 
 **응답**
@@ -323,86 +356,101 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 ```json
 {
-    "azEnvironment": "AzurePublicCloud",
-    "customData": "",
-    "location": "centralus",
-    "name": "negasonic",
-    "offer": "lampstack",
-    "osType": "Linux",
-    "placementGroupId": "",
-    "plan": {
-        "name": "5-6",
-        "product": "lampstack",
-        "publisher": "bitnami"
+    "azEnvironment": "AZUREPUBLICCLOUD",
+    "isHostCompatibilityLayerVm": "true",
+    "licenseType":  "Windows_Client",
+    "location": "westus",
+    "name": "examplevmname",
+    "offer": "Windows",
+    "osProfile": {
+        "adminUsername": "admin",
+        "computerName": "examplevmname",
+        "disablePasswordAuthentication": "true"
     },
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
-    "provider": "Microsoft.Compute",
-    "publicKeys": [],
-    "publisher": "bitnami",
-    "resourceGroupName": "myrg",
-    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "5-6",
+    "osType": "linux",
+    "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+    "plan": {
+        "name": "planName",
+        "product": "planProduct",
+        "publisher": "planPublisher"
+    },
+    "platformFaultDomain": "36",
+    "platformUpdateDomain": "42",
+    "publicKeys": [{
+            "keyData": "ssh-rsa 0",
+            "path": "/home/user/.ssh/authorized_keys0"
+        },
+        {
+            "keyData": "ssh-rsa 1",
+            "path": "/home/user/.ssh/authorized_keys1"
+        }
+    ],
+    "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+    "resourceGroupName": "macikgo-test-may-23",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+    "securityProfile": {
+        "secureBootEnabled": "true",
+        "virtualTpmEnabled": "false"
+    },
+    "sku": "Windows-Server-2012-R2-Datacenter",
     "storageProfile": {
-        "dataDisks": [
-          {
+        "dataDisks": [{
             "caching": "None",
             "createOption": "Empty",
             "diskSizeGB": "1024",
             "image": {
-              "uri": ""
+                "uri": ""
             },
             "lun": "0",
             "managedDisk": {
-              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                "storageAccountType": "Standard_LRS"
             },
             "name": "exampledatadiskname",
             "vhd": {
-              "uri": ""
+                "uri": ""
             },
             "writeAcceleratorEnabled": "false"
-          }
-        ],
+        }],
         "imageReference": {
-          "id": "",
-          "offer": "UbuntuServer",
-          "publisher": "Canonical",
-          "sku": "16.04.0-LTS",
-          "version": "latest"
+            "id": "",
+            "offer": "UbuntuServer",
+            "publisher": "Canonical",
+            "sku": "16.04.0-LTS",
+            "version": "latest"
         },
         "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage",
-          "diskSizeGB": "30",
-          "diffDiskSettings": {
-            "option": "Local"
-          },
-          "encryptionSettings": {
-            "enabled": "false"
-          },
-          "image": {
-            "uri": ""
-          },
-          "managedDisk": {
-            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-            "storageAccountType": "Standard_LRS"
-          },
-          "name": "exampleosdiskname",
-          "osType": "Linux",
-          "vhd": {
-            "uri": ""
-          },
-          "writeAcceleratorEnabled": "false"
+            "caching": "ReadWrite",
+            "createOption": "FromImage",
+            "diskSizeGB": "30",
+            "diffDiskSettings": {
+                "option": "Local"
+            },
+            "encryptionSettings": {
+                "enabled": "false"
+            },
+            "image": {
+                "uri": ""
+            },
+            "managedDisk": {
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampleosdiskname",
+            "osType": "Linux",
+            "vhd": {
+                "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
         }
     },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "Department:IT;Environment:Test;Role:WebRole",
-    "version": "7.1.1902271506",
-    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmScaleSetName": "",
-    "vmSize": "Standard_A1_v2",
-    "zone": "1"
+    "tags": "baz:bash;foo:bar",
+    "version": "15.05.22",
+    "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+    "vmScaleSetName": "crpteste9vflji9",
+    "vmSize": "Standard_A3",
+    "zone": ""
 }
 ```
 
@@ -690,15 +738,16 @@ nonce는 선택적 10자리 문자열입니다. 이를 제공하지 않을 경�
 서명 Blob은 [pkcs7](https://aka.ms/pkcs7)으로 서명된 버전의 문서입니다. 여기에는 특정 VM 관련 세부 정보와 함께 서명에 사용 되는 인증서가 포함 됩니다. ARM Vm의 경우 여기에는 vmId, sku, nonce, subscriptionId, 문서를 만들고 만료 하기 위한 타임 스탬프 및 이미지에 대 한 계획 정보가 포함 됩니다. 요금제 정보는 Azure Marketplace 이미지에 대해서만 채워집니다. 클래식 (ARM이 아닌) Vm의 경우 vmId만 채워집니다. 응답에서 추출한 인증서를 사용하여 응답이 유효하고 Azure에서 제공되는지 확인할 수 있습니다.
 문서에는 다음 필드가 포함 되어 있습니다.
 
-데이터 | Description
------|------------
-nonce | 요청에 선택적으로 제공할 수 있는 문자열입니다. Nonce를 제공 하지 않으면 현재 UTC 타임 스탬프가 사용 됩니다.
-계획 | [Azure Marketplace 이미지 계획](/rest/api/compute/virtualmachines/createorupdate#plan)입니다. 계획 id (이름), 제품 이미지 또는 제품 (제품) 및 게시자 id (게시자)를 포함 합니다.
-타임스탬프/createdOn | 서명 된 문서를 만든 시간에 대 한 UTC 타임 스탬프입니다.
-timestamp/expiresOn | 서명 된 문서가 만료 되는 시간에 대 한 UTC 타임 스탬프입니다.
-vmId |  VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)
-subscriptionId | `2019-04-30`에 도입된 Virtual Machine에 대한 Azure 구독
-sku | `2019-11-01`에 도입된 VM 이미지에 해당하는 SKU
+데이터 | Description | 도입된 버전
+-----|-------------|-----------------------
+licenseType | [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit)라이선스의 유형입니다. 이는 AHB 사용 Vm에 대해서만 존재 합니다. | 2020-09-01
+nonce | 요청에 선택적으로 제공할 수 있는 문자열입니다. Nonce를 제공 하지 않으면 현재 UTC 타임 스탬프가 사용 됩니다. | 2018-10-01
+계획 | [Azure Marketplace 이미지 계획](/rest/api/compute/virtualmachines/createorupdate#plan)입니다. 계획 ID (이름), 제품 이미지 또는 제품 (제품) 및 게시자 ID (게시자)를 포함 합니다. | 2018-10-01
+타임스탬프/createdOn | 서명 된 문서를 만든 시간에 대 한 UTC 타임 스탬프입니다. | 2018-20-01
+timestamp/expiresOn | 서명 된 문서가 만료 되는 시간에 대 한 UTC 타임 스탬프입니다. | 2018-10-01
+vmId |  VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2018-10-01
+subscriptionId | Virtual Machine에 대한 Azure 구독 | 2019-04-30
+sku | VM 이미지에 해당하는 SKU | 2019-11-01
 
 > [!NOTE]
 > 클래식 (ARM이 아닌) Vm의 경우 vmId만 채워집니다.
@@ -709,7 +758,7 @@ Marketplace 공급업체는 해당 소프트웨어가 Azure에서만 실행되�
 
 ```powershell
 # Get the signature
-$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2019-04-30
+$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
 # Decode the signature
 $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 ```
@@ -856,7 +905,7 @@ HTTP 상태 코드 | 이유
 1. `400 Bad Request, Required metadata header not specified` 오류가 발생했습니다. 무슨 의미인가요?
    * Instance Metadata Service에서는 `Metadata: true` 헤더를 요청에 포함시켜 전달해야 합니다. REST 호출에서 이 헤더를 전달하면 Instance Metadata Service에 액세스가 허용됩니다.
 1. VM에 대한 컴퓨팅 정보를 구할 수 없는 이유가 무엇인가요?
-   * 현재 Instance Metadata Service는 Azure Resource Manager를 사용하여 만든 인스턴스만 지원합니다. 나중에 클라우드 서비스 VM에 대한 지원을 추가할 수 있습니다.
+   * 현재 Instance Metadata Service는 Azure Resource Manager를 사용하여 만든 인스턴스만 지원합니다.
 1. 잠시 전에 Azure Resource Manager를 통해 내 Virtual Machine을 만들었습니다. 컴퓨팅 메타데이터 정보가 왜 표시되지 않나요?
    * 2016년 9월 이후에 생성된 VM의 경우 컴퓨팅 메타데이터를 표시하려면 [태그](../../azure-resource-manager/management/tag-resources.md)를 추가하세요. 이전 Vm (9 월 2016 일 이전에 만들어짐)의 경우 VM 인스턴스에 확장 또는 데이터 디스크를 추가/제거 하 여 메타 데이터를 새로 고칩니다.
 1. 새 버전용으로 채워진 데이터 중 일부만 표시됩니다.
@@ -904,7 +953,7 @@ HTTP 상태 코드 | 이유
                Subnet Mask . . . . . . . . . . . : 255.255.255.0
             ... (continues) ...
             ```
-        1. 인터페이스가 VM의 기본 NIC 및 기본 IP에 해당 하는지 확인 합니다. Azure Portal의 네트워크 구성 또는 [Azure CLI](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show)를 조회 하 여 기본 NIC/IP를 찾을 수 있습니다. 공용 및 개인 Ip (및 cli를 사용 하는 경우 MAC 주소)를 확인 합니다. PowerShell CLI 예제:
+        1. 인터페이스가 VM의 기본 NIC 및 기본 IP에 해당 하는지 확인 합니다. Azure Portal에서 네트워크 구성을 확인 하거나 [Azure CLI](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show)를 조회 하 여 기본 NIC/IP를 찾을 수 있습니다. 공용 및 개인 Ip (및 CLI를 사용 하는 경우 MAC 주소)를 확인 합니다. PowerShell CLI 예제:
             ```powershell
             $ResourceGroup = '<Resource_Group>'
             $VmName = '<VM_Name>'

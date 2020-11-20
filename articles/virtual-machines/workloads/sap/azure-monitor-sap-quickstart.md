@@ -5,14 +5,15 @@ author: sameeksha91
 ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 4b0e54c434f68a8a26f49b6ba0c1010e93d36ad6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c3b3848e4e4f7b0445f882265dbe66bb10b48833
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739892"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968590"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Azure Portal를 사용 하 여 SAP 솔루션에 대 한 Azure Monitor 배포
 
@@ -30,7 +31,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 2. **기본 사항** 탭에서 필요한 값을 입력 합니다. 해당 하는 경우 기존 Log Analytics 작업 영역을 사용할 수 있습니다.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="이미지는 Azure Marketplace에서 SAP 솔루션 제품에 대 한 Azure Monitor를 선택 하는 방법을 보여 줍니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Azure Portal 구성 옵션을 표시 합니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
 
 3. 가상 네트워크를 선택 하는 경우 해당 VNET 내에서 모니터링할 시스템에 연결할 수 있는지 확인 합니다. 
 
@@ -43,7 +44,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 1. 구성 하려는 공급자를 추가 하려면 **공급자** 탭을 선택 합니다. 다른 공급자를 하나씩 추가 하거나 모니터링 리소스를 배포한 후에 추가할 수 있습니다. 
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="이미지는 Azure Marketplace에서 SAP 솔루션 제품에 대 한 Azure Monitor를 선택 하는 방법을 보여 줍니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="SAP 솔루션에 대 한 Azure Monitor 공급자를 추가 하는 공급자 탭을 표시 합니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
 
 2. **공급자 추가** 를 선택 하 고 드롭다운에서 **SAP HANA** 를 선택 합니다. 
 
@@ -60,7 +61,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 7. 완료 되 면 **공급자 추가** 를 선택 합니다. 필요에 따라 추가 공급자를 계속 추가 하거나 **검토 + 만들기** 를 선택 하 여 배포를 완료 합니다.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="이미지는 Azure Marketplace에서 SAP 솔루션 제품에 대 한 Azure Monitor를 선택 하는 방법을 보여 줍니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="공급자 정보를 추가할 때의 구성 옵션 이미지입니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
 ### <a name="high-availability-cluster-pacemaker-provider"></a>고가용성 클러스터 (Pacemaker) 공급자
 
@@ -75,7 +76,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 4. 완료 되 면 **공급자 추가** 를 선택 합니다. 필요에 따라 추가 공급자를 계속 추가 하거나 **검토 + 만들기** 를 선택 하 여 배포를 완료 합니다.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="이미지는 Azure Marketplace에서 SAP 솔루션 제품에 대 한 Azure Monitor를 선택 하는 방법을 보여 줍니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="이미지 HA 클러스터 Pacemaker 공급자와 관련 된 옵션을 표시 합니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
 
 
 ### <a name="microsoft-sql-server-provider"></a>Microsoft SQL Server 공급자
@@ -113,7 +114,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 4. 완료 되 면 **공급자 추가** 를 선택 합니다. 필요에 따라 추가 공급자를 계속 추가 하거나 **검토 + 만들기** 를 선택 하 여 배포를 완료 합니다.
 
-     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="이미지는 Azure Marketplace에서 SAP 솔루션 제품에 대 한 Azure Monitor를 선택 하는 방법을 보여 줍니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
+     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="이미지 Microsoft SQL Server 공급자를 추가 하는 것과 관련 된 정보를 표시 합니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

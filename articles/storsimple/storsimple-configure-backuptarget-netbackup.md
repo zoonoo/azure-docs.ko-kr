@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: 23afa82ffda5341242c01cbe024fb71f482345d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f71cf82b675222836a73eec12d68bd8f62a5538
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710926"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967281"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>NetBackup에서 백업 대상으로 StorSimple 구성
 
@@ -79,7 +79,7 @@ StorSimple은 다음과 같은 이점을 제공합니다.
 
 StorSimple은 기본 백업 대상과 보조 백업 대상이라는 두 가지 주요 배포 시나리오를 제공하지만 기본적으로는 일반 블록 스토리지 디바이스입니다. StorSimple은 모든 압축 및 중복 제거를 수행합니다. 클라우드와 애플리케이션 및 파일 시스템 간에 데이터를 원활하게 전송하고 검색합니다.
 
-StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브리드 클라우드 스토리지 솔루션](storsimple-overview.md)을 참조하세요. 또한 [StorSimple 8000 시리즈 기술 사양](storsimple-technical-specifications-and-compliance.md)도 검토할 수 있습니다.
+StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브리드 클라우드 스토리지 솔루션](storsimple-overview.md)을 참조하세요. 또한 [StorSimple 8000 시리즈 기술 사양](./storsimple-8000-technical-specifications-and-compliance.md)도 검토할 수 있습니다.
 
 > [!IMPORTANT]
 > StorSimple 디바이스를 백업 대상으로 사용하는 것은 StorSimple 8000 업데이트 3 이상 버전에서만 지원됩니다.
@@ -102,7 +102,7 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 | Backup 시나리오  | 로컬 스토리지 용량  | 클라우드 스토리지 용량  |
 |---|---|---|
 | 기본 백업  | RPO(복구 지점 목표)를 충족하기 위해 빠른 복구용 로컬 스토리지에 최근 백업 저장 | 클라우드 용량에 적합한 Backup 기록(RPO) |
-| 보조 백업 | 클라우드 용량에 백업 데이터의 보조 복사본을 저장할 수 있습니다.  | N/A  |
+| 보조 백업 | 클라우드 용량에 백업 데이터의 보조 복사본을 저장할 수 있습니다.  | 해당 없음  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>기본 백업 대상인 StorSimple
 
@@ -170,7 +170,7 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
 ### <a name="deploy-storsimple"></a>StorSimple 배포
 
-단계별 StorSimple 배포 지침은 [온-프레미스 StorSimple 디바이스 배포](storsimple-deployment-walkthrough-u2.md)를 참조하세요.
+단계별 StorSimple 배포 지침은 [온-프레미스 StorSimple 디바이스 배포](./storsimple-8000-deployment-walkthrough-u2.md)를 참조하세요.
 
 ### <a name="deploy-netbackup"></a>NetBackup 배포
 
@@ -185,7 +185,7 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 | StorSimple 배포 작업  | 추가 설명 |
 |---|---|
 | 온-프레미스 StorSimple 디바이스를 배포합니다. | 지원되는 버전: 업데이트 3 이상 버전 |
-| 백업 대상을 켭니다. | 다음 명령을 사용하여 백업 대상 모드를 설정하거나 해제하고 상태를 가져옵니다. 자세한 내용은 [StorSimple 디바이스에 원격으로 연결](storsimple-remote-connect.md)을 참조하세요.</br> 백업 모드 설정: `Set-HCSBackupApplianceMode -enable` </br> 백업 모드 해제: `Set-HCSBackupApplianceMode -disable` </br> 백업 모드 설정의 현재 상태 가져오기: `Get-HCSBackupApplianceMode` |
+| 백업 대상을 켭니다. | 다음 명령을 사용하여 백업 대상 모드를 설정하거나 해제하고 상태를 가져옵니다. 자세한 내용은 [StorSimple 디바이스에 원격으로 연결](./storsimple-8000-remote-connect.md)을 참조하세요.</br> 백업 모드 설정: `Set-HCSBackupApplianceMode -enable` </br> 백업 모드 해제: `Set-HCSBackupApplianceMode -disable` </br> 백업 모드 설정의 현재 상태 가져오기: `Get-HCSBackupApplianceMode` |
 | 백업 데이터를 저장하는 볼륨에 대한 일반적인 볼륨 컨테이너를 만듭니다. 볼륨 컨테이너에 있는 모든 데이터의 중복을 제거합니다. | StorSimple 볼륨 컨테이너는 중복 제거 도메인을 정의합니다.  |
 | StorSimple 볼륨을 만듭니다. | 볼륨 크기가 클라우드 스냅샷 기간에 영향을 주기 때문에 가능하면 예상되는 사용량에 가까운 크기로 볼륨을 만듭니다. 볼륨 크기를 조정하는 방법에 대한 내용은 [보존 정책](#retention-policies)을 참조하세요.</br> </br> 계층화된 StorSimple 볼륨을 사용하고 **자주 액세스하지 않는 보관 데이터에 이 볼륨 사용** 확인란을 선택합니다. </br> 로컬로 고정된 볼륨만 사용하는 것은 지원되지 않습니다. |
 | 모든 백업 대상 볼륨에 대한 고유한 StorSimple 백업 정책을 만듭니다. | StorSimple 백업 정책은 볼륨 일관성 그룹을 정의합니다. |
@@ -212,16 +212,16 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 - StorSimple 볼륨에 Windows Server 조각 모음을 사용하지 않도록 설정합니다.
 - StorSimple 볼륨에 Windows Server 인덱싱을 사용하지 않도록 설정합니다.
 - StorSimple 볼륨에서가 아니라 원본 호스트에서 바이러스 백신 검사를 실행합니다.
-- [작업 관리자]에서 기본 [Windows Server 유지 관리](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx)를 해제합니다. 다음 방법 중 하나로 이 작업을 수행합니다.
+- [작업 관리자]에서 기본 [Windows Server 유지 관리](/windows/win32/w8cookbook/automatic-maintenance)를 해제합니다. 다음 방법 중 하나로 이 작업을 수행합니다.
   - [Windows 작업 Scheduler]에서 [유지 관리 구성 도구]를 해제합니다.
-  - Windows Sysinternals에서 [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx)을 다운로드합니다. PsExec을 다운로드한 후 관리자 권한으로 Windows PowerShell을 실행하고 다음을 입력합니다.
+  - Windows Sysinternals에서 [PsExec](/sysinternals/downloads/psexec)을 다운로드합니다. PsExec을 다운로드한 후 관리자 권한으로 Windows PowerShell을 실행하고 다음을 입력합니다.
     ```powershell
     psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
     ```
 
 ### <a name="storsimple-best-practices"></a>StorSimple 모범 사례
 
--   StorSimple 디바이스가 [업데이트 3 이상](storsimple-install-update-3.md)으로 업데이트되었는지 확인합니다.
+-   StorSimple 디바이스가 [업데이트 3 이상](./index.yml)으로 업데이트되었는지 확인합니다.
 -   iSCSI 및 클라우드 트래픽을 격리합니다. StorSimple과 백업 서버 간의 트래픽에 전용 iSCSI 연결을 사용합니다.
 -   StorSimple 디바이스가 전용 백업 대상인지 확인합니다. 혼합 워크로드는 RTO 및 RPO에 영향을 주기 때문에 지원하지 않습니다.
 
@@ -265,11 +265,11 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
 ### <a name="to-set-up-netbackup-storage"></a>NetBackup 스토리지를 설정하려면
 
-1.  Netbackup 관리 콘솔에서 **미디어 및 장치 관리**  >  **장치**  >  **디스크 풀**을 선택 합니다. [디스크 풀 구성 마법사]에서 **AdvancedDisk** 스토리지 서버 유형을 선택한 후 **다음**을 선택합니다.
+1.  Netbackup 관리 콘솔에서 **미디어 및 장치 관리**  >  **장치**  >  **디스크 풀** 을 선택 합니다. [디스크 풀 구성 마법사]에서 **AdvancedDisk** 스토리지 서버 유형을 선택한 후 **다음** 을 선택합니다.
 
     ![NetBackup 관리 콘솔 - 디스크 풀 구성 마법사](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
-2.  서버를 선택한 후 **다음**을 선택합니다.
+2.  서버를 선택한 후 **다음** 을 선택합니다.
 
     ![NetBackup 관리 콘솔 - 서버 선택](./media/storsimple-configure-backup-target-using-netbackup/nbimage2.png)
 
@@ -277,9 +277,9 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
     ![[NetBackup 관리 콘솔]에서 StorSimple 볼륨 디스크를 선택합니다.](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
 
-4.  백업 대상의 이름을 입력 하 **고 다음**  >  을 선택 하**여** 마법사를 완료 합니다.
+4.  백업 대상의 이름을 입력 하 **고 다음**  >  을 선택 하 **여** 마법사를 완료 합니다.
 
-5.  설정을 검토한 다음 **마침**을 선택합니다.
+5.  설정을 검토한 다음 **마침** 을 선택합니다.
 
 6.  각 볼륨 할당의 끝에서 [StorSimple 및 NetBackup에 대한 모범 사례](#best-practices-for-storsimple-and-netbackup)에서 권장하는 설정과 일치하도록 스토리지 디바이스 설정을 변경합니다.
 
@@ -312,23 +312,23 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-backup-job"></a>NetBackup 백업 작업에 StorSimple 볼륨을 할당하려면
 
-1. [NetBackup 관리 콘솔]에서 **NetBackup 관리**를 선택하고 **정책**을 마우스 오른쪽 단추로 클릭한 다음 **새 정책**을 선택합니다.
+1. [NetBackup 관리 콘솔]에서 **NetBackup 관리** 를 선택하고 **정책** 을 마우스 오른쪽 단추로 클릭한 다음 **새 정책** 을 선택합니다.
 
    ![NetBackup 관리 콘솔 - 새 정책 만들기](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
 
-2. **새 정책 추가** 대화 상자에서 정책 이름을 입력한 다음 **정책 구성 마법사 사용** 확인란을 선택합니다. **확인**을 선택합니다.
+2. **새 정책 추가** 대화 상자에서 정책 이름을 입력한 다음 **정책 구성 마법사 사용** 확인란을 선택합니다. **확인** 을 선택합니다.
 
    ![NetBackup 관리 콘솔 - 새 정책 추가 대화 상자](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
 
-3. [Backup 정책 구성 마법사]에서 원하는 백업 유형을 선택한 후 **다음**을 선택합니다.
+3. [Backup 정책 구성 마법사]에서 원하는 백업 유형을 선택한 후 **다음** 을 선택합니다.
 
    ![NetBackup 관리 콘솔 - 백업 유형 선택](./media/storsimple-configure-backup-target-using-netbackup/nbimage8.png)
 
-4. 정책 유형을 설정하려면 **표준**을 선택한 후 **다음**을 선택합니다.
+4. 정책 유형을 설정하려면 **표준** 을 선택한 후 **다음** 을 선택합니다.
 
    ![NetBackup 관리 콘솔 - 정책 유형 선택](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5. 호스트를 선택하고 **클라이언트 운영 체제 검색** 확인란을 선택한 다음 **추가**를 선택합니다. **다음**을 선택합니다.
+5. 호스트를 선택하고 **클라이언트 운영 체제 검색** 확인란을 선택한 다음 **추가** 를 선택합니다. **다음** 을 선택합니다.
 
    ![NetBackup 관리 콘솔 - 새 정책에 클라이언트 나열](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
@@ -340,17 +340,17 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
    ![NetBackup 관리 콘솔 - 새 정책의 백업 빈도 및 회전](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8. **다음**  >  **다음**  >  **마침**을 선택 합니다.  정책을 만든 후에는 일정을 수정할 수 있습니다.
+8. **다음**  >  **다음**  >  **마침** 을 선택 합니다.  정책을 만든 후에는 일정을 수정할 수 있습니다.
 
-9. 방금 만든 정책을 선택하여 확장한 다음 **일정**을 선택합니다.
+9. 방금 만든 정책을 선택하여 확장한 다음 **일정** 을 선택합니다.
 
    ![NetBackup 관리 콘솔 - 새 정책의 일정](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
 
-10. **차등-증분**을 마우스 오른쪽 단추로 클릭하고 **새 항목에 복사**를 선택한 다음 **확인**을 선택합니다.
+10. **차등-증분** 을 마우스 오른쪽 단추로 클릭하고 **새 항목에 복사** 를 선택한 다음 **확인** 을 선택합니다.
 
     ![NetBackup 관리 콘솔 - 새 정책에 일정 복사](./media/storsimple-configure-backup-target-using-netbackup/nbimage14.png)
 
-11. 새로 만든 일정을 마우스 오른쪽 단추로 클릭한 다음 **변경**을 선택합니다.
+11. 새로 만든 일정을 마우스 오른쪽 단추로 클릭한 다음 **변경** 을 선택합니다.
 
 12. **속성** 탭에서 **정책 스토리지 선택 재정의** 확인란을 선택한 다음 월요일 증분 백업을 수행할 볼륨을 선택합니다.
 
@@ -360,7 +360,7 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
     ![NetBackup 관리 콘솔 - 시작 창 변경](./media/storsimple-configure-backup-target-using-netbackup/nbimage16.png)
 
-14. **확인**을 선택합니다.
+14. **확인** 을 선택합니다.
 
 15. 각 증분 백업에 대해 10-14단계를 반복합니다. 만든 백업 각각에 대해 적절한 볼륨과 일정을 선택합니다.
 
@@ -430,23 +430,23 @@ NetBackup은 스토리지와 미디어 관리를 위해 다양한 옵션을 제�
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>NetBackup 보관 및 중복 제거 작업에 StorSimple 볼륨을 할당하려면
 
-1. Netbackup 관리 콘솔에서 **저장소**  >  **저장소 수명 주기 정책**  >  **새 저장소 수명 주기 정책**을 선택 합니다.
+1. Netbackup 관리 콘솔에서 **저장소**  >  **저장소 수명 주기 정책**  >  **새 저장소 수명 주기 정책** 을 선택 합니다.
 
    ![NetBackup 관리 콘솔 - 새 스토리지 수명 주기 정책](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
-2. 스냅샷의 이름을 입력한 다음, **추가**를 선택합니다.
+2. 스냅샷의 이름을 입력한 다음, **추가** 를 선택합니다.
 
-3. **새 작업** 대화 상자의 **속성** 탭에서 **작업**에 대해 **Backup**을 선택합니다. **대상 스토리지**, **보존 유형** 및 **보존 기간**에 대해 원하는 값을 선택합니다. **확인**을 선택합니다.
+3. **새 작업** 대화 상자의 **속성** 탭에서 **작업** 에 대해 **Backup** 을 선택합니다. **대상 스토리지**, **보존 유형** 및 **보존 기간** 에 대해 원하는 값을 선택합니다. **확인** 을 선택합니다.
 
    ![NetBackup 관리 콘솔 - 새 작업 대화 상자](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 
    여기서는 첫 번째 백업 작업과 리포지토리를 정의합니다.
 
-4. 이전 작업을 선택하여 강조 표시한 다음 **추가**를 선택합니다. **스토리지 변경 작업** 대화 상자에서 **대상 스토리지**, **보존 유형** 및 **보존 기간**에 대해 원하는 값을 선택합니다.
+4. 이전 작업을 선택하여 강조 표시한 다음 **추가** 를 선택합니다. **스토리지 변경 작업** 대화 상자에서 **대상 스토리지**, **보존 유형** 및 **보존 기간** 에 대해 원하는 값을 선택합니다.
 
    ![NetBackup 관리 콘솔 - 스토리지 작업 변경 대화 상자](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
 
-5. 이전 작업을 선택하여 강조 표시한 다음 **추가**를 선택합니다. **새 스토리지 수명 주기 정책** 대화 상자에서 1년 동안 매월 백업을 추가합니다.
+5. 이전 작업을 선택하여 강조 표시한 다음 **추가** 를 선택합니다. **새 스토리지 수명 주기 정책** 대화 상자에서 1년 동안 매월 백업을 추가합니다.
 
    ![NetBackup 관리 콘솔 - 새 스토리지 수명 주기 정책 대화 상자](./media/storsimple-configure-backup-target-using-netbackup/nbimage24.png)
 
@@ -454,9 +454,9 @@ NetBackup은 스토리지와 미디어 관리를 위해 다양한 옵션을 제�
 
    ![NetBackup 관리 콘솔 - 새 스토리지 수명 주기 정책 대화 상자에 정책 추가](./media/storsimple-configure-backup-target-using-netbackup/nbimage25.png)
 
-7. **정책**에서 SLP 보존 정책을 정의했으면 [NetBackup 백업 작업에 StorSimple 볼륨 할당](#assigning-storsimple-volumes-to-a-netbackup-backup-job)에서 설명한 단계에 따라 백업 정책을 정의합니다.
+7. **정책** 에서 SLP 보존 정책을 정의했으면 [NetBackup 백업 작업에 StorSimple 볼륨 할당](#assigning-storsimple-volumes-to-a-netbackup-backup-job)에서 설명한 단계에 따라 백업 정책을 정의합니다.
 
-8. **일정**의 **일정 변경** 대화 상자에서 **전체**를 마우스 오른쪽 단추로 클릭한 다음 **변경**을 선택합니다.
+8. **일정** 의 **일정 변경** 대화 상자에서 **전체** 를 마우스 오른쪽 단추로 클릭한 다음 **변경** 을 선택합니다.
 
    ![NetBackup 관리 콘솔 - 일정 변경 대화 상자](./media/storsimple-configure-backup-target-using-netbackup/nbimage26.png)
 
@@ -464,7 +464,7 @@ NetBackup은 스토리지와 미디어 관리를 위해 다양한 옵션을 제�
 
    ![NetBackup 관리 콘솔 - 정책 스토리지 선택 재정의](./media/storsimple-configure-backup-target-using-netbackup/nbimage27.png)
 
-10. **확인**을 선택한 다음 증분 백업 일정을 반복합니다.
+10. **확인** 을 선택한 다음 증분 백업 일정을 반복합니다.
 
     ![NetBackup 관리 콘솔 - 증분 백업을 위한 일정 변경 대화 상자](./media/storsimple-configure-backup-target-using-netbackup/nbimage28.png)
 
@@ -529,9 +529,9 @@ StorSimple 디바이스에서 복원하면 모든 블록 스토리지 디바이�
 
 재해는 다양한 요인으로 발생할 수 있습니다. 다음 표에서는 일반적인 재해 복구 시나리오를 나열합니다.
 
-| 시나리오 | 영향 | 복구 방법 | 참고 |
+| 시나리오 | 영향 | 복구 방법 | 메모 |
 |---|---|---|---|
-| StorSimple 디바이스 오류 | Backup 및 복원 작업이 중단됩니다. | 실패한 디바이스를 교체하고 [StorSimple 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행합니다. | 디바이스 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 디바이스로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져오므로 많은 시간이 소요될 수 있습니다. |
+| StorSimple 디바이스 오류 | Backup 및 복원 작업이 중단됩니다. | 실패한 디바이스를 교체하고 [StorSimple 장애 조치 및 재해 복구](./storsimple-8000-device-failover-disaster-recovery.md)를 수행합니다. | 디바이스 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 디바이스로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져오므로 많은 시간이 소요될 수 있습니다. |
 | NetBackup 서버 오류 | Backup 및 복원 작업이 중단됩니다. | 백업 서버를 다시 빌드하고 데이터베이스 복원을 수행합니다. | 재해 복구 사이트에서 NetBackup 서버를 다시 빌드하거나 복원해야 합니다. 데이터베이스를 가장 최근의 지점으로 복원합니다. 복원된 NetBackup 데이터베이스가 최신 백업 작업과 동기화되지 않은 경우 인덱싱 및 카탈로그가 필요합니다. 이 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져올 수 있습니다. 그러면 더욱 시간이 많이 걸립니다. |
 | 백업 서버와 StorSimple이 모두 손실되는 사이트 오류 | Backup 및 복원 작업이 중단됩니다. | 먼저 StorSimple을 복원한 다음 NetBackup을 복원합니다. | 먼저 StorSimple을 복원한 다음 NetBackup을 복원합니다. 디바이스 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 디바이스로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. |
 
@@ -539,12 +539,12 @@ StorSimple 디바이스에서 복원하면 모든 블록 스토리지 디바이�
 
 이 문서에서는 다음 문서를 참조했습니다.
 
-- [StorSimple 다중 경로 I/O 설정](storsimple-configure-mpio-windows-server.md)
-- [스토리지 시나리오: 씬 프로비전](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [GPT 드라이브 사용](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [공유 폴더의 섀도 복사본 설정](https://technet.microsoft.com/library/cc771893.aspx)
+- [StorSimple 다중 경로 I/O 설정](./storsimple-8000-configure-mpio-windows-server.md)
+- [스토리지 시나리오: 씬 프로비전](/windows-hardware/drivers/storage/thin-provisioning)
+- [GPT 드라이브 사용](/previous-versions/windows/hardware/design/dn653580(v=vs.85)#EHD)
+- [공유 폴더의 섀도 복사본 설정](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771893(v=ws.11))
 
 ## <a name="next-steps"></a>다음 단계
 
-- [백업 세트에서 복원](storsimple-restore-from-backup-set-u2.md)하는 방법에 대해 자세히 알아보세요.
-- [디바이스 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행하는 방법에 대해 자세히 알아보세요.
+- [백업 세트에서 복원](./storsimple-8000-restore-from-backup-set-u2.md)하는 방법에 대해 자세히 알아보세요.
+- [디바이스 장애 조치 및 재해 복구](./storsimple-8000-device-failover-disaster-recovery.md)를 수행하는 방법에 대해 자세히 알아보세요.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotga
-ms.openlocfilehash: f67ed44fffe6bd690d6bd76fcefa19d9ee23e52b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc33dcd2c80b2a6d4a1cc27778e49dc06ac48b34
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90529403"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967315"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>대칭 키 등록 그룹을 사용 하 여 장치를 프로 비전 하는 방법
 
@@ -43,13 +43,13 @@ ms.locfileid: "90529403"
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 빠른 시작을 완료해야 합니다.
 
 다음 필수 구성 요소는 Windows 개발 환경을 위한 것입니다. Linux 또는 macOS의 경우 SDK 설명서에서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)의 해당 섹션을 참조하세요.
 
-* ['C++를 사용한 데스크톱 개발'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
+* ['C++를 사용한 데스크톱 개발'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
 
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
@@ -88,7 +88,7 @@ SDK에는 시뮬레이트된 디바이스의 샘플 코드가 포함되어 있�
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
-    `cmake`에서 C++ 컴파일러를 찾지 못하면 위의 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 이 명령을 실행합니다. 
+    `cmake`에서 C++ 컴파일러를 찾지 못하면 위의 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](/dotnet/framework/tools/developer-command-prompt-for-vs)에서 이 명령을 실행합니다. 
 
     빌드가 성공되면 마지막 몇몇 출력 줄은 다음 출력과 유사하게 표시됩니다.
 
@@ -113,23 +113,23 @@ SDK에는 시뮬레이트된 디바이스의 샘플 코드가 포함되어 있�
 
 2. **등록 관리** 탭을 선택한 다음, 페이지 위쪽에 있는 **등록 그룹 추가** 단추를 클릭합니다. 
 
-3. **등록 그룹 추가**에서 다음 정보를 입력하고 **저장** 단추를 클릭합니다.
+3. **등록 그룹 추가** 에서 다음 정보를 입력하고 **저장** 단추를 클릭합니다.
 
-   - **그룹 이름**: **mylegacydevices**를 입력합니다.
+   - **그룹 이름**: **mylegacydevices** 를 입력합니다.
 
-   - **증명 형식**: **대칭 키**를 선택합니다.
+   - **증명 형식**: **대칭 키** 를 선택합니다.
 
    - **키 자동 생성**: 이 상자를 선택합니다.
 
-   - **허브에 디바이스를 할당할 방법 선택**: 특정 허브에 할당할 수 있도록 **정적 구성**을 선택합니다.
+   - **허브에 디바이스를 할당할 방법 선택**: 특정 허브에 할당할 수 있도록 **정적 구성** 을 선택합니다.
 
    - **이 그룹을 할당할 IoT 허브 선택**: 사용자의 허브 중 하나를 선택합니다.
 
      ![대칭 키 증명에 대한 등록 그룹 추가](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
-4. 등록을 저장하면 **기본 키** 및 **보조 키**가 생성되고 등록 항목에 추가됩니다. 대칭 키 등록 그룹이 *등록 그룹* 탭의 *그룹 이름* 열 아래에 **mylegacydevices**로 표시됩니다. 
+4. 등록을 저장하면 **기본 키** 및 **보조 키** 가 생성되고 등록 항목에 추가됩니다. 대칭 키 등록 그룹이 *등록 그룹* 탭의 *그룹 이름* 열 아래에 **mylegacydevices** 로 표시됩니다. 
 
-    등록을 열고 생성된 **기본 키**의 값을 복사합니다. 이 키는 마스터 그룹 키입니다.
+    등록을 열고 생성된 **기본 키** 의 값을 복사합니다. 이 키는 마스터 그룹 키입니다.
 
 
 ## <a name="choose-a-unique-registration-id-for-the-device"></a>디바이스에 대한 고유한 등록 ID를 선택합니다.
@@ -157,9 +157,9 @@ sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
 Linux 워크스테이션을 사용하는 경우 openssl을 사용하여 다음 예제에 표시된 대로 파생된 디바이스 키를 생성할 수 있습니다.
 
-**KEY**의 값을 이전에 적어 둔 **기본 키**로 바꿉니다.
+**KEY** 의 값을 이전에 적어 둔 **기본 키** 로 바꿉니다.
 
-**REG_ID**의 값을 등록 ID로 바꿉니다.
+**REG_ID** 의 값을 등록 ID로 바꿉니다.
 
 ```bash
 KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
@@ -178,9 +178,9 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하여 다음 예제에 표시된 대로 파생된 디바이스 키를 생성할 수 있습니다.
 
-**KEY**의 값을 이전에 적어 둔 **기본 키**로 바꿉니다.
+**KEY** 의 값을 이전에 적어 둔 **기본 키** 로 바꿉니다.
 
-**REG_ID**의 값을 등록 ID로 바꿉니다.
+**REG_ID** 의 값을 등록 ID로 바꿉니다.
 
 ```powershell
 $KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
@@ -204,7 +204,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 ## <a name="create-a-device-image-to-provision"></a>프로비전할 디바이스 이미지 만들기
 
-이 섹션에서는 이전에 설정한 Azure IoT C SDK에 있는 **prov\_dev\_client\_sample**이라는 프로비저닝 샘플을 업데이트합니다. 
+이 섹션에서는 이전에 설정한 Azure IoT C SDK에 있는 **prov\_dev\_client\_sample** 이라는 프로비저닝 샘플을 업데이트합니다. 
 
 이 샘플 코드는 프로비저닝 요청을 Device Provisioning Service 인스턴스에 보내는 디바이스 부팅 시퀀스를 시뮬레이트합니다. 부팅 시퀀스를 통해 디바이스가 인식되고 등록 그룹에서 구성한 IoT 허브에 할당됩니다.
 
@@ -218,7 +218,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
     ```
 
-3. Visual Studio의 *솔루션 탐색기* 창에서 **Provision\_Samples** 폴더로 이동합니다. **prov\_dev\_client\_sample**이라는 샘플 프로젝트를 확장합니다. **원본 파일**을 확장하고, **prov\_dev\_client\_sample.c**를 엽니다.
+3. Visual Studio의 *솔루션 탐색기* 창에서 **Provision\_Samples** 폴더로 이동합니다. **prov\_dev\_client\_sample** 이라는 샘플 프로젝트를 확장합니다. **원본 파일** 을 확장하고, **prov\_dev\_client\_sample.c** 를 엽니다.
 
 4. `id_scope` 상수를 찾고, 값을 앞에서 복사한 **ID 범위** 값으로 바꿉니다. 
 
@@ -235,7 +235,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. **prov\_dev\_client\_sample.c**에서 주석으로 처리된 `prov_dev_set_symmetric_key_info()` 호출을 찾습니다.
+6. **prov\_dev\_client\_sample.c** 에서 주석으로 처리된 `prov_dev_set_symmetric_key_info()` 호출을 찾습니다.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -251,9 +251,9 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
    
     파일을 저장합니다.
 
-7. **prov\_dev\_client\_sample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다. 
+7. **prov\_dev\_client\_sample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정** 을 선택합니다. 
 
-8. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예**를 클릭하여 실행하기 전에 프로젝트를 다시 빌드합니다.
+8. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작** 을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예** 를 클릭하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
     다음 출력은 시뮬레이션된 디바이스를 성공적으로 부팅하고, IoT 허브에 할당할 프로비저닝 서비스 인스턴스에 연결하는 예제입니다.
 
@@ -272,7 +272,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
     Press enter key to exit:
     ```
 
-9. 포털에서 시뮬레이션 된 장치가 할당 된 IoT hub로 이동 하 고 **Iot 장치** 탭을 클릭 합니다. 허브에 시뮬레이션 된를 성공적으로 프로 비전 하면 장치 ID가 **IoT 장치** 블레이드에 표시 되 고 *상태가* **사용**으로 표시 됩니다. 위쪽에서 **새로 고침** 단추를 클릭해야 할 수 있습니다. 
+9. 포털에서 시뮬레이션 된 장치가 할당 된 IoT hub로 이동 하 고 **Iot 장치** 탭을 클릭 합니다. 허브에 시뮬레이션 된를 성공적으로 프로 비전 하면 장치 ID가 **IoT 장치** 블레이드에 표시 되 고 *상태가* **사용** 으로 표시 됩니다. 위쪽에서 **새로 고침** 단추를 클릭해야 할 수 있습니다. 
 
     ![디바이스가 IoT Hub에 등록됨](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 
@@ -290,15 +290,4 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 * 다시 프로 비전에 대 한 자세한 내용은 [IoT Hub Device 다시 프로 비전 개념](concepts-device-reprovision.md) 을 참조 하세요. 
 * [빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전](quick-create-simulated-device-symm-key.md)
-* 프로 비전 해제에 대 한 자세한 내용은 [이전에 자동 프로 비전 된 장치의 프로 비전](how-to-unprovision-devices.md) 을 해제 하는 방법 
-
-
-
-
-
-
-
-
-
-
-
+* 프로 비전 해제에 대 한 자세한 내용은 [이전에 자동 프로 비전 된 장치의 프로 비전](how-to-unprovision-devices.md) 을 해제 하는 방법

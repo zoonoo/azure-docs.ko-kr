@@ -9,23 +9,24 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 4730f05adc2625ac576f5963f68d8e3ca8ede355
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 389842901a4c508015d527c0fd8fd87af57dcd9b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331508"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967927"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Windows용 Log Analytics 가상 머신 확장
 
 Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터링 기능을 제공 합니다. Windows용 Log Analytics 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. 이 문서에서는 지원되는 플랫폼, 구성 및 Windows용 Log Analytics 가상 머신 확장에 대한 배포 옵션을 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -60,7 +61,7 @@ Windows용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터�
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 Log Analytics 에이전트 확장에 대한 스키마를 보여줍니다. 확장에는 대상 Log Analytics 작업 영역에서 작업 영역 ID 및 작업 영역 키가 필요 합니다. 이러한 내용은 Azure Portal의 작업 영역에 대한 설정에서 확인할 수 있습니다. 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **workspaceId** 및 **workspaceKey**는 대/소문자를 구분합니다.
+다음 JSON은 Log Analytics 에이전트 확장에 대한 스키마를 보여줍니다. 확장에는 대상 Log Analytics 작업 영역에서 작업 영역 ID 및 작업 영역 키가 필요 합니다. 이러한 내용은 Azure Portal의 작업 영역에 대한 설정에서 확인할 수 있습니다. 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **workspaceId** 및 **workspaceKey** 는 대/소문자를 구분합니다.
 
 ```json
 {
@@ -87,7 +88,7 @@ Windows용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터�
 ```
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 |
+| 속성 | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |

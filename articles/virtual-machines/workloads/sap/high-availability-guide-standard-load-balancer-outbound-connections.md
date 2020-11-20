@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: d4d21ac0fc0f218b9168adfad3e1b2ec42092b42
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a6b62e9c894c25b2c3cd064524881ae5db51ec5a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544752"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968539"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>SAP 고가용성 시나리오에서 Azure Standard Load Balancer를 사용하는 가상 머신에 대한 퍼블릭 엔드포인트 연결
 
@@ -93,7 +94,7 @@ SAP 배포 시 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 필
    1. [Azure Portal](https://portal.azure.com)에서 [모든 리소스], [추가]를 차례로 클릭한 다음, **Load Balancer** 를 검색합니다.  
    1. **만들기** 를 클릭합니다. 
    1. Load Balancer 이름을 **MyPublicILB** 로 지정합니다.  
-   1. 형식은 **퍼블릭** , SKU는 **표준** 을 선택합니다.  
+   1. 형식은 **퍼블릭**, SKU는 **표준** 을 선택합니다.  
    1. **공용 IP 주소 만들기** 를 선택하고 이름을 **MyPublicILBFrondEndIP** 로 지정합니다.  
    1. 가용성 영역으로 **영역 중복** 을 선택합니다.  
    1. [검토 및 만들기]를 클릭한 다음, [만들기]를 클릭합니다.  
@@ -147,14 +148,14 @@ Azure Firewall을 배포하는 방법에 대한 자세한 내용은 [Azure Firew
    1. [서브넷 추가]를 클릭합니다. 이름으로 **AzureFirewallSubnet** 을 입력합니다. 적절한 주소 범위를 입력합니다. 저장합니다.  
 3. Azure Firewall을 만듭니다.  
    1. Azure Portal에서 [모든 리소스]를 선택하고 [추가], [방화벽], [만들기]를 차례로 클릭합니다. 리소스 그룹을 선택합니다(Virtual Network가 있는 동일한 리소스 그룹을 선택).  
-   1. Azure Firewall 리소스의 이름을 입력합니다. 예: **MyAzureFirewall** .  
+   1. Azure Firewall 리소스의 이름을 입력합니다. 예: **MyAzureFirewall**.  
    1. VM이 배포되는 가용성 영역에 맞게 지역을 선택하고 2개 이상의 가용성 영역을 선택합니다.  
    1. SAP VM과 Azure 표준 Load Balancer가 배포된 Virtual Network를 선택합니다.  
-   1. 공용 IP 주소: [만들기]를 클릭하고 이름을 입력합니다. 예: **MyFirewallPublicIP** .  
+   1. 공용 IP 주소: [만들기]를 클릭하고 이름을 입력합니다. 예: **MyFirewallPublicIP**.  
 4. 지정된 퍼블릭 엔드포인트에 대한 아웃바운드 연결을 허용하는 Azure Firewall 규칙을 만듭니다. 다음 예제에서는 Azure 관리 API 퍼블릭 엔드포인트에 대한 액세스를 허용하는 방법을 보여줍니다.  
    1. [규칙], [네트워크 규칙 컬렉션]을 차례로 선택하고 [네트워크 규칙 컬렉션 추가]를 클릭합니다.  
    1. 이름: 이름을 **MyOutboundRule** 로 지정하고, 우선 순위를 입력하고, 작업 **허용** 을 선택합니다.  
-   1. 서비스: 이름을 **ToAzureAPI** 로 지정합니다.  프로토콜: **모두** 를 선택합니다. 원본 주소: VM과 표준 Load Balancer가 배포된 서브넷의 범위를 입력합니다. 예: **11.97.0.0/24** . 대상 포트: <b>*</b>를 입력합니다.  
+   1. 서비스: 이름을 **ToAzureAPI** 로 지정합니다.  프로토콜: **모두** 를 선택합니다. 원본 주소: VM과 표준 Load Balancer가 배포된 서브넷의 범위를 입력합니다. 예: **11.97.0.0/24**. 대상 포트: <b>*</b>를 입력합니다.  
    1. 저장
    1. Azure Firewall 내에서 [개요]를 선택합니다. Azure Firewall의 개인 IP 주소를 적어 둡니다.  
 5. Azure Firewall의 경로를 만듭니다.  
@@ -166,7 +167,7 @@ Azure Firewall을 배포하는 방법에 대한 자세한 내용은 [Azure Firew
 
 6. VM의 서브넷에서 **MyAzureFirewall** 의 개인 IP로 이어지는 사용자 정의 경로를 만듭니다.
    1. [경로 테이블] 내에서 [경로]를 클릭합니다. [추가]를 선택합니다. 
-   1. 경로 이름: ToMyAzureFirewall로 지정, 주소 접두사: **0.0.0.0/0** . 다음 홉 유형: 가상 어플라이언스를 선택합니다. 다음 홉 주소: 구성한 방화벽의 개인 IP 주소 **11.97.1.4** 를 입력합니다.  
+   1. 경로 이름: ToMyAzureFirewall로 지정, 주소 접두사: **0.0.0.0/0**. 다음 홉 유형: 가상 어플라이언스를 선택합니다. 다음 홉 주소: 구성한 방화벽의 개인 IP 주소 **11.97.1.4** 를 입력합니다.  
    1. 저장
 
 ## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Azure 관리 API에 대한 Pacemaker 호출에 Proxy 사용
