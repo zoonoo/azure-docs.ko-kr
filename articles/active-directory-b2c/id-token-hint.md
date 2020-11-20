@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 79a99d9f0ca117d8f47d56d76399210a72b91bb7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132077"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951658"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 ID 토큰 힌트 기술 프로필을 정의 합니다.
 
@@ -92,8 +92,8 @@ Id_token_hint은 유효한 JWT 토큰 이어야 합니다. 다음 표에서는 �
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | METADATA| 예 | Openid connect 잘 알려진 구성 끝점이 라고도 하는 토큰 발급자 구성 문서를 가리키는 URL입니다.   |
-| 발급자 | No | 보안 토큰 서비스 (토큰 발급자)를 식별 합니다. 이 값은 메타 데이터에 구성 된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. |  
-| IdTokenAudience | No | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임을 트 내의 하는 클레임과 동일 해야 합니다 `aud` . |  
+| 발급자 | 예 | 보안 토큰 서비스 (토큰 발급자)를 식별 합니다. 이 값은 메타 데이터에 구성 된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. |  
+| IdTokenAudience | 예 | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임을 트 내의 하는 클레임과 동일 해야 합니다 `aud` . |  
 
 ## <a name="cryptographic-keys"></a>암호화 키
 
@@ -129,15 +129,15 @@ $newClientSecret
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal에서 **Azure AD B2C**를 검색하고 선택합니다.
-1. 개요 페이지의 **정책**에서 **Identity Experience Framework**를 선택합니다.
+1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
+1. 개요 페이지의 **정책** 에서 **Identity Experience Framework** 를 선택합니다.
 1. **정책 키** 선택 
-1. **수동**을 선택 합니다.
-1. **이름**에는 `IdTokenHintKey`를 사용합니다.  
+1. **수동** 을 선택 합니다.
+1. **이름** 에는 `IdTokenHintKey`를 사용합니다.  
    `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.
 1. **비밀** 상자에 이전에 생성 한 로그인 키를 입력 합니다.
-1. **키 사용**에는 **암호화**를 사용합니다.
-1. **만들기**를 선택합니다.
+1. **키 사용** 에는 **암호화** 를 사용합니다.
+1. **만들기** 를 선택합니다.
 1. `B2C_1A_IdTokenHintKey` 키를 만들었는지 확인합니다.
 
 
@@ -189,7 +189,7 @@ $newClientSecret
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>1단계. 자체 서명 된 인증서 준비
 
-인증서가 아직 없는 경우이 방법 가이드에 대해 자체 서명 된 인증서를 사용할 수 있습니다. Windows에서는 PowerShell의 [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet을 사용하여 인증서를 생성할 수 있습니다.
+인증서가 아직 없는 경우이 방법 가이드에 대해 자체 서명 된 인증서를 사용할 수 있습니다. Windows에서는 PowerShell의 [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet을 사용하여 인증서를 생성할 수 있습니다.
 
 이 PowerShell 명령을 실행 하 여 자체 서명 된 인증서를 생성 합니다. `-Subject` 인수를 애플리케이션 및 Azure AD B2C 테넌트 이름에 적절하게 수정합니다. `-NotAfter` 날짜를 조정하여 인증서에 다른 만료 날짜를 지정할 수도 있습니다.
 

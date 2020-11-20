@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: SAP
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec29b6489712eeb67783aef03261a3606a390125
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 54f3f0e1b57525a3bd425575ff03a9f3c91b0044
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926617"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951216"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Azure 가상 머신의 SAP 워크로드 지원 시나리오
 Azure에서 SAP NetWeaver, Business one `Hybris` 또는 S/4HANA 시스템 아키텍처를 디자인 하면 다양 한 아키텍처 및 도구를 사용 하 여 확장 가능 하 고 효율적 이며 가용성이 높은 배포를 수행할 수 있는 여러 가지 기회가 있습니다. 사용 된 운영 체제 또는 DBMS에 따라 다르지만 제한이 있습니다. 또한 온-프레미스에서 지원 되는 모든 시나리오가 Azure에서 동일한 방식으로 지원 되는 것은 아닙니다. 이 문서에서는 Azure Vm을 독점적으로 사용 하는 지원 되는 고가용성 구성과 고가용성 구성 및 아키텍처를 안내 합니다. [Hana Large instances](./hana-overview-architecture.md)에서 지원 되는 시나리오는 [hana large Instances에 대해 지원 되는 시나리오](./hana-supported-scenario.md)문서를 참조 하세요. 

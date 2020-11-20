@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: 9d183f2da7b916b1547fa1f81aa877b1b5488b41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24f2ca238288854b99160a25c3d4dcedf8ce3368
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308438"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952389"
 ---
 # <a name="azure-private-dns-faq"></a>Azure 프라이빗 DNS FAQ
 
@@ -34,7 +34,7 @@ Azure의 다른 내부 DNS 옵션에 대 한 자세한 내용은 [vm 및 역할 
 
 ## <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>확인을 위해 여러 가상 네트워크에서 동일한 프라이빗 영역을 사용할 수 있나요?
 
-예. 수천 개의 가상 네트워크와 개인 DNS 영역을 연결할 수 있습니다. 자세한 내용은 [Azure DNS 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) 을 참조 하세요.
+예. 수천 개의 가상 네트워크와 개인 DNS 영역을 연결할 수 있습니다. 자세한 내용은 [Azure DNS 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits) 을 참조 하세요.
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>다른 구독에 속한 가상 네트워크를 개인 영역에 연결할 수 있나요?
 
@@ -75,11 +75,11 @@ Azure DHCP 서비스는 개인 DNS 영역을 등록할 때 DNS 접미사를 무�
 ## <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>연결된 가상 네트워크 내의 가상 머신에 사용되는 DNS 접미사가 프라이빗 영역의 DNS 접두사로 변경되나요?
 
 아니요. , 연결된 가상 네트워크의 가상 머신에 사용된 DNS 접미사는 기본 Azure 제공 접미사("*. internal.cloudapp.net")로 유지됩니다. 가상 머신의 이 DNS 접미사를 프라이빗 영역의 DNS 접미사로 수동으로 변경할 수 있습니다.
-이 접미사를 변경 하는 방법에 대 한 지침은 [동적 dns를 사용 하 여 자체 DNS 서버에 호스트 이름 등록](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-ddns#windows-clients) 을 참조 하세요.
+이 접미사를 변경 하는 방법에 대 한 지침은 [동적 dns를 사용 하 여 자체 DNS 서버에 호스트 이름 등록](../virtual-network/virtual-networks-name-resolution-ddns.md#windows-clients) 을 참조 하세요.
 
 ## <a name="what-are-the-usage-limits-for-azure-dns-private-zones"></a>Azure DNS 개인 영역에 대 한 사용 제한은 무엇 인가요?
 
-Azure DNS 전용 영역에 대 한 사용 제한에 대 한 자세한 내용은 [Azure DNS 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) 을 참조 하세요.
+Azure DNS 전용 영역에 대 한 사용 제한에 대 한 자세한 내용은 [Azure DNS 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits) 을 참조 하세요.
 
 ## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>기존 개인 DNS 영역이 새 포털 환경에 표시 되지 않는 이유는 무엇 인가요?
 

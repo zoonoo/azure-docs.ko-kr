@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e1d76c5ef1f003fe9e01b866343ef7de7ab4166
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 16b5814835ec5cad6b66087fee37676155196339
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214926"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952083"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 새로운 앱 등록 환경
 
@@ -59,7 +59,7 @@ Azure AD B2C 앱 등록 환경은 모든 Azure AD 테 넌 트에 대 한 일반 
 
 다른 계정 유형을 이해 하려면 만들기 환경에서 **도움말** 선택을 선택 합니다.
 
-레거시 환경에서 앱은 항상 고객 지향 응용 프로그램으로 생성 되었습니다. 이러한 앱에 대해 계정 유형은 **모든 id 공급자 또는 조직 디렉터리의 계정으로 설정 됩니다 (사용자 흐름을 사용 하 여**사용자를 인증 하는 경우).
+레거시 환경에서 앱은 항상 고객 지향 응용 프로그램으로 생성 되었습니다. 이러한 앱에 대해 계정 유형은 **모든 id 공급자 또는 조직 디렉터리의 계정으로 설정 됩니다 (사용자 흐름을 사용 하 여** 사용자를 인증 하는 경우).
 > [!NOTE]
 > 이 옵션은 Azure AD B2C 사용자 흐름을 실행 하 여이 응용 프로그램에 대 한 사용자를 인증 하는 데 필요 합니다. [사용자 흐름에 사용할 응용 프로그램을 등록 하는 방법](tutorial-register-applications.md) 에 대해 알아봅니다.
 
@@ -91,14 +91,14 @@ Azure AD B2C 앱 등록 환경은 모든 Azure AD 테 넌 트에 대 한 일반 
 
 ## <a name="application-certificates--secrets"></a>응용 프로그램 인증서 & 비밀
 
-**키**대신 새 환경에서 인증서 **& 비밀** 블레이드를 사용 하 여 인증서 및 비밀을 관리 합니다. 인증서 & 암호를 사용 하면 응용 프로그램은 HTTPS 체계를 사용 하 여 웹 주소 지정 가능한 위치에서 토큰을 받을 때 인증 서비스에서 자신을 식별할 수 있습니다. Azure AD에 대해 인증할 때 클라이언트 자격 증명 시나리오에 클라이언트 암호 대신 인증서를 사용 하는 것이 좋습니다. 인증서를 사용 하 여 Azure AD B2C에 대해 인증할 수 없습니다.
+**키** 대신 새 환경에서 인증서 **& 비밀** 블레이드를 사용 하 여 인증서 및 비밀을 관리 합니다. 인증서 & 암호를 사용 하면 응용 프로그램은 HTTPS 체계를 사용 하 여 웹 주소 지정 가능한 위치에서 토큰을 받을 때 인증 서비스에서 자신을 식별할 수 있습니다. Azure AD에 대해 인증할 때 클라이언트 자격 증명 시나리오에 클라이언트 암호 대신 인증서를 사용 하는 것이 좋습니다. 인증서를 사용 하 여 Azure AD B2C에 대해 인증할 수 없습니다.
 
 
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Azure AD B2C 테 넌 트에 해당 되지 않는 기능
 다음 Azure AD 앱 등록 기능은 Azure AD B2C 테 넌 트에서 적용 되지 않거나 사용할 수 없습니다.
 - **역할 및 관리자** -현재 Azure AD B2C에서 사용할 수 없습니다.
 - **브랜딩** -UI/UX 사용자 지정은 **회사 브랜딩** 환경 또는 사용자 흐름의 일부로 구성 됩니다. [Azure Active Directory B2C에서 사용자 인터페이스를 사용자 지정 하는](customize-ui-overview.md)방법을 알아봅니다.
-- **게시자 도메인 확인** -앱이 확인 된 도메인이 아닌 onmicrosoft.com에 등록 되어 *있습니다*. 또한 게시자 도메인은 사용자 동의를 부여 하는 데 주로 사용 되며, 사용자 인증을 위해 Azure AD B2C 앱에는 적용 되지 않습니다. [게시자 도메인에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
+- **게시자 도메인 확인** -앱이 확인 된 도메인이 아닌 onmicrosoft.com에 등록 되어 *있습니다*. 또한 게시자 도메인은 사용자 동의를 부여 하는 데 주로 사용 되며, 사용자 인증을 위해 Azure AD B2C 앱에는 적용 되지 않습니다. [게시자 도메인에 대해 자세히 알아보세요](../active-directory/develop/howto-configure-publisher-domain.md).
 - **토큰 구성** -토큰이 앱이 아닌 사용자 흐름의 일부로 구성 됩니다.
 - 현재 Azure AD B2C 테 넌 **트에 대해 빠른 시작 환경을 사용할** 수 없습니다.
 <!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->

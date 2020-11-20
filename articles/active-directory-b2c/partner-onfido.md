@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5d0835114844069d4ebdc992b872f9be1f0b3ca6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48fc8533ee1fd206e69e16d4c03e4b4acf047135
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259223"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953692"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Onfido 구성에 대 한 자습서
 
@@ -24,13 +24,13 @@ ms.locfileid: "91259223"
 
 이 샘플에서는 등록 또는 로그인 흐름에 Onfido의 서비스를 연결 하 여 id 확인을 수행 합니다. 사용자가 액세스할 수 있는 제품 및 서비스에 대 한 의사 결정은 Onfido의 결과에 따라 결정 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
 - Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
-- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) 입니다.
+- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](./tutorial-create-tenant.md) 입니다.
 
 - Onfido [평가판 계정](https://onfido.com/signup/).
 
@@ -50,7 +50,7 @@ Onfido 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![onfido에 대 한 스크린샷-다이어그램](media/partner-onfido/onfido-architecture-diagram.png)
 
-|단계 | 설명 |
+|단계 | Description |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 페이지에 도착 합니다. 사용자 등록 새 계정을 만들고 페이지에 정보를 입력 합니다. Azure AD B2C 사용자 특성을 수집 합니다. Azure AD B2C에서 호스트 되는 Onfido 클라이언트 앱은 사용자 정보를 확인 합니다.
 | 2. | Azure AD B2C 중간 계층 API를 호출 하 고 사용자 특성을 전달 합니다.
@@ -74,7 +74,7 @@ Onfido에 대 한 자세한 내용은 [ONFIDO API 설명서](https://documentati
 
 ### <a name="part-1---deploy-the-api"></a>1 부-API 배포
 
-- 제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) 를 Azure 서비스에 배포 합니다. 이러한 [지침](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
+- 제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) 를 Azure 서비스에 배포 합니다. 이러한 [지침](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
 - CORS를 설정 하 고 **허용 된 원본을** https://{your_tenant_name}. b2clogin로 추가 합니다.
 
 >[!NOTE]
@@ -82,9 +82,9 @@ Onfido에 대 한 자세한 내용은 [ONFIDO API 설명서](https://documentati
 
 #### <a name="adding-sensitive-configuration-settings"></a>중요 한 구성 설정 추가
 
-응용 프로그램 설정은 [Azure의 App service](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings)에서 구성할 수 있습니다. App service를 사용 하면 설정을 리포지토리로 체크 인하지 않고도 안전 하 게 구성할 수 있습니다. Rest API에는 다음 설정이 필요 합니다.
+응용 프로그램 설정은 [Azure의 App service](../app-service/configure-common.md#configure-app-settings)에서 구성할 수 있습니다. App service를 사용 하면 설정을 리포지토리로 체크 인하지 않고도 안전 하 게 구성할 수 있습니다. Rest API에는 다음 설정이 필요 합니다.
 
-| 응용 프로그램 설정 이름 | 원본 | 참고 |
+| 응용 프로그램 설정 이름 | 원본 | 메모 |
 |:-------------------------|:-------|:-------|
 |OnfidoSettings: AuthToken| Onfido 계정 |
 
@@ -92,17 +92,17 @@ Onfido에 대 한 자세한 내용은 [ONFIDO API 설명서](https://documentati
 
 #### <a name="configure-your-storage-location"></a>저장소 위치 구성
 
-1. [저장소 계정에 blob 저장소 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) 설정
+1. [저장소 계정에 blob 저장소 컨테이너](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) 설정
 
 2. Ui [폴더](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) 의 ui 파일을 blob 컨테이너에 저장 합니다.
 
 3. 다음 지침에 따라 만든 저장소 컨테이너에 대 한 CORS 액세스를 허용 합니다.
 
-   a. **설정**허용 된 원본으로 이동 하  > **Allowed Origin**고를 입력 `https://{your_tenant_name}.b2clogin.com` 합니다. -테 넌 트 이름을 Azure AD B2C 테 넌 트의 이름으로 바꿉니다. 예를 들면 https://fabrikam.b2clogin.com 입니다. 모든 소문자를 사용 하 여 테 넌 트 이름을 입력 합니다.
+   a. **설정** 허용 된 원본으로 이동 하  > **Allowed Origin** 고를 입력 `https://{your_tenant_name}.b2clogin.com` 합니다. -테 넌 트 이름을 Azure AD B2C 테 넌 트의 이름으로 바꿉니다. 예를 들면 https://fabrikam.b2clogin.com 입니다. 모든 소문자를 사용 하 여 테 넌 트 이름을 입력 합니다.
 
-   b. **허용 되는 메서드의**경우 `GET` 및를 선택 `PUT` 합니다.
+   b. **허용 되는 메서드의** 경우 `GET` 및를 선택 `PUT` 합니다.
 
-   c. **저장**을 선택합니다.
+   c. **저장** 을 선택합니다.
 
 #### <a name="update-ui-files"></a>UI 파일 업데이트
 
@@ -110,7 +110,7 @@ Onfido에 대 한 자세한 내용은 [ONFIDO API 설명서](https://documentati
 
 2. 각 html 파일을 엽니다.
 
-3. {Ui-blob-container-url **}을 찾고**ui **ocean_blue**, 배포 및 **자산** 폴더가 있는 url로 바꿉니다.
+3. {Ui-blob-container-url **}을 찾고** ui **ocean_blue**, 배포 및 **자산** 폴더가 있는 url로 바꿉니다.
 
 4. {중간 api url}을 찾아서 중간 API app service의 URL로 바꿉니다.
 
@@ -118,7 +118,7 @@ Onfido에 대 한 자세한 내용은 [ONFIDO API 설명서](https://documentati
 
 1. Ui 폴더의 UI 파일을 blob 컨테이너에 저장 합니다.
 
-2. [Azure Storage 탐색기](https://docs.microsoft.com/azure/virtual-machines/windows/disks-use-storage-explorer-managed-disks) 를 사용 하 여 파일 및 액세스 권한을 관리 합니다.
+2. [Azure Storage 탐색기](../virtual-machines/disks-use-storage-explorer-managed-disks.md) 를 사용 하 여 파일 및 액세스 권한을 관리 합니다.
 
 ### <a name="part-3---configure-azure-ad-b2c"></a>3 부-Azure AD B2C 구성
 
@@ -126,7 +126,7 @@ Onfido에 대 한 자세한 내용은 [ONFIDO API 설명서](https://documentati
 
 제공 된 [사용자 지정 정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/Policies)에서 다음 자리 표시자를 찾고를 인스턴스의 해당 값으로 바꿉니다.
 
-| 자리표시자 | 대체할 값 | 예제  |
+| 자리표시자 | 대체할 값 | 예  |
 |:---------------|:----------------|:-------------------|
 | {your_tenant_name}  | 테 넌 트 약식 이름 |  yourtenant.onmicrosoft.com의 "모든 테 넌 트" |
 | {your_tenantID} | Azure AD B2C 테 넌 트의 TenantID | 01234567-89ab-cdef-0123-456789abcdef           |
@@ -142,16 +142,16 @@ Onfido에 대 한 자세한 내용은 [ONFIDO API 설명서](https://documentati
 
 ### <a name="part-4---configure-the-azure-ad-b2c-policy"></a>4 부-Azure AD B2C 정책 구성
 
-Azure AD B2C 테 넌 트를 설정 하 고 정책을 구성 하는 방법에 대 한 지침은이 [문서](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) 를 참조 하세요.
+Azure AD B2C 테 넌 트를 설정 하 고 정책을 구성 하는 방법에 대 한 지침은이 [문서](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) 를 참조 하세요.
 
 >[!NOTE]
 > 모범 사례로, 고객은 특성 컬렉션 페이지에서 동의 알림을 추가 하는 것이 좋습니다. 신원 확인을 위해 타사 서비스에 정보를 보내도록 사용자에 게 알립니다.
 
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
-1. Azure AD B2C 테 넌 트를 열고 정책에서 **Id 경험 프레임 워크**를 선택 합니다.
+1. Azure AD B2C 테 넌 트를 열고 정책에서 **Id 경험 프레임 워크** 를 선택 합니다.
 
-2. 이전에 만든 **Signupsignin**을 선택 합니다.
+2. 이전에 만든 **Signupsignin** 을 선택 합니다.
 
 3. **사용자 흐름 실행** 을 선택 하 고 설정을 선택 합니다.
 
@@ -159,7 +159,7 @@ Azure AD B2C 테 넌 트를 설정 하 고 정책을 구성 하는 방법에 대
 
    b. **회신 url**: **리디렉션 url** 을 선택 합니다.
 
-   다. **사용자 흐름 실행**을 선택합니다.
+   c. **사용자 흐름 실행** 을 선택합니다.
 
 4. 등록 흐름으로 이동 하 여 계정 만들기
 
@@ -169,6 +169,6 @@ Azure AD B2C 테 넌 트를 설정 하 고 정책을 구성 하는 방법에 대
 
 자세한 내용은 다음 문서를 참조 하세요.
 
-- [Azure AD B2C의 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)

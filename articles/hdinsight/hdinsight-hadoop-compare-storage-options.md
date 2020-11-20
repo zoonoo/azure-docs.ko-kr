@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: a866a225da87c22a3a276a5d59b8e86f1f955cae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34eeeed2b3c44336cd4aa1219d54b1811c6988f5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856197"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952321"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 사용할 스토리지 옵션 비교
 
@@ -31,11 +31,13 @@ HDInsight 클러스터를 만들 때 몇 가지 Azure storage 서비스 중에�
 
 | 스토리지 서비스 | 계정 유형 | 네임 스페이스 형식 | 지원되는 서비스 | 지원되는 성능 계층 | 지원되는 액세스 계층 | HDInsight 버전 | 클러스터 유형 |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| 범용 V2 | 계층 구조 (파일 시스템) | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | Spark 2.1 및 2.2을 제외한 모든|
-|Azure Storage| 범용 V2 | Object | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
+|Azure Data Lake Storage Gen2| 범용 V2 | 계층 구조 (파일 시스템) | Blob | 표준 | 핫, 쿨, 보관 | 3.6 이상 | Spark 2.1 및 2.2을 제외한 모든|
+|Azure Storage| 범용 V2 | Object | Blob | 표준 | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
 |Azure Storage| 범용 V1 | Object | Blob | Standard | 해당 없음 | 모두 | 모두 |
 |Azure Storage| Blob Storage * * | Object | 블록 Blob | 표준 | 핫, 쿨, 보관 | 모두 | 모두 |
-|Azure Data Lake Storage Gen1| N/A | 계층 구조 (파일 시스템) | N/A | N/A | N/A | 3.6만 해당 | HBase를 제외한 모든 |
+|Azure Data Lake Storage Gen1| 해당 없음 | 계층 구조 (파일 시스템) | 해당 없음 | 해당 없음 | 해당 없음 | 3.6만 해당 | HBase를 제외한 모든 |
+|Azure Storage| 블록 Blob| Object | 블록 Blob | Premium | 해당 없음| 3.6 이상 | 가속 쓰기를 사용 하는 HBase만|
+|Azure Data Lake Storage Gen2| 블록 Blob| 계층 구조 (파일 시스템) | 블록 Blob | Premium | 해당 없음| 3.6 이상 | 가속 쓰기를 사용 하는 HBase만|
 
 * * HDInsight 클러스터의 경우에는 보조 저장소 계정만 BlobStorage 유형이 될 수 있으며 페이지 Blob은 지원 되는 저장소 옵션이 아닙니다.
 
@@ -48,15 +50,15 @@ Azure Storage 액세스 계층에 대 한 자세한 내용은 [Azure Blob storag
 | HDInsight 버전 | 기본 저장소 | 보조 저장소 | 지원됨 |
 |---|---|---|---|
 | 3.6 & 4.0 | 범용 V1, 범용 V2 | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | 예 |
-| 3.6 & 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen2 | 아니요 |
+| 3.6 & 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen2 | 예 |
 | 3.6 & 4.0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | 예 |
 | 3.6 & 4.0 | Data Lake Storage Gen2 * | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | 예 |
-| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | 아니요 |
+| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | 예 |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | 예 |
 | 3.6 | Data Lake Storage Gen1 | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | 예 |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | 아니요 |
-| 4.0 | Data Lake Storage Gen1 | 모두 | 아니요 |
-| 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen1 | 아니요 |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | 예 |
+| 4.0 | Data Lake Storage Gen1 | 모두 | 예 |
+| 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen1 | 예 |
 
 * = 클러스터 액세스에 동일한 관리 되는 id를 사용 하도록 모두 설정 하는 한 하나 또는 여러 Data Lake Storage Gen2 수 있습니다.
 

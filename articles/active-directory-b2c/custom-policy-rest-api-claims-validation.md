@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30273c0103d8a0fde12b1b7c6f66d16dd4ea84cb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 761bc4db7760ef5e84e3fc3c8a5deea5d4508f51
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089522"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951930"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>연습: Azure AD B2C 사용자 경험에 REST API 클레임 교환을 통합 하 여 사용자 입력의 유효성을 검사 합니다.
 
@@ -65,7 +65,7 @@ REST API가 데이터의 유효성을 검사한 후에는 다음 JSON 데이터�
 }
 ```
 
-REST API 엔드포인트의 설정은 이 문서에서 다루지 않습니다. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) 샘플은 링크를 통해 확인하세요. 전체 Azure 함수 코드는 [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function)에서 액세스할 수 있습니다.
+REST API 엔드포인트의 설정은 이 문서에서 다루지 않습니다. [Azure Functions](../azure-functions/functions-reference.md) 샘플은 링크를 통해 확인하세요. 전체 Azure 함수 코드는 [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function)에서 액세스할 수 있습니다.
 
 ## <a name="define-claims"></a>클레임 정의
 
@@ -231,14 +231,14 @@ REST API 배포한 후 다음을 포함 하 여 `REST-ValidateProfile` 고유한
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure AD 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, Azure AD 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
-1. **ID 경험 프레임워크**를 선택합니다.
-1. **사용자 지정 정책 업로드**를 선택 하 고 변경한 정책 파일 ( *TrustFrameworkExtensions.xml*및 *SignUpOrSignin.xml*을 업로드 합니다. 
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택한 다음, **앱 등록** 을 검색하여 선택합니다.
+1. **ID 경험 프레임워크** 를 선택합니다.
+1. **사용자 지정 정책 업로드** 를 선택 하 고 변경한 정책 파일 ( *TrustFrameworkExtensions.xml* 및 *SignUpOrSignin.xml* 을 업로드 합니다. 
 1. 업로드한 등록 또는 로그인 정책을 선택하고 **지금 실행** 단추를 클릭합니다.
 1. 전자 메일 주소를 사용하여 등록할 수 있습니다.
 1. **지금 등록** 링크를 클릭 합니다.
-1. 사용자의 **충성도 ID**에 1234를 입력 하 고 **계속**을 클릭 합니다. 이 시점에서 유효성 검사 오류 메시지가 표시 됩니다.
-1. 다른 값으로 변경 하 고 **계속**을 클릭 합니다.
+1. 사용자의 **충성도 ID** 에 1234를 입력 하 고 **계속** 을 클릭 합니다. 이 시점에서 유효성 검사 오류 메시지가 표시 됩니다.
+1. 다른 값으로 변경 하 고 **계속** 을 클릭 합니다.
 1. 애플리케이션으로 다시 전송되는 토큰에는 `promoCode` 클레임이 포함됩니다.
 
 ```json

@@ -11,12 +11,12 @@ ms.date: 11/30/2018
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1d631c47225fac7d8a95541313593333a1399e07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2233dbd7b0e669c23397b4bc6a84f2bfdc208391
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87115958"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952814"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 특성 정의
 
@@ -27,7 +27,7 @@ ms.locfileid: "87115958"
 ## <a name="create-a-custom-attribute"></a>사용자 지정 특성 만들기
 
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 오른쪽 상단 모서리에서 전환하여 Azure AD B2C 테넌트가 있는 디렉터리를 사용하고 있는지 확인합니다. 구독 정보를 선택한 다음, **디렉터리 전환**을 선택합니다.
+2. Azure Portal의 오른쪽 상단 모서리에서 전환하여 Azure AD B2C 테넌트가 있는 디렉터리를 사용하고 있는지 확인합니다. 구독 정보를 선택한 다음, **디렉터리 전환** 을 선택합니다.
 
     ![Azure AD B2C 테넌트로 전환](./media/user-flow-custom-attributes/switch-directories.png)
 
@@ -35,21 +35,21 @@ ms.locfileid: "87115958"
 
     ![디렉터리 및 구독 필터에 강조 표시 된 B2C 테 넌 트](./media/user-flow-custom-attributes/select-directory.PNG)
 
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-4. **사용자 특성**을 선택한 후 **추가**를 선택합니다.
-5. 사용자 지정 특성(예: "ShoeSize")에 대해 **이름**을 제공합니다.
-6. **데이터 형식**을 선택합니다. **문자열**, **부울** 및 **Int**만 사용할 수 있습니다.
-7. 필요에 따라 정보 제공을 위해 **설명**을 입력합니다.
-8. **만들기**를 클릭합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+4. **사용자 특성** 을 선택한 후 **추가** 를 선택합니다.
+5. 사용자 지정 특성(예: "ShoeSize")에 대해 **이름** 을 제공합니다.
+6. **데이터 형식** 을 선택합니다. **문자열**, **부울** 및 **Int** 만 사용할 수 있습니다.
+7. 필요에 따라 정보 제공을 위해 **설명** 을 입력합니다.
+8. **만들기** 를 클릭합니다.
 
-사용자 지정 특성은 이제 사용자 **특성** 목록에서 사용할 수 있으며 사용자 흐름에서 사용할 수 있습니다. 사용자 지정 특성은 사용자가 사용자 **특성**목록에 추가할 때가 아닌 사용자 흐름에서 처음 사용 하는 경우에만 생성 됩니다.
+사용자 지정 특성은 이제 사용자 **특성** 목록에서 사용할 수 있으며 사용자 흐름에서 사용할 수 있습니다. 사용자 지정 특성은 사용자가 사용자 **특성** 목록에 추가할 때가 아닌 사용자 흐름에서 처음 사용 하는 경우에만 생성 됩니다.
 
 ## <a name="use-a-custom-attribute-in-your-user-flow"></a>사용자 흐름에 사용자 지정 특성 사용
 
-1. Azure AD B2C 테넌트에서 **사용자 흐름**을 선택합니다.
+1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
 1. 정책(예: "B2C_1_SignupSignin")을 선택하여 엽니다.
-1. **사용자 특성**을 선택하고 사용자 지정 특성을 선택합니다(예: "ShoeSize"). **저장**을 클릭합니다.
-1. **애플리케이션 클레임**을 선택하고 사용자 지정 특성을 선택합니다.
-1. **저장**을 클릭합니다.
+1. **사용자 특성** 을 선택하고 사용자 지정 특성을 선택합니다(예: "ShoeSize"). **저장** 을 클릭합니다.
+1. **애플리케이션 클레임** 을 선택하고 사용자 지정 특성을 선택합니다.
+1. **저장** 을 클릭합니다.
 
-새로 만든 사용자 지정 특성을 사용 하는 사용자 흐름을 사용 하 여 새 사용자를 만든 후 [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer)에서 개체를 쿼리할 수 있습니다. 또는 사용자 흐름에서 [사용자 흐름 실행](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) 기능을 사용 하 여 고객 환경을 확인할 수 있습니다. 이제 등록 과정 동안 수집되는 특성 목록에 **ShoeSize**가 표시되며 애플리케이션으로 다시 전송되는 토큰에도 표시됩니다.
+새로 만든 사용자 지정 특성을 사용 하는 사용자 흐름을 사용 하 여 새 사용자를 만든 후 [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer)에서 개체를 쿼리할 수 있습니다. 또는 사용자 흐름에서 [사용자 흐름 실행](./tutorial-create-user-flows.md) 기능을 사용 하 여 고객 환경을 확인할 수 있습니다. 이제 등록 과정 동안 수집되는 특성 목록에 **ShoeSize** 가 표시되며 애플리케이션으로 다시 전송되는 토큰에도 표시됩니다.

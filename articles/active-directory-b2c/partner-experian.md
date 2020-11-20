@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: a88894bb7462e9ac3afd16d69ae820dd98543a5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29116d880a51444eb45a351e2118a07d13873043
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259376"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953851"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Experian 구성에 대 한 자습서
 
@@ -24,7 +24,7 @@ ms.locfileid: "91259376"
 
 이 샘플에서는 Experian의 통합 디지털 id 및 사기 위험 **CrossCore** 사용 됩니다. CrossCore은 사용자 id를 확인 하는 데 사용 되는 ID 확인 서비스입니다. 등록 흐름 중에 사용자가 제공 하는 여러 정보를 기반으로 하는 위험 분석을 수행 합니다. CrossCore은 사용자가 계속 로그인 할 수 있도록 허용할지 여부를 결정 하는 데 사용 됩니다. CrossCore 위험 분석에 사용할 수 있는 특성은 다음과 같습니다.
 
-- Email
+- 메일
 - IP 주소
 - 이름
 - Middle Name
@@ -36,13 +36,13 @@ ms.locfileid: "91259376"
 - 국가/지역
 - 전화 번호
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
 - Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
-- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) 입니다.
+- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](./tutorial-create-tenant.md) 입니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -58,7 +58,7 @@ Experian 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![experian에 대 한 스크린샷-다이어그램](media/partner-experian/experian-architecture-diagram.png)
 
-|단계 | 설명 |
+|단계 | Description |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 페이지에 도착 합니다. 사용자가 등록을 선택 하 여 새 계정을 만들고 페이지에 정보를 입력 합니다. Azure AD B2C 사용자 특성을 수집 합니다.
 | 2. | Azure AD B2C 중간 계층 API를 호출 하 고 사용자 특성을 전달 합니다.
@@ -77,14 +77,14 @@ Experian 통합에는 다음 구성 요소가 포함 됩니다.
 
 ### <a name="part-1---deploy-the-api"></a>1 부-API 배포
 
-제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) 를 Azure 서비스에 배포 합니다. 이러한 [지침](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
+제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) 를 Azure 서비스에 배포 합니다. 이러한 [지침](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
 
 >[!NOTE]
 >필요한 설정을 사용 하 여 Azure AD를 구성 하려면 배포 된 서비스의 URL이 필요 합니다.
 
 ### <a name="part-2---deploy-the-client-certificate"></a>2 부-클라이언트 인증서 배포
 
-Experian API 호출은 클라이언트 인증서로 보호 됩니다. 이 클라이언트 인증서는 Experian에서 제공 됩니다. 이 [문서](https://docs.microsoft.com/azure/app-service/environment/certificates#private-client-certificate)에 설명 된 지침에 따라 인증서를 Azure 앱 서비스에 업로드 해야 합니다. 이 샘플 정책은 프로세스의 다음 단계를 사용 합니다.
+Experian API 호출은 클라이언트 인증서로 보호 됩니다. 이 클라이언트 인증서는 Experian에서 제공 됩니다. 이 [문서](../app-service/environment/certificates.md#private-client-certificate)에 설명 된 지침에 따라 인증서를 Azure 앱 서비스에 업로드 해야 합니다. 이 샘플 정책은 프로세스의 다음 단계를 사용 합니다.
 
 - 인증서 업로드
 
@@ -92,9 +92,9 @@ Experian API 호출은 클라이언트 인증서로 보호 됩니다. 이 클라
 
 ### <a name="part-3---configure-the-api"></a>3 부-API 구성
 
-응용 프로그램 설정은 [Azure의 App service에서 구성할](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings)수 있습니다. 이 방법을 사용 하면 설정을 리포지토리로 체크 인하지 않고도 안전 하 게 구성할 수 있습니다. Rest API에 대 한 다음 설정을 제공 해야 합니다.
+응용 프로그램 설정은 [Azure의 App service에서 구성할](../app-service/configure-common.md#configure-app-settings)수 있습니다. 이 방법을 사용 하면 설정을 리포지토리로 체크 인하지 않고도 안전 하 게 구성할 수 있습니다. Rest API에 대 한 다음 설정을 제공 해야 합니다.
 
-| 애플리케이션 설정 | 원본 | 참고 |
+| 애플리케이션 설정 | 원본 | 메모 |
 | :-------- | :------------| :-----------|
 |CrossCoreConfig: TenantId | Experian 계정 구성 |     |
 |CrossCoreConfig:OrgCode | Experian 계정 구성 |     |
@@ -110,7 +110,7 @@ Experian API 호출은 클라이언트 인증서로 보호 됩니다. 이 클라
 
 ### <a name="part-4---create-api-policy-keys"></a>4 부-API 정책 키 만들기
 
-이 [문서](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#add-rest-api-username-and-password-policy-keys) 를 참조 하 여 두 개의 정책 키를 만듭니다. 하나는 API 사용자 이름, 하나는 HTTP 기본 인증에 대해 위에서 정의한 api 암호입니다.
+이 [문서](./secure-rest-api.md#add-rest-api-username-and-password-policy-keys) 를 참조 하 여 두 개의 정책 키를 만듭니다. 하나는 API 사용자 이름, 하나는 HTTP 기본 인증에 대해 위에서 정의한 api 암호입니다.
 
 >[!NOTE]
 >나중에 정책을 구성 하기 위한 키가 필요 합니다.
@@ -119,7 +119,7 @@ Experian API 호출은 클라이언트 인증서로 보호 됩니다. 이 클라
 
 제공 된 [사용자 지정 정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Experian/policy)에서 다음 자리 표시자를 찾고를 인스턴스의 해당 값으로 바꿉니다.
 
-|                      자리표시자                       |                                   대체할 값                                 |                   예제                    |
+|                      자리표시자                       |                                   대체할 값                                 |                   예                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |
 | {your_tenant_name}                                     | 테 넌 트 약식 이름                                                           | yourtenant.onmicrosoft.com의 "모든 테 넌 트" |
 | {your_trustframeworkbase_policy}                       | Trustframeworkbase.xml 정책의 Azure AD B2C 이름                  | B2C_1A_experian_TrustFrameworkBase           |
@@ -133,7 +133,7 @@ Experian API 호출은 클라이언트 인증서로 보호 됩니다. 이 클라
 
 ### <a name="part-6---configure-the-azure-ad-b2c-policy"></a>6 부-Azure AD B2C 정책 구성
 
-Azure AD B2C 테 넌 트를 설정 하 고 정책을 구성 하는 방법에 대 한 지침은이 [문서](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) 를 참조 하세요.
+Azure AD B2C 테 넌 트를 설정 하 고 정책을 구성 하는 방법에 대 한 지침은이 [문서](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) 를 참조 하세요.
 
 >[!NOTE]
 >이 샘플 정책은 [로컬 계정 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 기반으로 합니다.
@@ -143,9 +143,9 @@ Azure AD B2C 테 넌 트를 설정 하 고 정책을 구성 하는 방법에 대
 
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
-1. Azure AD B2C 테 넌 트를 열고 정책 아래에서 **사용자 흐름**을 선택 합니다.
+1. Azure AD B2C 테 넌 트를 열고 정책 아래에서 **사용자 흐름** 을 선택 합니다.
 
-2. 이전에 만든 **사용자 흐름**을 선택 합니다.
+2. 이전에 만든 **사용자 흐름** 을 선택 합니다.
 
 3. **사용자 흐름 실행** 을 선택 하 고 설정을 선택 합니다.
 
@@ -153,7 +153,7 @@ Azure AD B2C 테 넌 트를 설정 하 고 정책을 구성 하는 방법에 대
 
    b. **회신 url**: **리디렉션 url** 을 선택 합니다.
 
-   다. **사용자 흐름 실행**을 선택합니다.
+   c. **사용자 흐름 실행** 을 선택합니다.
 
 4. 등록 흐름으로 이동 하 여 계정 만들기
 
@@ -161,12 +161,12 @@ Azure AD B2C 테 넌 트를 설정 하 고 정책을 구성 하는 방법에 대
 
 6. 로그인 흐름을 통해 이동  
 
-7. **Continue**를 입력 하면 CrossCore 퍼즐이 팝업 됩니다.
+7. **Continue** 를 입력 하면 CrossCore 퍼즐이 팝업 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 다음 문서를 참조 하세요.
 
-- [Azure AD B2C의 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)

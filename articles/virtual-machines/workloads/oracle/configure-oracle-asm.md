@@ -3,16 +3,17 @@ title: Azure Linux 가상 머신에 Oracle ASM 설정 | Microsoft Docs
 description: Azure 환경에서 Oracle ASM을 빠르게 준비하여 실행합니다.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: b9653cded11edd36602caea0ecd50cfb8dd05ebe
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e5593d530891e39404e0b9760861f2f22ae333d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547183"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952706"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에 Oracle ASM 설정  
 

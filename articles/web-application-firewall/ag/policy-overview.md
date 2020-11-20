@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 10/14/2020
+ms.date: 11/19/2020
 ms.author: victorh
-ms.openlocfilehash: 0f7fec997ec6d0c73fe6d1039ab1033752e0cedf
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9fb8bf689e2767f681994258c4d2c51be41d6c68
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566574"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952134"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Azure WAF (웹 응용 프로그램 방화벽) 정책 개요
 
@@ -53,7 +53,7 @@ Contoso.com, fabrikam.com 및 adatum.com의 세 사이트가 동일한 응용 �
 
 Adatum.com/payments URI는 주의 해야 하는 곳입니다. 따라서 해당 URI에 다른 정책을 적용 하 고 모든 규칙을 사용 하도록 설정 된 상태로 두고 모든 제외 항목을 제거 합니다.
 
-이 예제에서는 두 사이트에 적용 되는 전역 정책이 있습니다. 한 사이트에 적용 되는 사이트별 정책 및 특정 한 경로 기반 규칙에 적용 되는 URI 별 정책을 보유 하 고 있습니다. 이 예에 대 한 해당 PowerShell에 대 한 사이트별 및 URI 별 정책은 (있는 경우 여기에 링크 삽입)를 참조 하세요.
+이 예제에서는 두 사이트에 적용 되는 전역 정책이 있습니다. 한 사이트에 적용 되는 사이트별 정책 및 특정 한 경로 기반 규칙에 적용 되는 URI 별 정책을 보유 하 고 있습니다. 이 예제에서는 해당 PowerShell에 대 한 [Azure PowerShell를 사용 하 여 사이트별 WAF 정책 구성](per-site-policies.md) 을 참조 하세요.
 
 ## <a name="existing-waf-configurations"></a>기존 WAF 구성
 

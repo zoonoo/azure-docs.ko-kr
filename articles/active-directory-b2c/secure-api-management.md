@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0e8802d612f2497cc58c90856e9a5a5572a142f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60b7bb33dfbf29b7e448887ce992d03009133b2e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87482841"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953494"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Azure AD B2C를 사용하여 Azure API Management API 보호
 
@@ -33,24 +33,24 @@ Azure AD B2C(Azure Active Directory B2C)에서 인증을 받은 클라이언트�
 
 ## <a name="get-azure-ad-b2c-application-id"></a>Azure AD B2C 애플리케이션 ID 가져오기
 
-Azure AD B2C를 사용하여 Azure API Management에서 API를 보호하는 경우 APIM에서 만든 [인바운드 정책](../api-management/api-management-howto-policies.md)에 대해 몇 가지 값이 필요합니다. 먼저 Azure AD B2C 테넌트에서 이전에 만든 애플리케이션의 애플리케이션 ID를 적어 둡니다. 필수 조건에서 만든 애플리케이션을 사용하는 경우 *webbapp1*에 대해 애플리케이션 ID를 사용합니다.
+Azure AD B2C를 사용하여 Azure API Management에서 API를 보호하는 경우 APIM에서 만든 [인바운드 정책](../api-management/api-management-howto-policies.md)에 대해 몇 가지 값이 필요합니다. 먼저 Azure AD B2C 테넌트에서 이전에 만든 애플리케이션의 애플리케이션 ID를 적어 둡니다. 필수 조건에서 만든 애플리케이션을 사용하는 경우 *webbapp1* 에 대해 애플리케이션 ID를 사용합니다.
 
-Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregtraining).
+Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **앱 등록**를 선택 하 고 소유 하는 **응용 프로그램** 탭을 선택 합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **앱 등록** 를 선택 하 고 소유 하는 **응용 프로그램** 탭을 선택 합니다.
 1. *webapp1* 또는 이전에 만든 다른 애플리케이션에 대한 **애플리케이션(클라이언트) ID** 열의 값을 적어 둡니다.
 
 #### <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications-legacy/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **관리**에서 **응용 프로그램 (레거시)** 을 선택 합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **관리** 에서 **응용 프로그램 (레거시)** 을 선택 합니다.
 1. *webapp1* 또는 이전에 만든 다른 애플리케이션에 대한 **애플리케이션 ID** 열의 값을 적어 둡니다.
 
 * * *
@@ -60,8 +60,8 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
 다음으로 Azure AD B2C 사용자 흐름 중 하나에 대한 잘 알려진 구성 URL을 가져옵니다. 또한 Azure API Management에서 지원하려는 토큰 발급자 엔드포인트 URI가 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure AD B2C 테넌트로 이동합니다.
-1. **정책** 아래에서 **사용자 흐름**을 선택합니다.
-1. 기존 정책(예: *B2C_1_signupsignin1*)을 선택하고 **사용자 흐름 실행**을 선택합니다.
+1. **정책** 아래에서 **사용자 흐름** 을 선택합니다.
+1. 기존 정책(예: *B2C_1_signupsignin1*)을 선택하고 **사용자 흐름 실행** 을 선택합니다.
 1. 페이지 맨 위에 있는 **사용자 흐름 실행** 제목 아래에 표시되는 하이퍼링크에 URL을 적어 둡니다. 이 URL은 사용자 흐름에 대한 OpenID Connect의 잘 알려진 검색 엔드포인트로, 다음 섹션에서 Azure API Management에서 인바운드 정책을 구성할 때 이 URL을 사용합니다.
 
     ![Azure Portal의 지금 실행 페이지에 제공되는 잘 알려진 URI 하이퍼링크](media/secure-apim-with-b2c-token/portal-01-policy-link.png)
@@ -85,10 +85,10 @@ https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 이제 API 호출의 유효성을 검사하는 Azure API Management에서 인바운드 정책을 추가할 준비가 되었습니다. 액세스 토큰에서 대상 사용자 및 발급자를 확인하는 [JWT 유효성 검사](../api-management/api-management-access-restriction-policies.md#ValidateJWT) 정책을 추가하여 유효한 토큰이 있는 API 호출만 허용되도록 할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure API Management 인스턴스를 찾습니다.
-1. **API**를 선택합니다.
+1. **API** 를 선택합니다.
 1. Azure AD B2C를 사용하여 보안을 유지할 API를 선택합니다.
 1. **디자인** 탭을 선택합니다.
-1. **인바운드 처리**에서 **\</\>** 를 선택하여 정책 코드 편집기를 엽니다.
+1. **인바운드 처리** 에서 **\</\>** 를 선택하여 정책 코드 편집기를 엽니다.
 1. `<inbound>` 정책 안에 다음 `<validate-jwt>` 태그를 추가합니다.
 
     1. `<openid-config>` 요소의 `url` 값을 정책의 잘 알려진 구성 URL로 업데이트합니다.
@@ -126,11 +126,11 @@ API를 호출하려면 Azure AD B2C에서 발급한 액세스 토큰과 APIM 구
 먼저 Postman의 `Authorization` 헤더에서 사용하기 위해 Azure AD B2C에서 발급한 토큰이 필요합니다. 필수 조건 중 하나로 만들어야 하는 등록/로그인 사용자 흐름의 **지금 실행** 기능을 사용하여 토큰을 하나 가져올 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure AD B2C 테넌트로 이동합니다.
-1. **정책** 아래에서 **사용자 흐름**을 선택합니다.
+1. **정책** 아래에서 **사용자 흐름** 을 선택합니다.
 1. 기존 등록/로그인 사용자 흐름을 선택합니다(예: *B2C_1_signupsignin1*).
-1. **애플리케이션**으로 *webapp1*을 선택합니다.
-1. **회신 URL**로 `https://jwt.ms`를 선택합니다.
-1. **사용자 흐름 실행**을 선택합니다.
+1. **애플리케이션** 으로 *webapp1* 을 선택합니다.
+1. **회신 URL** 로 `https://jwt.ms`를 선택합니다.
+1. **사용자 흐름 실행** 을 선택합니다.
 
     ![Azure Portal에서 등록/로그인 사용자 흐름에 대한 사용자 흐름 페이지 실행](media/secure-apim-with-b2c-token/portal-03-user-flow.png)
 
@@ -144,9 +144,9 @@ API를 호출하려면 Azure AD B2C에서 발급한 액세스 토큰과 APIM 구
 게시된 API를 호출하는 클라이언트 애플리케이션(이 경우 Postman)에는 API에 대한 HTTP 요청에 유효한 API Management 구독 키가 포함되어야 합니다. Postman HTTP 요청에 포함할 구독 키를 가져오려면
 
 1. [Azure Portal](https://portal.azure.com)의 Azure API Management 서비스 인스턴스로 이동합니다.
-1. **구독**을 선택합니다.
-1. **제품: 무제한**에 대해 줄임표를 선택하고 **키 표시/숨기기**를 선택합니다.
-1. 제품의 **기본 키**를 적어 둡니다. Postman의 HTTP 요청에서 `Ocp-Apim-Subscription-Key` 헤더에 이 키를 사용합니다.
+1. **구독** 을 선택합니다.
+1. **제품: 무제한** 에 대해 줄임표를 선택하고 **키 표시/숨기기** 를 선택합니다.
+1. 제품의 **기본 키** 를 적어 둡니다. Postman의 HTTP 요청에서 `Ocp-Apim-Subscription-Key` 헤더에 이 키를 사용합니다.
 
 ![Azure Portal에서 키 표시/숨기기가 선택된 구독 키 페이지](media/secure-apim-with-b2c-token/portal-04-api-subscription-key.png)
 
@@ -165,7 +165,7 @@ API를 호출하려면 Azure AD B2C에서 발급한 액세스 토큰과 APIM 구
     | `Authorization` | 앞에서 적어 둔 암호화된 토큰 값으로, `Bearer ` 접두사가 붙습니다("전달자" 뒤에 공백 포함). |
     | `Ocp-Apim-Subscription-Key` | 앞에서 적어 둔 APIM 구독 키 |
 
-    **GET** 요청 URL 및 **헤더**는 다음과 유사하게 표시됩니다.
+    **GET** 요청 URL 및 **헤더** 는 다음과 유사하게 표시됩니다.
 
     ![GET 요청 URL 및 헤더를 표시하는 Postman UI](media/secure-apim-with-b2c-token/postman-01-headers.png)
 

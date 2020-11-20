@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5528607b0559dad246262748c83c9d359ee2144e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c362ce256259606c85af0a7e13ccde1715bb012b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385742"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953936"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>OWIN 기반 web API를 b2clogin.com로 마이그레이션
 
-이 문서에서는 [OWIN (Open Web Interface for .net)](http://owin.org/)를 구현 하는 웹 api에서 여러 토큰 발급자에 대 한 지원을 사용 하도록 설정 하는 기술에 대해 설명 합니다. 여러 토큰 끝점을 지 원하는 것은 Azure Active Directory B2C (Azure AD B2C) Api 및 해당 응용 프로그램을 *login.microsoftonline.com* 에서 *b2clogin.com*로 마이그레이션하는 경우에 유용 합니다.
+이 문서에서는 [OWIN (Open Web Interface for .net)](http://owin.org/)를 구현 하는 웹 api에서 여러 토큰 발급자에 대 한 지원을 사용 하도록 설정 하는 기술에 대해 설명 합니다. 여러 토큰 끝점을 지 원하는 것은 Azure Active Directory B2C (Azure AD B2C) Api 및 해당 응용 프로그램을 *login.microsoftonline.com* 에서 *b2clogin.com* 로 마이그레이션하는 경우에 유용 합니다.
 
 API에서 b2clogin.com 및 login.microsoftonline.com 둘 다에 의해 발급 된 토큰을 허용 하는 지원을 추가 하 여 API에서 login.microsoftonline.com 발급 된 토큰에 대 한 지원을 제거 하기 전에 웹 응용 프로그램을 단계적으로 마이그레이션할 수 있습니다.
 
@@ -42,8 +42,8 @@ API에서 b2clogin.com 및 login.microsoftonline.com 둘 다에 의해 발급 �
 기존 사용자 흐름 중 하나를 선택 하 여 시작 합니다.
 
 1. [Azure Portal](https://portal.azure.com) 에서 Azure AD B2C 테 넌 트로 이동 합니다.
-1. **정책**에서 **사용자 흐름 (정책)** 을 선택 합니다.
-1. *B2C_1_signupsignin1*예를 들어 기존 정책을 선택한 다음 **사용자 흐름 실행** 을 선택 합니다.
+1. **정책** 에서 **사용자 흐름 (정책)** 을 선택 합니다.
+1. *B2C_1_signupsignin1* 예를 들어 기존 정책을 선택한 다음 **사용자 흐름 실행** 을 선택 합니다.
 1. 페이지 위쪽의 **사용자 흐름 실행** 제목 아래에서 하이퍼링크를 선택 하 여 해당 사용자 흐름에 대 한 openid connect Connect 검색 엔드포인트로 이동 합니다.
 
     ![Azure Portal의 지금 실행 페이지에 제공되는 잘 알려진 URI 하이퍼링크](media/multi-token-endpoints/portal-01-policy-link.png)
@@ -88,7 +88,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 이 섹션에서는 두 토큰 발급자 끝점이 유효함을 지정 하도록 코드를 업데이트 합니다.
 
 1. Visual Studio에서 B2C-WebAPI-DotNet 솔루션을 엽니다 **.**
-1. **Taskservice** 프로젝트에서 편집기의 *taskservice \\ App_Start \\ * * Startup.Auth.cs** * 파일을 엽니다.
+1. **Taskservice** 프로젝트에서 편집기의 * taskservice \\ App_Start \\ **Startup.Auth.cs** _ 파일을 엽니다.
 1. 다음 `using` 지시문을 파일의 맨 위에 추가합니다.
 
     `using System.Collections.Generic;`
@@ -107,7 +107,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
     };
     ```
 
-`TokenValidationParameters` 는 MSAL.NET에서 제공 되 고 *Startup.Auth.cs*의 다음 코드 섹션에 있는 OWIN 미들웨어에서 사용 됩니다. 유효한 발급자를 여러 개 지정 하면 OWIN 응용 프로그램 파이프라인이 두 토큰 끝점이 모두 유효한 발급자 임을 인식 합니다.
+`TokenValidationParameters` 는 MSAL.NET에서 제공 되며 _Startup 코드의 다음 섹션에 있는 OWIN 미들웨어에서 사용 됩니다. 유효한 발급자를 여러 개 지정 하면 OWIN 응용 프로그램 파이프라인이 두 토큰 끝점이 모두 유효한 발급자 임을 인식 합니다.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -123,7 +123,7 @@ app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
 
 이제 web API에서 두 Uri를 모두 지원 하므로 b2clogin.com 끝점에서 토큰을 검색 하도록 웹 응용 프로그램을 업데이트 해야 합니다.
 
-예를 들어 `ida:AadInstance` **TaskWebApp** 프로젝트의 *TaskWebApp \\ * * Web.config** * 파일에서 값을 수정 하 여 새 끝점을 사용 하도록 샘플 웹 응용 프로그램을 구성할 수 있습니다.
+예를 들어 `ida:AadInstance` _ TaskWebApp * * 프로젝트 *의 TaskWebApp \\ **Web.config** _ 파일* 에서 값을 수정 하 여 새 끝점을 사용 하도록 샘플 웹 응용 프로그램을 구성할 수 있습니다.
 
 대신를 `ida:AadInstance` 참조 하도록 TaskWebApp의 *Web.config* 값을 변경 `{your-b2c-tenant-name}.b2clogin.com` `login.microsoftonline.com` 합니다.
 
@@ -154,6 +154,6 @@ Azure AD B2C에서 내보내는 다양 한 형식의 보안 토큰에 대 한 �
 [sample-repo]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi
 
 <!-- LINKS - Internal -->
-[katana]: https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/
-[validissuers]: https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters.validissuers
-[tokenvalidationparameters]: https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters
+[katana]: /aspnet/aspnet/overview/owin-and-katana/
+[validissuers]: /dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters.validissuers
+[tokenvalidationparameters]: /dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters

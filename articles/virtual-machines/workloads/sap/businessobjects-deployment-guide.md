@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 9d1759e5b809bc40e63fb6024fb7f107ad347da6
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ee7cc1c81bd35bf2b51c712c3a60a046435ee700
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094355"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951286"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Azure의 SAP BusinessObjects BI 플랫폼 계획 및 구현 가이드
 
@@ -137,7 +138,7 @@ BI 플랫폼은 CMS 및 감사 데이터 저장소에 대해 데이터베이스�
 
 - MaxDB
 
-이 문서에서는 **Azure Database for MySQL를 사용 하 여 Linux에서 Azure SQL Database 및 SAP Bobi 플랫폼**을 **사용 하 여 WINDOWS에 Sap bobi 플랫폼** 을 배포 하는 지침을 설명 합니다. Azure에서 SAP BusinessObjects BI 플랫폼을 실행 하기 위한 권장 접근 방법 이기도 합니다.
+이 문서에서는 **Azure Database for MySQL를 사용 하 여 Linux에서 Azure SQL Database 및 SAP Bobi 플랫폼** 을 **사용 하 여 WINDOWS에 Sap bobi 플랫폼** 을 배포 하는 지침을 설명 합니다. Azure에서 SAP BusinessObjects BI 플랫폼을 실행 하기 위한 권장 접근 방법 이기도 합니다.
 
 ## <a name="sizing"></a>크기 조정
 

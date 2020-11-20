@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 273e9f7ce65cdd15000b1cc4ac7c19cde5992992
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af671996722524de9af1a90ae8dfde27f814c8c2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396776"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951641"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Azure Network Watcher 문제 해결로 VPN Gateway 모니터링
 
@@ -51,29 +51,29 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 
 ### <a name="create-the-runbook"></a>Runbook 만들기
 
-예제를 구성하는 첫 번째 단계는 Runbook을 만드는 것입니다. 이 예제에서는 실행 계정을 사용합니다. 실행 계정에 대해 자세히 알아보려면 [Azure 실행 계정으로 Runbook 인증](../automation/automation-create-runas-account.md)을 참조하세요.
+예제를 구성하는 첫 번째 단계는 Runbook을 만드는 것입니다. 이 예제에서는 실행 계정을 사용합니다. 실행 계정에 대해 자세히 알아보려면 [Azure 실행 계정으로 Runbook 인증](../automation/manage-runas-account.md)을 참조하세요.
 
 ### <a name="step-1"></a>1단계
 
-[Azure Portal](https://portal.azure.com)에서 Azure Automation으로 이동하고 **Runbook**을 클릭합니다.
+[Azure Portal](https://portal.azure.com)에서 Azure Automation으로 이동하고 **Runbook** 을 클릭합니다.
 
 ![자동화 계정 개요][1]
 
 ### <a name="step-2"></a>2단계
 
-**Runbook 추가**를 클릭하여 Runbook 만들기 과정을 시작합니다.
+**Runbook 추가** 를 클릭하여 Runbook 만들기 과정을 시작합니다.
 
 ![Runbook 블레이드][2]
 
 ### <a name="step-3"></a>3단계
 
-**빨리 만들기**에서 **새 Runbook 만들기**를 클릭하여 Runbook을 만듭니다.
+**빨리 만들기** 에서 **새 Runbook 만들기** 를 클릭하여 Runbook을 만듭니다.
 
 ![Runbook 추가 블레이드][3]
 
 ### <a name="step-4"></a>4단계
 
-이 단계에서는 Runbook에 이름을 부여하는데, 예제에서 이를 **Get-VPNGatewayStatus**라고 합니다. Runbook에 설명이 포함된 이름을 부여하는 것이 중요하며 다음 표준 PowerShell 이름 지정 기준에 따라 이름을 지정하는 것이 좋습니다. 이 예제에 대한 Runbook 형식은 **PowerShell**이고, 다른 옵션은 그래픽, PowerShell 워크플로 및 그래픽 PowerShell 워크플로입니다.
+이 단계에서는 Runbook에 이름을 부여하는데, 예제에서 이를 **Get-VPNGatewayStatus** 라고 합니다. Runbook에 설명이 포함된 이름을 부여하는 것이 중요하며 다음 표준 PowerShell 이름 지정 기준에 따라 이름을 지정하는 것이 좋습니다. 이 예제에 대한 Runbook 형식은 **PowerShell** 이고, 다른 옵션은 그래픽, PowerShell 워크플로 및 그래픽 PowerShell 워크플로입니다.
 
 ![Runbook 블레이드][4]
 
@@ -81,7 +81,7 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 
 이 단계에서는 Runbook이 생성되고 다음 코드 예제는 예제에 필요한 모든 코드를 제공합니다. 를 포함 하는 코드의 항목을 \<value\> 구독의 값으로 바꾸어야 합니다.
 
-다음 코드를 사용하고 **저장**을 클릭합니다.
+다음 코드를 사용하고 **저장** 을 클릭합니다.
 
 ```powershell
 # Set these variables to the proper values for your environment
@@ -145,19 +145,19 @@ else
 
 ### <a name="step-6"></a>6단계
 
-Runbook을 저장했으면 일정을 연결하여 Runbook의 실행을 자동화해야 합니다. 프로세스를 시작하려면 **일정**을 클릭합니다.
+Runbook을 저장했으면 일정을 연결하여 Runbook의 실행을 자동화해야 합니다. 프로세스를 시작하려면 **일정** 을 클릭합니다.
 
 ![6단계][6]
 
 ## <a name="link-a-schedule-to-the-runbook"></a>Runbook에 일정 연결
 
-새 일정이 생성되어야 합니다. **Runbook에 일정 연결**을 클릭합니다.
+새 일정이 생성되어야 합니다. **Runbook에 일정 연결** 을 클릭합니다.
 
 ![7단계][7]
 
 ### <a name="step-1"></a>1단계
 
-**일정** 블레이드에서 **새 일정 만들기**를 클릭합니다.
+**일정** 블레이드에서 **새 일정 만들기** 를 클릭합니다.
 
 ![8단계][8]
 
@@ -168,9 +168,9 @@ Runbook을 저장했으면 일정을 연결하여 Runbook의 실행을 자동화
 - **이름** - 일정의 이름입니다.
 - **설명** - 일정에 대한 설명입니다.
 - **시작** - 이 값은 일정이 트리거된 시간을 구성하는 날짜, 시간 및 표준 시간대의 조합입니다.
-- **되풀이** - 이 값에 따라 일정 되풀이가 결정됩니다.  유효한 값은 **한 번** 또는 **되풀이**입니다.
+- **되풀이** - 이 값에 따라 일정 되풀이가 결정됩니다.  유효한 값은 **한 번** 또는 **되풀이** 입니다.
 - **되풀이 간격** - 일정의 되풀이 간격을 시간, 일, 주 또는 달로 나타냅니다.
-- **만료 설정** - 이 값은 일정이 만료되는지 여부를 결정합니다. **예** 또는 **아니요**로 설정할 수 있습니다. 예를 선택한 경우 유효한 날짜 및 시간이 제공됩니다.
+- **만료 설정** - 이 값은 일정이 만료되는지 여부를 결정합니다. **예** 또는 **아니요** 로 설정할 수 있습니다. 예를 선택한 경우 유효한 날짜 및 시간이 제공됩니다.
 
 > [!NOTE]
 > 매시간보다 더 자주 Runbook을 실행하도록 해야 하는 경우 서로 다른 간격으로 여러 일정을 만들어야 합니다(즉, 한 시간 후 15, 30, 45분).

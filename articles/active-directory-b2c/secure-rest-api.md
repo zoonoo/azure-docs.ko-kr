@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: adb9bf48800062d2cc6976a88ec48c1993858dec
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 18979ba8cbc4e68bf79275059c6c1c976578c407
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089539"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953375"
 ---
 # <a name="secure-your-restful-services"></a>RESTful 서비스 보호 
 
@@ -45,23 +45,23 @@ HTTP 기본 인증을 사용하여 REST API 기술 프로필을 구성하려면 
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
-1. **정책 키**, **추가**를 차례로 선택합니다.
-1. **옵션**에서 **수동**을 선택합니다.
-1. **이름**에 **RestApiUsername**을 입력합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
+1. **정책 키**, **추가** 를 차례로 선택합니다.
+1. **옵션** 에서 **수동** 을 선택합니다.
+1. **이름** 에 **RestApiUsername** 을 입력합니다.
     *B2C_1A_* 접두사를 자동으로 추가할 수 있습니다.
 1. **비밀** 상자에 REST API 사용자 이름을 입력합니다.
-1. **키 사용**에는 **암호화**를 선택합니다.
-1. **만들기**를 선택합니다.
-1. **정책 키**를 다시 선택합니다.
-1. **추가**를 선택합니다.
-1. **옵션**에서 **수동**을 선택합니다.
-1. **이름**에 **RestApiPassword**를 입력합니다.
+1. **키 사용** 에는 **암호화** 를 선택합니다.
+1. **만들기** 를 선택합니다.
+1. **정책 키** 를 다시 선택합니다.
+1. **추가** 를 선택합니다.
+1. **옵션** 에서 **수동** 을 선택합니다.
+1. **이름** 에 **RestApiPassword** 를 입력합니다.
     *B2C_1A_* 접두사를 자동으로 추가할 수 있습니다.
 1. **비밀** 상자에 REST API 암호를 입력합니다.
-1. **키 사용**에는 **암호화**를 선택합니다.
-1. **만들기**를 선택합니다.
+1. **키 사용** 에는 **암호화** 를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-http-basic-authentication"></a>HTTP 기본 인증을 사용하도록 REST API 기술 프로필 구성
 
@@ -70,8 +70,8 @@ HTTP 기본 인증을 사용하여 REST API 기술 프로필을 구성하려면 
 1. 작업 디렉터리에서 확장 정책 파일(TrustFrameworkExtensions.xml)을 엽니다.
 1. REST API 기술 프로필을 검색합니다. 예: `REST-ValidateProfile` 또는 `REST-GetProfile`
 1. `<Metadata>` 요소를 찾습니다.
-1. *AuthenticationType*을 `Basic`으로 변경합니다.
-1. *AllowInsecureAuthInProduction*을 `false`로 변경합니다.
+1. *AuthenticationType* 을 `Basic`으로 변경합니다.
+1. *AllowInsecureAuthInProduction* 을 `false`로 변경합니다.
 1. `</Metadata>` 요소를 닫은 직후 다음 XML 코드 조각을 추가합니다.
     ```xml
     <CryptographicKeys>
@@ -111,7 +111,7 @@ HTTP 기본 인증을 사용하여 REST API 기술 프로필을 구성하려면 
 
 ### <a name="prepare-a-self-signed-certificate-optional"></a>자체 서명된 인증서 준비(선택 사항)
 
-비프로덕션 환경의 경우 인증서가 아직 없는 경우 자체 서명된 인증서를 사용할 수 있습니다. Windows에서는 PowerShell의 [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet을 사용하여 인증서를 생성할 수 있습니다.
+비프로덕션 환경의 경우 인증서가 아직 없는 경우 자체 서명된 인증서를 사용할 수 있습니다. Windows에서는 PowerShell의 [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet을 사용하여 인증서를 생성할 수 있습니다.
 
 1. 이 PowerShell 명령을 실행하여 자체 서명된 인증서를 생성합니다. `-Subject` 인수를 애플리케이션 및 Azure AD B2C 테넌트 이름에 적절하게 수정합니다. `-NotAfter` 날짜를 조정하여 인증서에 다른 만료 날짜를 지정할 수도 있습니다.
     ```powershell
@@ -124,25 +124,25 @@ HTTP 기본 인증을 사용하여 REST API 기술 프로필을 구성하려면 
         -NotAfter (Get-Date).AddMonths(12) `
         -CertStoreLocation "Cert:\CurrentUser\My"
     ```    
-1. **사용자 인증서 관리** > **현재 사용자** > **개인** > **인증서** > *yourappname.yourtenant.onmicrosoft.com*을 엽니다.
-1. 인증서 > **작업** > **모든 작업** > **내보내기**를 선택합니다.
-1. **예** > **다음** > **예, 프라이빗 키를 내보냅니다.**  > **다음**을 선택합니다.
-1. **내보내기 파일 형식**의 기본값을 적용합니다.
+1. **사용자 인증서 관리** > **현재 사용자** > **개인** > **인증서** > *yourappname.yourtenant.onmicrosoft.com* 을 엽니다.
+1. 인증서 > **작업** > **모든 작업** > **내보내기** 를 선택합니다.
+1. **예** > **다음** > **예, 프라이빗 키를 내보냅니다.**  > **다음** 을 선택합니다.
+1. **내보내기 파일 형식** 의 기본값을 적용합니다.
 1. 인증서의 암호를 제공합니다.
 
 ### <a name="add-a-client-certificate-policy-key"></a>클라이언트 인증서 정책 키 추가
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
-1. **정책 키**, **추가**를 차례로 선택합니다.
-1. **옵션** 상자에서 **업로드**를 선택합니다.
-1. **이름** 상자에 **RestApiClientCertificate**를 입력합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
+1. **정책 키**, **추가** 를 차례로 선택합니다.
+1. **옵션** 상자에서 **업로드** 를 선택합니다.
+1. **이름** 상자에 **RestApiClientCertificate** 를 입력합니다.
     *B2C_1A_* 접두사가 자동으로 추가됩니다.
 1. **파일 업로드** 상자에서 프라이빗 키가 있는 인증서 .pfx 파일을 선택합니다.
 1. **암호** 상자에 인증서의 암호를 입력합니다.
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-client-certificate-authentication"></a>클라이언트 인증서 인증을 사용하도록 REST API 기술 프로필 구성
 
@@ -151,8 +151,8 @@ HTTP 기본 인증을 사용하여 REST API 기술 프로필을 구성하려면 
 1. 작업 디렉터리에서 확장 정책 파일(TrustFrameworkExtensions.xml)을 엽니다.
 1. REST API 기술 프로필을 검색합니다. 예: `REST-ValidateProfile` 또는 `REST-GetProfile`
 1. `<Metadata>` 요소를 찾습니다.
-1. *AuthenticationType*을 `ClientCertificate`로 변경합니다.
-1. *AllowInsecureAuthInProduction*을 `false`로 변경합니다.
+1. *AuthenticationType* 을 `ClientCertificate`로 변경합니다.
+1. *AllowInsecureAuthInProduction* 을 `false`로 변경합니다.
 1. `</Metadata>` 요소를 닫은 직후 다음 XML 코드 조각을 추가합니다.
     ```xml
     <CryptographicKeys>
@@ -230,9 +230,9 @@ Authorization: Bearer <token>
 
 ### <a name="acquiring-an-access-token"></a>액세스 토큰 획득 
 
-[페더레이션 ID 공급자에서](idp-pass-through-custom.md) 가져오거나 액세스 토큰을 반환하는 REST API를 호출하거나 [ROPC 흐름](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc)을 사용하거나 [클라이언트 자격 증명 흐름](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)을 사용하여 액세스 토큰을 가져올 수 있습니다.  
+[페더레이션 ID 공급자에서](idp-pass-through-custom.md) 가져오거나 액세스 토큰을 반환하는 REST API를 호출하거나 [ROPC 흐름](../active-directory/develop/v2-oauth-ropc.md)을 사용하거나 [클라이언트 자격 증명 흐름](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md)을 사용하여 액세스 토큰을 가져올 수 있습니다.  
 
-다음 예제에서는 REST API 기술 프로필을 사용하여 HTTP 기본 인증으로 전달된 클라이언트 자격 증명을 사용하여 Azure AD 토큰 엔드포인트에 대한 요청을 만듭니다. Azure AD에서 이를 구성하려면 [Microsoft ID 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)을 참조하세요. ID 공급자와 상호 작용하도록 이를 수정해야 할 수도 있습니다. 
+다음 예제에서는 REST API 기술 프로필을 사용하여 HTTP 기본 인증으로 전달된 클라이언트 자격 증명을 사용하여 Azure AD 토큰 엔드포인트에 대한 요청을 만듭니다. Azure AD에서 이를 구성하려면 [Microsoft ID 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md)을 참조하세요. ID 공급자와 상호 작용하도록 이를 수정해야 할 수도 있습니다. 
 
 ServiceUrl의 경우 테넌트 이름을 Azure AD 테넌트 이름으로 바꿉니다. 사용 가능한 모든 옵션은 [RESTful 기술 프로필](restful-technical-profile.md) 참조를 참조하세요.
 
@@ -267,11 +267,11 @@ ServiceUrl의 경우 테넌트 이름을 Azure AD 테넌트 이름으로 바꿉�
 1. 작업 디렉터리에서 *TrustFrameworkExtensions.xml* 확장 정책 파일을 엽니다.
 1. `Id="REST-API-SignUp"`이 포함된 `<TechnicalProfile>` 노드를 검색합니다.
 1. `<Metadata>` 요소를 찾습니다.
-1. 다음과 같이 *AuthenticationType*을 *Bearer*로 변경합니다.
+1. 다음과 같이 *AuthenticationType* 을 *Bearer* 로 변경합니다.
     ```xml
     <Item Key="AuthenticationType">Bearer</Item>
     ```
-1. 다음과 같이 *UseClaimAsBearerToken*을 *bearerToken*으로 변경하거나 추가합니다. *bearerToken*은 전달자 토큰이 검색되는 클레임의 이름입니다(`SecureREST-AccessToken`에서 출력 클레임).
+1. 다음과 같이 *UseClaimAsBearerToken* 을 *bearerToken* 으로 변경하거나 추가합니다. *bearerToken* 은 전달자 토큰이 검색되는 클레임의 이름입니다(`SecureREST-AccessToken`에서 출력 클레임).
 
     ```xml
     <Item Key="UseClaimAsBearerToken">bearerToken</Item>
@@ -316,14 +316,14 @@ OAuth2 전달자 토큰을 사용 하 여 REST API 기술 프로필을 구성 �
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
-1. **정책 키**, **추가**를 차례로 선택합니다.
-1. **옵션**으로는 `Manual`을 선택합니다.
-1. 정책 키의 **이름**을 입력합니다. 예들 들어 `RestApiBearerToken`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
-1. 이전에 기록해 두었던 클라이언트 비밀을 **비밀**에 입력합니다.
-1. **키 사용**에서 `Encryption`를 선택합니다.
-1. **만들기**를 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
+1. **정책 키**, **추가** 를 차례로 선택합니다.
+1. **옵션** 으로는 `Manual`을 선택합니다.
+1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `RestApiBearerToken`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+1. 이전에 기록해 두었던 클라이언트 비밀을 **비밀** 에 입력합니다.
+1. **키 사용** 에서 `Encryption`를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-the-bearer-token-policy-key"></a>전달자 토큰 정책 키를 사용하도록 REST API 기술 프로필 구성
 
@@ -332,8 +332,8 @@ OAuth2 전달자 토큰을 사용 하 여 REST API 기술 프로필을 구성 �
 1. 작업 디렉터리에서 확장 정책 파일(TrustFrameworkExtensions.xml)을 엽니다.
 1. REST API 기술 프로필을 검색합니다. 예: `REST-ValidateProfile` 또는 `REST-GetProfile`
 1. `<Metadata>` 요소를 찾습니다.
-1. *AuthenticationType*을 `Bearer`로 변경합니다.
-1. *AllowInsecureAuthInProduction*을 `false`로 변경합니다.
+1. *AuthenticationType* 을 `Bearer`로 변경합니다.
+1. *AllowInsecureAuthInProduction* 을 `false`로 변경합니다.
 1. `</Metadata>` 요소를 닫은 직후 다음 XML 코드 조각을 추가합니다.
     ```xml
     <CryptographicKeys>
@@ -367,4 +367,4 @@ OAuth2 전달자 토큰을 사용 하 여 REST API 기술 프로필을 구성 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- IEF 참조의 [Restful 기술 프로필](restful-technical-profile.md) 요소에 대해 자세히 알아보세요. 
+- IEF 참조의 [Restful 기술 프로필](restful-technical-profile.md) 요소에 대해 자세히 알아보세요.

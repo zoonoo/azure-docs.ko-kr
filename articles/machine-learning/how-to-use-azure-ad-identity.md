@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7b76c81a78bfd3eb57a54f1d23ba1b154b09b3e6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: bcf5f75cf5cabe42f530a6a179c2cafd43b5520d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660154"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952542"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 Machine Learning 웹 서비스와 함께 Azure AD ID 사용
 
@@ -32,13 +32,13 @@ ms.locfileid: "94660154"
 
 ## <a name="create-and-install-an-azure-identity"></a>Azure Id 만들기 및 설치
 
-1. AKS 클러스터가 RBAC를 사용 하는지 확인 하려면 다음 명령을 사용 합니다.
+1. AKS 클러스터가 Kubernetes RBAC를 사용 하는지 확인 하려면 다음 명령을 사용 합니다.
 
     ```azurecli-interactive
     az aks show --name <AKS cluster name> --resource-group <resource group name> --subscription <subscription id> --query enableRbac
     ```
 
-    RBAC를 사용 하는 경우이 명령은 값을 반환 합니다 `true` . 이 값은 다음 단계에서 사용할 명령을 결정 합니다.
+    `true`KUBERNETES RBAC를 사용 하는 경우이 명령은 값을 반환 합니다. 이 값은 다음 단계에서 사용할 명령을 결정 합니다.
 
 1. AKS 클러스터에 [AZURE AD Pod id](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/) 를 설치 합니다.
 

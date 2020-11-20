@@ -11,22 +11,22 @@ ms.date: 05/06/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48c79306d376c2faa1089886881a7b5e9a792c86
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d9bdf7258296b82e65e03f6b8af8021b9a7be0f0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840555"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952474"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 데이터 관리
 
- 이 문서에서는 [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/use-the-api)에서 제공 하는 작업을 사용 하 여 Azure Active Directory B2C (Azure AD B2C)에서 사용자 데이터를 관리 하는 방법을 설명 합니다. 사용자 데이터를 관리하는 작업에는 감사 로그에서 데이터를 삭제하거나 내보내는 작업이 포함됩니다.
+ 이 문서에서는 [MICROSOFT GRAPH API](/graph/use-the-api)에서 제공 하는 작업을 사용 하 여 Azure Active Directory B2C (Azure AD B2C)에서 사용자 데이터를 관리 하는 방법을 설명 합니다. 사용자 데이터를 관리하는 작업에는 감사 로그에서 데이터를 삭제하거나 내보내는 작업이 포함됩니다.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-user-data"></a>사용자 데이터 삭제
 
-사용자 데이터는 Azure AD B2C 디렉터리와 감사 로그에 저장됩니다. 모든 사용자 감사 데이터는 Azure AD B2C 7 일 동안 보존 됩니다. 7 일 동안 사용자 데이터를 삭제 하려는 경우 [사용자 삭제](https://docs.microsoft.com/graph/api/user-delete) 작업을 사용할 수 있습니다. 데이터가 상주할 수도 있는 Azure AD B2C 테넌트마다 삭제 작업이 필요합니다.
+사용자 데이터는 Azure AD B2C 디렉터리와 감사 로그에 저장됩니다. 모든 사용자 감사 데이터는 Azure AD B2C 7 일 동안 보존 됩니다. 7 일 동안 사용자 데이터를 삭제 하려는 경우 [사용자 삭제](/graph/api/user-delete) 작업을 사용할 수 있습니다. 데이터가 상주할 수도 있는 Azure AD B2C 테넌트마다 삭제 작업이 필요합니다.
 
 Azure AD B2C의 모든 사용자에게는 개체 ID가 할당됩니다. 개체 ID는 Azure AD B2C에서 사용자 데이터를 삭제하는 데 사용할 수 있는 명확한 식별자를 제공합니다. 아키텍처에 따라 개체 ID는 재무, 마케팅 및 고객 관계 관리 데이터베이스와 같은 기타 서비스 전반에서 유용한 상관 관계 식별자가 될 수 있습니다.
 

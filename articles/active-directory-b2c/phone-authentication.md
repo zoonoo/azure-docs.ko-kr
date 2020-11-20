@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 096d771cbf6e02a67903da7d5ce495890cc6828d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9d4fa80f669493e4dc47a9ad0f9bfe9390d4ab24
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840494"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953579"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Azure AD B2C에서 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 설정
 
@@ -82,13 +82,13 @@ SMS 문자 메시지를 사용 하 여 사용자에 게 일회용 암호를 보�
 
 ## <a name="deleting-a-user-account"></a>사용자 계정 삭제
 
-경우에 따라 Azure AD B2C 디렉터리에서 사용자 및 연결 된 데이터를 삭제 해야 할 수도 있습니다. Azure Portal를 통해 사용자 계정을 삭제 하는 방법에 대 한 자세한 내용은 [다음 지침](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete)을 참조 하세요. 
+경우에 따라 Azure AD B2C 디렉터리에서 사용자 및 연결 된 데이터를 삭제 해야 할 수도 있습니다. Azure Portal를 통해 사용자 계정을 삭제 하는 방법에 대 한 자세한 내용은 [다음 지침](/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete)을 참조 하세요. 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 OTP를 설정 하기 전에 다음 리소스를 준비 해야 합니다.
 
