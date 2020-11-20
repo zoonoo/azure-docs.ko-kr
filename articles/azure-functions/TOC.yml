@@ -4,6 +4,8 @@
   items:
     - name: Azure Functions 정보
       href: functions-overview.md
+    - name: 시작
+      href: functions-get-started.md
     - name: 지속성 함수
       href: durable/durable-functions-overview.md
     - name: 서버리스 비교
@@ -588,8 +590,6 @@
       href: /azure/architecture/serverless-quest/serverless-overview
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/functions/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 할당량 정보

@@ -69,17 +69,17 @@
     - name: 연결 모니터로 마이그레이션
       items:
         - name: 네트워크 성능 모니터에서
-          href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
+          href: migrate-to-connection-monitor-from-network-performance-monitor.md
         - name: 연결 모니터에서(클래식)
-          href: migrate-to-connection-monitor-preview-from-connection-monitor.md
+          href: migrate-to-connection-monitor-from-connection-monitor-classic.md
     - name: VM 네트워크 문제 진단
       items:
         - name: VM 확장 설치
           items:
             - name: Windows
-              href: ../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-windows.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json
             - name: Linux
-              href: ../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json
         - name: 라우팅 문제 진단
           items:
             - name: Azure PowerShell
@@ -184,7 +184,7 @@
     - name: 위치와 Azure 지역 간의 상대적 대기 시간 결정
       href: view-relative-latencies.md
     - name: 네트워크 성능 모니터링
-      href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+      href: ../azure-monitor/insights/network-performance-monitor.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json
     - name: 리소스 이동
       items:
         - name: Network Watcher 리소스 이동
@@ -214,7 +214,7 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/network-watcher/'
     - name: 서비스 업데이트

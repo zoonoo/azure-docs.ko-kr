@@ -8,6 +8,10 @@
   items:
     - name: 집계형 네임스페이스 계획
       href: hpc-cache-namespace.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: 사전 요구 사항

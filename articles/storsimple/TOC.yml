@@ -352,19 +352,19 @@
             - name: Update 1
               href: storsimple-update1-release-notes.md
             - name: 업데이트 0.3
-              href: storsimple-february-2015-release-notes.md
+              href: ./index.yml
             - name: 업데이트 0.2
-              href: storsimple-january-2015-release-notes.md
+              href: ./index.yml
             - name: 업데이트 0.1
-              href: storsimple-october-2014-release-notes.md
+              href: ./index.yml
             - name: 릴리스 - GA
-              href: storsimple-july-2014-release-notes.md
+              href: ./index.yml
     - name: 참조
       items:
         - name: REST API
-          href: 'https://docs.microsoft.com/rest/api/storsimple'
+          href: /rest/api/storsimple
         - name: StorSimple용 Windows PowerShell cmdlet
-          href: 'https://technet.microsoft.com/library/dn688168.aspx'
+          href: /powershell/module/hcs/?viewFallbackFrom=winserverr2-ps
         - name: Resource Manager 템플릿
           href: /azure/templates/microsoft.storsimple/allversions
 - name: StorSimple 데이터 관리자
@@ -398,7 +398,7 @@
     - name: 릴리스 정보
       items:
         - name: StorSimple 릴리스 정보
-          href: 'https://aka.ms/storsimple-virtual-array-latest-relnote'
+          href: ./storsimple-virtual-array-update-04-release-notes.md
         - name: CSP 릴리스 정보
           href: 'https://partner.microsoft.com/Support/whats-new'
         - name: 'CSP용 StorSimple: FAQ'
@@ -412,13 +412,13 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 마케팅 블로그
-      href: 'https://blogs.technet.com/b/cis/'
+      href: /archive/blogs/cis/
     - name: Marketing
       href: 'https://azure.microsoft.com/services/storsimple/'
     - name: StorSimple 지원 옵션
       href: storsimple-8000-support-options.md
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-storsimple.html'
+      href: /answers/topics/azure-storsimple.html
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/storsimple/'
     - name: 요금 계산기
@@ -426,7 +426,7 @@
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=storsimple'
     - name: 지원 블로그
-      href: 'https://docs.microsoft.com/archive/blogs/storsimple/'
+      href: /archive/blogs/storsimple/
     - name: 타사 알림
       href: 'https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip'
     - name: 동영상

@@ -36,6 +36,10 @@
     - name: Azure Lighthouse 및 Azure 관리형 애플리케이션
       displayName: 'managed apps, ama'
       href: ./concepts/managed-applications.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: Azure Lighthouse에 고객 온보딩

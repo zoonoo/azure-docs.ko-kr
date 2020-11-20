@@ -90,6 +90,10 @@
           href: migrate-appliance.md
         - name: 복제 어플라이언스 요구 사항
           href: migrate-replication-appliance.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
     - name: Azure Migrate 어플라이언스 아키텍처
       href: migrate-appliance-architecture.md
     - name: Hyper-V 마이그레이션 아키텍처

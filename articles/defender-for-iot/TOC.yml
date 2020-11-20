@@ -57,8 +57,12 @@
       href: concept-security-alerts.md
     - name: 사용자 지정 가능한 보안 경고
       href: concept-customizable-security-alerts.md
-    - name: 보안 권장 사항
-      href: concept-recommendations.md
+    - name: 보안
+      items:
+        - name: 보안 권장 사항
+          href: concept-recommendations.md
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 기초
       href: concept-baseline.md
     - name: 이벤트 집계

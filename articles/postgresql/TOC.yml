@@ -106,8 +106,6 @@
       items:
         - name: Azure CLI
           href: sample-scripts-azure-cli.md
-        - name: Azure Policy 기본 제공 기능
-          href: ./policy-reference.md
     - name: 개념
       items:
         - name: 서버
@@ -147,6 +145,9 @@
             - name: 인프라 이중 암호화
               href: concepts-infrastructure-double-encryption.md
               displayName: 'security, infrastructure encryption'
+            - name: Azure Policy의 보안 컨트롤
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: 보안 기준
               href: security-baseline.md
         - name: 네트워킹
@@ -638,6 +639,9 @@
       href: /rest/api/postgresql
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기
