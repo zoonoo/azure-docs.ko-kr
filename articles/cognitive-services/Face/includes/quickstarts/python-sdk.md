@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: cf7b82ec1da660ac68c6031434c0e0748ee67b3d
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7141ebe4e7894c975ba2ee6fb39d5bfd4483ed41
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94523853"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816844"
 ---
 Python용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -28,7 +28,7 @@ Python용 Face 클라이언트 라이브러리를 사용하여 다음을 수행�
 
 [참조 설명서](/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [샘플](/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
@@ -164,6 +164,9 @@ Face Python 클라이언트 라이브러리의 주요 기능 중 일부를 처�
 얼굴이 할당되면 각 **Person** 개체와 관련된 시각적 기능을 식별할 수 있도록 **PersonGroup** 을 학습시켜야 합니다. 다음 코드는 비동기 **train** 메서드를 호출하고, 결과를 폴링하여 상태를 콘솔에 출력합니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_train)]
+
+> [!TIP]
+> Face API는 기본적으로 정적인 사전 빌드된 모델 세트에서 실행됩니다(서비스가 실행될 때 모델의 성능이 저하되거나 향상되지 않음). Microsoft에서 완전히 새로운 모델 버전으로 마이그레이션하지 않고 모델의 백엔드를 업데이트하면 모델이 생성하는 결과가 변경될 수 있습니다. 최신 버전의 모델을 사용하려면 **PersonGroup** 을 동일한 등록 이미지를 가진 매개 변수로 지정하여 다시 학습할 수 있습니다.
 
 ## <a name="identify-a-face"></a>얼굴 식별
 

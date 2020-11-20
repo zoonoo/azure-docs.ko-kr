@@ -504,14 +504,16 @@
                   href: ./spark/synapse-spark-sql-pool-import-export.md
 - name: Synapse Link
   items:
+    - name: 개요
+      items:
+        - name: Azure Cosmos DB용 Synapse Link
+          href: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: 빠른 시작
       items:
         - name: Cosmos DB용 Synapse Link에 연결
           href: quickstart-connect-synapse-link-cosmos-db.md
     - name: 개념
       items:
-        - name: Azure Cosmos DB용 Synapse Link
-          href: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Analytical Store 개요
           href: ../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Synapse Link 지원 기능
@@ -849,7 +851,7 @@
               href: ../data-factory/transform-data-using-stored-procedure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 컴퓨팅 연결 서비스
               href: ../data-factory/compute-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: 제어 흐름
+        - name: 흐름 제어
           items:
             - name: 변수 작업 추가
               href: ../data-factory/control-flow-append-variable-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -967,7 +969,7 @@
   items:
     - name: 개요
       items:
-        - name: Synapse Analytics의 기계 학습이란?
+        - name: Azure Synapse의 기계 학습이란?
           href: machine-learning/what-is-machine-learning.md
     - name: 빠른 시작
       items:

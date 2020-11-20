@@ -61,10 +61,14 @@
       href: security-baselines-overview.md
     - name: API Management 보안 기준
       href: ../../api-management/security-baseline.md
+    - name: App Service 보안 기준
+      href: ../../app-service/security-baseline.md
     - name: Application Gateway 보안 기준
       href: ../../application-gateway/security-baseline.md
     - name: Automation 보안 기준
       href: ../../automation/security-baseline.md
+    - name: Azure Advisor 보안 기준
+      href: ../../advisor/security-baseline.md
     - name: Azure Backup 보안 기준
       href: ../../backup/security-baseline.md
     - name: Azure Cache for Redis 보안 기준
@@ -97,6 +101,8 @@
       href: ../../frontdoor/security-baseline.md
     - name: Azure Functions 보안 기준
       href: ../../azure-functions/security-baseline.md
+    - name: Azure Information Protection 보안 기준
+      href: /azure/information-protection/security-baseline
     - name: Azure IoT Hub 보안 기준
       href: ../../iot-hub/security-baseline.md
     - name: Azure Kubernetes Service 보안 기준

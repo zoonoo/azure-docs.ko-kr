@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 44c1e55d60fb35ba510d99535c50c7919b29253e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 1299cbf1b837315a1a95c8a2ec2e4ed0706d959c
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918714"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816670"
 ---
 .NET용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "92918714"
 
 [참조 설명서](/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1) | [샘플](/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
@@ -152,7 +152,7 @@ Face .NET 클라이언트 라이브러리의 주요 기능 중 일부를 처리�
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect)]
 
 > [!TIP]
-> 로컬 이미지에서 얼굴을 검색할 수도 있습니다. [IFaceOperations](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations?view=azure-dotnet) 메서드(예: **DetectWithStreamAsync** )를 참조하세요.
+> 로컬 이미지에서 얼굴을 검색할 수도 있습니다. [IFaceOperations](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations?view=azure-dotnet) 메서드(예: **DetectWithStreamAsync**)를 참조하세요.
 
 ### <a name="display-detected-face-data"></a>검색된 얼굴 데이터 표시
 
@@ -205,13 +205,16 @@ Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져�
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_create)]
 
 > [!TIP]
-> 로컬 이미지에서 **PersonGroup** 을 만들 수도 있습니다. [IPersonGroupPerson](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ipersongroupperson?view=azure-dotnet) 메서드(예: **AddFaceFromStreamAsync** )를 참조하세요.
+> 로컬 이미지에서 **PersonGroup** 을 만들 수도 있습니다. [IPersonGroupPerson](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ipersongroupperson?view=azure-dotnet) 메서드(예: **AddFaceFromStreamAsync**)를 참조하세요.
 
 ### <a name="train-the-persongroup"></a>PersonGroup 학습
 
 이미지에서 얼굴 데이터를 추출하여 다른 **Person** 개체에 정렬했으면 각 **Person**  개체와 연결된 시각적 기능을 식별하도록 **PersonGroup** 을 학습시켜야 합니다. 다음 코드에서는 비동기 **train** 메서드를 호출하고, 결과를 폴링하여 상태를 콘솔에 출력합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_train)]
+
+> [!TIP]
+> Face API는 기본적으로 정적인 사전 빌드된 모델 세트에서 실행됩니다(서비스가 실행될 때 모델의 성능이 저하되거나 향상되지 않음). Microsoft에서 완전히 새로운 모델 버전으로 마이그레이션하지 않고 모델의 백엔드를 업데이트하면 모델이 생성하는 결과가 변경될 수 있습니다. 최신 버전의 모델을 사용하려면 **PersonGroup** 을 동일한 등록 이미지를 가진 매개 변수로 지정하여 다시 학습할 수 있습니다.
 
 이제 이 **Person** 그룹 및 연결된 해당 **Person** 개체는 Verify(검증), Identify(식별) 또는 Group(그룹) 작업에 사용할 수 있습니다.
 

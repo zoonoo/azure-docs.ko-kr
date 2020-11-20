@@ -9,12 +9,12 @@ metadata:
   author: dikamath
   ms.author: dikamath
   ms.date: 10/19/2020
-  ms.openlocfilehash: b72ec69edaae7681cd3310c66bcd209b3eae1a4e
-  ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+  ms.openlocfilehash: 223d0cdbe95bf2ec24a7f460d2f92a0a50f08d0d
+  ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/10/2020
-  ms.locfileid: "94412581"
+  ms.lasthandoff: 11/19/2020
+  ms.locfileid: "94888303"
 landingContent:
 - title: Azure VMware Solution 정보
   linkLists:
@@ -32,8 +32,10 @@ landingContent:
       url: concepts-storage.md
     - text: 프라이빗 클라우드의 액세스 및 ID
       url: concepts-identity.md
-    - text: 역할 기반 액세스 제어
+    - text: vSphere 역할 기반 액세스 제어
       url: concepts-role-based-access-control.md
+    - text: 프라이빗 클라우드 모니터링 및 복구
+      url: concepts-monitor-repair-private-cloud.md
     - text: 프라이빗 클라우드 업그레이드
       url: concepts-upgrades.md
 - title: 시작

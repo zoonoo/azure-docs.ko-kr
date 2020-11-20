@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 11/13/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: 컴퓨터 비전, 컴퓨터 비전 애플리케이션, 컴퓨터 비전 서비스
-ms.openlocfilehash: fa00265f3c591578f9970b77770fbf7290d87510
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aeaa10870b8b40b907da1d1660e77ebf0271c300
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90907069"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629753"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -27,19 +27,19 @@ ms.locfileid: "90907069"
 
 Azure의 Computer Vision 서비스는 관심 있는 시각적 기능을 기반으로 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스 권한을 제공합니다. 예를 들어, Computer Vision은 이미지에 성인 콘텐츠가 포함되어 있는지, 특정 브랜드 또는 개체를 찾거나, 사람의 얼굴을 찾는지 여부를 확인할 수 있습니다.
 
-클라이언트 라이브러리 SDK를 통해 또는 REST API를 직접 호출하여 Computer Vision 애플리케이션을 만들 수 있습니다. 이 페이지는 Computer Vision에서 수행할 수 있는 작업을 광범위하게 다룹니다.
+[클라이언트 라이브러리 SDK](./quickstarts-sdk/client-library.md)를 통해 또는 [REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005)를 직접 호출하여 Computer Vision 애플리케이션을 만들 수 있습니다. 이 페이지는 Computer Vision에서 수행할 수 있는 작업을 광범위하게 다룹니다.
+
+## <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
+
+Computer Vision에는 [OCR(광학 문자 인식)](concept-recognizing-text.md) 기능이 포함되어 있습니다. 새 Read API를 사용하여 이미지 및 문서에서 인쇄 및 필기 텍스트를 추출할 수 있습니다. 최신 모델을 사용하고 다양한 표면 및 배경의 텍스트로 작업합니다. 여기에는 영수증, 포스터, 명함, 문자 및 화이트보드가 포함됩니다. 두 OCR API는 [여러 언어](./language-support.md)로 인쇄된 텍스트 추출을 지원합니다. [빠른 시작](./quickstarts-sdk/client-library.md)을 따라 시작하세요.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>디지털 자산 관리를 위한 Computer Vision
 
 Computer Vision은 여러 DAM(디지털 자산 관리) 시나리오를 구현할 수 있습니다. DAM은 풍부한 미디어 자산을 구성, 저장, 검색하고 디지털 권한 및 사용 권한을 관리하는 비즈니스 프로세스입니다. 예를 들어 기업에서 시각적 로고, 면, 개체, 색 등을 기준으로 이미지를 그룹화하고 식별하기를 원할 수 있습니다. 또는 이미지를 검색할 수 있도록 [이미지에 대한 자막을 자동으로 생성](./Tutorials/storage-lab-tutorial.md)하고 키워드를 연결하기를 원할 수 있습니다. Cognitive Services, Azure Cognitive Search 및 인텔리전트 보고를 사용하는 올인원 DAM 솔루션은 GitHub의 [정보 마이닝 솔루션 가속기 가이드](https://github.com/Azure-Samples/azure-search-knowledge-mining)를 참조하세요. 다른 DAM 예제는 [Computer Vision 솔루션 템플릿](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) 리포지토리를 참조하세요.
 
-## <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
-
-Computer Vision에는 [OCR(광학 문자 인식)](concept-recognizing-text.md) 기능이 포함되어 있습니다. 새 Read API를 사용하여 이미지 및 문서에서 인쇄 및 필기 텍스트를 추출할 수 있습니다. 최신 모델을 사용하고 다양한 표면 및 배경의 텍스트로 작업합니다. 여기에는 영수증, 포스터, 명함, 문자 및 화이트보드가 포함됩니다. 두 OCR API는 [여러 언어](./language-support.md)로 인쇄된 텍스트 추출을 지원합니다. [빠른 시작](#next-steps)을 따라 시작하세요.
-
 ## <a name="analyze-images-for-insight"></a>인사이트를 위한 이미지 분석
 
-이미지를 분석하여 이미지의 시각적 기능 및 특성에 대한 인사이트를 제공할 수 있습니다. 아래 표의 모든 기능이 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API로 제공됩니다. [빠른 시작](#next-steps)을 따라 시작하세요.
+이미지를 분석하여 이미지의 시각적 기능 및 특성에 대한 인사이트를 제공할 수 있습니다. 아래 표의 모든 기능이 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API로 제공됩니다. [빠른 시작](./quickstarts-sdk/client-library.md)을 따라 시작하세요.
 
 
 ### <a name="tag-visual-features"></a>시각적 기능 태그 지정
@@ -113,8 +113,6 @@ Computer Vision에서 이미지를 분석하는 데 충족되어야 하는 요�
 
 ## <a name="next-steps"></a>다음 단계
 
-빠른 시작 가이드에 따라 Computer Vision 시작:
+선호하는 개발 언어로 된 빠른 시작 가이드에 따라 Computer Vision을 시작하세요.
 
-- [빠른 시작: Computer Vision .NET 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-- [빠른 시작: Computer Vision Python 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
-- [빠른 시작: Computer Vision Java 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-java)
+- [빠른 시작: Computer Vision 클라이언트 라이브러리](./quickstarts-sdk/client-library.md)

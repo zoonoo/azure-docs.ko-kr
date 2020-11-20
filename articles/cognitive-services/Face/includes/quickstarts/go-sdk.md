@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 8dee3d9c91ac2b4fe97ada6069591f8f474c8c24
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 65f7af56e7f0042b8d4c312d17641a537f5fd908
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918719"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816621"
 ---
 Go용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -126,7 +126,7 @@ Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_detect)]
 
 > [!TIP]
-> 로컬 이미지에서 얼굴을 검색할 수도 있습니다. [클라이언트](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client) 메서드(예: **DetectWithStream** )를 참조하세요.
+> 로컬 이미지에서 얼굴을 검색할 수도 있습니다. [클라이언트](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client) 메서드(예: **DetectWithStream**)를 참조하세요.
 
 ### <a name="display-detected-face-data"></a>검색된 얼굴 데이터 표시
 
@@ -186,13 +186,16 @@ Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_assign)]
 
 > [!TIP]
-> URL에서 참조하는 원격 이미지에서 **PersonGroup** 을 만들 수도 있습니다. [PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient) 메서드(예: **AddFaceFromURL** )를 참조하세요.
+> URL에서 참조하는 원격 이미지에서 **PersonGroup** 을 만들 수도 있습니다. [PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient) 메서드(예: **AddFaceFromURL**)를 참조하세요.
 
 ### <a name="train-persongroup"></a>PersonGroup 학습
 
 얼굴을 할당한 후에는 각 **Person** 개체와 관련된 시각적 특징을 식별할 수 있도록 **PersonGroup** 을 학습시켜야 합니다. 다음 코드는 비동기 **train** 메서드를 호출하고, 결과를 폴링하여 상태를 콘솔에 출력합니다.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_train)]
+
+> [!TIP]
+> Face API는 기본적으로 정적인 사전 빌드된 모델 세트에서 실행됩니다(서비스가 실행될 때 모델의 성능이 저하되거나 향상되지 않음). Microsoft에서 완전히 새로운 모델 버전으로 마이그레이션하지 않고 모델의 백엔드를 업데이트하면 모델이 생성하는 결과가 변경될 수 있습니다. 최신 버전의 모델을 사용하려면 **PersonGroup** 을 동일한 등록 이미지를 가진 매개 변수로 지정하여 다시 학습할 수 있습니다.
 
 ## <a name="identify-a-face"></a>얼굴 식별
 

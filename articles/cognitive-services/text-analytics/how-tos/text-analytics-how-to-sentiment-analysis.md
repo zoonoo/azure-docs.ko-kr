@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/16/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 87e6ad488438ae28467f6e904fbb57f7ca5448ff
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366760"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518178"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>방법: Text Analytics API를 사용하여 감정 감지
 
@@ -40,7 +40,7 @@ Text Analytics API의 감정 분석 기능은 텍스트를 평가하여 각 문�
 
 감정 분석 v3는 텍스트에 감정 레이블을 적용합니다. 이는 문장과 문서 각각에 대한 신뢰도 점수와 함께 문장과 문서 수준에서 반환됩니다. 
 
-레이블은 *긍정* , *부정* 및 *중립* 입니다. 문서 수준에서 *혼합된* 감정 레이블을 반환할 수도 있습니다. 문서의 감정은 다음과 같이 결정됩니다.
+레이블은 *긍정*, *부정* 및 *중립* 입니다. 문서 수준에서 *혼합된* 감정 레이블을 반환할 수도 있습니다. 문서의 감정은 다음과 같이 결정됩니다.
 
 | 문장 감정                                                                            | 반환된 문서 레이블 |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -78,9 +78,9 @@ Text Analytics API의 감정 분석 기능은 텍스트를 평가하여 각 문�
 
 POST 요청을 만듭니다. [Postman](text-analytics-how-to-call-api.md) 또는 다음 참조 링크의 **API 테스트 콘솔** 을 사용하여 신속하게 요청을 만들어서 보낼 수 있습니다. 
 
-#### <a name="version-31-preview1"></a>[버전 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[버전 3.1-preview.2](#tab/version-3-1)
 
-[감정 분석 v3.1 참조](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+[감정 분석 v3.1 참조](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Sentiment)
 
 #### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
@@ -95,13 +95,13 @@ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨�
 > [!NOTE]
 > Azure Portal에서 Text Analytics 리소스에 대한 키와 엔드포인트를 찾을 수 있습니다. 리소스의 **빠른 시작** 페이지의 **리소스 관리** 아래에 있습니다. 
 
-#### <a name="version-31-preview1"></a>[버전 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[버전 3.1-preview.2](#tab/version-3-1)
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment`
 
 의견 마이닝 결과를 얻으려면 `opinionMining=true` 매개 변수를 포함해야 합니다. 예를 들면 다음과 같습니다.
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
 
 기본적으로 이 매개 변수는 `false`로 설정됩니다. 
 
@@ -142,7 +142,7 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 
 출력은 즉시 반환됩니다. JSON을 수락하거나 로컬 시스템의 파일에 출력을 저장하는 애플리케이션에 결과를 스트리밍할 수 있습니다. 그런 다음, 데이터를 정렬, 검색 및 조작하는 데 사용할 수 있는 애플리케이션으로 출력을 가져옵니다. 다국어 지원 및 emoji 지원으로 인해 응답에 텍스트 오프셋이 포함될 수 있습니다. 자세한 내용은 [오프셋 처리 방법](../concepts/text-offsets.md)을 참조하세요.
 
-#### <a name="version-31-preview1"></a>[버전 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[버전 3.1-preview.2](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-v31-example-response"></a>감정 분석 v3.1 응답 예제
 

@@ -96,7 +96,7 @@
       href: app-attach.md
     - name: Microsoft Teams 사용
       href: teams-on-wvd.md
-    - name: Azure Multi-Factor Authentication 설정
+    - name: Azure AD Multi-Factor Authentication 설정
       href: set-up-mfa.md
     - name: 자동 업데이트 구성
       href: configure-automatic-updates.md

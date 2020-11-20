@@ -733,8 +733,10 @@
           items:
             - name: Data Lake Storage Gen1에서 마이그레이션
               href: data-lake-storage-migrate-gen1-to-gen2.md
-            - name: 온-프레미스 HDFS 저장소 마이그레이션
+            - name: 오프라인으로 HDFS 저장소 마이그레이션
               href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
+            - name: 온라인으로 HDFS 저장소 마이그레이션
+              href: migrate-gen2-wandisco-live-data-platform.md
         - name: 관리
           items:
             - name: .NET

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: aae89e1c6f8db2fb657ac2a43c4bce0396ab3ddd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca8d8edd334d89e03624793a35c49971ba8161ec
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91377614"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94885307"
 ---
 ## <a name="local-settings-file"></a>로컬 설정 파일
 
@@ -46,7 +46,7 @@ local.settings.json 파일은 로컬 개발 도구에서 사용하는 앱 설정
 | **`LocalHttpPort`** | 로컬 Functions 호스트(`func host start` 및 `func run`)를 실행할 때 사용되는 기본 포트를 설정합니다. `--port` 명령줄 옵션이 이 설정보다 우선합니다. |
 | **`CORS`** | [CORS(원본 간 리소스 공유)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)에 허용된 원본을 정의합니다. 원본은 공백 없이 쉼표로 구분된 목록으로 제공됩니다. 와일드카드 값(\*)이 지원되므로 모든 원본에서 요청할 수 있습니다. |
 | **`CORSCredentials`** |  `true`로 설정하면 `withCredentials` 요청을 허용합니다. |
-| **`ConnectionStrings`** | 컬렉션입니다. 함수 바인딩에서 사용하는 연결 문자열에는 이 컬렉션을 사용하지 마십시오. 이 컬렉션은 일반적으로 구성 파일의 `ConnectionStrings` 섹션에서 연결 문자열을 가져오는 프레임워크에서만 사용됩니다(예: [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx)). 이 개체의 연결 문자열은 공급자 유형이 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)인 환경에 추가됩니다. 이 컬렉션의 항목은 다른 앱 설정을 사용하여 Azure에 게시되지 않습니다. 이러한 값을 함수 앱 설정의 `Connection strings` 컬렉션에 명시적으로 추가해야 합니다. 함수 코드에서 [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx)을 만드는 경우, 포털의 **애플리케이션 설정**에 다른 연결과 함께 연결 문자열 값을 저장해야 합니다. |
+| **`ConnectionStrings`** | 컬렉션입니다. 함수 바인딩에서 사용하는 연결 문자열에는 이 컬렉션을 사용하지 마십시오. 이 컬렉션은 일반적으로 구성 파일의 `ConnectionStrings` 섹션에서 연결 문자열을 가져오는 프레임워크에서만 사용됩니다(예: [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx)). 이 개체의 연결 문자열은 공급자 유형이 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)인 환경에 추가됩니다. 이 컬렉션의 항목은 다른 앱 설정을 사용하여 Azure에 게시되지 않습니다. 이러한 값을 함수 앱 설정의 `Connection strings` 컬렉션에 명시적으로 추가해야 합니다. 함수 코드에서 [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx)을 만드는 경우, 포털의 **애플리케이션 설정** 에 다른 연결과 함께 연결 문자열 값을 저장해야 합니다. |
 
 다음 애플리케이션 설정은 로컬에서 실행할 때 **`Values`** 배열에 포함될 수 있습니다.
 

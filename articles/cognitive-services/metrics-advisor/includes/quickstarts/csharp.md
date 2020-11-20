@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.author: mbullwin
-ms.openlocfilehash: 8e9b2c69344a19c027f72983a02834aee2e14ccf
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: 124a1339b1ff685016b820e51417a9f1e0acb40f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186958"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523778"
 ---
 [참조 설명서](https://aka.ms/azsdk/net/docs/ref/metricsadvisor) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.AI.MetricsAdvisor) | [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples/README.md)
 
@@ -35,7 +35,7 @@ ms.locfileid: "93186958"
 
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치 
 
-새 프로젝트를 만든 후 **솔루션 탐색기** 에서 프로젝트 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기** 를 선택하고, **시험판 포함** 을 선택하고, `Azure.AI.MetricsAdvisor`를 검색합니다. `1.0.0-beta.1` 버전, **설치** 를 차례로 선택합니다. 
+새 프로젝트를 만든 후 **솔루션 탐색기** 에서 프로젝트 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기** 를 선택하고, **시험판 포함** 을 선택하고, `Azure.AI.MetricsAdvisor`를 검색합니다. `1.0.0-beta.2` 버전, **설치** 를 차례로 선택합니다. 
 
 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `metrics-advisor-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 *program.cs* 라는 단일 소스 파일을 사용하여 간단한 "Hello World" C# 프로젝트를 만듭니다. 
 
@@ -64,7 +64,7 @@ Build succeeded.
 Visual Studio 이외의 IDE를 사용하는 경우 다음 명령을 사용하여 .NET용 Metrics Advisor 클라이언트 라이브러리를 설치할 수 있습니다.
 
 ```console
-dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0-beta.1
+dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0-beta.2
 ```
 
 > [!TIP]
@@ -77,6 +77,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Azure.AI.MetricsAdvisor.Administration;
+using Azure.AI.MetricsAdvisor;
 using Azure.AI.MetricsAdvisor.Models;
 ```
 
@@ -95,10 +96,10 @@ Metrics Advisor C# SDK의 주요 기능 중 일부를 처리하는 클래스는 
 
 |이름|설명|
 |---|---|
-| [MetricsAdvisorClient](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorClient.cs) | **용도** : <br> - 인시던트 나열 <br> - 인시던트의 근본 원인 나열 <br> - 서비스에 의해 보강된 원래 시계열 데이터와 시계열 데이터를 검색합니다. <br> - 경고 나열 <br> - 모델 조정을 위한 피드백 추가 |
+| [MetricsAdvisorClient](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorClient.cs) | **용도**: <br> - 인시던트 나열 <br> - 인시던트의 근본 원인 나열 <br> - 서비스에 의해 보강된 원래 시계열 데이터와 시계열 데이터를 검색합니다. <br> - 경고 나열 <br> - 모델 조정을 위한 피드백 추가 |
 | [MetricsAdvisorAdministrationClient](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorAdministrationClient.cs)| **다음을 수행할 수 있습니다.** <br> - 데이터 피드 관리 <br> - 변칙 검색 구성 <br> - 변칙 경고 구성 <br> - 후크 관리  |
 | [DataFeed](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/Models/DataFeed/DataFeed.cs)| **Metrics Advisor가 데이터 원본에서 수집하는 항목. `DataFeed`에는**  행이 포함됩니다. <br> - 타임스탬프 <br> - 0개 이상의 차원 <br> - 하나 이상의 측정값  |
-| [메트릭](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/Models/DataFeedMetric.cs)| `Metric`은 특정 비즈니스 프로세스의 상태를 모니터링하고 평가하는 데 사용되는 정량 측정값입니다. 차원으로 나눈 여러 개의 시계열 값의 조합일 수 있습니다. 예를 들어 웹 상태 메트릭은 사용자 수 및 en-us 시장의 차원을 포함할 수 있습니다. |
+| [DataFeedMetric](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/Models/DataFeed/DataFeedMetric.cs)| `DataFeedMetric`은 특정 비즈니스 프로세스의 상태를 모니터링하고 평가하는 데 사용되는 정량 측정값입니다. 차원으로 나눈 여러 개의 시계열 값의 조합일 수 있습니다. 예를 들어 웹 상태 메트릭은 사용자 수 및 en-us 시장의 차원을 포함할 수 있습니다. |
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -117,7 +118,7 @@ Metrics Advisor C# SDK의 주요 기능 중 일부를 처리하는 클래스는 
 애플리케이션의 `Program` 클래스에서 리소스의 키 및 엔드포인트에 대한 변수를 만듭니다.
 
 > [!IMPORTANT]
-> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Metrics Advisor 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 구독 키와 엔드포인트를 찾을 수 있습니다. <br><br>API 키를 검색하려면 [https://metricsadvisor.azurewebsites.net](https://metricsadvisor.azurewebsites.net)으로 이동해야 합니다. 적절한 항목을 선택합니다. 리소스에 대한 **디렉터리** , **구독** 및 **작업 영역** 을 선택하고 **시작** 을 선택합니다. 그러면 [https://metricsadvisor.azurewebsites.net/api-key](https://metricsadvisor.azurewebsites.net/api-key)에서 API 키를 검색할 수 있습니다.   
+> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Metrics Advisor 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 구독 키와 엔드포인트를 찾을 수 있습니다. <br><br>API 키를 검색하려면 [https://metricsadvisor.azurewebsites.net](https://metricsadvisor.azurewebsites.net)으로 이동해야 합니다. 적절한 항목을 선택합니다. 리소스에 대한 **디렉터리**, **구독** 및 **작업 영역** 을 선택하고 **시작** 을 선택합니다. 그러면 [https://metricsadvisor.azurewebsites.net/api-key](https://metricsadvisor.azurewebsites.net/api-key)에서 API 키를 검색할 수 있습니다.   
 >
 > 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) 문서를 참조하세요.
 
@@ -143,7 +144,7 @@ var adminClient = new MetricsAdvisorAdministrationClient(new Uri(endpoint), cred
 
 ## <a name="add-a-data-feed"></a>데이터 피드 추가
 
-Metrics Advisor는 여러 유형의 데이터 원본을 지원합니다. 이 샘플에서는 SQL 서버에서 데이터를 추출하는 `DataFeed`를 만드는 방법을 설명합니다. `connection_String`을 사용자 고유의 SQL 서버 연결 문자열로 바꾸고 `query`를 단일 타임스탬프에서 데이터를 반환하는 쿼리로 바꿉니다. 사용자 지정 데이터를 기반으로 `metric` 및 `dimension` 값도 조정해야 합니다.
+Metrics Advisor는 여러 유형의 데이터 원본을 지원합니다. 이 샘플에서는 SQL 서버에서 데이터를 추출하는 `DataFeed`를 만드는 방법을 설명합니다. `connection_String`을 사용자 고유의 SQL 서버 연결 문자열로 바꾸고 `query`를 단일 타임스탬프에서 데이터를 반환하는 쿼리로 바꿉니다. 사용자 지정 데이터를 기반으로 `DataFeedMetric` 및 `DataFeedDimension` 값도 조정해야 합니다.
 
 
 ```csharp
@@ -151,7 +152,7 @@ string sqlServerConnectionString = "<connection_String>";
 string sqlServerQuery = "<query>";
 
 var dataFeedName = "Sample data feed";
-var dataFeedSource = new MySqlDataFeedSource(sqlServerConnectionString, sqlServerQuery);
+var dataFeedSource = new SqlServerDataFeedSource(sqlServerConnectionString, sqlServerQuery);
 var dataFeedGranularity = new DataFeedGranularity(DataFeedGranularityType.Daily);
 
 var dataFeedMetrics = new List<DataFeedMetric>()
@@ -159,10 +160,10 @@ var dataFeedMetrics = new List<DataFeedMetric>()
     new DataFeedMetric("cost"),
     new DataFeedMetric("revenue")
 };
-var dataFeedDimensions = new List<MetricDimension>()
+var dataFeedDimensions = new List<DataFeedDimension>()
 {
-    new MetricDimension("category"),
-    new MetricDimension("city")
+    new DataFeedDimension("category"),
+    new DataFeedDimension("city")
 };
 var dataFeedSchema = new DataFeedSchema(dataFeedMetrics)
 {
@@ -172,26 +173,27 @@ var dataFeedSchema = new DataFeedSchema(dataFeedMetrics)
 var ingestionStartTime = DateTimeOffset.Parse("2020-01-01T00:00:00Z");
 var dataFeedIngestionSettings = new DataFeedIngestionSettings(ingestionStartTime);
 
-Response<DataFeed> response = await adminClient.CreateDataFeedAsync(dataFeedName, dataFeedSource,
-    dataFeedGranularity, dataFeedSchema, dataFeedIngestionSettings);
+var dataFeed = new DataFeed(dataFeedName, dataFeedSource, dataFeedGranularity, dataFeedSchema, dataFeedIngestionSettings);
+
+Response<string> response = await adminClient.CreateDataFeedAsync(dataFeed);
+
+string dataFeedId = response.Value;
+
+Console.WriteLine($"Data feed ID: {dataFeedId}");
+
+// Note that only the ID of the data feed is known at this point. You can perform another
+// service call to GetDataFeedAsync or GetDataFeed to get more information, such as status,
+// created time, the list of administrators, or the metric IDs.
+
+Response<DataFeed> response = await adminClient.GetDataFeedAsync(dataFeedId);
 
 DataFeed dataFeed = response.Value;
-
-Console.WriteLine($"Data feed ID: {dataFeed.Id}");
-
-// Only the ID of the data feed is known at this point. You can perform another service
-// call to get more information, such as status, created time, the list of administrators,
-// or the metric IDs.
-
-response = await adminClient.GetDataFeedAsync(dataFeed.Id);
-
-dataFeed = response.Value;
 
 Console.WriteLine($"Data feed status: {dataFeed.Status.Value}");
 Console.WriteLine($"Data feed created time: {dataFeed.CreatedTime.Value}");
 
 Console.WriteLine($"Data feed administrators:");
-foreach (string admin in dataFeed.Options.Administrators)
+foreach (string admin in dataFeed.Administrators)
 {
     Console.WriteLine($" - {admin}");
 }
@@ -212,7 +214,10 @@ string dataFeedId = "<dataFeedId>";
 
 var startTime = DateTimeOffset.Parse("2020-01-01T00:00:00Z");
 var endTime = DateTimeOffset.Parse("2020-09-09T00:00:00Z");
-var options = new GetDataFeedIngestionStatusesOptions(startTime, endTime);
+var options = new GetDataFeedIngestionStatusesOptions(startTime, endTime)
+{
+    TopCount = 5
+};
 
 Console.WriteLine("Ingestion statuses:");
 Console.WriteLine();
@@ -222,12 +227,12 @@ int statusCount = 0;
 await foreach (DataFeedIngestionStatus ingestionStatus in adminClient.GetDataFeedIngestionStatusesAsync(dataFeedId, options))
 {
     Console.WriteLine($"Timestamp: {ingestionStatus.Timestamp}");
-    Console.WriteLine($"Status: {ingestionStatus.Status.Value}");
+    Console.WriteLine($"Status: {ingestionStatus.Status}");
     Console.WriteLine($"Service message: {ingestionStatus.Message}");
     Console.WriteLine();
 
-    // Print at most 10 statuses.
-    if (++statusCount >= 10)
+    // Print at most 5 statuses.
+    if (++statusCount >= 5)
     {
         break;
     }
@@ -260,16 +265,16 @@ var detectionCondition = new MetricWholeSeriesDetectionCondition()
 
 var detectionConfiguration = new AnomalyDetectionConfiguration(metricId, configurationName, detectionCondition);
 
-Response<AnomalyDetectionConfiguration> response = await adminClient.CreateMetricAnomalyDetectionConfigurationAsync(detectionConfiguration);
+Response<string> response = await adminClient.CreateDetectionConfigurationAsync(detectionConfiguration);
 
-detectionConfiguration = response.Value;
+string detectionConfigurationId = response.Value;
 
-Console.WriteLine($"Anomaly detection configuration ID: {detectionConfiguration.Id}");
+Console.WriteLine($"Anomaly detection configuration ID: {detectionConfigurationId}");
 ```
 
 ### <a name="create-a-hook"></a>후크 만들기
 
-Metrics Advisor는 경고 알림을 구독하는 것으로 `EmailHook` 및 `WebHook` 클래스를 지원합니다. 이 예제에서는 `EmailHook`를 만드는 방법을 설명합니다. 알림 수신을 시작하려면 변칙 경고 구성에 후크를 전달해야 합니다. 자세한 내용은 샘플 [변칙 경고 구성 만들기](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor#create-an-anomaly-alert-configuration)를 참조하세요.
+Metrics Advisor는 경고 알림을 구독하는 것으로 `EmailNotificationHook` 및 `WebNotificationHook` 클래스를 지원합니다. 이 예제에서는 `EmailNotificationHook`를 만드는 방법을 설명합니다. 알림 수신을 시작하려면 변칙 경고 구성에 후크를 전달해야 합니다. 자세한 내용은 샘플 [변칙 경고 구성 만들기](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor#create-an-anomaly-alert-configuration)를 참조하세요.
 
 ```csharp
 string hookName = "Sample hook";
@@ -281,11 +286,11 @@ var emailsToAlert = new List<string>()
 
 var emailHook = new EmailNotificationHook(hookName, emailsToAlert);
 
-Response<NotificationHook> response = await adminClient.CreateHookAsync(emailHook);
+Response<string> response = await adminClient.CreateHookAsync(emailHook);
 
-NotificationHook hook = response.Value;
+string hookId = response.Value;
 
-Console.WriteLine($"Hook ID: {hook.Id}");
+Console.WriteLine($"Hook ID: {hookId}");
 ```
 
 ##  <a name="create-an-alert-configuration"></a>경고 구성 만들기
@@ -307,54 +312,79 @@ var metricAlertConfigurations = new List<MetricAnomalyAlertConfiguration>()
 
 AnomalyAlertConfiguration alertConfiguration = new AnomalyAlertConfiguration(configurationName, idsOfHooksToAlert, metricAlertConfigurations);
 
-Response<AnomalyAlertConfiguration> response = await adminClient.CreateAnomalyAlertConfigurationAsync(alertConfiguration);
+Response<string> response = await adminClient.CreateAlertConfigurationAsync(alertConfiguration);
 
-alertConfiguration = response.Value;
+string alertConfigurationId = response.Value;
 
-Console.WriteLine($"Alert configuration ID: {alertConfiguration.Id}");
+Console.WriteLine($"Alert configuration ID: {alertConfigurationId}");
 ```
 
 ### <a name="query-the-alert"></a>경고 쿼리
 
-지정된 변칙 경고 구성에 의해 생성된 경고를 확인하고 이러한 경고를 트리거한 변칙을 나열합니다.
+지정된 변칙 경고 구성에 의해 생성된 경고를 확인합니다.
 
 ```csharp
 string anomalyAlertConfigurationId = "<anomalyAlertConfigurationId>";
 
 var startTime = DateTimeOffset.Parse("2020-01-01T00:00:00Z");
 var endTime = DateTimeOffset.UtcNow;
-var options = new GetAlertsOptions(startTime, endTime, TimeMode.AnomalyTime);
+var options = new GetAlertsOptions(startTime, endTime, AlertQueryTimeMode.AnomalyTime)
+{
+    TopCount = 5
+};
 
 int alertCount = 0;
 
 await foreach (AnomalyAlert alert in client.GetAlertsAsync(anomalyAlertConfigurationId, options))
 {
+    Console.WriteLine($"Alert created at: {alert.CreatedTime}");
     Console.WriteLine($"Alert at timestamp: {alert.Timestamp}");
     Console.WriteLine($"Id: {alert.Id}");
-    Console.WriteLine($"Anomalies that triggered this alert:");
+    Console.WriteLine();
 
-    await foreach (DataAnomaly anomaly in client.GetAnomaliesForAlertAsync(anomalyAlertConfigurationId, alert.Id))
-    {
-        Console.WriteLine("  Anomaly:");
-        Console.WriteLine($"    Status: {anomaly.Status.Value}");
-        Console.WriteLine($"    Severity: {anomaly.Severity}");
-        Console.WriteLine($"    Series key:");
-
-        foreach (KeyValuePair<string, string> keyValuePair in anomaly.SeriesKey.AsDictionary())
-        {
-            Console.WriteLine($"      Dimension '{keyValuePair.Key}': {keyValuePair.Value}");
-        }
-
-        Console.WriteLine();
-    }
-
-    // Print at most 3 alerts.
-    if (++alertCount >= 3)
+    // Print at most 5 alerts.
+    if (++alertCount >= 5)
     {
         break;
     }
 }
 ```
+
+경고 ID를 알고 있으면 이 경고를 트리거한 [변칙](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/README.md#data-point-anomaly)을 나열합니다.
+
+```csharp
+string alertConfigurationId = "<alertConfigurationId>";
+string alertId = "<alertId>";
+
+var options = new GetAnomaliesForAlertOptions() { TopCount = 3 };
+
+int anomalyCount = 0;
+
+await foreach (DataPointAnomaly anomaly in client.GetAnomaliesAsync(alertConfigurationId, alertId, options))
+{
+    Console.WriteLine($"Anomaly detection configuration ID: {anomaly.AnomalyDetectionConfigurationId}");
+    Console.WriteLine($"Metric ID: {anomaly.MetricId}");
+    Console.WriteLine($"Anomaly at timestamp: {anomaly.Timestamp}");
+    Console.WriteLine($"Anomaly detected at: {anomaly.CreatedTime}");
+    Console.WriteLine($"Status: {anomaly.Status}");
+    Console.WriteLine($"Severity: {anomaly.Severity}");
+    Console.WriteLine("Series key:");
+
+    foreach (KeyValuePair<string, string> keyValuePair in anomaly.SeriesKey.AsDictionary())
+    {
+        Console.WriteLine($"  Dimension '{keyValuePair.Key}': {keyValuePair.Value}");
+    }
+
+    Console.WriteLine();
+
+    // Print at most 3 anomalies.
+    if (++anomalyCount >= 3)
+    {
+        break;
+    }
+}
+```
+
 
 ### <a name="run-the-application"></a>애플리케이션 실행
 

@@ -386,5 +386,7 @@
       href: partner-center-portal/commercial-marketplace-co-sell-countries.md
     - name: 공동 판매 상태 코드
       href: partner-center-portal/commercial-marketplace-co-sell-states.md
+    - name: 범주 및 하위 범주
+      href: categories.md
     - name: 지원되는 HTML 태그
       href: supported-html-tags.md

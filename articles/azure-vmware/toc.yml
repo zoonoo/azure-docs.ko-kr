@@ -42,7 +42,7 @@
       href: concepts-storage.md
     - name: 프라이빗 클라우드의 액세스 및 ID
       href: concepts-identity.md
-    - name: 역할 기반 액세스 제어
+    - name: vSphere 역할 기반 액세스 제어
       href: concepts-role-based-access-control.md
     - name: 프라이빗 클라우드 모니터링 및 복구
       href: concepts-monitor-repair-private-cloud.md
