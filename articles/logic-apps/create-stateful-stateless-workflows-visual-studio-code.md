@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 11/09/2020
-ms.openlocfilehash: 749807349fd83f9639461fd4ddd9ab771d108119
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.date: 11/17/2020
+ms.openlocfilehash: 14809cb28870e88cfa584c4f02360d50beabf901
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410558"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981058"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Azure Logic Apps(미리 보기) 확장을 사용하여 Visual Studio Code에서 상태 저장 또는 상태 비저장 워크플로 만들기
 
@@ -66,7 +66,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 ## <a name="stateful-versus-stateless-logic-apps"></a>상태 저장 및 상태 비저장 논리 앱
 
-* *스테이트*
+* *상태 저장*
 
   이전 이벤트의 데이터를 유지, 검토 또는 참조 해야 할 때 상태 저장 논리 앱을 만듭니다. 이러한 논리 앱은 각 작업 및 해당 워크플로 상태에 대 한 입력 및 출력을 외부 저장소에 유지 합니다. 그러면 각 실행이 완료 된 후 가능한 실행 정보와 기록을 검토할 수 있습니다. 상태 저장 논리 앱은 정전 발생 시 또는 높은 복원 력을 제공 합니다. 서비스 및 시스템이 복원 된 후 중단 된 논리 앱 실행을 저장 된 상태에서 다시 작성 하 고 논리 앱을 다시 실행 하 여 완료할 수 있습니다. 상태 저장 워크플로는 최대 1 년 동안 계속 실행 될 수 있습니다.
 
@@ -110,7 +110,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 * 새 **논리 앱 (미리 보기)** 리소스 유형은 [Azure의 프리미엄 또는 App Service 호스팅 계획](#publish-azure) 에만 배포 하거나 [ISEs (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)이 아닌 [Docker 컨테이너](#deploy-docker)에 배포할 수 있습니다. **소비** 호스팅 계획은이 리소스 종류를 배포 하는 데 지원 되지 않으며 사용할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="access-and-connectivity"></a>액세스 및 연결
 
@@ -392,9 +392,9 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    1. 디자이너에서 항목을 선택 하면 오른쪽의 세부 정보 창이 열립니다.
 
-   1. 트리거 또는 작업 이름 옆의 오른쪽 위 모서리에 줄임표 ( **...** ) 단추가 표시 되도록 충분히 Visual Studio Code 창을 확장 합니다. 
+   1. 트리거 또는 작업 이름 옆의 오른쪽 위 모서리에 줄임표 (**...**) 단추가 표시 되도록 충분히 Visual Studio Code 창을 확장 합니다. 
 
-   1. 줄임표 ( **...** ) 메뉴를 열고 **삭제** 를 선택 합니다. 삭제를 확인 하려면 **확인** 을 선택 합니다.
+   1. 줄임표 (**...**) 메뉴를 열고 **삭제** 를 선택 합니다. 삭제를 확인 하려면 **확인** 을 선택 합니다.
 
       ![디자이너에서 선택한 항목을 표시 하 고 선택 된 줄임표 단추와 "삭제" 옵션을 사용 하 여 선택한 항목을 표시 하는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 
@@ -452,7 +452,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
    ||||
 
    > [!NOTE]
-   > **설정** , **다음 이후에 실행** 또는 **정적 결과** 탭의 세부 정보 창에서 변경 하려는 경우 탭을 전환 하거나 디자이너로 포커스를 변경 하기 전에 **완료** 를 선택 하 여 이러한 변경 내용을 커밋해야 합니다. 그렇지 않으면 Visual Studio Code 변경 내용을 유지 하지 않습니다. 자세한 내용은 preview 확장의 [알려진 문제 GitHub 페이지](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)를 참조 하세요.
+   > **설정**, **다음 이후에 실행** 또는 **정적 결과** 탭의 세부 정보 창에서 변경 하려는 경우 탭을 전환 하거나 디자이너로 포커스를 변경 하기 전에 **완료** 를 선택 하 여 이러한 변경 내용을 커밋해야 합니다. 그렇지 않으면 Visual Studio Code 변경 내용을 유지 하지 않습니다. 자세한 내용은 preview 확장의 [알려진 문제 GitHub 페이지](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)를 참조 하세요.
 
 1. 디자이너에서 **저장** 을 선택 합니다.
 
@@ -523,24 +523,27 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    ![실행 상태 및 기록이 포함 된 워크플로의 개요 페이지를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   | 실행 상태 | Description |
+   | 실행 상태 | 설명 |
    |------------|-------------|
    | **중단됨** | 시스템이 중단 되거나 Azure 구독이 중단 된 등의 외부 문제로 인해 실행이 중지 되었거나 완료 되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작 되었지만 취소 요청이 수신 되었습니다. |
    | **실패** | 실행에 하나 이상의 작업이 실패 했습니다. 워크플로의 후속 작업이 실패를 처리 하도록 설정 되지 않았습니다. |
-   | **실행 중** | 실행이 트리거 되었지만 진행 중이지만, [작업 제한](logic-apps-limits-and-config.md) 또는 [현재 요금제](https://azure.microsoft.com/pricing/details/logic-apps/)로 인해 제한 된 실행에 대해서도이 상태가 표시 될 수 있습니다. <p><p>**팁** : [진단 로깅을](monitor-logic-apps-log-analytics.md)설정 하는 경우 발생 하는 스로틀 이벤트에 대 한 정보를 얻을 수 있습니다. |
+   | **실행 중** | 실행이 트리거 되었지만 진행 중이지만, [작업 제한](logic-apps-limits-and-config.md) 또는 [현재 요금제](https://azure.microsoft.com/pricing/details/logic-apps/)로 인해 제한 된 실행에 대해서도이 상태가 표시 될 수 있습니다. <p><p>**팁**: [진단 로깅을](monitor-logic-apps-log-analytics.md)설정 하는 경우 발생 하는 스로틀 이벤트에 대 한 정보를 얻을 수 있습니다. |
    | **성공함** | 실행이 성공 했습니다. 작업이 실패 하면 워크플로의 후속 작업에서 해당 실패를 처리 합니다. |
-   | **시간 초과됨** | 현재 기간이 실행 [ **기록 보존 기간 (일)** 설정](logic-apps-limits-and-config.md#run-duration-retention-limits)에 의해 제어 되는 실행 기간 제한을 초과 하 여 실행 시간이 초과 되었습니다. 실행의 기간은 시작 시간에서 실행의 시작 시간 및 실행 기간 제한을 사용 하 여 계산 됩니다. <p><p>**참고** : 실행 기간이 현재 *실행 기록 보존* 한도를 초과 하는 경우에도 실행 기록 보존 기간 ( [ **일)** 설정](logic-apps-limits-and-config.md#run-duration-retention-limits)에 의해 제어 되는 경우 매일 정리 작업을 통해 실행 기록에서 실행이 지워집니다. 실행 제한 시간이 초과 되거나 완료 되는지 여부는 항상 실행의 시작 시간 및 *현재* 보존 제한을 사용 하 여 계산 됩니다. 따라서 진행 중인 실행에 대 한 기간 제한을 줄이면 실행 제한 시간이 초과 됩니다. 그러나 실행 기간이 보존 한도를 초과 했는지 여부에 따라 실행 기록에서 실행이 유지 되거나 지워집니다. |
-   | **대기 중** | 예를 들어 아직 실행 중인 이전 워크플로 인스턴스로 인해 실행이 시작 되지 않았거나 일시 중지 되었습니다. |
+   | **시간 초과됨** | 현재 기간이 실행 [ **기록 보존 기간 (일)** 설정](logic-apps-limits-and-config.md#run-duration-retention-limits)에 의해 제어 되는 실행 기간 제한을 초과 하 여 실행 시간이 초과 되었습니다. 실행의 기간은 시작 시간에서 실행의 시작 시간 및 실행 기간 제한을 사용 하 여 계산 됩니다. <p><p>**참고**: 실행 기간이 현재 *실행 기록 보존* 한도를 초과 하는 경우에도 실행 기록 보존 기간 ( [ **일)** 설정](logic-apps-limits-and-config.md#run-duration-retention-limits)에 의해 제어 되는 경우 매일 정리 작업을 통해 실행 기록에서 실행이 지워집니다. 실행 제한 시간이 초과 되거나 완료 되는지 여부는 항상 실행의 시작 시간 및 *현재* 보존 제한을 사용 하 여 계산 됩니다. 따라서 진행 중인 실행에 대 한 기간 제한을 줄이면 실행 제한 시간이 초과 됩니다. 그러나 실행 기간이 보존 한도를 초과 했는지 여부에 따라 실행 기록에서 실행이 유지 되거나 지워집니다. |
+   | **대기** | 예를 들어 아직 실행 중인 이전 워크플로 인스턴스로 인해 실행이 시작 되지 않았거나 일시 중지 되었습니다. |
    |||
 
-1. 특정 실행의 각 단계에 대 한 상태와 단계의 입력 및 출력을 검토 하려면 해당 실행에 대 한 줄임표 ( **...** ) 단추를 선택 하 고 **실행 표시** 를 선택 합니다.
+1. 특정 실행의 각 단계에 대 한 상태와 단계의 입력 및 출력을 검토 하려면 해당 실행에 대 한 줄임표 (**...**) 단추를 선택 하 고 **실행 표시** 를 선택 합니다.
 
    ![줄임표 단추와 "실행 표시"가 선택 된 워크플로의 실행 기록 행을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/show-run-history.png)
 
    Visual Studio Code 모니터링 보기를 열고 실행의 각 단계에 대 한 상태를 표시 합니다.
 
    ![워크플로 실행의 각 단계와 해당 상태를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
+
+   > [!NOTE]
+   > 실행이 실패 하 고 모니터링 보기의 단계에서 오류가 표시 되는 경우 `400 Bad Request` 이 문제는 기본 URI (Uniform Resource Identifier)가 기본 문자 제한을 초과 하는 긴 트리거 이름 또는 작업 이름으로 인해 발생할 수 있습니다. 자세한 내용은 ["400 잘못 된 요청"](#400-bad-request)을 참조 하세요.
 
    워크플로의 각 단계에 사용할 수 있는 상태는 다음과 같습니다.
 
@@ -554,7 +557,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
    | 성공 | !["성공" 작업 상태 아이콘][succeeded-icon] | 작업이 성공 했습니다. |
    | 다시 시도 성공 | !["재시도 성공" 작업 상태 아이콘][succeeded-with-retries-icon] | 하나 이상의 재시도 후에만 작업이 성공 했습니다. 다시 시도 기록을 검토 하려면 실행 기록 세부 정보 보기에서 해당 작업을 선택 하 여 입력 및 출력을 볼 수 있습니다. |
    | 시간 초과됨 | !["시간이 초과 되었습니다." 작업 상태 아이콘][timed-out-icon] | 해당 작업의 설정에 지정 된 제한 시간 제한으로 인해 작업이 중지 되었습니다. |
-   | 대기 중 | !["대기 중" 작업 상태 아이콘][waiting-icon] | 호출자의 인바운드 요청을 기다리는 webhook 작업에 적용 됩니다. |
+   | 대기 | !["대기 중" 작업 상태 아이콘][waiting-icon] | 호출자의 인바운드 요청을 기다리는 webhook 작업에 적용 됩니다. |
    ||||
 
    [aborted-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/aborted.png
@@ -621,7 +624,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 1. 요청을 만들고 전송 하는 Postman 또는 도구에서 워크플로를 트리거하기 위한 다른 요청을 보냅니다.
 
-1. 상태 저장 워크플로를 만든 경우 워크플로의 개요 페이지에서 가장 최근 실행에 대 한 상태를 확인 합니다. 해당 실행의 각 단계에 대 한 상태, 입력 및 출력을 보려면 해당 실행에 대 한 줄임표 ( **...** ) 단추를 선택 하 고 **실행 표시** 를 선택 합니다.
+1. 상태 저장 워크플로를 만든 경우 워크플로의 개요 페이지에서 가장 최근 실행에 대 한 상태를 확인 합니다. 해당 실행의 각 단계에 대 한 상태, 입력 및 출력을 보려면 해당 실행에 대 한 줄임표 (**...**) 단추를 선택 하 고 **실행 표시** 를 선택 합니다.
 
    예를 들어 예제 워크플로가 응답 작업으로 업데이트 된 후 실행에 대 한 단계별 상태는 다음과 같습니다.
 
@@ -869,7 +872,7 @@ Visual Studio Code에서 로컬로 상태 비저장 논리 앱 워크플로를 �
 
 1. **값** 상자에 다음 값을 입력 합니다.`WithStatelessRunHistory`
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    !["구성" > "새 응용 프로그램 설정" < "새 응용 프로그램 설정", "응용 프로그램 설정 추가/편집" 창이 열리고 "워크플로를 사용 하 여 Azure Portal 및 논리 앱 (미리 보기) 리소스를 보여 주는 스크린샷 {{Workflowname}. OperationOptions "옵션을" WithStatelessRunHistory "로 설정 합니다.](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
 
@@ -957,7 +960,7 @@ Visual Studio Code에서 로컬로 상태 비저장 논리 앱 워크플로를 �
 
    `POST /runtime/webhooks/workflow/api/management/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2019-10-01-edge-preview&code={master-key}`
 
-   < *마스터 키* > 값은 `AzureWebJobsStorage` 이 섹션의 값을 찾을 수 있는 **azure-webjobs/{deployment-name} host.js/on** 파일에서에 대해 설정한 azure storage 계정에 정의 됩니다.
+   <*마스터 키*> 값은 `AzureWebJobsStorage` 이 섹션의 값을 찾을 수 있는 **azure-webjobs/{deployment-name} host.js/on** 파일에서에 대해 설정한 azure storage 계정에 정의 됩니다.
 
    ```json
    {
@@ -1014,6 +1017,47 @@ Visual Studio Code에서 로컬로 상태 비저장 논리 앱 워크플로를 �
   * 코드 문자의 제한은 1024 자에서 10만 자로 늘어납니다.
 
   * 코드 실행 시간 제한이 5 초에서 15 초로 늘어납니다.
+
+<a name="troubleshooting"></a>
+
+## <a name="troubleshoot-errors-and-problems"></a>오류 및 문제 해결
+
+<a name="400-bad-request"></a>
+
+### <a name="400-bad-request"></a>"400 잘못 된 요청"
+
+실행이 실패 하 고 모니터링 보기에서 실행을 검사 하는 경우이 오류는 이름이 긴 트리거 또는 작업에 나타날 수 있으며,이로 인해 기본 URI (Uniform Resource Identifier)가 기본 문자 제한을 초과 합니다.
+
+이 문제를 해결 하 고 긴 URI를 조정 하려면 `UrlSegmentMaxCount` `UrlSegmentMaxLength` 아래 단계를 수행 하 여 컴퓨터에서 및 레지스트리 키를 편집 합니다. 이러한 키의 기본값에 대 한 자세한 내용은이 항목 [Http.sys Windows에 대 한 레지스트리 설정](/troubleshoot/iis/httpsys-registry-windows)을 참조 하세요.
+
+> [!IMPORTANT]
+> 시작 하기 전에 작업을 저장 했는지 확인 합니다. 이 솔루션을 사용 하려면 변경 내용이 적용 될 수 있도록 작업을 수행한 후 컴퓨터를 다시 시작 해야 합니다.
+
+1. 컴퓨터에서 **실행** 창을 열고 레지스트리 편집기를 여는 명령을 실행 합니다 `regedit` .
+
+1. **사용자 계정 컨트롤** 상자에서 **예** 를 선택 하 여 컴퓨터에 대 한 변경 내용을 허용 합니다.
+
+1. 왼쪽 창의 **컴퓨터** 에서 경로 **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters** 따라 노드를 확장 하 고 **매개 변수** 를 선택 합니다.
+
+1. 오른쪽 창에서 `UrlSegmentMaxCount` 및 레지스트리 키를 찾습니다 `UrlSegmentMaxLength` .
+
+1. Uri가 사용 하려는 이름을 수용할 수 있도록 이러한 키 값을 충분히 늘립니다. 이러한 키가 없으면 다음 단계를 수행 하 여 **매개 변수** 폴더에 추가 합니다.
+
+   1. **매개 변수** 바로 가기 메뉴에서 **새**  >  **DWORD (32 비트) 값** 을 선택 합니다.
+
+   1. 표시 되는 입력란에를 `UrlSegmentMaxCount` 새 키 이름으로 입력 합니다.
+
+   1. 새 키의 바로 가기 메뉴를 열고 **수정** 을 선택 합니다.
+
+   1. 표시 되는 **문자열 편집** 상자에 원하는 **값 데이터** 키 값을 16 진수 또는 10 진수 형식으로 입력 합니다. 예를 들어 `400` 16 진수의는 `1024` decimal의와 같습니다.
+
+   1. 키 값을 추가 하려면 `UrlSegmentMaxLength` 다음 단계를 반복 합니다.
+
+   이러한 키 값을 늘리거나 추가한 후 레지스트리 편집기는 다음 예와 같습니다.
+
+   ![레지스트리 편집기를 보여 주는 스크린샷](media/create-stateful-stateless-workflows-visual-studio-code/edit-registry-settings-uri-length.png)
+
+1. 준비가 되 면 변경 내용을 적용할 수 있도록 컴퓨터를 다시 시작 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

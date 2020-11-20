@@ -54,17 +54,17 @@
 - name: 개념
   items:
     - name: External Identities용 솔루션 비교
-      href: 'https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+      href: ../active-directory/external-identities/compare-with-b2c.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
     - name: 기본 사항 알아보기
       items:
         - name: 인증 및 권한 부여
-          href: 'https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+          href: ../active-directory/develop/authentication-vs-authorization.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
         - name: 토큰
-          href: 'https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+          href: ../active-directory/develop/security-tokens.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
         - name: 프로토콜
-          href: 'https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+          href: ../active-directory/develop/v2-app-types.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
         - name: 인증 라이브러리
-          href: 'https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+          href: ../active-directory/develop/msal-overview.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
     - name: Azure AD B2C 모범 사례
       href: best-practices.md
     - name: 애플리케이션 형식
@@ -512,7 +512,7 @@
     - name: 질문과 대답
       href: faq.md
     - name: 도움말 보기
-      href: /azure/active-directory/develop/developer-support-help-options
+      href: ../active-directory/develop/developer-support-help-options.md
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/active-directory-b2c/'
     - name: 요금 계산기

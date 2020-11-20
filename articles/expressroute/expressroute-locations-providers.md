@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: duau
-ms.openlocfilehash: 73cf0d18c68baf7e0e19d15d621a7a3d87a486a2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 6d58f0178535cf01a413056b2096553e4bd06371
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748121"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981020"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -100,12 +100,12 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **제네바** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | 스위스 서부 | 10G, 100G | Equinix, Megaport |
 | **홍콩** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | 동아시아 | 10G | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, InterCloud, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
 | **홍콩2** | [MEGA-i](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | 동아시아 | 10G | 중국 모바일 국제, 중국 통신 글로벌, PCCW Global 제한, SingTel |
-| **자카르타** | Telkom Indonesia | 4 | 해당 없음 | 10G | |
+| **자카르타** | 서 면, 서 서 Kom 인도네시아 | 4 | 해당 없음 | 10G | |
 | **요하네스버그** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | 남아프리카 북부 | 10G | BCX, British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, Orange, Teraco |
 | **콸라룸푸르** | [TIME dotCom Menara AIMS](https://www.time.com.my/enterprise/connectivity/direct-cloud) | 2 | 해당 없음 | 해당 없음 | TIME dotCom |
 | **라스베이거스** | [Switch LV](https://www.switch.com/las-vegas) | 1 | 해당 없음 | 10G, 100G | CenturyLink Cloud Connect, Megaport, PacketFabric |
 | **런던** | [Equinix LD5](https://www.equinix.com/locations/europe-colocation/united-kingdom-colocation/london-data-centers/ld5/) | 1 | 영국 남부 | 10G, 100G | AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
-| **런던2** | [Telehouse North Two](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | 영국 남부 | 10G, 100G | CenturyLink Cloud Connect, Colt, GTT, IX Reach, 서, Megaport, SES, Telehouse-KDDI |
+| **런던2** | [Telehouse North Two](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | 영국 남부 | 10G, 100G | CenturyLink Cloud Connect, Colt, GTT, IX Reach, 서, Megaport, SES, Sohonet, Telehouse |
 | **로스앤젤레스** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | 1 | 해당 없음 | 10G, 100G | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
 | **시야가 Angeles2** | [서-ix LA1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/los-angeles-data-centers/la1/) | 1 | 해당 없음 | 10G, 100G | Equinix |
 | **마르세유** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | 프랑스 남부 | 해당 없음 | DE-CIX, GEANT, Interxion, Jaguar Network, Ooredoo Cloud Connect |
@@ -121,7 +121,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **뉴포트(웨일스)** | [Next Generation Data](https://www.nextgenerationdata.co.uk) | 1 | 영국 서부 | 해당 없음 | 영국령 텔레콤, Colt, Jisc, Level 3 통신, 차세대 데이터 |
 | **오사카** | [Equinix OS1](https://www.equinix.com/locations/asia-colocation/japan-colocation/osaka-data-centers/os1/) | 2 | 일본 서부 | 10G, 100G | 도쿄, Colt, 고 간, 인터넷 이니셔티브 일본 Inc..-IIJ, Megaport, NTT Communications, NTT SmartConnect, 소프트 은행 |
 | **오슬로** | [DigiPlex Ulven](https://www.digiplex.com/locations/oslo-datacentre) | 1 | 노르웨이 동부 | 10G, 100G | 전역 Connect, Megaport, 통신 회사 |
-| **파리** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 1 | 프랑스 중부 | 10G, 100G | 영국령 텔레콤, CenturyLink Cloud Connect, Colt,와 서는 Inix, Intercloud, Interx이온, 주황, Telia 캐리어, Zayo |
+| **파리** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 1 | 프랑스 중부 | 10G, 100G | 영국령 텔레콤, CenturyLink Cloud Connect, Colt,와 서, Interinix, Intercloud, Interx이온, 재규어 네트워크, 주황, Telia 캐리어, Zayo |
 | **퍼스** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | 2 | 해당 없음 | 10G | Megaport, NextDC |
 | **Phoenix** | [EdgeConneX PHX01](https://www.edgeconnex.com/locations/north-america/phoenix-az/) | 1 | 해당 없음 | 10G | |
 | **퀘벡 시티** | [Vantage](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 1 | 캐나다 동부 | 해당 없음 | Bell Canada, Megaport |

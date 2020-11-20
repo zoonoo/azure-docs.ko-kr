@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: a26a618d4f1bd9900136561d95c21c1ecbaadfaa
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 1459c80c857a436c8369d3ebe89794e0b69c33b1
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916477"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980884"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Azure 하이브리드 혜택 – Linux Virtual Machines에 적용 되는 방법
 
@@ -147,10 +147,39 @@ A: 아니요. VM에서 실행 되는 배포판 잘못 일치 하는 라이선스
 
 A: red hat Cloud Access 구독 등록이 Red Hat에서 Azure로 전파 되는 데 약간의 시간이 걸릴 수 있습니다. 한 영업일 후에도 오류가 계속 표시 되 면 Microsoft 지원에 문의 하세요.
 
+*Q: RHEL BYOS "골든 이미지"를 사용 하 여 VM을 배포 했습니다. 이러한 이미지에 대 한 청구를 BYOS에서 PAYG로 변환할 수 있나요?*
+
+A: 아니요. Azure 하이브리드 혜택는 종 량 제 이미지 에서만 변환을 지원 합니다.
+
+*Q: RHEL BYOS "골든 이미지"를 사용 하 여 VM을 배포 했습니다. 이러한 이미지에 대 한 청구를 BYOS에서 PAYG로 변환할 수 있나요?*
+
+A: 아니요. Azure 하이브리드 혜택는 종 량 제 이미지 에서만 변환을 지원 합니다.
+
+*Q: 온-프레미스 (ASR 또는 기타)에서 Azure로 자체 RHEL 이미지를 업로드 했습니다. 이러한 이미지에 대 한 청구를 BYOS에서 PAYG로 변환할 수 있나요?*
+
+A: 아니요. Azure 하이브리드 혜택 기능은 현재 RHEL 및 SLES Marketplace 이미지에만 사용할 수 있습니다. 
+
+*Q: Marketplace RHEL 및 SLES SAP 이미지에서 배포 된 Vm에 대 한 Azure 하이브리드 혜택를 사용할 수 있나요?*
+
+A: 예, 가능합니다. RHEL Vm에는 ' RHEL_BYOS ' 라이선스 유형을 사용 하 고 Marketplace RHEL 및 SLES SAP 이미지에서 배포 된 Vm의 변환에는 ' SLES_BYOS '를 사용할 수 있습니다.
+
+*Q: RHEL 및 SLES에 대해 VMSS (가상 머신 확장 집합)에서 Azure 하이브리드 혜택를 사용할 수 있나요?*
+
+A: 아니요, 할 수 없습니다. VMSS가 현재 RHEL 및 SLES에 대 한 Azure 하이브리드 혜택 범위에 없습니다.
+
+*Q: RHEL 및 SLES에 대해 Azure 하이브리드 혜택를 사용할 수 있습니까?*
+
+A: 아니요, 할 수 없습니다. 현재 RHEL 및 SLES에 대 한 Azure 하이브리드 혜택의 범위에 RIs가 없습니다.
+
+*Q: RHEL 이미지에 대해 SQL Server 배포 된 가상 머신에서 Azure 하이브리드 혜택를 사용할 수 있나요?*
+
+A: 아니요, 할 수 없습니다. 이러한 지원에 대 한 계획은 없습니다.
+ 
+
 ## <a name="common-issues"></a>일반적인 문제
 이 섹션에는 발생할 수 있는 일반적인 문제 및 완화 단계에 대 한 목록이 포함 되어 있습니다.
 
-| 오류 | 완화 방법 |
+| Error | 완화 방법 |
 | ----- | ---------- |
 | "Azure 구독에 대 한 Red Hat Cloud Access를 성공적으로 사용 하도록 설정 하지 않았기 때문에 작업을 완료할 수 없습니다." | RHEL Vm에서 혜택을 사용 하려면 먼저 Red Hat Cloud Access를 사용 하 여 Azure 구독을 등록 해야 합니다. Red Hat Cloud Access에 대 한 Azure 구독을 등록 하는 방법에 대 한 자세한 내용을 보려면이 링크를 방문 하세요.
 

@@ -139,7 +139,7 @@ Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 �
 
 8. 완료되면 **다음: 배송 주소** 를 선택합니다.
 
-    - 디바이스가 이미 있는 경우 **I have a Azure Stack Edge Pro device** (Azure Stack Edge Pro 디바이스가 있습니다) 콤보 상자를 선택합니다.
+    - 디바이스가 이미 있는 경우 **I have a Azure Stack Edge Pro device**(Azure Stack Edge Pro 디바이스가 있습니다) 콤보 상자를 선택합니다.
 
         ![리소스 만들기 6](media/azure-stack-edge-gpu-deploy-prep/create-resource-6.png)
 
@@ -149,7 +149,7 @@ Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 �
 
 9. 완료되면 **다음: 태그** 를 선택합니다. 필요에 따라 리소스를 범주화하고 청구를 통합하는 태그를 입력합니다. 완료되면 **다음: 리뷰 + 만들기** 를 클릭합니다.
 
-10. **검토 + 만들기** 탭에서 **가격 책정 세부 정보** , **사용 약관** 및 리소스 세부 정보를 살펴봅니다. **I have reviewed the privacy terms** (개인정보처리방침을 검토했습니다) 콤보 상자를 선택합니다.
+10. **검토 + 만들기** 탭에서 **가격 책정 세부 정보**, **사용 약관** 및 리소스 세부 정보를 살펴봅니다. **I have reviewed the privacy terms**(개인정보처리방침을 검토했습니다) 콤보 상자를 선택합니다.
 
     ![리소스 만들기 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 

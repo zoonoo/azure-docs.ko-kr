@@ -184,9 +184,15 @@
               href: manage/pay-by-invoice.md
             - name: 추가 구독 만들기
               href: manage/create-subscription.md
-            - name: 최신 API를 사용하여 프로그래밍 방식으로 구독 만들기
-              href: manage/programmatically-create-subscription.md
-            - name: 미리 보기 API를 사용하여 프로그래밍 방식으로 구독 만들기
+            - name: 최신 API를 사용하여 프로그래밍 방식으로 EA 구독 만들기
+              href: manage/programmatically-create-subscription-enterprise-agreement.md
+            - name: 최신 API를 사용하여 프로그래밍 방식으로 MCA 구독 만들기
+              href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
+            - name: 최신 API를 사용하여 프로그래밍 방식으로 MPA 구독 만들기
+              href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
+            - name: ARM 템플릿을 사용하여 프로그래밍 방식으로 구독 만들기
+              href: manage/create-subscription-template.md
+            - name: 이전 미리 보기 API를 사용하여 프로그래밍 방식으로 구독 만들기
               href: manage/programmatically-create-subscription-preview.md
             - name: EA 구독을 만드는 액세스 권한 부여
               href: manage/grant-access-to-create-subscription.md

@@ -5,13 +5,13 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 08/27/2020
-ms.openlocfilehash: 8a59b47dadd845f1a522854c503af11c8fff72fd
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/19/2020
+ms.openlocfilehash: b345168dad63b1846d46c12721587eaffb5f887e
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331977"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981207"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTPS 끝점을 사용 하 여 논리 앱 호출, 트리거 또는 중첩
 
@@ -104,7 +104,7 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 
    * **HTTP POST url** 상자 오른쪽에서 **URL 복사** (파일 복사 아이콘)를 선택 합니다.
 
-   * 이 POST 호출을 수행 합니다.
+   * 요청 트리거에 필요한 메서드를 사용 하 여이 호출을 수행 합니다. 이 예제에서는 메서드를 사용 합니다 `POST` .
 
      `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
@@ -124,7 +124,7 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 
 ## <a name="select-expected-request-method"></a>필요한 요청 방법 선택
 
-기본적으로 요청 트리거는 POST 요청을 예상 합니다. 다른 메서드를 지정할 수 있지만 단일 메서드만 지정할 수 있습니다.
+기본적으로 요청 트리거에는 `POST` 요청이 필요 합니다. 그러나 호출자가 사용 해야 하는 다른 메서드를 지정할 수 있지만 단일 메서드만 지정할 수 있습니다.
 
 1. 요청 트리거에서 **새 매개 변수 추가** 목록을 열고 **메서드** 를 선택 하 여이 속성을 트리거에 추가 합니다.
 
@@ -262,7 +262,7 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 
 ## <a name="call-logic-app-through-endpoint-url"></a>끝점 URL을 통해 논리 앱 호출
 
-끝점을 만든 후에는 `POST` 끝점의 전체 URL에 HTTPS 요청을 전송 하 여 논리 앱을 트리거할 수 있습니다. Logic Apps는 직접 액세스 엔드포인트에 대한 기본 제공 지원을 포함합니다.
+끝점을 만든 후에는 끝점의 전체 URL에 HTTPS 요청을 전송 하 여 논리 앱을 트리거할 수 있습니다. Logic Apps는 직접 액세스 엔드포인트에 대한 기본 제공 지원을 포함합니다.
 
 <a name="generated-tokens"></a>
 
@@ -384,7 +384,7 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 
 #### <a name="q-what-about-url-security"></a>Q: URL 보안이란 무엇입니까?
 
-**A** : AZURE는 [SAS (공유 액세스 서명)](/rest/api/storageservices/delegate-access-with-shared-access-signature)를 사용 하 여 논리 앱 콜백 url을 안전 하 게 생성 합니다. 이 서명은 쿼리 매개 변수로 전달 되 고 논리 앱을 실행 하기 전에 유효성을 검사 해야 합니다. Azure는 논리 앱, 트리거 이름 및 수행되는 작업 별로 비밀 키의 고유한 조합을 사용하여 서명을 생성합니다. 따라서 사용자가 비밀 논리 앱 키에 액세스하지 않으면 유효한 서명을 생성할 수 없습니다.
+**A**: AZURE는 [SAS (공유 액세스 서명)](/rest/api/storageservices/delegate-access-with-shared-access-signature)를 사용 하 여 논리 앱 콜백 url을 안전 하 게 생성 합니다. 이 서명은 쿼리 매개 변수로 전달 되 고 논리 앱을 실행 하기 전에 유효성을 검사 해야 합니다. Azure는 논리 앱, 트리거 이름 및 수행되는 작업 별로 비밀 키의 고유한 조합을 사용하여 서명을 생성합니다. 따라서 사용자가 비밀 논리 앱 키에 액세스하지 않으면 유효한 서명을 생성할 수 없습니다.
 
 > [!IMPORTANT]
 > 프로덕션 및 고급 보안 시스템의 경우 다음과 같은 이유로 브라우저에서 직접 논리 앱을 호출 하는 것에 대해 적극 권장 합니다.
@@ -396,7 +396,7 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 
 #### <a name="q-can-i-configure-callable-endpoints-further"></a>Q: 호출 가능 끝점을 추가로 구성할 수 있나요?
 
-**A** : 예, HTTPS 끝점은 [Azure API Management](../api-management/api-management-key-concepts.md)를 통해 더 많은 고급 구성을 지원 합니다. 또한 이 서비스는 Logic Apps를 포함한 모든 API를 일관성 있게 관리하고 사용자 지정 도메인 이름을 설정하고 다음과 같은 더 많은 인증 방법을 사용하는 기능을 제공합니다.
+**A**: 예, HTTPS 끝점은 [Azure API Management](../api-management/api-management-key-concepts.md)를 통해 더 많은 고급 구성을 지원 합니다. 또한 이 서비스는 Logic Apps를 포함한 모든 API를 일관성 있게 관리하고 사용자 지정 도메인 이름을 설정하고 다음과 같은 더 많은 인증 방법을 사용하는 기능을 제공합니다.
 
 * [요청 메서드 변경](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [요청의 URL 세그먼트 변경](../api-management/api-management-transformation-policies.md#RewriteURL)

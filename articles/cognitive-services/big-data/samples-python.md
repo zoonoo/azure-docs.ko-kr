@@ -85,9 +85,9 @@ display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("sent
 
 | text                                      | 감정                                             |
 |:------------------------------------------|:------------------------------------------------------|
-| I am so happy today, its sunny!           | 긍정적                                              |
-| I am frustrated by this rush hour traffic | 부정적                                              |
-| The cognitive services on spark aint bad  | 긍정적                                              |
+| I am so happy today, its sunny!           | 긍정                                              |
+| I am frustrated by this rush hour traffic | 부정                                              |
+| The cognitive services on spark aint bad  | 긍정                                              |
 
 ## <a name="computer-vision-sample"></a>Computer Vision 샘플
 

@@ -154,12 +154,12 @@ Azure Maps 역방향 지오코딩 API에는 Bing Maps에 없는 다음과 같은
 |-----------------------|-------------------------------------------------|--------------------------------------------|
 | `Address`             |                                                 | *주소*                                  |
 | `Neighborhood`        | `Neighbourhood`                                 | *이웃 도시*                             |
-| `PopulatedPlace`      | `Municipality` 또는 `MunicipalitySubdivision`     | *도시* , *마을/하위 도시* 또는 *대도시권*     |
+| `PopulatedPlace`      | `Municipality` 또는 `MunicipalitySubdivision`     | *도시*, *마을/하위 도시* 또는 *대도시권*     |
 | `Postcode1`           | `PostalCodeArea`                                | *우편 번호* 또는 *우편 번호*                |
 | `AdminDivision1`      | `CountrySubdivision`                            | *시/도* 또는 *시/군/구*                      |
 | `AdminDivision2`      | `CountrySecondarySubdivison`                    | *구/군* 또는 *구역*                    |
 | `CountryRegion`       | `Country`                                       | *국가 이름*                             |
-|                       | `CountryTertiarySubdivision`                    | *자치 구역* , *주* , *최소 행정 구역*          |
+|                       | `CountryTertiarySubdivision`                    | *자치 구역*, *주*, *최소 행정 구역*          |
 
 ## <a name="get-location-suggestions-autosuggest"></a>위치 제안 가져오기(Autosuggest)
 
@@ -528,7 +528,7 @@ Azure Maps는 지정된 시간 또는 연료/요금 내에 원점에서 모든 �
 Bing Maps에서는 다음 API를 사용하여 관심 지점 데이터를 검색할 수 있습니다.
 
 -   **로컬 검색:** 이름 또는 엔터티 형식(범주)을 기준으로 근처(방사형 검색)의 관심 지점을 검색합니다. 이 API와 가장 비슷한 것은 Azure Maps [POI 검색](/rest/api/maps/search/getsearchpoi) 및 [POI 범주 검색](/rest/api/maps/search/getsearchpoicategory) API입니다.
--   **위치 인식** : 한 위치에서 특정 거리 내에 있는 관심 지점을 검색합니다. 이 API와 가장 비슷한 것은 Azure Maps [근처 검색](/rest/api/maps/search/getsearchnearby) API입니다.
+-   **위치 인식**: 한 위치에서 특정 거리 내에 있는 관심 지점을 검색합니다. 이 API와 가장 비슷한 것은 Azure Maps [근처 검색](/rest/api/maps/search/getsearchnearby) API입니다.
 -   **로컬 인사이트:** 특정 좌표로부터 지정된 최대 주행 시간 또는 거리 안에 있는 관심 지점을 검색합니다. 이렇게 하려면 등시선을 계산하여 [기하 도형 내에서 검색](/rest/api/maps/search/postsearchinsidegeometry) API로 전달해야 합니다.
 
 Azure Maps는 관심 지점에 대한 여러 검색 API를 제공합니다.

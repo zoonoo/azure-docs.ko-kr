@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: efd35cfe2660f4597ec0c95dc29bcb4b839da680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4cb57eb8d3396667e6c9cb40b7e41b1e97622ed
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306942"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981190"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>유지 관리 제어 및 Azure PowerShell를 사용 하 여 업데이트 제어
 
@@ -34,12 +34,12 @@ Install-Module -Name Az.Maintenance
 
 로컬로 설치 하는 경우 관리자 권한으로 PowerShell 프롬프트를 열어야 합니다.
 
-신뢰할 수 없는 *리포지토리에서*설치할지를 확인 하는 메시지가 표시 될 수도 있습니다. `Y` **모두 예를** 입력 하거나 선택 하 여 모듈을 설치 합니다.
+신뢰할 수 없는 *리포지토리에서* 설치할지를 확인 하는 메시지가 표시 될 수도 있습니다. `Y` **모두 예를** 입력 하거나 선택 하 여 모듈을 설치 합니다.
 
 
 ## <a name="create-a-maintenance-configuration"></a>유지 관리 구성을 만듭니다.
 
-구성에 대 한 컨테이너로 리소스 그룹을 만듭니다. 이 예제에서는 *myMaintenanceRG* 이라는 리소스 그룹을 *에서는 eastus*에 만듭니다. 사용 하려는 리소스 그룹이 이미 있는 경우이 부분을 건너뛰고 나머지 예에서는 리소스 그룹 이름을 자신의 이름으로 바꿀 수 있습니다.
+구성에 대 한 컨테이너로 리소스 그룹을 만듭니다. 이 예제에서는 *myMaintenanceRG* 이라는 리소스 그룹을 *에서는 eastus* 에 만듭니다. 사용 하려는 리소스 그룹이 이미 있는 경우이 부분을 건너뛰고 나머지 예에서는 리소스 그룹 이름을 자신의 이름으로 바꿀 수 있습니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -67,13 +67,7 @@ $config = New-AzMaintenanceConfiguration `
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
 
-### <a name="create-a-maintenance-configuration-with-scheduled-window-in-preview"></a>예약 된 창 (미리 보기)을 사용 하 여 유지 관리 구성 만들기
-
-
-> [!IMPORTANT]
-> 예약 된 창 기능은 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>예약 된 기간을 사용 하 여 유지 관리 구성 만들기
 
 Azure가 리소스에 대 한 업데이트를 적용 하는 경우 예약 된 기간을 사용 하 여 유지 관리 구성을 만들려면 New-AzMaintenanceConfiguration를 사용 합니다. 이 예제에서는 매월 네 번째 월요일에 예약 된 기간이 5 시간인 myConfig 라는 유지 관리 구성을 만듭니다. 예약 된 기간을 만든 후에는 더 이상 수동으로 업데이트를 적용할 필요가 없습니다.
 
@@ -91,8 +85,13 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > 유지 관리 **기간은** *2 시간* 이상 이어야 합니다. 유지 관리 **되풀이** 는 35 일에 한 번 이상 발생 하도록 설정 되어야 합니다.
 
-유지 관리 **되풀이** 는 매일, 매주 또는 매월 일정으로 표시 될 수 있습니다. 일별 일정 예는 recurEvery: Day, recurEvery: 3 일입니다. 주간 일정 예는 recurEvery: 3 주, recurEvery: 주 토요일, 일요일입니다. 월별 일정 예는 recurEvery: Month day23, day24, recurEvery: Month Last 일요일이, recurEvery: Month 4 월요일입니다.
-
+유지 관리 **되풀이** 는 다음과 같이 표현 될 수 있습니다.
+ | 값 | 예제 |
+      |-------|-------------|
+      | 매일 | recurEvery: Day **또는** RecurEvery: 3 일 | 
+      | weekly | recurEvery: 3 주 **또는** RecurEvery: 주 토요일, 일요일 | 
+      | 월별 | recurEvery: Month day23, day24 **또는** recurEvery: Month Last 일요일이 **나** RecurEvery: month 4 월요일 | 
+      
 
 ## <a name="assign-the-configuration"></a>구성 할당
 

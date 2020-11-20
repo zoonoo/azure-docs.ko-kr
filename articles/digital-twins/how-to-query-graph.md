@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperfq2
-ms.openlocfilehash: 6533cbde10dfc924bd982357def859229eb1714a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9aa1156da48ba39672d59858d0640619581329ee
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963167"
+ms.locfileid: "94981122"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
@@ -277,7 +277,7 @@ AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name)
 
 예를 들어 *건물* 에 *층* 이 포함 되어 있고 *층* 이 *방을* 포함 하는 시나리오를 가정해 보겠습니다. 핫의 건물 내에서 방을 검색 하기 위해 다음 단계를 수행 하는 것이 한 가지 방법입니다.
 
-1. 관계에 따라 건물에서 층 찾기 `contains`
+1. 관계에 따라 건물에서 층을 찾습니다 `contains` .
 
     ```sql
     SELECT Floor
@@ -311,7 +311,7 @@ AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name)
 
 조합 연산자를 사용 하 여 위의 쿼리 유형을 조합 하 여 단일 쿼리에 자세한 정보를 **포함할 수 있습니다** . 다음은 한 번에 둘 이상의 쌍 설명자 유형을 쿼리 하는 복합 쿼리의 몇 가지 추가 예입니다.
 
-| Description | 쿼리 |
+| 설명 | 쿼리 |
 | --- | --- |
 | *공간 123* 가 있는 장치에서 운영자 역할을 하는 MxChip 장치를 반환 합니다. | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contoso:com:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | ID가 *id1* 인 다른 쌍이 *포함* 된 relationship 이라는 관계가 있는 쌍을 가져옵니다. | `SELECT Room`<br>`FROM DIGITALTWINS Room`<br>`JOIN Thermostat RELATED Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |

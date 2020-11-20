@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9122d6716aa94a7e0164c9c7774c7c8d85be814a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 81bcfdf5e63d49280fb798773559310cbd912a26
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968012"
+ms.locfileid: "94980527"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
@@ -119,29 +119,26 @@ REST API에서 [Create index](/rest/api/searchservice/create-index) 또는 [Upda
 
 ## <a name="create-using-net"></a>.NET을 사용 하 여 만들기
 
-C #에서 [SearchSuggester 개체](/dotnet/api/azure.search.documents.indexes.models.searchsuggester)를 정의 합니다. `Suggesters` 는 SearchIndex 개체의 컬렉션 이지만 하나의 항목만 사용할 수 있습니다. 
+C #에서 [SearchSuggester 개체](/dotnet/api/azure.search.documents.indexes.models.searchsuggester)를 정의 합니다. `Suggesters` 는 SearchIndex 개체의 컬렉션 이지만 하나의 항목만 사용할 수 있습니다. 인덱스 정의에 확인 기를 추가 합니다.
 
 ```csharp
-private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
+private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 {
-    var definition = new SearchIndex()
-    {
-        FieldBuilder builder = new FieldBuilder();
-        Fields = builder.Build(typeof(Hotel);
-        Suggesters = new List<Suggester>() {new Suggester()
-            {
-                Name = "sg",
-                SourceFields = new string[] { "HotelName", "Category" }
-            }}
-    }
+    FieldBuilder fieldBuilder = new FieldBuilder();
+    var searchFields = fieldBuilder.Build(typeof(Hotel));
 
-    await indexClient.CreateIndexAsync(definition);
+    var definition = new SearchIndex(indexName, searchFields);
+
+    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category", "Address/City", "Address/StateProvince" });
+    definition.Suggesters.Add(suggester);
+
+    indexClient.CreateOrUpdateIndex(definition);
 }
 ```
 
 ## <a name="property-reference"></a>속성 참조
 
-|속성      |Description      |
+|속성      |설명      |
 |--------------|-----------------|
 |`name`        | 확인 기 정의에 지정 되 고 자동 완성 또는 제안 요청에서 호출 됩니다. |
 |`sourceFields`| 확인 기 정의에 지정 되어 있습니다. 제안 된 콘텐츠의 원본인 인덱스에 있는 하나 이상의 필드 목록입니다. 필드는 및 형식 이어야 `Edm.String` 합니다 `Collection(Edm.String)` . 필드에 분석기를 지정 하는 경우 사용자 지정 분석기가 아닌 [이 목록](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) 에서 명명 된 어휘 분석기로 지정 해야 합니다.<p/> 검색 표시줄이 나 드롭다운 목록에서 완성 된 문자열 인지 여부에 관계 없이 필요한 적절 한 응답에 대해 자신을 지 원하는 필드만 지정 하는 것이 가장 좋습니다.<p/>호텔 이름은 전체 자릿수가 있으므로 좋은 후보입니다. 설명 및 주석과 같은 자세한 정보 필드에는 너무 조밀 하 게 표시 됩니다. 마찬가지로 범주 및 태그와 같은 반복적인 필드도 효과적이 지 않습니다. 예제에는 여러 필드를 포함할 수 있음을 보여 주는 "category"가 포함 되어 있습니다. |

@@ -3,18 +3,21 @@ title: Azure Event Grid 배달 및 다시 시도
 description: Azure Event Grid에서 이벤트를 배달하는 방법 및 배달되지 않은 메시지를 처리하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 483a868022d4ae8f7c564e51344dfbede4314232
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 7bf8fd3a647e28d18a7ca1e658761f9226d1153a
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042957"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981105"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 메시지 배달 및 다시 시도
 
 이 문서에서는 배달이 승인되지 않는 경우 Azure Event Grid에서 이벤트를 처리하는 방법을 설명합니다.
 
-Event Grid는 지속성이 있는 배달을 제공합니다. 각 메시지를 각 구독에 대해 최소 한 번 배달합니다. 이벤트는 각 구독에 등록된 엔드포인트로 즉시 전송됩니다. 엔드포인트가 이벤트 수신을 확인하지 않는 경우 Event Grid는 이벤트 전달을 재시도합니다.
+Event Grid는 지속성이 있는 배달을 제공합니다. 각 메시지는 각 구독에 대해 한 **번** 이상 배달 됩니다. 이벤트는 각 구독에 등록된 엔드포인트로 즉시 전송됩니다. 엔드포인트가 이벤트 수신을 확인하지 않는 경우 Event Grid는 이벤트 전달을 재시도합니다.
+
+> [!NOTE]
+> Event Grid는 이벤트 배달 순서를 보장 하지 않으므로 구독자가 순서가 잘못 된 메시지를 받을 수 있습니다. 
 
 ## <a name="batched-event-delivery"></a>일괄 처리 된 이벤트 배달
 

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 8593858580da1358dc84d9c25420fe2a95680251
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: ff8af09e88c9c0d2af63070396824471af3ceeca
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330226"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980827"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 
@@ -23,7 +23,7 @@ ms.locfileid: "94330226"
 
 Windows 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션][1]을 빌드 및 실행하려면 Service Fabric 런타임, SDK, 도구를 설치합니다. 또한 SDK에 포함 된 [Windows PowerShell 스크립트의 실행을 사용 하도록 설정](#enable-powershell-script-execution) 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="supported-operating-system-versions"></a>지원되는 운영 체제 버전
 
@@ -62,8 +62,8 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 
 현재 버전은 다음과 같습니다.
 
-* Service Fabric SDK 및 도구 4.1.458
-* Service Fabric runtime 7.1.458
+* Service Fabric SDK 및 도구 4.2.434
+* Service Fabric runtime 7.2.434
 
 지원되는 버전 목록은 [Service Fabric 버전](service-fabric-versions.md)을 참조하세요.
 

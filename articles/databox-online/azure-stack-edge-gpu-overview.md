@@ -49,7 +49,7 @@ Azure Stack Edge Pro의 기능은 다음과 같습니다.
 |오프라인 업로드     | 연결 끊김 모드에서도 오프라인 업로드 시나리오가 지원됩니다.|
 |지원되는 파일 전송 프로토콜      | 데이터 수집을 위한 표준 SMB, NFS 및 REST 프로토콜이 지원됩니다. <br> 지원되는 버전에 대한 자세한 내용은 [Azure Stack Edge Pro 시스템 요구 사항](azure-stack-edge-system-requirements.md)을 참조하세요.|
 |데이터 새로 고침     | 클라우드의 최신 데이터로 로컬 파일을 새로 고칠 수 있습니다.|
-|암호화    | *https*를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.|
+|암호화    | *https* 를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.|
 |대역폭 제한| 사용량이 많은 시간 동안 대역폭 사용을 제한하는 데 사용됩니다.|
 <!--|ExpressRoute | ExpressRoute를 통해 보안이 강화되었습니다. 로컬 디바이스에서 클라우드 스토리지 엔드포인트로의 트래픽이 ExpressRoute를 통해 이동하는 피어링 구성을 사용합니다. 자세한 내용은 [ExpressRoute 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
 
@@ -73,7 +73,7 @@ Azure Stack Edge Pro 솔루션은 Azure Stack Edge 리소스, Azure Stack Edge P
 
 - **리소스 가용성** - 이 미리 보기 릴리스의 경우 리소스는 미국 동부, EU 서부 및 동남아시아 지역에서 사용할 수 있습니다.
 
-- **디바이스 가용성** - Azure Stack Edge Pro 디바이스를 사용할 수 있는 모든 국가/지역 목록을 보려면 [Azure Stack Edge Pro 가격 책정](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro)의 **Azure Stack Edge Pro**탭에서 **가용성** 섹션으로 이동합니다.
+- **디바이스 가용성** - Azure Stack Edge Pro 디바이스를 사용할 수 있는 모든 국가/지역 목록을 보려면 [Azure Stack Edge Pro 가격 책정](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro)의 **Azure Stack Edge Pro** 탭에서 **가용성** 섹션으로 이동합니다.
     
 - **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 모든 Azure 지역에서 사용할 수 있습니다. 성능을 최적화하려면 스토리지 계정이 Azure Stack Edge Pro 데이터를 저장하는 지역이 디바이스를 사용하는 지역과 가까이 있어야 합니다. 스토리지 계정의 지역과 디바이스의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다.
 

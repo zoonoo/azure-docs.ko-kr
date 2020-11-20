@@ -86,7 +86,7 @@ az storage account generate-sas \
 
 | 매개 변수        | 값   | 설명  |
 |------------------|---------|---------|
-| *사용 권한*    | racwdl  | 이 SAS는 *읽기* , *추가* , *만들기* , *쓰기* , *삭제* 및 *나열* 기능을 허용합니다. |
+| *사용 권한*    | racwdl  | 이 SAS는 *읽기*, *추가*, *만들기*, *쓰기*, *삭제* 및 *나열* 기능을 허용합니다. |
 | *resource-types* | sco     | SAS의 영향을 받는 리소스는 서비스  , 컨테이너  및 개체  입니다. |
 | *services*       | b       | SAS의 영향을 받는 서비스는 *Blob* 서비스입니다. |
 
@@ -293,7 +293,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-이 코드는 루프의 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) 함수를 호출하여 모든 세그먼트가 검색되도록 합니다. 각 세그먼트에 대해 포함된 Blob 항목의 목록을 반복하여 **Files** (파일) 목록을 업데이트합니다.
+이 코드는 루프의 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) 함수를 호출하여 모든 세그먼트가 검색되도록 합니다. 각 세그먼트에 대해 포함된 Blob 항목의 목록을 반복하여 **Files**(파일) 목록을 업데이트합니다.
 
 ### <a name="upload-blobs"></a>Blob 업로드
 

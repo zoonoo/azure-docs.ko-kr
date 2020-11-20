@@ -15,7 +15,7 @@
       href: partner-center-portal/account-migration-from-cpp-to-pc.md
 - name: 개념
   items:
-    - name: 옵션 및 고려 사항 게시
+    - name: 나열 옵션
       href: determine-your-listing-type.md
     - name: 상용 마켓플레이스에서의 거래
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
@@ -349,15 +349,14 @@
       items:
         - name: SaaS 처리 API 개요
           href: partner-center-portal/pc-saas-fulfillment-apis.md
-          items:
-            - name: SaaS 애플리케이션 등록
-              href: partner-center-portal/pc-saas-registration.md
-            - name: SaaS 처리 API v2
-              href: partner-center-portal/pc-saas-fulfillment-api-v2.md
-            - name: SaaS 처리 API v1(사용되지 않음)
-              href: partner-center-portal/pc-saas-fulfillment-api-v1.md
-            - name: SaaS 처리 API - FAQ
-              href: partner-center-portal/saas-fulfillment-apis-faq.md
+        - name: SaaS 애플리케이션 등록
+          href: partner-center-portal/pc-saas-registration.md
+        - name: SaaS 처리 API v2
+          href: partner-center-portal/pc-saas-fulfillment-api-v2.md
+        - name: SaaS 처리 API v1(사용되지 않음)
+          href: partner-center-portal/pc-saas-fulfillment-api-v1.md
+        - name: SaaS 처리 API - FAQ
+          href: partner-center-portal/saas-fulfillment-apis-faq.md
 - name: 리소스
   items:
     - name: 상용 마켓플레이스 FAQ
