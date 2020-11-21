@@ -4,12 +4,12 @@ description: 이 문서에서는 최신 Azure.Messaging.EventHubs 패키지를 �
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1c0f5a5fb45ee45cb9b7e399dc39ad29406b15dc
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 7962e28ecdc7e2c04fefeb0faf6feb5b730d979c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578997"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024537"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Azure Event Hubs에서 이벤트 보내기 및 받기 - .NET(Azure.Messaging.EventHubs) 
 이 빠른 시작에서는 **Azure.Messaging.EventHubs** .NET 라이브러리를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다. 
@@ -42,7 +42,7 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
     1. 그다음에 **다음** 을 선택합니다. 
 
         ![새 프로젝트 대화 상자](./media/getstarted-dotnet-standard-send-v2/new-send-project.png)    
-1. 프로젝트 이름으로 **EventHubsSender** , 솔루션 이름으로 **EventHubsQuickStart** 를 입력한 다음, **확인** 을 선택하여 프로젝트를 만듭니다. 
+1. 프로젝트 이름으로 **EventHubsSender**, 솔루션 이름으로 **EventHubsQuickStart** 를 입력한 다음, **확인** 을 선택하여 프로젝트를 만듭니다. 
 
     ![C# > 콘솔 앱](./media/getstarted-dotnet-standard-send-v2/project-solution-names.png)
 
@@ -113,7 +113,7 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
 > [!WARNING]
 > Azure Stack Hub에서 이 코드를 실행하는 경우 특정 Storage API 버전을 대상으로 하지 않는 한 런타임 오류가 발생합니다. 이는 Event Hub SDK가 Azure에서 사용할 수 있는 최신 Azure Storage API를 사용하지만 Azure Stack Hub 플랫폼에서는 사용할 수 없기 때문입니다. Azure Stack Hub는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수도 있습니다. Azure Blog Storage를 검사점 저장소로 사용하는 경우 [Azure Stack Hub 빌드에 대해 지원되는 Azure Storage API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version)을 확인하고 코드에서 해당 버전을 대상으로 지정합니다. 
 >
-> 예를 들어 Azure Stack Hub 버전 2005에서 실행 중인 경우 스토리지 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 가장 높은 버전을 사용합니다(SDK 릴리스 당시 2019-07-07). 이 경우 이 섹션의 다음 단계 외에도 스토리지 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가해야 합니다. 특정 Storage API 버전을 대상으로 지정하는 방법에 대한 예제는 [GitHub에 대한 이 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)을 참조하세요. 
+> 예를 들어 Azure Stack Hub 버전 2005에서 실행 중인 경우 스토리지 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 가장 높은 버전을 사용합니다(SDK 릴리스 당시 2019-07-07). 이 경우 이 섹션의 다음 단계 외에도 스토리지 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가해야 합니다. 특정 Storage API 버전을 대상으로 지정하는 방법에 대한 예제는 [GitHub에 대한 이 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/)을 참조하세요. 
  
 
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Azure Storage 및 BLOB 컨테이너 만들기
@@ -218,7 +218,7 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
 1. 프로그램을 빌드하고 오류가 없는지 확인합니다.
 
     > [!NOTE]
-    > 정보 제공을 위한 주석을 비롯한 전체 소스 코드는 [GitHub의 이 파일](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.cs)을 참조하세요.
+    > 정보 제공을 위한 주석을 비롯한 전체 소스 코드는 [GitHub의 이 파일](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.md)을 참조하세요.
 6. 수신기 애플리케이션을 실행합니다. 
 1. 이벤트가 수신되었다는 메시지가 표시됩니다. 
 

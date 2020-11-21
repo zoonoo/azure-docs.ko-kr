@@ -12,12 +12,12 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: 7d6a0388507d836050550a3a98255deabb826cde
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ace584b51f0aa457e30d8e48d97834aa735a1a57
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128340"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026576"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>음성 SDK를 사용 하 여 코덱 압축 오디오 입력 사용
 
@@ -35,7 +35,7 @@ Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/prerequisites.md)]
@@ -74,4 +74,4 @@ Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [음성 인식 방법 알아보기](quickstarts/speech-to-text-from-microphone.md)
+> [음성 인식 방법 알아보기](./get-started-speech-to-text.md)

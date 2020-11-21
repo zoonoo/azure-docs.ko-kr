@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f82ea154d5949f4d229ac76e7a7ce2a89d15ac13
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555824"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025670"
 ---
 # <a name="cicd-for-custom-speech"></a>Custom Speech용 CI/CD
 
 학습 및 테스트 데이터에 업데이트를 적용할 때 Custom Speech 모델을 지속적으로 향상 시킬 수 있도록 자동화 된 학습, 테스트 및 릴리스 관리를 구현 합니다. CI/CD 워크플로를 효과적으로 구현 하 여 가장 적합 한 Custom Speech 모델에 대 한 끝점을 항상 사용할 수 있는지 확인할 수 있습니다.
 
-CI ( [지속적인 통합](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) )는 공유 리포지토리에서 업데이트를 자주 커밋하고이에 대 한 자동화 된 빌드를 수행 하는 엔지니어링 방법입니다. Custom Speech에 대 한 CI 워크플로는 데이터 원본에서 새 모델을 학습 하 고 새 모델에 대 한 자동화 된 테스트를 수행 하 여 이전 모델 보다 더 잘 수행 되도록 합니다.
+CI ( [지속적인 통합](/azure/devops/learn/what-is-continuous-integration) )는 공유 리포지토리에서 업데이트를 자주 커밋하고이에 대 한 자동화 된 빌드를 수행 하는 엔지니어링 방법입니다. Custom Speech에 대 한 CI 워크플로는 데이터 원본에서 새 모델을 학습 하 고 새 모델에 대 한 자동화 된 테스트를 수행 하 여 이전 모델 보다 더 잘 수행 되도록 합니다.
 
-CD ( [지속적인](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) 업데이트)는 CI 프로세스에서 모델을 사용 하 고 향상 된 각 Custom Speech 모델에 대 한 끝점을 만듭니다. CD를 사용 하면 끝점을 쉽게 솔루션에 통합할 수 있습니다.
+CD ( [지속적인](/azure/devops/learn/what-is-continuous-delivery) 업데이트)는 CI 프로세스에서 모델을 사용 하 고 향상 된 각 Custom Speech 모델에 대 한 끝점을 만듭니다. CD를 사용 하면 끝점을 쉽게 솔루션에 통합할 수 있습니다.
 
 사용자 지정 CI/CD 솔루션은 가능 하지만 미리 작성 된 강력한 솔루션의 경우 GitHub 작업을 사용 하 여 CI/CD 워크플로를 실행 하는 [음성 DevOps 템플릿 리포지토리](https://github.com/Azure-Samples/Speech-Service-DevOps-Template)를 사용 합니다.
 
@@ -73,7 +73,7 @@ CI/CD 워크플로의 주요 목적은 학습 데이터를 사용 하 여 새 �
 
 Custom Speech에 대 한 CI/CD 자동화 워크플로에 대 한 다음 도구를 사용 합니다.
 
-- Azure 서비스 주체 인증을 만들고 azure 구독을 쿼리 하 고 테스트 결과를 Azure Blob에 저장 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 합니다.
+- Azure 서비스 주체 인증을 만들고 azure 구독을 쿼리 하 고 테스트 결과를 Azure Blob에 저장 [Azure CLI](/cli/azure/?view=azure-cli-latest) 합니다.
 - 명령줄 또는 자동화 된 워크플로에서 음성 서비스와 상호 작용 하는 [Azure SPEECH CLI](spx-overview.md) .
 
 ## <a name="devops-solution-for-custom-speech-using-github-actions"></a>GitHub 작업을 사용 하 Custom Speech에 대 한 DevOps 솔루션

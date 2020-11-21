@@ -1,0 +1,999 @@
+---
+title: Azure 앱 구성에 대 한 Azure 보안 기준
+description: Azure 앱 구성 보안 기준은 Azure 보안 벤치 마크에 지정 된 보안 권장 사항을 구현 하기 위한 절차 지침과 리소스를 제공 합니다.
+author: msmbaldwin
+ms.service: azure-app-configuration
+ms.topic: conceptual
+ms.date: 11/20/2020
+ms.author: mbaldwin
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 4d74c3607610372fa6cd276dd0d72fa5ba37f391
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025804"
+---
+# <a name="azure-security-baseline-for-azure-app-configuration"></a>Azure 앱 구성에 대 한 Azure 보안 기준
+
+이 보안 기준은 [Azure Security 벤치 마크 버전 2.0](../security/benchmarks/overview.md) 의 지침을 Azure 앱 구성에 적용 합니다. Azure Security Benchmark는 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 권장 사항을 제공합니다. 콘텐츠는 Azure 보안 벤치 마크에 정의 된 **보안 컨트롤** 및 Azure 앱 구성에 적용 되는 관련 지침에 따라 그룹화 됩니다. Azure 앱 구성에 적용할 수 없는 **컨트롤** 은 제외 되었습니다.
+
+Azure 앱 구성이 Azure Security 벤치 마크에 완전히 매핑되는 방식을 보려면 [전체 Azure 앱 구성 보안 기준 매핑 파일](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)을 참조 하세요.
+
+## <a name="network-security"></a>네트워크 보안
+
+*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](/azure/security/benchmarks/security-controls-v2-network-security)을 참조 하세요.*
+
+### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: 내부 트래픽에 대 한 보안 구현
+
+**지침**: Azure 앱 구성은 리소스를 가상 네트워크에 직접 배포 하지 않습니다. 서비스가 가상 네트워크에 배포 되지 않으므로 특정 네트워킹 기능을 활용 하 여 네트워크 보안 그룹, 경로 테이블 또는 Azure 방화벽과 같은 다른 네트워크 어플라이언스와 같은 서비스 내부 트래픽을 보호할 수 없습니다. 그러나 앱 구성에서는 개인 끝점을 사용 하 여 가상 네트워크에서 Azure 앱 구성에 안전 하 게 연결할 수 있습니다.
+
+Azure 센티널을 사용 하 여 SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, 서명 되지 않은 LDAP 바인딩 및 Kerberos에서 weak 암호화와 같은 레거시 안전 하지 않은 프로토콜의 사용을 검색 합니다.
+
+- [Azure 앱 구성에 전용 끝점 사용](concept-private-endpoint.md)
+
+- [Azure 센티널 안전 하지 않은 프로토콜 통합 문서](../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: 공유됨
+
+### <a name="ns-2-connect-private-networks-together"></a>NS-2: 개인 네트워크를 함께 연결
+
+**지침**: Azure 앱 구성은 개인 끝점을 사용 하 여 개인 링크를 통해 데이터를 안전 하 게 보낼 수 있도록 지원 합니다. Azure Express 경로 또는 Azure VPN (가상 사설망)을 사용 하 여 공동 배치 환경의 온-프레미스 인프라와 Azure 데이터 센터 간에 개인 연결을 만듭니다. Express 경로 연결은 공용 인터넷을 통해 이동 하지 않으며 일반적인 인터넷 연결 보다 안정적이 고 속도가 빠르며 대기 시간이 짧습니다. 지점 및 사이트 간 VPN 및 사이트 간 VPN의 경우 이러한 VPN 옵션과 Azure Express 경로를 조합 하 여 온-프레미스 장치 또는 네트워크를 가상 네트워크에 연결할 수 있습니다.
+
+Azure에서 두 개 이상의 가상 네트워크를 연결 하려면 가상 네트워크 피어 링을 사용 합니다. 피어 링 가상 네트워크 간의 네트워크 트래픽은 비공개 이며 Azure 백본 네트워크에 유지 됩니다.
+
+- [Express 경로 연결 모델](../expressroute/expressroute-connectivity-models.md)
+
+- [Azure VPN 개요](../vpn-gateway/vpn-gateway-about-vpngateways.md)
+
+- [가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md)
+
+**Azure Security Center 모니터링**: 예
+
+**책임**: Customer
+
+### <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: Azure 서비스에 대 한 개인 네트워크 액세스 설정
+
+**지침**: Azure 개인 링크를 사용 하 여 인터넷을 거치지 않고 가상 네트워크에서 Azure 앱 구성에 대 한 개인 액세스를 사용 하도록 설정 합니다.
+
+개인 액세스는 Azure 서비스에서 제공 하는 인증 및 트래픽 보안 외에 추가적인 심층 방어 수단입니다.
+
+- [Azure 개인 링크 이해](../private-link/private-link-overview.md)
+
+- [Azure 앱 구성에서 개인 링크를 설정 하는 방법](concept-private-endpoint.md)
+
+**Azure Security Center 모니터링**: 예
+
+**책임**: Customer
+
+### <a name="ns-4-protect-applications-and-services-from-external-network-attacks"></a>NS-4: 외부 네트워크 공격 으로부터 응용 프로그램 및 서비스 보호
+
+**지침**: 가상 네트워크를 통해 구성 값에 액세스 하는 경우 DDoS (분산 서비스 거부) 공격, 응용 프로그램 관련 공격, 원치 않는 악의적인 인터넷 트래픽 등 외부 네트워크의 공격 으로부터 리소스를 보호 합니다. Azure 방화벽을 사용 하 여 인터넷 및 기타 외부 위치에서 잠재적으로 악성 트래픽에 대 한 응용 프로그램 및 서비스를 보호 합니다. Azure 가상 네트워크에서 DDoS 표준 보호를 사용 하도록 설정 하 여 DDoS 공격 으로부터 자산을 보호 하세요. Azure Security Center를 사용 하 여 네트워크 관련 리소스와 관련 된 잘못 된 구성 위험을 검색 합니다.
+
+Azure 앱 구성은 웹 응용 프로그램을 실행 하기 위한 것이 아니며, 이러한 웹 응용 프로그램에 대 한 구성을 제공 합니다. 웹 응용 프로그램을 대상으로 하는 외부 네트워크 공격 으로부터 보호 하기 위해 추가 설정을 구성 하거나 추가 네트워크 서비스를 배포할 필요가 없습니다.
+
+- [Azure 방화벽 설명서](/azure/firewall/)
+
+- [Azure Portal을 사용하여 Azure DDoS Protection 표준 관리](/azure/virtual-network/manage-ddos-protection)
+
+- [Azure Security Center 권장 사항](../security-center/recommendations-reference.md#recs-network)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="ns-5-deploy-intrusion-detectionintrusion-prevention-systems-idsips"></a>NS-5: 침입 감지/침입 방지 시스템 (IDS/IPS) 배포
+
+**지침**: 위협 인텔리전스 기반 필터링과 함께 Azure 방화벽을 사용 하 여 알려진 악성 IP 주소 및 도메인과의 트래픽을 경고 및/또는 차단 합니다. IP 주소 및 도메인은 Microsoft 위협 인텔리전스 피드에서 제공됩니다. 페이로드 검사를 수행 해야 하는 경우 페이로드 검사 기능을 사용 하 여 Azure Marketplace에서 타사 IDS/IPS 솔루션을 배포할 수 있습니다. 또는 네트워크 기반 IDS/IPS 대신 또는와 함께 호스트 기반 IDS/IPS 또는 호스트 기반 EDR (끝점 검색 및 응답) 솔루션을 사용 하도록 선택할 수 있습니다.
+
+참고: IDS/IPS 사용을 위한 규정 또는 기타 요구 사항이 있는 경우 SIEM 솔루션에 고품질 경고를 제공 하도록 항상 조정 되었는지 확인 합니다.
+
+- [Azure 방화벽을 배포 하는 방법](/azure/firewall/tutorial-firewall-deploy-portal)
+
+- [Azure Marketplace에 타사 ID 기능이 포함 되어 있습니다.](https://azuremarketplace.microsoft.com/marketplace?search=IDS)
+
+- [Microsoft Defender ATP EDR 기능](/windows/security/threat-protection/microsoft-defender-atp/overviewendpoint-detection-response)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="ns-6-simplify-network-security-rules"></a>NS-6: 네트워크 보안 규칙 단순화
+
+**지침**: Azure Virtual Network 서비스 태그를 사용 하 여 응용 프로그램 구성 리소스에 대해 구성 된 네트워크 보안 그룹 또는 azure 방화벽에서 네트워크 액세스 제어를 정의 합니다. 응용 프로그램 네트워크의 아웃 바운드 트래픽에 대 한 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그 "AppConfiguration"를 사용할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에 서비스 태그 이름을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트합니다.
+
+- [서비스 태그 이해 및 사용](../virtual-network/service-tags-overview.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+## <a name="identity-management"></a>ID 관리
+
+*자세한 내용은 [Azure 보안 벤치 마크: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management)를 참조 하세요.*
+
+### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: 중앙 id 및 인증 시스템으로 Azure Active Directory 표준화
+
+**지침**: Azure 앱 구성은 azure의 기본 id 및 액세스 관리 서비스인 Azure Active Directory (azure AD)와 통합 됩니다. 에서 조직의 id 및 액세스 관리를 관리 하려면 Azure AD를 표준화 해야 합니다.
+- Azure Portal, Azure Storage, Azure 가상 머신 (Linux 및 Windows), Azure Key Vault, PaaS, SaaS 응용 프로그램 등의 리소스를 Microsoft 클라우드 합니다.
+- Azure의 응용 프로그램 또는 회사 네트워크 리소스와 같은 조직의 리소스
+
+Azure AD 보안은 조직의 클라우드 보안 관행에서 높은 우선 순위를 두어야 합니다. Azure AD는 Microsoft의 모범 사례 권장 사항을 기준으로 id 보안 상태를 평가 하는 데 도움이 되는 id 보안 점수를 제공 합니다. 점수를 사용 하 여 구성이 모범 사례 권장 사항에 얼마나 근접 하 게 일치 하는지 측정 하 고 보안 상태를 개선할 수 있습니다.
+
+Azure는 Azure AD 및 OAuth를 사용 하 여 앱 구성 데이터에 대 한 액세스 권한을 부여 하기 위한 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
+
+- 앱 구성 데이터 소유자:이 역할을 사용 하 여 앱 구성 데이터에 대 한 읽기/쓰기/삭제 액세스 권한을 부여할 수 있습니다. 앱 구성 리소스에 대 한 액세스 권한은 부여 하지 않습니다.
+
+- 앱 구성 데이터 판독기:이 역할을 사용 하 여 앱 구성 데이터에 대 한 읽기 권한을 부여 합니다. 앱 구성 리소스에 대 한 액세스 권한은 부여 하지 않습니다.
+
+- 참가자:이 역할을 사용 하 여 앱 구성 리소스를 관리 합니다. 액세스 키를 사용 하 여 앱 구성 데이터에 액세스할 수 있지만이 역할은 Azure AD를 사용 하 여 데이터에 직접 액세스 하는 것을 허용 하지 않습니다.
+
+- 읽기 권한자:이 역할을 사용 하 여 앱 구성 리소스에 대 한 읽기 권한을 부여 합니다. 리소스의 액세스 키와 앱 구성에 저장 된 데이터에 대 한 액세스 권한은 부여 하지 않습니다.
+
+자세한 내용은 다음 참조 문서를 참조하세요.
+
+- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+
+- [Azure Active Directory에서 id 보안 점수는 무엇 인가요?](../active-directory/fundamentals/identity-secure-score.md)
+
+- [Azure AD를 사용 하 여 Azure 앱 구성에 대 한 액세스 권한 부여](concept-enable-rbac.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: 응용 프로그램 id를 안전 하 게 자동으로 관리
+
+**지침**: azure 관리 id를 사용 하 여 다른 azure 서비스와 같은 비 사용자 계정에서 Azure 앱 구성에 액세스 합니다. 추가 자격 증명을 관리 해야 하는 필요성을 제한 하기 위해 리소스에 액세스 하거나 실행 하는 데 더 강력한 인간 계정을 만드는 대신 Azure 관리 id 기능을 사용 하는 것이 좋습니다. Azure AD 인증을 지 원하는 다른 Azure 서비스/리소스에 대해 기본적으로 인증 하도록 Azure 앱 구성에 관리 id 자체를 할당할 수도 있습니다. 이는 비밀을 검색할 때 앱 구성에서 Azure Key Vault로 쉽게 액세스할 수 있도록 하는 데 유용할 수 있습니다. 관리 되는 id를 사용 하는 경우 id는 Azure 플랫폼에서 관리 되며 암호를 프로 비전 하거나 회전할 필요가 없습니다.
+
+Azure 앱 구성은 다음과 같은 두 가지 유형의 id를 부여 하는 응용 프로그램을 지원 합니다.
+- 시스템 할당 id는 구성 리소스와 연결 됩니다. 구성 리소스가 삭제 되는 경우 삭제 됩니다. 구성 리소스에는 시스템 할당 id가 하나만 있을 수 있습니다.
+- 사용자 할당 id는 구성 리소스에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 구성 리소스에는 사용자에 게 할당 된 id가 여러 개 있을 수 있습니다.
+
+관리 id를 사용할 수 없는 경우 Azure 앱 구성 리소스 수준에서 제한 된 권한으로 서비스 사용자를 만듭니다. 인증서 자격 증명을 사용 하 여 이러한 서비스 사용자를 구성 하 고 클라이언트 비밀로 대체 합니다. 두 경우 모두 Azure 관리 id와 함께 Azure Key Vault를 사용 하 여 런타임 환경 (예: Azure 함수)이 키 자격 증명 모음에서 자격 증명을 검색할 수 있습니다.
+
+- [Azure App Configuration에서 관리 ID를 사용하는 방법](overview-managed-identity.md)
+
+- [Azure 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md)
+
+- [Azure 리소스에 대한 관리 ID를 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
+
+- [관리 ID를 사용하여 App Configuration 액세스](howto-integrate-azure-managed-service-identity.md)
+
+- [Azure 서비스 주체](/powershell/azure/create-azure-service-principal-azureps) 
+
+- [인증서를 사용 하 여 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md) 
+
+- [보안 주체 등록에 Azure Key Vault 사용](../key-vault/general/authentication.md#app-identity-and-security-principals)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="im-3-use-azure-ad-single-sign-on-sso-for-application-access"></a>IM-3: 응용 프로그램 액세스에 Azure AD Single Sign-On (SSO) 사용
+
+**지침**: Azure 앱 구성은 Azure Active Directory (azure AD)를 사용 하 여 azure 리소스, 클라우드 응용 프로그램 및 온-프레미스 응용 프로그램에 id 및 액세스 관리 기능을 제공 합니다. 여기에는 직원 등의 엔터프라이즈 id와 파트너, 공급 업체 및 공급 업체와 같은 외부 id도 포함 됩니다. Azure AD는 동기화 된 회사 Active Directory id를 사용 하 여 Azure Portal를 통해 앱 구성 서비스를 관리할 수 있도록 SSO (Single Sign-On)를 사용 합니다. 모든 사용자, 응용 프로그램 및 장치를 Azure AD에 연결 하 여 원활 하 고 안전 하 게 액세스 하 고 가시성과 제어를 강화 하세요.
+
+- [Azure AD를 사용 하 여 응용 프로그램 SSO 이해](../active-directory/manage-apps/what-is-single-sign-on.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: 모든 Azure Active Directory 기반 액세스에 대해 강력한 인증 제어 사용
+
+**지침**: Azure 앱 구성은 MFA (multi-factor authentication)를 통해 강력한 인증 제어를 지 원하는 Azure Active Directory를 사용 하며 강력한 암호 없는 메서드를 사용 합니다.
+- Multi-factor authentication-Azure AD MFA를 사용 하도록 설정 하 고 MFA 설정의 모범 사례에 대 한 Azure Security Center Id 및 액세스 관리 권장 사항을 따릅니다. MFA는 모든 사용자에 게 적용 하거나 로그인 조건 및 위험 요소에 따라 사용자 단위 수준에서 적용할 수 있습니다.
+- 암호 없는 인증-Windows Hello for Business, Microsoft Authenticator 앱 및 스마트 카드와 같은 온-프레미스 인증 방법의 세 가지 암호 없는 인증 옵션을 사용할 수 있습니다.
+
+관리자 및 권한 있는 사용자의 경우 가장 높은 수준의 강력한 인증 방법을 사용 하 고 그 뒤에 적절 한 강력한 인증 정책을 다른 사용자에 게 배포 해야 합니다.
+
+참고: MFA는 앱 구성에 액세스 하 고 관리 하는 사용자 계정에 적용 될 수 있지만 프로그래밍 서비스 계정에는 적용 되지 않습니다. 가능 하면 관리 되는 id와 같은 암호 없는 인증을 사용 하 고 모든 사용자 계정에 MFA를 적용 합니다.
+
+- [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
+
+- [Azure Active Directory에 대 한 암호 없는 인증 옵션 소개](../active-directory/authentication/concept-authentication-passwordless.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="im-5-monitor-and-alert-on-account-anomalies"></a>IM-5: 계정 변칙에 대 한 모니터링 및 경고
+
+**지침**: Azure 앱 구성은 다음 데이터 원본을 제공 하는 Azure Active Directory와 통합 됩니다.
+
+-   로그인 – 로그인 보고서는 관리되는 애플리케이션 및 사용자 로그인 활동의 사용 정보를 제공합니다.
+
+-   감사 로그-Azure AD의 다양 한 기능을 통해 수행 된 모든 변경 내용에 대 한 로그를 통해 추적 기능을 제공 합니다. 기록 된 변경 감사 로그의 예로는 사용자, 앱, 그룹, 역할 및 정책을 추가 하거나 제거 합니다.
+
+-   위험한 로그인 - 위험한 로그인은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다.
+
+-   위험 플래그가 지정된 사용자 - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
+
+이러한 데이터 원본은 Azure Monitor, Azure 센티널 또는 타사 SIEM 시스템과 통합할 수 있습니다.
+
+Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러운 특정 활동, 구독에서 사용 되지 않는 계정에 대해 경고할 수도 있습니다. 
+
+Azure ATP (Advanced Threat Protection)는 온-프레미스 Active Directory 신호를 사용 하 여 고급 위협, 손상 된 id 및 악의적인 참가자 작업을 식별 하 고 검색 하 고 조사할 수 있는 보안 솔루션입니다.
+
+- [Azure AD의 감사 활동 보고서](../active-directory/reports-monitoring/concept-audit-logs.md)
+
+- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+
+- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+
+- [Azure Security Center에서 사용자의 ID 및 액세스 활동을 모니터링하는 방법](../security-center/security-center-identity-access.md)
+
+- [Azure Security Center의 위협 인텔리전스 보호 모듈의 경고](../security-center/alerts-reference.md)
+
+- [Azure Monitor에 Azure 활동 로그를 통합 하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+
+- [Azure AD ID 보호에서 데이터 연결](../sentinel/connect-azure-ad-identity-protection.md)
+
+- [Azure Advanced Threat Protection](/azure-advanced-threat-protection/what-is-atp)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: 조건에 따라 Azure 리소스 액세스 제한
+
+**지침**: Azure 앱 구성은 사용자 정의 조건에 따라 보다 세분화 된 액세스 제어를 위한 Azure Active Directory (Azure AD) 조건부 액세스를 지원 합니다. 예를 들어 특정 IP 범위의 사용자 로그인은 로그인에 MFA를 사용 해야 합니다. 여러 사용 사례에 대해 세부적인 인증 세션 관리 정책을 사용할 수도 있습니다. 이러한 조건부 액세스 정책은 앱 구성 서비스에 액세스 하 고 관리 하기 위해 Azure AD에 인증 하는 사용자 계정에만 적용 되지만, 구성 리소스에 연결 하는 서비스 주체 또는 연결 문자열에는 적용 되지 않습니다.
+
+- [Azure 조건부 액세스 개요](../active-directory/conditional-access/overview.md)
+
+- [일반적인 조건부 액세스 정책](../active-directory/conditional-access/concept-conditional-access-policy-common.md)
+
+- [조건부 액세스를 사용 하 여 인증 세션 관리 구성](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: 의도 하지 않은 자격 증명 노출 제거
+
+**지침**: Azure 앱 구성을 사용 하면 고객이 id 또는 비밀을 잠재적으로 포함할 수 있는 구성을 저장할 수 있습니다. 구성 내에서 자격 증명을 식별 하는 자격 증명 스캐너를 구현 하는 것이 좋습니다. 또한 자격 증명 스캐너는 검색된 자격 증명을 더 안전한 위치(예: Azure Key Vault)로 이동하도록 추천합니다.
+
+Azure Key Vault와 함께 Azure 앱 구성 서비스를 사용 합니다. Key Vault에 자격 증명을 저장 한 다음 앱 구성 리소스에 Key Vault 참조를 만들어 이러한 자격 증명에 연결 합니다. 앱 구성이 이러한 참조를 만들 때 값 자체가 아닌 Key Vault 값의 Uri를 저장 합니다. 응용 프로그램은 Key Vault에서 자격 증명을 검색 하기 위해 앱 구성에 연결할 수 있습니다.
+
+GitHub의 경우 네이티브 암호 검색 기능을 사용 하 여 코드 내에서 자격 증명 또는 다른 형식의 암호를 식별할 수 있습니다.
+
+- [ASP.NET Core 앱에서 Key Vault 참조 사용에 대 한 자습서](use-key-vault-references-dotnet-core.md)
+
+- [자격 증명 스캐너를 설정하는 방법](https://secdevtools.azurewebsites.net/helpcredscan.html)
+
+- [GitHub 암호 검색](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+## <a name="privileged-access"></a>권한 있는 액세스
+
+*자세한 내용은 [Azure 보안 벤치 마크: 권한 있는 액세스](/azure/security/benchmarks/security-controls-v2-privileged-access)를 참조 하세요.*
+
+### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: 권한이 높은 사용자를 보호 하 고 제한 합니다.
+
+**지침**:이 권한이 있는 사용자는 Azure 환경의 모든 리소스를 직접 또는 간접적으로 읽고 수정할 수 있으므로 권한 수준이 높은 계정 또는 역할의 수를 제한 하 고 관리자 권한으로 이러한 계정을 보호 합니다.
+
+Azure AD Privileged Identity Management (PIM)를 사용 하 여 Azure 리소스 및 Azure AD에 대 한 JIT (just-in-time) 권한 있는 액세스를 사용 하도록 설정할 수 있습니다. JIT는 사용자가 필요한 경우에만 권한 있는 작업을 수행할 수 있는 임시 권한을 부여 합니다. 또한 PIM은 Azure AD 조직에 의심 스러운 또는 안전 하지 않은 활동이 있을 때 보안 경고를 생성할 수 있습니다.
+
+액세스 키는 매우 특권 이며 보안 모범 사례로 정기적으로 회전 해야 합니다. 액세스 키에는 자격 증명 정보를 포함 하 고 비밀로 간주 되는 연결 문자열이 포함 됩니다. 이러한 암호는 Azure Key Vault에 저장 해야 하며, 코드를 검색 하려면 Key Vault에 인증 해야 합니다. 액세스 키는 응용 프로그램에 대 한 읽기/쓰기 또는 읽기 액세스 권한을 부여할 수 있습니다. 무단 액세스를 방지 하기 위해 올바른 유형의 액세스 키가 실행 되는지 확인 합니다. 더 안전 하 게 보호 하려면 Azure AD에서 관리 되는 id 기능을 사용 합니다. 이를 위해서는 응용 프로그램에서 구성 값에 액세스 하는 구성 끝점 URL만 있으면 됩니다.
+
+- [앱 구성 모범 사례](howto-best-practices.md#app-configuration-bootstrap)
+
+- [관리 ID를 사용하여 App Configuration 액세스](howto-integrate-azure-managed-service-identity.md)
+- [Azure AD의 관리자 역할 권한](/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
+
+- [Azure Privileged Identity Management 보안 경고 사용](../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
+
+- [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: 업무상 중요 한 시스템에 대 한 관리 액세스 제한
+
+**지침**: Azure 앱 구성은 Azure RBAC를 사용 하 여 권한 있는 액세스 권한이 부여 된 계정을 제한 함으로써 업무상 중요 한 시스템에 대 한 액세스를 격리 합니다. Azure RBAC는 리소스 수준에서 앱 구성에 의해 지원 됩니다. 비즈니스에 중요 한 구성을 안전 하 게 사일로 하기 위해이 정보를 자체 앱 구성 리소스에 저장 합니다. 리소스 내에서 읽기 전용 액세스 계정이 나 키 뿐 아니라 레이블 지정 및 태그 지정을 통해서도 세부적인 액세스를 사용할 수 있습니다.
+
+모든 종류의 액세스 제어는 일관 된 액세스 제어를 보장 하기 위해 엔터프라이즈 조각화 전략에 맞춰야 합니다.
+
+- [관리 그룹 액세스](../governance/management-groups/overview.md#management-group-access)
+
+- [Azure 구독 관리자](../cost-management-billing/manage/add-change-subscription-administrator.md)
+
+- [앱 구성에서 Azure AD를 사용 하 여 RBAC를 통합 하려면](concept-enable-rbac.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3: 사용자 액세스를 정기적으로 검토 및 조정
+
+**지침**: Azure 앱 구성은 Azure Active Directory (Azure AD) 계정을 사용 하 여 리소스를 관리 하 고, 사용자 계정 및 액세스 할당을 정기적으로 검토 하 여 계정 및 해당 액세스를 사용할 수 있도록 합니다. 
+
+Azure는 Azure AD 및 OAuth를 사용 하 여 앱 구성 데이터에 대 한 액세스 권한을 부여 하기 위한 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
+
+- 앱 구성 데이터 소유자:이 역할을 사용 하 여 앱 구성 데이터에 대 한 읽기/쓰기/삭제 액세스 권한을 부여할 수 있습니다. 앱 구성 리소스에 대 한 액세스 권한은 부여 하지 않습니다.
+
+- 앱 구성 데이터 판독기:이 역할을 사용 하 여 앱 구성 데이터에 대 한 읽기 권한을 부여 합니다. 앱 구성 리소스에 대 한 액세스 권한을 부여 하지 않습니다.
+
+Azure AD 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 위의 앱 구성 역할과 같은 역할 할당을 검토할 수 있습니다. Azure AD reporting은 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공할 수 있습니다. 또한 Azure AD Privileged Identity Management를 사용 하 여 검토 프로세스를 용이 하 게 하는 액세스 검토 보고서 워크플로를 만들 수 있습니다.
+
+참고: 관리 되는 id는 다른 서비스 또는 응용 프로그램에서 앱 구성에 대 한 인증을 위해 가능한 경우에 제안 됩니다. 앱 구성에 대 한 액세스를 사용 하 여 개별적으로 구성 된 서비스 주체 또는 연결 문자열을 사용 하 여 관리 해야 합니다.
+
+- [Privileged Identity Management (PIM)에서 Azure 리소스 역할에 대 한 액세스 검토 만들기](../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md) 
+
+- [Azure AD id 및 액세스 검토를 사용 하는 방법](/azure/active-directory/governance/access-reviews-overvie)
+
+- [Azure AD를 사용 하 여 Azure 앱 구성에 대 한 액세스 권한 부여](concept-enable-rbac.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="pa-4-set-up-emergency-access-in-azure-ad"></a>PA-4: Azure AD에서 응급 액세스 설정
+
+**지침**: Azure 앱 구성은 Azure Active Directory와 통합 되어 해당 리소스를 관리 합니다. 실수로 Azure AD 조직에서 잠기는 것을 방지 하려면 일반 관리 계정을 사용할 수 없는 경우 액세스를 위한 응급 액세스 계정을 설정 합니다. 응급 액세스 계정은 일반적으로 매우 특권 이며 특정 사용자에 게 할당 되 면 안 됩니다. 응급 액세스 계정은 일반 관리 계정을 사용할 수 없는 '비상' 시나리오의 긴급한 상황으로 제한됩니다.
+
+응급 액세스 계정에 대 한 자격 증명 (예: 암호, 인증서 또는 스마트 카드)을 안전 하 게 유지 하 고 비상 시에만 사용할 권한이 있는 개인 에게만 알려집니다.
+
+- [Azure AD에서 응급 액세스 계정 관리](/azure/active-directory/users-groups-roles/directory-emergency-access)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="pa-5-automate-entitlement-management"></a>PA-5: 자격 관리 자동화 
+
+**지침**: Azure 앱 구성은 Azure Active Directory와 통합 되어 해당 리소스를 관리 합니다. Azure AD 자격 관리 기능을 사용 하 여 액세스 권한 부여, 검토, 만료 등의 액세스 요청 워크플로를 자동화할 수 있습니다. 이중 또는 다단계 승인도 지원 됩니다.
+
+- [Azure AD 액세스 검토 란?](/azure/active-directory/governance/access-reviews-overview)
+
+- [Azure AD 자격 관리 란?](../active-directory/governance/entitlement-management-overview.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="pa-6-use-privileged-access-workstations"></a>PA-6: 권한 있는 액세스 워크스테이션 사용
+
+**지침**: 보안이 유지 되 고 격리 된 워크스테이션은 관리자, 개발자 및 중요 서비스 운영자와 같은 중요 한 역할의 보안에 매우 중요 합니다. 앱 구성과 관련 된 관리 작업에는 매우 안전한 사용자 워크스테이션 및/또는 Azure 방호를 사용 합니다. Azure Active Directory, Microsoft Defender ATP (Advanced Threat Protection) 및/또는 Microsoft Intune를 사용 하 여 관리 작업을 위한 안전 하 고 관리 되는 사용자 워크스테이션을 배포할 수 있습니다. 보안 워크스테이션은 강력한 인증, 소프트웨어 및 하드웨어 기준, 제한 된 논리적 및 네트워크 액세스를 포함 하 여 보안 구성을 적용 하도록 중앙에서 관리할 수 있습니다.
+
+- [권한 있는 액세스 워크스테이션 이해](../active-directory/devices/concept-azure-managed-workstation.md) 
+
+- [권한 있는 액세스 워크스테이션 배포](../active-directory/devices/howto-azure-managed-workstation.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="pa-7-follow-just-enough-administration-least-privilege-principle"></a>PA-7: 충분 한 관리 수행 (최소 권한 원칙) 
+
+**지침**: Azure 앱 구성은 Azure 역할 기반 액세스 제어 (RBAC)와 통합 되어 해당 리소스를 관리 합니다. Azure RBAC를 사용 하면 역할 할당을 통해 Azure 리소스 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. Azure 앱 구성에 대해 미리 정의 된 기본 제공 역할이 있으며, 이러한 역할은 Azure CLI, Azure PowerShell 또는 Azure Portal와 같은 도구를 통해 인벤토리 또는 쿼리할 수 있습니다. Azure RBAC를 통해 리소스에 할당 하는 권한은 항상 역할에 필요한 것으로 제한 되어야 합니다. 이는 Azure AD Privileged Identity Management (PIM)의 JIT (just-in-time) 접근 방식을 보완 하므로 정기적으로 검토 해야 합니다.
+
+Azure는 Azure AD 및 OAuth를 사용 하 여 앱 구성 데이터에 대 한 액세스 권한을 부여 하기 위한 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
+- 앱 구성 데이터 소유자:이 역할을 사용 하 여 앱 구성 데이터에 대 한 읽기/쓰기/삭제 액세스 권한을 부여할 수 있습니다. 앱 구성 리소스에 대 한 액세스 권한은 부여 하지 않습니다.
+- 앱 구성 데이터 판독기:이 역할을 사용 하 여 앱 구성 데이터에 대 한 읽기 권한을 부여 합니다. 앱 구성 리소스에 대 한 액세스 권한은 부여 하지 않습니다.
+
+기본 제공 역할을 사용 하 여 사용 권한을 할당 하 고 필요한 경우에만 사용자 지정 역할을 만듭니다. 
+
+앱 구성은 하나의 앱 구성 리소스에 여러 응용 프로그램의 구성을 저장 하는 것을 지원 합니다. 응용 프로그램 간에 정보 액세스를 제한 하려면 응용 프로그램당 앱 구성 리소스를 만들고 그에 따라 Azure RBAC를 설정 합니다.
+
+- [Azure 역할 기반 access control (Azure RBAC) 이란?](../role-based-access-control/overview.md)
+
+- [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+
+- [Azure AD id 및 액세스 검토를 사용 하는 방법](/azure/active-directory/governance/access-reviews-overview)
+
+- [Azure AD를 사용 하 여 Azure 앱 구성에 대 한 액세스 권한 부여](concept-enable-rbac.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="pa-8-choose-approval-process-for-microsoft-support"></a>PA-8: Microsoft 지원에 대 한 승인 프로세스 선택  
+
+**지침**: Microsoft에서 앱 구성 데이터에 액세스 해야 할 수 있는 지원 시나리오에 대 한 조직 승인 프로세스를 구현 합니다. 고객 Lockbox는 현재 앱 구성 지원 시나리오에 사용할 수 없습니다.
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+## <a name="data-protection"></a>데이터 보호
+
+*자세한 내용은 [Azure 보안 벤치 마크: 데이터 보호](/azure/security/benchmarks/security-controls-v2-data-protection)를 참조 하세요.*
+
+### <a name="dp-1-discover-classify-and-label-sensitive-data"></a>DP-1: 중요 한 데이터 검색, 분류 및 레이블
+
+**참고**: 조직의 기술 시스템에서 중요 한 정보를 안전 하 게 저장 하 고 처리 하 고 전송 하도록 적절 한 컨트롤을 디자인 하기 위해 중요 한 데이터를 검색, 분류 및 레이블을 지정할 수 있습니다. 태그 형식으로 중요 한 정보에 대 한 레이블을 지정 하는 기능은 앱 구성 리소스에 대해 지원 되지만 여기에 포함 된 구성 값에 대해서는 지원 되지 않습니다. 응용 프로그램은 구성 저장소에 대 한 읽기 또는 읽기/쓰기 액세스 권한을 보유 한 후 해당 저장소의 모든 구성에 대 한 모든 액세스 권한을 갖습니다.
+
+- [Azure Information Protection를 사용 하 여 중요 한 정보에 태그](/azure/information-protection/what-is-information-protection)
+
+- [Azure에서 데이터 분류 태그 지정](/azure/cloud-adoption-framework/govern/policy-compliance/data-classification#tagging-data-classification-in-azure)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="dp-2-protect-sensitive-data"></a>DP-2: 중요 한 데이터 보호
+
+**지침**: microsoft에서 관리 하는 기본 플랫폼의 경우 microsoft는 모든 고객 콘텐츠를 중요 한 것으로 간주 하 고 고객 데이터 손실 및 노출을 방지 합니다. Azure 내에서 고객 데이터를 안전 하 게 유지 하기 위해 Microsoft는 몇 가지 기본 데이터 보호 제어 및 기능을 구현 했습니다. 앱 구성 리소스에 대 한 액세스 키를 정기적으로 회전 하는지 확인 합니다. 연결 문자열의 자격 증명 정보는 Azure Key Vault에 저장 될 수 있으며, 코드는 검색을 위해 Key Vault에 인증 해야 합니다. 액세스 키는 응용 프로그램에 대 한 읽기/쓰기 또는 읽기 액세스 권한을 부여할 수 있습니다. 무단 액세스를 방지 하기 위해 올바른 유형의 액세스 키가 실행 되는지 확인 합니다. 더 안전 하 게 보호 하려면 Azure AD에서 관리 되는 id 기능을 사용 합니다. 이를 위해서는 응용 프로그램에서 구성 값에 액세스 하는 구성 끝점 URL만 있으면 됩니다.
+
+Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 액세스 제한:
+
+- 중요 한 데이터를 자체 앱 구성 리소스로 분리 하 고, 적절 한 액세스 권한만 사용 하도록 RBAC 정책을 할당 합니다. 
+
+- 네트워크 기반 액세스 제어 사용
+
+- Azure 서비스 (예: SQL의 암호화 및 다른 데이터베이스의 암호화)에서 특정 컨트롤을 사용 하 고 일관 된 액세스 제어를 보장 하려면 모든 유형의 액세스 제어가 기업의 조각화 전략에 부합 해야 합니다.
+
+- 또한 기업 구분 전략은 중요 한 데이터 나 중요 한 데이터 및 시스템의 위치를 통해 알려 주어 야 합니다.
+
+자세한 내용은 다음 참조 문서를 참조하세요.
+
+- [Azure Active Directory를 사용 하 여 Azure 앱 구성에 대 한 액세스 권한 부여](concept-enable-rbac.md)
+
+- [앱 구성 데이터 암호화](faq.md#does-app-configuration-encrypt-my-data)
+
+- [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md) 
+
+- [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: 공유됨
+
+### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: 전송 중인 중요 한 정보 암호화
+
+**지침**: 액세스 제어를 보완 하려면 암호화를 사용 하 여 전송 중인 데이터를 ' 대역 외 ' 공격 으로부터 보호 해야 합니다. 이렇게 하면 공격자가 데이터를 쉽게 읽거나 수정할 수 없게 됩니다.
+
+Azure 앱 구성은 모든 HTTP 요청에 TLS 암호화를 사용 합니다. Azure 인프라는 Azure 데이터 센터 간의 모든 요청에 대해 추가 된 네트워크 수준 암호화 계층을 제공 합니다. 앱 구성 리소스에 연결 하는 클라이언트에서 TLS v 1.2 이상을 협상할 수 있도록 HTTP 트래픽을 확인 합니다.
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: 공유됨
+
+### <a name="dp-5-encrypt-sensitive-data-at-rest"></a>DP-5: 휴지 상태의 중요 한 데이터 암호화
+
+**지침**: 액세스 제어를 보완 하려면 암호화를 사용 하 여 미사용 데이터를 ' 대역 외 ' 공격 (예: 기본 저장소 액세스) 으로부터 보호 해야 합니다. 이렇게 하면 공격자가 데이터를 쉽게 읽거나 수정할 수 없게 됩니다.
+
+Azure는 기본적으로 미사용 데이터 암호화를 제공 합니다. 매우 중요 한 데이터의 경우 사용할 수 있는 모든 Azure 리소스에서 미사용 추가 암호화를 구현 하는 옵션을 사용할 수 있습니다. Azure는 기본적으로 암호화 키를 관리 하지만, Azure는 Azure 앱 구성에 대 한 사용자 고유의 키 (고객 관리 키)를 관리 하는 옵션을 제공 합니다.
+
+- [고객 관리 키를 사용 하 여 Azure 앱 구성에서 데이터 암호화](concept-customer-managed-keys.md)
+
+- [Azure에서 미사용 암호화 이해](../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) 
+
+- [암호화 모델 및 키 관리 테이블](../security/fundamentals/encryption-atrest.md#azure-resource-providers-encryption-model-support)
+
+- [Azure의 미사용 데이터 이중 암호화](../security/fundamentals/double-encryption.md#data-at-rest)
+
+**Azure Security Center 모니터링**: 예
+
+**책임**: Customer
+
+## <a name="asset-management"></a>자산 관리
+
+*자세한 내용은 [Azure 보안 벤치 마크: 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)를 참조 하세요.*
+
+### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>오전-1: 보안 팀이 자산에 대 한 위험을 볼 권한이 있는지 확인
+
+**지침**: 보안 팀에서 Azure Security Center 사용 하 여 보안 위험을 모니터링할 수 있도록 Azure 테 넌 트 및 구독에 대 한 보안 판독기 권한이 부여 되었는지 확인 합니다. 
+
+보안 팀의 책임이 구성 된 방식에 따라 보안 위험에 대 한 모니터링은 중앙 보안 팀 또는 로컬 팀의 책임입니다. 즉, 보안 정보 및 위험은 항상 조직 내에서 중앙에서 집계 되어야 합니다. 
+
+보안 읽기 권한자 권한은 전체 테 넌 트 (루트 관리 그룹)에 광범위 하 게 적용 하거나 관리 그룹 또는 특정 구독으로 범위를 지정할 수 있습니다. 
+
+참고: 작업 및 서비스에 대 한 가시성을 확보 하려면 추가 권한이 필요할 수 있습니다. 
+
+- [보안 읽기 권한자 역할 개요](../role-based-access-control/built-in-roles.md#security-reader)
+
+- [Azure 관리 그룹 개요](../governance/management-groups/overview.md)
+
+**Azure Security Center 모니터링**: 현재 사용할 수 없음
+
+**책임**: Customer
+
+### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>오전-2: 보안 팀에 asset inventory and metadata에 대 한 액세스 권한이 있는지 확인
+
+**지침**: 보안 팀에서 Azure 앱 구성과 같은 Azure의 자산에 대해 지속적으로 업데이트 된 인벤토리를 액세스할 수 있는지 확인 합니다. 보안 팀은 조직의 잠재적인 노출을 새로운 위험에 대해 평가 하 고 지속적으로 향상 된 보안 기능에 대 한 입력으로이 인벤토리를 필요로 하는 경우가 많습니다. 조직의 승인 된 보안 팀을 포함 하는 Azure Active Directory 그룹을 만들고 모든 Azure 앱 구성 리소스에 대 한 읽기 액세스 권한을 할당 합니다 .이는 구독 내에서 높은 수준의 단일 역할 할당에 의해 간소화 될 수 있습니다.
+
+Azure Security Center inventory 기능 및 Azure 리소스 그래프는 Azure 서비스, 응용 프로그램 및 네트워크 리소스를 포함 하 여 구독에 있는 모든 리소스를 쿼리하고 검색할 수 있습니다.
+
+Azure 리소스, 리소스 그룹 및 구독에 태그를 적용 하 여 논리적으로 분류로 구성 합니다. 각 태그는 이름과 값 쌍으로 이루어져 있습니다. 예를 들어 프로덕션의 모든 리소스에 "환경" 이름과 "프로덕션" 값을 적용할 수 있습니다.
+
+- [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
+
+- [Azure Security Center asset inventory management](../security-center/asset-inventory.md)
+
+- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태그 지정 결정 가이드를 참조 하세요.](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="am-3-use-only-approved-azure-services"></a>오전 3: 승인 된 Azure 서비스만 사용
+
+**지침**: Azure 앱 구성은 Azure Policy를 사용 하 여 Azure Resource Manager 기반 배포 및 구성 적용을 지원 합니다. Azure Policy를 사용 하 여 사용자 환경에서 사용자가 프로 비전 할 수 있는 서비스를 감사 하 고 제한할 수 있습니다. Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리하고 검색 합니다. 또한 Azure Monitor를 사용 하 여 승인 되지 않은 서비스가 검색 될 때 경고를 트리거하는 규칙을 만들 수 있습니다.
+
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
+
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/built-in-policies.md#general)
+
+- [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>AM-4: 자산 수명 주기 관리의 보안 보장
+
+**지침**: 잠재적으로 높은 영향을 미치는 수정에 대 한 자산 수명 주기 관리 프로세스를 해결 하는 보안 정책을 설정 하거나 업데이트 합니다. 이러한 수정 사항에는 id 공급자 및 액세스, 데이터 민감도, 네트워크 구성 및 관리 권한 할당 등이 포함 되지만이에 국한 되지 않습니다.
+
+더 이상 필요 하지 않은 경우 Azure 리소스를 제거 합니다. 관리자가 액세스 키를 정기적으로 회전 하 여 인증 된 사용자만 해당 구성 리소스에 액세스할 수 있도록 합니다.
+
+- [응용 프로그램 구성에 사용 되는 암호화 키 회전](concept-customer-managed-keys.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="am-5-limit-users-ability-to-interact-with-azure-resource-manager"></a>오전 5: 사용자가 Azure Resource Manager 상호 작용할 수 있도록 제한
+
+**지침**: Azure 조건부 액세스를 사용 하 여 "Microsoft Azure 관리" 앱에 대 한 "액세스 차단"을 구성 함으로써 사용자의 Azure 리소스 관리자와 상호 작용 하는 기능을 제한 합니다.
+
+- [Azure 리소스 관리자에 대 한 액세스를 차단 하도록 조건부 액세스를 구성 하는 방법](../role-based-access-control/conditional-access-azure-management.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+## <a name="logging-and-threat-detection"></a>로깅 및 위협 검색
+
+*자세한 내용은 [Azure 보안 벤치 마크: 로깅 및 위협 감지](/azure/security/benchmarks/security-controls-v2-logging-threat-protection)를 참조 하세요.*
+
+### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Azure id 및 액세스 관리에 대 한 위협 감지 사용
+
+**지침**: 앱 구성은 Azure Active Directory (Azure AD)와 통합 됩니다. 이는 Azure AD reporting에서 볼 수 있거나 Azure Monitor, Azure 센티널 또는 기타 SIEM/모니터링 도구와 통합 되어 보다 정교한 모니터링 및 분석 사용 사례를 위해 다음과 같은 사용자 로그를 제공 합니다.
+- 로그인 – 로그인 보고서는 관리되는 애플리케이션 및 사용자 로그인 활동의 사용 정보를 제공합니다.
+- 감사 로그 - Azure AD 내의 다양한 기능에 의해 수행된 모든 변경 내용에 대한 로그를 통한 추적 기능을 제공합니다. 감사 로그의 예제로는 사용자, 앱, 그룹, 역할 및 정책 추가 또는 제거와 같은 Azure AD 내의 모든 리소스에 대한 변경 내용이 있습니다.
+- 위험한 로그인 - 위험한 로그인은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다.
+- 위험 플래그가 지정된 사용자 - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
+
+또한 Azure Security Center은 과도 한 인증 시도 횟수, 구독에서 사용 되지 않는 계정 등의 특정 의심 스러운 활동에 대해 경고할 수 있습니다. 기본 보안 예방 조치 외에도 Azure Security Center의 위협 방지 모듈은 Azure 서비스 계층에 대 한 보다 심층적인 보안 경고를 수집할 수 있습니다. 이 기능을 사용 하면 개별 리소스 내에서 계정 비정상을 볼 수 있습니다.
+
+앱 구성 구성 리소스에 대 한 액세스 권한을 얻는 또 다른 방법은 액세스 키를 사용 하는 것입니다. 권한 없는 에이전트가 구성 리소스에 액세스할 수 없도록 정기적으로 회전 해야 합니다. "액세스 키" 아래의 포털에서 직접 순환 작업을 수행할 수 있습니다.
+
+- [Azure 앱 구성이 관리 id를 사용 하 여 다른 Azure AD 보호 리소스에 액세스 하도록 허용 하려면](overview-managed-identity.md)
+
+- [Azure 앱 구성에서 관리 되는 id 사용](howto-integrate-azure-managed-service-identity.md)
+
+- [Azure Active Directory의 감사 활동 보고서](../active-directory/reports-monitoring/concept-audit-logs.md)
+
+- [Azure Id 보호 사용](../active-directory/identity-protection/overview-identity-protection.md)
+
+- [Azure AD를 사용 하 여 Azure 앱 구성에 대 한 액세스 권한 부여](concept-enable-rbac.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Azure 네트워크 작업에 대 한 로깅 사용
+
+**지침**: Azure 앱 구성은 리소스를 가상 네트워크에 직접 배포 하지 않습니다. 그러나 앱 구성에서는 개인 끝점을 사용 하 여 가상 네트워크에서 Azure 앱 구성에 안전 하 게 연결할 수 있습니다. 또한 Azure 앱 구성은 사용 하도록 설정 해야 하는 DNS 쿼리 로그를 생성 하거나 처리 하지 않습니다.
+
+캡처할 구성 된 앱 구성 전용 끝점에 대 한 로깅을 사용 하도록 설정 합니다.
+- 프라이빗 엔드포인트에서 처리한 데이터(수신/송신)
+- Private Link 서비스에서 처리한 데이터(수신/송신)
+- NAT 포트 가용성
+
+자세한 내용은 다음 참조 문서를 참조하세요.
+
+- [Azure 개인 링크 모니터링](../private-link/private-link-overview.md#logging-and-monitoring)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Azure 리소스에 대 한 로깅 사용
+
+**참고**: 자동으로 사용할 수 있는 활동 로그에는 읽기 작업 (GET)을 제외 하 고 앱 구성 리소스에 대 한 모든 쓰기 작업 (PUT, POST, DELETE)이 포함 됩니다. 활동 로그를 사용 하 여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다. 앱 구성의 경우 활동 로그는 제어 평면 에서만 사용할 수 있으며 ARM (Azure Resource Manager)에 표시 됩니다. 앱 구성에 대 한 고객 연결 데이터 평면 로깅은 현재 지원 되지 않습니다. Azure 리소스 로그도 구성할 수 없습니다.
+
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
+
+- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/platform/platform-logs-overview.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT: 보안 로그 관리 및 분석을 중앙 집중화
+
+**지침**: 상관 관계를 설정 하기 위해 저장소 및 분석을 중앙 집중화 합니다. 각 로그 원본에 대해 데이터 소유자, 액세스 지침, 저장소 위치, 데이터를 처리 하 고 액세스 하는 데 사용 되는 도구 및 데이터 보존 요구 사항을 할당 했는지 확인 합니다.
+
+Azure 활동 로그를 중앙 로깅에 통합 하 고 있는지 확인 합니다. Azure Monitor를 통해 로그를 수집 하 여 끝점 장치, 네트워크 리소스 및 기타 보안 시스템에 의해 생성 된 보안 데이터를 집계 합니다. Azure Monitor에서 Log Analytics 작업 영역을 사용 하 여 분석을 쿼리하고 수행 하 고 장기 및 보관 저장소에 Azure Storage 계정을 사용할 수 있습니다.
+
+또한 Azure 센티널 또는 타사 SIEM에 데이터를 사용 하도록 설정 하 고 등록 합니다. 많은 조직에서 자주 사용 되는 "핫" 데이터에 대해 Azure 센티널을 사용 하 고 덜 자주 사용 되는 "콜드" 데이터를 Azure Storage 하는 것을 선택 합니다.
+
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md) 
+
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="lt-6-configure-log-storage-retention"></a>LT-6: 로그 저장소 보존 구성
+
+**지침**: 앱 구성 로그를 저장 하는 데 사용 되는 저장소 계정 또는 Log Analytics 작업 영역에 조직의 규정 준수 규정에 따라 설정 된 로그 보존 기간이 있는지 확인 합니다. 장기 및 보관 저장소에 대 한 Azure Storage, Data Lake 또는 Log Analytics 작업 영역 계정을 사용 합니다.
+
+Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정할 수 있습니다.
+
+- [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../azure-monitor/platform/manage-cost-storage.md)
+
+- [Azure Storage 계정에 리소스 로그 저장](/azure/azure-monitor/platform/resource-logs-collect-storage)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+## <a name="incident-response"></a>사고 대응
+
+*자세한 내용은 [Azure 보안 벤치 마크: 인시던트 응답](/azure/security/benchmarks/security-controls-v2-incident-response)을 참조 하세요.*
+
+### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: 준비 – Azure에 대 한 인시던트 응답 프로세스 업데이트
+
+**지침**: 조직이 보안 인시던트에 대응 하 고, Azure에 대 한 이러한 프로세스를 업데이트 했으며, 준비 상태를 확인 하기 위해 정기적으로 수행 하는 프로세스 인지 확인 합니다.
+
+- [엔터프라이즈 환경에서 보안 구현](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+
+- [인시던트 대응 참조 가이드](/microsoft-365/downloads/IR-Reference-Guide.pdf)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="ir-2-preparation--setup-incident-notification"></a>IR-2: 준비-설치 인시던트 알림
+
+**지침**: Azure Security Center에서 보안 인시던트 연락처 정보를 설정 합니다. 이 연락처 정보는 microsoft 보안 대응 센터 (MSRC)가 불법적인 또는 권한이 없는 당사자가 데이터에 액세스 한 것을 발견 한 경우 사용자에 게 연락 하는 데 사용 됩니다. 또한 인시던트 대응 요구 사항에 따라 다양 한 Azure 서비스에서 인시던트 경고 및 알림을 사용자 지정 하는 옵션도 있습니다. 
+
+- [Azure Security Center 보안 연락처를 설정 하는 방법](../security-center/security-center-provide-security-contact-details.md)
+
+**Azure Security Center 모니터링**: 예
+
+**책임**: Customer
+
+### <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3: 검색 및 분석 – 고품질 경고를 기반으로 인시던트 만들기
+
+**지침**: 고품질 경고를 만들고 경고 품질을 측정 하는 프로세스가 있는지 확인 합니다. 이를 통해 이전 인시던트에 대 한 교훈을 파악 하 고 분석가에 대 한 경고의 우선 순위를 지정할 수 있으므로 가양성을 낭비 하지 않습니다. 
+
+높은 품질의 경고는 다양 한 신호 원본을 융합 하 고 상관 관계를 설정 하 여 경고를 생성 하 고 정리 하도록 설계 된 과거 인시던트, 유효성 검사 된 커뮤니티 원본 및 도구의 환경을 기반으로 구축 될 수 있습니다. 
+
+Azure Security Center는 여러 Azure 자산에서 고품질의 경고를 제공 합니다. ASC 데이터 커넥터를 사용 하 여 경고를 Azure 센티널로 스트리밍할 수 있습니다. Azure 센티널을 사용 하면 조사를 위해 인시던트를 자동으로 생성 하는 고급 경고 규칙을 만들 수 있습니다. 
+
+내보내기 기능을 사용 하 여 Azure 리소스에 대 한 위험을 식별 하는 데 도움이 되는 Azure Security Center 경고 및 권장 사항을 내보냅니다. 경고 및 권장 사항을 수동으로 또는 지속적인 지속적인 방식으로 내보냅니다.
+
+- [내보내기를 구성 하는 방법](../security-center/continuous-export.md)
+
+- [경고를 Azure Sentinel로 스트림하는 방법](../sentinel/connect-azure-security-center.md)
+
+**Azure Security Center 모니터링**: 현재 사용할 수 없음
+
+**책임**: Customer
+
+### <a name="ir-4-detection-and-analysis--investigate-an-incident"></a>IR-4: 검색 및 분석 – 인시던트 조사
+
+**지침**: 분석가가 잠재적 인시던트를 조사 하 여 다양 한 데이터 원본을 쿼리하고 사용할 수 있는지 확인 하 여 발생 한 상황에 대 한 전체 보기를 작성 합니다. 블라인드 지점을 방지 하려면 다양 한 로그를 수집 하 여 kill 체인에서 잠재적 공격자의 활동을 추적 해야 합니다.  또한 다른 분석가 및 향후 기록 참조를 위해 정보 및 학습를 캡처해야 합니다.  
+
+조사를 위한 데이터 원본에는 범위 내 서비스 및 실행 중인 시스템에서 이미 수집 되는 중앙 집중식 로깅 원본이 포함 되지만 다음이 포함 될 수도 있습니다.
+
+- 네트워크 데이터 – 네트워크 보안 그룹의 흐름 로그, Azure Network Watcher 및 Azure Monitor를 사용 하 여 네트워크 흐름 로그 및 기타 분석 정보를 캡처합니다. 
+
+- 실행 중인 시스템의 스냅숏: 
+
+    - Azure 가상 머신의 스냅숏 기능을 사용 하 여 실행 중인 시스템의 디스크에 대 한 스냅숏을 만듭니다. 
+
+    - 운영 체제의 기본 메모리 덤프 기능을 사용 하 여 실행 중인 시스템의 메모리에 대 한 스냅숏을 만듭니다.
+
+    - Azure 서비스 또는 소프트웨어의 고유한 기능에 대 한 스냅숏 기능을 사용 하 여 실행 중인 시스템의 스냅숏을 만듭니다.
+
+Azure 센티널은 거의 모든 로그 원본 및 사례 관리 포털에서 광범위 한 데이터 분석을 제공 하 여 사고의 전체 수명 주기를 관리 합니다. 조사 중에 인텔리전스 정보는 추적 및 보고를 위해 인시던트에 연결할 수 있습니다. 
+
+- [Windows 컴퓨터의 디스크 스냅숏 만들기](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+
+- [Linux 컴퓨터의 디스크 스냅숏 만들기](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+
+- [Microsoft Azure 지원 진단 정보 및 메모리 덤프 수집](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
+
+- [Azure 센티널을 사용 하 여 인시던트 조사](../sentinel/tutorial-investigate-cases.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="ir-5-detection-and-analysis--prioritize-incidents"></a>IR-5: 검색 및 분석 – 인시던트 우선 순위 지정
+
+**지침**: 경고 심각도 및 자산 민감도에 따라 첫 번째 인시던트에 집중할 분석가에 게 컨텍스트를 제공 합니다. 
+
+Azure Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사 해야 하는 경고의 우선 순위를 지정할 수 있도록 합니다. 심각도는 경고를 실행 하는 데 사용 되는 찾기 또는 분석의 Security Center 얼마나 확실 한지에 따라 달라 지 며, 경고를 발생 시킨 활동의 악의적인 의도를가지고 있는 신뢰도 수준을 기준으로 합니다.
+
+또한 태그를 사용 하 여 리소스를 표시 하 고, 특히 중요 한 데이터를 처리 하는 Azure 리소스를 식별 하 고 범주화 하는 명명 시스템을 만듭니다.  인시던트가 발생한 Azure 리소스 및 환경의 중요도에 따라 경고의 수정에 대한 우선 순위를 지정해야 합니다.
+
+- [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
+
+- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+
+**Azure Security Center 모니터링**: 현재 사용할 수 없음
+
+**책임**: Customer
+
+### <a name="ir-6-containment-eradication-and-recovery--automate-the-incident-handling"></a>IR-6: 포함, eradication 및 복구-인시던트 처리를 자동화 합니다.
+
+**지침**: 수동 반복적인 작업을 자동화 하 여 응답 시간을 단축 하 고 분석가의 부담을 줄입니다. 수동 작업은 실행 하는 데 더 오랜 시간이 걸리고 각 인시던트를 느려지고 분석가가 처리할 수 있는 인시던트 수를 줄입니다. 또한 수동 작업을 통해 분석가 피로 증가 하 여 지연을 유발 하는 인간 오류의 위험을 높이고 분석가가 복잡 한 작업에 효과적으로 집중할 수 있는 기능을 저하 시킬 수 있습니다. Azure Security Center 및 Azure 센티널의 워크플로 자동화 기능을 사용 하 여 자동으로 작업을 트리거하거나 들어오는 보안 경고에 응답 하는 플레이 북를 실행 합니다. 플레이 북는 알림 보내기, 계정 사용 안 함, 문제가 있는 네트워크 격리 등의 작업을 수행 합니다. 
+
+- [Security Center에서 워크플로 자동화 구성](../security-center/workflow-automation.md)
+
+- [Azure Security Center에서 자동화 된 위협 응답 설정](../security-center/tutorial-security-incident.md#triage-security-alerts)
+
+- [Azure Sentinel에서 자동화된 위협 응답 설정](../sentinel/tutorial-respond-threats-playbook.md)
+
+**Azure Security Center 모니터링**: 현재 사용할 수 없음
+
+**책임**: Customer
+
+## <a name="posture-and-vulnerability-management"></a>상황 및 취약성 관리
+
+*자세한 내용은 [Azure 보안 벤치 마크: 상태 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-vulnerability-management)를 참조 하세요.*
+
+### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1: Azure 서비스에 대 한 보안 구성 설정 
+
+**지침**: Azure 앱 구성은 Azure 리소스의 구성을 감사 및 적용 하기 위해 Azure Security Center에서 사용할 수 있는 아래 서비스별 정책을 지원 합니다. Azure Security Center 또는 Azure Policy 이니셔티브에서 구성할 수 있습니다.
+- 앱 구성에서는 고객 관리 키를 사용 해야 합니다. 고객 관리 키는 암호화 키를 관리 하도록 허용 하 여 향상 된 데이터 보호 기능을 제공 합니다. 이는 주로 규정 준수 요구 사항을 충족하는 데 필요합니다.
+- 앱 구성에서 개인 링크를 사용 해야 함: 개인 끝점 연결을 사용 하면 가상 네트워크의 클라이언트가 개인 링크를 통해 Azure 앱 구성에 안전 하 게 액세스할 수 있습니다.
+
+Azure 청사진을 사용 하 여 단일 청사진 정의에서 Azure 리소스 관리자 템플릿, Azure RBAC 컨트롤 및 정책을 포함 한 서비스 및 응용 프로그램 환경의 배포 및 구성을 자동화할 수 있습니다.
+
+- [앱 구성 정책에 대 한 추가 정보](../governance/policy/samples/built-in-policies.md#app-configuration)
+
+- [Azure Security Center에서 보안 정책 사용](../security-center/tutorial-security-policy.md)
+
+- [엔터프라이즈 규모 방문 영역의 Guardrails 구현에 대 한 그림](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
+
+- [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
+
+- [Azure Blueprints](../governance/blueprints/overview.md)
+
+**Azure Security Center 모니터링**: 예
+
+**책임**: 공유됨
+
+### <a name="pv-2-sustain-secure-configurations-for-azure-services"></a>PV-2: Azure 서비스에 대 한 보안 구성 유지
+
+**지침**: Azure Security Center을 사용 하 여 구성 기준을 모니터링 하 고 Azure Policy 사용을 적용 합니다. 앱 구성에 대 한 Azure Policy에는 다음이 포함 됩니다. 
+- 앱 구성에서는 고객 관리 키를 사용 해야 합니다. 고객 관리 키는 암호화 키를 관리 하도록 허용 하 여 향상 된 데이터 보호 기능을 제공 합니다. 이는 주로 규정 준수 요구 사항을 충족하는 데 필요합니다.
+- 앱 구성에서 개인 링크를 사용 해야 함: 개인 끝점 연결을 사용 하면 가상 네트워크의 클라이언트가 개인 링크를 통해 Azure 앱 구성에 안전 하 게 액세스할 수 있습니다.
+
+- [Azure Policy 효과 이해](../governance/policy/concepts/effects.md) 
+
+- [규정 준수를 적용 하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
+
+**Azure Security Center 모니터링**: 예
+
+**책임**: 공유됨
+
+### <a name="pv-8-conduct-regular-attack-simulation"></a>PV 8: 일반적인 공격 시뮬레이션 수행
+
+**지침**: 필요에 따라 Azure 리소스에 대 한 침투 테스트 또는 레드 팀 활동을 수행 하 고 모든 중요 한 보안 결과를 수정 합니다.
+참여의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
+
+- [Azure의 침투 테스트](../security/fundamentals/pen-testing.md)
+
+- [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+
+- [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: 공유됨
+
+## <a name="backup-and-recovery"></a>백업 및 복구
+
+*자세한 내용은 [Azure 보안 벤치 마크: 백업 및 복구](/azure/security/benchmarks/security-controls-v2-backup-recovery)를 참조 하세요.*
+
+### <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: 분실 한 키의 위험 완화
+
+**지침**: 키의 손실을 방지 하 고 복구할 수 있는 측정값이 있는지 확인 합니다. Azure Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다.
+
+- [Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+## <a name="governance-and-strategy"></a>거버넌스 및 전략
+
+*자세한 내용은 [Azure 보안 벤치 마크: 거 버 넌 스 및 전략](/azure/security/benchmarks/security-controls-v2-governance-strategy)을 참조 하세요.*
+
+### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: 자산 관리 및 데이터 보호 전략 정의 
+
+**지침**: 시스템 및 데이터의 지속적인 모니터링과 보호를 위한 명확한 전략을 문서화 하 고 전달 해야 합니다. 비즈니스에 중요 한 데이터 및 시스템의 검색, 평가, 보호 및 모니터링에 우선 순위를 지정 합니다. 
+
+이 전략에는 다음 요소에 대 한 문서화 된 지침, 정책 및 표준이 포함 되어야 합니다. 
+
+-   비즈니스 위험에 따라 데이터 분류 표준
+
+-   위험 및 자산 인벤토리에 대 한 보안 조직 가시성 
+
+-   사용할 Azure 서비스의 보안 조직 승인 
+
+-   수명 주기를 통한 자산의 보안
+
+-   조직 데이터 분류에 따라 필요한 액세스 제어 전략
+
+-   Azure 기본 및 타사 데이터 보호 기능 사용
+
+-   전송 중 및 미사용 사용 사례에 대 한 데이터 암호화 요구 사항
+
+-   적절 한 암호화 표준
+
+자세한 내용은 다음 참조 문서를 참조하세요.
+- [Azure 보안 아키텍처 권장 사항-저장소, 데이터 및 암호화](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+
+- [Azure 보안 기본 사항-Azure 데이터 보안, 암호화 및 저장소](../security/fundamentals/encryption-overview.md)
+
+- [클라우드 채택 프레임 워크-Azure 데이터 보안 및 암호화 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+
+- [Azure 보안 벤치 마크-자산 관리](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+
+- [Azure 보안 벤치 마크-데이터 보호](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: 엔터프라이즈 조각화 전략 정의 
+
+**지침**: id, 네트워크, 응용 프로그램, 구독, 관리 그룹 및 기타 컨트롤의 조합을 사용 하 여 자산에 대 한 액세스를 분할 하는 엔터프라이즈 수준의 전략을 수립 합니다.
+
+서로 통신 해야 하는 시스템의 일상 작업을 수행 하 고 데이터에 액세스 해야 하는 경우에는 보안 분리의 필요성을 신중 하 게 조정 해야 합니다.
+
+조각화 전략은 네트워크 보안, id 및 액세스 모델, 응용 프로그램 권한/액세스 모델 및 사용자 프로세스 컨트롤을 비롯 하 여 컨트롤 형식 간에 일관 되 게 구현 되는지 확인 합니다.
+
+- [Azure의 조각화 전략에 대 한 지침 (비디오)](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
+
+- [Azure의 조각화 전략에 대 한 지침 (문서)](/security/compass/governance#enterprise-segmentation-strategy)
+
+- [기업 구분 전략을 사용 하 여 네트워크 조각화 맞추기](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: 보안 상태 관리 전략 정의
+
+**지침**: 개별 자산 및 사용자가 호스트 하는 환경에 대 한 위험을 지속적으로 측정 하 고 완화 합니다. 게시 된 응용 프로그램, 네트워크 수신 및 송신 지점과 사용자 및 관리자 끝점 등의 높은 가치 자산 및 높은 수준의 공격 노출 영역에 우선 순위를 지정 합니다.
+
+- [Azure 보안 벤치 마크-상태 및 취약성 관리](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: 조직 역할, 책임 및 accountabilities 정렬
+
+**지침**: 보안 조직의 역할 및 책임에 대 한 명확한 전략을 문서화 하 고 전달 하는지 확인 합니다. 보안에 대 한 책임을 명확 하 게 제공 하 고, 공유 책임 모델에 대 한 모든 것을 교육 하 고, 클라우드를 보호 하는 기술 팀을 교육 합니다.
+
+- [Azure 보안 모범 사례 1 – 사람: 클라우드 보안 경험에 대 한 팀 교육](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
+
+- [Azure 보안 모범 사례 2-사람: 클라우드 보안 기술에 대 한 팀 교육](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
+
+- [Azure 보안 모범 사례 3-프로세스: 클라우드 보안 결정에 대 한 책임 할당](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="gs-5-define-network-security-strategy"></a>GS-5: 네트워크 보안 전략 정의
+
+**지침**: 조직의 전체 보안 액세스 제어 전략의 일부로 Azure 네트워크 보안 방법을 설정 합니다.  
+
+이 전략에는 다음 요소에 대 한 문서화 된 지침, 정책 및 표준이 포함 되어야 합니다. 
+
+-   중앙 집중식 네트워크 관리 및 보안 책임
+
+-   엔터프라이즈 조각화 전략에 맞춘 가상 네트워크 조각화 모델
+
+-   다양 한 위협 및 공격 시나리오에서 수정 전략
+
+-   인터넷에 지 및 수신 및 송신 전략
+
+-   하이브리드 클라우드 및 온-프레미스 상호 연결과 전략
+
+-   최신 네트워크 보안 아티팩트 (예: 네트워크 다이어그램, 참조 네트워크 아키텍처)
+
+자세한 내용은 다음 참조 문서를 참조하세요.
+- [Azure 보안 모범 사례 11-아키텍처. 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+
+- [Azure 보안 벤치 마크-네트워크 보안](/azure/security/benchmarks/security-benchmark-v2-network-security)
+
+- [Azure 네트워크 보안 개요](../security/fundamentals/network-overview.md)
+
+- [엔터프라이즈 네트워크 아키텍처 전략](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="gs-6-define-identity-and-privileged-access-strategy"></a>GS-6: id 및 권한 있는 액세스 전략 정의
+
+**지침**: 조직의 전체 보안 액세스 제어 전략의 일부로 Azure id 및 권한 있는 액세스 접근 방법을 설정 합니다.  
+
+이 전략에는 다음 요소에 대 한 문서화 된 지침, 정책 및 표준이 포함 되어야 합니다. 
+
+-   다른 내부 및 외부 id 시스템을 사용 하는 중앙 집중식 id와 인증 시스템 및 상호 연결과
+
+-   다양 한 사용 사례 및 조건에서 강력한 인증 방법
+
+-   높은 권한이 있는 사용자의 보호
+
+-   변칙 사용자 활동 모니터링 및 처리  
+
+-   사용자 id 및 액세스 검토 및 조정 프로세스
+
+자세한 내용은 다음 참조 문서를 참조하세요.
+
+- [Azure 보안 벤치 마크-Id 관리](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+
+- [Azure 보안 벤치 마크-권한 있는 액세스](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+
+- [Azure 보안 모범 사례 11-아키텍처. 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+
+- [Azure ID 관리 보안 개요](../security/fundamentals/identity-management-overview.md)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: 로깅 및 위협 응답 전략 정의
+
+**지침**: 규정 준수 요구 사항을 충족 하면서 신속 하 게 위협을 감지 하 고 수정할 수 있는 로깅 및 위협 대응 전략을 수립 합니다. 통합 및 수동 단계가 아닌 위협에 집중할 수 있도록 고품질 경고와 원활한 환경을 제공 하는 분석가의 우선 순위를 지정 합니다. 
+
+이 전략에는 다음 요소에 대 한 문서화 된 지침, 정책 및 표준이 포함 되어야 합니다. 
+
+-   보안 작업 (SecOps) 조직의 역할 및 책임 
+
+-   NIST 또는 다른 업계 프레임 워크를 사용 하 여 잘 정의 된 인시던트 응답 프로세스 
+
+-   위협 감지, 인시던트 대응 및 규정 준수 요구 사항을 지원 하기 위한 로그 캡처 및 보존
+
+-   SIEM, 네이티브 Azure 기능 및 기타 소스를 사용 하 여 위협에 대 한 중앙 집중식 및 상관 관계 정보 표시 
+
+-   고객, 공급자 및 공공 당사자와의 통신 및 알림 계획
+
+-   로깅 및 위협 검색, 관련자, 공격 수정 및 eradication 같은 인시던트 처리를 위해 Azure native 및 타사 플랫폼 사용
+
+-   학습 및 증거 보관과 같은 인시던트 및 인시던트 후 활동을 처리 하는 프로세스
+
+자세한 내용은 다음 참조 문서를 참조하세요.
+
+- [Azure 보안 벤치 마크-로깅 및 위협 검색](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+
+- [Azure 보안 벤치 마크-인시던트 응답](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+
+- [Azure 보안 모범 사례 4-프로세스. 클라우드에 대 한 인시던트 응답 프로세스 업데이트](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+
+- [Azure 채택 프레임 워크, 로깅 및 보고 의사 결정 가이드](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
+
+- [Azure 엔터프라이즈 규모, 관리 및 모니터링](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure Security 벤치 마크 V2 개요](/azure/security/benchmarks/overview) 를 참조 하세요.
+- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.

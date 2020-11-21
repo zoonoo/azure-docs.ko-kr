@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536106"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025911"
 ---
 # <a name="intents-in-your-luis-app"></a>LUIS 앱의 의도
 
@@ -27,12 +27,12 @@ ms.locfileid: "91536106"
  BookFlight     |   “Book me a flight to Rio next week” <br/> “Fly me to Rio on the 24th” <br/> “I need a plane ticket next Sunday to Rio de Janeiro”    |
  Greeting     |   “Hi” <br/>"Hello" <br/>“Good morning”  |
  CheckWeather | “What's the weather like in Boston?” <br/> “Show me the forecast for this weekend” |
- 없음         | “Get me a cookie recipe”<br>“Did the Lakers win?” |
+ None         | “Get me a cookie recipe”<br>“Did the Lakers win?” |
 
 모든 응용 프로그램에는 대체 의도 인 미리 정의 된 의도 "[None](#none-intent)"이 함께 제공 됩니다.
 
 ## <a name="prebuilt-domains-provide-intents"></a>미리 빌드된 도메인이 의도를 제공함
-를 정의 하는 것 외에도 미리 작성 된 [도메인](luis-how-to-use-prebuilt-domains.md)중 하나에서 미리 작성 된 의도를 사용할 수 있습니다.
+를 정의 하는 것 외에도 미리 작성 된 [도메인](./howto-add-prebuilt-models.md)중 하나에서 미리 작성 된 의도를 사용할 수 있습니다.
 
 ## <a name="return-all-intents-scores"></a>모든 의도의 점수 반환
 단일 의도에 하나의 발화를 할당합니다. LUIS에서 끝점에 대 한 utterance를 수신 하면 기본적으로 해당 utterance의 최상위 의도를 반환 합니다.
@@ -49,7 +49,7 @@ Utterance에 대 한 모든 의도의 점수를 원하는 경우 예측 API의 �
 
 <a name="how-do-intents-relate-to-entities"></a>
 
- 사용자의 ‘의도’가 클라이언트 애플리케이션에서 작업을 트리거할 경우(예: checkweather() 함수 호출) 의도를 만듭니다.__ 그런 다음 작업을 실행 하는 데 필요한 매개 변수를 나타내는 엔터티를 만듭니다.
+ 사용자의 ‘의도’가 클라이언트 애플리케이션에서 작업을 트리거할 경우(예: checkweather() 함수 호출) 의도를 만듭니다. 그런 다음 작업을 실행 하는 데 필요한 매개 변수를 나타내는 엔터티를 만듭니다.
 
 |Intent   | 엔터티 | 예제 발화   |
 |------------------|------------------------------|------------------------------|
@@ -59,7 +59,7 @@ Utterance에 대 한 모든 의도의 점수를 원하는 경우 예측 API의 �
 
 ## <a name="prebuilt-domain-intents"></a>미리 빌드된 도메인 의도
 
-[미리 빌드된 도메인](luis-how-to-use-prebuilt-domains.md) 은 길이 발언를 사용 하 여 의도를 제공 합니다.
+[미리 빌드된 도메인](./howto-add-prebuilt-models.md) 은 길이 발언를 사용 하 여 의도를 제공 합니다.
 
 ## <a name="none-intent"></a>None 의도
 

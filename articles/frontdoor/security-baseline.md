@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9e9eca3bb230bbfc969a5a429f664e602ad0d78b
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 6d6a392d25aa96ab9b4dbb7763b37c1021db71aa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888320"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026287"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Azure 전면 도어에 대 한 azure 보안 기준
 
@@ -202,7 +202,7 @@ Azure Monitor를 사용 하 여 승인 되지 않은 서비스가 검색 될 때
 
 ## <a name="logging-and-threat-detection"></a>로깅 및 위협 검색
 
-*자세한 내용은 [Azure 보안 벤치 마크: 로깅 및 위협 감지](/azure/security/benchmarks/security-controls-v2-logging-threat-protection)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 로깅 및 위협 감지](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)를 참조 하세요.*
 
 ### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Azure 네트워크 작업에 대 한 로깅 사용
 
@@ -338,7 +338,7 @@ Azure Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사
 
 ## <a name="posture-and-vulnerability-management"></a>상황 및 취약성 관리
 
-*자세한 내용은 [Azure 보안 벤치 마크: 상태 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-vulnerability-management)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 상태 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)를 참조 하세요.*
 
 ### <a name="pv-3-establish-secure-configurations-for-compute-resources"></a>PV 3: 계산 리소스에 대 한 보안 구성 설정
 
@@ -409,7 +409,7 @@ Azure Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사
 
 - [Azure 보안 기본 사항-Azure 데이터 보안, 암호화 및 저장소](../security/fundamentals/encryption-overview.md)
 
-- [Azure 보안 벤치 마크-데이터 보호](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Azure 보안 벤치 마크-데이터 보호](/azure/security/benchmarks/security-controls-v2-data-protection)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -437,7 +437,7 @@ Azure Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사
 
 **지침**: 개별 자산 및 사용자가 호스트 하는 환경에 대 한 위험을 지속적으로 측정 하 고 완화 합니다. 게시 된 응용 프로그램, 네트워크 수신 및 송신 위치, 사용자 및 관리자 끝점과 같은 높은 가치 자산 및 높은 수준의 공격 노출 영역에 우선 순위를 지정 합니다.
 
-- [Azure 보안 벤치 마크-상태 및 취약성 관리](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure 보안 벤치 마크-상태 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -479,7 +479,7 @@ Azure Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사
 
 - [Azure 보안 모범 사례 11-아키텍처. 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure 보안 벤치 마크-네트워크 보안](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Azure 보안 벤치 마크-네트워크 보안](/azure/security/benchmarks/security-controls-v2-network-security)
 
 - [Azure 네트워크 보안 개요](../security/fundamentals/network-overview.md)
 
@@ -505,9 +505,9 @@ Azure Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
-- [Azure 보안 벤치 마크-Id 관리](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Azure 보안 벤치 마크-Id 관리](/azure/security/benchmarks/security-controls-v2-identity-management)
 
-- [Azure 보안 벤치 마크-권한 있는 액세스](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Azure 보안 벤치 마크-권한 있는 액세스](/azure/security/benchmarks/security-controls-v2-privileged-access)
 
 - [Azure 보안 모범 사례 11-아키텍처. 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -539,9 +539,9 @@ Azure Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사
 
 참조 된 링크에서 자세한 내용을 확인할 수 있습니다.
 
-- [Azure 보안 벤치 마크-로깅 및 위협 검색](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Azure 보안 벤치 마크-로깅 및 위협 검색](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Azure 보안 벤치 마크-인시던트 응답](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure 보안 벤치 마크-인시던트 응답](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Azure 보안 모범 사례 4-프로세스. 클라우드에 대 한 인시던트 응답 프로세스 업데이트](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

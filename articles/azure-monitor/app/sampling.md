@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4c5000adb2339d3fd0f828781a60f75c75894b5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 87e33940d927fc9116c03345011e21398384d484
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168599"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024418"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -25,7 +25,7 @@ ms.locfileid: "92168599"
 * 고정 률 샘플링은 ASP.NET, ASP.NET Core, Java (에이전트와 SDK 모두) 및 Python 용 Application Insights Sdk의 최신 버전에서 사용할 수 있습니다.
 * 수집 샘플링은 Application Insights 서비스 끝점에서 작동 합니다. 다른 샘플링이 적용 되지 않는 경우에만 적용 됩니다. SDK에서 원격 분석을 샘플링 하는 경우 수집 샘플링이 사용 하지 않도록 설정 됩니다.
 * 웹 응용 프로그램의 경우 사용자 지정 이벤트를 기록 하 고 이벤트 집합이 함께 유지 또는 삭제 되는지 확인 해야 하는 경우 이벤트의 값이 같아야 합니다 `OperationId` .
-* 분석 쿼리를 작성하는 경우 [샘플링을 고려](../log-query/aggregations.md)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
+* 분석 쿼리를 작성하는 경우 [샘플링을 고려](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
 * 성능 메트릭 및 사용자 지정 메트릭을 비롯 한 일부 원격 분석 유형은 샘플링을 사용 하는지 여부에 관계 없이 항상 유지 됩니다.
 
 다음 표에는 각 SDK 및 응용 프로그램 유형에 사용할 수 있는 샘플링 형식이 요약 되어 있습니다.
@@ -34,11 +34,11 @@ ms.locfileid: "92168599"
 |-|-|-|-|
 | ASP.NET | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
 | ASP.NET Core | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Azure 기능 | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | No | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Java | 아니요 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Node.JS | 아니요 | [예](./nodejs.md#sampling) | 다른 샘플링이 적용 되지 않는 경우에만
-| Python | 아니요 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| 나머지 | 아니요 | 아니요 | [예](#ingestion-sampling) |
+| Azure Functions | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | No | 다른 샘플링이 적용 되지 않는 경우에만 |
+| Java | 예 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
+| Node.JS | 예 | [예](./nodejs.md#sampling) | 다른 샘플링이 적용 되지 않는 경우에만
+| Python | 예 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
+| 나머지 | 아니요 | 예 | [예](#ingestion-sampling) |
 
 > [!NOTE]
 > 이 페이지의 대부분에 대 한 정보는 Application Insights Sdk의 현재 버전에 적용 됩니다. 이전 버전의 Sdk에 대 한 자세한 내용은 [아래 섹션을 참조](#older-sdk-versions)하세요.
@@ -78,7 +78,7 @@ ms.locfileid: "92168599"
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
-    적응 알고리즘이 **각 서버 호스트에서**수집 하기를 목표로 하는 [논리적 작업](./correlation.md#data-model-for-telemetry-correlation) 의 목표 률입니다. 여러 호스트에서 웹앱을 실행하는 경우 Application Insights 포털에서 트래픽을 대상 비율 범위 내에서 유지하기 위해 이 값을 줄입니다.
+    적응 알고리즘이 **각 서버 호스트에서** 수집 하기를 목표로 하는 [논리적 작업](./correlation.md#data-model-for-telemetry-correlation) 의 목표 률입니다. 여러 호스트에서 웹앱을 실행하는 경우 Application Insights 포털에서 트래픽을 대상 비율 범위 내에서 유지하기 위해 이 값을 줄입니다.
 
 * `<EvaluationInterval>00:00:15</EvaluationInterval>` 
   

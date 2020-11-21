@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 55c5e6c5b718dc2de295b9b4418ddc8607a69f8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95ce90dbbf47ffe527fe6f25704d9cd28b834ea9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84871363"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026698"
 ---
 # <a name="peering-service-faq"></a>피어 링 서비스 FAQ
 
@@ -36,7 +36,7 @@ A. 예, 고객은이 작업을 수행할 수 있습니다. 비즈니스 및 운�
 
 **대답. Microsoft Edge PoP 이란?**
 
-A. Microsoft가 다른 네트워크와 상호 연결할 수 있는 실제 위치입니다. Microsoft Edge PoP 위치에서 Azure Front 도어 및 Azure CDN와 같은 서비스는 호스팅됩니다. 자세한 내용은 [Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-features)을 참조하세요.
+A. Microsoft가 다른 네트워크와 상호 연결할 수 있는 실제 위치입니다. Microsoft Edge PoP 위치에서 Azure Front 도어 및 Azure CDN와 같은 서비스는 호스팅됩니다. 자세한 내용은 [Azure CDN](../cdn/cdn-features.md)을 참조하세요.
 
 ## <a name="peering-service-unique-characteristics"></a>피어 링 서비스: 고유 특성
 

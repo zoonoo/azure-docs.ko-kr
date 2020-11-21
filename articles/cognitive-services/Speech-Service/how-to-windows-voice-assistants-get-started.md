@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 4ea2f88b02738645af3f8fc32d5fdb99168a1122
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d756bc0c7bbdfa38bb1262638ef85b051fc234
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82997753"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026491"
 ---
 # <a name="getting-started-with-voice-assistants-on-windows"></a>Windows에서 음성 도우미 시작
 
@@ -25,17 +25,17 @@ ms.locfileid: "82997753"
 
 Windows 용 음성 도우미 개발을 시작 하려면 적절 한 개발 환경이 있는지 확인 해야 합니다.
 
-- **Visual Studio:**   2017, Community Edition 이상 [Microsoft Visual Studio](https://visualstudio.microsoft.com/)설치 해야 합니다.
-- **Windows 버전**: windows insider fast 링 빌드 및 windows 참가자 버전의 WINDOWS SDK 있는 PC입니다.이 샘플 코드는 Windows SDK 19018를 사용 하 여 Windows 참가자 릴리스 빌드 19025.vb_release_analog .191112-1600에서 작업 하는 것으로 확인 되었습니다.지정 된 버전을 초과 하는 빌드 또는 SDK는 호환 되어야 합니다.
-- **UWP 개발 도구**: Visual Studio의 유니버설 Windows 플랫폼 개발 워크 로드입니다.Uwp 응용 프로그램을 개발할 수 있도록 컴퓨터를 준비 하려면 UWP [가져오기 설정](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) 페이지를 참조 하세요.
+- **Visual Studio:** 2017, Community Edition 이상 [Microsoft Visual Studio](https://visualstudio.microsoft.com/)설치 해야 합니다.
+- **Windows 버전**: windows insider fast 링 빌드 및 windows 참가자 버전의 WINDOWS SDK 있는 PC입니다. 이 샘플 코드는 Windows SDK 19018를 사용 하 여 Windows 참가자 릴리스 빌드 19025.vb_release_analog .191112-1600에서 작업 하는 것으로 확인 되었습니다. 지정 된 버전을 초과 하는 빌드 또는 SDK는 호환 되어야 합니다.
+- **UWP 개발 도구**: Visual Studio의 유니버설 Windows 플랫폼 개발 워크 로드입니다. Uwp 응용 프로그램을 개발할 수 있도록 컴퓨터를 준비 하려면 UWP [가져오기 설정](/windows/uwp/get-started/get-set-up) 페이지를 참조 하세요.
 - **작업 중인 마이크와 오디오 출력**
 
 ## <a name="obtain-resources-from-microsoft"></a>Microsoft에서 리소스 가져오기
 
 Windows에서 완전히 사용자 지정 된 음성 에이전트에 필요한 일부 리소스에는 Microsoft의 리소스가 필요 합니다. [UWP Voice Assistant 샘플](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) 은 초기 개발 및 테스트를 위해 이러한 리소스의 샘플 버전을 제공 하므로 초기 개발에는이 섹션이 필요 하지 않습니다.
 
-- **키워드 모델:**   음성 활성화를 사용 하려면 bin 파일 형식의 Microsoft 키워드 모델을 사용 해야 합니다. UWP Voice Assistant 샘플에 제공 된 bin 파일은 "Contoso" 키워드에 대해 학습 됩니다.
-- **제한 된 액세스 기능 토큰:** ConversationalAgent Api는 마이크 오디오에 대 한 액세스를 제공 하므로 제한 된 액세스 기능 제한에서 보호 됩니다.제한 된 액세스 기능을 사용 하려면 Microsoft에서 응용 프로그램의 패키지 id에 연결 된 제한 된 액세스 기능 토큰을 가져와야 합니다.
+- **키워드 모델:** 음성 활성화를 사용 하려면 bin 파일 형식의 Microsoft 키워드 모델을 사용 해야 합니다. UWP Voice Assistant 샘플에 제공 된 bin 파일은 "Contoso" 키워드에 대해 학습 됩니다.
+- **제한 된 액세스 기능 토큰:** ConversationalAgent Api는 마이크 오디오에 대 한 액세스를 제공 하므로 제한 된 액세스 기능 제한에서 보호 됩니다. 제한 된 액세스 기능을 사용 하려면 Microsoft에서 응용 프로그램의 패키지 id에 연결 된 제한 된 액세스 기능 토큰을 가져와야 합니다.
 
 ## <a name="establish-a-dialog-service"></a>대화 상자 서비스 설정
 
@@ -48,8 +48,8 @@ Windows에서 완전히 사용자 지정 된 음성 에이전트에 필요한 �
 
 이는 직접 줄 음성을 사용 하 여 기본 대화 상자 서비스를 만들기 위한 요구 사항입니다.
 
-- **Speech Services 구독:** 음성-텍스트 및 텍스트 음성 변환 변환에 대 한 인식 음성 서비스 구독입니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started)에서 음성 서비스를 무료로 사용해 보세요.
-- **Bot 프레임 워크 봇:**  음성 입력 및 출력을 사용 하도록 [줄 음성을 직접](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) 구독 하는 bot Framework 버전 4.2 이상을 사용 하 여 만든 봇입니다. [이 가이드](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) 에는 "echo bot"을 만들고이를 구독 하 여 줄 음성이 전달 되는 단계별 지침이 포함 되어 있습니다. 사용자 지정 된 봇을 만드는 방법에 대 한 단계를 보려면 [여기](https://blog.botframework.com/2018/05/07/build-a-microsoft-bot-framework-bot-with-the-bot-builder-sdk-v4/) 로 이동 하 여 "echo bot" 대신 새 봇을 사용 하 여 줄 음성으로 이동 하는 것과 [동일한 단계를](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) 수행 하면 됩니다.
+- **Speech Services 구독:** 음성-텍스트 및 텍스트 음성 변환 변환에 대 한 인식 음성 서비스 구독입니다. [여기](./overview.md#try-the-speech-service-for-free)에서 음성 서비스를 무료로 사용해 보세요.
+- **Bot 프레임 워크 봇:**  음성 입력 및 출력을 사용 하도록 [줄 음성을 직접](./direct-line-speech.md) 구독 하는 bot Framework 버전 4.2 이상을 사용 하 여 만든 봇입니다. [이 가이드](./tutorial-voice-enable-your-bot-speech-sdk.md) 에는 "echo bot"을 만들고이를 구독 하 여 줄 음성이 전달 되는 단계별 지침이 포함 되어 있습니다. 사용자 지정 된 봇을 만드는 방법에 대 한 단계를 보려면 [여기](https://blog.botframework.com/2018/05/07/build-a-microsoft-bot-framework-bot-with-the-bot-builder-sdk-v4/) 로 이동 하 여 "echo bot" 대신 새 봇을 사용 하 여 줄 음성으로 이동 하는 것과 [동일한 단계를](./tutorial-voice-enable-your-bot-speech-sdk.md) 수행 하면 됩니다.
 
 ## <a name="try-out-the-sample-app"></a>샘플 앱 체험
 

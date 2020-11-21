@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 18ffc5aa9c56451099afc4ddbe8b6ac5bd588974
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: aca8c75f262e472cbc770c052b86d6e760ee449a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948768"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026474"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>오픈 소스 도구를 사용하여 Azure Network Watcher NSG 흐름 로그 시각화
 
@@ -207,7 +207,7 @@ sudo /etc/init.d/logstash start
 
 Kibana의 **관리** 탭 아래에서 **저장된 개체** 로 이동하고 세 개 파일을 모두 가져옵니다. 그런 다음 **대시보드** 탭에서 샘플 대시보드를 열고 로드할 수 있습니다.
 
-사용자가 관심 있는 메트릭에 맞는 시각화 및 대시보드를 만들 수 있습니다. Kibana의 [공식적인 설명서](https://www.elastic.co/guide/en/kibana/current/visualize.html)에서 Kibana 시각화 만들기에 대해 자세히 알아보세요.
+사용자가 관심 있는 메트릭에 맞는 시각화 및 대시보드를 만들 수 있습니다. Kibana의 [공식적인 설명서](https://www.tutorialspoint.com/kibana/kibana_create_visualization.htm)에서 Kibana 시각화 만들기에 대해 자세히 알아보세요.
 
 ### <a name="visualize-nsg-flow-logs"></a>NSG 흐름 로그 시각화
 

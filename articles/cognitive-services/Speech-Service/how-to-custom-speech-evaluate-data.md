@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: affbf57fcda5ff9fb56e148c2fa8769e7aa775e6
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b8b3a0aa6d9790dbb5900eac2d79074f44a749d2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555807"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025653"
 ---
-# <a name="evaluate-and-improve-custom-speech-accuracy"></a>Custom Speech 정확도 평가 및 향상
+# <a name="evaluate-and-improve-custom-speech-accuracy"></a>Custom Speech 정확도 평가 및 개선
 
 이 문서에서는 Microsoft의 음성-텍스트 모델 또는 고유한 사용자 지정 모델의 정확도를 quantitatively 측정 하 고 개선 하는 방법에 대해 알아봅니다. 정확도를 테스트 하려면 오디오 + 사람 레이블이 지정 된 기록 데이터가 필요 하며, 대표 오디오는 30 분에서 5 시간으로 제공 되어야 합니다.
 
@@ -136,5 +136,5 @@ WER의 구성 요소 (삽입, 삭제 및 대체 오류 수)를 확인 하면 모
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
+* [데이터 준비 및 테스트](./how-to-custom-speech-test-and-train.md)
 * [데이터 검사](how-to-custom-speech-inspect-data.md)

@@ -10,17 +10,17 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3ff2a1f92cabb61f58d70b732738e613afa7cd9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319128"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025636"
 ---
 # <a name="inspect-custom-speech-data"></a>Custom Speech 데이터 검사
 
 > [!NOTE]
-> 이 페이지에서는 [Custom Speech에 대 한 준비 테스트 데이터](how-to-custom-speech-test-data.md) 를 읽고 검사를 위해 데이터 집합을 업로드 했다고 가정 합니다.
+> 이 페이지에서는 [Custom Speech에 대 한 준비 테스트 데이터](./how-to-custom-speech-test-and-train.md) 를 읽고 검사를 위해 데이터 집합을 업로드 했다고 가정 합니다.
 
 Custom Speech는 오디오 데이터를 해당 하는 인식 결과와 비교 하 여 모델의 인식 품질을 시각적으로 검사 하는 데 사용할 수 있는 도구를 제공 합니다. [Custom Speech 포털](https://speech.microsoft.com/customspeech)에서 업로드 된 오디오를 재생 하 고 제공 된 인식 결과가 올바른지 확인할 수 있습니다. 이 도구를 사용 하면 Microsoft의 기준선 음성 텍스트 모델의 품질을 검사 하거나 학습 된 사용자 지정 모델을 검사 하거나 두 모델을 기준으로 기록을 비교할 수 있습니다.
 
@@ -31,11 +31,11 @@ Custom Speech는 오디오 데이터를 해당 하는 인식 결과와 비교 �
 테스트를 만들려면 다음 지침을 따르세요.
 
 1. [Custom Speech 포털](https://speech.microsoft.com/customspeech)에 로그인 합니다.
-2. **음성 텍스트 > Custom Speech > [프로젝트 이름] > 테스트**로 이동 합니다.
-3. **테스트 추가**를 클릭 합니다.
+2. **음성 텍스트 > Custom Speech > [프로젝트 이름] > 테스트** 로 이동 합니다.
+3. **테스트 추가** 를 클릭 합니다.
 4. **품질 검사 (오디오 전용 데이터)** 를 선택 합니다. 테스트에 이름, 설명을 지정 하 고 오디오 데이터 집합을 선택 합니다.
 5. 테스트 하려는 최대 2 개의 모델을 선택 합니다.
-6. **만들기**를 클릭합니다.
+6. **만들기** 를 클릭합니다.
 
 테스트를 성공적으로 만든 후 모델에서 지정한 오디오 데이터 집합을 speech 두 모델의 결과를 나란히 비교 하는 방법을 확인할 수 있습니다.
 
@@ -43,7 +43,7 @@ Custom Speech는 오디오 데이터를 해당 하는 인식 결과와 비교 �
 
 ## <a name="side-by-side-model-comparisons"></a>병렬 모델 비교
 
-테스트 상태가 _성공_이면 테스트 항목 이름을 클릭 하 여 테스트에 대 한 세부 정보를 확인 합니다. 이 세부 정보 페이지에는 데이터 집합의 모든 길이 발언 나열 되며 비교 하는 두 모델의 인식 결과가 표시 됩니다.
+테스트 상태가 _성공_ 이면 테스트 항목 이름을 클릭 하 여 테스트에 대 한 세부 정보를 확인 합니다. 이 세부 정보 페이지에는 데이터 집합의 모든 길이 발언 나열 되며 비교 하는 두 모델의 인식 결과가 표시 됩니다.
 
 병렬 비교를 검사 하기 위해 삽입, 삭제 및 대체를 비롯 한 다양 한 오류 유형을 전환할 수 있습니다. 오디오를 수신 하 고 각 열에서 인식 결과를 비교 하 여 (사람의 레이블이 지정 된 기록 및 두 개의 음성-텍스트 모델의 결과를 표시) 요구 사항을 충족 하는 모델과 향상 된 기능을 결정 하는 데 도움이 됩니다.
 
@@ -60,7 +60,7 @@ Custom Speech는 오디오 데이터를 해당 하는 인식 결과와 비교 �
 
 ### <a name="import-datasets-to-editor"></a>편집기로 데이터 집합 가져오기
 
-편집기로 데이터를 가져오려면 먼저 **Custom Speech > [사용자 프로젝트] > 편집기**로 이동 합니다.
+편집기로 데이터를 가져오려면 먼저 **Custom Speech > [사용자 프로젝트] > 편집기** 로 이동 합니다.
 
 ![편집기 탭](media/custom-speech/custom-speech-editor-detail.png)
 
@@ -104,4 +104,4 @@ Custom Speech는 오디오 데이터를 해당 하는 인식 결과와 비교 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Custom Speech에 대 한 테스트 데이터 준비](how-to-custom-speech-test-data.md)
+- [Custom Speech에 대 한 테스트 데이터 준비](./how-to-custom-speech-test-and-train.md)

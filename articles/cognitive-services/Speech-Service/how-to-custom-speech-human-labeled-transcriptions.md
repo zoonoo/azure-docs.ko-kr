@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1d62d36d5cc48edc198e5d7bfc49f7f31b89a2c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74806065"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025619"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>휴먼 레이블 작성 방법
 
@@ -29,7 +29,7 @@ ms.locfileid: "74806065"
 
 다음은 몇 가지 예입니다.
 
-| 피할 문자 | 대체 | 메모 |
+| 피할 문자 | 대체 | 참고 |
 | ------------------- | ------------ | ----- |
 | "Hello 세계" | "Hello world" | 여는 따옴표와 닫는 따옴표를 적절 한 ASCII 문자로 대체 했습니다. |
 | John의 날 | John의 날 | 아포스트로피를 적절 한 ASCII 문자로 대체 했습니다. |
@@ -84,7 +84,7 @@ ms.locfileid: "74806065"
 
 다음은 몇 가지 예입니다.
 
-| 피할 문자 | 대체   | 메모 |
+| 피할 문자 | 대체   | 참고 |
 | ------------------- | -------------- | ----- |
 | "你好" | "你好" | 여는 따옴표와 닫는 따옴표를 적절 한 문자로 대체 했습니다. |
 | 需要什么帮助? | 需要什么帮助？| 물음표를 적절 한 문자로 대체 했습니다. |
@@ -164,7 +164,7 @@ ms.locfileid: "74806065"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
+- [데이터 준비 및 테스트](./how-to-custom-speech-test-and-train.md)
 - [데이터 검사](how-to-custom-speech-inspect-data.md)
 - [데이터 평가](how-to-custom-speech-evaluate-data.md)
 - [모델 학습](how-to-custom-speech-train-model.md)

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 87fe02aed19ae7e5858715748a2b4c4da87a07b3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e0b9ac3f16a170bb14925b555e8894cb10080488
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658573"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026185"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Azure CLI를 사용 하 여 개인 링크 서비스 만들기
 이 문서에서는 Azure CLI를 사용 하 여 Azure에서 개인 링크 서비스를 만드는 방법을 보여 줍니다.
@@ -79,7 +79,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 ```
 ### <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
-이 예제에서는 가상 컴퓨터 만들기에 대해 다루지 않습니다. 빠른 시작: 내부 부하 분산 장치 만들기의 단계를 수행 하 여 부하 분산 장치에 대 한 백 엔드 서버로 사용할 두 개의 가상 머신을 만들기 위해 [Azure CLI를 사용 하 여 vm 부하를 분산할](/load-balancer/quickstart-load-balancer-standard-internal-cli#create-backend-servers) 수 있습니다. 
+이 예제에서는 가상 컴퓨터 만들기에 대해 다루지 않습니다. 빠른 시작: 내부 부하 분산 장치 만들기의 단계를 수행 하 여 부하 분산 장치에 대 한 백 엔드 서버로 사용할 두 개의 가상 머신을 만들기 위해 [Azure CLI를 사용 하 여 vm 부하를 분산할](/azure/load-balancer/quickstart-load-balancer-standard-internal-cli) 수 있습니다. 
 
 
 ### <a name="disable-private-link-service-network-policies-on-subnet"></a>서브넷에서 개인 링크 서비스 네트워크 정책 사용 안 함 

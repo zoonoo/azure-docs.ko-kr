@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 86db8c88fae7a5fd1ec4828d8936c6cb8172a61c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 446731e084084ca301b350f6fec0c4065485a40f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564568"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026627"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>클러스터 구성 모범 사례(Azure VM의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "94564568"
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>장애 조치 (Failover) 클러스터 네트워크 임계값 조정
 
-AlwaysOn SQL Server를 사용 하 여 Azure Vm에서 Windows 장애 조치 (Failover) 클러스터 노드를 실행 하는 경우 클러스터 설정을 보다 낮은 모니터링 상태로 변경 하는 것이 좋습니다.  이렇게 하면 클러스터를 훨씬 안정적으로 안정적으로 만들 수 있습니다.  이에 대 한 자세한 내용은 [SQL AlwaysOn을 사용한 IaaS-장애 조치 (Failover) 클러스터 네트워크 임계값 조정](/windows-server/troubleshoot/iaas-sql-failover-cluser)을 참조 하세요.
+AlwaysOn SQL Server를 사용 하 여 Azure Vm에서 Windows 장애 조치 (Failover) 클러스터 노드를 실행 하는 경우 클러스터 설정을 보다 낮은 모니터링 상태로 변경 하는 것이 좋습니다.  이렇게 하면 클러스터를 훨씬 안정적으로 안정적으로 만들 수 있습니다.  이에 대 한 자세한 내용은 [SQL AlwaysOn을 사용한 IaaS-장애 조치 (Failover) 클러스터 네트워크 임계값 조정](/windows-server/troubleshoot/iaas-sql-failover-cluster)을 참조 하세요.
 
 ## <a name="quorum"></a>Quorum
 
@@ -60,7 +60,7 @@ Azure 공유 디스크를 디스크 감시로 구성 합니다.
 시작 하려면 [디스크 감시 구성](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)을 참조 하세요.
 
 
-**지원되는 OS** : 모두   
+**지원되는 OS**: 모두   
 
 
 ### <a name="cloud-witness"></a>클라우드 감시
@@ -70,7 +70,7 @@ Azure 공유 디스크를 디스크 감시로 구성 합니다.
 시작 하려면 [클라우드 감시 구성](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp)을 참조 하세요.
 
 
-**지원되는 OS** : Windows Server 2016 이상   
+**지원되는 OS**: Windows Server 2016 이상   
 
 
 ### <a name="file-share-witness"></a>파일 공유 감시
@@ -82,7 +82,7 @@ Azure 파일 공유를 사용 하려는 경우 [프리미엄 파일 공유를 �
 시작 하려면 [파일 공유 감시 구성](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)을 참조 하세요.
 
 
-**지원되는 OS** : Windows Server 2012 이상   
+**지원되는 OS**: Windows Server 2012 이상   
 
 ## <a name="connectivity"></a>연결
 
@@ -108,9 +108,9 @@ Azure Load Balancer 또는 분산 네트워크 이름 (DNN)과 함께 VNN을 사
 
 시작 하려면 [장애 조치 (failover) 클러스터 인스턴스](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 또는 [가용성 그룹](availability-group-vnn-azure-load-balancer-configure.md) 에 대 한 Azure Load Balancer를 구성 하는 방법을 알아봅니다.
 
-**지원되는 OS** : 모두   
-**지원되는 SQL 버전** : 모두   
-**지원 되는 HADR 솔루션** : 장애 조치 (Failover) 클러스터 인스턴스 및 가용성 그룹   
+**지원되는 OS**: 모두   
+**지원되는 SQL 버전**: 모두   
+**지원 되는 HADR 솔루션**: 장애 조치 (Failover) 클러스터 인스턴스 및 가용성 그룹   
 
 
 ### <a name="distributed-network-name-dnn"></a>DNN(분산 네트워크 이름)
@@ -128,9 +128,9 @@ DNN를 사용 하는 경우 대부분의 SQL Server 기능은 FCI 및 가용성 
 
 시작 하려면 [장애 조치 (failover) 클러스터 인스턴스](failover-cluster-instance-distributed-network-name-dnn-configure.md) 또는 [가용성 그룹](availability-group-distributed-network-name-dnn-listener-configure.md) 에 대 한 분산 네트워크 이름 리소스를 구성 하는 방법을 알아봅니다.
 
-**지원되는 OS** : Windows Server 2016 이상   
-**지원 되는 SQL 버전** : fci (SQL SERVER 2019 CU2) 및 AG (SQL SERVER 2019 CU8)   
-**지원 되는 HADR 솔루션** : 장애 조치 (Failover) 클러스터 인스턴스 및 가용성 그룹   
+**지원되는 OS**: Windows Server 2016 이상   
+**지원 되는 SQL 버전**: fci (SQL SERVER 2019 CU2) 및 AG (SQL SERVER 2019 CU8)   
+**지원 되는 HADR 솔루션**: 장애 조치 (Failover) 클러스터 인스턴스 및 가용성 그룹   
 
 
 ## <a name="limitations"></a>제한 사항

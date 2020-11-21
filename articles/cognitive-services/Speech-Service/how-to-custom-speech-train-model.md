@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 34c0703ee7c335ca904a21bcce6ed44abc6dc13f
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 9193da2f3841bb94aa395399c31d7fe826c395e0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555790"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025602"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Custom Speech 모델 학습 및 배포
 
@@ -33,7 +33,7 @@ ms.locfileid: "94555790"
 
 ## <a name="train-and-evaluate-a-model"></a>모델 학습 및 평가
 
-모델을 학습 하는 첫 번째 단계는 학습 데이터를 업로드 하는 것입니다. [데이터 준비 및 테스트](how-to-custom-speech-test-data.md) 를 사용 하 여 사용자에 게 레이블이 지정 된 텍스트 (길이 발언 및 발음)를 준비 하는 단계별 지침을 확인 합니다. 학습 데이터를 업로드 한 후 다음 지침에 따라 모델에 대 한 학습을 시작 합니다.
+모델을 학습 하는 첫 번째 단계는 학습 데이터를 업로드 하는 것입니다. [데이터 준비 및 테스트](./how-to-custom-speech-test-and-train.md) 를 사용 하 여 사용자에 게 레이블이 지정 된 텍스트 (길이 발언 및 발음)를 준비 하는 단계별 지침을 확인 합니다. 학습 데이터를 업로드 한 후 다음 지침에 따라 모델에 대 한 학습을 시작 합니다.
 
 1. [Custom Speech 포털](https://speech.microsoft.com/customspeech)에 로그인 합니다.
 2. **음성 텍스트 > Custom Speech > [프로젝트 이름] > 학습** 으로 이동 합니다.
@@ -77,6 +77,6 @@ Custom Speech 모델 정확도를 평가 하 고 개선 [하는 방법을](how-t
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
+- [데이터 준비 및 테스트](./how-to-custom-speech-test-and-train.md)
 - [데이터 검사](how-to-custom-speech-inspect-data.md)
 - [데이터 평가](how-to-custom-speech-evaluate-data.md)

@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 2f7132ffa1fa55d1dfd8043677bf9695a589b7af
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 43b57d0b58c9268482ca27fd51040c7152ecdc25
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043021"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026054"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역을 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기
 
@@ -31,11 +31,14 @@ AKS 클러스터는 현재 다음 지역에서 가용성 영역을 사용하여 
 * 오스트레일리아 동부
 * 캐나다 중부
 * 미국 중부
+* 미국 동부 
 * 미국 동부 2
-* 미국 동부
 * 프랑스 중부
+* 독일 중서부
 * 일본 동부
 * 북유럽
+* 남아프리카 북부
+* 미국 중남부
 * 동남아시아
 * 영국 남부
 * 서유럽
@@ -72,7 +75,7 @@ Kubernetes는 버전 1.12부터 Azure 가용성 영역을 인식 합니다. Azur
 
 AKS 클러스터를 만들 때 기본 에이전트 풀에 대한 영역을 정의하지 않으면 컨트롤 플레인 구성 요소가 가용성 영역에 분산되지 않을 수 있습니다. [az aks nodepool add][az-aks-nodepool-add] 명령을 사용하여 노드 풀을 더 추가하고 새 노드에 `--zones`를 지정할 수 있지만, 컨트롤 플레인이 영역에 분산된 방식은 변경되지 않습니다. 가용성 영역 설정은 클러스터 또는 노드 풀 생성 시에만 정의할 수 있습니다.
 
-다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myAKSCluster* 라는 AKS 클러스터를 만듭니다. 총 *3* 개의 노드가 생성되는데, 영역 *1* , *2* , *3* 에 에이전트가 하나씩 생성됩니다.
+다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myAKSCluster* 라는 AKS 클러스터를 만듭니다. 총 *3* 개의 노드가 생성되는데, 영역 *1*, *2*, *3* 에 에이전트가 하나씩 생성됩니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
@@ -107,7 +110,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
 ```
 
-다음 예제 출력은 첫 번째 가용성 영역에 대한 *eastus2-1* , 두 번째 가용성 영역에 대한 *eastus2-2* 와 같이 지정된 지역 및 가용성 영역에 분산된 세 개의 노드를 보여 줍니다.
+다음 예제 출력은 첫 번째 가용성 영역에 대한 *eastus2-1*, 두 번째 가용성 영역에 대한 *eastus2-2* 와 같이 지정된 지역 및 가용성 영역에 분산된 세 개의 노드를 보여 줍니다.
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000

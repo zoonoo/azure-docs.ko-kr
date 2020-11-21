@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a09563e787573f3cb3dd510229822a0b0fbcb6c9
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d349d07a66b21766ea529661c2f27d0c76ea4d3b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395889"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024724"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -31,11 +31,11 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
 제어 평면 Api를 사용 하려면 다음을 수행 합니다.
 * [제어 평면 swagger 폴더](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins)에서 최신 Swagger를 참조 하 여 api를 직접 호출할 수 있습니다. 또한이 리포지토리에는 사용법을 보여 주는 예제 폴더도 포함 되어 있습니다.
 * 현재에서 컨트롤 Api에 대 한 Sdk에 액세스할 수 있습니다.
-  - [**.Net (c #)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ( [참조 [자동 생성]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ( [원본](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
-  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ( [참조 [자동 생성]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview)) ( [원본](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
-  - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) ( [원본](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
-  - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ( [원본](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
-  - [**Go**](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ( [원본](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins))
+  - [**.Net (c #)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([참조 [자동 생성]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([원본](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
+  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([참조 [자동 생성]](/java/api/overview/azure/digitaltwins?view=azure-java-stable)) ([원본](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
+  - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([원본](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
+  - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ([원본](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
+  - [**Go**](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ([원본](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins))
 
 또한 [Azure Portal](https://portal.azure.com) 및 [CLI](how-to-use-cli.md)를 통해 Azure Digital twins와 상호 작용 하 여 제어 평면 api를 연습할 수 있습니다.
 
@@ -83,7 +83,7 @@ Azure Digital Twins .NET (c #) SDK는 Azure SDK for .NET의 일부입니다. 오
 
 SDK를 사용 하려면 NuGet 패키지 **DigitalTwins** 를 프로젝트에 포함 합니다. 최신 버전의 **Azure. id** 패키지도 필요 합니다.
 
-* Visual Studio에서 nuget 패키지 관리자를 사용 하 여 패키지를 추가할 수 있습니다 ( *도구 > Nuget 패키지 관리자 > 솔루션에 대 한 Nuget 패키지 관리* ). 
+* Visual Studio에서 nuget 패키지 관리자를 사용 하 여 패키지를 추가할 수 있습니다 ( *도구 > Nuget 패키지 관리자 > 솔루션에 대 한 Nuget 패키지 관리*). 
 * .NET 명령줄 도구를 사용 하 여 다음을 실행할 수 있습니다.
 
     ```cmd/sh

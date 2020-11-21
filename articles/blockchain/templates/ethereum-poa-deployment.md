@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
-ms.openlocfilehash: 5bbfca4d890440574ee6717ca910969226fc781a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: e680bc601b7f230314c1063523a003e95a849c0a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987068"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024401"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Azure에서 Ethereum 증명 기관 컨소시엄 솔루션 템플릿 배포
 
@@ -48,7 +48,9 @@ Ethereum 솔루션 템플릿을 사용 하 여 단일 또는 다중 지역 기�
 * 로그 및 성능 통계를 집계하기 위한 Azure Monitor
 * 프라이빗 VNet 간 VPN 연결을 허용하기 위한 VNet 게이트웨이(선택 사항)
 
-기본적으로 RPC 및 피어링 엔드포인트는 공용 IP를 통해 액세스할 수 있으므로 구독 및 클라우드 간 연결을 간소화할 수 있습니다. 응용 프로그램 수준 액세스 제어의 경우 패리티의 권한 부여 계약을 사용할 수 있습니다. 구독 간 연결에 VNet 게이트웨이를 활용 하는 Vpn을 통해 배포 된 네트워크를 지원 합니다. VPN 및 VNet 배포는 더 복잡 하기 때문에 솔루션을 프로토타입 할 때 공용 IP 모델을 시작 하는 것이 좋습니다.
+기본적으로 RPC 및 피어 링 끝점은 공용 IP를 통해 액세스할 수 있으며,이를 통해
+
+구독 및 클라우드. 응용 프로그램 수준 액세스 제어의 경우 [패리티의 권한 부여 계약](https://openethereum.github.io/Permissioning.html)을 사용할 수 있습니다. 구독 간 연결에 VNet 게이트웨이를 활용 하는 Vpn을 통해 배포 된 네트워크를 지원 합니다. VPN 및 VNet 배포는 더 복잡 하기 때문에 솔루션을 프로토타입 할 때 공용 IP 모델을 시작 하는 것이 좋습니다.
 
 Docker 컨테이너는 안정성 및 모듈화에 사용 됩니다. Azure Container Registry는 각 배포의 일부로 버전이 지정 된 이미지를 호스트 하 고 제공 하는 데 사용 됩니다. 컨테이너 이미지는 다음과 같이 구성됩니다.
 
@@ -685,7 +687,7 @@ Truffle는 마이그레이션 스크립트를 사용 하 여 블록 체인 네�
 
 ## <a name="webassembly-wasm-support"></a>WebAssembly(WASM) 지원
 
-WebAssembly 지원은 새로 배포된 PoA 네트워크에서 이미 사용하도록 설정되어 있습니다. 이를 통해 스마트 계약을 웹 어셈블리로 변환 컴파일되는 모든 언어(Rust, C, C++)로 개발할 수 있습니다. 자세한 내용은 [패리티 기술 자습서](https://github.com/paritytech/pwasm-tutorial)를 참조 하십시오.
+WebAssembly 지원은 새로 배포된 PoA 네트워크에서 이미 사용하도록 설정되어 있습니다. 이를 통해 스마트 계약을 웹 어셈블리로 변환 컴파일되는 모든 언어(Rust, C, C++)로 개발할 수 있습니다. 자세한 내용은 패리티 기술 개요: 패리티 [기술](https://github.com/paritytech/pwasm-tutorial) [개요](https://openethereum.github.io/WebAssembly-Home.html) 를 참조 하세요.
 
 ## <a name="faq"></a>FAQ
 

@@ -5,18 +5,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.openlocfilehash: 0c8d4a5013f23a805c22dc5c44444de6b10ab369
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e44ec43e1169aa054e6e5b4591ccd8611a7f4d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316242"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025228"
 ---
 # <a name="regular-expression-entity"></a>정규식 엔터티
 
 정규식 엔터티는 사용자가 제공하는 정규식 패턴을 기반으로 하여 엔터티를 추출합니다.
 
-정규식은 원시 발화 텍스트에 적합합니다. 대/소문자를 무시하고 문화적 변형을 무시합니다.  정규식 일치는 토큰 수준이 아니라 문자 수준에서 맞춤법 검사 변경 후에 적용됩니다. 많은 대괄호를 사용하는 것처럼 정규식이 너무 복잡한 경우 모델에 식을 추가할 수 없습니다. 모든 [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) 라이브러리를 사용 하지만 일부는 사용 하지 않습니다.
+정규식은 원시 발화 텍스트에 적합합니다. 대/소문자를 무시하고 문화적 변형을 무시합니다.  정규식 일치는 토큰 수준이 아니라 문자 수준에서 맞춤법 검사 변경 후에 적용됩니다. 많은 대괄호를 사용하는 것처럼 정규식이 너무 복잡한 경우 모델에 식을 추가할 수 없습니다. 모든 [.Net Regex](/dotnet/standard/base-types/regular-expressions) 라이브러리를 사용 하지만 일부는 사용 하지 않습니다.
 
 **다음과 같은 경우 이 엔터티가 적합합니다.**
 

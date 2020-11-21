@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 30a07957a75bfe82d8ce350675f0d29b2f03e069
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6834f9cc8202f49f53c20f3941945bba4a4b2efd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966142"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026749"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색 수행
 
@@ -246,7 +246,7 @@ Logstash 설치에 대한 추가 정보는 [공식 설명서](https://www.elasti
 
 1. Kibana의 **관리** 탭 아래에서 **저장된 개체** 로 이동하고 세 개 파일을 모두 가져옵니다. 그런 다음 **대시보드** 탭에서 샘플 대시보드를 열고 로드할 수 있습니다.
 
-사용자가 관심 있는 메트릭에 맞는 시각화 및 대시보드를 만들 수 있습니다. Kibana의 [공식적인 설명서](https://www.elastic.co/guide/en/kibana/current/visualize.html)에서 Kibana 시각화 만들기에 대해 자세히 알아보세요.
+사용자가 관심 있는 메트릭에 맞는 시각화 및 대시보드를 만들 수 있습니다. Kibana의 [공식적인 설명서](https://www.tutorialspoint.com/kibana/kibana_create_visualization.htm)에서 Kibana 시각화 만들기에 대해 자세히 알아보세요.
 
 ![Kibana 대시보드][2]
 

@@ -12,19 +12,19 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: f7536034eeac8548304f6a7f861910a99cd72a27
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 894398d63e326db3c6ee9de9bebc426a6e621600
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447964"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024673"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>게이트웨이 계층 시나리오에 대 한 API 프록시 모듈 구성 (미리 보기)
 
 API 프록시 모듈을 사용 하면 IoT Edge 장치가 클라우드 서비스에 직접 연결 하는 대신 게이트웨이를 통해 HTTP 요청을 보낼 수 있습니다. 이 문서에서는 게이트웨이 계층 요구 사항을 지원 하도록 모듈을 사용자 지정할 수 있도록 구성 옵션을 안내 합니다.
 
 >[!NOTE]
->이 기능에는 Linux 컨테이너를 실행 하는 공개 미리 보기로 제공 되는 IoT Edge 버전 1.2이 필요 합니다.
+>이 기능에는 Linux 컨테이너를 실행하는 IoT Edge 버전 1.2(공개 미리 보기로 제공됨)가 필요합니다.
 
 일부 네트워크 아키텍처에서 게이트웨이 뒤에 있는 장치 IoT Edge 클라우드에 직접 액세스할 수 없습니다. Cloud services에 연결 하려고 하는 모든 모듈은 실패 합니다. API 프록시 모듈은 게이트웨이 계층 구조를 통과 하도록 모듈 연결을 다시 라우팅하는 방법으로이 구성에서 다운스트림 IoT Edge 장치를 지원 합니다. 클라이언트는 터널링을 사용 하지 않고 각 계층에서 연결을 종료 하 여 HTTPS를 통해 여러 서비스와 통신할 수 있는 안전한 방법을 제공 합니다. API 프록시 모듈은 최상위 계층의 IoT Edge 장치에 도달할 때까지 게이트웨이 계층의 IoT Edge 장치 간에 프록시 모듈 역할을 합니다. 이 시점에서 최상위 계층 IoT Edge 장치에서 실행 되는 서비스는 이러한 요청을 처리 하 고, API 프록시 모듈은 단일 포트를 통해 로컬 서비스의 모든 HTTP 트래픽을 클라우드로 프록시 합니다.
 
@@ -109,7 +109,7 @@ API 프록시 모듈은 일반적인 시나리오를 지원 하 고 사용자 �
 
 API 프록시 모듈의 일반적인 사용 사례는 하위 계층의 IoT Edge 장치가 컨테이너 이미지를 끌어올 수 있도록 하는 것입니다. 이 시나리오에서는 [Docker 레지스트리 모듈](https://hub.docker.com/_/registry) 을 사용 하 여 클라우드에서 컨테이너 이미지를 검색 하 고 최상위 계층에 캐시 합니다. API 프록시는 모든 HTTPS 요청을 릴레이 하 여 하위 계층에서 컨테이너 이미지를 다운로드 하 고 최상위 계층의 레지스트리 모듈에서 제공 합니다.
 
-이 시나리오에서 다운스트림 IoT Edge 장치는 `$upstream` 이미지의 컨테이너 레지스트리 대신 도메인 이름과 API 프록시 모듈 포트 번호를 차례로 가리켜야 합니다. 예: `$upstream:8000/azureiotedge-api-proxy:1.0`.
+이 시나리오에서 다운스트림 IoT Edge 장치는 `$upstream` 이미지의 컨테이너 레지스트리 대신 도메인 이름과 API 프록시 모듈 포트 번호를 차례로 가리켜야 합니다. 예: `$upstream:8000/azureiotedge-api-proxy:1.0`
 
 이 사용 사례는 자습서에서 [게이트웨이를 사용 하 여 IoT Edge 장치 계층 구조 만들기](tutorial-nested-iot-edge.md)에 설명 되어 있습니다.
 
@@ -123,8 +123,8 @@ API 프록시 모듈의 일반적인 사용 사례는 하위 계층의 IoT Edge 
 
     | Name | 값 |
     | ---- | ----- |
-    | `DOCKER_REQUEST_ROUTE_ADDRESS` | 레지스트리 모듈 이름 및 열린 포트입니다. 예들 들어 `registry:5000`입니다. |
-    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. 예들 들어 `8000`입니다. |
+    | `DOCKER_REQUEST_ROUTE_ADDRESS` | 레지스트리 모듈 이름 및 열린 포트입니다. `registry:5000`)을 입력합니다. |
+    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. `8000`)을 입력합니다. |
 
   * 다음 createOptions를 구성 합니다.
 
@@ -149,7 +149,7 @@ API 프록시 모듈의 일반적인 사용 사례는 하위 계층의 IoT Edge 
 
     | Name | 값 |
     | ---- | ----- |
-    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. 예들 들어 `8000`입니다. |
+    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. `8000`)을 입력합니다. |
 
   * 다음 createOptions를 구성 합니다.
 
@@ -181,8 +181,8 @@ API 프록시 모듈의 또 다른 사용 사례는 더 낮은 계층에서 IoT 
 
     | Name | 값 |
     | ---- | ----- |
-    | `BLOB_UPLOAD_ROUTE_ADDRESS` | Blob 저장소 모듈 이름 및 열린 포트입니다. 예들 들어 `azureblobstorageoniotedge:1102`입니다. |
-    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. 예들 들어 `8000`입니다. |
+    | `BLOB_UPLOAD_ROUTE_ADDRESS` | Blob 저장소 모듈 이름 및 열린 포트입니다. `azureblobstorageoniotedge:1102`)을 입력합니다. |
+    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. `8000`)을 입력합니다. |
 
   * 다음 createOptions를 구성 합니다.
 
@@ -207,7 +207,7 @@ API 프록시 모듈의 또 다른 사용 사례는 더 낮은 계층에서 IoT 
 
     | Name | 값 |
     | ---- | ----- |
-    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. 예들 들어 `8000`입니다. |
+    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. `8000`)을 입력합니다. |
 
   * 다음 createOptions를 구성 합니다.
 
@@ -263,7 +263,7 @@ API 프록시 모듈은 프록시 구성을 구문 분석할 때 먼저에 나�
 
 프록시 구성을 동적으로 업데이트 하려면 다음 단계를 사용 합니다.
 
-1. 구성 파일을 작성 합니다. 이 기본 템플릿은 [nginx_default_config](hhttps://github.com/Azure/iotedge/blob/master/edge-modules/api-proxy-module/templates/nginx_default_config.conf) 참조로 사용할 수 있습니다.
+1. 구성 파일을 작성 합니다. 이 기본 템플릿은 [nginx_default_config](https://github.com/Azure/iotedge/blob/master/edge-modules/api-proxy-module/templates/nginx_default_config.conf) 참조로 사용할 수 있습니다.
 1. 구성 파일의 텍스트를 복사 하 여 b a s e 64로 변환 합니다.
 1. 인코딩된 구성 파일을 `proxy_config` 모듈 쌍의 원하는 속성 값으로 붙여넣습니다.
 

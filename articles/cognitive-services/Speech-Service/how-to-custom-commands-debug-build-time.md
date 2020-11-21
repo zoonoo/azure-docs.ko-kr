@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aeb90e8e064c44f4d17f920261ed58310f0e55f0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023128"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025704"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>사용자 지정 명령 응용 프로그램을 제작할 때 디버그 오류
 
@@ -24,7 +24,7 @@ ms.locfileid: "86023128"
 ## <a name="errors-when-creating-an-application"></a>응용 프로그램을 만들 때 발생 하는 오류
 사용자 지정 명령은 사용자 지정 명령 응용 프로그램을 만들 때 [LUIS](https://www.luis.ai/) 에서도 응용 프로그램을 만듭니다. 
 
-[LUIS는 제작 리소스 당 500 응용 프로그램을 제한](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits)합니다. 이미 500 응용 프로그램이 있는 제작 리소스를 사용 하는 경우 LUIS 응용 프로그램 만들기가 실패할 수 있습니다. 
+[LUIS는 제작 리소스 당 500 응용 프로그램을 제한](../luis/luis-limits.md)합니다. 이미 500 응용 프로그램이 있는 제작 리소스를 사용 하는 경우 LUIS 응용 프로그램 만들기가 실패할 수 있습니다. 
 
 선택한 LUIS authoring 리소스의 응용 프로그램이 500 개 미만인 지 확인 합니다. 그렇지 않은 경우 새 LUIS authoring 리소스를 만들거나 다른 리소스를 전환 하거나 LUIS 응용 프로그램을 정리할 수 있습니다.  
 
@@ -53,15 +53,15 @@ LUIS에는 기본 제공 예/아니요가 있습니다. "예", "아니요"만 �
 
 | 키워드 | 변형 | 
 | ------- | --------- | 
-| 예 | 확인 합니다. |
-| 아니요 | 맞습니다 | 
+| Yes | 확인 합니다. |
+| No | 맞습니다 | 
 
 ### <a name="common-sample-sentences"></a>일반적인 샘플 문장
 사용자 지정 명령은 여러 명령 간에 공유 되는 일반적인 샘플 문장을 허용 하지 않습니다. 한 명령의 일부 샘플 문장이 다른 명령에 이미 정의 되어 있으면 응용 프로그램의 교육이 실패할 수 있습니다. 
 
 여러 명령 간에 공통적인 샘플 문장이 공유 되어 있지 않은지 확인 합니다. 
 
-여러 명령에서 샘플 문장을 분산 하는 모범 사례는 [LUIS 모범 사례](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices)를 참조 하세요.
+여러 명령에서 샘플 문장을 분산 하는 모범 사례는 [LUIS 모범 사례](../luis/luis-concept-best-practices.md)를 참조 하세요.
 
 ### <a name="empty-sample-sentences"></a>빈 샘플 문장
 각 명령에 대 한 샘플 문장이 하나 이상 있어야 합니다.
@@ -76,13 +76,13 @@ LUIS 교육은 더 작은 예제로 신속 하 게 학습할 수 있습니다. �
 
 예를 들어 아래 예제 문장에 대 한 매개 변수 {차량}을 정의 하 고 예제 문장에 "책 a {차량}"만 추가할 수 있습니다.
 
-| 예제 문장 | 패턴 | 
+| 예제 문장 | 무늬 | 
 | ------- | ------- | 
 | 차량 책 | 책 a {차량} | 
 | 항공권 예약 | 책 a {차량} |
 | 책 taxi | 책 a {차량} |
 
-LUIS 교육의 모범 사례는 [LUIS 모범 사례](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices)를 참조 하세요.
+LUIS 교육의 모범 사례는 [LUIS 모범 사례](../luis/luis-concept-best-practices.md)를 참조 하세요.
 
 ## <a name="cant-update-luis-key"></a>LUIS 키를 업데이트할 수 없습니다.
 ### <a name="reassign-to-e0-authoring-resource"></a>E0 제작 리소스에 다시 할당

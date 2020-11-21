@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 628944f9763dc79148e0b64c97158064208412bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf9f9ca5b8690a38c6e5aa6f519378c0a2e3a4f2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136939"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026440"
 ---
 # <a name="distribute-and-modify-tables"></a>테이블 분산 및 수정
 
@@ -140,7 +140,7 @@ SELECT create_distributed_table('B', 'other_int_col');
 SELECT create_distributed_table('A', 'foo', colocate_with => 'none');
 ```
 
-관련 되지 않은 테이블을 자체 공동 배치 그룹으로 분할 하면 동일한 그룹의 분할 함께 이동 해야 하기 때문에 분할 된 테이블 [재조정](howto-hyperscale-scaling.md#rebalance-shards) 성능이 향상 됩니다.
+관련 되지 않은 테이블을 자체 공동 배치 그룹으로 분할 하면 동일한 그룹의 분할 함께 이동 해야 하기 때문에 분할 된 테이블 [재조정](howto-hyperscale-scale-rebalance.md) 성능이 향상 됩니다.
 
 테이블이 조인 될 때와 같이 테이블이 실제로 관련 된 경우 명시적으로 배치 하는 것이 적합할 수 있습니다. 적절 한 공동 배치의 향상은 균형 재조정 오버 헤드 보다 더 중요 합니다.
 

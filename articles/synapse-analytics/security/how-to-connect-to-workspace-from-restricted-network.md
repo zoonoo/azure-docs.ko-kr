@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7cff2d8245095489fbba3b7af24b416885995e4d
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 55ec8be176dc7274a3b9a1feca53726d57eeb422
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637135"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024468"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>제한 된 네트워크에서 작업 영역 리소스에 연결
 
@@ -21,9 +21,9 @@ ms.locfileid: "94637135"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure 구독** : Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure Synapse analytics 작업 영역** : Azure Synapse analytics에서 만들 수 있습니다. 4 단계에서 작업 영역 이름이 필요 합니다.
-* **제한 된 네트워크** : IT 관리자는 조직에 대해 제한 된 네트워크를 유지 관리 하 고 네트워크 정책을 구성할 수 있는 권한을 가집니다. 3 단계에서 가상 네트워크 이름 및 서브넷이 필요 합니다.
+* **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* **Azure Synapse analytics 작업 영역**: Azure Synapse analytics에서 만들 수 있습니다. 4 단계에서 작업 영역 이름이 필요 합니다.
+* **제한 된 네트워크**: IT 관리자는 조직에 대해 제한 된 네트워크를 유지 관리 하 고 네트워크 정책을 구성할 수 있는 권한을 가집니다. 3 단계에서 가상 네트워크 이름 및 서브넷이 필요 합니다.
 
 
 ## <a name="step-1-add-network-outbound-security-rules-to-the-restricted-network"></a>1 단계: 제한 된 네트워크에 네트워크 아웃 바운드 보안 규칙 추가
@@ -38,9 +38,9 @@ ms.locfileid: "94637135"
 
 ![Azure Resource Manager 서비스 태그 정보에 대 한 스크린샷](./media/how-to-connect-to-workspace-from-restricted-network/arm-servicetag.png)
 
-다른 세 가지 규칙을 만드는 경우 **대상 서비스 태그** 의 값을 목록에서 **AzureFrontDoor** , **AzureActiveDirectory** 또는 **azuremonitor** 로 바꿉니다.
+다른 세 가지 규칙을 만드는 경우 **대상 서비스 태그** 의 값을 목록에서 **AzureFrontDoor**, **AzureActiveDirectory** 또는 **azuremonitor** 로 바꿉니다.
 
-자세한 내용은 [서비스 태그 개요](/azure/virtual-network/service-tags-overview.md)를 참조 하세요.
+자세한 내용은 [서비스 태그 개요](/azure/virtual-network/service-tags-overview)를 참조 하세요.
 
 ## <a name="step-2-create-private-link-hubs"></a>2 단계: 개인 링크 허브 만들기
 

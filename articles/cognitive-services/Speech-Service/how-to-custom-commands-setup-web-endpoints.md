@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0e2406cd35fb2d4dd99da4f5139a9f0f80697912
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e50d7aba5cc5b3d5d620d844cc9ad169ad8b3bf6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566251"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025894"
 ---
 # <a name="set-up-web-endpoints"></a>웹 엔드포인트 설정
 
@@ -49,10 +49,10 @@ ms.locfileid: "94566251"
    | 헤더 | 키: 앱, 값: applicationId의 처음 8자리를 사용합니다. | 요청 헤더에 포함할 헤더 매개 변수입니다.|
 
     > [!NOTE]
-    > - [Azure 함수](https://docs.microsoft.com/azure/azure-functions/)를 사용하여 만든 예제 웹 엔드포인트 - TV 및 팬의 디바이스 상태를 저장하는 데이터베이스와 연결됩니다.
+    > - [Azure 함수](../../azure-functions/index.yml)를 사용하여 만든 예제 웹 엔드포인트 - TV 및 팬의 디바이스 상태를 저장하는 데이터베이스와 연결됩니다.
     > - 제안된 헤더는 예제 엔드포인트에만 필요합니다.
     > - 헤더 값이 예제 엔드포인트에서 고유한지 확인하려면 applicationId의 처음 8자리를 사용합니다.
-    > - 실제 환경에서 웹 엔드포인트는 디바이스를 관리하는 [IOT 허브](https://docs.microsoft.com/azure/iot-hub/about-iot-hub)에 대한 엔드포인트일 수 있습니다.
+    > - 실제 환경에서 웹 엔드포인트는 디바이스를 관리하는 [IOT 허브](../../iot-hub/about-iot-hub.md)에 대한 엔드포인트일 수 있습니다.
 
 1. **저장** 을 클릭합니다.
 

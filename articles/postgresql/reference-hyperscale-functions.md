@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 16c3a45e0d88a0546772b3fdc855c90f2e450d14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250334"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026236"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Citus (Hyperscale) SQL API의 함수
 
@@ -38,15 +38,15 @@ Create \_ distributed \_ table () 함수는 분산 테이블을 정의 하 고 �
 
 **배포 \_ 유형:** (선택 사항) 테이블을 배포 하는 기준이 되는 방법입니다. 허용 되는 값은 append 또는 hash 이며 기본값은 ' hash '입니다.
 
-** \_ with:** (선택 사항) 다른 테이블의 배치 그룹에 현재 테이블을 포함 합니다. 기본적으로 테이블은 같은 형식의 열에 의해 분산 되 고 분할 개수가 동일 하며 동일한 복제 요인이 공동 배치 됩니다. 에 사용할 수 있는 값 `colocate_with` 은 `default` `none` 새 공동 배치 그룹을 시작 하는 경우이 고 해당 테이블에서 공동 배치할 다른 테이블의 이름입니다.  [표 공동 위치](concepts-hyperscale-colocation.md)를 참조 하세요.
+**\_ with:** (선택 사항) 다른 테이블의 배치 그룹에 현재 테이블을 포함 합니다. 기본적으로 테이블은 같은 형식의 열에 의해 분산 되 고 분할 개수가 동일 하며 동일한 복제 요인이 공동 배치 됩니다. 에 사용할 수 있는 값 `colocate_with` 은 `default` `none` 새 공동 배치 그룹을 시작 하는 경우이 고 해당 테이블에서 공동 배치할 다른 테이블의 이름입니다.  [표 공동 위치](concepts-hyperscale-colocation.md)를 참조 하세요.
 
-의 기본값은 암시적 공동 배치를 수행 한다는 점에 유의 하세요 `colocate_with` . 테이블이 관련 되거나 조인 될 때 [공동](concepts-hyperscale-colocation.md) 배치를 사용할 수 있습니다.  그러나 두 테이블이 관련이 없지만 배포 열에 동일한 데이터 형식을 사용 하기 위해 발생 하는 경우에는 실수로 공동 배치 하 여 분할 된 데이터를 분산 하 [는 동안 성능을](howto-hyperscale-scaling.md#rebalance-shards)저하 시킬 수 있습니다.  분할 테이블은 cascade에서 불필요 하 게 함께 이동 됩니다 \" .\"
+의 기본값은 암시적 공동 배치를 수행 한다는 점에 유의 하세요 `colocate_with` . 테이블이 관련 되거나 조인 될 때 [공동](concepts-hyperscale-colocation.md) 배치를 사용할 수 있습니다.  그러나 두 테이블이 관련이 없지만 배포 열에 동일한 데이터 형식을 사용 하기 위해 발생 하는 경우에는 실수로 공동 배치 하 여 분할 된 데이터를 분산 하 [는 동안 성능을](howto-hyperscale-scale-rebalance.md)저하 시킬 수 있습니다.  분할 테이블은 cascade에서 불필요 하 게 함께 이동 됩니다 \" .\"
 
 새 분산 테이블이 다른 테이블과 관련 되지 않은 경우를 지정 하는 것이 가장 좋습니다 `colocate_with => 'none'` .
 
 #### <a name="return-value"></a>반환 값
 
-N/A
+해당 없음
 
 #### <a name="example"></a>예제
 
@@ -70,7 +70,7 @@ Create \_ reference \_ table () 함수는 작은 참조 또는 차원 테이블�
 
 #### <a name="return-value"></a>반환 값
 
-N/A
+해당 없음
 
 #### <a name="example"></a>예제
 
@@ -90,7 +90,7 @@ SELECT create_reference_table('nation');
 
 #### <a name="return-value"></a>반환 값
 
-N/A
+해당 없음
 
 #### <a name="example"></a>예제
 
@@ -126,7 +126,7 @@ DETAIL:  Distribution column types don't match for apples and oranges.
 
 #### <a name="return-value"></a>반환 값
 
-N/A
+해당 없음
 
 #### <a name="example"></a>예제
 
@@ -152,7 +152,7 @@ Distributed 함수를 실행 하는 동안에는 Postgres 검색 경로가 코�
 
 #### <a name="return-value"></a>반환 값
 
-N/A
+해당 없음
 
 #### <a name="example"></a>예제
 
@@ -202,7 +202,7 @@ Master \_ get \_ table \_ metadata () 함수를 사용 하 여 분산 테이블�
 
 **부분 \_ 복제본 \_ 수:** 현재 분할 복제 수입니다.
 
-** \_ 최대 \_ 크기 부분:** 현재 최대 분할 크기 (바이트)입니다.
+**\_ 최대 \_ 크기 부분:** 현재 최대 분할 크기 (바이트)입니다.
 
 **파트 \_ 배치 \_ 정책:** 테이블의 분할를 배치 하는 데 사용 되는 분할 된 배치 정책입니다. 1 (로컬 노드 우선) 또는 2 (라운드 로빈) 일 수 있습니다.
 
@@ -359,11 +359,11 @@ pg_size_pretty
 
 #### <a name="arguments"></a>인수
 
-N/A
+해당 없음
 
 #### <a name="return-value"></a>반환 값
 
-없음
+None
 
 ## <a name="server-group-management-and-repair"></a>서버 그룹 관리 및 복구
 
@@ -375,7 +375,7 @@ N/A
 
 #### <a name="arguments"></a>인수
 
-분할 된 ** \_ id:** 복구할 분할 된의 id입니다.
+분할 된 **\_ id:** 복구할 분할 된의 id입니다.
 
 **원본 \_ 노드 \_ 이름:** 정상 분할 된 분할 배치가 있는 노드의 DNS 이름 \" 입니다 (원본 \" 노드).
 
@@ -387,7 +387,7 @@ N/A
 
 #### <a name="return-value"></a>반환 값
 
-N/A
+해당 없음
 
 #### <a name="example"></a>예제
 
@@ -409,7 +409,7 @@ SELECT master_copy_shard_placement(12345, 'good_host', 5432, 'bad_host', 5432);
 
 #### <a name="arguments"></a>인수
 
-분할 된 ** \_ id:** 이동할 분할 된 데이터베이스가 있는 id입니다.
+분할 된 **\_ id:** 이동할 분할 된 데이터베이스가 있는 id입니다.
 
 **원본 \_ 노드 \_ 이름:** 정상 분할 된 분할 배치가 있는 노드의 DNS 이름 \" 입니다 (원본 \" 노드).
 
@@ -419,15 +419,15 @@ SELECT master_copy_shard_placement(12345, 'good_host', 5432, 'bad_host', 5432);
 
 **대상 \_ 노드 \_ 포트:** 데이터베이스 서버가 수신 대기 중인 대상 작업자 노드의 포트입니다.
 
-분할 된 ** \_ 전송 \_ 모드:** (선택 사항) PostgreSQL 논리 복제를 사용할지 아니면 작업자 간 복사 명령을 사용할지를 지정 합니다. 가능한 값은 다음과 같습니다.
+분할 된 **\_ 전송 \_ 모드:** (선택 사항) PostgreSQL 논리 복제를 사용할지 아니면 작업자 간 복사 명령을 사용할지를 지정 합니다. 가능한 값은 다음과 같습니다.
 
-> -   `auto`: 논리적 복제가 가능 하면 복제본 id가 필요 합니다. 그렇지 않으면 레거시 동작을 사용 합니다 (예: 분할 된 데이터베이스 복구의 경우 PostgreSQL 9.6). 이것은 기본값입니다.
+> -   `auto`: 논리적 복제가 가능 하면 복제본 id가 필요 합니다. 그렇지 않으면 레거시 동작을 사용 합니다 (예: 분할 된 데이터베이스 복구의 경우 PostgreSQL 9.6). 기본값입니다.
 > -   `force_logical`: 테이블에 복제본 id가 없는 경우에도 논리적 복제를 사용 합니다. 복제 하는 동안 테이블에 대 한 모든 동시 update/delete 문이 실패 합니다.
 > -   `block_writes`: 기본 키 또는 복제본 id가 없는 테이블에 대해 COPY (차단 쓰기)를 사용 합니다.
 
 #### <a name="return-value"></a>반환 값
 
-N/A
+해당 없음
 
 #### <a name="example"></a>예제
 
@@ -464,9 +464,9 @@ SELECT master_move_shard_placement(12345, 'from_host', 5432, 'to_host', 5432);
 
 **제외 된 분할 \_ \_ 목록:** (선택 사항) 리 밸런스 작업 중에는 이동 하지 않아야 하는 분할의 식별자입니다.
 
-분할 된 ** \_ 전송 \_ 모드:** (선택 사항) PostgreSQL 논리 복제를 사용할지 아니면 작업자 간 복사 명령을 사용할지를 지정 합니다. 가능한 값은 다음과 같습니다.
+분할 된 **\_ 전송 \_ 모드:** (선택 사항) PostgreSQL 논리 복제를 사용할지 아니면 작업자 간 복사 명령을 사용할지를 지정 합니다. 가능한 값은 다음과 같습니다.
 
-> -   `auto`: 논리적 복제가 가능 하면 복제본 id가 필요 합니다. 그렇지 않으면 레거시 동작을 사용 합니다 (예: 분할 된 데이터베이스 복구의 경우 PostgreSQL 9.6). 이것은 기본값입니다.
+> -   `auto`: 논리적 복제가 가능 하면 복제본 id가 필요 합니다. 그렇지 않으면 레거시 동작을 사용 합니다 (예: 분할 된 데이터베이스 복구의 경우 PostgreSQL 9.6). 기본값입니다.
 > -   `force_logical`: 테이블에 복제본 id가 없는 경우에도 논리적 복제를 사용 합니다. 복제 하는 동안 테이블에 대 한 모든 동시 update/delete 문이 실패 합니다.
 > -   `block_writes`: 기본 키 또는 복제본 id가 없는 테이블에 대해 COPY (차단 쓰기)를 사용 합니다.
 
@@ -477,7 +477,7 @@ SELECT master_move_shard_placement(12345, 'from_host', 5432, 'to_host', 5432);
 
 #### <a name="return-value"></a>반환 값
 
-N/A
+해당 없음
 
 #### <a name="example"></a>예제
 
@@ -520,7 +520,7 @@ SELECT rebalance_table_shards('github_events', excluded_shard_list:='{1,2}');
 
 #### <a name="arguments"></a>인수
 
-N/A
+해당 없음
 
 #### <a name="return-value"></a>반환 값
 
@@ -563,11 +563,11 @@ SELECT * FROM get_rebalance_progress();
 
 **이름:** 새 전략의 식별자
 
-분할 된 ** \_ 비용 \_ 함수:** 각 분할 된 공간을 확인 하는 데 사용 되는 함수를 식별 합니다. \" \"
+분할 된 **\_ 비용 \_ 함수:** 각 분할 된 공간을 확인 하는 데 사용 되는 함수를 식별 합니다. \" \"
 
 **노드 \_ 용량 \_ 함수:** 노드 용량을 측정 하는 함수를 식별 합니다.
 
-** \_ \_ \_ 노드 \_ 함수에서 허용** 된 분할: 노드에 배치할 수 있는 분할를 결정 하는 함수를 식별 합니다.
+**\_ \_ \_ 노드 \_ 함수에서 허용** 된 분할: 노드에 배치할 수 있는 분할를 결정 하는 함수를 식별 합니다.
 
 **기본 \_ 임계값:** 노드 간에 누적 분할 된 분할 영역의 균형을 조정 해야 하는 정확한 시간을 조정 하는 부동 소수점 임계값입니다.
 
@@ -575,7 +575,7 @@ SELECT * FROM get_rebalance_progress();
 
 #### <a name="return-value"></a>반환 값
 
-N/A
+해당 없음
 
 ### <a name="citus_set_default_rebalance_strategy"></a>citus \_ 설정 \_ 기본 \_ 리 밸런스 \_ 전략
 
@@ -587,7 +587,7 @@ N/A
 
 #### <a name="return-value"></a>반환 값
 
-N/A
+해당 없음
 
 #### <a name="example"></a>예제
 
@@ -601,7 +601,7 @@ Citus \_ remote \_ connection \_ stats () 함수는 각 원격 노드에 대 한
 
 #### <a name="arguments"></a>인수
 
-N/A
+해당 없음
 
 #### <a name="example"></a>예제
 
@@ -626,9 +626,9 @@ Master \_ 드레이닝 \_ node () 함수는 `shouldhaveshards` [pg_dist_node](re
 
 **nodeport:** 방전 시킬 노드의 포트 번호입니다.
 
-분할 된 ** \_ 전송 \_ 모드:** (선택 사항) PostgreSQL 논리 복제를 사용할지 아니면 작업자 간 복사 명령을 사용할지를 지정 합니다. 가능한 값은 다음과 같습니다.
+분할 된 **\_ 전송 \_ 모드:** (선택 사항) PostgreSQL 논리 복제를 사용할지 아니면 작업자 간 복사 명령을 사용할지를 지정 합니다. 가능한 값은 다음과 같습니다.
 
-> -   `auto`: 논리적 복제가 가능 하면 복제본 id가 필요 합니다. 그렇지 않으면 레거시 동작을 사용 합니다 (예: 분할 된 데이터베이스 복구의 경우 PostgreSQL 9.6). 이것은 기본값입니다.
+> -   `auto`: 논리적 복제가 가능 하면 복제본 id가 필요 합니다. 그렇지 않으면 레거시 동작을 사용 합니다 (예: 분할 된 데이터베이스 복구의 경우 PostgreSQL 9.6). 기본값입니다.
 > -   `force_logical`: 테이블에 복제본 id가 없는 경우에도 논리적 복제를 사용 합니다. 복제 하는 동안 테이블에 대 한 모든 동시 update/delete 문이 실패 합니다.
 > -   `block_writes`: 기본 키 또는 복제본 id가 없는 테이블에 대해 COPY (차단 쓰기)를 사용 합니다.
 
@@ -637,7 +637,7 @@ Master \_ 드레이닝 \_ node () 함수는 `shouldhaveshards` [pg_dist_node](re
 
 #### <a name="return-value"></a>반환 값
 
-N/A
+해당 없음
 
 #### <a name="example"></a>예제
 
@@ -679,9 +679,9 @@ N/A
 
 **테이블 \_ 이름:** 분할를 복제 해야 하는 테이블의 이름입니다.
 
-분할 된 ** \_ 복제 \_ 비율:** (선택 사항) 각 분할에 대해 달성할 수 있는 원하는 복제 비율입니다.
+분할 된 **\_ 복제 \_ 비율:** (선택 사항) 각 분할에 대해 달성할 수 있는 원하는 복제 비율입니다.
 
-최대 분할 된 복제본 ** \_ \_ :** (선택 사항) 원하는 복제 비율에 도달 하기 위해 복사할 최대 분할 수입니다.
+최대 분할 된 복제본 **\_ \_ :** (선택 사항) 원하는 복제 비율에 도달 하기 위해 복사할 최대 분할 수입니다.
 
 **제외 된 분할 \_ \_ 목록:** (선택 사항) 복제 작업 중에 복사할 수 없는 분할의 식별자입니다.
 
@@ -717,7 +717,7 @@ SELECT replicate_table_shards('github_events', max_shard_copies:=10);
 
 #### <a name="return-value"></a>반환 값
 
-분할 된 ** \_ id:** 함수는 새로 만든 분할 된 데이터베이스가 할당 된 고유 id를 반환 합니다.
+분할 된 **\_ id:** 함수는 새로 만든 분할 된 데이터베이스가 할당 된 고유 id를 반환 합니다.
 
 #### <a name="examples"></a>예제
 

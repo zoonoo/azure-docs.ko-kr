@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 9bcc3d08fa29109cf4178f8eb0c3efe661323ef0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6f01354bb5aa2b78d3c9962bac49be39dd2c81f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541784"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025996"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>의도 및 엔터티를 사용하여 발화 텍스트에서 데이터 추출
 LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 애플리케이션 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다. 다음 섹션에서는 JSON 예제와 함께 의도 및 엔터티에서 반환되는 데이터에 대해 알아봅니다.
@@ -30,10 +30,10 @@ LUIS는 게시 된 [끝점](luis-glossary.md#endpoint)에서 사용자의 uttera
 
 `appID`는 LUIS 앱을 편집하는 동안 URL의 일부(`/apps/` 뒤) 및 LUIS 앱의 **설정** 페이지에서 사용할 수 있습니다. `subscription-key`는 앱을 쿼리하는 데 사용되는 엔드포인트 키입니다. LUIS를 학습시키는 동안 체험 작성/시작 키를 사용할 수 있지만, 엔드포인트 키를 [필요한 LUIS 사용](luis-limits.md#key-limits)을 지원하는 키로 변경해야 합니다. `timezoneOffset` 단위는 분입니다.
 
-**HTTPS 응답**에는 스테이징 또는 프로덕션 엔드포인트의 현재 게시된 모델을 기반으로 LUIS가 확인할 수 있는 모든 의도 및 엔터티 정보가 포함됩니다. 엔드포인트 URL은 [LUIS](luis-reference-regions.md) 웹 사이트의 **관리** 섹션에 있는 **키 및 엔드포인트** 페이지에서 찾을 수 있습니다.
+**HTTPS 응답** 에는 스테이징 또는 프로덕션 엔드포인트의 현재 게시된 모델을 기반으로 LUIS가 확인할 수 있는 모든 의도 및 엔터티 정보가 포함됩니다. 엔드포인트 URL은 [LUIS](luis-reference-regions.md) 웹 사이트의 **관리** 섹션에 있는 **키 및 엔드포인트** 페이지에서 찾을 수 있습니다.
 
 ## <a name="data-from-intents"></a>의도의 데이터
-기본 데이터는 상위 점수 **의도 이름**입니다. 엔드포인트 응답은 다음과 같습니다.
+기본 데이터는 상위 점수 **의도 이름** 입니다. 엔드포인트 응답은 다음과 같습니다.
 
 #### <a name="v2-prediction-endpoint-response"></a>[V2 예측 엔드포인트 응답](#tab/V2)
 
@@ -232,9 +232,9 @@ LUIS에서 [토큰 지원을](luis-language-support.md#tokenization) 검토 합�
 
 ### <a name="names-of-people"></a>사용자의 이름
 
-사용자의 이름에는 언어 및 문화권에 따라 일부 약한 형식이 적용될 수 있습니다. 미리 작성 된 **[personName](luis-reference-prebuilt-person.md)** 엔터티 또는 [역할](luis-concept-roles.md) 을 성과 이름으로 사용 하는 **[간단한 엔터티](luis-concept-entity-types.md#simple-entity)** 를 사용 합니다.
+사용자의 이름에는 언어 및 문화권에 따라 일부 약한 형식이 적용될 수 있습니다. 미리 작성 된 **[personName](luis-reference-prebuilt-person.md)** 엔터티 또는 역할을 성과 이름으로 사용 하는 **[간단한 엔터티](luis-concept-entity-types.md)** 를 사용 합니다.
 
-단순 엔터티를 사용 하는 경우 utterance의 서로 다른 부분에 있는 성과 이름을 사용 하는 예제를 제공 하 고, 다른 길이의 길이 발언를 사용 하 여 모든 의도에 대 한 길이 발언를 제공 해야 합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
+단순 엔터티를 사용 하는 경우 utterance의 서로 다른 부분에 있는 성과 이름을 사용 하는 예제를 제공 하 고, 다른 길이의 길이 발언를 사용 하 여 모든 의도에 대 한 길이 발언를 제공 해야 합니다. 정기적으로 엔드포인트 발화를 [검토](./luis-how-to-review-endpoint-utterances.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
 
 ### <a name="names-of-places"></a>위치 이름
 
@@ -242,17 +242,17 @@ LUIS에서 [토큰 지원을](luis-language-support.md#tokenization) 검토 합�
 
 ### <a name="new-and-emerging-names"></a>새롭게 떠오르는 이름
 
-일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이러한 형식의 이름은 가장 어려운 데이터 추출 유형입니다. **[간단한 엔터티로](luis-concept-entity-types.md#simple-entity)** 시작 하 고 [구 목록을](luis-concept-feature.md)추가 합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
+일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이러한 형식의 이름은 가장 어려운 데이터 추출 유형입니다. **[간단한 엔터티로](luis-concept-entity-types.md#simple-entity)** 시작 하 고 [구 목록을](luis-concept-feature.md)추가 합니다. 정기적으로 엔드포인트 발화를 [검토](./luis-how-to-review-endpoint-utterances.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
 
 ## <a name="patternany-entity-data"></a>Pattern.any 엔터티 데이터
 
 [패턴. any](reference-entity-pattern-any.md) 는 패턴이 시작 되 고 끝나는 위치를 표시 하는 패턴의 템플릿 utterance에만 사용 되는 가변 길이 자리 표시자입니다. 패턴에 사용 되는 엔터티는 패턴을 적용 하기 위해 찾을 수 있어야 합니다.
 
 ## <a name="sentiment-analysis"></a>정서 분석
-[게시](luis-how-to-publish-app.md#sentiment-analysis)하는 동안 감정 분석을 구성 하는 경우 LUIS json 응답은 감정 분석을 포함 합니다. [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) 설명서에서 감정 분석에 대해 자세히 알아봅니다.
+[게시](luis-how-to-publish-app.md#sentiment-analysis)하는 동안 감정 분석을 구성 하는 경우 LUIS json 응답은 감정 분석을 포함 합니다. [Text Analytics](../text-analytics/index.yml) 설명서에서 감정 분석에 대해 자세히 알아봅니다.
 
 ## <a name="key-phrase-extraction-entity-data"></a>키 구문 추출 엔터티 데이터
-[키 구 추출 엔터티](luis-reference-prebuilt-keyphrase.md) 는 [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)에서 제공 하는 utterance의 키 구를 반환 합니다.
+[키 구 추출 엔터티](luis-reference-prebuilt-keyphrase.md) 는 [Text Analytics](../text-analytics/index.yml)에서 제공 하는 utterance의 키 구를 반환 합니다.
 
 ## <a name="data-matching-multiple-entities"></a>여러 엔터티와 일치하는 데이터
 

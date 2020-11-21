@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: c41e9fe1f197334bce27241ab9f28309c92f7e0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3017d0dec5acd3494600c42bef410ed346fead1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316548"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025945"
 ---
 # <a name="testing-for-luis-devops"></a>LUIS DevOps에 대한 테스트
 
@@ -25,10 +25,10 @@ Agile Software Development 방법론에서 테스트는 품질 소프트웨어 �
 연속 통합 워크플로에서 수행 해야 하는 LUIS 앱에 대 한 테스트에는 두 가지 종류가 있습니다.
 
 - **단위 테스트** -LUIS 앱의 주요 기능을 확인 하는 비교적 간단한 테스트입니다. 지정 된 테스트 utterance에 대해 예상 된 의도 및 예상 된 엔터티가 반환 될 때 단위 테스트가 통과 합니다. 테스트 실행을 성공적으로 완료 하려면 모든 단위 테스트를 통과 해야 합니다.  
-이러한 종류의 테스트는 [LUIS 포털](https://www.luis.ai/)에서 수행할 수 있는 [대화형 테스트](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test) 와 비슷합니다.
+이러한 종류의 테스트는 [LUIS 포털](https://www.luis.ai/)에서 수행할 수 있는 [대화형 테스트](./luis-concept-test.md) 와 비슷합니다.
 
 - **일괄 처리 테스트** -일괄 처리 테스트는 현재 학습 된 모델에 대 한 포괄적인 테스트로, 성능을 측정 합니다. 단위 테스트와 달리 일괄 처리 테스트는 통과 되지 않습니다 | 테스트 실패. 일괄 테스트를 사용 하는 경우 모든 테스트에서 예상 된 의도 및 예상 된 엔터티를 반환 하는 것은 아닙니다. 대신, 일괄 처리 테스트를 사용 하면 앱에서 각 의도 및 엔터티의 정확성을 확인 하 고 향상 된 시간에 걸쳐 비교할 수 있습니다.  
-이러한 종류의 테스트는 LUIS 포털에서 대화형으로 수행할 수 있는 [일괄 처리 테스트](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test) 와 동일 합니다.
+이러한 종류의 테스트는 LUIS 포털에서 대화형으로 수행할 수 있는 [일괄 처리 테스트](./luis-concept-batch-test.md) 와 동일 합니다.
 
 프로젝트의 시작 부분에서 단위 테스트를 사용할 수 있습니다. 일괄 처리 테스트는 LUIS 앱의 스키마를 개발 하 고 정확도를 향상 시키기 위해 작업 하는 경우에만 가치를 발휘 합니다.
 
@@ -42,7 +42,7 @@ Agile Software Development 방법론에서 테스트는 품질 소프트웨어 �
 * 예상 의도
 * 엔터티가 필요 합니다.
 
-JSON 형식 파일에서 테스트 그룹을 정의 하려면 LUIS [batch 파일 구문을](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-syntax-template-for-intents-with-entities) 사용 합니다. 예를 들면 다음과 같습니다.
+JSON 형식 파일에서 테스트 그룹을 정의 하려면 LUIS [batch 파일 구문을](./luis-concept-batch-test.md#batch-syntax-template-for-intents-with-entities) 사용 합니다. 예를 들면 다음과 같습니다.
 
 ```JSON
 [
@@ -76,7 +76,7 @@ JSON 형식 파일에서 테스트 그룹을 정의 하려면 LUIS [batch 파일
 
 * 올바른 의도가 반환 되는지 테스트 합니다.
 * 솔루션에 중요 한 ' 키 ' 엔터티가 반환 되는지 테스트 합니다.
-* 의도 및 엔터티에 대 한 [예측 점수가](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score) 정의한 임계값을 초과 하는지 테스트 합니다. 예를 들어, 의도 및 키 엔터티에 대 한 예측 점수가 0.75를 초과 하는 경우 테스트를 통과 한 것으로 간주 합니다.
+* 의도 및 엔터티에 대 한 [예측 점수가](./luis-concept-prediction-score.md) 정의한 임계값을 초과 하는지 테스트 합니다. 예를 들어, 의도 및 키 엔터티에 대 한 예측 점수가 0.75를 초과 하는 경우 테스트를 통과 한 것으로 간주 합니다.
 
 단위 테스트에서 키 엔터티가 예측 응답에서 반환 되었는지 테스트 하는 것이 좋지만 가양성을 무시 하는 것이 좋습니다. *가양성* 은 예측 응답에서 찾았지만 테스트에 대해 예상 되는 결과에 정의 되지 않은 엔터티입니다. 가양성을 무시 하 여 단위 테스트를 작성 하는 것이 더 번거로운, 솔루션에 대 한 키 데이터가 예측 응답에서 반환 되는지 테스트에 집중할 수 있습니다.
 
@@ -85,15 +85,15 @@ JSON 형식 파일에서 테스트 그룹을 정의 하려면 LUIS [batch 파일
 
 #### <a name="designing-batch-tests"></a>일괄 처리 테스트 디자인
 
-일괄 처리 테스트 집합에는 LUIS 앱의 모든 엔터티 및 모든 엔터티에 대해 테스트 하도록 설계 된 많은 수의 테스트 사례가 포함 되어야 합니다. 일괄 처리 테스트 집합을 정의 하는 방법에 대 한 자세한 내용은 [LUIS 포털에서 일괄 처리 테스트](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test) 를 참조 하세요.
+일괄 처리 테스트 집합에는 LUIS 앱의 모든 엔터티 및 모든 엔터티에 대해 테스트 하도록 설계 된 많은 수의 테스트 사례가 포함 되어야 합니다. 일괄 처리 테스트 집합을 정의 하는 방법에 대 한 자세한 내용은 [LUIS 포털에서 일괄 처리 테스트](./luis-concept-batch-test.md) 를 참조 하세요.
 
 ### <a name="running-tests"></a>테스트 실행
 
 LUIS 포털은 대화형 테스트에 도움이 되는 기능을 제공 합니다.
 
-* [**대화형 테스트**](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test) 를 사용 하면 샘플 utterance를 제출 하 고 LUIS 인식 의도 및 엔터티에 대 한 응답을 받을 수 있습니다. 시각적 검사에의 한 테스트 성공 여부를 확인 합니다.
+* [**대화형 테스트**](./luis-concept-test.md) 를 사용 하면 샘플 utterance를 제출 하 고 LUIS 인식 의도 및 엔터티에 대 한 응답을 받을 수 있습니다. 시각적 검사에의 한 테스트 성공 여부를 확인 합니다.
 
-* [**일괄 처리 테스트**](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test) 는 일괄 처리 테스트 파일을 입력으로 사용 하 여 학습 된 활성 버전의 유효성을 검사 하 여 예측 정확도를 측정 합니다. 일괄 처리 테스트를 사용 하면 활성 버전에서 각 의도 및 엔터티의 정확성을 확인 하 고 차트를 사용 하 여 결과를 표시할 수 있습니다.
+* [**일괄 처리 테스트**](./luis-concept-batch-test.md) 는 일괄 처리 테스트 파일을 입력으로 사용 하 여 학습 된 활성 버전의 유효성을 검사 하 여 예측 정확도를 측정 합니다. 일괄 처리 테스트를 사용 하면 활성 버전에서 각 의도 및 엔터티의 정확성을 확인 하 고 차트를 사용 하 여 결과를 표시할 수 있습니다.
 
 #### <a name="running-tests-in-an-automated-build-workflow"></a>자동화 된 빌드 워크플로에서 테스트 실행
 
@@ -109,7 +109,7 @@ LUIS 포털에서 사용할 수 있는 테스트 기능은 게시 된 끝점이 
 
 > [!TIP]
 > * 사용자 고유의 테스트 솔루션을 구현 하 고 테스트 길이 발언을 끝점에 보내는 코드를 작성 하는 경우 LUIS authoring key를 사용 하는 경우 허용 되는 트랜잭션 rate는 5TPS로 제한 됩니다. 전송 속도로 제한 하거나 예측 키를 대신 사용 하십시오.
-> * 테스트 쿼리를 끝점으로 보낼 때 `log=false` 예측 요청의 쿼리 문자열에를 사용 해야 합니다. 이렇게 하면 테스트 길이 발언 LUIS에 의해 기록 되지 않고 LUIS [활성 학습](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) 기능에 의해 제공 되는 끝점 길이 발언 검토 목록에서 종료 되며, 결과적으로 앱의 학습 길이 발언에 실수로 추가 됩니다.
+> * 테스트 쿼리를 끝점으로 보낼 때 `log=false` 예측 요청의 쿼리 문자열에를 사용 해야 합니다. 이렇게 하면 테스트 길이 발언 LUIS에 의해 기록 되지 않고 LUIS [활성 학습](./luis-concept-review-endpoint-utterances.md) 기능에 의해 제공 되는 끝점 길이 발언 검토 목록에서 종료 되며, 결과적으로 앱의 학습 길이 발언에 실수로 추가 됩니다.
 
 #### <a name="running-unit-tests-at-the-command-line-and-in-cicd-workflows"></a>명령줄 및 CI/CD 워크플로에서 단위 테스트 실행
 
@@ -123,13 +123,13 @@ Nlu를 사용할 수 있습니다 [. ](https://github.com/microsoft/NLU.DevOps) 
 또한 NLU를 사용할 수 있습니다. 명령줄에서 일괄 처리 테스트를 실행 하는 DevOps 패키지.
 
 * NLU를 사용 합니다. DevOps [테스트 명령을](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Test.md) 사용 하 여 테스트 파일에서 끝점으로 테스트를 제출 하 고, 단위 테스트와 같이 파일에서 실제 예측 결과를 캡처합니다.
-* NLU를 사용 합니다. [성능 테스트 모드](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) 의 devops [compare 명령을](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) 통해 응용 프로그램의 성능을 측정 하는 것은 응용 프로그램의 성능을 기준 성능 벤치 마크와 비교할 수 있습니다. 예를 들어 최신 커밋 마스터나 현재 릴리스에 대 한 결과입니다. 성능 테스트 모드에서 `compare` 명령은 NUnit 테스트 출력과 [일괄 처리 테스트 결과](https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#batch-test) 를 JSON 형식으로 생성 합니다.
+* NLU를 사용 합니다. [성능 테스트 모드](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) 의 devops [compare 명령을](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) 통해 응용 프로그램의 성능을 측정 하는 것은 응용 프로그램의 성능을 기준 성능 벤치 마크와 비교할 수 있습니다. 예를 들어 최신 커밋 마스터나 현재 릴리스에 대 한 결과입니다. 성능 테스트 모드에서 `compare` 명령은 NUnit 테스트 출력과 [일괄 처리 테스트 결과](./luis-glossary.md#batch-test) 를 JSON 형식으로 생성 합니다.
 
 ## <a name="luis-non-deterministic-training-and-the-effect-on-testing"></a>비결 정적 교육 및 테스트에 미치는 영향 LUIS
 
 LUIS가 모델을 학습 하는 경우 (예: 모델에 대해 앱을 학습 하기 위해 제공 하는 레이블이 지정 된 학습 길이 발언 및 해당 모델 사용에 대 한 유효한 예제가 *아닌* 데이터 데이터) 두 개의 긍정적인 데이터가 모두 필요 합니다. 학습 하는 동안 LUIS는 다른 모델에 대해 제공한 모든 양의 데이터에서 한 모델의 음수 데이터를 작성 하지만 일부 경우에는 데이터 불균형을 생성할 수 있습니다. 이러한 불균형을 방지 하기 위해 LUIS는 더 나은 분산 된 학습 집합, 향상 된 모델 성능 및 더 빠른 학습 시간을 최적화 하기 위해 부정적인 데이터의 하위 집합을 명확 하지 않은 방식으로 샘플링 합니다.
 
-이러한 비 결정적인 학습의 결과는 일반적으로 [다른 학습 세션 간에 약간 다른 예측 응답](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score)을 얻을 수 있다는 것입니다. 일반적으로는 [예측 점수가](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score) 높지 않은 의도 및/또는 엔터티에 대해 약간 다를 수 있습니다.
+이러한 비 결정적인 학습의 결과는 일반적으로 [다른 학습 세션 간에 약간 다른 예측 응답](./luis-concept-prediction-score.md)을 얻을 수 있다는 것입니다. 일반적으로는 [예측 점수가](./luis-concept-prediction-score.md) 높지 않은 의도 및/또는 엔터티에 대해 약간 다를 수 있습니다.
 
 테스트 목적으로 빌드하는 LUIS 앱 버전에 대해 비결 정적 교육을 사용 하지 않도록 설정 하려면 설정이로 설정 된 [버전 설정 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 를 사용 `UseAllTrainingData` `true` 합니다.
 

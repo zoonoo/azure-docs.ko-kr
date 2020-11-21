@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8175cbd469c8a3933526d01f433e1def714783b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121020"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024503"
 ---
 # <a name="translator-v30"></a>Translator v 3.0
 
-## <a name="whats-new"></a>새로운 기능은 무엇입니까?
+## <a name="whats-new"></a>새로운 기능
 
 변환기 버전 3은 최신 JSON 기반 웹 API를 제공 합니다. 기존 기능을 더 적은 개수의 작업으로 통합하여 유용성 및 성능을 개선하고 새로운 기능을 제공합니다.
 
@@ -124,7 +124,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 | 리소스 유형     | 인증 서비스 URL                                |
 |-----------------|-----------------------------------------------------------|
-| Global          | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
+| 전역          | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 | 지역 또는 다중 서비스 | `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
 다음은 비밀 키가 제공된 경우 토큰을 얻기 위한 요청 예입니다.
@@ -147,7 +147,7 @@ Authorization: Bearer <Base64-access_token>
 
 ## <a name="virtual-network-support"></a>Virtual Network 지원
 
-이제 Azure 공용 클라우드의 모든 지역에서 Virtual Network (VNET) 기능을 사용 하 여 Translator 서비스를 사용할 수 있습니다. Virtual Network를 사용 하도록 설정 하려면 [Azure Cognitive Services 가상 네트워크 구성](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)을 참조 하세요. 
+이제 Azure 공용 클라우드의 모든 지역에서 Virtual Network (VNET) 기능을 사용 하 여 Translator 서비스를 사용할 수 있습니다. Virtual Network를 사용 하도록 설정 하려면 [Azure Cognitive Services 가상 네트워크 구성](../../cognitive-services-virtual-networks.md?tabs=portal)을 참조 하세요. 
 
 이 기능을 켜면 사용자 지정 끝점을 사용 하 여 변환기를 호출 해야 합니다. 전역 변환기 끝점 ("api.cognitive.microsofttranslator.com")을 사용할 수 없으며 액세스 토큰을 사용 하 여 인증할 수 없습니다.
 
@@ -230,7 +230,7 @@ curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translato
 | 503000| 서비스를 일시적으로 사용할 수 없습니다. 다시 시도하세요. 이 오류가 계속 발생하는 경우 오류의 날짜/시간, 응답 헤더 X-RequestId의 요청 식별자 및 요청 헤더 X-ClientTraceId의 클라이언트 식별자를 사용하여 보고합니다.|
 
 ## <a name="metrics"></a>메트릭 
-메트릭을 사용 하면 아래 스크린샷에 표시 된 것 처럼 메트릭 섹션의 Azure Portal에서 변환기 사용 및 가용성 정보를 볼 수 있습니다. 자세한 내용은 [데이터 및 플랫폼 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)을 참조 하세요.
+메트릭을 사용 하면 아래 스크린샷에 표시 된 것 처럼 메트릭 섹션의 Azure Portal에서 변환기 사용 및 가용성 정보를 볼 수 있습니다. 자세한 내용은 [데이터 및 플랫폼 메트릭](../../../azure-monitor/platform/data-platform-metrics.md)을 참조 하세요.
 
 ![번역기 메트릭](../media/translatormetrics.png)
 

@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: a4670da5f5e89a4e020e26d1d704f172b8ab0864
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 99a3c9a9c26eebe8dfdf11baf718fd13f7539607
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968318"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025279"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -62,7 +62,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 | Level | 포함 된 범주 |
 |-|-|
-|**사용 안 함** | 없음 |
+|**사용 안 함** | None |
 |**오류** | 오류, 위험 |
 |**경고** | 경고, 오류, 위험|
 |**정보** | 정보, 경고, 오류, 위험|
@@ -192,9 +192,11 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 | Appservice환경 Platformlogs | 예 | 해당 없음 | 예 | 예 | App Service Environment: 크기 조정, 구성 변경 및 상태 로그|
 | AppServiceAuditLogs | 예 | 예 | 예 | 예 | FTP 및 Kudu를 통한 로그인 활동 |
 | AppServiceFileAuditLogs | 예 | 예 | TBA | TBA | 사이트 콘텐츠에 대 한 파일 변경 내용 프리미엄 계층 이상 에서만 사용할 수 있습니다. |
-| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat 축복 이미지 | Java SE & Tomcat 축복 이미지 | 애플리케이션 로그 전송 사용 |
+| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat 축복 이미지 <sup>1</sup> | Java SE & Tomcat 축복 이미지 <sup>1</sup> | 애플리케이션 로그 전송 사용 |
 | AppServiceIPSecAuditLogs  | 예 | 예 | 예 | 예 | IP 규칙의 요청 |
 | AppServicePlatformLogs  | TBA | 예 | 예 | 예 | 컨테이너 작업 로그 |
+
+<sup>1</sup> Java SE 앱의 경우 앱 설정에 "$WEBSITE _AZMON_PREVIEW_ENABLED"를 추가 하 고 1 또는 true로 설정 합니다.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> 다음 단계
 * [Azure Monitor를 사용하여 로그 쿼리](../azure-monitor/log-query/log-query-overview.md)

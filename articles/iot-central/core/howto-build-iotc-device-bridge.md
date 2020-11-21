@@ -9,18 +9,18 @@ ms.date: 07/09/2019
 ms.topic: how-to
 manager: peterpr
 ms.custom: device-developer
-ms.openlocfilehash: fb6029a91714ed0229876bbaf6bb0790565be29c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fc8ea41e804344735cfa2400d5d763622d8811c8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427829"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026253"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>다른 IoT 클라우드를 IoT Central에 연결하는 IoT Central 디바이스 브리지 빌드
 
 *이 항목의 내용은 관리자에게 적용됩니다.*
 
-IoT Central 디바이스 브리지는 Sigfox, Particle, The Things Network 및 다른 클라우드를 사용자의 IoT Central 앱에 연결하는 오픈 소스 솔루션입니다. Sigfox의 저전력 광역 네트워크에 연결 된 자산 추적 장치를 사용 하 든, 또는 파티클 장치 클라우드에서 공기 품질 모니터링 장치를 사용 하 든, TTN의 토양 습기 모니터링 장치를 사용 하는 경우에는 IoT Central 장치 브리지를 사용 하 여 IoT Central의 기능을 직접 활용할 수 있습니다. 디바이스 브리지는 디바이스가 보내는 데이터를 IoT Central 앱을 통해 다른 클라우드로 전달하여 다른 IoT 클라우드를 IoT Central과 연결합니다. IoT Central 앱에서 해당 데이터에 대해 규칙을 빌드하고 분석을 실행하며, Microsoft Flow 및 Azure Logic Apps에서 워크플로를 만들고, 해당 데이터를 내보내는 등의 작업을 수행할 수 있습니다. GitHub에서 [IoT Central 디바이스 브리지](https://aka.ms/iotcentralgithubdevicebridge) 가져오기
+IoT Central 디바이스 브리지는 Sigfox, Particle, The Things Network 및 다른 클라우드를 사용자의 IoT Central 앱에 연결하는 오픈 소스 솔루션입니다. Sigfox의 저전력 광역 네트워크에 연결 된 자산 추적 장치를 사용 하 든, 또는 파티클 장치 클라우드에서 공기 품질 모니터링 장치를 사용 하 든, TTN의 토양 습기 모니터링 장치를 사용 하는 경우에는 IoT Central 장치 브리지를 사용 하 여 IoT Central의 기능을 직접 활용할 수 있습니다. 디바이스 브리지는 디바이스가 보내는 데이터를 IoT Central 앱을 통해 다른 클라우드로 전달하여 다른 IoT 클라우드를 IoT Central과 연결합니다. IoT Central 앱에서 해당 데이터에 대 한 규칙을 작성 하 고 분석을 실행 하 고, 파워 자동화 및 Azure 논리 앱에서 워크플로를 만들고, 해당 데이터를 내보낼 수 있습니다. GitHub에서 [IoT Central 디바이스 브리지](https://aka.ms/iotcentralgithubdevicebridge) 가져오기
 
 ## <a name="what-is-it-and-how-does-it-work"></a>정의 및 작동 방식
 IoT Central 디바이스 브리지는 GitHub의 오픈 소스 솔루션입니다. 여러 Azure 리소스를 포함 하는 사용자 지정 Azure Resource Manager 템플릿을 Azure 구독에 배포 하는 "Azure에 배포" 단추를 사용할 수 있습니다. 리소스에는 다음이 포함됩니다.
