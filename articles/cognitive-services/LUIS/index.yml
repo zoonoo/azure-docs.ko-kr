@@ -12,12 +12,12 @@ metadata:
   title: LUIS(Language Understanding) 설명서
   titleSuffix: Azure Cognitive Services
   description: LUIS(Language Understanding) 서비스를 사용하면 애플리케이션은 사람의 말을 통해 무엇을 원하는지 이해할 수 있습니다. LUIS는 기계 학습을 사용하여 사용자 입력을 자연어로 받아서 의미를 추출하는 애플리케이션을 개발자가 작성할 수 있도록 합니다.
-  ms.openlocfilehash: 3bae2e6e0a79dbc0106dc71a9510aa4dc318650c
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: ff928f1879f8cfd356fa020ff6afaa68b72f63c5
+  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92364187"
+  ms.lasthandoff: 11/21/2020
+  ms.locfileid: "95019384"
 landingContent:
 - title: LUIS(Language Understanding) 정보
   linkLists:
@@ -70,7 +70,7 @@ landingContent:
     - text: 예제 발화로 의도 추가
       url: luis-how-to-add-intents.md
     - text: 엔터티 추가
-      url: luis-how-to-add-example-utterances.md
+      url: ./luis-how-to-add-entities.md
     - text: 구 목록 기능 추가
       url: luis-how-to-add-features.md
 - title: 버전, 학습, 테스트 및 게시
@@ -78,7 +78,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: 버전 관리
-      url: luis-concept-version.md
+      url: ./luis-concept-app-iteration.md
     - text: 대화형 테스트
       url: luis-concept-test.md
     - text: 일괄 테스트
@@ -110,15 +110,15 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: REST를 통해 C# 사용
-      url: luis-get-started-cs-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: REST를 통해 Go 사용
-      url: luis-get-started-go-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: REST를 통해 Java 사용
-      url: luis-get-started-java-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: REST를 통해 Node.js 사용
-      url: luis-get-started-node-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: REST를 통해 Python 사용
-      url: luis-get-started-python-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
 - title: 참조
   linkLists:
   - linkListType: reference

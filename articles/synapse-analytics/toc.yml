@@ -1,5 +1,5 @@
 - name: Azure Synapse(작업 영역 미리 보기)
-  href: sql-data-warehouse/index.yml
+  href: overview-what-is.md
 - name: Azure Synapse(이전의 SQL DW)로 전환
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: 개요
@@ -7,10 +7,8 @@
     - name: Azure Synapse란?
       href: overview-what-is.md
       displayName: overview
-    - name: 참고 자료
-      href: overview-cheat-sheet.md
-    - name: FAQ
-      href: overview-faq.md
+    - name: 용어
+      href: overview-terminology.md
     - name: 릴리스 정보
       href: release-notes.md
 - name: 빠른 시작

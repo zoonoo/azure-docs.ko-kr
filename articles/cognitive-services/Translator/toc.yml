@@ -23,7 +23,7 @@
     - name: 방법 가이드
       items:
         - name: Translator에 등록
-          href: translator-text-how-to-signup.md
+          href: ./translator-how-to-signup.md
         - name: V3 텍스트 API로 마이그레이션
           href: migrate-to-v3.md
         - name: 불경한 언어 필터링 추가

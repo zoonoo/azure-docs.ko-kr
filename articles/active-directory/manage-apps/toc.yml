@@ -201,7 +201,7 @@
             - name: PingAccess를 사용하여 애플리케이션 프록시와 통합
               href: application-proxy-ping-access-publishing-guide.md
             - name: Azure AD Domain Services와 통합
-              href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
+              href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
             - name: Power BI와 통합
               href: application-proxy-integrate-with-power-bi.md
             - name: Cloud App Security와 통합
@@ -281,7 +281,7 @@
 - name: 리소스
   items:
     - name: 개발자를 위한 지원 및 도움말 옵션
-      href: ../develop/developer-support-help-options.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
+      href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
     - name: Azure 피드백 포럼
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: Microsoft Q&A 질문 페이지

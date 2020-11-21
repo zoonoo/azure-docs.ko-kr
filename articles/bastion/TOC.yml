@@ -21,6 +21,10 @@
       href: work-remotely-support.md
     - name: Bastion 및 VNet 피어링
       href: vnet-peering.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: 호스트 만들기

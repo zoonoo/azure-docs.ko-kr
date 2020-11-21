@@ -116,19 +116,19 @@
         - name: 투명성 메모
           items:
             - name: 공간 분석 소개
-              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=/azure/cognitive-services/Computer-vision/context/context'
+              href: /legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
             - name: 특성 및 제한 사항
-              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/Computer-vision/context/context'
+              href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
         - name: 배포 지침
           items:
             - name: AI 배포의 책임감 있는 사용
-              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/Computer-vision/context/context'
+              href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
             - name: 디자인 지침 공개
-              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/Computer-vision/context/context'
+              href: /legal/cognitive-services/computer-vision/disclosure-design?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
             - name: 인사이트 연구
-              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/Computer-vision/context/context'
+              href: /legal/cognitive-services/computer-vision/research-insights?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
         - name: '규정 준수, 프라이버시 및 보안'
-          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/Computer-vision/context/context'
+          href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
 - name: 컨테이너
   items:
     - name: API 컨테이너 읽기
@@ -172,9 +172,9 @@
 - name: 참조
   items:
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
     - name: Azure PowerShell
-      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+      href: /powershell/module/azurerm.cognitiveservices/
     - name: Computer Vision API v3.2 미리 보기
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005'
     - name: Computer Vision API v3.1
@@ -188,15 +188,15 @@
     - name: SDK
       items:
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet'
+          href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
         - name: Node.js
-          href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest'
+          href: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
         - name: Python
-          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python'
+          href: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
         - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision'
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable'
+          href: /java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션

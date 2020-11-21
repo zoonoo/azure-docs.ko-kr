@@ -9,9 +9,9 @@
 - name: 자습서
   items:
     - name: 자동화된 기계 학습을 사용하는 회귀
-      href: ../machine-learning/tutorial-auto-train-models.md?bc=%252fazure%252fopen-datasets%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fopen-datasets%252ftoc.json
+      href: ../machine-learning/tutorial-auto-train-models.md?bc=%2fazure%2fopen-datasets%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fopen-datasets%2ftoc.json
     - name: 이미지 분류 모델 보강
-      href: ../machine-learning/tutorial-train-models-with-aml.md?bc=%252fazure%252fopen-datasets%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fopen-datasets%252ftoc.json
+      href: ../machine-learning/tutorial-train-models-with-aml.md?bc=%2fazure%2fopen-datasets%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fopen-datasets%2ftoc.json
 - name: 방법 가이드
   items:
     - name: Azure Machine Learning의 데이터 세트

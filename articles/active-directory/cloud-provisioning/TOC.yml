@@ -19,7 +19,7 @@
 - name: 개념
   items:
     - name: 암호 해시 동기화란?
-      href: ../hybrid/whatis-phs.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
+      href: ../hybrid/whatis-phs.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
     - name: 'Azure AD 스키마, 특성 및 식 이해'
       href: concept-attributes.md
     - name: Azure Active Directory의 특성 매핑에 대한 식 작성
@@ -63,10 +63,10 @@
 - name: 참조
   items:
     - name: Azure AD Connect 클라우드 프로비저닝 에이전트 버전 기록
-      href: ../app-provisioning/provisioning-agent-release-version-history.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+      href: ../app-provisioning/provisioning-agent-release-version-history.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: Azure AD Connect 클라우드 프로비저닝 FAQ
       href: reference-cloud-provisioning-faq.md
     - name: 동기화되는 특성
-      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: 기본 Active Directory 및 Azure AD 환경
       href: tutorial-basic-ad-azure.md
