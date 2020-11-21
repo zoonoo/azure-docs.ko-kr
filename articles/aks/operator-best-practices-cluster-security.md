@@ -4,19 +4,19 @@ titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Services)에서 클러스터 보안 및 업그레이드를 관리하는 방법에 대한 클러스터 운영자 모범 사례 알아보기
 services: container-service
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 9ef019e682511e13af46194d26aec48c1555f70e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 11/12/2020
+ms.openlocfilehash: ad1f14fc92433e8d9cb31de165645e4a5731f01a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683304"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019469"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
 AKS(Azure Kubernetes Service)에서 클러스터를 관리할 때 워크로드 및 데이터의 보안은 주요 고려 사항입니다. 논리적 격리를 사용하여 다중 테넌트 클러스터를 실행하는 경우에 특히, 리소스 및 워크로드에 대한 액세스를 보호해야 합니다. 공격 위험을 최소화하려면 최신 Kubernetes 및 노드 OS 보안 업데이트를 적용하는지도 확인해야 합니다.
 
-이 문서에서는 AKS 클러스터의 보안을 유지하는 방법을 중점적으로 설명합니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 문서에서는 AKS 클러스터의 보안을 유지하는 방법을 중점적으로 설명합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Active Directory 및 Kubernetes를 사용 하 여 Kubernetes RBAC (역할 기반 액세스 제어)를 사용 하 여 API 서버 액세스 보호

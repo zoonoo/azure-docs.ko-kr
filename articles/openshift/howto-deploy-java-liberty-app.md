@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, 마이크로 프로필, liberty, websphere-liberty, aro, openshift, red hat
-ms.openlocfilehash: ee4baf8eed26a43728fa52289bce86108c9e8c4a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 41891b58942efbfd705747cc16219185f2a2daa2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414876"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018395"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Azure Red Hat OpenShift 4 클러스터에서 Open Liberty/WebSphere Liberty를 사용 하 여 Java 응용 프로그램 배포
 
@@ -126,7 +126,7 @@ Open Liberty에서 응용 프로그램을 실행 하려면 [Liberty Maven 플러
    [INFO] Source compilation was successful.
    ```
 
-1. [http://localhost:9080/](http://localhost:9080/)브라우저에서를 열어 응용 프로그램 홈 페이지를 방문 합니다. 응용 프로그램은 다음 이미지와 유사 하 게 표시 됩니다.
+1. `http://localhost:9080/`브라우저에서를 열어 응용 프로그램 홈 페이지를 방문 합니다. 응용 프로그램은 다음 이미지와 유사 하 게 표시 됩니다.
 
    ![JavaEE Cafe 웹 UI](./media/howto-deploy-java-liberty-app/javaee-cafe-web-ui.png)
 1. Ctrl + **C** 를 눌러 응용 프로그램을 중지 하 고 Liberty 서버를 엽니다.
@@ -164,7 +164,7 @@ ARO 4 클러스터에서 Liberty 응용 프로그램을 배포 하 고 실행 �
 
 1. `docker run -it --rm -p 9080:9080 javaee-cafe-simple:1.0.0`콘솔에서를 실행 합니다.
 2. Liberty 서버가 시작 되 고 응용 프로그램이 성공적으로 배포 될 때까지 기다립니다.
-3. [http://localhost:9080/](http://localhost:9080/)브라우저에서를 열어 응용 프로그램 홈 페이지를 방문 합니다.
+3. `http://localhost:9080/`브라우저에서를 열어 응용 프로그램 홈 페이지를 방문 합니다.
 4. **Control-C** 를 눌러 응용 프로그램 및 Liberty 서버를 중지 합니다.
 
 ### <a name="push-the-image-to-the-container-image-registry"></a>컨테이너 이미지 레지스트리에 이미지 푸시

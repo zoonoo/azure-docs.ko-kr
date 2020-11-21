@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a3fccc934fafd8ff7db2cffbd6ba641329ba8de2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d8b696b175c4ef841eef1a51f1d357d1781cba7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006808"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018293"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>진단 기능에 Log Analytics 사용
 
@@ -46,7 +46,7 @@ Azure Monitor를 사용 하 여 Windows 가상 데스크톱 데이터를 분석 
 Log Analytics를 사용 하려면 먼저 작업 영역을 만들어야 합니다. 이렇게 하려면 다음 두 문서 중 하나에 있는 지침을 따르세요.
 
 - Azure Portal를 사용 하는 것을 선호 하 [는 경우 Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요.
-- PowerShell을 선호 하는 경우 [powershell을 사용 하 여 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace-posh.md)를 참조 하세요.
+- PowerShell을 선호 하는 경우 [powershell을 사용 하 여 Log Analytics 작업 영역 만들기](../azure-monitor/platform/powershell-workspace-configuration.md)를 참조 하세요.
 
 작업 영역을 만든 후에는 [Azure Monitor에 Windows 컴퓨터 연결](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) 의 지침에 따라 다음 정보를 가져옵니다.
 
@@ -63,7 +63,7 @@ Windows 가상 데스크톱 개체의 진단 데이터를 작업 영역에 대 �
 
 새 개체에 대 한 Log Analytics를 설정 하려면 다음을 수행 합니다.
 
-1. Azure Portal에 로그인 하 고 **Windows 가상 데스크톱**으로 이동 합니다.
+1. Azure Portal에 로그인 하 고 **Windows 가상 데스크톱** 으로 이동 합니다.
 
 2. 로그 및 이벤트를 캡처할 개체 (예: 호스트 풀, 앱 그룹 또는 작업 영역)로 이동 합니다.
 
@@ -78,12 +78,12 @@ Windows 가상 데스크톱 개체의 진단 데이터를 작업 영역에 대 �
      >[!IMPORTANT]
      >모니터링할 각 Azure Resource Manager 개체에 대해 진단을 사용 하도록 설정 해야 합니다. 진단이 사용 하도록 설정 된 후에는 작업에 대 한 데이터를 사용할 수 있습니다. 처음 설정한 후 몇 시간이 걸릴 수 있습니다.
 
-5. 설정 구성의 이름을 입력 한 다음 **Log Analytics 보내기를**선택 합니다. 사용할 이름에는 공백이 없어야 하며 [Azure 명명 규칙](../azure-resource-manager/management/resource-name-rules.md)을 준수 해야 합니다. 로그의 일부로 Log Analytics에 추가 하려는 모든 옵션 (예: 검사점, 오류, 관리 등)을 선택할 수 있습니다.
+5. 설정 구성의 이름을 입력 한 다음 **Log Analytics 보내기를** 선택 합니다. 사용할 이름에는 공백이 없어야 하며 [Azure 명명 규칙](../azure-resource-manager/management/resource-name-rules.md)을 준수 해야 합니다. 로그의 일부로 Log Analytics에 추가 하려는 모든 옵션 (예: 검사점, 오류, 관리 등)을 선택할 수 있습니다.
 
-6. **저장**을 선택합니다.
+6. **저장** 을 선택합니다.
 
 >[!NOTE]
->Log Analytics은 [Event Hubs](../event-hubs/event-hubs-about.md) 데이터를 스트리밍하는 옵션을 제공 하 여 저장소 계정에 보관 합니다. 이 기능에 대 한 자세한 내용은 [azure 모니터링 데이터를 이벤트 허브로 스트리밍](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) 및 [저장소 계정에 Azure 리소스 로그 보관](../azure-monitor/platform/resource-logs-collect-storage.md)을 참조 하세요.
+>Log Analytics은 [Event Hubs](../event-hubs/event-hubs-about.md) 데이터를 스트리밍하는 옵션을 제공 하 여 저장소 계정에 보관 합니다. 이 기능에 대 한 자세한 내용은 [azure 모니터링 데이터를 이벤트 허브로 스트리밍](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) 및 [저장소 계정에 Azure 리소스 로그 보관](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)을 참조 하세요.
 
 ## <a name="how-to-access-log-analytics"></a>Log Analytics에 액세스 하는 방법
 
@@ -93,28 +93,28 @@ Azure Portal 또는 Azure Monitor에서 Log Analytics 작업 영역에 액세스
 
 1. Azure Portal에 로그인합니다.
 
-2. **Log Analytics 작업 영역**을 검색 합니다.
+2. **Log Analytics 작업 영역** 을 검색 합니다.
 
-3. 서비스에서 **Log Analytics 작업 영역**을 선택 합니다.
+3. 서비스에서 **Log Analytics 작업 영역** 을 선택 합니다.
 
 4. 목록에서 Windows 가상 데스크톱 개체에 대해 구성한 작업 영역을 선택 합니다.
 
-5. 작업 영역에서 **로그**를 선택 합니다. **검색** 함수를 사용 하 여 메뉴 목록을 필터링 할 수 있습니다.
+5. 작업 영역에서 **로그** 를 선택 합니다. **검색** 함수를 사용 하 여 메뉴 목록을 필터링 할 수 있습니다.
 
 ### <a name="access-log-analytics-on-azure-monitor"></a>Azure Monitor에서 Log Analytics 액세스
 
 1. Azure Portal에 로그인합니다.
 
-2. **모니터**를 검색하고 선택합니다.
+2. **모니터** 를 검색하고 선택합니다.
 
-3. **로그**를 선택합니다.
+3. **로그** 를 선택합니다.
 
 4. 로깅 페이지의 지침에 따라 쿼리의 범위를 설정 합니다.
 
 5. 진단을 쿼리할 준비가 되었습니다. 모든 진단 테이블에는 "WVD" 접두사가 있습니다.
 
 >[!NOTE]
->Azure Monitor 로그에 저장 된 테이블에 대 한 자세한 내용은 [Azure Monitor 데이터](https://docs.microsoft.com/azure/azure-monitor/reference/)참조를 참조 하세요. Windows 가상 데스크톱과 관련 된 모든 테이블에는 "WVD" 레이블이 지정 됩니다.
+>Azure Monitor 로그에 저장 된 테이블에 대 한 자세한 내용은 [Azure Monitor 데이터](/azure/azure-monitor/reference/)참조를 참조 하세요. Windows 가상 데스크톱과 관련 된 모든 테이블에는 "WVD" 레이블이 지정 됩니다.
 
 ## <a name="cadence-for-sending-diagnostic-events"></a>진단 이벤트를 보내기 위한 흐름
 
@@ -129,14 +129,14 @@ Azure Portal 또는 Azure Monitor에서 Log Analytics 작업 영역에 액세스
 ## <a name="example-queries"></a>쿼리 예
 
 Azure Monitor Log Analytics UI를 통해 쿼리 예제에 액세스 합니다.
-1. Log Analytics 작업 영역으로 이동한 다음 **로그**를 선택 합니다. 예제 쿼리 UI가 자동으로 표시 됩니다.
-1. 필터를 **Category**로 변경 합니다.
+1. Log Analytics 작업 영역으로 이동한 다음 **로그** 를 선택 합니다. 예제 쿼리 UI가 자동으로 표시 됩니다.
+1. 필터를 **Category** 로 변경 합니다.
 1. **Windows 가상 데스크톱** 을 선택 하 여 사용 가능한 쿼리를 검토 합니다.
 1. **실행** 을 선택 하 여 선택한 쿼리를 실행 합니다.
 
-[Azure Monitor Log Analytics에서 저장 된 쿼리의](../azure-monitor/log-query/saved-queries.md)샘플 쿼리 인터페이스에 대해 자세히 알아보세요.
+[Azure Monitor Log Analytics에서 저장 된 쿼리의](../azure-monitor/log-query/example-queries.md)샘플 쿼리 인터페이스에 대해 자세히 알아보세요.
 
-다음 쿼리 목록에서는 단일 사용자에 대 한 연결 정보 또는 문제를 검토할 수 있습니다. 이러한 쿼리는 [Log Analytics 쿼리 편집기](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries)에서 실행할 수 있습니다. 각 쿼리에 대해을 `userupn` 조회할 사용자의 UPN으로 바꿉니다.
+다음 쿼리 목록에서는 단일 사용자에 대 한 연결 정보 또는 문제를 검토할 수 있습니다. 이러한 쿼리는 [Log Analytics 쿼리 편집기](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query)에서 실행할 수 있습니다. 각 쿼리에 대해을 `userupn` 조회할 사용자의 UPN으로 바꿉니다.
 
 
 단일 사용자에 대 한 모든 연결을 찾으려면 다음을 수행 합니다.

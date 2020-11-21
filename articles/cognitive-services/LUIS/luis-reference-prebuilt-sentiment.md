@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/01/2020
-ms.openlocfilehash: 7c3c0f603b9e7d83e40f43ab00d31f4ca63f2b4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e8e5a127741625fde7910aaabd421836148fc35
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535375"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018670"
 ---
 # <a name="sentiment-analysis"></a>정서 분석
-감정 분석이 구성된 경우 LUIS json 응답에는 감정 분석이 포함됩니다. [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) 설명서에서 감정 분석에 대해 자세히 알아봅니다.
+감정 분석이 구성된 경우 LUIS json 응답에는 감정 분석이 포함됩니다. [Text Analytics](../text-analytics/index.yml) 설명서에서 감정 분석에 대해 자세히 알아봅니다.
 
 LUIS는 Text Analytics V2를 사용 합니다. 
 
@@ -50,4 +50,3 @@ LUIS는 Text Analytics V2를 사용 합니다.
 ## <a name="next-steps"></a>다음 단계
 
 [V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
-

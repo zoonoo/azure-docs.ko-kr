@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-demjoh
 keywords: 의도 인식
-ms.openlocfilehash: 0d718459e0fd0ea410232d3a165b560aa8c59cd1
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 215b25e440b8cad76e0656e47d32b184edf4ac66
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174641"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018704"
 ---
 # <a name="what-is-intent-recognition"></a>의도 인식 이란?
 
@@ -29,7 +29,7 @@ ms.locfileid: "92174641"
 
 * LUIS는 음성 서비스와 통합되어 음성에서 의도를 인식합니다. 음성 서비스 구독은 필요 없고 LUIS만 있으면 됩니다.
 * 음성 의도 인식은 SDK와 통합 됩니다. 음성 서비스에 LUIS 키를 사용할 수 있습니다.
-* Speech SDK를 통한 의도 인식은 [LUIS에서 지 원하는 지역의 하위 집합에 제공](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#intent-recognition)됩니다.
+* Speech SDK를 통한 의도 인식은 [LUIS에서 지 원하는 지역의 하위 집합에 제공](./regions.md#intent-recognition)됩니다.
 
 ## <a name="get-started"></a>시작하기
 
@@ -39,8 +39,8 @@ ms.locfileid: "92174641"
 
 의도 인식에 대 한 샘플 코드:
 
-* [빠른 시작: 미리 빌드된 홈 자동화 앱 사용](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app)
-* [C#용 Speech SDK를 사용하여 음성에서 의도 인식](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)
+* [빠른 시작: 미리 빌드된 홈 자동화 앱 사용](../luis/luis-get-started-create-app.md)
+* [C#용 Speech SDK를 사용하여 음성에서 의도 인식](./how-to-recognize-intents-from-speech-csharp.md)
 * [C에서 Unity를 사용 하 여 의도 인식 및 기타 음성 서비스 #](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/speechrecognizer)
 * [Python 용 Speech SDK를 사용 하 여 의도 인식](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console)
 * [Windows에서 c + + 용 Speech SDK를 사용 하 여 의도 인식 및 기타 음성 서비스](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console)
@@ -49,7 +49,7 @@ ms.locfileid: "92174641"
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [Speech SDK](speech-sdk-reference.md)
+* [Speech SDK](./speech-sdk.md)
 
 ## <a name="next-steps"></a>다음 단계
 

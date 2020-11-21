@@ -12,12 +12,12 @@ ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 340f451080f43fab213a3afc69f2adfae83514d7
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1a08aa4261e8d2546d16bb60394829c83604b4cd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837331"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019962"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>방법: 앱에 선택적 클레임 제공
 
@@ -76,7 +76,7 @@ ms.locfileid: "94837331"
 
 **표 3: v2.0 전용 선택적 클레임**
 
-| JWT 클레임     | Name                            | 설명                                | 메모 |
+| JWT 클레임     | Name                            | Description                                | 메모 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |
@@ -138,6 +138,9 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 1. 추가할 선택적 클레임을 선택합니다.
 1. **추가** 를 선택합니다.
 
+> [!NOTE]
+> 현재 Azure AD B2C 테 넌 트에 등록 된 앱에는 UI 옵션 **토큰 구성** 블레이드를 사용할 수 없습니다. B2C 테 넌 트에 등록 된 응용 프로그램의 경우 응용 프로그램 매니페스트를 수정 하 여 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 [Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용 하 여 사용자 입력 사용자 지정](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input) 을 참조 하세요. 
+
 **애플리케이션 매니페스트를 통해 선택적 클레임 구성:**
 
 [![앱 매니페스트를 사용하여 선택적 클레임을 구성하는 방법을 보여 줍니다](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png).
@@ -175,6 +178,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
     ```
 
 2. 작업을 마쳤으면 **저장** 을 선택합니다. 이제 지정된 선택적 클레임이 애플리케이션의 토큰에 포함됩니다.
+
 
 ### <a name="optionalclaims-type"></a>OptionalClaims 형식
 

@@ -7,34 +7,34 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fa5025e0a2bd260adeb23b4ab7c4d5f8bd83a43a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 041751b5b23dbb3153f1ae638303579a860c0e5b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026805"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020166"
 ---
-# <a name="how-to-monitor-the-gen2-cache"></a>Gen2 캐시 모니터링 방법
+# <a name="how-to-monitor-the-adaptive-cache"></a>적응 캐시를 모니터링 하는 방법
 
-이 문서에서는 워크로드가 Gen2 캐시를 최적으로 활용하는지 판단하여 쿼리 성능을 모니터링하고 문제를 해결하는 방법에 대해 설명합니다.
+이 문서에서는 작업에서 전용 SQL 풀에 대해 적응 캐시를 활용 하 고 있는지 여부를 확인 하 여 쿼리 성능 저하를 모니터링 하 고 문제를 해결 하는 방법을 설명 합니다.
 
-Gen2 스토리지 아키텍처는 Gen2 데이터 웨어하우스용으로 설계된 NVMe 기반의 SSD에 있는 캐시에 가장 자주 쿼리되는 columnstore 세그먼트를 자동으로 계층화합니다. 쿼리가 캐시에 있는 세그먼트를 검색하면 성능이 향상됩니다.
+전용 SQL 풀 저장소 아키텍처는 NVMe 기반 Ssd에 상주 하는 캐시에서 가장 자주 쿼리 되는 columnstore 세그먼트를 자동으로 계층화 합니다. 쿼리가 캐시에 있는 세그먼트를 검색할 때 성능이 향상 됩니다.
  
 ## <a name="troubleshoot-using-the-azure-portal"></a>Azure Portal을 사용하여 문제 해결
 
-Azure Monitor를 사용하여 Gen2 캐시 메트릭을 보고 쿼리 성능 문제를 해결할 수 있습니다. 먼저 Azure Portal로 이동 하 여 **모니터** , **메트릭** 및 **+ 범위 선택** 을 클릭 합니다.
+Azure Monitor를 사용 하 여 쿼리 성능 문제를 해결 하기 위해 캐시 메트릭을 볼 수 있습니다. 먼저 Azure Portal로 이동 하 여 **모니터**, **메트릭** 및 **+ 범위 선택** 을 클릭 합니다.
 
 ![Azure Portal에서 메트릭에 선택 된 범위 선택을 보여 주는 스크린샷](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
 
-검색 및 드롭다운 막대를 사용 하 여 데이터 웨어하우스를 찾습니다. 그런 다음 적용을 선택 합니다.
+검색 및 드롭다운 막대를 사용 하 여 전용 SQL 풀을 찾습니다. 그런 다음 적용을 선택 합니다.
 
 ![데이터 웨어하우스를 선택할 수 있는 범위 선택 창을 보여 주는 스크린샷](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
 
-Gen2 캐시 문제 해결에 대한 키 메트릭은 **캐시 적중 비율** 및 **캐시 사용 비율** 입니다. **캐시 적중 비율** 을 선택한 다음 **메트릭 추가** 단추를 사용 하 여 **캐시 사용 백분율** 을 추가 합니다. 
+캐시 문제 해결에 대 한 주요 메트릭은 캐시 **적중률** 및 **캐시 사용 백분율** 입니다. **캐시 적중 비율** 을 선택한 다음 **메트릭 추가** 단추를 사용 하 여 **캐시 사용 백분율** 을 추가 합니다. 
 
 ![캐시 메트릭](./media/sql-data-warehouse-how-to-monitor-cache/cache-2.png)
 

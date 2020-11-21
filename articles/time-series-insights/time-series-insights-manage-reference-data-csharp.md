@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: fb0c29fb68d0bcd2405cc031008c1c8e5035476f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6f0e5230fb3c59cab690620e837f476f3392a48
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569390"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020081"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>C #을 사용 하 여 Azure Time Series Insights Gen 1 환경에 대 한 참조 데이터 관리
 
 > [!CAUTION]
 > 이는 Gen1 문서입니다.
 
-이 문서에서는 c #, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)및 Azure Active Directory를 결합 하 여 Azure Time Series Insights Gen 1 [참조 데이터 관리 api](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api)에 대 한 프로그래밍 방식 api 요청을 만드는 방법을 보여 줍니다.
+이 문서에서는 c #, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)및 Azure Active Directory를 결합 하 여 Azure Time Series Insights Gen 1 [참조 데이터 관리 api](/rest/api/time-series-insights/gen1-reference-data-api)에 대 한 프로그래밍 방식 api 요청을 만드는 방법을 보여 줍니다.
 
 > [!TIP]
 > [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample)에서 GA C# 코드 샘플을 봅니다.
@@ -32,9 +32,9 @@ ms.locfileid: "91569390"
 
 아래 샘플 코드에서는 다음과 같은 기능을 보여 줍니다.
 
-* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**을 사용하여 액세스 토큰 획득
-* Gen 1 [참조 데이터 관리 API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api)에 대 한 순차적 생성, 읽기, 업데이트 및 삭제 작업입니다.
-* [일반적인 오류 코드](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling)를 포함하는 일반적인 응답 코드
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication** 을 사용하여 액세스 토큰 획득
+* Gen 1 [참조 데이터 관리 API](/rest/api/time-series-insights/gen1-reference-data-api)에 대 한 순차적 생성, 읽기, 업데이트 및 삭제 작업입니다.
+* [일반적인 오류 코드](/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling)를 포함하는 일반적인 응답 코드
 
     Reference Data Management API는 각 항목을 개별적으로 처리하며 한 항목의 오류 때문에 다른 항목이 완료되지 못하는 것은 아닙니다. 예를 들어, 요청에 100개 항목이 있고 한 항목에 오류가 있는 경우 99개 항목이 기록되고 하나는 거부됩니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "91569390"
 
 샘플 코드를 컴파일 및 실행하기 전에 다음 단계를 완료합니다.
 
-1. [Gen 1 Azure Time Series Insights 환경을 프로 비전](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
+1. [Gen 1 Azure Time Series Insights 환경을 프로 비전](./time-series-insights-get-started.md
 ) 합니다.
 
 1. 환경 내에서 [참조 데이터 세트를 만듭니다](time-series-insights-add-reference-data-set.md). 다음 참조 데이터 구성표를 사용합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "91569390"
    | --- | --- |
    | uuid | String |
 
-1. [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)에 설명된 대로 Azure Active Directory에 대한 Azure Time Series Insights 환경을 구성합니다. `http://localhost:8080/`을 **리디렉션 URI**로 사용합니다.
+1. [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)에 설명된 대로 Azure Active Directory에 대한 Azure Time Series Insights 환경을 구성합니다. `http://localhost:8080/`을 **리디렉션 URI** 로 사용합니다.
 
 1. 필요한 프로젝트 종속성을 설치합니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "91569390"
 
 ## <a name="project-dependencies"></a>프로젝트 종속성
 
-최신 버전의 Visual Studio와 **NETCore.app**을 사용하는 것이 좋습니다.
+최신 버전의 Visual Studio와 **NETCore.app** 을 사용하는 것이 좋습니다.
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - 버전 16.4.2+
 * [NETCore.app](https://www.nuget.org/packages/Microsoft.NETCore.App/2.2.8) - 버전 2.2.8
@@ -313,4 +313,4 @@ namespace CsharpTsiMsalGaSample
 
 ## <a name="next-steps"></a>다음 단계
 
-* Gen 1 [참조 데이터 관리 API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) 참조 설명서를 읽습니다.
+* Gen 1 [참조 데이터 관리 API](/rest/api/time-series-insights/gen1-reference-data-api) 참조 설명서를 읽습니다.

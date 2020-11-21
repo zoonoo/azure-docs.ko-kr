@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0f40c91672310d5963dab01180ea92633e970c5c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: eda648a4d00a0ab4a51c66510060ce16421972ff
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055372"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020013"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -49,7 +49,7 @@ Access Control의 구성 요소는 다음과 같습니다.
 - 관리 서비스: 포털의 기능을 자동화하는 데 사용할 수 있습니다.
 - 토큰 변환 규칙 엔진: Access Control에서 발행하는 토큰의 출력 형식을 조작하는 복잡한 로직을 정의하는 데 사용할 수 있습니다.
 
-이러한 구성 요소를 사용하려면 하나 이상의 Access Control 네임스페이스를 만들어야 합니다. *네임스페이스*는 애플리케이션 및 서비스가 통신하는 Access Control의 전용 인스턴스입니다. 네임스페이스는 다른 모든 Access Control 고객으로부터 격리됩니다. 다른 Access Control 고객은 자신의 네임스페이스를 사용합니다. Access Control의 네임스페이스에는 다음과 같은 전용 URL이 있습니다.
+이러한 구성 요소를 사용하려면 하나 이상의 Access Control 네임스페이스를 만들어야 합니다. *네임스페이스* 는 애플리케이션 및 서비스가 통신하는 Access Control의 전용 인스턴스입니다. 네임스페이스는 다른 모든 Access Control 고객으로부터 격리됩니다. 다른 Access Control 고객은 자신의 네임스페이스를 사용합니다. Access Control의 네임스페이스에는 다음과 같은 전용 URL이 있습니다.
 
 ```HTTP
 https://<mynamespace>.accesscontrol.windows.net
@@ -103,7 +103,7 @@ Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)
 
     예를 들어, 네임스페이스 중 하나가 contoso-test이면 `https://contoso-test.accesscontrol.windows.net`으로 이동합니다.
 
-2. **신뢰 관계**에서 **신뢰 당사자 애플리케이션**을 선택하여 ACS 사용 중지에 의해 영향을 받는 애플리케이션 목록을 확인합니다.
+2. **신뢰 관계** 에서 **신뢰 당사자 애플리케이션** 을 선택하여 ACS 사용 중지에 의해 영향을 받는 애플리케이션 목록을 확인합니다.
 3. 가지고 있는 다른 모든 ACS 네임스페이스에 대해 1-2 단계를 반복합니다.
 
 ## <a name="retirement-schedule"></a>사용 중지 일정
@@ -287,7 +287,7 @@ Azure AD B2C가 애플리케이션 및 서비스에 적합한 마이그레이션
 
 ![이 이미지는 Ping Id 로고를 표시 합니다.](./media/active-directory-acs-migration/rsz-ping.png)
 
-[Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. 하나는 ACS와 동일한 많은 기능을 지 원하는 클라우드 id 서비스이 고, 서비스는 더 많은 유연성을 제공 하는 온-프레미스 id 제품에서 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요.
+[Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. 하나는 ACS와 동일한 많은 기능을 지 원하는 클라우드 id 서비스이 고, 서비스는 더 많은 유연성을 제공 하는 온-프레미스 id 제품에서 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/posts/2017/migrating-from-microsoft-acs-to-ping-identity.html)을 참조하세요.
 
 Ping ID와 Auth0으로 작업하는 목적은 모든 Access Control 고객이 앱 및 서비스를 Access Control에서 이전하는 데 필요한 작업 양을 최소화하는 마이그레이션 경로를 갖도록 하는 것입니다.
 
@@ -351,7 +351,7 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 [Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다.
 
 ![이 이미지는 Ping Id 로고 ](./media/active-directory-acs-migration/rsz-ping.png)
- [ping ID](https://www.pingidentity.com) 는 ACS와 유사한 두 가지 솔루션을 제공 합니다. 하나는 ACS와 동일한 많은 기능을 지 원하는 클라우드 id 서비스이 고, 서비스는 더 많은 유연성을 제공 하는 온-프레미스 id 제품에서 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요.
+ [ping ID](https://www.pingidentity.com) 는 ACS와 유사한 두 가지 솔루션을 제공 합니다. 하나는 ACS와 동일한 많은 기능을 지 원하는 클라우드 id 서비스이 고, 서비스는 더 많은 유연성을 제공 하는 온-프레미스 id 제품에서 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/posts/2017/migrating-from-microsoft-acs-to-ping-identity.html)을 참조하세요.
 
 Ping ID와 Auth0으로 작업하는 목적은 모든 Access Control 고객이 앱 및 서비스를 Access Control에서 이전하는 데 필요한 작업 양을 최소화하는 마이그레이션 경로를 갖도록 하는 것입니다.
 

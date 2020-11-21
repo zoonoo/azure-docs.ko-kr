@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.openlocfilehash: a16267b0bc5d9b550c73dc4e1dafee8304ec0237
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc4475eb64744688e901d2b37e30632d044b0115
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541824"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019316"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>언어 이해 (LUIS) 앱 빌드에 대 한 모범 사례
 앱 제작 프로세스를 사용 하 여 LUIS 앱을 빌드합니다.
@@ -87,7 +87,7 @@ LUIS의 예측 데이터를 사용하여 의도가 겹치는지 확인합니다.
 
 ## <a name="do-build-your-app-iteratively-with-versions"></a>버전을 사용 하 여 반복적으로 앱 빌드
 
-각각의 작성 주기는 기존 버전에서 복제된 새 [버전](luis-concept-version.md) 내에 있어야 합니다.
+각각의 작성 주기는 기존 버전에서 복제된 새 [버전](./luis-concept-app-iteration.md) 내에 있어야 합니다.
 
 ## <a name="do-build-for-model-decomposition"></a>모델 분해를 위한 빌드 수행
 
@@ -110,7 +110,7 @@ LUIS의 예측 데이터를 사용하여 의도가 겹치는지 확인합니다.
 * 일반 식 엔터티로 우편 번호의 필수 기능을 추가 합니다.
 * 분해 주소를 다음과 같이 구성 합니다.
     * 미리 작성 된 number 엔터티의 필수 기능을 포함 하는 **번 지 수** 입니다.
-    * **주소의 이름**입니다.
+    * **주소의 이름** 입니다.
     * 통로, 원,도로, 레인 등의 단어를 포함 하는 목록 엔터티의 필수 기능을 포함 하는 **번 지 형식** 입니다.
 
 V3 authoring API는 모델 분해를 허용 합니다.
@@ -137,7 +137,7 @@ LUIS 예측의 정확도를 높이려면 각 의도(None 의도 제외)의 예�
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>활성 학습의 제안 기능 활용
 
-의도에 더 많은 예제 의도를 추가하는 대신 정기적으로 [활성 학습](luis-how-to-review-endpoint-utterances.md)의 **엔드포인트 발화 검토**를 사용합니다. 앱이 지속적으로 엔드포인트 발화를 수신하기 때문에 이 목록은 계속 증가하고 변경됩니다.
+의도에 더 많은 예제 의도를 추가하는 대신 정기적으로 [활성 학습](luis-how-to-review-endpoint-utterances.md)의 **엔드포인트 발화 검토** 를 사용합니다. 앱이 지속적으로 엔드포인트 발화를 수신하기 때문에 이 목록은 계속 증가하고 변경됩니다.
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>앱 성능 모니터링
 

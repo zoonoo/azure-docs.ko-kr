@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 3cf4ce5dc7061065ea501ae1c00cd5b9e5404770
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b93e9fd4047ee3731ef6fe4652bb92ce5145987d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540866"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018823"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>스테이징 또는 프로덕션 앱에 영향을 주지 않고 버전을 사용하여 편집 및 테스트
 
-버전을 통해 다양한 모델을 빌드하고 게시할 수 있습니다. 모델에 변경 사항을 적용하기 전에 현재 활성 모델을 앱의 다른 [버전](luis-concept-version.md)에 복제하는 것이 좋습니다.
+버전을 통해 다양한 모델을 빌드하고 게시할 수 있습니다. 모델에 변경 사항을 적용하기 전에 현재 활성 모델을 앱의 다른 [버전](./luis-concept-app-iteration.md)에 복제하는 것이 좋습니다.
 
 활성 버전은 LUIS 포털 **빌드** 섹션에서 의도, 엔터티, 기능 및 패턴으로 편집 하는 버전입니다. 제작 Api를 사용 하는 경우 버전 관련 REST API 호출에 경로에 버전이 포함 되어 있으므로 활성 버전을 설정할 필요가 없습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "91540866"
 
 ## <a name="clone-a-version"></a>버전 복제
 
-1. 복제할 버전을 선택한 다음, 도구 모음에서 **복제**를 선택합니다.
+1. 복제할 버전을 선택한 다음, 도구 모음에서 **복제** 를 선택합니다.
 
 2. **복제 버전** 대화 상자에서 “0.2”와 같은 새 버전에 사용할 이름을 입력합니다.
 
@@ -63,7 +63,6 @@ ms.locfileid: "91540866"
 
 ## <a name="other-actions"></a>다른 작업
 
-* 버전을 **삭제**하려면 목록에서 버전을 선택한 다음, 도구 모음에서 **삭제**를 선택합니다. **확인**을 선택합니다.
-* 버전의 **이름을 바꾸려면** 목록에서 버전을 선택한 다음, 도구 모음에서 **이름 바꾸기**를 선택합니다. 새 이름을 입력하고 **완료**를 선택합니다.
-* 버전을 **내보내려면** 목록에서 버전을 선택한 다음, 도구 모음에서 **앱 내보내기**를 선택합니다. 백업에 대해 내보내려면 JSON 또는 LU를 선택 하 고, 원본 제어에 저장 하려면 **컨테이너에 대해 내보내기** 를 선택 하 여 [LUIS 컨테이너에서이 앱을 사용](luis-container-howto.md)합니다.
-
+* 버전을 **삭제** 하려면 목록에서 버전을 선택한 다음, 도구 모음에서 **삭제** 를 선택합니다. **확인** 을 선택합니다.
+* 버전의 **이름을 바꾸려면** 목록에서 버전을 선택한 다음, 도구 모음에서 **이름 바꾸기** 를 선택합니다. 새 이름을 입력하고 **완료** 를 선택합니다.
+* 버전을 **내보내려면** 목록에서 버전을 선택한 다음, 도구 모음에서 **앱 내보내기** 를 선택합니다. 백업에 대해 내보내려면 JSON 또는 LU를 선택 하 고, 원본 제어에 저장 하려면 **컨테이너에 대해 내보내기** 를 선택 하 여 [LUIS 컨테이너에서이 앱을 사용](luis-container-howto.md)합니다.

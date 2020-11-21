@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.openlocfilehash: 30b4256b37dc3329801a730192e25f7c24a45594
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60b100e1100b8a4925a967f8b7265f1612e5beb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540911"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018908"
 ---
 # <a name="add-contributors-to-your-app"></a>앱에 참가자 추가
 
@@ -29,15 +29,15 @@ ms.locfileid: "91540911"
 LUIS authoring experience가 LUIS 포털의 **관리-> Azure 리소스** 페이지에서 제작 리소스와 연결 된 경우 마이그레이션 되었습니다.
 
 1. Azure Portal에서 Language Understanding (LUIS) 제작 리소스를 찾습니다. 형식 `LUIS.Authoring` 입니다.
-1. 이 리소스의 **Access Control (IAM)** 페이지에서 **+ 추가** 를 선택 하 고 **역할 할당 추가**를 선택 합니다.
+1. 이 리소스의 **Access Control (IAM)** 페이지에서 **+ 추가** 를 선택 하 고 **역할 할당 추가** 를 선택 합니다.
 
     ![Azure Portal에서 제작 리소스에 대 한 역할 할당을 추가 합니다.](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)
 
-1. **역할 할당 추가** 창에서 참가자 **역할** 을 선택 합니다. **액세스 할당 대상** 옵션에서 **Azure AD 사용자, 그룹 또는 서비스 주체**를 선택 합니다. **선택** 옵션에 사용자의 전자 메일 주소를 입력 합니다. 사용자가 동일한 도메인에 대해 1 개 이상의 전자 메일 주소를 알고 있는 경우 _기본_ 전자 메일 계정 입력을 확인 합니다.
+1. **역할 할당 추가** 창에서 참가자 **역할** 을 선택 합니다. **액세스 할당 대상** 옵션에서 **Azure AD 사용자, 그룹 또는 서비스 주체** 를 선택 합니다. **선택** 옵션에 사용자의 전자 메일 주소를 입력 합니다. 사용자가 동일한 도메인에 대해 1 개 이상의 전자 메일 주소를 알고 있는 경우 _기본_ 전자 메일 계정 입력을 확인 합니다.
 
     ![Azure AD에 대 한 참가자 역할에 사용자 전자 메일 추가](./media/luis-how-to-collaborate/add-role-assignment-for-contributor.png)
 
-    사용자의 전자 메일이 있으면 계정을 선택 하 고 **저장**을 선택 합니다.
+    사용자의 전자 메일이 있으면 계정을 선택 하 고 **저장** 을 선택 합니다.
 
     이 역할 할당에 문제가 있는 경우 [azure 역할 할당](../../role-based-access-control/role-assignments-portal.md) 및 [azure access control 문제 해결](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments)을 검토 하세요.
 
@@ -49,9 +49,9 @@ LUIS authoring experience가 LUIS 포털의 **관리-> Azure 리소스** 페이�
 
 앱의 작성자, 소유자는 한 명이지만 협력자는 많을 수 있습니다. 협력자가 LUIS 앱을 편집하도록 허용하려면 LUIS 호털에 액세스하는 데 사용되는 이메일을 협력자 목록에 추가해야 합니다. 추가되면 앱이 LUIS 포털에 표시됩니다.
 
-1. 맨 위 오른쪽 메뉴에서 **관리**를 선택한 다음, 왼쪽 메뉴에서 **협력자**를 선택합니다.
+1. 맨 위 오른쪽 메뉴에서 **관리** 를 선택한 다음, 왼쪽 메뉴에서 **협력자** 를 선택합니다.
 
-1. 도구 모음에서 **협력자 추가**를 선택합니다.
+1. 도구 모음에서 **협력자 추가** 를 선택합니다.
 
 1. 협력자가 LUIS 포털에 로그인할 때 사용하는 이메일 주소를 입력합니다.
 
@@ -66,7 +66,7 @@ LUIS 앱에 기여자/협력자를 추가 하는 경우 정확한 전자 메일 
 
 ### <a name="azure-active-directory-resources"></a>Azure Active Directory 리소스
 
-조직에서 Azure AD([Azure Active Directory](https://docs.microsoft.com/azure/active-directory/))를 사용하는 경우 사용자가 LUIS를 사용하려고 할 때 LUIS에 사용자의 액세스 정보에 대한 권한이 필요합니다. LUIS에서는 최소한의 리소스를 필요로 합니다.
+조직에서 Azure AD([Azure Active Directory](../../active-directory/index.yml))를 사용하는 경우 사용자가 LUIS를 사용하려고 할 때 LUIS에 사용자의 액세스 정보에 대한 권한이 필요합니다. LUIS에서는 최소한의 리소스를 필요로 합니다.
 
 관리자가 동의하거나 관리자의 동의가 필요하지 않은 계정으로 가입하려고 하면 자세한 설명이 표시됩니다.
 
@@ -87,7 +87,7 @@ LUIS는 표준 Azure AD(Azure Active Directory)에서 동의 흐름을 사용합
 
 테넌트 관리자는 특정 사용자만 LUIS를 사용하도록 지정하려는 경우 다음과 같은 몇 가지 방법을 사용할 수 있습니다.
 * "관리자 동의"(Azure AD의 모든 사용자에 대한 동의)를 제공한 다음 엔터프라이즈 애플리케이션 속성 아래의 "사용자 할당 필요"를 "예"로 설정하고, 마지막으로 원하는 사용자만 애플리케이션에 할당/추가합니다. 이 방법을 사용하는 경우에도 관리자는 앱에 "관리자 동의"를 제공하지만, 앱에 액세스할 수 있는 사용자를 제어할 수 있습니다.
-* 두 번째 솔루션은 [Microsoft Graph의 AZURE AD id 및 액세스 관리 API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) 를 사용 하 여 각 특정 사용자에 게 동의를 제공 하는 것입니다.
+* 두 번째 솔루션은 [Microsoft Graph의 AZURE AD id 및 액세스 관리 API](/graph/azuread-identity-access-management-concept-overview) 를 사용 하 여 각 특정 사용자에 게 동의를 제공 하는 것입니다.
 
 Azure Active Directory 사용자 및 동의에 대해 자세히 알아보세요.
 * 사용자 집합으로 [앱 제한](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md)

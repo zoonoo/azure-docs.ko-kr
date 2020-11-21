@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: 926b79e672c14249ec7c2b053dba7eb3a31443a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 455c7d66748740ae6e2cc11c6a44bbf30c1cbced
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536049"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018840"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Azure 리소스 제작 키로 마이그레이션
 
@@ -32,7 +32,7 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 
 ## <a name="note-before-you-migrate"></a>마이그레이션 전 주의 사항
 
-* **2020 년 11 월 2**일부 터 제작 환경을 마이그레이션해야 합니다. 
+* **2020 년 11 월 2** 일부 터 제작 환경을 마이그레이션해야 합니다. 
 * 마이그레이션은 단방향 프로세스입니다. 마이그레이션한 후에는 뒤로 이동할 수 없습니다.
 * 응용 프로그램의 소유자 인 경우 응용 프로그램은 자동으로 마이그레이션됩니다.
 * 소유자는 마이그레이션할 앱의 하위 집합을 선택할 수 없으며 프로세스를 되돌릴 수 없습니다.
@@ -40,7 +40,7 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 * 소유자는 사용자에 게 마이그레이션을 알리기 위해 협력자에 게 전자 메일을 보낼지 묻는 메시지를 표시 합니다.
 * 응용 프로그램의 협력자 인 경우 응용 프로그램은 사용자와 함께 마이그레이션하지 않습니다.
 * 소유자가 공동 작업자의 마이그레이션에 대해 알 수 있는 방법은 없습니다.
-* 마이그레이션은 자동으로 협력자를 수집 하 여 Azure authoring resource로 이동 하거나 추가 하지 않습니다. 앱 소유자는 마이그레이션 후이 단계를 완료 해야 하는 소유자입니다. 이 단계에서는 [Azure 제작 리소스에 대 한 권한이](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-collaborate)필요 합니다.
+* 마이그레이션은 자동으로 협력자를 수집 하 여 Azure authoring resource로 이동 하거나 추가 하지 않습니다. 앱 소유자는 마이그레이션 후이 단계를 완료 해야 하는 소유자입니다. 이 단계에서는 [Azure 제작 리소스에 대 한 권한이](./luis-how-to-collaborate.md)필요 합니다.
 * 공동 작업자를 Azure 리소스에 할당 한 후에는 액세스 응용 프로그램으로 마이그레이션해야 합니다. 그렇지 않으면 응용 프로그램을 작성 하는 데 사용할 수 있는 권한이 없습니다.
 * 마이그레이션된 사용자는 응용 프로그램의 협력자로 추가할 수 없습니다.
 * 다른 사용자가 소유한 응용 프로그램에 할당 된 예측 키를 소유 하는 경우 소유자와 협력자 모두에 대 한 마이그레이션이 차단 됩니다. 이 문서의 뒷부분에 나오는 권장 사항을 참조 하세요.
@@ -59,7 +59,7 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 |포털|목적|
 |--|--|
 |[Azure](https://azure.microsoft.com/free/cognitive-services)| 예측 및 제작 리소스를 만듭니다.<br> 리소스에 참가자를 할당 합니다.|
-|[LUIS](https://www.luis.ai)| 새 제작 리소스로 마이그레이션합니다.<br> 마이그레이션 흐름에서 새 제작 리소스를 만듭니다.<br> Azure 리소스 **관리**페이지에서 예측 및 리소스 제작 리소스를 앱에 할당 또는 할당 해제  >  **Azure resources** 합니다. <br> 응용 프로그램을 한 제작 리소스에서 다른 제작 리소스로 이동 합니다.  |
+|[LUIS](https://www.luis.ai)| 새 제작 리소스로 마이그레이션합니다.<br> 마이그레이션 흐름에서 새 제작 리소스를 만듭니다.<br> Azure 리소스 **관리** 페이지에서 예측 및 리소스 제작 리소스를 앱에 할당 또는 할당 해제  >  **Azure resources** 합니다. <br> 응용 프로그램을 한 제작 리소스에서 다른 제작 리소스로 이동 합니다.  |
 
 > [!Note]
 > F0 계층에 표시 된 대로 LUIS 앱을 제작 하는 것은 무료입니다. [가격 책정 계층에](luis-limits.md#key-limits)대해 자세히 알아보세요.
@@ -72,7 +72,7 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
    > [!div class="mx-imgBorder"]
    > ![마이그레이션 아이콘](./media/migrate-authoring-key/migration-button.png)
 
-2. 마이그레이션 팝업 창에서 마이그레이션을 계속 하거나 나중에 마이그레이션할 수 있습니다. **지금 마이그레이션**을 선택 합니다.
+2. 마이그레이션 팝업 창에서 마이그레이션을 계속 하거나 나중에 마이그레이션할 수 있습니다. **지금 마이그레이션** 을 선택 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![마이그레이션 프로세스의 첫 번째 팝업 창에서 지금 마이그레이션을 선택 합니다.](./media/migrate-authoring-key/prompt-when-migrating-2.png)
@@ -109,7 +109,7 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 
 ### <a name="create-new-authoring-resource-from-luis-to-migrate"></a>LUIS에서 마이그레이션할 새 제작 리소스 만들기
 
-새 제작 리소스를 만들려는 경우 **새 제작 리소스 만들기** 를 선택 하 고 다음 창에서 다음 정보를 제공 합니다. 그런 후 **완료**를 선택합니다.
+새 제작 리소스를 만들려는 경우 **새 제작 리소스 만들기** 를 선택 하 고 다음 창에서 다음 정보를 제공 합니다. 그런 후 **완료** 를 선택합니다.
 
 > [!div class="mx-imgBorder"]
 > ![제작 리소스를 만들기 위한 창](./media/migrate-authoring-key/create-new-authoring-resource-2.png)
@@ -129,7 +129,7 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 
 ### <a name="use-existing-authoring-resource-to-migrate"></a>기존 제작 리소스를 사용 하 여 마이그레이션
 
-구독이 이미 LUIS authoring Azure 리소스와 연결 되어 있거나, Azure Portal에서 리소스를 만들고 새 리소스를 만드는 대신 해당 리소스를 마이그레이션하려면 **기존 제작 리소스 사용**을 선택 합니다. 다음 창에서 다음 정보를 입력 하 고 **완료**를 선택 합니다.
+구독이 이미 LUIS authoring Azure 리소스와 연결 되어 있거나, Azure Portal에서 리소스를 만들고 새 리소스를 만드는 대신 해당 리소스를 마이그레이션하려면 **기존 제작 리소스 사용** 을 선택 합니다. 다음 창에서 다음 정보를 입력 하 고 **완료** 를 선택 합니다.
 
 > [!div class="mx-imgBorder"]
 >![기존 제작 리소스를 변경 하는 창](./media/migrate-authoring-key/choose-existing-authoring-resource-2.png)
@@ -163,7 +163,7 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 
 LUIS 포털에서 앱을 계속 편집 하기 위해 제작 리소스의 키를 알 필요가 없습니다.
 
-앱을 프로그래밍 방식으로 편집 하려는 경우 제작 키 값이 필요 합니다. 이러한 값은 **Manage**  >  LUIS 포털의**Azure 리소스** 관리 페이지에 표시 됩니다. 리소스 **키** 페이지의 Azure Portal 에서도 사용할 수 있습니다. 또한 더 많은 제작 리소스를 만들어 동일한 페이지에서 할당할 수 있습니다.
+앱을 프로그래밍 방식으로 편집 하려는 경우 제작 키 값이 필요 합니다. 이러한 값은 **Manage**  >  LUIS 포털의 **Azure 리소스** 관리 페이지에 표시 됩니다. 리소스 **키** 페이지의 Azure Portal 에서도 사용할 수 있습니다. 또한 더 많은 제작 리소스를 만들어 동일한 페이지에서 할당할 수 있습니다.
 
  > [!div class="mx-imgBorder"]
  > ![제작 리소스 관리 페이지](./media/migrate-authoring-key/manage-authoring-resource-2.png)
@@ -174,7 +174,7 @@ LUIS 포털에서 앱을 계속 편집 하기 위해 제작 리소스의 키를 
 
 제작 리소스에 [참가자를 추가 하는 방법을](luis-how-to-collaborate.md) 알아봅니다. 기여자는 해당 리소스의 모든 응용 프로그램에 액세스할 수 있습니다.
 
-Azure Portal, 해당 리소스에 대 한 **Access Control (IAM)** 페이지에서 제작 리소스에 참가자를 추가할 수 있습니다. 자세한 내용은 [참가자 액세스 추가](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource)를 참조 하세요.
+Azure Portal, 해당 리소스에 대 한 **Access Control (IAM)** 페이지에서 제작 리소스에 참가자를 추가할 수 있습니다. 자세한 내용은 [앱에 참가자 추가](luis-how-to-collaborate.md)를 참조 하세요.
 
 > [!Note]
 > LUIS 앱의 소유자가 Azure 리소스에서 협력자로 협력자를 마이그레이션하고 추가 하는 경우에도 해당 협력자는 마이그레이션하지 않는 한 여전히 앱에 액세스할 수 없습니다.
@@ -214,10 +214,10 @@ Azure Portal, 해당 리소스에 대 한 **Access Control (IAM)** 페이지에�
 
 다음을 권장합니다.
 * 응용 프로그램을 백업으로 내보냅니다. 이는 마이그레이션 프로세스의 선택적 단계입니다.
-* Azure 리소스 **관리**페이지에서 예측 리소스의 할당을 취소  >  **Azure resources** 합니다.
+* Azure 리소스 **관리** 페이지에서 예측 리소스의 할당을 취소  >  **Azure resources** 합니다.
 * 마이그레이션 프로세스를 진행 합니다.
 * 마이그레이션 후 응용 프로그램을 다시 가져옵니다.
-* Azure 리소스 **관리**페이지에서 응용 프로그램에 예측 키를 다시 할당  >  **Azure resources** 합니다.
+* Azure 리소스 **관리** 페이지에서 응용 프로그램에 예측 키를 다시 할당  >  **Azure resources** 합니다.
 
 > [!Note]
 > 마이그레이션한 후 응용 프로그램을 다시 가져올 때 앱 Id가 서로 다를 수 있습니다. 또한 프로덕션에서 적중 하는 것과는 다릅니다. 이제 이러한 응용 프로그램의 소유자가 됩니다.
@@ -229,7 +229,7 @@ Azure Portal, 해당 리소스에 대 한 **Access Control (IAM)** 페이지에�
 * 유효한 구독과 연결 된 적절 한 테 넌 트에 있는지 확인 합니다. 이 도구 모음에서 사용자의 이니셜 왼쪽에 있는 테 넌 트를 전환할 수 있습니다. ![ 테 넌 트를 전환할 수 있는 도구 모음:](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
 기존 제작 리소스가 있지만 **기존 제작 리소스 사용** 옵션을 선택 하는 경우이 리소스를 찾을 수 없는 경우:
-* 사용자의 리소스는 사용자가 로그인 하는 포털과 다른 위치에서 만들어졌을 것입니다. [LUIS 제작 지역 및 포털](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions)을 확인 합니다.
+* 사용자의 리소스는 사용자가 로그인 하는 포털과 다른 위치에서 만들어졌을 것입니다. [LUIS 제작 지역 및 포털](./luis-reference-regions.md#luis-authoring-regions)을 확인 합니다.
 * 대신 LUIS 포털에서 새 리소스를 만듭니다.
 
 **새 제작 리소스 만들기** 옵션을 선택 하면 "사용자의 Azure 정보를 검색 하지 못했습니다. 나중에 다시 시도 하십시오." 라는 오류 메시지와 함께 마이그레이션이 실패 합니다.

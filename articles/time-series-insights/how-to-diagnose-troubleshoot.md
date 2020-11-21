@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: b994e8ce34319da4827d389b49e23ed6e5bcde95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d26a0ef86ab96940f3d5bb96d87340b77f1faca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653760"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016839"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Azure Time Series Insights Gen2 환경 진단 및 문제 해결
 
@@ -39,7 +39,7 @@ Time Series Insights 환경에 액세스할 수 있는 권한이 없는 경우�
 
 - 이벤트 원본 데이터가 JSON 형식이 아닙니다.
 
-    Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 경우 [지원 되는 json 셰이프](./how-to-shape-query-json.md)를 참조 하세요.
+    Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 경우 [지원 되는 json 셰이프](./concepts-json-flattening-escaping-rules.md)를 참조 하세요.
 
 - 이벤트 원본 키에 필요한 사용 권한이 없습니다.
 
@@ -61,13 +61,13 @@ Time Series Insights 환경에 액세스할 수 있는 권한이 없는 경우�
 
 - 프로비전 시 지정된 시계열 ID 속성이 잘못되었거나 누락되었거나 Null입니다.
 
-    이 문제는 환경 프로비전 시 시계열 ID 속성이 잘못 구성된 경우에 발생할 수 있습니다. 자세한 내용은 [시계열 ID 선택을 위한 모범 사례](./time-series-insights-update-how-to-id.md)를 참조 하세요. 지금은 다른 시계열 ID를 사용하도록 기존 Time Series Insights 환경을 업데이트할 수 없습니다.
+    이 문제는 환경 프로비전 시 시계열 ID 속성이 잘못 구성된 경우에 발생할 수 있습니다. 자세한 내용은 [시계열 ID 선택을 위한 모범 사례](./how-to-select-tsid.md)를 참조 하세요. 지금은 다른 시계열 ID를 사용하도록 기존 Time Series Insights 환경을 업데이트할 수 없습니다.
 
 ## <a name="problem-some-data-shows-but-some-is-missing"></a>문제: 일부 데이터가 표시 되지만 일부 데이터가 없습니다.
 
 시계열 ID 없이 데이터를 전송했을 수 있습니다.
 
-- 이 문제는 페이로드에 시계열 ID 필드가 없는 이벤트를 전송할 때 발생할 수 있습니다. 자세한 내용은 [지원 되는 JSON 셰이프](./how-to-shape-query-json.md)를 참조 하세요.
+- 이 문제는 페이로드에 시계열 ID 필드가 없는 이벤트를 전송할 때 발생할 수 있습니다. 자세한 내용은 [지원 되는 JSON 셰이프](./concepts-json-flattening-escaping-rules.md)를 참조 하세요.
 - 이 문제는 사용자 환경이 제한적이기 때문에 발생할 수 있습니다.
 
     > [!NOTE]
@@ -111,7 +111,7 @@ Timestamp 속성을 명시적으로 지정 하지 않으면 이벤트의 IoT hub
 
 - Time Series Insights S1 또는 S2 환경에 액세스 중일 수 있습니다.
 
-   시계열 모델은 종 량 제 환경 에서만 지원 됩니다. Time Series Insights Gen2 탐색기에서 S1 또는 S2 환경에 액세스 하는 방법에 대 한 자세한 내용은 [탐색기에서 데이터 시각화](./time-series-insights-update-explorer.md)를 참조 하세요.
+   시계열 모델은 종 량 제 환경 에서만 지원 됩니다. Time Series Insights Gen2 탐색기에서 S1 또는 S2 환경에 액세스 하는 방법에 대 한 자세한 내용은 [탐색기에서 데이터 시각화](./concepts-ux-panels.md)를 참조 하세요.
 
    [![환경에 이벤트가 없습니다.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
@@ -121,7 +121,7 @@ Timestamp 속성을 명시적으로 지정 하지 않으면 이벤트의 IoT hub
 
 ## <a name="problem-all-my-instances-in-the-gen2-explorer-lack-a-parent"></a>문제: Gen2 탐색기의 모든 내 인스턴스에서 부모가 부족 합니다.
 
-환경에 시계열 모델 계층 구조가 정의 되어 있지 않은 경우이 문제가 발생할 수 있습니다. 자세한 내용은 [시계열 모델을 사용](/azure/time-series-insights/time-series-insights-overview)하는 방법을 참조 하세요.
+환경에 시계열 모델 계층 구조가 정의 되어 있지 않은 경우이 문제가 발생할 수 있습니다. 자세한 내용은 [시계열 모델을 사용](./time-series-insights-overview.md)하는 방법을 참조 하세요.
 
   [![Unparented 인스턴스는 경고를 표시 합니다.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
@@ -135,8 +135,8 @@ Power BI Desktop에서 Power BI 커넥터의 최신 버전을 사용 하지 않�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [시계열 모델을 사용](/azure/time-series-insights/time-series-insights-overview)하는 방법에 대해 읽어 보세요.
+- [시계열 모델을 사용](./time-series-insights-overview.md)하는 방법에 대해 읽어 보세요.
 
-- [지원 되는 JSON 셰이프](./how-to-shape-query-json.md)에 대해 알아봅니다.
+- [지원 되는 JSON 셰이프](./concepts-json-flattening-escaping-rules.md)에 대해 알아봅니다.
 
-- Azure Time Series Insights Gen2의 [계획 및 제한](./time-series-insights-update-plan.md) 사항을 검토 합니다.
+- Azure Time Series Insights Gen2의 [계획 및 제한](./how-to-plan-your-environment.md) 사항을 검토 합니다.

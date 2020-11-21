@@ -11,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 99cde78f0944544941224927e84e117bd0e660d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81725a28102caf0d69a9fb303eaccdcf2151587d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667846"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020030"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>C #을 사용 하 여 Azure Time Series Insights Gen2 환경에서 데이터 쿼리
 
-이 c # 예제에서는 Azure Time Series Insights Gen2 환경에서 [Gen2 Data Access api](https://docs.microsoft.com/rest/api/time-series-insights/reference-data-access-overview) 의 데이터를 쿼리 하는 방법을 보여 줍니다.
+이 c # 예제에서는 Azure Time Series Insights Gen2 환경에서 [Gen2 Data Access api](/rest/api/time-series-insights/reference-data-access-overview) 의 데이터를 쿼리 하는 방법을 보여 줍니다.
 
 > [!TIP]
 > 에서 Gen2 c # 코드 샘플을 봅니다 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) .
@@ -33,22 +33,22 @@ ms.locfileid: "91667846"
 * [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)를 사용하여 Azure Active Directory를 통해 액세스 토큰을 획득하는 방법
 * 후속 데이터 액세스 API 요청의 `Authorization` 헤더에서 획득한 액세스 토큰을 전달하는 방법
 * 이 샘플에서는 다음에 대 한 HTTP 요청을 수행 하는 방법을 보여 주는 콘솔 인터페이스를 제공 합니다.
-  * [Gen2 환경 API](https://docs.microsoft.com/rest/api/time-series-insights/reference-environments-apis)
-    * [Get Environments Availability API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability) 및 [Get Event Schema API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema)
-  * [Gen2 쿼리 API](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis)
-    * [Get Events API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents), [Get Series API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries) 및 [Get Aggregate Series API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
-  * [Time Series Model API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
-    * [Get Hierarchies API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies) 및 [Hierarchies Batch API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
-    * [Get Types API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes) 및 [Types Batch API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
-    * [Get Instances API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances) 및 [Instances Batch API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
+  * [Gen2 환경 API](/rest/api/time-series-insights/reference-environments-apis)
+    * [Get Environments Availability API](/rest/api/time-series-insights/dataaccessgen2/query/getavailability) 및 [Get Event Schema API](/rest/api/time-series-insights/dataaccessgen2/query/geteventschema)
+  * [Gen2 쿼리 API](/rest/api/time-series-insights/reference-query-apis)
+    * [Get Events API](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents), [Get Series API](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries) 및 [Get Aggregate Series API](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
+  * [Time Series Model API](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
+    * [Get Hierarchies API](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies) 및 [Hierarchies Batch API](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
+    * [Get Types API](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes) 및 [Types Batch API](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
+    * [Get Instances API](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances) 및 [Instances Batch API](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
 
-* 고급 [Search](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#search-features) 및 [TSX](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) 기능
+* 고급 [Search](/rest/api/time-series-insights/reference-model-apis#search-features) 및 [TSX](/rest/api/time-series-insights/reference-time-series-expression-syntax) 기능
 
 ## <a name="prerequisites-and-setup"></a>필수 조건 및 설정
 
 샘플 코드를 컴파일 및 실행하기 전에 다음 단계를 완료합니다.
 
-1. [Gen2 Azure Time Series Insights 환경을 프로 비전](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-how-to-manage#create-the-environment) 합니다.
+1. [Gen2 Azure Time Series Insights 환경을 프로 비전](./how-to-provision-manage.md#create-the-environment) 합니다.
 1. [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)에 설명된 대로 Azure Active Directory에 대한 Azure Time Series Insights 환경을 구성합니다.
 1. [Readme.md](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/Readme.md) 에 지정 된 대로 [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/GenerateCode.bat) 를 실행 하 여 Azure Time Series Insights Gen2 client 종속성을 생성 합니다.
 1. `TSIPreviewDataPlaneclient.sln` 솔루션을 열고 `DataPlaneClientSampleApp`를 Visual Studio의 기본 프로젝트로 설정합니다.
@@ -80,6 +80,6 @@ C # 샘플 코드에 액세스 하려면 [Azure Time Series Insights](https://gi
 
 ## <a name="next-steps"></a>다음 단계
 
-* 쿼리에 대해 자세히 알아보려면 [Query API 참조](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis)를 참조하세요.
+* 쿼리에 대해 자세히 알아보려면 [Query API 참조](/rest/api/time-series-insights/reference-query-apis)를 참조하세요.
 
 * [클라이언트 SDK를 사용 하 여 JavaScript 앱을 연결 하 여](https://github.com/microsoft/tsiclient) Azure Time Series Insights 하는 방법을 참조 하세요.

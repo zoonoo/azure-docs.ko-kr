@@ -11,12 +11,12 @@ ms.date: 9/25/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 60fb258fe2c6063b9b9a3ced0f4ba5f71ffd9d7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ead3393218255808eb67983251fcf9f2561c82c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449510"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020183"
 ---
 # <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Azure Stream Analytics 사용
 
@@ -24,7 +24,7 @@ Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 �
 
 이 문서에서는 Azure Stream Analytics 작업을 사용 하 여 처리량이 높은 데이터 수집에 대 한 출력 싱크로 데이터 웨어하우스를 사용 하는 방법에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * 작업 Azure Stream Analytics-Azure Stream Analytics 작업을 만들려면 [Azure Stream Analytics 사용 시작](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 자습서의 단계에 따라 다음을 수행 합니다.  
 
@@ -32,7 +32,7 @@ Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 �
     2. 이벤트 생성기 애플리케이션 구성 및 시작
     3. Stream Analytics 작업 프로비전
     4. 작업 입력 및 쿼리 지정
-* 데이터 웨어하우스에 대 한 Azure Synapse SQL 풀-새 데이터 웨어하우스를 만들려면 빠른 시작의 단계를 수행 [하 여 새 데이터 웨어하우스를 만듭니다](create-data-warehouse-portal.md).
+* 데이터 웨어하우스에 대 한 Synapse 전용 SQL 풀-새 데이터 웨어하우스를 만들려면 빠른 시작의 단계에 따라 [새 데이터 웨어하우스를 만듭니다](create-data-warehouse-portal.md).
 
 ## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>데이터 웨어하우스를 가리키도록 스트리밍 출력을 지정 합니다.
 
@@ -52,8 +52,8 @@ Azure Portal에서 Stream Analytics 작업으로 이동 하 고 **작업 토폴�
 
 * *출력 별칭*:이 작업 출력의 이름을 입력 합니다.
 * *구독*:
-  * 데이터 웨어하우스가 Stream Analytics 작업과 동일한 구독에 있는 경우 ***구독에서 Azure Synapse Analytics 선택***을 클릭 합니다.
-  * 데이터 웨어하우스가 다른 구독에 있는 경우 Azure Synapse Analytics 설정 수동으로 제공을 클릭 합니다.
+  * 데이터 웨어하우스가 Stream Analytics 작업과 동일한 구독에 있는 경우에는 **구독에서 * Azure Synapse Analytics 선택** _을 클릭 합니다.
+  _ 데이터 웨어하우스가 다른 구독에 있는 경우 Azure Synapse Analytics 설정 수동으로 제공을 클릭 합니다.
 * *데이터베이스*: 드롭다운 목록에서 대상 데이터베이스를 선택 합니다.
 * *사용자 이름*: 데이터베이스에 대한 쓰기 권한이 있는 계정의 사용자 이름을 지정합니다.
 * *암호*: 지정된 사용자 계정에 대한 암호를 제공합니다.
@@ -100,23 +100,23 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 ### <a name="step-5"></a>5단계
 
-Stream Analytics 작업 Azure Portal에서 작업 이름을 클릭 합니다.  ***출력 세부 정보*** 창에서 ***테스트*** 단추를 클릭 합니다.
+Stream Analytics 작업 Azure Portal에서 작업 이름을 클릭 합니다.  _*_출력 세부 정보_*_ 창에서 **_테스트_* _ 단추를 클릭 합니다.
 
 ![테스트 단추 ](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) 데이터베이스에 대 한 연결이 성공 하면 포털에 알림이 표시 됩니다.
 
 ### <a name="step-6"></a>6단계
 
-***작업 토폴로지*** 아래에서 ***쿼리*** 메뉴를 클릭 하 고 생성 된 스트림 출력에 데이터를 삽입 하도록 쿼리를 변경 합니다.  ***선택한 쿼리 테스트*** 단추를 클릭 하 여 쿼리를 테스트 합니다.  쿼리 테스트가 성공 하면 ***쿼리 저장*** 단추를 클릭 합니다.
+_*_작업 토폴로지_*_ 아래에서 _*_쿼리_*_ 메뉴를 클릭 하 고 생성 된 스트림 출력에 데이터를 삽입 하도록 쿼리를 변경 합니다.  _*_선택한 쿼리 테스트_*_ 단추를 클릭 하 여 쿼리를 테스트 합니다.  쿼리 테스트가 성공 하면 _*_쿼리 저장_*_ 단추를 클릭 합니다.
 
 ![쿼리 저장](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaquery.png)
 
 ### <a name="step-7"></a>7단계
 
-Azure Stream Analytics 작업을 시작 합니다.  ***개요*** 메뉴에서 ***시작*** 단추를 클릭 합니다.
+Azure Stream Analytics 작업을 시작 합니다.  _*_개요_*_ 메뉴에서 _*_시작_*_ 단추를 클릭 합니다.
 
 ![Stream Analytics 작업 시작](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastart.png)
 
-작업 시작 창에서 ***시작*** 단추를 클릭 합니다.
+작업 시작 창에서 _ *_시작_** 단추를 클릭 합니다.
 
 ![시작](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
 

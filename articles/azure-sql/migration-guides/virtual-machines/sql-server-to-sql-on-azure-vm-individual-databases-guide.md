@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: c7a62bb3ed07ffbd8cfef520e5d504c810d11e5a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 1558c396566b2fcfc098a749407d5e7a28316b6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497303"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019452"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 가이드: Azure Vm에서 SQL Server으로 SQL Server 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -33,17 +33,17 @@ ms.locfileid: "94497303"
 
 :::image type="content" source="media/sql-server-to-sql-on-azure-vm-migration-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Azure Vm에서 SQL Server로 마이그레이션하려면 다음을 수행 해야 합니다. 
 
 - [데이터베이스 Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 - [Azure Migrate 프로젝트](/azure/migrate/create-manage-projects)입니다.
 - [AZURE VM의](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) 준비 된 대상 SQL Server 원본 SQL Server와 동일 하거나 더 많은 버전입니다.
-- [Azure와 온-프레미스 간의 연결](/architecture/reference-architectures/hybrid-networking).
+- [Azure와 온-프레미스 간의 연결](/azure/architecture/reference-architectures/hybrid-networking).
 - [적절 한 마이그레이션 전략 선택](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate)
 
-## <a name="pre-migration"></a>사전 마이그레이션
+## <a name="pre-migration"></a>마이그레이션 전 단계
 
 마이그레이션을 시작 하기 전에 SQL 환경의 토폴로지를 검색 하 고 원하는 마이그레이션의 실행 가능성을 평가 합니다. 
 
@@ -59,7 +59,7 @@ Azure Migrate은 온-프레미스 컴퓨터의 마이그레이션 적합성을 �
 
 ### <a name="assess"></a>평가
 
-모든 데이터 원본을 검색 한 후 [Data Migration Assistant (DMA)](/dma/dma-overview) 를 사용 하 여 온-프레미스 SQL Server 인스턴스를 Azure VM의 SQL Server 인스턴스로 마이그레이션하는 것을 평가 하 여 원본 및 대상 인스턴스 간의 간격을 파악 합니다. 
+모든 데이터 원본을 검색 한 후 [Data Migration Assistant (DMA)](/sql/dma/dma-overview) 를 사용 하 여 온-프레미스 SQL Server 인스턴스를 Azure VM의 SQL Server 인스턴스로 마이그레이션하는 것을 평가 하 여 원본 및 대상 인스턴스 간의 간격을 파악 합니다. 
 
 
 > [!NOTE]
@@ -123,7 +123,7 @@ DMA 평가 결과에 따라 사용자 데이터베이스가 마이그레이션 �
 1. 마이그레이션을 위한 데이터베이스를 사용 하는 응용 프로그램을 일시 중지/중지 합니다. 
 1. [단일 사용자 모드](/sql/relational-databases/databases/set-a-database-to-single-user-mode)를 사용 하 여 사용자 데이터베이스가 비활성화 되어 있는지 확인 합니다. 
 1. 온-프레미스 위치에 전체 데이터베이스 백업을 수행합니다.
-1. 원격 데스크톱, [Azure 데이터 탐색기](/data-explorer/data-explorer-overview)또는 [AZCopy 명령줄 유틸리티](../../../storage/common/storage-use-azcopy-v10.md) (> 2tb 백업 권장)를 사용 하 여 온-프레미스 백업 파일을 VM에 복사 합니다.
+1. 원격 데스크톱, [Azure 데이터 탐색기](/azure/data-explorer/data-explorer-overview)또는 [AZCopy 명령줄 유틸리티](../../../storage/common/storage-use-azcopy-v10.md) (> 2tb 백업 권장)를 사용 하 여 온-프레미스 백업 파일을 VM에 복사 합니다.
 1. Azure VM에서 SQL Server 전체 데이터베이스 백업을 복원 합니다.
 
 ### <a name="log-shipping--minimize-downtime"></a>로그 전달 (가동 중지 시간 최소화)
@@ -133,7 +133,7 @@ DMA 평가 결과에 따라 사용자 데이터베이스가 마이그레이션 �
 1. 요구 사항에 따라 Azure VM의 대상 SQL Server에 대 한 연결을 설정 합니다. [Azure에서 SQL Server Virtual Machine 연결(Resource Manager)](../../virtual-machines/windows/ways-to-connect-to-sql.md)을 참조하세요.
 1. 마이그레이션할 온-프레미스 사용자 데이터베이스가 전체 또는 대량 로그 복구 모델에 있는지 확인 하세요.
 1. 온-프레미스 위치에 대 한 전체 데이터베이스 백업을 수행 하 고 [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) 키워드를 사용 하 여 로그 체인을 유지 하는 기존 전체 데이터베이스 백업 작업을 수정 합니다.
-1. 원격 데스크톱, [Azure 데이터 탐색기](/data-explorer/data-explorer-overview)또는 [AZCopy 명령줄 유틸리티](../../../storage/common/storage-use-azcopy-v10.md) (>1tb 백업 권장)를 사용 하 여 온-프레미스 백업 파일을 VM에 복사 합니다.
+1. 원격 데스크톱, [Azure 데이터 탐색기](/azure/data-explorer/data-explorer-overview)또는 [AZCopy 명령줄 유틸리티](../../../storage/common/storage-use-azcopy-v10.md) (>1tb 백업 권장)를 사용 하 여 온-프레미스 백업 파일을 VM에 복사 합니다.
 1. Azure VM에서 SQL Server 전체 데이터베이스 백업을 복원 합니다.
 1. Azure VM에서 온-프레미스 데이터베이스와 대상 SQL Server 간의 [로그 전달을](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) 설정 합니다. 이전 단계에서 이미 완료 되었으므로 데이터베이스를 다시 초기화 하지 않아야 합니다.
 1. **Cut over** 대상 서버로 이동 합니다. 

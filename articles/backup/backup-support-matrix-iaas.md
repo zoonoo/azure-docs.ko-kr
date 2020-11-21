@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 650c239423db23bcd4329ab38080b82809fa4f09
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: cff5c68803d0930bbf3310a385ffa0132bcbb3b1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842178"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95017029"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -50,7 +50,7 @@ VM의 백업 정책 수정 | 지원됩니다.<br/><br/> VM은 새 정책의 일�
 자동 클록 조정 | 지원되지 않습니다.<br/><br/> Azure Backup은 VM을 백업할 때 일광 절약 시간제 변경에 따라 자동으로 조정하지 않습니다.<br/><br/>  필요에 따라 정책을 수동으로 수정합니다.
 [하이브리드 백업에 대한 보안 기능](./backup-azure-security-feature.md) |보안 기능을 사용하지 않도록 설정할 수 없습니다.
 머신 시간이 변경된 VM 백업 | 지원되지 않습니다.<br/><br/> 해당 VM에 대 한 백업을 사용 하도록 설정한 후 컴퓨터 시간이 이후 날짜-시간으로 변경 된 경우에도 시간 변경이 되돌아간 경우에도 성공적인 백업이 보장 되지 않습니다.
-[Virtual machine scale sets](../virtual-machine-scale-sets/overview.md) 의 Azure vm | 백업 및 복원은 [오케스트레이션 모드가](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) 3으로 설정 된 vm에 대해 지원 됩니다. <br><br>가용성 집합은 지원 되지 않습니다.
+[Virtual machine scale sets](../virtual-machine-scale-sets/overview.md) 의 Azure vm |가용성 집합은 지원 되지 않습니다.
 
 ## <a name="operating-system-support-windows"></a>운영 체제 지원(Windows)
 
@@ -130,7 +130,7 @@ Azure SSE(스토리지 서비스 암호화)가 설정된 스토리지 계정을 
 관리형 VM으로 업그레이드한 후에 비관리형 VM 백업 복원| 지원됩니다.<br/><br/> 디스크를 복원하고 관리형 VM을 만들 수 있습니다.
 VM이 Managed Disks로 마이그레이션되기 전에 VM을 복원 지점으로 복원 | 지원됩니다.<br/><br/> 비관리형 디스크(기본값)로 복원하고, 복원된 디스크를 Managed Disks로 변환한 후 Managed Disks를 사용하여 VM을 만듭니다.
 삭제된 VM을 복원합니다. | 지원됩니다.<br/><br/> 복구 지점에서 VM을 복원할 수 있습니다.
-도메인 컨트롤러 VM 복원  | 지원됩니다. 자세한 내용은 [도메인 컨트롤러 Vm 복원](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)을 참조 하세요.
+도메인 컨트롤러 VM 복원  | 지원됨. 자세한 내용은 [도메인 컨트롤러 Vm 복원](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)을 참조 하세요.
 다른 가상 네트워크에서 VM 복원 |지원됩니다.<br/><br/> 가상 네트워크는 동일한 구독 및 지역에 있어야 합니다.
 
 ## <a name="vm-compute-support"></a>VM 컴퓨팅 지원
@@ -140,7 +140,7 @@ VM이 Managed Disks로 마이그레이션되기 전에 VM을 복원 지점으로
 VM 크기 |CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든 Azure VM<br/><br/> [자세한 정보](../virtual-machines/sizes.md)
 [가용성 집합](../virtual-machines/availability.md#availability-sets)의 VM 백업 | 지원됩니다.<br/><br/> VM을 신속하게 만드는 옵션으로는 가용성 집합에서 VM을 복원할 수 없습니다. 대신, VM을 복원할 때는 디스크를 복원한 후 이 디스크를 사용하여 VM을 배포하거나 디스크를 복원한 후 이 디스크를 기존 디스크 대신 사용합니다.
 [HUB(하이브리드 사용 혜택)](../virtual-machines/windows/hybrid-use-benefit-licensing.md)로 배포한 VM 백업 | 지원됩니다.
-[확장 집합](../virtual-machine-scale-sets/overview.md)에 배포된 VM 백업 |지원됩니다. 장애 도메인에 대해 [오케스트레이션 모드](../virtual-machine-scale-sets/orchestration-modes.md) 를 2로 설정 해야 합니다. 가용성 집합은 지원 되지 않습니다.
+[확장 집합](../virtual-machine-scale-sets/overview.md)에 배포된 VM 백업 |지원됨. 가용성 집합은 지원 되지 않습니다.
 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images) 에서 배포 된 vm 백업<br/><br/> (Microsoft, 타사에서 게시) |지원됩니다.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다. Vm으로 지원 되 Azure Marketplace Vm은 구매 정보가 필요 하므로 복원 하지 않습니다. 단지 디스크로만 복원 됩니다.
 사용자 지정 이미지(타사)에서 배포한 VM 백업 |지원됩니다.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다.
 Azure로 마이그레이션된 VM 백업| 지원됩니다.<br/><br/> VM을 백업하려면 VM 에이전트를 마이그레이션된 컴퓨터에 설치해야 합니다.

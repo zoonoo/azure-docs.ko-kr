@@ -9,25 +9,25 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.service: cognitive-services
-ms.openlocfilehash: c2802f1b41ed2842e12c808a8c380ebd646ffa03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2401c032f0fc90024e0049fad5f696b8a184544
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540934"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018942"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>의도를 추가하여 발화에 대한 사용자 의도 결정
 
 LUIS 앱에 [의도](luis-concept-intent.md)를 추가하여 동일한 의도가 포함된 질문 또는 명령 그룹을 식별합니다.
 
-LUIS 포털에서 의도는 맨 위 탐색 모음의 **빌드** 섹션에서 관리 된 후 왼쪽 패널의 **의도**에서 관리 됩니다.
+LUIS 포털에서 의도는 맨 위 탐색 모음의 **빌드** 섹션에서 관리 된 후 왼쪽 패널의 **의도** 에서 관리 됩니다.
 
 ## <a name="add-an-intent-to-your-app"></a>앱에 의도 추가
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스** 를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
-1. **의도** 페이지에서 **+ 만들기**를 선택 합니다.
-1. **새 용도 만들기** 대화 상자에서 의도 이름 (예:)을 입력 `ModifyOrder` 하 고 **완료**를 선택 합니다.
+1. **의도** 페이지에서 **+ 만들기** 를 선택 합니다.
+1. **새 용도 만들기** 대화 상자에서 의도 이름 (예:)을 입력 `ModifyOrder` 하 고 **완료** 를 선택 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![의도 추가](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
@@ -81,4 +81,4 @@ LUIS 포털에서 의도는 맨 위 탐색 모음의 **빌드** 섹션에서 관
 
 ## <a name="next-steps"></a>다음 단계
 
-엔터티와 함께 [예제 발화](luis-how-to-add-example-utterances.md)를 추가하는 방법을 자세히 알아봅니다.
+엔터티와 함께 [예제 발화](./luis-how-to-add-entities.md)를 추가하는 방법을 자세히 알아봅니다.

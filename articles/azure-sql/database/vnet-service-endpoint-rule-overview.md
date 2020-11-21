@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 5c5276f11da687f14630bafd007532d172ef3737
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 97be3bf0ecec20c4bf2e1633f893c9aa0d9ba49d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990808"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020285"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Azure SQL Database의 서버에 대 한 가상 네트워크 서비스 끝점 및 규칙 사용
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -80,6 +80,7 @@ Azure SQL Database의 경우 가상 네트워크 규칙 기능에는 다음과 �
 
 - 가상 네트워크 서비스 엔드포인트를 Azure SQL Database로 설정하면 MySQL 및 PostgreSQL Azure 서비스에 대한 엔드포인트도 활성화됩니다. 그러나 엔드포인트를 실행한 상태에서 엔드포인트를 MySQL 또는 PostgreSQL 인스턴스에 연결하려는 시도는 실패합니다.
   - 기본적인 이유는 MySQL 및 PostgreSQL에서 가상 네트워크 규칙이 구성되지 않을 가능성이 높다는 것입니다. Azure Database for MySQL 및 PostgreSQL의 가상 네트워크 규칙을 구성해야 연결이 성공적으로 수행됩니다.
+  - 이미 개인 끝점으로 구성 된 SQL 논리 서버에서 VNet 방화벽 규칙을 정의 하려면 **공용 네트워크 액세스 거부** 를 **아니요** 로 설정 합니다.
 
 - 방화벽에서 IP 주소 범위는 다음 네트워킹 항목에 적용되지만 가상 네트워크 규칙에는 적용되지 않습니다.
   - [S2S(사이트 간) VPN(가상 사설망)][vpn-gateway-indexmd-608y]

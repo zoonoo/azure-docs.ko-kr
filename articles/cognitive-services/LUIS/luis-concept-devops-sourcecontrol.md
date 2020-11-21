@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: e49b713aca23c0373fa71d772ef7567372abe456
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 9e322ac89d8ecad93c2002aa302c155f895911f4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990570"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019197"
 ---
 # <a name="devops-practices-for-luis"></a>LUIS에 대한 DevOps 사례
 
@@ -18,7 +18,7 @@ LUIS (Language Understanding) 앱을 개발 하는 소프트웨어 엔지니어�
 
 ## <a name="source-control-and-branch-strategies-for-luis"></a>LUIS에 대한 소스 제어 및 분기 전략
 
-DevOps의 성공에 따라 달라 지는 주요 요소 중 하나는 [원본 제어](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)에 있습니다. 개발자는 소스 제어 시스템을 사용 하 여 코드를 공동 작업 하 고 변경 내용을 추적할 수 있습니다. 분기를 사용 하면 개발자가 코드 베이스의 다른 버전 간에 전환 하 고 팀의 다른 멤버와 독립적으로 작업할 수 있습니다. 개발자가 한 분기에서 다른 분기의 업데이트를 제안 하기 위해 PR ( [끌어오기 요청](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) )을 발생 시킬 때 또는 변경 내용이 병합 된 경우 [자동](luis-concept-devops-automation.md) 빌드에서 코드를 작성 하 고 지속적으로 테스트 하는 트리거가 될 수 있습니다.
+DevOps의 성공에 따라 달라 지는 주요 요소 중 하나는 [원본 제어](/azure/devops/user-guide/source-control?view=azure-devops)에 있습니다. 개발자는 소스 제어 시스템을 사용 하 여 코드를 공동 작업 하 고 변경 내용을 추적할 수 있습니다. 분기를 사용 하면 개발자가 코드 베이스의 다른 버전 간에 전환 하 고 팀의 다른 멤버와 독립적으로 작업할 수 있습니다. 개발자가 한 분기에서 다른 분기의 업데이트를 제안 하기 위해 PR ( [끌어오기 요청](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) )을 발생 시킬 때 또는 변경 내용이 병합 된 경우 [자동](luis-concept-devops-automation.md) 빌드에서 코드를 작성 하 고 지속적으로 테스트 하는 트리거가 될 수 있습니다.
 
 이 문서에서 설명 하는 개념과 지침을 사용 하 여 소스 제어 시스템의 변경 내용을 추적 하는 동안 LUIS 앱을 개발 하 고 다음과 같은 소프트웨어 엔지니어링 모범 사례를 따를 수 있습니다.
 
@@ -42,13 +42,13 @@ DevOps의 성공에 따라 달라 지는 주요 요소 중 하나는 [원본 제
 
 ## <a name="source-control"></a>원본 제어
 
-소스 코드 관리 시스템에서 LUIS 앱의 [앱 스키마 정의](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) 를 유지 하려면 앱의 [ludown 형식 ( `.lu` )](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  을 사용 합니다. `.lu` 형식에는 사람이 읽을 수 있으므로 형식을 지정 하는 것이 좋습니다 `.json` . 이렇게 하면 pr의 변경 내용을 보다 쉽게 만들고 검토할 수 있습니다.
+소스 코드 관리 시스템에서 LUIS 앱의 [앱 스키마 정의](./app-schema-definition.md) 를 유지 하려면 앱의 [ludown 형식 ( `.lu` )](/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  을 사용 합니다. `.lu` 형식에는 사람이 읽을 수 있으므로 형식을 지정 하는 것이 좋습니다 `.json` . 이렇게 하면 pr의 변경 내용을 보다 쉽게 만들고 검토할 수 있습니다.
 
 ### <a name="save-a-luis-app-using-the-ludown-format"></a>LUDown 형식을 사용 하 여 LUIS 앱 저장
 
 LUIS 앱을 형식으로 저장 하 `.lu` 고 소스 제어에 추가 하려면 다음을 수행 합니다.
 
-- 둘 중 하나: LUIS 포털에서 [앱 버전을 내보내고](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#other-actions) `.lu` 소스 [LUIS portal](https://www.luis.ai/) 제어 리포지토리에 추가 합니다.
+- 둘 중 하나: LUIS 포털에서 [앱 버전을 내보내고](./luis-how-to-manage-versions.md#other-actions) `.lu` 소스 [LUIS portal](https://www.luis.ai/) 제어 리포지토리에 추가 합니다.
 
 - 또는 텍스트 편집기를 사용 하 여 `.lu` LUIS 앱에 대 한 파일을 만들고 소스 제어 리포지토리에 추가 합니다.
 
@@ -58,9 +58,9 @@ LUIS 앱을 형식으로 저장 하 `.lu` 고 소스 제어에 추가 하려면 
 
 ### <a name="build-the-luis-app-from-source"></a>원본에서 LUIS 앱 빌드
 
-LUIS 앱의 경우 *원본에서 빌드하려면* [ `.lu` 원본을 가져와 새 LUIS app 버전을 만들어](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) [버전을 학습](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) 하 고 [게시](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app)합니다. LUIS 포털에서 또는 명령줄에서이 작업을 수행할 수 있습니다.
+LUIS 앱의 경우 *원본에서 빌드하려면* [ `.lu` 원본을 가져와 새 LUIS app 버전을 만들어](./luis-how-to-manage-versions.md#import-version) [버전을 학습](./luis-how-to-train.md) 하 고 [게시](./luis-how-to-publish-app.md)합니다. LUIS 포털에서 또는 명령줄에서이 작업을 수행할 수 있습니다.
 
-- LUIS 포털을 사용 하 여 소스 제어에서 앱 [ `.lu` 버전을 가져오고](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) 앱을 [학습](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) 하 고 [게시할](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) 수 있습니다.
+- LUIS 포털을 사용 하 여 소스 제어에서 앱 [ `.lu` 버전을 가져오고](./luis-how-to-manage-versions.md#import-version) 앱을 [학습](./luis-how-to-train.md) 하 고 [게시할](./luis-how-to-publish-app.md) 수 있습니다.
 
 - 명령줄 또는 CI/CD 워크플로에서 [LUIS 용 Bot Framework 명령줄 인터페이스](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) 를 사용 하 여 [import](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisversionimport) `.lu` 소스 제어에서 앱 버전을 LUIS 응용 프로그램으로 가져오고 앱을 [학습](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luistrainrun) 하 고 [게시할](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) 수 있습니다.
 
@@ -72,7 +72,7 @@ LUIS 응용 프로그램에 대 한 다음 형식의 파일은 소스 제어에�
 
 - [단위 테스트 정의 파일](luis-concept-devops-testing.md#writing-tests) (길이 발언 및 예상 결과)
 
-- 성능 테스트에 사용 되는 [배치 테스트 파일](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-file-format) (길이 발언 및 예상 결과)
+- 성능 테스트에 사용 되는 [배치 테스트 파일](./luis-concept-batch-test.md#batch-file-format) (길이 발언 및 예상 결과)
 
 ### <a name="credentials-and-keys-are-not-checked-in"></a>자격 증명 및 키가 체크 인 되지 않음
 
@@ -81,7 +81,7 @@ LUIS 응용 프로그램에 대 한 다음 형식의 파일은 소스 제어에�
 - LUIS 작성 및 예측 키
 - LUIS 작성 및 예측 끝점
 - Azure 구독 키
-- 액세스 토큰 (예: automation 인증에 사용 되는 Azure [서비스 사용자](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) 에 대 한 토큰)
+- 액세스 토큰 (예: automation 인증에 사용 되는 Azure [서비스 사용자](/cli/azure/ad/sp?view=azure-cli-latest) 에 대 한 토큰)
 
 #### <a name="strategies-for-securely-managing-secrets"></a>비밀을 안전 하 게 관리 하기 위한 전략
 
@@ -92,7 +92,7 @@ LUIS 응용 프로그램에 대 한 다음 형식의 파일은 소스 제어에�
 
 ## <a name="branching-and-merging"></a>분기 및 병합
 
-Git과 같은 분산 버전 제어 시스템은 팀 멤버가 다른 사용자와 공유 하는 개발 분기를 통해 코드 변경 내용을 게시, 공유, 검토 및 반복 하는 방법에 유연성을 제공 합니다. 팀에 적합 한 [Git 분기 전략](https://docs.microsoft.com/azure/devops/repos/git/git-branching-guidance) 을 채택 합니다.
+Git과 같은 분산 버전 제어 시스템은 팀 멤버가 다른 사용자와 공유 하는 개발 분기를 통해 코드 변경 내용을 게시, 공유, 검토 및 반복 하는 방법에 유연성을 제공 합니다. 팀에 적합 한 [Git 분기 전략](/azure/devops/repos/git/git-branching-guidance) 을 채택 합니다.
 
 모든 분기 전략을 채택 하는 것은 무엇이 든, 팀 멤버는 다른 분기에서 진행 되는 작업과 별개로 *기능 분기* 내에서 솔루션에 대해 작업을 수행할 수 있다는 것입니다.
 
@@ -110,7 +110,7 @@ LUIS 프로젝트를 사용 하 여 분기에서 독립적인 작업을 지원 �
 
 1. 주 분기에서 기능 분기 만들기 (일반적으로 마스터 또는 개발에 따라 분기 전략에 따라)
 
-1. 기능 분기의 작업을 지원 하기 위해서만 LUIS 포털 ("*dev branch 앱*") [에서 새 LUIS 앱을 만듭니다](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-start-new-app) .
+1. 기능 분기의 작업을 지원 하기 위해서만 LUIS 포털 ("*dev branch 앱*") [에서 새 LUIS 앱을 만듭니다](./luis-how-to-start-new-app.md) .
 
    * 솔루션의 `.lu` 소스가 이전에 프로젝트의 다른 분기에서 작업을 수행한 후에 저장 되었기 때문에 분기에 이미 있는 경우 해당 파일을 가져와서 dev BRANCH LUIS 앱을 만듭니다 `.lu` .
 
@@ -120,11 +120,11 @@ LUIS 프로젝트를 사용 하 여 분기에서 독립적인 작업을 지원 �
 
 1. 업데이트 테스트-dev branch 앱 테스트에 대 한 자세한 내용은 [LUIS DevOps 테스트](luis-concept-devops-testing.md) 를 참조 하세요.
 
-1. `.lu` [버전 목록](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions)에서와 같이 개발 분기 앱의 활성 버전을 내보냅니다.
+1. `.lu` [버전 목록](./luis-how-to-manage-versions.md)에서와 같이 개발 분기 앱의 활성 버전을 내보냅니다.
 
 1. 업데이트를 체크 인하고 업데이트에 대 한 피어 검토를 초대 합니다. GitHub를 사용 하는 경우 [끌어오기 요청](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)을 발생 시킵니다.
 
-1. 변경 내용이 승인 되 면 업데이트를 마스터 분기로 병합 합니다. 이때 master에서 업데이트 된를 사용 하 여 *마스터* LUIS 앱의 새 [버전](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions) 을 만듭니다 `.lu` . 버전 이름 설정 시 고려 사항은 버전 [관리](#versioning) 를 참조 하세요.
+1. 변경 내용이 승인 되 면 업데이트를 마스터 분기로 병합 합니다. 이때 master에서 업데이트 된를 사용 하 여 *마스터* LUIS 앱의 새 [버전](./luis-how-to-manage-versions.md) 을 만듭니다 `.lu` . 버전 이름 설정 시 고려 사항은 버전 [관리](#versioning) 를 참조 하세요.
 
 1. 기능 분기가 삭제 되 면 기능 분기 작업을 위해 만든 dev branch LUIS 앱을 삭제 하는 것이 좋습니다.
 
@@ -144,9 +144,9 @@ LUIS 프로젝트를 사용 하 여 분기에서 독립적인 작업을 지원 �
 
 - 위에서 설명한 패턴을 따를 경우 개발자는 [독립적인 분기에서 작업을 수행할 수 있습니다](#developers-can-work-from-independent-branches). 그러면이 분기에서 고유한 LUIS 응용 프로그램을 사용 하 여 개발을 지원 합니다. ' Dev branch ' LUIS 앱은 기능 분기에서 작업을 시작 하는 개발 팀의 첫 번째 멤버에 의해 만들어집니다.
 
-- Dev branch LUIS 앱에 [참가자로 팀 멤버를 추가](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-collaborate) 합니다.
+- Dev branch LUIS 앱에 [참가자로 팀 멤버를 추가](./luis-how-to-collaborate.md) 합니다.
 
-- 기능 분기 작업이 완료 되 면 버전 목록에서와 같이 dev branch LUIS 앱의 활성 버전을 내보내고, 업데이트 된 파일을 리포지토리에 `.lu` 저장 하 고, [versions list](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions) `.lu` 변경 내용을 체크 인하고 PR 합니다.
+- 기능 분기 작업이 완료 되 면 버전 목록에서와 같이 dev branch LUIS 앱의 활성 버전을 내보내고, 업데이트 된 파일을 리포지토리에 `.lu` 저장 하 고, [versions list](./luis-how-to-manage-versions.md) `.lu` 변경 내용을 체크 인하고 PR 합니다.
 
 ### <a name="incorporating-changes-from-one-branch-to-another-with-rebase-or-merge"></a>기준 주소 다시 지정 또는 병합을 사용 하 여 한 분기에서 다른 분기로 변경 내용 통합
 
@@ -183,7 +183,7 @@ LUDown 형식의 LUIS 앱은 사람이 읽을 수 있으며,이는 검토에 적
 
 ## <a name="versioning"></a>버전 관리
 
-응용 프로그램은 [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker](https://www.qnamaker.ai/), [Azure Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview)등에서 실행 되는 봇과 같은 항목을 포함할 수 있는 여러 구성 요소로 구성 됩니다. 느슨하게 연결 된 응용 프로그램의 목표를 달성 하려면 [버전 제어](https://docs.microsoft.com/azure/devops/learn/git/what-is-version-control) 를 사용 하 여 응용 프로그램의 각 구성 요소를 독립적으로 버전 관리 함으로써 개발자가 버전 번호를 확인 하 여 주요 변경 내용 또는 업데이트를 검색할 수 있도록 합니다. 자체 리포지토리에 유지 관리 하는 경우 다른 구성 요소와 독립적으로 LUIS 앱의 버전을 지정 하는 것이 더 쉽습니다.
+응용 프로그램은 [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker](https://www.qnamaker.ai/), [Azure Speech Service](../speech-service/overview.md)등에서 실행 되는 봇과 같은 항목을 포함할 수 있는 여러 구성 요소로 구성 됩니다. 느슨하게 연결 된 응용 프로그램의 목표를 달성 하려면 [버전 제어](/azure/devops/learn/git/what-is-version-control) 를 사용 하 여 응용 프로그램의 각 구성 요소를 독립적으로 버전 관리 함으로써 개발자가 버전 번호를 확인 하 여 주요 변경 내용 또는 업데이트를 검색할 수 있도록 합니다. 자체 리포지토리에 유지 관리 하는 경우 다른 구성 요소와 독립적으로 LUIS 앱의 버전을 지정 하는 것이 더 쉽습니다.
 
 Master 분기에 대 한 LUIS 앱에 버전 관리 체계가 적용 되어 있어야 합니다. LUIS 앱에 대 한 업데이트를 마스터에 병합 하는 경우 `.lu` 업데이트 된 원본을 master 분기에 대 한 LUIS 앱의 새 버전으로 가져옵니다.
 
@@ -195,7 +195,7 @@ Master LUIS app 버전에 대해 숫자 버전 관리 체계를 사용 하는 �
 
 주/부 버전은 LUIS app 기능의 변경 범위를 나타내는 데 사용할 수 있습니다.
 
-* 주 버전: 새 [의도](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-intent) 나 [엔터티에](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-entity-types) 대 한 지원과 같은 중요 한 변경 내용
+* 주 버전: 새 [의도](./luis-concept-intent.md) 나 [엔터티에](./luis-concept-entity-types.md) 대 한 지원과 같은 중요 한 변경 내용
 * 부 버전: 중요 한 새 교육 후와 같은 이전 버전과 호환 되는 사소한 변경 내용
 * 빌드: 기능을 변경 하지 않고 다른 빌드만 수행 합니다.
 

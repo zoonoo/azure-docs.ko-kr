@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: a591a8d0df751c071a17b1d77febdb3607a1b53d
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f7c6c3f9c3f468c7b55baf2b0cc45c094d693de5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555773"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018653"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>작성 및 게시 지역과 관련 키
 
@@ -27,7 +27,7 @@ ms.locfileid: "94555773"
 |[au.luis.ai][au.luis.ai] |오스트레일리아| `australiaeast`|
 |[eu.luis.ai][eu.luis.ai] |유럽|`westeurope`|
 
-제작 지역에는 [페어링된 장애 조치 지역이](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)있습니다.
+제작 지역에는 [페어링된 장애 조치 지역이](../../best-practices-availability-paired-regions.md)있습니다.
 
 <a name="regions-and-azure-resources"></a>
 
@@ -82,7 +82,7 @@ https://www.luis.ai에서 만들어진 LUIS 앱은 [유럽](#publishing-to-europ
 | 아시아 | `westus`<br>[www.luis.ai][www.luis.ai]| 일본 동부<br>`japaneast`     |   `https://japaneast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | 아시아 | `westus`<br>[www.luis.ai][www.luis.ai]| 일본 서부<br>`japanwest`     |   `https://japanwest.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | 아시아 | `westus`<br>[www.luis.ai][www.luis.ai]| 한국 중부<br>`koreacentral`     |   `https://koreacentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
-| 아시아 | `westus`<br>[www.luis.ai][www.luis.ai]| 동남 아시아<br>`southeastasia`     |   `https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
+| 아시아 | `westus`<br>[www.luis.ai][www.luis.ai]| 동남아시아<br>`southeastasia`     |   `https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | 북아메리카 |`westus`<br>[www.luis.ai][www.luis.ai] | 캐나다 중부<br>`canadacentral`     |   `https://canadacentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | 북아메리카 |`westus`<br>[www.luis.ai][www.luis.ai] | 미국 중부<br>`centralus`     |   `https://centralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | 북아메리카 |`westus`<br>[www.luis.ai][www.luis.ai] | 미국 동부<br>`eastus`      |  `https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
@@ -102,7 +102,7 @@ https://www.luis.ai에서 만들어진 LUIS 앱은 [유럽](#publishing-to-europ
 
 각 지역에는 장애 조치할 보조 지역이 있습니다. 유럽 및 오스트레일리아 내에서 유럽 장애 조치 (failover)는 오스트레일리아 내부에서 장애 조치 합니다.
 
-제작 지역에는 [페어링된 장애 조치 지역이](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)있습니다.
+제작 지역에는 [페어링된 장애 조치 지역이](../../best-practices-availability-paired-regions.md)있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
