@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: ef92895374f07c79f8ba8d626a0aab3d89733f40
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1ace40098e1d53c6199accea755ffb6969781663
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629651"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015666"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Azure IoT Edge 게시 및 구독
 
@@ -31,7 +31,7 @@ Azure IoT Edge MQTT broker를 사용 하 여 메시지를 게시 하 고 구독�
 - SKU의 **IoT Hub** 는 F1, S1, S2 또는 S3 중 하나입니다.
 - **1.2 이상 버전의 IoT Edge 장치가** 있어야 합니다. IoT Edge MQTT broker는 현재 공개 미리 보기로 제공 되므로 edgeHub 컨테이너에서 다음 환경 변수를 true로 설정 하 여 MQTT broker를 사용 하도록 설정 합니다.
 
-   | 속성 | 값 |
+   | Name | 값 |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
@@ -209,7 +209,7 @@ IoT hub에 대 한 권한 부여 항목은 사용자 정의 항목과 약간 다
 
 ## <a name="publish-and-subscribe-on-user-defined-topics"></a>사용자 정의 항목 게시 및 구독
 
-이 문서에서는 토픽에 등록 하는 **sub_client** 라는 클라이언트와 토픽에 게시 되는 **pub_client** 라는 다른 클라이언트를 사용 합니다. [대칭 키 인증](how-to-authenticate-downstream-device.md#symmetric-key-authentication) 을 사용 하지만 [x.509 자체 서명 인증](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) 또는 [x.509 자체 서명 된 인증](./how-to-authenticate-downstream-device.md#x509-self-signed-authentication)을 사용 하 여 동일한 작업을 수행할 수 있습니다.
+이 문서에서는 토픽에 등록 하는 **sub_client** 라는 클라이언트와 토픽에 게시 되는 **pub_client** 라는 다른 클라이언트를 사용 합니다. [대칭 키 인증](how-to-authenticate-downstream-device.md#symmetric-key-authentication) 을 사용 하지만 [x.509 자체 서명 인증](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) 또는 [x.509 CA 서명 인증](./how-to-authenticate-downstream-device.md#x509-ca-signed-authentication)을 사용 하 여 동일한 작업을 수행할 수 있습니다.
 
 ### <a name="create-publisher-and-subscriber-clients"></a>게시자 및 구독자 클라이언트 만들기
 

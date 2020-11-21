@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 0b0b2cbf3fc637d7ad53be911c0171f6bb971bc6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 31d833d1a6e9c7715ca13582c09f5f72564d683a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896126"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016142"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Azure CLI를 사용 하는 가속화 된 네트워킹을 사용 하 여 Linux 가상 머신 만들기
 
@@ -51,7 +51,7 @@ ms.locfileid: "92896126"
 * **Debian “Stretch”(백포트 커널 포함)**
 * **RHCK (Red Hat 호환 커널)를 사용 하 Oracle Linux 7.4 이상**
 * **UEK 버전 5를 사용 하 Oracle Linux 7.5 이상**
-* **FreeBSD 10.4, 11.1 & 12.0**
+* **FreeBSD 10.4, 11.1 & 12.0 이상**
 
 ## <a name="limitations-and-constraints"></a>제한 및 제약 조건
 
@@ -87,7 +87,7 @@ removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 ## <a name="cli-creation"></a>CLI 생성
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-최신 [Azure CLI](/cli/azure/install-azure-cli)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup* , *myNic* , *myVm* 이 포함됩니다.
+최신 [Azure CLI](/cli/azure/install-azure-cli)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNic*, *myVm* 이 포함됩니다.
 
 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *centralus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
@@ -160,7 +160,7 @@ az network nic create \
 ### <a name="create-a-vm-and-attach-the-nic"></a>VM 만들기 및 NIC 연결
 VM을 만들 때 `--nics`로 만든 NIC를 지정합니다. [Linux 가속 네트워킹](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview)에 나열된 크기 및 배포를 선택합니다. 
 
-[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 가속 네트워킹( *Standard_DS4_v2* )을 지원하는 UbuntuLTS 이미지 및 크기를 사용하여 *myVM* 이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 가속 네트워킹(*Standard_DS4_v2*)을 지원하는 UbuntuLTS 이미지 및 크기를 사용하여 *myVM* 이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \
@@ -200,10 +200,10 @@ ssh azureuser@<your-public-ip-address>
 
 Bash 셸에서 `uname -r`을 입력하고, 커널 버전이 다음 버전 이상인지 확인합니다.
 
-* **Ubuntu 16.04** : 4.11.0-1013
-* **SLES SP3** : 4.4.92-6.18
-* **RHEL** : 7.4.2017120423
-* **CentOS** : 7.4.20171206
+* **Ubuntu 16.04**: 4.11.0-1013
+* **SLES SP3**: 4.4.92-6.18
+* **RHEL**: 7.4.2017120423
+* **CentOS**: 7.4.20171206
 
 
 `lspci` 명령을 사용하여 Mellanox VF 디바이스를 VM에 노출했는지 확인합니다. 반환되는 출력은 다음 출력과 유사합니다.

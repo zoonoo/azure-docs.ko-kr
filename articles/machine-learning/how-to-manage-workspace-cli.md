@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 7de78a52482b2f07cb4e5e036509e0f9e402a3f4
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: aa85822b433e2d8128df9ae3664411ea3fcddec4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576277"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012925"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기
 
@@ -29,6 +29,10 @@ ms.locfileid: "94576277"
 * **로컬 환경** 에서 이 문서의 CLI 명령을 사용하려면 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)가 필요합니다.
 
     [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/)을 사용하는 경우 CLI는 브라우저를 통해 액세스하고 클라우드에 있습니다.
+
+## <a name="limitations"></a>제한 사항
+
+* 새 작업 영역을 만들 때 작업 영역이 자동으로 필요한 Azure 서비스를 만들도록 허용 하거나 기존 서비스를 제공할 수 있습니다. 기존 서비스를 제공 하는 경우 이러한 서비스는 모두 작업 영역과 동일한 Azure 구독에 있어야 합니다.
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Azure 구독에 CLI 연결
 
@@ -189,7 +193,7 @@ Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려
 > [!IMPORTANT]
 > 기존 리소스를 모두 지정할 필요는 없습니다. 하나 이상의 리소스를 지정할 수 있습니다. 예를 들어, 기존 스토리지 계정을 지정할 수 있으며 작업 영역에서는 다른 리소스를 만듭니다.
 
-+ **Azure Storage 계정** : `az storage account show --name <storage-account-name> --query "id"`
++ **Azure Storage 계정**: `az storage account show --name <storage-account-name> --query "id"`
 
     이 명령의 응답은 다음 텍스트와 비슷하며 스토리지 계정의 ID입니다.
 
@@ -198,7 +202,7 @@ Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려
     > [!IMPORTANT]
     > 기존 Azure Storage 계정을 사용 하려는 경우 premium 계정 (Premium_LRS 및 Premium_GRS)이 될 수 없습니다. 또한 계층적 네임 스페이스 (Azure Data Lake Storage Gen2에서 사용)를 가질 수 없습니다. Premium storage 또는 계층적 네임 스페이스는 작업 영역의 _기본_ 저장소 계정에서 지원 되지 않습니다. _기본이 아닌_ 저장소 계정이 포함 된 premium storage 또는 계층적 네임 스페이스를 사용할 수 있습니다.
 
-+ **Azure Application Insights** :
++ **Azure Application Insights**:
 
     1. Application Insights 확장을 선택합니다.
 
@@ -216,13 +220,13 @@ Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault** : `az keyvault show --name <key-vault-name> --query "ID"`
++ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
 
     이 명령의 응답은 다음 텍스트와 비슷하며 Key Vault의 ID입니다.
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Azure Container Registry** : `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     이 명령의 응답은 다음 텍스트와 비슷하며 컨테이너 레지스트리의 ID입니다.
 

@@ -12,12 +12,12 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: 스피커 인식, 음성 생체 측정
-ms.openlocfilehash: 5001ac166b37f3a3852bc14261a5b5d199d778cd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d07a9960c8a586fa137b4b717afbf91740c265d3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844572"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015327"
 ---
 # <a name="what-is-speaker-recognition-preview"></a>Speaker Recognition (미리 보기) 란?
 
@@ -70,10 +70,10 @@ Speaker Identification는 등록 된 스피커 그룹 내에서 알 수 없는 �
 | 지원되는 오디오 형식은 무엇인가요? | Mono 16 비트, 16kHz PCM-인코드된 WAV |
 | **수락** 및 **거부** 응답이 정확 하지 않습니다. 임계값을 조정 하는 방법 | 최적 임계값은 시나리오에 따라 달라 지기 때문에 API는 기본 임계값 0.5에 따라 간단히 "수락" 또는 "거부"를 결정 합니다. 고급 사용자는 기본 결정을 재정의 하 고 사용자의 시나리오에 따라 결과를 미세 조정 하는 것이 좋습니다. |
 | 하나의 스피커를 여러 번 등록할 수 있나요? | 예, 텍스트 종속 확인의 경우 최대 50 번 스피커를 등록할 수 있습니다. 텍스트 독립적인 확인 또는 발표자 id의 경우 최대 300 초까지 오디오를 등록할 수 있습니다. |
-| Azure에 저장 되는 데이터는 무엇 인가요? | 등록 오디오는 음성 프로필을 [삭제할](speaker-recognition-basics.md#deleting-voice-profile-enrollments)때까지 서비스에 저장 됩니다. 인식 오디오 샘플은 유지 되거나 저장 되지 않습니다. |
+| Azure에 저장 되는 데이터는 무엇 인가요? | 등록 오디오는 음성 프로필을 [삭제할](./get-started-speaker-recognition.md#deleting-voice-profile-enrollments)때까지 서비스에 저장 됩니다. 인식 오디오 샘플은 유지 되거나 저장 되지 않습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> * 응용 프로그램에서 사용할 수 있는 일반적인 디자인 패턴의 실행에 대 한 Speaker Recognition [기본 문서](speaker-recognition-basics.md) 를 완료 합니다.
+> * 응용 프로그램에서 사용할 수 있는 일반적인 디자인 패턴의 실행에 대 한 Speaker Recognition [기본 문서](./get-started-speaker-recognition.md) 를 완료 합니다.
 > * 텍스트 독립적인 스피커 확인에 대 한 [비디오 자습서](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) 를 참조 하세요.

@@ -1,18 +1,18 @@
 ---
 title: Common Data Model 형식
 description: Common Data Model metadata system을 사용 하 여 데이터 변환
-author: djpmsft
+author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
-ms.author: daperlov
-ms.openlocfilehash: 452aa3406ac09dd8342d8ade0b56b126067b7582
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/20/2020
+ms.author: makromer
+ms.openlocfilehash: 7fc3a63f841a88451746d088a527a41d756e711f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636411"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015174"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Azure Data Factory의 공통 데이터 모델 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,21 +38,25 @@ Azure Data Factory에서 사용자는 매핑 데이터 흐름을 사용 하 여 
 | Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 서식 | 형식은 이어야 합니다. `cdm` | 예 | `cdm` | format |
-| 메타 데이터 형식 | 데이터에 대 한 엔터티 참조가 있는 위치입니다. CDM 버전 1.0을 사용 하는 경우 매니페스트를 선택 합니다. 1.0 이전에 CDM 버전을 사용 하는 경우 model.json을 선택 합니다. | 예 | `'manifest'` 또는 `'model'` | manifestType |
+| 메타 데이터 형식 | 데이터에 대 한 엔터티 참조가 있는 위치입니다. CDM 버전 1.0을 사용 하는 경우 매니페스트를 선택 합니다. 1.0 이전에 CDM 버전을 사용 하는 경우 model.json을 선택 합니다. | Yes | `'manifest'` 또는 `'model'` | manifestType |
 | 루트 위치: 컨테이너 | CDM 폴더의 컨테이너 이름입니다. | 예 | String | fileSystem |
 | 루트 위치: 폴더 경로 | CDM 폴더의 루트 폴더 위치 | 예 | String | folderPath |
-| 매니페스트 파일: 엔터티 경로 | 루트 폴더에 있는 엔터티의 폴더 경로 | 아니요 | String | entityPath |
+| 매니페스트 파일: 엔터티 경로 | 루트 폴더에 있는 엔터티의 폴더 경로 | no | String | entityPath |
 | 매니페스트 파일: 매니페스트 이름 | 매니페스트 파일의 이름입니다. 기본값은 ' 기본값 '입니다.  | 예 | String | manifestName |
-| 마지막으로 수정한 사람 필터링 | 마지막으로 변경 된 시간에 따라 파일을 필터링 하도록 선택 | 아니요 | 타임스탬프 | modifiedAfter <br> modifiedBefore | 
+| 마지막으로 수정한 사람 필터링 | 마지막으로 변경 된 시간에 따라 파일을 필터링 하도록 선택 | no | 타임스탬프 | modifiedAfter <br> modifiedBefore | 
 | 스키마 연결 된 서비스 | 모음가 있는 연결 된 서비스입니다. | 예, 매니페스트를 사용 하는 경우 | `'adlsgen2'` 또는 `'github'` | corpusStore | 
 | 엔터티 참조 컨테이너 | 컨테이너 모음는에 있습니다. | 예 (매니페스트 및 모음를 사용 하는 경우 ADLS Gen2 | String | adlsgen2_fileSystem |
 | 엔터티 참조 리포지토리 | GitHub 리포지토리 이름 | 예, GitHub에서 매니페스트 및 모음를 사용 하는 경우 | String | github_repository |
 | 엔터티 참조 분기 | GitHub 리포지토리 분기 | 예, GitHub에서 매니페스트 및 모음를 사용 하는 경우 | String |  github_branch |
 | 모음 폴더 | 모음의 루트 위치 | 예, 매니페스트를 사용 하는 경우 | String | corpusPath |
 | 모음 엔터티 | 엔터티 참조 경로 | 예 | String | 엔터티 |
-| 파일을 찾을 수 없음 | True 이면 파일이 없는 경우 오류가 throw 되지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
+| 파일을 찾을 수 없음 | True 이면 파일이 없는 경우 오류가 throw 되지 않습니다. | no | `true` 또는 `false` | ignoreNoFilesFound |
 
-원본 변환에서 사용 하려는 엔터티 정의가 데이터 폴더와 동일한 디렉터리에 있는 경우 "모음에서 entity 사용"을 선택 취소 하 고 엔터티 참조로 사용 하려는 엔터티의 엔터티를 입력 하기만 하면 됩니다.
+원본 및 싱크 변환에서 "엔터티 참조"를 선택 하는 경우 다음 세 가지 옵션 중에서 엔터티 참조 위치를 선택할 수 있습니다.
+
+* 로컬에서 ADF가 이미 사용 하 고 있는 매니페스트 파일에 정의 된 엔터티를 사용 합니다.
+* 사용자 지정은 ADF가 사용 하는 매니페스트 파일과 다른 엔터티 매니페스트 파일을 가리키도록 요청 합니다.
+* Standard는에서 유지 관리 되는 CDM 엔터티의 표준 라이브러리에서 엔터티 참조를 사용 ```Github``` 합니다.
 
 ### <a name="sink-settings"></a>싱크 설정
 
@@ -119,7 +123,7 @@ source(output(
 | 서식 | 형식은 이어야 합니다. `cdm` | 예 | `cdm` | format |
 | 루트 위치: 컨테이너 | CDM 폴더의 컨테이너 이름입니다. | 예 | String | fileSystem |
 | 루트 위치: 폴더 경로 | CDM 폴더의 루트 폴더 위치 | 예 | String | folderPath |
-| 매니페스트 파일: 엔터티 경로 | 루트 폴더에 있는 엔터티의 폴더 경로 | 아니요 | String | entityPath |
+| 매니페스트 파일: 엔터티 경로 | 루트 폴더에 있는 엔터티의 폴더 경로 | no | String | entityPath |
 | 매니페스트 파일: 매니페스트 이름 | 매니페스트 파일의 이름입니다. 기본값은 ' 기본값 '입니다. | 예 | String | manifestName |
 | 스키마 연결 된 서비스 | 모음가 있는 연결 된 서비스입니다. | 예 | `'adlsgen2'` 또는 `'github'` | corpusStore | 
 | 엔터티 참조 컨테이너 | 컨테이너 모음는에 있습니다. | 예, 모음의 경우에는 ADLS Gen2 | String | adlsgen2_fileSystem |
@@ -127,11 +131,11 @@ source(output(
 | 엔터티 참조 분기 | GitHub 리포지토리 분기 | 예 (GitHub의 모음 인 경우) | String |  github_branch |
 | 모음 폴더 | 모음의 루트 위치 | 예 | String | corpusPath |
 | 모음 엔터티 | 엔터티 참조 경로 | 예 | String | 엔터티 |
-| 파티션 경로 | 파티션이 기록 될 위치 | 아니요 | String | 파티션 경로 |
-| 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | 아니요 | `true` 또는 `false` | truncate |
-| 형식 유형 | Parquet 형식을 지정 하려면 선택 합니다. | 아니요 | `parquet` 지정 된 경우 | subformat |
+| 파티션 경로 | 파티션이 기록 될 위치 | no | String | 파티션 경로 |
+| 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | no | `true` 또는 `false` | truncate |
+| 형식 유형 | Parquet 형식을 지정 하려면 선택 합니다. | no | `parquet` 지정 된 경우 | subformat |
 | 열 구분 기호 | DelimitedText에 쓰는 경우 열을 구분 하는 방법 | 예 (DelimitedText에 쓰는 경우) | String | columnDelimiter |
-| 첫 번째 행을 머리글로 | DelimitedText를 사용 하는 경우 열 이름이 헤더로 추가 되는지 여부 | 아니요 | `true` 또는 `false` | columnNamesAsHeader |
+| 첫 번째 행을 머리글로 | DelimitedText를 사용 하는 경우 열 이름이 헤더로 추가 되는지 여부 | no | `true` 또는 `false` | columnNamesAsHeader |
 
 ### <a name="cdm-sink-data-flow-script-example"></a>CDM sink 데이터 흐름 스크립트 예제
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 698a1d52af6c2472d6c025851ead1a0b6a6dff82
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86232528"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015344"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>음성 장치 SDK 마이크 배열 권장 사항
 
@@ -97,7 +97,7 @@ ms.locfileid: "86232528"
 | 샘플링 클록      | 장치 오디오는 지터를 사용 하지 않아야 하 고, 낮은 드리프트로 드롭 아웃 해야 합니다. |
 | 레코드 기능   | 장치는 개별 채널 원시 스트림을 동시에 기록할 수 있어야 합니다. |
 | USB                 | 모든 USB 오디오 입력 장치는 [Usb 오디오 장치 Rev3 사양](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) 에 따라 설명자를 설정 해야 합니다. |
-| 마이크 기 하 도형 | 드라이버에서 [마이크 배열 Geometry 설명자](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) 를 올바르게 구현 해야 합니다. |
+| 마이크 기 하 도형 | 드라이버에서 [마이크 배열 Geometry 설명자](/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) 를 올바르게 구현 해야 합니다. |
 | 검색 기능     | 장치에는 장치에 대 한 undiscoverable 또는 제어할 수 없는 하드웨어, 펌웨어 또는 타사 소프트웨어 기반의 비선형 오디오 처리 알고리즘이 없어야 합니다. |
 | 캡처 형식      | 캡처 형식은 최소 샘플링 율 16Khz 및 권장 24 비트 깊이를 사용 해야 합니다. |
 

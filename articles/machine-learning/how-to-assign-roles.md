@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 6cd4bbec89e955c398f7cb6e37ba5c3dcc6427ea
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 90abd46e73ecb50b5e6de40218571d0ec899752e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961229"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012956"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대한 액세스 관리
 
@@ -27,7 +27,7 @@ ms.locfileid: "94961229"
 >
 > * [Azure Kubernetes 클러스터 리소스에 대 한 액세스 제어](../aks/azure-ad-rbac.md)
 > * [Kubernetes 권한 부여에 Azure RBAC 사용](../aks/manage-azure-rbac.md)
-> * [Blob 데이터에 액세스 하기 위해 Azure RBAC 사용](/storage/common/storage-auth-aad-rbac-portal.md)
+> * [Blob 데이터에 액세스 하기 위해 Azure RBAC 사용](/azure/storage/common/storage-auth-aad-rbac-portal)
 
 > [!WARNING]
 > 일부 역할을 적용 하면 Azure Machine Learning studio에서 다른 사용자에 대 한 UI 기능이 제한 될 수 있습니다. 예를 들어 사용자의 역할에 계산 인스턴스를 만들 수 있는 권한이 없는 경우에는 계산 인스턴스를 만드는 옵션을 스튜디오에서 사용할 수 없습니다. 이 동작은 예상 된 것 이며, 사용자가 액세스 거부 오류를 반환 하는 작업을 시도 하지 못하도록 합니다.
@@ -168,7 +168,7 @@ az role definition update --role-definition update_def.json --subscription <sub-
 > [!IMPORTANT]
 > 이 테이블에서로 시작 하는 모든 경로 `/` 는 다음에 대 한 **상대 경로** 입니다 `Microsoft.MachineLearningServices/` .
 
-| 작업 | 구독 수준 범위 | 리소스 그룹 수준 범위 | 작업 영역 수준 범위 |
+| 활동 | 구독 수준 범위 | 리소스 그룹 수준 범위 | 작업 영역 수준 범위 |
 | ----- | ----- | ----- | ----- |
 | 새 작업 영역 만들기 | 필요하지 않음 | 소유자 또는 참가자 | 해당 없음 (소유자가 되거나 생성 후 상위 범위 역할 상속) |
 | 구독 수준 Amlcompute 할당량을 요청 하거나 작업 영역 수준 할당량을 설정 합니다. | 소유자, 참가자 또는 사용자 지정 역할 </br>있어 `/locations/updateQuotas/action`</br> 구독 범위 | 권한 없음 | 권한 없음 |
@@ -192,7 +192,7 @@ az role definition update --role-definition update_def.json --subscription <sub-
 
 Azure Machine Learning 작업 영역을 사용 하 여 MLflow 작업을 수행 하려면 사용자 지정 역할에 다음 범위를 사용 합니다.
 
-| MLflow 작업 | 범위 |
+| MLflow 작업 | Scope |
 | --- | --- |
 | 작업 영역 추적 저장소의 모든 실험을 나열 하 고, id로 실험을 가져오고, 이름별로 실험을 가져옵니다. | `Microsoft.MachineLearningServices/workspaces/experiments/read` |
 | 이름으로 실험을 만들고, 실험에서 태그를 설정 하 고, 삭제 하도록 표시 된 실험을 복원 합니다.| `Microsoft.MachineLearningServices/workspaces/experiments/write` | 

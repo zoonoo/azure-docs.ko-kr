@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/17/2020
-ms.openlocfilehash: 730178d974ba95db968332ac669f701486b513bd
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.date: 11/20/2020
+ms.openlocfilehash: 9d6970331024ea0cd08e890cc62507d9eb230678
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738529"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016336"
 ---
 # <a name="co-sell-partner-engagement"></a>공동 판매 파트너 참여
 
@@ -85,6 +85,13 @@ ms.locfileid: "94738529"
         :::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="이 이미지는 공동 판매 리뷰를 요청 하는 대상 드롭다운을 보여 줍니다.":::
 
     이렇게 하면 프로세스를 완료 하는 데 도움이 됩니다.
+
+## <a name="see-your-offers-co-sell-status"></a>제품의 공동 판매 상태 확인
+
+[파트너 센터에서 공동 판매 옵션이](./partner-center-portal/commercial-marketplace-co-sell.md)제공 되는 제품의 경우 제품 개요 페이지에서 제품의 현재 공동 판매 상태를 볼 수 있습니다.
+
+ :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="이 이미지는 제품의 현재 공동 판매 상태를 보여 줍니다.":::
+
 
 ## <a name="next-steps"></a>다음 단계
 

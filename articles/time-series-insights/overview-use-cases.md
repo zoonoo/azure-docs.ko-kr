@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: b5b6233c0978f15aad94b7f66f8935c2d6f6f1c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8f13a20232fab61dc082c1b12b7ddaa11807554
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666962"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016193"
 ---
 # <a name="azure-time-series-insights-gen2-use-cases"></a>Azure Time Series Insights Gen2 자습서
 
@@ -52,13 +52,13 @@ Azure Time Series Insights Gen2는 직관적이 고 간단 하 게 사용할 수
 
 Azure Time Series Insights Gen2에 저장 된 데이터와 상호 작용 하는 세 가지 기본 방법은 다음과 같습니다.
 
-* 시작 하는 가장 쉽고 쉬운 방법은 Azure Time Series Insights Gen2 탐색기를 사용 하는 것입니다. 이 탐색기를 사용하면 한 장소에서 모든 IoT 데이터를 신속하게 시각화할 수 있습니다. 열 지도와 같은 도구를 제공 하 여 데이터의 잘못 된 부분을 발견할 수 있도록 합니다. 큐브 뷰도 제공합니다. 이를 사용 하 여 하나 이상의 Azure Time Series Insights Gen2 환경에서 최대 4 개의 보기를 단일 대시보드로 비교할 수 있습니다. 대시보드는 모든 위치의 시계열 데이터 보기를 제공합니다. [Azure Time Series Insights Gen2 탐색기](./time-series-insights-update-explorer.md)에 대해 자세히 알아보세요. 환경을 계획 하려면 [Gen2 계획 Azure Time Series Insights](./time-series-insights-update-plan.md)를 참조 하세요.
+* 시작 하는 가장 쉽고 쉬운 방법은 Azure Time Series Insights Gen2 탐색기를 사용 하는 것입니다. 이 탐색기를 사용하면 한 장소에서 모든 IoT 데이터를 신속하게 시각화할 수 있습니다. 열 지도와 같은 도구를 제공 하 여 데이터의 잘못 된 부분을 발견할 수 있도록 합니다. 큐브 뷰도 제공합니다. 이를 사용 하 여 하나 이상의 Azure Time Series Insights Gen2 환경에서 최대 4 개의 보기를 단일 대시보드로 비교할 수 있습니다. 대시보드는 모든 위치의 시계열 데이터 보기를 제공합니다. [Azure Time Series Insights Gen2 탐색기](./concepts-ux-panels.md)에 대해 자세히 알아보세요. 환경을 계획 하려면 [Gen2 계획 Azure Time Series Insights](./how-to-plan-your-environment.md)를 참조 하세요.
 
 * 두 번째 시작 방법은 JavaScript SDK를 사용 하 여 웹 응용 프로그램에 강력한 차트 및 그래프를 빠르게 포함 하는 것입니다. 코드 몇 줄이면 강력한 쿼리를 작성할 수 있습니다. 이를 사용 하 여 꺾은선형 차트, 원형 차트, 가로 막대형 차트, 열 지도, 데이터 표 등을 채울 수 있습니다. 이 모든 요소는 SDK를 사용하여 기본적으로 존재합니다. SDK는 Azure Time Series Insights Gen2 쿼리 Api를 추상화 하기도 합니다. 이러한 API를 사용하여 대시보드에 표시할 데이터를 쿼리하는 SQL과 유사한 조건자를 작성할 수 있습니다. 하이브리드 프레젠테이션 계층 솔루션의 경우 Azure Time Series Insights Gen2는 매개 변수가 있는 Url을 제공 합니다. 이를 통해 데이터에 대 한 심층 다이브 Azure Time Series Insights Gen2 탐색기를 통해 원활한 연결 지점이 제공 됩니다.
 
   * JavaScript SDK에 대해 자세히 알아보려면 [JS 클라이언트 라이브러리](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) 및 [샘플 클라이언트](https://github.com/Microsoft/tsiclient) 설명서를 참조 하세요.
 
-  * [Azure Time Series Insights Gen2 탐색기에서 데이터 시각화](time-series-insights-update-explorer.md)를 검토 하 여 url 및 새 UI를 공유 하는 방법에 대해 자세히 알아보세요.
+  * [Azure Time Series Insights Gen2 탐색기에서 데이터 시각화](./concepts-ux-panels.md)를 검토 하 여 url 및 새 UI를 공유 하는 방법에 대해 자세히 알아보세요.
 
 * 세 번째 시작 방법은 강력한 Api를 사용 하 여 Azure Time Series Insights Gen2에 저장 된 데이터를 쿼리 하는 것입니다. Azure Time Series Insights Gen2에는,, 및와 같은 임시 연산자가 있습니다 `from` `to` `first` `last` . 집계 및 변형 (예:,,,,, 등)이 있습니다 `average` `sum` `min` `max` `time-weighted average` `time-weighted sum` . 또한 필터링, 산술 및 부울 연산자, 스칼라 함수 등을 수행할 수 있습니다. 이러한 모든 연산자를 통해 다운스트림 응용 프로그램은 데이터에서 흥미로운 추세 및 패턴을 신속 하 게 찾을 수 있습니다. 이러한 항목을 사용 하 여 기업 시각화를 사용 하 여 변칙을 발견할 수 있습니다.
 
@@ -100,6 +100,6 @@ Azure Time Series Insights Gen2는 두 가지 간단 하 고 비용 효율적인
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Time Series Insights Gen2 탐색기](./time-series-insights-update-explorer.md)에 대해 자세히 알아보세요.
-* 환경을 계획 하려면 [Azure Time Series Insights Gen2 모범 사례](./time-series-insights-update-plan.md) 를 참조 하세요.
+* [Azure Time Series Insights Gen2 탐색기](./concepts-ux-panels.md)에 대해 자세히 알아보세요.
+* 환경을 계획 하려면 [Azure Time Series Insights Gen2 모범 사례](./how-to-plan-your-environment.md) 를 참조 하세요.
 * [샘플 클라이언트](https://github.com/Microsoft/tsiclient) 설명서를 참조 하세요.

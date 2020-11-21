@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 6ebc1831b990b540bcb9a3856c380c28142af536
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 2f03746a6a5afc388db2beeff84b3ab4cbd393b5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357116"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014597"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>공간 분석 컨테이너 (미리 보기)를 설치 하 고 실행 합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "94357116"
 
 #### <a name="azure-stack-edge-device"></a>[Azure Stack Edge 장치](#tab/azure-stack-edge)
 
-Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비스 제공 서비스 솔루션 및 AI 지원에 지 컴퓨팅 장치입니다. 자세한 준비 및 설정 지침은 [Azure Stack Edge 설명서](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep)를 참조 하세요.
+Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비스 제공 서비스 솔루션 및 AI 지원에 지 컴퓨팅 장치입니다. 자세한 준비 및 설정 지침은 [Azure Stack Edge 설명서](../../databox-online/azure-stack-edge-deploy-prep.md)를 참조 하세요.
 
 #### <a name="desktop-machine"></a>[데스크톱 컴퓨터](#tab/desktop-machine)
 
@@ -59,7 +59,7 @@ Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비
 * [Nvidia 그래픽 드라이버](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) 및 [Nvidia, da 도구 키트](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 * [NVIDIA mp](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf) 구성 (다중 프로세스 서비스)
 * [DOCKER CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) 및 [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker) 
-* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) 런타임.
+* [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) 런타임.
 
 ---
 
@@ -93,7 +93,7 @@ Azure 구독이 승인 되지 않은 경우에는 컨테이너를 실행할 수 
  
 공간 분석은 Azure Stack Edge의 계산 기능을 사용 하 여 AI 솔루션을 실행 합니다. 계산 기능을 사용 하도록 설정 하려면 다음을 확인 합니다. 
 
-* Azure Stack Edge 장치를 [연결 하 여 활성화](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate) 했습니다. 
+* Azure Stack Edge 장치를 [연결 하 여 활성화](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md) 했습니다. 
 * 장치에 액세스 하기 위해 PowerShell 5.0 이상을 실행 하는 Windows 클라이언트 시스템이 있습니다.  
 * Kubernetes 클러스터를 배포 하려면 [Azure Portal](https://portal.azure.com/)에서 **로컬 UI** 를 통해 Azure Stack Edge 장치를 구성 해야 합니다. 
   1. Azure Stack Edge 장치에서 계산 기능을 사용 하도록 설정 합니다. 계산을 사용 하도록 설정 하려면 장치의 웹 인터페이스에서 **계산** 페이지로 이동 합니다. 
@@ -117,7 +117,7 @@ Edge 컴퓨팅 역할이 Edge 디바이스에 설정되면 두 가지 디바이�
 
 > [!NOTE]
 > * 현재 IoT Edge 장치에는 Linux 플랫폼만 지원 됩니다. Azure Stack Edge 장치에 대 한 문제 해결에 대 한 도움말은 [로깅 및 문제 해결](spatial-analysis-logging.md) 문서를 참조 하세요.
-> * 프록시 서버를 통해 통신 하도록 IoT Edge 장치를 구성 하는 방법에 대해 자세히 알아보려면 [프록시 서버를 통해 통신 하도록 IoT Edge 장치 구성](https://docs.microsoft.com/azure/iot-edge/how-to-configure-proxy-support#azure-portal) 을 참조 하세요.
+> * 프록시 서버를 통해 통신 하도록 IoT Edge 장치를 구성 하는 방법에 대해 자세히 알아보려면 [프록시 서버를 통해 통신 하도록 IoT Edge 장치 구성](../../iot-edge/how-to-configure-proxy-support.md#azure-portal) 을 참조 하세요.
 
 ###  <a name="enable-mps-on-azure-stack-edge"></a>Azure Stack Edge에서 MP 사용 
 
@@ -129,7 +129,7 @@ Edge 컴퓨팅 역할이 Edge 디바이스에 설정되면 두 가지 디바이�
     winrm quickconfig
     ```
     
-    방화벽 예외에 대 한 경고가 표시 되는 경우 네트워크 연결 유형을 확인 하 고 [Windows 원격 관리](https://docs.microsoft.com/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) 설명서를 참조 하세요.
+    방화벽 예외에 대 한 경고가 표시 되는 경우 네트워크 연결 유형을 확인 하 고 [Windows 원격 관리](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) 설명서를 참조 하세요.
 
 3. 장치 IP 주소에 변수를 할당 합니다. 
     
@@ -246,7 +246,7 @@ sudo systemctl --now enable nvidia-mps.service
 
 ## <a name="configure-azure-iot-edge-on-the-host-computer"></a>호스트 컴퓨터에서 Azure IoT Edge 구성
 
-공간 분석 컨테이너를 호스트 컴퓨터에 배포 하려면 Standard (S1) 또는 Free (F0) 가격 책정 계층을 사용 하 여 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) 서비스의 인스턴스를 만듭니다. 호스트 컴퓨터가 Azure Stack Edge 인 경우 Azure Stack Edge 리소스에서 사용 하는 것과 동일한 구독 및 리소스 그룹을 사용 합니다.
+공간 분석 컨테이너를 호스트 컴퓨터에 배포 하려면 Standard (S1) 또는 Free (F0) 가격 책정 계층을 사용 하 여 [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) 서비스의 인스턴스를 만듭니다. 호스트 컴퓨터가 Azure Stack Edge 인 경우 Azure Stack Edge 리소스에서 사용 하는 것과 동일한 구독 및 리소스 그룹을 사용 합니다.
 
 Azure CLI를 사용 하 여 Azure IoT Hub의 인스턴스를 만듭니다. 해당 하는 경우 매개 변수를 바꿉니다. 또는 [Azure Portal](https://portal.azure.com/)에서 Azure IoT Hub를 만들 수 있습니다.
 
@@ -261,7 +261,7 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-호스트 컴퓨터가 Azure Stack Edge 장치가 아닌 경우 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) 버전 1.0.9를 설치 해야 합니다. 올바른 버전을 다운로드 하려면 다음 단계를 따르세요.
+호스트 컴퓨터가 Azure Stack Edge 장치가 아닌 경우 [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) 버전 1.0.9를 설치 해야 합니다. 올바른 버전을 다운로드 하려면 다음 단계를 따르세요.
 
 Ubuntu Server 18.04:
 ```bash
@@ -292,7 +292,7 @@ sudo apt-get update
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-그런 다음 [연결 문자열](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal)을 사용 하 여 호스트 컴퓨터를 IoT Hub 인스턴스의 IoT Edge 장치로 등록 합니다.
+그런 다음 [연결 문자열](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06)을 사용 하 여 호스트 컴퓨터를 IoT Hub 인스턴스의 IoT Edge 장치로 등록 합니다.
 
 IoT Edge 장치를 Azure IoT Hub에 연결 해야 합니다. 이전에 만든 IoT Edge 장치에서 연결 문자열을 복사 해야 합니다. 또는 Azure CLI에서 아래 명령을 실행할 수 있습니다.
 
@@ -306,7 +306,7 @@ az iot hub device-identity show-connection-string --device-id my-edge-device --h
 sudo systemctl restart iotedge
 ```
 
-[Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) 또는 [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli)에서 호스트 컴퓨터의 IoT 모듈로 공간 분석 컨테이너를 배포 합니다. 포털을 사용 하는 경우 이미지 URI를 Azure Container Registry 위치로 설정 합니다. 
+[Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) 또는 [Azure CLI](../../iot-edge/how-to-deploy-modules-cli.md)에서 호스트 컴퓨터의 IoT 모듈로 공간 분석 컨테이너를 배포 합니다. 포털을 사용 하는 경우 이미지 URI를 Azure Container Registry 위치로 설정 합니다. 
 
 다음 단계를 사용 하 여 Azure CLI를 사용 하 여 컨테이너를 배포 합니다.
 
@@ -318,7 +318,7 @@ sudo systemctl restart iotedge
 
 다음 표에서는 IoT Edge 모듈에서 사용 하는 다양 한 환경 변수를 보여 줍니다. 에서 특성을 사용 하 여 위에 연결 된 배포 매니페스트에 설정할 수도 있습니다 `env` `spatialanalysis` .
 
-| 설정 이름 | 값 | 설명|
+| 설정 이름 | 값 | Description|
 |---------|---------|---------|
 | ARCHON_LOG_LEVEL | 나타납니다 구문 | 로깅 수준에서 두 값 중 하나를 선택 합니다.|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | 수정 안 함|
@@ -335,7 +335,7 @@ sudo systemctl restart iotedge
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
 
-사용자 고유의 설정과 작업을 선택 하 여 [Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179) 또는 [데스크톱 컴퓨터](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 에 대 한 배포 매니페스트를 업데이트 한 후 아래 [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) 명령을 사용 하 여 호스트 컴퓨터에서 컨테이너를 IoT Edge 모듈로 배포할 수 있습니다.
+사용자 고유의 설정과 작업을 선택 하 여 [Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179) 또는 [데스크톱 컴퓨터](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 에 대 한 배포 매니페스트를 업데이트 한 후 아래 [Azure CLI](../../iot-edge/how-to-deploy-modules-cli.md) 명령을 사용 하 여 호스트 컴퓨터에서 컨테이너를 IoT Edge 모듈로 배포할 수 있습니다.
 
 ```azurecli
 az login
@@ -343,7 +343,7 @@ az extension add --name azure-iot
 az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
 ```
 
-|매개 변수  |설명  |
+|매개 변수  |Description  |
 |---------|---------|
 | `--hub-name` | Azure IoT Hub 이름입니다. |
 | `--content` | 배포 파일의 이름입니다. |
@@ -366,14 +366,14 @@ az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge devic
 
 ## <a name="redeploy-or-delete-the-deployment"></a>배포 다시 배포 또는 삭제
 
-배포를 업데이트 해야 하는 경우 이전 배포가 성공적으로 배포 되었는지 확인 하거나 완료 되지 않은 IoT Edge 장치 배포를 삭제 해야 합니다. 그렇지 않으면 해당 배포는 계속 진행 되며 시스템이 잘못 된 상태로 유지 됩니다. Azure Portal 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment)를 사용할 수 있습니다.
+배포를 업데이트 해야 하는 경우 이전 배포가 성공적으로 배포 되었는지 확인 하거나 완료 되지 않은 IoT Edge 장치 배포를 삭제 해야 합니다. 그렇지 않으면 해당 배포는 계속 진행 되며 시스템이 잘못 된 상태로 유지 됩니다. Azure Portal 또는 [Azure CLI](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment)를 사용할 수 있습니다.
 
 ## <a name="use-the-output-generated-by-the-container"></a>컨테이너에 의해 생성 된 출력 사용
 
 컨테이너에서 생성 된 출력을 사용 하기 시작 하려면 다음 문서를 참조 하세요.
 
-*   선택한 프로그래밍 언어에 대 한 Azure Event Hub SDK를 사용 하 여 Azure IoT Hub 끝점에 연결 하 고 이벤트를 수신 합니다. 자세한 내용은 [기본 제공 끝점에서 장치-클라우드 메시지 읽기](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) 를 참조 하세요. 
-*   Azure IoT Hub에 대 한 메시지 라우팅을 설정 하 여 이벤트를 다른 끝점으로 보내거나 Azure Blob Storage에 이벤트를 저장 합니다. 자세한 내용은 [IoT Hub 메시지 라우팅](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) 을 참조 하세요. 
+*   선택한 프로그래밍 언어에 대 한 Azure Event Hub SDK를 사용 하 여 Azure IoT Hub 끝점에 연결 하 고 이벤트를 수신 합니다. 자세한 내용은 [기본 제공 끝점에서 장치-클라우드 메시지 읽기](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) 를 참조 하세요. 
+*   Azure IoT Hub에 대 한 메시지 라우팅을 설정 하 여 이벤트를 다른 끝점으로 보내거나 Azure Blob Storage에 이벤트를 저장 합니다. 자세한 내용은 [IoT Hub 메시지 라우팅](../../iot-hub/iot-hub-devguide-messages-d2c.md) 을 참조 하세요. 
 
 ## <a name="running-spatial-analysis-with-a-recorded-video-file"></a>기록 된 비디오 파일을 사용 하 여 공간 분석 실행
 
@@ -381,7 +381,7 @@ az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge devic
     1. **사용 하지 않도록 설정** 해야 하는 **보안 전환** 변경
     2. **Blob 공용 액세스 허용** 을 **사용** 으로 변경
 
-**컨테이너** 섹션으로 이동 하 고 새 컨테이너를 만들거나 기존 컨테이너를 사용 합니다. 그런 다음 비디오 파일을 컨테이너에 업로드 합니다. 업로드 된 파일에 대 한 파일 설정을 확장 하 고 **SAS 생성** 을 선택 합니다. 테스트 기간을 포함 하기에 충분 한 **만료 날짜** 를 설정 해야 합니다. 허용 되는 **프로토콜** 을 *HTTP* ( *HTTPS* 는 지원 되지 않음)로 설정 합니다.
+**컨테이너** 섹션으로 이동 하 고 새 컨테이너를 만들거나 기존 컨테이너를 사용 합니다. 그런 다음 비디오 파일을 컨테이너에 업로드 합니다. 업로드 된 파일에 대 한 파일 설정을 확장 하 고 **SAS 생성** 을 선택 합니다. 테스트 기간을 포함 하기에 충분 한 **만료 날짜** 를 설정 해야 합니다. 허용 되는 **프로토콜** 을 *HTTP* (*HTTPS* 는 지원 되지 않음)로 설정 합니다.
 
 **SAS 토큰 및 URL 생성** 을 클릭 하 고 BLOB SAS url을 복사 합니다. 를로 바꾸고 `https` `http` 비디오 재생을 지 원하는 브라우저에서 URL을 테스트 합니다.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 560c156c8e2c3d69c099b2ad573fa0d214f3f80b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0309329b37436022dc88f8951853c4bb09a2c080
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355077"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015276"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>음성 장치 SDK 란 무엇 인가요?
 
@@ -29,9 +29,9 @@ Speech Devices SDK는 다음을 수행하는 데 유용합니다.
 
 Speech Devices SDK는 [Speech SDK](speech-sdk.md)를 사용합니다. 오디오를 [음성 서비스로](overview.md)보내기 위해 장치의 마이크 배열과 함께 고급 오디오 처리 알고리즘을 사용 합니다. 노이즈 억제, 반향 취소, beamforming 및 dereverberation을 통해 정확한 먼 필드 [음성 인식을](speech-to-text.md) 제공 합니다.
 
-음성 장치 SDK를 사용 하 여 고유한 [사용자 지정 키워드](speech-devices-sdk-create-kws.md)를 포함 하는 주변 장치를 빌드할 수도 있습니다. 사용자 지정 키워드는 사용자의 브랜드에 고유한 사용자 상호 작용을 시작 하는 큐를 제공 합니다.
+음성 장치 SDK를 사용 하 여 고유한 [사용자 지정 키워드](./custom-keyword-basics.md)를 포함 하는 주변 장치를 빌드할 수도 있습니다. 사용자 지정 키워드는 사용자의 브랜드에 고유한 사용자 상호 작용을 시작 하는 큐를 제공 합니다.
 
-음성 장치 SDK를 사용 하면 [음성 도우미](https://aka.ms/bots/speech/va), 드라이브 및 주문 시스템, [대화](conversation-transcription-service.md)기록, 스마트 스피커 등의 다양 한 음성 사용 시나리오를 사용할 수 있습니다. 예를 들어, 사용자에게 텍스트로 응답하고, 기본 또는 [사용자 지정 음성](how-to-customize-voice-font.md)으로 응답하고, 검색 결과를 제공하고, 다른 언어로 [번역](speech-translation.md)할 수 있습니다. 여러분이 무엇을 빌드할지 기대가 됩니다!
+음성 장치 SDK를 사용 하면 [음성 도우미](./voice-assistants.md), 드라이브 및 주문 시스템, [대화](./conversation-transcription.md)기록, 스마트 스피커 등의 다양 한 음성 사용 시나리오를 사용할 수 있습니다. 예를 들어, 사용자에게 텍스트로 응답하고, 기본 또는 [사용자 지정 음성](./how-to-custom-voice-create-voice.md)으로 응답하고, 검색 결과를 제공하고, 다른 언어로 [번역](speech-translation.md)할 수 있습니다. 여러분이 무엇을 빌드할지 기대가 됩니다!
 
 ## <a name="get-the-speech-devices-sdk"></a>음성 디바이스 SDK 가져오기
 

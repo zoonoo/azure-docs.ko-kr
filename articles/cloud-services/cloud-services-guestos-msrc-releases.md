@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.author: yohaddad
-ms.openlocfilehash: 5a5e448660583204d424358e571c4bfb74890e8d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: e84342bff0d2bbc3b034afc1b3c5e8a7dc4a9eb1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737832"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015530"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
@@ -29,10 +29,10 @@ ms.locfileid: "94737832"
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 20-11 |  [4586793]  |  최신 누적 업데이트 | 6.25 | 2020 년 11 월 10 일 |
+|  Rel 20-11 OOB |  [4594442]  |  최신 누적 업데이트 | 6.25 | 2020 년 11 월 17 일 |
+|  Rel 20-11 OOB |  [4594441]  |  최신 누적 업데이트 | 5.49 | 2020 년 11 월 19 일 |
 |  Rel 20-11 |  [4580325]  |  플래시 업데이트 | 3.91, 4.84, 5.49, 6.25 | Oct 13, 2020 |
 |  Rel 20-11 |  [4586768]  |  IE 누적 업데이트 | 2.104, 3.91, 4.84 | 2020 년 11 월 10 일 |
-|  Rel 20-11 |  [4586830]  |  최신 누적 업데이트 | 5.49 | 2020 년 11 월 10 일 |
 |  Rel 20-11 |  [4578952]  |  .NET Framework 3.5 보안 및 품질 롤업 | 2.104 | 2020 년 11 월 10 일 |
 |  Rel 20-11 |  [4578955]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 2.104 | 2020 년 11 월 10 일 |
 |  Rel 20-11 |  [4578953]  |  .NET Framework 3.5 보안 및 품질 롤업 | 4.84 | 2020 년 11 월 10 일 |
@@ -52,10 +52,10 @@ ms.locfileid: "94737832"
 |  Rel 20-11 |  [4494175]  |  마이크로코드 | 5.49 | 9 월 1 일, 2020 |
 |  Rel 20-11 |  [4494174]  |  마이크로코드 | 6.25 | 9 월 3 일, 2020 |
 
-[4586793]: https://support.microsoft.com/kb/4586793
+[4594442]: https://support.microsoft.com/kb/4594442
+[4594441]: https://support.microsoft.com/kb/4594441
 [4580325]: https://support.microsoft.com/kb/4580325
 [4586768]: https://support.microsoft.com/kb/4586768
-[4586830]: https://support.microsoft.com/kb/4586830
 [4578952]: https://support.microsoft.com/kb/4578952
 [4578955]: https://support.microsoft.com/kb/4578955
 [4578953]: https://support.microsoft.com/kb/4578953

@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 2c415fc92d2d338c568c422b1db2579563527839
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f07efcc18f3eff7e40232941befb563cd236266b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442058"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013027"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -38,6 +38,10 @@ ms.locfileid: "94442058"
     * __가상 네트워크 뒤의 작업 영역에 대한 Azure Container Registry__
 
     자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조 하세요.
+
+## <a name="limitations"></a>제한 사항
+
+* 새 작업 영역을 만들 때 작업 영역이 자동으로 필요한 Azure 서비스를 만들도록 허용 하거나 기존 서비스를 제공할 수 있습니다. 기존 서비스를 제공 하는 경우 이러한 서비스는 모두 작업 영역과 동일한 Azure 구독에 있어야 합니다.
 
 ## <a name="workspace-resource-manager-template"></a>작업 영역 리소스 관리자 템플릿
 

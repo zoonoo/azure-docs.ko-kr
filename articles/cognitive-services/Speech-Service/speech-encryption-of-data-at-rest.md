@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: b9b76b2eb5e9536561f73a92b6911a2f82122a1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0fe33dff0161767b74546aad49003d8fc70c16
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078098"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015259"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>휴지 상태의 데이터에 대 한 음성 서비스 암호화
 
@@ -33,11 +33,11 @@ Custom Speech 및 사용자 지정 음성을 사용 하는 경우 Speech service
 
 기본적으로 데이터는 Microsoft 저장소에 저장 되 고 구독은 Microsoft에서 관리 하는 암호화 키를 사용 합니다. 또한 사용자 고유의 저장소 계정을 준비 하는 옵션도 있습니다. 저장소에 대 한 액세스는 관리 되는 Id를 통해 관리 되며, speech service는 음성 추적 데이터, 사용자 지정 학습 데이터 및 사용자 지정 모델과 같은 고유한 데이터에 직접 액세스할 수 없습니다.
 
-관리 Id에 대 한 자세한 내용은 [관리 되는 Id 정의](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조 하세요.
+관리 Id에 대 한 자세한 내용은 [관리 되는 Id 정의](../../active-directory/managed-identities-azure-resources/overview.md)를 참조 하세요.
 
 ## <a name="bring-your-own-storage-byos-for-customization-and-logging"></a>사용자 지정 및 로깅에 대 한 사용자 고유의 저장소 (BYOS) 가져오기
 
-사용자 고유의 저장소를 가져오기 위해 액세스를 요청 하려면 [음성 서비스-사용자 고유의 저장소 (BYOS) 요청 양식을](https://aka.ms/cogsvc-cmk)작성 하 고 제출 합니다. 승인 되 면 사용자 지정 및 로깅에 필요한 데이터를 저장 하기 위해 고유한 저장소 계정을 만들어야 합니다. 저장소 계정을 추가 하는 경우 Speech service 리소스는 시스템 할당 관리 id를 사용 하도록 설정 합니다. 시스템 할당 관리 id를 사용 하도록 설정 하면이 리소스가 AAD (Azure Active Directory)에 등록 됩니다. 등록 한 후에는 관리 id에 저장소 계정에 대 한 액세스 권한이 부여 됩니다. 여기에서 관리 되는 Id에 대해 자세히 알아볼 수 있습니다. 관리 Id에 대 한 자세한 내용은 [관리 되는 Id 정의](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조 하세요.
+사용자 고유의 저장소를 가져오기 위해 액세스를 요청 하려면 [음성 서비스-사용자 고유의 저장소 (BYOS) 요청 양식을](https://aka.ms/cogsvc-cmk)작성 하 고 제출 합니다. 승인 되 면 사용자 지정 및 로깅에 필요한 데이터를 저장 하기 위해 고유한 저장소 계정을 만들어야 합니다. 저장소 계정을 추가 하는 경우 Speech service 리소스는 시스템 할당 관리 id를 사용 하도록 설정 합니다. 시스템 할당 관리 id를 사용 하도록 설정 하면이 리소스가 AAD (Azure Active Directory)에 등록 됩니다. 등록 한 후에는 관리 id에 저장소 계정에 대 한 액세스 권한이 부여 됩니다. 여기에서 관리 되는 Id에 대해 자세히 알아볼 수 있습니다. 관리 Id에 대 한 자세한 내용은 [관리 되는 Id 정의](../../active-directory/managed-identities-azure-resources/overview.md)를 참조 하세요.
 
 > [!IMPORTANT]
 > 시스템 할당 관리 id를 사용 하지 않도록 설정 하면 저장소 계정에 대 한 액세스가 제거 됩니다. 이렇게 하면 저장소 계정에 대 한 액세스를 필요로 하는 음성 서비스 부분이 작동을 중지 하 게 됩니다.  
@@ -50,4 +50,4 @@ Custom Speech 및 사용자 지정 음성을 사용 하는 경우 Speech service
 ## <a name="next-steps"></a>다음 단계
 
 * [Speech service-사용자 고유의 저장소 (BYOS) 요청 양식 가져오기](https://aka.ms/cogsvc-cmk)
-* [관리 Id 란?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+* [관리 Id 란?](../../active-directory/managed-identities-azure-resources/overview.md)

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: d22ce3941b00903be8532caaa36a9ce55e2f2c6f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 91dfb3cb07cca8ec89c77dea43f1cd075db11bbf
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409793"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014767"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
 이 문서에서는 가상 컴퓨터에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공 합니다.
@@ -108,16 +108,16 @@ Azure Backup은 자본 투자 없이 최소의 비용으로 애플리케이션 �
 
 Site Recovery:
 
-* **BCDR 전략 간소화** : Site Recovery를 사용하면 단일 위치에서 여러 비즈니스 워크로드 및 앱의 복제, 장애 조치 및 복구를 쉽게 처리할 수 있습니다. Site Recovery는 복제 및 장애 조치를 오케스트레이션하지만 애플리케이션 데이터를 가로채거나 이에 대한 정보를 포함하지 않습니다.
-* **유연한 복제 제공** : Site Recovery를 사용하여 Hyper-V 가상 머신, VMware 가상 머신 및 Windows/Linux 물리적 서버에서 실행 중인 워크로드를 복제할 수 있습니다.
-* **장애 조치 및 복구 지원** : Site Recovery는 프로덕션 환경에 영향을 주지 않고 재해 복구 훈련을 지원하는 테스트 장애 조치를 제공합니다. 또한 예상된 중단에 대한 데이터 손실을 제거하고 계획된 장애 조치를 실행하거나 예기치 않은 재해에 대한 데이터 손상(복제 빈도에 따라 다름)을 최소화하고 계획되지 않은 장애 조치를 실행할 수 있습니다. 장애 조치(failover) 후에 기본 사이트를 장애 복구할 수 있습니다. 사이트 복구는 다중 계층 애플리케이션의 장애 조치 및 복구를 사용자 지정할 수 있도록 스크립트와 Azure 자동화 통합 문서를 포함할 수 있는 복구 계획을 제공합니다.
-* **보조 데이터 센터 제거** : 보조 온-프레미스 사이트 또는 Azure에 복제할 수 있습니다. 재해 복구에 대한 대상으로 Azure를 사용하면 보조 사이트를 유지 관리하는 비용 및 복잡성이 제거됩니다. 복제된 데이터는 Azure Storage에 저장됩니다.
-* **기존 BCDR 기술과 통합** : Site Recovery는 다른 애플리케이션 BCDR 기능과 협력합니다. 예를 들어 Site Recovery를 사용하여 회사 워크로드의 SQL Server 백 엔드를 보호할 수 있습니다. 여기에는 가용성 그룹의 장애 조치를 관리하는 SQL Server Always On의 기본 지원이 포함됩니다.
+* **BCDR 전략 간소화**: Site Recovery를 사용하면 단일 위치에서 여러 비즈니스 워크로드 및 앱의 복제, 장애 조치 및 복구를 쉽게 처리할 수 있습니다. Site Recovery는 복제 및 장애 조치를 오케스트레이션하지만 애플리케이션 데이터를 가로채거나 이에 대한 정보를 포함하지 않습니다.
+* **유연한 복제 제공**: Site Recovery를 사용하여 Hyper-V 가상 머신, VMware 가상 머신 및 Windows/Linux 물리적 서버에서 실행 중인 워크로드를 복제할 수 있습니다.
+* **장애 조치 및 복구 지원**: Site Recovery는 프로덕션 환경에 영향을 주지 않고 재해 복구 훈련을 지원하는 테스트 장애 조치를 제공합니다. 또한 예상된 중단에 대한 데이터 손실을 제거하고 계획된 장애 조치를 실행하거나 예기치 않은 재해에 대한 데이터 손상(복제 빈도에 따라 다름)을 최소화하고 계획되지 않은 장애 조치를 실행할 수 있습니다. 장애 조치(failover) 후에 기본 사이트를 장애 복구할 수 있습니다. 사이트 복구는 다중 계층 애플리케이션의 장애 조치 및 복구를 사용자 지정할 수 있도록 스크립트와 Azure 자동화 통합 문서를 포함할 수 있는 복구 계획을 제공합니다.
+* **보조 데이터 센터 제거**: 보조 온-프레미스 사이트 또는 Azure에 복제할 수 있습니다. 재해 복구에 대한 대상으로 Azure를 사용하면 보조 사이트를 유지 관리하는 비용 및 복잡성이 제거됩니다. 복제된 데이터는 Azure Storage에 저장됩니다.
+* **기존 BCDR 기술과 통합**: Site Recovery는 다른 애플리케이션 BCDR 기능과 협력합니다. 예를 들어 Site Recovery를 사용하여 회사 워크로드의 SQL Server 백 엔드를 보호할 수 있습니다. 여기에는 가용성 그룹의 장애 조치를 관리하는 SQL Server Always On의 기본 지원이 포함됩니다.
 
 자세한 정보:
 
 * [Azure Site Recovery 이란?](../../site-recovery/site-recovery-overview.md)
-* [Azure Site Recovery 작동 방식](/azure/security/fundamentals/azure-to-azure-architecture)
+* [Azure Site Recovery 작동 방식](/azure/site-recovery/azure-to-azure-architecture)
 * [Azure Site Recovery에서 보호 하는 작업은 무엇입니까?](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>가상 네트워킹

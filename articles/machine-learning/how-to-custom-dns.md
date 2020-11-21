@@ -8,30 +8,32 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/13/2020
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e3d95be52215b03a30dc4b5c7f251357f163b24a
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: c67dcbbe2ca6dea533260f59831556c4338374ba
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616096"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012998"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>사용자 지정 DNS 서버에서 작업 영역을 사용하는 방법
 
-가상 네트워크에서 Azure Machine Learning를 사용 하는 경우 [여러 가지 방법으로 DNS 이름 확인을 처리할 수](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)있습니다. 기본적으로 Azure는 작업 영역 및 개인 끝점에 대 한 이름 확인을 자동으로 처리 합니다. _사용자 고유의 사용자 지정 DNS 서버_ _를 대신 사용 하는 경우 작업 영역에 대 한 DNS 항목을 수동으로 만들어야 합니다.
+개인 끝점과 함께 Azure Machine Learning 작업 영역을 사용 하는 경우 [여러 가지 방법으로 DNS 이름 확인을 처리할](../private-link/private-endpoint-dns.md)수 있습니다. 기본적으로 Azure는 작업 영역 및 개인 끝점에 대 한 이름 확인을 자동으로 처리 합니다. _사용자 고유의 사용자 지정 DNS 서버_ _를 대신 사용 하는 경우 작업 영역에 대 한 DNS 항목을 수동으로 만들어야 합니다.
 
 > [!IMPORTANT]
 > 이 문서에서는 이러한 항목에 대 한 DNS 레코드를 구성 하는 방법에 대 한 정보를 제공 하지 않으므로 이러한 항목에 대 한 FQDN (정규화 된 도메인 이름) 및 IP 주소를 찾는 방법에 대해서만 설명 합니다. 레코드를 추가 하는 방법에 대 한 자세한 내용은 DNS 소프트웨어에 대 한 설명서를 참조 하십시오.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - [자체 DNS 서버](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)를 사용 하는 Azure Virtual Network입니다.
 
 - 개인 끝점을 사용 하는 Azure Machine Learning 작업 영역입니다. 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
 - [학습 & 유추 중에 네트워크 격리](./how-to-network-security-overview.md)를 사용 하는 것에 대해 잘 알고 있어야 합니다.
+
+- [Azure 개인 끝점 DNS 영역 구성](../private-link/private-endpoint-dns.md) 에 대 한 지식
 
 - 필요에 따라 [Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/install-az-ps)합니다.
 
@@ -43,7 +45,7 @@ ms.locfileid: "94616096"
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
+* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
 * 계산 인스턴스를 만들 경우 `<instance-name>.<region>.instances.azureml.ms` 작업 영역 개인 끝점의 개인 IP를 사용 하 여에 대 한 항목을 추가 해야 합니다.
 
     > [!NOTE]

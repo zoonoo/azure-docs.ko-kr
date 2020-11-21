@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: cf4b321425ccaae877c2ff5c9b54f429d95a3515
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b9966d4d9ab0a37f5484ec9eb9b7e2472a6b41dc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312320"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012920"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure Machine Learning을 사용하는 보충 학습(미리 보기)
 
@@ -52,7 +52,7 @@ ms.locfileid: "93312320"
     - [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 설치합니다.
     - [Azure Machine Learning RL SDK](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py)를 설치합니다(`pip install --upgrade azureml-contrib-reinforcementlearning`).
     - [작업 영역 구성 파일](how-to-configure-environment.md#workspace)을 만듭니다.
-    - 가상 네트워크 [설치 Notebook](https://aka.ms/azure-rl-env-setup)을 실행하여 분산된 보충 학습에 사용되는 네트워크 포트를 엽니다.
+    - Virtual network를 실행 하 여 distributed 보충 learning에 사용 되는 네트워크 포트를 엽니다.
 
 
 ## <a name="how-to-train-a-pong-playing-agent"></a>Pong 재생 에이전트를 학습시키는 방법

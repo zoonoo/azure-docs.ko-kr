@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: ce7ff6ae134835de23a0d2670e8b4f44783654f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff7b9f86cebc3c2479105d2a52aa92a265f8a1b3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079203"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016516"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>미사용 데이터의 변환기 암호화
 
@@ -47,7 +47,7 @@ Microsoft에서 관리 하는 암호화 키만 지 원하는 구독의 경우에
 
 ### <a name="enable-customer-managed-keys"></a>고객 관리형 키 사용
 
-고객 관리형 키를 저장하려면 Azure Key Vault를 사용해야 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다. Cognitive Services 리소스 및 키 자격 증명 모음은 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다. Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)를 참조 하세요.
+고객 관리형 키를 저장하려면 Azure Key Vault를 사용해야 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다. Cognitive Services 리소스 및 키 자격 증명 모음은 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다. Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?](../../key-vault/general/overview.md)를 참조 하세요.
 
 새 Cognitive Services 리소스는 항상 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 리소스를 만들 때 고객 관리 키를 사용 하도록 설정할 수 없습니다. 고객 관리 키는 Azure Key Vault에 저장 되며, 키 자격 증명 모음은 Cognitive Services 리소스와 연결 된 관리 되는 id에 대 한 키 사용 권한을 부여 하는 액세스 정책을 사용 하 여 프로 비전 되어야 합니다. 관리 id는 리소스가 생성 되는 즉시 사용할 수 있습니다.
 
@@ -55,28 +55,28 @@ Cognitive Services 암호화를 위해 Azure Key Vault에서 고객이 관리 �
 
 - [Azure Portal에서 Cognitive Services 암호화를 위해 Key Vault를 사용 하 여 고객 관리 키 구성](../Encryption/cognitive-services-encryption-keys-portal.md)
 
-고객 관리 키를 사용 하도록 설정 하면 Azure AD의 기능인 시스템 할당 관리 id도 사용할 수 있습니다. 시스템 할당 관리 id를 사용 하도록 설정 하면이 리소스가 Azure Active Directory 등록 됩니다. 등록 한 후 관리 되는 id에는 고객이 관리 하는 키를 설정 하는 동안 선택 된 Key Vault에 대 한 액세스 권한이 부여 됩니다. [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에 대해 자세히 알아볼 수 있습니다.
+고객 관리 키를 사용 하도록 설정 하면 Azure AD의 기능인 시스템 할당 관리 id도 사용할 수 있습니다. 시스템 할당 관리 id를 사용 하도록 설정 하면이 리소스가 Azure Active Directory 등록 됩니다. 등록 한 후 관리 되는 id에는 고객이 관리 하는 키를 설정 하는 동안 선택 된 Key Vault에 대 한 액세스 권한이 부여 됩니다. [관리 id](../../active-directory/managed-identities-azure-resources/overview.md)에 대해 자세히 알아볼 수 있습니다.
 
 > [!IMPORTANT]
 > 시스템 할당 관리 id를 사용 하지 않도록 설정 하면 키 자격 증명 모음에 대 한 액세스가 제거 되 고 고객 키로 암호화 된 데이터에 더 이상 액세스할 수 없게 됩니다. 이 데이터에 의존 하는 기능은 작동 하지 않습니다. 배포한 모든 모델의 배포도 취소 됩니다. 사용자 지정 변환기에서 업로드 된 모든 데이터가 삭제 됩니다. 관리 되는 id를 다시 사용 하도록 설정 하면 자동으로 모델을 다시 배포 하지 않습니다.
 
 > [!IMPORTANT]
-> 관리 ID는 현재 교차 디렉터리 시나리오를 지원하지 않습니다. Azure Portal에서 고객이 관리 하는 키를 구성 하는 경우 관리 id는 내부적으로 자동으로 할당 됩니다. 이후에 Azure AD 디렉터리 간에 구독, 리소스 그룹 또는 리소스를 이동 하는 경우 해당 리소스와 연결 된 관리 id는 새 테 넌 트로 전송 되지 않으므로 고객 관리 키가 더 이상 작동 하지 않을 수 있습니다. 자세한 내용은 Faq에서 **AZURE AD 디렉터리 간 구독 전송** [및 azure 리소스에 대 한 관리 id의 알려진 문제](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)를 참조 하세요.  
+> 관리 ID는 현재 교차 디렉터리 시나리오를 지원하지 않습니다. Azure Portal에서 고객이 관리 하는 키를 구성 하는 경우 관리 id는 내부적으로 자동으로 할당 됩니다. 이후에 Azure AD 디렉터리 간에 구독, 리소스 그룹 또는 리소스를 이동 하는 경우 해당 리소스와 연결 된 관리 id는 새 테 넌 트로 전송 되지 않으므로 고객 관리 키가 더 이상 작동 하지 않을 수 있습니다. 자세한 내용은 Faq에서 **AZURE AD 디렉터리 간 구독 전송** [및 azure 리소스에 대 한 관리 id의 알려진 문제](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)를 참조 하세요.  
 
 ### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Azure Key Vault에서 고객이 관리 하는 키 저장
 
 고객이 관리 하는 키를 사용 하도록 설정 하려면 Azure Key Vault를 사용 하 여 키를 저장 해야 합니다. 키 자격 증명 모음에서 **일시 삭제** 및 **제거 안 함** 속성을 모두 사용 하도록 설정 해야 합니다.
 
-2048 크기의 RSA 키만 Cognitive Services 암호화에서 지원 됩니다. 키에 대 한 자세한 내용은 **Key Vault 키** [Azure Key Vault 키, 암호 및 인증서](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys)정보를 참조 하세요.
+2048 크기의 RSA 키만 Cognitive Services 암호화에서 지원 됩니다. 키에 대 한 자세한 내용은 **Key Vault 키** [Azure Key Vault 키, 암호 및 인증서](../../key-vault/general/about-keys-secrets-certificates.md)정보를 참조 하세요.
 
 > [!NOTE]
 > 전체 키 자격 증명 모음이 삭제 되 면 데이터가 더 이상 표시 되지 않으며 모든 모델의 배포를 취소할 수 있습니다. 사용자 지정 변환기에서 업로드 된 모든 데이터가 삭제 됩니다. 
 
 ### <a name="revoke-access-to-customer-managed-keys"></a>고객 관리 키에 대 한 액세스 취소
 
-고객 관리 키에 대 한 액세스를 취소 하려면 PowerShell 또는 Azure CLI를 사용 합니다. 자세한 내용은 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) 또는 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)를 참조하세요. 액세스를 취소 하면 Cognitive Services 리소스의 모든 데이터에 대 한 액세스가 차단 되 고 Cognitive Services에서 암호화 키에 액세스할 수 없으므로 모델이 배포 취소 됩니다. 업로드 된 모든 데이터도 사용자 지정 변환기에서 삭제 됩니다.
+고객 관리 키에 대 한 액세스를 취소 하려면 PowerShell 또는 Azure CLI를 사용 합니다. 자세한 내용은 [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) 또는 [Azure Key Vault CLI](/cli/azure/keyvault)를 참조하세요. 액세스를 취소 하면 Cognitive Services 리소스의 모든 데이터에 대 한 액세스가 차단 되 고 Cognitive Services에서 암호화 키에 액세스할 수 없으므로 모델이 배포 취소 됩니다. 업로드 된 모든 데이터도 사용자 지정 변환기에서 삭제 됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Key Vault에 대 한 자세한 정보](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Azure Key Vault에 대 한 자세한 정보](../../key-vault/general/overview.md)

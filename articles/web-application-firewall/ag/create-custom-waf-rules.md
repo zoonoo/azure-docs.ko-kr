@@ -6,14 +6,14 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f164418c29e9838928f3d03519342ebef40e16e7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77368312"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015700"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Application Gateway에서 웹 응용 프로그램 방화벽 v2 사용자 지정 규칙 만들기 및 사용
 
@@ -21,12 +21,14 @@ Azure 애플리케이션 Gateway의 WAF (웹 응용 프로그램 방화벽) v2�
 
 이 문서에서는 v2 WAF에서 만들고 사용할 수 있는 몇 가지 예제 사용자 지정 규칙을 보여 줍니다. Azure PowerShell를 사용 하 여 사용자 지정 규칙으로 WAF를 배포 하는 방법을 알아보려면 [Azure PowerShell를 사용 하 여 웹 응용 프로그램 방화벽 사용자 지정 규칙 구성](configure-waf-custom-rules.md)을 참조 하세요.
 
+이 문서에 표시 된 JSON 코드 조각은 [ApplicationGatewayWebApplicationFirewallPolicies](/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) 리소스에서 파생 됩니다.
+
 >[!NOTE]
 > Application Gateway에서 WAF 계층을 사용하지 않는 경우 Application Gateway를 WAF 계층으로 업그레이드하는 옵션이 오른쪽 창에 표시됩니다.
 
 ![WAF 사용][fig1]
 
-## <a name="example-1"></a>예제 1
+## <a name="example-1"></a>예 1
 
 웹 사이트 탐색에서 차단 하려는 *evilbot* 이라는 봇이 있음을 알고 있습니다. 이 경우 요청 헤더의 User-Agent *evilbot* 를 차단 합니다.
 
@@ -126,7 +128,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
   }
 ```
 
-## <a name="example-2"></a>예 2
+## <a name="example-2"></a>예제 2
 
 GeoMatch 연산자를 사용 하 여 미국에서 트래픽을 허용 하려고 합니다.
 
@@ -229,7 +231,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
 
 ## <a name="example-4"></a>예제 4
 
-이 예에서는 *evilbot*및 192.168.5.0/24 범위의 트래픽을 User-Agent 차단 하려고 합니다. 이를 수행 하기 위해 두 개의 서로 다른 일치 조건을 만든 다음 둘 다 동일한 규칙에 둘 수 있습니다. 이렇게 하면 User-Agent 헤더의 두 *evilbot* 192.168.5.0/24 범위의 IP 주소 **와** 일치 하는 경우 요청이 차단 됩니다.
+이 예에서는 *evilbot* 및 192.168.5.0/24 범위의 트래픽을 User-Agent 차단 하려고 합니다. 이를 수행 하기 위해 두 개의 서로 다른 일치 조건을 만든 다음 둘 다 동일한 규칙에 둘 수 있습니다. 이렇게 하면 User-Agent 헤더의 두 *evilbot* 192.168.5.0/24 범위의 IP 주소 **와** 일치 하는 경우 요청이 차단 됩니다.
 
 논리: p **및** q
 
@@ -301,7 +303,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
 
 ## <a name="example-5"></a>예제 5
 
-이 예에서는 요청이 IP 주소 범위 *192.168.5.0/24*외부에 있거나 사용자 에이전트 문자열이 *chrome* 이 아닌 경우 (사용자가 chrome 브라우저를 사용 하지 않음) 차단 하려고 합니다. 이 논리는 **또는**를 사용 하기 때문에 다음 예제에서 볼 수 있듯이 두 조건은 별도의 규칙에 있습니다. *myrule1* 및 *myrule2* 는 둘 다 일치 하 여 트래픽을 차단 해야 합니다.
+이 예에서는 요청이 IP 주소 범위 *192.168.5.0/24* 외부에 있거나 사용자 에이전트 문자열이 *chrome* 이 아닌 경우 (사용자가 chrome 브라우저를 사용 하지 않음) 차단 하려고 합니다. 이 논리는 **또는** 를 사용 하기 때문에 다음 예제에서 볼 수 있듯이 두 조건은 별도의 규칙에 있습니다. *myrule1* 및 *myrule2* 는 둘 다 일치 하 여 트래픽을 차단 해야 합니다.
 
 논리: **not** (p **및** q **) = p가 아니거나 no** **q입니다** .
 
@@ -388,7 +390,7 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule `
 
 ## <a name="example-6"></a>예제 6
 
-사용자 지정 SQLI를 차단 하려고 합니다. 여기서 사용 되는 논리는 **또는**이 고 모든 값이 *RequestUri*에 있으므로 *matchvalues* 는 모두 쉼표로 구분 된 목록에 있을 수 있습니다.
+사용자 지정 SQLI를 차단 하려고 합니다. 여기서 사용 되는 논리는 **또는** 이 고 모든 값이 *RequestUri* 에 있으므로 *matchvalues* 는 모두 쉼표로 구분 된 목록에 있을 수 있습니다.
 
 논리: p **또는** q **또는** r
 

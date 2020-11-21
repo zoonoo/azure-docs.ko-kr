@@ -10,16 +10,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: dpalled
-ms.openlocfilehash: c3948a5bdfce583384992fb87bf40e9e7251974d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d02a6e3eb2aef4a02c90360b2016e64af579081
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346391"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014733"
 ---
 # <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Azure Digital Twins와 Time Series Insights Gen2 간의 모델 동기화
 
-이 문서에서는 Azure Digital Twins (ADT)의 자산 모델을 TWINS (Azure Time Series Insights)의 자산 모델로 변환 하는 데 사용 되는 모범 사례 및 도구에 대해 설명 합니다.  이 문서는 Azure Time Series Insights와 Azure 디지털 쌍의 통합을 설명 하는 두 부분으로 구성 된 자습서 시리즈의 두 번째 부분입니다. Azure Digital Twins를 Time Series Insights와 통합 하면 Digital Twins의 원격 분석 및 계산 된 속성에 대 한 기록을 보관 하 고 추적할 수 있습니다. 이 자습서 시리즈는 Azure Digital Twins와 Time Series Insights를 통합 하는 개발자를 대상으로 합니다. 1 부에서는  [Azure Digital Twins의 실제 시계열 데이터를 Time Series Insights 하는 데이터 파이프라인을 설정 하는 방법](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-time-series-insights) 에 대해 설명 합니다. 자습서 시리즈의 두 번째 부분에서는 Azure Digital twins와 Time Series Insights 간의 자산 모델 동기화에 대해 설명 합니다. 이 자습서에서는 TS ID (Time Series ID)에 대 한 명명 규칙을 선택 및 설정 하 고 TSM (시계열 모델)에서 수동으로 계층을 설정 하는 최선의 방법에 대해 설명 합니다.
+이 문서에서는 Azure Digital Twins (ADT)의 자산 모델을 TWINS (Azure Time Series Insights)의 자산 모델로 변환 하는 데 사용 되는 모범 사례 및 도구에 대해 설명 합니다.  이 문서는 Azure Time Series Insights와 Azure 디지털 쌍의 통합을 설명 하는 두 부분으로 구성 된 자습서 시리즈의 두 번째 부분입니다. Azure Digital Twins를 Time Series Insights와 통합 하면 Digital Twins의 원격 분석 및 계산 된 속성에 대 한 기록을 보관 하 고 추적할 수 있습니다. 이 자습서 시리즈는 Azure Digital Twins와 Time Series Insights를 통합 하는 개발자를 대상으로 합니다. 1 부에서는  [Azure Digital Twins의 실제 시계열 데이터를 Time Series Insights 하는 데이터 파이프라인을 설정 하는 방법](../digital-twins/how-to-integrate-time-series-insights.md) 에 대해 설명 합니다. 자습서 시리즈의 두 번째 부분에서는 Azure Digital twins와 Time Series Insights 간의 자산 모델 동기화에 대해 설명 합니다. 이 자습서에서는 TS ID (Time Series ID)에 대 한 명명 규칙을 선택 및 설정 하 고 TSM (시계열 모델)에서 수동으로 계층을 설정 하는 최선의 방법에 대해 설명 합니다.
 
 ## <a name="choosing-a-time-series-id"></a>시계열 ID 선택
 
@@ -29,7 +29,7 @@ ms.locfileid: "91346391"
 
 ## <a name="contextualizing-time-series"></a>Contextualizing 시계열
 
-Time Series Insights는 자산 계층 구조를 통해 데이터를 Contextualization 하 고 Time Series Insights 탐색기에서 트리 뷰를 통해 데이터를 쉽게 탐색 하는 데 사용 됩니다. 시계열 유형 및 계층은 Time Series Insights에서 TSM (시계열 모델)을 사용 하 여 정의 됩니다. TSM의 형식은 변수를 정의 하는 데 도움이 되는 반면, 계층 수준 및 인스턴스 필드 값은 Time Series Insights 탐색기에서 트리 뷰를 생성 하는 데 사용 됩니다. TSM에 대 한 자세한 내용은 [온라인 Time Series Insights 설명서](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview)를 참조 하세요.
+Time Series Insights는 자산 계층 구조를 통해 데이터를 Contextualization 하 고 Time Series Insights 탐색기에서 트리 뷰를 통해 데이터를 쉽게 탐색 하는 데 사용 됩니다. 시계열 유형 및 계층은 Time Series Insights에서 TSM (시계열 모델)을 사용 하 여 정의 됩니다. TSM의 형식은 변수를 정의 하는 데 도움이 되는 반면, 계층 수준 및 인스턴스 필드 값은 Time Series Insights 탐색기에서 트리 뷰를 생성 하는 데 사용 됩니다. TSM에 대 한 자세한 내용은 [온라인 Time Series Insights 설명서](./concepts-model-overview.md)를 참조 하세요.
 
 Azure Digital Twins에서 자산 간 연결은 쌍 관계를 사용 하 여 표현 됩니다. 쌍 관계는 단순히 연결 된 자산의 그래프입니다. 그러나 시계열 정보에서 자산의 관계는 본질적으로 계층적입니다. 즉, 자산은 부모-자식 종류 od 관계를 공유 하며 트리 구조를 사용 하 여 표시 됩니다. Azure Digital Twins에서 Time Series Insights 계층으로 관계 정보를 변환 하려면 Azure Digital Twins에서 관련 계층 관계를 선택 해야 합니다. Azure Digital Twins는 DTDL (디지털 쌍 정의 언어) 이라는 개방형 표준 모델링 언어를 사용 합니다. DTDL 모델에는 JSON-LD 이라는 변형을 사용 하 여 설명 되어 있습니다. 사양에 대 한 자세한 내용은 [Dtdl 설명서](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) 를 참조 하세요.
 
@@ -82,7 +82,7 @@ TSID는 고유 해야 하 고 하나의 계층 에서만 표현할 수 있는 �
 
 > [!Note]
 >
-> 이 코드 조각 예제에서는 독자가 자습서의 1 [부에서](https://docs.microsoft.com/azure/digital-twins/tutorial-end-to-end#set-up-the-sample-function-app) 잘 알고 있고 "ProcessHubToDTEvents" 함수 내에서이 코드 변경이 수행 되었다고 가정 합니다.
+> 이 코드 조각 예제에서는 독자가 자습서의 1 [부에서](../digital-twins/tutorial-end-to-end.md#set-up-the-sample-function-app) 잘 알고 있고 "ProcessHubToDTEvents" 함수 내에서이 코드 변경이 수행 되었다고 가정 합니다.
 
 ```csharp
 if (propertyPath.Equals("/Flow"))
@@ -114,7 +114,7 @@ relationship for " + twinId);
 
 ## <a name="updating-instance-fields-using-apis"></a>Api를 사용 하 여 인스턴스 필드 업데이트
 
-자습서의이 섹션에서는 Time Series Insights 모델 api를 사용 하 여 프로그래밍 방식으로, 쌍의 생성, 삭제 또는 쌍 간 관계 변경, 인스턴스 필드 및 계층 업데이트와 같은 Azure Digital 쌍의 모델 변경에 대 한 수신을 설명 합니다. 이 Time Series Insights 모델 업데이트 방법은 일반적으로 Azure 함수를 통해 구현 됩니다. Azure Digital Twins에서 쌍 추가 또는 삭제와 같은 이벤트 알림은 라우트된 다운스트림 서비스 (예: Azure 함수에 공급할 수 있는 Event Hubs)가 될 수 있습니다. 이벤트 라우팅 및 필터링에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/digital-twins/how-to-manage-routes-portal)에 설명 되어 있습니다.  이 섹션의 나머지 부분에서는 azure 함수에서 Time Series Insights 모델 Api를 사용 하 여 Azure Digital Twins에서 쌍 추가 (한 가지 유형의 모델 변경)에 대 한 응답으로 Time Series Insights 모델을 업데이트 하는 방법을 설명 합니다.
+자습서의이 섹션에서는 Time Series Insights 모델 api를 사용 하 여 프로그래밍 방식으로, 쌍의 생성, 삭제 또는 쌍 간 관계 변경, 인스턴스 필드 및 계층 업데이트와 같은 Azure Digital 쌍의 모델 변경에 대 한 수신을 설명 합니다. 이 Time Series Insights 모델 업데이트 방법은 일반적으로 Azure 함수를 통해 구현 됩니다. Azure Digital Twins에서 쌍 추가 또는 삭제와 같은 이벤트 알림은 라우트된 다운스트림 서비스 (예: Azure 함수에 공급할 수 있는 Event Hubs)가 될 수 있습니다. 이벤트 라우팅 및 필터링에 대 한 자세한 내용은 [여기](../digital-twins/how-to-manage-routes-portal.md)에 설명 되어 있습니다.  이 섹션의 나머지 부분에서는 azure 함수에서 Time Series Insights 모델 Api를 사용 하 여 Azure Digital Twins에서 쌍 추가 (한 가지 유형의 모델 변경)에 대 한 응답으로 Time Series Insights 모델을 업데이트 하는 방법을 설명 합니다.
 
 ### <a name="receiving-and-identifying-twin-addition-event-notification"></a>쌍 추가 이벤트 알림 받기 및 식별
 
@@ -227,4 +227,4 @@ private async Task<TimeSeriesInstance> AddHierarchyToInstanceAsync(TimeSeriesIns
 
 ## <a name="next-steps"></a>다음 단계
 
-자습서 시리즈 중 세 번째는 Time Series Insights Api를 사용 하 여 Azure Digital Twins에서 기록 데이터를 쿼리 하는 방법을 보여 주는 것입니다. 진행 중인 작업이 며 준비 되 면 섹션이 업데이트 됩니다. 한편 판독기는 [Time Series Insights 데이터 쿼리 API 설명서](https://docs.microsoft.com/azure/time-series-insights/concepts-query-overview)를 참조 하는 것이 좋습니다.
+자습서 시리즈 중 세 번째는 Time Series Insights Api를 사용 하 여 Azure Digital Twins에서 기록 데이터를 쿼리 하는 방법을 보여 주는 것입니다. 진행 중인 작업이 며 준비 되 면 섹션이 업데이트 됩니다. 한편 판독기는 [Time Series Insights 데이터 쿼리 API 설명서](./concepts-query-overview.md)를 참조 하는 것이 좋습니다.

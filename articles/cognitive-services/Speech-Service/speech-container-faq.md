@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0e4a6d9180d2a9949cebc40cf30edffac73ef9d0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6c899b4f0dd7a3b91521c6d78b531d1c804ac105
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653541"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015310"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>음성 서비스 컨테이너 FAQ (질문과 대답)
 
@@ -98,7 +98,7 @@ Microsoft에 부과 되는 유지 관리 비용은 서비스 수준 및 서비�
 
 **답변:** 는 `speech_recognition_language=<YOUR_LANGUAGE>` 요청에서 참조 클라이언트를 사용 하는 경우 명시적으로 구성 해야 합니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```python
 if not recognize_once(
@@ -292,7 +292,7 @@ Websocket이 올바르게 설정 되어 있음을 알 수 있습니다.
 
 | 엔드포인트                                                | 기능 테스트                                                   | SDK) | REST API |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
-| `/speech/synthesize/cognitiveservices/v1`               | 텍스트 합성 (텍스트 음성 변환)                                  |     | 예      |
+| `/speech/synthesize/cognitiveservices/v1`               | 텍스트 합성 (텍스트 음성 변환)                                  |     | Yes      |
 | `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services 온-프레미스 dictation v1 websocket 끝점        | 예 | 아니요       |
 | `/speech/recognition/interactive/cognitiveservices/v1`  | Cognitive Services 온-프레미스 대화형 v1 websocket 끝점  |     |          |
 | `/speech/recognition/conversation/cognitiveservices/v1` | 인식 서비스 온-프레미스 대화 v1 websocket 끝점 |     |          |
@@ -324,7 +324,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 <b>다양 한 오디오 파일에 어떤 모드를 사용 해야 하나요?</b>
 </summary>
 
-**답변:** 다음은 [Python을 사용 하는 빠른](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-python)시작입니다. 문서 사이트에서 링크 된 다른 언어를 찾을 수 있습니다.
+**답변:** 다음은 [Python을 사용 하는 빠른](./get-started-speech-to-text.md?pivots=programming-language-python)시작입니다. 문서 사이트에서 링크 된 다른 언어를 찾을 수 있습니다.
 
 대화형, 대화 및 받아쓰기를 명확 하 게 하기 위한 것입니다. 이 방법은 서비스가 음성 요청을 처리 하는 특정 방법을 지정 하는 고급 방법입니다. 아쉽게도 온-프레미스 컨테이너의 경우 로컬 컴퓨터를 포함 하므로 전체 URI를 지정 해야 하므로이 정보는 추상화에서 누설 됩니다. SDK 팀과 협력 하 여 나중에이를 더 사용할 수 있도록 합니다.
 
@@ -367,7 +367,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 
 문서는 다른 포트를 표시 하 고 있지만 LUIS 컨테이너는 여전히 포트 5000에서 수신 대기 하 고 있습니까?
 
-**답변:** 사용해 보세요 `-p <outside_unique_port>:5000` . 예: `-p 5001:5000`.
+**답변:** 사용해 보세요 `-p <outside_unique_port>:5000` . `-p 5001:5000`)을 입력합니다.
 
 
 <br>
@@ -395,7 +395,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 
 **답변:** 실시간으로는 최근 8 개를 사용 하 여 `en-US` 6 개 이상의 동시 요청 보다 많은 docker 컨테이너를 사용 하는 것이 좋습니다. 16 개 코어를 초과 하는 crazier을 가져오고, NUMA (non-uniform memory access) 노드가 중요 한 것으로 인식 됩니다. 다음 표에서는 각 음성 컨테이너에 대 한 최소 및 권장 리소스 할당을 설명 합니다.
 
-# <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
+# <a name="speech-to-text"></a>[음성 텍스트](#tab/stt)
 
 | 컨테이너      | 최소             | 권장         |
 |----------------|---------------------|---------------------|

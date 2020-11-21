@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b3fdf052ce7f0d6a5c3497aa1ac971d9249546a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325188"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015595"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>VM용 Azure Monitor에서 로그를 쿼리하는 방법
 
@@ -23,8 +23,8 @@ VM용 Azure Monitor 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인�
 
 고유한 프로세스 및 컴퓨터를 식별하는 데 사용할 수 있는 내부적으로 생성된 속성이 있습니다.
 
-- 컴퓨터: *ResourceId* 또는 *ResourceName_s*를 사용하여 Log Analytics 작업 영역 내에서 컴퓨터를 고유하게 식별합니다.
-- 프로세스: *ResourceId*를 사용하여 Log Analytics 작업 영역 내에서 프로세스를 고유하게 식별합니다. *ResourceName_s*는 프로세스가 실행 중인 머신(MachineResourceName_s)의 컨텍스트 내에서 고유합니다. 
+- 컴퓨터: *ResourceId* 또는 *ResourceName_s* 를 사용하여 Log Analytics 작업 영역 내에서 컴퓨터를 고유하게 식별합니다.
+- 프로세스: *ResourceId* 를 사용하여 Log Analytics 작업 영역 내에서 프로세스를 고유하게 식별합니다. *ResourceName_s* 는 프로세스가 실행 중인 머신(MachineResourceName_s)의 컨텍스트 내에서 고유합니다. 
 
 지정된 시간 범위 내에서 지정된 프로세스 및 컴퓨터에 대해 여러 레코드가 존재할 수 있으므로 쿼리는 동일한 컴퓨터 또는 프로세스에 대해 둘 이상의 레코드를 반환할 수 있습니다. 가장 최근 레코드만 포함 하려면 `| summarize arg_max(TimeGenerated, *) by ResourceId` 쿼리에를 추가 합니다.
 
@@ -45,21 +45,21 @@ VM용 Azure Monitor 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인�
 - ProcessName: 보고 프로세스의 실행 파일 이름입니다.
 - 모든 IP 주소는 IPv4 정규 형식의 문자열 (예: *13.107.3.160* )입니다. 
 
-비용 및 복잡성을 관리하기 위해 연결 레코드는 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다. 그런 다음, 각 테이블에 반영됩니다.  즉, *VMConnection* 테이블의 레코드는 관찰되는 개별 물리적 연결이 아닌 논리적 그룹화를 나타냅니다. 지정된 1분 간격 동안 다음 특성에 대해 동일한 값을 공유하는 물리적 네트워크 연결이 *VMConnection*의 단일 논리적 레코드에 집계됩니다. 
+비용 및 복잡성을 관리하기 위해 연결 레코드는 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다. 그런 다음, 각 테이블에 반영됩니다.  즉, *VMConnection* 테이블의 레코드는 관찰되는 개별 물리적 연결이 아닌 논리적 그룹화를 나타냅니다. 지정된 1분 간격 동안 다음 특성에 대해 동일한 값을 공유하는 물리적 네트워크 연결이 *VMConnection* 의 단일 논리적 레코드에 집계됩니다. 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
-|Direction |연결 방향으로 값은 *인바운드* 또는 *아웃바운드*입니다. |
+|방향 |연결 방향으로 값은 *인바운드* 또는 *아웃바운드* 입니다. |
 |컴퓨터 |컴퓨터 FQDN |
 |프로세스 |연결을 시작/수락하는 프로세스 또는 프로세스 그룹의 ID입니다. |
 |SourceIp |원본의 IP 주소 |
 |DestinationIp |대상의 IP 주소 |
 |DestinationPort |대상의 포트 번호 |
-|프로토콜 |연결에 사용되는 프로토콜입니다.  값은 *tcp*입니다. |
+|프로토콜 |연결에 사용되는 프로토콜입니다.  값은 *tcp* 입니다. |
 
 그룹화의 영향을 고려하기 위해 그룹화된 물리적 연결 수에 대한 정보가 다음과 같은 레코드 속성에서 제공됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |LinksEstablished |보고 기간 동안 설정된 물리적 네트워크 연결의 수 |
 |LinksTerminated |보고 기간 동안 종료된 물리적 네트워크 연결의 수 |
@@ -70,7 +70,7 @@ VM용 Azure Monitor 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인�
 
 연결 수 메트릭 외에도 지정된 논리적 연결 또는 네트워크 포트에 전송 및 수신된 데이터의 볼륨에 대한 정보도 다음과 같은 레코드 속성에 포함됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |BytesSent |보고 기간 동안 전송된 총 바이트 수 |
 |BytesReceived |보고 기간 동안 수신된 총 바이트 수 |
@@ -88,7 +88,7 @@ VM용 Azure Monitor 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인�
 1. 프로세스가 동일한 IP 주소에 있지만 여러 네트워크 인터페이스를 통한 연결을 허용하는 경우 각 인터페이스에 대한 별도 레코드가 보고됩니다. 
 2. 와일드카드 IP를 사용한 레코드에는 활동이 포함되지 않습니다. 해당 레코드는 머신에 있는 포트가 인바운드 트래픽에 대해 열려있음을 나타내기 위해 포함됩니다.
 3. 자세한 정도 및 데이터 볼륨을 줄이기 위해 와일드카드 IP를 사용한 레코드는 특정 IP 주소와 일치하는 레코드(동일한 프로세스, 포트 및 프로토콜에 대해)가 있는 경우 생략됩니다. 와일드카드 IP 레코드가 생략되면 포트가 보고한 머신의 모든 인터페이스에서 노출됨을 나타내기 위해 특정 IP 주소를 가진 IsWildcardBind 레코드 속성이 “True”로 설정됩니다.
-4. 특정 인터페이스에만 바인딩되는 포트는 IsWildcardBind가 *False*로 설정 되어 있습니다.
+4. 특정 인터페이스에만 바인딩되는 포트는 IsWildcardBind가 *False* 로 설정 되어 있습니다.
 
 #### <a name="naming-and-classification"></a>이름 지정 및 분류
 
@@ -96,9 +96,9 @@ VM용 Azure Monitor 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인�
 
 #### <a name="geolocation"></a>지리적 위치
 
-또한 *VMConnection*은 다음과 같은 레코드 속성에서 각 연결 레코드의 원격 끝에 대한 지리적 위치 정보를 포함합니다. 
+또한 *VMConnection* 은 다음과 같은 레코드 속성에서 각 연결 레코드의 원격 끝에 대한 지리적 위치 정보를 포함합니다. 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |RemoteCountry |RemoteIp를 호스트 하는 국가/지역의 이름입니다.  예: *미국* |
 |RemoteLatitude |지리적 위치 위도입니다. 예: *47.68* |
@@ -108,14 +108,14 @@ VM용 Azure Monitor 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인�
 
 *VMConnection* 테이블의 모든 RemoteIp 속성을 알려진 악의적인 활동의 IP 집합에 대해 검사합니다. RemoteIp가 악성으로 식별되면 다음과 같은 속성이 다음과 같은 레코드 속성에서 채워집니다(IP가 악성으로 간주되지 않으면 비어 있음).
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |MaliciousIp |RemoteIp 주소 |
 |IndicatorThreadType |검색된 위협 표시기가 *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist* 값 중 하나입니다.   |
-|설명 |관찰된 위협에 대한 설명입니다. |
+|Description |관찰된 위협에 대한 설명입니다. |
 |TLPLevel |TLP(Traffic Light Protocol) 수준은 정의된 *White*, *Green*, *Amber*, *Red* 값 중 하나입니다. |
-|신뢰도 |값은 *0 - 100*입니다. |
-|심각도 |값은 *0 - 5*입니다. 여기서 *5*는 가장 심각하고 *0*은 심각하지 않습니다. 기본값은 *3*입니다.  |
+|신뢰도 |값은 *0 - 100* 입니다. |
+|심각도 |값은 *0 - 5* 입니다. 여기서 *5* 는 가장 심각하고 *0* 은 심각하지 않습니다. 기본값은 *3* 입니다.  |
 |FirstReportedDateTime |공급자가 표시기를 처음 보고한 시간입니다. |
 |LastReportedDateTime |표시기가 Interflow에 의해 마지막으로 확인된 시간입니다. |
 |IsActive |표시기가 *True* 또는 *False* 값으로 비활성화되었음을 나타냅니다. |
@@ -128,10 +128,10 @@ VM용 Azure Monitor 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인�
 
 VMBoundPort의 모든 레코드는 다음 필드로 식별 됩니다. 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |프로세스 | 포트가 연결 된 프로세스 (또는 프로세스 그룹)의 id입니다.|
-|Ip | 포트 IP 주소 (와일드 카드 IP 일 수 있음, *0.0.0.0*) |
+|Tcp/ip | 포트 IP 주소 (와일드 카드 IP 일 수 있음, *0.0.0.0*) |
 |포트 |포트 번호 |
 |프로토콜 | 프로토콜입니다.  예: *tcp* 또는 *udp* (현재 *tcp* 만 지원 됨)|
  
@@ -149,14 +149,14 @@ Id는 위의 5 개 필드에서 파생 되며 PortId 속성에 저장 됩니다.
 
 - 프로세스가 동일한 IP 주소에 있지만 여러 네트워크 인터페이스를 통한 연결을 허용하는 경우 각 인터페이스에 대한 별도 레코드가 보고됩니다.  
 - 와일드카드 IP를 사용한 레코드에는 활동이 포함되지 않습니다. 해당 레코드는 머신에 있는 포트가 인바운드 트래픽에 대해 열려있음을 나타내기 위해 포함됩니다. 
-- 자세한 정도 및 데이터 볼륨을 줄이기 위해 와일드카드 IP를 사용한 레코드는 특정 IP 주소와 일치하는 레코드(동일한 프로세스, 포트 및 프로토콜에 대해)가 있는 경우 생략됩니다. 와일드 카드 IP 레코드를 생략 하면 특정 IP 주소를 포함 하는 레코드의 *IsWildcardBind* 속성이 *True*로 설정 됩니다.  이는 보고 컴퓨터의 모든 인터페이스에 대해 포트가 노출 됨을 나타냅니다. 
-- 특정 인터페이스에만 바인딩되는 포트는 IsWildcardBind가 *False*로 설정 되어 있습니다. 
+- 자세한 정도 및 데이터 볼륨을 줄이기 위해 와일드카드 IP를 사용한 레코드는 특정 IP 주소와 일치하는 레코드(동일한 프로세스, 포트 및 프로토콜에 대해)가 있는 경우 생략됩니다. 와일드 카드 IP 레코드를 생략 하면 특정 IP 주소를 포함 하는 레코드의 *IsWildcardBind* 속성이 *True* 로 설정 됩니다.  이는 보고 컴퓨터의 모든 인터페이스에 대해 포트가 노출 됨을 나타냅니다. 
+- 특정 인터페이스에만 바인딩되는 포트는 IsWildcardBind가 *False* 로 설정 되어 있습니다. 
 
 ### <a name="vmcomputer-records"></a>VMComputer 레코드
 
 *Vmcomputer* 유형의 레코드는 종속성 에이전트가 있는 서버에 대 한 인벤토리 데이터를 포함 합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |TenantId | 작업 영역에 대 한 고유 식별자입니다. |
 |SourceSystem | *Insights* | 
@@ -218,7 +218,7 @@ Id는 위의 5 개 필드에서 파생 되며 PortId 속성에 저장 됩니다.
 
 *Vmprocess* 유형의 레코드는 종속성 에이전트가 있는 서버에서 TCP 연결 프로세스에 대 한 인벤토리 데이터를 포함 합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |TenantId | 작업 영역에 대 한 고유 식별자입니다. |
 |SourceSystem | *Insights* | 
@@ -233,7 +233,7 @@ Id는 위의 5 개 필드에서 파생 되며 PortId 속성에 저장 됩니다.
 |그룹 | 프로세스 그룹 이름입니다. 동일한 그룹의 프로세스는 논리적으로 관련 되어 있습니다. 예를 들어 동일한 제품 또는 시스템 구성 요소의 일부입니다. |
 |StartTime | 프로세스 풀 시작 시간 |
 |FirstPid | 프로세스 풀의 첫 번째 PID |
-|설명 | 프로세스 설명 |
+|Description | 프로세스 설명 |
 |CompanyName | 회사의 이름 |
 |InternalName | 내부 이름 |
 |ProductName | 제품 이름 |
@@ -242,7 +242,7 @@ Id는 위의 5 개 필드에서 파생 되며 PortId 속성에 저장 됩니다.
 |ExecutablePath |실행 파일의 경로입니다. |
 |명령줄 | 명령줄 |
 |시작 위치 | 작업 디렉터리 |
-|Services | 프로세스가 실행 되 고 있는 서비스의 배열입니다. |
+|서비스 | 프로세스가 실행 되 고 있는 서비스의 배열입니다. |
 |UserName | 프로세스를 실행 중인 계정 |
 |UserDomain | 프로세스를 실행 중인 도메인 |
 |_ResourceId | 작업 영역 내 프로세스에 대한 고유 식별자 |
@@ -434,7 +434,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 *InsightsMetrics* 형식의 레코드는 가상 컴퓨터의 게스트 운영 체제에서 성능 데이터를 포함 합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |TenantId | 작업 영역에 대 한 고유 식별자 |
 |SourceSystem | *Insights* | 
@@ -451,7 +451,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 *InsightsMetrics* 테이블에 현재 수집 된 성능 카운터는 다음 표에 나열 되어 있습니다.
 
-| 네임스페이스 | Name | 설명 | 단위 | 태그 |
+| 네임스페이스 | Name | Description | 단위 | 태그 |
 |:---|:---|:---|:---|:---|
 | Computer    | 하트비트             | 컴퓨터 하트 비트                        | | |
 | 메모리      | AvailableMB           | 사용 가능한 메모리 바이트                    | 메가바이트      | memorySizeMB-총 메모리 크기|
@@ -475,5 +475,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 * Azure Monitor에서 로그 쿼리를 작성 하는 데 처음 사용 하는 경우 Azure Portal에서 Log Analytics를 사용 하 여 로그 쿼리를 작성 하 [는 방법](../log-query/get-started-portal.md) 을 검토 하세요.
 
-* [검색 쿼리 작성](../log-query/search-queries.md)에 대해 알아봅니다.
+* [검색 쿼리 작성](/azure/azure-monitor/log-query/get-started-queries)에 대해 알아봅니다.
 

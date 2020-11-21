@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 24d4dd4d0caa49b9514bf19f707ea87b0b071a79
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9b9390b498f28fc8f9029f1c11805b970aaca73d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357099"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014563"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>방법: 웹 응용 프로그램을 계산 하는 사용자 배포
 
@@ -31,7 +31,7 @@ ms.locfileid: "94357099"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
-* Azure IoT Edge 배포 구성 및 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 에 대 한 기본적인 이해
+* Azure IoT Edge 배포 구성 및 [Azure IoT Hub](../../iot-hub/index.yml) 에 대 한 기본적인 이해
 * 구성 된 [호스트 컴퓨터](spatial-analysis-container.md)입니다.
 
 ## <a name="deploy-the-spatial-analysis-container"></a>공간 분석 컨테이너 배포
@@ -65,7 +65,7 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 Azure CLI를 사용 하 여 공간 분석 컨테이너를 호스트 컴퓨터에 IoT 모듈로 배포 합니다. 배포 프로세스에는 배포에 필요한 컨테이너, 변수 및 구성을 설명 하는 배포 매니페스트 파일이 필요 합니다. *공간 분석* 컨테이너에 대 한 기본 배포 구성을 포함 하는 GitHub에서 [Azure Stack](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 에 지 특정 배포 매니페스트 뿐만 아니라 [edge 별 배포 매니페스트 Azure Stack](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) 샘플을 찾을 수 있습니다. 
 
-또는 Visual Studio Code 용 Azure IoT 확장을 사용 하 여 IoT hub를 사용 하 여 작업을 수행할 수 있습니다. [Visual Studio Code에서 Azure IoT Edge 모듈 배포](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode) 로 이동 하 여 자세한 내용을 알아보세요.
+또는 Visual Studio Code 용 Azure IoT 확장을 사용 하 여 IoT hub를 사용 하 여 작업을 수행할 수 있습니다. [Visual Studio Code에서 Azure IoT Edge 모듈 배포](../../iot-edge/how-to-deploy-modules-vscode.md) 로 이동 하 여 자세한 내용을 알아보세요.
 
 > [!NOTE] 
 > *Telegraf* 및 *공간 분석-진단* 컨테이너는 선택 사항입니다. 파일 *의DeploymentManifest.js* 에서 제거 하도록 결정할 수 있습니다. 자세한 내용은 [원격 분석 및 문제 해결](./spatial-analysis-logging.md) 문서를 참조 하세요. Github의 파일에서 [Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179) 또는 다른 [데스크톱 컴퓨터](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 에 대 한 두 개의 샘플 *DeploymentManifest.js* 를 찾을 수 있습니다.
@@ -187,7 +187,7 @@ docker push [desired local image name]
 
 이러한 두 설정이 추가 되 면 **저장** 을 클릭 합니다. 왼쪽 탐색 메뉴에서 **인증/권한 부여** 를 클릭 하 고 원하는 인증 수준으로 업데이트 합니다. Azure AD (Azure Active Directory) express를 권장 합니다. 
 
-### <a name="test-the-app"></a>앱 테스트
+### <a name="test-the-app"></a>앱을 테스트합니다.
 
 Azure 웹 앱으로 이동 하 여 배포가 성공 했으며 웹 앱이 실행 중인지 확인 합니다. 구성 된 url로 이동 `<yourapp>.azurewebsites.net` 하 여 실행 중인 앱을 확인 합니다.
 

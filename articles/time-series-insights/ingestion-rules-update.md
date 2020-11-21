@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 320d92ef0ad6d02dbe7c31b883eb7f73472378ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56a1d5aab2f665f9c5bd8f6fa322f35e55483c7b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667812"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016720"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>새 환경에 대 한 예정 된 JSON 평면화 및 이스케이프 규칙 변경
 
@@ -44,17 +44,17 @@ Azure Time Series Insights Gen2 환경에서는 특정 명명 규칙 집합에 �
 
 새 배포는 새 수집 규칙과 일치 해야 합니다. 예를 들어 TS ID가 인 경우 `telemetry_tagId` Azure Resource Manager 템플릿 또는 자동 배포 스크립트를 업데이트 하 여를 `telemetry.tagId` ENVIRONMENT TS id로 구성 해야 합니다. 중첩 된 JSON에서 이벤트 원본 타임 스탬프에 대 한이 변경도 필요 합니다.
 
-### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>페이로드에서 중첩 된 JSON 또는 특수 문자를 포함 하 고 [시계열 모델](.\time-series-insights-update-tsm.md) 변수 식을 자동으로 작성 하는 경우
+### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>페이로드에서 중첩 된 JSON 또는 특수 문자를 포함 하 고 [시계열 모델](./concepts-model-overview.md) 변수 식을 자동으로 작성 하는 경우
 
-새 수집 규칙과 일치 하도록 [유형 Batchput](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) 을 실행 하는 클라이언트 코드를 업데이트 합니다. 예를 들어의 이전 [시계열 식을](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) 다음 옵션 중 하나로 업데이트 해야 합니다 `"value": {"tsx": "$event.series_value.Double"}` .
+새 수집 규칙과 일치 하도록 [유형 Batchput](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) 을 실행 하는 클라이언트 코드를 업데이트 합니다. 예를 들어의 이전 [시계열 식을](/rest/api/time-series-insights/reference-time-series-expression-syntax) 다음 옵션 중 하나로 업데이트 해야 합니다 `"value": {"tsx": "$event.series_value.Double"}` .
 
 * `"value": {"tsx": "$event.series.value.Double"}`
 * `"value": {"tsx": "$event['series']['value'].Double"}`
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Gen2 저장소 및 수신 Azure Time Series Insights](./time-series-insights-update-storage-ingress.md)에 대해 알아봅니다.
+* [Gen2 저장소 및 수신 Azure Time Series Insights](./concepts-ingestion-overview.md)에 대해 알아봅니다.
 
 * [시계열 쿼리 api](./concepts-query-overview.md)를 사용 하 여 데이터를 쿼리 하는 방법에 대해 알아봅니다.
 
-* [새 시계열 식 구문](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)에 대해 자세히 알아보세요.
+* [새 시계열 식 구문](/rest/api/time-series-insights/reference-time-series-expression-syntax)에 대해 자세히 알아보세요.

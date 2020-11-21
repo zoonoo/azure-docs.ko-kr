@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d399507499a320116ff1c732a1ffc0ad84b5731
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74110350"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015445"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>음성 도우미 faq (질문과 대답)
 
-이 문서에서 질문에 대 한 답변을 찾을 수 없는 경우 [다른 지원 옵션](support.md)을 확인 하세요.
+이 문서에서 질문에 대 한 답변을 찾을 수 없는 경우 [다른 지원 옵션](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)을 확인 하세요.
 
 ## <a name="general"></a>일반
 
@@ -35,9 +35,9 @@ ms.locfileid: "74110350"
 
 **A:** 사용자 지정 명령 (미리 보기) 응용 프로그램 또는 기본 봇 프레임 워크 봇을 만들기 시작 하는 가장 좋은 방법입니다.
 
-- [사용자 지정 명령 (미리 보기) 응용 프로그램 만들기](quickstart-custom-speech-commands-create-new.md)
-- [기본 봇 프레임 워크 봇 만들기](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-- [직접 선 음성 채널에 봇 연결](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [사용자 지정 명령 (미리 보기) 응용 프로그램 만들기](./quickstart-custom-commands-application.md)
+- [기본 봇 프레임 워크 봇 만들기](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+- [직접 선 음성 채널에 봇 연결](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>디버깅
 
@@ -62,7 +62,7 @@ ms.locfileid: "74110350"
 **A:** 이 오류는 길잡이와 음성 도우미 서비스 간의 통신 문제가 있음을 나타냅니다.
 
 - 사용자 지정 명령 (미리 보기)의 경우 사용자 지정 명령 (미리 보기) 응용 프로그램이 게시 되었는지 확인 합니다.
-- 직접 라인 음성의 경우 [직접 선 음성 채널에 봇을 연결](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)하 고, 봇에 [스트리밍 프로토콜 지원을 추가](https://aka.ms/botframework/addstreamingprotocolsupport) 하 고 (관련 웹 소켓 지원), 봇이 채널에서 들어오는 요청에 응답 하 고 있는지 확인 합니다.
+- 직접 라인 음성의 경우 [직접 선 음성 채널에 봇을 연결](/azure/bot-service/bot-service-channel-connect-directlinespeech)하 고, 봇에 [스트리밍 프로토콜 지원을 추가](/azure/bot-service/directline-speech-bot) 하 고 (관련 웹 소켓 지원), 봇이 채널에서 들어오는 요청에 응답 하 고 있는지 확인 합니다.
 
 **Q:이 코드는 여전히 작동 하지 않으며를 사용할 때 다른 오류가 발생 `DialogServiceConnector` 합니다. 제가 뭘 해야 하나요?**
 

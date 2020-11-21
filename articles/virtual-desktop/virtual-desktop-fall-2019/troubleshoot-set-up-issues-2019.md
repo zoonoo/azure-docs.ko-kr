@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 31219fda04095d48b55165f59c27f3dee85485a9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8c6d26de62364b6aca671d1e4283a01c1b78c397
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843641"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014835"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱 (클래식)에서 테 넌 트 및 호스트 풀 만들기
 
@@ -49,7 +49,7 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 **원인:** Azure Active directory 인스턴스에서 Windows 가상 데스크톱에 대 한 동의가 부여 되지 않았습니다.
 
-**Fix:** [이 가이드에 따라](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) 동의를 부여 합니다.
+**Fix:** [이 가이드에 따라](./tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) 동의를 부여 합니다.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>오류: 사용자에게 관리 서비스를 쿼리할 수 있는 권한이 없습니다.
 
@@ -140,9 +140,9 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 
 다음 지침에 따라 Azure Resource Manager 템플릿 및 PowerShell DSC의 실패 한 배포 문제를 해결 합니다.
 
-1. [Azure Resource Manager에서 배포 작업 보기](../../azure-resource-manager/resource-manager-deployment-operations.md)를 사용 하 여 배포 오류를 검토 합니다.
-2. 배포에 오류가 없으면 활동 로그 보기를 사용 하 여 활동 로그의 오류를 검토 하 여 [리소스에 대 한 작업을 감사](../../azure-resource-manager/resource-group-audit.md)합니다.
-3. 오류가 식별 되 면 오류 메시지 및 문제 해결을 위해 [Azure Resource Manager 일반적인 Azure 배포 오류 해결](../../azure-resource-manager/resource-manager-common-deployment-errors.md) 의 리소스를 사용 합니다.
+1. [Azure Resource Manager에서 배포 작업 보기](../../azure-resource-manager/templates/deployment-history.md)를 사용 하 여 배포 오류를 검토 합니다.
+2. 배포에 오류가 없으면 활동 로그 보기를 사용 하 여 활동 로그의 오류를 검토 하 여 [리소스에 대 한 작업을 감사](../../azure-resource-manager/management/view-activity-logs.md)합니다.
+3. 오류가 식별 되 면 오류 메시지 및 문제 해결을 위해 [Azure Resource Manager 일반적인 Azure 배포 오류 해결](../../azure-resource-manager/templates/common-deployment-errors.md) 의 리소스를 사용 합니다.
 4. 이전 배포 중에 만들어진 모든 리소스를 삭제 하 고 템플릿을 다시 배포 하는 작업을 다시 시도 합니다.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>오류: 배포 하지 못했습니다. \<hostname> /joindomain
