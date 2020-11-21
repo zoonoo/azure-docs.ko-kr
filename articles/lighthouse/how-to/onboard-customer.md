@@ -3,12 +3,12 @@ title: Azure Lighthouse에 고객 온보딩
 description: Azure Lighthouse에 고객을 등록 하 여 Azure 위임 된 리소스 관리를 통해 자신의 테 넌 트를 통해 해당 리소스에 액세스 하 고 관리할 수 있도록 하는 방법을 알아봅니다.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: d80fef21e4b7cf1705b67df3c8d08f91bac589bf
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 43f28073c996167c82e241476020bdc341486b26
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042853"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024299"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 온보딩
 
@@ -142,7 +142,7 @@ az role definition list --name "<roleName>" | grep name
 > [!TIP]
 > 하나의 배포에서 전체 관리 그룹을 등록할 수 없는 경우 [관리 그룹 수준에서 정책을 배포할](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups)수 있습니다. 정책은 관리 그룹 내의 각 구독이 지정 된 관리 테 넌 트에 위임 되었는지 확인 하 고, 그렇지 않은 경우에는 사용자가 제공한 값을 기반으로 할당을 만듭니다.
 
-다음 예제에서는 구독을 온보딩하는 데 사용할 수 있는 수정된 **delegatedResourceManagement.parameters.json** 파일을 보여 줍니다. 리소스 그룹 매개 변수 파일( [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) 폴더에 있음)은 유사하지만 온보딩할 특정 리소스 그룹을 식별하기 위한 **rgName** 매개 변수를 포함합니다.
+다음 예제에서는 구독을 온보딩하는 데 사용할 수 있는 수정된 **delegatedResourceManagement.parameters.json** 파일을 보여 줍니다. 리소스 그룹 매개 변수 파일([rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) 폴더에 있음)은 유사하지만 온보딩할 특정 리소스 그룹을 식별하기 위한 **rgName** 매개 변수를 포함합니다.
 
 ```json
 {
@@ -211,7 +211,7 @@ az role definition list --name "<roleName>" | grep name
 ### <a name="azure-portal"></a>Azure portal
 
 1. [GitHub 리포지토리](https://github.com/Azure/Azure-Lighthouse-samples/)에서 사용 하려는 템플릿 옆에 있는 **Azure에 배포** 단추를 선택 합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
-1. **Msp 제품 이름** , **msp 제안 설명** , **테 넌 트 Id로 관리** 및 **권한 부여** 에 대 한 값을 입력 합니다. 원하는 경우 매개 **변수 편집** 을 선택 하 여 `mspOfferName` `mspOfferDescription` `managedbyTenantId` `authorizations` 매개 변수 파일에서,, 및에 대 한 값을 직접 입력할 수 있습니다. 템플릿의 기본값을 사용 하는 대신 이러한 값을 업데이트 해야 합니다.
+1. **Msp 제품 이름**, **msp 제안 설명**, **테 넌 트 Id로 관리** 및 **권한 부여** 에 대 한 값을 입력 합니다. 원하는 경우 매개 **변수 편집** 을 선택 하 여 `mspOfferName` `mspOfferDescription` `managedbyTenantId` `authorizations` 매개 변수 파일에서,, 및에 대 한 값을 직접 입력할 수 있습니다. 템플릿의 기본값을 사용 하는 대신 이러한 값을 업데이트 해야 합니다.
 1. **검토 및 만들기** 를 선택 하 고 **만들기** 를 선택 합니다.
 
 몇 분 후에 배포가 완료 되었다는 알림이 표시 됩니다.
@@ -286,6 +286,11 @@ az deployment sub create --name <deploymentName> \
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
 Get-AzContext
+
+# Confirm successful onboarding for Azure Lighthouse
+
+Get-AzManagedServicesDefinition
+Get-AzManagedServicesAssignment
 ```
 
 ### <a name="azure-cli"></a>Azure CLI

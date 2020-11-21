@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 1681217c9e55b67ee2a6737aeece5303256bc1e6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 654d7b4ddb332906aba330da20d42a0e16ec79e6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461807"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021442"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 
@@ -126,17 +126,17 @@ ms.locfileid: "92461807"
 |Managed Applications  | 예 | 예 | 예 |  |
 |지도  | 예 | 예 | 예 |  |
 |Media Services | 예 | 예 | 예 |  |
-|Microsoft Flow | 예 | 예 | 예 |  |
 |Microsoft Managed Desktop | 예 | 예 | 예 |  |
 |Microsoft PowerApps | 예 | 예 | 예 |  |
 |Microsoft 소셜 참여 | 예 | 예 | 예 |  |
 |Microsoft Stream | 예 | 예 | 예 |  |
-|마이그레이션 | 예 | 예 | 예 |  |
+|마이그레이션 | 예 | 아니요 | 예 |  |
 |Multi-Factor Authentication | 예 | 예 | 예 |  |
 |Network Watcher | 예 | 예 | 예 |  |
-|Notification Hubs | 예 | 예 | 예 |  |
+|Notification Hubs | 예 | 아니요 | 예 |  |
 |공개 데이터 세트 | 예 | 예 | 예 |  |
 |정책 | 예 | 예 | 예 |  |
+|Power Automate | 예 | 예 | 예 |  |
 |Power BI Embedded | 예 | 예 | 예 |  |
 |Private Link | 예 | 예 | 예 |  |
 |프로젝트 Spool 통신 플랫폼 | 예 | 예 | 예 |  |

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 0fe5b1350fdcf53eeda11f6de430d8d02a24fdbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c0b399f84e793d9e762c89dbbd1901bb5a95f26
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397762"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024333"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
-이 FAQ에서 질문에 대한 답변을 찾을 수 없는 경우 [다른 지원 옵션](support.md)을 확인하세요.
+이 FAQ에서 질문에 대한 답변을 찾을 수 없는 경우 [다른 지원 옵션](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)을 확인하세요.
 
 ## <a name="general"></a>일반
 
@@ -29,7 +29,7 @@ ms.locfileid: "91397762"
 
 **Q: 기준 모델을 사용하려면 무엇부터 시작해야 하나요?**
 
-**A**: 먼저 [구독 키](overview.md#try-the-speech-service-for-free)를 확보합니다. 미리 배포된 기준 모델을 REST 방식으로 호출하려면 [REST API](rest-apis.md)를 참조하세요. Websocket을 사용 하려면 [SDK를 다운로드](speech-sdk.md)합니다.
+**A**: 먼저 [구독 키](overview.md#try-the-speech-service-for-free)를 확보합니다. 미리 배포된 기준 모델을 REST 방식으로 호출하려면 [REST API](./overview.md#reference-docs)를 참조하세요. Websocket을 사용 하려면 [SDK를 다운로드](speech-sdk.md)합니다.
 
 **Q: 사용자 지정 음성 모델을 항상 작성해야 하나요?**
 

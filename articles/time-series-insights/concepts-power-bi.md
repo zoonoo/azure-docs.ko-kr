@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
-ms.openlocfilehash: a04712a22536b5811b2465e56995d7b161a15c6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b6631415c32358cf445fab534b9524c88b6432e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460886"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020881"
 ---
 # <a name="connect-azure-time-series-insights-gen-2-to-power-bi"></a>Power BI에 Azure Time Series Insights Gen 2 연결  
 
@@ -21,7 +21,7 @@ ms.locfileid: "91460886"
 
 Azure Time Series Insights은 이제 [Power BI](https://powerbi.microsoft.com/)와 원활 하 게 통합 되어 스트리밍 데이터에 대 한 보다 강력한 시각화 및 대시보드 기능을 제공 하 고 조직 전체에서 정보 및 결과를 공유할 수 있습니다.
 
-## <a name="video"></a>비디오
+## <a name="video"></a>동영상
 
 ### <a name="learn-more-about-integrating-azure-time-series-insights-with-power-bibr"></a>Power BI와 Azure Time Series Insights 통합에 대해 자세히 알아보세요.</br>
 
@@ -65,4 +65,4 @@ Power BI 내의 고급 쿼리 및 편집 기능을 사용 하려면 Power BI의 
 
 * [Power BI desktop](https://powerbi.microsoft.com/desktop/) 을 다운로드 하 고 데이터 연결을 시작 합니다.
 
-* [Power BI](https://docs.microsoft.com/power-bi/)에 대해 자세히 알아보세요.
+* [Power BI](/power-bi/)에 대해 자세히 알아보세요.

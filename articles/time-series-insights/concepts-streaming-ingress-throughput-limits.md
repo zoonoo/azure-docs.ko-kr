@@ -10,19 +10,19 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: e2f6cd943e381d53c36867ce960cd99552f3aea6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c8be18049e6ae74a198f5885a46b70df581e0cd7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746549"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020830"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>스트리밍 수집 처리량 제한
 
 Azure Time Series Insights Gen2 스트리밍 데이터 수신 제한 사항은 아래에 설명 되어 있습니다.
 
 > [!TIP]
-> 모든 제한의 포괄적인 목록은 [Azure Time Series Insights Gen2 환경 계획](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) 을 참조 하세요.
+> 모든 제한의 포괄적인 목록은 [Azure Time Series Insights Gen2 환경 계획](./how-to-plan-your-environment.md#review-azure-time-series-insights-gen2-limits) 을 참조 하세요.
 
 ## <a name="per-environment-limitations"></a>환경당 제한
 
@@ -59,7 +59,7 @@ Azure Time Series Insights Gen2 환경을 계획할 때 Azure Time Series Insigh
 
 *파티션* 은 허브에서 저장되는 순서가 지정된 이벤트 시퀀스입니다. 파티션 수는 허브 만들기 중에 설정되며 변경할 수 없습니다.
 
-Event Hubs 분할 모범 사례는 [필요한 파티션은 몇 개인가요?](https://docs.microsoft.com/azure/event-hubs/event-hubs-faq#how-many-partitions-do-i-need)를 검토하세요.
+Event Hubs 분할 모범 사례는 [필요한 파티션은 몇 개인가요?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)를 검토하세요.
 
 > [!NOTE]
 > Azure Time Series Insights Gen2에 사용 되는 대부분의 IoT Hub에는 4 개의 파티션만 필요 합니다.
@@ -74,7 +74,7 @@ IoT Hub에서 디바이스가 만들어지면 파티션에 영구적으로 할�
 
 고정 파티션 할당은 IoT Hub 다운스트림에서 전송 된 데이터를 수집 Gen2 인스턴스에도 영향을 Azure Time Series Insights 줍니다. 여러 디바이스에서 동일한 게이트웨이 디바이스 ID를 사용하여 메시지를 허브로 전달하는 경우 동일한 파티션에 동시에 도달하여 파티션당 크기 제한을 초과할 수 있습니다.
 
-**영향** :
+**영향**:
 
 * 단일 파티션이 한도를 초과 하 여 수집 하는 비율이 지속 되는 경우 IoT Hub 데이터 보존 기간이 초과 되기 전에 Azure Time Series Insights Gen2가 모든 장치 원격 분석을 동기화 하지 않을 수 있습니다. 따라서 수집 제한이 지속적으로 초과되면 전송된 데이터가 손실될 수 있습니다.
 
@@ -92,9 +92,9 @@ IoT Hub에서 디바이스가 만들어지면 파티션에 영구적으로 할�
 
 허브 처리량 및 파티션을 최적화하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [IoT Hub 크기 조정](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
-* [Event Hub 크기 조정](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
-* [Event Hub 파티션](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
+* [IoT Hub 크기 조정](../iot-hub/iot-hub-scaling.md)
+* [Event Hub 크기 조정](../event-hubs/event-hubs-scalability.md#throughput-units)
+* [Event Hub 파티션](../event-hubs/event-hubs-features.md#partitions)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d9b91df896646da7bf36e077d9f3c9187137dd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023026"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021799"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>사용자 지정 명령 응용 프로그램을 실행 하는 경우 디버그 오류
 
@@ -58,9 +58,9 @@ ms.locfileid: "86023026"
 
 - 포털에서 응용 프로그램을 테스트 하는 경우 취소 설명을 직접 표시 하 고 오류 메시지를 발생 시킬 수 있습니다. 
 
-- [Windows 음성 도우미 클라이언트](./how-to-custom-commands-developer-flow-test.md)를 사용 하 여 응용 프로그램을 실행 하는 경우 오류 메시지가 표시 됩니다. **활동 로그**에서 **CancelledDialog 이벤트** 를 찾을 수 있습니다.
+- [Windows 음성 도우미 클라이언트](./how-to-custom-commands-developer-flow-test.md)를 사용 하 여 응용 프로그램을 실행 하는 경우 오류 메시지가 표시 됩니다. **활동 로그** 에서 **CancelledDialog 이벤트** 를 찾을 수 있습니다.
 
-- 클라이언트 응용 프로그램 예제 [클라이언트 응용 프로그램 (음성 SDK 사용)](./how-to-custom-commands-setup-speech-sdk.md)을 수행 하는 경우 오류 메시지가 표시 됩니다. **상태**에서 **CancelledDialog 이벤트** 를 찾을 수 있습니다.
+- 클라이언트 응용 프로그램 예제 [클라이언트 응용 프로그램 (음성 SDK 사용)](./how-to-custom-commands-setup-speech-sdk.md)을 수행 하는 경우 오류 메시지가 표시 됩니다. **상태** 에서 **CancelledDialog 이벤트** 를 찾을 수 있습니다.
 
 - 사용자 고유의 클라이언트 응용 프로그램을 빌드하는 경우 언제 든 지 CancelledDialog 이벤트를 처리 하도록 원하는 논리를 디자인할 수 있습니다.
 
@@ -86,13 +86,13 @@ LUIS (Language Understanding)에는 리소스 사용에 대 한 제한이 있습
 
     사용자 지정 명령 응용 프로그램에 예측 리소스를 추가 합니다. 
     1. **설정**, LUIS 리소스로 이동 합니다.
-    1. **예측 리소스**에서 예측 리소스를 선택 하거나 **새 리소스 만들기** 를 클릭 합니다. 
+    1. **예측 리소스** 에서 예측 리소스를 선택 하거나 **새 리소스 만들기** 를 클릭 합니다. 
 
 - LUIS 예측 리소스가 제한을 초과 합니다.
 
     F0 예측 리소스를 사용할 경우 10 ~ 10/월 5 개의 쿼리/초 제한이 있습니다.
 
-LUIS 리소스 제한에 대 한 자세한 내용은 [Language Understanding 리소스 사용 및 제한](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits#resource-usage-and-limits) 을 참조 하세요.
+LUIS 리소스 제한에 대 한 자세한 내용은 [Language Understanding 리소스 사용 및 제한](../luis/luis-limits.md#resource-usage-and-limits) 을 참조 하세요.
 
 ### <a name="connection-to-the-recognizer-failed"></a>인식기에 연결 하지 못했습니다.
 일반적으로 Language Understanding (LUIS) 인식기에 대 한 일시적인 연결 오류를 의미 합니다. 다시 시도 하 여 문제를 해결 해야 합니다.
@@ -123,7 +123,7 @@ LUIS 인식기에서 입력을 인식 하는 동안 오류가 반환 되었습�
 
     두 명령이 유사한 의도와 예 문장을 공유 하는 경우 LUIS 인식 정확도가 영향을 받을 수 있습니다. 명령 기능 및 예제 문장을 가능한 한 고유 하 게 만들 수 있습니다.
 
-    인식 정확도를 향상 시키는 모범 사례는 [LUIS 모범 사례](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices)를 참조 하세요.
+    인식 정확도를 향상 시키는 모범 사례는 [LUIS 모범 사례](../luis/luis-concept-best-practices.md)를 참조 하세요.
 
 - 대화 상자가 취소 됨
     

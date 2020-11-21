@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dc39c1e43580c5cf302e85664783dba4509889af
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d3033af32229be238831740c11a1112513259a43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842637"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023159"
 ---
 # <a name="security-best-practices"></a>보안 모범 사례
 
@@ -29,16 +29,16 @@ Windows 가상 데스크톱 배포에서 담당 하는 보안 요구 사항은 �
 
 | 보안 요구 | 고객이이를 담당 하나요? |
 |---------------|:-------------------------:|
-|ID|예|
-|사용자 장치 (모바일 및 PC)|예|
-|앱 보안|예|
-|세션 호스트 OS|예|
-|배포 구성|예|
-|네트워크 컨트롤|예|
-|가상화 제어 평면|아니요|
-|물리적 호스트|아니요|
-|실제 네트워크|아니요|
-|물리적 데이터 센터|아니요|
+|ID|Yes|
+|사용자 장치 (모바일 및 PC)|Yes|
+|앱 보안|Yes|
+|세션 호스트 OS|Yes|
+|배포 구성|Yes|
+|네트워크 컨트롤|Yes|
+|가상화 제어 평면|No|
+|물리적 호스트|No|
+|실제 네트워크|No|
+|물리적 데이터 센터|No|
 
 고객이 책임을 지지 않는 보안 요구는 Microsoft에서 처리 합니다.
 
@@ -62,7 +62,7 @@ Azure Security Center Standard를 사용 하 여 다음을 수행할 수 있습�
 
 ### <a name="improve-your-secure-score"></a>보안 점수 향상
 
-보안 점수는 전체 보안을 개선 하기 위한 권장 사항 및 모범 사례 조언을 제공 합니다. 이러한 권장 사항은 가장 중요 한 문제를 선택 하는 데 도움이 되도록 우선 순위를 지정 하 고 빠른 수정 옵션을 통해 잠재적 취약성을 신속 하 게 해결할 수 있습니다. 이러한 권장 사항은 시간이 지남에 따라 업데이트 되므로 환경의 보안을 유지 하는 가장 좋은 방법에 대해 최신 상태를 유지할 수 있습니다. 자세히 알아보려면 [Azure Security Center의 보안 점수 향상](../security-center/security-center-secure-score.md)을 참조 하세요.
+보안 점수는 전체 보안을 개선 하기 위한 권장 사항 및 모범 사례 조언을 제공 합니다. 이러한 권장 사항은 가장 중요 한 문제를 선택 하는 데 도움이 되도록 우선 순위를 지정 하 고 빠른 수정 옵션을 통해 잠재적 취약성을 신속 하 게 해결할 수 있습니다. 이러한 권장 사항은 시간이 지남에 따라 업데이트 되므로 환경의 보안을 유지 하는 가장 좋은 방법에 대해 최신 상태를 유지할 수 있습니다. 자세히 알아보려면 [Azure Security Center의 보안 점수 향상](../security-center/secure-score-security-controls.md)을 참조 하세요.
 
 ## <a name="windows-virtual-desktop-security-best-practices"></a>Windows 가상 데스크톱 보안 모범 사례
 
@@ -74,13 +74,13 @@ Windows 가상 데스크톱의 모든 사용자 및 관리자에 대해 multi-fa
 
 ### <a name="enable-conditional-access"></a>조건부 액세스 사용
 
-[조건부 액세스](../active-directory/conditional-access/best-practices.md) 를 사용 하면 사용자에 게 Windows 가상 데스크톱 환경에 대 한 액세스 권한을 부여 하기 전에 위험을 관리할 수 있습니다. 에 대 한 액세스 권한을 부여할 사용자를 결정할 때 사용자가 누구 인지, 로그인 하는 방법 및 사용 중인 장치를 고려 하는 것이 좋습니다.
+[조건부 액세스](../active-directory/conditional-access/overview.md) 를 사용 하면 사용자에 게 Windows 가상 데스크톱 환경에 대 한 액세스 권한을 부여 하기 전에 위험을 관리할 수 있습니다. 에 대 한 액세스 권한을 부여할 사용자를 결정할 때 사용자가 누구 인지, 로그인 하는 방법 및 사용 중인 장치를 고려 하는 것이 좋습니다.
 
 ### <a name="collect-audit-logs"></a>감사 로그 수집
 
 감사 로그 수집을 사용 하도록 설정 하면 Windows 가상 데스크톱과 관련 된 사용자 및 관리자 활동을 볼 수 있습니다. 키 감사 로그의 몇 가지 예는 다음과 같습니다.
 
--   [Azure 동작 로그](../azure-monitor/platform/activity-log-collect.md)
+-   [Azure 활동 로그](../azure-monitor/platform/activity-log.md)
 -   [활동 로그 Azure Active Directory](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [세션 호스트](../azure-monitor/platform/agent-windows.md)
@@ -93,7 +93,7 @@ Windows 가상 데스크톱의 모든 사용자 및 관리자에 대해 multi-fa
 
 ### <a name="monitor-usage-with-azure-monitor"></a>Azure Monitor 사용 모니터링
 
-[Azure Monitor](https://azure.microsoft.com/services/monitor/)를 사용 하 여 Windows 가상 데스크톱 서비스의 사용 현황 및 가용성을 모니터링 합니다. 서비스에 영향을 주는 이벤트가 있을 때마다 알림을 받도록 Windows 가상 데스크톱 서비스에 대 한 [서비스 상태 경고](../service-health/alerts-activity-log-service-notifications.md) 를 만드는 것이 좋습니다.
+[Azure Monitor](https://azure.microsoft.com/services/monitor/)를 사용 하 여 Windows 가상 데스크톱 서비스의 사용 현황 및 가용성을 모니터링 합니다. 서비스에 영향을 주는 이벤트가 있을 때마다 알림을 받도록 Windows 가상 데스크톱 서비스에 대 한 [서비스 상태 경고](../service-health/alerts-activity-log-service-notifications-portal.md) 를 만드는 것이 좋습니다.
 
 ## <a name="session-host-security-best-practices"></a>세션 호스트 보안 모범 사례
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 401d22ee68ba0652eb684b03b06fddf0b0fe3d72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61af7922318514a7b86a349d1970c59d4d168d85
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569459"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023329"
 ---
 # <a name="create-a-new-azure-time-series-insights-gen1-environment-in-the-azure-portal"></a>Azure Portal에서 새 Azure Time Series Insights Gen1 환경을 만듭니다.
 
@@ -33,19 +33,19 @@ Azure Time Series Insights를 사용 하 여 Azure IoT Event Hubs Hub로 이동 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. **+ 리소스 만들기** 단추를 선택 합니다.
+1. **+ 리소스 만들기** 단추를 선택합니다.
 
-1. **사물 인터넷** 범주를 선택하고 **Time Series Insights**를 선택합니다.
+1. **사물 인터넷** 범주를 선택하고 **Time Series Insights** 를 선택합니다.
 
    [![Azure Time Series Insights 환경 만들기](media/time-series-insights-get-started/tsi-create-new-environment.png)](media/time-series-insights-get-started/tsi-create-new-environment.png#lightbox)
 
-1. **Time Series Insights** 페이지에서 **만들기**를 선택합니다.
+1. **Time Series Insights** 페이지에서 **만들기** 를 선택합니다.
 
 1. 필수 매개 변수를 입력합니다. 다음 표에서는 각 매개 변수에 대해 설명합니다.
 
    [![Azure Time Series Insights 리소스 그룹 만들기](media/time-series-insights-get-started/tsi-configure-and-create.png)](media/time-series-insights-get-started/tsi-configure-and-create.png#lightbox)
 
-   설정|제안 값|설명
+   설정|제안 값|Description
    ---|---|---
    환경 이름 | 고유한 이름 | 이 이름은 [시계열 탐색기](https://insights.timeseries.azure.com) 의 환경을 나타냅니다.
    Subscription | 사용자의 구독 | 구독이 여러 개인 경우 이벤트 원본을 포함하는 구독을 선택합니다. Azure Time Series Insights는 동일한 구독의 기존 Azure IoT Hub 및 이벤트 허브 리소스를 자동으로 검색할 수 있습니다.
@@ -54,13 +54,13 @@ Azure Time Series Insights를 사용 하 여 Azure IoT Event Hubs Hub로 이동 
    가격 책정 계층 | S1 | 필요한 처리량을 선택합니다. 최저 비용의 시작 용량을 사용하려면 S1을 선택합니다.
    용량 | 1 | 용량은 선택한 SKU와 관련된 입력 속도, 스토리지 용량 및 비용에 적용되는 승수입니다.  환경을 만든 후 환경의 용량을 변경할 수 있습니다. 최저 비용을 원할 경우 용량 1을 선택합니다.
   
-1. **만들기**를 선택하여 프로비전 프로세스를 시작합니다. 몇 분 정도 걸릴 수 있습니다.
+1. **만들기** 를 선택하여 프로비전 프로세스를 시작합니다. 몇 분 정도 걸릴 수 있습니다.
 
 1. 배포 프로세스를 모니터링하려면 **알림** 기호(종 모양)를 선택합니다.
 
    [![알림 보기](media/time-series-insights-get-started/tsi-deploy-notifications.png)](media/time-series-insights-get-started/tsi-deploy-notifications.png#lightbox)
 
-1. 리소스 **개요**에서 배포 구성 설정을 확인 합니다.
+1. 리소스 **개요** 에서 배포 구성 설정을 확인 합니다.
 
    [![대시보드에 Azure Time Series Insights 고정 만들기](media/time-series-insights-get-started/tsi-verify-deployment.png)](media/time-series-insights-get-started/tsi-verify-deployment.png#lightbox)
 
@@ -68,9 +68,9 @@ Azure Time Series Insights를 사용 하 여 Azure IoT Event Hubs Hub로 이동 
 
 ## <a name="next-steps"></a>다음 단계
 
-* 환경을 보호하기 위한 [데이터 액세스 정책 정의](time-series-insights-data-access.md)
+* 환경을 보호하기 위한 [데이터 액세스 정책 정의](./concepts-access-policies.md)
 
-* Azure Time Series Insights 환경에 [이벤트 허브 이벤트 원본 추가](time-series-insights-how-to-add-an-event-source-eventhub.md)
+* Azure Time Series Insights 환경에 [이벤트 허브 이벤트 원본 추가](./how-to-ingest-data-event-hub.md)
 
 * 이벤트 원본으로 [이벤트를 보냅니다](time-series-insights-send-events.md) .
 

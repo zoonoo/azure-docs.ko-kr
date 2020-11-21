@@ -14,12 +14,12 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6f1f5f55348069dbfe11b4d5857d93f8ba8c9b19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 772341d046186e46b79ad7b11170e1bad23a3a6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74033965"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024197"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Azure에서 Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정(Transact-SQL)
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ FROM
 ```1```의 결과는 암호화된 데이터베이스를 나타내고 ```0```은(는) 암호화되지 않은 데이터베이스를 나타냅니다.
 
 <!--Anchors-->
-[TDE(투명한 데이터 암호화)]: https://msdn.microsoft.com/library/bb934049.aspx
+[TDE(투명한 데이터 암호화)]: /sql/relational-databases/security/encryption/transparent-data-encryption
 
 
 <!--Image references-->

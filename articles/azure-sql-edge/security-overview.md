@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: cb673efb3e5d14e72e945bcf8c23d57495823720
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 56d5eb981aa02d9da83973d49e8df79fcd9c7e9c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394954"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021017"
 ---
 # <a name="securing-azure-sql-edge"></a>Azure SQL Edge 보안
 
@@ -34,14 +34,14 @@ Azure SQL Edge에 대 한 플랫폼에는 물리적 docker 호스트, 호스트�
 - Azure SQL Edge에를 사용 하는 호스트 포트 지정 및 제한
 - Azure SQL Edge 데이터를 호스트 하는 모든 데이터 볼륨에 적절 한 액세스 제어가 적용 되도록 합니다. 
 
-Azure SQL Edge 네트워크 프로토콜 및 TDS 끝점에 대 한 자세한 내용은 [네트워크 프로토콜 및 Tds 끝점](//previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105))을 참조 하세요.
+Azure SQL Edge 네트워크 프로토콜 및 TDS 끝점에 대 한 자세한 내용은 [네트워크 프로토콜 및 Tds 끝점](/previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105))을 참조 하세요.
 
 ## <a name="authentication-and-authorization"></a>인증 및 권한 부여 
 
 ### <a name="authentication"></a>인증  
 인증은 사용자의 신원을 증명하는 과정입니다. Azure SQL Edge는 현재 메커니즘도 지원 `SQL Authentication` 합니다.
 
-- *SQL 인증* :
+- *SQL 인증*:
 
     SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Edge에 연결할 때 사용자의 인증을 나타냅니다. Sql Edge 배포 중에 SQL **sa** 로그인 암호를 지정 해야 합니다. 그리고 나면 서버 관리자는 추가 SQL 로그인 및 사용자를 만들 수 있으며, 그러면 사용자가 사용자 이름과 암호를 사용하여 연결할 수 있습니다.
 

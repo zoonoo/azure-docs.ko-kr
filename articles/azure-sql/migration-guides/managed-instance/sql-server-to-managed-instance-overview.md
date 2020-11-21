@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 211ad590ab01d0be26d799064e1227accc619585
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 2c143c299cec1d48dd5438d5350c818d5cc93800
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497366"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023721"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>마이그레이션 개요: SQL Managed Instance SQL Server
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -63,7 +63,7 @@ Sql Server를 SQL Managed Instance로 마이그레이션하는 주요 이점 중
 배포 중에 계산 및 저장소 리소스를 선택한 다음 응용 프로그램에 대 한 가동 중지 시간 없이 [Azure Portal](../../database/scale-resources.md) 사용 하 여 변경할 수 있습니다. 
 
 > [!IMPORTANT]
-> [관리 되는 인스턴스 가상 네트워크 요구 사항의](/../../managed-instance/connectivity-architecture-overview.md#network-requirements) 차이로 인해 새 인스턴스를 만들거나 기존 인스턴스를 사용 하지 못할 수 있습니다.  [새 네트워크 만들기](/../../managed-instance/virtual-network-subnet-create-arm-template?branch=release-ignite-arc-data)   및 기존 네트워크 [구성](/../../managed-instance/vnet-existing-add-subnet?branch=release-ignite-arc-data)에 대해 자세히 알아보세요   . 
+> [관리 되는 인스턴스 가상 네트워크 요구 사항의](/azure/azure-sql/managed-instance/connectivity-architecture-overview#network-requirements) 차이로 인해 새 인스턴스를 만들거나 기존 인스턴스를 사용 하지 못할 수 있습니다.  [새 네트워크 만들기](/azure/azure-sql/managed-instance/virtual-network-subnet-create-arm-template?branch=release-ignite-arc-data)   및 기존 네트워크 [구성](/azure/azure-sql/managed-instance/vnet-existing-add-subnet?branch=release-ignite-arc-data)에 대해 자세히 알아보세요   . 
 
 ### <a name="sql-server-vm-alternative"></a>SQL Server VM 대체
 
@@ -86,7 +86,7 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 
 다음 표에는 권장 마이그레이션 도구가 나열 되어 있습니다. 
 
-|기술 | 설명|
+|기술 | Description|
 |---------|---------|
 |[Azure DMS(Database Migration Service)](/azure/dms/tutorial-sql-server-to-managed-instance)  | 마이그레이션 프로세스 중 가동 중지 시간을 감당할 수 있는 응용 프로그램에 대해 오프 라인 모드에서 마이그레이션을 지 원하는 자사 Azure 서비스입니다. 온라인 모드의 연속 마이그레이션과 달리 오프 라인 모드 마이그레이션은 원본에서 대상으로 전체 데이터베이스 백업에 대 한 일회성 복원을 실행 합니다. | 
 |[네이티브 백업 및 복원](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance는 기본 SQL Server 데이터베이스 백업 (.bak 파일)의 복원을 지원 하 여 Azure storage에 전체 데이터베이스 백업을 제공할 수 있는 고객에 게 가장 쉬운 마이그레이션 옵션을 제공 합니다. 전체 및 차등 백업은이 문서의 뒷부분에 있는 [마이그레이션 자산 섹션](#migration-assets) 에도 지원 되며 문서화 되어 있습니다.| 
@@ -96,7 +96,7 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 
 다음 표에서는 대체 마이그레이션 도구를 보여 줍니다. 
 
-|기술 |설명  |
+|기술 |Description  |
 |---------|---------|
 |[트랜잭션 복제](../../managed-instance/replication-transactional-overview.md) | 트랜잭션 일관성을 유지 하면서 게시자-구독자 유형 마이그레이션 옵션을 제공 하 여 원본 SQL Server 데이터베이스 테이블에서 SQL Managed Instance로 데이터를 복제 합니다. |  |
 |[대량 복사](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| [Bcp (대량 복사 프로그램) 유틸리티](/sql/tools/bcp-utility) 는 SQL Server 인스턴스에서 데이터 파일로 데이터를 복사 합니다. BCP 유틸리티를 사용 하 여 원본에서 데이터를 내보내고 대상 SQL Managed Instance로 데이터 파일을 가져옵니다.</br></br> Azure SQL Database으로 데이터를 이동 하는 고속 대량 복사 작업의 경우, [효율적인 대량 복사 도구](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) 를 사용 하 여 병렬 복사 작업을 활용 하 여 전송 속도를 최대화할 수 있습니다. | 

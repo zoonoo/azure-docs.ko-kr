@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19d4cc388494e149b7f258a8e9f154041a3dd070
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630154"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021969"
 ---
 # <a name="speech-service-for-telephony-data"></a>전화 통신 데이터를 위한 음성 서비스
 
@@ -48,9 +48,9 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 
 ### <a name="speech-to-text-stt"></a>STT(음성 텍스트 변환)
 
-[음성 텍스트](speech-to-text.md) 는 모든 콜 센터 솔루션에서 가장 많이 검색 된 기능입니다. 많은 다운스트림 분석 프로세스에서 transcribed 텍스트를 사용 하므로_WER_(단어 오류 요금)는 매우 중요 합니다. 콜 센터 전사의 핵심 과제 중 하나는 콜 센터에서 흔히 발생하는 소음(예 - 배경에서 말하는 다른 상담원), 매우 다양한 언어 로캘과 방언 및 실제 전화 신호의 낮은 품질입니다. WER은 지정 된 로캘에 대해 음향 및 언어 모델이 얼마나 잘 학습 되는지와 밀접 하 게 연관 되어 있으므로 로캘에 맞게 모델을 사용자 지정 하는 기능이 중요 합니다. 당사의 최신 통합 버전 4.x 모델은 전사 정확도와 대기 시간 둘 다에 대한 솔루션입니다. 수십 시간 동안의 어쿠스틱 데이터와 수십억 개의 어휘 정보를 사용 하 여 학습 하 고, 통합 모델은 콜 센터 데이터를 높여줄 시장에서 가장 정확한 모델입니다.
+[음성 텍스트](speech-to-text.md) 는 모든 콜 센터 솔루션에서 가장 많이 검색 된 기능입니다. 많은 다운스트림 분석 프로세스에서 transcribed 텍스트를 사용 하므로 _WER_(단어 오류 요금)는 매우 중요 합니다. 콜 센터 전사의 핵심 과제 중 하나는 콜 센터에서 흔히 발생하는 소음(예 - 배경에서 말하는 다른 상담원), 매우 다양한 언어 로캘과 방언 및 실제 전화 신호의 낮은 품질입니다. WER은 지정 된 로캘에 대해 음향 및 언어 모델이 얼마나 잘 학습 되는지와 밀접 하 게 연관 되어 있으므로 로캘에 맞게 모델을 사용자 지정 하는 기능이 중요 합니다. 당사의 최신 통합 버전 4.x 모델은 전사 정확도와 대기 시간 둘 다에 대한 솔루션입니다. 수십 시간 동안의 어쿠스틱 데이터와 수십억 개의 어휘 정보를 사용 하 여 학습 하 고, 통합 모델은 콜 센터 데이터를 높여줄 시장에서 가장 정확한 모델입니다.
 
-### <a name="sentiment"></a>데이터
+### <a name="sentiment"></a>감정
 
 고객의 환경이 좋은지 여부를 측정하는 것은 콜 센터 영역에 적용할 때 음성 분석의 매우 중요한 영역 중 하나입니다. 당사의 [일괄 처리 전사 API](batch-transcription.md)는 발화별로 감정 분석을 제공합니다. 통화 음성 텍스트의 일부로 얻은 값 세트를 집계하여 상담원과 고객 모두에 대한 통화의 감정을 결정할 수 있습니다.
 
@@ -60,7 +60,7 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 
 ### <a name="translation"></a>Translation
 
-일부 회사에서는 배달 관리자가 고객의 세계 전체 환경을 이해할 수 있도록 외국어 지원 호출에서 번역 된 기록을 제공 하는 방법을 시험해 볼 수 있습니다. 당사의 [번역](/azure/cognitive-services/speech-service/speech-translation) 기능은 탁월합니다. 많은 로캘에 대해 오디오-오디오 또는 오디오-텍스트를 번역할 수 있습니다.
+일부 회사에서는 배달 관리자가 고객의 세계 전체 환경을 이해할 수 있도록 외국어 지원 호출에서 번역 된 기록을 제공 하는 방법을 시험해 볼 수 있습니다. 당사의 [번역](./speech-translation.md) 기능은 탁월합니다. 많은 로캘에 대해 오디오-오디오 또는 오디오-텍스트를 번역할 수 있습니다.
 
 ### <a name="text-to-speech"></a>Text to Speech
 
@@ -94,7 +94,7 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 
 - 음성 서비스는 음성 텍스트를 높여줄 하는 데 사용 됩니다. 일괄 처리 기록 API를 사용 하려면 음성 서비스에 대 한 표준 구독 (S0)이 필요 합니다. 체험 구독(F0) 서비스는 제공하지 않습니다.
 - [Azure Storage](https://azure.microsoft.com/services/storage/)는 전화 통신 데이터 및 Batch Transcription API에서 반환된 음성 텍스트를 저장하기 위해 사용됩니다. 이 스토리지 계정은 특히 새 파일이 추가될 때 알림을 사용해야 합니다. 해당 알림은 전사 프로세스를 트리거하기 위해 사용됩니다.
-- [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)는 각 기록에 대한 SAS(공유 액세스 디지털 서명) URI를 만들고 HTTP POST 요청을 트리거하여 전사를 시작하기 위해 사용됩니다. 또한 Azure Functions는 Batch Transcription API를 사용하여 전사를 검색하고 삭제하는 요청을 만들기 위해 사용됩니다.
+- [Azure Functions](../../azure-functions/index.yml)는 각 기록에 대한 SAS(공유 액세스 디지털 서명) URI를 만들고 HTTP POST 요청을 트리거하여 전사를 시작하기 위해 사용됩니다. 또한 Azure Functions는 Batch Transcription API를 사용하여 전사를 검색하고 삭제하는 요청을 만들기 위해 사용됩니다.
 
 내부적으로는 위의 기술을 사용하여 일괄 처리 모드에서 Microsoft 고객 통화를 지원하고 있습니다.
 :::image type="content" source="media/scenarios/call-center-batch-pipeline.png" alt-text="Batch 모드에서 Microsoft 고객 호출을 지 원하는 데 사용 되는 기술입니다.":::
@@ -111,7 +111,7 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 
 ## <a name="a-word-on-ivrs"></a>IVR 참고사항
 
-음성 서비스는 [음성 SDK](speech-sdk.md) 또는 [REST API](rest-apis.md)를 사용 하 여 모든 솔루션에 쉽게 통합 될 수 있습니다. 그러나 콜 센터 전사를 위해서는 추가 기술이 필요할 수 있습니다. 일반적으로 IVR 시스템과 Azure 간의 연결이 필요합니다. 이러한 구성 요소는 제공 하지 않지만, 다음은 IVR의 연결에 대 한 설명입니다.
+음성 서비스는 [음성 SDK](speech-sdk.md) 또는 [REST API](./overview.md#reference-docs)를 사용 하 여 모든 솔루션에 쉽게 통합 될 수 있습니다. 그러나 콜 센터 전사를 위해서는 추가 기술이 필요할 수 있습니다. 일반적으로 IVR 시스템과 Azure 간의 연결이 필요합니다. 이러한 구성 요소는 제공 하지 않지만, 다음은 IVR의 연결에 대 한 설명입니다.
 
 여러 IVR 또는 전화 통신 서비스 제품 (예: Genesys 또는 오디오 코드)은 Azure 서비스에 대 한 인바운드 및 아웃 바운드 오디오 통과를 활성화 하는 데 활용할 수 있는 통합 기능을 제공 합니다. 기본적으로 사용자 지정 Azure 서비스는 전화 통화 세션 (예: Call Start 또는 Call End)을 정의 하는 특정 인터페이스를 제공 하 고, 음성 서비스에 사용 되는 인바운드 스트림 오디오를 수신 하는 WebSocket API를 노출할 수 있습니다. 대화 전사 또는 Bot Framework와 연결과 같은 아웃바운드 응답은 Microsoft의 텍스트 음성 변환 서비스와 동기화하고 재생을 위해 IVR로 돌아갈 수 있습니다.
 
@@ -121,12 +121,12 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 
  음성 서비스는 기본 제공 모델에서 잘 작동 합니다. 그러나 제품 또는 환경에 대 한 환경을 추가로 사용자 지정 하 고 조정할 수 있습니다. 사용자 지정 옵션은 음향 모델 조정부터 브랜드를 위한 고유한 음성 글꼴까지 다양합니다. 사용자 지정 모델을 작성 한 후에는 실시간 또는 일괄 처리 모드에서 음성 서비스 기능에 사용할 수 있습니다.
 
-| Speech Service | 모델 | 설명 |
+| Speech Service | 모델 | Description |
 | -------------- | ----- | ----------- |
-| 음성 텍스트 변환 | [음향 모델](how-to-customize-acoustic-models.md) | 자동차 또는 공장 작업장과 같은 고유한 녹음 조건을 갖는 특수한 환경에서 사용되는 애플리케이션, 도구 또는 디바이스에 대해 사용자 지정 음향 모델을 만듭니다. 액센트가 있는 음성, 특정 배경 소음, 레코딩에 특정 마이크 사용 등을 예로 들 수 있습니다. |
-|                | [언어 모델](how-to-customize-language-model.md) | 산업별 어휘 및 문법(예: 의료 용어 또는 IT 전문 용어)의 전사를 개선하기 위해 사용자 지정 언어 모델을 만듭니다. |
-|                | [발음 모델](how-to-customize-pronunciation.md) | 사용자 지정 음성 모델을 사용 하 여 윗주 형태 및 단어 또는 용어에 대 한 표시를 정의할 수 있습니다. 제품 이름 또는 머리글자어와 같은 사용자 지정된 용어를 처리하는 데 유용합니다. 시작 해야 하는 모든 작업은 간단한 파일인 음성 파일입니다 `.txt` . |
-| 텍스트 음성 변환 | [음성 글꼴](how-to-customize-voice-font.md) | 사용자 지정 글꼴을 사용하여 브랜드에 대해 인식 가능한 한 가지 종류의 음성을 만들 수 있습니다. 처음에는 소량의 데이터로 시작하세요. 더 많은 데이터를 제공할수록 더 자연스럽고 인간과 유사한 소리가 나는 음성 글꼴이 됩니다. |
+| 음성 텍스트 변환 | [음향 모델](./how-to-custom-speech-train-model.md) | 자동차 또는 공장 작업장과 같은 고유한 녹음 조건을 갖는 특수한 환경에서 사용되는 애플리케이션, 도구 또는 디바이스에 대해 사용자 지정 음향 모델을 만듭니다. 액센트가 있는 음성, 특정 배경 소음, 레코딩에 특정 마이크 사용 등을 예로 들 수 있습니다. |
+|                | [언어 모델](./how-to-custom-speech-train-model.md) | 산업별 어휘 및 문법(예: 의료 용어 또는 IT 전문 용어)의 전사를 개선하기 위해 사용자 지정 언어 모델을 만듭니다. |
+|                | [발음 모델](./how-to-custom-speech-train-model.md) | 사용자 지정 음성 모델을 사용 하 여 윗주 형태 및 단어 또는 용어에 대 한 표시를 정의할 수 있습니다. 제품 이름 또는 머리글자어와 같은 사용자 지정된 용어를 처리하는 데 유용합니다. 시작 해야 하는 모든 작업은 간단한 파일인 음성 파일입니다 `.txt` . |
+| 텍스트 음성 변환 | [음성 글꼴](./how-to-custom-voice-create-voice.md) | 사용자 지정 글꼴을 사용하여 브랜드에 대해 인식 가능한 한 가지 종류의 음성을 만들 수 있습니다. 처음에는 소량의 데이터로 시작하세요. 더 많은 데이터를 제공할수록 더 자연스럽고 인간과 유사한 소리가 나는 음성 글꼴이 됩니다. |
 
 ## <a name="sample-code"></a>예제 코드
 
@@ -138,7 +138,7 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 
 ## <a name="reference-docs"></a>참조 문서
 
-- [Speech SDK](speech-sdk-reference.md)
+- [Speech SDK](./speech-sdk.md)
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
 - [REST API: 텍스트 음성 변환](rest-text-to-speech.md)

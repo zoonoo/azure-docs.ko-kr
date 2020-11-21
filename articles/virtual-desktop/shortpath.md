@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: ee37ab90910058378172223a3435047346f5fe7c
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6ffe631dc237e7efaf1d6bfd9ac79ab7431c7371
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701789"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023142"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows 가상 데스크톱 RDP Shortpath (미리 보기)
 
@@ -36,7 +36,7 @@ RDP Shortpath는 RDP 다중 전송 기능을 확장 하 고 있습니다. 역방
 
 UDP 포트 3390는 역방향 연결 전송을 통해 인증 된 들어오는 Shortpath 트래픽에만 사용 됩니다. RDP Shortpath listener는 역방향 연결 세션과 일치 하지 않는 한 수신기에 대 한 모든 연결 시도를 무시 합니다.
 
-RDP Shortpath는 세션 호스트의 인증서를 사용 하 여 클라이언트와 세션 호스트 간의 TLS 연결을 사용 합니다. 기본적으로 RDP 암호화에 사용 되는 인증서는 배포 하는 동안 OS에 의해 자체 생성 됩니다. 원할 경우 고객은 엔터프라이즈 인증 기관에서 발급 한 중앙에서 관리 되는 인증서를 배포할 수 있습니다. 인증서 구성에 대 한 자세한 내용은 [Windows Server 설명서](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations.md)를 참조 하십시오.
+RDP Shortpath는 세션 호스트의 인증서를 사용 하 여 클라이언트와 세션 호스트 간의 TLS 연결을 사용 합니다. 기본적으로 RDP 암호화에 사용 되는 인증서는 배포 하는 동안 OS에 의해 자체 생성 됩니다. 원할 경우 고객은 엔터프라이즈 인증 기관에서 발급 한 중앙에서 관리 되는 인증서를 배포할 수 있습니다. 인증서 구성에 대 한 자세한 내용은 [Windows Server 설명서](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations)를 참조 하십시오.
 
 ## <a name="rdp-shortpath-connection-sequence"></a>RDP Shortpath 연결 시퀀스
 
@@ -187,7 +187,7 @@ RDP Shortpath 전송을 사용 하 여에서 특정 서브넷을 차단 해야 �
 * **0** -사용자 연결에서 RDP Shortpath를 사용 하지 않음
 * **1** -사용자 연결이 RDP Shortpath를 사용 하 고 있습니다.
   
-다음 쿼리 목록에서 연결 정보를 검토할 수 있습니다. [Log Analytics 쿼리 편집기](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries)에서이 쿼리를 실행할 수 있습니다. 각 쿼리에 대해을 `userupn` 조회할 사용자의 UPN으로 바꿉니다.
+다음 쿼리 목록에서 연결 정보를 검토할 수 있습니다. [Log Analytics 쿼리 편집기](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query)에서이 쿼리를 실행할 수 있습니다. 각 쿼리에 대해을 `userupn` 조회할 사용자의 UPN으로 바꿉니다.
 
 ```kusto
 let Events = WVDConnections | where UserName == "userupn" ;

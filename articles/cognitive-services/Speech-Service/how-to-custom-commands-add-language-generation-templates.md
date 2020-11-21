@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 0cbc57922b31f1b3879bb2cad8a988a1ba4cc368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40c5e3474d3992108ef61d34e745bc63c1f7a713
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85308084"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020949"
 ---
 # <a name="add-language-generation-templates-for-speech-responses"></a>음성 응답을 위한 언어 생성 템플릿 추가
 
@@ -24,7 +24,7 @@ ms.locfileid: "85308084"
 - 언어 생성 템플릿 사용
 - 적응 식 사용
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 다음 문서의 단계를 완료 해야 합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "85308084"
 
 ## <a name="language-generation-templates-overview"></a>언어 생성 템플릿 개요
 
-사용자 지정 명령 템플릿은 BotFramework의 [LG 템플릿을](https://aka.ms/speech/cc-lg-format)기반으로 합니다. 사용자 지정 명령은 필요할 때 새 LG 템플릿을 만들므로 (즉, 매개 변수 또는 작업에서 음성 응답의 경우) LG 템플릿의 이름을 지정할 필요가 없습니다. 따라서 템플릿을 다음과 같이 정의 하는 대신
+사용자 지정 명령 템플릿은 BotFramework의 [LG 템플릿을](/azure/bot-service/file-format/bot-builder-lg-file-format#templates)기반으로 합니다. 사용자 지정 명령은 필요할 때 새 LG 템플릿을 만들므로 (즉, 매개 변수 또는 작업에서 음성 응답의 경우) LG 템플릿의 이름을 지정할 필요가 없습니다. 따라서 템플릿을 다음과 같이 정의 하는 대신
 
  ```
     # CompletionAction
@@ -51,7 +51,7 @@ ms.locfileid: "85308084"
 
 이러한 변경으로 인해 클라이언트에 전송 되는 음성 응답의 변형이 도입 됩니다. 따라서 동일한 utterance에 대해 해당 음성 응답은 제공 된 옵션 중에서 임의로 선택 됩니다.
 
-LG 템플릿을 활용 하면 적응 식을 사용 하 여 명령에 대 한 복잡 한 음성 응답을 정의할 수도 있습니다. 자세한 내용은 [LG 템플릿 형식을](https://aka.ms/speech/cc-lg-format) 참조할 수 있습니다. 기본적으로 사용자 지정 명령은 다음과 같은 사소한 차이점이 있는 모든 기능을 지원 합니다.
+LG 템플릿을 활용 하면 적응 식을 사용 하 여 명령에 대 한 복잡 한 음성 응답을 정의할 수도 있습니다. 자세한 내용은 [LG 템플릿 형식을](/azure/bot-service/file-format/bot-builder-lg-file-format#templates) 참조할 수 있습니다. 기본적으로 사용자 지정 명령은 다음과 같은 사소한 차이점이 있는 모든 기능을 지원 합니다.
 
 * LG 템플릿 엔터티는 $ {entityName}로 표시 됩니다. 사용자 지정 명령에서 엔터티를 사용 하지 않지만 매개 변수를 다음 표현 $ {parameterName} 또는 {parameterName} 중 하나로 사용할 수 있습니다.
 * 사용자 지정 명령에서는 템플릿 컴퍼지션 및 확장이 지원 되지 않습니다. 이는 파일을 직접 편집 하 `.lg` 는 것이 아니라 자동으로 만들어진 템플릿의 응답만 있기 때문입니다.
@@ -64,7 +64,7 @@ LG 템플릿을 활용 하면 적응 식을 사용 하 여 명령에 대 한 복
 
 | 설정            | 제안 값       | 
 | ------------------ | --------------------- | 
-| 속성               | `SubjectContext`         | 
+| Name               | `SubjectContext`         | 
 | 전역          | unchecked             | 
 | 필수           | unchecked               | 
 | Type               | String                |
@@ -74,7 +74,7 @@ LG 템플릿을 활용 하면 적응 식을 사용 하 여 명령에 대 한 복
 
 ### <a name="modify-completion-rule"></a>완료 규칙 수정
 
-기존 완료 규칙 **ConfirmationResponse**의 **작업** 섹션을 편집 합니다. **작업 편집** 팝업에서 **템플릿 편집기** 로 전환 하 고 텍스트를 다음 예제로 바꿉니다.
+기존 완료 규칙 **ConfirmationResponse** 의 **작업** 섹션을 편집 합니다. **작업 편집** 팝업에서 **템플릿 편집기** 로 전환 하 고 텍스트를 다음 예제로 바꿉니다.
 
 ```
 - IF: @{SubjectContext == "all" && SubjectDevice == "lights"}
@@ -104,14 +104,14 @@ LG 템플릿을 활용 하면 적응 식을 사용 하 여 명령에 대 한 복
 1. 사용자 지정 명령 응용 프로그램의 왼쪽 창에서 **설정** 을 선택 합니다.
 1. 가운데 창에서 **사용자 지정 음성** 을 선택 합니다.
 1. 테이블에서 원하는 사용자 지정 또는 공개 음성을 선택 합니다.
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 > [!div class="mx-imgBorder"]
 > ![매개 변수가 있는 샘플 문장](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> - **공용 음성**의 경우 **신경망** 은 특정 지역 에서만 사용할 수 있습니다. 가용성을 확인 하려면 [지역/엔드포인트 별 표준 및 신경망](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)을 참조 하세요.
-> - **사용자 지정**음성의 경우 사용자 지정 음성 프로젝트 페이지에서 만들 수 있습니다. [사용자 지정 음성 시작을](./how-to-custom-voice.md)참조 하세요.
+> - **공용 음성** 의 경우 **신경망** 은 특정 지역 에서만 사용할 수 있습니다. 가용성을 확인 하려면 [지역/엔드포인트 별 표준 및 신경망](./regions.md#standard-and-neural-voices)을 참조 하세요.
+> - **사용자 지정** 음성의 경우 사용자 지정 음성 프로젝트 페이지에서 만들 수 있습니다. [사용자 지정 음성 시작을](./how-to-custom-voice.md)참조 하세요.
 
 이제 응용 프로그램은 기본 음성 대신 선택한 음성으로 응답 합니다.
 

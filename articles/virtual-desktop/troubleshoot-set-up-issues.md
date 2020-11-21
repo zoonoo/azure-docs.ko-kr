@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d02642b49951b4b116eaae6dbea490ef2720c15d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 126a8e48a8db1c41299a7cb7a34f172342110667
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90084416"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023125"
 ---
 # <a name="host-pool-creation"></a>호스트 풀 만들기
 
@@ -57,9 +57,9 @@ Fix: 사용자를 앱 그룹에 다시 할당 해야 합니다.
 
 다음 지침에 따라 Azure Resource Manager 템플릿 및 PowerShell DSC의 실패 한 배포 문제를 해결 합니다.
 
-1. [Azure Resource Manager에서 배포 작업 보기](../azure-resource-manager/resource-manager-deployment-operations.md)를 사용 하 여 배포 오류를 검토 합니다.
-2. 배포에 오류가 없으면 활동 로그 보기를 사용 하 여 활동 로그의 오류를 검토 하 여 [리소스에 대 한 작업을 감사](../azure-resource-manager/resource-group-audit.md)합니다.
-3. 오류가 식별 되 면 오류 메시지 및 문제 해결을 위해 [Azure Resource Manager 일반적인 Azure 배포 오류 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md) 의 리소스를 사용 합니다.
+1. [Azure Resource Manager에서 배포 작업 보기](../azure-resource-manager/templates/deployment-history.md)를 사용 하 여 배포 오류를 검토 합니다.
+2. 배포에 오류가 없으면 활동 로그 보기를 사용 하 여 활동 로그의 오류를 검토 하 여 [리소스에 대 한 작업을 감사](../azure-resource-manager/management/view-activity-logs.md)합니다.
+3. 오류가 식별 되 면 오류 메시지 및 문제 해결을 위해 [Azure Resource Manager 일반적인 Azure 배포 오류 해결](../azure-resource-manager/templates/common-deployment-errors.md) 의 리소스를 사용 합니다.
 4. 이전 배포 중에 만들어진 모든 리소스를 삭제 하 고 템플릿을 다시 배포 하는 작업을 다시 시도 합니다.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>오류: 배포 하지 못했습니다. \<hostname> /joindomain
@@ -85,13 +85,13 @@ Fix: 사용자를 앱 그룹에 다시 할당 해야 합니다.
 
 **수정 2:** [오류: 도메인 이름이](troubleshoot-vm-configuration.md#error-domain-name-doesnt-resolve) [세션 호스트 VM 구성](troubleshoot-vm-configuration.md)에서 확인 되지 않음을 참조 하세요.
 
-**원인 3:** 가상 네트워크 (VNET) DNS 구성이 **기본값으로**설정 되어 있습니다.
+**원인 3:** 가상 네트워크 (VNET) DNS 구성이 **기본값으로** 설정 되어 있습니다.
 
 이 문제를 해결 하려면 다음 작업을 수행 합니다.
 
 1. Azure Portal를 열고 **가상 네트워크** 탭으로 이동 합니다.
-2. VNET을 찾은 후 **DNS 서버**를 선택 합니다.
-3. DNS 서버 메뉴가 화면 오른쪽에 표시 됩니다. 해당 메뉴에서 **사용자 지정**을 선택 합니다.
+2. VNET을 찾은 후 **DNS 서버** 를 선택 합니다.
+3. DNS 서버 메뉴가 화면 오른쪽에 표시 됩니다. 해당 메뉴에서 **사용자 지정** 을 선택 합니다.
 4. 사용자 지정 아래에 나열 된 DNS 서버가 도메인 컨트롤러 또는 Active Directory 도메인과 일치 하는지 확인 합니다. DNS 서버가 표시 되지 않으면 **dns 서버 추가** 필드에 해당 값을 입력 하 여 추가할 수 있습니다.
 
 ### <a name="error-your-deployment-failedunauthorized"></a>오류: 배포하지 못했습니다...\Unauthorized

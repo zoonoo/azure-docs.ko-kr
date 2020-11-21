@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
-ms.openlocfilehash: a1f633548ed36320f40e485f540923c8e3045a99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0839d2c734418824952f37cb177490e56e1133c5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460869"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023312"
 ---
 # <a name="json-flattening-escaping-and-array-handling"></a>JSON 평면화, 이스케이핑 및 배열 처리
 
@@ -22,18 +22,18 @@ Azure Time Series Insights Gen2 환경에서는 특정 명명 규칙 집합에 �
 
 > [!IMPORTANT]
 >
-> * [시계열 ID 속성](time-series-insights-update-how-to-id.md) 및/또는 이벤트 원본 [타임 스탬프 속성 ()](concepts-streaming-ingestion-event-sources.md#event-source-timestamp)를 선택 하기 전에 아래 규칙을 검토 하십시오. TS ID 또는 타임 스탬프가 중첩 된 개체 내에 있거나 아래에 하나 이상의 특수 문자가 있는 경우에는 수집 규칙이 적용 된 *후* 에 제공 하는 속성 이름이 열 이름과 일치 하는지 확인 하는 것이 중요 합니다. 아래의 예 [2](concepts-json-flattening-escaping-rules.md#example-b) 를 참조 하세요.
+> * [시계열 ID 속성](./how-to-select-tsid.md) 및/또는 이벤트 원본 [타임 스탬프 속성 ()](concepts-streaming-ingestion-event-sources.md#event-source-timestamp)를 선택 하기 전에 아래 규칙을 검토 하십시오. TS ID 또는 타임 스탬프가 중첩 된 개체 내에 있거나 아래에 하나 이상의 특수 문자가 있는 경우에는 수집 규칙이 적용 된 *후* 에 제공 하는 속성 이름이 열 이름과 일치 하는지 확인 하는 것이 중요 합니다. 아래의 예 [2](concepts-json-flattening-escaping-rules.md#example-b) 를 참조 하세요.
 
-| 규칙 | 예제 JSON | [시계열 식 구문](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Parquet의 속성 열 이름
+| 규칙 | 예제 JSON | [시계열 식 구문](/rest/api/time-series-insights/reference-time-series-expression-syntax) | Parquet의 속성 열 이름
 |---|---|---|---|
 | Azure Time Series Insights Gen2 데이터 형식이 열 이름 끝에 "_"로 추가 됩니다. \<dataType\> | ```"type": "Accumulated Heat"``` | `$event.type.String` |`type_string` |
 | 이벤트 원본 [타임 스탬프 속성](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) 은 저장소에서 "timestamp"로 Azure Time Series Insights Gen2에 저장 되 고 UTC로 저장 됩니다. 솔루션 요구 사항에 맞게 이벤트 원본 타임 스탬프 속성을 사용자 지정할 수 있지만 웜 및 콜드 저장소의 열 이름은 "timestamp"입니다. 이벤트 원본 타임 스탬프가 아닌 다른 datetime JSON 속성은 위의 규칙에 설명 된 대로 열 이름에 "_datetime"로 저장 됩니다.  | ```"ts": "2020-03-19 14:40:38.318"``` |  `$event.$ts` | `timestamp` |
 | 특수 문자를 포함 하는 JSON 속성 이름입니다. [\ 및 '는 [' 및 ']를 사용 하 여 이스케이프 됩니다.  |  ```"id.wasp": "6A3090FD337DE6B"``` |  `$event['id.wasp'].String` | `['id.wasp']_string` |
 | [' 및 '] 내에서 작은따옴표와 백슬래시를 추가로 이스케이프 합니다. 작은따옴표는 \ '로 작성 되 고 백슬래시는로 작성 됩니다. \\\ | ```"Foo's Law Value": "17.139999389648"``` | `$event['Foo\'s Law Value'].Double` | `['Foo\'s Law Value']_double` |
 | 중첩 된 JSON 개체는 마침표를 사용 하 여 구분 기호로 평면화 됩니다. 최대 10 개 수준의 중첩이 지원 됩니다. |  ```"series": {"value" : 316 }``` | `$event.series.value.Long`, `$event['series']['value'].Long` 또는 `$event.series['value'].Long` |  `series.value_long` |
-| 기본 형식의 배열은 동적 형식으로 저장 됩니다. |  ```"values": [154, 149, 147]``` | 동적 형식은 [Getevents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) API를 통해서만 검색할 수 있습니다. | `values_dynamic` |
+| 기본 형식의 배열은 동적 형식으로 저장 됩니다. |  ```"values": [154, 149, 147]``` | 동적 형식은 [Getevents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) API를 통해서만 검색할 수 있습니다. | `values_dynamic` |
 | 개체를 포함 하는 배열에는 개체 내용에 따라 두 가지 동작이 있습니다. TS ID (s) 또는 timestamp 속성이 배열의 개체 내에 있는 경우에는 초기 JSON 페이로드가 여러 이벤트를 생성 하도록 배열이 unrolled 됩니다. 이렇게 하면 여러 이벤트를 하나의 JSON 구조로 일괄 처리할 수 있습니다. 배열의 피어 인 최상위 속성은 각 unrolled 개체와 함께 저장 됩니다. TS ID와 타임 스탬프가 *배열 내에 없으면 동적* 형식으로 전체 저장 됩니다. | 아래 예제 [A](concepts-json-flattening-escaping-rules.md#example-a), [B](concepts-json-flattening-escaping-rules.md#example-b)및 [C](concepts-json-flattening-escaping-rules.md#example-c) 를 참조 하세요.
-| 혼합 된 요소가 포함 된 배열은 평면화 되지 않습니다. |  ```"values": ["foo", {"bar" : 149}, 147]``` | 동적 형식은 [Getevents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) API를 통해서만 검색할 수 있습니다. | `values_dynamic` |
+| 혼합 된 요소가 포함 된 배열은 평면화 되지 않습니다. |  ```"values": ["foo", {"bar" : 149}, 147]``` | 동적 형식은 [Getevents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) API를 통해서만 검색할 수 있습니다. | `values_dynamic` |
 | 512 문자는 JSON 속성 이름 한도입니다. 이름이 512 자를 초과 하는 경우 512으로 잘리고 ' _< ' 해시 코드 ' > '이 추가 됩니다. 이 **는 중첩 된 개체** 경로를 나타내는 평면화 된 개체에서 연결 된 속성 이름에도 적용 됩니다. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
 
 ## <a name="understanding-the-dual-behavior-for-arrays"></a>배열의 이중 동작 이해
@@ -44,7 +44,7 @@ Azure Time Series Insights Gen2 환경에서는 특정 명명 규칙 집합에 �
 
 ### <a name="how-to-know-if-my-array-of-objects-will-produce-multiple-events"></a>개체 배열이 여러 이벤트를 생성 하는지 확인 하는 방법
 
-하나 이상의 시계열 ID 속성가 배열의 개체 내에 중첩 되어 *있거나* 이벤트 원본 타임 스탬프 속성이 중첩 된 경우 수집 엔진이 여러 이벤트를 만들도록 분할 합니다. TS ID 및/또는 타임 스탬프에 대해 제공한 속성 이름은 위의 평면화 규칙을 따라야 하므로 JSON 셰이프를 표시 합니다. 아래 예제를 참조 하 고 [시계열 ID 속성을 선택](time-series-insights-update-how-to-id.md) 하는 방법에 대 한 가이드를 확인 하세요.
+하나 이상의 시계열 ID 속성가 배열의 개체 내에 중첩 되어 *있거나* 이벤트 원본 타임 스탬프 속성이 중첩 된 경우 수집 엔진이 여러 이벤트를 만들도록 분할 합니다. TS ID 및/또는 타임 스탬프에 대해 제공한 속성 이름은 위의 평면화 규칙을 따라야 하므로 JSON 셰이프를 표시 합니다. 아래 예제를 참조 하 고 [시계열 ID 속성을 선택](./how-to-select-tsid.md) 하는 방법에 대 한 가이드를 확인 하세요.
 
 ### <a name="example-a"></a>예 1
 

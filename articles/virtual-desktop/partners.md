@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fcbcaab7b5cd050e072aaded3e2c09a94a451072
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: bf314510a8569a825ccd309ec855e3ff186bba86
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578538"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023380"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -350,7 +350,7 @@ SSH2는 IT 팀이 소프트웨어를 사용 하 여 현재 플랫폼에서 Windo
 appCURE은 최종 사용자의 응용 프로그램에 영향을 줄 수 있는 모든 요소가 인식 되도록 실행 중인 응용 프로그램에서 응용 프로그램 세부 정보를 캡처합니다. 그런 다음 appCURE를 업데이트 하 고 새 Windows 가상 데스크톱에 전달 합니다. AppCURE는 현재 환경에 있는 모든 응용 프로그램 통합 요소를 캡처하여 IT 리소스를 최적화 하 고 이전 보다 더 빠르게 마이그레이션을 계획 하는 속도를 제공 하므로 조직에서 더 빠르게 프로덕션에 사용할 수 있습니다.
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38)하세요.
-- [파트너 페이지로 이동](/azure/virtual-desktop/partners#ssh2)합니다.
+- [파트너 페이지로 이동](#ssh2)합니다.
 
 ## <a name="thinprint"></a>ThinPrint
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: a61dd6c17ad4d11c6dd7294c9a4f96270748c16a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c201ce984a216a5cc62e221c0433f83a7eeabae
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630664"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021765"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2의 시계열 모델
 
@@ -24,7 +24,7 @@ ms.locfileid: "91630664"
 > [!TIP]
 >
 > * 라이브 시계열 모델 예제는 [Contoso 바람 팜 데모](https://insights.timeseries.azure.com/preview/samples) 환경으로 이동 합니다.
-> * Azure Time Series Insights 탐색기를 사용 하 여 [시계열 모델을 사용 하는 방법](/azure/time-series-insights/how-to-edit-your-model) 에 대해 알아봅니다.
+> * Azure Time Series Insights 탐색기를 사용 하 여 [시계열 모델을 사용 하는 방법](./how-to-edit-your-model.md) 에 대해 알아봅니다.
 
 ## <a name="summary"></a>요약
 
@@ -61,7 +61,7 @@ Contoso가 초기 데이터 및 시각화 솔루션에 만족 하는 동안 다�
 
 * 스칼라 함수, 집계 작업 등을 활용 하 여 계산 또는 수식을 작성 하 고 관리 합니다.
 * 부모-자식 관계를 정의 하 여 탐색, 검색 및 참조를 사용 하도록 설정 합니다.
-* *인스턴스 필드로*정의 된 인스턴스와 연결 된 속성을 정의 하 고이 속성을 사용 하 여 계층을 만듭니다.
+* *인스턴스 필드로* 정의 된 인스턴스와 연결 된 속성을 정의 하 고이 속성을 사용 하 여 계층을 만듭니다.
 
 ### <a name="components"></a>구성 요소
 
@@ -69,21 +69,21 @@ Contoso가 초기 데이터 및 시각화 솔루션에 만족 하는 동안 다�
 
 * [시계열 모델 인스턴스](#time-series-model-instances)
 * [시계열 모델 계층 구조](#time-series-model-hierarchies)
-* [시계열 모델 형식](#time-series-model-types)
+* [시계열 모델 유형](#time-series-model-types)
 
 이러한 구성 요소를 결합 하 여 시계열 모델을 지정 하 고 데이터를 구성 합니다.
 
 [![시계열 모델 개요 차트](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-시계열 모델은 [Azure Time Series Insights 탐색기](/azure/time-series-insights/concepts-model-overview)를 통해 만들고 관리할 수 있습니다. 시계열 모델 설정은 [모델 설정 API](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis)를 통해 관리할 수 있습니다.
+시계열 모델은 [Azure Time Series Insights 탐색기]()를 통해 만들고 관리할 수 있습니다. 시계열 모델 설정은 [모델 설정 API](/rest/api/time-series-insights/reference-model-apis)를 통해 관리할 수 있습니다.
 
 ## <a name="time-series-model-instances"></a>시계열 모델 인스턴스
 
 시계열 모델 *인스턴스* 는 시계열 자체를 가상으로 표현한 것입니다.
 
-대부분의 경우 인스턴스는 **deviceId** 또는 **assetId**에 의해 고유 하 게 식별 되며이는 시계열 id로 저장 됩니다.
+대부분의 경우 인스턴스는 **deviceId** 또는 **assetId** 에 의해 고유 하 게 식별 되며이는 시계열 id로 저장 됩니다.
 
-인스턴스에는 시계열 ID, 형식, 이름, 설명, 계층 및 인스턴스 필드와 같은 *인스턴스 속성*이라고 하는 설명 정보가 있습니다. 인스턴스 속성에는 적어도 계층 구조 정보가 포함됩니다.
+인스턴스에는 시계열 ID, 형식, 이름, 설명, 계층 및 인스턴스 필드와 같은 *인스턴스 속성* 이라고 하는 설명 정보가 있습니다. 인스턴스 속성에는 적어도 계층 구조 정보가 포함됩니다.
 
 *인스턴스 필드* 는 계층 수준에 대 한 값 뿐만 아니라 제조업체, 연산자 등을 포함할 수 있는 설명 정보의 모음입니다.
 
@@ -95,13 +95,13 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 
 ### <a name="instance-properties"></a>인스턴스 속성
 
-인스턴스는 **Timeseriesid**, **typeId**, **name**, **description**, **계층 id**및 **instancefields**에 의해 정의 됩니다. 각 인스턴스는 한 가지 *유형*및 하나 이상의 *계층*에 매핑됩니다.
+인스턴스는 **Timeseriesid**, **typeId**, **name**, **description**, **계층 id** 및 **instancefields** 에 의해 정의 됩니다. 각 인스턴스는 한 가지 *유형* 및 하나 이상의 *계층* 에 매핑됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | ---|
 | timeSeriesId | 인스턴스가 연결 된 시계열의 고유 ID입니다. 대부분의 경우 인스턴스는 deviceId 또는 assetId와 같은 속성으로 고유 하 게 식별 됩니다. 경우에 따라 최대 3 개의 속성을 결합 하는 보다 구체적인 복합 ID를 사용할 수 있습니다. |
 | typeId | 인스턴스가 연결 된 시계열 모델 유형의 고유 문자열 ID (대/소문자 구분)입니다. 기본적으로 검색 되는 새 인스턴스는 모두 기본 형식에 연결 됩니다.
-| name | **Name** 속성은 선택 사항이 며 대/소문자를 구분 합니다. **이름을** 사용할 수 없는 경우 기본적으로 **Timeseriesid**로 설정 됩니다. 이름이 제공 되는 경우에도 **Timeseriesid** 는 여전히 사용할 수 [있습니다.](time-series-insights-update-explorer.md#4-time-series-well) |
+| name | **Name** 속성은 선택 사항이 며 대/소문자를 구분 합니다. **이름을** 사용할 수 없는 경우 기본적으로 **Timeseriesid** 로 설정 됩니다. 이름이 제공 되는 경우에도 **Timeseriesid** 는 여전히 사용할 수 [있습니다.](./concepts-ux-panels.md#4-time-series-well) |
 | description | 인스턴스에 대 한 텍스트 설명입니다. |
 | 계층 Id | 인스턴스가 속한 계층을 정의 합니다. |
 | instanceFields | 인스턴스 속성 및 인스턴스를 정의 하는 정적 데이터입니다. 계층 구조 또는 비 계층 구조의 값을 정의하는 한편 검색 작업을 수행하기 위한 인덱싱도 지원합니다. |
@@ -129,7 +129,7 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 ```
 
 > [!TIP]
-> 인스턴스 API 만들기, 읽기, 업데이트 및 삭제 (CRUD) 지원에 대 한 자세한 내용은 [데이터 쿼리](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) 문서 및 [인스턴스 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#instances-api)를 참조 하세요.
+> 인스턴스 API 만들기, 읽기, 업데이트 및 삭제 (CRUD) 지원에 대 한 자세한 내용은 [데이터 쿼리](./concepts-query-overview.md#time-series-model-query-tsm-q-apis) 문서 및 [인스턴스 API REST 설명서](/rest/api/time-series-insights/reference-model-apis#instances-api)를 참조 하세요.
 
 ## <a name="time-series-model-hierarchies"></a>시계열 모델 계층 구조
 
@@ -143,7 +143,7 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 
 ### <a name="hierarchy-definition"></a>계층 정의
 
-계층은 계층 **id**, **이름**및 **원본**에 의해 정의 됩니다.
+계층은 계층 **id**, **이름** 및 **원본** 에 의해 정의 됩니다.
 
 | 속성 | Description |
 | ---| ---|
@@ -186,7 +186,7 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 * `ManufactureDate` 부모 및 자식 계층을 정의 `year` `month` 합니다. 각에는 `ManufactureDate` 여러가 있을 수 있으며 `years` ,이 경우에는 여러가 있을 수 있습니다 `months` .
 
 > [!TIP]
-> 계층 API 만들기, 읽기, 업데이트 및 삭제 (CRUD) 지원에 대 한 자세한 내용은 [데이터 쿼리](concepts-query-overview.md#time-series-model-query-tsm-q-apis) 문서 및 [계층 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api)를 참조 하세요.
+> 계층 API 만들기, 읽기, 업데이트 및 삭제 (CRUD) 지원에 대 한 자세한 내용은 [데이터 쿼리](concepts-query-overview.md#time-series-model-query-tsm-q-apis) 문서 및 [계층 API REST 설명서](/rest/api/time-series-insights/reference-model-apis#hierarchies-api)를 참조 하세요.
 
 ### <a name="hierarchy-example"></a>계층 예
 
@@ -216,26 +216,26 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 | ID4 | "빌딩" = "1000", "floor" = "10"  |
 | ID5 | "건물", "층" 또는 "방"은 설정 되지 않았습니다. |
 
-시계열 **ID1** 및 **ID4** 는 완전히 정의 되 고 올바르게 정렬 된 *건물*, *층*및 *방* 매개 변수를 포함 하므로 [Azure Time Series Insights 탐색기](time-series-insights-update-explorer.md) 에서 계층 **H1** 의 일부로 표시 됩니다.
+시계열 **ID1** 및 **ID4** 는 완전히 정의 되 고 올바르게 정렬 된 *건물*, *층* 및 *방* 매개 변수를 포함 하므로 [Azure Time Series Insights 탐색기](./concepts-ux-panels.md) 에서 계층 **H1** 의 일부로 표시 됩니다.
 
 다른 항목은 지정 된 데이터 계층 구조를 준수 하지 않기 때문에 *Unparented 인스턴스로* 분류 됩니다.
 
 ## <a name="time-series-model-types"></a>시계열 모델 형식
 
-시계열 모델 *형식*은 계산을 수행하기 위한 변수 또는 수식을 정의하는 데 도움이 됩니다. 형식은 특정 인스턴스와 연결 됩니다.
+시계열 모델 *형식* 은 계산을 수행하기 위한 변수 또는 수식을 정의하는 데 도움이 됩니다. 형식은 특정 인스턴스와 연결됩니다.
 
-형식에는 하나 이상의 변수가 포함될 수 있습니다. 예를 들어 시계열 모델 인스턴스는 *평균 온도*, *최소 온도*및 *최대 온도*를 변수로 구성 된 *온도 센서*형식일 수 있습니다.
+형식에는 하나 이상의 변수가 포함될 수 있습니다. 예를 들어 시계열 모델 인스턴스는 *평균 온도*, *최소 온도* 및 *최대 온도* 를 변수로 구성 된 *온도 센서* 형식일 수 있습니다.
 
 [Contoso 바람 팜 데모](https://insights.timeseries.azure.com/preview/samples) 는 해당 인스턴스와 연결 된 여러 시계열 모델 유형을 시각화 합니다.
 
 [![시계열 모델 유형 예](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> 형식 API 만들기, 읽기, 업데이트 및 삭제 (CRUD) 지원에 대 한 자세한 내용은 [데이터 쿼리](concepts-query-overview.md#time-series-model-query-tsm-q-apis) 문서 및 [형식 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#types-api)를 참조 하세요.
+> 형식 API 만들기, 읽기, 업데이트 및 삭제 (CRUD) 지원에 대 한 자세한 내용은 [데이터 쿼리](concepts-query-overview.md#time-series-model-query-tsm-q-apis) 문서 및 [형식 API REST 설명서](/rest/api/time-series-insights/reference-model-apis#types-api)를 참조 하세요.
 
 ### <a name="type-properties"></a>형식 속성
 
-시계열 모델 유형은 **id**, **이름**, **설명**및 **변수로**정의 됩니다.
+시계열 모델 유형은 **id**, **이름**, **설명** 및 **변수로** 정의 됩니다.
 
 | 속성 | Description |
 | ---| ---|
@@ -288,7 +288,7 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 
 ## <a name="next-steps"></a>다음 단계
 
-* Api를 통해 모델을 편집 하는 방법에 대 한 자세한 내용은 [Time Series 모델](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis) 참조 설명서를 참조 하세요.
+* Api를 통해 모델을 편집 하는 방법에 대 한 자세한 내용은 [Time Series 모델](/rest/api/time-series-insights/reference-model-apis) 참조 설명서를 참조 하세요.
 
 * 시계열 [모델 변수](./concepts-variables.md) 를 사용 하 여 만들 수 있는 수식 및 계산 살펴보기
 

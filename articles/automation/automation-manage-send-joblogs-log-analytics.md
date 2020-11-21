@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6dcd2005971927de30ca96173cb2bdb063e46663
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8578f8aef779ff80f3965fc21b24b785f11226d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397436"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024146"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Azure Monitor 로그에 Azure Automation 작업 데이터 전달
 
@@ -41,7 +41,7 @@ Automation 로그를 Azure Monitor 로그로 보내려면 다음이 필요합니
     Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
     ```
 
-2. **ResourceID**값을 복사 합니다.
+2. **ResourceID** 값을 복사 합니다.
 
 3. 다음 명령을 사용 하 여 Log Analytics 작업 영역의 리소스 ID를 찾습니다.
 
@@ -50,7 +50,7 @@ Automation 로그를 Azure Monitor 로그로 보내려면 다음이 필요합니
     Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
     ```
 
-4. **ResourceID**값을 복사 합니다.
+4. **ResourceID** 값을 복사 합니다.
 
 특정 리소스 그룹에서 결과를 반환 하려면 `-ResourceGroupName` 매개 변수를 포함 합니다. 자세한 내용은 [AzResource](/powershell/module/az.resources/get-azresource)를 참조 하세요.
 
@@ -58,7 +58,7 @@ Automation 로그를 Azure Monitor 로그로 보내려면 다음이 필요합니
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure Portal의 **Automation 계정** 페이지에서 Automation 계정을 선택합니다.
-1. 선택한 Automation 계정 페이지의 **계정 설정**에서 **속성**을 선택합니다.
+1. 선택한 Automation 계정 페이지의 **계정 설정** 에서 **속성** 을 선택합니다.
 1. **속성** 페이지에서 아래에 표시된 세부 정보를 확인합니다.
 
     ![Automation 계정 속성](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
@@ -134,19 +134,19 @@ Automation 작업 스트림과 로그를 Azure Monitor 로그로 보내기 시�
 
 경고 규칙을 만들려면 경고를 호출해야 하는 runbook 작업 레코드에 대한 로그 검색을 만드는 것으로 시작합니다. **경고** 단추를 클릭하여 경고 규칙을 만들고 구성합니다.
 
-1. Log Analytics 작업 영역 개요 페이지에서 **로그 보기**를 클릭합니다.
+1. Log Analytics 작업 영역 개요 페이지에서 **로그 보기** 를 클릭합니다.
 
 2. 쿼리 필드에 다음 검색을 입력하여 경고에 대한 로그 검색 쿼리를 만듭니다. `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>다음을 사용하여 Runbook 이름별로 그룹화할 수도 있습니다. `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    둘 이상의 Automation 계정 또는 구독에서 작업 영역으로의 로그를 설정한 경우 구독 또는 Automation 계정별로 경고를 그룹화할 수 있습니다. Automation 계정 이름은 `JobLogs` 검색의 `Resource` 필드에서 찾을 수 있습니다.
 
-3. **규칙 만들기** 화면을 열려면 페이지 위쪽에서 **새 경고 규칙**을 클릭합니다. 경고 구성 옵션에 자세한 내용은 [Azure의 로그 경고](../azure-monitor/platform/alerts-unified-log.md)를 참조하세요.
+3. **규칙 만들기** 화면을 열려면 페이지 위쪽에서 **새 경고 규칙** 을 클릭합니다. 경고 구성 옵션에 자세한 내용은 [Azure의 로그 경고](../azure-monitor/platform/alerts-unified-log.md)를 참조하세요.
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>오류와 함께 완료된 모든 작업 찾기
 
 오류에 대한 경고 외에도, runbook 작업에 대해 비종료 오류가 발생하는 경우를 확인할 수 있습니다. 이러한 경우에 PowerShell은 오류 스트림을 생성하지만 비종료 오류가 발생해도 작업이 일시 중단되거나 실패하지 않습니다.
 
-1. Log Analytics 작업 영역에서 **로그**를 클릭합니다.
+1. Log Analytics 작업 영역에서 **로그** 를 클릭합니다.
 
 2. 쿼리 필드에 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g`를 입력합니다.
 
@@ -177,9 +177,9 @@ AzureDiagnostics
 
 ### <a name="filter-job-status-output-converted-into-a-json-object"></a>JSON 개체로 변환 된 작업 상태 출력 필터링
 
-최근 Log Analytics 서비스의 테이블에 자동화 로그 데이터를 쓰는 방법의 동작을 변경 했습니다 `AzureDiagnostics` .이 동작은 JSON 속성을 더 이상 별도의 필드로 분할 하지 않습니다. JSON 형식의 출력 스트림에 있는 개체를 별도의 열로 서식 지정 하도록 runbook을 구성한 경우 해당 속성에 액세스 하기 위해 해당 필드를 JSON 개체로 구문 분석 하도록 쿼리를 다시 구성 해야 합니다. 이를 위해 [parsejson](../azure-monitor/log-query/json-data-structures.md#parsejson) 을 사용 하 여 알려진 경로의 특정 JSON 요소에 액세스 합니다.
+최근 Log Analytics 서비스의 테이블에 자동화 로그 데이터를 쓰는 방법의 동작을 변경 했습니다 `AzureDiagnostics` .이 동작은 JSON 속성을 더 이상 별도의 필드로 분할 하지 않습니다. JSON 형식의 출력 스트림에 있는 개체를 별도의 열로 서식 지정 하도록 runbook을 구성한 경우 해당 속성에 액세스 하기 위해 해당 필드를 JSON 개체로 구문 분석 하도록 쿼리를 다시 구성 해야 합니다. 이를 위해 [parsejson](https://docs.microsoft.com/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#parsejson) 을 사용 하 여 알려진 경로의 특정 JSON 요소에 액세스 합니다.
 
-예를 들어 runbook은 여러 필드를 사용 하 여 JSON 형식의 출력 스트림에 *Resultdescription* 속성의 형식을 지정 합니다. **상태**라는 필드에 지정 된 대로 실패 한 상태의 작업 상태를 검색 하려면 다음 쿼리 예제를 사용 하 여 상태가 **Failed**인 *resultdescription* 을 검색 합니다.
+예를 들어 runbook은 여러 필드를 사용 하 여 JSON 형식의 출력 스트림에 *Resultdescription* 속성의 형식을 지정 합니다. **상태** 라는 필드에 지정 된 대로 실패 한 상태의 작업 상태를 검색 하려면 다음 쿼리 예제를 사용 하 여 상태가 **Failed** 인 *resultdescription* 을 검색 합니다.
 
 ```kusto
 AzureDiagnostics

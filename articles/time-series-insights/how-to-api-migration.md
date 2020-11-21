@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
-ms.openlocfilehash: 1effb62619f9767cc90c99e037445e7a95981460
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3aedbef079ba62f42ea79afdcd9995d7ee23d9fa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078241"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020728"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>새 Azure Time Series Insights Gen2 API 버전으로 마이그레이션
 
@@ -24,9 +24,9 @@ ms.locfileid: "92078241"
 공개 미리 보기로 제공 되는 Azure Time Series Insights Gen2 환경을 만든 경우 (2020 7 월 16 일 이전)이 문서에 설명 된 단계에 따라 새 일반 버전의 Api를 사용 하도록 TSI 환경을 업데이트 하세요. 이 변경은 Azure Time Series Insights Gen1 버전을 사용 하는 사용자에 게는 영향을 주지 않습니다.
 
 > [!IMPORTANT]
-> 이 문서에서 설명 하는 업데이트는 TSI 환경에서 사용 하는 API 버전만 업그레이드 합니다. 이러한 변경은 Gen2 환경에 대해 도입 된 새로운 [JSON 평면화 및 이스케이프 규칙과](https://docs.microsoft.com/azure/time-series-insights/concepts-json-flattening-escaping-rules) 관련이 없습니다.
+> 이 문서에서 설명 하는 업데이트는 TSI 환경에서 사용 하는 API 버전만 업그레이드 합니다. 이러한 변경은 Gen2 환경에 대해 도입 된 새로운 [JSON 평면화 및 이스케이프 규칙과](./concepts-json-flattening-escaping-rules.md) 관련이 없습니다.
 
-새 API 버전은 이며 `2020-07-31` 업데이트 된 [시계열 식 구문을](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)사용 합니다.
+새 API 버전은 이며 `2020-07-31` 업데이트 된 [시계열 식 구문을](/rest/api/time-series-insights/reference-time-series-expression-syntax)사용 합니다.
 
 사용자는 환경 [시계열 모델 변수](./concepts-variables.md), 저장 된 쿼리, Power BI 쿼리 및 API 끝점을 호출 하는 사용자 지정 도구를 마이그레이션해야 합니다. 마이그레이션 프로세스에 대 한 질문이 나 궁금한 사항이 있는 경우 Azure Portal를 통해 지원 티켓을 제출 하 고이 문서를 언급 합니다.
 
@@ -48,22 +48,22 @@ ms.locfileid: "92078241"
 
 1. **업데이트 표시** 를 클릭 하 여 마이그레이션 도구를 엽니다.
 
-1. **다운로드 유형**을 클릭 합니다. 마이그레이션은 현재 형식을 alter variable 구문을 덮어쓰므로 현재 형식의 복사본을 저장 해야 합니다. 이 도구는 형식이 다운로드 될 때 사용자에 게 알립니다.
+1. **다운로드 유형** 을 클릭 합니다. 마이그레이션은 현재 형식을 alter variable 구문을 덮어쓰므로 현재 형식의 복사본을 저장 해야 합니다. 이 도구는 형식이 다운로드 될 때 사용자에 게 알립니다.
 
     [![다운로드 유형](media/api-migration/ux-migration-tool.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. **변수 업데이트**를 클릭 합니다. 변수가 업데이트 되 면이 도구는 사용자에 게 알립니다.
+1. **변수 업데이트** 를 클릭 합니다. 변수가 업데이트 되 면이 도구는 사용자에 게 알립니다.
 
     > [!IMPORTANT]
     > 형식을 업데이트 하는 경우 이전 API 버전 ()을 사용 하는 사용자 지정 응용 프로그램에서 `2018-11-01-preview` 계속 작업 하려면 새 api 버전 ()을 사용 해야 `2020-07-31` 합니다. 사용 중인 API 버전을 잘 모르겠으면 업데이트 하기 전에 관리자에 게 확인 하세요. 마이그레이션 도구를 닫고 나중에 이러한 단계로 돌아갈 수 있습니다. 자세한 내용은 [사용자 지정 응용 프로그램을 마이그레이션하는 방법을](#migrate-custom-applications)참조 하세요.
 
     [![변수 업데이트](media/api-migration/ux-migration-tool-downloaded-types.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. **저장 된 쿼리 업데이트**를 클릭 합니다. 저장 된 쿼리가 업데이트 되 면이 도구는 사용자에 게 알립니다.
+1. **저장 된 쿼리 업데이트** 를 클릭 합니다. 저장 된 쿼리가 업데이트 되 면이 도구는 사용자에 게 알립니다.
 
     [![저장 된 쿼리 업데이트](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. **완료**를 클릭합니다.
+1. **Done** 을 클릭합니다.
 
     [![완료 된 마이그레이션](media/api-migration/ux-migration-tool-updated-saved-queries.png)](media/v2-update-overview/overview-one.png#lightbox)
 
@@ -84,30 +84,30 @@ Power BI 커넥터를 사용 하 여 쿼리를 생성 한 경우 미리 보기 A
 
 - Time Series Model API
   - 모델 설정 Api
-    - [가져오기](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
-    - [Update](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
+    - [가져오기](/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
+    - [Update](/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
   - 인스턴스 API
-    - [모든 일괄 처리 작업](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
-    - [목록](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
-    - [검색](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
-    - [제안](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest)
+    - [모든 일괄 처리 작업](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
+    - [목록](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
+    - [검색](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
+    - [제안](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest)
   - 계층 구조 Api
-    - [모든 일괄 처리 작업](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
-    - [목록](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list)
+    - [모든 일괄 처리 작업](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
+    - [목록](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list)
   - 형식 Api
-    - [삭제, 가져오기 작업](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
-    - [목록](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
+    - [삭제, 가져오기 작업](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
+    - [목록](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
 
-다음 REST 끝점의 경우 URI에서 API 버전을로 업데이트 하 `2020-07-31` 고 속성의 모든 항목이 `tsx` 업데이트 된 [시계열 식 구문을](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)사용 하는지 확인 해야 합니다.
+다음 REST 끝점의 경우 URI에서 API 버전을로 업데이트 하 `2020-07-31` 고 속성의 모든 항목이 `tsx` 업데이트 된 [시계열 식 구문을](/rest/api/time-series-insights/reference-time-series-expression-syntax)사용 하는지 확인 해야 합니다.
 
 - 형식 Api
-  - [Put 작업](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
+  - [Put 작업](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
 - 쿼리 API
-  - [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)
-  - [GetSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
-  - [GetAggregateSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
+  - [GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)
+  - [GetSeries](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
+  - [GetAggregateSeries](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="typesbatchput"></a>유형 Batchput
 
@@ -358,7 +358,7 @@ Power BI 커넥터를 사용 하 여 쿼리를 생성 한 경우 미리 보기 A
 
 #### <a name="invalidinput"></a>InvalidInput
 
-다음 오류가 표시 되 면 새 API 버전 ()을 사용 `2020-07-31` 하지만 TSX 구문이 업데이트 되지 않은 것입니다. 위의 [시계열 식 구문](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) 및 마이그레이션 예를 검토 하세요. `tsx`API 요청을 다시 전송 하기 전에 모든 속성이 올바르게 업데이트 되었는지 확인 합니다.
+다음 오류가 표시 되 면 새 API 버전 ()을 사용 `2020-07-31` 하지만 TSX 구문이 업데이트 되지 않은 것입니다. 위의 [시계열 식 구문](/rest/api/time-series-insights/reference-time-series-expression-syntax) 및 마이그레이션 예를 검토 하세요. `tsx`API 요청을 다시 전송 하기 전에 모든 속성이 올바르게 업데이트 되었는지 확인 합니다.
 
 ```JSON
 {
