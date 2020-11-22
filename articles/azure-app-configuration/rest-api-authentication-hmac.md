@@ -1,38 +1,38 @@
 ---
 title: Azure 앱 Configuration REST API-HMAC 인증
-description: HMAC를 사용 하 여 REST API를 사용 하 Azure 앱 구성에 인증
+description: HMAC를 사용 하 여 Azure 앱 구성에 인증 REST API
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 236670cb59a98ee097baaeb35174489d66e6e786
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4171155f5a9f72ef0c021bd0e37fe4ec2f206646
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424189"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95253357"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>HMAC 인증-REST API 참조
 
-HTTP 요청은 **HMAC-SHA256** 인증 체계를 사용 하 여 인증 될 수 있습니다. 이러한 요청은 TLS를 통해 전송 되어야 합니다.
+HMAC-SHA256 인증 체계를 사용 하 여 HTTP 요청을 인증할 수 있습니다. HMAC는 해시 기반 메시지 인증 코드를 나타냅니다. 이러한 요청은 TLS를 통해 전송 되어야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - **증명서** - \<Access Key ID\>
 - **비밀** -Base64 디코딩된 액세스 키 값입니다. ``base64_decode(<Access Key Value>)``
 
-자격 증명 (' id ' 라고도 함) 및 비밀 (' 값 '이 라고도 함)의 값은 Azure 앱 구성 인스턴스에서 가져와야 합니다 .이는 [Azure Portal](https://portal.azure.com) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true)를 사용 하 여 수행할 수 있습니다.
+자격 증명 (라고도 함 `id` ) 및 비밀 (라고도 함)의 값은 `value` Azure 앱 구성의 인스턴스에서 가져와야 합니다. [Azure Portal](https://portal.azure.com) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true)를 사용 하 여이 작업을 수행할 수 있습니다.
 
 인증에 필요한 모든 HTTP 헤더를 사용 하 여 각 요청을 제공 합니다. 필요한 최소는 다음과 같습니다.
 
 |  요청 헤더 | Description  |
 | --------------- | ------------ |
-| **Host** | 인터넷 호스트 및 포트 번호입니다. [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2) 섹션을 참조 하세요. |
-| **날짜** | 요청이 시작 된 날짜 및 시간입니다. 현재 GMT에서 15 분을 초과할 수 없습니다. 이 값은 [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) 섹션에 설명 된 것 처럼 HTTP 날짜입니다.
-| **x-ms-date** | 위와 동일 ```Date``` 합니다. 에이전트에서 직접 요청 헤더에 액세스할 수 없거나 프록시가이를 수정할 수 없는 경우에는 대신 사용할 수 있습니다 ```Date``` . ```x-ms-date```및 ```Date``` 가 둘 다 제공 되는 경우에는가 ```x-ms-date``` 우선적으로 적용 됩니다. |
+| **Host** | 인터넷 호스트 및 포트 번호입니다. 자세한 내용은  [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2)섹션을 참조 하세요. |
+| **날짜** | 요청이 시작 된 날짜 및 시간입니다. 현재 협정 세계시 (그리니치 표준시)에서 15 분을 초과할 수 없습니다. 이 값은 [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)섹션에 설명 된 것 처럼 HTTP 날짜입니다.
+| **x-ms-date** | 위와 동일 ```Date``` 합니다. 에이전트가 요청 헤더에 직접 액세스할 수 없는 경우에는이를 대신 사용할 수 있습니다 ```Date``` . 그렇지 않으면 프록시가이를 수정할 수 있습니다. ```x-ms-date```및 ```Date``` 가 둘 다 제공 되는 경우에는가 ```x-ms-date``` 우선적으로 적용 됩니다. |
 | **x-m s----sha256** | 요청 본문의 b a s e 64로 인코딩된 SHA256 해시입니다. 본문이 없는 경우에도 제공 되어야 합니다. ```base64_encode(SHA256(body))```|
-| **권한 부여** | **HMAC-SHA256** 체계에 필요한 인증 정보입니다. 형식 및 세부 정보는 아래에 설명 되어 있습니다. |
+| **권한 부여** | HMAC-SHA256 체계에서 요구 하는 인증 정보입니다. 형식 및 세부 정보는이 문서의 뒷부분에 설명 되어 있습니다. |
 
 **예:**
 
@@ -45,24 +45,24 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 ## <a name="authorization-header"></a>권한 부여 헤더
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>Syntax
 
 ``Authorization``: **HMAC-SHA256**```Credential```=\<value\>&```SignedHeaders```=\<value\>&```Signature```=\<value\>
 
 |  인수 | Description  |
 | ------ | ------ |
-| **HMAC-SHA256** | 권한 부여 체계 _(필수)_ |
+| **HMAC-SHA256** | 권한 부여 체계. _하다_ |
 | **자격 증명** | 서명을 계산 하는 데 사용 되는 선택 키의 ID입니다. _하다_ |
 | **서명 헤더** | 서명에 추가 된 HTTP 요청 헤더입니다. _하다_ |
-| **서명과** | **문자열을 서명 하** 는 b a s e 64로 인코딩된 HMACSHA256. _하다_|
+| **서명과** | 문자열을 서명 하는 b a s e 64로 인코딩된 HMACSHA256. _하다_|
 
 ### <a name="credential"></a>자격 증명
 
-**서명을** 계산 하는 데 사용 되는 액세스 키의 ID입니다.
+서명을 계산 하는 데 사용 되는 액세스 키의 ID입니다.
 
 ### <a name="signed-headers"></a>서명 된 헤더
 
-요청에 서명 하는 데 필요한 세미콜론으로 구분 된 HTTP 요청 헤더 이름입니다. 이러한 HTTP 헤더는 요청에도 올바르게 제공 되어야 합니다. **공백을 사용 하지 않습니다**.
+요청에 서명 하는 데 필요한 HTTP 요청 헤더 이름 (세미콜론으로 구분)입니다. 이러한 HTTP 헤더는 요청에도 올바르게 제공 되어야 합니다. 공백은 사용 하지 마십시오.
 
 ### <a name="required-http-request-headers"></a>필요한 HTTP 요청 헤더
 
@@ -76,7 +76,7 @@ x-y; host; host-a-sha256; ```Content-Type``` ;```Accept```
 
 ### <a name="signature"></a>서명
 
-로 식별 된 액세스 키를 사용 하 여 **서명할 문자열** 의 BASE64 인코딩 HMACSHA256 해시입니다 `Credential` .
+서명 문자열의 Base64 인코딩 HMACSHA256 해시입니다. 로 식별 된 액세스 키를 사용 `Credential` 합니다.
 ```base64_encode(HMACSHA256(String-To-Sign, Secret))```
 
 ### <a name="string-to-sign"></a>서명 문자열
@@ -89,9 +89,9 @@ _문자열-서명 =_
 
 |  인수 | Description  |
 | ------ | ------ |
-| **HTTP_METHOD** | 요청에 사용 된 대문자 HTTP 메서드 이름입니다. [섹션 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) 를 참조 하세요. |
-|**path_and_query** | 요청 절대 URI 경로 및 쿼리 문자열의 연결입니다. [섹션 3.3](https://tools.ietf.org/html/rfc3986#section-3.3)을 참조 하세요.
-| **signed_headers_values** | **서명 헤더** 에 나열 된 모든 HTTP 요청 헤더의 세미콜론으로 구분 된 값입니다. 서식 지정 **헤더** 의미 체계를 따릅니다. |
+| **HTTP_METHOD** | 요청에 사용 되는 대문자 HTTP 메서드 이름입니다. 자세한 내용은 [섹션 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)를 참조 하세요. |
+|**path_and_query** | 요청 절대 URI 경로 및 쿼리 문자열의 연결입니다. 자세한 내용은 [섹션 3.3](https://tools.ietf.org/html/rfc3986#section-3.3)을 참조 하세요.
+| **signed_headers_values** | 에 나열 된 모든 HTTP 요청 헤더의 세미콜론으로 구분 된 값입니다 `SignedHeaders` . 형식은 `SignedHeaders` 의미 체계를 따릅니다. |
 
 **예:**
 
@@ -111,15 +111,17 @@ WWW-Authenticate: HMAC-SHA256, Bearer
 ```
 
 **이유:** HMAC-SHA256 스키마를 사용 하는 권한 부여 요청 헤더는 제공 되지 않습니다.
-**해결 방법:** 올바른 HTTP 요청 헤더를 제공 하십시오. ```Authorization```
+
+**해결 방법:** 올바른 ```Authorization``` HTTP 요청 헤더를 제공 하십시오.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="The access token has expired", Bearer
 ```
 
-**이유:** ```Date``` 또는 ```x-ms-date``` 요청 헤더가 현재 GMT 시간에서 15 분을 초과 합니다.
-**해결 방법:** 올바른 날짜 및 시간 제공
+**이유:** ```Date``` 또는 ```x-ms-date``` 요청 헤더가 현재 협정 세계시 (그리니치 표준시)에서 15 분을 초과 합니다.
+
+**해결 방법:** 올바른 날짜와 시간을 입력 합니다.
 
 
 ```http
@@ -127,14 +129,14 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid access token date", Bearer
 ```
 
-**이유:** 누락 되거나 잘못 된 ```Date``` 또는 ```x-ms-date``` 요청 헤더
+**이유:** ```Date``` 또는 요청 헤더가 없거나 잘못 되었습니다 ```x-ms-date``` .
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="[Credential][SignedHeaders][Signature] is required", Bearer
 ```
 
-**이유:** 요청 헤더에서 필수 매개 변수가 누락 되었습니다. ```Authorization```
+**이유:** 요청 헤더에서 필수 매개 변수가 누락 되었습니다 ```Authorization``` .
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -142,7 +144,8 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid C
 ```
 
 **이유:** 제공 된 [ ```Host``` ]/[액세스 키 ID]를 찾을 수 없습니다.
-**해결 방법:** ```Credential``` 요청 헤더의 매개 변수를 확인 ```Authorization``` 하 고 올바른 액세스 키 ID 인지 확인 하십시오. ```Host```헤더가 등록 된 계정을 가리키는지 확인 합니다.
+
+**해결 방법:** ```Credential``` 요청 헤더의 매개 변수를 확인 ```Authorization``` 합니다. 유효한 액세스 키 ID 인지 확인 하 고 ```Host``` 헤더가 등록 된 계정을 가리키는지 확인 합니다.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -150,15 +153,17 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid S
 ```
 
 **이유:** 제공 된가 ```Signature``` 서버에서 예상 하는 것과 일치 하지 않습니다.
-**해결 방법:** ```String-To-Sign``` 이 올바른지 확인 합니다. ```Secret```가 올바르고 제대로 사용 되는지 확인 합니다 (를 사용 하기 전에 base64 디코딩된). **예제** 섹션을 참조 하세요.
+
+**해결 방법:** ```String-To-Sign``` 이 올바른지 확인 합니다. ```Secret```가 올바르고 제대로 사용 되는지 확인 합니다 (를 사용 하기 전에 base64 디코딩된).
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Signed request header 'xxx' is not provided", Bearer
 ```
 
-**이유:** ```SignedHeaders``` 헤더의 매개 변수에 요청 헤더가 누락 되어야 ```Authorization``` 합니다.
-**해결 방법:** 올바른 값을 포함 하는 필수 헤더를 제공 합니다.
+**이유:** ```SignedHeaders``` 헤더의 매개 변수에 요청 헤더가 누락 되어야  ```Authorization``` 합니다.
+
+**해결 방법:** 올바른 값을 사용 하 여 필요한 헤더를 제공 합니다.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -166,13 +171,14 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="XXX is re
 ```
 
 **이유:** 에 매개 변수가 없습니다 ```SignedHeaders``` .
-**해결 방법:** **서명 된 헤더** 최소 요구 사항을 확인 합니다.
+
+**해결 방법:** 서명 된 헤더 최소 요구 사항을 확인 합니다.
 
 ## <a name="code-snippets"></a>코드 조각
 
 ### <a name="javascript"></a>JavaScript
 
-*필수 조건* : [암호화-JS](https://code.google.com/archive/p/crypto-js/)
+*필수 조건*: [암호화-JS](https://code.google.com/archive/p/crypto-js/)
 
 ```js
 function signRequest(host, 
@@ -362,7 +368,7 @@ import (
     "time"
 )
 
-//SignRequest Setup the auth header for accessing Azure AppConfiguration service
+//SignRequest Setup the auth header for accessing Azure App Configuration service
 func SignRequest(id string, secret string, req *http.Request) error {
     method := req.Method
     host := req.URL.Host
@@ -537,7 +543,7 @@ Invoke-RestMethod -Uri $uri -Method $method -Headers $headers -Body $body
 
 ### <a name="bash"></a>Bash
 
-*필수 조건* :
+*필수 조건*:
 
 | 필수 조건 | 명령 | 테스트 된 버전 |
 | ------------ | ------- | --------------- |

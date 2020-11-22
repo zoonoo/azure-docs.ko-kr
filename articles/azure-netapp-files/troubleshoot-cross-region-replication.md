@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 6fbb9b054433905d41d0171ab08b4647618be466
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: b30ed0cca680013b85efe064d59fb7cb73d753d2
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745686"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95239553"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>지역 간 복제 문제 해결
 
@@ -50,6 +50,12 @@ ms.locfileid: "94745686"
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     복제가 중단 되었거나 초기화 되지 않고 유휴 상태 (초기화 실패) 인지 확인 합니다.    |
 |     `Cannot delete   source replication`    |     원본 쪽에서 복제를 삭제할 수 없습니다. 대상 쪽에서 복제를 삭제 하 고 있는지 확인 합니다.    |
+
+## <a name="errors-deleting-volume"></a>볼륨 삭제 오류
+
+|     오류 메시지    |     해결 방법    |
+|-|-|
+| `Volume is a member of an active volume replication relationship`  |  볼륨을 삭제 하기 전에 복제를 삭제 합니다. [복제 삭제](cross-region-replication-delete.md)를 참조 하세요. 이 작업을 수행 하려면 볼륨의 복제를 삭제 하기 전에 피어 링을 해제 해야 합니다. |
 | `Volume with replication cannot be deleted`  |  볼륨을 삭제 하기 전에 복제를 삭제 합니다. [복제 삭제](cross-region-replication-delete.md)를 참조 하세요. 이 작업을 수행 하려면 볼륨의 복제를 삭제 하기 전에 피어 링을 해제 해야 합니다. 
 
 ## <a name="errors-resyncing-volume"></a>볼륨 다시 동기화 오류
@@ -69,7 +75,7 @@ ms.locfileid: "94745686"
 
 * [지역 간 복제](cross-region-replication-introduction.md)
 * [지역 간 복제 사용을 위한 요구 사항 및 고려 사항](cross-region-replication-requirements-considerations.md)
-* [복제 피어링 만들기](cross-region-replication-create-peering.md)
+* [볼륨 복제 만들기](cross-region-replication-create-peering.md)
 * [복제 관계의 상태 표시](cross-region-replication-display-health-status.md)
 * [재해 복구 관리](cross-region-replication-manage-disaster-recovery.md)
 * [지역 간 복제 문제 해결](troubleshoot-cross-region-replication.md)

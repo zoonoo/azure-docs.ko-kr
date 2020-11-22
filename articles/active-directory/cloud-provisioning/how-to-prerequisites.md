@@ -7,33 +7,38 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/06/2019
+ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dbdd5153186ee47e37856637eac16d6d450cc5a
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 5f6c5985c16875e263f2494f56636abb4d4e980d
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695183"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237258"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 클라우드 프로비저닝에 대한 필수 조건
 이 문서에서는 ID 솔루션으로 Azure AD(Azure Active Directory) Connect 클라우드 프로비저닝을 선택하고 사용하는 방법에 대한 지침을 제공합니다.
 
-
-
 ## <a name="cloud-provisioning-agent-requirements"></a>클라우드 프로비저닝 에이전트 요구 사항
 Azure AD Connect 클라우드 프로비저닝을 사용하려면 다음이 필요합니다.
-    
+
+- 에이전트 서비스를 실행 하는 Azure AD Connect Cloud Sync gMSA (그룹 관리 서비스 계정)를 만드는 데 필요한 도메인 관리자 또는 엔터프라이즈 관리자 자격 증명입니다. 
 - 게스트 사용자가 아닌 Azure AD 테 넌 트에 대 한 하이브리드 id 관리자 계정입니다.
 - Windows 2012 R2 이상 버전을 사용하는 프로비저닝 에이전트에 대한 온-프레미스 서버  이 서버는 [Active Directory 관리 계층 모델](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)을 기반으로 하는 계층 0 서버 여야 합니다.
 - 온-프레미스 방화벽 구성
 
->[!NOTE]
->프로비저닝 에이전트는 현재 영어 서버에만 설치할 수 있습니다. 영어가 아닌 서버에 영어 언어 팩을 설치하는 것은 올바른 해결 방법이 아니며 에이전트가 설치되지 않습니다. 
+## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
+그룹 관리 서비스 계정은 자동 암호 관리, 간소화 된 SPN (서비스 사용자 이름) 관리, 다른 관리자에 게 관리를 위임 하는 기능 및 여러 서버에서이 기능을 확장 하는 관리 되는 도메인 계정입니다.  Azure AD Connect 클라우드 동기화는 에이전트를 실행 하는 데 gMSA을 지원 하 고 사용 합니다.  이 계정을 만들기 위해 설치 중에 관리자 자격 증명을 입력 하 라는 메시지가 표시 됩니다.  계정이 (domain\provAgentgMSA $)로 표시 됩니다.  GMSA에 대 한 자세한 내용은 [그룹 관리 서비스 계정](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 을 참조 하세요. 
 
-이 문서의 나머지 부분에서는 이러한 필수 조건에 대한 단계별 지침을 제공합니다.
+### <a name="prerequisites-for-gmsa"></a>GMSA에 대 한 필수 구성 요소:
+1.  GMSA 도메인 포리스트의 Active Directory 스키마를 Windows Server 2012로 업데이트 해야 합니다.
+2.  도메인 컨트롤러의 [POWERSHELL RSAT 모듈](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools)
+3.  도메인에 있는 하나 이상의 도메인 컨트롤러가 Windows Server 2012를 실행 해야 합니다.
+4.  에이전트가 설치 되는 도메인에 가입 된 서버는 Windows Server 2012 이상 이어야 합니다.
+
+GMSA 계정을 사용 하도록 기존 에이전트를 업그레이드 하는 방법에 대 한 단계는 [그룹 관리 서비스 계정](how-to-install.md#group-managed-service-accounts)을 참조 하세요.
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>Azure Active Directory 관리 센터에서
 
@@ -57,7 +62,9 @@ Azure AD Connect 클라우드 프로비저닝을 사용하려면 다음이 필�
         | --- | --- |
         | **80** | TLS/SSL 인증서의 유효성을 검사하는 동안 CRL(인증서 해지 목록)을 다운로드합니다.  |
         | **443** | 서비스와의 모든 아웃바운드 통신을 처리합니다. |
+        |**8082**|설치에 필요 하며 관리 API를 구성 하려는 경우에 필요 합니다.  에이전트가 설치 되 면이 포트를 제거할 수 있으며, API 사용을 계획 하지 않은 경우에는이 포트를 제거할 수 있습니다.   |
         | **8080**(선택 사항) | 443 포트를 사용할 수 없는 경우 에이전트는 8080 포트를 통해 10분마다 해당 상태를 보고합니다. 이 상태는 Azure AD 포털에 표시됩니다. |
+   
      
    - 방화벽이 원래 사용자에 따라 규칙에 적용되는 경우 네트워크 서비스로 실행하는 Windows 서비스의 트래픽에 대해 이러한 포트를 엽니다.
    - 방화벽 또는 프록시를 통해 안전한 접미사를 지정할 수 있으면 \*.msappproxy.net 및 \*.servicebus.windows.net에 대한 연결을 추가합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다.
@@ -66,6 +73,8 @@ Azure AD Connect 클라우드 프로비저닝을 사용하려면 다음이 필�
 
 >[!NOTE]
 > Windows Server Core에 클라우드 프로저닝 에이전트를 설치하는 것은 지원되지 않습니다.
+
+
 
 
 ### <a name="additional-requirements"></a>추가 요구 사항
@@ -91,24 +100,6 @@ TLS 1.2를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 1. 서버를 다시 시작합니다.
 
-## <a name="known-limitations"></a>알려진 제한 사항
-알려진 제한 사항은 다음과 같습니다.
-
-### <a name="delta-synchronization"></a>델타 동기화
-
-- 델타 동기화에 대 한 그룹 범위 필터링에서 1500 개 이상의 멤버를 지원 하지 않습니다.
-- 그룹 범위 지정 필터의 일부로 사용 되는 그룹을 삭제 하는 경우 그룹의 멤버인 사용자는 삭제 되지 않습니다. 
-- 범위에 있는 OU 또는 그룹의 이름을 바꾸면 델타 동기화가 사용자를 제거 하지 않습니다.
-
-### <a name="provisioning-logs"></a>프로비저닝 로그
-- 프로 비전 로그는 생성 및 업데이트 작업을 명확 하 게 구분 하지 않습니다.  만들기에 대 한 업데이트 및 업데이트 작업에 대 한 만들기 작업이 표시 될 수 있습니다.
-
-### <a name="cross-domain-references"></a>도메인 간 참조
-- 다른 도메인에 구성원 참조가 있는 사용자는 해당 사용자에 대 한 현재 도메인 동기화의 일부로 동기화 되지 않습니다. 
-- (예: 동기화 중인 사용자의 관리자는 도메인 B에 있고 사용자는 도메인 A에 있습니다. 도메인 A와 B를 동기화 하는 경우 동기화 되지만 사용자 관리자는이를 수행 하지 않습니다.)
-
-### <a name="group-re-naming-or-ou-re-naming"></a>그룹 이름 다시 지정 또는 OU 다시 명명
-- 지정 된 구성의 범위에 속하는 그룹 또는 OU의 이름을 지정 하는 경우 클라우드 프로 비전 작업에서 AD의 이름 변경을 인식할 수 없습니다. 작업은 격리로 이동 하지 않으며 정상 상태를 유지 합니다.
 
 
 

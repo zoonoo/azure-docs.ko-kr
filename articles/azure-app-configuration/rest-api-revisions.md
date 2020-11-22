@@ -6,25 +6,24 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 7d1990d6bc524a69de2b22b4f7c5aeec88c3ce9d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 668345da8bb89412f7b1dd36975c5bed6f229580
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424274"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95246387"
 ---
 # <a name="key-value-revisions"></a>키-값 수정 버전
 
-api-version: 1.0
+*키-값 수정 버전* 은 키-값 리소스의 기록 표현을 정의 합니다. 개정판은 무료 계층 매장에 대해 7 일 후에 만료 되거나 표준 계층 상점의 경우 30 일 후에 만료 됩니다. 수정 버전은 `List` 작업을 지원 합니다.
 
-**키-값 수정 버전** 은 키-값 리소스의 기록 표현을 정의 합니다. 개정판은 무료 계층 매장에 대해 7 일 후에 만료 되거나 표준 계층 상점의 경우 30 일 후에 만료 됩니다. 수정 버전은 다음 작업을 지원 합니다.
+모든 작업에 대해 ``key`` 은 선택적 매개 변수입니다. 생략 하는 경우 모든 키를 의미 합니다.
 
-- 목록
+모든 작업에 대해 ``label`` 은 선택적 매개 변수입니다. 생략 하는 경우 모든 레이블을 의미 합니다.
 
-모든 작업에 대해 ``key`` 은 선택적 매개 변수입니다. 생략 하는 경우 **모든** 키를 의미 합니다.
-모든 작업에 대해 ``label`` 은 선택적 매개 변수입니다. 생략 하는 경우 **모든** 레이블을 의미 합니다.
+이 문서는 API 버전 1.0에 적용 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
@@ -62,7 +61,7 @@ Accept-Ranges: items
 
 ## <a name="pagination"></a>페이지 매김
 
-반환 된 항목 수가 응답 제한을 초과 하는 경우 결과의 페이지가 매겨집니다. 선택적 ``Link`` 응답 헤더를 따르고 ``rel="next"`` 탐색에 사용 합니다.  또는 콘텐츠가 속성의 형식으로 다음 링크를 제공 합니다 ``@nextLink`` .
+반환 된 항목 수가 응답 제한을 초과 하는 경우 결과의 페이지가 매겨집니다. 선택적 ``Link`` 응답 헤더를 따르고 ``rel="next"`` 탐색에 사용 합니다. 또는 콘텐츠가 속성의 형식으로 다음 링크를 제공 합니다 ``@nextLink`` .
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -88,7 +87,7 @@ Link: <{relative uri}>; rel="next"
 
 ## <a name="list-subset-of-revisions"></a>수정 버전 나열
 
-`Range`요청 헤더를 사용 합니다. 응답에 헤더가 포함 됩니다 `Content-Range` . 서버가 요청 된 범위를 만족할 수 없는 경우 HTTP `416` (RangeNotSatisfiable)로 응답 합니다.
+`Range`요청 헤더를 사용 합니다. 응답에 `Content-Range` 헤더가 포함됩니다. 서버가 요청 된 범위를 만족할 수 없는 경우 HTTP `416` ()로 응답 `RangeNotSatisfiable` 합니다.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -114,7 +113,7 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 ### <a name="supported-filters"></a>지원되는 필터
 
-|키 필터|효과|
+|키 필터|영향|
 |--|--|
 |`key`은 생략 또는 `key=*`|**모든** 키를 찾습니다.|
 |`key=abc`|**Abc** 라는 키를 찾습니다.|
@@ -123,7 +122,7 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 |`key=*abc*`|**Abc** 를 포함 하는 키 이름과 일치|
 |`key=abc,xyz`|키 이름 **abc** 또는 **xyz** (CSV 5 개로 제한 됨)를 찾습니다.|
 
-|레이블 필터|효과|
+|레이블 필터|영향|
 |--|--|
 |`label`은 생략 또는 `label=`|레이블이 없는 항목과 일치|
 |`label=*`|**모든** 레이블과 일치|
@@ -134,6 +133,8 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 |`label=prod,test`|레이블 **prod** 또는 **테스트** (5 개의 CSV로 제한 됨)와 일치|
 
 ### <a name="reserved-characters"></a>예약 문자
+
+예약 된 문자는 다음과 같습니다.
 
 `*`, `\`, `,`
 
@@ -160,19 +161,19 @@ Content-Type: application/problem+json; charset=utf-8
 
 ### <a name="examples"></a>예제
 
-- 모두
+- 전체:
 
     ```http
     GET /revisions
     ```
 
-- 키 이름이 **abc** 로 시작 하는 항목
+- 키 이름이 **abc** 로 시작 하는 항목:
 
     ```http
     GET /revisions?key=abc*&api-version={api-version}
     ```
 
-- 키 이름이 **abc** 또는 **xyz** 이 고 레이블이 **prod** 를 포함 하는 항목
+- 키 이름이 **abc** 또는 **xyz** 이 고 레이블에 **prod** 가 포함 된 항목입니다.
 
     ```http
     GET /revisions?key=abc,xyz&label=*prod*&api-version={api-version}
@@ -186,9 +187,9 @@ Content-Type: application/problem+json; charset=utf-8
 GET /revisions?$select=value,label,last_modified&api-version={api-version} HTTP/1.1
 ```
 
-## <a name="time-based-access"></a>Time-Based 액세스
+## <a name="time-based-access"></a>시간 기반 액세스
 
-이전에 발생 한 결과의 표현을 가져옵니다. [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1) 섹션을 참조 하세요.
+이전에 발생 한 결과의 표현을 가져옵니다. 자세한 내용은 [리소스 상태에 대 한 Time-Based 액세스에 대 한 HTTP 프레임 워크--Memento](https://tools.ietf.org/html/rfc7089#section-2.1), section 2.1.1를 참조 하세요.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1

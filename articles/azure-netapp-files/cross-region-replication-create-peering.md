@@ -1,5 +1,5 @@
 ---
-title: Azure NetApp Files에 대 한 복제 피어 링 만들기 | Microsoft Docs
+title: Azure NetApp Files에 대 한 볼륨 복제 만들기 | Microsoft Docs
 description: 지역 간 복제를 설정 하는 Azure NetApp Files에 대 한 볼륨 복제 피어 링을 만드는 방법을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: df70f8a37a7223119068afd323583ea6126ca542
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 412724a072bfc03a67bf1005173702f757c6fdf4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708825"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249940"
 ---
-# <a name="create-replication-peering-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 복제 피어 링 만들기
+# <a name="create-volume-replication-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 볼륨 복제 만들기
 
 > [!IMPORTANT]
 > 지역 간 복제 기능은 현재 공개 미리 보기로 제공 됩니다. [Azure NetApp Files 지역 간 복제 waitlist 제출 페이지](https://aka.ms/anfcrrpreviewsignup)를 통해 기능에 액세스 하기 위한 waitlist 요청을 제출 해야 합니다. 지역 간 복제 기능을 사용 하기 전에 Azure NetApp Files 팀의 공식 확인 전자 메일을 기다리십시오.
@@ -82,7 +82,7 @@ NFS 프로토콜의 경우 내보내기 정책 규칙이 내보내기에 액세�
 
     ![볼륨 복제 만들기](../media/azure-netapp-files/cross-region-replication-create-volume-replication.png)
 
-9. **검토 + 만들기**를 클릭 한 다음 **만들기** 를 클릭 하 여 데이터 복제 볼륨을 만듭니다.   
+9. **검토 + 만들기** 를 클릭 한 다음 **만들기** 를 클릭 하 여 데이터 복제 볼륨을 만듭니다.   
 
     ![복제 검토 및 만들기](../media/azure-netapp-files/cross-region-replication-review-create-replication.png)
 
@@ -100,11 +100,11 @@ NFS 프로토콜의 경우 내보내기 정책 규칙이 내보내기에 액세�
  
 4. Azure NetApp Files에서 복제 원본 계정 및 원본 용량 풀로 이동 합니다. 
 
-5. 복제 원본 볼륨을 찾아 선택 합니다. 저장소 서비스의 **복제** 로 이동 하 고 **권한 부여**를 클릭 합니다.
+5. 복제 원본 볼륨을 찾아 선택 합니다. 저장소 서비스의 **복제** 로 이동 하 고 **권한 부여** 를 클릭 합니다.
 
     ![복제 권한 부여](../media/azure-netapp-files/cross-region-replication-authorize.png) 
 
-6. 권한 부여 필드에 3 단계에서 가져온 대상 복제 볼륨 리소스 ID를 붙여넣은 다음 **확인**을 클릭 합니다.
+6. 권한 부여 필드에 3 단계에서 가져온 대상 복제 볼륨 리소스 ID를 붙여넣은 다음 **확인** 을 클릭 합니다.
 
 ## <a name="next-steps"></a>다음 단계  
 
@@ -113,5 +113,6 @@ NFS 프로토콜의 경우 내보내기 정책 규칙이 내보내기에 액세�
 * [복제 관계의 상태 표시](cross-region-replication-display-health-status.md)
 * [볼륨 복제 메트릭](azure-netapp-files-metrics.md#replication)
 * [재해 복구 관리](cross-region-replication-manage-disaster-recovery.md)
+* [볼륨 복제 또는 볼륨 삭제](cross-region-replication-delete.md)
 * [지역 간 복제 문제 해결](troubleshoot-cross-region-replication.md)
 

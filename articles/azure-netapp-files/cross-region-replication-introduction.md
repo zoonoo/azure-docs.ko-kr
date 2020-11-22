@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: b-juche
-ms.openlocfilehash: 4df96f1c508df22e98a9c611ed04fecf6734970a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1e8ce2e4fe9ae81bc2299ae70e9ff83941b5b4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278297"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95245877"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Azure NetApp Files 볼륨의 지역 간 복제
 
@@ -111,10 +111,11 @@ RTO (복구 시간 목표) 또는 최대 지속할 비즈니스 응용 프로그
 
 ## <a name="next-steps"></a>다음 단계
 * [지역 간 복제 사용을 위한 요구 사항 및 고려 사항](cross-region-replication-requirements-considerations.md)
-* [복제 피어링 만들기](cross-region-replication-create-peering.md)
+* [볼륨 복제 만들기](cross-region-replication-create-peering.md)
 * [복제 관계의 상태 표시](cross-region-replication-display-health-status.md)
 * [재해 복구 관리](cross-region-replication-manage-disaster-recovery.md)
 * [볼륨 복제 메트릭](azure-netapp-files-metrics.md#replication)
+* [볼륨 복제 또는 볼륨 삭제](cross-region-replication-delete.md)
 * [지역 간 복제 문제 해결](troubleshoot-cross-region-replication.md)
 
 

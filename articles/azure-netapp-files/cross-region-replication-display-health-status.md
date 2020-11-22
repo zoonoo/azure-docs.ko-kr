@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 95c1202fb56e882554d40926e9d5ecec7be49086
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a14656bc1abc42fdc3e948fdae1ca07469681d21
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708810"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249855"
 ---
 # <a name="display-health-status-of-replication-relationship"></a>복제 관계의 상태 표시 
 
@@ -51,12 +51,13 @@ ms.locfileid: "90708810"
     ![복제 상태](../media/azure-netapp-files/cross-region-replication-health-status.png)
 
 > [!NOTE] 
-> 이전 복제 작업이 완료 되지 않은 경우 복제 관계에서 상태가 *비정상* 으로 표시 됩니다. 이 상태는 대용량 볼륨에 대 한 10 분의 전송 시간과 같은 대용량 볼륨을 전송 하는 경우에 발생 합니다. 이 경우 관계 상태가 *전송* 중으로 표시 되 고 상태가 *비정상*으로 표시 됩니다.
+> 이전 복제 작업이 완료 되지 않은 경우 복제 관계에서 상태가 *비정상* 으로 표시 됩니다. 이 상태는 대용량 볼륨에 대 한 10 분의 전송 시간과 같은 대용량 볼륨을 전송 하는 경우에 발생 합니다. 이 경우 관계 상태가 *전송* 중으로 표시 되 고 상태가 *비정상* 으로 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계  
 
 * [지역 간 복제](cross-region-replication-introduction.md)
 * [재해 복구 관리](cross-region-replication-manage-disaster-recovery.md)
 * [볼륨 복제 메트릭](azure-netapp-files-metrics.md#replication)
+* [볼륨 복제 또는 볼륨 삭제](cross-region-replication-delete.md)
 * [지역 간 복제 문제 해결](troubleshoot-cross-region-replication.md)
 

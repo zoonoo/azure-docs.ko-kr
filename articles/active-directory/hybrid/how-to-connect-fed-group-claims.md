@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb828eeb408a170b93ffc73b58f14b3f7a883cc4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265472"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95247237"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 응용 프로그램에 대 한 그룹 클레임 구성
 
@@ -74,7 +74,7 @@ Active Directory 그룹에 대 한 그룹 이름을 내보내도록 Azure Active
 
 ## <a name="add-group-claims-to-tokens-for-saml-applications-using-sso-configuration"></a>SSO 구성을 사용 하 여 SAML 응용 프로그램에 대 한 토큰에 그룹 클레임 추가
 
-갤러리 또는 비 갤러리 SAML 응용 프로그램에 대 한 그룹 클레임을 구성 하려면 **엔터프라이즈 응용 프로그램**을 열고 목록에서 응용 프로그램을 클릭 한 다음 **Single Sign on 구성**을 선택 하 고 **클레임 & 사용자 특성**을 선택 합니다.
+갤러리 또는 비 갤러리 SAML 응용 프로그램에 대 한 그룹 클레임을 구성 하려면 **엔터프라이즈 응용 프로그램** 을 열고 목록에서 응용 프로그램을 클릭 한 다음 **Single Sign on 구성** 을 선택 하 고 **클레임 & 사용자 특성** 을 선택 합니다.
 
 **그룹 클레임 추가** 를 클릭 합니다.  
 
@@ -138,14 +138,15 @@ Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory �
 
 2. GroupMembershipClaim를 변경 하 여 그룹 멤버 자격 클레임을 사용 하도록 설정
 
-유효한 값은
+유효한 값은 다음과 같습니다.
 
 | 선택 영역 | 설명 |
 |----------|-------------|
 | **모두가** | 보안 그룹, 배포 목록 및 역할을 내보냅니다. |
 | **"SecurityGroup"** | 사용자가 구성원 인 보안 그룹을 그룹 클레임에 내보냅니다. |
-| **"DirectoryRole** | 사용자에 게 디렉터리 역할이 할당 된 경우 ' wids ' 클레임으로 내보내집니다. 그룹 클레임은 내보내지 않습니다. |
-| **"ApplicationGroup** | 응용 프로그램에 명시적으로 할당 되 고 사용자가 멤버인 그룹만 내보냅니다. |
+| **"DirectoryRole"** | 사용자에 게 디렉터리 역할이 할당 된 경우 ' wids ' 클레임으로 내보내집니다. 그룹 클레임은 내보내지 않습니다. |
+| **ApplicationGroup** | 응용 프로그램에 명시적으로 할당 되 고 사용자가 멤버인 그룹만 내보냅니다. |
+| **없음을** | 그룹이 반환 되지 않습니다. (대/소문자를 sensetive 하지 않으므로 응용 프로그램 매니페스트에서 직접 설정할 수 없습니다.) |
 
    예를 들면 다음과 같습니다.
 

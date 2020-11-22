@@ -2,13 +2,13 @@
 title: Azure Batch의 노드 및 풀
 description: 컴퓨팅 노드 및 풀에 대해 살펴보고 개발 관점에서 Azure Batch 워크플로에서 이들을 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 77f3a1c954f5591537436c9ee747052b3a642ec4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 11/20/2020
+ms.openlocfilehash: 880a956a2d839483c59578afad1b62146799578a
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537614"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243072"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Azure Batch의 노드 및 풀
 
@@ -40,7 +40,7 @@ Azure Batch 풀은 코어 Azure 컴퓨팅 플랫폼을 기반으로 합니다. B
 
 풀은 풀이 생성된 Batch 계정을 통해서만 사용할 수 있습니다. 한 Batch 계정에서 실행될 애플리케이션의 리소스 요구 사항을 충족하기 위해 여러 풀을 만들 수 있습니다.
 
-풀을 수동으로 만들 수도 있고, 수행할 작업을 지정한 경우에는 Batch 서비스에서 자동으로 풀을 만듭니다. 풀을 만들 때는 다음과 같은 특성을 지정할 수 있습니다.
+풀은 수동으로 만들거나 수행할 작업을 지정할 때 [Batch 서비스에서 자동으로](#autopools) 만들 수 있습니다. 풀을 만들 때는 다음과 같은 특성을 지정할 수 있습니다.
 
 - [노드 운영 체제 및 버전](#operating-system-and-version)
 - [노드 유형 및 노드 대상 수](#node-type-and-target)
@@ -127,7 +127,7 @@ Azure Batch 풀을 만들 때 Azure에서 사용할 수 있는 거의 모든 VM 
 
 - **시간 메트릭** 은 지정된 시간 동안 5분 간격으로 수집되는 통계를 기반으로 합니다.
 - **리소스 메트릭** 은 CPU 사용량, 대역폭 사용량, 메모리 사용량 및 노드 수를 기반으로 합니다.
-- **태스크 메트릭** 은 *활성* (큐에 대기), *실행* 또는 *완료* 등 태스크 상태에 따라 다릅니다.
+- **태스크 메트릭** 은 *활성*(큐에 대기), *실행* 또는 *완료* 등 태스크 상태에 따라 다릅니다.
 
 자동 크기 조정이 풀에서 컴퓨팅 노드 수를 감소시키면 감소 작업 시에 실행 중인 태스크를 처리하는 방법을 고려해야 합니다. 이를 제공하기 위해 Batch가 수식에 포함할 수 있는 [노드 할당 취소 옵션](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption)을 제공합니다. 예를 들어 실행 중인 태스크를 즉시 중지한 다음 다른 노드에서 실행하기 위해 큐에 다시 넣거나 풀에서 노드를 제거하기 전에 완료하도록 지정할 수 있습니다. 노드 할당 취소 옵션을 `taskcompletion` 또는 `retaineddata`로 설정하면 모든 태스크가 완료될 때까지 또는 모든 태스크 보존 기간이 만료될 때까지 각각 풀 크기 조정 작업을 수행할 수 없습니다.
 
@@ -184,6 +184,10 @@ Azure Batch 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 해
 또 다른 극단적인 예로, 작업을 즉시 시작하는 것이 우선 순위가 가장 높은 경우 미리 풀을 만들고 작업이 제출되기 전에 해당 노드를 사용할 수 있습니다. 이 시나리오에서는 태스크를 즉시 시작할 수 있지만, 태스크가 할당되기를 기다리는 동안 노드가 유휴 상태일 수 있습니다.
 
 통합 접근 방식은 일반적으로 가변적이지만 지속적인 부하를 처리하는 데 사용됩니다. 여러 작업이 제출되는 풀을 사용할 수 있으며 작업 부하에 따라 노드 수를 확장 또는 축소할 수 있습니다. 이는 현재 부하에 따라 사후 대응적으로 수행하거나 부하를 예측할 수 있는 경우 사전 대응적으로 수행할 수 있습니다. 자세한 내용은 [자동 크기 조정 정책](#automatic-scaling-policy)을 참조하세요.
+
+## <a name="autopools"></a>Autopools
+
+[자동 풀](/rest/api/batchservice/job/add#autopoolspecification) 는 풀에서 실행 되는 작업 이전에 생성 되는 것이 아니라 작업을 제출할 때 Batch 서비스에서 만드는 풀입니다. Batch 서비스는 사용자가 지정 하는 특성에 따라 자동 풀의 수명을 관리 합니다. 일반적으로 이러한 풀은 작업이 완료 된 후에도 자동으로 삭제 되도록 설정 됩니다.
 
 ## <a name="security-with-certificates"></a>인증서를 사용한 보안
 

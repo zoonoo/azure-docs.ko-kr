@@ -4,12 +4,12 @@ description: Batch는 Batch 서비스의 인증을 위해 Azure AD를 지원합�
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 685b84f1e628ea67689d3de8bf64c9641edba6fc
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 784e92eaa2cd672d511177066befcfd7effc7ca4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920511"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95252643"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -144,7 +144,7 @@ Azure Portal에서 다음 단계를 따릅니다.
 - Microsoft.Batch/batchAccounts/read(읽기 작업의 경우)
 - Microsoft.Batch/batchAccounts/listKeys/action(모든 작업)
 
-사용자 지정 역할은 Batch 계정 자격 증명(공유 키)이 아닌 Azure AD에서 인증한 사용자를 위한 것입니다. Batch 계정 자격 증명은 Batch 계정에 대한 모든 사용 권한을 부여합니다. 또한 자동 풀을 사용하는 작업에는 풀 수준 권한이 필요합니다.
+사용자 지정 역할은 Batch 계정 자격 증명(공유 키)이 아닌 Azure AD에서 인증한 사용자를 위한 것입니다. Batch 계정 자격 증명은 Batch 계정에 대한 모든 사용 권한을 부여합니다. 또한 [자동 풀](nodes-and-pools.md#autopools) 를 사용 하는 작업에는 풀 수준 권한이 필요 합니다.
 
 > [!NOTE]
 > 특정 역할 할당은 작업 필드에 지정 해야 하지만 다른 역할 할당은 DataAction 필드에 지정 해야 합니다. 자세한 내용은 [Azure 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftbatch)을 참조 하세요.

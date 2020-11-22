@@ -3,12 +3,12 @@ title: 모범 사례
 description: Azure Batch 솔루션을 개발 하는 데 유용한 모범 사례 및 유용한 팁을 알아보세요.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: a799aa7de19b9d5b0b8e085252cb172efebd05dc
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6aaed76ad398b5278850dd66ce1da6d5bd33807f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916868"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254666"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -38,7 +38,7 @@ ms.locfileid: "94916868"
 
 ### <a name="pool-lifetime-and-billing"></a>풀 수명 및 청구
 
-풀 수명은 풀 구성에 적용되는 할당 방법 및 옵션에 따라 달라질 수 있습니다. 풀의 수명은 임의로 지정할 수 있으며, 풀의 컴퓨팅 노드 수는 언제든지 달라질 수 있습니다. 사용자가 풀의 컴퓨팅 노드를 명시적으로 관리하거나 서비스에서 제공하는 기능(자동 크기 조정 또는 자동 풀)을 통해 관리해야 합니다.
+풀 수명은 풀 구성에 적용되는 할당 방법 및 옵션에 따라 달라질 수 있습니다. 풀의 수명은 임의로 지정할 수 있으며, 풀의 컴퓨팅 노드 수는 언제든지 달라질 수 있습니다. 풀의 계산 노드를 명시적으로 관리 하거나 서비스에서 제공 하는 기능 ([자동 크기 조정](nodes-and-pools.md#automatic-scaling-policy) 또는 [자동 풀](nodes-and-pools.md#autopools))을 통해 관리 하는 것은 사용자의 책임입니다.
 
 - **풀을 새로 유지합니다.**
     [최신 노드 에이전트 업데이트 및 버그 수정을](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md)얻으려면 몇 개월 마다 풀 크기를 0으로 조정 합니다. 풀을 다시 만들거나 풀 크기를 0개의 컴퓨팅 노드로 조정하지 않으면 풀에서 노드 에이전트 업데이트를 받지 않습니다. 풀을 다시 만들거나 크기를 조정하기 전에 [노드](#nodes) 섹션에서 설명한 대로 디버깅을 위해 노드 에이전트 로그를 다운로드하는 것이 좋습니다.
@@ -93,7 +93,7 @@ Batch 작업의 수명은 시스템에서 해당 작업이 삭제될 때까지 �
 
 ### <a name="save-task-data"></a>태스크 데이터 저장
 
-컴퓨팅 노드는 기본적으로 사용 후에 삭제됩니다. Batch에는 노드를 쉽게 숨길 수 있는 자동 풀, 자동 크기 조정과 같은 다양한 기능이 있습니다. 크기 조정 또는 풀 삭제로 인해 노드가 풀을 벗어나면 해당 노드의 모든 파일도 삭제됩니다. 따라서 태스크는 완료되기 전에 해당 출력을 실행 중인 노드에서 지속형 저장소로 이동해야 합니다. 마찬가지로, 태스크가 실패하면 실패를 진단하는 데 필요한 로그를 지속형 저장소로 이동해야 합니다.
+컴퓨팅 노드는 기본적으로 사용 후에 삭제됩니다. 노드를 쉽게 사라지게 할 수 있는 [자동 풀](nodes-and-pools.md#autopools) 및 [자동 크기](nodes-and-pools.md#automatic-scaling-policy) 조정과 같은 많은 기능이 배치에 있습니다. 크기 조정 또는 풀 삭제로 인해 노드가 풀을 벗어나면 해당 노드의 모든 파일도 삭제 됩니다. 따라서 태스크는 완료되기 전에 해당 출력을 실행 중인 노드에서 지속형 저장소로 이동해야 합니다. 마찬가지로, 태스크가 실패하면 실패를 진단하는 데 필요한 로그를 지속형 저장소로 이동해야 합니다.
 
 Batch는 [OutputFiles](batch-task-output-files.md) 및 다양한 공유 파일 시스템을 통해 데이터를 업로드할 수 있도록 Azure Storage 지원을 통합했거나 태스크에서 업로드를 직접 수행할 수 있습니다.
 

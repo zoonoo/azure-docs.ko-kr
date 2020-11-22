@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a0d474208f11c203ca65e9ac296fa381d8633a8b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 12c9fd43933f9f54e013752c5fe482ce31650536
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663744"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95238397"
 ---
 # <a name="create-an-app-service-environment"></a>App Service Environment 만들기
 
@@ -34,7 +34,7 @@ ASE를 만든 후에는 변경할 수 없습니다.
 
 - 위치
 - 구독
-- 리소스 그룹
+- Resource group
 - 사용 되는 Azure Virtual Network (VNet)
 - 사용 되는 서브넷
 - 서브넷 크기
@@ -48,7 +48,7 @@ ASEv3는 select 지역 에서만 제공 됩니다. 미리 보기가 GA를 따라
 
 ## <a name="creating-an-ase-in-the-portal"></a>포털에서 ASE 만들기
 
-1. ASEv3를 만들려면 marketplace에서 **App Service Environment v3** 를 검색 합니다.  
+1. ASEv3을 만들려면 marketplace에서 **App Service Environment (미리 보기)** 를 검색 합니다.  
 2. 기본 사항: 구독을 선택 하 고, 리소스 그룹을 선택 하거나 만들고, ASE의 이름을 입력 합니다.  Ase 이름은 ASE의 도메인 접미사에도 사용 됩니다.  ASE 이름이 *contoso* 인 경우 도메인 접미사가 *contoso.appserviceenvironment.net* 됩니다.  이 이름은 ASE가 배포 된 Vnet에서 사용 하는 Azure DNS 개인 영역에서 자동으로 설정 됩니다. 
 
     ![기본 App Service Environment 만들기 탭](./media/creation/creation-basics.png)

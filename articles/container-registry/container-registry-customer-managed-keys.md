@@ -4,12 +4,12 @@ description: Azure container registry의 미사용 암호화 및에 저장 된 �
 ms.topic: article
 ms.date: 11/17/2020
 ms.custom: ''
-ms.openlocfilehash: d145e861859d08b644683ea870a48fe9ef8fa459
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6dac2239f223b5dee6ec728833caa01562873210
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024844"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95255023"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>고객 관리형 키를 사용하여 레지스트리 암호화
 
