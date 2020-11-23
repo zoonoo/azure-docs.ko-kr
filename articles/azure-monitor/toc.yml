@@ -89,6 +89,8 @@
               href: samples/resource-manager-web-app.md
             - name: Azure 기능
               href: samples/resource-manager-function-app.md
+        - name: 데이터 수집 규칙
+          href: samples/resource-manager-data-collection-rules.md
         - name: 진단 설정
           href: samples/resource-manager-diagnostic-settings.md
         - name: Log Analytics 작업 영역
@@ -164,6 +166,7 @@
         - name: Azure Monitor 배포
           href: deploy.md
         - name: 대규모 배포
+          displayName: 'Azure Policy, Policy'
           href: deploy-scale.md
     - name: 관리 및 구성
       items:
@@ -351,6 +354,9 @@
             - name: 개요
               displayname: Azure Monitor agent
               href: platform/azure-monitor-agent-overview.md
+            - name: 설치
+              displayname: Azure Monitor agent
+              href: platform/azure-monitor-agent-install.md
             - name: 데이터 수집
               displayname: 'data collection rule,Azure Monitor agent'
               href: platform/data-collection-rule-azure-monitor-agent.md
