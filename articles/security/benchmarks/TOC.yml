@@ -81,6 +81,8 @@
       href: /azure/data-explorer/security-baseline
     - name: Azure Data Factory 보안 기준
       href: ../../data-factory/security-baseline.md
+    - name: Azure Data Share 보안 기준
+      href: ../../data-share/security-baseline.md
     - name: Azure Database for MySQL 보안 기준
       href: ../../mysql/security-baseline.md
     - name: Azure Database for MariaDB 보안 기준
@@ -91,6 +93,8 @@
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Azure Databricks 보안 기준
       href: /azure/databricks/scenarios/security-baseline
+    - name: Azure Defender for IoT 보안 기준
+      href: ../../defender-for-iot/security-baseline.md
     - name: Azure DNS 보안 기준
       href: ../../dns/security-baseline.md
     - name: Azure DevTest Labs 보안 기준
@@ -101,18 +105,24 @@
       href: ../../frontdoor/security-baseline.md
     - name: Azure Functions 보안 기준
       href: ../../azure-functions/security-baseline.md
+    - name: Azure HPC Cache 보안 기준
+      href: ../../hpc-cache/security-baseline.md
     - name: Azure Information Protection 보안 기준
       href: /azure/information-protection/security-baseline
     - name: Azure IoT Hub 보안 기준
       href: ../../iot-hub/security-baseline.md
     - name: Azure Kubernetes Service 보안 기준
       href: ../../aks/security-baseline.md
+    - name: Azure Lighthouse 보안 기준
+      href: ../../lighthouse/security-baseline.md
     - name: Azure Load Balancer 보안 기준
       href: ../../load-balancer/security-baseline.md
     - name: Azure Monitor 보안 기준
       href: ../../azure-monitor/security-baseline.md
     - name: Azure Machine Learning 보안 기준
       href: ../../machine-learning/security-baseline.md
+    - name: Azure Migrate Learning 보안 기준
+      href: ../../migrate/security-baseline.md
     - name: Azure Policy 보안 기준
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
     - name: Azure Private Link 보안 기준
