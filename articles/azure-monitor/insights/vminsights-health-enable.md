@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 6033ca5b0eaf6845d14407832c776dd8e006226b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 647256949d1f8f13439a0a5db87f3b02d697d32b
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686975"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95318136"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>VM용 Azure Monitor 게스트 상태 (미리 보기) 사용
 VM용 Azure Monitor 게스트 상태를 사용 하면 일정 한 간격으로 샘플링 되는 성능 측정 집합에 정의 된 대로 가상 컴퓨터의 상태를 볼 수 있습니다. 이 문서에서는 구독에서이 기능을 사용 하도록 설정 하는 방법과 각 가상 컴퓨터에 대해 게스트 모니터링을 사용 하도록 설정 하는 방법을 설명 합니다.
@@ -24,12 +24,18 @@ VM용 Azure Monitor 게스트 상태는 공개 미리 보기에서 다음과 같
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 이상
 - 가상 머신은 다음 지역 중 하나에 있어야 합니다.
+  - 오스트레일리아 동부
   - 오스트레일리아 남동부
+  - 인도 중부
   - 미국 중부
   - 미국 동부
   - 미국 동부 2
   - 미국 동부 2 EUAP
+  - 독일 중서부
+  - 일본 동부
+  - 미국 중북부
   - 북유럽
+  - 미국 중남부
   - 동남아시아
   - 영국 남부
   - 서유럽

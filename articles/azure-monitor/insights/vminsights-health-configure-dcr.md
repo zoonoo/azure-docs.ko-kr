@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: fd131798352aaccaea66c242e92d550c98d7c86f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2bbc57d8ddc004c1926da7e0037efdc1fcf2d76e
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687016"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95318102"
 ---
 # <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>데이터 수집 규칙을 사용 하 여 VM용 Azure Monitor 게스트 상태에서 모니터링 구성 (미리 보기)
 [VM용 Azure Monitor 게스트 상태](vminsights-health-overview.md) 를 사용 하면 일정 한 간격으로 샘플링 되는 성능 측정 집합에 정의 된 대로 가상 컴퓨터의 상태를 볼 수 있습니다. 이 문서에서는 데이터 수집 규칙을 사용 하 여 여러 가상 컴퓨터에서 기본 모니터링을 수정 하는 방법을 설명 합니다.
@@ -20,7 +20,7 @@ ms.locfileid: "94687016"
 ## <a name="monitors"></a>모니터
 가상 컴퓨터의 상태는 각 모니터의 [상태 롤업에](vminsights-health-overview.md#health-rollup-policy) 따라 결정 됩니다. 다음 표에 표시 된 것 처럼 VM용 Azure Monitor 게스트 상태에는 두 가지 유형의 모니터가 있습니다.
 
-| Monitor | 설명 |
+| 모니터 | 설명 |
 |:---|:---|
 | 유닛 모니터 | 리소스 또는 응용 프로그램의 일부 측면을 측정 합니다. 이는 성능 카운터를 확인 하 여 리소스의 성능 또는 가용성을 확인할 수 있습니다. |
 | 집계 모니터 | 여러 모니터를 그룹화 하 여 단일 집계 된 상태를 제공 합니다. 집계 모니터는 하나 이상의 유닛 모니터와 기타 집계 모니터를 포함할 수 있습니다. |
@@ -47,17 +47,17 @@ VM용 Azure Monitor 게스트 상태 및 해당 구성에서 사용 하는 모�
 다음 표에는 각 모니터의 기본 구성이 나열 되어 있습니다. 이 기본 구성은 직접 변경할 수 없지만 특정 가상 컴퓨터에 대 한 모니터 구성을 수정 하는 [재정의](#overrides) 를 정의할 수 있습니다.
 
 
-| Monitor | 사용 | 경고 | 경고 | 위험 | 평가 빈도 | Lookback | 평가 유형 | Min 샘플 | 최대 샘플 |
+| 모니터 | 사용 | 경고 | 경고 | 위험 | 평가 빈도 | Lookback | 평가 유형 | Min 샘플 | 최대 샘플 |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| CPU 사용률  | True | 거짓 | 없음 | \> 90%    | 60초 | 240 초 | 최소값 | 2 | 3 |
-| 사용 가능한 메모리 | True | 거짓 | 없음 | \< 100 M B | 60초 | 240 초 | 최대 | 2 | 3 |
-| 파일 시스템      | True | 거짓 | 없음 | \< 100 M B | 60초 | 120 초 | 최대 | 1 | 1 |
+| CPU 사용률  | True | False | None | \> 90%    | 60초 | 240 초 | 최소값 | 2 | 3 |
+| 사용 가능한 메모리 | True | False | None | \< 100 M B | 60초 | 240 초 | 최대값 | 2 | 3 |
+| 파일 시스템      | True | False | None | \< 100 M B | 60초 | 120 초 | 최대값 | 1 | 1 |
 
 
 ## <a name="overrides"></a>재정의
 *재정의* 는 모니터의 속성을 하나 이상 변경 합니다. 예를 들어 재정의는 기본적으로 사용 하도록 설정 된 모니터를 사용 하지 않도록 설정 하거나, 모니터에 대 한 경고 조건을 정의 하거나, 모니터의 위험 임계값을 수정할 수 있습니다. 
 
-재정의는 [데이터 수집 규칙 (DCR)](../platform/data-collection-rule-overview.md)에 정의 되어 있습니다. 서로 다른 재정의 집합을 사용 하 여 여러 개의 가상 컴퓨터를 만들고 여러 가상 컴퓨터에 적용할 수 있습니다. [Azure Monitor 에이전트에 대 한 데이터 수집 구성 (미리 보기)](../platform/data-collection-rule-azure-monitor-agent.md#dcr-associations)에 설명 된 대로 연결을 만들어 가상 머신에 DCR을 적용 합니다.
+재정의는 [데이터 수집 규칙 (DCR)](../platform/data-collection-rule-overview.md)에 정의 되어 있습니다. 서로 다른 재정의 집합을 사용 하 여 여러 개의 가상 컴퓨터를 만들고 여러 가상 컴퓨터에 적용할 수 있습니다. [Azure Monitor 에이전트에 대 한 데이터 수집 구성 (미리 보기)](../platform/data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations)에 설명 된 대로 연결을 만들어 가상 머신에 DCR을 적용 합니다.
 
 
 ## <a name="multiple-overrides"></a>다중 재정의
@@ -74,8 +74,8 @@ VM용 Azure Monitor 게스트 상태 및 해당 구성에서 사용 하는 모�
 두 재정의가 동일한 모니터에서 동일한 속성을 정의 하는 경우 한 값이 우선적으로 적용 됩니다. 재정의는 해당 [범위](#scopes-element)에 따라 적용 되며 가장 일반적인에서 가장 구체적인 것까지 적용 됩니다. 즉, 가장 구체적인 재정의가 적용 될 가능성이 가장 큽니다. 구체적인 순서는 다음과 같습니다.
 
 1. 전역 
-2. 구독
-3. 리소스 그룹
+2. Subscription
+3. Resource group
 4. 가상 머신 
 
 동일한 범위 수준에서 여러 재정의가 동일한 모니터에 동일한 속성을 정의 하는 경우 DCR에 표시 되는 순서 대로 적용 됩니다. 재정의가 다른 dba에 있는 경우 DCR 리소스 Id의 알파벳 순서로 적용 됩니다.

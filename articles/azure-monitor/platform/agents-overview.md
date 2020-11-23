@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/20/2020
-ms.openlocfilehash: 66d420a902cbfb56ece75646ee39bbba774b6208
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 11/21/2020
+ms.openlocfilehash: 30521e85feda0fc19329364dcb710d322ae8cfc1
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312422"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95323242"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -34,7 +34,7 @@ ms.locfileid: "92312422"
 
 | | Azure Monitor 에이전트 (미리 보기) | 진단<br>확장 (WAD) | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|:---|
-| **지원 되는 환경** | Azure | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | 
+| **지원 되는 환경** | Azure<br>기타 클라우드 (Azure Arc)<br>온-프레미스 (Azure Arc)  | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | 
 | **에이전트 요구 사항**  | None | None | None | Log Analytics 에이전트가 필요 합니다. |
 | **수집되는 데이터** | 이벤트 로그<br>성능 | 이벤트 로그<br>ETW 이벤트<br>성능<br>파일 기반 로그<br>IIS 로그<br>.NET 앱 로그<br>크래시 덤프<br>에이전트 진단 로그 | 이벤트 로그<br>성능<br>파일 기반 로그<br>IIS 로그<br>인사이트 및 솔루션<br>기타 서비스 | 프로세스 종속성<br>네트워크 연결 메트릭 |
 | **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭 | Azure Storage<br>Azure Monitor 메트릭<br>이벤트 허브 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
@@ -44,7 +44,7 @@ ms.locfileid: "92312422"
 
 | | Azure Monitor 에이전트 (미리 보기) | 진단<br>확장 (꼬마) | Telegraf<br>에이전트 | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|:---|:---|
-| **지원 되는 환경** | Azure | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 |
+| **지원 되는 환경** | Azure<br>기타 클라우드 (Azure Arc)<br>온-프레미스 (원호) | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 |
 | **에이전트 요구 사항**  | None | None | None | None | Log Analytics 에이전트가 필요 합니다. |
 | **수집되는 데이터** | syslog<br>성능 | syslog<br>성능 | 성능 | syslog<br>성능| 프로세스 종속성<br>네트워크 연결 메트릭 |
 | **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭 | Azure Storage<br>이벤트 허브 | Azure Monitor 메트릭 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
@@ -56,7 +56,7 @@ ms.locfileid: "92312422"
 
 다음 작업을 수행 해야 하는 경우 Azure Monitor 에이전트를 사용 합니다.
 
-- Azure의 모든 가상 컴퓨터, 다른 클라우드 또는 온-프레미스에서 게스트 로그 및 메트릭을 수집 합니다. (Azure는 미리 보기로만 제공 됩니다.)
+- Azure의 모든 가상 컴퓨터, 다른 클라우드 또는 온-프레미스에서 게스트 로그 및 메트릭을 수집 합니다. Azure 외부의 가상 컴퓨터에는 azure Arc가 필요 합니다. 
 - Azure Monitor를 사용 하 여 분석을 위해 Azure Monitor 로그 및 Azure Monitor 메트릭에 데이터를 보냅니다. 
 - 데이터를 보관을 위해 Azure Storage 보냅니다.
 - [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md)를 사용 하 여 타사 도구로 데이터를 보냅니다.
@@ -196,7 +196,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 |                    | 6.9     | 2.6.32-696  |
 | CentOSPlus         | 6.10    | 2.6.32 커널을-754.3.5<br>2.6.32 커널을-696.30.1 |
 |                    | 6.9     | 2.6.32 커널을-696.30.1<br>2.6.32 커널을-696.18.7 |
-| Ubuntu Server      | 18.04   | 5.3.0-1020<br>5.0 (Azure 조정 커널 포함)<br>4.18* <br> 4.15* |
+| Ubuntu Server      | 18.04   | 5.3.0-1020<br>5.0 (Azure 조정 커널 포함)<br>4.18 *<br> 4.15* |
 |                    | 16.04.3 | 4.15. * |
 |                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 | SUSE Linux 12 Enterprise Server | 12 SP4 | 4.12. * (Azure 조정 커널 포함) |

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: 76f541a45c56669d17103f16997f3d036955b773
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: cf64deb17bea508637debb5612231d355d523fbb
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919689"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95315586"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Azure Monitor 에이전트 개요 (미리 보기)
 Azure Monitor 에이전트 (AMA)는 가상 컴퓨터의 게스트 운영 체제에서 모니터링 데이터를 수집 하 여 Azure Monitor에 전달 합니다. 이 문서에서는 Azure Monitor 에이전트를 설치 하는 방법 및 데이터 수집을 구성 하는 방법을 비롯 하 여 에이전트에 대 한 개요를 제공 합니다.
@@ -54,7 +54,7 @@ Azure Monitor 에이전트의 공개 미리 보기 중에는 다음과 같은 �
 
 - Azure Monitor 에이전트는 VM용 Azure Monitor 및 Azure Security Center와 같은 솔루션 및 통찰력을 지원 하지 않습니다. 현재 지원 되는 유일한 시나리오는 구성 하는 데이터 수집 규칙을 사용 하 여 데이터를 수집 하는 것입니다. 
 - 데이터 수집 규칙은 대상으로 사용 되는 Log Analytics 작업 영역과 동일한 지역에 만들어야 합니다.
-- 현재 Azure virtual machines만 지원 됩니다. 온-프레미스 가상 머신, 가상 머신 확장 집합, 서버에 대 한 Arc, Azure Kubernetes Service 및 기타 계산 리소스 유형은 현재 지원 되지 않습니다.
+- Azure virtual machines 및 Azure Arc 사용 서버는 현재 지원 됩니다. Virtual machine scale sets, Azure Kubernetes Service 및 기타 계산 리소스 유형은 현재 지원 되지 않습니다.
 - 가상 컴퓨터에는 다음 HTTPS 끝점에 대 한 액세스 권한이 있어야 합니다.
   - *.ods.opinsights.azure.com
   - *. ingest.monitor.azure.com
@@ -76,7 +76,7 @@ Azure Monitor 에이전트에 대 한 비용은 없지만 데이터 수집에 �
 
 Azure Monitor 에이전트는 Azure Monitor 메트릭 또는 Azure Monitor 로그를 지 원하는 Log Analytics 작업 영역에 데이터를 보냅니다.
 
-| 데이터 원본 | 대상 | Description |
+| 데이터 원본 | 대상 | 설명 |
 |:---|:---|:---|
 | 성능        | Azure Monitor 메트릭<br>Log Analytics 작업 영역 | 운영 체제 및 워크로드의 여러 측면에서 성능을 측정하는 숫자 값입니다. |
 | Windows 이벤트 로그 | Log Analytics 작업 영역 | Windows 이벤트 로깅 시스템으로 전송되는 정보입니다. |
@@ -94,50 +94,8 @@ Azure Monitor 에이전트에는 키가 필요 하지 않지만 대신 [시스�
 ## <a name="networking"></a>네트워킹
 Azure Monitor 에이전트는 Azure 서비스 태그 (AzureMonitor 및 AzureResourceManager 태그가 모두 필요 함)를 지원 하지만 Azure Monitor 개인 링크 범위 또는 직접 프록시는 아직 작동 하지 않습니다.
 
-## <a name="install-the-azure-monitor-agent"></a>Azure Monitor 에이전트 설치
-Azure Monitor 에이전트는 다음 표의 세부 정보를 사용 하 여 [AZURE VM 확장](../../virtual-machines/extensions/overview.md) 으로 구현 됩니다. 
-
-| 속성 | Windows | Linux |
-|:---|:---|:---|
-| Publisher | Microsoft. Azure 모니터  | Microsoft. Azure 모니터 |
-| 유형      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 1.5 |
-
-PowerShell 또는 CLI를 사용 하 여 다음을 포함 하 여 가상 머신 에이전트를 설치 하는 방법 중 하나를 사용 하 여 Azure Monitor 에이전트를 설치 합니다. 또는 [Azure Monitor 에이전트에 대 한 데이터 수집 구성 (미리 보기)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal)에 설명 된 절차에 따라 포털을 사용 하 여 Azure 구독의 가상 컴퓨터에서 에이전트를 설치 하 고 데이터 수집을 구성할 수 있습니다.
-
-### <a name="windows"></a>Windows
-
-# <a name="cli"></a>[CLI](#tab/CLI1)
-
-```azurecli
-az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
-
-```
-
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell1)
-
-```powershell
-Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
-```
----
-
-
-### <a name="linux"></a>Linux
-
-# <a name="cli"></a>[CLI](#tab/CLI2)
-
-```azurecli
-az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
-
-```
-
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell2)
-
-```powershell
-Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus -TypeHandlerVersion 1.5
-```
----
 
 ## <a name="next-steps"></a>다음 단계
 
+- Windows 및 Linux 가상 머신에 [Azure Monitor 에이전트를 설치](azure-monitor-agent-install.md) 합니다.
 - 에이전트에서 데이터를 수집 하 고 Azure Monitor로 보내기 위한 [데이터 수집 규칙을 만듭니다](data-collection-rule-azure-monitor-agent.md) .
