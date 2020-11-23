@@ -3,12 +3,12 @@ title: FAQ - Azure VM의 SAP HANA 데이터베이스 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 SAP HANA 데이터베이스를 백업하는 방법에 대한 일반적인 질문과 답변을 제공합니다.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 24eb4abaaabe166ceb3e6bdb99f9446d398d03a1
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: bf662600bafcd18b00c8f8d3b673fc3f9c110aca
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686109"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95400210"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>자주 묻는 질문 – Azure VM의 SAP HANA 데이터베이스 백업
 
@@ -52,6 +52,10 @@ SAP HANA 인스턴스에서 데이터베이스를 삭제해도 해당 데이터�
 ### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>SAP HANA를 SDC에서 MDC로 마이그레이션한 후에도 백업이 작동하나요?
 
 문제 해결 가이드의 [이 섹션](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid)을 참조하세요.
+
+### <a name="what-should-be-done-while-upgrading-within-the-same-version"></a>동일한 버전 내에서 업그레이드 하는 동안 수행 해야 하는 작업은 무엇 인가요?
+
+문제 해결 가이드에서 [이 섹션](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm) 을 참조 하세요.
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>가상 머신이 아닌 가상 IP(부하 분산 장치)에 대해 Azure HANA 백업을 설정할 수 있나요?
 

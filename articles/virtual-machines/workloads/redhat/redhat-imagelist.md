@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: b03d559b8952a61896fa79a568fb8200b3618fed
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: ea0e8c148a847ecc23bab5e87a1dc60a626cf0c1
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968641"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95411617"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Azure에서 사용할 수 있는 Red Hat Enterprise Linux (RHEL) 이미지
 Azure는 다양 한 사용 사례에 대 한 다양 한 RHEL 이미지를 제공 합니다.
@@ -27,7 +27,7 @@ Azure에서 사용할 수 있는 RHEL 이미지 목록입니다. 달리 명시 �
 > [!NOTE]
 > 원시 이미지는 LVM 분할 이미지를 위해 더 이상 생성 되지 않습니다. LVM은 훨씬 더 유연한 파티션 크기 조정 옵션을 포함 하 여 오래 된 원시 (LVM) 파티션 구성표에 비해 여러 가지 이점을 제공 합니다.
 
-제안| SKU | 분할 | 프로비전 | 메모
+제안| SKU | 분할 | 프로비전 | 참고
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 6.7      | RAW    | Linux 에이전트 | 12 월 1 일부 터 사용 가능한 연장 된 수명 주기 지원. [자세한 내용은 여기를 참조 하세요.](redhat-extended-lifecycle-support.md)
 |             | 6.8      | RAW    | Linux 에이전트 | 12 월 1 일부 터 사용 가능한 연장 된 수명 주기 지원. [자세한 내용은 여기를 참조 하세요.](redhat-extended-lifecycle-support.md)
@@ -55,12 +55,14 @@ RHEL          | 6.7      | RAW    | Linux 에이전트 | 12 월 1 일부 터 사
 |             | 8lvm-gen2| LVM    | Linux 에이전트 | Hyper-v 세대 2-RHEL 8. x 이미지 제품군 일반 리포지토리에 연결 됩니다.
 |             | 8        | LVM    | Linux 에이전트 | RHEL 8.0 이미지
 |             | 8-gen2   | LVM    | Linux 에이전트 | Hyper-v 세대 2-RHEL 8.0 이미지
-|             | 8.1      | LVM    | Linux 에이전트 | RHEL 8.2 이미지 현재 일반 리포지토리에 연결 되어 있습니다.
-|             | 81gen2   | LVM    | Linux 에이전트 | Hyper-v 세대 2-RHEL 8.1 이미지 현재 일반 리포지토리에 연결 되어 있습니다.
-|             | 8.1-ci   | LVM    | Linux 에이전트 | 프로 비전 에이전트로 클라우드 init를 사용 하 여 8.1 이미지를 RHEL 합니다. 현재 일반 리포지토리에 연결 되어 있습니다.
-|             | 81-ci-gen2| LVM    | Linux 에이전트 | Hyper-v 세대 2-RHEL 8.1 이미지를 프로 비전 에이전트로 사용 하 여 클라우드 init를 사용 합니다. 현재 일반 리포지토리에 연결 되어 있습니다.
-|             | 8.2      | LVM    | Linux 에이전트 | RHEL 8.2 이미지 현재 일반 리포지토리에 연결 되어 있습니다.
-|             | 82gen2   | LVM    | Linux 에이전트 | Hyper-v 세대 2-RHEL 8.1 이미지 현재 일반 리포지토리에 연결 되어 있습니다.
+|             | 8.1      | LVM    | Linux 에이전트 | 기본적으로 EUS 리포지토리에 연결 됩니다.
+|             | 81gen2   | LVM    | Linux 에이전트 | Hyper-v 2 세대-2020 년 11 월부터 EUS 리포지토리에 연결 됩니다.
+|             | 8.1-ci   | LVM    | Linux 에이전트 | 2020 년 11 월부터 EUS 리포지토리에 연결 됩니다.
+|             | 81-ci-gen2| LVM    | Linux 에이전트 | Hyper-v 2 세대-2020 년 11 월부터 EUS 리포지토리에 연결 됩니다.
+|             | 8.2      | LVM    | Linux 에이전트 | 2020 년 11 월부터 EUS 리포지토리에 연결 됩니다.
+|             | 82gen2   | LVM    | Linux 에이전트 | Hyper-v 2 세대-2020 년 11 월부터 EUS 리포지토리에 연결 됩니다.
+|             | 8.3   | LVM    | Linux 에이전트 |  일반 리포지토리에 연결 됨 (RHEL 8.3에 대해 EUS를 사용할 수 없음)
+|             | 83-gen2   | LVM    | Linux 에이전트 |Hyper-v 세대 2-일반 리포지토리에 연결 됨 (RHEL 8.3에 대해 EUS를 사용할 수 없음)
 RHEL-SAP      | 7.4      | LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱에 대 한 RHEL 7.4. E4S 리포지토리에 연결 된는 SAP 및 RHEL에 대 한 프리미엄 및 기본 계산 요금을 부과 합니다.
 |             | 74sap-gen2| LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱에 대 한 RHEL 7.4. 2 세대 이미지입니다. E4S 리포지토리에 연결 된는 SAP 및 RHEL에 대 한 프리미엄 및 기본 계산 요금을 부과 합니다.
 |             | 7.5       | LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱에 대 한 RHEL 7.5. E4S 리포지토리에 연결 된는 SAP 및 RHEL에 대 한 프리미엄 및 기본 계산 요금을 부과 합니다.
@@ -76,6 +78,11 @@ RHEL-SAP-APPS | 6.8       | RAW    | Linux 에이전트 | RHEL 6.8 for SAP Busin
 |             | 7.4       | LVM    | Linux 에이전트 | RHEL 7.4 for SAP Business Applications.
 |             | 7.6       | LVM    | Linux 에이전트 | RHEL 7.6 for SAP Business Applications.
 |             | 7.7       | LVM    | Linux 에이전트 | RHEL 7.7 for SAP Business Applications.
+|             | 77-gen2       | LVM    | Linux 에이전트 | RHEL 7.7 for SAP Business Applications. 2 세대 이미지
+|             | 8.1       | LVM    | Linux 에이전트 | RHEL 8.1 for SAP Business Applications.
+|             | 81-gen2      | LVM    | Linux 에이전트 | RHEL 8.1 for SAP Business Applications. 2 세대 이미지입니다.
+|             | 8.2       | LVM    | Linux 에이전트 | RHEL 8.2 for SAP Business Applications.
+|             | 82-gen2      | LVM    | Linux 에이전트 | RHEL 8.2 for SAP Business Applications. 2 세대 이미지입니다.
 RHEL-HA       | 7.4       | LVM    | Linux 에이전트 | HA 추가 기능을 사용 하는 RHEL 7.4. 는 기본 계산 요금을 RHEL HA 및에 대 한 프리미엄을 부과 합니다. RHEL--------------HA 이미지를 선호 합니다.
 |             | 7.5       | LVM    | Linux 에이전트 | HA 추가 기능을 사용 하는 RHEL 7.5. 는 기본 계산 요금을 RHEL HA 및에 대 한 프리미엄을 부과 합니다. RHEL--------------HA 이미지를 선호 합니다.
 |             | 7.6       | LVM    | Linux 에이전트 | HA 추가 기능을 사용 하는 RHEL 7.6. 는 기본 계산 요금을 RHEL HA 및에 대 한 프리미엄을 부과 합니다. RHEL--------------HA 이미지를 선호 합니다.
@@ -86,6 +93,10 @@ RHEL-HA   | 7.4          | LVM    | Linux 에이전트 | HA 및 업데이트 서
 |             | 76sapha-gen2 | LVM    | Linux 에이전트 | HA 및 업데이트 서비스를 사용 하는 SAP 용 RHEL 7.6. 2 세대 이미지입니다. E4S 리포지토리에 연결 됩니다. 은 (는) 기본 계산 요금을 RHEL SAP 및 HA 리포지토리의 프리미엄 뿐만 아니라도 청구 합니다.
 |             | 7.7          | LVM    | Linux 에이전트 | HA 및 업데이트 서비스를 사용 하는 SAP 용 RHEL 7.7. E4S 리포지토리에 연결 됩니다. 은 (는) 기본 계산 요금을 RHEL SAP 및 HA 리포지토리의 프리미엄 뿐만 아니라도 청구 합니다.
 |             | 77sapha-gen2 | LVM    | Linux 에이전트 | HA 및 업데이트 서비스를 사용 하는 SAP 용 RHEL 7.7. 2 세대 이미지입니다. E4S 리포지토리에 연결 됩니다. 은 (는) 기본 계산 요금을 RHEL SAP 및 HA 리포지토리의 프리미엄 뿐만 아니라도 청구 합니다.
+|             | 8.1          | LVM    | Linux 에이전트 | HA 및 업데이트 서비스를 사용 하는 SAP 용 RHEL 8.1. E4S 리포지토리에 연결 됩니다. 은 (는) 기본 계산 요금을 RHEL SAP 및 HA 리포지토리의 프리미엄 뿐만 아니라도 청구 합니다.
+|             | 81sapha-gen2          | LVM    | Linux 에이전트 | HA 및 업데이트 서비스를 사용 하는 SAP 용 RHEL 8.1. E4S 리포지토리에 연결 된 2 세대 이미지 은 (는) 기본 계산 요금을 RHEL SAP 및 HA 리포지토리의 프리미엄 뿐만 아니라도 청구 합니다.
+|             | 8.2          | LVM    | Linux 에이전트 | HA 및 업데이트 서비스를 사용 하는 SAP 용 RHEL 8.2. 은 (는) 기본 계산 요금을 RHEL SAP 및 HA 리포지토리의 프리미엄 뿐만 아니라도 청구 합니다.
+|             | 82sapha-gen2          | LVM    | Linux 에이전트 | HA 및 업데이트 서비스를 사용 하는 SAP 용 RHEL 8.2. E4S 리포지토리에 연결 된 2 세대 이미지 은 (는) 기본 계산 요금을 RHEL SAP 및 HA 리포지토리의 프리미엄 뿐만 아니라도 청구 합니다.
 rhel-byos     |rhel-lvm74| LVM    | Linux 에이전트 | 업데이트 원본에 연결 되지 않은 RHEL 7.4 BYOS 이미지는 RHEL premium을 청구 하지 않습니다.
 |             |rhel-lvm75| LVM    | Linux 에이전트 | 업데이트 원본에 연결 되지 않은 RHEL 7.5 BYOS 이미지는 RHEL premium을 청구 하지 않습니다.
 |             |rhel-lvm76| LVM    | Linux 에이전트 | 업데이트 원본에 연결 되지 않은 RHEL 7.6 BYOS 이미지는 RHEL premium을 청구 하지 않습니다.

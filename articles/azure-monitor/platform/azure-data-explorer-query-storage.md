@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: b3ab711f6d324c6d49eda0dccd88a3f2ac939eb5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8710e0cdd6c930338009fb2b7f3bd98fafcfad3e
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461586"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95411566"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Azure 데이터 탐색기 (미리 보기)를 사용 하 여 Azure Monitor에서 내보낸 데이터 쿼리
 Azure Monitor에서 Azure storage 계정으로 데이터를 내보내면 저렴 한 보존 및 여러 지역에 로그를 다시 할당할 수 있습니다. Azure 데이터 탐색기를 사용 하 여 Log Analytics 작업 영역에서 내보낸 데이터를 쿼리할 수 있습니다. 구성 된 후에는 작업 영역에서 Azure storage 계정으로 전송 된 지원 테이블을 Azure 데이터 탐색기의 데이터 원본으로 사용할 수 있습니다.
@@ -43,7 +43,7 @@ Azure Monitor에서 Azure storage 계정으로 데이터를 내보내면 저렴 
 
 참조를 만들려면 내보낸 테이블의 스키마가 필요 합니다. Log Analytics에서 [getschema](/azure/data-explorer/kusto/query/getschemaoperator) 연산자를 사용 하 여 테이블의 열과 해당 데이터 형식을 포함 하는이 정보를 검색 합니다.
 
-:::image type="content" source="media\azure-data-explorer-query-storage\exported-data-map-schema.jpg" alt-text="Azure 데이터 탐색기 내보낸 데이터 쿼리 흐름입니다.":::
+:::image type="content" source="media\azure-data-explorer-query-storage\exported-data-map-schema.jpg" alt-text="테이블 스키마를 Log Analytics 합니다.":::
 
 이제 출력을 사용 하 여 외부 테이블을 빌드하기 위한 Kusto 쿼리를 만들 수 있습니다.
 [Azure Storage 또는 Azure Data Lake에서 외부 테이블 만들기 및 변경](/azure/data-explorer/kusto/management/external-tables-azurestorage-azuredatalake)의 지침에 따라 JSON 형식으로 외부 테이블을 만든 다음 Azure 데이터 탐색기 데이터베이스에서 쿼리를 실행 합니다.
@@ -56,12 +56,12 @@ Azure Monitor에서 Azure storage 계정으로 데이터를 내보내면 저렴 
 ```powershell
 PARAM(
     $resourcegroupname, #The name of the Azure resource group
-    $TableName, # The log lanlyics table you wish to convert to external table
+    $TableName, # The Log Analytics table you wish to convert to external table
     $MapName, # The name of the map
     $subscriptionId, #The ID of the subscription
-    $WorkspaceId, # The log lanlyics WorkspaceId
-    $WorkspaceName, # The log lanlyics workspace name
-    $BlobURL, # The Blob URL where to save
+    $WorkspaceId, # The Log Analytics WorkspaceId
+    $WorkspaceName, # The Log Analytics workspace name
+    $BlobURL, # The Blob URL where the data is saved
     $ContainerAccessKey, # The blob container Access Key (Option to add a SAS url)
     $ExternalTableName = $null # The External Table name, null to use the same name
 )
@@ -116,12 +116,13 @@ Write-Host -ForegroundColor Green $createMapping
 
 다음 그림은 출력의 예를 보여 줍니다.
 
-:::image type="content" source="media/azure-data-explorer-query-storage/external-table-create-command-output.png" alt-text="Azure 데이터 탐색기 내보낸 데이터 쿼리 흐름입니다.":::
+:::image type="content" source="media/azure-data-explorer-query-storage/external-table-create-command-output.png" alt-text="ExternalTable 명령 출력을 만듭니다.":::
 
 [![예제 출력](media/azure-data-explorer-query-storage/external-table-create-command-output.png)](media/azure-data-explorer-query-storage/external-table-create-command-output.png#lightbox)
 
 >[!TIP]
->Azure 데이터 탐색기 클라이언트 도구에서 스크립트의 출력을 복사 하 여 붙여넣고 실행 하 여 테이블과 매핑을 만듭니다.
+>* Azure 데이터 탐색기 클라이언트 도구에서 스크립트의 출력을 복사 하 여 붙여넣고 실행 하 여 테이블과 매핑을 만듭니다.
+>* 컨테이너 내의 모든 데이터를 사용 하려면 스크립트를 변경 하 고 URL을 '; '로 변경할 수 있습니다 https://your.blob.core.windows.net/containername . SecKey '
 
 ## <a name="query-the-exported-data-from-azure-data-explorer"></a>Azure 데이터 탐색기에서 내보낸 데이터 쿼리 
 
