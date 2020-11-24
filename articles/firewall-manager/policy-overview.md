@@ -5,31 +5,20 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 11/24/2020
 ms.author: victorh
-ms.openlocfilehash: 650cf1e9b0e9fbbadc5a783cad844898698bf017
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 73a07af0fa98adf66d6104f1ab545d31a0cfd6d7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509742"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95802022"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Azure Firewall Manager 정책 개요
 
 방화벽 정책은 NAT, 네트워크 및 애플리케이션 규칙 컬렉션과 위협 인텔리전스 설정을 포함하는 Azure 리소스입니다. 보안 가상 허브 및 Hub Virtual Networks의 여러 Azure Firewall 인스턴스에서 사용할 수 있는 글로벌 리소스입니다. 정책은 여러 지역 및 구독에서 작동합니다.
 
 ![Azure Firewall Manager 정책](media/policy-overview/policy-overview.png)
-
-## <a name="availability"></a>가용성
-
-방화벽 정책은 항상 사용 가능하고 자동으로 복제되는 리소스입니다. 드물게 지역적 재해가 발생할 경우 방화벽 정책 작업은 Azure 쌍을 이루는 지역으로 장애 조치(failover)됩니다. 동기 및 비동기 작업을 위해 Azure 주 지역으로 복구 작업을 사후 장애 조치(failover)합니다. 
-
-쌍을 이루는 지역은 다음을 비롯한 여러 가지 이점을 제공합니다.
-- 최소 300마일로 분리된 물리적 격리
-- 재해 복구 속도 향상
-- 지역에서 요구하는 데이터 상주 요건 충족
-
-쌍을 이루는 지역에 대한 자세한 내용은 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
 
 ## <a name="policy-creation-and-association"></a>정책 만들기 및 연결
 

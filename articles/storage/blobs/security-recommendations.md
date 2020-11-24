@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: becaadda37cdc7cf25fb3881dda0961e8640ad12
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 64799013d8d71e63300a8b48e5ca5b0d4d02c634
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95538362"
+ms.locfileid: "95808023"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Blob Storage에 대한 보안 권장 사항
 
@@ -73,5 +73,5 @@ Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 설명서](//azure/security/)
+- [Azure 보안 설명서](../../security/index.yml)
 - [보안 개발 설명서](../../security/develop/index.yml)입니다.

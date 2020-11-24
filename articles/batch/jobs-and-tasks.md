@@ -2,46 +2,48 @@
 title: Azure Batch의 작업 및 태스크
 description: 작업 및 태스크에 대해 살펴보고 개발 관점에서 Azure Batch 워크플로에서 이들을 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 5120b76f34e81c2ceeba88767a656b5ee0d40c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/23/2020
+ms.openlocfilehash: e1ca721ec7527d9d042c129c22cf0266e57c32e9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85955372"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808585"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Azure Batch의 작업 및 태스크
 
-Azure Batch에서 *태스크*는 계산 단위를 나타냅니다. *작업*은 이러한 태스크의 컬렉션입니다. 작업 및 태스크에 대한 자세한 내용과 Azure Batch 워크플로에서 이들을 사용하는 방법은 아래에 설명되어 있습니다.
+Azure Batch에서 *태스크* 는 계산 단위를 나타냅니다. *작업* 은 이러한 태스크의 컬렉션입니다. 작업 및 태스크에 대한 자세한 내용과 Azure Batch 워크플로에서 이들을 사용하는 방법은 아래에 설명되어 있습니다.
 
 ## <a name="jobs"></a>작업
 
 작업은 태스크의 컬렉션입니다. 풀의 컴퓨팅 노드에서 해당 태스크에 의해 수행된 컴퓨팅 방식을 관리합니다.
 
-작업은 작업이 실행되는 [풀](nodes-and-pools.md#pools)을 지정합니다. 각 작업에 새 풀을 만들거나 많은 작업에 하나의 풀을 사용할 수 있습니다. 작업 일정과 연결된 각 작업 또는 작업 일정과 연결된 모든 작업에 풀을 만들 수 있습니다.
+작업은 작업이 실행되는 [풀](nodes-and-pools.md#pools)을 지정합니다. 각 작업에 새 풀을 만들거나 많은 작업에 하나의 풀을 사용할 수 있습니다. 작업 [일정과](#scheduled-jobs)연결 된 각 작업에 대 한 풀 또는 작업 일정과 연결 된 모든 작업에 대해 하나의 풀을 만들 수 있습니다.
 
 ### <a name="job-priority"></a>작업 우선 순위
 
-사용자가 만드는 작업에 선택적 작업 우선 순위를 할당할 수 있습니다. Batch 서비스는 작업의 우선 순위 값을 사용하여 계정 내의 작업 예약 순서를 결정합니다( [예약된 작업](#scheduled-jobs)과 혼동하지 않아야 합니다). 우선 순위 값의 범위는 -1000에서 1000까지이며 -1000이 가장 낮은 우선 순위를, 1000이 가장 높은 우선 순위를 나타냅니다. 작업의 우선 순위를 업데이트하려면, [작업 속성 업데이트](/rest/api/batchservice/job/update) 작업(Batch REST)을 사용하거나 [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) 속성(Batch .NET)을 수정합니다.
+사용자가 만드는 작업에 선택적 작업 우선 순위를 할당할 수 있습니다. Batch 서비스는 작업의 우선 순위 값을 사용 하 여 각 풀에서 작업 내의 모든 태스크에 대 한 일정 예약 순서를 결정 합니다.
 
-동일한 계정 내에서 우선 순위가 높은 작업은 우선 순위가 낮은 작업보다 먼저 예약됩니다. 하나의 계정에서 우선 순위가 더 높은 작업이 다른 계정에서 우선 순위가 더 낮은 다른 작업보다 먼저 예약되는 것은 아닙니다. 이미 실행 중인 우선 순위가 낮은 작업의 태스크는 선취되지 않습니다.
+작업의 우선 순위를 업데이트 하려면 [작업 속성 업데이트](/rest/api/batchservice/job/update) 작업 (batch REST)을 호출 하거나 [Cloudjob. priority](/dotnet/api/microsoft.azure.batch.cloudjob) (batch .net)를 수정 합니다. 우선 순위 값의 범위는-1000 (최저 우선 순위)에서 1000 (가장 높은 우선 순위) 까지입니다.
 
-풀 간의 예약 작업은 서로 별개입니다. 다양한 풀 사이에서, 연결된 풀에 유휴 노드가 부족한 경우 우선 순위가 높은 작업이 먼저 예약된다고 보장할 수 없습니다. 동일한 풀에서는 우선 순위가 같은 작업이 예약될 기회가 동일합니다.
+동일한 풀 내에서 우선 순위가 높은 작업은 우선 순위가 낮은 작업 보다 우선 순위가 높습니다. 이미 실행 중인 우선 순위가 낮은 작업의 태스크는 우선 순위가 높은 작업에서 작업에 의해 선점 되지 않습니다. 우선 순위 수준이 동일한 작업은 예약 될 가능성이 같으며 작업 실행 순서는 정의 되지 않습니다.
+
+우선 순위가 높은 값이 한 풀에서 실행 되는 작업은 별도의 풀 또는 다른 배치 계정에서 실행 되는 작업의 예약에 영향을 주지 않습니다. 작업 우선 순위는 작업이 제출 될 때 생성 되는 [autopools](nodes-and-pools.md#autopools)에 적용 되지 않습니다.
 
 ### <a name="job-constraints"></a>작업 제약 조건
 
 작업 제약 조건을 사용하여 작업에 특정 제한을 지정할 수 있습니다.
 
-- **최대 벽시계 시간**을 설정할 수 있습니다. 그래서 지정된 최대 벽시계 시간보다 오랫동안 작업이 실행되면 작업 및 연결된 모든 태스크가 종료됩니다.
-- 태스크가 항상 다시 시도되거나 다시 시도되지 않도록 지정하는 것을 포함하여 **태스크 다시 시도 최대 횟수**를 제약 조건으로 지정할 수 있습니다. 태스크를 다시 시도하면 태스크가 실패하는 경우 다시 실행되도록 다시 큐에 대기됩니다.
+- **최대 벽시계 시간** 을 설정할 수 있습니다. 그래서 지정된 최대 벽시계 시간보다 오랫동안 작업이 실행되면 작업 및 연결된 모든 태스크가 종료됩니다.
+- 태스크가 항상 다시 시도되거나 다시 시도되지 않도록 지정하는 것을 포함하여 **태스크 다시 시도 최대 횟수** 를 제약 조건으로 지정할 수 있습니다. 태스크를 다시 시도하면 태스크가 실패하는 경우 다시 실행되도록 다시 큐에 대기됩니다.
 
 ### <a name="job-manager-tasks-and-automatic-termination"></a>작업 관리자 태스크 및 자동 종료
 
 클라이언트 애플리케이션이 작업에 태스크를 추가할 수 있습니다. 또는 [작업 관리자 태스크](#job-manager-task)를 지정할 수 있습니다. 작업 관리자 태스크는 풀의 컴퓨팅 노드 중 하나에서 작업 관리자 태스크를 실행하여 작업에 필요한 태스크를 만드는 데 필요한 정보를 포함합니다. 작업 관리자 태스크는 Batch에서 특별히 처리되며, 작업이 생성되는 즉시 큐에 대기되고 실패할 경우 다시 시작됩니다. 작업 관리자 태스크는 작업이 인스턴스화되기 전에 태스크를 정의할 수 있는 유일한 방법이기 때문에 [작업 일정](#scheduled-jobs)에서 만든 작업에 필요합니다.
 
-작업 내의 모든 태스크가 완료되면 작업은 기본적으로 활성 상태로 유지됩니다. 작업에서 모든 태스크가 완료되면 작업이 자동으로 종료되도록 이 동작을 변경할 수 있습니다. 작업의 **onAllTasksComplete** 속성(Batch .NET의 [OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob))을 *terminatejob*으로 설정하여 태스크가 모두 완료 상태인 경우 작업을 자동으로 종료합니다.
+작업 내의 모든 태스크가 완료되면 작업은 기본적으로 활성 상태로 유지됩니다. 작업에서 모든 태스크가 완료되면 작업이 자동으로 종료되도록 이 동작을 변경할 수 있습니다. 작업의 **onAllTasksComplete** 속성 (Batch .Net의 [onAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) )을 * '로 설정 `terminatejob` 하 여 모든 태스크가 완료 된 상태에 있을 때 작업을 자동으로 종료 합니다.
 
-Batch 서비스는 태스크가 *없는* 작업을 모든 태스크를 완료한 것으로 간주합니다. 따라서 이 옵션은 [작업 관리자 태스크](#job-manager-task)와 함께 가장 일반적으로 사용됩니다. 작업 관리자 없이 작업 자동 종료를 사용하려는 경우 처음부터 새 작업의 **onAllTasksComplete** 속성을 *noaction*으로 설정한 다음 작업에 태스크의 추가를 완료한 후에 *terminatejob*으로 설정해야 합니다.
+Batch 서비스는 태스크가 *없는* 작업을 모든 태스크를 완료한 것으로 간주합니다. 따라서 이 옵션은 [작업 관리자 태스크](#job-manager-task)와 함께 가장 일반적으로 사용됩니다. 작업 관리자 없이 자동 작업 종료를 사용 하려면 초기에 새 작업의 **onAllTasksComplete** 속성을 설정 하 `noaction` 고 작업에 작업을 추가 하는 작업을 `terminatejob` 완료 한 후에만 * '로 설정 해야 합니다.
 
 ### <a name="scheduled-jobs"></a>Scheduled jobs
 
@@ -145,9 +147,9 @@ Batch .NET 라이브러리를 사용하여 일괄 처리에서 MPI 작업 실행
 
 태스크 종속성을 통해 다음과 같은 시나리오를 구성할 수 있습니다.
 
-- *taskB*가 *taskA*에 종속됨(*taskB*는 *taskA*가 완료될 때까지 실행을 시작하지 않음)
-- *taskC*는 *taskA* 및 *taskB*에 종속됨
-- *taskD*는 실행하기 전에 태스크 범위(예: 태스크 *1*~*10*)에 종속됨
+- *taskB* 가 *taskA* 에 종속됨(*taskB* 는 *taskA* 가 완료될 때까지 실행을 시작하지 않음)
+- *taskC* 는 *taskA* 및 *taskB* 에 종속됨
+- *taskD* 는 실행하기 전에 태스크 범위(예: 태스크 *1*~*10*)에 종속됨
 
 자세한 내용은 [azure-batch-samples](https://github.com/Azure-Samples/azure-batch-samples) GitHub 리포지토리에서 [Azure Batch에서 태스크 종속성](batch-task-dependencies.md) 및 [TaskDependencies](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies) 코드 샘플을 참조하세요.
 

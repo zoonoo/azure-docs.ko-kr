@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 3ffa781e046a89b2e363d6edc9b9bf99116aac07
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 2391a4056d5c0c952677b57e7d37a181ef0eacc0
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94991981"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808838"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -113,6 +113,9 @@ SUSE Linux Enterprise Server 11 | SP3<br/><br/> 복제 컴퓨터를 SP3에서 SP
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, [7.3, 7.4](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) [, 7.5](https://support.microsoft.com/help/4573888/) [, 7.6](https://support.microsoft.com/help/4573888/), 7.7, 7.8, [8.0, 8.1](https://support.microsoft.com/help/4573888/)  <br/> Red Hat 호환 커널 또는 UEK(Unbreakable Enterprise Kernel Release) 3, 4 및 5를 실행<br/><br/>8.1<br/>모든 UEK 커널 및 RedHat 커널 <= 3.10.0-1062. *에서의 실행은 [9.36](https://support.microsoft.com/help/4578241/) [9.35](https://support.microsoft.com/help/4573888/) 에서 지원 됩니다.
 
+> [!NOTE]
+> Linux 버전의 경우 Azure Site Recovery에서 사용자 지정 된 OS 이미지를 지원 하지 않는지 확인 하세요. 배포 부 버전 릴리스/업데이트에 포함 된 스톡 커널만 지원 됩니다.
+
 * * 참고: 릴리스 15 일 이내에 최신 Linux 커널을 지원 하기 위해 Azure Site Recovery 최신 모바일 에이전트 버전을 기반으로 하는 핫 픽스 패치를 롤업 합니다. 이 픽스는 두 주 버전 릴리스 사이에서 롤아웃 됩니다. 최신 버전의 모바일 에이전트 (핫 픽스 패치 포함)로 업데이트 하려면 [이 문서](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure)에 설명 된 단계를 따르세요. 이 패치는 현재 Azure에서 Azure로 DR 시나리오에 사용 되는 모바일 에이전트에 대해 출시 되었습니다.
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Azure virtual Machines에 대해 지원되는 Ubuntu 커널 버전
@@ -172,7 +175,7 @@ SUSE Linux Enterprise Server 15 및 15 SP1 | [9.34](https://support.microsoft.co
 * 볼륨 관리자: LVM2
 
 > [!NOTE]
-> 다중 경로 소프트웨어는 지원 되지 않습니다. 
+> 다중 경로 소프트웨어는 지원 되지 않습니다.
 
 
 ## <a name="replicated-machines---compute-settings"></a>복제된 머신 - 컴퓨팅 설정

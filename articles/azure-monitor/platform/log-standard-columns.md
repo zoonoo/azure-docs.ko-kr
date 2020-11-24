@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: dc3d119479d2dce45b286463f3d6a76410220dd0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2370f76bacb8645f1b343da4f056c8bcf06a26dd
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014223"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95796731"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Azure Monitor 로그의 표준 열
 Azure Monitor 로그의 데이터는 [Log Analytics 작업 영역 또는 Application Insights 응용 프로그램에](./data-platform-logs.md)각각 고유한 열 집합이 있는 특정 데이터 형식의 레코드 집합으로 저장 됩니다. 많은 데이터 형식에는 여러 형식에서 공통 되는 표준 열이 있습니다. 이 문서에서는 이러한 열에 대해 설명 하 고 쿼리에서 이러한 열을 사용 하는 방법에 대 한 예제를 제공 합니다.
@@ -80,7 +80,7 @@ search *
 ## <a name="_resourceid"></a>\_ResourceId
 **\_ ResourceId** 열에는 레코드가 연결 된 리소스에 대 한 고유 식별자가 포함 됩니다. 이를 통해 특정 리소스의 레코드만 쿼리 범위를 표시 하거나 관련 데이터를 여러 테이블에 조인 하는 데 사용할 표준 열을 제공 합니다.
 
-Azure 리소스의 경우 **_ResourceId** 값은 [Azure 리소스 ID URL](../../azure-resource-manager/templates/template-functions-resource.md)입니다. 열은 현재 Azure 리소스로 제한 되지만 Azure 외부의 리소스 (예: 온-프레미스 컴퓨터)로 확장 됩니다.
+Azure 리소스의 경우 **_ResourceId** 값은 [Azure 리소스 ID URL](../../azure-resource-manager/templates/template-functions-resource.md)입니다. 열은 [Azure Arc](../../azure-arc/overview.md) 리소스를 비롯 한 azure 리소스 또는 수집 중에 리소스 ID를 표시 하는 사용자 지정 로그로 제한 됩니다.
 
 > [!NOTE]
 > 일부 데이터 형식은 Azure 리소스 ID 또는 적어도 그 일부(예: 구독 ID)를 포함하는 필드를 이미 갖고 있습니다. 이러한 필드는 이전 버전과의 호환성을 위해 유지되지만, 보다 일관적인 _ResourceId를 사용하여 교차 상관 관계를 수행하는 것이 좋습니다.
@@ -111,17 +111,47 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-다음 쿼리는 **_ResourceId** 를 구문 분석 하 고 Azure 구독 당 청구 된 데이터 볼륨을 집계 합니다.
+다음 쿼리는 **_ResourceId** 를 구문 분석 하 고 Azure 리소스 그룹당 청구 된 데이터 볼륨을 집계 합니다.
 
 ```Kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by resourceGroup | sort by Bytes nulls last 
 ```
 
 여러 데이터 형식을 검색할 경우 비용이 많이 들기 때문에 이러한 `union withsource = tt *` 쿼리는 자주 사용하지 않도록 합니다.
+
+ResourceId 열을 \_ 구문 분석 하 여이를 추출 하는 것 보다는 항상 더 효율적입니다 \_ .
+
+## <a name="_substriptionid"></a>\_SubstriptionId
+**\_ SubscriptionId** 열에는 해당 레코드가 연결 된 리소스의 구독 ID가 포함 됩니다. 이렇게 하면 특정 구독의 레코드만 쿼리 범위를 표시 하거나 다른 구독을 비교 하는 데 사용할 표준 열이 제공 됩니다.
+
+Azure 리소스의 경우 **__SubscriptionId** 값은 [AZURE 리소스 ID URL](../../azure-resource-manager/templates/template-functions-resource.md)의 구독 부분입니다. 열은 [Azure Arc](../../azure-arc/overview.md) 리소스를 비롯 한 azure 리소스 또는 수집 중에 리소스 ID를 표시 하는 사용자 지정 로그로 제한 됩니다.
+
+> [!NOTE]
+> 일부 데이터 형식에는 이미 Azure 구독 ID를 포함 하는 필드가 있습니다. 이러한 필드는 이전 버전과의 호환성을 위해 유지 되지만 SubscriptionId 열을 사용 하 여 상호 관련 상관 관계를 수행 하는 것이 좋습니다 \_ .
+### <a name="examples"></a>예제
+다음 쿼리는 특정 구독의 컴퓨터에 대 한 성능 데이터를 검사 합니다. 
+
+```Kusto
+Perf 
+| where TimeGenerated > ago(24h) and CounterName == "memoryAllocatableBytes"
+| where _SubscriptionId == "57366bcb3-7fde-4caf-8629-41dc15e3b352"
+| summarize avgMemoryAllocatableBytes = avg(CounterValue) by Computer
+```
+
+다음 쿼리는 **_ResourceId** 를 구문 분석 하 고 Azure 구독 당 청구 된 데이터 볼륨을 집계 합니다.
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _SubscriptionId | sort by Bytes nulls last 
+```
+
+여러 데이터 형식을 검색할 경우 비용이 많이 들기 때문에 이러한 `union withsource = tt *` 쿼리는 자주 사용하지 않도록 합니다.
+
 
 ## <a name="_isbillable"></a>\_IsBillable
 **\_ Isbillable** 가능 열은 수집 데이터에 대 한 청구 가능 여부를 지정 합니다. **\_ Isbillable** 가능이 포함 된 데이터 `false` 는 무료로 수집 되며 Azure 계정에 청구 되지 않습니다.
@@ -168,8 +198,7 @@ union withsource = tt *
 ```Kusto
 union withsource=table * 
 | where _IsBillable == true 
-| parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId | sort by Bytes nulls last 
 ```
 
 리소스 그룹당 수집 청구 가능 이벤트의 크기를 확인 하려면 다음 쿼리를 사용 합니다.
@@ -178,7 +207,7 @@ union withsource=table *
 union withsource=table * 
 | where _IsBillable == true 
 | parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
 
 ```
 

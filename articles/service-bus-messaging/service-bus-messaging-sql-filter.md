@@ -1,22 +1,23 @@
 ---
-title: Azure Service Bus SQLFilter 구문 참조 | Microsoft Docs
-description: 이 문서에서는 SQLFilter 문법에 대 한 세부 정보를 제공 합니다. SqlFilter는 SQL-92 표준의 하위 집합을 지원합니다.
+title: Azure Service Bus Subscription Rule SQL 필터 구문 | Microsoft Docs
+description: 이 문서에서는 SQL 필터 문법에 대 한 세부 정보를 제공 합니다. SQL 필터는 SQL-92 표준의 하위 집합을 지원 합니다.
 ms.topic: article
-ms.date: 11/17/2020
-ms.openlocfilehash: 7f3c744b691e678ef18c8fa721ccfaecaee9c1e2
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.date: 11/24/2020
+ms.openlocfilehash: bd263e8177652165376d4f6fe9e231af71ebdcbe
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888473"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95805625"
 ---
-# <a name="sqlfilter-syntax"></a>SQLFilter 구문
+# <a name="subscription-rule-sql-filter-syntax"></a>Subscription Rule SQL 필터 구문
 
-*Sqlfilter* 개체는 [sqlfilter 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)의 인스턴스이며에 대해 평가 되는 SQL 언어 기반 필터 식을 나타냅니다 [`BrokeredMessage`](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . SqlFilter는 SQL-92 표준의 하위 집합을 지원합니다.  
+*SQL 필터* 는 Service Bus 토픽 구독의 사용 가능한 필터 유형 중 하나입니다. SQL-92 표준의 하위 집합을 기울어집니다 하는 텍스트 식입니다. 필터 식은 `sqlExpression` Azure Resource Manager 템플릿에서 Service Bus의 ' sqlFilter ' 속성 요소 `Rule` , Azure CLI [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md) `az servicebus topic subscription rule create` 명령 [`--filter-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) 인수 및 구독 규칙 관리를 허용 하는 여러 SDK 함수에 사용 됩니다.
+
+Service Bus Premium은 JMS 2.0 API를 통해 [JMS SQL 메시지 선택기 구문도](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) 지원 합니다.
+
   
- 이 항목에서는 SqlFilter 문법에 대한 세부 정보를 나열합니다.  
-  
-```  
+``` 
 <predicate ::=  
       { NOT <predicate> }  
       | <predicate> AND <predicate>  
@@ -269,7 +270,7 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
 -   `+`, `-`, `*`, `/`, `%`와 같은 산술 연산자는 데이터 형식 승격 및 암시적 변환에서 C# 연산자 바인딩과 동일한 의미 체계를 따릅니다.
 
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="set-rule-action-for-a-sql-filter"></a>SQL 필터에 대 한 규칙 동작 설정
 
@@ -324,4 +325,7 @@ C # 샘플은 [GitHub의 토픽 필터 샘플](https://github.com/Azure/azure-se
 
 - [SQLFilter 클래스(.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [SQLFilter 클래스(.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
-- [SQLRuleAction 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SqlFilter 클래스 (Java)](/java/api/com.microsoft.azure.servicebus.rules.SqlFilter)
+- [SqlRuleFilter (JavaScript)](/javascript/api/@azure/service-bus/sqlrulefilter)
+- [az servicebus 토픽 구독 규칙](/cli/azure/servicebus/topic/subscription/rule)
+- [AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

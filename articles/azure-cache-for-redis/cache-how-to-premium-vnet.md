@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: f7b4a22c0473acb7da0708f095c25b4f3f78fe66
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5fd82105c94bb9be2d07c8843834465821acd8bc
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445594"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95803785"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. VNet은 클라우드의 프라이빗 네트워크입니다. Azure Cache for Redis 인스턴스가 VNet으로 구성되면 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 머신과 애플리케이션에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에 대한 가상 네트워크 지원을 구성하는 방법에 대해 설명합니다.
@@ -128,9 +128,9 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 
 아웃 바운드 포트 요구 사항은 9 가지가 있습니다. 이러한 범위의 아웃 바운드 요청은 캐시가 작동 하는 데 필요한 다른 서비스 또는 노드 간 통신용 Redis 서브넷 내부에 대 한 아웃 바운드입니다. 지리적 복제의 경우 기본 및 복제본 캐시의 서브넷 간 통신을 위한 추가 아웃 바운드 요구 사항이 있습니다.
 
-| 포트 | 방향 | 전송 프로토콜 | 용도 | 로컬 IP | 원격 IP |
+| 포트 | 방향 | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
-| 80, 443 |아웃바운드 |TCP |Azure Storage/PKI(인터넷)에 대한 Redis 종속성 | (Redis 서브넷) |* |
+| 80, 443 |아웃바운드 |TCP |Azure Storage/PKI(인터넷)에 대한 Redis 종속성 | (Redis 서브넷) |* <sup>3-4</sup> |
 | 443 | 아웃바운드 | TCP | Azure Key Vault 및 Azure Monitor에 대 한 Redis 종속성 | (Redis 서브넷) | AzureKeyVault, AzureMonitor <sup>1</sup> |
 | 53 |아웃바운드 |TCP/UDP |DNS(인터넷/VNet)에 대한 Redis 종속성 | (Redis 서브넷) | 168.63.129.16 및 169.254.169.254 <sup>2</sup> 및 서브넷 <sup>3</sup> 에 대 한 모든 사용자 지정 DNS 서버 |
 | 8443 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) | (Redis 서브넷) |
@@ -146,6 +146,8 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 
 <sup>3</sup> 사용자 지정 dns 서버가 없는 서브넷 또는 사용자 지정 dns를 무시 하는 최신 redis 캐시가 필요 하지 않습니다.
 
+<sup>4</sup> 자세한 내용은 [추가 VNET 네트워크 연결 요구 사항](#additional-vnet-network-connectivity-requirements)을 참조 하세요.
+
 #### <a name="geo-replication-peer-port-requirements"></a>지역 복제 피어 포트 요구 사항
 
 Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경우, 두 캐시 모두에 대해 인바운드 및 아웃 바운드 방향의 전체 서브넷에 대 한 포트 15000-15999의 차단을 해제 하는 것이 좋습니다. 따라서 서브넷의 모든 복제본 구성 요소는 이후 지리적 장애 조치 (failover) 시에도 직접 통신할 수 있습니다.
@@ -154,15 +156,15 @@ Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경�
 
 8개의 인바운드 포트 범위 요구 사항이 있습니다. 이러한 범위의 인바운드 요청은 동일한 VNET에서 호스트되는 다른 서비스로부터 인바운드로 진행되거나 Redis 서브넷 통신 내부로 진행됩니다.
 
-| 포트 | 방향 | 전송 프로토콜 | 용도 | 로컬 IP | 원격 IP |
+| 포트 | 방향 | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |인바운드 |TCP |Redis에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) | (Redis 서브넷), Virtual Network, Azure Load Balancer <sup>1</sup> |
+| 6379, 6380 |인바운드 |TCP |Redis에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) | (Redis 서브넷), (클라이언트 서브넷), AzureLoadBalancer <sup>1</sup> |
 | 8443 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
-| 8500 |인바운드 |TCP/UDP |Azure 부하 분산 | (Redis 서브넷) |Azure Load Balancer |
-| 10221-10231 |인바운드 |TCP |Redis 클러스터에 대 한 클라이언트 통신, Redis에 대 한 내부 통신 | (Redis 서브넷) |(Redis 서브넷), Azure Load Balancer, (클라이언트 서브넷) |
-| 13000-13999 |인바운드 |TCP |Redis 클러스터에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) |Virtual Network, Azure Load Balancer |
-| 15000-15999 |인바운드 |TCP |Redis 클러스터에 대 한 클라이언트 통신, Azure 부하 분산 및 Geo-Replication | (Redis 서브넷) |Virtual Network, Azure Load Balancer, (지역 복제본 피어 서브넷) |
-| 16001 |인바운드 |TCP/UDP |Azure 부하 분산 | (Redis 서브넷) |Azure Load Balancer |
+| 8500 |인바운드 |TCP/UDP |Azure 부하 분산 | (Redis 서브넷) | AzureLoadBalancer |
+| 10221-10231 |인바운드 |TCP |Redis 클러스터에 대 한 클라이언트 통신, Redis에 대 한 내부 통신 | (Redis 서브넷) |(Redis 서브넷), AzureLoadBalancer, (클라이언트 서브넷) |
+| 13000-13999 |인바운드 |TCP |Redis 클러스터에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) | (Redis 서브넷), (클라이언트 서브넷), AzureLoadBalancer |
+| 15000-15999 |인바운드 |TCP |Redis 클러스터에 대 한 클라이언트 통신, Azure 부하 분산 및 Geo-Replication | (Redis 서브넷) | (Redis 서브넷), (클라이언트 서브넷), AzureLoadBalancer, (지리적 복제본 피어 서브넷) |
+| 16001 |인바운드 |TCP/UDP |Azure 부하 분산 | (Redis 서브넷) | AzureLoadBalancer |
 | 20226 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 
 <sup>1</sup> nsg 규칙을 작성 하는 데 서비스 태그 ' azureloadbalancer ' (리소스 관리자) (또는 클래식의 경우 ' AZURE_LOADBALANCER ')를 사용할 수 있습니다.
@@ -171,10 +173,10 @@ Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경�
 
 가상 네트워크에서 처음에는 충족되지 않을 수 있는 Azure Cache for Redis에 대한 네트워크 연결 요구 사항이 있습니다. Azure Cache for Redis는 가상 네트워크 내에서 사용할 때 다음 항목이 모두 제대로 작동하도록 요구합니다.
 
-* 전세계 Azure Storage 엔드포인트에 아웃바운드 네트워크 연결. 여기에는 Azure Cache for Redis 인스턴스와 동일한 지역에 있는 엔드포인트 뿐만 아니라 **다른** Azure 지역에 있는 스토리지 엔드포인트도 포함됩니다. Azure Storage 끝점은 다음 DNS 도메인에서 확인 됩니다. *table.core.windows.net* , *blob.core.windows.net* , *queue.core.windows.net* 및 *file.core.windows.net* 
-* *Ocsp.digicert.com* , *crl4.digicert.com* , *ocsp.msocsp.com* , *mscrl.microsoft.com* , *crl3.digicert.com* , *cacerts.digicert.com* , *oneocsp.microsoft.com* 및 *crl.microsoft.com* 에 대 한 아웃 바운드 네트워크 연결입니다. TLS/SSL 기능을 지원 하려면이 연결이 필요 합니다.
+* 전세계 Azure Storage 엔드포인트에 아웃바운드 네트워크 연결. 여기에는 Azure Cache for Redis 인스턴스와 동일한 지역에 있는 엔드포인트 뿐만 아니라 **다른** Azure 지역에 있는 스토리지 엔드포인트도 포함됩니다. Azure Storage 끝점은 다음 DNS 도메인에서 확인 됩니다. *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* 및 *file.core.windows.net* 
+* *Ocsp.digicert.com*, *crl4.digicert.com*, *ocsp.msocsp.com*, *mscrl.microsoft.com*, *crl3.digicert.com*, *cacerts.digicert.com*, *oneocsp.microsoft.com* 및 *crl.microsoft.com* 에 대 한 아웃 바운드 네트워크 연결입니다. TLS/SSL 기능을 지원 하려면이 연결이 필요 합니다.
 * 가상 네트워크에 대한 DNS 구성은 이전 시점에 언급된 엔드포인트 및 도메인을 모두 해결할 수 있어야 합니다. 유효한 DNS 인프라를 구성하고 가상 네트워크에 유지 관리하여 DNS 요구를 충족할 수 있습니다.
-* 다음 Azure Monitor 끝점에 대 한 아웃 바운드 네트워크 연결: *shoebox2-black.shoebox2.metrics.nsatc.net* , *north-prod2.prod2.metrics.nsatc.net* , *azglobal-black.azglobal.metrics.nsatc.net* , *shoebox2-red.shoebox2.metrics.nsatc.net* , *east-prod2.prod2.metrics.nsatc.net* , *azglobal-red.azglobal.metrics.nsatc.net* DNS 도메인에서 확인 됩니다.
+* 다음 Azure Monitor 끝점에 대 한 아웃 바운드 네트워크 연결: *shoebox2-black.shoebox2.metrics.nsatc.net*, *north-prod2.prod2.metrics.nsatc.net*, *azglobal-black.azglobal.metrics.nsatc.net*, *shoebox2-red.shoebox2.metrics.nsatc.net*, *east-prod2.prod2.metrics.nsatc.net*, *azglobal-red.azglobal.metrics.nsatc.net* DNS 도메인에서 확인 됩니다.
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>캐시가 VNET에서 작동하는지 확인하려면 어떻게 해야 하나요?
 
@@ -218,19 +220,19 @@ DNS 이름을 확인할 수 없는 경우 일부 클라이언트 라이브러리
 VNet은 프리미엄 캐시에만 사용할 수 있습니다.
 
 ### <a name="why-does-creating-an-azure-cache-for-redis-fail-in-some-subnets-but-not-others"></a>일부 서브넷에서만 Azure Cache for Redis를 만드는 데 실패하는 이유는 무엇인가요?
-Azure Cache for Redis를 Resource Manager VNet에 배포하는 경우 캐시는 다른 리소스 종류가 포함되지 않은 전용 서브넷에 있어야 합니다. Azure Cache for Redis를 다른 리소스가 포함된 Resource Manager VNet 서브넷에 배포하려고 하면 배포가 실패합니다. 새 Azure Cache for Redis를 만들려면 먼저 서브넷 내의 기존 리소스를 삭제해야 합니다.
+Redis에 대 한 Azure 캐시를 VNet에 배포 하는 경우 캐시는 다른 리소스 유형을 포함 하지 않는 전용 서브넷에 있어야 합니다. 다른 리소스 (예: 응용 프로그램 게이트웨이, 아웃 바운드 NAT 등)를 포함 하는 리소스 관리자 VNet 서브넷에 Redis에 대 한 Azure 캐시를 배포 하려는 경우 일반적으로 배포가 실패 합니다. Redis 용 Azure Cache를 새로 만들려면 먼저 다른 유형의 기존 리소스를 삭제 해야 합니다.
 
-사용할 수 있는 충분한 IP 주소가 있으면, 클래식 VNet에 여러 유형의 리소스를 배포할 수 있습니다.
+또한 서브넷에 사용할 수 있는 IP 주소가 충분 해야 합니다.
 
 ### <a name="what-are-the-subnet-address-space-requirements"></a>서브넷 주소 공간 요구 사항은 무엇입니까?
 Azure는 각 서브넷 내의 일부 IP 주소를 예약하며, 이러한 주소는 사용할 수 없습니다. 서브넷의 첫 번째 및 마지막 IP 주소는 Azure 서비스에 사용되는 3개 이상의 주소와 함께 프로토콜 적합성을 위해 예약됩니다. 자세한 내용은 [이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-서브넷의 각 Redis 인스턴스는 Azure VNET 인프라에서 사용하는 IP 주소 외에도, 분할된 데이터베이스당 IP 주소 2개, 부하 분산 장치용 추가 IP 주소 1개를 사용합니다. 클러스터되지 않은 캐시는 분할된 데이터베이스 1개가 있는 것으로 간주됩니다.
+Azure VNET 인프라에 사용 되는 IP 주소 외에도, 서브넷의 각 Redis 인스턴스는 클러스터 분할 당 두 개의 IP 주소 (추가 복제본에 대 한 추가 IP 주소 (있는 경우) 및 부하 분산 장치에 대 한 추가 ip 주소를 사용 합니다. 클러스터되지 않은 캐시는 분할된 데이터베이스 1개가 있는 것으로 간주됩니다.
 
 ### <a name="do-all-cache-features-work-when-hosting-a-cache-in-a-vnet"></a>VNET에서 캐시를 호스팅하는 경우 모든 캐시 기능이 작동하나요?
 캐시가 VNET의 일부인 경우 VNET의 클라이언트만 캐시에 액세스할 수 있습니다. 결과적으로 이번에는 다음 캐시 관리 기능이 작동하지 않습니다.
 
-* Redis 콘솔 - Redis 콘솔은 VNET 외부에 있는 로컬 브라우저에서 실행되기 때문에 캐시에 연결할 수 없습니다.
+* Redis 콘솔-Redis 콘솔은 일반적으로 VNET에 연결 되지 않은 개발자 컴퓨터에 있는 로컬 브라우저에서 실행 되기 때문에 캐시에 연결할 수 없습니다.
 
 
 ## <a name="use-expressroute-with-azure-cache-for-redis"></a>Azure Cache for Redis에서 ExpressRoute 사용
@@ -239,7 +241,7 @@ Azure는 각 서브넷 내의 일부 IP 주소를 예약하며, 이러한 주소
 
 기본적으로 새로 만든 ExpressRoute 회로는 VNET에서 강제 터널링(0.0.0.0/0 기본 경로 보급 알림)을 수행하지 않습니다. 결과적으로 아웃바운드 인터넷 연결이 VNET에서 직접 허용되며, 클라이언트 애플리케이션에서 Azure Cache for Redis를 포함한 다른 Azure 엔드포인트에 연결할 수 있습니다.
 
-그러나 고객의 일반적인 구성에서는 강제 터널링(기본 경로 보급 알림)을 사용하여 아웃바운드 인터넷 트래픽을 온-프레미스로 강제로 대신 전달합니다. Azure Cache for Redis 인스턴스에서 해당 종속성과 통신할 수 없도록 온-프레미스에서 아웃바운드 트래픽이 차단되는 경우 이 트래픽 흐름은 Azure Cache for Redis와의 연결을 끊습니다.
+그러나 일반적인 고객 구성에서는 아웃 바운드 인터넷 트래픽이 온-프레미스로 전달 되도록 강제 터널링 (기본 경로 보급)을 사용 합니다. Azure Cache for Redis 인스턴스에서 해당 종속성과 통신할 수 없도록 온-프레미스에서 아웃바운드 트래픽이 차단되는 경우 이 트래픽 흐름은 Azure Cache for Redis와의 연결을 끊습니다.
 
 해결 방법은 하나 이상의 UDR(사용자 정의 경로)을 Azure Cache for Redis가 포함된 서브넷에 정의하는 것입니다. UDR이 정의한 특정 서브넷 경로는 기본 경로대신 적용됩니다.
 

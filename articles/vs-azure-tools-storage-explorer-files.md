@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 1b76413bb78baa211fee3aebe37075188ec8c69e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: f9a828b78dc5ba6bdbc77e22daa75be4182015f0
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95531953"
+ms.locfileid: "95805706"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Azure File Storage와 함께 Storage Explorer 사용
 
 Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. SMB 2.1과 SMB 3.0 모두를 지원합니다. Azure File Storage를 사용하여 파일 공유에 의존하는 레거시 애플리케이션을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. File Storage를 사용하여 세상에 공개적으로 표시하거나 애플리케이션 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage Explorer를 사용하여 파일 공유 및 파일을 작업하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완료하려면 다음과 같이 하는 것이 필요합니다.
 
 - [Storage Explorer 다운로드 및 설치](https://www.storageexplorer.com/)
 
-- [Azure storage 계정 또는 서비스에 연결](//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Azure storage 계정 또는 서비스에 연결](/azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>파일 공유 만들기
 
@@ -47,7 +47,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
     ![파일 공유 만들기](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-1. 텍스트 상자가 **파일 공유** 폴더 아래에 표시됩니다. 파일 공유에 대한 이름을 입력합니다. 파일 공유 이름 명명 규칙 및 제한 사항 목록은 [공유 이름 명명 규칙](//azure/storage/storage-dotnet-how-to-use-blobs) 섹션을 참조하세요.
+1. 텍스트 상자가 **파일 공유** 폴더 아래에 표시됩니다. 파일 공유에 대한 이름을 입력합니다. 파일 공유 이름 명명 규칙 및 제한 사항 목록은 [공유 이름 명명 규칙](/azure/storage/storage-dotnet-how-to-use-blobs) 섹션을 참조하세요.
 
     ![공유 이름 지정](media/vs-azure-tools-storage-explorer-files/image2.png)
 
@@ -77,7 +77,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 ## <a name="delete-a-file-share"></a>파일 공유 삭제
 
-필요에 따라 파일 공유를 쉽게 만들고 삭제할 수 있습니다. (개별 파일 삭제 방법에 대한 자세한 내용은 [파일 공유의 파일 관리](//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) 섹션을 참조하세요.)
+필요에 따라 파일 공유를 쉽게 만들고 삭제할 수 있습니다. (개별 파일 삭제 방법에 대한 자세한 내용은 [파일 공유의 파일 관리](/azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) 섹션을 참조하세요.)
 
 다음 단계에서는 Storage Explorer 내에서 파일 공유를 삭제하는 방법을 보여줍니다.
 
@@ -89,7 +89,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 1. 마우스 오른쪽 단추로 삭제하려는 파일 공유를 클릭하고, 상황에 맞는 메뉴에서 **삭제** 를 선택합니다. 또한 **삭제** 를 눌러 현재 선택된 파일 공유를 삭제할 수도 있습니다.
 
-    ![DELETE](media/vs-azure-tools-storage-explorer-files/image6.png)
+    ![삭제](media/vs-azure-tools-storage-explorer-files/image6.png)
 
 1. 확인 대화 상자에서 **확인** 을 선택합니다.
     
@@ -97,7 +97,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 ## <a name="copy-a-file-share"></a>파일 공유 복사
 
-Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다음, 다른 Storage 계정에 붙여넣을 수 있습니다. (개별 파일 복사 방법에 대한 자세한 내용은 [파일 공유의 파일 관리](//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) 섹션을 참조하세요.)
+Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다음, 다른 Storage 계정에 붙여넣을 수 있습니다. (개별 파일 복사 방법에 대한 자세한 내용은 [파일 공유의 파일 관리](/azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) 섹션을 참조하세요.)
 
 다음 단계에서는 한 스토리지 계정에서 다른 계정으로 파일 공유를 복사하는 방법을 보여 줍니다.
 
@@ -117,7 +117,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
 
 ## <a name="get-the-sas-for-a-file-share"></a>파일 공유에 대한 SAS 가져오기
 
-[SAS (공유 액세스 서명)](//azure/storage/storage-dotnet-shared-access-signature-part-1) 는 저장소 계정의 리소스에 대 한 위임 된 액세스를 제공 합니다. 즉, 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에게 스토리지 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다.
+[SAS (공유 액세스 서명)](/azure/storage/storage-dotnet-shared-access-signature-part-1) 는 저장소 계정의 리소스에 대 한 위임 된 액세스를 제공 합니다. 즉, 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에게 스토리지 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다.
 
 다음 단계에서는 파일 공유에 대한 SAS를 만드는 방법을 보여 줍니다.
 

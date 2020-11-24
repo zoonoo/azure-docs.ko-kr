@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 8447eae4ea7234a7f47219cc81441650121b84ae
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d6c45a5c8062c3b6441309361037f8755a552074
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676176"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95791893"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>REST 프록시를 사용하여 Azure HDInsight에서 Apache Kafka 클러스터와 상호 작용
 
@@ -97,7 +97,7 @@ REST 프록시 엔드포인트 요청의 경우 클라이언트 애플리케이�
 1. Azure AD에서 OAuth 토큰을 가져옵니다.
 1. Kafka REST 프록시로 요청을 만드는 방법을 보여줍니다.
 
-Python에서 OAuth 토큰을 가져오는 방법에 대한 자세한 내용은 [Python AuthenticationContext 클래스](/python/api/adal/adal.authentication_context.authenticationcontext)를 참조하세요. Kafka REST 프록시를 통해 생성 또는 삭제되지 않은 `topics`이 거기에서 리플렉트되고 있다면 지연 시간이 표시될 수 있습니다. 이 지연 시간은 캐시 새로 고침으로 인해 발생합니다.
+Python에서 OAuth 토큰을 가져오는 방법에 대 한 자세한 내용은 [Python AuthenticationContext 클래스](/python/api/adal/adal.authentication_context.authenticationcontext)를 참조 하세요. Kafka REST 프록시를 통해 생성 또는 삭제되지 않은 `topics`이 거기에서 리플렉트되고 있다면 지연 시간이 표시될 수 있습니다. 이 지연 시간은 캐시 새로 고침으로 인해 발생합니다. 생산자 API의 **값** 필드가 향상 되었습니다. 이제 JSON 개체와 serialize 된 모든 형식을 허용 합니다.
 
 ```python
 #Required python packages
@@ -110,16 +110,6 @@ import requests
 import string
 import sys
 import time
-
-def get_custom_value_json_object():
-
-    custom_value_json_object = {
-        "static_value": "welcome to HDI Kafka REST proxy",
-        "random_value": get_random_string(),
-    }
-
-    return custom_value_json_object
-
 
 def get_random_string():
     letters = string.ascii_letters
@@ -215,22 +205,68 @@ payload_json = {
     "records": [
         {
             "key": "key1",
-            "value": "**********"
-        },
-        {
-            "value": "5"
+            "value": "**********"         # A string                              
         },
         {
             "partition": 0,
-            "value": json.dumps(get_custom_value_json_object())  # need to be a serialized string. For example, "{\"static_value\": \"welcome to HDI Kafka REST proxy\", \"random_value\": \"pAPrgPk\"}"
+            "value": 5                    # An integer
         },
         {
-            "value": json.dumps(get_custom_value_json_object())  # need to be a serialized string. For example, "{\"static_value\": \"welcome to HDI Kafka REST proxy\", \"random_value\": \"pAPrgPk\"}"
+            "value": 3.14                 # A floating number
+        },
+        {
+            "value": {                    # A JSON object
+                "id": 1,
+                "name": "HDInsight Kafka REST proxy"
+            }
+        },
+        {
+            "value": [                    # A list of JSON objects
+                {
+                    "id": 1,
+                    "name": "HDInsight Kafka REST proxy 1"
+                },
+                {
+                    "id": 2,
+                    "name": "HDInsight Kafka REST proxy 2"
+                },
+                {
+                    "id": 3,
+                    "name": "HDInsight Kafka REST proxy 3"
+                }
+            ]
+        },
+        {
+            "value": {                  # A nested JSON object
+                "group id": 1,
+                "HDI Kafka REST": {
+                    "id": 1,
+                    "name": "HDInsight Kafka REST proxy 1"
+                },
+                "HDI Kafka REST server info": {
+                    "id": 1,
+                    "name": "HDInsight Kafka REST proxy 1",
+                    "servers": [
+                        {
+                            "server id": 1,
+                            "server name": "HDInsight Kafka REST proxy server 1"
+                        },
+                        {
+                            "server id": 2,
+                            "server name": "HDInsight Kafka REST proxy server 2"
+                        },
+                        {
+                            "server id": 3,
+                            "server name": "HDInsight Kafka REST proxy server 3"
+                        }
+                    ]
+                }
+            }
         }
     ]
 }
 
-print("Producing 4 messages in a request: \n", payload_json)
+print("Payloads in a Producer request: \n", payload_json)
 producer_url = api_format.format(api_version=api_version, rest_api=producer_api_format.format(topic_name=new_topic))
 response = requests.post(producer_url, headers=headers, json=payload_json, timeout=request_timeout, verify=verify_https)
 print(response.content)
@@ -259,6 +295,23 @@ while True:
     else:
         print("Error " + str(response.status_code))
         break
+        
+# List partitions
+get_partitions_url = api_format.format(api_version=api_version, rest_api=partitions_api_format.format(topic_name=new_topic))
+print("Fetching partitions from  " + get_partitions_url)
+
+response = requests.get(get_partitions_url, headers={'Authorization': 'Bearer ' + accessToken}, timeout=request_timeout, verify=verify_https)
+partition_list = response.json()
+print("Partition list: \n" + json.dumps(partition_list, indent=2))
+
+# List a partition
+get_partition_url = api_format.format(api_version=api_version, rest_api=partition_api_format.format(topic_name=new_topic, partition_id=partition_id))
+print("Fetching metadata of a partition from  " + get_partition_url)
+
+response = requests.get(get_partition_url, headers={'Authorization': 'Bearer ' + accessToken}, timeout=request_timeout, verify=verify_https)
+partition = response.json()
+print("Partition metadata: \n" + json.dumps(partition, indent=2))
+
 ```
 
 curl 명령을 사용하는 Azure REST 프록시를 위해 Azure에서 토큰을 가져오는 방법에 대한 다른 샘플은 아래에서 확인하세요. **토큰을 가져오는 동안 지정된 `scope=https://hib.azurehdinsight.net/.default`가 필요합니다.**

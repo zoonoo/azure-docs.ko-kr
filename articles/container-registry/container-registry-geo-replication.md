@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: a26a3a0902b76359dc7441d97fa2516989ec7f0b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 636896edf8180052508f366bcc548efe13dec1e2
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486875"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95810058"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
 
@@ -18,9 +18,9 @@ ms.locfileid: "92486875"
 
 지리적 복제된 레지스트리는 다음과 같은 이점을 제공합니다.
 
-* 둘 이상의 지역에서 단일 레지스트리/이미지/태그 이름 사용 가능
-* 지역 배포에서 네트워크와 가까운 곳에 있는 레지스트리에 액세스 가능
-* 컨테이너 호스트와 동일한 지역에 있는 복제된 로컬 레지스트리에서 이미지를 가져오므로 추가 송신 요금이 부과되지 않음
+* 단일 레지스트리, 이미지 및 태그 이름을 여러 지역에서 사용할 수 있습니다.
+* 네트워크 닫기 레지스트리 액세스를 사용 하 여 지역 배포의 성능 및 안정성 향상
+* 컨테이너 호스트와 동일 하거나 가까운 지역의 복제 된 로컬 레지스트리에서 이미지 계층을 당겨 데이터 전송 비용을 줄입니다.
 * 둘 이상의 지역에서 레지스트리를 단일하게 관리
 
 > [!NOTE]
@@ -56,8 +56,9 @@ docker push contosowesteu.azurecr.io/public/products/web:1.2
 Azure Container Registry의 지리적 복제 기능을 사용하면 다음과 같은 이점을 누릴 수 있습니다.
 
 * 모든 지역에서 단일 레지스트리 관리: `contoso.azurecr.io`
-* 모든 지역에서 동일한 이미지 URL을 사용하므로 모든 이미지 배포에 대해 단일 구성 관리 가능: `contoso.azurecr.io/public/products/web:1.2`
-* 단일 레지스트리로 푸시하면 ACR이 지역 복제를 관리합니다. 특정 복제본의 이벤트를 알리도록 지역 [웹후크](container-registry-webhook.md)를 구성할 수 있습니다.
+* 모든 지역이 동일한 이미지 URL을 사용 하므로 이미지 배포의 단일 구성을 관리 합니다. `contoso.azurecr.io/public/products/web:1.2`
+* 단일 레지스트리로 푸시하면 ACR이 지역 복제를 관리합니다. ACR은 고유한 레이어만 복제 하므로 지역 간에 데이터 전송이 줄어듭니다. 
+* 특정 복제본의 이벤트를 알리도록 지역 [웹 후크](container-registry-webhook.md) 를 구성 합니다.
 
 ## <a name="configure-geo-replication"></a>지역에서 복제 구성
 
@@ -81,13 +82,13 @@ Azure Container Registry로 이동하여 **복제**:
 * 녹색 육각형은 가능한 복제 지역을 나타냅니다.
 * 회색 육각형은 복제를 사용할 수 없는 Azure 지역을 나타냅니다.
 
-복제본을 구성하려면 녹색 육각형을 선택하고 **만들기**를 선택합니다.
+복제본을 구성하려면 녹색 육각형을 선택하고 **만들기** 를 선택합니다.
 
  ![Azure Portal에서 복제 UI 만들기](media/container-registry-geo-replication/create-replication.png)
 
-추가로 복제본을 구성하려면 다른 지역의 녹색 육각형을 선택하고 **만들기**를 클릭합니다.
+추가로 복제본을 구성하려면 다른 지역의 녹색 육각형을 선택하고 **만들기** 를 클릭합니다.
 
-ACR이 구성된 복제본 사이의 이미지 동기화를 시작합니다. 동기화가 완료되면 포털에 *준비*라고 표시됩니다. 포털의 복제본 상태는 자동으로 업데이트되지 않습니다. 업데이트된 상태를 보려면 새로 고침 단추를 클릭합니다.
+ACR이 구성된 복제본 사이의 이미지 동기화를 시작합니다. 동기화가 완료되면 포털에 *준비* 라고 표시됩니다. 포털의 복제본 상태는 자동으로 업데이트되지 않습니다. 업데이트된 상태를 보려면 새로 고침 단추를 클릭합니다.
 
 ## <a name="considerations-for-using-a-geo-replicated-registry"></a>지역 복제 레지스트리 사용 시 고려 사항
 
@@ -104,10 +105,10 @@ ACR이 구성된 복제본 사이의 이미지 동기화를 시작합니다. 동
 
 Azure Portal에서 복제본을 삭제하려면 다음을 수행합니다.
 
-1. Azure Container Registry로 이동하여 **복제**를 선택합니다.
-1. 복제본의 이름을 선택하고 **삭제**를 선택합니다. 복제본을 삭제할지 확인합니다.
+1. Azure Container Registry로 이동하여 **복제** 를 선택합니다.
+1. 복제본의 이름을 선택하고 **삭제** 를 선택합니다. 복제본을 삭제할지 확인합니다.
 
-Azure CLI를 사용하여 미국 동부 지역에 있는 *myregistry*의 복제본을 삭제하려면 다음을 수행합니다.
+Azure CLI를 사용하여 미국 동부 지역에 있는 *myregistry* 의 복제본을 삭제하려면 다음을 수행합니다.
 
 ```azurecli
 az acr replication delete --name eastus --registry myregistry
@@ -131,7 +132,7 @@ az acr replication delete --name eastus --registry myregistry
 
 지역에서 복제 된 레지스트리를 사용 하 여 작업 문제를 해결 하려면 하나 이상의 복제에 대 한 Traffic Manager 라우팅을 일시적으로 사용 하지 않도록 설정 하는 것이 좋습니다. Azure CLI 버전 2.8부터 `--region-endpoint-enabled` 복제 된 지역을 만들거나 업데이트할 때 옵션 (미리 보기)을 구성할 수 있습니다. 복제의 옵션을로 설정 하는 경우에 `--region-endpoint-enabled` `false` 는 더 이상 docker 밀어넣기 또는 끌어오기 요청을 해당 지역으로 라우트 하지 Traffic Manager. 기본적으로 모든 복제에 대 한 라우팅은 사용 하도록 설정 되며, 모든 복제에 대 한 데이터 동기화는 라우팅이 사용 되는지 여부에 관계 없이 수행 됩니다.
 
-기존 복제에 대 한 라우팅을 사용 하지 않도록 설정 하려면 먼저 [az acr replication list][az-acr-replication-list] 를 실행 하 여 레지스트리의 복제를 나열 합니다. 그런 다음 [az acr replication update][az-acr-replication-update] 를 실행 하 고 `--region-endpoint-enabled false` 특정 복제에 대해를 설정 합니다. 예를 들어 *myregistry*의 *westus* 복제에 대 한 설정을 구성 하려면 다음을 수행 합니다.
+기존 복제에 대 한 라우팅을 사용 하지 않도록 설정 하려면 먼저 [az acr replication list][az-acr-replication-list] 를 실행 하 여 레지스트리의 복제를 나열 합니다. 그런 다음 [az acr replication update][az-acr-replication-update] 를 실행 하 고 `--region-endpoint-enabled false` 특정 복제에 대해를 설정 합니다. 예를 들어 *myregistry* 의 *westus* 복제에 대 한 설정을 구성 하려면 다음을 수행 합니다.
 
 ```azurecli
 # Show names of existing replications

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9b06024b7dc25f37f75c71b822f6aeea32c3e26a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 07c04274829530942bab0e3267200f6524c4ddc7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509054"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95793415"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
 
@@ -20,7 +20,7 @@ Linux Hybrid Runbook Worker는 Runbook을 승격이 필요한 명령을 실행�
 
 Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 검토하여 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음이 있는지 확인 합니다.
 
@@ -40,15 +40,15 @@ Hybrid Runbook Worker 역할에는 지원 되는 Linux 운영 체제에 대 한 
 
 ### <a name="supported-linux-operating-systems"></a>지원되는 Linux 운영 체제
 
-Hybrid Runbook Worker 기능은 다음 배포를 지원합니다.
+Hybrid Runbook Worker 기능은 다음 배포를 지원 합니다. 모든 운영 체제는 x 64로 간주 됩니다. x86은 모든 운영 체제에서 지원 되지 않습니다.
 
-* Amazon Linux 2012.09 ~ 2015.09 (x64)
-* CentOS Linux 5, 6 및 7 (x64)
-* Oracle Linux 5, 6, 7 (x64)
-* Red Hat Enterprise Linux Server 5, 6 및 7 (x64)
-* Debian GNU/Linux 6, 7 및 8 (x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS 및 18.04 (x64)
-* SUSE Linux Enterprise Server 12(x64)
+* Amazon Linux 2012.09 ~ 2015.09
+* CentOS Linux 5, 6, 7
+* Oracle Linux 5, 6, 7
+* Red Hat Enterprise Linux Server 5, 6, 7
+* Debian GNU/Linux 6, 7, 8
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS 및 18.04 LTS
+* SUSE Linux Enterprise Server 12
 
 ### <a name="minimum-requirements"></a>최소 요구 사항
 
@@ -87,11 +87,11 @@ Linux Hybrid Runbook Worker는 Azure Automation의 제한 된 runbook 형식 집
 
 |Runbook 형식 | 지원됨 |
 |-------------|-----------|
-|Python 2 |예 |
+|Python 2 |Yes |
 |PowerShell |예<sup>1</sup> |
-|PowerShell 워크플로 |아니요 |
-|그래픽 |아니요 |
-|그래픽 PowerShell 워크플로 |아니요 |
+|PowerShell 워크플로 |예 |
+|그래픽 |예 |
+|그래픽 PowerShell 워크플로 |예 |
 
 <sup>1</sup> PowerShell runbook을 설치 하려면 PowerShell Core가 Linux 컴퓨터에 설치 되어 있어야 합니다. 설치하는 방법을 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/install/installing-powershell-core-on-linux)를 참조하세요.
 

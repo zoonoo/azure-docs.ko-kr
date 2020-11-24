@@ -2,13 +2,13 @@
 title: 리소스 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스를 배포 하는 방법을 설명 합니다. 둘 이상의 리소스 그룹을 대상으로 하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 5e33f0d505759944ccaf2233aa122b6ab701c91f
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 11/24/2020
+ms.openlocfilehash: 9d0bec51fa55ee377eb647a11fb554ec3b81e9eb
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917429"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807716"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 리소스 그룹 배포
 

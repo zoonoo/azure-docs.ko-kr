@@ -1,20 +1,19 @@
 ---
-title: Azure Service Bus의 SQLRuleAction 구문 참조
-description: 이 문서에서는 SQLRuleAction 구문에 대 한 참조를 제공 합니다. 작업은 조정 된 메시지에 대해 수행 되는 SQL 언어 기반 구문으로 작성 됩니다.
+title: Azure Service Bus Subscription Rule SQL 작업 구문 | Microsoft Docs
+description: 이 문서에서는 SQL 규칙 작업 구문에 대 한 참조를 제공 합니다. 작업은 메시지에 대해 수행 되는 SQL 언어 기반 구문으로 작성 됩니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 61fa6e046b4d4a0ba91bf8608c846755026d07ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: a156a9d8f18a7763f03c63b56681fa25ce6de289
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85341582"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808856"
 ---
-# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Azure Service Bus에 대 한 SQLRuleAction 구문 참조
+# <a name="subscription-rule-sql-action-syntax"></a>구독 규칙 SQL 작업 구문
 
-*SqlRuleAction*은 [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 클래스의 인스턴스이며 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)에 대해 수행된SQL 언어 기반 구문으로 작성된 일련의 작업을 나타냅니다.   
+*SQL 작업* 은 구독 규칙의 필터에서 메시지를 선택한 후 메시지 메타 데이터를 조작 하는 데 사용 됩니다. SQL-92 표준의 하위 집합을 기울어집니다 하는 텍스트 식입니다. 작업 식은 `sqlExpression` Azure Resource Manager 템플릿에서 Service Bus ' action ' 속성의 요소 `Rule` 또는 Azure CLI [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md) `az servicebus topic subscription rule create` 명령의 [`--action-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) 인수 및 구독 규칙 관리를 허용 하는 여러 SDK 함수에 사용 됩니다.
   
-이 문서에서는 SQL 규칙 동작 문법에 대한 세부 정보를 나열합니다.  
   
 ```  
 <statements> ::=
@@ -196,7 +195,7 @@ Boolean 상수는 `TRUE` 또는 `FALSE` 키워드로 표시됩니다. 값은 `Sy
   
 ### <a name="remarks"></a>설명  
 
-`newid()` 함수는 `System.Guid.NewGuid()` 메서드에 의해 생성된 **System.Guid**를 반환합니다.  
+`newid()` 함수는 `System.Guid.NewGuid()` 메서드에 의해 생성된 **System.Guid** 를 반환합니다.  
   
 `property(name)` 함수는 `name`으로 참조되는 속성 값을 반환합니다. `name` 값은 문자열 값을 반환하는 유효한 식일 수 있습니다.  
   
@@ -211,5 +210,9 @@ Boolean 상수는 `TRUE` 또는 `FALSE` 키워드로 표시됩니다. 값은 `Sy
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SQLRuleAction 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [SQLFilter 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLRuleAction 클래스 (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SQLRuleAction 클래스 (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
+- [SqlRuleAction 클래스 (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
+- [SqlRuleAction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
+- [az servicebus 토픽 구독 규칙](/cli/azure/servicebus/topic/subscription/rule)
+- [AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

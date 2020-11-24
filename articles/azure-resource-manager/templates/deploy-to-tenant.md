@@ -2,13 +2,13 @@
 title: 테넌트에 리소스 배포
 description: Azure Resource Manager 템플릿의 테넌트 범위에서 리소스를 배포하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: 65a5e90616f8883b338d22fa31eee6932452b5fd
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.date: 11/24/2020
+ms.openlocfilehash: 5733c5d6eb6cbd86207589244c22badc17fe7073
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95242664"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807643"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 테 넌 트 배포
 
@@ -129,6 +129,14 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 * [배포 단추를 사용 하 여 GitHub 리포지토리에서 템플릿 배포](deploy-to-azure-button.md)
 * [Cloud Shell에서 ARM 템플릿 배포](deploy-cloud-shell.md)
 
+## <a name="deployment-location-and-name"></a>배포 위치 및 이름
+
+테넌트 수준 배포의 경우 배포할 위치를 제공해야 합니다. 배포 위치는 배포하는 리소스의 위치와는 별개입니다. 배포 위치는 배포 데이터를 저장할 위치를 지정합니다. [구독](deploy-to-subscription.md) 및 [관리 그룹](deploy-to-management-group.md) 배포에도 위치가 필요 합니다. [리소스 그룹](deploy-to-resource-group.md) 배포의 경우 리소스 그룹의 위치는 배포 데이터를 저장 하는 데 사용 됩니다.
+
+배포 이름을 제공하거나 기본 배포 이름을 사용할 수 있습니다. 기본 이름은 템플릿 파일의 이름입니다. 예를 들어 **azuredeploy.json** 이라는 템플릿을 배포하면 **azuredeploy** 라는 기본 배포 이름을 만듭니다.
+
+각 배포 이름의 경우 위치는 변경할 수 없습니다. 다른 위치의 이름이 동일한 기존 배포가 있는 경우 하나의 위치에서 배포를 만들 수 없습니다. 예를 들어 **centralus** 에서 이름이 **deployment1** 인 테 넌 트 배포를 만드는 경우 나중에 **deployment1** 이름 이지만 **westus** 의 위치로 다른 배포를 만들 수 없습니다. 오류 코드 `InvalidDeploymentLocation`을 수신하게 되면 해당 이름의 이전 배포와 다른 이름이나 동일한 위치를 사용합니다.
+
 ## <a name="deployment-scopes"></a>배포 범위
 
 테 넌 트에 배포 하는 경우 다음에 리소스를 배포할 수 있습니다.
@@ -153,7 +161,7 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 
 테 넌 트 내에서 관리 그룹을 대상으로 지정 하려면 중첩 된 배포를 추가 하 고 속성을 지정 `scope` 합니다.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,18,22":::
 
 ### <a name="scope-to-subscription"></a>구독 범위
 
@@ -161,7 +169,7 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 
 테 넌 트 내에서 구독을 대상으로 하려면 중첩 된 배포 및 `subscriptionId` 속성을 사용 합니다.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="9,10,18":::
 
 ### <a name="scope-to-resource-group"></a>리소스 그룹에 대 한 범위
 
@@ -170,14 +178,6 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 테 넌 트 내의 리소스 그룹을 대상으로 하려면 중첩 된 배포를 사용 합니다. `subscriptionId` 및 `resourceGroup` 속성을 설정합니다. 중첩 된 배포는 리소스 그룹의 위치에 배포 되므로 위치를 설정 하지 마세요.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-rg.json" highlight="9,10,18":::
-
-## <a name="deployment-location-and-name"></a>배포 위치 및 이름
-
-테넌트 수준 배포의 경우 배포할 위치를 제공해야 합니다. 배포 위치는 배포하는 리소스의 위치와는 별개입니다. 배포 위치는 배포 데이터를 저장할 위치를 지정합니다.
-
-배포 이름을 제공하거나 기본 배포 이름을 사용할 수 있습니다. 기본 이름은 템플릿 파일의 이름입니다. 예를 들어 **azuredeploy.json** 이라는 템플릿을 배포하면 **azuredeploy** 라는 기본 배포 이름을 만듭니다.
-
-각 배포 이름의 경우 위치는 변경할 수 없습니다. 다른 위치의 이름이 동일한 기존 배포가 있는 경우 하나의 위치에서 배포를 만들 수 없습니다. 오류 코드 `InvalidDeploymentLocation`을 수신하게 되면 해당 이름의 이전 배포와 다른 이름이나 동일한 위치를 사용합니다.
 
 ## <a name="create-management-group"></a>관리 그룹 만들기
 

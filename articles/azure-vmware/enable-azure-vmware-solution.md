@@ -3,12 +3,12 @@ title: Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법
 description: 지원 요청을 제출 하 여 Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법을 알아봅니다. 기존 Azure VMware 솔루션 사설 클라우드에서 더 많은 호스트를 요청할 수도 있습니다.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: cd58611f77c2f2fb1694597fc9ef049420093ccc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 68f8fe38c67ec5ddad7cf662a7996330ee2a1e73
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967366"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95794723"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법
 지원 요청을 제출 하 여 [Azure VMware 솔루션](introduction.md) 리소스를 사용 하도록 설정 하는 방법을 알아봅니다. 기존 Azure VMware 솔루션 사설 클라우드에서 더 많은 호스트를 요청할 수도 있습니다.
@@ -64,7 +64,7 @@ Azure VMware 솔루션 리소스를 만들기 전에 호스트를 할당 하기 
 Csp는 [Microsoft 파트너 센터](https://partner.microsoft.com) 를 사용 하 여 고객에 대해 Azure VMware 솔루션을 사용 하도록 설정 해야 합니다. 
 
    >[!IMPORTANT] 
-   >Azure VMware 솔루션 서비스는 다중 테 넌 트 환경을 제공 하지 않으므로 호스팅 파트너는 아직 지원 되지 않습니다. 
+   >Azure VMware 솔루션 서비스는 다중 테 넌 트를 제공 하지 않습니다. 이를 필요로 하는 호스팅 파트너는 지원 되지 않습니다. 
 
 1. **파트너 센터** 에서 **CSP** 를 선택 하 여 **고객** 영역에 액세스 합니다.
 
@@ -113,13 +113,16 @@ Azure 계획을 구성 하 고 필요한 vSphere RBAC 권한이 CSP로 설정 �
    >[!IMPORTANT] 
    >기존 Azure VMware 솔루션이 이미 있고 추가 호스트를 요청 하는 경우 5 영업일 동안 호스트를 할당 해야 합니다. 
 
-1. Azure 계획에 추가 되 고 할당량이 사용 하도록 설정 된 경우 고객 또는 파트너 관리자는 Azure Portal를 통해 Azure VMware 솔루션 사설 클라우드를 배포할 수 있습니다. 호스트를 프로 비전 하기 전에 Azure Portal에서 **MICROSOFT AVS** 리소스 공급자를 등록 했는지 확인 합니다.  
+1. 구독이 서비스 공급자에 의해 관리 되는 경우 관리 팀은 파트너 센터에서 (aobo)를 대신 하 여 다시 관리자를 사용 하 여 Azure Portal **에** 액세스 해야 합니다. 하나 Azure Portal [Cloud Shell](../cloud-shell/overview.md) 인스턴스를 시작 하 고 **Microsoft AVS** 리소스 공급자를 등록 하 고 Azure VMware 솔루션 사설 클라우드의 배포를 진행 합니다.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
    ```
 
    리소스 공급자를 등록하는 추가 방법은 [리소스 공급자 및 유형](../azure-resource-manager/management/resource-providers-and-types.md)을 참조하세요.
+
+1. 고객이 구독을 직접 관리 하는 경우 구독에 대 한 충분 한 권한이 있는 사용자가 **MICROSOFT AVS** 리소스 공급자를 등록 해야 합니다. 자세한 내용은 [Azure 리소스 공급자 및 유형](../azure-resource-manager/management/resource-providers-and-types.md) 을 참조 하 고 리소스 공급자를 등록 하는 방법을 참조 하세요. 
+
 
 ## <a name="next-steps"></a>다음 단계
 

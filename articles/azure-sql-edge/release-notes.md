@@ -9,17 +9,32 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/22/2020
-ms.openlocfilehash: 543a71bc2a77f0a31f8ddaa0de13135b93db48ec
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.date: 11/24/2020
+ms.openlocfilehash: bb0c176ee8c145e1268827d79b453628e6f1bc28
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395039"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808619"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Azure SQL Edge 릴리스 정보 
 
 이 문서에서는 Azure SQL Edge의 모든 새 빌드에서 새로 제공 되는 기능과 변경 된 사항에 대해 설명 합니다.
+
+## <a name="azure-sql-edge---101"></a>Azure SQL Edge-1.0.1
+
+### <a name="sql-engine-build-number---15020001553"></a>SQL 엔진 빌드 번호-15.0.2000.1553
+
+### <a name="whats-new"></a>새로운 기능
+
+- 계산 열에 정의 된 Datebucket 식 허용
+
+### <a name="fixes"></a>수정 프로그램
+
+- 무기한 시간 제한으로 사용 되는 보존 정책을 사용 하 여 테이블을 삭제 하는 보존 정책 수정
+- 스트리밍 및 보존 정책 기능에 대 한 DacFx 배포 지원 
+- SAS URL의 중첩 된 폴더에서 배포를 사용 하도록 설정 하는 DacFx 배포 수정 
+- 오류 메시지에서 긴 열 이름을 지원 하도록 수정 예측
 
 ## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge-1.0.0 (RTM)
 
