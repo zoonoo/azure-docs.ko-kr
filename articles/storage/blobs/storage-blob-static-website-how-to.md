@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 5c9d7faebe7fefdddbf194e3a9ad36b4644115e0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8ca670049b49500e6b6310bca25cb78ded31a294
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746465"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537852"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스트
 
@@ -38,11 +38,11 @@ Azure Storage GPv2 계정의 컨테이너에서 직접 정적 콘텐츠(HTML, CS
 
 4. **사용** 을 선택하여 스토리지 계정에서 정적 웹 사이트를 호스팅할 수 있습니다.
 
-5. **인덱스 문서 이름** 필드에서 기본 인덱스 페이지(예: *index.html* )를 지정합니다. 
+5. **인덱스 문서 이름** 필드에서 기본 인덱스 페이지(예: *index.html*)를 지정합니다. 
 
    기본 인덱스 페이지는 사용자가 정적 웹 사이트의 루트로 이동할 때 표시됩니다.  
 
-6. **오류 문서 경로** 필드에서 기본 오류 페이지(예: *404.html* )를 지정합니다. 
+6. **오류 문서 경로** 필드에서 기본 오류 페이지(예: *404.html*)를 지정합니다. 
 
    기본 오류 페이지는 사용자가 정적 웹 사이트에서 존재하지 않는 페이지로 이동하려고 할 때 표시됩니다.
 
@@ -54,9 +54,9 @@ Azure Storage GPv2 계정의 컨테이너에서 직접 정적 콘텐츠(HTML, CS
 
 <a id="cli"></a>
 
-CLI([Azure 명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용하여 정적 웹 사이트 호스팅을 사용하도록 설정할 수 있습니다.
+CLI([Azure 명령줄 인터페이스)](/cli/azure/?view=azure-cli-latest)를 사용하여 정적 웹 사이트 호스팅을 사용하도록 설정할 수 있습니다.
 
-1. 먼저 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)을 열거나 Azure CLI를 로컬로 [설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
+1. 먼저 [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest)을 열거나 Azure CLI를 로컬로 [설치](/cli/azure/install-azure-cli?view=azure-cli-latest)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
 
 2. ID가 둘 이상의 구독과 연결된 경우 정적 웹 사이트를 호스트하는 스토리지 계정의 구독으로 활성 구독을 설정합니다.
 
@@ -136,7 +136,7 @@ Azure PowerShell 모듈을 사용하여 정적 웹 사이트 호스팅을 사용
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
-이 지침에서는 Azure Portal에 표시되는 Storage Explorer 버전을 사용하여 파일을 업로드하는 방법을 보여 줍니다. 그러나 Azure Portal 외부에서 실행되는 [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 버전을 사용할 수도 있습니다. [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI 또는 계정의 **$web** 컨테이너에 파일을 업로드할 수 있는 사용자 지정 애플리케이션을 사용할 수 있습니다. Visual Studio 코드를 사용하여 파일을 업로드하는 단계별 자습서는 [자습서: Blob Storage에서 정적 웹 사이트 호스트](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)를 완료하세요.
+이 지침에서는 Azure Portal에 표시되는 Storage Explorer 버전을 사용하여 파일을 업로드하는 방법을 보여 줍니다. 그러나 Azure Portal 외부에서 실행되는 [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 버전을 사용할 수도 있습니다. [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI 또는 계정의 **$web** 컨테이너에 파일을 업로드할 수 있는 사용자 지정 애플리케이션을 사용할 수 있습니다. Visual Studio 코드를 사용하여 파일을 업로드하는 단계별 자습서는 [자습서: Blob Storage에서 정적 웹 사이트 호스트](./storage-blob-static-website-host.md)를 완료하세요.
 
 1. **Storage Explorer(미리 보기)** 를 선택합니다.
 
@@ -173,7 +173,7 @@ az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-
 > [!NOTE]
 > Azure CLI의 위치 설치를 사용하는 경우 로컬 컴퓨터의 모든 위치에 대한 경로를 사용할 수 있습니다(예: `C:\myFolder`).
 >
-> Azure Cloud Shell을 사용하는 경우 Cloud Shell에 표시되는 파일 공유를 참조해야 합니다. 이 위치는 클라우드 공유 자체의 파일 공유 또는 Cloud Shell에서 탑재한 기존 파일 공유일 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Cloud Shell에서 파일 유지](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage)를 참조하세요.
+> Azure Cloud Shell을 사용하는 경우 Cloud Shell에 표시되는 파일 공유를 참조해야 합니다. 이 위치는 클라우드 공유 자체의 파일 공유 또는 Cloud Shell에서 탑재한 기존 파일 공유일 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Cloud Shell에서 파일 유지](../../cloud-shell/persisting-shell-storage.md)를 참조하세요.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -279,4 +279,3 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 ## <a name="next-steps"></a>다음 단계
 
 * 정적 웹 사이트에서 사용자 지정 도메인을 구성하는 방법을 알아봅니다. [Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)을 참조하세요.
-

@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 906df01587201561fbbfea0661d0885864042925
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: ddd19c90c8c47016497e2c3b00e04595a94e7715
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701316"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543071"
 ---
 # <a name="list-blobs-with-net"></a>.NET을 사용하여 Blob 나열
 
@@ -61,7 +61,7 @@ Blob 목록을 필터링 하려면 매개 변수에 대 한 문자열을 지정 
 
 결과를 사용 하 여 blob 메타 데이터를 반환할 수 있습니다.
 
-- .NET v12 SDK를 사용 하는 경우 [Blobtraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) 열거에 대 한 **메타 데이터** 값을 지정 합니다.
+- .NET v12 SDK를 사용 하는 경우 [Blobtraits](/dotnet/api/azure.storage.blobs.models.blobtraits) 열거에 대 한 **메타 데이터** 값을 지정 합니다.
 
 - .NET v11 SDK를 사용 하는 경우 [Bloblistingdetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) 열거에 대 한 **메타 데이터** 값을 지정 합니다. Azure Storage에는 반환된 각 Blob이 있는 메타데이터가 포함되어 있으므로 Blob 메타데이터를 검색하기 위해 이 컨텍스트에서 **FetchAttributes** 메서드 중 하나를 호출할 필요가 없습니다.
 

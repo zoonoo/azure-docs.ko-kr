@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: barbkess
 ms.custom: references_regions
-ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d42eabe3afeb738b0cbb011881678839fe0ba2d7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194324"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95539059"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역
 
@@ -43,7 +43,7 @@ Azure 지리는 하나 이상의 Azure 지역을 포함 하는 전 세계 영역
 
 ## <a name="must-i-use-azure-regional-pairs"></a>Azure 지역 쌍을 사용 해야 하나요?
 
-아니요. 고객은 azure의 지역 쌍에 의존 하지 않고 Azure 서비스를 활용 하 여 복원 력 있는 서비스를 설계할 수 있습니다.  그러나 [격리](./security/fundamentals/isolation-choices.md) 를 활용 하 고 [가용성](./availability-zones/az-overview.md)을 향상 시키기 위해 지역 쌍에서 비즈니스 연속성 재해 복구 (BCDR)를 구성 하는 것이 좋습니다. 여러 활성 지역을 지원하는 애플리케이션의 경우 가능하면 한 지역 쌍의 두 지역을 모두 사용하는 것이 좋습니다. 이렇게 하면 재해 발생 시 응용 프로그램의 가용성을 최적화 하 고 복구 시간을 최소화할 수가 있습니다. 가능 하면 [최대 복원 력](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) 과 [재해 복구](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery)의 용이성을 위해 응용 프로그램을 설계 합니다.
+아니요. 고객은 azure의 지역 쌍에 의존 하지 않고 Azure 서비스를 활용 하 여 복원 력 있는 서비스를 설계할 수 있습니다.  그러나 [격리](./security/fundamentals/isolation-choices.md) 를 활용 하 고 [가용성](./availability-zones/az-overview.md)을 향상 시키기 위해 지역 쌍에서 비즈니스 연속성 재해 복구 (BCDR)를 구성 하는 것이 좋습니다. 여러 활성 지역을 지원하는 애플리케이션의 경우 가능하면 한 지역 쌍의 두 지역을 모두 사용하는 것이 좋습니다. 이렇게 하면 재해 발생 시 응용 프로그램의 가용성을 최적화 하 고 복구 시간을 최소화할 수가 있습니다. 가능 하면 [최대 복원 력](/azure/architecture/framework/resiliency/overview) 과 [재해 복구](/azure/architecture/framework/resiliency/backup-and-recovery)의 용이성을 위해 응용 프로그램을 설계 합니다.
 
 ## <a name="azure-regional-pairs"></a>Azure 지역 쌍
 
@@ -56,7 +56,7 @@ Azure 지리는 하나 이상의 Azure 지역을 포함 하는 전 세계 영역
 | Canada |캐나다 중부 |캐나다 동부 |
 | 중국 |중국 북부 |중국 동부|
 | 중국 |중국 북부 2 |중국 동부 2|
-| 유럽 |유럽 북부 (아일랜드) |유럽 서부 (네덜란드) |
+| 유럽 |북유럽(아일랜드) |서유럽(네덜란드) |
 | 프랑스 |프랑스 중부|프랑스 남부|
 | 독일 |독일 중부 |독일 북동부 |
 | 인도 |인도 중부 |인도 남부 |
@@ -94,9 +94,9 @@ Azure 지리는 하나 이상의 Azure 지역을 포함 하는 전 세계 영역
 
 1. **Azure Compute (IaaS)** – 재해 중에 다른 지역에서 리소스를 사용할 수 있도록 사전에 추가 계산 리소스를 프로 비전 해야 합니다. 자세한 내용은 [Azure 복원력 기술 지침](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md)을 참조하세요. 
 
-2. **Azure Storage** -managed disks를 사용 하는 경우 Azure Backup를 사용 하 여 [지역 간 백업](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) 에 대해 알아보고 Azure Site Recovery를 사용 하 여 한 지역에서 다른 지역으로 [vm을 복제](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) 합니다. 저장소 계정을 사용 하는 경우 Azure Storage 계정을 만들 때 기본적으로 지역 중복 저장소 (GRS)가 구성 됩니다. GRS를 사용하면 주 지역 및 쌍을 이루는 지역에서 각각 세 번씩 데이터가 자동으로 복제됩니다. 자세한 내용은 [Azure Storage 중복 옵션](storage/common/storage-redundancy.md)을 참조하세요.
+2. **Azure Storage** -managed disks를 사용 하는 경우 Azure Backup를 사용 하 여 [지역 간 백업](/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) 에 대해 알아보고 Azure Site Recovery를 사용 하 여 한 지역에서 다른 지역으로 [vm을 복제](./site-recovery/azure-to-azure-tutorial-enable-replication.md) 합니다. 저장소 계정을 사용 하는 경우 Azure Storage 계정을 만들 때 기본적으로 지역 중복 저장소 (GRS)가 구성 됩니다. GRS를 사용하면 주 지역 및 쌍을 이루는 지역에서 각각 세 번씩 데이터가 자동으로 복제됩니다. 자세한 내용은 [Azure Storage 중복 옵션](storage/common/storage-redundancy.md)을 참조하세요.
 
-3. **Azure SQL Database** – 지역에서 복제를 Azure SQL Database 하 여 전 세계 모든 지역에 대 한 트랜잭션 비동기 복제를 구성할 수 있습니다. 그러나 대부분의 재해 복구 시나리오의 경우 쌍을 이루는 지역에 이러한 리소스를 배포 하는 것이 좋습니다. 자세한 내용은 [Azure SQL Database의 지역에서 복제](sql-database/sql-database-geo-replication-overview.md)를 참조하세요.
+3. **Azure SQL Database** – 지역에서 복제를 Azure SQL Database 하 여 전 세계 모든 지역에 대 한 트랜잭션 비동기 복제를 구성할 수 있습니다. 그러나 대부분의 재해 복구 시나리오의 경우 쌍을 이루는 지역에 이러한 리소스를 배포 하는 것이 좋습니다. 자세한 내용은 [Azure SQL Database의 지역에서 복제](./azure-sql/database/auto-failover-group-overview.md)를 참조하세요.
 
 4. **Azure Resource Manager** - Resource Manager는 본질적으로 지역 간에 구성 요소를 논리적으로 격리합니다. 따라서 하나의 지역에서 발생한 논리적 오류가 다른 지역에 영향을 줄 가능성이 거의 없습니다.
 

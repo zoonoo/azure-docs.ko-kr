@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: fcc482e6231bbd925fd500a37989052765dede58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f861f9efa6ecc1886647ed6c460b6718ff97e8a1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77538537"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522331"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Azure 프라이빗 엔드포인트 연결 문제 해결
 
@@ -39,26 +39,26 @@ Azure 개인 끝점은 개인 링크 서비스에 안전 하 게 연결 되는 �
 
 1. 리소스를 검색 하 여 개인 끝점 구성을 검토 합니다.
 
-    a. **개인 링크 센터**로 이동 합니다.
+    a. **개인 링크 센터** 로 이동 합니다.
 
       ![개인 링크 센터](./media/private-endpoint-tsg/private-link-center.png)
 
-    b. 왼쪽 창에서 **개인 끝점**을 선택 합니다.
+    b. 왼쪽 창에서 **개인 끝점** 을 선택 합니다.
     
       ![프라이빗 엔드포인트](./media/private-endpoint-tsg/private-endpoints.png)
 
     다. 진단 하려는 개인 끝점을 필터링 하 고 선택 합니다.
 
     d. 가상 네트워크 및 DNS 정보를 검토 합니다.
-     - 연결 상태가 **승인**됨 인지 확인 합니다.
+     - 연결 상태가 **승인** 됨 인지 확인 합니다.
      - VM이 개인 끝점을 호스트 하는 가상 네트워크에 연결 되어 있는지 확인 합니다.
      - FQDN 정보 (복사) 및 개인 IP 주소가 할당 되었는지 확인 합니다.
     
        ![가상 네트워크 및 DNS 구성](./media/private-endpoint-tsg/vnet-dns-configuration.png)
     
-1. [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) 를 사용 하 여 데이터 흐름을 확인 합니다.
+1. [Azure Monitor](../azure-monitor/overview.md) 를 사용 하 여 데이터 흐름을 확인 합니다.
 
-    a. 개인 끝점 리소스에서 **모니터**를 선택 합니다.
+    a. 개인 끝점 리소스에서 **모니터** 를 선택 합니다.
      - 또는 **데이터 출력** **에서 데이터를** 선택 합니다. 
      - 개인 끝점에 연결 하려고 할 때 데이터가 흐르는 경우를 확인 합니다. 약 10 분의 지연이 발생 합니다.
     
@@ -68,19 +68,19 @@ Azure 개인 끝점은 개인 링크 서비스에 안전 하 게 연결 되는 �
 
     a. 클라이언트 VM을 선택 합니다.
 
-    b. **연결 문제 해결**을 선택한 후 **아웃 바운드 연결** 탭을 선택 합니다.
+    b. **연결 문제 해결** 을 선택한 후 **아웃 바운드 연결** 탭을 선택 합니다.
     
       ![Network Watcher-아웃 바운드 연결 테스트](./media/private-endpoint-tsg/network-watcher-outbound-connection.png)
     
-    다. **자세한 연결 추적을 위해 Network Watcher 사용을**선택 합니다.
+    다. **자세한 연결 추적을 위해 Network Watcher 사용을** 선택 합니다.
     
       ![Network Watcher 연결 문제 해결](./media/private-endpoint-tsg/network-watcher-connection-troubleshoot.png)
 
-    d. **FQDN으로 테스트를**선택 합니다.
+    d. **FQDN으로 테스트를** 선택 합니다.
      - 개인 끝점 리소스에서 FQDN을 붙여넣습니다.
      - 포트를 제공 합니다. 일반적으로 Azure Storage 또는 Azure Cosmos DB 및 1336 for SQL에는 443을 사용 합니다.
 
-    e. **테스트**를 선택 하 고 테스트 결과의 유효성을 검사 합니다.
+    e. **테스트** 를 선택 하 고 테스트 결과의 유효성을 검사 합니다.
     
       ![Network Watcher-테스트 결과](./media/private-endpoint-tsg/network-watcher-test-results.png)
     
@@ -93,7 +93,7 @@ Azure 개인 끝점은 개인 링크 서비스에 안전 하 게 연결 되는 �
        - 개인 DNS 영역 레코드가 있는지 확인 하십시오. 존재 하지 않는 경우 만듭니다.
      - 사용자 지정 DNS를 사용 하는 경우:
        - 사용자 지정 DNS 설정을 검토 하 고 DNS 구성이 올바른지 확인 합니다.
-       지침은 [개인 끝점 개요: DNS 구성](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)을 참조 하세요.
+       지침은 [개인 끝점 개요: DNS 구성](./private-endpoint-overview.md#dns-configuration)을 참조 하세요.
 
     b. NSGs (네트워크 보안 그룹) 또는 사용자 정의 경로 때문에 연결에 실패 한 경우:
      - NSG 아웃 바운드 규칙을 검토 하 고 트래픽을 허용 하는 적절 한 아웃 바운드 규칙을 만듭니다.
@@ -107,5 +107,5 @@ Azure 개인 끝점은 개인 링크 서비스에 안전 하 게 연결 되는 �
 
 ## <a name="next-steps"></a>다음 단계
 
- * [업데이트 된 서브넷에 개인 끝점 만들기 (Azure Portal)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
+ * [업데이트 된 서브넷에 개인 끝점 만들기 (Azure Portal)](./create-private-endpoint-portal.md)
  * [Azure 개인 링크 문제 해결 가이드](troubleshoot-private-link-connectivity.md)

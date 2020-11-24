@@ -8,12 +8,12 @@ ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: e15937797077e3fa46a12e726a3ce690c3979cbd
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: ccdc87d03181bad1aba4dd362a651fa42381343a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628784"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542289"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
@@ -67,7 +67,7 @@ ms.locfileid: "94628784"
 
     등록 한 후에는 상업적 marketplace 개요 페이지로 이동 합니다. 상업적 marketplace 계정이 왼쪽 창에 표시 됩니다.
 
-1. 상용 marketplace 계정이 등록 된 것으로 표시 되는지 확인 하려면 오른쪽 위 모서리에서 **설정** (기어 아이콘)을 선택 하 > **개발자 설정**  >  **프로그램** 을 선택 합니다.
+1. 상용 marketplace 계정이 등록 된 것으로 표시 되는지 확인 하려면 오른쪽 위 모서리에서 **설정** (기어 아이콘)을 선택 하 > **계정 설정**  >  **프로그램** 을 선택 합니다.
 
 이제 파트너 센터에서 상업적 marketplace 계정을 만들었습니다. [상업적 marketplace에 새 게시자](#add-new-publishers-to-the-commercial-marketplace-program)를 계속 추가 합니다.
 
@@ -91,7 +91,7 @@ Microsoft 파트너 네트워크 계정을 사용 하는 경우 회사의 회사
 > Microsoft 파트너 네트워크에 로그인 하려면 **계정 관리자** 또는 **전역 관리자** 역할이 있어야 합니다.
 
 1. Microsoft 파트너 네트워크 계정으로 [파트너 센터](https://partner.microsoft.com/dashboard/) 에 로그인 합니다.
-1. **설정**  >  **개발자 설정**  >  **프로그램**  >  **시작** 을 선택 합니다.
+1. **설정**  >  **계정 설정**  >  **프로그램**  >  **시작** 을 선택 합니다.
 
    Microsoft 파트너 네트워크는 구독을 검색 하 고 **게시자 프로필** 창을 표시 합니다.
 
@@ -103,7 +103,7 @@ Microsoft 파트너 네트워크 계정을 사용 하는 경우 회사의 회사
 
     등록 한 후에는 상업적 marketplace 개요 페이지로 이동 합니다. 상업적 marketplace 계정이 왼쪽 창에 표시 됩니다.
 
-1. 상용 marketplace 계정이 등록 된 것으로 표시 되는지 확인 하려면 **설정**  >  **개발자 설정**  >  **프로그램** 을 선택 합니다.
+1. 상용 marketplace 계정이 등록 된 것으로 표시 되는지 확인 하려면 **설정**  >  **계정 설정**  >  **프로그램** 을 선택 합니다.
 
 이제 파트너 센터에서 상업적 marketplace 계정을 만들었습니다. [상업적 marketplace에 새 게시자](#add-new-publishers-to-the-commercial-marketplace-program)를 계속 추가 합니다.
 
@@ -119,7 +119,7 @@ Microsoft 파트너 네트워크 계정을 사용 하는 경우 회사의 회사
 개발자 프로그램과 동일한 계정으로 상용 marketplace 프로그램을 등록 하면 파트너 센터의 왼쪽 창에서 기존 프로그램 등록 모두 볼 수 있습니다.
 
 1. 기존 계정을 사용 하 여 [파트너 센터](https://partner.microsoft.com/dashboard/) 에 로그인 합니다.
-1. **설정**  >  **개발자 설정**  >  **프로그램**  >  **시작** 을 선택 하 고 회사 메일 주소를 입력 합니다.
+1. **설정**  >  **계정 설정**  >  **프로그램**  >  **시작** 을 선택 하 고 회사 메일 주소를 입력 합니다.
 1. **게시자 프로필** 페이지에서 세부 정보를 완료 합니다.
 2. [Microsoft 게시자 규약](https://go.microsoft.com/fwlink/?LinkID=699560)에서 사용 약관을 읽은 다음 **동의 함** 을 선택 하 여 등록을 완료 합니다.
 
@@ -128,7 +128,7 @@ Microsoft 파트너 네트워크 계정을 사용 하는 경우 회사의 회사
 
     등록 한 후에는 상업적 marketplace 개요 페이지로 이동 합니다. 상업적 marketplace 계정이 왼쪽 창에 표시 됩니다.
 
-1. 상용 marketplace 계정이 등록 된 것으로 표시 되는지 확인 하려면 **설정**  >  **개발자 설정**  >  **프로그램** 을 선택 합니다.
+1. 상용 marketplace 계정이 등록 된 것으로 표시 되는지 확인 하려면 **설정**  >  **계정 설정**  >  **프로그램** 을 선택 합니다.
 
 이제 파트너 센터에서 상업적 marketplace 계정을 만들었습니다. 게시자를 추가 하는 데 도움이 필요한 경우 계속 해 서 [새 게시자를 상업적 marketplace에 추가](#add-new-publishers-to-the-commercial-marketplace-program)합니다.
 
@@ -142,7 +142,7 @@ Cloud 파트너 포털 계정이 있는 경우 파트너 센터로 이동 했습
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>상용 marketplace 프로그램에 새 게시자 추가
 
-조직에는 상업적 marketplace 계정과 연결 된 여러 게시자가 있을 수 있습니다. 기존 사용자는 **설정**  >  **개발자 설정**  >  **게시자**  >  **추가 게시자** 를 선택 하 여 파트너 센터에 로그인 한 후 더 많은 게시자를 추가할 수 있습니다.
+조직에는 상업적 marketplace 계정과 연결 된 여러 게시자가 있을 수 있습니다. 기존 사용자는 **설정**  >  **계정 설정**  >  **조직 프로필**  >  **식별자**  >  **게시자 추가** 를 선택 하 여 파트너 센터에 로그인 한 후 더 많은 게시자를 추가할 수 있습니다.
 
 >[!NOTE]
 >새 게시자를 추가 하기 전에 파트너 센터에 로그인 하 고 **계정 설정** 게시자를 선택 하 여 기존 게시자의 목록을 검토  >  **Publishers** 합니다.
@@ -155,9 +155,9 @@ Cloud 파트너 포털 계정이 있는 경우 파트너 센터로 이동 했습
 4. 게시자와 연결 하려는 MPN ID를 선택 합니다.
 5. 양식의 **게시자 세부 정보** 를 업데이트 합니다.
 
-   * **게시자 이름** : 제품을 사용 하 여 상업적 marketplace에 표시 되는 이름입니다.  
-   * **PublisherID** : 파트너 센터에서 게시자를 고유 하 게 식별 하는 데 사용 되는 식별자입니다. 이 필드의 기본값은 시스템의 기존 및 고유 게시자 ID에 매핑됩니다. 게시자 ID를 다시 사용할 수 없으므로이 필드를 업데이트 해야 합니다.  
-   * **연락처 정보** : 필요한 경우 연락처 정보를 업데이트 합니다.
+   * **게시자 이름**: 제품을 사용 하 여 상업적 marketplace에 표시 되는 이름입니다.  
+   * **PublisherID**: 파트너 센터에서 게시자를 고유 하 게 식별 하는 데 사용 되는 식별자입니다. 이 필드의 기본값은 시스템의 기존 및 고유 게시자 ID에 매핑됩니다. 게시자 ID를 다시 사용할 수 없으므로이 필드를 업데이트 해야 합니다.  
+   * **연락처 정보**: 필요한 경우 연락처 정보를 업데이트 합니다.
 
 이 프로세스가 완료 되 면 왼쪽 창에 나열 된 상용 marketplace 계정으로 이동 하 여 새로 만든 게시자를 관리 합니다. 상업적 marketplace 계정이 표시 되지 않으면 페이지를 새로 고칩니다. 새 게시자가 **게시자** 목록에 표시 됩니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 연결 모니터에서 연결 모니터 (미리 보기)로 마이그레이션
+title: 연결 모니터에서 연결 모니터로 마이그레이션
 titleSuffix: Azure Network Watcher
 description: 연결 모니터에서 연결 모니터로 마이그레이션하는 방법에 대해 알아봅니다.
 services: network-watcher
@@ -10,22 +10,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: d785ecd48816150cd33d8e2f5fcce2ff36f1603f
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: eed68ff7e6b002e7a5985b336686b646a1a9acee
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985793"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522956"
 ---
-# <a name="migrate-to-connection-monitor-preview-from-connection-monitor-classic"></a>연결 모니터 (클래식)에서 연결 모니터 (미리 보기)로 마이그레이션
+# <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>연결 모니터에서 연결 모니터로 마이그레이션 (클래식)
 
-몇 번의 클릭 만으로 가동 중지 시간 없이 기존 연결 모니터를 새롭게 향상 된 연결 모니터 (미리 보기)로 마이그레이션할 수 있습니다. 이점에 대 한 자세한 내용은 [연결 모니터](./connection-monitor-overview.md)를 참조 하세요.
-
-> [!IMPORTANT]
-> 연결 모니터는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+몇 번의 클릭 만으로 가동 중지 시간 없이 기존 연결 모니터를 새로운 향상 된 연결 모니터로 마이그레이션할 수 있습니다. 이점에 대 한 자세한 내용은 [연결 모니터](./connection-monitor-overview.md)를 참조 하세요.
 
 ## <a name="key-points-to-note"></a>핵심 사항
 
@@ -33,12 +29,12 @@ ms.locfileid: "94985793"
 
 * 에이전트 및 방화벽 설정이 그대로 작동 합니다. 변경할 필요가 없습니다. 
 * 기존 연결 모니터는 테스트 그룹 > 테스트 형식 > 연결 모니터에 매핑됩니다. **편집** 을 선택 하 여 새 연결 모니터의 속성을 보고 수정 하 고, 연결 모니터를 변경 하 여 템플릿을 다운로드 하 고, Azure Resource Manager를 통해 제출할 수 있습니다. 
-* Network Watcher 확장을 포함 하는 Azure virtual machines는 작업 영역과 메트릭에 데이터를 모두 보냅니다. 연결 모니터는 이전 메트릭 (ProbesFailedPercent 및 AverageRoundtripMs) 대신 새 메트릭 (ChecksFailedPercent [Preview] 및 RoundTripTimeMs [Preview])을 통해 데이터를 사용할 수 있도록 합니다. 
+* Network Watcher 확장을 포함 하는 Azure virtual machines는 작업 영역과 메트릭에 데이터를 모두 보냅니다. 연결 모니터는 이전 메트릭 (ProbesFailedPercent 및 AverageRoundtripMs) 대신 새 메트릭 (ChecksFailedPercent 및 RoundTripTimeMs)을 통해 데이터를 사용할 수 있도록 합니다. 
 * 데이터 모니터링:
    * **경고**: 새 메트릭에 자동으로 마이그레이션됩니다.
    * **대시보드 및 통합**: 메트릭 집합을 수동으로 편집 해야 합니다. 
     
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 사용자 지정 작업 영역을 사용 하는 경우 구독 및 Log Analytics 작업 영역의 지역에서 Network Watcher를 사용 하도록 설정 해야 합니다. 
 

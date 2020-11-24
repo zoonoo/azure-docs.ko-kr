@@ -4,13 +4,13 @@ description: 원본 제어에서 Language Understanding (LUIS) 앱을 유지 관
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/28/2020
-ms.openlocfilehash: 9e322ac89d8ecad93c2002aa302c155f895911f4
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 11/18/2020
+ms.openlocfilehash: cf5c88df4e2ac6b95e99a3a78b1bf1e45bf534ed
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019197"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95535557"
 ---
 # <a name="devops-practices-for-luis"></a>LUIS에 대한 DevOps 사례
 
@@ -53,7 +53,7 @@ LUIS 앱을 형식으로 저장 하 `.lu` 고 소스 제어에 추가 하려면 
 - 또는 텍스트 편집기를 사용 하 여 `.lu` LUIS 앱에 대 한 파일을 만들고 소스 제어 리포지토리에 추가 합니다.
 
 > [!TIP]
-> LUIS 앱의 JSON 내보내기로 작업 하는 경우 [BOTBUILDER LUIS CLI](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS)를 사용 하 여 [이를 ludown으로 변환할](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert) 수 있습니다. 옵션을 사용 하 여 `--sort` 의도 및 길이 발언 사전순으로 정렬 되도록 합니다.  
+> LUIS 앱의 JSON 내보내기를 사용 하는 경우 [이를 LUDown으로 변환할](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert)수 있습니다.  옵션을 사용 하 여 `--sort` 의도 및 길이 발언 사전순으로 정렬 되도록 합니다.  
 > 에 유의 **하십시오.** LUIS 포털에 기본 제공 되는 LU 내보내기 기능은 이미 출력을 정렬 합니다.
 
 ### <a name="build-the-luis-app-from-source"></a>원본에서 LUIS 앱 빌드

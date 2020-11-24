@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 517de5c4003655c5fea2f2e7949fb513b1a3c381
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 950fcdc5cd6a5bbf3fa61ebd5e23be89691c4370
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842433"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95535795"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
 Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. [플랫폼 메트릭은](data-platform-metrics.md) 기본적으로 수집 되며 일반적으로 Azure Monitor 메트릭 데이터베이스에 저장 됩니다. 이 문서에서는 플랫폼 메트릭 및 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성 하는 방법에 대해 자세히 설명 합니다.
@@ -52,7 +52,7 @@ Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로�
 
 ### <a name="destination-requirements"></a>대상 요구 사항
 
-진단 설정을 만들기 전에 진단 설정의 대상을 만들어야 합니다. 설정을 구성 하는 사용자에 게 두 구독에 대 한 적절 한 RBAC 액세스 권한이 있는 한, 대상은 로그를 보내는 리소스와 동일한 구독을가지고 있지 않아도 됩니다. 다음 표에서는 지역 제한을 포함 하 여 각 대상에 대 한 고유한 요구 사항을 제공 합니다.
+진단 설정을 만들기 전에 진단 설정의 대상을 만들어야 합니다. 설정을 구성 하는 사용자에 게 두 구독에 대 한 적절 한 Azure RBAC 액세스 권한이 있는 한, 대상은 로그를 보내는 리소스와 동일한 구독을가지고 있지 않아도 됩니다. 다음 표에서는 지역 제한을 포함 하 여 각 대상에 대 한 고유한 요구 사항을 제공 합니다.
 
 | 대상 | 요구 사항 |
 |:---|:---|
@@ -130,7 +130,7 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
         >
         > 예를 들어, *WorkflowRuntime* 에 대 한 보존 정책을 180 일로 설정 하 고 24 시간 후에 365 일로 설정 하면, 처음 24 시간 동안 저장 된 로그는 180 일 후 자동으로 삭제 되는 반면, 해당 형식의 모든 후속 로그는 365 일 후에 자동으로 삭제 됩니다. 나중에 보존 정책을 변경 해도 처음 24 시간 동안 로그가 365 일 동안 유지 되지 않습니다.
 
-6. **Save** 을 클릭합니다.
+6. **저장** 을 클릭합니다.
 
 잠시 후 새 설정이이 리소스에 대 한 설정 목록에 표시 되 고, 새 이벤트 데이터가 생성 될 때 로그가 지정 된 대상으로 스트리밍됩니다. 이벤트가 내보내지는 시간과 [Log Analytics 작업 영역에 표시](data-ingestion-time.md)되는 시간 사이에는 최대 15 분이 걸릴 수 있습니다.
 

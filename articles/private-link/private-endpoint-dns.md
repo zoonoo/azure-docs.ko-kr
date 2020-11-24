@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: bb1f4b5e37cecc33cef115f26c44ad6375c7e327
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d682495cb7add446adf1634de6e9ed6756d1468e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734381"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544380"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Azure 프라이빗 엔드포인트 DNS 구성
 
@@ -125,7 +125,7 @@ DNS는 개인 끝점 IP 주소를 성공적으로 확인 하 여 응용 프로�
 > [!IMPORTANT]
 > 다른 구독의 허브 및 스포크 모델에서 개인 끝점을 사용 하는 경우 허브에서 동일한 개인 DNS 영역을 다시 사용 합니다.
 
-이 시나리오에서는 공통 개인 끝점을 공유 하는 스포크 네트워크를 사용 하는 [허브 및 스포크](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) 네트워킹 토폴로지가 있으며 모든 스포크 가상 네트워크는 동일한 개인 DNS 영역에 연결 됩니다. 
+이 시나리오에서는 공통 개인 끝점을 공유 하는 스포크 네트워크를 사용 하는 [허브 및 스포크](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) 네트워킹 토폴로지가 있으며 모든 스포크 가상 네트워크는 동일한 개인 DNS 영역에 연결 됩니다. 
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Azure 제공 DNS를 사용하는 허브 및 스포크":::
 
@@ -141,7 +141,7 @@ DNS는 개인 끝점 IP 주소를 성공적으로 확인 하 여 응용 프로�
 제대로 구성 하려면 다음 리소스가 필요 합니다.
 
 - 온-프레미스 네트워크
-- [온-프레미스에 연결 된](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) 가상 네트워크
+- [온-프레미스에 연결 된](/azure/architecture/reference-architectures/hybrid-networking/) 가상 네트워크
 - Azure에 배포된 DNS 전달자 
 - [유형 A 레코드](../dns/dns-zones-records.md#record-types) 를 사용 하는 사설 DNS 영역 [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)
 - 개인 끝점 정보 (FQDN 레코드 이름 및 개인 IP 주소)
@@ -158,7 +158,7 @@ DNS는 개인 끝점 IP 주소를 성공적으로 확인 하 여 응용 프로�
 제대로 구성 하려면 다음 리소스가 필요 합니다.
 
 - 사용자 지정 DNS 솔루션이 있는 온-프레미스 네트워크 
-- [온-프레미스에 연결 된](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) 가상 네트워크
+- [온-프레미스에 연결 된](/azure/architecture/reference-architectures/hybrid-networking/) 가상 네트워크
 - Azure에 배포된 DNS 전달자
 - [유형 A 레코드](../dns/dns-zones-records.md#record-types) 를 사용 하는 사설 DNS 영역 [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)
 - 개인 끝점 정보 (FQDN 레코드 이름 및 개인 IP 주소)
@@ -187,7 +187,7 @@ DNS는 개인 끝점 IP 주소를 성공적으로 확인 하 여 응용 프로�
 제대로 구성 하려면 다음 리소스가 필요 합니다.
 
 - 온-프레미스 네트워크
-- [온-프레미스에 연결 된](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) 가상 네트워크
+- [온-프레미스에 연결 된](/azure/architecture/reference-architectures/hybrid-networking/) 가상 네트워크
 - [피어 링 가상 네트워크](../virtual-network/virtual-network-peering-overview.md) 
 - Azure에 배포된 DNS 전달자
 - [유형 A 레코드](../dns/dns-zones-records.md#record-types) 를 사용 하는 사설 DNS 영역 [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)

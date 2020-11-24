@@ -4,16 +4,16 @@ description: ASM(Azure 서비스 관리) 또는 RDFE 배포 모델이라고도 �
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8900d238e7542864e3dc53f9d192e579e2c96d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317385"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536696"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor에서 메트릭 및 자동 크기 조정을 위한 클래식 배포 모델 API 사용 중지
 
-Azure Monitor(이전에 처음 출시될 때는 Azure Insights)는 현재 클래식 VM 및 클래식 Cloud Services에 대한 자동 크기 조정 설정을 만들고 관리하며 해당 메트릭을 사용하는 기능을 제공합니다. 클래식 배포 모델 기반 API의 원래 세트는 모든 지역의 모든 Azure 공용 및 프라이빗 클라우드에서 **2019년 6월 30일 이후로 사용 중지**됩니다.   
+Azure Monitor(이전에 처음 출시될 때는 Azure Insights)는 현재 클래식 VM 및 클래식 Cloud Services에 대한 자동 크기 조정 설정을 만들고 관리하며 해당 메트릭을 사용하는 기능을 제공합니다. 클래식 배포 모델 기반 API의 원래 세트는 모든 지역의 모든 Azure 공용 및 프라이빗 클라우드에서 **2019년 6월 30일 이후로 사용 중지** 됩니다.   
 
 1년여 동안 Azure Resource Manager 기반 API 세트를 통해 동일한 작업이 지원되었습니다. Azure Portal은 자동 크기 조정 및 메트릭 둘 다에 새로운 REST API를 사용합니다. 이러한 Resource Manager API를 기반으로 하는 새로운 SDK, PowerShell 및 CLI도 사용할 수 있습니다. 모니터링 파트너 서비스는 Azure Monitor의 새로운 Resource Manager 기반 REST API를 사용합니다.  
 
@@ -53,7 +53,7 @@ Azure Portal 또는 다양한 [모니터링 파트너 서비스](./partners.md)�
 
 기존의 모든 자동 크기 조정 및 메트릭 기능은 새 API를 통해 계속 작동합니다.  
 
-최신 API로 마이그레이션하면 모든 모니터링 서비스에 대한 일관성 있는 RBAC(역할 기반 액세스 제어) 지원과 같은 Resource Manager 기반 기능이 제공됩니다. 메트릭에 대한 추가 기능도 얻을 수 있습니다. 
+최신 Api로 마이그레이션하려면 모든 모니터링 서비스에서 일관 된 Azure 역할 기반 액세스 제어 (Azure RBAC) 지원과 같은 리소스 관리자 기반 기능이 제공 됩니다. 메트릭에 대한 추가 기능도 얻을 수 있습니다. 
 
 - 차원 지원
 - 모든 서비스에서 일관성 있는 1분 메트릭 세분성 적용 
@@ -72,9 +72,9 @@ Azure 서비스나 해당 워크로드에 대한 직접적인 영향은 없습�
 
 앞에 나열된 클래식 API에 대한 모든 호출이 실패하고 다음과 유사한 오류 메시지가 반환됩니다.
 
-자동 크기 조정의 경우: *이 API는 더 이상 사용 되지 않습니다. Azure Portal, Azure Monitor SDK, PowerShell, CLI 또는 리소스 관리자 템플릿을 사용 하 여 자동 크기 조정 설정을 관리*합니다.  
+자동 크기 조정의 경우: *이 API는 더 이상 사용 되지 않습니다. Azure Portal, Azure Monitor SDK, PowerShell, CLI 또는 리소스 관리자 템플릿을 사용 하 여 자동 크기 조정 설정을 관리* 합니다.  
 
-메트릭의 경우: *이 API는 더 이상 사용 되지 않습니다. Azure Portal, Azure Monitor SDK, PowerShell, CLI를 사용 하 여 메트릭을 쿼리*합니다.
+메트릭의 경우: *이 API는 더 이상 사용 되지 않습니다. Azure Portal, Azure Monitor SDK, PowerShell, CLI를 사용 하 여 메트릭을 쿼리* 합니다.
 
 ## <a name="email-notifications"></a>이메일 알림
 

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 3236e0a95c6a4b4f57ac38ed067011c3d6848b5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 176f12a0a06a5bcae601463e30189bc139d3531f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89670542"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543853"
 ---
 # <a name="move-resources-across-regions-in-powershell"></a>PowerShell에서 지역 간 리소스 이동
 
@@ -25,7 +25,7 @@ Azure 리소스 이동의 PowerShell을 사용 하 여 Azure 리소스를 다른
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-- Azure 구독에는 리소스 이동 기에 대 한 액세스 권한이 있어야 하며 구독에 대 한 [소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) 또는 [사용자 액세스 관리자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) 권한이 있어야 합니다.
+- Azure 구독에는 리소스 이동 기에 대 한 액세스 권한이 있어야 하며 구독에 대 한 [소유자](../role-based-access-control/built-in-roles.md#owner) 또는 [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 권한이 있어야 합니다.
 - 리소스 이동 기는 변경 및 업그레이드를 추적 하지 않으므로 리소스를 이동 하기 전에 필요한 사항을 변경 해야 합니다.
 - PowerShell을 사용 하 여 리소스를 이동 하는 경우 현재 대상 지역 설정을 편집할 수 없습니다. 포털에서 이러한 설정을 직접 수정 합니다.
 - 이동 컬렉션에 리소스를 추가 하는 경우 다른 지역으로 이동 하기 위해 이동에 대 한 메타 데이터는 목적을 위해 만들어진 리소스 그룹에 저장 됩니다. 현재이 리소스 그룹은 미국 동부 2 또는 북아메리카 유럽 지역에 있을 수 있습니다. 이러한 지역 중 하나에 있는 메타 데이터를 사용 하 여 모든 공용 지역 간에 Azure 리소스를 이동할 수 있습니다.

@@ -3,12 +3,12 @@ title: 작업 런타임 환경 변수
 description: Azure Batch 분석을 위한 작업 런타임 환경 변수 가이드 및 참조입니다.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 6b8ade312146802ede6e12181a082a8fcd3842fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2cab5011eb04586dc361bf1cec9c1f162d70117
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85960914"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95538532"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 런타임 환경 변수
 
@@ -18,21 +18,21 @@ Batch에 환경 변수를 사용하는 방법에 대한 자세한 내용은 [Env
 
 ## <a name="environment-variable-visibility"></a>환경 변수 이름 표시
 
-이러한 환경 변수는 **태스크 사용자**, 즉 태스크가 실행되는 노드의 사용자 계정의 컨텍스트에서만 표시됩니다. RDP(원격 데스크톱 프로토콜) 또는 SSH(Secure Shell)를 통해 컴퓨팅 노드에 *원격으로 연결*하고 환경 변수를 나열하는 경우 이를 확인할 수 [없습니다](./error-handling.md#connect-to-compute-nodes) . 원격 연결에 사용되는 사용자 계정이 태스크에서 사용하는 계정과 동일하지 않기 때문입니다.
+이러한 환경 변수는 **태스크 사용자**, 즉 태스크가 실행되는 노드의 사용자 계정의 컨텍스트에서만 표시됩니다. RDP(원격 데스크톱 프로토콜) 또는 SSH(Secure Shell)를 통해 컴퓨팅 노드에 *원격으로 연결* 하고 환경 변수를 나열하는 경우 이를 확인할 수 [없습니다](./error-handling.md#connect-to-compute-nodes) . 원격 연결에 사용되는 사용자 계정이 태스크에서 사용하는 계정과 동일하지 않기 때문입니다.
 
 환경 변수의 현재 값을 가져오려면 Windows 컴퓨팅 노드에서는 `cmd.exe`를, Linux 노드에서는 `/bin/sh`를 시작합니다.
 
 `cmd /c set <ENV_VARIABLE_NAME>`
 
-`/bin/sh printenv <ENV_VARIABLE_NAME>`
+`/bin/sh -c "printenv <ENV_VARIABLE_NAME>"`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>환경 변수의 명령줄 확장
 
-컴퓨팅 노드에서 태스크로 실행되는 명령줄은 셸에서 실행되지 않습니다. 따라서 이러한 명령줄은 기본적으로 환경 변수 확장과 같은 셸 기능을 활용할 수 없습니다(`PATH` 포함). 이러한 기능을 활용하려면 명령줄에서 **셸을 호출**해야 합니다. 예를 들어 Windows 컴퓨팅 노드에서 `cmd.exe`를 실행하거나 Linux 노드에서 `/bin/sh`를 실행합니다.
+컴퓨팅 노드에서 태스크로 실행되는 명령줄은 셸에서 실행되지 않습니다. 따라서 이러한 명령줄은 기본적으로 환경 변수 확장과 같은 셸 기능을 활용할 수 없습니다(`PATH` 포함). 이러한 기능을 활용하려면 명령줄에서 **셸을 호출** 해야 합니다. 예를 들어 Windows 컴퓨팅 노드에서 `cmd.exe`를 실행하거나 Linux 노드에서 `/bin/sh`를 실행합니다.
 
 `cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
-`/bin/sh -c MyTaskApplication $MY_ENV_VAR`
+`/bin/sh -c "MyTaskApplication $MY_ENV_VAR"`
 
 ## <a name="environment-variables"></a>환경 변수
 

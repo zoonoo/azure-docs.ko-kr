@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45a7a146dd929408b50a0045fe2598726ee05505
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77539470"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544312"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Azure Private Link 연결 문제 해결
 
@@ -37,7 +37,7 @@ Azure 개인 링크를 사용 하면 가상 네트워크의 개인 끝점을 통
 
 ## <a name="deployment-troubleshooting"></a>배포 문제 해결
 
-개인 링크 서비스에 대 한 사용자가 선택한 서브넷에서 원본 IP 주소를 선택할 수 없는 경우 문제 해결을 위해 [개인 링크 서비스에서 네트워크 정책 사용 안 함](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) 정보를 검토 합니다.
+개인 링크 서비스에 대 한 사용자가 선택한 서브넷에서 원본 IP 주소를 선택할 수 없는 경우 문제 해결을 위해 [개인 링크 서비스에서 네트워크 정책 사용 안 함](./disable-private-link-service-network-policy.md) 정보를 검토 합니다.
 
 원본 IP 주소를 선택 하는 서브넷에 대해 **privateLinkServiceNetworkPolicies** 설정을 사용 하지 않도록 설정 했는지 확인 합니다.
 
@@ -47,11 +47,11 @@ Azure 개인 링크를 사용 하면 가상 네트워크의 개인 끝점을 통
 
 1. 리소스를 검색 하 여 개인 링크 구성을 검토 합니다.
 
-    a. **개인 링크 센터**로 이동 합니다.
+    a. **개인 링크 센터** 로 이동 합니다.
 
       ![개인 링크 센터](./media/private-link-tsg/private-link-center.png)
 
-    b. 왼쪽 창에서 **개인 링크 서비스**를 선택 합니다.
+    b. 왼쪽 창에서 **개인 링크 서비스** 를 선택 합니다.
 
       ![개인 링크 서비스](./media/private-link-tsg/private-link-service.png)
 
@@ -59,11 +59,11 @@ Azure 개인 링크를 사용 하면 가상 네트워크의 개인 끝점을 통
 
     d. 개인 끝점 연결을 검토 합니다.
      - 연결 하려는 개인 끝점이 **승인** 된 연결 상태와 함께 나열 되는지 확인 합니다.
-     - **보류 중인**상태 이면 해당 상태를 선택 하 고 승인 합니다.
+     - **보류 중인** 상태 이면 해당 상태를 선택 하 고 승인 합니다.
 
        ![개인 끝점 연결](./media/private-link-tsg/pls-private-endpoint-connections.png)
 
-     - 이름을 선택 하 여 연결 하려는 개인 끝점으로 이동 합니다. 연결 상태가 **승인**됨으로 표시 되는지 확인 합니다.
+     - 이름을 선택 하 여 연결 하려는 개인 끝점으로 이동 합니다. 연결 상태가 **승인** 됨으로 표시 되는지 확인 합니다.
 
        ![개인 끝점 연결 개요](./media/private-link-tsg/pls-private-endpoint-overview.png)
 
@@ -87,9 +87,9 @@ Azure 개인 링크를 사용 하면 가상 네트워크의 개인 끝점을 통
        ![부하 분산 장치 정보 확인](./media/private-link-tsg/pls-overview-pane-ilb.png)
 
      - 부하 분산 장치 설정이 예상 대로 구성 되었는지 확인 합니다.
-       - **프런트 엔드 IP 구성을**검토 합니다.
-       - **백 엔드 풀**을 검토 합니다.
-       - **부하 분산 규칙**을 검토 합니다.
+       - **프런트 엔드 IP 구성을** 검토 합니다.
+       - **백 엔드 풀** 을 검토 합니다.
+       - **부하 분산 규칙** 을 검토 합니다.
 
        ![부하 분산 장치 속성 확인](./media/private-link-tsg/pls-ilb-properties.png)
 
@@ -99,10 +99,10 @@ Azure 개인 링크를 사용 하면 가상 네트워크의 개인 끝점을 통
        - 연결에서 부하 분산 규칙에 따라 백 엔드 풀에 연결 하면 부하 분산 장치가 작동 합니다.
        - Azure Monitor를 통해 부하 분산 장치 메트릭을 검토 하 여 데이터가 부하 분산 장치를 통과 하는지 확인할 수도 있습니다.
 
-1. [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) 를 사용 하 여 데이터 흐름을 확인 합니다.
+1. [Azure Monitor](../azure-monitor/overview.md) 를 사용 하 여 데이터 흐름을 확인 합니다.
 
-    a. 개인 링크 서비스 리소스에서 **메트릭**을 선택 합니다.
-     - **In** 또는 **bytes Out**을 선택 합니다.
+    a. 개인 링크 서비스 리소스에서 **메트릭** 을 선택 합니다.
+     - **In** 또는 **bytes Out** 을 선택 합니다.
      - 개인 링크 서비스에 연결 하려고 할 때 데이터가 흐르는 경우를 확인 합니다. 약 10 분의 지연이 발생 합니다.
 
        ![개인 링크 서비스 메트릭 확인](./media/private-link-tsg/pls-metrics.png)
@@ -111,5 +111,5 @@ Azure 개인 링크를 사용 하면 가상 네트워크의 개인 끝점을 통
 
 ## <a name="next-steps"></a>다음 단계
 
- * [개인 링크 서비스 만들기 (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
+ * [개인 링크 서비스 만들기 (CLI)](./create-private-link-service-cli.md)
  * [Azure 개인 끝점 문제 해결 가이드](troubleshoot-private-endpoint-connectivity.md)

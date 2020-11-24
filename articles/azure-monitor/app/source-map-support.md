@@ -6,12 +6,12 @@ author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5b15492a36032a53ac81929eb55bce0bc70e040c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6403ecd534d17298a10ffcf8f089a2b010fa3a51
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335134"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536458"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>JavaScript 응용 프로그램에 대 한 소스 맵 지원
 
@@ -58,7 +58,7 @@ Azure Pipelines를 사용 하 여 응용 프로그램을 지속적으로 빌드 
 Application Insights 리소스에 연결 된 저장소 계정 또는 Blob 컨테이너를 구성 하거나 변경 하려는 경우 Application Insights 리소스의 *속성* 탭을 확인 하 여 수행할 수 있습니다.
 
 1. Application Insights 리소스의 *속성* 탭으로 이동 합니다.
-2. *원본 맵 blob 컨테이너 변경*을 클릭 합니다.
+2. *원본 맵 blob 컨테이너 변경* 을 클릭 합니다.
 3. 원본 맵 컨테이너와 다른 Blob 컨테이너를 선택 합니다.
 4. `Apply`을 클릭합니다.
 
@@ -67,7 +67,7 @@ Application Insights 리소스에 연결 된 저장소 계정 또는 Blob 컨테
 
 ## <a name="troubleshooting"></a>문제 해결
 
-### <a name="required-role-based-access-control-rbac-settings-on-your-blob-container"></a>Blob 컨테이너에서 필요한 RBAC (역할 기반 액세스 제어) 설정
+### <a name="required-azure-role-based-access-control-azure-rbac-settings-on-your-blob-container"></a>Blob 컨테이너에 대 한 필수 Azure RBAC (역할 기반 액세스 제어) 설정
 
 이 기능을 사용 하는 포털의 모든 사용자는 적어도 Blob 컨테이너에 [저장소 Blob 데이터 판독기][storage blob data reader] 로 할당 되어야 합니다. 이 기능을 통해 소스 맵을 사용 하는 다른 모든 사용자에 게이 역할을 할당 해야 합니다.
 

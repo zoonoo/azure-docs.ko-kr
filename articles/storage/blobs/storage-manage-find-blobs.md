@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 3174dbd36d9bb39ce606ec12f88397f795e91526
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4f84c3c2f6fc671a8cb6ac70313361540e3dd815
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832435"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523283"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Blob 인덱스 태그를 사용 하 여 Azure Blob 데이터 관리 및 찾기 (미리 보기)
 
@@ -51,7 +51,7 @@ Blob 인덱스를 사용 하는 방법에 대 한 예제를 시작 하려면 [bl
 Blob 인덱스 태그는 저장소 계정 내의 새 개체 또는 기존 개체에 적용할 수 있는 키-값 특성입니다. [Put blob](/rest/api/storageservices/put-blob), [put Block List](/rest/api/storageservices/put-block-list)또는 [Copy blob](/rest/api/storageservices/copy-blob) 작업 및 선택적 헤더를 사용 하 여 업로드 프로세스 중에 인덱스 태그를 지정할 수 있습니다 `x-ms-tags` . 저장소 계정에 blob이 이미 있는 경우 요청 본문의 인덱스 태그를 사용 하 여 서식이 지정 된 XML 문서를 전달 하는 [Set Blob 태그](/rest/api/storageservices/set-blob-tags) 를 호출 합니다.
 
 > [!IMPORTANT]
-> Blob 인덱스 태그 설정은 blob의 태그 (SAS 권한)에 액세스할 수 있는 권한이 있는 공유 액세스 서명을 사용 하는 모든 사용자 및 [저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) 에 의해 수행 될 수 있습니다 `t` .
+> Blob 인덱스 태그 설정은 blob의 태그 (SAS 권한)에 액세스할 수 있는 권한이 있는 공유 액세스 서명을 사용 하는 모든 사용자 및 [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 에 의해 수행 될 수 있습니다 `t` .
 >
 > 또한 권한이 있는 RBAC 사용자는 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` 이 작업을 수행할 수 있습니다.
 
@@ -87,7 +87,7 @@ Blob 인덱스 태그에는 다음과 같은 제한이 적용 됩니다.
 Blob 인덱스 태그는 blob 데이터와 함께 하위 리소스로 저장 되며 기본 blob 데이터 콘텐츠와 독립적으로 검색할 수 있습니다. Blob [태그 가져오기](/rest/api/storageservices/get-blob-tags) 작업을 사용 하 여 단일 blob에 대 한 blob 인덱스 태그를 검색할 수 있습니다. 매개 변수를 사용 하 여 [Blob 나열](/rest/api/storageservices/list-blobs) 작업은 `include:tags` blob 인덱스 태그와 함께 컨테이너 내의 모든 blob도 반환 합니다.
 
 > [!IMPORTANT]
-> Blob 인덱스 태그 가져오기 및 나열은 blob의 태그 (SAS 권한)에 액세스할 수 있는 권한이 있는 공유 액세스 서명을 가진 모든 사용자가 [저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) 에 의해 수행 될 수 있습니다 `t` .
+> Blob 인덱스 태그 가져오기 및 나열은 blob의 태그 (SAS 권한)에 액세스할 수 있는 권한이 있는 공유 액세스 서명을 가진 모든 사용자가 [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 에 의해 수행 될 수 있습니다 `t` .
 >
 > 또한 권한이 있는 RBAC 사용자는 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` 이 작업을 수행할 수 있습니다.
 
@@ -100,7 +100,7 @@ Blob 인덱스 태그는 blob 데이터와 함께 하위 리소스로 저장 되
 [태그별로 Blob 찾기](/rest/api/storageservices/find-blobs-by-tags) 작업을 사용 하면 인덱스 태그가 지정 된 쿼리 식과 일치 하는 필터링 된 blob 집합을 가져올 수 있습니다. `Find Blobs by Tags` 는 저장소 계정 내의 모든 컨테이너에서 필터링을 지원 하거나 필터링의 범위를 단일 컨테이너로 지정할 수 있습니다. 모든 인덱스 태그 키 및 값은 문자열 이므로 관계형 연산자는 사전적 정렬을 사용 합니다.
 
 > [!IMPORTANT]
-> Blob 인덱스 태그를 사용 하 여 데이터 찾기는 [저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) 및 태그로 blob을 찾을 수 있는 권한이 있는 모든 사용자 (SAS 권한)에 의해 수행 될 수 있습니다 `f` .
+> Blob 인덱스 태그를 사용 하 여 데이터 찾기는 [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 및 태그로 blob을 찾을 수 있는 권한이 있는 모든 사용자 (SAS 권한)에 의해 수행 될 수 있습니다 `f` .
 >
 > 또한 권한이 있는 RBAC 사용자는 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` 이 작업을 수행할 수 있습니다.
 
@@ -235,7 +235,7 @@ Blob 인덱스 태그는 blob 데이터에 대 한 하위 리소스입니다. Bl
 | [Blob 태그 가져오기](/rest/api/storageservices/get-blob-tags)           | Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/태그/읽기     |
 | [태그로 Blob 찾기](/rest/api/storageservices/find-blobs-by-tags) | Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/필터/작업 |
 
-인덱스 태그 작업을 수행 하려면 기본 blob 데이터와는 별도로 추가 사용 권한이 필요 합니다. [저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) 역할에는 세 가지 Blob 인덱스 태그 작업 모두에 대 한 사용 권한이 부여 됩니다. [저장소 Blob 데이터 판독기](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) 에는 및 작업에 대 한 권한만 부여 됩니다 `Find Blobs by Tags` `Get Blob Tags` .
+인덱스 태그 작업을 수행 하려면 기본 blob 데이터와는 별도로 추가 사용 권한이 필요 합니다. [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할에는 세 가지 Blob 인덱스 태그 작업 모두에 대 한 사용 권한이 부여 됩니다. [저장소 Blob 데이터 판독기](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 에는 및 작업에 대 한 권한만 부여 됩니다 `Find Blobs by Tags` `Get Blob Tags` .
 
 ### <a name="sas-permissions"></a>SAS 권한
 

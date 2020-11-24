@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a5d685e49d941d7b6febbc220cdbfbcb631c4496
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 17e01844463b6d18bd7d2c3b56ee86d938682b8e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94746366"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536322"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
@@ -149,6 +149,10 @@ ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](./itsmc-overview
 작업 그룹에서 논리 앱 작업의 수가 제한될 수 있습니다.
 
 ### <a name="secure-webhook"></a>보안 웹후크
+
+> [!NOTE]
+> 웹 후크 작업을 사용 하려면 대상 webhook 끝점에서 경고에 대 한 세부 정보가 제대로 작동 하지 않거나 POST 작업의 일부로 제공 된 경고 컨텍스트 정보를 구문 분석할 수 있어야 합니다. 웹 후크 끝점에서 경고 컨텍스트 정보를 자체적으로 처리할 수 없는 경우에는 [논리 앱 작업](./action-groups-logic-app.md) 같은 솔루션을 사용 하 여 웹 후크의 예상 데이터 형식과 일치 하도록 경고 컨텍스트 정보의 사용자 지정 조작을 수행할 수 있습니다.
+
 작업 그룹 웹후크 작업을 사용하면 Azure Active Directory를 활용하여 작업 그룹과 보호된 웹 API(웹후크 엔드포인트) 간의 연결을 보호할 수 있습니다. 이 기능을 활용하기 위한 전체 워크플로는 아래에 설명되어 있습니다. Azure AD 애플리케이션 및 서비스 주체에 대한 개요는 [Microsoft ID 플랫폼(v2.0) 개요](../../active-directory/develop/v2-overview.md)를 참조하세요.
 
 1. 보호된 웹 API에 대한 Azure AD 애플리케이션을 만듭니다. [보호 된 웹 API: 앱 등록](../../active-directory/develop/scenario-protected-web-api-app-registration.md)을 참조 하세요.
@@ -259,6 +263,10 @@ Write-Host $myApp.AppRoles
 지원되는 국가/지역에 대한 가격은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에 나와 있습니다.
 
 ### <a name="webhook"></a>웹후크
+
+> [!NOTE]
+> 웹 후크 작업을 사용 하려면 대상 webhook 끝점에서 경고에 대 한 세부 정보가 제대로 작동 하지 않거나 POST 작업의 일부로 제공 된 경고 컨텍스트 정보를 구문 분석할 수 있어야 합니다. 웹 후크 끝점에서 경고 컨텍스트 정보를 자체적으로 처리할 수 없는 경우에는 [논리 앱 작업](./action-groups-logic-app.md) 같은 솔루션을 사용 하 여 웹 후크의 예상 데이터 형식과 일치 하도록 경고 컨텍스트 정보의 사용자 지정 조작을 수행할 수 있습니다.
+
 웹 후크는 다음 규칙을 사용 하 여 처리 됩니다.
 - Webhook 호출은 최대 3 회 시도 됩니다.
 - 제한 시간 내에 응답이 수신 되지 않거나 다음 HTTP 상태 코드 중 하나가 반환 되 면 (408, 429, 503 또는 504) 호출을 다시 시도 합니다.
@@ -389,7 +397,7 @@ Write-Host $myApp.AppRoles
 3. 리소스 그룹으로 이동한 다음 만든 *네트워크 보안 그룹* 을 클릭 합니다.
 
     1. *인바운드 보안 규칙* 을 선택 합니다.
-    1. **추가** 를 클릭 합니다.
+    1. **추가** 를 클릭합니다.
     
     :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="서비스 태그를 추가 하는 방법에 대 한 예입니다."border="true":::
 

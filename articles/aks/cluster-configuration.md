@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 352c057a74d1be5f440041b9f13127e8730edf82
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4252e3a7f8c3ff9d0ec782a2a9222553c063463c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698073"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533279"
 ---
 # <a name="configure-an-aks-cluster"></a>AKS 클러스터 구성
 
@@ -237,47 +237,28 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 일반 Gen1 노드 풀을 만들려면 사용자 지정 태그를 생략 하 여이 작업을 수행할 수 있습니다 `--aks-custom-headers` .
 
 
-## <a name="ephemeral-os-preview"></a>임시 OS (미리 보기)
+## <a name="ephemeral-os"></a>임시 OS
 
-기본적으로 Azure 가상 컴퓨터에 대 한 운영 체제 디스크는 Azure storage에 자동으로 복제 되어 데이터 손실을 방지 하 고 VM을 다른 호스트에 재배치 해야 합니다. 그러나 컨테이너는 로컬 상태를 유지 하도록 설계 되지 않았으므로이 동작은 제한 된 값을 제공 하는 반면, 느린 노드 프로 비전 및 더 높은 읽기/쓰기 대기 시간을 비롯 한 몇 가지 단점을 제공 합니다.
+기본적으로 Azure는 가상 머신에 대 한 운영 체제 디스크를 자동으로 Azure storage에 복제 하 여 데이터 손실을 방지 하 고 VM을 다른 호스트에 재배치 해야 할 필요가 있습니다. 그러나 컨테이너는 로컬 상태를 유지 하도록 설계 되지 않았으므로이 동작은 제한 된 값을 제공 하는 반면, 느린 노드 프로 비전 및 더 높은 읽기/쓰기 대기 시간을 비롯 한 몇 가지 단점을 제공 합니다.
 
 이와 반대로 삭제 된 OS 디스크는 임시 디스크와 마찬가지로 호스트 컴퓨터에만 저장 됩니다. 이를 통해 더 빠른 노드 크기 조정 및 클러스터 업그레이드와 함께 읽기/쓰기 대기 시간이 줄어듭니다.
 
 임시 디스크와 마찬가지로, 임시 OS 디스크는 가상 컴퓨터의 가격에 포함 되어 있으므로 추가 저장소 비용이 발생 하지 않습니다.
 
-`EnableEphemeralOSDiskPreview` 기능을 등록합니다.
+> [!IMPORTANT]
+>사용자가 OS에 대해 관리 디스크를 명시적으로 요청 하지 않으면 지정 된 nodepool 구성에 대해 가능 하면 AKS는 기본적으로 사용 후 삭제 OS로 설정 됩니다.
 
-```azurecli
-az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
-```
+사용 후 삭제 OS를 사용 하는 경우 OS 디스크는 VM 캐시에 맞아야 합니다. VM 캐시의 크기는 IO 처리량 ("GiB의 캐시 크기") 옆의 괄호 안에 [Azure 설명서](../virtual-machines/dv3-dsv3-series.md) 에서 사용할 수 있습니다.
 
-상태가 **등록됨** 으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+AKS 기본 VM Standard_DS2_v2 크기를 100GB의 기본 OS 디스크 크기 (예: 100GB)로 사용 하는 경우이 VM 크기는 사용 후 삭제 OS를 지원 하지만 캐시 크기의 86GB 있습니다. 사용자가 명시적으로 지정 하지 않은 경우이 구성은 기본적으로 관리 디스크로 설정 됩니다. 사용자가 임시 OS를 명시적으로 요청한 경우 유효성 검사 오류가 표시 됩니다.
 
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
-```
+사용자가 60GB OS 디스크를 사용 하 여 동일한 Standard_DS2_v2를 요청 하는 경우이 구성은 기본적으로 사용 후 삭제 OS로 설정 됩니다. 요청 된 60GB 크기는 86GB의 최대 캐시 크기 보다 작습니다.
 
-상태가 등록됨으로 표시되면 [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
+100GB OS 디스크와 Standard_D8s_v3 사용 하 여이 VM 크기는 사용 후 삭제 OS 및 200GB의 캐시 공간을 지원 합니다. 사용자가 OS 디스크 유형을 지정 하지 않으면 nodepool은 기본적으로 사용 후 삭제 OS를 수신 합니다. 
 
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
+사용 후 삭제 OS에는 Azure CLI 버전 2.15.0 이상이 필요 합니다.
 
-사용 후 삭제 OS에는 aks-preview CLI 확장의 버전 0.4.63 이상이 필요 합니다.
-
-Aks-preview CLI 확장을 설치 하려면 다음 Azure CLI 명령을 사용 합니다.
-
-```azurecli
-az extension add --name aks-preview
-```
-
-aks-preview CLI 확장을 업데이트하려면 다음 Azure CLI 명령을 사용합니다.
-
-```azurecli
-az extension update --name aks-preview
-```
-
-### <a name="use-ephemeral-os-on-new-clusters-preview"></a>새 클러스터에서 사용 후 삭제 OS 사용 (미리 보기)
+### <a name="use-ephemeral-os-on-new-clusters"></a>새 클러스터에서 사용 후 삭제 OS 사용
 
 클러스터를 만들 때 사용 후 삭제 OS 디스크를 사용 하도록 클러스터를 구성 합니다. `--node-osdisk-type`새 클러스터에 대 한 os 디스크 유형으로 사용 후 삭제 os를 설정 하려면 플래그를 사용 합니다.
 
@@ -285,9 +266,9 @@ az extension update --name aks-preview
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-네트워크에 연결 된 OS 디스크를 사용 하 여 일반 클러스터를 만들려는 경우 사용자 지정 태그를 생략 하거나를 지정 하 여 수행할 수 있습니다 `--node-osdisk-type` `--node-osdisk-type=Managed` . 또한 아래와 같이 더 많은 임시 OS 노드 풀을 추가 하도록 선택할 수 있습니다.
+네트워크에 연결 된 OS 디스크를 사용 하 여 일반 클러스터를 만들려는 경우를 지정 하 여이 작업을 수행할 수 있습니다 `--node-osdisk-type=Managed` . 또한 아래와 같이 더 많은 임시 OS 노드 풀을 추가 하도록 선택할 수 있습니다.
 
-### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>기존 클러스터에서 사용 후 삭제 OS 사용 (미리 보기)
+### <a name="use-ephemeral-os-on-existing-clusters"></a>기존 클러스터에서 사용 후 삭제 OS 사용
 새 노드 풀을 구성 하 여 사용 후 삭제 OS 디스크를 사용 합니다. 플래그를 사용 `--node-osdisk-type` 하 여 os 디스크 유형으로 해당 노드 풀의 os 디스크 유형으로 설정 합니다.
 
 ```azurecli
@@ -297,7 +278,7 @@ az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-grou
 > [!IMPORTANT]
 > 사용 후 삭제 OS를 사용 하면 vm 캐시 크기까지 VM 및 인스턴스 이미지를 배포할 수 있습니다. AKS의 경우 기본 노드 OS 디스크 구성은 100GiB을 사용 합니다. 즉, 캐시가 100 GiB 보다 큰 VM 크기가 필요 합니다. 기본 Standard_DS2_v2의 캐시 크기는 86 GiB입니다 .이는 충분히 크지 않습니다. Standard_DS3_v2의 캐시 크기가 172 GiB입니다 .이는 크기가 충분 합니다. 또한를 사용 하 여 OS 디스크의 기본 크기를 줄일 수 있습니다 `--node-osdisk-size` . AKS 이미지의 최소 크기는 30GiB입니다. 
 
-네트워크에 연결 된 OS 디스크를 사용 하 여 노드 풀을 만들려면 사용자 지정 태그를 생략 하 여 그렇게 할 수 있습니다 `--node-osdisk-type` .
+네트워크에 연결 된 OS 디스크를 사용 하 여 노드 풀을 만들려면를 지정 하 여이 작업을 수행할 수 있습니다 `--node-osdisk-type Managed` .
 
 ## <a name="custom-resource-group-name"></a>사용자 지정 리소스 그룹 이름
 

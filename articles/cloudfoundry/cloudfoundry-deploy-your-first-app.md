@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 18f9f62ba28595289d37975200352c26788e69cc
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: c8afc4f15f421a7b60b95d09b954e7742c24c66e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040035"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519679"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Microsoft Azure의 Cloud Foundry에 첫 번째 앱 배포
 
@@ -64,7 +64,7 @@ cf target -o testorg -s dev
 이제 애플리케이션을 배포할 때 새 조직 및 공간에 자동으로 만들어집니다. 현재 새 조직/공간에 앱이 없는지 확인하려면 `cf apps`를 다시 입력합니다.
 
 > [!NOTE] 
-> 조직과 공간 및 RBAC(역할 기반 액세스 제어)에 사용할 수 있는 방법에 대한 자세한 내용 [Cloud Foundry 설명서][cf-orgs-spaces-docs]를 참조하세요.
+> 조직 및 공백과이를 사용 하 여 Cloud Foundry RBAC (역할 기반 액세스 제어)를 Cloud Foundry 하는 방법에 대 한 자세한 내용은 [Cloud Foundry 설명서][cf-orgs-spaces-docs]를 참조 하세요.
 
 ## <a name="deploy-an-application"></a>애플리케이션 배포
 

@@ -12,12 +12,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 19372b30a5e56738230216777897c08b07a0a86a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49203195bf7746d0bff1b9543d1641f69ab23359
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86170703"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542680"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Ruby에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS를 Twilio 하 고 사용 하는 방법에 대 한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조 하세요.
@@ -25,7 +25,7 @@ ms.locfileid: "86170703"
 ## <a name="what-is-twilio"></a><a id="WhatIs"></a>Twilio 정의
 Twilio는 기존 웹 언어와 기술을 사용하여 음성 및 SMS 애플리케이션을 빌드할 수 있게 해주는 전화 통신 웹 서비스 API입니다. Twilio는 타사 서비스입니다(Azure 기능 또는 Microsoft 제품 아님).
 
-**Twilio 음성**을 통해 애플리케이션에서 전화를 걸고 받을 수 있습니다. **Twilio SMS**를 사용하면 애플리케이션에서 SMS 메시지를 작성하고 받을 수 있습니다. **Twilio 클라이언트**를 사용하면 애플리케이션에서 모바일 연결을 비롯한 기존 인터넷 연결을 통해 음성 통신을 사용할 수 있습니다.
+**Twilio 음성** 을 통해 애플리케이션에서 전화를 걸고 받을 수 있습니다. **Twilio SMS** 를 사용하면 애플리케이션에서 SMS 메시지를 작성하고 받을 수 있습니다. **Twilio 클라이언트** 를 사용하면 애플리케이션에서 모바일 연결을 비롯한 기존 인터넷 연결을 통해 음성 통신을 사용할 수 있습니다.
 
 ## <a name="twilio-pricing-and-special-offers"></a><a id="Pricing"></a>Twilio 가격 책정 및 특별 제공
 Twilio 가격 책정 정보는 [Twilio 가격 책정][twilio_pricing]에서 확인할 수 있습니다. Azure 고객은 [특별 제공][special_offer](문자 1000통 또는 인바운드 통화 1000분의 무료 크레딧)을 받습니다. 이 제품에 등록 하거나 자세한 내용을 보려면을 (를) 방문 하세요 [https://ahoy.twilio.com/azure][special_offer] .  
@@ -48,27 +48,27 @@ TwiML은 Twilio에 통화 또는 SMS 처리 방법을 알려 주는 XML 기반 �
 모든 TwiML 문서는 `<Response>` 를 루트 요소로 포함하고 있습니다. 거기서 Twilio 동사를 사용하여 애플리케이션의 동작을 정의합니다.
 
 ### <a name="twiml-verbs"></a><a id="Verbs"></a>TwiML 동사
-Twilio 동사는 Twilio에 **수행할 작업**을 알려 주는 XML 태그입니다. 예를 들어, ** &lt; &gt; ** Twilio는 호출 시 통화에 게 메시지를 배달 하도록 지시 합니다. 
+Twilio 동사는 Twilio에 **수행할 작업** 을 알려 주는 XML 태그입니다. 예를 들어, **&lt; &gt;** Twilio는 호출 시 통화에 게 메시지를 배달 하도록 지시 합니다. 
 
 다음은 Twilio 동사의 목록입니다.
 
-* ** &lt; 전화 &gt; 걸기**: 호출자를 다른 휴대폰에 연결 합니다.
-* ** &lt; 수집 &gt; **: 전화 키패드에서 입력 한 숫자를 수집 합니다.
-* ** &lt; 끊기 &gt; **: 호출을 종료 합니다.
-* ** &lt; 재생 &gt; **: 오디오 파일을 재생 합니다.
-* ** &lt; 일시 &gt; 중지**: 지정 된 시간 (초) 동안 자동으로 대기 합니다.
-* ** &lt; Record &gt; **: 호출자의 음성을 기록 하 고 기록을 포함 하는 파일의 URL을 반환 합니다.
-* ** &lt; 리디렉션 &gt; **: 호출 또는 SMS의 제어를 다른 URL의 TwiML으로 전송 합니다.
-* ** &lt; 거부 &gt; **: 청구 하지 않고 Twilio 번호에 대 한 들어오는 호출을 거부 합니다.
-* ** &lt; 예 &gt; **:를 호출 하는 경우 텍스트를 음성으로 변환 합니다.
-* ** &lt; SMS &gt; **: sms 메시지를 보냅니다.
+* **&lt; 전화 &gt; 걸기**: 호출자를 다른 휴대폰에 연결 합니다.
+* **&lt; 수집 &gt;**: 전화 키패드에서 입력 한 숫자를 수집 합니다.
+* **&lt; 끊기 &gt;**: 호출을 종료 합니다.
+* **&lt; 재생 &gt;**: 오디오 파일을 재생 합니다.
+* **&lt; 일시 &gt; 중지**: 지정 된 시간 (초) 동안 자동으로 대기 합니다.
+* **&lt; Record &gt;**: 호출자의 음성을 기록 하 고 기록을 포함 하는 파일의 URL을 반환 합니다.
+* **&lt; 리디렉션 &gt;**: 호출 또는 SMS의 제어를 다른 URL의 TwiML으로 전송 합니다.
+* **&lt; 거부 &gt;**: 청구 하지 않고 Twilio 번호에 대 한 들어오는 호출을 거부 합니다.
+* **&lt; 예 &gt;**:를 호출 하는 경우 텍스트를 음성으로 변환 합니다.
+* **&lt; SMS &gt;**: sms 메시지를 보냅니다.
 
 Twilio 동사, 특성 및 TwiML에 대한 자세한 내용은 [TwiML][twiml](영문)을 참조하십시오. Twilio API에 대한 자세한 내용은 [Twilio API][twilio_api](영문)를 참조하십시오.
 
 ## <a name="create-a-twilio-account"></a><a id="CreateAccount"></a>Twilio 계정 만들기
 Twilio 계정을 사용할 준비가 되었다면 [Twilio 체험][try_twilio](영문)에서 등록하십시오. 무료 계정으로 시작했다가 나중에 계정을 업그레이드할 수 있습니다.
 
-Twilio 계정을 등록할 때 애플리케이션의 무료 전화 번호를 받습니다. 계정 SID 및 인증 토큰도 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하십시오. 계정 SID 및 인증 토큰은 [Twilio 계정 페이지][twilio_account](영문)의 **ACCOUNT SID** 및 **AUTH TOKEN**에서 각각 확인할 수 있습니다.
+Twilio 계정을 등록할 때 애플리케이션의 무료 전화 번호를 받습니다. 계정 SID 및 인증 토큰도 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하십시오. 계정 SID 및 인증 토큰은 [Twilio 계정 페이지][twilio_account](영문)의 **ACCOUNT SID** 및 **AUTH TOKEN** 에서 각각 확인할 수 있습니다.
 
 ### <a name="verify-phone-numbers"></a><a id="VerifyPhoneNumbers"></a>전화 번호 확인
 Twilio에서 제공한 번호 외에 애플리케이션에서 사용하기 위해 제어하는 번호(즉, 휴대폰 또는 집 전화 번호)도 확인할 수 있습니다. 
@@ -206,4 +206,4 @@ Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내�
 [twilio_support]: https://www.twilio.com/help/contact
 [twilio_quickstarts]: https://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
-[azure_vm_setup]: https://docs.microsoft.com/azure/virtual-machines/linux/classic/ruby-rails-web-app
+[azure_vm_setup]: /previous-versions/azure/virtual-machines/linux/classic/ruby-rails-web-app

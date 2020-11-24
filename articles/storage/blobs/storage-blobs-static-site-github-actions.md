@@ -9,22 +9,22 @@ ms.reviewer: dineshm
 ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3adbc0a2d55a2adc2ab7c1f82b0a358542eefc2a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 799c0dbc3ddb673cafe0fe4962f7346a841bd4b7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842450"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543105"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트를 배포 하는 GitHub 작업 워크플로를 설정 합니다.
 
 워크플로를 사용 하 여 Azure storage 계정에 정적 사이트를 배포 하 여 [GitHub 작업](https://docs.github.com/en/actions) 을 시작 합니다. GitHub 작업 워크플로를 설정 하면 사이트의 코드를 변경 하는 경우 GitHub에서 Azure에 자동으로 사이트를 배포할 수 있습니다.
 
 > [!NOTE]
-> [Azure 정적 Web Apps](https://docs.microsoft.com/azure/static-web-apps/)를 사용 하는 경우 GitHub 작업 워크플로를 수동으로 설정할 필요가 없습니다.
+> [Azure 정적 Web Apps](../../static-web-apps/index.yml)를 사용 하는 경우 GitHub 작업 워크플로를 수동으로 설정할 필요가 없습니다.
 > Azure 정적 Web Apps는 자동으로 GitHub 작업 워크플로를 만듭니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독 및 GitHub 계정. 
 
@@ -187,4 +187,4 @@ Azure 구독 및 GitHub 계정.
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure 정적 Web Apps에 대해 알아보기](https://docs.microsoft.com/azure/static-web-apps/)
+> [Azure 정적 Web Apps에 대해 알아보기](../../static-web-apps/index.yml)

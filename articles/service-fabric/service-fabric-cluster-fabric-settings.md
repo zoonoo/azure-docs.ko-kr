@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 설정 변경
 description: 이 문서에서는 사용자 지정할 수 있는 패브릭 설정 및 패브릭 업그레이드 정책에 대해 설명합니다.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: a83d24b4badd78750756a3cb4564b1e53fd30593
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1f16e89dd1131f6aea64e5e72a342b3b737f3728
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648228"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542646"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -141,6 +141,7 @@ ms.locfileid: "94648228"
 |IsEnabled|bool, 기본값: FALSE|정적|DnsService를 활성화하거나 비활성화합니다. DnsService는 기본적으로 비활성화되며, 이 구성을 활성화하도록 설정해야 합니다. |
 |PartitionPrefix|string, 기본값은 "--"입니다.|정적|분할된 서비스에 대한 DNS 쿼리의 파티션 접두사 문자열 값을 제어합니다. 값: <ul><li>DNS 쿼리의 일부이므로 RFC를 준수해야 합니다.</li><li>점은 DNS 접미사 동작을 방해하므로 점('.')을 포함하지 않아야 합니다.</li><li>5자를 초과할 수 없습니다.</li><li>빈 문자열일 수 없습니다.</li><li>PartitionPrefix 설정이 재정의된 경우 PartitionSuffix를 재정의하고 그 반대로 해야 합니다.</li></ul>자세한 내용은 [Service Fabric DNS 서비스](service-fabric-dnsservice.md)를 참조하세요.|
 |PartitionSuffix|string, 기본값: ""|정적|분할된 서비스에 대한 DNS 쿼리의 파티션 접미사 문자열 값을 제어합니다. 값: <ul><li>DNS 쿼리의 일부이므로 RFC를 준수해야 합니다.</li><li>점은 DNS 접미사 동작을 방해하므로 점('.')을 포함하지 않아야 합니다.</li><li>5자를 초과할 수 없습니다.</li><li>PartitionPrefix 설정이 재정의된 경우 PartitionSuffix를 재정의하고 그 반대로 해야 합니다.</li></ul>자세한 내용은 [Service Fabric DNS 서비스](service-fabric-dnsservice.md)를 참조하세요. |
+|RetryTransientFabricErrors|bool, 기본값: true|정적|설정은 DnsService에서 Service Fabric Api를 호출할 때 다시 시도 기능을 제어 합니다. 사용 하도록 설정 하면 일시적인 오류가 발생 하는 경우 최대 3 번 다시 시도 합니다.|
 
 ## <a name="eventstoreservice"></a>EventStoreService
 
@@ -423,7 +424,7 @@ ms.locfileid: "94648228"
 |AzureStorageMaxConnections | int, 기본값: 5000 |동적|Azure Storage에 동시에 연결할 수 있는 최대 수 |
 |AzureStorageMaxWorkerThreads | int, 기본값: 25 |동적|병렬 작업자 스레드의 최대 수 |
 |AzureStorageOperationTimeout | time(초), 기본값: 6000 |동적|시간 간격은 초 단위로 지정합니다. xstore 작업을 완료하는 걸리는 시간 제한입니다. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, 기본값: FALSE |동적|프로비저닝 성공 시 애플리케이션 패키지의 자동 정리를 사용하거나 사용하지 않도록 설정합니다.<br/> *모범 사례는를 사용 하는 것입니다 `true` .*
+|CleanupApplicationPackageOnProvisionSuccess|bool, 기본값은 true입니다. |동적|프로비저닝 성공 시 애플리케이션 패키지의 자동 정리를 사용하거나 사용하지 않도록 설정합니다.
 |CleanupUnusedApplicationTypes|Bool, 기본값: FALSE |동적|이 구성을 사용하도록 설정하면 사용하지 않는 애플리케이션 유형 버전을 자동으로 등록 취소하여 사용하지 않은 최신 버전 세 개를 건너뛰고 Image Store가 차지하는 디스크 공간을 지울 수 있습니다. 자동 정리는 해당하는 특정 앱 유형에 대한 프로비저닝이 성공하면 트리거되고 모든 애플리케이션 유형에 대해 하루에 한 번 주기적으로 실행됩니다. 건너뛸 사용하지 않은 버전 수는 "MaxUnusedAppTypeVersionsToKeep" 매개 변수를 사용하여 구성할 수 있습니다. <br/> *모범 사례는를 사용 하는 것입니다 `true` .*
 |DisableChecksumValidation | bool, 기본값: false |정적| 이 구성을 사용하면 애플리케이션 프로비전 중에 체크섬 유효성 검사를 사용하거나 사용하지 않도록 설정할 수 있습니다. |
 |DisableServerSideCopy | bool, 기본값: false |정적|애플리케이션 프로비전 중에 ImageStore에서 애플리케이션 패키지의 서버 쪽 복사본을 사용하거나 사용하지 않도록 설정하는 구성입니다. |
@@ -520,6 +521,7 @@ ms.locfileid: "94648228"
 |AutoDetectAvailableResources|bool, 기본값: TRUE|정적|이 구성은 노드(CPU 및 메모리)에서 사용 가능한 리소스에 대한 자동 검색을 트리거합니다. 이 구성을 true로 설정하면 사용자가 잘못된 노드 용량을 지정하거나 전혀 정의하지 않은 경우 실제 용량을 읽고 수정합니다. false로 설정하면 사용자가 잘못된 노드 용량을 지정했다는 경고를 추적하지만 수정하지는 않습니다. 즉 사용자가 노드의 실제 용량보다 큰 용량을 지정하거나, 용량이 정의되지 않은 경우 무제한 용량을 가정하게 됩니다. |
 |BalancingDelayAfterNewNode | time(초), 기본값: 120 |동적|시간 간격은 초 단위로 지정합니다. 새 노드를 추가한 이후 이 기간 내에 작업 분산을 시작하면 안됩니다. |
 |BalancingDelayAfterNodeDown | time(초), 기본값: 120 |동적|시간 간격은 초 단위로 지정합니다. 노드 작동 중단 이벤트 이후 이 기간 내에 작업 분산을 시작하면 안됩니다. |
+|BlockNodeInUpgradeConstraintPriority | int, 기본값: 0 |동적|용량 제약 조건의 우선 순위를 결정 합니다. 0: 하드; 1: 소프트; 음수: 무시  |
 |CapacityConstraintPriority | int, 기본값: 0 | 동적|용량 제약 조건의 우선 순위를 결정합니다. 0: 하드; 1: 소프트; 음수: 무시. |
 |ConsecutiveDroppedMovementsHealthReportLimit | int, 기본값: 20 | 동적|진단을 수행하고 상태 경고를 내보내기 전에 ResourceBalancer에서 발급한 Movements(이동)가 삭제되는 연속 횟수를 정의합니다. 음수: 이 조건에서는 경고를 내보내지 않습니다. |
 |ConstraintFixPartialDelayAfterNewNode | time(초), 기본값: 120 |동적| 시간 간격은 초 단위로 지정합니다. 새 노드를 추가한 이후 이 기간 내에 FaultDomain 및 UpgradeDomain 제약 조건 위반을 수정하면 안됩니다. |

@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 92ac1887aca8f30c551419ef9149073d79f333a5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7d3bc13dc373cda510153099859cf4cd61b3dd69
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143835"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534537"
 ---
 # <a name="access-control"></a>Access Control
 
@@ -32,7 +32,7 @@ ms.locfileid: "92143835"
 "통합 문서 참여자"는 공유 통합 문서를 저장 하기 위해 개체에 "통합 문서/쓰기" 권한을 추가 합니다.
 사용자가 볼 수 있는 전용 통합 문서를 저장 하는 데에는 특별 한 권한이 필요 하지 않습니다.
 
-사용자 지정 역할 기반 액세스 제어의 경우:
+사용자 지정 역할:
 
 `microsoft.insights/workbooks/write`공유 통합 문서를 저장 하려면를 추가 합니다. 자세한 내용은 [통합 문서 참가자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 역할을 참조 하세요.
 

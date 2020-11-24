@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 6ee6d88b5247209d5628c7f85f1985507d53811d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 2e5edb0ccf20ab0dba14864487f2b2ddef7d57e7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913724"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544210"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure 개인 링크 FAQ (질문과 대답)
 
@@ -20,8 +20,8 @@ ms.locfileid: "92913724"
 
 ### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>Azure 개인 끝점 및 Azure 개인 링크 서비스 란 무엇 인가요?
 
-- **[Azure 개인 끝점](private-endpoint-overview.md)** : Azure 개인 끝점은 Azure 개인 링크를 통해 제공 되는 서비스에 개인적이 고 안전 하 게 연결 하는 네트워크 인터페이스입니다. 개인 끝점을 사용 하 여 개인 링크 또는 개인 링크 서비스에 대 한 개인 링크를 지 원하는 Azure PaaS 서비스에 연결할 수 있습니다.
-- **[Azure 개인 링크 서비스](private-link-service-overview.md)** : Azure 개인 링크 서비스는 서비스 공급자가 만든 서비스입니다. 현재 개인 링크 서비스는 표준 Load Balancer의 프런트 엔드 IP 구성에 연결할 수 있습니다. 
+- **[Azure 개인 끝점](private-endpoint-overview.md)**: Azure 개인 끝점은 Azure 개인 링크를 통해 제공 되는 서비스에 개인적이 고 안전 하 게 연결 하는 네트워크 인터페이스입니다. 개인 끝점을 사용 하 여 개인 링크 또는 개인 링크 서비스에 대 한 개인 링크를 지 원하는 Azure PaaS 서비스에 연결할 수 있습니다.
+- **[Azure 개인 링크 서비스](private-link-service-overview.md)**: Azure 개인 링크 서비스는 서비스 공급자가 만든 서비스입니다. 현재 개인 링크 서비스는 표준 Load Balancer의 프런트 엔드 IP 구성에 연결할 수 있습니다. 
 
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>개인 링크를 사용 하는 경우 트래픽이 어떻게 전송 되나요?
 트래픽은 Microsoft 백본을 통해 개인적으로 전송 됩니다. 인터넷을 통과 하지 않습니다. Azure 개인 링크는 고객 데이터를 저장 하지 않습니다.
@@ -69,8 +69,8 @@ Service 백 엔드는 가상 네트워크에 있고 표준 Load Balancer 뒤에 
 ### <a name="how-should-i-control-the-exposure-of-my-private-link-service"></a>개인 링크 서비스의 노출을 제어 하려면 어떻게 해야 하나요?
 개인 링크 서비스에서 표시 유형 구성을 사용 하 여 노출을 제어할 수 있습니다. 표시 유형은 세 가지 설정을 지원 합니다.
 
-- **None** -RBAC 액세스 권한이 있는 구독만 서비스를 찾을 수 있습니다. 
-- 승인 되 고 RBAC 액세스 권한이 있는 **제한적** 전용 구독은 서비스를 찾을 수 있습니다. 
+- **None** -Azure RBAC 액세스 권한이 있는 구독만 서비스를 찾을 수 있습니다. 
+- 승인 된 **제한적** 전용 구독 및 Azure RBAC 액세스 권한으로 서비스를 찾을 수 있습니다. 
 - **모두** -모든 사용자가 서비스를 찾을 수 있습니다. 
  
 ### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>기본 부하 분산 장치를 사용 하 여 개인 링크 서비스를 만들 수 있나요? 

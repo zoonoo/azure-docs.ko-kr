@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2e3e16b71d52edd9ab4eaf55651567b95e334b84
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 411815ca2f947c47b8dfb0d2e5d61f8ea18f3545
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961790"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95541252"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Blob 인덱스 태그 (미리 보기)를 사용 하 여 Azure Blob Storage에서 데이터 관리 및 찾기
 
@@ -38,7 +38,7 @@ Blob 인덱스가 미리 보기 상태 이므로 .NET storage 패키지는 미�
 
 2. NuGet 패키지 관리자에서 **Azure.** 12.7.0 패키지를 찾고 프로젝트에 버전 **-preview. 1** 이상을 설치 합니다. PowerShell 명령을 실행할 수도 있습니다. `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`
 
-   방법에 대한 자세한 내용은 [패키지 찾기 및 설치](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package)를 참조하세요.
+   방법에 대한 자세한 내용은 [패키지 찾기 및 설치](/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package)를 참조하세요.
 
 3. 코드 파일 맨 위에 다음 using 문을 추가합니다.
 
@@ -56,7 +56,7 @@ Blob 인덱스가 미리 보기 상태 이므로 .NET storage 패키지는 미�
 
 ## <a name="upload-a-new-blob-with-index-tags"></a>인덱스 태그를 사용하여 새 Blob 업로드
 
-이 작업은 [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` 사용자 지정 azure 역할을 통해 [azure 리소스 공급자 작업](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) 에 대 한 사용 권한을 부여 받은 저장소 Blob 데이터 소유자 또는 보안 주체에 의해 수행 될 수 있습니다.
+이 작업은 [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` 사용자 지정 azure 역할을 통해 [azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) 에 대 한 사용 권한을 부여 받은 저장소 Blob 데이터 소유자 또는 보안 주체에 의해 수행 될 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -114,9 +114,9 @@ static async Task BlobIndexTagsOnCreate()
 
 ## <a name="get-set-and-update-blob-index-tags"></a>Blob 인덱스 태그 가져오기, 설정 및 업데이트
 
-Blob 인덱스 태그 가져오기는 [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` 사용자 지정 azure 역할을 통해 [azure 리소스 공급자 작업](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) 에 대 한 사용 권한을 부여 받은 저장소 blob 데이터 소유자 또는 보안 주체에서 수행할 수 있습니다.
+Blob 인덱스 태그 가져오기는 [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` 사용자 지정 azure 역할을 통해 [azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) 에 대 한 사용 권한을 부여 받은 저장소 blob 데이터 소유자 또는 보안 주체에서 수행할 수 있습니다.
 
-Blob 인덱스 태그를 설정 하 고 업데이트 하는 작업 [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) 은 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` 사용자 지정 azure 역할을 통해 [azure 리소스 공급자 작업](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) 에 대 한 권한을 부여 받은 저장소 blob 데이터 소유자 또는 보안 주체에 의해 수행 될 수 있습니다.
+Blob 인덱스 태그를 설정 하 고 업데이트 하는 작업 [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 은 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` 사용자 지정 azure 역할을 통해 [azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) 에 대 한 권한을 부여 받은 저장소 blob 데이터 소유자 또는 보안 주체에 의해 수행 될 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -193,7 +193,7 @@ static async Task BlobIndexTagsExample()
 
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Blob 인덱스 태그를 사용 하 여 데이터 필터링 및 찾기
 
-이 작업은 [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` 사용자 지정 azure 역할을 통해 [azure 리소스 공급자 작업](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) 에 대 한 사용 권한을 부여 받은 저장소 Blob 데이터 소유자 또는 보안 주체에 의해 수행 될 수 있습니다.
+이 작업은 [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` 사용자 지정 azure 역할을 통해 [azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) 에 대 한 사용 권한을 부여 받은 저장소 Blob 데이터 소유자 또는 보안 주체에 의해 수행 될 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: b52cc38c40d8b6a39961ab28d9f0600ea7ee2201
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 391d9562bc73265a10976f485c78e3966aa4fe83
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841906"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536288"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -412,7 +412,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 - 사용자 지정 대시보드 및 통합 문서를 다시 만듭니다. 
 - 사용자 지정 로그/메트릭 경고의 범위를 다시 만들거나 업데이트 합니다. 
 - 가용성 경고를 다시 만듭니다.
-- 사용자가 새 리소스에 액세스 하는 데 필요한 모든 RBAC (사용자 지정 Role-Based Access Control) 설정을 다시 만듭니다. 
+- 사용자가 새 리소스에 액세스 하는 데 필요한 모든 사용자 지정 Azure RBAC (역할 기반 액세스 제어) 설정을 다시 만듭니다. 
 - 수집 샘플링, 데이터 보존, 일일 상한 및 사용자 지정 메트릭과 관련 된 설정을 복제 합니다. 이러한 설정은 **사용량 및 예상 비용** 창을 통해 제어 됩니다.
 - [릴리스 주석](/azure/azure-monitor/app/annotations), [라이브 메트릭 보안 제어 채널](app/live-stream.md#secure-the-control-channel) 등의 API 키에 의존 하는 모든 통합 새 API 키를 생성 하 고 연결 된 통합을 업데이트 해야 합니다. 
 - 클래식 리소스에서 연속 내보내기를 다시 구성 해야 합니다.
@@ -680,9 +680,9 @@ ContainerInventory 테이블에는 중지된 컨테이너와 실행 중인 컨�
 
 **Microsoft.OperationsManagement에 대한 구독 등록 누락** 오류가 표시되면 **Microsoft.OperationsManagement** 리소스 공급자를 작업 영역이 정의된 구독에 등록하여 해결할 수 있습니다. 이 작업을 수행하는 방법에 대한 설명서는 [여기](../azure-resource-manager/templates/error-register-resource-provider.md)에서 찾을 수 있습니다.
 
-### <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>RBAC 사용 AKS 클러스터에 대한 지원이 있나요?
+### <a name="is-there-support-for-kubernetes-rbac-enabled-aks-clusters"></a>Kubernetes RBAC enabled AKS 클러스터에 대 한 지원이 있나요?
 
-컨테이너 모니터링 솔루션은 RBAC를 지원하지 않지만 컨테이너용 Azure Monitor에서 지원됩니다. 솔루션 세부 정보 페이지에 이러한 클러스터에 대한 데이터를 표시하는 블레이드에 올바른 정보가 표시되지 않을 수 있습니다.
+컨테이너 모니터링 솔루션은 Kubernetes RBAC를 지원 하지 않지만 컨테이너에 대 한 Azure Monitor에서 지원 됩니다. 솔루션 세부 정보 페이지에 이러한 클러스터에 대한 데이터를 표시하는 블레이드에 올바른 정보가 표시되지 않을 수 있습니다.
 
 ### <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Helm을 통해 kube-system 네임스페이스의 컨테이너에 대해 로그 수집을 사용하도록 설정하려면 어떻게 하나요?
 

@@ -4,12 +4,12 @@ description: Azure 리소스 로그에 대해 지원 되는 서비스 및 이벤
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 791f95dc75c55c7a5c7c26d0719e186245713fba
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2a66f90043e0f544dd86d2ab1245a3d8cbaff3d5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543413"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534571"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Azure 리소스 로그의 공통 및 서비스별 스키마
 
@@ -28,19 +28,19 @@ ms.locfileid: "92543413"
 | time | 필수 | 이벤트의 타임스탬프(UTC)입니다. |
 | resourceId | 필수 | 이벤트를 내보낸 리소스의 리소스 ID입니다. 테넌트 서비스의 경우 /tenants/tenant-id/providers/provider-name의 형태입니다. |
 | tenantId | 테넌트 로그에 필요 | 이 이벤트가 연결된 Active Directory 테넌트의 테넌트 ID입니다. 이 속성은 테넌트 수준 로그에만 사용되며 리소스 수준 로그에는 나타나지 않습니다. |
-| operationName | 필수 | 이 이벤트가 나타내는 작업의 이름입니다. 이벤트가 RBAC 작업을 나타내는 경우 RBAC 작업 이름 (예: Microsoft Storage/storageAccounts/blobServices/blob/Read)입니다. 실제로 문서화된 리소스 관리자 작업은 아니지만, 일반적으로 리소스 관리자 작업 형태로 모델링됩니다(`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`). |
-| operationVersion | 선택 사항 | API (예:)를 사용 하 여 operationName을 수행한 경우 작업에 연결 된 api 버전 `http://myservice.windowsazure.net/object?api-version=2016-06-01` 입니다. 이 작업에 해당하는 API가 없으면, 버전은 작업과 연결된 속성이 나중에 변경될 경우, 해당 작업의 버전을 나타냅니다. |
+| operationName | 필수 | 이 이벤트가 나타내는 작업의 이름입니다. 이벤트가 Azure RBAC 작업을 나타내는 경우 Azure RBAC 작업 이름 (예: Microsoft Storage/storageAccounts/blobServices/blob/Read)입니다. 실제로 문서화된 리소스 관리자 작업은 아니지만, 일반적으로 리소스 관리자 작업 형태로 모델링됩니다(`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`). |
+| operationVersion | Optional | API (예:)를 사용 하 여 operationName을 수행한 경우 작업에 연결 된 api 버전 `http://myservice.windowsazure.net/object?api-version=2016-06-01` 입니다. 이 작업에 해당하는 API가 없으면, 버전은 작업과 연결된 속성이 나중에 변경될 경우, 해당 작업의 버전을 나타냅니다. |
 | category | 필수 | 이벤트의 로그 범주입니다. 범주는 특정 리소스에 대해 로그를 사용하거나 사용하지 않도록 설정할 수 있는 세분성입니다. 이벤트의 속성 Blob에 표시되는 속성은 특정 로그 범주 및 리소스 종류 내에서 동일합니다. 일반적인 로그 범주는 "감사" "작동" "실행" 및 "요청"입니다. |
-| resultType | 선택 사항 | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
-| resultSignature | 선택 사항 | 이벤트의 하위 상태입니다. 이 작업이 REST API 호출에 해당 하는 경우이 필드는 해당 REST 호출의 HTTP 상태 코드입니다. |
-| resultDescription | 선택 사항 | 이 작업에 대 한 정적 텍스트 설명입니다 (예: "저장소 파일 가져오기"). |
-| durationMS | 선택 사항 | 밀리초 단위의 작업 기간입니다. |
-| callerIpAddress | 선택 사항 | 작업이 공개적으로 사용 가능한 IP 주소를 가진 엔터티에서 가져온 API 호출에 해당 하는 경우 호출자 IP 주소입니다. |
-| correlationId | 선택 사항 | 관련 이벤트 집합을 그룹화하는 데 사용되는 GUID입니다. 일반적으로 두 이벤트에 동일한 operationName이 있지만 두 개의 다른 상태 (예: "Started" 및 "Succeeded")가 있는 경우 동일한 상관 관계 ID를 공유 합니다. 이벤트 간의 다른 관계를 나타낼 수도 있습니다. |
-| identity | 선택 사항 | 작업을 수행한 사용자 또는 애플리케이션의 ID를 설명하는 JSON Blob입니다. 일반적으로이 필드에는 active directory의 권한 부여 및 클레임/JWT 토큰이 포함 됩니다. |
-| Level | 선택 사항 | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
-| 위치 | 선택 사항 | 이벤트를 내보내는 리소스의 지역 (예: "미국 동부" 또는 "프랑스 남부") |
-| properties | 선택 사항 | 이 특정 범주의 이벤트와 관련된 확장 속성입니다. 모든 custom/unique 속성은 스키마의이 "파트 B" 안에 배치 해야 합니다. |
+| resultType | Optional | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
+| resultSignature | Optional | 이벤트의 하위 상태입니다. 이 작업이 REST API 호출에 해당하는 경우 이 필드는 해당 REST 호출의 HTTP 상태 코드입니다. |
+| resultDescription | Optional | 이 작업에 대 한 정적 텍스트 설명입니다 (예: "저장소 파일 가져오기"). |
+| durationMS | Optional | 밀리초 단위의 작업 기간입니다. |
+| callerIpAddress | Optional | 작업이 공용 IP 주소를 사용하는 엔터티에서 시작되는 API 호출에 해당하는 경우 호출자 IP 주소입니다. |
+| correlationId | Optional | 관련 이벤트 집합을 그룹화하는 데 사용되는 GUID입니다. 일반적으로 두 이벤트에 동일한 operationName이 있지만 두 개의 다른 상태 (예: "Started" 및 "Succeeded")가 있는 경우 동일한 상관 관계 ID를 공유 합니다. 이벤트 간의 다른 관계를 나타낼 수도 있습니다. |
+| identity | Optional | 작업을 수행한 사용자 또는 애플리케이션의 ID를 설명하는 JSON Blob입니다. 일반적으로이 필드에는 active directory의 권한 부여 및 클레임/JWT 토큰이 포함 됩니다. |
+| Level | Optional | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| 위치 | Optional | 이벤트를 내보내는 리소스의 지역 (예: "미국 동부" 또는 "프랑스 남부") |
+| properties | Optional | 이 특정 범주의 이벤트와 관련된 확장 속성입니다. 모든 custom/unique 속성은 스키마의이 "파트 B" 안에 배치 해야 합니다. |
 
 ## <a name="service-specific-schemas"></a>서비스별 스키마
 
