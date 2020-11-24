@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: a87617e1cc6910b4c807aa90f413efe94b6e6953
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 2cccb1fdfe775250f80da6cc2ecdcc4ddaa3d88e
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920307"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95484086"
 ---
 # <a name="iot-plug-and-play-architecture"></a>IoT 플러그 앤 플레이 아키텍처
 
@@ -98,4 +98,4 @@ IoT 플러그 앤 플레이 솔루션의 아키텍처에 대 한 개요를 만�
 
 - [모델 리포지토리](./concepts-model-repository.md)
 - [디지털 쌍 모델 통합](./concepts-model-discovery.md)
-- [IoT 플러그 앤 플레이 용 개발](./concepts-developer-guide-device-csharp.md)
+- [IoT 플러그 앤 플레이 용 개발](./concepts-developer-guide-device.md)

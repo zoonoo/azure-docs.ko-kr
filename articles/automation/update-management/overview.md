@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09bd82225fb7d8a6eefe84b5a70660e4553a3070
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: abcc2b60fd796a80342fe48c3c9027388660476a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360788"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95488150"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -20,7 +20,7 @@ Azure Automation에서 업데이트 관리를 사용 하 여 Azure, 온-프레�
 > 업데이트 관리로 구성한 머신은 Azure Automation에서 사용자 지정 스크립트를 실행하는 데 사용할 수 없습니다. 이 머신은 Microsoft 서명 업데이트 스크립트만 실행할 수 있습니다.
 
 > [!NOTE]
-> 지금은 Arc 사용 서버에서 직접 업데이트 관리를 사용 하도록 설정할 수 없습니다. 요구 사항 및 서버에 대해를 사용 하도록 설정 하는 방법을 이해 하려면 [Automation 계정에서 업데이트 관리 사용](../../automation/update-management/enable-from-automation-account.md) 을 참조 하세요.
+> 지금은 Arc 지원 서버에서 직접 업데이트 관리를 사용하도록 설정할 수 없습니다. 요구 사항과 서버를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Automation 계정에서 업데이트 관리 사용](../../automation/update-management/enable-from-automation-account.md)을 참조하세요.
 
 Azure VM에서 사용 가능한 *중요* 및 *보안* 패치를 자동으로 다운로드 하 여 설치 하려면 Windows Vm에 대 한 [자동 VM 게스트 패치](../../virtual-machines/windows/automatic-vm-guest-patching.md) 를 검토 합니다.
 
@@ -132,7 +132,7 @@ Azure Marketplace에서 사용할 수 있는 주문형 Red Hat Enterprise Linux 
 
 업데이트 관리를 사용하도록 설정하면 Log Analytics 작업 영역에 직접 연결된 모든 Windows 머신이 자동으로 Hybrid Runbook Worker로 구성되어 업데이트 관리를 지원하는 Runbook을 지원합니다.
 
-업데이트 관리에서 관리되는 각 Windows 머신은 경우 해당 Automation 계정의 Hybrid Worker 그룹 창에 시스템 Hybrid Worker 그룹으로 표시됩니다. 그룹은 `Hostname FQDN_GUID` 명명 규칙을 사용합니다. 계정에서 Runbook을 사용하여 이러한 그룹을 대상으로 지정할 수 없습니다. 대상으로 지정하려고 시도해도 실패하게 됩니다. 그룹은 업데이트 관리를 지원하는 용도로만 사용할 수 있습니다. Hybrid Runbook Worker 구성 된 Windows 컴퓨터의 목록을 보는 방법에 대 한 자세한 내용은 [Hybrid Runbook worker 보기](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers)를 참조 하세요.
+업데이트 관리에서 관리되는 각 Windows 머신은 경우 해당 Automation 계정의 Hybrid Worker 그룹 창에 시스템 Hybrid Worker 그룹으로 표시됩니다. 그룹은 `Hostname FQDN_GUID` 명명 규칙을 사용합니다. 계정에서 Runbook을 사용하여 이러한 그룹을 대상으로 지정할 수 없습니다. 대상으로 지정하려고 시도해도 실패하게 됩니다. 그룹은 업데이트 관리를 지원하는 용도로만 사용할 수 있습니다. Hybrid Runbook Worker 구성 된 Windows 컴퓨터의 목록을 보는 방법에 대 한 자세한 내용은 [Hybrid Runbook worker 보기](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers)를 참조 하세요.
 
 업데이트 관리와 Hybrid Runbook Worker 그룹 멤버 자격에 동일한 계정을 사용하는 경우, Automation 계정의 Hybrid Runbook Worker 그룹에 Windows 머신을 추가하여 Automation Runbook을 지원할 수 있습니다. 이 기능은 Hybrid Runbook Worker의 7.2.12024.0 버전에 추가되었습니다.
 

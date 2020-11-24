@@ -3,7 +3,6 @@ title: Azure Active Directory의 응급 상황에서 사용자 액세스 취소 
 description: Azure Active Directory에서 사용자에 대 한 모든 액세스를 취소 하는 방법
 services: active-directory
 ms.service: active-directory
-ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 author: curtand
@@ -13,12 +12,12 @@ ms.reviewer: krbain
 ms.date: 11/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e12d08acdd9fc869ed766a1bbd78f35eb371cc8a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 491e4f996d91fe267593e36b7ff06200c91b93f8
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649690"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95490700"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Azure Active Directory에서 사용자 액세스 취소
 

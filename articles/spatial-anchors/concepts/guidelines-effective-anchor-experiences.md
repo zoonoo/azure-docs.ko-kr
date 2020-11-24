@@ -1,19 +1,19 @@
 ---
 title: 효과적인 고정 환경에 대 한 지침
 description: Azure 공간 앵커를 사용 하 여 앵커를 효과적으로 만들고 찾기 위한 지침 및 고려 사항입니다.
-author: mattwojo
-manager: jken
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: mattwoj
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 1877934cb604d140d7700c2e537d6dc187b63cc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6bc500516de7e554c38a335ea57519a39c8f602
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005519"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95487506"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Azure 공간 앵커를 사용 하 여 효과적인 앵커 환경 만들기
 
@@ -74,7 +74,7 @@ Azure 공간 앵커가 시간이 지남에 따라 앵커의 품질을 향상 시
 
 ## <a name="targets-and-rooms"></a>대상 및 대화방
 
-대부분의 경우 앵커는 앱의 경험에 대 한 진입점입니다. 사용자가 환경을 시작할 수 있도록이 단계를 빠르고 안정적으로 수행할 수 있습니다. 사용자가 앵커를 찾는 방법에 소요 되는 시간은 중요 한 디자인 단계입니다. 두 가지 광범위 한 시나리오, 즉 *대상과* *방*측면에서 앵커를 찾는 것에 대해 생각 하는 것이 좋습니다.
+대부분의 경우 앵커는 앱의 경험에 대 한 진입점입니다. 사용자가 환경을 시작할 수 있도록이 단계를 빠르고 안정적으로 수행할 수 있습니다. 사용자가 앵커를 찾는 방법에 소요 되는 시간은 중요 한 디자인 단계입니다. 두 가지 광범위 한 시나리오, 즉 *대상과* *방* 측면에서 앵커를 찾는 것에 대해 생각 하는 것이 좋습니다.
 
 ### <a name="targets"></a>대상
 

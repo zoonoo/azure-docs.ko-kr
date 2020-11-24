@@ -7,12 +7,12 @@ ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ea523045875e0abc9e14924c7bb388ea2cfcc2db
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f13230c7bd88a9c3cf043fc1881a34f6b7ce6fe7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046471"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495324"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>IoT 플러그 앤 플레이 디지털 트윈 이해
 
@@ -382,6 +382,6 @@ content-encoding:utf-8
 이제 디지털 쌍에 대해 알아보았습니다. 몇 가지 추가 리소스는 다음과 같습니다.
 
 - [IoT 플러그 앤 플레이 디지털 쌍 Api를 사용 하는 방법](howto-manage-digital-twin.md)
-- [솔루션에서 디바이스와 상호 작용](quickstart-service-node.md)
+- [솔루션에서 디바이스와 상호 작용](quickstart-service.md)
 - [IoT 디지털 쌍 REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT 탐색기](howto-use-iot-explorer.md)

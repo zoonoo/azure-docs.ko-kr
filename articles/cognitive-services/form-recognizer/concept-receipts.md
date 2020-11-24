@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 5125fff0ef8987d313c6611e4d5de08d090f2263
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 769dea079339af2c6307d9230e047a654dc3d5dd
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913197"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95492213"
 ---
 # <a name="receipt-concepts"></a>수신 개념
 
@@ -57,6 +57,13 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 * OCR 원시 텍스트 (전체 수신에 대 한 OCR 추출 된 텍스트 출력)
 * 각 값, 줄 및 단어에 대 한 경계 상자
 
+## <a name="try-it-out"></a>사용해 보기
+
+양식 인식기 수신 서비스를 사용해 보려면 온라인 샘플 UI 도구로 이동 합니다.
+
+> [!div class="nextstepaction"]
+> [미리 작성 한 모델 사용해 보기](https://fott-preview.azurewebsites.net/)
+
 ## <a name="input-requirements"></a>입력 요구 사항
 
 [!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
@@ -64,7 +71,7 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 ## <a name="supported-locales"></a>지원 되는 로캘 
 
 * GA ( **미리 작성 된 수신** )는 en-us 로캘의 판매 영수증을 지원 합니다.
-* **미리 작성 된 수령 v 2.1-preview. 1** (공개 미리 보기)에는 다음 EN 수신 로캘에 대 한 추가 지원이 추가 되었습니다. 
+* **미리 작성 된 수령 v 2.1-preview. 2** (공개 미리 보기)는 다음 EN 수신 로캘에 대 한 추가 지원을 추가 합니다. 
   * EN-오스트레일리아 
   * EN-CA 
   * EN-US 
@@ -73,12 +80,12 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
   > [!NOTE]
   > 언어 입력 
   >
-  > 미리 작성 된 수신 v 2.1-preview. 1에는 추가 영어 시장에서 수신 로캘을 지정 하는 선택적 요청 매개 변수가 있습니다. 오스트레일리아 (EN-US), 캐나다 (EN-US), 뛰어난 Britain (en-us) 및 인도 (EN-US)의 영어로 판매 영수증을 위해 로캘을 지정 하 여 향상 된 결과를 얻을 수 있습니다. V 2.1-preview. 1에 지정 된 로캘이 없으면 모델은 기본적으로 EN-US 모델로 지정 됩니다.
+  > 미리 작성 된 수신 v 2.1-preview. 2에는 추가 영어 시장에서 수신 로캘을 지정 하는 선택적 요청 매개 변수가 있습니다. 오스트레일리아 (EN-US), 캐나다 (EN-US), 뛰어난 Britain (en-us) 및 인도 (EN-US)의 영어로 판매 영수증을 위해 로캘을 지정 하 여 향상 된 결과를 얻을 수 있습니다. V 2.1-preview. 2에서 로캘이 지정 되지 않은 경우 모델은 기본적으로 EN-US 모델로 지정 됩니다.
 
 
 ## <a name="the-analyze-receipt-operation"></a>분석 확인 작업
 
-[분석 확인](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) 은 확인의 이미지나 PDF를 입력으로 사용 하 고 관심 및 텍스트의 값을 추출 합니다. 호출은 라는 응답 헤더 필드를 반환 합니다 `Operation-Location` . `Operation-Location`값은 다음 단계에서 사용할 결과 ID를 포함 하는 URL입니다.
+[분석 확인](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync) 은 확인의 이미지나 PDF를 입력으로 사용 하 고 관심 및 텍스트의 값을 추출 합니다. 호출은 라는 응답 헤더 필드를 반환 합니다 `Operation-Location` . `Operation-Location`값은 다음 단계에서 사용할 결과 ID를 포함 하는 URL입니다.
 
 |응답 헤더| 결과 URL |
 |:-----|:----|
@@ -86,7 +93,7 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>수신 결과 분석 가져오기 작업
 
-두 번째 단계는 [분석 수신 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) 작업을 호출 하는 것입니다. 이 작업은 확인 분석 작업으로 만들어진 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
+두 번째 단계는 [분석 수신 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) 작업을 호출 하는 것입니다. 이 작업은 확인 분석 작업으로 만들어진 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
 
 |필드| 형식 | 가능한 값 |
 |:-----|:----:|:----|

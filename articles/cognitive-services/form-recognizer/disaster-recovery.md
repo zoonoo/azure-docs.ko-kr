@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79cf0ef059d96ac66f5918605e999d3936d589d2
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718818"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486520"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>양식 인식기 모델 백업 및 복구
 
@@ -26,7 +26,7 @@ Azure Portal에서 양식 인식기 리소스를 만들 때는 지역을 지정 
 
 앱 또는 비즈니스가 양식 인식기 사용자 지정 모델 사용에 따라 달라 지는 경우 다른 지역의 다른 폼 인식기 계정으로 모델을 복사 하는 것이 좋습니다. 지역 가동 중단이 발생 하면 복사 된 지역에서 모델에 액세스할 수 있습니다.
 
-##  <a name="prerequisites"></a>필수 구성 요소
+##  <a name="prerequisites"></a>사전 요구 사항
 
 1. 서로 다른 Azure 지역에 있는 두 가지 양식 인식기 Azure 리소스입니다. 없는 경우 Azure Portal로 이동 하 여 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" 새 양식 인식기 리소스를 만듭니다 " target="_blank"> . 새 양식 인식기 리소스를 만듭니다 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
 1. 양식 인식기 리소스의 구독 키, 끝점 URL 및 구독 ID입니다. Azure Portal의 리소스 **개요** 탭에서 이러한 값을 찾을 수 있습니다.
@@ -41,7 +41,7 @@ Azure Portal에서 양식 인식기 리소스를 만들 때는 지역을 지정 
 1. 작업이 성공할 때까지 원본 리소스 자격 증명을 사용 하 여 진행률 URL을 쿼리 합니다. 대상 리소스의 새 모델 ID를 쿼리하여 새 모델의 상태를 가져올 수도 있습니다.
 
 > [!CAUTION]
-> 현재 복사 API는 [구성 된 사용자 지정 모델](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose)의 모델 id를 지원 하지 않습니다. 모델 작성은 v 2.1-preview. 1 preview의 미리 보기 기능입니다. 
+> 현재 복사 API는 [구성 된 사용자 지정 모델](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/Compose)의 모델 id를 지원 하지 않습니다. 모델 작성은 v 2.1-preview. 2 preview의 미리 보기 기능입니다. 
 
 ## <a name="generate-copy-authorization-request"></a>복사 권한 부여 요청 생성
 

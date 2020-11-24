@@ -6,19 +6,18 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: enterprise-users
 ms.topic: how-to
 ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d70676e117a71fbd194e921b4755ba5d196871c7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 158d8731965533b20917a25b72227a92c9638fa7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94650311"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95488456"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Azure Active Directory에서 LinkedIn 계정 연결 통합
 
@@ -94,7 +93,7 @@ Azure AD 관리 센터의 LinkedIn 계정 연결 설정에서 2 단계에서 선
 1. 다음 설정을 사용 하 여 그룹 정책 개체 만들기: **사용자 구성**  >  **관리 템플릿**  >  **Microsoft Office 2016**  >  **기타**  >  **Office 응용 프로그램에서 LinkedIn 기능 표시**
 1. **사용** 또는 **사용 안 함** 을 선택합니다.
   
-   시스템 상태 | 영향
+   주 | 영향
    ------ | ------
    **Enabled** | Office 2016 옵션의 **Office 애플리케이션에 LinkedIn 기능 표시** 설정이 사용으로 설정됩니다. 조직의 사용자는 Office 2016 응용 프로그램에서 LinkedIn 기능을 사용할 수 있습니다.
    **사용 안 함** | Office 2016 옵션의 **Office 애플리케이션에 LinkedIn 기능 표시** 설정이 사용 안 함으로 설정되며, 최종 사용자가 이 설정을 변경할 수 없습니다. 조직 내 사용자가 Office 2016 애플리케이션에서 LinkedIn 기능을 사용할 수 있습니다.

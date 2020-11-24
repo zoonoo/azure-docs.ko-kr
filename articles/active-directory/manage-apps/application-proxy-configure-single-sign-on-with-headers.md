@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 61bff59114d25b2f3167a34100ec2f742036bb90
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d39d72a79d4b273918986d0d350df4706592c77d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663708"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503172"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Azure AD 앱 프록시 (미리 보기)를 사용 하는 온-프레미스 앱에 대 한 헤더 기반 Single Sign-On
 
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 인증에 헤
 > [!NOTE] 
 > 이 문서에서는 응용 프로그램 프록시를 사용 하 여 헤더 기반 인증 응용 프로그램을 Azure AD에 연결 하는 기능을 권장 합니다. 또는 Azure AD와 함께 Azure AD에 대 한 액세스를 사용 하 여 헤더 기반 인증을 사용 하는 통합 패턴도 있습니다. 자세한 내용은 [응용 프로그램 프록시를 사용 하는 Single Sign-On에 대 한 헤더 기반 인증 및 액세스](application-proxy-ping-access-publishing-guide.md)를 참조 하세요.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 :::image type="content" source="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works.png" alt-text="헤더 기반 Single Sign-On 응용 프로그램 프록시와 작동 하는 방법입니다." lightbox="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works.png":::
 
@@ -85,7 +85,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 인증에 헤
 ## <a name="test-your-app"></a>앱 테스트 
 
 이러한 모든 단계를 완료 하면 앱이 실행 중이 고 사용 가능 해야 합니다. 앱을 테스트 하려면: 
-1. 브라우저를 열고 응용 프로그램 프록시 설정에서 **외부 URL** 로 이동 합니다   . 
+1. 새 브라우저 또는 개인 브라우저 창을 열어 이전에 캐시 된 헤더가 지워지는 지 확인 합니다. 그런 다음 **External URL**   응용 프로그램 프록시 설정에서 외부 URL로 이동 합니다.
 2. 앱에 할당한 테스트 계정으로 로그인합니다. SSO를 사용 하 여 응용 프로그램을 로드 하 고 로그인 할 수 있으면 좋습니다. 
 
 

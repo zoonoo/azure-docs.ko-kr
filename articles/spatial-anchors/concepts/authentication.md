@@ -1,20 +1,20 @@
 ---
 title: 인증 및 권한 부여
 description: 앱 또는 서비스에서 Azure 공간 앵커에 대해 인증할 수 있는 다양 한 방법과 공간 앵커에 대 한 액세스를 게이트 하는 데 사용 하는 제어 수준에 대해 알아봅니다.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 10/08/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a3d88c8d5d42e3dec2142df1ede7a9ee50898e92
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 0166a3b6031f9e1d364a37db99be5bc5a65267df
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242350"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95484613"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 인증 및 권한 부여
 
@@ -195,7 +195,7 @@ Azure AD 액세스 토큰은 [Msal](../../active-directory/develop/msal-overview
 >[!NOTE]
 > GitHub에서 사용할 수 있는 서비스 샘플을 사용할 수 있습니다.
 
-1.    사용자 고유의 Azure AD 응용 프로그램의 응용 프로그램 ID, 응용 프로그램 암호 및 리디렉션 URI를 MSAL의 **클라이언트 ID** , **비밀** 및 **redirecturi** 매개 변수로 사용 해야 합니다.
+1.    사용자 고유의 Azure AD 응용 프로그램의 응용 프로그램 ID, 응용 프로그램 암호 및 리디렉션 URI를 MSAL의 **클라이언트 ID**, **비밀** 및 **redirecturi** 매개 변수로 사용 해야 합니다.
 2.    MSAL의 **authority** 매개 변수에서 테 넌 트 id를 자신의 Azure AD 테 넌 트 id로 설정 합니다.
 3.    토큰 요청에서 **범위** 를 **" `https://sts.<account-domain>//.default` "** 로 설정 합니다 `<account-domain>` . 여기서는 Azure 공간 앵커 계정에 대 한 **계정 도메인** 으로 바뀝니다. 미국 동부 2 계정 도메인의 Azure 공간 앵커 계정에 대 한 예제 범위는 **" `https://sts.mixedreality.azure.com//.default` "** 입니다.
 

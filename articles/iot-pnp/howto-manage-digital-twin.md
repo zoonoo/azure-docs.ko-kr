@@ -7,12 +7,12 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5f1c52b764634f8086763aca67dfc32b507d2edd
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 51bd073b6f84f3378b91091e04f2f278ea2f49b6
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042850"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495272"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>IoT 플러그 앤 플레이 디지털 쌍 관리
 
@@ -193,6 +193,6 @@ Digital 쌍를 사용 하면 [JSON 패치](http://jsonpatch.com/)를 사용 하 
 
 이제 디지털 쌍에 대해 알아보았습니다. 몇 가지 추가 리소스는 다음과 같습니다.
 
-- [솔루션에서 디바이스와 상호 작용](quickstart-service-node.md)
+- [솔루션에서 디바이스와 상호 작용](quickstart-service.md)
 - [IoT 디지털 쌍 REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT 탐색기](howto-use-iot-explorer.md)

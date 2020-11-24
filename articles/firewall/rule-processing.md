@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 11/18/2020
 ms.author: victorh
-ms.openlocfilehash: 84110e749dac9267e994385aa5f6d05e3ba224a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f7aa61d3bfb3c712320bbf138160a7ff8197c7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87087546"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95502187"
 ---
 # <a name="configure-azure-firewall-rules"></a>Azure 방화벽 규칙 구성
 Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 규칙을 구성할 수 있습니다. 규칙 컬렉션은 우선 순위 순서 대로 규칙 형식에 따라 처리 되 고 더 낮은 숫자는 100에서 65000 사이입니다. 규칙 컬렉션 이름에는 문자, 숫자, 밑줄, 마침표 또는 하이픈만 사용할 수 있습니다. 문자 또는 숫자로 시작 하 고 문자, 숫자 또는 밑줄로 끝나야 합니다. 최대 이름 길이는 80 자입니다.
@@ -26,7 +26,13 @@ Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 �
 
 ### <a name="network-rules-and-applications-rules"></a>네트워크 규칙 및 애플리케이션 규칙
 
-네트워크 규칙 및 응용 프로그램 규칙을 구성 하는 경우 네트워크 규칙이 응용 프로그램 규칙 앞에 우선 순위 순서 대로 적용 됩니다. 규칙은 종료됩니다. 따라서 네트워크 규칙에 일치 하는 항목이 있으면 다른 규칙이 처리 되지 않습니다.  네트워크 규칙 일치가 없고 프로토콜이 HTTP, HTTPS 또는 MSSQL 인 경우 해당 패킷은 우선 순위 대로 응용 프로그램 규칙에 의해 평가 됩니다. 그래도 일치 하는 항목이 없으면 [인프라 규칙 컬렉션](infrastructure-fqdns.md)에 대해 패킷이 평가 됩니다. 여전히 일치하는 항목이 없으면 패킷이 기본적으로 거부됩니다.
+네트워크 규칙 및 응용 프로그램 규칙을 구성 하는 경우 네트워크 규칙이 응용 프로그램 규칙 앞에 우선 순위 순서 대로 적용 됩니다. 규칙은 종료됩니다. 따라서 네트워크 규칙에 일치 하는 항목이 있으면 다른 규칙이 처리 되지 않습니다.  네트워크 규칙 일치가 없고 프로토콜이 HTTP, HTTPS 또는 MSSQL 인 경우 해당 패킷은 우선 순위 대로 응용 프로그램 규칙에 의해 평가 됩니다. 그래도 일치 하는 항목이 없으면 [인프라 규칙 컬렉션](infrastructure-fqdns.md)에 대해 패킷이 평가 됩니다. 여전히 일치 하는 항목이 없는 경우에는 기본적으로 패킷이 거부 됩니다.
+
+#### <a name="network-rule-protocol"></a>네트워크 규칙 프로토콜
+
+**TCP**, **UDP**, **ICMP** **또는 IP 프로토콜** 에 대 한 네트워크 규칙을 구성할 수 있습니다. 모든 IP 프로토콜에는 [IANA (Internet 할당 된 번호 기관) 프로토콜 번호](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) 문서에 정의 된 모든 ip 프로토콜이 포함 됩니다. 대상 포트가 명시적으로 구성 된 경우 규칙이 TCP + UDP 규칙으로 변환 됩니다.
+
+11 월 9 일 이전에 **는 모든** **TCP**, **UDP** 또는 **ICMP** 를 2020 합니다. 따라서 Protocol = Any 및 destination ports = ' * '를 사용 하 여 해당 날짜 이전의 규칙을 구성 했을 수 있습니다. 실제로 현재 정의 된 대로 IP 프로토콜을 허용 하지 않으려면 규칙을 수정 하 여 원하는 프로토콜 (TCP, UDP 또는 ICMP)을 명시적으로 구성 합니다.
 
 ## <a name="inbound-connectivity"></a>인바운드 연결
 
@@ -40,7 +46,7 @@ Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 �
 
 다음 예에서는 이러한 규칙 조합 중 일부에 대 한 결과를 보여 줍니다.
 
-### <a name="example-1"></a>예제 1
+### <a name="example-1"></a>예 1
 
 네트워크 규칙 일치 때문에 google.com에 대 한 연결이 허용 됩니다.
 
@@ -57,7 +63,7 @@ Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 �
 
 - 작업: Deny
 
-|name  |소스 형식  |원본  |프로토콜: 포트|대상 Fqdn|
+|name  |소스 형식  |원본  |프로토콜:포트|대상 Fqdn|
 |---------|---------|---------|---------|----------|----------|
 |거부-google     |IP 주소|*|http: 80, https: 443|google.com
 
@@ -65,7 +71,7 @@ Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 �
 
 패킷이 *허용-웹* 네트워크 규칙과 일치 하기 때문에 google.com에 대 한 연결이 허용 됩니다. 이 시점에서 규칙 처리를 중지 합니다.
 
-### <a name="example-2"></a>예 2
+### <a name="example-2"></a>예제 2
 
 높은 우선 순위의 *거부* 네트워크 규칙 컬렉션은이를 차단 하므로 SSH 트래픽이 거부 됩니다.
 

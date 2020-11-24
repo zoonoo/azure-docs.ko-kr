@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 657221a2acbf592a56cb4659ced2199023bc5e5b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a0a677342534cd92d5530199076e3d2e7084134d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658794"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95494780"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure 센티널의 UEBA (사용자 및 엔터티 동작 분석)를 사용 하 여 고급 위협 식별
 
@@ -205,7 +205,7 @@ Azure 센티널 GitHub 리포지토리에 제공 된 [Jupyter 노트북](https:/
 
 권한 분석은 공격자의 조직 자산의 손상으로 인 한 잠재적 영향을 확인 하는 데 도움이 됩니다. 이러한 영향을 자산의 "폭발 반지름이" 라고도 합니다. 보안 분석가는이 정보를 사용 하 여 조사 및 인시던트 처리의 우선 순위를 지정할 수 있습니다.
 
-Azure 센티널은 사용자가 직접 또는 그룹 또는 서비스 주체를 통해 액세스할 수 있는 Azure 구독을 평가 하 여 지정 된 사용자가 Azure 리소스에 대해 보유 한 직접 및 전이적 액세스 권한을 결정 합니다. 이 정보는 물론 사용자의 Azure AD 보안 그룹 멤버 자격에 대 한 전체 목록이 **Useraccessanalytics** 테이블에 저장 됩니다. 아래 스크린샷은 사용자 Alex Johnson에 대 한 UserAccessAnalytics 테이블의 예제 행을 보여 줍니다. **원본 엔터티** 는 사용자 또는 서비스 주체 계정이 고, **대상 엔터티** 는 원본 엔터티가 액세스할 수 있는 리소스입니다. **액세스 수준** 및 **액세스 형식의** 값은 대상 엔터티의 액세스 제어 모델에 따라 달라 집니다. Alex에 Azure 구독 *Contoso 호텔 테 넌 트* 에 대 한 참가자 액세스 권한이 있는 것을 볼 수 있습니다. 구독의 액세스 제어 모델은 RBAC입니다.   
+Azure 센티널은 사용자가 직접 또는 그룹 또는 서비스 주체를 통해 액세스할 수 있는 Azure 구독을 평가 하 여 지정 된 사용자가 Azure 리소스에 대해 보유 한 직접 및 전이적 액세스 권한을 결정 합니다. 이 정보는 물론 사용자의 Azure AD 보안 그룹 멤버 자격에 대 한 전체 목록이 **Useraccessanalytics** 테이블에 저장 됩니다. 아래 스크린샷은 사용자 Alex Johnson에 대 한 UserAccessAnalytics 테이블의 예제 행을 보여 줍니다. **원본 엔터티** 는 사용자 또는 서비스 주체 계정이 고, **대상 엔터티** 는 원본 엔터티가 액세스할 수 있는 리소스입니다. **액세스 수준** 및 **액세스 형식의** 값은 대상 엔터티의 액세스 제어 모델에 따라 달라 집니다. Alex에 Azure 구독 *Contoso 호텔 테 넌 트* 에 대 한 참가자 액세스 권한이 있는 것을 볼 수 있습니다. 구독의 액세스 제어 모델은 Azure RBAC입니다.   
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="사용자 액세스 분석 테이블의 스크린샷":::
 

@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 4fd7a24edffbfb63adc830ddb83b45997743ad42
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: d6cba4bcb76094ed156ef35b1ea76cea7001c372
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421637"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486299"
 ---
 # <a name="what-is-iot-plug-and-play"></a>IoT 플러그 앤 플레이란?
 
@@ -72,5 +72,5 @@ Windows 또는 Linux 게이트웨이에 기존 센서가 연결되어 있는 경
 
 IoT 플러그 앤 플레이의 개요를 살펴보았으므로, 그 다음 단계로 다음 빠른 시작 중 하나를 도전해보세요.
 
-- [디바이스를 IoT Hub에 연결(C)](./quickstart-connect-device-c.md)
-- [솔루션에서 디바이스와 상호 작용(Node.js)](./quickstart-service-node.md)
+- [디바이스를 IoT Hub에 연결](./quickstart-connect-device.md)
+- [솔루션에서 디바이스와 상호 작용](./quickstart-service.md)

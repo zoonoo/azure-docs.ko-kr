@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: contperfq2
-ms.openlocfilehash: 8482ba608ee5fcefb006234b339cd9b711a38020
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 55607527ced2e5d93a61cfd85477758482f18daa
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445305"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495426"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Azure IoT 탐색기 설치 및 사용
 
@@ -40,7 +40,7 @@ Azure IoT 탐색기 도구를 사용 하려면 다음이 필요 합니다.
 
 ## <a name="use-azure-iot-explorer"></a>Azure IoT 탐색기 사용
 
-장치의 경우 장치를 연결 하거나 시뮬레이션 된 샘플 장치 중 하나를 사용할 수 있습니다. 다른 언어로 작성 된 일부 예제 시뮬레이션 된 장치는 IoT Hub 빠른 시작 [에 샘플 IoT 플러그 앤 플레이 장치 응용 프로그램 연결](quickstart-connect-device-node.md) 을 참조 하세요.
+장치의 경우 장치를 연결 하거나 시뮬레이션 된 샘플 장치 중 하나를 사용할 수 있습니다. 다른 언어로 작성 된 일부 예제 시뮬레이션 된 장치는 IoT Hub 빠른 시작 [에 샘플 IoT 플러그 앤 플레이 장치 응용 프로그램 연결](quickstart-connect-device.md) 을 참조 하세요.
 
 ### <a name="connect-to-your-hub"></a>허브에 연결
 
@@ -78,7 +78,7 @@ IoT 플러그 앤 플레이 장치에 대 한 모델 정의는 공용 리포지�
 
 ### <a name="device"></a>디바이스
 
-이 섹션에는 **장치 id** ,  **장치** 쌍, **원격 분석** , **직접 메서드** , **클라우드-장치 메시지** , **모듈 id**  탭이 포함 되어 있습니다.
+이 섹션에는 **장치 id**,  **장치** 쌍, **원격 분석**, **직접 메서드**, **클라우드-장치 메시지**, **모듈 id**  탭이 포함 되어 있습니다.
 
 - **장치 id 탭에서** [장치 id](../iot-hub/iot-hub-devguide-identity-registry.md) 정보를 확인 하 고 업데이트할 수 있습니다.
 - [장치 쌍 정보는](../iot-hub/iot-hub-devguide-device-twins.md) **장치** 쌍 탭에서 액세스할 수 있습니다.
@@ -109,7 +109,7 @@ IoT 플러그 앤 플레이 장치에 대 한 모델 정의는 공용 리포지�
 1. 장치에 전송할 페이로드를 미리 봅니다.
 1. 변경 내용을 제출 합니다.
 
-변경을 제출한 후 업데이트 상태 ( **동기화** , **성공** 또는 **오류** )를 추적할 수 있습니다. 동기화가 완료 되 면 **보고 된 속성** 열에 속성의 새 값이 표시 됩니다. 동기화가 완료 되기 전에 다른 페이지로 이동 하는 경우에도 업데이트가 완료 되 면 도구에서 사용자에 게 알려줍니다. 도구의 알림 센터를 사용 하 여 알림 기록을 볼 수도 있습니다.
+변경을 제출한 후 업데이트 상태 ( **동기화**, **성공** 또는 **오류**)를 추적할 수 있습니다. 동기화가 완료 되 면 **보고 된 속성** 열에 속성의 새 값이 표시 됩니다. 동기화가 완료 되기 전에 다른 페이지로 이동 하는 경우에도 업데이트가 완료 되 면 도구에서 사용자에 게 알려줍니다. 도구의 알림 센터를 사용 하 여 알림 기록을 볼 수도 있습니다.
 
 #### <a name="commands"></a>명령
 
