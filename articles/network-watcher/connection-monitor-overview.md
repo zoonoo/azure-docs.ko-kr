@@ -1,5 +1,5 @@
 ---
-title: Azure의 연결 모니터 (미리 보기) | Microsoft Docs
+title: Azure의 연결 모니터 | Microsoft Docs
 description: 연결 모니터를 사용 하 여 분산 환경에서 네트워크 통신을 모니터링 하는 방법에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: na
@@ -12,24 +12,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2020
+ms.date: 11/23/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: cb24cc55844d7c42d68e75d6f6ef947b1315a306
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: c5c3f8dedad47a819ce3648a0b81ffa3e65a1a1e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984365"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544890"
 ---
-# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>연결 모니터를 사용 하 여 네트워크 연결 모니터링 (미리 보기)
+# <a name="network-connectivity-monitoring-with-connection-monitor"></a>연결 모니터를 사용 하 여 네트워크 연결 모니터링
 
 연결 모니터는 Azure Network Watcher에서 통합 종단 간 연결 모니터링을 제공 합니다. 연결 모니터 기능은 하이브리드 및 Azure 클라우드 배포를 지원 합니다. Network Watcher는 Azure 배포에 대 한 연결 관련 메트릭을 모니터링 하 고, 진단 하 고, 볼 수 있는 도구를 제공 합니다.
 
-> [!IMPORTANT]
-> 연결 모니터는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-> 다음은 연결 모니터에 대 한 몇 가지 사용 사례입니다.
+다음은 연결 모니터에 대 한 몇 가지 사용 사례입니다.
 
 - 프런트 엔드 웹 서버 VM은 다중 계층 응용 프로그램에서 데이터베이스 서버 VM과 통신 합니다. 두 Vm 간의 네트워크 연결을 확인 하려고 합니다.
 - 미국 동부 지역의 Vm에서 미국 중부 지역의 vm을 ping 하 고 지역 간 네트워크 대기 시간을 비교 하려고 합니다.
@@ -274,12 +271,12 @@ Log Analytics를 사용 하 여 모니터링 데이터의 사용자 지정 보�
 
 메트릭을 사용 하는 경우 리소스 종류를 Microsoft. Network/networkWatchers/connectionMonitors로 설정 합니다.
 
-| 메트릭 | 표시 이름 | 단위 | 집계 유형 | Description | 차원 |
+| 메트릭 | 표시 이름 | 단위 | 집계 유형 | 설명 | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | 실패한 프로브 % | 백분율 | 평균 | 연결 모니터링 프로브 비율이 실패 했습니다. | 차원 없음 |
 | AverageRoundtripMs | 평균 왕복 시간(ms) | 밀리초 | 평균 | 원본 및 대상 간에 전송 되는 연결 모니터링 프로브에 대 한 평균 네트워크 RTT입니다. |             차원 없음 |
-| ChecksFailedPercent (미리 보기) | % 검사 실패 (미리 보기) | 백분율 | 평균 | 테스트에 대해 실패 한 검사의 백분율입니다. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Sourceresourceid 여야 <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>지역 |
-| RoundTripTimeMs (미리 보기) | 왕복 시간 (ms) (미리 보기) | 밀리초 | 평균 | 원본 및 대상 간에 전송 되는 검사에 대 한 RTT 이 값은 평균이 아닙니다. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Sourceresourceid 여야 <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>지역 |
+| ChecksFailedPercent (미리 보기) | % 검사 실패 (미리 보기) | 백분율 | 평균 | 테스트에 대해 실패 한 검사의 백분율입니다. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Sourceresourceid 여야 <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| RoundTripTimeMs (미리 보기) | 왕복 시간 (ms) (미리 보기) | 밀리초 | 평균 | 원본 및 대상 간에 전송 되는 검사에 대 한 RTT 이 값은 평균이 아닙니다. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Sourceresourceid 여야 <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>연결 모니터에 대 한 메트릭 기반 경고
 

@@ -1,5 +1,5 @@
 ---
-title: 연결 모니터 만들기 (미리 보기)-Azure Portal
+title: 연결 모니터 만들기-Azure Portal
 titleSuffix: Azure Network Watcher
 description: 이 문서에서는 Azure Portal를 사용 하 여 연결 모니터에서 모니터를 만드는 방법을 설명 합니다.
 services: network-watcher
@@ -10,22 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: f1ba23d53d79587c9d75c1d840c1d3857725d8dd
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a6ba9c02b384c1b30977d962659983d600c7b2ac
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984382"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545723"
 ---
-# <a name="create-a-monitor-in-connection-monitor-preview-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 연결 모니터 (미리 보기)에서 모니터 만들기
+# <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 연결 모니터에서 모니터 만들기
 
 연결 모니터를 사용 하 여 리소스 간의 통신을 모니터링 하는 방법에 대해 알아봅니다. 이 문서에서는 Azure Portal를 사용 하 여 모니터를 만드는 방법을 설명 합니다. 연결 모니터는 하이브리드 및 Azure 클라우드 배포를 지원 합니다.
 
-> [!IMPORTANT]
-> 연결 모니터는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에 
 
