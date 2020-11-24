@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5558a57812414f6f1bb1be053a089af98533155a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 39c1972eba84f4f1990c87112c5801c386849640
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288327"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545961"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 페이지 Blob의 개요
 
@@ -31,7 +31,7 @@ Azure 페이지 Blob의 주요 기능은 해당 REST 인터페이스, 기본 스
 
 ## <a name="sample-use-cases"></a>샘플 사용 사례
 
-Azure IaaS 디스크로 시작하는 페이지 Blob에 대한 몇 가지 사용 사례를 설명하겠습니다. Azure 페이지 Blob은 Azure IaaS 가상 디스크 플랫폼의 백본입니다. Azure OS 및 데이터 디스크는 둘 다 Azure Storage 플랫폼에서 데이터를 지속적으로 유지하고 최대 성능을 위해 가상 머신에 전달되는 가상 디스크로 구현됩니다. Azure 디스크는 Hyper-V [VHD 형식](https://technet.microsoft.com/library/dd979539.aspx)으로 유지되고 Azure Storage에 [페이지 Blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)으로 저장됩니다. Azure IaaS VM의 가상 디스크 사용 외에도 페이지 Blob은 Azure SQL DB 서비스와 같은 PaaS 및 DBaaS 시나리오를 사용할 수 있습니다. 이 서비스는 현재 SQL 데이터를 저장하기 위해 페이지 Blob을 사용하여 데이터베이스에 대한 임의의 빠른 읽기/쓰기 작업이 가능합니다. 또 다른 예로 공동 작업 비디오 편집 애플리케이션의 공동 미디어 액세스를 위해 PaaS 서비스를 사용하는 경우 페이지 Blob을 통해 임의의 미디어 위치에 빠르게 액세스할 수 있습니다. 또한 사용자가 여러 명인 동일한 미디어를 빠르고 효율적으로 편집하고 병합할 수 있습니다. 
+Azure IaaS 디스크로 시작하는 페이지 Blob에 대한 몇 가지 사용 사례를 설명하겠습니다. Azure 페이지 Blob은 Azure IaaS 가상 디스크 플랫폼의 백본입니다. Azure OS 및 데이터 디스크는 둘 다 Azure Storage 플랫폼에서 데이터를 지속적으로 유지하고 최대 성능을 위해 가상 머신에 전달되는 가상 디스크로 구현됩니다. Azure 디스크는 Hyper-V [VHD 형식](/previous-versions/windows/it-pro/windows-7/dd979539(v=ws.10))으로 유지되고 Azure Storage에 [페이지 Blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)으로 저장됩니다. Azure IaaS VM의 가상 디스크 사용 외에도 페이지 Blob은 Azure SQL DB 서비스와 같은 PaaS 및 DBaaS 시나리오를 사용할 수 있습니다. 이 서비스는 현재 SQL 데이터를 저장하기 위해 페이지 Blob을 사용하여 데이터베이스에 대한 임의의 빠른 읽기/쓰기 작업이 가능합니다. 또 다른 예로 공동 작업 비디오 편집 애플리케이션의 공동 미디어 액세스를 위해 PaaS 서비스를 사용하는 경우 페이지 Blob을 통해 임의의 미디어 위치에 빠르게 액세스할 수 있습니다. 또한 사용자가 여러 명인 동일한 미디어를 빠르고 효율적으로 편집하고 병합할 수 있습니다. 
 
 Azure Site Recovery, Azure Backup과 같은 자사의 Microsoft 서비스뿐만 아니라 많은 타사 개발자는 페이지 Blob의 REST 인터페이스를 사용하여 업계를 주도하는 혁신을 구현했습니다. 다음은 Azure에서 구현되는 몇 가지 고유한 시나리오입니다. 
 
@@ -47,7 +47,7 @@ Azure Site Recovery, Azure Backup과 같은 자사의 Microsoft 서비스뿐만 
 
 ### <a name="rest-api"></a>REST API
 
-[페이지 Blob을 사용하여 개발](storage-dotnet-how-to-use-blobs.md)을 시작하려면 다음 문서를 참조하세요. 예를 들어 .NET용 스토리지 클라이언트 라이브러리를 사용하여 페이지 Blob에 액세스하는 방법을 살펴보겠습니다. 
+[페이지 Blob을 사용하여 개발](./storage-quickstart-blobs-dotnet.md)을 시작하려면 다음 문서를 참조하세요. 예를 들어 .NET용 스토리지 클라이언트 라이브러리를 사용하여 페이지 Blob에 액세스하는 방법을 살펴보겠습니다. 
 
 다음 다이어그램은 계정, 컨테이너 및 페이지 Blob 간의 전반적인 관계를 설명합니다.
 
@@ -63,7 +63,7 @@ Azure Site Recovery, Azure Backup과 같은 자사의 Microsoft 서비스뿐만 
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
-페이지 blob을 만들려면 먼저 다음 예제와 같이 저장소 계정에 대 한 blob 저장소 (그림 1의 *paccount* )와 함께 저장소 계정에 대 한 blob 저장소에 액세스 하기 위한 기본 URI를 사용 하 여 **CloudBlobClient** **개체를** 만듭니다. 그런 다음이 예제에서는 **CloudBlobContainer** 개체에 대 한 참조를 만든 다음, 아직 없는 경우 컨테이너 ( *testvhds* )를 만드는 방법을 보여 줍니다. 그런 다음, **CloudBlobContainer** 개체를 사용하여 액세스할 페이지 Blob 이름(os4.vhd)을 지정하여 **CloudPageBlob** 개체에 대한 참조를 만듭니다. 페이지 blob을 만들려면 만들 blob의 최대 크기를 전달 하 여 [Cloudpageblob](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create)을 호출 합니다. blobSize는 512바이트의 배수여야 합니다.
+페이지 blob을 만들려면 먼저 다음 예제와 같이 저장소 계정에 대 한 blob 저장소 (그림 1의 *paccount* )와 함께 저장소 계정에 대 한 blob 저장소에 액세스 하기 위한 기본 URI를 사용 하 여 **CloudBlobClient** **개체를** 만듭니다. 그런 다음이 예제에서는 **CloudBlobContainer** 개체에 대 한 참조를 만든 다음, 아직 없는 경우 컨테이너 (*testvhds*)를 만드는 방법을 보여 줍니다. 그런 다음, **CloudBlobContainer** 개체를 사용하여 액세스할 페이지 Blob 이름(os4.vhd)을 지정하여 **CloudPageBlob** 개체에 대한 참조를 만듭니다. 페이지 blob을 만들려면 만들 blob의 최대 크기를 전달 하 여 [Cloudpageblob](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create)을 호출 합니다. blobSize는 512바이트의 배수여야 합니다.
 
 ```csharp
 using Microsoft.Azure;

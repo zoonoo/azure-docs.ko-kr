@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 9f0a3c3a96a73bd71a9b0c769a3ceff85ae428f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94f248edfebd6c6fedb78a54eee220c0ef38b4ab
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017620"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545878"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure Queue Storage 및 Visual Studio 연결된 서비스 시작(클라우드 서비스 프로젝트)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "89017620"
 ## <a name="overview"></a>개요
 이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 클라우드 서비스 프로젝트에서 Azure 스토리지 계정을 만들거나 참조한 후 Visual Studio에서 Azure Queue Storage를 사용하는 방법을 설명합니다.
 
-코드에서 큐를 만드는 방법을 살펴보겠습니다. 또한 큐 메시지 추가, 수정, 읽기 및 제거와 같은 기본 큐 작업을 수행하는 방법을 보여 드립니다. 샘플은 c # 코드로 작성 되었으며 [.net 용 Microsoft Azure Storage 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn261237.aspx)를 사용 합니다.
+코드에서 큐를 만드는 방법을 살펴보겠습니다. 또한 큐 메시지 추가, 수정, 읽기 및 제거와 같은 기본 큐 작업을 수행하는 방법을 보여 드립니다. 샘플은 c # 코드로 작성 되었으며 [.net 용 Microsoft Azure Storage 클라이언트 라이브러리](/previous-versions/azure/dn261237(v=azure.100))를 사용 합니다.
 
 **연결된 서비스 추가** 작업은 프로젝트의 Azure Storage에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 스토리지 계정에 대한 연결 문자열을 추가합니다.
 
@@ -69,7 +69,7 @@ Visual Studio Cloud Services 프로젝트의 큐에 액세스하려면 Azure Que
 **참고:** 다음 샘플의 코드 앞에 위의 코드를 모두 사용 합니다.
 
 ## <a name="create-a-queue-in-code"></a>코드에서 큐 만들기
-코드에서 큐를 만들려면 **CreateIfNotExists**에 대한 호출을 추가합니다.
+코드에서 큐를 만들려면 **CreateIfNotExists** 에 대한 호출을 추가합니다.
 
 ```csharp
 // Create the CloudQueue if it does not exist
@@ -101,7 +101,7 @@ CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 이 코드에서는 2단계를 거쳐 큐에서 메시지를 제거할 수 있습니다.
 
 1. **Getmessage** 를 호출 하 여 큐에서 다음 메시지를 가져옵니다. **Getmessage** 에서 반환 된 메시지는이 큐에서 메시지를 읽는 다른 코드에는 표시 되지 않습니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다.
-2. 큐에서 메시지 제거를 완료하려면 **DeleteMessage**를 호출합니다.
+2. 큐에서 메시지 제거를 완료하려면 **DeleteMessage** 를 호출합니다.
 
 메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 다음 코드에서는 메시지가 처리된 직후에 **DeleteMessage** 를 호출합니다.
 
@@ -120,7 +120,7 @@ await messageQueue.DeleteMessage(retrievedMessage);
 큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다.
 
 * 메시지의 배치(최대 32개)를 가져올 수 있습니다.
-* 표시하지 않는 제한 시간을 더 길거나 더 짧게 설정하여 코드에서 각 메시지를 완전히 처리하는 시간을 늘리거나 줄일 수 있습니다. 다음 코드 예제는 **GetMessages** 메서드를 사용하여 한 번 호출에 20개의 메시지를 가져옵니다. 그런 다음에 **foreach** 루프를 사용하여 각 메시지를 처리합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분으로 설정합니다. 5 분은 모든 메시지에 대해 동시에 시작 되므로 **Getmessages**에 대 한 호출 이후로 5 분이 지난 후에는 삭제 되지 않은 모든 메시지가 다시 표시 됩니다.
+* 표시하지 않는 제한 시간을 더 길거나 더 짧게 설정하여 코드에서 각 메시지를 완전히 처리하는 시간을 늘리거나 줄일 수 있습니다. 다음 코드 예제는 **GetMessages** 메서드를 사용하여 한 번 호출에 20개의 메시지를 가져옵니다. 그런 다음에 **foreach** 루프를 사용하여 각 메시지를 처리합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분으로 설정합니다. 5 분은 모든 메시지에 대해 동시에 시작 되므로 **Getmessages** 에 대 한 호출 이후로 5 분이 지난 후에는 삭제 되지 않은 모든 메시지가 다시 표시 됩니다.
 
 예를 들면 다음과 같습니다.
 
@@ -150,7 +150,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>일반적인 Azure 큐 API와 함께 Async-Await 패턴 사용
-이 예에서는 일반적인 Azure 큐 API와 함께 Async-Await 패턴을 사용하는 방법을 보여 줍니다. 이 샘플은 지정 된 각 메서드의 비동기 버전을 호출 합니다 .이는 각 메서드의 **async** 사후 수정에서 볼 수 있습니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 Async- Await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 애플리케이션의 전반적인 응답성을 향상시킵니다. .NET의 Async-Await 패턴 사용에 대 한 자세한 내용은 [Async And wait (c # 및 Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) 를 참조 하세요.
+이 예에서는 일반적인 Azure 큐 API와 함께 Async-Await 패턴을 사용하는 방법을 보여 줍니다. 이 샘플은 지정 된 각 메서드의 비동기 버전을 호출 합니다 .이는 각 메서드의 **async** 사후 수정에서 볼 수 있습니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 Async- Await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 애플리케이션의 전반적인 응답성을 향상시킵니다. .NET의 Async-Await 패턴 사용에 대 한 자세한 내용은 [Async And wait (c # 및 Visual Basic)](/previous-versions/hh191443(v=vs.140)) 를 참조 하세요.
 
 ```csharp
 // Create a message to put in the queue
@@ -179,4 +179,3 @@ messageQueue.Delete();
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
-

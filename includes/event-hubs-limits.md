@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 320fa542f2b786f0a256c22f2d2eb299c476dcae
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 1b5905046fdde4d5574fd4d39f40dce1bbf11e32
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94362736"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95564188"
 ---
 다음 표는 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)의 할당량과 제한을 제공합니다. Event Hubs 가격에 대한 자세한 내용은 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
 
@@ -42,12 +42,12 @@ ms.locfileid: "94362736"
 | Event Hub당 소비자 그룹 수 | &nbsp; |1 |20 |
 | 네임스페이스당 AMQP 연결 수 | 추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |100 |5,000|
 | 이벤트 데이터의 최대 보존 기간 | &nbsp; |1일 |1-7일 |
-| 최대 처리량 단위 |이 제한을 초과하면 데이터가 정체되고 [서버 사용 중 예외](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)가 생성됩니다. 표준 계층에 대해 더 많은 수의 처리량 단위를 요청하려면 [지원 요청](/azure/azure-portal/supportability/how-to-create-azure-support-request)을 작성합니다. [추가 처리량 단위](../articles/event-hubs/event-hubs-auto-inflate.md)는 약정된 구매를 기준으로 20개 단위로 사용할 수 있습니다. |20 | 20 | 
+| 최대 처리량 단위 |이 제한을 초과하면 데이터가 정체되고 [서버 사용 중 예외](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)가 생성됩니다. 표준 계층에 대해 더 많은 수의 처리량 단위를 요청하려면 [지원 요청](../articles/azure-portal/supportability/how-to-create-azure-support-request.md)을 작성합니다. [추가 처리량 단위](../articles/event-hubs/event-hubs-auto-inflate.md)는 약정된 구매를 기준으로 20개 단위로 사용할 수 있습니다. |20 | 20 | 
 
 ## <a name="dedicated-tier-vs-standard-tier"></a>전용 계층 및 표준 계층 비교
 Event Hubs Dedicated 제품은 고정된 월별 가격으로 청구되며, 최소 사용량은 4시간입니다. Dedicated 계층은 표준 요금제의 모든 기능을 제공합니다. 하지만 워크로드가 까다로운 고객을 위해 엔터프라이즈급 용량 및 제한을 제공합니다. 
 
-Azure Portal을 사용하여 전용 Event Hubs 클러스터를 만드는 방법은 이 [문서](https://docs.microsoft.com/azure/event-hubs/event-hubs-dedicated-cluster-create-portal)를 참조하세요.
+Azure Portal을 사용하여 전용 Event Hubs 클러스터를 만드는 방법은 이 [문서](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md)를 참조하세요.
 
 | 기능 | Standard | 전용 |
 | --- |:---|:---|
@@ -83,8 +83,3 @@ Azure Portal을 사용하여 전용 Event Hubs 클러스터를 만드는 방법�
 | 스키마 레지스트리(네임스페이스) 크기(메가바이트) | 25 |  1024 |
 | 스키마 레지스트리 또는 네임스페이스에 있는 스키마 그룹 수 | 1 - 기본 그룹 제외 | 1000 |
 | 모든 스키마 그룹의 스키마 버전 수 | 25 | 10000 |
-
-
-
-
-

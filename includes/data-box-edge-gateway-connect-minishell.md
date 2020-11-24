@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 348f7bdd333da4f4a6cb41a438b7aee08d6a6bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e603442bdecf9a627172e24390b06cef573f475
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67182665"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563964"
 ---
 클라이언트의 운영 체제에 따라 장치에 원격으로 연결 하는 절차가 다릅니다.
 
@@ -20,7 +20,7 @@ ms.locfileid: "67182665"
 Windows 클라이언트에서 원격으로 연결 하려면 다음 단계를 수행 합니다.
 
 1. 관리자 권한으로 Windows PowerShell 세션을 실행 합니다.
-2. Windows 원격 관리 서비스가 클라이언트에서 실행 되 고 있는지 확인 합니다. 명령 프롬프트에서 다음을 입력합니다.
+2. Windows 원격 관리 서비스가 클라이언트에서 실행 되 고 있는지 확인 합니다. 명령 프롬프트에 다음을 입력합니다.
 
     `winrm quickconfig`
 
@@ -38,7 +38,7 @@ Windows 클라이언트에서 원격으로 연결 하려면 다음 단계를 수
 
     `Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell`
 
-6. 메시지가 표시 되 면 암호를 입력 합니다. 로컬 웹 UI에 로그인 하는 데 사용 되는 것과 동일한 암호를 사용 합니다. 기본 로컬 웹 UI 암호는 *Password1*입니다. 원격 PowerShell을 사용 하 여 장치에 성공적으로 연결 하면 다음 샘플 출력이 표시 됩니다.  
+6. 메시지가 표시 되 면 암호를 입력 합니다. 로컬 웹 UI에 로그인 하는 데 사용 되는 것과 동일한 암호를 사용 합니다. 기본 로컬 웹 UI 암호는 *Password1* 입니다. 원격 PowerShell을 사용 하 여 장치에 성공적으로 연결 하면 다음 샘플 출력이 표시 됩니다.  
 
     ```
     Windows PowerShell
@@ -58,11 +58,11 @@ Windows 클라이언트에서 원격으로 연결 하려면 다음 단계를 수
 
 연결에 사용할 Linux 클라이언트에서 다음을 수행 합니다.
 
-- GitHub에서 [Linux 용 최신 PowerShell Core를 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) 하 여 SSH 원격 기능을 가져옵니다. 
+- GitHub에서 [Linux 용 최신 PowerShell Core를 설치](/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) 하 여 SSH 원격 기능을 가져옵니다. 
 - [ `gss-ntlmssp` NTLM 모듈의 패키지만 설치](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md)합니다. Ubuntu 클라이언트의 경우 다음 명령을 사용 합니다.
     - `sudo apt-get install gss-ntlmssp`
 
-자세한 내용은 [SSH를 통한 PowerShell 원격](https://docs.microsoft.com/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6)을 참조 하세요.
+자세한 내용은 [SSH를 통한 PowerShell 원격](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6)을 참조 하세요.
 
 NFS 클라이언트에서 원격으로 연결 하려면 다음 단계를 수행 합니다.
 

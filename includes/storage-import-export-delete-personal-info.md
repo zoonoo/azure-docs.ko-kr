@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 137aca7c6c857ee6e833c359b710e1c1848d15ed
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67182416"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559845"
 ---
 ## <a name="deleting-personal-information"></a>개인 정보 삭제
 
@@ -23,11 +23,11 @@ ms.locfileid: "67182416"
 
 - 담당자 이름
 - 전화 번호
-- Email
+- 메일
 - 주소
 - 구/군/시
 - 우편 번호
-- 시스템 상태
+- 주
 - 국가/시/도/지역
 - 드라이브 ID
 - 운송업체 계정 번호
@@ -37,12 +37,12 @@ ms.locfileid: "67182416"
 
 개인 연락처 정보는 다음과 같은 방법으로 삭제될 수 있습니다.
 
-- 작업과 함께 저장된 데이터는 작업이 삭제될 때 삭제됩니다. 사용자가 작업을 수동으로 삭제할 수 있으며, 완료된 작업은 90일이 지나면 자동으로 삭제됩니다. REST API 또는 Azure Portal을 통해 작업을 수동으로 삭제할 수 있습니다. Azure Portal에서 작업을 삭제하려면 가져오기/내보내기 작업으로 이동한 후 명령 모음에서 *삭제*를 클릭합니다. REST API를 통해 가져오기/내보내기 작업을 삭제하는 방법에 대한 자세한 내용은 [가져오기/내보내기 작업 삭제](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md)를 참조하세요.
+- 작업과 함께 저장된 데이터는 작업이 삭제될 때 삭제됩니다. 사용자가 작업을 수동으로 삭제할 수 있으며, 완료된 작업은 90일이 지나면 자동으로 삭제됩니다. REST API 또는 Azure Portal을 통해 작업을 수동으로 삭제할 수 있습니다. Azure Portal에서 작업을 삭제하려면 가져오기/내보내기 작업으로 이동한 후 명령 모음에서 *삭제* 를 클릭합니다. REST API를 통해 가져오기/내보내기 작업을 삭제하는 방법에 대한 자세한 내용은 [가져오기/내보내기 작업 삭제](/previous-versions/azure/storage/common/storage-import-export-cancelling-and-deleting-jobs)를 참조하세요.
 
 - 포털 설정에 저장된 연락처 정보는 포털 설정을 삭제하면 제거될 수 있습니다. 다음 단계를 수행하여 포털 설정을 삭제할 수 있습니다.
   - [Azure Portal](https://portal.azure.com)에 로그인합니다.
   - *설정* 아이콘 ![Azure 설정 아이콘](media/storage-import-export-delete-personal-info/azure-settings-icon.png)을 클릭합니다.
-  - *모든 설정 내보내기*를 클릭합니다(현재 설정을 `.json` 파일에 저장).
-  - *모든 설정 및 프라이빗 대시보드 삭제*를 클릭하여 저장된 연락처 정보를 포함하는 모든 설정을 삭제합니다.
+  - *모든 설정 내보내기* 를 클릭합니다(현재 설정을 `.json` 파일에 저장).
+  - *모든 설정 및 프라이빗 대시보드 삭제* 를 클릭하여 저장된 연락처 정보를 포함하는 모든 설정을 삭제합니다.
 
 자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.

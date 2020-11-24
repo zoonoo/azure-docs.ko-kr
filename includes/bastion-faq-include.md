@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5d14068f6be4717f74e4917d6fccf1082cd0efd3
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 48a7912b1a6375111b6f9af1496cbbd41966202c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331761"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563376"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>이용 가능한 지역은 어디인가요?
 
@@ -89,7 +89,7 @@ Azure Bastion은 현재 VM 내에서 en-us-qwerty 키보드 레이아웃을 지�
 
 ### <a name="how-do-i-handle-deployment-failures"></a><a name="udr"></a>배포 실패를 처리하는 방법은?
 
-오류 메시지를 검토하고 필요에 따라 [Azure Portal에서 지원 요청을 제기합니다](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). [Azure 구독 제한, 할당량 및 제약 조건](../articles/azure-resource-manager/management/azure-subscription-service-limits.md)에서 배포 오류가 발생할 수 있습니다. 특히, 고객은 구독당 허용되는 공용 IP 주소 수 제한으로 인해 Azure Bastion 배포가 실패할 수 있습니다.
+오류 메시지를 검토하고 필요에 따라 [Azure Portal에서 지원 요청을 제기합니다](../articles/azure-portal/supportability/how-to-create-azure-support-request.md). [Azure 구독 제한, 할당량 및 제약 조건](../articles/azure-resource-manager/management/azure-subscription-service-limits.md)에서 배포 오류가 발생할 수 있습니다. 특히, 고객은 구독당 허용되는 공용 IP 주소 수 제한으로 인해 Azure Bastion 배포가 실패할 수 있습니다.
 
 ### <a name="how-do-i-incorporate-azure-bastion-in-my-disaster-recovery-plan"></a><a name="dr"></a>재해 복구 계획에 Azure Bastion을 통합하려면 어떻게 할까요?
 

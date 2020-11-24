@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7831eaaa478a3f28ff158d5c9599abaf8a107c15
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 74c77356df4f35461a8b9f1459712cdcf7f77cbf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684434"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563123"
 ---
 Azure 공유 디스크는 여러 Vm (가상 컴퓨터)에 관리 디스크를 동시에 연결할 수 있도록 하는 Azure managed disks에 대 한 새로운 기능입니다. 관리 디스크를 여러 VM에 연결하면 새 클러스터된 애플리케이션을 배포하거나 기존 클러스터된 애플리케이션을 Azure로 마이그레이션할 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure 공유 디스크는 여러 Vm (가상 컴퓨터)에 관리 디스크를 �
 
 ### <a name="windows"></a>Windows
 
-Azure 공유 디스크는 Windows Server 2008 이상에서 지원 됩니다. 대부분의 Windows 기반 클러스터링은 클러스터 노드 통신용 핵심 인프라를 모두 처리 하 여 응용 프로그램이 병렬 액세스 패턴을 활용할 수 있도록 하는 WSFC를 기반으로 합니다. WSFC를 사용하면 Windows Server 버전에 따라 CSV 기반 옵션과 CSV 기반이 아닌 옵션을 모두 사용할 수 있습니다. 자세한 내용은 [장애 조치(failover) 클러스터 만들기](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster)를 참조하세요.
+Azure 공유 디스크는 Windows Server 2008 이상에서 지원 됩니다. 대부분의 Windows 기반 클러스터링은 클러스터 노드 통신용 핵심 인프라를 모두 처리 하 여 응용 프로그램이 병렬 액세스 패턴을 활용할 수 있도록 하는 WSFC를 기반으로 합니다. WSFC를 사용하면 Windows Server 버전에 따라 CSV 기반 옵션과 CSV 기반이 아닌 옵션을 모두 사용할 수 있습니다. 자세한 내용은 [장애 조치(failover) 클러스터 만들기](/windows-server/failover-clustering/create-failover-cluster)를 참조하세요.
 
 WSFC에서 실행되는 인기 있는 일부 애플리케이션은 다음과 같습니다.
 
