@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 4252e3a7f8c3ff9d0ec782a2a9222553c063463c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 88774450fb196da5de24bcad047ecdb8c424f653
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95533279"
+ms.locfileid: "95736536"
 ---
 # <a name="configure-an-aks-cluster"></a>AKS 클러스터 구성
 
@@ -276,7 +276,7 @@ az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-grou
 ```
 
 > [!IMPORTANT]
-> 사용 후 삭제 OS를 사용 하면 vm 캐시 크기까지 VM 및 인스턴스 이미지를 배포할 수 있습니다. AKS의 경우 기본 노드 OS 디스크 구성은 100GiB을 사용 합니다. 즉, 캐시가 100 GiB 보다 큰 VM 크기가 필요 합니다. 기본 Standard_DS2_v2의 캐시 크기는 86 GiB입니다 .이는 충분히 크지 않습니다. Standard_DS3_v2의 캐시 크기가 172 GiB입니다 .이는 크기가 충분 합니다. 또한를 사용 하 여 OS 디스크의 기본 크기를 줄일 수 있습니다 `--node-osdisk-size` . AKS 이미지의 최소 크기는 30GiB입니다. 
+> 사용 후 삭제 OS를 사용 하면 vm 캐시 크기까지 VM 및 인스턴스 이미지를 배포할 수 있습니다. AKS의 경우 기본 노드 OS 디스크 구성은 128GB을 사용 합니다. 즉, 캐시가 128GB 보다 큰 VM 크기가 필요 합니다. 기본 Standard_DS2_v2의 캐시 크기는 86GB이 고 크기가 크지 않습니다. Standard_DS3_v2의 캐시 크기가 172GB 이며이는 크기가 커야 합니다. 또한를 사용 하 여 OS 디스크의 기본 크기를 줄일 수 있습니다 `--node-osdisk-size` . AKS 이미지의 최소 크기는 30GB입니다. 
 
 네트워크에 연결 된 OS 디스크를 사용 하 여 노드 풀을 만들려면를 지정 하 여이 작업을 수행할 수 있습니다 `--node-osdisk-type Managed` .
 

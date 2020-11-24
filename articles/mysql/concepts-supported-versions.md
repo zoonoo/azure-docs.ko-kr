@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: ed767055c1227d39fc29ac77a44c96b19030ad28
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8033117d9e3c31f8aa9bba06afb7c3b1b7bba67f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535863"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751031"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>지원되는 MySQL용 Azure 데이터베이스 서버 버전
 
@@ -46,7 +46,7 @@ Azure Database for MySQL은 현재 다음 버전을 지원합니다.
 ## <a name="managing-updates-and-upgrades"></a>업데이트 및 업그레이드 관리
 서비스는 버그 수정 버전 업데이트에 대한 패치를 자동으로 관리합니다. 예: 5.7.20~5.7.21  
 
-현재 주 및 부 버전 업그레이드는 지원되지 않습니다. 예를 들어 MySQL 5.6에서 MySQL 5.7로의 업그레이드는 지원되지 않습니다. 5.6에서 5.7로 업그레이드하려는 경우 새 엔진 버전을 사용하여 만든 서버에 부 버전을 [덤프 및 복원](./concepts-migrate-dump-restore.md)합니다.
+주 버전 업그레이드는 현재 service에서 MySQL v 5.6에서 v 5.7로의 업그레이드를 지원 합니다. 자세한 내용은 [주 버전 업그레이드를 수행 하는 방법](how-to-major-version-upgrade.md)을 참조 하세요. 5.7에서 8.0로 업그레이드 하려는 경우 새 엔진 버전으로 만든 서버에 대해 [덤프를 수행 하 고 복원](./concepts-migrate-dump-restore.md) 하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

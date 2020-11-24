@@ -3,12 +3,12 @@ title: Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0 | Mic
 description: Azure Service Bus 및 Event Hubs의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 32e71211ed1574cade0567f7944b154eea062b24
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: e001327c2c7da08cb9a3552f97fc9a7d8b7921a2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95396878"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736717"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0
 
@@ -42,7 +42,7 @@ AMQP 1.0 프로토콜은 확장 가능하게 설계되었으며 사양을 추가
 
 이 섹션에서는 연결, 세션 및 링크의 생성과 큐, 토픽 및 구독 같은 Service Bus 엔터티와의 메시지 송수신 등 Azure Service Bus에서 AMQP 1.0을 사용하는 기본적인 방법을 설명합니다.
 
-AMQP 작동 방식을 알기 위한 가장 신뢰할 수 있는 소스는 AMQP 1.0 사양이지만, 이 사양은 구현을 정확히 안내하기 위해 작성되었으며 프로토콜 학습용은 아닙니다. 이 섹션에서는 Service Bus가 AMQP 1.0을 사용하는 방법을 설명하는 데 필요한 다양한 용어를 중점적으로 소개합니다. AMQP를 좀 더 포괄적으로 소개하고 AMQP 1.0을 광범위하게 논의하려는 경우 [이 비디오 과정][this video course]을 검토할 수 있습니다.
+AMQP 작동 방식에 대해 자세히 알아볼 수 있는 가장 신뢰할 수 있는 소스는 [amqp 1.0 사양](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html)이지만,이 사양은 정확한 가이드 구현을 위해 작성 되었으며 프로토콜에 대해 설명 하지는 않습니다. 이 섹션에서는 Service Bus가 AMQP 1.0을 사용하는 방법을 설명하는 데 필요한 다양한 용어를 중점적으로 소개합니다. AMQP를 좀 더 포괄적으로 소개하고 AMQP 1.0을 광범위하게 논의하려는 경우 [이 비디오 과정][this video course]을 검토할 수 있습니다.
 
 ### <a name="connections-and-sessions"></a>연결 및 세션
 
@@ -67,7 +67,7 @@ Service Bus는 연결 및 TLS를 설정한 후 다음과 같은 두 가지 SASL 
 
 이 기간 기반 모델은 TCP의 기간 기반 흐름 제어 개념과 유사하지만 소켓 내 세션 수준에서 진행됩니다. 이 프로토콜의 경우 여러 개의 동시 세션을 허용하는 개념이 존재하므로 고속도로의 경우처럼 우선 순위가 높은 트래픽이 제한된 일반 트래픽보다 빠르게 전달됩니다.
 
-Azure Service Bus는 현재 각 연결에 대해 정확히 하나의 세션을 사용합니다. Service Bus 표준 및 Event Hubs에 대한 Service Bus 최대 프레임 크기는 262,144바이트(256K바이트)입니다. Service Bus 프리미엄의 경우는 1,048,576(1MB)입니다. Service Bus는 세션 수준의 특정 제한 기간을 적용하지 않지만 링크 수준 흐름 제어의 일부로 해당 기간을 정기적으로 다시 설정합니다([다음 섹션](#links) 참조).
+Azure Service Bus는 현재 각 연결에 대해 정확히 하나의 세션을 사용합니다. Service Bus Standard의 Service Bus 최대 프레임 크기는 262144 바이트 (256-K 바이트)입니다. Service Bus 프리미엄 및 Event Hubs에 대 한 1048576 (1mb)입니다. Service Bus는 세션 수준의 특정 제한 기간을 적용하지 않지만 링크 수준 흐름 제어의 일부로 해당 기간을 정기적으로 다시 설정합니다([다음 섹션](#links) 참조).
 
 연결, 채널 및 세션은 사용 후 삭제됩니다. 기본 연결이 축소되면 연결, TLS 터널, SASL 권한 부여 컨텍스트 및 세션을 다시 설정해야 합니다.
 
@@ -357,7 +357,7 @@ CBS는 *$cbs* 라는 가상 관리 노드가 메시징 인프라에 의해 제�
 
 요청 메시지에는 다음과 같은 애플리케이션 속성이 적용됩니다.
 
-| 키 | Optional | 값 형식 | 값 내용 |
+| Key | 선택 사항 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
 | operation |예 |문자열 |**put-token** |
 | 형식 |예 |문자열 |배치되는 토큰의 형식입니다. |
@@ -366,7 +366,7 @@ CBS는 *$cbs* 라는 가상 관리 노드가 메시징 인프라에 의해 제�
 
 *name* 속성은 토큰이 연결되어야 하는 엔터티를 식별합니다. Service Bus에서 큐 또는 토픽/구독에 대한 경로에 해당합니다. *type* 속성은 토큰 형식을 식별합니다.
 
-| 토큰 형식 | 토큰 설명 | 본문 형식 | 참고 |
+| 토큰 형식 | 토큰 설명 | 본문 형식 | 메모 |
 | --- | --- | --- | --- |
 | amqp:jwt |JWT(JSON 웹 토큰) |AMQP 값(문자열) |아직 사용할 수 없습니다. |
 | amqp:swt |SWT(단순 웹 토큰) |AMQP 값(문자열) |AAD/ACS에서 발급한 SWT 토큰에 대해서만 지원됩니다. |
@@ -376,9 +376,9 @@ CBS는 *$cbs* 라는 가상 관리 노드가 메시징 인프라에 의해 제�
 
 회신 메시지는 다음과 같은 *애플리케이션 속성* 값을 갖습니다.
 
-| 키 | Optional | 값 형식 | 값 내용 |
+| Key | 선택 사항 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
-| status-code |아니요 |int |HTTP 응답 코드 **[RFC2616]** |
+| status-code |예 |int |HTTP 응답 코드 **[RFC2616]** |
 | status-description |예 |문자열 |상태에 대한 설명입니다. |
 
 클라이언트는 메시징 인프라의 모든 엔터티에 대해 반복적으로 *put-token* 을 호출할 수 있습니다. 토큰은 현재 클라이언트로 범위가 지정되며 현재 연결에 고정됩니다. 즉, 연결이 삭제되면 서버는 보유된 토큰을 모두 삭제합니다.

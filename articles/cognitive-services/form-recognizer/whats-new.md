@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 92eda77d03e547e814cac85f5ac8bb03b552d135
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ed6d3b927254d44863b7fd0a597528813be791cf
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95506551"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736614"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Form Recognizer의 새로운 기능
 
@@ -38,13 +38,13 @@ ms.locfileid: "95506551"
   > [레이아웃 추출에 대 한 자세한 정보](concept-layout.md)
 
 - **지원 되는 새 언어: 일본어** - `AnalyzeLayout` 및 `AnalyzeCustomForm` : 일본어 ( `ja` )의 경우 다음과 같은 새로운 언어가 지원 됩니다. [언어 지원](language-support.md)
-- **텍스트 줄 스타일 표시 (필기/인쇄) (라틴어만 해당)** -이제 양식 인식기는 `appearance` 각 텍스트 줄에 대 한 입력 여부를 분류 하는 개체를 신뢰 점수와 함께 출력 합니다. 이 기능은 라틴어 언어에 대해서만 지원 됩니다.
+- **텍스트 줄 스타일 표시 (필기/기타) (라틴어만 해당)** -이제 양식 인식기는 `appearance` 각 텍스트 줄에 대 한 입력 여부를 분류 하는 개체를 신뢰 점수와 함께 출력 합니다. 이 기능은 라틴어 언어에 대해서만 지원 됩니다.
 - **품질 향상** -단일 자릿수 추출 기능을 포함 하 여 추출 기능이 향상 되었습니다.
 - 양식 인식기 샘플 레이블 지정 도구-양식 인식기 샘플 레이블 지정 도구를 사용 하 여 미리 작성 된 청구서, 수신 및 비즈니스 카드 모델 및 레이아웃 API를 사용해 볼 수 있는 **새로운 실습 기능** 을 제공 합니다. 코드를 작성 하지 않고 데이터를 추출 하는 방법을 확인 합니다.
 
   > [양식 인식기 샘플 도구 사용해 보기](https://fott-preview.azurewebsites.net/)
 
-  ![FOTT 예제](./media/fott-preview.jpg)
+  ![FOTT 예제](./media/ui-preview.jpg)
 
 ## <a name="august-2020"></a>2020년 8월
 
@@ -85,7 +85,7 @@ ms.locfileid: "95506551"
 * **통화 지원** -전역 통화 기호의 검색 및 추출을 지원 합니다.
 * Azure **.gov** 는 이제 azure .gov 에서도 사용할 수 있습니다.
 * **향상 된 보안 기능**: 
-   * 사용자 **고유의 키** -양식 인식기를 가져오면 데이터를 클라우드에 보관 하 여 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정에 맞게 자동으로 암호화 합니다. 기본적으로 구독은 Microsoft에서 관리하는 암호화 키를 사용합니다. 이제 사용자 고유의 암호화 키를 사용 하 여 구독을 관리할 수도 있습니다. [BYOK (사용자 고유 키 사용) 라고도 하는 CMK (고객 관리 키)](./form-recognizer-encryption-of-data-at-rest.md)는 액세스 제어를 보다 유연 하 게 만들고, 회전 하 고, 사용 하지 않도록 설정 하 고, 취소할 수 있는 유연성을 제공 합니다. 데이터를 보호하는 데 사용되는 암호화 키를 감사할 수도 있습니다.  
+   * 사용자 **고유의 키** -양식 인식기를 가져오면 데이터를 클라우드에 보관 하 여 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정에 맞게 자동으로 암호화 합니다. 기본적으로 구독은 Microsoft에서 관리하는 암호화 키를 사용합니다. 이제 사용자 고유의 암호화 키를 사용 하 여 구독을 관리할 수도 있습니다. [고객 관리 키 (BYOK 라고도 함)](./form-recognizer-encryption-of-data-at-rest.md)는 액세스 제어를 보다 유연 하 게 만들고, 회전 하 고, 사용 하지 않도록 설정 하 고, 취소할 수 있는 유연성을 제공 합니다. 데이터를 보호하는 데 사용되는 암호화 키를 감사할 수도 있습니다.  
    * **개인 끝점** – 가상 네트워크 (VNet)에서 [개인 링크를 통해 안전](../../private-link/private-link-overview.md) 하 게 데이터에 액세스할 수 있습니다.
 
 

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 366826e591ed131ca63dc94eae994773217438d1
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: af3935bab5cd4d6a2aa4a9e3250f6beec19a8ea4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511569"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736682"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>양식 인식기 미리 빌드된 송장 모델
 
@@ -55,7 +55,7 @@ Azure 양식 인식기는 미리 작성 된 청구서 모델을 사용 하 여 �
 
 두 번째 단계는 [분석 송장 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeInvoiceResult) 작업을 호출 하는 것입니다. 이 작업은 송장 분석 작업에 의해 생성 된 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
 
-|필드| 형식 | 가능한 값 |
+|필드| Type | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 분석 작업이 시작 되지 않았습니다.<br /><br />실행 중: 분석 작업이 진행 중입니다.<br /><br />실패: 분석 작업이 실패 했습니다.<br /><br />성공: 분석 작업이 성공 했습니다.|
 
@@ -74,7 +74,7 @@ JSON 출력에는 3 가지 부분이 있습니다.
 
 송장 서비스는 text, tables 및 26 개의 송장 필드를 추출 합니다. 다음은 JSON 출력 응답의 청구서에서 추출 된 필드입니다 (아래 출력은이 [샘플 송장을](./media/sample-invoice.jpg)사용).  
 
-|속성| 유형 | 설명 | 텍스트 | 값 (표준화 된 출력) |
+|Name| Type | 설명 | 텍스트 | 값 (표준화 된 출력) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | 문자열 | 송장이 청구 되는 고객 | Microsoft Corp |  |
 | CustomerId | 문자열 | 고객에 대 한 참조 ID | CID-12345 |  |
@@ -107,7 +107,8 @@ JSON 출력에는 3 가지 부분이 있습니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [양식 인식기 샘플 UI](https://fott-preview.azurewebsites.net/)에서 고유한 청구서 및 샘플을 사용해 보세요.
-- 또는 [청구서 데이터 추출](./QuickStarts/python-invoices.md) 빠른 시작을 수행 하 여 Python 및 REST API를 사용 하 여 송장 데이터 추출을 구현 합니다.
+- 양식 인식기 [클라이언트 라이브러리 빠른](quickstarts/client-library.md) 시작을 완료 하 여 선택한 언어로 양식 인식기를 사용 하 여 송장 처리 앱을 작성 하기 시작 합니다.
+- 또는 [청구서 데이터 추출](./quickstarts/python-invoices.md) 빠른 시작을 수행 하 여 Python 및 REST API를 사용 하 여 송장 데이터 추출을 구현 합니다.
 ## <a name="see-also"></a>참조
 
 * [Form Recognizer란?](./overview.md)

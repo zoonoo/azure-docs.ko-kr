@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 11/22/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b66d0f20959d196fddeb8356d8171573f1243b58
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 940955c8ace956354a2747f5ad21430620c2a9d1
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842280"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95744571"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -415,17 +415,16 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
 
-Azure에서 호스트 되는 노드의 데이터의 경우 __azure 구독 당__ 수집 데이터의 **크기** 를 가져올 수 있습니다. 구독 ID는 `_ResourceId` 다음과 같이 가져옵니다.
+Azure에서 호스트 되는 노드의 데이터에 대해 __azure 구독 당__ 수집 데이터의 **크기** 를 가져올 수 있습니다 `_SubscriptionId` . 속성을 다음과 같이 사용 합니다.
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
-| extend subscriptionId = tostring(split(_ResourceId, "/")[2]) 
-| summarize BillableDataBytes = sum(BillableDataBytes) by subscriptionId | sort by BillableDataBytes nulls last
+| summarize BillableDataBytes = sum(BillableDataBytes) by _SubscriptionId | sort by BillableDataBytes nulls last
 ```
 
-마찬가지로, 리소스 그룹별로 데이터 볼륨을 가져오려면 다음을 수행 합니다.
+리소스 그룹별 데이터 볼륨을 가져오려면 다음 구문을 분석할 수 있습니다 `_ResourceId` .
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -482,7 +481,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 | 성능 카운터       | [성능 카운터 구성](data-sources-performance-counters.md)을 다음과 같이 변경합니다. <br> - 컬렉션의 빈도 감소 <br> - 성능 카운터의 수 감소 |
 | 이벤트 로그                 | [이벤트 로그 구성](data-sources-windows-events.md)을 다음과 같이 변경합니다. <br> - 수집된 이벤트 로그의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 수준 이벤트를 수집하지 않습니다. |
 | syslog                     | [syslog 구성](data-sources-syslog.md)을 다음과 같이 변경합니다. <br> - 수집된 기능의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 및 *디버그* 수준 이벤트를 수집하지 않습니다. |
-| AzureDiagnostics           | 다음 작업을 수행하도록 리소스 로그 컬렉션을 변경합니다. <br> - Log Analytics로 보내는 리소스 송신 로그의 수 축소 <br> - 필요한 로그만 수집 |
+| AzureDiagnostics           | [리소스 로그 수집](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-in-azure-portal) 을 다음으로 변경: <br> - Log Analytics로 보내는 리소스 송신 로그의 수 축소 <br> - 필요한 로그만 수집 |
 | 솔루션을 사용하지 않는 컴퓨터의 솔루션 데이터 | [솔루션 대상](../insights/solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>노드당 가격 책정 계층에서 청구되는 노드를 가져오기

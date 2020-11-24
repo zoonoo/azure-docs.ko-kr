@@ -71,6 +71,16 @@
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
         - name: Cognitive Services 컨테이너 설명서
           href: ../containers/index.yml
+- name: 시나리오 심층 분석
+  items:
+    - name: 얼굴 등록
+      items:
+        - name: 개요
+          href: enrollment-overview.md
+        - name: 방법 가이드
+          items:
+            - name: React로 등록 앱 빌드
+              href: build-enrollment-app.md
 - name: 참조
   items:
     - name: Face API

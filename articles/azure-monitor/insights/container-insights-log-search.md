@@ -3,12 +3,12 @@ title: 컨테이너의 Azure Monitor에서 로그를 쿼리 하는 방법 | Micr
 description: 컨테이너에 대 한 Azure Monitor는 메트릭 및 로그 데이터를 수집 하 고이 문서에서는 레코드를 설명 하 고 샘플 쿼리를 포함 합니다.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: a540ae828b14f231b3b327b714876550cc744a7e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 08c42fab84cb5180497f8da4f077b9bd82283ad4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994018"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95747682"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>컨테이너의 Azure Monitor에서 로그를 쿼리 하는 방법
 
@@ -16,7 +16,7 @@ ms.locfileid: "91994018"
 
 ## <a name="container-records"></a>컨테이너 레코드
 
-다음 표에서는 컨테이너에 대 한 Azure Monitor에 의해 수집 된 레코드에 대 한 세부 정보를 제공 합니다. 
+다음 표에서는 컨테이너에 대 한 Azure Monitor에 의해 수집 된 레코드에 대 한 세부 정보를 제공 합니다. 열 설명 목록은 [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) 및 [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) 테이블에 대 한 참조를 참조 하세요.
 
 | 데이터 | 데이터 원본 | 데이터 형식 | 필드 |
 |------|-------------|-----------|--------|

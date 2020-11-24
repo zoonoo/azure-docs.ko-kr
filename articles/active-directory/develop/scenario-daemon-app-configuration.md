@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 24e3841abc9c397ab307e55405bdcc208815570e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6864502a9d338a786e1e77dbf9888a7818bb94e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444166"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95748651"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 디먼 앱-코드 구성
 
@@ -36,9 +36,9 @@ ms.locfileid: "94444166"
 
 디먼 응용 프로그램은 위임 된 권한 대신 응용 프로그램 사용 권한을 사용 합니다. 따라서 지원 되는 계정 유형은 조직 디렉터리 또는 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com)의 계정일 수 없습니다. Microsoft 개인 계정의 디먼 응용 프로그램에 대 한 동의를 허용 하는 테 넌 트 관리자가 없습니다. 조직 *에서* *계정이* 나 계정을 선택 해야 합니다.
 
-따라서 응용 프로그램 구성에 지정 된 기관은 테 넌 트 (조직에 연결 된 테 넌 트 ID 또는 도메인 이름을 지정)로 지정 해야 합니다.
+응용 프로그램 구성에 지정 된 기관은 테 넌 트 (조직에 연결 된 테 넌 트 ID 또는 도메인 이름을 지정)로 지정 해야 합니다.
 
-ISV 이며 다중 테 넌 트 도구를 제공 하려는 경우에는를 사용할 수 있습니다 `organizations` . 하지만 관리자 동의를 부여 하는 방법에 대해서도 설명 해야 합니다. 자세한 내용은 [전체 테 넌 트에 대 한 동의 요청](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)을 참조 하세요. 또한 현재 MSAL의 제한은 `organizations` 클라이언트 자격 증명이 인증서가 아닌 응용 프로그램 암호 인 경우에만 허용 됩니다.
+다중 테 넌 트 도구를 제공 하려는 경우에도 **not** `common` `organizations` 서비스에서 사용 해야 하는 테 넌 트를 안정적으로 유추할 수 없기 때문에 테 넌 트 ID 또는 도메인 이름을 사용 하거나이 흐름과 함께 사용 해야 합니다.
 
 ## <a name="configure-and-instantiate-the-application"></a>응용 프로그램 구성 및 인스턴스화
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
-ms.openlocfilehash: 0765c05e08dda782c084775fb83b22a52558fa0d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 9e8aecfe8b16d8af755d3f4c3c71b875d4e8ec40
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491616"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751252"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>호스트 된 테스트 드라이브에 대 한 자세한 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "94491616"
 
     - **테스트 드라이브의 유형** – **Microsoft 호스트 (고객 Engagement & PowerApps의 경우 Dynamics 365)** 를 선택 합니다. 이는 Microsoft가 사용자 프로 비전 및 프로 비전 해제 테스트를 수행 하는 서비스를 호스트 하 고 유지 관리 함을 나타냅니다.
 
-5. [이러한 지침](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md)을 사용 하 여 테 넌 트에서 테스트 드라이브 사용자를 프로 비전 하 고 프로 비전 해제 하는 Microsoft AppSource 권한을 부여 합니다. 이 단계에서는 아래에 설명 된 **AZURE AD 앱 ID** 와 **Azure AD 앱 키** 값을 생성 합니다.
+5. [이러한 지침](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup)을 사용 하 여 테 넌 트에서 테스트 드라이브 사용자를 프로 비전 하 고 프로 비전 해제 하는 Microsoft AppSource 권한을 부여 합니다. 이 단계에서는 아래에 설명 된 **AZURE AD 앱 ID** 와 **Azure AD 앱 키** 값을 생성 합니다.
 6. **Test drive 기술 구성** 페이지에서 이러한 필드를 완료 합니다.
 
     [![테스트 드라이브 기술 구성 페이지.](media/test-drive/technical-config-details.png)](media/test-drive/technical-config-details.png#lightbox)
