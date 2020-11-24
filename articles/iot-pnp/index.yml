@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 10/31/2019
-  ms.openlocfilehash: 5b01154fa3e5821ca577e4a910facff8d9cb968a
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 75aa276fb41ebe717caa5c2f0dbdab5f9709237e
+  ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91598044"
+  ms.lasthandoff: 11/23/2020
+  ms.locfileid: "95495239"
 landingContent:
 - title: IoT 플러그 앤 플레이 정보
   linkLists:
@@ -30,20 +30,12 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: IoT Hub에 샘플 디바이스 연결(C)
-      url: quickstart-connect-device-c.md
-    - text: IoT Hub에 샘플 디바이스 연결(C#)
-      url: quickstart-connect-device-csharp.md
-    - text: IoT Hub에 샘플 디바이스 연결(Java)
-      url: quickstart-connect-device-java.md
-    - text: IoT Hub에 샘플 디바이스 연결(Node.js)
-      url: quickstart-connect-device-node.md
-    - text: IoT Hub에 샘플 디바이스 연결(Python)
-      url: quickstart-connect-device-python.md
+    - text: IoT Hub에 샘플 디바이스 연결
+      url: quickstart-connect-device.md
   - linkListType: concept
     links:
     - text: 개발자 가이드
-      url: concepts-developer-guide-device-csharp.md
+      url: concepts-developer-guide-device.md
     - text: 구성 요소
       url: concepts-components.md
     - text: IoT 플러그 앤 플레이 규칙
@@ -54,10 +46,8 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: 솔루션에서 디바이스와 상호 작용(Node.js)
-      url: quickstart-service-node.md
-    - text: 솔루션에서 디바이스와 상호 작용(Python)
-      url: quickstart-service-python.md
+    - text: 솔루션에서 디바이스와 상호 작용
+      url: quickstart-service.md
   - linkListType: concept
     links:
     - text: 아키텍처
