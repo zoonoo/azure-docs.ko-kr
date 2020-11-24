@@ -7,18 +7,20 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 989115224489ff8fff360a34b27c338ea3e33058
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d587c4dbdd8f46d6e098ff96f464d456fffc9ccf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145823"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95529991"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>컨테이너 레지스트리용 Azure Defender 소개
 
 ACR(Azure Container Registry)은 중앙 레지스트리에서 Azure 배포에 대한 컨테이너 이미지를 저장하고 관리하는 관리형 프라이빗 Docker 레지스트리 서비스입니다. 오픈 소스 Docker 레지스트리 2.0을 기반으로 합니다.
 
 구독의 모든 Azure Resource Manager 기반 레지스트리를 보호하려면 구독 수준에서 **컨테이너 레지스트리용 Azure Defender** 를 사용하도록 설정합니다. 그러면 Security Center가 최근 30일 이내에 레지스트리에 푸시한 이미지, 레지스트리로 가져온 이미지 또는 풀한 이미지를 검사합니다. 이 기능은 이미지별로 요금이 청구됩니다.
+
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-container-registries"></a>컨테이너 레지스트리용 Azure Defender의 이점은?
 

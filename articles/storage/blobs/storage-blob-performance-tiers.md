@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 404999cfac5037702eb61fdf74b2c5245ce9eb30
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74270214"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95526122"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>블록 Blob Storage에 대한 성능 계층
 
@@ -31,7 +31,7 @@ Azure 블록 blob 저장소는 다음과 같은 두 가지 성능 계층을 제�
 |지역 가용성     |   모든 지역      | [영역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=storage)       |
 |지원 되는 [저장소 계정 유형](../common/storage-account-overview.md#types-of-storage-accounts)     |     범용 v2, BlobStorage, 범용 v1    |    BlockBlobStorage     |
 |[높은 처리량 블록 blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) 지원     |    예, 4 MiB PutBlock 또는 Putblock 크기를 초과 합니다.     |    예, 256 KiB PutBlock 또는 Putblock 크기 보다 큼    |
-|중복     |     [저장소 계정 유형을](../common/storage-account-overview.md#types-of-storage-accounts) 참조 하세요.   |  현재 LRS (로컬 중복 저장소) 및 ZRS (영역 redudant 저장소)만 지원 합니다.<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div>     |
+|중복성     |     [저장소 계정 유형을](../common/storage-account-overview.md#types-of-storage-accounts) 참조 하세요.   |  현재 LRS (로컬 중복 저장소) 및 ZRS (영역 redudant 저장소)만 지원 합니다.<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div>     |
 
 <div id="zone-redundant-storage"><sup>1</sup> ZRS (영역 중복 저장소)는 프리미엄 성능 블록 blob storage 계정에 대 한 선택 영역에서 사용할 수 있습니다.</div>
 
@@ -83,6 +83,6 @@ Blob 저장소 수명 주기 관리는 다음과 같은 다양 한 규칙 기반
 GPv2 및 Blob 저장소 계정에서 핫, 쿨 및 보관을 평가 합니다.
 
 - [보관 계층에서 blob 데이터 리하이드레이션에 대 한 자세한 정보](storage-blob-rehydration.md)
-- [Azure Storage 메트릭을 활성화하여 현재 Storage 계정의 사용 현황 평가](../common/storage-enable-and-view-metrics.md)
+- [Azure Storage 메트릭을 활성화하여 현재 Storage 계정의 사용 현황 평가](./monitor-blob-storage.md)
 - [지역별 Blob Storage 및 GPv2 계정에서 핫, 쿨 및 보관 가격 책정 확인](https://azure.microsoft.com/pricing/details/storage/)
 - [데이터 전송 가격 확인](https://azure.microsoft.com/pricing/details/data-transfers/)

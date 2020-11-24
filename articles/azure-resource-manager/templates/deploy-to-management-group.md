@@ -2,13 +2,13 @@
 title: 관리 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿의 관리 그룹 범위에서 리소스를 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 084ab69f463334569d37efd9187bfe587bfc524d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/23/2020
+ms.openlocfilehash: 54d4c096fab09bf31e121a7aae0eed3d2462e0c4
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668932"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519883"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 관리 그룹 배포
 
@@ -113,7 +113,8 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 * 작업의 대상 관리 그룹
 * 테 넌 트의 다른 관리 그룹
 * 관리 그룹의 구독
-* 관리 그룹의 리소스 그룹 (두 개의 중첩 된 배포를 통해)
+* 관리 그룹의 리소스 그룹
+* 리소스 그룹에 대 한 테 넌 트
 * 리소스에 [확장 리소스](scope-extension-resources.md) 를 적용할 수 있습니다.
 
 템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
@@ -142,11 +143,25 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 
 ### <a name="scope-to-resource-group"></a>리소스 그룹에 대 한 범위
 
-해당 구독 내의 리소스 그룹을 대상으로 하려면 두 개의 중첩 된 배포를 추가 합니다. 첫 번째는 리소스 그룹을 포함 하는 구독을 대상으로 합니다. 두 번째는 속성을 설정 하 여 리소스 그룹을 대상으로 합니다 `resourceGroup` .
+관리 그룹 내에서 리소스 그룹을 대상으로 지정할 수도 있습니다. 템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="10,21,25":::
+관리 그룹 내에서 리소스 그룹을 대상으로 하려면 중첩 된 배포를 사용 합니다. `subscriptionId` 및 `resourceGroup` 속성을 설정합니다. 중첩 된 배포는 리소스 그룹의 위치에 배포 되므로 위치를 설정 하지 마세요.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="9,10,18":::
 
 구독 내에서 리소스 그룹을 만들고 해당 리소스 그룹에 저장소 계정을 배포 하는 데 관리 그룹 배포를 사용 하려면 [구독 및 리소스 그룹에 배포](#deploy-to-subscription-and-resource-group)를 참조 하세요.
+
+### <a name="scope-to-tenant"></a>테 넌 트로 범위
+
+로 설정 된를 설정 하 여 테 넌 트에서 리소스를 만들 수 있습니다 `scope` `/` . 템플릿을 배포 하는 사용자에 게는 [테 넌 트에 배포 하는 데 필요한 액세스](deploy-to-tenant.md#required-access)권한이 있어야 합니다.
+
+에서 중첩 된 배포를 사용 하 `scope` 고를 설정할 수 있습니다 `location` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
+
+또는 `/` 관리 그룹과 같은 일부 리소스 형식에 대해 범위를로 설정할 수 있습니다.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
 
 ## <a name="deployment-location-and-name"></a>배포 위치 및 이름
 
@@ -234,77 +249,79 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "nestedsubId": {
-      "type": "string"
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "nestedsubId": {
+            "type": "string"
+        },
+        "nestedRG": {
+            "type": "string"
+        },
+        "storageAccountName": {
+            "type": "string"
+        },
+        "nestedLocation": {
+            "type": "string"
+        }
     },
-    "nestedRG": {
-      "type": "string"
-    },
-    "storageAccountName": {
-      "type": "string"
-    },
-    "nestedLocation": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "name": "nestedSub",
-      "location": "[parameters('nestedLocation')]",
-      "subscriptionId": "[parameters('nestedSubId')]",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-          },
-          "variables": {
-          },
-          "resources": [
-            {
-              "type": "Microsoft.Resources/resourceGroups",
-              "apiVersion": "2020-06-01",
-              "name": "[parameters('nestedRG')]",
-              "location": "[parameters('nestedLocation')]",
-            },
-            {
-              "type": "Microsoft.Resources/deployments",
-              "apiVersion": "2020-06-01",
-              "name": "nestedSubRG",
-              "resourceGroup": "[parameters('nestedRG')]",
-              "dependsOn": [
-                "[parameters('nestedRG')]"
-              ],
-              "properties": {
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedSub",
+            "location": "[parameters('nestedLocation')]",
+            "subscriptionId": "[parameters('nestedSubId')]",
+            "properties": {
                 "mode": "Incremental",
                 "template": {
-                  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                  "contentVersion": "1.0.0.0",
-                  "resources": [
-                    {
-                      "type": "Microsoft.Storage/storageAccounts",
-                      "apiVersion": "2019-04-01",
-                      "name": "[parameters('storageAccountName')]",
-                      "location": "[parameters('nestedLocation')]",
-                      "sku": {
-                        "name": "Standard_LRS"
-                      }
-                    }
-                  ]
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                    },
+                    "variables": {
+                    },
+                    "resources": [
+                        {
+                            "type": "Microsoft.Resources/resourceGroups",
+                            "apiVersion": "2020-06-01",
+                            "name": "[parameters('nestedRG')]",
+                            "location": "[parameters('nestedLocation')]"
+                        }
+                    ]
                 }
-              }
             }
-          ]
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedRG",
+            "subscriptionId": "[parameters('nestedSubId')]",
+            "resourceGroup": "[parameters('nestedRG')]",
+            "dependsOn": [
+                "nestedSub"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "resources": [
+                        {
+                            "type": "Microsoft.Storage/storageAccounts",
+                            "apiVersion": "2019-04-01",
+                            "name": "[parameters('storageAccountName')]",
+                            "location": "[parameters('nestedLocation')]",
+                            "kind": "StorageV2",
+                            "sku": {
+                                "name": "Standard_LRS"
+                            }
+                        }
+                    ]
+                }
+            }
         }
-      }
-    }
-  ]
+    ]
 }
 ```
 

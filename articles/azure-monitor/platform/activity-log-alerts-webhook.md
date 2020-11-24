@@ -4,12 +4,12 @@ description: 활동 로그 경고가 활성화될 때 웹후크 URL에 게시되
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 0ebaf7f0cc52ac131573226dfff5516581745c67
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 026613c3f5710137fb110153b34f9ed74bbf8a7b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104277"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522790"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 웹후크
 작업 그룹 정의의 일부로 활동 로그 경고 알림을 받도록 웹후크 엔드포인트를 구성할 수 있습니다. 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 이러한 알림을 다른 시스템으로 라우팅할 수 있습니다. 이 문서는 Webhook에 대한 HTTP POST의 페이로드 형태를 보여 줍니다.
@@ -269,7 +269,7 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | resourceGroupName |영향을 받는 리소스의 리소스 그룹 이름입니다. |
 | properties |이벤트에 대한 세부 정보를 포함하는 `<Key, Value>` 쌍의 집합(즉, `Dictionary<String, String>`)입니다. |
 | event |이벤트에 대한 메타데이터가 포함된 요소입니다. |
-| 권한 부여 |이벤트의 역할 기반 Access Control 속성입니다. 이러한 속성에는 일반적으로 action, role 및 scope이 포함됩니다. |
+| 권한 부여 |이벤트의 Azure 역할 기반 액세스 제어 속성입니다. 이러한 속성에는 일반적으로 action, role 및 scope이 포함됩니다. |
 | category |이벤트의 범주. 지원되는 값으로 Administrative, Alert, Security, ServiceHealth, Recommendation이 있습니다. |
 | caller |가용성에 기반한 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 메일 주소입니다. 특정 시스템 호출의 경우 null일 수 있습니다. |
 | correlationId |일반적으로 문자열 형식의 GUID. correlationId가 있는 이벤트는 동일한 상위 작업에 속하며 일반적으로 correlationId를 공유합니다. |
@@ -281,7 +281,7 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | operationId |일반적으로 이벤트 간에 공유되는 GUID로서 단일 작업에 해당합니다. |
 | operationName |작업의 이름입니다. |
 | properties |이벤트의 속성입니다. |
-| 상태 |문자열. 작업의 상태입니다. 일반적인 값으로 Started, In Progress, Succeeded, Failed, Active 및 Resolved가 포함됩니다. |
+| 상태 |문자열입니다. 작업의 상태입니다. 일반적인 값으로 Started, In Progress, Succeeded, Failed, Active 및 Resolved가 포함됩니다. |
 | subStatus |일반적으로 해당 REST 호출의 HTTP 상태 코드를 포함합니다. 하위 상태를 설명하는 다른 문자열을 포함할 수도 있습니다. 일반적인 하위 상태 값으로 OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503) 및 Gateway Timeout (HTTP Status Code: 504)이 있습니다. |
 
 다른 모든 활동 로그 경고에 대한 특정 스키마 세부 정보는 [Azure 활동 로그 개요](./platform-logs-overview.md)를 참조하세요.

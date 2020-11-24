@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 15026c378c4c399915e99b0910f1e6518f5adfc8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c8ed791fc9496e67acdcfbfafddad9170ac47535
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151862"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522586"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Azure Monitor에 대 한 Azure 보안 기준
 
@@ -124,7 +124,7 @@ Log Analytics gateway를 사용 하 여 인터넷에 직접 연결할 수 없는
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Azure 리소스에 대한 감사 로깅 사용
 
-**지침**Azure Monitor: 활동 로그를 사용 하 여 활동 로그를 자동으로 사용 하도록 설정 하 고 작업을 시작한 사람, 작업 상태, 작업 상태 및 기타 유용한 감사 정보 등 Azure Monitor 리소스에 대해 수행 되는 작업을 기록 합니다. 
+**지침** Azure Monitor: 활동 로그를 사용 하 여 활동 로그를 자동으로 사용 하도록 설정 하 고 작업을 시작한 사람, 작업 상태, 작업 상태 및 기타 유용한 감사 정보 등 Azure Monitor 리소스에 대해 수행 되는 작업을 기록 합니다. 
 
 - [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](platform/diagnostic-settings.md)
 
@@ -324,7 +324,7 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: 중요한 정보를 저장하거나 처리하는 시스템 격리
 
-**지침**: 환경 유형 및 데이터 민감도 수준과 같은 개별 보안 도메인에 대해 별도의 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 Azure Monitor 및 관련 리소스에 대 한 액세스 수준을 제한할 수 있습니다. Azure Active Directory 역할 기반 액세스 제어를 통해 Azure Monitor에 대 한 액세스를 제어할 수 있습니다.
+**지침**: 환경 유형 및 데이터 민감도 수준과 같은 개별 보안 도메인에 대해 별도의 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 Azure Monitor 및 관련 리소스에 대 한 액세스 수준을 제한할 수 있습니다. Azure 역할 기반 액세스 제어를 통해 Azure Monitor에 대 한 액세스를 제어할 수 있습니다.
 
 - [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
@@ -361,7 +361,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다.
 
-**지침**: Azure 역할 기반 액세스 제어 (RBAC)를 사용 하 여 Azure Monitor에 대 한 액세스를 관리 합니다.
+**지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure Monitor에 대 한 액세스를 관리 합니다.
 
 - [Azure Monitor의 역할, 권한 및 보안](platform/roles-permissions-security.md)
 
@@ -469,7 +469,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure 리소스 그래프 탐색기를 사용 하 여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
+- [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -685,7 +685,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객이 관리 하는 키를 보호 해야 합니다.
 
-**지침**: Azure devops를 사용 하 여 사용자 지정 azure 정책, Azure Resource Manager 템플릿과 같은 코드를 안전 하 게 저장 하 고 관리 합니다. Azure DevOps에서 관리 하는 리소스를 보호 하기 위해 Azure DevOps와 통합 된 경우 Azure Active Directory (Azure AD)에 정의 된 특정 사용자, 기본 제공 보안 그룹 또는 그룹에 대 한 권한을 부여 하거나 거부할 수 있습니다. 또는 TFS와 통합 된 경우 Active Directory 합니다.   역할 기반 액세스 제어를 사용 하 여 고객이 관리 하는 키를 보호 합니다. 
+**지침**: Azure devops를 사용 하 여 사용자 지정 azure 정책, Azure Resource Manager 템플릿과 같은 코드를 안전 하 게 저장 하 고 관리 합니다. Azure DevOps에서 관리 하는 리소스를 보호 하기 위해 Azure DevOps와 통합 된 경우 Azure Active Directory (Azure AD)에 정의 된 특정 사용자, 기본 제공 보안 그룹 또는 그룹에 대 한 권한을 부여 하거나 거부할 수 있습니다. 또는 TFS와 통합 된 경우 Active Directory 합니다.   Azure 역할 기반 액세스 제어를 사용 하 여 고객이 관리 하는 키를 보호 합니다. 
 
 또한 Key Vault에서 Soft-Delete를 사용 하도록 설정 하 고 보호를 제거 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다. Azure Storage를 사용 하 여 Azure Resource Manager 템플릿 백업을 저장 하는 경우 blob 또는 blob 스냅숏이 삭제 될 때 일시 삭제를 사용 하 여 데이터를 저장 하 고 복구할 수 있습니다. 
 
@@ -783,7 +783,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 **지침**: Microsoft Engagement 규칙에 따라 침투 테스트가 microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
 
-- [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 - [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 

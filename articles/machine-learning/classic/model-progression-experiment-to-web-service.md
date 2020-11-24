@@ -9,19 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: cb5e73d81d6c66dd4e605b16cc025f3ea30a9424
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c92f8c74da76b2ac938892e27f3d6be9c70c3238
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309204"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95507266"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Machine Learning Studio(클래식) 모델이 실험에서 웹 서비스로 진행되는 방법
 
-**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요 ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:** ![ 이는이 문서가 Machine Learning Studio (클래식)에 적용 됨을 의미 하는 확인 표시입니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 이것 ![ 은 X 이므로이 문서는 Azure Machine Learning에 적용 됩니다.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
-
-Azure Machine Learning Studio (클래식)은 예측 분석 모델을 나타내는 * *_실험_* _을 개발, 실행, 테스트 및 반복 하는 데 사용할 수 있는 대화형 캔버스를 제공 합니다. 다음 작업에 사용할 수 있는 모듈을 매우 다양하게 갖추고 있습니다.
+Azure Machine Learning Studio (클래식)은 예측 분석 모델을 나타내는 **_실험_* _을 개발, 실행, 테스트 및 반복 하는 데 사용할 수 있는 대화형 캔버스를 제공 합니다. 다음 작업에 사용할 수 있는 모듈을 매우 다양하게 갖추고 있습니다.
 
 _ 실험으로 데이터 입력
 * 데이터 조작
@@ -30,7 +29,7 @@ _ 실험으로 데이터 입력
 * 결과 평가
 * 최종 값 출력
 
-실험에 만족 하는 경우 사용자가 새 데이터를 보내고 결과를 받을 수 있도록 * **클래식 Azure Machine Learning 웹 서비스** _ 또는 _*_새로운 Azure Machine Learning 웹 서비스로_*_ 배포할 수 있습니다.
+실험에 만족 하는 경우 사용자가 새 데이터를 보내고 결과를 받을 수 있도록 ***클래식 Azure Machine Learning 웹 서비스** _ 또는 _*_새로운 Azure Machine Learning 웹 서비스로_*_ 배포할 수 있습니다.
 
 이 문서에서는 Machine Learning 모델을 통해 개발 실험에서 조작 가능한 웹 서비스까지 진행하는 메커니즘을 간략히 살펴봅니다.
 
@@ -49,10 +48,10 @@ Azure Machine Learning Studio (클래식)은 _predictive 분석 모델을 개발
 *그림 1 - 일반적인 예측 분석 모델의 단계*
 
 ### <a name="the-training-experiment"></a>학습 실험
-* **학습 실험** _은 Machine Learning Studio (클래식)에서 웹 서비스를 개발 하는 초기 단계입니다. 학습 실험의 목적은 기계 학습 모델을 개발, 테스트, 반복하고 최종적으로 학습할 장소를 제공하는 것입니다. 최적의 솔루션을 찾으면서 여러 모델을 동시에 학습할 수도 있으나 실험을 완료한 후에는 하나의 학습 모델을 선택하고 나머지 모델은 실험에서 제거합니다. 예측 분석 실험 개발의 예제는 [Azure Machine Learning Studio(클래식)의 신용 위험 평가에 대한 예측 분석 솔루션 개발](tutorial-part1-credit-risk.md)을 참조하세요.
+***학습 실험** _은 Machine Learning Studio (클래식)에서 웹 서비스를 개발 하는 초기 단계입니다. 학습 실험의 목적은 기계 학습 모델을 개발, 테스트, 반복하고 최종적으로 학습할 장소를 제공하는 것입니다. 최적의 솔루션을 찾으면서 여러 모델을 동시에 학습할 수도 있으나 실험을 완료한 후에는 하나의 학습 모델을 선택하고 나머지 모델은 실험에서 제거합니다. 예측 분석 실험 개발의 예제는 [Azure Machine Learning Studio(클래식)의 신용 위험 평가에 대한 예측 분석 솔루션 개발](tutorial-part1-credit-risk.md)을 참조하세요.
 
 ### <a name="the-predictive-experiment"></a>예측 실험
-학습 실험에서 학습 된 모델을 만들었으면 _*웹 서비스 설정* *을 클릭 하 고 Machine Learning Studio (클래식)에서 **예측 웹 서비스** 를 선택 하 여 학습 실험을 * *_예측 실험_* 으로 변환_ 하는 프로세스를 시작 합니다. 예측 실험의 목적은 학습된 모델을 사용하여 새 데이터에 점수를 매기며, 최종적으로는 조작 가능한 Azure 웹 서비스가 되도록 하는 것입니다.
+학습 실험에서 학습 된 모델을 만들었으면 _*웹 서비스 설정**을 클릭 하 고 Machine Learning Studio (클래식)에서 **예측 웹 서비스** 를 선택 하 여 학습 실험을 **_예측 실험_* 으로 변환_ 하는 프로세스를 시작 합니다. 예측 실험의 목적은 학습된 모델을 사용하여 새 데이터에 점수를 매기며, 최종적으로는 조작 가능한 Azure 웹 서비스가 되도록 하는 것입니다.
 
 이 변환은 다음 단계를 통해 수행됩니다.
 

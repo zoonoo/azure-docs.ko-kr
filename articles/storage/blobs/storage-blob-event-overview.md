@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: 62cd31ab6f63aec5ddeb675bca3621a329ab1f2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c6b5b23a0609a5d68eb72c614ce282ae04a817
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87826571"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519101"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob Storage 이벤트에 대응
 
@@ -29,17 +29,17 @@ Blob storage 이벤트를 시도 하려면 다음 빠른 시작 문서를 참조
 
 |이 도구를 사용 하려면 다음을 수행 합니다.    |이 문서를 참조 하세요. |
 |--|-|
-|Azure portal    |[빠른 시작: Azure Portal을 사용하여 Blob Storage 이벤트를 웹 엔드포인트로 라우팅](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|PowerShell    |[빠른 시작: PowerShell을 사용 하 여 웹 끝점에 저장소 이벤트 라우팅](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Azure CLI    |[빠른 시작: Azure CLI 사용 하 여 저장소 이벤트를 웹 끝점으로 라우팅](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure portal    |[빠른 시작: Azure Portal을 사용하여 Blob Storage 이벤트를 웹 엔드포인트로 라우팅](../../event-grid/blob-event-quickstart-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)|
+|PowerShell    |[빠른 시작: PowerShell을 사용 하 여 웹 끝점에 저장소 이벤트 라우팅](./storage-blob-event-quickstart-powershell.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)|
+|Azure CLI    |[빠른 시작: Azure CLI 사용 하 여 저장소 이벤트를 웹 끝점으로 라우팅](./storage-blob-event-quickstart.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)|
 
 Azure 함수를 사용 하 여 Blob 저장소 이벤트에 대응 하는 자세한 예제를 보려면 다음 문서를 참조 하세요.
 
 - [자습서: Azure Data Lake Storage Gen2 이벤트를 사용 하 여 Databricks 델타 테이블을 업데이트](data-lake-storage-events.md)합니다.
-- [자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
+- [자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정](../../event-grid/resize-images-on-storage-blob-upload-event.md?tabs=dotnet)
 
 >[!NOTE]
-> Kind **StorageV2 (범용 v2)**, **Blockblobstorage**및 **blobstorage** 의 저장소 계정만 이벤트 통합을 지원 합니다. **Storage (범용 v1)** 는 Event Grid와의 통합을 지원 *하지* 않습니다.
+> Kind **StorageV2 (범용 v2)**, **Blockblobstorage** 및 **blobstorage** 의 저장소 계정만 이벤트 통합을 지원 합니다. **Storage (범용 v1)** 는 Event Grid와의 통합을 지원 *하지* 않습니다.
 
 ## <a name="the-event-model"></a>이벤트 모델
 
@@ -60,7 +60,7 @@ Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscription
 
 Blob 이벤트는 이벤트 유형, 컨테이너 이름 또는 생성/삭제 된 개체의 이름으로 [필터링 할 수 있습니다](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) . Event Grid 필터는 주체의 시작 또는 끝과 일치 하므로 일치 하는 제목이 있는 이벤트는 구독자에 게 전달 됩니다.
 
-필터를 적용하는 방법에 대한 자세한 내용은 [Event Grid에 대한 이벤트 필터링](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)을 참조하세요.
+필터를 적용하는 방법에 대한 자세한 내용은 [Event Grid에 대한 이벤트 필터링](../../event-grid/how-to-filter-events.md)을 참조하세요.
 
 Blob Storage 이벤트의 제목은 다음 형식을 사용합니다.
 
@@ -96,13 +96,13 @@ Blob Storage 이벤트를 처리하는 애플리케이션은 아래 권장되는
 > [!div class="checklist"]
 > * 동일한 이벤트 처리기로 이벤트를 라우팅하도록 여러 구독이 구성될 수 있으므로, 이벤트가 특정 원본에서 온 것이라고 가정하지 않고 메시지의 토픽을 확인하여 예상하는 스토리지 계정에서 왔음을 확실히 아는 것이 중요합니다.
 > * 마찬가지로, eventType이 본인이 처리하려는 형식인지 확인하고, 수신된 모든 이벤트가 예상하는 형식일 것이라고 간주하지 않도록 합니다.
-> * 잠시 후 메시지가 도착할 수 있으므로 etag 필드를 사용 하 여 개체에 대 한 정보가 아직 최신 상태 인지를 파악 합니다. Etag 필드를 사용 하는 방법을 알아보려면 [Blob storage에서 동시성 관리](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage)를 참조 하세요. 
+> * 잠시 후 메시지가 도착할 수 있으므로 etag 필드를 사용 하 여 개체에 대 한 정보가 아직 최신 상태 인지를 파악 합니다. Etag 필드를 사용 하는 방법을 알아보려면 [Blob storage에서 동시성 관리](../common/storage-concurrency.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#managing-concurrency-in-blob-storage)를 참조 하세요. 
 > * 메시지가 잘못 된 순서로 도착할 수 있으므로 sequencer 필드를 사용 하 여 특정 개체에 대 한 이벤트의 순서를 이해 합니다. Sequencer 필드는 특정 blob 이름에 대 한 이벤트의 논리적 시퀀스를 나타내는 문자열 값입니다. 표준 문자열 비교를 사용 하 여 동일한 blob 이름에서 두 이벤트의 상대 시퀀스를 이해할 수 있습니다.
 > * 저장소 이벤트는 구독자에 게 한 번 이상 배달 되도록 보장 하므로 모든 메시지가 출력 됩니다. 그러나 구독을 다시 시도 하거나 사용할 수 있기 때문에 중복 된 메시지가 때때로 발생할 수 있습니다. 메시지 배달 및 다시 시도에 대 한 자세한 내용은 [Event Grid 메시지 배달 및 다시 시도](../../event-grid/delivery-and-retry.md)를 참조 하세요.
 > * blobType 필드를 사용하여 Blob에 허용되는 작업 형식을 파악하고 Blob에 액세스하는 데 사용해야 하는 클라이언트 라이브러리 형식을 확인합니다. 유효한 값은 `BlockBlob` 또는 `PageBlob`입니다. 
 > * Blob에 액세스하려면 `CloudBlockBlob` 및 `CloudAppendBlob` 생성자에 URL 필드를 사용합니다.
 > * 이해할 수 없는 필드는 무시합니다. 이 지침은 나중에 추가될 수 있는 새로운 기능에 적용하는 데도 도움이 됩니다.
-> * 블록 Blob이 완전히 커밋된 경우에만 **Microsoft. 저장소에 생성** 된 이벤트를 트리거하도록 하려면 `CopyBlob` , `PutBlob` `PutBlockList` 또는 REST API 호출에 대 한 이벤트를 필터링 `FlushWithClose` 합니다. 이러한 API 호출은 데이터가 블록 Blob에 완전히 커밋된 후에만 **Microsoft. 저장소로 생성** 된 이벤트를 트리거합니다. 필터를 만드는 방법에 대 한 자세한 내용은 [Event Grid에 대 한 필터 이벤트](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)를 참조 하세요.
+> * 블록 Blob이 완전히 커밋된 경우에만 **Microsoft. 저장소에 생성** 된 이벤트를 트리거하도록 하려면 `CopyBlob` , `PutBlob` `PutBlockList` 또는 REST API 호출에 대 한 이벤트를 필터링 `FlushWithClose` 합니다. 이러한 API 호출은 데이터가 블록 Blob에 완전히 커밋된 후에만 **Microsoft. 저장소로 생성** 된 이벤트를 트리거합니다. 필터를 만드는 방법에 대 한 자세한 내용은 [Event Grid에 대 한 필터 이벤트](../../event-grid/how-to-filter-events.md)를 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

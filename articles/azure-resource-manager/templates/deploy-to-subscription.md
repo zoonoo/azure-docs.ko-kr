@@ -2,13 +2,13 @@
 title: 구독에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드는 방법을 설명합니다. 또한 Azure 구독 범위에서 리소스를 배포하는 방법도 보여 줍니다.
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: 7b0edde4f3571255e92c65d82429b4ddd1a689b8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/23/2020
+ms.openlocfilehash: c87f6fa590e1f769816fb0ee3cba3aad1997de15
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668884"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519866"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 구독 배포
 
@@ -131,20 +131,28 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 구독에 배포 하는 경우 다음에 리소스를 배포할 수 있습니다.
 
 * 작업의 대상 구독
-* 구독 내의 리소스 그룹
+* 테 넌 트의 모든 구독
+* 구독 또는 다른 구독 내의 리소스 그룹
+* 구독에 대 한 테 넌 트
 * 리소스에 [확장 리소스](scope-extension-resources.md) 를 적용할 수 있습니다.
 
-대상 구독과 다른 구독에는 배포할 수 없습니다. 템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
+템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
 
 이 섹션에서는 다양 한 범위를 지정 하는 방법을 보여 줍니다. 단일 템플릿에서 이러한 여러 범위를 결합할 수 있습니다.
 
-### <a name="scope-to-subscription"></a>구독 범위
+### <a name="scope-to-target-subscription"></a>대상 구독에 대 한 범위
 
 대상 구독에 리소스를 배포 하려면 템플릿의 리소스 섹션에 해당 리소스를 추가 합니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
 
 구독에 배포 하는 예제는 [리소스 그룹 만들기](#create-resource-groups) 및 [정책 정의 할당](#assign-policy-definition)을 참조 하세요.
+
+### <a name="scope-to-other-subscription"></a>다른 구독에 대 한 범위
+
+작업의 구독과 다른 구독에 리소스를 배포 하려면 중첩 된 배포를 추가 합니다. 속성을 `subscriptionId` 배포 하려는 구독의 ID로 설정 합니다. `location`중첩 된 배포에 대 한 속성을 설정 합니다.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-sub.json" highlight="9,10,14":::
 
 ### <a name="scope-to-resource-group"></a>리소스 그룹에 대 한 범위
 
@@ -153,6 +161,18 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
 
 리소스 그룹에 배포 하는 예제는 [리소스 그룹 및 리소스 만들기](#create-resource-group-and-resources)를 참조 하세요.
+
+### <a name="scope-to-tenant"></a>테 넌 트로 범위
+
+로 설정 된를 설정 하 여 테 넌 트에서 리소스를 만들 수 있습니다 `scope` `/` . 템플릿을 배포 하는 사용자에 게는 [테 넌 트에 배포 하는 데 필요한 액세스](deploy-to-tenant.md#required-access)권한이 있어야 합니다.
+
+에서 중첩 된 배포를 사용 하 `scope` 고를 설정할 수 있습니다 `location` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
+
+또는 `/` 관리 그룹과 같은 일부 리소스 형식에 대해 범위를로 설정할 수 있습니다.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
 
 ## <a name="deployment-location-and-name"></a>배포 위치 및 이름
 

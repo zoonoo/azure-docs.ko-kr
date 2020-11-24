@@ -12,12 +12,12 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: references_regions
-ms.openlocfilehash: ced4e920936ad94c3d4140d51d5e7d4e867ee848
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cecb3a150de8c19d390cafbd163f287520c3a91d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84196081"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519039"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure App Service를 사용하는 ClearDB MySQLl 데이터베이스에 대한 FAQ
 이 FAQ는 Azure Web Apps용 ClearDB MySQL 데이터베이스의 사용 및 구매에 대한 일반적인 질문에 답변합니다.
@@ -33,7 +33,7 @@ ms.locfileid: "84196081"
 Azure에서 MySQL 호스팅에 대한 몇 가지 다른 옵션이 있습니다.
 * [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)
 * [Azure VM에서 실행되는 MySQL 클러스터](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
-* [Azure VM에서 실행되는 MySQL의 단일 인스턴스](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Azure VM에서 실행되는 MySQL의 단일 인스턴스](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json)
 
 
 ## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>Azure Marketplace의 웹앱 + MySQL 템플릿에 신용 카드가 필요한가요?
@@ -45,10 +45,10 @@ Azure에서 MySQL 호스팅에 대한 몇 가지 다른 옵션이 있습니다.
 * [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/): EA 고객은 Azure Marketplace(타사)에서 구매한 모든 제품에 대해 EA 분기별로 별도의 통합 청구서로 청구됩니다. 모든 마켓플레이스에서 구매한 제품은 현금 약정 금액과 별도로 청구됩니다. 현재 아제르바이잔, 크로아티아, 노르웨이 및 푸에르토리코에서 등록한 고객은 Azure 저장소를 사용할 수 없습니다. 
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>왜 Azure Marketplace에서 웹앱+ MySQL에 대해 3.50달러가 청구되었나요?
-기본 데이터베이스 옵션은 3.50달러인 Titan입니다. 데이터베이스를 만드는 동안 비용이 표시되지 않으므로 의도하지 않은 데이터베이스를 실수로 구매할 수도 있습니다. 환경을 개선할 방법을 찾으려고 노력하고 있습니다. 그 전까지는 **만들기**를 클릭하고 리소스를 배포하기 전에 웹앱 및 데이터베이스에 대해 선택한 가격 책정 계층을 모두 확인해야 합니다.
+기본 데이터베이스 옵션은 3.50달러인 Titan입니다. 데이터베이스를 만드는 동안 비용이 표시되지 않으므로 의도하지 않은 데이터베이스를 실수로 구매할 수도 있습니다. 환경을 개선할 방법을 찾으려고 노력하고 있습니다. 그 전까지는 **만들기** 를 클릭하고 리소스를 배포하기 전에 웹앱 및 데이터베이스에 대해 선택한 가격 책정 계층을 모두 확인해야 합니다.
 
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Azure 가상 머신에서 MySQL을 실행하고 있습니다. Azure 웹앱을 내 데이터베이스에 연결할 수 있나요?
-예. Azure VM에서 웹앱으로 원격 액세스할 수 있으면 웹앱을 데이터베이스에 연결할 수 있습니다. 자세한 내용은 [가상 머신에 MySQL 설치](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
+예. Azure VM에서 웹앱으로 원격 액세스할 수 있으면 웹앱을 데이터베이스에 연결할 수 있습니다. 자세한 내용은 [가상 머신에 MySQL 설치](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json)를 참조하세요.
 
 ## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>ClearDB 프리미엄 MySQL 클러스터가 지원 되는 국가/지역은 어디 인가요?
 ClearDB 프리미엄 MySQL 클러스터는 인도, 오스트레일리아, 브라질 남부 및 중국을 제외한 전 세계 모든 Azure 지역에서 사용할 수 있습니다.
@@ -108,4 +108,3 @@ EA 등록에서 요금 청구와 관련된 사항은 [엔터프라이즈 고객 
 
 ## <a name="more-information"></a>자세한 정보
 [Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/)
-

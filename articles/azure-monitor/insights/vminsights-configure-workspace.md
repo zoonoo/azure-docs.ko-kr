@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: a7bdc1ee22d3672160122cad65b18de99f743cc7
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d3bedfae88544d0b0ebd07868438559305279fed
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747692"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95530117"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>VM용 Azure Monitor에 대해 Log Analytics 작업 영역 구성
 VM용 Azure Monitor Azure Monitor의 Log Analytics 작업 영역 하나 이상에서 데이터를 수집 합니다. 에이전트를 온 보 딩 하기 전에 작업 영역을 만들고 구성 해야 합니다. 이 문서에서는 작업 영역에 대 한 요구 사항을 설명 하 고 VM용 Azure Monitor에 대해 구성 합니다.
@@ -43,7 +43,7 @@ VM용 Azure Monitor Azure Monitor의 Log Analytics 작업 영역 하나 이상�
 * [PowerShell](../platform/powershell-workspace-configuration.md)
 * [Azure Resource Manager](../samples/resource-manager-workspace.md)
 
-## <a name="supported-regions"></a>지원되는 Azure 지역
+## <a name="supported-regions"></a>지원되는 지역
 
 모든 지역에서 가상 컴퓨터를 모니터링할 수는 있지만 VM용 Azure Monitor은 다음 지역에서 Log Analytics 작업 영역을 지원 합니다. 가상 컴퓨터 자체는 Log Analytics 작업 영역에서 지원 되는 지역으로 제한 되지 않습니다.
 
@@ -68,7 +68,7 @@ VM용 Azure Monitor Azure Monitor의 Log Analytics 작업 영역 하나 이상�
 - 오스트레일리아 동부
 - 오스트레일리아 남동부
 
-## <a name="role-based-access-control"></a>역할 기반 액세스 제어
+## <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 VM용 Azure Monitor의 기능을 사용 하도록 설정 하 고 액세스 하려면 작업 영역에 [Log Analytics 참가자 역할이](../platform/manage-access.md#manage-access-using-azure-permissions) 있어야 합니다. 성능, 상태 및 지도 데이터를 보려면 Azure VM에 대 한 [모니터링 독자 역할이](../platform/roles-permissions-security.md#built-in-monitoring-roles) 있어야 합니다. Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한 자세한 내용은 [작업 영역 관리](../platform/manage-access.md)를 참조하세요.
 
 ## <a name="add-vminsights-solution-to-workspace"></a>작업 영역에 VMInsights 솔루션 추가

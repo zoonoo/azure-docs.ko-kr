@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 31d833d1a6e9c7715ca13582c09f5f72564d683a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: bccbfed96dd6cd87bdfe986baf4b52817a160ac0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016142"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533364"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Azure CLI를 사용 하는 가속화 된 네트워킹을 사용 하 여 Linux 가상 머신 만들기
 
@@ -48,7 +48,7 @@ ms.locfileid: "95016142"
 * **RHEL 7.4 이상**
 * **CentOS 7.4 이상**
 * **CoreOS Linux**
-* **Debian “Stretch”(백포트 커널 포함)**
+* **Backports 커널, Debian "Buster" 이상으로 "Stretch" Debian**
 * **RHCK (Red Hat 호환 커널)를 사용 하 Oracle Linux 7.4 이상**
 * **UEK 버전 5를 사용 하 Oracle Linux 7.5 이상**
 * **FreeBSD 10.4, 11.1 & 12.0 이상**

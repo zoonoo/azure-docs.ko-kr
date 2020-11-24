@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: daa3f3b1687b01005f32cbd2665c84b933c993b8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 706fa1666dc327955294fb350b673aed40d6bf48
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837620"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520665"
 ---
 # <a name="continuous-access-evaluation"></a>지속적인 액세스 평가
 
@@ -26,7 +26,9 @@ ms.locfileid: "94837620"
 
 정책 위반이 나 보안 문제에 대 한 시기 적절 한 응답에는 Azure AD와 같은 토큰 발급자와 Exchange Online과 같은 신뢰 당사자 간의 "대화"가 필요 합니다. 이 양방향 대화는 두 가지 중요 한 기능을 제공 합니다. 신뢰 당사자는 새 위치에서 들어오는 클라이언트와 같이 항목이 변경 된 경우를 확인할 수 있으며 토큰 발급자에 게 알립니다. 또한 토큰 발급자에 게 계정 손상, 비활성화 또는 기타 문제로 인해 지정 된 사용자에 대 한 토큰을 중지 하도록 신뢰 당사자에 게 지시 하는 방법을 제공 합니다. 이 대화에 대 한 메커니즘은 연속 액세스 평가 (CAE)입니다. 목표는 거의 실시간으로 응답 하기 위한 것 이지만, 경우에 따라 최대 15 분의 대기 시간은 이벤트 전파 시간으로 인해 관찰 될 수 있습니다.
 
-연속 액세스 평가의 초기 구현은 Exchange, 팀 및 SharePoint Online을 중심으로 합니다. 
+연속 액세스 평가의 초기 구현은 Exchange, 팀 및 SharePoint Online을 중심으로 합니다.
+
+CAE를 사용 하도록 응용 프로그램을 준비 하려면 [응용 프로그램에서 지속적인 액세스 평가 사용 api를 사용 하는 방법](/develop/app-resilience-continuous-access-evaluation.md)을 참조 하세요.
 
 ### <a name="key-benefits"></a>주요 이점
 
@@ -144,7 +146,7 @@ CAE의 경우 명명 된 IP 기반 명명 된 위치에 대 한 정보를 제공
 
 ### <a name="ip-address-configuration"></a>IP 주소 구성
 
-Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 예를 들면 다음과 같습니다.
+Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 예:
 
 - Id 공급자는 클라이언트에서 하나의 IP 주소를 확인 합니다.
 - 리소스 공급자는 프록시를 통과 한 후 클라이언트와 다른 IP 주소를 확인 합니다.
@@ -177,7 +179,7 @@ Azure AD와 리소스 공급자 간의 복제 지연이 발생할 수 있으므�
 
 사용 하지 않도록 설정한 후 사용자를 사용 하도록 설정 하는 경우 계정을 사용 하려면 약간의 대기 시간이 있습니다. SPO 및 팀은 15 분 지연 됩니다. EXO의 지연 시간은 35-40 분입니다.
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 ### <a name="how-will-cae-work-with-sign-in-frequency"></a>CAE가 로그인 빈도로 어떻게 작동 하나요?
 

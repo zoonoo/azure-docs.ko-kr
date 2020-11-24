@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: 02b7e02c33161db33420e2efe1ef4b70a138d127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e458f98d82c910ec845ebf951b7f6470b6aba10d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465221"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527329"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Azure CDN와 정적 웹 사이트 통합
 
@@ -47,7 +47,7 @@ Azure CDN 가격 책정에 대한 정보는 [Azure CDN 가격 책정](https://az
 
    ![CDN 엔드포인트 구성 샘플을 보여 주는 스크린샷](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
 
-1. **만들기**를 선택 하 고 CDN이 프로 비전 될 때까지 기다립니다. 만든 엔드포인트는 엔드포인트 목록에 나타납니다. 양식에 오류가 있으면 해당 필드 옆에 느낌표가 표시 됩니다.
+1. **만들기** 를 선택 하 고 CDN이 프로 비전 될 때까지 기다립니다. 만든 엔드포인트는 엔드포인트 목록에 나타납니다. 양식에 오류가 있으면 해당 필드 옆에 느낌표가 표시 됩니다.
 
 1. CDN 엔드포인트가 올바르게 구성되었는지 확인하려면 엔드포인트를 클릭하여 해당 설정으로 이동합니다. 스토리지 계정에 대한 CDN 개요에서 다음 이미지와 같이 엔드포인트 호스트 이름을 찾아 해당 엔드포인트로 이동합니다. CDN 엔드포인트의 형식은 `https://staticwebsitesamples.azureedge.net`과 비슷합니다.
 
@@ -55,7 +55,7 @@ Azure CDN 가격 책정에 대한 정보는 [Azure CDN 가격 책정](https://az
 
 1. CDN 끝점이 프로 비전 되 면 CDN 끝점으로 이동 하면 이전에 정적 웹 사이트에 업로드 한 index.html 파일의 내용이 표시 됩니다.
 
-1. CDN 엔드포인트에 대한 원본 설정을 검토하려면 CDN 엔드포인트에 대한 **설정** 섹션 아래에서 **원본**으로 이동합니다. **원본 형식** 필드가 *사용자 지정 원본*으로 설정되어 있고 **원본 호스트 이름** 필드에 정적 웹 사이트 엔드포인트가 표시됩니다.
+1. CDN 엔드포인트에 대한 원본 설정을 검토하려면 CDN 엔드포인트에 대한 **설정** 섹션 아래에서 **원본** 으로 이동합니다. **원본 형식** 필드가 *사용자 지정 원본* 으로 설정되어 있고 **원본 호스트 이름** 필드에 정적 웹 사이트 엔드포인트가 표시됩니다.
 
     ![CDN 엔드포인트에 대한 원본 설정을 보여 주는 스크린샷](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
 
@@ -63,7 +63,7 @@ Azure CDN 가격 책정에 대한 정보는 [Azure CDN 가격 책정](https://az
 
 더 이상 Azure CDN에 개체를 캐시하지 않으려면 다음 단계 중 하나를 수행할 수 있습니다.
 
-* 컨테이너를 공용 대신 프라이빗으로 설정합니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
+* 컨테이너를 공용 대신 프라이빗으로 설정합니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](./anonymous-read-access-configure.md)를 참조하세요.
 * Azure Portal을 사용하여 CDN 엔드포인트를 사용하지 않도록 설정하거나 삭제합니다.
 * 더 이상 개체 요청에 응답하지 않도록 호스티드 서비스를 수정합니다.
 

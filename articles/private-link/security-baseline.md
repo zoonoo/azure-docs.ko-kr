@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1f9e4fd2f7f55f916743074b57f89788c0d32f7d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 636bc3c64dcd15ead36a9a4e969e802d49895dca
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427492"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522246"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Azure 개인 링크에 대 한 azure 보안 기준
 
@@ -28,7 +28,7 @@ ms.locfileid: "92427492"
 
 중요 한 리소스의 변경 내용이 발생 하는 경우 트리거할 Azure Monitor 내에서 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -68,7 +68,7 @@ Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 
 
 - [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
 
-- [Azure 활동 로그 이벤트를 보고 검색하기](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 보고 검색하기](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [개인 링크에 대 한 로깅 및 모니터링](private-link-overview.md#logging-and-monitoring)
 
@@ -96,7 +96,7 @@ Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics 작업 영역 이해](../azure-monitor/log-query/get-started-portal.md)
+- [Log Analytics 작업 영역 이해](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
@@ -142,7 +142,7 @@ Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 
 
 또한 Microsoft 서비스에 대 한 권한 있는 역할 Privileged Identity Management Azure Active Directory (Azure AD) 및 Azure Resource Manager를 사용 하 여 Just-in-time/액세스에 충분 한 액세스를 사용 하도록 설정 합니다.
 
-- [Privileged Identity Management에 대 한 자세한 정보](/azure/active-directory/privileged-identity-management/)
+- [Privileged Identity Management에 대 한 자세한 정보](../active-directory/privileged-identity-management/index.yml)
 
 **Azure Security Center 모니터링**: 예
 
@@ -188,7 +188,7 @@ Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 
 
 **지침**: Azure Active Directory (Azure AD) 위험 검색 기능을 활용 하 여 위험한 사용자 동작에 대 한 경고 및 보고서를 볼 수 있습니다. Security Center 위험 검색 경고를 Azure Monitor에 수집 하 고 작업 그룹을 사용 하 여 사용자 지정 경고/알림을 구성 합니다.
 
-- [Azure Security Center 위험 탐지 이해 (의심 스러운 활동)](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Azure Security Center 위험 탐지 이해 (의심 스러운 활동)](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -222,7 +222,7 @@ Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 
 
 **지침**: Azure Active Directory는 부실 계정을 검색하는 데 도움이 되는 로그를 제공합니다. 또한 Azure Id 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리 합니다. 사용자 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 할 수 있습니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -248,7 +248,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 추가 조사를 위해 데이터를 Azure 센티널로 수집 합니다.
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -270,11 +270,11 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 Azure RBAC (역할 기반 액세스 제어)를 통해 Azure 리소스에 대 한 액세스를 제어 합니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -348,7 +348,7 @@ PowerShell cmd "AzRoleDefinition" 또는 "az role definition list"를 호출 하
 
 **지침**: 메타 데이터를 사용 하 여 Azure 리소스에 태그를 적용 하 여 논리적으로 분류로 구성 합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -360,11 +360,11 @@ PowerShell cmd "AzRoleDefinition" 또는 "az role definition list"를 호출 하
 
 정기적으로 인벤토리를 조정하고, 구독에서 권한 없는 리소스가 적시에 삭제되도록 합니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -418,7 +418,7 @@ PowerShell cmd "AzRoleDefinition" 또는 "az role definition list"를 호출 하
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 - [개인 링크에 대 한 Azure policy 샘플 기본 제공](../governance/policy/samples/built-in-policies.md)
 
@@ -634,7 +634,7 @@ Azure Key Vault 내에서 고객이 관리 하는 키를 백업 합니다.
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 예
 
@@ -696,7 +696,7 @@ Azure Key Vault 내에서 고객이 관리 하는 키를 백업 합니다.
 
 Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
 
-- [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 - [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
@@ -706,5 +706,5 @@ Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.
