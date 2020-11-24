@@ -5,14 +5,14 @@ author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a462f27befbe226496f0ffebd3f57c7058664c38
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8d6c5efd1c72c4eca7e4cb03043dbe66ca0df491
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93354137"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556795"
 ---
-- Bash 환경을 통해 [Azure Cloud Shell](/azure/cloud-shell/quickstart)을 사용합니다.
+- Bash 환경을 통해 [Azure Cloud Shell](../articles/cloud-shell/quickstart.md)을 사용합니다.
 
    [![Embed 시작](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)   
 - 원하는 경우 Azure CLI를 [설치](/cli/azure/install-azure-cli)하여 CLI 참조 명령을 실행합니다.

@@ -5,16 +5,16 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.date: 07/09/2020
-ms.openlocfilehash: de5d3f8f32e928c77ffd6028ec764793ab7229ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f25c335c568c112c05f81df51d69e83aeff423e2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86495343"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562099"
 ---
 ## <a name="business-disaster-recovery"></a>비즈니스 재해 복구
 
-이 섹션에서는 재해가 발생 하더라도 ( *비즈니스 재해 복구*라고도 함) 앱과 서비스를 실행 하는 Azure Time Series Insights 기능에 대해 설명 합니다.
+이 섹션에서는 재해가 발생 하더라도 ( *비즈니스 재해 복구* 라고도 함) 앱과 서비스를 실행 하는 Azure Time Series Insights 기능에 대해 설명 합니다.
 
 ### <a name="high-availability"></a>고가용성
 
@@ -22,10 +22,10 @@ Azure 서비스인 Azure Time Series Insights는 Azure 지역 수준에서 중�
 
 Azure를 통해 제공 되는 추가 고가용성 기능 (그리고 Azure Time Series Insights 인스턴스에도 제공)은 다음과 같습니다.
 
-- **장애 조치 (Failover)**: Azure는 [지역에서 복제 및 부하 분산을](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)제공 합니다.
-- **데이터 복원** 및 **저장소 복구**: Azure는 [데이터를 유지 하 고 복구 하기 위한 몇 가지 옵션을](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption)제공 합니다.
-- **Azure Site Recovery**: Azure는 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)를 통해 Site Recovery 기능을 제공 합니다.
-- **Azure Backup**: [Azure Backup](https://docs.microsoft.com/azure/backup/backup-architecture) 는 Azure vm의 온-프레미스 및 클라우드 간 백업을 모두 지원 합니다.
+- **장애 조치 (Failover)**: Azure는 [지역에서 복제 및 부하 분산을](/azure/architecture/resiliency/recovery-loss-azure-region)제공 합니다.
+- **데이터 복원** 및 **저장소 복구**: Azure는 [데이터를 유지 하 고 복구 하기 위한 몇 가지 옵션을](/azure/architecture/resiliency/recovery-data-corruption)제공 합니다.
+- **Azure Site Recovery**: Azure는 [Azure Site Recovery](../articles/site-recovery/index.yml)를 통해 Site Recovery 기능을 제공 합니다.
+- **Azure Backup**: [Azure Backup](../articles/backup/backup-architecture.md) 는 Azure vm의 온-프레미스 및 클라우드 간 백업을 모두 지원 합니다.
 
 관련 Azure 기능을 사용 하도록 설정 하 여 장치 및 사용자에 대 한 글로벌 지역 간 고가용성을 제공 해야 합니다.
 
@@ -36,9 +36,9 @@ Azure를 통해 제공 되는 추가 고가용성 기능 (그리고 Azure Time S
 
 일부 Azure IoT 서비스에는 기본 제공 비즈니스 재해 복구 기능도 포함 되어 있습니다.
 
-- 지역 내 중복성을 포함 하는 고가용성 [재해 복구 Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr)
-- [Azure Event Hubs 정책](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
-- [Azure Storage 중복성](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- 지역 내 중복성을 포함 하는 고가용성 [재해 복구 Azure IoT Hub](../articles/iot-hub/iot-hub-ha-dr.md)
+- [Azure Event Hubs 정책](../articles/event-hubs/event-hubs-geo-dr.md)
+- [Azure Storage 중복성](../articles/storage/common/storage-redundancy.md)
 
 다른 서비스와 Azure Time Series Insights를 통합 하면 추가적인 재해 복구 기회가 제공 됩니다. 예를 들어 이벤트 허브로 전송 되는 원격 분석은 백업 Azure Blob storage 데이터베이스에 유지 될 수 있습니다.
 
@@ -55,10 +55,10 @@ Azure Time Series Insights 데이터, 앱 및 서비스가 중단 되더라도�
 
 중복 환경을 만들려면 다음을 수행 합니다.
 
-1. 두 번째 Azure 지역에 환경을 만듭니다. 자세한 내용은 [Azure Portal에서 새 Azure Time Series Insights 환경 만들기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started)를 참조 하세요.
+1. 두 번째 Azure 지역에 환경을 만듭니다. 자세한 내용은 [Azure Portal에서 새 Azure Time Series Insights 환경 만들기](../articles/time-series-insights/time-series-insights-get-started.md)를 참조 하세요.
 1. 이벤트 원본에 대해 두 번째 전용 소비자 그룹을 만듭니다.
 1. 해당 이벤트 원본을 새 환경에 연결합니다. 두 번째 전용 소비자 그룹을 지정 했는지 확인 합니다.
-1. Azure Time Series Insights [IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) 및 [Event Hubs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) 설명서를 검토 합니다.
+1. Azure Time Series Insights [IoT Hub](../articles/time-series-insights/how-to-ingest-data-iot-hub.md) 및 [Event Hubs](../articles/time-series-insights/concepts-access-policies.md) 설명서를 검토 합니다.
 
 이벤트가 발생 하는 경우:
 
@@ -71,5 +71,4 @@ Azure Time Series Insights 데이터, 앱 및 서비스가 중단 되더라도�
 > * 지연이 발생할 수도 있습니다.
 > * 작업이 다시 라우팅될 때 메시지 처리에 일시적 스파이크가 발생할 수 있습니다.
 > 
-> 자세한 내용은 [Azure Time Series Insights에서 대기 시간 완화](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency)를 참조 하세요.
-
+> 자세한 내용은 [Azure Time Series Insights에서 대기 시간 완화](../articles/time-series-insights/time-series-insights-environment-mitigate-latency.md)를 참조 하세요.

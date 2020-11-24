@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6a90b23c10e08e8b14a18f9619cff5aaeb003cab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22d68722afe4be6113263a7e7282dde3f188b18a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76045685"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555446"
 ---
 ### <a name="to-modify-the-local-network-gateway-gatewayipaddress---no-gateway-connection"></a><a name="gwipnoconnection"></a> 로컬 네트워크 게이트웨이 'GatewayIpAddress'를 수정하려면 - 게이트웨이 연결 없음
 
@@ -45,7 +45,7 @@ New-AzLocalNetworkGateway -Name Site1 `
    -Location "East US" -AddressPrefix @('10.101.0.0/24','10.101.1.0/24') `
    -GatewayIpAddress "104.40.81.124" -ResourceGroupName TestRG1
    ```
-3. 연결을 만듭니다. 이 예제에서는 IPsec 연결 형식을 구성합니다. 연결을 다시 만들 때 구성에 대해 지정된 연결 유형을 사용합니다. 추가 연결 형식은 [PowerShell cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) 페이지를 참조하세요.  VirtualNetworkGateway 이름을 가져오려면 ‘Get-AzVirtualNetworkGateway’ cmdlet을 실행합니다.
+3. 연결을 만듭니다. 이 예제에서는 IPsec 연결 형식을 구성합니다. 연결을 다시 만들 때 구성에 대해 지정된 연결 유형을 사용합니다. 추가 연결 형식은 [PowerShell cmdlet](/powershell/module/Azurerm.Network/New-AzureRmVirtualNetworkGatewayConnection) 페이지를 참조하세요.  VirtualNetworkGateway 이름을 가져오려면 ‘Get-AzVirtualNetworkGateway’ cmdlet을 실행합니다.
    
     변수를 설정합니다.
 

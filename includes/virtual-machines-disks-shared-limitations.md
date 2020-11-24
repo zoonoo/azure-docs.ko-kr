@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9aa8857ab10423f460874870a3663929e8e5a5c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76e52758bf88dde9cdc68dad974f0b65fd55140f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566954"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555788"
 ---
 공유 디스크를 사용 하도록 설정 하는 것은 디스크 형식의 하위 집합에만 사용할 수 있습니다. 현재는 ultra disks 및 premium Ssd만 공유 디스크를 사용 하도록 설정할 수 있습니다. 공유 디스크를 사용할 수 있는 관리 되는 각 디스크에는 디스크 유형별로 구성 된 다음과 같은 제한 사항이 적용 됩니다.
 
@@ -24,7 +24,7 @@ Ultra disks에는 공유 디스크와 상관 없이 별도의 제한 사항 목�
 울트라 디스크를 공유 하는 경우 다음과 같은 추가 제한 사항이 있습니다.
 
 - 현재 Azure Resource Manager 또는 SDK 지원으로 제한 되어 있습니다. 
-- 일부 버전의 Windows Server 장애 조치 (failover) 클러스터에서는 기본 디스크만 사용할 수 있습니다. 자세한 내용은 [장애 조치 (Failover) 클러스터링 하드웨어 요구 사항 및 저장소 옵션](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements)을 참조 하세요.
+- 일부 버전의 Windows Server 장애 조치 (failover) 클러스터에서는 기본 디스크만 사용할 수 있습니다. 자세한 내용은 [장애 조치 (Failover) 클러스터링 하드웨어 요구 사항 및 저장소 옵션](/windows-server/failover-clustering/clustering-requirements)을 참조 하세요.
 
 공유 ultra disks는 기본적으로 ultra disks를 지 원하는 모든 지역에서 사용할 수 있으며, 사용 하기 위해 액세스에 등록 하지 않아도 됩니다.
 
@@ -34,9 +34,9 @@ Ultra disks에는 공유 디스크와 상관 없이 별도의 제한 사항 목�
 - OS 디스크가 아닌 데이터 디스크에 대해서만 사용할 수 있습니다.
 - 에서 premium Ssd에는 **읽기 전용** 호스트 캐싱을 사용할 수 없습니다 `maxShares>1` .
 - 에서 premium Ssd에 대해 디스크 버스트를 사용할 수 없습니다 `maxShares>1` .
-- Azure 공유 디스크를 사용 하 여 가용성 집합 및 가상 머신 확장 집합을 사용 하는 경우 공유 데이터 디스크에 대해 가상 머신 장애 도메인의 [저장소 장애 도메인 맞춤이](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set) 적용 되지 않습니다.
+- Azure 공유 디스크를 사용 하 여 가용성 집합 및 가상 머신 확장 집합을 사용 하는 경우 공유 데이터 디스크에 대해 가상 머신 장애 도메인의 [저장소 장애 도메인 맞춤이](../articles/virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 적용 되지 않습니다.
 - [PPG (근접 배치 그룹)](../articles/virtual-machines/windows/proximity-placement-groups.md)를 사용 하는 경우 디스크를 공유 하는 모든 가상 머신은 동일한 ppg의 일부 여야 합니다.
-- 일부 버전의 Windows Server 장애 조치 (failover) 클러스터에서는 기본 디스크만 사용할 수 있습니다. 자세한 내용은 [장애 조치 (Failover) 클러스터링 하드웨어 요구 사항 및 저장소 옵션](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements)을 참조 하세요.
+- 일부 버전의 Windows Server 장애 조치 (failover) 클러스터에서는 기본 디스크만 사용할 수 있습니다. 자세한 내용은 [장애 조치 (Failover) 클러스터링 하드웨어 요구 사항 및 저장소 옵션](/windows-server/failover-clustering/clustering-requirements)을 참조 하세요.
 - Azure Backup 및 Azure Site Recovery 지원 기능을 아직 사용할 수 없습니다.
 
 #### <a name="regional-availability"></a>국가별 가용성

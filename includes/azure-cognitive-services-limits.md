@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/30/2019
 ms.author: erhopf
-ms.openlocfilehash: ffefde7d692950fc272ab2502ad8afe254bf48f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9d73804484ea7cc72e0198b857099fd8fba46d5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73591131"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554860"
 ---
-Azure 구독당 Cognitive Services 리소스 수에는 다음 한도가 적용됩니다. 각 Cognitive Services에 추가 한도가 있을 수 있습니다. 자세한 내용은 [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)를 참조하세요.
+Azure 구독당 Cognitive Services 리소스 수에는 다음 한도가 적용됩니다. 각 Cognitive Services에 추가 한도가 있을 수 있습니다. 자세한 내용은 [Azure Cognitive Services](../articles/cognitive-services/index.yml)를 참조하세요.
 
 | 유형 | 제한 | 예제 |
 |------|-------|---------|

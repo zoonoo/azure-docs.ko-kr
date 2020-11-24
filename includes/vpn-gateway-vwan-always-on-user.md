@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b68fce603801c7bc1aee2af871df257b5f69197
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79500192"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561878"
 ---
 1. 이 [지점 및 사이트 간 VPN 클라이언트](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) 문서에 표시 된 대로 Windows 10 클라이언트에 클라이언트 인증서를 설치 합니다. 인증서가 현재 사용자 저장소에 있어야 합니다.
 
-1. [Windows 10 클라이언트 ALWAYS ON vpn 연결 구성](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections)의 지침에 따라 PowerShell, Configuration Manager 또는 Intune을 통해 Always On vpn 클라이언트를 구성 합니다.
+1. [Windows 10 클라이언트 ALWAYS ON vpn 연결 구성](/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections)의 지침에 따라 PowerShell, Configuration Manager 또는 Intune을 통해 Always On vpn 클라이언트를 구성 합니다.
 
 ### <a name="example-configuration-for-the-user-tunnel"></a>사용자 터널에 대 한 구성 예
 
 가상 네트워크 게이트웨이를 구성 하 고 Windows 10 클라이언트의 로컬 컴퓨터 저장소에 클라이언트 인증서를 설치한 후 다음 예제를 사용 하 여 클라이언트 장치 터널을 구성 합니다.
 
-1. 다음 텍스트를 복사 하 고 *usercert.ps1*로 저장 합니다.
+1. 다음 텍스트를 복사 하 고 *usercert.ps1* 로 저장 합니다.
 
    ```
    Param(
@@ -75,7 +75,7 @@ ms.locfileid: "79500192"
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. 다음 텍스트를 복사 하 고 *usercert.ps1*와 동일한 폴더에 *VPNProfile.xml* 로 저장 합니다. 사용자 환경에 맞게 다음 텍스트를 편집 합니다.
+1. 다음 텍스트를 복사 하 고 *usercert.ps1* 와 동일한 폴더에 *VPNProfile.xml* 로 저장 합니다. 사용자 환경에 맞게 다음 텍스트를 편집 합니다.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
@@ -128,6 +128,6 @@ ms.locfileid: "79500192"
    ```
    
    ![MachineCertTest](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
-1. **VPN 설정**에서 **usertest** 항목을 찾은 다음 **연결**을 선택 합니다.
+1. **VPN 설정** 에서 **usertest** 항목을 찾은 다음 **연결** 을 선택 합니다.
 
 1. 연결에 성공 하면 Always On 사용자 터널이 성공적으로 구성 된 것입니다.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 7bdbfd8ffd44f9515ae4df20c55b09c8a0adcaef
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 1be6a654962b513cfcf755d45e562b86067e7b25
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376257"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558578"
 ---
 #### <a name="to-create-a-new-service"></a>새 서비스를 만들려면
 
@@ -29,13 +29,13 @@ ms.locfileid: "93376257"
 
     2.  드롭다운 목록에서 **구독** 을 선택합니다. 구독은 대금 청구 계정에 연결됩니다. 이 필드는 구독이 하나만 있는 경우에는 나타나지 않습니다.
 
-    3.  **리소스 그룹** 의 경우 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 자세한 내용은 [Azure 리소스 그룹](/azure/azure-resource-manager/management/manage-resource-groups-portal)을 참조하세요.
+    3.  **리소스 그룹** 의 경우 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 자세한 내용은 [Azure 리소스 그룹](../articles/azure-resource-manager/management/manage-resource-groups-portal.md)을 참조하세요.
 
     4.  서비스의 **위치** 를 지정합니다. 각 지역에서 어떤 서비스가 가능한지에 대한 자세한 정보는 [Azure 지역](https://azure.microsoft.com/regions/#services) 을 참조하세요. 일반적으로 장치를 배포 하려는 지리적 지역에 가장 가까운 **위치** 를 선택 합니다. 다음 사항을 고려할 수도 있습니다.
 
         -   Azure에 StorSimple 디바이스에 배포하려는 기존 워크로드가 있는 경우에는 해당 데이터 센터를 사용하는 것이 좋습니다.
 
-        -   StorSimple 디바이스 관리자 및 Azure Storage는 두 곳의 다른 위치에 있을 수 있습니다. 이 경우, StorSimple 디바이스 관리자 및 Azure Storage 계정을 별도로 만들어야 합니다. Azure Storage 계정을 만들려면 Azure Portal의 Azure Storage로 이동하고, [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)에서 설명된 단계를 수행합니다. 이 계정을 만든 후에 [서비스에 대한 새 스토리지 계정 구성](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service)의 단계를 수행하여 StorSimple 디바이스 관리자 서비스에 추가합니다.
+        -   StorSimple 디바이스 관리자 및 Azure Storage는 두 곳의 다른 위치에 있을 수 있습니다. 이 경우, StorSimple 디바이스 관리자 및 Azure Storage 계정을 별도로 만들어야 합니다. Azure Storage 계정을 만들려면 Azure Portal의 Azure Storage로 이동하고, [스토리지 계정 만들기](../articles/storage/common/storage-account-create.md)에서 설명된 단계를 수행합니다. 이 계정을 만든 후에 [서비스에 대한 새 스토리지 계정 구성](../articles/storsimple/storsimple-virtual-array-manage-storage-accounts.md#add-a-storage-account-credential)의 단계를 수행하여 StorSimple 디바이스 관리자 서비스에 추가합니다.
 
         -   정부 포털에서 가상 디바이스를 배포하는 경우 미국 아이오와 및 미국 버지니아 위치에서 StorSimple 디바이스 관리자 서비스를 사용할 수 있습니다.
 
@@ -48,5 +48,3 @@ ms.locfileid: "93376257"
         ![새 서비스 만들기 2](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
 **서비스** 방문 페이지로 이동됩니다. 서비스 생성은 몇 분 정도가 소요됩니다. 서비스가 정상적으로 만들어지면 해당 알림이 표시되며 서비스의 상태가 **활성** 으로 변경됩니다.
-
-

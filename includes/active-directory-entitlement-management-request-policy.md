@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 239fcc1e57cb4bd56a8704f8a840689d44617fcf
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: b7029c5cdd004910caa83425536bbe481e4b01f3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93029486"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554923"
 ---
 ## <a name="for-users-in-your-directory"></a>디렉터리의 사용자
 
 디렉터리의 사용자가이 액세스 패키지를 요청할 수 있도록 하려면 다음 단계를 수행 합니다. 요청 정책을 정의할 때 개별 사용자 또는 보다 일반적으로 사용자 그룹을 지정할 수 있습니다. 예를 들어 조직에 이미 **모든 직원과** 같은 그룹이 있을 수 있습니다.  액세스를 요청할 수 있는 사용자에 대 한 정책에 해당 그룹이 추가 되 면 해당 그룹의 모든 멤버는 액세스를 요청할 수 있습니다.
 
-1. **Users who can request access** (액세스를 요청할 수 있는 사용자) 섹션에서 **For users in your directory** (디렉터리에 있는 사용자의 경우) 클릭합니다.
+1. **Users who can request access**(액세스를 요청할 수 있는 사용자) 섹션에서 **For users in your directory**(디렉터리에 있는 사용자의 경우) 클릭합니다.
 
     이 옵션을 선택 하면 디렉터리에서이 액세스 패키지를 요청할 수 있는 사용자를 보다 구체화 하는 새로운 옵션이 표시 됩니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "93029486"
     | **모든 구성원 (게스트 제외)** | 디렉터리의 모든 구성원 사용자가이 액세스 패키지를 요청할 수 있도록 하려면이 옵션을 선택 합니다. 이 옵션에는 디렉터리에 초대 했을 수 있는 게스트 사용자가 포함 되지 않습니다. |
     | **모든 사용자 (게스트 포함)** | 디렉터리의 모든 구성원 사용자와 게스트 사용자가이 액세스 패키지를 요청할 수 있도록 하려면이 옵션을 선택 합니다. |
 
-    게스트 사용자는 [AZURE AD B2B](../articles/active-directory/b2b/what-is-b2b.md)를 사용 하 여 디렉터리에 초대 된 외부 사용자를 참조 합니다. 멤버 사용자와 게스트 사용자 간의 차이점에 대 한 자세한 내용은 [Azure Active Directory?의 기본 사용자 권한](../articles/active-directory/fundamentals/users-default-permissions.md)을 참조 하십시오.
+    게스트 사용자는 [AZURE AD B2B](../articles/active-directory/external-identities/what-is-b2b.md)를 사용 하 여 디렉터리에 초대 된 외부 사용자를 참조 합니다. 멤버 사용자와 게스트 사용자 간의 차이점에 대 한 자세한 내용은 [Azure Active Directory?의 기본 사용자 권한](../articles/active-directory/fundamentals/users-default-permissions.md)을 참조 하십시오.
 
 1. **특정 사용자 및 그룹** 을 선택한 경우 **사용자 및 그룹 추가** 를 클릭 합니다.
 
@@ -47,10 +47,10 @@ ms.locfileid: "93029486"
 
 ## <a name="for-users-not-in-your-directory"></a>디렉터리에 없는 사용자의 경우
 
- **디렉터리에 없는 사용자** 는 다른 Azure AD 디렉터리 또는 도메인에 있는 사용자를 의미 합니다. 이러한 사용자는 아직 디렉터리에 초대 되지 않았을 수 있습니다. **공동 작업 제한** 에서 초대를 허용 하도록 Azure AD 디렉터리를 구성 해야 합니다. 자세한 내용은 [B2B 외부 공동 작업 사용 및 게스트를 초대할 수 있는 사용자 관리](../articles/active-directory/b2b/delegate-invitations.md)를 참조 하세요.
+ **디렉터리에 없는 사용자** 는 다른 Azure AD 디렉터리 또는 도메인에 있는 사용자를 의미 합니다. 이러한 사용자는 아직 디렉터리에 초대 되지 않았을 수 있습니다. **공동 작업 제한** 에서 초대를 허용 하도록 Azure AD 디렉터리를 구성 해야 합니다. 자세한 내용은 [B2B 외부 공동 작업 사용 및 게스트를 초대할 수 있는 사용자 관리](../articles/active-directory/external-identities/delegate-invitations.md)를 참조 하세요.
 
 > [!NOTE]
-> 요청을 승인 하거나 자동으로 승인 하는 디렉터리에 아직 없는 사용자에 대 한 게스트 사용자 계정이 생성 됩니다. 게스트가 초대 되지만 초대 전자 메일은 수신 되지 않습니다. 대신, 액세스 패키지 할당이 전달 되 면 전자 메일을 받게 됩니다. 기본적으로 나중에 해당 게스트 사용자에 게 액세스 패키지 할당이 더 이상 없는 경우 마지막 할당이 만료 되었거나 취소 되었으므로 게스트 사용자 계정은 로그인 하 여 이후에 삭제 됩니다. 게스트 사용자에 게 무제한으로 디렉터리에 남아 있는 경우 액세스 패키지 할당이 없더라도 자격 관리 구성에 대 한 설정을 변경할 수 있습니다. 게스트 사용자 개체에 대 한 자세한 내용은 [AZURE ACTIVE DIRECTORY B2B 공동 작업 사용자의 속성](../articles/active-directory/b2b/user-properties.md)을 참조 하세요.
+> 요청을 승인 하거나 자동으로 승인 하는 디렉터리에 아직 없는 사용자에 대 한 게스트 사용자 계정이 생성 됩니다. 게스트가 초대 되지만 초대 전자 메일은 수신 되지 않습니다. 대신, 액세스 패키지 할당이 전달 되 면 전자 메일을 받게 됩니다. 기본적으로 나중에 해당 게스트 사용자에 게 액세스 패키지 할당이 더 이상 없는 경우 마지막 할당이 만료 되었거나 취소 되었으므로 게스트 사용자 계정은 로그인 하 여 이후에 삭제 됩니다. 게스트 사용자에 게 무제한으로 디렉터리에 남아 있는 경우 액세스 패키지 할당이 없더라도 자격 관리 구성에 대 한 설정을 변경할 수 있습니다. 게스트 사용자 개체에 대 한 자세한 내용은 [AZURE ACTIVE DIRECTORY B2B 공동 작업 사용자의 속성](../articles/active-directory/external-identities/user-properties.md)을 참조 하세요.
 
 디렉터리에 없는 사용자가이 액세스 패키지를 요청할 수 있도록 허용 하려면 다음 단계를 수행 합니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "93029486"
 1. 모든 연결 된 조직을 선택 했으면 **선택** 을 클릭 합니다.
 
     > [!NOTE]
-    > 선택한 연결 된 조직의 모든 사용자가이 액세스 패키지를 요청할 수 있습니다. 이러한 도메인은 Azure B2B 허용 또는 거부 목록에 의해 차단 되는 경우를 제외 하 고 조직과 연결 된 모든 하위 도메인에서 Azure AD의 사용자를 포함 합니다. 자세한 내용은 [특정 조직의 B2B 사용자 초대 허용 또는 차단](../articles/active-directory/b2b/allow-deny-list.md)을 참조하세요.
+    > 선택한 연결 된 조직의 모든 사용자가이 액세스 패키지를 요청할 수 있습니다. 이러한 도메인은 Azure B2B 허용 또는 거부 목록에 의해 차단 되는 경우를 제외 하 고 조직과 연결 된 모든 하위 도메인에서 Azure AD의 사용자를 포함 합니다. 자세한 내용은 [특정 조직의 B2B 사용자 초대 허용 또는 차단](../articles/active-directory/external-identities/allow-deny-list.md)을 참조하세요.
 
 1. [승인](#approval) 섹션으로 건너뜁니다.
 
@@ -89,7 +89,7 @@ ms.locfileid: "93029486"
 
 액세스 요청을 무시 하 고 관리자가이 액세스 패키지에 특정 사용자를 직접 할당할 수 있게 하려면 다음 단계를 수행 합니다. 사용자는 액세스 패키지를 요청할 필요가 없습니다. 계속 해 서 수명 주기 설정을 지정할 수 있지만 요청 설정이 없습니다.
 
-1. 액세스를 **요청할 수 있는 사용자** 섹션에서 없음을 클릭 합니다 **(관리자 직접 할당에만 해당)** .
+1. 액세스를 **요청할 수 있는 사용자** 섹션에서 없음을 클릭 합니다 **(관리자 직접 할당에만 해당)**.
 
     ![액세스 패키지-요청-없음 관리자 직접 할당만](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
@@ -145,7 +145,7 @@ ms.locfileid: "93029486"
 
 1. **특정 승인자 선택** 을 선택한 경우 승인자 **추가** 를 클릭 하 여 승인자가 될 디렉터리에서 하나 이상의 사용자 또는 그룹을 선택 합니다.
 
-1. 결정 아래의 상자에서 **일 수를 결정 해야 합니다** . 상자에서 승인자가이 액세스 패키지에 대 한 요청을 검토 해야 하는 일 수를 지정 합니다.
+1. 결정 아래의 상자에서 **일 수를 결정 해야 합니다**. 상자에서 승인자가이 액세스 패키지에 대 한 요청을 검토 해야 하는 일 수를 지정 합니다.
 
     이 기간 내에 승인 되지 않은 요청은 자동으로 거부 됩니다. 사용자는 액세스 패키지에 대 한 다른 요청을 제출 해야 합니다.
 
@@ -223,7 +223,7 @@ ms.locfileid: "93029486"
 
     ![액세스 패키지-정책-지역화 된 텍스트 구성](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
 
-1. 요청자에 게 답변할 **대답 형식을** 선택 합니다. 응답 형식에는 *짧은 텍스트* , *다중 선택* 및 *긴 텍스트가* 포함 됩니다.
+1. 요청자에 게 답변할 **대답 형식을** 선택 합니다. 응답 형식에는 *짧은 텍스트*, *다중 선택* 및 *긴 텍스트가* 포함 됩니다.
  
     ![액세스 패키지-정책-여러 선택 응답 형식 보기 및 편집을 선택 합니다.](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  

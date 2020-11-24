@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
-ms.openlocfilehash: 83e046ca97ceee249e707e30f478fad89345f4de
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ff5d04a2923f16c763e1529ecb365f60d6275ca2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504024"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555400"
 ---
 ### <a name="general-query-limits"></a>일반 쿼리 제한
 
 | 제한 | Description |
 |:---|:---|
-| 쿼리 언어 | Azure Monitor는 Azure Data Explorer와 동일한 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용합니다. Azure Monitor에서 지원되지 않는 KQL 언어 요소는 [Azure Monitor 로그 쿼리 언어 차이](../articles/azure-monitor/log-query/data-explorer-difference.md)를 참조하세요. |
+| 쿼리 언어 | Azure Monitor는 Azure Data Explorer와 동일한 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용합니다. Azure Monitor에서 지원되지 않는 KQL 언어 요소는 [Azure Monitor 로그 쿼리 언어 차이](/azure/data-explorer/kusto/query/)를 참조하세요. |
 | Azure 지역 | 데이터가 여러 Azure 지역의 Log Analytics 작업 영역에 걸쳐있는 경우 로그 쿼리에 과도한 오버헤드가 발생할 수 있습니다. 자세한 내용은 [쿼리 제한](../articles/azure-monitor/log-query/scope.md#query-scope-limits)을 참조하세요. |
 | 리소스 간 쿼리 | 100으로 제한된 단일 쿼리에서 Application Insights 리소스 및 Log Analytics 작업 영역의 최대 수<br>뷰 디자이너에서는 리소스 간 쿼리가 지원되지 않습니다.<br>로그 경고의 리소스 간 쿼리는 새 scheduledQueryRules API에서 지원됩니다.<br>자세한 내용은 [리소스 간 쿼리 제한](../articles/azure-monitor/log-query/cross-workspace-query.md#cross-resource-query-limits)을 참조하세요. |
 

@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: twooley
 ms.custom: include file
-ms.openlocfilehash: 358de5761f3535b5f1e75d82539ee8e3ecdbd289
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 297641bbaccb44739d67fdd26f0c1f64062bba46
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665617"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556747"
 ---
-**Azure Data Lake Storage Gen2**는 전용 서비스 또는 스토리지 계정 유형이 아닙니다. 빅 데이터 분석을 전담하는 기능의 최신 릴리스입니다.  이러한 기능은 범용 v2 또는 BlockBlobStorage 스토리지 계정에서 사용할 수 있으며 계정의 **계층 구조 네임스페이스** 기능을 사용하도록 설정하여 가져올 수 있습니다. 스케일링 대상은 다음 문서를 참조하세요. 
+**Azure Data Lake Storage Gen2** 는 전용 서비스 또는 스토리지 계정 유형이 아닙니다. 빅 데이터 분석을 전담하는 기능의 최신 릴리스입니다.  이러한 기능은 범용 v2 또는 BlockBlobStorage 스토리지 계정에서 사용할 수 있으며 계정의 **계층 구조 네임스페이스** 기능을 사용하도록 설정하여 가져올 수 있습니다. 스케일링 대상은 다음 문서를 참조하세요. 
 
-- [Blob Storage의 스케일링 대상](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage)
-- [표준 스토리지 계정의 스케일링 대상](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account?toc=/azure/storage/blobs/toc.json#scale-targets-for-standard-storage-accounts)
+- [Blob Storage의 스케일링 대상](../articles/storage/blobs/scalability-targets.md#scale-targets-for-blob-storage)
+- [표준 스토리지 계정의 스케일링 대상](../articles/storage/common/scalability-targets-standard-account.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#scale-targets-for-standard-storage-accounts)
 
-**Azure Data Lake Storage Gen1**은 전용 서비스입니다. 빅 데이터 분석 작업을 위한 엔터프라이즈급 하이퍼스케일 리포지토리입니다. Data Lake Storage Gen1을 사용하면 운영 및 예비 분석을 위해 단일 위치에서 원하는 크기, 유형 및 수집 속도의 데이터를 캡처할 수 있습니다. Data Lake Storage Gen1 계정에 저장할 수 있는 데이터 양에는 제한이 없습니다.
+**Azure Data Lake Storage Gen1** 은 전용 서비스입니다. 빅 데이터 분석 작업을 위한 엔터프라이즈급 하이퍼스케일 리포지토리입니다. Data Lake Storage Gen1을 사용하면 운영 및 예비 분석을 위해 단일 위치에서 원하는 크기, 유형 및 수집 속도의 데이터를 캡처할 수 있습니다. Data Lake Storage Gen1 계정에 저장할 수 있는 데이터 양에는 제한이 없습니다.
 
 | **리소스** | **제한** | **설명** |
 | --- | --- | --- |

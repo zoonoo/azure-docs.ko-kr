@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
-ms.openlocfilehash: 37a61e270f95ffdc420536046e0ce1eda1e489b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 826fccad043b067ce86d5f56eaebc6ee48b532d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391491"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556655"
 ---
 | 리소스 |[사용 계획](../articles/azure-functions/functions-scale.md#consumption-plan)|[프리미엄 계획](../articles/azure-functions/functions-scale.md#premium-plan)|[전용 계획](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
@@ -19,7 +19,7 @@ ms.locfileid: "85391491"
 | 최대 요청 크기(MB)<sup>3</sup> | 100 | 100 | 100 | 100 | 클러스터에 따라 다름 |
 | 최대 쿼리 문자열 길이<sup>3</sup> | 4096 | 4096 | 4096 | 4096 | 클러스터에 따라 다름 |
 | 최대 요청 URL 길이<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | 클러스터에 따라 다름 |
-|인스턴스당 [ACU](../articles/virtual-machines/windows/acu.md) | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [AKS 가격 책정](https://azure.microsoft.com/pricing/details/container-service/) |
+|인스턴스당 [ACU](../articles/virtual-machines/acu.md) | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [AKS 가격 책정](https://azure.microsoft.com/pricing/details/container-service/) |
 | 최대 메모리(인스턴스당 GB) | 1.5 | 3.5-14 | 1.75-14 | 3.5 - 14 | 모든 노드가 지원됩니다. |
 | 계획당 함수 앱 |100 |100 |무제한<sup>4</sup> | unbounded | unbounded |
 | [App Service 계획](../articles/app-service/overview-hosting-plans.md) | [지역](https://azure.microsoft.com/global-infrastructure/regions/)당 100 |리소스 그룹당 100 |리소스 그룹당 100 | - | - |

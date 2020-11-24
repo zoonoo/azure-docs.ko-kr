@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 04/21/2020
 ms.author: jroth
-ms.openlocfilehash: 01b3c9584f3ecddbcdcc6938f5eb469510a47a4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4abbeadb0d30911d99fff57c0e99a3e427a6d8d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85839010"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562298"
 ---
 ### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>키 트랜잭션(지역당 자격 증명 모음당 10초 내에 허용되는 최대 트랜잭션<sup>1</sup>):
 
@@ -40,7 +40,7 @@ ms.locfileid: "85839010"
 | --- | --- |
 | 모든 트랜잭션 |2,000 |
 
-이러한 한도에 도달할 경우 제한을 처리하는 방법에 대한 내용은 [Azure Key Vault 제한 지침](../articles/key-vault/key-vault-ovw-throttling.md)을 참조하세요.
+이러한 한도에 도달할 경우 제한을 처리하는 방법에 대한 내용은 [Azure Key Vault 제한 지침](../articles/key-vault/general/overview-throttling.md)을 참조하세요.
 
 <sup>1</sup> 모든 트랜잭션 유형에 대한 구독 차원의 한도는 키 자격 증명 모음 한도의 5배입니다. 예를 들어 구독당 HSM-기타 트랜잭션은 구독당 10초 내에 5,000개 트랜잭션으로 제한됩니다.
 

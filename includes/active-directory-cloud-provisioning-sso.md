@@ -5,12 +5,12 @@ ms.subservice: cloud-provisioning
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
-ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d95e40623f17a39145778a2fc067dccc68fd872
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79504366"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559749"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Single Sign-on을 사용 하도록 설정 하는 단계
 클라우드 프로 비전은 Single Sign-on과 함께 작동 합니다.  현재는 에이전트가 설치 될 때 SSO를 사용 하도록 설정 하는 옵션이 없지만 아래 단계를 사용 하 여 SSO를 사용 하도록 설정 하 고 사용할 수 있습니다. 
@@ -23,7 +23,7 @@ ms.locfileid: "79504366"
 
 ### <a name="step-2-import-the-seamless-sso-powershell-module"></a>2 단계: 원활한 SSO PowerShell 모듈 가져오기
 
-1. [AZURE AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview)을 다운로드 하 고 설치 합니다.
+1. [AZURE AD PowerShell](/powershell/azure/active-directory/overview)을 다운로드 하 고 설치 합니다.
 2. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
 3. `Import-Module .\AzureADSSO.psd1` 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다.
 

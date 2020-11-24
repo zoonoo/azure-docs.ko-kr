@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8594ce713a8675505e0ee3051018b05992b160a9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73935871"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559240"
 ---
 **마지막 문서 업데이트**: 12 월 2019 10:00 오전 6 시 PST
 
@@ -21,9 +21,9 @@ ms.locfileid: "73935871"
 
 Microsoft는 모든 클라우드 서비스에서 완화 기능을 배포했습니다. Azure를 실행하고 고객 워크로드를 서로 격리하는 인프라가 보호됩니다. 즉, 동일한 인프라를 사용하는 잠재적 공격자가 이러한 취약점을 사용하여 애플리케이션을 공격할 수 없습니다.
 
-Azure에서는 가능한 경우 [메모리 보존 유지 관리](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot)를 사용하여 고객 영향을 최소화하고 다시 부팅할 필요를 제거합니다. Azure는 호스트에 대한 시스템 전반을 업데이트하고 고객을 보호할 때 이러한 메서드를 계속 활용합니다.
+Azure에서는 가능한 경우 [메모리 보존 유지 관리](../articles/virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#maintenance-that-doesnt-require-a-reboot)를 사용하여 고객 영향을 최소화하고 다시 부팅할 필요를 제거합니다. Azure는 호스트에 대한 시스템 전반을 업데이트하고 고객을 보호할 때 이러한 메서드를 계속 활용합니다.
 
-Azure의 모든 측면에 보안을 통합하는 방법에 대한 자세한 정보는 [Azure 보안 설명서](https://docs.microsoft.com/azure/security/) 사이트에서 사용할 수 있습니다. 
+Azure의 모든 측면에 보안을 통합하는 방법에 대한 자세한 정보는 [Azure 보안 설명서](../articles/security/index.yml) 사이트에서 사용할 수 있습니다. 
 
 > [!NOTE] 
 > 이 문서를 처음 게시한 이후 이 취약점 종류의 여러 변형이 공개되었습니다. Microsoft에서는 고객을 보호하고 지침을 제공하는 데 계속 투자하고 있습니다. 계속 추가 수정을 릴리스하므로 이 페이지가 업데이트됩니다. 
@@ -43,7 +43,7 @@ OS 업데이트가 다른 Azure 고객으로부터 Azure에서 실행되는 애�
 
 | 제품 | 권장 작업  |
 |----------|---------------------|
-| Azure Cloud Services  | [자동 업데이트](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) 를 사용 하도록 설정 하거나 최신 게스트 OS를 실행 중인지 확인 합니다. |
+| Azure Cloud Services  | [자동 업데이트](../articles/cloud-services/cloud-services-how-to-configure-portal.md) 를 사용 하도록 설정 하거나 최신 게스트 OS를 실행 중인지 확인 합니다. |
 | Azure Linux Virtual Machines | 운영 체제 공급자로부터 업데이트를 설치합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Linux](#linux)를 참조하세요. |
 | Azure Windows Virtual Machines  | 최신 보안 롤업을 설치합니다.
 | 기타 Azure PaaS 서비스 | 이러한 서비스를 사용하는 고객에게 필요한 작업은 없습니다. Azure에서는 자동으로 OS 버전을 최신 상태로 유지합니다. |
@@ -72,7 +72,7 @@ OS 업데이트가 다른 Azure 고객으로부터 Azure에서 실행되는 애�
 대상 운영 체제를 최신 상태로 유지하여 이러한 추가 보안 기능을 사용하도록 설정해야 합니다. 다양한 투기적 실행 쪽 채널 완화를 기본적으로 사용하는 반면 여기에 설명된 추가 기능은 수동으로 활성화해야 하며 성능에 영향이 발생할 수 있습니다. 
 
 
-**1 단계: VM에서 하이퍼 스레딩 사용 안 함** -하이퍼 스레드 vm에서 신뢰할 수 없는 코드를 실행 하는 고객은 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 하이퍼 스레드 이외의 vm 크기로 이동 해야 합니다. 하이퍼 스레드 VM 크기 목록을 보려면 [이 문서](https://docs.microsoft.com/azure/virtual-machines/windows/acu) 를 참조 하세요. 여기서 vcpu의 비율은 2:1입니다. VM에서 하이퍼 스레딩을 사용 하도록 설정 했는지 확인 하려면 VM 내에서 Windows 명령줄을 사용 하 여 아래 스크립트를 참조 하세요.
+**1 단계: VM에서 하이퍼 스레딩 사용 안 함** -하이퍼 스레드 vm에서 신뢰할 수 없는 코드를 실행 하는 고객은 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 하이퍼 스레드 이외의 vm 크기로 이동 해야 합니다. 하이퍼 스레드 VM 크기 목록을 보려면 [이 문서](../articles/virtual-machines/acu.md) 를 참조 하세요. 여기서 vcpu의 비율은 2:1입니다. VM에서 하이퍼 스레딩을 사용 하도록 설정 했는지 확인 하려면 VM 내에서 Windows 명령줄을 사용 하 여 아래 스크립트를 참조 하세요.
 
 `wmic`을 입력 하 여 대화형 인터페이스를 입력 합니다. 그런 후 아래를 입력 하 여 VM의 실제 및 논리 프로세서의 양을 확인 합니다.
 
@@ -80,7 +80,7 @@ OS 업데이트가 다른 Azure 고객으로부터 Azure에서 실행되는 애�
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-논리 프로세서 수가 실제 프로세서 (코어) 보다 큰 경우 하이퍼 스레딩을 사용 하도록 설정 됩니다.  하이퍼 스레드 VM을 실행 하는 경우 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 하 여 하이퍼 스레딩을 사용 하지 않도록 설정 하세요.  하이퍼 스레딩을 사용 하지 않도록 설정 하면 **전체 VM 재부팅이 필요**합니다. VM 코어 수가 감소 하는 이유를 이해 하려면 [코어 수](#core-count) 를 참조 하세요.
+논리 프로세서 수가 실제 프로세서 (코어) 보다 큰 경우 하이퍼 스레딩을 사용 하도록 설정 됩니다.  하이퍼 스레드 VM을 실행 하는 경우 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 하 여 하이퍼 스레딩을 사용 하지 않도록 설정 하세요.  하이퍼 스레딩을 사용 하지 않도록 설정 하면 **전체 VM 재부팅이 필요** 합니다. VM 코어 수가 감소 하는 이유를 이해 하려면 [코어 수](#core-count) 를 참조 하세요.
 
 
 **2 단계**: 1 단계와 동시에 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 의 지침에 따라 [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell 모듈을 사용 하 여 보호를 사용 하도록 설정 되었는지 확인 합니다.
@@ -108,10 +108,10 @@ Windows OS support for TAA mitigation is enabled: True
 **3 단계**: 커널 가상 주소 섀도잉 (KVAS) 및 분기 대상 삽입 (BTI) OS 지원을 사용 하도록 설정 하려면 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 의 지침에 따라 레지스트리 키를 사용 하 여 보호를 사용 하도록 설정 `Session Manager` 합니다. 다시 부팅해야 합니다.
 
 
-**4 단계**: [중첩 된 가상화](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) 를 사용 하는 배포의 경우 (D3 및 E3 전용): 이러한 지침은 hyper-v 호스트로 사용 하는 VM 내에 적용 됩니다.
+**4 단계**: [중첩 된 가상화](../articles/virtual-machines/windows/nested-virtualization.md) 를 사용 하는 배포의 경우 (D3 및 E3 전용): 이러한 지침은 hyper-v 호스트로 사용 하는 VM 내에 적용 됩니다.
 
 1.  [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 의 지침에 따라 레지스트리 키를 사용 하 여 보호를 사용 하도록 설정 `MinVmVersionForCpuBasedMitigations` 합니다.
-2.  `Core` [여기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types)에 설명 된 지침에 따라 하이퍼바이저 스케줄러 유형을로 설정 합니다.
+2.  `Core` [여기](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types)에 설명 된 지침에 따라 하이퍼바이저 스케줄러 유형을로 설정 합니다.
 
 
 ### <a name="linux"></a>Linux
@@ -119,7 +119,7 @@ Windows OS support for TAA mitigation is enabled: True
 <a name="linux"></a> 내부 추가 보안 기능 집합을 사용하도록 설정하면 대상 운영 체제를 최신 상태로 유지해야 합니다. 일부 완화는 기본적으로 활성화됩니다. 다음 섹션에서는 기본적으로 해제되어 있고 하드웨어 지원(마이크로코드)을 사용하는 기능을 설명합니다. 이러한 기능을 활성화하면 성능에 영향이 발생할 수 있습니다. 자세한 지침은 운영 체제 공급자의 설명서를 참조합니다.
 
 
-**1 단계: VM에서 하이퍼 스레딩 사용 안 함** -하이퍼 스레드 vm에서 신뢰할 수 없는 코드를 실행 하는 고객은 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 비 하이퍼 스레드 vm으로 이동 해야 합니다.  하이퍼 스레드 VM 크기 목록을 보려면 [이 문서](https://docs.microsoft.com/azure/virtual-machines/linux/acu) 를 참조 하세요. 여기서 vcpu의 비율은 2:1입니다. 하이퍼 스레드 VM을 실행 하 고 있는지 확인 하려면 `lscpu` LINUX vm에서 명령을 실행 합니다. 
+**1 단계: VM에서 하이퍼 스레딩 사용 안 함** -하이퍼 스레드 vm에서 신뢰할 수 없는 코드를 실행 하는 고객은 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 비 하이퍼 스레드 vm으로 이동 해야 합니다.  하이퍼 스레드 VM 크기 목록을 보려면 [이 문서](../articles/virtual-machines/acu.md) 를 참조 하세요. 여기서 vcpu의 비율은 2:1입니다. 하이퍼 스레드 VM을 실행 하 고 있는지 확인 하려면 `lscpu` LINUX vm에서 명령을 실행 합니다. 
 
 이면 `Thread(s) per core = 2` 하이퍼 스레딩을 사용 하도록 설정 된 것입니다. 
 
@@ -141,7 +141,7 @@ NUMA node(s):          1
 
 ```
 
-하이퍼 스레드 VM을 실행 하는 경우 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 하 여 하이퍼 스레딩을 사용 하지 않도록 설정 하세요.  하이퍼 스레딩을 사용 하지 않도록 설정 하면 **전체 VM 재부팅이 필요**합니다. VM 코어 수가 감소 하는 이유를 이해 하려면 [코어 수](#core-count) 를 참조 하세요.
+하이퍼 스레드 VM을 실행 하는 경우 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 하 여 하이퍼 스레딩을 사용 하지 않도록 설정 하세요.  하이퍼 스레딩을 사용 하지 않도록 설정 하면 **전체 VM 재부팅이 필요** 합니다. VM 코어 수가 감소 하는 이유를 이해 하려면 [코어 수](#core-count) 를 참조 하세요.
 
 
 
@@ -179,11 +179,3 @@ NUMA node(s):          1
 
 트랜잭션 동기화 확장 (Intel® TSX) 트랜잭션 비동기 중단:  
 - [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135) – TSX 트랜잭션 비동기 중단 (TAA)
-
-
-
-
-
-
-
-

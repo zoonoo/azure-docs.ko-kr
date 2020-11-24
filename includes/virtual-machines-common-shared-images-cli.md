@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cynthn
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 58f38f5fe5544f01636d5fd2b2393025e5cb01ab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9556b20ba0ceac2d4c1ad92897e6f9d46293387f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755685"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561181"
 ---
 ## <a name="create-an-image-gallery"></a>이미지 갤러리 만들기 
 
@@ -50,4 +50,4 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-RBAC를 사용하여 리소스를 공유하는 방법에 대한 자세한 내용은 [RBAC 및 Azure CLI를 사용하여 액세스 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)를 참조하세요.
+RBAC를 사용하여 리소스를 공유하는 방법에 대한 자세한 내용은 [RBAC 및 Azure CLI를 사용하여 액세스 관리](../articles/role-based-access-control/role-assignments-cli.md)를 참조하세요.

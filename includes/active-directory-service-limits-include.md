@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 5ac49491d8cb8fc81fe01d6f3d0d85456b190ed9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 42dfa499e0a44d0b468d3a234e9dc88904c361b0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329473"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559093"
 ---
 다음은 Azure AD(Azure Active Directory) 서비스에 대한 사용 제약 조건 및 기타 서비스 제한입니다.
 
@@ -30,4 +30,4 @@ ms.locfileid: "94329473"
 | 액세스 패널 |할당된 라이선스에 관계없이 사용자별 액세스 패널에 표시할 수 있는 애플리케이션의 수는 제한이 없습니다.  |
 | 보고서 | 최대 1,000행을 표시하거나 보고서에 다운로드할 수 있습니다. 그 외의 데이터는 잘립니다. |
 | 관리 단위 | Azure AD 리소스가 멤버로 포함될 수 있는 관리 단위의 수는 30개 이하입니다. |
-| Azure AD 역할 및 권한 | <ul><li>최대 30개의 [Azure AD 사용자 지정 역할](https://docs.microsoft.com/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure/active-directory/users-groups-roles/context/ugr-context)을 Azure AD 조직에 만들 수 있습니다.</li><li>그룹은 [그룹 소유자](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership)로 추가할 수 없습니다.</li><li>다른 사용자의 테넌트 정보를 읽을 수 있는 사용자의 기능은 관리자가 아닌 모든 사용자의 모든 테넌트 정보에 대한 액세스를 사용하지 않도록 설정하는 Azure AD 조직 전체 스위치를 통해서만 제한할 수 있습니다(추천하지 않음). 자세한 내용은 [멤버 사용자에 대한 기본 권한을 제한하려면](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users)을 참조하세요.</li><li>관리자 역할 멤버 자격을 추가하고 해지가 발효될 때까지 최대 15분이 소요되거나 로그아웃/로그인이 필요할 수 있습니다.</li></ul> |
+| Azure AD 역할 및 권한 | <ul><li>최대 30개의 [Azure AD 사용자 지정 역할](/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context)을 Azure AD 조직에 만들 수 있습니다.</li><li>그룹은 [그룹 소유자](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context#object-ownership)로 추가할 수 없습니다.</li><li>다른 사용자의 테넌트 정보를 읽을 수 있는 사용자의 기능은 관리자가 아닌 모든 사용자의 모든 테넌트 정보에 대한 액세스를 사용하지 않도록 설정하는 Azure AD 조직 전체 스위치를 통해서만 제한할 수 있습니다(추천하지 않음). 자세한 내용은 [멤버 사용자에 대한 기본 권한을 제한하려면](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context#restrict-member-users-default-permissions)을 참조하세요.</li><li>관리자 역할 멤버 자격을 추가하고 해지가 발효될 때까지 최대 15분이 소요되거나 로그아웃/로그인이 필요할 수 있습니다.</li></ul> |

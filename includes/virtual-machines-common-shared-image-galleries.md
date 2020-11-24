@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: b17480c1a2a0bd8588289627a51780999e1f311c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 29cbb2f6a7f0faf91852e520f15b779b3fe229c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897797"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558734"
 ---
 Shared Image Gallery는 이미지를 기준으로 구조와 조직을 빌드하는 데 도움이 되는 서비스입니다. Shared Image Galleries는 다음을 제공합니다.
 
@@ -45,7 +45,7 @@ Shared Image Gallery는 이미지를 기준으로 구조와 조직을 빌드하�
 
 이미지 정의는 이미지 버전의 논리적 그룹화입니다. 이미지 정의에는 이미지를 만든 이유, 이미지가 사용되는 OS, 이미지 사용에 대한 기타 정보가 포함되어 있습니다. 이미지 정의는 이미지 만들기와 관련하여 모든 세부 정보에 대한 계획과 비슷합니다. 이미지 정의가 아닌 정의에서 만든 이미지 버전의 VM을 배포합니다.
 
-각 이미지 정의에는 **Publisher** , **Offer** , **SKU** 의 세 가지 매개 변수가 있으며 이러한 매개 변수를 조합해서 사용합니다. 세 매개 변수는 특정 이미지 정의를 찾는 데 사용됩니다. 3개 값을 모두 공유하지는 않으면서 1개 또는 2개의 값을 공유하는 이미지 버전을 사용할 수 있습니다.  예를 들어 다음은 3개의 이미지 정의와 해당 값입니다.
+각 이미지 정의에는 **Publisher**, **Offer**, **SKU** 의 세 가지 매개 변수가 있으며 이러한 매개 변수를 조합해서 사용합니다. 세 매개 변수는 특정 이미지 정의를 찾는 데 사용됩니다. 3개 값을 모두 공유하지는 않으면서 1개 또는 2개의 값을 공유하는 이미지 버전을 사용할 수 있습니다.  예를 들어 다음은 3개의 이미지 정의와 해당 값입니다.
 
 |이미지 정의|게시자|제안|SKU|
 |---|---|---|---|
@@ -71,7 +71,7 @@ Shared Image Gallery는 이미지를 기준으로 구조와 조직을 빌드하�
 - 태그 - 이미지 정의를 만들 때 태그를 추가할 수 있습니다. 태그에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](../articles/azure-resource-manager/management/tag-resources.md)을 참조하세요.
 - 최소/최대 vCPU 및 메모리 권장 사항 - 이미지에 대한 vCPU 및 메모리 권장 사항이 있는 경우 해당 정보를 이미지 정의에 연결할 수 있습니다.
 - 허용되지 않는 디스크 유형 - VM의 스토리지 요구 사항에 대한 정보를 제공할 수 있습니다. 예를 들어 이미지가 표준 HDD 디스크에 적합하지 않은 경우 허용되지 않는 유형 목록에 추가합니다.
-- Marketplace 이미지(`-PurchasePlanPublisher`, `-PurchasePlanName` 및 `-PurchasePlanProduct`)에 대한 구매 계획 정보입니다. 구매 계획 정보에 대한 자세한 내용은 [Azure Marketplace에서 이미지 찾기](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) 및 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](../articles/virtual-machines/marketplace-images.md)을 참조하세요.
+- Marketplace 이미지(`-PurchasePlanPublisher`, `-PurchasePlanName` 및 `-PurchasePlanProduct`)에 대한 구매 계획 정보입니다. 구매 계획 정보에 대한 자세한 내용은 [Azure Marketplace에서 이미지 찾기](../articles/virtual-machines/windows/cli-ps-findimage.md) 및 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](../articles/virtual-machines/marketplace-images.md)을 참조하세요.
 
 
 ## <a name="image-versions"></a>이미지 버전
@@ -110,7 +110,7 @@ Shared Image Gallery를 사용하여 리소스를 배포할 때 구독당 제한
 - 구독마다, 지역마다 이미지 버전 복제본 10개
 - 이미지에 연결된 모든 디스크는 크기가 1TB 이하여야 합니다.
 
-자세한 내용은 현재 사용량을 확인하는 방법에 대한 [제한을 기준으로 리소스 사용량 확인](https://docs.microsoft.com/azure/networking/check-usage-against-limits) 예제를 참조하세요.
+자세한 내용은 현재 사용량을 확인하는 방법에 대한 [제한을 기준으로 리소스 사용량 확인](../articles/networking/check-usage-against-limits.md) 예제를 참조하세요.
  
 ## <a name="scaling"></a>확장
 공유 이미지 갤러리를 사용하면 Azure에서 이미지를 보관하도록 하려는 복제본 수를 지정할 수 있습니다. 이렇게 하면 VM 배포를 여러 복제본으로 확대함으로써 단일 복제본 과부하로 인해 인스턴스 생성 처리가 제한될 가능성을 줄일 수 있으므로 다중 VM 배포 시나리오에 도움이 됩니다.
@@ -128,7 +128,7 @@ Shared Image Gallery를 사용하여 리소스를 배포할 때 구독당 제한
 
 [Azure ZRS(영역 중복 스토리지)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/)는 지역에서 가용성 영역에 문제가 발생할 때 복원력을 제공합니다. 이제 Shared Image Gallery가 일반 공급되므로, 가용성 영역을 지원하는 지역의 ZRS 계정에 이미지를 저장하도록 선택할 수 있습니다. 
 
-각 대상 지역의 계정 유형을 선택할 수도 있습니다. 기본 스토리지 계정 유형은 Standard_LRS지만, 가용성 영역이 지원되는 지역에는 Standard_ZRS를 선택할 수 있습니다. [여기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)서 지역별 ZRS 가용성을 확인하세요.
+각 대상 지역의 계정 유형을 선택할 수도 있습니다. 기본 스토리지 계정 유형은 Standard_LRS지만, 가용성 영역이 지원되는 지역에는 Standard_ZRS를 선택할 수 있습니다. [여기](../articles/storage/common/storage-redundancy.md)서 지역별 ZRS 가용성을 확인하세요.
 
 ![ZRS를 보여주는 그래픽](./media/shared-image-galleries/zrs.png)
 
@@ -183,11 +183,11 @@ Shared Image Gallery, 이미지 정의 및 이미지 버전은 모두 리소스�
 
 다음 SDK를 사용하면 공유 이미지 갤러리를 만들 수 있습니다.
 
-- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
-- [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.JS](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
-- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](https://docs.microsoft.com/azure/go/)
+- [.NET](/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [Java](/java/azure/?view=azure-java-stable)
+- [Node.JS](/javascript/api/@azure/arm-compute)
+- [Python](/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Go](/azure/go/)
 
 ## <a name="templates"></a>템플릿
 
@@ -244,8 +244,8 @@ Azure Portal에서 액세스할 수 있는 구독 간에 Shared Image Gallery �
 
  시나리오 3: 로컬 파일 시스템에 VHD가 있는 경우 VHD를 관리형 이미지에 업로드한 다음, 해당 이미지로 이미지 정의와 이미지 버전을 만들 수 있습니다.
 
-- Windows VM의 VHD인 경우 [VHD 업로드](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed)를 참조하세요.
-- Linux VM용 VHD일 경우 [VHD 업로드](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)를 참조하세요.
+- Windows VM의 VHD인 경우 [VHD 업로드](../articles/virtual-machines/windows/upload-generalized-managed.md)를 참조하세요.
+- Linux VM용 VHD일 경우 [VHD 업로드](../articles/virtual-machines/linux/upload-vhd.md#option-1-upload-a-vhd)를 참조하세요.
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>특수한 디스크에서 이미지 버전을 만들 수 있나요?
 
@@ -310,4 +310,4 @@ CLI에서 일반적인 복제본 수를 지정하려면 `az sig image-version cr
 
 ### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>관리형 이미지를 사용하여 만든 Virtual Machine Scale Set가 Shared Image Gallery 이미지를 사용하도록 업데이트할 수 있나요?
 
-예, OS 유형, Hyper-V 생성 및 데이터 디스크 레이아웃이 이미지 간에 일치한다면 확장 집합 이미지 참조를 관리형 이미지에서 Shared Image Gallery 이미지로 업데이트할 수 있습니다. 
+예, OS 유형, Hyper-V 생성 및 데이터 디스크 레이아웃이 이미지 간에 일치한다면 확장 집합 이미지 참조를 관리형 이미지에서 Shared Image Gallery 이미지로 업데이트할 수 있습니다.

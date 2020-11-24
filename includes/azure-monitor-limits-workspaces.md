@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: e206c12a85cfbaed3297f2a44bf0a5d694c2d170
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2ed5cbc8c855d2f81986964c93009d75ed28fb8e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92324230"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557147"
 ---
 **데이터 컬렉션 볼륨 및 보존** 
 
@@ -73,4 +73,4 @@ Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 �
 수집 제한에 도달할 때 사전에 알리도록 경고 규칙을 만들려면 [Azure Monitor에서 Log Analytics 작업 영역의 상태 모니터링](../articles/azure-monitor/platform/monitor-workspace.md)을 참조하세요.
 
 >[!NOTE]
->Log Analytics를 사용한 기간에 따라 레거시 가격 책정 계층에 대한 액세스 권한이 있을 수 있습니다. [Log Analytics 레거시 가격 책정 계층](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers)에 대해 자세히 알아보세요. 
+>Log Analytics를 사용한 기간에 따라 레거시 가격 책정 계층에 대한 액세스 권한이 있을 수 있습니다. [Log Analytics 레거시 가격 책정 계층](../articles/azure-monitor/platform/manage-cost-storage.md#legacy-pricing-tiers)에 대해 자세히 알아보세요.
