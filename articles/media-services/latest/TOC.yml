@@ -270,9 +270,13 @@
     - name: 변환 및 작업 만들기
       items:
         - name: 변환 만들기
-          href: cli-create-transform.md
+          href: how-to-create-transform.md
         - name: REST를 사용하여 기본 오디오 변환 만들기
           href: how-to-create-basic-audio-transform.md
+        - name: REST를 사용하여 copyAllBitrateNonInterleaved 변환 만들기
+          href: how-to-create-copyallbitratenoninterleaved-transform.md
+        - name: REST를 사용하여 인코딩 없이 비디오 복사
+          href: how-to-create-copy-video-audio-transform.md
         - name: 작업 만들기
           href: cli-create-jobs.md
         - name: 로컬 파일 및 .NET을 사용하여 작업 입력 만들기

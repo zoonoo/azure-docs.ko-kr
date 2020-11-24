@@ -603,8 +603,14 @@
           href: reference-hyperscale-metadata.md
     - name: 방법 가이드
       items:
-        - name: 서버 그룹 스케일링
-          href: howto-hyperscale-scaling.md
+        - name: 서버 그룹 크기
+          items:
+            - name: 처음 크기 선택
+              href: howto-hyperscale-scale-initial.md
+            - name: 서버 그룹 스케일링
+              href: howto-hyperscale-scale-grow.md
+            - name: 분할 균형 다시 맞추기
+              href: howto-hyperscale-scale-rebalance.md
         - name: 방화벽 규칙
           items:
             - name: Azure portal

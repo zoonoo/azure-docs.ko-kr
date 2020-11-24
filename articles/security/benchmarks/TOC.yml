@@ -69,8 +69,12 @@
       href: ../../automation/security-baseline.md
     - name: Azure Advisor 보안 기준
       href: ../../advisor/security-baseline.md
+    - name: Azure 앱 구성 보안 기준
+      href: ../../azure-app-configuration/security-baseline.md
     - name: Azure Backup 보안 기준
       href: ../../backup/security-baseline.md
+    - name: Azure Bastion 보안 기준
+      href: ../../bastion/security-baseline.md
     - name: Azure Cache for Redis 보안 기준
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Azure Cognitive Search 보안 기준
@@ -199,7 +203,9 @@
       href: ../../virtual-machines/linux/security-baseline.md
     - name: Virtual Machines Windows 보안 기준
       href: ../../virtual-machines/windows/security-baseline.md
-    - name: Virtual Network 보안 옵션
+    - name: Virtual Network 보안 기준
       href: ../../virtual-network/security-baseline.md
+    - name: Virtual Network NAT 보안 기준
+      href: ../../virtual-network/nat-security-baseline.md
     - name: VPN Gateway 보안 기준
       href: ../../vpn-gateway/security-baseline.md

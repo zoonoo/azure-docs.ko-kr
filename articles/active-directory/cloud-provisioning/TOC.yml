@@ -62,10 +62,12 @@
           href: /office365/troubleshoot/administration/duplicate-attributes-prevent-dirsync
 - name: 참조
   items:
-    - name: Azure AD Connect 클라우드 프로비저닝 에이전트 버전 기록
-      href: ../app-provisioning/provisioning-agent-release-version-history.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+    - name: Azure AD Connect 클라우드 동기화 에이전트 버전 기록
+      href: reference-version-history.md
     - name: Azure AD Connect 클라우드 프로비저닝 FAQ
       href: reference-cloud-provisioning-faq.md
+    - name: AADCloudSyncTools PowerShell 모듈
+      href: reference-powershell.md
     - name: 동기화되는 특성
       href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: 기본 Active Directory 및 Azure AD 환경

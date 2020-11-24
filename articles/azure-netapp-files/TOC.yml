@@ -97,13 +97,13 @@
       href: dynamic-change-volume-service-level.md
     - name: 지역 간 복제 관리
       items:
-        - name: 복제 피어링 만들기
+        - name: 볼륨 복제 만들기
           href: cross-region-replication-create-peering.md
         - name: 복제 관계의 상태 표시
           href: cross-region-replication-display-health-status.md
         - name: 재해 복구 관리
           href: cross-region-replication-manage-disaster-recovery.md
-        - name: 복제 삭제
+        - name: 볼륨 복제 또는 볼륨 삭제
           href: cross-region-replication-delete.md
     - name: 개발
       items:

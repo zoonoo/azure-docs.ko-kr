@@ -95,8 +95,10 @@
           href: public-ip-security-baseline.md
     - name: 보안
       items:
-        - name: 보안 기준
+        - name: Virtual Network 보안 옵션
           href: security-baseline.md
+        - name: Virtual Network NAT 보안 기준
+          href: nat-security-baseline.md
         - name: 네트워크 보안 그룹
           items:
             - name: 개요

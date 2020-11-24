@@ -5,20 +5,31 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/23/2020
 ms.author: victorh
-ms.openlocfilehash: 34134f2c790851d34db7b5327aa76350d54d137d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 650cf1e9b0e9fbbadc5a783cad844898698bf017
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075466"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95509742"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Azure Firewall Manager 정책 개요
 
 방화벽 정책은 NAT, 네트워크 및 애플리케이션 규칙 컬렉션과 위협 인텔리전스 설정을 포함하는 Azure 리소스입니다. 보안 가상 허브 및 Hub Virtual Networks의 여러 Azure Firewall 인스턴스에서 사용할 수 있는 글로벌 리소스입니다. 정책은 여러 지역 및 구독에서 작동합니다.
 
 ![Azure Firewall Manager 정책](media/policy-overview/policy-overview.png)
+
+## <a name="availability"></a>가용성
+
+방화벽 정책은 항상 사용 가능하고 자동으로 복제되는 리소스입니다. 드물게 지역적 재해가 발생할 경우 방화벽 정책 작업은 Azure 쌍을 이루는 지역으로 장애 조치(failover)됩니다. 동기 및 비동기 작업을 위해 Azure 주 지역으로 복구 작업을 사후 장애 조치(failover)합니다. 
+
+쌍을 이루는 지역은 다음을 비롯한 여러 가지 이점을 제공합니다.
+- 최소 300마일로 분리된 물리적 격리
+- 재해 복구 속도 향상
+- 지역에서 요구하는 데이터 상주 요건 충족
+
+쌍을 이루는 지역에 대한 자세한 내용은 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
 
 ## <a name="policy-creation-and-association"></a>정책 만들기 및 연결
 
@@ -34,7 +45,7 @@ ms.locfileid: "89075466"
 
 비어 있지 않은 부모 정책을 사용하여 만든 정책은 부모 정책의 모든 규칙 컬렉션을 상속합니다. 부모 정책에서 상속된 네트워크 규칙 컬렉션에는 항상 새 정책의 일부로 정의된 네트워크 규칙 컬렉션보다 높은 우선 순위가 지정됩니다. 애플리케이션 규칙 컬렉션에도 동일한 논리가 적용됩니다. 그러나 네트워크 규칙 컬렉션은 상속과 관계없이 항상 애플리케이션 규칙 컬렉션보다 먼저 처리됩니다.
 
-위협 인텔리전스 모드도 부모 정책에서 상속됩니다. 이 동작을 재정의하기 위해 위협 인텔리전스 모드를 다른 값으로 설정할 수 있지만 해제할 수는 없습니다. 더 엄격한 값으로만 재정의할 수 있습니다. 예를 들어 부모 정책이 **경고만**으로 설정된 경우 이 로컬 정책을 **경고 및 거부**로 구성할 수 있습니다.
+위협 인텔리전스 모드도 부모 정책에서 상속됩니다. 이 동작을 재정의하기 위해 위협 인텔리전스 모드를 다른 값으로 설정할 수 있지만 해제할 수는 없습니다. 더 엄격한 값으로만 재정의할 수 있습니다. 예를 들어 부모 정책이 **경고만** 으로 설정된 경우 이 로컬 정책을 **경고 및 거부** 로 구성할 수 있습니다.
 
 위협 인텔리전스 모드와 마찬가지로 위협 인텔리전스 허용 목록은 부모 정책에서 상속됩니다. 자식 정책은 허용 목록에 추가 IP 주소를 추가할 수 있습니다.
 

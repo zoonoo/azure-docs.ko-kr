@@ -115,12 +115,10 @@
             - name: Access Control
               items:
                 - name: 개요
-                  href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  href: ./security/access-control.md
+                  displayname: 'access, control'
                 - name: Synapse 작업 영역 관리 ID
                   href: ./security/synapse-workspace-managed-identity.md
-                - name: SQL 풀
-                  href: ./sql/access-control.md
-                  displayname: 'access, control'
         - name: '도구 통합(AI, ETL, BI)'
           items:
             - name: Synapse Studio 문제 해결
@@ -304,6 +302,8 @@
               href: ./sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: 보안
           items:
+            - name: 데이터베이스 액세스 제어
+              href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 데이터 보안
               items:
                 - name: 열 수준 보안

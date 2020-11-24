@@ -139,7 +139,7 @@
           href: understand-spark-code-concepts.md
     - name: U-SQL 작업 문제 해결
       items:
-        - name: U-SQL 런타임 오류 문제 해결
+        - name: U-SQL 런타임 오류 및 알려진 문제 해결
           href: runtime-troubleshoot.md
         - name: .NET 업그레이드 문제 해결
           href: dotnet-upgrade-troubleshoot.md

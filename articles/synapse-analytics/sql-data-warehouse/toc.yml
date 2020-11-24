@@ -1,4 +1,4 @@
-- name: Azure Synapse(SQL DW)
+- name: Azure Synapse(이전의 SQL DW)
   href: index.yml
 - name: Azure Synapse로 전환(작업 영역 미리 보기)
   href: ../overview-what-is.md
