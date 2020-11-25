@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
 ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535249"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022754"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Azure HDInsight에 대 한 NSG 서비스 태그
 
@@ -26,9 +26,9 @@ HDInsight 서비스는 이러한 서비스 태그를 관리 합니다. 사용자
 
 네트워크 보안 그룹에서 서비스 태그를 사용 하는 방법에는 두 가지가 있습니다.
 
-- **단일 글로벌 HDInsight 서비스 태그 사용** :이 옵션은 HDInsight 서비스가 모든 지역에서 클러스터를 모니터링 하는 데 사용 하는 모든 IP 주소에 대 한 가상 네트워크를 엽니다. 이 옵션은 가장 간단한 방법 이지만 보안 요구 사항을 제한 하는 경우에는 적합 하지 않을 수 있습니다.
+- **단일 글로벌 HDInsight 서비스 태그 사용**:이 옵션은 HDInsight 서비스가 모든 지역에서 클러스터를 모니터링 하는 데 사용 하는 모든 IP 주소에 대 한 가상 네트워크를 엽니다. 이 옵션은 가장 간단한 방법 이지만 보안 요구 사항을 제한 하는 경우에는 적합 하지 않을 수 있습니다.
 
-- **여러 지역 서비스 태그 사용** :이 옵션은 HDInsight가 해당 특정 지역에서 사용 하는 IP 주소에 대해서만 가상 네트워크를 엽니다. 그러나 여러 지역을 사용 하는 경우 가상 네트워크에 여러 서비스 태그를 추가 해야 합니다.
+- **여러 지역 서비스 태그 사용**:이 옵션은 HDInsight가 해당 특정 지역에서 사용 하는 IP 주소에 대해서만 가상 네트워크를 엽니다. 그러나 여러 지역을 사용 하는 경우 가상 네트워크에 여러 서비스 태그를 추가 해야 합니다.
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>단일 글로벌 HDInsight 서비스 태그 사용
 
@@ -108,7 +108,7 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 | 유럽 | 북유럽 | NorthEurope |
 | &nbsp; | 서유럽| WestEurope |
 | 아시아 | 동아시아 | HDInsight. E한글 |
-| &nbsp; | 동남아시아 | SoutheastAsia |
+| &nbsp; | 동남 아시아 | SoutheastAsia |
 | 오스트레일리아 | 오스트레일리아 동부 | AustraliaEast |
 
 #### <a name="group-2"></a>그룹 2

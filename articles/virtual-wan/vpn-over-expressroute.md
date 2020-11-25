@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079057"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023530"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Express 경로 암호화: 가상 WAN을 위한 Express 경로를 통한 IPsec
 
@@ -76,8 +76,8 @@ Azure 가상 WAN 및 Express 경로 연결을 사용 하는 허브를 만드는 
 >
 
 1. 브라우저에서 Azure Portal로 이동 합니다. 
-1. 만든 허브를 선택 합니다. 가상 WAN 허브 페이지의 **연결**에서 **VPN 사이트**를 선택 합니다.
-1. **VPN 사이트** 페이지에서 **+ 사이트 만들기**를 선택 합니다.
+1. 만든 허브를 선택 합니다. 가상 WAN 허브 페이지의 **연결** 에서 **VPN 사이트** 를 선택 합니다.
+1. **VPN 사이트** 페이지에서 **+ 사이트 만들기** 를 선택 합니다.
 1. **사이트 만들기** 페이지에서 다음 필드를 채웁니다.
    * **구독**: 구독을 확인 합니다.
    * **리소스 그룹**: 사용 하려는 리소스 그룹을 선택 하거나 만듭니다.
@@ -87,7 +87,7 @@ Azure 가상 WAN 및 Express 경로 연결을 사용 하는 허브를 만드는 
    * **Border Gateway Protocol**: 온-프레미스 네트워크에서 BGP를 사용 하는 경우 "사용"을 선택 합니다.
    * **개인 주소 공간**: 온-프레미스 사이트에 있는 IP 주소 공간을 입력 합니다. 이 주소 공간으로 향하는 트래픽은 VPN gateway를 통해 온-프레미스 네트워크로 라우팅됩니다.
    * **허브**:이 VPN 사이트를 연결 하려면 허브를 하나 이상 선택 하세요. 선택한 허브에는 이미 만들어져 있는 VPN 게이트웨이가 있어야 합니다.
-1. 다음: VPN 링크 설정에 대 한 **>링크 ** 를 선택 합니다.
+1. 다음: VPN 링크 설정에 대 한 **>링크** 를 선택 합니다.
    * **링크 이름**:이 연결을 참조 하는 데 사용할 이름입니다.
    * **공급자 이름**:이 사이트에 대 한 인터넷 서비스 공급자의 이름입니다. Express 경로 온-프레미스 네트워크의 경우 Express 경로 서비스 공급자의 이름입니다.
    * **속도**: 인터넷 서비스 링크 또는 express 경로 회로의 속도입니다.
@@ -95,7 +95,7 @@ Azure 가상 WAN 및 Express 경로 연결을 사용 하는 허브를 만드는 
 
    BGP를 사용 하는 경우 Azure에서이 사이트에 대해 만들어진 모든 연결에 적용 됩니다. 가상 WAN에서 BGP를 구성 하는 것은 Azure VPN gateway에서 BGP를 구성 하는 것과 같습니다. 
    
-   온-프레미스 BGP 피어 주소는 장치에 대 한 VPN의 IP 주소 또는 VPN 사이트의 가상 네트워크 주소 공간과 같지 *않아야 합니다.* VPN 디바이스에서 BGP 피어 IP에 다른 IP 주소를 사용하세요. 디바이스에서 루프백 인터페이스에 할당한 주소가 될 수 있습니다. 그러나 APIPA (169.254) 일 수 *없습니다* .* x*. *x*) 주소입니다. 위치를 나타내는 해당 로컬 네트워크 게이트웨이에서이 주소를 지정 합니다. BGP 필수 조건은 [Azure VPN Gateway의 BGP 정보](../vpn-gateway/vpn-gateway-bgp-overview.md)를 참조하세요.
+   온-프레미스 BGP 피어 주소는 장치에 대 한 VPN의 IP 주소 또는 VPN 사이트의 가상 네트워크 주소 공간과 같지 *않아야 합니다.* VPN 디바이스에서 BGP 피어 IP에 다른 IP 주소를 사용하세요. 디바이스에서 루프백 인터페이스에 할당한 주소가 될 수 있습니다. 그러나 APIPA (169.254) 일 수 *없습니다* .*x*. *x*) 주소입니다. 위치를 나타내는 해당 로컬 네트워크 게이트웨이에서이 주소를 지정 합니다. BGP 필수 조건은 [Azure VPN Gateway의 BGP 정보](../vpn-gateway/vpn-gateway-bgp-overview.md)를 참조하세요.
 
 1. **다음: 검토 + >만들기** 를 선택 하 여 설정 값을 확인 하 고 VPN 사이트를 만듭니다. **허브** 를 선택 하 여 연결 하는 경우 온-프레미스 네트워크와 허브 VPN gateway 간에 연결이 설정 됩니다.
 
@@ -105,17 +105,17 @@ VPN 사이트를 만들고 허브에 연결한 후에는 다음 단계를 사용
 
 1. 가상 WAN 리소스 페이지로 돌아가서 허브 리소스를 선택 합니다. 또는 VPN 사이트에서 연결 된 허브로 이동 합니다.
 
-   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="Express 경로를 통한 VPN":::
-1. **연결**에서 **VPN (사이트 간)** 을 선택 합니다.
+   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="허브 선택":::
+1. **연결** 에서 **VPN (사이트 간)** 을 선택 합니다.
 
-   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="Express 경로를 통한 VPN":::
-1. Express 경로를 통해 VPN 사이트에서 줄임표 (**...**)를 선택 하 고 **이 허브에 대 한 vpn 연결 편집**을 선택 합니다.
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="VPN 선택 (사이트 간)":::
+1. Express 경로를 통해 VPN 사이트에서 줄임표 (**...**)를 선택 하 고 **이 허브에 대 한 vpn 연결 편집** 을 선택 합니다.
 
-   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="Express 경로를 통한 VPN":::
-1. **Azure 개인 IP 주소 사용**에 대해 **예**를 선택 합니다. 설정은 공용 IP 주소가 아닌이 연결에 대해 게이트웨이의 허브 주소 범위 내에서 개인 IP 주소를 사용 하도록 허브 VPN gateway를 구성 합니다. 이렇게 하면 온-프레미스 네트워크의 트래픽이이 VPN 연결에 공용 인터넷을 사용 하는 대신 Express 경로 개인 피어 링 경로를 통과 하 게 됩니다. 다음 스크린샷에서는 설정을 보여 줍니다.
+   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="구성 메뉴 입력":::
+1. **Azure 개인 IP 주소 사용** 에 대해 **예** 를 선택 합니다. 설정은 공용 IP 주소가 아닌이 연결에 대해 게이트웨이의 허브 주소 범위 내에서 개인 IP 주소를 사용 하도록 허브 VPN gateway를 구성 합니다. 이렇게 하면 온-프레미스 네트워크의 트래픽이이 VPN 연결에 공용 인터넷을 사용 하는 대신 Express 경로 개인 피어 링 경로를 통과 하 게 됩니다. 다음 스크린샷에서는 설정을 보여 줍니다.
 
-   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="Express 경로를 통한 VPN" border="false":::
-1. **저장**을 선택합니다.
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="VPN 연결에 개인 IP 주소를 사용 하도록 설정" border="false":::
+1. **저장** 을 선택합니다.
 
 변경 내용을 저장 한 후에는 허브 VPN gateway에서 VPN 게이트웨이의 개인 IP 주소를 사용 하 여 Express 경로를 통해 온-프레미스 VPN 장치와의 IPsec/IKE 연결을 설정 합니다.
 
@@ -123,8 +123,8 @@ VPN 사이트를 만들고 허브에 연결한 후에는 다음 단계를 사용
 
 VPN 장치 구성을 다운로드 하 여 허브 VPN 게이트웨이의 개인 IP 주소를 가져옵니다. 온-프레미스 VPN 장치를 구성 하려면 이러한 주소가 필요 합니다.
 
-1. 허브에 대 한 페이지의 **연결**에서 **VPN (사이트 간)** 을 선택 합니다.
-1. **개요** 페이지의 맨 위에서 **VPN 구성 다운로드**를 선택 합니다. 
+1. 허브에 대 한 페이지의 **연결** 에서 **VPN (사이트 간)** 을 선택 합니다.
+1. **개요** 페이지의 맨 위에서 **VPN 구성 다운로드** 를 선택 합니다. 
 
    Azure는 리소스 그룹 "microsoft-네트워크-[location]"에 저장소 계정을 만듭니다. 여기서 *location* 은 WAN의 위치입니다. VPN 장치에 구성을 적용 한 후에는이 저장소 계정을 삭제할 수 있습니다.
 1. 파일이 만들어진 후 링크를 선택 하 여 다운로드 합니다.

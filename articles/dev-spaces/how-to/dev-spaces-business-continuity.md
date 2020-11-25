@@ -9,11 +9,11 @@ description: Azure Dev Spaces 및 Azure Kubernetes 서비스를 사용 하 여 �
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
 manager: gwallace
 ms.openlocfilehash: 824eb1e65e7da5736080e47509aa163a868d8ec9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973141"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023332"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure Dev Spaces의 비즈니스 연속성 및 재해 복구
 
@@ -39,7 +39,7 @@ az aks use-dev-spaces -g <resource group name> -n <cluster name>
 
 ## <a name="deploy-your-teams-baseline-to-each-cluster"></a>각 클러스터에 팀 초기 계획 배포
 
-Dev Spaces 사용 시에는 보통 Kubernetes 클러스터의 상위 개발 공간에 전체 애플리케이션을 배포합니다. 기본적으로는 `default` 공간이 사용됩니다. 초기 배포에는 모든 서비스와 해당 서비스가 사용하는 외부 리소스(예: 데이터베이스 또는 큐)가 모두 포함됩니다. 이 초기 배포를 *초기 계획*이라고 합니다. 상위 개발 공간에서 초기 계획을 설정한 후에는 해당 과정을 반복하여 하위 개발 공간 내의 개별 서비스를 디버그합니다.
+Dev Spaces 사용 시에는 보통 Kubernetes 클러스터의 상위 개발 공간에 전체 애플리케이션을 배포합니다. 기본적으로는 `default` 공간이 사용됩니다. 초기 배포에는 모든 서비스와 해당 서비스가 사용하는 외부 리소스(예: 데이터베이스 또는 큐)가 모두 포함됩니다. 이 초기 배포를 *초기 계획* 이라고 합니다. 상위 개발 공간에서 초기 계획을 설정한 후에는 해당 과정을 반복하여 하위 개발 공간 내의 개별 서비스를 디버그합니다.
 
 여러 지역의 클러스터에 서비스 초기 계획 세트의 최신 버전을 배포해야 합니다. 이러한 방식으로 초기 계획 서비스를 업데이트하면 Azure 지역 하나에서 오류가 발생하더라도 Dev Spaces를 계속 사용할 수 있습니다. 예를 들어 CI/CD 파이프라인을 통해 초기 계획을 배포하는 경우 각기 다른 지역의 여러 클러스터로 배포되도록 파이프라인을 수정합니다.
 
@@ -70,9 +70,9 @@ azds space select -n <space name>
 Visual Studio를 사용 중이라면 다음 단계를 수행하여 기존 프로젝트에 사용되는 클러스터를 전환할 수 있습니다.
 
 1. Visual Studio에서 새 프로젝트를 엽니다.
-1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
-1. 왼쪽 창에서 **디버그**를 클릭합니다.
-1. 디버그 속성 페이지에서 **프로필** 드롭다운 목록을 클릭하고 **Azure Dev Spaces**를 선택합니다.
+1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **속성** 을 클릭합니다.
+1. 왼쪽 창에서 **디버그** 를 클릭합니다.
+1. 디버그 속성 페이지에서 **프로필** 드롭다운 목록을 클릭하고 **Azure Dev Spaces** 를 선택합니다.
 1. **변경** 단추를 클릭합니다.
 1. 대화 상자가 나타나면 사용할 AKS 클러스터를 선택합니다. 원하는 경우 **공간** 드롭다운 목록에서 적절한 옵션을 선택하여 작업할 다른 개발 공간을 선택하거나 새 개발 공간을 만듭니다.
 

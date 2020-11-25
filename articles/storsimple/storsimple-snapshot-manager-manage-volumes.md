@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: alkohli
 ms.openlocfilehash: 309fa85d0a4d877522a89dd8f1e6e71fb2074744
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964969"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022941"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>StorSimple 스냅샷 관리자를 사용하여 볼륨 보기 및 관리
 ## <a name="overview"></a>개요
@@ -93,7 +93,7 @@ ms.locfileid: "94964969"
    
    | 결과 열 | Description |
    |:--- |:--- |
-   |  속성 |**이름** 열에는 검색한 각 볼륨에 할당된 드라이브 문자가 포함되어 있습니다. |
+   |  Name |**이름** 열에는 검색한 각 볼륨에 할당된 드라이브 문자가 포함되어 있습니다. |
    |  디바이스 |**디바이스** 열은 호스트 컴퓨터에 연결된 디바이스의 IP 주소를 포함합니다. |
    |  디바이스 볼륨 이름 |**장치 볼륨 이름** 열에는 선택된 볼륨이 속한 장치 볼륨의 이름이 포함되어 있습니다. 이 이름은 해당 특정 볼륨에 대해 Azure Portal에서 정의한 볼륨 이름입니다. |
    |  액세스 경로 |**액세스 경로** 열은 볼륨에 대한 액세스 경로를 표시합니다. 호스트 컴퓨터에서 볼륨에 액세스할 수 있는 드라이브 문자 또는 탑재 지점입니다. |

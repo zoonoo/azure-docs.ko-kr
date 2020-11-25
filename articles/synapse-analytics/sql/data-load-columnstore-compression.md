@@ -12,11 +12,11 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: fecb78b240f5c983580d4bdb34535a879ffe3e2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289279"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022550"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Columnstore 인덱스 성능에 대 한 행 그룹 품질 최대화
 
@@ -87,7 +87,7 @@ trim_reason_desc는 행 그룹이 잘렸는지 여부를 나타냅니다. trim_r
 > [!NOTE]
 > Short 문자열 열에서 <= 32 바이트의 문자열 데이터 형식을 사용 하 고 긴 문자열 열에는 > 32 바이트의 문자열 데이터 형식이 사용 됩니다.
 
-긴 문자열은 텍스트 압축용으로 고안된 압축 방법으로 압축됩니다. 이 압축 방법은 *사전*을 사용하여 텍스트 패턴을 저장합니다. 사전의 최대 크기는 16MB입니다. 행 그룹에는 긴 문자열 각각에 대해 사전이 한 개만 있습니다.
+긴 문자열은 텍스트 압축용으로 고안된 압축 방법으로 압축됩니다. 이 압축 방법은 *사전* 을 사용하여 텍스트 패턴을 저장합니다. 사전의 최대 크기는 16MB입니다. 행 그룹에는 긴 문자열 각각에 대해 사전이 한 개만 있습니다.
 
 Columnstore 메모리 요구 사항에 대 한 자세한 내용은 video [SYNAPSE SQL 크기 조정: 구성 및 지침](https://channel9.msdn.com/Events/Ignite/2016/BRK3291)을 참조 하세요.
 

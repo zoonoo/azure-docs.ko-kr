@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 06/09/2020
-ms.openlocfilehash: 80c837e640ef0d1739c329fb463e173e6c40be31
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/25/2020
+ms.openlocfilehash: 22155083a71a9cbf615293a4f86a179aaefce2a9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331723"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96023359"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 
@@ -109,22 +109,22 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 | 속성                                                    | Description                                                  | 필수 |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| **RegisterNewNode** "`<AuthenticationKey>`"                     | 지정 된 인증 키를 사용 하 여 자체 호스팅 integration runtime 노드를 등록 합니다. | 아니요       |
-| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | 지정 된 인증 키와 노드 이름을 사용 하 여 자체 호스팅 integration runtime 노드를 등록 합니다. | 아니요       |
-| **Enableremoteaccess** "`<port>`" ["`<thumbprint>`"]            | 현재 노드에서 원격 액세스를 사용 하도록 설정 하 여 고가용성 클러스터를 설정 합니다. 또는 Azure Data Factory를 거치지 않고 자체 호스팅 IR에 대해 직접 자격 증명을 설정할 수 있습니다. 후자는 동일한 네트워크에 있는 원격 컴퓨터에서 **AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet을 사용 하 여 수행 합니다. | 아니요       |
-| **Enableremoteaccessincontainer** "`<port>`" ["`<thumbprint>`"] | 노드가 컨테이너에서 실행 될 때 현재 노드에 대 한 원격 액세스를 사용 하도록 설정 합니다. | 아니요       |
-| **DisableRemoteAccess**                                         | 현재 노드에 대 한 원격 액세스를 사용 하지 않도록 설정 합니다. 다중 노드 설정에는 원격 액세스가 필요 합니다. **AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet은 원격 액세스가 사용 하지 않도록 설정 된 경우에도 계속 작동 합니다. 이 동작은 cmdlet이 자체 호스팅 IR 노드와 동일한 컴퓨터에서 실행 되는 경우에만 적용 됩니다. | 아니요       |
-| **키** "`<AuthenticationKey>`"                                 | 이전 인증 키를 덮어쓰거나 업데이트 합니다. 이 작업에 주의 하세요. 이전 자체 호스팅 IR 노드는 키가 새 통합 런타임 인 경우 오프 라인으로 전환할 수 있습니다. | 아니요       |
-| **Generatebackupfile** "`<filePath>`" "`<password>`"            | 현재 노드에 대 한 백업 파일을 생성 합니다. 백업 파일에는 노드 키와 데이터 저장소 자격 증명이 포함 됩니다. | 아니요       |
-| **Importbackupfile** "`<filePath>`" "`<password>`"              | 백업 파일에서 노드를 복원 합니다.                          | 아니요       |
-| **다시 시작**                                                     | 자체 호스팅 integration runtime 호스트 서비스를 다시 시작 합니다.   | 아니요       |
-| **시작**                                                       | 자체 호스팅 integration runtime 호스트 서비스를 시작 합니다.     | 아니요       |
-| **중지**                                                        | 자체 호스팅 integration runtime 호스트 서비스를 중지 합니다.        | 아니요       |
-| **StartUpgradeService**                                         | 자체 호스팅 integration runtime 업그레이드 서비스를 시작 합니다.       | 아니요       |
-| **StopUpgradeService**                                          | 자체 호스팅 integration runtime 업그레이드 서비스를 중지 합니다.        | 아니요       |
-| **원래 비 자동 업데이트**                                            | 자체 호스팅 integration runtime 자동 업데이트를 설정 합니다.        | 아니요       |
-| **TurnOffAutoUpdate**                                           | 자체 호스팅 integration runtime 자동 업데이트를 해제 합니다.       | 아니요       |
-| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | 새 계정으로 실행 되도록 DIAHostService를 설정 합니다. 시스템 계정 및 가상 계정에는 빈 암호 ""를 사용 합니다. | 아니요       |
+| **RegisterNewNode** "`<AuthenticationKey>`"                     | 지정 된 인증 키를 사용 하 여 자체 호스팅 integration runtime 노드를 등록 합니다. | No       |
+| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | 지정 된 인증 키와 노드 이름을 사용 하 여 자체 호스팅 integration runtime 노드를 등록 합니다. | No       |
+| **Enableremoteaccess** "`<port>`" ["`<thumbprint>`"]            | 현재 노드에서 원격 액세스를 사용 하도록 설정 하 여 고가용성 클러스터를 설정 합니다. 또는 Azure Data Factory를 거치지 않고 자체 호스팅 IR에 대해 직접 자격 증명을 설정할 수 있습니다. 후자는 동일한 네트워크에 있는 원격 컴퓨터에서 **AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet을 사용 하 여 수행 합니다. | No       |
+| **Enableremoteaccessincontainer** "`<port>`" ["`<thumbprint>`"] | 노드가 컨테이너에서 실행 될 때 현재 노드에 대 한 원격 액세스를 사용 하도록 설정 합니다. | No       |
+| **DisableRemoteAccess**                                         | 현재 노드에 대 한 원격 액세스를 사용 하지 않도록 설정 합니다. 다중 노드 설정에는 원격 액세스가 필요 합니다. **AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet은 원격 액세스가 사용 하지 않도록 설정 된 경우에도 계속 작동 합니다. 이 동작은 cmdlet이 자체 호스팅 IR 노드와 동일한 컴퓨터에서 실행 되는 경우에만 적용 됩니다. | No       |
+| **키** "`<AuthenticationKey>`"                                 | 이전 인증 키를 덮어쓰거나 업데이트 합니다. 이 작업에 주의 하세요. 이전 자체 호스팅 IR 노드는 키가 새 통합 런타임 인 경우 오프 라인으로 전환할 수 있습니다. | No       |
+| **Generatebackupfile** "`<filePath>`" "`<password>`"            | 현재 노드에 대 한 백업 파일을 생성 합니다. 백업 파일에는 노드 키와 데이터 저장소 자격 증명이 포함 됩니다. | No       |
+| **Importbackupfile** "`<filePath>`" "`<password>`"              | 백업 파일에서 노드를 복원 합니다.                          | No       |
+| **다시 시작**                                                     | 자체 호스팅 integration runtime 호스트 서비스를 다시 시작 합니다.   | No       |
+| **Start**                                                       | 자체 호스팅 integration runtime 호스트 서비스를 시작 합니다.     | No       |
+| **중지**                                                        | 자체 호스팅 integration runtime 호스트 서비스를 중지 합니다.        | No       |
+| **StartUpgradeService**                                         | 자체 호스팅 integration runtime 업그레이드 서비스를 시작 합니다.       | No       |
+| **StopUpgradeService**                                          | 자체 호스팅 integration runtime 업그레이드 서비스를 중지 합니다.        | No       |
+| **원래 비 자동 업데이트**                                            | 자체 호스팅 integration runtime 자동 업데이트를 설정 합니다.        | No       |
+| **TurnOffAutoUpdate**                                           | 자체 호스팅 integration runtime 자동 업데이트를 해제 합니다.       | No       |
+| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | 새 계정으로 실행 되도록 DIAHostService를 설정 합니다. 시스템 계정 및 가상 계정에는 빈 암호 ""를 사용 합니다. | No       |
 
 
 ## <a name="command-flow-and-data-flow"></a>명령 흐름 및 데이터 흐름
@@ -150,9 +150,9 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 - 자체 호스팅 통합 런타임을 사용 하 여 Azure 가상 네트워크 내에서 데이터 통합을 지원 합니다.
 - Azure ExpressRoute를 사용하더라도 데이터 원본은 방화벽으로 보호되는 온-프레미스 데이터 원본으로 취급해야 합니다. 자체 호스팅 integration runtime을 사용 하 여 서비스를 데이터 원본에 연결 합니다.
 - 데이터 저장소가 Azure IaaS (Infrastructure as a Service) 가상 머신의 클라우드에 있는 경우에도 자체 호스팅 통합 런타임을 사용 합니다.
-- FIPS 규격 암호화를 사용 하는 Windows 서버에 설치한 자체 호스팅 통합 런타임에서 태스크가 실패할 수 있습니다. 이 문제를 해결 하려면 Azure Key Vault에 자격 증명/비밀 값 저장 또는 서버에서 FIPS 규격 암호화 사용 안 함 이라는 두 가지 옵션이 있습니다. FIPS 호환 암호화를 사용 하지 않도록 설정 하려면 다음 레지스트리 하위 키의 값을 1 (사용)에서 0 (사용 안 함)으로 변경 `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` 합니다.
+- FIPS 규격 암호화를 사용 하는 Windows 서버에 설치한 자체 호스팅 통합 런타임에서 태스크가 실패할 수 있습니다. 이 문제를 해결 하려면 Azure Key Vault에 자격 증명/비밀 값 저장 또는 서버에서 FIPS 규격 암호화 사용 안 함 이라는 두 가지 옵션이 있습니다. FIPS 호환 암호화를 사용 하지 않도록 설정 하려면 다음 레지스트리 하위 키의 값을 1 (사용)에서 0 (사용 안 함)으로 변경 `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` 합니다. [자체 호스팅 통합 런타임을 SSIS 통합 런타임에 대 한 프록시로](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)사용 하는 경우 FIPS 호환 암호화를 사용 하도록 설정할 수 있으며 온-프레미스에서 Azure Blob Storage 준비 영역으로 데이터를 이동할 때 사용 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 지원 되는 Windows 버전은 다음과 같습니다.
   + Windows 7 서비스 팩 1
@@ -264,8 +264,8 @@ Integration runtime 노드 간의 통신을 보호 하는 데 사용 하는 TLS/
 
 ### <a name="terminology"></a>용어
 
-- **공유 ir** : 실제 인프라에서 실행 되는 원래의 자체 호스팅 IR입니다.  
-- **연결 된 ir** : 다른 공유 ir을 참조 하는 ir입니다. 연결 된 IR은 논리 IR 이며 다른 공유 자체 호스팅 IR 인프라를 사용 합니다.
+- **공유 ir**: 실제 인프라에서 실행 되는 원래의 자체 호스팅 IR입니다.  
+- **연결 된 ir**: 다른 공유 ir을 참조 하는 ir입니다. 연결 된 IR은 논리 IR 이며 다른 공유 자체 호스팅 IR 인프라를 사용 합니다.
 
 ### <a name="methods-to-share-a-self-hosted-integration-runtime"></a>자체 호스팅 integration runtime을 공유 하는 방법
 
@@ -351,9 +351,9 @@ Windows 방화벽 수준 또는 컴퓨터 수준에서는 이러한 아웃 바�
 
 이 대화 상자에는 세 가지 구성 옵션이 있습니다.
 
-- **프록시 사용 안 함** : 자체 호스팅 통합 런타임이 클라우드 서비스에 연결 하는 데 프록시를 명시적으로 사용 하지 않습니다.
-- **시스템 프록시 사용** : 자체 호스팅 통합 런타임은 diahost.exe.config 및 diawp.exe.config에 구성 된 프록시 설정을 사용 합니다. 이러한 파일에 프록시 구성이 지정 되어 있지 않으면 자체 호스팅 통합 런타임은 프록시를 거치지 않고 클라우드 서비스에 직접 연결 합니다.
-- **사용자 지정 프록시 사용** : diahost.exe.config 및 diawp.exe.config의 구성을 사용 하는 대신 자체 호스팅 통합 런타임에 사용할 HTTP 프록시 설정을 구성 합니다. **주소** 및 **포트** 값은 필수입니다. **사용자 이름** 및 **암호** 값은 프록시의 인증 설정에 따라 선택 사항입니다. 모든 설정은 자체 호스팅 통합 런타임d에서 Windows DPAPI를 사용하여 암호화되며 컴퓨터에 로컬로 저장됩니다.
+- **프록시 사용 안 함**: 자체 호스팅 통합 런타임이 클라우드 서비스에 연결 하는 데 프록시를 명시적으로 사용 하지 않습니다.
+- **시스템 프록시 사용**: 자체 호스팅 통합 런타임은 diahost.exe.config 및 diawp.exe.config에 구성 된 프록시 설정을 사용 합니다. 이러한 파일에 프록시 구성이 지정 되어 있지 않으면 자체 호스팅 통합 런타임은 프록시를 거치지 않고 클라우드 서비스에 직접 연결 합니다.
+- **사용자 지정 프록시 사용**: diahost.exe.config 및 diawp.exe.config의 구성을 사용 하는 대신 자체 호스팅 통합 런타임에 사용할 HTTP 프록시 설정을 구성 합니다. **주소** 및 **포트** 값은 필수입니다. **사용자 이름** 및 **암호** 값은 프록시의 인증 설정에 따라 선택 사항입니다. 모든 설정은 자체 호스팅 통합 런타임d에서 Windows DPAPI를 사용하여 암호화되며 컴퓨터에 로컬로 저장됩니다.
 
 업데이트 된 프록시 설정을 저장 하면 integration runtime 호스트 서비스가 자동으로 다시 시작 됩니다.
 
@@ -362,7 +362,7 @@ Windows 방화벽 수준 또는 컴퓨터 수준에서는 이러한 아웃 바�
 1. **Microsoft 통합 런타임 구성 관리자** 를 엽니다.
 1. **설정** 탭을 선택합니다.
 1. **Http 프록시** 에서 **변경** 링크를 선택 하 여 **http 프록시 설정** 대화 상자를 엽니다.
-1. **다음** 을 선택합니다. 그러면 프록시 설정을 저장 하 고 integration runtime 호스트 서비스를 다시 시작할 수 있는 권한을 요청 하는 경고가 표시 됩니다.
+1. **새로 만들기** 를 선택합니다. 그러면 프록시 설정을 저장 하 고 integration runtime 호스트 서비스를 다시 시작할 수 있는 권한을 요청 하는 경고가 표시 됩니다.
 
 구성 관리자 도구를 사용 하 여 HTTP 프록시를 확인 하 고 업데이트할 수 있습니다.
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
 ms.openlocfilehash: eb8201ea888b98250d452e0b0e1c48f30cbb1efc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742061"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022737"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Blob storage 공유 액세스 서명을 사용 하 여 HDInsight에서 데이터에 대 한 액세스 제한
 
@@ -357,8 +357,8 @@ Remove-AzResourceGroup `
 
 1. **사용자 지정 핵심 사이트** 섹션을 확장 하 고 끝으로 스크롤한 다음 **속성 추가 ...** 를 선택 합니다. **키** 와 **값** 에 다음 값을 사용 합니다.
 
-    * **키** : `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-    * **값** : 이전에 실행 된 메서드 중 하나에서 반환 된 SAS입니다.
+    * **키**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **값**: 이전에 실행 된 메서드 중 하나에서 반환 된 SAS입니다.
 
     을 `CONTAINERNAME` c # 또는 SAS 응용 프로그램에서 사용한 컨테이너 이름으로 바꿉니다. `STORAGEACCOUNTNAME`을 사용한 저장소 계정 이름으로 바꿉니다.
 

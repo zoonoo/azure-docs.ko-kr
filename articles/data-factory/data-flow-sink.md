@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: d45f5d5d1d61372ed959334519aa865c22d70748
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fa048473f0f285b793dad88c7defdb6189ca1ccd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832520"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023009"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 싱크 변환
 
@@ -107,6 +107,10 @@ Azure Data Factory는 90 개 이상의 [기본 커넥터](connector-overview.md)
 ## <a name="error-row-handling"></a>오류 행 처리
 
 데이터베이스에 쓰는 경우 대상에 의해 설정 된 제약 조건으로 인해 특정 행의 데이터가 실패할 수 있습니다. 기본적으로 첫 번째 오류가 발생 하면 데이터 흐름 실행이 실패 합니다. 특정 커넥터에서 개별 행에 오류가 있는 경우에도 데이터 흐름이 완료 될 수 있는 **오류를 계속** 하도록 선택할 수 있습니다. 현재이 기능은 Azure SQL Database 에서만 사용할 수 있습니다. 자세한 내용은 [AZURE SQL DB의 오류 행 처리](connector-azure-sql-database.md#error-row-handling)를 참조 하세요.
+
+다음은 싱크 변환에서 자동으로 데이터베이스 오류 행 처리를 사용 하는 방법에 대 한 비디오 자습서입니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IWne]
 
 ## <a name="data-preview-in-sink"></a>싱크의 데이터 미리 보기
 

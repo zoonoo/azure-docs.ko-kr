@@ -8,11 +8,11 @@ ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: d7c95317667999ac17803f08575e68641100b967
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460787"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023269"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>자습서: 샘플 클라이언트 앱으로 Azure Digital Twins 살펴보기
 
@@ -24,7 +24,7 @@ ms.locfileid: "92460787"
 > [!div class="checklist"]
 > * Azure Digital Twins 인스턴스 설정
 > * 인스턴스와 상호 작용하도록 샘플 명령줄 앱 구성
-> * 명령줄 앱을 사용하여 **모델** , **디지털 트윈** , **관계** 및 **쿼리** 를 포함한 Azure Digital Twins를 살펴봅니다.
+> * 명령줄 앱을 사용하여 **모델**, **디지털 트윈**, **관계** 및 **쿼리** 를 포함한 Azure Digital Twins를 살펴봅니다.
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -32,13 +32,13 @@ ms.locfileid: "92460787"
 
 ## <a name="explore-with-the-sample-solution"></a>샘플 솔루션으로 살펴보기
 
-인스턴스와 샘플 앱이 구성되었으므로 샘플 프로젝트와 미리 작성된 예제 코드를 사용하여 기본 Azure Digital Twins 솔루션을 빌드하고 살펴보겠습니다. 주요 솔루션 구성 요소가 **모델** , **디지털 트윈** 및 **관계** 이므로 환경의 쿼리 가능한 **트윈 그래프** 가 생성됩니다.
+인스턴스와 샘플 앱이 구성되었으므로 샘플 프로젝트와 미리 작성된 예제 코드를 사용하여 기본 Azure Digital Twins 솔루션을 빌드하고 살펴보겠습니다. 주요 솔루션 구성 요소가 **모델**, **디지털 트윈** 및 **관계** 이므로 환경의 쿼리 가능한 **트윈 그래프** 가 생성됩니다.
 
 ### <a name="model-a-physical-environment-with-dtdl"></a>DTDL로 물리적 환경 모델링
 
 Azure Digital Twins 솔루션을 만드는 첫 번째 단계는 사용자 환경에 대한 트윈 [**모델**](concepts-models.md)을 정의하는 것입니다. 
 
-모델은 개체 지향 프로그래밍 언어의 클래스와 유사하며, 나중에 [디지털 트윈](concepts-twins-graph.md)이 따르고 인스턴스화할 수 있도록 사용자 정의 템플릿을 제공합니다. 모델은 **DTDL(Digital Twins 정의 언어)** 이라는 JSON과 같은 언어로 작성되며 트윈의 *속성* , *원격 분석* , *관계* 및 *구성 요소* 를 정의할 수 있습니다.
+모델은 개체 지향 프로그래밍 언어의 클래스와 유사하며, 나중에 [디지털 트윈](concepts-twins-graph.md)이 따르고 인스턴스화할 수 있도록 사용자 정의 템플릿을 제공합니다. 모델은 **DTDL(Digital Twins 정의 언어)** 이라는 JSON과 같은 언어로 작성되며 트윈의 *속성*, *원격 분석*, *관계* 및 *구성 요소* 를 정의할 수 있습니다.
 
 > [!NOTE]
 > 또한 DTDL은 디지털 트윈에 *명령* 정의를 허용합니다. 그러나 Azure Digital Twins 서비스에서는 현재 명령이 지원되지 않습니다.
@@ -85,18 +85,18 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창에서 *솔루
 
 모델을 정의했으므로 나머지 단계에서는 샘플 앱을 사용하여 Azure Digital Twins 인스턴스와 상호 작용합니다. 도구 모음의 다음 단추로 프로젝트를 실행합니다.
 
-:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="업데이트된 버전 번호, HumidityLevel 및 RoomName 속성, 포함 관계로 편집된 Room.json":::
+:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="Visual Studio 시작 단추(SampleClientApp 프로젝트)":::
 
 콘솔 창이 열리고 인증을 수행하고 명령을 기다립니다. 
 * 브라우저를 통해 인증이 처리됩니다. 인증 프롬프트와 함께 기본 웹 브라우저가 열립니다. 이 프롬프트를 사용하여 Azure 자격 증명에 로그인합니다. 그런 다음, 브라우저 탭이나 창을 닫을 수 있습니다.
 
 프로젝트 콘솔은 다음 스크린샷과 같습니다.
 
-:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="업데이트된 버전 번호, HumidityLevel 및 RoomName 속성, 포함 관계로 편집된 Room.json":::
+:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="명령줄 앱의 시작 메시지":::
 
 > [!TIP]
 > 이 프로젝트에서 사용할 수 있는 모든 명령 목록을 보려면 프로젝트 콘솔에 `help`를 입력하고 Return 키를 누릅니다.
-> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="업데이트된 버전 번호, HumidityLevel 및 RoomName 속성, 포함 관계로 편집된 Room.json":::
+> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="help 명령의 출력":::
 
 이 자습서의 나머지 단계를 위해 프로젝트 콘솔을 계속 실행합니다.
 
@@ -117,7 +117,7 @@ CreateModels Room Floor
 
 명령 `GetModels true`를 실행하여 모델이 만들어졌는지 확인합니다. 이를 통해 업로드된 모든 모델에 대해 Azure Digital Twins 인스턴스가 쿼리되고 해당하는 전체 정보가 출력됩니다. 결과에서 편집된 *Room* 모델을 찾습니다.
 
-:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="업데이트된 버전 번호, HumidityLevel 및 RoomName 속성, 포함 관계로 편집된 Room.json":::
+:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="업데이트된 Room 모델을 표시하는 GetModels의 결과":::
 
 #### <a name="errors"></a>오류
 
@@ -165,9 +165,9 @@ CreateDigitalTwin dtmi:example:Floor;1 floor1
 
 이러한 명령의 출력에 트윈이 성공적으로 만들어졌다고 표시되어야 합니다. 
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="업데이트된 버전 번호, HumidityLevel 및 RoomName 속성, 포함 관계로 편집된 Room.json":::
+:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="floor0, floor1, room0 및 room1을 표시하는 CreateDigitalTwin 명령의 결과에서 발췌":::
 
-`Query` 명령을 실행하여 트윈이 만들어졌는지 확인할 수도 있습니다. 이 명령은 Azure Digital Twins 인스턴스에 포함된 모든 디지털 트윈을 쿼리합니다. 결과에서 *floor0* , *floor1* , *room0* 및 *room1* 트윈을 찾습니다.
+`Query` 명령을 실행하여 트윈이 만들어졌는지 확인할 수도 있습니다. 이 명령은 Azure Digital Twins 인스턴스에 포함된 모든 디지털 트윈을 쿼리합니다. 결과에서 *floor0*, *floor1*, *room0* 및 *room1* 트윈을 찾습니다.
 
 #### <a name="modify-a-digital-twin"></a>디지털 트윈 수정
 
@@ -205,7 +205,15 @@ CreateRelationship floor1 contains room1 relationship1
 
 이러한 명령의 출력은 관계가 성공적으로 만들어졌는지 확인합니다.
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="업데이트된 버전 번호, HumidityLevel 및 RoomName 속성, 포함 관계로 편집된 Room.json" 쪽에서 관계 보기).
+:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="relationship0 및 relationship1을 표시하는 CreateRelationship 명령의 결과에서 발췌":::
+
+Azure Digital Twins 인스턴스의 관계를 쿼리하는 다음 명령 중 하나를 사용하여 관계를 확인할 수도 있습니다.
+* 각 floor에서 시작되는 모든 관계를 보려면 다음 명령을 실행합니다(한 쪽에서 관계 보기).
+    ```cmd/sh
+    GetRelationships floor0
+    GetRelationships floor1
+    ```
+* 각 room에 도착하는 모든 관계를 보려면 다음 명령을 실행합니다("다른" 쪽에서 관계 보기).
     ```cmd/sh
     GetIncomingRelationships room0
     ```
@@ -217,7 +225,7 @@ CreateRelationship floor1 contains room1 relationship1
 
 이 자습서에서 설정한 트윈과 관계는 다음과 같은 개념적 그래프를 만듭니다.
 
-:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="업데이트된 버전 번호, HumidityLevel 및 RoomName 속성, 포함 관계로 편집된 Room.json" border="false":::
+:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="relationship0을 통해 room0에 연결되는 floor0과 relationship1을 통해 room1에 연결되는 floor1을 보여주는 그래프" border="false":::
 
 ### <a name="query-the-twin-graph-to-answer-environment-questions"></a>트윈 그래프를 쿼리하여 환경 질문에 대답
 
@@ -231,7 +239,7 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
 
     이를 통해 환경을 한눈에 파악하고 모든 것이 Azure Digital Twins 내에 원하는 대로 표시되는지 확인할 수 있습니다. 이 쿼리의 결과는 각 디지털 트윈에 세부 정보가 포함된 출력입니다. 발췌 내용은 다음과 같습니다.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="업데이트된 버전 번호, HumidityLevel 및 RoomName 속성, 포함 관계로 편집된 Room.json":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="room0과 floor1을 표시하는 트윈 쿼리의 일부 결과":::
 
     >[!NOTE]
     >샘플 프로젝트에서 추가 인수가 없는 명령 `Query`는 `Query SELECT * FROM DIGITALTWINS`와 같습니다. [쿼리 API](/rest/api/digital-twins/dataplane/query) 또는 [CLI 명령](how-to-use-cli.md)을 사용하여 인스턴스의 모든 쌍을 쿼리하려면 더 긴(전체) 쿼리를 사용합니다.
@@ -242,9 +250,9 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
     Query SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')
     ```
 
-    특정 유형의 트윈으로 쿼리를 제한하여 표시되는 항목에 대한 보다 구체적인 정보를 얻을 수 있습니다. 이 쿼리의 결과는 *room0* 과 *room1* 을 표시하지만 *floor0* 이나 *floor1* 을 표시하지 **않습니다** (room이 아닌 floor이기 때문에).
+    특정 유형의 트윈으로 쿼리를 제한하여 표시되는 항목에 대한 보다 구체적인 정보를 얻을 수 있습니다. 이 쿼리의 결과는 *room0* 과 *room1* 을 표시하지만 *floor0* 이나 *floor1* 을 표시하지 **않습니다**(room이 아닌 floor이기 때문에).
     
-    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="업데이트된 버전 번호, HumidityLevel 및 RoomName 속성, 포함 관계로 편집된 Room.json":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="room0과 room1만 표시하는 모델 쿼리의 결과":::
 
 * ***floor0* 의 모든 room은 무엇인가요?** (관계로 쿼리)
 
@@ -254,7 +262,7 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
 
     그래프의 관계를 기반으로 쿼리하여 트윈 연결 방식에 대한 정보를 얻거나 쿼리를 특정 영역으로 제한할 수 있습니다. *room0* 만 *floor0* 에 있으므로 이것이 결과의 유일한 room입니다.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="업데이트된 버전 번호, HumidityLevel 및 RoomName 속성, 포함 관계로 편집된 Room.json":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="room0을 표시하는 관계 쿼리의 결과":::
 
 * **온도가 75도가 넘는 내 환경의 모든 트윈은 무엇인가요?** (속성으로 쿼리)
 
@@ -264,7 +272,7 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
 
     속성을 기반으로 그래프를 쿼리하여 환경에서 주의가 필요한 이상값을 찾는 등 다양한 질문에 답할 수 있습니다. 다른 비교 연산자( *<* , *>* , *=* 또는 *!=* )도 지원됩니다. *room1* 이 온도가 80도이기 때문에 다음 결과에 표시됩니다.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="업데이트된 버전 번호, HumidityLevel 및 RoomName 속성, 포함 관계로 편집된 Room.json":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="room1만 표시하는 속성 쿼리의 결과":::
 
 * **온도가 75도가 넘는 *floor0* 의 모든 room은 무엇인가요?** (복합 쿼리)
 
@@ -274,7 +282,7 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
 
     `AND`, `OR`, `NOT`과 같은 조합 연산자를 사용하여 SQL에서와 같이 이전 쿼리를 결합할 수도 있습니다. 이 쿼리는 `AND`를 사용하여 트윈 온도에 대한 이전 쿼리를 더 구체화합니다. 이제 결과에는 *floor0* 에서 온도가 75도가 넘는 room만 포함됩니다(이 경우에는 없음). 결과 집합이 비어 있습니다.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="업데이트된 버전 번호, HumidityLevel 및 RoomName 속성, 포함 관계로 편집된 Room.json":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="아무 결과도 표시하지 않는 복합 쿼리의 결과":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

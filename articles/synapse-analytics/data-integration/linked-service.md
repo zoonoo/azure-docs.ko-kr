@@ -10,11 +10,11 @@ ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: feabfe505601276269c2774e3b39dd5cbaa32087
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359972"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022924"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>개인 링크를 사용 하 여 연결 된 서비스 보호
 
@@ -22,8 +22,8 @@ ms.locfileid: "93359972"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure 구독** : Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure Storage 계정** : Azure Data Lake Gen2를 *원본* 데이터 저장소로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../../storage/blobs/data-lake-storage-quickstart-create-account.md)에서 만들기 단계를 참조하세요. 저장소 계정에 액세스 하기 위한 Synapse Studio IP 필터링이 있는지 확인 하 고, **선택한 네트워크** 만 저장소 계정에 액세스할 수 있도록 허용 합니다. 블레이드 **방화벽 및 가상 네트워크** 아래의 설정은 아래 그림과 같이 표시 됩니다.
+* **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* **Azure Storage 계정**: Azure Data Lake Gen2를 *원본* 데이터 저장소로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../../storage/blobs/data-lake-storage-quickstart-create-account.md)에서 만들기 단계를 참조하세요. 저장소 계정에 액세스 하기 위한 Synapse Studio IP 필터링이 있는지 확인 하 고, **선택한 네트워크** 만 저장소 계정에 액세스할 수 있도록 허용 합니다. 블레이드 **방화벽 및 가상 네트워크** 아래의 설정은 아래 그림과 같이 표시 됩니다.
 
 ![보안 저장소 계정](./media/secure-storage-account.png)
 
@@ -33,7 +33,7 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
 
 1. Azure Synapse Studio를 열고 **관리** 탭으로 이동 합니다.
 1. **외부 연결** 에서 **연결된 서비스** 를 선택합니다.
-1. 연결 된 서비스를 추가 하려면 **새로 만들기** 를 선택 합니다.
+1. 연결된 서비스를 추가하려면 **새로 만들기** 를 선택합니다.
 1. 목록에서 Azure Data Lake Storage Gen2 타일을 선택 하 고 **계속** 을 선택 합니다.
 1. **대화형 작성** 을 사용하도록 설정해야 합니다. 사용하도록 설정하는 데 약 1분 정도 걸릴 수 있습니다. 
 1. 인증 자격 증명을 입력합니다. 계정 키, 서비스 주체 및 관리 ID는 현재 지원되는 인증 유형입니다. 연결 테스트를 선택 하 여 자격 증명이 올바른지 확인 합니다.

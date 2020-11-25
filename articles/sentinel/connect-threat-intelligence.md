@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
 ms.openlocfilehash: 223f3e45f25e3aed3ed6fa15e5b9ea04b17f6c59
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655326"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023911"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>위협 인텔리전스 공급자의 데이터 연결
 
@@ -59,7 +59,7 @@ Azure 센티널을 사용 하 여 조직에서 사용 중인 위협 지표를 �
 
 ## <a name="connect-azure-sentinel-to-your-threat-intelligence-platform"></a>Azure 센티널을 위협 인텔리전스 플랫폼에 연결
 
-### <a name="prerequisites"></a>사전 요구 사항  
+### <a name="prerequisites"></a>필수 조건  
 
 - 전역 관리자 또는 보안 관리자의 Azure AD 역할로, Microsoft Graph Security tiIndicators API와의 직접 통합을 사용 하는 사용자 지정 응용 프로그램 또는 팁 제품에 대 한 사용 권한을 부여 합니다.
 
@@ -89,7 +89,7 @@ Azure 센티널을 사용 하 여 조직에서 사용 중인 위협 지표를 �
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>TAXII 서버에 Azure 센티널 연결
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한으로 위협 지표를 저장 합니다.
 

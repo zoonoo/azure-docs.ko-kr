@@ -11,11 +11,11 @@ ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82100909"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023826"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -42,7 +42,7 @@ msgen status -u URL -k KEY -w ID
 
 * URL - API에 대한 기본 URI
 * KEY - Genomics 계정에 대한 액세스 키
-    * URL과 KEY를 찾으려면 Azure Portal로 이동하여 Microsoft Genomics 계정 페이지를 엽니다. **관리** 제목 아래에서 **액세스 키**를 선택하세요. 거기에서 API URL과 액세스 키를 모두 찾을 수 있습니다.
+    * URL과 KEY를 찾으려면 Azure Portal로 이동하여 Microsoft Genomics 계정 페이지를 엽니다. **관리** 제목 아래에서 **액세스 키** 를 선택하세요. 거기에서 API URL과 액세스 키를 모두 찾을 수 있습니다.
 
   
 * ID - 워크플로 ID
