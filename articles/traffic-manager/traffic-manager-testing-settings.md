@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
 ms.openlocfilehash: 4bb7458d4258dffb074d663e5cf712c7a0245cc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401523"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022329"
 ---
 # <a name="verify-traffic-manager-settings"></a>Traffic Manager 설정 확인
 
@@ -25,7 +25,7 @@ Traffic Manager 설정을 테스트 하려면 여러 클라이언트가 테스�
 * 테스트 중인 프로필에서 Azure 클라우드 서비스 및 웹 사이트의 IP 주소를 알고 있습니다.
 * DNS 이름을 IP 주소로 확인할 수 있는 도구를 사용하고 해당 주소를 표시합니다.
 
-DNS 이름이 사용자 프로필에서 엔드포인트의 IP 주소로 확인되는지 검사 중입니다. 이름은 Traffic Manager 프로필에서 정의된 트래픽 라우팅 방법과 일치하는 방식으로 해결해야 합니다. DNS 이름을 해결하기 위해 **nslookup**와 같은 도구를 사용하거나 또는 **dig**할 수 있습니다.
+DNS 이름이 사용자 프로필에서 엔드포인트의 IP 주소로 확인되는지 검사 중입니다. 이름은 Traffic Manager 프로필에서 정의된 트래픽 라우팅 방법과 일치하는 방식으로 해결해야 합니다. DNS 이름을 해결하기 위해 **nslookup** 와 같은 도구를 사용하거나 또는 **dig** 할 수 있습니다.
 
 다음은 Traffic Manager 프로필을 테스트하는 데 도움이 되는 예제입니다.
 
@@ -33,7 +33,7 @@ DNS 이름이 사용자 프로필에서 엔드포인트의 IP 주소로 확인�
 
 1. 관리자로 명령 또는 Windows PowerShell 프롬프트를 엽니다.
 2. `ipconfig /flushdns`를 입력하여 DNS 확인자 캐시를 플러시합니다.
-3. `nslookup <your Traffic Manager domain name>`을 입력합니다. 예를 들어 다음 명령은 접두사 *myapp.contoso*가 있는 도메인 이름을 확인합니다.
+3. `nslookup <your Traffic Manager domain name>`을 입력합니다. 예를 들어 다음 명령은 접두사 *myapp.contoso* 가 있는 도메인 이름을 확인합니다.
 
     ```powershell
     nslookup myapp.contoso.trafficmanager.net
