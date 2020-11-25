@@ -11,11 +11,11 @@ ms.date: 08/04/2017
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d3d29bd05f67d00047499dc256e5e1a82f98693a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388802"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95990986"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Azure AD B2C ID 경험 프레임워크에서 보안 프레임워크 정의
 
@@ -116,7 +116,7 @@ Azure AD B2C ID 경험 프레임워크를 활용하는 사용자 지정 정책�
 
 이러한 정책은 ID 경험 프레임워크를 활용하는 Azure AD B2C Custom 정책의 TF 구문에서 컴퓨터가 읽을 수 있는 부분을 구성합니다. 여기에는 클레임 공급자의 메타데이터 및 기술 프로필, 클레임 스키마 정의, 클레임 변환 함수 및 작업 오케스트레이션과 자동화를 용이하게 하기 위해 채워지는 사용자 경험 등 모든 작업 세부 정보가 포함됩니다.
 
-정책에서 선언된 적극적 참가자에 대한 내용이 시간이 지남에 따라 변경될 가능성이 있으므로 *실시간 문서*로 간주됩니다. 또한 참가자가 되기 위한 사용 약관도 변경될 가능성이 있습니다.
+정책에서 선언된 적극적 참가자에 대한 내용이 시간이 지남에 따라 변경될 가능성이 있으므로 *실시간 문서* 로 간주됩니다. 또한 참가자가 되기 위한 사용 약관도 변경될 가능성이 있습니다.
 
 페더레이션 설정 및 유지 관리는 여러 가지 클레임 공급자/검증자가 정책 집합으로 대표되는 커뮤니티를 가입 또는 탈퇴함에 따라 지속적인 트러스트 및 연결 재구성으로부터 신뢰 당사자를 보호하여 크게 단순화됩니다.
 

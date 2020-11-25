@@ -5,18 +5,18 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4cdef227c786b12790903037fdc02649592e3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91376862"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95990887"
 ---
 ## <a name="use-custom-page-content"></a>사용자 지정 페이지 내용 사용
 
 페이지 UI 사용자 지정 기능을 사용하면 사용자 지정 정책의 모양과 느낌을 사용자 지정할 수 있습니다. 또한 애플리케이션과 Azure AD B2C 간에 브랜드와 시각적 개체 일관성을 유지할 수 있습니다.
 
-### <a name="how-it-works"></a>작동 방법
+### <a name="how-it-works"></a>작동 방식
 
 Azure AD B2C는 [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/)를 사용 하 여 고객의 브라우저에서 코드를 실행 합니다. 런타임에 사용자 흐름이 나 사용자 지정 정책에 지정 하는 URL에서 콘텐츠가 로드 됩니다. 사용자 환경의 각 페이지는 해당 페이지에 대해 지정한 URL에서 해당 콘텐츠를 로드 합니다. URL에서 콘텐츠를 로드 한 후에는 Azure AD B2C에 의해 삽입 된 HTML 조각과 병합 되 고,이 페이지는 고객에 게 표시 됩니다.
 
@@ -46,17 +46,17 @@ Azure AD B2C는 [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/
 
 다음 표에서는 Azure AD B2C에서 제공 하는 기본 페이지 콘텐츠를 나열 합니다. 파일을 다운로드 하 여 고유한 사용자 지정 페이지를 만들기 위한 시작 지점으로 사용 합니다.
 
-| 기본 페이지 | 설명 | 콘텐츠 정의 ID<br/>(사용자 지정 정책에만 해당) |
+| 기본 페이지 | Description | 콘텐츠 정의 ID<br/>(사용자 지정 정책에만 해당) |
 |:-----------------------|:--------|-------------|
 | [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **오류 페이지**. 예외 또는 오류가 발생하면 이 페이지가 표시됩니다. | *api.error* |
 | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **자체 어설션된 페이지**. 이 파일은 소셜 계정 등록 페이지, 로컬 계정 등록 페이지, 로컬 계정 로그인 페이지, 암호 다시 설정 등의 사용자 지정 페이지 콘텐츠로 사용 합니다. 양식에는 텍스트 입력란, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같이 다양한 입력 컨트롤이 포함될 수 있습니다. | api. *localaccountsignin*, *localaccountsignup*, *localaccountpasswordreset*, *selfasserted* |
-| [multifactor-1.0.0.html](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multi-Factor Authentication 페이지**입니다. 등록 또는 로그인 중에 사용자가 이 페이지에서 텍스트 또는 음성을 사용하여 전화 번호를 확인할 수 있습니다. | *api.phonefactor* |
-| [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **프로필 업데이트 페이지**입니다. 이 페이지에는 사용자가 자신의 프로필을 업데이트하기 위해 액세스할 수 있는 양식이 있습니다. 암호 입력 필드를 제외하고는 소셜 계정 등록 페이지와 비슷합니다. | *api.selfasserted.profileupdate* |
-| [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **통합 등록 또는 로그인 페이지**입니다. 이 페이지는 사용자 등록 및 로그인 프로세스를 처리합니다. 사용자는 엔터프라이즈 ID 공급자, 소셜 ID 공급자(예: Facebook, Google+) 또는 로컬 계정을 사용할 수 있습니다. | *api.signuporsignin* |
+| [multifactor-1.0.0.html](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multi-Factor Authentication 페이지** 입니다. 등록 또는 로그인 중에 사용자가 이 페이지에서 텍스트 또는 음성을 사용하여 전화 번호를 확인할 수 있습니다. | *api.phonefactor* |
+| [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **프로필 업데이트 페이지** 입니다. 이 페이지에는 사용자가 자신의 프로필을 업데이트하기 위해 액세스할 수 있는 양식이 있습니다. 암호 입력 필드를 제외하고는 소셜 계정 등록 페이지와 비슷합니다. | *api.selfasserted.profileupdate* |
+| [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **통합 등록 또는 로그인 페이지** 입니다. 이 페이지는 사용자 등록 및 로그인 프로세스를 처리합니다. 사용자는 엔터프라이즈 ID 공급자, 소셜 ID 공급자(예: Facebook, Google+) 또는 로컬 계정을 사용할 수 있습니다. | *api.signuporsignin* |
 
 ## <a name="hosting-the-page-content"></a>페이지 콘텐츠 호스팅
 
-고유한 HTML 및 CSS 파일을 사용 하 여 UI를 사용자 지정 하는 경우 CORS를 지 원하는 공개적으로 사용 가능한 HTTPS 끝점에서 UI 콘텐츠를 호스팅합니다. 예를 들어 [Azure Blob storage](../articles/storage/blobs/storage-blobs-introduction.md), [Azure 앱 Services](/azure/app-service/), 웹 서버, Cdns, AWS S3 또는 파일 공유 시스템입니다.
+고유한 HTML 및 CSS 파일을 사용 하 여 UI를 사용자 지정 하는 경우 CORS를 지 원하는 공개적으로 사용 가능한 HTTPS 끝점에서 UI 콘텐츠를 호스팅합니다. 예를 들어 [Azure Blob storage](../articles/storage/blobs/storage-blobs-introduction.md), [Azure 앱 Services](../articles/app-service/index.yml), 웹 서버, Cdns, AWS S3 또는 파일 공유 시스템입니다.
 
 ## <a name="guidelines-for-using-custom-page-content"></a>사용자 지정 페이지 콘텐츠 사용에 대 한 지침
 
@@ -103,7 +103,7 @@ Azure AD B2C는 [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/
    </html>
    ```
 
-1. 복사한 코드 조각을 텍스트 편집기에 붙여넣은 다음 *customize-ui.html*이라는 파일로 저장합니다.
+1. 복사한 코드 조각을 텍스트 편집기에 붙여넣은 다음 *customize-ui.html* 이라는 파일로 저장합니다.
 
 > [!NOTE]
 > Login.microsoftonline.com를 사용 하는 경우 보안 제한으로 인해 HTML 양식 요소가 제거 됩니다. 사용자 지정 HTML 콘텐츠에서 HTML 양식 요소를 사용 하려면 [b2clogin.com를 사용](../articles/active-directory-b2c/b2clogin.md)합니다.
@@ -115,16 +115,16 @@ Azure AD B2C는 [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/
 Blob 저장소에서 HTML 콘텐츠를 호스트 하려면 다음 단계를 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **허브** 메뉴에서 **새로 만들기**  >  **저장소**  >  **저장소 계정**을 선택 합니다.
+1. **허브** 메뉴에서 **새로 만들기**  >  **저장소**  >  **저장소 계정** 을 선택 합니다.
 1. 저장소 계정에 대 한 **구독** 을 선택 합니다.
 1. **리소스 그룹** 을 만들거나 기존 그룹을 선택 합니다.
 1. 저장소 계정에 대 한 고유한 **이름을** 입력 합니다.
 1. 저장소 계정에 대 한 **지리적 위치** 를 선택 합니다.
-1. **배포 모델**은 **Resource Manager**로 유지하면 됩니다.
-1. **성능**은 **표준**으로 유지하면 됩니다.
-1. **계정 종류**를 **Blob Storage**로 변경합니다.
-1. **복제**는**RA-GRS**로 유지하면 됩니다.
-1. **액세스 계층**은 **핫**으로 유지하면 됩니다.
+1. **배포 모델** 은 **Resource Manager** 로 유지하면 됩니다.
+1. **성능** 은 **표준** 으로 유지하면 됩니다.
+1. **계정 종류** 를 **Blob Storage** 로 변경합니다.
+1. **복제** 는 **RA-GRS** 로 유지하면 됩니다.
+1. **액세스 계층** 은 **핫** 으로 유지하면 됩니다.
 1. **검토 + 만들기** 를 선택 하 여 저장소 계정을 만듭니다.
     배포가 완료 되 면 **저장소 계정** 페이지가 자동으로 열립니다.
 
@@ -132,42 +132,42 @@ Blob 저장소에서 HTML 콘텐츠를 호스트 하려면 다음 단계를 수�
 
 Blob storage에서 공용 컨테이너를 만들려면 다음 단계를 수행 합니다.
 
-1. 왼쪽 메뉴의 **Blob service** 에서 **blob**을 선택 합니다.
-1. **+ 컨테이너**를 선택 합니다.
-1. **이름**에 *root*를 입력 합니다. 이름은 선택한 이름 (예: *contoso*)이 될 수 있지만이 예제에서는 *루트* 를 사용 하는 것이 간단 합니다.
-1. **공용 액세스 수준**에서 **Blob**, **확인**을 차례로 선택 합니다.
+1. 왼쪽 메뉴의 **Blob service** 에서 **blob** 을 선택 합니다.
+1. **+ 컨테이너** 를 선택 합니다.
+1. **이름** 에 *root* 를 입력 합니다. 이름은 선택한 이름 (예: *contoso*)이 될 수 있지만이 예제에서는 *루트* 를 사용 하는 것이 간단 합니다.
+1. **공용 액세스 수준** 에서 **Blob**, **확인** 을 차례로 선택 합니다.
 1. **루트** 를 선택 하 여 새 컨테이너를 엽니다.
 
 #### <a name="22-upload-your-custom-page-content-files"></a>2.2 사용자 지정 페이지 콘텐츠 파일 업로드
 
-1. **업로드**를 선택합니다.
-1. **파일 선택**옆에 있는 폴더 아이콘을 선택 합니다.
-1. 페이지 UI 사용자 지정 섹션에서 이전에 만든 **customize-ui.html**로 이동 하 여 선택 합니다.
-1. 하위 폴더에 업로드 하려는 경우 **고급** 을 확장 하 고 **폴더에 업로드**폴더에 폴더 이름을 입력 합니다.
-1. **업로드**를 선택합니다.
+1. **업로드** 를 선택합니다.
+1. **파일 선택** 옆에 있는 폴더 아이콘을 선택 합니다.
+1. 페이지 UI 사용자 지정 섹션에서 이전에 만든 **customize-ui.html** 로 이동 하 여 선택 합니다.
+1. 하위 폴더에 업로드 하려는 경우 **고급** 을 확장 하 고 **폴더에 업로드** 폴더에 폴더 이름을 입력 합니다.
+1. **업로드** 를 선택합니다.
 1. 업로드 한 **customize-ui.html** blob을 선택 합니다.
 1. **Url** 텍스트 상자의 오른쪽에서 **클립보드에 복사** 아이콘을 선택 하 여 url을 클립보드에 복사 합니다.
-1. 웹 브라우저에서 복사한 URL로 이동 하 여 업로드 한 blob에 액세스할 수 있는지 확인 합니다. 액세스할 수 없는 경우, 예를 들어 오류가 발생 한 경우 `ResourceNotFound` 컨테이너 액세스 형식이 **blob**으로 설정 되어 있는지 확인 합니다.
+1. 웹 브라우저에서 복사한 URL로 이동 하 여 업로드 한 blob에 액세스할 수 있는지 확인 합니다. 액세스할 수 없는 경우, 예를 들어 오류가 발생 한 경우 `ResourceNotFound` 컨테이너 액세스 형식이 **blob** 으로 설정 되어 있는지 확인 합니다.
 
 ### <a name="3-configure-cors"></a>3. CORS 구성
 
 다음 단계를 수행 하 여 원본 간 리소스 공유에 대 한 Blob 저장소를 구성 합니다.
 
-1. 메뉴에서 **CORS**를 선택합니다.
-1. **허용된 원본**에 `https://your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예들 들어 `https://fabrikam.b2clogin.com`입니다. 모든 소문자를 사용 하 여 테 넌 트 이름을 입력 합니다.
-1. **허용된 메소드**에서 `GET`과 `OPTIONS`를 모두 선택합니다.
-1. **허용된 헤더**에 별표(*)를 입력합니다.
-1. **노출된 헤더**에 별표(*)를 입력합니다.
-1. **최대 기간**에 200을 입력합니다.
-1. **저장**을 선택합니다.
+1. 메뉴에서 **CORS** 를 선택합니다.
+1. **허용된 원본** 에 `https://your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예들 들어 `https://fabrikam.b2clogin.com`입니다. 모든 소문자를 사용 하 여 테 넌 트 이름을 입력 합니다.
+1. **허용된 메소드** 에서 `GET`과 `OPTIONS`를 모두 선택합니다.
+1. **허용된 헤더** 에 별표(*)를 입력합니다.
+1. **노출된 헤더** 에 별표(*)를 입력합니다.
+1. **최대 기간** 에 200을 입력합니다.
+1. **저장** 을 선택합니다.
 
 #### <a name="31-test-cors"></a>3.1 테스트 CORS
 
 다음 단계를 수행 하 여 준비가 되었는지 확인 합니다.
 
-1. CORS 구성 단계를 반복 합니다. **허용 되는 원본**에 대해 다음을 입력 합니다.`https://www.test-cors.org`
+1. CORS 구성 단계를 반복 합니다. **허용 되는 원본** 에 대해 다음을 입력 합니다.`https://www.test-cors.org`
 1. [Www.test-cors.org](https://www.test-cors.org/) 로 이동 합니다. 
 1. **원격 url** 상자에 HTML 파일의 url을 붙여넣습니다. 예, `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
-1. **요청 보내기**를 선택 합니다.
+1. **요청 보내기** 를 선택 합니다.
     결과는 여야 `XHR status: 200` 합니다. 
     오류가 발생하는 경우 CORS 설정이 올바른지 확인합니다. Ctrl+Shift+P를 눌러 브라우저 캐시를 비우거나 개인 검색 세션을 열어야 할 수도 있습니다.
