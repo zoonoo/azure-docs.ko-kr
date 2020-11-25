@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 11/12/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 014c9759756a1da922a5141f064991827d593208
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: a0b7330485d3152a588d43added7d9feaa5c2a14
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630263"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "95994498"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
-비디오를 업로드 한 후에는 Video Indexer (선택 사항) 비디오를 인코딩합니다 (이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱된 시간 (분)에 대 한 비용을 지불 합니다. 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조 하세요.
+비디오를 업로드 한 후에는 Video Indexer (선택 사항) 비디오를 인코딩합니다 (이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱된 시간(분)에 대한 비용을 지불하는 경우 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조하세요.
 
 Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은 업로드 옵션이 있습니다. 
 
@@ -74,27 +74,7 @@ Video Indexer와 함께 사용할 수 있는 파일 형식 목록은 [입력 컨
 
 #### <a name="callbackurl"></a>callbackUrl
 
-POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사용되는 URL입니다.
-
-- 인덱싱 상태 변경 
-    - 속성:    
-    
-        |속성|Description|
-        |---|---|
-        |id|비디오 ID|
-        |state|비디오 상태|  
-    - 예: https: \/ /test.com/notifyme?projectName=MyProject&id = 1234abcd&state = 처리 됨
-- 비디오에서 식별된 사용자
-  - 속성
-    
-      |속성|Description|
-      |---|---|
-      |id| 비디오 ID|
-      |faceId|비디오 인덱스에 표시되는 얼굴 ID|
-      |knownPersonId|얼굴 모델 내에서 고유한 사람 ID|
-      |personName|사람의 이름|
-        
-    - 예: https: \/ /test.com/notifyme?projectName=MyProject&id = 1234abcd&faceid = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
+[!INCLUDE [callback url](./includes/callback-url.md)]
 
 ##### <a name="other-considerations"></a>기타 고려 사항
 
@@ -118,7 +98,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 
 #### <a name="priority"></a>priority
 
-비디오는 Video Indexer에서 우선 순위에 따라 인덱싱됩니다. **priority** 매개 변수를 사용하여 인덱스 우선 순위를 지정합니다. 유효한 값은 **Low** (낮음), **Normal** (보통, 기본값), and **High** (높음)입니다.
+비디오는 Video Indexer에서 우선 순위에 따라 인덱싱됩니다. **priority** 매개 변수를 사용하여 인덱스 우선 순위를 지정합니다. 유효한 값은 **Low**(낮음), **Normal**(보통, 기본값), and **High**(높음)입니다.
 
 **priority** 매개 변수는 유료 계정에서만 지원됩니다.
 
@@ -153,7 +133,7 @@ SingleBitrate 전송률의 경우 출력 마다 표준 인코더 비용이 적�
 
     API 키를 가져오려면 다음 흐름을 진행 합니다.
 
-    * https://api-portal.videoindexer.ai/ 로 이동합니다.
+    * https://api-portal.videoindexer.ai/로 이동
     * 로그인
     * **제품**  ->  **권한** 부여  ->  **권한 부여 구독** 으로 이동
     * **기본 키** 를 복사 합니다.

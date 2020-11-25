@@ -8,11 +8,11 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: gwallace
 ms.custom: devx-track-js, devx-track-azurecli
 ms.openlocfilehash: 9bed61861c80f141270e50b644b32ae42fbe8e77
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748143"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995570"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azure Kubernetes Service & GitHub 작업 (미리 보기)
 
@@ -30,7 +30,7 @@ Azure Dev Spaces는 리포지토리의 주 분기에 끌어오기 요청을 병�
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치][azure-cli-installed]
@@ -53,7 +53,7 @@ az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 
 ## <a name="create-a-service-principal-for-authentication"></a>인증을 위한 서비스 주체 만들기
 
-[Az ad sp create-rbac][az-ad-sp-create-for-rbac] 를 사용 하 여 서비스 주체를 만듭니다. 예를 들면 다음과 같습니다.
+[Az ad sp create-rbac][az-ad-sp-create-for-rbac] 를 사용 하 여 서비스 주체를 만듭니다. 예들 들어 다음과 같습니다.
 
 ```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment
@@ -90,25 +90,25 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 
 분기 리포지토리로 이동 하 고 *설정* 을 클릭 합니다. 왼쪽 세로 막대에서 *비밀* 을 클릭 합니다. *새 암호 추가* 를 클릭 하 여 아래에 새 암호를 각각 추가 합니다.
 
-1. *AZURE_CREDENTIALS* : 서비스 사용자 만들기의 전체 출력입니다.
-1. *RESOURCE_GROUP* : AKS 클러스터에 대 한 리소스 그룹입니다 (이 예에서는 *myresourcegroup* ).
-1. *CLUSTER_NAME* : AKS 클러스터의 이름 (이 예에서는 *MyAKS* )입니다.
-1. *CONTAINER_REGISTRY* : ACR에 대 한 *loginServer* 입니다.
-1. *HOST* :<MASTER_SPACE>를 사용 하는 개발 공간에 대 한 호스트 *입니다. <* APP_NAME> <HOST_SUFFIX>합니다 .이 예제에서는이 예에서는 *dev.bikesharingweb.fedcab0987.eus.azds.io* 입니다.
-1. *IMAGE_PULL_SECRET* : 사용 하려는 비밀의 이름 (예: *데모 암호)* 입니다.
-1. *MASTER_SPACE* : 부모 개발 공간의 이름으로,이 예제에서는 *dev* 입니다.
-1. *REGISTRY_USERNAME* : 서비스 사용자가 만든 JSON 출력의 *clientId* 입니다.
-1. *REGISTRY_PASSWORD* : 서비스 사용자가 만든 JSON 출력의 *clientSecret* 입니다.
+1. *AZURE_CREDENTIALS*: 서비스 사용자 만들기의 전체 출력입니다.
+1. *RESOURCE_GROUP*: AKS 클러스터에 대 한 리소스 그룹입니다 (이 예에서는 *myresourcegroup*).
+1. *CLUSTER_NAME*: AKS 클러스터의 이름 (이 예에서는 *MyAKS*)입니다.
+1. *CONTAINER_REGISTRY*: ACR에 대 한 *loginServer* 입니다.
+1. *HOST*:<MASTER_SPACE>를 사용 하는 개발 공간에 대 한 호스트 *입니다. <* APP_NAME> <HOST_SUFFIX>합니다 .이 예제에서는이 예에서는 *dev.bikesharingweb.fedcab0987.eus.azds.io* 입니다.
+1. *IMAGE_PULL_SECRET*: 사용 하려는 비밀의 이름 (예: *데모 암호)* 입니다.
+1. *MASTER_SPACE*: 부모 개발 공간의 이름으로,이 예제에서는 *dev* 입니다.
+1. *REGISTRY_USERNAME*: 서비스 사용자가 만든 JSON 출력의 *clientId* 입니다.
+1. *REGISTRY_PASSWORD*: 서비스 사용자가 만든 JSON 출력의 *clientSecret* 입니다.
 
 > [!NOTE]
 > 이러한 암호는 모두 GitHub 작업에서 사용 되며 [github/워크플로/자전거 .yml][github-action-yaml]에서 구성 됩니다.
 
-필요에 따라 PR을 병합 한 후 마스터 공간을 업데이트 하려는 경우 *GATEWAY_HOST* 암호를 추가 합니다 .이 예제에서는 *<MASTER_SPACE>* <HOST_SUFFIX *>합니다.* 변경 내용을 포크의 마스터 분기에 병합 하면 다른 작업을 실행 하 여 마스터 개발 공간에서 전체 응용 프로그램을 다시 빌드하고 실행 합니다. 이 예제에서 마스터 공간은 *dev* 입니다. 이 작업은 [github/워크플로/bikesharing.clients.core][github-action-bikesharing-yaml]에서 구성 됩니다.
+필요에 따라 PR을 병합 한 후 마스터 공간을 업데이트 하려는 경우 *GATEWAY_HOST* 암호를 추가 합니다 .이 예제에서는 *<MASTER_SPACE>*<HOST_SUFFIX *>합니다.* 변경 내용을 포크의 마스터 분기에 병합 하면 다른 작업을 실행 하 여 마스터 개발 공간에서 전체 응용 프로그램을 다시 빌드하고 실행 합니다. 이 예제에서 마스터 공간은 *dev* 입니다. 이 작업은 [github/워크플로/bikesharing.clients.core][github-action-bikesharing-yaml]에서 구성 됩니다.
 
 또한 PR의 변경 내용이 손자 공간에서 실행 되도록 하려면 *MASTER_SPACE* 및 *호스트* 암호를 업데이트 합니다. 예를 들어, 응용 프로그램이 자식 공간 *dev/azureuser1* 를 사용 하 여 *개발* 중에 실행 되는 경우 PR이 *dev/azureuser1* 의 하위 공간에서 실행 되도록 하려면 다음을 수행 합니다.
 
 * *MASTER_SPACE* 를 부모 공간으로 원하는 자식 공간으로 업데이트 합니다 .이 예제에서는 *azureuser1* 입니다.
-* *호스트* 를 *<GRANDPARENT_SPACE>로 업데이트 합니다. <* APP_NAME> <HOST_SUFFIX>.이 예제에서는 *dev.bikesharingweb.fedcab0987.eus.azds.io* .
+* *호스트* 를 *<GRANDPARENT_SPACE>로 업데이트 합니다. <* APP_NAME> <HOST_SUFFIX>.이 예제에서는 *dev.bikesharingweb.fedcab0987.eus.azds.io*.
 
 ## <a name="create-a-new-branch-for-code-changes"></a>코드 변경에 대 한 새 분기 만들기
 

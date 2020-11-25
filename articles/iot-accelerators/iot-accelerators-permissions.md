@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
 ms.openlocfilehash: f5d816b3d44a6fadd8dd462a14e62de4cdac2a00
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370613"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995933"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>azureiotsolutions.com 사이트를 사용하여 솔루션 가속기 배포
 
@@ -60,7 +60,7 @@ AzureIoTSolutions.com 사이트는 [IoT용 Azure Certified 디바이스 카탈�
 
 ![디바이스 카탈로그](media/iot-accelerators-permissions/devicecatalog.png)
 
-하드웨어 제조업체인 경우 **파트너 되기**를 클릭하여 IoT용 Certified 프로그램을 통해 Microsoft와 협력하는 방법을 알아보세요.
+하드웨어 제조업체인 경우 **파트너 되기** 를 클릭하여 IoT용 Certified 프로그램을 통해 Microsoft와 협력하는 방법을 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

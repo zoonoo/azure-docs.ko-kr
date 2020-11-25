@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/31/2020
 ms.openlocfilehash: 1f83f13564a64a0d9d8a5e0144ca95af6a769d6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76905024"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995049"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 오류를 진단하고 해결
 
@@ -27,7 +27,7 @@ ms.locfileid: "76905024"
 
    ![트리거 상태 및 기록 보기](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
 
-1. 트리거의 입력을 확인 하 여 원하는 대로 나타나는지 확인 합니다. **입력 링크**에서 **입력** 창을 표시 하는 링크를 선택 합니다.
+1. 트리거의 입력을 확인 하 여 원하는 대로 나타나는지 확인 합니다. **입력 링크** 에서 **입력** 창을 표시 하는 링크를 선택 합니다.
 
    트리거 입력에는 트리거에 필요한 데이터와 워크플로를 시작 하는 데 필요한 데이터가 포함 됩니다. 이러한 입력을 검토 하면 트리거 입력이 올바른지와 조건이 충족 되었는지 여부를 확인 하 여 워크플로를 계속 진행할 수 있습니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "76905024"
 
    ![오류에 대 한 트리거 입력 검토](./media/logic-apps-diagnosing-failures/review-trigger-inputs-for-errors.png)
 
-1. 트리거 출력 (있는 경우)을 확인 하 여 원하는 대로 나타나는지 확인 합니다. **출력 링크**에서 **출력** 창을 표시 하는 링크를 선택 합니다.
+1. 트리거 출력 (있는 경우)을 확인 하 여 원하는 대로 나타나는지 확인 합니다. **출력 링크** 에서 **출력** 창을 표시 하는 링크를 선택 합니다.
 
    트리거 출력에는 트리거에서 워크플로의 다음 단계로 전달 되는 데이터가 포함 됩니다. 이러한 출력을 검토 하면 워크플로의 다음 단계로 올바른 값 또는 예상 값이 전달 되었는지 여부를 확인할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "76905024"
 
    ![논리 앱 실행에 대한 세부 정보 보기](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-1. 특정 단계에 대한 입력, 출력 및 오류 메시지를 검사하려면 셰이프가 확장되어 세부 정보를 표시하도록 해당 단계를 선택합니다. 예를 들면 다음과 같습니다.
+1. 특정 단계에 대한 입력, 출력 및 오류 메시지를 검사하려면 셰이프가 확장되어 세부 정보를 표시하도록 해당 단계를 선택합니다. 예들 들어 다음과 같습니다.
 
    ![단계 세부 정보 보기](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 

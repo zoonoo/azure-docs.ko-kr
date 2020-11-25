@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 396344ba90aa3850d7d23dc40d6df95f6d1f6c3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279519"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996579"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>사용자 개인 정보 및 Azure Active Directory 통과 인증
 
@@ -67,9 +67,9 @@ Foreach ($file in $Files) {
 
 ### <a name="delete-authentication-agent-event-logs"></a>인증 에이전트 이벤트 로그 삭제
 
-이 제품은 **Windows 이벤트 로그**를 생성할 수도 있습니다. 자세한 내용은 [이 문서](/windows/win32/wes/windows-event-log)를 참조하세요.
+이 제품은 **Windows 이벤트 로그** 를 생성할 수도 있습니다. 자세한 내용은 [이 문서](/windows/win32/wes/windows-event-log)를 참조하세요.
 
-통과 인증 에이전트와 관련된 로그를 보려면 서버에서 **이벤트 뷰어** 애플리케이션을 열고 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**에서 확인합니다.
+통과 인증 에이전트와 관련된 로그를 보려면 서버에서 **이벤트 뷰어** 애플리케이션을 열고 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin** 에서 확인합니다.
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>인증 에이전트 추적 로그 파일 삭제
 
@@ -91,14 +91,14 @@ Foreach ($file in $files) {
 이 스크립트가 48시간마다 실행되도록 예약하려면 다음 단계를 수행합니다.
 
 1.  확장명이 ".PS1"인 파일에 스크립트를 저장합니다.
-2.  **제어판**을 열고 **시스템 및 보안**을 클릭합니다.
+2.  **제어판** 을 열고 **시스템 및 보안** 을 클릭합니다.
 3.  **관리 도구** 제목 아래에서 "**작업 예약**"을 클릭 합니다.
-4.  **작업 스케줄러**에서 **예약 작업 라이브러리**를 마우스 오른쪽 단추로 클릭하고 “**기본 작업 만들기…**”를 클릭합니다.
-5.  새 작업의 이름을 입력하고 **다음**을 클릭합니다.
-6.  **작업 트리거**로 “**매일**”을 선택하고 **다음**을 클릭합니다.
-7.  되풀이를 이틀로 설정하고 **다음**을 클릭합니다.
-8.  “**프로그램 시작**”을 작업으로 선택하고 **다음**을 클릭합니다.
-9.  프로그램/스크립트 상자에 "**PowerShell**"을 입력 하 고 "**인수 추가 (선택 사항)**" 상자에 앞에서 만든 스크립트의 전체 경로를 입력 한 후 **다음**을 클릭 합니다.
+4.  **작업 스케줄러** 에서 **예약 작업 라이브러리** 를 마우스 오른쪽 단추로 클릭하고 “**기본 작업 만들기…**”를 클릭합니다.
+5.  새 작업의 이름을 입력하고 **다음** 을 클릭합니다.
+6.  **작업 트리거** 로 “**매일**”을 선택하고 **다음** 을 클릭합니다.
+7.  되풀이를 이틀로 설정하고 **다음** 을 클릭합니다.
+8.  “**프로그램 시작**”을 작업으로 선택하고 **다음** 을 클릭합니다.
+9.  프로그램/스크립트 상자에 "**PowerShell**"을 입력 하 고 "**인수 추가 (선택 사항)**" 상자에 앞에서 만든 스크립트의 전체 경로를 입력 한 후 **다음** 을 클릭 합니다.
 10. 다음 화면에는 작성하려는 작업의 요약이 표시됩니다. 값을 확인 하 고 **마침** 을 클릭 하 여 작업을 만듭니다.
  
 ### <a name="note-about-domain-controller-logs"></a>도메인 컨트롤러 로그에 대한 참고 사항

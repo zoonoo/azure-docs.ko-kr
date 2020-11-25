@@ -12,11 +12,11 @@ ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.openlocfilehash: 306c3771c0392bbc97260a726e153cfd385cebcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84782129"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994794"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전 구성 문제
 
@@ -42,7 +42,7 @@ ms.locfileid: "84782129"
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>프로비전 서비스가 시작하지 않는 것 같음
 
-Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; \[애플리케이션 이름\] &gt;프로비전** 섹션에서 **프로비전 상태**를 **켜기**로 설정하는 경우 그러나 이후 다시 로드 후 기타 상태 세부 정보가 표시되지 않습니다. 서비스가 실행 중이지만 초기 주기를 아직 완료 하지 않았을 가능성이 높습니다. 위에서 설명한 **프로 비전 로그** 를 확인 하 여 서비스가 수행 하는 작업을 확인 하 고 오류가 있는지 확인 합니다.
+Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; \[애플리케이션 이름\] &gt;프로비전** 섹션에서 **프로비전 상태** 를 **켜기** 로 설정하는 경우 그러나 이후 다시 로드 후 기타 상태 세부 정보가 표시되지 않습니다. 서비스가 실행 중이지만 초기 주기를 아직 완료 하지 않았을 가능성이 높습니다. 위에서 설명한 **프로 비전 로그** 를 확인 하 여 서비스가 수행 하는 작업을 확인 하 고 오류가 있는지 확인 합니다.
 
 >[!NOTE]
 >초기 주기는 Azure AD 디렉터리의 크기와 프로 비전 범위에 있는 사용자 수에 따라 20 분에서 몇 시간까지 걸릴 수 있습니다. 프로 비전 서비스는 초기 주기 후 두 시스템의 상태를 나타내는 워터 마크를 저장 하므로 초기 주기가 끝난 후에도 이후 동기화는 이후 동기화의 성능이 향상 됩니다.

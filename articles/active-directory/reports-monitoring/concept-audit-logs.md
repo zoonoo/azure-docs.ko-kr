@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5aa8f675e3fd36fbebfecf42db0f02b0f0f00115
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319744"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995984"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
@@ -48,7 +48,7 @@ Azure AD(Azure Active Directory) 보고서를 통해 사용자 환경의 작동 
 
 ## <a name="audit-logs"></a>감사 로그
 
-Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 제공합니다. 감사 보고서에 액세스 하려면 **Azure Active Directory**의 **모니터링** 섹션에서 **감사 로그** 를 선택 합니다. 
+Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 제공합니다. 감사 보고서에 액세스 하려면 **Azure Active Directory** 의 **모니터링** 섹션에서 **감사 로그** 를 선택 합니다. 
 
 
 
@@ -166,7 +166,7 @@ Graph API를 사용 하 여 모든 감사 작업 목록을 가져올 수 있습�
 
 **Azure Active Directory** 외에도 Azure Portal에서는 감사 데이터에 대한 다음 두 개의 추가 진입점을 제공합니다.
 
-- 사용자 및 그룹
+- 개요
 - Enterprise 애플리케이션
 
 ### <a name="users-and-groups-audit-logs"></a>사용자 및 그룹 감사 로그
@@ -207,7 +207,7 @@ Graph API를 사용 하 여 모든 감사 작업 목록을 가져올 수 있습�
 * 애플리케이션의 이름이 변경되었나요?
 * 누가 애플리케이션에 동의했나요?
 
-애플리케이션과 관련된 감사 데이터를 검토하려면 **Enterprise 애플리케이션** 블레이드의 **활동** 섹션에 있는 **감사 로그**에서 필터링된 보기를 찾을 수 있습니다. 이 진입점에는 **응용 프로그램 유형**으로 미리 선택 된 **엔터프라이즈 응용 프로그램이** 있습니다.
+애플리케이션과 관련된 감사 데이터를 검토하려면 **Enterprise 애플리케이션** 블레이드의 **활동** 섹션에 있는 **감사 로그** 에서 필터링된 보기를 찾을 수 있습니다. 이 진입점에는 **응용 프로그램 유형** 으로 미리 선택 된 **엔터프라이즈 응용 프로그램이** 있습니다.
 
 ![Enterprise 애플리케이션](./media/concept-audit-logs/enterpriseapplications.png "Enterprise 애플리케이션")
 

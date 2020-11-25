@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
 ms.openlocfilehash: 421993ac4aaba551b6fcbd002783d44559ce377d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545738"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995338"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>SSH를 통해 Azure Toolkit for IntelliJ를 사용 하 여 HDInsight 클러스터에서 Apache Spark 응용 프로그램 디버그
 
@@ -45,12 +45,12 @@ ms.locfileid: "92545738"
 
 1. **빌드 도구** 드롭다운 목록에서 다음 중 하나를 선택합니다.
 
-    * **Maven** : Scala 프로젝트 만들기 마법사 지원의 경우
+    * **Maven**: Scala 프로젝트 만들기 마법사 지원의 경우
     * **SBT** - 종속성 관리 및 Scala 프로젝트용 빌드의 경우
 
      ![Intellij 새 프로젝트 만들기 Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
-1. **다음** 을 선택합니다.
+1. **새로 만들기** 를 선택합니다.
 
 1. 다음 **새 프로젝트** 창에서 다음 정보를 제공 합니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "92545738"
 
 1. **SparkCore_WasbIOTest** 스크립트에서 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **' SparkCore_WasbIOTest ' 실행** 옵션을 선택 하 여 로컬 실행을 수행 합니다.
 
-1. 로컬 실행이 완료 되 면 현재 프로젝트 탐색기 **데이터** 의 기본값에 저장 된 출력 파일을 볼 수 있습니다  >  **__default__** .
+1. 로컬 실행이 완료 되 면 현재 프로젝트 탐색기 **데이터** 의 기본값에 저장 된 출력 파일을 볼 수 있습니다  >  **__default__**.
 
     ![Intellij 프로젝트 로컬 실행 결과](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
 
@@ -83,7 +83,7 @@ ms.locfileid: "92545738"
     - [WinUtils.exe 위치](#prerequisites): 시스템 환경 변수를 설정하지 않은 경우 해당 단추를 클릭하여 위치를 찾을 수 있습니다.
     - 두 옵션 중 하나를 선택하면 됩니다. 단, MacOS 및 Linux에서는 필요하지 않습니다.
 
-1. 또한 로컬 실행 및 로컬 디버그를 수행하기 전에 수동으로 구성을 설정할 수 있습니다. 이전 스크린샷에서 더하기 기호 ()를 선택 **+** 합니다. 그런 다음 **HDInsight에서 Apache Spark** 옵션을 선택 합니다. 저장할 **이름** , **주 클래스 이름** 에 대한 정보를 입력하고 로컬 실행 단추를 클릭합니다.
+1. 또한 로컬 실행 및 로컬 디버그를 수행하기 전에 수동으로 구성을 설정할 수 있습니다. 이전 스크린샷에서 더하기 기호 ()를 선택 **+** 합니다. 그런 다음 **HDInsight에서 Apache Spark** 옵션을 선택 합니다. 저장할 **이름**, **주 클래스 이름** 에 대한 정보를 입력하고 로컬 실행 단추를 클릭합니다.
 
 ## <a name="perform-local-debugging"></a>로컬 디버깅 수행
 
@@ -95,11 +95,11 @@ ms.locfileid: "92545738"
 
 1. **Run**  >  **구성 편집 ...** 을 실행 하 여 이동 합니다. 이 메뉴에서 원격 디버깅에 대 한 구성을 만들거나 편집할 수 있습니다.
 
-1. **실행/디버깅 구성** 대화 상자에서 더하기 기호( **+** )를 선택합니다. 그런 다음 **HDInsight에서 Apache Spark** 옵션을 선택 합니다.
+1. **실행/디버깅 구성** 대화 상자에서 더하기 기호(**+**)를 선택합니다. 그런 다음 **HDInsight에서 Apache Spark** 옵션을 선택 합니다.
 
    ![Intellij 새 구성 추가](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
 
-1. **클러스터에서 원격으로 실행** 탭으로 전환 합니다. **이름** , **Spark 클러스터** 및 **주 클래스 이름** 에 대 한 정보를 입력 합니다. 그런 다음 **고급 구성 (원격 디버깅)** 을 클릭 합니다. 이 도구는 **실행기** 를 사용하여 디버그를 지원합니다. **numExectors** 의 기본값은 5입니다. 3보다 큰 값을 설정하지 않는 것이 좋습니다.
+1. **클러스터에서 원격으로 실행** 탭으로 전환 합니다. **이름**, **Spark 클러스터** 및 **주 클래스 이름** 에 대 한 정보를 입력 합니다. 그런 다음 **고급 구성 (원격 디버깅)** 을 클릭 합니다. 이 도구는 **실행기** 를 사용하여 디버그를 지원합니다. **numExectors** 의 기본값은 5입니다. 3보다 큰 값을 설정하지 않는 것이 좋습니다.
 
    ![Intellij 디버그 구성 실행](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 

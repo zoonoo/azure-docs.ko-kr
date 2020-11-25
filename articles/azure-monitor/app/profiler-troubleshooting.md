@@ -7,11 +7,11 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: d9acd322c454002613e21e8591c3e83aeec2d51e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979387"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995355"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
 
@@ -76,7 +76,7 @@ Profiler가 제대로 작동하도록 하려면 다음 조건을 충족해야 �
 
 * **ApplicationInsightsProfiler3** 웹 작업이 실행되고 있어야 합니다. 웹 작업을 확인하려면 다음 단계를 수행합니다.
    1. [Kudu](/archive/blogs/cdndevs/the-kudu-debug-console-azure-websites-best-kept-secret)로 이동합니다.
-   1. **도구** 메뉴에서 **웹 작업 대시보드**를 선택합니다.  
+   1. **도구** 메뉴에서 **웹 작업 대시보드** 를 선택합니다.  
       **웹 작업** 창이 열립니다. 
    
       ![스크린샷에는 작업의 이름, 상태 및 마지막 실행 시간이 표시 되는 WebJobs 창이 표시 됩니다.][profiler-webjob]   
@@ -92,11 +92,11 @@ Profiler가 제대로 작동하도록 하려면 다음 조건을 충족해야 �
 
 Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다. 사용 중인 환경에 필요한 경우 수동으로 업데이트를 적용할 수 있습니다. 예제에서 애플리케이션이 PowerApps의 Web Apps 환경에서 실행될 수 있습니다. 수동으로 업데이트를 적용 하려면:
 
-1. **웹 앱 제어** 창에서 **설정**을 엽니다.
+1. **웹 앱 제어** 창에서 **설정** 을 엽니다.
 
-1. **.NET Framework 버전** 을 **v 4.6**으로 설정 합니다.
+1. **.NET Framework 버전** 을 **v 4.6** 으로 설정 합니다.
 
-1. **무중단**을 **사용**으로 설정합니다.
+1. **무중단** 을 **사용** 으로 설정합니다.
 1. 다음 앱 설정을 만듭니다.
 
     |앱 설정    | 값    |
@@ -107,7 +107,7 @@ Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다.
 
 ### <a name="too-many-active-profiling-sessions"></a>너무 많은 활성 프로파일링 세션
 
-현재 동일한 서비스 계획으로 실행 중인 최대 4개의 Azure 웹앱 및 배포 슬롯에서 Profiler를 사용하도록 설정할 수 있습니다. App Service 계획 하나에서 웹앱을 5개 이상 실행 중인 경우 Profiler에서 *Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException*을 throw할 수 있습니다. Profiler는 각 웹앱에 대해 개별적으로 실행되며 각 앱에 대한 ETW(Windows용 이벤트 추적) 세션을 시작하려고 합니다. 하지만 한 번에 활성화할 수 있는 ETW 세션의 수는 제한되어 있습니다. Profiler 웹 작업이 너무 많은 활성 프로파일링 세션을 보고하는 경우 일부 웹앱을 다른 Service 계획으로 이동합니다.
+현재 동일한 서비스 계획으로 실행 중인 최대 4개의 Azure 웹앱 및 배포 슬롯에서 Profiler를 사용하도록 설정할 수 있습니다. App Service 계획 하나에서 웹앱을 5개 이상 실행 중인 경우 Profiler에서 *Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException* 을 throw할 수 있습니다. Profiler는 각 웹앱에 대해 개별적으로 실행되며 각 앱에 대한 ETW(Windows용 이벤트 추적) 세션을 시작하려고 합니다. 하지만 한 번에 활성화할 수 있는 ETW 세션의 수는 제한되어 있습니다. Profiler 웹 작업이 너무 많은 활성 프로파일링 세션을 보고하는 경우 일부 웹앱을 다른 Service 계획으로 이동합니다.
 
 ### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>배포 오류: 디렉터리가 비어 있지 않음 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 
@@ -125,7 +125,7 @@ Profiler를 사용하는 Web Apps 리소스에 웹앱을 다시 배포하는 경
 
 ### <a name="how-do-i-determine-whether-application-insights-profiler-is-running"></a>Application Insights Profiler가 실행되고 있는지 어떻게 알 수 있나요?
 
-Profiler는 웹앱에서 지속적인 웹 작업으로 실행됩니다. [Azure Portal](https://portal.azure.com)에서 웹 앱 리소스를 열 수 있습니다. **WebJobs** 창에서 **ApplicationInsightsProfiler**의 상태를 확인합니다. 실행되지 않는 경우 **로그**를 열어 자세한 정보를 찾습니다.
+Profiler는 웹앱에서 지속적인 웹 작업으로 실행됩니다. [Azure Portal](https://portal.azure.com)에서 웹 앱 리소스를 열 수 있습니다. **WebJobs** 창에서 **ApplicationInsightsProfiler** 의 상태를 확인합니다. 실행되지 않는 경우 **로그** 를 열어 자세한 정보를 찾습니다.
 
 ## <a name="troubleshoot-vms-and-cloud-services"></a>Vm 및 Cloud Services 문제 해결
 
@@ -168,7 +168,7 @@ Azure Diagnostics를 구성하는 데 사용된 설정을 확인하려면 다음
 
 1. Profiler 명령줄의 ikey가 올바른지 확인합니다. 
 
-1. 파일 * 의 이전config.js* 에 있는 경로를 사용 하 여 **BootstrapN**라는 프로파일러 로그 파일을 확인 합니다. 이 파일에는 Profiler가 사용하는 설정을 나타내는 디버그 정보가 표시됩니다. 또한 Profiler의 상태 및 오류 메시지도 표시됩니다.  
+1. 파일 *의 이전config.js* 에 있는 경로를 사용 하 여 **BootstrapN** 라는 프로파일러 로그 파일을 확인 합니다. 이 파일에는 Profiler가 사용하는 설정을 나타내는 디버그 정보가 표시됩니다. 또한 Profiler의 상태 및 오류 메시지도 표시됩니다.  
 
     Vm의 경우 파일은 일반적으로 다음 위치에 있습니다.
     ```
@@ -180,9 +180,9 @@ Azure Diagnostics를 구성하는 데 사용된 설정을 확인하려면 다음
     C:\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.17.0.6\ApplicationInsightsProfiler
     ```
 
-    응용 프로그램에서 요청을 수신 하는 동안 프로파일러가 실행 중인 경우 *iKey에서 검색 된 작업*인 다음 메시지가 표시 됩니다. 
+    응용 프로그램에서 요청을 수신 하는 동안 프로파일러가 실행 중인 경우 *iKey에서 검색 된 작업* 인 다음 메시지가 표시 됩니다. 
 
-    추적을 업로드 하는 동안 다음 메시지가 표시 됩니다. *추적 업로드를 시작*합니다. 
+    추적을 업로드 하는 동안 다음 메시지가 표시 됩니다. *추적 업로드를 시작* 합니다. 
 
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>네트워크 프록시 또는 방화벽 규칙 편집

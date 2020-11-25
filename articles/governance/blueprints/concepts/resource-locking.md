@@ -4,27 +4,27 @@ description: 청사진을 할당할 때 리소스를 보호 하기 위해 Azure 
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095997"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996103"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Azure Blueprints의 리소스 잠금 이해
 
-일관성 있는 환경을 원하는 규모로 만든다고 해도 해당 일관성을 유지할 수 있는 메커니즘이 있어야 환경을 적절하게 활용할 수 있습니다. 이 문서에서는 Azure Blueprints에서 리소스 잠금이 작동하는 방식에 대해 설명합니다. 리소스 잠금 및 _거부 할당_의 응용 프로그램에 대 한 예제를 보려면 [새 리소스 보호](../tutorials/protect-new-resources.md) 자습서를 참조 하세요.
+일관성 있는 환경을 원하는 규모로 만든다고 해도 해당 일관성을 유지할 수 있는 메커니즘이 있어야 환경을 적절하게 활용할 수 있습니다. 이 문서에서는 Azure Blueprints에서 리소스 잠금이 작동하는 방식에 대해 설명합니다. 리소스 잠금 및 _거부 할당_ 의 응용 프로그램에 대 한 예제를 보려면 [새 리소스 보호](../tutorials/protect-new-resources.md) 자습서를 참조 하세요.
 
 > [!NOTE]
 > Azure 청사진에서 배포 하는 리소스 잠금은 청사진 할당을 통해 배포 된 리소스에만 적용 됩니다. 이미 존재 하는 리소스 그룹의 기존 리소스에는 잠금이 추가 되지 않습니다.
 
 ## <a name="locking-modes-and-states"></a>잠금 모드 및 상태
 
-잠금 모드는 청사진 할당에 적용 되며, **잠금 안 함**, **읽기 전용**또는 **삭제**안 함과 같은 세 가지 옵션이 있습니다. 잠금 모드는 청사진 할당을 수행하는 동안 아티팩트 배포 중에 구성됩니다. 청사진 할당을 업데이트하여 다른 잠금 모드를 설정할 수 있습니다.
+잠금 모드는 청사진 할당에 적용 되며, **잠금 안 함**, **읽기 전용** 또는 **삭제** 안 함과 같은 세 가지 옵션이 있습니다. 잠금 모드는 청사진 할당을 수행하는 동안 아티팩트 배포 중에 구성됩니다. 청사진 할당을 업데이트하여 다른 잠금 모드를 설정할 수 있습니다.
 그러나 잠금 모드는 Azure 청사진 외부에서 변경할 수 없습니다.
 
-청사진 할당에서 아티팩트에 의해 생성 된 리소스에는 **잠김 안 함**, **읽기 전용**, **편집/삭제**또는 **삭제할 수**없음의 네 가지 상태가 있습니다. 각 아티팩트 형식은 **잠겨있지 않음** 상태일 수 있습니다. 다음 표를 사용하여 리소스의 상태를 확인할 수 있습니다.
+청사진 할당에서 아티팩트에 의해 생성 된 리소스에는 **잠김 안 함**, **읽기 전용**, **편집/삭제** 또는 **삭제할 수** 없음의 네 가지 상태가 있습니다. 각 아티팩트 형식은 **잠겨있지 않음** 상태일 수 있습니다. 다음 표를 사용하여 리소스의 상태를 확인할 수 있습니다.
 
-|모드|아티팩트 리소스 형식|시스템 상태|Description|
+|Mode|아티팩트 리소스 형식|시스템 상태|Description|
 |-|-|-|-|
 |잠그지 않음|*|잠겨있지 않음|리소스는 Azure 청사진에 의해 보호 되지 않습니다. 이 상태는 또한 청사진 할당 외부에서 **읽기 전용** 또는 **삭제 안 함** 리소스 그룹 아티팩트에 추가된 리소스에 사용됩니다.|
 |읽기 전용|리소스 그룹|편집/삭제할 수 없음|리소스 그룹이 읽기 전용이며 리소스 그룹의 태그를 수정할 수 없습니다. **잠겨 있지 않음** 리소스는 이 리소스 그룹에서 추가, 이동, 변경 또는 삭제할 수 있습니다.|
@@ -107,9 +107,9 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
 
 각 모드의 [거부 할당 속성](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) 은 다음과 같습니다.
 
-|모드 |사용 권한. 작업 |Permissions 작업 |보안 주체 [i]. 입력할 |ExcludePrincipals [i]. A-id | DoNotApplyToChildScopes |
+|Mode |사용 권한. 작업 |Permissions 작업 |보안 주체 [i]. 입력할 |ExcludePrincipals [i]. A-id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|읽기 전용 |**\*** |**\*/read**<br />**Microsoft.Authorization/locks/delete**<br />**Microsoft. Network/virtualNetwork/서브넷/조인/작업** |SystemDefined (Everyone) |**excludedPrincipals** 의 청사진 할당 및 사용자 정의 |리소스 그룹- _true_; 리소스- _false_ |
+|읽기 전용 |**\** _ |_/읽기 microsoft.*\* **<br />** 권한 부여/잠금/삭제 **<br />** Microsoft. 네트워크/virtualNetwork/서브넷/조인/작업** |SystemDefined (Everyone) |**excludedPrincipals** 의 청사진 할당 및 사용자 정의 |리소스 그룹- _true_; 리소스- _false_ |
 |삭제 안 함 |**\*/delete** | **Microsoft.Authorization/locks/delete**<br />**Microsoft. Network/virtualNetwork/서브넷/조인/작업** |SystemDefined (Everyone) |**excludedPrincipals** 의 청사진 할당 및 사용자 정의 |리소스 그룹- _true_; 리소스- _false_ |
 
 > [!IMPORTANT]
@@ -117,7 +117,7 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
 
 ## <a name="exclude-a-principal-from-a-deny-assignment"></a>거부 할당에서 보안 주체 제외
 
-일부 디자인 또는 보안 시나리오에서는 청사진 할당이 만드는 [거부 할당](../../../role-based-access-control/deny-assignments.md) 에서 보안 주체를 제외 해야 할 수 있습니다. 이 단계는 [할당을 만들](/rest/api/blueprints/assignments/createorupdate)때 **Locks** 속성의 **excludedPrincipals** 배열에 최대 5 개의 값을 추가 하 여 REST API에서 수행 됩니다. 다음 할당 정의는 **excludedPrincipals**을 포함 하는 요청 본문의 예입니다.
+일부 디자인 또는 보안 시나리오에서는 청사진 할당이 만드는 [거부 할당](../../../role-based-access-control/deny-assignments.md) 에서 보안 주체를 제외 해야 할 수 있습니다. 이 단계는 [할당을 만들](/rest/api/blueprints/assignments/createorupdate)때 **Locks** 속성의 **excludedPrincipals** 배열에 최대 5 개의 값을 추가 하 여 REST API에서 수행 됩니다. 다음 할당 정의는 **excludedPrincipals** 을 포함 하는 요청 본문의 예입니다.
 
 ```json
 {

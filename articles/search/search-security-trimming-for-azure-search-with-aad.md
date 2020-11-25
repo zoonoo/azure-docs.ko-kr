@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 06/04/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 87337cf22bdb388c5873a2811bb9913c3e7f4d4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019779"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994964"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Active Directory id를 사용 하 여 Azure Cognitive Search 결과를 자르는 보안 필터
 
@@ -31,7 +31,7 @@ ms.locfileid: "89019779"
 > [!NOTE]
 > 이 문서의 샘플 코드 조각은 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started)를 참조하세요. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure Cognitive Search의 인덱스에는 문서에 대 한 읽기 권한이 있는 그룹 id 목록을 저장할 [보안 필드가](search-security-trimming-for-azure-search.md) 있어야 합니다. 이 사용 사례에서는 보안 개체 항목(예: 개인의 대학 지원서) 및 해당 항목에 대한 액세스 권한이 있는 사람을 지정하는 보안 필드(입학 담당자) 간의 일대일 대응을 가정합니다.
 
@@ -43,12 +43,12 @@ Azure Cognitive Search의 인덱스에는 문서에 대 한 읽기 권한이 있
 
 이 단계에서는 사용자 및 그룹 계정 로그인을 수락하기 위해 애플리케이션을 AAD와 통합합니다. 조직의 AAD 관리자가 아닌 경우 다음 단계를 수행할 [새 테넌트를 만들어야](../active-directory/develop/quickstart-create-new-tenant.md) 할 수도 있습니다.
 
-1. [**응용 프로그램 등록 포털**](https://apps.dev.microsoft.com)  >   **수렴 형 앱**  >  **앱 추가**로 이동 합니다.
-2. 애플리케이션의 이름을 입력한 다음, **만들기**를 클릭합니다. 
+1. [**응용 프로그램 등록 포털**](https://apps.dev.microsoft.com)  >   **수렴 형 앱**  >  **앱 추가** 로 이동 합니다.
+2. 애플리케이션의 이름을 입력한 다음, **만들기** 를 클릭합니다. 
 3. [내 애플리케이션] 페이지에서 새로 등록한 애플리케이션을 선택합니다.
-4. 플랫폼 추가 **> 응용**프로그램 등록 페이지에서  >  **Add Platform** **Web API**를 선택 합니다.
-5. 응용 프로그램 등록 페이지에서 > **Microsoft Graph 권한**  >  **추가**로 이동 합니다.
-6. [권한 선택]에서 다음 위임된 권한을 추가하고 **확인**을 클릭합니다.
+4. 플랫폼 추가 **> 응용** 프로그램 등록 페이지에서  >  **Add Platform** **Web API** 를 선택 합니다.
+5. 응용 프로그램 등록 페이지에서 > **Microsoft Graph 권한**  >  **추가** 로 이동 합니다.
+6. [권한 선택]에서 다음 위임된 권한을 추가하고 **확인** 을 클릭합니다.
 
    + **Directory.ReadWrite.All**
    + **Group.ReadWrite.All**
@@ -187,7 +187,7 @@ DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<Secur
 
 이 연습에서는 AAD 로그인을 사용 하 여 Azure Cognitive Search 결과에서 문서를 필터링 하 고 요청에 제공 된 필터와 일치 하지 않는 문서의 결과를 잘라내는 방법을 배웠습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 + [Azure Cognitive Search 필터를 사용 하 여 id 기반 액세스 제어](search-security-trimming-for-azure-search.md)
 + [Azure Cognitive Search의 필터](search-filters.md)

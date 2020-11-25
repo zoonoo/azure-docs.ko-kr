@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 09/08/2020
 ms.author: vlvinogr
 ms.openlocfilehash: 9f430e38fa25f2a8fab972f106333973a41dac4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033364"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994705"
 ---
 ## <a name="go-to-your-api-management-instance"></a>API Management 인스턴스로 이동
 
-1. Azure Portal에서 **API Management Services**를 검색하여 선택합니다.
+1. Azure Portal에서 **API Management Services** 를 검색하여 선택합니다.
 
    ![API Management Services 선택](media/api-management-navigate-to-instance/view-apim1.png)
 

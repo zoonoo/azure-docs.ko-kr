@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 515f5f665e947ff9594cce6dbbaea9b5e0c50ebf
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999700"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995746"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>IoT Central 응용 프로그램에서 청구 관리
 
@@ -36,13 +36,13 @@ ms.locfileid: "91999700"
 
     ![평가판 상태](media/howto-view-bill/freetrialbilling.png)
 
-1. **유료 요금제로 변환을**선택 합니다.
+1. **유료 요금제로 변환을** 선택 합니다.
 
     ![평가판 변환](media/howto-view-bill/convert.png)
 
 1. 적절 한 Azure Active Directory를 선택 하 고 유료 요금제를 사용 하는 응용 프로그램에 사용할 Azure 구독을 선택 합니다.
 
-1. **변환**을 선택 하면 응용 프로그램에서 유료 요금제를 사용 하 고 청구를 시작 합니다.
+1. **변환** 을 선택 하면 응용 프로그램에서 유료 요금제를 사용 하 고 청구를 시작 합니다.
 
 > [!Note]
 > 기본적으로 *표준 2* 가격 책정 요금제로 변환 됩니다.
@@ -63,7 +63,7 @@ ms.locfileid: "91999700"
 
 1. 적절 한 Azure Active Directory를 선택 하 고 유료 요금제를 사용 하는 응용 프로그램에 사용할 Azure 구독을 선택 합니다.
 
-1. **변환**을 선택 하면 응용 프로그램에서 유료 요금제를 사용 하 고 청구를 시작 합니다.
+1. **변환** 을 선택 하면 응용 프로그램에서 유료 요금제를 사용 하 고 청구를 시작 합니다.
 
 > [!Note]
 > 기본적으로 *표준 2* 가격 책정 요금제로 변환 됩니다.

@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
 ms.openlocfilehash: 947b509468857b98b868881bdd48adf67a5d60db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499004"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994635"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
@@ -35,16 +35,16 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 | **연결된 원본** | **지원** | **설명** |
 | --- | --- | --- |
-| [Windows 에이전트](../platform/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
-| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
-| [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
-| [Azure storage 계정](../platform/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
+| [Windows 에이전트](../platform/agent-windows.md) | Yes | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
+| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | No | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
+| [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | Yes | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
+| [Azure Storage 계정](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure Storage가 솔루션에서 사용되지 않습니다. |
 
 ### <a name="data-collection-details"></a>데이터 수집 세부 정보
 
 솔루션이 Log Analytics가 설치된 DNS 서버에서 DNS 인벤토리 및 DNS 이벤트 관련 데이터를 수집합니다. 이 데이터는 Azure Monitor에 업로드된 후 솔루션 대시보드에 표시됩니다. DNS Powershell cmdlet을 실행하여 DNS 서버, 영역 및 리소스 레코드 수와 같은 인벤토리 관련 데이터가 수집됩니다. 데이터가 2일마다 한 번씩 업데이트됩니다. 이벤트 관련 데이터가 Windows Server 2012 R2의 향상된 DNS 로깅 및 진단이 제공하는 [분석 및 감사 로그](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc)를 통해 거의 실시간으로 수집됩니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 정보를 사용하여 솔루션을 구성합니다.
 
@@ -55,9 +55,9 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 ### <a name="configure-the-solution"></a>솔루션 구성
 
-솔루션 대시보드에서 **구성**을 클릭하여 DNS 분석 구성 페이지를 엽니다. 다음과 같은 2가지 유형의 구성 변경을 수행할 수 있습니다.
+솔루션 대시보드에서 **구성** 을 클릭하여 DNS 분석 구성 페이지를 엽니다. 다음과 같은 2가지 유형의 구성 변경을 수행할 수 있습니다.
 
-- **허용 목록 도메인 이름**입니다. 솔루션이 모든 조회 쿼리를 처리하는 것은 아닙니다. 도메인 이름 접미사의 허용 목록이 유지됩니다. 이 허용 목록의 도메인 이름 접미사와 일치하는 도메인 이름으로 확인되는 조회 쿼리는 솔루션에서 처리되지 않습니다. 허용 목록에 포함된 도메인 이름이 처리되지 않으면 Azure Monitor에 전송되는 데이터를 최적화하는 데 도움이 됩니다. 기본 허용 목록에는 인기 있는 공용 도메인 이름(예: www.google.com 및 www.facebook.com 등)이 포함됩니다. 스크롤하여 전체 기본 목록을 볼 수 있습니다.
+- **허용 목록 도메인 이름** 입니다. 솔루션이 모든 조회 쿼리를 처리하는 것은 아닙니다. 도메인 이름 접미사의 허용 목록이 유지됩니다. 이 허용 목록의 도메인 이름 접미사와 일치하는 도메인 이름으로 확인되는 조회 쿼리는 솔루션에서 처리되지 않습니다. 허용 목록에 포함된 도메인 이름이 처리되지 않으면 Azure Monitor에 전송되는 데이터를 최적화하는 데 도움이 됩니다. 기본 허용 목록에는 인기 있는 공용 도메인 이름(예: www.google.com 및 www.facebook.com 등)이 포함됩니다. 스크롤하여 전체 기본 목록을 볼 수 있습니다.
 
   목록을 수정하여 조회 정보를 보려는 도메인 이름 접미사를 추가할 수 있습니다. 조회 정보를 보지 않으려는 도메인 이름 접미사는 제거할 수 있습니다.
 
@@ -89,7 +89,7 @@ DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. �
 
 ### <a name="solution-dashboard"></a>솔루션 대시보드
 
-솔루션 대시보드에는 솔루션의 다양한 기능에 대한 요약 정보가 표시됩니다. 법정 분석 및 진단에 대한 자세히 보기로 연결되는 링크도 포함됩니다. 기본적으로 지난 7일 동안의 데이터가 표시됩니다. 다음 이미지와 비슷한 **날짜-시간 선택 컨트롤**을 사용하여 날짜 및 시간 범위를 변경할 수 있습니다.
+솔루션 대시보드에는 솔루션의 다양한 기능에 대한 요약 정보가 표시됩니다. 법정 분석 및 진단에 대한 자세히 보기로 연결되는 링크도 포함됩니다. 기본적으로 지난 7일 동안의 데이터가 표시됩니다. 다음 이미지와 비슷한 **날짜-시간 선택 컨트롤** 을 사용하여 날짜 및 시간 범위를 변경할 수 있습니다.
 
 ![시간 선택 컨트롤](./media/dns-analytics/dns-time.png)
 
@@ -159,17 +159,17 @@ DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. �
 
 로그 검색 페이지에서 쿼리를 만들 수 있습니다. 패싯 컨트롤을 사용하여 검색 결과를 필터링할 수 있습니다. 변환, 필터링 및 결과를 보고하는 고급 쿼리를 만들 수도 있습니다. 먼저 다음 쿼리를 사용합니다.
 
-1. **검색 쿼리 상자**에 `DnsEvents`를 입력하여 솔루션에서 관리되는 DNS 서버에 의해 생성된 모든 DNS 이벤트를 표시합니다. 결과에는 조회 쿼리, 동적 등록 및 구성 변경과 관련된 모든 이벤트에 대한 로그 데이터가 표시됩니다.
+1. **검색 쿼리 상자** 에 `DnsEvents`를 입력하여 솔루션에서 관리되는 DNS 서버에 의해 생성된 모든 DNS 이벤트를 표시합니다. 결과에는 조회 쿼리, 동적 등록 및 구성 변경과 관련된 모든 이벤트에 대한 로그 데이터가 표시됩니다.
 
     ![DnsEvents 로그 검색](./media/dns-analytics/log-search-dnsevents.png)  
 
-    a. 조회 쿼리에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **LookUpQuery**를 선택합니다. 선택한 기간에 대한 모든 조회 쿼리 이벤트를 나열하는 테이블이 표시됩니다.
+    a. 조회 쿼리에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **LookUpQuery** 를 선택합니다. 선택한 기간에 대한 모든 조회 쿼리 이벤트를 나열하는 테이블이 표시됩니다.
 
-    b. 동적 등록에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **DynamicRegistration**을 선택합니다. 선택한 기간에 대한 모든 동적 등록 이벤트를 나열하는 테이블이 표시됩니다.
+    b. 동적 등록에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **DynamicRegistration** 을 선택합니다. 선택한 기간에 대한 모든 동적 등록 이벤트를 나열하는 테이블이 표시됩니다.
 
-    다. 구성 변경에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **ConfigurationChange**를 선택합니다. 선택한 기간에 대한 모든 구성 변경 이벤트를 나열하는 테이블이 표시됩니다.
+    다. 구성 변경에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **ConfigurationChange** 를 선택합니다. 선택한 기간에 대한 모든 구성 변경 이벤트를 나열하는 테이블이 표시됩니다.
 
-1. **검색 쿼리 상자**에 `DnsInventory`를 입력하여 솔루션에서 관리되는 DNS 서버에 대한 모든 DNS 인벤토리 관련 데이터를 표시합니다. 결과에는 DNS 서버, DNS 영역 및 리소스 레코드에 대한 로그 데이터가 표시됩니다.
+1. **검색 쿼리 상자** 에 `DnsInventory`를 입력하여 솔루션에서 관리되는 DNS 서버에 대한 모든 DNS 인벤토리 관련 데이터를 표시합니다. 결과에는 DNS 서버, DNS 영역 및 리소스 레코드에 대한 로그 데이터가 표시됩니다.
 
     ![DnsInventory 로그 검색](./media/dns-analytics/log-search-dnsinventory.png)
     
