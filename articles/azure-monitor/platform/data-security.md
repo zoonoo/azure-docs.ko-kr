@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/04/2019
-ms.openlocfilehash: ef34dbfd3af326dbf2d82e09a4c5c8c8e4a91a84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.openlocfilehash: 5aa379f6601bc324bd08c53f251b2097141eec69
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319799"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911637"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 데이터 보안
 이 문서는 [Azure 보안 센터](https://www.microsoft.com/en-us/trust-center?rtc=1)의 정보를 보완하기 위해 Azure Monitor의 기능인 Log Analytics에 고유한 정보를 제공합니다.  
@@ -26,6 +26,12 @@ Log Analytics 서비스는 다음 방법을 사용하여 클라우드 기반 데
 * 인시던트 관리
 * 규정 준수
 * 보안 표준 인증
+
+Azure Monitor 및 Log Analytics에 기본 제공 되는 추가 보안 기능을 사용할 수도 있습니다. 이러한 기능에는 더 많은 관리자 관리가 필요 합니다. 
+* 고객 관리 (보안) 키
+* Azure 개인 저장소
+* Private Link 네트워킹 
+* Azure Lockbox에서 설정 하는 azure 지원 액세스 제한
 
 보안 정책을 포함하여 다음 정보와 관련된 질문, 제안 사항 또는 문제가 있을 경우 [Azure 지원 옵션](https://azure.microsoft.com/support/options/)에서 문의하세요.
 
@@ -56,7 +62,7 @@ Log Analytics 서비스에서 데이터를 수집하면 해당 데이터는 서�
 
 다음 표에는 사용할 수 있는 솔루션 및 각 솔루션이 수집하는 데이터 형식의 예가 나와 있습니다.
 
-| **솔루션** | **데이터 형식** |
+| **해결 방법** | **데이터 형식** |
 | --- | --- |
 | 용량 및 성능 |성능 데이터 및 메타데이터 |
 | 업데이트 관리 |메타데이터 및 상태 데이터 |
@@ -69,7 +75,7 @@ Log Analytics 서비스에서 데이터를 수집하면 해당 데이터는 서�
 | **데이터 형식** | **필드** |
 | --- | --- |
 | 경고 |Alert Name, Alert Description, BaseManagedEntityId, Problem ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
-| Configuration |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
+| 구성 |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
 | 이벤트 |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**참고:** 사용자 지정 필드가 있는 이벤트를 Windows 이벤트 로그에 기록하면 Log Analytics에서 해당 이벤트를 수집합니다. |
 | 메타데이터 |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | 성능 |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
@@ -127,7 +133,7 @@ Azure Log Analytics는 다음 요구 사항을 충족합니다.
 * Log Analytics 구성 요소는 Azure 서비스로서 Azure 규정 준수 요구 사항을 준수합니다. 자세한 내용은 [Microsoft 보안 센터 규정 준수](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx)를 참조하세요.
 
 > [!NOTE]
-> 일부 인증/증명의 경우 Log Analytics가 *Operational Insights*의 이전 이름으로 나열됩니다.
+> 일부 인증/증명의 경우 Log Analytics가 *Operational Insights* 의 이전 이름으로 나열됩니다.
 >
 >
 
@@ -170,6 +176,15 @@ Log Analytics 서비스는 Azure 인증을 통해 인증서 및 데이터 무결
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Log Analytics를 사용 하 여 데이터에 액세스 합니다.
 Log Analytics 작업 영역에 액세스하려면 이전에 설정한 Microsoft 계정 또는 조직 계정을 사용하여 Azure Portal에 로그인합니다. 포털과 Log Analytics 서비스 간의 모든 트래픽은 보안 HTTPS 채널을 통해 전송됩니다. 포털을 사용할 때는 사용자 클라이언트(웹 브라우저)에 세션 ID가 생성되며 세션이 종료될 때까지 데이터가 로컬 캐시에 저장됩니다. 세션이 종료되면 캐시가 삭제됩니다. 개인 식별이 가능한 정보가 포함되지 않는 클라이언트 측 쿠키는 자동으로 제거되지 않습니다. 세션 쿠키는 HTTPOnly로 표시되며 보안됩니다. 사전 지정한 유휴 기간이 지나면 Azure Portal 세션이 종료됩니다.
+
+
+## <a name="additional-security-features"></a>추가 보안 기능
+이러한 추가 보안 기능을 사용 하 여 Azure Monitor/Log Analytics 환경의 보안을 강화할 수 있습니다. 이러한 기능에는 더 많은 관리자 관리가 필요 합니다. 
+- [고객 관리 (보안) 키](customer-managed-keys.md) -고객이 관리 하는 키를 사용 하 여 Log Analytics 작업 영역으로 전송 되는 데이터를 암호화할 수 있습니다. Azure Key Vault를 사용 해야 합니다. 
+- [개인/고객이 관리 하는 저장소](private-storage.md) -개인적으로 암호화 된 저장소 계정을 관리 하 고 모니터링 데이터를 저장 하는 데 사용 하 Log Analytics에 게 알려 줍니다. 
+- [개인 링크 네트워킹](private-link-security.md) -Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 azure PaaS 서비스 (Azure Monitor 포함)를 가상 네트워크에 안전 하 게 연결할 수 있습니다. 
+- Microsoft Azure에 대 한 [Azure 고객 Lockbox](/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview) -고객 Lockbox 고객 데이터 액세스 요청을 검토 하 고 승인 하거나 거부할 수 있는 인터페이스를 제공 합니다. 지원 요청 시 Microsoft 엔지니어가 고객 데이터에 액세스해야 하는 경우에 사용됩니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure VM 빠른 시작](../learn/quick-collect-azurevm.md)에 따라 Azure VM용 Log Analytics를 사용하여 데이터를 수집하는 방법에 대해 알아봅니다.  

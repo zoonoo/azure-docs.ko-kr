@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 888ed2fa24b82c0dda3361df1c63bb802e58f5fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88055380"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904106"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>조건부 액세스 정책에서 위치 조건 사용 
 
@@ -37,7 +37,7 @@ ms.locfileid: "88055380"
 
 ## <a name="named-locations"></a>명명된 위치
 
-위치는 Azure Portal **Azure Active Directory**  >  **보안**  >  **조건부 액세스**  >  **명명 된 위치**에 지정 됩니다. 이러한 명명 된 네트워크 위치에는 조직의 본사 네트워크 범위, VPN 네트워크 범위 또는 차단 하려는 범위와 같은 위치가 포함 될 수 있습니다. 
+위치는 Azure Portal **Azure Active Directory**  >  **보안**  >  **조건부 액세스**  >  **명명 된 위치** 에 지정 됩니다. 이러한 명명 된 네트워크 위치에는 조직의 본사 네트워크 범위, VPN 네트워크 범위 또는 차단 하려는 범위와 같은 위치가 포함 될 수 있습니다. 
 
 ![Azure Portal의 명명 된 위치](./media/location-condition/new-named-location.png)
 
@@ -64,13 +64,13 @@ ms.locfileid: "88055380"
 일부 조직에서는 전체 국가나 지역 IP 경계를 조건부 액세스 정책의 명명 된 위치로 정의 하도록 선택할 수 있습니다. 사용자가 유효한 사용자를 알고 있을 때 이러한 위치를 사용 하 여 북미와 같은 위치에서 제공 되지 않을 수 있습니다. IP 주소와 국가의 이러한 매핑은 정기적으로 업데이트 됩니다. 
 
 > [!NOTE]
-> 국가에는 IPv6 주소 범위, 알려진 IPv4 주소 범위만 포함 되지 않으며 신뢰할 수 있는 것으로 표시할 수 없습니다.
+> IPv6 주소 범위는 국가에 매핑할 수 없습니다. IPv4 주소만 국가에 매핑됩니다.
 
 ![Azure Portal에서 새 국가 또는 지역 기반 위치를 만듭니다.](./media/location-condition/new-named-location-country-region.png)
 
 #### <a name="include-unknown-areas"></a>알 수 없는 영역 포함
 
-일부 IP 주소는 특정 국가나 지역에 매핑되지 않습니다. 이러한 IP 위치를 캡처하려면 위치를 정의할 때 **알 수 없는 영역 포함** 확인란을 선택 합니다. 이 옵션을 사용하면 이러한 IP 주소를 명명된 위치에 포함할지를 선택할 수 있습니다. 명명된 위치를 사용하는 정책이 알 수 없는 위치에 적용되어야 하는 경우 이 설정을 사용합니다.
+일부 IP 주소는 모든 IPv6 주소를 포함 하 여 특정 국가 또는 지역에 매핑되지 않습니다. 이러한 IP 위치를 캡처하려면 위치를 정의할 때 **알 수 없는 영역 포함** 확인란을 선택 합니다. 이 옵션을 사용하면 이러한 IP 주소를 명명된 위치에 포함할지를 선택할 수 있습니다. 명명된 위치를 사용하는 정책이 알 수 없는 위치에 적용되어야 하는 경우 이 설정을 사용합니다.
 
 ### <a name="configure-mfa-trusted-ips"></a>MFA 신뢰할 수 있는 Ip 구성
 
@@ -80,7 +80,7 @@ ms.locfileid: "88055380"
 
 ### <a name="skipping-multi-factor-authentication"></a>다단계 인증 건너뛰기
 
-다단계 인증 서비스 설정 페이지에서 **인트라넷의 페더레이션 사용자로부터 발생한 요청인 경우 다단계 인증 건너뛰기**를 선택하여 회사 인트라넷 사용자를 식별할 수 있습니다. 이 설정은 AD FS에서 발급한 내부 회사 네트워크 클레임이 신뢰되며, 사용자를 회사 네트워크에 있는 것으로 식별하는 데 사용됨을 나타냅니다. 자세한 내용은 [조건부 액세스를 사용 하 여 신뢰할 수 있는 ip 기능 사용](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access)을 참조 하세요.
+다단계 인증 서비스 설정 페이지에서 **인트라넷의 페더레이션 사용자로부터 발생한 요청인 경우 다단계 인증 건너뛰기** 를 선택하여 회사 인트라넷 사용자를 식별할 수 있습니다. 이 설정은 AD FS에서 발급한 내부 회사 네트워크 클레임이 신뢰되며, 사용자를 회사 네트워크에 있는 것으로 식별하는 데 사용됨을 나타냅니다. 자세한 내용은 [조건부 액세스를 사용 하 여 신뢰할 수 있는 ip 기능 사용](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access)을 참조 하세요.
 
 이 옵션을 선택한 후에는이 옵션을 선택한 상태에서 **MFA 신뢰할 수 있는 ip** 를 포함 하는 모든 정책에이 옵션을 적용 합니다.
 
@@ -114,7 +114,7 @@ ms.locfileid: "88055380"
 - **IP 범위 위치**
 
 > [!NOTE]
-> 국가에는 IPv6 주소 범위, 알려진 IPv4 주소 범위만 포함 되지 않으며 신뢰할 수 있는 것으로 표시할 수 없습니다.
+> IPv6 주소 범위는 국가에 매핑할 수 없습니다. IPv4 주소만 국가에 매핑됩니다.
 
 ![명명 된 위치 미리 보기 인터페이스](./media/location-condition/named-location-preview.png)
 
@@ -128,7 +128,7 @@ ms.locfileid: "88055380"
 
 ### <a name="any-location"></a>모든 위치
 
-기본적으로 **모든 위치**를 선택하면 정책이 모든 IP 주소(인터넷의 모든 주소)에 적용됩니다. 이 설정은 명명된 위치로 구성한 IP 주소로 제한되지 않습니다. **모든 위치**를 선택해도 정책에서 특정 위치를 제외할 수 있습니다. 예를 들어, 신뢰할 수 있는 위치를 제외한 모든 위치에 정책을 적용하여, 회사 네트워크를 제외한 모든 위치로 범위를 설정할 수 있습니다.
+기본적으로 **모든 위치** 를 선택하면 정책이 모든 IP 주소(인터넷의 모든 주소)에 적용됩니다. 이 설정은 명명된 위치로 구성한 IP 주소로 제한되지 않습니다. **모든 위치** 를 선택해도 정책에서 특정 위치를 제외할 수 있습니다. 예를 들어, 신뢰할 수 있는 위치를 제외한 모든 위치에 정책을 적용하여, 회사 네트워크를 제외한 모든 위치로 범위를 설정할 수 있습니다.
 
 ### <a name="all-trusted-locations"></a>신뢰할 수 있는 모든 위치
 
@@ -139,7 +139,7 @@ ms.locfileid: "88055380"
 
 ### <a name="selected-locations"></a>선택한 위치
 
-이 옵션을 사용하여 하나 이상의 명명된 위치를 선택할 수 있습니다. 이 설정이 적용된 정책의 경우, 선택한 위치에서만 연결해야 합니다. **선택**을 클릭하면 명명된 네트워크 목록을 표시하는 명명된 네트워크 선택 컨트롤이 열립니다. 이 목록은 네트워크 위치가 신뢰할 수 있는 위치로 표시된 경우에도 표시됩니다. 다단계 인증 서비스 설정 페이지에서 구성할 수 있는 IP 설정을 포함하기 위해 **MFA에서 신뢰할 수 있는 IP**라는 명명된 위치가 사용됩니다.
+이 옵션을 사용하여 하나 이상의 명명된 위치를 선택할 수 있습니다. 이 설정이 적용된 정책의 경우, 선택한 위치에서만 연결해야 합니다. **선택** 을 클릭하면 명명된 네트워크 목록을 표시하는 명명된 네트워크 선택 컨트롤이 열립니다. 이 목록은 네트워크 위치가 신뢰할 수 있는 위치로 표시된 경우에도 표시됩니다. 다단계 인증 서비스 설정 페이지에서 구성할 수 있는 IP 설정을 포함하기 위해 **MFA에서 신뢰할 수 있는 IP** 라는 명명된 위치가 사용됩니다.
 
 ## <a name="ipv6-traffic"></a>IPv6 트래픽
 
@@ -157,7 +157,7 @@ Azure AD로 프록시를 가져오는 대부분의 IPv6 트래픽은 Microsoft E
 명명 된 위치에서 IPv6 범위를 구성 해야 하는 가장 일반적인 이유는 다음과 같습니다. 또한 Azure Vnet를 사용 하는 경우에는 IPv6 주소에서 들어오는 트래픽이 발생 합니다. 조건부 액세스 정책에 의해 차단 된 VNet 트래픽 인 경우 Azure AD 로그인 로그를 확인 합니다. 트래픽을 식별 한 후에는 사용 되는 IPv6 주소를 가져와서 정책에서 제외할 수 있습니다. 
 
 > [!NOTE]
-> 단일 주소의 IP CIDR 범위를 지정 하려면/32 비트 마스크를 적용 합니다. IPv6 주소 2607: fb90: b27a: 6f69: f8d5: dea0: fb39 a를 표시 하 고 해당 단일 주소를 범위로 제외 하려는 경우 74a 2607: fb90: b27a: 6f69: f8d5: dea0: fb39 a/32를 사용 합니다.
+> 단일 주소의 IP CIDR 범위를 지정 하려면/128 비트 마스크를 적용 합니다. IPv6 주소 2607: fb90: b27a: 6f69: f8d5: dea0: fb39 a를 표시 하 고 해당 단일 주소를 범위로 제외 하려는 경우 74a 2607: fb90: b27a: 6f69: f8d5: dea0: fb39 a/128을 사용 합니다.
 
 ### <a name="identifying-ipv6-traffic-in-the-azure-ad-sign-in-activity-reports"></a>Azure AD 로그인 활동 보고서에서 IPv6 트래픽 식별
 

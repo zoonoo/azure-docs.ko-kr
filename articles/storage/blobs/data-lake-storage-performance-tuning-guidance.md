@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 8bfe6f07fead700ae71bba1c28ccb13aa700513c
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2011fa8e85f10f12ae914b02710bbd65f5700403
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842773"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913048"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>성능을 위해 Azure Data Lake Storage Gen2 최적화
 
@@ -47,7 +47,7 @@ Azure의 VM 또는 온-프레미스 컴퓨터를 사용하는 경우 적절한 �
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m(mapper)   | [링크](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure 데이터 팩터리| parallelCopies    | [링크](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m(mapper)    |   [링크](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Sqoop           | fs.azure.block.size, -m(mapper)    |   [링크](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>데이터 집합 구성
 
@@ -138,5 +138,5 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 | [HDInsight의 MapReduce](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [HDInsight의 Storm](data-lake-storage-performance-tuning-storm.md)| <ul><li>작업자 프로세스 수</li><li>Spout 실행자 인스턴스 수</li><li>Bolt 실행자 인스턴스 수 </li><li>Spout 작업 수</li><li>Bolt 작업 수</li></ul>|
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Azure Data Lake Storage Gen2 개요](data-lake-storage-introduction.md)

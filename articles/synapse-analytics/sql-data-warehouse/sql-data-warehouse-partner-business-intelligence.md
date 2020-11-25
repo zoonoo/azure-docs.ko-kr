@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 33571283b876506e419ed675dde0988974c3841e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 96d1a3ed6bfe3fa90cdfa11f1b1081f12e4af990
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317872"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904354"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics 비즈니스 인텔리전스 파트너
 
@@ -36,6 +36,7 @@ ms.locfileid: "93317872"
 | ![Looker](./media/sql-data-warehouse-partner-business-intelligence/looker_logo.png) |**Looker BI**<br>Looker는 귀사의 모든 직원에게 비즈니스를 구동하는 데이터를 탐색하고 이해하는 능력을 제공합니다. 또한 Looker는 데이터 분석가에게 해당 데이터를 제어하고 조정하기 위한 유연하고 재사용이 가능한 모델링 계층을 제공합니다.  회사는 Looker를 catalyst로 사용하여 근본적으로 culture를 변형합니다.|[제품 페이지](https://looker.com/partners/microsoft-azure/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/looker.looker-analytics-platform-6_20)<br> |
 | ![Microstrategy](./media/sql-data-warehouse-partner-business-intelligence/microstrategy_logo.png) |**MicroStrategy**<br>MicroStrategy 플랫폼은 조직이 비즈니스 데이터로부터 가치를 얻을 수 있도록 지원하는 완전한 비즈니스 인텔리전스 및 분석 기능 세트를 제공합니다. 마이크로 전략의 강력한 분석 엔진, 포괄적인 도구 집합, 다양 한 데이터 커넥터 및 개방형 아키텍처를 통해 모든 팀의 분석에 대 한 액세스를 확장 하는 데 필요한 모든 것을 확인할 수 있습니다.|[제품 페이지](https://www.microstrategy.com/us/product/analytics)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microstrategy.microstrategy_enterprise_platform_vm)<br> |
 | ![모드 분석](./media/sql-data-warehouse-partner-business-intelligence/mode-logo.png) |**모드**<br>모드는 팀이 지나치게 길면 빠르고 예기치 않게 매력적인 데이터 분석을 통해 결정을 내리는 데 도움이 되는 최신 분석 및 BI 솔루션입니다. 데이터 팀은 SQL, Python, R 및 시각적 분석을 결합 하는 기본 워크플로를 통해 더 빠르게 이동 하는 반면 관련자는 자신의 데이터를 탐색 하 고 공유 하는 것과 함께 작동 합니다. 모든 사람에 게 더 쉽게 액세스할 수 있는 데이터를 사용 하면 질문에서 답으로의 거리를 줄이고 비즈니스에서 더 나은 결정을 더 빨리 내릴 수 있습니다.|[제품 페이지](https://mode.com/)<br> |
+| ![Pyramid Analytics](./media/sql-data-warehouse-partner-business-intelligence/pyramid-logo.png) |**Pyramid Analytics**<br>피라미드 2020는 팀을 연결 하 고, 확신 하는 결정을 내리고, 우위에 있는 결과를 생성 하는 신뢰할 수 있는 분석 플랫폼입니다. 비즈니스 사용자는 브라우저 또는 장치에서 IT 도움 없이 하이엔드, 클라우드 규모 분석 및 데이터 과학을 수행할 수 있습니다. 데이터 과학자는 기계 학습 알고리즘 및 스크립팅을 활용 하 여 어려운 비즈니스 문제를 이해할 수 있습니다. Power users는 자신의 데이터를 준비 하 고 모델링 하 여 콘텐츠 분석 콘텐츠를 만들 수 있습니다. 비 기술적인 사용자는 뛰어난 시각화 및 안내가 제공 되는 분석 프레젠테이션을 활용 합니다. 다음은 거 버 넌 스의 차세대 셀프 서비스 분석입니다. |[제품 페이지](https://www.pyramidanalytics.com/analytics-os)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pyramidanalytics.pyramid2020v4) |
 | ![Qlik](./media/sql-data-warehouse-partner-business-intelligence/qlik_logo.png) |**Qlik Sense Enterprise**<br>누구나 사용 가능한 데이터 시각화 앱을 통해 정보를 보다 쉽게 검색할 수 있습니다. Qlik Sense를 사용하는 경우 조직의 모든 사용자가 유연한 대화형 시각화를 쉽게 만들고 적절한 결정을 내릴 수 있습니다. |[제품 페이지](https://www.qlik.com/us/products/qlik-sense/enterprise)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qlik.qlik-sense) |
 | ![SiSense](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**SiSense**<br>SiSense는 비즈니스가 데이터를 분석하고 시각화하는 데 필요한 도구와 함께 제공되는 전체 스택 비즈니스 인텔리전스 소프트웨어입니다. 고성능 분석 데이터베이스, 여러 원본, 단순 데이터 추출(ETL) 및 웹 기반 데이터 시각화를 조인하는 기능입니다. SiSense BI 및 Analytics로 큰 데이터 집합 분석 및 시각화를 시작합니다. |[제품 페이지](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>Tableau의 셀프 서비스 분석은 플랫 파일에서 데이터베이스까지 여러 유형의 데이터를 보고 이해하는 데 도움이 됩니다. Tableau에는 라이브 데이터 및 메모리 내 분석을 모두 지원하는 Synapse SQL 풀에 대한 최적화된 네이티브 커넥터가 있습니다. |[제품 페이지](https://www.tableau.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tableau.tableau-server)<br>|

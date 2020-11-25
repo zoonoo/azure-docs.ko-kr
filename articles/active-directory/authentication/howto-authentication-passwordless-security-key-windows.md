@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/30/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fba2610b3343744c448e390bc2d713b38da481d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 25c6ccb4661fde1efb088cd8535bf2759f2057b3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839474"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95902763"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Azure Active Directory (미리 보기)를 사용 하 여 Windows 10 장치에 암호 없는 보안 키 로그인 사용
 
@@ -134,7 +134,7 @@ Intune에서 관리 되지 않는 장치의 경우 기능을 사용 하도록 �
 - 이 정책을 **사용** 으로 설정 하면 사용자가 보안 키를 사용 하 여 로그인 할 수 있습니다.
 - 이 정책을 **사용 안 함** 또는 **구성 되지 않음** 으로 설정 하면 사용자가 보안 키를 사용 하 여 로그인 하지 못하게 됩니다.
 
-이 그룹 정책 설정에는 업데이트 된 버전의 `credentialprovider.admx` 그룹 정책 템플릿이 필요 합니다. 이 새 템플릿은 다음 버전의 Windows Server 및 Windows 10 20H1에서 사용할 수 있습니다. 이 설정은 windows에서 이러한 최신 버전 중 하나를 실행 하는 장치를 사용 하 여 관리 하거나 지원 항목의 지침에 따라 [중앙 저장소를 만들고 관리 하는 방법 그룹 정책 관리 템플릿](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)를 사용 하 여 중앙에서 관리할 수 있습니다.
+이 그룹 정책 설정에는 업데이트 된 버전의 `CredentialProviders.admx` 그룹 정책 템플릿이 필요 합니다. 이 새 템플릿은 다음 버전의 Windows Server 및 Windows 10 20H1에서 사용할 수 있습니다. 이 설정은 windows에서 이러한 최신 버전 중 하나를 실행 하는 장치를 사용 하 여 관리 하거나 지원 항목의 지침에 따라 [중앙 저장소를 만들고 관리 하는 방법 그룹 정책 관리 템플릿](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)를 사용 하 여 중앙에서 관리할 수 있습니다.
 
 ## <a name="sign-in-with-fido2-security-key"></a>FIDO2 보안 키로 로그인
 

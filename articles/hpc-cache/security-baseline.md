@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dc695cc36113430cb1820d978ed41f5250cad33e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3e040146673ba16c07856f30b88771d0063713e9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94974901"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95896886"
 ---
 # <a name="azure-security-baseline-for-azure-hpc-cache"></a>Azure HPC 캐시용 azure 보안 기준
 
@@ -305,7 +305,7 @@ Azure ATP (Advanced Threat Protection)는 Active Directory 신호를 사용 하 
 
 **지침**: HPC 캐시는 Azure RBAC를 사용 하 여 구독 및 관리 그룹에 대 한 권한 있는 액세스 권한이 부여 된 계정을 제한 함으로써 업무상 중요 한 시스템에 대 한 액세스를 격리 합니다.
 
-전용 관리 계정 사용과 관련 하 여 표준 운영 절차를 만듭니다. 캐시를 만들려면 HPC 캐시에서 사용자에 게 Nic를 만들 수 있는 충분 한 권한이 있어야 합니다. Blob storage를 사용 하는 경우 HPC 캐시에서 저장소에 액세스 하려면 RBAC 역할 저장소 계정 참가자 및 저장소 Blob 데이터 참가자가 필요 합니다. 
+전용 관리 계정 사용과 관련 하 여 표준 운영 절차를 만듭니다. 캐시를 만들려면 HPC 캐시에서 사용자에 게 Nic를 만들 수 있는 충분 한 권한이 있어야 합니다. Blob storage를 사용 하는 경우 HPC 캐시에서 저장소에 액세스 하려면 Azure 역할 저장소 계정 참가자 및 저장소 Blob 데이터 참가자가 필요 합니다. 
 
 비즈니스에 중요 한 시스템에 설치 된 에이전트를 사용 하 여 Active Directory 도메인 컨트롤러 (Dc), 보안 도구 및 시스템 관리 도구와 같이 업무상 중요 한 자산에 대 한 관리 권한이 있는 관리, id 및 보안 시스템에 대 한 액세스도 제한 해야 합니다. 이러한 관리 및 보안 시스템을 손상 시키는 공격자는 비즈니스에 중요 한 자산을 손상 시키기 위해 즉시 weaponize 수 있습니다.
 

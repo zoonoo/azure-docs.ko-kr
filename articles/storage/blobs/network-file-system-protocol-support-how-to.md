@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 09206b8189f03a37f8bd7d073238609a3f1bd3ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7419e8667f07eec03e860634c7b3fddcac0e186b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816102"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95901556"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>NFS (네트워크 파일 시스템) 3.0 프로토콜 (미리 보기)을 사용 하 여 Blob storage 탑재
 
@@ -71,7 +71,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumH
 
 ## <a name="step-3-create-an-azure-virtual-network-vnet"></a>3 단계: Azure Virtual Network (VNet) 만들기
 
-저장소 계정은 VNet 내에 포함 되어야 합니다. VNet을 통해 클라이언트는 저장소 계정에 안전 하 게 연결할 수 있습니다. VNet에 대 한 자세한 내용 및 VNet을 만드는 방법에 대 한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/)를 참조 하세요.
+저장소 계정은 VNet 내에 포함 되어야 합니다. VNet을 통해 클라이언트는 저장소 계정에 안전 하 게 연결할 수 있습니다. VNet에 대 한 자세한 내용 및 VNet을 만드는 방법에 대 한 자세한 내용은 [Virtual Network 설명서](../../virtual-network/index.yml)를 참조 하세요.
 
 > [!NOTE]
 > 동일한 VNet의 클라이언트는 사용자 계정에 컨테이너를 탑재할 수 있습니다. 온-프레미스 네트워크에서 실행 되는 클라이언트에서 컨테이너를 탑재할 수도 있지만 먼저 온-프레미스 네트워크를 VNet에 연결 해야 합니다. [지원 되는 네트워크 연결](network-file-system-protocol-support.md#supported-network-connections)을 참조 하세요.
@@ -113,7 +113,7 @@ NFS 3.0를 사용 하 여 컨테이너를 탑재 하려면 구독에 기능을 �
 |[AZCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-||[REST (영문)](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+||[REST (영문)](/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>7 단계: 컨테이너 탑재
 
@@ -144,7 +144,7 @@ Windows 또는 Linux 시스템에서 디렉터리를 만든 다음 컨테이너�
 
    ![네트워크 파일 시스템용 클라이언트 기능](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
 
-2. [Mount](https://docs.microsoft.com/windows-server/administration/windows-commands/mount) 명령을 사용 하 여 컨테이너를 탑재 합니다.
+2. [Mount](/windows-server/administration/windows-commands/mount) 명령을 사용 하 여 컨테이너를 탑재 합니다.
 
    ```
    mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
@@ -172,13 +172,6 @@ Windows 또는 Linux 시스템에서 디렉터리를 만든 다음 컨테이너�
 |`Access denied by server while mounting`|지원되는 서브넷 내에서 클라이언트가 실행되고 있는지 확인합니다. [지원 되는 네트워크 위치](network-file-system-protocol-support.md#supported-network-connections)를 참조 하세요.|
 |`No such file or directory`| 기능이 등록되었는지 확인한 후 탑재할 컨테이너가 생성되었는지 확인합니다. [2 단계: 기능이 등록 되었는지 확인](#step-2-verify-that-the-feature-is-registered)을 참조 하세요. 또한 탑재 명령과 매개 변수를 터미널에 직접 입력 해야 합니다. 이 명령의 일부를 복사하여 다른 애플리케이션의 터미널에 붙여넣는 경우 붙여넣은 정보에 숨겨진 문자가 있으면 이 오류가 발생할 수 있습니다.|
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 [Azure Blob storage에서 NFS (네트워크 파일 시스템) 3.0 프로토콜 지원 (미리 보기)](network-file-system-protocol-support.md)
-
-
-
-
-
-
-

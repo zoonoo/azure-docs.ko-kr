@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: ed6d3b927254d44863b7fd0a597528813be791cf
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 10ae9e1356cea954435d15441d74f4f86a804578
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736614"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95893983"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Form Recognizer의 새로운 기능
 
@@ -40,11 +40,14 @@ ms.locfileid: "95736614"
 - **지원 되는 새 언어: 일본어** - `AnalyzeLayout` 및 `AnalyzeCustomForm` : 일본어 ( `ja` )의 경우 다음과 같은 새로운 언어가 지원 됩니다. [언어 지원](language-support.md)
 - **텍스트 줄 스타일 표시 (필기/기타) (라틴어만 해당)** -이제 양식 인식기는 `appearance` 각 텍스트 줄에 대 한 입력 여부를 분류 하는 개체를 신뢰 점수와 함께 출력 합니다. 이 기능은 라틴어 언어에 대해서만 지원 됩니다.
 - **품질 향상** -단일 자릿수 추출 기능을 포함 하 여 추출 기능이 향상 되었습니다.
-- 양식 인식기 샘플 레이블 지정 도구-양식 인식기 샘플 레이블 지정 도구를 사용 하 여 미리 작성 된 청구서, 수신 및 비즈니스 카드 모델 및 레이아웃 API를 사용해 볼 수 있는 **새로운 실습 기능** 을 제공 합니다. 코드를 작성 하지 않고 데이터를 추출 하는 방법을 확인 합니다.
+- 양식 인식기 샘플 및 레이블 지정 도구-양식 인식기 샘플 레이블 지정 도구를 사용 하 여 미리 작성 된 청구서, 수신 및 비즈니스 카드 모델 및 레이아웃 API를 사용해 볼 수 있는 **새로운 실습 기능** 을 제공 합니다. 코드를 작성 하지 않고 데이터를 추출 하는 방법을 확인 합니다.
 
   > [양식 인식기 샘플 도구 사용해 보기](https://fott-preview.azurewebsites.net/)
 
   ![FOTT 예제](./media/ui-preview.jpg)
+  
+- **피드백 루프** -샘플 레이블 지정 도구를 통해 파일을 분석 하는 경우 필요한 경우 레이블에를 학습 집합 및 adujst에 추가 하 고 모델을 향상 시킬 수 있습니다.
+- **Auto Label Documets** -Automitcally는 프로젝트의 이전 labeld 문서를 기준으로 추가 문서를 레이블 합니다. 
 
 ## <a name="august-2020"></a>2020년 8월
 

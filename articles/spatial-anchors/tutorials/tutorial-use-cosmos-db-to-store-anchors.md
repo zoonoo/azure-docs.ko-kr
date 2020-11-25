@@ -1,19 +1,19 @@
 ---
 title: '자습서: Azure Cosmos DB와 앵커 공유'
 description: 이 자습서에서는 백 엔드 서비스와 Azure Cosmos DB가 있는 Unity의 Android/iOS 디바이스 간에 Azure Spatial Anchors 식별자를 공유하는 방법을 알아봅니다.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 07/31/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8ff431c27dd53e82f9003b658c82ceb3efb5d320
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff888cd98cc79f3e2d508b01f092102eaa038c86
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87810023"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95494763"
 ---
 # <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>자습서: Azure Cosmos DB 백 엔드를 사용하여 세션 및 디바이스에서 Azure Spatial Anchors 공유
 
@@ -33,11 +33,11 @@ ms.locfileid: "87810023"
 
 ## <a name="make-minor-changes-to-the-sharingservice-files"></a>SharingService 파일을 약간 변경합니다.
 
-**솔루션 탐색기**에서 `SharingService\Startup.cs` 파일을 엽니다.
+**솔루션 탐색기** 에서 `SharingService\Startup.cs` 파일을 엽니다.
 
 파일의 맨 위에서 `#define INMEMORY_DEMO` 줄을 찾아 주석 처리합니다. 파일을 저장합니다.
 
-**솔루션 탐색기**에서 `SharingService\appsettings.json` 파일을 엽니다.
+**솔루션 탐색기** 에서 `SharingService\appsettings.json` 파일을 엽니다.
 
 `StorageConnectionString` 속성을 찾은 다음, [데이터베이스 계정 만들기 단계](#create-a-database-account)에서 복사한 `Connection String` 값으로 설정합니다. 파일을 저장합니다.
 

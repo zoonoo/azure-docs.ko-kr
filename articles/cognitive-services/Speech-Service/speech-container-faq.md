@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6c899b4f0dd7a3b91521c6d78b531d1c804ac105
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a657f43ef2d889cad1608d34e9235b1d5e7cb576
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015310"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95894153"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>음성 서비스 컨테이너 FAQ (질문과 대답)
 
@@ -98,7 +98,7 @@ Microsoft에 부과 되는 유지 관리 비용은 서비스 수준 및 서비�
 
 **답변:** 는 `speech_recognition_language=<YOUR_LANGUAGE>` 요청에서 참조 클라이언트를 사용 하는 경우 명시적으로 구성 해야 합니다.
 
-예를 들면 다음과 같습니다.
+예들 들어 다음과 같습니다.
 
 ```python
 if not recognize_once(
@@ -293,7 +293,7 @@ Websocket이 올바르게 설정 되어 있음을 알 수 있습니다.
 | 엔드포인트                                                | 기능 테스트                                                   | SDK) | REST API |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
 | `/speech/synthesize/cognitiveservices/v1`               | 텍스트 합성 (텍스트 음성 변환)                                  |     | Yes      |
-| `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services 온-프레미스 dictation v1 websocket 끝점        | 예 | 아니요       |
+| `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services 온-프레미스 dictation v1 websocket 끝점        | 예 | 예       |
 | `/speech/recognition/interactive/cognitiveservices/v1`  | Cognitive Services 온-프레미스 대화형 v1 websocket 끝점  |     |          |
 | `/speech/recognition/conversation/cognitiveservices/v1` | 인식 서비스 온-프레미스 대화 v1 websocket 끝점 |     |          |
 
@@ -367,7 +367,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 
 문서는 다른 포트를 표시 하 고 있지만 LUIS 컨테이너는 여전히 포트 5000에서 수신 대기 하 고 있습니까?
 
-**답변:** 사용해 보세요 `-p <outside_unique_port>:5000` . `-p 5001:5000`)을 입력합니다.
+**답변:** 사용해 보세요 `-p <outside_unique_port>:5000` . 예: `-p 5001:5000`.
 
 
 <br>
@@ -571,11 +571,11 @@ Python [샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/b
 받아쓰기를 사용 하도록 설정 하려면 c #에서 함수를 호출 `SpeechConfig.EnableDictation()` 합니다.
 
 ### <a name="fromendpoint-apis"></a>`FromEndpoint` Api
-| 언어 | API 세부 정보 |
+| Language | API 세부 정보 |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-java-stable" target="_blank">`SpeechConfig.fromendpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromendpoint" target="_blank">`SpeechConfig.fromendpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Objective-C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithendpoint" target="_blank">`SPXSpeechConfiguration:initWithEndpoint;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | JavaScript | 현재 지원 되지 않으며 계획도 아닙니다. |
@@ -592,11 +592,11 @@ Python [샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/b
 
 ### <a name="fromhost-apis"></a>`FromHost` Api
 
-| 언어 | API 세부 정보 |
+| Language | API 세부 정보 |
 |--|:-|
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-java-stable" target="_blank">`SpeechConfig.fromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromhost" target="_blank">`SpeechConfig.fromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Objective-C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost" target="_blank">`SPXSpeechConfiguration:initWithHost;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | JavaScript | 현재 지원되지 않음 |

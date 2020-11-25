@@ -3,14 +3,14 @@ title: Azure Automation에 Windows Hybrid Runbook Worker 배포
 description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 환경에서 Windows 기반 컴퓨터에서 runbook을 실행 하는 데 사용할 수 있는 Hybrid Runbook Worker을 배포 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb501b954897beb73ae05bfdc7b5ded2221dc114
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 31bb0fac302a81c2523a2d2855ca1930cb266ac4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95493930"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95906622"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -50,7 +50,7 @@ Hybrid Runbook Worker 기능은 다음과 같은 운영 체제를 지원 합니�
 
 Windows 시스템 및 사용자 Hybrid Runbook Worker에 대 한 최소 요구 사항은 다음과 같습니다.
 
-* Windows PowerShell 5.1 이상([WMF 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))
+* Windows PowerShell 5.1 ([WMF 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616)). PowerShell Core는 지원 되지 않습니다.
 * .NET Framework 4.6.2 이상
 * 두 개의 코어
 * 4GB의 RAM

@@ -4,12 +4,12 @@ description: GitHub Actions를 사용하여 Azure Resource Manager 템플릿을 
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: adb0b9d9a7da19c45904a5d222573e1880915b12
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3dcb246956aae274f17cf938ee3d406562b22941
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841685"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905262"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>GitHub Actions를 사용하여 Azure Resource Manager 템플릿 배포
 
@@ -112,7 +112,7 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
         steps:
 
           # Checkout code
-        - uses: actions/checkout@master
+        - uses: actions/checkout@main
 
           # Log into Azure
         - uses: azure/login@v1
@@ -137,10 +137,10 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
     워크플로 파일의 첫 번째 섹션에는 다음이 포함 됩니다.
 
     - **name**: 워크플로의 이름입니다.
-    - **on**: 워크플로를 트리거하는 GitHub 이벤트의 이름입니다. 마스터 분기에 지정된 두 파일 중 하나 이상을 수정하는 푸시 이벤트가 있는 경우 워크플로가 트리거됩니다. 두 파일은 워크플로 파일 및 템플릿 파일입니다.
+    - **on**: 워크플로를 트리거하는 GitHub 이벤트의 이름입니다. Main 분기에 푸시 이벤트가 있을 때 워크플로를 트리거하고 지정 된 두 파일 중 하나 이상을 수정 합니다. 두 파일은 워크플로 파일 및 템플릿 파일입니다.
 
 1. **커밋 시작** 을 선택합니다.
-1. **마스터 분기에 직접 커밋** 을 선택합니다.
+1. **주 분기에 직접 커밋을** 선택 합니다.
 1. **새 파일 커밋**(또는 **변경 내용 커밋**)을 선택합니다.
 
 업데이트되는 워크플로 파일이나 템플릿 파일에 의해 트리거되도록 워크플로를 구성했기 때문에 변경 내용을 커밋하면 워크플로가 바로 시작됩니다.
@@ -152,7 +152,6 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
 1. 메뉴에서 **ARM 배포 실행** 을 선택 하 여 배포를 확인 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-
 리소스 그룹 및 리포지토리가 더 이상 필요 하지 않은 경우 리소스 그룹 및 GitHub 리포지토리를 삭제 하 여 배포 된 리소스를 정리 합니다. 
 
 ## <a name="next-steps"></a>다음 단계

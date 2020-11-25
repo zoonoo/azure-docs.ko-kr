@@ -6,16 +6,16 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a8d6481bdf3476f8f91c437138f4b6f1ebd1f1de
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 931fa2c10a47e5d00f8e83b31b16618b06da8a46
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058202"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019112"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>자습서: C#에서 Language Understanding으로 구현된 웹앱 봇 사용
 
-C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 봇은 Azure [웹앱 봇](https://docs.microsoft.com/azure/bot-service/) 리소스 및 [Bot Framework 버전](https://github.com/Microsoft/botbuilder-dotnet) V4를 사용하여 빌드되었습니다.
+C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 봇은 Azure [웹앱 봇](/azure/bot-service/) 리소스 및 [Bot Framework 버전](https://github.com/Microsoft/botbuilder-dotnet) V4를 사용하여 빌드되었습니다.
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 
@@ -336,4 +336,4 @@ Visual Studio 2019에서 봇을 시작합니다. `http://localhost:3978/`에 있
 대화형 봇을 사용하는 추가 [샘플](https://github.com/microsoft/botframework-solutions)을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [사용자 지정 주제 도메인을 사용하여 Language Understanding 앱 빌드](luis-quickstart-intents-only.md)
+> [사용자 지정 주제 도메인을 사용하여 Language Understanding 앱 빌드](./tutorial-intents-only.md)

@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 41ad20de6b7a800ff1f97a7ff371c8e0012fed27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78455659d76d259c626745c93770428c25042b2d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166980"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908815"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Azure Blob storage에서 NFS (네트워크 파일 시스템) 3.0 프로토콜 지원 (미리 보기)
 
@@ -58,19 +58,19 @@ ms.locfileid: "88166980"
 
 - 저장소 계정에 대해 구성 하는 VNet입니다. 
 
-  이 문서에서는 VNet을 *기본 vnet*으로 지칭 합니다. 자세히 알아보려면 [가상 네트워크에서 액세스 권한 부여](../common/storage-network-security.md#grant-access-from-a-virtual-network)를 참조 하세요.
+  이 문서에서는 VNet을 *기본 vnet* 으로 지칭 합니다. 자세히 알아보려면 [가상 네트워크에서 액세스 권한 부여](../common/storage-network-security.md#grant-access-from-a-virtual-network)를 참조 하세요.
 
 - 기본 VNet과 동일한 지역에 있는 피어 링 VNet입니다.
 
   이 피어 링 VNet에 대 한 액세스를 허용 하도록 저장소 계정을 구성 해야 합니다. 자세히 알아보려면 [가상 네트워크에서 액세스 권한 부여](../common/storage-network-security.md#grant-access-from-a-virtual-network)를 참조 하세요.
 
-- [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 또는 [express 경로 게이트웨이](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager)를 사용 하 여 기본 VNet에 연결 된 온-프레미스 네트워크입니다. 
+- [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [express 경로 게이트웨이](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)를 사용 하 여 기본 VNet에 연결 된 온-프레미스 네트워크입니다. 
 
   자세히 알아보려면 [온-프레미스 네트워크에서 액세스 구성](../common/storage-network-security.md#configuring-access-from-on-premises-networks)을 참조 하세요.
 
 - 피어 링 네트워크에 연결 된 온-프레미스 네트워크
 
-  [게이트웨이 전송](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit)과 함께 [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 또는 [express 경로 게이트웨이](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) 를 사용 하 여이 작업을 수행할 수 있습니다. 
+  [게이트웨이 전송](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit)과 함께 [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [express 경로 게이트웨이](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) 를 사용 하 여이 작업을 수행할 수 있습니다. 
 
 > [!IMPORTANT]
 > 온-프레미스 네트워크에서 연결 하는 경우 클라이언트가 포트 111 및 2048를 통해 나가는 통신을 허용 하는지 확인 합니다. NFS 3.0 프로토콜은 이러한 포트를 사용 합니다.
@@ -114,8 +114,3 @@ ms.locfileid: "88166980"
 ## <a name="next-steps"></a>다음 단계
 
 시작 하려면 [NFS (네트워크 파일 시스템) 3.0 프로토콜을 사용 하 여 Blob 저장소 탑재 (미리 보기)](network-file-system-protocol-support-how-to.md)를 참조 하세요.
-
-
-
-
-

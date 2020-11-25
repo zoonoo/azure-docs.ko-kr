@@ -2,17 +2,19 @@
 title: 템플릿의 출력
 description: Azure Resource Manager 템플릿에서 출력 값을 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 8f782a78e523ebc55faac98344643982172476fa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79460027"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911433"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 출력
 
 이 문서에서는 Azure Resource Manager 템플릿에서 출력 값을 정의 하는 방법을 설명 합니다. 배포 된 리소스에서 값을 반환 해야 하는 경우 출력을 사용 합니다.
+
+각 출력 값의 형식은 [데이터 형식](template-syntax.md#data-types)중 하 나와 일치 해야 합니다.
 
 ## <a name="define-output-values"></a>출력 값 정의
 

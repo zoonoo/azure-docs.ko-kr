@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: ffd72ffb02e4875305177cf12fd19f538735b7d6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 380d2615f62de52474b1d4316dec1dab63e5f0d5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844236"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912334"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 대 한 Acl (액세스 제어 목록)을 재귀적으로 설정
 
@@ -22,7 +22,7 @@ ms.locfileid: "94844236"
 
 [라이브러리](#libraries)  |  [샘플](#code-samples)  |  모범 [사례](#best-practice-guidelines)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -30,11 +30,11 @@ ms.locfileid: "94844236"
 
 - 재귀 ACL 프로세스를 실행할 수 있는 올바른 권한입니다. 올바른 사용 권한에는 다음 중 하나가 포함 됩니다. 
 
-  - 대상 컨테이너, 부모 리소스 그룹 또는 구독의 범위에서 [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할이 할당 된 프로 비전 된 AD (Azure Active Directory) [보안 주체](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) 입니다.   
+  - 대상 컨테이너, 부모 리소스 그룹 또는 구독의 범위에서 [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할이 할당 된 프로 비전 된 AD (Azure Active Directory) [보안 주체](../../role-based-access-control/overview.md#security-principal) 입니다.   
 
   - 재귀 ACL 프로세스를 적용 하려는 대상 컨테이너 또는 디렉터리를 소유 하는 사용자입니다. 여기에는 대상 컨테이너 또는 디렉터리의 모든 자식 항목이 포함 됩니다. 
 
-- 디렉터리 및 파일에 Acl을 적용 하는 방법을 이해 합니다. [Azure Data Lake Storage Gen2의 액세스 제어를](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)참조 하세요. 
+- 디렉터리 및 파일에 Acl을 적용 하는 방법을 이해 합니다. [Azure Data Lake Storage Gen2의 액세스 제어를](./data-lake-storage-access-control.md)참조 하세요. 
 
 PowerShell, .NET SDK 및 Python SDK에 대 한 설치 지침을 보려면이 문서의 **프로젝트 설정** 섹션을 참조 하세요.
 
@@ -50,7 +50,7 @@ PowerShell, .NET SDK 및 Python SDK에 대 한 설치 지침을 보려면이 문
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   PowerShell 버전을 업그레이드 하려면 [기존 Windows Powershell 업그레이드](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell) 를 참조 하세요.
+   PowerShell 버전을 업그레이드 하려면 [기존 Windows Powershell 업그레이드](/powershell/scripting/install/installing-windows-powershell) 를 참조 하세요.
     
 2. 설치 **Az. Storage** module.
 
@@ -58,18 +58,18 @@ PowerShell, .NET SDK 및 Python SDK에 대 한 설치 지침을 보려면이 문
    Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
-   PowerShell 모듈을 설치 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps) 를 참조 하세요.
+   PowerShell 모듈을 설치 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps) 를 참조 하세요.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 열거나 Azure CLI를 로컬로 [설치](https://docs.microsoft.com/cli/azure/install-azure-cli)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
+1. [Azure Cloud Shell](../../cloud-shell/overview.md)을 열거나 Azure CLI를 로컬로 [설치](/cli/azure/install-azure-cli)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
 
 2. 다음 명령을 사용하여 설치된 Azure CLI 버전이 `2.14.0` 이상인지 확인합니다.
 
    ```azurecli
     az --version
    ```
-   Azure CLI 버전이 `2.14.0`보다 낮은 경우 이후 버전을 설치합니다. [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+   Azure CLI 버전이 `2.14.0`보다 낮은 경우 이후 버전을 설치합니다. [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -201,7 +201,7 @@ $ctx = $storageAccount.Context
 
    그렇지 않으면 [https://aka.ms/devicelogin](https://aka.ms/devicelogin)에서 브라우저 페이지를 열고 터미널에 표시된 권한 부여 코드를 입력합니다. 그런 다음 브라우저에서 계정 자격 증명으로 로그인합니다.
 
-   다른 인증 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Blob 또는 큐 데이터에 대한 액세스 권한 부여](../common/authorize-data-operations-cli.md)를 참조하세요.
+   다른 인증 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Blob 또는 큐 데이터에 대한 액세스 권한 부여](./authorize-data-operations-cli.md)를 참조하세요.
 
 2. ID가 둘 이상의 구독과 연결된 경우 정적 웹 사이트를 호스트하는 스토리지 계정의 구독으로 활성 구독을 설정합니다.
 
@@ -212,11 +212,11 @@ $ctx = $storageAccount.Context
    `<subscription-id>` 자리 표시자 값을 구독의 ID로 바꿉니다.
 
 > [!NOTE]
-> 이 문서에 제공된 예제는 Azure AD(Active Directory) 인증을 보여 줍니다. 권한 부여 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Blob 또는 큐 데이터에 대한 액세스 권한 부여I](../common/authorize-data-operations-cli.md)를 참조하세요.
+> 이 문서에 제공된 예제는 Azure AD(Active Directory) 인증을 보여 줍니다. 권한 부여 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Blob 또는 큐 데이터에 대한 액세스 권한 부여I](./authorize-data-operations-cli.md)를 참조하세요.
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-이 문서의 코드 조각을 사용 하려면 저장소 계정을 나타내는 [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) 인스턴스를 만들어야 합니다.
+이 문서의 코드 조각을 사용 하려면 저장소 계정을 나타내는 [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) 인스턴스를 만들어야 합니다.
 
 #### <a name="connect-by-using-azure-active-directory-ad"></a>Azure Active Directory (AD)를 사용 하 여 연결
 
@@ -235,7 +235,7 @@ using Azure.Identity;
 |[Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|계정에 있는 모든 디렉터리 및 파일입니다.|
 |[Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|보안 주체가 소유 하는 디렉터리와 파일만|
 
-이 예에서는 클라이언트 ID, 클라이언트 암호 및 테 넌 트 ID를 사용 하 여 [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) 인스턴스를 만듭니다.  
+이 예에서는 클라이언트 ID, 클라이언트 암호 및 테 넌 트 ID를 사용 하 여 [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) 인스턴스를 만듭니다.  
 
 ```cs
 public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient, 
@@ -256,7 +256,7 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 
 이 방법은 계정에 연결 하는 가장 쉬운 방법입니다. 
 
-이 예에서는 계정 키를 사용 하 여 [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) 인스턴스를 만듭니다.
+이 예에서는 계정 키를 사용 하 여 [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) 인스턴스를 만듭니다.
 
 ```cs
 public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
@@ -415,11 +415,11 @@ Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $
 > [!NOTE]
 > **기본** ACL 항목을 설정 하려면 **AzDataLakeGen2ItemAclObject** 명령을 실행할 때 **-defaultscope** 매개 변수를 사용 합니다. 예: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`
 
-일괄 처리 크기를 지정 하 여 일괄 처리에서 Acl을 재귀적으로 설정 하는 예제를 보려면 [AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive) 참조 문서를 참조 하세요.
+일괄 처리 크기를 지정 하 여 일괄 처리에서 Acl을 재귀적으로 설정 하는 예제를 보려면 [AzDataLakeGen2AclRecursive](/powershell/module/az.storage/set-azdatalakegen2aclrecursive) 참조 문서를 참조 하세요.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[Az storage fs access set-recursive](https://docs.microsoft.com/cli/azure/storage/fs/access#az_storage_fs_access_set_recursive) 명령을 사용 하 여 재귀적으로 ACL을 설정 합니다.
+[Az storage fs access set-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_set_recursive) 명령을 사용 하 여 재귀적으로 ACL을 설정 합니다.
 
 이 예에서는 라는 디렉터리의 ACL을 설정 합니다 `my-parent-directory` . 이러한 항목은 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고, 소유 그룹만 읽기 및 실행 권한을 부여 하 고, 다른 모든 사용자에 게 액세스 권한을 부여 하지는 않습니다. 이 예제의 마지막 ACL 항목은 개체 ID "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 읽기 및 실행 권한이 있는 특정 사용자를 제공 합니다.
 
@@ -608,11 +608,11 @@ Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Pat
 > [!NOTE]
 > **기본** ACL 항목을 업데이트 하려면 **AzDataLakeGen2ItemAclObject** 명령을 실행할 때 **-defaultscope** 매개 변수를 사용 합니다. 예: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`
 
-일괄 처리 크기를 지정 하 여 일괄 처리에서 Acl을 재귀적으로 업데이트 하는 예제를 보려면 [AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/update-azdatalakegen2aclrecursive) 참조 문서를 참조 하세요.
+일괄 처리 크기를 지정 하 여 일괄 처리에서 Acl을 재귀적으로 업데이트 하는 예제를 보려면 [AzDataLakeGen2AclRecursive](/powershell/module/az.storage/update-azdatalakegen2aclrecursive) 참조 문서를 참조 하세요.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[Az storage fs access update-recursive](https://docs.microsoft.com/cli/azure/storage/fs/access#az_storage_fs_access_update_recursive) 명령을 사용 하 여 ACL을 재귀적으로 업데이트 합니다. 
+[Az storage fs access update-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_update_recursive) 명령을 사용 하 여 ACL을 재귀적으로 업데이트 합니다. 
 
 이 예에서는 write 권한이 있는 ACL 항목을 업데이트 합니다. 
 
@@ -621,7 +621,7 @@ az storage fs access update-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> **기본** ACL 항목을 업데이트 하려면 `default:` 각 항목에 접두사를 추가 합니다. 예: `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`.
+> **기본** ACL 항목을 업데이트 하려면 `default:` 각 항목에 접두사를 추가 합니다. `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`)을 입력합니다.
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -749,11 +749,11 @@ Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Ac
 > [!NOTE]
 > **기본** ACL 항목을 제거 하려면 **AzDataLakeGen2ItemAclObject** 명령을 실행할 때 **-defaultscope** 매개 변수를 사용 합니다. 예: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`
 
-일괄 처리 크기를 지정 하 여 일괄 처리에서 Acl을 재귀적으로 제거 하는 예제를 보려면 [AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/remove-azdatalakegen2aclrecursive) 참조 문서를 참조 하세요.
+일괄 처리 크기를 지정 하 여 일괄 처리에서 Acl을 재귀적으로 제거 하는 예제를 보려면 [AzDataLakeGen2AclRecursive](/powershell/module/az.storage/remove-azdatalakegen2aclrecursive) 참조 문서를 참조 하세요.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[Az storage fs access remove-recursive](https://docs.microsoft.com/cli/azure/storage/fs/access#az_storage_fs_access_remove_recursive) 명령을 사용 하 여 ACL 항목을 제거 합니다. 
+[Az storage fs access remove-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_remove_recursive) 명령을 사용 하 여 ACL 항목을 제거 합니다. 
 
 이 예에서는 컨테이너의 루트 디렉터리에서 ACL 항목을 제거 합니다.  
 
@@ -762,7 +762,7 @@ az storage fs access remove-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> **기본** ACL 항목을 제거 하려면 `default:` 각 항목에 접두사를 추가 합니다. 예: `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+> **기본** ACL 항목을 제거 하려면 `default:` 각 항목에 접두사를 추가 합니다. `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`)을 입력합니다.
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -880,7 +880,7 @@ $result
 
 ```
 
-일괄 처리 크기를 지정 하 여 일괄 처리에서 Acl을 재귀적으로 설정 하는 예제를 보려면 [AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive) 참조 문서를 참조 하세요.
+일괄 처리 크기를 지정 하 여 일괄 처리에서 Acl을 재귀적으로 설정 하는 예제를 보려면 [AzDataLakeGen2AclRecursive](/powershell/module/az.storage/set-azdatalakegen2aclrecursive) 참조 문서를 참조 하세요.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -1005,7 +1005,7 @@ echo "TotalFailureCount: `t`t`t`t`t$($result.TotalFailureCount)"
 echo "FailedEntries:"$($result.FailedEntries | ft) 
 ```
 
-일괄 처리 크기를 지정 하 여 일괄 처리에서 Acl을 재귀적으로 설정 하는 예제를 보려면 [AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive) 참조 문서를 참조 하세요.
+일괄 처리 크기를 지정 하 여 일괄 처리에서 Acl을 재귀적으로 설정 하는 예제를 보려면 [AzDataLakeGen2AclRecursive](/powershell/module/az.storage/set-azdatalakegen2aclrecursive) 참조 문서를 참조 하세요.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -1115,11 +1115,11 @@ def continue_on_failure():
 #### <a name="libraries"></a>라이브러리
 
 - [PowerShell](https://www.powershellgallery.com/packages/Az.Storage/3.0.0)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/storage/fs/access)
+- [Azure CLI](/cli/azure/storage/fs/access)
 - [.NET](https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json)
 - [Java](/java/api/overview/azure/storage-file-datalake-readme)
 - [Python](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2Fazure_storage_file_datalake-12.1.0b99-py2.py3-none-any.whl%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A47%253A01Z%26se%3D2021-08-25T07%253A47%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DH1XYw4FTLJse%252BYQ%252BfamVL21UPVIKRnnh2mfudA%252BfI0I%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C95a5966d938a4902560e08d84912fe32%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339693209725909&sdata=acv4KWZdzkITw1lP0%2FiA3lZuW7NF5JObjY26IXttfGI%3D&reserved=0)
-- [REST (영문)](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)
+- [REST (영문)](/rest/api/storageservices/datalakestoragegen2/path/update)
 
 #### <a name="code-samples"></a>코드 샘플
 
@@ -1127,7 +1127,7 @@ def continue_on_failure():
 
 - Azure CLI: [샘플](https://github.com/Azure/azure-cli/blob/2a55a5350696a3a93a13f364f2104ec8bc82cdd3/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 
-- NET: [추가 정보](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520net%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A20%253A42Z%26se%3D2021-08-26T23%253A20%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DKrnHvasHoSoVeUyr2g%252FSc2aDVW3De4A%252Fvx0lFWZs494%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503767961&sdata=gd%2B2LphTtDFVb7pZko9rkGO9OG%2FVvmeXprHB9IOEYXE%3D&reserved=0)  |  [샘플](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)
+- NET: [추가 정보](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520net%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A20%253A42Z%26se%3D2021-08-26T23%253A20%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DKrnHvasHoSoVeUyr2g%2fSc2aDVW3De4A%2fvx0lFWZs494%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503767961&sdata=gd%2B2LphTtDFVb7pZko9rkGO9OG%2FVvmeXprHB9IOEYXE%3D&reserved=0)  |  [샘플](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)
 
 - Python: [추가 정보](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520python%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A21%253A47Z%26se%3D2021-08-26T23%253A21%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DRq6Bl5lXrtYk79thy8wX7UTbjyd2f%252B6xzVBFFVYbdYg%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503777915&sdata=3e46Lp2miOHj755Gh0odH3M0%2BdTF3loGCCBENrulVTM%3D&reserved=0)  |  [샘플](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py)
 
@@ -1141,7 +1141,7 @@ def continue_on_failure():
 
 #### <a name="handling-permission-errors-403"></a>권한 오류 처리 (403)
 
-재귀 ACL 프로세스를 실행 하는 동안 액세스 제어 예외가 발생 하는 경우 AD [보안 주체](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) 에 게 디렉터리 계층 구조에 있는 하나 이상의 자식 항목에 ACL을 적용 하는 데 충분 한 권한이 없을 수 있습니다. 권한 오류가 발생 하면 프로세스가 중지 되 고 연속 토큰이 제공 됩니다. 권한 문제를 해결 한 다음 연속 토큰을 사용 하 여 나머지 데이터 집합을 처리 합니다. 이미 성공적으로 처리 된 디렉터리와 파일은 다시 처리 하지 않아도 됩니다. 재귀 ACL 프로세스를 다시 시작 하도록 선택할 수도 있습니다. Acl은 부정적인 영향을 일으키지 않고 항목에 다시 적용할 수 있습니다. 
+재귀 ACL 프로세스를 실행 하는 동안 액세스 제어 예외가 발생 하는 경우 AD [보안 주체](../../role-based-access-control/overview.md#security-principal) 에 게 디렉터리 계층 구조에 있는 하나 이상의 자식 항목에 ACL을 적용 하는 데 충분 한 권한이 없을 수 있습니다. 권한 오류가 발생 하면 프로세스가 중지 되 고 연속 토큰이 제공 됩니다. 권한 문제를 해결 한 다음 연속 토큰을 사용 하 여 나머지 데이터 집합을 처리 합니다. 이미 성공적으로 처리 된 디렉터리와 파일은 다시 처리 하지 않아도 됩니다. 재귀 ACL 프로세스를 다시 시작 하도록 선택할 수도 있습니다. Acl은 부정적인 영향을 일으키지 않고 항목에 다시 적용할 수 있습니다. 
 
 #### <a name="credentials"></a>자격 증명 
 
@@ -1153,11 +1153,9 @@ def continue_on_failure():
 
 #### <a name="acl-limits"></a>ACL 제한
 
-디렉터리 또는 파일에 적용할 수 있는 최대 Acl 수는 32 액세스 Acl 및 32 기본 Acl입니다. 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조하세요.
+디렉터리 또는 파일에 적용할 수 있는 최대 Acl 수는 32 액세스 Acl 및 32 기본 Acl입니다. 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](./data-lake-storage-access-control.md)를 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
-- [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+- [Azure Data Lake Storage Gen2의 액세스 제어](./data-lake-storage-access-control.md)
 - [알려진 문제](data-lake-storage-known-issues.md)
-
-

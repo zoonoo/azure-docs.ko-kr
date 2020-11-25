@@ -8,18 +8,18 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: c0b85164042ef8ba0dda5f83dbfe49f585a11f7c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: aeb2c58504d1f058a3b887e02a7b7406c09db5b6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102645"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913150"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Gen1에서 Gen2로 Azure Data Lake Storage 마이그레이션
 
 데이터, 워크 로드 및 응용 프로그램을 Data Lake Storage Gen1에서 Data Lake Storage Gen2로 마이그레이션할 수 있습니다.
 
-Azure Data Lake Storage Gen2는 [Azure Blob Storage](storage-blobs-introduction.md) 를 기반으로 하며 빅 데이터 분석 전용 기능 집합을 제공 합니다. [Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/) 는 파일 시스템 의미 체계, 디렉터리 및 파일 수준 보안과 같은 [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index)의 기능을 결합 하 고 [Azure Blob Storage](storage-blobs-introduction.md)의 저렴 한 비용, 계층화 된 저장소, 고가용성/재해 복구 기능으로 확장 합니다.
+Azure Data Lake Storage Gen2는 [Azure Blob Storage](storage-blobs-introduction.md) 를 기반으로 하며 빅 데이터 분석 전용 기능 집합을 제공 합니다. [Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/) 는 파일 시스템 의미 체계, 디렉터리 및 파일 수준 보안과 같은 [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml)의 기능을 결합 하 고 [Azure Blob Storage](storage-blobs-introduction.md)의 저렴 한 비용, 계층화 된 저장소, 고가용성/재해 복구 기능으로 확장 합니다.
 
 > [!NOTE]
 > 쉽게 읽을 수 있도록이 문서에서는 *Gen1* 이라는 용어를 사용 하 여 Azure Data Lake Storage Gen1를 참조 하 고 *Gen2* 라는 용어를 사용 하 여 Azure Data Lake Storage Gen2을 참조 합니다.
@@ -47,9 +47,9 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 
 3. [알려진 문제](data-lake-storage-known-issues.md) 목록을 검토 하 여 기능에 대 한 모든 차이를 평가 합니다.
 
-4. Gen2은 [진단 로깅](../common/storage-analytics-logging.md), [액세스 계층](storage-blob-storage-tiers.md)및 [blob 저장소 수명 주기 관리 정책과](storage-lifecycle-management-concepts.md)같은 blob 저장소 기능을 지원 합니다. 이러한 기능을 사용 하는 것에 관심이 있는 경우 [현재 지원 수준](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-supported-blob-storage-features)을 검토 하세요.
+4. Gen2은 [진단 로깅](../common/storage-analytics-logging.md), [액세스 계층](storage-blob-storage-tiers.md)및 [blob 저장소 수명 주기 관리 정책과](storage-lifecycle-management-concepts.md)같은 blob 저장소 기능을 지원 합니다. 이러한 기능을 사용 하는 것에 관심이 있는 경우 [현재 지원 수준](./data-lake-storage-supported-blob-storage-features.md)을 검토 하세요.
 
-5. [Azure 에코 시스템 지원](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access) 의 현재 상태를 검토 하 여 Gen2가 솔루션에 의존 하는 모든 서비스를 지원 하는지 확인 합니다.
+5. [Azure 에코 시스템 지원](./data-lake-storage-multi-protocol-access.md) 의 현재 상태를 검토 하 여 Gen2가 솔루션에 의존 하는 모든 서비스를 지원 하는지 확인 합니다.
 
 ### <a name="step-2-prepare-to-migrate"></a>2 단계: 마이그레이션 준비
 
@@ -69,13 +69,13 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 
 원하는 패턴을 사용 하 여 데이터, 워크 로드 및 응용 프로그램을 마이그레이션합니다. 시나리오를 증분 방식으로 확인 하는 것이 좋습니다.
 
-1. [저장소 계정을 만들고](data-lake-storage-quickstart-create-account.md) 계층 구조 네임 스페이스 기능을 사용 하도록 설정 합니다. 
+1. [저장소 계정을 만들고](../common/storage-account-create.md) 계층 구조 네임 스페이스 기능을 사용 하도록 설정 합니다. 
 
 2. 데이터를 마이그레이션합니다. 
 
-3. Gen2 끝점을 가리키도록 [작업에서 서비스](data-lake-storage-integrate-with-azure-services.md) 를 구성 합니다. 
+3. Gen2 끝점을 가리키도록 [작업에서 서비스](./data-lake-storage-supported-azure-services.md) 를 구성 합니다. 
    
-4. Gen2 Api를 사용 하도록 응용 프로그램을 업데이트 합니다. [.Net](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), [JavaScript](data-lake-storage-directory-file-acl-javascript.md) 및 [REST](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2)에 대 한 가이드를 참조 하세요. 
+4. Gen2 Api를 사용 하도록 응용 프로그램을 업데이트 합니다. [.Net](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), [JavaScript](data-lake-storage-directory-file-acl-javascript.md) 및 [REST](/rest/api/storageservices/data-lake-storage-gen2)에 대 한 가이드를 참조 하세요. 
    
 5. Data Lake Storage Gen2 [PowerShell cmdlet](data-lake-storage-directory-file-acl-powershell.md)및 [Azure CLI 명령을](data-lake-storage-directory-file-acl-cli.md)사용 하도록 스크립트를 업데이트 합니다.
    
@@ -97,13 +97,13 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 |---|---|---|
 |데이터 구성|[계층 구조 네임스페이스](data-lake-storage-namespace.md)<br>파일 및 폴더 지원|[계층 구조 네임스페이스](data-lake-storage-namespace.md)<br>컨테이너, 파일 및 폴더 지원 |
 |지리적 중복| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
-|인증|[AAD 관리 id](../../active-directory/managed-identities-azure-resources/overview.md)<br>[서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)|[AAD 관리 id](../../active-directory/managed-identities-azure-resources/overview.md)<br>[서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)<br>[공유 액세스 키](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
+|인증|[AAD 관리 id](../../active-directory/managed-identities-azure-resources/overview.md)<br>[서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)|[AAD 관리 id](../../active-directory/managed-identities-azure-resources/overview.md)<br>[서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)<br>[공유 액세스 키](/rest/api/storageservices/authorize-with-shared-key)|
 |권한 부여|관리- [AZURE RBAC](../../role-based-access-control/overview.md)<br>데이터- [acl](data-lake-storage-access-control.md)|관리- [AZURE RBAC](../../role-based-access-control/overview.md)<br>데이터  [acl](data-lake-storage-access-control.md), [Azure RBAC](../../role-based-access-control/overview.md) |
-|암호화 – 미사용 데이터|서버 쪽 – [Microsoft 관리](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 또는 [고객 관리](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 키 사용|서버 쪽 – [Microsoft 관리](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 또는 [고객 관리](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 키 사용|
+|암호화 – 미사용 데이터|서버 쪽 – [Microsoft 관리](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 또는 [고객 관리](../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 키 사용|서버 쪽 – [Microsoft 관리](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 또는 [고객 관리](../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 키 사용|
 |VNET 지원|[VNET 통합](../../data-lake-store/data-lake-store-network-security.md)|[서비스 끝점](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [개인 끝점](../common/storage-private-endpoints.md)|
 |개발자 환경|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.net](../../data-lake-store/data-lake-store-data-operations-net-sdk.md), [Java](../../data-lake-store/data-lake-store-get-started-java-sdk.md), [Python](../../data-lake-store/data-lake-store-data-operations-python.md), [PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|일반적으로 사용 가능한 [REST](/rest/api/storageservices/data-lake-storage-gen2), [.net](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md)<br>공개 미리 보기- [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
 |리소스 로그|클래식 로그<br>[Azure Monitor 통합](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[클래식 로그](../common/storage-analytics-logging.md) -일반적으로 사용 가능<br>Azure monitor 통합 – 타임 라인 TBD|
-|에코시스템|[HDInsight (3.6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3.1 이상)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [Azure Synapse Analytics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5.1 이상)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [Azure Synapse Analytics](../../azure-sql/database/vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
+|에코시스템|[HDInsight (3.6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3.1 이상)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5.1 이상)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [Azure Synapse Analytics](../../azure-sql/database/vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 <a id="migration-patterns"></a>
 
@@ -114,9 +114,9 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 |||
 |---|---|
 |**리프트 앤 시프트**|가장 간단한 패턴입니다. 데이터 파이프라인이 가동 중지 시간을 감당할 수 있는 경우 이상적입니다.|
-|**증분 복사**|리프트 앤 *시프트*와 비슷하지만 가동 중지 시간이 줄어듭니다. 복사 하는 데 시간이 오래 걸리는 대량의 데이터에 적합 합니다.|
+|**증분 복사**|리프트 앤 *시프트* 와 비슷하지만 가동 중지 시간이 줄어듭니다. 복사 하는 데 시간이 오래 걸리는 대량의 데이터에 적합 합니다.|
 |**이중 파이프라인**|가동 중지 시간을 감당할 수 없는 파이프라인에 이상적입니다.|
-|**양방향 동기화**|*이중 파이프라인과*유사 하지만 좀 더 복잡 한 파이프라인에 적합 한 보다 단계별 접근 방식이 있습니다.|
+|**양방향 동기화**|*이중 파이프라인과* 유사 하지만 좀 더 복잡 한 파이프라인에 적합 한 보다 단계별 접근 방식이 있습니다.|
 
 각 패턴에 대해 좀 더 자세히 살펴보겠습니다.
  
@@ -126,7 +126,7 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 
 1. Gen1에 대 한 모든 쓰기를 중지 합니다.
 
-2. Gen1에서 Gen2로 데이터를 이동 합니다. [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)하는 것이 좋습니다. 데이터를 사용 하 여 Acl을 복사 합니다.
+2. Gen1에서 Gen2로 데이터를 이동 합니다. [Azure Data Factory](../../data-factory/connector-azure-data-lake-storage.md)하는 것이 좋습니다. 데이터를 사용 하 여 Acl을 복사 합니다.
 
 3. Point 수집 작업 및 워크 로드를 Gen2 합니다.
 
@@ -147,7 +147,7 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 
 ### <a name="incremental-copy-pattern"></a>증분 복사 패턴
 
-1. Gen1에서 Gen2로 데이터 이동을 시작 합니다. [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)하는 것이 좋습니다. 데이터를 사용 하 여 Acl을 복사 합니다.
+1. Gen1에서 Gen2로 데이터 이동을 시작 합니다. [Azure Data Factory](../../data-factory/connector-azure-data-lake-storage.md)하는 것이 좋습니다. 데이터를 사용 하 여 Acl을 복사 합니다.
 
 2. Gen1에서 새 데이터를 증분 복사 합니다.
 
@@ -171,7 +171,7 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 
 ### <a name="dual-pipeline-pattern"></a>이중 파이프라인 패턴
 
-1. Gen1에서 Gen2로 데이터를 이동 합니다. [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)하는 것이 좋습니다. 데이터를 사용 하 여 Acl을 복사 합니다.
+1. Gen1에서 Gen2로 데이터를 이동 합니다. [Azure Data Factory](../../data-factory/connector-azure-data-lake-storage.md)하는 것이 좋습니다. 데이터를 사용 하 여 Acl을 복사 합니다.
 
 2. Gen1 및 Gen2 둘 다에 새 데이터를 수집 합니다.
 
@@ -213,6 +213,6 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 
 ## <a name="next-steps"></a>다음 단계
 
-- 저장소 계정에 대 한 보안 설정의 다양 한 부분에 대해 알아봅니다. [Azure Storage 보안 가이드](../common/storage-security-guide.md)를 참조 하세요.
+- 저장소 계정에 대 한 보안 설정의 다양 한 부분에 대해 알아봅니다. [Azure Storage 보안 가이드](./security-recommendations.md)를 참조 하세요.
 - Data Lake Store에 대 한 성능을 최적화 합니다. [성능 최적화 Azure Data Lake Storage Gen2를](data-lake-storage-performance-tuning-guidance.md) 참조 하세요.
 - Data Lake Store 관리에 대 한 모범 사례를 검토 합니다. [Azure Data Lake Storage Gen2 사용에 대 한 모범 사례를](data-lake-storage-best-practices.md) 참조 하세요.

@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 11/24/2020
 ms.author: jgao
-ms.openlocfilehash: a04377289b78c23a83fc696ebebb9b5808e904c9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: dcc968353edf0e9cf3d63408d02baf94c6cabd9f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321651"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95902454"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용(미리 보기)
 
@@ -107,7 +107,7 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
       "storageAccountName": "myStorageAccount",
       "storageAccountKey": "myKey"
     },
-    "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
+    "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80",
     "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {
@@ -135,19 +135,19 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 
 속성 값 세부 정보:
 
-- **ID** : 배포 스크립트 서비스는 사용자가 할당한 관리 ID를 사용하여 스크립트를 실행합니다. 현재 사용자가 할당한 관리 ID만 지원됩니다.
-- **kind** : 스크립트 유형을 지정합니다. 현재 Azure PowerShell 및 Azure CLI 스크립트가 지원됩니다. 값은 **AzurePowerShell** 및 **AzureCLI** 입니다.
-- **forceUpdateTag** : 템플릿 배포 간에 이 값을 변경하면 배포 스크립트가 강제로 다시 실행됩니다. 매개 변수의 defaultValue로 설정해야 하는 newGuid() 또는 utcNow() 함수를 사용합니다. 자세한 내용은 [스크립트를 두 번 이상 실행](#run-script-more-than-once)을 참조하세요.
-- **containerSettings** : Azure Container Instance를 사용자 지정하려면 설정을 지정합니다.  **containerGroupName** 은 컨테이너 그룹 이름을 지정하기 위한 것입니다.  지정 하지 않으면 그룹 이름이 자동으로 생성 됩니다.
-- **storageAccountSettings** : 기존 스토리지 계정을 사용하려면 설정을 지정합니다. 지정하지 않으면 스토리지 계정이 자동으로 만들어집니다. [기존 스토리지 계정 사용](#use-existing-storage-account)을 참조하세요.
-- **azPowerShellVersion**/**azCliVersion** : 사용할 모듈 버전을 지정합니다. 지원되는 PowerShell 및 CLI 버전 목록은 [필수 구성 요소](#prerequisites)를 참조하세요.
-- **arguments** : 매개 변수의 값을 지정합니다. 값은 공백으로 구분됩니다.
+- **ID**: 배포 스크립트 서비스는 사용자가 할당한 관리 ID를 사용하여 스크립트를 실행합니다. 현재 사용자가 할당한 관리 ID만 지원됩니다.
+- **kind**: 스크립트 유형을 지정합니다. 현재 Azure PowerShell 및 Azure CLI 스크립트가 지원 됩니다. 값은 **AzurePowerShell** 및 **AzureCLI** 입니다.
+- **forceUpdateTag**: 템플릿 배포 간에 이 값을 변경하면 배포 스크립트가 강제로 다시 실행됩니다. NewGuid () 또는 utcNow () 함수를 사용 하는 경우 두 함수는 모두 매개 변수의 기본값 에서만 사용할 수 있습니다. 자세한 내용은 [스크립트를 두 번 이상 실행](#run-script-more-than-once)을 참조하세요.
+- **containerSettings**: Azure Container Instance를 사용자 지정하려면 설정을 지정합니다.  **containerGroupName** 은 컨테이너 그룹 이름을 지정하기 위한 것입니다.  지정 하지 않으면 그룹 이름이 자동으로 생성 됩니다.
+- **storageAccountSettings**: 기존 스토리지 계정을 사용하려면 설정을 지정합니다. 지정하지 않으면 스토리지 계정이 자동으로 만들어집니다. [기존 스토리지 계정 사용](#use-existing-storage-account)을 참조하세요.
+- **azPowerShellVersion**/**azCliVersion**: 사용할 모듈 버전을 지정합니다. 지원되는 PowerShell 및 CLI 버전 목록은 [필수 구성 요소](#prerequisites)를 참조하세요.
+- **arguments**: 매개 변수의 값을 지정합니다. 값은 공백으로 구분됩니다.
 
     배포 스크립트는 [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) 시스템 호출을 호출 하 여 인수를 문자열 배열로 분할 합니다. 인수가 [명령 속성](/rest/api/container-instances/containergroups/createorupdate#containerexec) 으로 Azure Container Instance에 전달 되 고 command 속성이 문자열 배열인 경우이 작업이 필요 합니다.
 
     인수에 이스케이프 된 문자가 포함 된 경우 [JsonEscaper](https://www.jsonescaper.com/) 를 사용 하 여 문자를 두 번 이스케이프 합니다. 원래 이스케이프 된 문자열을 도구에 붙여넣은 다음, **이스케이프** 를 선택 합니다.  이 도구는 이중 이스케이프 된 문자열을 출력 합니다. 예를 들어 이전 샘플 템플릿에서 인수는 **-name \\ "John dole \\ "** 입니다.  이스케이프 된 문자열은 **-name \\ \\ \\ "John dole \\ \\ \\ "** 입니다.
 
-    Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 **\\ "** into **\\ \\ \\ "** 를 바꿉니다. 다음은 그 예입니다.
+    Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 **\\ "** into **\\ \\ \\ "** 를 바꿉니다. 예를 들면 다음과 같습니다.
 
     ```json
     replace(string(parameters('tables')), '\"', '\\\"')
@@ -155,13 +155,13 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 
     샘플 템플릿을 보려면 [여기](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json)를 선택 합니다.
 
-- **environmentVariables** : 스크립트에 전달할 환경 변수를 지정합니다. 자세한 내용은 [배포 스크립트 개발](#develop-deployment-scripts)을 참조하세요.
-- **scriptContent** : 스크립트 콘텐츠를 지정합니다. 외부 스크립트를 실행하려면 `primaryScriptUri`를 대신 사용합니다. 예를 보려면 [인라인 스크립트 사용](#use-inline-scripts) 및 [외부 스크립트 사용](#use-external-scripts)을 참조하세요.
-- **primaryScriptUri** : 지원되는 파일 확장명을 사용하여 기본 배포 스크립트에 공개적으로 액세스할 수 있는 Url을 지정합니다.
-- **supportingScriptUris** : `ScriptContent` 또는 `PrimaryScriptUri`에서 호출되는 지원 파일에 공개적으로 액세스할 수 있는 Url 배열을 지정합니다.
-- **timeout** : [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)에 지정된 최대 허용 스크립트 실행 시간을 지정합니다. 기본값은 **P1D** 입니다.
+- **environmentVariables**: 스크립트에 전달할 환경 변수를 지정합니다. 자세한 내용은 [배포 스크립트 개발](#develop-deployment-scripts)을 참조하세요.
+- **scriptContent**: 스크립트 콘텐츠를 지정합니다. 외부 스크립트를 실행하려면 `primaryScriptUri`를 대신 사용합니다. 예를 보려면 [인라인 스크립트 사용](#use-inline-scripts) 및 [외부 스크립트 사용](#use-external-scripts)을 참조하세요.
+- **primaryScriptUri**: 지원되는 파일 확장명을 사용하여 기본 배포 스크립트에 공개적으로 액세스할 수 있는 Url을 지정합니다.
+- **supportingScriptUris**: `ScriptContent` 또는 `PrimaryScriptUri`에서 호출되는 지원 파일에 공개적으로 액세스할 수 있는 Url 배열을 지정합니다.
+- **timeout**: [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)에 지정된 최대 허용 스크립트 실행 시간을 지정합니다. 기본값은 **P1D** 입니다.
 - **cleanupPreference**. 스크립트 실행이 터미널 상태가 되면 배포 리소스를 정리하는 기본 설정을 지정합니다. 기본 설정은 **항상** 이며 이는 터미널 상태(성공, 실패, 취소됨)에도 불구하고 리소스를 삭제함을 의미합니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
-- **retentionInterval** : 배포 스크립트 실행이 터미널 상태에 도달하면 서비스에서 배포 스크립트 리소스를 유지하는 간격을 지정합니다. 이 기간이 만료되면 배포 스크립트 리소스가 삭제됩니다. 기간은 [ISO 8601 패턴](https://en.wikipedia.org/wiki/ISO_8601)을 기반으로 합니다. 보존 간격이 1 ~ 007e; 26 시간 (PT26H)입니다. 이 속성은 cleanupPreference가 *OnExpiration* 으로 설정된 경우에 사용됩니다. *OnExpiration* 속성은 현재 사용하도록 설정되어 있지 않습니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
+- **retentionInterval**: 배포 스크립트 실행이 터미널 상태에 도달하면 서비스에서 배포 스크립트 리소스를 유지하는 간격을 지정합니다. 이 기간이 만료되면 배포 스크립트 리소스가 삭제됩니다. 기간은 [ISO 8601 패턴](https://en.wikipedia.org/wiki/ISO_8601)을 기반으로 합니다. 보존 간격이 1 ~ 007e; 26 시간 (PT26H)입니다. 이 속성은 cleanupPreference가 *OnExpiration* 으로 설정된 경우에 사용됩니다. *OnExpiration* 속성은 현재 사용하도록 설정되어 있지 않습니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
 
 ### <a name="additional-samples"></a>추가 샘플
 
@@ -287,7 +287,7 @@ PowerShell 배포 스크립트와는 달리 CLI/Bash 지원은 스크립트 출�
 },
 ```
 
-- **storageAccountName** : 스토리지 계정의 이름을 지정합니다.
+- **storageAccountName**: 스토리지 계정의 이름을 지정합니다.
 - **storageAccountKey"** : 스토리지 계정 키 중 하나를 지정합니다. [`listKeys()`](./template-functions-resource.md#listkeys) 함수를 사용하여 키를 검색할 수 있습니다. 다음은 그 예입니다.
 
     ```json
@@ -331,7 +331,7 @@ $ErrorActionPreference 설정에도 불구 하 고 스크립트에서 오류가 
 
 ![리소스 관리자 템플릿 배포 스크립트 포털 개요](./media/deployment-script-template/resource-manager-deployment-script-portal.png)
 
-개요 페이지에는 **프로 비전 상태** , **저장소 계정** , **컨테이너 인스턴스** 및 **로그** 와 같은 리소스에 대 한 몇 가지 중요 한 정보가 표시 됩니다.
+개요 페이지에는 **프로 비전 상태**, **저장소 계정**, **컨테이너 인스턴스** 및 **로그** 와 같은 리소스에 대 한 몇 가지 중요 한 정보가 표시 됩니다.
 
 왼쪽 메뉴에서 배포 스크립트 콘텐츠, 스크립트에 전달 된 인수 및 출력을 볼 수 있습니다.  배포 스크립트를 포함 하 여 배포 스크립트에 대 한 템플릿을 내보낼 수도 있습니다.
 
@@ -529,13 +529,13 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
 이러한 리소스의 수명 주기는 템플릿의 다음 속성에 의해 제어됩니다.
 
-- **cleanupPreference** : 스크립트 실행이 터미널 상태가 될 때 적용되는 정리 기본 설정입니다. 지원되는 값은
+- **cleanupPreference**: 스크립트 실행이 터미널 상태가 될 때 적용되는 정리 기본 설정입니다. 지원되는 값은
 
-  - **항상** : 스크립트 실행이 터미널 상태가 되면 자동으로 생성된 리소스를 삭제합니다. 기존 스토리지 계정이 사용되는 경우 스크립트 서비스는 스토리지 계정에 생성된 파일 공유를 삭제합니다. 리소스를 정리 하 고 나면 deploymentScripts 리소스가 계속 존재할 수 있기 때문에 스크립트 서비스는 리소스를 삭제 하기 전에 스크립트 실행 결과 (예: stdout, output, return value 등)를 유지 합니다.
-  - **OnSuccess** : 스크립트가 성공적으로 실행되는 경우에만 자동으로 생성된 리소스를 삭제합니다. 기존 스토리지 계정이 사용되는 경우 스크립트 서비스는 스크립트 실행에 성공한 경우에만 파일 공유를 제거합니다. 여전히 리소스에 액세스하여 디버그 정보를 찾을 수 있습니다.
-  - **Onexpiration** : 자동으로 생성 된 리소스는 **보존 기간** 설정이 만료 된 경우에만 삭제 합니다. 기존 스토리지 계정이 사용되는 경우 스크립트 서비스는 파일 공유를 제거하지만 스토리지 계정은 유지합니다.
+  - **항상**: 스크립트 실행이 터미널 상태가 되면 자동으로 생성된 리소스를 삭제합니다. 기존 스토리지 계정이 사용되는 경우 스크립트 서비스는 스토리지 계정에 생성된 파일 공유를 삭제합니다. 리소스를 정리 하 고 나면 deploymentScripts 리소스가 계속 존재할 수 있기 때문에 스크립트 서비스는 리소스를 삭제 하기 전에 스크립트 실행 결과 (예: stdout, output, return value 등)를 유지 합니다.
+  - **OnSuccess**: 스크립트가 성공적으로 실행되는 경우에만 자동으로 생성된 리소스를 삭제합니다. 기존 스토리지 계정이 사용되는 경우 스크립트 서비스는 스크립트 실행에 성공한 경우에만 파일 공유를 제거합니다. 여전히 리소스에 액세스하여 디버그 정보를 찾을 수 있습니다.
+  - **Onexpiration**: 자동으로 생성 된 리소스는 **보존 기간** 설정이 만료 된 경우에만 삭제 합니다. 기존 스토리지 계정이 사용되는 경우 스크립트 서비스는 파일 공유를 제거하지만 스토리지 계정은 유지합니다.
 
-- **retentionInterval** : 스크립트 리소스가 유지되고 만료 및 삭제되기 전까지의 시간 간격을 지정합니다.
+- **retentionInterval**: 스크립트 리소스가 유지되고 만료 및 삭제되기 전까지의 시간 간격을 지정합니다.
 
 > [!NOTE]
 > 스크립트 서비스에 의해 생성되는 스토리지 계정 및 컨테이너 인스턴스는 다른 용도로 사용하지 않는 것이 좋습니다. 스크립트 수명 주기에 따라 두 리소스가 제거될 수 있습니다.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 29f7e8bbf9a1b8d48940287a4845c2b55804b247
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 18d228af5c162159d52b5583613d4449d1195af2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015378"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95894238"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
@@ -45,8 +45,8 @@ ms.locfileid: "95015378"
 - **JavaScript**: API에 대 한 지원이 추가 되었습니다 `ConversationTranscriber` . [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript)에서 설명서를 참조 하세요. 
 - **C + +/c #**: 새 `AudioDataStream FromWavFileInput` 메서드 (읽기)를 추가 했습니다. WAV 파일) [여기 (c + +)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) 및 [여기 (c #)](
 https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet)를 참조 하세요.
--  **C + +/c #/Java/Python/Objective-C/Swift**: `stopSpeakingAsync()` 텍스트-음성 합성을 중지 하는 메서드를 추가 했습니다. 여기 [(c](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet) [+ +)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), 여기 ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), 여기 ( [Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python), 여기 ( [목적-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/)에서 참조 설명서를 읽으십시오.
-- **C #, c + +, Java**: `FromDialogServiceConnector()` `Connection` 에 대 한 연결 및 연결 끊기 이벤트를 모니터링 하는 데 사용할 수 있는 함수를 클래스에 추가 했습니다 `DialogServiceConnector` . 여기 ( [c #)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), 여기 ( [c + +)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection), 여기 ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable)에서 참조 설명서를 읽으십시오.
+-  **C + +/c #/Java/Python/Objective-C/Swift**: `stopSpeakingAsync()` 텍스트-음성 합성을 중지 하는 메서드를 추가 했습니다. 여기 [(c](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet) [+ +)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), 여기 ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech), 여기 ( [Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python), 여기 ( [목적-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/)에서 참조 설명서를 읽으십시오.
+- **C #, c + +, Java**: `FromDialogServiceConnector()` `Connection` 에 대 한 연결 및 연결 끊기 이벤트를 모니터링 하는 데 사용할 수 있는 함수를 클래스에 추가 했습니다 `DialogServiceConnector` . 여기 ( [c #)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), 여기 ( [c + +)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection), 여기 ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection)에서 참조 설명서를 읽으십시오.
 <!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
 
 **주요 변경 내용**
@@ -249,7 +249,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 * 5 개 언어로 된 단어 수준 음성 정확도 향상
 
-    | 언어 | 음성 오류 감소 |
+    | Language | 음성 오류 감소 |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -262,7 +262,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 * 통화 판독값
     * 및에 대 한 통화 읽기와 관련 된 문제를 해결 했습니다. `es-ES``es-MX`
      
-    | 언어 | 입력 | 개선 후의 기능 |
+    | Language | 입력 | 개선 후의 기능 |
     |---|---|---|
     | `es-MX` | $1.58 | un 페소 cincuenta y ocho centavos |
     | `es-ES` | $1.58 | un dólar cincuenta y ocho centavos |

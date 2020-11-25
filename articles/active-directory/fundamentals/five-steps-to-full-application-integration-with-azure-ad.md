@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 26dd255e6edff7c339ab9766bb71889cf4e2deaa
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8f184de8953e8e8bfe982d2502ca476fb54a66c9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577646"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95903715"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>모든 앱을 Azure AD와 통합 하는 5 단계
 
@@ -46,7 +46,7 @@ Azure Active Directory (Azure AD)에는 쉽게 시작할 수 있는 수천 개�
 
 그런 다음 직원이 자주 사용 하는 응용 프로그램을 검색 하 고 Azure AD와 통합 하기 위한 작업의 우선 순위를 지정 합니다.
 
-Microsoft Cloud App Security&#39;s [클라우드 검색 도구](/cloud-app-security/tutorial-shadow-it) 를 사용 하 여 네트워크에서 섀도 it를 검색 하 고 관리할 수 있습니다 &quot; &quot; (즉, IT 부서에서 관리 하지 않는 앱). [Microsoft DEFENDER ATP (Advanced Threat Protection)를 사용](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 하 여 검색 프로세스를 간소화 하 고 확장할 수 있습니다.
+Microsoft Cloud App Security의 [클라우드 검색 도구](/cloud-app-security/tutorial-shadow-it) 를 사용 하 여 네트워크에서 "섀도" (즉, it 부서에서 관리 하지 않는 앱)를 검색 하 고 관리할 수 있습니다. [Microsoft DEFENDER ATP (Advanced Threat Protection)를 사용](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 하 여 검색 프로세스를 간소화 하 고 확장할 수 있습니다.
 
 또한 Azure Portal의 [AD FS 응용 프로그램 작업 보고서](../manage-apps/migrate-adfs-application-activity.md) 를 사용 하 여 조직의 모든 AD FS 앱을 검색 하 고, 해당 앱에 로그인 한 고유 사용자 수를 검색 하 고, Azure AD와 통합 하는 데 필요한 호환성을 확인할 수 있습니다.
 
@@ -66,7 +66,7 @@ Microsoft Cloud App Security&#39;s [클라우드 검색 도구](/cloud-app-secur
 - 온-프레미스 사용자 프로 비전 및 인증 뿐만 아니라 동일한 서비스에 대 한 다른 클라우드 id 공급자에 게 지불 된 라이선스 요금을 제거 하 여 비용을 절감할 수 있습니다.
 - Id 및 액세스 관리 프로세스에서 관리 오버 헤드를 줄이고 중복성이 더 적게 강화 된 보안 기능을 사용할 수 있습니다.
 - 직원이 [Myapps 포털](../manage-apps/access-panel-collections.md)을 통해 필요한 모든 응용 프로그램에 대 한 보안 Single Sign-On 액세스를 얻을 수 있도록 합니다.
-- 앱 사용에서 가져오는 데이터의 양을 늘리고, 새로 추가 된 앱에 대 한 혜택을 확장 하 여 조건부 액세스와 같은 Azure AD&#39;s [identity protection](../identity-protection/overview-identity-protection.md) 관련 서비스의 인텔리전스를 향상 합니다.
+- 앱 사용에서 가져오는 데이터의 양을 늘리고, 새로 추가 된 앱에 대 한 혜택을 확장 하 여 조건부 액세스와 같은 Azure AD의 [id 보호](../identity-protection/overview-identity-protection.md) 관련 서비스의 인텔리전스를 향상 시킵니다.
 
 Azure AD와 앱을 통합 하는 비즈니스 프로세스를 관리 하기 위한 지침을 게시 했습니다. 여기에는 비즈니스 및 응용 프로그램 소유자가 인식 하 고 관심이 있는 [포스터](https://aka.ms/AppOnePager) 와 [프레젠테이션을](https://aka.ms/AppGuideline) 사용할 수 있습니다. 사용자 고유의 브랜딩을 사용 하 여 이러한 샘플을 수정 하 고이 프로세스를 완료 하는 동안 회사 포털, 뉴스레터 또는 기타 매체를 통해 조직에 게시할 수 있습니다.
 
@@ -103,7 +103,7 @@ Azure AD가 중앙 id 공급자가 되 면 페더레이션 솔루션을 사용 �
 
 회사 내에서 빌드된 앱의 경우 개발자는 [Microsoft id 플랫폼](../develop/index.yml) 을 사용 하 여 인증 및 권한 부여를 구현할 수 있습니다. 플랫폼과 통합 된 응용 프로그램은 [AZURE AD에 등록](../develop/quickstart-register-app.md) 되 고 포트폴리오의 다른 앱과 마찬가지로 관리 됩니다.
 
-개발자는 내부용 앱과 고객 연결 앱 모두에 플랫폼을 사용할 수 있으며 플랫폼을 사용 하는 다른 이점도 있습니다. 플랫폼의 일부인 [MSAL (Microsoft 인증 라이브러리)](../develop/msal-overview.md)을 사용 하면 개발자는 multi-factor Authentication과 같은 최신 환경을 지원 하 고 보안 키를 사용 하 여 앱을 직접 구현할 필요 없이 앱에 액세스할 수 있습니다. 또한 Microsoft id 플랫폼과 통합 된 앱은 조직에서 생산성, id 및 보안의 패턴을 설명 하는 Microsoft 365 데이터를 제공 하는 통합 API 끝점 [Microsoft Graph](../develop/microsoft-graph-intro.md) 액세스할 수 있습니다. 개발자는이 정보를 사용 하 여 사용자의 생산성을 높이는 기능을 구현할 수 있습니다. 예를 들어 사용자가 최근에 상호 작용 한 사용자를 식별 하 고 앱&#39;s UI에서이를 인식 합니다.
+개발자는 내부용 앱과 고객 연결 앱 모두에 플랫폼을 사용할 수 있으며 플랫폼을 사용 하는 다른 이점도 있습니다. 플랫폼의 일부인 [MSAL (Microsoft 인증 라이브러리)](../develop/msal-overview.md)을 사용 하면 개발자는 multi-factor Authentication과 같은 최신 환경을 지원 하 고 보안 키를 사용 하 여 앱을 직접 구현할 필요 없이 앱에 액세스할 수 있습니다. 또한 Microsoft id 플랫폼과 통합 된 앱은 조직에서 생산성, id 및 보안의 패턴을 설명 하는 Microsoft 365 데이터를 제공 하는 통합 API 끝점 [Microsoft Graph](../develop/microsoft-graph-intro.md) 액세스할 수 있습니다. 개발자는이 정보를 사용 하 여 사용자의 생산성을 높이는 기능을 구현할 수 있습니다. 예를 들어 사용자가 최근와 상호 작용 하 여 앱의 UI에서 해당 사용자를 식별 하는 사용자를 식별 합니다.
 
 지원 되는 언어 및 플랫폼의 [많은 코드 샘플](../develop/sample-v2-code.md) 뿐만 아니라 플랫폼에 대 한 포괄적인 소개를 제공 하는 [비디오 시리즈](https://www.youtube.com/watch?v=zjezqZPPOfc&amp;list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX) 를 제공 합니다.
 

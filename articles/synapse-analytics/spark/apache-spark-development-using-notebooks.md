@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: dcf34d896deafad77d16619f3883ddd103fc55d4
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: c35ee7bcdefa5091d9c887430182638f066cb9fa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95790805"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95900910"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse Studio (미리 보기) 노트북 만들기, 개발 및 유지 관리
 
@@ -399,68 +399,6 @@ df = spark.read.option("header", "true") \
 
 ![data-to-cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
-## <a name="visualize-data-in-a-notebook"></a>Notebook의 데이터 시각화
-
-### <a name="produce-rendered-table-view"></a>렌더링 된 테이블 뷰 생성
-
-테이블 형식 결과 뷰에는 가로 막대형 차트, 꺾은선형 차트, 원형 차트, 분산형 차트, 영역 차트를 만드는 옵션이 제공됩니다. 코드를 작성하지 않고도 데이터를 시각화할 수 있습니다. 차트는 **차트 옵션** 에서 사용자 지정할 수 있습니다. 
-
-**%%sql** 매직 명령의 출력은 기본적으로 렌더링된 테이블 뷰에 표시됩니다. <code>display(df)</code>Spark 데이터 프레임, Pandas 데이터 프레임, 목록 또는 RDD (복원 력 있는 분산 데이터 집합) 함수에서를 호출 하 여 렌더링 된 테이블 뷰를 생성할 수 있습니다.
-
-   [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
-
-### <a name="visualize-built-in-charts-from-large-scale-dataset"></a>대규모 데이터 집합에서 기본 제공 차트 시각화 
-
-기본적으로 <code>display(df)</code> 함수는 차트를 렌더링 하기 위해 데이터의 처음 1000 행만 사용 합니다. **모든 결과에 대 한 집계** 를 확인 하 고 **적용** 단추를 선택 합니다. 그러면 전체 데이터 집합에서 차트 생성을 적용 합니다. Spark 작업은 차트 설정이 변경 될 때 트리거됩니다. 계산을 완료 하 고 차트를 렌더링 하는 데 시간이 걸립니다. 
-    [![기본 제공 차트-집계-모두](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
-
-
-
-### <a name="visualize-data-statistic-information"></a>데이터 통계 정보 시각화
-를 사용 하 여 열 <code>display(df, summary = True)</code> 이름, 열 유형, 고유 값 및 각 열에 대 한 누락 값을 포함 하는 지정 된 Spark 데이터 프레임의 통계 요약을 확인할 수 있습니다. 특정 열을 선택 하 여 최소 값, 최대값, 평균 값 및 표준 편차를 볼 수도 있습니다.
-    [![기본 제공 차트-요약 ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
-
-### <a name="render-html-or-interactive-libraries"></a>HTML 또는 대화형 라이브러리 렌더링
-
-**Displayhtml ()** 을 사용 하 여 JavaScript, CSS, D3 또는 대화형 라이브러리 (예: **빛 망 울**)를 포함 한 HTML 코드를 렌더링할 수 있습니다.
-
-다음 이미지는 **빛망울** 을 사용하여 지도 위에 문자 모양을 그리는 예입니다.
-
-   ![bokeh-example](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
-   
-
-위의 이미지를 그리려면 다음 샘플 코드를 실행합니다.
-
-```python
-from bokeh.plotting import figure, output_file
-from bokeh.tile_providers import get_provider, Vendors
-from bokeh.embed import file_html
-from bokeh.resources import CDN
-from bokeh.models import ColumnDataSource
-
-tile_provider = get_provider(Vendors.CARTODBPOSITRON)
-
-# range bounds supplied in web mercator coordinates
-p = figure(x_range=(-9000000,-8000000), y_range=(4000000,5000000),
-           x_axis_type="mercator", y_axis_type="mercator")
-p.add_tile(tile_provider)
-
-# plot datapoints on the map
-source = ColumnDataSource(
-    data=dict(x=[ -8800000, -8500000 , -8800000],
-              y=[4200000, 4500000, 4900000])
-)
-
-p.circle(x="x", y="y", size=15, fill_color="blue", fill_alpha=0.8, source=source)
-
-# create an html document that embeds the Bokeh plot
-html = file_html(p, CDN, "my plot1")
-
-# display this html
-displayHTML(html)
-
-```
-
 ## <a name="save-notebooks"></a>Notebook 저장
 
 작업 영역에 단일 Notebook 또는 모든 Notebook을 저장할 수 있습니다.
@@ -539,11 +477,11 @@ Jupyter 노트북과 마찬가지로 Azure Synapse Studio Notebook에는 모달 
 
 1. 입력하라는 텍스트 커서가 없으면 셀은 명령 모드에 있습니다. 셀이 명령 모드에 있으면 Notebook을 전체적으로 편집할 수 있지만 개별 셀에는 입력할 수 없습니다. `ESC`마우스를 사용 하거나 마우스를 사용 하 여 셀의 편집기 영역 밖에 서 선택 하 여 명령 모드를 시작 합니다.
 
-   ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
+   ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode-2.png)
 
 2. 편집 모드에서는 편집기 영역에 입력하라는 텍스트 커서가 표시됩니다. 셀이 편집 모드에 있는 경우 셀에 입력할 수 있습니다. 마우스를 누르거나 마우스를 `Enter` 사용 하 여 셀의 편집기 영역을 선택 하 여 편집 모드를 시작 합니다.
    
-   ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
+   ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode-2.png)
 
 ### <a name="shortcut-keys-under-command-mode"></a>명령 모드의 바로 가기 키
 

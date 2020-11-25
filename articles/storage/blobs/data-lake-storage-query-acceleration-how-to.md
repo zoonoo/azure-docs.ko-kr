@@ -9,12 +9,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: b7f566f85ebdb6b481797823cba78aa968747e9f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b02f5a7c390c5594a7c5692798a0691c8d9a42d0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746418"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912776"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Azure Data Lake Storage 쿼리 가속을 사용 하 여 데이터 필터링
 
@@ -26,7 +26,7 @@ ms.locfileid: "92746418"
 
 - Azure Storage에 액세스하려면 Azure 구독이 있어야 합니다. 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-- 범용 **v2** 저장소 계정입니다. [저장소 계정 만들기를](../common/storage-quickstart-create-account.md)참조 하세요.
+- 범용 **v2** 저장소 계정입니다. [저장소 계정 만들기를](../common/storage-account-create.md)참조 하세요.
 
 - SDK 관련 필수 구성 요소를 보려면 탭을 선택 합니다.
 
@@ -92,7 +92,7 @@ ms.locfileid: "92746418"
 
 #### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 열거나 Azure CLI를 로컬로 [설치](https://docs.microsoft.com/cli/azure/install-azure-cli)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
+1. [Azure Cloud Shell](../../cloud-shell/overview.md)을 열거나 Azure CLI를 로컬로 [설치](/cli/azure/install-azure-cli)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
 
 2. Id가 둘 이상의 구독과 연결 된 경우 활성 구독을 저장소 계정의 구독으로 설정 합니다.
 
@@ -328,7 +328,7 @@ Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Heming
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-비동기 메서드는 쿼리 `BlobQuickQueryClient.QueryAsync` 가속 API로 쿼리를 전송 하 고 결과를 [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream) 개체로 응용 프로그램에 다시 스트리밍합니다.
+비동기 메서드는 쿼리 `BlobQuickQueryClient.QueryAsync` 가속 API로 쿼리를 전송 하 고 결과를 [Stream](/dotnet/api/system.io.stream) 개체로 응용 프로그램에 다시 스트리밍합니다.
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)

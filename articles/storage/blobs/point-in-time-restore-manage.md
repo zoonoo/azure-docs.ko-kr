@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2350177373bc99907c437d814d8f01193f18f3fd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280473"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95895726"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>블록 blob 데이터에 지정 시간 복원 수행
 
@@ -29,7 +29,7 @@ ms.locfileid: "91280473"
 
 지정 시간 복원을 사용 하도록 설정 하 고 구성 하기 전에 저장소 계정에 대 한 필수 구성 요소 (일시 삭제, 변경 피드 및 blob 버전 관리)를 사용 하도록 설정 합니다. 이러한 각 기능을 사용하도록 설정하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Blob에 일시 삭제를 사용하도록 설정](soft-delete-enable.md)
+- [Blob에 일시 삭제를 사용하도록 설정](./soft-delete-blob-enable.md)
 - [변경 피드를 사용하거나 사용하지 않도록 설정](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Blob 버전 관리 설정 및 관리](versioning-enable.md)
 
@@ -41,7 +41,7 @@ ms.locfileid: "91280473"
 Azure Portal를 사용 하 여 지정 시간 복원을 구성 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal의 스토리지 계정으로 이동합니다.
-1. **설정**아래에서 **데이터 보호**를 선택 합니다.
+1. **설정** 아래에서 **데이터 보호** 를 선택 합니다.
 1. 지정 **시간 복원 켜기를** 선택 합니다. 이 옵션을 선택 하면 blob, 버전 관리 및 변경 피드에 대 한 일시 삭제도 사용 하도록 설정 됩니다.
 1. 지정 시간 복원에 대 한 최대 복원 지점 (일)을 설정 합니다. 이 숫자는 blob 일시 삭제에 대해 지정 된 보존 기간 보다 적어도 1 일 미만 이어야 합니다.
 1. 변경 내용을 저장합니다.
@@ -117,12 +117,12 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 저장소 계정의 모든 컨테이너와 blob을 Azure Portal 복원 하려면 다음 단계를 수행 합니다.
 
 1. 저장소 계정에 대 한 컨테이너의 목록으로 이동 합니다.
-1. 도구 모음에서 **컨테이너 복원**, **모두 복원**을 차례로 선택 합니다.
+1. 도구 모음에서 **컨테이너 복원**, **모두 복원** 을 차례로 선택 합니다.
 1. **모든 컨테이너 복원** 창에서 날짜 및 시간을 제공 하 여 복원 지점을 지정 합니다.
 1. 확인란을 선택 하 여 계속 진행할 것인지 확인 합니다.
 1. 복원 **을 선택 하** 여 복원 작업을 시작 합니다.
 
-    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Azure Portal에서 지정 시간 복원을 구성 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="모든 컨테이너를 지정 된 복원 지점으로 복원 하는 방법을 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -164,29 +164,29 @@ Azure Portal를 사용 하 여 하나 이상의 컨테이너에 있는 blob 범�
 
 1. 저장소 계정에 대 한 컨테이너의 목록으로 이동 합니다.
 1. 복원할 컨테이너를 선택 합니다.
-1. 도구 모음에서 **컨테이너 복원**, **선택한 복원**을 차례로 선택 합니다.
+1. 도구 모음에서 **컨테이너 복원**, **선택한 복원** 을 차례로 선택 합니다.
 1. **선택한 컨테이너 복원** 창에서 날짜 및 시간을 제공 하 여 복원 지점을 지정 합니다.
 1. 복원할 범위를 지정 합니다. 슬래시 (/)를 사용 하 여 blob 접두사에서 컨테이너 이름을 구분할 수 있습니다.
 1. 기본적으로 **선택한 컨테이너 복원** 창은 컨테이너의 모든 blob을 포함 하는 범위를 지정 합니다. 전체 컨테이너를 복원 하지 않으려면이 범위를 삭제 합니다. 기본 범위는 다음 이미지에 나와 있습니다.
 
-    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Azure Portal에서 지정 시간 복원을 구성 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="사용자 지정 범위를 지정 하기 전에 삭제할 기본 blob 범위를 보여 주는 스크린샷":::
 
 1. 확인란을 선택 하 여 계속 진행할 것인지 확인 합니다.
 1. 복원 **을 선택 하** 여 복원 작업을 시작 합니다.
 
 다음 이미지는 범위 집합에 대 한 복원 작업을 보여 줍니다.
 
-:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Azure Portal에서 지정 시간 복원을 구성 하는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="하나 이상의 컨테이너에서 blob 범위를 복원 하는 방법을 보여 주는 스크린샷":::
 
 이미지에 표시 된 복원 작업은 다음 작업을 수행 합니다.
 
-- *Container1*의 전체 콘텐츠를 복원 합니다.
-- *Container2*에서 *blob5* 를 통해 사전순으로 *blob1.txt* 범위에서 blob을 복원 합니다. 이 범위는 *blob1.txt*, *blob11*, *blob100*, *blob2*등의 이름으로 blob을 복원 합니다. 범위 끝은 배타적 이므로 이름이 *blob4*로 시작 하는 blob을 복원 하지만 이름이 *blob5*로 시작 하는 blob은 복원 하지 않습니다.
-- *Container3* 및 *container4*의 모든 blob을 복원 합니다. 범위 끝은 배타적 이므로이 범위는 *container5*을 복원 하지 않습니다.
+- *Container1* 의 전체 콘텐츠를 복원 합니다.
+- *Container2* 에서 *blob5* 를 통해 사전순으로 *blob1.txt* 범위에서 blob을 복원 합니다. 이 범위는 *blob1.txt*, *blob11*, *blob100*, *blob2* 등의 이름으로 blob을 복원 합니다. 범위 끝은 배타적 이므로 이름이 *blob4* 로 시작 하는 blob을 복원 하지만 이름이 *blob5* 로 시작 하는 blob은 복원 하지 않습니다.
+- *Container3* 및 *container4* 의 모든 blob을 복원 합니다. 범위 끝은 배타적 이므로이 범위는 *container5* 을 복원 하지 않습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-단일 범위의 blob을 복원 하려면 **AzStorageBlobRange** 명령을 호출 하 고 매개 변수에 대해 사전순으로 컨테이너 및 blob 이름을 지정 `-BlobRestoreRange` 합니다. 예를 들어 *container1*라는 단일 컨테이너에서 blob을 복원 하려면 *container1* 로 시작 하 고 *container2*로 끝나는 범위를 지정할 수 있습니다. 시작 및 끝 범위에 명명된 컨테이너가 존재할 필요는 없습니다. 범위의 끝은 배타적 이므로 저장소 계정에 *container2*이라는 컨테이너가 포함 된 경우에도 *container1* 라는 컨테이너가 복원 됩니다.
+단일 범위의 blob을 복원 하려면 **AzStorageBlobRange** 명령을 호출 하 고 매개 변수에 대해 사전순으로 컨테이너 및 blob 이름을 지정 `-BlobRestoreRange` 합니다. 예를 들어 *container1* 라는 단일 컨테이너에서 blob을 복원 하려면 *container1* 로 시작 하 고 *container2* 로 끝나는 범위를 지정할 수 있습니다. 시작 및 끝 범위에 명명된 컨테이너가 존재할 필요는 없습니다. 범위의 끝은 배타적 이므로 저장소 계정에 *container2* 이라는 컨테이너가 포함 된 경우에도 *container1* 라는 컨테이너가 복원 됩니다.
 
 ```powershell
 $range = New-AzStorageBlobRangeToRestore -StartRange container1 `
@@ -248,6 +248,6 @@ $restoreOperation.Parameters.BlobRanges
 ## <a name="next-steps"></a>다음 단계
 
 - [블록 blob에 대 한 지정 시간 복원](point-in-time-restore-overview.md)
-- [일시 삭제](soft-delete-overview.md)
+- [일시 삭제](./soft-delete-blob-overview.md)
 - [변경 피드](storage-blob-change-feed.md)
 - [Blob 버전 관리](versioning-overview.md)

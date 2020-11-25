@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: a487e6989792c63aaf5baf9ddb3875df549561a4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7cb427c83345a4603c6fe7727c1cc42c1943c456
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143993"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908254"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics에서 고객이 관리 하는 저장소 계정 사용
 
-Log Analytics은 다양 한 시나리오에서 Azure Storage에 의존 합니다. 이 사용은 일반적으로 자동으로 관리 됩니다. 그러나 경우에 따라 고객 관리 저장소 계정이 라고도 하는 고유한 저장소 계정을 제공 하 고 관리 해야 하는 경우도 있습니다. 이 문서에서는 WAD/꼬마 로그, 개인 링크 특정 시나리오 및 CMK 암호화 수집을 위해 고객이 관리 하는 저장소를 사용 하는 방법에 대해 자세히 설명 합니다. 
+Log Analytics은 다양 한 시나리오에서 Azure Storage에 의존 합니다. 이 사용은 일반적으로 자동으로 관리 됩니다. 그러나 경우에 따라 고객 관리 저장소 계정이 라고도 하는 고유한 저장소 계정을 제공 하 고 관리 해야 하는 경우도 있습니다. 이 문서에서는 WAD/꼬마 로그, 개인 링크 특정 시나리오 및 CMK (고객 관리 키) 암호화를 수집 하기 위해 고객이 관리 하는 저장소를 사용 하는 방법에 대해 자세히 설명 합니다. 
 
 > [!NOTE]
 > 서식 지정 및 콘텐츠가 변경 될 수 있는 경우 고객 관리 저장소에 업로드 Log Analytics 내용에 의존 하지 않는 것이 좋습니다.

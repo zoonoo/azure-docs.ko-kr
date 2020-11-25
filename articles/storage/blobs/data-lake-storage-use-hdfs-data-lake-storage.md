@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 1d720aed44358dd314bc4226adb9ad517139cd18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2b36dd600efa864913e0087c49bffd556e8330d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836312"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912402"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Data Lake Storage Gen2에서 HDFS CLI 사용
 
@@ -29,7 +29,7 @@ HDFS CLI에 대 한 자세한 내용은 [공식 설명서](https://hadoop.apache
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Linux에서 HDInsight Hadoop 클러스터로 HDFS CLI 사용
 
-먼저 [서비스에 원격 액세스](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services)를 확인합니다. [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)를 선택하면 샘플 PowerShell 코드가 다음과 같이 표시합니다.
+먼저 [서비스에 원격 액세스](../../hdinsight/hdinsight-hadoop-linux-information.md#remote-access-to-services)를 확인합니다. [SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)를 선택하면 샘플 PowerShell 코드가 다음과 같이 표시합니다.
 
 ```powershell
 #Connect to the cluster via SSH.
@@ -120,4 +120,4 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 * [Azure Databricks에서 Azure Data Lake Storage Gen2 지원 계정 사용](./data-lake-storage-quickstart-create-databricks-account.md)
 
-* [파일 및 디렉터리에 대 한 액세스 제어 목록에 대해 알아보기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+* [파일 및 디렉터리에 대 한 액세스 제어 목록에 대해 알아보기](./data-lake-storage-access-control.md)

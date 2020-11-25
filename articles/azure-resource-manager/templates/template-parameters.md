@@ -2,13 +2,13 @@
 title: 템플릿의 매개 변수
 description: Azure Resource Manager 템플릿에서 매개 변수를 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 89c6984c587e8dae59c1825a99d4f8da1c06dafb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 8cdc95037967a32c2d8464f4dc39b1e7369102bb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76122426"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911416"
 ---
 # <a name="parameters-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 매개 변수
 
@@ -16,9 +16,11 @@ ms.locfileid: "76122426"
 
 리소스 관리자는 배포 작업을 시작 하기 전에 매개 변수 값을 확인 합니다. 템플릿에서 매개 변수를 사용 하는 경우에는 리소스 관리자이 매개 변수를 확인 된 값으로 바꿉니다.
 
+각 매개 변수는 [데이터 형식](template-syntax.md#data-types)중 하나로 설정 되어야 합니다.
+
 ## <a name="define-parameter"></a>매개 변수 정의
 
-다음 예제에서는 간단한 매개 변수 정의를 보여 줍니다. **StorageSKU**라는 매개 변수를 정의 합니다. 매개 변수는 문자열 값 이며 원래 용도에 적합 한 값만 허용 합니다. 배포 중에 값이 제공 되지 않는 경우 매개 변수는 기본값을 사용 합니다.
+다음 예제에서는 간단한 매개 변수 정의를 보여 줍니다. **StorageSKU** 라는 매개 변수를 정의 합니다. 매개 변수는 문자열 값 이며 원래 용도에 적합 한 값만 허용 합니다. 배포 중에 값이 제공 되지 않는 경우 매개 변수는 기본값을 사용 합니다.
 
 ```json
 "parameters": {
@@ -57,7 +59,7 @@ ms.locfileid: "76122426"
 
 ## <a name="template-functions"></a>템플릿 함수
 
-매개 변수에 기본값을 지정하는 경우 대부분의 템플릿 함수를 사용할 수 있습니다. 다른 매개 변수 값을 사용하여 기본값을 빌드할 수 있습니다. 다음 템플릿에서는 기본값에서 함수를 사용 하는 방법을 보여 줍니다. 사이트에 대해 이름을 제공 하지 않으면 고유한 문자열 값을 만들어 **사이트**에 추가 합니다. 호스트 계획에 대 한 이름을 제공 하지 않으면 사이트의 값과 추가 **계획**을 사용 합니다.
+매개 변수에 기본값을 지정하는 경우 대부분의 템플릿 함수를 사용할 수 있습니다. 다른 매개 변수 값을 사용하여 기본값을 빌드할 수 있습니다. 다음 템플릿에서는 기본값에서 함수를 사용 하는 방법을 보여 줍니다. 사이트에 대해 이름을 제공 하지 않으면 고유한 문자열 값을 만들어 **사이트** 에 추가 합니다. 호스트 계획에 대 한 이름을 제공 하지 않으면 사이트의 값과 추가 **계획** 을 사용 합니다.
 
 ```json
 "parameters": {

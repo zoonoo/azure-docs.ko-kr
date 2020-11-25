@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ef5384abd63dcd9aeb4789dc4955f4b80068d330
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d239b89aaf0bc140916d38583f4263f7bf660f1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88921242"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023619"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>자습서: WPF를 사용하여 번역 앱 만들기
 
-이 자습서에서는 단일 구독 키를 사용하여 텍스트 번역, 언어 감지 및 맞춤법 검사에서 Azure Cognitive Services를 사용하는 [WPF(Windows Presentation Foundation)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019) 앱을 빌드합니다. 특히 앱은 Translator 및 [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/)에서 API를 호출합니다.
+이 자습서에서는 단일 구독 키를 사용하여 텍스트 번역, 언어 감지 및 맞춤법 검사에서 Azure Cognitive Services를 사용하는 [WPF(Windows Presentation Foundation)](/visualstudio/designers/getting-started-with-wpf?view=vs-2019) 앱을 빌드합니다. 특히 앱은 Translator 및 [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/)에서 API를 호출합니다.
 
 WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니다. WPF 개발 플랫폼은 애플리케이션 모델, 리소스, 컨트롤, 그래픽, 레이아웃, 데이터 바인딩, 문서 및 보안을 포함한 광범위한 애플리케이션 개발 기능을 지원합니다. .NET Framework의 하위 집합이므로 이전에 ASP.NET 또는 Windows Forms를 사용하는 .NET Framework를 통해 앱을 빌드한 경우 프로그래밍 환경에 이미 친숙해져 있습니다. WPF는 XAML(Extensible App Markup Language)을 사용하여 앱 프로그래밍을 위한 선언적 모델을 제공하며, 이 모델은 다음 섹션에서 검토하겠습니다.
 
@@ -40,16 +40,16 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 
 | 서비스 | 기능 | Description |
 |---------|---------|-------------|
-| 변환기 | [언어 가져오기](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | 텍스트 번역에 지원되는 전체 언어 목록을 검색합니다. |
-| 변환기 | [번역](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | 텍스트를 70개가 넘는 언어로 번역합니다. |
-| 변환기 | [검색](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | 입력 텍스트의 언어를 감지합니다. 감지에 대한 신뢰도 점수를 포함합니다. |
-| Bing 맞춤법 검사 | [맞춤법 검사](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | 맞춤법 오류를 수정하여 번역 정확도를 향상시킵니다. |
+| 변환기 | [언어 가져오기](./reference/v3-0-languages.md) | 텍스트 번역에 지원되는 전체 언어 목록을 검색합니다. |
+| 변환기 | [번역](./reference/v3-0-translate.md) | 텍스트를 70개가 넘는 언어로 번역합니다. |
+| 변환기 | [검색](./reference/v3-0-detect.md) | 입력 텍스트의 언어를 감지합니다. 감지에 대한 신뢰도 점수를 포함합니다. |
+| Bing 맞춤법 검사 | [맞춤법 검사](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | 맞춤법 오류를 수정하여 번역 정확도를 향상시킵니다. |
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 계속하기 전에 다음이 필요합니다.
 
-* Azure Cognitive Services 구독. [Cognitive Services 키 가져오기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#create-a-new-azure-cognitive-services-resource).
+* Azure Cognitive Services 구독. [Cognitive Services 키 가져오기](../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).
 * Windows 머신
 * [Visual Studio 2019](https://www.visualstudio.com/downloads/) - Community 또는 Enterprise
 
@@ -60,10 +60,10 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 
 수행해야 하는 첫 번째 작업은 Visual Studio에서 프로젝트를 설정하는 것입니다.
 
-1. Visual Studio를 엽니다. **새 프로젝트 만들기**를 선택합니다.
-1. **새 프로젝트 만들기**에서 **WPF 앱(.NET Framework)** 을 찾아 선택합니다. **언어**에서 C#을 선택하여 옵션의 범위를 좁힐 수 있습니다.
-1. **다음**을 선택한 다음, 프로젝트 `MSTranslatorDemo`의 이름을 지정합니다.
-1. 프레임워크 버전을 **.NET Framework 4.7.2** 이상으로 설정하고, **만들기**를 선택합니다.
+1. Visual Studio를 엽니다. **새 프로젝트 만들기** 를 선택합니다.
+1. **새 프로젝트 만들기** 에서 **WPF 앱(.NET Framework)** 을 찾아 선택합니다. **언어** 에서 C#을 선택하여 옵션의 범위를 좁힐 수 있습니다.
+1. **다음** 을 선택한 다음, 프로젝트 `MSTranslatorDemo`의 이름을 지정합니다.
+1. 프레임워크 버전을 **.NET Framework 4.7.2** 이상으로 설정하고, **만들기** 를 선택합니다.
    ![Visual Studio에서 이름 및 프레임워크 버전 입력](media/name-wpf-project-visual-studio.png)
 
 프로젝트가 만들어졌습니다. 두 개의 탭, `MainWindow.xaml` 및 `MainWindow.xaml.cs`가 열려 있습니다. 이 자습서에서는 이 두 파일에 코드를 추가합니다. 앱의 사용자 인터페이스에 대한 `MainWindow.xaml`을 수정합니다. Translator 및 Bing Spell Check에 대한 호출에 대해 `MainWindow.xaml.cs`를 수정합니다.
@@ -79,30 +79,30 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 
 개체를 직렬화 및 역직렬화하고 HTTP 요청 및 응답을 관리하는 어셈블리를 프로젝트에 추가해 보겠습니다.
 
-1. Visual Studio의 솔루션 탐색기에서 프로젝트를 찾습니다. 마우스 오른쪽 단추로 프로젝트를 클릭한 다음, **추가 > 참조**를 선택합니다. 그러면 **참조 관리자**가 열립니다.
+1. Visual Studio의 솔루션 탐색기에서 프로젝트를 찾습니다. 마우스 오른쪽 단추로 프로젝트를 클릭한 다음, **추가 > 참조** 를 선택합니다. 그러면 **참조 관리자** 가 열립니다.
 1. **어셈블리** 탭에는 참조에 사용할 수 있는 모든 .NET Framework 어셈블리가 나열됩니다. 오른쪽 위에 있는 검색 창을 사용하여 참조를 검색합니다.
    ![어셈블리 참조 추가](media/add-assemblies-2019.png)
 1. 프로젝트에 대해 다음 참조를 선택합니다.
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Runtime.Serialization](/dotnet/api/system.runtime.serialization)
+   * [System.Web](/dotnet/api/system.web)
    * System.Web.Extensions
-   * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
-1. 이러한 참조가 프로젝트에 추가되면 **확인**을 클릭하여 **참조 관리자**를 닫을 수 있습니다.
+   * [System.Windows](/dotnet/api/system.windows)
+1. 이러한 참조가 프로젝트에 추가되면 **확인** 을 클릭하여 **참조 관리자** 를 닫을 수 있습니다.
 
 > [!NOTE]
-> 어셈블리 참조에 대한 자세한 내용은 [방법: 참조 관리자를 사용하여 참조 추가 또는 제거](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019)를 참조하세요.
+> 어셈블리 참조에 대한 자세한 내용은 [방법: 참조 관리자를 사용하여 참조 추가 또는 제거](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019)를 참조하세요.
 
 ### <a name="install-newtonsoftjson"></a>NewtonSoft.Json 설치
 
 앱에서는 NewtonSoft.Json을 사용하여 JSON 개체를 역직렬화합니다. 다음 지침에 따라 패키지를 설치하세요.
 
-1. Visual Studio의 솔루션 탐색기에서 프로젝트를 찾고 마우스 오른쪽 단추로 프로젝트를 클릭합니다. **NuGet 패키지 관리**를 선택합니다.
+1. Visual Studio의 솔루션 탐색기에서 프로젝트를 찾고 마우스 오른쪽 단추로 프로젝트를 클릭합니다. **NuGet 패키지 관리** 를 선택합니다.
 1. **찾아보기** 탭을 찾아서 선택합니다.
 1. [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)을 검색 창에 입력합니다.
 
     ![NewtonSoft.Json 찾기 및 설치](media/nuget-package-manager.png)
 
-1. 패키지를 선택하고 **설치**를 클릭합니다.
+1. 패키지를 선택하고 **설치** 를 클릭합니다.
 1. 설치가 완료되면 탭을 닫습니다.
 
 ## <a name="create-a-wpf-form-using-xaml"></a>XAML을 사용하여 WPF 양식 만들기
@@ -130,7 +130,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 코드를 프로젝트에 추가해 보겠습니다.
 
 1. Visual Studio에서 `MainWindow.xaml` 탭을 선택합니다.
-1. 이 코드를 프로젝트에 복사한 다음, **파일 > MainWindow.xaml 저장**을 선택하여 변경 내용을 저장합니다.
+1. 이 코드를 프로젝트에 복사한 다음, **파일 > MainWindow.xaml 저장** 을 선택하여 변경 내용을 저장합니다.
    ```xaml
    <Window x:Class="MSTranslatorDemo.MainWindow"
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -269,7 +269,7 @@ Translator는 현재 70개가 넘는 언어를 지원합니다. 시간이 지남
 이 섹션에서는 언어 리소스에 대한 `GET` 요청을 만들어 번역에 사용할 수 있는 언어 목록을 지정합니다.
 
 > [!NOTE]
-> 언어 리소스를 사용하여 음역, 사전 및 번역 쿼리 매개 변수를 사용하여 언어 지원을 필터링할 수 있습니다. 자세한 내용은 [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages)를 참조하세요.
+> 언어 리소스를 사용하여 음역, 사전 및 번역 쿼리 매개 변수를 사용하여 언어 지원을 필터링할 수 있습니다. 자세한 내용은 [API 참조](./reference/v3-0-languages.md)를 참조하세요.
 
 더 진행하기 전에 언어 리소스 호출에 대한 출력 샘플을 살펴보겠습니다.
 
@@ -354,10 +354,10 @@ JSON 응답은 구문 분석되어 사전으로 변환됩니다. 그런 다음, 
    // In the following sections, we'll add code below this.
    ```
 
-이 메서드는 `languageCodesAndTitles` 사전을 반복하며 각 키를 두 메뉴에 추가합니다. 메뉴가 채워지면 기본 원래 언어와 번역 대상 언어가 각각 **Detect** 및 **English**로 설정됩니다.
+이 메서드는 `languageCodesAndTitles` 사전을 반복하며 각 키를 두 메뉴에 추가합니다. 메뉴가 채워지면 기본 원래 언어와 번역 대상 언어가 각각 **Detect** 및 **English** 로 설정됩니다.
 
 > [!TIP]
-> 메뉴에 대해 기본 선택 사항을 설정하지 않을 경우 사용자는 "대상" 또는 "원본" 언어를 선택하지 않고 **번역**을 클릭할 수 있습니다. 기본값을 사용하면 이 문제를 처리할 필요가 없습니다.
+> 메뉴에 대해 기본 선택 사항을 설정하지 않을 경우 사용자는 "대상" 또는 "원본" 언어를 선택하지 않고 **번역** 을 클릭할 수 있습니다. 기본값을 사용하면 이 문제를 처리할 필요가 없습니다.
 
 `MainWindow`가 초기화되고 사용자 인터페이스가 만들어졌으므로 **번역** 단추를 클릭해야 이 코드가 실행됩니다.
 
@@ -560,7 +560,7 @@ private string CorrectSpelling(string text)
    }
    ```
 
-첫 번째 단계는 "from"(원래) 및 "to"(번역 대상) 언어와 사용자가 양식에 입력한 텍스트를 가져오는 것입니다. 원본 언어가 **Detect**로 설정되면 원본 텍스트의 언어를 판별하기 위해 `DetectLanguage()`이 호출됩니다. 텍스트는 Translator에서 지원하지 않는 언어로 되어 있을 수 있습니다. 이 경우 메시지를 표시하여 사용자에게 알리고, 텍스트를 번역하지 않고 돌아갑니다.
+첫 번째 단계는 "from"(원래) 및 "to"(번역 대상) 언어와 사용자가 양식에 입력한 텍스트를 가져오는 것입니다. 원본 언어가 **Detect** 로 설정되면 원본 텍스트의 언어를 판별하기 위해 `DetectLanguage()`이 호출됩니다. 텍스트는 Translator에서 지원하지 않는 언어로 되어 있을 수 있습니다. 이 경우 메시지를 표시하여 사용자에게 알리고, 텍스트를 번역하지 않고 돌아갑니다.
 
 지정 또는 감지되었는지에 관계없이 원본 언어가 영어인 경우 `CorrectSpelling()`을 사용하여 텍스트 맞춤법을 검사하고 수정 사항을 적용합니다. 수정된 텍스트가 텍스트 영역에 다시 추가되므로 사용자가 수정되었음을 알 수 있습니다.
 
@@ -581,4 +581,4 @@ private string CorrectSpelling(string text)
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator 참조](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+> [Microsoft Translator 참조](./reference/v3-0-reference.md)

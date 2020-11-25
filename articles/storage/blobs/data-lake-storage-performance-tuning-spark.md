@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 8ae9f96b42c0eb36a9380589780d141711c7ae4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c99d57ddd86ecff71c35ad6c0f2c2561e279b4b0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88034736"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912810"
 ---
 # <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>성능 조정: Spark, HDInsight & Azure Data Lake Storage Gen2
 
@@ -23,9 +23,9 @@ Spark에서 성능을 조정할 때 클러스터에서 실행될 앱 수를 고�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure Data Lake Storage Gen2 계정**. 만드는 방법에 대 한 지침은 [빠른 시작: Azure Data Lake Storage Gen2 저장소 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조 하세요.
-* Data Lake Storage Gen2 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)을 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
-* **Data Lake Storage Gen2에서 Spark 클러스터 실행**.  자세한 내용은 [HDInsight Spark 클러스터를 사용하여 Data Lake Storage Gen2의 데이터 분석](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)을 참조하세요.
+* **Azure Data Lake Storage Gen2 계정**. 만드는 방법에 대 한 지침은 [빠른 시작: Azure Data Lake Storage Gen2 저장소 계정 만들기](../common/storage-account-create.md)를 참조 하세요.
+* Data Lake Storage Gen2 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)을 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
+* **Data Lake Storage Gen2에서 Spark 클러스터 실행**.  자세한 내용은 [HDInsight Spark 클러스터를 사용하여 Data Lake Storage Gen2의 데이터 분석](../../hdinsight/spark/apache-spark-use-with-data-lake-store.md)을 참조하세요.
 * **Data Lake Storage Gen2에 대한 성능 튜닝 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen2 성능 조정 지침](data-lake-storage-performance-tuning-guidance.md) 을 참조 하세요. 
 
 ## <a name="parameters"></a>매개 변수
@@ -124,4 +124,3 @@ executor-memory = 6GB
 - num 실행자 = Min (메모리 제약 조건, CPU 제약 조건)
 - num 실행자 = Min (16, 16)
 - num 실행자 = 16
-

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 11/18/2020
 ms.author: procha
 ms.reviewer: jrasnick
-ms.openlocfilehash: 27f6f0b1ece7cd1f890d76e912b5e304af46b0cd
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 861b963922d64926266b42a23f85e9dc30fda7a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95819299"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95903987"
 ---
 # <a name="compatibility-issues-with-third-party-applications-and-azure-synapse-analytics"></a>타사 응용 프로그램 및 Azure Synapse Analytics와의 호환성 문제
 
@@ -43,7 +43,6 @@ Azure Synapse 전용 SQL 풀에 연결 된 Tableau를 사용 하는 경우이 �
 아래 예에서는 SQL 연결 문자열에 FMTONLY = YES 매개 변수를 전달 하는 Tableau TDC 파일을 보여 줍니다.
 
 ```json
-
 <connection-customization class='azure_sql_dw' enabled='true' version='18.1'>
     <vendor name='azure_sql_dw' />
     <driver name='azure_sql_dw' />
