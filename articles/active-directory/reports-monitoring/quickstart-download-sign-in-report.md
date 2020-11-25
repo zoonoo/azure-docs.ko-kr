@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86bc72f69903134afa3750ad6b72486a713b6cc0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "68989666"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011917"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 로그인 보고서 다운로드
 
@@ -38,10 +38,10 @@ ms.locfileid: "68989666"
 ## <a name="quickstart-download-a-sign-in-report"></a>빠른 시작: 로그인 보고서 다운로드
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-2. 왼쪽 탐색 창에서 **Azure Active Directory**를 선택하고 **디렉터리 전환** 단추를 사용하여 Active Directory를 선택합니다.
-3. 대시보드에서 **Azure Active Directory**를 선택한 다음, **로그인**을 선택합니다. 
-4. **날짜** 필터 드롭다운에서 **지난 24시간**을 선택하고 **적용**을 선택하여 지난 24시간 동안의 로그인을 확인합니다. 
-5. **다운로드** 단추를 선택하고 파일 형식으로 **CSV**를 선택한 후 필터링된 레코드가 포함된 CSV 파일을 다운로드할 파일 이름을 지정합니다. 
+2. 왼쪽 탐색 창에서 **Azure Active Directory** 를 선택하고 **디렉터리 전환** 단추를 사용하여 Active Directory를 선택합니다.
+3. 대시보드에서 **Azure Active Directory** 를 선택한 다음, **로그인** 을 선택합니다. 
+4. **날짜** 필터 드롭다운에서 **지난 24시간** 을 선택하고 **적용** 을 선택하여 지난 24시간 동안의 로그인을 확인합니다. 
+5. **다운로드** 단추를 선택하고 파일 형식으로 **CSV** 를 선택한 후 필터링된 레코드가 포함된 CSV 파일을 다운로드할 파일 이름을 지정합니다. 
 
 ![보고](./media/quickstart-download-sign-in-report/download-sign-ins.png)
 

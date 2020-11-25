@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9797024315a8fdc744d08863a42fba0b0b16420
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: fa502f5ca95b1726da7f00f987b35be362ae865a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660341"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021761"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열
 
@@ -35,7 +35,7 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
 
 Azure AD 자격 증명을 사용하거나 스토리지 계정 액세스 키를 사용하여 Azure CLI에서 Blob 스토리지에 대한 액세스 권한을 부여할 수 있습니다. Azure AD 자격 증명을 사용하는 것이 좋습니다. 이 문서에서는 Azure AD를 사용하여 Blob 스토리지 작업에 권한을 부여하는 방법을 보여 줍니다.
 
-Blob 스토리지에 대한 데이터 작업에 사용하는 Azure CLI 명령은 지정된 작업에 권한을 부여하는 방법을 지정할 수 있는 `--auth-mode` 매개 변수를 지원합니다. Azure AD 자격 증명을 사용하여 권한을 부여하려면 `--auth-mode` 매개 변수를 `login`으로 설정합니다. 자세한 내용은 [Azure CLI를 사용하여 Blob 또는 큐 데이터에 대한 액세스 권한 부여](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
+Blob 스토리지에 대한 데이터 작업에 사용하는 Azure CLI 명령은 지정된 작업에 권한을 부여하는 방법을 지정할 수 있는 `--auth-mode` 매개 변수를 지원합니다. Azure AD 자격 증명을 사용하여 권한을 부여하려면 `--auth-mode` 매개 변수를 `login`으로 설정합니다. 자세한 내용은 [Azure CLI를 사용하여 Blob 또는 큐 데이터에 대한 액세스 권한 부여](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
 
 Blob 스토리지 데이터 작업만 `--auth-mode` 매개 변수를 지원합니다. 리소스 그룹 또는 스토리지 계정 만들기와 같은 관리 작업은 Azure AD 자격 증명을 권한 부여에 자동으로 사용합니다.
 
@@ -89,7 +89,7 @@ az storage container create \
 > [!IMPORTANT]
 > Azure 역할 할당을 전파하는 데 몇 분 정도 걸릴 수 있습니다.
 
-스토리지 계정 키를 사용하여 컨테이너를 만들도록 작업에 권한을 부여할 수도 있습니다. Azure CLI 사용하여 데이터 작업에 권한을 부여하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 blob 또는 큐 데이터에 대한 액세스 권한 부여](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json)를 참조하세요.
+스토리지 계정 키를 사용하여 컨테이너를 만들도록 작업에 권한을 부여할 수도 있습니다. Azure CLI 사용하여 데이터 작업에 권한을 부여하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 blob 또는 큐 데이터에 대한 액세스 권한 부여](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
 
 ## <a name="upload-a-blob"></a>Blob 업로드
 
@@ -169,4 +169,4 @@ az group delete \
 이 빠른 시작에서는 로컬 파일 시스템과 Azure Blob 스토리지의 컨테이너 간에 파일을 전송하는 방법을 알아보았습니다. Azure CLI를 통해 Blob 스토리지를 사용하는 방법에 대해 자세히 알아보려면 Blob 스토리지용 Azure CLI 샘플을 살펴보세요.
 
 > [!div class="nextstepaction"]
-> [Blob 스토리지용 Azure CLI 샘플](/azure/storage/blobs/storage-samples-blobs-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Blob 스토리지용 Azure CLI 샘플](./storage-samples-blobs-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

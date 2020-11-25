@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 434f112e78938c94d887423316fccea270059b6b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 641117414c855a044d3ed55004b6e6ea15b259ac
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109020"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004741"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>빠른 시작: Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
@@ -39,8 +39,8 @@ Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* Azure Storage 계정 - [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* [Mobile Development for .NET 워크로드](https://docs.microsoft.com/xamarin/get-started/installation/?pivots=windows)가 설치된 Visual Studio 또는 [Mac용 Visual Studio](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
+* [Mobile Development for .NET 워크로드](/xamarin/get-started/installation/?pivots=windows)가 설치된 Visual Studio 또는 [Mac용 Visual Studio](/visualstudio/mac/installation?view=vsmac-2019)
 
 ## <a name="setting-up"></a>설치
     
@@ -53,8 +53,8 @@ Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
 ### <a name="install-the-package"></a>패키지 설치
 
-1. 솔루션 탐색기 창에서 해당 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션에 대한 NuGet 패키지 관리**를 선택합니다.
-1. **Azure.Storage.Blobs**를 검색하고 솔루션의 모든 프로젝트에 안정적인 최신 버전을 설치합니다.
+1. 솔루션 탐색기 창에서 해당 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션에 대한 NuGet 패키지 관리** 를 선택합니다.
+1. **Azure.Storage.Blobs** 를 검색하고 솔루션의 모든 프로젝트에 안정적인 최신 버전을 설치합니다.
 
 ### <a name="set-up-the-app-framework"></a>앱 프레임워크 설정
 

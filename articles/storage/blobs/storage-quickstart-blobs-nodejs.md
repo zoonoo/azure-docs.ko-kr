@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 54bf6265a5b440e5c450d21b192acc2f7024f938
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ed3a88dbca1788a5c5a265fe91bdd5e88ae1fe36
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91307537"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012768"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>빠른 시작: Node.js에서 JavaScript v12 SDK를 사용하여 Blob 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "91307537"
 * [API 참조 설명서](/javascript/api/@azure/storage-blob)
 * [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [패키지(Node 패키지 관리자)](https://www.npmjs.com/package/@azure/storage-blob)
-* [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [샘플](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -40,7 +40,7 @@ ms.locfileid: "91307537"
 
 ### <a name="create-the-project"></a>프로젝트 만들기
 
-*blob-quickstart-v12*라는 JavaScript 애플리케이션을 만듭니다.
+*blob-quickstart-v12* 라는 JavaScript 애플리케이션을 만듭니다.
 
 1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 프로젝트에 대한 새 디렉터리를 만듭니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "91307537"
     cd blob-quickstart-v12
     ```
 
-1. *package.json*라는 새 텍스트 파일을 만듭니다. 이 파일은 Node.js 프로젝트를 정의합니다. *blob-quickstart-v12* 디렉터리에 이 파일을 저장합니다. 파일 콘텐츠는 다음과 같습니다.
+1. *package.json* 라는 새 텍스트 파일을 만듭니다. 이 파일은 Node.js 프로젝트를 정의합니다. *blob-quickstart-v12* 디렉터리에 이 파일을 저장합니다. 파일 콘텐츠는 다음과 같습니다.
 
     ```json
     {
@@ -107,7 +107,7 @@ npm install
     main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
     ```
 
-1. 새 파일을 *blob-quickstart-v12* 디렉터리에 *blob-quickstart-v12.js*로 저장합니다.
+1. 새 파일을 *blob-quickstart-v12* 디렉터리에 *blob-quickstart-v12.js* 로 저장합니다.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -314,6 +314,6 @@ Done
 > [!div class="nextstepaction"]
 > [Azure for JavaScript 개발자 센터](/azure/developer/javascript/)
 
-* Azure Blob 스토리지를 사용하는 웹앱을 배포하는 방법에 대한 자세한 내용은 [자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드](/azure/storage/blobs/storage-upload-process-images?tabs=javascript&preserve-view=true)를 참조하세요.
+* Azure Blob 스토리지를 사용하는 웹앱을 배포하는 방법에 대한 자세한 내용은 [자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드](./storage-upload-process-images.md?preserve-view=true&tabs=javascript)를 참조하세요.
 * Blob 스토리지 샘플 앱을 보려면 [Azure Blob 스토리지 클라이언트 라이브러리 v12 JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)을 계속 진행하세요.
 * 자세한 내용은 [JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob)를 참조하세요.

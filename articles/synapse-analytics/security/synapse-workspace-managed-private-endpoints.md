@@ -9,11 +9,11 @@ ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 930c1f94446eb145a093bf7a8706485d40eec210
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379676"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998178"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Synapse 관리형 프라이빗 엔드포인트(미리 보기)
 

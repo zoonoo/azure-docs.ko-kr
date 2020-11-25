@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: f920a937f4b9b51f9babd03ed0fb42dd3c7775d8
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2477107105b6dbcab96db8d44ac982554dc0c48d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217792"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543173"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>빠른 시작: Azure Storage Explorer를 사용하여 Blob 만들기
 
@@ -56,7 +56,7 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 
 컨테이너 리본에서 **업로드** 를 선택합니다. 이 작업에서는 폴더나 파일을 업로드할 수 있는 옵션이 제공됩니다.
 
-업로드할 파일 또는 폴더를 선택합니다. **Blob 유형** 을 선택합니다. 사용할 수 있는 선택 사항은 **추가** , **페이지** 또는 **블록** Blob입니다.
+업로드할 파일 또는 폴더를 선택합니다. **Blob 유형** 을 선택합니다. 사용할 수 있는 선택 사항은 **추가**, **페이지** 또는 **블록** Blob입니다.
 
 .vhd 또는 .vhdx 파일을 업로드하는 경우 **.vhd/.vhdx 파일을 페이지 blob으로 업로드(권장)** 를 선택합니다.
 
@@ -78,7 +78,7 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 
 ## <a name="manage-snapshots"></a>스냅샷 관리
 
-Azure Storage Explorer는 Blob의 [스냅샷](storage-blob-snapshots.md)을 가져와서 관리할 수 있는 기능을 제공합니다. Blob 스냅샷을 생성하려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅샷 만들기** 를 선택합니다. Blob의 스냅샷을 보려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅샷 관리** 를 선택합니다. Blob의 스냅샷 목록이 현재 탭에 표시됩니다.
+Azure Storage Explorer는 Blob의 [스냅샷](./snapshots-overview.md)을 가져와서 관리할 수 있는 기능을 제공합니다. Blob 스냅샷을 생성하려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅샷 만들기** 를 선택합니다. Blob의 스냅샷을 보려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅샷 관리** 를 선택합니다. Blob의 스냅샷 목록이 현재 탭에 표시됩니다.
 
 ![Microsoft Azure Storage Explorer의 Blob 목록을 보여주는 스크린샷.](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 
@@ -99,4 +99,4 @@ SAS(공유 액세스 서명)는 Storage Explorer를 통해 검색할 수 있습�
 이 빠른 시작에서는 **Azure Storage Explorer** 를 사용하여 로컬 디스크와 Azure Blob Storage 간에 파일을 전송하는 방법을 학습했습니다. Blob Storage를 사용하는 방법을 자세히 알아보려면 계속해서 Blob Storage 방법을 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Blob Storage 작업 방법](storage-how-to-use-blobs-powershell.md)
+> [Blob Storage 작업 방법](./storage-quickstart-blobs-powershell.md)

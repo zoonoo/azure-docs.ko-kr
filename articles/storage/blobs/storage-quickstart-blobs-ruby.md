@@ -7,12 +7,12 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 8c24c5f043d17b5f0e54ca1c2c6cf41a0d3fe9bc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0bde1b7be15d49d82818f26d07c2ec633dc4526c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "68726363"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523266"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>빠른 시작: Ruby를 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -25,7 +25,7 @@ ms.locfileid: "68726363"
 다음 추가 필수 구성 요소를 설치했는지 확인합니다.
 
 * [Ruby](https://www.ruby-lang.org/en/downloads/)
-* rubygem 패키지를 사용하여 [Ruby용 Azure Storage 라이브러리](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage) 
+* rubygem 패키지를 사용하여 [Ruby용 Azure Storage 라이브러리]() 
 
     ```
     gem install azure-storage-blob
@@ -90,9 +90,9 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 Cloud Blob 컨테이너가 있으면 관심 있는 특정 blob을 가리키는 **Block** Blob 개체를 만들고, 업로드, 다운로드, 복사 등의 작업을 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
+> 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
-이 섹션에서는 Azure Storage 클라이언트의 인스턴스를 설정하고 Blob 서비스 객체를 인스턴스화하고 새 컨테이너를 만든 다음 Blob이 공개되도록 컨테이너에 대한 권한을 설정합니다. 컨테이너를 **quickstartblobs**로 지칭합니다. 
+이 섹션에서는 Azure Storage 클라이언트의 인스턴스를 설정하고 Blob 서비스 객체를 인스턴스화하고 새 컨테이너를 만든 다음 Blob이 공개되도록 컨테이너에 대한 권한을 설정합니다. 컨테이너를 **quickstartblobs** 로 지칭합니다. 
 
 ```ruby 
 # Create a BlobService object
@@ -115,7 +115,7 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 
 Blob에 파일을 업로드하려면 로컬 드라이브에서 디렉터리 이름과 파일 이름을 조인하여 파일의 전체 경로를 가져옵니다. 그런 다음 **create\_block\_blob()** 메서드를 사용하여 지정된 경로에 파일을 업로드할 수 있습니다. 
 
-샘플 코드는 업로드 및 다운로드에 사용할 로컬 파일을 만들고 해당 파일이 **file\_path\_to\_file** 및 Blob 이름 **local\_file\_name**으로 업로드되게 저장합니다. 다음 예제에서는 **quickstartblobs**라는 저장소에 이 파일을 업로드합니다.
+샘플 코드는 업로드 및 다운로드에 사용할 로컬 파일을 만들고 해당 파일이 **file\_path\_to\_file** 및 Blob 이름 **local\_file\_name** 으로 업로드되게 저장합니다. 다음 예제에서는 **quickstartblobs** 라는 저장소에 이 파일을 업로드합니다.
 
 ```ruby
 # Create a file in Documents to test the upload and download.
@@ -189,7 +189,7 @@ Blob Storage를 사용하여 Ruby 응용 프로그램을 개발하기 위한 추
 이 빠른 시작 가이드에서는 Ruby를 사용하여 로컬 디스크와 Azure Blob Storage 간에 파일을 전송하는 방법을 알아보았습니다. Blob Storage를 사용하는 방법을 자세히 알아보려면 계속해서 Blob Storage 방법을 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Blob Storage 작업 방법](./storage-ruby-how-to-use-blob-storage.md)
+> [Blob Storage 작업 방법]()
 
 
 Storage Explorer 및 Blob에 대한 자세한 내용은 [Storage Explorer를 사용하여 Azure Blob Storage 리소스 관리](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 454bdaeb83e329ae059d6450b928d1286cd9552a
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 9d3c3dc3b9a83973e41bf5d7dd204316508c2cb4
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555739"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96013397"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>빠른 시작: Azure Data Factory UI를 사용하여 데이터 팩터리 만들기 
 
@@ -156,6 +156,7 @@ ms.locfileid: "94555739"
 1. **속성** 아래의 일반 패널에서 **이름** 에 **CopyPipeline** 을 지정합니다. 그런 다음, 오른쪽 위 모서리에 있는 속성 아이콘을 클릭하여 패널을 축소합니다.
 
 1. **활동** 도구 상자에서 **이동 및 변환** 을 펼칩니다. **데이터 복사** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. 또한 **활동** 도구 상자에서 활동을 검색할 수도 있습니다. **이름** 에 대해 **CopyFromBlobToBlob** 을 지정합니다.
+
    ![데이터 복사 작업 만들기](./media/quickstart-create-data-factory-portal/copy-activity.png)
 
 1. 복사 활동 설정의 **원본** 탭으로 전환하고, **원본 데이터 세트** 에 대해 **InputDataset** 를 선택합니다.
@@ -163,6 +164,7 @@ ms.locfileid: "94555739"
 1. 복사 활동 설정의 **싱크** 탭으로 전환하고, **싱크 데이터 세트** 에 대해 **OutputDataset** 를 선택합니다.
 
 1. 캔버스 위에 있는 파이프라인 도구 모음에서 **유효성 검사** 를 클릭하여 파이프라인 설정의 유효성을 검사합니다. 파이프라인에 대한 유효성이 성공적으로 검사되었는지 확인합니다. 유효성 검사 출력을 닫으려면 **>>** (오른쪽 화살표) 단추를 선택합니다. 
+
    ![파이프라인 유효성 검사](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
 
 ## <a name="debug-the-pipeline"></a>파이프라인 디버깅
@@ -180,6 +182,7 @@ ms.locfileid: "94555739"
 이 절차에서는 엔터티(연결된 서비스, 데이터 세트, 파이프라인)를 Azure Data Factory에 배포합니다. 그런 다음 파이프라인 실행을 수동으로 트리거합니다. 
 
 1. 파이프라인을 트리거하기 전에 엔터티를 데이터 팩터리에 게시해야 합니다. 게시하려면 맨 위에서 **모두 게시** 를 선택합니다. 
+
     ![모두 게시](./media/quickstart-create-data-factory-portal/publish-all.png)
 
 1. 파이프라인을 수동으로 트리거하려면 파이프라인 도구 모음에서 **트리거 추가** 를 선택한 다음, **지금 트리거** 를 선택합니다. **파이프라인 실행** 페이지에서 **마침** 을 선택합니다.
