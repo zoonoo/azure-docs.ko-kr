@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
 ms.openlocfilehash: 109e96f862ec2f3ddf879bccba114c44aecfe3c8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440606"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012598"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 Windows 이벤트 로그 데이터 원본 수집
 Windows 이벤트 로그는 windows 이벤트 로그에 많은 응용 프로그램을 작성 하기 때문에 Windows 가상 컴퓨터의 Log Analytics 에이전트에 대 한 가장 일반적인 [데이터 원본](agent-data-sources.md) 중 하나입니다.  모니터링해야 하는 애플리케이션에서 만든 모든 사용자 지정 로그를 지정하는 것 외에 시스템 및 애플리케이션 같은 표준 로그에서 이벤트를 수집할 수 있습니다.
@@ -26,7 +26,7 @@ Log Analytics 작업 영역에 대 한 [고급 설정의 데이터 메뉴](agent
 
 Azure Monitor에서는 설정에 지정된 Windows 이벤트 로그에서만 이벤트를 수집합니다.  로그 이름을 입력 하 고를 클릭 하 여 이벤트 로그를 추가할 수 있습니다 **+** .  각 로그의 경우 선택한 심각도의 이벤트만 수집됩니다.  수집하려는 특정 로그에 대한 심각도를 확인합니다.  이벤트를 필터링할 추가 조건을 제공할 수 없습니다.
 
-이벤트 로그 이름을 입력하면 Azure Monitor는 일반적인 이벤트 로그 이름을 제안합니다. 추가하려는 로그가 목록에 나타나지 않으면 로그의 전체 이름을 입력하여 추가할 수 있습니다. 이벤트 뷰어를 사용하여 로그의 전체 이름을 찾을 수 있습니다. 이벤트 뷰어에서 로그의 *속성*을 열고 *전체 이름* 필드에서 문자열을 복사합니다.
+이벤트 로그 이름을 입력하면 Azure Monitor는 일반적인 이벤트 로그 이름을 제안합니다. 추가하려는 로그가 목록에 나타나지 않으면 로그의 전체 이름을 입력하여 추가할 수 있습니다. 이벤트 뷰어를 사용하여 로그의 전체 이름을 찾을 수 있습니다. 이벤트 뷰어에서 로그의 *속성* 을 열고 *전체 이름* 필드에서 문자열을 복사합니다.
 
 ![Windows 이벤트 구성](media/data-sources-windows-events/configure.png)
 
@@ -37,7 +37,7 @@ Azure Monitor에서는 설정에 지정된 Windows 이벤트 로그에서만 이
 Azure Monitor에서는 이벤트가 생성될 때 모니터링되는 이벤트 로그에서 선택한 심각도와 일치하는 각 이벤트를 수집합니다.  에이전트는 수집하는 각 이벤트 로그에 해당 위치를 기록합니다.  에이전트가 일정 기간 동안 오프라인 상태로 전환된 경우 마지막으로 오프라인 상태가 유지된 위치에서 이벤트를 수집하며, 이는 에이전트가 오프라인 상태에 있는 동안 해당 이벤트가 생성된 경우에도 마찬가지입니다.  에이전트가 오프라인 상태인 동안 이벤트 로그가 수집되지 않은 이벤트로 래핑하여 덮어쓰여지면 이벤트가 수집되지 않을 가능성이 있습니다.
 
 >[!NOTE]
->Azure Monitor는 키워드 *클래식* 또는 *감사 성공* 및 키워드 *0xa0000000000000*을 포함하는 이벤트 ID 18453과 함께 원본 *MSSQLSERVER*의 SQL Server에서 생성되는 감사 이벤트를 수집하지 않습니다.
+>Azure Monitor는 키워드 *클래식* 또는 *감사 성공* 및 키워드 *0xa0000000000000* 을 포함하는 이벤트 ID 18453과 함께 원본 *MSSQLSERVER* 의 SQL Server에서 생성되는 감사 이벤트를 수집하지 않습니다.
 >
 
 ## <a name="windows-event-records-properties"></a>Windows 이벤트 레코드 속성

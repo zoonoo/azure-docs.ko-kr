@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: d222234cd6ff3d910e6dbc51a394695ce467edce
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793299"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011860"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>분할된 다중 테넌트 데이터베이스를 사용하는 SaaS 애플리케이션에서 스키마 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -125,7 +125,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
     - *server* 대상 구성원 유형.
         - 테넌트 데이터베이스를 포함하는 *tenants1-mt-&lt;user&gt;* 서버입니다.
         - 서버를 포함시키면 작업이 실행되는 시점에 존재하는 테넌트 데이터베이스가 포함됩니다.
-    - *catalog-mt-&lt;user&gt;* 서버에 있는 템플릿 데이터베이스( *basetenantdb* )의 *database* 대상 구성원 유형
+    - *catalog-mt-&lt;user&gt;* 서버에 있는 템플릿 데이터베이스(*basetenantdb*)의 *database* 대상 구성원 유형
     - 이후 자습서에서 사용되는 *adhocreporting* 데이터베이스를 포함할 *database* 대상 구성원 유형.
 
 - **sp\_add\_job** 은 *참조 데이터 배포* 라는 작업을 만듭니다.

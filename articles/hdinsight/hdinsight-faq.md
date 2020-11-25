@@ -10,11 +10,11 @@ ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.openlocfilehash: 0240510a2232bd12a94d5cdd59672270289e5e8f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547523"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011832"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: 질문과 대답
 
@@ -178,7 +178,7 @@ Vm을 도메인에 가입 시키려면 도메인 컨트롤러가 있어야 합�
 
 ### <a name="can-i-use-a-self-signed-certificate-in-an-aad-ds-secure-ldap-setup-and-provision-an-esp-cluster"></a>AAD DS secure LDAP 설정에서 자체 서명 된 인증서를 사용 하 고 ESP 클러스터를 프로 비전 할 수 있나요?
 
-인증 기관에서 발급 한 인증서를 사용 하는 것이 좋습니다. 하지만 자체 서명 된 인증서를 사용 하는 것은 ESP 에서도 지원 됩니다. 자세한 내용은 다음을 참조하세요.
+인증 기관에서 발급 한 인증서를 사용 하는 것이 좋습니다. 하지만 자체 서명 된 인증서를 사용 하는 것은 ESP 에서도 지원 됩니다. 자세한 내용은 다음을 참조하십시오.
 
 - [Azure Active Directory Domain Services 활성화](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
 
@@ -229,7 +229,7 @@ Azure Portal의 클러스터 속성에서 **Data Lake Storage Gen1 액세스** �
 
 - [PowerShell 사용](../storage/scripts/storage-blobs-container-calculate-size-powershell.md)
 
-- /User/hive/.의 크기를 확인 합니다.  다음 명령줄을 사용 하 여 HDInsight 클러스터의 휴지통/폴더:
+- /User/hive/.의 크기를 확인 합니다. ** 다음 명령줄을 사용 하 여 HDInsight 클러스터의 휴지통/폴더:
   
   `hdfs dfs -du -h /user/hive/.Trash/`
 
@@ -255,7 +255,7 @@ done
 
 현재 blob storage 및 Azure Data Lake Storage Gen1 또는 Gen2에 대 한 레인저 플러그 인이 없습니다. ESP 클러스터의 경우 Azure Data Lake Storage를 사용 해야 합니다. 최소한 HDFS 도구를 사용 하 여 파일 시스템 수준에서 미세 사용 권한을 수동으로 설정할 수 있습니다. 또한 Azure Data Lake Storage 사용 하는 경우 ESP 클러스터는 클러스터 수준에서 Azure Active Directory을 사용 하 여 파일 시스템 액세스 제어 중 일부를 수행 합니다. 
 
-Azure Storage 탐색기를 사용 하 여 사용자의 보안 그룹에 데이터 액세스 정책을 할당할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+Azure Storage 탐색기를 사용 하 여 사용자의 보안 그룹에 데이터 액세스 정책을 할당할 수 있습니다. 자세한 내용은 다음을 참조하십시오.
 
 - [Hive 또는 다른 서비스를 사용 하 여 Data Lake Storage Gen2에서 데이터를 쿼리할 수 있도록 Azure AD 사용자에 대 한 권한을 설정 어떻게 할까요??](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
 - [Azure Data Lake Storage Gen2와 함께 Azure Storage Explorer를 사용하여 파일 및 디렉터리 수준 사용 권한 설정](../storage/blobs/data-lake-storage-explorer.md)

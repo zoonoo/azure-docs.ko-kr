@@ -8,11 +8,11 @@ ms.date: 06/16/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 9c204a07e3c5edff028342af1c88b15ebac0754b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743649"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012223"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>자습서: Azure에서 Node.js 및 MongoDB 앱 빌드
 
@@ -287,7 +287,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 Node.js 코드에서는 다른 환경 변수에 액세스할 때와 마찬가지로 `process.env.MONGODB_URI`를 사용하여 [이 앱 설정에 액세스](configure-language-nodejs.md#access-environment-variables)합니다. 
 
-로컬 MEAN.js 리포지토리에서 _config/env/production.js_ ( _config/env/local-production.js_ 아님)를 엽니다. 여기에는 프로덕션 환경 특정 구성이 있습니다. 기본 MEAN.js 앱은 만든 `MONGODB_URI` 환경 변수를 사용하도록 이미 구성되어 있습니다.
+로컬 MEAN.js 리포지토리에서 _config/env/production.js_(_config/env/local-production.js_ 아님)를 엽니다. 여기에는 프로덕션 환경 특정 구성이 있습니다. 기본 MEAN.js 앱은 만든 `MONGODB_URI` 환경 변수를 사용하도록 이미 구성되어 있습니다.
 
 ```javascript
 db: {

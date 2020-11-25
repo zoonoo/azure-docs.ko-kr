@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
 ms.openlocfilehash: 9a074be9bcc62d8c20635400f462f52fb796d2fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294311"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012325"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 
@@ -30,7 +30,7 @@ ms.locfileid: "91294311"
 
 기본 webhook 작업 속성 및 해당 사용자 지정 JSON 매개 변수 이름:
 
-| 매개 변수 | 변수 | 설명 |
+| 매개 변수 | 변수 | Description |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |경고 규칙의 이름입니다. |
 | *심각도* |#severity |실행된 로그 경고에 대해 설정된 심각도입니다. |
@@ -55,7 +55,7 @@ ms.locfileid: "91294311"
 ## <a name="custom-webhook-payload-definition"></a>사용자 지정 webhook 페이로드 정의
 
 위의 매개 변수를 사용 하 여 사용자 지정 JSON 페이로드를 가져오기 위해 **webhook에 대 한 사용자 지정 json 페이로드 포함** 을 사용할 수 있습니다. 추가 속성을 생성할 수도 있습니다.
-예를 들어 *text*라는 단일 매개변수를 포함하는 다음과 같은 사용자 지정 페이로드를 지정할 수 있습니다. 이 webhook가 호출 하는 서비스에는 다음 매개 변수가 필요 합니다.
+예를 들어 *text* 라는 단일 매개변수를 포함하는 다음과 같은 사용자 지정 페이로드를 지정할 수 있습니다. 이 webhook가 호출 하는 서비스에는 다음 매개 변수가 필요 합니다.
 
 ```json
 
