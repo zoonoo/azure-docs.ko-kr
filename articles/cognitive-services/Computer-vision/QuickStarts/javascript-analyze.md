@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 573937638ac0ba1c9db6f1410b9a09f4d79e0056
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a99436a65a97ae1536bd0e950a29145ccb5c669b
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542799"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746254"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 JavaScript를 사용하여 원격 이미지 분석
 
@@ -211,4 +211,4 @@ Image to analyze:
 Computer Vision을 사용하여 OCR(광학 문자 인식)을 수행하고, 스마트하게 잘리는 썸네일을 만들고, 이미지에서 얼굴을 비롯한 시각적 기능을 검색하고, 분류하고, 태그를 지정하고, 설명하는 JavaScript 애플리케이션을 탐색합니다. Computer Vision API를 사용하여 신속하게 실험하려면 [API 테스트 콘솔 열기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console)를 사용하세요.
 
 > [!div class="nextstepaction"]
-> [Computer Vision API JavaScript 자습서](../Tutorials/javascript-tutorial.md)
+> [Computer Vision API JavaScript 자습서](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 214cdbd5ad30ad096cb6c9d1442936eefb2b2054
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e46bb87788de27916860720284087643db7153dc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674867"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913405"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 ACL 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "92674867"
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-> * HNS(계층 구조 네임스페이스)를 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](data-lake-storage-quickstart-create-account.md)을 수행합니다.
+> * HNS(계층 구조 네임스페이스)를 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](../common/storage-account-create.md)을 수행합니다.
 > * 로컬 컴퓨터에 설치 된 Azure Storage 탐색기 Windows, Macintosh 또는 Linux용 Azure Storage Explorer를 설치하려면 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 참조하세요.
 
 ## <a name="sign-in-to-storage-explorer"></a>Storage Explorer에 로그인
@@ -95,11 +95,11 @@ Storage Explorer를 처음 시작할 때 **Microsoft Azure Storage Explorer - �
 
 할당할 수 있는 사용 권한의 두 가지 범주는 액세스 ACL 및 기본 ACL입니다.
 
-* **액세스** : 액세스 acl은 개체에 대 한 액세스를 제어 합니다. 파일과 디렉터리 모두에 액세스 ACL이 있습니다.
+* **액세스**: 액세스 acl은 개체에 대 한 액세스를 제어 합니다. 파일과 디렉터리 모두에 액세스 ACL이 있습니다.
 
-* **기본값** : 디렉터리에 생성 된 모든 자식 항목의 액세스 acl을 결정 하는 디렉터리와 연결 된 acl의 템플릿입니다. 파일에는 기본 ACL이 없습니다.
+* **기본값**: 디렉터리에 생성 된 모든 자식 항목의 액세스 acl을 결정 하는 디렉터리와 연결 된 acl의 템플릿입니다. 파일에는 기본 ACL이 없습니다.
 
-이러한 두 범주에는 파일 또는 디렉터리에 대 한 **읽기** , **쓰기** 및 **실행** 권한을 할당할 수 있는 세 가지 권한이 있습니다.
+이러한 두 범주에는 파일 또는 디렉터리에 대 한 **읽기**, **쓰기** 및 **실행** 권한을 할당할 수 있는 세 가지 권한이 있습니다.
 
 >[!NOTE]
 > 여기에서 선택하면 현재 디렉터리에 있는 기존 항목에는 사용 권한이 설정되지 않습니다. 파일이 이미 있는 경우 각 개별 항목으로 이동한 다음, 사용 권한을 수동으로 설정해야 합니다.
@@ -111,4 +111,4 @@ Storage Explorer를 처음 시작할 때 **Microsoft Azure Storage Explorer - �
 Data Lake Storage Gen2의 액세스 제어 목록에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+> [Azure Data Lake Storage Gen2의 액세스 제어](./data-lake-storage-access-control.md)

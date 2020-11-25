@@ -6,20 +6,23 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.author: euang
+ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 6f777b605c5050b7fa4b3b9e3671f3638ad67372
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8d478b35b702e02f303358972526c091ceb3657e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016261"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95917128"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 관리
 
 라이브러리는 프로그램 또는 프로젝트에 포함 시킬 수 있는 재사용 가능한 코드를 제공 합니다. 응용 프로그램에서 타사 또는 로컬로 빌드된 코드를 사용할 수 있도록 하려면 서버를 사용 하지 않는 Apache Spark 풀 (미리 보기) 중 하나에 라이브러리를 설치 하면 됩니다. Spark 풀에 대해 라이브러리를 설치한 후에는 동일한 풀을 사용 하는 모든 세션에 대해 사용할 수 있습니다. 
 
+## <a name="before-you-begin"></a>시작하기 전에
+- 라이브러리를 설치 하 고 업데이트 하려면 Azure Synapse Analytics 작업 영역에 연결 된 기본 Gen2 저장소 계정에 대 한 **저장소 Blob 데이터 참가자** 또는 **저장소 blob 데이터 소유자** 권한이 있어야 합니다.
+  
 ## <a name="default-installation"></a>기본 설치
 Azure Synapse Analytics의 Apache Spark에는 완전 한 Anacondas 설치와 추가 라이브러리가 있습니다. 전체 라이브러리 목록은 [Apache Spark 버전 지원](apache-spark-version-support.md)에서 찾을 수 있습니다. 
 
@@ -35,6 +38,7 @@ Spark 응용 프로그램에 사용할 라이브러리를 확인 한 후에는 S
 > - 설치 하는 패키지가 크거나 설치 하는 데 시간이 오래 걸리는 경우 Spark 인스턴스 시작 시간에 영향을 줍니다.
 > - 설치 시 GCC와 같이 컴파일러 지원이 필요한 패키지는 지원 되지 않습니다.
 > - 패키지를 다운 그레이드할 수 없습니다. 추가 하거나 업그레이드할 수 있습니다.
+> - 라이브러리를 설치 하려면 Synapse 작업 영역에 연결 된 기본 Gen2 저장소 계정에 대 한 저장소 Blob 데이터 참가자 또는 저장소 Blob 데이터 소유자 권한이 있어야 합니다.
 
 ### <a name="requirements-format"></a>요구 사항 형식
 

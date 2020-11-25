@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/22/2020
+ms.date: 11/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d61d49fdd90f1f916141ca636e2c2a4dbe0b9bcd
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 935c0bf76e298ab1e2e4d25fab8685ac4ce617db
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657744"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95916168"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 클래식 구독 관리자
 
@@ -99,25 +99,25 @@ Co-Administrator 역할이 할당 된 게스트 사용자에 게는 Co-Administr
 
 계정 관리자만 구독에 대한 서비스 관리자를 변경할 수 있습니다. 기본적으로, Azure 구독에 가입할 때 서비스 관리자는 계정 관리자와 같습니다. 계정 관리자 역할의 사용자는 Azure Portal에 액세스할 수 없습니다. 서비스 관리자 역할의 사용자는 Azure Portal에 대한 모든 권한이 있습니다. 계정 관리자 및 서비스 관리자가 동일한 사용자이고 서비스 관리자를 다른 사용자로 변경하는 경우 계정 관리자는 Azure Portal에 액세스할 수 없게 됩니다. 그러나 계정 관리자는 계정 센터를 사용하여 언제든지 서비스 관리자를 다시 자신으로 변경할 수 있습니다.
 
-**계정 센터** 에서 서비스 관리자를 변경 하려면 다음 단계를 수행 합니다.
-
-### <a name="account-center"></a>계정 센터
+Azure Portal에서 서비스 관리자를 변경 하려면 다음 단계를 수행 합니다.
 
 1. [서비스 관리자 변경에 대 한 제한 사항을](#limitations-for-changing-the-service-administrator)확인 하 여 시나리오가 지원 되는지 확인 합니다.
 
-1. 계정 [센터](https://account.windowsazure.com/subscriptions) 에 계정 관리자로 로그인 합니다.
+1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 구독을 클릭합니다.
+1. [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 열고 구독을 선택합니다.
 
-1. 오른쪽에서 **구독 세부 정보 편집** 을 클릭 합니다.
+1. 왼쪽 탐색 영역에서 **속성** 을 클릭 합니다.
 
-    ![계정 센터에서 구독 편집 단추를 보여 주는 스크린샷](./media/classic-administrators/editsub.png)
+1. **서비스 관리자** 를 클릭 합니다.
 
-1. **서비스 관리자** 상자에서 새 서비스 관리자의 전자 메일 주소를 입력 합니다.
+    ![Azure Portal 구독 속성을 보여 주는 스크린샷](./media/classic-administrators/service-admin.png)
 
-    ![서비스 관리자 전자 메일을 변경하는 상자를 보여 주는 스크린샷](./media/classic-administrators/change-service-admin.png)
+1. **서비스 관리 편집** 페이지에서 새 서비스 관리자의 전자 메일 주소를 입력 합니다.
 
-1. 확인 표시를 클릭하여 변경 내용을 저장합니다.
+    ![서비스 관리 편집 페이지를 보여 주는 스크린샷](./media/classic-administrators/service-admin-edit.png)
+
+1. **확인** 을 클릭하여 변경 내용을 저장합니다.
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>서비스 관리자 변경에 대한 제한 사항
 
@@ -125,8 +125,8 @@ Azure 구독 당 서비스 관리자는 하나만 있을 수 있습니다. 서�
 
 | 계정 관리자 계정 | 다른 Microsoft 계정로 서비스 관리자를 변경할 수 있나요? | 동일한 디렉터리의 Azure AD 계정에 대 한 서비스 관리자를 변경할 수 있나요? | 다른 디렉터리의 Azure AD 계정에 대 한 서비스 관리자를 변경할 수 있나요? |
 | --- | --- | --- | --- |
-| Microsoft 계정 | 예 | 아니요 | 아니요 |
-| Azure AD 계정 | 예 | 예 | 아니요 |
+| Microsoft 계정 | 예 | 예 | 예 |
+| Azure AD 계정 | 예 | 예 | 예 |
 
 계정 관리자가 Azure AD 계정인 경우에는 서비스 관리자를 같은 디렉터리의 Azure AD 계정으로 변경할 수 있지만 다른 디렉터리에는 변경할 수 없습니다. 예를 들어는 abby@contoso.com 서비스 관리자를로 변경할 수 bob@contoso.com 있지만 john@notcontoso.com john@notcontoso.com contoso.com 디렉터리에가 없는 경우에는로 서비스 관리자를 변경할 수 없습니다.
 
@@ -142,7 +142,7 @@ Microsoft 계정 및 Azure AD 계정에 대 한 자세한 내용은 [Azure Activ
 
 1. [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 열고 구독을 선택합니다.
 
-1. **속성** 을 클릭합니다.
+1. 왼쪽 탐색 영역에서 **속성** 을 클릭 합니다.
 
     구독 계정 관리자는 **계정** 관리자 상자에 표시 됩니다.
 

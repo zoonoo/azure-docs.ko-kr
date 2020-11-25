@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/11/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 603a002b4d9088295f7050afc47e643290818e0b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 60675d4e6979237ed0b2d28f81dace35e1fcb54c
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969486"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95752306"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-31-rest-api-read-operation-and-c"></a>빠른 시작: Computer Vision 3.1 REST API 읽기 작업 및 C#을 사용하여 텍스트 추출
 
@@ -29,10 +29,10 @@ ms.locfileid: "91969486"
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [Visual Studio 2015 이상](https://visualstudio.microsoft.com/downloads/)이 있어야 합니다.
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Computer Vision 서비스에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
-* 각각 `COMPUTER_VISION_SUBSCRIPTION_KEY` 및 `COMPUTER_VISION_ENDPOINT`라는 키 및 서비스 엔드포인트 URL에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+* 각각 `COMPUTER_VISION_SUBSCRIPTION_KEY` 및 `COMPUTER_VISION_ENDPOINT`라는 키 및 서비스 엔드포인트 URL에 대한 [환경 변수를 만듭니다](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication).
 
 ## <a name="create-and-run-the-sample-application"></a>애플리케이션 예제 만들기 및 실행
 
@@ -40,9 +40,9 @@ Visual Studio에서 샘플을 만들려면 다음을 수행합니다.
 
 1. Visual C# 콘솔 앱 템플릿을 사용하여 Visual Studio에서 새 Visual Studio 솔루션을 만듭니다.
 2. Newtonsoft.Json NuGet 패키지를 설치합니다.
-    1. 메뉴에서 **도구**를 클릭하고, **NuGet 패키지 관리자**를 선택한 다음, **솔루션에 대한 NuGet 패키지 관리**를 선택합니다.
+    1. 메뉴에서 **도구** 를 클릭하고, **NuGet 패키지 관리자** 를 선택한 다음, **솔루션에 대한 NuGet 패키지 관리** 를 선택합니다.
     2. **찾아보기** 탭을 클릭하고 **검색** 상자에 "Newtonsoft.Json"을 입력합니다.
-    3. **Newtonsoft.Json**이 표시될 때 선택한 다음, 프로젝트 이름 옆의 확인란을 클릭하고, **설치**를 클릭합니다.
+    3. **Newtonsoft.Json** 이 표시될 때 선택한 다음, 프로젝트 이름 옆의 확인란을 클릭하고, **설치** 를 클릭합니다.
 3. 아래 코드를 복사하여 솔루션의 Program.cs 파일에 붙여넣습니다.
 1. `imageFilePath`을(를) 사용자 고유의 이미지 경로로 설정합니다. [샘플 이미지](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg)를 다운로드하여 사용할 수 있습니다.
 4. 프로그램을 실행합니다.

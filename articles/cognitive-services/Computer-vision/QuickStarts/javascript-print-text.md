@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: d3b16101cec242ad2cc470f90b37ab0f19848918
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e98db4ce9884918e63bc87b68f9ab6c0fdf99b93
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542765"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746135"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-javascript"></a>빠른 시작: Computer Vision REST API 및 JavaScript를 사용하여 인쇄된 텍스트(OCR) 추출
 
 > [!NOTE]
-> 영어 텍스트를 추출하는 경우 새 [읽기 작업](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text)을 사용하는 것이 좋습니다. [JavaScript 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/javascript-hand-text)을 사용할 수 있습니다.
+> 영어 텍스트를 추출하는 경우 새 [읽기 작업](../concept-recognizing-text.md)을 사용하는 것이 좋습니다. [JavaScript 빠른 시작](./javascript-hand-text.md)을 사용할 수 있습니다.
 
 이 빠른 시작에서는 Computer Vision REST API를 사용하여 이미지에서 OCR(광학 문자 인식)이 포함된 인쇄 텍스트를 추출합니다. [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) 메서드를 사용하여 이미지의 인쇄 텍스트를 감지하고, 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
 
@@ -248,6 +248,6 @@ Image to read:
 다음으로, Computer Vision을 사용하여 OCR(광학 문자 인식)을 수행하고, 스마트하게 잘리는 썸네일을 만들고, 이미지의 시각적 기능을 검색, 분류, 태그 지정 및 설명하는 JavaScript 애플리케이션을 살펴봅니다. 
 
 > [!div class="nextstepaction"]
-> [Computer Vision API JavaScript 자습서](../Tutorials/javascript-tutorial.md)
+> [Computer Vision API JavaScript 자습서](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)
 
 * Computer Vision API를 사용하여 신속하게 실험하려면 [API 테스트 콘솔 열기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console)를 사용하세요.

@@ -9,12 +9,12 @@ ms.date: 11/06/2020
 ms.service: storage
 ms.custom: references_regions
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 9da6ea7abf57ffecc900a6dbef065a8c6b123e61
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: db95f22a17c3776d84f12249693fb23b3d2d94e6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94810998"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95914442"
 ---
 # <a name="meet-demanding-migration-requirements-with-wandisco-livedata-platform-for-azure-preview"></a>Azure 용 WANdisco 사용 중인 데이터 Platform (미리 보기)을 사용 하 여 까다로운 마이그레이션 요구 사항 충족
 
@@ -30,7 +30,7 @@ ms.locfileid: "94810998"
 
 Azure Portal 및 Azure CLI를 사용 하 여 두 서비스를 관리할 수 있으며, 다른 모든 Azure 서비스와 동일한 요금제 및 종 량 제 청구 모델을 따릅니다. Azure 소비에 대 한 사용 중인 데이터 플랫폼은 동일한 월간 Azure 청구서에 표시 되며, 사용 현황을 추적 하 고 모니터링 하는 일관 되 고 편리한 방법을 제공 합니다.
 
-[정적 정보를 Azure Data Box로 복사](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster)하거나 [distcp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html)와 같은 Hadoop 도구를 사용 하 여 _오프 라인_ 으로 데이터를 마이그레이션하는 것과는 달리, Azure 용 WANdisco 사용 중인 데이터를 사용 하 여 _온라인_ 마이그레이션 중에 비즈니스 시스템의 전체 작업을 유지할 수 있습니다. 데이터를 Azure로 이동 하는 동안에도 빅 데이터 환경을 계속 작동 합니다.
+[정적 정보를 Azure Data Box로 복사](./data-lake-storage-migrate-on-premises-hdfs-cluster.md)하거나 [distcp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html)와 같은 Hadoop 도구를 사용 하 여 _오프 라인_ 으로 데이터를 마이그레이션하는 것과는 달리, Azure 용 WANdisco 사용 중인 데이터를 사용 하 여 _온라인_ 마이그레이션 중에 비즈니스 시스템의 전체 작업을 유지할 수 있습니다. 데이터를 Azure로 이동 하는 동안에도 빅 데이터 환경을 계속 작동 합니다.
 
 ## <a name="key-features-of-wandisco-livedata-platform-for-azure"></a>Azure 용 WANdisco 사용 중인 데이터 Platform의 주요 기능
 

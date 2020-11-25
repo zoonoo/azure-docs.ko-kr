@@ -10,12 +10,12 @@ ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 3d843440adc61b315616a05f223c5a13ebe271ed
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 01a5c696a41b9361c35e7af90f68088acea2944b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930835"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913779"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 차단
 
@@ -39,12 +39,12 @@ Azure Storage의 컨테이너 및 Blob에 대한 익명 공용 읽기 액세스�
 
 익명 요청을 추적 하는 메트릭을 만들려면 다음 단계를 수행 합니다.
 
-1. Azure Portal의 스토리지 계정으로 이동합니다. **모니터링** 섹션에서 **메트릭**을 선택 합니다.
-1. **메트릭 추가**를 선택합니다. **메트릭** 대화 상자에서 다음 값을 지정 합니다.
+1. Azure Portal의 스토리지 계정으로 이동합니다. **모니터링** 섹션에서 **메트릭** 을 선택 합니다.
+1. **메트릭 추가** 를 선택합니다. **메트릭** 대화 상자에서 다음 값을 지정 합니다.
     1. 범위 필드를 저장소 계정의 이름으로 설정 된 상태로 둡니다.
-    1. **메트릭 네임 스페이스** 를 *Blob*으로 설정 합니다. 이 메트릭은 Blob 저장소에 대해서만 요청을 보고 합니다.
-    1. **메트릭** 필드를 *트랜잭션으로*설정 합니다.
-    1. **집계** 필드를 *Sum*으로 설정 합니다.
+    1. **메트릭 네임 스페이스** 를 *Blob* 으로 설정 합니다. 이 메트릭은 Blob 저장소에 대해서만 요청을 보고 합니다.
+    1. **메트릭** 필드를 *트랜잭션으로* 설정 합니다.
+    1. **집계** 필드를 *Sum* 으로 설정 합니다.
 
     새 메트릭은 지정 된 시간 간격 동안 Blob 저장소에 대 한 트랜잭션 수의 합계를 표시 합니다. 결과 메트릭은 다음 이미지와 같이 표시 됩니다.
 
@@ -52,14 +52,14 @@ Azure Storage의 컨테이너 및 Blob에 대한 익명 공용 읽기 액세스�
 
 1. 그런 다음 **필터 추가** 단추를 선택 하 여 익명 요청에 대 한 메트릭에 대 한 필터를 만듭니다.
 1. **필터** 대화 상자에서 다음 값을 지정 합니다.
-    1. **속성** 값을 *Authentication*으로 설정 합니다.
+    1. **속성** 값을 *Authentication* 으로 설정 합니다.
     1. **연산자** 필드를 등호 (=)로 설정 합니다.
-    1. **값** 필드를 *익명*으로 설정 합니다.
+    1. **값** 필드를 *익명* 으로 설정 합니다.
 1. 오른쪽 위 모서리에서 메트릭을 볼 시간 간격을 선택 합니다. 1 분에서 1 개월 간격으로 간격을 지정 하 여 요청 집계가 얼마나 세분화 되었는지 나타낼 수도 있습니다.
 
 메트릭을 구성한 후에는 익명 요청이 그래프에 표시 되기 시작 합니다. 다음 이미지는 지난 30 분 동안 집계 된 익명 요청을 보여 줍니다.
 
-:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Blob 트랜잭션을 합산 하는 메트릭을 구성 하는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Blob 저장소에 대 한 집계 된 익명 요청을 보여 주는 스크린샷":::
 
 또한 저장소 계정에 대해 특정 수의 익명 요청이 수행 되는 경우 사용자에 게 알리도록 경고 규칙을 구성할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-metric.md)를 참조하세요.
 
@@ -67,9 +67,9 @@ Azure Storage의 컨테이너 및 Blob에 대한 익명 공용 읽기 액세스�
 
 Azure Storage 로그는 요청에 대 한 권한이 부여 된 방법을 포함 하 여 저장소 계정에 대해 수행 된 요청에 대 한 세부 정보를 캡처합니다. 로그를 분석 하 여 익명 요청을 수신 하는 컨테이너를 확인할 수 있습니다.
 
-익명 요청을 평가 하기 위해 Azure Storage 계정에 요청을 기록 하려면 Azure Monitor (미리 보기)에서 Azure Storage 로깅을 사용할 수 있습니다. 자세한 내용은 [Azure Storage 모니터링](../common/monitor-storage.md)을 참조 하세요.
+익명 요청을 평가 하기 위해 Azure Storage 계정에 요청을 기록 하려면 Azure Monitor (미리 보기)에서 Azure Storage 로깅을 사용할 수 있습니다. 자세한 내용은 [Azure Storage 모니터링](./monitor-blob-storage.md)을 참조 하세요.
 
-Azure Monitor Azure Storage 로깅은 로그 쿼리를 사용 하 여 로그 데이터를 분석 합니다. 로그를 쿼리하려면 Azure Log Analytics 작업 영역을 사용할 수 있습니다. 로그 쿼리에 대해 자세히 알아보려면 [자습서: Log Analytics 쿼리 시작](../../azure-monitor/log-query/get-started-portal.md)을 참조 하세요.
+Azure Monitor Azure Storage 로깅은 로그 쿼리를 사용 하 여 로그 데이터를 분석 합니다. 로그를 쿼리하려면 Azure Log Analytics 작업 영역을 사용할 수 있습니다. 로그 쿼리에 대해 자세히 알아보려면 [자습서: Log Analytics 쿼리 시작](../../azure-monitor/log-query/log-analytics-tutorial.md)을 참조 하세요.
 
 > [!NOTE]
 > Azure Monitor Azure Storage 로그인의 미리 보기는 Azure 공용 클라우드에서만 지원 됩니다. 정부 클라우드는 Azure Monitor에서 Azure Storage에 대 한 로깅을 지원 하지 않습니다.
@@ -83,16 +83,16 @@ Azure Monitor를 사용 하 여 Azure Storage 데이터를 기록 하 고 Azure 
 1. Azure Portal의 스토리지 계정으로 이동합니다.
 1. 모니터링 섹션에서 **진단 설정 (미리 보기)** 을 선택 합니다.
 1. Blob 저장소에 대 한 요청을 기록 하려면 **blob** 을 선택 합니다.
-1. **진단 설정 추가**를 선택 합니다.
+1. **진단 설정 추가** 를 선택합니다.
 1. 진단 설정의 이름을 제공 합니다.
-1. **범주 세부 정보**의 **로그** 섹션에서 로깅할 요청 형식을 선택 합니다. 모든 익명 요청은 읽기 요청이 되므로 익명 요청을 캡처하려면 **StorageRead** 를 선택 합니다.
-1. **대상 세부 정보**에서 **Log Analytics 보내기를**선택 합니다. 다음 이미지와 같이 앞에서 만든 구독 및 Log Analytics 작업 영역을 선택 합니다.
+1. **범주 세부 정보** 의 **로그** 섹션에서 로깅할 요청 형식을 선택 합니다. 모든 익명 요청은 읽기 요청이 되므로 익명 요청을 캡처하려면 **StorageRead** 를 선택 합니다.
+1. **대상 세부 정보** 에서 **Log Analytics 보내기를** 선택 합니다. 다음 이미지와 같이 앞에서 만든 구독 및 Log Analytics 작업 영역을 선택 합니다.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Blob 트랜잭션을 합산 하는 메트릭을 구성 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="요청 로깅에 대 한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
 
 진단 설정을 만든 후에는 해당 설정에 따라 저장소 계정에 대 한 요청이 나중에 기록 됩니다. 자세한 내용은 [Azure에서 리소스 로그 및 메트릭을 수집 하는 진단 설정 만들기](../../azure-monitor/platform/diagnostic-settings.md)를 참조 하세요.
 
-Azure Monitor의 Azure Storage 로그에서 사용할 수 있는 필드에 대 한 참조는 [리소스 로그 (미리 보기)](../common/monitor-storage-reference.md#resource-logs-preview)를 참조 하세요.
+Azure Monitor의 Azure Storage 로그에서 사용할 수 있는 필드에 대 한 참조는 [리소스 로그 (미리 보기)](./monitor-blob-storage-reference.md#resource-logs-preview)를 참조 하세요.
 
 #### <a name="query-logs-for-anonymous-requests"></a>익명 요청에 대 한 로그 쿼리
 
@@ -164,7 +164,7 @@ New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 
 ### <a name="check-the-public-access-setting-for-multiple-accounts"></a>여러 계정에 대 한 공용 액세스 설정 확인
 
-최적의 성능을 가진 일련의 저장소 계정에서 공용 액세스 설정을 확인 하려면 Azure Portal에서 Azure 리소스 그래프 탐색기를 사용할 수 있습니다. 리소스 그래프 탐색기를 사용 하는 방법에 대해 자세히 알아보려면 [빠른 시작: Azure 리소스 그래프 탐색기를 사용 하 여 첫 번째 리소스 그래프 쿼리 실행](/azure/governance/resource-graph/first-query-portal)을 참조 하세요.
+최적의 성능을 가진 일련의 저장소 계정에서 공용 액세스 설정을 확인 하려면 Azure Portal에서 Azure 리소스 그래프 탐색기를 사용할 수 있습니다. 리소스 그래프 탐색기를 사용 하는 방법에 대해 자세히 알아보려면 [빠른 시작: Azure 리소스 그래프 탐색기를 사용 하 여 첫 번째 리소스 그래프 쿼리 실행](../../governance/resource-graph/first-query-portal.md)을 참조 하세요.
 
 리소스 그래프 탐색기에서 다음 쿼리를 실행 하면 저장소 계정 목록이 반환 되 고 각 계정에 대 한 공용 액세스 설정이 표시 됩니다.
 
@@ -186,11 +186,11 @@ Azure Policy은 리소스에 대해 정책 규칙을 평가할 때 발생 하는
 Azure Portal 포함 된 저장소 계정에 대 한 공용 액세스 설정에 대 한 감사 효과를 사용 하 여 정책을 만들려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 Azure Policy 서비스로 이동 합니다.
-1. **제작** 섹션에서 **정의**를 선택 합니다.
+1. **제작** 섹션에서 **정의** 를 선택 합니다.
 1. **정책 정의 추가** 를 선택 하 여 새 정책 정의를 만듭니다.
 1. **정의 위치** 필드의 경우 **자세히** 단추를 선택 하 여 감사 정책 리소스가 있는 위치를 지정 합니다.
 1. 정책의 이름을 지정 합니다. 설명 및 범주를 선택적으로 지정할 수 있습니다.
-1. **정책 규칙**에서 다음 정책 정의를 **policyrule** 섹션에 추가 합니다.
+1. **정책 규칙** 에서 다음 정책 정의를 **policyrule** 섹션에 추가 합니다.
 
     ```json
     {
@@ -223,12 +223,12 @@ Azure Portal 포함 된 저장소 계정에 대 한 공용 액세스 설정에 �
 정책을 Azure Portal 할당 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 Azure Policy 서비스로 이동 합니다.
-1. **제작** 섹션에서 **할당**을 선택 합니다.
+1. **제작** 섹션에서 **할당** 을 선택 합니다.
 1. **정책 할당** 을 선택 하 여 새 정책 할당을 만듭니다.
 1. **범위** 필드에서 정책 할당의 범위를 선택 합니다.
 1. **정책 정의** 필드에서 **자세히** 단추를 선택한 다음, 목록에서 이전 섹션에서 정의한 정책을 선택 합니다.
 1. 정책 할당의 이름을 제공 합니다. 설명은 선택 사항입니다.
-1. **정책 적용** 을 *사용*으로 설정 된 상태로 둡니다. 이 설정은 감사 정책에 영향을 주지 않습니다.
+1. **정책 적용** 을 *사용* 으로 설정 된 상태로 둡니다. 이 설정은 감사 정책에 영향을 주지 않습니다.
 1. **검토 + 만들기** 를 선택 하 여 할당을 만듭니다.
 
 ### <a name="view-compliance-report"></a>준수 보고서 보기
@@ -240,11 +240,11 @@ Azure Portal 포함 된 저장소 계정에 대 한 공용 액세스 설정에 �
 Azure Portal에서 준수 보고서를 보려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 Azure Policy 서비스로 이동 합니다.
-1. **준수**를 선택 합니다.
+1. **준수** 를 선택 합니다.
 1. 이전 단계에서 만든 정책 할당의 이름에 대 한 결과를 필터링 합니다. 이 보고서에는 정책을 준수 하지 않는 리소스의 수가 표시 됩니다.
 1. 정책을 준수 하지 않는 저장소 계정 목록을 포함 하 여 추가 세부 정보에 대 한 보고서를 드릴 다운할 수 있습니다.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Blob 트랜잭션을 합산 하는 메트릭을 구성 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Blob 공용 액세스에 대 한 감사 정책에 대 한 준수 보고서를 보여 주는 스크린샷":::
 
 ## <a name="use-azure-policy-to-enforce-authorized-access"></a>Azure Policy를 사용 하 여 권한 있는 액세스 적용
 
@@ -280,7 +280,7 @@ Azure Policy는 Azure 리소스가 요구 사항 및 표준을 준수 하도록 
 
 다음 이미지는 거부 효과가 있는 정책에서 공용 액세스가 허용 되지 않는 경우 공용 액세스를 허용 하는 저장소 계정 (새 계정에 대 한 기본값)을 만들려고 할 때 발생 하는 오류를 보여 줍니다.
 
-:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Blob 트랜잭션을 합산 하는 메트릭을 구성 하는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="정책을 위반 하 여 저장소 계정을 만들 때 발생 하는 오류를 보여 주는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 
