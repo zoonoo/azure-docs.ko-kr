@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: 3436a0edf69efc71d3528bffaefd613668426fad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1368a3174af08f557b6d08f298fba015601d568c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995825"
+ms.locfileid: "96030835"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>의 Cassandra API에 대 한 질문과 대답 Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -176,7 +176,7 @@ Cassandra API은 Azure Cosmos DB의 전역적으로 분산 된 플랫폼에서 �
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>새로운 Cassandra API SDK를 에뮬레이터에서 로컬로 사용할 수 있나요?
 
-예, 지원됩니다. [로컬 개발 및 테스트에 Azure Cosmos Emulator 사용](local-emulator.md#cassandra-api) 문서에서이 기능을 사용 하도록 설정 하는 방법에 대 한 세부 정보를 찾을 수 있습니다.
+예, 지원됩니다. [로컬 개발 및 테스트에 Azure Cosmos DB 에뮬레이터 사용](local-emulator.md#cassandra-api) 문서에서이 기능을 사용 하도록 설정 하는 방법에 대 한 자세한 내용을 확인할 수 있습니다.
 
 
 ### <a name="how-can-i-migrate-data-from-apache-cassandra-clusters-to-azure-cosmos-db"></a>Apache Cassandra 클러스터에서 Azure Cosmos DB로 데이터를 마이그레이션하려면 어떻게 해야 하나요?

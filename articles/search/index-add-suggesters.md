@@ -7,18 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81bcfdf5e63d49280fb798773559310cbd912a26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4390291eb96c11b8fb7fdb48eb92abaf802b80c0
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013584"
+ms.locfileid: "96030784"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
-Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-is-an-index.md)에 추가 된 **확인 기** 구문을 통해 사용 하도록 설정 됩니다. 확인 기는 두 가지 환경을 지원 합니다. *자동 완성* 은 전체 용어 쿼리에 대 한 부분 입력을 완료 하 고, 클릭을 통해 특정 일치 항목에 초대 하는 *제안을* 지원 합니다. 자동 완성 기능은 쿼리를 생성 합니다. 제안 사항은 일치 하는 문서를 생성 합니다.
+Azure Cognitive Search에서 "검색 형식"은 *확인 기* 를 통해 사용 하도록 설정 됩니다. 확인 기는 fields 컬렉션으로 구성 된 내부 데이터 구조입니다. 필드는 추가 토큰화를 거쳐 부분 용어에 대 한 일치를 지원 하기 위해 접두사 시퀀스를 생성 합니다.
+
+예를 들어 확인 기에 City 필드가 포함 된 경우 "서울" 이라는 용어에 대해 "해상", "좌석", "seatt" 및 "seattl"의 접두사 조합이 생성 됩니다. 접두사는 확인 기 fields 컬렉션에 지정 된 각 필드에 대 한 반전 된 인덱스에 저장 됩니다.
+
+## <a name="typeahead-experiences-in-cognitive-search"></a>Cognitive Search에서 보다 앞선 경험
+
+확인 기는 두 가지 환경을 지원 합니다. *자동 완성* 은 전체 용어 쿼리에 대 한 부분 입력을 완료 하 고, 클릭을 통해 특정 일치 항목에 초대 하는 *제안을* 지원 합니다. 자동 완성 기능은 쿼리를 생성 합니다. 제안 사항은 일치 하는 문서를 생성 합니다.
 
 [C #에서 첫 번째 앱 만들기](tutorial-csharp-type-ahead-and-suggestions.md) 의 다음 스크린샷은 두 가지를 모두 보여 줍니다. 자동 완성 기능을 사용 하는 경우 "내"에서 "휴먼"를 마무리 하는 잠재적인 용어 제안 사항은 최소 검색 결과입니다. 호텔 이름과 같은 필드는 인덱스에서 일치 하는 호텔 검색 문서를 나타냅니다. 제안 사항을 위해 설명 정보를 제공 하는 모든 필드를 표시할 수 있습니다.
 
@@ -31,10 +37,6 @@ Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-i
 + [아래 나열 된 api](#how-to-use-a-suggester)중 하나를 사용 하 여 제안 요청 또는 자동 완성 요청 형식으로 확인 기 사용 쿼리를 호출 합니다.
 
 검색 형식 지원은 문자열 필드에 대 한 필드 기준으로 설정 됩니다. 스크린샷에 표시 된 것과 비슷한 환경을 원할 경우 동일한 검색 솔루션 내에서 형식 미리 동작을 구현할 수 있습니다. 두 요청은 특정 인덱스의 *문서* 컬렉션을 대상으로 하 고 사용자가 적어도 3 개의 문자 입력 문자열을 제공한 후 응답이 반환 됩니다.
-
-## <a name="what-is-a-suggester"></a>확인 기 무엇 인가요?
-
-확인 기는 부분 쿼리에 일치 하는 접두사를 저장 하 여 검색 형식 동작을 지 원하는 내부 데이터 구조입니다. 토큰화 된 용어와 마찬가지로 접두사는 확인 기 fields 컬렉션에 지정 된 각 필드에 대해 하나씩 반전 된 인덱스에 저장 됩니다.
 
 ## <a name="how-to-create-a-suggester"></a>확인 기를 만드는 방법
 

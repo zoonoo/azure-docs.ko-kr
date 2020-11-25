@@ -7,17 +7,17 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
-ms.openlocfilehash: cb6d1cb684f4c2e3f563d5690c804d64c97ff70c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 67abcea1b5d7657ffcd342d4cddb9a96bdd8c63a
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096736"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030886"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Azure Cosmos DB 에뮬레이터에 대 한 명령줄 및 PowerShell 참조
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos emulator는 로컬 개발을 위해 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공 합니다. [에뮬레이터를 설치한](local-emulator.md)후 명령줄 및 PowerShell 명령을 사용 하 여 에뮬레이터를 제어할 수 있습니다. 이 문서에서는 명령줄 및 PowerShell 명령을 사용 하 여 에뮬레이터를 시작 및 중지 하 고, 옵션을 구성 하 고, 기타 작업을 수행 하는 방법을 설명 합니다. 설치 위치에서 명령을 실행 해야 합니다.
+Azure Cosmos DB 에뮬레이터는 로컬 개발을 위해 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공 합니다. [에뮬레이터를 설치한](local-emulator.md)후 명령줄 및 PowerShell 명령을 사용 하 여 에뮬레이터를 제어할 수 있습니다. 이 문서에서는 명령줄 및 PowerShell 명령을 사용 하 여 에뮬레이터를 시작 및 중지 하 고, 옵션을 구성 하 고, 기타 작업을 수행 하는 방법을 설명 합니다. 설치 위치에서 명령을 실행 해야 합니다.
 
 ##  <a name="manage-the-emulator-with-command-line-syntax"></a><a id="command-line"></a>명령줄 구문을 사용 하 여 에뮬레이터 관리
 
@@ -29,10 +29,10 @@ Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort]
 
 |**옵션** | **설명** | **명령**| **인수**|
 |---|---|---|---|
-|[인수 없음] | 기본 설정을 사용 하 여 Azure Cosmos emulator를 시작 합니다. |Microsoft.Azure.Cosmos.Emulator.exe| |
+|[인수 없음] | 기본 설정으로 Azure Cosmos DB 에뮬레이터를 시작합니다. |Microsoft.Azure.Cosmos.Emulator.exe| |
 |[도움말] |지원되는 명령줄 인수 목록을 표시합니다.|Microsoft.Azure.Cosmos.Emulator.exe /? | |
-| GetStatus |Azure Cosmos Emulator의 상태를 구합니다. 상태는 종료 코드에 의해 표시됩니다. 1 = 시작, 2 = 실행, 3 = 정지. 부정적인 종료 코드는 오류가 발생 했음을 나타냅니다. 어떤 출력도 생성되지 않습니다. | Microsoft.Azure.Cosmos.Emulator.exe /GetStatus| |
-| Shutdown| Azure Cosmos Emulator를 종료합니다.| Microsoft.Azure.Cosmos.Emulator.exe /Shutdown | |
+| GetStatus |Azure Cosmos DB Emulator의 상태를 가져 옵니다. 상태는 종료 코드에 의해 표시됩니다. 1 = 시작, 2 = 실행, 3 = 정지. 부정적인 종료 코드는 오류가 발생 했음을 나타냅니다. 어떤 출력도 생성되지 않습니다. | Microsoft.Azure.Cosmos.Emulator.exe /GetStatus| |
+| Shutdown| Azure Cosmos DB 에뮬레이터를 종료합니다.| Microsoft.Azure.Cosmos.Emulator.exe /Shutdown | |
 |DataPath | 데이터 파일을 저장할 경로를 지정합니다. 기본값은 %LocalAppdata%\CosmosDBEmulator입니다. | Microsoft.Azure.Cosmos.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: 액세스할 수 있는 경로 |
 |포트 | 에뮬레이터에 사용할 포트 번호를 지정합니다. 기본값은 8081입니다. |Microsoft.Azure.Cosmos.Emulator.exe /Port=\<port\> | \<port\>: 단일 포트 번호 |
 | ComputePort | Compute Interop 게이트웨이 서비스에 사용하도록 지정된 포트 번호입니다. 게이트웨이의 HTTP 엔드포인트 프로브 포트는 ComputePort + 79로 계산됩니다. 따라서 ComputePort 및 ComputePort + 79가 열리고 사용할 수 있어야 합니다. 기본값은 8900입니다. | Microsoft.Azure.Cosmos.Emulator.exe /ComputePort=\<computeport\> | \<computeport\>: 단일 포트 번호 |
@@ -127,26 +127,26 @@ Cmdlet는 에뮬레이터가 제거되기 전에 중지되도록 합니다.
 
 ## <a name="change-the-number-of-default-containers"></a><a id="set-partitioncount"></a>기본 컨테이너의 수를 변경 합니다.
 
-기본적으로 고정 크기 컨테이너를 25개까지 만들거나(Azure Cosmos DB SDK를 통해서만 지원됨) Azure Cosmos Emulator를 사용하여 무제한 컨테이너 5개를 만들 수 있습니다. **PartitionCount** 값을 수정하여 최대 250개의 고정 크기 컨테이너나 50개의 무제한 컨테이너를 만들거나 250개의 고정 크기 컨테이너를 초과하지 않는 범위에서 두 가지 조합을 만들 수 있습니다(무제한 컨테이너 1개 = 고정 크기 컨테이너 5개). 단, 200개를 초과하는 고정 크기 컨테이너로 실행되도록 에뮬레이터를 설정하는 것은 권장하지 않습니다. 디스크 IO 작업에 추가되는 오버헤드로 인해, 엔드포인트 API를 사용할 때 예기치 않은 시간 초과가 발생합니다.
+기본적으로, Azure Cosmos DB 에뮬레이터를 사용 하 여 최대 25 개의 고정 크기 컨테이너 (Azure Cosmos DB Sdk를 사용 하는 경우에만 지원 됨) 또는 5 개의 무제한 컨테이너를 만들 수 있습니다. **PartitionCount** 값을 수정하여 최대 250개의 고정 크기 컨테이너나 50개의 무제한 컨테이너를 만들거나 250개의 고정 크기 컨테이너를 초과하지 않는 범위에서 두 가지 조합을 만들 수 있습니다(무제한 컨테이너 1개 = 고정 크기 컨테이너 5개). 단, 200개를 초과하는 고정 크기 컨테이너로 실행되도록 에뮬레이터를 설정하는 것은 권장하지 않습니다. 디스크 IO 작업에 추가되는 오버헤드로 인해, 엔드포인트 API를 사용할 때 예기치 않은 시간 초과가 발생합니다.
 
 현재 파티션 수가 초과된 후에 컨테이너를 만들려고 하면 에뮬레이터에서 다음 메시지와 함께 ServiceUnavailable 예외를 throw합니다.
 
 > 죄송 합니다. 현재이 지역에서 많은 수요가 발생 하 고 있으며 지금은 요청을 수행할 수 없습니다. We work continuously to bring more and more capacity online, and encourage you to try again. (당사는 온라인 용량을 늘리기 위해 지속적으로 노력하고 있습니다. 다시 시도해 주십시오.)
 > 활동 id: 12345678-1234-1234-1234-123456789abc
 
-Azure Cosmos Emulator에서 사용 가능한 컨테이너 수를 변경하려면 다음 단계를 수행합니다.
+Azure Cosmos DB 에뮬레이터에서 사용할 수 있는 컨테이너 수를 변경 하려면 다음 단계를 실행 합니다.
 
-1. 시스템 트레이에서 **Azure Cosmos DB 에뮬레이터** 아이콘을 마우스 오른쪽 단추로 클릭 한 다음 **데이터 다시 설정** ...을 클릭 하 여 모든 로컬 Azure Cosmos 에뮬레이터 데이터를 삭제 합니다.
+1. 시스템 트레이에서 **Azure Cosmos DB 에뮬레이터** 아이콘을 마우스 오른쪽 단추로 클릭한 다음 **데이터 다시 설정...** 을 클릭하여 모든 로컬 Azure Cosmos DB 에뮬레이터 데이터를 삭제합니다.
 
 1. `%LOCALAPPDATA%\CosmosDBEmulator` 폴더의 에뮬레이터 데이터를 모두 삭제합니다.
 
 1. **Azure Cosmos DB 에뮬레이터** 아이콘을 마우스 오른쪽 단추로 클릭한 다음 **마침** 을 클릭하여 열려 있는 모든 인스턴스를 종료합니다. 모든 인스턴스를 종료하는 데는 1분 정도 걸립니다.
 
-1. 최신 버전의 [Azure Cosmos Emulator](https://aka.ms/cosmosdb-emulator)를 설치합니다.
+1. 최신 버전의 [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator)를 설치합니다.
 
 1. 250 이하의 값을 설정하여 PartitionCount 플래그로 에뮬레이터를 시작합니다. 예: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`
  
 ## <a name="next-steps"></a>다음 단계
 
-* [Java, Python 및 Node.js apps와 함께 사용 하기 위해 Azure Cosmos 에뮬레이터 인증서를 내보냅니다.](local-emulator-export-ssl-certificates.md)
+* [Java, Python 및 Node.js 앱에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기](local-emulator-export-ssl-certificates.md)
 * [에뮬레이터를 사용 하 여 문제 디버그](troubleshoot-local-emulator.md)

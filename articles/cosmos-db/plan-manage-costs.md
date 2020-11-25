@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: a73d155d20d09573ad5e1b2597678291aea4c92b
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: c7db48a1df61472de8676192f267493232139b6e
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980578"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030818"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 비용 계획 및 관리
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -21,7 +21,7 @@ ms.locfileid: "94980578"
 
 Azure Cosmos DB 리소스 사용을 시작한 후에는 Cost Management 기능을 사용 하 여 예산을 설정 하 고 비용을 모니터링 합니다. 예상 비용을 검토 하 고 지출 추세를 파악 하 여 작업할 수 있는 영역을 식별할 수도 있습니다. Azure Cosmos DB 비용은 Azure 청구서의 월별 비용 중 일부에 불과합니다. 이 문서에서는 Azure Cosmos DB에 대 한 비용을 계획 하 고 관리 하는 방법을 설명 하지만, 타사 서비스를 비롯 하 여 Azure 구독에 사용 되는 모든 Azure 서비스 및 리소스에 대해 요금이 청구 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="provisioned-throughput-or-serverless"></a>프로 비전 된 처리량 또는 서버 리스
 
@@ -52,7 +52,7 @@ Cost Management의 비용 분석은 대부분의 Azure 계정 유형을 지원 �
 | 쿼리 실행 | 10RU | [인덱싱을](index-overview.md) 최대한 활용 하 고 100 결과를 반환 하는 쿼리의 평균 비용 |
 
 > [!IMPORTANT] 
-> 위의 표에서 메모를 확인 합니다. 작업의 실제 비용을 보다 정확 하 게 예측 하기 위해 [Azure Cosmos 에뮬레이터](local-emulator.md) 를 사용 하 여 [작업의 정확한 작업 비용을 측정할](find-request-unit-charge.md)수 있습니다. Azure Cosmos Emulator는 서버 리스 서버를 지원 하지 않지만 데이터베이스 작업에 대 한 표준 작업 요금을 보고 하 고이 예측에 사용할 수 있습니다.
+> 위의 표에서 메모를 확인 합니다. 작업의 실제 비용을 보다 정확 하 게 예측 하려면 [Azure Cosmos DB 에뮬레이터](local-emulator.md) 를 사용 하 여 [작업의 정확한 작업 비용을 측정](find-request-unit-charge.md)합니다. Azure Cosmos DB 에뮬레이터는 서버 리스 서버를 지원 하지 않지만 데이터베이스 작업에 대 한 표준 작업 요금을 보고 하 고이 예측에 사용할 수 있습니다.
 
 한 달 동안 소비할 가능성이 높은 요청 단위 및 GB 저장소의 총 수를 계산한 후에는 **([요청 단위 수]/100만 * $0.25) + ([GB의 저장소] * $0.25)** 와 같은 수식이 예상 비용을 반환 합니다.
 

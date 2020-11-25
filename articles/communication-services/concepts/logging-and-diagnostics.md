@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: aad4cdfe38ee9dd7530cb8ebe21cded18cb0a1ec
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: d8afa769c90c5cf9450343cda1a65809062468fb
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128625"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888694"
 ---
 # <a name="communication-services-logs"></a>Communication Services 로그
 
@@ -30,7 +30,7 @@ Azure Communication Services는 Communication Services 솔루션을 모니터링
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="ACS 진단 설정 옵션":::
 
-진단 구성에 대한 자세한 내용은 [Azure 리소스 로그](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview) 개요를 참조하세요.
+진단 구성에 대한 자세한 내용은 [Azure 리소스 로그](../../azure-monitor/platform/platform-logs-overview.md) 개요를 참조하세요.
 
 ## <a name="resource-log-categories"></a>리소스 로그 범주
 

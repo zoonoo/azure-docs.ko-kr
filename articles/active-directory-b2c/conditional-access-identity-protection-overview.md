@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 921d9e2138c8aa9c09535a673a7cd2d32e9cddad
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f4a71740c487896208a3da7bf35bb39899c56937
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89270761"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952066"
 ---
 # <a name="identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Azure AD B2C에 대한 ID 보호 및 조건부 액세스
 
@@ -60,7 +60,7 @@ Azure AD B2C에서는 기본 제공 사용자 흐름에서 조건부 액세스 �
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
-Microsoft Graph API를 사용하여 Azure AD B2C에서 조건부 액세스 정책을 관리할 수도 있습니다. 자세한 내용은 [조건부 액세스 설명서](../active-directory/conditional-access/overview.md) 및 [Microsoft Graph 참조](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)를 참조하세요.
+Microsoft Graph API를 사용하여 Azure AD B2C에서 조건부 액세스 정책을 관리할 수도 있습니다. 자세한 내용은 [조건부 액세스 설명서](../active-directory/conditional-access/overview.md) 및 [Microsoft Graph 참조](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

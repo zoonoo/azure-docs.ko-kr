@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 6c6282f487d6a20de4654118df94c8bfac8a441d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cda36539e4a24bbb017873dafd2c12356a785e55
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075928"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966601"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>빠른 시작: Java 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록
 
@@ -35,7 +35,7 @@ ms.locfileid: "93075928"
 
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비 
 
-1. 컴퓨터에 [Java SE Development Kit 8](https://aka.ms/azure-jdks)이 설치되어 있는지 확인합니다. 
+1. 컴퓨터에 [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)이 설치되어 있는지 확인합니다. 
 
 2. Java 설치 환경 변수를 설정합니다. `PATH` 변수에는 *jdk1.8.x\bin* 디렉터리의 전체 경로가 포함되어야 합니다. 컴퓨터의 첫 번째 Java 설치인 경우 `JAVA_HOME`이라는 새 환경 변수를 만들고 *jdk1.8.x* 디렉터리의 전체 경로를 가리키도록 지정합니다. Windows 머신에서 이 디렉터리는 *C:\\Program Files\\Java\\* 폴더에 있으며, Windows 머신의 **제어판** 에서 **시스템 환경 변수 편집** 을 검색하여 환경 변수를 만들거나 편집할 수 있습니다. 
 
