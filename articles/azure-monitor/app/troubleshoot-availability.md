@@ -7,11 +7,11 @@ ms.author: lagayhar
 ms.date: 04/28/2020
 ms.reviewer: sdash
 ms.openlocfilehash: 0ac8dd189bee1c1d4f5a7a4d0f7de68b085fbc56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318150"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015335"
 ---
 # <a name="troubleshooting"></a>문제 해결
 
@@ -121,7 +121,7 @@ webhook 알림을 수신하는 애플리케이션이 사용 가능하며 webhook
 
 * 클래식 경고 알림에는 특정 수신자를 사용하는 것이 좋습니다.
 
-* Y 위치에서 X에서 발생한 오류에 대한 경고의 경우 **대량/그룹** 확인란 옵션을 사용하도록 설정하면 관리자/공동 관리자 역할의 사용자에게 경고가 전송됩니다.  기본적으로 _구독_에 대한 _모든_ 관리자는 알림을 받게 됩니다.
+* Y 위치에서 X에서 발생한 오류에 대한 경고의 경우 **대량/그룹** 확인란 옵션을 사용하도록 설정하면 관리자/공동 관리자 역할의 사용자에게 경고가 전송됩니다.  기본적으로 _구독_ 에 대한 _모든_ 관리자는 알림을 받게 됩니다.
 
 * 가용성 메트릭에 대 한 경고의 경우 **대량/그룹** 확인란 옵션을 사용 하도록 설정 하면 구독에서 소유자, 참가자 또는 읽기 권한자 역할이 있는 사용자에 게 보냅니다. 실제로 구독의 Application Insights 리소스에 대한 액세스 권한이 있는 _모든_ 사용자가 범위에 포함되며 알림을 받습니다. 
 
