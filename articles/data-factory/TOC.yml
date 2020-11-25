@@ -752,6 +752,8 @@
           href: connector-troubleshoot-guide.md
         - name: 데이터 흐름
           href: data-flow-troubleshoot-guide.md
+        - name: 보안 및 액세스 제어
+          href: security-and-access-control-troubleshoot-guide.md
         - name: 자체 호스팅 통합 런타임
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Azure SSIS 통합 런타임

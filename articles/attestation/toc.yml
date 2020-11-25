@@ -35,6 +35,8 @@
           href: claim-sets.md
     - name: 워크플로
       href: workflow.md
+    - name: 감사 로그 보기
+      href: audit-logs.md
 - name: 참조
   items:
     - name: FAQ

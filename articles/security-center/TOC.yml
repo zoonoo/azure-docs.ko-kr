@@ -278,8 +278,6 @@
       items:
         - name: 일반적인 질문
           href: faq-general.md
-        - name: 대금 청구 관련 질문
-          href: faq-billing.md
         - name: 권한 질문
           href: faq-permissions.md
         - name: 데이터 수집 및 에이전트 질문

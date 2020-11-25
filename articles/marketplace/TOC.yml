@@ -125,12 +125,12 @@
       items:
         - name: Azure 컨테이너 제품 계획
           href: marketplace-containers.md
+        - name: 기술 자산 준비
+          href: create-azure-container-technical-assets.md
         - name: Azure 컨테이너 제품 생성 및 게시
           items:
-            - name: 기술 자산 준비
-              href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Azure Container 제품 만들기
-              href: partner-center-portal/create-azure-container-offer.md
+              href: create-azure-container-offer.md
     - name: Azure 가상 머신 제품
       items:
         - name: VM 제품 계획

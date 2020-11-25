@@ -251,9 +251,11 @@
               href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
             - name: 표준 열
               href: platform/log-standard-columns.md
+            - name: 감사 쿼리
+              href: log-query/query-audit.md
             - name: 쿼리 최적화
               href: log-query/query-optimization.md
-            - name: Functions
+            - name: 함수
               href: log-query/functions.md
             - name: 텍스트 데이터 구문 분석
               href: log-query/parse-text.md
@@ -1185,7 +1187,7 @@
               href: platform/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: platform/view-designer-conversion-tiles.md
-            - name: 예
+            - name: 예제
               href: platform/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:
