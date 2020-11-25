@@ -1,6 +1,6 @@
 ---
 title: Azure 데이터 복사 도구를 사용하여 온-프레미스 데이터 복사
-description: Azure 데이터 팩터리를 만든 다음, 데이터 복사 도구를 사용하여 SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터를 복사합니다.
+description: Azure Data Factory를 만든 다음, 데이터 복사 도구를 사용하여 SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터를 복사합니다.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/09/2020
-ms.openlocfilehash: 3237ff37e4314459a9e9a7a255b0ad10b3958509
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/09/2020
+ms.openlocfilehash: d9cf9729d8be77845572efd9ef6e2486ddceaaaf
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636955"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002837"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -109,7 +109,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
-1. 왼쪽에 있는 메뉴에서 **+ 리소스 만들기** > **분석** > **Data Factory** 를 차례로 선택합니다.
+1. 왼쪽 메뉴에서 **리소스 만들기** > **통합** > **Data Factory** 를 선택합니다.
 
    ![새 데이터 팩터리 만들기](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -203,7 +203,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. **대상 데이터 저장소** 대화 상자에서 **Azure Blob Storage** 가 선택되어 있는지 확인합니다. 그런 후 **다음** 을 선택합니다.
 
-1. **출력 파일 또는 폴더** 대화 상자의 **폴더 경로** 에서 **adftutorial/fromonprem** 을 입력합니다. 필수 구성 요소의 일부로 **adftutorial** 컨테이너를 만들었습니다. 출력 폴더가 없으면(이 경우에 **fromonprem** ) Data Factory에서 자동으로 만듭니다. 또한 **찾아보기** 단추를 사용하여 Blob Storage 및 해당 컨테이너/폴더를 탐색할 수도 있습니다. **파일 이름** 아래에 있는 값을 지정하지 않으면 기본적으로 원본의 이름을 사용합니다(이 경우에 **dbo.emp** ).
+1. **출력 파일 또는 폴더** 대화 상자의 **폴더 경로** 에서 **adftutorial/fromonprem** 을 입력합니다. 필수 구성 요소의 일부로 **adftutorial** 컨테이너를 만들었습니다. 출력 폴더가 없으면(이 경우에 **fromonprem**) Data Factory에서 자동으로 만듭니다. 또한 **찾아보기** 단추를 사용하여 Blob Storage 및 해당 컨테이너/폴더를 탐색할 수도 있습니다. **파일 이름** 아래에 있는 값을 지정하지 않으면 기본적으로 원본의 이름을 사용합니다(이 경우에 **dbo.emp**).
 
    ![출력 파일 또는 폴더 선택](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
 

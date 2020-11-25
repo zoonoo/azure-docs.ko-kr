@@ -208,6 +208,10 @@
       items:
         - name: 에이전트 없는 VMware 마이그레이션에서 복제 문제 해결
           href: troubleshoot-changed-block-tracking-replication.md
+- name: 참조
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.migrate/
 - name: 리소스
   items:
     - name: CAF(클라우드 채택 프레임워크)에 마이그레이션
