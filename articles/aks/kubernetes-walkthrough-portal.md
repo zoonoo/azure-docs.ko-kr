@@ -6,12 +6,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 10/06/2020
 ms.custom: mvc, seo-javascript-october2019, devx-track-azurecli
-ms.openlocfilehash: 30c00b1dfda3e30f047faf0deed7151aaf8c3fae
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 606de7c07f2760ca678563ccf1900fc1bb915c1a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745776"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684885"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -36,10 +36,10 @@ AKS 클러스터를 만들려면 다음 단계를 완료합니다.
 2. **컨테이너** >  **Kubernetes Service** 를 선택합니다.
 
 3. **기본** 페이지에서 다음 옵션을 구성합니다.
-    - **프로젝트 세부 정보** : Azure **구독** 을 선택한 다음, *myResourceGroup* 같은 Azure **리소스 그룹** 을 선택하거나 만듭니다.
-    - **클러스터 세부 정보** : *myAKSCluster* 같은 **Kubernetes 클러스터 이름** 을 입력합니다. AKS 클러스터에 대한 **지역** 및 **Kubernetes 버전** 을 선택합니다.
-    - **주 노드 풀** : AKS 노드의 VM **노드 크기** 를 선택합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경할 수 *없습니다* .
-            - 클러스터에 배포할 노드 수를 선택합니다. 이 빠른 시작에서는 **노드 수** 를 *1* 로 설정합니다. 클러스터를 배포한 후에 노드 수를 조정할 수 *있습니다* .
+    - **프로젝트 세부 정보**: Azure **구독** 을 선택한 다음, *myResourceGroup* 같은 Azure **리소스 그룹** 을 선택하거나 만듭니다.
+    - **클러스터 세부 정보**: *myAKSCluster* 같은 **Kubernetes 클러스터 이름** 을 입력합니다. AKS 클러스터에 대한 **지역** 및 **Kubernetes 버전** 을 선택합니다.
+    - **주 노드 풀**: AKS 노드의 VM **노드 크기** 를 선택합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경할 수 *없습니다*.
+            - 클러스터에 배포할 노드 수를 선택합니다. 이 빠른 시작에서는 **노드 수** 를 *1* 로 설정합니다. 클러스터를 배포한 후에 노드 수를 조정할 수 *있습니다*.
     
     ![AKS 클러스터 만들기 - 기본 정보를 입력합니다.](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
@@ -51,13 +51,13 @@ AKS 클러스터를 만들려면 다음 단계를 완료합니다.
 
 5. **인증** 페이지에서 다음 옵션을 구성합니다.
     - **서비스 사용자** 필드를 **(새) 기본 서비스 사용자** 로 유지하여 신규 서비스 사용자를 만듭니다. 또는 기존 서비스 사용자를 사용하도록 *내 서비스 사용자 구성* 을 선택할 수 있습니다. 기존 서비스 사용자를 사용하는 경우 SPN 클라이언트 ID와 비밀을 제공해야 합니다.
-    - Kubernetes RBAC(역할 기반 액세스 제어)의 옵션을 사용하도록 설정합니다. 이렇게 하면 AKS 클러스터에 배포된 Kubernetes 리소스에 대한 액세스를 정밀하게 제어할 수 있습니다.
+    - Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)에 대한 옵션을 사용하도록 설정합니다. 이렇게 하면 AKS 클러스터에 배포된 Kubernetes 리소스에 대한 액세스를 정밀하게 제어할 수 있습니다.
 
     또는 서비스 주체 대신 관리 ID를 사용할 수 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
 
 기본적으로 *기본* 네트워킹이 사용되며 컨테이너에 대한 Azure Monitor가 활성화됩니다. **검토 + 만들기** 를 클릭한 후 유효성 검사가 완료되면 **만들기** 를 선택합니다.
 
-AKS 클러스터를 만드는 데 몇 분이 걸립니다. 배포가 완료되면 **리소스로 이동** 을 클릭하거나 AKS 클러스터 리소스 그룹(예: *myResourceGroup* )으로 이동하여 AKS 리소스(예: *myAKSCluster* )를 선택합니다. 다음 예제처럼 AKS 클러스터 대시보드가 표시됩니다.
+AKS 클러스터를 만드는 데 몇 분이 걸립니다. 배포가 완료되면 **리소스로 이동** 을 클릭하거나 AKS 클러스터 리소스 그룹(예: *myResourceGroup*)으로 이동하여 AKS 리소스(예: *myAKSCluster*)를 선택합니다. 다음 예제처럼 AKS 클러스터 대시보드가 표시됩니다.
 
 ![Azure Portal의 AKS 대시보드 예제](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 

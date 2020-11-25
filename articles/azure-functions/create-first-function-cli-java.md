@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 449f0a59cc8428ce8e19535d5cf0417bf4cf7ad0
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 5c8993bdf892ceb7d9886d0d2b97063dedec720c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424978"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635554"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Java 함수 만들기
 
@@ -163,11 +163,23 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 > [!TIP]
 > Windows 대신 Linux에서 실행되는 함수 앱을 만들려면 pom.xml 파일의 `runtime.os` 요소를 `windows`에서 `linux`로 변경합니다. 사용 플랜에서 Linux를 실행할 수 있는 지역은 [여기](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions)서 확인할 수 있습니다. Linux에서 실행되는 앱과 Windows에서 실행되는 앱이 동일한 리소스 그룹에 있으면 안 됩니다.
 
-1. 배포하기 전에 [az login](/cli/azure/authenticate-azure-cli) Azure CLI 명령을 사용하여 Azure 구독에 로그인합니다. 
+1. 배포하기 전에 Azure CLI 또는 Azure PowerShell을 사용하여 Azure 구독에 로그인합니다. 
 
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
     ```azurecli
     az login
     ```
+
+    [az login](/cli/azure/reference-index#az-login) 명령은 Azure 계정에 로그인합니다.
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+    [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet은 Azure 계정에 로그인합니다.
+
+    ---
 
 1. 다음 명령을 사용하여 프로젝트를 새 함수 앱에 배포합니다.
 

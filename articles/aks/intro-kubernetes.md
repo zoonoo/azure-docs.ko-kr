@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: ee709868cd7e78afbcc480913c4e4c8fd2acf832
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 75f4602be15ef2487272ed5790d92c4c884c551f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167188"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681553"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
 
@@ -26,11 +26,11 @@ Kubernetes 기본 사항에 대한 자세한 내용은 [AKS의 Kubernetes 핵심
 
 ## <a name="access-security-and-monitoring"></a>액세스, 보안 및 모니터링
 
-향상된 보안 및 관리를 위해 AKS를 사용하면 Azure Active Directory와 통합하고 Kubernetes RBAC(역할 기반 액세스 제어)를 사용할 수 있습니다. 클러스터 및 리소스의 상태를 모니터링할 수도 있습니다.
+향상된 보안 및 관리를 위해 AKS를 사용하면 Azure Active Directory와 통합하고 Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)를 사용할 수 있습니다. 클러스터 및 리소스의 상태를 모니터링할 수도 있습니다.
 
 ### <a name="identity-and-security-management"></a>ID 및 보안 관리
 
-클러스터 리소스에 대한 액세스를 제한하기 위해 AKS는 [Kubernetes RBAC(역할 기반 액세스 제어)][kubernetes-rbac]를 지원합니다. RBAC를 사용하면 Kubernetes 리소스 및 네임스페이스에 대한 액세스와 해당 리소스에 대한 권한을 제어할 수 있습니다. Azure AD(Active Directory)와 통합하도록 AKS 클러스터를 구성할 수도 있습니다. Azure AD 통합을 사용하여 Kubernetes 액세스는 기존 ID 및 그룹 멤버 자격에 따라 구성될 수 있습니다. 기존 Azure AD 사용자 및 그룹에 AKS 리소스에 대한 액세스와 통합된 로그인 환경을 제공할 수 있습니다.
+클러스터 리소스에 대한 액세스를 제한하기 위해 AKS는 [Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)][kubernetes-rbac]를 지원합니다. Kubernetes RBAC를 사용하면 Kubernetes 리소스 및 네임스페이스에 대한 액세스와 해당 리소스에 대한 권한을 제어할 수 있습니다. Azure AD(Active Directory)와 통합하도록 AKS 클러스터를 구성할 수도 있습니다. Azure AD 통합을 사용하여 Kubernetes 액세스는 기존 ID 및 그룹 멤버 자격에 따라 구성될 수 있습니다. 기존 Azure AD 사용자 및 그룹에 AKS 리소스에 대한 액세스와 통합된 로그인 환경을 제공할 수 있습니다.
 
 ID에 대한 자세한 내용은 [AKS에 대한 액세스 및 ID 옵션][concepts-identity]을 참조하세요.
 
@@ -146,7 +146,7 @@ Azure CLI 빠른 시작으로 AKS 배포 및 관리에 대해 자세히 알아�
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
-[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
+[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
 [conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

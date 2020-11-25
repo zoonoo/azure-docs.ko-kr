@@ -10,11 +10,11 @@ services: azure-maps
 manager: cpendleton
 ms.custom: devx-track-js
 ms.openlocfilehash: 2e07b614e87ed5dad94cf9bc5994e78071187839
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895429"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008602"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Azure Maps services 모듈 사용
 
@@ -30,7 +30,7 @@ Azure Maps 웹 SDK는 *서비스 모듈* 을 제공 합니다. 이 모듈은 Jav
         <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
         ```
 
-    - 또는 [Azure Maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm 패키지를 사용 하 여 AZURE MAPS 웹 SDK 소스 코드에 대 한 서비스 모듈을 로컬로 로드 한 다음 앱을 사용 하 여 호스팅합니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 다음 명령을 사용합니다.
+    - 또는 [Azure Maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm 패키지를 사용 하 여 AZURE MAPS 웹 SDK 소스 코드에 대 한 서비스 모듈을 로컬로 로드 한 다음 앱을 사용 하 여 호스팅합니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 다음 명령을 실행합니다.
     
         > **npm install azure-maps-rest**
     

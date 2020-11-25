@@ -11,16 +11,20 @@ ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 52cec861ba81a804081c4b879ab73333a3281e61
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 60c51de4e4549649c681c961c6ddc1acdb12e698
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360295"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659695"
 ---
 # <a name="quickstart-send-an-sms-message"></a>빠른 시작: SMS 메시지 보내기
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+> [!IMPORTANT]
+> SMS 메시지는 미국 전화 번호로 송수신할 수 있습니다. 다른 지역에 있는 전화 번호는 아직 Communication Services SMS에서 지원되지 않습니다.
+> 자세한 내용은 **[전화 및 SMS 솔루션 계획](../../concepts/telephony-sms/plan-solution.md)** 을 참조하세요.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .NET client library](./includes/send-sms-net.md)]

@@ -4,11 +4,11 @@ description: Azure Migrate 어플라이언스에 대 한 지원 요약을 제공
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450037"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008704"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -69,8 +69,8 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 **검색 제한** | 어플라이언스는 최대 5,000개의 Hyper-V VM을 검색할 수 있습니다.<br/> 어플라이언스는 최대 300개의 Hyper-V 호스트에 연결할 수 있습니다.
 **VHD 템플릿** | VHD를 포함하여 압축된 폴더입니다. 포털에서 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140422)에서 다운로드 합니다.<br/><br/> 다운로드 크기는 8.91 GB입니다.<br/><br/> 다운로드한 어플라이언스 템플릿에는 180일 동안 유효한 Windows Server 2016 평가 라이선스가 제공됩니다. 평가 기간이 곧 만료되는 경우 새 어플라이언스를 다운로드하여 배포하거나 어플라이언스 VM의 운영 체제 라이선스에 대한 정품 인증을 수행하는 것이 좋습니다.
 **PowerShell 스크립트** | 이 [문서](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v)를 참조 하세요.<br/><br/> 
-**소프트웨어/하드웨어***   |  어플라이언스는 Windows Server 2016, 16gb RAM, 8 개의 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 컴퓨터에서 실행 해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 어플라이언스를 Hyper-v VM으로 실행 하는 경우에는 Hyper-v 호스트에 하드웨어 요구 사항을 할당 하는 데 충분 한 리소스가 필요 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다. 
-**Hyper-V 요구 사항** | VHD 템플릿을 사용하여 어플라이언스를 배포하는 경우 Azure Migrate에서 제공하는 어플라이언스 VM은 Hyper-V VM 버전 5.0입니다.<br/><br/> Hyper-V 호스트에서 Windows Server 2012 R2 이상을 실행해야 합니다. 
+**소프트웨어/하드웨어** _   |  어플라이언스는 Windows Server 2016, 16gb RAM, 8 개의 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 컴퓨터에서 실행 해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 어플라이언스를 Hyper-v VM으로 실행 하는 경우에는 Hyper-v 호스트에 하드웨어 요구 사항을 할당 하는 데 충분 한 리소스가 필요 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다. 
+_ *Hyper-v 요구 사항** | VHD 템플릿을 사용하여 어플라이언스를 배포하는 경우 Azure Migrate에서 제공하는 어플라이언스 VM은 Hyper-V VM 버전 5.0입니다.<br/><br/> Hyper-V 호스트에서 Windows Server 2012 R2 이상을 실행해야 합니다. 
 **해시 값 - VHD** | [확인](tutorial-discover-hyper-v.md#verify-security) VHD 템플릿 해시 값입니다.
 **해시 값 - PowerShell 스크립트** | PowerShell 스크립트 해시 값을 [확인](deploy-appliance-script.md#verify-file-security)합니다.
 
@@ -110,8 +110,8 @@ aka.ms/* | aka 링크에 대한 액세스를 허용합니다. Azure Migrate 어�
 download.microsoft.com/download | Microsoft 다운로드에서 다운로드할 수 있습니다.
 \*.servicebus.windows.net | 어플라이언스와 Azure Migrate 서비스 간의 통신입니다.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Azure Migrate 서비스 URL에 연결합니다.
-\*.hypervrecoverymanager.windowsazure.com | **VMware 에이전트 없는 마이그레이션에 사용**됩니다.<br/><br/> Azure Migrate 서비스 URL에 연결합니다.
-\*.blob.core.windows.net |  **VMware 에이전트 없는 마이그레이션에 사용**됩니다.<br/><br/>마이그레이션을 위해 데이터를 스토리지에 업로드합니다.
+\*.hypervrecoverymanager.windowsazure.com | **VMware 에이전트 없는 마이그레이션에 사용** 됩니다.<br/><br/> Azure Migrate 서비스 URL에 연결합니다.
+\*.blob.core.windows.net |  **VMware 에이전트 없는 마이그레이션에 사용** 됩니다.<br/><br/>마이그레이션을 위해 데이터를 스토리지에 업로드합니다.
 
 ### <a name="government-cloud-urls"></a>Government 클라우드 URL
 
@@ -127,8 +127,8 @@ aka.ms/* | aka 링크에 대한 액세스를 허용합니다. Azure Migrate 어�
 download.microsoft.com/download | Microsoft 다운로드에서 다운로드할 수 있습니다.
 *.servicebus.usgovcloudapi.net  | 어플라이언스와 Azure Migrate 서비스 간의 통신입니다.
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Azure Migrate 서비스 URL에 연결합니다.
-*. hypervrecoverymanager.windowsazure.us | **VMware 에이전트 없는 마이그레이션에 사용**됩니다.<br/><br/> Azure Migrate 서비스 URL에 연결합니다.
-*.blob.core.usgovcloudapi.net  |  **VMware 에이전트 없는 마이그레이션에 사용**됩니다.<br/><br/>마이그레이션을 위해 데이터를 스토리지에 업로드합니다.
+*. hypervrecoverymanager.windowsazure.us | **VMware 에이전트 없는 마이그레이션에 사용** 됩니다.<br/><br/> Azure Migrate 서비스 URL에 연결합니다.
+*.blob.core.usgovcloudapi.net  |  **VMware 에이전트 없는 마이그레이션에 사용** 됩니다.<br/><br/>마이그레이션을 위해 데이터를 스토리지에 업로드합니다.
 *.applicationinsights.us | 내부 모니터링에 사용되는 앱 로그를 업로드합니다.
 
 
@@ -219,7 +219,7 @@ NIC 쓰기 처리량(MB/초) | net.transmitted.average  |VM 크기 계산
 --- | --- | ---
 애플리케이션 이름  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 버전  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
-공급자  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | 게시자
+공급자  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
 
 #### <a name="windows-vm-features-data"></a>Windows VM 기능 데이터
 
@@ -229,7 +229,7 @@ NIC 쓰기 처리량(MB/초) | net.transmitted.average  |VM 크기 계산
 --- | --- | ---
 Name  | Get-WindowsFeature  | Name
 기능 유형 | Get-WindowsFeature  | FeatureType
-Parent  | Get-WindowsFeature  | Parent
+부모  | Get-WindowsFeature  | 부모
 
 #### <a name="windows-vm-sql-server-metadata"></a>Windows VM SQL Server 메타 데이터
 
@@ -250,7 +250,7 @@ Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL
 --- | --- | ---
 Name  | Win32_operatingsystem  | 캡션
 버전  | Win32_operatingsystem  | 버전
-Architecture  | Win32_operatingsystem  | OSArchitecture
+아키텍처  | Win32_operatingsystem  | OSArchitecture
 
 #### <a name="linux-vm-apps-data"></a>Linux VM 앱 데이터
 
@@ -269,7 +269,7 @@ Name | rpm, dpkg, snap
 **Data**  | **명령** 
 --- | --- | ---
 Name <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
-Architecture | uname
+아키텍처 | uname
 
 
 ### <a name="app-dependencies-metadata"></a>앱 종속성 메타데이터
@@ -387,7 +387,7 @@ FQDN | Win32_ComputerSystem | Domain, Name, PartOfDomain
 할당된 메모리 | Win32_ComputerSystem | TotalPhysicalMemory
 BIOS 일련 번호 | Win32_ComputerSystemProduct | IdentifyingNumber
 BIOS GUID | Win32_ComputerSystemProduct | UUID
-부팅 유형 | Win32_DiskPartition | 파티션에서 EFI/BIOS에 대해 Type = **GPT:System**인지 확인
+부팅 유형 | Win32_DiskPartition | 파티션에서 EFI/BIOS에 대해 Type = **GPT:System** 인지 확인
 OS 이름 | Win32_OperatingSystem | 캡션
 OS 버전 |Win32_OperatingSystem | 버전
 OS 아키텍처 | Win32_OperatingSystem | OSArchitecture
@@ -454,7 +454,7 @@ NIC당 전송된 데이터 | cat /sys/class/net/eth$nic/statistics/tx_bytes
 ### <a name="turn-off-auto-update"></a>자동 업데이트 해제
 
 1. 어플라이언스를 실행하는 컴퓨터에서 레지스트리 편집기를 엽니다.
-2. **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**로 이동합니다.
+2. **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance** 로 이동합니다.
 3. 자동 업데이트를 해제하려면 DWORD 값이 0인 **AutoUpdate** 레지스트리 키를 만듭니다.
 
     ![레지스트리 키 설정](./media/migrate-appliance/registry-key.png)
@@ -470,7 +470,7 @@ NIC당 전송된 데이터 | cat /sys/class/net/eth$nic/statistics/tx_bytes
 레지스트리 키를 삭제하려면 다음을 수행합니다.
 
 1. 어플라이언스를 실행하는 컴퓨터에서 레지스트리 편집기를 엽니다.
-2. **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**로 이동합니다.
+2. **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance** 로 이동합니다.
 3. 자동 업데이트를 해제하기 위해 이전에 만든 **AutoUpdate** 레지스트리 키를 삭제합니다.
 
 검색이 완료된 후 Appliance Configuration Manager에서 설정하려면 다음을 수행합니다.
@@ -485,18 +485,18 @@ NIC당 전송된 데이터 | cat /sys/class/net/eth$nic/statistics/tx_bytes
 다음 방법 중 하나를 사용하여 어플라이언스 서비스 버전을 확인할 수 있습니다.
 
 - 어플라이언스 구성 관리자에서 **필수 구성 요소 패널 설정** 으로 이동 합니다.
-- 어플라이언스 컴퓨터의 **제어판** > **프로그램 및 기능**에서
+- 어플라이언스 컴퓨터의 **제어판** > **프로그램 및 기능** 에서
 
 어플라이언스 구성 관리자를 체크 인하려면:
 
 1. 어플라이언스 구성 관리자에서 **필수 구성 요소 패널 설정** 으로 이동 합니다.
-2. 최신 업데이트 확인에서 **어플라이언스 서비스 보기**를 클릭 합니다.
+2. 최신 업데이트 확인에서 **어플라이언스 서비스 보기** 를 클릭 합니다.
 
     ![버전 확인](./media/migrate-appliance/versions.png)
 
 제어판에서 확인하려면 다음을 수행합니다.
 
-1. 어플라이언스에서 **시작** > **제어판** > **프로그램 및 기능**을 차례로 클릭합니다.
+1. 어플라이언스에서 **시작** > **제어판** > **프로그램 및 기능** 을 차례로 클릭합니다.
 2. 목록에서 어플라이언스 서비스 버전을 확인합니다.
 
     ![제어판에서 버전 확인](./media/migrate-appliance/programs-features.png)
@@ -518,7 +518,7 @@ NIC당 전송된 데이터 | cat /sys/class/net/eth$nic/statistics/tx_bytes
 
 5. 명령 출력이 파일의 서비스에 대한 해시 값 항목(예: 위의 MD5 해시 값)과 일치하는지 확인합니다.
 6. 이제 MSI를 실행하여 서비스를 설치합니다. 자동 설치이며, 완료되면 설치 창이 닫힙니다.
-7. 설치가 완료되면 **제어판** > **프로그램 및 기능**에서 서비스 버전을 확인합니다. 이제 서비스 버전을 json 파일에 표시된 최신 버전으로 업그레이드해야 합니다.
+7. 설치가 완료되면 **제어판** > **프로그램 및 기능** 에서 서비스 버전을 확인합니다. 이제 서비스 버전을 json 파일에 표시된 최신 버전으로 업그레이드해야 합니다.
 
 
 

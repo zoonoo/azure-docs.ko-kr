@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
 ms.openlocfilehash: be43d04672dcefe368eb4052b4d1a929e25327ab
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366862"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009923"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Azure Container Instances에 Text Analytics 컨테이너 배포
 
 Cognitive Services [Text Analytics][install-and-run-containers] 컨테이너를 Azure [Container Instances][container-instances]에 배포 하는 방법에 대해 알아봅니다. 이 절차에서는 Text Analytics 리소스 생성, 연결 된 감정 분석 이미지 만들기, 브라우저에서 두 작업의이 오케스트레이션을 실행 하는 기능을 예시 합니다. 컨테이너를 사용 하면 개발자가 인프라를 관리 하지 않고 응용 프로그램 개발에 집중 하는 것으로 전환할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독을 사용합니다. Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services)을 만듭니다.
+* Azure 구독을 사용합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services)을 만듭니다.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 

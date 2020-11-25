@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: ecb066c7269217af3f8cc84e0f59ab29b4b39a9e
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 45ebd793d96ed8cf0edf88d5631353fb6cd6a982
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331515"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96008772"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Azure Data Factory를 시각적으로 모니터링
 
@@ -40,7 +40,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 | 실행 종료 | 파이프라인 실행의 종료 날짜 및 시간 (MM/DD/YYYY, HH: MM: SS AM/PM) |
 | Duration | 실행 기간 (HH:MM:SS) |
 | 트리거 주체 | 파이프라인을 시작한 트리거의 이름입니다. |
-| 상태 | **실패** , **성공** , **진행 중** , **취소** 또는 **큐 대기** |
+| 상태 | **실패**, **성공**, **진행 중**, **취소** 또는 **큐 대기** |
 | 주석 | 파이프라인에 연결된 필터링 가능한 태그  |
 | 매개 변수 | 파이프라인 실행 매개 변수 (이름/값 쌍) |
 | Error | 파이프라인이 실패한 경우 실행 오류 |
@@ -62,16 +62,16 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 목록 보기에는 각 파이프라인 실행에 해당하는 작업 실행이 표시됩니다. 특정 작업 실행을 마우스로 가리켜 JSON 입력, JSON 출력 및 자세한 작업 관련 모니터링 환경과 같은 실행 관련 정보를 가져옵니다.
 
-![작업 실행 모니터링 목록 보기](media/monitor-visually/activity-runs.png)
+![SalesAnalyticsMLPipeline에 대 한 정보와 작업 실행 목록이 차례로 표시 됩니다.](media/monitor-visually/activity-runs.png)
 
 | **열 이름** | **설명** |
 | --- | --- |
 | 작업 이름 | 파이프라인 내 작업 이름 |
-| 작업 유형 | **복사** , **ExecuteDataFlow** 또는 **AzureMLExecutePipeline** 같은 작업 유형 |
+| 작업 유형 | **복사**, **ExecuteDataFlow** 또는 **AzureMLExecutePipeline** 같은 작업 유형 |
 | 동작 | JSON 입력 정보, JSON 출력 정보 또는 자세한 작업 관련 모니터링 환경을 볼 수 있는 아이콘 | 
 | 실행 시작 | 작업 실행에 대한 시작 날짜 및 시간(MM/DD/YYYY, HH: MM: SS AM/PM) |
 | Duration | 실행 기간 (HH:MM:SS) |
-| 상태 | **실패** , **성공** , **진행 중** 또는 **취소** |
+| 상태 | **실패**, **성공**, **진행 중** 또는 **취소** |
 | 통합 런타임 | 작업이 실행된 Integration Runtime |
 | 사용자 속성 | 작업의 사용자 정의 속성 |
 | Error | 작업이 실패한 경우 실행 오류 |
@@ -79,7 +79,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 작업에 실패 한 경우 오류 열의 아이콘을 클릭 하 여 자세한 오류 메시지를 볼 수 있습니다. 
 
-![작업 실행 모니터링 목록 보기](media/monitor-visually/activity-run-error.png)
+![오류 코드, 오류 유형 및 오류 정보를 포함 한 오류 정보와 함께 알림이 나타납니다.](media/monitor-visually/activity-run-error.png)
 
 ### <a name="promote-user-properties-to-monitor"></a>모니터링하도록 사용자 속성 승격
 

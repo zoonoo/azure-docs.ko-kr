@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 2d981e902f829eb0fa8283b6a38ae376a780bcc9
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 591d71e8cd6af2801540f5a1a41ad88b1f538e81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289745"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844491"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>자습서: Key Vault에서 인증서 자동 회전 구성
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
-키 자격 증명 모음을 만들거나 기존 자격 증명 모음을 선택하여 작업을 수행합니다([키 자격 증명 모음을 만드는 단계](../secrets/quick-create-portal.md) 참조). 이 예제의 키 자격 증명 모음 이름은 **Example-Vault** 입니다.
+[Azure Portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md) 또는 [Azure PowerShell](../general/quick-create-powershell.md)을 사용하여 Azure Key Vault를 만듭니다. 이 예제의 키 자격 증명 모음 이름은 **Example-Vault** 입니다.
 
 ![키 자격 증명 모음 만들기가 완료된 후의 출력](../media/certificates/tutorial-import-cert/vault-properties.png)
 

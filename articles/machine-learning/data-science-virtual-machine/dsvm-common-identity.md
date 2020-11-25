@@ -11,11 +11,11 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.openlocfilehash: 3dc6fb64f6e8695d84e292322293998e2f4cb0a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324779"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009231"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Data Science Virtual Machine에서 공통 id 설정
 
@@ -49,7 +49,7 @@ Azure AD DS를 사용하면 Azure에서 완전히 관리되는 서비스를 제�
     
    1. 이 프로세스가 완료된 후 사용자에게 제공할 수 있도록 복사하거나 그렇지 않은 경우 생성된 사용자 암호를 기록합니다.
     
-   1. 필요에 따라 **프로필** , **그룹** 또는 사용자에 대한 **디렉터리 역할** 의 정보를 열고 입력할 수 있습니다. 
+   1. 필요에 따라 **프로필**, **그룹** 또는 사용자에 대한 **디렉터리 역할** 의 정보를 열고 입력할 수 있습니다. 
     
    1. **사용자** 에서 **만들기** 를 선택 합니다.
     

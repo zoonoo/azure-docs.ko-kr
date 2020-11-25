@@ -12,11 +12,11 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b83a8bfbc79af344c4d158ee65134034db714e9c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783966"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008908"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Microsoft Azure Storage에서 동시성 관리
 
@@ -85,7 +85,7 @@ catch (StorageException ex)
 }
 ```
 
-또한 Azure Storage에는 **if-수정** 된 경우, 수정 되지 않은 **경우** -수정 되지 않은 **경우, 해당** 헤더의 조합 등의 조건부 헤더에 대 한 지원도 포함 됩니다. 자세한 내용은 [Blob 서비스 작업의 조건부 헤더 지정](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations)을 참조하세요.
+또한 Azure Storage에는 **if-수정** 된 경우, 수정 되지 않은 **경우**-수정 되지 않은 **경우, 해당** 헤더의 조합 등의 조건부 헤더에 대 한 지원도 포함 됩니다. 자세한 내용은 [Blob 서비스 작업의 조건부 헤더 지정](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations)을 참조하세요.
 
 아래 표에는 요청에서 **If-Match** 와 같은 조건부 헤더를 수락하며 응답에서 ETag 값을 반환하는 컨테이너 작업이 요약되어 있습니다.
 
@@ -99,7 +99,7 @@ catch (StorageException ex)
 | 컨테이너 ACL 설정 |예 |예(*) |
 | 컨테이너 삭제 |예 |예 |
 | 컨테이너 임대 |예 |예 |
-| Blob 나열 |예 |아니요 |
+| Blob 나열 |예 |예 |
 
 (*) SetContainerACL에 의해 정의 된 사용 권한은 캐시 되 고 이러한 사용 권한에 대 한 업데이트는 업데이트 일관성을 유지 하는 기간 동안 전파 되는 데 30 초 정도 걸립니다.
 
@@ -130,7 +130,7 @@ catch (StorageException ex)
 
 단독 사용을 위해 blob을 잠그려면 해당 blob에 대 한 [임대](/rest/api/storageservices/Lease-Blob) 를 획득 합니다. 임대를 획득 하는 경우 임대 기간을 지정 합니다. 기간 범위는 15에서 60 초 또는 무한대로, 배타적 잠금에 해당 합니다. 유한 임대를 갱신 하 여 확장 합니다. 완료 되 면 임대를 해제 합니다. Blob Storage는 만료 되는 경우 자동으로 유한 임대를 해제 합니다.
 
-임대를 사용 하면 다양 한 동기화 전략을 지원할 수 있습니다. 전략에는 *배타적 쓰기/공유 읽기* , *배타적 쓰기/배타적 읽기* , *공유 쓰기/배타적 읽기* 등이 있습니다. 임대가 있는 경우 Azure Storage는 배타적 쓰기 (put, set 및 delete 작업)를 적용 하지만 읽기 작업에 대 한 독점 성을 확인 하려면 개발자가 모든 클라이언트 응용 프로그램에서 임대 ID를 사용 하 고 한 번에 한 클라이언트만 유효한 임대 ID를 갖도록 해야 합니다. 임대 ID를 포함 하지 않는 읽기 작업에서 공유 읽기가 발생 합니다.
+임대를 사용 하면 다양 한 동기화 전략을 지원할 수 있습니다. 전략에는 *배타적 쓰기/공유 읽기*, *배타적 쓰기/배타적 읽기*, *공유 쓰기/배타적 읽기* 등이 있습니다. 임대가 있는 경우 Azure Storage는 배타적 쓰기 (put, set 및 delete 작업)를 적용 하지만 읽기 작업에 대 한 독점 성을 확인 하려면 개발자가 모든 클라이언트 응용 프로그램에서 임대 ID를 사용 하 고 한 번에 한 클라이언트만 유효한 임대 ID를 갖도록 해야 합니다. 임대 ID를 포함 하지 않는 읽기 작업에서 공유 읽기가 발생 합니다.
 
 다음 C# 코드 조각은 Blob에 대해 30초 동안 배타적 임대를 획득하고 Blob의 내용을 업데이트한 후에 임대를 해제하는 예제를 보여 줍니다. 새 임대를 얻으려고 할 때 blob에 대 한 유효한 임대가 이미 있는 경우 Blob service는 "HTTP (409) 충돌" 상태 결과를 반환 합니다. 다음 코드 조각은 스토리지 서비스에서 Blob를 업데이트하기 위한 요청을 할 때 **AccessCondition** 개체를 사용하여 임대 정보를 캡슐화합니다.  여기서 전체 샘플을 다운로드할 수 있습니다. [Azure Storage를 사용하여 동시성 관리](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
@@ -184,7 +184,7 @@ catch (StorageException ex)
 
 ### <a name="pessimistic-concurrency-for-containers"></a>컨테이너에 대한 비관적 동시성
 
-컨테이너에 대 한 임대를 사용 하면 blob ( *배타적 쓰기/공유 읽기* , *배타적 쓰기/배타적 읽기* , *공유 쓰기/배타적* 읽기)에서와 동일한 동기화 전략을 지원할 수 있습니다. 단, 저장소 서비스는 삭제 작업에 독점 성을 적용 합니다. 임대가 활성 상태인 컨테이너를 삭제하려면 클라이언트가 삭제 요청에 활성 임대 ID를 포함해야 합니다. 기타 모든 컨테이너 작업은 임대 ID를 포함하지 않아도 임대한 컨테이너에서 성공합니다. 이 경우 해당 작업은 공유 작업입니다. 업데이트(배치 또는 설정) 또는 읽기 작업에서 독점성이 필요한 경우 개발자는 모든 클라이언트가 임대 ID를 사용하고 한 번에 한 클라이언트만 유효한 임대 ID를 사용하도록 해야 합니다.
+컨테이너에 대 한 임대를 사용 하면 blob (*배타적 쓰기/공유 읽기*, *배타적 쓰기/배타적 읽기*, *공유 쓰기/배타적* 읽기)에서와 동일한 동기화 전략을 지원할 수 있습니다. 단, 저장소 서비스는 삭제 작업에 독점 성을 적용 합니다. 임대가 활성 상태인 컨테이너를 삭제하려면 클라이언트가 삭제 요청에 활성 임대 ID를 포함해야 합니다. 기타 모든 컨테이너 작업은 임대 ID를 포함하지 않아도 임대한 컨테이너에서 성공합니다. 이 경우 해당 작업은 공유 작업입니다. 업데이트(배치 또는 설정) 또는 읽기 작업에서 독점성이 필요한 경우 개발자는 모든 클라이언트가 임대 ID를 사용하고 한 번에 한 클라이언트만 유효한 임대 ID를 사용하도록 해야 합니다.
 
 다음 컨테이너 작업에서는 임대를 사용하여 비관적 동시성을 관리할 수 있습니다.
 
@@ -251,7 +251,7 @@ customer.ETag = "*";
 | 엔터티 병합 |예 |예 |
 | 엔터티 삭제 |예 |예 |
 | 엔터티 삽입 또는 바꾸기 |예 |예 |
-| 엔터티 삽입 또는 병합 |예 |아니요 |
+| 엔터티 삽입 또는 병합 |예 |예 |
 
 **엔터티 삽입 또는 바꾸기** 및 **삽입 또는 병합 엔터티** 작업은 ETag 값을 table service로 보내지 않기 때문에 동시성 검사를 수행 *하지 않습니다.*
 

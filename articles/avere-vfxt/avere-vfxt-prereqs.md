@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: d87f57873a4bb84b20df3da3880017d9ef2484a5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342113"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008415"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT 만들기 준비
 
@@ -97,10 +97,10 @@ Azure Portal에서 저장소 서비스 끝점을 만듭니다.
 1. 포털에서 가상 네트워크 목록을 엽니다.
 1. 클러스터에 대 한 가상 네트워크를 선택 합니다.
 1. 왼쪽 메뉴에서 **서비스 끝점** 을 클릭 합니다.
-1. 위쪽에서 **추가**를 클릭합니다.
+1. 위쪽에서 **추가** 를 클릭합니다.
 1. 서비스를 선택 ``Microsoft.Storage`` 합니다.
 1. 클러스터의 서브넷을 선택 합니다.
-1. 아래쪽에서 **추가**를 클릭합니다.
+1. 아래쪽에서 **추가** 를 클릭합니다.
 
    ![서비스 엔드포인트를 만드는 단계에 대한 주석이 있는 Azure Portal 스크린샷](media/avere-vfxt-service-endpoint.png)
 

@@ -6,23 +6,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7f71cacee86edd5b3f054f0996893c2148c626eb
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4c1284c13d1516ac4061319287adb64ab7e14ff5
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422674"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579473"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요.
 
+## <a name="november-2020"></a>2020년 11월
+
+|기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
+|------------------------------|----------|-------------|---------------|
+|[인덱서, 데이터 원본 및 기술 세트에 대한 고객 관리형 키 암호화](search-security-manage-encryption-keys.md) | 보안 | 이러한 추가는 검색 서비스에서 만들고 관리하는 전체 자산의 범위에 대해 고객 관리 암호화를 확장합니다. CMK 지원에서는 Microsoft에서 수행하고 관리하는 기본 암호화 위에 추가 암호화 계층을 추가합니다. | 일반적으로 REST api-version=2020-06-30을 통해 사용 가능 |  
+
 ## <a name="september-2020"></a>2020년 9월
 
 Azure Active Directory에서 검색 서비스에 대한 ID를 만든 다음, Azure RBAC 권한을 사용하여 Azure 데이터 원본에 ID 읽기 전용 권한을 부여합니다. IP 규칙이 옵션이 아닌 경우, 필요에 따라 [신뢰할 수 있는 서비스 예외](search-indexer-howto-access-trusted-service-exception.md) 기능을 선택합니다.
-
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |------------------------------|----------|-------------|---------------|

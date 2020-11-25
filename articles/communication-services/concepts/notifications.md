@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3e68e65a5c2ed73a8fb6d8e5d01c645e05ca5157
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b368048e5ea34ebfc073b1ae239cbb40724ae393
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320712"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684375"
 ---
 # <a name="communication-services-notifications"></a>Communication Services 알림
 
@@ -36,7 +36,7 @@ Azure Communication Services는 [Azure Event Grid](https://azure.microsoft.com/s
 
 걸려오는 전화를 받을 때 사용자의 모바일 디바이스에 푸시 알림을 자동으로 보내기 위해 Azure Notification Hub를 Communication Services 리소스에 연결할 수 있습니다. 이러한 푸시 알림을 사용하여 백그라운드에서 애플리케이션을 깨우고 사용자가 통화를 수락하거나 거절할 수 있는 UI를 표시해야 합니다. 
 
-:::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Communication Services가 Event Grid와 통합되는 방식을 보여주는 다이어그램":::
+:::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Communication Services가 Azure Notifications Hub와 통합되는 방식을 보여주는 다이어그램":::
 
 Communication Services는 Azure Notification Hub를 통과 서비스로 사용하여 [Direct Send](https://docs.microsoft.com/rest/api/notificationhubs/direct-send) API를 통해 다양한 플랫폼별 푸시 알림 서비스와 통신합니다. 이렇게 하면 기존 Azure Notification Hub 리소스 및 구성을 다시 사용하여 대기 시간이 짧고 안정적인 통화 알림을 애플리케이션에 전달할 수 있습니다.
 
@@ -53,7 +53,8 @@ Notification Hubs를 사용하여 클라이언트 디바이스에 푸시 알림�
 알림 허브가 구성되면 Azure Resource Manager 클라이언트를 사용하여 또는 Azure Portal을 통해 허브에 대한 연결 문자열을 제공하여 Communication Services 리소스에 연결할 수 있습니다. 연결 문자열에는 "보내기" 권한이 포함되어야 합니다. 허브 전용으로 "보내기" 권한이 있는 액세스 정책을 따로 만드는 것이 좋습니다. [Notification Hubs 보안 및 액세스 정책](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security)에 대한 자세한 정보
 
 > [!IMPORTANT]
-> Apple Push Notification Service VOIP 알림을 사용하도록 설정하려면 알림 허브의 이름을 접미사가 `.voip`인 애플리케이션 번들 ID로 설정해야 합니다. [Notification Hubs를 통해 APNS VOIP 사용](https://docs.microsoft.com/azure/notification-hubs/voip-apns)을 참조하세요.
+> 이는 토큰 인증 모드에만 적용됩니다. 현재 인증서 인증 모드는 지원되지 않습니다.  
+APNS VOIP 알림을 사용하도록 설정하려면 알림 허브를 `.voip` 접미사가 있는 애플리케이션 번들 ID로 구성할 때 번들 ID 값을 설정해야 합니다. 자세한 내용은 [Notification Hubs를 통해 APNS VOIP 사용](https://docs.microsoft.com/azure/notification-hubs/voip-apns)을 참조하세요.
 
 #### <a name="using-the-azure-resource-manager-client-to-configure-the-notification-hub"></a>Azure Resource Manager 클라이언트를 사용하여 Notification Hub 구성
 
@@ -73,7 +74,7 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 포털에서 Azure Communication Services 리소스로 이동합니다. Communication Services 리소스 내에서 Communication Services 페이지의 왼쪽 메뉴에 있는 푸시 알림을 선택하고 이전에 프로비저닝한 Notification Hub를 연결합니다. 여기에 연결 문자열과 리소스 ID를 제공해야 합니다.
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Communication Services가 Event Grid와 통합되는 방식을 보여주는 다이어그램":::
+:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Azure Portal 내의 푸시 알림 설정을 보여주는 스크린샷":::
 
 > [!NOTE]
 > Azure Notification Hub 연결 문자열이 업데이트되면 Communication Services 리소스도 업데이트해야 합니다.

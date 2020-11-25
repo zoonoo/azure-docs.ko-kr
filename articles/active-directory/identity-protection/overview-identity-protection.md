@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ed8d645c5bedf6df087fa9c948415c6a1df24e9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 74cc5bb2b434e757e090bac45202704eb934a522
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783184"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835750"
 ---
 # <a name="what-is-identity-protection"></a>Identity Protection이란?
 
@@ -39,9 +39,9 @@ Microsoft의 ID 보안 및 보호 팀을 이끄는 Alex Weinert는 [자신의 20
 >
 > 작년 Ignite에서는 Microsoft의 ID 신분 시스템에 대한 상위 3가지 공격에 대해 말했습니다. 다음은 이러한 공격들의 최신 볼륨입니다.
 >   
->   - **보안 위반 재생** : 2018년 5월 4.6BN 공격이 감지됨
->   - **암호 스프레이** : 2018년 4월 350k
->   - **피싱** : 정확히 수치화하기 어렵지만, 2018년 3월에 23M 위험 이벤트를 확인했으며, 그 중 상당수는 피싱 관련 사건입니다.
+>   - **보안 위반 재생**: 2018년 5월 4.6BN 공격이 감지됨
+>   - **암호 스프레이**: 2018년 4월 350k
+>   - **피싱**: 정확히 수치화하기 어렵지만, 2018년 3월에 23M 위험 이벤트를 확인했으며, 그 중 상당수는 피싱 관련 사건입니다.
 
 ## <a name="risk-detection-and-remediation"></a>위험 감지 및 수정
 
@@ -59,7 +59,7 @@ Identity Protection은 다음과 같은 분류로 위험을 식별합니다.
 
 이러한 위험에 대한 더 자세한 내용 및 계산되는 방법/시기는 [위험이란?](concept-identity-protection-risks.md) 문서에서 확인할 수 있습니다.
 
-위험 신호는 사용자에게 Azure Multi-Factor Authentication 수행, 셀프 서비스 암호 재설정을 사용하여 암호 다시 설정, 관리자가 조치를 취할 때까지 차단 등의 수정 작업을 트리거할 수 있습니다.
+위험 신호는 사용자에게 Azure AD Multi-Factor Authentication 수행, 셀프 서비스 암호 재설정을 사용하여 암호 다시 설정, 관리자가 조치를 취할 때까지 차단 등의 수정 작업을 트리거할 수 있습니다.
 
 ## <a name="risk-investigation"></a>위험 조사
 
