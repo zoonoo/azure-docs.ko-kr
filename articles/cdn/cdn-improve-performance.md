@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
 ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148746"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993672"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN에서 파일을 압축하여 성능 향상
 파일 압축은 파일이 서버에서 전송되기 전에 파일 크기를 줄여서 파일 전송 속도를 개선하고 페이지 로드 성능을 높이는 간단하고 효과적인 방법입니다. 파일 압축을 통해 대역폭 비용을 절감하고 사용자에게 반응이 빠른 환경을 제공할 수 있습니다.
@@ -51,12 +51,12 @@ ms.locfileid: "92148746"
     ![CDN 프로필 엔드포인트](./media/cdn-file-compression/cdn-endpoints.png)
 
     CDN 엔드포인트 페이지가 열립니다.
-2. **압축**을 선택합니다.
+2. **압축** 을 선택합니다.
 
     ![포털 메뉴에서 압축이 선택 된 끝점을 보여 주는 스크린샷](./media/cdn-file-compression/cdn-compress-select-std.png)
 
     압축 페이지가 열립니다.
-3. **켜기**를 선택하여 압축을 켭니다.
+3. **켜기** 를 선택하여 압축을 켭니다.
 
     ![압축 설정을 보여 주는 스크린샷](./media/cdn-file-compression/cdn-compress-standard.png)
 4. 기본 MIME 형식을 사용하거나, MIME 형식을 추가 또는 제거하여 목록을 수정합니다.
@@ -69,32 +69,32 @@ ms.locfileid: "92148746"
    > MIME 형식의 기본 목록을 수정하는 것은 현재 Microsoft의 Azure CDN 표준에서 지원되지 않습니다.
    > 
 
-5. 변경 후 **저장**을 선택합니다.
+5. 변경 후 **저장** 을 선택합니다.
 
 ### <a name="premium-cdn-profiles"></a>프리미엄 CDN 프로필
 > [!NOTE]
 > 이 섹션은 **Verizon의 Azure CDN Premium** 프로필에만 적용됩니다.
 > 
 
-1. CDN 프로필 페이지에서 **관리**를 선택합니다.
+1. CDN 프로필 페이지에서 **관리** 를 선택합니다.
 
     ![CDN 관리 선택](./media/cdn-file-compression/cdn-manage-btn.png)
 
     CDN 관리 포털이 열립니다.
-2. **HTTP Large** 탭을 가리킨 다음 **캐시 설정** 플라이아웃을 가리킵니다. **압축**을 선택합니다.
+2. **HTTP Large** 탭을 가리킨 다음 **캐시 설정** 플라이아웃을 가리킵니다. **압축** 을 선택합니다.
 
     ![CDN 압축 선택](./media/cdn-file-compression/cdn-compress-select.png)
 
     압축 옵션이 표시됩니다.
 
     ![CDN 파일 압축 옵션](./media/cdn-file-compression/cdn-compress-files.png)
-3. **압축 사용**을 선택하여 압축을 사용하도록 설정합니다. 쉼표로 구분된 목록(공백 없음)으로 압축하려는 MIME 형식을 **파일 형식** 상자에 입력합니다.
+3. **압축 사용** 을 선택하여 압축을 사용하도록 설정합니다. 쉼표로 구분된 목록(공백 없음)으로 압축하려는 MIME 형식을 **파일 형식** 상자에 입력합니다.
 
    > [!TIP]
    > 가능하지만 압축된 형식에 압축을 적용하는 것은 좋지 않습니다. 예를 들면 ZIP, MP3, MP4 또는 JPG 등이 있습니다.
    > 
 
-4. 변경 후 **업데이트**를 선택합니다.
+4. 변경 후 **업데이트** 를 선택합니다.
 
 ## <a name="compression-rules"></a>압축 규칙
 
@@ -151,7 +151,7 @@ ms.locfileid: "92148746"
 | 미압축 |캐시되지 않음 |미압축 | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>압축이 활성화되고 파일이 압축에 적합
-| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 메모 |
+| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 참고 |
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed |지원되는 형식 간 CDN 코드 변환. |
 | Compressed |미압축 |Compressed |CDN이 압축 수행. |
@@ -167,6 +167,6 @@ Media Services CDN 스트리밍을 사용하도록 설정된 엔드포인트의 
 - application/vnd.apple.mpegurl
 - application/f4m+xml 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 * [CDN 파일 압축 문제 해결](cdn-troubleshoot-compression.md)    
 

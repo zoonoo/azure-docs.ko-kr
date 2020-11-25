@@ -8,13 +8,12 @@ ms.topic: include
 ms.date: 03/13/2020
 ms.author: normesta
 ms.custom: include file
-ms.openlocfilehash: d66c8a59747fc4837d727ed3d3c7f6b1722fa7df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a19619c23a5d8b3e90acf38658a109b862c9fbc3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79365368"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993751"
 ---
 > [!NOTE]
-> 이 기능은 계층 구조 네임 스페이스 (Azure Data Lake Storage Gen2)가 있는 계정에서 아직 지원 되지 않습니다. 자세한 내용은 [Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob storage 기능](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-supported-blob-storage-features)을 참조 하세요.
-
+> 이 기능은 계층 구조 네임 스페이스 (Azure Data Lake Storage Gen2)가 있는 계정에서 아직 지원 되지 않습니다. 자세한 내용은 [Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob storage 기능](../articles/storage/blobs/data-lake-storage-supported-blob-storage-features.md)을 참조 하세요.

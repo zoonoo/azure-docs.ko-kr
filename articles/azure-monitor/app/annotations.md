@@ -4,11 +4,11 @@ description: Application Insights에서 배포 또는 빌드 표식을 메트릭
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758186"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993723"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights의 메트릭 차트에 대한 주석
 
@@ -36,34 +36,34 @@ Azure DevOps 조직에 대해 확장을 한 번만 설치 하면 됩니다. 이�
 
 1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 응용 프로그램을 모니터링 하는 Application Insights 리소스를 엽니다. 또는 [새 Application Insights 리소스를 만듭니다](./app-insights-overview.md).
    
-1. **API 액세스** 탭을 열고 **Application Insights ID**를 복사 합니다.
+1. **API 액세스** 탭을 열고 **Application Insights ID** 를 복사 합니다.
    
    ![API 액세스에서 응용 프로그램 ID를 복사 합니다.](./media/annotations/2-app-id.png)
 
 1. 별도의 브라우저 창에서 Azure Pipelines 배포를 관리 하는 릴리스 템플릿을 열거나 만듭니다.
    
-1. **작업 추가**를 선택한 후 메뉴에서 **Application Insights 릴리스 주석** 작업을 선택 합니다.
+1. **작업 추가** 를 선택한 후 메뉴에서 **Application Insights 릴리스 주석** 작업을 선택 합니다.
    
    ![작업 추가를 선택 하 고 Application Insights 릴리스 주석을 선택 합니다.](./media/annotations/3-add-task.png)
 
    > [!NOTE]
    > 릴리스 주석 작업은 현재 Windows 기반 에이전트만 지원 합니다. Linux, macOS 또는 다른 유형의 에이전트에서는 실행 되지 않습니다.
    
-1. **API 액세스** 탭에서 복사한 Application Insights Id를 **응용 프로그램 id**아래에 붙여 넣습니다.
+1. **API 액세스** 탭에서 복사한 Application Insights Id를 **응용 프로그램 id** 아래에 붙여 넣습니다.
    
    ![Application Insights ID 붙여넣기](./media/annotations/4-paste-app-id.png)
    
-1. **Api 액세스** Application Insights 창으로 돌아가서 **api 키 만들기**를 선택 합니다. 
+1. **Api 액세스** Application Insights 창으로 돌아가서 **api 키 만들기** 를 선택 합니다. 
    
    ![API 액세스 탭에서 API 키 만들기를 선택 합니다.](./media/annotations/5-create-api-key.png)
    
-1. **API 키 만들기** 창에서 설명을 입력 하 고 **주석 작성**을 선택한 다음 **키 생성**을 선택 합니다. 새 키를 복사합니다.
+1. **API 키 만들기** 창에서 설명을 입력 하 고 **주석 작성** 을 선택한 다음 **키 생성** 을 선택 합니다. 새 키를 복사합니다.
    
    ![API 키 만들기 창에서 설명을 입력 하 고 주석 작성을 선택한 다음 키 생성을 선택 합니다.](./media/annotations/6-create-api-key.png)
    
 1. 릴리스 템플릿 창의 **변수** 탭에서 **추가** 를 선택 하 여 새 API 키에 대 한 변수 정의를 만듭니다.
 
-1. **이름**에을 입력 하 `ApiKey` 고 **값**아래에 **api 액세스** 탭에서 복사한 api 키를 붙여넣습니다.
+1. **이름** 에을 입력 하 `ApiKey` 고 **값** 아래에 **api 액세스** 탭에서 복사한 api 키를 붙여넣습니다.
    
    ![Azure DevOps 변수 탭에서 추가를 선택 하 고, 변수 이름을 ApiKey로 하 고, API 키를 값 아래에 붙여 넣습니다.](./media/annotations/7-paste-api-key.png)
    
@@ -89,7 +89,7 @@ Azure DevOps 조직에 대해 확장을 한 번만 설치 하면 됩니다. 이�
 
 ![주석이 표시 된 시계열 로그 기반 쿼리를 포함 하는 통합 문서 창의 스크린샷](./media/annotations/workbooks-annotations.png)
 
-통합 문서에서 주석을 사용 하도록 설정 하려면 **고급 설정** 으로 이동 하 여 **주석 표시**를 선택 합니다.
+통합 문서에서 주석을 사용 하도록 설정 하려면 **고급 설정** 으로 이동 하 여 **주석 표시** 를 선택 합니다.
 
 ![주석을 사용 하도록 설정 하는 설정 옆에 있는 확인 표시가 강조 표시 된 상태로 강조 표시 된 고급 설정 메뉴의 스크린샷](./media/annotations/workbook-show-annotations.png)
 

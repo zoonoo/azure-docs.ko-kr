@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: af387b063a3c07d8b6b6c544814565e2a5ebdd46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87495729"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993774"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V와 Azure 간 재해 복구 아키텍처
 
@@ -83,7 +83,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 
 ### <a name="enable-protection"></a>보호 사용
 
-1. Azure Portal 또는 온-프레미스에서 Hyper-V VM에 대한 보호를 사용하도록 설정하면 **보호 활성화**가 시작됩니다.
+1. Azure Portal 또는 온-프레미스에서 Hyper-V VM에 대한 보호를 사용하도록 설정하면 **보호 활성화** 가 시작됩니다.
 2. 이 작업은 사용자가 구성한 설정으로 Azure에 대한 복제를 설정하기 위해 [CreateReplicationRelationship](/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice) 메서드를 호출하기 전에 해당 컴퓨터가 전제 조건에 부합하는지 확인합니다.
 3. 작업은 [StartReplication](/windows/win32/hyperv_v2/startreplication-msvm-replicationservice) 메서드를 호출하여 초기 복제를 시작하여 전체 VM 복제를 초기화하고 Azure로 VM의 가상 디스크를 전송합니다.
 4. **작업 탭에서** 작업을 모니터링할 수 있습니다.      ![작업 탭 ](media/hyper-v-azure-architecture/image1.png) 의 작업 목록 스크린샷 ![추가 세부 정보를 포함 하는 보호 사용 화면의 스크린샷](media/hyper-v-azure-architecture/image2.png)
@@ -121,7 +121,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
     - 고정 블록 청크 알고리즘을 사용하며 이 경우 원본 및 대상 파일이 고정 청크로 나누어집니다.
     - 각 청크에 대한 체크섬이 생성됩니다. 이를 비교하여 원본의 어떤 블록을 대상에 적용해야 하는지 결정합니다.
 2. 다시 동기화를 마치면 일반 델타 복제가 다시 시작됩니다.
-3. 일정대로 기본 다시 동기화 시간까지 기다릴 수 없으면 수동으로 VM을 다시 동기화할 수 있습니다. 시스템이 중단이 발생한 경우를 예로 들 수 있습니다. 이렇게 하려면 Azure Portal에서 **VM > 다시 동기화**를 선택합니다.
+3. 일정대로 기본 다시 동기화 시간까지 기다릴 수 없으면 수동으로 VM을 다시 동기화할 수 있습니다. 시스템이 중단이 발생한 경우를 예로 들 수 있습니다. 이렇게 하려면 Azure Portal에서 **VM > 다시 동기화** 를 선택합니다.
 
     ![다시 동기화 옵션을 보여 주는 스크린샷](./media/hyper-v-azure-architecture/image4-site.png)
 
@@ -132,7 +132,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 
 **범주** | **세부 정보**
 --- | ---
-**복구할 수 없는 오류** | 재시도가 수행되지 않습니다. VM 상태가 **위험**으로 표시되고 관리자 개입이 필요합니다.<br/><br/> 이러한 오류의 예로는 VHD 체인 손상, VM 복제본에 대한 잘못된 상태, 네트워크 인증 오류, 권한 부여 오류, VM 찾을 수 없음 오류(독립 실행형 Hyper-V 서버의 경우)가 포함됩니다.
+**복구할 수 없는 오류** | 재시도가 수행되지 않습니다. VM 상태가 **위험** 으로 표시되고 관리자 개입이 필요합니다.<br/><br/> 이러한 오류의 예로는 VHD 체인 손상, VM 복제본에 대한 잘못된 상태, 네트워크 인증 오류, 권한 부여 오류, VM 찾을 수 없음 오류(독립 실행형 Hyper-V 서버의 경우)가 포함됩니다.
 **복구할 수 있는 오류** | 첫 번째 시도부터 재시도 간격을 늘리는 기하급수적인 백오프(1, 2, 4, 8, 10분)를 사용하여 복제 간격마다 재시도가 발생합니다. 오류가 계속되면 30분마다 다시 시도하십시오. 이러한 예로는 네트워크 오류, 디스크 공간 부족, 메모리 부족 상태가 있습니다.
 
 

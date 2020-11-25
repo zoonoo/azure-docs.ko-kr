@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: d806d8a04dc1bd8547808d20c77bfec310f7dd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507486"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95992993"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 가상 배열에 대한 작업 보기
 ## <a name="overview"></a>개요
@@ -32,8 +32,8 @@ ms.locfileid: "85507486"
 * **시간 범위** – 작업은 날짜 및 시간 범위에 따라 필터링할 수 있습니다.
 * **디바이스** – 작업은 서비스에 연결된 특정 디바이스에서 시작됩니다. 그런 다음 필터링된 작업은 다음 특성을 기반으로 표로 정리됩니다.
   
-  * **이름** – 작업 이름은 **모두**, **Backup**, **복제**, **장애 조치**, **업데이트 다운로드** 또는 **업데이트 설치**일 수 있습니다.
-  * **상태** – 작업은 **모두**, **진행 중**, **성공**이나 **실패** 또는 **취소** 상태일 수 있습니다.
+  * **이름** – 작업 이름은 **모두**, **Backup**, **복제**, **장애 조치**, **업데이트 다운로드** 또는 **업데이트 설치** 일 수 있습니다.
+  * **상태** – 작업은 **모두**, **진행 중**, **성공** 이나 **실패** 또는 **취소** 상태일 수 있습니다.
   * **엔터티** – 작업은 볼륨, 공유 또는 디바이스에 연관될 수 있습니다.
   * **디바이스** – 작업이 시작된 디바이스의 이름입니다.
   * **시작** 시간 – 작업이 시작 된 시간입니다.
@@ -51,7 +51,7 @@ ms.locfileid: "85507486"
 2. 작업 테이블 형식 목록에서 작업을 선택합니다.
    
     ![작업 블레이드](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
-3. 페이지 아래쪽에서 **세부 정보**를 클릭합니다.
+3. 페이지 아래쪽에서 **세부 정보** 를 클릭합니다.
 4. **세부 정보** 대화 상자에서 상태, 세부 정보 및 시간 통계를 볼 수 있습니다. 다음 그림은 **백업 작업 세부 정보** 대화 상자의 예를 보여 줍니다.
    
     ![작업 세부 정보](./media/storsimple-virtual-array-manage-jobs/ova-jobs-details.png)

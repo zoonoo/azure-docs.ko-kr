@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bf8fe68c28457fd01704762e537fe259a96a6bce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d6fb23d7325347a1b27165d3e9bc3bf33797682
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116225"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95994362"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -86,7 +86,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 �
     </ClaimsTransformations>
     ```
 
-4. `Local Account SignIn`의 **DisplayName**이 있는 **ClaimsProvider** 요소를 찾아 다음 기술 프로필을 추가합니다.
+4. `Local Account SignIn`의 **DisplayName** 이 있는 **ClaimsProvider** 요소를 찾아 다음 기술 프로필을 추가합니다.
 
     ```xml
     <TechnicalProfile Id="ResourceOwnerPasswordCredentials-OAUTH2">
@@ -125,7 +125,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 �
     </TechnicalProfile>
     ```
 
-    **client_ID**의 **DefaultValue**를 필수 조건 자습서에서 만든 ProxyIdentityExperienceFramework 애플리케이션의 애플리케이션 ID로 바꿉니다. **resource_id**의 **DefaultValue**를 필수 조건 자습서에서 만든 IdentityExperienceFramework 애플리케이션의 애플리케이션 ID로 바꿉니다.
+    **client_ID** 의 **DefaultValue** 를 필수 조건 자습서에서 만든 ProxyIdentityExperienceFramework 애플리케이션의 애플리케이션 ID로 바꿉니다. **resource_id** 의 **DefaultValue** 를 필수 조건 자습서에서 만든 IdentityExperienceFramework 애플리케이션의 애플리케이션 ID로 바꿉니다.
 
 5. 다음 **ClaimsProvider** 요소를 기술 프로필과 함께 **ClaimsProviders** 요소에 추가합니다.
 
@@ -218,17 +218,17 @@ Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 �
     </UserJourney>
     ```
 
-7. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **업로드 정책**을 선택합니다.
-8. **정책이 있는 경우 덮어쓰기**를 사용하도록 설정하고 *TrustFrameworkExtensions.xml* 파일을 찾아서 선택합니다.
-9. **업로드**를 클릭합니다.
+7. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **업로드 정책** 을 선택합니다.
+8. **정책이 있는 경우 덮어쓰기** 를 사용하도록 설정하고 *TrustFrameworkExtensions.xml* 파일을 찾아서 선택합니다.
+9. **업로드** 를 클릭합니다.
 
 ## <a name="create-a-relying-party-file"></a>신뢰 당사자 파일 만들기
 
 다음으로, 만든 사용자 경험을 시작하는 신뢰 당사자 파일을 업데이트합니다.
 
-1. 작업 디렉터리에 *SignUpOrSignin.xml* 파일의 복사본을 만든 다음, 이름을 *ROPC_Auth.xml*로 바꿉니다.
-2. 새 파일을 열고 **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 변경합니다. 정책 ID는 정책의 이름입니다. 예를 들어 **B2C_1A_ROPC_Auth**입니다.
-3. **DefaultUserJourney**의 **ReferenceId** 특성 값을 `ResourceOwnerPasswordCredentials`로 변경합니다.
+1. 작업 디렉터리에 *SignUpOrSignin.xml* 파일의 복사본을 만든 다음, 이름을 *ROPC_Auth.xml* 로 바꿉니다.
+2. 새 파일을 열고 **TrustFrameworkPolicy** 의 **PolicyId** 특성 값을 고유 값으로 변경합니다. 정책 ID는 정책의 이름입니다. 예를 들어 **B2C_1A_ROPC_Auth** 입니다.
+3. **DefaultUserJourney** 의 **ReferenceId** 특성 값을 `ResourceOwnerPasswordCredentials`로 변경합니다.
 4. 다음 클레임만 포함되도록 **OutputClaims** 요소를 변경합니다.
 
     ```xml
@@ -239,15 +239,15 @@ Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 �
     <OutputClaim ClaimTypeReferenceId="surname" DefaultValue="" />
     ```
 
-5. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **업로드 정책**을 선택합니다.
-6. **정책이 있는 경우 덮어쓰기**를 사용하도록 설정하고 *ROPC_Auth.xml* 파일을 찾아서 선택합니다.
-7. **업로드**를 클릭합니다.
+5. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **업로드 정책** 을 선택합니다.
+6. **정책이 있는 경우 덮어쓰기** 를 사용하도록 설정하고 *ROPC_Auth.xml* 파일을 찾아서 선택합니다.
+7. **업로드** 를 클릭합니다.
 
 ## <a name="test-the-policy"></a>정책 테스트
 
 선호하는 API 개발 애플리케이션을 사용하여 API 호출을 생성하고, 응답을 검토하여 정책을 디버그합니다. 다음 정보를 POST 요청의 본문으로 사용하여 이 예제와 같은 호출을 생성합니다.
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - `<tenant-name>`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
 - `B2C_1A_ROPC_Auth`를 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
@@ -264,12 +264,12 @@ Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 �
 - `user-account`를 테넌트의 사용자 계정 이름으로 바꿉니다.
 - `password1`을 사용자 계정의 암호로 바꿉니다.
 - `application-id`를 *ROPC_Auth_app* 등록의 애플리케이션 ID로 바꿉니다.
-- *Offline_access*는 새로 고침 토큰을 받고 싶은 경우에 사용하는 선택 사항입니다.
+- *Offline_access* 는 새로 고침 토큰을 받고 싶은 경우에 사용하는 선택 사항입니다.
 
 실제 POST 요청은 다음 예제와 같이 표시됩니다.
 
 ```https
-POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1A_ROPC_Auth HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -292,7 +292,7 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 
 여기에 표시된 것과 같은 POST 호출을 생성합니다. 다음 표의 정보를 요청의 본문으로 사용합니다.
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - `<tenant-name>`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
 - `B2C_1A_ROPC_Auth`를 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
@@ -306,7 +306,7 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 | refresh_token | `refresh-token` |
 
 - `application-id`를 *ROPC_Auth_app* 등록의 애플리케이션 ID로 바꿉니다.
-- `refresh-token`을 이전 응답에서 다시 전송된 **refresh_token**으로 바꿉니다.
+- `refresh-token`을 이전 응답에서 다시 전송된 **refresh_token** 으로 바꿉니다.
 
 성공적인 응답은 다음 예제와 비슷합니다.
 

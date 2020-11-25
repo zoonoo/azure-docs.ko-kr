@@ -5,11 +5,11 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
 ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108102"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994114"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
 
@@ -33,8 +33,8 @@ Azure Portal에서 계정의 **개요** 페이지에는 기본적으로 키 노�
 
 Azure Portal에서 모든 Batch 계정 메트릭을 보려면 다음을 수행 합니다.
 
-1. Azure Portal에서 **모든 서비스**  >  **배치 계정**을 선택 하 고 batch 계정의 이름을 선택 합니다.
-2. **모니터링** 아래에서 **메트릭**을 선택합니다.
+1. Azure Portal에서 **모든 서비스**  >  **배치 계정** 을 선택 하 고 batch 계정의 이름을 선택 합니다.
+2. **모니터링** 에서 **메트릭** 을 선택합니다.
 3. **메트릭 추가** 를 선택한 다음 드롭다운 목록에서 메트릭을 선택 합니다.
 4. 메트릭에 대 한 **집계** 옵션을 선택 합니다. 개수 기반 메트릭 (예: "전용 코어 수" 또는 "낮은 우선 순위 노드 수")의 경우 **평균** 집계를 사용 합니다. 이벤트 기반 메트릭 (예: "풀 크기 조정 완료 이벤트")의 경우 **개수**"집계를 사용 합니다.
 
@@ -61,12 +61,12 @@ Azure Monitor Api를 사용 하 여 프로그래밍 방식으로 메트릭을 �
 
 Azure Portal에서 메트릭 경고를 구성 하려면 다음을 수행 합니다.
 
-1. **모든 서비스** > **배치 계정**을 차례로 선택한 다음, 배치 계정의 이름을 선택합니다.
-2. **모니터링**아래에서 **경고**를 선택 하 고 **새 경고 규칙**을 선택 합니다.
-3. **조건 선택**을 클릭 한 다음 메트릭을 선택 합니다. **차트 기간**, **임계값 유형**, **연산자**및 **집계 유형에**대 한 값을 확인 하 고 **임계값**을 입력 합니다. 그런 후 **완료**를 선택합니다.
+1. **모든 서비스** > **배치 계정** 을 차례로 선택한 다음, 배치 계정의 이름을 선택합니다.
+2. **모니터링** 아래에서 **경고** 를 선택 하 고 **새 경고 규칙** 을 선택 합니다.
+3. **조건 선택** 을 클릭 한 다음 메트릭을 선택 합니다. **차트 기간**, **임계값 유형**, **연산자** 및 **집계 유형에** 대 한 값을 확인 하 고 **임계값** 을 입력 합니다. 그런 후 **완료** 를 선택합니다.
 4. 기존 작업 그룹을 선택하거나 새 작업 그룹을 만들어서 경고에 작업 그룹을 추가합니다.
 5. **경고 규칙 세부 정보** 섹션에서 **경고 규칙 이름** 및 **설명** 을 입력 하 고 **심각도** 를 선택 합니다.
-6. **경고 규칙 만들기**를 선택합니다.
+6. **경고 규칙 만들기** 를 선택합니다.
 
 메트릭 경고를 만드는 방법에 대 한 자세한 내용은 [Azure Monitor에서 메트릭 경고의 작동 방식 이해](../azure-monitor/platform/alerts-metric-overview.md) 및 [Azure Monitor를 사용 하 여 메트릭 경고 만들기, 보기 및 관리](../azure-monitor/platform/alerts-metric.md)를 참조 하세요.
 
@@ -97,12 +97,12 @@ Azure Monitor [REST API](/rest/api/monitor/)를 사용 하 여 거의 실시간 
 
 Azure Portal에서 새 진단 설정을 만들려면 다음 단계를 수행 합니다.
 
-1. Azure Portal에서 **모든 서비스**  >  **배치 계정**을 선택 하 고 batch 계정의 이름을 선택 합니다.
-2. **모니터링** 아래에서 **진단 설정**을 선택합니다.
-3. **진단 설정**에서 **진단 설정 추가**를 선택 합니다.
+1. Azure Portal에서 **모든 서비스**  >  **배치 계정** 을 선택 하 고 batch 계정의 이름을 선택 합니다.
+2. **모니터링** 아래에서 **진단 설정** 을 선택합니다.
+3. **진단 설정** 에서 **진단 설정 추가** 를 선택 합니다.
 4. 설정의 이름을 입력 합니다.
-5. 대상 선택: **Log Analytics에 보내기**, **저장소 계정에 보관**또는 **이벤트 허브로 스트림** 저장소 계정을 선택 하는 경우 필요에 따라 보존 정책을 설정할 수 있습니다. 보존 일 수를 지정하지 않으면 데이터는 스토리지 계정의 수명 동안 보존됩니다.
-6. **Servicelog**, **allmetrics**또는 둘 다를 선택 합니다.
+5. 대상 선택: **Log Analytics에 보내기**, **저장소 계정에 보관** 또는 **이벤트 허브로 스트림** 저장소 계정을 선택 하는 경우 필요에 따라 보존 정책을 설정할 수 있습니다. 보존 일 수를 지정하지 않으면 데이터는 스토리지 계정의 수명 동안 보존됩니다.
+6. **Servicelog**, **allmetrics** 또는 둘 다를 선택 합니다.
 7. **저장** 을 선택 하 여 진단 설정을 만듭니다.
 
 [리소스 관리자 템플릿을](../azure-monitor/samples/resource-manager-diagnostic-settings.md)사용 하거나 Azure PowerShell 또는 Azure CLI을 사용 하 여 진단 설정을 구성 하기 위해 [Azure Portal에서 Azure Monitor를 통해 수집을 사용 하도록 설정할](../azure-monitor/platform/diagnostic-settings.md) 수도 있습니다. 자세한 내용은 [Azure platform Logs 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
@@ -119,7 +119,7 @@ m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-예를 들면 다음과 같습니다.
+예들 들어 다음과 같습니다.
 
 ```json
 insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/
@@ -139,7 +139,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 
 ### <a name="service-log-events"></a>서비스 로그 이벤트
 
-Azure Batch 서비스 로그 (수집 된 경우)는 풀 또는 작업과 같은 개별 일괄 처리 리소스의 수명 동안 Azure Batch 서비스에서 내보낸 이벤트를 포함 합니다. 일괄 처리에서 내보내는 각 이벤트는 JSON 형식으로 기록됩니다. 예를 들어 샘플 **풀 만들기 이벤트**의 본문은 다음과 같습니다.
+Azure Batch 서비스 로그 (수집 된 경우)는 풀 또는 작업과 같은 개별 일괄 처리 리소스의 수명 동안 Azure Batch 서비스에서 내보낸 이벤트를 포함 합니다. 일괄 처리에서 내보내는 각 이벤트는 JSON 형식으로 기록됩니다. 예를 들어 샘플 **풀 만들기 이벤트** 의 본문은 다음과 같습니다.
 
 ```json
 {

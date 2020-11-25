@@ -8,11 +8,11 @@ ms.date: 04/29/2020
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 8620d6bc403882cb308405e8ffb4412917d0c6f1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743822"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993473"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -225,7 +225,7 @@ git push frontend master
 
 `http://<back-end-app-name>.azurewebsites.net`으로 이동하여 프런트 엔드 앱에서 추가된 항목을 확인합니다. `from back end 1` 및 `from back end 2` 등과 같은 몇 가지 항목을 추가한 다음 프런트 엔드 앱을 새로 고쳐서 변경 내용이 반영되는지 확인합니다.
 
-:::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
+:::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="프런트 엔드 앱에서 추가된 항목이 있는 할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
 ## <a name="configure-auth"></a>인증 구성
 
@@ -239,7 +239,7 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 **리소스 그룹** 에서 리소스 그룹을 찾아 선택합니다. **개요** 에서 백 엔드 앱의 관리 페이지를 선택합니다.
 
-:::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
+:::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="예제 리소스 그룹 및 선택한 백 엔드 앱의 관리 페이지에 대한 개요를 보여주는 리소스 그룹 창의 스크린샷.":::
 
 백 엔드 앱의 왼쪽 메뉴에서 **인증/권한 부여** 을 선택하고 **설정** 을 선택하여 App Service 인증을 사용하도록 설정합니다.
 
@@ -247,7 +247,7 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 **인증 공급자** 에서 **Azure Active Directory** 를 선택합니다.
 
-:::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
+:::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="선택된 인증/권한 부여 및 오른쪽 메뉴에서 선택한 설정을 보여주는 백 엔드 앱의 왼쪽 메뉴 스크린샷.":::
 
 **기본** 을 선택하고 기본 설정을 그대로 사용하여 새 AD 앱을 만든 후 **확인** 을 선택합니다.
 
@@ -259,7 +259,7 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 Azure AD 애플리케이션의 **클라이언트 ID** 를 메모장에 복사합니다. 이 값은 나중에 필요합니다.
 
-:::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
+:::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Azure AD 앱을 보여주는 Azure Active Directory 설정 창과 복사할 클라이언트 ID를 보여주는 Azure AD 애플리케이션의 스크린샷.":::
 
 여기에서 중지하는 경우 App Service 인증 및 권한 부여로 이미 보호되는 자체 포함된 앱이 있습니다. 나머지 섹션에서는 프런트 엔드에서 백 엔드로 인증된 사용자를 "전달"하여 다중 앱 솔루션의 보안을 유지하는 방법을 보여 줍니다. 
 
@@ -267,7 +267,7 @@ Azure AD 애플리케이션의 **클라이언트 ID** 를 메모장에 복사합
 
 프런트 엔드 앱과 동일한 단계를 따르지만 마지막 단계는 건너뜁니다. 프런트 엔드 앱에는 클라이언트 ID가 필요하지 않습니다.
 
-원하는 경우 `http://<front-end-app-name>.azurewebsites.net`으로 이동합니다. 이제 보안 로그인 페이지로 연결됩니다. 로그인 한 후에도 *백 엔드 앱에서 데이터에 액세스할 수 없습니다* . 백 엔드 앱에는 현재 프런트 엔드 앱의 Azure Active Directory 로그인이 필요하기 때문입니다. 다음과 같은 세 가지 작업을 수행해야 합니다.
+원하는 경우 `http://<front-end-app-name>.azurewebsites.net`으로 이동합니다. 이제 보안 로그인 페이지로 연결됩니다. 로그인 한 후에도 *백 엔드 앱에서 데이터에 액세스할 수 없습니다*. 백 엔드 앱에는 현재 프런트 엔드 앱의 Azure Active Directory 로그인이 필요하기 때문입니다. 다음과 같은 세 가지 작업을 수행해야 합니다.
 
 - 프런트 엔드에 백 엔드 액세스 권한 부여
 - 사용 가능한 토큰을 반환하도록 App Service 구성
@@ -284,13 +284,13 @@ Azure AD 애플리케이션의 **클라이언트 ID** 를 메모장에 복사합
 
 **앱 등록** > **소유 애플리케이션** > **이 디렉터리의 모든 애플리케이션 보기** 를 선택합니다. 프런트 엔드 앱 이름을 선택하고 **API 사용 권한** 을 선택합니다.
 
-:::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
+:::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="소유 애플리케이션, 프런트 엔드 앱 이름 및 API 권한이 선택된 Microsoft - App 등록 창의 스크린샷.":::
 
 **권한 추가** 를 선택한 다음, **내 조직에서 사용하는 API** >  **\<back-end-app-name>** 를 선택합니다.
 
 백 엔드 앱에 대한 **API 권한 요청** 페이지에서 **위임된 권한** 및 **user_impersonation** 를 선택한 다음, **권한 추가** 를 선택합니다.
 
-:::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
+:::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="위임된 권한, user_impersonation 및 선택된 권한 추가 단추를 보여주는 API 권한 요청 페이지의 스크린샷.":::
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>사용 가능한 액세스 토큰을 반환하도록 App Service 구성
 
@@ -300,7 +300,7 @@ Azure AD 애플리케이션의 **클라이언트 ID** 를 메모장에 복사합
 
 이제 [Azure Resource Explorer](https://resources.azure.com)가 리소스 트리에서 선택된 프런트 엔드 앱과 함께 열립니다. 페이지의 위쪽에서 **읽기/쓰기** 를 클릭하여 Azure 리소스 편집이 가능하도록 설정합니다.
 
-:::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
+:::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="읽기/쓰기 단추가 선택된 상태에서 Azure Resource Explorer 페이지 맨 위에 있는 읽기 전용 및 읽기/쓰기 단추의 스크린샷.":::
 
 왼쪽 브라우저에서 **구성** > **authsettings** 로 드릴다운합니다.
 
@@ -310,7 +310,7 @@ Azure AD 애플리케이션의 **클라이언트 ID** 를 메모장에 복사합
 "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
 ```
 
-:::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
+:::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="클라이언트 ID의 예제가 포함된 additionalLoginParams 문자열을 보여주는 authsettings 보기의 코드 예제 스크린샷.":::
 
 **PUT** 을 클릭하여 설정을 저장합니다.
 

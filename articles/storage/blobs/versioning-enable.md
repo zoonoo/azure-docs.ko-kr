@@ -10,12 +10,12 @@ ms.date: 11/17/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 64ab86836989030c36ad2e8ad054c364b382af0b
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 5802070bf9b495c0e866d160d6661349369a444e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95248019"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993750"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Blob 버전 관리 설정 및 관리
 
@@ -90,4 +90,4 @@ Azure Portal 템플릿을 사용 하 여 리소스를 배포 하는 방법에 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Blob 버전 관리](versioning-overview.md)
-- [Azure Storage Blob에 대한 일시 삭제](soft-delete-overview.md)
+- [Azure Storage Blob에 대한 일시 삭제](./soft-delete-blob-overview.md)

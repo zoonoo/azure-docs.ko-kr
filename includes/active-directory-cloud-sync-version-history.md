@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 46c27fa2073ea1178fdf01ea3cbf96fe86954a6a
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 3fc2475569765116d46a175629f25d9d49634942
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255118"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993955"
 ---
 이 문서에서는 릴리스된 Azure Active Directory Connect 프로 비전 에이전트의 버전 및 기능을 나열 합니다. Azure AD 팀은 새로운 기능과 기능으로 프로 비전 에이전트를 정기적으로 업데이트 합니다. 프로 비전 에이전트는 새 버전이 릴리스되면 자동으로 업데이트 됩니다. 
 
@@ -14,12 +14,12 @@ Microsoft는 최신 에이전트 버전 및 이전 버전을 직접 지원 합�
 
 ### <a name="release-status"></a>릴리스 상태
 
-11 월 XX, 2020: 다운로드를 위해 릴리스
+2020 년 11 월 23 일: 다운로드를 위해 릴리스
 
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 
 * [GMSA](../articles/active-directory/cloud-provisioning/how-to-prerequisites.md#group-managed-service-accounts) 지원
-* 최대 1500 멤버 크기 (델타 동기화 중)의 그룹 지원
+* 증분 또는 델타 동기화 주기 동안 1500 개 미만의 구성원에 최대 크기의 그룹을 지원 합니다. 그룹 범위 지정 필터를 사용 하는 경우에 적용할 수 있습니다.
 * 구성원 크기가 최대 15K 인 큰 그룹 지원
 * 초기 동기화 기능 향상
 * 고급 정보 로깅

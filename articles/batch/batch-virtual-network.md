@@ -5,11 +5,11 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
 ms.openlocfilehash: cb5cda16cd9405f0cbe91a3f88be7dc3f582d21b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86142771"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993427"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>가상 네트워크에서 Azure Batch 만들기
 
@@ -35,15 +35,15 @@ Azure Batch 풀을 만들 때는 지정한 [Azure 가상 네트워크](../virtua
 
 ## <a name="create-a-pool-with-a-vnet-in-the-azure-portal"></a>Azure Portal에서 VNet을 사용 하 여 풀 만들기
 
-VNet을 만들고 서브넷을 할당한 후에는 해당 VNet으로 Batch 풀을 만들 수 있습니다. Azure Portal에서 풀을 만들려면 다음 단계를 수행합니다. 
+VNet을 만들고 서브넷을 할당한 후에는 해당 VNet으로 Batch 풀을 만들 수 있습니다. Azure Portal에서 풀을 만들려면 다음 단계를 수행합니다. 
 
 1. Azure Portal에서 Batch 계정으로 이동합니다. 이 계정은 사용할 VNet이 포함된 리소스 그룹과 동일한 구독 및 지역에 있어야 합니다.
 2. 왼쪽의 **설정** 창에서 **풀** 메뉴 항목을 선택합니다.
-3. **풀** 창에서 **추가**를 선택 합니다.
+3. **풀** 창에서 **추가** 를 선택 합니다.
 4. **풀 추가** 창의 **이미지 형식** 드롭다운에서 사용할 옵션을 선택합니다.
-5. 사용자 지정 이미지에 대해 올바른 **게시자/제품/Sku**를 선택합니다.
+5. 사용자 지정 이미지에 대해 올바른 **게시자/제품/Sku** 를 선택합니다.
 6. **노드 크기**, **대상 전용 노드** 및 **낮은 우선 순위 노드** 등 나머지 필수 설정과 선택 사항인 설정을 원하는 대로 지정합니다.
-7. **가상 네트워크**에서 사용할 가상 네트워크와 서브넷을 선택합니다.
+7. **가상 네트워크** 에서 사용할 가상 네트워크와 서브넷을 선택합니다.
 
    ![가상 네트워크가 있는 풀 추가](./media/batch-virtual-network/add-vnet-pool.png)
 
@@ -57,7 +57,7 @@ VNet을 만들고 서브넷을 할당한 후에는 해당 VNet으로 Batch 풀�
 
 - Azure Storage에 대 한 아웃 바운드 트래픽 (특히, 및 형식의 Url `<account>.table.core.windows.net` `<account>.queue.core.windows.net` `<account>.blob.core.windows.net` )이 온-프레미스 네트워크에 의해 차단 되지 않는지 확인 합니다.
 
-UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를 정의하고 **다음 홉 유형**을 **인터넷**으로 설정합니다.
+UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를 정의하고 **다음 홉 유형** 을 **인터넷** 으로 설정합니다.
 
 ![사용자 정의 경로](./media/batch-virtual-network/user-defined-route.png)
 
