@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86130400"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007361"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구에서 복제 문제 해결
 
@@ -28,14 +28,14 @@ Error ID: 153007
 
 ## <a name="high-data-change-rate-on-the-source-virtual-machine"></a>원본 가상 머신의 높은 데이터 변경률
 
-원본 가상 컴퓨터의 데이터 변경률이 지원 되는 제한 보다 높은 경우 Azure Site Recovery 이벤트를 만듭니다. 변동으로 인해 문제가 발생 했는지 확인 하려면 **복제 된 항목**  >  **VM**  >  **이벤트-지난 72 시간**으로 이동 합니다.
-**데이터 변경 률은 지원 되**는 한도를 초과 하 여 확인 해야 합니다.
+원본 가상 컴퓨터의 데이터 변경률이 지원 되는 제한 보다 높은 경우 Azure Site Recovery 이벤트를 만듭니다. 변동으로 인해 문제가 발생 했는지 확인 하려면 **복제 된 항목**  >  **VM**  >  **이벤트-지난 72 시간** 으로 이동 합니다.
+**데이터 변경 률은 지원 되** 는 한도를 초과 하 여 확인 해야 합니다.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png" alt-text="매우 높은 데이터 변경 률을 보여 주는 Azure Site Recovery 페이지":::
 
 이벤트를 선택하면 정확한 디스크 정보가 표시됩니다.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="매우 높은 데이터 변경 률을 보여 주는 Azure Site Recovery 페이지":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="데이터 변경 률 이벤트 세부 정보를 표시 하는 페이지입니다.":::
 
 ### <a name="azure-site-recovery-limits"></a>Azure Site Recovery 제한
 
@@ -52,13 +52,13 @@ Standard Storage | 8KB    | 2MB/초 | 디스크당 168GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 8KB    | 5MB/초 | 디스크당 421GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 |20MB/s | 디스크당 1,684GB
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 Azure Site Recovery는 디스크 유형에 따라 데이터 변경 비율에 대 한 제한이 있습니다. 이 문제가 되풀이 또는 임시 인지 확인 하려면 영향을 받는 가상 머신의 데이터 변경 률을 확인 하세요. 원본 가상 머신으로 이동하여 **모니터링** 아래의 메트릭을 찾은 다음, 이 스크린샷과 같이 메트릭을 추가합니다.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="매우 높은 데이터 변경 률을 보여 주는 Azure Site Recovery 페이지":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="데이터 변경 률을 찾기 위한 3 단계 프로세스를 표시 하는 페이지입니다.":::
 
-1. **메트릭 추가**를 선택하고 **OS 디스크 쓰기 바이트/초** 및 **데이터 디스크 쓰기 바이트/초**를 추가합니다.
+1. **메트릭 추가** 를 선택하고 **OS 디스크 쓰기 바이트/초** 및 **데이터 디스크 쓰기 바이트/초** 를 추가합니다.
 1. 스크린샷에 표시된 것처럼 스파이크를 모니터링합니다.
 1. OS 디스크 및 결합된 모든 데이터 디스크에서 발생하는 총 쓰기 작업을 보여줍니다. 이러한 메트릭은 디스크별 수준에서 정보를 제공하지는 않지만 데이터 변동의 총 패턴을 나타냅니다.
 
@@ -116,7 +116,7 @@ Site Recovery 복제가 작동 하려면 VM이 특정 Url 또는 IP 범위에 �
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log`
 
-오류를 찾으려면 텍스트 편집기에서 **vacpError**문자열을 검색 하 여 _vacp.exe_ 파일을 엽니다.
+오류를 찾으려면 텍스트 편집기에서 **vacpError** 문자열을 검색 하 여 _vacp.exe_ 파일을 엽니다.
 
 ```plaintext
 Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
@@ -126,7 +126,7 @@ Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRI
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 기록기가 설치되어 있지 않음 - 오류 2147221164
 
-**해결 방법**: 응용 프로그램 일관성 태그를 생성 하려면 Azure Site Recovery 볼륨 섀도 복사본 서비스 (VSS)를 사용 합니다. Site Recovery은 해당 작업에 대 한 VSS 공급자를 설치 하 여 응용 프로그램 일관성 스냅숏을 만듭니다. Azure Site Recovery이 VSS 공급자를 서비스로 설치 합니다. VSS 공급자가 설치 되지 않은 경우 응용 프로그램 일관성 스냅숏 만들기가 실패 합니다. **등록 되지 않은 오류 ID 0X80040154 클래스**를 표시 합니다. [VSS 기록기 설치 문제 해결](vmware-azure-troubleshoot-push-install.md#vss-installation-failures)문서를 참조 하세요.
+**해결 방법**: 응용 프로그램 일관성 태그를 생성 하려면 Azure Site Recovery 볼륨 섀도 복사본 서비스 (VSS)를 사용 합니다. Site Recovery은 해당 작업에 대 한 VSS 공급자를 설치 하 여 응용 프로그램 일관성 스냅숏을 만듭니다. Azure Site Recovery이 VSS 공급자를 서비스로 설치 합니다. VSS 공급자가 설치 되지 않은 경우 응용 프로그램 일관성 스냅숏 만들기가 실패 합니다. **등록 되지 않은 오류 ID 0X80040154 클래스** 를 표시 합니다. [VSS 기록기 설치 문제 해결](vmware-azure-troubleshoot-push-install.md#vss-installation-failures)문서를 참조 하세요.
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS 기록기를 사용할 수 없음 - 오류 2147943458
 
@@ -134,7 +134,7 @@ Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRI
 
 VSS를 사용 하지 않도록 설정 하는 경우:
 
-- VSS 공급자 서비스의 시작 유형이 **자동**으로 설정되어 있는지 확인합니다.
+- VSS 공급자 서비스의 시작 유형이 **자동** 으로 설정되어 있는지 확인합니다.
 - 다음 서비스를 다시 시작합니다.
   - VSS 서비스.
   - Azure Site Recovery VSS 공급자입니다.
@@ -154,7 +154,7 @@ VSS를 사용 하지 않도록 설정 하는 경우:
 
    `"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
-VSS 공급자 서비스의 시작 유형이 **자동**으로 설정되어 있는지 확인합니다.
+VSS 공급자 서비스의 시작 유형이 **자동** 으로 설정되어 있는지 확인합니다.
 
 다음 서비스를 다시 시작합니다.
 

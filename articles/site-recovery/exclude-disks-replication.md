@@ -4,11 +4,11 @@ description: Azure Site Recovery를 사용하여 Azure로 복제할 때 디스�
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333667"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008262"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>재해 복구에서 디스크 제외
 
@@ -56,13 +56,13 @@ ms.locfileid: "91333667"
 
 ## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>예제 1: SQL Server tempdb 디스크 제외
 
-tempdb를 제외하려는 원본 SQL Server Windows VM(**SalesDB***)에 대한 디스크 제외, 장애 조치(failover) 및 장애 복구를 처리하는 방법을 살펴보겠습니다. 
+Tempdb를 제외 하려는 원본 SQL Server Windows VM- **Salesdb** _의 디스크 제외, 장애 조치 (failover) 및 장애 조치 (failover)를 처리 하는 방법을 살펴보겠습니다. 
 
 ### <a name="exclude-disks-from-replication"></a>복제에서 디스크 제외
 
 원본 Windows VM SalesDB에 다음과 같은 디스크가 있습니다.
 
-**디스크 이름** | **게스트 OS 디스크** | **드라이브 문자** | **디스크 데이터 형식**
+_ *디스크 이름** | **게스트 OS 디스크** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | --- | ---
 DB-Disk0-OS | Disk0 | C:\ | 운영 체제 디스크.
 DB-Disk1| Disk1 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1.
