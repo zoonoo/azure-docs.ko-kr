@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
 ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531873"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004979"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -78,7 +78,7 @@ Azure는 다음 피어 링 유형을 지원 합니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 
-가상 네트워크가 피어 링 확인 하려면 유효 경로를 확인할 수 있습니다. 가상 네트워크의 모든 서브넷에서 네트워크 인터페이스에 대 한 경로를 확인 합니다. 가상 네트워크 피어링이 존재하는 경우에는 가상 네트워크 내의 모든 서브넷에는 피어링된 각 가상 네트워크의 각 주소 공간에 대해 다음 홉 형식의 *VNet 피어링*을 사용하는 경로가 있습니다. 자세한 내용은 [가상 컴퓨터 라우팅 문제 진단](diagnose-network-routing-problem.md)을 참조 하세요.
+가상 네트워크가 피어 링 확인 하려면 유효 경로를 확인할 수 있습니다. 가상 네트워크의 모든 서브넷에서 네트워크 인터페이스에 대 한 경로를 확인 합니다. 가상 네트워크 피어링이 존재하는 경우에는 가상 네트워크 내의 모든 서브넷에는 피어링된 각 가상 네트워크의 각 주소 공간에 대해 다음 홉 형식의 *VNet 피어링* 을 사용하는 경로가 있습니다. 자세한 내용은 [가상 컴퓨터 라우팅 문제 진단](diagnose-network-routing-problem.md)을 참조 하세요.
 
 Azure Network Watcher를 사용 하 여 피어 링 가상 네트워크의 가상 머신에 대 한 연결 문제를 해결할 수도 있습니다. 연결 확인을 통해 원본 가상 컴퓨터의 네트워크 인터페이스에서 대상 가상 컴퓨터의 네트워크 인터페이스로 트래픽을 라우팅하는 방법을 확인할 수 있습니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure Network Watcher 연결 문제 해결](../network-watcher/network-watcher-connectivity-portal.md#check-connectivity-to-a-virtual-machine)을 참조 하세요.
 
@@ -110,7 +110,7 @@ Azure Network Watcher를 사용 하 여 피어 링 가상 네트워크의 가상
 
 * 두 가상 네트워크 간에 피어 링을 만들 수 있습니다. 네트워크는 동일한 구독, 동일한 구독에 있는 다른 배포 모델 또는 다른 구독에 속할 수 있습니다. 다음 시나리오 중 하나에 대한 자습서를 완료합니다.
 
-    |Azure 배포 모델             | Subscription  |
+    |Azure 배포 모델             | 구독  |
     |---------                          |---------|
     |둘 다 Resource Manager              |[동일](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[다름](create-peering-different-subscriptions.md)|

@@ -2,13 +2,13 @@
 title: 템플릿 함수-개체
 description: 개체 작업을 위해 Azure Resource Manager 템플릿에서 사용할 함수에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 10/12/2020
-ms.openlocfilehash: 632e92bb798a5e8469079ef4693b7f321617f88c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/18/2020
+ms.openlocfilehash: 7ed317b3506f00e71bbf97d5564cacec05032744
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977887"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96004520"
 ---
 # <a name="object-functions-for-arm-templates"></a>ARM 템플릿에 대 한 개체 함수
 
@@ -23,6 +23,8 @@ ms.locfileid: "91977887"
 * [null](#null)
 * [union](#union)
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 ## <a name="contains"></a>contains
 
 `contains(container, itemToFind)`
@@ -33,91 +35,122 @@ ms.locfileid: "91977887"
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
-| itemToFind |예 |문자열 또는 int |찾을 값입니다. |
+| container |Yes |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
+| itemToFind |Yes |문자열 또는 int |찾을 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
-항목이 있으면 **True**이고, 항목이 없으면 **False**입니다.
+항목이 있으면 **True** 이고, 항목이 없으면 **False** 입니다.
 
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json)에서는 여러 다른 형식의 contains를 사용하는 방법을 보여줍니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "stringToTest": {
-            "type": "string",
-            "defaultValue": "OneTwoThree"
-        },
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c"}
-        },
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "OneTwoThree"
     },
-    "resources": [
-    ],
-    "outputs": {
-        "stringTrue": {
-            "type": "bool",
-            "value": "[contains(parameters('stringToTest'), 'e')]"
-        },
-        "stringFalse": {
-            "type": "bool",
-            "value": "[contains(parameters('stringToTest'), 'z')]"
-        },
-        "objectTrue": {
-            "type": "bool",
-            "value": "[contains(parameters('objectToTest'), 'one')]"
-        },
-        "objectFalse": {
-            "type": "bool",
-            "value": "[contains(parameters('objectToTest'), 'a')]"
-        },
-        "arrayTrue": {
-            "type": "bool",
-            "value": "[contains(parameters('arrayToTest'), 'three')]"
-        },
-        "arrayFalse": {
-            "type": "bool",
-            "value": "[contains(parameters('arrayToTest'), 'four')]"
-        }
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
+    },
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "stringTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('stringToTest'), 'e')]"
+    },
+    "stringFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('stringToTest'), 'z')]"
+    },
+    "objectTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('objectToTest'), 'one')]"
+    },
+    "objectFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('objectToTest'), 'a')]"
+    },
+    "arrayTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('arrayToTest'), 'three')]"
+    },
+    "arrayFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('arrayToTest'), 'four')]"
+    }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param stringToTest string = 'OneTwoThree'
+param objectToTest object = {
+  'one': 'a'
+  'two': 'b'
+  'three': 'c'
+}
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+
+output stringTrue bool = contains(stringToTest, 'e')
+output stringFalse bool = contains(stringToTest, 'z')
+output objectTrue bool = contains(objectToTest, 'one')
+output objectFalse bool = contains(objectToTest, 'a')
+output arrayTrue bool = contains(arrayToTest, 'three')
+output arrayFalse bool = contains(arrayToTest, 'four')
+```
+
+---
+
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
-| stringFalse | Bool | 거짓 |
+| stringFalse | Bool | False |
 | objectTrue | Bool | True |
-| objectFalse | Bool | 거짓 |
+| objectFalse | Bool | False |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | 거짓 |
+| arrayFalse | Bool | False |
 
 ## <a name="createobject"></a>createObject
 
 `createObject(key1, value1, key2, value2, ...)`
 
-키와 값에서 개체를 만듭니다.
+키와 값에서 개체를 만듭니다. `createObject`함수는 Bicep에서 지원 되지 않습니다.  를 사용 하 여 개체를 생성 `{}` 합니다.
 
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | key1 |예 |문자열 |키의 이름입니다. |
-| value1 |아니요 |int, boolean, string, object 또는 array |키의 값입니다. |
+| value1 |No |int, boolean, string, object 또는 array |키의 값입니다. |
 | 추가 키 |예 |문자열 |키의 추가 이름입니다. |
-| 추가 값 |아니요 |int, boolean, string, object 또는 array |키의 추가 값입니다. |
+| 추가 값 |No |int, boolean, string, object 또는 array |키의 추가 값입니다. |
 
 함수는 짝수 개수의 매개 변수만 허용 합니다. 각 키에는 일치 하는 값이 있어야 합니다.
 
@@ -129,20 +162,42 @@ ms.locfileid: "91977887"
 
 다음 예에서는 다양 한 값 형식에서 개체를 만듭니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-    ],
-    "outputs": {
-        "newObject": {
-            "type": "object",
-            "value": "[createObject('intProp', 1, 'stringProp', 'abc', 'boolProp', true(), 'arrayProp', createArray('a', 'b', 'c'), 'objectProp', createObject('key1', 'value1'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+  ],
+  "outputs": {
+    "newObject": {
+      "type": "object",
+      "value": "[createObject('intProp', 1, 'stringProp', 'abc', 'boolProp', true(), 'arrayProp', createArray('a', 'b', 'c'), 'objectProp', createObject('key1', 'value1'))]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output newObject object = {
+  'intProp': 1
+  'stringProp': 'abc'
+  'boolProp': true
+  'arrayProp': [
+    'a'
+    'b'
+    'c'
+  ]
+  'objectProp': {
+    'key1': 'value1'
+  }
+}
+```
+
+---
 
 기본값을 사용 하는 이전 예제의 출력은 `newObject` 다음과 같은 값을 가진 라는 개체입니다.
 
@@ -166,56 +221,72 @@ ms.locfileid: "91977887"
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
+| itemToTest |Yes |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
-값이 비어 있으면 **True**를 반환하고 비어 있지 않으면 **False**를 반환합니다.
+값이 비어 있으면 **True** 를 반환하고 비어 있지 않으면 **False** 를 반환합니다.
 
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json)에서는 배열, 개체 및 문자열이 비어 있는지 여부를 확인합니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testArray": {
-            "type": "array",
-            "defaultValue": []
-        },
-        "testObject": {
-            "type": "object",
-            "defaultValue": {}
-        },
-        "testString": {
-            "type": "string",
-            "defaultValue": ""
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testArray": {
+      "type": "array",
+      "defaultValue": []
     },
-    "resources": [
-    ],
-    "outputs": {
-        "arrayEmpty": {
-            "type": "bool",
-            "value": "[empty(parameters('testArray'))]"
-        },
-        "objectEmpty": {
-            "type": "bool",
-            "value": "[empty(parameters('testObject'))]"
-        },
-        "stringEmpty": {
-            "type": "bool",
-            "value": "[empty(parameters('testString'))]"
-        }
+    "testObject": {
+      "type": "object",
+      "defaultValue": {}
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": ""
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "arrayEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testArray'))]"
+    },
+    "objectEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testObject'))]"
+    },
+    "stringEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testString'))]"
+    }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param testArray array = []
+param testObject object = {}
+param testString string = ''
+
+output arrayEmpty bool = empty(testArray)
+output objectEmpty bool = empty(testObject)
+output stringEmpty bool = empty(testString)
+```
+
+---
+
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -243,49 +314,90 @@ ms.locfileid: "91977887"
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json)에서는 배열 및 개체에 교집합을 사용하는 방법을 보여줍니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstObject": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c"}
-        },
-        "secondObject": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "z", "three": "c"}
-        },
-        "firstArray": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        },
-        "secondArray": {
-            "type": "array",
-            "defaultValue": ["two", "three"]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "objectOutput": {
-            "type": "object",
-            "value": "[intersection(parameters('firstObject'), parameters('secondObject'))]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[intersection(parameters('firstArray'), parameters('secondArray'))]"
-        }
+    "secondObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "z",
+        "three": "c"
+      }
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [ "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "objectOutput": {
+      "type": "object",
+      "value": "[intersection(parameters('firstObject'), parameters('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[intersection(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param firstObject object = {
+  'one': 'a'
+  'two': 'b'
+  'three': 'c'
+}
+param secondObject object = {
+  'one': 'a'
+  'two': 'z'
+  'three': 'c'
+}
+param firstArray array = [
+  'one'
+  'two'
+  'three'
+]
+param secondArray array = [
+  'two'
+  'three'
+]
+
+output objectOutput object = intersection(firstObject, secondObject)
+output arrayOutput array = intersection(firstArray, secondArray)
+```
+
+---
+
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | 배열 | ["two", "three"] |
+
+<a id="json"></a>
 
 ## <a name="json"></a>json :
 
@@ -313,78 +425,102 @@ Null [()](#null) 을 사용 하 여 null 값을 가져올 수도 있습니다.
 
 다음 [예제 템플릿에서는](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) json 함수를 사용 하는 방법을 보여 줍니다. 빈 개체에 대해 **null** 을 전달할 수 있습니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "jsonEmptyObject": {
-            "type": "string",
-            "defaultValue": "null"
-        },
-        "jsonObject": {
-            "type": "string",
-            "defaultValue": "{\"a\": \"b\"}"
-        },
-        "jsonString": {
-            "type": "string",
-            "defaultValue": "\"test\""
-        },
-        "jsonBoolean": {
-            "type": "string",
-            "defaultValue": "true"
-        },
-        "jsonInt": {
-            "type": "string",
-            "defaultValue": "3"
-        },
-        "jsonArray": {
-            "type": "string",
-            "defaultValue": "[[1,2,3 ]"
-        },
-        "concatValue": {
-            "type": "string",
-            "defaultValue": "demo value"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "jsonEmptyObject": {
+      "type": "string",
+      "defaultValue": "null"
     },
-    "resources": [
-    ],
-    "outputs": {
-        "emptyObjectOutput": {
-            "type": "bool",
-            "value": "[empty(json(parameters('jsonEmptyObject')))]"
-        },
-        "objectOutput": {
-            "type": "object",
-            "value": "[json(parameters('jsonObject'))]"
-        },
-        "stringOutput": {
-            "type": "string",
-            "value": "[json(parameters('jsonString'))]"
-        },
-        "booleanOutput": {
-            "type": "bool",
-            "value": "[json(parameters('jsonBoolean'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[json(parameters('jsonInt'))]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[json(parameters('jsonArray'))]"
-        },
-        "concatObjectOutput": {
-            "type": "object",
-            "value": "[json(concat('{\"a\": \"', parameters('concatValue'), '\"}'))]"
-        }
+    "jsonObject": {
+      "type": "string",
+      "defaultValue": "{\"a\": \"b\"}"
+    },
+    "jsonString": {
+      "type": "string",
+      "defaultValue": "\"test\""
+    },
+    "jsonBoolean": {
+      "type": "string",
+      "defaultValue": "true"
+    },
+    "jsonInt": {
+      "type": "string",
+      "defaultValue": "3"
+    },
+    "jsonArray": {
+      "type": "string",
+      "defaultValue": "[[1,2,3 ]"
+    },
+    "concatValue": {
+      "type": "string",
+      "defaultValue": "demo value"
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "emptyObjectOutput": {
+      "type": "bool",
+      "value": "[empty(json(parameters('jsonEmptyObject')))]"
+    },
+    "objectOutput": {
+      "type": "object",
+      "value": "[json(parameters('jsonObject'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[json(parameters('jsonString'))]"
+    },
+    "booleanOutput": {
+      "type": "bool",
+      "value": "[json(parameters('jsonBoolean'))]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[json(parameters('jsonInt'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[json(parameters('jsonArray'))]"
+    },
+    "concatObjectOutput": {
+      "type": "object",
+      "value": "[json(concat('{\"a\": \"', parameters('concatValue'), '\"}'))]"
+    }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param jsonEmptyObject string = 'null'
+param jsonObject string = '{\'a\': \'b\'}'
+param jsonString string = '\'test\''
+param jsonBoolean string = 'true'
+param jsonInt string = '3'
+param jsonArray string = '[[1,2,3]]'
+param concatValue string = 'demo value'
+
+output emptyObjectOutput bool = empty(json(jsonEmptyObject))
+output objectOutput object = json(jsonObject)
+output stringOutput string =json(jsonString)
+output booleanOutput bool = json(jsonBoolean)
+output intOutput int = json(jsonInt)
+output arrayOutput array = json(jsonArray)
+output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
+```
+
+---
+
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | emptyObjectOutput | 부울 | True |
 | objectOutput | Object | {"a": "b"} |
@@ -404,7 +540,7 @@ Null [()](#null) 을 사용 하 여 null 값을 가져올 수도 있습니다.
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
+| arg1 |Yes |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -414,57 +550,85 @@ int입니다.
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json)에서는 배열 및 문자열에 length를 사용하는 방법을 보여줍니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [
-                "one",
-                "two",
-                "three"
-            ]
-        },
-        "stringToTest": {
-            "type": "string",
-            "defaultValue": "One Two Three"
-        },
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {
-                "propA": "one",
-                "propB": "two",
-                "propC": "three",
-                "propD": {
-                    "propD-1": "sub",
-                    "propD-2": "sub"
-                }
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
     },
-    "resources": [],
-    "outputs": {
-        "arrayLength": {
-            "type": "int",
-            "value": "[length(parameters('arrayToTest'))]"
-        },
-        "stringLength": {
-            "type": "int",
-            "value": "[length(parameters('stringToTest'))]"
-        },
-        "objectLength": {
-            "type": "int",
-            "value": "[length(parameters('objectToTest'))]"
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "One Two Three"
+    },
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "propA": "one",
+        "propB": "two",
+        "propC": "three",
+        "propD": {
+          "propD-1": "sub",
+          "propD-2": "sub"
         }
+      }
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayLength": {
+      "type": "int",
+      "value": "[length(parameters('arrayToTest'))]"
+    },
+    "stringLength": {
+      "type": "int",
+      "value": "[length(parameters('stringToTest'))]"
+    },
+    "objectLength": {
+      "type": "int",
+      "value": "[length(parameters('objectToTest'))]"
+    }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+param stringToTest string = 'One Two Three'
+param objectToTest object = {
+  'propA': 'one'
+  'propB': 'two'
+  'propC': 'three'
+  'propD': {
+      'propD-1': 'sub'
+      'propD-2': 'sub'
+  }
+}
+
+output arrayLength int = length(arrayToTest)
+output stringLength int = length(stringToTest)
+output objectLength int = length(objectToTest)
+```
+
+---
+
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -474,7 +638,7 @@ int입니다.
 
 `null()`
 
-null을 반환합니다.
+null을 반환합니다. `null`함수는 Bicep에서 사용할 수 없습니다. `null`대신 키워드를 사용 합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -488,23 +652,33 @@ Null 함수는 매개 변수를 허용 하지 않습니다.
 
 다음 예에서는 null 함수를 사용 합니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "emptyOutput": {
-            "type": "bool",
-            "value": "[empty(null())]"
-        },
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "emptyOutput": {
+      "type": "bool",
+      "value": "[empty(null())]"
     }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output emptyOutput bool = empty(null)
+```
+
+---
+
 위 예제의 출력은 다음과 같습니다.
 
-| Name | 유형 | 값 |
+| Name | Type | 값 |
 | ---- | ---- | ----- |
 | emptyOutput | Bool | True |
 
@@ -530,46 +704,88 @@ Null 함수는 매개 변수를 허용 하지 않습니다.
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json)에서는 배열 및 개체에 union을 사용하는 방법을 보여줍니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstObject": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c1"}
-        },
-        "secondObject": {
-            "type": "object",
-            "defaultValue": {"three": "c2", "four": "d", "five": "e"}
-        },
-        "firstArray": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        },
-        "secondArray": {
-            "type": "array",
-            "defaultValue": ["three", "four"]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c1"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "objectOutput": {
-            "type": "object",
-            "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
-        }
+    "secondObject": {
+      "type": "object",
+      "defaultValue": {
+        "three": "c2",
+        "four": "d",
+        "five": "e"
+      }
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [ "three", "four" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "objectOutput": {
+      "type": "object",
+      "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param firstObject object = {
+  'one': 'a'
+  'two': 'b'
+  'three': 'c1'
+}
+
+param secondObject object = {
+  'three': 'c2'
+  'four': 'd'
+  'five': 'e'
+}
+
+param firstArray array = [
+  'one'
+  'two'
+  'three'
+]
+
+param secondArray array = [
+  'three'
+  'four'
+]
+
+output objectOutput object = union(firstObject, secondObject)
+output arrayOutput array = union(firstArray, secondArray)
+```
+
+---
+
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | 배열 | ["one", "two", "three", "four"] |
