@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6b8145666ab92432d01b2f039685afe5534f0958
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 7c522abd04f4a3e480bb5c3e14e78cc03dbd5d86
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043576"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888643"
 ---
 # <a name="region-availability-and-data-residency"></a>지역 가용성 및 데이터 상주
 
@@ -23,7 +23,7 @@ Azure Communication Services는 개인 정보 및 개인 데이터 요구 사항
 
 ## <a name="data-residency"></a>데이터 상주
 
-Communication Services 리소스를 만들 때 **지역** (Azure 데이터 센터가 아님)을 지정합니다. Communication Services에서 저장한 휴지 상태의 모든 데이터는 Communication Services에서 내부적으로 선택한 데이터 센터의 해당 지역에 보존됩니다. 그러나 데이터가 다른 지역에서 전송되거나 처리될 수 있지만, 이러한 글로벌 엔드포인트는 위치에 관계없이 최종 사용자에게 대기 시간이 짧은 고성능 환경을 제공하는 데 필요합니다.
+Communication Services 리소스를 만들 때 **지역**(Azure 데이터 센터가 아님)을 지정합니다. Communication Services에서 저장한 휴지 상태의 모든 데이터는 Communication Services에서 내부적으로 선택한 데이터 센터의 해당 지역에 보존됩니다. 그러나 데이터가 다른 지역에서 전송되거나 처리될 수 있지만, 이러한 글로벌 엔드포인트는 위치에 관계없이 최종 사용자에게 대기 시간이 짧은 고성능 환경을 제공하는 데 필요합니다.
 
 ## <a name="relating-humans-to-azure-communication-services-identities"></a>사용자와 Azure Communication Services ID의 관계
 
@@ -37,13 +37,13 @@ Communication Service 데이터에는 다음과 같은 두 가지 범주가 있�
 
 ### <a name="identities"></a>Identities
 
-Azure Communication Services는 ID의 디렉터리를 유지 관리하고 [DeleteIdentity](https://docs.microsoft.com/rest/api/communication/communicationidentity/delete) API를 사용하여 ID를 제거합니다. ID를 삭제하면 연결된 모든 액세스 토큰이 취소되고 해당 채팅 메시지가 삭제됩니다. ID를 제거하는 방법에 대한 자세한 내용은 [이 페이지를 참조하세요](../quickstarts/access-tokens.md).
+Azure Communication Services는 ID의 디렉터리를 유지 관리하고 [DeleteIdentity](/rest/api/communication/communicationidentity/delete) API를 사용하여 ID를 제거합니다. ID를 삭제하면 연결된 모든 액세스 토큰이 취소되고 해당 채팅 메시지가 삭제됩니다. ID를 제거하는 방법에 대한 자세한 내용은 [이 페이지를 참조하세요](../quickstarts/access-tokens.md).
 
 - DeleteIdentity
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Communication Services에서 Azure Portal 또는 Azure Resource Manager API를 사용하여 개인 데이터를 만들 수 있습니다. [이 페이지를 사용하여 Azure Resource Manager 시스템에서 개인 데이터를 관리하는 방법을 알아보세요.](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-manager-personal-data)
+Communication Services에서 Azure Portal 또는 Azure Resource Manager API를 사용하여 개인 데이터를 만들 수 있습니다. [이 페이지를 사용하여 Azure Resource Manager 시스템에서 개인 데이터를 관리하는 방법을 알아보세요.](../../azure-resource-manager/management/resource-manager-personal-data.md)
 
 ### <a name="telephone-number-management"></a>전화 번호 관리
 
@@ -52,7 +52,7 @@ Azure Communication Services는 Communication Services 리소스와 연결된 �
 
 ### <a name="chat"></a>채팅
 
-채팅 스레드 및 메시지는 명시적으로 삭제될 때까지 유지됩니다. 완전히 유휴 상태인 스레드는 30일 후에 자동으로 삭제됩니다. [채팅 API](https://docs.microsoft.com/rest/api/communication/chat/deletechatmessage/deletechatmessage)를 사용하여 메시지를 가져오고, 나열하고, 업데이트하고, 삭제합니다.
+채팅 스레드 및 메시지는 명시적으로 삭제될 때까지 유지됩니다. 완전히 유휴 상태인 스레드는 30일 후에 자동으로 삭제됩니다. [채팅 API](/rest/api/communication/chat/deletechatmessage/deletechatmessage)를 사용하여 메시지를 가져오고, 나열하고, 업데이트하고, 삭제합니다.
 
 - `Get Thread`
 - `Get Message`
@@ -73,10 +73,10 @@ Azure Communication Services는 Communication Services 리소스와 연결된 �
 
 ## <a name="azure-monitor-and-log-analytics"></a>Azure Monitor 및 Log Analytics
 
-Azure Communication Services는 서비스 운영 상태 및 사용률을 이해하기 위해 Azure Monitor 로깅 데이터에 제공됩니다. 이러한 로그 중 일부에는 Communication Service ID와 전화 번호가 필드 데이터로 포함됩니다. 잠재적으로 개인 데이터를 삭제하려면 [이러한 절차를 Azure Monitor에 사용](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt)합니다. [Azure Monitor에 대한 기본 보존 기간](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage)을 구성해야 할 수도 있습니다.
+Azure Communication Services는 서비스 운영 상태 및 사용률을 이해하기 위해 Azure Monitor 로깅 데이터에 제공됩니다. 이러한 로그 중 일부에는 Communication Service ID와 전화 번호가 필드 데이터로 포함됩니다. 잠재적으로 개인 데이터를 삭제하려면 [이러한 절차를 Azure Monitor에 사용](../../azure-monitor/platform/personal-data-mgmt.md)합니다. [Azure Monitor에 대한 기본 보존 기간](../../azure-monitor/platform/manage-cost-storage.md)을 구성해야 할 수도 있습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [GDPR 및 CCPA에 대한 Azure 데이터 주체 요청](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure?view=o365-worldwide&preserve-view=true)
+- [GDPR 및 CCPA에 대한 Azure 데이터 주체 요청](/microsoft-365/compliance/gdpr-dsr-azure?preserve-view=true&view=o365-worldwide)
 - [Microsoft 보안 센터](https://www.microsoft.com/trust-center/privacy/data-location)
 - [Azure 대화형 지도 - 내 고객 데이터는 어디에 있나요?](https://azuredatacentermap.azurewebsites.net/)

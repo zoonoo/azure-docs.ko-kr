@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 05/19/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b8d74f86fc9c3d2cc020628f67c36d8d67973fff
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 25c7016f6639df46a9279ef9a9aab2736efd4f95
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128597"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888660"
 ---
 # <a name="metrics-overview"></a>메트릭 개요
 
-Azure Communication Services는 현재 채팅 및 SMS에 대한 메트릭을 제공합니다. [Azure 메트릭 탐색기](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)를 사용하면 사용자 고유의 차트를 만들고, 비정상적인 메트릭 값을 조사하고, 채팅 및 SMS 요청에서 내보내는 메트릭 데이터를 사용하여 API 트래픽을 이해할 수 있습니다.
+Azure Communication Services는 현재 채팅 및 SMS에 대한 메트릭을 제공합니다. [Azure 메트릭 탐색기](../../azure-monitor/platform/metrics-getting-started.md)를 사용하면 사용자 고유의 차트를 만들고, 비정상적인 메트릭 값을 조사하고, 채팅 및 SMS 요청에서 내보내는 메트릭 데이터를 사용하여 API 트래픽을 이해할 수 있습니다.
 
 ## <a name="where-to-find-metrics"></a>메트릭을 찾을 수 있는 위치
 
@@ -30,7 +30,7 @@ Communication Services 메트릭 내에는 **채팅 API 요청** 및 **SMS API �
 
 채팅 및 SMS API 요청 메트릭에는 메트릭 데이터를 필터링하는 데 사용할 수 있는 3개의 차원이 포함되어 있습니다. 이러한 차원은 `Count` 집계 유형을 사용하여 함께 집계할 수 있으며 `Sum`, `Average`, `Min` 및 `Max`를 비롯한 모든 표준 Azure 집계 시계열을 지원합니다.
 
-지원되는 집계 유형 및 시계열 집계에 대한 자세한 내용은 [Azure 메트릭 탐색기의 고급 기능](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#changing-aggregation)에서 찾을 수 있습니다.
+지원되는 집계 유형 및 시계열 집계에 대한 자세한 내용은 [Azure 메트릭 탐색기의 고급 기능](../../azure-monitor/platform/metrics-charts.md#changing-aggregation)에서 찾을 수 있습니다.
 
 - **작업** - ACS 채팅 게이트웨이에서 호출할 수 있는 모든 작업 또는 경로입니다.
 - **상태 코드** - 요청 후에 전송된 상태 코드 응답입니다.
@@ -60,9 +60,9 @@ Communication Services 메트릭 내에는 **채팅 API 요청** 및 **SMS API �
 | AddChatThreadParticipants     | 스레드에 스레드 멤버를 추가합니다. 멤버가 이미 있는 경우 변경되지 않습니다. |
 | RemoveChatThreadParticipant   | 스레드에서 멤버를 제거합니다. |
 
-:::image type="content" source="./media/chat-metric.png" alt-text="채팅 API 요청 메트릭&quot;:::
+:::image type="content" source="./media/chat-metric.png" alt-text="채팅 API 요청 메트릭":::
 
-인식되지 않는 작업에 대한 요청이 발생하면 &quot;잘못된 경로" 값 응답을 받게 됩니다.
+인식되지 않는 작업에 대한 요청이 발생하면 "잘못된 경로" 값 응답을 받게 됩니다.
 
 ### <a name="sms-api-requests"></a>SMS API 요청
 
@@ -75,10 +75,8 @@ SMS API 요청 메트릭에는 다음과 같은 작업을 사용할 수 있습�
 | SMSMessagesReceived      | SMS 메시지를 가져옵니다. |
 
 
-:::image type="content" source="./media/sms-metric.png" alt-text="채팅 API 요청 메트릭&quot;:::
-
-인식되지 않는 작업에 대한 요청이 발생하면 &quot;잘못된 경로":::
+:::image type="content" source="./media/sms-metric.png" alt-text="SMS API 요청 메트릭":::
 
 ## <a name="next-steps"></a>다음 단계
 
-- [데이터 플랫폼 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)에 대한 자세한 정보
+- [데이터 플랫폼 메트릭](../../azure-monitor/platform/data-platform-metrics.md)에 대한 자세한 정보
