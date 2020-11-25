@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: 481bd4f50eb527bcad2ba79b5ba4b9df4b872bfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b92da999c15255f543abca346fc2bf8840006c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739914"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999450"
 ---
 * 격리를 제외한 모든 가격 책정 계획을 지 원하는 다중 테 넌 트 시스템
 * App Service Environment는 VNet에 배포 되 고 격리 된 가격 책정 계획 앱을 지원 합니다.
@@ -38,5 +38,5 @@ VNet 통합에서 지원 하지 않는 몇 가지 사항은 다음과 같습니�
 사용 된 버전에 관계 없이 vnet 통합은 vnet의 리소스에 대 한 앱 액세스를 제공 하지만 VNet에서 앱에 대 한 인바운드 개인 액세스를 부여 하지 않습니다. 개인 사이트 액세스는 Azure VNet 내에서와 같이 개인 네트워크 에서만 앱에 액세스할 수 있도록 하는 것을 말합니다. VNet 통합은 앱에서 VNet으로의 아웃 바운드 호출을 수행 하는 경우에만 사용할 수 있습니다.
 
 <!--Links-->
-[ASEintro]: https://docs.microsoft.com/azure/app-service/environment/intro
-[Networkingfeatures]: https://docs.microsoft.com/azure/app-service/networking-features
+[ASEintro]: ../articles/app-service/environment/intro.md
+[Networkingfeatures]: ../articles/app-service/networking-features.md

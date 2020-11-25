@@ -9,11 +9,11 @@ ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: b36641677dbf36402c7f578b9b1887c52f441afd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322481"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000014"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에 대한 EDIFACT 메시지 디코딩
 
@@ -38,7 +38,7 @@ EDIFACT 메시지 디코드 커넥터를 사용하여 유효성을 검사하고,
 
 2. EDIFACT 메시지 디코딩 커넥터에는 트리거가 없으므로 요청 트리거와 마찬가지로 논리 앱을 시작하는 트리거를 추가해야 합니다. Logic App Designer에서 트리거를 추가하고 작업을 논리 앱에 추가합니다.
 
-3. 검색 상자에서 필터로 "EDIFACT"를 입력합니다. **EDIFACT 메시지 디코딩**을 선택 합니다.
+3. 검색 상자에서 필터로 "EDIFACT"를 입력합니다. **EDIFACT 메시지 디코딩** 을 선택 합니다.
    
     ![EDIFACT 검색](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
 
@@ -53,7 +53,7 @@ EDIFACT 메시지 디코드 커넥터를 사용하여 유효성을 검사하고,
     | 연결 이름 * |연결의 이름을 입력합니다. |
     | 통합 계정 * |통합 계정의 이름을 입력합니다. 통합 계정 및 논리 앱이 동일한 Azure 위치에 있어야 합니다. |
 
-4. 연결 만들기를 완료한 경우 **만들기**를 선택합니다. 연결 정보는 이 예제와 유사해야 합니다.
+4. 연결 만들기를 완료한 경우 **만들기** 를 선택합니다. 연결 정보는 이 예제와 유사해야 합니다.
 
     ![통합 계정 세부 정보](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
 
@@ -61,7 +61,7 @@ EDIFACT 메시지 디코드 커넥터를 사용하여 유효성을 검사하고,
 
     ![통합 계정 연결 생성](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
 
-    예를 들면 다음과 같습니다.
+    예들 들어 다음과 같습니다.
 
     ![디코딩할 EDIFACT 플랫 파일 메시지를 선택합니다.](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 

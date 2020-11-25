@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07a274bd4ac227b6260f7891b24dad0eacdfb4f7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a71c1a0df1a72e3831fa54a041539f62b38a0aca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561526"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95999912"
 ---
 # <a name="create-luis-resources"></a>LUIS 리소스 만들기
 
@@ -29,8 +29,8 @@ LUIS는 세 가지 유형의 Azure 리소스와 Azure가 아닌 리소스 하나
 
 |리소스|목적|인식 서비스 `kind`|인식 서비스 `type`|
 |--|--|--|--|
-|제작 리소스|응용 프로그램을 만들고, 관리 하 고, 학습 하 고, 테스트 하 고, 게시할 수 있습니다. LUIS apps를 프로그래밍 방식으로 또는 LUIS 포털에서 작성 하려는 경우 [LUIS authoring 리소스를 만드세요](luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal) . Azure authoring resources를 응용 프로그램에 연결 하기 전에 [LUIS 계정을 마이그레이션해야](luis-migration-authoring.md#what-is-migration) 합니다. [참가자 역할](#contributions-from-other-authors)을 사용자에 게 할당 하 여 제작 리소스에 대 한 사용 권한을 제어할 수 있습니다. <br><br> LUIS authoring 리소스에 대해 하나의 계층을 사용할 수 있습니다.<br> <ul> <li>무료 **F0 authoring resource** -100만 무료 제작 트랜잭션을 제공 하 고 1000 무료 테스트 예측 끝점 요청을 매월 제공 합니다. |`LUIS.Authoring`|`Cognitive Services`|
-|예측 리소스| LUIS 응용 프로그램을 게시 한 후 예측 리소스/키를 사용 하 여 예측 끝점 요청을 쿼리 합니다. 클라이언트 앱이 authoring 또는 스타터 리소스에서 제공 하는 1000 요청 보다 많은 예측을 요청 하기 전에 LUIS 예측 리소스를 만듭니다. <br><br> 예측 리소스에 대해 두 개의 계층을 사용할 수 있습니다.<br><ul> <li> 무료 예측 끝점 요청을 월간 1만 제공 하는 **무료 F0 예측 리소스** 입니다.<br> <li> **표준 S0 예측 리소스** (유료 계층)입니다. [가격 책정에 대해 자세히 알아보세요.](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
+|제작 리소스|응용 프로그램을 만들고, 관리 하 고, 학습 하 고, 테스트 하 고, 게시할 수 있습니다. LUIS apps를 프로그래밍 방식으로 또는 LUIS 포털에서 작성 하려는 경우 [LUIS authoring 리소스를 만드세요](luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal) . Azure authoring resources를 응용 프로그램에 연결 하기 전에 [LUIS 계정을 마이그레이션해야](luis-migration-authoring.md#what-is-migration) 합니다. [참가자 역할](#contributions-from-other-authors)을 사용자에 게 할당 하 여 제작 리소스에 대 한 사용 권한을 제어할 수 있습니다. <br><br> LUIS authoring 리소스에 대해 하나의 계층을 사용할 수 있습니다.<br> <ul> <li>무료 **F0 authoring resource**-100만 무료 제작 트랜잭션을 제공 하 고 1000 무료 테스트 예측 끝점 요청을 매월 제공 합니다. |`LUIS.Authoring`|`Cognitive Services`|
+|예측 리소스| LUIS 응용 프로그램을 게시 한 후 예측 리소스/키를 사용 하 여 예측 끝점 요청을 쿼리 합니다. 클라이언트 앱이 authoring 또는 스타터 리소스에서 제공 하는 1000 요청 보다 많은 예측을 요청 하기 전에 LUIS 예측 리소스를 만듭니다. <br><br> 예측 리소스에 대해 두 개의 계층을 사용할 수 있습니다.<br><ul> <li> 무료 예측 끝점 요청을 월간 1만 제공 하는 **무료 F0 예측 리소스** 입니다.<br> <li> **표준 S0 예측 리소스**(유료 계층)입니다. [가격 책정에 대해 자세히 알아보세요.](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
 |시작/평가판 리소스|응용 프로그램을 만들고, 관리 하 고, 학습 하 고, 테스트 하 고, 게시할 수 있습니다. LUIS에 처음 로그인 할 때 시작 리소스 옵션을 선택 하면 기본적으로이 리소스가 생성 됩니다. 시작 키는 결국 사용 되지 않습니다. 모든 LUIS 사용자는 [자신의 계정을 마이그레이션하고](luis-migration-authoring.md#what-is-migration) LUIS 응용 프로그램을 제작 리소스에 연결 해야 합니다. 제작 리소스와 달리이 리소스는 Azure 역할 기반 액세스 제어에 대 한 권한을 제공 하지 않습니다. <br><br> 제작 리소스와 마찬가지로 스타터 리소스는 100만 무료 제작 트랜잭션과 1000 무료 테스트 예측 끝점 요청을 제공 합니다.|-|Azure 리소스가 아닙니다.|
 |[Cognitive Services multiservice 리소스 키](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|LUIS 및 기타 지원 되는 인식 서비스와 공유 되는 쿼리 예측 끝점 요청|`CognitiveServices`|`Cognitive Services`|
 
@@ -52,7 +52,7 @@ LUIS 리소스와 같은 Azure 리소스는 리소스를 포함 하는 구독이
 * LUIS 앱을 파일로 내보낸 다음 다른 구독에서 앱을 가져옵니다. 내보내기는 LUIS 포털의 **내 앱** 페이지에서 사용할 수 있습니다.
 
 
-## <a name="resource-limits"></a>리소스 한계
+## <a name="resource-limits"></a>리소스 제한
 
 ### <a name="authoring-key-creation-limits"></a>작성 키 생성 제한
 
@@ -128,7 +128,7 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI를 사용 
 
 예측 끝점을 쿼리 하기 위한 액세스는 **관리** 섹션의 **응용 프로그램 정보** 페이지에 있는 설정에 의해 제어 됩니다.
 
-|[개인 끝점](#runtime-security-for-private-apps)|[공용 엔드포인트](#runtime-security-for-public-apps)|
+|[프라이빗 엔드포인트](#runtime-security-for-private-apps)|[공용 엔드포인트](#runtime-security-for-public-apps)|
 |:--|:--|
 |소유자 및 참가자가 사용할 수 있음|소유자, 참가자 및 앱 ID를 알고 있는 모든 사용자가 사용할 수 있음|
 
@@ -176,7 +176,7 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI를 사용 
 
 ### <a name="create-resources-in-the-azure-cli"></a>Azure CLI에서 리소스 만들기
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 를 사용 하 여 각 리소스를 개별적으로 만들 수 있습니다.
+[Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 를 사용 하 여 각 리소스를 개별적으로 만들 수 있습니다.
 
 리소스 `kind` :
 
@@ -256,7 +256,7 @@ CI/CD 파이프라인과 같은 자동화 된 프로세스의 경우 LUIS 런타
 
     이 POST API에는 다음 값이 필요 합니다.
 
-    |Type|설정|값|
+    |형식|설정|값|
     |--|--|--|
     |헤더|`Authorization`|`Authorization` 값이 `Bearer {token}`인 경우 토큰 값 앞에는 단어 `Bearer` 와 공백이와 야 합니다.|
     |헤더|`Ocp-Apim-Subscription-Key`|작성 키|

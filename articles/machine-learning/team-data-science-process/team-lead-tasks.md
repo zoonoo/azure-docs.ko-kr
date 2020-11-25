@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df7d2278487c1b098615a14562c498b9187c56eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321205"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000031"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>팀 데이터 과학 프로세스 팀에 대 한 팀 리더 작업
 
@@ -49,7 +49,7 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
 > [!NOTE] 
 > 이 문서에서는 Microsoft에서 TDSP를 구현 하는 방법 이기 때문에 Azure DevOps 및 DSVM을 사용 하 여 TDSP 팀 환경을 설정 합니다. 팀에서 다른 코드 호스팅 또는 개발 플랫폼을 사용 하는 경우 팀 리더 작업은 동일 하지만이를 완료 하는 방법은 다를 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에서는 [그룹 관리자](group-manager-tasks.md)에 의해 다음과 같은 리소스 및 사용 권한이 설정 되어 있다고 가정 합니다.
 
@@ -89,7 +89,7 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
    
    ![새 프로젝트 선택](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
-1. **프로젝트 만들기** 대화 상자에서 팀 이름 (예: *Myteam* )을 **프로젝트 이름** 아래에 입력 한 다음 **고급** 을 선택 합니다. 
+1. **프로젝트 만들기** 대화 상자에서 팀 이름 (예: *Myteam*)을 **프로젝트 이름** 아래에 입력 한 다음 **고급** 을 선택 합니다. 
    
 1. **버전 제어** 에서 **Git** 을 선택 하 고 **작업 항목 프로세스** 에서 **Agile** 을 선택 합니다. 그런 다음 **만들기** 를 선택합니다. 
    
@@ -148,7 +148,7 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
    
 1. 프로젝트의 **리포지토리** 페이지 위쪽에서 **teamutilities** 리포지토리를 드롭다운 하 고 선택 합니다.
    
-1. 가져오기 프로세스를 반복 하 여 그룹 공통 유틸리티 리포지토리 (예: *Grouputilities* )의 콘텐츠를 **teamutilities** 리포지토리로 가져옵니다. 
+1. 가져오기 프로세스를 반복 하 여 그룹 공통 유틸리티 리포지토리 (예: *Grouputilities*)의 콘텐츠를 **teamutilities** 리포지토리로 가져옵니다. 
    
 이제 두 팀 리포지토리에는 해당 그룹 공통 리포지토리의 파일이 포함 됩니다. 
 

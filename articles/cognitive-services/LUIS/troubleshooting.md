@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: 17b070fea422268ec12e0ccd3357ae0549a78916
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e803fa393d85f7f0b4849aed96356b7a4e77d83f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566268"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96000133"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -108,7 +108,7 @@ LUIS 포털에서 추출 하려는 정확한 엔터티의 텍스트에 레이블
 
 * 가장 높은 계층에 있지 않은 경우 [가격 책정 계층을 늘릴](luis-how-to-azure-subscription.md#change-the-pricing-tier)수 있습니다.
 * 사용량이 가장 높은 가격 책정 계층을 초과 하는 경우 부하 분산 장치 앞에 더 많은 Language Understanding 리소스를 추가 합니다. Kubernetes 또는 Docker Compose를 사용 하는 [Language Understanding 컨테이너](luis-container-howto.md) 는이를 지원할 수 있습니다.
-* 이 상태 코드가 표시 될 때 사용자가 직접 구현한 [다시 시도 정책을](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) 사용 하 여 클라이언트 응용 프로그램 요청을 게이트 할 수 있습니다.
+* 이 상태 코드가 표시 될 때 사용자가 직접 구현한 [다시 시도 정책을](/azure/architecture/best-practices/transient-faults#general-guidelines) 사용 하 여 클라이언트 응용 프로그램 요청을 게이트 할 수 있습니다.
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>내 엔드포인트 쿼리에서 예기치 않은 결과를 반환했습니다.   어떻게 해야 합니까?
 
@@ -286,7 +286,7 @@ Azure Bot Service를 사용 중이며, **웹 채팅에서 테스트** 가 `Sorry
 
 #### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Bot Framework를 사용하여 로컬 머신에서 디버그하는 동안 문제를 해결합니다.
 
-봇의 로컬 디버깅에 대한 자세한 내용은 [봇 디버그](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0)를 참조하세요.
+봇의 로컬 디버깅에 대한 자세한 내용은 [봇 디버그](/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0)를 참조하세요.
 
 ## <a name="integrating-luis"></a>LUIS 통합
 
@@ -296,7 +296,7 @@ LUIS 템플릿을 선택하고 템플릿 창에서 **선택** 단추를 선택�
 ![LUIS 템플릿 웹앱 봇 지역](./media/luis-faq/web-app-bot-location.png)
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>어떤 LUIS 지역에서 Bot Framework 음성 초기화를 지원하나요?
-[음성 초기화](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)는 미국 중부 인스턴스의 LUIS 앱에서만 지원됩니다.
+[음성 초기화](/bot-framework/bot-service-manage-speech-priming)는 미국 중부 인스턴스의 LUIS 앱에서만 지원됩니다.
 
 ## <a name="api-programming-strategies"></a>API 프로그래밍 전략
 
@@ -334,4 +334,4 @@ Build 2019 Conference에서 다음 기능이 발표되었습니다.
 
 LUIS에 대한 자세한 내용은 다음 리소스를 참조하세요.
 * [LUIS로 태그가 지정된 스택 오버플로 질문](https://stackoverflow.com/questions/tagged/luis)
-* [Microsoft Q&MSDN Language Understanding Intelligent Services (LUIS)에 대 한 질문 페이지](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)
+* [Microsoft Q&MSDN Language Understanding Intelligent Services (LUIS)에 대 한 질문 페이지](/answers/topics/azure-language-understanding.html)

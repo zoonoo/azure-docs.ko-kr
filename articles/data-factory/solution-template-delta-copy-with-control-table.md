@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
 ms.openlocfilehash: 255e4085e24ee7520c603f8a00b3e46c23367a77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442006"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000830"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>컨트롤 테이블이 있는 데이터베이스에서 델타 복사
 
@@ -42,7 +42,7 @@ ms.locfileid: "89442006"
 
 템플릿은 다음 매개 변수를 정의합니다.
 - *Data_Source_Table_Name* 은 데이터를 로드 하려는 원본 데이터베이스의 테이블입니다.
-- *Data_Source_WaterMarkColumn* 는 새 행 또는 업데이트 된 행을 식별 하는 데 사용 되는 원본 테이블의 열 이름입니다. 이 열의 형식은 일반적으로 *datetime*, *INT*또는 유사 합니다.
+- *Data_Source_WaterMarkColumn* 는 새 행 또는 업데이트 된 행을 식별 하는 데 사용 되는 원본 테이블의 열 이름입니다. 이 열의 형식은 일반적으로 *datetime*, *INT* 또는 유사 합니다.
 - *Data_Destination_Container* 은 대상 저장소에서 데이터가 복사 되는 위치의 루트 경로입니다.
 - *Data_Destination_Directory* 은 대상 저장소에서 데이터가 복사 되는 위치의 루트 아래에 있는 디렉터리 경로입니다.
 - *Data_Destination_Table_Name* 대상 저장소의 데이터가 복사 되는 위치입니다. "Azure Synapse Analytics (이전의 SQL DW)"가 데이터 대상으로 선택 된 경우에 해당 합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "89442006"
 
 ## <a name="how-to-use-this-solution-template"></a>이 솔루션 템플릿을 사용하는 방법
 
-1. 로드 하려는 원본 테이블을 탐색 하 고 새 행 또는 업데이트 된 행을 식별 하는 데 사용할 수 있는 상위 워터 마크 열을 정의 합니다. 이 열의 형식은 *datetime*, *INT*또는 유사할 수 있습니다. 새 행이 추가 되 면이 열의 값이 늘어납니다. 다음 샘플 원본 테이블 (data_source_table)에서 *LastModifytime* 열을 상위 워터 마크 열로 사용할 수 있습니다.
+1. 로드 하려는 원본 테이블을 탐색 하 고 새 행 또는 업데이트 된 행을 식별 하는 데 사용할 수 있는 상위 워터 마크 열을 정의 합니다. 이 열의 형식은 *datetime*, *INT* 또는 유사할 수 있습니다. 새 행이 추가 되 면이 열의 값이 늘어납니다. 다음 샘플 원본 테이블 (data_source_table)에서 *LastModifytime* 열을 상위 워터 마크 열로 사용할 수 있습니다.
 
     ```sql
             PersonID    Name    LastModifytime
@@ -67,7 +67,7 @@ ms.locfileid: "89442006"
             9   iiiiiiiii   2017-09-09 09:01:00.000
     ```
     
-2. 델타 데이터 로드에 대 한 높은 워터 마크 값을 저장 하기 위해 SQL Server 또는 Azure SQL Database에서 컨트롤 테이블을 만듭니다. 다음 예제에서 컨트롤 테이블의 이름은 *watermarktable*입니다. 이 테이블에서 *WatermarkValue* 는 상위 워터 마크 값을 저장 하는 열이 고, 해당 형식은 *datetime*입니다.
+2. 델타 데이터 로드에 대 한 높은 워터 마크 값을 저장 하기 위해 SQL Server 또는 Azure SQL Database에서 컨트롤 테이블을 만듭니다. 다음 예제에서 컨트롤 테이블의 이름은 *watermarktable* 입니다. 이 테이블에서 *WatermarkValue* 는 상위 워터 마크 값을 저장 하는 열이 고, 해당 형식은 *datetime* 입니다.
 
     ```sql
             create table watermarktable
@@ -104,21 +104,21 @@ ms.locfileid: "89442006"
 
     ![제어 테이블 데이터 저장소에 대한 새 연결 만들기](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
-7. **이 템플릿 사용**을 선택합니다.
+7. **이 템플릿 사용** 을 선택합니다.
     
 8. 다음 예제와 같이 사용 가능한 파이프라인이 표시 됩니다.
   
     ![파이프라인 검토](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-9. **저장 프로시저**를 선택 합니다. **저장 프로시저 이름**에 대해 **[dbo]를 선택 합니다. update_watermark]**. **가져오기 매개 변수**를 선택 하 고 **동적 콘텐츠 추가**를 선택 합니다.  
+9. **저장 프로시저** 를 선택 합니다. **저장 프로시저 이름** 에 대해 **[dbo]를 선택 합니다. update_watermark]**. **가져오기 매개 변수** 를 선택 하 고 **동적 콘텐츠 추가** 를 선택 합니다.  
 
     ![저장 프로시저 작업 설정](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
 
-10. 콘텐츠 ** \@ {activity (' LookupCurrentWaterMark 마크 '). FirstRow. NewWatermarkValue}** 를 쓴 다음 **마침**을 선택 합니다.  
+10. 콘텐츠 **\@ {activity (' LookupCurrentWaterMark 마크 '). FirstRow. NewWatermarkValue}** 를 쓴 다음 **마침** 을 선택 합니다.  
 
     ![저장 프로시저의 매개 변수에 대 한 내용 작성](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      
-11. **디버그**를 선택하고 **매개 변수**를 입력한 다음, **마침**을 선택합니다.
+11. **디버그** 를 선택하고 **매개 변수** 를 입력한 다음, **마침** 을 선택합니다.
 
     ![* * 디버그 * *를 선택 합니다.](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 
@@ -136,7 +136,7 @@ ms.locfileid: "89442006"
             VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
     ```
 
-14. 파이프라인을 다시 실행 하려면 **디버그**를 선택 하 고 **매개 변수**를 입력 한 다음 **마침**을 선택 합니다.
+14. 파이프라인을 다시 실행 하려면 **디버그** 를 선택 하 고 **매개 변수** 를 입력 한 다음 **마침** 을 선택 합니다.
 
     새 행만 대상으로 복사 된 것을 볼 수 있습니다.
 

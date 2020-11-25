@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 21dd43b5179d0752699bb56b51a2c08976aa037b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76900696"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000847"
 ---
 # <a name="get-started-with-the-azure-quickstart-center"></a>Azure Quickstart Center 시작
 
@@ -36,7 +36,7 @@ Azure 빠른 시작 센터에는 시작 하기 위한 세 가지 옵션이 있�
 
 1. Azure Portal 메뉴에서 **모든 서비스** 를 선택 합니다.
 
-1. **일반**  >  **빠른 시작 센터**를 선택 합니다.
+1. **일반**  >  **빠른 시작 센터** 를 선택 합니다.
 
 Azure 빠른 시작 센터에서 수행할 수 있는 작업에 대 한 자세한 내용은 다음 비디오를 참조 하세요.
 > [!VIDEO https://www.youtube.com/embed/0bSA7RXrbAg]

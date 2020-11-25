@@ -10,11 +10,11 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: 33435d2367b92f312d41f0e32fdbb3a93d59a9fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540883"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999929"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>기능을 사용 하 여 단어 목록 신호 상승
 
@@ -24,11 +24,11 @@ ms.locfileid: "91540883"
 
 ## <a name="add-phrase-list-as-a-feature"></a>기능으로 문구 목록 추가
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스** 를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
-1. **빌드**를 선택한 다음, 앱의 왼쪽 패널에서 **기능** 을 선택 합니다.
+1. **빌드** 를 선택한 다음, 앱의 왼쪽 패널에서 **기능** 을 선택 합니다.
 
-1. **기능** 페이지에서 **+ 만들기**를 선택 합니다.
+1. **기능** 페이지에서 **+ 만들기** 를 선택 합니다.
 
 1. **새 구 목록 기능 만들기** 대화 상자에서와 같은 이름을 입력 `Cities` 합니다. **값** 상자에와 같은 도시 예를 입력 `Seattle` 합니다. 한 번에 하나의 값을 입력하거나 쉼표로 구분해서 여러 개의 값을 입력한 후 **Enter** 키를 누릅니다.
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: fce4da9cc9577bc9805289473d3df7647b1b0934
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670927"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000473"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>원격 모니터링 솔루션을 Azure Data Lake Store와 통합
 
@@ -21,7 +21,7 @@ ms.locfileid: "92670927"
 
 이 방법에서는 Azure Stream Analytics 작업을 사용하여 원격 모니터링 솔루션의 IoT 허브에서 Azure Data Lake Store로 데이터를 스트리밍합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 방법을 완료하려면 다음이 필요합니다.
 
@@ -107,7 +107,7 @@ Azure Stream Analytics 작업을 만들어 IoT 허브에서 Azure Data Lake Stor
 
     ![폴더 구조 제공](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-output.png)
 
-1. **권한 부여** 를 클릭합니다.
+1. **권한 부여** 를 클릭 합니다.
 
     Stream Analytics 작업에 파일 시스템에 대한 쓰기 권한을 부여하려면 Data Lake Store를 사용하여 권한을 부여해야합니다.
 

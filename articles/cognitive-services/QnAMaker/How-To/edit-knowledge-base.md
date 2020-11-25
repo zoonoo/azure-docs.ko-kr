@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.openlocfilehash: 3940f060209ea5ba55957a3673020656d45de9e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776547"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000099"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>기술 자료에서 QnA 쌍 편집
 
@@ -60,7 +60,7 @@ QnA 쌍은 파일 또는 URL과 같은 데이터 원본에서 추가 되거나 �
     |--|--|
     |서식 있는 텍스트 편집기와 markdown 사이를 전환 합니다. `</>`|Ctrl+M|
     |글꼴로. **B**|CTR + LB|
-    |기울임꼴, 기울임꼴 I로 표시 ** _I_**|CTRL+I|
+    |기울임꼴, 기울임꼴 I로 표시 **_I_**|CTRL+I|
     |정렬되지 않은 목록||
     |정렬된 목록||
     |단락 스타일||
@@ -112,7 +112,7 @@ QnA 쌍 연결은 [추가 작업 프롬프트](multiturn-conversation.md)와 함
 
 ## <a name="add-metadata"></a>메타데이터 추가
 
-먼저 **보기 옵션**을 선택한 다음 **메타 데이터 표시**를 선택 하 여 메타 데이터 쌍을 추가 합니다. 메타 데이터 열이 표시 됩니다. 그런 다음, **+** 서명을 선택 하 여 메타 데이터 쌍을 추가 합니다. 이 쌍은 하나의 키와 하나의 값으로 구성 됩니다.
+먼저 **보기 옵션** 을 선택한 다음 **메타 데이터 표시** 를 선택 하 여 메타 데이터 쌍을 추가 합니다. 메타 데이터 열이 표시 됩니다. 그런 다음, **+** 서명을 선택 하 여 메타 데이터 쌍을 추가 합니다. 이 쌍은 하나의 키와 하나의 값으로 구성 됩니다.
 
 메타 데이터에 대 한 QnA Maker 포털 빠른 시작에서 메타 데이터에 대해 자세히 알아보세요.
 * [제작 - QnA 쌍에 메타데이터 추가](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)

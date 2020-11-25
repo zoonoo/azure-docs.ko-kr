@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: cc04a891bb32ede6c7bb72a339b728642cf343ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207818"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000524"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop과 Apache Ambari Hive 보기 사용
 
@@ -21,7 +21,7 @@ ms.locfileid: "86207818"
 
 Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 알아봅니다. Hive 보기를 사용하면 웹 브라우저에서 Hive 쿼리를 작성, 최적화 및 실행할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
@@ -29,9 +29,9 @@ HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-
 
 1. [Azure Portal](https://portal.azure.com/)에서 디렉터리를 선택합니다.  자세한 지침은 [클러스터 나열 및 표시](../hdinsight-administer-use-portal-linux.md#showClusters) 를 참조 하세요. 클러스터가 새 포털 보기에서 열립니다.
 
-1. **클러스터 대시보드에서** **Ambari views**를 선택 합니다. 인증하라는 메시지가 표시되면 클러스터를 만들 때 제공한 클러스터 로그인(기본값 `admin`) 계정 이름과 암호를 사용합니다. 브라우저에서로 이동할 수도 있습니다 `https://CLUSTERNAME.azurehdinsight.net/#/main/views` `CLUSTERNAME` . 여기서은 클러스터의 이름입니다.
+1. **클러스터 대시보드에서** **Ambari views** 를 선택 합니다. 인증하라는 메시지가 표시되면 클러스터를 만들 때 제공한 클러스터 로그인(기본값 `admin`) 계정 이름과 암호를 사용합니다. 브라우저에서로 이동할 수도 있습니다 `https://CLUSTERNAME.azurehdinsight.net/#/main/views` `CLUSTERNAME` . 여기서은 클러스터의 이름입니다.
 
-1. 보기 목록에서 __Hive 보기__를 선택합니다.
+1. 보기 목록에서 __Hive 보기__ 를 선택합니다.
 
     ![Apache Ambari select Apache Hive 보기](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
@@ -69,9 +69,9 @@ HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-
     |SELECT|t4 열에 [ERROR] 값이 포함된 모든 행의 수를 선택합니다.|
 
    > [!IMPORTANT]  
-   > __데이터베이스__ 선택 영역을 __기본값__으로 둡니다. 이 문서의 예제에서는 HDInsight에 포함된 기본 데이터베이스를 사용합니다.
+   > __데이터베이스__ 선택 영역을 __기본값__ 으로 둡니다. 이 문서의 예제에서는 HDInsight에 포함된 기본 데이터베이스를 사용합니다.
 
-1. 쿼리를 시작 하려면 워크시트 아래에서 **실행** 을 선택 합니다. 단추가 주황색으로 바뀌고 텍스트가 **중지**로 변경됩니다.
+1. 쿼리를 시작 하려면 워크시트 아래에서 **실행** 을 선택 합니다. 단추가 주황색으로 바뀌고 텍스트가 **중지** 로 변경됩니다.
 
 1. 쿼리가 완료된 후에 **결과** 탭에 작업 결과가 표시됩니다. 다음 텍스트는 쿼리 결과입니다.
 
@@ -125,11 +125,11 @@ __테이블__ 탭을 사용하여 Hive 데이터베이스 내의 테이블을 �
 
 UDF(사용자 정의 함수)를 통해 Hive를 확장할 수 있습니다. UDF를 사용하여 HiveQL에서 쉽게 모델링할 수 있는 기능 또는 논리를 구현합니다.
 
-Hive 보기 위쪽의 **UDF** 탭을 사용하여 UDF 집합을 선언하고 저장합니다. UDF는 **쿼리 편집기**를 통해 사용할 수 있습니다.
+Hive 보기 위쪽의 **UDF** 탭을 사용하여 UDF 집합을 선언하고 저장합니다. UDF는 **쿼리 편집기** 를 통해 사용할 수 있습니다.
 
 ![Udf 탭 표시 Apache Hive 보기](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
-**Udf 삽입** 단추가 **쿼리 편집기**아래쪽에 표시 됩니다. 이 항목은 Hive 보기에 정의 된 Udf의 드롭다운 목록을 표시 합니다. UDF를 선택하면 쿼리에 HiveQL 문을 추가하여 UDF를 사용하도록 설정합니다.
+**Udf 삽입** 단추가 **쿼리 편집기** 아래쪽에 표시 됩니다. 이 항목은 Hive 보기에 정의 된 Udf의 드롭다운 목록을 표시 합니다. UDF를 선택하면 쿼리에 HiveQL 문을 추가하여 UDF를 사용하도록 설정합니다.
 
 예를 들어 다음과 같은 속성을 사용 하 여 UDF를 정의한 경우
 
@@ -141,14 +141,14 @@ Hive 보기 위쪽의 **UDF** 탭을 사용하여 UDF 집합을 선언하고 저
 
 * UDF 클래스 이름: com.myudfs.Awesome
 
-**udf 삽입** 단추를 사용하면 해당 리소스에 정의된 각 UDF에 대한 또 다른 드롭다운 목록과 함께 **myudfs**라는 항목이 표시됩니다. 이 경우에 **myawesomeudf**입니다. 이 항목을 선택하면 쿼리의 시작 부분에 다음을 추가합니다.
+**udf 삽입** 단추를 사용하면 해당 리소스에 정의된 각 UDF에 대한 또 다른 드롭다운 목록과 함께 **myudfs** 라는 항목이 표시됩니다. 이 경우에 **myawesomeudf** 입니다. 이 항목을 선택하면 쿼리의 시작 부분에 다음을 추가합니다.
 
 ```hiveql
 add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-그런 다음 쿼리에서 UDF를 사용할 수 있습니다. 예: `SELECT myawesomeudf(name) FROM people;`
+그런 다음 쿼리에서 UDF를 사용할 수 있습니다. 예: `SELECT myawesomeudf(name) FROM people;`.
 
 HDInsight에서 Hive를 통해 UDF를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
 ms.openlocfilehash: 96b2e7deff464f00ced4457a514ac833a90bd42d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87873894"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999895"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>컴퓨터에 Jupyter 노트북을 설치하고 HDInsight에서 Apache Spark에 연결
 
@@ -74,7 +74,7 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
     |PySpark|`jupyter-kernelspec install sparkmagic/kernels/pysparkkernel`|
     |PySpark3|`jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel`|
 
-1. (선택 사항) 서버 확장을 사용 하도록 설정 하려면 아래 명령을 입력 합니다.
+1. 선택 사항입니다. 서버 확장을 사용 하도록 설정 하려면 아래 명령을 입력 합니다.
 
     ```cmd
     jupyter serverextension enable --py sparkmagic
@@ -90,7 +90,7 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
     python
     ```
 
-2. Jupyter 구성 정보는 일반적으로 사용자 홈 디렉터리에 저장됩니다. 다음 명령을 입력 하 여 홈 디렉터리를 식별 하 고 ** \. sparkmagic**라는 폴더를 만듭니다.  전체 경로가 출력 됩니다.
+2. Jupyter 구성 정보는 일반적으로 사용자 홈 디렉터리에 저장됩니다. 다음 명령을 입력 하 여 홈 디렉터리를 식별 하 고 **\. sparkmagic** 라는 폴더를 만듭니다.  전체 경로가 출력 됩니다.
 
     ```python
     import os
@@ -148,7 +148,7 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
 
 6. 커널을 사용할 수 있는 Spark magic을 사용할 수 있는지 확인 합니다. 다음 단계를 완료합니다.
 
-    a. 새 Notebook을 만듭니다. 오른쪽 모서리에서 **새로 만들기**를 선택 합니다. 기본 커널 **python 2** 또는 **python 3** 및 사용자가 설치한 커널을 표시 되어야 합니다. 실제 값은 설치 선택 사항에 따라 달라질 수 있습니다.  **PySpark**를 선택 합니다.
+    a. 새 Notebook을 만듭니다. 오른쪽 모서리에서 **새로 만들기** 를 선택 합니다. 기본 커널 **python 2** 또는 **python 3** 및 사용자가 설치한 커널을 표시 되어야 합니다. 실제 값은 설치 선택 사항에 따라 달라질 수 있습니다.  **PySpark** 를 선택 합니다.
 
     ![Jupyter 노트북에서 사용 가능한 커널](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jupyter 노트북의 커널")
 

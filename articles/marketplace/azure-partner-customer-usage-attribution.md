@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 2c2b7de65e7ac22ebe648ce98633d5ae88818324
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 3728fdd07172f2402ddb1dc7434ddb1993b984b1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628393"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95999878"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>상업적 마켓플레이스 파트너 및 고객 사용 특성
 
@@ -251,11 +251,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>보고서
 
-파트너 센터 대시보드([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure))에서 고객 사용량 특성에 대한 보고서를 확인할 수 있습니다. 보고서를 보려면 파트너 센터 자격 증명을 사용하여 로그인해야 합니다. 보고서 또는 로그인 관련 문제가 발생할 경우 지원 받기 섹션의 지침에 따라 지원 요청을 만듭니다.
-
-파트너 연결 유형 드롭다운 목록에서 추적된 템플릿을 선택하여 보고서를 표시합니다.
-
-![고객 사용량 특성 보고서](media/marketplace-publishers-guide/customer-usage-attribution-report.png)
+파트너 센터 대시보드([https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview))에서 고객 사용량 특성에 대한 보고서를 확인할 수 있습니다. 보고서를 보려면 파트너 센터 자격 증명을 사용하여 로그인해야 합니다. 보고서 또는 로그인에 문제가 발생 하는 경우 [지원 요청](#get-support)을 만듭니다.
 
 ## <a name="notify-your-customers"></a>고객에게 알림
 

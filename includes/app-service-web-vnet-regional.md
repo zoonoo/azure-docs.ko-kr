@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 1a9f468b8e2f9fff20b9b26b8890d485e426b691
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 963f0698b921caa413c61059ad69284c41b4f265
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94523709"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999449"
 ---
 지역 VNet 통합을 사용 하면 앱이 다음에 액세스할 수 있습니다.
 
@@ -23,8 +23,8 @@ ms.locfileid: "94523709"
 
 동일한 지역에서 Vnet와 VNet 통합을 사용 하는 경우 다음과 같은 Azure 네트워킹 기능을 사용할 수 있습니다.
 
-* **Nsgs (네트워크 보안 그룹)** : 통합 서브넷에 배치 된 nsgs를 사용 하 여 아웃 바운드 트래픽을 차단할 수 있습니다. VNet 통합을 사용 하 여 앱에 대 한 인바운드 액세스를 제공할 수 없으므로 인바운드 규칙이 적용 되지 않습니다.
-* **UDRs (경로 테이블)** : 통합 서브넷에 경로 테이블을 추가 하 여 원하는 위치에 아웃 바운드 트래픽을 보낼 수 있습니다.
+* **Nsgs (네트워크 보안 그룹)**: 통합 서브넷에 배치 된 nsgs를 사용 하 여 아웃 바운드 트래픽을 차단할 수 있습니다. VNet 통합을 사용 하 여 앱에 대 한 인바운드 액세스를 제공할 수 없으므로 인바운드 규칙이 적용 되지 않습니다.
+* **UDRs (경로 테이블)**: 통합 서브넷에 경로 테이블을 추가 하 여 원하는 위치에 아웃 바운드 트래픽을 보낼 수 있습니다.
 
 기본적으로 앱은 RFC1918 트래픽만 VNet에 라우팅합니다. 모든 아웃 바운드 트래픽을 VNet으로 라우팅하려면 앱 설정 WEBSITE_VNET_ROUTE_ALL 앱에 적용 합니다. 앱 설정을 구성 하려면:
 
@@ -110,5 +110,5 @@ BGP (Border Gateway Protocol) 경로도 앱 트래픽에 영향을 줍니다. Ex
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
 
 <!--Links-->
-[VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
-[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
+[VNETnsg]: /azure/virtual-network/security-overview/
+[privateendpoints]: ../articles/app-service/networking/private-endpoint.md

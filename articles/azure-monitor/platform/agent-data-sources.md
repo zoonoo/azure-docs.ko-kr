@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
 ms.openlocfilehash: ad5e91a6dcdb61e09a64e61a27f12148ec28168e
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490579"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000745"
 ---
 # <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Azure Monitor에서 에이전트 데이터 원본 Log Analytics
 [Log Analytics](log-analytics-agent.md) 에이전트를 사용 하 여 가상 머신에서 Azure Monitor 수집 하는 데이터는 [Log Analytics 작업 영역](data-platform-logs.md)에서 구성 하는 데이터 원본에 의해 정의 됩니다.   각 데이터 원본은 각각 고유한 속성 집합이 있는 특정 유형의 레코드를 만듭니다.

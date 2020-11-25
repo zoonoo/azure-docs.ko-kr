@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 26f0006ad2b26757e335ba1819c2b82ba519f8cc
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 95560801d4132735435e4d45e8a588476636ec38
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491446"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001238"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 트리거
 
@@ -97,6 +97,22 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 [사용](#usage) 섹션은 function.json에서 `name` 속성에 의해 명명된 `myQueueItem`을 설명합니다.  [메시지 메타데이터 섹션](#message-metadata)에서는 표시된 다른 모든 변수를 설명합니다.
 
+# <a name="java"></a>[Java](#tab/java)
+
+다음 Java 예제에서는 큐에 배치 된 트리거된 메시지를 기록 하는 저장소 큐 트리거 함수를 보여 줍니다 `myqueuename` .
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예제는 *function.json* 파일의 큐 트리거 바인딩과 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여 줍니다. 함수는 `myqueue-items` 큐를 폴링하고 큐 항목이 처리될 때마다 로그를 기록합니다.
@@ -141,6 +157,42 @@ module.exports = async function (context, message) {
 ```
 
 [사용](#usage) 섹션은 function.json에서 `name` 속성에 의해 명명된 `myQueueItem`을 설명합니다.  [메시지 메타데이터 섹션](#message-metadata)에서는 표시된 다른 모든 변수를 설명합니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+다음 예에서는 트리거를 통해 함수에 전달 되는 큐 메시지를 읽는 방법을 보여 줍니다.
+
+저장소 큐 트리거는가로 설정 된 파일 *의function.js* 에서 정의 됩니다 `type` `queueTrigger` .
+
+```json
+{
+  "bindings": [
+    {
+      "name": "QueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
+```
+
+*Run.ps1* 파일의 코드는 매개 변수를로 선언 `$QueueItem` 합니다. 그러면 함수에서 큐 메시지를 읽을 수 있습니다.
+
+```powershell
+# Input bindings are passed in via param block.
+param([string] $QueueItem, $TriggerMetadata)
+
+# Write out the queue message and metadata to the information log.
+Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
+Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
+Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
+Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
+Write-Host "ID: $($TriggerMetadata.Id)"
+Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
+Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
+```
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -189,22 +241,6 @@ def main(msg: func.QueueMessage):
 
     logging.info(result)
 ```
-
-# <a name="java"></a>[Java](#tab/java)
-
-다음 Java 예제에서는 큐에 배치 된 트리거된 메시지를 기록 하는 저장소 큐 트리거 함수를 보여 줍니다 `myqueuename` .
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
 
  ---
 
@@ -270,14 +306,6 @@ def main(msg: func.QueueMessage):
 
 C# 스크립트에서는 특성을 지원하지 않습니다.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-JavaScript에서는 특성을 지원하지 않습니다.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Python에서는 특성을 지원하지 않습니다.
-
 # <a name="java"></a>[Java](#tab/java)
 
 `QueueTrigger`주석은 함수를 트리거하는 큐에 대 한 액세스를 제공 합니다. 다음 예에서는 매개 변수를 통해 큐 메시지를 함수에 사용할 수 있도록 설정 합니다 `message` .
@@ -299,11 +327,23 @@ public class QueueTriggerDemo {
 }
 ```
 
-| 속성    | 설명 |
+| 속성    | Description |
 |-------------|-----------------------------|
 |`name`       | 함수 시그니처의 매개 변수 이름을 선언 합니다. 함수가 트리거되면이 매개 변수의 값에 큐 메시지의 내용이 포함 됩니다. |
 |`queueName`  | 저장소 계정에서 큐 이름을 선언 합니다. |
 |`connection` | 저장소 계정 연결 문자열을 가리킵니다. |
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript에서는 특성을 지원하지 않습니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+특성은 PowerShell에서 지원 되지 않습니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Python에서는 특성을 지원하지 않습니다.
 
 ---
 
@@ -327,7 +367,7 @@ public class QueueTriggerDemo {
 
 와 같은 메서드 매개 변수를 사용 하 여 메시지 데이터에 액세스 합니다 `string paramName` . 다음 중 원하는 형식으로 바인딩할 수 있습니다.
 
-* 개체 - Functions 런타임은 JSON 페이로드를 코드에 정의된 임의 클래스 인스턴스로 역직렬화합니다. 
+* 개체 - Functions 런타임은 JSON 페이로드를 코드에 정의된 임의 클래스 인스턴스로 역직렬화합니다.
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -345,17 +385,21 @@ public class QueueTriggerDemo {
 
 `CloudQueueMessage`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
+# <a name="java"></a>[Java](#tab/java)
+
+[QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable&preserve-view=true) 주석은 함수를 트리거한 큐 메시지에 대 한 액세스를 제공 합니다.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 에서 `context.bindings.<NAME>` `<NAME>` *function.js* 에 정의 된 이름과 일치 하는를 통해 큐 항목 페이로드를 사용할 수 있습니다. 페이로드가 JSON 인 경우 값은 개체로 deserialize 됩니다.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+`name`파일 *에function.js* 의 바인딩 매개 변수에 지정 된 이름과 일치 하는 문자열 매개 변수를 통해 큐 메시지에 액세스 합니다.
+
 # <a name="python"></a>[Python](#tab/python)
 
-[QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python)로 형식화 된 매개 변수를 통해 큐 메시지에 액세스 합니다.
-
-# <a name="java"></a>[Java](#tab/java)
-
-[QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) 주석은 함수를 트리거한 큐 메시지에 대 한 액세스를 제공 합니다.
+[QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python&preserve-view=true)로 형식화 된 매개 변수를 통해 큐 메시지에 액세스 합니다.
 
 ---
 
@@ -363,7 +407,7 @@ public class QueueTriggerDemo {
 
 큐 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 속성은 [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 클래스의 멤버입니다.
 
-|속성|Type|설명|
+|속성|형식|Description|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|큐 페이로드(유효한 문자열인 경우) 큐 메시지 페이로드가 문자열이 면에서 `QueueTrigger`function.js의 속성으로 명명 된 변수와 동일한 값을 갖습니다 `name` . *function.json*|
 |`DequeueCount`|`int`|이 메시지가 큐에서 제거된 횟수입니다.|

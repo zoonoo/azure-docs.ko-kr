@@ -4,11 +4,11 @@ description: 이 가이드는 Azure Lab Services를 사용 하 여 랩 계정을
 ms.topic: article
 ms.date: 10/20/2020
 ms.openlocfilehash: 08d2fea719ad67f666ea9da09721dc3f7ab54768
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024639"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999283"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - 관리자 가이드
 대학 클라우드 리소스를 관리 하는 IT (정보 기술) 관리자는 일반적으로 학교에 대 한 랩 계정을 설정 해야 합니다. 랩 계정을 설정한 후 administrators 또는 교육자는 계정 내에 포함 된 랩을 만듭니다. 이 문서에서는 관련 된 Azure 리소스에 대 한 개략적인 개요와 해당 리소스를 만들기 위한 지침을 제공 합니다.
@@ -21,7 +21,7 @@ ms.locfileid: "95024639"
 
 아키텍처에 대 한 자세한 내용은 [랩 아키텍처 기본 사항](./classroom-labs-fundamentals.md)을 참조 하세요.
 
-## <a name="subscription"></a>Subscription
+## <a name="subscription"></a>구독
 대학에는 하나 이상의 Azure 구독이 있을 수 있습니다. 구독을 사용 하면 랩 계정을 포함 하 여 it 내에서 사용 되는 모든 Azure 리소스 및 서비스에 대 한 청구 및 보안을 관리할 수 있습니다.
 
 랩 계정과 해당 구독 간의 관계는 다음과 같은 이유로 중요합니다.
@@ -129,7 +129,7 @@ Azure Lab Services를 시작 하는 경우 리소스 그룹, 랩 계정, 랩 및
 
 Azure Lab Services 리소스를 설정 하는 경우 리소스를 호스트 하는 데이터 센터의 지역 또는 위치를 제공 해야 합니다. 다음 섹션에서는 지역 또는 위치가 랩 설정에 관련 된 각 리소스에 영향을 줄 수 있는 방법에 대해 설명 합니다.
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>리소스 그룹
 
 지역은 리소스 그룹에 대 한 정보가 저장 되는 데이터 센터를 지정 합니다. 리소스 그룹 내에 포함 된 Azure 리소스는 부모와 다른 지역에 있을 수 있습니다.
 

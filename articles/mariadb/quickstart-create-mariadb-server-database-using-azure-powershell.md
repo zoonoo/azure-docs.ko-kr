@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 05082ffa891b72b472ed5433282198c61080f073
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537801"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999487"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Database for MariaDB 서버 만들기
 
