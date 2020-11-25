@@ -10,11 +10,11 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: fc08adb2f71c49fad3c8574e9cfd5315f13d7f44
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532767"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95982265"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Storm 문제 해결
 
@@ -60,7 +60,7 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 
 내보내기 명령은 설정한 Azure Blob Storage 또는 Azure Data Lake Storage의 Apache HDFS(Hadoop 분산 파일 시스템) 경로에 메타데이터를 씁니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="export-offset-metadata"></a>오프셋 메타데이터 내보내기
 
@@ -174,7 +174,7 @@ Worker Log4J 구성 파일은에서 읽습니다 `/usr/hdp/\<HDP version>/storm/
 
 토폴로지를 제출 하는 경우 사용자에 게 다음과 유사한 오류 메시지가 표시 될 수 있습니다 `Topology submission exception, cause not a leader, the current leader is NimbusInfo` .
 
-이 문제를 해결 하려면 사용자가 노드를 다시 시작/다시 부팅 하기 위해 티켓을 제출 해야 할 수 있습니다. 자세한 내용은 [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)를 참조하세요.
+이 문제를 해결 하려면 사용자가 노드를 다시 시작/다시 부팅 하기 위해 티켓을 제출 해야 할 수 있습니다. 자세한 내용은 [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)을(를) 참조하세요.
 
 ---
 
