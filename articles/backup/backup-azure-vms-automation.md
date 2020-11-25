@@ -4,11 +4,11 @@ description: PowerShell과 함께 Azure Backup를 사용 하 여 Azure Vm을 백
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: ded2bc8a71bf564e31f40ca9f0d6c8049188768b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094095"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978372"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm 백업 및 복원
 
@@ -55,7 +55,7 @@ Azure 라이브러리에서 **Az. RecoveryServices** [cmdlet 참조](/powershell
 
     ![Recovery Services 목록](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
 
-3. **Connect-AzAccount**를 사용하여 Azure 계정에 로그인합니다. 이 cmdlet은 계정 자격 증명을 묻는 웹 페이지를 엽니다.
+3. **Connect-AzAccount** 를 사용하여 Azure 계정에 로그인합니다. 이 cmdlet은 계정 자격 증명을 묻는 웹 페이지를 엽니다.
 
     * 또는 **Connect-AzAccount** cmdlet에서 **-Credential** 매개 변수를 사용하여 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
     * 테 넌 트를 대신 하 여 작업 중인 CSP 파트너인 경우 tenantID 또는 테 넌 트 주 도메인 이름을 사용 하 여 고객을 테 넌 트로 지정 합니다. 예: **AzAccount-Tenant "fabrikam.com"**
@@ -78,7 +78,7 @@ Azure 라이브러리에서 **Az. RecoveryServices** [cmdlet 참조](/powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-    명령 출력에서 **RegistrationState**는 **등록됨**으로 변경해야 합니다. 그렇지 않은 경우 **[AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider)** cmdlet을 다시 실행 하면 됩니다.
+    명령 출력에서 **RegistrationState** 는 **등록됨** 으로 변경해야 합니다. 그렇지 않은 경우 **[AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider)** cmdlet을 다시 실행 하면 됩니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -96,7 +96,7 @@ Azure 라이브러리에서 **Az. RecoveryServices** [cmdlet 참조](/powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. 사용할 스토리지 중복 유형을 지정합니다. [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md#locally-redundant-storage), [GRS (지역 중복 저장소](../storage/common/storage-redundancy.md#geo-redundant-storage)) 또는 [ZRS (영역 중복 저장소)](../storage/common/storage-redundancy.md#zone-redundant-storage)를 사용할 수 있습니다. 다음 예제는 *testvault*에 대한 **-BackupStorageRedundancy** 옵션이 **GeoRedundant**로 설정된 것을 보여 줍니다.
+3. 사용할 스토리지 중복 유형을 지정합니다. [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md#locally-redundant-storage), [GRS (지역 중복 저장소](../storage/common/storage-redundancy.md#geo-redundant-storage)) 또는 [ZRS (영역 중복 저장소)](../storage/common/storage-redundancy.md#zone-redundant-storage)를 사용할 수 있습니다. 다음 예제는 *testvault* 에 대한 **-BackupStorageRedundancy** 옵션이 **GeoRedundant** 로 설정된 것을 보여 줍니다.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -134,7 +134,7 @@ Recovery Services 자격 증명 모음을 사용하여 가상 머신을 보호�
 
 ### <a name="set-vault-context"></a>자격 증명 모음 컨텍스트 설정
 
-VM에 대 한 보호를 사용 하도록 설정 하기 전에 [AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext) 를 사용 하 여 자격 증명 모음 컨텍스트를 설정 합니다. 자격 증명 모음 컨텍스트가 설정되면 모든 후속 cmdlet에 적용됩니다. 다음 예제에서는 자격 증명 모음, *testvault*에 대한 자격 증명 모음 컨텍스트를 설정합니다.
+VM에 대 한 보호를 사용 하도록 설정 하기 전에 [AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext) 를 사용 하 여 자격 증명 모음 컨텍스트를 설정 합니다. 자격 증명 모음 컨텍스트가 설정되면 모든 후속 cmdlet에 적용됩니다. 다음 예제에서는 자격 증명 모음, *testvault* 에 대한 자격 증명 모음 컨텍스트를 설정합니다.
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "Contoso-docs-rg" | Set-AzRecoveryServicesVaultContext
@@ -208,7 +208,7 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 > [!IMPORTANT]
 > 30 분의 배수로 시작 시간을 제공 해야 합니다. 위의 예제에서는 "01:00:00" 또는 "02:30:00"만 가능 합니다. 시작 시간은 "01:15:00" 일 수 없습니다.
 
-다음 예제에서는 일정 정책 및 보존 정책을 변수에 저장합니다. 예제에서는 이러한 변수를 사용하여 보호 정책, *NewPolicy*를 만들 때 매개 변수를 정의합니다.
+다음 예제에서는 일정 정책 및 보존 정책을 변수에 저장합니다. 예제에서는 이러한 변수를 사용하여 보호 정책, *NewPolicy* 를 만들 때 매개 변수를 정의합니다.
 
 ```powershell
 $retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
@@ -232,7 +232,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 
 다음 예제에서는 NewPolicy 정책을 사용하여 V2VM 항목에 대해 보호를 활성화합니다. 예제는 VM이 암호화되었는지 여부와 암호화 유형에 따라 다릅니다.
 
-**암호화 되지 않은 리소스 관리자 vm**에 대 한 보호를 사용 하도록 설정 하려면:
+**암호화 되지 않은 리소스 관리자 vm** 에 대 한 보호를 사용 하도록 설정 하려면:
 
 ```powershell
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $targetVault.ID
@@ -435,7 +435,7 @@ $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -Work
 
 [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) cmdlet을 사용하여 백업 항목에 대한 모든 복구 지점을 나열합니다. 그런 후 복원할 복구 지점을 선택합니다. 사용할 복구 지점을 잘 모르겠으면 목록에서 가장 최근의 RecoveryPointType = AppConsistent 지점을 선택 하는 것이 좋습니다.
 
-다음 스크립트에서 변수 **$rp**는 지난 7 일간의 선택 된 백업 항목에 대 한 복구 지점의 배열입니다. 배열은 인덱스 0의 가장 최근 복구 지점부터 역 시간순으로 정렬됩니다. 복구 지점을 선택하려면 표준 PowerShell 배열 인덱싱을 사용합니다. 예에서, $rp[0]은 최신 복구 지점을 선택합니다.
+다음 스크립트에서 변수 **$rp** 는 지난 7 일간의 선택 된 백업 항목에 대 한 복구 지점의 배열입니다. 배열은 인덱스 0의 가장 최근 복구 지점부터 역 시간순으로 정렬됩니다. 복구 지점을 선택하려면 표준 PowerShell 배열 인덱싱을 사용합니다. 예에서, $rp[0]은 최신 복구 지점을 선택합니다.
 
 ```powershell
 $startDate = (Get-Date).AddDays(-7)
@@ -478,7 +478,7 @@ $restorejob
 >
 >
 
-추가 매개 변수를 **TargetResourceGroupName**을 제공하여 Managed Disks를 복원할 RG를 지정합니다.
+추가 매개 변수를 **TargetResourceGroupName** 을 제공하여 Managed Disks를 복원할 RG를 지정합니다.
 
 > [!IMPORTANT]
 > 관리 디스크를 복원 하는 데 **TargetResourceGroupName** 매개 변수를 사용 하는 것이 좋습니다. 이렇게 하면 성능이 크게 향상 됩니다. 이 매개 변수를 지정 하지 않으면 즉시 복원 기능을 사용할 수 없고 복원 작업의 속도가 더 느려집니다. 관리 디스크를 관리 되지 않는 디스크로 복원 해야 하는 경우에는이 매개 변수를 제공 하지 말고 매개 변수를 제공 하 여 의도를 명확 하 게 `-RestoreAsUnmanagedDisks` 합니다. `-RestoreAsUnmanagedDisks`매개 변수는 Azure PowerShell 3.7.0 이상에서 사용할 수 있습니다. 이후 버전에서는 올바른 복원 환경에 이러한 매개 변수 중 하나를 제공 해야 합니다.
@@ -650,7 +650,7 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $tar
         $osBlob.ICloudBlob.SetMetadata()
     ```
 
-    OS Blob에서 암호화 세부 정보가 설정되고 **비밀이 사용 가능**해지면 아래에 나와 있는 스크립트를 사용하여 디스크를 연결합니다.
+    OS Blob에서 암호화 세부 정보가 설정되고 **비밀이 사용 가능** 해지면 아래에 나와 있는 스크립트를 사용하여 디스크를 연결합니다.
 
     원본 키 자격 증명 모음/비밀을 이미 사용할 수 있는 경우 위의 스크립트를 실행할 필요가 없습니다.
 
@@ -678,7 +678,7 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $tar
         $osBlob.ICloudBlob.SetMetadata()
     ```
 
-    OS Blob에서 암호화 세부 정보가 설정되고 **키/비밀이 사용 가능**해지면 아래에 나와 있는 스크립트를 사용하여 디스크를 연결합니다.
+    OS Blob에서 암호화 세부 정보가 설정되고 **키/비밀이 사용 가능** 해지면 아래에 나와 있는 스크립트를 사용하여 디스크를 연결합니다.
 
     원본 키 자격 증명 모음/키/암호를 사용할 수 있는 경우 위의 스크립트를 실행할 필요가 없습니다.
 
@@ -824,7 +824,7 @@ $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -Work
 
 [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) cmdlet을 사용하여 백업 항목에 대한 모든 복구 지점을 나열합니다. 그런 후 복원할 복구 지점을 선택합니다. 사용할 복구 지점을 잘 모르겠으면 목록에서 가장 최근의 RecoveryPointType = AppConsistent 지점을 선택 하는 것이 좋습니다.
 
-다음 스크립트에서 변수 **$rp**는 지난 7 일간의 선택 된 백업 항목에 대 한 복구 지점의 배열입니다. 배열은 인덱스 0의 가장 최근 복구 지점부터 역 시간순으로 정렬됩니다. 복구 지점을 선택하려면 표준 PowerShell 배열 인덱싱을 사용합니다. 예에서, $rp[0]은 최신 복구 지점을 선택합니다.
+다음 스크립트에서 변수 **$rp** 는 지난 7 일간의 선택 된 백업 항목에 대 한 복구 지점의 배열입니다. 배열은 인덱스 0의 가장 최근 복구 지점부터 역 시간순으로 정렬됩니다. 복구 지점을 선택하려면 표준 PowerShell 배열 인덱싱을 사용합니다. 예에서, $rp[0]은 최신 복구 지점을 선택합니다.
 
 ```powershell
 $startDate = (Get-Date).AddDays(-7)

@@ -4,11 +4,11 @@ description: Azure Backup 서비스를 사용 하 여 암호화 된 Azure Vm을 
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.openlocfilehash: 67c0e879fe2acf241b1ed08a5658209bf70b1b9c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173898"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978117"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>암호화 된 Azure 가상 컴퓨터 백업 및 복원
 
@@ -66,24 +66,24 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 
     ![백업 창](./media/backup-azure-vms-encryption/select-backup.png)
 
-1. **Backup goal**  >  **워크 로드가 실행 되는** 백업 목표에서 **Azure**를 선택 합니다.
-1. **백업할 항목** 에서 **가상 컴퓨터**를 선택 합니다. 그런 다음 **백업**을 선택 합니다.
+1. **Backup goal**  >  **워크 로드가 실행 되는** 백업 목표에서 **Azure** 를 선택 합니다.
+1. **백업할 항목** 에서 **가상 컴퓨터** 를 선택 합니다. 그런 다음 **백업** 을 선택 합니다.
 
       ![시나리오 창](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-1. **백업 정책**에서  >  **백업 정책을 선택**하 고 자격 증명 모음과 연결할 정책을 선택 합니다. 그런 다음, **확인**을 선택합니다.
+1. **백업 정책** 에서  >  **백업 정책을 선택** 하 고 자격 증명 모음과 연결할 정책을 선택 합니다. 그런 다음, **확인** 을 선택합니다.
     - 백업 정책은 백업이 수행 되는 시기와 저장 기간을 지정 합니다.
     - 드롭다운 메뉴 아래에 기본 정책의 상세 정보가 나열됩니다.
 
     ![백업 정책 선택](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
-1. 기본 정책을 사용 하지 않으려면 **새로 만들기**를 선택 하 고 [사용자 지정 정책을 만듭니다](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
+1. 기본 정책을 사용 하지 않으려면 **새로 만들기** 를 선택 하 고 [사용자 지정 정책을 만듭니다](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
-1. **Virtual Machines**에서 **추가**를 선택합니다.
+1. **Virtual Machines** 에서 **추가** 를 선택합니다.
 
     ![가상 컴퓨터 추가](./media/backup-azure-vms-encryption/add-virtual-machines.png)
 
-1. 선택 정책을 사용 하 여 백업 하려는 암호화 된 Vm을 선택 하 고 **확인**을 선택 합니다.
+1. 선택 정책을 사용 하 여 백업 하려는 암호화 된 Vm을 선택 하 고 **확인** 을 선택 합니다.
 
       ![암호화된 VM 선택](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
 
@@ -103,35 +103,35 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 
 초기 백업은 일정에 따라 실행되지만, 다음과 같이 즉시 실행할 수 있습니다.
 
-1. 자격 증명 모음 메뉴에서 **백업 항목**을 선택 합니다.
-2. **Backup 항목**에서 **Azure Virtual Machine**을 선택 합니다.
+1. 자격 증명 모음 메뉴에서 **백업 항목** 을 선택 합니다.
+2. **Backup 항목** 에서 **Azure Virtual Machine** 을 선택 합니다.
 3. **백업 항목** 목록에서 줄임표 (...)를 선택 합니다.
-4. **지금 백업**을 선택 합니다.
-5. **지금 백업**에서 달력 컨트롤을 사용하여 복구 지점을 유지해야 하는 마지막 날을 선택합니다. 그런 다음, **확인**을 선택합니다.
-6. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중**에서 작업 진행률을 모니터링할 수 있습니다. VM의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
+4. **지금 백업** 을 선택 합니다.
+5. **지금 백업** 에서 달력 컨트롤을 사용하여 복구 지점을 유지해야 하는 마지막 날을 선택합니다. 그런 다음, **확인** 을 선택합니다.
+6. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중** 에서 작업 진행률을 모니터링할 수 있습니다. VM의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
 
 ## <a name="provide-permissions"></a>권한 제공
 
 연결 된 Vm과 함께 키와 암호를 백업 하려면 읽기 전용 액세스가 필요 Azure Backup.
 
-- Key Vault는 Azure 구독의 Azure AD 테 넌 트와 연결 되어 있습니다. **사용자가 멤버 사용자**인 경우 추가 작업 없이 Key Vault에 대 한 액세스 권한을 획득 Azure Backup.
-- **게스트 사용자**인 경우 키 자격 증명 모음에 액세스 하는 Azure Backup에 대 한 권한을 제공 해야 합니다.
+- Key Vault는 Azure 구독의 Azure AD 테 넌 트와 연결 되어 있습니다. **사용자가 멤버 사용자** 인 경우 추가 작업 없이 Key Vault에 대 한 액세스 권한을 획득 Azure Backup.
+- **게스트 사용자** 인 경우 키 자격 증명 모음에 액세스 하는 Azure Backup에 대 한 권한을 제공 해야 합니다.
 
 사용 권한을 설정 하려면:
 
-1. Azure Portal에서 **모든 서비스**를 선택 하 고 **키 자격 증명 모음**을 검색 합니다.
+1. Azure Portal에서 **모든 서비스** 를 선택 하 고 **키 자격 증명 모음** 을 검색 합니다.
 1. 백업 중인 암호화 된 VM과 연결 된 key vault를 선택 합니다.
-1. **액세스**정책  >  **추가 액세스 정책**을 선택 합니다.
+1. **액세스** 정책  >  **추가 액세스 정책** 을 선택 합니다.
 
     ![액세스 정책 추가](./media/backup-azure-vms-encryption/add-access-policy.png)
 
-1. **액세스 정책 추가**  >  **템플릿에서 구성 (선택 사항)** 에서 **Azure Backup**를 선택 합니다.
-    - **키 권한** 및 **비밀 권한**에서 필요한 권한이 미리 입력됩니다.
-    - VM이 **Bek만**사용 하 여 암호화 된 경우에는 비밀에 대 한 권한만 필요 하므로 **키 사용 권한에** 대 한 선택 항목을 제거 합니다.
+1. **액세스 정책 추가**  >  **템플릿에서 구성 (선택 사항)** 에서 **Azure Backup** 를 선택 합니다.
+    - **키 권한** 및 **비밀 권한** 에서 필요한 권한이 미리 입력됩니다.
+    - VM이 **Bek만** 사용 하 여 암호화 된 경우에는 비밀에 대 한 권한만 필요 하므로 **키 사용 권한에** 대 한 선택 항목을 제거 합니다.
 
     ![Azure Backup 선택](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-1. **추가**를 선택합니다. **액세스 정책**에 **백업 관리 서비스가** 추가 됩니다.
+1. **추가** 를 선택합니다. **액세스 정책** 에 **백업 관리 서비스가** 추가 됩니다.
 
     ![액세스 정책](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
