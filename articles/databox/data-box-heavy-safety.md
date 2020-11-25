@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: alkohli
 ms.openlocfilehash: d2c7f729f4accf7c9ca212c6e4b4b5d565c3114c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563780"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021540"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box-heavy"></a>Azure Data Box Heavy 안전 하 게 설치 및 작동
 
@@ -27,7 +27,7 @@ Azure Data Box Heavy를 사용 하기 전에이 문서의 모든 안전 정보�
 ## <a name="safety-icon-conventions"></a>안전성 아이콘 표시 규칙
 다음은 Data Box를 설정 및 실행할 때 관찰되는 안전 주의 사항을 검토할 때 표시되는 아이콘입니다.
 
-| 아이콘 | 설명 |
+| 아이콘 | Description |
 |:--- |:--- |
 | ![위험 아이콘 ](./media/data-box-heavy-safety/warning-icon.png) **위험!** |피하지 않을 경우 사망 또는 심각한 부상을 당하는 위험한 상황을 나타냅니다. 이 위험도 표시는 가장 극단적인 상황으로 제한됩니다. |
 | ![경고 아이콘 ](./media/data-box-heavy-safety/warning-icon.png) **경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
@@ -116,7 +116,7 @@ Azure Data Box Heavy를 사용 하기 전에이 문서의 모든 안전 정보�
 ![경고 아이콘 ](./media/data-box-heavy-safety/warning-icon.png) **주의!**
 
 * 이 디바이스는 코인 셀 배터리를 포함하고 있습니다. 디바이스를 정비하려 하지 마세요. 이 디바이스의 배터리는 사용자가 점검할 수 없습니다. 
-* **서비스 담당자만**해당: 배터리가 잘못 된 유형으로 교체 되는 경우 폭발 위험이 있습니다. 사용한 배터리는 지침에 따라 폐기하세요.
+* **서비스 담당자만** 해당: 배터리가 잘못 된 유형으로 교체 되는 경우 폭발 위험이 있습니다. 사용한 배터리는 지침에 따라 폐기하세요.
 * 레이저 주변 장치 또는 장치가 있습니다. 위험 또는 방사선 노출이 나 부상이 나 부상을 방지 하려면 레이저 주변 장치 또는 장치의 인클로저를 열지 마십시오. 레이저 주변 장치 또는 장치를 서비스할 수 없습니다. 광학 트랜시버 제품에 대해 인증 되 고 등급이 지정 된 레이저 클래스 I만 사용 합니다.
 
 ![아이콘 ](./media/data-box-heavy-safety/notice-icon.png) **알림:**

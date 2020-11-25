@@ -7,19 +7,19 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: b27ff631ce13d70d15a6fd2b6dd5ad5bccaf5450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442074"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021914"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 소스를 프로 파일링 하는 방법
 
 ## <a name="introduction"></a>소개
 
-**Microsoft Azure 데이터 카탈로그**는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 즉, **Azure Data Catalog** 은 사용자가 데이터 원본을 검색 하 고 이해 하 고 사용 하는 데 도움이 되 고 조직이 기존 데이터에서 더 많은 가치를 얻을 수 있도록 지원 합니다. **Azure Data Catalog**를 사용하여 데이터 원본을 등록하면 해당 메타데이터를 복사하고 서비스로 인덱싱하지만 여기서 끝이 아닙니다.
+**Microsoft Azure 데이터 카탈로그** 는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 즉, **Azure Data Catalog** 은 사용자가 데이터 원본을 검색 하 고 이해 하 고 사용 하는 데 도움이 되 고 조직이 기존 데이터에서 더 많은 가치를 얻을 수 있도록 지원 합니다. **Azure Data Catalog** 를 사용하여 데이터 원본을 등록하면 해당 메타데이터를 복사하고 서비스로 인덱싱하지만 여기서 끝이 아닙니다.
 
-**Azure Data Catalog**의 **데이터 프로파일링** 기능은 카탈로그에서 지원되는 데이터 원본에서 데이터를 검사하고 해당 데이터에 대한 통계 및 정보를 수집합니다. 데이터 자산의 프로필을 포함하는 것은 쉽습니다. 데이터 자산을 등록하면 데이터 원본 등록 도구에서 **데이터 프로필 포함** 을 선택합니다.
+**Azure Data Catalog** 의 **데이터 프로파일링** 기능은 카탈로그에서 지원되는 데이터 원본에서 데이터를 검사하고 해당 데이터에 대한 통계 및 정보를 수집합니다. 데이터 자산의 프로필을 포함하는 것은 쉽습니다. 데이터 자산을 등록하면 데이터 원본 등록 도구에서 **데이터 프로필 포함** 을 선택합니다.
 
 ## <a name="what-is-data-profiling"></a>데이터 프로파일링의 정의
 
@@ -49,7 +49,7 @@ ms.locfileid: "89442074"
 
 ## <a name="how-to-include-a-data-profile-when-registering-a-data-source"></a>데이터 원본을 등록할 때 데이터 프로필을 포함하는 방법
 
-데이터 원본의 프로필을 포함하는 것은 쉽습니다. 데이터 원본에 등록할 때 데이터 원본 등록 도구의 **등록할 개체** 패널에서 **데이터 프로필 포함**을 선택합니다.
+데이터 원본의 프로필을 포함하는 것은 쉽습니다. 데이터 원본에 등록할 때 데이터 원본 등록 도구의 **등록할 개체** 패널에서 **데이터 프로필 포함** 을 선택합니다.
 
 ![데이터 프로필 포함 확인란](media/data-catalog-data-profile/data-catalog-register-profile.png)
 

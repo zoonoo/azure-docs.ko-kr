@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565639"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020911"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
@@ -32,9 +32,9 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
 
 각 리소스에 대해 현재 인스턴스 수와 자동 크기 조정 상태를 확인할 수 있습니다. 자동 크기 조정 상태는 다음과 같을 수 있습니다.
 
-- **구성되지 않음** : 이 리소스에 대해 자동 크기 조정 설정을 아직 사용하도록 설정하지 않았습니다.
-- **사용** : 이 리소스에 대해 자동 크기 조정 설정을 사용하도록 설정했습니다.
-- **사용 안 함** : 이 리소스에 대해 자동 크기 조정 설정을 사용하지 않도록 설정했습니다.
+- **구성되지 않음**: 이 리소스에 대해 자동 크기 조정 설정을 아직 사용하도록 설정하지 않았습니다.
+- **사용**: 이 리소스에 대해 자동 크기 조정 설정을 사용하도록 설정했습니다.
+- **사용 안 함**: 이 리소스에 대해 자동 크기 조정 설정을 사용하지 않도록 설정했습니다.
 
 ## <a name="create-your-first-autoscale-setting"></a>첫 번째 자동 크기 조정 설정 만들기
 

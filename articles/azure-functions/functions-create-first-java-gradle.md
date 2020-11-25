@@ -7,11 +7,11 @@ ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.openlocfilehash: 48a732e3935d78bdbf8b81fe989b59be1fbe2203
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422810"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020435"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Java 및 Gradle를 사용 하 여 Azure에 함수 만들기 및 게시
 
@@ -20,7 +20,7 @@ ms.locfileid: "93422810"
 > [!NOTE]
 > Gradle가 권장 되 개발 도구가 아닌 경우 [Maven](./create-first-function-cli-java.md), [IntelliJ 아이디어](/azure/developer/java/toolkit-for-intellij/quickstart-functions) 및 [VS Code](./create-first-function-vs-code-java.md)를 사용 하 여 Java 개발자를 위한 유사한 자습서를 확인 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Java를 사용하여 함수를 개발하려면 다음을 설치해야 합니다.
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/07/2020
 ms.author: glenga
 ms.openlocfilehash: a4f03223b5067d18f5d6e747b3bb630a86031b8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88689565"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020364"
 ---
 확장 번들을 사용할 수 없는 경우 Azure Functions Core Tools를 로컬로 사용 하 여 프로젝트에 필요한 특정 확장 패키지를 설치할 수 있습니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "88689565"
 ```dotnetcli
 func extensions install
 ```
-이 명령은 파일 * 의function.js* 를 읽어 필요한 패키지를 확인 하 고, 설치 하 고, 확장 프로젝트 (.csproj)를 다시 빌드합니다. 현재 버전에서 새 바인딩을 추가하되, 기존 바인딩을 업데이트하지는 않습니다. 새 바인딩을 설치할 때 기존 바인딩을 최신 버전으로 업데이트하려면 `--force` 옵션을 사용합니다.
+이 명령은 파일 *의function.js* 를 읽어 필요한 패키지를 확인 하 고, 설치 하 고, 확장 프로젝트 (.csproj)를 다시 빌드합니다. 현재 버전에서 새 바인딩을 추가하되, 기존 바인딩을 업데이트하지는 않습니다. 새 바인딩을 설치할 때 기존 바인딩을 최신 버전으로 업데이트하려면 `--force` 옵션을 사용합니다.
 
 함수 앱에서 핵심 도구가 인식 하지 않는 바인딩을 사용 하는 경우 특정 확장을 수동으로 설치 해야 합니다.
 

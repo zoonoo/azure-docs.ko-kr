@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a8321ba8bac0ecaf577bce6c3c05d10508128e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534984"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96020163"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -34,7 +34,7 @@ ms.locfileid: "91534984"
 * Text-to-Speech REST API에는 인증 헤더가 필요합니다. 즉, 서비스에 액세스하기 위해 토큰 교환을 완료해야 합니다. 자세한 내용은 [인증](#authentication)을 참조하세요.
 
 > [!TIP]
-> FairFax (정부 클라우드) 끝점에 대 한 Azure 정부 [설명서](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) 를 참조 하세요.
+> FairFax (정부 클라우드) 끝점에 대 한 Azure 정부 [설명서](../../azure-government/compare-azure-government-global-azure.md) 를 참조 하세요.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -147,7 +147,7 @@ Authorization: Bearer [Base64 access_token]
 
 각 응답의 HTTP 상태 코드는 성공 또는 일반 오류를 나타냅니다.
 
-| HTTP 상태 코드 | 설명 | 가능한 원인 |
+| HTTP 상태 코드 | Description | 가능한 원인 |
 |------------------|-------------|-----------------|
 | 200 | 확인 | 요청이 성공 했습니다. |
 | 400 | 잘못된 요청 | 필수 매개 변수가 없거나 비어 있거나 null입니다. 또는 필수 또는 선택적 매개 변수에 전달된 값이 올바르지 않습니다. 일반적인 문제는 헤더가 너무 긴 경우입니다. |
@@ -222,15 +222,15 @@ Authorization: Bearer [Base64 access_token]
 
 언어 관련 예제는 빠른 시작을 참조 하세요.
 
-* [.NET Core, C #](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
-* [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-* [Node.js](quickstart-nodejs-text-to-speech.md)
+* [.NET Core, C #](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
+* [Python](./get-started-text-to-speech.md?pivots=programming-language-python)
+* [Node.JS](./get-started-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>HTTP 상태 코드
 
 각 응답의 HTTP 상태 코드는 성공 또는 일반 오류를 나타냅니다.
 
-| HTTP 상태 코드 | 설명 | 가능한 원인 |
+| HTTP 상태 코드 | Description | 가능한 원인 |
 |------------------|-------------|-----------------|
 | 200 | 확인 | 요청이 성공했습니다. 응답 본문이 오디오 파일입니다. |
 | 400 | 잘못된 요청 | 필수 매개 변수가 없거나 비어 있거나 null입니다. 또는 필수 또는 선택적 매개 변수에 전달된 값이 올바르지 않습니다. 일반적인 문제는 헤더가 너무 긴 경우입니다. |
@@ -245,5 +245,5 @@ HTTP 상태가 `200 OK`인 경우 응답 본문은 요청된 형식으로 오디
 ## <a name="next-steps"></a>다음 단계
 
 - [평가판 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
-- [긴 형식의 오디오에 대 한 비동기 합성](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [긴 형식의 오디오에 대 한 비동기 합성](./long-audio-api.md)
 - [Custom Voice 시작](how-to-custom-voice.md)

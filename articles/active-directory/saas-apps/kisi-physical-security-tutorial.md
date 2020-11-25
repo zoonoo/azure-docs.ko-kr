@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.openlocfilehash: a65d3f24fdcc684d5a47c19497d36b091764406b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459019"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020775"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kisi-physical-security"></a>자습서: Kisi Physical Security와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -86,7 +86,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     b. **회신 URL** 텍스트 상자에서 `https://api.kisi.io/saml/consume/<DOMAIN>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
-    > `DOMAIN`은(는) Kisi에 의해 조직에 할당된 소문자 영숫자 식별자입니다. 이는 조직의 DNS 도메인 이름과 동일하지 **않습니다** *.
+    > `DOMAIN`은(는) Kisi에 의해 조직에 할당된 소문자 영숫자 식별자입니다. 이는 조직의 DNS 도메인 이름과 동일하지 **않습니다***.
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
@@ -115,7 +115,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.

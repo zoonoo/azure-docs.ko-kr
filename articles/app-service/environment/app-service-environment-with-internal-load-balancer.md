@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: c4e5dedf2075a2e13cc91c5eed2c0f03ba498b97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962556"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021523"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 사용
 
@@ -45,30 +45,30 @@ ILB ASE를 사용하는 경우 수행할 수 없는 작업도 있습니다. 여�
 ## <a name="creating-an-ilb-ase"></a>ILB ASE 만들기
 ILB ASE를 만드는 과정은 일반적으로 ASE를 만드는 과정과 크게 다르지 않습니다. ASE를 만드는 방법에 대한 자세한 내용은 [App Service 환경을 만드는 방법][HowtoCreateASE]을 참조하세요. ILB ASE를 만드는 프로세스를 ASE 생성 중에 VNet을 만드는 경우와 기존 VNet을 선택하는 경우에서 동일합니다. ILB ASE를 만들려면 
 
-1. Azure Portal에서 **리소스 만들기 -> 웹 + 모바일 -> App Service Environment**를 선택합니다.
+1. Azure Portal에서 **리소스 만들기 -> 웹 + 모바일 -> App Service Environment** 를 선택합니다.
 2. 구독을 선택합니다.
 3. 리소스 그룹을 선택하거나 만듭니다.
 4. VNet을 선택하거나 만듭니다.
 5. VNet을 선택하는 경우 서브넷 만듭니다.
 6. **Virtual Network/위치-> VNet 구성** 을 선택 하 고 VIP 유형을 내부로 설정 합니다.
 7. 하위 도메인 이름을 제공합니다. (이 이름은 해당 ASE에서 만든 앱에 사용되는 하위 도메인입니다.)
-8. **확인** , **만들기**를 차례로 선택 합니다.
+8. **확인** , **만들기** 를 차례로 선택 합니다.
 
 ![ILB ASE를 만드는 데 사용 되는 화면을 표시 합니다.][1]
 
 Virtual Network 창에 외부 VIP 또는 내부 VIP를 선택할 수 있는 VNet 구성 옵션이 있습니다. 기본값은 외부입니다. 외부로 설정하는 경우 ASE는 인터넷 액세스 가능 VIP를 사용합니다. 내부를 선택하는 경우 ASE가 VNet 내의 IP 주소에 있는 ILB로 구성됩니다. 
 
-내부를 선택하면 ASE에 더 많은 IP 주소를 추가하는 기능이 제거되고, 대신 ASE의 하위 도메인을 제공해야 합니다. 외부 VIP가 있는 ASE에서 ASE의 이름은 해당 ASE에서 만든 앱에 대한 하위 도메인에 사용됩니다. ASE가 ***contosotest***로 지칭되고 해당 ASE의 앱이 ***mytest***로 지칭되면 하위 도메인 형식은 ***contosotest.p.azurewebsites.net***이고 해당 앱의 URL은 ***mytest.contosotest.p.azurewebsites.net***이 됩니다. VIP 유형을 내부로 설정한 경우 ASE 이름은 해당 ASE의 하위 도메인에서 사용되지 않습니다. 하위 도메인을 명시적으로 지정해야 합니다. 하위 도메인이 ***contoso.corp.net***이고 해당 ASE에서 ***timereporting***이라는 앱을 만들었으면 해당 앱의 URL은 ***timereporting.contoso.corp.net***이 됩니다.
+내부를 선택하면 ASE에 더 많은 IP 주소를 추가하는 기능이 제거되고, 대신 ASE의 하위 도메인을 제공해야 합니다. 외부 VIP가 있는 ASE에서 ASE의 이름은 해당 ASE에서 만든 앱에 대한 하위 도메인에 사용됩니다. ASE 이름이 **_contosotest_* _이 고 해당 ase의 앱 이름이 _*_mytest_*_ 인 경우 하위 도메인은 _*_contosotest.p.azurewebsites.net_*_ 형식이 고 해당 앱의 URL은 _*_mytest.contosotest.p.azurewebsites.net_*_ 입니다. VIP 유형을 내부로 설정한 경우 ASE 이름은 해당 ASE의 하위 도메인에서 사용되지 않습니다. 하위 도메인을 명시적으로 지정해야 합니다. 하위 도메인이 _*_contoso.corp.net_*_ 이 고 해당 ASE에서 응용 _*_프로그램을 만든_*_ 후에는 해당 앱에 대 한 URL은 _*_timereporting.contoso.corp.net_*_ 입니다.
 
 ## <a name="apps-in-an-ilb-ase"></a>ILB ASE의 앱
 ILB ASE에서 앱을 만드는 과정은 일반적으로 ASE에서 앱을 만드는 과정과 같습니다. 
 
-1. Azure Portal에서 **리소스 만들기 -> 웹 + 모바일 -> 웹** 또는 **모바일** 또는 **API 앱**을 선택합니다.
+1. Azure Portal에서 _ *리소스 만들기-> 웹 + 모바일-> 웹** 또는 **모바일** 또는 **API 앱** 을 선택 합니다.
 2. 앱의 이름을 입력합니다.
 3. 구독을 선택합니다.
 4. 리소스 그룹을 선택하거나 만듭니다.
 5. App Service 계획(ASP)을 선택하거나 만듭니다. 새 ASE를 만드는 경우 위치로 ASE를 선택하고 ASP를 생성할 작업자 풀을 선택합니다. ASP를 만들 때 위치 및 작업자 풀로 ASE를 선택합니다. 앱의 이름을 지정하면 앱 이름 아래의 하위 도메인이 ASE에 대한 하위 도메인으로 바뀌는 것을 볼 수 있습니다. 
-6. **만들기**를 선택합니다. 앱을 대시보드에 표시하려면 **대시보드에 고정** 확인란을 선택해야 합니다. 
+6. **만들기** 를 선택합니다. 앱을 대시보드에 표시하려면 **대시보드에 고정** 확인란을 선택해야 합니다. 
 
 ![Azure Portal의 ILB ASE에서 앱을 만드는 방법을 보여 줍니다.][2]
 
@@ -77,7 +77,7 @@ ILB ASE에서 앱을 만드는 과정은 일반적으로 ASE에서 앱을 만드
 ## <a name="post-ilb-ase-creation-validation"></a>ILB ASE 만들기 유효성 검사 게시
 ILB ASE는 비 ILB ASE와는 약간 다릅니다. 앞서 명시한 것처럼 사용자 고유의 DNS를 관리해야 하므로 HTTPS 연결에 대 한 사용자 고유의 인증서를 제공해야 합니다. 
 
-ASE를 만든 후에는 해당 하위 도메인이 사용자가 지정한 하위 도메인을 표시하며, **설정** 메뉴에는 **ILB 인증서**라는 새 항목이 나타납니다. ASE는 HTTPS를 쉽게 테스트하는 자체 서명된 인증서로 만들어집니다. 포털에서는 HTTPS에 고유한 인증서를 제공해야 한다고 지시할 수 있지만 이로 인해 하위 도메인으로 사용하는 인증서를 만들게 됩니다. 
+ASE를 만든 후에는 해당 하위 도메인이 사용자가 지정한 하위 도메인을 표시하며, **설정** 메뉴에는 **ILB 인증서** 라는 새 항목이 나타납니다. ASE는 HTTPS를 쉽게 테스트하는 자체 서명된 인증서로 만들어집니다. 포털에서는 HTTPS에 고유한 인증서를 제공해야 한다고 지시할 수 있지만 이로 인해 하위 도메인으로 사용하는 인증서를 만들게 됩니다. 
 
 ![ASE를 만들 때 지정한 하위 도메인을 표시 합니다.][3]
 
@@ -87,7 +87,7 @@ ASE를 만든 후에는 해당 하위 도메인이 사용자가 지정한 하위
 
 고유한 인증서를 사용하여 흐름을 시도하고 ASE에 대한 HTTP 및 HTTPS 액세스를 테스트하려면:
 
-1. ASE를 만든 후에 ASE UI, **ASE -> 설정 -> ILB 인증서**로 이동합니다.
+1. ASE를 만든 후에 ASE UI, **ASE -> 설정 -> ILB 인증서** 로 이동합니다.
 2. 인증서 pfx 파일을 선택하여 ILB 인증서를 설정하고 암호를 제공합니다. 이 단계를 처리하는 데 잠시 시간이 소요되며, 크기 조정 작업이 진행 중이라는 메시지가 표시됩니다.
 3. ASE의 ILB 주소를 가져옵니다(**ASE -> 속성 -> 가상 IP 주소**).
 4. ASE를 만든 후에 ASE에서 웹앱을 만듭니다. 
@@ -106,7 +106,7 @@ ILB ASE는 앱에 대한 네트워크 격리를 설정합니다. 해당 앱은 �
 
 NSG를 사용하여 액세스를 좀 더 제한하려는 경우 ASE의 작동에 필요한 통신이 끊어지지 않도록 해야 합니다. HTTP/HTTPS 액세스가 ASE에 사용되는 ILB를 통해서만 진행되더라도 ASE에는 VNet 외부의 리소스가 필요합니다. 여전히 필요한 네트워크 액세스를 확인하려면 [App Service 환경에 대한 인바운드 트래픽 제어][ControlInbound] 및 [ExpressRoute를 사용하는 App Service 환경에 대한 네트워크 구성 세부 정보][ExpressRoute]를 참조하세요. 
 
-ASE를 구성하려면 Azure에서 ASE 관리를 위해 사용하는 IP 주소를 알아야 합니다. 인터넷 요청도 수행하는 경우 해당 IP 주소는 ASE의 아웃바운드 IP 주소입니다. ASE에 대한 아웃바운드 IP 주소는 ASE 수명 동안 정적 상태로 유지됩니다. ASE를 삭제하고 다시 만들면 새 IP 주소를 얻게 됩니다. 이 IP 주소를 찾으려면 **설정 -> 속성**으로 이동한 후 **아웃바운드 IP 주소**를 찾습니다. 
+ASE를 구성하려면 Azure에서 ASE 관리를 위해 사용하는 IP 주소를 알아야 합니다. 인터넷 요청도 수행하는 경우 해당 IP 주소는 ASE의 아웃바운드 IP 주소입니다. ASE에 대한 아웃바운드 IP 주소는 ASE 수명 동안 정적 상태로 유지됩니다. ASE를 삭제하고 다시 만들면 새 IP 주소를 얻게 됩니다. 이 IP 주소를 찾으려면 **설정 -> 속성** 으로 이동한 후 **아웃바운드 IP 주소** 를 찾습니다. 
 
 ![ASE에 대 한 아웃 바운드 IP 주소를 찾을 수 있는 위치를 보여 줍니다.][5]
 

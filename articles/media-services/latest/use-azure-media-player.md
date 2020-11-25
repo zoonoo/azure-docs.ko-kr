@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 07/17/2019
 ms.author: inhenkel
 ms.openlocfilehash: a3b32110a7236d47946c3a1f901aaedf51b47775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89253984"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022220"
 ---
 # <a name="playback-with-azure-media-player"></a>Azure Media Player 재생
 
@@ -35,7 +35,7 @@ Microsoft Azure Media Services에서 콘텐츠를 HLS, DASH, 부드러운 스트
 
 새 비디오를 재생하려면 다른 URL을 붙여넣고 **업데이트** 키를 누릅니다.
 
-다양한 재생 옵션(예: 기술, 언어 또는 암호화)을 구성하려면 **고급 옵션**을 누릅니다.
+다양한 재생 옵션(예: 기술, 언어 또는 암호화)을 구성하려면 **고급 옵션** 을 누릅니다.
 
 ![Azure Media Player](./media/azure-media-player/home-page.png)
 

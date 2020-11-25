@@ -8,11 +8,11 @@ ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 86d0569d95df18924ed47682b75d7491c71d4483
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833557"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021030"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 환경 사용
 
@@ -54,7 +54,7 @@ ASE에서 앱을 만들려면
 
     b. 구독을 선택합니다.
 
-    c. 리소스 그룹을 선택 하거나 만듭니다.
+    다. 리소스 그룹을 선택 하거나 만듭니다.
 
     d. 웹 앱의 이름을 입력 합니다.
 
@@ -161,7 +161,7 @@ ILB ASE를 사용 하 여 게시 끝점은 ILB를 통해서만 사용할 수 있
 
 ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진 도메인을 사용합니다. 앱의 게시 프로필과 앱의 포털 창 ( **개요**  >  **필수** 및 **속성**)에서 볼 수 있습니다.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 ASE에는 ASE의 모든 앱에 대해 1TB의 저장소가 있습니다. 격리 가격 SKU의 App Service 요금제는 250 GB로 제한 됩니다. ASE에서 250 GB의 저장소는 1TB 제한까지 App Service 계획 마다 추가 됩니다. 4 개 보다 많은 App Service 요금제를 사용할 수 있지만 1TB 제한을 초과 하는 저장소는 더 이상 추가 되지 않습니다.
 
@@ -185,7 +185,7 @@ ASE를 Azure Monitor와 통합 하 여 ASE에 대 한 로그를 Azure Storage, A
 ASE에서 로깅을 사용 하도록 설정 하려면:
 
 1. 포털에서 **진단 설정** 으로 이동 합니다.
-1. **진단 설정 추가** 를 선택 합니다.
+1. **진단 설정 추가** 를 선택합니다.
 1. 로그 통합에 대 한 이름을 제공 합니다.
 1. 원하는 로그 대상을 선택 하 고 구성 합니다.
 1. **Appservice환경 Platformlogs** 를 선택 합니다.

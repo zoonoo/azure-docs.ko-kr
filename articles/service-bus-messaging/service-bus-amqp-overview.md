@@ -3,12 +3,12 @@ title: Azure Service Bus의 AMQP 1.0 개요
 description: 개방형 표준 프로토콜인 고급 메시지 큐 프로토콜 (AMQP) Azure Service Bus 지 원하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 11/20/2020
-ms.openlocfilehash: a643869d7d89b287e899b1eab89c5b9ec11856e5
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 85943344fd8f20cf3a73af5d637b65676584f93f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95396810"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96022180"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Service Bus의 AMQP 1.0 지원
 Azure Service Bus 클라우드 서비스는 기본 통신 수단으로 [AMQP (Advanced Message Queuing Protocol) 1.0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) 를 사용 합니다. Microsoft는 [OASIS Amqp 기술 위원회](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp)에서 새로운 확장 프로그램을 개발 하 고 지난 10 년간의 amqp를 개발 하 고 개선 하기 위해 경쟁 메시징 브로커를 갖춘 고객과 공급 업체의 파트너와 협력 하 고 있습니다. AMQP 1.0는 ISO 및 IEC 표준 ([iso 19464:20149](https://www.iso.org/standard/64955.html))입니다. 
@@ -70,20 +70,11 @@ Azure SDK를 통해 사용할 수 있는 지원 되는 모든 Service Bus 클라
 - [JavaScript 및 TypeScript 용 Azure Service Bus 모듈](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
 - [Python 용 Azure Service Bus 라이브러리](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
 
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
+
 또한 모든 AMQP 1.0 호환 프로토콜 스택에서 Service Bus를 사용할 수 있습니다.
 
-| Language | 라이브러리 |
-| --- | --- |
-| Java | [Apache Qpid Proton-J](https://qpid.apache.org/proton/index.html) |
-| C/C++ |[Azure uAMQP C](https://github.com/azure/azure-uamqp-c/), [Apache qpid Proton-C](https://qpid.apache.org/proton/index.html) |
-| Python |[Python 용 Azure uAMQP](https://github.com/azure/azure-uamqp-python/), [Apache Qpid Proton python](https://qpid.apache.org/releases/qpid-proton-0.32.0/proton/python/docs/overview.html) |
-| PHP | [PHP 용 Azure uAMQP](https://github.com/vsouz4/azure-uamqp-php/) |
-| Ruby | [Apache Qpid Proton Ruby](https://github.com/apache/qpid-proton/tree/master/ruby) |
-| Go | [Azure GO AMQP](https://github.com/Azure/go-amqp), [Apache Qpid Proton go](https://github.com/apache/qpid-proton/tree/master/go/examples)
-| C #/F #/VB | [Amqp .Net Lite](https://github.com/Azure/amqpnetlite), [Apache NMS amqp](https://github.com/apache/activemq-nms-amqp)|
-| JavaScript/노드 | [Rhea](https://github.com/grs/rhea) |
-
-**그림 2: AMQP 1.0 클라이언트 라이브러리 테이블**
+[!INCLUDE [messaging-oss-amqp-stacks.md](../../includes/messaging-oss-amqp-stacks.md)]
 
 ## <a name="summary"></a>요약
 * AMQP 1.0은 여러 플랫폼 간에 상호 운용되는 하이브리드 애플리케이션을 만들 수 있는 안정적인 개방형 메시징 프로토콜입니다. AMQP 1.0은 OASIS 표준입니다.

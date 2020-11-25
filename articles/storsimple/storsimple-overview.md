@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
 ms.openlocfilehash: f9c7a2df83e9d630ce2b4635a830fb941180c758
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965003"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021840"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 시리즈: 하이브리드 클라우드 스토리지 솔루션
 
@@ -208,12 +208,12 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 ## <a name="storsimple-workload-summary"></a>StorSimple 워크로드 요약
 지원되는 StorSimple 워크로드가 아래 표에 요약되어 있습니다.
 
-| 시나리오 | 작업 | 지원됨 | 제한 사항 | 버전 |
+| 시나리오 | 작업 | 지원됨 | 제한 | 버전 |
 | --- | --- | --- | --- | --- |
-| 협업 |파일 공유 |예 | |모든 버전 |
-| 협업 |분산 파일 공유 |예 | |모든 버전 |
+| 협업 |파일 공유 |Yes | |모든 버전 |
+| 협업 |분산 파일 공유 |Yes | |모든 버전 |
 | 협업 |SharePoint |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
-| 보관 |단순 파일 보관 |예 | |모든 버전 |
+| 보관 |단순 파일 보관 |Yes | |모든 버전 |
 | 가상화 |가상 머신 |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 데이터베이스 |SQL |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 비디오 감시 |비디오 감시 |예* |StorSimple 디바이스가 이 작업에만 전용으로 사용될 때 지원됩니다. |업데이트 2 이상 |
@@ -235,9 +235,9 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 
 다음은 StorSimple 지원 인프라 구성 요소의 목록입니다.
 
-| 시나리오 | 작업 | 지원됨 | 제한 사항 | 버전 |
+| 시나리오 | 작업 | 지원됨 | 제한 | 버전 |
 | --- | --- | --- | --- | --- |
-| 일반 |Express 경로 |예 | |모든 버전 |
+| 일반 |Express 경로 |Yes | |모든 버전 |
 | 일반 |DataCore FC |예* |DataCore SANsymphony 지원 |모든 버전 |
 | 일반 |DFSR |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |모든 버전 |
 | 일반 |인덱싱 |예* |계층화된 볼륨의 경우 메타데이터만 인덱싱만 지원됩니다(데이터 없음).<br>로컬 고정 볼륨의 경우 전체 인덱싱이 지원됩니다. |모든 버전 |
