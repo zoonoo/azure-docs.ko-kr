@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: b0574c41042e172af78365bb273c81729ce204ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b872340c50c800ebe4d4d6c7ca56b3b327bf162
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749305"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95972653"
 ---
 # <a name="speech-service-supported-regions"></a>음성 서비스 지원 지역
 
@@ -27,7 +27,7 @@ ms.locfileid: "88749305"
 지역을 고려할 때 다음 사항에 유의 하세요.
 
 * 응용 프로그램에서 [음성 SDK](speech-sdk.md)를 사용 하는 경우 음성 구성을 만들 때와 같은 지역 식별자를 제공 `westus` 합니다.
-* 애플리케이션에서 Speech 서비스의 [REST API](rest-apis.md) 중 하나를 사용하는 경우 지역은 요청 시 사용하는 엔드포인트 URI의 일부가 됩니다.
+* 애플리케이션에서 Speech 서비스의 [REST API](./overview.md#reference-docs) 중 하나를 사용하는 경우 지역은 요청 시 사용하는 엔드포인트 URI의 일부가 됩니다.
 * 지역에 대해 만든 키는 해당 지역에서만 유효합니다. 다른 지역에서 사용하려고 하면 인증 오류가 발생합니다.
 
 ## <a name="speech-sdk"></a>Speech SDK
@@ -38,7 +38,7 @@ ms.locfileid: "88749305"
 
 음성 사용자 지정 포털은 다음 위치에서 제공 됩니다. https://speech.microsoft.com
 
-음성 **인식**, **텍스트 음성**변환 및 **번역**을 위해 음성 서비스를 이러한 지역에서 사용할 수 있습니다.
+음성 **인식**, **텍스트 음성** 변환 및 **번역** 을 위해 음성 서비스를 이러한 지역에서 사용할 수 있습니다.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
@@ -46,7 +46,7 @@ ms.locfileid: "88749305"
 
 ### <a name="intent-recognition"></a>의도 인식
 
-Speech SDK를 통해 **의도 인식**을 사용할 수 있는 지역은 다음과 같습니다.
+Speech SDK를 통해 **의도 인식** 을 사용할 수 있는 지역은 다음과 같습니다.
 
 | 글로벌 지역 | 지역           | 영역 식별자 |
 | ------------- | ---------------- | -------------------- |
@@ -63,7 +63,7 @@ Speech SDK를 통해 **의도 인식**을 사용할 수 있는 지역은 다음�
 | 북아메리카 | 미국 서부 2        | `westus2`            |
 | 남아메리카 | 브라질 남부     | `brazilsouth`        |
 
-[LUIS(Language Understanding Service)](/azure/cognitive-services/luis/luis-reference-regions)에서 지원하는 게시 지역의 하위 집합입니다.
+[LUIS(Language Understanding Service)](../luis/luis-reference-regions.md)에서 지원하는 게시 지역의 하위 집합입니다.
 
 ### <a name="voice-assistants"></a>음성 도우미
 

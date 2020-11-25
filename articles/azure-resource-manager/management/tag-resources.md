@@ -2,14 +2,14 @@
 title: 논리적 조직에 대 한 리소스, 리소스 그룹 및 구독 태그
 description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리소스를 구성하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 11/20/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3ffcb4a0f2f5dc64b165fcdec03f7c3ced258cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e9ef96a712e5ac2ba483170fb8ef9c89115b4f8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90086762"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95972568"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>태그를 사용 하 여 Azure 리소스 및 관리 계층 구조 구성
 
@@ -71,7 +71,7 @@ Properties :
         Team         Compliance
 ```
 
-태그가 이미 있는 리소스에 태그를 추가 하려면 **AzTag**를 사용 합니다. **-Operation** 매개 변수를 **Merge**로 설정 합니다.
+태그가 이미 있는 리소스에 태그를 추가 하려면 **AzTag** 를 사용 합니다. **-Operation** 매개 변수를 **Merge** 로 설정 합니다.
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
@@ -107,7 +107,7 @@ Properties :
         Environment  Production
 ```
 
-**-Operation** 매개 변수를 **Replace**로 설정 하면 기존 태그가 새 태그 집합으로 대체 됩니다.
+**-Operation** 매개 변수를 **Replace** 로 설정 하면 기존 태그가 새 태그 집합으로 대체 됩니다.
 
 ```azurepowershell-interactive
 $tags = @{"Project"="ECommerce"; "CostCenter"="00123"; "Team"="Web"}
@@ -213,7 +213,7 @@ Get-AzTag -ResourceId "/subscriptions/$subscription"
 
 ### <a name="remove-tags"></a>태그 제거
 
-특정 태그를 제거 하려면 **AzTag** 및 set **-Operation** 을 사용 하 여 **삭제**합니다. 삭제 하려는 태그를 전달 합니다.
+특정 태그를 제거 하려면 **AzTag** 및 set **-Operation** 을 사용 하 여 **삭제** 합니다. 삭제 하려는 태그를 전달 합니다.
 
 ```azurepowershell-interactive
 $removeTags = @{"Project"="ECommerce"; "Team"="Web"}
@@ -240,107 +240,200 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 ### <a name="apply-tags"></a>태그 적용
 
-리소스 그룹 또는 리소스에 태그를 추가 하는 경우 기존 태그를 덮어쓰거나 기존 태그에 새 태그를 추가할 수 있습니다.
+Azure CLI 태그 [az tag create](/cli/azure/tag#az_tag_create) 및 [az tag update](/cli/azure/tag#az_tag_update)를 적용 하는 두 가지 명령을 제공 합니다. Azure CLI 2.10.0 이상 이어야 합니다. 을 사용 하 여 버전을 확인할 수 있습니다 `az version` . 업데이트 하거나 설치 하려면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요.
 
-리소스의 태그를 덮어쓰려면 다음을 사용 합니다.
+**Az tag create** 는 리소스, 리소스 그룹 또는 구독에 대 한 모든 태그를 바꿉니다. 명령을 호출할 때 태그를 추가할 엔터티의 리소스 ID를 전달 합니다.
 
-```azurecli-interactive
-az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-리소스의 기존 태그에 태그를 추가 하려면 다음을 사용 합니다.
+다음 예에서는 저장소 계정에 태그 집합을 적용 합니다.
 
 ```azurecli-interactive
-az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag create --resource-id $resource --tags Dept=Finance Status=Normal
 ```
 
-리소스 그룹의 기존 태그를 덮어쓰려면 다음을 사용 합니다.
+명령이 완료 되 면 리소스에 두 개의 태그가 있습니다.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Status": "Normal"
+  }
+},
+```
+
+명령을 다시 실행 했지만이 시간이 다른 태그를 사용 하는 경우 이전 태그가 제거 됩니다.
 
 ```azurecli-interactive
-az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
+az tag create --resource-id $resource --tags Team=Compliance Environment=Production
 ```
 
-리소스 그룹의 기존 태그에 태그를 추가 하려면 다음을 사용 합니다.
+```output
+"properties": {
+  "tags": {
+    "Environment": "Production",
+    "Team": "Compliance"
+  }
+},
+```
+
+태그가 이미 있는 리소스에 태그를 추가 하려면 **az tag update** 를 사용 합니다. **--Operation** 매개 변수를 **Merge** 로 설정 합니다.
 
 ```azurecli-interactive
-az group update -n examplegroup --set tags.'Status'='Approved'
+az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
 ```
 
-현재 Azure CLI에는 태그를 구독에 적용 하는 명령이 없습니다. 그러나 CLI를 사용 하 여 구독에 태그를 적용 하는 ARM 템플릿을 배포할 수 있습니다. [리소스 그룹 또는 구독에 태그 적용을](#apply-tags-to-resource-groups-or-subscriptions)참조 하세요.
+두 개의 새 태그가 기존의 두 태그에 추가 되었습니다.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Normal",
+    "Team": "Compliance"
+  }
+},
+```
+
+각 태그 이름에는 값이 하나만 있을 수 있습니다. 태그에 새 값을 제공 하면 병합 작업을 사용 하는 경우에도 이전 값이 바뀝니다. 다음 예에서는 상태 태그를 표준에서 녹색으로 변경 합니다.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Merge --tags Status=Green
+```
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Green",
+    "Team": "Compliance"
+  }
+},
+```
+
+**--Operation** 매개 변수를 **Replace** 로 설정 하면 기존 태그가 새 태그 집합으로 대체 됩니다.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
+```
+
+새 태그만 리소스에 남아 있습니다.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123",
+    "Project": "ECommerce",
+    "Team": "Web"
+  }
+},
+```
+
+동일한 명령도 리소스 그룹 또는 구독에 사용할 수 있습니다. 태그를 지정할 리소스 그룹 또는 구독에 대 한 식별자를 전달 합니다.
+
+리소스 그룹에 새 태그 집합을 추가 하려면 다음을 사용 합니다.
+
+```azurecli-interactive
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag create --resource-id $group --tags Dept=Finance Status=Normal
+```
+
+리소스 그룹에 대 한 태그를 업데이트 하려면 다음을 사용 합니다.
+
+```azurecli-interactive
+az tag update --resource-id $group --operation Merge --tags CostCenter=00123 Environment=Production
+```
+
+구독에 새 태그 집합을 추가 하려면 다음을 사용 합니다.
+
+```azurecli-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag create --resource-id /subscriptions/$sub --tags CostCenter=00123 Environment=Dev
+```
+
+구독에 대 한 태그를 업데이트 하려면 다음을 사용 합니다.
+
+```azurecli-interactive
+az tag update --resource-id /subscriptions/$sub --operation Merge --tags Team="Web Apps"
+```
 
 ### <a name="list-tags"></a>태그 나열
 
-리소스에 대 한 기존 태그를 보려면 다음을 사용 합니다.
+리소스, 리소스 그룹 또는 구독에 대 한 태그를 가져오려면 [az tag list](/cli/azure/tag#az_tag_list) 명령을 사용 하 여 엔터티에 대 한 리소스 ID를 전달 합니다.
+
+리소스에 대 한 태그를 보려면 다음을 사용 합니다.
 
 ```azurecli-interactive
-az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag list --resource-id $resource
 ```
 
-리소스 그룹에 대한 기존 태그를 보려면 다음을 사용합니다.
+리소스 그룹에 대 한 태그를 보려면 다음을 사용 합니다.
 
 ```azurecli-interactive
-az group show -n examplegroup --query tags
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag list --resource-id $group
 ```
 
-그러면 스크립트가 다음 형식을 반환합니다.
+구독에 대 한 태그를 보려면 다음을 사용 합니다.
 
-```json
-{
-  "Dept"        : "IT",
-  "Environment" : "Test"
-}
+```azurecli-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag list --resource-id /subscriptions/$sub
 ```
 
 ### <a name="list-by-tag"></a>태그별 목록
 
-특정 태그 및 값이 있는 모든 리소스를 가져오려면 `az resource list`를 사용합니다.
+특정 태그 이름 및 값을 포함 하는 리소스를 가져오려면 다음을 사용 합니다.
 
 ```azurecli-interactive
-az resource list --tag Dept=Finance
+az resource list --tag CostCenter=00123 --query [].name
 ```
 
-특정 태그가 있는 리소스 그룹을 가져오려면 `az group list`를 사용합니다.
+태그 값이 있는 특정 태그 이름을 가진 리소스를 가져오려면 다음을 사용 합니다.
 
 ```azurecli-interactive
-az group list --tag Dept=IT
+az resource list --tag Team --query [].name
+```
+
+특정 태그 이름 및 값을 포함 하는 리소스 그룹을 가져오려면 다음을 사용 합니다.
+
+```azurecli-interactive
+az group list --tag Dept=Finance
+```
+
+### <a name="remove-tags"></a>태그 제거
+
+특정 태그를 제거 하려면 **az tag update** 및 set **--operation** 을 사용 하 여 **삭제** 합니다. 삭제 하려는 태그를 전달 합니다.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web
+```
+
+지정 된 태그가 제거 됩니다.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123"
+  }
+},
+```
+
+모든 태그를 제거 하려면 [az tag delete](/cli/azure/tag#az_tag_delete) 명령을 사용 합니다.
+
+```azurecli-interactive
+az tag delete --resource-id $resource
 ```
 
 ### <a name="handling-spaces"></a>공백 처리
 
-태그 이름 또는 값에 공백이 포함 된 경우 몇 가지 추가 단계를 수행 해야 합니다. 
-
-`--tags`Azure CLI 매개 변수는 문자열의 배열로 구성 된 문자열을 사용할 수 있습니다. 다음 예제에서는 태그에 공백과 하이픈을 포함 하는 리소스 그룹의 태그를 덮어씁니다. 
+태그 이름 또는 값에 공백이 포함 되어 있는 경우 큰따옴표로 묶습니다.
 
 ```azurecli-interactive
-TAGS=("Cost Center=Finance-1222" "Location=West US")
-az group update --name examplegroup --tags "${TAGS[@]}"
-```
-
-매개 변수를 사용 하 여 리소스 그룹 또는 리소스를 만들거나 업데이트할 때 동일한 구문을 사용할 수 있습니다 `--tags` .
-
-매개 변수를 사용 하 여 태그를 업데이트 하려면 `--set` 키와 값을 문자열로 전달 해야 합니다. 다음 예제에서는 리소스 그룹에 단일 태그를 추가 합니다.
-
-```azurecli-interactive
-TAG="Cost Center='Account-56'"
-az group update --name examplegroup --set tags."$TAG"
-```
-
-이 경우 값에 하이픈이 있으므로 태그 값이 작은따옴표로 표시 됩니다.
-
-태그를 많은 리소스에 적용 해야 할 수도 있습니다. 다음 예제에서는 태그에 공백이 포함 될 수 있는 경우 리소스 그룹의 모든 태그를 해당 리소스에 적용 합니다.
-
-```azurecli-interactive
-jsontags=$(az group show --name examplegroup --query tags -o json)
-tags=$(echo $jsontags | tr -d '{}"' | sed 's/: /=/g' | sed "s/\"/'/g" | sed 's/, /,/g' | sed 's/ *$//g' | sed 's/^ *//g')
-origIFS=$IFS
-IFS=','
-read -a tagarr <<< "$tags"
-resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
-for id in $resourceids
-do
-  az resource tag --tags "${tagarr[@]}" --id $id
-done
-IFS=$origIFS
+az tag update --resource-id $group --operation Merge --tags "Cost Center"=Finance-1222 Location="West US"
 ```
 
 ## <a name="templates"></a>템플릿
@@ -599,7 +692,7 @@ Azure REST API를 통해 태그 작업을 수행 하려면 다음을 사용 합�
 
 태그를 사용하여 청구 데이터를 그룹화할 수 있습니다. 예를 들어 다양한 구성에 여러 VM을 실행하는 경우 태그를 사용하여 비용 센터별로 사용량을 그룹화할 수 있습니다. 또한 프로덕션 환경에서 실행 중인 VM에 대한 청구 사용량과 같이 런타임 환경별로 비용을 분류하는 데 태그를 사용할 수도 있습니다.
 
-태그에 대 한 정보는 [Azure 리소스 사용량 및 요금 카드 api](../../cost-management-billing/manage/usage-rate-card-overview.md) 또는 사용 쉼표로 구분 된 값 (CSV) 파일을 통해 검색할 수 있습니다. Azure Portal에서 사용 파일을 다운로드 합니다. 자세한 내용은 [Azure 청구서 및 일간 사용량 데이터 다운로드 또는 보기](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)를 참조하세요. Azure 계정 센터에서 사용량 파일을 다운로드하는 경우 **버전 2**를 선택합니다. 대금 청구에 태그를 지원하는 서비스의 경우 **태그** 열에 태그가 나타납니다.
+태그에 대 한 정보는 [Azure 리소스 사용량 및 요금 카드 api](../../cost-management-billing/manage/usage-rate-card-overview.md) 또는 사용 쉼표로 구분 된 값 (CSV) 파일을 통해 검색할 수 있습니다. Azure Portal에서 사용 파일을 다운로드 합니다. 자세한 내용은 [Azure 청구서 및 일간 사용량 데이터 다운로드 또는 보기](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)를 참조하세요. Azure 계정 센터에서 사용량 파일을 다운로드하는 경우 **버전 2** 를 선택합니다. 대금 청구에 태그를 지원하는 서비스의 경우 **태그** 열에 태그가 나타납니다.
 
 REST API 작업에 대한 내용은 [Azure 청구 REST API 참조](/rest/api/billing/)를 참조하세요.
 
