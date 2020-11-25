@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda9378a41e0d98276957a6fad75db2c20e6e4e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ba7b8ff2555fd7014cf16f66745721c6425ff868
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920051"
+ms.locfileid: "96029526"
 ---
 # <a name="build-resilience-in-your-customer-identity-and-access-management-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 고객 id 및 액세스 관리에서 복원 력 빌드
 
@@ -46,10 +46,6 @@ ms.locfileid: "95920051"
 
 - [모니터링 및 분석](resilience-with-monitoring-alerting.md): 키 표시기를 모니터링 하 고 경고를 통해 오류 및 성능 중단을 감지 하 여 서비스의 상태를 평가 합니다.
 
-- Azure AD B2C 개발자를 위한 복원 력 리소스
-  - [복원 력 최종 사용자 환경](resilient-end-user-experience.md)
-  - [외부 프로세스를 사용 하는 복원 인터페이스](resilient-external-processes.md)
-  - [개발자 모범 사례를 통한 복원 력](resilience-b2c-developer-best-practices.md)
-  - [모니터링 및 분석을 통한 복원 력](resilience-with-monitoring-alerting.md)
 - [인증 인프라의 빌드 복원 력](resilience-in-infrastructure.md)
+
 - [응용 프로그램에서 인증 및 권한 부여의 복원 력 향상](resilience-app-development-overview.md)

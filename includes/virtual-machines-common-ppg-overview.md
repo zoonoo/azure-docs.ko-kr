@@ -9,11 +9,11 @@ ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
 ms.openlocfilehash: daed8dc62fdfd86ecf785a0bfd83b2b6c0b4cc03
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95561538"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028567"
 ---
 Vm을 단일 지역에 배치 하면 인스턴스 간의 물리적인 거리가 줄어듭니다. 단일 가용성 영역에 배치 하는 경우에도 물리적으로 긴밀 하 게 통합 됩니다. 그러나 Azure 공간이 증가 함에 따라 단일 가용성 영역은 여러 물리적 데이터 센터에 걸쳐 있을 수 있으며이로 인해 응용 프로그램에 영향을 주는 네트워크 대기 시간이 발생할 수 있습니다. 
 

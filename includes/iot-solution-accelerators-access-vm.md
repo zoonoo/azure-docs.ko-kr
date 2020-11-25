@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 817c41a969f03ad04d372c516a16ef6b770f3e18
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e3eed0e7378f513e45e0eb9ac719a92e87ec1d53
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755631"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027498"
 ---
 ## <a name="access-the-virtual-machine"></a>가상 머신에 액세스
 
@@ -35,7 +35,7 @@ ms.locfileid: "92755631"
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
-    테스트 및 개발하는 동안 SSH 액세스만 활성화합니다. SSH를 사용 하도록 설정 하는 경우 [가능한 한 빨리 다시 사용 하지 않도록 설정 해야](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices#disable-rdpssh-access-to-virtual-machines)합니다.
+    테스트 및 개발하는 동안 SSH 액세스만 활성화합니다. SSH를 사용 하도록 설정 하는 경우 [가능한 한 빨리 다시 사용 하지 않도록 설정 해야](../articles/security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines)합니다.
 
 1. 가상 머신에서 **azureuser** 계정에 대한 암호를 아는 암호로 업데이트합니다. 다음 명령을 실행하는 경우 고유한 암호를 선택합니다.
 

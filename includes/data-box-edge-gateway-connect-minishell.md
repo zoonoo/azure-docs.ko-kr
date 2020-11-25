@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
 ms.openlocfilehash: 6e603442bdecf9a627172e24390b06cef573f475
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95563964"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027571"
 ---
 클라이언트의 운영 체제에 따라 장치에 원격으로 연결 하는 절차가 다릅니다.
 

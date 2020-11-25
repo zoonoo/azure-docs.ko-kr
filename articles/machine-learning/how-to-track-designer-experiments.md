@@ -8,15 +8,15 @@ ms.author: keli19
 ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/30/2020
+ms.date: 11/25/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c67415be38bc7b6fa48fd1046b51194c294df2f3
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885967"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030393"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Azure Machine Learning designer 파이프라인에서 로깅 사용
 
@@ -49,13 +49,13 @@ __Python 스크립트 실행__ 모듈을 사용 하 여 디자이너 파이프�
         # Log the mean absolute error to the parent run to see the metric in the run details page.
         # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
         # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
-
+        parent_run = Run.get_context().parent
+        
         # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
-        run.parent.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
-
+        parent_run.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
         # Log right output port result of Evaluate Model.
-        run.parent.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
-    
+        parent_run.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
+
         return dataframe1,
     ```
     
@@ -70,7 +70,7 @@ Python SDK를 사용 하 여 값을 기록 하는 방법에 대 한 자세한 �
 1. **실험** 섹션으로 이동 합니다.
 1. 실험을 선택 합니다.
 1. 보려는 실험에서 실행을 선택 합니다.
-1. **메트릭**을 선택합니다.
+1. **메트릭** 을 선택합니다.
 
     ![스튜디오에서 실행 메트릭 보기](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
 

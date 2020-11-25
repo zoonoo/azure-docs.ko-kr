@@ -7,12 +7,12 @@ ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
 ms.custom: devx-track-python, devx-track-java, contperfq1
-ms.openlocfilehash: 23d9c6730857cf4ed7f8b8062d5529bedd8e2740
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 1825dd34855b356367722eefbfb5eb6dd9c78ae3
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95997174"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029186"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Java, Python 및 Node.js 앱에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -67,7 +67,7 @@ Windows 인증서 저장소와 통합 되지 않는 언어 및 런타임 환경�
 
 Java 기반 클라이언트를 사용 하는 Java 응용 프로그램이 나 MongoDB 응용 프로그램을 실행 하는 경우에는 플래그를 전달 하는 것 보다 Java 기본 인증서 저장소에 인증서를 설치 하는 것이 더 쉽습니다 `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` . 예를 들어 포함 된 Java Demo 응용 프로그램 ( `https://localhost:8081/_explorer/index.html` )은 기본 인증서 저장소에 따라 달라 집니다.
 
-[Java 인증서 저장소에 인증서 추가](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store) 의 지침에 따라 x.509 인증서를 기본 java 인증서 저장소로 가져옵니다. Keytool을 실행 하는 경우 *% JAVA_HOME%* 디렉터리에서 작업 하는 것을 염두에 두어야 합니다. 인증서를 인증서 저장소로 가져온 후에는 SQL 용 클라이언트와 MongoDB 용 Azure Cosmos DB API가 Azure Cosmos 에뮬레이터에 연결할 수 있습니다.
+[Java 인증서 저장소에 인증서 추가](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store) 의 지침에 따라 x.509 인증서를 기본 java 인증서 저장소로 가져옵니다. Keytool을 실행 하는 경우 *% JAVA_HOME%* 디렉터리에서 작업 하는 것을 염두에 두어야 합니다. 인증서를 인증서 저장소로 가져온 후에는 SQL 용 클라이언트 및 MongoDB 용 Azure Cosmos DB API를 통해 Azure Cosmos DB 에뮬레이터에 연결할 수 있습니다.
 
 또는 다음 bash 스크립트를 실행 하 여 인증서를 가져올 수 있습니다.
 

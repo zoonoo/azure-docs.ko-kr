@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d47cf21e25c89c20a8baa31a80b867b74ada93df
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 746198f87e23cd7aca2a3177c23974917cb4b12a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360693"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027234"
 ---
 #### <a name="to-create-a-new-service"></a>새 서비스를 만들려면
 
@@ -29,7 +29,7 @@ ms.locfileid: "93360693"
 
    2. 드롭다운 목록에서 **구독** 을 선택합니다. 구독은 대금 청구 계정에 연결됩니다. 이 필드는 구독이 하나만 있는 경우에는 나타나지 않습니다.
 
-   3. **리소스 그룹** 의 경우 **기존 항목을 사용** 하거나 **새 그룹을 만듭니다**. 자세한 내용은 [Azure 리소스 그룹](/azure/azure-resource-manager/management/manage-resource-groups-portal)을 참조하세요.
+   3. **리소스 그룹** 의 경우 **기존 항목을 사용** 하거나 **새 그룹을 만듭니다**. 자세한 내용은 [Azure 리소스 그룹](../articles/azure-resource-manager/management/manage-resource-groups-portal.md)을 참조하세요.
 
    4. 서비스의 **위치** 를 지정합니다. 일반적으로 디바이스를 배포하려는 지리적 지역에 가장 가까운 위치를 선택합니다. 다음 사항을 고려할 수도 있습니다.
 

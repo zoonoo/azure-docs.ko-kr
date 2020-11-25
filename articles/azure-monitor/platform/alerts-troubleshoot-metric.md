@@ -4,14 +4,14 @@ description: Azure Monitor 메트릭 경고 및 가능한 해결 방법에 대 �
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/05/2020
+ms.date: 11/25/2020
 ms.subservice: alerts
-ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 5a57e8b7f3bf2c3e820a3befee0ee69c48a2afa9
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342130"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029879"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -44,7 +44,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 
 메트릭 경고가 발생 해서는 안 되는 것으로 판단 되 면 다음 단계를 통해 문제를 해결할 수 있습니다.
 
-1. 발생 한 경고 [목록을](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) 검토 하 여 발생 한 경고를 찾은 후 클릭 하 여 세부 정보를 확인 합니다. **이 경고가 발생 한 이유** 에서 제공 된 정보를 검토 하 여 경고가 트리거된 시점의 메트릭 차트, **메트릭 값**및 **임계값** 을 확인 하십시오.
+1. 발생 한 경고 [목록을](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) 검토 하 여 발생 한 경고를 찾은 후 클릭 하 여 세부 정보를 확인 합니다. **이 경고가 발생 한 이유** 에서 제공 된 정보를 검토 하 여 경고가 트리거된 시점의 메트릭 차트, **메트릭 값** 및 **임계값** 을 확인 하십시오.
 
     > [!NOTE] 
     > 동적 임계값 조건 유형을 사용 하 고 사용 된 임계값이 올바르지 않은 것으로 생각 되는 경우 찡그린 얼굴 보내기 아이콘을 사용 하 여 피드백을 제공 하세요. 이 피드백은 기계 학습 알고리즘 연구에 영향을 주므로 향후 검색을 개선 하는 데 도움이 됩니다.
@@ -142,7 +142,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 2. 개요 섹션에서 **숨겨진 형식 표시** 확인란을 선택 합니다.
 3. **유형** 필터에서 *microsoft metricalerts/* 를 선택 합니다.
 4. 관련 경고 규칙을 선택 하 여 세부 정보를 확인 합니다.
-5. **설정**아래에서 **템플릿 내보내기**를 선택 합니다.
+5. **설정** 아래에서 **템플릿 내보내기** 를 선택 합니다.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>메트릭 경고 규칙 할당량이 너무 작음
 
@@ -165,7 +165,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 ### <a name="from-the-azure-portal"></a>Azure Portal에서
 
-1. **경고** 화면을 열고 **경고 규칙 관리**를 클릭합니다.
+1. **경고** 화면을 열고 **경고 규칙 관리** 를 클릭합니다.
 2. **구독** 드롭다운 컨트롤을 사용 하 여 관련 구독으로 필터링
 3. 특정 리소스 그룹, 리소스 유형 또는 리소스로 필터링 하지 않도록 합니다.
 4. **신호 형식** 드롭다운 컨트롤에서 **메트릭** 을 선택 합니다.
@@ -241,6 +241,8 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 - 메트릭 경고 규칙 이름에는 * # & +:  < >  문자를 사용할 수 없습니다. @ % { } \ / 
 - 메트릭 경고 규칙 이름은 공백 또는 마침표로 끝날 수 없습니다.
 
+> [!NOTE] 
+> 경고 규칙 이름에 영문자 또는 숫자가 아닌 문자가 포함 된 경우 (예: 공백, 문장 부호 또는 기호) 이러한 문자는 특정 클라이언트에서 검색할 때 URL로 인코딩될 수 있습니다.
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>여러 조건이 있는 메트릭 경고 규칙에서 차원을 사용할 때의 제한 사항
 
@@ -250,7 +252,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 - 각 조건 내에서 차원 당 하나의 값만 선택할 수 있습니다.
 - "현재 및 미래 값 모두 선택" (Select) 옵션을 사용할 수 없습니다 \* .
 - 서로 다른 조건에서 구성 된 메트릭이 동일한 차원을 지 원하는 경우 구성 된 차원 값은 해당 하는 모든 메트릭에 대해 동일한 방식으로 명시적으로 설정 되어야 합니다 (관련 조건).
-예를 들면 다음과 같습니다.
+예들 들어 다음과 같습니다.
     - 저장소 계정에 정의 된 메트릭 경고 규칙을 고려 하 고 두 가지 조건을 모니터링 합니다.
         * 총 **트랜잭션** > 5
         * 평균 **SuccessE2ELatency** > 250 밀리초
@@ -259,7 +261,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 ## <a name="setting-the-alert-rules-period-and-frequency"></a>경고 규칙의 기간 및 빈도 설정
 
-다음 경우에 추가 된 시계열의 첫 번째 평가가 누락 될 가능성을 줄이기 위해 *평가 빈도*보다 큰 *집계 세분성 (기간)* 을 선택 하는 것이 좋습니다.
+다음 경우에 추가 된 시계열의 첫 번째 평가가 누락 될 가능성을 줄이기 위해 *평가 빈도* 보다 큰 *집계 세분성 (기간)* 을 선택 하는 것이 좋습니다.
 -   여러 차원을 모니터링 하는 메트릭 경고 규칙-새 차원 값 조합이 추가 된 경우
 -   여러 리소스를 모니터링 하는 메트릭 경고 규칙-범위에 새 리소스를 추가 하는 경우
 -   연속으로 내보내지 않는 메트릭을 모니터링 하는 메트릭 경고 규칙 (스파스 메트릭) – 시간을 내보내지 않은 24 시간 보다 오래 된 메트릭을 내보내는 경우

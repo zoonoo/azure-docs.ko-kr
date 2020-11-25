@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
-ms.date: 05/24/2019
-ms.openlocfilehash: 12497d3ac86888ed861e8d5f655f45c8cbe4b6e3
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.date: 11/22/2020
+ms.openlocfilehash: 1a68cea423678dd8582d65b839d57076e84de940
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996155"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029543"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>빠른 시작: Java 웹 프로젝트에서 Application Insights 시작
 
 
-> [!IMPORTANT]
-> Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)에 대 한 지침을 따르세요.
+> [!CAUTION]
+> 11 월 2020을 기반으로 Java 응용 프로그램을 모니터링 하려면 Azure Monitor Application Insights 3.0 에이전트를 사용 하 여 자동 계측을 권장 합니다. 시작 하는 방법에 대 한 자세한 내용은 [Application Insights Java 3.0 agent](./java-in-process-agent.md)를 참조 하세요.
 
 이 빠른 시작에서는 Application Insights SDK를 사용 하 여 요청을 계측 하 고, 종속성을 추적 하 고, 성능 카운터를 수집 하 고, 성능 문제 및 예외를 진단 하 고, 앱을 통해 사용자가 수행 하는 작업을 추적 하는 코드
 
@@ -123,7 +123,7 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
 </ApplicationInsights>
 ```
 
-필요에 따라 구성 파일은 응용 프로그램에 액세스할 수 있는 위치에 있을 수 있습니다.  System 속성은 `-Dapplicationinsights.configurationDirectory` *ApplicationInsights.xml*를 포함 하는 디렉터리를 지정 합니다. 예를 들어 `E:\myconfigs\appinsights\ApplicationInsights.xml`에 있는 구성 파일은 `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"` 속성을 사용하여 구성됩니다.
+필요에 따라 구성 파일은 응용 프로그램에 액세스할 수 있는 위치에 있을 수 있습니다.  System 속성은 `-Dapplicationinsights.configurationDirectory` *ApplicationInsights.xml* 를 포함 하는 디렉터리를 지정 합니다. 예를 들어 `E:\myconfigs\appinsights\ApplicationInsights.xml`에 있는 구성 파일은 `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"` 속성을 사용하여 구성됩니다.
 
 * 계측 키는 원격 분석의 모든 항목과 함께 전송되며 리소스에서 표시하도록 Application Insights에 알려줍니다.
 * HTTP 요청 구성 요소는 선택 사항입니다. 자동으로 포털에 요청 및 응답 시간에 대한 원격 분석을 보냅니다.
@@ -221,7 +221,7 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 발신 SDK 구성은 [Ai-agent.xml](java-agent.md) 파일에서 정의됩니다.
 
 ## <a name="performance-counters"></a>성능 카운터
-**조사**, **메트릭**을 열고 다양 한 성능 카운터를 확인 합니다.
+**조사**, **메트릭** 을 열고 다양 한 성능 카운터를 확인 합니다.
 
 ![프로세스 전용 바이트가 선택 된 메트릭 창의 스크린샷](./media/java-get-started/011-perf-counters.png)
 

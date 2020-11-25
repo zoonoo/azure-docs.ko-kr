@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 955990ed9209ea1e12eed824241e8a5a456ed73b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4e64d866b5bd2f725db3be31d0fdd2f8663cfd7c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444880"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029696"
 ---
 # <a name="azure-tls-certificate-changes"></a>Azure TLS 인증서 변경  
 
@@ -30,6 +30,7 @@ Microsoft는 다른 루트 CA(인증 기관)의 TLS 인증서를 사용하도록
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) 및 [DPS](../../iot-dps/index.yml)는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 Ca는 변경됩니다. [자세한 내용을 보려면 여기를 클릭하세요](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Azure Storage](../../storage/index.yml)는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 CA는 변경됩니다. [자세한 내용을 보려면 여기를 클릭하세요](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - [Redis 용 Azure Cache](../../azure-cache-for-redis/index.yml) 는 Baltimore CYBERTRUST Root CA에 그대로 남아 있지만 중간 ca는 변경 됩니다. [자세한 내용을 보려면 여기를 클릭하세요](../../azure-cache-for-redis/cache-whats-new.md).
+- Azure Instance Metadata Service는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 Ca는 변경 됩니다. [자세한 내용을 보려면 여기를 클릭하세요](https://docs.microsoft.com/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
 
 > [!IMPORTANT]
 > 고객은 Azure 서비스에 연결을 시도할 때 연결 오류를 방지하려면 이 변경 후에 애플리케이션을 업데이트해야 할 수도 있습니다.
@@ -70,11 +71,11 @@ Azure 서비스에서 사용하는 TLS 인증서는 다음과 같은 루트 CA �
 - Azure API 또는 다른 Azure 서비스와 통합되는 애플리케이션이 있고 해당 애플리케이션이 인증서 고정을 사용하는지 확실하지 않은 경우 애플리케이션 공급업체에 확인하세요.
 
 - Azure 서비스와 통신하는 여러 운영 체제 및 언어 런타임은 다음과 같은 새 루트를 사용하여 인증서 체인을 올바르게 빌드하는 추가 단계가 필요할 수 있습니다.
-    - **Linux** : 여러 배포판에서는 /etc/ssl/certs에 CA를 추가해야 합니다. 자세한 지침은 해당 배포판의 설명서를 참조하세요.
-    - **Java** : 위에 나열된 CA가 Java 키 저장소에 들어 있어야 합니다.
-    - **연결이 끊어진 환경에서 실행되는 Windows** : 연결이 끊어진 환경에서 실행되는 시스템은 새로운 루트를 신뢰할 수 있는 루트 인증 기관 저장소에 추가하고, 중간 인증서를 중간 인증 기관 저장소에 추가해야 합니다.
-    - **Android** : 사용하는 디바이스의 설명서와 Android 버전을 확인합니다.
-    - **기타 하드웨어 디바이스, 특히 IoT** : 디바이스 제조업체에 문의하세요.
+    - **Linux**: 여러 배포판에서는 /etc/ssl/certs에 CA를 추가해야 합니다. 자세한 지침은 해당 배포판의 설명서를 참조하세요.
+    - **Java**: 위에 나열된 CA가 Java 키 저장소에 들어 있어야 합니다.
+    - **연결이 끊어진 환경에서 실행되는 Windows**: 연결이 끊어진 환경에서 실행되는 시스템은 새로운 루트를 신뢰할 수 있는 루트 인증 기관 저장소에 추가하고, 중간 인증서를 중간 인증 기관 저장소에 추가해야 합니다.
+    - **Android**: 사용하는 디바이스의 설명서와 Android 버전을 확인합니다.
+    - **기타 하드웨어 디바이스, 특히 IoT**: 디바이스 제조업체에 문의하세요.
 
 - 특정 CRL(인증서 해지 목록) 다운로드 및/또는 OCSP(온라인 인증서 상태 프로토콜) 확인 위치에 대한 아웃바운드 호출만 허용하도록 방화벽 규칙이 설정된 환경의 경우 다음 CRL 및 OCSP URL을 허용해야 합니다.
 

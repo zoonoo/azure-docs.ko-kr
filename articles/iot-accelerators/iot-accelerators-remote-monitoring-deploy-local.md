@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: a1eba1fceb959bd475d205176c2c53f6409fdc77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73890883"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024149"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>로컬에 원격 모니터링 솔루션 가속기 배포 - Visual Studio
 
@@ -23,7 +23,7 @@ ms.locfileid: "73890883"
 
 로컬 머신의 Docker에서 원격 모니터링 솔루션 가속기를 실행하려면 [로컬로 원격 모니터링 솔루션 가속기 배포 - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "73890883"
 * [Node.js v8](https://nodejs.org/) - 이 소프트웨어는 스크립트에서 Azure 리소스를 만드는 데 사용하는 PCS CLI에 대한 필수 구성 요소입니다. Node.js v10은 사용하지 마세요.
 
 > [!NOTE]
-> Visual Studio는 Windows 및 Mac에 사용할 수 있습니다.
+> Visual Studio는 Windows 및 Mac에서 사용할 수 있습니다.
 
 [!INCLUDE [iot-accelerators-local-setup](../../includes/iot-accelerators-local-setup.md)]
 
@@ -62,19 +62,19 @@ ms.locfileid: "73890883"
 
 다음 단계는 Visual Studio에서 원격 모니터링 마이크로 서비스를 실행 하는 방법을 보여 줍니다.
 
-1. Visual Studio를 실행합니다.
+1. Visual Studio를 시작합니다.
 1. 리포지토리의 로컬 복사본에서 **services** 폴더의 **remote-monitoring.sln** 솔루션을 엽니다.
-1. **솔루션 탐색기**에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
-1. **공용 속성 > 시작 프로젝트**를 선택합니다.
-1. **여러 시작 프로젝트**를 선택하고 다음 프로젝트의 **작업**을 **시작**으로 설정합니다.
+1. **솔루션 탐색기** 에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **속성** 을 클릭합니다.
+1. **공용 속성 > 시작 프로젝트** 를 선택합니다.
+1. **여러 시작 프로젝트** 를 선택하고 다음 프로젝트의 **작업** 을 **시작** 으로 설정합니다.
     * WebService(asa-manager\WebService)
     * WebService(auth\WebService)
     * WebService(config\WebService)
     * WebService(device-telemetry\WebService)
     * WebService(iothub-manager\WebService)
     * WebService(storage-adapter\WebService)
-1. **확인**을 클릭하여 선택한 내용을 저장합니다.
-1. **디버그 > 디버깅 시작**을 클릭하여 로컬 머신에서 웹 서비스를 빌드하고 실행합니다.
+1. **확인** 을 클릭하여 선택한 내용을 저장합니다.
+1. **디버그 > 디버깅 시작** 을 클릭하여 로컬 머신에서 웹 서비스를 빌드하고 실행합니다.
 
 각 웹 서비스는 명령 프롬프트 및 웹 브라우저 창을 엽니다. 실행 중인 서비스의 출력이 명령 프롬프트에 표시되고, 브라우저 창을 통해 상태를 모니터링할 수 있습니다. 명령 프롬프트 또는 웹 페이지를 닫지 마세요. 닫으면 웹 서비스가 중지됩니다.
 
@@ -83,9 +83,9 @@ ms.locfileid: "73890883"
 다음 단계에 따라 Stream Analytics 작업을 시작합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. 솔루션에 대해 만든 **리소스 그룹**으로 이동합니다. 리소스 그룹의 이름은 **start.cmd** 스크립트를 실행할 때 선택한 솔루션 이름입니다.
-1. 리소스 목록에서 **Stream Analytics 작업**을 클릭합니다.
-1. Stream Analytics 작업 **개요** 페이지에서 **시작** 단추를 클릭합니다. 그런 다음, **시작**을 클릭하여 지금 작업을 시작합니다.
+1. 솔루션에 대해 만든 **리소스 그룹** 으로 이동합니다. 리소스 그룹의 이름은 **start.cmd** 스크립트를 실행할 때 선택한 솔루션 이름입니다.
+1. 리소스 목록에서 **Stream Analytics 작업** 을 클릭합니다.
+1. Stream Analytics 작업 **개요** 페이지에서 **시작** 단추를 클릭합니다. 그런 다음, **시작** 을 클릭하여 지금 작업을 시작합니다.
 
 ### <a name="run-the-web-ui"></a>웹 UI 실행
 
@@ -96,14 +96,14 @@ npm install
 npm start
 ```
 
-시작이 완료 되 면 브라우저에서 **http: \/ /hosts: 3000/dashboard**페이지가 표시 됩니다. 이 페이지의 오류는 예상된 것입니다. 애플리케이션을 오류 없이 표시하려면 다음 단계를 완료합니다.
+시작이 완료 되 면 브라우저에서 **http: \/ /hosts: 3000/dashboard** 페이지가 표시 됩니다. 이 페이지의 오류는 예상된 것입니다. 애플리케이션을 오류 없이 표시하려면 다음 단계를 완료합니다.
 
 ### <a name="configure-and-run-nginx"></a>NGINX 구성 및 실행
 
 로컬 머신에서 실행되는 웹 애플리케이션 및 마이크로 서비스를 연결하는 역방향 프록시 서버를 설정합니다.
 
 * 리포지토리의 로컬 복사본에 있는 **webui\scripts\localhost** 폴더의 **nginx.conf** 파일을 **nginx\conf** 설치 디렉터리에 복사합니다.
-* **nginx**를 실행합니다.
+* **nginx** 를 실행합니다.
 
 **nginx** 실행에 대한 자세한 내용은 [Windows용 nginx](https://nginx.org/en/docs/windows.html)를 참조하세요.
 

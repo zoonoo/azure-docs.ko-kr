@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 09af5d9af749d43f9d15f42daee6b562a877397b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 358e92d8e43473c168e24be9f4af504e6ffcc37a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94633385"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027245"
 ---
 *캐시 준비 중*  
 ReadOnly 호스트 캐싱을 사용한 디스크는 디스크 제한보다 더 높은 IOPS를 제공할 수 있습니다. 호스트 캐시에서 이 최대 읽기 성능을 얻으려면 먼저 이 디스크의 캐시를 준비해야 합니다. 이렇게 하면 벤치마킹 도구에서 CacheReads 볼륨을 구동하는 읽기 IO는 직접적인 디스크가 아니라 실제 캐시에 적중합니다. 캐시는 단일 캐시가 사용된 디스크에서 추가 IOPS 결과에 도달합니다.
@@ -60,18 +60,18 @@ Iometer는 벤치마킹 테스트를 실행할 볼륨에 저장된 테스트 파
 
 1. 아래에 표시된 값으로 두 액세스 사양을 만듭니다.
 
-   | 속성 | 요청 크기 | 임의 % | 읽기 % |
+   | Name | 요청 크기 | 임의 % | 읽기 % |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1MB |100 |0 |
    | RandomReads\_1MB |1MB |100 |100 |
 1. 다음 매개 변수로 캐시 디스크 초기화를 위한 Iometer 테스트를 실행합니다. 대상 볼륨에 대해 3개의 작업자 스레드 및 128의 큐 크기를 사용합니다. 테스트의 [실행 시간] 기간을 [테스트 설정] 탭에서 2시간으s로 설정합니다.
 
-   | 시나리오 | 대상 볼륨 | 속성 | 기간 |
+   | 시나리오 | 대상 볼륨 | Name | 기간 |
    | --- | --- | --- | --- |
    | 디스크 캐시 초기화 |CacheReads |RandomWrites\_1MB |2시간 |
 1. 다음 매개 변수로 캐시 디스크 준비를 위한 Iometer 테스트를 실행합니다. 대상 볼륨에 대해 3개의 작업자 스레드 및 128의 큐 크기를 사용합니다. 테스트의 [실행 시간] 기간을 [테스트 설정] 탭에서 2시간으s로 설정합니다.
 
-   | 시나리오 | 대상 볼륨 | 속성 | 기간 |
+   | 시나리오 | 대상 볼륨 | Name | 기간 |
    | --- | --- | --- | --- |
    | 캐시 디스크 준비 |CacheReads |RandomReads\_1MB |2시간 |
 
@@ -123,17 +123,9 @@ direct=1
 iodepth=256
 ioengine=libaio
 bs=8k
+numjobs=4
 
 [writer1]
-rw=randwrite
-directory=/mnt/nocache
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-[writer4]
 rw=randwrite
 directory=/mnt/nocache
 ```
@@ -164,17 +156,9 @@ direct=1
 iodepth=256
 ioengine=libaio
 bs=8k
+numjobs=4
 
 [reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
 rw=randread
 directory=/mnt/readcache
 ```
@@ -205,33 +189,13 @@ direct=1
 iodepth=128
 ioengine=libaio
 bs=4k
+numjobs=4
 
 [reader1]
 rw=randread
 directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
 
 [writer1]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer4]
 rw=randwrite
 directory=/mnt/nocache
 rate_iops=12500

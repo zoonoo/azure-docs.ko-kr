@@ -1,20 +1,20 @@
 ---
 title: Azure PowerShell를 사용 하 여 VM 확장 사용
 description: 이 문서에서는 Azure PowerShell를 사용 하 여 하이브리드 클라우드 환경에서 실행 되는 Azure Arc 사용 서버에 가상 머신 확장을 배포 하는 방법을 설명 합니다.
-ms.date: 11/06/2020
+ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5ed9db23cd19814ff05c2f142f51cea869f2c2d4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 40f3d6ab98411d5b8e42f4f79817c66f56fdaaef
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359071"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029033"
 ---
 # <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure VM 확장 사용
 
 이 문서에서는 Azure PowerShell를 사용 하 여 Azure Arc 사용 서버에서 지 원하는 Azure VM 확장을 Linux 또는 Windows 하이브리드 컴퓨터에 배포 하 고 제거 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/)을 참조하세요.
 
@@ -56,14 +56,14 @@ PS C:\> New-AzConnectedMachineExtension -Name custom -ResourceGroupName myResour
 # Build settings
     $settings = @{
       secretsManagementSettings = @{
-       observedCertificates = @{
+       observedCertificates = @(
         "observedCert1"
-       }
+       )
       certificateStoreLocation = "myMachineName" # For Linux use "/var/lib/waagent/Microsoft.Azure.KeyVault.Store/"
       certificateStore = "myCertificateStoreName"
       pollingIntervalInS = "pollingInterval"
       }
-    authenticationLocationSettings = @{
+    authenticationSettings = @{
      msiEndpoint = "http://localhost:40342/metadata/identity"
      }
     }
@@ -80,7 +80,7 @@ PS C:\> New-AzConnectedMachineExtension -Name custom -ResourceGroupName myResour
 
 Arc 사용 서버에서 VM 확장 목록을 가져오려면 및 매개 변수와 함께 [AzConnectedMachineExtension](/powershell/module/az.connectedmachine/get-azconnectedmachineextension) 를 사용 `-MachineName` `-ResourceGroupName` 합니다.
 
-예:
+예제:
 
 ```powershell
 Get-AzConnectedMachineExtension -ResourceGroupName myResourceGroup -MachineName myMachineName

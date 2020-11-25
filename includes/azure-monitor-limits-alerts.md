@@ -9,11 +9,11 @@ ms.date: 10/01/2020
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 1e4ae81c85d8de22bc87f22538c85cdc4c15b79c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95560514"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027045"
 ---
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |

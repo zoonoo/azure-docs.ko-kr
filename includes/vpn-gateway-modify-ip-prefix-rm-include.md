@@ -9,11 +9,11 @@ ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 76a602ae722bd975e634631819ebc703e8896c98
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95554247"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028418"
 ---
 ### <a name="to-modify-local-network-gateway-ip-address-prefixes---no-gateway-connection"></a><a name="noconnection"></a>로컬 네트워크 게이트웨이 IP 주소 접두사를 수정하려면 - 게이트웨이 연결 없음
 

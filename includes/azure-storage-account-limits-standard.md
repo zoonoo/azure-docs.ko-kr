@@ -9,11 +9,11 @@ ms.date: 09/30/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ef9efe389894af7c792e980922ca422e9d05929b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95564191"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026904"
 ---
 다음 표에서는 Azure 범용 v1, v2, Blob 스토리지 및 블록 Blob 스토리지 계정의 기본 제한에 대해 설명합니다. *수신* 제한은 스토리지 계정에 보내는 모든 데이터를 나타냅니다. *송신* 제한은 스토리지 계정에서 받는 모든 데이터를 나타냅니다.
 

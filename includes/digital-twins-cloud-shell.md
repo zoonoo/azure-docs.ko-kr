@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
 ms.openlocfilehash: c1d1efce656bea02385cb20ac11ab90ca5664e60
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95553752"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027509"
 ---
 열려 있는 [Azure Cloud Shell](https://shell.azure.com) 창에서 Azure Digital Twins 작업을 시작하려면 먼저 로그인하여 셸 컨텍스트를 이 세션에 대한 구독으로 설정합니다. Cloud Shell에서 다음 명령을 실행합니다.
 

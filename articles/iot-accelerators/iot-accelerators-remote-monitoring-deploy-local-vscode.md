@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8f1d20e9a6a78d99a23fe4b98aeb4f3eb8359da7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73890951"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024183"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>로컬에 원격 모니터링 솔루션 가속기 배포 - Visual Studio Code
 
@@ -21,7 +21,7 @@ ms.locfileid: "73890951"
 
 이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. Visual Studio Code에서 마이크로 서비스를 실행하는 방법에 대해 알아봅니다. 로컬 마이크로 서비스 배포는 IoT Hub, Cosmos DB, Azure 스트리밍 분석 및 Azure Time Series Insights 클라우드 서비스를 사용 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
@@ -64,7 +64,7 @@ dotnet build -c Release
 1. Visual Studio Code를 시작합니다.
 1. VS Code에서 **azure-iot-원격-모니터링-dotnet** 폴더를 엽니다.
 1. **Azure-iot-pc-원격-모니터링-dotnet** 폴더에. a w a **.**
-1. Services\scripts\local\launch\idesettings\vscode에서tasks.js**launch.js** 된 파일 **tasks.json** 을 복사 하 여 방금 만든 **.**
+1. Services\scripts\local\launch\idesettings\vscode에서tasks.js **launch.js** 된 파일 **tasks.json** 을 복사 하 여 방금 만든 **.**
 1. VS Code에서 **디버그 패널** 을 열고 **모든 마이크로 서비스 구성 실행** 을 실행 합니다. 이 구성은 Docker에서 디바이스 시뮬레이션 마이크로 서비스를 실행하고 디버거에서 다른 마이크로 서비스를 실행합니다.
 
 디버그 콘솔에서 **실행 되는** 출력은 다음과 같습니다.
@@ -80,14 +80,14 @@ npm install
 npm start
 ```
 
-시작이 완료 되 면 브라우저에서 **http: \/ /hosts: 3000/dashboard**페이지가 표시 됩니다. 이 페이지의 오류는 예상된 것입니다. 애플리케이션을 오류 없이 표시하려면 다음 단계를 완료합니다.
+시작이 완료 되 면 브라우저에서 **http: \/ /hosts: 3000/dashboard** 페이지가 표시 됩니다. 이 페이지의 오류는 예상된 것입니다. 애플리케이션을 오류 없이 표시하려면 다음 단계를 완료합니다.
 
 ### <a name="configure-and-run-nginx"></a>NGINX 구성 및 실행
 
 로컬 머신에서 실행되는 웹 애플리케이션 및 마이크로 서비스를 연결하는 역방향 프록시 서버를 설정합니다.
 
 * **webui\scripts\localhost** 폴더의 **nginx.conf** 파일을 **nginx\conf** 설치 디렉터리에 복사합니다.
-* **nginx**를 실행합니다.
+* **nginx** 를 실행합니다.
 
 **nginx** 실행에 대한 자세한 내용은 [Windows용 nginx](https://nginx.org/en/docs/windows.html)를 참조하세요.
 

@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 8/7/2020
 ms.author: baanders
 ms.openlocfilehash: 58ae9c187f50bb7eb3f1ccc2a618275885121267
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95554959"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027063"
 ---
 > [!TIP]
 > 모델을 만든 후에는 Azure Digital Twins 인스턴스에 업로드 하기 전에 오프 라인으로 모델의 유효성을 검사 하는 것이 좋습니다.

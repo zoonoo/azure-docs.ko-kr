@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 744bcfe196629f76c5505f36ef9c8c224fefe601
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d013af82a862f1bc6b5324e7523aeea5593a4f94
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95909070"
+ms.locfileid: "96030665"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 질문과 대답
 
@@ -122,7 +122,7 @@ $export은 FHIR 사양 ()의 일부 https://hl7.org/fhir/uv/bulkdata/export/inde
 
 ### <a name="where-can-i-see-an-example-of-connecting-a-web-application-to-azure-api-for-fhir"></a>웹 응용 프로그램을 Azure API에 연결 하는 예제는 어떻게 볼 수 있나요?
 
-예제 응용 프로그램 및 시나리오를 포함 하는 [상태 아키텍처 GitHub 페이지가](https://github.com/microsoft/health-architectures) 있습니다. 웹 응용 프로그램을 Azure API for FHIR에 연결 하는 방법을 보여 줍니다.  
+예제 응용 프로그램 및 시나리오를 포함 하는 [상태 아키텍처 GitHub 페이지가](https://aka.ms/health-architectures) 있습니다. 웹 응용 프로그램을 Azure API for FHIR에 연결 하는 방법을 보여 줍니다.  
 
 ## <a name="azure-api-for-fhir-features-and-services"></a>Azure API for FHIR 기능 및 서비스 
 

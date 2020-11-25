@@ -1,19 +1,19 @@
 ---
-title: 네트워크 미리 보기 Azure Monitor
+title: Networks용 Azure Monitor
 description: 구성 없이 배포 된 모든 네트워크 리소스에 대 한 상태 및 메트릭의 포괄적인 보기를 제공 하는 네트워크의 Azure Monitor에 대 한 개요입니다.
 ms.subservice: ''
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 09/24/2020
-ms.openlocfilehash: e2a43c4d0423b286984631fda75e5ff806ae9a57
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+author: KumudD
+ms.author: kumud
+ms.date: 11/25/2020
+ms.openlocfilehash: 52ca879d5a680d0e62cc469e768236eac11f3719
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102764"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030221"
 ---
-# <a name="azure-monitor-for-networks-preview"></a>네트워크 미리 보기 Azure Monitor
+# <a name="azure-monitor-for-networks"></a>Networks용 Azure Monitor
 네트워크에 대 한 Azure Monitor는 구성 없이 모든 배포 된 네트워크 리소스에 대 한 [상태](../../service-health/resource-health-checks-resource-types.md) 및 [메트릭의](../platform/metrics-supported.md) 포괄적인 보기를 제공 합니다. 또한 [연결 모니터](../../network-watcher/connection-monitor-preview.md), [nsgs (네트워크 보안 그룹)에 대 한 흐름 로깅](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)및 [트래픽 분석](../../network-watcher/traffic-analytics.md)같은 네트워크 모니터링 기능에 대 한 액세스를 제공 합니다. 그리고 다른 네트워크 [진단](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) 기능을 제공 합니다.
 
 네트워크에 대 한 Azure Monitor는 모니터링의 주요 구성 요소를 기준으로 구성 됩니다.
@@ -26,14 +26,14 @@ ms.locfileid: "92102764"
 
 네트워크 **개요** 페이지의 Azure Monitor는 네트워킹 리소스 인벤토리를 리소스 상태 및 경고와 함께 쉽게 시각화할 수 있는 방법을 제공 합니다. 검색 및 필터링, 리소스 상태, 메트릭, 경고 및 종속성 보기의 네 가지 주요 기능 영역으로 구분 됩니다.
 
-![개요 페이지를 보여 주는 스크린샷](media/network-insights-overview/overview.png)
+[ ![ 개요 페이지 #lightbox)를 보여 주는 스크린샷](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png)
 
 ### <a name="search-and-filtering"></a>검색 및 필터링
-**구독**, **리소스 그룹**및 **유형과**같은 필터를 사용 하 여 리소스 상태 및 경고 보기를 사용자 지정할 수 있습니다.
+**구독**, **리소스 그룹** 및 **유형과** 같은 필터를 사용 하 여 리소스 상태 및 경고 보기를 사용자 지정할 수 있습니다.
 
 검색 상자를 사용 하 여 리소스 및 관련 리소스를 검색할 수 있습니다. 예를 들어 공용 IP는 응용 프로그램 게이트웨이와 연결 됩니다. 공용 ip의 DNS 이름 검색은 공용 IP와 연결 된 application gateway를 모두 반환 합니다.
 
-![네트워크 검색 결과에 대 한 Azure Monitor를 보여 주는 스크린샷](media/network-insights-overview/search.png)
+[![네트워크 검색 결과에 대 한 Azure Monitor를 보여 주는 스크린샷](media/network-insights-overview/search.png)](media/network-insights-overview/search.png#lightbox)
 
 
 ### <a name="resource-health-and-metrics"></a>리소스 상태 및 메트릭
@@ -57,7 +57,7 @@ ms.locfileid: "92102764"
 
 Application Gateway에 대 한 종속성 보기는 프런트 엔드 Ip를 수신기, 규칙 및 백 엔드 풀에 연결 하는 방법에 대 한 간단한 보기를 제공 합니다. 연결선은 색으로 구분 되며 백 엔드 풀 상태에 따라 추가 세부 정보를 제공 합니다. 이 보기에는 가상 머신 확장 집합 및 VM 인스턴스와 같은 관련 된 모든 백 엔드 풀에 대 한 Application Gateway 메트릭 및 메트릭에 대 한 자세한 보기가 제공 됩니다.
 
-![네트워크에 대 한 Azure Monitor에서 종속성 보기를 보여 주는 스크린샷](media/network-insights-overview/dependency-view.png)
+[![네트워크에 대 한 Azure Monitor에서 종속성 보기를 보여 주는 스크린샷](media/network-insights-overview/dependency-view.png)](media/network-insights-overview/dependency-view.png#lightbox)
 
 종속성 그래프는 구성 설정에 대 한 간편한 탐색을 제공 합니다. 백 엔드 풀을 마우스 오른쪽 단추로 클릭 하 여 다른 정보에 액세스 합니다. 예를 들어 백 엔드 풀이 VM 인 경우 VM 정보 및 Azure Network Watcher 연결 문제 해결을 직접 액세스 하 여 연결 문제를 식별할 수 있습니다.
 
@@ -73,17 +73,17 @@ Application gateway, 모든 백 엔드 풀 리소스, 프런트 엔드 Ip에 대
 
 ## <a name="connectivity"></a><a name="connectivity"></a>연결
 
-연결 **탭은** 선택한 구독 집합에 대해 연결 모니터 및 [연결 모니터 (미리 보기)](../../network-watcher/connection-monitor-preview.md) 를 통해 구성 된 모든 테스트를 시각화 하는 쉬운 방법을 제공 합니다.
+연결 **탭은** 선택한 구독 집합에 대해 [연결 모니터](../../network-watcher/connection-monitor-overview.md) 및 연결 모니터 (클래식)를 통해 구성 된 모든 테스트를 시각화 하는 쉬운 방법을 제공 합니다.
 
 ![네트워크에 대 한 Azure Monitor의 연결 탭을 보여 주는 스크린샷](media/network-insights-overview/azure-monitor-for-networks-connectivity-tab.png)
 
 테스트는 **원본** 및 **대상** 타일로 그룹화 되며 각 테스트에 대 한 연결 가능성 상태를 표시 합니다. 연결할 수 있는 설정은 실패 한 검사 (%)에 따라 연결 조건에 대 한 구성에 쉽게 액세스할 수 있도록 합니다. 및 RTT (밀리초)입니다. 값을 설정한 후에는 선택 조건에 따라 각 테스트의 상태를 업데이트 합니다.
 
-![네트워크에 대 한 Azure Monitor의 연결 테스트를 보여 주는 스크린샷](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)
+[![네트워크에 대 한 Azure Monitor의 연결 테스트를 보여 주는 스크린샷](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png#lightbox)
 
 모든 원본 또는 대상 타일을 선택 하 여 메트릭 보기를 열 수 있습니다.
 
-![네트워크에 대 한 Azure Monitor의 연결 메트릭을 보여 주는 스크린샷](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)
+[![네트워크에 대 한 Azure Monitor의 연결 메트릭을 보여 주는 스크린샷](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png#lightbox)
 
 
 표 뷰에서 모든 항목을 선택할 수 있습니다. 연결 모니터 포털 페이지로 이동 하려면 연결 **의 열에서** 아이콘을 선택 하 고 식별 된 문제에 영향을 주는 홉 단위 토폴로지 및 연결을 확인 합니다. **경고 열에서** 값을 선택 하 여 경고로 이동 합니다. **실패 한 비율 검사** 및 **왕복 시간 (ms)** 열에서 그래프를 선택 하 여 선택한 연결 모니터에 대 한 메트릭 페이지로 이동 합니다.
@@ -93,13 +93,13 @@ Application gateway, 모든 백 엔드 풀 리소스, 프런트 엔드 Ip에 대
 ## <a name="traffic"></a><a name="traffic"></a>트래픽
 **트래픽** 탭에서는 [nsgs 흐름 로그](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) 에 대해 구성 된 모든 nsgs에 대 한 액세스를 제공 하 고, 선택한 구독 집합에 대 한 [트래픽 분석](../../network-watcher/traffic-analytics.md) 를 위치별 그룹화 하 여 제공 합니다. 이 탭에서 제공 하는 검색 기능을 사용 하면 검색 된 IP 주소에 대해 구성 된 NSGs를 식별할 수 있습니다. 사용자 환경에서 모든 IP 주소를 검색할 수 있습니다. 바둑판식으로 표시 된 지역 보기에는 NSGS 흐름 로그 및 트래픽 분석 구성 상태와 함께 모든 NSGs가 표시 됩니다.
 
-![네트워크에 대 한 Azure Monitor의 트래픽 탭을 보여 주는 스크린샷](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)
+[![네트워크에 대 한 Azure Monitor의 트래픽 탭을 보여 주는 스크린샷](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png#lightbox)
 
 영역 타일을 선택 하면 그리드 뷰가 나타납니다. 표는 NSG 흐름 로그를 제공 하 고 쉽게 읽고 구성할 수 있는 보기에서 트래픽 분석 합니다.  
 
-![네트워크에 대 한 Azure Monitor의 트래픽 영역 보기를 보여 주는 스크린샷](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)
+[![네트워크에 대 한 Azure Monitor의 트래픽 영역 보기를 보여 주는 스크린샷](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png#lightbox)
 
-표 뷰에서 모든 항목을 선택할 수 있습니다. **Flowlog 구성 상태** 열에서 아이콘을 선택 하 여 nsg 흐름 로그 및 트래픽 분석 구성을 편집 합니다. **경고** 열에서 값을 선택 하 여 선택 된 nsg에 대해 구성 된 트래픽 경고로 이동 합니다. 마찬가지로 **트래픽 분석 작업 영역**을 선택 하 여 트래픽 분석 보기로 이동할 수 있습니다.  
+표 뷰에서 모든 항목을 선택할 수 있습니다. **Flowlog 구성 상태** 열에서 아이콘을 선택 하 여 nsg 흐름 로그 및 트래픽 분석 구성을 편집 합니다. **경고** 열에서 값을 선택 하 여 선택 된 nsg에 대해 구성 된 트래픽 경고로 이동 합니다. 마찬가지로 **트래픽 분석 작업 영역** 을 선택 하 여 트래픽 분석 보기로 이동할 수 있습니다.  
 
 페이지의 오른쪽에 있는 **경고** 상자는 모든 구독에서 모든 트래픽 분석 작업 영역 기반 경고에 대 한 보기를 제공 합니다. 경고 횟수를 선택 하 여 자세한 경고 페이지로 이동 합니다.
 

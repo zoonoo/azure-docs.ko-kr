@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 06/08/2020
 ms.author: alkohli
 ms.openlocfilehash: 0e1b70ba3f1359c7cf9c6633ab5e0e05c7b6e946
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95556183"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028289"
 ---
 이 섹션에서는 Azure Storage 서비스에 대한 제한 및 Azure Files, Azure 블록 Blob 및 Azure 페이지 Blob에 대한 필수 명명 규칙을 Data Box 서비스에 적용 가능한 것으로 설명합니다. 스토리지 제한을 신중히 검토하고 모든 권장 사항을 수행합니다.
 

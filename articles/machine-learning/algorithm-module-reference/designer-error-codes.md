@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 04/16/2020
-ms.openlocfilehash: 569cf130b464d97e0ac10904ffd86365b57610a5
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 11/25/2020
+ms.openlocfilehash: af7ac49fd6c1a31a8363c4ba0bf925787613ecc2
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420838"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030410"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>디자이너에 대 한 예외 및 오류 코드
 
@@ -281,11 +281,18 @@ Blob에 대한 전체 경로가 지정된 경우, 이 경로가 **container/blob
 
  이 오류는 열에 고유 값이 너무 많이 포함된 경우에 발생합니다.  예를 들어, 하나의 열이 범주 데이터로 처리되도록 지정하며 다만 해당 열에 너무 많은 고유 값이 있어 처리를 완료할 여지가 없는 경우, 이 오류가 표시될 수 있습니다. 두 입력의 고유 값 개수가 서로 일치하지 않을 경우에도 이 오류가 표시될 수 있습니다.   
 
+다음 조건을 **모두** 충족 하는 경우 고유한 값의 오류가 허용 되는 것 보다 큽니다.
+
+- 하나의 열에 있는 97% 이상의 인스턴스가 고유한 값 이므로 거의 모든 범주가 서로 다른 것을 의미 합니다.
+- 하나의 열에 1000 개 이상의 고유 값이 있습니다.
+
 **해결 방법:**
 
 오류가 발생한 모듈을 열고 입력으로 사용된 열을 식별합니다. 일부 모듈의 경우, 데이터 세트 입력을 마우스 오른쪽 단추로 클릭하고 **시각화** 를 선택하여 고유 값의 수 및 그 배포를 포함해 개별 열에 대한 통계를 얻을 수 있습니다.
 
 그룹화 또는 분류에 사용할 열의 경우, 각 열에서 고유한 값의 수를 줄이는 단계를 수행합니다. 그 수는 열의 데이터 형식에 따라 여러 가지 방법으로 줄일 수 있습니다. 
+
+일반적으로이 시나리오에서 오류를 발생 시키는 열은 모델을 학습 하는 기능으로 의미가 없습니다. 따라서 [메타 데이터 편집](../algorithm-module-reference/edit-metadata.md) 을 사용 하 여 해당 열을 **명확한 기능** 으로 표시할 수 있으며 모델을 학습 하는 동안에는 사용 되지 않습니다. 
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  

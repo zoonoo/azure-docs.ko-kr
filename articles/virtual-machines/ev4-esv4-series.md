@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: b8f6768ebf988ff568739c86303b52ea5b0a9234
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 01e9787d9b812334d959ce6ae9b929ec8734ffb5
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018715"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030478"
 ---
 # <a name="ev4-and-esv4-series"></a>Ev4 및 Esv4 시리즈
 
@@ -58,7 +58,7 @@ Esv4 시리즈 크기는 Intel &reg; Xeon &reg; Platinum 8272CL (캐스케이드
 [Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
-[VM 생성 지원](generation-2.md): 1 세대<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |

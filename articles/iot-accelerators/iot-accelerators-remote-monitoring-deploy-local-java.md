@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: 78573cfe00d8e2e7ddcbf705dffdd5530f82c4e0
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998608"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024200"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>로컬로 원격 모니터링 솔루션 가속기 배포 - IntelliJ
 
@@ -23,7 +23,7 @@ ms.locfileid: "91998608"
 
 로컬 머신의 Docker에서 원격 모니터링 솔루션 가속기를 실행하려면 [로컬로 원격 모니터링 솔루션 가속기 배포 - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
@@ -90,15 +90,15 @@ Node.js v8는 스크립트가 Azure 리소스를 만드는 데 사용 하는 PC 
 1. **start.cmd** 스크립트를 실행합니다. 스크립트에서 다음 정보를 요구하는 메시지가 표시됩니다.
 
    * 솔루션 이름
-   * 사용할 Azure 구독입니다.
+   * Azure 구독을 사용합니다.
    * 사용할 Azure 데이터 센터의 위치
 
    이 스크립트는 Azure에서 솔루션 이름이 있는 리소스 그룹을 만듭니다. 이 리소스 그룹에는 솔루션 가속기에서 사용 하는 Azure 리소스가 포함 되어 있습니다. 해당 리소스가 더 이상 필요 하지 않은 경우이 리소스 그룹을 삭제할 수 있습니다.
 
-   또한 스크립트는 로컬 컴퓨터에 환경 변수 집합을 추가 합니다. 각 변수 이름에는 접두사 **pc**가 있습니다. 이러한 환경 변수는 원격 모니터링에서 Azure Key Vault 리소스의 구성 값을 읽을 수 있도록 하는 세부 정보를 제공 합니다.
+   또한 스크립트는 로컬 컴퓨터에 환경 변수 집합을 추가 합니다. 각 변수 이름에는 접두사 **pc** 가 있습니다. 이러한 환경 변수는 원격 모니터링에서 Azure Key Vault 리소스의 구성 값을 읽을 수 있도록 하는 세부 정보를 제공 합니다.
 
    > [!TIP]
-   > 스크립트가 완료 되 면 환경 변수를 ** \<your home folder\> \\ pc \\ \<solution name\> . env**파일에 저장 합니다. 이후 솔루션 가속기 배포에 사용할 수 있습니다. **Docker 작성**을 실행 하는 경우 로컬 컴퓨터에 설정 된 모든 환경 변수가 **서비스 \\ 스크립트 \\ local \\ env** 파일의 값을 재정의 합니다.
+   > 스크립트가 완료 되 면 환경 변수를 **\<your home folder\> \\ pc \\ \<solution name\> . env** 파일에 저장 합니다. 이후 솔루션 가속기 배포에 사용할 수 있습니다. **Docker 작성** 을 실행 하는 경우 로컬 컴퓨터에 설정 된 모든 환경 변수가 **서비스 \\ 스크립트 \\ local \\ env** 파일의 값을 재정의 합니다.
 
 1. 명령줄 환경을 닫습니다.
 
@@ -109,7 +109,7 @@ Node.js v8는 스크립트가 Azure 리소스를 만드는 데 사용 하는 PC 
 * **PCS_AAD_APPID**: Azure Active Directory (Azure AD) 응용 프로그램 ID입니다.
 * **PCS_AAD_APPSECRET**: Azure AD 응용 프로그램 암호입니다.
 
-이 Key Vault 리소스에서 구성 값을 읽습니다. 이러한 환경 변수는 배포에서 ** \<your home folder\> \\ \\ \<solution name\> restore.env** 파일에 저장할 수 있습니다. **docker-compose**를 실행할 때 로컬 머신에 설정된 환경 변수에서 **services\\scripts\\local\\.env** 파일의 값을 재정의합니다.
+이 Key Vault 리소스에서 구성 값을 읽습니다. 이러한 환경 변수는 배포에서 **\<your home folder\> \\ \\ \<solution name\> restore.env** 파일에 저장할 수 있습니다. **docker-compose** 를 실행할 때 로컬 머신에 설정된 환경 변수에서 **services\\scripts\\local\\.env** 파일의 값을 재정의합니다.
 
 마이크로 서비스에 필요한 구성 중 일부는 초기 배포 시 생성 된 Key Vault의 인스턴스에 저장 됩니다. 필요에 따라 키 자격 증명 모음에서 해당 변수를 수정 해야 합니다.
 
@@ -154,14 +154,14 @@ Node.js v8는 스크립트가 Azure 리소스를 만드는 데 사용 하는 PC 
 #### <a name="import-a-project"></a>프로젝트 가져오기
 
 1. IntelliJ IDE를 엽니다.
-1. **프로젝트 가져오기**를 선택 합니다.
-1. **Azure-iot-pcs-remote-monitoring-java\services\build.sbt**를 선택 합니다.
+1. **프로젝트 가져오기** 를 선택 합니다.
+1. **Azure-iot-pcs-remote-monitoring-java\services\build.sbt** 를 선택 합니다.
 
 #### <a name="create-run-configurations"></a>실행 구성 만들기
 
-1. **Run**  >  **구성 편집**실행을 선택 합니다.
-1. **새 구성 추가**  >  **sbt 작업**을 선택 합니다.
-1. **이름**을 입력 하 고 **실행**으로 **작업** 을 입력 합니다.
+1. **Run**  >  **구성 편집** 실행을 선택 합니다.
+1. **새 구성 추가**  >  **sbt 작업** 을 선택 합니다.
+1. **이름** 을 입력 하 고 **실행** 으로 **작업** 을 입력 합니다.
 1. 실행 하려는 서비스에 기반 하 여 **작업 디렉터리** 를 선택 합니다.
 1. 확인 **적용**  >  **OK** 을 선택 하 여 선택 내용을 저장 합니다.
 1. 다음 웹 서비스에 대 한 실행 구성을 만듭니다.
@@ -176,8 +176,8 @@ Node.js v8는 스크립트가 Azure 리소스를 만드는 데 사용 하는 PC 
 
 #### <a name="create-a-compound-configuration"></a>복합 구성 만들기
 
-1. 모든 서비스를 함께 실행 하려면 **새 구성**  >  **복합**추가를 선택 합니다.
-1. **이름**을 입력 한 다음 **추가 sbt 작업**을 선택 합니다.
+1. 모든 서비스를 함께 실행 하려면 **새 구성**  >  **복합** 추가를 선택 합니다.
+1. **이름** 을 입력 한 다음 **추가 sbt 작업** 을 선택 합니다.
 1. 확인 **적용**  >  **OK** 을 선택 하 여 선택 내용을 저장 합니다.
 
 예를 들어 다음 이미지는 단일 구성에 모든 sbt 작업을 추가 하는 방법을 보여 줍니다.

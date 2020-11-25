@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a662598efdca05769c7da9fbeecdf692dccdacb5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95562906"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027409"
 ---
 ## <a name="overview"></a>개요
 Azure Storage는 Blob의 스냅샷을 만드는 기능을 제공합니다. 스냅샷은 해당 시점에 Blob 상태를 캡처합니다. 이 문서에서는 스냅샷을 사용하여 가상 머신 디스크의 백업을 유지 관리할 수 있는 시나리오에 대해 설명합니다. Azure Backup 및 복구 서비스를 사용하지 않도록 선택하고 가상 컴퓨터 디스크에 대한 사용자 지정 백업 전략을 만들 때 이 방법론을 사용할 수 있습니다. 비즈니스 또는 중요 업무용 워크 로드를 실행 하는 가상 머신의 경우 백업 전략의 일부로 [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) 를 사용 하는 것이 좋습니다.  

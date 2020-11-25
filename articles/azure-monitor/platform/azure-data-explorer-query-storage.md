@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 8710e0cdd6c930338009fb2b7f3bd98fafcfad3e
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 18ece47187e3f83277d7d925ad958d2ede7cb337
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95411566"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030019"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Azure 데이터 탐색기 (미리 보기)를 사용 하 여 Azure Monitor에서 내보낸 데이터 쿼리
 Azure Monitor에서 Azure storage 계정으로 데이터를 내보내면 저렴 한 보존 및 여러 지역에 로그를 다시 할당할 수 있습니다. Azure 데이터 탐색기를 사용 하 여 Log Analytics 작업 영역에서 내보낸 데이터를 쿼리할 수 있습니다. 구성 된 후에는 작업 영역에서 Azure storage 계정으로 전송 된 지원 테이블을 Azure 데이터 탐색기의 데이터 원본으로 사용할 수 있습니다.
@@ -122,7 +122,7 @@ Write-Host -ForegroundColor Green $createMapping
 
 >[!TIP]
 >* Azure 데이터 탐색기 클라이언트 도구에서 스크립트의 출력을 복사 하 여 붙여넣고 실행 하 여 테이블과 매핑을 만듭니다.
->* 컨테이너 내의 모든 데이터를 사용 하려면 스크립트를 변경 하 고 URL을 '; '로 변경할 수 있습니다 https://your.blob.core.windows.net/containername . SecKey '
+>* 컨테이너 내의 모든 데이터를 사용 하려면 스크립트를 변경 하 고 URL을 '; '로 변경 합니다 https://your.blob.core.windows.net/containername . SecKey '
 
 ## <a name="query-the-exported-data-from-azure-data-explorer"></a>Azure 데이터 탐색기에서 내보낸 데이터 쿼리 
 

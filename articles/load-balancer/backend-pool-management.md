@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 81fad1c77b917c1e3eaf7ddd200c3fea83cb0e0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3934946dd8e20b7888fc41a4fd6ecc233381f1ff
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589676"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029730"
 ---
 # <a name="backend-pool-management"></a>백 엔드 풀 관리
 백 엔드 풀은 부하 분산 장치의 중요한 구성 요소입니다. 백 엔드 풀은 지정된 부하 분산 규칙에 대한 트래픽을 제공하는 리소스 그룹을 정의합니다.
@@ -45,14 +45,14 @@ ms.locfileid: "88589676"
 
 ### <a name="powershell"></a>PowerShell
 새 백 엔드 풀을 만듭니다.
- 
+ 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"
 $loadBalancerName = "myLoadBalancer"
 $backendPoolName = "myBackendPool"
 
-$backendPool = 
-New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
+$backendPool = 
+New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
 ```
 
 새 네트워크 인터페이스를 만들고, 백 엔드 풀에 추가합니다.
@@ -81,7 +81,7 @@ $backendPoolName = "myBackendPool"
 
 $lb =
 Get-AzLoadBalancer -ResourceGroupName $res
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName 
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName 
 ```
 
 새 가상 머신을 만들고, 네트워크 인터페이스를 연결하여 백 엔드 풀에 배치합니다.
@@ -115,7 +115,7 @@ $vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -V
 
 ```azurecli-interactive
 az network lb address-pool create \
---resourceGroup myResourceGroup \
+--resource-group myResourceGroup \
 --lb-name myLB \
 --name myBackendPool 
 ```
@@ -273,18 +273,18 @@ $vnetName = "myVnet"
 $location = "eastus"
 $nicName = "myNic"
 
-$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName  
+$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName  
 ```
 
 백 엔드 풀을 기존 가상 네트워크의 새 IP로 업데이트합니다.
- 
+ 
 ```azurepowershell-interactive
-$virtualNetwork = 
-Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
- 
-$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
- 
-$backendPool.LoadBalancerBackendAddresses.Add($ip1) 
+$virtualNetwork = 
+Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
+ 
+$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
+ 
+$backendPool.LoadBalancerBackendAddresses.Add($ip1) 
 
 Set-AzLoadBalancerBackendAddressPool -InputObject $backendPool
 ```
@@ -292,7 +292,7 @@ Set-AzLoadBalancerBackendAddressPool -InputObject $backendPool
 부하 분산 장치에 대한 백 엔드 풀 정보를 검색하여 백 엔드 주소가 백 엔드 풀에 추가되었는지 확인합니다.
 
 ```azurepowershell-interactive
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName 
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName 
 ```
 네트워크 인터페이스를 만들고, 백 엔드 풀에 추가합니다. IP 주소를 백 엔드 주소 중 하나로 설정합니다.
 

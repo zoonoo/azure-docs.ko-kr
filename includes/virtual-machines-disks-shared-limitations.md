@@ -9,11 +9,11 @@ ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 76e52758bf88dde9cdc68dad974f0b65fd55140f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95555788"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026954"
 ---
 공유 디스크를 사용 하도록 설정 하는 것은 디스크 형식의 하위 집합에만 사용할 수 있습니다. 현재는 ultra disks 및 premium Ssd만 공유 디스크를 사용 하도록 설정할 수 있습니다. 공유 디스크를 사용할 수 있는 관리 되는 각 디스크에는 디스크 유형별로 구성 된 다음과 같은 제한 사항이 적용 됩니다.
 

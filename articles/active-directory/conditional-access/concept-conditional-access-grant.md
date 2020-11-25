@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ef2d233024ab3e9cd086e8285e681dc9f42f3f7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8915ae349e33390ce5bb687d7c07a21665a0258
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95904021"
+ms.locfileid: "96029407"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: Grant
 
@@ -108,7 +108,7 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 - 승인된 클라이언트 앱은 Intune 모바일 애플리케이션 관리 기능을 지원합니다.
 - **승인된 클라이언트 앱 필요** 요구 사항:
    - 디바이스 플랫폼 조건에서는 iOS 및 Android만 지원됩니다.
-   - 장치를 등록 하려면 broker 앱이 필요 합니다. IOS에서 broker 앱은 Microsoft Authenticator 되며 Android에서 Intune 회사 포털 앱입니다.
+   - 장치를 등록 하려면 broker 앱이 필요 합니다. Broker 앱은 iOS의 Microsoft Authenticator 또는 Android 장치용 Microsoft Authenticator 또는 Microsoft 회사 포털 일 수 있습니다.
 - 조건부 액세스는 InPrivate 모드에서 승인 된 클라이언트 앱으로 Microsoft Edge를 고려할 수 없습니다.
 
 구성 예제는 [방법: 조건부 액세스를 사용 하는 클라우드 앱 액세스를 위해 승인 된 클라이언트 앱 필요](app-based-conditional-access.md) 문서를 참조 하세요.

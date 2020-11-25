@@ -11,18 +11,16 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: f6078ed96106d6a53b55195ee950e2165334221d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c2c2f9d0ad7bfa50f543b57326b9fc8dab0069c6
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920076"
+ms.locfileid: "96029305"
 ---
 # <a name="increase-resilience-of-authentication-and-authorization-applications-you-develop"></a>개발 하는 인증 및 권한 부여 응용 프로그램의 복원 력 향상
 
 Microsoft Id는 최신 토큰 기반 인증 및 권한 부여를 사용 합니다. 즉, 응용 프로그램은 Id 공급자 로부터 토큰을 획득 하 여 사용자를 인증 하 고 응용 프로그램에서 보호 된 Api를 호출할 수 있도록 권한을 부여 합니다.
-
-![Microsoft Id를 호출 하는 응용 프로그램 이미지](media/resilience-app-development-overview/app-overview.png)
 
 토큰은 특정 기간 동안 유효 하며 앱에서 새 토큰을 획득 해야 합니다. 드물지만, 토큰을 검색 하는 호출은 네트워크 또는 인프라 오류 또는 인증 서비스 중단 같은 문제로 인해 실패할 수 있습니다. 이 문서에서는 개발자가 토큰 획득 실패가 발생할 경우 응용 프로그램의 복원 력을 높이기 위해 수행할 수 있는 단계를 간략하게 설명 합니다.
 

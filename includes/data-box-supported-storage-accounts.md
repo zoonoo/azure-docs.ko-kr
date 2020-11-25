@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 09/git14/2020
 ms.author: alkohli
 ms.openlocfilehash: 25c2ea04cd062554a975c63aae9b97846e646d68
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95556400"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027848"
 ---
 아래에는 Data Box 디바이스용으로 지원되는 스토리지 계정 및 스토리지 유형의 목록이 나와 있습니다. 모든 유형의 스토리지 계정과 해당 계정의 모든 기능이 포함된 전체 목록은 [스토리지 계정의 유형](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts)을 참조하세요.
 

@@ -9,11 +9,11 @@ ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 1b5905046fdde4d5574fd4d39f40dce1bbf11e32
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95564188"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026625"
 ---
 다음 표는 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)의 할당량과 제한을 제공합니다. Event Hubs 가격에 대한 자세한 내용은 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
 
