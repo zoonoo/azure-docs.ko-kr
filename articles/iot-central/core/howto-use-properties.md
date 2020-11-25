@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: aeb1e5ee00bd52ebb4bd93dec2f4a1eacb002fb9
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 992fb4422974dad7a48e5fea953ac4530bb52d5c
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94986534"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122602"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Azure IoT Central 솔루션에서 속성 사용
 
@@ -160,11 +160,7 @@ hubClient.getTwin((err, twin) => {
 });
 ```
 
-이 문서에서는 편의를 위해 Node.js를 사용 합니다. 장치 응용 프로그램 예제에 대 한 전체 정보는 다음 자습서를 참조 하세요.
-
-* [클라이언트 응용 프로그램을 만들어 Azure IoT Central 응용 프로그램에 연결 (Node.js)](tutorial-connect-device-nodejs.md)
-* [클라이언트 응용 프로그램을 만들어 Azure IoT Central 응용 프로그램에 연결 (Python)](tutorial-connect-device-python.md)
-* [클라이언트 응용 프로그램을 만들어 Azure IoT Central 응용 프로그램에 연결 (Java)](tutorial-connect-device-java.md)
+이 문서에서는 편의를 위해 Node.js를 사용 합니다. 장치 응용 프로그램 예제에 대 한 전체 정보는 [Azure IoT Central 응용 프로그램에 클라이언트 응용 프로그램 만들기 및 연결](tutorial-connect-device.md) 자습서를 참조 하세요.
 
 Azure IoT Central 응용 프로그램의 다음 보기에서는 볼 수 있는 속성을 보여 줍니다. 뷰는 **장치 모델** 속성을 _읽기 전용 장치 속성_ 으로 자동으로 만듭니다.
 
@@ -236,4 +232,4 @@ hubClient.getTwin((err, twin) => {
 이제 Azure IoT Central 응용 프로그램에서 속성을 사용 하는 방법을 알아보았습니다. 다음을 참조 하세요.
 
 * [Payloads](concepts-telemetry-properties-commands.md)
-* [클라이언트 응용 프로그램을 만들어 Azure IoT Central 응용 프로그램에 연결 (Node.js)](tutorial-connect-device-nodejs.md)
+* [클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결](tutorial-connect-device.md)

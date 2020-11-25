@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: abfd5fadcf553e73dca3f08bc8a0e377f2ace87d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1a050daa3a4b3ae9be5ef40961c40adaa90dc72b
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992661"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121805"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -255,7 +255,7 @@ IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사�
 
 디바이스 개발자라면 다음과 같은 몇 가지 단계를 살펴보세요.
 
-- 에서 SAS 토큰을 사용 하는 방법을 보여 주는 샘플 코드를 검토 합니다. [자습서: Azure IoT Central 응용 프로그램에 클라이언트 응용 프로그램 만들기 및 연결 (자습서-연결-장치-nodejs.md)
+- [자습서: 클라이언트 응용 프로그램을 만들어 Azure IoT Central 응용 프로그램에 연결](tutorial-connect-device.md) 에서 SAS 토큰을 사용 하는 방법을 보여 주는 샘플 코드를 검토 합니다.
 - [IoT Central 응용 프로그램용 Node.js 장치 SDK를 사용 하 여 x.509 인증서](how-to-connect-devices-x509.md) 를 사용 하 여 장치를 연결 하는 방법에 대해 알아봅니다.
 - [Azure CLI를 사용하여 디바이스 연결을 모니터링](./howto-monitor-devices-azure-cli.md)하는 방법을 알아봅니다.
 - [Azure IoT Central 응용 프로그램에서 새 IoT 장치 유형을 정의](./howto-set-up-template.md) 하는 방법을 알아봅니다.

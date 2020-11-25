@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 24fbe347aeb0b47ffd1ba694f761d909ff2950f8
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 5b1bbce68be19c2dbb08f7d69611b719b450a370
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989550"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121758"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>원격 분석, 속성 및 명령 페이로드
 
@@ -36,7 +36,7 @@ Azure IoT Central의 장치 템플릿은 다음을 정의 하는 청사진입니
 
 장치 모델을 정의 하는 JSON 파일은 [DTDL (디지털 쌍 정의 언어) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)를 사용 합니다.
 
-사용 중인 이러한 페이로드 중 일부를 표시 하는 샘플 장치 코드는 [클라이언트 응용 프로그램을 만들어 azure IoT Central 응용 프로그램에 연결 (Node.js)](tutorial-connect-device-nodejs.md) 하 고 [클라이언트 응용 프로그램을 만들어 azure IoT Central 응용 프로그램 (Python) 자습서에 연결](tutorial-connect-device-python.md) 을 참조 하세요.
+사용 중인 이러한 페이로드 중 일부를 보여 주는 샘플 장치 코드는 [Azure IoT Central 응용 프로그램에 클라이언트 응용 프로그램 만들기 및 연결](tutorial-connect-device.md) 자습서를 참조 하세요.
 
 ## <a name="view-raw-data"></a>원시 데이터 보기
 

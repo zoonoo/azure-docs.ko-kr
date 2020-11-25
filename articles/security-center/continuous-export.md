@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 59cfe7b990523e5cb165d1037291b3c1b1301624
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 43b66a59062a230aa2fba6909172deb5f1740b28
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289236"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122314"
 ---
 # <a name="continuously-export-security-center-data"></a>Security Center 데이터 연속 내보내기
 
@@ -61,7 +61,11 @@ Log Analytics 작업 영역 또는 Azure Event Hubs에 대 한 연속 내보내�
 1. Security Center의 사이드바에서 **가격 책정 & 설정** 을 선택 합니다.
 1. 데이터 내보내기를 구성할 특정 구독을 선택 합니다.
 1. 해당 구독에 대 한 설정 페이지의 사이드바에서 **연속 내보내기** 를 선택 합니다.
-    [ ![ 내보내기 옵션 Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) 내보내기 옵션을 볼 수 있습니다. 사용 가능한 각 내보내기 대상에 대 한 탭이 있습니다. 
+
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Azure Security Center의 내보내기 옵션":::
+
+    여기에서 내보내기 옵션을 볼 수 있습니다. 사용 가능한 각 내보내기 대상에 대 한 탭이 있습니다. 
+
 1. 내보낼 데이터 형식을 선택 하 고 각 유형의 필터에서 선택 합니다 (예: 높은 심각도 경고만 내보내기).
 1. 선택 사항에 따라 이러한 4 가지 권장 사항 중 하나를 포함 하는 경우 취약성 평가 결과를 함께 포함할 수 있습니다.
     - SQL 데이터베이스에 대 한 취약성 평가 결과를 재구성 해야 합니다.
@@ -163,7 +167,7 @@ Log Analytics 작업 영역 내의 Azure Security Center 데이터를 분석 하
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Azure Monitor에서 내보낸 경고 및 권장 사항 보기
 
-경우에 따라 [Azure Monitor](../azure-monitor/platform/alerts-overview.md)에서 내보낸 보안 경고 및/또는 권장 사항을 보도록 선택할 수 있습니다. 
+[Azure Monitor](../azure-monitor/platform/alerts-overview.md)에서 내보낸 보안 경고 및/또는 권장 사항을 보도록 선택할 수도 있습니다. 
 
 Azure Monitor는 진단 로그, 메트릭 경고 및 Log Analytics 작업 영역 쿼리를 기반으로 하는 사용자 지정 경고를 비롯 한 다양 한 Azure 경고에 대 한 통합 경고 환경을 제공 합니다.
 

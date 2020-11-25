@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 11/24/2020
 ms.author: procha
 ms.reviewer: jrasnick
-ms.openlocfilehash: 94872d3765a992fd025f30feaab95248ce6831ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 19941963b5200b3ffdb9f2360301d30fe9df4823
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920159"
+ms.locfileid: "96121844"
 ---
 # <a name="azure-synapse-analytics-system-integration-partners"></a>Azure Synapse Analytics 시스템 통합 파트너
 
 이 문서에서는 Azure Synapse를 사용 하 여 솔루션을 구축 하는 Microsoft system integration partner 회사를 강조 합니다.
 
-## <a name="our-public-preview-launch-partners"></a>공개 미리 보기 출시 파트너
+## <a name="system-integration-partners"></a>시스템 통합 파트너
 | 파트너 | Description | 웹 사이트/제품 링크 |
 | ------- | ----------- | -------------------- |
 | ![Accenture](./media/sql-data-warehouse-partner-public-preview/accenture-logo.png) |**Accenture**<br>Accenture Microsoft 비즈니스 그룹인 Avanade로 제공 되는 45000 + 전용 전문가를 함께 사용 하면 기업이 디지털 중단의 연대를 올립니다 수 있습니다.|[파트너 페이지](https://www.accenture.com/us-en/services/microsoft-index)<br>|
