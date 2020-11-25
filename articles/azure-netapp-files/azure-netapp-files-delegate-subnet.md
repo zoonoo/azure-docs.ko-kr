@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: b-juche
 ms.openlocfilehash: bb3d1fd49c2623ff6dcbe8a19ae8c8ca3b46425a
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930631"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006579"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Azure NetApp Files에 서브넷 위임 
 
@@ -40,12 +40,12 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.   볼륨을 만들 �
 
 1.  Azure Portal의 **가상 네트워크** 블레이드로 이동 하 여 Azure NetApp Files에 사용 하려는 가상 네트워크를 선택 합니다.    
 
-1. 가상 네트워크 블레이드에서 **서브넷**을 선택하고 **+서브넷** 단추를 클릭합니다. 
+1. 가상 네트워크 블레이드에서 **서브넷** 을 선택하고 **+서브넷** 단추를 클릭합니다. 
 
 1. 서브넷 추가 페이지에서 다음 필수 필드를 완료하여 Azure NetApp Files에 사용할 새 서브넷을 만듭니다.
     * **이름**: 서브넷 이름을 지정 합니다.
     * **주소 범위**: IP 주소 범위를 지정 합니다.
-    * **서브넷 위임**: **Microsoft netapp/볼륨**을 선택 합니다. 
+    * **서브넷 위임**: **Microsoft netapp/볼륨** 을 선택 합니다. 
 
       ![서브넷 위임](../media/azure-netapp-files/azure-netapp-files-subnet-delegation.png)
     

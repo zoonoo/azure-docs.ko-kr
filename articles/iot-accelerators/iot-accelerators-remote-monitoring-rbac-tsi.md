@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9d5d572c3e32e3645e65ba8d6fc28b567b3c1e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "65827174"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005965"
 ---
 # <a name="configure-access-controls-for-the-time-series-insights-telemetry-explorer"></a>Time Series Insights 원격 분석 데이터 탐색기에 대한 액세스 제어 구성
 
@@ -27,18 +27,18 @@ ms.locfileid: "65827174"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. Time Series Insights 환경을 찾습니다. **검색** 창에 **시계열**을 입력합니다. 검색 결과에서 **시계열 환경**을 선택합니다. 
+2. Time Series Insights 환경을 찾습니다. **검색** 창에 **시계열** 을 입력합니다. 검색 결과에서 **시계열 환경** 을 선택합니다. 
 
 3. 목록에서 Time Series Insights 환경을 선택합니다.
 
-4. **데이터 액세스 정책**을 선택한 다음 **+ 추가**를 선택합니다.
+4. **데이터 액세스 정책** 을 선택한 다음 **+ 추가** 를 선택합니다.
     ![Time Series Insights 소스 관리 - 환경](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access1.png)
 
-5. **사용자 선택**을 선택합니다.  사용자 이름 또는 메일 주소를 검색하여 추가할 사용자를 찾습니다. **선택**을 클릭하여 선택 사항을 확인합니다. 
+5. **사용자 선택** 을 선택합니다.  사용자 이름 또는 메일 주소를 검색하여 추가할 사용자를 찾습니다. **선택** 을 클릭하여 선택 사항을 확인합니다. 
 
     ![Time Series Insights 소스 관리 - 추가](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access2.png)
 
-6. **역할 선택**을 선택합니다. 사용자에 대한 적절한 액세스 역할을 선택합니다.
+6. **역할 선택** 을 선택합니다. 사용자에 대한 적절한 액세스 역할을 선택합니다.
    - 사용자가 참조 데이터를 변경 하 고 저장 된 쿼리 및 큐브 뷰를 환경의 다른 사용자와 공유할 수 있게 하려면 **참가자** 를 선택 합니다. 
    - 그렇지 않으면 **판독기** 를 선택 하 여 환경의 사용자가 데이터를 쿼리하고 환경에 개인 (공유 되지 않음) 쿼리를 저장 하도록 허용 합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "65827174"
 
      ![Time Series Insights 소스 관리 - 사용자 선택](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access3.png)
 
-7. **사용자 역할 선택** 페이지에서 **확인**을 선택합니다.
+7. **사용자 역할 선택** 페이지에서 **확인** 을 선택합니다.
 
     ![Time Series Insights 소스 관리 - 역할 선택](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access4.png)
 

@@ -16,11 +16,11 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 244fdbf7cb723fe85e0987d176a13242f0bff064
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956826"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005931"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>StorSimple 가상 배열 배포 - Azure Portal을 통해 파일 서버로 설정
 ![가상 배열을 배포 하는 데 필요한 단계를 보여 주는 다이어그램 세 번째 단계의 첫 번째 부분에는 파일 서버로 설정 된 레이블이 지정 되 고 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)

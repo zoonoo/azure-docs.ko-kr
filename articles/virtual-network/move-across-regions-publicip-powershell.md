@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
 ms.openlocfilehash: 4f72c22ee26375e025af7b3a391fdd45187e7041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84703743"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006271"
 ---
 # <a name="move-azure-public-ip-configuration-to-another-region-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 퍼블릭 IP 구성을 다른 지역으로 이동
 
@@ -68,7 +68,7 @@ ms.locfileid: "84703743"
    notepad <source-resource-group-name>.json
    ```
 
-5. 퍼블릭 IP 이름의 매개 변수를 편집하려면 원본 퍼블릭 IP 이름의 속성 **defaultValue**를 대상 퍼블릭 IP의 이름으로 변경하고 이름을 따옴표로 묶었는지 확인합니다.
+5. 퍼블릭 IP 이름의 매개 변수를 편집하려면 원본 퍼블릭 IP 이름의 속성 **defaultValue** 를 대상 퍼블릭 IP의 이름으로 변경하고 이름을 따옴표로 묶었는지 확인합니다.
     
     ```json
         {
@@ -135,7 +135,7 @@ ms.locfileid: "84703743"
 
          기본 및 표준 sku 퍼블릭 IP 간의 차이점에 대한 자세한 내용은 [퍼블릭 IP 주소 만들기, 변경 또는 삭제](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)를 참조하세요.
 
-    * **퍼블릭 IP 할당 방법** 및 **유휴 시간 제한** - **publicIPAllocationMethod** 속성을 **Dynamic**에서 **Static**으로 또는 **Static**에서 **Dynamic**으로 변경하여 템플릿에서 이러한 옵션을 모두 변경할 수 있습니다. **idleTimeoutInMinutes** 속성을 원하는 크기만큼 변경하여 유휴 시간 제한을 변경할 수 있습니다.  기본값은 **4**입니다.
+    * **퍼블릭 IP 할당 방법** 및 **유휴 시간 제한** - **publicIPAllocationMethod** 속성을 **Dynamic** 에서 **Static** 으로 또는 **Static** 에서 **Dynamic** 으로 변경하여 템플릿에서 이러한 옵션을 모두 변경할 수 있습니다. **idleTimeoutInMinutes** 속성을 원하는 크기만큼 변경하여 유휴 시간 제한을 변경할 수 있습니다.  기본값은 **4** 입니다.
 
          ```json
          "resources": [

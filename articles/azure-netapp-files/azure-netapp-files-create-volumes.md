@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
 ms.openlocfilehash: e88cf0c063b3ba42dadd72c19c23be8fcf919b86
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930733"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006613"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 볼륨 만들기
 
@@ -52,11 +52,11 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
 
 ## <a name="create-an-nfs-volume"></a>NFS 볼륨 만들기
 
-1.  용량 풀 블레이드에서 **볼륨** 블레이드를 클릭합니다. **+ 볼륨 추가**를 클릭하여 볼륨을 만듭니다. 
+1.  용량 풀 블레이드에서 **볼륨** 블레이드를 클릭합니다. **+ 볼륨 추가** 를 클릭하여 볼륨을 만듭니다. 
 
     ![볼륨으로 이동](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.  볼륨 만들기 창에서 **만들기**를 클릭 하 고 기본 사항 탭에서 다음 필드에 대 한 정보를 제공 합니다.   
+2.  볼륨 만들기 창에서 **만들기** 를 클릭 하 고 기본 사항 탭에서 다음 필드에 대 한 정보를 제공 합니다.   
     * **볼륨 이름**      
         만들고 있는 볼륨의 이름을 지정합니다.   
 
@@ -86,7 +86,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
         볼륨에 사용할 서브넷을 지정합니다.  
         지정하는 서브넷은 Azure NetApp Files에 위임되어야 합니다. 
         
-        서브넷을 위임하지 않은 경우에는 볼륨 만들기 페이지에서 **새로 만들기**를 클릭할 수 있습니다. 그런 다음, 서브넷 만들기 페이지에서 서브넷 정보를 지정하고 **Microsoft.NetApp/volumes**를 선택하여 Azure NetApp Files의 서브넷을 위임합니다. 각 Vnet에서 하나의 서브넷만 Azure NetApp Files로 위임할 수 있습니다.   
+        서브넷을 위임하지 않은 경우에는 볼륨 만들기 페이지에서 **새로 만들기** 를 클릭할 수 있습니다. 그런 다음, 서브넷 만들기 페이지에서 서브넷 정보를 지정하고 **Microsoft.NetApp/volumes** 를 선택하여 Azure NetApp Files의 서브넷을 위임합니다. 각 Vnet에서 하나의 서브넷만 Azure NetApp Files로 위임할 수 있습니다.   
  
         ![볼륨 만들기](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
@@ -98,8 +98,8 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
 
         ![고급 선택 표시](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
-3. **프로토콜**을 클릭한 후, 다음 작업을 완료합니다.  
-    * **NFS**를 볼륨에 대한 프로토콜 유형으로 선택합니다.   
+3. **프로토콜** 을 클릭한 후, 다음 작업을 완료합니다.  
+    * **NFS** 를 볼륨에 대한 프로토콜 유형으로 선택합니다.   
     * 새 볼륨의 내보내기 경로를 만드는 데 사용 될 **파일 경로** 를 지정 합니다. 내보내기 경로는 볼륨을 탑재하고 액세스하는 데 사용됩니다.
 
         파일 경로 이름에는 문자, 숫자 및 하이픈("-")만 포함할 수 있습니다. 이름은 16자~40자여야 합니다. 
@@ -116,7 +116,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
 
     ![NFS 프로토콜 지정](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 
-4. **검토 + 만들기**를 클릭하여 볼륨 정보를 검토합니다.  그런 다음 **만들기** 를 클릭 하 여 볼륨을 만듭니다.
+4. **검토 + 만들기** 를 클릭하여 볼륨 정보를 검토합니다.  그런 다음 **만들기** 를 클릭 하 여 볼륨을 만듭니다.
 
     만든 볼륨이 볼륨 페이지에 표시됩니다. 
  

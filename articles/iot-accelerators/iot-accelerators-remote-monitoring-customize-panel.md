@@ -10,11 +10,11 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.custom: devx-track-js
 ms.openlocfilehash: 1dcca8409022ba4cf1f988b7c777e3a1fa511060
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318367"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006067"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>원격 모니터링 솔루션 가속기 웹 UI의 대시보드에 사용자 지정 패널 추가
 
@@ -25,12 +25,12 @@ ms.locfileid: "91318367"
 
 이 문서의 예제 패널은 기존 대시보드 페이지에 표시됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 방법 가이드의 단계를 완료하려면 로컬 개발 머신에 다음과 같은 소프트웨어가 설치되어 있어야 합니다.
 
 - [Git](https://git-scm.com/downloads)
-- [Node.js](https://nodejs.org/download/)
+- [Node.JS](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -58,7 +58,7 @@ export * from './examplePanel';
 
 ### <a name="add-the-panel-to-the-dashboard"></a>대시보드에 패널 추가
 
-**src/components/pages/dashboard/dashboard.js**를 수정하여 패널을 추가합니다.
+**src/components/pages/dashboard/dashboard.js** 를 수정하여 패널을 추가합니다.
 
 패널의 가져오기 목록에 예제 패널을 추가합니다.
 

@@ -9,11 +9,11 @@ ms.date: 09/24/2020
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: f3678045eae269429909f7ba0e007e13d2b02bc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91421978"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006827"
 ---
 | 범주 | 데이터 저장소 |
 |:--- |:--- |
@@ -99,4 +99,4 @@ ms.locfileid: "91421978"
 | &nbsp; |[Zoho(미리 보기)](../articles/data-factory/connector-zoho.md) |
 
 > [!NOTE]
-> *미리 보기*로 표시된 모든 커넥터는 사용자가 직접 사용해 보고 피드백을 제공할 수 있음을 의미합니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
+> *미리 보기* 로 표시된 모든 커넥터는 사용자가 직접 사용해 보고 피드백을 제공할 수 있음을 의미합니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.

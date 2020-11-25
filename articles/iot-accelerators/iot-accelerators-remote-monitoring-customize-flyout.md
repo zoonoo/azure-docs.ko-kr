@@ -10,11 +10,11 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.custom: devx-track-js
 ms.openlocfilehash: afd8c5b01b9f36606bf6bd43fbed747ca83ba320
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318418"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006118"
 ---
 # <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 플라이아웃 추가
 
@@ -25,12 +25,12 @@ ms.locfileid: "91318418"
 
 이 문서의 예제 플라이아웃은 [원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 그리드 추가](iot-accelerators-remote-monitoring-customize-grid.md) 방법 문서에서 추가 방법을 보여주는 그리드가 있는 페이지에 표시됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 방법 가이드의 단계를 완료하려면 로컬 개발 머신에 다음과 같은 소프트웨어가 설치되어 있어야 합니다.
 
 - [Git](https://git-scm.com/downloads)
-- [Node.js](https://nodejs.org/download/)
+- [Node.JS](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -60,9 +60,9 @@ ms.locfileid: "91318418"
 
 ### <a name="add-the-flyout-to-the-page"></a>페이지에 플라이아웃 추가
 
-플라이아웃을 추가하도록 **src/components/pages/example/basicPage.js**를 수정합니다.
+플라이아웃을 추가하도록 **src/components/pages/example/basicPage.js** 를 수정합니다.
 
-**components/shared**에서 가져온 항목에 **Btn**을 추가하고 **svgs** 및 **ExampleFlyoutContainer**에 대한 가져오기를 추가합니다.
+**components/shared** 에서 가져온 항목에 **Btn** 을 추가하고 **svgs** 및 **ExampleFlyoutContainer** 에 대한 가져오기를 추가합니다.
 
 ```js
 import {
@@ -77,7 +77,7 @@ import { svgs } from 'utilities';
 import { ExampleFlyoutContainer } from './flyouts/exampleFlyout';
 ```
 
-**closedFlyoutState**에 대한 **const** 정의를 추가하고 생성자의 상태에 추가합니다.
+**closedFlyoutState** 에 대한 **const** 정의를 추가하고 생성자의 상태에 추가합니다.
 
 ```js
 const closedFlyoutState = { openFlyoutName: undefined };

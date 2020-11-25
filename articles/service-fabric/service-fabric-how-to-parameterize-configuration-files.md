@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: mikhegn
 ms.openlocfilehash: 4e96a732cffd70b0a5c24e7ebafe214297a72720
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75644633"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006050"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Service Fabric에서 구성 파일을 매개 변수화하는 방법
 
@@ -20,7 +20,7 @@ ms.locfileid: "75644633"
 
 이 예제에서는 애플리케이션 배포에서 매개 변수를 사용하여 구성 값을 재정의합니다.
 
-1. 서비스 프로젝트에서 * \<MyService>\PackageRoot\Config\Settings.xml* 파일을 엽니다.
+1. 서비스 프로젝트에서 *\<MyService>\PackageRoot\Config\Settings.xml* 파일을 엽니다.
 1. 다음 XML을 추가하여 구성 매개 변수 이름 및 값(예: 캐시 크기가 25임)을 설정하세요.
 
    ```xml
@@ -30,7 +30,7 @@ ms.locfileid: "75644633"
    ```
 
 1. 파일을 저장하고 닫습니다.
-1. * \<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* 파일을 엽니다.
+1. *\<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* 파일을 엽니다.
 1. ApplicationManifest.xml 파일에서 `Parameters` 요소에 매개 변수와 기본값을 선언하세요.  매개 변수 이름에 서비스 이름(예: “내 서비스”)이 포함되어 있는 것이 좋습니다.
 
    ```xml

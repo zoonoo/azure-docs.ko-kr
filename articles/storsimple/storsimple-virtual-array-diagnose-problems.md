@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 6cb78a7042ca3acbb27f510207783b97f733cfb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249538"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005846"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>StorSimple Device Manager 서비스를 사용하여 StorSimple Virtual Array 문제 해결
 ## <a name="overview"></a>개요
@@ -36,7 +36,7 @@ StorSimple Virtual Array에 발생하는 일반적인 문제 중 일부를 확�
 
 1. StorSimple Device Manager 서비스 요약 블레이드의 왼쪽 창에서 **문제 진단 및 해결** 설정을 클릭하여 일반적인 문제 목록을 확인합니다.
 
-2. 발생하는 문제의 증상을 **확장**하여 문제 해결에 도움이 되는 **권장 단계**를 검토합니다. 원한다면 추가 참조를 위해 제공되는 자세한 설명서 링크를 검토할 수 있습니다.
+2. 발생하는 문제의 증상을 **확장** 하여 문제 해결에 도움이 되는 **권장 단계** 를 검토합니다. 원한다면 추가 참조를 위해 제공되는 자세한 설명서 링크를 검토할 수 있습니다.
    
     ![문제 해결](./media/storsimple-virtual-array-diagnose-problems/diagnose-problems-offline.png)
 

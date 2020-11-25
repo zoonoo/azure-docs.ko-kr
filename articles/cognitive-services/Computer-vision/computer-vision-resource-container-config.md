@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 5094bd4aa5ac68c24f284cfb74e410fbdf089af7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0539f37fe15f68d8bfd47bf426333f9d5c67c37d
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677172"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006878"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>읽기 OCR Docker 컨테이너 구성
 
@@ -33,12 +33,12 @@ ms.locfileid: "92677172"
 
 |필수|설정|목적|
 |--|--|--|
-|아니요|ReadEngineConfig:ResultExpirationPeriod| v2.0 컨테이너에만 해당 합니다. 결과 만료 기간 (시간)입니다. 기본값은 48시간입니다. 설정은 시스템이 인식 결과를 지워야 하는 경우를 지정 합니다. 예를 들어 인 경우 `resultExpirationPeriod=1` 시스템은 프로세스 후 1 시간 후에 인식 결과를 지웁니다. 이면 `resultExpirationPeriod=0` 결과가 검색 된 후 시스템이 인식 결과를 지웁니다.|
-|아니요|캐시: Redis| v2.0 컨테이너에만 해당 합니다. 결과를 저장 하는 Redis 저장소를 사용 하도록 설정 합니다. 여러 읽기 컨테이너를 부하 분산 장치 뒤에 배치 하는 경우 캐시가 *필요* 합니다.|
-|아니요|큐: RabbitMQ|v2.0 컨테이너에만 해당 합니다. RabbitMQ에서 작업을 디스패치할 수 있습니다. 이 설정은 부하 분산 장치 뒤에 여러 개의 읽기 컨테이너가 배치 된 경우에 유용 합니다.|
-|아니요|큐: Azure: QueueVisibilityTimeoutInMilliseconds | v3. x 컨테이너에만 해당 합니다. 다른 작업 자가 처리할 때 메시지를 표시 하지 않는 시간입니다. |
-|아니요|저장소::D ocumentStore:: MongoDB|v2.0 컨테이너에만 해당 합니다. 영구 결과 저장소에 대해 MongoDB를 사용 하도록 설정 합니다. |
-|아니요|저장소: ObjectStore: AzureBlob: ConnectionString| v3. x 컨테이너에만 해당 합니다. Azure blob storage 연결 문자열입니다. |
+|No|ReadEngineConfig:ResultExpirationPeriod| v2.0 컨테이너에만 해당 합니다. 결과 만료 기간 (시간)입니다. 기본값은 48시간입니다. 설정은 시스템이 인식 결과를 지워야 하는 경우를 지정 합니다. 예를 들어 인 경우 `resultExpirationPeriod=1` 시스템은 프로세스 후 1 시간 후에 인식 결과를 지웁니다. 이면 `resultExpirationPeriod=0` 결과가 검색 된 후 시스템이 인식 결과를 지웁니다.|
+|No|캐시: Redis| v2.0 컨테이너에만 해당 합니다. 결과를 저장 하는 Redis 저장소를 사용 하도록 설정 합니다. 여러 읽기 컨테이너를 부하 분산 장치 뒤에 배치 하는 경우 캐시가 *필요* 합니다.|
+|No|큐: RabbitMQ|v2.0 컨테이너에만 해당 합니다. RabbitMQ에서 작업을 디스패치할 수 있습니다. 이 설정은 부하 분산 장치 뒤에 여러 개의 읽기 컨테이너가 배치 된 경우에 유용 합니다.|
+|No|큐: Azure: QueueVisibilityTimeoutInMilliseconds | v3. x 컨테이너에만 해당 합니다. 다른 작업 자가 처리할 때 메시지를 표시 하지 않는 시간입니다. |
+|No|저장소::D ocumentStore:: MongoDB|v2.0 컨테이너에만 해당 합니다. 영구 결과 저장소에 대해 MongoDB를 사용 하도록 설정 합니다. |
+|No|저장소: ObjectStore: AzureBlob: ConnectionString| v3. x 컨테이너에만 해당 합니다. Azure blob storage 연결 문자열입니다. |
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 구성 설정
 
@@ -99,10 +99,10 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 다음 예제에서는 구성 설정을 사용하여 `docker run` 명령을 쓰고 사용하는 방법을 설명합니다.  한번 실행되면 컨테이너는 [중지](computer-vision-how-to-install-containers.md#stop-the-container)할 때까지 계속 실행됩니다.
 
-* **줄 연속 문자** : 다음 섹션의 Docker 명령은 백슬래시를 `\` 줄 연속 문자로 사용 합니다. 호스트 운영 체제의 요구 사항에서 이 기준을 바꾸거나 제거합니다. 
-* **인수 순서** : Docker 컨테이너에 대해 잘 알고 있지 않으면 인수의 순서를 변경 하지 마세요.
+* **줄 연속 문자**: 다음 섹션의 Docker 명령은 백슬래시를 `\` 줄 연속 문자로 사용 합니다. 호스트 운영 체제의 요구 사항에서 이 기준을 바꾸거나 제거합니다. 
+* **인수 순서**: Docker 컨테이너에 대해 잘 알고 있지 않으면 인수의 순서를 변경 하지 마세요.
 
-{ _argument_name_ }을(를) 사용자 고유 값으로 바꿉니다.
+{_argument_name_}을(를) 사용자 고유 값으로 바꿉니다.
 
 | 자리 표시자 | 값 | 형식 또는 예 |
 |-------------|-------|---|
@@ -120,13 +120,13 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 다음 Docker 예제는 읽기 컨테이너를 위한 것입니다.
 
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-32-preview"></a>[버전 3.2-미리 보기](#tab/version-3-2)
 
 ### <a name="basic-example"></a>기본 예제
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -137,7 +137,7 @@ ApiKey={API_KEY}
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

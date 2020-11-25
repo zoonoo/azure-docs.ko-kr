@@ -7,19 +7,19 @@ ms.topic: article
 ms.date: 07/28/2020
 ms.author: zarhoads
 ms.openlocfilehash: 0ca2d7ccc863e2208db1212ef3d3f10fa709d069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87407118"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006647"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>빠른 시작: 투구를 사용 하 여 AKS (Azure Kubernetes Service)에서 개발
 
-[투구][helm] 는 Kubernetes 응용 프로그램의 수명 주기를 설치 하 고 관리 하는 데 도움이 되는 오픈 소스 패키징 도구입니다. *APT* , *Yum*등의 Linux 패키지 관리자와 마찬가지로, 투구는 미리 구성 된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리 하는 데 사용 됩니다.
+[투구][helm] 는 Kubernetes 응용 프로그램의 수명 주기를 설치 하 고 관리 하는 데 도움이 되는 오픈 소스 패키징 도구입니다. *APT* , *Yum* 등의 Linux 패키지 관리자와 마찬가지로, 투구는 미리 구성 된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리 하는 데 사용 됩니다.
 
 이 문서에서는 AKS에서 응용 프로그램을 패키지 하 고 실행 하는 데 투구를 사용 하는 방법을 보여 줍니다. 투구를 사용 하 여 기존 응용 프로그램을 설치 하는 방법에 대 한 자세한 내용은 [AKS에서 투구로 기존 응용 프로그램 설치][helm-existing]를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -33,7 +33,7 @@ az group create --name MyResourceGroup --location eastus
 az acr create --resource-group MyResourceGroup --name MyHelmACR --sku Basic
 ```
 
-다음 예제와 유사하게 출력됩니다. ACR에 대 한 *loginServer* 값은 이후 단계에서 사용 되므로 기록해 둡니다. 아래 예제에서 *myhelmacr.azurecr.io* 는 *MyloginServer Macr*의 *loginServer* 입니다.
+다음 예제와 유사하게 출력됩니다. ACR에 대 한 *loginServer* 값은 이후 단계에서 사용 되므로 기록해 둡니다. 아래 예제에서 *myhelmacr.azurecr.io* 는 *MyloginServer Macr* 의 *loginServer* 입니다.
 
 ```console
 {
@@ -77,7 +77,7 @@ Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습
 az aks install-cli
 ```
 
-Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials][] 명령을 사용합니다. 다음 예제에서는 *Myresourcegroup*에서 *MyAKS* 라는 AKS 클러스터에 대 한 자격 증명을 가져옵니다.
+Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials][] 명령을 사용합니다. 다음 예제에서는 *Myresourcegroup* 에서 *MyAKS* 라는 AKS 클러스터에 대 한 자격 증명을 가져옵니다.
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
@@ -129,12 +129,12 @@ az acr build --image webfrontend:v1 \
 helm create webfrontend
 ```
 
-*Webfrontend 엔드/값*으로 다음 업데이트를 수행 합니다. yaml. 이전 단계에서 기록한 레지스트리의 loginServer (예: *myhelmacr.azurecr.io*)를 대체 합니다.
+*Webfrontend 엔드/값* 으로 다음 업데이트를 수행 합니다. yaml. 이전 단계에서 기록한 레지스트리의 loginServer (예: *myhelmacr.azurecr.io*)를 대체 합니다.
 
 * `image.repository`를 `<loginServer>/webfrontend`로 변경
 * `service.type`를 `LoadBalancer`로 변경
 
-예를 들면 다음과 같습니다.
+예들 들어 다음과 같습니다.
 
 ```yml
 # Default values for webfrontend.

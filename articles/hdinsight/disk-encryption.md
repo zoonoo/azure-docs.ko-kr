@@ -9,11 +9,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.openlocfilehash: a9a90fbb2eedd6db2873d4ac2a5fea94c05c7eed
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844747"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005659"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대 한 Azure HDInsight 이중 암호화
 
@@ -101,7 +101,7 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 1. **액세스 정책 추가** 페이지에서 다음 정보를 제공 합니다.
 
-    |속성 |설명|
+    |속성 |Description|
     |---|---|
     |키 권한|**가져오기**, **키 래핑** 및 **키 래핑** 을 선택 합니다.|
     |비밀 권한|**가져오기**, **설정** 및 **삭제** 를 선택 합니다.|

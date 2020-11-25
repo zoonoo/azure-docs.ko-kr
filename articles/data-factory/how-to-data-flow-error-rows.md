@@ -6,20 +6,28 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: 3f8ac2d1434019548b01d8468015a543d89d0fba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d11dfe3d42d99c610fae9fa64079a5fd87501f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254415"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006793"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Data Factory 매핑 데이터 흐름에서 SQL 잘림 오류 행 처리
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-데이터 흐름 매핑을 사용할 때 Data Factory 일반적인 시나리오는 변환 된 데이터를 Azure SQL Database의 데이터베이스에 쓰는 것입니다. 이 시나리오에서는을 방지 해야 하는 일반적인 오류 조건을 열 잘림을 수행할 수 있습니다. 이러한 단계를 수행 하 여 대상 문자열 열에 맞지 않는 열에 대 한 로깅을 제공 하면 데이터 흐름이 해당 시나리오에서 계속 될 수 있습니다.
+데이터 흐름 매핑을 사용할 때 Data Factory 일반적인 시나리오는 변환 된 데이터를 Azure SQL Database의 데이터베이스에 쓰는 것입니다. 이 시나리오에서는을 방지 해야 하는 일반적인 오류 조건을 열 잘림을 수행할 수 있습니다.
+
+ADF 데이터 흐름의 데이터베이스 싱크에 데이터를 쓸 때 오류를 정상적으로 처리 하는 두 가지 기본 방법이 있습니다.
+
+* 데이터베이스 데이터를 처리할 때 싱크 [오류 행 처리](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#error-row-handling) 를 "오류 발생 시 계속"로 설정 합니다. 이는 데이터 흐름에 사용자 지정 논리가 필요 하지 않은 자동 catch 방법입니다.
+* 또는 다음 단계를 수행 하 여 대상 문자열 열에 맞지 않는 열에 대 한 로깅을 제공 하 여 데이터 흐름을 계속할 수 있도록 합니다.
+
+> [!NOTE]
+> 자동 오류 행 처리를 사용 하도록 설정 하는 경우 아래 메서드와 달리 자체 오류 처리 논리를 작성 하는 경우에는에서 발생 하는 작은 성능 페널티와 ADF에서 오류를 트래핑 하는 2 단계 작업을 수행 하는 추가 단계를 수행 합니다.
 
 ## <a name="scenario"></a>시나리오
 
@@ -49,6 +57,10 @@ ms.locfileid: "85254415"
 4. 완료 된 데이터 흐름은 다음과 같습니다. 이제 SQL 잘림 오류를 방지 하 고 이러한 항목을 로그 파일에 저장 하기 위해 오류 행을 분할할 수 있습니다. 한편 성공 행은 대상 데이터베이스에 계속 쓸 수 있습니다.
 
     ![전체 데이터 흐름](media/data-flow/error2.png)
+
+5. 싱크 변환에서 오류 행 처리 옵션을 선택 하 고 "출력 오류 행"을 설정 하는 경우 ADF는 드라이버에서 보고 한 오류 메시지와 함께 행 데이터의 CSV 파일 출력을 자동으로 생성 합니다. 해당 대체 옵션을 사용 하 여 데이터 흐름에 해당 논리를 수동으로 추가할 필요는 없습니다. ADF가 오류를 트래핑 하 고 기록 하는 2 단계 방법을 구현할 수 있도록이 옵션을 사용 하면 약간의 성능 저하가 발생 합니다.
+
+    ![오류 행이 있는 전체 데이터 흐름](media/data-flow/error-row-3.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,11 +4,11 @@ description: Azure Container Instances에서 컨테이너의 CPU 및 메모리�
 ms.topic: article
 ms.date: 04/24/2019
 ms.openlocfilehash: b10c370b599233d00b2b4a65268f6c61a11cbd5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526700"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007259"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 리소스 모니터링
 
@@ -31,7 +31,7 @@ Azure Monitor는 다음과 같은 [Azure Container Instances를 위한 메트릭
 
 * **메모리 사용량** (바이트)입니다.
 
-* 초당 **수신한 네트워크 바이트** 및 초당 **전송 된 네트워크 바이트**수입니다. 
+* 초당 **수신한 네트워크 바이트** 및 초당 **전송 된 네트워크 바이트** 수입니다. 
 
 ## <a name="get-metrics---azure-portal"></a>메트릭 가져오기 - Azure Portal
 
@@ -41,8 +41,8 @@ Azure Monitor는 다음과 같은 [Azure Container Instances를 위한 메트릭
 
 여러 컨테이너를 포함하는 컨테이너 그룹에서 [차원][monitor-dimension]을 사용하여 컨테이너별로 메트릭을 표시합니다. 개별 컨테이너 메트릭이 있는 차트를 만들려면 다음 단계를 수행합니다.
 
-1. **개요** 페이지에서 **CPU**와 같은 메트릭 차트 중 하나를 선택합니다. 
-1. **분할 적용** 단추를 선택하고 **컨테이너 이름**을 선택합니다.
+1. **개요** 페이지에서 **CPU** 와 같은 메트릭 차트 중 하나를 선택합니다. 
+1. **분할 적용** 단추를 선택하고 **컨테이너 이름** 을 선택합니다.
 
 ![화면 캡처는 선택한 분할 적용 및 컨테이너 이름이 선택 된 컨테이너 인스턴스에 대 한 메트릭을 보여 줍니다.][dimension]
 
