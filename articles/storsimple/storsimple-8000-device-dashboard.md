@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 34bbf4d723e46663efe77560245db74d9dea1fc4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957914"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017154"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>StorSimple 디바이스 관리자 서비스에서 디바이스 요약 사용
 

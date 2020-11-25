@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: 2dc3df81a62e9a844db2d951b9146b08bdae5ed9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4753f7c0b8b5e515d33da3f9df48a2cdd9d921cc
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360805"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96017579"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>SQL API 계정으로 Azure Cosmos DB Java SDK v4를 사용하는 경우 발생하는 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -120,9 +120,9 @@ Netty IO 스레드는 비차단 Netty IO 작업에만 사용해야 합니다. SD
 
     성능 테스트 중에는 작은 비율의 요청이 제한될 때까지 로드를 늘려야 합니다. 제한될 경우 클라이언트 애플리케이션은 서버에서 지정한 재시도 간격 제한을 백오프해야 합니다. 백오프를 통해 재시도 간 기간을 최소화할 수 있습니다.
 
-### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Azure Cosmos DB 에뮬레이터 연결 오류
+### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Azure Cosmos DB 에뮬레이터에 연결 하지 못했습니다.
 
-Azure Cosmos DB 에뮬레이터 HTTPS 인증서는 자체 서명입니다. SDK를 에뮬레이터와 함께 사용하려면 에뮬레이터 인증서를 Java TrustStore로 가져와야 합니다. 자세한 내용은 [Azure Cosmos DB 에뮬레이터 인증서 내보내기](local-emulator-export-ssl-certificates.md)를 참조하세요.
+Azure Cosmos DB Emulator HTTPS 인증서는 자체 서명 됩니다. SDK를 에뮬레이터와 함께 사용하려면 에뮬레이터 인증서를 Java TrustStore로 가져와야 합니다. 자세한 내용은 [Azure Cosmos DB 에뮬레이터 인증서 내보내기](local-emulator-export-ssl-certificates.md)를 참조 하세요.
 
 ### <a name="dependency-conflict-issues"></a>종속성 충돌 문제
 
@@ -136,7 +136,7 @@ mvn dependency:tree
 ```
 자세한 내용은 [maven 종속성 트리 가이드](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html)를 참조하세요.
 
-이전 버전에 종속된 프로젝트 종속성을 아는 경우, 아래 예와 같이 pom 파일에서 해당 lib에 대한 종속성을 수정하고 전이적 종속성을 제외할 수 있습니다( *reactor-core* 는 오래된 종속성이라고 가정).
+이전 버전에 종속된 프로젝트 종속성을 아는 경우, 아래 예와 같이 pom 파일에서 해당 lib에 대한 종속성을 수정하고 전이적 종속성을 제외할 수 있습니다(*reactor-core* 는 오래된 종속성이라고 가정).
 
 ```xml
 <dependency>

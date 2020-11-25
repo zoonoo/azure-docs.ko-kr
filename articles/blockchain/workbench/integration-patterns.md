@@ -5,11 +5,11 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
 ms.openlocfilehash: dae63e16356e825d3be31380df1648749e59d8bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86538361"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015505"
 ---
 # <a name="smart-contract-integration-patterns"></a>스마트 계약 통합 패턴
 
@@ -75,7 +75,7 @@ Azure Blockchain Workbench REST API는 분산 원장의 스마트 계약 실행�
 
 이 시나리오의 예는 트랜잭션이 발생하면 소비자가 경고를 받고 SQL DB 또는 Common Data Service에 정보를 기록하는 등 작업을 수행할 수 있다는 것입니다. 이 시나리오는 Workbench가 해당 *오프 체인* SQL DB를 채우기 위해 따르는 것과 동일한 패턴입니다.
 
-또 다른 예로 계약이 *OutOfCompliance*로 이동하는 경우와 같이 스마트 계약이 특정 상태로 전환되는 경우도 있습니다. 이 상태가 변경되면 관리자의 휴대폰으로 보내도록 경고를 트리거할 수 있습니다.
+또 다른 예로 계약이 *OutOfCompliance* 로 이동하는 경우와 같이 스마트 계약이 특정 상태로 전환되는 경우도 있습니다. 이 상태가 변경되면 관리자의 휴대폰으로 보내도록 경고를 트리거할 수 있습니다.
 
 ![단방향 이벤트 전송](./media/integration-patterns/one-way-event-delivery.png)
 
@@ -192,7 +192,7 @@ Azure 플랫폼에서 디바이스와의 통합은 일반적으로 IoT Hub를 �
 -   변환된 메시지는 이제 표준 형식으로 Azure Blockchain Workbench용 Service Bus로 전송됩니다.
 -   Azure Blockchain Workbench는 Service Bus의 이벤트를 구독하고 메시지를 검색합니다.
 -   Azure Blockchain Workbench는 외부 시스템에서 특정 계약으로 데이터를 전송하여 원장에 대한 호출을 시작합니다.
--   메시지를 수신하면 계약이 데이터를 평가하고 해당 평가의 결과에 따라 상태를 변경할 수 있습니다. 예를 들어 고온의 경우 상태를 *준수하지 않음*으로 변경합니다.
+-   메시지를 수신하면 계약이 데이터를 평가하고 해당 평가의 결과에 따라 상태를 변경할 수 있습니다. 예를 들어 고온의 경우 상태를 *준수하지 않음* 으로 변경합니다.
 
 ## <a name="data-integration"></a>데이터 통합
 
@@ -216,7 +216,7 @@ Azure Blockchain Workbench는 REST 및 메시지 기반 API 외에도 분산 원
 
 -   외부 시스템은 Azure Storage와 같은 스토리지 메커니즘에 파일을 유지합니다.
 -   해시는 파일 또는 파일 및 소유자의 식별자, 파일이 있는 URL 등과 같은 관련 메타데이터로 생성됩니다.
--   해시 및 모든 메타데이터는 *FileAdded*와 같은 스마트 계약의 함수로 전송됩니다.
+-   해시 및 모든 메타데이터는 *FileAdded* 와 같은 스마트 계약의 함수로 전송됩니다.
 -   나중에 파일과 메타데이터를 다시 해시할 수 있고 원장에 저장된 값과 비교할 수 있습니다.
 
 ## <a name="prerequisites-for-implementing-integration-patterns-using-the-rest-and-message-apis"></a>REST 및 메시지 API를 사용하여 통합 패턴을 구현하기 위한 전제 조건

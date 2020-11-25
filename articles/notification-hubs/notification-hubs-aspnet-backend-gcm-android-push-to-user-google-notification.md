@@ -16,11 +16,11 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: c137cbf0c2290bdbe228f7902e616e7f79cb459e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307792"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016984"
 ---
 # <a name="tutorial-send-push-notification-to-specific-android-users-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 사용자에게 푸시 알림 보내기(더 이상 사용되지 않음)
 
@@ -470,13 +470,13 @@ ms.locfileid: "91307792"
 
 1. Android Studio를 사용하여 디바이스 또는 에뮬레이터에서 애플리케이션을 실행합니다.
 2. Android 앱에서 사용자 이름과 암호를 입력합니다. 둘 다 동일한 문자열 값이어야 하며 공백이나 특수 문자를 포함해서는 안 됩니다.
-3. Android 앱에서 **로그인**을 클릭합니다. **Logged in and registered**를 나타내는 알림 메시지를 기다립니다. 이렇게 하면 **알림 보내기** 단추가 사용되도록 설정됩니다.
+3. Android 앱에서 **로그인** 을 클릭합니다. **Logged in and registered** 를 나타내는 알림 메시지를 기다립니다. 이렇게 하면 **알림 보내기** 단추가 사용되도록 설정됩니다.
 
     ![앱의 스크린샷. 사용자가 로그인하여 등록되었음을 확인하는 알림 메시지가 표시되고 알림 보내기 단추가 켜집니다.][A2]
 4. 토글 단추를 클릭하여 앱을 실행하고 사용자를 등록한 모든 플랫폼을 활성화합니다.
 5. 알림 메시지를 받을 사용자의 이름을 입력합니다. 대상 디바이스에 이 사용자에 대한 알림이 등록되어 있어야 합니다.
 6. 사용자가 푸시 알림 메시지로 받을 메시지를 입력합니다.
-7. **Send Notification**을 클릭합니다.  일치하는 사용자 이름 태그로 등록된 각 디바이스에 푸시 알림이 수신됩니다.
+7. **Send Notification** 을 클릭합니다.  일치하는 사용자 이름 태그로 등록된 각 디바이스에 푸시 알림이 수신됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

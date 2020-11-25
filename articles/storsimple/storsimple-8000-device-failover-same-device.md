@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
 ms.openlocfilehash: 17c116194aa52a82246bcee9114824e8a918ebbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184332"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017103"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>StorSimple 물리적 디바이스를 동일한 디바이스로 장애 조치(failover)
 
@@ -32,7 +32,7 @@ ms.locfileid: "88184332"
 물리적 디바이스를 다른 물리적 디바이스로 장애 조치(failover)하려면 [동일한 StorSimple 물리적 디바이스로 장애 조치(failover)](storsimple-8000-device-failover-physical-device.md)로 이동하세요. StorSimple 물리적 디바이스를 StorSimple Cloud Appliance로 장애 조치(failover)하려면 [StorSimple Cloud Appliance로 장애 조치(failover)](storsimple-8000-device-failover-cloud-appliance.md)로 이동하세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - 디바이스 장애 조치(failover)에 대한 고려 사항을 검토했는지 확인하세요. 자세한 내용을 보려면 [디바이스 장애 조치(failover)에 대한 일반적인 고려 사항](storsimple-8000-device-failover-disaster-recovery.md)으로 이동하세요.
 
@@ -43,14 +43,14 @@ ms.locfileid: "88184332"
 
 1. 디바이스에서 모든 볼륨의 클라우드 스냅샷을 마련합니다. 자세한 내용을 보려면 [StorSimple 디바이스 관리자 서비스를 사용하여 백업 만들기](storsimple-8000-manage-backup-policies-u2.md)로 이동합니다.
 2. 디바이스를 공장 기본값으로 다시 설정합니다. [StorSimple 디바이스를 공장 기본 설정으로 다시 설정하는 방법](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings)의 자세한 지침에 따릅니다.
-3. StorSimple 디바이스 관리자 서비스로 이동한 다음 **디바이스**를 선택합니다. **디바이스** 블레이드에서 이전 디바이스는 **오프라인**으로 표시되어야 합니다.
+3. StorSimple 디바이스 관리자 서비스로 이동한 다음 **디바이스** 를 선택합니다. **디바이스** 블레이드에서 이전 디바이스는 **오프라인** 으로 표시되어야 합니다.
 
     ![오프라인 상태의 원본 디바이스](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev2.png)
 
 4. 디바이스를 구성하고 StorSimple 디바이스 관리자 서비스에 다시 등록합니다. 새로 등록된 디바이스는 **Ready to set up**(설정 준비 완료)으로 표시되어야 합니다. 새 디바이스의 디바이스 이름이 이전 디바이스와 동일하지만 디바이스가 공장 기본값으로 다시 설정되어 다시 등록되었음을 나타내는 숫자가 추가되어 있습니다.
 
     ![설정 준비 완료 상태의 새로 등록된 디바이스](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev3.png)
-5. 새 디바이스의 경우 디바이스 설정을 완료합니다. 자세한 내용을 보려면 [4단계: 최소 디바이스 설정 완료](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup)로 이동하세요. **디바이스** 블레이드에서 디바이스의 상태가 **온라인**으로 변경됩니다.
+5. 새 디바이스의 경우 디바이스 설정을 완료합니다. 자세한 내용을 보려면 [4단계: 최소 디바이스 설정 완료](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup)로 이동하세요. **디바이스** 블레이드에서 디바이스의 상태가 **온라인** 으로 변경됩니다.
 
    > [!IMPORTANT]
    > **최소 구성을 먼저 완료하지 않으면 DR이 실패할 수 있습니다.**
@@ -69,11 +69,11 @@ ms.locfileid: "88184332"
 
    ![마이그레이션된 볼륨 컨테이너](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev13.png)
 
-9. 장애 조치(failover)가 완료되면 포털에서 이전 디바이스를 비활성화하고 삭제할 수 있습니다. 이전 디바이스(오프라인)를 선택하고 마우스 오른쪽 단추를 클릭한 다음, **비활성화**를 선택합니다. 디바이스가 비활성화되면 디바이스 상태가 업데이트됩니다.
+9. 장애 조치(failover)가 완료되면 포털에서 이전 디바이스를 비활성화하고 삭제할 수 있습니다. 이전 디바이스(오프라인)를 선택하고 마우스 오른쪽 단추를 클릭한 다음, **비활성화** 를 선택합니다. 디바이스가 비활성화되면 디바이스 상태가 업데이트됩니다.
 
      ![비활성화된 원본 디바이스](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev14.png)
 
-10. 비활성화된 디바이스를 선택하고 마우스 오른쪽 단추를 클릭한 다음, **삭제**를 선택합니다. 이렇게 하면 디바이스 목록에서 디바이스가 삭제됩니다.
+10. 비활성화된 디바이스를 선택하고 마우스 오른쪽 단추를 클릭한 다음, **삭제** 를 선택합니다. 이렇게 하면 디바이스 목록에서 디바이스가 삭제됩니다.
 
     ![삭제된 원본 디바이스](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev15.png)
 

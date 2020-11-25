@@ -9,19 +9,19 @@ ms.date: 07/09/2020
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 612e7dc2f3d1ef6aa5d3598999aa214a2f377e1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513192"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016388"
 ---
 ## <a name="overview-of-ssh-and-keys"></a>SSH 및 키에 대한 개요
 
-[SSH](https://www.ssh.com/ssh/) 는 보안 되지 않은 연결에 대 한 보안 로그인 기능을 제공 하는 암호화 된 연결 프로토콜입니다. SSH는 Azure에서 호스팅되는 Linux VM에 대한 기본 연결 프로토콜입니다. SSH는 암호화 된 연결을 제공 하지만, SSH 연결을 사용 하 여 암호를 사용 하면 VM이 무차별 암호 대입 공격에 취약 한 상태로 남아 있습니다. *Ssh 키*라고도 하는 공개-개인 키 쌍을 사용 하 여 ssh를 통해 VM에 연결 하는 것이 좋습니다. 
+[SSH](https://www.ssh.com/ssh/) 는 보안 되지 않은 연결에 대 한 보안 로그인 기능을 제공 하는 암호화 된 연결 프로토콜입니다. SSH는 Azure에서 호스팅되는 Linux VM에 대한 기본 연결 프로토콜입니다. SSH는 암호화 된 연결을 제공 하지만, SSH 연결을 사용 하 여 암호를 사용 하면 VM이 무차별 암호 대입 공격에 취약 한 상태로 남아 있습니다. *Ssh 키* 라고도 하는 공개-개인 키 쌍을 사용 하 여 ssh를 통해 VM에 연결 하는 것이 좋습니다. 
 
 - *공개 키는* Linux VM에 배치 됩니다.
 
-- *프라이빗 키*는 로컬 시스템에 남아 있습니다. 이 프라이빗 키는 보호해야 하는 한편, 공유하면 안됩니다.
+- *프라이빗 키* 는 로컬 시스템에 남아 있습니다. 이 프라이빗 키는 보호해야 하는 한편, 공유하면 안됩니다.
 
 SSH 클라이언트를 사용 하 여 Linux VM에 연결 하는 경우 (공개 키가 있음) 원격 VM은 클라이언트를 테스트 하 여 올바른 개인 키가 있는지 확인 합니다. 클라이언트에 프라이빗 키가 있으면 VM에 액세스할 수 있습니다. 
 

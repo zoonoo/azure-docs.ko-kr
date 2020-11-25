@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
 ms.openlocfilehash: a80cc29f318cff8e5a4c665cd07ba1829d25d66d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373388"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016338"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>비보증 배포에 대한 정보
 
@@ -35,7 +35,7 @@ Azure에서 실행되는 모든 배포에는 여러 가지 필수 구성 요소�
 이 문서에서는 Azure에서 Linux 배포판을 실행하기 위한 일반 지침에 대해 중점적으로 설명합니다.
 
 ## <a name="general-linux-installation-notes"></a>일반 Linux 설치 참고 사항
-* Azure에서는 *고정 VHD*만 지원하며, VHDX(Hyper-V 가상 하드 디스크) 형식은 지원하지 않습니다.  Hyper-v 관리자 또는 [변환-vhd](/powershell/module/hyper-v/convert-vhd) cmdlet을 사용 하 여 디스크를 VHD 형식으로 변환할 수 있습니다. VirtualBox를 사용하는 경우 디스크를 만들 때 기본값(동적 할당) 대신 **고정 크기**를 선택합니다.
+* Azure에서는 *고정 VHD* 만 지원하며, VHDX(Hyper-V 가상 하드 디스크) 형식은 지원하지 않습니다.  Hyper-v 관리자 또는 [변환-vhd](/powershell/module/hyper-v/convert-vhd) cmdlet을 사용 하 여 디스크를 VHD 형식으로 변환할 수 있습니다. VirtualBox를 사용하는 경우 디스크를 만들 때 기본값(동적 할당) 대신 **고정 크기** 를 선택합니다.
 * Azure는 Gen1 (BIOS boot) & Gen2 (UEFI 부팅) 가상 머신을 지원 합니다.
 * VHD에 허용되는 최대 크기는 1,023GB입니다.
 * Linux 시스템을 설치하는 경우 대부분의 설치에 대한 기본값인 LVM(논리 볼륨 관리자) 대신 표준 파티션을 사용하는 것이 좋습니다. 표준 파티션을 사용하면 특히 문제를 해결하기 위해 OS 디스크가 동일한 다른 VM에 연결되는 경우에도 LVM 이름이 복제된 VM과 충돌하지 않습니다. 데이터 디스크에서 [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다.
@@ -157,7 +157,7 @@ Azure [Linux 에이전트](../extensions/agent-linux.md) 는 `waagent` azure에�
     ```  
     console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
     ```
-    또한 다음 매개 변수가 있는 경우 이를 *제거*하는 것이 좋습니다.
+    또한 다음 매개 변수가 있는 경우 이를 *제거* 하는 것이 좋습니다.
     ```  
     rhgb quiet crashkernel=auto
     ```

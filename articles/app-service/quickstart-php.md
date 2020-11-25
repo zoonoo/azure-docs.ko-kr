@@ -6,11 +6,11 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 152a000939f74b1852073742e501ac66246389a5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88961440"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015888"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>Azure App Service에서 PHP 웹앱 만들기
 
@@ -60,7 +60,7 @@ php -S localhost:8080
 
 ![로컬로 실행되는 샘플 앱](media/quickstart-php/localhost-hello-world-in-browser.png)
 
-터미널 창에서 **Ctrl+C**를 눌러 웹 서버를 종료합니다.
+터미널 창에서 **Ctrl+C** 를 눌러 웹 서버를 종료합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -188,7 +188,7 @@ git push azure master
 
 ## <a name="manage-your-new-azure-app"></a>새 Azure 앱 관리
 
-1. 만든 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다. **App Services**를 검색하여 선택합니다.
+1. 만든 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다. **App Services** 를 검색하여 선택합니다.
 
     ![App Services 검색, Azure Portal, PHP 웹앱 만들기](media/quickstart-php/navigate-to-app-services-in-the-azure-portal.png)
 
@@ -196,7 +196,7 @@ git push azure master
 
     ![Azure 앱에 대한 포털 탐색](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
 
-    웹앱의 **개요** 페이지가 표시됩니다. 여기에서 **찾아보기**, **중지**, **다시 시작** 및 **삭제**와 같은 기본 관리 작업을 수행할 수 있습니다.
+    웹앱의 **개요** 페이지가 표시됩니다. 여기에서 **찾아보기**, **중지**, **다시 시작** 및 **삭제** 와 같은 기본 관리 작업을 수행할 수 있습니다.
 
     ![Azure Portal의 App Service 페이지](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 

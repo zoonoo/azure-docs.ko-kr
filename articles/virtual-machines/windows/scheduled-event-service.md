@@ -8,11 +8,11 @@ ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
 ms.openlocfilehash: 0806c6e0ed89c2c0f4712ec985599810119fcf89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999023"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015522"
 ---
 # <a name="monitoring-scheduled-events"></a>예약된 이벤트 모니터링
 
@@ -58,7 +58,7 @@ New-AzVm `
 
 [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip)에서 프로젝트의 설치 .zip 파일을 다운로드합니다.
 
-**myCollectorVM**에 연결하고 .zip 파일을 가상 머신에 복사한 후 모든 파일의 압축을 풉니다. VM에서 PowerShell 프롬프트를 엽니다. 프롬프트를 `SchService.ps1`을 포함하는 폴더(예: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`)로 이동하고 서비스를 설정합니다.
+**myCollectorVM** 에 연결하고 .zip 파일을 가상 머신에 복사한 후 모든 파일의 압축을 풉니다. VM에서 PowerShell 프롬프트를 엽니다. 프롬프트를 `SchService.ps1`을 포함하는 폴더(예: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`)로 이동하고 서비스를 설정합니다.
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -105,24 +105,24 @@ New-AzVm `
  예약된 이벤트를 서비스에서 애플리케이션 로그로 저장되는 이벤트 로그로 라우팅하려면 Log Analytics 작업 영역에 가상 머신을 연결해야 합니다.  
  
 1. 만든 작업 영역에 대한 페이지를 엽니다.
-1. **데이터 원본에 연결**에서 **Azure VM(Virtual Machines)** 을 선택합니다.
+1. **데이터 원본에 연결** 에서 **Azure VM(Virtual Machines)** 을 선택합니다.
 
     ![데이터 원본으로 VM에 연결](./media/notifications/connect-to-data-source.png)
 
-1. **myCollectorVM**을 검색한 후 선택합니다. 
-1. **myCollectorVM**에 대한 새 페이지에서 **연결**을 선택합니다.
+1. **myCollectorVM** 을 검색한 후 선택합니다. 
+1. **myCollectorVM** 에 대한 새 페이지에서 **연결** 을 선택합니다.
 
 그러면 가상 머신에 [Microsoft Monitoring Agent](../extensions/oms-windows.md)가 설치됩니다. VM을 작업 영역에 연결하고 확장을 설치하는 데 몇 분 정도 걸립니다. 
 
 ## <a name="configure-the-workspace"></a>작업 영역 구성
 
-1. 작업 영역에 대한 페이지를 열고 **고급 설정**을 선택합니다.
-1. 왼쪽 메뉴에서 **데이터**를 선택하고 **Windows 이벤트 로그**를 선택합니다.
-1. **다음 이벤트 로그에서 수집**에서 *애플리케이션*이라고 입력한 후 목록에서 **애플리케이션**을 선택합니다.
+1. 작업 영역에 대한 페이지를 열고 **고급 설정** 을 선택합니다.
+1. 왼쪽 메뉴에서 **데이터** 를 선택하고 **Windows 이벤트 로그** 를 선택합니다.
+1. **다음 이벤트 로그에서 수집** 에서 *애플리케이션* 이라고 입력한 후 목록에서 **애플리케이션** 을 선택합니다.
 
     ![고급 설정 선택](./media/notifications/advanced.png)
 
-1. **오류**, **경고** 및 **정보**를 선택한 후 **저장**을 선택하여 설정을 저장합니다.
+1. **오류**, **경고** 및 **정보** 를 선택한 후 **저장** 을 선택하여 설정을 저장합니다.
 
 
 > [!NOTE]
@@ -134,7 +134,7 @@ New-AzVm `
 
 이벤트가 Log Analytics에 푸시되면 다음 [쿼리](../../azure-monitor/log-query/get-started-portal.md)를 실행하여 일정 이벤트를 찾을 수 있습니다.
 
-1. 페이지 위쪽에서 **로그**를 선택하고 텍스트 상자에 다음을 붙여 넣습니다.
+1. 페이지 위쪽에서 **로그** 를 선택하고 텍스트 상자에 다음을 붙여 넣습니다.
 
     ```
     Event
@@ -150,26 +150,26 @@ New-AzVm `
     | project-away RenderedDescription,ReqJson
     ```
 
-1. **저장**을 선택한 다음, 이름으로 *logQuery*를 입력하고, 유형으로 **쿼리**를 지정하고, **범주**로 *VMLogs*를 입력한 다음, **저장**을 선택합니다. 
+1. **저장** 을 선택한 다음, 이름으로 *logQuery* 를 입력하고, 유형으로 **쿼리** 를 지정하고, **범주** 로 *VMLogs* 를 입력한 다음, **저장** 을 선택합니다. 
 
     ![쿼리 저장](./media/notifications/save-query.png)
 
-1. **새 경고 규칙**을 선택합니다. 
-1. **규칙 만들기** 페이지에서 `collectorworkspace`를 **리소스**로 둡니다.
-1. **조건**에서 *고객 로그 검색이 있을 때마다<login undefined>* 항목을 선택합니다. **신호 논리 구성** 페이지가 열립니다.
-1. **임계값**에서 *0*를 입력하고 **완료**를 선택합니다.
-1. **작업**에서 **작업 그룹 만들기**를 선택합니다. **작업 그룹 추가** 페이지가 열립니다.
-1. **작업 그룹 이름**에 *myActionGroup*을 입력합니다.
-1. **약식 이름**에 **myActionGroup**을 입력합니다.
-1. **리소스 그룹**에서 **myResourceGroupAvailability**를 선택합니다.
-1. 작업 아래의 **작업 이름**에 **Email**을 입력하고 **메일/SMS/푸시/음성**을 선택합니다. 그러면 **메일/SMS/푸시/음성** 페이지가 열립니다.
-1. **메일**을 선택하고 메일 주소를 입력한 다음, **확인**을 선택합니다.
-1. **작업 그룹 추가** 페이지에서 **확인**을 선택합니다. 
-1. **규칙 만들기** 페이지의 **경고 정보**에서 *경고 규칙 이름*에 **myAlert**를 입력하고, *설명*에 **메일 경고 규칙**을 입력합니다.
-1. 작업이 완료되면 **경고 규칙 만들기**를 선택합니다.
+1. **새 경고 규칙** 을 선택합니다. 
+1. **규칙 만들기** 페이지에서 `collectorworkspace`를 **리소스** 로 둡니다.
+1. **조건** 에서 *고객 로그 검색이 있을 때마다<login undefined>* 항목을 선택합니다. **신호 논리 구성** 페이지가 열립니다.
+1. **임계값** 에서 *0* 를 입력하고 **완료** 를 선택합니다.
+1. **작업** 에서 **작업 그룹 만들기** 를 선택합니다. **작업 그룹 추가** 페이지가 열립니다.
+1. **작업 그룹 이름** 에 *myActionGroup* 을 입력합니다.
+1. **약식 이름** 에 **myActionGroup** 을 입력합니다.
+1. **리소스 그룹** 에서 **myResourceGroupAvailability** 를 선택합니다.
+1. 작업 아래의 **작업 이름** 에 **Email** 을 입력하고 **메일/SMS/푸시/음성** 을 선택합니다. 그러면 **메일/SMS/푸시/음성** 페이지가 열립니다.
+1. **메일** 을 선택하고 메일 주소를 입력한 다음, **확인** 을 선택합니다.
+1. **작업 그룹 추가** 페이지에서 **확인** 을 선택합니다. 
+1. **규칙 만들기** 페이지의 **경고 정보** 에서 *경고 규칙 이름* 에 **myAlert** 를 입력하고, *설명* 에 **메일 경고 규칙** 을 입력합니다.
+1. 작업이 완료되면 **경고 규칙 만들기** 를 선택합니다.
 1. 가용성 집합에서 VM 중 하나를 다시 시작합니다. 몇 분 이내에 경고가 트리거된 메일을 받게 됩니다.
 
-경고 규칙을 관리하려면 리소스 그룹으로 이동하여 왼쪽 메뉴에서 **경고**를 선택한 다음, 페이지 맨 위에서 **경고 규칙 관리**를 선택합니다.
+경고 규칙을 관리하려면 리소스 그룹으로 이동하여 왼쪽 메뉴에서 **경고** 를 선택한 다음, 페이지 맨 위에서 **경고 규칙 관리** 를 선택합니다.
 
      
 ## <a name="next-steps"></a>다음 단계

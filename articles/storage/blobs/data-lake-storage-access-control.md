@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 03117b9f0c3cbaea22f36703f689264549b851e8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 485b23d9b7ebac4f7d183239d035fbd53b09f4ee
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959138"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017684"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 Acl (액세스 제어 목록)
 
@@ -23,7 +23,7 @@ Azure Data Lake Storage Gen2은 azure RBAC (역할 기반 액세스 제어) 및 
 
 ## <a name="about-acls"></a>Acl 정보
 
-[보안 주체](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) 를 파일 및 디렉터리에 대 한 액세스 수준과 연결할 수 있습니다. 이러한 연결은 *ACL (액세스 제어 목록)* 에서 캡처됩니다. 저장소 계정의 각 파일과 디렉터리에는 액세스 제어 목록이 있습니다. 보안 주체가 파일이 나 디렉터리에 대 한 작업을 시도 하는 경우 ACL 검사는 해당 보안 주체 (사용자, 그룹, 서비스 주체 또는 관리 id)에 게 작업을 수행할 수 있는 올바른 권한 수준이 있는지 여부를 확인 합니다.
+[보안 주체](../../role-based-access-control/overview.md#security-principal) 를 파일 및 디렉터리에 대 한 액세스 수준과 연결할 수 있습니다. 이러한 연결은 *ACL (액세스 제어 목록)* 에서 캡처됩니다. 저장소 계정의 각 파일과 디렉터리에는 액세스 제어 목록이 있습니다. 보안 주체가 파일이 나 디렉터리에 대 한 작업을 시도 하는 경우 ACL 검사는 해당 보안 주체 (사용자, 그룹, 서비스 주체 또는 관리 id)에 게 작업을 수행할 수 있는 올바른 권한 수준이 있는지 여부를 확인 합니다.
 
 > [!NOTE]
 > Acl은 동일한 테 넌 트의 보안 주체에만 적용 되며 공유 키 또는 SAS (공유 액세스 서명) 토큰 인증을 사용 하는 사용자에 게는 적용 되지 않습니다. Id가 호출자와 연결 되어 있지 않으므로 보안 주체 권한 기반 권한 부여를 수행할 수 없기 때문입니다.  
@@ -40,7 +40,7 @@ Azure Data Lake Storage Gen2은 azure RBAC (역할 기반 액세스 제어) 및 
 |Python|[Python을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
 |PowerShell|[PowerShell을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
 |Azure CLI|[Azure Data Lake Storage Gen2에서 Azure CLI를 사용하여 디렉터리, 파일 및 ACL 관리](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
-|REST API |[경로-업데이트](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|REST API |[경로-업데이트](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > 보안 주체가 *서비스* 사용자 인 경우 관련 앱 등록의 개체 id가 아니라 서비스 주체의 개체 id를 사용 하는 것이 중요 합니다. 서비스 주체의 개체 ID를 가져오려면 Azure CLI를 연 후 다음 명령을 사용 `az ad sp show --id <Your App ID> --query objectId` 합니다. `<Your App ID>`자리 표시자를 앱 등록의 앱 ID로 바꾸어야 합니다.
@@ -92,7 +92,8 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 
 다음 표에서는 가상 디렉터리 계층 구조의 각 수준을 나타내는 열을 보여 줍니다. 컨테이너 ()의 루트 디렉터리에 대 한 열, `\` **Oregon** 라는 하위 디렉터리, **포틀랜드** 라는 Oregon 디렉터리의 하위 디렉터리 및 **Data.txt** 라는 포틀랜드 디렉터리의 텍스트 파일이 있습니다. 
 
-> [! IMPORANT]이 테이블에서는 Azure 역할 할당 없이 acl **만** 사용 한다고 가정 합니다. Azure RBAC와 Acl을 결합 하는 비슷한 표를 보려면 [사용 권한 테이블: AZURE rbac 및 ACL 결합](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl)을 참조 하세요.
+> [!IMPORTANT]
+> 이 표에서는 Azure 역할 할당 없이 acl **만** 사용 한다고 가정 합니다. Azure RBAC와 Acl을 결합 하는 비슷한 표를 보려면 [사용 권한 테이블: AZURE rbac 및 ACL 결합](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl)을 참조 하세요.
 
 |    작업(Operation)             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -330,7 +331,7 @@ OID가 표시 됩니다.
 
 아니요. 컨테이너에는 ACL이 없습니다. 그러나 컨테이너의 루트 디렉터리에 대 한 ACL을 설정할 수 있습니다. 모든 컨테이너에는 루트 디렉터리가 있으며 컨테이너와 같은 이름을 공유 합니다. 예를 들어 컨테이너 이름이 인 경우 `my-container` 루트 디렉터리의 이름은 `myContainer/` 입니다. 
 
-Azure Storage REST API에는 [Set CONTAINER ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)이라는 작업이 포함 되어 있지만 컨테이너 또는 컨테이너의 루트 디렉터리에 대 한 acl을 설정 하는 데 해당 작업을 사용할 수 없습니다. 대신이 작업을 사용 하 여 컨테이너의 blob에 공개적으로 [액세스할](anonymous-read-access-configure.md)수 있는지 여부를 나타냅니다. 
+Azure Storage REST API에는 [Set CONTAINER ACL](/rest/api/storageservices/set-container-acl)이라는 작업이 포함 되어 있지만 컨테이너 또는 컨테이너의 루트 디렉터리에 대 한 acl을 설정 하는 데 해당 작업을 사용할 수 없습니다. 대신이 작업을 사용 하 여 컨테이너의 blob에 공개적으로 [액세스할](anonymous-read-access-configure.md)수 있는지 여부를 나타냅니다. 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>POSIX 액세스 제어 모델에 대한 어디서 자세히 알아볼 수 있나요?
 
@@ -343,6 +344,6 @@ Azure Storage REST API에는 [Set CONTAINER ACL](https://docs.microsoft.com/rest
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Linux에서 액세스 제어 목록을 사용 하는 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 - [Azure Data Lake Storage Gen2의 액세스 제어 모델](data-lake-storage-access-control-model.md)

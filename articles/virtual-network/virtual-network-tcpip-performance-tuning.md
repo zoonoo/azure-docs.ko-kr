@@ -16,11 +16,11 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87068521"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017613"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Azure Vm에 대 한 TCP/IP 성능 튜닝
 
@@ -111,7 +111,7 @@ IP 헤더와 TCP 헤더는 각각 20 바이트 또는 총 40 바이트입니다.
 
 MSS가 협상 되었지만 사용할 수 있는 실제 MSS를 나타내지 않을 수 있습니다. 이는 원본과 대상 간의 경로에 있는 다른 네트워크 장치의 MTU 값이 원본 및 대상 보다 낮을 수 있기 때문입니다. 이 경우 MTU가 패킷 보다 작은 장치에서 패킷이 삭제 됩니다. 장치는 해당 MTU를 포함 하는 ICMP 조각화 필요 (유형 3, 코드 4) 메시지를 다시 보냅니다. 이 ICMP 메시지를 통해 원본 호스트는 해당 경로 MTU를 적절 하 게 줄일 수 있습니다. 이 프로세스를 PMTUD (경로 MTU 검색) 라고 합니다.
 
-PMTUD 프로세스는 비효율적 이며 네트워크 성능에 영향을 줍니다. 네트워크 경로의 MTU를 초과 하는 패킷을 전송 하는 경우에는 더 낮은 MSS로 패킷을 다시 전송 해야 합니다. 발신자가 ICMP 조각화 필요 메시지를 받지 못한 경우, 경로 (일반적으로 *Pmtud 블랙 홀*이라고 함)의 네트워크 방화벽 때문에 보낸 사람이 MSS를 낮출 필요가 없다는 것을 알 수 없으며 지속적으로 패킷을 재전송 합니다. Azure VM MTU를 늘리지 않는 것이 좋습니다.
+PMTUD 프로세스는 비효율적 이며 네트워크 성능에 영향을 줍니다. 네트워크 경로의 MTU를 초과 하는 패킷을 전송 하는 경우에는 더 낮은 MSS로 패킷을 다시 전송 해야 합니다. 발신자가 ICMP 조각화 필요 메시지를 받지 못한 경우, 경로 (일반적으로 *Pmtud 블랙 홀* 이라고 함)의 네트워크 방화벽 때문에 보낸 사람이 MSS를 낮출 필요가 없다는 것을 알 수 없으며 지속적으로 패킷을 재전송 합니다. Azure VM MTU를 늘리지 않는 것이 좋습니다.
 
 #### <a name="vpn-and-mtu"></a>VPN 및 MTU
 
@@ -287,7 +287,7 @@ Azure는 다양 한 성능 기능을 포함 하는 다양 한 VM 크기와 유�
 
 Azure virtual machines에는 하나 이상의 네트워크 인터페이스가 연결 되어 있습니다. 여기에는 여러 가지가 있을 수 있습니다. 가상 컴퓨터에 할당 된 대역폭은 컴퓨터에 연결 된 모든 네트워크 인터페이스에서 모든 아웃 바운드 트래픽의 합계입니다. 즉, 컴퓨터에 연결 된 네트워크 인터페이스 수에 관계 없이 가상 컴퓨터 별로 대역폭이 할당 됩니다.
 
-예상 되는 아웃 바운드 처리량과 각 VM 크기에서 지 원하는 네트워크 인터페이스 수는 [Azure의 Windows 가상 머신에 대 한 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)에 자세히 설명 되어 있습니다. 최대 처리량을 확인 하려면 **일반적인 용도**와 같은 유형을 선택한 다음 결과 페이지 (예: "Dv2 시리즈")에서 크기 시리즈에 대 한 섹션을 찾습니다. 각 계열에 대해 마지막 열에는 "최대 Nic/예상 네트워크 대역폭 (Mbps)" 이라는 네트워킹 사양을 제공 하는 테이블이 있습니다.
+예상 되는 아웃 바운드 처리량과 각 VM 크기에서 지 원하는 네트워크 인터페이스 수는 [Azure의 Windows 가상 머신에 대 한 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)에 자세히 설명 되어 있습니다. 최대 처리량을 확인 하려면 **일반적인 용도** 와 같은 유형을 선택한 다음 결과 페이지 (예: "Dv2 시리즈")에서 크기 시리즈에 대 한 섹션을 찾습니다. 각 계열에 대해 마지막 열에는 "최대 Nic/예상 네트워크 대역폭 (Mbps)" 이라는 네트워킹 사양을 제공 하는 테이블이 있습니다.
 
 처리량 제한은 가상 컴퓨터에 적용됩니다. 처리량은 다음 요인의 영향을 받지 않습니다.
 

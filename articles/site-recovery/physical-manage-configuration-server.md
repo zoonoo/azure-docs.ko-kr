@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: ff612b7c052ead5658ea4bbfafd7aace51ba3c02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86132499"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017443"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>물리적 서버 재해 복구용 구성 서버 관리
 
@@ -20,7 +20,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 아래 표에는 온-프레미스 구성 서버 컴퓨터 배포를 위한 필수 구성 요소가 요약되어 있습니다.
 
@@ -33,7 +33,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 | 사용 가능한 디스크 공간(보존 디스크) | 600GB|
 | 운영 체제  | Windows Server 2012 R2 <br> Windows Server 2016 |
 | 운영 체제 로케일 | 영어(미국)|
-| VMware vSphere PowerCLI 버전 | 필요 없음|
+| VMware vSphere PowerCLI 버전 | 필요하지 않음|
 | Windows Server 역할 | 다음 역할을 사용하지 않도록 설정함: <br> - Active Directory Domain Services <br>- 인터넷 정보 서비스 <br> - Hyper-V |
 | 그룹 정책| 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세한 정보](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
 | IIS | - 기존의 기본 웹 사이트 없음 <br> - [익명 인증](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) 사용 <br> - [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) 설정 사용  <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/애플리케이션 없음<br>|
@@ -58,33 +58,33 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 ## <a name="install-and-register-the-server"></a>서버 설치 및 등록
 
 1. 통합 설치 프로그램 설치 파일을 실행합니다.
-2. **시작하기 전에**에서 **구성 서버 및 프로세스 서버 설치**를 선택합니다.
+2. **시작하기 전에** 에서 **구성 서버 및 프로세스 서버 설치** 를 선택합니다.
 
     ![시작하기 전에](./media/physical-manage-configuration-server/combined-wiz1.png)
 
-3. **타사 소프트웨어 라이선스**에서 **동의함**을 클릭하고 MySQL을 다운로드 및 설치합니다.
-4. **인터넷 설정**에서 구성 서버에서 실행 중인 공급자가 인터넷을 통해 Azure Site Recovery에 연결하는 방법을 지정합니다. 필수 URL을 허용했는지 확인합니다.
+3. **타사 소프트웨어 라이선스** 에서 **동의함** 을 클릭하고 MySQL을 다운로드 및 설치합니다.
+4. **인터넷 설정** 에서 구성 서버에서 실행 중인 공급자가 인터넷을 통해 Azure Site Recovery에 연결하는 방법을 지정합니다. 필수 URL을 허용했는지 확인합니다.
 
-    - 현재 컴퓨터에 설정된 프록시를 사용하여 연결하려면 **프록시 서버를 사용하여 Azure Site Recovery에 연결**을 선택합니다.
-    - 공급자를 직접 연결하려면 **프록시 서버 없이 Azure Site Recovery에 직접 연결**을 선택합니다.
-    - 기존 프록시에 인증이 필요하거나 공급자 연결에 사용자 지정 프록시를 사용하려면 **사용자 지정 프록시 설정으로 연결**을 선택하고 주소, 포트 및 자격 증명을 지정합니다.
+    - 현재 컴퓨터에 설정된 프록시를 사용하여 연결하려면 **프록시 서버를 사용하여 Azure Site Recovery에 연결** 을 선택합니다.
+    - 공급자를 직접 연결하려면 **프록시 서버 없이 Azure Site Recovery에 직접 연결** 을 선택합니다.
+    - 기존 프록시에 인증이 필요하거나 공급자 연결에 사용자 지정 프록시를 사용하려면 **사용자 지정 프록시 설정으로 연결** 을 선택하고 주소, 포트 및 자격 증명을 지정합니다.
      ![방화벽](./media/physical-manage-configuration-server/combined-wiz4.png)
-6. **필수 조건 확인**에서 설치 프로그램은 설치가 실행될 수 있는지 확인합니다. **글로벌 시간 동기화 확인**에 대한 경고가 표시되면 시스템 시계의 시간(**날짜 및 시간** 설정)이 표준 시간대와 같은지 확인합니다.
+6. **필수 조건 확인** 에서 설치 프로그램은 설치가 실행될 수 있는지 확인합니다. **글로벌 시간 동기화 확인** 에 대한 경고가 표시되면 시스템 시계의 시간(**날짜 및 시간** 설정)이 표준 시간대와 같은지 확인합니다.
 
-    ![사전 요구 사항](./media/physical-manage-configuration-server/combined-wiz5.png)
-7. **MySQL 구성**에서 설치된 MySQL 서버 인스턴스에 로그온하기 위한 자격 증명을 만듭니다.
+    ![필수 조건](./media/physical-manage-configuration-server/combined-wiz5.png)
+7. **MySQL 구성** 에서 설치된 MySQL 서버 인스턴스에 로그온하기 위한 자격 증명을 만듭니다.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
-8. **환경 세부 정보**에서 VMware VM을 복제 여부를 선택합니다. 복제할 경우 설치 프로그램에서 PowerCLI 6.0이 설치되어 있는지 확인합니다.
-9. **설치 위치**에서 이진 파일을 설치하고 캐시를 저장할 위치를 선택합니다. 최소 5GB의 디스크 공간이 있는 드라이브를 선택해야 하지만 600GB 이상의 사용 가능한 공간이 있는 캐시 드라이브를 선택하는 것이 좋습니다.
+8. **환경 세부 정보** 에서 VMware VM을 복제 여부를 선택합니다. 복제할 경우 설치 프로그램에서 PowerCLI 6.0이 설치되어 있는지 확인합니다.
+9. **설치 위치** 에서 이진 파일을 설치하고 캐시를 저장할 위치를 선택합니다. 최소 5GB의 디스크 공간이 있는 드라이브를 선택해야 하지만 600GB 이상의 사용 가능한 공간이 있는 캐시 드라이브를 선택하는 것이 좋습니다.
 
     ![설치 위치](./media/physical-manage-configuration-server/combined-wiz8.png)
-10. **네트워크 선택**에서 먼저 기본 제공 프로세스 서버가 원본 머신에서 Mobility Service의 검색 및 푸시 설치에 사용하는 NIC를 선택한 다음, 구성 서버에서 Azure와의 연결에 사용하는 NIC를 선택합니다. 9443 포트는 복제 트래픽을 보내고 받는 데 사용되는 기본 포트이지만, 환경의 요구 사항에 맞게 이 포트 번호를 수정할 수 있습니다. 9443 포트 외에도 웹 서버에서 복제 작업을 조정하기 위해 사용하는 443 포트를 엽니다. 복제 트래픽을 보내거나 받는 데 443 포트를 사용하면 안 됩니다.
+10. **네트워크 선택** 에서 먼저 기본 제공 프로세스 서버가 원본 머신에서 Mobility Service의 검색 및 푸시 설치에 사용하는 NIC를 선택한 다음, 구성 서버에서 Azure와의 연결에 사용하는 NIC를 선택합니다. 9443 포트는 복제 트래픽을 보내고 받는 데 사용되는 기본 포트이지만, 환경의 요구 사항에 맞게 이 포트 번호를 수정할 수 있습니다. 9443 포트 외에도 웹 서버에서 복제 작업을 조정하기 위해 사용하는 443 포트를 엽니다. 복제 트래픽을 보내거나 받는 데 443 포트를 사용하면 안 됩니다.
 
     ![네트워크 선택](./media/physical-manage-configuration-server/combined-wiz9.png)
 
 
-11. **요약**에서 정보를 검토하고 **설치**를 클릭합니다. 설치가 완료되면 암호가 생성됩니다. 복제를 사용하도록 설정할 때 필요하므로 암호를 복사하고 안전한 위치에 보관합니다.
+11. **요약** 에서 정보를 검토하고 **설치** 를 클릭합니다. 설치가 완료되면 암호가 생성됩니다. 복제를 사용하도록 설정할 때 필요하므로 암호를 복사하고 안전한 위치에 보관합니다.
 
 
 등록이 완료되면 자격 증명 모음의 **설정** > **서버** 블레이드에 서버가 표시됩니다.
@@ -108,7 +108,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수 이름| 형식 | 설명| 값|
+|매개 변수 이름| 형식 | Description| 값|
 |-|-|-|-|
 | /ServerMode|필수|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
 |/InstallLocation|필수|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|
@@ -158,7 +158,7 @@ ProxyPassword="Password"
    ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. 새 프록시 세부 정보를 제공하고 **등록** 단추를 클릭합니다.
 6. 관리자 PowerShell 명령 창을 엽니다.
-7. 다음 명령을 실행합니다.
+7. 다음 명령 실행:
 
    ```powershell
    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -217,7 +217,7 @@ ProxyPassword="Password"
 
 ## <a name="upgrade-a-configuration-server"></a>구성 서버 업그레이드
 
-구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 예를 들면 다음과 같습니다.
+구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 예들 들어 다음과 같습니다.
 
 - 9.7, 9.8, 9.9 또는 9.10을 실행 중인 경우 9.11로 바로 업그레이드할 수 있습니다.
 - 9.6 이하를 실행 중이고 9.11로 업그레이드하려는 경우 먼저 9.7 버전으로 업그레이드한 후 9.11로 업그레이드해야 합니다.
@@ -229,7 +229,7 @@ ProxyPassword="Password"
 1. 업데이트 설치 관리자 파일을 구성 서버에 다운로드합니다.
 2. 두 번 클릭하여 설치 관리자를 실행합니다.
 3. 설치 관리자는 컴퓨터에서 실행 중인 현재 버전을 검색합니다.
-4. **확인**을 클릭하여 확인하고 업그레이드를 실행합니다. 
+4. **확인** 을 클릭하여 확인하고 업그레이드를 실행합니다. 
 
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>구성 서버 삭제 또는 등록 취소
@@ -242,10 +242,10 @@ ProxyPassword="Password"
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Azure Portal에서 구성 서버 삭제
-1. Azure Portal **Site Recovery Infrastructure**  >  자격 증명 모음 메뉴에서 Site Recovery 인프라**구성 서버** 로 이동 합니다.
+1. Azure Portal **Site Recovery Infrastructure**  >  자격 증명 모음 메뉴에서 Site Recovery 인프라 **구성 서버** 로 이동 합니다.
 2. 서비스를 해제하려는 구성 서버를 클릭합니다.
 3. 구성 서버의 세부 정보 페이지에서 **삭제** 단추를 클릭합니다.
-4. **예**를 클릭하여 서버 삭제를 확인합니다.
+4. **예** 를 클릭하여 서버 삭제를 확인합니다.
 
 ### <a name="uninstall-the-configuration-server-and-its-dependencies"></a>구성 서버 및 해당 종속성 제거
 > [!TIP]
@@ -303,9 +303,9 @@ ProxyPassword="Password"
 
 ### <a name="renew-the-certificate"></a>인증서 갱신
 
-1. 자격 증명 모음에서 **Site Recovery 인프라**  >  **구성 서버**를 열고 필요한 구성 서버를 클릭 합니다.
+1. 자격 증명 모음에서 **Site Recovery 인프라**  >  **구성 서버** 를 열고 필요한 구성 서버를 클릭 합니다.
 2. 만료 날짜가 **구성 서버 상태** 아래에 나타납니다.
-3. **인증서 갱신**을 클릭합니다. 
+3. **인증서 갱신** 을 클릭합니다. 
 
 
 

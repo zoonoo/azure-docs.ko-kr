@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 782abee06c5ab0f985e8bd90dbbecae18b1dfe02
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 2df401f7871d631ba317fb670783cad086b9a351
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442330"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96017562"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>찾을 수 없는 예외 Azure Cosmos DB 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,6 +25,11 @@ HTTP 상태 코드 404는 리소스가 더 이상 존재하지 않음을 나타�
 
 ## <a name="a-not-found-exception-was-returned-for-an-item-that-should-exist-or-does-exist"></a>존재 하거나 존재 해야 하는 항목에 대해 찾을 수 없는 예외가 반환 되었습니다.
 항목이 존재 하거나 존재 해야 하는 경우 상태 코드 404이 반환 되는 이유는 다음과 같습니다.
+
+### <a name="the-read-session-is-not-available-for-the-input-session-token"></a>읽기 세션을 입력 세션 토큰에 사용할 수 없음
+
+#### <a name="solution"></a>해결 방법:
+1. 현재 SDK를 사용 가능한 최신 버전으로 업데이트 합니다. 이 특정 오류에 대 한 가장 일반적인 원인은 최신 SDK 버전에서 수정 되었습니다.
 
 ### <a name="race-condition"></a>경합 조건
 여러 SDK 클라이언트 인스턴스가 있으며 쓰기 전에 읽기가 발생 했습니다.

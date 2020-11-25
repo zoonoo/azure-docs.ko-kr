@@ -9,11 +9,11 @@ ms.date: 11/20/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 241a2be834d7828cdb56f59313c0c1a9c478ff77
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94986800"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016530"
 ---
 - 이 기능은 현재 premium Ssd에 대해서만 지원 됩니다.
 - 디스크의 계층을 변경 하려면 먼저 VM의 할당을 취소 하거나 실행 중인 VM에서 디스크를 분리 해야 합니다.

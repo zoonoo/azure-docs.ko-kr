@@ -8,12 +8,12 @@ ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: d7718ebbbf4f9dec3519ce46e5d0d1cdbb5a7460
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: aa1c681d4b34199456f3447bcac5587005a044ce
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745970"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96016637"
 ---
 # <a name="using-azure-ultra-disks"></a>Azure ultra disks 사용
 
@@ -29,7 +29,7 @@ Azure ultra disks는 Azure IaaS Vm (가상 머신)에 대 한 높은 처리량, 
 
 ### <a name="vms-using-availability-zones"></a>가용성 영역을 사용 하는 Vm
 
-Ultra disks를 활용 하려면 사용 중인 가용성 영역을 확인 해야 합니다. 모든 지역이 ultra disks를 사용 하는 모든 VM 크기를 지 원하는 것은 아닙니다. 영역, 영역 및 VM 크기가 ultra disks를 지원 하는지 확인 하려면 다음 명령 중 하나를 실행 하 여 **지역** , **vmsize** 및 **구독** 값을 먼저 바꾸어야 합니다.
+Ultra disks를 활용 하려면 사용 중인 가용성 영역을 확인 해야 합니다. 모든 지역이 ultra disks를 사용 하는 모든 VM 크기를 지 원하는 것은 아닙니다. 영역, 영역 및 VM 크기가 ultra disks를 지원 하는지 확인 하려면 다음 명령 중 하나를 실행 하 여 **지역**, **vmsize** 및 **구독** 값을 먼저 바꾸어야 합니다.
 
 #### <a name="cli"></a>CLI
 
@@ -152,10 +152,10 @@ VM을 프로비전한 후 데이터 디스크를 분할 및 포맷하고 워크�
 
 
 - **저장소 유형을** **Ultra Disk** 로 변경 합니다.
-- **사용자 지정 디스크 크기 (GiB)** , **디스크 IOPS** 및 **디스크 처리량** 을 원하는 값으로 변경 합니다.
+- **사용자 지정 디스크 크기 (GiB)**, **디스크 IOPS** 및 **디스크 처리량** 을 원하는 값으로 변경 합니다.
 - 블레이드에서 **확인을** 선택 합니다.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="새 디스크 만들기 블레이드 스크린샷, 강조 표시 된 크기 변경":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="디스크 크기 선택 블레이드의 스크린샷, 저장소 형식으로 선택 된 ultra disk, 기타 값이 강조 표시 됩니다.":::
 
 - VM 배포를 계속 하면 다른 VM을 배포할 때와 동일 하 게 유지 됩니다.
 
@@ -165,11 +165,14 @@ VM을 프로비전한 후 데이터 디스크를 분할 및 포맷하고 워크�
 
 울트라 디스크를 연결 하기 위해 ultra disks를 사용할 수 있는 VM을 만들어야 합니다.
 
-**$Vmname** , **$rgname** , **$diskname** , **$location** , **$password** , **$user** 변수를 고유한 값으로 바꾸거나 설정 합니다. [이 문서의 시작 부분](#determine-vm-size-and-region-availability)에서 가져온 가용성 영역 값으로 **$zone** 설정 합니다. 그런 다음, 다음 CLI 명령을 실행 하 여 ultra enabled VM을 만듭니다.
+**$Vmname**, **$rgname**, **$diskname**, **$location**, **$password**, **$user** 변수를 고유한 값으로 바꾸거나 설정 합니다. [이 문서의 시작 부분](#determine-vm-size-and-region-availability)에서 가져온 가용성 영역 값으로 **$zone** 설정 합니다. 그런 다음, 다음 CLI 명령을 실행 하 여 ultra enabled VM을 만듭니다.
 
 ```azurecli-interactive
 az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku UltraSSD_LRS --disk-iops-read-write 8192 --disk-mbps-read-write 400
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location --attach-data-disks $diskname
+
+#create an ultra disk with 512 sector size
+az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku UltraSSD_LRS --disk-iops-read-write 8192 --disk-mbps-read-write 400 --logical-sector-size 512
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -222,6 +225,18 @@ $vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 $disk = Get-AzDisk -ResourceGroupName $resourceGroup -Name $diskName
 $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
+
+# Example for creating a disk with 512 sector size
+$diskconfig = New-AzDiskConfig `
+-Location 'EastUS2' `
+-DiskSizeGB 8 `
+-DiskIOPSReadWrite 1000 `
+-DiskMBpsReadWrite 100 `
+-LogicalSectorSize 512 `
+-AccountType UltraSSD_LRS `
+-CreateOption Empty `
+-zone $zone;
+
 ```
 
 ---
@@ -248,9 +263,9 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 - 새 디스크의 이름을 입력 한 다음 **크기 변경** 을 선택 합니다.
 - **계정 유형을** **Ultra Disk** 로 변경 합니다.
-- **사용자 지정 디스크 크기 (GiB)** , **디스크 IOPS** 및 **디스크 처리량** 을 원하는 값으로 변경 합니다.
+- **사용자 지정 디스크 크기 (GiB)**, **디스크 IOPS** 및 **디스크 처리량** 을 원하는 값으로 변경 합니다.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="새 디스크 만들기 블레이드 스크린샷, 강조 표시 된 크기 변경":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="디스크 크기 선택 블레이드의 스크린샷, 저장소 형식으로 선택 된 ultra disk, 기타 값이 강조 표시 됩니다.":::
 
 - **확인을** 선택 하 고 **만들기** 를 선택 합니다.
 - 디스크의 블레이드에 반환 되 면 **저장** 을 선택 합니다.
