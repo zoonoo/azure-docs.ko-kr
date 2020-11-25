@@ -3,12 +3,12 @@ title: '빠른 시작: Azure CLI를 사용하여 공유 쿼리 만들기'
 description: 이 빠른 시작에서는 단계에 따라 Azure CLI에 대한 Resource Graph 확장을 사용하도록 설정하고 공유 쿼리를 만듭니다.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: daaa0dc4039c37094330148f839fadf7b4013276
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 93df1c858ac6238a0192bcdedac8286f2cf75007
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057198"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919712"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Resource Graph 공유 쿼리 만들기
 
@@ -28,14 +28,14 @@ Azure CLI를 사용하도록 설정하여 Azure Resource Graph와 작업하려�
 
 1. 최신 Azure CLI가 설치되었는지 확인합니다(**2.8.0** 이상). 아직 설치되지 않은 경우 [다음 지침](/cli/azure/install-azure-cli-windows)을 따릅니다.
 
-1. 선택한 Azure CLI 환경에서 [az extension add](/cli/azure/extension#az-extension-add)를 사용하여 다음 명령으로 Resource Graph 확장을 가져옵니다.
+1. 선택한 Azure CLI 환경에서 [az extension add](/cli/azure/extension#az_extension_add)를 사용하여 다음 명령으로 Resource Graph 확장을 가져옵니다.
 
    ```azurecli-interactive
    # Add the Resource Graph extension to the Azure CLI environment
    az extension add --name resource-graph
    ```
 
-1. 확장이 설치되었고 [az extension list](/cli/azure/extension#az-extension-list)로 필요한 버전인지(최소 **1.1.0**) 유효성을 검사합니다.
+1. 확장이 설치되었고 [az extension list](/cli/azure/extension#az_extension_list)로 필요한 버전인지(최소 **1.1.0**) 유효성을 검사합니다.
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)
@@ -47,9 +47,9 @@ Azure CLI를 사용하도록 설정하여 Azure Resource Graph와 작업하려�
 
 ## <a name="create-a-resource-graph-shared-query"></a>Resource Graph 공유 쿼리 만들기
 
-Azure CLI 확장이 선택한 환경에 추가되었으므로 Resource Graph 공유 쿼리를 만들어 볼 수 있습니다. 공유 쿼리는 Azure Resource Graph Explorer에서 사용 권한을 부여하거나 실행할 수 있는 Azure Resource Manager 개체입니다. 이 쿼리는 _위치_로 그룹화된 모든 리소스의 수를 요약합니다.
+Azure CLI 확장이 선택한 환경에 추가되었으므로 Resource Graph 공유 쿼리를 만들어 볼 수 있습니다. 공유 쿼리는 Azure Resource Graph Explorer에서 사용 권한을 부여하거나 실행할 수 있는 Azure Resource Manager 개체입니다. 이 쿼리는 _위치_ 로 그룹화된 모든 리소스의 수를 요약합니다.
 
-1. [az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만들어 Azure Resource Graph 공유 쿼리를 저장합니다. 이 리소스 그룹의 이름은 `resource-graph-queries`이며 위치는 `westus2`입니다.
+1. [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만들어 Azure Resource Graph 공유 쿼리를 저장합니다. 이 리소스 그룹의 이름은 `resource-graph-queries`이며 위치는 `westus2`입니다.
 
    ```azurecli-interactive
    # Login first with az login if not using Cloud Shell
@@ -58,7 +58,7 @@ Azure CLI 확장이 선택한 환경에 추가되었으므로 Resource Graph 공
    az group create --name 'resource-graph-queries' --location 'westus2'
    ```
 
-1. `graph` 확장 및 [az graph shared-query create](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-create) 명령을 사용하여 Azure Resource Graph 공유 쿼리를 만듭니다.
+1. `graph` 확장 및 [az graph shared-query create](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_create) 명령을 사용하여 Azure Resource Graph 공유 쿼리를 만듭니다.
 
    ```azurecli-interactive
    # Create the Azure Resource Graph shared query
@@ -68,14 +68,14 @@ Azure CLI 확장이 선택한 환경에 추가되었으므로 Resource Graph 공
       --resource-group 'resource-graph-queries'
    ```
 
-1. 새 리소스 그룹에 공유 쿼리를 나열합니다. [az graph shared-query list](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-list) 명령은 값의 배열을 반환합니다.
+1. 새 리소스 그룹에 공유 쿼리를 나열합니다. [az graph shared-query list](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_list) 명령은 값의 배열을 반환합니다.
 
    ```azurecli-interactive
    # List all the Azure Resource Graph shared queries in a resource group
    az graph shared-query list --resource-group 'resource-graph-queries'
    ```
 
-1. 단일 공유 쿼리 결과만 가져오려면 [az graph shared-query show](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-show) 명령을 사용합니다.
+1. 단일 공유 쿼리 결과만 가져오려면 [az graph shared-query show](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_show) 명령을 사용합니다.
 
    ```azurecli-interactive
    # Show a specific Azure Resource Graph shared query
@@ -83,7 +83,7 @@ Azure CLI 확장이 선택한 환경에 추가되었으므로 Resource Graph 공
       --name 'Summarize resources by location'
    ```
 
-1. [az graph query](/cli/azure/ext/resource-graph/graph#ext-resource-graph-az-graph-query) 명령에서 `{{shared-query-uri}}` 구문을 사용하여 Azure CLI에서 공유 쿼리를 실행합니다.
+1. [az graph query](/cli/azure/ext/resource-graph/graph#ext_resource_graph_az_graph_query) 명령에서 `{{shared-query-uri}}` 구문을 사용하여 Azure CLI에서 공유 쿼리를 실행합니다.
    먼저 이전 `show` 명령의 결과에서 `id` 필드를 복사합니다. 예제의 `shared-query-uri` 텍스트를 `id` 필드의 값으로 바꾸고 주변 `{{` 및 `}}` 문자를 그대로 둡니다.
 
    ```azurecli-interactive
@@ -100,9 +100,9 @@ Resource Graph 공유 쿼리를 검색하는 또 다른 방법은 Azure Portal�
 
 Azure CLI 환경에서 Resource Graph 공유 쿼리, 리소스 그룹 및 확장을 제거하려면 다음 명령을 사용하여 이 작업을 수행할 수 있습니다.
 
-- [az graph shared-query delete](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-delete)
-- [az group delete](/cli/azure/group#az-group-delete)
-- [az extension remove](/cli/azure/extension#az-extension-remove)
+- [az graph shared-query delete](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_delete)
+- [az group delete](/cli/azure/group#az_group_delete)
+- [az extension remove](/cli/azure/extension#az_extension_remove)
 
 ```azurecli-interactive
 # Delete the Azure Resource Graph shared query

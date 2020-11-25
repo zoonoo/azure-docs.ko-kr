@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ff3e7fee87661fb89ba930b7368bd54e71ad57bf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 775075765c8c8eaa94541c0f094c1f7743fe59d9
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357626"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886790"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Azure Communication Services의 문제 해결
 
@@ -23,7 +23,7 @@ ms.locfileid: "93357626"
 
 개발자는 Communication Services [GitHub 리포지토리](https://github.com/Azure/communication)에서 질문을 제출하고, 기능을 제안하고, 문제를 보고하는 것이 좋습니다. 다른 포럼은 다음과 같습니다.
 
-* [Microsoft Q&A](https://docs.microsoft.com/answers/questions/topics/single/101418.html)
+* [Microsoft Q&A](/answers/questions/topics/single/101418.html)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/azure+communication)
 
 Azure 구독 [지원 계획](https://azure.microsoft.com/support/plans/)에 따라 [Azure Portal](https://azure.microsoft.com/support/create-ticket/)을 통해 지원 티켓을 직접 제출할 수 있습니다.

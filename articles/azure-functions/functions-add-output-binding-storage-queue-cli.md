@@ -5,20 +5,18 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c7d41d889692856a9818aacd265e67b0c2d3d1ad
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6d0d559579e841553e04c26bf4dcc78934de3e95
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422879"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920205"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>명령줄 도구를 사용하여 Azure Functions를 Azure Storage에 연결
 
 이 문서에서는 이전 빠른 시작 문서에서 만든 함수 및 스토리지 계정과 Azure Storage 큐를 통합합니다. 이 통합은 데이터를 HTTP 요청에서 큐의 메시지에 쓰는 *출력 바인딩* 을 사용하여 달성할 수 있습니다. 이 문서를 완료하면 이전의 빠른 시작에서 소요된 몇 USD 센트를 초과하는 추가 비용이 발생하지 않습니다. 바인딩에 대해 자세히 알아보려면 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
 
 ## <a name="configure-your-local-environment"></a>로컬 환경 구성
-
-시작하기 전에, [빠른 시작: 명령줄에서 Azure Functions 프로젝트 만들기][previous-quickstart] 문서를 완료해야 합니다. 해당 문서의 끝에서 리소스를 이미 정리한 경우, 해당 단계를 다시 수행하여 Azure에서 함수 앱 및 관련 리소스를 다시 만듭니다.
 
 ::: zone pivot="programming-language-csharp"  
 시작하기 전에, [빠른 시작: 명령줄에서 Azure Functions 프로젝트 만들기](create-first-function-cli-csharp.md) 문서를 완료해야 합니다. 해당 문서의 끝에서 리소스를 이미 정리한 경우, 해당 단계를 다시 수행하여 Azure에서 함수 앱 및 관련 리소스를 다시 만듭니다.  

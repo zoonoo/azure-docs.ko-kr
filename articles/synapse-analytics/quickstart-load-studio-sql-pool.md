@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3b32e7a1df0dbbf4d43a73f1e3e409a904ab88a3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8d70a45b89142f6f9c6990fdbb4b79751c82275f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660086"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237479"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>빠른 시작: Synapse SQL을 사용하여 대량 로드
 
@@ -39,7 +39,8 @@ Synapse Studio에서 대량 로드 마법사를 사용하는 것보다 더 쉽�
 
 ### <a name="steps"></a>단계
 
-1. 원본 스토리지 위치 패널에서 데이터를 로드하는 스토리지 계정과 파일 또는 폴더를 선택합니다. 마법사는 자동으로 Parquet 파일을 검색하려고 합니다. Parquet 파일 형식을 확인할 수 없는 경우 기본적으로 구분된 텍스트(CSV)가 사용됩니다. 
+1. 원본 스토리지 위치 패널에서 데이터를 로드하는 스토리지 계정과 파일 또는 폴더를 선택합니다. 마법사는 자동으로 Parquet 파일을 검색하려고 합니다. Parquet 파일 형식을 확인할 수 없는 경우 기본적으로 구분된 텍스트(CSV)가 사용됩니다.
+
    ![원본 위치 선택](./sql/media/bulk-load/bulk-load-source-location.png)
 
 2. 거부된 행(오류 파일)을 기록할 스토리지 계정을 포함하여 파일 형식 설정을 선택합니다. 현재는 CSV 및 Parquet 파일만 지원됩니다.

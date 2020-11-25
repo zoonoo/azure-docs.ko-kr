@@ -5,17 +5,17 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0559a9b763d273579373bb57922606f14ff6e6db
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ab13e02c9154dbfc1bd28872f1bd6f993019a604
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94574307"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915270"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 작동하는 [Communication Services 호출 앱](../getting-started-with-calling.md)
-- [Teams 배포](https://docs.microsoft.com/deployoffice/teams-install)
+- [Teams 배포](/deployoffice/teams-install)
 
 ## <a name="enable-teams-interoperability"></a>Teams 상호 운용성 사용
 
@@ -98,7 +98,7 @@ meetingButton.addEventListener("click", () => {
 
 ## <a name="get-the-meeting-context"></a>모임 컨텍스트 가져오기
 
-Teams 컨텍스트는 Graph API를 사용하여 검색할 수 있습니다. 자세한 내용은 [Graph 설명서](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-beta&tabs=http)에서 설명하고 있습니다.
+Teams 컨텍스트는 Graph API를 사용하여 검색할 수 있습니다. 자세한 내용은 [Graph 설명서](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta)에서 설명하고 있습니다.
 
 또한 모임 초대 자체의 **모임 참가** URL에서 필요한 모임 정보를 가져올 수 있습니다.
 
@@ -115,4 +115,3 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 :::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="완성된 JavaScript 애플리케이션의 스크린샷":::
 
 Teams 컨텍스트를 텍스트 상자에 삽입하고, *Teams 모임 참가* 를 눌러 Communication Services 애플리케이션 내에서 Teams 모임에 참가합니다.
-

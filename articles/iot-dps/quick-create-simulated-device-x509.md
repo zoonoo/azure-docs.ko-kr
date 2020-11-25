@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 42636695113dd824797d1a837e21ab2901d87738
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8f4c35a61edc970f5d4d3beb0c4255ccfe4e336a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323866"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968148"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>빠른 시작: Azure IoT C SDK를 사용하여 X.509 시뮬레이션된 디바이스 프로비전
 
@@ -36,7 +36,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 다음 필수 구성 요소는 Windows 개발 환경을 위한 것입니다. Linux 또는 macOS의 경우 SDK 설명서에서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)의 해당 섹션을 참조하세요.
 
-* ['C++를 사용한 데스크톱 개발'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
+* ['C++를 사용한 데스크톱 개발'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
 
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
@@ -73,7 +73,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     cmake -Duse_prov_client:BOOL=ON ..
     ```
 
-    `cmake`에서 C++ 컴파일러를 찾지 못하면 위의 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 이 명령을 실행합니다.
+    `cmake`에서 C++ 컴파일러를 찾지 못하면 위의 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](/dotnet/framework/tools/developer-command-prompt-for-vs)에서 이 명령을 실행합니다.
 
     빌드가 성공되면 마지막 몇 개의 출력 줄은 다음 출력과 유사하게 표시됩니다.
 
@@ -101,11 +101,11 @@ Azure IoT C SDK의 샘플 코드를 사용하여 시뮬레이션된 디바이스
 
 1. Visual Studio를 시작하고 `azure_iot_sdks.sln`이라는 새 솔루션 파일을 엽니다. 이 솔루션 파일은 azure-iot-sdk-c git 리포지토리의 루트에서 이전에 만든 `cmake` 폴더에 위치합니다.
 
-2. Visual Studio 메뉴에서 **빌드** > **빌드 솔루션**을 선택하여 솔루션의 모든 프로젝트를 빌드합니다.
+2. Visual Studio 메뉴에서 **빌드** > **빌드 솔루션** 을 선택하여 솔루션의 모든 프로젝트를 빌드합니다.
 
-3. Visual Studio의 *솔루션 탐색기* 창에서 **Provision\_Tools** 폴더로 이동합니다. **dice\_device\_enrollment** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
+3. Visual Studio의 *솔루션 탐색기* 창에서 **Provision\_Tools** 폴더로 이동합니다. **dice\_device\_enrollment** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정** 을 선택합니다.
 
-4. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 메시지가 표시되면 출력 창에서 개별 등록에 대해 **i**를 입력합니다.
+4. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작** 을 선택하여 솔루션을 실행합니다. 메시지가 표시되면 출력 창에서 개별 등록에 대해 **i** 를 입력합니다.
 
     출력 창에는 시뮬레이션된 디바이스에 대해 로컬로 생성된 자체 서명된 X.509 인증서가 표시됩니다. **-----BEGIN CERTIFICATE-----** 에서 시작하여 첫 번째 **-----END CERTIFICATE-----** 로 끝나는 출력을 클립보드에 복사하고 해당 줄도 모두 포함하도록 합니다. 출력 창의 첫 번째 인증서만 필요합니다.
 
@@ -119,13 +119,13 @@ Azure IoT C SDK의 샘플 코드를 사용하여 시뮬레이션된 디바이스
 
 3. **등록 추가** 패널에서 다음 정보를 입력한 다음, **저장** 단추를 누릅니다.
 
-    * **메커니즘:** ID 증명 *메커니즘*으로 **X.509**를 선택합니다.
-    * **기본 인증서 .pem 또는 .cer 파일:** **파일 선택**을 선택하여 앞에서 만든 X509testcert.pem 인증서 파일을 선택합니다.
-    * **IoT Hub 디바이스 ID:** **test-docs-cert-device**를 입력하여 디바이스에 ID를 제공합니다.
+    * **메커니즘:** ID 증명 *메커니즘* 으로 **X.509** 를 선택합니다.
+    * **기본 인증서 .pem 또는 .cer 파일:** **파일 선택** 을 선택하여 앞에서 만든 X509testcert.pem 인증서 파일을 선택합니다.
+    * **IoT Hub 디바이스 ID:** **test-docs-cert-device** 를 입력하여 디바이스에 ID를 제공합니다.
 
       [![포털에서 X.509 증명에 대한 개별 등록 추가](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
-      등록에 성공하면 X.509 디바이스가 *개별 등록* 탭의 *등록 ID* 열에 **riot-device-cert**로 표시됩니다. 
+      등록에 성공하면 X.509 디바이스가 *개별 등록* 탭의 *등록 ID* 열에 **riot-device-cert** 로 표시됩니다. 
 
 ## <a name="simulate-first-boot-sequence-for-the-device"></a>디바이스에 대한 첫 번째 부팅 시퀀스 시뮬레이션
 
@@ -135,7 +135,7 @@ Azure IoT C SDK의 샘플 코드를 사용하여 시뮬레이션된 디바이스
 
     ![포털 블레이드에서 디바이스 프로비저닝 서비스 엔드포인트 정보 추출](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. Visual Studio의 *솔루션 탐색기* 창에서 **Provision\_Samples** 폴더로 이동합니다. **prov\_dev\_client\_sample**이라는 샘플 프로젝트를 확장합니다. **원본 파일**을 확장하고, **prov\_dev\_client\_sample.c**를 엽니다.
+2. Visual Studio의 *솔루션 탐색기* 창에서 **Provision\_Samples** 폴더로 이동합니다. **prov\_dev\_client\_sample** 이라는 샘플 프로젝트를 확장합니다. **원본 파일** 을 확장하고, **prov\_dev\_client\_sample.c** 를 엽니다.
 
 3. `id_scope` 상수를 찾고, 값을 앞에서 복사한 **ID 범위** 값으로 바꿉니다. 
 
@@ -151,9 +151,9 @@ Azure IoT C SDK의 샘플 코드를 사용하여 시뮬레이션된 디바이스
     hsm_type = SECURE_DEVICE_TYPE_X509;
     ```
 
-5. **prov\_dev\_client\_sample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
+5. **prov\_dev\_client\_sample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정** 을 선택합니다.
 
-6. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예**를 선택하여 실행하기 전에 프로젝트를 다시 빌드합니다.
+6. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작** 을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예** 를 선택하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
     다음 출력은 프로비전 디바이스 클라이언트 샘플을 성공적으로 부팅하고, IoT Hub 정보를 가져오기 위해 프로비전 서비스 인스턴스에 연결하고, 등록하는 예제입니다.
 
@@ -170,7 +170,7 @@ Azure IoT C SDK의 샘플 코드를 사용하여 시뮬레이션된 디바이스
     test-docs-hub.azure-devices.net, deviceId: test-docs-cert-device
     ```
 
-7. 포털에서 프로비저닝 서비스와 연결된 IoT 허브로 이동하여 **IoT 디바이스** 탭을 선택합니다. 시뮬레이션된 X.509 디바이스가 허브에 성공적으로 프로비저닝되면 *상태*가 **사용**인 디바이스 ID가 **IoT 디바이스** 블레이드에 표시됩니다. 위쪽에서 **새로 고침** 단추를 눌러야 할 수도 있습니다. 
+7. 포털에서 프로비저닝 서비스와 연결된 IoT 허브로 이동하여 **IoT 디바이스** 탭을 선택합니다. 시뮬레이션된 X.509 디바이스가 허브에 성공적으로 프로비저닝되면 *상태* 가 **사용** 인 디바이스 ID가 **IoT 디바이스** 블레이드에 표시됩니다. 위쪽에서 **새로 고침** 단추를 눌러야 할 수도 있습니다. 
 
     ![디바이스가 IoT Hub에 등록됨](./media/quick-create-simulated-device-x509/hub-registration.png) 
 
@@ -179,8 +179,8 @@ Azure IoT C SDK의 샘플 코드를 사용하여 시뮬레이션된 디바이스
 디바이스 클라이언트 샘플을 계속해서 작업하고 탐색할 계획인 경우 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 단계를 사용하여 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
 
 1. 컴퓨터에서 디바이스 클라이언트 샘플 출력 창을 닫습니다.
-1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 선택한 다음, Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리**를 연 다음, **개별 등록** 탭을 선택합니다. 이 빠른 시작에 등록한 디바이스의 *등록 ID* 옆에 있는 확인란을 선택하고, 창 위쪽에 있는 **삭제** 단추를 누릅니다. 
-1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 선택한 다음, 사용자의 IoT 허브를 선택합니다. 허브에 대한 **IoT 디바이스**를 열고 이 빠른 시작에 등록한 디바이스의 *디바이스 ID* 옆에 있는 확인란을 선택한 다음, 창 위쪽에 있는 **삭제** 단추를 누릅니다.
+1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 선택한 다음, Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리** 를 연 다음, **개별 등록** 탭을 선택합니다. 이 빠른 시작에 등록한 디바이스의 *등록 ID* 옆에 있는 확인란을 선택하고, 창 위쪽에 있는 **삭제** 단추를 누릅니다. 
+1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 선택한 다음, 사용자의 IoT 허브를 선택합니다. 허브에 대한 **IoT 디바이스** 를 열고 이 빠른 시작에 등록한 디바이스의 *디바이스 ID* 옆에 있는 확인란을 선택한 다음, 창 위쪽에 있는 **삭제** 단추를 누릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

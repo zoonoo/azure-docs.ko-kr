@@ -4,18 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 258908ed1118b0463e8c824cd8c699fb460dfff2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a9f8fdda1bc853057f3eb858e85b938357397cd
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945933"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886117"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/dotnet/).
 - 운영 체제에 대한 최신 버전의 [.NET Core 클라이언트 라이브러리](https://dotnet.microsoft.com/download/dotnet-core)
-- [.NET ID 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet)의 최신 버전을 가져옵니다.
+- [.NET ID 클라이언트 라이브러리](/dotnet/api/azure.identity?view=azure-dotnet)의 최신 버전을 가져옵니다.
 - [.NET 관리 클라이언트 라이브러리](../../concepts/sdk-options.md)의 최신 버전을 가져옵니다.
 
 ## <a name="installing-the-client-library"></a>클라이언트 라이브러리 설치
@@ -44,13 +44,13 @@ Azure Communication Services와 통신하려면 먼저 Azure에 인증해야 합
 
 ### <a name="option-1-managed-identity"></a>옵션 1: 관리 ID
 
-코드가 Azure에서 서비스로 실행되는 경우 가장 쉬운 인증 방법은 Azure에서 관리 ID를 획득하는 것입니다. [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에 대해 자세히 알아보세요.
+코드가 Azure에서 서비스로 실행되는 경우 가장 쉬운 인증 방법은 Azure에서 관리 ID를 획득하는 것입니다. [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md)에 대해 자세히 알아보세요.
 
-[관리 ID를 지원하는 Azure 서비스](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+[관리 ID를 지원하는 Azure 서비스](../../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
-[App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
+[App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법](../../../app-service/overview-managed-identity.md?tabs=dotnet)
 
-#### <a name="system-assigned-managed-identity"></a>[시스템 할당 관리 ID](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
+#### <a name="system-assigned-managed-identity"></a>[시스템 할당 관리 ID](../../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity)
 
 ```csharp
 using Azure.Identity;
@@ -62,7 +62,7 @@ var subscriptionId = "AZURE_SUBSCRIPTION_ID";
 var acsClient = new CommunicationManagementClient(subscriptionId, new ManagedIdentityCredential());
 ```
 
-#### <a name="user-assigned-managed-identity"></a>[사용자가 할당한 관리 ID](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity)
+#### <a name="user-assigned-managed-identity"></a>[사용자가 할당한 관리 ID](../../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity)
 
 사용자가 만든 관리 ID의 ClientId는 `ManagedIdentityCredential`에 명시적으로 전달되어야 합니다.
 
@@ -79,7 +79,7 @@ var acsClient = new CommunicationManagementClient(subscriptionId, managedIdentit
 
 ### <a name="option-2-service-principal"></a>옵션 2: 서비스 주체
 
-관리 ID를 사용하는 대신 사용자가 직접 관리하는 서비스 사용자를 사용하여 Azure에 인증할 수 있습니다. [Azure Active Directory에서 서비스 사용자를 만들고 관리](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)하는 방법에 대한 설명서를 통해 자세히 알아보세요.
+관리 ID를 사용하는 대신 사용자가 직접 관리하는 서비스 사용자를 사용하여 Azure에 인증할 수 있습니다. [Azure Active Directory에서 서비스 사용자를 만들고 관리](../../../active-directory/develop/howto-create-service-principal-portal.md)하는 방법에 대한 설명서를 통해 자세히 알아보세요.
 
 서비스 사용자를 만든 후에는 Azure Portal에서 해당 서비스 사용자에 대한 다음 정보를 수집해야 합니다.
 
@@ -121,7 +121,7 @@ var communicationServiceClient = new CommunicationManagementClient(subscriptionI
 
 다음 각 예에서는 기존 리소스 그룹에 Communication Services 리소스를 할당합니다.
 
-리소스 그룹을 만들어야 하는 경우 [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) 또는 [Azure Resource Manager 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md)를 사용하여 리소스 그룹을 만들 수 있습니다.
+리소스 그룹을 만들어야 하는 경우 [Azure Portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md) 또는 [Azure Resource Manager 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md)를 사용하여 리소스 그룹을 만들 수 있습니다.
 
 ### <a name="create-and-manage-a-communication-services-resource"></a>Communication Services 리소스 만들기 및 관리
 

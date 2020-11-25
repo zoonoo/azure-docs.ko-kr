@@ -3,16 +3,17 @@ title: Azure의 Red Hat 워크로드 개요 | Microsoft Docs
 description: Azure에서 제공되는 Red Hat 제품에 대해 알아봅니다.
 author: asinn826
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 61f7461633aba18a21fcc18709055dc790ffee7b
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3e4a770a33f5cdb3c3b2de09cbcb8431b2fc3fbb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993238"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968658"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Azure의 Red Hat 워크로드
 

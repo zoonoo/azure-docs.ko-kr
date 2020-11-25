@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f33d7efd1c136619767c3eadd93740442ae7239a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f0e69e3f62d3b9e4debb5761d877dcdfdd246f60
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762045"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886025"
 ---
 # <a name="chat-concepts"></a>채팅 개념
 
@@ -44,7 +44,7 @@ Azure Communication Services 채팅 클라이언트 라이브러리를 사용하
     
 ## <a name="message-types"></a>메시지 유형
 
-Communication Services 채팅은 사용자가 생성한 메시지 뿐만 아니라 **스레드 작업**이라는 시스템 생성 메시지도 공유합니다. 스레드 작업은 채팅 스레드가 업데이트될 때 생성됩니다. 채팅 스레드에서 `List Messages` 또는 `Get Messages`를 호출하면 사용자가 생성한 텍스트 메시지는 물론 시스템 메시지가 시간 순서대로 결과에 포함됩니다. 이를 통해 멤버가 추가 또는 제거된 시기 또는 채팅 스레드 주제가 업데이트된 시기를 식별할 수 있습니다. 지원되는 메시지 유형은 다음과 같습니다.  
+Communication Services 채팅은 사용자가 생성한 메시지 뿐만 아니라 **스레드 작업** 이라는 시스템 생성 메시지도 공유합니다. 스레드 작업은 채팅 스레드가 업데이트될 때 생성됩니다. 채팅 스레드에서 `List Messages` 또는 `Get Messages`를 호출하면 사용자가 생성한 텍스트 메시지는 물론 시스템 메시지가 시간 순서대로 결과에 포함됩니다. 이를 통해 멤버가 추가 또는 제거된 시기 또는 채팅 스레드 주제가 업데이트된 시기를 식별할 수 있습니다. 지원되는 메시지 유형은 다음과 같습니다.  
 
  - `Text`: 채팅 대화의 일부로 사용자가 작성하여 보낸 실제 메시지입니다. 
  - `ThreadActivity/AddMember`: 한 명 이상의 멤버가 채팅 스레드에 추가되었음을 나타내는 시스템 메시지입니다. 다음은 그 예입니다. 
@@ -120,7 +120,7 @@ Communication Services 채팅은 사용자가 생성한 메시지 뿐만 아니�
 
 ## <a name="using-cognitive-services-with-chat-client-library-to-enable-intelligent-features"></a>Cognitive Services를 채팅 클라이언트 라이브러리와 함께 사용하여 인텔리전트 기능 활성화
 
-[Azure Cognitive API](https://docs.microsoft.com/azure/cognitive-services/)를 채팅 클라이언트 라이브러리와 함께 사용하여 애플리케이션에 인텔리전트 기능을 추가할 수 있습니다. 예를 들어, 다음을 수행할 수 있습니다.
+[Azure Cognitive API](../../../cognitive-services/index.yml)를 채팅 클라이언트 라이브러리와 함께 사용하여 애플리케이션에 인텔리전트 기능을 추가할 수 있습니다. 예를 들어, 다음을 수행할 수 있습니다.
 
 - 사용자가 서로 다른 언어로 채팅할 수 있도록 합니다. 
 - 고객의 문제 접수에서 부정적인 감정을 감지하여 지원 상담원이 티켓의 우선 순위를 지정하도록 돕습니다.
@@ -128,9 +128,9 @@ Communication Services 채팅은 사용자가 생성한 메시지 뿐만 아니�
 
 이러한 기능을 구현하는 한 가지 방법은 신뢰할 수 있는 서비스를 채팅 스레드에서 멤버로 사용하는 것입니다. 언어 번역을 활성화하려는 경우를 가정해 보겠습니다. 이 서비스는 다른 멤버가 서로 주고 받는 메시지를 듣고[1], Cognitive API를 호출하여 콘텐츠를 원하는 언어로 번역하고[2,3] 번역된 결과를 채팅 스레드에 메시지로 보내는[4] 작업을 담당합니다. 
 
-이렇게 하면 메시지 기록에 원본 메시지와 번역된 메시지가 모두 포함됩니다. 클라이언트 애플리케이션에서 원래 메시지 또는 번역된 메시지를 표시하는 논리를 추가할 수 있습니다. Cognitive API를 사용하여 텍스트를 다른 언어로 번역하는 방법을 이해하려면 [이 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translator)을 참조하세요. 
+이렇게 하면 메시지 기록에 원본 메시지와 번역된 메시지가 모두 포함됩니다. 클라이언트 애플리케이션에서 원래 메시지 또는 번역된 메시지를 표시하는 논리를 추가할 수 있습니다. Cognitive API를 사용하여 텍스트를 다른 언어로 번역하는 방법을 이해하려면 [이 빠른 시작](../../../cognitive-services/translator/quickstart-translator.md)을 참조하세요. 
 
-:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Communication Services의 채팅 아키텍처를 보여주는 다이어그램":::
+:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Communication Services와 상호 작용하는 Cognitive Services를 보여주는 다이어그램":::
 
 ## <a name="next-steps"></a>다음 단계
 

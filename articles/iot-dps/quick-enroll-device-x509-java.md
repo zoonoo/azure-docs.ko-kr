@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 7c5aa7e5189b4c89636fdb38e8fd365208148900
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fb6f9f598ef68911a9017dde504a032672dc55a3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094645"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966584"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>빠른 시작: Java를 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 
@@ -78,7 +78,7 @@ ms.locfileid: "93094645"
             ```
 
         5. 메시지가 표시되면 필요에 따라 인증서에 대해 _일반 이름_ 을 입력할 수 있습니다.
-        6. 이 도구는 **클라이언트 인증서** , **클라이언트 인증서 프라이빗 키** 및 **루트 인증서** 를 로컬로 생성합니다.
+        6. 이 도구는 **클라이언트 인증서**, **클라이언트 인증서 프라이빗 키** 및 **루트 인증서** 를 로컬로 생성합니다.
         7. **_-----BEGIN CERTIFICATE-----_** 및 **_-----END CERTIFICATE-----_** 줄을 포함하여 **루트 인증서** 를 복사합니다. 
         8. 아래와 같이 **PUBLIC_KEY_CERTIFICATE_STRING** 매개 변수에 **루트 인증서** 의 값을 할당합니다.
 

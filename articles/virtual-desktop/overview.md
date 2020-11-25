@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0fe9b3ddaee41802ced30e1898b46cefa2566771
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322056"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023193"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란?
 
@@ -71,7 +71,7 @@ Windows Virtual Desktop을 설정하고 Windows 데스크톱 및 애플리케이
 
 Windows Virtual Desktop을 지원하려면 인프라에 다음과 같은 것들이 필요합니다.
 
-* [Azure Active Directory](/azure/active-directory/).
+* [Azure Active Directory](../active-directory/index.yml).
 * Azure Active Directory와 동기화되는 Windows Server Active Directory입니다. Azure AD Connect(하이브리드 조직의 경우) 또는 Azure AD Domain Services(하이브리드 또는 클라우드 조직의 경우)를 사용하여 이를 구성할 수 있습니다.
   * Azure Active Directory와 동기화되는 Windows Server AD. 사용자는 Windows Server AD에서 소싱되고 Windows Virtual Desktop VM은 Windows Server AD 도메인에 조인됩니다.
   * Azure Active Directory와 동기화되는 Windows Server AD. 사용자는 Windows Server AD에서 소싱되고 Windows Virtual Desktop VM은 Azure AD Domain Services 도메인에 조인됩니다.
@@ -85,7 +85,7 @@ Windows Virtual Desktop에 연결하기 위한 사용자 요구 사항:
 
 Windows Virtual Desktop에 대해 만드는 Azure 가상 머신은 다음과 같아야 합니다.
 
-* [표준 도메인에 조인](../active-directory-domain-services/active-directory-ds-comparison.md) 또는 [하이브리드 AD에 조인](../active-directory/devices/hybrid-azuread-join-plan.md). 가상 머신이 Azure AD에 조인되면 안 됩니다.
+* [표준 도메인에 조인](../active-directory-domain-services/compare-identity-solutions.md) 또는 [하이브리드 AD에 조인](../active-directory/devices/hybrid-azuread-join-plan.md). 가상 머신이 Azure AD에 조인되면 안 됩니다.
 * 다음 [지원되는 OS 이미지](#supported-virtual-machine-os-images) 중 하나를 실행합니다.
 
 >[!NOTE]
@@ -101,7 +101,7 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 * 데스크톱 및 앱을 호스팅하는 VM을 관리 서비스에 연결할 때 네트워크 트래픽이 국가/지역 경계를 벗어날 수 있습니다.
 * 네트워크 성능을 최적화하기 위해 세션 호스트의 VM을 관리 서비스와 동일한 Azure 지역에 배치하는 것이 좋습니다.
 
-엔터프라이즈용 Windows Virtual Desktop의 일반적인 아키텍처 설정은 [아키텍처 설명서](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)에서 확인할 수 있습니다.
+엔터프라이즈용 Windows Virtual Desktop의 일반적인 아키텍처 설정은 [아키텍처 설명서](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)에서 확인할 수 있습니다.
 
 ## <a name="supported-remote-desktop-clients"></a>지원되는 원격 데스크톱 클라이언트
 

@@ -12,12 +12,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9c75ccaa05457f13697d1a26dbc8fd2f6720a751
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 5dd1044895ba55d1fbc6be7f4f4a2d7f615daa16
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517855"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887266"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>빠른 시작: 알림 허브에서 푸시 알림 설정
 
@@ -107,6 +107,8 @@ Google FCM(Firebase Cloud Messaging) 프로젝트용 **API 키** 가 필요합�
 [az notification-hub credential](/cli/azure/ext/notification-hub/notification-hub/credential) 명령을 사용하여 다른 플랫폼에 대한 Azure CLI 참조를 가져옵니다.
 
 Android 애플리케이션에 알림을 보내는 방법에 대한 자세한 내용은 [Firebase를 사용하여 Android 디바이스에 푸시 알림 보내기](notification-hubs-android-push-notification-google-fcm-get-started.md)를 참조하세요.
+
+---
 
 ## <a name="windows-push-notification-service"></a>Windows Push Notification Service
 

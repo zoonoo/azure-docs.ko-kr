@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: 70441c3a1953fa1b6ebd69ef9cdb324d6cc04a5b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e31a1cef427062723adf4b45bd47cd8009630128
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336455"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888813"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>빠른 시작: Azure NetApp Files 설정 및 NFS 볼륨 만들기
 
@@ -32,8 +32,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 > [!IMPORTANT]
 > Azure NetApp Files 서비스에 대한 액세스 권한을 부여받아야 합니다. 서비스에 대한 액세스를 요청하려면 [Azure NetApp Files 대기 목록 제출 페이지](https://aka.ms/azurenetappfiles)를 참조하세요.  계속하려면 Azure NetApp Files 팀의 공식 확인 이메일을 받아야 합니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ---
 
@@ -64,6 +62,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI에 대한 환경을 준비합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
@@ -176,7 +178,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. Azure NetApp Files 관리 블레이드에서 NetApp 계정( **myaccount1** )을 선택합니다.
+1. Azure NetApp Files 관리 블레이드에서 NetApp 계정(**myaccount1**)을 선택합니다.
 
     ![NetApp 계정 선택](../media/azure-netapp-files/azure-netapp-files-select-netapp-account.png)
 
@@ -260,7 +262,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
 
 3. 볼륨 만들기 창에서 다음과 같은 볼륨 정보를 입력합니다.
    1. 볼륨 이름으로 **myvol1** 을 입력합니다.
-   2. 용량 풀을 선택합니다( **mypool1** ).
+   2. 용량 풀을 선택합니다(**mypool1**).
    3. 할당량은 기본값을 사용합니다.
    4. 가상 네트워크 아래에서 **새로 만들기** 를 클릭하여 새 Azure 가상 네트워크(Vnet)를 만듭니다.  다음 정보를 입력합니다.
        * Vnet 이름으로 **myvnet1** 을 입력합니다.
@@ -269,7 +271,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
        * 서브넷 주소 범위를 지정합니다(예: 10.7.0.0/24). 전용 서브넷은 다른 리소스와 공유할 수 없습니다.
        * 서브넷 위임으로 **Microsoft.NetApp/volumes** 를 선택합니다.
        * **확인** 을 클릭하여 Vnet을 만듭니다.
-   5. 서브넷에서, 새로 만든 Vnet( **myvnet1** )을 대리자 서브넷으로 선택합니다.
+   5. 서브넷에서, 새로 만든 Vnet(**myvnet1**)을 대리자 서브넷으로 선택합니다.
 
       ![볼륨 만들기 창](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)
 
@@ -278,7 +280,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
 4. **프로토콜** 을 클릭한 후, 다음 작업을 완료합니다.
     * **NFS** 를 볼륨에 대한 프로토콜 유형으로 선택합니다.
     * 볼륨의 내보내기 경로를 만드는 데 사용할 파일 경로로 **myfilepath1** 을 입력합니다.
-    * 볼륨의 NFS 버전( **NFSv3** 또는 **NFSv4.1** )을 선택합니다.
+    * 볼륨의 NFS 버전(**NFSv3** 또는 **NFSv4.1**)을 선택합니다.
       NFS 버전에 대한 [고려 사항](azure-netapp-files-create-volumes.md#considerations) 및 [모범 사례](azure-netapp-files-create-volumes.md#best-practice)를 참조하세요.
 
     ![빠른 시작에 대한 NFS 프로토콜 지정](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
