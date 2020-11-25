@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.openlocfilehash: 0a2a386264be0ec13e29b7a7546926819c5d931a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972886"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012734"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
@@ -308,7 +308,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
 },
 ```
 
-운영 체제 디스크에 대한 구성 설정은 osDisk 요소와 함께 할당됩니다. 이 예제에서는 캐싱 모드가 **ReadWrite**로 설정된 새 관리되는 디스크를 정의하며 해당 디스크는 [플랫폼 이미지](cli-ps-findimage.md)에서 만들어집니다.
+운영 체제 디스크에 대한 구성 설정은 osDisk 요소와 함께 할당됩니다. 이 예제에서는 캐싱 모드가 **ReadWrite** 로 설정된 새 관리되는 디스크를 정의하며 해당 디스크는 [플랫폼 이미지](cli-ps-findimage.md)에서 만들어집니다.
 
 ```json
 "osDisk": { 
@@ -447,7 +447,7 @@ start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. �
 
 ![배포 정보 가져오기](./media/template-description/virtual-machines-deployment-info.png)
     
-리소스를 만들거나 기존 리소스를 업데이트하는 데 동일한 템플릿을 사용하는 것은 문제가 아닙니다. 명령을 사용하여 템플릿을 배포할 때 사용하려는 [모드](../../azure-resource-manager/templates/deploy-powershell.md)를 말할 수 있는 기회가 있습니다. 모드는 **전체** 또는 **증분** 중 하나로 설정될 수 있습니다. 기본 값은 증분 업데이트를 수행하는 것입니다. 리소스를 실수로 삭제할 수 있으므로 **전체** 모드를 사용할 때 주의해야 합니다. 모드를 **전체**로 설정하면 Resource Manager는 템플릿에 없는 리소스 그룹의 모든 리소스를 삭제합니다.
+리소스를 만들거나 기존 리소스를 업데이트하는 데 동일한 템플릿을 사용하는 것은 문제가 아닙니다. 명령을 사용하여 템플릿을 배포할 때 사용하려는 [모드](../../azure-resource-manager/templates/deploy-powershell.md)를 말할 수 있는 기회가 있습니다. 모드는 **전체** 또는 **증분** 중 하나로 설정될 수 있습니다. 기본 값은 증분 업데이트를 수행하는 것입니다. 리소스를 실수로 삭제할 수 있으므로 **전체** 모드를 사용할 때 주의해야 합니다. 모드를 **전체** 로 설정하면 Resource Manager는 템플릿에 없는 리소스 그룹의 모든 리소스를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

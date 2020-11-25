@@ -14,11 +14,11 @@ ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: b3391727b19e9e8e88646f72667545f1df7fe5a7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637380"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012870"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Azure Data Factory 버전 1 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -43,7 +43,7 @@ Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치�
 > - 사용자 지정 작업에서 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 원본에 액세스할 수는 없습니다. 현재 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)에서는 Data Factory의 복사 작업 및 저장 프로시저 작업만 지원합니다.
 
 ## <a name="walkthrough-create-a-custom-activity"></a>연습: 사용자 지정 작업 만들기
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 * Visual Studio 2012/2013/2015/2017
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
@@ -59,7 +59,7 @@ Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치�
     3. 기존 풀을 사용하려면 메뉴에서 **풀** 을 클릭하고 풀의 **ID** 를 메모해둡니다. 기존 풀이 없는 경우 다음 단계로 이동합니다.
 2. **Azure Batch 풀** 을 만듭니다.
 
-   1. [Azure Portal](https://portal.azure.com)에서 왼쪽 메뉴의 **찾아보기** , **Batch 계정** 을 차례로 클릭합니다.
+   1. [Azure Portal](https://portal.azure.com)에서 왼쪽 메뉴의 **찾아보기**, **Batch 계정** 을 차례로 클릭합니다.
    2. Azure Batch 계정을 선택하여 **Batch 계정** 블레이드를 엽니다.
    3. **풀** 타일을 클릭합니다.
    4. **풀** 블레이드에서 도구 모음의 추가 단추를 클릭하여 풀을 추가합니다.
@@ -90,10 +90,10 @@ public IDictionary<string, string> Execute(
 
 이 메서드는 다음과 같은 네 개의 매개 변수를 사용합니다.
 
-- **linkedServices** . 이 속성은 작업에 대한 입력/출력으로 참조되는 데이터 스토리지 연결된 서비스의 열거형 목록입니다.
-- **데이터 세트** . 이 속성은 작업에 대한 입력/출력 데이터 세트의 열거형 목록입니다. 이 매개 변수를 사용하여 입력 및 출력 데이터 세트에 정의된 위치 및 스키마를 가져올 수 있습니다.
-- **activity** . 이 속성은 현재 작업을 나타냅니다. 사용자 지정 작업과 연결된 확장된 속성에 액세스하려면 사용할 수 있습니다. 자세한 내용은 [확장 속성 액세스](#access-extended-properties)를 참조하세요.
-- **logger** . 이 개체를 사용하면 파이프라인에 대한 사용자 로그로 노출할 디버그 주석을 기록할 수 있습니다.
+- **linkedServices**. 이 속성은 작업에 대한 입력/출력으로 참조되는 데이터 스토리지 연결된 서비스의 열거형 목록입니다.
+- **데이터 세트**. 이 속성은 작업에 대한 입력/출력 데이터 세트의 열거형 목록입니다. 이 매개 변수를 사용하여 입력 및 출력 데이터 세트에 정의된 위치 및 스키마를 가져올 수 있습니다.
+- **activity**. 이 속성은 현재 작업을 나타냅니다. 사용자 지정 작업과 연결된 확장된 속성에 액세스하려면 사용할 수 있습니다. 자세한 내용은 [확장 속성 액세스](#access-extended-properties)를 참조하세요.
+- **logger**. 이 개체를 사용하면 파이프라인에 대한 사용자 로그로 노출할 디버그 주석을 기록할 수 있습니다.
 
 이 메서드는 나중에 사용자 지정 작업을 함께 연결하는 데 사용할 수 있는 사전을 반환합니다. 이 기능은 아직 구현되지 않았기 때문에, 메서드로부터 빈 사전이 반환됩니다.
 
@@ -367,7 +367,7 @@ public IDictionary<string, string> Execute(
     ```
 
     Calculate 메서드는 입력 파일(폴더에서 BLOB)에서 Microsoft 키워드의 인스턴스 수를 계산합니다. 검색 용어("Microsoft")는 코드에 하드 코딩됩니다.
-10. 프로젝트를 컴파일합니다. 메뉴에서 **빌드** , **솔루션 빌드** 를 차례로 클릭합니다.
+10. 프로젝트를 컴파일합니다. 메뉴에서 **빌드**, **솔루션 빌드** 를 차례로 클릭합니다.
 
     > [!IMPORTANT]
     > 4.5.2 버전의 .NET Framework를 프로젝트의 대상 프레임워크로 설정합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성** 을 클릭하여 대상 프레임워크를 설정합니다. 데이터 팩터리는 .NET Framework 4.5.2 이후 버전에 대해 컴파일된 사용자 지정 작업을 지원하지 않습니다.
@@ -422,7 +422,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
    3. **데이터 분석** 블레이드에서 **Data Factory** 를 클릭합니다.
 
       ![새 Azure Data Factory 메뉴](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
-2. **새 Data Factory** 블레이드에서 이름으로 **CustomActivityFactory** 를 입력합니다. Azure Data Factory 이름은 전역적으로 고유해야 합니다. **"CustomActivityFactory" Data Factory 이름은 사용할 수 없습니다.** 라는 오류 메시지가 표시되는 경우 Data Factory 이름을 변경하고(예: **yournameCustomActivityFactory** ) 해당 Data Factory를 다시 만듭니다.
+2. **새 Data Factory** 블레이드에서 이름으로 **CustomActivityFactory** 를 입력합니다. Azure Data Factory 이름은 전역적으로 고유해야 합니다. **"CustomActivityFactory" Data Factory 이름은 사용할 수 없습니다.** 라는 오류 메시지가 표시되는 경우 Data Factory 이름을 변경하고(예: **yournameCustomActivityFactory**) 해당 Data Factory를 다시 만듭니다.
 
     ![새 Azure Data Factory 블레이드](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. **리소스 그룹 이름** 을 클릭하여 기존 리소스 그룹을 선택하거나 리소스 그룹을 만듭니다.
@@ -505,7 +505,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
     }
     ```
 
-   이 연습에서는 시작 시간: 2016-11-16T00:00:00Z 및 종료 시간: 2016-11-16T05:00:00Z로 나중에 파이프라인을 만듭니다. 매시간 데이터를 생성하도록 예약되어 있어 5개의 입/출력 조각이 있습니다( **00** :00:00 -> **05** :00:00 범위).
+   이 연습에서는 시작 시간: 2016-11-16T00:00:00Z 및 종료 시간: 2016-11-16T05:00:00Z로 나중에 파이프라인을 만듭니다. 매시간 데이터를 생성하도록 예약되어 있어 5개의 입/출력 조각이 있습니다(**00**:00:00 -> **05**:00:00 범위).
 
    입력 데이터 세트의 **frequency** 및 **interval** 은 **Hour** 및 **1** 로 설정되며 이는 입력 조각이 매시간 제공됨을 의미합니다. 이 샘플에서는 intputfolder에서와 동일한 파일(file.txt)입니다.
 
@@ -616,7 +616,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
    * **EntryPoint** 는 **MyDotNetActivityNS.MyDotNetActivity** 로 설정합니다.
    * **PackageLinkedService** 는 사용자 지정 작업 Zip 파일을 포함하는 Blob 스토리지를 가리키는 **AzureStorageLinkedService** 로 설정합니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 Azure Storage 계정을 사용하는 경우 다른 Azure Storage 연결된 서비스를 만듭니다. 이 문서에서는 동일한 Azure Storage 계정을 사용 중이라고 가정합니다.
    * **PackageFile** 은 **customactivitycontainer/MyDotNetActivity.zip** 으로 설정합니다. containerforthezip/nameofthezip.zip 형식입니다.
-   * 사용자 지정 작업은 입력으로 **InputDataset** , 출력으로 **OutputDataset** 을 사용합니다.
+   * 사용자 지정 작업은 입력으로 **InputDataset**, 출력으로 **OutputDataset** 을 사용합니다.
    * 사용자 지정 활동의 linkedServiceName 속성은 **AzureBatchLinkedService** 를 가리키며 Azure Data Factory에 사용자 지정 작업을 Azure 배치 VM에서 실행해야 함을 알려줍니다.
    * **isPaused** 속성은 기본적으로 **false** 로 설정 됩니다. 이 예제에서는 조각이 이전에 시작되므로 파이프라인이 즉시 실행됩니다. 파이프라인을 일시 중지하려면 이 속성을 true로 설정하고 다시 시작하려면 false로 다시 설정할 수 있습니다.
    * **시작** 시간과 **종료** 시간은 **5** 시간 간격이 며 조각이 매시간 생성 되므로 5 개의 조각이 파이프라인에 의해 생성 됩니다.
@@ -680,7 +680,7 @@ Data Factory 서비스가 Azure Batch에 **adf-poolname:job-xxx** 라는 이름�
     ```
     Error in Activity: Job encountered scheduling error. Code: BlobDownloadMiscError Category: ServerError Message: Miscellaneous error encountered while downloading one of the specified Azure Blob(s).
     ```
-2. 다음과 같은 오류가 나타나면 CS 파일에서 클래스 이름이 파이프라인 JSON에서 **EntryPoint** 속성에 대해 지정한 이름과 일치하는지 확인합니다. 이 연습에서 클래스의 이름은 MyDotNetActivity이고 JSON의 진입점은 MyDotNetActivityNS. **MyDotNetActivity** 입니다.
+2. 다음과 같은 오류가 나타나면 CS 파일에서 클래스 이름이 파이프라인 JSON에서 **EntryPoint** 속성에 대해 지정한 이름과 일치하는지 확인합니다. 이 연습에서 클래스의 이름은 MyDotNetActivity이고 JSON의 진입점은 MyDotNetActivityNS.**MyDotNetActivity** 입니다.
 
     ```
     MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly
@@ -699,7 +699,7 @@ Data Factory 서비스가 Azure Batch에 **adf-poolname:job-xxx** 라는 이름�
    또한 **system-0.log** 에서 시스템 오류 메시지 및 예외를 확인합니다.
 4. 오류가 발생할 때 오류 정보에 **호출 스택** 등의 정보가 포함 되도록 zip 파일에 **PDB** 파일을 포함 합니다.
 5. 사용자 지정 작업에 대한 zip 파일의 모든 파일은 하위 폴더가 없는 **최상위** 여야 합니다.
-6. **assemblyName** (MyDotNetActivity.dll), **entryPoint** (MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) 및 **packageLinkedService** (zip 파일을 포함하는 **범용** Azure Blob Storage를 가리켜야 함)가 올바른 값으로 설정되었는지 확인합니다.
+6. **assemblyName**(MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile**(customactivitycontainer/MyDotNetActivity.zip) 및 **packageLinkedService**(zip 파일을 포함하는 **범용** Azure Blob Storage를 가리켜야 함)가 올바른 값으로 설정되었는지 확인합니다.
 7. 오류를 해결했고 조각을 다시 처리하려면 **OutputDataset** 블레이드에서 조각을 마우스 오른쪽 단추로 클릭하고 **실행** 을 클릭합니다.
 8. 다음 오류가 표시되면 4.3.0 이후 버전의 Azure Storage 패키지를 사용하고 있는 것입니다. Data Factory 서비스 시작 관리자에는 4.3 버전의 WindowsAzure.Storage가 필요합니다. 이후 버전의 Azure Storage 어셈블리를 사용해야 하는 경우 해결 방법은 [Appdomain 격리](#appdomain-isolation) 섹션을 참조하세요.
 
