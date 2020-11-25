@@ -7,18 +7,18 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2afe53ade9106fa5e1ebb9ec43492a86bd9fc213
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1c4cc7f5440aca27be085c238179cd0ab20b226a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127321"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874052"
 ---
 # <a name="water-quality-monitoring-reference-architecture"></a>용수 품질 모니터링 참조 아키텍처 
 
 
 
-용수 품질 모니터링 솔루션은 **Azure IoT Central 앱 템플릿**을 사용하여 킥 스타터 IoT 애플리케이션으로 빌드할 수 있습니다. 이 문서는 엔드투엔드 솔루션 빌드에 관한 높은 수준의 참조 아키텍처를 제공합니다. 
+용수 품질 모니터링 솔루션은 **Azure IoT Central 앱 템플릿** 을 사용하여 킥 스타터 IoT 애플리케이션으로 빌드할 수 있습니다. 이 문서는 엔드투엔드 솔루션 빌드에 관한 높은 수준의 참조 아키텍처를 제공합니다. 
 
 
 ![용수 품질 모니터링 아키텍처](./media/concepts-waterqualitymonitoring-architecture/concepts-waterqualitymonitoring-architecture1.png)
@@ -41,10 +41,10 @@ ms.locfileid: "92127321"
 Azure IoT Central은 IoT 솔루션을 빠르게 시작하거나 실행하도록 도와주는 IoT 앱 플랫폼입니다. 솔루션을 브랜딩 및 사용자 지정하거나 타사 서비스와 통합할 수 있습니다.
 스마트 워터 디바이스를 IoT Central에 연결하면 디바이스 명령 및 제어, 모니터링 및 경고, RBAC가 내장된 사용자 인터페이스, 구성 가능한 인사이트 대시보드, 확장성 옵션을 이용할 수 있습니다. 
 
-## <a name="extensibility-and-integrations"></a>확장성 및 통합 
+## <a name="extensibility-and-integrations"></a>확장성 및 통합
 Azure IoT Central에서 IoT 애플리케이션을 확장하고 필요에 따라 다음을 수행할 수 있습니다.
 * 고급 분석을 위해 IoT 데이터를 변환하고 통합(예: IoT Central 애플리케이션에서 데이터를 지속적으로 내보내 Machine Learning 모델을 교육)
-* Azure IoT Central 애플리케이션의 웹후크 또는 Microsoft Flow를 통해 작업을 트리거하여 다른 시스템의 워크플로 자동화
+* Azure IoT Central 애플리케이션의 웹후크 또는 Power Automate를 통해 작업을 트리거하여 다른 시스템의 워크플로 자동화
 * IoT Central API를 통해 IoT Central의 IoT 애플리케이션에 프로그래밍 방식으로 액세스
 
 ## <a name="business-applications"></a>비즈니스 애플리케이션 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: b07c53d048d60b555c33cacf42557f5da26552cc
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/09/2020
+ms.openlocfilehash: 065cfe6695d7651d3cda49ad32428127633b834c
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637482"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555450"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Azure Portal을 사용하여 SQL Server의 여러 테이블에서 Azure SQL Database의 데이터베이스로 데이터를 증분 로드
 
@@ -42,11 +42,11 @@ ms.locfileid: "92637482"
 ## <a name="overview"></a>개요
 이 솔루션을 만드는 중요한 단계는 다음과 같습니다. 
 
-1. **워터마크 열을 선택합니다** .
+1. **워터마크 열을 선택합니다**.
     
     원본 데이터 저장소에서 각 테이블에 대해 하나의 열을 선택합니다. 이 열은 모든 실행에 대해 새 레코드 또는 업데이트된 레코드를 식별하는 데 사용할 수 있습니다. 선택한 이 열의 데이터(예: last_modify_time 또는 ID)는 일반적으로 행을 만들거나 업데이트할 때 계속 증가합니다. 이 열의 최대 값은 워터마크로 사용됩니다.
 
-1. **워터마크 값을 저장할 데이터 저장소를 준비합니다** .   
+1. **워터마크 값을 저장할 데이터 저장소를 준비합니다**.   
     
     이 자습서에서는 SQL 데이터베이스에 워터마크 값을 저장합니다.
 
@@ -68,8 +68,8 @@ ms.locfileid: "92637482"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-* **SQL Server** . 이 자습서에서는 SQL Server 데이터베이스를 원본 데이터 저장소로 사용합니다. 
-* **Azure SQL Database** . Azure SQL Database의 데이터베이스를 싱크 데이터 저장소로 사용합니다. SQL Database에 데이터베이스가 없는 경우 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)에서 만드는 단계를 참조하세요. 
+* **SQL Server**. 이 자습서에서는 SQL Server 데이터베이스를 원본 데이터 저장소로 사용합니다. 
+* **Azure SQL Database**. Azure SQL Database의 데이터베이스를 싱크 데이터 저장소로 사용합니다. SQL Database에 데이터베이스가 없는 경우 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)에서 만드는 단계를 참조하세요. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>SQL Server 데이터베이스에 원본 테이블 만들기
 
@@ -236,7 +236,7 @@ END
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
-2. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory** 를 선택합니다. 
+2. 왼쪽 메뉴에서 **리소스 만들기** > **통합** > **Data Factory** 를 선택합니다. 
    
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -490,7 +490,7 @@ END
  
 ## <a name="run-the-pipeline"></a>파이프라인 실행
 
-1. 파이프라인에 대한 도구 모음에서 **트리거 추가** , **지금 트리거** 를 차례로 클릭합니다.     
+1. 파이프라인에 대한 도구 모음에서 **트리거 추가**, **지금 트리거** 를 차례로 클릭합니다.     
 
 1. **파이프라인 실행** 창에서 **tableList** 매개 변수에 대해 다음 값을 입력하고 **마침** 을 클릭합니다. 
 
@@ -593,7 +593,7 @@ VALUES
 
 ## <a name="rerun-the-pipeline"></a>파이프라인 다시 실행
 1. 웹 브라우저 창에서 왼쪽의 **편집** 탭으로 전환합니다. 
-1. 파이프라인에 대한 도구 모음에서 **트리거 추가** , **지금 트리거** 를 차례로 클릭합니다.   
+1. 파이프라인에 대한 도구 모음에서 **트리거 추가**, **지금 트리거** 를 차례로 클릭합니다.   
 1. **파이프라인 실행** 창에서 **tableList** 매개 변수에 대해 다음 값을 입력하고 **마침** 을 클릭합니다. 
 
     ```

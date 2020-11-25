@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/22/2020
-ms.openlocfilehash: c26ad02b6e275f6480826837af36e8f3c70ca262
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/09/2020
+ms.openlocfilehash: ae96a81485064637db9e23b7164021bfbc952162
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634184"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555947"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Azure Portal에서 Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
@@ -50,17 +50,17 @@ ms.locfileid: "92634184"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-* **Azure Storage 계정** . Azure Storage 계정은 대량 복사 작업에서 스테이징 Blob 스토리지로 사용됩니다. 
-* **Azure SQL Database** . 이 데이터베이스에는 원본 데이터가 포함되어 있습니다. 
+* **Azure Storage 계정**. Azure Storage 계정은 대량 복사 작업에서 스테이징 Blob 스토리지로 사용됩니다. 
+* **Azure SQL Database**. 이 데이터베이스에는 원본 데이터가 포함되어 있습니다. 
 * **Azure Synapse Analytics(이전의 SQL DW)** . 이 데이터 웨어하우스에는 SQL Database에서 복사된 데이터를 보관하고 있습니다. 
 
 ### <a name="prepare-sql-database-and-azure-synapse-analytics-formerly-sql-dw"></a>SQL Database 및 Azure Synapse Analytics(이전의 SQL DW) 준비
 
-**원본 Azure SQL Database 준비** :
+**원본 Azure SQL Database 준비**:
 
 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서를 참조하여 Adventure Works LT 샘플 데이터를 사용하여 SQL Database에 데이터베이스를 만듭니다. 이 자습서에서는 이 샘플 데이터베이스의 모든 테이블을 Azure Synapse Analytics(이전의 SQL DW)로 복사합니다.
 
-**싱크 Azure Synapse Analytics(이전의 SQL DW) 준비** :
+**싱크 Azure Synapse Analytics(이전의 SQL DW) 준비**:
 
 1. Azure Synapse Analytics(이전의 SQL DW) 작업 영역이 없는 경우 [Azure Synapse Analytics 시작](..\synapse-analytics\get-started.md) 문서에서 만드는 단계를 참조하세요.
 
@@ -76,8 +76,9 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 
-1. Azure Portal 메뉴의 왼쪽에서 **리소스 만들기** > **분석** > **Data Factory** 를 차례로 선택합니다. 
-   !["새로 만들기" 창에서 Data Factory 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
+1. Azure Portal 메뉴의 왼쪽에서 **리소스 만들기** > **통합** > **Data Factory** 를 차례로 선택합니다. 
+
+   !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. **새 데이터 팩터리** 페이지에서 **이름** 에 대해 **ADFTutorialBulkCopyDF** 를 입력합니다. 
  
    Azure Data Factory의 이름은 **전역적으로 고유** 해야 합니다. 이름 필드에 대해 다음과 같은 오류가 표시되면 데이터 팩터리의 이름을 변경합니다(예: yournameADFTutorialBulkCopyDF). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
@@ -93,7 +94,7 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
          
      리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.  
 1. **버전** 에 대해 **V2** 를 선택합니다.
-1. 데이터 팩터리의 **위치** 를 선택합니다. 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics** 를 펼쳐서 **Data Factory** : [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+1. 데이터 팩터리의 **위치** 를 선택합니다. 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics** 를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 1. **만들기** 를 클릭합니다.
 1. 만들기가 완료되면 **리소스로 이동** 을 선택하여 **Data Factory** 페이지로 이동합니다. 
    
@@ -204,7 +205,7 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
     
 
 ## <a name="create-pipelines"></a>파이프라인 만들기
-이 자습서에서는 두 개의 파이프라인을 만듭니다. **IterateAndCopySQLTables** 및 **GetTableListAndTriggerCopyData** . 
+이 자습서에서는 두 개의 파이프라인을 만듭니다. **IterateAndCopySQLTables** 및 **GetTableListAndTriggerCopyData**. 
 
 **GetTableListAndTriggerCopyData** 파이프라인은 다음 두 작업을 수행합니다.
 
@@ -302,7 +303,7 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
         ```sql
         SELECT TABLE_SCHEMA, TABLE_NAME FROM information_schema.TABLES WHERE TABLE_TYPE = 'BASE TABLE' and TABLE_SCHEMA = 'SalesLT' and TABLE_NAME <> 'ProductModel'
         ```
-    1. **First row only** (첫 번째 행만) 필드의 확인란 선택을 취소합니다.
+    1. **First row only**(첫 번째 행만) 필드의 확인란 선택을 취소합니다.
 
         ![조회 활동 - 설정 페이지](./media/tutorial-bulk-copy-portal/lookup-settings-page.png)
 1. **파이프라인 실행** 활동을 활동 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓고, 이름을 **TriggerCopy** 로 설정합니다.
@@ -314,7 +315,7 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 1. **파이프라인 실행** 활동의 **설정** 탭으로 전환하고, 다음 단계를 수행합니다. 
 
     1. **호출된 파이프라인** 에 대해 **IterateAndCopySQLTables** 를 선택합니다. 
-    1. **Wait on completion** (완료 대기) 확인란의 선택을 취소합니다.
+    1. **Wait on completion**(완료 대기) 확인란의 선택을 취소합니다.
     1. **매개 변수** 섹션에서 VALUE 아래 입력란을 클릭하고 아래에서 **동적 콘텐츠 추가** 를 선택하고 테이블 이름 값으로 `@activity('LookupTableList').output.value`를 입력하고 **마침** 을 선택합니다. 조회 활동의 결과 목록을 두 번째 파이프라인의 입력으로 설정합니다. 결과 목록에는 데이터를 대상에 복사해야 하는 테이블 목록이 포함됩니다. 
 
         ![파이프라인 실행 활동 -설정 페이지](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
@@ -390,7 +391,7 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
         ]
     }
     ```    
-1. **파이프라인 실행** 보기로 다시 전환하려면 이동 경로 메뉴의 위쪽에서 **모든 파이프라인 실행** 링크를 클릭합니다. 파이프라인의 활동 실행을 보려면 **IterateAndCopySQLTables** 링크( **파이프라인 이름** 열 아래)를 클릭합니다. **조회** 활동 출력의 테이블마다 하나의 **복사** 활동이 실행되는 것을 볼 수 있습니다. 
+1. **파이프라인 실행** 보기로 다시 전환하려면 이동 경로 메뉴의 위쪽에서 **모든 파이프라인 실행** 링크를 클릭합니다. 파이프라인의 활동 실행을 보려면 **IterateAndCopySQLTables** 링크(**파이프라인 이름** 열 아래)를 클릭합니다. **조회** 활동 출력의 테이블마다 하나의 **복사** 활동이 실행되는 것을 볼 수 있습니다. 
 
 1. 이 자습서에서 사용한 대상 Azure Synapse Analytics(이전의 SQL DW)에 데이터가 복사되었는지 확인합니다. 
 

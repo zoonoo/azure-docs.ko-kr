@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 88c34be45a832f8944217630568927bc7d52fd88
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 572c657dd44db73b1401c72f0750fe8e000985ac
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660205"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734357"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>비 Azure 컴퓨터를 Security Center에 연결
 
@@ -21,7 +21,7 @@ Security Center는 비 Azure 컴퓨터의 보안 태세를 모니터링할 수 �
 
 다음과 같은 방법으로 비 Azure 컴퓨터를 연결할 수 있습니다.
 
-- [Azure Arc 사용 서버(**권장**) 사용
+- Azure Arc 사용 서버 사용(**권장**)
 - Azure Portal의 Security Center 페이지 사용(**시작** 및 **인벤토리**)
 
 이 페이지에서 이러한 각 방법에 대해 설명합니다.

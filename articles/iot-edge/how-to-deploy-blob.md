@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
 ms.openlocfilehash: 12f0af5f051d02945eeb9b1f7d4bfc50ef98f281
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027638"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014689"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>IoT Edge 모듈의 Azure Blob Storage를 디바이스에 배포
 
@@ -40,7 +40,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
 ### <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
 
-배포 매니페스트는 배포할 모듈, 모듈 간의 데이터 흐름 및 모듈 쌍의 desired 속성을 설명하는 JSON 문서입니다. Azure Portal에는 배포 매니페스트를 만드는 과정을 안내 하는 마법사가 있습니다. 이 클래스는 **모듈** , **경로** 및 **검토 + 만들기** 의 세 단계로 구성 됩니다.
+배포 매니페스트는 배포할 모듈, 모듈 간의 데이터 흐름 및 모듈 쌍의 desired 속성을 설명하는 JSON 문서입니다. Azure Portal에는 배포 매니페스트를 만드는 과정을 안내 하는 마법사가 있습니다. 이 클래스는 **모듈**, **경로** 및 **검토 + 만들기** 의 세 단계로 구성 됩니다.
 
 #### <a name="add-modules"></a>모듈 추가
 
@@ -48,14 +48,14 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
 2. **모듈 설정** 탭에서 모듈의 이름을 입력 한 다음 컨테이너 이미지 URI를 지정 합니다.
 
-   예제:
+   예:
   
-   - **IoT Edge 모듈 이름** : `azureblobstorageoniotedge`
-   - **이미지 URI** : `mcr.microsoft.com/azure-blob-storage:latest`
+   - **IoT Edge 모듈 이름**: `azureblobstorageoniotedge`
+   - **이미지 URI**: `mcr.microsoft.com/azure-blob-storage:latest`
 
    ![스크린샷 추가 i/o T Edge 모듈 페이지의 모듈 설정 탭을 표시 합니다.](./media/how-to-deploy-blob/addmodule-tab1.png)
 
-   이 절차에 설명 된 대로 **모듈 설정** , **컨테이너 만들기 옵션** 및 **모듈 쌍 설정** 탭에서 값을 지정할 때까지 **추가** 를 선택 하지 마세요.
+   이 절차에 설명 된 대로 **모듈 설정**, **컨테이너 만들기 옵션** 및 **모듈 쌍 설정** 탭에서 값을 지정할 때까지 **추가** 를 선택 하지 마세요.
 
    > [!IMPORTANT]
    > 모듈에 대 한 호출을 수행할 때 Azure IoT Edge 대/소문자를 구분 하 고, 저장소 SDK도 기본값인 소문자로 설정 합니다. [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) 모듈의 이름은 **Azureblobstorageoniotedge** 이지만 이름을 소문자로 변경 하면 IoT Edge 모듈의 Azure Blob Storage에 대 한 연결이 중단 되지 않도록 할 수 있습니다.
@@ -91,10 +91,10 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
    - `<storage mount>`컨테이너 운영 체제에 따라 대체 합니다. Blob 모듈이 데이터를 저장 하는 IoT Edge 장치의 기존 디렉터리에 대 한 절대 경로 또는 [볼륨](https://docs.docker.com/storage/volumes/) 의 이름을 제공 합니다. 저장소 탑재는 사용자가 제공 하는 장치의 위치를 모듈의 설정 된 위치에 매핑합니다.
 
-     - Linux 컨테이너의 경우 형식은 **\<your storage path or volume> /blobroot** 입니다. 예를 들면 다음과 같습니다.
+     - Linux 컨테이너의 경우 형식은 **\<your storage path or volume> /blobroot** 입니다. 예들 들어 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/)사용:`my-volume:/blobroot`
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `/srv/containerdata:/blobroot` 사용: [컨테이너 사용자에 대 한 디렉터리 액세스 권한을 부여](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux) 하는 단계를 수행 해야 합니다.
-     - Windows 컨테이너의 경우 형식은 **\<your storage path or volume> C:/BlobRoot** 입니다. 예를 들면 다음과 같습니다.
+     - Windows 컨테이너의 경우 형식은 **\<your storage path or volume> C:/BlobRoot** 입니다. 예들 들어 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/) `my-volume:C:/BlobRoot` 사용:
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `C:/ContainerData:C:/BlobRoot` 사용:
          - 로컬 드라이브를 사용 하는 대신 SMB 네트워크 위치를 매핑할 수 있습니다. 자세한 내용은 [로컬 저장소로 smb 공유 사용](how-to-store-data-blob.md#using-smb-share-as-your-local-storage) 을 참조 하세요.
@@ -203,10 +203,10 @@ Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 
 
 1. `<storage mount>`컨테이너 운영 체제에 따라 대체 합니다. IoT Edge 디바이스에서 Blob 모듈이 데이터를 저장할 [볼륨](https://docs.docker.com/storage/volumes/) 이름 또는 디렉터리 절대 경로를 제공합니다. 저장소 탑재는 사용자가 제공 하는 장치의 위치를 모듈의 설정 된 위치에 매핑합니다.  
 
-     - Linux 컨테이너의 경우 형식은 **\<your storage path or volume> /blobroot** 입니다. 예를 들면 다음과 같습니다.
+     - Linux 컨테이너의 경우 형식은 **\<your storage path or volume> /blobroot** 입니다. 예들 들어 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/)사용:`my-volume:/blobroot`
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `/srv/containerdata:/blobroot` 사용: [컨테이너 사용자에 대 한 디렉터리 액세스 권한을 부여](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux) 하는 단계를 수행 해야 합니다.
-     - Windows 컨테이너의 경우 형식은 **\<your storage path or volume> C:/BlobRoot** 입니다. 예를 들면 다음과 같습니다.
+     - Windows 컨테이너의 경우 형식은 **\<your storage path or volume> C:/BlobRoot** 입니다. 예들 들어 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/) `my-volume:C:/BlobRoot` 사용:
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `C:/ContainerData:C:/BlobRoot` 사용:
          - 로컬 드라이브를 사용 하는 대신 SMB 네트워크 위치를 매핑할 수 있습니다. 자세한 내용은 [로컬 저장소로 SMB 공유 사용](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)을 참조 하세요.

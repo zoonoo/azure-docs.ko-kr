@@ -12,39 +12,13 @@
     - name: 환경 설정
       href: set-up-environment.md
     - name: 디바이스를 IoT Hub에 연결
-      items:
-        - name: C
-          href: quickstart-connect-device-c.md
-        - name: Node.js
-          href: quickstart-connect-device-node.md
-        - name: Python
-          href: quickstart-connect-device-python.md
-        - name: C#
-          href: quickstart-connect-device-csharp.md
-        - name: Java
-          href: quickstart-connect-device-java.md
+      href: quickstart-connect-device.md
     - name: 솔루션에서 디바이스와 상호 작용
-      items:
-        - name: Node.js
-          href: quickstart-service-node.md
-        - name: Python
-          href: quickstart-service-python.md
-        - name: C#
-          href: quickstart-service-csharp.md
-        - name: Java
-          href: quickstart-service-java.md
+      href: quickstart-service.md
 - name: 자습서
   items:
-    - name: 여러 구성 요소 디바이스 연결(C)
-      href: tutorial-multiple-components-c.md
-    - name: 여러 구성 요소 디바이스 연결(C#)
-      href: tutorial-multiple-components-csharp.md
-    - name: 여러 구성 요소 디바이스 연결(Java)
-      href: tutorial-multiple-components-java.md
-    - name: 여러 구성 요소 디바이스 연결(Node.js)
-      href: tutorial-multiple-components-node.md
-    - name: 여러 구성 요소 디바이스 연결(Python)
-      href: tutorial-multiple-components-python.md
+    - name: 여러 구성 요소 디바이스 연결
+      href: tutorial-multiple-components.md
     - name: MQTT를 사용하여 디바이스 연결
       href: tutorial-use-mqtt.md
     - name: MXChip 디바이스와 상호 작용(샘플)
@@ -58,17 +32,7 @@
     - name: Architecture
       href: concepts-architecture.md
     - name: 디바이스 개발자 가이드
-      items:
-        - name: C#
-          href: concepts-developer-guide-device-csharp.md
-        - name: Node.js
-          href: concepts-developer-guide-device-node.md
-        - name: Java
-          href: concepts-developer-guide-device-java.md
-        - name: Python
-          href: concepts-developer-guide-device-python.md
-        - name: C
-          href: concepts-developer-guide-device-c.md
+      href: concepts-developer-guide-device.md
     - name: 서비스 개발자 가이드
       href: concepts-developer-guide-service.md
     - name: 구성 요소

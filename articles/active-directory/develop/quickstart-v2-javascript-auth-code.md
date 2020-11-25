@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 45a6843c5ce55dca7ff72731752f3c1f24a5db6b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 40929a165e7a3afbbc92a472c352172723745040
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216660"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533194"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>빠른 시작: 인증 코드 흐름을 사용하여 사용자를 로그인하고 JavaScript SPA에서 액세스 토큰을 가져옵니다.
 
-이 빠른 시작에서는 인증 코드 흐름을 사용하여 JavaScript SPA(단일 페이지 애플리케이션)에서 개인 계정, 회사 및 학교 계정에 로그인하는 방법을 설명하는 코드 샘플을 실행합니다. 또한 이 코드 샘플은 웹 API(이 경우에는 Microsoft Graph API)를 호출하기 위해 액세스 토큰을 가져오는 방법을 보여줍니다. 자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
+이 빠른 시작에서는 인증 코드 흐름을 사용하여 JavaScript SPA(단일 페이지 애플리케이션)에서 사용자를 로그인하고 Microsoft Graph를 호출할 수 있는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 코드 샘플은 Microsoft Graph API 또는 웹 API를 호출하기 위한 액세스 토큰을 가져오는 방법을 보여줍니다. 
+
+자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
 이 빠른 시작에서는 인증 코드 흐름과 함께 MSAL.js 2.0을 사용합니다. 암시적 흐름과 함께 MSAL.js 1.0을 사용하는 비슷한 빠른 시작은 [빠른 시작: JavaScript 단일 페이지 앱에서 사용자 로그인](./quickstart-v2-javascript.md)을 참조하세요.
 
@@ -41,8 +43,8 @@ ms.locfileid: "92216660"
 > 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위에 있는 계정을 선택한 다음, 사용할 Azure AD(Azure Active Directory) 테넌트로 포털 세션을 설정합니다.
 > 1. [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs)을 선택합니다.
 > 1. 애플리케이션의 이름을 입력합니다.
-> 1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
-> 1. **등록**을 선택합니다.
+> 1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 선택합니다.
+> 1. **등록** 을 선택합니다.
 > 1. 빠른 시작 창으로 이동하여 지침에 따라 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
 > ### <a name="option-2-manual-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2(수동): 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
@@ -52,14 +54,14 @@ ms.locfileid: "92216660"
 > 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 > 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위에 있는 계정을 선택한 다음, 사용할 Azure AD 테넌트로 포털 세션을 설정합니다.
 > 1. [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908)을 선택합니다.
-> 1. **새 등록**을 선택합니다.
+> 1. **새 등록** 을 선택합니다.
 > 1. **애플리케이션 등록** 페이지가 나타나면 애플리케이션의 이름을 입력합니다.
-> 1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
-> 1. **등록**을 선택합니다. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
-> 1. 등록된 애플리케이션의 왼쪽 창에서 **인증**을 선택합니다.
-> 1. **플랫폼 구성**에서 **플랫폼 추가**를 선택합니다. 열린 창에서 **단일 페이지 애플리케이션**을 선택합니다.
+> 1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 선택합니다.
+> 1. **등록** 을 선택합니다. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
+> 1. 등록된 애플리케이션의 왼쪽 창에서 **인증** 을 선택합니다.
+> 1. **플랫폼 구성** 에서 **플랫폼 추가** 를 선택합니다. 열린 창에서 **단일 페이지 애플리케이션** 을 선택합니다.
 > 1. **리디렉션 URI** 값을 `http://localhost:3000/`으로 설정합니다.
-> 1. **구성**을 선택합니다.
+> 1. **구성** 을 선택합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
@@ -109,23 +111,23 @@ ms.locfileid: "92216660"
 >
 > 여기에 설명한 대로 `msalConfig` 섹션에서 값을 수정합니다.
 >
-> - `Enter_the_Application_Id_Here`는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID**입니다.
+> - `Enter_the_Application_Id_Here`는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
 > - `Enter_the_Cloud_Instance_Id_Here`는 Azure 클라우드의 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 `https://login.microsoftonline.com/`을 입력합니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](authentication-national-cloud.md)를 참조하세요.
 > - `Enter_the_Tenant_info_here`는 다음 중 하나로 설정됩니다.
->   - 애플리케이션에서 *이 조직 디렉터리의 계정*을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**으로 바꿉니다. 예들 들어 `contoso.microsoft.com`입니다.
->   - 애플리케이션에서 *모든 조직 디렉터리의 계정*을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
->   - 애플리케이션에서 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정*을 지원하는 경우 이 값을 `common`으로 바꿉니다. **이 빠른 시작**에 대해 `common`을 사용합니다.
+>   - 애플리케이션에서 *이 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름** 으로 바꿉니다. 예들 들어 `contoso.microsoft.com`입니다.
+>   - 애플리케이션에서 *모든 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
+>   - 애플리케이션에서 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정* 을 지원하는 경우 이 값을 `common`으로 바꿉니다. **이 빠른 시작** 에 대해 `common`을 사용합니다.
 >   - *개인 Microsoft 계정만* 지원하도록 제한하려면 이 값을 `consumers`로 바꿉니다.
 > - `Enter_the_Redirect_Uri_Here`은 `http://localhost:3000/`입니다.
 >
-> 기본(글로벌) Azure 클라우드를 사용하는 경우 *authConfig.js*의 `authority` 값은 다음과 비슷해야 합니다.
+> 기본(글로벌) Azure 클라우드를 사용하는 경우 *authConfig.js* 의 `authority` 값은 다음과 비슷해야 합니다.
 >
 > ```javascript
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
 > > [!TIP]
-> > **애플리케이션(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형**의 값을 찾아보려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
+> > **애플리케이션(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형** 의 값을 찾아보려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.
@@ -170,7 +172,7 @@ Node.js를 사용하여 웹 서버에서 프로젝트 실행:
     ```
 1. [https://www.microsoft.com]\(`http://localhost:3000/`) 로 이동합니다.
 
-1. **로그인**을 선택하여 로그인 프로세스를 시작한 다음, Microsoft Graph API를 호출합니다.
+1. **로그인** 을 선택하여 로그인 프로세스를 시작한 다음, Microsoft Graph API를 호출합니다.
 
     사용자가 처음으로 로그인하면 애플리케이션이 사용자 프로필에 액세스하고 로그인할 수 있도록 동의하라는 메시지가 표시됩니다. 성공적으로 로그인한 후에는 사용자 프로필 정보가 페이지에 표시되어야 합니다.
 
@@ -200,4 +202,4 @@ npm install @azure/msal-browser
 이 빠른 시작에 사용되는 애플리케이션을 빌드하기 위한 더 자세한 단계별 가이드는 다음 자습서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [MS Graph에 로그인하고 호출하는 자습서 >](./tutorial-v2-javascript-auth-code.md)
+> [MS Graph에 로그인하고 호출하는 자습서](./tutorial-v2-javascript-auth-code.md)

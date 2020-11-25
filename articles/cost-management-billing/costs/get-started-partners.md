@@ -3,18 +3,18 @@ title: 파트너용 Azure Cost Management 시작
 description: 이 문서에서는 파트너가 Azure Cost Management 기능을 사용하는 방법과 파트너가 자사의 고객을 위해 Cost Management 액세스를 사용하도록 설정하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/04/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0076c70f64ec5cea8b92cb2b9ed27de05406316d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d2b90db18a31fff4190be4f84625ad52fcaae578
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827588"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657315"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너용 Azure Cost Management 시작
 
@@ -53,7 +53,7 @@ Azure Portal에서 Azure Cost Management를 사용하도록 설정하려면, Mic
 
 Azure Cost Management에는 청구 계정이나 구독에 대한 읽기 권한이 필요합니다.
 
-청구 계정에 대해 Azure Cost Management에 대한 액세스를 설정하고 할당하는 방법에 대한 자세한 내용은 [사용자 역할 및 권한 할당](/partner-center/permissions-overview)을 참조하세요. **글로벌 관리자**와 **관리 에이전트** 역할은 청구 계정의 비용을 관리할 수 있습니다.
+청구 계정에 대해 Azure Cost Management에 대한 액세스를 설정하고 할당하는 방법에 대한 자세한 내용은 [사용자 역할 및 권한 할당](/partner-center/permissions-overview)을 참조하세요. **글로벌 관리자** 와 **관리 에이전트** 역할은 청구 계정의 비용을 관리할 수 있습니다.
 
 구독 범위에서 Azure Cost Management에 액세스하기 위해 구독에 대한 Azure RBAC 액세스 권한이 있는 사용자는 소매(종량제) 요금으로 비용을 볼 수 있습니다. 단, [고객 테넌트에 대한 비용 표시 여부 정책](#enable-the-policy-to-view-azure-usage-charges)을 사용하도록 설정해야 합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요.
 
@@ -65,7 +65,7 @@ Azure Cost Management에는 청구 계정이나 구독에 대한 읽기 권한�
 
 ## <a name="manage-costs-with-partner-tenant-billing-scopes"></a>파트너 테넌트 청구 범위로 비용 관리
 
-고객을 Microsoft 고객 계약에 온보딩한 후에는 테넌트에서 다음과 같은 _청구 범위_를 사용할 수 있습니다. 범위를 사용하여 Cost Management에서 비용을 관리합니다.
+고객을 Microsoft 고객 계약에 온보딩한 후에는 테넌트에서 다음과 같은 _청구 범위_ 를 사용할 수 있습니다. 범위를 사용하여 Cost Management에서 비용을 관리합니다.
 
 ### <a name="billing-account-scope"></a>청구 계정 범위
 
@@ -112,7 +112,7 @@ Microsoft 고객 계약에 고객을 온보딩한 후에는 Microsoft 고객 계
 
 ## <a name="partner-access-to-billing-scopes-in-cost-management"></a>Cost Management에서 청구 범위에 대한 파트너 액세스
 
-**글로벌 관리자**와 **관리 에이전트** 역할이 있는 사용자만 파트너의 Azure 테넌트에서 직접 청구 계정, 청구 프로필 및 고객에 대한 비용을 관리하고 볼 수 있습니다. 파트너 센터 역할에 대한 자세한 내용 [사용자 역할 및 권한 할당](/partner-center/permissions-overview)을 참조하세요.
+**글로벌 관리자** 와 **관리 에이전트** 역할이 있는 사용자만 파트너의 Azure 테넌트에서 직접 청구 계정, 청구 프로필 및 고객에 대한 비용을 관리하고 볼 수 있습니다. 파트너 센터 역할에 대한 자세한 내용 [사용자 역할 및 권한 할당](/partner-center/permissions-overview)을 참조하세요.
 
 ## <a name="enable-cost-management-for-customer-tenant-subscriptions"></a>고객 테넌트 구독에 대한 비용 관리 사용
 
@@ -126,26 +126,26 @@ Microsoft 고객 계약에 고객을 온보딩한 후에는 Microsoft 고객 계
 
 정책을 보고 업데이트하려면 **관리 에이전트** 그룹의 구성원이어야 합니다. 다음 정보를 사용하여 고객이 Azure 사용량 요금을 볼 수 있도록 허용하는 정책을 사용하도록 설정합니다.
 
-Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + 청구**를 선택합니다. 청구 범위 영역에서 관련 청구 범위를 선택한 다음, **고객**을 선택합니다. 고객 목록은 청구 계정과 연결되어 있습니다.
+Azure Portal에서 *파트너 테넌트* 에 로그인하고 **Cost Management + 청구** 를 선택합니다. 청구 범위 영역에서 관련 청구 범위를 선택한 다음, **고객** 을 선택합니다. 고객 목록은 청구 계정과 연결되어 있습니다. *실수로 고객 테넌트에 로그인하면 **고객** 목록이 표시되지 않습니다.*
 
 고객 목록에서 비용을 보도록 허용할 고객을 선택합니다.
 
 [![Cost Management에서 고객 선택](./media/get-started-partners/customer-list.png)](./media/get-started-partners/customer-list.png#lightbox)
 
-**설정**에서 **정책**을 선택합니다.
+**설정** 에서 **정책** 을 선택합니다.
 
 선택한 고객의 구독과 연결된 **Azure 사용량** 요금에 대한 현재 비용 표시 여부 정책이 표시됩니다.
 ![고객이 종량제 요금을 보도록 허용하는 정책](./media/get-started-partners/cost-management-billing-policies.png)
 
-정책이 **아니요**로 설정되면 고객과 연결된 구독 사용자가 Azure Cost Management를 사용할 수 없습니다. 파트너가 활성화하지 않으면 모든 구독 사용자에 대해 비용 표시 여부 정책이 기본적으로 비활성화됩니다.
+정책이 **아니요** 로 설정되면 고객과 연결된 구독 사용자가 Azure Cost Management를 사용할 수 없습니다. 파트너가 활성화하지 않으면 모든 구독 사용자에 대해 비용 표시 여부 정책이 기본적으로 비활성화됩니다.
 
-비용 정책이 **예**로 설정되면, 고객 테넌트에 연결된 구독 사용자가 종량제 요금으로 사용량 요금을 볼 수 있습니다.
+비용 정책이 **예** 로 설정되면, 고객 테넌트에 연결된 구독 사용자가 종량제 요금으로 사용량 요금을 볼 수 있습니다.
 
 비용 표시 여부 정책을 사용하도록 설정하면, 구독 사용량이 있는 모든 서비스는 종량제 요금으로 비용을 표시합니다. 예약 사용은 실제 및 분할상환 비용에 대한 요금이 0으로 표시됩니다. 구매 및 자격은 특정 구독에 연결되지 않습니다. 따라서 구매는 구독 범위에 표시되지 않습니다. 또한 직접 파트너 또는 간접 공급자의 글로벌 관리자/관리 에이전트는 [고객 업데이트 API](/rest/api/billing/2019-10-01-preview/policies/updatecustomer)를 사용하여 각 고객의 비용 표시 정책을 대규모로 설정할 수 있습니다.
 
 ### <a name="view-subscription-costs-in-the-customer-tenant"></a>고객 테넌트의 구독 비용 보기
 
-구독에 대한 비용을 보려면 고객의 Azure 테넌트에서 **Cost Management + 청구**를 엽니다. 필요한 구독 **비용 분석**을 선택하여 비용 검토를 시작합니다. 고객 테넌트에서 각 구독에 대한 소비 비용을 개별적으로 볼 수 있습니다.
+구독에 대한 비용을 보려면 고객의 Azure 테넌트에서 **Cost Management + 청구** 를 엽니다. 필요한 구독 **비용 분석** 을 선택하여 비용 검토를 시작합니다. 고객 테넌트에서 각 구독에 대한 소비 비용을 개별적으로 볼 수 있습니다.
 
 [![고객으로 비용 분석 보기](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
@@ -188,7 +188,7 @@ Azure RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 
 | costCenter | 구독에 연결된 비용 센터입니다. | 해당 없음 |
 | billingPeriodStartDate | 청구서에 표시된 청구 기간 시작 날짜입니다. | 해당 없음 |
 | billingPeriodEndDate | 청구서에 표시된 청구 기간 종료 날짜입니다. | 해당 없음 |
-| servicePeriodStartDate | 요금을 위해 서비스 사용량이 평가되는 평가 기간의 시작 날짜입니다. Azure 서비스의 가격은 평가 기간에 따라 결정됩니다. | 파트너 센터의 ChargeStartDate입니다. 이전에 청구되지 않은 잠재 사용 현황 데이터 날짜(이전 청구 주기)를 표시할 경우를 제외하고 청구 주기의 시작 날짜입니다. 시간은 항상 하루의 시작인 0:00입니다. |
+| servicePeriodStartDate | 요금을 위해 서비스 사용량이 평가되는 평가 기간의 시작 날짜입니다. Azure 서비스의 가격은 평가 기간에 따라 결정됩니다. | 파트너 센터의 ChargeStartDate입니다.  이전에 청구되지 않은 잠재 사용 현황 데이터 날짜(이전 청구 주기)를 표시할 경우를 제외하고 청구 주기의 시작 날짜입니다. 시간은 항상 하루의 시작인 0:00입니다. |
 | servicePeriodEndDate | 요금을 위해 서비스 사용량이 평가되는 기간의 종료 날짜입니다. Azure 서비스의 가격은 평가 기간을 기반으로 결정됩니다. | 해당 없음 |
 | date | Azure 소비 데이터의 경우, 평가된 사용량의 날짜가 표시됩니다. 예약된 인스턴스의 경우, 구매한 날짜가 표시됩니다. Marketplace 및 지원과 같은 일회성 요금 및 반복 청구 요금의 경우 구매 날짜가 표시됩니다. | 해당 없음 |
 | productID | 소비 또는 구매에 의해 요금이 발생한 제품의 식별자입니다. 파트너 센터에 표시된, productID와 SKuID가 연결된 키입니다. | 제품의 ID입니다. |
@@ -241,17 +241,17 @@ Azure RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 
 
 Azure Cost Management에서 파트너는 비용 분석을 사용하여 PEC 혜택을 받은 비용을 볼 수 있습니다.
 
-Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + 청구**를 선택합니다. **Cost Management**에서 **비용 분석**을 선택합니다.
+Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + 청구** 를 선택합니다. **Cost Management** 에서 **비용 분석** 을 선택합니다.
 
-비용 분석 보기에는 파트너에 대한 청구 계정의 비용이 표시됩니다. 청구서를 조정할 파트너, 특정 고객 또는 청구 프로필에 맞게 **범위**를 선택합니다.
+비용 분석 보기에는 파트너에 대한 청구 계정의 비용이 표시됩니다. 청구서를 조정할 파트너, 특정 고객 또는 청구 프로필에 맞게 **범위** 를 선택합니다.
 
-도넛형 차트에서 드롭다운 목록을 선택하고 **PartnerEarnedCreditApplied**를 선택하여 PEC 비용을 상세히 살펴봅니다.
+도넛형 차트에서 드롭다운 목록을 선택하고 **PartnerEarnedCreditApplied** 를 선택하여 PEC 비용을 상세히 살펴봅니다.
 
 ![파트너 획득 크레딧을 보는 방법을 보여주는 예제](./media/get-started-partners/cost-analysis-pec1.png)
 
-**PartnerEarnedCreditApplied** 속성이 _True_인 경우, 관련 비용에 파트너 획득 관리자 액세스의 이점이 있습니다.
+**PartnerEarnedCreditApplied** 속성이 _True_ 인 경우, 관련 비용에 파트너 획득 관리자 액세스의 이점이 있습니다.
 
-**PartnerEarnedCreditApplied** 속성이 _False_인 경우 관련 비용이 크레딧에 필요한 자격을 충족하지 못합니다. 또는 구매한 서비스가 파트너 획득 크레딧을 받을 자격이 없습니다.
+**PartnerEarnedCreditApplied** 속성이 _False_ 인 경우 관련 비용이 크레딧에 필요한 자격을 충족하지 못합니다. 또는 구매한 서비스가 파트너 획득 크레딧을 받을 자격이 없습니다.
 
 서비스 사용 현황 데이터가 Cost Management에 표시되기까지 일반적으로 8-24시간이 걸립니다. 자세한 내용은 [비용, 사용량 데이터 업데이트 및 보존](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention)을 참조하세요. PEC 크레딧은 Azure Cost Management에 액세스한 후 48시간 이내에 표시됩니다.
 
@@ -268,11 +268,11 @@ Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + �
 
 ### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>파트너 테넌트 또는 고객 테넌트에 내보내기 만들기
 
-Azure Portal에서 파트너 테넌트 또는 고객 테넌트에 로그인하고 **Cost Management + 청구**를 선택합니다. 적절한 범위(예: Microsoft 파트너 계약 청구 계정)를 선택한 다음, **비용 분석**을 선택합니다. 페이지가 로드되면 **내보내기**를 선택합니다. 내보내기 예약에서 **모든 내보내기 보기**를 선택합니다.
+Azure Portal에서 파트너 테넌트 또는 고객 테넌트에 로그인하고 **Cost Management + 청구** 를 선택합니다. 적절한 범위(예: Microsoft 파트너 계약 청구 계정)를 선택한 다음, **비용 분석** 을 선택합니다. 페이지가 로드되면 **내보내기** 를 선택합니다. 내보내기 예약에서 **모든 내보내기 보기** 를 선택합니다.
 
 ![내보내기 및 모든 내보내기 보기 선택](./media/get-started-partners/export01.png)
 
-그런 다음, **추가**를 선택하고 이름을 입력하고 내보내기 유형을 선택합니다. **스토리지** 탭을 선택하고 필요한 정보를 입력합니다.
+그런 다음, **추가** 를 선택하고 이름을 입력하고 내보내기 유형을 선택합니다. **스토리지** 탭을 선택하고 필요한 정보를 입력합니다.
 
 ![신규 내보내기 추가 및 스토리지 탭 선택](./media/get-started-partners/export02.png)
 
@@ -280,9 +280,9 @@ Azure Portal에서 파트너 테넌트 또는 고객 테넌트에 로그인하�
 
 고객 테넌트의 Azure RBAC 사용자의 경우, 고객 테넌트에서 구독을 선택합니다. 이 구독을 사용하여 Azure Storage 계정을 만듭니다.
 
-콘텐츠를 검토한 다음, **만들기**를 선택하여 내보내기를 예약합니다.
+콘텐츠를 검토한 다음, **만들기** 를 선택하여 내보내기를 예약합니다.
 
-내보내기 목록에서 데이터를 확인하려면, 스토리지 계정 이름을 선택합니다. 스토리지 계정 페이지에서 **컨테이너**를 선택한 다음, 해당 컨테이너를 선택합니다. 해당 폴더로 이동하고 CSV 파일을 선택합니다. **다운로드**를 선택하여 CSV 파일을 가져와서 엽니다. 내보낸 데이터는 Azure Portal의 사용량 세부 정보와 유사한 비용 데이터를 닮았습니다.
+내보내기 목록에서 데이터를 확인하려면, 스토리지 계정 이름을 선택합니다. 스토리지 계정 페이지에서 **컨테이너** 를 선택한 다음, 해당 컨테이너를 선택합니다. 해당 폴더로 이동하고 CSV 파일을 선택합니다. **다운로드** 를 선택하여 CSV 파일을 가져와서 엽니다. 내보낸 데이터는 Azure Portal의 사용량 세부 정보와 유사한 비용 데이터를 닮았습니다.
 
 ![내보낸 데이터의 예](./media/get-started-partners/example-export-data.png)
 

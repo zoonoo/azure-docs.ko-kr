@@ -1,5 +1,5 @@
 ---
-title: 자습서-Azure Active Directory 특성 매핑 사용자 지정
+title: 자습서 - Azure Active Directory 특성 매핑 사용자 지정
 description: Azure Active Directory의 Saas 앱에 대한 어떤 특성 매핑이 있고 어떻게 비즈니스 요구 사항에 맞게 수정하는지를 알아봅니다.
 services: active-directory
 author: kenwith
@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: 42ec826ab95363c2599be541fe451473be5ca08d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f65fb37a4cc6640bc998af1c56e7852cccaba234
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441956"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955523"
 ---
-# <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>자습서-사용자 프로 비전 특성 사용자 지정-Azure Active Directory에서 SaaS 응용 프로그램에 대 한 매핑
+# <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>자습서 - Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
 Microsoft Azure AD는 Salesforce, G Suite 등과 같은 타사 SaaS 애플리케이션에 대한 사용자 프로비저닝을 지원합니다. 타사 SaaS 애플리케이션에 대해 사용자 프로비저닝을 사용하도록 설정하면 Azure Portal은 특성 매핑을 통해 해당 특성 값을 제어합니다.
 
@@ -107,11 +107,11 @@ ServiceNow, Box 및 G Suite와 같은 일부 애플리케이션은 그룹 개체
 
 - Salesforce
 - ServiceNow
-- Workday에서 Active Directory/Workday Azure Active Directory
-- SuccessFactors to Active Directory/SuccessFactors to Azure Active Directory
+- Workday에서 Active Directory로 / Workday에서 Azure Active Directory로
+- SuccessFactors에서 Active Directory로 / SuccessFactors에서 Azure Active Directory로
 - Azure Active Directory([Azure AD Graph API 기본 특성](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) 및 사용자 지정 디렉터리 확장이 지원됩니다.)
-- [Scim 2.0](https://tools.ietf.org/html/rfc7643) 을 지 원하는 앱
-- Workday 또는 SuccessFactors에 대 한 쓰기 저장 (writeback) Azure Active Directory 경우 지원 되는 특성 (XPATH 및 JSONPath)에 대 한 관련 메타 데이터를 업데이트할 수 있지만, 기본 스키마에 포함 된 것 보다는 새 Workday 또는 SuccessFactors 특성을 추가 하는 것은 지원 되지 않습니다.
+- [SCIM 2.0](https://tools.ietf.org/html/rfc7643)을 지원하는 앱
+- Workday 또는 SuccessFactors에 대한 Azure Active Directory 쓰기 저장의 경우, 지원되는 특성(XPATH 및 JSONPath)에 대한 관련 메타 데이터를 업데이트하는 것이 지원되지만 기본 스키마에 포함된 특성을 넘어서 새 Workday 또는 SuccessFactors 특성을 추가하는 것은 지원되지 않습니다.
 
 
 > [!NOTE]
@@ -142,11 +142,11 @@ SCIM RFC는 핵심 사용자 및 그룹 스키마를 정의하는 동시에 애�
    4. **AppName의 특성 목록 편집** 을 선택합니다.
    5. 특성 목록의 맨 아래에, 제공된 필드에 사용자 지정 특성에 대한 정보를 입력합니다. 그런 다음, **특성 추가** 를 선택합니다.
 
-SCIM 애플리케이션의 경우 특성 이름이 아래 예제에 표시된 패턴을 따라야 합니다. "CustomExtensionName" 및 "CustomAttribute"는 응용 프로그램의 요구 사항에 따라 사용자 지정할 수 있습니다 (예: urn: ietf: params: scim: 스키마: extension: CustomExtensionName: 2.0: User: CustomAttribute). 
+SCIM 애플리케이션의 경우 특성 이름이 아래 예제에 표시된 패턴을 따라야 합니다. "CustomExtensionName" 및 "CustomAttribute"는 애플리케이션의 요구 사항에 따라 사용자 지정할 수 있습니다.(예: urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute) 
 
 이러한 지침은 SCIM 사용 애플리케이션에만 적용 됩니다. ServiceNow 및 Salesforce와 같은 애플리케이션은 SCIM을 사용하여 Azure AD와 통합되지 않으므로 사용자 지정 특성을 추가할 때 특정 네임스페이스가 필요하지 않습니다.
 
-사용자 지정 특성은 참조 특성, 다중 값 또는 복합 형식의 특성 일 수 없습니다. 사용자 지정 다중 값 및 복합 형식화 된 확장 특성은 현재 갤러리의 응용 프로그램에 대해서만 지원 됩니다.  
+사용자 지정 특성은 참조 특성, 다중값 또는 복합 형식 특성일 수 없습니다. 사용자 지정 다중값 및 복합 형식 확장 특성은 현재 갤러리의 애플리케이션에 대해서만 지원됩니다.  
  
 **확장 특성이 있는 사용자 표현 예:**
 
@@ -202,7 +202,7 @@ SCIM 애플리케이션의 경우 특성 이름이 아래 예제에 표시된 �
   - **고려할 사항**
     - 사용자에게 여러 역할이 할당되지 않아야 합니다. 어떤 역할이 프로비저닝될지 보장할 수 없습니다.
     
-  - **예제 출력** 
+  - **예제 요청(POST)** 
 
    ```json
     {
@@ -226,6 +226,21 @@ SCIM 애플리케이션의 경우 특성 이름이 아래 예제에 표시된 �
    }
    ```
   
+  - **예제 출력(PATCH)** 
+    
+   ```
+   "Operations": [
+   {
+   "op": "Add",
+   "path": "roles",
+   "value": [
+   {
+   "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+   }
+   ]
+   ```  
+PATCH 및 POST의 요청 형식은 다릅니다. POST와 PATCH가 동일한 형식으로 전송되도록 하려면 [여기](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior)에 설명된 기능 플래그를 사용할 수 있습니다. 
+
 - **AppRoleAssignmentsComplex** 
   - **사용 시기:** AppRoleAssignmentsComplex 식은 한 명의 사용자에게 여러 역할을 프로비저닝하는 경우 사용합니다. 
   - **구성 방법:** 위의 설명에 따라 지원되는 특성 목록을 편집하여 역할에 대한 새로운 특성을 포함합니다. 
@@ -316,7 +331,7 @@ phoneNumbers 및 emails와 같은 특정 특성은 다양한 유형의 전화 �
 - Azure AD 프로비저닝 서비스는 null 값 프로비저닝을 지원하지 않습니다.
 - 기본 키(일반적으로 "ID")는 특성 매핑에서 대상 특성으로 포함되어서는 안 됩니다. 
 - 일반적으로 역할 특성은 직접 매핑보다는 식을 사용하여 매핑해야 합니다. 역할 매핑에 대한 자세한 내용은 위의 섹션을 참조하세요. 
-- 매핑에서 그룹을 사용 하지 않도록 설정할 수 있지만 사용자를 사용 하지 않도록 설정 하는 것은 지원 되지 않습니다. 
+- 매핑에서 그룹을 비활성화할 수 있지만 사용자 비활성화는 지원되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

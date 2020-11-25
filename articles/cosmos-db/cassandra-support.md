@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: ae4281350efc96fab6c4e2898cbcddf83bf29cd8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ecf4229c95ff9103cd27fd161fdd19c9e7a0f76b
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073121"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636965"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -86,17 +86,24 @@ Azure Cosmos DB Cassandra API는 다음 CQL 함수를 지원합니다.
 | writetime | 예 |
 | 캐스트 | 예 |
 
-\* Cassandra API는 토큰을 프로젝션/선택기로 지원하며 where 절의 왼쪽에는 token(pk)만 허용합니다. 예를 들어 `WHERE token(pk) > 1024`는 지원되지만 `WHERE token(pk) > token(100)`은 지원되지 않습니다.
+> [!NOTE]
+> \* Cassandra API는 토큰을 프로젝션/선택기로 지원하며 where 절의 왼쪽에는 token(pk)만 허용합니다. 예를 들어 `WHERE token(pk) > 1024`는 지원되지만 `WHERE token(pk) > token(100)`은 지원되지 **않습니다**.
+
 
 
 집계 함수:
 
 |명령  |지원됨 |
 |---------|---------|
+| avg | 예 |
+| count | 예 |
 | min | 예 |
 | max | 예 |
-| avg | 예 |
-| count() | 예 |
+| sum | 예 |
+
+> [!NOTE]
+> 집계 함수는 일반 열에서 작동하지만 클러스터링 열에 대한 집계는 지원되지 **않습니다**.
+
 
 Blob 변환 함수:
  
@@ -260,7 +267,7 @@ Azure Cosmos DB Cassandra API에서는 읽기 작업을 일관되게 수행할�
 
 ## <a name="permission-and-role-management"></a>권한 및 역할 관리
 
-Azure Cosmos DB는 프로비전, 키 회전, 메트릭 보기를 위한 RBAC(역할 기반 액세스 제어)와 [Azure Portal](https://portal.azure.com)을 통해 가져올 수 있는 읽기-쓰기 및 읽기 전용 암호/키를 지원합니다. Azure Cosmos DB는 CRUD 활동을 위한 역할을 지원하지 않습니다.
+Azure Cosmos DB는 프로비저닝, 키 회전, 메트릭 보기를 위한 Azure RBAC(Azure 역할 기반 액세스 제어)와 [Azure Portal](https://portal.azure.com)을 통해 가져올 수 있는 읽기-쓰기 및 읽기 전용 암호/키를 지원합니다. Azure Cosmos DB는 CRUD 활동을 위한 역할을 지원하지 않습니다.
 
 ## <a name="keyspace-and-table-options"></a>키스페이스 및 테이블 옵션
 

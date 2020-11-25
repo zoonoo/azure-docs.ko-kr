@@ -539,6 +539,8 @@
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
         - name: Safari에서 ITP 처리
           href: reference-third-party-cookies-spas.md
+        - name: 연속 액세스 평가 API 사용
+          href: app-resilience-continuous-access-evaluation.md
     - name: 애플리케이션 구성
       displayName: App configuration
       items:

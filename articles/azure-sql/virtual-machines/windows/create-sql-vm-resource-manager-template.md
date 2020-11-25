@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: b57303a1c9fdba2bea8637bef6c148622087a8d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9d0dd8ee1b99ddd2abf4fad154c70315a3d33c83
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789780"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556423"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 SQL Server VM 만들기
 
@@ -45,37 +45,37 @@ SQL Server VM ARM 템플릿을 사용하려면 다음이 필요합니다.
 - [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups): 네트워크 보안 그룹을 만듭니다. 
 - [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces): 네트워크 인터페이스를 구성합니다. 
 - [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Azure에서 가상 머신을 만듭니다. 
-- [Microsoft.SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): 가상 머신을 SQL VM 리소스 공급자에 등록합니다. 
+- [Microsoft.SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): SQL IaaS 에이전트 확장을 통해 가상 머신을 등록합니다. 
 
 더 많은 SQL Server Azure VM 템플릿 샘플은 [빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine&pageNumber=1&sort=Popular)에서 찾을 수 있습니다.
 
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿은 의도한 SQL Server 버전이 설치된 가상 머신을 만들어서 SQL VM 리소스 공급자에 등록합니다. 
+1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿은 의도한 SQL Server 버전이 설치된 가상 머신을 만들어서 SQL IaaS 에이전트 확장에 등록합니다. 
 
    [![Azure에 배포](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
 2. 다음 값을 선택하거나 입력합니다.
 
-    * **구독** : Azure 구독을 선택합니다.
-    * **리소스 그룹** : SQL Server VM에 대해 준비된 리소스 그룹입니다. 
-    * **지역** : 지역을 선택합니다.  예: **미국 중부**
-    * **가상 머신 이름** : SQL Server 가상 머신의 이름을 입력합니다. 
-    * **가상 머신 크기** : 드롭다운에서 가상 머신의 적절한 크기를 선택합니다.
-    * **기존 가상 네트워크 이름** : SQL Server VM에 대해 준비된 가상 네트워크의 이름을 입력합니다. 
-    * **기존 Vnet 리소스 그룹** : 가상 네트워크가 준비된 리소스 그룹을 입력합니다. 
-    * **기존 서브넷 이름** : 준비된 서브넷의 이름입니다. 
-    * **이미지 제품** : 비즈니스 요구 사항에 가장 적합한 SQL Server 및 Windows Server 이미지를 선택합니다. 
-    * **SQL Sku** : 비즈니스 요구 사항에 가장 적합한 SQL Server SKU 버전을 선택합니다. 
-    * **관리자 사용자 이름** : 가상 머신의 관리 사용자 이름입니다. 
-    * **관리자 암호** : VM 관리자 계정에 사용되는 암호입니다. 
-    * **스토리지 워크로드 유형** :  비즈니스에 가장 적합한 워크로드 스토리지 유형입니다. 
-    * **Sql 데이터 디스크 수** :  SQL Server가 데이터 파일에 사용하는 디스크 수입니다.  
-    * **데이터 경로** :  SQL Server 데이터 파일의 경로입니다. 
-    * **Sql 로그 디스크 수** :  SQL Server가 로그 파일에 사용하는 디스크 수입니다. 
-    * **로그 경로** :  SQL Server 로그 파일의 경로입니다. 
-    * **위치** :  모든 리소스의 위치입니다. 이 값은 기본값인 `[resourceGroup().location]`으로 유지해야 합니다. 
+    * **구독**: Azure 구독을 선택합니다.
+    * **리소스 그룹**: SQL Server VM에 대해 준비된 리소스 그룹입니다. 
+    * **지역**: 지역을 선택합니다.  예: **미국 중부**
+    * **가상 머신 이름**: SQL Server 가상 머신의 이름을 입력합니다. 
+    * **가상 머신 크기**: 드롭다운에서 가상 머신의 적절한 크기를 선택합니다.
+    * **기존 가상 네트워크 이름**: SQL Server VM에 대해 준비된 가상 네트워크의 이름을 입력합니다. 
+    * **기존 Vnet 리소스 그룹**: 가상 네트워크가 준비된 리소스 그룹을 입력합니다. 
+    * **기존 서브넷 이름**: 준비된 서브넷의 이름입니다. 
+    * **이미지 제품**: 비즈니스 요구 사항에 가장 적합한 SQL Server 및 Windows Server 이미지를 선택합니다. 
+    * **SQL Sku**: 비즈니스 요구 사항에 가장 적합한 SQL Server SKU 버전을 선택합니다. 
+    * **관리자 사용자 이름**: 가상 머신의 관리 사용자 이름입니다. 
+    * **관리자 암호**: VM 관리자 계정에 사용되는 암호입니다. 
+    * **스토리지 워크로드 유형**:  비즈니스에 가장 적합한 워크로드 스토리지 유형입니다. 
+    * **Sql 데이터 디스크 수**:  SQL Server가 데이터 파일에 사용하는 디스크 수입니다.  
+    * **데이터 경로**:  SQL Server 데이터 파일의 경로입니다. 
+    * **Sql 로그 디스크 수**:  SQL Server가 로그 파일에 사용하는 디스크 수입니다. 
+    * **로그 경로**:  SQL Server 로그 파일의 경로입니다. 
+    * **위치**:  모든 리소스의 위치입니다. 이 값은 기본값인 `[resourceGroup().location]`으로 유지해야 합니다. 
 
 3. **검토 + 만들기** 를 선택합니다. SQL Server VM이 성공적으로 배포되면 다음과 같이 알림을 받게 됩니다.
 

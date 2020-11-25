@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 81bcfdf5e63d49280fb798773559310cbd912a26
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980527"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013584"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
@@ -138,7 +138,7 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 
 ## <a name="property-reference"></a>속성 참조
 
-|속성      |설명      |
+|속성      |Description      |
 |--------------|-----------------|
 |`name`        | 확인 기 정의에 지정 되 고 자동 완성 또는 제안 요청에서 호출 됩니다. |
 |`sourceFields`| 확인 기 정의에 지정 되어 있습니다. 제안 된 콘텐츠의 원본인 인덱스에 있는 하나 이상의 필드 목록입니다. 필드는 및 형식 이어야 `Edm.String` 합니다 `Collection(Edm.String)` . 필드에 분석기를 지정 하는 경우 사용자 지정 분석기가 아닌 [이 목록](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) 에서 명명 된 어휘 분석기로 지정 해야 합니다.<p/> 검색 표시줄이 나 드롭다운 목록에서 완성 된 문자열 인지 여부에 관계 없이 필요한 적절 한 응답에 대해 자신을 지 원하는 필드만 지정 하는 것이 가장 좋습니다.<p/>호텔 이름은 전체 자릿수가 있으므로 좋은 후보입니다. 설명 및 주석과 같은 자세한 정보 필드에는 너무 조밀 하 게 표시 됩니다. 마찬가지로 범주 및 태그와 같은 반복적인 필드도 효과적이 지 않습니다. 예제에는 여러 필드를 포함할 수 있음을 보여 주는 "category"가 포함 되어 있습니다. |

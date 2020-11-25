@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-csharp
 - devx-track-azurecli
-ms.openlocfilehash: 036629bd72f8219c2d7b1877dd1672291ed3d98a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: b87408669dbb9268d6e3cd47b410b888ef1a19c2
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424981"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637152"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 C# 함수 만들기
 
@@ -28,6 +28,8 @@ ms.locfileid: "93424981"
 시작하기 전에 다음이 있어야 합니다.
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
++ [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
 
 + [Azure Functions Core Tools](functions-run-local.md#v2) 버전 3.x.
 
@@ -49,6 +51,8 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 
 + `az login`을 실행하여 Azure에 로그인하고 활성 구독을 확인합니다.
 
++ `dotnet --list-sdks`를 실행하여 .NET Core SDK 버전 3.1.x가 설치되어 있는지 확인합니다.
+
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 + 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 3.x인지 확인합니다.
@@ -56,6 +60,8 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 + `(Get-Module -ListAvailable Az).Version`을 실행하고 버전 5.0 이상을 확인합니다. 
 
 + `Connect-AzAccount`을 실행하여 Azure에 로그인하고 활성 구독을 확인합니다.
+
++ `dotnet --list-sdks`를 실행하여 .NET Core SDK 버전 3.1.x가 설치되어 있는지 확인합니다.
 
 ---
 

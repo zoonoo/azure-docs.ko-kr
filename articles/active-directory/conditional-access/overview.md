@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4, azuread-video-2020
-ms.openlocfilehash: d46dfba9d9dedea57b6be872a6853bc522a0bc8c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f0a91a4d3b479d1243907951481e5a10f7085bbc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145251"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837433"
 ---
 # <a name="what-is-conditional-access"></a>조건부 액세스란?
 
@@ -80,7 +80,7 @@ ms.locfileid: "92145251"
 - 관리자 역할이 할당된 사용자에게 다단계 인증 요구
 - Azure 관리 작업 시 다단계 인증 요구
 - 레거시 인증 프로토콜을 사용하려고 시도하는 사용자의 로그인 차단
-- Azure Multi-Factor Authentication 등록 시 신뢰할 수 있는 위치 요구
+- Azure AD Multi-Factor Authentication 등록 시 신뢰할 수 있는 위치 요구
 - 특정 위치의 액세스 차단 또는 액세스 권한 부여
 - 위험한 로그인 동작 차단
 - 특정 애플리케이션에는 조직에서 관리 디바이스를 사용하도록 요구

@@ -3,17 +3,17 @@ title: Azure Defender for SQL - 이점 및 특징
 description: Azure Defender for SQL의 이점 및 특징에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 220f9fffd6c0f9b959230964a9ec79f4e209bd54
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: b4f046339c027a5ae66f7f7510d8d2b311abd6df
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372540"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693463"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Azure Defender for SQL 소개
 
@@ -25,7 +25,7 @@ SQL용 Azure Defender에는 Azure Security Center의 [데이터 보안 패키지
 |----|:----|
 |릴리스 상태:|**Azure SQL 데이터베이스 서버용 Azure Defender** - 일반 공급(GA)<br>**머신의 SQL 서버용 Azure Defender** - 미리 보기<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |가격 책정:|**Azure Defender for SQL** 을 구성하는 두 요금제는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 청구됩니다.|
-|보호되는 SQL 버전:|Azure SQL Database <br>Azure SQL Managed Instance<br>Azure Synapse Analytics(이전의 SQL DW)<br>SQL Server(지원되는 모든 버전)|
+|보호되는 SQL 버전:|Azure SQL Database <br>Azure SQL Managed Instance<br>Azure Synapse의 전용 SQL 풀(이전의 SQL DW)<br>SQL Server(지원되는 모든 버전)|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부|
 |||
 
@@ -36,7 +36,7 @@ SQL용 Azure Defender에는 Azure Security Center의 [데이터 보안 패키지
 - **Azure SQL 데이터베이스 서버용 Azure Defender** 는 다음을 보호합니다.
   - [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)
   - [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
-  - [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+  - [Azure Synapse의 전용 SQL 풀](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)
 
 - **머신의 SQL 서버용 Azure Defender(미리 보기)** 는 하이브리드 환경을 완벽하게 지원하고 Azure, 기타 클라우드 환경 및 온-프레미스 머신에서 호스팅되는 SQL 서버(지원되는 모든 버전)를 보호하도록 Azure 기반 SQL Server에 대한 보호를 확장합니다.
 

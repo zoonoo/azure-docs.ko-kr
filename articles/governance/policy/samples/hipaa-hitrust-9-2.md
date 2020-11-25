@@ -1,29 +1,29 @@
 ---
 title: HIPAA HITRUST 9.2 규정 준수에 대한 세부 정보
 description: HIPAA HITRUST 9.2 규정 준수 기본 제공 이니셔티브에 대한 세부 정보입니다. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 499ecccd6d9a98b69e9e36f72fbf87d65d242f6d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c177abaea8dd6d38814e39aef7cdfd63981a6856
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310642"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694262"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>HIPAA HITRUST 9.2 규정 준수 기본 제공 이니셔티브에 대한 세부 정보
 
-다음 문서에서는 Azure Policy 규정 준수 기본 제공 이니셔티브 정의가 HIPAA HITRUST 9.2의 **규정 준수 도메인** 및 **제어**에 매핑되는 방법에 대해 자세히 설명합니다.
-이 규정 준수 표준에 대한 자세한 내용은 [HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)를 참조하세요. _소유권_을 이해하려면 [Azure Policy 정책 정의](../concepts/definition-structure.md#type) 및 [클라우드의 공동 책임](../../../security/fundamentals/shared-responsibility.md)을 참조하세요.
+다음 문서에서는 Azure Policy 규정 준수 기본 제공 이니셔티브 정의가 HIPAA HITRUST 9.2의 **규정 준수 도메인** 및 **제어** 에 매핑되는 방법에 대해 자세히 설명합니다.
+이 규정 준수 표준에 대한 자세한 내용은 [HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)를 참조하세요. _소유권_ 을 이해하려면 [Azure Policy 정책 정의](../concepts/definition-structure.md#type) 및 [클라우드의 공동 책임](../../../security/fundamentals/shared-responsibility.md)을 참조하세요.
 
-다음은 **HIPAA HITRUST 9.2** 제어에 대한 매핑입니다. 특정 **규정 준수 도메인**으로 바로 이동하려면 오른쪽의 탐색 기능을 사용하세요. 여러 컨트롤이 [Azure Policy](../overview.md) 이니셔티브 정의를 사용하여 구현됩니다. 전체 이니셔티브 정의를 검토하려면 Azure Portal에서 **정책**을 열고 **정의** 페이지를 선택합니다.
+다음은 **HIPAA HITRUST 9.2** 제어에 대한 매핑입니다. 특정 **규정 준수 도메인** 으로 바로 이동하려면 오른쪽의 탐색 기능을 사용하세요. 여러 컨트롤이 [Azure Policy](../overview.md) 이니셔티브 정의를 사용하여 구현됩니다. 전체 이니셔티브 정의를 검토하려면 Azure Portal에서 **정책** 을 열고 **정의** 페이지를 선택합니다.
 그런 다음, **HITRUST/HIPAA** 규정 준수 기본 제공 이니셔티브 정의를 찾아서 선택합니다.
 
 기본 제공 이니셔티브는 [HIPAA HITRUST 9.2 청사진 샘플](../../blueprints/samples/hipaa-hitrust-9-2.md)의 일부로 배포됩니다.
 
 > [!IMPORTANT]
 > 아래의 각 컨트롤은 하나 이상의 [Azure Policy](../overview.md) 정의와 연결되어 있습니다.
-> 이러한 정책은 컨트롤을 사용한 [규정 준수 평가](../how-to/get-compliance-data.md)에 도움이 될 수 있지만, 컨트롤과 하나 이상의 정책 간에 일대일 또는 완벽한 일치 관계가 없는 경우도 많습니다. 따라서 Azure Policy의 **규정 준수**는 정책 정의 자체만 가리킬 뿐, 컨트롤의 모든 요구 사항을 완벽하게 준수한다는 것은 아닙니다. 또한 규정 준수 표준에는 현재 Azure Policy 정의에서 처리되지 않은 컨트롤이 포함되어 있습니다. 따라서 Azure Policy의 규정 준수는 전반적인 규정 준수 상태를 부분적으로 표시할 뿐입니다. 이 규정 준수 표준에 대한 규정 준수 도메인, 컨트롤, Azure Policy 정의 간의 연결은 시간이 지나면 변경될 수 있습니다. 변경 기록을 보려면 [GitHub 커밋 기록](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/HIPAA_HITRUST_audit.json)을 참조하세요.
+> 이러한 정책은 컨트롤을 사용한 [규정 준수 평가](../how-to/get-compliance-data.md)에 도움이 될 수 있지만, 컨트롤과 하나 이상의 정책 간에 일대일 또는 완벽한 일치 관계가 없는 경우도 많습니다. 따라서 Azure Policy의 **규정 준수** 는 정책 정의 자체만 가리킬 뿐, 컨트롤의 모든 요구 사항을 완벽하게 준수한다는 것은 아닙니다. 또한 규정 준수 표준에는 현재 Azure Policy 정의에서 처리되지 않은 컨트롤이 포함되어 있습니다. 따라서 Azure Policy의 규정 준수는 전반적인 규정 준수 상태를 부분적으로 표시할 뿐입니다. 이 규정 준수 표준에 대한 규정 준수 도메인, 컨트롤, Azure Policy 정의 간의 연결은 시간이 지나면 변경될 수 있습니다. 변경 기록을 보려면 [GitHub 커밋 기록](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/HIPAA_HITRUST_audit.json)을 참조하세요.
 
 ## <a name="privilege-management"></a>권한 관리
 
@@ -86,7 +86,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-facilitates-information-sharing-by-enabling-authorized-users-to-determine-a-business-partners-access-when-discretion-is-allowed-as-defined-by-the-organization-and-by-employing-manual-processes-or-automated-mechanisms-to-assist-users-in-making-information-sharingcollaboration-decisions"></a>조직은 조직에서 정의한 대로 결정이 허용되는 경우 권한 있는 사용자가 비즈니스 파트너의 액세스를 결정할 수 있도록 하고 사용자가 정보 공유/협업을 결정하는 데 도움이 되는 수동 프로세스 또는 자동화된 메커니즘을 사용하여 정보 공유를 용이하게 합니다.
 
-**ID**: 1149.01c2System.9 - 01.c **소유권**: 해당 사항 없음
+**ID**: 1149.01c2System.9 - 01.c **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -94,7 +94,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-access-control-system-for-the-system-components-storing-processing-or-transmitting-covered-information-is-set-with-a-default-quotdeny-allquot-setting"></a>적용 정보를 저장, 처리 또는 전송하는 시스템 구성 요소에 대한 액세스 제어 시스템은 &quot;모두 거부&quot;(기본값) 설정으로 설정됩니다.
 
-**ID**: 1150.01c2System.10 - 01.c **소유권**: 해당 사항 없음
+**ID**: 1150.01c2System.10 - 01.c **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -144,7 +144,7 @@ ms.locfileid: "92310642"
 
 ### <a name="remote-access-by-vendors-and-business-partners-eg-for-remote-maintenance-is-disableddeactivated-when-not-in-use"></a>공급업체 및 비즈니스 파트너의 원격 액세스(예: 원격 유지 관리용)는 사용하지 않을 때 사용하지 않도록 설정되거나 비활성화됩니다.
 
-**ID**: 1117.01j1Organizational.23 - 01.j **소유권**: 해당 사항 없음
+**ID**: 1117.01j1Organizational.23 - 01.j **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -160,7 +160,7 @@ ms.locfileid: "92310642"
 
 ### <a name="network-equipment-is-checked-for-unanticipated-dial-up-capabilities"></a>네트워크 장비에 예기치 않은 전화 접속 기능이 있는지 확인합니다.
 
-**ID**: 1119.01j2Organizational.3 - 01.j **소유권**: 해당 사항 없음
+**ID**: 1119.01j2Organizational.3 - 01.j **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -176,7 +176,7 @@ ms.locfileid: "92310642"
 
 ### <a name="if-encryption-is-not-used-for-dial-up-connections-the-cio-or-hisher-designated-representative-provides-specific-written-authorization"></a>암호화를 전화 접속 연결에 사용하지 않는 경우 CIO 또는 해당 지정 담당자는 특정 서면 권한 부여를 제공합니다.
 
-**ID**: 1173.01j1Organizational.6 - 01.j **소유권**: 해당 사항 없음
+**ID**: 1173.01j1Organizational.6 - 01.j **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -184,7 +184,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-protects-wireless-access-to-systems-containing-sensitive-information-by-authenticating-both-users-and-devices"></a>조직은 사용자와 디바이스를 모두 인증하여 중요한 정보가 포함된 시스템에 대한 무선 액세스를 보호합니다.
 
-**ID**: 1174.01j1Organizational.7 - 01.j **소유권**: 해당 사항 없음
+**ID**: 1174.01j1Organizational.7 - 01.j **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -200,7 +200,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-requires-a-callback-capability-with-re-authentication-to-verify-dial-up-connections-from-authorized-locations"></a>조직은 권한 부여된 위치에서 전화 접속 연결을 확인하기 위해 재인증을 사용하는 콜백 기능이 필요합니다.
 
-**ID**: 1176.01j2Organizational.5 - 01.j **소유권**: 해당 사항 없음
+**ID**: 1176.01j2Organizational.5 - 01.j **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -322,7 +322,7 @@ ms.locfileid: "92310642"
 
 ### <a name="networks-are-segregated-from-production-level-networks-when-migrating-physical-servers-applications-or-data-to-virtualized-servers"></a>네트워크는 물리적 서버, 애플리케이션 또는 데이터를 가상화된 서버로 마이그레이션할 때 프로덕션 수준 네트워크에서 분리됩니다.
 
-**ID**: 0894.01m2Organizational.7 - 01.m **소유권**: 해당 사항 없음
+**ID**: 0894.01m2Organizational.7 - 01.m **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -459,7 +459,7 @@ ms.locfileid: "92310642"
 
 ### <a name="non-organizational-users-all-information-system-users-other-than-organizational-users-such-as-patients-customers-contractors-or-foreign-nationals-or-processes-acting-on-behalf-of-non-organizational-users-determined-to-need-access-to-information-residing-on-the-organizations-information-systems-are-uniquely-identified-and-authenticated"></a>비조직 사용자(환자, 고객, 계약자 또는 외국 국적자와 같은 조직 사용자 이외의 모든 정보 시스템 사용자) 또는 조직의 정보 시스템에 있는 정보에 대한 액세스 권한이 필요하다고 결정된 비조직 사용자를 대신하여 작동하는 프로세스가 고유하게 식별되고 인증됩니다.
 
-**ID**: 11110.01q1Organizational.6 - 01.q **소유권**: 해당 사항 없음
+**ID**: 11110.01q1Organizational.6 - 01.q **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -483,7 +483,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-requires-that-electronic-signatures-unique-to-one-individual-cannot-be-reused-by-or-reassigned-to-anyone-else"></a>조직은 다른 사용자가 한 개인에게 고유한 전자 서명을 다시 사용하거나 다시 할당할 수 없도록 해야 합니다.
 
-**ID**: 11208.01q1Organizational.8 - 01.q **소유권**: 해당 사항 없음
+**ID**: 11208.01q1Organizational.8 - 01.q **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -491,7 +491,7 @@ ms.locfileid: "92310642"
 
 ### <a name="electronic-signatures-and-handwritten-signatures-executed-to-electronic-records-shall-be-linked-to-their-respective-electronic-records"></a>전자 레코드에 실행되는 전자 서명 및 필기 서명은 각 전자 레코드에 연결됩니다.
 
-**ID**: 11210.01q2Organizational.10 - 01.q **소유권**: 해당 사항 없음
+**ID**: 11210.01q2Organizational.10 - 01.q **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -499,7 +499,7 @@ ms.locfileid: "92310642"
 
 ### <a name="signed-electronic-records-shall-contain-information-associated-with-the-signing-in-human-readable-format"></a>서명된 전자 레코드에는 사람이 읽을 수 있는 형식의 서명과 연결된 정보가 포함됩니다.
 
-**ID**: 11211.01q2Organizational.11 - 01.q **소유권**: 해당 사항 없음
+**ID**: 11211.01q2Organizational.11 - 01.q **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -541,7 +541,7 @@ ms.locfileid: "92310642"
 
 ### <a name="remote-access-connections-between-the-organization-and-external-parties-are-encrypted"></a>조직과 외부 당사자 간의 원격 액세스 연결은 암호화됩니다.
 
-**ID**: 1402.05i1Organizational.45 - 05.i **소유권**: 해당 사항 없음
+**ID**: 1402.05i1Organizational.45 - 05.i **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -591,7 +591,7 @@ ms.locfileid: "92310642"
 
 ### <a name="a-secure-audit-record-is-created-for-all-activities-on-the-system-create-read-update-delete-involving-covered-information"></a>적용 정보와 관련된 시스템의 모든 활동(만들기, 읽기, 업데이트, 삭제)에 대한 보안 감사 레코드가 만들어집니다.
 
-**ID**: 1202.09aa1System.1 - 09.aa **소유권**: 해당 사항 없음
+**ID**: 1202.09aa1System.1 - 09.aa **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -658,7 +658,7 @@ ms.locfileid: "92310642"
 
 ### <a name="all-disclosures-of-covered-information-within-or-outside-of-the-organization-are-logged-including-type-of-disclosure-datetime-of-the-event-recipient-and-sender"></a>공개 유형, 이벤트 날짜/시간, 받는 사람 및 보낸 사람을 포함하여 조직 내부 또는 외부의 모든 적용 정보에 대한 공개는 기록됩니다.
 
-**ID**: 1210.09aa3System.3 - 09.aa **소유권**: 해당 사항 없음
+**ID**: 1210.09aa3System.3 - 09.aa **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -667,7 +667,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-verifies-every-ninety-90-days-for-each-extract-of-covered-information-recorded-that-the-data-is-erased-or-its-use-is-still-required"></a>조직은 데이터를 지우거나 해당 데이터의 사용이 계속 필요한 것으로 기록된 적용 정보의 각 추출에 대해 90일마다 확인합니다.
 
-**ID**: 1211.09aa3System.4 - 09.aa **소유권**: 해당 사항 없음
+**ID**: 1211.09aa3System.4 - 09.aa **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -891,7 +891,7 @@ ms.locfileid: "92310642"
 
 ### <a name="when-the-backup-service-is-delivered-by-the-third-party-the-service-level-agreement-includes-the-detailed-protections-to-control-confidentiality-integrity-and-availability-of-the-backup-information"></a>타사에서 백업 서비스를 제공하는 경우 서비스 수준 계약에는 백업 정보의 기밀성, 무결성 및 가용성을 제어하는 세부 보호 기능이 포함됩니다.
 
-**ID**: 1620.09l1Organizational.8 - 09.l **소유권**: 해당 사항 없음
+**ID**: 1620.09l1Organizational.8 - 09.l **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -915,7 +915,7 @@ ms.locfileid: "92310642"
 
 ### <a name="covered-information-is-backed-up-in-an-encrypted-format-to-ensure-confidentiality"></a>적용 정보는 기밀성을 보장하기 위해 암호화된 형식으로 백업됩니다.
 
-**ID**: 1623.09l2Organizational.4 - 09.l **소유권**: 해당 사항 없음
+**ID**: 1623.09l2Organizational.4 - 09.l **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -939,7 +939,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-ensures-a-current-retrievable-copy-of-covered-information-is-available-before-movement-of-servers"></a>조직은 서버를 이동하기 전에 적용 정보에 대한 검색 가능한 최신 복사본을 사용할 수 있도록 합니다.
 
-**ID**: 1626.09l3Organizational.5 - 09.l **소유권**: 해당 사항 없음
+**ID**: 1626.09l3Organizational.5 - 09.l **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -955,7 +955,7 @@ ms.locfileid: "92310642"
 
 ### <a name="workforce-members-roles-and-responsibilities-in-the-data-backup-process-are-identified-and-communicated-to-the-workforce-in-particular-bring-your-own-device-byod-users-are-required-to-perform-backups-of-organizational-andor-client-data-on-their-devices"></a>데이터 백업 프로세스에서 직원 멤버의 역할과 책임을 식별하여 직원에게 전달합니다. 특히 BYOD(Bring Your Own Device) 사용자는 자신의 디바이스에서 조직 및/또는 클라이언트 데이터의 백업을 수행해야 합니다.
 
-**ID**: 1699.09l1Organizational.10 - 09.l **소유권**: 해당 사항 없음
+**ID**: 1699.09l1Organizational.10 - 09.l **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1009,7 +1009,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-builds-a-firewall-configuration-that-restricts-connections-between-un-trusted-networks-and-any-system-components-in-the-covered-information-environment-and-any-changes-to-the-firewall-configuration-are-updated-in-the-network-diagram"></a>조직은 신뢰할 수 없는 네트워크와 적용 정보 환경의 모든 시스템 구성 요소 간의 연결을 제한하는 방화벽 구성을 빌드합니다. 방화벽 구성에 대한 모든 변경 내용은 네트워크 다이어그램에서 업데이트됩니다.
 
-**ID**: 0863.09m2Organizational.910 - 09.m **소유권**: 해당 사항 없음
+**ID**: 0863.09m2Organizational.910 - 09.m **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1017,7 +1017,7 @@ ms.locfileid: "92310642"
 
 ### <a name="usage-restrictions-and-implementation-guidance-are-formally-defined-for-voip-including-the-authorization-and-monitoring-of-the-service"></a>VoIP에 대한 사용 제한 및 구현 지침은 서비스의 권한 부여 및 모니터링을 포함하여 공식적으로 정의됩니다.
 
-**ID**: 0864.09m2Organizational.12 - 09.m **소유권**: 해당 사항 없음
+**ID**: 0864.09m2Organizational.12 - 09.m **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1025,7 +1025,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-i-authorizes-connections-from-the-information-system-to-other-information-systems-outside-of-the-organization-through-the-use-of-interconnection-security-agreements-or-other-formal-agreement-ii-documents-each-connection-the-interface-characteristics-security-requirements-and-the-nature-of-the-information-communicated-iii-employs-a-deny-all-permit-by-exception-policy-for-allowing-connections-from-the-information-system-to-other-information-systems-outside-of-the-organization-and-iv-applies-a-default-deny-rule-that-drops-all-traffic-via-host-based-firewalls-or-port-filtering-tools-on-its-endpoints-workstations-servers-etc-except-those-services-and-ports-that-are-explicitly-allowed"></a>조직은 (i) 상호 연결 보안 규약 또는 기타 공식 규약을 사용하여 정보 시스템에서 조직 외부의 다른 정보 시스템으로의 연결에 대한 권한을 부여합니다. (ii) 각 연결, 인터페이스 특성, 보안 요구 사항 및 전달되는 정보의 특성을 문서화합니다. (iii) 정보 시스템에서 조직 외부의 다른 정보 시스템으로의 연결을 허용하기 위해 모두 거부, 예외 기준 허용 정책을 사용합니다. (iv) 명시적으로 허용되는 서비스와 포트를 제외하고 해당 엔드포인트(워크스테이션, 서버 등)에서 호스트 기반 방화벽 또는 포트 필터링 도구를 통해 모든 트래픽을 삭제하는 기본 거부 규칙을 적용합니다.
 
-**ID**: 0865.09m2Organizational.13 - 09.m **소유권**: 해당 사항 없음
+**ID**: 0865.09m2Organizational.13 - 09.m **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1041,7 +1041,7 @@ ms.locfileid: "92310642"
 
 ### <a name="wireless-access-points-are-placed-in-secure-areas-and-shut-down-when-not-in-use-eg-nights-weekends"></a>무선 액세스 지점은 보안 영역에 배치되고, 사용하지 않을 때(예: 야간, 주말) 종료됩니다.
 
-**ID**: 0867.09m3Organizational.17 - 09.m **소유권**: 해당 사항 없음
+**ID**: 0867.09m3Organizational.17 - 09.m **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1049,7 +1049,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-builds-a-firewall-configuration-to-restrict-inbound-and-outbound-traffic-to-that-which-is-necessary-for-the-covered-data-environment"></a>조직은 인바운드 및 아웃바운드 트래픽을 해당 데이터 환경에 필요한 트래픽으로 제한하는 방화벽 구성을 빌드합니다.
 
-**ID**: 0868.09m3Organizational.18 - 09.m **소유권**: 해당 사항 없음
+**ID**: 0868.09m3Organizational.18 - 09.m **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1108,7 +1108,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-reviews-and-updates-the-interconnection-security-agreements-on-an-ongoing-basis-verifying-enforcement-of-security-requirements"></a>조직은 보안 요구 사항을 적용하는 것을 확인하면서 상호 연결 보안 규약을 지속적으로 검토하고 업데이트합니다.
 
-**ID**: 0885.09n2Organizational.3 - 09.n **소유권**: 해당 사항 없음
+**ID**: 0885.09n2Organizational.3 - 09.n **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1132,7 +1132,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-contract-with-the-externaloutsourced-service-provider-includes-the-specification-that-the-service-provider-is-responsible-for-the-protection-of-covered-information-shared"></a>외부/아웃소싱 서비스 공급자와의 계약에는 서비스 공급자가 공유된 적용 정보를 보호해야 한다는 사양이 포함됩니다.
 
-**ID**: 0888.09n2Organizational.6 - 09.n **소유권**: 해당 사항 없음
+**ID**: 0888.09n2Organizational.6 - 09.n **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1142,7 +1142,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-based-on-the-data-classification-level-registers-media-including-laptops-prior-to-use-places-reasonable-restrictions-on-how-such-media-be-used-and-provides-an-appropriate-level-of-physical-and-logical-protection-including-encryption-for-media-containing-covered-information-until-properly-destroyed-or-sanitized"></a>조직에서는 데이터 분류 수준에 따라 사용하기 전에 미디어(랩톱 포함)를 등록하고, 이러한 미디어를 사용하는 방법을 적절히 제한하며, 적절히 제거되거나 삭제될 때까지 적절한 수준의 물리적 및 논리적 보호(암호화 포함)를 적용된 정보가 포함된 미디어에 제공합니다.
 
-**ID**: 0301.09o1Organizational.123 - 09.o **소유권**: 해당 사항 없음
+**ID**: 0301.09o1Organizational.123 - 09.o **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1150,7 +1150,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-protects-and-controls-media-containing-sensitive-information-during-transport-outside-of-controlled-areas"></a>조직은 제어되는 영역 외부에서 전송하는 동안 중요한 정보가 포함된 미디어를 보호하고 제어합니다.
 
-**ID**: 0302.09o2Organizational.1 - 09.o **소유권**: 해당 사항 없음
+**ID**: 0302.09o2Organizational.1 - 09.o **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1158,7 +1158,7 @@ ms.locfileid: "92310642"
 
 ### <a name="digital-and-non-digital-media-requiring-restricted-use-and-the-specific-safeguards-used-to-restrict-their-use-are-identified"></a>제한된 사용이 필요한 디지털 및 비 디지털 미디어와 해당 사용을 제한하는 데 사용되는 특정 보호 기능이 식별됩니다.
 
-**ID**: 0303.09o2Organizational.2 - 09.o **소유권**: 해당 사항 없음
+**ID**: 0303.09o2Organizational.2 - 09.o **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1166,7 +1166,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-restricts-the-use-of-writable-removable-media-and-personally-owned-removable-media-in-organizational-systems"></a>조직은 조직 시스템에서 쓰기 가능한 이동식 미디어 및 개인 소유 이동식 미디어의 사용을 제한합니다.
 
-**ID**: 0304.09o3Organizational.1 - 09.o **소유권**: 해당 사항 없음
+**ID**: 0304.09o3Organizational.1 - 09.o **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1234,7 +1234,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-limits-the-use-of-organization-controlled-portable-storage-media-by-authorized-individuals-on-external-information-systems"></a>조직에서는 외부 정보 시스템에서 권한 있는 개인이 조직에서 제어하는 휴대용 스토리지 미디어의 사용을 제한합니다.
 
-**ID**: 0915.09s2Organizational.2 - 09.s **소유권**: 해당 사항 없음
+**ID**: 0915.09s2Organizational.2 - 09.s **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1242,7 +1242,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-information-system-prohibits-remote-activation-of-collaborative-computing-devices-and-provides-an-explicit-indication-of-use-to-users-physically-present-at-the-devices"></a>정보 시스템은 협업 컴퓨팅 디바이스의 원격 활성화를 금지하고, 실제로 디바이스에 있는 사용자에게 사용을 명시적으로 표시합니다.
 
-**ID**: 0916.09s2Organizational.4 - 09.s **소유권**: 해당 사항 없음
+**ID**: 0916.09s2Organizational.4 - 09.s **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1268,7 +1268,7 @@ ms.locfileid: "92310642"
 
 ### <a name="data-involved-in-electronic-commerce-and-online-transactions-is-checked-to-determine-if-it-contains-covered-information"></a>전자 상거래 및 온라인 거래와 관련된 데이터를 확인하여 적용 정보가 포함되어 있는지 확인합니다.
 
-**ID**: 0943.09y1Organizational.1 - 09.y **소유권**: 해당 사항 없음
+**ID**: 0943.09y1Organizational.1 - 09.y **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1276,7 +1276,7 @@ ms.locfileid: "92310642"
 
 ### <a name="protocols-used-to-communicate-between-all-involved-parties-are-secured-using-cryptographic-techniques-eg-ssl"></a>모든 관련 당사자 간의 통신에 사용되는 프로토콜은 암호화 기술(예: SSL)을 통해 보호됩니다.
 
-**ID**: 0945.09y1Organizational.3 - 09.y **소유권**: 해당 사항 없음
+**ID**: 0945.09y1Organizational.3 - 09.y **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1284,7 +1284,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-requires-the-use-of-encryption-between-and-the-use-of-electronic-signatures-by-each-of-the-parties-involved-in-the-transaction"></a>조직은 거래와 관련된 각 당사자 간에 암호화를 사용하고 각 당사자의 전자 서명을 사용해야 합니다.
 
-**ID**: 0946.09y2Organizational.14 - 09.y **소유권**: 해당 사항 없음
+**ID**: 0946.09y2Organizational.14 - 09.y **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1292,7 +1292,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-organization-ensures-the-storage-of-the-transaction-details-are-located-outside-of-any-publicly-accessible-environments-eg-on-a-storage-platform-existing-on-the-organizations-intranet-and-not-retained-and-exposed-on-a-storage-medium-directly-accessible-from-the-internet"></a>조직은 거래 세부 정보 스토리지가 공개적으로 액세스할 수 있는 환경 외부(예: 조직의 인트라넷에 있는 스토리지 플랫폼)에 있고 인터넷에서 직접 액세스할 수 있는 스토리지 매체에 보관 및 공개되지 않도록 합니다.
 
-**ID**: 0947.09y2Organizational.2 - 09.y **소유권**: 해당 사항 없음
+**ID**: 0947.09y2Organizational.2 - 09.y **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1300,7 +1300,7 @@ ms.locfileid: "92310642"
 
 ### <a name="where-a-trusted-authority-is-used-eg-for-the-purposes-of-issuing-and-maintaining-digital-signatures-andor-digital-certificates-security-is-integrated-and-embedded-throughout-the-entire-end-to-end-certificatesignature-management-process"></a>신뢰할 수 있는 인증 기관을 사용하는 경우(예: 디지털 서명 및/또는 디지털 인증서를 발급 및 유지 관리하기 위해) 보안은 전체 엔드투엔드 인증서/서명 관리 프로세스에서 통합되고 포함됩니다.
 
-**ID**: 0948.09y2Organizational.3 - 09.y **소유권**: 해당 사항 없음
+**ID**: 0948.09y2Organizational.3 - 09.y **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1308,7 +1308,7 @@ ms.locfileid: "92310642"
 
 ### <a name="the-protocols-used-for-communications-are-enhanced-to-address-any-new-vulnerability-and-the-updated-versions-of-the-protocols-are-adopted-as-soon-as-possible"></a>통신에 사용되는 프로토콜은 새로운 취약점을 해결하기 위해 향상되었으며 업데이트된 버전의 프로토콜이 최대한 빨리 채택됩니다.
 
-**ID**: 0949.09y2Organizational.5 - 09.y **소유권**: 해당 사항 없음
+**ID**: 0949.09y2Organizational.5 - 09.y **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1392,7 +1392,7 @@ ms.locfileid: "92310642"
 
 ### <a name="where-development-is-outsourced-change-control-procedures-to-address-security-are-included-in-the-contracts-and-specifically-require-the-developer-to-track-security-flaws-and-flaw-resolution-within-the-system-component-or-service-and-report-findings-to-organization-defined-personnel-or-roles"></a>개발을 아웃소싱하는 경우 보안을 처리하기 위한 변경 제어 절차는 계약에 포함되며, 특히 개발자가 시스템, 구성 요소 또는 서비스 내에서 보안 결함 및 결함 해결을 추적하고 결과를 조직에서 정의한 담당자 또는 역할에 보고하도록 해야 합니다.
 
-**ID**: 0640.10k2Organizational.1012 - 10.k **소유권**: 해당 사항 없음
+**ID**: 0640.10k2Organizational.1012 - 10.k **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1442,7 +1442,7 @@ ms.locfileid: "92310642"
 |[컨테이너 보안 구성의 취약성을 수정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Docker가 설치된 머신에서 보안 구성의 취약성을 감사하고 Azure Security Center에서 권장 사항으로 표시합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[머신 보안 구성의 취약성을 수정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |구성된 기준을 충족하지 않는 서버는 Azure Security Center에서 권장 사항으로 모니터링됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |가상 머신 확장 집합의 OS 취약성을 감사하여 공격으로부터 보호합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
-|[SQL 데이터베이스의 취약성을 수정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |취약성 평가 검사 결과 및 데이터베이스 취약성을 해결하는 방법에 대한 권장 사항을 모니터링합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|[SQL 데이터베이스의 취약성을 수정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |취약성 평가 검사 결과 및 데이터베이스 취약성을 해결하는 방법에 대한 권장 사항을 모니터링합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 |[취약성 평가 솔루션으로 취약성을 수정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F760a85ff-6162-42b3-8d70-698e268f648c) |권장 구성에 따라 Azure Security Center에서 취약성 평가 솔루션이 발견한 취약성과 취약성 평가 솔루션 없이 VM이 발견한 취약성을 모니터링합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VMVulnerabilities_Audit.json) |
 |[SQL Managed Instance에서 취약성 평가를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b7aa243-30e4-4c9e-bca8-d0d3022b634a) |반복 취약성 평가 검사를 사용하도록 설정하지 않은 각 SQL Managed Instance를 감사합니다. 취약성 평가는 잠재적 데이터베이스 취약성을 검색 및 추적할 수 있고 해결하는 데 도움이 될 수 있습니다. |AuditIfNotExists, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnManagedInstance_Audit.json) |
 |[SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef2a8f2a-b3d9-49cd-a8a8-9a3aaaf647d9) |반복 취약성 평가 검사를 사용하도록 설정하지 않은 Azure SQL 서버를 감사합니다. 취약성 평가는 잠재적 데이터베이스 취약성을 검색 및 추적할 수 있고 해결하는 데 도움이 될 수 있습니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnServer_Audit.json) |
@@ -1502,7 +1502,7 @@ ms.locfileid: "92310642"
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[SQL 데이터베이스의 취약성을 수정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |취약성 평가 검사 결과 및 데이터베이스 취약성을 해결하는 방법에 대한 권장 사항을 모니터링합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|[SQL 데이터베이스의 취약성을 수정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |취약성 평가 검사 결과 및 데이터베이스 취약성을 해결하는 방법에 대한 권장 사항을 모니터링합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 
 ### <a name="vulnerability-scanning-tools-include-the-capability-to-readily-update-the-information-system-vulnerabilities-scanned"></a>취약성 검사 도구에는 검사된 정보 시스템의 취약성을 쉽게 업데이트할 수 있는 기능이 포함됩니다.
 
@@ -1544,7 +1544,7 @@ ms.locfileid: "92310642"
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Key Vault 개체를 복구할 수 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |이 정책은 Key Vault 개체를 복구할 수 없는 경우 감사합니다. Soft Delete 기능은 DELETE 작업 후에도 지정된 보존 기간(90일) 동안 리소스를 효율적으로 유지하는 동시에 개체가 삭제된 것처럼 보이게 합니다. '제거 보호'가 켜져 있으면 보존 기간인 90일이 지날 때까지 삭제된 상태의 자격 증명 모음이나 개체를 제거할 수 없습니다. 이러한 자격 증명 모음 및 개체는 계속 복구할 수 있으며, 고객에게 보존 정책을 준수하도록 합니다. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[키 자격 증명 모음에서 제거 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |키 자격 증명 모음을 악의적으로 삭제하면 데이터가 영구적으로 손실될 수 있습니다. 조직의 악의적인 내부자가 잠재적으로 키 자격 증명 모음을 삭제하고 제거할 수 있는 액세스 권한을 얻을 수 있습니다. 제거 보호는 일시 삭제된 키 자격 증명 모음에 대해 필수 보존 기간을 적용하여 내부자 공격으로부터 보호합니다. 일시 삭제 보존 기간 동안에는 조직 또는 Microsoft 내부의 어느 누구도 키 자격 증명 모음을 제거할 수 없습니다. |감사, 거부, 사용 안 함 |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="business-impact-analysis-are-used-to-evaluate-the-consequences-of-disasters-security-failures-loss-of-service-and-service-availability"></a>비즈니스 영향 분석은 재해, 보안 오류, 서비스 손실 및 서비스 가용성의 결과를 평가하는 데 사용됩니다.
 

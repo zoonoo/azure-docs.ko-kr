@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 80ae79f73a55d5feb1aede7ccc7d3b2b64682a24
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 519e2da902e1121220bcbb28c4cb18a68001293b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364085"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840556"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Azure Active Directory B2C의 기술 및 기능 개요
 
@@ -101,7 +101,7 @@ Azure AD B2C에는 이러한 ID 환경을 제공하기 위해 수행할 수 있�
 
 * 로그인에 사용되는 계정 유형(예: Facebook과 같은 소셜 계정 또는 로그인에 이메일 주소와 암호를 사용하는 로컬 계정)
 * 소비자로부터 수집할 특성(예: 이름, 우편 번호 또는 거주 국가/지역)
-* Azure MFA(Multi-Factor Authentication)
+* Azure AD MFA(Multi-Factor Authentication)
 * 사용자 인터페이스의 사용자 지정
 * 사용자가 사용자 흐름을 완료한 후에 애플리케이션에서 받는 토큰의 클레임 세트
 * 세션 관리

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 866f1c404df2de87c2b3ce58b791ceb5257fca1b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 88481346f22176b8e307b53774b42d753838f90b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074450"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554826"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>빠른 시작: ASP.NET Core 앱에 기능 플래그를 추가합니다.
 
@@ -29,12 +29,12 @@ ms.locfileid: "92074450"
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-8. **작업** > **기능 관리자** > **추가**를 선택하여 *Beta*라는 기능 플래그를 추가합니다.
+8. **작업** > **기능 관리자** > **추가** 를 선택하여 *Beta* 라는 기능 플래그를 추가합니다.
 
     > [!div class="mx-imgBorder"]
     > ![Beta라는 기능 플래그 사용](media/add-beta-feature-flag.png)
 
-    지금은 **레이블**을 비워 둡니다. **적용**을 선택하여 새 기능 플래그를 저장합니다.
+    지금은 **레이블** 을 비워 둡니다. **적용** 을 선택하여 새 기능 플래그를 저장합니다.
 
 ## <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core 웹앱 만들기
 
@@ -60,7 +60,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. *.csproj* 파일과 동일한 디렉터리에서 다음 명령을 실행합니다. 이 명령은 비밀 관리자를 사용하여 App Configuration 저장소에 대한 연결 문자열을 저장하는 `ConnectionStrings:AppConfig`라는 비밀을 저장합니다. `<your_connection_string>` 자리 표시자를 App Configuration 저장소의 연결 문자열로 바꿉니다. 연결 문자열은 Azure Portal의 **액세스 키**에서 찾을 수 있습니다.
+1. *.csproj* 파일과 동일한 디렉터리에서 다음 명령을 실행합니다. 이 명령은 비밀 관리자를 사용하여 App Configuration 저장소에 대한 연결 문자열을 저장하는 `ConnectionStrings:AppConfig`라는 비밀을 저장합니다. `<your_connection_string>` 자리 표시자를 App Configuration 저장소의 연결 문자열로 바꿉니다. 연결 문자열은 Azure Portal의 **액세스 키** 에서 찾을 수 있습니다.
 
     ```dotnetcli
     dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
@@ -70,7 +70,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     .NET Core 구성 API를 사용하여 이 비밀에 액세스합니다. 콜론(`:`)은 지원되는 모든 플랫폼에서 구성 API를 통해 구성 이름에서 작동합니다. 자세한 내용은 [구성 키 및 값](/aspnet/core/fundamentals/configuration#configuration-keys-and-values)을 참조하세요.
 
-1. *Program.cs*에서 `AddAzureAppConfiguration` 메서드를 호출하여 App Configuration을 사용하도록 `CreateWebHostBuilder` 메서드를 업데이트합니다.
+1. *Program.cs* 에서 `AddAzureAppConfiguration` 메서드를 호출하여 App Configuration을 사용하도록 `CreateWebHostBuilder` 메서드를 업데이트합니다.
 
     > [!IMPORTANT]
     > .NET Core 3.x에 `CreateHostBuilder`는 `CreateWebHostBuilder`를 대체합니다. 사용자 환경에 따라 올바른 구문을 선택합니다.
@@ -106,9 +106,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    위의 변경 내용으로 [App Configuration에 대한 구성 공급자](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)가 .NET Core 구성 API에 등록되었습니다.
+    위의 변경 내용으로 [App Configuration에 대한 구성 공급자](https://go.microsoft.com/fwlink/?linkid=2074664)가 .NET Core 구성 API에 등록되었습니다.
 
-1. *Startup.cs*에서 .NET Core 기능 관리자에 대한 참조를 추가합니다.
+1. *Startup.cs* 에서 .NET Core 기능 관리자에 대한 참조를 추가합니다.
 
     ```csharp
     using Microsoft.FeatureManagement;
@@ -173,7 +173,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
     }
     ```
 
-1. *Views/_ViewImports.cshtml*에서 `@addTagHelper` 지시문을 사용하여 기능 관리자 태그 도우미를 등록합니다.
+1. *Views/_ViewImports.cshtml* 에서 `@addTagHelper` 지시문을 사용하여 기능 관리자 태그 도우미를 등록합니다.
 
     ```cshtml
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
@@ -181,36 +181,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     위의 코드를 사용하면 프로젝트의 *.cshtml* 파일에서 `<feature>` 태그 도우미를 사용할 수 있습니다.
 
-1. *Views/Shared/_Layout.cshtml*에서 `<body>` > `<header>` 아래의 `<nav>` 바코드를 다음 표시로 바꿉니다.
+1. *보기*\\*공유* 디렉터리에서 *_Layout.cshtml* 을 엽니다. `<body>` > `<header>`에서 `<nav>` 바코드를 찾습니다. 아래 강조 표시된 줄에 표시된 대로 *홈* 및 *개인 정보* 탐색 모음 항목 사이에 새 `<feature>` 태그를 삽입합니다.
 
-    ```cshtml
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TestFeatureFlags</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <feature name="Beta">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Beta" asp-action="Index">Beta</a>
-                    </li>
-                    </feature>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    ```
-
-    위의 표시에서 *Beta* 목록 항목을 둘러싼 `<feature>` 태그 도우미를 확인합니다.
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
 1. 다음 표시를 포함하는 *Views/Beta* 디렉터리 및 *Index.cshtml* 파일을 만듭니다.
 
@@ -236,7 +209,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
     dotnet run
     ```
 
-1. 브라우저 창을 열고, 로컬로 호스팅되는 웹앱에 대한 기본 URL인 `http://localhost:5000`으로 이동합니다. Azure Cloud Shell에서 작업하는 경우 **웹 미리 보기** 단추와 **구성**을 차례로 선택합니다. 메시지가 표시되면 포트 5000을 선택합니다.
+1. 브라우저 창을 열고, 로컬로 호스팅되는 웹앱에 대한 기본 URL인 `http://localhost:5000`으로 이동합니다. Azure Cloud Shell에서 작업하는 경우 **웹 미리 보기** 단추와 **구성** 을 차례로 선택합니다. 메시지가 표시되면 포트 5000을 선택합니다.
 
     ![웹 미리 보기 단추 찾기](./media/quickstarts/cloud-shell-web-preview.png)
 
@@ -244,15 +217,17 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-before.png" alt-text="변경 전 로컬 빠른 시작 앱" border="true":::
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스**를 선택하고, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스** 를 선택하고, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
 
-1. **기능 관리자**를 선택하고, *Beta* 키의 상태를 **On**으로 변경합니다.
+1. **기능 관리자** 를 선택합니다. 
+
+1. **사용** 아래의 확인란을 선택하여 *베타* 플래그를 사용하도록 설정합니다.
 
 1. 명령 셸로 돌아갑니다. <kbd>Ctrl+C</kbd>를 눌러 실행 중인 `dotnet` 프로세스를 취소합니다. `dotnet run`을 사용하여 앱을 다시 시작합니다.
 
 1. 새 구성 설정을 확인하려면 브라우저 페이지를 새로 고칩니다.
 
-    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="변경 전 로컬 빠른 시작 앱" border="true":::
+    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="변경 후 로컬 빠른 시작 앱" border="true":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -260,7 +235,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 새 App Configuration 저장소를 만든 후 [기능 관리 라이브러리](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)를 통해 ASP.NET Core 웹앱에서 기능을 관리하는 데 사용했습니다.
+이 빠른 시작에서는 새 App Configuration 저장소를 만든 후 [기능 관리 라이브러리](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 ASP.NET Core 웹앱에서 기능을 관리하는 데 사용했습니다.
 
 * [기능 관리](./concept-feature-management.md)에 대한 자세한 정보
 * [기능 플래그 관리](./manage-feature-flags.md)

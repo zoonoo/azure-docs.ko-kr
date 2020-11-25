@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e0fc50647e926ea919f70b888f3efc303713fe1e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6e2df9168b880e565ea9b70c82c2c0c1b55b4db8
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631192"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737246"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>자습서: Azure 가상 네트워크에 Azure Spring Cloud 배포(VNet 삽입)
 
@@ -27,22 +27,23 @@ ms.locfileid: "92631192"
 * Azure Spring Cloud에 대한 인바운드 및 아웃바운드 네트워크 통신을 제어하는 고객의 역량 강화
 
 ## <a name="prerequisites"></a>사전 요구 사항
-[Azure Portal에서 리소스 공급자 등록](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) 지침을 따르거나 다음 az CLI 명령을 실행하여 `Microsoft.AppPlatform` Azure Spring Cloud 리소스 공급자를 등록해야 합니다.
+[Azure Portal에서 리소스 공급자 등록](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) 지침을 따르거나 다음 az CLI 명령을 실행하여 Azure Spring Cloud 리소스 공급자 *Microsoft.AppPlatform* 및 *Microsoft.ContainerService* 를 등록해야 합니다.
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
+az provider register --namespace Microsoft.ContainerService
 ```
 ## <a name="virtual-network-requirements"></a>가상 네트워크 요구 사항
 Azure Spring Cloud 서비스 인스턴스를 배포하는 가상 네트워크는 다음 요구 사항을 충족해야 합니다.
 
-* **위치** : 가상 네트워크는 Azure Spring Cloud 서비스 인스턴스와 동일한 위치에 있어야 합니다.
-* **구독** : 가상 네트워크는 Azure Spring Cloud 서비스 인스턴스와 동일한 구독 상태에 있어야 합니다.
-* **서브넷** : 가상 네트워크는 다음과 같은 Azure Spring Cloud 서비스 인스턴스 전용의 두 서브넷을 포함해야 합니다. 
+* **위치**: 가상 네트워크는 Azure Spring Cloud 서비스 인스턴스와 동일한 위치에 있어야 합니다.
+* **구독**: 가상 네트워크는 Azure Spring Cloud 서비스 인스턴스와 동일한 구독 상태에 있어야 합니다.
+* **서브넷**: 가상 네트워크는 다음과 같은 Azure Spring Cloud 서비스 인스턴스 전용의 두 서브넷을 포함해야 합니다. 
     * 서비스 런타임용 서브넷
     * Spring Boot 마이크로 서비스 애플리케이션용 서브넷 
     * 이러한 서브넷과 Azure Spring Cloud 서비스 인스턴스 간에는 일대일 관계가 있습니다. 배포하는 각 서비스 인스턴스에 대해 새 서브넷을 사용해야 하며 각 서브넷은 단일 서비스 인스턴스만 포함할 수 있습니다.
-* **주소 공간** : 서비스 런타임 서브넷에 대한 하나의 CIDR 블록은 최대 /28이고, Spring Boot 마이크로 서비스 애플리케이션 서브넷에 대한 또 하나의 CIDR 블록은 최대 /24입니다.
-* **경로 테이블** : 서브넷에는 연결된 기존 경로 테이블이 없어야 합니다.
+* **주소 공간**: 서비스 런타임 서브넷에 대한 하나의 CIDR 블록은 최대 /28이고, Spring Boot 마이크로 서비스 애플리케이션 서브넷에 대한 또 하나의 CIDR 블록은 최대 /24입니다.
+* **경로 테이블**: 서브넷에는 연결된 기존 경로 테이블이 없어야 합니다.
 
 다음 절차에서는 Azure Spring Cloud 인스턴스를 포함하도록 가상 네트워크를 설정하는 방법에 대해 설명합니다.
 

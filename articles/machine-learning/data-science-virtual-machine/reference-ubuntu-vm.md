@@ -10,11 +10,11 @@ ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
 ms.openlocfilehash: 6fb7b7c2e9022b6b629a039a48bb559b36393f79
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94334995"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013856"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>참조: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -148,7 +148,7 @@ Jupyter Notebook 서버는 Python 2, Python 3 및 R 커널을 사용하여 미�
 > [!NOTE]
 > VM이 프로비전될 때 포트 8000이 방화벽에 기본적으로 열립니다. 
 
-Notebook 샘플은 Python과 R에서 각각 하나씩 패키지했습니다. 로컬 Linux 사용자 이름과 암호를 사용하여 Jupyter Notebook에 인증하면 샘플에 대한 링크가 Notebook 홈페이지에 표시됩니다. **새로 만들기** , 적절한 언어 커널을 차례로 선택하여 새 Notebook을 만들 수 있습니다. **새로 만들기** 단추가 표시되지 않으면 왼쪽 위에서 **Jupyter** 아이콘을 선택하여 Notebook 서버의 홈페이지로 이동합니다.
+Notebook 샘플은 Python과 R에서 각각 하나씩 패키지했습니다. 로컬 Linux 사용자 이름과 암호를 사용하여 Jupyter Notebook에 인증하면 샘플에 대한 링크가 Notebook 홈페이지에 표시됩니다. **새로 만들기**, 적절한 언어 커널을 차례로 선택하여 새 Notebook을 만들 수 있습니다. **새로 만들기** 단추가 표시되지 않으면 왼쪽 위에서 **Jupyter** 아이콘을 선택하여 Notebook 서버의 홈페이지로 이동합니다.
 
 ## <a name="apache-spark-standalone"></a>Apache Spark 독립 실행형
 
@@ -206,11 +206,11 @@ SQuirrel SQL을 처음 사용하기 전에 드라이버 및 데이터베이스 �
 
 SQL Server용 ODBC 드라이버 패키지에서는 다음의 두 가지 명령줄 도구도 제공됩니다.
 
-- **bcp** : bcp 도구는 Microsoft SQL Server 인스턴스와 사용자가 지정한 형식의 데이터 파일 간에 데이터를 대량 복사 합니다. bcp 도구를 사용하여 많은 수의 새 행을 SQL Server 테이블로 가져오거나 데이터를 테이블에서 데이터 파일로 내보낼 수 있습니다. 데이터를 테이블로 가져오려면 해당 테이블에 대해 만든 서식 파일을 사용해야 합니다. 또는 테이블의 구조와 해당 열에 유효한 데이터 형식을 이해해야 합니다.
+- **bcp**: bcp 도구는 Microsoft SQL Server 인스턴스와 사용자가 지정한 형식의 데이터 파일 간에 데이터를 대량 복사 합니다. bcp 도구를 사용하여 많은 수의 새 행을 SQL Server 테이블로 가져오거나 데이터를 테이블에서 데이터 파일로 내보낼 수 있습니다. 데이터를 테이블로 가져오려면 해당 테이블에 대해 만든 서식 파일을 사용해야 합니다. 또는 테이블의 구조와 해당 열에 유효한 데이터 형식을 이해해야 합니다.
 
   자세한 내용은 [bcp를 사용 하 여 연결](/sql/connect/odbc/linux-mac/connecting-with-bcp)을 참조 하세요.
 
-- **sqlcmd** : sqlcmd 도구를 사용 하 여 transact-sql 문을 입력할 수 있습니다. 또한 명령 프롬프트에서 시스템 프로시저 및 스크립트 파일을 입력할 수 있습니다. 이 도구는 ODBC를 사용하여 Transact-SQL 일괄 처리를 실행합니다.
+- **sqlcmd**: sqlcmd 도구를 사용 하 여 transact-sql 문을 입력할 수 있습니다. 또한 명령 프롬프트에서 시스템 프로시저 및 스크립트 파일을 입력할 수 있습니다. 이 도구는 ODBC를 사용하여 Transact-SQL 일괄 처리를 실행합니다.
 
   자세한 내용은 [sqlcmd를 사용하여 연결](/sql/connect/odbc/linux-mac/connecting-with-sqlcmd)을 참조하세요.
 
@@ -228,13 +228,13 @@ SQL Server용 ODBC 드라이버 패키지에서는 다음의 두 가지 명령�
 
 다음 Azure 도구가 VM에 설치됩니다.
 
-* **Azure CLI** : azure에서 명령줄 인터페이스를 사용 하 여 셸 명령을 통해 azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 열려면 **azure help** 를 입력합니다. 자세한 내용은 [Azure CLI 설명서 페이지](/cli/azure/get-started-with-az-cli2)를 참조하세요.
-* **Azure Storage 탐색기** : Azure Storage 탐색기는 azure Storage 계정에 저장 된 개체를 검색 하 고 azure blob 간에 데이터를 업로드 및 다운로드 하는 데 사용할 수 있는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. 셸 프롬프트에서 **StorageExplorer** 를 입력하여 열 수도 있습니다. X2Go 클라이언트에서 로그인하거나 X11 전달이 설정되어 있어야 합니다.
-* **Azure 라이브러리** : 다음은 미리 설치 된 라이브러리 중 일부입니다.
+* **Azure CLI**: azure에서 명령줄 인터페이스를 사용 하 여 셸 명령을 통해 azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 열려면 **azure help** 를 입력합니다. 자세한 내용은 [Azure CLI 설명서 페이지](/cli/azure/get-started-with-az-cli2)를 참조하세요.
+* **Azure Storage 탐색기**: Azure Storage 탐색기는 azure Storage 계정에 저장 된 개체를 검색 하 고 azure blob 간에 데이터를 업로드 및 다운로드 하는 데 사용할 수 있는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. 셸 프롬프트에서 **StorageExplorer** 를 입력하여 열 수도 있습니다. X2Go 클라이언트에서 로그인하거나 X11 전달이 설정되어 있어야 합니다.
+* **Azure 라이브러리**: 다음은 미리 설치 된 라이브러리 중 일부입니다.
   
-  * **Python** : Python의 azure 관련 라이브러리는 *azure* , *azureml* , *pydocumentdb* 및 *pyodbc* 입니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc (Microsoft ODBC driver for SQL Server와 함께)를 사용 하면 ODBC 인터페이스를 사용 하 여 Python에서 SQL Server, Azure SQL Database 및 Azure Synapse Analytics에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
-  * **R** : r의 Azure 관련 라이브러리는 AZUREML 및 RODBC입니다.
-  * **Java** : VM의 /dsvm/sdk/AzureSDKJava 디렉터리에서 Azure Java 라이브러리 목록을 찾을 수 있습니다. 핵심 라이브러리는 Azure Storage 및 관리 API, Azure Cosmos DB, SQL Server용 JDBC 드라이버입니다.  
+  * **Python**: Python의 azure 관련 라이브러리는 *azure*, *azureml*, *pydocumentdb* 및 *pyodbc* 입니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc (Microsoft ODBC driver for SQL Server와 함께)를 사용 하면 ODBC 인터페이스를 사용 하 여 Python에서 SQL Server, Azure SQL Database 및 Azure Synapse Analytics에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
+  * **R**: r의 Azure 관련 라이브러리는 AZUREML 및 RODBC입니다.
+  * **Java**: VM의 /dsvm/sdk/AzureSDKJava 디렉터리에서 Azure Java 라이브러리 목록을 찾을 수 있습니다. 핵심 라이브러리는 Azure Storage 및 관리 API, Azure Cosmos DB, SQL Server용 JDBC 드라이버입니다.  
 
 사전 설치 된 Firefox 브라우저에서 [Azure Portal](https://portal.azure.com) 에 액세스할 수 있습니다. Azure 포털에서 Azure 리소스를 작성, 관리 및 모니터링할 수 있습니다.
 
@@ -246,21 +246,21 @@ Azure Machine Learning studio에 로그인 한 후 실험 캔버스를 사용 �
 
 빌드한 기계 학습 모델은 웹 서비스 인터페이스에 래핑하여 운용 가능하도록 설정합니다. 기계 학습 모델을 운용하면 모든 언어로 작성된 클라이언트가 해당 모델에서 예측을 호출할 수 있습니다. 자세한 내용은 [Machine Learning 설명서](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
 
-VM에서 모델을 R 또는 Python으로 빌드한 다음, Azure Machine Learning에서 프로덕션 환경에 배포할 수도 있습니다. R 및 Python에는 이 기능을 사용하는 데 필요한 라이브러리(각각 **AzureML** 과 **azureml** )가 설치되어 있습니다.
+VM에서 모델을 R 또는 Python으로 빌드한 다음, Azure Machine Learning에서 프로덕션 환경에 배포할 수도 있습니다. R 및 Python에는 이 기능을 사용하는 데 필요한 라이브러리(각각 **AzureML** 과 **azureml**)가 설치되어 있습니다.
 
 > [!NOTE]
 > 이러한 지침은 Windows 버전의 Data Science Virtual Machine용으로 작성되었습니다. 하지만 Azure Machine Learning에 모델을 배포하는 방법에 대해 제공되는 정보는 Linux VM에도 적용할 수 있습니다.
 
 ## <a name="machine-learning-tools"></a>기계 학습 도구
 
-VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 및 알고리즘이 제공됩니다. 이러한 개체는 다음과 같습니다.
+VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 및 알고리즘이 제공됩니다. 이러한 위협은 다음과 같습니다.
 
-* **Vowpal Wabbit** : 속성 온라인 학습 알고리즘입니다.
-* **xgboost** : 최적화되고 향상된 트리 알고리즘을 제공하는 도구입니다.
-* **Rattle** : 쉬운 데이터 탐색 및 모델링을 위한 R 기반 그래픽 도구입니다.
-* **Python** : Anaconda Python에서는 Scikit-learn 등의 라이브러리가 포함된 기계 학습 알고리즘이 번들로 제공됩니다. `pip install` 하여 다른 라이브러리를 설치할 수 있습니다.
-* **LightGBM** : 의사 결정 트리 알고리즘을 기준으로 하는 빠른 분산형 고성능 그라데이션 향상 프레임워크입니다.
-* **R** : r에 대해 다양 한 기계 학습 기능 라이브러리를 사용할 수 있습니다. 미리 설치 된 라이브러리에는 lm, 고, randomForest 및 rpart가 포함 됩니다. 다른 라이브러리는 다음 명령을 실행하여 설치할 수 있습니다.
+* **Vowpal Wabbit**: 속성 온라인 학습 알고리즘입니다.
+* **xgboost**: 최적화되고 향상된 트리 알고리즘을 제공하는 도구입니다.
+* **Rattle**: 쉬운 데이터 탐색 및 모델링을 위한 R 기반 그래픽 도구입니다.
+* **Python**: Anaconda Python에서는 Scikit-learn 등의 라이브러리가 포함된 기계 학습 알고리즘이 번들로 제공됩니다. `pip install` 하여 다른 라이브러리를 설치할 수 있습니다.
+* **LightGBM**: 의사 결정 트리 알고리즘을 기준으로 하는 빠른 분산형 고성능 그라데이션 향상 프레임워크입니다.
+* **R**: r에 대해 다양 한 기계 학습 기능 라이브러리를 사용할 수 있습니다. 미리 설치 된 라이브러리에는 lm, 고, randomForest 및 rpart가 포함 됩니다. 다른 라이브러리는 다음 명령을 실행하여 설치할 수 있습니다.
 
     ```r
     install.packages(<lib name>)
@@ -316,7 +316,7 @@ xgboost에 대한 자세한 내용은 [xgboost 설명서 페이지](https://xgbo
 
 ### <a name="rattle"></a>Rattle
 
-Rattle( **R** **A** nalytical **T** ool **T** o **L** earn **E** asily)은 GUI 기반 데이터 탐색 및 모델링 기능을 사용합니다. Rattle은 통계 및 시각적 데이터 요약을 표시하고, 즉시 모델링할 수 있도록 데이터를 변환하고, 해당 데이터에서 감독되거나 감독되지 않는 모델을 빌드하고, 모델의 성능을 그래픽으로 표시하고, 새 데이터 집합의 점수를 매깁니다. 또한 UI에서 작업을 복제하여 R에서 직접 실행하거나 추가 분석을 위한 시작점으로 사용할 수 있는 R 코드를 생성할 수도 있습니다.
+Rattle(**R** **A** nalytical **T** ool **T** o **L** earn **E** asily)은 GUI 기반 데이터 탐색 및 모델링 기능을 사용합니다. Rattle은 통계 및 시각적 데이터 요약을 표시하고, 즉시 모델링할 수 있도록 데이터를 변환하고, 해당 데이터에서 감독되거나 감독되지 않는 모델을 빌드하고, 모델의 성능을 그래픽으로 표시하고, 새 데이터 집합의 점수를 매깁니다. 또한 UI에서 작업을 복제하여 R에서 직접 실행하거나 추가 분석을 위한 시작점으로 사용할 수 있는 R 코드를 생성할 수도 있습니다.
 
 Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중이어야 합니다. 터미널에서 **R** 을 입력하여 R 환경을 엽니다. R 프롬프트에서 다음 명령을 입력합니다.
 

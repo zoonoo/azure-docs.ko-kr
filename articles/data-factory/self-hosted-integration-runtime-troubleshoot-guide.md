@@ -2,17 +2,17 @@
 title: Azure Data Factory에서 자체 호스팅 Integration Runtime 문제 해결
 description: Azure Data Factory에서 자체 호스팅 Integration Runtime 문제를 해결하는 방법을 알아봅니다.
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: e3a517497a480995b8ce63d36d0427e3bfadfe43
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844100"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96013463"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -167,7 +167,7 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-예를 들면 다음과 같습니다. 
+예들 들어 다음과 같습니다. 
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -320,7 +320,7 @@ Integration Runtime 이벤트 로그로 이동 하 여 오류를 확인 합니�
         1. 현재 자체 호스팅 IR을 완전히 제거 합니다.
         1. 자체 호스팅 IR 비트를 설치 합니다.
         1. 서비스 계정을 변경 하려면 아래 지침을 따르세요. 
-            1. Selfhosted IR의 설치 폴더로 이동 하 여 *Microsoft Integration Runtime\4.0\Shared* 폴더로 전환 합니다.
+            1. 자체 호스팅 IR의 설치 폴더로 이동 하 여 *Microsoft Integration Runtime\4.0\Shared* 폴더로 전환 합니다.
             1. 승격 된 권한을 사용 하 여 명령줄을 시작 합니다. 및를 사용자 *\<user>* *\<password>* 이름 및 암호로 바꾸고 아래 명령을 실행 합니다.
                        
                 ```
@@ -731,7 +731,7 @@ ADF 서비스의 서버 인증서를 확인 하는 방법:
 - SHIR이 설치 된 컴퓨터에서 ADF 서비스 서버 인증서의 루트 CA를 신뢰할 수 없습니다. 
 - 사용자 환경에서 프록시를 사용 하 고 있으며, ADF 서비스의 서버 인증서가 프록시로 바뀌고, 대체 된 서버 인증서는 SHIR이 설치 된 컴퓨터에서 트러스트 되지 않습니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="resolution"></a>해결 방법
 
 - 이유 1에서는 SHIR이 설치 된 컴퓨터에서 ADF 서버 인증서와 인증서 체인을 신뢰할 수 있는지 확인 합니다.
 - 이유 2에서는 SHIR 컴퓨터에서 대체 된 루트 CA를 신뢰 하거나 ADF 서버 인증서를 교체 하지 않도록 프록시를 구성 합니다.
@@ -744,6 +744,7 @@ DigiCert에서 서명 된 새 SSL 인증서를 배포 하는 중입니다. DigiC
   ![DigiCert Global Root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
 
 그렇지 않은 경우 [여기](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt )에서 다운로드 합니다. 
+
 
 ## <a name="self-hosted-ir-sharing"></a>자체 호스팅 IR 공유
 

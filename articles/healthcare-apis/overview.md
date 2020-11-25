@@ -6,14 +6,14 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 08/03/2020
+ms.date: 11/13/2020
 ms.author: matjazl
-ms.openlocfilehash: 12635979d90dcc4be5b45bf7d64ceb602119faf7
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 3bb168cf3f642d22096c54b3f35c7833afaff769
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394767"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635146"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>Azure API for FHIR&reg;이란?
 
@@ -84,7 +84,7 @@ FHIR 서버를 확장하거나 사용자 지정해야 하거나 FHIR API를 거�
 
 ## <a name="azure-iot-connector-for-fhir-preview"></a>Azure IoT Connector for FHIR(미리 보기)
 
-Azure IoT Connector for FHIR*는 IoMT(의료 사물 인터넷) 디바이스에서 데이터를 수집하는 기능을 제공하는 Azure API for FHIR의 선택적 기능입니다. 의료 사물 인터넷은 네트워크를 통해 다른 의료 IT 시스템과 상태 및 건강 데이터를 캡처하고 교환하는 IoT 디바이스 범주입니다. IoMT 디바이스에는 피트니스 및 임상 착용식 디바이스, 모니터링 센서, 활동 추적기, 의료 키오스크 지점 또는 스마트 약 등이 있습니다. Azure IoT Connector for FHIR 기능을 사용하면 확장 가능하고 안전하며 규정을 준수하는 방식으로 IoMT 데이터를 Azure API for FHIR에 수집하는 서비스를 신속하게 설정할 수 있습니다.
+Azure IoT Connector for FHIR(전자 의료 기록 교환)*은 IoMT(의료 사물 인터넷) 디바이스에서 데이터를 수집하는 기능을 제공하는 Azure API for FHIR의 선택적 기능입니다. 의료 사물 인터넷은 네트워크를 통해 다른 의료 IT 시스템과 상태 및 건강 데이터를 캡처하고 교환하는 IoT 디바이스 범주입니다. IoMT 디바이스에는 피트니스 및 임상 착용식 디바이스, 모니터링 센서, 활동 추적기, 의료 키오스크 지점 또는 스마트 약 등이 있습니다. Azure IoT Connector for FHIR 기능을 사용하면 확장 가능하고 안전하며 규정을 준수하는 방식으로 IoMT 데이터를 Azure API for FHIR에 수집하는 서비스를 신속하게 설정할 수 있습니다.
 
 Azure IoT Connector for FHIR는 IoMT 디바이스에서 보낸 모든 JSON 기반 메시지를 수락할 수 있습니다. 이 데이터는 먼저 적절한 FHIR 기반 [관찰](https://www.hl7.org/fhir/observation.html) 리소스로 변환된 다음 Azure API for FHIR에 유지됩니다. 데이터 변환 논리는 메시지 스키마 및 FHIR 요구 사항에 따라 구성하는 매핑 템플릿 쌍을 통해 정의됩니다. 디바이스 데이터를 Azure IoT Connector for FHIR로 직접 푸시하거나 다른 Azure IoT 솔루션([Azure IoT Hub](../iot-hub/index.yml) 및 [Azure IoT Central](../iot-central/index.yml))과 함께 원활하게 사용할 수 있습니다. Azure IoT Connector for FHIR는 보안 데이터 파이프라인을 제공하지만 Azure IoT 솔루션은 물리적 디바이스의 프로비저닝 및 유지 관리를 관리할 수 있습니다.
 
@@ -108,6 +108,4 @@ Azure IoT Connector for FHIR 기능을 사용해 보려면 Azure Portal을 사�
 >[!div class="nextstepaction"]
 >[Azure IoT Connector for FHIR 배포](iot-fhir-portal-quickstart.md)
 
-*Azure Portal에서는 Azure IoT Connector for FHIR을 IoT 커넥터(미리 보기)라고 합니다.
-
-FHIR은 HL7의 등록 상표이며, HL7의 사용 허가 하에 사용됩니다.
+*Azure Portal에서는 Azure IoT Connector for FHIR을 IoT 커넥터(미리 보기)라고 합니다. FHIR은 HL7의 등록 상표이며, HL7의 사용 허가 하에 사용됩니다. 

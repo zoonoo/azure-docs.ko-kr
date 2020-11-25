@@ -1,7 +1,7 @@
 ---
 title: '자습서: 일괄 처리 채점용 ML 파이프라인'
 titleSuffix: Azure Machine Learning
-description: 이 자습서에서는 이미지 분류 모델에서 일괄 처리 채점을 수행하기 위한 기계 학습 파이프라인을 빌드합니다. Azure Machine Learning을 사용하면 인프라와 자동화 대신 기계 학습에 집중할 수 있습니다.
+description: 이 자습서에서는 일괄 처리 채점을 수행하는 기계 학습 파이프라인을 빌드합니다. 인프라와 자동화 대신 기계 학습에 중점을 둡니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: f7d1cffb44914535fe218980c750270ebba14445
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8748d6e155eb84cf948966d768dda1a992207f7e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309460"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629634"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>자습서: 일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드
 

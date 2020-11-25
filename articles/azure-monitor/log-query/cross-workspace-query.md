@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
 ms.openlocfilehash: 8eb163c95fb1426ebae8956d50f6d8f6aec6fd7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612085"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013652"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>작업 영역 및 앱에 걸쳐 있는 Azure Monitor에서 로그 쿼리 수행
 
@@ -36,15 +36,15 @@ Azure Monitor 로그는 동일한 리소스 그룹, 다른 리소스 그룹 또�
 쿼리에 다른 작업 영역을 참조하려면 [*workspace*](./workspace-expression.md) 식별자를 사용하고 Application Insights의 앱의 경우 [*app*](./app-expression.md) 식별자를 사용합니다.  
 
 ### <a name="identifying-workspace-resources"></a>작업 영역 리소스 식별
-다음 예제에서는 현재 작업 영역과 *contosoretail-it*이라는 작업 영역의 업데이트 테이블에서 요약된 로그 수를 반환하기 위한 Log Analytics 작업 영역의 쿼리를 보여줍니다. 
+다음 예제에서는 현재 작업 영역과 *contosoretail-it* 이라는 작업 영역의 업데이트 테이블에서 요약된 로그 수를 반환하기 위한 Log Analytics 작업 영역의 쿼리를 보여줍니다. 
 
 작업 영역 식별은 여러 가지 방법으로 수행될 수 있습니다.
 
-* 리소스 이름 - 사람이 읽을 수 있는 작업 영역 이름이며 *구성 요소 이름*이라고도 합니다. 
+* 리소스 이름 - 사람이 읽을 수 있는 작업 영역 이름이며 *구성 요소 이름* 이라고도 합니다. 
 
     `workspace("contosoretail-it").Update | count`
 
-* 정규화 된 이름-구독 이름, 리소스 그룹 및 구성 요소 이름이 *subscriptionName/resourceGroup/componentName*형식으로 구성 된 작업 영역의 "전체 이름"입니다. 
+* 정규화 된 이름-구독 이름, 리소스 그룹 및 구성 요소 이름이 *subscriptionName/resourceGroup/componentName* 형식으로 구성 된 작업 영역의 "전체 이름"입니다. 
 
     `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
@@ -58,17 +58,17 @@ Azure Monitor 로그는 동일한 리소스 그룹, 다른 리소스 그룹 또�
 
 * Azure Resource ID – Azure에서 정의한 작업 영역의 고유 ID입니다. 리소스 이름이 모호한 경우 리소스 ID를 사용합니다.  작업 영역의 형: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.  
 
-    예를 들면 다음과 같습니다.
+    예들 들어 다음과 같습니다.
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
 
 ### <a name="identifying-an-application"></a>애플리케이션 식별
-다음 예제에서는 Application Insights에서 *fabrikamapp*이라는 앱에 대해 요청된 요청의 요약된 수를 반환합니다. 
+다음 예제에서는 Application Insights에서 *fabrikamapp* 이라는 앱에 대해 요청된 요청의 요약된 수를 반환합니다. 
 
 Application Insights에서 애플리케이션 식별은 *app(Identifier)* 식으로 수행될 수 있습니다.  *Identifier* 인수는 다음을 사용하여 앱을 지정합니다.
 
-* 리소스 이름 - 사람이 읽을 수 있는 앱의 이름이며 *구성 요소 이름*이라고도 합니다.  
+* 리소스 이름 - 사람이 읽을 수 있는 앱의 이름이며 *구성 요소 이름* 이라고도 합니다.  
 
     `app("fabrikamapp")`
 
@@ -87,9 +87,9 @@ Application Insights에서 애플리케이션 식별은 *app(Identifier)* 식으
 
     `app("b459b4f6-912x-46d5-9cb1-b43069212ab4").requests | count`
 
-* Azure Resource ID – Azure에서 정의한 앱의 고유 ID입니다. 리소스 이름이 모호한 경우 리소스 ID를 사용합니다. 형식은 */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*입니다.  
+* Azure Resource ID – Azure에서 정의한 앱의 고유 ID입니다. 리소스 이름이 모호한 경우 리소스 ID를 사용합니다. 형식은 */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName* 입니다.  
 
-    예를 들면 다음과 같습니다.
+    예들 들어 다음과 같습니다.
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
@@ -109,7 +109,7 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>여러 리소스에 리소스 간 쿼리 사용
 리소스 간 쿼리를 사용하여 여러 Log Analytics 작업 영역 및 Application Insights 리소스에서 데이터의 상관 관계를 지정하는 경우 쿼리는 복잡하고 유지 관리하기 어려워질 수 있습니다. [Azure Monitor 로그 쿼리의 함수](functions.md)를 활용하여 쿼리 리소스 범위에서 쿼리 논리를 분리합니다. 이는 쿼리 구조를 간소화합니다. 다음 예제에서는 여러 Application Insights 리소스를 모니터링하고 애플리케이션 이름으로 실패한 요청의 수를 시각화하는 방법을 보여줍니다. 
 
-Application Insights 리소스의 범위를 참조하는 다음과 같은 쿼리를 만듭니다. `withsource= SourceApp` 명령은 로그를 전송한 애플리케이션 이름을 지정하는 열을 추가합니다. 별칭 _applicationsScoping_을 사용하여 [함수로 쿼리를 저장합니다](functions.md#create-a-function).
+Application Insights 리소스의 범위를 참조하는 다음과 같은 쿼리를 만듭니다. `withsource= SourceApp` 명령은 로그를 전송한 애플리케이션 이름을 지정하는 열을 추가합니다. 별칭 _applicationsScoping_ 을 사용하여 [함수로 쿼리를 저장합니다](functions.md#create-a-function).
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -123,7 +123,7 @@ app('Contoso-app5').requests
 
 
 
-이제 다음과 같은 리소스 간 쿼리에서 [이 함수를 사용](./functions.md#use-a-function)할 수 있습니다. 함수 별칭 _applicationsScoping_은 정의된 모든 애플리케이션에서 요청 테이블의 통합을 반환합니다. 그런 다음, 쿼리는 실패한 요청에 대해 필터링하고 애플리케이션별로 추세를 시각화합니다. _구문 분석_ 연산자는 이 예제에서 선택 사항입니다. _SourceApp_ 속성에서 애플리케이션 이름을 추출합니다.
+이제 다음과 같은 리소스 간 쿼리에서 [이 함수를 사용](./functions.md#use-a-function)할 수 있습니다. 함수 별칭 _applicationsScoping_ 은 정의된 모든 애플리케이션에서 요청 테이블의 통합을 반환합니다. 그런 다음, 쿼리는 실패한 요청에 대해 필터링하고 애플리케이션별로 추세를 시각화합니다. _구문 분석_ 연산자는 이 예제에서 선택 사항입니다. _SourceApp_ 속성에서 애플리케이션 이름을 추출합니다.
 
 ```Kusto
 applicationsScoping 

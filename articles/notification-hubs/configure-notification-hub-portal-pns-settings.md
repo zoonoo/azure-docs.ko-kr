@@ -12,12 +12,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 67e90667df2b62ec2c37d865fe431a2be6f81b9e
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 9c75ccaa05457f13697d1a26dbc8fd2f6720a751
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876569"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517855"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>빠른 시작: 알림 허브에서 푸시 알림 설정
 
@@ -33,18 +33,18 @@ APNS(Apple Push Notification Service)를 설정하려면 다음을 수행합니�
 
 1. Azure Portal의 **알림 허브** 페이지 왼쪽 메뉴에서 **Apple(APNS)** 을 선택합니다.
 
-1. **인증 모드**의 경우 **인증서** 또는 **토큰**을 선택합니다.
+1. **인증 모드** 의 경우 **인증서** 또는 **토큰** 을 선택합니다.
 
-   a. **인증서**를 선택한 경우:
+   a. **인증서** 를 선택한 경우:
    * 파일 아이콘을 선택한 다음, 업로드할 *.p12* 파일을 선택합니다.
    * 암호를 입력합니다.
    * **샌드박스** 모드를 선택합니다. 또는 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려면 **프로덕션** 모드를 선택합니다.
 
      ![Azure Portal의 APNS 인증서 구성 스크린샷](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
-   b. **토큰**을 선택한 경우:
+   b. **토큰** 을 선택한 경우:
 
-   * **키 ID**, **번들 ID**, **팀 ID** 및 **토큰**에 대한 값을 입력합니다.
+   * **키 ID**, **번들 ID**, **팀 ID** 및 **토큰** 에 대한 값을 입력합니다.
    * **샌드박스** 모드를 선택합니다. 또는 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려면 **프로덕션** 모드를 선택합니다.
 
      ![Azure Portal의 APNS 토큰 구성 스크린샷](./media/configure-notification-hub-portal-pns-settings/notification-hubs-apple-config-token.png)
@@ -58,8 +58,8 @@ APNS(Apple Push Notification Service)를 설정하려면 다음을 수행합니�
 Google FCM용 푸시 알림을 설정하려면 다음을 수행합니다.
 
 1. Azure Portal의 **알림 허브** 페이지 왼쪽 메뉴에서 **Google(GCM/FCM)** 을 선택합니다.
-2. 앞에서 저장한 Google FCM 프로젝트의 **API 키**를 붙여넣습니다.
-3. **저장**을 선택합니다.
+2. 앞에서 저장한 Google FCM 프로젝트의 **API 키** 를 붙여넣습니다.
+3. **저장** 을 선택합니다.
 
    ![Google FCM에 대한 Notification Hubs를 구성하는 방법을 보여주는 스크린샷](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
 
@@ -67,11 +67,11 @@ Google FCM용 푸시 알림을 설정하려면 다음을 수행합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+Google FCM(Firebase Cloud Messaging) 프로젝트용 **API 키** 가 필요합니다.
 
-- Notification Hubs를 사용하려면 Azure CLI 2.0.67 이상 버전이 필요합니다. [az version](/cli/azure/reference-index?#az_version)을 실행하여 설치된 버전과 종속 라이브러리를 찾습니다. 최신 버전으로 업그레이드하려면 [az upgrade](/cli/azure/reference-index?#az_upgrade)를 실행합니다.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-- Google FCM(Firebase Cloud Messaging) 프로젝트용 **API 키**가 필요합니다.
+- 이 문서에는 Azure CLI 버전 2.0.67 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ### <a name="set-up-push-notifications-for-google-fcm"></a>Google FCM용 푸시 알림 설정
 
@@ -81,7 +81,7 @@ Google FCM용 푸시 알림을 설정하려면 다음을 수행합니다.
    az notification-hub credential gcm update --resource-group spnhubrg --namespace-name spnhubns    --notification-hub-name spfcmtutorial1nhub --google-api-key myKey
    ```
 
-2. Android 앱에는 알림 허브에 연결하기 위한 연결 문자열이 필요합니다.  [az notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) 명령을 사용하여 사용 가능한 액세스 정책을 나열합니다.  [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) 명령을 사용하여 액세스 정책 연결 문자열을 가져옵니다.  기본 연결 문자열을 직접 가져오려면 `--query` 매개 변수에 **primaryConnectionString** 또는 **secondaryConnectionString**을 지정합니다.
+2. Android 앱에는 알림 허브에 연결하기 위한 연결 문자열이 필요합니다.  [az notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) 명령을 사용하여 사용 가능한 액세스 정책을 나열합니다.  [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) 명령을 사용하여 액세스 정책 연결 문자열을 가져옵니다.  기본 연결 문자열을 직접 가져오려면 `--query` 매개 변수에 **primaryConnectionString** 또는 **secondaryConnectionString** 을 지정합니다.
 
    ```azurecli
    #list access policies for a notification hub
@@ -113,8 +113,8 @@ Android 애플리케이션에 알림을 보내는 방법에 대한 자세한 내
 WNS(Windows Push Notification Service)를 설정하려면 다음을 수행합니다.
 
 1. Azure Portal의 **알림 허브** 페이지 왼쪽 메뉴에서 **Windows(WNS)** 를 선택합니다.
-2. **패키지 SID** 및 **보안 키**에 사용할 값을 입력합니다.
-3. **저장**을 선택합니다.
+2. **패키지 SID** 및 **보안 키** 에 사용할 값을 입력합니다.
+3. **저장** 을 선택합니다.
 
    ![패키지 SID 및 보안 키 상자를 보여주는 스크린샷](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
@@ -127,16 +127,16 @@ Windows Phone용 MPNS(Microsoft Push Notification Service)를 설정하려면 �
 1. Azure Portal의 **알림 허브** 페이지 왼쪽 메뉴에서 **Windows Phone(MPNS)** 을 선택합니다.
 1. 인증되지 않았거나 인증된 푸시 알림 사용:
 
-   a. 인증되지 않은 푸시 알림을 사용하도록 설정하려면 **인증되지 않은 푸시 사용** > **저장**을 선택합니다.
+   a. 인증되지 않은 푸시 알림을 사용하도록 설정하려면 **인증되지 않은 푸시 사용** > **저장** 을 선택합니다.
 
       ![인증되지 않은 푸시 알림을 사용하도록 설정하는 방법을 보여주는 스크린샷](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
 
    b. 인증된 푸시 알림을 사용하도록 설정하려면 다음을 수행합니다.
-      * 도구 모음에서 **인증서 업로드**를 선택합니다.
+      * 도구 모음에서 **인증서 업로드** 를 선택합니다.
       * 파일 아이콘을 선택한 다음, 인증서 파일을 선택합니다.
       * 인증서에 대한 암호를 입력합니다.
-      * **확인**을 선택합니다.
-      * **Windows Phone(MPNS)** 페이지에서 **저장**을 선택합니다.
+      * **확인** 을 선택합니다.
+      * **Windows Phone(MPNS)** 페이지에서 **저장** 을 선택합니다.
 
 자세한 내용은 [Notification Hubs를 사용하여 Windows Phone 앱에 푸시 알림](notification-hubs-windows-mobile-push-notifications-mpns.md)을 참조하세요.
 
@@ -145,9 +145,9 @@ Windows Phone용 MPNS(Microsoft Push Notification Service)를 설정하려면 �
 Baidu용 푸시 알림을 설정하려면 다음을 수행합니다.
 
 1. Azure Portal의 **알림 허브** 페이지 왼쪽 메뉴에서 **Baidu(Android China)** 를 선택합니다.
-2. Baidu 클라우드 푸시 프로젝트의 Baidu 콘솔에서 가져온 **API 키**를 입력합니다.
-3. Baidu 클라우드 푸시 프로젝트의 Baidu 콘솔에서 가져온 **비밀 키**를 입력합니다.
-4. **저장**을 선택합니다.
+2. Baidu 클라우드 푸시 프로젝트의 Baidu 콘솔에서 가져온 **API 키** 를 입력합니다.
+3. Baidu 클라우드 푸시 프로젝트의 Baidu 콘솔에서 가져온 **비밀 키** 를 입력합니다.
+4. **저장** 을 선택합니다.
 
     ![푸시 알림에 대한 Baidu(Android China) 구성을 보여주는 Notification Hubs의 스크린샷](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
 

@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 11/11/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 1ce461f50a6775bf7884fedc4cfa4dc7cb41bb8c
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ab71a7fa3d3f92ecf3e1f73835e41fa7170130e6
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408146"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636608"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 청구 소유권을 다른 계정에 양도
 
@@ -24,7 +24,7 @@ ms.locfileid: "94408146"
 
 청구 소유권을 유지하면서 구독 유형만 변경하려면 [Azure 구독을 다른 제안으로 전환](switch-azure-offer.md)을 참조하세요. 구독의 리소스에 액세스할 수 있는 사용자를 제어하려면 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
-EA(기업계약) 고객인 경우 엔터프라이즈 관리자가 계정 간에 구독의 청구 소유권을 양도할 수 있습니다. 자세한 내용은 [계정 소유자 변경](ea-portal-administration.md#change-account-owner)을 참조하세요.
+EA(기업계약) 고객인 경우 엔터프라이즈 관리자가 계정 간에 구독의 청구 소유권을 양도할 수 있습니다. 자세한 내용은 [Azure 구독 또는 계정 소유권 변경](ea-portal-administration.md#change-azure-subscription-or-account-ownership)을 참조하세요.
 
 계정의 대금 청구 관리자만 구독의 소유권을 양도할 수 있습니다.
 

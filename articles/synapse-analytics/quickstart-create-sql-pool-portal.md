@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2230784eedd044acd95b3087793ba664b544f76a
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: b558e34d3f5d224515eee669dfa7b8f2c6bbb3cd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505073"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541014"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 SQL 풀(미리 보기) 만들기
 
@@ -73,7 +73,6 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 8. 프로비저닝이 완료된 후 작업 영역으로 돌아가면 새로 만든 전용 SQL 풀에 대한 새 항목이 표시됩니다.
  ![SQL 풀 만들기 흐름 - 리소스 프로비저닝](media/quickstart-create-sql-pool/create-sql-pool-studio-27.png)
-
 
 
 전용 SQL 풀이 생성되면 작업 영역에서 데이터를 로드하고, 스트림을 처리하고, 레이크에서 읽기 등에 사용할 수 있습니다.

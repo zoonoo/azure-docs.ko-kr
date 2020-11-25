@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 09/15/2020
-ms.openlocfilehash: 461fabd0dd9948e8967ac61919f77e3e23a981b9
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/16/2020
+ms.openlocfilehash: 57213e228359fd6c201d501d3bb75f7267054277
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331960"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685429"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Synapse 지식 센터 살펴보기
 
@@ -25,14 +25,14 @@ ms.locfileid: "94331960"
 
 Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습니다.
 
-  1. 홈 허브의 유용한 링크 아래에서 **지식 센터** 라는 첫 번째 링크를 클릭합니다.
+  1. 홈 허브의 페이지 오른쪽 위 근처에 있는 **학습** 을 클릭합니다.
   2. 위쪽의 메뉴 모음에서 **?** 를 클릭합니다. 그런 다음, **지식 센터** 를 클릭합니다.
 
 두 가지 방법 중 하나를 선택하고 **지식 센터** 를 엽니다.
 
 ## <a name="overview"></a>개요
 
-**지식 센터** 에서 수행할 수 있는 세 가지 작업은 다음과 같습니다.
+**지식 센터** 를 통해 다음과 같은 세 가지 작업을 수행할 수 있습니다.
 * **샘플 즉시 사용**. 이 옵션은 작동 중인 분석을 최대한 빨리 표시하도록 최적화되어 있습니다. Synapse의 작동 방식에 대한 빠른 예제를 원하는 경우 이 옵션을 선택합니다.
 * **브라우저에서 사용할 수 있는 샘플**. 이 옵션을 사용하면 샘플 데이터 세트를 연결하고, 샘플 코드를 SQL 스크립트, Notebook 및 파이프라인 형식으로 추가할 수 있습니다.
 * **Synapse Studio 둘러보기**. 이 옵션을 사용하면 Synapse Studio의 기본 부분을 간략히 둘러볼 수 있습니다. 이 옵션은 Synapse Studio를 사용한 적이 없는 경우에 유용합니다.

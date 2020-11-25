@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: f7b96bcebb2106e52c62426ca2b64f9305e09141
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 862d2a93058c63dbfad1db49346edcbfe3c02ad1
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515412"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592450"
 ---
 # <a name="creating-a-synapse-workspace"></a>Synapse 작업 영역 만들기
 
@@ -47,35 +47,23 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 ## <a name="create-a-dedicated-sql-pool"></a>전용 SQL 풀 만들기
 
 1. Synapse Studio의 왼쪽 창에서 **관리** > **SQL 풀** 을 차례로 선택합니다.
-1. **새로 만들기** 를 선택하고 다음 설정을 입력합니다.
-
-    |설정 | 제안 값 | 
-    |---|---|---|
-    |**SQL 풀 이름**| **SQLDB1**|
-    |**성능 수준**|**DW100C**|
-    |||
-
-1. **검토 + 만들기** > **만들기** 를 차례로 선택합니다. 몇 분 안에 전용 SQL 풀이 준비됩니다. 전용 SQL 풀이 **SQLDB1** 이라고도 하는 전용 SQL 풀 데이터베이스와 연결됩니다.
+1. **새로 만들기** 를 선택합니다.
+1. **SQL 풀 이름** 에 대해 **SQLPOOL1** 을 선택합니다.
+1. **성능 수준** 의 경우 **DW100C** 를 선택합니다.
+1. **검토 + 만들기** > **만들기** 를 차례로 선택합니다. 몇 분 안에 전용 SQL 풀이 준비됩니다. 전용 SQL 풀이 **SQLPOOL1** 이라고도 하는 전용 SQL 풀 데이터베이스와 연결됩니다.
 
 전용 SQL 풀은 활성 상태인 동안 청구 가능한 리소스를 사용합니다. 비용을 줄이기 위해 풀을 일시 중지할 수 있습니다.
 
 ## <a name="create-a-serverless-apache-spark-pool"></a>서버리스 Apache Spark 풀 만들기
 
 1. Synapse Studio의 왼쪽 창에서 **관리** > **Apache Spark 풀** 을 차례로 선택합니다.
-1. **새로 만들기** 를 선택하고 다음 설정을 입력합니다.
-
-    |설정 | 제안 값 | 
-    |---|---|---|
-    |**Apache Spark 풀 이름**|**Spark1**
-    |**노드 크기**| **소형**|
-    |**노드 수**| 최솟값 및 최댓값을 각각 3으로 설정합니다.|
-
+1. **새로 만들기** 를 선택합니다. 
+1. **Apache Spark 풀 이름** 에 **Spark1** 을 입력합니다.
+1. **노드 크기** 에 **Small** 을 입력합니다.
+1. **노드 수** 의 경우 최솟값 및 최댓값을 각각 3으로 설정합니다.
 1. **검토 + 만들기** > **만들기** 를 차례로 선택합니다. 몇 초 후에 Apache Spark 풀이 준비됩니다.
 
-Azure Synapse에서 Spark 작업을 수행할 때 사용할 Spark 풀을 지정합니다. 이 풀은 사용할 Spark 리소스의 수를 Azure Synapse에 알려줍니다. 사용하는 리소스에 대해서만 비용을 지불합니다. 풀 사용을 적극적으로 중지하면 리소스가 자동으로 시간 제한되고 재활용됩니다.
-
-> [!NOTE]
-> Spark 데이터베이스는 Spark 풀에서 독립적으로 만들어집니다. 작업 영역에는 항상 **default** 라는 Spark 데이터베이스가 있습니다. Spark 데이터베이스는 추가로 만들 수 있습니다.
+Spark 풀은 사용할 Spark 리소스의 수를 Azure Synapse에 알려줍니다. 사용하는 리소스에 대해서만 비용을 지불합니다. 풀 사용을 적극적으로 중지하면 리소스가 자동으로 시간 제한되고 재활용됩니다.
 
 ## <a name="the-serverless-sql-pool"></a>서버리스 SQL 풀
 

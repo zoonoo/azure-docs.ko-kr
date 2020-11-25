@@ -1,23 +1,25 @@
 ---
 title: 자습서 - Blazor WebAssembly 앱에서 사용자를 로그인하고 보호된 API 호출
 titleSuffix: Microsoft identity platform
-description: 이 자습서에서는 Microsoft ID 플랫폼을 사용하여 Blazor WebAssembly 앱에서 사용자를 로그인하고 보호된 API를 호출합니다.
+description: 이 자습서에서는 Microsoft ID 플랫폼을 사용하여 Blazor WebAssembly(WASM) 앱에서 사용자를 로그인하고 보호된 API를 호출합니다.
 author: knicholasa
 ms.author: nichola
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: ba3607c522191644ec0cc63db118de285d297c48
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f967b10d729c9c5486bbca9b643f48aaf558687c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221513"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628070"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>자습서: Blazor WebAssembly 앱에서 사용자를 로그인하고 보호된 API 호출
 
-[Blazor WebAssembly](/aspnet/core/blazor#blazor-webassembly)는 .NET으로 대화형 클라이언트 쪽 웹앱을 빌드할 수 있는 단일 페이지 앱 프레임워크입니다. 이 자습서에서는 [Microsoft ID 플랫폼](https://docs.microsoft.com/azure/active-directory/develop/)을 사용하여 Blazor WebAssembly(Blazor WASM) 앱에서 사용자를 로그인하고 보호된 API의 데이터를 검색하는 앱을 만듭니다.
+Blazor WebAssembly(WASM)는 .NET으로 대화형 클라이언트 쪽 웹앱을 빌드할 수 있는 단일 페이지 앱 프레임워크입니다. 이 자습서에서는 Microsoft ID 플랫폼을 사용하고, Azure AD(Azure Active Directory)에 앱을 등록하여 Blazor WASM 앱에서 인증을 구현하고, Microsoft Graph에서 데이터를 검색하는 방법을 알아봅니다.
+
+[Blazor Server에 대한 자습서](tutorial-blazor-server.md)도 있습니다. 
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -239,5 +241,5 @@ else
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Microsoft ID 플랫폼 모범 사례 및 권장 사항](./identity-platform-integration-checklist.md)
-- [ASP.NET Core Blazor 소개](/aspnet/core/blazor)
+> [!div class="nextstepaction"]
+> [Microsoft ID 플랫폼 모범 사례 및 권장 사항](./identity-platform-integration-checklist.md)

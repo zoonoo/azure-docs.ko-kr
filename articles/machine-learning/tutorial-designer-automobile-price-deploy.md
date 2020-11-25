@@ -1,21 +1,21 @@
 ---
 title: '자습서: 디자이너를 사용하여 ML 모델 배포'
 titleSuffix: Azure Machine Learning
-description: 이 자습서에서는 Azure Machine Learning 디자이너에서 예측 분석 솔루션을 빌드하는 방법을 보여줍니다. 끌어서 놓기 모듈을 사용하여 기계 학습 모델을 학습, 채점 및 배포합니다.
+description: Azure Machine Learning 디자이너에서 예측 분석 솔루션을 빌드합니다. 끌어서 놓기 모듈을 사용하여 기계 학습 모델을 학습하고, 점수를 매기고, 배포합니다.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 11/13/2020
 ms.custom: designer
-ms.openlocfilehash: 95e5b3ac568cfa370fd1e49fad990b681aef46d9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5a5d166e36b2870ceb081c1c6d2635e01ab43a4d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311509"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592552"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>자습서: 디자이너를 사용하여 Machine Learning 모델 배포
 
@@ -99,7 +99,7 @@ AKS 서비스 프로비저닝이 완료된 후에는 실시간 유추 파이프�
 
 1. **배포** 를 선택합니다.
     
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="파이프라인 만들기 단추를 찾을 수 있는 위치를 보여주는 스크린샷":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="새 실시간 엔드포인트를 설정하는 방법을 보여주는 스크린샷":::
 
     배포가 완료된 후 캔버스 위의 성공 알림이 나타납니다. 몇 분 정도 걸릴 수 있습니다.
 
@@ -112,6 +112,8 @@ AKS 서비스 프로비저닝이 완료된 후에는 실시간 유추 파이프�
 1. **세부 정보** 탭에서 REST URI, 상태 및 태그와 같은 추가 정보를 볼 수 있습니다.
 
 1. **사용** 탭에서 보안 키를 찾아 인증 방법을 설정할 수 있습니다.
+
+1. **배포 로그** 탭에서 실시간 엔드포인트의 자세한 배포 로그를 찾을 수 있습니다. 
 
 웹 서비스 사용에 대한 자세한 내용은 [웹 서비스로 배포된 모델 사용](how-to-consume-web-service.md)을 참조하세요.
 

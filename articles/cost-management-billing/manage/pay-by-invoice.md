@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 11/16/2020
 ms.author: banders
 ms.custom: contentperfq2
-ms.openlocfilehash: df95305d1b014579ca6294a9015ac7879d8ce0b3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 9311a22575c328e0412398f6b63af84c35ac3c32
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670426"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652912"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용 지불
 
@@ -72,7 +72,7 @@ ms.locfileid: "92670426"
 
 6. 연락처 정보와 기본 연락 방법을 확인한 다음, **만들기** 를 선택합니다.
 
-필요한 신용 수준으로 인해 신용 검사를 실행해야 할 경우 신용 검사 신청서를 보내드립니다.
+필요한 신용 수준으로 인해 신용 검사를 실행해야 할 경우 신용 검사 신청서를 보내드립니다. 회사의 감사된 재무 제표를 제공하도록 요청할 수 있습니다. 재무 정보를 제공하지 않거나 정보가 필요한 신용 한도를 지원하기에 충분하지 않은 경우 신용 조회 요청을 승인하기 위해 보증금 또는 신용의 대기 신용장을 요청할 수 있습니다.
 
 ## <a name="switch-to-invoice-pay-checkwire-transfer"></a>청구서 지불로 전환(수표/전신 송금)
 

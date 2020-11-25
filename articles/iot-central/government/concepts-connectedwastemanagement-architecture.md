@@ -7,18 +7,18 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9b061a6d3d7d2a6598d8ed7c48428d756db6e97d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 93a5d17ce5ea5ec60c67604efe5081d2b3425a84
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126278"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873695"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>연결된 폐기물 모니터링 참조 아키텍처 
 
 
 
-**Azure IoT Central 앱 템플릿**을 사용하여 연결된 폐기물 관리 솔루션을 킥스타터 IoT 애플리케이션으로 빌드할 수 있습니다. 이 문서는 엔드투엔드 솔루션 빌드에 관한 높은 수준의 참조 아키텍처를 제공합니다. 
+**Azure IoT Central 앱 템플릿** 을 사용하여 연결된 폐기물 관리 솔루션을 킥스타터 IoT 애플리케이션으로 빌드할 수 있습니다. 이 문서는 엔드투엔드 솔루션 빌드에 관한 높은 수준의 참조 아키텍처를 제공합니다. 
 
 ![연결된 폐기물 관리 아키텍처](./media/concepts-connectedwastemanagement-architecture/concepts-connectedwastemanagement-architecture1.png)
 
@@ -39,10 +39,10 @@ ms.locfileid: "92126278"
 Azure IoT Central은 IoT 솔루션을 빠르게 시작하거나 실행하도록 도와주는 IoT 앱 플랫폼입니다. 솔루션을 브랜딩 및 사용자 지정하거나 타사 서비스와 통합할 수 있습니다.
 스마트 워터 디바이스를 IoT Central에 연결하면 디바이스 명령 및 제어, 모니터링 및 경고, RBAC가 내장된 사용자 인터페이스, 구성 가능한 인사이트 대시보드, 확장성 옵션을 이용할 수 있습니다. 
 
-## <a name="extensibility-and-integrations"></a>확장성 및 통합 
+## <a name="extensibility-and-integrations"></a>확장성 및 통합
 Azure IoT Central에서 IoT 애플리케이션을 확장하고 필요에 따라 다음을 수행할 수 있습니다.
-* 고급 분석을 위해 IoT 데이터 변환 및 통합(예: Azure IoT Central 애플리케이션에서 데이터를 지속적으로 내보내 기계 학습 모델 교육) 
-* Azure IoT Central 애플리케이션의 웹후크 또는 Microsoft Flow를 통해 작업을 트리거하여 다른 시스템의 워크플로 자동화
+* 고급 분석을 위해 IoT 데이터 변환 및 통합(예: Azure IoT Central 애플리케이션에서 데이터를 지속적으로 내보내 기계 학습 모델 교육)
+* Azure IoT Central 애플리케이션의 웹후크 또는 Power Automate를 통해 작업을 트리거하여 다른 시스템의 워크플로 자동화
 * Azure IoT Central API를 통해 Azure IoT Central에서 IoT 애플리케이션에 프로그래밍 방식으로 액세스
 
 ## <a name="business-applications"></a>비즈니스 애플리케이션 

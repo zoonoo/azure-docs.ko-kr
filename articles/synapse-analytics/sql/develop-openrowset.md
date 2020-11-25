@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b08e834233e1ce12392d940cb0ccc0bef7e96158
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 20003a91726e5ccee7f73d85b7c9a9389801e0ad
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337749"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701758"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 OPENROWSET를 사용하는 방법
 
@@ -84,7 +84,7 @@ OPENROWSET
     FORMAT = 'CSV'
     [ <bulk_options> ] }  
 )  
-WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })  
+WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
  
 <bulk_options> ::=  
@@ -156,7 +156,7 @@ WITH 절을 사용하여 파일에서 읽을 열을 지정할 수 있습니다.
     > Parquet 파일의 열 이름은 대/소문자를 구분합니다. Parquet 파일에서 열 이름 대/소문자 구분과 다른 대/소문자의 열 이름을 지정하면 해당 열에 대해 NULL 값이 반환됩니다.
 
 
-column_name은 출력 열의 이름입니다. 이 이름을 입력하면 이 이름이 원본 파일의 열 이름을 재정의합니다.
+column_name은 출력 열의 이름입니다. 제공되는 경우 이 이름은 원본 파일의 열 이름과 JSON 경로에 제공된 열 이름(있는 경우)을 재정의합니다. json_path가 제공되지 않으면 '$.column_name'으로 자동 추가됩니다. 동작에 대한 json_path 인수를 확인합니다.
 
 column_type은 출력 열의 데이터 형식입니다. 여기서 암시적 데이터 형식 변환이 수행됩니다.
 
@@ -170,6 +170,11 @@ WITH (
     --[population] bigint
 )
 ```
+
+json_path = 열 또는 중첩 속성에 대한 [JSON 경로 식](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15). 기본 [경로 모드](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE)는 lax입니다.
+
+> [!NOTE]
+> strict 모드에서는 제공된 경로가 존재하지 않으면 쿼리가 실패하고 오류가 발생합니다. lax 모드에서는 쿼리가 성공하고 JSON 경로 식이 NULL로 계산됩니다.
 
 **\<bulk_options>**
 
@@ -359,6 +364,32 @@ WITH (
     [stateName] VARCHAR (50),
     [population] bigint
 ) AS [r]
+```
+
+### <a name="specify-columns-using-json-paths"></a>JSON 경로를 사용하여 열 지정
+
+다음 예제에서는 WITH 절에서 [JSON 경로 식](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15)을 사용하는 방법을 보여주고 strict 및 lax 경로 모드의 차이점을 보여줍니다. 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+    --lax path mode samples
+    [stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
+    [stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
+    [COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
+    [countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
+
+    --strict path mode samples
+    [population] bigint 'strict $.population' -- this one works as column name casing is valid
+    --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
+)
+AS [r]
 ```
 
 ## <a name="next-steps"></a>다음 단계

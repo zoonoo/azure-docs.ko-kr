@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 211ce85fdbf918171ecfc7964bbcdfa2ef245990
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 83f38797e406ff7e62503f59ef979b9ce4f07f97
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790715"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917939"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Azure SQL Managed Instance란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,7 +33,7 @@ Azure SQL Managed Instance를 처음 사용하는 경우에는 심층 [Azure SQL
 
 ![주요 특징](./media/sql-managed-instance-paas-overview/key-features.png)
 
-Azure SQL Managed Instance는 최대한 적은 마이그레이션 작업을 통해 많은 수의 앱을 온-프레미스 또는 IaaS, 자체 구축 또는 ISV 제공 환경에서 완전 관리형 PaaS 클라우드 환경으로 마이그레이션하려는 고객을 위해 설계되었습니다. 완전히 자동화된 [Azure Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)를 사용하면 기존 SQL Server 인스턴스를 SQL Managed Instance로 옮길 수 있습니다. 여기에서는 SQL Server와의 호환성이 제공되고 네이티브 VNet 지원을 통해 고객 인스턴스를 완벽하게 격리합니다.  Software Assurance를 사용하면 [SQL Server에 대한 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 SQL Managed Instance에서 기존 라이선스를 할인된 가격으로 교환할 수 있습니다. SQL Managed Instance는 클라우드에서 높은 보안과 풍부한 프로그래밍 기능 영역이 필요한 SQL Server 인스턴스를 위한 최상의 마이그레이션 대상입니다.
+Azure SQL Managed Instance는 최대한 적은 마이그레이션 작업을 통해 많은 수의 앱을 온-프레미스 또는 IaaS, 자체 구축 또는 ISV 제공 환경에서 완전 관리형 PaaS 클라우드 환경으로 마이그레이션하려는 고객을 위해 설계되었습니다. 완전히 자동화된 [Azure Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)를 사용하면 기존 SQL Server 인스턴스를 SQL Managed Instance로 옮길 수 있습니다. 여기에서는 SQL Server와의 호환성이 제공되고 네이티브 VNet 지원을 통해 고객 인스턴스를 완벽하게 격리합니다. 마이그레이션 옵션 및 도구에 대한 자세한 내용은 [마이그레이션 개요: SQL Server에서 Azure SQL Managed Instance로 마이그레이션](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md)을 참조하세요.</br> Software Assurance를 사용하면 [SQL Server에 대한 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 SQL Managed Instance에서 기존 라이선스를 할인된 가격으로 교환할 수 있습니다. SQL Managed Instance는 클라우드에서 높은 보안과 풍부한 프로그래밍 기능 영역이 필요한 SQL Server 인스턴스를 위한 최상의 마이그레이션 대상입니다.
 
 ## <a name="key-features-and-capabilities"></a>주요 특징 및 기능
 
@@ -85,8 +85,8 @@ vCore 모델에서는 하드웨어 세대를 선택할 수 있습니다.
 
 SQL Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습니다.
 
-- **범용** : 일반적인 성능 및 I/O 대기 시간 요구 사항이 있는 애플리케이션용으로 설계되었습니다.
-- **중요 비즈니스용** : I/O 대기 시간 요구 사항이 낮고 기본 유지 관리 작업이 워크로드에 미치는 영향이 최소화된 애플리케이션용으로 설계되었습니다.
+- **범용**: 일반적인 성능 및 I/O 대기 시간 요구 사항이 있는 애플리케이션용으로 설계되었습니다.
+- **중요 비즈니스용**: I/O 대기 시간 요구 사항이 낮고 기본 유지 관리 작업이 워크로드에 미치는 영향이 최소화된 애플리케이션용으로 설계되었습니다.
 
 두 서비스 계층은 모두 99.99% 가용성을 보장하며 스토리지 크기와 컴퓨팅 용량을 독립적으로 선택할 수 있습니다. Azure SQL Managed Instance의 고가용성 아키텍처에 대한 자세한 내용은 [고가용성 및 Azure SQL Managed Instance](../database/high-availability-sla.md)를 참조하세요.
 
@@ -156,7 +156,7 @@ Azure SQL Managed Instance는 데이터를 보호하는 데 사용할 수 있는
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory 통합
 
-SQL Managed Instance는 기존 SQL Server 데이터베이스 엔진 로그인 및 Azure AD와 통합된 로그인을 지원합니다. Azure AD 서버 보안 주체(로그인)( **공개 미리 보기** )는 온-프레미스 환경에서 사용 중인 온-프레미스 데이터베이스 로그인의 Azure 클라우드 버전입니다. Azure AD 서버 보안 주체(로그인)를 사용하면 동일한 Managed Instance 내에서 데이터베이스 간 쿼리를 비롯한 모든 인스턴스 수준 작업을 수행할 수 있는 실제 인스턴스 범위의 보안 주체로 Azure AD 테넌트의 사용자 및 그룹을 지정할 수 있습니다.
+SQL Managed Instance는 기존 SQL Server 데이터베이스 엔진 로그인 및 Azure AD와 통합된 로그인을 지원합니다. Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)는 온-프레미스 환경에서 사용 중인 온-프레미스 데이터베이스 로그인의 Azure 클라우드 버전입니다. Azure AD 서버 보안 주체(로그인)를 사용하면 동일한 Managed Instance 내에서 데이터베이스 간 쿼리를 비롯한 모든 인스턴스 수준 작업을 수행할 수 있는 실제 인스턴스 범위의 보안 주체로 Azure AD 테넌트의 사용자 및 그룹을 지정할 수 있습니다.
 
 Azure AD 서버 보안 주체(로그인)를 만들기 위한 새 구문인 **FROM EXTERNAL PROVIDER** 가 도입되었습니다. 구문에 대한 자세한 내용은 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>을 참조하고 [SQL Managed Instance에 대한 Azure Active Directory 관리자 프로비저닝](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)을 살펴보세요.
 
@@ -168,10 +168,10 @@ SQL Managed Instance를 사용하면 [Azure Active Directory 통합](../database
 
 SQL Managed Instance 인증은 사용자가 데이터베이스에 연결할 때 자신의 ID를 증명하는 방법을 나타냅니다. SQL Managed Instance는 두 가지 인증 유형을 지원합니다.  
 
-- **SQL 인증** :
+- **SQL 인증**:
 
   이 인증 방법은 사용자 이름과 암호를 사용합니다.
-- **Azure Active Directory 인증** :
+- **Azure Active Directory 인증**:
 
   이 인증 방법은 Azure Active Directory에서 관리하는 ID를 사용하며, 관리되는 도메인과 통합된 도메인에 대해 지원됩니다. [가능한 경우](/sql/relational-databases/security/choose-an-authentication-mode) Active Directory 인증(통합 보안)을 사용합니다.
 
@@ -181,14 +181,14 @@ SQL Managed Instance 인증은 사용자가 데이터베이스에 연결할 때 
 
 ## <a name="database-migration"></a>데이터베이스 마이그레이션
 
-SQL Managed Instance는 온-프레미스 또는 IaaS 데이터베이스 구현에서 대량의 데이터베이스를 마이그레이션하는 사용자 시나리오를 대상으로 합니다. SQL Managed Instance는 여러 데이터베이스 마이그레이션 옵션을 지원합니다.
+SQL Managed Instance는 온-프레미스 또는 IaaS 데이터베이스 구현에서 대량의 데이터베이스를 마이그레이션하는 사용자 시나리오를 대상으로 합니다. SQL Managed Instance는 마이그레이션 가이드에 설명된 여러 데이터베이스 마이그레이션 옵션을 지원합니다. 자세한 내용은 [마이그레이션 개요: SQL Server에서 Azure SQL Managed Instance로 마이그레이션](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md)을 참조하세요.
 
 ### <a name="backup-and-restore"></a>백업 및 복원  
 
 마이그레이션 방식에서는 Azure Blob Storage에 SQL을 백업합니다. Azure Storage Blob에 저장된 백업은 [T-SQL RESTORE 명령](/sql/t-sql/statements/restore-statements-transact-sql?preserve-view=true&view=azuresqldb-mi-current)을 사용하여 Managed Instance에 직접 복원할 수 있습니다.
 
 - Wide World Importers 표준 데이터베이스 백업 파일을 복원하는 방법을 보여주는 빠른 시작은 [Managed Instance에 백업 파일 복원](restore-sample-database-quickstart.md)을 참조하세요. 이 빠른 시작에서는 백업 파일을 Azure Blob 스토리지에 업로드하고 SAS(보안 공유 액세스 서명) 키를 사용하여 보호해야 한다는 것을 보여 줍니다.
-- URL에서 복원하는 방법에 대한 자세한 내용은 [URL에서 네이티브 복원](migrate-to-instance-from-sql-server.md#native-restore-from-url)을 참조하세요.
+- URL에서 복원하는 방법에 대한 자세한 내용은 [URL에서 네이티브 복원](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md#backup-and-restore)을 참조하세요.
 
 > [!IMPORTANT]
 > Managed Instance에서 백업은 다른 Managed Instance로 복원될 수만 있습니다. SQL Server 인스턴스 또는 Azure SQL Database로 복원할 수는 없습니다.
@@ -232,7 +232,7 @@ SQL Managed Instance 서비스는 사용자를 위해 작업을 수행하거나 
 
 |속성|값|의견|
 |---|---|---|
-|`@@VERSION`|Microsoft SQL Azure(RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|이 값은 SQL Database와 같습니다. 이것이 SQL 엔진 버전 12(SQL Server 2014)를 나타내는 것은 **아닙니다** . SQL Managed Instance는 항상 안정적인 최신 SQL 엔진 버전을 실행합니다(사용 가능한 최신 RTM 버전 이상).  |
+|`@@VERSION`|Microsoft SQL Azure(RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|이 값은 SQL Database와 같습니다. 이것이 SQL 엔진 버전 12(SQL Server 2014)를 나타내는 것은 **아닙니다**. SQL Managed Instance는 항상 안정적인 최신 SQL 엔진 버전을 실행합니다(사용 가능한 최신 RTM 버전 이상).  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|이 값은 SQL Database와 같습니다.|
 |`SERVERPROPERTY('EngineEdition')`|8|이 값은 Managed Instance를 고유하게 식별합니다.|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|`<instanceName>`.`<dnsPrefix>`.database.windows.net 형식의 전체 인스턴스 DNS 이름. 여기서 `<instanceName>`은 고객이 제공한 이름이고, `<dnsPrefix>`는 글로벌 DNS 이름의 고유성을 보장하기 위해 이름에서 자동으로 생성되는 부분(예: “wcus17662feb9ce98”)입니다.|예: my-managed-instance.wcus17662feb9ce98.database.windows.net|

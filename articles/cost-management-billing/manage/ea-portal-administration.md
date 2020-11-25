@@ -3,18 +3,18 @@ title: Azure EA Portal 관리
 description: 이 문서에서는 관리자가 Azure EA Portal에서 수행하는 일반적인 작업에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/27/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: e83af5baa4ca38a8e81dffa8bb81ab3da64e1e95
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411042"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683648"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -135,28 +135,20 @@ ms.locfileid: "94411042"
    상태가 **보류 중** 에서 **시작/종료 날짜** 로 변경될 것입니다. 시작/종료 날짜는 사용자가 처음 로그인한 날짜와 계약 종료 날짜입니다.
 1. **경고** 메시지가 표시되면 계정 소유자는 Azure Enterprise Portal에 처음 로그인할 때 **계속** 을 클릭하여 계정을 활성화해야 합니다.
 
-## <a name="change-account-owner"></a>계정 소유자 변경
+## <a name="change-azure-subscription-or-account-ownership"></a>Azure 구독 또는 계정 소유권 변경
 
-엔터프라이즈 관리자는 Azure Enterprise Portal을 사용하여 등록의 구독 계정 소유권을 양도할 수 있습니다. 이 작업은 원본 사용자 계정의 모든 구독을 대상 사용자 계정으로 이전합니다.
+엔터프라이즈 관리자는 Azure Enterprise Portal을 사용하여 등록 시 선택한 구독 또는 모든 구독의 계정 소유권을 양도할 수 있습니다.
 
-계정을 양도할 때 다음과 같은 중요 정보를 알고 있어야 합니다.
+구독 또는 계정 소유권 양도가 완료되면 Microsoft에서 계정 소유자를 업데이트합니다.
 
-- 양도 가능한 작업은 다음과 같습니다.
-  - 회사 또는 학교 계정에서 다른 회사 또는 학교 계정으로 양도
-  - Microsoft 계정에서 다른 회사 또는 학교 계정으로 양도
-  - Microsoft 계정에서 다른 Microsoft 계정으로 양도
+소유권 양도를 수행하기 전에 다음과 같은 Azure RBAC(Azure 역할 기반 액세스 제어) 정책을 이해합니다.
 
-    대상 계정은 전송 대상으로 유효한 Azure 상거래 계정이어야 합니다. 새 계정의 경우 Azure Enterprise Portal에 로그인할 때 Azure 상거래 계정을 만들라는 메시지가 표시됩니다. 기존 계정의 경우 새 Azure 구독을 만들어야만 적격 계정이 됩니다.
-
-- 회사 또는 학교 계정에서 Microsoft 계정으로 양도할 수 없습니다.
-
-- 구독 양도가 완료되면 Microsoft에서 계정 소유자를 업데이트합니다.
-
-다음과 같은 RBAC(역할 기반 액세스 제어) 정책을 이해합니다.
-
-- 동일한 테넌트에 있는 두 조직 ID 간에 구독을 양도하는 경우 RBAC 정책과 기존 서비스 관리자 및 공동 관리자 역할이 유지됩니다.
-- 그 외의 구독 양도에서는 RBAC 정책과 역할 할당이 손실됩니다.
+- 동일한 테넌트 내에 있는 두 조직 ID 간에 구독 또는 계정 소유권 양도를 수행할 때 Azure RBAC 정책, 기존 서비스 관리자 및 공동 관리자 역할이 유지됩니다.
+- 테넌트 간에 구독 또는 계정 소유권 양도로 인해 Azure RBAC 정책과 역할 할당이 손실됩니다.
 - 정책 및 관리자 역할은 디렉터리 간에 양도되지 않습니다. 서비스 관리자는 대상 계정의 소유자로 업데이트됩니다.
+- 테넌트 간에 구독을 양도할 때 RBAC 정책 및 역할 할당이 손실되지 않도록 하려면 **구독을 받는 사람의 Azure AD 테넌트로 이동** 확인란이 **선택 취소** 상태가 유지되도록 합니다. 그러면 현재 Azure AD 테넌트의 서비스, RBAC 역할 및 정책이 유지되고 해당 계정에 대한 청구 소유권만 이전됩니다.  
+    :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Azure AD 테넌트로 구독을 이동하기 위한 선택 취소 확인란을 보여주는 이미지" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+
 
 계정 소유자를 변경하기 전에 다음을 수행합니다.
 
@@ -168,26 +160,25 @@ ms.locfileid: "94411042"
 1. Azure Enterprise Portal에 로그인합니다.
 1. 왼쪽 탐색 영역에서 **관리** 를 선택합니다.
 1. **계정** 탭을 선택하고 계정 위로 마우스를 가져갑니다.
-1. 오른쪽에서 계정 소유자 변경 아이콘을 선택합니다. 사람처럼 생긴 아이콘입니다.
-1. 적격 계정을 선택하고 **다음** 을 선택합니다.
+1. 오른쪽에서 계정 소유자 변경 아이콘을 선택합니다. 사람처럼 생긴 아이콘입니다.  
+    ![계정 소유자 변경 기호를 보여주는 이미지](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
+1. 이전할 대상 계정을 선택한 후, **다음** 을 선택합니다.
+1. Azure AD 테넌트 간에 계정 소유권을 양도하려면 **구독을 받는 사람의 Azure AD 테넌트로 이동** 확인란을 선택합니다.  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Azure AD 테넌트로 구독을 이동하기 위해 선택한 확인란을 보여주는 이미지" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. 양도를 확인하고 **제출** 을 선택합니다.
-
-![계정 소유자 변경 기호를 보여주는 이미지](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
 
 단일 구독의 계정 소유권을 양도하려면 다음을 수행합니다.
 
 1. Azure Enterprise Portal에 로그인합니다.
 1. 왼쪽 탐색 영역에서 **관리** 를 선택합니다.
 1. **계정** 탭을 선택하고 계정 위로 마우스를 가져갑니다.
-1. 오른쪽에서 구독 양도 아이콘을 선택합니다. 페이지처럼 생긴 아이콘입니다.
-1. 적격 구독을 선택하고 **다음** 을 선택합니다.
+1. 오른쪽에서 구독 양도 아이콘을 선택합니다. 페이지처럼 생긴 아이콘입니다.  
+    ![양도 구독 기호를 보여주는 이미지](./media/ea-portal-administration/ea-transfer-subscriptions.png)
+1. 구독을 이전할 대상 계정을 선택한 후, **다음** 을 선택합니다.
+1. Azure AD 테넌트 간에 구독 소유권을 양도하려면 **구독을 받는 사람의 Azure AD 테넌트로 이동** 확인란을 선택합니다.  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Azure AD 테넌트로 구독을 이동하기 위해 선택한 확인란을 보여주는 이미지" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. 양도를 확인하고 **제출** 을 선택합니다.
 
-![양도 구독 기호를 보여주는 이미지](./media/ea-portal-administration/ea-transfer-subscriptions.png)
-
-이 비디오를 보면서 Azure Enterprise Portal 사용자 관리에 대해 알아보세요.
-
-> [!VIDEO https://www.youtube.com/embed/621jVkvmwm8]
 
 ## <a name="associate-an-account-to-a-department"></a>부서에 계정 연결
 

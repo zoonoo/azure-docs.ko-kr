@@ -1,6 +1,6 @@
 ---
-title: 빠른 시작 - 복사 작업을 사용하여 SQL 풀에 데이터 로드
-description: Azure Synapse Analytics를 사용하여 데이터를 SQL 풀에 로드합니다.
+title: '빠른 시작: 복사 작업을 사용하여 전용 SQL 풀에 데이터 로드'
+description: Azure Synapse Analytics의 파이프라인 복사 작업을 사용하여 전용 SQL 풀에 데이터를 로드합니다.
 services: synapse-analytics
 ms.author: jingwang
 author: linda33wj
@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 12b5530ccf154220b11f9d1286d629caf2209475
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 542fde3ac951bf60d999361dc114491515fb9528
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280798"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94735248"
 ---
-# <a name="quickstart-load-data-into-sql-pool-using-copy-activity"></a>빠른 시작: 복사 작업을 사용하여 SQL 풀에 데이터 로드
+# <a name="quickstart-load-data-into-dedicated-sql-pool-using-the-copy-activity"></a>빠른 시작: 복사 작업을 사용하여 전용 SQL 풀에 데이터 로드
 
-Azure Synapse Analytics는 데이터를 수집, 변환, 모델링 및 분석하는 데 도움이 되는 다양한 분석 엔진을 제공합니다. SQL 풀은 T-SQL 기반 컴퓨팅 및 스토리지 기능을 제공합니다. Synapse 작업 영역에서 SQL 풀을 만든 후 보다 빠른 인사이트를 위해 데이터를 로드, 모델링, 처리 및 전달할 수 있습니다.
+Azure Synapse Analytics는 데이터를 수집, 변환, 모델링 및 분석하는 데 도움이 되는 다양한 분석 엔진을 제공합니다. 전용 SQL 풀은 T-SQL 기반 컴퓨팅 및 스토리지 기능을 제공합니다. Synapse 작업 영역에서 전용 SQL 풀을 만든 후 보다 빠른 인사이트를 위해 데이터를 로드, 모델링, 처리 및 전달할 수 있습니다.
 
-이 빠른 시작에서는 *데이터를 Azure SQL Database에서 Azure Synapse Analytics로 로드* 하는 방법에 대해 알아봅니다. 다른 데이터 저장소 유형에서 데이터를 복사할 때도 이와 유사한 단계를 따를 수 있습니다. 또한 이와 비슷한 흐름이 다른 원본 및 싱크 간의 데이터 복사에도 적용됩니다.
+이 빠른 시작에서는 *데이터를 Azure SQL Database에서 Azure Synapse Analytics로 로드* 하는 방법에 대해 알아봅니다. 다른 데이터 저장소 유형에서 데이터를 복사할 때도 이와 유사한 단계를 따를 수 있습니다. 이와 비슷한 흐름은 다른 원본 및 싱크에 대한 데이터 복사에도 적용됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -29,13 +29,13 @@ Azure Synapse Analytics는 데이터를 수집, 변환, 모델링 및 분석하�
 * Azure Synapse 작업 영역: [빠른 시작: Synapse 작업 영역 만들기](quickstart-create-workspace.md)의 지침에 따라 Azure Portal을 사용하여 Synapse 작업 영역을 만듭니다.
 * Azure SQL Database: 이 자습서에서는 Azure SQL Database의 Adventure Works LT 샘플 데이터 세트에서 데이터를 복사합니다. [Azure SQL Database에서 샘플 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)의 지침에 따라 SQL Database에서 이 샘플 데이터베이스를 만들 수 있습니다. 또는 비슷한 단계에 따라 다른 데이터 저장소를 사용할 수 있습니다.
 * Azure Storage 계정: Azure Storage는 복사 작업에서 *준비* 영역으로 사용됩니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-account-create.md)의 지침을 참조하세요.
-* Azure Synapse Analytics: SQL 풀을 싱크 데이터 저장소로 사용합니다. Azure Synapse Analytics 인스턴스가 없는 경우 새로 만드는 단계는 [SQL 풀 만들기](quickstart-create-sql-pool-portal.md)를 참조하세요.
+* Azure Synapse Analytics: 전용 SQL 풀을 싱크 데이터 저장소로 사용합니다. Azure Synapse Analytics 인스턴스가 없는 경우 새로 만드는 단계는 [전용 SQL 풀 만들기](quickstart-create-sql-pool-portal.md)를 참조하세요.
 
 ### <a name="navigate-to-the-synapse-studio"></a>Synapse Studio로 이동
 
-Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Synapse Studio를 열 수 있습니다.
+Synapse 작업 영역을 만든 후에는 두 가지 방법으로 Synapse Studio를 열 수 있습니다.
 
-* [Azure Portal](https://ms.portal.azure.com/#home)에서 Synapse 작업 영역을 엽니다. 개요 섹션의 위쪽에서 **Synapse Studio 시작** 을 선택합니다.
+* [Azure Portal](https://ms.portal.azure.com/#home)에서 Synapse 작업 영역을 엽니다. 시작하기 아래의 Open Synapse Studio 카드에서 **열기** 를 선택합니다.
 * [Azure Synapse Analytics](https://web.azuresynapse.net/)를 열고, 작업 영역에 로그인합니다.
 
 이 빠른 시작에서는 "adftest2020"이라는 작업 영역을 예로 사용합니다. 그러면 자동으로 Synapse Studio 홈 페이지로 이동합니다.
@@ -44,7 +44,7 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 
-Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 연결 정보를 정의합니다. 이 섹션에서는 Azure SQL Database 및 Azure Data Lake Storage Gen2 연결된 서비스라는 두 가지 종류의 연결된 서비스를 만듭니다.
+Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 연결 정보를 정의합니다. 이 섹션에서는 Azure SQL Database 및 ADLS Gen2(Azure Data Lake Storage Gen2) 연결 서비스라는 두 가지 종류의 연결 서비스를 만듭니다.
 
 1. Synapse Studio 홈 페이지의 왼쪽 탐색 영역에서 **관리** 탭을 선택합니다.
 1. 외부 연결에서 연결된 서비스를 선택합니다.
@@ -66,7 +66,7 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
  
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
 
-파이프라인에는 일련의 활동을 실행하기 위한 논리적 흐름이 포함됩니다. 이 섹션에서는 데이터를 Azure SQL Database에서 SQL 풀로 수집하는 복사 작업이 포함된 파이프라인을 만듭니다.
+파이프라인에는 일련의 활동을 실행하기 위한 논리적 흐름이 포함됩니다. 이 섹션에서는 데이터를 Azure SQL Database에서 전용 SQL 풀로 수집하는 복사 작업이 포함된 파이프라인을 만듭니다.
 
 1. **통합** 탭으로 이동합니다. 파이프라인 헤더 옆에 있는 더하기 아이콘, [파이프라인]을 차례로 선택합니다.
 
@@ -83,8 +83,8 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
 
    ![원본 데이터 세트 속성 설정](media/quickstart-copy-activity-load-sql-pool/source-dataset-properties.png)
 1. 마치면 **확인** 을 선택합니다.
-1. 복사 작업을 선택하고, [싱크] 탭으로 이동합니다. **새로 만들기** 를 선택하여 새 싱크 데이터 세트를 만듭니다.
-1. 데이터 저장소로 **SQL 분석 풀** 을 선택하고, **계속** 을 선택합니다.
+1. 복사 작업을 선택하고 [싱크] 탭으로 이동합니다. **새로 만들기** 를 선택하여 새 싱크 데이터 세트를 만듭니다.
+1. 데이터 저장소로 **Azure Synapse 전용 SQL 풀** 을 선택하고 **계속** 을 선택합니다.
 1. **설정 속성** 창에서 이전 단계에서 만든 SQL 분석 풀을 선택합니다. 기존 테이블에 작성하는 경우 *테이블 이름* 아래의 드롭다운에서 해당 테이블을 선택합니다. 그렇지 않은 경우 "편집"을 선택하고, 새 테이블 이름을 입력합니다. 마치면 **확인** 을 선택합니다.
 1. 싱크 데이터 세트 설정의 경우 [테이블 옵션] 필드에서 **자동 테이블 만들기** 를 사용하도록 설정합니다.
 
@@ -122,7 +122,7 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
    ![활동 세부 정보](media/quickstart-copy-activity-load-sql-pool/activity-details.png)
 
 1. 파이프라인 실행 보기로 다시 전환하려면 위쪽에서 **모든 파이프라인 실행** 링크를 선택합니다. **새로 고침** 을 선택하여 목록을 새로 고칩니다.
-1. 데이터가 SQL 풀에 올바르게 기록되었는지 확인합니다.
+1. 데이터가 전용 SQL 풀에 올바르게 작성되었는지 확인합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

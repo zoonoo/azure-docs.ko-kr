@@ -4,12 +4,12 @@ description: '빠른 시작: Azure Event Grid 및 Azure CLI를 사용하여 토�
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2c017b95493000b3c206aa7b2398bbf7ef464ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4de7aa1c111b5b21a27b155474ae10f78feba083
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87497344"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566319"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Queue storage로 사용자 지정 이벤트 라우팅
 
@@ -17,12 +17,11 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure Q
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Azure Portal에서 Cloud Shell을 사용하지 않고 in the 로컬 머신에서 Azure CLI 또는 Azure PowerShell을 사용 중인 경우 다음 버전의 Azure CLI 및 Azure PowerShell이 있는지 확인하세요. 
+- 이 문서에는 Azure CLI 버전 2.0.56 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
-- Azure CLI 버전 2.0.56 이상. Azure CLI의 최신 버전을 설치하는 방법에 대한 지침은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
-- Azure PowerShell 버전 1.1.0 이상. [Azure 다운로드 - 명령줄 도구](https://azure.microsoft.com/downloads/)에서 최신 버전의 Azure PowerShell을 Windows에 다운로드하세요. 
+- Azure Portal에서 Cloud Shell을 사용하는 대신 로컬 머신에서 Azure PowerShell을 사용하는 경우 Azure PowerShell 버전 1.1.0 이상이 있는지 확인합니다. [Azure 다운로드 - 명령줄 도구](https://azure.microsoft.com/downloads/)에서 최신 버전의 Azure PowerShell을 Windows에 다운로드하세요. 
 
 이 문서에서는 Azure CLI 사용을 위한 명령을 제공합니다. 
 
@@ -32,7 +31,7 @@ Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해�
 
 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
-다음 예제에서는 *westus2* 위치에 *gridResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *westus2* 위치에 *gridResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2

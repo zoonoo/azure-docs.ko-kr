@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/09/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 62d466e81309765540bcbd52714733b97d241ebc
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5915830e4521399ad322dd4a6f3926428d811455
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93354097"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94942687"
 ---
-브라우저에서 Azure Portal로 이동하고 Azure 계정으로 로그인합니다.
+브라우저에서 [Azure 포털](https://portal.azure.com) 로 이동하고 Azure 계정으로 로그인합니다.
 
-1. Virtual WAN 페이지로 이동합니다. 포털에서 **+리소스 만들기** 를 클릭합니다. 검색 상자에 **Virtual WAN** 을 입력하고 **Enter** 를 선택합니다.
+1. 포털에서 **+ 리소스 만들기** 를 선택합니다. 검색 상자에 **Virtual WAN** 을 입력하고 **Enter** 를 선택합니다.
 1. 결과에서 **Virtual WAN** 을 선택합니다. Virtual WAN 페이지에서 **만들기** 를 선택하여 WAN 만들기 페이지를 엽니다.
 1. **WAN 만들기** 페이지의 **기본 사항** 탭에서 다음 필드를 입력합니다.
 

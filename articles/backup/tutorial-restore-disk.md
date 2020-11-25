@@ -4,12 +4,12 @@ description: Backup 및 Recovery Services를 사용하여 Azure에서 디스크�
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 2d8ce7ab6d5a3ab244d0292ffe52847f18ea8795
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 45e171e064cbd8be5418e20784e6034830d27fe9
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746742"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566676"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Azure CLI를 사용하여 VM 복원
 
@@ -23,13 +23,11 @@ Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구
 
 PowerShell을 사용하여 디스크를 복원하고 복구된 VM을 만드는 방법은 [PowerShell을 사용하여 Azure VM 백업 및 복원](backup-azure-vms-automation.md#restore-an-azure-vm)을 참조하세요.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.18 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+ - 이 자습서에는 Azure CLI 버전 2.0.18 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
-
-이 자습서에서는 Azure Backup으로 보호된 Linux VM이 필요합니다. 실수로 인한 VM 삭제 및 복구 프로세스를 시뮬레이션하려면 복구 지점의 디스크에서 VM을 만듭니다. Azure Backup으로 보호된 Linux VM이 필요한 경우 [CLI를 사용하여 Azure에서 가상 머신 백업](quick-backup-vm-cli.md)을 참조하세요.
+ - 이 자습서에서는 Azure Backup으로 보호된 Linux VM이 필요합니다. 실수로 인한 VM 삭제 및 복구 프로세스를 시뮬레이션하려면 복구 지점의 디스크에서 VM을 만듭니다. Azure Backup으로 보호된 Linux VM이 필요한 경우 [CLI를 사용하여 Azure에서 가상 머신 백업](quick-backup-vm-cli.md)을 참조하세요.
 
 ## <a name="backup-overview"></a>Backup 개요
 
@@ -88,7 +86,7 @@ az backup recoverypoint list \
     ```
 
     > [!WARNING]
-    > _ *target-resource-group* *이 제공되지 않으면 관리 디스크는 지정된 스토리지 계정에 비관리 디스크로 복원됩니다. 이 경우 지정된 스토리지 계정에 따라 디스크 복원에 걸리는 시간이 크게 달라지므로 복원 시간에 큰 영향을 미치게 됩니다. target-resource-group 매개 변수가 지정된 경우에만 즉시 복원의 이점을 얻을 수 있습니다. 관리 디스크를 관리되지 않는 상태로 복원하려는 경우에는 **target-resource-group** 매개 변수를 제공하지 않고 대신 아래에 표시된 대로 **restore-as-unmanaged-disk** 매개 변수를 제공합니다. 이 매개 변수는 az 3.4.0 이상에서 사용할 수 있습니다.
+    > _ *target-resource-group**이 제공되지 않으면 관리 디스크는 지정된 스토리지 계정에 비관리 디스크로 복원됩니다. 이 경우 지정된 스토리지 계정에 따라 디스크 복원에 걸리는 시간이 크게 달라지므로 복원 시간에 큰 영향을 미치게 됩니다. target-resource-group 매개 변수가 지정된 경우에만 즉시 복원의 이점을 얻을 수 있습니다. 관리 디스크를 관리되지 않는 상태로 복원하려는 경우에는 **target-resource-group** 매개 변수를 제공하지 않고 대신 아래에 표시된 대로 **restore-as-unmanaged-disk** 매개 변수를 제공합니다. 이 매개 변수는 az 3.4.0 이상에서 사용할 수 있습니다.
 
     ```azurecli-interactive
     az backup restore restore-disks \

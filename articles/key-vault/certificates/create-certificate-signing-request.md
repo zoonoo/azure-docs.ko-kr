@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: a85656909df5538f9f57e05d79ae768623d7eba6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c8f11f17c9e110509dcbcda291194f9b8d928c50
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289602"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658964"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Key Vault에서 CSR 만들기 및 병합
 
@@ -25,7 +25,15 @@ Azure Key Vault는 사용자가 선택한 모든 인증 기관에서 발급한 �
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="adding-certificate-in-key-vault-issued-by-a-non-trusted-ca"></a>신뢰할 수 없는 CA에서 발급한 인증서를 Key Vault에 추가
+## <a name="adding-certificate-in-key-vault-issued-by-partnered-ca"></a>파트너 CA에서 발급한 Key Vault에 인증서 추가
+Key Vault는 다음 두 인증 기관과 협력하여 인증서 생성을 간소화합니다. 
+
+|공급자|인증서 종류|구성 설정  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault가 DigiCert를 통해 OV 또는 EV SSL 인증서 제공| [통합 가이드](./how-to-integrate-certificate-authority.md)
+|GlobalSign|Key Vault가 GlobalSign을 통해 OV 또는 EV SSL 인증서 제공| [통합 가이드](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
+
+## <a name="adding-certificate-in-key-vault-issued-by-non-partnered-ca"></a>비파트너 CA에서 발급한 Key Vault에 인증서 추가
 
 다음 단계는 Key Vault와 파트너십을 맺지 않은 인증 기관에서 인증서를 만드는 데 도움이 됩니다(예를 들어 GoDaddy는 신뢰할 수 있는 키 자격 증명 모음 CA가 아님). 
 

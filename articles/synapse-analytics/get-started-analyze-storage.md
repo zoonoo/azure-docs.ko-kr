@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 2a22174fb23a4f0f7bebd58e276a6778e986ce9e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fabfdce72202f79e2ac5bad08d124df7ce2de542
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322920"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592586"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>스토리지 계정에서 데이터 분석
 
@@ -36,16 +36,16 @@ Notebook에서 다음 코드를 실행합니다. CSV 파일 및 parquet 파일�
 %%pyspark
 df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
 df = df.repartition(1) # This ensure we'll get a single file during write()
-df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats.csv")
-df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
+df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats_csvformat")
+df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 ```
 
 ### <a name="analyze-data-in-a-storage-account"></a>스토리지 계정에서 데이터 분석
 
 1. Synapse Studio에서 **데이터** 허브로 이동한 다음, **연결됨** 을 선택합니다.
 1. **스토리지 계정** > **myworkspace(기본 - contosolake)** 로 차례로 이동합니다.
-1. **users(기본)** 를 선택합니다. **NYCTaxi** 폴더가 표시됩니다. 내부에는 **PassengerCountStats.csv** 및 **PassengerCountStats.parquet** 라는 두 개의 폴더가 표시됩니다.
-1. **PassengerCountStats. parquet** 폴더를 엽니다. 내부에 이름이 `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`인 parquet 파일이 표시됩니다.
+1. **users(기본)** 를 선택합니다. **NYCTaxi** 폴더가 표시됩니다. 내부에는 **PassengerCountStats_csvformat** 및 **PassengerCountStats_parquetformat** 이라는 두 개의 폴더가 표시됩니다.
+1. **PassengerCountStats_parquetformat** 폴더를 엽니다. 내부에 이름이 `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`인 parquet 파일이 표시됩니다.
 1. 마우스 오른쪽 단추로 **.parquet** 를 클릭한 다음, **새 Notebook** 을 선택합니다. 다음과 같은 셀이 있는 Notebook을 만듭니다.
 
     ```py

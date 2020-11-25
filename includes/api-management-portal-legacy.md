@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 44de30438d59252a431bf37ac6919a9bc186c8ed
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315725"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013553"
 ---
 > [!NOTE]
 > 이 설명서 내용은 더 이상 사용되지 않는 개발자 포털에 관한 것입니다. 모든 API Management 서비스에서 제거되는 2023년 10월 만료될 때까지 평상시와 같이 계속 사용할 수 있습니다. 사용되지 않는 포털은 중요 보안 업데이트만 받습니다. 자세한 내용은 다음 문서를 참조하세요.

@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7cbb628f6af286141fb1c7b330117ded33142c4f
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460685"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744241"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>구독자와 CSP 간에 Azure 구독 전송
 
@@ -25,7 +25,7 @@ ms.locfileid: "92460685"
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>CSP 파트너에게 EA 구독 전송
 
-[Azure Expert MSP(관리형 서비스 공급자)](https://partner.microsoft.com/membership/azure-expert-msp)로 인증된 CSP 직접 청구 파트너는 직접 EA(기업계약)가 있는 고객에 대한 Azure 구독 전송을 요청할 수 있습니다. MCA(Microsoft 고객 계약)를 수락하고 Azure 요금제를 구매한 고객에게만 구독 전송이 허용됩니다.
+[Azure Expert MSP(관리형 서비스 공급자)](https://partner.microsoft.com/membership/azure-expert-msp)로 인증된 CSP 직접 청구 파트너는 직접 EA(기업계약)가 있는 고객에 대한 Azure 구독 전송을 요청할 수 있습니다. 구독 양도는 MCA(Microsoft 고객 계약)를 수락하고 CSP 프로그램을 통해 Azure 요금제를 구매한 고객에게만 허용됩니다.
 
 요청이 승인되면 CSP는 고객에게 결합된 청구서를 제공할 수 있습니다. 구독을 전송하는 CSP에 대한 자세한 내용은 [MPA 계정에 대한 Azure 구독의 청구 소유권 얻기](mpa-request-ownership.md)를 참조하세요.
 

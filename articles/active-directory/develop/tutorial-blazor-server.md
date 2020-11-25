@@ -8,16 +8,18 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 429d0b9c3a118061d713484a7db3aca376a24d04
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: aaf716b4ac4c49f1d852e917ba818a10ecb541c4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873186"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628036"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>자습서: 인증을 위해 Microsoft ID 플랫폼을 사용하는 Blazor Server 앱 만들기
 
-Blazor 서버에서는 ASP.NET Core 앱의 서버에서 Razor 구성 요소를 호스팅할 수 있도록 지원합니다. 이 자습서에서는 Microsoft ID 플랫폼을 사용하여 Blazor Server 앱에서 인증을 구현하고 Microsoft Graph에서 데이터를 검색하는 방법을 알아봅니다.
+Blazor 서버에서는 ASP.NET Core 앱의 서버에서 Razor 구성 요소를 호스팅할 수 있도록 지원합니다. 이 자습서에서는 Microsoft ID 플랫폼을 사용하고, Azure AD(Azure Active Directory)에 앱을 등록하여 Blazor Server 앱에서 인증을 구현하고, Microsoft Graph에서 데이터를 검색하는 방법을 알아봅니다.
+
+[Blazor WASM에 대한 자습서](tutorial-blazor-webassembly.md)도 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -35,16 +37,16 @@ Blazor 서버에서는 ASP.NET Core 앱의 서버에서 Razor 구성 요소를 �
 
 인증을 위해 Azure AD(Azure Active Directory)를 사용하는 모든 앱은 Azure AD에 등록해야 합니다. 다음과 같은 추가 기능이 포함된 [애플리케이션 등록](quickstart-register-app.md)에 나온 지침을 따르세요.
 
-- **지원되는 계정 유형**의 경우 **이 조직 디렉터리 계정의 계정만**을 선택합니다.
-- **리디렉션 URI** 드롭다운 세트를 **웹**으로 두고 `https://localhost:5001/signin-oidc`를 입력합니다. Kestrel에서 실행되는 앱의 기본 포트는 5001입니다. 다른 포트에서 앱을 사용할 수 있는 경우 `5001` 대신 해당 포트 번호를 지정합니다.
+- **지원되는 계정 유형** 의 경우 **이 조직 디렉터리 계정의 계정만** 을 선택합니다.
+- **리디렉션 URI** 드롭다운 세트를 **웹** 으로 두고 `https://localhost:5001/signin-oidc`를 입력합니다. Kestrel에서 실행되는 앱의 기본 포트는 5001입니다. 다른 포트에서 앱을 사용할 수 있는 경우 `5001` 대신 해당 포트 번호를 지정합니다.
 
-**인증** > **암시적 부여**에서 **액세스 토큰** 및 **ID 토큰**에 대한 확인란을 선택한 다음, **저장** 단추를 선택합니다.
+**인증** > **암시적 부여** 에서 **액세스 토큰** 및 **ID 토큰** 에 대한 확인란을 선택한 다음, **저장** 단추를 선택합니다.
 
 마지막으로 앱이 보호된 API(이 경우 Microsoft Graph)를 호출하기 때문에 해당 API를 호출하는 액세스 토큰을 요청할 때 해당 ID를 확인하기 위해 클라이언트 암호가 필요합니다.
 
-1. 동일한 앱 등록 내 **관리**에서 **인증서 및 비밀**을 선택합니다.
-2. 만료되지 않는 **새 클라이언트 암호**를 만듭니다.
-3. 다음 단계에서 사용하기 위해 비밀의 **값**을 기록해 둡니다. 이 창에서 다른 곳으로 이동하면 다시 액세스할 수 없습니다. 그러나 필요에 따라 다시 만들 수 있습니다.
+1. 동일한 앱 등록 내 **관리** 에서 **인증서 및 비밀** 을 선택합니다.
+2. 만료되지 않는 **새 클라이언트 암호** 를 만듭니다.
+3. 다음 단계에서 사용하기 위해 비밀의 **값** 을 기록해 둡니다. 이 창에서 다른 곳으로 이동하면 다시 액세스할 수 없습니다. 그러나 필요에 따라 다시 만들 수 있습니다.
 
 ## <a name="create-the-app-using-the-net-cli"></a>.NET CLI를 사용하여 앱 만들기
 
@@ -86,15 +88,15 @@ dotnet run --framework netcoreapp3.1
 
 [Microsoft Graph](/graph/overview)는 사용자의 Microsoft 365 데이터에 대한 액세스를 제공하는 다양한 API를 제공합니다. Microsoft Graph는 Microsoft ID 플랫폼에서 발급한 토큰을 직접 지원하므로, Microsoft ID 플랫폼을 앱에 대한 ID 공급자로 사용하면 이 정보에 손쉽게 액세스할 수 있습니다. 이 섹션에서는 애플리케이션의 "데이터 가져오기" 페이지에 로그인한 사용자의 이메일을 표시하는 코드를 추가합니다.
 
-시작하기 전에 필요한 권한을 변경하고 현재 토큰은 작동하지 않으므로 앱에서 로그아웃합니다. 아직 로그아웃하지 않은 경우 다음 코드를 업데이트하기 전에 앱을 다시 실행하고 **로그아웃**을 선택합니다.
+시작하기 전에 필요한 권한을 변경하고 현재 토큰은 작동하지 않으므로 앱에서 로그아웃합니다. 아직 로그아웃하지 않은 경우 다음 코드를 업데이트하기 전에 앱을 다시 실행하고 **로그아웃** 을 선택합니다.
 
 이제 앱의 등록과 코드를 업데이트하여 사용자의 이메일을 끌어오고 앱 내에 메시지를 표시합니다. 이를 위해서는 먼저 Azure AD에서 앱 등록 권한을 확장하여 이메일 데이터에 액세스할 수 있도록 합니다. 그런 다음, 코드를 Blazor 앱에 추가하여 페이지 중 하나에서 이 데이터를 검색하여 표시합니다.
 
-1. Azure Portal의 **앱 등록**에서 앱을 선택합니다.
-1. **관리** 아래에서 **API 권한**을 선택합니다.
-1. **권한 추가** > **Microsoft Graph**를 선택합니다.
-1. **위임된 권한**을 선택한 다음, **Mail.Read** 사용 권한을 검색하여 선택합니다.
-1. **권한 추가**를 선택합니다.
+1. Azure Portal의 **앱 등록** 에서 앱을 선택합니다.
+1. **관리** 아래에서 **API 권한** 을 선택합니다.
+1. **권한 추가** > **Microsoft Graph** 를 선택합니다.
+1. **위임된 권한** 을 선택한 다음, **Mail.Read** 사용 권한을 검색하여 선택합니다.
+1. **권한 추가** 를 선택합니다.
 
 *appsettings.json* 파일에서 올바른 권한을 사용하여 적절한 토큰을 페치하도록 코드를 업데이트합니다. “DownstreamAPI”에서 “mail.read”를 “user.read” 범위 뒤에 추가합니다. 이는 앱에서 액세스를 요청하는 범위(또는 권한)를 지정합니다.
 

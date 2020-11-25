@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: Zhchia
 ms.openlocfilehash: 10b7b79ba5081e6133f2e5e94840eddfe403caef
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357162"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013176"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 IDEO 구성
 

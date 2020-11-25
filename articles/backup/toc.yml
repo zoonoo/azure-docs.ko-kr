@@ -4,6 +4,8 @@
   items:
     - name: Azure Backup 개요
       href: backup-overview.md
+    - name: Azure Backup의 새로운 기능
+      href: whats-new.md
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/backup/'
 - name: 빠른 시작

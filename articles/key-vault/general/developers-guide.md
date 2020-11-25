@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445135"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013975"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -56,11 +56,11 @@ Azure ad 보안 주체에 액세스 권한을 부여 해야 하는 Azure AD 인�
 Azure에 배포 된 응용 프로그램에 관리 되는 id를 사용 하는 것이 좋습니다. 관리 id를 지원 하지 않거나 응용 프로그램을 온-프레미스에 배포 하는 경우 Azure 서비스를 사용 하는 경우 인증서를 사용 하는 [서비스 주체](../../active-directory/develop/howto-create-service-principal-portal.md) 를 사용할 수 있습니다. 이 시나리오에서는 인증서를 Key Vault 저장 하 고 자주 회전 해야 합니다. 보안을 사용 하는 서비스 주체는 개발 및 테스트 환경에 사용할 수 있으며, 로컬 또는 Cloud Shell 사용자 계정을 사용 하 여 사용 하는 것이 좋습니다.
 
 환경 당 권장 되는 보안 주체:
-- **프로덕션 환경** :
+- **프로덕션 환경**:
   - 인증서를 사용 하는 관리 id 또는 서비스 주체
-- **테스트 및 개발 환경** :
+- **테스트 및 개발 환경**:
   - 관리 id, 인증서 또는 서비스 사용자가 암호를 사용 하는 서비스 주체
-- **로컬 개발** :
+- **로컬 개발**:
   - 암호를 사용 하는 사용자 계정 또는 서비스 주체
 
 위의 인증 시나리오는 **Azure id 클라이언트 라이브러리** 에서 지원 되 고 Key Vault sdk와 통합 됩니다. Azure Id 라이브러리는 코드를 변경 하지 않고도 다양 한 환경 및 플랫폼에서 사용할 수 있습니다. 또한 azure Id는 Azure CLI, Visual Studio, Visual Studio Code 등을 사용 하 여 Azure 사용자에 게 로그인 한 인증 토큰을 자동으로 검색 합니다. 

@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 55e47b09ac4a6256a125a75c8a0f856e867e7c0e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0802f09cfb03f837fb7080620da776e79b37c9ed
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337790"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845087"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>빠른 시작: Azure Spring Cloud 구성 서버 설정
 
@@ -57,9 +57,19 @@ Azure Spring Cloud 구성 서버는 분산 시스템을 위한 중앙 집중식 
 
 2. **기본 리포지토리** 섹션에서 **URI** 를 "https://github.com/Azure-Samples/piggymetrics-config"로 설정합니다.
 
-3. **적용** 을 선택하여 변경 내용을 저장합니다.
+3. **유효성 검사** 를 클릭합니다.
 
-    ![ASC 포털의 스크린샷](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![구성 서버로 이동](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+4. 유효성 검사가 완료되면 **적용** 을 클릭하여 변경 내용을 저장합니다.
+
+    ![구성 서버 유효성 검사](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+5. 구성을 업데이트하는 데 몇 분 정도 걸릴 수 있습니다.
+ 
+    ![구성 서버 업데이트](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+6. 구성이 완료되면 알림을 받게 됩니다.
 
 #### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 

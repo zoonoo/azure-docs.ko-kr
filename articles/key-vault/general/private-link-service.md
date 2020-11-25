@@ -3,17 +3,17 @@ title: Azure Private Link Service와 통합
 description: Azure Private Link Service와 Azure Key Vault를 통합하는 방법을 알아봅니다.
 author: ShaneBala-keyvault
 ms.author: sudbalas
-ms.date: 03/08/2020
+ms.date: 11/17/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 74669036a40048ca21aae56856981197defe1c35
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: ec619681f1eebc51da85d31ad15f1db25cfd3cbc
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286537"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917922"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Azure Private Link와 Key Vault 통합
 
@@ -36,6 +36,8 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 서�
 
 프라이빗 엔드포인트는 가상 네트워크에서 개인 IP 주소를 사용합니다.
 
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
 ## <a name="establish-a-private-link-connection-to-key-vault-using-the-azure-portal"></a>Azure Portal을 사용하여 Key Vault에 대한 프라이빗 링크 연결 설정 
 
 먼저 [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-portal.md)의 단계를 따라 가상 네트워크를 만듭니다.
@@ -44,14 +46,14 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 서�
 
 ### <a name="create-a-new-key-vault-and-establish-a-private-link-connection"></a>새 키 자격 증명 모음 만들기 및 프라이빗 링크 연결 설정
 
-새 키 자격 증명 모음은 [Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색](../secrets/quick-create-portal.md)의 단계에 따라 만들 수 있습니다.
+[Azure Portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md) 또는 [Azure PowerShell](../general/quick-create-powershell.md)을 사용하여 새 키 자격 증명 모음을 만들 수 있습니다.
 
 키 자격 증명 모음 기본 사항이 구성되면 [네트워킹] 탭을 선택하고 다음 단계를 수행합니다.
 
 1. 네트워킹 탭에서 프라이빗 엔드포인트 라디오 단추를 선택합니다.
 1. "+ 추가" 단추를 클릭하여 프라이빗 엔드포인트를 추가합니다.
 
-    ![키 자격 증명 모음을 만들 때 표시되는 첫 번째 화면을 보여 주는 스크린샷](../media/private-link-service-1.png)
+    ![이미지](../media/private-link-service-1.png)
  
 1. [프라이빗 엔드포인트 만들기] 블레이드의 "위치" 필드에서 가상 네트워크가 있는 지역을 선택합니다. 
 1. "이름" 필드에서 이 프라이빗 엔드포인트를 식별할 수 있는 설명이 포함된 이름을 만듭니다. 
@@ -59,7 +61,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 서�
 1. "개인 영역 DNS와 통합" 옵션은 변경하지 않고 그대로 둡니다.  
 1. "확인"을 선택합니다.
 
-    ![프라이빗 엔드포인트를 구성하는 데 중요한 필드를 보여 주는 스크린샷](../media/private-link-service-8.png)
+    ![이미지](../media/private-link-service-8.png)
  
 이제 구성된 프라이빗 엔드포인트를 볼 수 있습니다. 이 프라이빗 엔드포인트를 삭제하고 편집할 수 있는 옵션이 있습니다. "검토 + 만들기" 단추를 선택하고 키 자격 증명 모음을 만듭니다. 배포가 완료되는 데 5-10분이 걸릴 수 있습니다. 
 
@@ -74,81 +76,12 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 서�
 1. 페이지 위쪽에서 프라이빗 엔드포인트 연결 탭을 선택합니다.
 1. 페이지 위쪽에서 "+ 프라이빗 엔드포인트" 단추를 선택합니다.
 
-    ![+ 프라이빗 엔드포인트 단추를 보여 주는 스크린샷](../media/private-link-service-3.png)
-    ![프라이빗 엔드포인트를 만드는 화면을 보여 주는 스크린샷](../media/private-link-service-4.png)
+    ![이미지](../media/private-link-service-3.png) ![이미지](../media/private-link-service-4.png)
 
 이 블레이드를 사용하여 모든 Azure 리소스에 대한 프라이빗 엔드포인트를 만들도록 선택할 수 있습니다. 드롭다운 메뉴를 사용하여 리소스 종류를 선택하고 디렉터리에서 리소스를 선택할 수 있거나, 리소스 ID를 사용하여 모든 Azure 리소스에 연결할 수 있습니다. "개인 영역 DNS와 통합" 옵션은 변경하지 않고 그대로 둡니다.  
 
-## <a name="establish-a-private-link-connection-to-key-vault-using-cli"></a>CLI를 사용하여 Key Vault에 대한 프라이빗 링크 연결 설정
-
-### <a name="login-to-azure-cli"></a>Azure CLI에 로그인
-```console
-az login 
-```
-### <a name="select-your-azure-subscription"></a>Azure 구독 선택 
-```console
-az account set --subscription {AZURE SUBSCRIPTION ID}
-```
-### <a name="create-a-new-resource-group"></a>새 리소스 그룹 만들기 
-```console
-az group create -n {RG} -l {AZURE REGION}
-```
-### <a name="register-microsoftkeyvault-as-a-provider"></a>공급자로 Microsoft.KeyVault 등록 
-```console
-az provider register -n Microsoft.KeyVault
-```
-### <a name="create-a-new-key-vault"></a>새 Key Vault 만들기
-```console
-az keyvault create --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION}
-```
-### <a name="turn-on-key-vault-firewall"></a>Key Vault Firewall 설정
-```console
-az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --default-action deny
-```
-### <a name="create-a-virtual-network"></a>Virtual Network 만들기
-```console
-az network vnet create --resource-group {RG} --name {vNet NAME} --location {AZURE REGION}
-```
-### <a name="add-a-subnet"></a>서브넷 추가
-```console
-az network vnet subnet create --resource-group {RG} --vnet-name {vNet NAME} --name {subnet NAME} --address-prefixes {addressPrefix}
-```
-### <a name="disable-virtual-network-policies"></a>Virtual Network 정책 사용 안 함 
-```console
-az network vnet subnet update --name {subnet NAME} --resource-group {RG} --vnet-name {vNet NAME} --disable-private-endpoint-network-policies true
-```
-### <a name="add-a-private-dns-zone"></a>프라이빗 DNS 영역 추가 
-```console
-az network private-dns zone create --resource-group {RG} --name privatelink.vaultcore.azure.net
-```
-### <a name="link-private-dns-zone-to-virtual-network"></a>Virtual Network에 프라이빗 DNS 영역 연결 
-```console
-az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
-```
-### <a name="add-private-dns-records"></a>프라이빗 DNS 레코드 추가
-```console
-# https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
-az network private-dns zone list -g $rg_name
-az network private-dns record-set a add-record -g $rg_name -z "privatelink.vaultcore.azure.net" -n $vault_name -a $kv_network_interface_private_ip
-az network private-dns record-set list -g $rg_name -z "privatelink.vaultcore.azure.net"
-
-# From home/public network, you wil get a public IP. If inside a vnet with private zone, nslookup will resolve to the private ip.
-nslookup $vault_name.vault.azure.net
-nslookup $vault_name.privatelink.vaultcore.azure.net
-```
-### <a name="create-a-private-endpoint-automatically-approve"></a>프라이빗 엔드포인트 만들기(자동으로 승인) 
-```console
-az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION}
-```
-### <a name="create-a-private-endpoint-manually-request-approval"></a>프라이빗 엔드포인트 만들기(수동으로 승인 요청) 
-```console
-az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
-```
-### <a name="show-connection-status"></a>연결 상태 표시 
-```console
-az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
-```
-## <a name="manage-private-link-connection"></a>프라이빗 링크 연결 관리
+![이미지](../media/private-link-service-3.png)
+![이미지](../media/private-link-service-4.png)
 
 프라이빗 엔드포인트를 만들 때 연결이 승인되어야 합니다. 프라이빗 엔드포인트를 만드는 리소스가 디렉터리에 있으면 충분한 권한이 있는 경우 연결 요청을 승인할 수 있습니다. 다른 디렉터리의 Azure 리소스에 연결하는 경우 해당 리소스의 소유자가 연결 요청을 승인할 때까지 기다려야 합니다.
 
@@ -160,8 +93,8 @@ az network private-endpoint show --resource-group {RG} --name {Private Endpoint 
 | 승인 | 승인됨 | 연결이 자동 또는 수동으로 승인되었으며, 사용할 준비가 되었습니다. |
 | 거부 | 거부됨 | Private Link 리소스 소유자가 연결을 거부했습니다. |
 | 제거 | 연결 끊김 | Private Link 리소스 소유자가 연결을 제거했습니다. 프라이빗 엔드포인트는 정보를 제공하므로 정리를 위해 삭제해야 합니다. |
- 
-###  <a name="how-to-manage-a-private-endpoint-connection-to-key-vault-using-the-azure-portal"></a>Azure Portal을 사용하여 Key Vault에 대한 프라이빗 엔드포인트 연결을 관리하는 방법 
+
+### <a name="how-to-manage-a-private-endpoint-connection-to-key-vault-using-the-azure-portal"></a>Azure Portal을 사용하여 Key Vault에 대한 프라이빗 엔드포인트 연결을 관리하는 방법 
 
 1. Azure 포털에 로그인합니다.
 1. 검색 창에서 "키 자격 증명 모음"을 입력합니다.
@@ -174,22 +107,72 @@ az network private-endpoint show --resource-group {RG} --name {Private Endpoint 
 
     ![이미지](../media/private-link-service-7.png)
 
-##  <a name="how-to-manage-a-private-endpoint-connection-to-key-vault-using-azure-cli"></a>Azure CLI를 사용하여 Key Vault에 대한 프라이빗 엔드포인트 연결을 관리하는 방법
+# <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-### <a name="approve-a-private-link-connection-request"></a>Private Link 연결 요청 승인
+## <a name="establish-a-private-link-connection-to-key-vault-using-cli-initial-setup"></a>CLI를 사용하여 Key Vault에 대한 프라이빗 링크 연결 설정(초기 설정)
+
 ```console
+az login                                                         # Login to Azure CLI
+az account set --subscription {SUBSCRIPTION ID}                  # Select your Azure Subscription
+az group create -n {RESOURCE GROUP} -l {REGION}                  # Create a new Resource Group
+az provider register -n Microsoft.KeyVault                       # Register KeyVault as a provider
+az keyvault create -n {VAULT NAME} -g {RG} -l {REGION}           # Create a Key Vault
+az keyvault update -n {VAULT NAME} -g {RG} --default-action deny # Turn on Key Vault Firewall
+az network vnet create -g {RG} -n {vNet NAME} -location {REGION} # Create a Virtual Network
+
+    # Create a Subnet
+az network vnet subnet create -g {RG} --vnet-name {vNet NAME} --name {subnet NAME} --address-prefixes {addressPrefix}
+
+    # Disable Virtual Network Policies
+az network vnet subnet update --name {subnet NAME} --resource-group {RG} --vnet-name {vNet NAME} --disable-private-endpoint-network-policies true
+
+    # Create a Private DNS Zone
+az network private-dns zone create --resource-group {RG} --name privatelink.vaultcore.azure.net
+
+    # Link the Private DNS Zone to the Virtual Network
+az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
+
+```
+
+### <a name="add-private-dns-records"></a>프라이빗 DNS 레코드 추가
+```console
+# https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
+az network private-dns zone list -g $rg_name
+az network private-dns record-set a add-record -g $rg_name -z "privatelink.vaultcore.azure.net" -n $vault_name -a $kv_network_interface_private_ip
+az network private-dns record-set list -g $rg_name -z "privatelink.vaultcore.azure.net"
+
+# From home/public network, you wil get a public IP. If inside a vnet with private zone, nslookup will resolve to the private ip.
+nslookup $vault_name.vault.azure.net
+nslookup $vault_name.privatelink.vaultcore.azure.net
+```
+
+### <a name="create-a-private-endpoint-automatically-approve"></a>프라이빗 엔드포인트 만들기(자동으로 승인) 
+```console
+az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION}
+```
+
+### <a name="create-a-private-endpoint-manually-request-approval"></a>프라이빗 엔드포인트 만들기(수동으로 승인 요청) 
+```console
+az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
+```
+
+### <a name="manage-private-link-connections"></a>Private Link 연결 관리
+
+```console
+# Show Connection Status
+az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
+
+# Approve a Private Link Connection Request
 az keyvault private-endpoint-connection approve --approval-description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --vault-name {KEY VAULT NAME} –name {PRIVATE LINK CONNECTION NAME}
-```
 
-### <a name="deny-a-private-link-connection-request"></a>Private Link 연결 요청 거부
-```console
+# Deny a Private Link Connection Request
 az keyvault private-endpoint-connection reject --rejection-description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --vault-name {KEY VAULT NAME} –name {PRIVATE LINK CONNECTION NAME}
-```
 
-### <a name="delete-a-private-link-connection-request"></a>Private Link 연결 요청 삭제
-```console
+# Delete a Private Link Connection Request
 az keyvault private-endpoint-connection delete --resource-group {RG} --vault-name {KEY VAULT NAME} --name {PRIVATE LINK CONNECTION NAME}
 ```
+
+---
 
 ## <a name="validate-that-the-private-link-connection-works"></a>프라이빗 링크 연결이 작동하는지 확인
 
@@ -243,14 +226,14 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 * 프라이빗 DNS 영역 리소스가 있는지 확인합니다. 
     1. 이름이 정확하게 privatelink.vaultcore.azure.net인 프라이빗 DNS 영역 리소스가 있어야 합니다. 
-    2. 설정 방법은 다음 링크를 참조하세요. [프라이빗 DNS 영역](../../dns/private-dns-privatednszone.md)
+    2. 설정 방법은 다음 링크를 참조하세요. [프라이빗 DNS 영역](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
     
 * 프라이빗 DNS 영역이 가상 네트워크에 연결되면 안 됩니다. 반환된 공용 IP 주소를 계속 가져오는 경우에 문제가 발생할 수 있습니다. 
     1. 프라이빗 영역 DNS가 가상 네트워크에 연결되어 있지 않으면 가상 네트워크에서 시작되는 DNS 쿼리는 키 자격 증명 모음의 공용 IP 주소를 반환합니다. 
     2. Azure Portal에서 프라이빗 DNS 영역 리소스로 이동하여 가상 네트워크 링크 옵션을 클릭합니다. 
     4. 키 자격 증명 모음에 대한 호출을 수행할 가상 네트워크가 나열되어야 합니다. 
     5. 나열되지 않으면 추가합니다. 
-    6. 자세한 단계는 [가상 네트워크를 프라이빗 DNS 영역에 연결](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network) 문서를 참조하세요.
+    6. 자세한 단계는 [가상 네트워크를 프라이빗 DNS 영역에 연결](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) 문서를 참조하세요.
 
 * 프라이빗 DNS 영역에서 키 자격 증명 모음에 대한 A 레코드가 누락되지 않았는지 확인합니다. 
     1. 프라이빗 DNS 영역 페이지로 이동합니다. 
@@ -259,7 +242,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
     4. 올바른 개인 IP 주소를 지정합니다. 
     
 * A 레코드의 IP 주소가 올바른지 확인합니다. 
-    1. Azure Portal에서 프라이빗 엔드포인트 리소스를 열어 IP 주소를 확인할 수 있습니다. 
+    1. Azure Portal에서 프라이빗 엔드포인트 리소스를 열어 IP 주소를 확인할 수 있습니다.
     2. Azure Portal에서 Microsoft.Network/privateEndpoints 리소스로 이동합니다(Key Vault 리소스 아님).
     3. 개요 페이지에서 네트워크 인터페이스를 찾아 해당 링크를 클릭합니다. 
     4. 이 링크는 속성 개인 IP 주소를 포함하고 있는 NIC 리소스의 개요를 보여줍니다. 
@@ -270,13 +253,13 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 > [!NOTE]
 > 구독 당 프라이빗 엔드포인트를 사용하도록 설정된 키 자격 증명 모듬의 수는 조정할 수 있는 제한입니다. 아래에 표시된 제한은 기본 제한입니다. 서비스에 대한 한도 증가를 요청하려면 akv-privatelink@microsoft.com에 전자 메일을 보내 주세요. 이러한 요청은 사례별 기준으로 승인합니다.
 
-**가격 책정** : 가격 책정 정보는 [Azure Private Link 가격 책정](https://azure.microsoft.com/pricing/details/private-link/)을 참조하세요.
+**가격 책정**: 가격 책정 정보는 [Azure Private Link 가격 책정](https://azure.microsoft.com/pricing/details/private-link/)을 참조하세요.
 
-**제한 사항** :  Azure Key Vault용 프라이빗 엔드포인트는 Azure 공용 지역에서만 사용할 수 있습니다.
+**제한 사항**:  Azure Key Vault용 프라이빗 엔드포인트는 Azure 공용 지역에서만 사용할 수 있습니다.
 
-**Key Vault당 최대 프라이빗 엔드포인트 수** : 64.
+**Key Vault당 최대 프라이빗 엔드포인트 수**: 64.
 
-**구독당 프라이빗 엔드포인트가 포함된 기본 키 자격 증명 모음의 수** : 400.
+**구독당 프라이빗 엔드포인트가 포함된 기본 키 자격 증명 모음의 수**: 400.
 
 자세한 내용은 [Azure Private Link 서비스: 제한 사항](../../private-link/private-link-service-overview.md#limitations)을 참조하세요.
 

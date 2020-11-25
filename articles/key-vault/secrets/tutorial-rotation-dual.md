@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 5da31d45e068f414c8afa38bcb46cdf1f790a9e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a061cf493fba99c518448acd9c4bf4bd5949eb98
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843280"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831827"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>두 개의 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
@@ -44,8 +44,8 @@ Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/a
 
 [!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. **리소스 그룹**에서 **새로 만들기**를 선택합니다. 그룹 이름을 **akvrotation**으로 지정하고 **확인**을 클릭합니다.
-1. **검토+만들기**를 선택합니다.
+1. **리소스 그룹** 에서 **새로 만들기** 를 선택합니다. 그룹 이름을 **akvrotation** 으로 지정하고 **확인** 을 클릭합니다.
+1. **검토+만들기** 를 선택합니다.
 1. **만들기**
 
     ![리소스 그룹 만들기](../media/secrets/rotation-dual/dual-rotation-1.png)
@@ -67,8 +67,6 @@ akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAcc
 ```
 
 ## <a name="create-and-deploy-storage-account-key-rotation-function"></a>스토리지 계정 키 순환 함수 만들기 및 배포
-> [!IMPORTANT]
-> 아래 템플릿에는 Key Vault, Azure Storage 계정 및 Azure 함수가 동일한 리소스 그룹에 있어야 합니다.
 
 다음으로, 시스템 관리 ID와 기타 필수 구성 요소를 사용하여 함수 앱을 만들고, 스토리지 계정 키 순환 함수를 배포합니다.
 
@@ -84,20 +82,22 @@ akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAcc
 
    [!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
 
-1. **리소스 그룹** 목록에서 **akvrotation**을 선택합니다.
-1. 순환할 액세스 키가 포함된 스토리지 계정 이름을 **스토리지 계정 이름**에 입력합니다.
-1. **Key Vault 이름**에 키 자격 증명 모음 이름을 입력합니다.
-1. **함수 앱 이름**에 함수 앱 이름을 입력합니다.
-1. **비밀 이름**에 액세스 키를 저장할 비밀 이름을 입력합니다.
-1. **리포지토리 Url**에 함수 코드 GitHub 위치( **https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell.git** )를 입력합니다.
-1. **검토+만들기**를 선택합니다.
-1. **만들기**
+1. **리소스 그룹** 목록에서 **akvrotation** 을 선택합니다.
+1. **스토리지 계정 RG** 에서 스토리지 계정이 있는 리소스 그룹 이름을 입력합니다. 키 회전 함수를 배포하는 동일한 리소스 그룹에 스토리지 계정이 이미 있는 경우 기본값 **[resourceGroup().name]** 을 유지합니다.
+1. **스토리지 계정 이름** 에 순환할 액세스 키가 포함된 스토리지 계정 이름을 입력합니다.
+1. **Key Vault RG** 에 키 자격 증명 모음이 있는 리소스 그룹 이름을 입력합니다. 키 회전 함수를 배포하는 동일한 리소스 그룹에 키 자격 증명 모음이 이미 있는 경우 기본값 **[resourceGroup().name]** 을 유지합니다.
+1. **Key Vault 이름** 에 키 자격 증명 모음 이름을 입력합니다.
+1. **함수 앱 이름** 에 함수 앱 이름을 입력합니다.
+1. **비밀 이름** 에 액세스 키를 저장할 비밀 이름을 입력합니다.
+1. **리포지토리 Url** 에 함수 코드 GitHub 위치( **https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell.git** )를 입력합니다.
+1. **검토+만들기** 를 선택합니다.
+1. **만들기** 를 선택합니다.
 
    ![첫 번째 스토리지 계정 검토 및 만들기](../media/secrets/rotation-dual/dual-rotation-2.png)
 
 위의 단계를 마치면 스토리지 계정, 서버 팜, 함수 앱, 애플리케이션 인사이트가 생깁니다. 배포가 완료되면 아래 화면이 표시됩니다. ![배포 완료](../media/secrets/rotation-dual/dual-rotation-3.png)
 > [!NOTE]
-> 오류가 발생하는 경우 **재배포**를 클릭하여 나머지 구성 요소를 배포할 수 있습니다.
+> 오류가 발생하는 경우 **재배포** 를 클릭하여 나머지 구성 요소를 배포할 수 있습니다.
 
 
 배포 템플릿 및 순환 함수 코드는 [GitHub](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)에서 찾을 수 있습니다.
@@ -123,7 +123,7 @@ az storage account show -n akvrotationstorage
 az storage account keys list -n akvrotationstorage 
 ```
 
-**key1Value** 및 **storageAccountResourceId**에 대해 검색된 값을 채웁니다.
+**key1Value** 및 **storageAccountResourceId** 에 대해 검색된 값을 채웁니다.
 
 ```azurecli
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
@@ -158,12 +158,12 @@ az storage account keys list -n akvrotationstorage
 
    [!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscription%2Fazuredeploy.json)
 
-1. **리소스 그룹** 목록에서 **akvrotation**을 선택합니다.
-1. 순환할 액세스 키가 포함된 스토리지 계정 이름을 **스토리지 계정 이름**에 입력합니다.
-1. **Key Vault 이름**에 키 자격 증명 모음 이름을 입력합니다.
-1. **함수 앱 이름**에 함수 앱 이름을 입력합니다.
-1. **비밀 이름**에 액세스 키를 저장할 비밀 이름을 입력합니다.
-1. **검토+만들기**를 선택합니다.
+1. **리소스 그룹** 목록에서 **akvrotation** 을 선택합니다.
+1. 순환할 액세스 키가 포함된 스토리지 계정 이름을 **스토리지 계정 이름** 에 입력합니다.
+1. **Key Vault 이름** 에 키 자격 증명 모음 이름을 입력합니다.
+1. **함수 앱 이름** 에 함수 앱 이름을 입력합니다.
+1. **비밀 이름** 에 액세스 키를 저장할 비밀 이름을 입력합니다.
+1. **검토+만들기** 를 선택합니다.
 1. **만들기**
 
    ![두 번째 스토리지 계정 검토 및 만들기](../media/secrets/rotation-dual/dual-rotation-7.png)
@@ -181,7 +181,7 @@ key2 값을 검색하는 스토리지 계정 액세스 키를 나열합니다.
 az storage account keys list -n akvrotationstorage2 
 ```
 
-**key2Value** 및 **storageAccountResourceId**에 대해 검색된 값을 채웁니다.
+**key2Value** 및 **storageAccountResourceId** 에 대해 검색된 값을 채웁니다.
 
 ```azurecli
 tomorrowDate=`date -d tomorrow -Iseconds -u | awk -F'+' '{print $1"Z"}'`

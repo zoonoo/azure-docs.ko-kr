@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2020
-ms.openlocfilehash: eb2212d618d45187779b328c7ba164bbacc980a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 012df825f38d292d0b0549701ad90334e3e30bb0
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088693"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637016"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -55,7 +55,7 @@ Azure 구독, 비용 및 약정 없이 [Azure Cosmos DB 무료 체험](https://a
 - Azure Cosmos DB는 전 세계 업계 최고의 가용성을 포함하는 포괄적인 [SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) 제품군을 제공합니다.
 - 자동 데이터 복제를 통해 모든 Azure 지역에 데이터를 쉽게 배포할 수 있습니다. 강력한 일관성을 사용하는 경우 다중 지역 쓰기 또는 RPO 0으로 가동 중지 시간을 방지합니다.
 - 자체 관리형 키를 사용하여 엔터프라이즈급 미사용 암호화 기능을 이용하세요.
-- 역할 기반 액세스 제어는 데이터를 안전하게 유지하고 세밀하게 조정되는 컨트롤을 제공합니다.
+- Azure 역할 기반 액세스 제어는 데이터를 안전하게 유지하고 세밀하게 조정되는 컨트롤을 제공합니다.
 
 ### <a name="fully-managed-and-cost-effective"></a>완전 관리형 및 비용 효율성
 

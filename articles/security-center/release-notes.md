@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: c0333f9faeae99ee83beda381f77f4f95b0a9192
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 79dcc645ecff00b3189dc90dcf34e042a78ed318
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636123"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949329"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -445,7 +445,7 @@ Pod 보안 정책(미리 보기)이 더 이상 사용되지 않는 경우 향후
 보안 경고와 관련하여 향상된 이메일 영역은 다음과 같습니다. 
 
 - 모든 심각도 수준에 대한 경고와 관련된 이메일 알림을 보내는 기능이 추가되었습니다.
-- 구독에서 다른 RBAC 역할의 사용자에게 알리는 기능이 추가되었습니다.
+- 구독에서 다른 Azure 역할의 사용자에게 알리는 기능이 추가되었습니다.
 - 심각도가 높은 경고(진짜 위반일 가능성이 높음)는 기본적으로 구독 소유자에게 사전에 알려줍니다.
 - 이메일 알림 구성 페이지에서 전화 번호 필드가 제거되었습니다.
 

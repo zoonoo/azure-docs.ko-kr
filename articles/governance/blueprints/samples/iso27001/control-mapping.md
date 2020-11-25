@@ -3,12 +3,12 @@ title: ISO 27001 청사진 샘플 컨트롤
 description: ISO 27001 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
 ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 04e9863cd52c272cf74e2656df207f4ced7b4286
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0c1c20ae8b740ce019441dbee880f883947af160
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420237"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842501"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>ISO 27001 청사진 샘플의 컨트롤 매핑
 
@@ -84,7 +84,7 @@ Azure는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관�
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 보안 로그온 프로시저
 
-이 청사진은 다단계 인증을 사용하지 않는 계정을 감사하는 Azure Policy 정의 세 개를 할당합니다. Azure Multi-Factor Authentication은 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 강력한 인증을 제공합니다. 다단계 인증을 사용하지 않고 계정을 모니터링하면 손상될 가능성이 더 높은 계정을 식별할 수 있습니다.
+이 청사진은 다단계 인증을 사용하지 않는 계정을 감사하는 Azure Policy 정의 세 개를 할당합니다. Azure AD Multi-Factor Authentication은 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 강력한 인증을 제공합니다. 다단계 인증을 사용하지 않고 계정을 모니터링하면 손상될 가능성이 더 높은 계정을 식별할 수 있습니다.
 
 - 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
 - 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
