@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 06/04/2020
+ms.date: 11/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 519447dfffaa660131fa587eaef946c76f66983b
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 454bdaeb83e329ae059d6450b928d1286cd9552a
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027332"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555739"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>빠른 시작: Azure Data Factory UI를 사용하여 데이터 팩터리 만들기 
 
@@ -42,12 +42,12 @@ ms.locfileid: "93027332"
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 
 1. Azure Portal 메뉴에서 **리소스 만들기** 를 선택합니다.
-1. **Analytics** 를 선택한 다음, **Data Factory** 를 선택합니다. 
+1. **통합** 을 선택한 다음, **Data Factory** 를 선택합니다. 
    
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. **새 데이터 팩터리** 페이지에서 **이름** 에 대해 **ADFTutorialDataFactory** 를 입력합니다. 
  
-   Azure Data Factory의 이름은 *전역적으로 고유* 해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: **&lt;yourname&gt;ADFTutorialDataFactory** ) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](naming-rules.md) 문서를 참조하세요.
+   Azure Data Factory의 이름은 *전역적으로 고유* 해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: **&lt;yourname&gt;ADFTutorialDataFactory**) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](naming-rules.md) 문서를 참조하세요.
   
    ![이름을 사용할 수 없는 경우 오류](./media/doc-common-process/name-not-available-error.png)
 1. **구독** 에 대해 데이터 팩터리를 만들려는 위치에 Azure 구독을 선택합니다. 
@@ -104,9 +104,9 @@ ms.locfileid: "93027332"
 ## <a name="create-datasets"></a>데이터 세트 만들기
 이 프로시저에서는 두 개의 데이터 세트를 만듭니다. **InputDataset** 및 **OutputDataset** 이러한 데이터 세트는 **AzureBlob** 유형입니다. 이 데이터 집합은 이전 섹션에서 만든 Azure Storage 연결된 서비스를 참조합니다. 
 
-입력 데이터 세트는 입력 폴더의 원본 데이터를 나타냅니다. 입력 데이터 세트 정의에서 원본 데이터가 포함된 Blob 컨테이너( **adftutorial** ), 폴더( **input** ) 및 파일( **emp.txt** )을 지정합니다. 
+입력 데이터 세트는 입력 폴더의 원본 데이터를 나타냅니다. 입력 데이터 세트 정의에서 원본 데이터가 포함된 Blob 컨테이너(**adftutorial**), 폴더(**input**) 및 파일(**emp.txt**)을 지정합니다. 
 
-출력 데이터 세트는 대상에 복사되는 데이터를 나타냅니다. 출력 데이터 세트 정의에서 Blob 컨테이너( **adftutorial** ), 폴더( **output** ) 및 데이터가 복사될 파일을 지정합니다. 파이프라인의 각 실행에는 연결된 고유 ID가 있습니다. 시스템 변수 **RunId** 를 사용하여 이 ID에 액세스할 수 있습니다. 출력 파일의 이름은 파이프라인의 실행 ID에 따라 동적으로 평가됩니다.   
+출력 데이터 세트는 대상에 복사되는 데이터를 나타냅니다. 출력 데이터 세트 정의에서 Blob 컨테이너(**adftutorial**), 폴더(**output**) 및 데이터가 복사될 파일을 지정합니다. 파이프라인의 각 실행에는 연결된 고유 ID가 있습니다. 시스템 변수 **RunId** 를 사용하여 이 ID에 액세스할 수 있습니다. 출력 파일의 이름은 파이프라인의 실행 ID에 따라 동적으로 평가됩니다.   
 
 연결된 서비스 설정에서 원본 데이터가 포함된 Azure Storage 계정을 지정했습니다. 원본 데이터 세트 설정에서 원본 데이터가 있는 정확한 위치(Blob 컨테이너, 폴더 및 파일)를 지정합니다. 싱크 데이터 세트 설정에서 데이터가 복사될 위치(Blob 컨테이너, 폴더 및 파일)를 지정합니다. 
  
@@ -191,7 +191,7 @@ ms.locfileid: "93027332"
    ![파이프라인 실행 모니터링용 탭](./media/quickstart-create-data-factory-portal/monitor-trigger-now-pipeline.png)
 1. **CopyPipeline** 링크를 선택하면 이 페이지에서 복사 작업 실행의 상태가 표시됩니다. 
 
-1. 복사 작업에 대한 세부 정보를 보려면 **세부 정보** (안경 이미지) 링크를 선택합니다. 속성에 대한 자세한 내용은 [복사 활동 개요](copy-activity-overview.md)를 참조하세요. 
+1. 복사 작업에 대한 세부 정보를 보려면 **세부 정보**(안경 이미지) 링크를 선택합니다. 속성에 대한 자세한 내용은 [복사 활동 개요](copy-activity-overview.md)를 참조하세요. 
 
    ![복사 작업 세부 정보](./media/quickstart-create-data-factory-portal/copy-operation-details.png)
 1. **output** 폴더에 있는 새 파일이 표시되는지 확인합니다. 
@@ -219,7 +219,7 @@ ms.locfileid: "93027332"
 
 1. 왼쪽의 **모니터** 탭으로 전환합니다. **새로 고침** 을 선택하여 목록을 새로 고칩니다. 파이프라인이 게시 시간에서 종료 시간까지 매분 한 번씩 실행되는 것을 볼 수 있습니다. 
 
-   **트리거 기준** 열의 값을 확인합니다. 수동 트리거 실행은 이전 단계( **지금 트리거** )에서 수행되었습니다. 
+   **트리거 기준** 열의 값을 확인합니다. 수동 트리거 실행은 이전 단계(**지금 트리거**)에서 수행되었습니다. 
 
 1. **트리거 실행** 보기로 전환합니다. 
 

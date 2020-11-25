@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 08/30/2019
 ms.openlocfilehash: 7310c67ef20a4134d4f613ea969c96802958bf62
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219210"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015233"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Azure Data Lake Analytics 코드 테스트
 
@@ -26,7 +26,7 @@ Azure 또는 로컬 컴퓨터에서 실행 되는 실행 코드에 대해 U-SQL 
 
 Azure Data Lake Tools for Visual Studio를 사용하면 U-SQL 스크립트 테스트 사례를 만들 수 있습니다.
 
-1. 솔루션 탐색기에서 U-SQL 스크립트를 마우스 오른쪽 단추로 클릭한 다음, **단위 테스트 만들기**를 선택합니다.
+1. 솔루션 탐색기에서 U-SQL 스크립트를 마우스 오른쪽 단추로 클릭한 다음, **단위 테스트 만들기** 를 선택합니다.
 
 1. 새 테스트 프로젝트를 만들거나 기존 테스트 프로젝트에 테스트 사례를 삽입합니다.
 
@@ -34,7 +34,7 @@ Azure Data Lake Tools for Visual Studio를 사용하면 U-SQL 스크립트 테�
 
 ### <a name="manage-the-test-data-source"></a>테스트 데이터 원본 관리
 
-U-SQL 스크립트를 테스트하는 경우 입력 파일을 테스트해야 합니다. 테스트 데이터를 관리 하려면 **솔루션 탐색기**에서 U-SQL 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다. **테스트 데이터 원본**에 소스를 입력할 수 있습니다.
+U-SQL 스크립트를 테스트하는 경우 입력 파일을 테스트해야 합니다. 테스트 데이터를 관리 하려면 **솔루션 탐색기** 에서 U-SQL 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택 합니다. **테스트 데이터 원본** 에 소스를 입력할 수 있습니다.
 
 ![Data Lake Tools for Visual Studio -- 프로젝트 테스트 데이터 원본 구성](./media/data-lake-analytics-cicd-test/data-lake-tools-configure-project-test-data-source.png)
 
@@ -52,7 +52,7 @@ T-sql 프로젝트에 대 한 U-SQL 데이터베이스 프로젝트 참조를 �
 
 ### <a name="run-test-cases-in-visual-studio"></a>Visual Studio에서 테스트 사례 실행
 
-U-SQL 스크립트 테스트 프로젝트는 C# 단위 테스트 프레임워크에서 빌드됩니다. 프로젝트를 빌드한 후 **테스트**  >  **Windows**  >  **테스트 탐색기**를 선택 합니다. 테스트 **탐색기**에서 테스트 사례를 실행할 수 있습니다. 또는 단위 테스트에서 .cs 파일을 마우스 오른쪽 단추로 클릭 하 고 **테스트 실행**을 선택 합니다.
+U-SQL 스크립트 테스트 프로젝트는 C# 단위 테스트 프레임워크에서 빌드됩니다. 프로젝트를 빌드한 후 **테스트**  >  **Windows**  >  **테스트 탐색기** 를 선택 합니다. 테스트 **탐색기** 에서 테스트 사례를 실행할 수 있습니다. 또는 단위 테스트에서 .cs 파일을 마우스 오른쪽 단추로 클릭 하 고 **테스트 실행** 을 선택 합니다.
 
 ## <a name="test-c-udos"></a>C# UDO 테스트
 
@@ -62,7 +62,7 @@ C # 단위 테스트 프레임 워크를 사용 하 여 c # UDOs (사용자 정�
 
 **IRowset** 개체를 만드는 방법에는 두 가지가 있습니다.
 
-- 파일에서 데이터를 로드 하 여 **IRowset**를 만듭니다.
+- 파일에서 데이터를 로드 하 여 **IRowset** 를 만듭니다.
 
     ```csharp
     //Schema: "a:int, b:int"
@@ -78,7 +78,7 @@ C # 단위 테스트 프레임 워크를 사용 하 여 c # UDOs (사용자 정�
     IRowset rowset = UnitTestHelper.GetRowsetFromFile(@"processor.txt", schema, output.AsReadOnly(), discardAdditionalColumns: true, rowDelimiter: null, columnSeparator: '\t');
     ```
 
-- 데이터 컬렉션의 데이터를 사용 하 여 **IRowset**를 만듭니다.
+- 데이터 컬렉션의 데이터를 사용 하 여 **IRowset** 를 만듭니다.
 
     ```csharp
     //Schema: "a:int, b:int"
@@ -105,7 +105,7 @@ UDO 함수를 호출한 후 C# 어설션 함수를 사용하여 스키마 및 �
 
 ### <a name="run-test-cases-in-visual-studio"></a>Visual Studio에서 테스트 사례 실행
 
-프로젝트를 빌드한 후 **테스트**  >  **Windows**  >  **테스트 탐색기**를 선택 합니다. 테스트 **탐색기**에서 테스트 사례를 실행할 수 있습니다. 또는 단위 테스트에서 .cs 파일을 마우스 오른쪽 단추로 클릭 하 고 **테스트 실행**을 선택 합니다.
+프로젝트를 빌드한 후 **테스트**  >  **Windows**  >  **테스트 탐색기** 를 선택 합니다. 테스트 **탐색기** 에서 테스트 사례를 실행할 수 있습니다. 또는 단위 테스트에서 .cs 파일을 마우스 오른쪽 단추로 클릭 하 고 **테스트 실행** 을 선택 합니다.
 
 ## <a name="run-test-cases-in-azure-pipelines"></a>Azure Pipelines에서 테스트 사례 실행<a name="run-test-cases-in-azure-devops"></a>
 
