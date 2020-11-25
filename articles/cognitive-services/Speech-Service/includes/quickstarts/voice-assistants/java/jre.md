@@ -4,21 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 38e6bae69710dc9e1dbc8789ee9ccb636193c7f7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ee14b94977b3152e0aab853fa3919a739d0dfdd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80671399"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95095136"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Speech 리소스 만들기](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../overview.md#try-the-speech-service-for-free)
 > * [개발 환경 설정 및 빈 프로젝트 만들기](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
-> * [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)에 연결된 봇 만들기
+> * [Direct Line Speech 채널](/azure/bot-service/bot-service-channel-connect-directlinespeech)에 연결된 봇 만들기
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 
   > [!NOTE]
@@ -40,9 +40,9 @@ ms.locfileid: "80671399"
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 
-1. Java 프로젝트에 새로운 빈 클래스를 추가하려면 **파일** > **새로 만들기** > **클래스**를 선택합니다.
+1. Java 프로젝트에 새로운 빈 클래스를 추가하려면 **파일** > **새로 만들기** > **클래스** 를 선택합니다.
 
-1. **새 Java 클래스** 창에서, **패키지** 필드에 _speechsdk.quickstart_를 입력하고, **이름** 필드에 _기본_을 입력합니다.
+1. **새 Java 클래스** 창에서, **패키지** 필드에 _speechsdk.quickstart_ 를 입력하고, **이름** 필드에 _기본_ 을 입력합니다.
 
    ![새 Java 클래스 창의 스크린샷](~/articles/cognitive-services/speech-service/media/sdk/qs-java-jre-06-create-main-java.png)
 
@@ -115,7 +115,7 @@ ms.locfileid: "80671399"
 
 1. `main` 메서드에서는 먼저 `DialogServiceConfig`를 구성하고 `DialogServiceConnector` 인스턴스를 만드는 데 사용할 것입니다. 이 인스턴스는 Direct Line Speech 채널에 연결하여 봇과 상호 작용하게 됩니다. `AudioConfig` 인스턴스는 오디오 입력의 소스를 지정할 때도 사용됩니다. 이 예제에서는 `AudioConfig.fromDefaultMicrophoneInput()`을 통해 기본 마이크를 사용합니다.
 
-   - `YourSubscriptionKey` 문자열을 해당 구독 키로 바꿉니다. 구독 키는 [이 웹 사이트](~/articles/cognitive-services/speech-service/get-started.md)에서 얻을 수 있습니다.
+   - `YourSubscriptionKey` 문자열을 해당 구독 키로 바꿉니다. 구독 키는 [이 웹 사이트](../../../../overview.md#try-the-speech-service-for-free)에서 얻을 수 있습니다.
    - `YourServiceRegion` 문자열을 구독과 연결된 [Azure 지역](~/articles/cognitive-services/speech-service/regions.md)으로 바꿉니다.
 
    > [!NOTE]
@@ -185,9 +185,9 @@ ms.locfileid: "80671399"
 
 1. 변경 내용을 `Main` 파일에 저장합니다.
 
-1. 응답 재생을 지원할 수 있도록 getAudio() API에서 반환된 PullAudioOutputStream 개체를 java InputStream으로 변환하는 추가 클래스를 추가합니다. 이 `ActivityAudioStream`은 Direct Line Speech 채널의 오디오 응답을 처리하는 특수 클래스입니다. 재생 처리에 필요한 오디오 형식 정보를 가져오는 접근자를 제공합니다. 이 경우 **파일** > **새로 만들기** > **클래스**를 차례로 선택합니다.
+1. 응답 재생을 지원할 수 있도록 getAudio() API에서 반환된 PullAudioOutputStream 개체를 java InputStream으로 변환하는 추가 클래스를 추가합니다. 이 `ActivityAudioStream`은 Direct Line Speech 채널의 오디오 응답을 처리하는 특수 클래스입니다. 재생 처리에 필요한 오디오 형식 정보를 가져오는 접근자를 제공합니다. 이 경우 **파일** > **새로 만들기** > **클래스** 를 차례로 선택합니다.
 
-1. **새 Java 클래스** 창에서 **패키지** 필드에는 _speechsdk.quickstart_를 입력하고, **이름** 필드에는 _ActivityAudioStream_을 입력합니다.
+1. **새 Java 클래스** 창에서 **패키지** 필드에는 _speechsdk.quickstart_ 를 입력하고, **이름** 필드에는 _ActivityAudioStream_ 을 입력합니다.
 
 1. 새로 만든 `ActivityAudioStream` 클래스를 열고, 내용을 다음 코드로 바꿉니다.
 
@@ -434,7 +434,7 @@ ms.locfileid: "80671399"
 
 ## <a name="build-and-run-the-app"></a>앱 빌드 및 실행
 
-F11 키를 선택하거나 **실행** > **디버그**를 선택합니다.
+F11 키를 선택하거나 **실행** > **디버그** 를 선택합니다.
 콘솔에 "Say something"이라는 메시지가 표시됩니다.
 지금은 문구 또는 문장을 영어로 말해야 봇이 이해할 수 있습니다. 사용자의 음성이 Direct Line Speech 채널을 통해 봇으로 전송되면 봇이 음성을 인식하고 처리합니다. 응답은 작업으로 반환됩니다. 봇이 응답으로 음성을 반환하는 경우 `AudioPlayer` 클래스를 사용하여 오디오가 재생됩니다.
 

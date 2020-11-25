@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: fcfefb2b6cd5c23e9b77d7d27413d1ff6d775bfe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7b691dc408c65b2152c60276dbea826042ecb0d8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321622"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097882"
 ---
-[참조 설명서](https://docs.microsoft.com/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [패키지(NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
+[참조 설명서](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [패키지(NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -40,7 +40,7 @@ mkdir myapp && cd myapp
 npm init
 ```
 
-계속하기 전에 _index.js_라는 파일을 만듭니다.
+계속하기 전에 _index.js_ 라는 파일을 만듭니다.
 
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
@@ -118,7 +118,7 @@ node index.js
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Management SDK 참조 설명서](https://docs.microsoft.com/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
-* [Azure Cognitive Services란?](../../Welcome.md)
+* [Azure Management SDK 참조 설명서](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
+* [Azure Cognitive Services란?](../../what-are-cognitive-services.md)
 * [Azure Cognitive Services에 대한 요청 인증](../../authentication.md)
 * [Azure Portal를 사용하여 새 리소스 만들기](../../cognitive-services-apis-create-account.md)

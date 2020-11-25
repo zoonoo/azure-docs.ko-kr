@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: fbfc6bf9c50257c2683522913503bf9b29450d94
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bc27c73fbf9e827ce9a95c8aaaddc82ffb0aec53
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86226396"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95098227"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Speech 리소스 만들기](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../overview.md#try-the-speech-service-for-free)
 > * [개발 환경 설정 및 빈 프로젝트 만들기](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
-> * [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)에 연결된 봇 만들기
+> * [Direct Line Speech 채널](/azure/bot-service/bot-service-channel-connect-directlinespeech)에 연결된 봇 만들기
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 
   > [!NOTE]
@@ -257,9 +257,9 @@ ms.locfileid: "86226396"
 
 1. 개발 PC에 Android 디바이스를 연결합니다. 디바이스에서 [개발 모드 및 USB 디버깅](https://developer.android.com/studio/debug/dev-options)이 사용하도록 설정되어 있는지 확인합니다.
 
-1. 애플리케이션을 빌드하려면 Ctrl + F9를 누르거나 메뉴 모음에서 **빌드** > **프로젝트 만들기**를 선택합니다.
+1. 애플리케이션을 빌드하려면 Ctrl + F9를 누르거나 메뉴 모음에서 **빌드** > **프로젝트 만들기** 를 선택합니다.
 
-1. 애플리케이션을 시작하려면 Shift+F10을 누르거나 **실행** >  **'앱' 실행**을 선택합니다.
+1. 애플리케이션을 시작하려면 Shift+F10을 누르거나 **실행** >  **'앱' 실행** 을 선택합니다.
 
 1. 나타나는 배포 대상 창에서 Android 디바이스를 선택합니다.
 
@@ -272,4 +272,3 @@ ms.locfileid: "86226396"
 ## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [footer](./footer.md)]
-

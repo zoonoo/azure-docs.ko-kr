@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: pafarley
-ms.openlocfilehash: 346854d5990ac6861bd4eb93914bb1745b90bfa5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a7fc96127d4449cfe0333ba81532d3c5c4ec19fe
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321602"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096233"
 ---
-[참조 설명서](https://docs.microsoft.com/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [패키지(Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
+[참조 설명서](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [패키지(Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -36,13 +36,13 @@ ms.locfileid: "89321602"
 mkdir myapp && cd myapp
 ```
 
-작업 디렉터리에서 `gradle init` 명령을 실행합니다. 이 명령은 *build.gradle.kts*를 포함하여 런타임에 애플리케이션을 만들고 구성하는 데 사용되는 Gradle용 필수 빌드 파일을 만듭니다.
+작업 디렉터리에서 `gradle init` 명령을 실행합니다. 이 명령은 *build.gradle.kts* 를 포함하여 런타임에 애플리케이션을 만들고 구성하는 데 사용되는 Gradle용 필수 빌드 파일을 만듭니다.
 
 ```console
 gradle init --type basic
 ```
 
-**DSL**을 선택하라는 메시지가 표시되면 **Kotlin**을 선택합니다.
+**DSL** 을 선택하라는 메시지가 표시되면 **Kotlin** 을 선택합니다.
 
 작업 디렉터리에서 다음 명령을 실행합니다.
 
@@ -74,13 +74,13 @@ dependencies {
 
 ### <a name="import-libraries"></a>라이브러리 가져오기
 
-새 **src/main/java** 폴더로 이동하여 *Management.java*라는 파일을 만듭니다. 원하는 편집기 또는 IDE에서 이 파일을 열고, 다음 `import` 문을 추가합니다.
+새 **src/main/java** 폴더로 이동하여 *Management.java* 라는 파일을 만듭니다. 원하는 편집기 또는 IDE에서 이 파일을 열고, 다음 `import` 문을 추가합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_imports)]
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-*Management.java*에 클래스를 추가한 다음, 그 안에 다음 필드와 해당 값을 추가합니다. 사용자가 만든 서비스 주체와 기타 Azure 계정 정보를 사용하여 해당 값을 입력합니다.
+*Management.java* 에 클래스를 추가한 다음, 그 안에 다음 필드와 해당 값을 추가합니다. 사용자가 만든 서비스 주체와 기타 Azure 계정 정보를 사용하여 해당 값을 입력합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_constants)]
 
@@ -126,7 +126,7 @@ dependencies {
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Management SDK 참조 설명서](https://docs.microsoft.com/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)
-* [Azure Cognitive Services란?](../../Welcome.md)
+* [Azure Management SDK 참조 설명서](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)
+* [Azure Cognitive Services란?](../../what-are-cognitive-services.md)
 * [Azure Cognitive Services에 대한 요청 인증](../../authentication.md)
 * [Azure Portal를 사용하여 새 리소스 만들기](../../cognitive-services-apis-create-account.md)

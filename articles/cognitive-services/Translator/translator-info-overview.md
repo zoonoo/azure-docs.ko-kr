@@ -12,26 +12,26 @@ ms.date: 09/11/2020
 ms.author: swmachan
 ms.custom: cog-serv-seo-aug-2020
 keywords: 번역기, 텍스트 번역, 기계 번역, 번역 서비스
-ms.openlocfilehash: 32ae7f75c1b953e8af7dfef83c1971c2f78b0b62
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 8016c79cbe7f78bdaa18274f8873548e3982df2f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530338"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016477"
 ---
 # <a name="what-is-the-translator-service"></a>Translator 서비스란?
 
-Translator는 클라우드 기반 기계 번역 서비스이며, 지능형 앱을 빌드하는 데 사용되는 [Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) 인지 API 제품군의 일부입니다. Translator는 애플리케이션, 웹 사이트, 도구 및 솔루션에 쉽게 통합할 수 있습니다. [70개국 초과 언어](languages.md)로 제공되는 다국어 사용자 환경을 추가할 수 있게 해주며, 텍스트 번역에 사용되는 운영 체제가 설치된 모든 하드웨어 플랫폼에서 사용할 수 있습니다.
+Translator는 클라우드 기반 기계 번역 서비스이며, 지능형 앱을 빌드하는 데 사용되는 [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) 인지 API 제품군의 일부입니다. Translator는 애플리케이션, 웹 사이트, 도구 및 솔루션에 쉽게 통합할 수 있습니다. [70개국 초과 언어](./language-support.md)로 제공되는 다국어 사용자 환경을 추가할 수 있게 해주며, 텍스트 번역에 사용되는 운영 체제가 설치된 모든 하드웨어 플랫폼에서 사용할 수 있습니다.
 
 ## <a name="about-microsoft-translator"></a>Microsoft Translator 정보
 
 Translator는 다양한 Microsoft 제품 및 서비스를 제공하며, 전 세계 수천 개 기업에서 전 세계 잠재 고객에게 콘텐츠가 도달할 수 있도록 애플리케이션 및 워크플로에 사용하고 있습니다.
 
-Translator에서 제공하는 음성 번역도 [Azure Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/)를 통해 사용할 수 있습니다. 이는 Translator Speech API 및 Custom Speech Service의 기능을 완전히 사용자 지정 가능한 통합 서비스에 결합합니다. 
+Translator에서 제공하는 음성 번역도 [Azure Speech Service](../speech-service/index.yml)를 통해 사용할 수 있습니다. 이는 Translator Speech API 및 Custom Speech Service의 기능을 완전히 사용자 지정 가능한 통합 서비스에 결합합니다. 
 
 ## <a name="language-support"></a>언어 지원
 
-Translator는 텍스트 번역, 음차, 언어 감지 및 사전에 다국어 지원을 제공합니다. [언어 지원](language-support.md)에서 전체 목록을 참조하거나 [REST API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages)를 사용하여 목록에 프로그래매틱 방식으로 액세스하세요.  
+Translator는 텍스트 번역, 음차, 언어 감지 및 사전에 다국어 지원을 제공합니다. [언어 지원](language-support.md)에서 전체 목록을 참조하거나 [REST API](./reference/v3-0-languages.md)를 사용하여 목록에 프로그래매틱 방식으로 액세스하세요.  
 
 ## <a name="microsoft-translator-neural-machine-translation"></a>Microsoft Translator 신경망 기계 번역
 
@@ -53,7 +53,7 @@ Custom Translator를 사용하면 고유한 비즈니스 및 업계에서 사용
 
 ## <a name="next-steps"></a>다음 단계
 
-- 액세스 키를 [등록](translator-text-how-to-signup.md)합니다.
+- 액세스 키를 [등록](./translator-how-to-signup.md)합니다.
 - [빠른 시작](quickstart-translator.md)을 통해 Translator 서비스를 신속하게 호출해보세요.
-- [API 참조](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)는 API에 대한 기술 설명서를 제공합니다.
+- [API 참조](./reference/v3-0-reference.md)는 API에 대한 기술 설명서를 제공합니다.
 - [가격 정보](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

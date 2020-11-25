@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: d8da5fcffa6ff02bed76973021b8a69c6c250821
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1b50fbfa0ec4116f7d0b5988e5be70d0db086732
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321635"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097619"
 ---
-[참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/) | [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
+[참조 설명서](/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/) | [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -28,7 +28,7 @@ ms.locfileid: "89321635"
 
 ## <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
 
-새 .NET Core 애플리케이션을 만듭니다. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `azure-management-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 *program.cs*라는 단일 소스 파일을 사용하여 간단한 "Hello World" C# 프로젝트를 만듭니다. 
+새 .NET Core 애플리케이션을 만듭니다. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `azure-management-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 *program.cs* 라는 단일 소스 파일을 사용하여 간단한 "Hello World" C# 프로젝트를 만듭니다. 
 
 ```console
 dotnet new console -n azure-management-quickstart
@@ -64,13 +64,13 @@ Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 다�
 
 ### <a name="import-libraries"></a>라이브러리 가져오기
 
-*program.cs*를 열고 다음 `using` 문을 파일 맨 위에 추가합니다.
+*program.cs* 를 열고 다음 `using` 문을 파일 맨 위에 추가합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_using)]
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-다음 필드를 *program.cs*의 루트에 추가하고 사용자가 만든 서비스 주체와 Azure 계정 정보를 사용하여 해당 값을 입력합니다.
+다음 필드를 *program.cs* 의 루트에 추가하고 사용자가 만든 서비스 주체와 Azure 계정 정보를 사용하여 해당 값을 입력합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_constants)]
 
@@ -124,7 +124,7 @@ dotnet run
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Management SDK 참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)
-* [Azure Cognitive Services란?](../../Welcome.md)
+* [Azure Management SDK 참조 설명서](/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)
+* [Azure Cognitive Services란?](../../what-are-cognitive-services.md)
 * [Azure Cognitive Services에 대한 요청 인증](../../authentication.md)
 * [Azure Portal를 사용하여 새 리소스 만들기](../../cognitive-services-apis-create-account.md)

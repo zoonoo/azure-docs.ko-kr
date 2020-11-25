@@ -5,18 +5,18 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 5766eb821800568b567350e1360ca4cf5403be6d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3c093539301f3f4e3309094f0b53a1f0e8393150
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135737"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096582"
 ---
-이 빠른 시작에서는 Linux용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](../conversation-transcription-service.md) 디바이스로 사용하는 방법을 알아봅니다. 현재는 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)만 지원됩니다.
+이 빠른 시작에서는 Linux용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](../conversation-transcription.md) 디바이스로 사용하는 방법을 알아봅니다. 현재는 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)만 지원됩니다.
 
 애플리케이션은 Speech SDK 패키지와 64비트 Linux(Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8) 기반의 Eclipse Java IDE(v4)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
-이 가이드에는 Speech Service 리소스와 함께 [Azure Cognitive Service](../get-started.md) 계정이 필요합니다. 
+이 가이드에는 Speech Service 리소스와 함께 [Azure Cognitive Service](../overview.md#try-the-speech-service-for-free) 계정이 필요합니다. 
 
 [샘플 애플리케이션](https://aka.ms/sdsdk-download-JRE)의 소스 코드는 Speech Devices SDK에 포함되어 있으며, [GitHub에서도 사용할 수 있습니다](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -28,7 +28,7 @@ ms.locfileid: "93135737"
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 또는 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)만 해당.
-* Speech Service에 대한 Azure 구독 키입니다. [무료로 가져올 수 있습니다](../get-started.md).
+* Speech Service에 대한 Azure 구독 키입니다. [무료로 가져올 수 있습니다](../overview.md#try-the-speech-service-for-free).
 * Java용 [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE)의 최신 버전을 다운로드하고 작업 디렉터리에 .zip을 추출합니다.
    > [!NOTE]
    > 이 빠른 시작에서는 앱이 /home/wcaltest/JRE-Sample-Release로 추출되었다고 가정합니다.
@@ -62,7 +62,7 @@ Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지
 
 현재 대화 전사는 "미국 중부" 및 "동아시아" 지역에서 "en-US" 및 "zh-CN"에 대해서만 사용할 수 있습니다. 대화 전사를 사용하려면 이 지역 중 한 곳에 음성 키가 있어야 합니다.
 
-의도를 사용하려는 경우 [LUIS(Language Understanding Service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) 구독이 필요합니다. LUIS와 의도 인식에 대해 자세히 알아보려면 [LUIS, C#을 통해 음성 의도 인식](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)을 참조하세요. [샘플 LUIS 모델](https://aka.ms/sdsdk-luis)은 이 앱에서 사용할 수 있습니다.
+의도를 사용하려는 경우 [LUIS(Language Understanding Service)](../../luis/luis-how-to-azure-subscription.md) 구독이 필요합니다. LUIS와 의도 인식에 대해 자세히 알아보려면 [LUIS, C#을 통해 음성 의도 인식](../how-to-recognize-intents-from-speech-csharp.md)을 참조하세요. [샘플 LUIS 모델](https://aka.ms/sdsdk-luis)은 이 앱에서 사용할 수 있습니다.
 
 ## <a name="create-and-configure-the-project"></a>프로젝트 만들기 및 구성
 
@@ -111,9 +111,9 @@ Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지
 
    ![시작 구성 편집 스크린샷](../media/speech-devices-sdk/eclipse-edit-launch-configuration-linux.png)
 
-1. 대상 아키텍처에 대한 오디오 이진 파일을 **Linux-arm** 또는 **Linux-x64** 에서 Java 프로젝트 위치(예: **/home/wcaltest/JRE-Sample-Release** )로 복사합니다.
+1. 대상 아키텍처에 대한 오디오 이진 파일을 **Linux-arm** 또는 **Linux-x64** 에서 Java 프로젝트 위치(예: **/home/wcaltest/JRE-Sample-Release**)로 복사합니다.
 
-1. 또한 **구성 편집** 창에서 **환경** 페이지와 **새로 만들기** 를 선택합니다. **새 환경 변수** 창이 나타납니다. **이름** 필드에 **LD_LIBRARY_PATH** 를 입력하고 **값** 필드에 *.so 파일이 포함된 폴더(예: **/home/wcaltest/JRE-Sample-Release** )를 입력합니다.
+1. 또한 **구성 편집** 창에서 **환경** 페이지와 **새로 만들기** 를 선택합니다. **새 환경 변수** 창이 나타납니다. **이름** 필드에 **LD_LIBRARY_PATH** 를 입력하고 **값** 필드에 *.so 파일이 포함된 폴더(예: **/home/wcaltest/JRE-Sample-Release**)를 입력합니다.
 
 1. `kws.table`, `participants.properties`를 프로젝트 폴더 **target/classes** 로 복사합니다.
 
@@ -143,7 +143,7 @@ Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지
 1. 기본 키워드(키워드)는 "Computer"입니다. "Machine" 또는 "Assistant"와 같이 제공되는 다른 키워드 중 하나를 사용해 볼 수도 있습니다. 이러한 대체 키워드에 대한 리소스 파일은 Speech Devices SDK의 키워드 폴더에 있습니다. 예를 들어, `/home/wcaltest/JRE-Sample-Release/keyword/Computer`에는 키워드 "Computer"에 사용되는 파일이 포함되어 있습니다.
 
    > [!TIP]
-   > [사용자 지정 키워드를 만들](../speech-devices-sdk-create-kws.md) 수도 있습니다.
+   > [사용자 지정 키워드를 만들](../custom-keyword-basics.md) 수도 있습니다.
 
     새 키워드를 사용하려면 `FunctionsList.java`에서 다음 줄을 업데이트하고 패키지를 앱에 복사합니다. 예를 들어 키워드 패키지 `machine.zip`에서 키워드 'Machine'을 사용하려면 다음을 수행합니다.
 
@@ -163,7 +163,7 @@ Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지
 
    ![Speech Devices SDK 예제 애플리케이션 및 옵션을 보여주는 스크린샷.](../media/speech-devices-sdk/java-sample-app-linux.png)
 
-1. 새로운 **대화 전사** 데모를 시도해봅니다. **Session** > **Start** 를 문자로 기록하기 시작합니다. 기본적으로 모든 사람은 게스트입니다. 단, 참가자의 음성 서명이 있으면 프로젝트 폴더 **target/classes** 의 `participants.properties`에 넣을 수 있습니다. 음성 서명을 생성하려면 [대화 기록(SDK)](../how-to-use-conversation-transcription-service.md)을 참조하세요.
+1. 새로운 **대화 전사** 데모를 시도해봅니다. **Session** > **Start** 를 문자로 기록하기 시작합니다. 기본적으로 모든 사람은 게스트입니다. 단, 참가자의 음성 서명이 있으면 프로젝트 폴더 **target/classes** 의 `participants.properties`에 넣을 수 있습니다. 음성 서명을 생성하려면 [대화 기록(SDK)](../how-to-use-conversation-transcription.md)을 참조하세요.
 
    ![데모 대화 전사 애플리케이션을 보여주는 스크린샷.](../media/speech-devices-sdk/cts-sample-app-linux.png)
 

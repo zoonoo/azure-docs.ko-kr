@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 7cc76ab7c9ce2191a54d5bd61282267467603694
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d6dfa8ccc35b36bf7f1e85e6ab213bd4e4783eaf
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321595"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95095085"
 ---
-[참조 설명서](https://docs.microsoft.com/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices) | [패키지(PyPi)](https://pypi.org/project/azure-mgmt-cognitiveservices/) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices/tests)
+[참조 설명서](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices) | [패키지(PyPi)](https://pypi.org/project/azure-mgmt-cognitiveservices/) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices/tests)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -102,7 +102,7 @@ python <your-script-name>.py
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Management SDK 참조 설명서](https://docs.microsoft.com/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python)
-* [Azure Cognitive Services란?](../../Welcome.md)
+* [Azure Management SDK 참조 설명서](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python)
+* [Azure Cognitive Services란?](../../what-are-cognitive-services.md)
 * [Azure Cognitive Services에 대한 요청 인증](../../authentication.md)
 * [Azure Portal를 사용하여 새 리소스 만들기](../../cognitive-services-apis-create-account.md)

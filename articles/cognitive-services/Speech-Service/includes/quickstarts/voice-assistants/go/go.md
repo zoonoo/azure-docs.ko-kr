@@ -4,21 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: b05e63dc549fdf1fec4485e27086bb32251b41d8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c37637ba1cb5154bbd56f7fd22bbbca62b8c3438
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135933"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097608"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에:
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../overview.md#try-the-speech-service-for-free)
 > * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md)
-> * [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)에 연결된 봇 만들기
+> * [Direct Line Speech 채널](/azure/bot-service/bot-service-channel-connect-directlinespeech)에 연결된 봇 만들기
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 >
   > [!NOTE]
@@ -108,7 +108,7 @@ func main() {
    > [음성 도우미에 대한 지원되는 지역 목록](~/articles/cognitive-services/speech-service/regions.md#voice-assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인하세요.
 
    > [!NOTE]
-   > 봇 구성에 대한 자세한 내용은 [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)에 대한 Bot Framework 설명서를 참조하세요.
+   > 봇 구성에 대한 자세한 내용은 [Direct Line Speech 채널](/azure/bot-service/bot-service-channel-connect-directlinespeech)에 대한 Bot Framework 설명서를 참조하세요.
 
 ## <a name="code-explanation"></a>코드 설명
 음성 구성 개체를 만들려면 음성 구독 키와 지역이 필요합니다. 음성 인식기 개체를 인스턴스화하려면 구성 개체가 필요합니다.

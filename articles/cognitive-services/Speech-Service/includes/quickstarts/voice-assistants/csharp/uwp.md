@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e2d43290946969643b10d2ecad2f076df208a5d0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea7ea08fc07a895bc038b27701d7038a5f76c26f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88925429"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096729"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Speech 리소스 만들기](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../overview.md#try-the-speech-service-for-free)
 > * [개발 환경 설정 및 빈 프로젝트 만들기](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
-> * [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)에 연결된 봇 만들기
+> * [Direct Line Speech 채널](/azure/bot-service/bot-service-channel-connect-directlinespeech)에 연결된 봇 만들기
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 > 
   > [!NOTE]
@@ -33,7 +33,7 @@ ms.locfileid: "88925429"
 
 프로젝트에 대한 기본 사항으로 작동하는 몇 가지 코드를 추가해 보겠습니다.
 
-1. **솔루션 탐색기**에서 `MainPage.xaml` 파일을 엽니다.
+1. **솔루션 탐색기** 에서 `MainPage.xaml` 파일을 엽니다.
 
 1. 디자이너의 XAML 보기에서 전체 콘텐츠를 기초적인 사용자 인터페이스를 정의하는 다음 코드 조각으로 바꿉니다.
 
@@ -84,7 +84,7 @@ ms.locfileid: "88925429"
 
 애플리케이션의 사용자 인터페이스를 표시하도록 디자인 보기가 업데이트됩니다.
 
-1. **솔루션 탐색기**에서 코드 숨김 원본 파일 `MainPage.xaml.cs`를 엽니다. `MainPage.xaml`로 그룹화되어 있습니다. 이 파일의 내용을 다음을 포함하는 아래와 같이 바꿉니다.
+1. **솔루션 탐색기** 에서 코드 숨김 원본 파일 `MainPage.xaml.cs`를 엽니다. `MainPage.xaml`로 그룹화되어 있습니다. 이 파일의 내용을 다음을 포함하는 아래와 같이 바꿉니다.
 
 - `Speech` 및`Speech.Dialog` 네임스페이스에 대한 `using` 명령문
 - 단추 처리기에 연결된 마이크 액세스를 보장하는 간단한 구현
@@ -277,7 +277,7 @@ ms.locfileid: "88925429"
    > [음성 도우미에 대한 지원되는 지역 목록](~/articles/cognitive-services/speech-service/regions.md#voice-assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인하세요.
 
    > [!NOTE]
-   > 봇 구성에 대한 자세한 내용은 [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)에 대한 Bot Framework 설명서를 참조하세요.
+   > 봇 구성에 대한 자세한 내용은 [Direct Line Speech 채널](/azure/bot-service/bot-service-channel-connect-directlinespeech)에 대한 Bot Framework 설명서를 참조하세요.
 
 1. `YourSpeechSubscriptionKey` 및 `YourServiceRegion` 문자열을 사용자 고유의 봇, 음성 구독 및 [지역](~/articles/cognitive-services/speech-service/regions.md) 값으로 바꿉니다.
 
@@ -369,17 +369,17 @@ ms.locfileid: "88925429"
 
 이제 앱을 빌드하고 Speech Service를 사용하여 사용자 지정 음성 도우미를 테스트할 준비가 되었습니다.
 
-1. 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택하여 애플리케이션을 빌드합니다. 코드는 이제 오류 없이 컴파일됩니다.
+1. 메뉴 모음에서 **빌드** > **솔루션 빌드** 를 선택하여 애플리케이션을 빌드합니다. 코드는 이제 오류 없이 컴파일됩니다.
 
-1. **디버그** > **디버깅 시작**을 선택하거나, **F5** 키를 눌러 애플리케이션을 시작합니다. **helloworld** 창이 나타납니다.
+1. **디버그** > **디버깅 시작** 을 선택하거나, **F5** 키를 눌러 애플리케이션을 시작합니다. **helloworld** 창이 나타납니다.
 
    ![C#의 샘플 UWP 음성 도우미 애플리케이션 - 빠른 시작](~/articles/cognitive-services/Speech-Service/media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
-1. **마이크 사용**을 선택하고, 액세스 권한 요청이 팝업되면 **예**를 선택합니다.
+1. **마이크 사용** 을 선택하고, 액세스 권한 요청이 팝업되면 **예** 를 선택합니다.
 
    ![마이크 액세스 권한 요청](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. **봇에게 말하기**를 선택하고, 디바이스의 마이크에 영어로 짧은 구나 문장을 말합니다. 음성은 Direct Line Speech 채널로 전송되어 텍스트로 전사되고 창에 표시됩니다.
+1. **봇에게 말하기** 를 선택하고, 디바이스의 마이크에 영어로 짧은 구나 문장을 말합니다. 음성은 Direct Line Speech 채널로 전송되어 텍스트로 전사되고 창에 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

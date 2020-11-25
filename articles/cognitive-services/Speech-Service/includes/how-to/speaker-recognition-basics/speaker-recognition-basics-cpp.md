@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
 ms.custom: references_regions
-ms.openlocfilehash: dd23bf0528a27f599058271decbf1820084c9a43
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 489514068d83f7b2953732415ba066a2d4555df8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875468"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015513"
 ---
 이 빠른 시작에서는 다음을 포함하여 Speech SDK를 사용하는 Speaker Recognition에 대한 기본적인 디자인 패턴을 알아봅니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "91875468"
 이 문서에서는 여러분에게 Azure 계정 및 음성 서비스 구독이 있다고 가정합니다. 계정 및 구독이 없는 경우 [음성 서비스 평가판을 사용해 보세요](../../../overview.md#try-the-speech-service-for-free).
 
 > [!IMPORTANT]
-> Speaker Recognition는 현재 `westus` 지역에서 만든 Azure Speech 리소스에서만 지원되는 *유일한 것*입니다.
+> Speaker Recognition는 현재 `westus` 지역에서 만든 Azure Speech 리소스에서만 지원되는 *유일한 것* 입니다.
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
@@ -47,13 +47,13 @@ ms.locfileid: "91875468"
 
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
 
-음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)를 만들어야 합니다. 이 클래스에는 키 및 연결된 지역, 엔드포인트, 호스트 또는 권한 부여 토큰과 같은 구독에 대한 정보가 포함됩니다.
+음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig)를 만들어야 합니다. 이 클래스에는 키 및 연결된 지역, 엔드포인트, 호스트 또는 권한 부여 토큰과 같은 구독에 대한 정보가 포함됩니다.
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="get_speech_config":::
 
 ## <a name="text-dependent-verification"></a>텍스트-종속 확인
 
-Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 일치하는지 확인하는 행위입니다. 첫 번째 단계는 음성 프로필을 **등록**하는 것입니다. 따라서 서비스에 향후 음성 샘플과 비교할 내용이 있습니다. 다음 예제에서는 **텍스트 종속** 전략을 사용하여 프로필을 등록합니다. 이 전략에서는 특정 암호를 등록 및 검증 모두에 사용해야 합니다. 지원되는 암호 목록은 [참조 문서](https://docs.microsoft.com/rest/api/speakerrecognition/)를 확인하세요.
+Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 일치하는지 확인하는 행위입니다. 첫 번째 단계는 음성 프로필을 **등록** 하는 것입니다. 따라서 서비스에 향후 음성 샘플과 비교할 내용이 있습니다. 다음 예제에서는 **텍스트 종속** 전략을 사용하여 프로필을 등록합니다. 이 전략에서는 특정 암호를 등록 및 검증 모두에 사용해야 합니다. 지원되는 암호 목록은 [참조 문서](/rest/api/speakerrecognition/)를 확인하세요.
 
 ### <a name="textdependentverification-function"></a>TextDependentVerification 함수
 
@@ -61,7 +61,7 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="text_dependent_verification":::
 
-이 함수는 [CreateProfileAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#createprofileasync) 메서드를 사용하여 [VoiceProfile](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofile) 개체를 만듭니다. `VoiceProfile`에는 다음 세 가지 [형식](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#enum-voiceprofiletype)이 있습니다.
+이 함수는 [CreateProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#createprofileasync) 메서드를 사용하여 [VoiceProfile](/cpp/cognitive-services/speech/voiceprofile) 개체를 만듭니다. `VoiceProfile`에는 다음 세 가지 [형식](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#enum-voiceprofiletype)이 있습니다.
 
 - TextIndependentIdentification
 - TextDependentVerification
@@ -69,7 +69,7 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 이 경우 `VoiceProfileType::TextDependentVerification`을 `CreateProfileAsync`에 전달합니다.
 
-그런 다음, 다음에 정의할 두 개의 도우미 함수(`AddEnrollmentsToTextDependentProfile` 및 `SpeakerVerify`)를 호출합니다. 마지막으로 [DeleteProfileAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#deleteprofileasync)를 호출하여 프로필을 정리합니다.
+그런 다음, 다음에 정의할 두 개의 도우미 함수(`AddEnrollmentsToTextDependentProfile` 및 `SpeakerVerify`)를 호출합니다. 마지막으로 [DeleteProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#deleteprofileasync)를 호출하여 프로필을 정리합니다.
 
 ### <a name="addenrollmentstotextdependentprofile-function"></a>AddEnrollmentsToTextDependentProfile 함수
 
@@ -77,7 +77,7 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="add_enrollments_dependent":::
 
-이 함수에서는 등록에 필요한 나머지 샘플 수를 추적하는 `while` 반복에 오디오 샘플을 등록합니다. 각 반복마다 [EnrollProfileAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#enrollprofileasync)에서 마이크에 암호를 말하라는 메시지를 표시하고, 샘플을 음성 프로필에 추가합니다.
+이 함수에서는 등록에 필요한 나머지 샘플 수를 추적하는 `while` 반복에 오디오 샘플을 등록합니다. 각 반복마다 [EnrollProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#enrollprofileasync)에서 마이크에 암호를 말하라는 메시지를 표시하고, 샘플을 음성 프로필에 추가합니다.
 
 ### <a name="speakerverify-function"></a>SpeakerVerify 함수
 
@@ -85,13 +85,13 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="speaker_verify":::
 
-이 함수에서는 이전에 만든 [VoiceProfile](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofile) 개체를 전달하는 [SpeakerVerificationModel::FromProfile](https://docs.microsoft.com/cpp/cognitive-services/speech/speakerverificationmodel#fromprofile) 메서드를 사용하여 [SpeakerVerificationModel](https://docs.microsoft.com/cpp/cognitive-services/speech/speakerverificationmodel) 개체를 만듭니다.
+이 함수에서는 이전에 만든 [VoiceProfile](/cpp/cognitive-services/speech/voiceprofile) 개체를 전달하는 [SpeakerVerificationModel::FromProfile](/cpp/cognitive-services/speech/speakerverificationmodel#fromprofile) 메서드를 사용하여 [SpeakerVerificationModel](/cpp/cognitive-services/speech/speakerverificationmodel) 개체를 만듭니다.
 
-다음으로 [SpeechRecognizer::RecognizeOnceAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync)에서 암호를 다시 말하라는 메시지를 표시하지만, 이번에는 음성 프로필과 비교하여 유효성을 검사하고 0.0~1.0 범위의 유사성 점수를 반환합니다. 또한 [SpeakerRecognitionResult](https://docs.microsoft.com/cpp/cognitive-services/speech/speakerrecognitionresult) 개체에서 암호가 일치하는지 여부에 따라 `Accept` 또는 `Reject`를 반환합니다.
+다음으로 [SpeechRecognizer::RecognizeOnceAsync](/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync)에서 암호를 다시 말하라는 메시지를 표시하지만, 이번에는 음성 프로필과 비교하여 유효성을 검사하고 0.0~1.0 범위의 유사성 점수를 반환합니다. 또한 [SpeakerRecognitionResult](/cpp/cognitive-services/speech/speakerrecognitionresult) 개체에서 암호가 일치하는지 여부에 따라 `Accept` 또는 `Reject`를 반환합니다.
 
 ## <a name="text-independent-verification"></a>텍스트 독립 확인
 
-**텍스트-종속** 확인을 하는 것과 달리 **텍스트-독립**을 확인합니다:
+**텍스트-종속** 확인을 하는 것과 달리 **텍스트-독립** 을 확인합니다:
 
 * 특정 암호를 말할 필요가 없고, 모든 항목을 말할 수 있습니다.
 * 세 개의 오디오 샘플이 필요하지 않지만, 총 20초의 오디오가 *필요합니다*.
@@ -102,11 +102,11 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="text_independent_verification":::
 
-이 함수는 `TextDependentVerification` 함수와 마찬가지로 [CreateProfileAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#createprofileasync) 메서드를 사용하여 [VoiceProfile](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofile) 개체를 만듭니다.
+이 함수는 `TextDependentVerification` 함수와 마찬가지로 [CreateProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#createprofileasync) 메서드를 사용하여 [VoiceProfile](/cpp/cognitive-services/speech/voiceprofile) 개체를 만듭니다.
 
 이 경우 `VoiceProfileType::TextIndependentVerification`을 `CreateProfileAsync`에 전달합니다.
 
-그런 다음, 다음에 정의할 `AddEnrollmentsToTextIndependentProfile` 및 이미 정의한 `SpeakerVerify`의 두 가지 도우미 함수를 호출합니다. 마지막으로 [DeleteProfileAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#deleteprofileasync)를 호출하여 프로필을 정리합니다.
+그런 다음, 다음에 정의할 `AddEnrollmentsToTextIndependentProfile` 및 이미 정의한 `SpeakerVerify`의 두 가지 도우미 함수를 호출합니다. 마지막으로 [DeleteProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#deleteprofileasync)를 호출하여 프로필을 정리합니다.
 
 ### <a name="addenrollmentstotextindependentprofile"></a>AddEnrollmentsToTextIndependentProfile
 
@@ -114,11 +114,11 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="add_enrollments_independent":::
 
-이 함수에서는 등록에 필요한 나머지 오디오 시간(초)을 추적하는 `while` 반복에 오디오 샘플을 등록합니다. 각 반복마다 [EnrollProfileAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#enrollprofileasync)에서 마이크에 말하라는 메시지를 표시하고, 샘플을 음성 프로필에 추가합니다.
+이 함수에서는 등록에 필요한 나머지 오디오 시간(초)을 추적하는 `while` 반복에 오디오 샘플을 등록합니다. 각 반복마다 [EnrollProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#enrollprofileasync)에서 마이크에 말하라는 메시지를 표시하고, 샘플을 음성 프로필에 추가합니다.
 
 ## <a name="speaker-identification"></a>화자 식별
 
-화자 식별은 지정 등록된 음성 그룹에서**누가 말하고 있는지**확인하는 데 사용됩니다. 이 프로세스는 **텍스트 독립 확인**하는 것과 매우 유사합니다. 주요 차이점은 단일 프로필을 확인하는 것이 아니라 한 번에 여러 음성 프로필에 대해 확인할 수 있다는 것입니다.
+화자 식별은 지정 등록된 음성 그룹에서 **누가 말하고 있는지** 확인하는 데 사용됩니다. 이 프로세스는 **텍스트 독립 확인** 하는 것과 매우 유사합니다. 주요 차이점은 단일 프로필을 확인하는 것이 아니라 한 번에 여러 음성 프로필에 대해 확인할 수 있다는 것입니다.
 
 ### <a name="textindependentidentification-function"></a>TextIndependentIdentification 함수
 
@@ -126,11 +126,11 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="text_independent_indentification":::
 
-이 함수는 `TextDependentVerification` 및 `TextIndependentVerification` 함수와 마찬가지로 [CreateProfileAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#createprofileasync) 메서드를 사용하여 [VoiceProfile](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofile) 개체를 만듭니다.
+이 함수는 `TextDependentVerification` 및 `TextIndependentVerification` 함수와 마찬가지로 [CreateProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#createprofileasync) 메서드를 사용하여 [VoiceProfile](/cpp/cognitive-services/speech/voiceprofile) 개체를 만듭니다.
 
 이 경우 `VoiceProfileType::TextIndependentIdentification`을 `CreateProfileAsync`에 전달합니다.
 
-그런 다음, 이미 정의한 `AddEnrollmentsToTextIndependentProfile` 및 다음에 정의할 `SpeakerIdentify`의 두 가지 도우미 함수를 호출합니다. 마지막으로 [DeleteProfileAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#deleteprofileasync)를 호출하여 프로필을 정리합니다.
+그런 다음, 이미 정의한 `AddEnrollmentsToTextIndependentProfile` 및 다음에 정의할 `SpeakerIdentify`의 두 가지 도우미 함수를 호출합니다. 마지막으로 [DeleteProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#deleteprofileasync)를 호출하여 프로필을 정리합니다.
 
 ### <a name="speakeridentify-function"></a>SpeakerIdentify 함수
 
@@ -138,9 +138,9 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="speaker_identify":::
 
-이 함수에서는 [SpeakerIdentificationModel::FromProfiles](https://docs.microsoft.com/cpp/cognitive-services/speech/speakeridentificationmodel#fromprofiles) 메서드를 사용하여 [SpeakerIdentificationModel](https://docs.microsoft.com/cpp/cognitive-services/speech/speakeridentificationmodel) 개체를 만듭니다. `SpeakerIdentificationModel::FromProfiles`는 [VoiceProfile](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofile) 개체 목록을 허용합니다. 이 경우 이전에 만든 `VoiceProfile` 개체만 전달하면 됩니다. 그러나 원하는 경우 각각 다른 음성의 오디오 샘플에 등록된 여러 `VoiceProfile` 개체를 전달할 수 있습니다.
+이 함수에서는 [SpeakerIdentificationModel::FromProfiles](/cpp/cognitive-services/speech/speakeridentificationmodel#fromprofiles) 메서드를 사용하여 [SpeakerIdentificationModel](/cpp/cognitive-services/speech/speakeridentificationmodel) 개체를 만듭니다. `SpeakerIdentificationModel::FromProfiles`는 [VoiceProfile](/cpp/cognitive-services/speech/voiceprofile) 개체 목록을 허용합니다. 이 경우 이전에 만든 `VoiceProfile` 개체만 전달하면 됩니다. 그러나 원하는 경우 각각 다른 음성의 오디오 샘플에 등록된 여러 `VoiceProfile` 개체를 전달할 수 있습니다.
 
-다음으로 [SpeechRecognizer::RecognizeOnceAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync)에서 다시 말하라는 메시지를 표시합니다. 이번에는 사용자의 음성을 등록된 음성 프로필과 비교하여 가장 비슷한 음성 프로필을 반환합니다.
+다음으로 [SpeechRecognizer::RecognizeOnceAsync](/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync)에서 다시 말하라는 메시지를 표시합니다. 이번에는 사용자의 음성을 등록된 음성 프로필과 비교하여 가장 비슷한 음성 프로필을 반환합니다.
 
 ## <a name="main-function"></a>main 함수
 
@@ -148,7 +148,7 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="main":::
 
-이 함수는 이전에 정의한 함수를 호출하기만 합니다. 그러나 먼저 [VoiceProfileClient](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient) 개체 및 [SpeakerRecognizer](https://docs.microsoft.com/cpp/cognitive-services/speech/speakerrecognizer) 개체를 만듭니다.
+이 함수는 이전에 정의한 함수를 호출하기만 합니다. 그러나 먼저 [VoiceProfileClient](/cpp/cognitive-services/speech/voiceprofileclient) 개체 및 [SpeakerRecognizer](/cpp/cognitive-services/speech/speakerrecognizer) 개체를 만듭니다.
 
 ```
 auto speech_config = GetSpeechConfig();
@@ -172,4 +172,4 @@ auto audio_config = Audio::AudioConfig::FromDefaultMicrophoneInput();
 auto audio_config = Audio::AudioConfig::FromWavFileInput(path/to/your/file.wav);
 ```
 
-또는 `audio_config`의 모든 사용을 [Audio::AudioConfig::FromWavFileInput](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig#fromwavfileinput)으로 바꿉니다. 예를 들어 등록용 마이크와 황인용 파일을 사용하여 입력을 혼합할 수 있습니다.
+또는 `audio_config`의 모든 사용을 [Audio::AudioConfig::FromWavFileInput](/cpp/cognitive-services/speech/audio-audioconfig#fromwavfileinput)으로 바꿉니다. 예를 들어 등록용 마이크와 황인용 파일을 사용하여 입력을 혼합할 수 있습니다.
