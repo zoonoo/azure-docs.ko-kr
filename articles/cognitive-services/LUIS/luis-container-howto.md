@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너
-ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 778fe388ae3db68d836384299a8a1c7c06e31f41
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460988"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001809"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>LUIS 용 Docker 컨테이너 설치 및 실행
 
@@ -33,15 +33,15 @@ LUIS (Language Understanding) 컨테이너는 학습 또는 게시 된 Language 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 LUIS 컨테이너를 실행 하려면 다음 필수 구성 요소를 확인 합니다.
 
 |필수|목적|
 |--|--|
-|Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
+|Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows** 에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.|
-|Azure `Cognitive Services` 리소스 및 LUIS [패키지 된 앱](luis-how-to-start-new-app.md) 파일 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>* _Cognitive Services_ Azure 리소스 및 연결 된 청구 키 청구 끝점 URI입니다. 두 값은 모두 리소스의 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요 합니다. <br>* 연결된 앱 ID와 함께 컨테이너에 대한 탑재된 입력으로 패키징된 학습된 또는 게시된 앱 LUIS 포털 또는 제작 Api에서 패키지 파일을 가져올 수 있습니다. [Authoring api](#authoring-apis-for-package-file)에서 LUIS 패키지 된 앱을 가져오는 경우에는 _제작 키_도 필요 합니다.<br><br>이러한 요구 사항은 아래 변수에 대한 명령줄 인수를 전달하는데 사용됩니다.<br><br>**{AUTHORING_KEY}**:이 키는 클라우드의 LUIS 서비스에서 패키지 된 앱을 가져오고 쿼리 로그를 클라우드에 다시 업로드 하는 데 사용 됩니다. 형식은 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`입니다.<br><br>**{APP_ID}**:이 ID는 앱을 선택 하는 데 사용 됩니다. 형식은 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`입니다.<br><br>**{API_KEY}**:이 키는 컨테이너를 시작 하는 데 사용 됩니다. 두 위치에서 엔드포인트 키를 찾을 수 있습니다. 첫 번째는 _Cognitive Services_ 리소스의 키 목록 내의 Azure Portal입니다. 엔드포인트 키는 키와 엔드포인트 설정 페이지에서 LUIS 포털을 사용할 수도 있습니다. 시작 키를 사용하지 마세요.<br><br>**{ENDPOINT_URI}**: 개요 페이지에 제공 된 끝점입니다.<br><br>[작성 키 및 엔드포인트 키](luis-limits.md#key-limits)는 용도가 서로 다릅니다. 서로 교환하여 사용하지 마세요. |
+|Azure `Cognitive Services` 리소스 및 LUIS [패키지 된 앱](luis-how-to-start-new-app.md) 파일 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>* _Cognitive Services_ Azure 리소스 및 연결 된 청구 키 청구 끝점 URI입니다. 두 값은 모두 리소스의 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요 합니다. <br>* 연결된 앱 ID와 함께 컨테이너에 대한 탑재된 입력으로 패키징된 학습된 또는 게시된 앱 LUIS 포털 또는 제작 Api에서 패키지 파일을 가져올 수 있습니다. [Authoring api](#authoring-apis-for-package-file)에서 LUIS 패키지 된 앱을 가져오는 경우에는 _제작 키_ 도 필요 합니다.<br><br>이러한 요구 사항은 아래 변수에 대한 명령줄 인수를 전달하는데 사용됩니다.<br><br>**{AUTHORING_KEY}**:이 키는 클라우드의 LUIS 서비스에서 패키지 된 앱을 가져오고 쿼리 로그를 클라우드에 다시 업로드 하는 데 사용 됩니다. 형식은 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`입니다.<br><br>**{APP_ID}**:이 ID는 앱을 선택 하는 데 사용 됩니다. 형식은 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`입니다.<br><br>**{API_KEY}**:이 키는 컨테이너를 시작 하는 데 사용 됩니다. 두 위치에서 엔드포인트 키를 찾을 수 있습니다. 첫 번째는 _Cognitive Services_ 리소스의 키 목록 내의 Azure Portal입니다. 엔드포인트 키는 키와 엔드포인트 설정 페이지에서 LUIS 포털을 사용할 수도 있습니다. 시작 키를 사용하지 마세요.<br><br>**{ENDPOINT_URI}**: 개요 페이지에 제공 된 끝점입니다.<br><br>[작성 키 및 엔드포인트 키](luis-limits.md#key-limits)는 용도가 서로 다릅니다. 서로 교환하여 사용하지 마세요. |
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -108,7 +108,7 @@ LUIS 컨테이너는 사용자 발화의 예측 쿼리에 응답하기 위해 �
 
 ### <a name="package-types"></a>패키지 형식
 
-입력 탑재 디렉터리는 앱의 **프로덕션**, **스테이징**및 **버전 관리** 모델을 동시에 포함할 수 있습니다. 모든 패키지는 탑재되어 있습니다.
+입력 탑재 디렉터리는 앱의 **프로덕션**, **스테이징** 및 **버전 관리** 모델을 동시에 포함할 수 있습니다. 모든 패키지는 탑재되어 있습니다.
 
 |패키지 형식|쿼리 엔드포인트 API|쿼리 가용성|패키지 파일 이름 형식|
 |--|--|--|--|
@@ -141,7 +141,7 @@ LUIS [포털](https://www.luis.ai)은 학습된 또는 게시 된 앱의 패키�
 1. 목록에서 앱 이름의 왼쪽에 있는 확인란을 선택합니다.
 1. 목록 위에 있는 컨텍스트 도구 모음에서 **내보내기** 항목을 선택합니다.
 1. **컨테이너에 대한 내보내기(GZIP)** 를 선택합니다.
-1. **프로덕션 슬롯** 또는 **스테이징 슬롯**의 환경을 선택합니다.
+1. **프로덕션 슬롯** 또는 **스테이징 슬롯** 의 환경을 선택합니다.
 1. 패키지가 브라우저에서 다운로드됩니다.
 
 ![앱 페이지의 내보내기 메뉴에서 컨테이너에 대한 게시된 패키지 내보내기](./media/luis-container-how-to/export-published-package-for-container.png)
@@ -152,8 +152,8 @@ LUIS [포털](https://www.luis.ai)은 학습된 또는 게시 된 앱의 패키�
 
 1. [LUIS](https://www.luis.ai) 포털에 로그인합니다.
 1. 목록에서 해당 앱을 선택합니다.
-1. 앱의 탐색 모음에서 **관리**를 선택합니다.
-1. 왼쪽 탐색 모음에서 **버전**을 선택합니다.
+1. 앱의 탐색 모음에서 **관리** 를 선택합니다.
+1. 왼쪽 탐색 모음에서 **버전** 을 선택합니다.
 1. 목록에서 버전 이름의 왼쪽에 있는 확인란을 선택합니다.
 1. 목록 위에 있는 컨텍스트 도구 모음에서 **내보내기** 항목을 선택합니다.
 1. **컨테이너에 대한 내보내기(GZIP)** 를 선택합니다.
@@ -224,10 +224,10 @@ ApiKey={API_KEY}
 이 명령은 다음을 수행합니다.
 
 * LUIS 컨테이너 이미지에서 컨테이너를 실행합니다.
-* 컨테이너 호스트에 있는 *C:\input*의 입력 탑재에서 LUIS 앱을 로드 합니다.
+* 컨테이너 호스트에 있는 *C:\input* 의 입력 탑재에서 LUIS 앱을 로드 합니다.
 * CPU 코어 두 개 및 4GB 메모리를 할당합니다.
 * 5000 TCP 포트 표시 및 컨테이너에 의사-TTY 할당
-* 컨테이너 호스트에 있는 *C:\output*의 출력 탑재에 컨테이너 및 LUIS 로그를 저장 합니다.
+* 컨테이너 호스트에 있는 *C:\output* 의 출력 탑재에 컨테이너 및 LUIS 로그를 저장 합니다.
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
 
 `docker run` 명령의 자세한 [예제](luis-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다.
@@ -276,12 +276,12 @@ API의 V2 및 [V3](luis-migration-api-v3.md) 버전은 모두 컨테이너에서
 |쿼리 매개 변수|형식|목적|
 |--|--|--|
 |`q`|문자열|사용자의 발화입니다.|
-|`timezoneOffset`|number|timezoneOffset으로 미리 작성된 엔터티 datetimeV2에서 사용하는 [표준 시간대를 변경](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)할 수 있습니다.|
+|`timezoneOffset`|숫자|timezoneOffset으로 미리 작성된 엔터티 datetimeV2에서 사용하는 [표준 시간대를 변경](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)할 수 있습니다.|
 |`verbose`|boolean|True로 설정하는 경우 모든 의도 및 점수를 반환합니다. 기본값은 False이며, 최상위 의도만 반환합니다.|
 |`staging`|boolean|True로 설정하면 스테이징 환경 결과에서 쿼리를 반환합니다. |
 |`log`|boolean|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 true입니다.|
 
-***
+**_
 
 ### <a name="query-the-luis-app"></a>LUIS 앱 쿼리
 
@@ -299,7 +299,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-**스테이징** 환경에 대 한 쿼리를 만들려면 `production` 경로에서을로 바꿉니다 `staging` .
+_ *스테이징** 환경에 대 한 쿼리를 만들려면 `production` 경로에서을로 바꿉니다 `staging` .
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -335,7 +335,7 @@ curl -X GET \
 ```
 버전 이름은 최대 10자이며 URL에 허용되는 문자만 포함합니다.
 
-***
+**_
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>활성 학습에 대한 엔드포인트 로그 가져오기
 
@@ -346,11 +346,11 @@ LUIS 컨테이너에 대 한 출력 탑재를 지정 하면 앱 쿼리 로그 �
 /output/luis/{INSTANCE_ID}/
 ```
 
-LUIS 포털에서 앱을 선택한 다음, **엔드포인트 로그 가져오기**를 선택하여 이 로그를 업로드합니다.
+LUIS 포털에서 앱을 선택한 다음 _ *끝점 로그 가져오기**를 선택 하 여 이러한 로그를 업로드 합니다.
 
 ![활성 학습에 대한 컨테이너의 로그 파일 가져오기](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
-로그를 업로드한 후 LUIS 포털에서 [엔드포인트 발화](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances)를 검토합니다.
+로그를 업로드한 후 LUIS 포털에서 [엔드포인트 발화](./luis-concept-review-endpoint-utterances.md)를 검토합니다.
 
 <!--  ## Validate container is running -->
 
@@ -358,7 +358,7 @@ LUIS 포털에서 앱을 선택한 다음, **엔드포인트 로그 가져오기
 
 ## <a name="stop-the-container"></a>컨테이너 중지
 
-컨테이너를 종료하려면 컨테이너를 실행하는 명령줄 환경에서 **Ctrl + C**를 누릅니다.
+컨테이너를 종료하려면 컨테이너를 실행하는 명령줄 환경에서 **Ctrl + C** 를 누릅니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

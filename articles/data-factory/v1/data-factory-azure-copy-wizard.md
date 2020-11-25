@@ -14,11 +14,11 @@ ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 55a27dbb6c2ec3569bae9d6fb96fcd8087f08daf
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637669"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001680"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사
 
@@ -63,7 +63,7 @@ Azure Data Factory 복사 마법사는 일반적으로 엔드투엔드 데이터
 ![식 유효성 검사](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Azure Blob 폴더의 데이터 필터링
-폴더 경로의 변수를 사용하여 [시스템 변수](data-factory-functions-variables.md#data-factory-system-variables)를 기반으로 런타임 시 결정되는 폴더의 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}** , **{month}** , **{day}** , **{hour}** , **{minute}** 및 **{custom}** 입니다. 예를 들어 inputfolder/{year}/{month}/{day}와 같습니다.
+폴더 경로의 변수를 사용하여 [시스템 변수](data-factory-functions-variables.md#data-factory-system-variables)를 기반으로 런타임 시 결정되는 폴더의 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** 및 **{custom}** 입니다. 예를 들어 inputfolder/{year}/{month}/{day}와 같습니다.
 
 다음과 같은 형식의 입력 폴더가 있다고 가정하겠습니다.
 
@@ -98,9 +98,9 @@ Azure Data Factory 복사 마법사는 일반적으로 엔드투엔드 데이터
 
 ### <a name="error-code-unable-to-validate-in-copy-wizard"></a>오류 코드: 복사 마법사에서 유효성을 검사할 수 없습니다.
 
-- **증상** : 복사 마법사의 첫 번째 단계에서 "유효성을 검사할 수 없습니다." 라는 경고 메시지가 표시 됩니다.
-- **원인** : 모든 타사 쿠키를 사용 하지 않도록 설정 하는 경우 발생할 수 있습니다.
-- **해결 방법** : 
+- **증상**: 복사 마법사의 첫 번째 단계에서 "유효성을 검사할 수 없습니다." 라는 경고 메시지가 표시 됩니다.
+- **원인**: 모든 타사 쿠키를 사용 하지 않도록 설정 하는 경우 발생할 수 있습니다.
+- **해결 방법**: 
     - Internet Explorer 또는 Microsoft Edge 브라우저를 사용 합니다.
     - Chrome 브라우저를 사용 하는 경우 아래 지침에 따라 *microsoftonline.com* 및 *windows.net* 에 대 한 쿠키 예외를 추가 합니다.
         1.  Chrome 브라우저를 엽니다.
@@ -124,9 +124,9 @@ Azure Data Factory 복사 마법사는 일반적으로 엔드투엔드 데이터
 
 ### <a name="error-code-unable-to-open-login-page-and-enter-password"></a>오류 코드: 로그인 페이지를 열고 암호를 입력할 수 없습니다.
 
-- **증상** : 복사 마법사는 로그인 페이지로 리디렉션되고 로그인 페이지가 성공적으로 표시 되지 않습니다.
-- **원인** : 네트워크 환경을 office 네트워크에서 홈 네트워크로 변경한 경우이 문제가 발생할 수 있습니다. 브라우저에는 몇 가지 캐시가 있습니다. 
-- **해결 방법** : 
+- **증상**: 복사 마법사는 로그인 페이지로 리디렉션되고 로그인 페이지가 성공적으로 표시 되지 않습니다.
+- **원인**: 네트워크 환경을 office 네트워크에서 홈 네트워크로 변경한 경우이 문제가 발생할 수 있습니다. 브라우저에는 몇 가지 캐시가 있습니다. 
+- **해결 방법**: 
     1.  브라우저를 닫고 다시 시도 하세요. 문제가 여전히 있는 경우 다음 단계로 이동 합니다.   
     2.  Internet Explorer 브라우저를 사용 하는 경우 "Ctrl" + "Shift" + "P"를 눌러 개인 모드로 엽니다. Chrome 브라우저를 사용 하는 경우 incognito 모드에서 엽니다. ("Ctrl" + "shift" + "N")를 누릅니다. 문제가 여전히 있는 경우 다음 단계로 이동 합니다. 
     3.  다른 브라우저를 사용 하십시오. 

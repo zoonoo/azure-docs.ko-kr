@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: b8d05293359cff16bb6d8c9a629a1fbf68104365
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896041"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003619"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>데이터 관리 게이트웨이 - 고가용성 및 확장성(미리 보기)
 > [!NOTE]
@@ -29,7 +29,7 @@ ms.locfileid: "92896041"
 > [!NOTE]
 > 이 문서에서는 사용자가 이미 Integration Runtime(이전의 데이터 관리 게이트웨이)에 대한 기본 사항을 잘 알고 있다고 가정합니다. 그렇지 않은 경우 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 참조하세요.
 > 
-> **이 미리 보기 기능은 데이터 관리 게이트웨이 버전 2.12.xxxx.x 이상에서 공식적으로 지원됩니다** . 버전 2.12.xxxx.x 이상을 사용하고 있는지 확인하세요. [여기서](https://www.microsoft.com/download/details.aspx?id=39717) 데이터 관리 게이트웨이 최신 버전을 다운로드합니다.
+> **이 미리 보기 기능은 데이터 관리 게이트웨이 버전 2.12.xxxx.x 이상에서 공식적으로 지원됩니다**. 버전 2.12.xxxx.x 이상을 사용하고 있는지 확인하세요. [여기서](https://www.microsoft.com/download/details.aspx?id=39717) 데이터 관리 게이트웨이 최신 버전을 다운로드합니다.
 
 ## <a name="overview"></a>개요
 여러 온-프레미스 컴퓨터에 설치된 데이터 관리 게이트웨이를 포털의 단일 논리 게이트웨이와 연결할 수 있습니다. 이러한 컴퓨터를 **노드** 라고 합니다. 논리 게이트웨이와 연결되는 **노드는 4개까지** 갖출 수 있습니다. 논리 게이트웨이에 여러 다중 노드(게이트웨이가 설치된 온-프레미스 컴퓨터)를 사용하는 이점은 다음과 같습니다.  
@@ -164,8 +164,8 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
 - 각 Integration Runtime 노드는 자격 증명 관리자 애플리케이션을 실행하는 클라이언트 컴퓨터 뿐만 아니라 이 인증서를 신뢰해야 합니다. 
   > [!NOTE]
   > 자격 증명 관리자 애플리케이션은 복사 마법사/Azure Portal에서 자격 증명을 안전하게 설정하는 데 사용됩니다. 또한 이 프로그램은 온-프레미스/프라이빗 데이터 저장소와 동일한 네트워크 내의 어떤 머신에서도 실행할 수 있습니다.
-- 와일드 카드 인증서가 지원됩니다. FQDN 이름이 **node1.domain.contoso.com** 인 경우 인증서의 주체 이름으로 * *_. domain.contoso.com_* 을 사용할 수 있습니다.
-- SAN 인증서는 현재 제한 때문에 주체 대체 이름의 마지막 항목만 사용되고 다른 항목은 무시되므로 권장되지 않습니다. 예를 들어 해당 SAN이 **node1.domain.contoso.com** 및 **node2.domain.contoso.com** 인 SAN 인증서가 있으며 해당 FQDN이 **node2.domain.contoso.com** 인 컴퓨터에만 이 인증서를 사용할 수 있습니다.
+- 와일드 카드 인증서가 지원됩니다. FQDN 이름이 **node1.domain.contoso.com** 인 경우 인증서의 주체 이름으로 **_. domain.contoso.com_* 을 사용할 수 있습니다.
+- SAN 인증서는 현재 제한 때문에 주체 대체 이름의 마지막 항목만 사용되고 다른 항목은 무시되므로 권장되지 않습니다. 예: 해당 SAN이 **node1.domain.contoso.com** 및 **node2.domain.contoso.com** 인 SAN 인증서가 있으며 해당 FQDN이 **node2.domain.contoso.com** 인 컴퓨터에만 이 인증서를 사용할 수 있습니다.
 - 는 TLS/SSL 인증서에 대해 Windows Server 2012 r 2에서 지 원하는 모든 키 크기를 지원 합니다.
 - CNG 키를 사용하는 인증서는 지원되지 않습니다.
 
@@ -181,9 +181,9 @@ Azure Portal에서 게이트웨이 노드의 상태와 함께 각 노드의 리�
 
 ![데이터 관리 게이트웨이 - 다중 노드 모니터링](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
 
-**게이트웨이** 페이지에서 **고급 설정** 을 활성화하여 **네트워크** (수신/송신), 게이트웨이 문제를 디버깅하는 데 유용한 **역할 및 자격 증명 상태** 및 성능 튜닝 중의 결과에 따라 수정/변경할 수 있는 **동시 작업** (실행/제한)과 같은 고급 메트릭을 확인할 수 있습니다. 다음 표에서는 **게이트웨이 노드** 목록의 열에 대해 설명합니다.  
+**게이트웨이** 페이지에서 **고급 설정** 을 활성화하여 **네트워크**(수신/송신), 게이트웨이 문제를 디버깅하는 데 유용한 **역할 및 자격 증명 상태** 및 성능 튜닝 중의 결과에 따라 수정/변경할 수 있는 **동시 작업**(실행/제한)과 같은 고급 메트릭을 확인할 수 있습니다. 다음 표에서는 **게이트웨이 노드** 목록의 열에 대해 설명합니다.  
 
-모니터링 속성 | 설명
+모니터링 속성 | Description
 :------------------ | :---------- 
 Name | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다.  
 상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예: 온라인/오프 라인/제한 됨/등 이러한 상태에 대 한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조 하세요. 
@@ -211,7 +211,7 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
 
 다음 표에서는 **논리 게이트웨이** 에 가능한 상태에 대해 설명합니다. 게이트웨이 상태는 게이트웨이 노드의 상태에 따라 달라집니다. 
 
-상태 | 주석
+상태 | 의견
 :----- | :-------
 등록이 필요합니다. | 이 논리 게이트웨이에 노드가 아직 등록되지 않았습니다.
 온라인 | 게이트웨이 노드가 온라인 상태입니다.

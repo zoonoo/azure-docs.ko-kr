@@ -12,11 +12,11 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 96e679c0b284cc649dbde3fba1b640f4e09df05e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201653"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001850"
 ---
 # <a name="quickstart-fivetran-with-data-warehouse"></a>빠른 시작: 데이터 웨어하우스가 있는 Fivetran 
 
@@ -34,7 +34,7 @@ ms.locfileid: "85201653"
 
    SSH 터널을 통한 연결을 선택하면 Fivetran이 네트워크의 별도 서버에 연결합니다. 해당 서버에서 데이터베이스에 대한 SSH 터널을 제공합니다. 데이터베이스가 가상 네트워크에서 액세스할 수 없는 서브넷에 있는 경우 이 방법을 사용해야 합니다.
 
-3. Fivetran에서 데이터 웨어하우스 인스턴스에 들어오는 연결을 허용하도록 서버 수준 방화벽에 IP 주소 **52.0.2.4**를 추가합니다.
+3. Fivetran에서 데이터 웨어하우스 인스턴스에 들어오는 연결을 허용하도록 서버 수준 방화벽에 IP 주소 **52.0.2.4** 를 추가합니다.
 
    자세한 내용은 [서버 수준 방화벽 규칙 만들기](create-data-warehouse-portal.md#create-a-server-level-firewall-rule)를 참조하세요.
 
@@ -82,5 +82,5 @@ Fivetran 계정에서 데이터 웨어하우스에 연결하려면 데이터 웨
 * 호스트(서버 이름).
 * 포트.
 * 데이터베이스.
-* 사용자(사용자 이름은 **fivetran\@_server_name_** 이어야 하며, 여기서 *server_name*은 Azure host URI: **_server\_name_.database.windows.net**의 일부임).
+* 사용자(사용자 이름은 **fivetran\@_server_name_** 이어야 하며, 여기서 *server_name* 은 Azure host URI: **_server\_name_.database.windows.net** 의 일부임).
 * Password.

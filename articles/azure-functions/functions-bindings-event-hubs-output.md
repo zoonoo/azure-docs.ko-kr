@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: ab1171c69dc210051f034e8444c87de5d49a92be
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491412"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002082"
 ---
 # <a name="azure-event-hubs-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Event Hubs 출력 바인딩
 

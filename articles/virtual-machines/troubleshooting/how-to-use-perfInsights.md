@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361350"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002666"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Azure에서 PerfInsights를 사용 하는 방법
 
@@ -118,15 +118,15 @@ Windows VM, 디스크 또는 스토리지 풀 구성, 성능 카운터, 로그 �
 | SQL Server 구성          | 예                        | 예                                | 예                      | 예                  | 예                  |
 | 성능 진단 추적 *  | 예                        | 예                                | 예                      | 예                  | 예                  |
 | 성능 카운터 추적 **      |                            |                                    | 예                      |                      | 예                  |
-| SMB 카운터 추적 **              |                            |                                    |                          | 예                  |                      |
+| SMB 카운터 추적 **              |                            |                                    |                          | Yes                  |                      |
 | SQL Server 카운터 추적 **       |                            |                                    | 예                      |                      | 예                  |
-| XPerf 추적                       |                            |                                    |                          |                      | 예                  |
-| StorPort 추적                    |                            |                                    |                          |                      | 예                  |
+| XPerf 추적                       |                            |                                    |                          |                      | Yes                  |
+| StorPort 추적                    |                            |                                    |                          |                      | Yes                  |
 | 네트워크 추적                     |                            |                                    |                          | 예                  | 예                  |
-| Diskspd 벤치마크 추적 ***       |                            | 예                                |                          |                      |                      |
+| Diskspd 벤치 마크 추적 * * _       |                            | Yes                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
-### <a name="performance-diagnostics-trace-"></a>성능 진단 추적 (*)
+### <a name="performance-diagnostics-trace-_"></a>성능 진단 추적 (_)
 
 백그라운드에서 규칙 기반 엔진을 실행하여 데이터를 수집하고 지속적인 성능 문제를 진단합니다. 현재 지원되는 규칙은 다음과 같습니다.
 
@@ -154,7 +154,7 @@ Windows VM, 디스크 또는 스토리지 풀 구성, 성능 카운터, 로그 �
 #### <a name="for-azure-files"></a>Azure Files의 경우
 \SMB Client Shares
 
-### <a name="diskspd-benchmark-trace-"></a>Diskspd 벤치마크 추적 (***)
+### <a name="diskspd-benchmark-trace-_"></a>Diskspd 벤치 마크 추적 (* * _)
 Diskspd IO 워크로드 테스트(OS 디스크[쓰기] 및 풀 드라이브[읽기/쓰기])
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>VM에서 PerfInsights 도구 실행
@@ -165,13 +165,12 @@ Diskspd IO 워크로드 테스트(OS 디스크[쓰기] 및 풀 드라이브[읽�
 
 -  이 도구는 성능 문제가 있는 VM에서 실행해야 합니다. 
 
--  지원되는 운영 체제는 다음과 같습니다.
-   * Windows Server 2019
+-  지원 되는 운영 체제는 다음과 같습니다. _ Windows Server 2019
    * Windows Server 2016
    * Windows Server 2012 R2
    * Windows Server 2012
    * Windows Server 2008 R2
-   * 윈도우 10
+   * Windows 10
    * Windows 8.1
    * Windows 8
 
@@ -198,7 +197,7 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
 
 1. [PerfInsights.zip](https://aka.ms/perfinsightsdownload)을 다운로드합니다.
 
-2. PerfInsights.zip 파일의 차단을 해제합니다. 이렇게 하려면 PerfInsights.zip 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. **일반** 탭에서 **차단 해제**를 선택한 다음 **확인**을 선택합니다. 이렇게 하면 추가 보안을 요구하는 메시지가 표시되지 않고 이 도구가 실행됩니다.  
+2. PerfInsights.zip 파일의 차단을 해제합니다. 이렇게 하려면 PerfInsights.zip 파일을 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. **일반** 탭에서 **차단 해제** 를 선택한 다음 **확인** 을 선택합니다. 이렇게 하면 추가 보안을 요구하는 메시지가 표시되지 않고 이 도구가 실행됩니다.  
 
     ![차단 해제가 강조 표시된 PerfInsights 스크린샷](media/how-to-use-perfInsights/pi-unlock-file.png)
 
@@ -249,9 +248,9 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
     >
     >기본적으로 PerfInsights는 사용 가능한 최신 버전으로 자체적으로 업데이트를 시도합니다. 자동 업데이트를 건너뛰려면 **/SkipAutoUpdate** 또는 **/sau** 매개 변수를 사용합니다.  
     >
-    >기간 스위치 **/d**를 지정하지 않으면 PerfInsights는 vmslow, azurefiles 및 고급 시나리오를 실행하면서 해당 문제를 재현하도록 요구합니다. 
+    >기간 스위치 **/d** 를 지정하지 않으면 PerfInsights는 vmslow, azurefiles 및 고급 시나리오를 실행하면서 해당 문제를 재현하도록 요구합니다. 
 
-추적 또는 작업이 완료되면 PerfInsights와 동일한 폴더에 새 파일이 나타납니다. 이 파일의 이름은 **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip**입니다. 분석을 위해 지원 담당자에게 이 파일을 전송하거나 zip 파일 내의 보고서를 열어 결과 및 권장 사항을 검토할 수 있습니다.
+추적 또는 작업이 완료되면 PerfInsights와 동일한 폴더에 새 파일이 나타납니다. 이 파일의 이름은 **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** 입니다. 분석을 위해 지원 담당자에게 이 파일을 전송하거나 zip 파일 내의 보고서를 열어 결과 및 권장 사항을 검토할 수 있습니다.
 
 ## <a name="review-the-diagnostics-report"></a>진단 보고서 검토
 
@@ -277,13 +276,13 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
 
 ![디스크 탭 스크린샷](media/how-to-use-perfInsights/pi-disk-tab.png)
 
-볼륨 관점(볼륨 맵)에서 테이블은 각 논리 볼륨 아래의 모든 실제 디스크를 표시합니다. RAID/동적 디스크의 경우 여러 실제 디스크에서 논리 볼륨을 실행할 수 있습니다. 다음 예에서 *C:\\mount*는 실제 디스크 2 및 3에서 *SpannedDisk*로 구성된 탑재 지점입니다.
+볼륨 관점(볼륨 맵)에서 테이블은 각 논리 볼륨 아래의 모든 실제 디스크를 표시합니다. RAID/동적 디스크의 경우 여러 실제 디스크에서 논리 볼륨을 실행할 수 있습니다. 다음 예에서 *C:\\mount* 는 실제 디스크 2 및 3에서 *SpannedDisk* 로 구성된 탑재 지점입니다.
 
 ![볼륨 탭 스크린샷](media/how-to-use-perfInsights/pi-volume-tab.png)
 
 ### <a name="sql-tab"></a>SQL 탭
 
-대상 VM에서 SQL Server 인스턴스를 호스팅하는 경우 **SQL**이라는 보고서에 추가 탭이 표시됩니다.
+대상 VM에서 SQL Server 인스턴스를 호스팅하는 경우 **SQL** 이라는 보고서에 추가 탭이 표시됩니다.
 
 ![SQL 탭 스크린샷](media/how-to-use-perfInsights/pi-sql-tab.png)
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 302f1a081ca44cf6436f2c318b03e227f6640489
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543086"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001969"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Visual Studio Code Spark & Hive 도구 사용
 
@@ -64,7 +64,7 @@ Spark & Hive Tools는 Visual Studio Code가 지원하는 플랫폼에 설치할 
 국가별 클라우드 사용자의 경우 다음 단계에 따라 먼저 Azure 환경을 설정 하 고 azure **: 로그인** 명령을 사용 하 여 azure에 로그인 합니다.
 
 1. **파일**  >  **기본**  >  **설정** 으로 이동 합니다.
-2. 다음 문자열을 검색 합니다. **Azure: Cloud** .
+2. 다음 문자열을 검색 합니다. **Azure: Cloud**.
 3. 목록에서 국가 클라우드를 선택 합니다.
 
    ![기본 로그인 항목 구성 설정](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
@@ -305,7 +305,7 @@ PySpark 대화형 명령을 사용하여 쿼리를 제출하려면 다음 단계
 
    ![Python 작업 결과 출력 제출](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-Python 작업을 제출한 후 제출 로그는 Visual Studio Code의 _ *출력* * 창에 표시 됩니다. Spark UI URL 및 Yarn UI URL도 표시 됩니다. Apache Spark 풀에 batch 작업을 제출 하는 경우 Spark 기록 UI URL 및 Spark 작업 응용 프로그램 UI URL도 표시 됩니다. 웹 브라우저에서 URL을 열어 작업 상태를 추적할 수 있습니다.
+Python 작업을 제출한 후 제출 로그는 Visual Studio Code의 _ *출력** 창에 표시 됩니다. Spark UI URL 및 Yarn UI URL도 표시 됩니다. Apache Spark 풀에 batch 작업을 제출 하는 경우 Spark 기록 UI URL 및 Spark 작업 응용 프로그램 UI URL도 표시 됩니다. 웹 브라우저에서 URL을 열어 작업 상태를 추적할 수 있습니다.
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>HIB(HDInsight Identity Broker)와 통합
 
@@ -353,20 +353,20 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
   | name | description | 형식 |
   | --- | --- | --- |
   | 파일 | 실행할 애플리케이션이 포함된 파일 | Path (필수) |
-  | proxyUser | 작업을 실행할 때 가장할 사용자 | 문자열 |
-  | className | 애플리케이션 Java/Spark 주 클래스 | 문자열 |
+  | proxyUser | 작업을 실행할 때 가장할 사용자 | String |
+  | className | 애플리케이션 Java/Spark 주 클래스 | String |
   | args | 응용 프로그램에 대 한 명령줄 인수 | 문자열 목록 |
   | jars | 이 세션에서 사용할 jar | 문자열 목록 | 
   | pyFiles | 이 세션에서 사용할 Python 파일 | 문자열 목록 |
   | files | 이 세션에 사용할 파일입니다. | 문자열 목록 |
-  | driverMemory | 드라이버 프로세스에 사용할 메모리 크기 | 문자열 |
+  | driverMemory | 드라이버 프로세스에 사용할 메모리 크기 | String |
   | driverCores | 드라이버 프로세스에 사용할 코어 수 | Int |
-  | executorMemory | 실행기 프로세스당 사용할 메모리 크기 | 문자열 |
+  | executorMemory | 실행기 프로세스당 사용할 메모리 크기 | String |
   | executorCores | 각 실행기에 사용할 코어 수 | Int |
   | numExecutors | 이 세션에서 시작할 실행기 수 | Int |
   | archives | 이 세션에서 사용할 보관 파일 | 문자열 목록 |
-  | queue | 제출할 YARN 큐의 이름입니다.| 문자열 |
-  | name | 이 세션의 이름 | 문자열 |
+  | queue | 제출할 YARN 큐의 이름입니다.| String |
+  | name | 이 세션의 이름 | String |
   | conf | Spark 구성 속성 | 키=값 맵 |
 
   **응답 본문** 만든 일괄 처리 개체입니다.
@@ -374,10 +374,10 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
   | name | description | 형식 |
   | --- | ---| --- |
   | ID | 세션 ID | Int |
-  | appId | 이 세션의 응용 프로그램 ID | 문자열 |
+  | appId | 이 세션의 응용 프로그램 ID | String |
   | appInfo | 자세한 응용 프로그램 정보 | 키=값 맵 |
   | log | 로그 줄 | 문자열 목록 |
-  | state |일괄 처리 상태 | 문자열 |
+  | state |일괄 처리 상태 | String |
 
   > [!NOTE]
   > 할당 된 Livy 구성은 스크립트를 제출할 때 출력 창에 표시 됩니다.
@@ -394,7 +394,7 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
 
 4. 클러스터를 확장 하 여 Hive 메타 데이터 데이터베이스 및 테이블 스키마를 확인 합니다.
 
-5. Hive 테이블을 마우스 오른쪽 단추로 클릭 합니다. 예: **hivesampletable** . **미리 보기** 를 선택합니다.
+5. Hive 테이블을 마우스 오른쪽 단추로 클릭 합니다. 예: **hivesampletable**. **미리 보기** 를 선택합니다.
 
    ![Visual Studio Code 미리 보기 hive 테이블의 Spark & Hive](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
@@ -422,12 +422,12 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
 
 Visual Studio Code에 대 한 Spark & Hive는 또한 다음과 같은 기능을 지원 합니다.
 
-- **IntelliSense 자동 완성** . 키워드, 메서드, 변수 및 기타 프로그래밍 요소에 대 한 제안이 팝업 됩니다. 다음과 같이 개체 형식마다 다른 아이콘으로 표시됩니다.
+- **IntelliSense 자동 완성**. 키워드, 메서드, 변수 및 기타 프로그래밍 요소에 대 한 제안이 팝업 됩니다. 다음과 같이 개체 형식마다 다른 아이콘으로 표시됩니다.
 
     ![IntelliSense 개체 Visual Studio Code Spark & Hive 도구](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
 
 - **IntelliSense 오류 표식** 입니다. 언어 서비스는 Hive 스크립트의 편집 오류에 밑줄을 긋습니다.     
-- **구문 강조 표시** . 언어 서비스는 변수, 키워드, 데이터 형식, 함수 및 기타 프로그래밍 요소를 구분 하는 데 서로 다른 색을 사용 합니다.
+- **구문 강조 표시**. 언어 서비스는 변수, 키워드, 데이터 형식, 함수 및 기타 프로그래밍 요소를 구분 하는 데 서로 다른 색을 사용 합니다.
 
     ![Visual Studio Code용 Spark & Hive Tools 구문 강조 표시](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 

@@ -10,11 +10,11 @@ ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperfq2
 ms.date: 10/30/2020
 ms.openlocfilehash: 4c0d12e4c37476b9ae71962251105ef92aa39120
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845206"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004282"
 ---
 # <a name="configure-hdinsight-clusters-for-active-directory-integration-with-enterprise-security-package"></a>Enterprise Security Package와 Active Directory 통합을 위해 HDInsight 클러스터 구성
 
@@ -29,7 +29,7 @@ Enterprise Security Package (ESP)는 Azure HDInsight에 대 한 Active Directory
 > [!NOTE]  
 > ESP는 Apache Spark, Interactive, Hadoop 및 HBase 클러스터 유형에 대해 일반적으로 HDInsight 3.6 및 4.0에서 사용할 수 있습니다. Apache Kafka 클러스터 형식에 대 한 ESP는 최상의 지원과 함께 미리 보기 상태입니다. ESP GA 날짜 이전에 만든 ESP 클러스터 (2018 년 10 월 1 일)는 지원 되지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 ESP 사용 HDInsight 클러스터를 만들려면 몇 가지 필수 구성 요소를 완료 해야 합니다.
 

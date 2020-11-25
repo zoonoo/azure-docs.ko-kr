@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
 ms.openlocfilehash: 4e115de4f86baba9559730d94f45ab7b17cc4379
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357966"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002207"
 ---
 # <a name="tutorial-configure-spaceiq-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 SpaceIQ 구성
 

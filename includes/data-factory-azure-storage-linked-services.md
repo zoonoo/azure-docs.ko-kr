@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 37917e0ed663675677f1d0452b5796120ca2694e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75468089"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001744"
 ---
 ### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
-**Azure Storage 연결된 서비스**에서 **계정 키**를 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있으며, 이렇게 하면 데이터 팩터리에 Azure Storage에 대한 전역 액세스가 제공됩니다. 다음 테이블은 Azure Storage 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
+**Azure Storage 연결된 서비스** 에서 **계정 키** 를 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있으며, 이렇게 하면 데이터 팩터리에 Azure Storage에 대한 전역 액세스가 제공됩니다. 다음 테이블은 Azure Storage 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -39,7 +39,7 @@ ms.locfileid: "75468089"
 SAS(공유 액세스 서명)는 스토리지 계정의 리소스에 대한 위임된 권한을 제공합니다. 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에 스토리지 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다. SAS는 스토리지 리소스에 인증된 액세스를 수행하는 데 필요한 모든 정보가 쿼리 매개 변수에 있는 URI입니다. SAS를 사용하여 스토리지 리소스에 액세스하려는 클라이언트는 SAS를 적절한 생성자 또는 메서드에 전달하면 됩니다. SAS에 대한 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../articles/storage/common/storage-sas-overview.md)를 참조하세요.
 
 > [!IMPORTANT]
-> Azure Data Factory는 이제 **서비스 SAS**만 지원하며 계정 SAS는 지원하지 않습니다. Azure Portal 또는 Storage Explorer에서 생성할 수 있는 SAS URL는 지원되지 않는 계정 SAS입니다.
+> Azure Data Factory는 이제 **서비스 SAS** 만 지원하며 계정 SAS는 지원하지 않습니다. Azure Portal 또는 Storage Explorer에서 생성할 수 있는 SAS URL는 지원되지 않는 계정 SAS입니다.
 
 > [!TIP]
 > 아래의 PowerShell 명령을 실행하여 스토리지 계정에 대한 서비스 SAS를 생성할 수 있습니다(자리 표시자를 바꾸고 필요한 권한 부여).`$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
@@ -66,9 +66,9 @@ Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사�
 }
 ```
 
-**SAS URI**를 만들 때 다음 사항을 고려하세요.  
+**SAS URI** 를 만들 때 다음 사항을 고려하세요.  
 
-* 데이터 팩터리에서 연결된 서비스(읽기, 쓰기, 읽기/쓰기)를 사용하는 방식에 따라 개체에 적절한 읽기/쓰기 **권한**을 설정합니다.
-* **만료 시간**을 적절하게 설정합니다. Azure Storage 개체에 대한 액세스가 파이프라인의 활성 기간 내에 만료되지 않아야 합니다.
+* 데이터 팩터리에서 연결된 서비스(읽기, 쓰기, 읽기/쓰기)를 사용하는 방식에 따라 개체에 적절한 읽기/쓰기 **권한** 을 설정합니다.
+* **만료 시간** 을 적절하게 설정합니다. Azure Storage 개체에 대한 액세스가 파이프라인의 활성 기간 내에 만료되지 않아야 합니다.
 * 필요에 따라 올바른 컨테이너/BLOB 또는 테이블 수준에서 URI가 만들어져야 합니다. Azure BLOB에 대한 SAS URI를 사용하면 Data Factory 서비스에서 특정 BLOB에 액세스할 수 있습니다. Azure BLOB 컨테이너에 대한 SAS URI를 사용하면 Data Factory 서비스의 해당 컨테이너에서 BLOB을 반복할 수 있습니다. 나중에 더 많은/더 적은 개체에 대한 액세스를 제공하거나 SAS URI를 업데이트해야 하는 경우 연결된 서비스를 새 URI로 업데이트합니다.   
 

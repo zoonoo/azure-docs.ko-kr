@@ -7,12 +7,12 @@ ms.date: 08/11/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 3b7c9b51bad45bb348f70c8b0e433404b49b5aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e6c090c02798103a30cc68f2ca28e8c4f7f2f17
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761365"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96004265"
 ---
 # <a name="set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>IoT 플러그 앤 플레이 퀵 스타트 및 자습서에 대 한 환경 설정
 
@@ -20,7 +20,7 @@ IoT 플러그 앤 플레이 퀵 스타트 및 자습서를 완료 하기 전에 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-Azure CLI를 로컬로 설치 해야 하는 요구 사항을 방지 하기 위해 Azure Cloud Shell를 사용 하 여 클라우드 서비스를 설정할 수 있습니다.
+Azure CLI를 로컬에 설치해야 하는 요구 사항을 피하려면, Azure Cloud Shell을 사용하여 클라우드 서비스를 설정하면 됩니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -114,7 +114,7 @@ set IOTHUB_DEVICE_ID=my-pnp-device
 
 퀵 스타트 및 자습서에서는 온도 컨트롤러 및 자동 온도 조절기 장치에 대 한 샘플 모델 파일을 사용 합니다. 샘플 모델 파일을 다운로드 하려면 다음을 수행 합니다.
 
-1. *모델*이라는 폴더를 로컬 머신에 만듭니다.
+1. *모델* 이라는 폴더를 로컬 머신에 만듭니다.
 
 1. [TemperatureController.json](https://raw.githubusercontent.com/Azure/opendigitaltwins-dtdl/master/DTDL/v2/samples/TemperatureController.json)을 마우스 오른쪽 단추로 클릭하고 JSON 파일을 *모델* 폴더에 저장합니다.
 
@@ -126,9 +126,9 @@ set IOTHUB_DEVICE_ID=my-pnp-device
 
 도구를 처음 실행할 때 IoT hub 연결 문자열을 입력 하 라는 메시지가 표시 됩니다. 이전에 적어 둔 연결 문자열을 사용 합니다.
 
-이전에 다운로드 한 모델 파일을 사용 하도록 도구를 구성 합니다. 도구의 홈 페이지에서 **IoT 플러그 앤 플레이 설정**을 선택 하 고 **+ > 로컬 폴더 추가**를 선택 합니다. 이전에 만든 *모델* 폴더를 선택 합니다. 그런 다음, **저장** 을 선택 하 여 설정을 저장 합니다.
+이전에 다운로드 한 모델 파일을 사용 하도록 도구를 구성 합니다. 도구의 홈 페이지에서 **IoT 플러그 앤 플레이 설정** 을 선택 하 고 **+ > 로컬 폴더 추가** 를 선택 합니다. 이전에 만든 *모델* 폴더를 선택 합니다. 그런 다음, **저장** 을 선택 하 여 설정을 저장 합니다.
 
-자세히 알아보려면 [Azure IoT 탐색기 설치 및 사용](howto-use-iot-explorer.md)을 참조 하세요.
+자세히 알아보려면 [Azure IoT 탐색기 설치 및 사용](howto-use-iot-explorer.md)을 참조하세요.
 
 ## <a name="remove-the-resources"></a>리소스 제거
 
@@ -143,4 +143,4 @@ az group delete --name my-pnp-resourcegroup
 환경을 설정 했으므로 다음과 같은 빠른 시작 또는 자습서 중 하나를 시도할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [샘플 IoT 플러그 앤 플레이 장치 응용 프로그램을 IoT Hub (Node.js)에 연결](quickstart-connect-device-node.md)
+> [샘플 IoT 플러그 앤 플레이 장치 응용 프로그램을 IoT Hub에 연결](quickstart-connect-device.md)
