@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
 ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217561"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018208"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -34,7 +34,7 @@ ms.locfileid: "92217561"
 경고에 대 한 쿼리 작성을 시작 하는 단계는 다음과 같습니다.
 
 1. 경고를 원하는 리소스로 이동 합니다.
-1. **모니터**에서 **로그**를 선택 합니다.
+1. **모니터** 에서 **로그** 를 선택 합니다.
 1. 문제를 나타낼 수 있는 로그 데이터를 쿼리합니다. [경고 쿼리 예제 항목](../log-query/saved-queries.md) 을 사용 하 여 [사용자가 직접 쿼리를 작성](../log-query/get-started-portal.md)하기 위해 검색 하거나 시작할 수 있는 항목을 이해할 수 있습니다. 또한 [최적화된 경고 쿼리를 만드는 방법에 대해 알아봅니다](alerts-log-query.md).
 1. ' + 새 경고 규칙 ' 단추를 눌러 경고 생성 흐름을 시작 합니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "92217561"
 
 1. 로그 경고는 다음과 같은 두 가지 유형의 [**측정값**](alerts-unified-log.md#measure)을 기반으로 할 수 있습니다.
     1. **결과 수** -쿼리에서 반환 된 레코드 수입니다.
-    1. **메트릭 측정**  -  선택 된 식 및 [bin ()](/azure/kusto/query/binfunction) 선택 항목 별로 그룹화 된 요약을 사용 하 여 계산 된 *집계 값* 입니다. 예를 들어:
+    1. **메트릭 측정**  -  선택 된 식 및 [bin ()](/azure/kusto/query/binfunction) 선택 항목 별로 그룹화 된 요약을 사용 하 여 계산 된 *집계 값* 입니다. 예들 들어 다음과 같습니다.
 
     ```Kusto
     // Reported errors
@@ -77,11 +77,11 @@ ms.locfileid: "92217561"
 
 1. 그런 다음 미리 보기 데이터를 기반으로 [ **연산자**, **임계값**](alerts-unified-log.md#threshold-and-operator)및 [**빈도**](alerts-unified-log.md#frequency)를 설정 합니다.
 
-1. 또한 필요에 따라 **전체 또는 연속 위반**을 사용 하 여 [경고를 트리거하기 위한 위반 수](alerts-unified-log.md#number-of-violations-to-trigger-alert) 를 설정할 수 있습니다.
+1. 또한 필요에 따라 **전체 또는 연속 위반** 을 사용 하 여 [경고를 트리거하기 위한 위반 수](alerts-unified-log.md#number-of-violations-to-trigger-alert) 를 설정할 수 있습니다.
 
 1. **완료** 를 선택합니다. 
 
-1. **경고 규칙 이름**, **설명**을 정의 하 고 경고 **심각도**를 선택 합니다. 이러한 세부 정보는 모든 경고 작업에 사용 됩니다. 또한 만들 **때 규칙 사용**을 선택 하 여 경고 규칙을 만들 때 활성화 하지 않도록 선택할 수 있습니다.
+1. **경고 규칙 이름**, **설명** 을 정의 하 고 경고 **심각도** 를 선택 합니다. 이러한 세부 정보는 모든 경고 작업에 사용 됩니다. 또한 만들 **때 규칙 사용** 을 선택 하 여 경고 규칙을 만들 때 활성화 하지 않도록 선택할 수 있습니다.
 
 1. 경고가 발생 한 후에 규칙 작업을 표시 하지 않을 지 여부를 선택 하 고 [**경고 표시 안 함**](alerts-unified-log.md#state-and-resolving-alerts) 옵션을 사용 합니다. 규칙은 계속 실행 되 고 경고를 생성 하지만 노이즈를 방지 하기 위해 동작이 트리거되지 않습니다. 음소거 작업 값은 경고를 적용 하는 빈도 보다 커야 합니다.
 
@@ -110,11 +110,11 @@ ms.locfileid: "92217561"
 > [!NOTE]
 > 경고 관리에서 만들기는 현재 리소스 중심 로그에 대해 지원 되지 않습니다.
 
-1. [포털](https://portal.azure.com/)에서 **모니터** 를 선택 하 고 **경고**를 선택 합니다.
+1. [포털](https://portal.azure.com/)에서 **모니터** 를 선택 하 고 **경고** 를 선택 합니다.
 
     ![모니터링](media/alerts-log/AlertsPreviewMenu.png)
 
-1. **새 경고 규칙**을 선택 합니다. 
+1. **새 경고 규칙** 을 선택 합니다. 
 
     ![Add alert](media/alerts-log/AlertsPreviewOption.png)
 
@@ -126,7 +126,7 @@ ms.locfileid: "92217561"
 
     ![규칙 만들기](media/alerts-log/AlertsPreviewAdd.png)
 
-1. **리소스 선택** 단추를 누릅니다. *구독*, *리소스 종류*를 선택 하 여 필터링 하 고 리소스를 선택 합니다. 리소스에 로그를 사용할 수 있는지 확인 합니다.
+1. **리소스 선택** 단추를 누릅니다. *구독*, *리소스 종류* 를 선택 하 여 필터링 하 고 리소스를 선택 합니다. 리소스에 로그를 사용할 수 있는지 확인 합니다.
 
    ![리소스 선택](media/alerts-log/Alert-SelectResourceLog.png)
 
@@ -164,7 +164,7 @@ ms.locfileid: "92217561"
 
         ![차트 미리 보기](media/alerts-log/preview-chart.png)
 
-    1. 그런 다음 미리 보기 데이터를 기반으로 **경고 논리**를 설정 합니다. [ **연산자**, **임계값**](alerts-unified-log.md#threshold-and-operator)및 [**Frequency**](alerts-unified-log.md#frequency)값이 있습니다.
+    1. 그런 다음 미리 보기 데이터를 기반으로 **경고 논리** 를 설정 합니다. [ **연산자**, **임계값**](alerts-unified-log.md#threshold-and-operator)및 [**Frequency**](alerts-unified-log.md#frequency)값이 있습니다.
 
         ![임계값 및 경고 논리를 사용 하 여 차트 미리 보기](media/alerts-log/chart-and-alert-logic.png)
 
@@ -176,7 +176,7 @@ ms.locfileid: "92217561"
 
     ![작업 탭](media/alerts-log/actions-tab.png)
 
-1. **세부 정보** 탭에서 **경고 규칙 세부 정보**및 **프로젝트 세부 정보**를 정의 합니다. 필요에 따라 작업 **실행을 시작**하지 않을 지 여부를 설정 하거나 경고 규칙이 실행 된 후 기간에 대 한 [**작업을 음소거**](alerts-unified-log.md#state-and-resolving-alerts) 할 수 있습니다.
+1. **세부 정보** 탭에서 **경고 규칙 세부 정보** 및 **프로젝트 세부 정보** 를 정의 합니다. 필요에 따라 작업 **실행을 시작** 하지 않을 지 여부를 설정 하거나 경고 규칙이 실행 된 후 기간에 대 한 [**작업을 음소거**](alerts-unified-log.md#state-and-resolving-alerts) 할 수 있습니다.
 
     > [!NOTE]
     > 로그 경고 규칙은 현재 상태 비저장 이며 음소거가 정의 되지 않은 경우 경고가 생성 될 때마다 작업을 발생 시킵니다.
@@ -265,7 +265,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
 
 이전 섹션에서는 Azure Portal를 사용 하 여 로그 경고 규칙을 만들고, 보고, 관리 하는 방법을 설명 했습니다. 이번 섹션에서는 플랫폼 간 [Azure CLI](/cli/azure/get-started-with-azure-cli)를 사용하여 동일한 작업을 수행하는 방법을 설명합니다. Azure CLI를 가장 빠르게 사용하는 방법은 [Azure Cloud Shell](../../cloud-shell/overview.md)입니다. 이 문서에서는 Cloud Shell을 사용 합니다.
 
-1. Azure Portal로 이동 하 여 **Cloud Shell**을 선택 합니다.
+1. Azure Portal로 이동 하 여 **Cloud Shell** 을 선택 합니다.
 
 1. 프롬프트에서 ``--help`` 옵션이 있는 명령을 사용하여 명령 및 사용 방법에 대해 자세히 알아볼 수 있습니다. 예를 들어 다음 명령은 로그 경고를 만들고 보고 관리 하는 데 사용할 수 있는 명령 목록을 보여줍니다.
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: a547a874c42d06d8453b154847561d8b5f0dabb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361394"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019198"
 ---
 # <a name="manage-process-servers"></a>프로세스 서버 관리
 
@@ -37,18 +37,18 @@ ms.locfileid: "91361394"
 
 다음과 같이 두 프로세스 서버 간에 Vm을 이동 하 여 부하를 분산 합니다.
 
-1. 자격 증명 모음에서 **관리** 아래 **Site Recovery 인프라**를 클릭 합니다. **VMware & 물리적 컴퓨터의**경우에서 **구성 서버**를 클릭 합니다.
+1. 자격 증명 모음에서 **관리** 아래 **Site Recovery 인프라** 를 클릭 합니다. **VMware & 물리적 컴퓨터의** 경우에서 **구성 서버** 를 클릭 합니다.
 2. 프로세스 서버가 등록 된 구성 서버를 클릭 합니다.
 3. 트래픽 부하를 분산 하려는 프로세스 서버를 클릭 합니다.
 
     ![스크린샷에는 트래픽 부하를 분산할 수 있는 프로세스 서버가 표시 됩니다.](media/vmware-azure-manage-process-server/LoadBalance.png)
 
-4. **부하 분산**을 클릭 하 고 컴퓨터를 이동 하려는 대상 프로세스 서버를 선택 합니다. 그런 다음 **확인을** 클릭 합니다.
+4. **부하 분산** 을 클릭 하 고 컴퓨터를 이동 하려는 대상 프로세스 서버를 선택 합니다. 그런 다음 **확인을** 클릭 합니다.
 
     ![대상 프로세스 서버 선택이 선택 된 부하 분산 창이 스크린샷으로 표시 됩니다.](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
-2. **컴퓨터 선택**을 클릭 하 고 현재에서 대상 프로세스 서버로 이동 하려는 컴퓨터를 선택 합니다. 평균 데이터 변경의 세부 정보는 각 가상 머신에 대해 표시됩니다. 그런 후 **OK**를 클릭합니다. 
-3. 자격 증명 모음에서 작업의 진행 상황을 **모니터링**  >  **Site Recovery 작업**을 모니터링 합니다.
+2. **컴퓨터 선택** 을 클릭 하 고 현재에서 대상 프로세스 서버로 이동 하려는 컴퓨터를 선택 합니다. 평균 데이터 변경의 세부 정보는 각 가상 머신에 대해 표시됩니다. 그런 후 **OK** 를 클릭합니다. 
+3. 자격 증명 모음에서 작업의 진행 상황을 **모니터링**  >  **Site Recovery 작업** 을 모니터링 합니다.
 
 변경 내용이 포털에 반영 되는 데 약 15 분이 소요 됩니다. 더 빠른 효과를 위해 [구성 서버를 새로 고칩니다](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
@@ -56,20 +56,20 @@ ms.locfileid: "91361394"
 
 프로세스 서버에서 처리 하는 전체 작업을 다음과 같이 다른 프로세스 서버로 이동 합니다.
 
-1. 자격 증명 모음에서 **관리** 아래 **Site Recovery 인프라**를 클릭 합니다. **VMware & 물리적 컴퓨터의**경우에서 **구성 서버**를 클릭 합니다.
+1. 자격 증명 모음에서 **관리** 아래 **Site Recovery 인프라** 를 클릭 합니다. **VMware & 물리적 컴퓨터의** 경우에서 **구성 서버** 를 클릭 합니다.
 2. 프로세스 서버가 등록 된 구성 서버를 클릭 합니다.
 3. 작업을 전환 하려는 프로세스 서버를 클릭 합니다.
-4. **스위치**를 클릭 하 고 작업을 이동 하려는 대상 프로세스 서버를 선택 합니다. 그런 다음 **확인을** 클릭 합니다.
+4. **스위치** 를 클릭 하 고 작업을 이동 하려는 대상 프로세스 서버를 선택 합니다. 그런 다음 **확인을** 클릭 합니다.
 
     ![대상 프로세스 서버 선택 창을 보여 주는 스크린샷](media/vmware-azure-manage-process-server/Switch.PNG)
 
-5. 자격 증명 모음에서 작업의 진행 상황을 **모니터링**  >  **Site Recovery 작업**을 모니터링 합니다.
+5. 자격 증명 모음에서 작업의 진행 상황을 **모니터링**  >  **Site Recovery 작업** 을 모니터링 합니다.
 
 변경 내용이 포털에 반영 되는 데 약 15 분이 소요 됩니다. 더 빠른 효과를 위해 [구성 서버를 새로 고칩니다](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
 ## <a name="register-a-master-target-server"></a>마스터 대상 서버 등록
 
-마스터 대상 서버는 구성 서버 및 스케일 아웃 프로세스 서버에 상주 합니다. 구성 서버에 등록 해야 합니다. 이 등록에 오류가 발생 하는 경우 보호 된 항목의 상태에 영향을 줄 수 있습니다. 구성 서버에 마스터 대상 서버를 등록 하려면 등록이 필요한 특정 구성 서버/확장 프로세스 서버에 로그인 합니다. **%PROGRAMDATA%\ASR\Agent**폴더로 이동 하 고 관리자 명령 프롬프트에서 다음을 실행 합니다.
+마스터 대상 서버는 구성 서버 및 스케일 아웃 프로세스 서버에 상주 합니다. 구성 서버에 등록 해야 합니다. 이 등록에 오류가 발생 하는 경우 보호 된 항목의 상태에 영향을 줄 수 있습니다. 구성 서버에 마스터 대상 서버를 등록 하려면 등록이 필요한 특정 구성 서버/확장 프로세스 서버에 로그인 합니다. **%PROGRAMDATA%\ASR\Agent** 폴더로 이동 하 고 관리자 명령 프롬프트에서 다음을 실행 합니다.
 
    ```
    cmd
@@ -111,7 +111,7 @@ ms.locfileid: "91361394"
    net stop obengine
    net start obengine
    ```
-2. **%PROGRAMDATA%\ASR\Agent**폴더로 이동 하 고 다음 명령을 실행 합니다.
+2. **%PROGRAMDATA%\ASR\Agent** 폴더로 이동 하 고 다음 명령을 실행 합니다.
    ```
    cmd
    cdpcli.exe --registermt

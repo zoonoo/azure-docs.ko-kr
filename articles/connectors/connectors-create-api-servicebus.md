@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
 ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426644"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019715"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Azure Logic Apps 및 Azure Service Bus를 사용 하 여 클라우드의 메시지 교환
 
@@ -47,13 +47,13 @@ ms.locfileid: "92426644"
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure 계정으로 로그인 합니다.
 
-1. Service Bus *네임스페이스*로 이동합니다. 네임스페이스 페이지의 **설정**에서 **공유 액세스 정책**을 선택합니다. **클레임**에서 해당 네임 스페이스에 대 한 **관리** 권한이 있는지 확인 합니다.
+1. Service Bus *네임스페이스* 로 이동합니다. 네임스페이스 페이지의 **설정** 에서 **공유 액세스 정책** 을 선택합니다. **클레임** 에서 해당 네임 스페이스에 대 한 **관리** 권한이 있는지 확인 합니다.
 
    ![Service Bus 네임 스페이스에 대 한 사용 권한 관리](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
 
 1. Service Bus 네임스페이스에 대한 연결 문자열을 가져옵니다. 논리 앱에서 연결 정보를 제공 하는 경우이 문자열이 필요 합니다.
 
-   1. **공유 액세스 정책** 창에서 **RootManageSharedAccessKey**를 선택 합니다.
+   1. **공유 액세스 정책** 창에서 **RootManageSharedAccessKey** 를 선택 합니다.
 
    1. 기본 연결 문자열 옆에 있는 복사 단추를 선택 합니다. 나중에 사용할 연결 문자열을 저장합니다.
 
@@ -91,9 +91,9 @@ ms.locfileid: "92426644"
 
       ![연결 이름을 제공 하 고 Service Bus 네임 스페이스를 선택 하는 것을 보여 주는 스크린샷](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
 
-      연결 문자열을 수동으로 입력 하려면 **연결 정보를 수동으로 입력**을 선택 합니다. 연결 문자열이 없는 경우 [연결 문자열을 찾는 방법](#permissions-connection-string)에 대해 알아봅니다.
+      연결 문자열을 수동으로 입력 하려면 **연결 정보를 수동으로 입력** 을 선택 합니다. 연결 문자열이 없는 경우 [연결 문자열을 찾는 방법](#permissions-connection-string)에 대해 알아봅니다.
 
-   1. Service Bus 정책을 선택 하 고 **만들기**를 선택 합니다.
+   1. Service Bus 정책을 선택 하 고 **만들기** 를 선택 합니다.
 
       ![Service Bus 정책 선택을 보여 주는 스크린샷](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
 
@@ -119,9 +119,9 @@ ms.locfileid: "92426644"
 
 1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-1. 작업을 추가 하려는 단계 아래에서 **새 단계**를 선택 합니다.
+1. 작업을 추가 하려는 단계 아래에서 **새 단계** 를 선택 합니다.
 
-   또는 단계 간에 작업을 추가 하려면 해당 단계 사이의 화살표 위로 포인터를 이동 합니다. 표시 되는 더하기 기호 ()를 선택 **+** 하 고 **작업 추가**를 선택 합니다.
+   또는 단계 간에 작업을 추가 하려면 해당 단계 사이의 화살표 위로 포인터를 이동 합니다. 표시 되는 더하기 기호 ()를 선택 **+** 하 고 **작업 추가** 를 선택 합니다.
 
 1. **작업 선택** 아래의 검색 상자에 `azure service bus`을 입력합니다. 표시 되는 작업 목록에서 원하는 작업을 선택 합니다. 
 
@@ -135,9 +135,9 @@ ms.locfileid: "92426644"
 
       ![연결 이름을 제공 하 고 Service Bus 네임 스페이스를 선택 하는 것을 보여 주는 스크린샷](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
 
-      연결 문자열을 수동으로 입력 하려면 **연결 정보를 수동으로 입력**을 선택 합니다. 연결 문자열이 없는 경우 [연결 문자열을 찾는 방법](#permissions-connection-string)에 대해 알아봅니다.
+      연결 문자열을 수동으로 입력 하려면 **연결 정보를 수동으로 입력** 을 선택 합니다. 연결 문자열이 없는 경우 [연결 문자열을 찾는 방법](#permissions-connection-string)에 대해 알아봅니다.
 
-   1. Service Bus 정책을 선택 하 고 **만들기**를 선택 합니다.
+   1. Service Bus 정책을 선택 하 고 **만들기** 를 선택 합니다.
 
       ![Service Bus 정책을 선택 하 고 만들기 단추를 선택 하는 스크린샷](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
 
@@ -157,7 +157,7 @@ ms.locfileid: "92426644"
 
    예를 들어 전자 메일을 보내는 작업을 추가 하 여 메시지가 전송 되었는지 확인할 수 있습니다.
 
-1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
+1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
 <a name="sequential-convoy"></a>
 

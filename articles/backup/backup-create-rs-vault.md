@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
 ms.openlocfilehash: c7e7509f18e7511cd60099a70785b4e2c890afad
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171623"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019296"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기 및 구성
 
@@ -25,15 +25,15 @@ Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리
 >- 백업을 아직 구성 하지 않은 경우 다음 단계를 [수행](#set-storage-redundancy) 하 여 설정을 검토 하 고 수정 합니다.
 >- 백업을 이미 구성 했 고 GRS에서 LRS로 이동 해야 하는 경우 [이러한 해결 방법을 검토](#how-to-change-from-grs-to-lrs-after-configuring-backup)합니다.
 
-1. **Recovery Services 자격** 증명 모음 창에서 새 자격 증명 모음을 선택 합니다. **설정** 섹션에서 **속성**을 선택 합니다.
-1. **속성**의 **백업 구성**에서 **업데이트**를 선택 합니다.
+1. **Recovery Services 자격** 증명 모음 창에서 새 자격 증명 모음을 선택 합니다. **설정** 섹션에서 **속성** 을 선택 합니다.
+1. **속성** 의 **백업 구성** 에서 **업데이트** 를 선택 합니다.
 
-1. 저장소 복제 유형을 선택 하 고 **저장**을 선택 합니다.
+1. 저장소 복제 유형을 선택 하 고 **저장** 을 선택 합니다.
 
      ![새 자격 증명 모음의 스토리지 구성 설정](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
    - Azure를 기본 백업 저장소 끝점으로 사용 하는 경우 기본 **지역 중복** 설정을 계속 사용 하는 것이 좋습니다.
-   - Azure를 기본 백업 스토리지 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다.
+   - Azure를 기본 백업 스토리지 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복** 을 선택합니다.
    - [지역](../storage/common/storage-redundancy.md#geo-redundant-storage) 및 [로컬](../storage/common/storage-redundancy.md#locally-redundant-storage) 중복성에 대해 자세히 알아보세요.
    - 지역에서 가동 중지 시간 없이 데이터 가용성이 필요한 경우에는 상주 데이터를 보장 하 고 [영역 중복 저장소](../storage/common/storage-redundancy.md#zone-redundant-storage)를 선택 합니다.
 
@@ -108,7 +108,7 @@ CRR을 사용한 백업 및 복원에 대 한 자세한 내용은 다음 문서�
 
 ## <a name="modifying-default-settings"></a>기본 설정 수정
 
-자격 증명 모음에서 백업을 구성하기 전에 **스토리지 복제 유형** 및 **보안 설정**에 대한 기본 설정을 검토하는 것이 좋습니다.
+자격 증명 모음에서 백업을 구성하기 전에 **스토리지 복제 유형** 및 **보안 설정** 에 대한 기본 설정을 검토하는 것이 좋습니다.
 
 - 기본적으로 **저장소 복제 유형은** **지역 중복** (GRS)으로 설정 됩니다. 백업을 구성한 후에는 수정 하는 옵션을 사용할 수 없습니다.
   - 백업을 아직 구성 하지 않은 경우 다음 단계를 [수행](#set-storage-redundancy) 하 여 설정을 검토 하 고 수정 합니다.
@@ -134,9 +134,9 @@ GRS 자격 증명 모음에서 현재 보호를 중지 하 고 삭제 합니다.
 
 1. GRS 자격 증명 모음 속성에서 일시 삭제를 사용 하지 않도록 설정 합니다. 일시 삭제를 사용 하지 않도록 설정 하려면 [다음 단계](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) 를 수행 합니다.
 
-1. 보호를 중지 하 고 기존 GRS vault에서 백업을 삭제 합니다. 자격 증명 모음 대시보드 메뉴에서 **백업 항목**을 선택 합니다. LRS 자격 증명 모음으로 이동 해야 하는 여기에 나열 된 항목은 해당 백업 데이터와 함께 제거 되어야 합니다. [클라우드에서 보호 된 항목을 삭제](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) 하 고 [온-프레미스에서 보호 된 항목을 삭제](backup-azure-delete-vault.md#delete-protected-items-on-premises)하는 방법을 참조 하세요.
+1. 보호를 중지 하 고 기존 GRS vault에서 백업을 삭제 합니다. 자격 증명 모음 대시보드 메뉴에서 **백업 항목** 을 선택 합니다. LRS 자격 증명 모음으로 이동 해야 하는 여기에 나열 된 항목은 해당 백업 데이터와 함께 제거 되어야 합니다. [클라우드에서 보호 된 항목을 삭제](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) 하 고 [온-프레미스에서 보호 된 항목을 삭제](backup-azure-delete-vault.md#delete-protected-items-on-premises)하는 방법을 참조 하세요.
 
-1. AFS (Azure 파일 공유), SQL server 또는 SAP HANA 서버를 이동할 계획인 경우 등록을 취소 해야 합니다. 자격 증명 모음 대시보드 메뉴에서 **백업 인프라**를 선택 합니다. [SQL server 등록을 취소](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance)하 고, [Azure 파일 공유와 연결 된 저장소 계정을 등록 취소](manage-afs-backup.md#unregister-a-storage-account)하 고, [SAP HANA 인스턴스의 등록](sap-hana-db-manage.md#unregister-an-sap-hana-instance)을 취소 하는 방법을 참조 하세요.
+1. AFS (Azure 파일 공유), SQL server 또는 SAP HANA 서버를 이동할 계획인 경우 등록을 취소 해야 합니다. 자격 증명 모음 대시보드 메뉴에서 **백업 인프라** 를 선택 합니다. [SQL server 등록을 취소](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance)하 고, [Azure 파일 공유와 연결 된 저장소 계정을 등록 취소](manage-afs-backup.md#unregister-a-storage-account)하 고, [SAP HANA 인스턴스의 등록](sap-hana-db-manage.md#unregister-an-sap-hana-instance)을 취소 하는 방법을 참조 하세요.
 
 1. GRS 자격 증명 모음에서 제거 되 면 새 LRS 자격 증명 모음에서 워크 로드에 대 한 백업을 계속 구성 합니다.
 

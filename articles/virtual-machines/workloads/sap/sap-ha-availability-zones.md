@@ -18,11 +18,11 @@ ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ad9820cc3227c788582a9c2a452abe1886a4a2d3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950315"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019330"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure 가용성 영역을 사용하는 SAP 워크로드 구성
 [Azure 가용성 영역](../../../availability-zones/az-overview.md)은 Azure가 제공하는 고가용성 기능 중 하나입니다. 가용성 영역을 사용하면 Azure에서 SAP 워크로드의 전반적인 가용성이 향상됩니다. 이 기능은 일부 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 이미 사용할 수 있습니다. 향후에는 더 많은 지역에서 사용할 수 있게 될 것입니다.

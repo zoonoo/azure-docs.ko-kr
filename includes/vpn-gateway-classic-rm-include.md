@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 07d32faf2416de554c84a5a26520bcdf0398f406
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d9d443f0109757c0ab528a7f3ee7076c1293a8bb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "67181940"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018172"
 ---
-Azure는 현재 두 가지 배포 모델, Resource Manager와 클래식 모델에서 작동합니다. 두 가지 모델은 서로 완전히 호환되지 않습니다. 시작하기 전에 어떤 모델을 사용할 것인지 알아야 합니다. 배포 모델에 대한 자세한 내용은 [배포 모델 이해](../articles/resource-manager-deployment-model.md)를 참조하세요. Azure을 처음 접하는 경우 Resource Manager 배포 모델을 사용하는 것이 좋습니다.
+Azure는 현재 두 가지 배포 모델, Resource Manager와 클래식 모델에서 작동합니다. 두 가지 모델은 서로 완전히 호환되지 않습니다. 시작하기 전에 어떤 모델을 사용할 것인지 알아야 합니다. 배포 모델에 대한 자세한 내용은 [배포 모델 이해](../articles/azure-resource-manager/management/deployment-models.md)를 참조하세요. Azure을 처음 접하는 경우 Resource Manager 배포 모델을 사용하는 것이 좋습니다.

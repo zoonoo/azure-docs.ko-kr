@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
 ms.openlocfilehash: 67ea5800885b4edb16581f22c199d139053af495
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337815"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018939"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>물리적 서버로 머신을 Azure에 마이그레이션
 
@@ -98,8 +98,8 @@ Azure VNet(Virtual Network)을 [설정](../virtual-network/manage-virtual-networ
 
 Azure Migrate:Server Migration은 복제 어플라이언스를 사용하여 머신을 Azure에 복제합니다. 복제 어플라이언스에서 실행하는 구성 요소는 다음과 같습니다.
 
-- **구성 서버** : 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
-- **프로세스 서버** : 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하여 캐싱, 압축 및 암호화를 사용하여 최적화한 후 Azure의 캐시 스토리지 계정으로 보냅니다. 
+- **구성 서버**: 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
+- **프로세스 서버**: 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하여 캐싱, 압축 및 암호화를 사용하여 최적화한 후 Azure의 캐시 스토리지 계정으로 보냅니다. 
 
 다음과 같이 어플라이언스 배포를 준비합니다.
 
@@ -140,7 +140,7 @@ Azure Migrate 프로젝트를 설정한 다음, Server Migration 도구를 해�
 
 ### <a name="download-the-replication-appliance-installer"></a>복제 어플라이언스 설치 관리자 다운로드
 
-1. Azure Migrate 프로젝트 > **서버** , **Azure Migrate: 서버 마이그레이션** 에서 **검색** 을 클릭합니다.
+1. Azure Migrate 프로젝트 > **서버**, **Azure Migrate: 서버 마이그레이션** 에서 **검색** 을 클릭합니다.
 
     ![VM 검색](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
@@ -226,7 +226,7 @@ Azure Migrate 프로젝트를 설정한 다음, Server Migration 도구를 해�
 > [!NOTE]
 > 최대 10대의 머신을 함께 복제할 수 있습니다. 추가로 복제해야 하는 경우 10개씩 일괄 처리로 동시에 복제합니다.
 
-1. Azure Migrate 프로젝트 > **서버** , **Azure Migrate: 서버 마이그레이션** 에서 **복제** 를 클릭합니다.
+1. Azure Migrate 프로젝트 > **서버**, **Azure Migrate: 서버 마이그레이션** 에서 **복제** 를 클릭합니다.
 
     ![Azure Migrate - 서버 화면의 스크린샷에는 마이그레이션 도구 아래의 Azure Migrate: 서버 마이그레이션에서 선택한 복제 단추가 표시됩니다.](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
@@ -258,10 +258,10 @@ Azure Migrate 프로젝트를 설정한 다음, Server Migration 도구를 해�
 
 13. **Compute** 에서 VM 이름, 크기, OS 디스크 유형 및 가용성 구성을 검토합니다(이전 단계에서 선택한 경우). VM은 [Azure 요구 사항](migrate-support-matrix-physical-migration.md#azure-vm-requirements)을 준수해야 합니다.
 
-    - **VM 크기** : 평가 권장 사항을 사용하는 경우 VM 크기 드롭다운에서 권장 크기를 표시합니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기** 에서 수동 크기를 선택합니다.
-    - **OS 디스크** : VM에 맞는 OS(부팅) 디스크를 지정합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다.
-    - **가용성 영역** : 사용할 가용성 영역을 지정합니다.
-    - **가용성 집합** : 사용할 가용성 집합을 지정합니다.
+    - **VM 크기**: 평가 권장 사항을 사용하는 경우 VM 크기 드롭다운에서 권장 크기를 표시합니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기** 에서 수동 크기를 선택합니다.
+    - **OS 디스크**: VM에 맞는 OS(부팅) 디스크를 지정합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다.
+    - **가용성 영역**: 사용할 가용성 영역을 지정합니다.
+    - **가용성 집합**: 사용할 가용성 집합을 지정합니다.
 
 > [!NOTE]
 > 가상 머신 세트에 대해 다른 가용성 옵션을 선택하려면 1단계로 이동하여 하나의 가상 머신 세트에 대한 복제를 시작한 후 다른 가용성 옵션을 선택하여 단계를 반복합니다.

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: c186e7beeed3a1729560d7deb002d573e0014508
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bd45b0e1070efae7ae69a74ad96e1fa94a136006
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950978"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96019398"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -1951,7 +1951,7 @@ SAP 인스턴스의 자동 시작과 관련된 자세한 내용은 다음 항목
 
 
 해당 상태가 복원될 때는 기본 VM뿐 아니라 기본 VM의 원본 디스크와 장착된 디스크도 삭제되고, 저장된 디스크가 관리 디스크의 리소스 그룹 또는 원래 Storage 계정으로 다시 복사된 후에 시스템이 다시 배포됩니다.
-이 프로세스를 PowerShell에서 스크립트로 실행하는 방법의 예제는 <http://www.westerndevs.com/azure-snapshots/> 문서에 나와 있습니다.
+이 프로세스를 PowerShell에서 스크립트로 실행하는 방법의 예제는 <https://www.westerndevs.com/_/azure-snapshots/> 문서에 나와 있습니다.
 
 위에 설명 된 대로 VM 백업을 복원 하면 새 하드웨어 키를 만들기 때문에 새 SAP 라이선스를 설치 해야 합니다.
 

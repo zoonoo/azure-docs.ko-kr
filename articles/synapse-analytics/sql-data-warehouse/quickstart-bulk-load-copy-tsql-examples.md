@@ -10,11 +10,11 @@ ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.openlocfilehash: 9ed3a4b0827e81b3f779d95a6eab1dc341e69bb1
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503269"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019381"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Synapse SQL을 사용하여 안전하게 데이터 로드
 

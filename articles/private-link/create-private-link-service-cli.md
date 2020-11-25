@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: e0b9ac3f16a170bb14925b555e8894cb10080488
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: cfffafaab2e2d4ef6b165ef03beb827342c94608
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026185"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96018055"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Azure CLI를 사용 하 여 개인 링크 서비스 만들기
 이 문서에서는 Azure CLI를 사용 하 여 Azure에서 개인 링크 서비스를 만드는 방법을 보여 줍니다.
@@ -50,7 +50,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 
 ### <a name="create-a-load-balancer-health-probe"></a>부하 분산 장치 상태 프로브 만들기
 
-상태 프로브는 모든 가상 머신 인스턴스를 검사하여 네트워크 트래픽을 받을 수 있는지 확인합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다. [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest)를 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
+상태 프로브는 모든 가상 머신 인스턴스를 검사하여 네트워크 트래픽을 받을 수 있는지 확인합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다. [az network lb probe create](/cli/azure/network/lb/probe?view=azure-cli-latest)를 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -63,7 +63,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 
 ### <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
-부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest)를 사용하여 *myFrontEnd* 프런트 엔드 풀의 80 포트에서 수신 대기하고, 마찬가지로 80 포트를 통해 부하 분산된 네트워크 트래픽을 *myBackEndPool* 백 엔드 주소 풀에 보내는 *myHTTPRule* 부하 분산 장치 규칙을 만듭니다. 
+부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](/cli/azure/network/lb/rule?view=azure-cli-latest)를 사용하여 *myFrontEnd* 프런트 엔드 풀의 80 포트에서 수신 대기하고, 마찬가지로 80 포트를 통해 부하 분산된 네트워크 트래픽을 *myBackEndPool* 백 엔드 주소 풀에 보내는 *myHTTPRule* 부하 분산 장치 규칙을 만듭니다. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -79,7 +79,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 ```
 ### <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
-이 예제에서는 가상 컴퓨터 만들기에 대해 다루지 않습니다. 빠른 시작: 내부 부하 분산 장치 만들기의 단계를 수행 하 여 부하 분산 장치에 대 한 백 엔드 서버로 사용할 두 개의 가상 머신을 만들기 위해 [Azure CLI를 사용 하 여 vm 부하를 분산할](/azure/load-balancer/quickstart-load-balancer-standard-internal-cli) 수 있습니다. 
+이 예제에서는 가상 컴퓨터 만들기에 대해 다루지 않습니다. 빠른 시작: 내부 부하 분산 장치 만들기의 단계를 수행 하 여 부하 분산 장치에 대 한 백 엔드 서버로 사용할 두 개의 가상 머신을 만들기 위해 [Azure CLI를 사용 하 여 vm 부하를 분산할](../load-balancer/quickstart-load-balancer-standard-internal-cli.md) 수 있습니다. 
 
 
 ### <a name="disable-private-link-service-network-policies-on-subnet"></a>서브넷에서 개인 링크 서비스 네트워크 정책 사용 안 함 
@@ -163,4 +163,3 @@ az network private-link-service show --resource-group myResourceGroup --name myP
 ```
 ## <a name="next-steps"></a>다음 단계
 - [Azure 개인 링크 서비스](private-link-service-overview.md) 에 대 한 자세한 정보
- 

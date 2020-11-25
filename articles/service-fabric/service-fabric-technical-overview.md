@@ -7,11 +7,11 @@ ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
 ms.openlocfilehash: 7b2f1a170a792e0b4d069258264407c121dab3ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260242"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018837"
 ---
 # <a name="service-fabric-terminology-overview"></a>서비스 패브릭 용어 개요
 
@@ -21,7 +21,7 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 
 **클러스터**: 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다.  클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다.
 
-**노드**: 클러스터의 일부인 컴퓨터 또는 VM으로, *노드*라고 합니다. 각 노드에는 노드 이름 (문자열)이 할당 됩니다. 노드는 배치 속성과 같은 특징이 있습니다. 각 컴퓨터 또는 VM이 Windows 서비스인 `FabricHost.exe`를 자동으로 시작하여 부팅을 실행하기 시작한 다음 `Fabric.exe` 및 `FabricGateway.exe`라는 두 개의 실행 파일을 시작합니다. 이러한 두 실행 파일이 노드를 구성합니다. 테스트 시나리오에서는 `Fabric.exe` 및 `FabricGateway.exe`와 같은 여러 인스턴스를 실행하여 단일 컴퓨터 또는 VM에 여러 노드를 호스트할 수 있습니다.
+**노드**: 클러스터의 일부인 컴퓨터 또는 VM으로, *노드* 라고 합니다. 각 노드에는 노드 이름 (문자열)이 할당 됩니다. 노드는 배치 속성과 같은 특징이 있습니다. 각 컴퓨터 또는 VM이 Windows 서비스인 `FabricHost.exe`를 자동으로 시작하여 부팅을 실행하기 시작한 다음 `Fabric.exe` 및 `FabricGateway.exe`라는 두 개의 실행 파일을 시작합니다. 이러한 두 실행 파일이 노드를 구성합니다. 테스트 시나리오에서는 `Fabric.exe` 및 `FabricGateway.exe`와 같은 여러 인스턴스를 실행하여 단일 컴퓨터 또는 VM에 여러 노드를 호스트할 수 있습니다.
 
 ## <a name="application-and-service-concepts"></a>애플리케이션 및 서비스 개념
 
@@ -71,9 +71,9 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 * **상태 비저장:** Azure Storage, Azure SQL Database 또는 Azure Cosmos DB와 같은 외부 Storage 서비스에 서비스의 영구 상태를 저장할 때 상태 비저장 서비스를 사용합니다. 서비스에 영구 스토리지가 없는 경우 상태 비저장 서비스를 사용합니다. 예를 들어, 값을 서비스에 전달하는 계산기 서비스는 이러한 값을 사용하여 계산을 수행하고 결과를 반환합니다.
 * **상태 저장**: Service Fabric 신뢰할 수 있는 컬렉션이 나 Reliable Actors 프로그래밍 모델을 통해 서비스의 상태를 관리 하려는 경우 상태 저장 서비스를 사용 합니다. 명명된 서비스를 만들 때 상태를 확산하려는 파티션 수를 지정합니다(확장성을 위해). 또한 노드 간에 상태를 복제할 횟수를 지정합니다(안정성을 위해). 명명된 서비스 각각에는 하나의 기본 복제본과 여러 보조 복제본이 있습니다. 기본 복제본에 써서 명명된 서비스의 상태를 수정합니다. 그런 다음 Service Fabric는이 상태를 모든 보조 복제본에 복제 하 여 상태를 동기화 상태로 유지 합니다. Service Fabric 주 복제본이 실패 하는 경우 자동으로 검색 하 고 기존 보조 복제본을 주 복제본으로 승격 합니다. 그러면 서비스 패브릭은 새로운 보조 복제본을 만듭니다.  
 
-**복제본 또는 인스턴스**는 배포되어 실행 중인 서비스의 코드(및 상태 저장 서비스의 상태)를 가리킵니다. [복제본 및 인스턴스](service-fabric-concepts-replica-lifecycle.md)를 참조 하세요.
+**복제본 또는 인스턴스** 는 배포되어 실행 중인 서비스의 코드(및 상태 저장 서비스의 상태)를 가리킵니다. [복제본 및 인스턴스](service-fabric-concepts-replica-lifecycle.md)를 참조 하세요.
 
-**재구성**은 서비스의 복제본 세트에 있는 변경 프로세스를 가리킵니다. [재구성](service-fabric-concepts-reconfiguration.md)을 참조 하세요.
+**재구성** 은 서비스의 복제본 세트에 있는 변경 프로세스를 가리킵니다. [재구성](service-fabric-concepts-reconfiguration.md)을 참조 하세요.
 
 **서비스 패키지**: 서비스 유형의 `ServiceManifest.xml` 파일을 포함하는 디스크 디렉터리입니다. 이 파일은 서비스 형식에 대한 코드, 정적 데이터 및 구성 패키지를 참조합니다. 애플리케이션 형식의 `ApplicationManifest.xml` 파일에서 서비스 패키지 디렉터리에 파일을 참조합니다. 예를 들어, 서비스 패키지는 데이터베이스 서비스를 구성하는 코드, 정적 데이터 및 구성 패키지를 참조할 수 있습니다.
 
@@ -169,7 +169,7 @@ Service Fabric은 여러 서비스 및 제품의 기초가 되는 오픈 소스 
 
 다음 표에서는 다양한 애플리케이션 모델 및 Service Fabric에 대한 애플리케이션 모델의 도구에 대해 설명합니다.
 
-| 애플리케이션 유형 | 설명 방법 | Visual Studio | (예: Eclipse | SFCTL | AZ CLI | PowerShell|
+| 애플리케이션 유형 | 설명 방법 | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
 |---|---|---|---|---|---|---|
 | Service Fabric Mesh 애플리케이션 | 리소스 모델(YAML 및 JSON) | VS 2017 |지원되지 않음 |지원되지 않음 | 지원됨 - Mesh 환경만 | 지원되지 않음|
 |Service Fabric 네이티브 애플리케이션 | 네이티브 애플리케이션 모델(XML) | VS 2017 및 VS 2015| 지원됨|지원됨|지원됨|지원됨|
@@ -180,7 +180,7 @@ Service Fabric은 여러 서비스 및 제품의 기초가 되는 오픈 소스 
 
 * [서비스 패브릭의 개요](service-fabric-overview.md)
 * [애플리케이션 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
-* [애플리케이션 시나리오](service-fabric-application-scenarios.md)
+* [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
 
 Service Fabric Mesh를 자세히 알아보려면 다음을 참고하세요.
 

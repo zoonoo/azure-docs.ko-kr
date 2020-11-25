@@ -16,11 +16,11 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 98e587103e63cd5cc26eab5b00864d00e0b9007f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089952"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019426"
 ---
 # <a name="send-secure-push-notifications-from-azure-notification-hubs"></a>Azure Notification Hubs에서 보안 푸시 알림 보내기
 
@@ -87,17 +87,17 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
     using Windows.ApplicationModel.Background;
     ```
 
-4. Visual Studio의 **파일** 메뉴에서 **모두 저장**을 클릭합니다.
+4. Visual Studio의 **파일** 메뉴에서 **모두 저장** 을 클릭합니다.
 
 ## <a name="create-the-push-background-component"></a>푸시 백그라운드 구성 요소 만들기
 
 다음은 푸시 백그라운드 구성 요소를 만드는 단계입니다.
 
-1. 솔루션 탐색기에서 솔루션의 최상위 노드(이 경우 **Solution SecurePush**)를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 프로젝트**를 차례로 클릭합니다.
-2. **스토어 앱**을 확장하고 **Windows Phone 앱**, **Windows 런타임 구성 요소(Windows Phone)** 를 차례로 클릭합니다. 프로젝트 이름을 **PushBackgroundComponent**로 지정하고 **확인**을 클릭하여 프로젝트를 만듭니다.
+1. 솔루션 탐색기에서 솔루션의 최상위 노드(이 경우 **Solution SecurePush**)를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 프로젝트** 를 차례로 클릭합니다.
+2. **스토어 앱** 을 확장하고 **Windows Phone 앱**, **Windows 런타임 구성 요소(Windows Phone)** 를 차례로 클릭합니다. 프로젝트 이름을 **PushBackgroundComponent** 로 지정하고 **확인** 을 클릭하여 프로젝트를 만듭니다.
 
     ![Windows 런타임 구성 요소 (Windows Phone) Visual c # 옵션이 강조 표시 된 새 프로젝트 추가 대화 상자의 스크린샷][12]
-3. 솔루션 탐색기에서 **PushBackgroundComponent(Windows Phone 8.1)** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 차례로 클릭합니다. 새 클래스 이름을 `PushBackgroundTask.cs`로 지정합니다. **추가** 를 클릭하여 클래스를 생성합니다.
+3. 솔루션 탐색기에서 **PushBackgroundComponent(Windows Phone 8.1)** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스** 를 차례로 클릭합니다. 새 클래스 이름을 `PushBackgroundTask.cs`로 지정합니다. **추가** 를 클릭하여 클래스를 생성합니다.
 4. `PushBackgroundComponent` 네임스페이스 정의의 전체 콘텐츠를 다음 코드로 바꾸고 자리 표시자 `{back-end endpoint}`를 백 엔드 배포 시 얻은 백 엔드 엔드포인트로 바꿉니다.
 
     ```csharp
@@ -145,11 +145,11 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
         }
     ```
 
-5. 솔루션 탐색기에서 **PushBackgroundComponent(Windows Phone 8.1)** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭합니다.
-6. 왼쪽에서 **온라인**을 클릭합니다.
-7. **검색** 상자에 **Http 클라이언트**를 입력합니다.
-8. 결과 목록에서 **Microsoft HTTP 클라이언트 라이브러리**를 클릭하고 **설치**를 클릭합니다. 설치를 완료합니다.
-9. 다시 NuGet **검색** 상자에 **Json.net**을 입력합니다. **Json.NET** 패키지를 설치하고 NuGet 패키지 관리자 창을 닫습니다.
+5. 솔루션 탐색기에서 **PushBackgroundComponent(Windows Phone 8.1)** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 클릭합니다.
+6. 왼쪽에서 **온라인** 을 클릭합니다.
+7. **검색** 상자에 **Http 클라이언트** 를 입력합니다.
+8. 결과 목록에서 **Microsoft HTTP 클라이언트 라이브러리** 를 클릭하고 **설치** 를 클릭합니다. 설치를 완료합니다.
+9. 다시 NuGet **검색** 상자에 **Json.net** 을 입력합니다. **Json.NET** 패키지를 설치하고 NuGet 패키지 관리자 창을 닫습니다.
 10. `PushBackgroundTask.cs` 파일 맨 위에 다음 `using` 문을 추가합니다.
 
     ```csharp
@@ -163,16 +163,16 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
     using Windows.Data.Xml.Dom;
     ```
 
-11. 솔루션 탐색기의 **NotifyUserWindowsPhone (Windows Phone 8.1)** 프로젝트에서 **참조**를 마우스 오른쪽 단추로 클릭 한 다음 **참조 추가**...를 클릭 합니다. 참조 관리자 대화 상자에서 **PushBackgroundComponent**옆의 상자를 선택 하 고 **확인**을 클릭 합니다.
-12. 솔루션 탐색기의 **NotifyUserWindowsPhone(Windows Phone 8.1)** 프로젝트에서 **Package.appxmanifest**를 두 번 클릭합니다. **알림**에서 **알림 가능**을 **예**로 설정합니다.
+11. 솔루션 탐색기의 **NotifyUserWindowsPhone (Windows Phone 8.1)** 프로젝트에서 **참조** 를 마우스 오른쪽 단추로 클릭 한 다음 **참조 추가**...를 클릭 합니다. 참조 관리자 대화 상자에서 **PushBackgroundComponent** 옆의 상자를 선택 하 고 **확인** 을 클릭 합니다.
+12. 솔루션 탐색기의 **NotifyUserWindowsPhone(Windows Phone 8.1)** 프로젝트에서 **Package.appxmanifest** 를 두 번 클릭합니다. **알림** 에서 **알림 가능** 을 **예** 로 설정합니다.
 
     ![Appxmanifest.xml에 초점을 맞춘 솔루션 탐색기 창의 스크린샷. 빨간색으로 표시 되는 알림 가능 옵션을 예로 설정할 수 있습니다.][3]
-13. 계속 **Package.appxmanifest**에서 맨 위 근처에서 **선언**을 클릭합니다. **사용 가능한 선언** 드롭다운에서 **백그라운드 태스크**, **추가**를 차례로 클릭합니다.
-14. **Package.appxmanifest**의 **속성**에서 **푸시 알림**을 선택합니다.
-15. **Package.appxmanifest**의 **앱 설정**에서 **진입점** 필드에 **PushBackgroundComponent.PushBackgroundTask**를 입력합니다.
+13. 계속 **Package.appxmanifest** 에서 맨 위 근처에서 **선언** 을 클릭합니다. **사용 가능한 선언** 드롭다운에서 **백그라운드 태스크**, **추가** 를 차례로 클릭합니다.
+14. **Package.appxmanifest** 의 **속성** 에서 **푸시 알림** 을 선택합니다.
+15. **Package.appxmanifest** 의 **앱 설정** 에서 **진입점** 필드에 **PushBackgroundComponent.PushBackgroundTask** 를 입력합니다.
 
     ![Appxmanifest.xml에 초점을 맞춘 솔루션 탐색기 창의 스크린샷. 사용 가능한 선언, 지원 되는 선언, 푸시 알림 및 빨간색으로 설명 된 진입점 옵션이 있습니다.][13]
-16. **파일** 메뉴에서 **모두 저장**을 클릭 합니다.
+16. **파일** 메뉴에서 **모두 저장** 을 클릭 합니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
@@ -181,7 +181,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 1. Visual Studio에서 **AppBackend** Web API 애플리케이션을 실행합니다. ASP.NET 웹 페이지가 표시됩니다.
 2. Visual Studio에서 **NotifyUserWindowsPhone (Windows Phone 8.1)** Windows Phone 앱을 실행합니다. Windows Phone 에뮬레이터가 실행되고 자동으로 앱을 로드합니다.
 3. **NotifyUserWindowsPhone** 앱 UI에서 사용자 이름과 암호를 입력합니다. 이는 임의 문자열일 수 있지만 같은 값이어야 합니다.
-4. **NotifyUserWindowsPhone** 앱 UI에서 **로그인 및 등록**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다.
+4. **NotifyUserWindowsPhone** 앱 UI에서 **로그인 및 등록** 을 클릭합니다. 그리고 나서 **푸시 보내기** 를 클릭합니다.
 
 [3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png

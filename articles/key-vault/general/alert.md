@@ -12,11 +12,11 @@ ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
 ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427021"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018123"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Azure Key Vault에 대 한 모니터링 및 경고
 
@@ -116,7 +116,7 @@ ms.locfileid: "92427021"
 > [!div class="mx-imgBorder"]
 > ![전자 메일 또는 SMS 메시지 경고를 추가 하는 데 필요한 항목을 보여 주는 스크린샷](../media/alert-9.png)
 
-6. 페이지 아래쪽에서 **확인**을 클릭합니다. 작업 그룹을 성공적으로 만들었습니다. 
+6. 페이지 아래쪽에서 **확인** 을 클릭합니다. 작업 그룹을 성공적으로 만들었습니다. 
 
 이제 작업 그룹을 구성 했으므로 주요 자격 증명 모음 경고 임계값을 구성 합니다. 
 
@@ -165,7 +165,7 @@ ms.locfileid: "92427021"
 + 임계값을 **500** 으로 설정 합니다.
 + 집계 기간을 **5 분** 으로 설정
 + 평가 빈도를 **1 분** 으로 설정 합니다.
-+ **완료**를 선택합니다.  
++ **완료** 를 선택합니다.  
 
 > [!div class="mx-imgBorder"]
 > ![구성 된 경고 논리를 강조 표시 하는 스크린샷](../media/alert-15.png)
@@ -186,7 +186,7 @@ ms.locfileid: "92427021"
 + 집계 기간을 **5 분** 으로 설정
 + 평가 빈도를 **1 분** 으로 설정 합니다.
 + **선택 사항** 고급 설정 구성 
-+ **완료**를 선택합니다.
++ **완료** 를 선택합니다.
 
 > [!div class="mx-imgBorder"]
 > ![Azure Portal 스크린샷](../media/alert-17.png)

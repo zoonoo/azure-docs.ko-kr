@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
 ms.openlocfilehash: f597e58c70d6ac9daff753f5c0a54199c2383c42
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746176"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019511"
 ---
 # <a name="manage-your-function-app"></a>함수 앱 관리 
 
@@ -35,7 +35,7 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 개요 페이지, 특히 **[응용 프로그램 설정](#settings)** 및 **[플랫폼 기능](#platform-features)** 에서 함수 앱을 관리 하는 데 필요한 모든 항목으로 이동할 수 있습니다.
 
-## <a name="application-settings"></a><a name="settings"></a>응용 프로그램 설정
+## <a name="application-settings"></a><a name="settings"></a>애플리케이션 설정
 
 **응용 프로그램 설정** 탭은 함수 앱에서 사용 하는 설정을 유지 합니다. 이러한 설정은 암호화 되어 저장 되므로 **값 표시** 를 선택 하 여 포털에서 값을 확인 해야 합니다. Azure CLI를 사용 하 여 응용 프로그램 설정에 액세스할 수도 있습니다.
 

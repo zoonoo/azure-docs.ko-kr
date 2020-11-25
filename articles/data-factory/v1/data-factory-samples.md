@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: ed63d148afa6f5674d36cc50c18351b2a06966eb
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636836"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019619"
 ---
 # <a name="azure-data-factory---samples"></a>Azure 데이터 팩터리 - 샘플
 > [!NOTE]
@@ -75,7 +75,7 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
     ![데이터 팩터리 블레이드](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Visual Studio의 샘플
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 다음 항목이 컴퓨터에 설치되어 있어야 합니다.
 
 * Visual Studio 2013 또는 Visual Studio 2015
@@ -102,7 +102,7 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
    2. 데이터 팩터리의 **이름을** 입력 합니다.
    3. 데이터 팩터리를 만들려는 위치에 **Azure 구독** 을 선택합니다.
    4. 데이터 팩터리의 **리소스 그룹** 을 선택합니다.
-   5. **지역** 에서 **미국 서부** , **미국 동부** 또는 **북유럽** 을 선택합니다.
+   5. **지역** 에서 **미국 서부**, **미국 동부** 또는 **북유럽** 을 선택합니다.
    6. **다음** 을 클릭합니다.
 6. **데이터 저장소 구성** 페이지에서 Azure SQL Database 및 **Azure storage 계정** (또는) **에서 기존 데이터베이스** 를 지정 하 고 데이터베이스/저장소를 만든 후 다음을 클릭 합니다.
 7. **컴퓨팅 구성** 페이지에서 기본값을 선택하고 **다음** 을 클릭합니다.

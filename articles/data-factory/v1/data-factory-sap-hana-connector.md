@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707143"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019568"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -36,13 +36,13 @@ ms.locfileid: "84707143"
 
 SAP HANA 인스턴스에 대한 연결을 사용하도록 설정하려면 다음 구성 요소를 설치합니다.
 - **데이터 관리 게이트웨이**: Data Factory 서비스는 데이터 관리 게이트웨이라는 구성 요소를 사용하여 온-프레미스 데이터 저장소(SAP HANA 포함)에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. 게이트웨이는 SAP HANA가 Azure IaaS 가상 머신(VM)에 호스팅되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
-- 게이트웨이 컴퓨터의 **SAP HANA ODBC 드라이버**. SAP HANA ODBC 드라이버는 [SAP 소프트웨어 다운로드 센터](https://support.sap.com/swdc)에서 다운로드할 수 있습니다. **SAP HANA CLIENT for Windows**라는 키워드를 사용하여 검색합니다. 
+- 게이트웨이 컴퓨터의 **SAP HANA ODBC 드라이버**. SAP HANA ODBC 드라이버는 [SAP 소프트웨어 다운로드 센터](https://support.sap.com/swdc)에서 다운로드할 수 있습니다. **SAP HANA CLIENT for Windows** 라는 키워드를 사용하여 검색합니다. 
 
 ## <a name="getting-started"></a>시작
 여러 도구/API를 사용하여 온-프레미스 SAP HANA 데이터 저장소의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다. 
 
-- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 
-- 또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요. 
+- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 
+- 또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API** 및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요. 
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -62,8 +62,8 @@ SAP HANA 인스턴스에 대한 연결을 사용하도록 설정하려면 다음
 서버 | SAP HANA 인스턴스가 상주하는 서버의 이름. 서버에서 사용자 지정된 포트를 사용하는 경우 `server:port`를 지정합니다. | 문자열 | 예
 authenticationType | 인증 유형입니다. | 문자열을 생성할 수 있습니다. "Basic" 또는 "Windows" | 예 
 사용자 이름 | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | 문자열 | 예
-password | 사용자에 대한 암호입니다. | 문자열 | 예
-gatewayName | Data Factory 서비스가 온-프레미스 SAP HANA 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | 문자열 | 예
+password | 사용자에 대한 암호입니다. | 문자열 | Yes
+gatewayName | Data Factory 서비스가 온-프레미스 SAP HANA 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | 문자열 | Yes
 encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
@@ -81,10 +81,10 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | SQL 쿼리. | 예 |
+| Query | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | SQL 쿼리. | Yes |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>JSON 샘플: SAP HANA에서 Azure Blob으로 데이터 복사
-다음 샘플에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. 이 샘플은 온-프레미스 SAP HANA에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 활동 복사를 사용하여 **여기**에 나열된 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.  
+다음 샘플에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. 이 샘플은 온-프레미스 SAP HANA에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 활동 복사를 사용하여 **여기** 에 나열된 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.  
 
 > [!IMPORTANT]
 > 이 샘플은 JSON 코드 조각을 제공합니다. 데이터 팩터리를 만들기 위한 단계별 지침은 포함하지 않습니다. 단계별 지침은 [온-프레미스 위치와 클라우드 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
@@ -102,7 +102,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 첫 번째 단계로 데이터 관리 게이트웨이를 설정합니다. 해당 지침은 [온-프레미스 위치와 클라우드 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서에 나와 있습니다.
 
 ### <a name="sap-hana-linked-service"></a>SAP HANA 연결된 서비스
-이 연결된 서비스는 SAP HANA 인스턴스를 데이터 팩터리에 연결합니다. type 속성은 **SapHana**로 설정됩니다. typeProperties 섹션은 SAP HANA 인스턴스에 대한 연결 정보를 제공합니다.
+이 연결된 서비스는 SAP HANA 인스턴스를 데이터 팩터리에 연결합니다. type 속성은 **SapHana** 로 설정됩니다. typeProperties 섹션은 SAP HANA 인스턴스에 대한 연결 정보를 제공합니다.
 
 ```json
 {
@@ -124,7 +124,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 ```
 
 ### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
-이 연결된 서비스는 Azure Storage 계정을 데이터 팩터리에 연결합니다. type 속성은 **AzureStorage**로 설정됩니다. typeProperties 섹션은 Azure Storage 계정에 대한 연결 정보를 제공합니다.
+이 연결된 서비스는 Azure Storage 계정을 데이터 팩터리에 연결합니다. type 속성은 **AzureStorage** 로 설정됩니다. typeProperties 섹션은 Azure Storage 계정에 대한 연결 정보를 제공합니다.
 
 ```json
 {
@@ -140,7 +140,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 
 ### <a name="sap-hana-input-dataset"></a>SAP HANA 입력 데이터 세트
 
-이 데이터 세트는 SAP HANA 데이터 세트를 정의합니다. Data Factory 데이터 세트의 type은 **RelationalTable**로 설정합니다. 현재 SAP HANA 데이터 세트에 대한 type별 속성은 지정하지 않습니다. 활동 복사 정의의 쿼리는 SAP HANA 인스턴스에서 읽을 데이터를 지정합니다. 
+이 데이터 세트는 SAP HANA 데이터 세트를 정의합니다. Data Factory 데이터 세트의 type은 **RelationalTable** 로 설정합니다. 현재 SAP HANA 데이터 세트에 대한 type별 속성은 지정하지 않습니다. 활동 복사 정의의 쿼리는 SAP HANA 인스턴스에서 읽을 데이터를 지정합니다. 
 
 external 속성을 true로 설정하면 테이블이 데이터 팩터리의 외부에 있으며 데이터 팩터리의 활동에 의해 생성되지 않는다는 사실이 Data Factory 서비스에 전달됩니다.
 
@@ -224,7 +224,7 @@ frequency 및 interval 속성은 일정을 정의합니다. 이런 경우 SAP HA
 
 ### <a name="pipeline-with-copy-activity"></a>복사 작업을 포함하는 파이프라인
 
-파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고(SAP HANA 원본의 경우) **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
+파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource** 로 설정되고(SAP HANA 원본의 경우) **sink** 형식은 **BlobSink** 로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
 
 ```json
 {

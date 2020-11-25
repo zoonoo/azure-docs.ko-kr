@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 2f585dd80219afac7c67eebabd72cb41dce0b673
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874511"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018701"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>기존 Application Gateway를 사용 하 여 AGIC (Application Gateway 수신 컨트롤러) 설치
 
@@ -27,7 +27,7 @@ AGIC는 Kubernetes [수신](https://kubernetes.io/docs/concepts/services-network
 - [투구를 사용 하 여 수신 컨트롤러 설치](#install-ingress-controller-as-a-helm-chart)
 - [다중 클러스터/공유 Application Gateway](#multi-cluster--shared-application-gateway): 하나 이상의 AKS 클러스터 및/또는 기타 Azure 구성 요소 간에 Application Gateway 공유 되는 환경에 AGIC를 설치 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 이 문서에서는 다음과 같은 도구 및 인프라를 이미 설치 했다고 가정 합니다.
 - [고급 네트워킹](../aks/configure-azure-cni.md) 을 사용 하는 [AKS](https://azure.microsoft.com/services/kubernetes-service/)
 - AKS와 동일한 가상 네트워크의 [Application Gateway v2](./tutorial-autoscale-ps.md)

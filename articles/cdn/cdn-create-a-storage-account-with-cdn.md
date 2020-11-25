@@ -16,11 +16,11 @@ ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: b80437fa1ac41bb240565923eb40e562c8cf8c5b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778900"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018616"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>빠른 시작: Azure CDN과 Azure Storage 계정 통합
 
@@ -68,9 +68,9 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
     | 설정  | 값 |
     | -------- | ----- |
-    | **CDN 프로필** | **새로 만들기** 를 선택하고 프로필 이름을 입력합니다(예: *cdn-profile-123* ). 프로필은 엔드포인트의 컬렉션입니다. |
+    | **CDN 프로필** | **새로 만들기** 를 선택하고 프로필 이름을 입력합니다(예: *cdn-profile-123*). 프로필은 엔드포인트의 컬렉션입니다. |
     | **가격 책정 계층** | **표준 Microsoft** 와 같은 **표준** 옵션 중 하나를 선택합니다. |
-    | **CDN 엔드포인트 이름** | 엔드포인트 호스트 이름을 입력합니다(예: *cdn-endpoint-123* ). 이 이름은 URL _&lt;endpoint-name&gt;_ .azureedge.net의 캐시된 리소스에 액세스하는 데 사용되므로 Azure에서 전역적으로 고유해야 합니다. |
+    | **CDN 엔드포인트 이름** | 엔드포인트 호스트 이름을 입력합니다(예: *cdn-endpoint-123*). 이 이름은 URL _&lt;endpoint-name&gt;_ .azureedge.net의 캐시된 리소스에 액세스하는 데 사용되므로 Azure에서 전역적으로 고유해야 합니다. |
     | **원본 호스트 이름** | 기본적으로 새 CDN 엔드포인트는 스토리지 계정의 호스트 이름을 원본 서버로 사용합니다. |
 
 1. **만들기** 를 선택합니다. 만든 엔드포인트는 엔드포인트 목록에 나타납니다.
@@ -95,7 +95,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 CDN에 캐시된 콘텐츠에 액세스하려면 포털에 제공된 CDN URL을 사용합니다. 캐시된 Blob에 대한 주소는 다음 형식을 갖습니다.
 
-http://< *endpoint-name*\>.azureedge.net/< *myPublicContainer*\>/<*BlobName*\>
+http://<*endpoint-name*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 
 > [!NOTE]
 > 스토리지 계정에 대한 Azure CDN 액세스를 사용하도록 설정하면 공개적으로 사용 가능한 모든 개체가 CDN POP 캐싱에 적합합니다. 현재 CDN에 캐시된 개체를 수정하는 경우 캐시된 콘텐츠 TTL(Time-to-Live) 기간이 만료된 후에 Azure CDN에서 해당 콘텐츠를 새로 고쳐야 Azure CDN을 통해 새 콘텐츠를 사용할 수 있습니다.
