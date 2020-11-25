@@ -9,11 +9,11 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014055"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013006"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>데이터베이스 백업 및 복원 Analysis Services
 
@@ -25,7 +25,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 > 
 
 > [!NOTE]
-> 저장소 계정이 다른 지역에 있는 경우 **선택한 네트워크**에서 액세스할 수 있도록 저장소 계정 방화벽 설정을 구성 합니다. 방화벽 **주소 범위**에서 Analysis Services 서버가 있는 지역의 IP 주소 범위를 지정 합니다. 모든 네트워크에서 액세스할 수 있도록 저장소 계정 방화벽 설정을 구성 하는 것이 지원 되지만 선택한 네트워크를 선택 하 고 IP 주소 범위를 지정 하는 것이 좋습니다. 자세히 알아보려면 [네트워크 연결 FAQ](analysis-services-network-faq.md#backup-and-restore)를 참조 하세요.
+> 저장소 계정이 다른 지역에 있는 경우 **선택한 네트워크** 에서 액세스할 수 있도록 저장소 계정 방화벽 설정을 구성 합니다. 방화벽 **주소 범위** 에서 Analysis Services 서버가 있는 지역의 IP 주소 범위를 지정 합니다. 모든 네트워크에서 액세스할 수 있도록 저장소 계정 방화벽 설정을 구성 하는 것이 지원 되지만 선택한 네트워크를 선택 하 고 IP 주소 범위를 지정 하는 것이 좋습니다. 자세히 알아보려면 [네트워크 연결 FAQ](analysis-services-network-faq.md#backup-and-restore)를 참조 하세요.
 
 백업은. .abf 확장을 사용 하 여 저장 됩니다. 메모리 내 테이블 형식 모델의 경우 모델 데이터와 메타데이터가 모두 저장됩니다. DirectQuery 테이블 형식 모델의 경우 모델 메타데이터만 저장됩니다. Backup은 선택한 옵션에 따라 압축하고 암호화할 수 있습니다.
 
@@ -35,11 +35,11 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
 
 ### <a name="to-configure-storage-settings"></a>스토리지 설정을 구성하려면
-1.  Azure Portal > **설정**에서 **Backup**을 클릭합니다.
+1.  Azure Portal > **설정** 에서 **Backup** 을 클릭합니다.
 
     ![설정의 Backup](./media/analysis-services-backup/aas-backup-backups.png)
 
-2.  **사용**을 클릭한 다음 **스토리지 설정**을 클릭합니다.
+2.  **사용** 을 클릭한 다음 **스토리지 설정** 을 클릭합니다.
 
     ![사용](./media/analysis-services-backup/aas-backup-enable.png)
 
@@ -57,9 +57,9 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
 ### <a name="to-backup-by-using-ssms"></a>SSMS를 사용하여 백업하려면
 
-1. SSMS에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **백업**을 클릭합니다.
+1. SSMS에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **백업** 을 클릭합니다.
 
-2. **데이터베이스**백업 백업  >  **파일**에서 **찾아보기**를 클릭 합니다.
+2. **데이터베이스** 백업 백업  >  **파일** 에서 **찾아보기** 를 클릭 합니다.
 
 3. **다른 이름으로 파일 저장** 대화 상자에서 폴더 경로 확인한 다음 백업 파일의 이름을 입력합니다. 
 
@@ -71,7 +71,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
     **백업 파일 암호화** - 백업 파일을 암호화하려면 이 옵션을 선택합니다. 이 옵션에서 백업 파일을 보호하려면 사용자가 제공한 암호가 필요합니다. 암호는 복원 작업 이외의 다른 방법으로 백업 데이터를 읽을 수 없도록 합니다. 백업을 암호화하도록 선택한 경우 암호를 안전한 위치에 저장합니다.
 
-5. **확인**을 클릭하여 백업 파일을 만들고 저장합니다.
+5. **확인** 을 클릭하여 백업 파일을 만들고 저장합니다.
 
 
 ### <a name="powershell"></a>PowerShell
@@ -89,13 +89,13 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
 ### <a name="to-restore-by-using-ssms"></a>SSMS를 사용하여 복원하려면
 
-1. SSMS에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **복원**을 클릭합니다.
+1. SSMS에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **복원** 을 클릭합니다.
 
-2. **데이터베이스 Backup** 대화 상자의 **Backup 파일**에서 **찾아보기**를 클릭합니다.
+2. **데이터베이스 Backup** 대화 상자의 **Backup 파일** 에서 **찾아보기** 를 클릭합니다.
 
 3. **데이터베이스 파일 찾기** 대화 상자에서 복원하려는 파일을 선택합니다.
 
-4. **데이터베이스 복원**에서 데이터베이스를 선택합니다.
+4. **데이터베이스 복원** 에서 데이터베이스를 선택합니다.
 
 5. 옵션을 지정합니다. 보안 옵션은 백업할 때 사용한 백업 옵션과 일치해야 합니다.
 

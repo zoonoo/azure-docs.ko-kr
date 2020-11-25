@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
 ms.openlocfilehash: dff59ac207e6078a264d1350d24c9e6f4a461d78
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108782"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012887"
 ---
 # <a name="smart-groups"></a>스마트 그룹
 
@@ -23,7 +23,7 @@ ms.locfileid: "92108782"
 
 ## <a name="smart-group-state"></a>스마트 그룹 상태
 
-스마트 그룹 상태는 경고 상태와 유사한 개념으로, 스마트 그룹 수준에서 해결 프로세스를 관리할 수 있습니다. 경고 상태와 유사하게, 스마트 그룹을 만들 때는 **새로 만들기** 상태이며, **확인됨** 또는 **닫힘**으로 변경될 수 있습니다.
+스마트 그룹 상태는 경고 상태와 유사한 개념으로, 스마트 그룹 수준에서 해결 프로세스를 관리할 수 있습니다. 경고 상태와 유사하게, 스마트 그룹을 만들 때는 **새로 만들기** 상태이며, **확인됨** 또는 **닫힘** 으로 변경될 수 있습니다.
 
 다음 스마트 그룹 상태가 지원됩니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "92108782"
 |:---|:---|
 | 새로 만들기 | 문제가 방금 검색되었으며 아직 검토되지 않았습니다. |
 | 승인됨 | 관리자가 스마트 그룹을 검토하고 작업을 시작했습니다. |
-| 폐쇄형 | 문제가 해결되었습니다. 스마트 그룹이 닫힌 후 다른 상태로 변경하면 다시 열 수 있습니다. |
+| 해결됨 | 문제가 해결되었습니다. 스마트 그룹이 닫힌 후 다른 상태로 변경하면 다시 열 수 있습니다. |
 
 [스마트 그룹의 상태를 변경하는 방법을 알아보세요.](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 

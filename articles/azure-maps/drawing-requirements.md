@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: philMea
 ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895837"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013125"
 ---
 # <a name="drawing-package-requirements"></a>그리기 패키지 요구 사항
 
@@ -50,9 +50,9 @@ ms.locfileid: "92895837"
 
 ## <a name="dwg-files-requirements"></a>DWG 파일 요구 사항
 
-각 시설 수준에는 단일 DWG 파일이 필요합니다. 수준의 데이터는 단일 DWG 파일에 포함되어야 합니다. 외부 참조( _xrefs_ )는 부모 그리기에 바인딩되어야 합니다. 또한 각 DWG 파일은 다음과 같습니다.
+각 시설 수준에는 단일 DWG 파일이 필요합니다. 수준의 데이터는 단일 DWG 파일에 포함되어야 합니다. 외부 참조(_xrefs_)는 부모 그리기에 바인딩되어야 합니다. 또한 각 DWG 파일은 다음과 같습니다.
 
-* _실외_ 및 _단위_ 레이어를 정의해야 합니다. 필요에 따라 _벽_ , _도어_ , 단위 _레이블_ , _영역_ 및 _ZoneLabel_ 등의 선택적 계층을 정의할 수 있습니다.
+* _실외_ 및 _단위_ 레이어를 정의해야 합니다. 필요에 따라 _벽_, _도어_, 단위 _레이블_, _영역_ 및 _ZoneLabel_ 등의 선택적 계층을 정의할 수 있습니다.
 * 여러 수준의 기능을 포함할 수 없습니다.
 * 여러 시설의 기능을 포함할 수 없습니다.
 
@@ -219,7 +219,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### `georeference`
 
-| 속성  | 형식 | 필수 | 설명 |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`lat`    | numeric |    true |    시설 그리기의 원점에 대한 위도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다.|
 |`lon`    |numeric|    true|    시설 그리기의 원점에 대한 경도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다. |
@@ -227,7 +227,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### `dwgLayers`
 
-| 속성  | 형식 | 필수 | 설명 |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`exterior`    |문자열 배열|    true|    외부 빌딩 프로필을 정의 하는 계층의 이름입니다.|
 |`unit`|    문자열 배열|    true|    단위를 정의 하는 레이어의 이름입니다.|

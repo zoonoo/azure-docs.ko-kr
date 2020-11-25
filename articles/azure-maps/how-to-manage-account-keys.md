@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: c618e8193bed1f35cbbe884d5725c4ecfb25dd75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311124"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013091"
 ---
 # <a name="manage-your-azure-maps-account"></a>Azure Maps 계정 관리
 
@@ -25,9 +25,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
+2. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 를 선택합니다.
 
-3. **Maps**를 검색하고 선택합니다. 그런 다음 **만들기**를 선택합니다.
+3. **Maps** 를 검색하고 선택합니다. 그런 다음 **만들기** 를 선택합니다.
 
 4. 새로운 계정에 대한 정보를 입력합니다.
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="delete-an-account"></a>계정 삭제
 
-Azure Portal에서 계정을 삭제할 수 있습니다. 계정 개요 페이지로 이동하여 **삭제**를 선택합니다.
+Azure Portal에서 계정을 삭제할 수 있습니다. 계정 개요 페이지로 이동하여 **삭제** 를 선택합니다.
 
 [![Azure Portal에서 Azure Maps 계정을 삭제 합니다.](./media/how-to-manage-account-keys/account-delete-portal.png)](./media/how-to-manage-account-keys/account-delete-portal.png#lightbox)
 
