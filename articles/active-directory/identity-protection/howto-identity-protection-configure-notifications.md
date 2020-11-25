@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9536cf41add73f494bfff451c201d36e951864e3
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489491"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997667"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory ID 보호 알림
 
@@ -70,6 +70,6 @@ Azure AD ID 보호는 사용자 위험 및 위험 검색을 관리 하는 데 �
 
 **Azure portal** **Azure Active Directory**  >  **보안**  >  **id 보호**  >  **주간 다이제스트** 의 Azure Portal에서 주별 다이제스트 전자 메일을 구성 합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 - [Azure Active Directory ID 보호](./overview-identity-protection.md)

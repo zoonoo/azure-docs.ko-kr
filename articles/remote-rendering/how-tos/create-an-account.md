@@ -6,11 +6,11 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
 ms.openlocfilehash: 8169b277dfae918e86ac493259325ff84d0b6a4e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427478"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998535"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Azure Remote Rendering 계정 만들기
 
@@ -57,11 +57,11 @@ Azure Remote Rendering 서비스에 대한 계정을 만들려면 다음 단계�
 
 ![구독 필터](./media/azure-subscription-filter.png)
 
-계정을 클릭하면 이 화면이 나타나고 **계정 ID**가 바로 표시됩니다.
+계정을 클릭하면 이 화면이 나타나고 **계정 ID** 가 바로 표시됩니다.
 
 ![Azure 계정 ID](./media/azure-account-id.png)
 
-왼쪽 패널에서 키에 대한 **액세스 키**를 선택합니다. 다음 페이지는 기본 및 보조 키를 표시합니다.
+왼쪽 패널에서 키에 대한 **액세스 키** 를 선택합니다. 다음 페이지는 기본 및 보조 키를 표시합니다.
 
 ![Azure 액세스 키](./media/azure-account-primary-key.png)
 
@@ -85,8 +85,8 @@ Azure Remote Rendering 서비스에 대한 계정을 만들려면 다음 단계�
 
 ![저장소 계정 IAM 역할 할당 추가](./media/azure-add-role-assignment.png)
 
-* 할당할 첫 번째 역할은 위의 스크린샷에 표시된 것처럼 **소유자**입니다.
-* **액세스 할당** 드롭다운에서 **Remote Rendering 계정**을 선택합니다.
+* 할당할 첫 번째 역할은 위의 스크린샷에 표시된 것처럼 **소유자** 입니다.
+* **액세스 할당** 드롭다운에서 **Remote Rendering 계정** 을 선택합니다.
 * 마지막 드롭다운에서 구독 및 Remote Rendering 계정을 선택합니다.
 
 > [!WARNING]

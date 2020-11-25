@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 105978daeb93a2e5646222ff10055ba20a1dc481
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7174f7dd53387de9a569a5ddcadc08c32692c749
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172908"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997106"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Azure Blob Storage의 변경 피드 지원
 
@@ -21,7 +21,7 @@ ms.locfileid: "92172908"
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
-변경 피드는 저장소 계정의 특수 컨테이너에 [blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 으로 표준 [blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 비용으로 저장 됩니다. 요구 사항에 따라 이러한 파일의 보존 기간을 제어할 수 있습니다 (현재 릴리스의 [조건](#conditions) 참조). 변경 이벤트는 [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) 형식 사양의 레코드로 변경 피드에 추가 됩니다. 인라인 스키마를 사용 하 여 풍부한 데이터 구조를 제공 하는 간단 하 고 빠른 이진 형식입니다. 이 형식은 Hadoop 에코시스템, Stream Analytics 및 Azure Data Factory에서 널리 사용됩니다.
+변경 피드는 저장소 계정의 특수 컨테이너에 [blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 으로 표준 [blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 비용으로 저장 됩니다. 요구 사항에 따라 이러한 파일의 보존 기간을 제어할 수 있습니다 (현재 릴리스의 [조건](#conditions) 참조). 변경 이벤트는 [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) 형식 사양의 레코드로 변경 피드에 추가 됩니다. 인라인 스키마를 사용 하 여 풍부한 데이터 구조를 제공 하는 간단 하 고 빠른 이진 형식입니다. 이 형식은 Hadoop 에코시스템, Stream Analytics 및 Azure Data Factory에서 널리 사용됩니다.
 
 이러한 로그는 증분 방식으로 또는 전체에서 처리할 수 있습니다. 원하는 수의 클라이언트 응용 프로그램은 변경 피드를 독립적으로 개별적으로 읽을 수 있습니다. [Apache 드릴](https://drill.apache.org/docs/querying-avro-files/) 또는 [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) 와 같은 분석 응용 프로그램은 로그를 Avro 파일로 직접 사용할 수 있으므로, 높은 대역폭을 사용 하 고 사용자 지정 응용 프로그램을 작성 하지 않고도 처리할 수 있습니다.
 
@@ -64,7 +64,7 @@ Azure Portal를 사용 하 여 저장소 계정에서 변경 피드를 사용 �
 
 2. **Blob Service** 아래의 **데이터 보호** 옵션으로 이동합니다.
 
-3. **Blob 변경 피드**에서 **사용** 을 클릭 합니다.
+3. **Blob 변경 피드** 에서 **사용** 을 클릭 합니다.
 
 4. **저장** 단추를 선택 하 여 **데이터 보호** 설정을 확인 합니다.
 
@@ -103,11 +103,11 @@ PowerShell을 사용 하 여 변경 피드를 사용 하도록 설정 합니다.
 ### <a name="template"></a>[템플릿](#tab/template)
 Azure Resource Manager 템플릿을 사용 하 여 Azure Portal를 통해 기존 저장소 계정에서 변경 피드를 사용 하도록 설정 합니다.
 
-1. Azure Portal에서 **리소스 만들기**를 선택 합니다.
+1. Azure Portal에서 **리소스 만들기** 를 선택 합니다.
 
-2. **Marketplace 검색**에서 **템플릿 배포**를 입력 하 고 **enter**키를 누릅니다.
+2. **Marketplace 검색** 에서 **템플릿 배포** 를 입력 하 고 **enter** 키를 누릅니다.
 
-3. **[사용자 지정 템플릿 배포](https://portal.azure.com/#create/Microsoft.Template)** 를 선택한 다음 **편집기에서 고유한 템플릿 빌드**를 선택 합니다.
+3. **[사용자 지정 템플릿 배포](https://portal.azure.com/#create/Microsoft.Template)** 를 선택한 다음 **편집기에서 고유한 템플릿 빌드** 를 선택 합니다.
 
 4. 템플릿 편집기에서 다음 json을 붙여넣습니다. `<accountName>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
 
@@ -206,7 +206,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 변경 피드 파일에는 일련의 변경 이벤트 레코드가 포함 되어 있습니다. 각 변경 이벤트 레코드는 개별 blob에 대 한 변경 내용 하나에 해당 합니다. 레코드는 [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) 형식 사양을 사용 하 여 serialize 되 고 파일에 기록 됩니다. Avro 파일 형식 사양을 사용 하 여 레코드를 읽을 수 있습니다. 해당 형식으로 파일을 처리 하는 데 사용할 수 있는 여러 라이브러리가 있습니다.
 
-변경 피드 파일은 `$blobchangefeed/log/` 가상 디렉터리에 [추가 blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs)으로 저장 됩니다. 각 경로 아래에 있는 첫 번째 변경 피드 파일은 `00000` 파일 이름에 포함 됩니다 (예: `00000.avro` ). 해당 경로에 추가 되는 각 후속 로그 파일의 이름은 1 씩 증가 합니다 (예: `00001.avro` ).
+변경 피드 파일은 `$blobchangefeed/log/` 가상 디렉터리에 [추가 blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs)으로 저장 됩니다. 각 경로 아래에 있는 첫 번째 변경 피드 파일은 `00000` 파일 이름에 포함 됩니다 (예: `00000.avro` ). 해당 경로에 추가 되는 각 후속 로그 파일의 이름은 1 씩 증가 합니다 (예: `00001.avro` ).
 
 다음 이벤트 유형은 변경 피드 레코드에 캡처됩니다.
 - BlobCreated
@@ -243,7 +243,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 }
 ```
 
-각 속성에 대 한 설명은 [Blob Storage에 대 한 Azure Event Grid 이벤트 스키마](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties)를 참조 하세요. BlobBlobSnapshotCreated 및 업데이트 된 이벤트는 현재 변경 피드 전용 이며 Blob Storage 이벤트에 대해 아직 지원 되지 않습니다.
+각 속성에 대 한 설명은 [Blob Storage에 대 한 Azure Event Grid 이벤트 스키마](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties)를 참조 하세요. BlobBlobSnapshotCreated 및 업데이트 된 이벤트는 현재 변경 피드 전용 이며 Blob Storage 이벤트에 대해 아직 지원 되지 않습니다.
 
 > [!NOTE]
 > 세그먼트에 대 한 변경 피드 파일은 세그먼트를 만든 후 즉시 표시 되지 않습니다. 지연 시간은 변경 피드의 몇 분 이내에 변경 피드의 게시 대기 시간에 대 한 일반적인 간격 내에 있습니다.
@@ -256,7 +256,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 - 변경 이벤트 레코드는 변경 된 몇 분의 순서에 따라 추가 됩니다. 클라이언트 응용 프로그램은 스트리밍 액세스를 위해 추가 되거나 대량으로 추가 될 때 레코드를 사용 하도록 선택할 수 있습니다.
 
-- 변경 이벤트 레코드는 **blob 당**수정 순서로 정렬 됩니다. Blob 간의 변경 순서는 Azure Blob Storage에서 정의 되지 않습니다. 이전 세그먼트의 모든 변경 내용은 후속 세그먼트에서 변경 되기 전에 발생 합니다.
+- 변경 이벤트 레코드는 **blob 당** 수정 순서로 정렬 됩니다. Blob 간의 변경 순서는 Azure Blob Storage에서 정의 되지 않습니다. 이전 세그먼트의 모든 변경 내용은 후속 세그먼트에서 변경 되기 전에 발생 합니다.
 
 - 변경 이벤트 레코드는 [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) 형식 사양을 사용 하 여 로그 파일로 직렬화 됩니다.
 

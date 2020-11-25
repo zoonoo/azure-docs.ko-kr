@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7f8dd49f3668b8f68753681123a04d21edac46c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60381469"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997735"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory 하이브리드 ID 설계 고려 사항
 소비자 기반 디바이스가 기업 전반에 퍼지고 있기 때문에 클라우드 기반 소프트웨어 SaaS 애플리케이션은 쉽게 채택할 수 있습니다. 결과적으로 내부 데이터 센터 및 클라우드 플랫폼에 걸쳐 사용자의 애플리케이션 액세스를 제어하도록 유지하는 것은 어렵습니다.  
@@ -44,7 +44,7 @@ Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능을 
 
 다음 그래픽은 IT 관리자가 클라우드 및 온-프레미스에 위치한 애플리케이션에 Single Sign-On(SSO)을 사용자가 사용할 수 있도록 Microsoft Azure Active Directory를 사용하여 현재 온-프레미스에 있는 Windows Server Active Directory 솔루션을 통합하도록 관리할 수 있는 하이브리드 ID 솔루션의 예를 보여줍니다.
 
-![예](media/plan-hybrid-identity-design-considerations/hybridID-example.png)
+![예제](media/plan-hybrid-identity-design-considerations/hybridID-example.png)
 
 위의 그림은 최종 사용자 인증 프로세스에 단일 환경을 제공하고 해당 리소스를 관리하는 IT를 용이하게 하기 위해 온-프레미스 기능을 통합하는 클라우드 서비스를 활용하는 하이브리드 ID 솔루션의 예제입니다. 이 예제는 일반적인 시나리오일 수 있지만 모든 조직의 하이브리드 ID 설계는 여러 요구 사항으로 인해 그림1에 설명된 예제와 다를 수 있습니다. 
 

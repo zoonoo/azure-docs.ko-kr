@@ -9,11 +9,11 @@ ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
 ms.openlocfilehash: ac3ee108fc63441b2a9381b9e7624631bdca4e5b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289828"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998109"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -26,7 +26,7 @@ Azure Key Vault에 인증 하려면 공유 암호 또는 인증서 인 Azure Act
 
 `Microsoft.Azure.Services.AppAuthentication`라이브러리는 자동으로 인증을 관리 하므로 자격 증명이 아닌 솔루션에 집중할 수 있습니다. Microsoft Visual Studio, Azure CLI 또는 Azure AD 통합 인증을 사용 하 여 로컬 개발을 지원 합니다. 관리 ID를 지원하는 Azure 리소스에 배포된 라이브러리는 [Azure 리소스용 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 자동으로 사용합니다. 코드 또는 구성을 변경할 필요가 없습니다. 또한 라이브러리는 관리 되는 id를 사용할 수 없는 경우 또는 로컬 개발 중에 개발자의 보안 컨텍스트를 확인할 수 없는 경우 Azure AD [클라이언트 자격 증명](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) 을 직접 사용 하도록 지원 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - [Visual studio 2019](https://www.visualstudio.com/downloads/) 또는 [visual studio 2017 v 15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/).
 
@@ -65,7 +65,7 @@ Azure Key Vault에 인증 하려면 공유 암호 또는 인증서 인 Azure Act
 
 로컬 컴퓨터는 Azure 리소스에 대 한 관리 되는 id를 지원 하지 않습니다. 따라서 `Microsoft.Azure.Services.AppAuthentication` 라이브러리가 개발자 자격 증명을 사용하여 로컬 개발 환경에서 실행됩니다. Azure에 솔루션이 배포되면 라이브러리가 관리 ID를 사용하여 OAuth 2.0 클라이언트 자격 증명 부여 흐름으로 전환합니다. 이 방법은 걱정 없이 동일한 코드를 로컬 및 원격으로 테스트할 수 있음을 의미 합니다.
 
-로컬 개발의 경우 `AzureServiceTokenProvider`는 **Visual Studio** , **Azure CLI** (명령줄 인터페이스) 또는 **Azure AD 통합 인증** 을 사용하여 토큰을 페치합니다. 각 옵션을 순차적으로 시도하여 라이브러리가 성공하는 첫 번째 옵션을 사용합니다. 작동하는 옵션이 없는 경우 자세한 정보와 함께 `AzureServiceTokenProviderException` 예외가 throw됩니다.
+로컬 개발의 경우 `AzureServiceTokenProvider`는 **Visual Studio**, **Azure CLI**(명령줄 인터페이스) 또는 **Azure AD 통합 인증** 을 사용하여 토큰을 페치합니다. 각 옵션을 순차적으로 시도하여 라이브러리가 성공하는 첫 번째 옵션을 사용합니다. 작동하는 옵션이 없는 경우 자세한 정보와 함께 `AzureServiceTokenProviderException` 예외가 throw됩니다.
 
 #### <a name="authenticating-with-visual-studio"></a>Visual Studio를 사용하여 인증
 
@@ -167,7 +167,7 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
           CertificateStoreLocation={CertificateStore}
     ```
 
-    *{AppId}* , *{TenantId}* 및 *{Thumbprint}* 를 1단계에서 생성된 값으로 바꿉니다. 배포 계획에 따라 *{CertificateStore}* 을 *LocalMachine* ' 또는 *CurrentUser* 로 바꿉니다.
+    *{AppId}*, *{TenantId}* 및 *{Thumbprint}* 를 1단계에서 생성된 값으로 바꿉니다. 배포 계획에 따라 *{CertificateStore}* 을 *LocalMachine*' 또는 *CurrentUser* 로 바꿉니다.
 
 1. 애플리케이션을 실행합니다.
 
@@ -185,7 +185,7 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
     RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}
     ```
 
-    _{AppId}_ , _{TenantId}_ 및 _{ClientSecret}_ 을 1단계에서 생성된 값으로 바꿉니다.
+    _{AppId}_, _{TenantId}_ 및 _{ClientSecret}_ 을 1단계에서 생성된 값으로 바꿉니다.
 
 1. 애플리케이션을 실행합니다.
 
@@ -234,7 +234,7 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
 
 프로세스를 제어하려면 `AzureServiceTokenProvider` 생성자에 전달되거나 *AzureServicesAuthConnectionString* 환경 변수에 지정된 연결 문자열을 사용합니다.  다음과 같은 옵션이 지원됩니다.
 
-| 연결 문자열 옵션 | 시나리오 | 주석|
+| 연결 문자열 옵션 | 시나리오 | 의견|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | 로컬 개발 | `AzureServiceTokenProvider` 는 AzureCli를 사용 하 여 토큰을 가져옵니다. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | 로컬 개발 | `AzureServiceTokenProvider` Visual Studio를 사용 하 여 토큰을 가져옵니다. |

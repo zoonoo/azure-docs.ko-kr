@@ -16,11 +16,11 @@ ms.date: 09/26/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d193637122cb388ea2c5012638526719d245f524
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90968985"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997382"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>PowerShell을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -61,7 +61,7 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 시스템 할당 관리 ID를 사용하도록 설정된 가상 머신 확장 집합을 만들려면:
 
-1. 시스템 할당 관리 ID가 있는 가상 머신 확장 집합을 만들려면 [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) cmdlet 참조 문서의 *예제 1*을 참조하세요.  `-IdentityType SystemAssigned` 매개 변수를 `New-AzVmssConfig` cmdlet에 추가:
+1. 시스템 할당 관리 ID가 있는 가상 머신 확장 집합을 만들려면 [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) cmdlet 참조 문서의 *예제 1* 을 참조하세요.  `-IdentityType SystemAssigned` 매개 변수를 `New-AzVmssConfig` cmdlet에 추가:
 
     ```azurepowershell-interactive
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`

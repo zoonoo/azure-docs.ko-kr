@@ -2,19 +2,19 @@
 author: IngridAtMicrosoft
 ms.service: media-services
 ms.topic: include
-ms.date: 08/18/2020
+ms.date: 11/19/2020
 ms.author: inhenkel
-ms.custom: CLI
-ms.openlocfilehash: 3a99dd9e69363e8fbb02b7e5e1ac5921d079ba21
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.custom: REST
+ms.openlocfilehash: def2553ddc71f008c5d2b902d04f587ef8d26889
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917892"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996907"
 ---
 <!--Create a basic audio transform REST-->
 
-다음 Azure REST 명령은 기본 오디오 자산을 만듭니다. `subscriptionID`, 및 값을 `resourceGroup` `amsAccountName` 현재 작업 중인 값으로 바꿉니다. 을 설정 하 여 변환 이름을 지정 `transformName` 합니다.
+다음 Azure REST 명령은 기본 오디오 변환을 만듭니다. `subscriptionID`, 및 값을 `resourceGroup` `accountName` 현재 작업 중인 값으로 바꿉니다. 을 설정 하 여 변환 이름을 지정 `transformName` 합니다.
 
 ```REST
 

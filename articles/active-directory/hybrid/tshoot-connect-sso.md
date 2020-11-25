@@ -14,11 +14,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60f23efa4f46849e1fe8b0ebe05cdd83ec16f49e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294821"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997684"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On 문제 해결
 
@@ -28,20 +28,20 @@ ms.locfileid: "91294821"
 
 - 경우에 따라 Seamless SSO를 활성화하는 데 최대 30분이 소요될 수 있습니다.
 - 테넌트에서 Seamless SSO를 사용하지 않도록 설정했다가 다시 사용하도록 설정하면, 일반적으로 10시간 동안 유효한 캐시된 Kerberos 티켓이 만료될 때까지 Single Sign-On 환경을 사용할 수 없게 됩니다.
-- Seamless SSO가 성공하면 사용자에게 **로그인 유지**를 선택하는 기회가 제공되지 않습니다. 이 동작으로 인해 [SharePoint 및 OneDrive 매핑 시나리오가](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) 작동 하지 않습니다.
+- Seamless SSO가 성공하면 사용자에게 **로그인 유지** 를 선택하는 기회가 제공되지 않습니다. 이 동작으로 인해 [SharePoint 및 OneDrive 매핑 시나리오가](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) 작동 하지 않습니다.
 - 16.0.8730 이상 버전을 사용 하는 Win32 클라이언트 (Outlook, Word, Excel 및 기타)는 비 대화형 흐름을 사용 하 여 지원 됩니다. Microsoft 365 다른 버전이 지원되지 않습니다. 해당 버전에서 사용자는 암호가 아닌 해당 사용자 이름을 입력하여 로그인합니다. OneDrive의 경우 자동 로그온 환경에 대해 [OneDrive 자동 구성 기능](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894)을 활성화해야 합니다.
 - Firefox의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않습니다.
 - [향상된 보호] 모드가 설정되어 있는 경우 Internet Explorer에서 Seamless SSO가 작동하지 않습니다.
 - iOS 및 Android의 모바일 브라우저에서는 Seamless SSO가 작동하지 않습니다.
 - 사용자가 Active Directory에 있는 여러 그룹의 일부인 경우 사용자의 Kerberos 티켓은 처리하기에 너무 크기 때문에 원활한 SSO에 실패하게 됩니다. Azure AD HTTPS 요청에는 최대 50KB 크기인 헤더가 포함될 수 있습니다. Kerberos 티켓은 쿠키 등 다른 Azure AD 아티팩트(일반적으로 2~5KB)를 수용하는 제한보다 작아야 합니다. 사용자의 그룹 멤버 자격 수를 줄이고 다시 시도하는 것이 좋습니다.
 - 30개 이상의 Active Directory 포리스트를 동기화하는 경우 Azure AD Connect를 통해 Seamless SSO를 활성화할 수 없습니다. 이 경우 테넌트에서 이 기능을 [수동으로 활성화](#manual-reset-of-the-feature)하여 해결할 수 있습니다.
-- `https://autologon.microsoftazuread-sso.com`로컬 인트라넷 영역 대신 신뢰할 수 있는 사이트 영역에 AZURE AD 서비스 URL ()을 추가 하면 *사용자가 로그인*하지 못하도록 차단 됩니다.
+- `https://autologon.microsoftazuread-sso.com`로컬 인트라넷 영역 대신 신뢰할 수 있는 사이트 영역에 AZURE AD 서비스 URL ()을 추가 하면 *사용자가 로그인* 하지 못하도록 차단 됩니다.
 - 원활한 SSO는 Kerberos에 대 한 AES256_HMAC_SHA1, AES128_HMAC_SHA1 및 RC4_HMAC_MD5 암호화 종류를 지원 합니다. AzureADSSOAcc $ account의 암호화 유형을 AES256_HMAC_SHA1 또는 AES 유형 중 하나를 설정 하 여 보안을 강화 하는 것이 좋습니다. 암호화 유형은 Active Directory 계정의의 msds-primary-computer-Supported Types 특성에 저장 됩니다.  AzureADSSOAcc $ account encryption 유형을 RC4_HMAC_MD5로 설정 하고 AES 암호화 유형 중 하나로 변경하려는 경우 [FAQ 문서](how-to-connect-sso-faq.md)에 설명된 대로 먼저 AzureADSSOAcc $ 계정의 Kerberos 암호 해독 키를 롤오버하는지 확인하세요. 관련 질문에서, 그렇지 않으면 원활한 SSO가 발생하지 않습니다.
 -  포리스트 트러스트가 있는 포리스트가 둘 이상 있는 경우 포리스트 중 하나에서 SSO를 사용 하도록 설정 하면 트러스트 된 모든 포리스트에서 SSO를 사용할 수 있습니다. SSO가 이미 사용 하도록 설정 된 포리스트에서 SSO를 사용 하도록 설정 하면 포리스트에서 SSO가 이미 사용 하도록 설정 되었다는 오류가 발생 합니다.
 
 ## <a name="check-status-of-feature"></a>기능의 상태 확인
 
-테넌트에서 Seamless SSO 기능이 여전히 **활성화**되어 있는지 확인합니다. [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)의 **Azure AD Connect** 창으로 이동하여 상태를 확인할 수 있습니다.
+테넌트에서 Seamless SSO 기능이 여전히 **활성화** 되어 있는지 확인합니다. [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)의 **Azure AD Connect** 창으로 이동하여 상태를 확인할 수 있습니다.
 
 ![Azure Active Directory 관리 센터: Azure AD Connect 창](./media/tshoot-connect-sso/sso10.png)
 
@@ -55,7 +55,7 @@ ms.locfileid: "91294821"
 
 ![Azure Active Directory 관리 센터: 로그인 보고서](./media/tshoot-connect-sso/sso9.png)
 
-**Azure Active Directory**  >  [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 Azure Active Directory**로그인** 으로 이동한 다음 특정 사용자의 로그인 활동을 선택 합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
+**Azure Active Directory**  >  [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 Azure Active Directory **로그인** 으로 이동한 다음 특정 사용자의 로그인 활동을 선택 합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
 
 |로그인 오류 코드|로그인 실패 이유|해결 방법
 | --- | --- | ---

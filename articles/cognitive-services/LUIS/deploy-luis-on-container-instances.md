@@ -10,16 +10,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: aahi
-ms.openlocfilehash: 08af17106846a0f5f7a0ccc2b01da1b2e15c1143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edc2ad0f895b8a1bb6448ce1cdf79b1b2ce83951
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80879215"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95997201"
 ---
 # <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>LUIS (Language Understanding) 컨테이너를 Azure Container instances에 배포
 
-Cognitive Services [LUIS](luis-container-howto.md) 컨테이너를 Azure [container instances](https://docs.microsoft.com/azure/container-instances/)에 배포 하는 방법에 대해 알아봅니다. 이 절차에서는 변칙 탐지기 리소스를 만드는 방법을 보여 줍니다. 그런 다음 연결 된 컨테이너 이미지를 풀링 하는 방법을 설명 합니다. 마지막으로 브라우저에서 두 오케스트레이션의 오케스트레이션을 실행 하는 기능을 강조 표시 합니다. 컨테이너를 사용 하면 개발자가 인프라를 관리 하지 않고 응용 프로그램 개발에 집중 하는 것으로 전환할 수 있습니다.
+Cognitive Services [LUIS](luis-container-howto.md) 컨테이너를 Azure [container instances](../../container-instances/index.yml)에 배포 하는 방법에 대해 알아봅니다. 이 절차에서는 변칙 탐지기 리소스를 만드는 방법을 보여 줍니다. 그런 다음 연결 된 컨테이너 이미지를 풀링 하는 방법을 설명 합니다. 마지막으로 브라우저에서 두 오케스트레이션의 오케스트레이션을 실행 하는 기능을 강조 표시 합니다. 컨테이너를 사용 하면 개발자가 인프라를 관리 하지 않고 응용 프로그램 개발에 집중 하는 것으로 전환할 수 있습니다.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-prerequisites.md)]
 
@@ -33,7 +33,7 @@ LUIS 컨테이너에는 `.gz` 런타임에 가져온 모델 파일이 필요 합
 
 ### <a name="export-and-upload-packaged-luis-app"></a>패키지 된 LUIS 앱 내보내기 및 업로드
 
-LUIS model (패키지 된 앱)을 Azure 파일 공유에 업로드 하려면 <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">먼저 <span class="docon docon-navigate-external x-hidden-focus"></span> LUIS 포털에서 내보내야 </a>합니다. Azure Portal에서 저장소 계정 리소스의 **개요** 페이지로 이동 하 고 **파일 공유**를 선택 합니다. 최근에 만든 파일 공유 이름을 선택 하 고 **업로드** 단추를 선택 합니다.
+LUIS model (패키지 된 앱)을 Azure 파일 공유에 업로드 하려면 <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">먼저 <span class="docon docon-navigate-external x-hidden-focus"></span> LUIS 포털에서 내보내야 </a>합니다. Azure Portal에서 저장소 계정 리소스의 **개요** 페이지로 이동 하 고 **파일 공유** 를 선택 합니다. 최근에 만든 파일 공유 이름을 선택 하 고 **업로드** 단추를 선택 합니다.
 
 > [!div class="mx-imgBorder"]
 > ![파일 공유에 업로드](media/luis-how-to-deploy-to-aci/upload-file-share.png)

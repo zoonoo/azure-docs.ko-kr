@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 544aa1a4a859a9c328eb1d36e72d0f9f9ddb55b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ad45d5f0e313c06619fa9c998515e434de957ea
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327904"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997565"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시로 게시 된 앱에 대 한 하드 코드 된 링크 리디렉션
 
@@ -47,14 +47,14 @@ Azure AD 애플리케이션 프록시는 원격 사용자가 자신의 디바이
 > [!NOTE]
 > 마지막 옵션은 어떤 이유로든 사용자 정의 도메인을 사용하여 자신의 앱에 대해 내부 및 외부 URL을 동일하게 사용할 수 없는 테넌트에만 해당됩니다. 이 기능을 사용하도록 설정하기 전에 [Azure AD 애플리케이션 프록시의 사용자 지정 도메인](application-proxy-configure-custom-domain.md)이 작동하는지 확인하세요. 
 > 
-> 또는 링크 변환으로 구성해야 하는 애플리케이션이 SharePoint인 경우 링크 매핑에 대한 다른 방법으로 [SharePoint 2013에 대한 대체 액세스 매핑 구성](https://technet.microsoft.com/library/cc263208.aspx)을 참조하세요. 
+> 또는 링크 변환으로 구성해야 하는 애플리케이션이 SharePoint인 경우 링크 매핑에 대한 다른 방법으로 [SharePoint 2013에 대한 대체 액세스 매핑 구성](/SharePoint/administration/configure-alternate-access-mappings)을 참조하세요. 
 
  
 ### <a name="option-1-microsoft-edge-integration"></a>옵션 1: Microsoft Edge 통합 
 
 Microsoft Edge를 사용 하 여 응용 프로그램 및 콘텐츠를 더 안전 하 게 보호할 수 있습니다. 이 솔루션을 사용 하려면 사용자가 Microsoft Edge를 통해 응용 프로그램에 액세스 하도록 요구/권장 합니다. 응용 프로그램 프록시로 게시 된 모든 내부 Url은 Edge에서 인식 되 고 해당 외부 URL로 리디렉션됩니다. 이렇게 하면 모든 하드 코딩된 내부 URL이 작동하고 사용자가 브라우저로 이동하여 내부 URL을 직접 입력하면 사용자가 원격인 경우에도 작동합니다.  
 
-이 옵션을 구성 하는 방법을 비롯 한 자세한 내용은 [iOS 및 Microsoft Intune Android 용 Edge를 사용 하 여 웹 액세스 관리](https://docs.microsoft.com/mem/intune/apps/manage-microsoft-edge) 문서를 참조 하세요.  
+이 옵션을 구성 하는 방법을 비롯 한 자세한 내용은 [iOS 및 Microsoft Intune Android 용 Edge를 사용 하 여 웹 액세스 관리](/mem/intune/apps/manage-microsoft-edge) 문서를 참조 하세요.  
 
 ### <a name="option-2-myapps-browser-extension"></a>옵션 2: MyApps 브라우저 확장 
 
@@ -62,7 +62,7 @@ MyApps 브라우저 확장을 사용하여 애플리케이션 프록시로 게�
 
 이 기능을 사용하려면 사용자가 확장을 다운로드하고 로그인해야 합니다. 관리자 또는 사용자에게 필요한 다른 구성은 없습니다. 
 
-이 옵션을 구성 하는 방법을 포함 하 여 자세히 알아보려면 [Myapps 브라우저 확장](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) 설명서를 참조 하세요.
+이 옵션을 구성 하는 방법을 포함 하 여 자세히 알아보려면 [Myapps 브라우저 확장](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) 설명서를 참조 하세요.
 
 ### <a name="option-3-link-translation-setting"></a>옵션 3: 링크 변환 설정 
 
@@ -103,7 +103,7 @@ MyApps 브라우저 확장을 사용하여 애플리케이션 프록시로 게�
 * link
 * menuitem
 * meta
-* object
+* 개체
 * 스크립트
 * source
 * track
@@ -138,10 +138,10 @@ Benefits 앱에 대해 링크 변환을 사용하도록 설정하면 Expenses �
 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**  >  **모든 응용** 프로그램으로 이동 하 > **응용 프로그램 프록시**> 관리할 앱을 선택 합니다.
-3. **Translate URLs in application body**(애플리케이션 본문의 URL 변환)를 **예**로 설정합니다.
+3. **Translate URLs in application body**(애플리케이션 본문의 URL 변환)를 **예** 로 설정합니다.
 
    ![[예]를 선택하여 애플리케이션 본문의 URL 변환](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
-4. **저장**을 선택하여 변경 내용을 적용합니다.
+4. **저장** 을 선택하여 변경 내용을 적용합니다.
 
 이제 사용자가 이 애플리케이션에 액세스하면 프록시는 테넌트에서 애플리케이션 프록시를 통해 게시된 내부 URL을 자동으로 검사합니다.
 
@@ -152,4 +152,4 @@ Benefits 앱에 대해 링크 변환을 사용하도록 설정하면 Expenses �
 ## <a name="next-steps"></a>다음 단계
 동일한 내부 및 외부 URL을 사용하도록 [Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 사용](application-proxy-configure-custom-domain.md)
 
-[SharePoint 2013에 대한 대체 액세스 매핑 구성](https://technet.microsoft.com/library/cc263208.aspx)
+[SharePoint 2013에 대한 대체 액세스 매핑 구성](/SharePoint/administration/configure-alternate-access-mappings)
