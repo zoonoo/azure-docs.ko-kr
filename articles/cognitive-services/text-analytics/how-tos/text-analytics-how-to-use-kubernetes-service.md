@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 744be742d9f638df14f9d6720c9dad9678685af0
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366896"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017876"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 Text Analytics 컨테이너 배포
 
 Azure Kubernetes 서비스 (AKS)에 Azure Cognitive Services [Text Analytics](./text-analytics-how-to-install-containers.md) 컨테이너 이미지를 배포 하는 방법에 대해 알아봅니다. 이 절차에서는 Text Analytics 리소스를 만드는 방법, 연결 된 감정 분석 이미지를 만드는 방법 및 브라우저에서 두 작업의 오케스트레이션을 실행 하는 방법을 보여 줍니다. 컨테이너를 사용 하면 인프라 관리에서 응용 프로그램 개발에 집중 하는 대신 주의를 끌 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 절차를 수행하려면 로컬로 설치 및 실행해야 하는 몇 가지 도구가 필요합니다. Azure Cloud Shell 사용 하지 마세요. 다음이 필요합니다.
 

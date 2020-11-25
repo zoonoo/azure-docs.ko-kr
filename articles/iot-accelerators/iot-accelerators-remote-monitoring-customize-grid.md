@@ -10,11 +10,11 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 ms.custom: devx-track-js
 ms.openlocfilehash: 7fc878e0c9e099b201264c1c3981c603668214d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318384"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017766"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 그리드 추가
 
@@ -25,12 +25,12 @@ ms.locfileid: "91318384"
 
 이 문서의 예제 그리드는 [원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 서비스 추가](iot-accelerators-remote-monitoring-customize-service.md) 방법 문서에서 추가 방법을 보여주는 서비스의 데이터를 표시합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 방법 가이드의 단계를 완료하려면 로컬 개발 머신에 다음과 같은 소프트웨어가 설치되어 있어야 합니다.
 
 - [Git](https://git-scm.com/downloads)
-- [Node.js](https://nodejs.org/download/)
+- [Node.JS](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -59,7 +59,7 @@ ms.locfileid: "91318384"
 
 ### <a name="add-the-grid-to-the-page"></a>페이지에 그리드 추가
 
-**src/components/pages/example/basicPage.container.js**를 다음과 같이 수정하여 서비스 정의를 가져옵니다.
+**src/components/pages/example/basicPage.container.js** 를 다음과 같이 수정하여 서비스 정의를 가져옵니다.
 
 ```js
 import { connect } from 'react-redux';
@@ -90,7 +90,7 @@ const mapDispatchToProps = dispatch => ({
 export const BasicPageContainer = translate()(connect(mapStateToProps, mapDispatchToProps)(BasicPage));
 ```
 
-**src/components/pages/example/basicPage.js**를 다음과 같이 수정하여 그리드를 추가합니다.
+**src/components/pages/example/basicPage.js** 를 다음과 같이 수정하여 그리드를 추가합니다.
 
 ```js
 // Copyright (c) Microsoft. All rights reserved.
@@ -145,7 +145,7 @@ export class BasicPage extends Component {
 }
 ```
 
-**src/components/pages/example/basicPage.test.js**를 다음과 같이 수정하여 테스트를 업데이트합니다.
+**src/components/pages/example/basicPage.test.js** 를 다음과 같이 수정하여 테스트를 업데이트합니다.
 
 ```js
 // Copyright (c) Microsoft. All rights reserved.
@@ -193,7 +193,7 @@ npm start
 
 사용자가 동시에 여러 행에서 작동해야 하는 경우 행에 있는 확인란을 사용합니다.
 
-1. **checkboxColumn**을 그리드에 제공된 **columnDefs**에 추가하여 행의 하드 선택을 사용하도록 설정합니다. **checkboxColumn**은 **/src/components/shared/pcsGrid/pcsGrid.js**에 정의됩니다.
+1. **checkboxColumn** 을 그리드에 제공된 **columnDefs** 에 추가하여 행의 하드 선택을 사용하도록 설정합니다. **checkboxColumn** 은 **/src/components/shared/pcsGrid/pcsGrid.js** 에 정의됩니다.
 
     ```js
     this.columnDefs = [
@@ -246,9 +246,9 @@ npm start
 
 ### <a name="soft-select-rows"></a>행 소프트 선택
 
-사용자가 단일 행에서만 작동해야 하는 경우 **columnDefs**에서 하나 이상의 열에 대해 소프트 선택 링크를 구성합니다.
+사용자가 단일 행에서만 작동해야 하는 경우 **columnDefs** 에서 하나 이상의 열에 대해 소프트 선택 링크를 구성합니다.
 
-1. **exampleGridConfig.js**에서 **SoftSelectLinkRenderer**를 **columnDef**에 대해 **cellRendererFramework**로 추가합니다.
+1. **exampleGridConfig.js** 에서 **SoftSelectLinkRenderer** 를 **columnDef** 에 대해 **cellRendererFramework** 로 추가합니다.
 
     ```js
     export const exampleColumnDefs = {
