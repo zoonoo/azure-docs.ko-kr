@@ -14,11 +14,11 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e4533334204a3a1cfd46ff27b04ff0c05350dfc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371854"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973918"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가
 Azure AD(Azure Active Directory) 포털을 사용하여 기본 그룹을 만들 수 있습니다. 이 문서에서 기본 그룹은 리소스 소유자(관리자)에 의해 단일 리소스에 추가되고 해당 리소스에 액세스해야 하는 특정 멤버(직원)를 포함합니다. 동적 멤버 자격 및 규칙 만들기를 포함한 더 복잡한 시나리오의 경우 [Azure Active Directory 사용자 관리 설명서](../enterprise-users/index.yml)를 참조하세요.
@@ -43,9 +43,9 @@ Azure AD(Azure Active Directory) 포털을 사용하여 기본 그룹을 만들 
 
 1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. **Azure Active Directory**를 검색하고 선택합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
 
-1. **Active Directory** 페이지에서 **그룹**을 선택한 다음 **새 그룹**을 선택합니다.
+1. **Active Directory** 페이지에서 **그룹** 을 선택한 다음 **새 그룹** 을 선택합니다.
 
     ![그룹이 표시된 Azure AD 페이지](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
@@ -53,23 +53,23 @@ Azure AD(Azure Active Directory) 포털을 사용하여 기본 그룹을 만들 
 
     ![예제 정보로 채워진 새 그룹 페이지](media/active-directory-groups-create-azure-portal/new-group-blade.png)
 
-1. 미리 정의된 **그룹 유형**을 선택합니다. 그룹 종류에 대한 자세한 내용은 [그룹 및 멤버 자격 형식](#group-types)을 참조하세요.
+1. 미리 정의된 **그룹 유형** 을 선택합니다. 그룹 종류에 대한 자세한 내용은 [그룹 및 멤버 자격 형식](#group-types)을 참조하세요.
 
-1. **그룹 이름**을 만들고 추가합니다. 기억하기 쉽고 의미 있는 그룹 이름을 추가합니다. 이름이 다른 그룹에 이미 사용되고 있는지 확인하는 검사가 수행됩니다. 이름이 이미 사용 중이면 중복된 이름을 지정하지 않도록 그룹 이름을 수정하라는 메시지가 표시됩니다.
+1. **그룹 이름** 을 만들고 추가합니다. 기억하기 쉽고 의미 있는 그룹 이름을 추가합니다. 이름이 다른 그룹에 이미 사용되고 있는지 확인하는 검사가 수행됩니다. 이름이 이미 사용 중이면 중복된 이름을 지정하지 않도록 그룹 이름을 수정하라는 메시지가 표시됩니다.
 
-1. 그룹에 대한 **그룹 이메일 주소**를 추가하거나 자동으로 채워진 이메일 주소를 유지합니다.
+1. 그룹에 대한 **그룹 이메일 주소** 를 추가하거나 자동으로 채워진 이메일 주소를 유지합니다.
 
 1. **그룹 설명.** 그룹에 선택적 설명을 추가합니다.
 
 1. 미리 정의된 **멤버 자격 유형(필수)** 을 선택합니다. 멤버 자격 형식에 대한 자세한 내용은 [그룹 및 멤버 자격 형식](#membership-types)을 참조하세요.
 
-1. **만들기**를 선택합니다. 그룹이 만들어지고 멤버를 추가할 준비가 되었습니다.
+1. **만들기** 를 선택합니다. 그룹이 만들어지고 멤버를 추가할 준비가 되었습니다.
 
 1. **그룹** 페이지에서 **멤버** 영역을 선택한 후 **멤버 선택** 페이지에서 그룹에 추가할 멤버를 검색하기 시작합니다.
 
     ![그룹 만들기 프로세스 중 그룹의 멤버 선택](media/active-directory-groups-create-azure-portal/select-members-create-group.png)
 
-1. 멤버 추가를 마치면 **선택**을 선택합니다.
+1. 멤버 추가를 마치면 **선택** 을 선택합니다.
 
     **그룹 개요** 페이지는 현재 그룹에 추가된 멤버 수를 표시하도록 업데이트됩니다.
 

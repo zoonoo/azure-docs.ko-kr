@@ -17,11 +17,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad03942a2200c57475cf8a81d0fb08d475ec6964
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458035"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973221"
 ---
 # <a name="risky-ip-report-public-preview"></a>위험한 IP 보고서 (공개 미리 보기)
 AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사용자가 Microsoft 365 같은 SaaS 응용 프로그램에 액세스할 수 있도록 인증 서비스를 제공할 수 있습니다. 이 경우 악의적 행위자가 AD FS 시스템에 대한 로그인을 시도하여 사용자의 암호를 추측하고 종료하고 애플리케이션 리소스에 액세스할 수 있습니다. Windows Server 2012 R2의 AD FS 이후부터 AD FS에서는 이러한 유형의 공격을 방지하기 위해 엑스트라넷 계정 잠금 기능을 제공합니다. 더 낮은 버전을 사용하는 경우 AD FS 시스템을 Windows Server 2016으로 업그레이드하는 것이 좋습니다. <br />
@@ -76,7 +76,7 @@ AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사�
 | isWhitelistedIpAddress | 경고 및 보고에서 IP 주소가 필터링된 경우의 플래그입니다. 개인 IP 주소(<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) 및 Exchange IP 주소는 필터링되고 True로 표시됩니다. 개인 IP 주소 범위가 표시되는 경우 웹 애플리케이션 프록시 서버에 요청을 전달할 때 외부 부하 분산 장치에서 클라이언트 IP 주소를 보내지 않을 가능성이 큽니다.  | 
 
 ## <a name="configure-notification-settings"></a>알림 설정 구성
-보고서의 관리자 연락처는 **알림 설정**을 통해 업데이트할 수 있습니다. 기본적으로 위험한 IP 경고 이메일 알림은 해제 상태입니다. "실패한 활동 임계값 보고서를 초과하는 IP 주소에 대한 이메일 알림 받기" 아래의 단추를 설정/해제하여 알림을 사용하도록 설정할 수 있습니다. Connect Health의 일반 경고 알림 설정과 마찬가지로 여기서는 위험한 IP 보고서에 대한 지정된 알림 받는 사람 목록을 사용자 지정할 수 있습니다. 또한 변경하는 동안 모든 전역 관리자에게 알릴 수도 있습니다. 
+보고서의 관리자 연락처는 **알림 설정** 을 통해 업데이트할 수 있습니다. 기본적으로 위험한 IP 경고 이메일 알림은 해제 상태입니다. "실패한 활동 임계값 보고서를 초과하는 IP 주소에 대한 이메일 알림 받기" 아래의 단추를 설정/해제하여 알림을 사용하도록 설정할 수 있습니다. Connect Health의 일반 경고 알림 설정과 마찬가지로 여기서는 위험한 IP 보고서에 대한 지정된 알림 받는 사람 목록을 사용자 지정할 수 있습니다. 또한 변경하는 동안 모든 전역 관리자에게 알릴 수도 있습니다. 
 
 ## <a name="configure-threshold-settings"></a>임계값 설정 구성
 알림 임계값은 임계값 설정을 통해 업데이트할 수 있습니다. 먼저 임계값은 기본적으로 시스템에 설정되어 있습니다. 기본값은 다음과 같습니다. 위험한 IP 보고서 임계값 설정에는 다음 네 가지 범주가 있습니다.

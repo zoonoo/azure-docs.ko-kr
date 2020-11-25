@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4c456e7788280b7ca5328342e1cd848ba3a583a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411136"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972762"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Active Directory Connect 동기화: Microsoft 365 리소스에 대 한 기본 데이터 위치 구성
 이 항목의 목적은 Azure Active Directory (Azure AD) Connect 동기화에서 기본 데이터 위치에 대 한 특성을 구성 하는 방법을 안내 하는 것입니다. 사용자가 Microsoft 365에서 다중 지역 기능을 사용 하는 경우이 특성을 사용 하 여 사용자의 Microsoft 365 데이터의 지리적 위치를 지정 합니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
@@ -143,7 +143,7 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
     | attribute | 값 | 세부 정보 |
     | --- | --- | --- |
     | 속성 | *이름 제공* | 예: "AD - User preferredDataLocation에서 인바운드" |
-    | 설명 | *사용자 지정 설명 제공* |  |
+    | Description | *사용자 지정 설명 제공* |  |
     | 연결된 시스템 | *온-프레미스 Active Directory Connector 선택* |  |
     | 연결된 시스템 개체 유형 | **사용자** |  |
     | 메타버스 개체 유형 | **Person** |  |
@@ -234,7 +234,7 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
 
         a. **범위** 를 **보류 중인 내보내기** 로 설정합니다.<br>
         b. **추가, 수정 및 삭제** 를 포함한 세 개의 확인란을 모두 선택합니다.<br>
-        c. 내보낼 변경 내용이 있는 개체의 목록을 보려면 **검색** 을 선택합니다. 지정된 개체에 대한 변경 내용을 검사하려면 해당 개체를 두 번 클릭합니다.<br>
+        다. 내보낼 변경 내용이 있는 개체의 목록을 보려면 **검색** 을 선택합니다. 지정된 개체에 대한 변경 내용을 검사하려면 해당 개체를 두 번 클릭합니다.<br>
         d. 필요한 변경 내용인지 확인합니다.
 
 6. **AZURE AD Connector** 에서 **내보내기** 실행

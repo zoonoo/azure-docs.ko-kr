@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 8d11eaa76f2133b9fdc66ba4e6bc91e2cc38c51c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379539"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972865"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Java SDK에 대 한 Application Insights 문제 해결 및 Q 및 A
 
@@ -89,7 +89,7 @@ XML 메서드를 사용하여 값 변경 시 애플리케이션을 다시 시작
 **내 프로젝트에서 데이터를 보내는 Azure 리소스를 변경 하려면 어떻게 해야 하나요?**
 
 * [새 리소스의 계측 키를 가져옵니다.][java]
-* Azure Toolkit for Eclipse를 사용하여 프로젝트에 Application Insights를 추가한 경우 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Azure** , **Application Insights 구성** 을 차례로 선택한 다음, 키를 변경합니다.
+* Azure Toolkit for Eclipse를 사용하여 프로젝트에 Application Insights를 추가한 경우 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Azure**, **Application Insights 구성** 을 차례로 선택한 다음, 키를 변경합니다.
 * 계측 키를 환경 변수로 구성한 경우, 환경 변수 값을 새 iKey로 업데이트합니다.
 * 그렇지 않으면 프로젝트의 리소스 폴더에 있는 ApplicationInsights.xml에서 키를 업데이트합니다.
 

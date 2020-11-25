@@ -13,11 +13,11 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
 ms.openlocfilehash: 9c8a911bef5fb92f5bf9aa447e9e810a85317208
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365853"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974156"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -25,7 +25,7 @@ Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리
 
 ## <a name="scopes-and-permissions"></a>범위 및 사용 권한
 
-Microsoft ID 플랫폼은 [OAuth 2.0](active-directory-v2-protocols.md) 권한 부여 프로토콜을 구현합니다. OAuth 2.0은 사용자 대신 타사 앱에서 웹에 호스트된 리소스에 액세스할 수 있도록 하는 방법입니다. Microsoft ID 플랫폼과 통합되는 웹 호스트팅 리소스에는 리소스 식별자 또는 *애플리케이션 ID URI*가 있습니다. 예를 들어 웹에 호스트된 몇 가지 Microsoft 리소스는 다음과 같습니다.
+Microsoft ID 플랫폼은 [OAuth 2.0](active-directory-v2-protocols.md) 권한 부여 프로토콜을 구현합니다. OAuth 2.0은 사용자 대신 타사 앱에서 웹에 호스트된 리소스에 액세스할 수 있도록 하는 방법입니다. Microsoft ID 플랫폼과 통합되는 웹 호스트팅 리소스에는 리소스 식별자 또는 *애플리케이션 ID URI* 가 있습니다. 예를 들어 웹에 호스트된 몇 가지 Microsoft 리소스는 다음과 같습니다.
 
 * Microsoft Graph: `https://graph.microsoft.com`
 * Microsoft 365 메일 API: `https://outlook.office.com`
@@ -42,7 +42,7 @@ Microsoft ID 플랫폼과 통합된 타사 리소스의 경우도 마찬가지�
 
 이러한 유형의 사용 권한을 정의하면 리소스가 해당 데이터 및 API 기능이 공개되는 방식을 세밀하게 제어할 수 있습니다. 타사 앱은 사용자 및 관리자에게 이러한 사용 권한을 요청할 수 있고, 요청을 받은 사용자 또는 관리자가 요청을 승인해야만 앱이 사용자 대신 데이터에 액세스하거나 작업을 수행할 수 있습니다. 리소스 기능을 더 작은 사용 권한 집합으로 나누면 기능을 수행하는 데 필요한 특정 권한만 요청하도록 타사 앱을 빌드할 수 있습니다. 사용자와 관리자는 앱이 액세스할 수 있는 데이터를 정확 하 게 알 수 있으며 악의적인 의도를 사용 하지 않는 것이 더 확실 합니다. 개발자는 항상 최소 권한의 개념에 따라 애플리케이션이 작동하는 데 필요한 사용 권한만 요청해야 합니다.
 
-OAuth 2.0에서는 이러한 유형의 사용 권한을 *범위*라고 합니다. 이러한 항목을 종종 *사용 권한*이라고 합니다. 사용 권한은 Microsoft ID 플랫폼에서 문자열 값으로 표시됩니다. Microsoft Graph 예제를 계속하는 경우 각 사용 권한의 문자열 값은 다음과 같습니다.
+OAuth 2.0에서는 이러한 유형의 사용 권한을 *범위* 라고 합니다. 이러한 항목을 종종 *사용 권한* 이라고 합니다. 사용 권한은 Microsoft ID 플랫폼에서 문자열 값으로 표시됩니다. Microsoft Graph 예제를 계속하는 경우 각 사용 권한의 문자열 값은 다음과 같습니다.
 
 * `Calendars.Read`를 사용하여 사용자의 일정 읽기
 * `Calendars.ReadWrite`를 사용하여 사용자의 일정 쓰기
@@ -52,11 +52,11 @@ OAuth 2.0에서는 이러한 유형의 사용 권한을 *범위*라고 합니다
 
 ## <a name="permission-types"></a>사용 권한 유형
 
-Microsoft ID 플랫폼은 **위임된 권한** 및 **애플리케이션 권한**의 두 가지 사용 권한을 지원합니다.
+Microsoft ID 플랫폼은 **위임된 권한** 및 **애플리케이션 권한** 의 두 가지 사용 권한을 지원합니다.
 
-* **위임된 권한**은 로그인한 사용자가 있는 앱에서 사용합니다. 이러한 앱의 경우 사용자 또는 관리자는 앱이 요청 하는 사용 권한을 동의 앱은 대상 리소스에 대 한 호출을 수행할 때 로그인 한 사용자 역할을 할 수 있는 권한을 위임 합니다. 일부 위임된 권한은 관리자가 아닌 사용자가 동의할 수 있지만, 일부 상위 권한은 [관리자 동의](#admin-restricted-permissions)가 필요합니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../roles/permissions-reference.md)을 참조하세요.
+* **위임된 권한** 은 로그인한 사용자가 있는 앱에서 사용합니다. 이러한 앱의 경우 사용자 또는 관리자는 앱이 요청 하는 사용 권한을 동의 앱은 대상 리소스에 대 한 호출을 수행할 때 로그인 한 사용자 역할을 할 수 있는 권한을 위임 합니다. 일부 위임된 권한은 관리자가 아닌 사용자가 동의할 수 있지만, 일부 상위 권한은 [관리자 동의](#admin-restricted-permissions)가 필요합니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../roles/permissions-reference.md)을 참조하세요.
 
-* **애플리케이션 권한**은 로그인한 사용자 없이 실행되는 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다.  애플리케이션 권한은 [관리자만 승인할 수 있습니다](#requesting-consent-for-an-entire-tenant).
+* **애플리케이션 권한** 은 로그인한 사용자 없이 실행되는 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다.  애플리케이션 권한은 [관리자만 승인할 수 있습니다](#requesting-consent-for-an-entire-tenant).
 
 _유효 권한_ 은 앱이 대상 리소스를 요청할 때 갖게 되는 권한입니다. 응용 프로그램에 부여 되는 위임 된 권한 및 응용 프로그램 권한과 대상 리소스를 호출할 때의 유효 사용 권한 간의 차이점을 이해 하는 것이 중요 합니다.
 
@@ -113,7 +113,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 `scope` 매개 변수는 앱이 요청하는 공백으로 구분된 위임된 권한 범위 목록입니다. 각 권한은 리소스 식별자(애플리케이션 ID URI)에 권한 값을 추가하여 표시됩니다. 요청 예제에서 앱에는 사용자의 일정을 읽고 사용자로 메일을 보낼 수 있는 권한이 필요합니다.
 
-사용자가 자격 증명을 입력 하면 Microsoft id 플랫폼 끝점이 *사용자 동의*와 일치 하는 레코드를 확인 합니다. 사용자가 이전에 요청 된 사용 권한으로 동의한 전체 조직을 대신 하 여 관리자에 게 이러한 사용 권한을 부여 하지 않은 경우 Microsoft identity platform 끝점은 사용자에 게 요청 된 사용 권한을 부여 하 라는 메시지를 표시 합니다.
+사용자가 자격 증명을 입력 하면 Microsoft id 플랫폼 끝점이 *사용자 동의* 와 일치 하는 레코드를 확인 합니다. 사용자가 이전에 요청 된 사용 권한으로 동의한 전체 조직을 대신 하 여 관리자에 게 이러한 사용 권한을 부여 하지 않은 경우 Microsoft identity platform 끝점은 사용자에 게 요청 된 사용 권한을 부여 하 라는 메시지를 표시 합니다.
 
 > [!NOTE]
 >이제, `offline_access`("액세스 권한을 부여한 데이터에 대한 액세스 권한 유지") 및 `user.read`("로그인 및 프로필 읽기") 권한이 애플리케이션에 대한 초기 동의에 자동으로 포함됩니다.  이러한 권한은 일반적으로 적절한 앱 기능에 필요합니다. `offline_access`는 기본 및 웹앱에 중요한 새로 고침 토큰에 대한 앱 액세스 권한을 제공하지만, `user.read`는 `sub` 클레임에 대한 액세스 권한을 제공하여 클라이언트나 앱이 시간이 지나도 사용자를 올바르고 식별하고 기본적인 사용자 정보에 액세스할 수 있도록 합니다.
@@ -132,7 +132,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 ## <a name="admin-restricted-permissions"></a>관리 제한 권한
 
-Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 제한*으로 설정할 수 있습니다. 이러한 종류의 권한으로는 다음과 같은 것이 있습니다.
+Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 제한* 으로 설정할 수 있습니다. 이러한 종류의 권한으로는 다음과 같은 것이 있습니다.
 
 * `User.Read.All`을 사용하여 모든 사용자의 전체 프로필 읽기
 * `Directory.ReadWrite.All`를 사용하여 조직의 디렉터리에 데이터 쓰기
@@ -169,7 +169,7 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 1. [Azure Portal – 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 응용 프로그램으로 이동 하거나 앱을 [만듭니다](quickstart-register-app.md) (아직 없는 경우).
 2. **Api 권한** 섹션을 찾고 api 권한 내에서 사용 권한 추가를 클릭 합니다.
 3. 사용 가능한 Api 목록에서 **Microsoft Graph** 을 선택 하 고 앱에 필요한 사용 권한을 추가 합니다.
-3. 앱 등록을 **저장**합니다.
+3. 앱 등록을 **저장** 합니다.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>권장: 사용자를 앱에 로그인 합니다.
 
@@ -179,7 +179,7 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 
 ### <a name="request-the-permissions-from-a-directory-admin"></a>디렉터리 관리에서 사용 권한 요청
 
-조직의 관리자에 게 사용 권한을 요청할 준비가 되 면 Microsoft identity platform *admin 동의 끝점*으로 사용자를 리디렉션할 수 있습니다.
+조직의 관리자에 게 사용 권한을 요청할 준비가 되 면 Microsoft identity platform *admin 동의 끝점* 으로 사용자를 리디렉션할 수 있습니다.
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -193,10 +193,10 @@ https://graph.microsoft.com/mail.send
 ```
 
 
-| 매개 변수        | 조건        | 설명                                                                                |
+| 매개 변수        | 조건        | Description                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. 는 GUID 또는 친숙 한 이름 형식으로 제공 하거나 예에 표시 된 대로 조직에서 일반적으로 참조할 수 있습니다. 개인 계정에서는 테 넌 트의 컨텍스트를 제외 하 고 관리자 동의를 제공할 수 없으므로 ' 공통 '을 사용 하지 마세요. 테 넌 트를 관리 하는 개인 계정과 가장 잘 호환 되도록 하려면 가능 하면 테 넌 트 ID를 사용 합니다. |
-| `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID**입니다. |
+| `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다. |
 | `redirect_uri` | 필수 |리디렉션 URI는 처리할 앱에 응답을 전송하려는 위치입니다. 앱 등록 포털에 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
 | `state` | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태를 사용하여 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩할 수 있습니다. |
 |`scope`        | 필수        | 응용 프로그램에서 요청 하는 사용 권한 집합을 정의 합니다. 정적 (사용 [`/.default`](#the-default-scope) ) 또는 동적 범위 중 하나일 수 있습니다.  여기에는 OIDC 범위 ( `openid` , `profile` ,)가 포함 될 수 있습니다 `email` . 응용 프로그램 권한이 필요한 경우를 사용 하 여 `/.default` 정적으로 구성 된 사용 권한 목록을 요청 해야 합니다.  |
@@ -212,7 +212,7 @@ https://graph.microsoft.com/mail.send
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | `tenant` | 디렉터리 테넌트는 GUID 형식으로 요청한 권한을 애플리케이션에 부여합니다. |
 | `state` | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |

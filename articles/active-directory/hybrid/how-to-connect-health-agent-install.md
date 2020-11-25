@@ -18,11 +18,11 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: b680c275b92340cc7efba187769cb17602b08b45
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873440"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973289"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>에이전트 설치 Azure AD Connect Health
 
@@ -314,7 +314,7 @@ HTTP 프록시를 사용 하도록 Azure AD Connect Health 에이전트를 구�
 * 기존 프록시 구성의 선택을 취소 합니다.
 
 > [!NOTE]
-> 프록시 설정을 업데이트 하려면 모든 Azure AD Connect Health 에이전트 서비스를 다시 시작 해야 합니다. 다음 명령을 실행합니다.
+> 프록시 설정을 업데이트 하려면 모든 Azure AD Connect Health 에이전트 서비스를 다시 시작 해야 합니다. 다음 명령 실행:
 >
 > `Restart-Service AzureADConnectHealth*`
 

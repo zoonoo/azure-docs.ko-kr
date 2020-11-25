@@ -13,11 +13,11 @@ ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: b50c942d2e05d7f5234a17f1cf36137309c7ce97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89320956"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973714"
 ---
 # <a name="blocking-legacy-authentication"></a>레거시 인증 차단
  
@@ -32,10 +32,10 @@ ms.locfileid: "89320956"
 
 디렉터리에서 레거시 인증을 차단하려면 먼저 사용자에게 레거시 인증을 사용하는 앱이 있는지, 이로 인해 전체 디렉터리에 어떤 영향을 미치는지 이해해야 합니다. Azure AD 로그인 로그를 사용하여 레거시 인증을 사용하고 있는지 파악할 수 있습니다.
 
-1. **Azure Portal** > **Azure Active Directory** > **로그인**으로 이동합니다.
-1.  **열**클라이언트 앱을 클릭 하 여 표시 되지 않는 경우 **클라이언트 앱** 열을 추가   >  **Client App**합니다.
+1. **Azure Portal** > **Azure Active Directory** > **로그인** 으로 이동합니다.
+1.  **열** 클라이언트 앱을 클릭 하 여 표시 되지 않는 경우 **클라이언트 앱** 열을 추가   >  **Client App** 합니다.
 1. **클라이언트 앱** 을 기준으로 필터링 > 제공 된 모든 **레거시 인증 클라이언트** 옵션을 확인 합니다.
-1. **상태별**로 필터링  >  **Success**합니다. 
+1. **상태별** 로 필터링  >  **Success** 합니다. 
 1. **날짜 필터를** 사용 하 여 필요한 경우 날짜 범위를 확장 합니다.
 
 필터링은 선택한 레거시 인증 프로토콜에서 수행한 성공적인 로그인 시도만 표시 합니다. 각 개별 로그인 시도를 클릭하면 추가 세부 정보가 표시됩니다. 데이터의 개별 행을 선택 하 고 나 서 기본 정보 탭의 클라이언트 앱 열 또는 클라이언트 앱 필드는 사용 된 레거시 인증 프로토콜을 표시 합니다. 이러한 로그에는 레거시 인증에 여전히 의존하는 사용자와 레거시 프로토콜을 사용하여 인증 요청을 수행하는 애플리케이션이 표시됩니다. 이러한 로그에 표시 되지 않고 레거시 인증을 사용 하지 않는 사용자의 경우 조건부 액세스 정책을 구현 하거나 기준 정책 사용: 해당 사용자에 대해서만 레거시 인증 차단을 선택 합니다.

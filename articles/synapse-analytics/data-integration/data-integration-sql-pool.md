@@ -10,11 +10,11 @@ ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
 ms.openlocfilehash: 44d17bafe534fea2d408c92a3a01efb699250a78
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317788"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974428"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>전용 SQL 풀로 데이터 수집
 
@@ -22,9 +22,9 @@ ms.locfileid: "93317788"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure 구독** : Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure storage 계정** : Azure Data Lake Storage Gen 2를 *원본* 데이터 저장소로 사용 합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)에서 만들기 단계를 참조하세요.
-* **Azure Synapse Analytics** : 전용 SQL 풀을 *싱크* 데이터 저장소로 사용 합니다. Azure Synapse Analytics 인스턴스가 없는 경우 새로 만드는 단계는 [전용 SQL 풀 만들기](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 를 참조 하세요.
+* **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* **Azure storage 계정**: Azure Data Lake Storage Gen 2를 *원본* 데이터 저장소로 사용 합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)에서 만들기 단계를 참조하세요.
+* **Azure Synapse Analytics**: 전용 SQL 풀을 *싱크* 데이터 저장소로 사용 합니다. Azure Synapse Analytics 인스턴스가 없는 경우 새로 만드는 단계는 [전용 SQL 풀 만들기](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 를 참조 하세요.
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 
@@ -32,7 +32,7 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
 
 1. Azure Synapse Analytics UX를 열고 **관리** 탭으로 이동합니다.
 1. **외부 연결** 에서 **연결된 서비스** 를 선택합니다.
-1. 연결 된 서비스를 추가 하려면 **새로 만들기** 를 선택 합니다.
+1. 연결된 서비스를 추가하려면 **새로 만들기** 를 선택합니다.
 1. 목록에서 Azure Data Lake Storage Gen2 타일을 선택 하 고 **계속** 을 선택 합니다.
 1. 인증 자격 증명을 입력합니다. 계정 키, 서비스 주체 및 관리 ID는 현재 지원되는 인증 유형입니다. 연결 테스트를 선택 하 여 자격 증명이 올바른지 확인 합니다. 작업을 완료하면 **만들기** 를 선택합니다.
 1. 3-5 단계를 반복 하지만 Azure Data Lake Storage Gen2 대신 Azure Synapse Analytics 타일을 선택 하 고 해당 하는 연결 자격 증명을 입력 합니다. Azure Synapse Analytics의 경우 SQL 인증, 관리 id 및 서비스 주체가 현재 지원 됩니다.
@@ -58,7 +58,7 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
 
 1. 파이프라인을 디버그하려면 도구 모음에서 **디버그** 를 선택합니다. 창의 아래쪽에 있는 **출력** 탭에서 파이프라인 실행 상태가 표시됩니다. 
 1. 파이프라인이 성공적으로 실행될 수 있다면 최상위 도구 모음에서 **모두 게시** 를 선택합니다. 이 작업은 사용자가 만든 엔터티(데이터 세트 및 파이프라인)를 Synapse Analytics 서비스에 게시합니다.
-1. **게시됨** 메시지가 표시될 때까지 기다립니다. 알림 메시지를 보려면 오른쪽 위에 있는 종 모양 단추를 선택 합니다. 
+1. **게시됨** 메시지가 표시될 때까지 기다립니다. 알림 메시지를 보려면 오른쪽 위에 있는 종 모양 단추를 선택합니다. 
 
 
 ## <a name="trigger-and-monitor-the-pipeline"></a>파이프라인 트리거 및 모니터링
