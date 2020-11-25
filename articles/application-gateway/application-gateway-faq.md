@@ -9,11 +9,11 @@ ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
 ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397793"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975652"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대한 질문과 대답입니다.
 
@@ -249,7 +249,7 @@ Application Gateway v2는 현재 IPv6를 지원하지 않습니다. IPv4만 사�
 2. 공용 프런트 엔드 IP 주소용 수신기를 만들지 않습니다. 공용 IP 주소용 수신기를 만들지 않으면 Application Gateway는 공용 IP 주소의 트래픽을 수신 대기하지 않습니다.
 3. 다음 구성을 우선 순위 순서대로 사용하여 Application Gateway 서브넷에 대한 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 만들고 연결합니다.
     
-    a. 원본 **GatewayManager** 서비스 태그, 대상 **모두** , 대상 포트 **65200-65535** 의 트래픽을 허용합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 인증서 인증을 통해 보호(잠금)됩니다. 게이트웨이 사용자 관리자를 비롯한 외부 엔터티는 적절한 인증서 없이는 엔드포인트에 대한 변경 작업을 시작할 수 없습니다.
+    a. 원본 **GatewayManager** 서비스 태그, 대상 **모두**, 대상 포트 **65200-65535** 의 트래픽을 허용합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 인증서 인증을 통해 보호(잠금)됩니다. 게이트웨이 사용자 관리자를 비롯한 외부 엔터티는 적절한 인증서 없이는 엔드포인트에 대한 변경 작업을 시작할 수 없습니다.
     
     b. 원본 **AzureLoadBalancer** 서비스 태그, 대상 및 대상 포트 **모두** 의 트래픽을 허용합니다.
     
@@ -434,9 +434,9 @@ AKS 추가 기능을 통해 배포 된 AGIC의 차이점을 참조 하세요. [�
 
 Application Gateway는 다음 세 가지 로그를 제공합니다. 
 
-* **ApplicationGatewayAccessLog** : 이 액세스 로그에는 애플리케이션 게이트웨이 프런트 엔드에 제출된 각 요청이 포함되어 있습니다. 이 데이터에는 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드, 바이트 입출력이 포함되어 있습니다. 애플리케이션 게이트웨이마다 하나의 레코드가 포함됩니다.
-* **ApplicationGatewayPerformanceLog** : 성능 로그는 각 애플리케이션 게이트웨이의 성능 정보를 캡처합니다. 이 정보에는 처리량(바이트), 처리된 총 요청 수, 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수가 포함됩니다.
-* **ApplicationGatewayFirewallLog** : WAF를 사용하여 구성하는 애플리케이션 게이트웨이의 경우 방화벽 로그에는 검색 모드 또는 방지 모드를 통해 기록된 요청이 포함됩니다.
+* **ApplicationGatewayAccessLog**: 이 액세스 로그에는 애플리케이션 게이트웨이 프런트 엔드에 제출된 각 요청이 포함되어 있습니다. 이 데이터에는 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드, 바이트 입출력이 포함되어 있습니다. 애플리케이션 게이트웨이마다 하나의 레코드가 포함됩니다.
+* **ApplicationGatewayPerformanceLog**: 성능 로그는 각 애플리케이션 게이트웨이의 성능 정보를 캡처합니다. 이 정보에는 처리량(바이트), 처리된 총 요청 수, 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수가 포함됩니다.
+* **ApplicationGatewayFirewallLog**: WAF를 사용하여 구성하는 애플리케이션 게이트웨이의 경우 방화벽 로그에는 검색 모드 또는 방지 모드를 통해 기록된 요청이 포함됩니다.
 
 모든 로그는 60초마다 수집됩니다. 자세한 내용은 [Application Gateway에 대한 백 엔드 상태, 진단 로그 및 메트릭](application-gateway-diagnostics.md)을 참조하세요.
 

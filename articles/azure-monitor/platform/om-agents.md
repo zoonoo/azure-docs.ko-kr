@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
 ms.openlocfilehash: 2a4f24da51b9e9e78c3df3e7d1437a380306e300
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318354"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975578"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -33,7 +33,7 @@ Operations Manager 관리 그룹에 보고 하는 에이전트는 작업 영역�
 
 IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 Log Analytics 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다. Operations Manager 관리 그룹을 구성 하 여 Log Analytics 게이트웨이를 통해 Azure Monitor으로 통신 하도록 구성 하는 방법에 대 한 자세한 내용 및 단계는 [Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 컴퓨터 연결](./gateway.md)을 참조 하세요.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 시작에 앞서 다음 요구 사항을 검토합니다.
 
@@ -104,7 +104,7 @@ Operations Manager 관리 그룹을 구성하도록 다음과 같은 일련의 �
 Log Analytics 작업 영역에 Operations Manager 관리 그룹을 처음으로 등록하는 동안 관리 그룹에 대한 프록시 구성을 지정하는 옵션을 운영 콘솔에서 사용할 수 없습니다.  이 옵션을 사용하려면 관리 그룹이 서비스에 등록되어 있어야 합니다.  이 문제를 해결하려면 운영 콘솔을 실행하는 시스템에서 Netsh를 사용하여 관리 그룹의 통합 및 모든 관리 서버를 구성하여 시스템 프록시 구성을 업데이트해야 합니다.  
 
 1. 관리자 권한 명령 프롬프트를 엽니다.
-   a. **시작**으로 이동하여 **cmd**를 입력합니다.
+   a. **시작** 으로 이동하여 **cmd** 를 입력합니다.
    b. **명령 프롬프트** 를 마우스 오른쪽 단추로 클릭 하 고 관리자 권한으로 실행 * *을 선택 합니다.
 1. 다음 명령을 입력하고 **Enter** 키를 누릅니다.
 
@@ -113,30 +113,30 @@ Log Analytics 작업 영역에 Operations Manager 관리 그룹을 처음으로 
 Azure Monitor와 통합 하기 위해 다음 단계를 완료 한 후에는를 실행 하 여 구성을 제거한 `netsh winhttp reset proxy` 다음, 운영 콘솔에서 **프록시 서버 구성** 옵션을 사용 하 여 프록시 또는 Log Analytics 게이트웨이 서버를 지정할 수 있습니다.
 
 1. Operations Manager 콘솔에서 **관리** 작업 영역을 선택합니다.
-1. Operations Management Suite 노드를 확장하고 **연결**을 클릭합니다.
+1. Operations Management Suite 노드를 확장하고 **연결** 을 클릭합니다.
 1. **Operations Management Suite에 등록** 링크를 클릭합니다.
-1. **Operations Management Suite 등록 마법사: 인증** 페이지에서 OMS 구독과 연결된 관리자 계정의 전자 메일 주소 또는 전화 번호와 암호를 입력하고 **로그인**을 클릭합니다.
+1. **Operations Management Suite 등록 마법사: 인증** 페이지에서 OMS 구독과 연결된 관리자 계정의 전자 메일 주소 또는 전화 번호와 암호를 입력하고 **로그인** 을 클릭합니다.
 
    >[!NOTE]
    >Operations Management Suite 이름이 사용 중지 되었습니다.
 
-1. 성공적으로 인증된 후에 **Operations Management Suite 등록 마법사: 작업 영역 선택** 페이지에 Azure 테넌트, 구독 및 Log Analytics 작업 영역을 선택하라는 메시지가 나타납니다. 둘 이상의 작업 영역이 있는 경우 드롭다운 목록에서 Operations Manager 관리 그룹으로 등록하려는 작업 영역을 선택한 후 **다음**을 클릭합니다.
+1. 성공적으로 인증된 후에 **Operations Management Suite 등록 마법사: 작업 영역 선택** 페이지에 Azure 테넌트, 구독 및 Log Analytics 작업 영역을 선택하라는 메시지가 나타납니다. 둘 이상의 작업 영역이 있는 경우 드롭다운 목록에서 Operations Manager 관리 그룹으로 등록하려는 작업 영역을 선택한 후 **다음** 을 클릭합니다.
 
    > [!NOTE]
    > Operations Manager는 한 번에 하나의 Log Analytics 작업 영역만 지원합니다. 이전 작업 영역을 사용 하 여 Azure Monitor에 등록 된 연결 및 컴퓨터는 Azure Monitor에서 제거 됩니다.
    >
    >
-1. **Operations Management Suite 등록 마법사: 요약** 페이지에서 설정을 확인하고 올바른 경우 **만들기**를 클릭합니다.
-1. **Operations Management Suite 등록 마법사: 마침** 페이지에서 **닫기**를 클릭합니다.
+1. **Operations Management Suite 등록 마법사: 요약** 페이지에서 설정을 확인하고 올바른 경우 **만들기** 를 클릭합니다.
+1. **Operations Management Suite 등록 마법사: 마침** 페이지에서 **닫기** 를 클릭합니다.
 
 ### <a name="add-agent-managed-computers"></a>에이전트 관리 컴퓨터 추가
 
 Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연결을 설정하고 에이전트 보고에서 관리 그룹으로 데이터가 수집되지 않습니다. 이는 Azure Monitor에 대 한 로그 데이터를 수집 하는 특정 에이전트 관리 컴퓨터를 구성할 때까지 발생 하지 않습니다. 컴퓨터 개체를 개별적으로 선택하거나 Windows 컴퓨터 개체를 포함하는 그룹을 선택할 수 있습니다. 논리 디스크 또는 SQL 데이터베이스와 같은 다른 클래스의 인스턴스를 포함하는 그룹을 선택할 수 없습니다.
 
 1. Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
-1. Operations Management Suite 노드를 확장하고 **연결**을 클릭합니다.
+1. Operations Management Suite 노드를 확장하고 **연결** 을 클릭합니다.
 1. 창 오른쪽 작업 제목 아래의 **컴퓨터/그룹 추가** 링크를 클릭합니다.
-1. **컴퓨터 검색** 대화 상자에서, Operations Manager에서 모니터링하는 컴퓨터 또는 그룹을 검색할 수 있습니다. Azure Monitor에 등록할 Operations Manager 관리 서버를 포함 하는 컴퓨터 또는 그룹을 선택 하 고 **추가**를 클릭 한 다음 **확인**을 클릭 합니다.
+1. **컴퓨터 검색** 대화 상자에서, Operations Manager에서 모니터링하는 컴퓨터 또는 그룹을 검색할 수 있습니다. Azure Monitor에 등록할 Operations Manager 관리 서버를 포함 하는 컴퓨터 또는 그룹을 선택 하 고 **추가** 를 클릭 한 다음 **확인** 을 클릭 합니다.
 
 운영 콘솔의 **관리** 작업 영역에서 Operations Management Suite 아래의 관리되는 컴퓨터 노드에서 데이터를 수집하도록 구성된 컴퓨터 및 그룹을 볼 수 있습니다. 여기에서 필요에 따라 컴퓨터 및 그룹을 추가하거나 제거할 수 있습니다.
 
@@ -145,26 +145,26 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 내부 프록시 서버가 관리 그룹 및 Azure Monitor 사이에 있는 경우 다음 단계를 수행 합니다. 이러한 설정은 관리 그룹에서 중앙 집중식으로 관리 되며 Azure Monitor에 대 한 로그 데이터를 수집 하는 범위에 포함 된 에이전트 관리 시스템에 배포 됩니다.  이는 특정 솔루션이 관리 서버를 우회하고 데이터를 Log Analytics 서비스에 직접 보낼 때 효과적입니다.
 
 1. Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
-1. Operations Management Suite를 확장한 다음 **연결**을 클릭합니다.
-1. OMS 연결 보기에서 **프록시 서버 구성**을 클릭합니다.
-1. **Operations Management Suite 마법사: 프록시 서버** 페이지에서 **프록시 서버를 사용하여 Operations Management Suite에 액세스**를 선택하고 포트 번호와 함께 URL을 입력(예: http://corpproxy:80 )한 다음, **마침**을 클릭합니다.
+1. Operations Management Suite를 확장한 다음 **연결** 을 클릭합니다.
+1. OMS 연결 보기에서 **프록시 서버 구성** 을 클릭합니다.
+1. **Operations Management Suite 마법사: 프록시 서버** 페이지에서 **프록시 서버를 사용하여 Operations Management Suite에 액세스** 를 선택하고 포트 번호와 함께 URL을 입력(예: http://corpproxy:80 )한 다음, **마침** 을 클릭합니다.
 
 프록시 서버에 인증이 필요한 경우 다음 단계를 수행 하 여 관리 그룹의 Azure Monitor에 보고 하는 관리 컴퓨터에 전파 해야 하는 자격 증명 및 설정을 구성 합니다.
 
 1. Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
-1. **RunAs 구성**에서 **프로필**을 선택합니다.
+1. **RunAs 구성** 에서 **프로필** 을 선택합니다.
 1. **프로필 프록시로 시스템 센터 관리자 실행** 프로필을 엽니다.
 1. 실행 프로필 마법사에서 추가를 클릭하여 실행 계정을 사용합니다. [실행 계정](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12))을 만들거나 기존 계정을 사용할 수 있습니다. 이 계정에는 프록시 서버를 통과할 수 있는 권한이 있어야 합니다.
-1. 관리할 계정을 설정하려면 **선택된 클래스, 그룹 또는 개체**를 선택하고 **선택...** 을 클릭한 다음 **그룹...** 을 클릭하여 **그룹 검색** 상자를 엽니다.
-1. **Microsoft System Center Advisor 모니터링 서버 그룹**을 검색한 다음 선택합니다. 그룹을 선택한 후 **확인**을 클릭하여 **그룹 검색** 상자를 닫습니다.
-1. **확인**을 클릭하여 **실행 계정 추가** 상자를 닫습니다.
+1. 관리할 계정을 설정하려면 **선택된 클래스, 그룹 또는 개체** 를 선택하고 **선택...** 을 클릭한 다음 **그룹...** 을 클릭하여 **그룹 검색** 상자를 엽니다.
+1. **Microsoft System Center Advisor 모니터링 서버 그룹** 을 검색한 다음 선택합니다. 그룹을 선택한 후 **확인** 을 클릭하여 **그룹 검색** 상자를 닫습니다.
+1. **확인** 을 클릭하여 **실행 계정 추가** 상자를 닫습니다.
 1. **저장** 을 클릭하여 마법사를 완료하고 변경 내용을 저장합니다.
 
 연결이 생성 되 고 로그 데이터를 수집 하 고 보고 하는 에이전트를 구성 하 고 Azure Monitor 다음 구성이 관리 그룹에 적용 되며 반드시 순서 대로 적용 되는 것은 아닙니다.
 
-* 실행 계정 **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** 가 만들어집니다. 이 계정은 실행 프로필 **Microsoft System Center Advisor Run As Profile Blob**과 연결되고 두 개의 클래스 **수집 서버** 및 **Operations Manager 관리 그룹**을 대상으로 합니다.
-* 두 개의 커넥터가 생성됩니다.  첫 번째는 이름이 ** temCenter로Microsoft.Sys** 지정 되 고 관리 그룹의 모든 클래스 인스턴스에서 생성 된 모든 경고를 Azure Monitor으로 전달 하는 구독을 사용 하 여 자동으로 구성 됩니다. 두 번째 커넥터는 **Advisor 커넥터**이며, Azure Monitor 및 데이터 공유와의 통신을 담당 합니다.
-* 관리 그룹에서 데이터를 수집하도록 선택한 에이전트 및 그룹은 **Microsoft System Center Advisor 모니터링 서버 그룹**에 추가됩니다.
+* 실행 계정 **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** 가 만들어집니다. 이 계정은 실행 프로필 **Microsoft System Center Advisor Run As Profile Blob** 과 연결되고 두 개의 클래스 **수집 서버** 및 **Operations Manager 관리 그룹** 을 대상으로 합니다.
+* 두 개의 커넥터가 생성됩니다.  첫 번째는 이름이 **temCenter로Microsoft.Sys** 지정 되 고 관리 그룹의 모든 클래스 인스턴스에서 생성 된 모든 경고를 Azure Monitor으로 전달 하는 구독을 사용 하 여 자동으로 구성 됩니다. 두 번째 커넥터는 **Advisor 커넥터** 이며, Azure Monitor 및 데이터 공유와의 통신을 담당 합니다.
+* 관리 그룹에서 데이터를 수집하도록 선택한 에이전트 및 그룹은 **Microsoft System Center Advisor 모니터링 서버 그룹** 에 추가됩니다.
 
 ## <a name="management-pack-updates"></a>관리 팩 업데이트
 
@@ -180,11 +180,11 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Operations Manager 그룹을 새 Log Analytics 작업 영역으로 전환
 
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
-1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택하고 작업 영역을 만듭니다.  
+1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스** 를 클릭합니다. 리소스 목록에서 **Log Analytics** 를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics** 를 선택하고 작업 영역을 만듭니다.  
 1. Operations Manager 관리자 역할의 구성원인 계정을 사용하여 Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
-1. Log Analytics를 확장하고 **연결**을 선택합니다.
+1. Log Analytics를 확장하고 **연결** 을 선택합니다.
 1. 창 중간의 **Operations Management Suite 다시 구성** 링크를 선택합니다.
-1. **Log Analytics 등록 마법사**의 지시를 따라 새 Log Analytics 작업 영역과 연결된 관리자 계정의 이메일 주소 또는 전화 번호와 암호를 입력합니다.
+1. **Log Analytics 등록 마법사** 의 지시를 따라 새 Log Analytics 작업 영역과 연결된 관리자 계정의 이메일 주소 또는 전화 번호와 암호를 입력합니다.
 
    > [!NOTE]
    > **Operations Management Suite 등록 마법사: 작업 영역 선택** 페이지는 사용 중인 기존 작업 영역을 표시합니다.
@@ -217,27 +217,27 @@ Operations Manager와 통합 하는 데 사용 하도록 설정한 솔루션에 
 
 1. 명령 셸 프롬프트에서 `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. 그런 다음 `Get-SCOMManagementPack -name "*IntelligencePack*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-1. 다른 System Center Advisor 관리 팩에 대해 종속성이 있는 나머지 모든 관리 팩을 제거하려면 이전에 TechNet 스크립트 센터에서 다운로드한 *RecursiveRemove.ps1*을 사용합니다.  
+1. 다른 System Center Advisor 관리 팩에 대해 종속성이 있는 나머지 모든 관리 팩을 제거하려면 이전에 TechNet 스크립트 센터에서 다운로드한 *RecursiveRemove.ps1* 을 사용합니다.  
 
     > [!NOTE]
     > PowerShell을 사용하여 Advisor 관리 팩을 제거하는 단계는 Microsoft System Center Advisor 또는 Microsoft System Center Advisor Internal 관리 팩을 자동으로 삭제하지 않습니다.  삭제하지 마십시오.  
     >  
 
 1. Operations Manager 관리자 역할의 구성원인 계정을 사용하여 Operations Manager 작업 콘솔을 엽니다.
-1. **관리** 아래에서 **관리 팩** 노드를 선택하고 **찾기:** 상자에 **관리자**를 입력합니다. 이 경우에도 다음 관리 팩을 관리 그룹으로 가져올 수 있는지 확인합니다.
+1. **관리** 아래에서 **관리 팩** 노드를 선택하고 **찾기:** 상자에 **관리자** 를 입력합니다. 이 경우에도 다음 관리 팩을 관리 그룹으로 가져올 수 있는지 확인합니다.
 
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
 
 1. Azure Portal에서 **설정** 타일을 클릭합니다.
-1. **연결된 원본**을 선택합니다.
-1. System Center Operations Manager 섹션 아래의 표에 작업 영역에서 제거하려는 관리 그룹의 이름이 표시됩니다. **마지막 데이터** 열 아래에서 **제거**를 클릭합니다.  
+1. **연결된 원본** 을 선택합니다.
+1. System Center Operations Manager 섹션 아래의 표에 작업 영역에서 제거하려는 관리 그룹의 이름이 표시됩니다. **마지막 데이터** 열 아래에서 **제거** 를 클릭합니다.  
 
     > [!NOTE]
     > 14일간 연결된 관리 그룹에서 감지된 활동이 없을 경우 그 후에는 **제거** 링크를 사용할 수 없습니다.  
     >
 
-1. 제거를 계속할지 확인하라는 창이 나타납니다.  **예**를 클릭하여 작업을 계속 진행합니다.
+1. 제거를 계속할지 확인하라는 창이 나타납니다.  **예** 를 클릭하여 작업을 계속 진행합니다.
 
 두 커넥터(Microsoft.SystemCenter.Advisor.DataConnector 및 Advisor 커넥터)를 삭제하려면 PowerShell 스크립트를 컴퓨터에 저장하고 다음 예제를 사용하여 실행합니다.
 
