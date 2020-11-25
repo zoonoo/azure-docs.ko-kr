@@ -4,11 +4,11 @@ description: Azure Lighthouse를 통해 재구성 작업을 사용 하는 정책
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.openlocfilehash: 998576d06d470c525a551463861f7a25d4ab9d8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163257"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010098"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>위임된 구독 내에서 수정할 수 있는 정책 배포
 
@@ -21,11 +21,11 @@ ms.locfileid: "88163257"
 
 Azure Lighthouse에 고객을 등록 하는 경우 고객 테 넌 트의 위임 된 리소스에 액세스할 수 있는 관리 테 넌 트의 사용자, 사용자 그룹 및 서비스 사용자를 정의 하는 매개 변수 파일과 함께 [Azure Resource Manager 템플릿을](onboard-customer.md#create-an-azure-resource-manager-template) 사용 합니다. 매개 변수 파일에서 이러한 각 사용자(**principalId**)에는 액세스 수준을 정의하는 [기본 제공 역할](../../role-based-access-control/built-in-roles.md)(**roleDefinitionId**)이 할당됩니다.
 
-**principalId**가 고객 테넌트에서 관리 ID를 만들도록 허용하려면 해당 **roleDefinitionId**를 **사용자 액세스 관리자**로 설정해야 합니다. 이 역할은 일반적으로 지원되지 않지만 이 특정 시나리오에서 사용할 수 있습니다. 이 권한을 가진 사용자는 관리 ID에 특정 기본 제공 역할을 하나 이상 할당할 수 있습니다. 이러한 역할은 **delegatedRoleDefinitionIds** 속성에서 정의됩니다. 사용자 액세스 관리자 또는 소유자를 제외하고 여기에 기본 제공 역할을 포함할 수 있습니다.
+**principalId** 가 고객 테넌트에서 관리 ID를 만들도록 허용하려면 해당 **roleDefinitionId** 를 **사용자 액세스 관리자** 로 설정해야 합니다. 이 역할은 일반적으로 지원되지 않지만 이 특정 시나리오에서 사용할 수 있습니다. 이 권한을 가진 사용자는 관리 ID에 특정 기본 제공 역할을 하나 이상 할당할 수 있습니다. 이러한 역할은 **delegatedRoleDefinitionIds** 속성에서 정의됩니다. 사용자 액세스 관리자 또는 소유자를 제외하고 여기에 기본 제공 역할을 포함할 수 있습니다.
 
-고객이 등록된 후 이 권한 부여에서 만든 **principalId**는 이러한 기본 제공 역할을 고객 테넌트의 관리 ID에 할당할 수 있습니다. 그러나 일반적으로 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 없습니다.
+고객이 등록된 후 이 권한 부여에서 만든 **principalId** 는 이러한 기본 제공 역할을 고객 테넌트의 관리 ID에 할당할 수 있습니다. 그러나 일반적으로 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 없습니다.
 
-아래 예제에서는 사용자 액세스 관리자 역할을 보유하는 **principalId**를 보여 줍니다. 이 사용자는 고객 테 넌 트의 관리 되는 id에 두 가지 기본 제공 역할 (참가자 및 Log Analytics 참가자)을 할당할 수 있습니다.
+아래 예제에서는 사용자 액세스 관리자 역할을 보유하는 **principalId** 를 보여 줍니다. 이 사용자는 고객 테 넌 트의 관리 되는 id에 두 가지 기본 제공 역할 (참가자 및 Log Analytics 참가자)을 할당할 수 있습니다.
 
 ```json
 {
@@ -45,9 +45,9 @@ Azure Lighthouse에 고객을 등록 하는 경우 고객 테 넌 트의 위임 
 
 예를 들어이 [샘플](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring)에 나와 있는 것 처럼 고객 테 넌 트에서 Azure Key Vault 리소스에 대 한 진단을 사용 하도록 설정 하려는 경우를 가정해 보겠습니다. 위에서 설명한 것처럼 적절한 권한이 있는 관리 테넌트의 사용자는 이 시나리오를 활성화하기 위해 [Azure Resource Manager 템플릿](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json)을 배포합니다.
 
-위임된 구독과 함께 사용할 정책 할당을 만드는 작업은 현재 Azure Portal이 아닌 API를 통해 수행해야 합니다. 이렇게 하려면 **apiVersion**을 **2019-04-01-preview**로 설정해야 합니다. 이는 새 **delegatedManagedIdentityResourceId** 속성을 포함합니다. 이 속성을 사용 하면 고객 테 넌 트에 있는 관리 id (Azure Lighthouse에 등록 된 구독 또는 리소스 그룹)를 포함할 수 있습니다.
+위임된 구독과 함께 사용할 정책 할당을 만드는 작업은 현재 Azure Portal이 아닌 API를 통해 수행해야 합니다. 이렇게 하려면 **apiVersion** 을 **2019-04-01-preview** 로 설정해야 합니다. 이는 새 **delegatedManagedIdentityResourceId** 속성을 포함합니다. 이 속성을 사용 하면 고객 테 넌 트에 있는 관리 id (Azure Lighthouse에 등록 된 구독 또는 리소스 그룹)를 포함할 수 있습니다.
 
-다음 예제에서는 **delegatedManagedIdentityResourceId**를 사용하는 역할 할당을 보여 줍니다.
+다음 예제에서는 **delegatedManagedIdentityResourceId** 를 사용하는 역할 할당을 보여 줍니다.
 
 ```json
 "type": "Microsoft.Authorization/roleAssignments",

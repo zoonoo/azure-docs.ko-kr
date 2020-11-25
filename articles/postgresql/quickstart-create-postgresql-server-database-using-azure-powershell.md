@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 91351c0b2982c6ee0e96cc1433c0fadf67e3bcc0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485429"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010659"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Database for PostgreSQL - 단일 서버 만들기
 
@@ -70,7 +70,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 | SslEnforcement             | 사용          | 이 서버에 SSL을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. 사용, 사용 안 함                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | 서버의 스토리지 용량입니다(단위는 메가바이트). 유효한 StorageInMb는 최소 5,120MB이며, 1,024MB씩 증가합니다. 스토리지 크기 제한에 대한 자세한 내용은 [Azure Database for PostgreSQL 가격 책정 계층](./concepts-pricing-tiers.md)을 참조하세요.                                                                               |
 | 버전                    | 9.6              | PostgreSQL 주 버전입니다.                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | 관리자 로그인에 대한 사용자 이름입니다. **azure_superuser** , **admin** , **administrator** , **root** , **guest** 또는 **public** 을 사용할 수 없습니다.                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | 관리자 로그인에 대한 사용자 이름입니다. **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public** 을 사용할 수 없습니다.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | 관리자 사용자에 대한 보안 문자열 형식의 암호입니다. 8-128자여야 합니다. 사용자 암호는 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자 및 영숫자가 아닌 문자                                       |
 
 **Sku** 매개 변수 값은 다음 예제와 같이 **pricing-tier\_compute-generation\_vCores** 규칙을 따릅니다.
@@ -169,11 +169,11 @@ pgAdmin은 PostgreSQL에서 사용되는 오픈 소스 도구입니다. [pgAdmin
 
 1. **만들기 - 서버** 대화 상자의 **연결** 탭에서 설정 테이블을 채웁니다.
 
-   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png" alt-text="[일반] 탭":::
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png" alt-text="[연결] 탭":::
 
     pgAdmin 매개 변수 |값|Description
     ---|---|---
-    호스트 이름/주소 | 서버 이름 | 이전에 PostgreSQL 서버용 Azure Database를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.postgres.database.azure.com** 입니다. 예제에서 표시된 것과 같은 정규화된 도메인 이름( **\*.postgres.database.azure.com** )을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다.
+    호스트 이름/주소 | 서버 이름 | 이전에 PostgreSQL 서버용 Azure Database를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.postgres.database.azure.com** 입니다. 예제에서 표시된 것과 같은 정규화된 도메인 이름( **\*.postgres.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다.
     포트 | 5432 | PostgreSQL 서버용 Azure Database에 연결할 때 사용할 포트입니다.
     데이터베이스 유지 관리 | *postgres* | 기본 시스템에서 생성된 데이터베이스 이름입니다.
     사용자 이름 | 서버 관리자 로그인 이름 | 이전에 PostgreSQL 서버용 Azure Database를 만들 때 제공한 서버 관리자 로그인 사용자 이름입니다. 사용자 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 형식은 *username\@servername* 입니다.
@@ -183,17 +183,17 @@ pgAdmin은 PostgreSQL에서 사용되는 오픈 소스 도구입니다. [pgAdmin
 
 1. **저장** 을 선택합니다.
 
-1. 왼쪽 **브라우저** 창에서 **서버** 노드를 확장합니다. 서버를 선택합니다(예: **mydemoserver** ). 클릭하여 연결합니다.
+1. 왼쪽 **브라우저** 창에서 **서버** 노드를 확장합니다. 서버를 선택합니다(예: **mydemoserver**). 클릭하여 연결합니다.
 
 1. 서버 노드를 확장한 다음 그 아래 **데이터베이스** 를 확장합니다. 목록에는 기존 *postgres* 데이터베이스와 사용자가 만든 다른 데이터베이스가 포함되어야 합니다. Azure Database for PostgreSQL에서는 서버당 여러 개의 데이터베이스를 만들 수 있습니다.
 
 1. **데이터베이스** 를 마우스 오른쪽 단추로 클릭하고 **만들기** 메뉴를 선택하고 **데이터베이스** 를 선택합니다.
 
-1. **데이터베이스** 필드에 원하는 데이터베이스 이름(예: **mypgsqldb2** )을 입력합니다.
+1. **데이터베이스** 필드에 원하는 데이터베이스 이름(예: **mypgsqldb2**)을 입력합니다.
 
-1. 목록 상자에서 데이터베이스에 대한 **소유자** 를 선택합니다. 서버 관리자 로그인 이름(예: **my admin** )을 선택합니다.
+1. 목록 상자에서 데이터베이스에 대한 **소유자** 를 선택합니다. 서버 관리자 로그인 이름(예: **my admin**)을 선택합니다.
 
-   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png" alt-text="[일반] 탭":::
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png" alt-text="pgAdmin에서 데이터베이스 만들기":::
 
 1. **저장** 을 선택하여 새로운 빈 데이터베이스를 만듭니다.
 

@@ -8,15 +8,15 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: 6f7f2adb5c3e154c3910ee1082e9afad70de9758
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836176"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010081"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Azure Virtual Machines를 만들고 관리하기 위한 공통 PowerShell 명령
 
-이 문서에서는 Azure 구독에서 가상 머신을 만들고 관리하는 데 사용할 수 있는 몇 가지 Azure PowerShell 명령을 다룹니다.  특정 명령줄 스위치 및 옵션에 대해 자세한 도움이 필요할 경우 **Get-Help** *명령*을 사용할 수 있습니다.
+이 문서에서는 Azure 구독에서 가상 머신을 만들고 관리하는 데 사용할 수 있는 몇 가지 Azure PowerShell 명령을 다룹니다.  특정 명령줄 스위치 및 옵션에 대해 자세한 도움이 필요할 경우 **Get-Help** *명령* 을 사용할 수 있습니다.
 
  
 

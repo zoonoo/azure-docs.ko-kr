@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
 ms.openlocfilehash: ddd1a6fa2fc25add30664da5b739338e87e7e74f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547846"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010115"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>HDInsight의 Apache Hadoop 클러스터에서 빈 에지 노드 사용
 
@@ -67,7 +67,7 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
 > Apache 기술을 사용하는 경우 [https://apache.org](https://apache.org)에서 [Apache Hadoop](https://hadoop.apache.org/) 사이트 등의 Apache 프로젝트 사이트를 통해 지원을 찾을 수도 있습니다.
 
 > [!IMPORTANT]
-> Ubuntu 이미지는 게시된 날부터 3개월 이내에 새 HDInsight 클러스터를 만드는 데 사용할 수 있게 됩니다. 2019년 1월부터 실행 중인 클러스터(에지 노드 포함)는 **자동 패치되지 않습니다** . 고객이 스크립트 동작이나 기타 메커니즘을 사용하여 실행 중인 클러스터를 패치해야 합니다.  자세한 내용은 [HDInsight의 OS 패치](./hdinsight-os-patching.md)를 참조하세요.
+> Ubuntu 이미지는 게시된 날부터 3개월 이내에 새 HDInsight 클러스터를 만드는 데 사용할 수 있게 됩니다. 2019년 1월부터 실행 중인 클러스터(에지 노드 포함)는 **자동 패치되지 않습니다**. 고객이 스크립트 동작이나 기타 메커니즘을 사용하여 실행 중인 클러스터를 패치해야 합니다.  자세한 내용은 [HDInsight의 OS 패치](./hdinsight-os-patching.md)를 참조하세요.
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>기존 클러스터에 에지 노드 추가
 

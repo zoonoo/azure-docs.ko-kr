@@ -8,11 +8,11 @@ ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e1549dda367105db34272eab8a90c1760dd5bb5c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576447"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010183"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한 설정
 
@@ -65,7 +65,7 @@ Azure 가상 네트워크에서 웹 앱에 대 한 액세스를 제한 하는 �
 1. 필요에 따라 규칙의 이름과 설명을 입력 합니다.  
 1. **유형** 드롭다운 목록에서 규칙의 유형을 선택 합니다.  
 1. **우선 순위** 상자에 우선 순위 값을 입력 합니다.  
-1. **구독** , **Virtual Network** 및 **서브넷** 드롭다운 목록에서 액세스를 제한 하려는 항목을 선택 합니다.  
+1. **구독**, **Virtual Network** 및 **서브넷** 드롭다운 목록에서 액세스를 제한 하려는 항목을 선택 합니다.  
 
 ### <a name="set-an-ip-address-based-rule"></a>IP 주소 기반 규칙 설정
 
@@ -112,7 +112,7 @@ IPv4 및 IPv6 주소에 대 한 CIDR (CIDR) 표기법 Inter-Domain으로 IP 주�
 
 ### <a name="delete-a-rule"></a>규칙 삭제
 
-규칙을 삭제 하려면 **액세스 제한** 페이지에서 삭제 하려는 규칙 옆에 있는 줄임표 **(...** )를 선택한 다음 **제거** 를 선택 합니다.
+규칙을 삭제 하려면 **액세스 제한** 페이지에서 삭제 하려는 규칙 옆에 있는 줄임표 **(...**)를 선택한 다음 **제거** 를 선택 합니다.
 
 ![삭제할 액세스 제한 규칙 옆의 "제거" 줄임표를 표시 하는 "액세스 제한" 페이지의 스크린샷](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
@@ -134,14 +134,14 @@ IPv4 및 IPv6 주소에 대 한 CIDR (CIDR) 표기법 Inter-Domain으로 IP 주�
 
 다음 중 하나를 수행 하 여 프로그래밍 방식으로 액세스 제한을 추가할 수 있습니다. 
 
-* [Azure CLI를](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest&preserve-view=true)사용 합니다. 예를 들면 다음과 같습니다.
+* [Azure CLI를](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest&preserve-view=true)사용 합니다. 예들 들어 다음과 같습니다.
    
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
   --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
-* [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0&preserve-view=true)를 사용 합니다. 예를 들면 다음과 같습니다.
+* [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0&preserve-view=true)를 사용 합니다. 예들 들어 다음과 같습니다.
 
 
   ```azurepowershell-interactive
@@ -153,7 +153,7 @@ IPv4 및 IPv6 주소에 대 한 CIDR (CIDR) 표기법 Inter-Domain으로 IP 주�
 
 * Azure Resource Manager에서 앱 구성에 대 한 [Azure REST API](/rest/api/azure/) PUT 작업을 사용 합니다. Azure Resource Manager에서이 정보에 대 한 위치는 다음과 같습니다.
 
-  management.azure.com/subscriptions/ **구독 ID** /resourceGroups/ **리소스 그룹** /providers/Microsoft.Web/sites/ **웹앱 이름** /config/web?api-version=2018-02-01
+  management.azure.com/subscriptions/**구독 ID**/resourceGroups/**리소스 그룹**/providers/Microsoft.Web/sites/**웹앱 이름**/config/web?api-version=2018-02-01
 
 * ARM 템플릿을 사용 합니다. 예를 들어, resources.azure.com을 사용하고, ipSecurityRestrictions 블록을 편집하여 필요한 JSON을 추가할 수 있습니다.
 
