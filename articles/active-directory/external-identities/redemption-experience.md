@@ -11,18 +11,18 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2427d974f96c0905ea2eb33daea7c89de277ec9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8520afdd05ecce8604ce72596bdf06053217cc2e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441813"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173093"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 협업 초대 상환
 
 이 문서에서는 게스트 사용자가 리소스에 액세스하는 방법 및 게스트 사용자가 거치게 될 동의 프로세스에 대해 설명합니다. 게스트에게 초대 이메일을 보낼 때 초대장에는 게스트가 앱 또는 포털에 대한 액세스 권한을 얻기 위해 사용할 수 있는 링크가 포함됩니다. 초대 이메일은 게스트가 리소스에 액세스할 수 있는 방법 중 하나입니다. 디렉터리에 게스트를 추가하고, 공유하려는 포털 또는 앱의 직접 링크를 제공하는 방법도 있습니다. 게스트는 어떤 방법을 사용하든 최초 동의 프로세스를 거쳐야 합니다. 이 프로세스를 통해 게스트는 개인정보처리방침 및 [사용 약관](../conditional-access/terms-of-use.md)에 동의하게 됩니다.
 
-게스트 사용자를 디렉터리에 추가하면 게스트 사용자 계정의 동의 상태가 처음에는 **PendingAcceptance**로 설정됩니다(PowerShell에서 볼 수 있음). 이 설정은 게스트가 초대를 수락하고 개인정보처리방침 및 사용 약관에 동의할 때까지 유지됩니다. 그 후에는 동의 상태가 **동의함**으로 바뀌고, 동의 페이지가 더 이상 게스트에게 표시되지 않습니다.
+게스트 사용자를 디렉터리에 추가하면 게스트 사용자 계정의 동의 상태가 처음에는 **PendingAcceptance** 로 설정됩니다(PowerShell에서 볼 수 있음). 이 설정은 게스트가 초대를 수락하고 개인정보처리방침 및 사용 약관에 동의할 때까지 유지됩니다. 그 후에는 동의 상태가 **동의함** 으로 바뀌고, 동의 페이지가 더 이상 게스트에게 표시되지 않습니다.
 
    > [!IMPORTANT]
    > **2021년 3월 31일부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비가 되면 고객이 [이메일 일회성 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다. 이 공개 미리 보기 기능에 대한 사용자 의견을 환영하며 협업을 위해 훨씬 더 많은 방법을 만들어 냈습니다.
@@ -31,9 +31,9 @@ ms.locfileid: "92441813"
 
 [Azure Portal](./b2b-quickstart-add-guest-users-portal.md)을 사용하여 디렉터리에 게스트 사용자를 추가하는 과정에서 게스트에게 초대 이메일이 전송됩니다. [PowerShell](./b2b-quickstart-invite-powershell.md)을 사용하여 디렉터리에 게스트 사용자를 추가할 때 초대 이메일을 보내도록 선택할 수도 있습니다. 다음은 게스트가 이메일의 링크를 사용할 때 거치게 되는 경험에 대한 설명입니다.
 
-1. 게스트가 **Microsoft Invitations**에서 보낸 [초대 이메일](./invitation-email-elements.md)을 받습니다.
-2. 게스트가 이메일에서 **초대 수락**을 선택합니다.
-3. 게스트가 자신의 자격 증명을 사용하여 여러분의 디렉터리에 로그인합니다. 게스트가 디렉터리에 페더레이션할 수 있는 계정을 갖고 있지 않으며 [이메일 OTP(일회용 암호)](./one-time-passcode.md) 기능이 설정되어 있지 않으면 [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) 또는 [Azure AD 셀프 서비스 계정](../users-groups-roles/directory-self-service-signup.md)을 만들라는 메시지가 게스트에게 표시됩니다. 자세한 내용은 [초대 사용 흐름](#invitation-redemption-flow)을 참조하세요.
+1. 게스트가 **Microsoft Invitations** 에서 보낸 [초대 이메일](./invitation-email-elements.md)을 받습니다.
+2. 게스트가 이메일에서 **초대 수락** 을 선택합니다.
+3. 게스트가 자신의 자격 증명을 사용하여 여러분의 디렉터리에 로그인합니다. 게스트가 디렉터리에 페더레이션할 수 있는 계정을 갖고 있지 않으며 [이메일 OTP(일회용 암호)](./one-time-passcode.md) 기능이 설정되어 있지 않으면 [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) 또는 [Azure AD 셀프 서비스 계정](../enterprise-users/directory-self-service-signup.md)을 만들라는 메시지가 게스트에게 표시됩니다. 자세한 내용은 [초대 사용 흐름](#invitation-redemption-flow)을 참조하세요.
 4. 게스트는 아래에 설명된 [동의 환경](#consent-experience-for-the-guest)을 거칩니다.
 
 ## <a name="redemption-through-a-direct-link"></a>직접 링크를 통해 상환
@@ -68,15 +68,15 @@ ms.locfileid: "92441813"
 
 4. 사용 프로세스에서는 사용자에게 기존 개인 MSA([Microsoft 계정)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create)가 있는지 확인합니다.
 
-5. 사용자의 **홈 디렉터리**가 확인되면 로그인을 위해 사용자가 해당 ID 공급자로 전송됩니다.  
+5. 사용자의 **홈 디렉터리** 가 확인되면 로그인을 위해 사용자가 해당 ID 공급자로 전송됩니다.  
 
 6. 1~4단계에서 초대받은 사용자의 홈 디렉터리를 찾지 못하면 Azure AD는 초대하는 테넌트에서 게스트에게 [이메일 OTP(일회용 암호)](./one-time-passcode.md) 기능을 사용하도록 설정했는지 여부를 확인합니다.
 
 7. 게스트에게 [이메일 일회용 암호를 사용하도록 설정](./one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode)되었으면 초대받은 이메일을 통해 사용자에게 암호가 전송됩니다. 사용자가 Azure AD 로그인 페이지에서 이 암호를 검색하여 입력합니다.
 
-8. 게스트에게 이메일 일회용 암호를 사용하도록 설정되지 않았으면 Azure AD는 도메인 접미사를 검사하여 소비자 계정에 속하는지 확인합니다. 속한다면 개인 [Microsoft 계정](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create)을 만들라는 메시지가 사용자에게 표시됩니다. 속하지 않으면 [Azure AD 셀프 서비스 계정](../users-groups-roles/directory-self-service-signup.md)을 만들라는 메시지가 사용자에게 표시됩니다.
+8. 게스트에게 이메일 일회용 암호를 사용하도록 설정되지 않았으면 Azure AD는 도메인 접미사를 검사하여 소비자 계정에 속하는지 확인합니다. 속한다면 개인 [Microsoft 계정](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create)을 만들라는 메시지가 사용자에게 표시됩니다. 속하지 않으면 [Azure AD 셀프 서비스 계정](../enterprise-users/directory-self-service-signup.md)을 만들라는 메시지가 사용자에게 표시됩니다.
 
-9. Azure AD는 이메일 액세스를 확인하여 [Azure AD 셀프 서비스 계정](../users-groups-roles/directory-self-service-signup.md) 만들기를 시도합니다. 계정 확인은 이메일로 코드를 전송하고 사용자에게 코드를 검색하여 Azure AD에 제출하도록 요청하는 방식으로 진행됩니다. 그러나 초대받은 사용자의 테넌트가 페더레이션되었거나 초대받은 사용자의 테넌트에서 AllowEmailVerifiedUsers 필드가 false로 설정된 경우에는 사용자가 초대 사용을 완료할 수 없고 흐름에서 오류가 발생합니다. 자세한 내용은 [Azure Active Directory B2B 협업 문제 해결](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption)을 참조하세요.
+9. Azure AD는 이메일 액세스를 확인하여 [Azure AD 셀프 서비스 계정](../enterprise-users/directory-self-service-signup.md) 만들기를 시도합니다. 계정 확인은 이메일로 코드를 전송하고 사용자에게 코드를 검색하여 Azure AD에 제출하도록 요청하는 방식으로 진행됩니다. 그러나 초대받은 사용자의 테넌트가 페더레이션되었거나 초대받은 사용자의 테넌트에서 AllowEmailVerifiedUsers 필드가 false로 설정된 경우에는 사용자가 초대 사용을 완료할 수 없고 흐름에서 오류가 발생합니다. 자세한 내용은 [Azure Active Directory B2B 협업 문제 해결](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption)을 참조하세요.
 
 10. 개인 [MSA(Microsoft 계정)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create)를 만들라는 메시지가 사용자에게 표시됩니다.
 
@@ -88,24 +88,24 @@ ms.locfileid: "92441813"
 
 게스트 사용자가 파트너 조직의 리소스에 액세스하기 위해 처음으로 로그인하면 다음과 같은 페이지가 표시됩니다. 
 
-1. 게스트는 초대장을 보낸 조직의 개인정보처리방침을 설명하는 **권한 검토** 페이지를 검토합니다. 사용자는 계속 진행하려면 초대장을 보낸 조직의 개인 정보 정책에 따라 정보 사용에 **동의**해야 합니다.
+1. 게스트는 초대장을 보낸 조직의 개인정보처리방침을 설명하는 **권한 검토** 페이지를 검토합니다. 사용자는 계속 진행하려면 초대장을 보낸 조직의 개인 정보 정책에 따라 정보 사용에 **동의** 해야 합니다.
 
    ![권한 검토 페이지를 보여 주는 스크린샷](media/redemption-experience/review-permissions.png) 
 
    > [!NOTE]
    > 테넌트 관리자 권한을 가진 사용자가 조직의 개인정보처리방침에 연결할 수 있는 방법에 대한 정보는 [방법: Azure Active Directory에 조직의 개인 정보 추가](../fundamentals/active-directory-properties-area.md)를 참조하세요.
 
-2. 사용 약관이 구성되면 게스트가 사용 약관을 열고 검토한 다음, **동의**를 선택합니다. 
+2. 사용 약관이 구성되면 게스트가 사용 약관을 열고 검토한 다음, **동의** 를 선택합니다. 
 
    ![새 사용 약관을 보여 주는 스크린샷](media/redemption-experience/terms-of-use-accept.png) 
 
-   [사용 약관](../conditional-access/terms-of-use.md)은 **외부 ID** > **사용 약관**에서 구성할 수 있습니다.
+   [사용 약관](../conditional-access/terms-of-use.md)은 **외부 ID** > **사용 약관** 에서 구성할 수 있습니다.
 
 3. 달리 지정하지 않는 한, 게스트는 액세스 가능한 애플리케이션이 나열되는 앱 액세스 패널로 리디렉션됩니다.
 
    ![앱 액세스 패널을 보여주는 스크린샷](media/redemption-experience/myapps.png) 
 
-디렉터리에서 게스트의 **초대가 수락됨** 값이 **예**로 변경됩니다. MSA를 만든 경우 게스트의 **원본**이 **Microsoft 계정**으로 표시됩니다. 게스트 사용자 계정 속성에 대한 자세한 내용은 [Azure AD B2B 협업 사용자 속성](user-properties.md)을 참조하세요. 
+디렉터리에서 게스트의 **초대가 수락됨** 값이 **예** 로 변경됩니다. MSA를 만든 경우 게스트의 **원본** 이 **Microsoft 계정** 으로 표시됩니다. 게스트 사용자 계정 속성에 대한 자세한 내용은 [Azure AD B2B 협업 사용자 속성](user-properties.md)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

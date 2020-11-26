@@ -11,31 +11,31 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 6276bd0db9bfb93897f7350b87d208ac2951c859
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: bddc4c64feb31f78bed482bbd729ab1c4b8e676e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330328"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171418"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>층를 사용 하 여 온-프레미스 응용 프로그램을 보호 하기 위한 Azure AD B2C 확장을 위한 자습서
 
 이 샘플 자습서에서는 층의 [Maverics Identity Orchestrator](https://www.strata.io/maverics-identity-orchestrator/)와 AZURE ACTIVE DIRECTORY (AD) B2C를 통합 하는 방법에 대해 알아봅니다.
 Maverics Id Orchestrator는 온-프레미스 응용 프로그램을 보호 하기 위해 Azure AD B2C를 확장 합니다. 모든 id 시스템에 연결 하 여 투명 하 게 사용자와 자격 증명을 마이그레이션하고 정책과 구성을 동기화 하며 인증 및 세션 관리를 추상화 합니다. 층 기업을 사용 하면 응용 프로그램을 다시 작성 하지 않고도 레거시에서 Azure AD B2C로 신속 하 게 전환할 수 있습니다. 이 솔루션에는 다음과 같은 이점이 있습니다.
 
-- **온-프레미스 하이브리드 앱에 대 한 고객 sso (Single Sign-On)** : Azure AD B2C는 Maverics id Orchestrator를 통해 고객 SSO를 지원 합니다. 사용자는 Azure AD B2C 또는 소셜 Id 공급자 (IdP)에서 호스트 되는 계정으로 로그인 합니다. Maverics는 Symantec SiteMinder와 같은 레거시 id 시스템으로 보호 된 앱에 대 한 SSO를 확장 합니다.
+- **온-프레미스 하이브리드 앱에 대 한 고객 sso (Single Sign-On)**: Azure AD B2C는 Maverics id Orchestrator를 통해 고객 SSO를 지원 합니다. 사용자는 Azure AD B2C 또는 소셜 Id 공급자 (IdP)에서 호스트 되는 계정으로 로그인 합니다. Maverics는 Symantec SiteMinder와 같은 레거시 id 시스템으로 보호 된 앱에 대 한 SSO를 확장 합니다.
 
-- **표준 기반 SSO를 다시 작성 하지 않고 앱으로 확장** : Azure AD B2C을 사용 하 여 사용자 액세스를 관리 하 고 Maverics ID Orchestrator SAML 또는 Oidc 커넥터를 사용 하 여 sso를 사용 하도록 설정 합니다.
+- **표준 기반 SSO를 다시 작성 하지 않고 앱으로 확장**: Azure AD B2C을 사용 하 여 사용자 액세스를 관리 하 고 Maverics ID Orchestrator SAML 또는 Oidc 커넥터를 사용 하 여 sso를 사용 하도록 설정 합니다.
 
-- **간편한 구성** : Azure AD B2C는 Maverics ID Orchestrator SAML 또는 oidc 커넥터를 Azure AD B2C에 연결 하는 간단한 단계별 사용자 인터페이스를 제공 합니다.
+- **간편한 구성**: Azure AD B2C는 Maverics ID Orchestrator SAML 또는 oidc 커넥터를 Azure AD B2C에 연결 하는 간단한 단계별 사용자 인터페이스를 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 시작 하려면 다음이 필요 합니다.
 
 - Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
-- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) 입니다.
+- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](./tutorial-create-tenant.md) 입니다.
 
 - Maverics Id Orchestrator에서 사용 되는 암호를 저장 하는 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 의 인스턴스입니다. LDAP (Lightweight Directory Access Protocol) 디렉터리 또는 데이터베이스와 같은 Azure AD B2C 또는 다른 특성 공급자에 연결 하는 데 사용 됩니다.
 
@@ -47,9 +47,9 @@ Maverics Id Orchestrator는 온-프레미스 응용 프로그램을 보호 하�
 
 층의 Maverics 통합에는 다음 구성 요소가 포함 되어 있습니다.
 
-- **Azure AD B2C** : 사용자의 자격 증명을 확인 해야 하는 권한 부여 서버입니다. 인증 된 사용자는 Azure AD B2C 디렉터리에 저장 된 로컬 계정을 사용 하 여 온-프레미스 앱에 액세스할 수 있습니다.
+- **Azure AD B2C**: 사용자의 자격 증명을 확인 해야 하는 권한 부여 서버입니다. 인증 된 사용자는 Azure AD B2C 디렉터리에 저장 된 로컬 계정을 사용 하 여 온-프레미스 앱에 액세스할 수 있습니다.
 
-- **외부 소셜 또는 엔터프라이즈 IdP** : 모든 openid connect Connect 공급자, Facebook, Google 또는 GitHub 일 수 있습니다. Azure AD B2C에서 [외부 IdPs](https://docs.microsoft.com/azure/active-directory-b2c/technical-overview#external-identity-providers) 를 사용 하는 방법에 대 한 정보를 참조 하세요.  
+- **외부 소셜 또는 엔터프라이즈 IdP**: 모든 openid connect Connect 공급자, Facebook, Google 또는 GitHub 일 수 있습니다. Azure AD B2C에서 [외부 IdPs](./technical-overview.md#external-identity-providers) 를 사용 하는 방법에 대 한 정보를 참조 하세요.  
 
 - **층의 Maverics id** 오 케 스트레이 터: 사용자 로그인을 오케스트레이션 하 고 HTTP 헤더를 통해 id를 앱에 투명 하 게 전달 하는 서비스입니다.
 
@@ -75,21 +75,21 @@ Maverics Id Orchestrator는 온-프레미스 응용 프로그램을 보호 하�
 
 1. **애플리케이션 등록**
 
-   a. Orchestrator를 Azure AD B2C 테 넌 트의 [응용 프로그램으로 등록](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=app-reg-ga) 합니다.
+   a. Orchestrator를 Azure AD B2C 테 넌 트의 [응용 프로그램으로 등록](./tutorial-register-applications.md?tabs=app-reg-ga) 합니다.
    >[!Note]
    >Orchestrator 인스턴스를 구성 하는 경우 나중에 테 넌 트 이름 및 식별자, 클라이언트 ID, 클라이언트 암호, 구성 된 클레임 및 리디렉션 URI가 필요 합니다.
 
    b. 응용 프로그램에 Microsoft MS Graph API 권한을 부여 합니다. 응용 프로그램에는 다음 권한이 필요 합니다. `offline_access` , `openid` .
 
-   c. 응용 프로그램에 대 한 리디렉션 URI를 추가 합니다. 이 URI는 오 케 스트레이 터 `oauthRedirectURL` Azure AD B2C 커넥터 구성의 매개 변수와 일치 합니다 (예:) `https://example.com/oidc-endpoint` .
+   다. 응용 프로그램에 대 한 리디렉션 URI를 추가 합니다. 이 URI는 오 케 스트레이 터 `oauthRedirectURL` Azure AD B2C 커넥터 구성의 매개 변수와 일치 합니다 (예:) `https://example.com/oidc-endpoint` .
 
-2. **사용자 흐름 만들기** : [서명 및 로그인 사용자 흐름](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows)을 만듭니다.
+2. **사용자 흐름 만들기**: [서명 및 로그인 사용자 흐름](./tutorial-create-user-flows.md)을 만듭니다.
 
-3. **IdP 추가** : 로컬 계정이 나 소셜 또는 enterprise [IdP](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers)를 사용 하 여 사용자를 로그인 하도록 선택 합니다.
+3. **IdP 추가**: 로컬 계정이 나 소셜 또는 enterprise [IdP](./tutorial-add-identity-providers.md)를 사용 하 여 사용자를 로그인 하도록 선택 합니다.
 
-4. **사용자 특성 정의** : 등록 중에 수집할 특성을 정의 합니다.
+4. **사용자 특성 정의**: 등록 중에 수집할 특성을 정의 합니다.
 
-5. **응용 프로그램 클레임 지정** : Orchestrator 인스턴스를 통해 응용 프로그램에 반환할 특성을 지정 합니다. Orchestrator는 Azure AD B2C에서 반환 된 클레임의 특성을 사용 하며 LDAP 디렉터리 및 데이터베이스와 같은 연결 된 다른 id 시스템에서 추가 특성을 검색할 수 있습니다. 이러한 특성은 HTTP 헤더에 설정 되며 업스트림 온-프레미스 응용 프로그램으로 전송 됩니다.
+5. **응용 프로그램 클레임 지정**: Orchestrator 인스턴스를 통해 응용 프로그램에 반환할 특성을 지정 합니다. Orchestrator는 Azure AD B2C에서 반환 된 클레임의 특성을 사용 하며 LDAP 디렉터리 및 데이터베이스와 같은 연결 된 다른 id 시스템에서 추가 특성을 검색할 수 있습니다. 이러한 특성은 HTTP 헤더에 설정 되며 업스트림 온-프레미스 응용 프로그램으로 전송 됩니다.
 
 ## <a name="configure-maverics-identity-orchestrator"></a>Maverics Id Orchestrator 구성
 
@@ -259,7 +259,7 @@ appgateways:
 
 Orchestrator가 Azure AD B2C 및 기타 id 시스템에 연결 하는 데 사용 하는 암호를 보호 하는 것이 중요 합니다. Maverics는 기본적으로 암호를 일반 텍스트로 로드 하지만 `maverics.yaml` 이 자습서에서는 Azure Key Vault를 암호 공급자로 사용 합니다.
 
-지침에 따라 Orchestrator 인스턴스에서 암호 공급자로 사용할 [새 Key Vault를 만듭니다](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault) . 자격 증명 모음에 비밀을 추가 하 고 지정 된를 `SECRET NAME` 각 비밀에 기록해 둡니다. `AzureADB2CClientSecret`)을 입력합니다.
+지침에 따라 Orchestrator 인스턴스에서 암호 공급자로 사용할 [새 Key Vault를 만듭니다](../key-vault/secrets/quick-create-portal.md) . 자격 증명 모음에 비밀을 추가 하 고 지정 된를 `SECRET NAME` 각 비밀에 기록해 둡니다. 예들 들어 `AzureADB2CClientSecret`입니다.
 
 `maverics.yaml` 구성 파일에서 값을 비밀로 선언하려면 비밀을 꺾쇠 괄호로 묶습니다.
 
@@ -342,6 +342,6 @@ appgateways:
 
 자세한 내용은 다음 문서를 참조 하세요.
 
-- [Azure AD B2C의 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)

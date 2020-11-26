@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f957070ec94fc4c61089f31fe91261a2f52c4ee4
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b95aac504bc6ee72c353faecad25384e2dc90840
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578861"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172421"
 ---
 # <a name="scim-synchronization-with-azure-active-directory"></a>Azure Active Directory와 SCIM 동기화
 
@@ -35,21 +35,20 @@ HCM 시스템에서 Azure AD 및 Windows Server Active Directory로 사용자 �
 
 ## <a name="components-of-system"></a>시스템의 구성 요소 
 
-* **Hcm 시스템** : 직원의 수명 주기 동안 HR 프로세스를 지원 하 고 자동화 하는 사용자 자본 관리 프로세스 및 사례를 지 원하는 응용 프로그램 및 기술입니다. 
+* **Hcm 시스템**: 직원의 수명 주기 동안 HR 프로세스를 지원 하 고 자동화 하는 사용자 자본 관리 프로세스 및 사례를 지 원하는 응용 프로그램 및 기술입니다. 
 
-* **AZURE AD 프로 비전 서비스** : 자동 프로 비전에 scim 2.0 프로토콜을 사용 합니다. 서비스는 응용 프로그램에 대 한 SCIM 끝점에 연결 하 고 SCIM 사용자 개체 스키마 및 REST Api를 사용 하 여 사용자 및 그룹의 프로 비전 및 프로 비전 해제를 자동화 합니다.  
+* **AZURE AD 프로 비전 서비스**: 자동 프로 비전에 scim 2.0 프로토콜을 사용 합니다. 서비스는 응용 프로그램에 대 한 SCIM 끝점에 연결 하 고 SCIM 사용자 개체 스키마 및 REST Api를 사용 하 여 사용자 및 그룹의 프로 비전 및 프로 비전 해제를 자동화 합니다.  
 
-* **AZURE AD** : id 및 자격 증명의 수명 주기를 관리 하는 데 사용 되는 사용자 리포지토리입니다. 
+* **AZURE AD**: id 및 자격 증명의 수명 주기를 관리 하는 데 사용 되는 사용자 리포지토리입니다. 
 
-* **대상 시스템** : scim 끝점을 포함 하며 Azure AD 프로 비전과 연동 하 여 사용자 및 그룹의 자동 프로 비전을 사용 하도록 설정 하는 응용 프로그램 또는 시스템입니다.  
+* **대상 시스템**: scim 끝점을 포함 하며 Azure AD 프로 비전과 연동 하 여 사용자 및 그룹의 자동 프로 비전을 사용 하도록 설정 하는 응용 프로그램 또는 시스템입니다.  
 
 ## <a name="implement-scim-with-azure-ad"></a>Azure AD로 SCIM 구현 
 
-* [Azure AD에서 프로 비전이 작동 하는 방식 ](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works)
+* [Azure AD에서 프로 비전이 작동 하는 방식 ](../app-provisioning/how-provisioning-works.md)
 
-* [Azure Portal에서 엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리 ](https://docs.microsoft.com/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal)
+* [Azure Portal에서 엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리 ](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 
-* [SCIM 끝점을 빌드하고 Azure AD를 사용 하 여 사용자 프로 비전 구성  ](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups)
+* [SCIM 끝점을 빌드하고 Azure AD를 사용 하 여 사용자 프로 비전 구성  ](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-* [Azure AD 프로 비전 서비스의 SCIM 2.0 프로토콜 준수](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility)
-
+* [Azure AD 프로 비전 서비스의 SCIM 2.0 프로토콜 준수](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md)

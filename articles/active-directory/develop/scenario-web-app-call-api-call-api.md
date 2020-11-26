@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 846c47017ba2887c287dd080c44c46b372660d0e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 016a2917c02deaecf35c526426cb2a6dbc89e338
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443605"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173194"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>웹 api를 호출 하는 웹 앱: web API 호출
 
@@ -152,7 +152,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > 동일한 원칙을 사용 하 여 web API를 호출할 수 있습니다.
 >
-> 대부분의 Azure web Api는 Microsoft Graph의 경우 처럼 API 호출을 간소화 하는 SDK를 제공 합니다. 예를 들어, Azure AD를 사용 하 여 [Blob 저장소에 대 한 액세스 권한을 부여 하는 웹 응용 프로그램을 만들어](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=dotnet) Azure Storage SDK를 사용 하는 웹 앱의 예제를 참조 하세요.
+> 대부분의 Azure web Api는 Microsoft Graph의 경우 처럼 API 호출을 간소화 하는 SDK를 제공 합니다. 예를 들어, Azure AD를 사용 하 여 [Blob 저장소에 대 한 액세스 권한을 부여 하는 웹 응용 프로그램을 만들어](../../storage/common/storage-auth-aad-app.md?tabs=dotnet&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) Azure Storage SDK를 사용 하는 웹 앱의 예제를 참조 하세요.
 
 # <a name="java"></a>[Java](#tab/java)
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 10ae9e1356cea954435d15441d74f4f86a804578
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 929aed28df2725ccde62c348a18ef7b41334e233
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95893983"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172132"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Form Recognizer의 새로운 기능
 
@@ -22,7 +22,7 @@ ms.locfileid: "95893983"
 
 ## <a name="november-2020"></a>2020년 11월
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 - **새로 작성 된 송장 모델** -새 미리 작성 된 송장 모델을 통해 고객은 다양 한 형식으로 송장을 작성 하 고 구조화 된 데이터를 반환 하 여 송장 처리를 자동화할 수 있습니다. 또한 강력한 OCR (광학 인식) 기능을 송장과 결합 하 여 심층 학습 모델을 이해 하 여 영어로 된 청구서에서 핵심 정보를 추출 합니다. 이 도구는 고객, 공급 업체, 청구서 ID, 청구서 기한, 총액, 세금, 세금 금액, 배송 대상, 청구서 받는 사람 등의 텍스트, 테이블 및 정보를 추출 합니다.
 
@@ -37,6 +37,7 @@ ms.locfileid: "95893983"
  
   > [레이아웃 추출에 대 한 자세한 정보](concept-layout.md)
 
+- **클라이언트 라이브러리 업데이트** -.Net, Python, Java 및 JavaScript 용 [클라이언트 라이브러리](quickstarts/client-library.md) 는 일반 공급으로 전환 되었습니다.
 - **지원 되는 새 언어: 일본어** - `AnalyzeLayout` 및 `AnalyzeCustomForm` : 일본어 ( `ja` )의 경우 다음과 같은 새로운 언어가 지원 됩니다. [언어 지원](language-support.md)
 - **텍스트 줄 스타일 표시 (필기/기타) (라틴어만 해당)** -이제 양식 인식기는 `appearance` 각 텍스트 줄에 대 한 입력 여부를 분류 하는 개체를 신뢰 점수와 함께 출력 합니다. 이 기능은 라틴어 언어에 대해서만 지원 됩니다.
 - **품질 향상** -단일 자릿수 추출 기능을 포함 하 여 추출 기능이 향상 되었습니다.
@@ -46,12 +47,12 @@ ms.locfileid: "95893983"
 
   ![FOTT 예제](./media/ui-preview.jpg)
   
-- **피드백 루프** -샘플 레이블 지정 도구를 통해 파일을 분석 하는 경우 필요한 경우 레이블에를 학습 집합 및 adujst에 추가 하 고 모델을 향상 시킬 수 있습니다.
-- **Auto Label Documets** -Automitcally는 프로젝트의 이전 labeld 문서를 기준으로 추가 문서를 레이블 합니다. 
+- **피드백 루프** -샘플 레이블 지정 도구를 통해 파일을 분석 하는 경우, 이제 학습 집합에 추가 하 고 필요한 경우 레이블을 조정 하 고 모델을 향상 시킬 수 있습니다.
+- **문서 자동 레이블** 지정-프로젝트에서 이전에 레이블이 지정 된 문서에 따라 추가 문서에 자동으로 레이블을 지정 합니다.
 
 ## <a name="august-2020"></a>2020년 8월
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 **이제 폼 인식기 v 2.1 공개 미리 보기를 사용할 수 있습니다.** V 2.1-preview. 1은 다음과 같은 기능을 포함 하 여 릴리스 되었습니다. 
 
@@ -80,7 +81,7 @@ ms.locfileid: "95893983"
 
 ## <a name="july-2020"></a>2020년 7월
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * v2.0 **참조 사용 가능** - [.net](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Python](/python/api/overview/azure/?view=azure-python), [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)및 [JavaScript](/javascript/api/overview/azure/?view=azure-node-latest)용 v2.0 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) 및 업데이트 된 sdk를 확인 합니다.
 * **테이블 향상 및 추출 향상** -향상 된 정확도 및 테이블 추출 향상 된 기능, 특히 _레이블 없이 사용자 지정 학습_ 에서 테이블 헤더와 구조를 학습 하는 기능을 포함 합니다. 
@@ -94,7 +95,7 @@ ms.locfileid: "95893983"
 
 ## <a name="june-2020"></a>2020년 6월
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 * **클라이언트 sdk에 추가 된 Copymodel API** -이제 클라이언트 sdk를 사용 하 여 한 구독에서 다른 구독으로 모델을 복사할 수 있습니다. 이 기능에 대 한 일반 정보는 [모델 백업 및 복구](./disaster-recovery.md) 를 참조 하세요.
 * **Azure Active Directory 통합** -이제 Azure AD 자격 증명을 사용 하 여 Sdk에서 양식 인식기 클라이언트 개체를 인증할 수 있습니다.
 * **SDK 관련 변경** 내용-여기에는 보조 기능 추가 및 주요 변경 내용이 모두 포함 됩니다. 자세한 내용은 SDK changelogs를 참조 하십시오.
@@ -105,7 +106,7 @@ ms.locfileid: "95893983"
 
 ## <a name="april-2020"></a>2020년 4월
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 * **SDK 지원 양식 인식기 API V2.0 공개 미리 보기** -이번 달에는 폼 인식기 v2.0 (미리 보기) 릴리스에 대 한 미리 보기 SDK를 포함 하도록 서비스 지원이 확장 되었습니다. 아래 링크를 사용 하 여 원하는 언어로 시작 하세요. 
    * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
    * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
@@ -125,7 +126,7 @@ ms.locfileid: "95893983"
 
 ## <a name="march-2020"></a>2020년 3월 
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * **레이블 지정을 위한 값 형식** 이제 폼 인식기 샘플 레이블 지정 도구를 사용 하 여 레이블을 지정 하는 값의 형식을 지정할 수 있습니다. 현재 지원되는 값 형식 및 변형은 다음과 같습니다.
   * `string`
@@ -170,7 +171,7 @@ ms.locfileid: "95893983"
 
 이 릴리스에는 폼 인식기 2.0 (미리 보기)가 도입 되었습니다. 아래 섹션에는 새로운 기능, 향상 된 기능 및 변경 내용에 대 한 자세한 내용이 나와 있습니다. 
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * **사용자 지정 모델**
   * **레이블로 학습** 이제 수동으로 레이블이 지정 된 데이터를 사용 하 여 사용자 지정 모델을 학습 시킬 수 있습니다. 이 방법을 사용 하면 더 나은 모델을 사용할 수 있고 키가 없는 값을 포함 하는 복잡 한 폼 또는 폼을 사용 하는 모델을 생성할 수 있습니다.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9510bd564ced2f458a9a78ff23200bb32358c3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb889298a09c30a629c69442ebf31bc735af31d1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268539"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173127"
 ---
 # <a name="settings-and-data-roaming-faq"></a>설정 및 데이터 로밍 FAQ
 
@@ -76,16 +76,16 @@ Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로
 
 여러 Azure AD 테넌트의 여러 Azure 계정이 동일한 디바이스에 있는 경우 각 Azure AD 테넌트의 Azure Rights Management 서비스와 통신하도록 디바이스 레지스트리를 업데이트해야 합니다.  
 
-1. 각 Azure AD 테넌트에 대한 GUID를 확인합니다. Azure Portal을 열고 Azure AD 테넌트를 선택합니다. 테넌트의 GUID는 선택한 테넌트, 레이블이 지정된 **Directory ID**에 대한 속성 페이지(https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)에 있습니다. 
-2. GUID를 받은 후에는 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID> **레지스트리 키를 추가 해야 합니다.
-   **테넌트 ID GUID** 키에서 **AllowedRMSServerUrls**라는 새 다중 문자열 값(REG-MULTI-SZ)을 만듭니다. 해당 데이터에 대해 디바이스에서 액세스하는 다른 Azure 테넌트의 라이선스 배포 지점 URL을 지정합니다.
-3. AADRM 모듈에서 **Get-AadrmConfiguration** cmdlet을 실행하여 라이선싱 배포 지점 URL을 찾을 수 있습니다. **LicensingIntranetDistributionPointUrl** 및 **LicensingExtranetDistributionPointUrl**의 값이 다르면 두 값을 모두 지정합니다. 값이 같으면 값을 한 번만 지정합니다.
+1. 각 Azure AD 테넌트에 대한 GUID를 확인합니다. Azure Portal을 열고 Azure AD 테넌트를 선택합니다. 테넌트의 GUID는 선택한 테넌트, 레이블이 지정된 **Directory ID** 에 대한 속성 페이지(https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)에 있습니다. 
+2. GUID를 받은 후에는 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>** 레지스트리 키를 추가 해야 합니다.
+   **테넌트 ID GUID** 키에서 **AllowedRMSServerUrls** 라는 새 다중 문자열 값(REG-MULTI-SZ)을 만듭니다. 해당 데이터에 대해 디바이스에서 액세스하는 다른 Azure 테넌트의 라이선스 배포 지점 URL을 지정합니다.
+3. AADRM 모듈에서 **Get-AadrmConfiguration** cmdlet을 실행하여 라이선싱 배포 지점 URL을 찾을 수 있습니다. **LicensingIntranetDistributionPointUrl** 및 **LicensingExtranetDistributionPointUrl** 의 값이 다르면 두 값을 모두 지정합니다. 값이 같으면 값을 한 번만 지정합니다.
 
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>기존 Windows 데스크톱 애플리케이션의 로밍 설정 옵션은 무엇인가요?
 
 로밍은 유니버설 Windows 앱에서만 작동합니다. 기존 Windows 데스크톱 애플리케이션에서 로밍을 활성화할 수 있는 두 가지 옵션이 있습니다.
 
-* [데스크톱 브리지](https://aka.ms/desktopbridge) 를 사용하면 유니버설 Windows 플랫폼에 기존 Windows 데스크톱 앱을 쉽게 가져올 수 있습니다. 이때 Azure AD 앱 데이터 로밍을 활용하려면 최소한의 코드 변경 작업이 필요합니다. 데스크톱 브리지는 앱 ID를 사용하여 앱을 제공하며 이는 기존 데스크톱 앱에 앱 데이터 로밍을 사용하는 데 필요합니다.
+* [데스크톱 브리지](/windows/msix/desktop/source-code-overview) 를 사용하면 유니버설 Windows 플랫폼에 기존 Windows 데스크톱 앱을 쉽게 가져올 수 있습니다. 이때 Azure AD 앱 데이터 로밍을 활용하려면 최소한의 코드 변경 작업이 필요합니다. 데스크톱 브리지는 앱 ID를 사용하여 앱을 제공하며 이는 기존 데스크톱 앱에 앱 데이터 로밍을 사용하는 데 필요합니다.
 * [UE-V(사용자 경험 가상화)](/previous-versions//dn458947(v=vs.85)) 를 사용하면 기존 Windows 데스크톱 앱에 대한 사용자 지정 설정 템플릿을 만들 수 있고 Win32 앱에 대해서만 로밍을 사용할 수 있습니다. 이 옵션은 앱의 코드를 변경하기 위해 앱 개발자가 필요하지 않습니다. UE-V는 Microsoft Desktop Optimization Pack을 구매한 고객에 대한 온-프레미스 Active Directory 로밍으로 제한됩니다.
 
 관리자는 [UE-V 그룹 정책](/microsoft-desktop-optimization-pack/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2)을 통해 Windows OS 설정 및 유니버설 앱 데이터의 로밍을 변경하여 Windows 데스크톱 앱 데이터를 로밍하도록 UEV를 구성할 수 있습니다.
@@ -112,7 +112,7 @@ Windows 10에는 개별 애플리케이션의 로밍을 비활성화하는 MDM �
 
 ## <a name="how-can-i-enable-or-disable-roaming"></a>로밍을 활성화/비활성화하려면 어떻게 해야 하나요?
 
-**설정** 앱에서 **계정** > **설정 동기화**로 이동합니다. 이 페이지에서 설정 로밍에 사용되는 계정을 확인할 수 있으며, 개별 설정 그룹의 로밍을 활성화 또는 비활성화할 수 있습니다.
+**설정** 앱에서 **계정** > **설정 동기화** 로 이동합니다. 이 페이지에서 설정 로밍에 사용되는 계정을 확인할 수 있으며, 개별 설정 그룹의 로밍을 활성화 또는 비활성화할 수 있습니다.
 
 ## <a name="what-is-microsofts-recommendation-for-enabling-roaming-in-windows-10"></a>Microsoft는 Windows 10 로밍 활성화에 대해 무엇을 권장합니까?
 

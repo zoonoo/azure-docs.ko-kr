@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1acdbeb29091bae0be214b740023f13928506a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46ecc2cba96b07d9105020e69ae3198a3765be7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319846"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172234"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Azure Active Directory에서 사용자 계정 이름 변경 계획 및 문제 해결
 
@@ -53,7 +53,7 @@ BSimon@contoso.com대상BJohnson@contoso.com
    * 접두사에 대 한 회사 표준도 변경할 수 있습니다.  
 Bsimon@contoso.com대상Britta.Simon@contoso.com
 
-* **접미사를 변경**합니다. <br>
+* **접미사를 변경** 합니다. <br>
 
     예를 들어 사용자가 부서를 변경한 경우 해당 도메인을 변경할 수 있습니다. 
 
@@ -174,7 +174,7 @@ Windows 10 하이브리드 Azure AD 조인 장치에서 예기치 않은 다시 
 
 * 푸시 알림 또는 확인 코드를 통한 multi-factor authentication
 
-* 조정 된 [인증](../develop/brokered-auth.md) 을 사용 하는 응용 프로그램에 대 한 Single Sign-On를 제공 하기 위해 IOS 및 Android 장치에서 인증 브로커로 작동
+* 조정 된 [인증](../develop/msal-android-single-sign-on.md) 을 사용 하는 응용 프로그램에 대 한 Single Sign-On를 제공 하기 위해 IOS 및 Android 장치에서 인증 브로커로 작동
 
 * 장치 등록 (Workplace Join 라고도 함)은 Azure AD에 대 한 Intune 앱 보호 및 장치 등록/관리와 같은 다른 기능을 요구 하는 요구 사항입니다.
 

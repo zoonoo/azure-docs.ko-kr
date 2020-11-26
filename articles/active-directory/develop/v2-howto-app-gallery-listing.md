@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3b9f744e414e83c103f6b9249a0ccf5020588463
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 6374164bb5049742d63a669b4c1e552c93967977
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356351"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173382"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에 앱 게시
 
@@ -36,7 +36,7 @@ Azure AD 갤러리에 앱을 추가할 때의 이점은 다음과 같습니다.
 - 사용자에 Single Sign-On을 제공 합니다. SSO를 사용 하면 고객에 게 더 쉽게 Single Sign-On 수 있도록 하 여 지원 비용을 절감할 수 있습니다. 한 번 클릭 SSO가 사용 하도록 설정 된 경우 고객의 IT 관리자는 조직에서 사용 하기 위해 응용 프로그램을 구성 하는 방법을 배울 필요가 없습니다. Single Sign-On에 대한 자세한 내용은 [Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 - 앱은 Microsoft 365 앱 갤러리, Microsoft 365 앱 시작 관리자 및 Office.com의 Microsoft Search 내에서 검색할 수 있습니다. 
 - 통합 앱 관리. Azure AD의 앱 관리에 대해 자세히 알아보려면 [응용 프로그램 관리용 이란?](../manage-apps/what-is-application-management.md)을 참조 하세요.
-- 앱은 [Graph API](https://docs.microsoft.com/graph/) 를 사용 하 여 Microsoft 에코 시스템에서 사용자 생산성을 유도 하는 데이터에 액세스할 수 있습니다.
+- 앱은 [Graph API](/graph/) 를 사용 하 여 Microsoft 에코 시스템에서 사용자 생산성을 유도 하는 데이터에 액세스할 수 있습니다.
 - 상호 고객을 위해 Azure AD 팀과 공동 생성 된 응용 프로그램별 설명서는 채택을 용이 하 게 합니다.
 - 고객에 게 직원 및 게스트 id의 인증 및 권한 부여를 완전히 관리할 수 있는 기능을 제공 합니다.
 - 이러한 id의 고객 소유자에 게 모든 계정 관리 및 규정 준수 책임을 배치 합니다.
@@ -47,7 +47,7 @@ Azure AD 갤러리에 앱을 추가할 때의 이점은 다음과 같습니다.
 - 사용자가 Azure AD SSO를 사용 하 여 응용 프로그램에 로그온 하 고 별도의 자격 증명 필요를 제거 하는 경우 보안 및 편의를 추가 합니다.
 
 > [!TIP]
-> 구매 또는 구독을 통해 다른 회사에서 사용할 수 있도록 응용 프로그램을 제공 하는 경우 자신의 Azure 테 넌 트 내에서 고객이 응용 프로그램을 사용할 수 있도록 합니다. 다중 테 넌 트 응용 프로그램을 만드는 것으로 알려져 있습니다. 이 개념에 대 한 개요는 [Azure의 다중 테 넌 트 응용 프로그램](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) 및 [Azure Active Directory의 테 넌 트](single-and-multi-tenant-apps.md)를 참조 하세요.
+> 구매 또는 구독을 통해 다른 회사에서 사용할 수 있도록 응용 프로그램을 제공 하는 경우 자신의 Azure 테 넌 트 내에서 고객이 응용 프로그램을 사용할 수 있도록 합니다. 다중 테 넌 트 응용 프로그램을 만드는 것으로 알려져 있습니다. 이 개념에 대 한 개요는 [Azure의 다중 테 넌 트 응용 프로그램](../../dotnet-develop-multitenant-applications.md) 및 [Azure Active Directory의 테 넌 트](single-and-multi-tenant-apps.md)를 참조 하세요.
 
 > [!IMPORTANT]
 > Azure AD 갤러리에 앱을 게시 하려면 특정 사용 약관에 동의 해야 합니다. 시작 하기 전에 사용 [약관](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/)을 읽고 동의 해야 합니다.
@@ -69,7 +69,7 @@ Azure AD 앱 갤러리에 앱을 게시 하는 단계는 다음과 같습니다.
 - 상호 고객을 위한 단계별 구성 자습서가 있습니다.
 - [Scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(도메인 간 id 관리)을 위해 시스템을 사용 하는 고객은 동일한 앱에 대 한 프로 비전을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 두 명 이상의 사용자를 등록 하 여 테스트 하려면 영구 계정이 필요 합니다.
 
@@ -98,7 +98,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 지원 되�
 | 모바일 응용 프로그램에 대 한 조건부 액세스 정책| √| X |
 | 모바일 응용 프로그램에 대 한 원활한 MFA 환경| √| X |
 | SCIM 프로비저닝| √| √ |
-| 액세스 Microsoft Graph| √| X |
+| Microsoft Graph 액세스| √| X |
 
 * 가능 하지만 Microsoft는 샘플 또는 지침을 제공 하지 않습니다.
 
@@ -162,7 +162,7 @@ Openid connect Connect의 경우 응용 프로그램은 다중 테 넌 트 해�
 Microsoft는 SAML 구현을 위해 라이브러리를 제공 하거나 권장 하지 않습니다. 사용할 수 있는 여러 오픈 소스 라이브러리가 있습니다.
 
 ### <a name="implement-ws-fed"></a>구현 WS-Fed
-ASP.NET Core WS-Fed에 대 한 자세한 내용은 [ASP.NET Core에서 WS-Federation를 사용 하 여 사용자 인증](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation)을 참조 하세요.
+ASP.NET Core WS-Fed에 대 한 자세한 내용은 [ASP.NET Core에서 WS-Federation를 사용 하 여 사용자 인증](/aspnet/core/security/authentication/ws-federation)을 참조 하세요.
 
 ### <a name="implement-password-vaulting"></a>암호 보관 구현
 
@@ -173,7 +173,7 @@ HTML 로그인 페이지가 있는 웹 응용 프로그램을 만듭니다. 응�
 
 앱을 테스트 하려면 Azure AD 테 넌 트가 필요 합니다. 개발 환경을 설정 하려면 [빠른 시작: 테 넌 트 설정](quickstart-create-new-tenant.md)을 참조 하세요.
 
-또는 Azure AD 테 넌 트는 모든 Microsoft 365 구독과 함께 제공 됩니다. 무료 Microsoft 365 개발 환경을 설정 하려면 [Microsoft 365 개발자 프로그램 참여](https://docs.microsoft.com/office/developer-program/microsoft-365-developer-program)를 참조 하세요.
+또는 Azure AD 테 넌 트는 모든 Microsoft 365 구독과 함께 제공 됩니다. 무료 Microsoft 365 개발 환경을 설정 하려면 [Microsoft 365 개발자 프로그램 참여](/office/developer-program/microsoft-365-developer-program)를 참조 하세요.
 
 테 넌 트가 있으면 single sign-on 액세스를 사용 하도록 설정 하 고 테스트 해야 합니다. 
 
@@ -209,7 +209,7 @@ HTML 로그인 페이지가 있는 웹 응용 프로그램을 만듭니다. 응�
 
 ### <a name="documentation-on-the-microsoft-site"></a>Microsoft 사이트 설명서
 
-응용 프로그램을 Azure Marketplace에 게시 하는 Azure Active Directory 응용 프로그램 갤러리를 사용 하 여 응용 프로그램을 나열 하는 경우 Microsoft는 단계별 프로세스를 설명 하는 상호 고객에 대 한 설명서를 생성 합니다. [여기](https://aka.ms/appstutorial)에서 예제를 확인할 수 있습니다. 이 설명서는 갤러리에 대 한 제출에 따라 만들어지며, GitHub 계정을 사용 하 여 응용 프로그램을 변경 하는 경우 쉽게 업데이트할 수 있습니다.
+응용 프로그램을 Azure Marketplace에 게시 하는 Azure Active Directory 응용 프로그램 갤러리를 사용 하 여 응용 프로그램을 나열 하는 경우 Microsoft는 단계별 프로세스를 설명 하는 상호 고객에 대 한 설명서를 생성 합니다. [여기](../saas-apps/tutorial-list.md)에서 예제를 확인할 수 있습니다. 이 설명서는 갤러리에 대 한 제출에 따라 만들어지며, GitHub 계정을 사용 하 여 응용 프로그램을 변경 하는 경우 쉽게 업데이트할 수 있습니다.
 
 
 ## <a name="step-5---submit-your-app"></a>5 단계-앱 제출
@@ -262,7 +262,7 @@ Openid connect Connect를 사용 하 여 갤러리의 목록에 응용 프로그
 
 ![갤러리에 암호 SSO 응용 프로그램 나열](./media/howto-app-gallery-listing/passwordsso.png)
 
-사용자 프로 비전을 위해 [Scim](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2.0 끝점을 구현 하는 경우 표시 된 대로 옵션을 선택 합니다. 
+사용자 프로 비전을 위해 [Scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 끝점을 구현 하는 경우 표시 된 대로 옵션을 선택 합니다. 
 
    ![사용자 프로 비전 요청](./media/howto-app-gallery-listing/user-provisioning.png)
 

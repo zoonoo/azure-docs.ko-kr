@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 8f184de8953e8e8bfe982d2502ca476fb54a66c9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7fd9e504448d55b4a2ef8c10b4ba1176cb2e3402
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95903715"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172638"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>모든 앱을 Azure AD와 통합 하는 5 단계
 
@@ -38,7 +38,7 @@ Azure Active Directory (Azure AD)에는 쉽게 시작할 수 있는 수천 개�
 - [AWS](../saas-apps/amazon-web-service-tutorial.md)
 - [Slack](../saas-apps/slack-tutorial.md)
 
-또한 조직에 이미 있는 응용 프로그램이 나 아직 Azure AD 갤러리에 속하지 않은 공급 업체의 타사 응용 프로그램을 포함 하 여 [갤러리에 없는 응용 프로그램을 통합할](../manage-apps/view-applications-portal.md)수 있습니다. [응용 프로그램이 없는 경우 갤러리에 앱을 추가할](../azuread-dev/howto-app-gallery-listing.md) 수도 있습니다.
+또한 조직에 이미 있는 응용 프로그램이 나 아직 Azure AD 갤러리에 속하지 않은 공급 업체의 타사 응용 프로그램을 포함 하 여 [갤러리에 없는 응용 프로그램을 통합할](../manage-apps/view-applications-portal.md)수 있습니다. [응용 프로그램이 없는 경우 갤러리에 앱을 추가할](../develop/v2-howto-app-gallery-listing.md) 수도 있습니다.
 
 마지막으로, 사내에서 개발 하는 앱을 통합할 수도 있습니다. 이 내용은이 가이드의 5 단계에서 다룹니다.
 

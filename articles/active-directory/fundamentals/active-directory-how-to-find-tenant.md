@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbf23a32fdf5515402e18f70fe032a1a589dbcbe
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 32526a31a9d52fbfac57f1d384b25e0939b5e297
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424258"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172876"
 ---
 # <a name="how-to-find-your-azure-active-directory-tenant-id"></a>Azure Active Directory 테 넌 트 ID를 찾는 방법
 
@@ -51,7 +51,7 @@ Get-AzTenant
 ## <a name="find-tenant-id-with-cli"></a>CLI를 사용 하 여 테 넌 트 ID 찾기
 명령줄 인터페이스를 사용 하 여 테 넌 트 ID를 찾으려면 [Azure CLI](/cli/azure/install-azure-cli) 또는 [Microsoft 365 CLI](https://pnp.github.io/cli-microsoft365/)를 사용 하 여이 작업을 수행할 수 있습니다. 
 
-Azure CLI의 경우 다음 예제와 같이 **az login** , **az account list** 또는 **az account tenant list** 명령 중 하나를 사용 합니다. 각 명령의 출력에서 각 구독에 대 한 **tenantId** 속성이 있는지 확인 합니다.
+Azure CLI의 경우 다음 예제와 같이 **az login**, **az account list** 또는 **az account tenant list** 명령 중 하나를 사용 합니다. 각 명령의 출력에서 각 구독에 대 한 **tenantId** 속성이 있는지 확인 합니다.
 
 ```azurecli-interactive
 az login
@@ -77,4 +77,4 @@ m365 tenant id get
 
 - 테 넌 트에 구독을 연결 하거나 추가 하는 방법을 알아보려면 [Azure Active Directory 테 넌 트에 Azure 구독 연결 또는 추가](active-directory-how-subscriptions-associated-directory.md)를 참조 하세요.
 
-- 개체 ID를 찾는 방법에 대해 알아보려면 [사용자 개체 Id 찾기](https://docs.microsoft.com/partner-center/find-ids-and-domain-names#find-the-user-object-id)를 참조 하세요.
+- 개체 ID를 찾는 방법에 대해 알아보려면 [사용자 개체 Id 찾기](/partner-center/find-ids-and-domain-names#find-the-user-object-id)를 참조 하세요.

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74815976036abafc56f97e622351a1018fe30504
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 5bd6a5c8af117bf6cb39969a5f1b1f17ff08681c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576935"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172825"
 ---
 # <a name="password-based-authentication-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 암호 기반 인증
 
@@ -35,20 +35,19 @@ ms.locfileid: "94576935"
 
 ## <a name="components-of-system"></a>시스템의 구성 요소
 
-* **사용자** : 내 앱에서 또는 사이트를 직접 방문 하 여 원본 기반 응용 프로그램에 액세스 합니다. 
+* **사용자**: 내 앱에서 또는 사이트를 직접 방문 하 여 원본 기반 응용 프로그램에 액세스 합니다. 
 
-* **웹 브라우저** : 응용 프로그램의 외부 URL에 액세스 하기 위해 사용자가 상호 작용 하는 구성 요소입니다. 사용자는 MyApps 확장을 통해 양식 기반 응용 프로그램에 액세스 합니다. 
+* **웹 브라우저**: 응용 프로그램의 외부 URL에 액세스 하기 위해 사용자가 상호 작용 하는 구성 요소입니다. 사용자는 MyApps 확장을 통해 양식 기반 응용 프로그램에 액세스 합니다. 
 
-* **Myapps 확장** : 구성 된 암호 기반 SSO 응용 프로그램을 식별 하 고 로그인 양식에 자격 증명을 제공 합니다. MyApps 확장은 웹 브라우저에 설치 됩니다. 
+* **Myapps 확장**: 구성 된 암호 기반 SSO 응용 프로그램을 식별 하 고 로그인 양식에 자격 증명을 제공 합니다. MyApps 확장은 웹 브라우저에 설치 됩니다. 
 
-* **AZURE AD** : 사용자를 인증 합니다.
+* **AZURE AD**: 사용자를 인증 합니다.
 
 ## <a name="implement-password-based-sso-with-azure-ad"></a>Azure AD를 사용 하 여 암호 기반 SSO 구현
 
-* [암호 기반 SSO 란?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) 
+* [암호 기반 SSO 란?](../manage-apps/what-is-single-sign-on.md) 
 
-* [클라우드 응용 프로그램에 대 한 암호 기반 SSO 구성 ](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications)
+* [클라우드 응용 프로그램에 대 한 암호 기반 SSO 구성 ](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
-* [응용 프로그램 프록시를 사용 하 여 온-프레미스 응용 프로그램에 대 한 암호 기반 SSO 구성](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting)
+* [응용 프로그램 프록시를 사용 하 여 온-프레미스 응용 프로그램에 대 한 암호 기반 SSO 구성](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 
- 

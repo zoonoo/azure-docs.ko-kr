@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eccc0e71c73fb8bd2a5a50ebd0dda048d34dbea0
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 032b1ca945cf729f8a6682cf71d26a716b1e8863
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488403"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172350"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 문서에서는 Azure AD (Azure Active Directory) 연결에 대 한 필수 구성 요소 및 하드웨어 요구 사항을 설명 합니다.
@@ -52,7 +52,7 @@ Azure Active Directory Connect는 설치의 일부로 서명 된 PowerShell 스�
 
 설치 중에 권장 되는 실행 정책은 "RemoteSigned"입니다.
 
-PowerShell 실행 정책 설정에 대 한 자세한 내용은 [set-executionpolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7)를 참조 하세요.
+PowerShell 실행 정책 설정에 대 한 자세한 내용은 [set-executionpolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7)를 참조 하세요.
 
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect 서버
@@ -82,7 +82,7 @@ IT 환경의이 중요 한 구성 요소에 대 한 보안 공격 노출 영역�
 - [권한 있는 액세스 권한이 있는 모든 직원에 대 한 전용 계정을](/windows-server/identity/securing-privileged-access/securing-privileged-access)만듭니다. 관리자는 웹을 탐색 하 고, 전자 메일을 확인 하 고, 높은 권한의 계정을 사용 하 여 일상적인 생산성 작업을 수행 하지 않아야 합니다.
 - [권한 있는 액세스 보안](/windows-server/identity/securing-privileged-access/securing-privileged-access)에 제공 된 지침을 따릅니다. 
 - AADConnect 서버에서 NTLM 인증 사용을 거부 합니다. 이 작업을 수행 하는 몇 가지 방법은 다음과 같습니다. [AADConnect 서버에서 ntlm을 제한](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) 하 고 [도메인에서 ntlm을 제한](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain) 합니다.
-- 모든 컴퓨터에 고유한 로컬 관리자 암호가 있는지 확인 합니다. 자세한 내용은 [LAPS (로컬 관리자 암호 솔루션)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) 에서 각 워크스테이션에 고유한 임의의 암호를 구성 하 고 ACL로 보호 되 Active Directory에 저장할 수 있습니다. 권한 있는 적격 사용자만이 이러한 로컬 관리자 계정 암호를 읽거나 재설정을 요청할 수 있습니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.)에서 워크스테이션 및 서버에 사용할 LAPS를 가져올 수 있습니다. LAPS 및 Paw (권한 있는 액세스 워크스테이션)를 사용 하 여 환경을 운영 하는 방법에 대 한 추가 지침은 [클린 소스 원칙을 기반으로 하는 운영 표준](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle)에서 찾을 수 있습니다. 
+- 모든 컴퓨터에 고유한 로컬 관리자 암호가 있는지 확인 합니다. 자세한 내용은 [LAPS (로컬 관리자 암호 솔루션)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) 에서 각 워크스테이션에 고유한 임의의 암호를 구성 하 고 ACL로 보호 되 Active Directory에 저장할 수 있습니다. 권한 있는 적격 사용자만이 이러한 로컬 관리자 계정 암호를 읽거나 재설정을 요청할 수 있습니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=46899)에서 워크스테이션 및 서버에 사용할 LAPS를 가져올 수 있습니다. LAPS 및 Paw (권한 있는 액세스 워크스테이션)를 사용 하 여 환경을 운영 하는 방법에 대 한 추가 지침은 [클린 소스 원칙을 기반으로 하는 운영 표준](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle)에서 찾을 수 있습니다. 
 - 조직의 정보 시스템에 대 한 권한 있는 액세스 권한이 있는 모든 직원에 대 한 전용 [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations) 을 구현 합니다. 
 - 이러한 [추가 지침](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) 에 따라 Active Directory 환경의 공격 노출 영역을 줄입니다.
 

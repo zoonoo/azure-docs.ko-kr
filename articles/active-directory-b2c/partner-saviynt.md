@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 184616058cb2a86025eb75b4923e374ab42ebf05
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 99741a412ae02a2d30293e1aa254245f5ca7b662
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953562"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171435"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Saviynt 구성에 대 한 자습서
 
@@ -30,7 +30,7 @@ ms.locfileid: "94953562"
 
 - 사용자가 특정 사용자에 대해 특정 작업을 수행할 수 있는지 여부를 확인 하는 데이터 수준 보안 예를 들어 영국 지역의 지원 센터 관리자는 영국 사용자만 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 시작 하려면 다음이 필요 합니다.
 
@@ -69,7 +69,7 @@ Saviynt 통합에는 다음 구성 요소가 포함 됩니다.
 
 1. Saviynt 계정을 만들려면 [Saviynt](https://saviynt.com/contact-us/) 에 문의 하세요.
 
-2. 위임 된 관리 정책을 만들고 사용자를 다양 한 역할을 가진 [위임 된 관리자로](../active-directory/users-groups-roles/roles-concept-delegation.md) 할당 합니다.
+2. 위임 된 관리 정책을 만들고 사용자를 다양 한 역할을 가진 [위임 된 관리자로](../active-directory/roles/concept-delegation.md) 할당 합니다.
 
 ## <a name="configure-azure-ad-b2c-with-saviynt"></a>Saviynt를 사용 하 여 Azure AD B2C 구성
 

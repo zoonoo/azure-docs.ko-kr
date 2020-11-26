@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9db46d13c9a798204958a7c295df9cca169fc08f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cd4c70354920655507f987f43a542e4b474803e1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94954038"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170942"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Azure AD B2C에 사용할 수 있는 Microsoft Graph 작업
 
@@ -36,12 +36,12 @@ Microsoft Graph API를 사용 하 여 Azure AD B2C 사용자 계정을 관리 �
 
 ## <a name="user-phone-number-management"></a>사용자 전화 번호 관리
 
-- [추가](https://docs.microsoft.com/graph/api/authentication-post-phonemethods)
-- [가져오기](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)
-- [Update](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update)
-- [삭제](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete)
+- [추가](/graph/api/authentication-post-phonemethods)
+- [가져오기](/graph/api/b2cauthenticationmethodspolicy-get)
+- [Update](/graph/api/b2cauthenticationmethodspolicy-update)
+- [Delete](/graph/api/phoneauthenticationmethod-delete)
 
-Microsoft Graph API를 사용 하 여 사용자의 로그인 전화 번호를 관리 하는 방법에 대 한 자세한 내용은 [B2C 인증 방법](https://docs.microsoft.com/graph/api/resources/b2cauthenticationmethodspolicy)을 참조 하세요.
+Microsoft Graph API를 사용 하 여 사용자의 로그인 전화 번호를 관리 하는 방법에 대 한 자세한 내용은 [B2C 인증 방법](/graph/api/resources/b2cauthenticationmethodspolicy)을 참조 하세요.
 
 ## <a name="identity-providers-user-flow"></a>Id 공급자 (사용자 흐름)
 

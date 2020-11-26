@@ -13,16 +13,16 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: ed3e9da628ab779ab47673fa2ce728c5c25539be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b683eaaf4c93ef0dcf74680e1e174e0f867a7041
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166436"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173399"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>MSAL.NET를 사용 하 여 소셜 id로 사용자 로그인
 
-[Azure Active Directory B2C (Azure AD B2C)](https://aka.ms/aadb2c)를 사용 하 여 소셜 id로 사용자를 로그인 하는 데 MSAL.NET를 사용할 수 있습니다. Azure AD B2C은 정책의 개념을 중심으로 작성 되었습니다. MSAL.NET에서는 정책을 지정 하 여 권한을 제공 하는 것으로 해석 됩니다.
+[Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/overview.md)를 사용 하 여 소셜 id로 사용자를 로그인 하는 데 MSAL.NET를 사용할 수 있습니다. Azure AD B2C은 정책의 개념을 중심으로 작성 되었습니다. MSAL.NET에서는 정책을 지정 하 여 권한을 제공 하는 것으로 해석 됩니다.
 
 - 공용 클라이언트 응용 프로그램을 인스턴스화하는 경우 정책을 기관 일부로 지정 해야 합니다.
 - 정책을 적용 하려는 경우 `AcquireTokenInteractive` 매개 변수를 허용 하는의 재정의를 호출 `authority` 합니다.
@@ -33,9 +33,9 @@ ms.locfileid: "88166436"
 
 Azure AD B2C의 인증 기관 형식은 다음과 같습니다. `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`
 
-- `azureADB2CHostname` -Azure AD B2C 테 넌 트와 호스트의 이름입니다. 예를 들면 *contosob2c.b2clogin.com*입니다.
+- `azureADB2CHostname` -Azure AD B2C 테 넌 트와 호스트의 이름입니다. 예를 들면 *contosob2c.b2clogin.com* 입니다.
 - `tenant` -Azure AD B2C 테 넌 트의 도메인 이름 또는 디렉터리 (테 넌 트) ID입니다. 예를 들어 *contosob2c.onmicrosoft.com* 또는 GUID가 각각입니다.
-- `policyName` -적용할 사용자 흐름 또는 사용자 지정 정책의 이름입니다. 예를 들어 *b2c_1_susi*와 같은 등록/로그인 정책이 있습니다.
+- `policyName` -적용할 사용자 흐름 또는 사용자 지정 정책의 이름입니다. 예를 들어 *b2c_1_susi* 와 같은 등록/로그인 정책이 있습니다.
 
 Azure AD B2C 기관에 대 한 자세한 내용은 [리디렉션 url을 b2clogin.com로 설정](../../active-directory-b2c/b2clogin.md)을 참조 하세요.
 
@@ -78,7 +78,7 @@ AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
 
 - `policy` Azure AD B2C 사용자 흐름 또는 사용자 지정 정책 (예:)의 이름을 포함 하는 문자열입니다 `PolicySignUpSignIn` .
 - `ParentActivityOrWindow` 는 Android (활동)에 필요 하며 iOS의 Microsoft Windows 및 UIViewController와 같은 부모 UI를 지 원하는 다른 플랫폼의 경우 선택 사항입니다. UI 대화 상자에 대 한 자세한 내용은 MSAL Wiki의 [Withparentactivityorwindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) 를 참조 하십시오.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)` 는 지정 된 정책에 대 한 계정을 찾는 메서드입니다. 예를 들면 다음과 같습니다.
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` 는 지정 된 정책에 대 한 계정을 찾는 메서드입니다. 예를 들어:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -148,12 +148,12 @@ AcquireTokenByUsernamePassword(
 이 `AcquireTokenByUsernamePassword` 메서드는 다음 매개 변수를 사용 합니다.
 
 - 액세스 토큰을 가져올 *범위* 입니다.
-- *사용자 이름*입니다.
+- *사용자 이름* 입니다.
 - 사용자의 SecureString *암호* 입니다.
 
 ### <a name="limitations-of-the-ropc-flow"></a>ROPC 흐름의 제한 사항
 
-ROPC 흐름은 사용자가 전자 메일 주소 또는 사용자 이름을 사용 하 여 Azure AD B2C에 등록 한 **로컬 계정에만 작동**합니다. Azure AD B2C (Facebook, Google 등)에서 지 원하는 외부 id 공급자에 페더레이션 하는 경우이 흐름이 작동 하지 않습니다.
+ROPC 흐름은 사용자가 전자 메일 주소 또는 사용자 이름을 사용 하 여 Azure AD B2C에 등록 한 **로컬 계정에만 작동** 합니다. Azure AD B2C (Facebook, Google 등)에서 지 원하는 외부 id 공급자에 페더레이션 하는 경우이 흐름이 작동 하지 않습니다.
 
 ## <a name="google-auth-and-embedded-webview"></a>Google 인증 및 포함 된 웹 보기
 
@@ -194,6 +194,6 @@ MSAL.NET는 [토큰 캐시](/dotnet/api/microsoft.identity.client.tokencache?vie
 
 Azure AD B2C 응용 프로그램에 대 한 MSAL.NET를 대화형으로 토큰을 가져오는 방법에 대 한 자세한 내용은 다음 샘플에서 제공 됩니다.
 
-| 예제 | 플랫폼 | 설명|
+| 샘플 | 플랫폼 | Description|
 |------ | -------- | -----------|
 |[b2c-xamarin-네이티브](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | MSAL.NET를 사용 하 여 Azure AD B2C를 통해 사용자를 인증 한 후 반환 된 토큰을 사용 하 여 web API에 액세스 하는 Xamarin Forms 앱입니다.|
