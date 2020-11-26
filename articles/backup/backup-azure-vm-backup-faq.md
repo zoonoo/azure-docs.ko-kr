@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e6e14209a8df7160d103cb036d38c9fee29b34dd
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925580"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296066"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -87,11 +87,11 @@ Azure Backup ResourcePointCollections 개체를 저장할 형식으로 별도의
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>WA(쓰기 가속기) 지원 디스크를 사용하여 VM을 백업할 수 있나요?
 
-WA 지원 디스크에는 스냅샷을 만들 수 없습니다. 그러나 Azure Backup 서비스는 백업에서 WA 지원 디스크를 제외할 수 있습니다.
+스냅숏은 OS 디스크가 아닌 WA를 사용 하는 데이터 디스크에 대해서만 수행할 수 있습니다. 따라서 WA를 사용 하는 데이터 디스크만 보호할 수 있습니다.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>WA(쓰기 가속기) 디스크를 사용하고 SAP HANA가 설치된 VM을 갖고 있습니다. 어떻게 백업해야 하나요?
 
-Azure Backup은 WA 지원 디스크를 백업할 수 없지만 백업에서 제외할 수는 있습니다. 그러나 WA 지원 디스크의 정보가 백업되지 않으므로 백업하더라도 데이터베이스 일관성이 제공되지 않습니다. 운영 체제 디스크 백업 및 WA 미사용 디스크 백업을 원하는 경우 이 구성으로 디스크를 백업하면 됩니다.
+Azure Backup는 WA 사용 데이터 디스크를 백업할 수 있습니다. 그러나 백업에서 데이터베이스 일관성을 제공 하지는 않습니다.
 
 Azure Backup는 RPO가 15 분인 SAP HANA 데이터베이스에 대 한 스트리밍 백업 솔루션을 제공 합니다. SAP에서 제공 하는 Backint는 SAP HANA의 기본 Api를 활용 하는 네이티브 백업 지원을 제공 합니다. [Azure vm에서 SAP HANA 데이터베이스를 백업](./sap-hana-db-about.md)하는 방법에 대해 자세히 알아보세요.
 

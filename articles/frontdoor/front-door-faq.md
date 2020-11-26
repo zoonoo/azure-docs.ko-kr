@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 18e32a0387119d235294d1126d869186ae28d2b2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: abc4529d6076496b34859eec2b931a8dcbd1ce93
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488982"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296593"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Azure Front 문에 대 한 질문과 대답
 
@@ -24,7 +24,7 @@ ms.locfileid: "92488982"
 
 1. 이 문서의 의견 섹션입니다.
 2. [Azure Front 도어 UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=345025).
-3. **Microsoft 지원:** 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청**을 선택 합니다.
+3. **Microsoft 지원:** 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청** 을 선택 합니다.
 
 ## <a name="general"></a>일반
 
@@ -249,7 +249,7 @@ Azure Portal 또는 [azure REST API](/rest/api/frontdoorservice/frontdoor/frontd
 상태 프로브 또는 전달 요청에 대해 백 엔드에 대 한 HTTPS 연결에 성공 하는 경우 HTTPS 트래픽이 실패할 수 있는 두 가지 이유가 있을 수 있습니다.
 
 1. **인증서 주체 이름 불일치**: HTTPS 연결의 경우 백 엔드는 백 엔드 호스트 이름과 일치 하는 주체 이름을 가진 유효한 CA에서 인증서를 제공 하는 것으로 예상 합니다. 예를 들어 백 엔드 호스트 이름이로 설정 되 `myapp-centralus.contosonews.net` 고, TLS 핸드셰이크 중에 백 엔드에 표시 되는 인증서가 `myapp-centralus.contosonews.net` 주체 이름에도 그렇지 않은 경우 `*myapp-centralus*.contosonews.net` , 전면 도어는 연결을 거부 하 고 오류를 생성 합니다. 
-    1. **해결**방법: 규정 준수 관점에서 권장 되지 않지만, 앞면 도어에 대해 인증서 주체 이름 확인을 사용 하지 않도록 설정 하 여이 오류를 해결할 수 있습니다. 이는 Azure Portal의 설정 및 API의 BackendPoolsSettings 아래에 있습니다.
+    1. **해결** 방법: 규정 준수 관점에서 권장 되지 않지만, 앞면 도어에 대해 인증서 주체 이름 확인을 사용 하지 않도록 설정 하 여이 오류를 해결할 수 있습니다. 이는 Azure Portal의 설정 및 API의 BackendPoolsSettings 아래에 있습니다.
 2. **잘못 된 ca의 백 엔드 호스팅 인증서**: 전방 도어를 사용 하는 백 엔드에서 [유효한 ca](./front-door-troubleshoot-allowed-ca.md) 의 인증서만 사용할 수 있습니다. 내부 Ca 또는 자체 서명 된 인증서의 인증서는 허용 되지 않습니다.
 
 ### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>Azure Front 문에 클라이언트/상호 인증을 사용할 수 있나요?

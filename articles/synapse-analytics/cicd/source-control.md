@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: a5cb5831090987f1b620593843ddba817d8e68d4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 111b2b5b660133c20afdb3c56e1c3e3ed607398c
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188125"
+ms.locfileid: "96297056"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Azure Synapse Studio의 소스 제어
 
@@ -32,15 +32,15 @@ ms.locfileid: "96188125"
 
 Synapse Studio를 시작한 후 작업 영역에서 git 리포지토리를 구성할 수 있습니다. Synapse Studio 작업 영역은 한 번에 하나의 git 리포지토리에만 연결 될 수 있습니다. 
 
-### <a name="configuration-method-1-authoring-canvas"></a>구성 방법 1: 작성 캔버스
+### <a name="configuration-method-1-global-bar"></a>구성 방법 1: 글로벌 가로 막대형
 
-Synapse Studio authoring canvas에서 **Synapse Live** 드롭다운 메뉴를 선택한 다음 **코드 리포지토리 설정** 을 선택 합니다.
+Synapse Studio 전역 표시줄에서 **Synapse Live** 드롭다운 메뉴를 선택한 다음 **코드 리포지토리 설정** 을 선택 합니다.
 
 ![제작에서 코드 리포지토리 설정 구성](media/configure-repo-1.png)
 
 ### <a name="configuration-method-2-manage-hub"></a>구성 방법 2: 허브 관리
 
-Synapse Studio의 관리 허브로 이동 합니다. **소스 제어** 섹션에서 **Git 구성** 을 선택 합니다. 연결 된 리포지토리가 없는 경우 **구성** 을 클릭 합니다.
+Synapse Studio의 허브 관리로 이동 합니다. **소스 제어** 섹션에서 **Git 구성** 을 선택 합니다. 연결 된 리포지토리가 없는 경우 **구성** 을 클릭 합니다.
 
 ![관리 허브에서 코드 리포지토리 설정 구성](media/configure-repo-2.png)
 
@@ -51,7 +51,7 @@ Synapse Studio의 관리 허브로 이동 합니다. **소스 제어** 섹션에
 
 ## <a name="connect-with-azure-devops-git"></a>Azure DevOps Git를 사용 하 여 연결 
 
-원본 제어, 공동 작업, 버전 관리 등에 대해 Synapse 작업 영역을 Azure DevOps 리포지토리에 연결할 수 있습니다. Azure DevOps 리포지토리가 없는 경우 [다음 지침](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) 에 따라 리포지토리 리소스를 먼저 만듭니다.
+원본 제어, 공동 작업, 버전 관리 등에 대해 Synapse 작업 영역을 Azure DevOps 리포지토리에 연결할 수 있습니다. Azure DevOps 리포지토리가 없는 경우 [다음 지침](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) 에 따라 리포지토리 리소스를 만듭니다.
 
 ### <a name="azure-devops-git-repository-settings"></a>Azure DevOps Git 리포지토리 설정
 
@@ -94,7 +94,7 @@ Git 통합에 개인 Microsoft 계정을 사용하려면 개인 Azure 리포지�
 
 이러한 구성 단계 후에는 Synapse Studio에서 Git 통합을 설정할 때 개인 리포지토리를 사용할 수 있습니다.
 
-Azure Repos를 조직의 Active Directory에 연결하는 방법에 대한 자세한 내용은 [Azure DevOps 조직을 Azure Active Directory에 연결](/azure/devops/organizations/accounts/connect-organization-to-azure-ad)을 참조하세요.
+조직의 Active Directory에 Azure Repos를 연결 하는 방법에 대 한 자세한 내용은 [Azure Active Directory에 조직 연결](/azure/devops/organizations/accounts/connect-organization-to-azure-ad)을 참조 하세요.
 
 ## <a name="connect-with-github"></a>GitHub를 사용 하 여 연결 
 

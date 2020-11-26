@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/16/2019
-ms.openlocfilehash: b85e72ae6698cd9fa018c940e158bfcf25279ed5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/26/2020
+ms.openlocfilehash: 11e0d3336f085ccae9a7fb83ed050d69a15ce42b
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81410475"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296508"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-postgresql-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Database for PostgreSQL 간에 데이터 복사
 
@@ -49,7 +49,7 @@ Azure Database for PostgreSQL 연결 된 서비스에 대해 지원 되는 속�
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | Type 속성은 **AzurePostgreSql**로 설정 해야 합니다. | 예 |
+| type | Type 속성은 **AzurePostgreSql** 로 설정 해야 합니다. | 예 |
 | connectionString | Azure Database for PostgreSQL에 연결하는 ODBC 연결 문자열입니다.<br/>Azure Key Vault에 암호를 입력 하 고 연결 문자열에서 구성을 끌어올 수도 있습니다 `password` . 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 을 참조 하세요. | 예 |
 | connectVia | 이 속성은 데이터 저장소에 연결 하는 데 사용할 [통합 런타임을](concepts-integration-runtime.md) 나타냅니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
@@ -60,7 +60,7 @@ Azure Database for PostgreSQL 연결 된 서비스에 대해 지원 되는 속�
 | EncryptionMethod(EM)| 드라이버와 데이터베이스 서버 간에 전송되는 데이터를 암호화하기 위해 드라이버에서 사용하는 메서드입니다. 예: `EncryptionMethod=<0/1/6>;`| 0(암호화 없음)**(기본값)** / 1(SSL) / 6(RequestSSL) | 아니요 |
 | ValidateServerCertificate(VSC) | SSL 암호화를 사용 하는 경우 드라이버가 데이터베이스 서버에서 보낸 인증서의 유효성을 검사 하는지 여부를 결정 합니다 (암호화 방법 = 1). 예: `ValidateServerCertificate=<0/1>;`| 0(사용 안 함)**(기본값)** / 1(사용) | 아니요 |
 
-**예**:
+**예제**:
 
 ```json
 {
@@ -74,9 +74,9 @@ Azure Database for PostgreSQL 연결 된 서비스에 대해 지원 되는 속�
 }
 ```
 
-**예**:
+**예제**:
 
-***Azure Key Vault에 암호 저장***
+**_Azure Key Vault _에 암호 저장_*
 
 ```json
 {
@@ -85,13 +85,13 @@ Azure Database for PostgreSQL 연결 된 서비스에 대해 지원 되는 속�
         "type": "AzurePostgreSql",
         "typeProperties": {
             "connectionString": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         }
     }
@@ -102,14 +102,14 @@ Azure Database for PostgreSQL 연결 된 서비스에 대해 지원 되는 속�
 
 데이터 집합을 정의 하는 데 사용할 수 있는 섹션 및 속성의 전체 목록은 [Azure Data Factory의 데이터 집합](concepts-datasets-linked-services.md)을 참조 하세요. 이 섹션에서는 데이터 집합에서 지 원하는 Azure Database for PostgreSQL 속성의 목록을 제공 합니다.
 
-Azure Database for PostgreSQL에서 데이터를 복사하려면 데이터 세트의 type 속성을 **AzurePostgreSqlTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Azure Database for PostgreSQL에서 데이터를 복사 하려면 데이터 집합의 type 속성을 _ * AzurePostgreSqlTable * *로 설정 합니다. 다음과 같은 속성이 지원됩니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 **AzurePostgreSqlTable** 로 설정 해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
-**예**:
+**예제**:
 
 ```json
 {
@@ -131,14 +131,14 @@ Azure Database for PostgreSQL에서 데이터를 복사하려면 데이터 세�
 
 ### <a name="azure-database-for-postgresql-as-source"></a>Azure Database for PostgreSQL을 원본으로
 
-Azure Database for PostgreSQL에서 데이터를 복사하려면 복사 작업의 원본 형식을 **AzurePostgreSqlSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+Azure Database for PostgreSQL에서 데이터를 복사하려면 복사 작업의 원본 형식을 **AzurePostgreSqlSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **AzurePostgreSqlSource** 로 설정 해야 합니다. | 예 |
-| Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. `"SELECT * FROM MyTable"` | 아니요 (데이터 집합의 tableName 속성이 지정 된 경우) |
+| Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예를 들어 `SELECT * FROM mytable` 또는 `SELECT * FROM "MyTable"`입니다. 참고 PostgreSQL에서 엔터티 이름은 따옴표 붙지 않으면 대/소문자를 구분 하지 않는 것으로 처리 됩니다. | 아니요 (데이터 집합의 tableName 속성이 지정 된 경우) |
 
-**예**:
+**예제**:
 
 ```json
 "activities":[
@@ -160,7 +160,7 @@ Azure Database for PostgreSQL에서 데이터를 복사하려면 복사 작업�
         "typeProperties": {
             "source": {
                 "type": "AzurePostgreSqlSource",
-                "query": "<custom query e.g. SELECT * FROM MyTable>"
+                "query": "<custom query e.g. SELECT * FROM mytable>"
             },
             "sink": {
                 "type": "<sink type>"
@@ -176,12 +176,12 @@ Azure Database for PostgreSQL에 데이터를 복사 하려면 복사 작업 **�
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 싱크의 type 속성은 **AzurePostgreSQLSink**로 설정 해야 합니다. | 예 |
+| type | 복사 작업 싱크의 type 속성은 **AzurePostgreSQLSink** 로 설정 해야 합니다. | 예 |
 | preCopyScript | 각 실행에서 Azure Database for PostgreSQL에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. | 예 |
 | writeBatchSize | 버퍼 크기가 writeBatchSize에 도달 하면 Azure Database for PostgreSQL 테이블에 데이터를 삽입 합니다.<br>허용 되는 값은 행 수를 나타내는 정수입니다. | 아니요(기본값: 10,000) |
 | writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br>허용 되는 값은 Timespan 문자열입니다. 예를 들어 "00:30:00"(30분)입니다. | 아니요 (기본값은 00:00:30) |
 
-**예**:
+**예제**:
 
 ```json
 "activities":[

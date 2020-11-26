@@ -3,12 +3,12 @@ title: Azure Vm에서 SAP HANA 데이터베이스 백업 정보
 description: 이 문서에서는 Azure virtual machines에서 실행 되는 SAP HANA 데이터베이스를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: e30510817401fd8db23dc9f1d62fab495fac7ab2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efb9c3f786e429df404e261f053a9c9a9b032e11
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022312"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296457"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Azure Vm에서 SAP HANA 데이터베이스 백업 정보
 
@@ -33,7 +33,7 @@ Azure Backup를 사용 하 여 SAP HANA 데이터베이스를 백업 및 복원 
 
 * 백업 프로세스는 먼저 Azure에서 [Recovery Services 자격 증명 모음을 만듭니다](./tutorial-backup-sap-hana-db.md#create-a-recovery-services-vault) . 이 자격 증명 모음은 시간에 따라 생성 된 백업 및 복구 위치를 저장 하는 데 사용 됩니다.
 * SAP HANA server를 실행 하는 Azure VM이 자격 증명 모음에 등록 되 고 백업할 데이터베이스가 [검색](./tutorial-backup-sap-hana-db.md#discover-the-databases)됩니다. Azure Backup 서비스에서 데이터베이스를 검색할 수 있도록 하려면 HANA 서버에서 루트 사용자로 [preregistration 스크립트](https://aka.ms/scriptforpermsonhana) 를 실행 해야 합니다.
-* 이 스크립트는 **hdbuserstore**에 이름이 같은 **AZUREWLBACKUPHANAUSER** DB 사용자 및 해당 키를 만듭니다. 스크립트가 수행 하는 작업에 대해 자세히 알아보려면  [사전 등록 스크립트의 기능](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) 섹션을 참조 하세요.
+* 이 스크립트는 **hdbuserstore** 에 이름이 같은 **AZUREWLBACKUPHANAUSER** DB 사용자 및 해당 키를 만듭니다. 스크립트가 수행 하는 작업에 대해 자세히 알아보려면  [사전 등록 스크립트의 기능](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) 섹션을 참조 하세요.
 * Azure Backup Service는 이제 등록 된 SAP HANA 서버에 **HANA 용 Azure Backup 플러그 인** 을 설치 합니다.
 * Preregistration 스크립트에서 만든 **AZUREWLBACKUPHANAUSER** DB 사용자는 **HANA에 대 한 Azure Backup 플러그 인** 에서 모든 백업 및 복원 작업을 수행 하는 데 사용 됩니다. 이 스크립트를 실행 하지 않고 SAP HANA Db에 대 한 백업을 구성 하려고 하면 다음과 같은 오류가 표시 될 수 있습니다. **UserErrorHanaScriptNotRun**.
 * 검색 된 데이터베이스에 [백업을 구성](./tutorial-backup-sap-hana-db.md#configure-backup) 하려면 필요한 백업 정책을 선택 하 고 백업을 사용 하도록 설정 합니다.
@@ -51,7 +51,7 @@ Azure Backup를 사용 하 여 SAP HANA 데이터베이스를 백업 및 복원 
 
 * **HANA에 대 한 Azure Backup 플러그 인** 은 모든 백업 일정 및 정책 세부 정보를 유지 관리 합니다. 예약 된 백업을 트리거하고 Backint Api를 통해 **HANA 백업 엔진과** 통신 합니다.
 * **HANA 백업 엔진** 은 백업할 데이터가 포함 된 backint 스트림을 반환 합니다.
-* 전체 또는 차등 인 모든 예약 된 백업 및 주문형 백업 (Azure Portal에서 트리거됨)은 **HANA 용 Azure Backup 플러그 인**에 의해 시작 됩니다. 그러나 **HANA 백업 엔진** 자체에서 로그 백업을 관리 하 고 트리거합니다.
+* 전체 또는 차등 인 모든 예약 된 백업 및 주문형 백업 (Azure Portal에서 트리거됨)은 **HANA 용 Azure Backup 플러그 인** 에 의해 시작 됩니다. 그러나 **HANA 백업 엔진** 자체에서 로그 백업을 관리 하 고 트리거합니다.
 * 백 Int 인증 솔루션이 되는 SAP HANA에 대 한 Azure Backup는 기본 디스크 또는 VM 유형에 따라 달라 지지 않습니다. 백업은 HANA에 의해 생성 된 스트림으로 수행 됩니다.
 
 ## <a name="using-azure-vm-backup-with-azure-sap-hana-backup"></a>Azure SAP HANA 백업에서 Azure VM 백업 사용
@@ -60,15 +60,12 @@ Azure에서 데이터베이스 수준 백업 및 복구를 제공 하는 SAP HAN
 
 [백 정수 인증 Azure SAP HANA 백업 솔루션](#backup-architecture) 은 데이터베이스 백업 및 복구에 사용할 수 있습니다.
 
-[AZURE VM backup](backup-azure-vms-introduction.md) 을 사용 하 여 OS 및 기타 비 데이터베이스 디스크를 백업할 수 있습니다. VM 백업은 매일 한 번 수행 되 고 모든 디스크 ( **WA (쓰기 가속기) 디스크** 및 **ultra disks**제외)를 백업 합니다. Azure SAP HANA backup 솔루션을 사용 하 여 데이터베이스를 백업 하므로 [Azure vm에 대 한 선택적 디스크 백업 및 복원](selective-disk-backup-restore.md) 기능을 사용 하 여 OS 및 비 데이터베이스 디스크에 대 한 파일 일치 백업만 수행할 수 있습니다.
-
->[!NOTE]
-> Azure VM 백업에 사전 사후 스크립트를 사용 하면 데이터베이스의 데이터 볼륨에 대 한 앱 일치 백업을 수행할 수 있습니다. 그러나 로그 영역이 WA 디스크에 있는 경우 이러한 디스크의 스냅숏을 만들면 로그 영역 일관성이 보장 되지 않을 수 있습니다. HANA에는이 정확한 이유로 로그 백업을 생성할 수 있는 명시적인 방법이 있습니다. SAP HANA에서 동일한 기능을 사용 하도록 설정 하 고 Azure SAP HANA 백업을 사용 하 여 백업할 수 있습니다.
+[AZURE VM backup](backup-azure-vms-introduction.md) 을 사용 하 여 OS 및 기타 비 데이터베이스 디스크를 백업할 수 있습니다. VM 백업은 매일 한 번 수행 되 고 모든 디스크 ( **WA (쓰기 가속기) OS 디스크** 및 **ultra disks** 제외)를 백업 합니다. Azure SAP HANA backup 솔루션을 사용 하 여 데이터베이스를 백업 하므로 [Azure vm에 대 한 선택적 디스크 백업 및 복원](selective-disk-backup-restore.md) 기능을 사용 하 여 OS 및 비 데이터베이스 디스크에 대 한 파일 일치 백업만 수행할 수 있습니다.
 
 SAP HANA를 실행 하는 VM을 복원 하려면 다음 단계를 수행 합니다.
 
 * 최신 복구 지점에서 [AZURE vm 백업에서 새 vm을 복원](backup-azure-arm-restore-vms.md) 합니다. 또는 빈 VM을 새로 만들고 최신 복구 지점에서 디스크를 연결 합니다.
-* WA 디스크는 백업 되지 않으므로 복원 되지 않습니다. 빈 WA 디스크 및 로그 영역을 만듭니다.
+* WA 디스크가 제외 되 면 복원 되지 않습니다. 이 경우 빈 WA 디스크와 로그 영역을 만듭니다.
 * 다른 모든 구성 (예: IP, 시스템 이름 등)이 설정 되 면 VM이 Azure Backup에서 DB 데이터를 받도록 설정 됩니다.
 * 이제 [Azure SAP HANA db 백업](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) 에서 원하는 지정 시간으로 DB를 VM에 복원 합니다.
 

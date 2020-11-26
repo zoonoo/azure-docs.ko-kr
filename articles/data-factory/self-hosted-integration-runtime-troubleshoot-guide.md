@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 8195c4d072acce5345fa9752f97713aed22d962f
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96013463"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296957"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -167,7 +167,7 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-예들 들어 다음과 같습니다. 
+예를 들면 다음과 같습니다. 
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -458,6 +458,22 @@ openssl pkcs12-xxxx_new export-xxxx_new .pfx
 ![인증서 변경 전](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
 
 ![인증서 변경 후](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
+
+### <a name="self-hosted-integration-runtime-version-5x"></a>자체 호스팅 Integration Runtime 버전 .x
+Azure Data Factory 자체 호스팅 integration runtime 버전 5.x로 업그레이드 하려면 **.net framework runtime 4.7.2** 이상이 필요 합니다. 다운로드 페이지에 최신 4.x 버전 및 최신 두 버전의 버전에 대 한 다운로드 링크가 있습니다. 
+
+
+ADF V2 고객의 경우:
+- 자동 업데이트를 설정 하 고 .net framework 런타임을 4.7.2 이상으로 이미 업그레이드 한 경우 자체 호스팅 통합 런타임이 최신 .x 버전으로 자동 업그레이드 됩니다.
+- 자동 업데이트가 설정 되어 있고 .Net framework 런타임을 4.7.2 이상으로 업그레이드 하지 않은 경우 자체 호스팅 통합 런타임이 최신 5.x 버전으로 자동 업그레이드 되지 않습니다. 자체 호스팅 통합 런타임은 최신 4.x 버전으로 유지 됩니다. 포털 및 자체 호스팅 통합 런타임 클라이언트에서 .Net framework 런타임 업그레이드에 대 한 경고를 볼 수 있습니다.
+- 자동 업데이트가 해제 되어 있고 .Net framework 런타임을 4.7.2 이상으로 이미 업그레이드 한 경우 최신 5.x를 수동으로 다운로드 하 고 컴퓨터에를 설치할 수 있습니다.
+- 자동 업데이트가 해제 되어 있고 .Net framework 런타임을 4.7.2 이상으로 업그레이드 하지 않은 경우 SHIR 5.x를 수동으로 설치 하 고 키를 등록 하려고 하면 먼저 .Net framework 런타임을 업그레이드 해야 합니다.
+
+
+ADF V1 고객의 경우:
+- 자체 호스팅 integration runtime 5.x는 ADF V1을 지원 하지 않습니다.
+- 자체 호스팅 통합 런타임은 최신 버전인 4.x로 자동 업그레이드 됩니다. 그리고 4.x의 마지막 버전은 만료 되지 않습니다. 
+- 자체 호스팅 integration runtime 5.x를 수동으로 설치 하 고 키를 등록 하는 경우 자체 호스팅 integration runtime 5.x는 V1을 지원 하지 않습니다.
 
 
 ## <a name="self-hosted-ir-connectivity-issues"></a>자체 호스팅 IR 연결 문제
@@ -757,6 +773,7 @@ Azure Data Factory UI에서 자체 호스팅 IR을 공유 하는 동안 다른 �
 #### <a name="cause"></a>원인
 
 자체 호스팅 IR은 교차 테 넌 트를 공유할 수 없습니다.
+
 
 
 ## <a name="next-steps"></a>다음 단계
