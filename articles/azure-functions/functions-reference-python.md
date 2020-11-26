@@ -4,12 +4,12 @@ description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 7d97405a0b75129ddb0da581955728b393bf49ca
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8254abda68949e6884143316d4b29b07ade129dc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539076"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167848"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -19,7 +19,7 @@ Python 개발자는 다음 문서 중 하나에 관심이 있을 수도 있습�
 
 | 시작 | 개념| 시나리오/샘플 |
 | -- | -- | -- | 
-| <ul><li>[Visual Studio Code를 사용 하는 Python 함수](./functions-create-first-function-vs-code.md?pivots=programming-language-python)</li><li>[터미널/명령 프롬프트를 사용 하는 Python 함수](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> | <ul><li>[PyTorch를 사용한 이미지 분류](machine-learning-pytorch.md)</li><li>[Azure automation 샘플](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[TensorFlow를 사용한 기계 학습](functions-machine-learning-tensorflow.md)</li><li>[Python 샘플 찾아보기](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+| <ul><li>[Visual Studio Code를 사용 하는 Python 함수](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[터미널/명령 프롬프트를 사용 하는 Python 함수](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> | <ul><li>[PyTorch를 사용한 이미지 분류](machine-learning-pytorch.md)</li><li>[Azure automation 샘플](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[TensorFlow를 사용한 기계 학습](functions-machine-learning-tensorflow.md)</li><li>[Python 샘플 찾아보기](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 ## <a name="programming-model"></a>프로그래밍 모델
 
@@ -93,22 +93,22 @@ Python Functions 프로젝트에 권장하는 폴더 구조는 다음 예제와 
 ```
 기본 프로젝트 폴더 (<project_root>)에는 다음 파일이 포함 될 수 있습니다.
 
-* *local.settings.json* : 로컬에서 실행될 때 앱 설정과 연결 문자열을 저장하는 데 사용됩니다. 이 파일은 Azure에 게시되지 않습니다. 자세한 내용은 [local.settings.file](functions-run-local.md#local-settings-file)을 참조하세요.
-* *requirements.txt* : Azure에 게시할 때 시스템이 설치 하는 Python 패키지 목록을 포함 합니다.
-* *host.json* : 함수 앱의 모든 함수에 영향을 주는 글로벌 구성 옵션이 포함됩니다. 이 파일은 Azure에 게시됩니다. 로컬로 실행할 경우 일부 옵션이 지원되지 않습니다. 자세한 내용은 [host.json](functions-host-json.md)을 참조하세요.
-* *. vscode/* : (선택 사항) 저장소 vscode 구성을 포함 합니다. 자세히 알아보려면 [Vscode 설정](https://code.visualstudio.com/docs/getstarted/settings)을 참조 하세요.
-* *. venv/* : (선택 사항) 로컬 개발에 사용 되는 Python 가상 환경을 포함 합니다.
-* *Dockerfile* : (선택 사항) [사용자 지정 컨테이너](functions-create-function-linux-custom-image.md)에서 프로젝트를 게시할 때 사용 됩니다.
-* *테스트/* : (선택 사항) 함수 앱의 테스트 사례를 포함 합니다.
-* *. funcignore* : (선택 사항) Azure에 게시 되지 않아야 하는 파일을 선언 합니다. 일반적으로이 파일에는 `.vscode/` 편집기 설정을 무시 하 고, `.venv/` 로컬 Python 가상 환경을 무시 하 `tests/` 고, 테스트 사례를 무시 하 고, `local.settings.json` 로컬 앱 설정을 게시 하지 않도록 하는가 포함 됩니다.
+* *local.settings.json*: 로컬에서 실행될 때 앱 설정과 연결 문자열을 저장하는 데 사용됩니다. 이 파일은 Azure에 게시되지 않습니다. 자세한 내용은 [local.settings.file](functions-run-local.md#local-settings-file)을 참조하세요.
+* *requirements.txt*: Azure에 게시할 때 시스템이 설치 하는 Python 패키지 목록을 포함 합니다.
+* *host.json*: 함수 앱의 모든 함수에 영향을 주는 글로벌 구성 옵션이 포함됩니다. 이 파일은 Azure에 게시됩니다. 로컬로 실행할 경우 일부 옵션이 지원되지 않습니다. 자세한 내용은 [host.json](functions-host-json.md)을 참조하세요.
+* *. vscode/*: (선택 사항) 저장소 vscode 구성을 포함 합니다. 자세히 알아보려면 [Vscode 설정](https://code.visualstudio.com/docs/getstarted/settings)을 참조 하세요.
+* *. venv/*: (선택 사항) 로컬 개발에 사용 되는 Python 가상 환경을 포함 합니다.
+* *Dockerfile*: (선택 사항) [사용자 지정 컨테이너](functions-create-function-linux-custom-image.md)에서 프로젝트를 게시할 때 사용 됩니다.
+* *테스트/*: (선택 사항) 함수 앱의 테스트 사례를 포함 합니다.
+* *. funcignore*: (선택 사항) Azure에 게시 되지 않아야 하는 파일을 선언 합니다. 일반적으로이 파일에는 `.vscode/` 편집기 설정을 무시 하 고, `.venv/` 로컬 Python 가상 환경을 무시 하 `tests/` 고, 테스트 사례를 무시 하 고, `local.settings.json` 로컬 앱 설정을 게시 하지 않도록 하는가 포함 됩니다.
 
 각 함수에는 자체 코드 파일과 바인딩 구성 파일(function.json)이 있습니다.
 
-Azure의 함수 앱에 프로젝트를 배포할 때 주 프로젝트 ( *<project_root>* ) 폴더의 전체 콘텐츠는 패키지에 포함 되어야 합니다. 즉, `host.json` 패키지 루트에 있어야 합니다. 이 예제에서는 다른 함수와 함께 폴더의 테스트를 유지 관리 하는 것이 좋습니다 `tests/` . 자세한 내용은 [단위 테스트](#unit-testing)를 참조하세요.
+Azure의 함수 앱에 프로젝트를 배포할 때 주 프로젝트 (*<project_root>*) 폴더의 전체 콘텐츠는 패키지에 포함 되어야 합니다. 즉, `host.json` 패키지 루트에 있어야 합니다. 이 예제에서는 다른 함수와 함께 폴더의 테스트를 유지 관리 하는 것이 좋습니다 `tests/` . 자세한 내용은 [단위 테스트](#unit-testing)를 참조하세요.
 
 ## <a name="import-behavior"></a>가져오기 동작
 
-절대 참조와 상대 참조를 모두 사용 하 여 함수 코드에서 모듈을 가져올 수 있습니다. 위에 표시 된 폴더 구조를 기반으로 다음 가져오기는 함수 파일 내에서 작업 *<project_root> \my \_ first \_ 함수 \\ _ \_ init \_ \_ . py* :
+절대 참조와 상대 참조를 모두 사용 하 여 함수 코드에서 모듈을 가져올 수 있습니다. 위에 표시 된 폴더 구조를 기반으로 다음 가져오기는 함수 파일 내에서 작업 *<project_root> \my \_ first \_ 함수 \\ _ \_ init \_ \_ . py*:
 
 ```python
 from shared_code import my_first_helper_function #(absolute)
@@ -491,7 +491,7 @@ func azure functionapp publish <APP_NAME>
 
 `<APP_NAME>`을 Azure의 함수 앱 이름으로 바꾸어야 합니다.
 
-[Visual Studio Code용 Azure Functions 확장](functions-create-first-function-vs-code.md#publish-the-project-to-azure) 역시 기본적으로 원격 빌드를 요청합니다.
+[Visual Studio Code용 Azure Functions 확장](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) 역시 기본적으로 원격 빌드를 요청합니다.
 
 ### <a name="local-build"></a>로컬 빌드
 

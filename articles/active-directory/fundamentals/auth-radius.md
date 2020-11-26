@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ec8062eb864c877b0f3659ca2dd8f103e935071
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 97c524e1f4c05787f1dd61dea5a463e8fa83511a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836787"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168630"
 ---
 # <a name="radius-authentication-with-azure-active-directory"></a>Azure Active Directory로 RADIUS 인증
 
@@ -59,13 +59,12 @@ Windows NPS 서버는 Active Directory에 대해 사용자의 자격 증명을 �
 
 ## <a name="implement-radius-with-azure-ad"></a>Azure AD를 사용 하 여 RADIUS 구현 
 
-* [NPS를 사용 하 여 Azure AD Multi-Factor Authentication 기능 제공](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension) 
+* [NPS를 사용 하 여 Azure AD Multi-Factor Authentication 기능 제공](../authentication/howto-mfa-nps-extension.md) 
 
-* [Azure AD Multi-Factor Authentication NPS 확장 구성](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-advanced) 
+* [Azure AD Multi-Factor Authentication NPS 확장 구성](../authentication/howto-mfa-nps-extension-advanced.md) 
 
-* [NPS 확장을 사용 하 여 Azure AD Multi-Factor Authentication와 VPN](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-vpn) 
+* [NPS 확장을 사용 하 여 Azure AD Multi-Factor Authentication와 VPN](../authentication/howto-mfa-nps-extension-vpn.md) 
 
   
 ‎ 
 
- 

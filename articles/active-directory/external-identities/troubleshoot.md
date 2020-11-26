@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646bd2b6a8e22698e6fbcb44d2442e921c7850a5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e7a77c110c12fd6b42e8defbe43a40579b9c6588
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441507"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168766"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 협업 문제 해결
 
@@ -93,15 +93,15 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
 
 사용자에 게는 Azure 사용자 계정이 있고, 중단 또는 관리 되지 않는 바 이럴 테 넌 트가 있습니다. 또한 테 넌 트에는 전역 또는 회사 관리자가 없습니다.
 
-이 문제를 해결 하려면 중단 된 테 넌 트를 수행 해야 합니다. [Azure Active Directory 관리 되지 않는 디렉터리를 관리자 권한으로 사용](../users-groups-roles/domains-admin-takeover.md)을 참조 하세요. 또한 네임 스페이스를 제어 하 고 있는 직접적인 증거를 제공 하기 위해 해당 도메인 접미사에 대 한 인터넷 연결 DNS에 액세스 해야 합니다. 테 넌 트가 관리 되는 상태로 반환 된 후 사용자와 확인 된 도메인 이름이 조직에 가장 적합 한 옵션 인지 여부를 고객과 논의 하십시오.
+이 문제를 해결 하려면 중단 된 테 넌 트를 수행 해야 합니다. [Azure Active Directory 관리 되지 않는 디렉터리를 관리자 권한으로 사용](../enterprise-users/domains-admin-takeover.md)을 참조 하세요. 또한 네임 스페이스를 제어 하 고 있는 직접적인 증거를 제공 하기 위해 해당 도메인 접미사에 대 한 인터넷 연결 DNS에 액세스 해야 합니다. 테 넌 트가 관리 되는 상태로 반환 된 후 사용자와 확인 된 도메인 이름이 조직에 가장 적합 한 옵션 인지 여부를 고객과 논의 하십시오.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Just-in-Time 또는 "바이럴" 테넌트가 있는 게스트 사용자가 암호를 재설정할 수 없음
 
-ID 테넌트가 JIT(Just-In-Time) 또는 "바이럴" 테넌트(별개의 관리되지 않는 Azure 테넌트를 의미)인 경우 게스트 사용자만 암호를 재설정할 수 있습니다. 직원이 회사 이메일 주소를 사용하여 서비스에 가입할 때 생성된 [바이럴 테넌트 관리를 인계](../users-groups-roles/domains-admin-takeover.md)받는 조직도 있습니다. 조직이 바이럴 테넌트를 인계받고 나면 해당 조직의 관리자만이 사용자 암호를 재설정하거나 SSPR을 사용하도록 설정할 수 있습니다. 필요한 경우 초대 조직 관리자는 디렉터리에서 게스트 사용자 계정을 제거하고 초대를 다시 보낼 수 있습니다.
+ID 테넌트가 JIT(Just-In-Time) 또는 "바이럴" 테넌트(별개의 관리되지 않는 Azure 테넌트를 의미)인 경우 게스트 사용자만 암호를 재설정할 수 있습니다. 직원이 회사 이메일 주소를 사용하여 서비스에 가입할 때 생성된 [바이럴 테넌트 관리를 인계](../enterprise-users/domains-admin-takeover.md)받는 조직도 있습니다. 조직이 바이럴 테넌트를 인계받고 나면 해당 조직의 관리자만이 사용자 암호를 재설정하거나 SSPR을 사용하도록 설정할 수 있습니다. 필요한 경우 초대 조직 관리자는 디렉터리에서 게스트 사용자 계정을 제거하고 초대를 다시 보낼 수 있습니다.
 
 ## <a name="a-guest-user-is-unable-to-use-the-azuread-powershell-v1-module"></a>게스트 사용자가 AzureAD PowerShell V1 모듈을 사용할 수 없습니다.
 
-2019 년 11 월 18 일까 지 디렉터리의 게스트 사용자 ( **userType** 속성이 **게스트**와 같은 사용자 계정으로 정의 됨)는 AzureAD PowerShell V1 모듈을 사용 하지 못하도록 차단 됩니다. 앞으로 사용자는 멤버 사용자 (여기서 **userType** equals **Member**) 이거나 AzureAD PowerShell V2 모듈을 사용 해야 합니다.
+2019 년 11 월 18 일까 지 디렉터리의 게스트 사용자 ( **userType** 속성이 **게스트** 와 같은 사용자 계정으로 정의 됨)는 AzureAD PowerShell V1 모듈을 사용 하지 못하도록 차단 됩니다. 앞으로 사용자는 멤버 사용자 (여기서 **userType** equals **Member**) 이거나 AzureAD PowerShell V2 모듈을 사용 해야 합니다.
 
 ## <a name="in-an-azure-us-government-tenant-i-cant-invite-a-b2b-collaboration-guest-user"></a>Azure 미국 정부 테 넌 트에서 B2B 공동 작업 게스트 사용자를 초대할 수 없습니다.
 

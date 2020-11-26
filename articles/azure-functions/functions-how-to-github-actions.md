@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: a2d5234b3c80456a98fde4547b9665ca1b0a83dd
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 651c1913491952c53af42abec5ce5d5009da06a0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913548"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168069"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용 하 여 지속적인 배달
 
@@ -32,9 +32,9 @@ Azure Functions 워크플로의 경우 파일에는 다음과 같은 세 개의 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- GitHub 계정. 없는 경우 [무료로](https://github.com/join)등록 하세요.  
+- GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요.  
 - GitHub 리포지토리를 사용 하 여 Azure에서 호스트 되는 작업 중인 함수 앱입니다.   
-    - [빠른 시작: Visual Studio Code를 사용하여 Azure에서 함수 만들기](functions-create-first-function-vs-code.md)
+    - [빠른 시작: Visual Studio Code를 사용하여 Azure에서 함수 만들기](./create-first-function-vs-code-csharp.md)
 
 ## <a name="generate-deployment-credentials"></a>배포 자격 증명 생성
 
@@ -57,7 +57,7 @@ GitHub 작업에 대해 Azure Functions를 사용 하 여 인증 하는 권장 �
 
 1. [GitHub](https://github.com)에서 리포지토리로 이동 하 고 **설정**  >  **비밀**  >  **새 비밀 추가** 를 선택 합니다.
 
-   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="게시 프로필 다운로드":::
+   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="비밀 추가":::
 
 1. 이름으로를 사용 하 여 새 암호를 추가 하 `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` 고 **값** 에 대 한 게시 프로필 파일의 콘텐츠를 추가한 다음 **비밀 추가** 를 선택 합니다. **Name**
 

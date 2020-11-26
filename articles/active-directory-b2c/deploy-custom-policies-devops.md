@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4dd9f98f174144cef455157162694a470aa1065f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2652bd8ed33eb68e228f059fba9daa3c6e7c22da
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951766"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170160"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Azure Pipelines를 사용 하 여 사용자 지정 정책 배포
 
@@ -29,9 +29,9 @@ Azure Pipelines를 사용 하 여 Azure AD B2C 내에서 사용자 지정 정책
 1. Azure 파이프라인 구성
 
 > [!IMPORTANT]
-> Azure 파이프라인을 사용 하 여 사용자 지정 정책 Azure AD B2C 관리는 현재 Microsoft Graph API 끝점에서 사용할 수 있는 **미리 보기** 작업을 사용 `/beta` 합니다. 프로덕션 애플리케이션에서는 이러한 API의 사용이 지원되지 않습니다. 자세한 내용은 [Microsoft Graph REST API beta 끝점 참조](/graph/api/overview?toc=.%252fref%252ftoc.json&view=graph-rest-beta)를 참조 하세요.
+> Azure 파이프라인을 사용 하 여 사용자 지정 정책 Azure AD B2C 관리는 현재 Microsoft Graph API 끝점에서 사용할 수 있는 **미리 보기** 작업을 사용 `/beta` 합니다. 프로덕션 애플리케이션에서는 이러한 API의 사용이 지원되지 않습니다. 자세한 내용은 [Microsoft Graph REST API beta 끝점 참조](/graph/api/overview?toc=.%2fref%2ftoc.json&view=graph-rest-beta)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * [B2C IEF 정책 관리자](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) 역할을 사용 하 여 디렉터리의 사용자에 대 한 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md)및 자격 증명
 * 테 넌 트에 업로드 된 [사용자 지정 정책](custom-policy-get-started.md)
@@ -131,7 +131,7 @@ Azure Pipelines를 사용 하 여 Azure AD B2C 내에서 사용자 지정 정책
 1. **변수** 탭을 선택 합니다.
 1. **파이프라인 변수** 아래에 다음 변수를 추가 하 고 지정 된 대로 값을 설정 합니다.
 
-    | 속성 | 값 |
+    | Name | 값 |
     | ---- | ----- |
     | `clientId` | 이전에 등록 한 응용 프로그램의 **응용 프로그램 (클라이언트) ID** 입니다. |
     | `clientSecret` | 이전에 만든 **클라이언트 암호** 의 값입니다. <br /> 변수 유형을 **secret** (잠금 아이콘 선택)로 변경 합니다. |

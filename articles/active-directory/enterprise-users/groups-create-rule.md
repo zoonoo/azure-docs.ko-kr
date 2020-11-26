@@ -13,17 +13,17 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a1f970a97616fbc38a2f5d274998596992d4a45
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 343486286d45538b949de03604811bb2371701c1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522076"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169021"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 만들기 또는 업데이트
 
 Azure Active Directory (Azure AD)에서 규칙을 사용 하 여 사용자 또는 장치 속성에 따라 그룹 멤버 자격을 확인할 수 있습니다. 이 문서에서는 Azure Portal에서 동적 그룹에 대 한 규칙을 설정 하는 방법을 설명 합니다.
-동적 멤버 자격은 보안 그룹 또는 Microsoft 365 그룹에 대해 지원 됩니다. 그룹 멤버 자격 규칙을 적용 하는 경우 사용자 및 장치 특성은 멤버 자격과 일치 하는지 평가 됩니다. 사용자 또는 장치에 대 한 특성이 변경 되 면 조직의 모든 동적 그룹 규칙이 멤버 자격 변경에 대해 처리 됩니다. 사용자 및 장치는 그룹에 대 한 조건을 충족 하는 경우 추가 되거나 제거 됩니다. 보안 그룹은 장치 또는 사용자에 대해 사용할 수 있지만 Microsoft 365 그룹은 사용자 그룹만 될 수 있습니다. 동적 그룹을 사용 하려면 Azure AD premium P1 라이선스가 필요 합니다. 자세한 내용은 [그룹에 대 한 동적 멤버 자격 규칙](https://docs.microsoft.com/azure/active-directory/enterprise-users/groups-dynamic-membership) 을 참조 하세요. 
+동적 멤버 자격은 보안 그룹 또는 Microsoft 365 그룹에 대해 지원 됩니다. 그룹 멤버 자격 규칙을 적용 하는 경우 사용자 및 장치 특성은 멤버 자격과 일치 하는지 평가 됩니다. 사용자 또는 장치에 대 한 특성이 변경 되 면 조직의 모든 동적 그룹 규칙이 멤버 자격 변경에 대해 처리 됩니다. 사용자 및 장치는 그룹에 대 한 조건을 충족 하는 경우 추가 되거나 제거 됩니다. 보안 그룹은 장치 또는 사용자에 대해 사용할 수 있지만 Microsoft 365 그룹은 사용자 그룹만 될 수 있습니다. 동적 그룹을 사용 하려면 Azure AD premium P1 라이선스가 필요 합니다. 자세한 내용은 [그룹에 대 한 동적 멤버 자격 규칙](./groups-dynamic-membership.md) 을 참조 하세요. 
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Azure Portal의 규칙 작성기
 

@@ -4,12 +4,12 @@ description: Azure Functions 코드를 배포할 수 있는 다양 한 방법을
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 3988f30d0e6429a8cac450711d4033e4b2603d46
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 7a75408008a90a2c40553b1f6c5c196775a48e61
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900166"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168103"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 
@@ -86,7 +86,7 @@ Linux에서 원격 빌드를 사용 하도록 설정 하려면 다음 [응용 �
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-기본적으로 [Azure Functions Core Tools](functions-run-local.md) 및 [Azure Functions Visual Studio Code 확장](functions-create-first-function-vs-code.md#publish-the-project-to-azure) 은 모두 Linux에 배포할 때 원격 빌드를 수행 합니다. 이로 인해 두 도구 모두 Azure에서 이러한 설정을 자동으로 만듭니다.
+기본적으로 [Azure Functions Core Tools](functions-run-local.md) 및 [Azure Functions Visual Studio Code 확장](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) 은 모두 Linux에 배포할 때 원격 빌드를 수행 합니다. 이로 인해 두 도구 모두 Azure에서 이러한 설정을 자동으로 만듭니다.
 
 앱이 Linux에서 원격으로 빌드되면 [배포 패키지에서 실행](run-functions-from-deployment-package.md)됩니다.
 
@@ -185,7 +185,7 @@ FTP를 사용 하 여 파일을 Azure Functions로 직접 전송할 수 있습�
 
 >__사용 시기:__ 포털은 Azure Functions를 시작 하는 좋은 방법입니다. 보다 강력한 개발 작업을 수행 하려면 다음 클라이언트 도구 중 하나를 사용 하는 것이 좋습니다.
 >
->* [Visual Studio Code](functions-create-first-function-vs-code.md)
+>* [Visual Studio Code](./create-first-function-vs-code-csharp.md)
 >* [Azure Functions Core Tools (명령줄)](functions-run-local.md)
 >* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 

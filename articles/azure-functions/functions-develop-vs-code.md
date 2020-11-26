@@ -4,12 +4,12 @@ description: Visual Studio Code에 대 한 Azure Functions 확장을 사용 하 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 573177615ff898326eb29649a7f766b5df34b587
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010515"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168437"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Functions 개발
 
@@ -34,12 +34,12 @@ Azure Functions 확장 프로그램은 다음과 같은 이점을 제공 합니�
 
 이 문서에서 예제는 현재 JavaScript (Node.js) 및 c # 클래스 라이브러리 함수에 대해서만 사용할 수 있습니다.  
 
-이 문서에서는 Azure Functions 확장을 사용 하 여 함수를 개발 하 고 Azure에 게시 하는 방법에 대 한 세부 정보를 제공 합니다. 이 문서를 읽기 전에 [Visual Studio Code를 사용 하 여 첫 번째 함수를 만들어야](functions-create-first-function-vs-code.md)합니다.
+이 문서에서는 Azure Functions 확장을 사용 하 여 함수를 개발 하 고 Azure에 게시 하는 방법에 대 한 세부 정보를 제공 합니다. 이 문서를 읽기 전에 [Visual Studio Code를 사용 하 여 첫 번째 함수를 만들어야](./create-first-function-vs-code-csharp.md)합니다.
 
 > [!IMPORTANT]
 > 단일 함수 앱에 대 한 로컬 개발 및 포털 개발을 혼합 하지 마세요. 로컬 프로젝트에서 함수 앱에 게시할 때 배포 프로세스는 포털에서 개발한 모든 기능을 덮어씁니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 Visual Studio Code 용 [Azure Functions 확장][Azure Functions 확장]을 설치 하 고 실행 하기 전에 다음 요구 사항을 충족 해야 합니다.
 
@@ -233,7 +233,7 @@ Visual Studio Code에서 게시할 때 [Zip 배포](functions-deployment-technol
 
 ### <a name="quick-function-app-create"></a>빠른 함수 앱 만들기
 
-**Azure에서 새 함수 앱 만들기**...를 선택 하면 확장에서 함수 앱에 필요한 Azure 리소스에 대 한 값을 자동으로 생성 합니다. 이러한 값은 선택한 함수 앱 이름을 기반으로 합니다. 기본값을 사용 하 여 Azure의 새 함수 앱에 프로젝트를 게시 하는 예는 [Visual Studio Code 빠른 시작 문서](functions-create-first-function-vs-code.md#publish-the-project-to-azure)를 참조 하세요.
+**Azure에서 새 함수 앱 만들기**...를 선택 하면 확장에서 함수 앱에 필요한 Azure 리소스에 대 한 값을 자동으로 생성 합니다. 이러한 값은 선택한 함수 앱 이름을 기반으로 합니다. 기본값을 사용 하 여 Azure의 새 함수 앱에 프로젝트를 게시 하는 예는 [Visual Studio Code 빠른 시작 문서](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure)를 참조 하세요.
 
 생성 된 리소스에 대 한 명시적 이름을 제공 하려면 고급 만들기 경로를 선택 해야 합니다.
 

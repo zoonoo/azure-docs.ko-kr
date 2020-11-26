@@ -67,6 +67,10 @@
           href: virtual-wan-ipsec.md
         - name: 여러 ISP 링크 - Azure 경로 선택
           href: path-selection-multiple-links.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 가격 책정 개념
       href: pricing-concepts.md
     - name: 가상 허브의 NVA 정보

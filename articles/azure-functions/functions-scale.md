@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88e9d16a205df16a2be63e67f45cdbcf9144b30f
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f41354630f4885a30bd5c036495b216a2cc05599
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108459"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167797"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
@@ -45,7 +45,7 @@ App Service 계획을 사용 하면 관리 하는 전용 인프라를 활용할 
 
 소비 계획에서 실행 하는 경우 비용을 계산 하는 방법에 대 한 자세한 내용은 [소비 계획 비용 이해](functions-consumption-costs.md)를 참조 하세요.
 
-## <a name="premium-plan"></a><a name="premium-plan"></a>프리미엄 요금제
+## <a name="premium-plan"></a><a name="premium-plan"></a>프리미엄 플랜
 
 프리미엄 요금제를 사용 하는 경우에는 소비 계획과 마찬가지로 들어오는 이벤트 수에 따라 Azure Functions 호스트의 인스턴스가 추가 되 고 제거 됩니다.  프리미엄 요금제는 다음과 같은 기능을 지원 합니다.
 
@@ -97,7 +97,7 @@ Always On이 설정된 경우에도 개별 함수의 실행 시간 초과는 [ho
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>기존 응용 프로그램의 호스팅 계획 결정
 
-함수 앱에서 사용 하는 호스팅 계획을 확인 하려면 [Azure Portal](https://portal.azure.com)에서 함수 앱에 대 한 **개요** 탭의 **App Service 계획** 을 참조 하세요. 가격 책정 계층을 보려면 **App Service 계획**의 이름을 선택한 다음 왼쪽 창에서 **속성** 을 선택 합니다.
+함수 앱에서 사용 하는 호스팅 계획을 확인 하려면 [Azure Portal](https://portal.azure.com)에서 함수 앱에 대 한 **개요** 탭의 **App Service 계획** 을 참조 하세요. 가격 책정 계층을 보려면 **App Service 계획** 의 이름을 선택한 다음 왼쪽 창에서 **속성** 을 선택 합니다.
 
 ![포털에서 크기 조정 계획 보기](./media/functions-scale/function-app-overview-portal.png)
 
@@ -136,7 +136,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 ### <a name="runtime-scaling"></a>런타임 크기 조정
 
-Azure Functions는 *크기 조정 컨트롤러*라는 구성 요소를 사용하여 이벤트의 비율을 모니터링하고 규모를 확장하거나 감축할 것인지 결정합니다. 크기 조정 컨트롤러는 각 트리거 유형에 대해 추론을 사용합니다. 예를 들어 Azure Queue Storage 트리거를 사용하는 경우 큐 길이 및 가장 오래된 큐 메시지의 기간에 따라 트리거가 조정됩니다.
+Azure Functions는 *크기 조정 컨트롤러* 라는 구성 요소를 사용하여 이벤트의 비율을 모니터링하고 규모를 확장하거나 감축할 것인지 결정합니다. 크기 조정 컨트롤러는 각 트리거 유형에 대해 추론을 사용합니다. 예를 들어 Azure Queue Storage 트리거를 사용하는 경우 큐 길이 및 가장 오래된 큐 메시지의 기간에 따라 트리거가 조정됩니다.
 
 Azure Functions 확장 단위는 함수 앱입니다. 함수 앱을 확장하면 Azure Functions 호스트의 여러 인스턴스를 실행하기 위해 추가 리소스가 할당됩니다. 반대로, 컴퓨팅 수요가 감소하면 크기 조정 컨트롤러에서 함수 호스트 인스턴스를 제거합니다. 함수 앱 내에서 실행 중인 함수가 없으면 인스턴스 수가 결국 0으로 *축소* 됩니다.
 
@@ -144,7 +144,7 @@ Azure Functions 확장 단위는 함수 앱입니다. 함수 앱을 확장하면
 
 ### <a name="cold-start"></a>콜드 부팅
 
-함수 앱이 시간 (분) 동안 유휴 상태가 된 후 플랫폼은 앱이 실행 되는 인스턴스 수를 0으로 확장할 수 있습니다. 다음 요청에는 0에서 1로 크기를 조정 하는 추가 대기 시간이 있습니다. 이 대기 시간을 _콜드 시작_이라고 합니다. 함수 앱에서 로드 해야 하는 종속성 수가 콜드 시작 시간에 영향을 줄 수 있습니다. 콜드 시작은 응답을 반환 해야 하는 HTTP 트리거와 같은 동기 작업에 대 한 문제입니다. 콜드 시작이 함수에 영향을 주는 경우 Premium 요금제에서 실행 하거나 Always on을 사용 하는 전용 계획에서 실행 하는 것이 좋습니다.   
+함수 앱이 시간 (분) 동안 유휴 상태가 된 후 플랫폼은 앱이 실행 되는 인스턴스 수를 0으로 확장할 수 있습니다. 다음 요청에는 0에서 1로 크기를 조정 하는 추가 대기 시간이 있습니다. 이 대기 시간을 _콜드 시작_ 이라고 합니다. 함수 앱에서 로드 해야 하는 종속성 수가 콜드 시작 시간에 영향을 줄 수 있습니다. 콜드 시작은 응답을 반환 해야 하는 HTTP 트리거와 같은 동기 작업에 대 한 문제입니다. 콜드 시작이 함수에 영향을 주는 경우 Premium 요금제에서 실행 하거나 Always on을 사용 하는 전용 계획에서 실행 하는 것이 좋습니다.   
 
 ### <a name="understanding-scaling-behaviors"></a>크기 조정 동작 이해
 
@@ -189,7 +189,7 @@ Python 및 Node.js의 크기 조정에 대 한 자세한 내용은 [Azure Functi
 | | |
 | --- | --- |  
 |**[사용 계획](#consumption-plan)**| 자동으로 크기를 조정 하 고 함수를 실행 하는 경우 계산 리소스에 대해서만 비용을 지불 합니다. 소비 계획에서 함수 호스트의 인스턴스는 들어오는 이벤트의 수에 따라 동적으로 추가 및 제거 됩니다.<br/> 기본 호스팅 계획을 ✔ 합니다.<br/>함수를 실행 하는 경우에만 ✔ 요금을 지불 합니다.<br/>부하가 높은 기간 동안에도 자동으로 확장 ✔ 합니다.|  
-|**[프리미엄 계획](#premium-plan)**|수요에 따라 자동으로 크기를 조정 하는 동안에는 사전 준비 작업자를 사용 하 여 유휴 상태에서 지연 없이 응용 프로그램을 실행 하 고, 더 강력한 인스턴스를 실행 하 고, Vnet에 연결 합니다. App Service 계획의 모든 기능 외에도 다음과 같은 경우에 Azure Functions 프리미엄 계획을 고려해 야 합니다. <br/>함수 앱이 계속 해 서 또는 거의 계속 실행 ✔.<br/>적은 수의 작은 실행을 사용 하 고 실행 청구서가 많고 소비 계획에 낮은 GB의 두 번째 청구서가 있는 ✔.<br/>✔ 소비 계획에서 제공 하는 것 보다 더 많은 CPU 또는 메모리 옵션이 필요 합니다.<br/>소비 계획에서 허용 되는 최대 실행 시간 보다 오래 실행 되어야 하는 코드를 ✔ 합니다.<br/>✔ 가상 네트워크 연결과 같이 프리미엄 요금제 에서만 사용할 수 있는 기능이 필요 합니다.|  
+|**[프리미엄 플랜](#premium-plan)**|수요에 따라 자동으로 크기를 조정 하는 동안에는 사전 준비 작업자를 사용 하 여 유휴 상태에서 지연 없이 응용 프로그램을 실행 하 고, 더 강력한 인스턴스를 실행 하 고, Vnet에 연결 합니다. App Service 계획의 모든 기능 외에도 다음과 같은 경우에 Azure Functions 프리미엄 계획을 고려해 야 합니다. <br/>함수 앱이 계속 해 서 또는 거의 계속 실행 ✔.<br/>적은 수의 작은 실행을 사용 하 고 실행 청구서가 많고 소비 계획에 낮은 GB의 두 번째 청구서가 있는 ✔.<br/>✔ 소비 계획에서 제공 하는 것 보다 더 많은 CPU 또는 메모리 옵션이 필요 합니다.<br/>소비 계획에서 허용 되는 최대 실행 시간 보다 오래 실행 되어야 하는 코드를 ✔ 합니다.<br/>✔ 가상 네트워크 연결과 같이 프리미엄 요금제 에서만 사용할 수 있는 기능이 필요 합니다.|  
 |**[전용 요금제](#app-service-plan)**<sup>1</sup>|정기적 App Service 요금제 속도로 App Service 계획 내에서 함수를 실행 합니다. 장기 실행 작업 뿐만 아니라 더 많은 예측 크기 조정 및 비용이 필요한 경우에 적합 합니다. 다음과 같은 경우 App Service 계획을 고려해 야 합니다.<br/>다른 App Service 인스턴스를 이미 실행 중인 기존의 미달 사용 Vm이 있는 ✔ 합니다.<br/>함수를 실행 하는 데 사용할 사용자 지정 이미지를 제공할 ✔ 합니다.|  
 |**[ASE](#app-service-plan)**<sup>1</sup>|ASE (App Service Environment)는 App Service 앱을 매우 대규모로 안전 하 게 실행 하기 위해 완전히 격리 된 전용 환경을 제공 하는 App Service 기능입니다. Ase는 다음이 필요한 응용 프로그램 작업에 적합 합니다. <br/>✔ 매우 높습니다.<br/>전체 계산 격리 및 보안 네트워크 액세스를 ✔ 합니다.<br/>높은 메모리 사용률을 ✔ 합니다.|  
 | **[Kubernetes](functions-kubernetes-keda.md)** | Kubernetes는 Kubernetes 플랫폼을 기반으로 실행 되는 완전히 격리 된 전용 환경을 제공 합니다.  Kubernetes는 다음이 필요한 응용 프로그램 작업에 적합 합니다. <br/>사용자 지정 하드웨어 요구 사항을 ✔ 합니다.<br/>격리 및 보안 네트워크 액세스를 ✔ 합니다.<br/>하이브리드 또는 다중 클라우드 환경에서 실행할 수 있는 ✔.<br/>✔ 기존 Kubernetes 응용 프로그램 및 서비스와 함께 실행 됩니다.|  
@@ -201,7 +201,7 @@ Python 및 Node.js의 크기 조정에 대 한 자세한 내용은 [Azure Functi
 | | Linux<sup>1</sup><br/>코드 전용 | Windows<sup>2</sup><br/>코드 전용 | Linux<sup>1, 3</sup><br/>Docker 컨테이너 |
 | --- | --- | --- | --- |
 | **[사용 계획](#consumption-plan)** | .NET Core<br/>Node.js<br/>Java<br/>Python | .NET Core<br/>Node.js<br/>Java<br/>PowerShell Core | 지원되지 않음  |
-| **[프리미엄 계획](#premium-plan)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python  | 
+| **[프리미엄 플랜](#premium-plan)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python  | 
 | **[전용 요금제](#app-service-plan)**<sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
 | **[ASE](#app-service-plan)**<sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core  |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python | 
 | **[Kubernetes](functions-kubernetes-keda.md)** | 해당 없음 | 해당 없음 |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
@@ -216,7 +216,7 @@ Python 및 Node.js의 크기 조정에 대 한 자세한 내용은 [Azure Functi
 | | 확장 | 최대 인스턴스 개수 |
 | --- | --- | --- |
 | **[사용 계획](#consumption-plan)** | 이벤트 기반. 높은 부하 기간 동안에도 자동으로 규모 확장 Azure Functions 인프라는 해당 함수가 트리거되는 이벤트의 수에 따라 함수 호스트의 추가 인스턴스를 추가 하 여 CPU 및 메모리 리소스를 확장 합니다. | 200 |
-| **[프리미엄 계획](#premium-plan)** | 이벤트 기반. 높은 부하 기간 동안에도 자동으로 규모 확장 Azure Functions 인프라는 해당 함수가 트리거되는 이벤트의 수에 따라 함수 호스트의 추가 인스턴스를 추가 하 여 CPU 및 메모리 리소스를 확장 합니다. |100|
+| **[프리미엄 플랜](#premium-plan)** | 이벤트 기반. 높은 부하 기간 동안에도 자동으로 규모 확장 Azure Functions 인프라는 해당 함수가 트리거되는 이벤트의 수에 따라 함수 호스트의 추가 인스턴스를 추가 하 여 CPU 및 메모리 리소스를 확장 합니다. |100|
 | **[전용 요금제](#app-service-plan)**<sup>1</sup> | 수동/자동 크기 조정 |10-20|
 | **[ASE](#app-service-plan)**<sup>1</sup> | 수동/자동 크기 조정 |100 |
 | **[Kubernetes](functions-kubernetes-keda.md)**  | [Keda](https://keda.sh)를 사용 하 여 Kubernetes 클러스터에 대 한 이벤트 기반 자동 크기 조정 | &nbsp;클러스터에 따라 다릅니다 &nbsp; .&nbsp;&nbsp;|
@@ -228,7 +228,7 @@ Python 및 Node.js의 크기 조정에 대 한 자세한 내용은 [Azure Functi
 |    |    | 
 | -- | -- |
 | **[소비 &nbsp; 계획](#consumption-plan)** | 일정 기간 동안 유휴 상태 이면 앱이 0으로 확장 될 수 있습니다. 즉, 시작 시 일부 요청에 추가 대기 시간이 있을 수 있습니다.  소비 계획에는 함수 호스트 및 언어 프로세스가 이미 실행 되 고 있는 사전 준비 자리 표시자 함수에서 끌어오기를 비롯 하 여 콜드 시작 시간을 줄일 수 있도록 최적화가 있습니다. |
-| **[프리미엄 계획](#premium-plan)** | 콜드 시작을 방지 하기 위해 웜 인스턴스를 영구적으로 합니다. |
+| **[프리미엄 플랜](#premium-plan)** | 콜드 시작을 방지 하기 위해 웜 인스턴스를 영구적으로 합니다. |
 | **[전용 요금제](#app-service-plan)**<sup>1</sup> | 전용 계획에서 실행 하는 경우 함수 호스트가 지속적으로 실행 될 수 있습니다. 즉, 콜드 시작은 문제가 되지 않습니다. |
 | **[ASE](#app-service-plan)**<sup>1</sup> | 전용 계획에서 실행 하는 경우 함수 호스트가 지속적으로 실행 될 수 있습니다. 즉, 콜드 시작은 문제가 되지 않습니다. |
 | **[Kubernetes](functions-kubernetes-keda.md)**  | KEDA 구성에 따라 달라 집니다. 앱은 항상 실행 되도록 구성 하거나 콜드 부팅을 실행 하지 않도록 구성 하거나 0으로 확장 되도록 구성 하 여 새 이벤트에 대 한 콜드 시작을 수행할 수 있습니다. 
@@ -248,7 +248,7 @@ Python 및 Node.js의 크기 조정에 대 한 자세한 내용은 [Azure Functi
 | | | 
 | --- | --- |
 | **[사용 계획](#consumption-plan)** | 함수가 실행 되는 시간에 대해서만 요금을 지불 합니다. 청구는 실행 횟수, 실행 시간 및 사용된 메모리를 기반으로 하며, |
-| **[프리미엄 계획](#premium-plan)** | 프리미엄 요금제는 필요한 코어 초와 준비 인스턴스 간에 사용 되는 메모리의 수를 기반으로 합니다. 계획 당 하나 이상의 인스턴스를 항상 웜으로 유지 해야 합니다. 이 계획은 보다 예측 가능한 가격 책정을 제공 합니다. |
+| **[프리미엄 플랜](#premium-plan)** | 프리미엄 요금제는 필요한 코어 초와 준비 인스턴스 간에 사용 되는 메모리의 수를 기반으로 합니다. 계획 당 하나 이상의 인스턴스를 항상 웜으로 유지 해야 합니다. 이 계획은 보다 예측 가능한 가격 책정을 제공 합니다. |
 | **[전용 요금제](#app-service-plan)**<sup>1</sup> | 웹 앱과 같은 다른 App Service 리소스의 경우와 마찬가지로 App Service 계획에서 함수 앱에 대해 동일한 비용을 지불 합니다.|
 | **[ASE](#app-service-plan)**<sup>1</sup> | 인프라에 대해 요금을 지불 하 고 ASE 크기를 변경 하지 않는 ASE에 대 한 고정 월별 요금이 있습니다. 또한 App Service 계획 vCPU 당 비용이 있습니다. ASE에 호스트되는 모든 앱은 격리 가격 책정 SKU에 해당합니다. |
 | **[Kubernetes](functions-kubernetes-keda.md)**| Kubernetes 클러스터의 비용만 지불 하면 됩니다. 함수에 대 한 추가 요금이 청구 되지 않습니다. 함수 앱은 일반 앱 처럼 클러스터 위에 응용 프로그램 워크 로드로 실행 됩니다. |
@@ -257,6 +257,6 @@ Python 및 Node.js의 크기 조정에 대 한 자세한 내용은 [Azure Functi
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [빠른 시작: Visual Studio Code를 사용하여 Azure Functions 프로젝트 만들기](functions-create-first-function-vs-code.md)
++ [빠른 시작: Visual Studio Code를 사용하여 Azure Functions 프로젝트 만들기](./create-first-function-vs-code-csharp.md)
 + [Azure Functions의 배포 기술](functions-deployment-technologies.md) 
 + [Azure Functions 개발자 가이드](functions-reference.md)

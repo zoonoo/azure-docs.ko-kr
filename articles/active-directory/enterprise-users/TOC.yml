@@ -9,7 +9,7 @@
     - name: Azure AD에 사용자 추가
       href: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: 사용자에게 라이선스 할당
-      href: /azure/active-directory/fundamentals/license-users-groups?context=%2fazure/active-directory/enterprise-users/context/ugr-context
+      href: ../fundamentals/license-users-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: 그룹 만료 설정
       href: groups-quickstart-expiration.md
     - name: 그룹 명명 정책 설정
@@ -57,13 +57,13 @@
         - name: 비관리형 디렉터리의 계정 닫기
           href: users-close-account.md
         - name: 게스트 사용자 추가
-          href: /azure/active-directory/b2b/what-is-b2b?context=%2fazure/active-directory/enterprise-users/context/ugr-context
+          href: ../external-identities/what-is-b2b.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: 게스트 사용자에게 역할 할당
-          href: /azure/active-directory/b2b/add-guest-to-role?context=%2fazure/active-directory/enterprise-users/context/ugr-context
+          href: ../external-identities/add-guest-to-role.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: 게스트 사용자 액세스 제한
           href: users-restrict-guest-permissions.md
         - name: 동적 그룹 및 게스트
-          href: /azure/active-directory/b2b/use-dynamic-groups?context=%2fazure/active-directory/enterprise-users/context/ugr-context
+          href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: 조직 관리
       items:
         - name: Azure AD 조직

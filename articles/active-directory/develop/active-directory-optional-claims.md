@@ -12,12 +12,12 @@ ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1a08aa4261e8d2546d16bb60394829c83604b4cd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 50f57f48ca839c5389df49fc5dc7586030916b6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019962"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169752"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>방법: 앱에 선택적 클레임 제공
 
@@ -67,7 +67,7 @@ ms.locfileid: "95019962"
 | `email`                    | 사용자가 있는 경우 이 사용자에 대한 이메일 주소를 지정할 수 있습니다.  | JWT, SAML | MSA, Azure AD | 이 값은 사용자가 테넌트의 게스트인 경우 기본적으로 포함됩니다.  관리되는 사용자(테넌트 내부 사용자)의 경우 이 선택적 클레임 또는 v2.0에서만 OpenID 범위를 통해 요청해야 합니다.  관리되는 사용자의 경우 이메일 주소는 [Office 관리 포털](https://portal.office.com/adminportal/home#/users)에서 설정해야 합니다.|
 | `acct`                | 테 넌 트의 사용자 계정 상태 | JWT, SAML | | 사용자가 테넌트의 구성원인 경우 값은 `0`입니다. 게스트인 경우 값은 `1`입니다. |
 | `groups`| 그룹 클레임에 대한 선택적 서식 지정 |JWT, SAML| |함께 설정해야 하는 [애플리케이션 매니페스트](reference-app-manifest.md)의 GroupMembershipClaims 설정과 함께 사용됩니다. 자세한 내용은 아래 [그룹 클레임](#configuring-groups-optional-claims)을 참조하세요. 그룹 클레임에 대한 자세한 내용은 [그룹 클레임을 구성하는 방법](../hybrid/how-to-connect-fed-group-claims.md)을 참조하세요.
-| `upn`                      | UserPrincipalName | JWT, SAML  |           | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대 한 지 속성 식별자가 아니라 사용자 정보를 고유 하 게 식별 하는 데 사용할 수 없습니다 (예: 데이터베이스 키). 대신 사용자 개체 ID ( `oid` )를 데이터베이스 키로 사용 합니다. [대체 로그인 ID](/azure/active-directory/authentication/howto-authentication-use-email-signin) 를 사용 하 여 로그인 하는 사용자는 UPN (사용자 계정 이름)으로 표시 되어서는 안 됩니다. 대신 다음 ID 토큰 클레임을 사용 하 여 로그인 상태를 사용자에 게 표시 하거나 (v1 토큰의 경우) 또는 v2 토큰의 경우를 사용 `preferred_username` `unique_name` `preferred_username` 합니다. 이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다.  |
+| `upn`                      | UserPrincipalName | JWT, SAML  |           | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대 한 지 속성 식별자가 아니라 사용자 정보를 고유 하 게 식별 하는 데 사용할 수 없습니다 (예: 데이터베이스 키). 대신 사용자 개체 ID ( `oid` )를 데이터베이스 키로 사용 합니다. [대체 로그인 ID](../authentication/howto-authentication-use-email-signin.md) 를 사용 하 여 로그인 하는 사용자는 UPN (사용자 계정 이름)으로 표시 되어서는 안 됩니다. 대신 다음 ID 토큰 클레임을 사용 하 여 로그인 상태를 사용자에 게 표시 하거나 (v1 토큰의 경우) 또는 v2 토큰의 경우를 사용 `preferred_username` `unique_name` `preferred_username` 합니다. 이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다.  |
 | `idtyp`                    | 토큰 형식   | JWT 액세스 토큰 | 특수: 앱 전용 액세스 토큰에만 |  `app`토큰이 앱 전용 토큰 인 경우 값은입니다. 이것은 API에서 토큰이 앱 토큰 인지 앱 + 사용자 토큰 인지를 확인 하는 가장 정확한 방법입니다.|
 
 ## <a name="v20-specific-optional-claims-set"></a>v2.0 특정 선택적 클레임 세트
@@ -85,7 +85,7 @@ ms.locfileid: "95019962"
 | `in_corp`     | 기업 네트워크 내부        | 클라이언트가 회사 네트워크에서 로그인하는 경우 알립니다. 그러지 않으면 클레임이 포함되지 않습니다.   |  MFA의 [신뢰할 수 있는 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips)를 기반으로 합니다.    |
 | `family_name` | 성                       | 사용자 개체에 정의된 사용자의 성을 제공합니다. <br>"family_name":"Miller" | MSA 및 Azure AD에서 지원됩니다. `profile` 범위가 필요합니다.   |
 | `given_name`  | 이름                      | 사용자 개체에 설정된 대로 사용자의 이름 또는 "성"을 제공합니다.<br>"given_name": "Frank"                   | MSA 및 Azure AD에서 지원됩니다.  `profile` 범위가 필요합니다. |
-| `upn`         | 사용자 계정 이름 | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대 한 지 속성 식별자가 아니라 사용자 정보를 고유 하 게 식별 하는 데 사용할 수 없습니다 (예: 데이터베이스 키). 대신 사용자 개체 ID ( `oid` )를 데이터베이스 키로 사용 합니다. [대체 로그인 ID](/azure/active-directory/authentication/howto-authentication-use-email-signin) 를 사용 하 여 로그인 하는 사용자는 UPN (사용자 계정 이름)으로 표시 되어서는 안 됩니다. 대신 다음 ID 토큰 클레임을 사용 하 여 로그인 상태를 사용자에 게 표시 하거나 (v1 토큰의 경우) 또는 v2 토큰의 경우를 사용 `preferred_username` `unique_name` `preferred_username` 합니다. | 클레임의 구성에 대해서는 아래 [추가 속성](#additional-properties-of-optional-claims)을 참조하세요. `profile` 범위가 필요합니다.|
+| `upn`         | 사용자 계정 이름 | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대 한 지 속성 식별자가 아니라 사용자 정보를 고유 하 게 식별 하는 데 사용할 수 없습니다 (예: 데이터베이스 키). 대신 사용자 개체 ID ( `oid` )를 데이터베이스 키로 사용 합니다. [대체 로그인 ID](../authentication/howto-authentication-use-email-signin.md) 를 사용 하 여 로그인 하는 사용자는 UPN (사용자 계정 이름)으로 표시 되어서는 안 됩니다. 대신 다음 ID 토큰 클레임을 사용 하 여 로그인 상태를 사용자에 게 표시 하거나 (v1 토큰의 경우) 또는 v2 토큰의 경우를 사용 `preferred_username` `unique_name` `preferred_username` 합니다. | 클레임의 구성에 대해서는 아래 [추가 속성](#additional-properties-of-optional-claims)을 참조하세요. `profile` 범위가 필요합니다.|
 
 ### <a name="additional-properties-of-optional-claims"></a>선택적 클레임의 추가 속성
 
@@ -139,7 +139,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 1. **추가** 를 선택합니다.
 
 > [!NOTE]
-> 현재 Azure AD B2C 테 넌 트에 등록 된 앱에는 UI 옵션 **토큰 구성** 블레이드를 사용할 수 없습니다. B2C 테 넌 트에 등록 된 응용 프로그램의 경우 응용 프로그램 매니페스트를 수정 하 여 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 [Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용 하 여 사용자 입력 사용자 지정](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input) 을 참조 하세요. 
+> 현재 Azure AD B2C 테 넌 트에 등록 된 앱에는 UI 옵션 **토큰 구성** 블레이드를 사용할 수 없습니다. B2C 테 넌 트에 등록 된 응용 프로그램의 경우 응용 프로그램 매니페스트를 수정 하 여 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 [Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용 하 여 사용자 입력 사용자 지정](../../active-directory-b2c/custom-policy-configure-user-input.md) 을 참조 하세요. 
 
 **애플리케이션 매니페스트를 통해 선택적 클레임 구성:**
 
@@ -186,7 +186,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 5: OptionalClaims 형식 속성**
 
-| Name          | Type                       | Description                                           |
+| Name          | 유형                       | Description                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다.     |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -199,7 +199,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 6: OptionalClaim 형식 속성**
 
-| Name                   | Type                    | Description                                                                                                                                                                                                                                                                                                   |
+| Name                   | 유형                    | Description                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |

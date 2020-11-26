@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: baa0aa01c94c4deb35db8a59f7b4f81224ae1fd3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5f529e6148463ae384791985659378cb9d0a5046
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836991"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168868"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 인증 관리 작업 참조 가이드
 
@@ -160,7 +160,7 @@ Windows 10에서 [비즈니스용 Windows Hello](/windows/security/identity-prot
 > [!NOTE]
 > 조직에서 관리 되지 않는 응용 프로그램을 검색 하는 메커니즘이 없는 경우 [Microsoft Cloud App Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security)와 같은 cloud access security broker 솔루션 (casb)을 사용 하 여 검색 프로세스를 구현 하는 것이 좋습니다.
 
-마지막으로 Azure AD 앱 갤러리가 있고 Azure AD에서 SSO를 지 원하는 응용 프로그램을 사용 하는 경우 [앱 갤러리에 응용 프로그램을 나열](../azuread-dev/howto-app-gallery-listing.md)하는 것이 좋습니다.
+마지막으로 Azure AD 앱 갤러리가 있고 Azure AD에서 SSO를 지 원하는 응용 프로그램을 사용 하는 경우 [앱 갤러리에 응용 프로그램을 나열](../develop/v2-howto-app-gallery-listing.md)하는 것이 좋습니다.
 
 #### <a name="single-sign-on-recommended-reading"></a>Single sign-on 권장 읽기
 
@@ -255,7 +255,7 @@ MAM (Microsoft Intune 응용 프로그램 관리)은 저장소 암호화, PIN, �
 
 #### <a name="conditional-access-recommended-reading"></a>조건부 액세스 권장 읽기
 
-- [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](../conditional-access/best-practices.md)
+- [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](../conditional-access/overview.md)
 - [ID 및 디바이스 액세스 구성](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Azure Active Directory 조건부 액세스 설정 참조](../conditional-access/concept-conditional-access-conditions.md)
 - [일반 조건부 액세스 정책](../conditional-access/concept-conditional-access-policy-common.md)
@@ -281,7 +281,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
    
    b. 아래 단계에 따라 잠글 일정을 계획 합니다.
    
-   c. 레거시 인증에 대 한 하드 종속성이 있는 레거시 응용 프로그램을 식별 합니다. 아래 3 단계를 참조 하세요.
+   다. 레거시 인증에 대 한 하드 종속성이 있는 레거시 응용 프로그램을 식별 합니다. 아래 3 단계를 참조 하세요.
 
 2. 레거시 인증을 사용 하지 않는 사용자가 더 많은 노출을 방지 하기 위해 원본 (예: Exchange 사서함)에서 레거시 프로토콜을 사용 하지 않도록 설정 합니다.
 3. 나머지 계정 (서비스 계정 등의 비 사용자 id)의 경우 조건부 액세스를 사용 하 여 인증 후 [레거시 프로토콜을 제한](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417) 합니다.
@@ -309,7 +309,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 | | Mail. 읽기. 공유 |
 | | Mail. ReadWrite |
 
-- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들면 다음과 같습니다.
+- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들어:
 
 |리소스 | 사용 권한 |
 | :- | :- |

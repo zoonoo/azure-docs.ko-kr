@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 4810de772e44be22ee5bd4a9fb6ef0ef756e62f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8a176fff0da932d0fafd40b9ab895b635acc5f6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77085216"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169446"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>방법: 다른 id 공급자를 사용 하도록 iOS 및 macOS에 대 한 MSAL 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "77085216"
 `MSALPublicClientApplication` 는 `https://login.microsoftonline.com/common` 대부분의 AAD (Azure Active Directory) 시나리오에 적합 한의 기본 기관 URL을 사용 하 여 구성 됩니다. 국가별 클라우드와 같은 고급 시나리오를 구현 하거나 B2C를 사용 하지 않는 경우에는 변경할 필요가 없습니다.
 
 > [!NOTE]
-> ADFS (Active Directory Federation Services id 공급자)를 사용 하는 최신 인증은 지원 되지 않습니다 (자세한 내용은 [개발자 용 adfs](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) 참조). ADFS는 페더레이션을 통해 지원 됩니다.
+> ADFS (Active Directory Federation Services id 공급자)를 사용 하는 최신 인증은 지원 되지 않습니다 (자세한 내용은 [개발자 용 adfs](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) 참조). ADFS는 페더레이션을 통해 지원 됩니다.
 
 ## <a name="change-the-default-authority"></a>기본 인증 기관 변경
 
@@ -180,7 +180,7 @@ do{
 
 인증 기관 URL이로 설정 되 면 `"login.microsoftonline.com/common"` 사용자는 해당 홈 테 넌 트에 로그인 됩니다. 그러나 일부 앱은 사용자를 다른 테 넌 트에 서명 해야 할 수 있으며, 일부 앱은 단일 테 넌 트에서만 작동 합니다.
 
-특정 테 넌 트에 사용자를 서명 하려면 `MSALPublicClientApplication` 특정 권한으로를 구성 합니다. 예를 들면 다음과 같습니다.
+특정 테 넌 트에 사용자를 서명 하려면 `MSALPublicClientApplication` 특정 권한으로를 구성 합니다. 예를 들어:
 
 `https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
 
