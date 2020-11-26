@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: cauribeg
 ms.custom: include file
-ms.openlocfilehash: 07a80fcd1ec62b051a660bdac696f89e3b7c42b7
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: da36cb5c5d2db20b89f80d381f48632c7528c193
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93353894"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002466"
 ---
 1. 캐시를 만들려면 [Azure Portal](https://portal.azure.com)에 로그인하여 **리소스 만들기** 를 선택합니다.
 
-    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="Azure Cache for Redis를 선택합니다.":::
+    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="리소스 만들기는 왼쪽 탐색 창에 강조 표시됩니다.":::
 
    
 1. **새로 만들기** 페이지에서 **데이터베이스** 를 선택한 다음, **Azure Cache for Redis** 를 선택합니다.
 
-    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="Azure Cache for Redis를 선택합니다.":::
+    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="새로 만들기에서 데이터베이스가 강조 표시되고 Azure Cache for Redis가 강조 표시됩니다.":::
    
 1. **새 Redis Cache** 페이지에서 새 캐시의 설정을 구성합니다.
    

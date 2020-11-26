@@ -79,6 +79,46 @@
               href: sync-ldap.md
             - name: SCIM 동기화
               href: sync-scim.md
+        - name: 복원력을 위해 빌드
+          items:
+            - name: 개요
+              href: resilience-overview.md
+            - name: 인프라 지침
+              items:
+                - name: 인프라 개요
+                  href: resilience-in-infrastructure.md
+                - name: 자격 증명 관리
+                  href: resilience-in-credentials.md
+                - name: 디바이스 상태
+                  href: resilience-with-device-states.md
+                - name: 지속적인 액세스 평가
+                  href: resilience-with-continuous-access-evaluation.md
+                - name: 외부 사용자 인증
+                  href: resilience-b2b-authentication.md
+                - name: 하이브리드 인증
+                  href: resilience-in-hybrid.md
+                - name: 애플리케이션 프록시
+                  href: resilience-on-premises-access.md
+            - name: Azure AD B2C 지침
+              items:
+                - name: 복원력에 대해 Azure AD B2C 도입
+                  href: resilience-b2c.md
+                - name: 최종 사용자 환경
+                  href: resilient-end-user-experience.md
+                - name: 외부 프로세스를 사용하는 인터페이스
+                  href: resilient-external-processes.md
+                - name: Azure AD B2C 개발자 모범 사례
+                  href: resilience-b2c-developer-best-practices.md
+                - name: 모니터링 및 분석
+                  href: resilience-with-monitoring-alerting.md
+            - name: 애플리케이션 개발 지침
+              items:
+                - name: 개발 개요
+                  href: resilience-app-development-overview.md
+                - name: 클라이언트 애플리케이션
+                  href: resilience-client-app.md
+                - name: 디먼 애플리케이션
+                  href: resilience-daemon-app.md
         - name: Azure에서 사용되는 인증 기관
           href: certificate-authorities.md
     - name: 배포 가이드

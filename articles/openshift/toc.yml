@@ -22,6 +22,12 @@
           href: howto-create-private-cluster-4x.md
         - name: DNS 전달 구성
           href: dns-forwarding.md
+    - name: Storage
+      items:
+        - name: Azure Files Storageclass 만들기
+          href: howto-create-a-storageclass.md
+        - name: 기본 제공 컨테이너 레지스트리 사용
+          href: built-in-container-registry.md
     - name: 보안 및 인증
       items:
         - name: Azure Active Directory 인증 구성(CLI)

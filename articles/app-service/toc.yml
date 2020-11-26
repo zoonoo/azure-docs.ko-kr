@@ -11,9 +11,9 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: .NET Core
+    - name: ASP.NET Core
       href: quickstart-dotnetcore.md
-    - name: .NET Framework
+    - name: ASP.NET
       href: quickstart-dotnet-framework.md
     - name: Node.js
       href: quickstart-nodejs.md
@@ -52,9 +52,9 @@
           href: scenario-secure-app-clean-up-resources.md
     - name: DB를 사용한 앱
       items:
-        - name: SQL DB를 사용한 .NET Core
+        - name: SQL DB를 사용한 ASP.NET Core
           href: tutorial-dotnetcore-sqldb-app.md
-        - name: SQL DB를 사용하는 .NET Framework
+        - name: SQL DB를 사용한 ASP.NET
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: MySQL을 사용하는 PHP
           href: tutorial-php-mysql-app.md
