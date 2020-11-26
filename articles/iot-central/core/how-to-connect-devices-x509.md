@@ -8,22 +8,22 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 33d837f63fca2062ec930fcf0d64ee01ea822c99
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: d36cf2344891bb70ab5499e77699b111429a936b
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989533"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121838"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>IoT Central 응용 프로그램용 Node.js 장치 SDK를 사용 하 여 x.509 인증서를 사용 하 여 장치를 연결 하는 방법
 
-IoT Central는 SAS (공유 액세스 서명) 및 x.509 인증서를 모두 지원 하 여 장치와 응용 프로그램 간의 통신을 보호 합니다. [클라이언트 응용 프로그램을 만들어 Azure IoT Central 응용 프로그램에 연결](./tutorial-connect-device-nodejs.md) 자습서에서는 SAS를 사용 합니다. 이 문서에서는 x.509를 사용 하도록 코드 샘플을 수정 하는 방법에 대해 알아봅니다.  X.509 인증서는 프로덕션 환경에서 권장 됩니다. 자세한 내용은 [Azure IoT Central에 연결](./concepts-get-connected.md)을 참조 하세요.
+IoT Central는 SAS (공유 액세스 서명) 및 x.509 인증서를 모두 지원 하 여 장치와 응용 프로그램 간의 통신을 보호 합니다. [클라이언트 응용 프로그램을 만들어 Azure IoT Central 응용 프로그램에 연결](./tutorial-connect-device.md) 자습서에서는 SAS를 사용 합니다. 이 문서에서는 x.509를 사용 하도록 코드 샘플을 수정 하는 방법에 대해 알아봅니다.  X.509 인증서는 프로덕션 환경에서 권장 됩니다. 자세한 내용은 [Azure IoT Central에 연결](./concepts-get-connected.md)을 참조 하세요.
 
 이 문서에서는 일반적으로 프로덕션 환경에서 사용 되는 x.509 [등록](how-to-connect-devices-x509.md#use-a-group-enrollment) 를 사용 하는 두 가지 방법을 보여 주고 [개별 등록](how-to-connect-devices-x509.md#use-an-individual-enrollment) 는 테스트에 유용 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-- [클라이언트 응용 프로그램을 만들고 Azure IoT Central 응용 프로그램 (Node.js) 자습서에 연결](./tutorial-connect-device-nodejs.md) 합니다.
+- [클라이언트 응용 프로그램을 만들고 Azure IoT Central 응용 프로그램 (JavaScript) 자습서에 연결](./tutorial-connect-device.md) 합니다.
 - [Git](https://git-scm.com/download/)
 - [OpenSSL](https://www.openssl.org/)를 다운로드 하 여 설치 합니다. Windows를 사용 하는 경우 [SourceForge의 OpenSSL 페이지](https://sourceforge.net/projects/openssl/)에서 이진 파일을 사용할 수 있습니다.
 
@@ -97,7 +97,7 @@ filename | 내용
 
 ## <a name="run-sample-device-code"></a>샘플 장치 코드 실행
 
-1. **simple_thermostat.js** 응용 프로그램을 포함 하는 **sampleDevice01_key. pem** 및 **sampleDevice01_cert** 를 _azure-iot-sdk-노드/장치/샘플/a p i_ 폴더에 복사 합니다. [장치 연결 (Node.js) 자습서](./tutorial-connect-device-nodejs.md)를 완료할 때이 응용 프로그램을 사용 했습니다.
+1. **simple_thermostat.js** 응용 프로그램을 포함 하는 **sampleDevice01_key. pem** 및 **sampleDevice01_cert** 를 _azure-iot-sdk-노드/장치/샘플/a p i_ 폴더에 복사 합니다. [장치 연결 (JavaScript) 자습서](./tutorial-connect-device.md)를 완료할 때이 응용 프로그램을 사용 했습니다.
 
 1. **simple_thermostat.js** 응용 프로그램이 포함 된 _azure-iot-sdk-node/device/samples/pnp_ 폴더로 이동 하 고 다음 명령을 실행 하 여 x.509 패키지를 설치 합니다.
 
@@ -149,7 +149,7 @@ filename | 내용
     ```
 
     > [!TIP]
-    > [Azure IoT Central 응용 프로그램에 클라이언트 응용 프로그램 만들기 및 연결](./tutorial-connect-device-nodejs.md) 자습서를 완료할 때 다른 필수 환경 변수를 설정 합니다.
+    > [Azure IoT Central 응용 프로그램에 클라이언트 응용 프로그램 만들기 및 연결](./tutorial-connect-device.md) 자습서를 완료할 때 다른 필수 환경 변수를 설정 합니다.
 
 1. 스크립트를 실행 하 고 장치가 성공적으로 프로 비전 되었는지 확인 합니다.
 
@@ -197,7 +197,7 @@ filename | 내용
 
 ## <a name="run-a-sample-individual-enrollment-device"></a>샘플 개별 등록 장치 실행
 
-1. **simple_thermostat.js** 응용 프로그램을 포함 하는 _mytestselfcertprimary_key. pem_ 및 _mytestselfcertprimary_cert_ 를 _azure-iot-sdk-노드/장치/샘플/a p i_ 폴더에 복사 합니다. [장치 연결 (Node.js) 자습서](./tutorial-connect-device-nodejs.md)를 완료할 때이 응용 프로그램을 사용 했습니다.
+1. **simple_thermostat.js** 응용 프로그램을 포함 하는 _mytestselfcertprimary_key. pem_ 및 _mytestselfcertprimary_cert_ 를 _azure-iot-sdk-노드/장치/샘플/a p i_ 폴더에 복사 합니다. [장치 연결 (JavaScript) 자습서](./tutorial-connect-device.md)를 완료할 때이 응용 프로그램을 사용 했습니다.
 
 1. 에서 사용 하는 환경 변수를 다음과 같이 수정 합니다.
 

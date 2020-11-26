@@ -7,12 +7,12 @@ ms.date: 05/14/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 66f0846ab8fcfc316c4b40ad9e51b402a37e874d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1fb17d56c546511fee291f30b103a5310c8015cc
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122912"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122277"
 ---
 # <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>IoT Central 응용 프로그램에 연결 된 장치의 전반적인 상태를 모니터링 합니다.
 
@@ -31,11 +31,11 @@ ms.locfileid: "92122912"
 
 ## <a name="view-metrics-in-the-azure-portal"></a>Azure Portal에서 메트릭 보기
 
-다음 단계에서는 일부 [연결 된 장치](./tutorial-connect-device-nodejs.md)를 포함 하는 [IoT Central 응용 프로그램이](./quick-deploy-iot-central.md) 있다고 가정 합니다.
+다음 단계에서는 일부 [연결 된 장치](./tutorial-connect-device.md)를 포함 하는 [IoT Central 응용 프로그램이](./quick-deploy-iot-central.md) 있다고 가정 합니다.
 
 포털에서 IoT Central 메트릭을 보려면 다음을 수행 합니다.
 
-1. 포털에서 IoT Central 응용 프로그램 리소스로 이동 합니다. 기본적으로 IoT Central 리소스는 **Iotc**라는 리소스 그룹에 있습니다.
+1. 포털에서 IoT Central 응용 프로그램 리소스로 이동 합니다. 기본적으로 IoT Central 리소스는 **Iotc** 라는 리소스 그룹에 있습니다.
 1. 응용 프로그램의 메트릭에 따라 차트를 만들려면 **모니터링** 섹션에서 **메트릭** 을 선택 합니다.
 
 ![Azure Metrics](media/howto-monitor-application-health/metrics.png)
