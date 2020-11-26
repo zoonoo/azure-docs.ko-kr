@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 8a1c789759f1119a6170fffc2c70874cd9a32fde
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: e0a77e1e4757c8951756c3e41479628c293dfd8f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919688"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174835"
 ---
 # <a name="known-issues-application-provisioning"></a>알려진 문제: 응용 프로그램 프로 비전
 앱 프로 비전을 사용 하는 경우 알고 있어야 하는 알려진 문제입니다. UserVoice의 응용 프로그램 프로 비전 서비스에 대 한 피드백을 제공할 수 있습니다. [AZURE AD 응용 프로그램 프로 비전 uservoice](https://aka.ms/appprovisioningfeaturerequest)를 참조 하세요. 서비스를 개선할 수 있도록 UserVoice를 면밀 하 게 감시 합니다. 
@@ -28,7 +28,7 @@ ms.locfileid: "94919688"
 
 **연결 테스트가 완료 된 후에는 저장할 수 없습니다.**
 
-연결을 성공적으로 테스트할 수 있지만 저장할 수 없는 경우 자격 증명에 대해 허용 되는 저장소 제한을 초과 했습니다. 자세히 알아보려면 [관리자 자격 증명 저장 문제](application-provisioning-config-problem-storage-limit.md)를 참조 하세요.
+연결을 성공적으로 테스트할 수 있지만 저장할 수 없는 경우 자격 증명에 대해 허용 되는 저장소 제한을 초과 했습니다. 자세히 알아보려면 [관리자 자격 증명 저장 문제](./user-provisioning.md)를 참조 하세요.
 
 **저장할 수 없음**
 

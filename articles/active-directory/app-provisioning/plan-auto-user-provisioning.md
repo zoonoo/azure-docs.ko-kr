@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 010e2a206ef08677651572c274cfc38fd516ecc9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e741bd6c87ea32b0d92b1dd53112a1bed3e4cd38
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041123"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174920"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
 
@@ -34,13 +34,13 @@ Azure Active Directory (Azure AD) 자동 사용자 프로 비전은 비즈니스
 
 자동 사용자 프로 비전을 사용 하는 경우의 주요 이점은 다음과 같습니다.
 
-* **생산성 향상** . 단일 사용자 프로비저닝 관리 인터페이스를 사용 하 여 SaaS 응용 프로그램에서 사용자 id를 관리할 수 있습니다. 이 인터페이스에는 단일 프로 비전 정책 집합이 있습니다.
+* **생산성 향상**. 단일 사용자 프로비저닝 관리 인터페이스를 사용 하 여 SaaS 응용 프로그램에서 사용자 id를 관리할 수 있습니다. 이 인터페이스에는 단일 프로 비전 정책 집합이 있습니다.
 
 * **위험을 관리** 합니다. 역할 및/또는 액세스를 정의 하는 직원 상태 또는 그룹 멤버 자격에 따라 변경 내용을 자동화 하 여 보안을 강화할 수 있습니다.
 
-* **주소 규정 준수 및 거 버 넌 스** . Azure AD는 모든 사용자 프로 비전 요청에 대해 기본 감사 로그를 지원 합니다. 요청은 원본 및 대상 시스템에서 실행 됩니다. 이를 통해 단일 화면에서 응용 프로그램에 액세스할 수 있는 사용자를 추적할 수 있습니다.
+* **주소 규정 준수 및 거 버 넌 스**. Azure AD는 모든 사용자 프로 비전 요청에 대해 기본 감사 로그를 지원 합니다. 요청은 원본 및 대상 시스템에서 실행 됩니다. 이를 통해 단일 화면에서 응용 프로그램에 액세스할 수 있는 사용자를 추적할 수 있습니다.
 
-* **비용 절감** . 자동 사용자 프로 비전은 수동 프로 비전과 관련 된 비효율성 및 인간 오류를 방지 하 여 비용을 절감 합니다. 사용자 지정 개발 된 사용자 프로 비전 솔루션, 스크립트 및 감사 로그의 필요성을 줄여 줍니다.
+* **비용 절감**. 자동 사용자 프로 비전은 수동 프로 비전과 관련 된 비효율성 및 인간 오류를 방지 하 여 비용을 절감 합니다. 사용자 지정 개발 된 사용자 프로 비전 솔루션, 스크립트 및 감사 로그의 필요성을 줄여 줍니다.
 
 ### <a name="licensing"></a>라이선싱
 
@@ -83,7 +83,7 @@ Azure AD 프로 비전 서비스는 각 응용 프로그램 공급 업체에서 
 
 이 예에서는 사용자 및 또는 그룹이 온-프레미스 디렉터리에 연결 된 HR 데이터베이스에 생성 됩니다. Azure AD 프로 비전 서비스는 대상 SaaS 응용 프로그램에 대 한 자동 사용자 프로 비전을 관리 합니다.
 
- ![사용자 프로비저닝](./media/plan-auto-user-provisioning/hybridprovisioning.png)
+ ![사용자 프로 비전](./media/plan-auto-user-provisioning/hybridprovisioning.png)
 
 **워크플로 설명:**
 
@@ -157,7 +157,7 @@ Azure AD 포털을 사용 하 여 프로 비전을 지 원하는 모든 응용 �
 
 그렇지 않은 경우 다음 단계를 수행 합니다.
 
-1. 사전 통합 된 사용자 프로 비전 커넥터에 대 한 [요청을 만듭니다](../azuread-dev/howto-app-gallery-listing.md) . Microsoft 팀은 SCIM을 지 원하는 경우 사용자와 응용 프로그램 개발자와 협력 하 여 응용 프로그램을 플랫폼에 등록 합니다.
+1. 사전 통합 된 사용자 프로 비전 커넥터에 대 한 [요청을 만듭니다](../develop/v2-howto-app-gallery-listing.md) . Microsoft 팀은 SCIM을 지 원하는 경우 사용자와 응용 프로그램 개발자와 협력 하 여 응용 프로그램을 플랫폼에 등록 합니다.
 
 1. 앱에 대 한 [Byoa SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 일반 사용자 프로 비전 지원을 사용 합니다. 이는 사전 통합 된 프로 비전 커넥터 없이 사용자를 앱에 프로 비전 하기 위해 Azure AD에 대 한 요구 사항입니다.
 
@@ -300,11 +300,11 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로 비
 
 * [응용 프로그램에 프로 비전 하기 위해 온-프레미스 Active Directory에서 Azure AD로 특성 동기화](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
 
-* [사용자가 Azure Active Directory 갤러리 애플리케이션에 프로비전을 구성하는 동안 관리자 자격 증명을 저장하는 문제](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
+* [사용자가 Azure Active Directory 갤러리 애플리케이션에 프로비전을 구성하는 동안 관리자 자격 증명을 저장하는 문제](./user-provisioning.md)
 
 * [사용자가 Azure AD 갤러리 애플리케이션에 프로비전되지 않음](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
 
-* [Azure AD 갤러리 애플리케이션에 잘못된 사용자 집합이 프로비전됨](../app-provisioning/application-provisioning-config-problem-wrong-users-provisioned.md)
+* [Azure AD 갤러리 애플리케이션에 잘못된 사용자 집합이 프로비전됨](../manage-apps/add-application-portal-assign-users.md)
 
 ### <a name="helpful-documentation"></a>유용한 설명서
 

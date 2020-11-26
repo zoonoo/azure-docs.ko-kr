@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 21307deb509d0735e4367f2b41603086f301bdeb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 51a2facfdaccc6cb29264873e9ffd60fc48735da
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533534"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174665"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory 응용 프로그램 프로 비전: 새로운 기능
 
@@ -44,7 +44,7 @@ Azure Active Directory 응용 프로그램 프로 비전 설명서의 새로운 
 
 ### <a name="new-articles"></a>새 문서
 
-- [문서의 새로운 기능](whats-new-docs.md)
+- [Docs의 새로운 기능](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>업데이트된 문서
 - [격리 상태의 응용 프로그램 프로 비전](application-provisioning-quarantine-status.md)
@@ -59,7 +59,7 @@ Azure Active Directory 응용 프로그램 프로 비전 설명서의 새로운 
 
 
 ### <a name="updated-articles"></a>업데이트된 문서
-- [Microsoft Graph Api를 사용 하 여 프로 비전 구성](application-provisioning-configure-api.md)
+- [Microsoft Graph Api를 사용 하 여 프로 비전 구성](/graph/application-provisioning-configure-api)
 - [Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법](application-provisioning-config-problem-scim-compatibility.md)
 
 ## <a name="july-2020"></a>2020년 7월

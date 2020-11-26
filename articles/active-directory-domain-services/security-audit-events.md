@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: b9656b62e2c689d0993fb16c1f1d66b14d3430c6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b4fb5c1dcb2bb34b472c2a3eda88ca4c219303d0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967735"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175171"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 보안 감사 사용
 
@@ -49,10 +49,10 @@ Azure Portal를 사용 하 여 Azure AD DS 보안 감사 이벤트를 사용 하
 > [!IMPORTANT]
 > Azure AD DS 보안 감사는 소급 되지 않습니다. 과거에는 이벤트를 검색 하거나 재생할 수 없습니다. Azure AD DS는 보안 감사를 사용 하도록 설정한 후에 발생 하는 이벤트만 보낼 수 있습니다.
 
-1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
-1. Azure Portal 맨 위에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+1. Azure Portal 맨 위에서 **Azure AD Domain Services** 를 검색 하 고 선택 합니다. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
 1. Azure AD DS 창의 왼쪽에서 **진단 설정** 을 선택 합니다.
-1. 진단이 기본적으로 구성 되지 않습니다. 시작 하려면 **진단 설정 추가**를 선택 합니다.
+1. 진단이 기본적으로 구성 되지 않습니다. 시작 하려면 **진단 설정 추가** 를 선택 합니다.
 
     ![Azure AD Domain Services에 대 한 진단 설정 추가](./media/security-audit-events/add-diagnostic-settings.png)
 
@@ -63,15 +63,15 @@ Azure Portal를 사용 하 여 Azure AD DS 보안 감사 이벤트를 사용 하
     ![캡처할 감사 이벤트의 필수 대상과 유형을 사용 하도록 설정 합니다.](./media/security-audit-events/diagnostic-settings-page.png)
 
     * **Azure storage**
-        * **저장소 계정에 보관**을 선택한 다음 **구성**을 선택 합니다.
+        * **저장소 계정에 보관** 을 선택한 다음 **구성** 을 선택 합니다.
         * 보안 감사 이벤트를 보관 하는 데 사용 하려는 **구독** 및 **저장소 계정을** 선택 합니다.
-        * 준비가 되 면 **확인**을 선택 합니다.
+        * 준비가 되 면 **확인** 을 선택 합니다.
     * **Azure 이벤트 허브**
-        * **이벤트 허브로 스트림**을 선택한 다음 **구성**을 선택 합니다.
-        * **구독** 및 **이벤트 허브 네임 스페이스**를 선택 합니다. 필요한 경우 **이벤트 허브 이름** , **이벤트 허브 정책 이름**을 차례로 선택 합니다.
-        * 준비가 되 면 **확인**을 선택 합니다.
+        * **이벤트 허브로 스트림** 을 선택한 다음 **구성** 을 선택 합니다.
+        * **구독** 및 **이벤트 허브 네임 스페이스** 를 선택 합니다. 필요한 경우 **이벤트 허브 이름** , **이벤트 허브 정책 이름** 을 차례로 선택 합니다.
+        * 준비가 되 면 **확인** 을 선택 합니다.
     * **Azure 로그 분석 작업 영역**
-        * **Log Analytics 보내기**를 선택 하 고 보안 감사 이벤트를 저장 하는 데 사용 하려는 **구독** 및 **Log Analytics 작업 영역** 을 선택 합니다.
+        * **Log Analytics 보내기** 를 선택 하 고 보안 감사 이벤트를 저장 하는 데 사용 하려는 **구독** 및 **Log Analytics 작업 영역** 을 선택 합니다.
 
 1. 특정 대상 리소스에 포함 하려는 로그 범주를 선택 합니다. Azure Storage 계정에 감사 이벤트를 보내는 경우 데이터를 보존할 일 수를 정의 하는 보존 정책을 구성할 수도 있습니다. 기본 설정인 *0* 은 모든 데이터를 유지 하 고 일정 시간 후에 이벤트를 회전 하지 않습니다.
 
@@ -95,14 +95,14 @@ Azure PowerShell를 사용 하 여 Azure AD DS 보안 감사 이벤트를 사용
 1. 보안 감사 이벤트에 대 한 대상 리소스를 만듭니다.
 
     * **Azure storage**  -  [Azure PowerShell를 사용 하 여 저장소 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-powershell)
-    * **Azure 이벤트 허브**  -  [Azure PowerShell를 사용 하 여 이벤트 허브를 만듭니다](../event-hubs/event-hubs-quickstart-powershell.md). [AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) cmdlet을 사용 하 여 이벤트 허브 *네임 스페이스*에 Azure AD DS 사용 권한을 부여 하는 권한 부여 규칙을 만들어야 할 수도 있습니다. 권한 부여 규칙에는 **관리**, **수신**및 **전송** 권한이 포함 되어야 합니다.
+    * **Azure 이벤트 허브**  -  [Azure PowerShell를 사용 하 여 이벤트 허브를 만듭니다](../event-hubs/event-hubs-quickstart-powershell.md). [AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) cmdlet을 사용 하 여 이벤트 허브 *네임 스페이스* 에 Azure AD DS 사용 권한을 부여 하는 권한 부여 규칙을 만들어야 할 수도 있습니다. 권한 부여 규칙에는 **관리**, **수신** 및 **전송** 권한이 포함 되어야 합니다.
 
         > [!IMPORTANT]
         > 이벤트 허브 자체가 아니라 event hubs 네임 스페이스에 대 한 권한 부여 규칙을 설정 했는지 확인 합니다.
 
     * **Azure 로그 분석 작업 영역**  -  [Azure PowerShell를 사용 하 여 Log Analytics 작업 영역을 만듭니다](../azure-monitor/platform/powershell-workspace-configuration.md).
 
-1. [AzResource](/powershell/module/Az.Resources/Get-AzResource) cmdlet을 사용 하 여 Azure AD DS 관리 되는 도메인에 대 한 리소스 ID를 가져옵니다. $Aadds 라는 변수를 만듭니다 *. * 값을 보유할 ResourceId:
+1. [AzResource](/powershell/module/Az.Resources/Get-AzResource) cmdlet을 사용 하 여 Azure AD DS 관리 되는 도메인에 대 한 리소스 ID를 가져옵니다. $Aadds 라는 변수를 만듭니다 *.* 값을 보유할 ResourceId:
 
     ```azurepowershell
     $aadds = Get-AzResource -name aaddsDomainName
@@ -141,7 +141,7 @@ Azure PowerShell를 사용 하 여 Azure AD DS 보안 감사 이벤트를 사용
 로그 분석 작업 영역을 사용 하면 Azure Monitor 및 Kusto 쿼리 언어를 사용 하 여 보안 감사 이벤트를 보고 분석할 수 있습니다. 이 쿼리 언어는 읽기 쉬운 구문으로 전원 분석 기능을 boasts 하는 읽기 전용 사용을 위해 설계 되었습니다. Kusto 쿼리 언어를 시작 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
 * [Azure Monitor 설명서](../azure-monitor/index.yml)
-* [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/get-started-portal.md)
+* [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/log-analytics-tutorial.md)
 * [Azure Monitor에서 로그 쿼리 시작](../azure-monitor/log-query/get-started-queries.md)
 * [Log Analytics 데이터 대시보드 만들기 및 공유](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

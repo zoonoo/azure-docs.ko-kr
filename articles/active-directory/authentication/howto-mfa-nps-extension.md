@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 576b9c11f167f7c0d5fcb06e484347c643589a66
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: abdfbc92af3617a7a13a2e4f603de9c1cc3959af
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839066"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174333"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>기존 NPS (네트워크 정책 서버) 인프라를 Azure AD Multi-Factor Authentication와 통합
 
@@ -72,7 +72,7 @@ NPS 확장은 기존 인프라와 함께 사용할 수 있습니다. 시작하�
 
 ### <a name="licenses"></a>라이선스
 
-Azure ad Multi-Factor Authentication의 NPS 확장은 [AZURE ad Multi-Factor Authentication에 대 한 라이선스가](multi-factor-authentication.md)있는 고객에 게 제공 됩니다. 사용자 단위 또는 인증 라이선스와 같은 Azure AD Multi-Factor Authentication의 사용량 기반 라이선스는 NPS 확장과 호환 되지 않습니다.
+Azure ad Multi-Factor Authentication의 NPS 확장은 [AZURE ad Multi-Factor Authentication에 대 한 라이선스가](./concept-mfa-howitworks.md)있는 고객에 게 제공 됩니다. 사용자 단위 또는 인증 라이선스와 같은 Azure AD Multi-Factor Authentication의 사용량 기반 라이선스는 NPS 확장과 호환 되지 않습니다.
 
 ### <a name="software"></a>소프트웨어
 

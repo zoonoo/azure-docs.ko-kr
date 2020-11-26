@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 224ccaeace91288171db42d2b8b8cf8c21a352e0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 99da9b787bfe06bece8b8dafdafc257336dddf63
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652521"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176191"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
 
@@ -44,7 +44,7 @@ ms.locfileid: "94652521"
 
 사용자가 통과 인증을 통해 로그인할 수 없는 경우 Azure AD 로그인 화면에서 다음과 같은 사용자 관련 오류 메시지 중 하나가 표시될 수 있습니다. 
 
-|오류|설명|해결 방법
+|오류|Description|해결 방법
 | --- | --- | ---
 |AADSTS80001|Active Directory에 연결할 수 없음|에이전트 서버가 자신의 암호에 대한 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트의 멤버이고 Active Directory에 연결할 수 있는지 확인합니다.  
 |AADSTS8002|Active Directory에 연결하는 동안 시간 초과 발생|Active Directory를 사용할 수 있고 에이전트의 요청에 응답하는지 확인합니다.
@@ -72,7 +72,7 @@ ms.locfileid: "94652521"
  ``` 
 4. 자격 증명을 입력 하 라는 메시지가 표시 되 면에 로그인 하는 데 사용 되는 것과 동일한 사용자 이름 및 암호를 입력 https://login.microsoftonline.com) 합니다.
 
-동일한 사용자 이름/암호 오류가 표시 되 면 통과 인증 에이전트가 제대로 작동 하 고 온-프레미스 UPN을 라우팅할 수 없는 문제일 수 있습니다. 자세한 내용은 [대체 로그인 ID 구성]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More)을 참조 하세요.
+동일한 사용자 이름/암호 오류가 표시 되 면 통과 인증 에이전트가 제대로 작동 하 고 온-프레미스 UPN을 라우팅할 수 없는 문제일 수 있습니다. 자세한 내용은 [대체 로그인 ID 구성](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)을 참조 하세요.
 
 > [!IMPORTANT]
 > Azure AD Connect 서버가 도메인에 가입 되지 않은 경우 [Azure AD Connect: 필수 조건](./how-to-connect-install-prerequisites.md#installation-prerequisites)에 설명 된 요구 사항으로 인해 잘못 된 사용자 이름/암호 문제가 발생 합니다.

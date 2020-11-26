@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 96f1e3983f3c093cdf643e7674221b04631eeabd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ddff11caba9d83e9ed21748fd50a3480d866d8a9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965627"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174567"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory에서 인증서 기반 인증 시작
 
@@ -31,7 +31,7 @@ ms.locfileid: "91965627"
 항목 내용:
 
 - Office 365 Enterprise, Business, Education 및 미국 정보 계획의 테넌트 사용자를 위해 인증서 기반 인증을 구성하고 활용하는 과정을 설명합니다. 이 기능은 Office 365 중국, 미국 국방부 및 연방 정부 계획에서 미리 보기 상태로 제공됩니다.
-- [PKI(공개 키 인프라)](https://go.microsoft.com/fwlink/?linkid=841737) 및 [AD FS](../hybrid/how-to-connect-fed-whatis.md)가 이미 구성되어 있다고 가정합니다.
+- [PKI(공개 키 인프라)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)) 및 [AD FS](../hybrid/how-to-connect-fed-whatis.md)가 이미 구성되어 있다고 가정합니다.
 
 ## <a name="requirements"></a>요구 사항
 
@@ -158,7 +158,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 추가 인스턴트 해지가 필요하면(예: 사용자가 디바이스를 분실한 경우) 사용자의 권한 부여 토큰이 무효화될 수 있습니다. 권한 부여 토큰을 무효화하려면 Windows PowerShell을 사용하여 이 특정 사용자에 대한 **StsRefreshTokenValidFrom** 필드를 설정합니다. 액세스 권한을 해지하려는 각 사용자에 대한 **StsRefreshTokenValidFrom** 필드를 업데이트해야 합니다.
 
-해지가 지속되도록 하려면 **개시 날짜**를 **StsRefreshTokenValidFrom**으로 설정한 값 이후의 날짜로 설정하고 문제의 인증서가 CRL에 있는지 확인해야 합니다.
+해지가 지속되도록 하려면 **개시 날짜** 를 **StsRefreshTokenValidFrom** 으로 설정한 값 이후의 날짜로 설정하고 문제의 인증서가 CRL에 있는지 확인해야 합니다.
 
 다음 단계에서는 **StsRefreshTokenValidFrom** 필드를 설정하여 권한 부여 토큰을 업데이트 및 무효화하기 위한 프로세스를 설명합니다.
 
@@ -190,7 +190,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 ### <a name="testing-your-certificate"></a>인증서 테스트
 
-첫 번째 구성 테스트로 **디바이스의 브라우저**를 사용하여 [Outlook Web Access](https://outlook.office365.com) 또는 [SharePoint Online](https://microsoft.sharepoint.com)에 로그인을 시도해야 합니다.
+첫 번째 구성 테스트로 **디바이스의 브라우저** 를 사용하여 [Outlook Web Access](https://outlook.office365.com) 또는 [SharePoint Online](https://microsoft.sharepoint.com)에 로그인을 시도해야 합니다.
 
 로그인에 성공했으면 다음을 의미합니다.
 

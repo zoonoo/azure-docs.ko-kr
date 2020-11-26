@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
-ms.openlocfilehash: 9736e1b71f5e129989aba9a045581bae8a1c5f93
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9815237617566eda4759ecc31718786b6cb2cac8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997548"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176055"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Azure AD 애플리케이션 프록시 배포 계획
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 
 다음 섹션에서는 효율적인 배포 환경에 맞게 설정 하는 주요 계획 요소를 광범위 하 게 보여 줍니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 
 구현을 시작 하기 전에 다음 필수 구성 요소를 충족 해야 합니다. 이러한 필수 구성 요소를 포함 하 여 환경을 설정 하는 방법에 대 한 자세한 내용은이 [자습서](application-proxy-add-on-premises-application.md)에서 확인할 수 있습니다.
 
@@ -323,7 +323,7 @@ Azure AD는 [감사 로그 및 보고서](../reports-monitoring/concept-provisio
 * [내 앱에 Single Sign-On 구성](application-proxy-config-sso-how-to.md)
 * [관리 포털에서 앱을 만드는 문제](application-proxy-config-problem.md)
 * [Kerberos 제한된 위임 구성](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [PingAccess를 사용하여 구성](/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide)
+* [PingAccess를 사용하여 구성](./application-proxy-ping-access-publishing-guide.md)
 * [회사 애플리케이션에 액세스할 수 없음 오류](application-proxy-sign-in-bad-gateway-timeout-error.md)
 * [애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생](application-proxy-connector-installation-problem.md)
 * [로그인 문제](application-sign-in-problem-on-premises-application-proxy.md)

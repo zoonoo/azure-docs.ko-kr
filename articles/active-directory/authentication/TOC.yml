@@ -244,7 +244,7 @@
     - name: Microsoft Graph REST API 베타
       href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
     - name: 서비스 제한 및 제한 사항
-      href: ../users-groups-roles/directory-service-limits-restrictions.md
+      href: ../enterprise-users/directory-service-limits-restrictions.md
 - name: 리소스
   items:
     - name: Azure 피드백 포럼

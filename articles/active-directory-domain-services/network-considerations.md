@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 4ced7331daa116e237d9628d12d16a67687db5b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 43731f84066943b991b566ff5936e4288aa669eb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968092"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175222"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 가상 네트워크 디자인 고려 사항 및 구성 옵션
 
@@ -104,15 +104,15 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 
 ## <a name="network-security-groups-and-required-ports"></a>네트워크 보안 그룹 및 필수 포트
 
-[NSG (네트워크 보안 그룹)](../virtual-network/security-overview.md) 에는 Azure virtual network의 트래픽에 대 한 네트워크 트래픽을 허용 하거나 거부 하는 규칙의 목록이 포함 되어 있습니다. 네트워크 보안 그룹은 서비스에서 인증 및 관리 기능을 제공할 수 있도록 하는 일련의 규칙을 포함 하는 관리 되는 도메인을 배포할 때 만들어집니다. 이 기본 네트워크 보안 그룹은 관리 되는 도메인이 배포 된 가상 네트워크 서브넷과 연결 됩니다.
+[NSG(네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md)에는 Azure 가상 네트워크의 트래픽에 대한 네트워크 트래픽을 허용하거나 거부하는 규칙 목록이 포함되어 있습니다. 네트워크 보안 그룹은 서비스에서 인증 및 관리 기능을 제공할 수 있도록 하는 일련의 규칙을 포함 하는 관리 되는 도메인을 배포할 때 만들어집니다. 이 기본 네트워크 보안 그룹은 관리 되는 도메인이 배포 된 가상 네트워크 서브넷과 연결 됩니다.
 
 다음 네트워크 보안 그룹 규칙은 관리 되는 도메인에서 인증 및 관리 서비스를 제공 하는 데 필요 합니다. 관리 되는 도메인이 배포 된 가상 네트워크 서브넷에 대해 이러한 네트워크 보안 그룹 규칙을 편집 하거나 삭제 하지 마세요.
 
 | 포트 번호 | 프로토콜 | 원본                             | 대상 | 작업 | 필수 | 목적 |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | 모두         | Allow  | 예      | Azure AD 테 넌 트와 동기화. |
-| 3389        | TCP      | CorpNetSaw                         | 모두         | Allow  | 예      | 도메인 관리. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | 모두         | Allow  | 예      | 도메인 관리. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | 모두         | Allow  | Yes      | Azure AD 테 넌 트와 동기화. |
+| 3389        | TCP      | CorpNetSaw                         | 모두         | Allow  | Yes      | 도메인 관리. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | 모두         | Allow  | Yes      | 도메인 관리. |
 
 이러한 규칙을 적용하는 Azure 표준 부하 분산 장치가 생성됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호하며, 관리되는 도메인이 제대로 작동하는 데 꼭 필요합니다. 이 네트워크 보안 그룹을 삭제 하지 마세요. 부하 분산 장치가 없으면 제대로 작동 하지 않습니다.
 
@@ -123,7 +123,7 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 >
 > 보안 LDAP를 사용 하는 경우 필요한 경우 외부 트래픽을 허용 하는 데 필요한 TCP 포트 636 규칙을 추가할 수 있습니다. 이 규칙을 추가 해도 네트워크 보안 그룹 규칙은 지원 되지 않는 상태가 되지 않습니다. 자세한 내용은 [인터넷을 통한 보안 LDAP 액세스 잠금](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet) 을 참조 하세요.
 >
-> *Allowvnetinbound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *Allowvnetinbound*, *allowinternetoutbound*및 *DenyAllOutBound* 에 대 한 기본 규칙이 네트워크 보안 그룹에도 존재 합니다. 이러한 기본 규칙을 편집 하거나 삭제 하지 마십시오.
+> *Allowvnetinbound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *Allowvnetinbound*, *allowinternetoutbound* 및 *DenyAllOutBound* 에 대 한 기본 규칙이 네트워크 보안 그룹에도 존재 합니다. 이러한 기본 규칙을 편집 하거나 삭제 하지 마십시오.
 >
 > Azure AD DS에서 도메인을 업데이트 하 고 관리 하는 것을 차단 하는 부적절 하 게 구성 된 네트워크 보안 그룹 및/또는 사용자 정의 경로 테이블이 적용 된 배포에는 Azure SLA가 적용 되지 않습니다.
 
@@ -140,7 +140,7 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 * 기본 네트워크 보안 그룹 규칙은 *CorpNetSaw* 서비스 태그를 사용 하 여 트래픽을 추가로 제한 합니다.
     * 이 서비스 태그는 원격 데스크톱을 관리 되는 도메인에 사용할 수 있도록 Microsoft 회사 네트워크의 보안 액세스 워크스테이션만 허용 합니다.
     * 관리 또는 문제 해결 시나리오와 같은 비즈니스 근거에만 액세스를 사용할 수 있습니다.
-* 이 규칙은 *Deny*로 설정할 수 있으며, 필요한 경우에만 *허용* 으로 설정 합니다. 대부분의 관리 및 모니터링 작업은 PowerShell 원격을 사용 하 여 수행 됩니다. RDP는 고급 문제 해결을 위해 Microsoft에서 관리 되는 도메인에 원격으로 연결 해야 하는 드문 경우에만 사용 됩니다.
+* 이 규칙은 *Deny* 로 설정할 수 있으며, 필요한 경우에만 *허용* 으로 설정 합니다. 대부분의 관리 및 모니터링 작업은 PowerShell 원격을 사용 하 여 수행 됩니다. RDP는 고급 문제 해결을 위해 Microsoft에서 관리 되는 도메인에 원격으로 연결 해야 하는 드문 경우에만 사용 됩니다.
 
 > [!NOTE]
 > 이 네트워크 보안 그룹 규칙을 편집 하려고 하면 포털에서 *CorpNetSaw* service 태그를 수동으로 선택할 수 없습니다. *CorpNetSaw* service 태그를 사용 하는 규칙을 수동으로 구성 하려면 Azure PowerShell 또는 Azure CLI를 사용 해야 합니다.
@@ -154,7 +154,7 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 * 관리 되는 도메인에서 PowerShell 원격을 사용 하 여 관리 작업을 수행 하는 데 사용 됩니다.
 * 이 포트에 대 한 액세스 권한이 없으면 관리 되는 도메인을 업데이트, 구성, 백업 또는 모니터링할 수 없습니다.
 * 리소스 관리자 기반 가상 네트워크를 사용 하는 관리 되는 도메인의 경우이 포트에 대 한 인바운드 액세스를 *AzureActiveDirectoryDomainServices* service 태그로 제한할 수 있습니다.
-    * 클래식 기반 가상 네트워크를 사용 하는 레거시 관리 도메인의 경우이 포트에 대 한 인바운드 액세스를 다음 원본 IP 주소 ( *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*및 *104.40.87.209*)로 제한할 수 있습니다.
+    * 클래식 기반 가상 네트워크를 사용 하는 레거시 관리 도메인의 경우이 포트에 대 한 인바운드 액세스를 다음 원본 IP 주소 ( *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18* 및 *104.40.87.209*)로 제한할 수 있습니다.
 
     > [!NOTE]
     > 2017에서는 Azure Resource Manager 네트워크의 호스트에서 Azure AD Domain Services를 사용할 수 있었습니다. 그 이후에는 Azure Resource Manager의 최신 기능을 사용 하 여 보다 안전한 서비스를 구축할 수 있었습니다. Azure Resource Manager 배포가 클래식 배포를 완전히 대체 하기 때문에 Azure AD DS 클래식 가상 네트워크 배포는 2023 년 3 월 1 일에 사용 중지 됩니다.
@@ -176,4 +176,4 @@ Azure AD DS에서 사용 하는 몇 가지 네트워크 리소스 및 연결 옵
 
 * [Azure 가상 네트워크 피어 링](../virtual-network/virtual-network-peering-overview.md)
 * [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
-* [Azure 네트워크 보안 그룹](../virtual-network/security-overview.md)
+* [Azure 네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)

@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 31c9dcaf6c6f26d28d70e3d1664665c2dbc37ce6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 48188adfc3648db76f2ca362f59de6986c7c1339
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393084"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174954"
 ---
 # <a name="how-provisioning-works"></a>프로비저닝 작동 방법
 
@@ -43,7 +43,7 @@ Azure AD 프로비저닝 서비스는 자동 프로비저닝을 위해 [SCIM 2.0
 
 ## <a name="authorization"></a>권한 부여
 
-Azure AD가 애플리케이션의 사용자 관리 API에 연결하려면 자격 증명이 필요합니다. 애플리케이션에 대해 자동 사용자 프로비저닝을 구성할 때는 유효한 자격 증명을 입력해야 합니다. 갤러리 응용 프로그램의 경우 앱 자습서를 참조 하 여 응용 프로그램에 대 한 자격 증명 유형 및 요구 사항을 찾을 수 있습니다. 비 갤러리 응용 프로그램의 경우 [Scim](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#authorization-for-provisioning-connectors-in-the-application-gallery) 설명서를 참조 하 여 자격 증명 유형 및 요구 사항을 이해할 수 있습니다. Azure Portal에서, 제공된 자격 증명을 사용하여 Azure AD에서 해당 앱의 프로비전닝 앱에 연결해 봄으로써 자격 증명을 테스트할 수 있습니다.
+Azure AD가 애플리케이션의 사용자 관리 API에 연결하려면 자격 증명이 필요합니다. 애플리케이션에 대해 자동 사용자 프로비저닝을 구성할 때는 유효한 자격 증명을 입력해야 합니다. 갤러리 응용 프로그램의 경우 앱 자습서를 참조 하 여 응용 프로그램에 대 한 자격 증명 유형 및 요구 사항을 찾을 수 있습니다. 비 갤러리 응용 프로그램의 경우 [Scim](./use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery) 설명서를 참조 하 여 자격 증명 유형 및 요구 사항을 이해할 수 있습니다. Azure Portal에서, 제공된 자격 증명을 사용하여 Azure AD에서 해당 앱의 프로비전닝 앱에 연결해 봄으로써 자격 증명을 테스트할 수 있습니다.
 
 ## <a name="mapping-attributes"></a>매핑 특성
 
@@ -51,7 +51,7 @@ Azure AD가 애플리케이션의 사용자 관리 API에 연결하려면 자격
 
 Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미리 구성된 특성 및 특성 매핑 세트가 있습니다. 일부 앱은 사용자 외에도 그룹 같은 다른 유형의 개체를 관리합니다.
 
-프로비저닝을 설정할 때는 Azure AD에서 애플리케이션으로 이동하는 사용자(또는 그룹) 속성을 정의하는 특성 매핑 및 워크플로를 검토하고 구성하는 것이 중요합니다. 두 시스템 간 사용자/그룹을 고유하게 식별하고 일치시키는 데 사용되는 일치하는 속성( **이 특성을 사용하여 개체 일치** )을 검토 및 구성하세요.
+프로비저닝을 설정할 때는 Azure AD에서 애플리케이션으로 이동하는 사용자(또는 그룹) 속성을 정의하는 특성 매핑 및 워크플로를 검토하고 구성하는 것이 중요합니다. 두 시스템 간 사용자/그룹을 고유하게 식별하고 일치시키는 데 사용되는 일치하는 속성(**이 특성을 사용하여 개체 일치**)을 검토 및 구성하세요.
 
 비즈니스 요구 사항에 따라 기본 특성 매핑을 사용자 지정할 수 있습니다. 따라서 기존의 특성 매핑을 변경 또는 삭제하거나 새 특성 매핑을 만들 수 있습니다. 자세한 내용은 [SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정](./customize-application-attributes.md)을 참조하세요.
 
@@ -133,7 +133,7 @@ ServiceNow, G Suite, Box 등의 일부 애플리케이션은 사용자 프로비
 10. 증분 주기가 끝나면 새 워터마크를 저장합니다. 이 워터마크는 후속 증분 주기의 시작점을 제공합니다.
 
 > [!NOTE]
-> 필요에 따라 [매핑](customize-application-attributes.md) 섹션의 **대상 개체 작업** 확인란을 사용하여 **만들기** , **업데이트** 또는 **삭제** 작업을 사용하지 않도록 설정할 수 있습니다. 업데이트 중에 사용자를 해제하는 논리도 “accountEnabled”와 같은 필드의 특성 매핑을 통해 제어됩니다.
+> 필요에 따라 [매핑](customize-application-attributes.md) 섹션의 **대상 개체 작업** 확인란을 사용하여 **만들기**, **업데이트** 또는 **삭제** 작업을 사용하지 않도록 설정할 수 있습니다. 업데이트 중에 사용자를 해제하는 논리도 “accountEnabled”와 같은 필드의 특성 매핑을 통해 제어됩니다.
 
 프로비저닝 서비스는 [각 애플리케이션과 관련된 자습서](../saas-apps/tutorial-list.md)에 정의된 간격마다 연속 증분 주기를 무기한 실행합니다. 증분 주기는 다음과 같은 이벤트 중 하나가 발생할 때까지 실행됩니다.
 

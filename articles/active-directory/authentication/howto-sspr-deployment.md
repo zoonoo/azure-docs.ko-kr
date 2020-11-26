@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06c37eaf63b79b171e5a21d807262cfb359d416c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994165"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173939"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Azure Active Directory 셀프 서비스 암호 재설정 배포 계획
 
@@ -123,7 +123,7 @@ Microsoft는 조직이 SSPR 및 다단계 인증을 위한 결합된 등록 환�
 
 ### <a name="engage-the-right-stakeholders"></a>올바른 관련자 참여
 
-기술 프로젝트에 오류가 발생하는 경우는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지하려면 [올바른 관련자를 참여시키고](https://aka.ms/deploymentplans) 프로젝트의 해당 관련자 역할은 관련자와 프로젝트 입력 및 책임을 문서화하여 숙지해야 합니다.
+기술 프로젝트에 오류가 발생하는 경우는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지하려면 [올바른 관련자를 참여시키고](../fundamentals/active-directory-deployment-plans.md) 프로젝트의 해당 관련자 역할은 관련자와 프로젝트 입력 및 책임을 문서화하여 숙지해야 합니다.
 
 #### <a name="required-administrator-roles"></a>필수 관리자 역할
 
@@ -325,7 +325,7 @@ Azure Portal에서 미리 빌드된 보고서를 사용하여 SSPR 성능을 측
 
 ### <a name="troubleshoot"></a>문제 해결
 
-* [셀프 서비스 암호 재설정 문제 해결](./active-directory-passwords-troubleshoot.md)을 참조하세요. 
+* [셀프 서비스 암호 재설정 문제 해결](./troubleshoot-sspr.md)을 참조하세요. 
 
 * [암호 관리 질문과 대답](./active-directory-passwords-faq.md)을 따르세요. 
 

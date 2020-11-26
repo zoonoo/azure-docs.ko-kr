@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bef201cbd14a4de0c785b5f86d534f27bfedb31
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e121a6a45ab20055591a3670152114b8d03529cf
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363711"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173997"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>셀프 서비스 암호 재설정 Azure Active Directory 사용자 환경 사용자 지정
 
@@ -56,8 +56,8 @@ SSPR (셀프 서비스 암호 재설정)는 관리자 또는 지원 센터의 �
 
 조직에서 관리자에 게 암호 재설정 요청을 알리지 않으려는 경우 다음 구성 옵션을 사용할 수 있습니다.
 
-* 사용자가 도움을 받을 수 있는 웹 URL 또는 mailto: 주소를 제공하는 고객 지원 센터 링크를 사용자 지정합니다. 이 옵션은 **암호 재설정**  >  **Customization**  >  **사용자 지정 기술 지원팀 전자 메일 또는 URL**아래에 있습니다.
-* 모든 사용자에 대해 셀프 서비스 암호 재설정을 사용 하도록 설정 합니다. 이 옵션은 **암호 재설정**  >  **속성**아래에 있습니다. 사용자가 자신의 암호를 재설정할 수 없도록 하려면 빈 그룹에 대한 액세스 범위를 지정하면 됩니다. *이 옵션은 권장 되지 않습니다.*
+* 사용자가 도움을 받을 수 있는 웹 URL 또는 mailto: 주소를 제공하는 고객 지원 센터 링크를 사용자 지정합니다. 이 옵션은 **암호 재설정**  >  **Customization**  >  **사용자 지정 기술 지원팀 전자 메일 또는 URL** 아래에 있습니다.
+* 모든 사용자에 대해 셀프 서비스 암호 재설정을 사용 하도록 설정 합니다. 이 옵션은 **암호 재설정**  >  **속성** 아래에 있습니다. 사용자가 자신의 암호를 재설정할 수 없도록 하려면 빈 그룹에 대한 액세스 범위를 지정하면 됩니다. *이 옵션은 권장 되지 않습니다.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>로그인 페이지 및 액세스 패널 사용자 지정
 
@@ -72,9 +72,9 @@ SSPR (셀프 서비스 암호 재설정)는 관리자 또는 지원 센터의 �
 
 ### <a name="directory-name"></a>디렉터리 이름
 
-사용자에 게 더 친숙 하 게 보이도록 포털 및 자동화 된 통신에서 조직 이름을 변경할 수 있습니다. Azure Portal에서 디렉터리 이름 특성을 변경 하려면 **Azure Active Directory**  >  **속성**으로 이동 합니다. 이러한 친숙 한 조직 이름 옵션은 다음 예제와 같이 자동화 된 전자 메일에서 가장 잘 표시 됩니다.
+사용자에 게 더 친숙 하 게 보이도록 포털 및 자동화 된 통신에서 조직 이름을 변경할 수 있습니다. Azure Portal에서 디렉터리 이름 특성을 변경 하려면 **Azure Active Directory**  >  **속성** 으로 이동 합니다. 이러한 친숙 한 조직 이름 옵션은 다음 예제와 같이 자동화 된 전자 메일에서 가장 잘 표시 됩니다.
 
-* 전자 메일의 이름 (예: "*CONTOSO 데모를 대신*하는 Microsoft")
+* 전자 메일의 이름 (예: "*CONTOSO 데모를 대신* 하는 Microsoft")
 * 전자 메일의 제목 줄 (예: "*CONTOSO 데모 계정 전자 메일 확인 코드*")
 
 ## <a name="customize-the-ad-fs-sign-in-page"></a>AD FS 로그인 페이지 사용자 지정
@@ -91,4 +91,4 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwor
 
 사용자 환경에서 SSPR의 사용을 이해 하려면 [AZURE AD 암호 관리에 대 한 보고 옵션](howto-sspr-reporting.md)을 참조 하세요.
 
-사용자 또는 사용자가 SSPR에 문제가 있는 경우 [셀프 서비스 암호 재설정 문제 해결](active-directory-passwords-troubleshoot.md) 을 참조 하세요.
+사용자 또는 사용자가 SSPR에 문제가 있는 경우 [셀프 서비스 암호 재설정 문제 해결](./troubleshoot-sspr.md) 을 참조 하세요.

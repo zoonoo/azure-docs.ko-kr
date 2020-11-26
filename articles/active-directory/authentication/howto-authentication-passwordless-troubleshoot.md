@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 690d4761657b8bf6e5ba63ddfbce7163584e64e2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964573"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174037"
 ---
 # <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Azure AD에서 FIDO2 보안 키 하이브리드 배포에 대 한 문제 해결 (미리 보기)
 
@@ -46,7 +46,7 @@ FIDO2 보안 키 및 온-프레미스 리소스에 대 한 하이브리드 액�
 
 Windows Hello Face는 사용자가 등록 된 장치에 대 한 최상의 환경입니다. FIDO2 보안 키는 공유 장치 또는 비즈니스용 Windows Hello 등록이 장벽에 사용 하기 위한 것입니다.
 
-Windows Hello Face에서 사용자가 FIDO2 보안 키 로그인 시나리오를 시도 하지 않는 경우 **설정 > Sign-In 옵션**에서 얼굴 등록을 제거 하 여 Hello 얼굴 로그인을 해제할 수 있습니다.
+Windows Hello Face에서 사용자가 FIDO2 보안 키 로그인 시나리오를 시도 하지 않는 경우 **설정 > Sign-In 옵션** 에서 얼굴 등록을 제거 하 여 Hello 얼굴 로그인을 해제할 수 있습니다.
 
 ### <a name="users-arent-able-to-use-fido2-security-keys-immediately-after-they-create-a-hybrid-azure-ad-joined-machine"></a>사용자는 하이브리드 Azure AD 조인 컴퓨터를 만든 직후에 FIDO2 보안 키를 사용할 수 없습니다.
 
@@ -54,7 +54,7 @@ Windows Hello Face에서 사용자가 FIDO2 보안 키 로그인 시나리오를
 
 이 동작은 도메인에 가입 된 장치에 대 한 알려진 제한 사항으로, FIDO2 보안 키에 국한 되지 않습니다.
 
-현재 상태를 확인 하려면 `dsregcmd /status` 명령을 사용 합니다. *AzureAdJoined* 및 *Domainjoined* 모두 *예*를 표시 하는지 확인 합니다.
+현재 상태를 확인 하려면 `dsregcmd /status` 명령을 사용 합니다. *AzureAdJoined* 및 *Domainjoined* 모두 *예* 를 표시 하는지 확인 합니다.
 
 ### <a name="users-are-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-a-fido2-security-key-and-receiving-a-credential-prompt"></a>FIDO2 보안 키로 로그인 하 고 자격 증명 프롬프트를 받은 후에는 사용자가 NTLM 네트워크 리소스에 대 한 SSO를 가져올 수 없습니다.
 
@@ -70,15 +70,15 @@ Windows Hello Face에서 사용자가 FIDO2 보안 키 로그인 시나리오를
 
 Windows에 로그인 하거나 Windows 10 장치에서 온-프레미스 리소스에 액세스 하는 것과 관련 된 문제를 해결 하는 데 도움이 되는 데이터를 수집 하려면 다음 단계를 완료 합니다.
 
-1. **피드백 허브** 앱을 엽니다. 앱의 왼쪽 아래에 이름이 있는지 확인 하 고 **새 피드백 항목 만들기**를 선택 합니다.
+1. **피드백 허브** 앱을 엽니다. 앱의 왼쪽 아래에 이름이 있는지 확인 하 고 **새 피드백 항목 만들기** 를 선택 합니다.
 
-    피드백 항목 형식으로 *문제*를 선택 합니다.
+    피드백 항목 형식으로 *문제* 를 선택 합니다.
 
 1. *보안 및 개인 정보* 범주를 선택 하 고 *FIDO* 하위 범주를 선택 합니다.
-1. *내 피드백과 함께 첨부 파일 및 진단을 Microsoft에 보내기*확인란을 선택/해제 합니다.
-1. *내 문제 다시 만들기*를 선택 하 고 *캡처를 시작*합니다.
+1. *내 피드백과 함께 첨부 파일 및 진단을 Microsoft에 보내기* 확인란을 선택/해제 합니다.
+1. *내 문제 다시 만들기* 를 선택 하 고 *캡처를 시작* 합니다.
 1. FIDO2 보안 키를 사용 하 여 컴퓨터를 잠그고 잠금 해제 합니다. 문제가 발생 하는 경우 다른 자격 증명을 사용 하 여 잠금을 해제 하십시오.
-1. **피드백 허브**로 돌아가서 **캡처 중지**를 선택 하 고 피드백을 제출 합니다.
+1. **피드백 허브** 로 돌아가서 **캡처 중지** 를 선택 하 고 피드백을 제출 합니다.
 1. *피드백* 페이지로 이동 하 여 *내 피드백* 탭으로 이동 합니다. 최근 제출 된 피드백을 선택 합니다.
 1. 오른쪽 위 모서리에서 *공유* 단추를 선택 하 여 피드백에 대 한 링크를 가져옵니다. 지원 사례를 열거나 기존 지원 사례에 할당 된 엔지니어에 게 회신 하는 경우이 링크를 포함 합니다.
 
@@ -149,7 +149,7 @@ Azure AD Kerberos 서버 개체를 확인 하 고 적절 한 순서 대로 확�
 | DomainDnsName      | AD DS 도메인의 DNS 도메인 이름입니다. |
 | 컴퓨터 계정    | Azure AD Kerberos 서버 개체 (DC)의 컴퓨터 계정 개체입니다. |
 | UserAccount        | Azure AD Kerberos 서버 TGT 암호화 키를 보유 하는 사용 하지 않도록 설정 된 사용자 계정 개체입니다. 이 계정의 DN은 *cn = krbtgt_AzureAD, cn = Users, <도메인-dn>* |
-| KeyVersion         | Azure AD Kerberos 서버 TGT 암호화 키의 키 버전입니다. 이 버전은 키를 만들 때 할당 됩니다. 그런 다음 키를 회전할 때마다 버전이 증가 합니다. 증분은 복제 메타 데이터를 기반으로 하므로 1 보다 클 수 있습니다.<br /><br /> 예를 들어 초기 *Keyversion* 은 *192272*일 수 있습니다. 키를 처음 회전할 때 버전은 *212621*로 이동 될 수 있습니다.<br /><br /> 확인 해야 하는 중요 한 점은 온-프레미스 개체의 *keyversion* 과 클라우드 개체의 *cloudkeyversion* 이 동일한 지 확인 하는 것입니다. |
+| KeyVersion         | Azure AD Kerberos 서버 TGT 암호화 키의 키 버전입니다. 이 버전은 키를 만들 때 할당 됩니다. 그런 다음 키를 회전할 때마다 버전이 증가 합니다. 증분은 복제 메타 데이터를 기반으로 하므로 1 보다 클 수 있습니다.<br /><br /> 예를 들어 초기 *Keyversion* 은 *192272* 일 수 있습니다. 키를 처음 회전할 때 버전은 *212621* 로 이동 될 수 있습니다.<br /><br /> 확인 해야 하는 중요 한 점은 온-프레미스 개체의 *keyversion* 과 클라우드 개체의 *cloudkeyversion* 이 동일한 지 확인 하는 것입니다. |
 | KeyUpdatedOn       | Azure AD Kerberos 서버 TGT 암호화 키가 업데이트 또는 생성 된 날짜와 시간입니다. |
 | KeyUpdatedFrom     | Azure AD Kerberos 서버 TGT 암호화 키가 마지막으로 업데이트 된 DC입니다. |
 | CloudId            | Azure AD 개체의 *Id* 입니다. 위의 *Id* 와 일치 해야 합니다. |

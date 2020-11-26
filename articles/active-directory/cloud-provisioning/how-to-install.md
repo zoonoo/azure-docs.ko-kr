@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5322e5ce1bb124387931eac666cf9e5510cb2463
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: c3960b8afeb9d7ecc80aa49fc13eee4977fa5494
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237642"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173973"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Azure AD Connect 클라우드 프로비저닝 에이전트 설치
 이 문서에서는 Azure AD(Azure Active Directory) Connect 프로비저닝 에이전트의 설치 프로세스와 Azure Portal에 이를 처음으로 구성하는 방법을 안내합니다.
@@ -32,7 +32,7 @@ Azure AD Connect 프로비저닝을 설치하고 구성하는 작업은 다음 �
 
 
 ## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
-그룹 관리 서비스 계정은 자동 암호 관리, 간소화 된 SPN (서비스 사용자 이름) 관리, 다른 관리자에 게 관리를 위임 하는 기능 및 여러 서버에서이 기능을 확장 하는 관리 되는 도메인 계정입니다.  Azure AD Connect 클라우드 동기화는 에이전트를 실행 하는 그룹 관리 서비스 계정 사용을 지원 하 고 권장 합니다.  GMSA에 대 한 자세한 내용은 [그룹 관리 서비스 계정](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 을 참조 하세요. 
+그룹 관리 서비스 계정은 자동 암호 관리, 간소화 된 SPN (서비스 사용자 이름) 관리, 다른 관리자에 게 관리를 위임 하는 기능 및 여러 서버에서이 기능을 확장 하는 관리 되는 도메인 계정입니다.  Azure AD Connect 클라우드 동기화는 에이전트를 실행 하는 그룹 관리 서비스 계정 사용을 지원 하 고 권장 합니다.  GMSA에 대 한 자세한 내용은 [그룹 관리 서비스 계정](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 을 참조 하세요. 
 
 
 ### <a name="upgrading-an-existing-agent-to-use-the-gmsa-account"></a>GMSA 계정을 사용 하도록 기존 에이전트 업그레이드
@@ -107,4 +107,3 @@ Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수
 
 - [프로비저닝이란?](what-is-provisioning.md)
 - [Azure AD Connect 클라우드 프로비저닝이란?](what-is-cloud-provisioning.md)
- 

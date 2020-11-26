@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: f65fb37a4cc6640bc998af1c56e7852cccaba234
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5f6e5de61c9f43d5958e68c545105c4373996f7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955523"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175069"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>자습서 - Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
@@ -239,7 +239,7 @@ SCIM 애플리케이션의 경우 특성 이름이 아래 예제에 표시된 �
    }
    ]
    ```  
-PATCH 및 POST의 요청 형식은 다릅니다. POST와 PATCH가 동일한 형식으로 전송되도록 하려면 [여기](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior)에 설명된 기능 플래그를 사용할 수 있습니다. 
+PATCH 및 POST의 요청 형식은 다릅니다. POST와 PATCH가 동일한 형식으로 전송되도록 하려면 [여기](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior)에 설명된 기능 플래그를 사용할 수 있습니다. 
 
 - **AppRoleAssignmentsComplex** 
   - **사용 시기:** AppRoleAssignmentsComplex 식은 한 명의 사용자에게 여러 역할을 프로비저닝하는 경우 사용합니다. 

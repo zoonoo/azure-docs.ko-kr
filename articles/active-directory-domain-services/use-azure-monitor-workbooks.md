@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: joflore
-ms.openlocfilehash: 02c4679016ea80a4ac8bb53b502292945cbe9d7b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5d19cddc82d9fb092887c5cdeba36b8ab7127f94
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967072"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175137"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용 하 Azure Active Directory Domain Services의 보안 감사 이벤트 검토
 
@@ -60,7 +60,7 @@ Azure AD DS에는 다음과 같은 두 개의 통합 문서 템플릿이 포함 
 
     ![보안 개요 보고서와 계정 활동 보고서를 선택할 수 있는 위치를 선택 하는 스크린샷](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
-1. **보안 개요 보고서**를 선택 합니다.
+1. **보안 개요 보고서** 를 선택 합니다.
 1. 통합 문서의 맨 위에 있는 드롭다운 메뉴에서 Azure 구독을 선택 하 고 Azure Monitor 작업 영역을 선택 합니다.
 
     다음 예제 스크린샷에 표시 된 것 처럼 **시간 범위**(예: *지난 7 일)* 를 선택 합니다.
@@ -69,7 +69,7 @@ Azure AD DS에는 다음과 같은 두 개의 통합 문서 템플릿이 포함 
 
     원하는 대로 데이터를 분석 하 고 시각화할 수 있도록 **타일 보기** 및 **차트 보기** 옵션을 변경할 수도 있습니다.
 
-1. 특정 이벤트 유형을 드릴 다운 하려면 다음 예와 같이 *계정 잠금*등의 **로그인 결과** 카드 중 하나를 선택 합니다.
+1. 특정 이벤트 유형을 드릴 다운 하려면 다음 예와 같이 *계정 잠금* 등의 **로그인 결과** 카드 중 하나를 선택 합니다.
 
     ![Azure Monitor 통합 문서에 시각화 되어 있는 보안 개요 보고서 데이터 예제](./media/use-azure-monitor-workbooks/example-security-overview-report.png)
 
@@ -86,7 +86,7 @@ Azure AD DS에는 다음과 같은 두 개의 통합 문서 템플릿이 포함 
 1. Azure Portal에서 **Azure Active Directory Domain Services** 을 검색 하 고 선택 합니다.
 1. 관리 되는 도메인 (예: *aaddscontoso.com* )을 선택 합니다.
 1. 왼쪽의 메뉴에서 **> 통합 문서 모니터링** 을 선택 합니다.
-1. **계정 활동 보고서**를 선택 합니다.
+1. **계정 활동 보고서** 를 선택 합니다.
 1. 통합 문서의 맨 위에 있는 드롭다운 메뉴에서 Azure 구독을 선택 하 고 Azure Monitor 작업 영역을 선택 합니다.
 
     **시간 범위**(예: *지난 30 일)* 를 선택 하 고, **타일 보기** 에서 데이터를 표시 하는 방법을 선택 합니다.
@@ -103,7 +103,7 @@ Azure AD DS에는 다음과 같은 두 개의 통합 문서 템플릿이 포함 
 
 Azure AD DS에서 제공 하는 두 개의 템플릿 통합 문서는 사용자 고유의 데이터 분석을 시작 하는 데 적합 합니다. 데이터 쿼리 및 조사에서 더 세부적인 정보를 얻으려면 사용자 고유의 통합 문서를 저장 하 고 쿼리를 편집 하면 됩니다.
 
-1. 통합 문서 템플릿 중 하나의 복사본을 저장 하려면 > 편집을 선택 하 **> 공유 보고서로 저장**한 다음 이름을 입력 하 고 저장 합니다.
+1. 통합 문서 템플릿 중 하나의 복사본을 저장 하려면 > 편집을 선택 하 **> 공유 보고서로 저장** 한 다음 이름을 입력 하 고 저장 합니다.
 1. 템플릿의 고유한 복사본에서 **편집** 을 선택 하 여 편집 모드를 시작 합니다. 보고서의 모든 부분 옆에 있는 파란색 **편집** 단추를 선택 하 고 변경할 수 있습니다.
 
 Azure Monitor 통합 문서에 있는 모든 차트와 테이블은 Kusto 쿼리를 사용 하 여 생성 됩니다. 사용자 고유의 쿼리를 만드는 방법에 대 한 자세한 내용은 [Azure Monitor 로그 쿼리][azure-monitor-queries] 및 [kusto 쿼리 자습서][kusto-queries]를 참조 하세요.
@@ -122,5 +122,5 @@ Azure Monitor 통합 문서에 있는 모든 차트와 테이블은 Kusto 쿼리
 [password-policy]: password-policy.md
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
-[azure-monitor-queries]: ../azure-monitor/log-query/query-language.md
+[azure-monitor-queries]: /azure/data-explorer/kusto/query/
 [kusto-queries]: /azure/kusto/query/tutorial?pivots=azuredataexplorer
