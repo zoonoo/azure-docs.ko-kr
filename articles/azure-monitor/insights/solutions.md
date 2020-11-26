@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: c38fa77951aaeb5559dc2030f1401a896d7c238d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f9ced3dfeccdbac5f0eb220cf0e104679f263aac
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841923"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186867"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 모니터링 솔루션
 
@@ -29,7 +29,7 @@ Azure Monitor의 솔루션 **개요** 페이지에는 Log Analytics 작업 영�
 
 [![솔루션 선택한 솔루션과 솔루션 창에 표시 되는 솔루션을 포함 하는 Azure Portal 메뉴가 표시 됩니다.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
-모니터링 솔루션은 여러 유형의 Azure 리소스를 포함할 수 있으며, 다른 리소스와 마찬가지로 솔루션에 포함된 모든 리소스를 볼 수 있습니다. 예를 들어 솔루션에 포함된 모든 로그 쿼리는 [쿼리 탐색기](../log-query/get-started-portal.md#load-queries)의 **솔루션 쿼리** 아래에 표시됩니다. [로그 쿼리](../log-query/log-query-overview.md)를 사용하여 임시 분석을 수행할 때 해당 쿼리를 사용할 수 있습니다.
+모니터링 솔루션은 여러 유형의 Azure 리소스를 포함할 수 있으며, 다른 리소스와 마찬가지로 솔루션에 포함된 모든 리소스를 볼 수 있습니다. 예를 들어 솔루션에 포함 된 모든 로그 쿼리는 [쿼리 탐색기](../log-query/log-analytics-tutorial.md)의 **솔루션 쿼리** 아래에 나열 됩니다. [로그 쿼리](../log-query/log-query-overview.md)를 사용 하 여 임시 분석을 수행할 때 이러한 쿼리를 사용할 수 있습니다.
 
 ## <a name="list-installed-monitoring-solutions"></a>설치된 모니터링 솔루션 나열
 

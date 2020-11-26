@@ -3,18 +3,18 @@ title: Azure Application Insights에서 Search 사용 | Microsoft Docs
 description: 웹앱에서 전송된 원시 원격 분석을 검색하고 필터링합니다.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: f88e0fb8fbd7e9605635ede1e8f71b57de84b74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f87a972b417bf6074de1c10b7a54bd2416f88daa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324457"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187020"
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
 
 Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원격 분석 항목을 찾고 검색하는 데 사용하는 [Application Insights](./app-insights-overview.md)의 기능입니다. 또한 코딩한 로그 추적 및 이벤트를 볼 수 있습니다.
 
-(사용자 데이터에 비해 좀 더 복잡한 쿼리를 위해서는 [Analytics](../log-query/get-started-portal.md)를 사용합니다.)
+(사용자 데이터에 비해 좀 더 복잡한 쿼리를 위해서는 [Analytics](../log-query/log-analytics-tutorial.md)를 사용합니다.)
 
 ## <a name="where-do-you-see-search"></a>Search 기능은 어디에 있나요?
 
@@ -81,7 +81,7 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 ## <a name="search-the-data"></a>데이터 검색
 
 > [!NOTE]
-> 더 복잡 한 쿼리를 작성 하려면 검색 블레이드의 위쪽에서 [**로그 (분석)**](../log-query/get-started-portal.md) 를 엽니다.
+> 더 복잡 한 쿼리를 작성 하려면 검색 블레이드의 위쪽에서 [**로그 (분석)**](../log-query/log-analytics-tutorial.md) 를 엽니다.
 >
 
 속성 값 중 하나에서 용어를 검색할 수 있습니다. 이는 속성 값을 사용 하 여 [사용자 지정 이벤트](./api-custom-events-metrics.md) 를 작성 한 경우에 유용 합니다.
@@ -116,7 +116,7 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 
 원격 분석 항목의 세부 정보를 이용하여 GitHub 또는 Azure DevOps에서 버그를 만들 수 있습니다.
 
-원격 분석 항목을 클릭 하 여 종단 간 트랜잭션 세부 정보 뷰로 이동한 다음 **작업 항목 만들기**를 선택 합니다.
+원격 분석 항목을 클릭 하 여 종단 간 트랜잭션 세부 정보 뷰로 이동한 다음 **작업 항목 만들기** 를 선택 합니다.
 
 ![새 작업 항목을 클릭하고, 필드를 편집한 다음 확인을 클릭합니다.](./media/diagnostic-search/work-item.png)
 
@@ -145,8 +145,7 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 
 ## <a name="next-steps"></a><a name="add"></a>다음 단계
 
-* [분석에서 복잡한 쿼리 작성](../log-query/get-started-portal.md)
+* [분석에서 복잡한 쿼리 작성](../log-query/log-analytics-tutorial.md)
 * [Application Insights에 로그 및 사용자 지정 원격 분석 전송](./asp-net-trace-logs.md)
 * [가용성 및 응답성 테스트 설정](./monitor-web-app-availability.md)
 * [문제 해결](../faq.md)
-

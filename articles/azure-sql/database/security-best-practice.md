@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: b309ce01595e2e62bea7f78ae728d83bc7d9b9be
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 803c9a98f0dc10ff8218ac7b7c20dcb117700034
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992168"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187105"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -283,7 +283,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 **구현 방법**:
 
-- 필요한 의무의 분리 수준을 식별 합니다. 예:
+- 필요한 의무의 분리 수준을 식별 합니다. 예제:
   - 개발/테스트 및 프로덕션 환경 간
   - 보안에 중요 한 작업은 DBA (데이터베이스 관리자) 관리 수준 작업과 개발자 작업을 비교 합니다.
     - 예: 감사자, RLS (역할 수준 보안)에 대 한 보안 정책 만들기, DDL 권한으로 개체 SQL Database 구현
@@ -614,7 +614,7 @@ DDoS (배포 된 서비스 거부) 공격은 악의적인 사용자가 Azure 인
 
 DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정 됩니다. 여기에는 공용 끝점에 대 한 네트워크 수준 공격의 실시간 완화 및 상시 트래픽 모니터링이 포함 됩니다.
 
-- [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md) 를 사용 하 여 가상 네트워크에 배포 된 리소스에 연결 된 공용 IP 주소를 모니터링할 수 있습니다.
+- [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) 를 사용 하 여 가상 네트워크에 배포 된 리소스에 연결 된 공용 IP 주소를 모니터링할 수 있습니다.
 
 - [Azure SQL Database에 대 한 Advanced Threat Protection](threat-detection-overview.md) 을 사용 하 여 데이터베이스에 대 한 Dos (서비스 거부) 공격을 감지 합니다.
 

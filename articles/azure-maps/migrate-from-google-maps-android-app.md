@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d7ec1edb779ddaf53cef02dd6e83bb3e719d0b4e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b096b24acd5cf65f6ad3e9eabb1d536b3aae0168
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503558"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187071"
 ---
 # <a name="tutorial---migrate-an-android-app-from-google-maps"></a>자습서 - Google Maps에서 Android 앱 마이그레이션
 
@@ -769,7 +769,7 @@ Azure Maps Android SDK에 대해 자세히 알아보세요.
 > [Android 맵에 기호 계층 추가](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Android 맵에 도형 추가](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Android 맵에 도형 추가](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Android 맵에서 맵 스타일 변경](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Android 맵에서 맵 스타일 변경](./set-android-map-styles.md)

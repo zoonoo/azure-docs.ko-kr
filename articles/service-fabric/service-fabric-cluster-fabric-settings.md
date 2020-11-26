@@ -4,11 +4,11 @@ description: 이 문서에서는 사용자 지정할 수 있는 패브릭 설정
 ms.topic: reference
 ms.date: 08/30/2019
 ms.openlocfilehash: 1f16e89dd1131f6aea64e5e72a342b3b737f3728
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542646"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187224"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.

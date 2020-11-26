@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 093d470052a639ad3d4e819d08fad7c34b547d44
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: bf7e99f6e6201afefd316deafe37e38088fb9fae
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789508"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187122"
 ---
 # <a name="what-is-azure-sql-database"></a>Azure SQL Database란?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,7 +26,7 @@ Azure SQL Database는 사용자 개입 없이 업그레이드, 패치, 백업, �
 
 Azure SQL Database를 사용하면 Azure의 애플리케이션 및 솔루션을 위한 고가용성 고성능 데이터 스토리지 레이어를 만들 수 있습니다. Azure SQL Database는 다양한 최신 클라우드 애플리케이션에 적합한 선택이 될 수 있는데, 그 이유는 관계형 데이터와 [비관계형 구조](../multi-model-features.md)(예: 그래프, JSON, 공간 및 XML)를 모두 처리할 수 있기 때문입니다.
 
-Azure SQL Database는 안정적인 최신 버전의 [Microsoft SQL Server 데이터베이스 엔진](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json)을 기반으로 합니다. [고성능 메모리 내 기술](../in-memory-oltp-overview.md) 및 [지능형 쿼리 처리](/sql/relational-databases/performance/intelligent-query-processing?toc=%252fazure%252fsql-database%252ftoc.json)와 같은 고급 쿼리 처리 기능을 사용할 수 있습니다. 실제로 SQL Server의 최신 기능은 먼저 SQL Database에 릴리스된 후 SQL Server 자체에 릴리스됩니다. 수백만에 달하는 데이터베이스에 대해 테스트한 최신 SQL Server 기능을 패치나 업그레이드를 위한 오버헤드 없이 활용할 수 있습니다. 
+Azure SQL Database는 안정적인 최신 버전의 [Microsoft SQL Server 데이터베이스 엔진](/sql/sql-server/sql-server-technical-documentation?toc=%2fazure%2fsql-database%2ftoc.json)을 기반으로 합니다. [고성능 메모리 내 기술](../in-memory-oltp-overview.md) 및 [지능형 쿼리 처리](/sql/relational-databases/performance/intelligent-query-processing?toc=%2fazure%2fsql-database%2ftoc.json)와 같은 고급 쿼리 처리 기능을 사용할 수 있습니다. 실제로 SQL Server의 최신 기능은 먼저 SQL Database에 릴리스된 후 SQL Server 자체에 릴리스됩니다. 수백만에 달하는 데이터베이스에 대해 테스트한 최신 SQL Server 기능을 패치나 업그레이드를 위한 오버헤드 없이 활용할 수 있습니다. 
 
 SQL Database는 서로 다른 두 구매 모델 내에서 성능을 쉽게 정의하고 확장할 수 있습니다([vCore 기반 구매 모델](service-tiers-vcore.md) 및 [DTU 기반 구매 모델](service-tiers-dtu.md)). SQL Database는 기본 제공되는 고가용성, 백업 및 다른 일반적인 유지 관리 작업이 포함된 완전 관리형 서비스입니다. Microsoft는 SQL 및 운영 체제 코드의 모든 패치 및 업데이트를 처리합니다. 기본 인프라를 관리할 필요가 없습니다.
 
@@ -37,7 +37,7 @@ Azure SQL Database를 처음 사용하는 경우에는 심층 [Azure SQL 비디�
 
 Azure SQL Database는 데이터베이스에 다음과 같은 옵션을 제공합니다.
 
-- [단일 데이터베이스](single-database-overview.md)는 완전 관리형의 격리된 데이터베이스를 나타냅니다. 안정적인 단일 데이터 원본이 필요한 최신 클라우드 애플리케이션 및 마이크로 서비스가 있는 경우, 이 옵션을 사용할 수 있습니다. 단일 데이터베이스는 [SQL Server 데이터베이스 엔진](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json)에 [포함된 데이터베이스](/sql/relational-databases/databases/contained-databases?toc=%252fazure%252fsql-database%252ftoc.json)와 유사합니다.
+- [단일 데이터베이스](single-database-overview.md)는 완전 관리형의 격리된 데이터베이스를 나타냅니다. 안정적인 단일 데이터 원본이 필요한 최신 클라우드 애플리케이션 및 마이크로 서비스가 있는 경우, 이 옵션을 사용할 수 있습니다. 단일 데이터베이스는 [SQL Server 데이터베이스 엔진](/sql/sql-server/sql-server-technical-documentation?toc=%2fazure%2fsql-database%2ftoc.json)에 [포함된 데이터베이스](/sql/relational-databases/databases/contained-databases?toc=%2fazure%2fsql-database%2ftoc.json)와 유사합니다.
 - [탄력적 풀](elastic-pool-overview.md)은 CPU, 메모리 등의 공유 리소스 집합이 포함된 [단일 데이터베이스](single-database-overview.md)의 컬렉션입니다. 단일 데이터베이스를 탄력적 풀로 이동하거나 탄력적 풀에서 제거할 수 있습니다.
 
 > [!IMPORTANT]
@@ -96,9 +96,9 @@ Azure SQL Database는 워크로드 특성에 대해 더욱 심층적인 인사�
 
 Azure는 성능 등급과 결합된 [기본 제공 성능 모니터링](performance-guidance.md) 및 [경고](alerts-insights-configure-portal.md) 도구를 제공하며, 이를 통해 수천 개의 데이터베이스 상태를 모니터링할 수 있습니다. 이러한 도구를 사용하면 현재 또는 예상되는 성능 요구 사항에 따라 확장 또는 축소함으로써 발생하는 영향을 신속하게 평가할 수 있습니다. 또한 SQL Database는 쉬운 모니터링을 위해 [메트릭 및 리소스 로그를 내보낼](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
 
-- **Azure Storage** : 저렴한 가격으로 방대한 양의 원격 분석을 보관할 수 있습니다.
-- **Azure Event Hubs** : 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합합니다.
-- **Azure Monitor 로그** : 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우
+- **Azure Storage**: 저렴한 가격으로 방대한 양의 원격 분석을 보관할 수 있습니다.
+- **Azure Event Hubs**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합합니다.
+- **Azure Monitor 로그**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우
 
 ![Azure 모니터링 아키텍처 다이어그램](./media/sql-database-paas-overview/architecture.png)
 
@@ -149,8 +149,8 @@ SQL Database를 기반으로 [SaaS 다중 테넌트 앱](saas-tenancy-app-design
 
 [SQL Database에서 사용할 수 있는](automatic-tuning-overview.md) 자동 튜닝은 다음의 두 가지 측면이 있습니다.
 
-- **자동 인덱스 관리** : 데이터베이스에 추가되어야 하는 인덱스 및 제거되어야 하는 인덱스를 식별합니다.
-- **자동 계획 수정** : 문제가 있는 계획을 식별하고 SQL 계획 성능 문제를 해결합니다.
+- **자동 인덱스 관리**: 데이터베이스에 추가되어야 하는 인덱스 및 제거되어야 하는 인덱스를 식별합니다.
+- **자동 계획 수정**: 문제가 있는 계획을 식별하고 SQL 계획 성능 문제를 해결합니다.
 
 ### <a name="adaptive-query-processing"></a>적응 쿼리 처리
 

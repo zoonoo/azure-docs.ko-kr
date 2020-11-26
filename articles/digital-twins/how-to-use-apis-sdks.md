@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d349d07a66b21766ea529661c2f27d0c76ea4d3b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: cac0d8cb8a910b735454c9270060364cab2db5fb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024724"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187241"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -20,7 +20,7 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
 * 제어 평면 Api는 [ARM (Azure Resource Manager)](../azure-resource-manager/management/overview.md) api 이며, 인스턴스를 만들고 삭제 하는 것과 같은 리소스 관리 작업을 다룹니다. 
 * 데이터 평면 Api는 Azure Digital Twins Api 이며 모델, 쌍 및 그래프 관리와 같은 데이터 관리 작업에 사용 됩니다.
 
-이 문서에서는 사용할 수 있는 Api와 상호 작용 하는 방법에 대 한 개요를 제공 합니다. 연결 된 Swagger에 직접 REST Api를 사용 하거나 SDK를 통해 사용할 수 있습니다.
+이 문서에서는 사용할 수 있는 Api와 상호 작용 하는 방법에 대 한 개요를 제공 합니다. [Postman](how-to-use-postman.md)과 같은 도구를 통해 또는 SDK를 통해 REST api를 연결 된 swagger에 직접 사용할 수 있습니다.
 
 ## <a name="overview-control-plane-apis"></a>개요: 제어 평면 Api
 
@@ -32,7 +32,7 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
 * [제어 평면 swagger 폴더](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins)에서 최신 Swagger를 참조 하 여 api를 직접 호출할 수 있습니다. 또한이 리포지토리에는 사용법을 보여 주는 예제 폴더도 포함 되어 있습니다.
 * 현재에서 컨트롤 Api에 대 한 Sdk에 액세스할 수 있습니다.
   - [**.Net (c #)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([참조 [자동 생성]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([원본](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
-  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([참조 [자동 생성]](/java/api/overview/azure/digitaltwins?view=azure-java-stable)) ([원본](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
+  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([참조 [자동 생성]](/java/api/overview/azure/digitaltwins?view=azure-java-stable&preserve-view=true)) ([원본](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
   - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([원본](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ([원본](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
   - [**Go**](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ([원본](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins))
@@ -279,6 +279,7 @@ client.UpdateDigitalTwin("myTwin", updateTwinData);
 
 다음 목록에서는 Api 및 Sdk 사용에 대 한 추가 세부 정보 및 일반적인 지침을 제공 합니다.
 
+* Postman과 같은 HTTP REST 테스트 도구를 사용 하 여 Azure Digital Twins Api에 대 한 직접 호출을 수행할 수 있습니다. 이 프로세스에 대 한 자세한 내용은 [*방법: Postman을 사용 하 여 요청 만들기*](how-to-use-postman.md)를 참조 하세요.
 * SDK를 사용 하려면 클래스를 인스턴스화합니다 `DigitalTwinsClient` . 생성자에는 패키지의 다양 한 인증 방법을 사용 하 여 얻을 수 있는 자격 증명이 필요 합니다 `Azure.Identity` . 에 대 한 자세한 `Azure.Identity` 내용은 [네임 스페이스 설명서](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet)를 참조 하세요. 
 * `InteractiveBrowserCredential`시작 하는 동안 유용 하지만, Azure Digital Twins에 대해 [MSI로 설정 된 azure 함수](../app-service/overview-managed-identity.md?tabs=dotnet) 를 인증 하는 데 사용할 수 있는 [관리 되는 id](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet)에 대 한 자격 증명을 비롯 한 몇 가지 다른 옵션이 있습니다. 에 대 한 자세한 내용은 `InteractiveBrowserCredential` 해당 [클래스 설명서](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet)를 참조 하세요.
 * 모든 서비스 API 호출은 클래스에서 멤버 함수로 노출 됩니다 `DigitalTwinsClient` .
@@ -303,8 +304,8 @@ client.UpdateDigitalTwin("myTwin", updateTwinData);
 
 ## <a name="next-steps"></a>다음 단계
 
-Api를 사용 하 여 Azure Digital Twins 인스턴스 및 인증을 설정 하는 방법을 참조 하세요.
-* [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-cli.md)
+Postman을 사용 하 여 Api에 대 한 직접 요청을 만드는 방법을 참조 하세요.
+* [*방법: Postman을 사용 하 여 요청 만들기*](how-to-use-postman.md)
 
-또는이 방법에 사용 되는 것과 같은 클라이언트 앱을 만드는 단계를 안내 합니다.
+또는이 자습서를 사용 하 여 클라이언트 앱을 만들어 .NET SDK를 사용 하는 것이 좋습니다.
 * [*자습서: 클라이언트 앱 코딩*](tutorial-code.md)

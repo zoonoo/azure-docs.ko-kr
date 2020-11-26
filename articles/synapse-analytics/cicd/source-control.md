@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: b7248a3a66e0eeca4d86568f80af82bf2d89701f
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: a5cb5831090987f1b620593843ddba817d8e68d4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031237"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188125"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Azure Synapse Studio의 소스 제어
 
@@ -38,7 +38,7 @@ Synapse Studio authoring canvas에서 **Synapse Live** 드롭다운 메뉴를 �
 
 ![제작에서 코드 리포지토리 설정 구성](media/configure-repo-1.png)
 
-### <a name="configuration-method-2-management-hub"></a>구성 방법 2: 관리 허브
+### <a name="configuration-method-2-manage-hub"></a>구성 방법 2: 허브 관리
 
 Synapse Studio의 관리 허브로 이동 합니다. **소스 제어** 섹션에서 **Git 구성** 을 선택 합니다. 연결 된 리포지토리가 없는 경우 **구성** 을 클릭 합니다.
 
@@ -217,6 +217,11 @@ Azure Synapse Studio에는 한 번에 하나의 게시 분기만 있을 수 있�
 
 1. 변경 내용을 협업 분기에 병합하는 끌어오기 요청을 만듭니다. 
 
+## <a name="unsupported-features"></a>지원되지 않는 기능
+
+- Synapse Studio는 커밋 또는 리소스의 선택적 게시를 cherry-pick 선택할 수 없습니다. 
+- Synapse Studio는 커밋 메시지 사용자 지정을 지원 하지 않습니다.
+- 기본적으로 Studio에서 삭제 작업은 직접 git에 커밋됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

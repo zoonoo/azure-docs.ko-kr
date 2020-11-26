@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.openlocfilehash: 3827fa7a98cef9358db0ee102925586bce97fae6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965241"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188686"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>SAP 응용 프로그램에 대 한 SUSE Linux Enterprise Server Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드
 
@@ -179,7 +179,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항 
+### <a name="prerequisites"></a>전제 조건 
 
 > [!IMPORTANT]
 > 클러스터에 추가 SAP 시스템을 배포 하기 위한 지침을 수행 하기 전에 첫 번째 시스템 배포 중에만 필요한 단계를 설명 하는 지침에 따라 클러스터의 첫 번째 SAP 시스템을 배포 합니다.  

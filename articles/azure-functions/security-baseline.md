@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f22473d4a865e2925ecbfe74d68811c12f7c26d7
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 86e13c0f57b30d2c53d9194e89ec89e7abdf1574
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168089"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187054"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Azure Functions에 대 한 Azure 보안 기준
 
@@ -86,7 +86,7 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 
 - [App Service Environment에 대한 네트워킹 고려 사항](../app-service/environment/network-info.md)
 
-- [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
+- [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 - [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -463,7 +463,7 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 - [Azure AD 로그인을 사용 하도록 Azure Functions 앱을 구성 하는 방법](../app-service/configure-authentication-provider-aad.md)
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1173,9 +1173,9 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 **지침**: Microsoft Engagement 규칙에 따라 침투 테스트가 microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
 
-- [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2fb67cf29800cf80f07181f68d266a6183f8d710
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 6a08fc25083ecd6917f658f27cb954391228adf7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104733"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188703"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 지원 시스템
 
@@ -62,7 +62,7 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
 
 | 운영 체제 | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| Raspbian Stretch |  | ![Raspbian Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
+| Raspberry Pi OS 스트레치 |  | ![Raspberry Pi OS 스트레치 + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
 | [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 퍼블릭 미리 보기  |
 | [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 퍼블릭 미리 보기 |
 | [Windows 10 IoT Enterprise](/windows/iot-core/windows-iot-enterprise), 빌드 17763 | ![Windows 10 IoT Enterprise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
@@ -89,10 +89,10 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
 | [Ubuntu 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu 18.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Wind River 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
-| Raspbian Buster <sup>1</sup> |  | ![Raspbian Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspbian Buster + ARM64](./media/tutorial-c-module/green-check.png) |
+| Raspberry Pi OS Buster <sup>1</sup> |  | ![Raspberry Pi OS Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspberry Pi OS Buster + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Ubuntu 20.04 <sup>2</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | ![Ubuntu 20.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20.04 + ARM64](./media/tutorial-c-module/green-check.png) |
 
-<sup>1</sup> Raspian Buster를 포함하는 Debian 10 시스템은 IoT Edge에서 지원하지 않는 OpenSSL 버전을 사용합니다. IoT Edge를 설치하기 전에 다음 명령을 사용하여 이전 버전을 설치합니다.
+<sup>1</sup> Debian RASPBERRY Pi OS Buster를 포함 한 시스템은 지원 하지 않는 IoT Edge OpenSSL 버전을 사용 합니다. IoT Edge를 설치하기 전에 다음 명령을 사용하여 이전 버전을 설치합니다.
 
 ```bash
 sudo apt-get install libssl1.0.2

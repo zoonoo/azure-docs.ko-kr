@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 5d8adea95708f4c7bbe3e7113c3e39e0484159ee
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 634ac311ba62a134e47f9413d185d4fdf9d63cdb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018052"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186986"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -147,7 +147,7 @@ W3C TraceContext 기반 분산 추적은 최신 .NET Framework/.NET Core Sdk에�
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
 > [!IMPORTANT] 
-> 상관 관계를 설정 하는 데 필요한 모든 구성을 보려면 [JavaScript 상관 관계 설명서](/azure/azure-monitor/app/javascript#enable-correlation)를 참조 하세요.
+> 상관 관계를 설정 하는 데 필요한 모든 구성을 보려면 [JavaScript 상관 관계 설명서](./javascript.md#enable-correlation)를 참조 하세요.
 
 ## <a name="telemetry-correlation-in-opencensus-python"></a>OpenCensus Python의 원격 분석 상관 관계
 

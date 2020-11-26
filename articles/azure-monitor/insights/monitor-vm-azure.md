@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: fc89790c7d268bcfa0c08bd26249bc91979d7fca
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738104"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186901"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신 모니터링
 이 문서에서는 Azure Monitor를 사용하여 Azure 가상 머신에서 모니터링 데이터를 수집 및 분석하면서 상태를 유지하는 방법을 설명합니다. 가상 머신은 [다른 Azure 리소스](monitor-azure-resource.md)와 같이 Azure Monitor를 사용하여 가용성과 성능을 모니터링할 수 있지만 게스트 운영 체제와 여기에서 실행되는 워크로드를 모니터링해야 하기 때문에 다른 리소스와는 다릅니다. 
@@ -64,7 +64,7 @@ Azure의 가상 머신은 [모니터링 데이터](monitor-azure-resource.md#mon
 이러한 각 구성 단계는 다음 섹션에 설명되어 있습니다.
 
 ### <a name="enable-azure-monitor-for-vms"></a>VM용 Azure Monitor 사용
-[VM용 Azure Monitor](vminsights-overview.md)는 Azure Monitor에서 가상 머신을 모니터링하는 기본 도구인 Azure Monitor의 [인사이트](insights-overview.md)입니다. 표준 Azure Monitor 기능에 외에 다음과 같은 추가 가치를 제공합니다.
+[VM용 Azure Monitor](vminsights-overview.md)는 Azure Monitor에서 가상 머신을 모니터링하는 기본 도구인 Azure Monitor의 [인사이트](../monitor-reference.md)입니다. 표준 Azure Monitor 기능에 외에 다음과 같은 추가 가치를 제공합니다.
 
 - 가상 머신 게스트 운영 체제 및 워크로드의 모니터링을 사용하도록 설정하는 Log Analytics 에이전트 및 종속성 에이전트를 간편하게 온보딩할 수 있습니다. 
 - 가상 머신의 게스트 운영 체제에서 핵심 성능 메트릭을 분석할 수 있는 미리 정의된 추세 성능 차트 및 통합 문서
@@ -140,7 +140,7 @@ az monitor diagnostic-settings create \
 | 진단 설정 | 현재 가상 머신에 대한 [진단 확장](../platform/diagnostics-extension-overview.md)를 사용하도록 설정하고 구성합니다. |
 | Advisor 권장 사항 | [Azure Advisor](../../advisor/index.yml)에서 제공하는 현재 가상 머신에 대한 권장 사항입니다. |
 | 로그 | [범위](../log-query/scope.md)가 현재 가상 머신으로 설정된 [Log Analytics](../log-query/log-analytics-overview.md)를 엽니다. |
-| 연결 모니터 | [Network Watcher 연결 모니터](../../network-watcher/connection-monitor-preview.md)를 열어 현재 가상 머신과 다른 가상 머신 간의 연결을 모니터링합니다. |
+| 연결 모니터 | [Network Watcher 연결 모니터](../../network-watcher/connection-monitor-overview.md)를 열어 현재 가상 머신과 다른 가상 머신 간의 연결을 모니터링합니다. |
 
 
 ## <a name="analyzing-metric-data"></a>메트릭 데이터 분석
@@ -242,4 +242,3 @@ Log Analytics 작업 영역에 기존 Operations Manager 관리 그룹을 연결
 
 * [로그 쿼리를 사용하여 Azure Monitor 로그의 데이터를 분석하는 방법을 알아봅니다.](../log-query/get-started-queries.md)
 * [Azure Monitor에서 메트릭과 로그를 사용하여 경고에 대해 알아봅니다.](../platform/alerts-overview.md)
-

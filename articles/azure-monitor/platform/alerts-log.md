@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 61aba3e5792d1cc20da16686d052de91744dab76
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018208"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186782"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
 ## <a name="overview"></a>개요
 
-로그 경고를 통해 사용자는 [Log Analytics](../log-query/get-started-portal.md) 쿼리를 사용 하 여 설정 된 빈도 마다 리소스 로그를 평가 하 고 결과에 따라 경고를 발생 시킬 수 있습니다. 규칙은 [작업 그룹](./action-groups.md)을 사용 하 여 하나 이상의 작업을 트리거할 수 있습니다. [로그 경고의 기능 및 용어에 대해 자세히 알아보세요](alerts-unified-log.md).
+로그 경고를 통해 사용자는 [Log Analytics](../log-query/log-analytics-tutorial.md) 쿼리를 사용 하 여 설정 된 빈도 마다 리소스 로그를 평가 하 고 결과에 따라 경고를 발생 시킬 수 있습니다. 규칙은 [작업 그룹](./action-groups.md)을 사용 하 여 하나 이상의 작업을 트리거할 수 있습니다. [로그 경고의 기능 및 용어에 대해 자세히 알아보세요](alerts-unified-log.md).
 
 이 문서에서는 Azure Monitor를 사용 하 여 로그 경고를 만들고 관리 하는 방법을 보여 줍니다. 경고 규칙은 다음과 같은 세 가지 구성 요소로 정의 됩니다.
 - 대상: 모니터링할 특정 Azure 리소스입니다.
@@ -27,7 +27,7 @@ ms.locfileid: "96018208"
 [별도의 문서](alerts-log-create-templates.md)에서 설명 하는 Azure Resource Manager 템플릿을 사용 하 여 로그 경고 규칙을 만들 수도 있습니다.
 
 > [!NOTE]
-> [Log Analytics 작업 영역의](../log-query/get-started-portal.md) 로그 데이터를 Azure Monitor 메트릭 저장소로 보낼 수 있습니다. 메트릭 경고는 작업 하는 데이터에 따라 더 적합할 수 있는 [동작이 다릅니다](alerts-metric-overview.md). 로그를 메트릭에 라우팅하는 방법 및 방법에 대 한 자세한 내용은 [로그에 대 한 메트릭 경고](alerts-metric-logs.md)를 참조 하세요.
+> [Log Analytics 작업 영역의](../log-query/log-analytics-tutorial.md) 로그 데이터를 Azure Monitor 메트릭 저장소로 보낼 수 있습니다. 메트릭 경고는 작업 하는 데이터에 따라 더 적합할 수 있는 [동작이 다릅니다](alerts-metric-overview.md). 로그를 메트릭에 라우팅하는 방법 및 방법에 대 한 자세한 내용은 [로그에 대 한 메트릭 경고](alerts-metric-logs.md)를 참조 하세요.
 
 ## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Azure Portal을 통해 로그 경고 규칙 만들기
 
@@ -35,7 +35,7 @@ ms.locfileid: "96018208"
 
 1. 경고를 원하는 리소스로 이동 합니다.
 1. **모니터** 에서 **로그** 를 선택 합니다.
-1. 문제를 나타낼 수 있는 로그 데이터를 쿼리합니다. [경고 쿼리 예제 항목](../log-query/saved-queries.md) 을 사용 하 여 [사용자가 직접 쿼리를 작성](../log-query/get-started-portal.md)하기 위해 검색 하거나 시작할 수 있는 항목을 이해할 수 있습니다. 또한 [최적화된 경고 쿼리를 만드는 방법에 대해 알아봅니다](alerts-log-query.md).
+1. 문제를 나타낼 수 있는 로그 데이터를 쿼리합니다. [경고 쿼리 예제 항목](../log-query/example-queries.md) 을 사용 하 여 [사용자가 직접 쿼리를 작성](../log-query/log-analytics-tutorial.md)하기 위해 검색 하거나 시작할 수 있는 항목을 이해할 수 있습니다. 또한 [최적화된 경고 쿼리를 만드는 방법에 대해 알아봅니다](alerts-log-query.md).
 1. ' + 새 경고 규칙 ' 단추를 눌러 경고 생성 흐름을 시작 합니다.
 
     ![Log Analytics - 경고 설정](media/alerts-log/AlertsAnalyticsCreate.png)
@@ -55,7 +55,7 @@ ms.locfileid: "96018208"
 
 1. 로그 경고는 다음과 같은 두 가지 유형의 [**측정값**](alerts-unified-log.md#measure)을 기반으로 할 수 있습니다.
     1. **결과 수** -쿼리에서 반환 된 레코드 수입니다.
-    1. **메트릭 측정**  -  선택 된 식 및 [bin ()](/azure/kusto/query/binfunction) 선택 항목 별로 그룹화 된 요약을 사용 하 여 계산 된 *집계 값* 입니다. 예들 들어 다음과 같습니다.
+    1. **메트릭 측정**  -  선택 된 식 및 [bin ()](/azure/kusto/query/binfunction) 선택 항목 별로 그룹화 된 요약을 사용 하 여 계산 된 *집계 값* 입니다. 예를 들어:
 
     ```Kusto
     // Reported errors
@@ -327,4 +327,3 @@ az group deployment create \
 * [Azure Resource Manager 템플릿을](./alerts-log-create-templates.md)사용 하 여 로그 경고를 만듭니다.
 * [로그 경고에 대 한 webhook 작업을](./alerts-log-webhook.md)이해 합니다.
 * [로그 쿼리에](../log-query/log-query-overview.md)대해 자세히 알아보세요.
-

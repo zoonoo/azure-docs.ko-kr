@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f97d04ca40e69ba2516744adfc9f1f455cba97c0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0bb252e227e4f23388929f2fca18769e0bd02e19
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896347"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187037"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>자습서 - Google Maps에서 웹 서비스 마이그레이션
 
@@ -132,7 +132,7 @@ Azure Maps 역방향 지오코딩 API에는 Google Maps에서 사용할 수 없�
 관심 지점 데이터는 Places Search API를 사용하여 Google Maps에서 검색할 수 있습니다. 이 API는 관심 지점을 검색하는 다음 세 가지 방법을 제공합니다.
 
 - **텍스트에서 장소 찾기:** 이름, 주소 또는 전화 번호를 기반으로 관심 지점을 검색합니다.
-- **주변 검색** : 한 위치에서 특정 거리 내에 있는 관심 지점을 검색합니다.
+- **주변 검색**: 한 위치에서 특정 거리 내에 있는 관심 지점을 검색합니다.
 - **텍스트 검색:** 관심 지점 및 위치 정보가 포함된 자유 형식 텍스트를 사용하여 장소를 검색합니다. 예: "뉴욕의 피자 가게" 또는 "메인 스트리트 근처의 식당".
 
 Azure Maps는 관심 지점에 대한 여러 검색 API를 제공합니다.
@@ -501,10 +501,10 @@ Azure Maps REST 서비스에 대해 자세히 알아보세요.
 > [라우팅 모범 사례](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
-> [Azure Maps REST 서비스 API 참조 설명서](https://docs.microsoft.com/rest/api/maps/)
+> [Azure Maps REST 서비스 API 참조 설명서](/rest/api/maps/)
 
 > [!div class="nextstepaction"]
-> [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [코드 샘플](/samples/browse/?products=azure-maps)
 
 > [!div class="nextstepaction"]
 > [서비스 모듈(Web SDK)을 사용하는 방법](how-to-use-best-practices-for-routing.md)
