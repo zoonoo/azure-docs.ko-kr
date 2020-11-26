@@ -426,7 +426,5 @@
           href: sql-data-warehouse-partner-machine-learning-ai.md
         - name: 시스템 통합
           href: sql-data-warehouse-partner-system-integration.md
-        - name: 공개 미리 보기 파트너
-          href: sql-data-warehouse-partner-launch.md
         - name: 타사 애플리케이션의 호환성 문제
           href: sql-data-warehouse-partner-compatibility-issues.md
