@@ -5,16 +5,16 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: tomfitz
-ms.openlocfilehash: 9d41e41f110e927f436b38d6291719c138defa53
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2fdbbad467d8c762db485fc7935e9cef78313fd0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745766"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184453"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>ServicePrincipalSelector UI 요소
 
-사용자가 기존 [서비스 주체](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) 를 선택 하거나 새 응용 프로그램을 등록 하는 데 사용할 수 있는 컨트롤입니다. **새로 만들기** 를 선택 하는 경우 단계에 따라 새 응용 프로그램을 등록 합니다. 기존 응용 프로그램을 선택 하는 경우 컨트롤은 암호나 인증서 지문을 입력 하는 입력란을 제공 합니다.
+사용자가 기존 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) 를 선택 하거나 새 응용 프로그램을 등록 하는 데 사용할 수 있는 컨트롤입니다. **새로 만들기** 를 선택 하는 경우 단계에 따라 새 응용 프로그램을 등록 합니다. 기존 응용 프로그램을 선택 하는 경우 컨트롤은 암호나 인증서 지문을 입력 하는 입력란을 제공 합니다.
 
 ## <a name="ui-samples"></a>UI 샘플
 

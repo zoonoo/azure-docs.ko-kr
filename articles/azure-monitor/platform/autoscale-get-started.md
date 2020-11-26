@@ -4,12 +4,12 @@ description: Azure에서 리소스 웹앱, 클라우드 서비스, 가상 머신
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5af60befeda9f0ed4ed76f7ab8449e94950352fb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020911"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186578"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
@@ -151,12 +151,12 @@ ARM 템플릿을 사용 하 여 기능을 사용 하도록 설정 하려면 `hea
 1. [이동 하려는 azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all)에서 azure 자동 크기 조정을 사용할 수 있는지 확인 합니다.
 
 ### <a name="move"></a>이동
-[REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) 를 사용 하 여 새 환경에서 자동 크기 조정 설정을 만듭니다. 대상 지역에 생성 되는 자동 크기 조정 설정은 원본 지역의 자동 크기 조정 설정의 복사본입니다.
+[REST API](/rest/api/monitor/autoscalesettings/createorupdate) 를 사용 하 여 새 환경에서 자동 크기 조정 설정을 만듭니다. 대상 지역에 생성 되는 자동 크기 조정 설정은 원본 지역의 자동 크기 조정 설정의 복사본입니다.
 
-원본 지역의 자동 크기 조정 설정과 연결 하 여 만든 [진단 설정은](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 이동할 수 없습니다. Autosale 설정 만들기가 완료 된 후 대상 지역에서 진단 설정을 다시 만들어야 합니다. 
+원본 지역의 자동 크기 조정 설정과 연결 하 여 만든 [진단 설정은](./diagnostic-settings.md) 이동할 수 없습니다. Autosale 설정 만들기가 완료 된 후 대상 지역에서 진단 설정을 다시 만들어야 합니다. 
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Azure 지역에서 리소스 이동에 대 한 자세한 정보
-Azure에서 지역과 재해 복구 간에 리소스를 이동 하는 방법에 대 한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) 을 참조 하세요.
+Azure에서 지역과 재해 복구 간에 리소스를 이동 하는 방법에 대 한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

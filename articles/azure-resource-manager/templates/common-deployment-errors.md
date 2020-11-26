@@ -4,12 +4,12 @@ description: Azure Resource Manager를 사용하여 Azure에 리소스를 배포
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
-ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 785a74184cae8523b99da7f647ca87fda53c8648
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000711"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185830"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -76,10 +76,10 @@ ms.locfileid: "96000711"
 | StorageAccountAlreadyTaken | 스토리지 계정에 고유한 이름을 제공합니다. | [스토리지 계정 이름 오류 해결](error-storage-account-name.md) |
 | StorageAccountNotFound | 사용 하려는 저장소 계정의 구독, 리소스 그룹 및 이름을 확인 합니다. | |
 | SubnetsNotInSameVnet | 가상 머신에는 하나의 가상 네트워크만 있을 수 있습니다. 여러 NIC를 배포할 때는 모두 동일한 가상 네트워크에 속해야 합니다. | [여러 NIC](../../virtual-machines/windows/multiple-nics.md) |
-| SubscriptionNotFound | 배포에 대해 지정 된 구독에 액세스할 수 없습니다. 구독 ID가 잘못 되었거나, 템플릿을 배포 하는 사용자에 게 구독에 배포할 수 있는 적절 한 권한이 없거나, 구독 ID의 형식이 잘못 된 것일 수 있습니다. 중첩 배포를 사용 하 여 [범위에 배포](cross-scope-deployment.md)하는 경우 구독에 대 한 GUID를 제공 합니다. | |
+| SubscriptionNotFound | 배포에 대해 지정 된 구독에 액세스할 수 없습니다. 구독 ID가 잘못 되었거나, 템플릿을 배포 하는 사용자에 게 구독에 배포할 수 있는 적절 한 권한이 없거나, 구독 ID의 형식이 잘못 된 것일 수 있습니다. 중첩 배포를 사용 하 여 [범위에 배포](./deploy-to-resource-group.md)하는 경우 구독에 대 한 GUID를 제공 합니다. | |
 | SubscriptionNotRegistered 됨 | 리소스를 배포 하는 경우 구독에 대 한 리소스 공급자를 등록 해야 합니다. 배포에 Azure Resource Manager 템플릿을 사용 하면 리소스 공급자가 구독에 자동으로 등록 됩니다. 자동 등록이 시간 내에 완료 되지 않는 경우가 있습니다. 이 일시적인 오류를 방지 하려면 배포 전에 리소스 공급자를 등록 합니다. | [등록 오류 해결](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | 불필요한 종속성을 제거합니다. | [순환 종속성 해결](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | 단일 배포에 대한 리소스 그룹의 수를 줄입니다. | [범위 간 배포](cross-scope-deployment.md) |
+| TooManyTargetResourceGroups | 단일 배포에 대한 리소스 그룹의 수를 줄입니다. | [범위 간 배포](./deploy-to-resource-group.md) |
 
 ## <a name="find-error-code"></a>오류 코드 찾기
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: 50669dcce044988f2e45acc2a17ae43c140d1ab5
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 96d8ba058a33d408ec2ee2a1adfba9011f393da9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930308"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184487"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Azure NetApp Files 네트워크 계획 지침
 
@@ -116,7 +116,7 @@ UDR(사용자 정의 경로)와 NSG(네트워크 보안 그룹)는 Azure NetApp 
 
 ![하이브리드 네트워킹 환경](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-하이브리드 시나리오에서 온-프레미스 데이터 센터의 애플리케이션은 Azure의 리소스에 액세스해야 합니다.  데이터 센터를 Azure로 확장하거나 재해 복구에 Azure 네이티브 서비스를 사용하려는 경우가 여기에 해당합니다. 사이트 간 VPN 또는 ExpressRoute를 통해 온-프레미스의 여러 리소스를 Azure의 리소스에 연 하는 방법에 대한 자세한 내용은 [VPN Gateway 계획 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%252fazure%252fvirtual-network%252ftoc.json#planningtable)을 참조하세요.
+하이브리드 시나리오에서 온-프레미스 데이터 센터의 애플리케이션은 Azure의 리소스에 액세스해야 합니다.  데이터 센터를 Azure로 확장하거나 재해 복구에 Azure 네이티브 서비스를 사용하려는 경우가 여기에 해당합니다. 사이트 간 VPN 또는 ExpressRoute를 통해 온-프레미스의 여러 리소스를 Azure의 리소스에 연 하는 방법에 대한 자세한 내용은 [VPN Gateway 계획 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable)을 참조하세요.
 
 하이브리드 허브-스포크 토폴로지에서 Azure의 허브 VNet은 온-프레미스 네트워크에 대한 연결의 중심점 역할을 합니다. 스포크는 허브와 피어링되는 VNet이며 워크로드를 격리하는 데 사용할 수 있습니다.
 

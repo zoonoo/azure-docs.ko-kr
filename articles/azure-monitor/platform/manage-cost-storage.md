@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 940955c8ace956354a2747f5ad21430620c2a9d1
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: b84d24174771e8395677874c9dac863fa6f27a54
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95744571"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185915"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -78,7 +78,7 @@ Log Analytics 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 �
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Azure 청구서에서 Log Analytics 사용량 보기 
 
-Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%252fazure%252fbilling%252fTOC.json) 허브에서 많은 유용한 기능을 제공합니다. 예를 들어, "비용 분석" 기능을 사용하면 Azure 리소스에 대한 지출 내역을 확인할 수 있습니다. 먼저 "리소스 종류"에 따라 필터를 추가(Log Analytics의 경우 microsoft.operationalinsights/workspace에 추가, Log Analytics 클러스터의 경우 microsoft.operationalinsights/workspace에 추가)하면 Log Analytics 지출 내역을 추적할 수 있습니다. 그런 다음, "그룹화 방법"에서 "미터 범주" 또는 "미터"를 선택합니다.  Azure Security Center 및 Azure Sentinel과 같은 다른 서비스에서도 Log Analytics 작업 영역 리소스에 대한 사용량 요금을 청구합니다. 서비스 이름에 대한 매핑을 보기 위해 차트 대신 테이블 보기를 선택할 수 있습니다. 
+Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) 허브에서 많은 유용한 기능을 제공합니다. 예를 들어, "비용 분석" 기능을 사용하면 Azure 리소스에 대한 지출 내역을 확인할 수 있습니다. 먼저 "리소스 종류"에 따라 필터를 추가(Log Analytics의 경우 microsoft.operationalinsights/workspace에 추가, Log Analytics 클러스터의 경우 microsoft.operationalinsights/workspace에 추가)하면 Log Analytics 지출 내역을 추적할 수 있습니다. 그런 다음, "그룹화 방법"에서 "미터 범주" 또는 "미터"를 선택합니다.  Azure Security Center 및 Azure Sentinel과 같은 다른 서비스에서도 Log Analytics 작업 영역 리소스에 대한 사용량 요금을 청구합니다. 서비스 이름에 대한 매핑을 보기 위해 차트 대신 테이블 보기를 선택할 수 있습니다. 
 
 사용량에 대한 자세한 내용은 [Azure Portal에서 사용량을 다운로드](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal)하면 확인할 수 있습니다. 다운로드한 스프레드시트에서 Azure 리소스별(예: Log Analytics 작업 영역) 일일 사용량을 볼 수 있습니다. 이 Excel 스프레드시트에서는 먼저 "미터 범주"열에서 필터링을 진행하여 "Log Analytics", "Insight & Analytics"(일부 레거시 가격 책정 계층에서 사용됨) 및 "Azure Monitor"(용량 예약 가격 책정 계층에서 사용됨)를 각각 표시한 다음, "작업 영역 포함" 또는 "클러스터 포함"(후자의 경우, Log Analytics 클러스터 사용량을 포함)에 해당되는 "인스턴스 ID" 열에서 하나의 필터를 추가하면 Log Analytics 작업 영역의 사용량을 확인할 수 있습니다. 사용량은 "사용한 수량" 열에 표시되며 각 항목에 대한 단위는 "측정 단위" 열에 표시됩니다.  [Microsoft Azure 청구 방식을 이해](../../cost-management-billing/understand/review-individual-bill.md)하는 데 도움이 되는 자세한 정보를 제공합니다. 
 
@@ -128,7 +128,7 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 
 ## <a name="log-analytics-and-security-center"></a>Log Analytics 및 Security Center
 
-[Azure Security Center](https://docs.microsoft.com/azure/security-center/) 요금은 Log Analytics 청구와 밀접 하 게 연관 되어 있습니다. Security Center는 [보안 데이터 형식](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, Securityalert, Securityalert, SecurityBaselineSummary, securityalert, Securityalert, Windowsfirewall, MaliciousIPCommunication, LinuxAuditLog, Sysmonevent, ProtectionStatus) 집합에 대해 500 m b/노드/일을 할당 하 고, 작업 영역에서 업데이트 관리 솔루션이 실행 되 고 있지 않거나 솔루션 대상 지정을 사용 하는 경우 업데이트 및 UpdateSummary 데이터 형식을 제공 합니다. 작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우 Security Center 및 Log Analytics 할당이 결합 되 고 공동으로 모든 청구 가능 수집 데이터에 적용 됩니다.  
+[Azure Security Center](../../security-center/index.yml) 요금은 Log Analytics 청구와 밀접 하 게 연관 되어 있습니다. Security Center는 [보안 데이터 형식](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, Securityalert, Securityalert, SecurityBaselineSummary, securityalert, Securityalert, Windowsfirewall, MaliciousIPCommunication, LinuxAuditLog, Sysmonevent, ProtectionStatus) 집합에 대해 500 m b/노드/일을 할당 하 고, 작업 영역에서 업데이트 관리 솔루션이 실행 되 고 있지 않거나 솔루션 대상 지정을 사용 하는 경우 업데이트 및 UpdateSummary 데이터 형식을 제공 합니다. 작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우 Security Center 및 Log Analytics 할당이 결합 되 고 공동으로 모든 청구 가능 수집 데이터에 적용 됩니다.  
 
 ## <a name="change-the-data-retention-period"></a>데이터 보존 기간 변경
 
@@ -481,7 +481,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 | 성능 카운터       | [성능 카운터 구성](data-sources-performance-counters.md)을 다음과 같이 변경합니다. <br> - 컬렉션의 빈도 감소 <br> - 성능 카운터의 수 감소 |
 | 이벤트 로그                 | [이벤트 로그 구성](data-sources-windows-events.md)을 다음과 같이 변경합니다. <br> - 수집된 이벤트 로그의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 수준 이벤트를 수집하지 않습니다. |
 | syslog                     | [syslog 구성](data-sources-syslog.md)을 다음과 같이 변경합니다. <br> - 수집된 기능의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 및 *디버그* 수준 이벤트를 수집하지 않습니다. |
-| AzureDiagnostics           | [리소스 로그 수집](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-in-azure-portal) 을 다음으로 변경: <br> - Log Analytics로 보내는 리소스 송신 로그의 수 축소 <br> - 필요한 로그만 수집 |
+| AzureDiagnostics           | [리소스 로그 수집](./diagnostic-settings.md#create-in-azure-portal) 을 다음으로 변경: <br> - Log Analytics로 보내는 리소스 송신 로그의 수 축소 <br> - 필요한 로그만 수집 |
 | 솔루션을 사용하지 않는 컴퓨터의 솔루션 데이터 | [솔루션 대상](../insights/solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>노드당 가격 책정 계층에서 청구되는 노드를 가져오기

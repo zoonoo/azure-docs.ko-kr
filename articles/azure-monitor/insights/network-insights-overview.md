@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 52ca879d5a680d0e62cc469e768236eac11f3719
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 2f262b328efcc341c93f1e5c31cab8cbd3ecbf6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030221"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184640"
 ---
 # <a name="azure-monitor-for-networks"></a>Networks용 Azure Monitor
 네트워크에 대 한 Azure Monitor는 구성 없이 모든 배포 된 네트워크 리소스에 대 한 [상태](../../service-health/resource-health-checks-resource-types.md) 및 [메트릭의](../platform/metrics-supported.md) 포괄적인 보기를 제공 합니다. 또한 [연결 모니터](../../network-watcher/connection-monitor-preview.md), [nsgs (네트워크 보안 그룹)에 대 한 흐름 로깅](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)및 [트래픽 분석](../../network-watcher/traffic-analytics.md)같은 네트워크 모니터링 기능에 대 한 액세스를 제공 합니다. 그리고 다른 네트워크 [진단](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) 기능을 제공 합니다.
@@ -119,11 +119,11 @@ Application gateway, 모든 백 엔드 풀 리소스, 프런트 엔드 Ip에 대
 네트워크 Azure Monitor에서 식별 하는 네트워킹 관련 문제를 해결 하는 방법에 대 한 자세한 내용은 작동 하지 않는 리소스에 대 한 문제 해결 설명서를 참조 하세요. 
 
 자주 사용 하는 서비스에 대 한 문제 해결 문서에 대 한 몇 가지 링크는 다음과 같습니다. 이러한 서비스에 대 한 자세한 문제 해결 문서는 해당 서비스에 대 한 목차의 문제 해결 섹션에 있는 다른 문서를 참조 하세요.
-* [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-peering-issues)
-* [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/create-gateway-internal-load-balancer-app-service-environment)
-* [Azure VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-troubleshoot)
-* [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-expressroute-overview) 
-* [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-troubleshoot) 
+* [Azure Virtual Network](../../virtual-network/virtual-network-troubleshoot-peering-issues.md)
+* [Azure Application Gateway](../../application-gateway/create-gateway-internal-load-balancer-app-service-environment.md)
+* [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-troubleshoot.md)
+* [Azure ExpressRoute](../../expressroute/expressroute-troubleshooting-expressroute-overview.md) 
+* [Azure Load Balancer](../../load-balancer/load-balancer-troubleshoot.md) 
 
 ### <a name="why-dont-i-see-the-resources-for-all-the-subscriptions-ive-selected"></a>선택한 모든 구독에 대 한 리소스가 표시 되지 않는 이유는 무엇 인가요?
 

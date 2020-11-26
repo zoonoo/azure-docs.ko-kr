@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 391d9562bc73265a10976f485c78e3966aa4fe83
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: b770e4488b6edb1c2d3749066315b552c0b5b40a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536288"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186170"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -31,7 +31,7 @@ ms.locfileid: "95536288"
 메트릭 및 활동 로그 수집과 같이 자동으로 사용하도록 설정하는 Azure Monitor 기능은 무료로 제공됩니다. 로그 쿼리 및 경고와 같은 다른 기능과 관련된 비용이 있습니다. 자세한 가격 책정 정보는 [Azure Monitor 가격 페이지](https://azure.microsoft.com/pricing/details/monitor/)를 참조하세요.
 
 ### <a name="how-do-i-enable-azure-monitor"></a>Azure Monitor를 사용하도록 설정하려면 어떻게 해야 하나요?
-Azure Monitor는 새 Azure 구독을 만들 때 사용하도록 설정하고, [활동 로그](./platform/platform-logs-overview.md) 및 플랫폼 [메트릭](platform/data-platform-metrics.md)이 자동으로 수집됩니다. [진단 설정](platform/diagnostic-settings.md)을 만들어 Azure 리소스 작업에 대한 자세한 정보를 수집하고, [모니터링 솔루션](insights/solutions.md) 및 [인사이트](insights/insights-overview.md)를 추가하여 특정 서비스에 대해 수집된 데이터에 대한 추가 분석을 제공합니다. 
+Azure Monitor는 새 Azure 구독을 만들 때 사용하도록 설정하고, [활동 로그](./platform/platform-logs-overview.md) 및 플랫폼 [메트릭](platform/data-platform-metrics.md)이 자동으로 수집됩니다. [진단 설정](platform/diagnostic-settings.md)을 만들어 Azure 리소스 작업에 대한 자세한 정보를 수집하고, [모니터링 솔루션](insights/solutions.md) 및 [인사이트](./monitor-reference.md)를 추가하여 특정 서비스에 대해 수집된 데이터에 대한 추가 분석을 제공합니다. 
 
 ### <a name="how-do-i-access-azure-monitor"></a>Azure Monitor에 액세스하려면 어떻게 해야 하나요?
 Azure Portal의 **모니터** 메뉴에서 모든 Azure Monitor 기능 및 데이터에 액세스합니다. 다른 Azure 서비스 메뉴의 **모니터링** 섹션에서는 특정 리소스로 필터링된 데이터를 사용하여 동일한 도구에 액세스할 수 있습니다. 또한 Azure Monitor 데이터는 CLI, PowerShell 및 REST API를 사용하는 다양한 시나리오에 액세스할 수 있습니다.
@@ -65,7 +65,7 @@ Azure Monitor는 데이터를 다양한 원본에서 [로그](platform/data-plat
 ## <a name="solutions-and-insights"></a>솔루션 및 인사이트
 
 ### <a name="what-is-an-insight-in-azure-monitor"></a>Azure Monitor의 인사이트는 무엇인가요?
-인사이트는 특정 Azure 서비스에 대한 사용자 지정 모니터링 환경을 제공합니다. Azure Monitor의 다른 기능과 동일한 메트릭과 로그를 사용하지만, 추가 데이터를 수집하고 Azure Portal에서 고유한 환경을 제공할 수 있습니다. [Azure Monitor의 인사이트](insights/insights-overview.md)를 참조하세요.
+인사이트는 특정 Azure 서비스에 대한 사용자 지정 모니터링 환경을 제공합니다. Azure Monitor의 다른 기능과 동일한 메트릭과 로그를 사용하지만, 추가 데이터를 수집하고 Azure Portal에서 고유한 환경을 제공할 수 있습니다. [Azure Monitor의 인사이트](./monitor-reference.md)를 참조하세요.
 
 Azure Portal에서 인사이트를 보려면 **모니터** 메뉴의 **인사이트** 섹션 또는 서비스 메뉴의 **모니터링** 섹션을 참조하세요.
 
@@ -77,7 +77,7 @@ Azure Portal에서 솔루션을 보려면 **모니터** 메뉴의 **인사이트
 ## <a name="logs"></a>로그
 
 ### <a name="whats-the-difference-between-azure-monitor-logs-and-azure-data-explorer"></a>Azure Monitor 로그와 Azure Data Explorer의 차이점은 무엇인가요?
-Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure Monitor 로그는 Azure Data Explorer를 기반으로 하여 구축되며, 약간의 차이가 있지만 동일한 KQL(Kusto 쿼리 언어)을 사용합니다. [Azure Monitor 로그 쿼리 언어 차이점](log-query/data-explorer-difference.md)을 참조하세요.
+Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure Monitor 로그는 Azure Data Explorer를 기반으로 하여 구축되며, 약간의 차이가 있지만 동일한 KQL(Kusto 쿼리 언어)을 사용합니다. [Azure Monitor 로그 쿼리 언어 차이점](/azure/data-explorer/kusto/query/)을 참조하세요.
 
 ### <a name="how-do-i-retrieve-log-data"></a>로그 데이터를 검색하려면 어떻게 해야 하나요?
 모든 데이터는 KQL(Kusto 쿼리 언어)로 작성된 로그 쿼리를 사용하여 Log Analytics 작업 영역에서 검색됩니다. 사용자 고유의 쿼리를 작성하거나 특정 애플리케이션 또는 서비스에 대한 로그 쿼리가 포함된 솔루션과 인사이트를 사용할 수 있습니다. [Azure Monitor의 로그 쿼리 개요](log-query/log-query-overview.md)를 참조하세요.
@@ -224,7 +224,7 @@ WireData
 * [Node.js 앱](app/nodejs.md)
 * [Azure의 Web Apps](app/azure-web-apps.md)
 * [Azure의 Cloud Services](app/cloudservices.md)
-* [Docker에서 실행되는 앱 서버](app/docker.md)
+* [Docker에서 실행되는 앱 서버](./azure-monitor-app-hub.yml)
 * [단일 페이지 웹앱](app/javascript.md)
 * [SharePoint](app/sharepoint.md)
 * [Windows 데스크톱 앱](app/windows-desktop.md)
@@ -401,7 +401,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 
 기존 Application Insights 리소스를 한 지역에서 다른 지역으로 이동 하는 것은 **현재 지원 되지 않습니다**. 수집 된 기록 데이터를 새 지역으로 **마이그레이션할 수 없습니다** . 유일한 해결 방법은 다음과 같습니다.
 
-1. 새 지역에 새 Application Insights 리소스 ([클래식](app/create-new-resource.md) 또는 [작업 영역 기반](/azure/azure-monitor/app/create-workspace-resource))를 만듭니다.
+1. 새 지역에 새 Application Insights 리소스 ([클래식](app/create-new-resource.md) 또는 [작업 영역 기반](./app/create-workspace-resource.md))를 만듭니다.
 2. 새 리소스의 원래 리소스와 관련 된 모든 고유한 사용자 지정 항목을 다시 만듭니다.
 3. 새 지역 리소스의 [계측 키](app/create-new-resource.md#copy-the-instrumentation-key) 또는 [연결 문자열](app/sdk-connection-string.md)을 사용 하도록 응용 프로그램을 수정 합니다.  
 4. 를 테스트 하 여 모든 것이 새 Application Insights 리소스에서 예상 대로 작동 하는지 확인 합니다. 
@@ -414,7 +414,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 - 가용성 경고를 다시 만듭니다.
 - 사용자가 새 리소스에 액세스 하는 데 필요한 모든 사용자 지정 Azure RBAC (역할 기반 액세스 제어) 설정을 다시 만듭니다. 
 - 수집 샘플링, 데이터 보존, 일일 상한 및 사용자 지정 메트릭과 관련 된 설정을 복제 합니다. 이러한 설정은 **사용량 및 예상 비용** 창을 통해 제어 됩니다.
-- [릴리스 주석](/azure/azure-monitor/app/annotations), [라이브 메트릭 보안 제어 채널](app/live-stream.md#secure-the-control-channel) 등의 API 키에 의존 하는 모든 통합 새 API 키를 생성 하 고 연결 된 통합을 업데이트 해야 합니다. 
+- [릴리스 주석](./app/annotations.md), [라이브 메트릭 보안 제어 채널](app/live-stream.md#secure-the-control-channel) 등의 API 키에 의존 하는 모든 통합 새 API 키를 생성 하 고 연결 된 통합을 업데이트 해야 합니다. 
 - 클래식 리소스에서 연속 내보내기를 다시 구성 해야 합니다.
 - 작업 영역 기반 리소스의 진단 설정을 다시 구성 해야 합니다.
 

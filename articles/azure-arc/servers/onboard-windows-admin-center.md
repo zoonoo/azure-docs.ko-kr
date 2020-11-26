@@ -3,18 +3,18 @@ title: Windows 관리 센터에서 Azure에 하이브리드 컴퓨터 연결
 description: 이 문서에서는 Windows 관리 센터에서 Azure Arc 사용 서버를 사용 하 여 에이전트를 설치 하 고 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
 ms.date: 10/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: d47e3dd4434d719f890b64e4cdfb12a189c0632a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 8fa118a254689feade2897f083bb3aa2dc9db02c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133709"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183416"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-windows-admin-center"></a>Windows 관리 센터에서 Azure에 하이브리드 컴퓨터 연결
 
 일련의 단계를 수동으로 수행 하 여 사용자 환경에서 하나 이상의 Windows 컴퓨터에 대해 Azure Arc 사용 서버를 사용 하도록 설정할 수 있습니다. 또는 [Windows 관리 센터](/windows-server/manage/windows-admin-center/understand/what-is) 를 사용 하 여 연결 된 컴퓨터 에이전트를 배포 하 고이 도구 외부에서 단계를 수행 하지 않고도 온-프레미스 서버를 등록할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Arc 사용 서버- [필수 구성 요소](agent-overview.md#prerequisites) 를 검토 하 고 구독, Azure 계정 및 리소스가 요구 사항을 충족 하는지 확인 합니다.
 
@@ -48,7 +48,7 @@ Arc 사용 서버를 사용 하 여 Windows server를 구성 하려면 다음 �
 
     1. **Azure 구독** 드롭다운 목록에서 azure 구독을 선택 합니다.
     1. **리소스 그룹** 에 대해 **새로** 만들기를 선택 하 여 새 리소스 그룹을 만들거나 **리소스 그룹** 드롭다운 목록에서 컴퓨터를 등록 하 고 관리 하는 기존 리소스 그룹을 선택 합니다.
-    1. **지역** 드롭다운 목록에서 서버 메타 데이터를 저장할 Azure 지역을 선택 합니다.
+    1. **지역** 드롭다운 목록에서 서버 메타데이터를 저장할 Azure 지역을 선택합니다.
     1. 컴퓨터 또는 서버가 인터넷에 연결 하기 위해 프록시 서버를 통해 통신 하는 경우 **프록시 서버 사용** 옵션을 선택 합니다. 컴퓨터에서 프록시 서버와 통신 하는 데 사용할 프록시 서버 IP 주소, 이름 및 포트 번호를 지정 합니다.
 
 1. **설정** 을 선택 하 여 Azure Arc 사용 서버를 사용 하는 Windows server 구성을 진행 합니다.
@@ -69,4 +69,4 @@ Windows server는 Azure에 연결 하 고, 연결 된 컴퓨터 에이전트를 
 
 * [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM을 사용한 Azure Monitor](../../azure-monitor/insights/vminsights-enable-policy.md)로 모니터링 등).
 
-* [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux 용 Log Analytics 에이전트는 운영 체제 및 워크 로드 모니터링 데이터를 수집 하거나, 자동화 runbook 또는 업데이트 관리 같은 기능을 사용 하 여 관리 하거나, [Azure Security Center](../../security-center/security-center-intro.md)같은 다른 Azure 서비스를 사용 하려는 경우에 필요 합니다.
+* [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux 용 Log Analytics 에이전트는 운영 체제 및 워크 로드 모니터링 데이터를 수집 하거나, 자동화 runbook 또는 업데이트 관리 같은 기능을 사용 하 여 관리 하거나, [Azure Security Center](../../security-center/security-center-introduction.md)같은 다른 Azure 서비스를 사용 하려는 경우에 필요 합니다.

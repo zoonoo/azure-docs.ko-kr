@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 7a7a3669c5462adba3828bb1fd6c2fc9c4b3213c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9d1aa54ba1e3f3a589df8f694e340909c4e24ecc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566166"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183688"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>자습서: Azure CLI를 통해 기존 Application Gateway를 사용하여 기존 AKS 클러스터에 Application Gateway 수신 컨트롤러 추가 기능을 사용하도록 설정(미리 보기)
 
@@ -35,16 +35,16 @@ Azure CLI를 사용하여 [AKS(Azure Kubernetes Services)](https://azure.microso
 
  - 이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
- - 다음 예제와 같이 [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) 명령을 사용하여 *AKS-IngressApplicationGatewayAddon* 기능 플래그를 등록합니다. 추가 기능이 미리 보기로 제공되는 동안에는 이 작업을 구독당 한 번만 수행하면 됩니다.
+ - 다음 예제와 같이 [az feature register](/cli/azure/feature#az-feature-register) 명령을 사용하여 *AKS-IngressApplicationGatewayAddon* 기능 플래그를 등록합니다. 추가 기능이 미리 보기로 제공되는 동안에는 이 작업을 구독당 한 번만 수행하면 됩니다.
      ```azurecli-interactive
      az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
      ```
-    상태가 [등록됨]으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+    상태가 [등록됨]으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature#az-feature-register) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
      ```azurecli-interactive
      az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
      ```
 
- - 준비가 되면 [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) 명령을 사용하여 Microsoft.ContainerService 리소스 공급자 등록을 새로 고칩니다.
+ - 준비가 되면 [az provider register](/cli/azure/provider#az-provider-register) 명령을 사용하여 Microsoft.ContainerService 리소스 공급자 등록을 새로 고칩니다.
     ```azurecli-interactive
     az provider register --namespace Microsoft.ContainerService
     ```

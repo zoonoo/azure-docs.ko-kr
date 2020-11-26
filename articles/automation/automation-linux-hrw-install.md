@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07c04274829530942bab0e3267200f6524c4ddc7
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 20683808c81b32560170b175edf1c37c332f47ad
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95793415"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183620"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
 
@@ -20,7 +20,7 @@ Linux Hybrid Runbook Worker는 Runbook을 승격이 필요한 명령을 실행�
 
 Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 검토하여 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 시작 하기 전에 다음이 있는지 확인 합니다.
 
@@ -73,7 +73,7 @@ Linux 시스템 및 사용자 Hybrid Runbook Worker에 대 한 최소 요구 사
 Automation 계정 중 하나에서 Hybrid Runbook Worker 그룹에 작업자 컴퓨터를 추가할 수 있습니다. 업데이트 관리에서 관리 하는 시스템 Hybrid Runbook worker를 호스트 하는 컴퓨터의 경우 Hybrid Runbook Worker 그룹에 추가할 수 있습니다. 하지만 업데이트 관리와 Hybrid Runbook Worker 그룹 구성원 자격에 대해 동일한 Automation 계정을 사용 해야 합니다.
 
 >[!NOTE]
->Azure Automation [업데이트 관리](update-management/update-mgmt-overview.md) 는 업데이트 관리에 대해 사용 하도록 설정 된 azure 또는 비 azure 컴퓨터에 시스템 Hybrid Runbook Worker를 자동으로 설치 합니다. 그러나이 작업자는 Automation 계정의 Hybrid Runbook Worker 그룹에 등록 되어 있지 않습니다. 이러한 컴퓨터에서 runbook을 실행 하려면 Hybrid Runbook Worker 그룹에 추가 해야 합니다. [Linux Hybrid Runbook Worker 설치](#install-a-linux-hybrid-runbook-worker) 섹션 아래의 4 단계를 수행 하 여 그룹에 추가 합니다.
+>Azure Automation [업데이트 관리](./update-management/overview.md) 는 업데이트 관리에 대해 사용 하도록 설정 된 azure 또는 비 azure 컴퓨터에 시스템 Hybrid Runbook Worker를 자동으로 설치 합니다. 그러나이 작업자는 Automation 계정의 Hybrid Runbook Worker 그룹에 등록 되어 있지 않습니다. 이러한 컴퓨터에서 runbook을 실행 하려면 Hybrid Runbook Worker 그룹에 추가 해야 합니다. [Linux Hybrid Runbook Worker 설치](#install-a-linux-hybrid-runbook-worker) 섹션 아래의 4 단계를 수행 하 여 그룹에 추가 합니다.
 
 ## <a name="supported-linux-hardening"></a>지원 되는 Linux 강화
 
@@ -89,9 +89,9 @@ Linux Hybrid Runbook Worker는 Azure Automation의 제한 된 runbook 형식 집
 |-------------|-----------|
 |Python 2 |Yes |
 |PowerShell |예<sup>1</sup> |
-|PowerShell 워크플로 |예 |
-|그래픽 |예 |
-|그래픽 PowerShell 워크플로 |예 |
+|PowerShell 워크플로 |No |
+|그래픽 |No |
+|그래픽 PowerShell 워크플로 |No |
 
 <sup>1</sup> PowerShell runbook을 설치 하려면 PowerShell Core가 Linux 컴퓨터에 설치 되어 있어야 합니다. 설치하는 방법을 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/install/installing-powershell-core-on-linux)를 참조하세요.
 

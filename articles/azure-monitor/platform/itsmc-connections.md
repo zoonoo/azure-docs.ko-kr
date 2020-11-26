@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: f7980ca7bc6f23c383ea013c2b017b3bd61e2d25
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 410281ce67faf345539701389d4b03351d403b99
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842297"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186068"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](./itsmc-overview.md)를 참조하세요.
@@ -46,7 +46,7 @@ ms.locfileid: "94842297"
 > [!NOTE]
 > 
 > - ITSM 커넥터는 클라우드 기반 ServiceNow 인스턴스에만 연결할 수 있습니다. 온-프레미스 ServiceNow 인스턴스는 현재 지원되지 않습니다.
-> - 작업의 일부로 사용자 지정 [템플릿을](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) 사용 하려면 scsm 템플릿의 "ProjectionType" 매개 변수를 "IncidentManagement"에 매핑해야 합니다. ProjectionType "를
+> - 작업의 일부로 사용자 지정 [템플릿을](./itsmc-overview.md#template-definitions) 사용 하려면 scsm 템플릿의 "ProjectionType" 매개 변수를 "IncidentManagement"에 매핑해야 합니다. ProjectionType "를
 
 ### <a name="connection-procedure"></a>연결 절차
 
@@ -432,4 +432,3 @@ Cherwell용 클라이언트 ID/키를 생성하려면 다음 절차를 수행합
 
 ## <a name="next-steps"></a>다음 단계
  - [Azure 경고에서 ITSM 작업 항목 만들기](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
-

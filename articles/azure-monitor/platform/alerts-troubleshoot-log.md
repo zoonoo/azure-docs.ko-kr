@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: ec2ffe71a32781a855da258f3621738f1a5f6be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9a1bef582053eccdbfef63c2159cf540ffd9bfb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294294"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186595"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고 문제 해결  
 
 이 문서에서는 Azure Monitor에서 로그 경고와 관련 된 일반적인 문제를 해결 하는 방법을 보여 줍니다. 또한 로그 경고의 기능 및 구성과 관련 된 일반적인 문제에 대 한 해결 방법을 제공 합니다.
 
-로그 경고를 통해 사용자는 [Log Analytics](../log-query/get-started-portal.md) 쿼리를 사용 하 여 설정 된 빈도 마다 리소스 로그를 평가 하 고 결과에 따라 경고를 발생 시킬 수 있습니다. 규칙은 [작업 그룹](./action-groups.md)을 사용 하 여 하나 이상의 작업을 트리거할 수 있습니다. [로그 경고의 기능 및 용어에 대해 자세히 알아보세요](alerts-unified-log.md).
+로그 경고를 통해 사용자는 [Log Analytics](../log-query/log-analytics-tutorial.md) 쿼리를 사용 하 여 설정 된 빈도 마다 리소스 로그를 평가 하 고 결과에 따라 경고를 발생 시킬 수 있습니다. 규칙은 [작업 그룹](./action-groups.md)을 사용 하 여 하나 이상의 작업을 트리거할 수 있습니다. [로그 경고의 기능 및 용어에 대해 자세히 알아보세요](alerts-unified-log.md).
 
 > [!NOTE]
 > 이 문서에서는 Azure Portal 경고 규칙을 표시 하 고 연결 된 작업 그룹에서 알림을 수행 하지 않는 경우를 고려 하지 않습니다. 이러한 경우 문제 해결에 대 한 세부 정보를 [참조 하세요.](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected)
@@ -42,7 +42,7 @@ Azure Monitor는 전 세계에서 tb의 고객 로그를 처리 하므로 [로�
 
 ### <a name="actions-are-muted-in-the-alert-rule"></a>작업은 경고 규칙에서 음소거 됩니다.
 
-로그 경고는 설정 된 시간 동안 발생 한 경고 작업을 음소거 하는 옵션을 제공 합니다. 이 필드를 작업 영역에서 **경고 표시 안 함** 및 Application Insights 이라고 합니다. 다른 모든 리소스 형식에서 **음소거 작업**이라고 합니다. 
+로그 경고는 설정 된 시간 동안 발생 한 경고 작업을 음소거 하는 옵션을 제공 합니다. 이 필드를 작업 영역에서 **경고 표시 안 함** 및 Application Insights 이라고 합니다. 다른 모든 리소스 형식에서 **음소거 작업** 이라고 합니다. 
 
 일반적인 문제는 서비스 문제로 인해 경고가 작업을 실행 하지 않은 것으로 생각 하는 것입니다. 규칙 구성에 의해 음소거 된 경우에도 마찬가지입니다.
 
@@ -131,7 +131,7 @@ SecurityEvent
 
     - 할당량 제한을 늘려야 하는 구독 Id 및 리소스 Id입니다.
     - 할당량 증가에 대 한 이유입니다.
-    - 할당량 증가에 대 한 리소스 유형: **Log Analytics**, **Application Insights**등
+    - 할당량 증가에 대 한 리소스 유형: **Log Analytics**, **Application Insights** 등
     - 할당량 제한을 요청 했습니다.
 
 

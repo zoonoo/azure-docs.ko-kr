@@ -6,18 +6,18 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5ad40ca051677ced0c6d8b5c35e8563272ff598f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151065"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183977"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Azure SignalR Service에 대 한 리소스 로그
 
 이 자습서에서는 Azure SignalR Service에 대 한 리소스 로그, 설정 방법 및 문제 해결 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 리소스 로그를 사용 하도록 설정 하려면 로그 데이터를 저장 하는 위치에 있어야 합니다. 이 자습서에서는 Azure Storage와 Log Analytics를 사용 합니다.
 
 * [Azure storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) -정책 감사, 정적 분석 또는 백업에 대 한 리소스 로그를 유지 합니다.
@@ -31,11 +31,11 @@ Azure SignalR 서비스에 대 한 리소스 로그를 볼 수 있습니다. 이
 
 리소스 로그는 기본적으로 사용 되지 않습니다. 리소스 로그를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 **모니터링**에서 **진단 설정**을 클릭 합니다.
+1. [Azure Portal](https://portal.azure.com)의 **모니터링** 에서 **진단 설정** 을 클릭 합니다.
 
     ![진단 설정에 대 한 창 탐색](./media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png)
 
-1. 그런 다음 **진단 설정 추가**를 클릭 합니다.
+1. 그런 다음 **진단 설정 추가** 를 클릭 합니다.
 
     ![리소스 로그 추가](./media/signalr-tutorial-diagnostic-logs/add-diagnostic-setting.png)
 
@@ -56,7 +56,7 @@ Azure SignalR 서비스에 대 한 리소스 로그를 볼 수 있습니다. 이
 
 Azure SignalR Service는 한 범주에서 리소스 로그를 캡처합니다.
 
-* **모든 로그**: Azure SignalR Service에 연결 하는 연결을 추적 합니다. 로그는 연결/연결 끊기, 인증 및 제한에 대 한 정보를 제공 합니다. 자세한 내용은 다음 섹션을 참조하세요.
+* **모든 로그**: Azure SignalR Service에 연결 하는 연결을 추적 합니다. 로그는 연결/연결 끊기, 인증 및 제한에 대 한 정보를 제공 합니다. 자세한 내용은 다음 단원을 참조하세요.
 
 ### <a name="archive-to-a-storage-account"></a>스토리지 계정에 보관
 
@@ -122,7 +122,7 @@ message | 로그 이벤트의 세부 메시지
 
     ![Log Analytics 메뉴 항목](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. `SignalRServiceDiagnosticLogs`리소스 로그를 쿼리 하는 시간 범위를 입력 하 고 선택 합니다. 고급 쿼리는 [에서 Log Analytics 시작](../azure-monitor/log-query/get-started-portal.md) 을 참조 하세요 Azure Monitor
+2. `SignalRServiceDiagnosticLogs`리소스 로그를 쿼리 하는 시간 범위를 입력 하 고 선택 합니다. 고급 쿼리는 [에서 Log Analytics 시작](../azure-monitor/log-query/log-analytics-tutorial.md) 을 참조 하세요 Azure Monitor
 
     ![Log Analytics 쿼리 로그](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
@@ -182,7 +182,7 @@ Azure SignalR 서비스에 대 한 문제를 해결 하기 위해 서버/클라�
 
 #### <a name="throttling"></a>제한
 
-Azure SignalR Service에 대 한 SignalR 클라이언트 연결을 설정할 수 없는 경우 리소스 로그를 확인 합니다. `Connection count reaches limit`리소스 로그에서 발생 한 경우 연결 수 제한에 도달 하는 SignalR Service에 대 한 연결을 너무 많이 설정 합니다. SignalR 서비스를 확장 하는 것이 좋습니다. 리소스 로그에서 발생 하는 경우 `Message count reaches limit` 무료 계층을 사용 하 고 메시지 할당량을 사용 합니다. 더 많은 메시지를 보내려면 SignalR 서비스를 표준 계층으로 변경 하 여 추가 메시지를 전송 하는 것이 좋습니다. 자세한 내용은 [Azure SignalR Service 가격 책정](https://azure.microsoft.com/pricing/details/signalr-service/)을 참조 하세요.
+Azure SignalR Service에 대 한 SignalR 클라이언트 연결을 설정할 수 없는 경우 리소스 로그를 확인 합니다. `Connection count reaches limit`리소스 로그에서 발생 한 경우 연결 수 제한에 도달 하는 SignalR Service에 대 한 연결을 너무 많이 설정 합니다. SignalR 서비스를 확장 하는 것이 좋습니다. 리소스 로그에서 발생 하는 경우 `Message count reaches limit` 무료 계층을 사용 하 고 메시지 할당량을 사용 합니다. 더 많은 메시지를 보내려면 SignalR 서비스를 표준 계층으로 변경 하 여 추가 메시지를 전송 하는 것이 좋습니다. 자세한 내용은 [Azure SignalR Service 가격 책정](https://azure.microsoft.com/pricing/details/signalr-service/)을 참조 하세요.
 
 ### <a name="get-help"></a>도움말 보기
 

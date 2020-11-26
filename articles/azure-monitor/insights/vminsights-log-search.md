@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 6b3fdf052ce7f0d6a5c3497aa1ac971d9249546a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 118bdcb6929abfc162ff05e91f1621f087b6c50c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015595"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186731"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>VM용 Azure Monitor에서 로그를 쿼리하는 방법
 
@@ -473,7 +473,6 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Monitor에서 로그 쿼리를 작성 하는 데 처음 사용 하는 경우 Azure Portal에서 Log Analytics를 사용 하 여 로그 쿼리를 작성 하 [는 방법](../log-query/get-started-portal.md) 을 검토 하세요.
+* Azure Monitor에서 로그 쿼리를 작성 하는 데 처음 사용 하는 경우 Azure Portal에서 Log Analytics를 사용 하 여 로그 쿼리를 작성 하 [는 방법](../log-query/log-analytics-tutorial.md) 을 검토 하세요.
 
-* [검색 쿼리 작성](/azure/azure-monitor/log-query/get-started-queries)에 대해 알아봅니다.
-
+* [검색 쿼리 작성](../log-query/get-started-queries.md)에 대해 알아봅니다.

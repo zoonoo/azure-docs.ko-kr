@@ -3,12 +3,12 @@ title: 템플릿 함수 - 리소스
 description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 0d118b80439579b0c8be45fdf1180b9a03b54c1d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b7bb726250c6d1ef8a597481b5f7e95f024a56d4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95994141"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183994"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿의 리소스 함수
 
@@ -516,7 +516,7 @@ output notSupportedType array = pickZones('Microsoft.Cdn', 'profiles', 'westus2'
 
 이전 예제의 출력은 세 개의 배열을 반환 합니다.
 
-| Name | Type | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ----- |
 | 지원됨 | array | ["1"] |
 | notSupportedRegion | array | [] |
@@ -1030,7 +1030,7 @@ output ExistingStorage object = reference(resourceId(storageAccountName), 'Micro
 
 ### <a name="remarks"></a>설명
 
-`resourceGroup()` 함수는 [구독 수준에서 배포](deploy-to-subscription.md)된 템플릿에서 사용할 수 없습니다. 리소스 그룹에 배포된 템플릿에서만 사용할 수 있습니다. 부모 템플릿이 구독에 배포되는 경우에도 리소스 그룹을 대상으로 하는 [연결된 템플릿 또는 중첩된 템플릿(내부 범위 포함)](linked-templates.md)에서 `resourceGroup()` 함수를 사용할 수 있습니다. 이 시나리오에서는 연결된 템플릿이나 중첩된 템플릿이 리소스 그룹 수준에서 배포됩니다. 구독 수준 배포에서 리소스 그룹을 대상으로 지정하는 방법에 대한 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](cross-scope-deployment.md)를 참조하세요.
+`resourceGroup()` 함수는 [구독 수준에서 배포](deploy-to-subscription.md)된 템플릿에서 사용할 수 없습니다. 리소스 그룹에 배포된 템플릿에서만 사용할 수 있습니다. 부모 템플릿이 구독에 배포되는 경우에도 리소스 그룹을 대상으로 하는 [연결된 템플릿 또는 중첩된 템플릿(내부 범위 포함)](linked-templates.md)에서 `resourceGroup()` 함수를 사용할 수 있습니다. 이 시나리오에서는 연결된 템플릿이나 중첩된 템플릿이 리소스 그룹 수준에서 배포됩니다. 구독 수준 배포에서 리소스 그룹을 대상으로 지정하는 방법에 대한 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](./deploy-to-resource-group.md)를 참조하세요.
 
 resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 리소스를 만드는 데 사용됩니다. 다음 예제에서는 기본 매개 변수 값에 대해 리소스 그룹 위치를 사용합니다.
 
@@ -1055,7 +1055,7 @@ param location string = resourceGroup().location
 
 또한 resourceGroup 함수를 사용하여 리소스 그룹의 태그를 리소스에 적용할 수 있습니다. 자세한 내용은 [리소스 그룹에서 태그 적용](../management/tag-resources.md#apply-tags-from-resource-group)을 참조하세요.
 
-중첩된 템플릿을 사용하여 여러 리소스 그룹에 배포하는 경우 resourceGroup 함수를 평가하는 범위를 지정할 수 있습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](cross-scope-deployment.md)를 참조하세요.
+중첩된 템플릿을 사용하여 여러 리소스 그룹에 배포하는 경우 resourceGroup 함수를 평가하는 범위를 지정할 수 있습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](./deploy-to-resource-group.md)를 참조하세요.
 
 ### <a name="resource-group-example"></a>리소스 그룹 예제
 
@@ -1344,7 +1344,7 @@ output nestedResourceOutput string = resourceId('Microsoft.SQL/servers/databases
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
@@ -1372,7 +1372,7 @@ output nestedResourceOutput string = resourceId('Microsoft.SQL/servers/databases
 
 ### <a name="remarks"></a>설명
 
-중첩된 템플릿을 사용하여 여러 구독에 배포하는 경우 subscription 함수를 평가하는 범위를 지정할 수 있습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](cross-scope-deployment.md)를 참조하세요.
+중첩된 템플릿을 사용하여 여러 구독에 배포하는 경우 subscription 함수를 평가하는 범위를 지정할 수 있습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](./deploy-to-resource-group.md)를 참조하세요.
 
 ### <a name="subscription-example"></a>구독 예제
 

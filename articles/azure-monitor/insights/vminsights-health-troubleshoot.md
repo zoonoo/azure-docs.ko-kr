@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/08/2020
-ms.openlocfilehash: 048230bb85d2ac599efc6bd3fb326f98038cce57
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2aa83a861697882127c75eb696807f604c3061f0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687021"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184555"
 ---
 # <a name="troubleshoot-azure-monitor-for-vms-guest-health-preview"></a>VM용 Azure Monitor 게스트 상태 (미리 보기) 문제 해결
 이 문서에서는 VM용 Azure Monitor 상태와 관련 된 문제가 있을 때 수행할 수 있는 문제 해결 단계를 설명 합니다.
@@ -42,7 +42,7 @@ Azure Monitor 에이전트 확장 및 게스트 VM 상태 에이전트가 가상
 상태 확장을 데이터 원본으로 지정 하는 데이터 수집 규칙이 가상 머신과 연결 되어 있는지 확인 합니다.
 
 ## <a name="error-message-for-bad-request-due-to-insufficient-permissions"></a>권한 부족으로 인해 잘못 된 요청에 대 한 오류 메시지
-이 오류는 **WorkloadMonitor** 리소스 공급자가 구독에 등록 되지 않았음을 나타냅니다. 이 리소스 공급자를 등록 하는 방법에 대 한 자세한 내용은 [Azure 리소스 공급자 및 형식](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) 을 참조 하세요. 
+이 오류는 **WorkloadMonitor** 리소스 공급자가 구독에 등록 되지 않았음을 나타냅니다. 이 리소스 공급자를 등록 하는 방법에 대 한 자세한 내용은 [Azure 리소스 공급자 및 형식](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) 을 참조 하세요. 
 
 ![잘못된 요청](media/vminsights-health-troubleshoot/bad-request.png)
 

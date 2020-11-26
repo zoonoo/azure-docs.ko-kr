@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: 7ab62b04f8bea76c7efb587665f87ccaf123da24
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a7794bcdfa4f82698fdc5875bc94dcf52b70166e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109003"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185099"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Azure IoT Edge 런타임 설치 또는 제거
 
@@ -24,7 +24,7 @@ IoT Edge 장치를 설정 하는 두 단계는 다음과 같습니다. 첫 번�
 
 이 문서에는 Linux 또는 Windows 장치에 Azure IoT Edge 런타임을 설치 하는 단계가 나와 있습니다. Windows 장치의 경우 Linux 컨테이너 또는 Windows 컨테이너를 추가로 선택할 수 있습니다. 현재 Windows의 Windows 컨테이너는 프로덕션 시나리오에 권장 됩니다. Windows의 linux 컨테이너는 개발 및 테스트 시나리오에 유용 합니다. 특히 Linux 장치에 배포 하기 위해 Windows PC에서 개발 하는 경우에 유용 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 현재 프로덕션 시나리오에 대해 지원 되는 운영 체제에 대 한 최신 정보는 [지원 되는 Azure IoT Edge 시스템](support.md#operating-systems) 을 참조 하세요.
 
@@ -51,7 +51,7 @@ Microsoft 설치 패키지에 액세스할 수 있도록 장치를 준비 합니
      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
      ```
 
-   * **Raspbian Stretch**:
+   * **Raspberry PI OS 스트레치**:
 
      ```bash
      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -100,7 +100,7 @@ Azure IoT Edge는 OCI 호환 컨테이너 런타임을 사용합니다. 프로�
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
-장치에서 패키지 목록을 업데이트 합니다.
+디바이스에서 패키지 목록을 업데이트합니다.
 
    ```bash
    sudo apt-get update
@@ -138,7 +138,7 @@ IoT Edge 보안 디먼은 IoT Edge 장치에서 보안 표준을 제공 하 고 
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
-장치에서 패키지 목록을 업데이트 합니다.
+디바이스에서 패키지 목록을 업데이트합니다.
 
    ```bash
    sudo apt-get update
@@ -272,13 +272,13 @@ IoT Edge 보안 디먼은 IoT Edge 장치에서 보안 표준을 제공 하 고 
 
    각 릴리스의 기능을 지원 하기 위해 기능이 변경 되기 때문에 사용 하는 .cab 파일과 동일한 릴리스의 PowerShell 스크립트를 사용 하는 것이 중요 합니다.
 
-3. 다운로드 한 .cab 파일의 아키텍처 접미사가 있는 경우 파일 이름을 **Microsoft-Azure-IoTEdge.cab**으로 바꿉니다.
+3. 다운로드 한 .cab 파일의 아키텍처 접미사가 있는 경우 파일 이름을 **Microsoft-Azure-IoTEdge.cab** 으로 바꿉니다.
 
 4. 필요에 따라 Visual C++ 재배포 가능 패키지에 대 한 설치 관리자를 다운로드 합니다. 예를 들어 PowerShell 스크립트는 [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe)버전을 사용 합니다. 설치 관리자를 IoT 장치의 동일한 폴더에 IoT Edge 파일로 저장 합니다.
 
 5. 오프 라인 구성 요소를 사용 하 여 설치 하려면 [도트 원본](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) 에 PowerShell 스크립트의 로컬 복사본을 사용 합니다. 
 
-6. 매개 변수를 사용 하 여 [배포-IoTEdge](reference-windows-scripts.md#deploy-iotedge) 명령을 실행 합니다 `-OfflineInstallationPath` . 파일 디렉터리에 대 한 절대 경로를 제공 합니다. 예를 들면
+6. 매개 변수를 사용 하 여 [배포-IoTEdge](reference-windows-scripts.md#deploy-iotedge) 명령을 실행 합니다 `-OfflineInstallationPath` . 파일 디렉터리에 대 한 절대 경로를 제공 합니다. 예를 들면 다음과 같습니다.
 
    ```powershell
    . <path>\IoTEdgeSecurityDaemon.ps1

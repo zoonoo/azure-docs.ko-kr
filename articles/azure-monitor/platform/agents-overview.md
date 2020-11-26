@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2020
-ms.openlocfilehash: 30521e85feda0fc19329364dcb710d322ae8cfc1
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: c6db5a856b127d4549de9597f8157f524a38af79
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95323242"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186663"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -35,7 +35,7 @@ ms.locfileid: "95323242"
 | | Azure Monitor 에이전트 (미리 보기) | 진단<br>확장 (WAD) | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|:---|
 | **지원 되는 환경** | Azure<br>기타 클라우드 (Azure Arc)<br>온-프레미스 (Azure Arc)  | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | 
-| **에이전트 요구 사항**  | None | None | None | Log Analytics 에이전트가 필요 합니다. |
+| **에이전트 요구 사항**  | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요 합니다. |
 | **수집되는 데이터** | 이벤트 로그<br>성능 | 이벤트 로그<br>ETW 이벤트<br>성능<br>파일 기반 로그<br>IIS 로그<br>.NET 앱 로그<br>크래시 덤프<br>에이전트 진단 로그 | 이벤트 로그<br>성능<br>파일 기반 로그<br>IIS 로그<br>인사이트 및 솔루션<br>기타 서비스 | 프로세스 종속성<br>네트워크 연결 메트릭 |
 | **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭 | Azure Storage<br>Azure Monitor 메트릭<br>이벤트 허브 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
 | **서비스 및**<br>**요소**<br>**되지** | Log Analytics<br>메트릭 탐색기 | 메트릭 탐색기 | VM용 Azure Monitor<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM용 Azure Monitor<br>서비스 맵 |
@@ -45,7 +45,7 @@ ms.locfileid: "95323242"
 | | Azure Monitor 에이전트 (미리 보기) | 진단<br>확장 (꼬마) | Telegraf<br>에이전트 | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|:---|:---|
 | **지원 되는 환경** | Azure<br>기타 클라우드 (Azure Arc)<br>온-프레미스 (원호) | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 |
-| **에이전트 요구 사항**  | None | None | None | None | Log Analytics 에이전트가 필요 합니다. |
+| **에이전트 요구 사항**  | 없음 | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요 합니다. |
 | **수집되는 데이터** | syslog<br>성능 | syslog<br>성능 | 성능 | syslog<br>성능| 프로세스 종속성<br>네트워크 연결 메트릭 |
 | **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭 | Azure Storage<br>이벤트 허브 | Azure Monitor 메트릭 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
 | **서비스 및**<br>**요소**<br>**되지** | Log Analytics<br>메트릭 탐색기 | | 메트릭 탐색기 | VM용 Azure Monitor<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM용 Azure Monitor<br>서비스 맵 |
@@ -81,8 +81,8 @@ Azure Monitor 에이전트의 제한 사항은 다음과 같습니다.
 * Azure 내부 또는 외부의 가상 또는 물리적 컴퓨터에서 로그 및 성능 데이터를 수집 합니다. 
 * Log Analytics 작업 영역으로 데이터를 전송 하 여 [로그 쿼리와](../log-query/log-query-overview.md)같은 [Azure Monitor 로그](data-platform-logs.md) 에서 지원 되는 기능을 활용 합니다.
 * 규모에 따라 가상 컴퓨터를 모니터링 하 고 다른 리소스 및 외부 프로세스에 대 한 프로세스 및 종속성을 모니터링 하는 데 사용할 수 있는 [VM용 Azure Monitor](../insights/vminsights-overview.md) 을 사용 합니다.  
-* [Azure Security Center](../../security-center/security-center-intro.md) 또는 [Azure 센티널](../../sentinel/overview.md)을 사용 하 여 가상 컴퓨터의 보안을 관리 합니다.
-* [Azure Automation 업데이트 관리](../../automation/update-management/update-mgmt-overview.md), [Azure Automation 상태 구성](../../automation/automation-dsc-overview.md)또는 [Azure Automation 변경 내용 추적 및 인벤토리](../../automation/change-tracking/overview.md) 를 사용 하 여 Azure vm의 포괄적인 관리 제공
+* [Azure Security Center](../../security-center/security-center-introduction.md) 또는 [Azure 센티널](../../sentinel/overview.md)을 사용 하 여 가상 컴퓨터의 보안을 관리 합니다.
+* [Azure Automation 업데이트 관리](../../automation/update-management/overview.md), [Azure Automation 상태 구성](../../automation/automation-dsc-overview.md)또는 [Azure Automation 변경 내용 추적 및 인벤토리](../../automation/change-tracking/overview.md) 를 사용 하 여 Azure vm의 포괄적인 관리 제공
 * 다른 [솔루션](../monitor-reference.md#insights-and-core-solutions) 을 사용 하 여 특정 서비스 또는 응용 프로그램을 모니터링할 수 있습니다.
 
 Log Analytics 에이전트의 제한 사항은 다음과 같습니다.

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 11ea348a80bc226b6a96bea1e7c023ee9c06b13a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: cc17dcef7a554bee2715c79ba7d0c2356db2c6b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684120"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185660"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Azure SignalR Service의 일반적인 문제에 대 한 문제 해결 가이드
 
@@ -122,7 +122,7 @@ ASP.NET Core SignalR의 다른 전송 유형, SSE 및 긴 폴링의 경우 기�
 
 ASP.NET SignalR의 경우 클라이언트는 `/ping` 시간에서 서비스에 KeepAlive 요청을 전송 합니다 `/ping` .이 실패 하면 클라이언트는 연결을 **중단** 하 고 다시 연결 하지 않습니다. 즉, ASP.NET SignalR의 경우 기본 토큰 수명은 모든 전송 형식에 대해 **최대** 1 시간 동안 연결이 지속 되도록 합니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 보안 문제를 해결 하기 위해 TTL을 확장 하는 것은 권장 되지 않습니다. 이러한 401이 발생 하면 연결을 다시 시작 하기 위해 클라이언트에서 다시 연결 논리를 추가 하는 것이 좋습니다. 클라이언트는 연결을 다시 시작할 때 JWT 토큰을 다시 가져오고 갱신 된 토큰을 가져오기 위해 app server와 협상 합니다.
 
@@ -148,7 +148,7 @@ ASP.NET SignalR의 경우 [클라이언트 연결이 떨어지면](#client_conne
 
 **무료** 인스턴스의 경우에는 **동시** 연결 수 제한이 **표준** 인스턴스의 경우 20이 고 **단위당** **동시** 연결 수 제한은 1 K입니다. 즉, Unit100에서 100-K 동시 연결을 허용 합니다.
 
-연결에는 클라이언트 연결과 서버 연결이 모두 포함 됩니다. 연결 수를 계산 하는 방법은 [여기](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-messages-and-connections#how-connections-are-counted) 를 참조 하세요.
+연결에는 클라이언트 연결과 서버 연결이 모두 포함 됩니다. 연결 수를 계산 하는 방법은 [여기](./signalr-concept-messages-and-connections.md#how-connections-are-counted) 를 참조 하세요.
 
 ## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>500 협상 시 오류 발생: Azure SignalR 서비스가 아직 연결 되지 않았습니다. 나중에 다시 시도 하세요.
 
@@ -162,7 +162,7 @@ ASP.NET SignalR의 경우 [클라이언트 연결이 떨어지면](#client_conne
 
 #### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>ASP.NET Core SignalR에 대 한 서버 쪽 로깅 사용
 
-ASP.NET Core SignalR에 대 한 서버 쪽 로깅은 `ILogger` ASP.NET Core framework에 제공 된 기반 [로깅과](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) 통합 됩니다. 다음과 같이 샘플 사용을 사용 하 여 서버 쪽 로깅을 사용 하도록 설정할 수 있습니다 `ConfigureLogging` .
+ASP.NET Core SignalR에 대 한 서버 쪽 로깅은 `ILogger` ASP.NET Core framework에 제공 된 기반 [로깅과](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) 통합 됩니다. 다음과 같이 샘플 사용을 사용 하 여 서버 쪽 로깅을 사용 하도록 설정할 수 있습니다 `ConfigureLogging` .
 ```cs
 .ConfigureLogging((hostingContext, logging) =>
         {
@@ -253,7 +253,7 @@ SignalR 클라이언트 연결 `DisposeAsync` 을 호출할 수 없습니다. �
 
 1. SignalR **클라이언트가 닫히지** 않았는지 확인 합니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 연결을 닫고 있는지 확인 합니다. `HubConnection.DisposeAsync()`를 사용 하 여 연결을 중지 하려면 수동으로를 호출 합니다.
 
@@ -281,7 +281,7 @@ finally
 
 이 문제는 사용자가 함수 클래스에 대 한 정적 멤버로 설정 하는 대신 Azure Function 메서드에서 SignalR 클라이언트 연결을 설정 하는 경우에 종종 발생 합니다. 클라이언트 연결이 한 번만 설정 될 수 있지만 클라이언트 연결 수가 계속 해 서 Azure Portal 리소스 메뉴의 모니터링 섹션에 있는 메트릭에 표시 되는 것을 볼 수 있습니다. 이러한 모든 연결은 Azure Function 또는 Azure SignalR 서비스가 다시 시작 된 후에만 삭제 됩니다. 이는 **각** 요청에 대해 azure function이 **하나의** 클라이언트 연결을 만들기 때문입니다. 함수 메서드에서 클라이언트 연결을 중지 하지 않으면 클라이언트가 Azure SignalR service에 연결 된 상태를 유지 합니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 * Azure 함수에서 SignalR 클라이언트를 사용 하거나 SignalR client를 singleton으로 사용 하는 경우 클라이언트 연결을 닫아야 합니다.
 * Azure function에서 SignalR 클라이언트를 사용 하는 대신, 다른 곳에서 SignalR 클라이언트를 만들고 [Azure SignalR Service에 대 한 Azure Functions 바인딩을](https://github.com/Azure/azure-functions-signalrservice-extension) 사용 하 여 클라이언트를 azure SignalR에 [협상할](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/samples/simple-chat/csharp/FunctionApp/Functions.cs#L22) 수 있습니다. 또한 바인딩을 활용 하 여 [메시지를 보낼](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/samples/simple-chat/csharp/FunctionApp/Functions.cs#L40)수 있습니다. 클라이언트를 협상 하 고 메시지를 보내는 샘플은 [여기](https://github.com/Azure/azure-functions-signalrservice-extension/tree/dev/samples)에서 찾을 수 있습니다. 자세한 내용은 [여기](https://github.com/Azure/azure-functions-signalrservice-extension)를 참조 하세요.

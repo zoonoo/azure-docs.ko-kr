@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 8b9624313716081a039b12c73e54b9f7afc2a323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53277f64c3d1b03572732157756da1fececbcd43
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86505315"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184572"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure Monitor 로그 데이터를 Power BI로 가져오기
 
@@ -28,8 +28,8 @@ Azure Monitor의 [Log Analytics 작업 영역](manage-access.md) 에서 Power BI
 ## <a name="export-query"></a>내보내기 쿼리
 먼저 Power BI 데이터 집합을 채울 데이터를 반환 하는 [로그 쿼리](../log-query/log-query-overview.md) 를 만듭니다.  그런 다음 해당 쿼리를 [파워 쿼리(M) 언어](/powerquery-m/power-query-m-language-specification)로 내보내면 Power BI Desktop에서 사용할 수 있습니다.
 
-1. 데이터 집합에 대 한 데이터를 추출 하는 [Log Analytics에서 로그 쿼리를 만듭니다](../log-query/get-started-portal.md) .
-2. **내보내기**  >  **Power BI 쿼리 (M)** 를 선택 합니다.  이렇게 하면 쿼리가 **PowerBIQuery.txt**라는 텍스트 파일로 내보내집니다. 
+1. 데이터 집합에 대 한 데이터를 추출 하는 [Log Analytics에서 로그 쿼리를 만듭니다](../log-query/log-analytics-tutorial.md) .
+2. **내보내기**  >  **Power BI 쿼리 (M)** 를 선택 합니다.  이렇게 하면 쿼리가 **PowerBIQuery.txt** 라는 텍스트 파일로 내보내집니다. 
 
     ![로그 검색 내보내기](media/powerbi/export-analytics.png)
 
@@ -39,12 +39,12 @@ Azure Monitor의 [Log Analytics 작업 영역](manage-access.md) 에서 Power BI
 Power BI Desktop은 Power BI에 게시할 수 있는 데이터 세트 및 보고서를 만들 수 있는 데스크톱 애플리케이션입니다.  Azure Monitor에서 내보낸 파워 쿼리 언어를 사용 하 여 쿼리를 만드는 데 사용할 수도 있습니다. 
 
 1. 아직 설치하지 않았으면 [Power BI Desktop](https://powerbi.microsoft.com/desktop/)을 설치하고 애플리케이션을 엽니다.
-2. **데이터 가져오기**  >  **빈 쿼리** 를 선택 하 여 새 쿼리를 엽니다.  그런 다음 **고급 편집기**를 선택하고 내보낸 파일의 내용을 쿼리에 붙여넣습니다. **완료**를 클릭합니다.
+2. **데이터 가져오기**  >  **빈 쿼리** 를 선택 하 여 새 쿼리를 엽니다.  그런 다음 **고급 편집기** 를 선택하고 내보낸 파일의 내용을 쿼리에 붙여넣습니다. **Done** 을 클릭합니다.
 
     ![Power BI 데스크톱 쿼리](media/powerbi/desktop-new-query.png)
 
 5. 쿼리가 실행되고 결과가 표시됩니다.  Azure에 연결하려면 자격 증명이 필요할 수도 있습니다.  
-6. 쿼리를 설명하는 이름을 입력합니다.  기본값은 **Query1**입니다. **닫고 적용**을 클릭하여 보고서에 데이터 세트를 추가합니다.
+6. 쿼리를 설명하는 이름을 입력합니다.  기본값은 **Query1** 입니다. **닫고 적용** 을 클릭하여 보고서에 데이터 세트를 추가합니다.
 
     ![Power BI Desktop 이름](media/powerbi/desktop-results.png)
 
@@ -54,19 +54,19 @@ Power BI Desktop은 Power BI에 게시할 수 있는 데이터 세트 및 보고
 Power BI에 게시할 때 데이터 세트 및 보고서가 생성됩니다.  Power BI Desktop에서 보고서를 만드는 경우 사용자의 데이터를 사용하여 다음 항목이 게시됩니다.  그렇지 않은 경우 빈 보고서가 생성됩니다.  Power BI에서 보고서를 수정할 수도 있고 데이터 세트에 따라 새로 만들 수도 있습니다.
 
 1. 데이터를 기반으로 보고서를 만듭니다.  아직 익숙하지 않은 경우 [Power BI Desktop 설명서](/power-bi/desktop-report-view)를 사용합니다.  
-1. Power BI로 보낼 준비가 완료되면 **게시**를 클릭합니다.  
-1. 메시지가 표시되면 Power BI 계정에서 대상을 선택합니다.  염두에 둔 특정 대상이 없으면 **My workspace**를 사용합니다.
+1. Power BI로 보낼 준비가 완료되면 **게시** 를 클릭합니다.  
+1. 메시지가 표시되면 Power BI 계정에서 대상을 선택합니다.  염두에 둔 특정 대상이 없으면 **My workspace** 를 사용합니다.
 
     ![Power BI Desktop 게시](media/powerbi/desktop-publish.png)
 
-1. 게시가 완료되면 **Power BI에서 열기**를 클릭하여 새 데이터 세트로 Power BI를 엽니다.
+1. 게시가 완료되면 **Power BI에서 열기** 를 클릭하여 새 데이터 세트로 Power BI를 엽니다.
 
 
 ### <a name="configure-scheduled-refresh"></a>예약된 새로 고침 구성
 Power BI에서 생성된 데이터 세트는 이전에 Power BI Desktop에서 본 것과 동일한 데이터를 갖습니다.  쿼리를 다시 실행 하 고 Azure Monitor의 최신 데이터로 채우려면 데이터 집합을 주기적으로 새로 고쳐야 합니다.  
 
 1. 보고서를 업로드한 작업 영역을 클릭하고 **데이터 세트** 메뉴를 선택합니다. 
-1. 새 데이터 세트 옆에 있는 상황에 맞는 메뉴를 선택하고 **설정**을 선택합니다. 
+1. 새 데이터 세트 옆에 있는 상황에 맞는 메뉴를 선택하고 **설정** 을 선택합니다. 
 1. **데이터 원본 자격 증명** 아래에 자격 증명이 유효하지 않다는 내용의 메시지가 표시될 것입니다.  데이터 세트가 데이터를 새로 고칠 때 사용할 자격 증명을 아직 제공하지 않았기 때문입니다.  
 1. **자격 증명 편집** 을 클릭 하 고 Azure Monitor의 Log Analytics 작업 영역에 액세스할 수 있는 자격 증명을 지정 합니다. 2 단계 인증이 필요한 경우 **인증 방법** 으로 **OAuth2** 를 선택 하 여 자격 증명으로 로그인 하 라는 메시지를 표시 합니다.
 

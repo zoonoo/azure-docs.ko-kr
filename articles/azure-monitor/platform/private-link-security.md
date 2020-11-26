@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 61073ce7e8d3abc43d1db031608da72e6d3e0791
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 3f9779d2676d4d2b67efff37118d109664b84bd5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926804"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184606"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결
 
@@ -144,7 +144,7 @@ AMPLS 리소스를 설정하기 전에 네트워크 격리 요구 사항을 고�
  
    b.    **프라이빗 DNS 영역과 통합** 에 대해 **예** 를 선택하고, 새 프라이빗 DNS 영역을 자동으로 만들도록 합니다. 실제 DNS 영역은 아래 스크린샷에 표시 된 것과 다를 수 있습니다. 
    > [!NOTE]
-   > **아니요** 를 선택 하 고 DNS 레코드를 수동으로 관리 하려면 먼저 개인 링크 설정 (이 개인 끝점 및 AMPLS 구성 포함)을 완료 합니다. 그런 다음 [Azure 개인 끝점 dns 구성](https://docs.microsoft.com/azure/private-link/private-endpoint-dns)의 지침에 따라 dns를 구성 합니다. 개인 링크 설정 준비로 빈 레코드를 만들지 않도록 합니다. 만든 DNS 레코드는 기존 설정을 재정의 하 고 Azure Monitor 연결에 영향을 줄 수 있습니다.
+   > **아니요** 를 선택 하 고 DNS 레코드를 수동으로 관리 하려면 먼저 개인 링크 설정 (이 개인 끝점 및 AMPLS 구성 포함)을 완료 합니다. 그런 다음 [Azure 개인 끝점 dns 구성](../../private-link/private-endpoint-dns.md)의 지침에 따라 dns를 구성 합니다. 개인 링크 설정 준비로 빈 레코드를 만들지 않도록 합니다. 만든 DNS 레코드는 기존 설정을 재정의 하 고 Azure Monitor 연결에 영향을 줄 수 있습니다.
  
    다.    **검토 + 만들기** 를 클릭합니다.
  
@@ -240,7 +240,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Azure portal
 
-Application Insights 및 Log Analytics와 같은 Azure Monitor 포털 환경을 사용하려면 개인 네트워크에서 Azure Portal 및 Azure Monitor 확장에 액세스할 수 있어야 합니다. **AzureActiveDirectory** , **AzureResourceManager** , **AzureFrontDoor** 및 **AzureFrontDoor** [서비스 태그](../../firewall/service-tags.md) 를 네트워크 보안 그룹에 추가 합니다.
+Application Insights 및 Log Analytics와 같은 Azure Monitor 포털 환경을 사용하려면 개인 네트워크에서 Azure Portal 및 Azure Monitor 확장에 액세스할 수 있어야 합니다. **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor** 및 **AzureFrontDoor** [서비스 태그](../../firewall/service-tags.md) 를 네트워크 보안 그룹에 추가 합니다.
 
 ### <a name="programmatic-access"></a>프로그래밍 방식 액세스
 

@@ -6,18 +6,18 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 78344bd3896ca7d00c9f761c586b6f5142dc1e58
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 73d951b3e85c170cf068693bb9b374349516ca8f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253408"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183484"
 ---
 # <a name="azure-active-directory-authentication"></a>Azure Active Directory 인증
 
 `Bearer`Azure Active Directory (AZURE AD)에서 획득 한 토큰으로 인증 체계를 사용 하 여 HTTP 요청을 인증할 수 있습니다. TLS (전송 계층 보안)를 통해 이러한 요청을 전송 해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 해당 하는 [Azure 앱 구성 역할](./rest-api-authorization-azure-ad.md)중 하나에 Azure AD 토큰을 요청 하는 데 사용 되는 보안 주체를 할당 해야 합니다.
 
@@ -54,7 +54,7 @@ Azure AD 인증 기관은 Azure AD 토큰을 획득 하는 데 사용 하는 끝
 
 ### <a name="authentication-libraries"></a>인증 라이브러리
 
-Azure는 Azure AD 토큰을 가져오는 프로세스를 간소화 하기 위해 Azure Active Directory 인증 라이브러리 라는 라이브러리 집합을 제공 합니다. Azure는 이러한 라이브러리를 여러 언어로 작성 합니다. 자세한 내용은 [설명서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)를 참조하세요.
+Azure는 Azure AD 토큰을 가져오는 프로세스를 간소화 하기 위해 Azure Active Directory 인증 라이브러리 라는 라이브러리 집합을 제공 합니다. Azure는 이러한 라이브러리를 여러 언어로 작성 합니다. 자세한 내용은 [설명서](../active-directory/azuread-dev/active-directory-authentication-libraries.md)를 참조하세요.
 
 ## <a name="errors"></a>오류
 

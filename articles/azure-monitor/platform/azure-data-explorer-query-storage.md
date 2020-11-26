@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 18ece47187e3f83277d7d925ad958d2ede7cb337
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 2735aec0f95f5e282bb1dffba6e4f42f966cf117
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030019"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186544"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Azure 데이터 탐색기 (미리 보기)를 사용 하 여 Azure Monitor에서 내보낸 데이터 쿼리
 Azure Monitor에서 Azure storage 계정으로 데이터를 내보내면 저렴 한 보존 및 여러 지역에 로그를 다시 할당할 수 있습니다. Azure 데이터 탐색기를 사용 하 여 Log Analytics 작업 영역에서 내보낸 데이터를 쿼리할 수 있습니다. 구성 된 후에는 작업 영역에서 Azure storage 계정으로 전송 된 지원 테이블을 Azure 데이터 탐색기의 데이터 원본으로 사용할 수 있습니다.
@@ -136,4 +136,4 @@ external_table("HBTest","map") | take 10000
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 데이터 탐색기에서 쿼리를 작성](https://docs.microsoft.com/azure/data-explorer/write-queries) 하는 방법을 알아봅니다.
+- [Azure 데이터 탐색기에서 쿼리를 작성](/azure/data-explorer/write-queries) 하는 방법을 알아봅니다.

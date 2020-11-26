@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea2b8deb07a899ab35ddd761df3e3ddb413dd45d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 7bd9560399a2b2b377cb543a4f829883bcbdf7c8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509082"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183773"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Hybrid Runbook Worker 개요
 
@@ -22,14 +22,14 @@ Azure Automation의 Runbook은 Azure 클라우드 플랫폼에서 실행되므�
 
 Runbook Worker에는 시스템 및 사용자의 두 가지 유형이 있습니다. 다음 표에서는 이러한 차이점을 설명 합니다.
 
-|유형 | 설명 |
+|형식 | 설명 |
 |-----|-------------|
 |**System** |는 Windows 및 Linux 컴퓨터에 사용자 지정 업데이트를 설치 하도록 디자인 된 업데이트 관리 기능에서 사용 하는 숨겨진 runbook 집합을 지원 합니다.<br> 이 유형의 Hybrid Runbook Worker는 Hybrid Runbook Worker 그룹의 구성원이 아니므로 Runbook Worker 그룹을 대상으로 하는 runbook을 실행 하지 않습니다. |
 |**사용자** |는 하나 이상의 Runbook Worker 그룹의 멤버인 Windows 및 Linux 컴퓨터에서 직접 실행 하기 위한 사용자 정의 runbook을 지원 합니다. |
 
 Hybrid Runbook Worker은 Windows 또는 Linux 운영 체제에서 실행할 수 있으며이 역할은 Azure Monitor [Log Analytics 작업 영역](../azure-monitor/platform/design-logs-deployment.md)에 대 한 [Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md) 보고를 사용 합니다. 작업 영역에서는 지원 되는 운영 체제에 대 한 컴퓨터를 모니터링 하는 것 뿐만 아니라 Hybrid Runbook Worker을 설치 하는 데 필요한 구성 요소를 다운로드할 수 있습니다.
 
-Azure Automation [업데이트 관리](update-management/update-mgmt-overview.md) 를 사용 하도록 설정 하면 Log Analytics 작업 영역에 연결 된 모든 컴퓨터가 자동으로 시스템 Hybrid Runbook Worker 구성 됩니다.
+Azure Automation [업데이트 관리](./update-management/overview.md) 를 사용 하도록 설정 하면 Log Analytics 작업 영역에 연결 된 모든 컴퓨터가 자동으로 시스템 Hybrid Runbook Worker 구성 됩니다.
 
 각 사용자 Hybrid Runbook Worker는 작업자를 설치할 때 지정 하는 Hybrid Runbook Worker 그룹의 구성원입니다. 그룹에는 단일 작업자를 포함할 수 있지만, 고가용성을 위해 그룹에 여러 작업자를 포함할 수 있습니다. 각 컴퓨터는 하나의 Automation 계정에 보고 한 Hybrid Runbook Worker를 호스트할 수 있습니다. 하이브리드 작업자는 여러 Automation 계정에 등록할 수 없습니다. 이는 hybrid worker가 단일 Automation 계정의 작업만 수신할 수 있기 때문입니다. 업데이트 관리에서 관리 하는 시스템 Hybrid Runbook worker를 호스트 하는 컴퓨터의 경우 Hybrid Runbook Worker 그룹에 추가할 수 있습니다. 하지만 업데이트 관리와 Hybrid Runbook Worker 그룹 구성원 자격에 대해 동일한 Automation 계정을 사용 해야 합니다.
 
@@ -99,7 +99,7 @@ Azure Automation Hybrid Runbook Worker를 Azure Government에서 사용 하 여 
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Hybrid Runbook Worker의 업데이트 관리 주소
 
-Hybrid Runbook Worker에 필요한 표준 주소 및 포트 외에도 업데이트 관리 [네트워크 계획](update-management/update-mgmt-overview.md#ports) 섹션에 설명 된 추가 네트워크 구성 요구 사항이 있습니다.
+Hybrid Runbook Worker에 필요한 표준 주소 및 포트 외에도 업데이트 관리 [네트워크 계획](./update-management/overview.md#ports) 섹션에 설명 된 추가 네트워크 구성 요구 사항이 있습니다.
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker의 Azure Automation State Configuration
 

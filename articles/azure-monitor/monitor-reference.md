@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 654d7b4ddb332906aba330da20d42a0e16ec79e6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5be6a2d73be35b3d637df9364364784d373dabb3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021442"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186697"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 
@@ -120,7 +120,7 @@ ms.locfileid: "95021442"
 |IoT Hub | 예 | 예 | 예 |  |
 |Key Vault | 예 | 예 | [예](./insights/key-vault-insights-overview.md) |  |
 |AKS(Azure Kubernetes Service) | 예 | 예 | [예](insights/container-insights-overview.md)  |  |
-|Load Balancer | 예 | 아니요 | 예 |  |
+|Load Balancer | 예 | 예 | 예 |  |
 |Logic Apps | 예 | 예 | 예 |  |
 |Machine Learning Service | 예 | 예 | 예 |  |
 |Managed Applications  | 예 | 예 | 예 |  |
@@ -130,10 +130,10 @@ ms.locfileid: "95021442"
 |Microsoft PowerApps | 예 | 예 | 예 |  |
 |Microsoft 소셜 참여 | 예 | 예 | 예 |  |
 |Microsoft Stream | 예 | 예 | 예 |  |
-|마이그레이션 | 예 | 아니요 | 예 |  |
+|마이그레이션 | 예 | 예 | 예 |  |
 |Multi-Factor Authentication | 예 | 예 | 예 |  |
 |Network Watcher | 예 | 예 | 예 |  |
-|Notification Hubs | 예 | 아니요 | 예 |  |
+|Notification Hubs | 예 | 예 | 예 |  |
 |공개 데이터 세트 | 예 | 예 | 예 |  |
 |정책 | 예 | 예 | 예 |  |
 |Power Automate | 예 | 예 | 예 |  |
@@ -142,7 +142,7 @@ ms.locfileid: "95021442"
 |프로젝트 Spool 통신 플랫폼 | 예 | 예 | 예 |  |
 |Red Hat OpenShift | 예 | 예 | 예 |  |
 |Redis Cache | 예 | 예 | [예](insights/redis-cache-insights-overview.md) | |
-|Resource Graph | 예 | 아니요 | 예 |  |
+|Resource Graph | 예 | 예 | 예 |  |
 |리소스 관리자 | 예 | 예 | 예 |  |
 |소매점 검색 – Bing에서 | 예 | 예 | 예 |  |
 |검색 | 예 | 예 | 예 |  |
@@ -150,25 +150,25 @@ ms.locfileid: "95021442"
 |Service Fabric | 예 | 예 | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.  |
 |등록 포털 | 예 | 예 | 예 |  |
 |Site Recovery | 예 | 예 | 예 |  |
-|Spring Cloud Service | 예 | 아니요 | 예 |  |
+|Spring Cloud Service | 예 | 예 | 예 |  |
 |Azure Synapse Analytics | 예 | 예 | 예 |  |
 |SQL Database | 예 | 예 | 예 |  |
 |SQL Server Stretch Database | 예 | 예 | 예 |  |
-|스택 | 예 | 아니요 | 예 |  |
+|스택 | 예 | 예 | 예 |  |
 |스토리지 | 예 | 예 | [예](insights/storage-insights-overview.md) |  |
 |스토리지 캐시 | 예 | 예 | 예 |  |
 |스토리지 동기화 서비스 | 예 | 예 | 예 |  |
 |Stream Analytics | 예 | 예 | 예 |  |
 |Time Series Insights | 예 | 예 | 예 |  |
-|TINA | 예 | 아니요 | 예 |  |
+|TINA | 예 | 예 | 예 |  |
 |Traffic Manager | 예 | 예 | 예 |  |
-|유니버설 인쇄 | 예 | 아니요 | 예 |  |
+|유니버설 인쇄 | 예 | 예 | 예 |  |
 |Virtual Machine Scale Sets | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Machines | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Network | 예 | 예 | [예](insights/network-insights-overview.md) |  |
 |Virtual Network - NSG 흐름 로그 | 예 | 예 | 예 |  |
 |VPN Gateway | 예 | 예 | 예 |  |
-|Windows Virtual Desktop | 예 | 아니요 | 예 |  |
+|Windows Virtual Desktop | 예 | 예 | 예 |  |
 
 ## <a name="virtual-machine-agents"></a>가상 머신 에이전트
 다음 표에는 가상 컴퓨터의 게스트 운영 체제에서 데이터를 수집 하 고 모니터에 데이터를 보낼 수 있는 에이전트가 나열 되어 있습니다. 각 에이전트는 서로 다른 데이터를 수집 하 여 Azure Monitor의 메트릭 또는 로그에 보낼 수 있습니다. 
@@ -178,10 +178,10 @@ ms.locfileid: "95021442"
 | 에이전트 |  메트릭 | 로그 |
 |:---|:---|:---|:---|
 | [Azure Monitor 에이전트 (미리 보기)](platform/azure-monitor-agent-overview.md) | 예 | 예 |
-| [Log Analytics 에이전트](platform/log-analytics-agent.md) | 아니요 | 예|
-| [진단 확장](platform/diagnostics-extension-overview.md) | 예 | 아니요 |
-| [Telegraf 에이전트](platform/collect-custom-metrics-linux-telegraf.md) | 예 | 아니요 |
-| [종속성 에이전트](insights/vminsights-enable-overview.md) | 아니요 | 예 |
+| [Log Analytics 에이전트](platform/log-analytics-agent.md) | 예 | 예|
+| [진단 확장](platform/diagnostics-extension-overview.md) | 예 | 예 |
+| [Telegraf 에이전트](platform/collect-custom-metrics-linux-telegraf.md) | 예 | 예 |
+| [종속성 에이전트](insights/vminsights-enable-overview.md) | 예 | 예 |
 
 
 ## <a name="product-integrations"></a>제품 통합
@@ -189,7 +189,7 @@ ms.locfileid: "95021442"
 
 | 제품/서비스 | Description |
 |:---|:---|
-| [Azure Automation](../automation/index.yml) | Windows 및 Linux 컴퓨터에서 운영 체제 업데이트를 관리하고 변경 내용을 추적합니다. [변경 내용 추적](../automation/change-tracking/overview.md) 및 [업데이트 관리](../automation/update-management/update-mgmt-overview.md)을 참조하세요. |
+| [Azure Automation](../automation/index.yml) | Windows 및 Linux 컴퓨터에서 운영 체제 업데이트를 관리하고 변경 내용을 추적합니다. [변경 내용 추적](../automation/change-tracking/overview.md) 및 [업데이트 관리](../automation/update-management/overview.md)을 참조하세요. |
 | [Azure Information Protection ](/azure/information-protection/) | 문서와 이메일을 분류하고 필요에 따라 보호합니다. [Azure Information Protection의 중요 보고](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports)를 참조하세요. |
 | [Azure Security Center](../security-center/index.yml) | 보안 이벤트를 수집 및 분석하고 위협 분석을 수행합니다. [Azure Security Center에서 데이터 수집](../security-center/security-center-enable-data-collection.md)을 참조하세요. |
 | [Azure Sentinel](../sentinel/index.yml) | Office 365 및 Amazon Web Services 클라우드 내역을 비롯한 다양한 원본에 연결합니다. [데이터 원본에 연결](../sentinel/connect-data-sources.md)을 참조하세요. |
@@ -245,4 +245,3 @@ Azure Monitor는 다음 표에 나열된 방법을 사용하여 Azure 외부의 
 - [Azure Monitor 로그의 데이터를 분석하기 위한 로그 쿼리 작성에 대한 자습서](learn/tutorial-resource-logs.md)를 완료합니다.
 - [Azure Monitor 메트릭에서 데이터를 분석하기 위한 메트릭 차트 만들기 자습서](learn/tutorial-metrics-explorer.md)를 완료합니다.
 
- 

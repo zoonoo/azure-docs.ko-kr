@@ -4,12 +4,12 @@ description: Application Insights를 사용하여 Node.js 서비스의 성능을
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 982adf6c6d7cd825d185802321ce30a04bd2f216
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4c350cbfdf92d19a084940941351cf1f028c93d2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020894"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186282"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
@@ -21,11 +21,11 @@ Node.js SDK는 들어오고 나가는 HTTP 요청, 예외 및 여러 시스템 �
 
 TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측면을 수동으로 계측하고 모니터링 할 수 있습니다. TelemetryClient API는 이 문서의 뒷부분에 더 자세히 설명합니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 앱 또는 서비스에 대한 모니터링을 설정하려면 다음 작업을 완료합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 
 시작하기 전에 Azure 구독이 있는지 확인하여 없는 경우 [무료 계정을 새로 만듭니다][azure-free-offer]. 조직에 이미 Azure 구독이 있으면 관리자가 [다음 지침][add-aad-user]에 따라 사용자를 구독에 추가할 수 있습니다.
 
@@ -374,7 +374,7 @@ appInsights.defaultClient.addTelemetryProcessor(removeStackTraces);
 
 여러 Application Insights 리소스를 만들고 각각의 계측 키 ("ikey")를 사용 하 여 서로 다른 데이터를 보낼 수 있습니다.
 
- 예들 들어 다음과 같습니다.
+ 예를 들어:
 
 ```javascript
 let appInsights = require("applicationinsights");
@@ -416,10 +416,9 @@ client.config.PROPERTYNAME = VALUE;
 ## <a name="next-steps"></a>다음 단계
 
 * [포털에서 원격 분석 모니터링](./overview-dashboard.md)
-* [원격 분석에 분석 쿼리 작성](../log-query/get-started-portal.md)
+* [원격 분석에 분석 쿼리 작성](../log-query/log-analytics-tutorial.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
 [FAQ]: ../faq.md
-

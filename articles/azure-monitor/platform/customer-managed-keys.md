@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: 7bfd951d7cec27e0b8264aaabf9bc3a17875256a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9715724fc0fbd25198dd3244215ac2c12638d2b8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000728"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185966"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -72,7 +72,7 @@ Azure Monitor는 시스템이 할당한 관리 ID를 활용하여 Azure Key Vaul
 1. Key Vault에 권한 부여
 1. Log Analytics 작업 영역 연결
 
-Customer-Managed 키 구성은 Azure Portal에서 지원 되지 않으며 프로 비전은 [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) 또는 [REST](https://docs.microsoft.com/rest/api/loganalytics/) 요청을 통해 수행 됩니다.
+Customer-Managed 키 구성은 Azure Portal에서 지원 되지 않으며 프로 비전은 [PowerShell](/powershell/module/az.operationalinsights/), [CLI](/cli/azure/monitor/log-analytics) 또는 [REST](/rest/api/loganalytics/) 요청을 통해 수행 됩니다.
 
 ### <a name="asynchronous-operations-and-status-check"></a>비동기 작업 및 상태 검사
 
@@ -107,7 +107,7 @@ Authorization: Bearer <token>
 
 ### <a name="create-cluster"></a>클러스터 만들기
 
-[전용 클러스터 문서](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#creating-a-cluster)에 설명 된 절차를 따릅니다. 
+[전용 클러스터 문서](../log-query/logs-dedicated-clusters.md#creating-a-cluster)에 설명 된 절차를 따릅니다. 
 
 > [!IMPORTANT]
 > 다음 단계에서 세부 정보가 필요하므로 응답을 복사하여 저장합니다.
@@ -212,7 +212,7 @@ Content-type: application/json
 
 이 작업은 비동기 작업 이므로 완료 하는 데는 몇를 사용할 수 있습니다.
 
-[전용 클러스터 문서](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#link-a-workspace-to-the-cluster)에 설명 된 절차를 따릅니다.
+[전용 클러스터 문서](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-the-cluster)에 설명 된 절차를 따릅니다.
 
 ## <a name="key-revocation"></a>키 해지
 

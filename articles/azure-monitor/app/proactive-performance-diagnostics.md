@@ -4,12 +4,12 @@ description: Application Insights는 앱 원격 분석의 스마트 분석을 �
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: c817e2c7f609bbbec52eff1b898a8d7c53209a28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28a32c714618a3b6b0c3126d8060295f134ddc7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321312"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186238"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
@@ -49,7 +49,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 
 ## <a name="configure-email-notifications"></a>전자 메일 알림 구성
 
-스마트 검색 알림은 기본적으로 사용되도록 설정되며 Application Insights 리소스에 대해 [모니터링 리더](../../role-based-access-control/built-in-roles.md#monitoring-reader) 및 [모니터링 참가자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 액세스 권한이 있는 자들에게 전송됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
+스마트 검색 알림은 기본적으로 사용되도록 설정되며 Application Insights 리소스에 대해 [모니터링 리더](../../role-based-access-control/built-in-roles.md#monitoring-reader) 및 [모니터링 참가자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 액세스 권한이 있는 자들에게 전송됩니다. 이를 변경하려면 전자 메일 알림에서 **구성** 을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
   
   ![스마트 검색 설정](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -75,7 +75,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 * *얼마나 자주 분석합니까?*
 
   * 원격 분석 데이터에 대한 분석은 전날부터 매일 실행됩니다(UTC 표준 시간대로 하루 종일).
-* 이것이 *메트릭 경고[를 대신하나요](../platform/alerts-log.md)?*
+* 이것이 *메트릭 경고 [를 대신하나요](../platform/alerts-log.md)?*
   * 아니요.  비정상이라고 간주할만한 동작을 모두 감지한다고 커밋할 수 없습니다.
 
 
@@ -175,11 +175,10 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 
 * [프로파일러](profiler.md) 
 * [스냅숏 디버거](./snapshot-debugger.md)
-* [분석](../log-query/get-started-portal.md)
+* [분석](../log-query/log-analytics-tutorial.md)
 * [분석 스마트 진단](../log-query/log-query-overview.md)
 
 스마트 감지는 완전히 자동으로 수행됩니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 
 * [수동으로 구성된 메트릭 경고](../platform/alerts-log.md)
 * [가용성 웹 테스트](./monitor-web-app-availability.md)
-

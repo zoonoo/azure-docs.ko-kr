@@ -4,12 +4,12 @@ description: 다시 배포하지 않고 웹 사이트의 성능을 모니터링�
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020928"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186306"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Application Insights 코드 없는 Attach를 사용 하 여 런타임 시 웹 앱 계측
 
@@ -93,7 +93,7 @@ Application Insights를 코드에 추가하지 않고 다시 게시하려는 경
 
 - applicationInsights.config 파일이 대상 앱 디렉터리에 있으며 ikey를 포함하는지 확인합니다.
 
-- 데이터가 누락 된 것으로 의심 되 면 [분석](../log-query/get-started-portal.md) 에서 쿼리를 실행 하 여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열할 수 있습니다.
+- 데이터가 누락 된 것으로 의심 되 면 [분석](../log-query/log-analytics-tutorial.md) 에서 쿼리를 실행 하 여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열할 수 있습니다.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -340,4 +340,3 @@ Application Insights SDK 버전 2.4은 [.net 4.0을 지원 하기 위한 최신 
 [qna]: ../faq.md
 [roles]: ./resources-roles-access-control.md
 [usage]: ./javascript.md
-

@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 21a43a005b78c8916d06e97ca9d2ba21d5a585a3
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 56416009395ebf8270ad0fa8d141277424dd6d9a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424330"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183467"
 ---
 # <a name="authentication"></a>인증
 
@@ -23,4 +23,4 @@ ms.locfileid: "93424330"
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
-[Azure Active Directory (AZURE AD) 인증은](/azure/active-directory/authentication/overview-authentication) Azure Active Directory에서 가져온 전달자 토큰을 활용 하 여 요청을 인증 합니다. 이 인증 방법을 사용 하는 요청을 인증 하는 방법에 대 한 자세한 내용은 [AZURE AD 권한 부여](./rest-api-authorization-azure-ad.md) 섹션에서 확인할 수 있습니다.
+[Azure Active Directory (AZURE AD) 인증은](../active-directory/authentication/overview-authentication.md) Azure Active Directory에서 가져온 전달자 토큰을 활용 하 여 요청을 인증 합니다. 이 인증 방법을 사용 하는 요청을 인증 하는 방법에 대 한 자세한 내용은 [AZURE AD 권한 부여](./rest-api-authorization-azure-ad.md) 섹션에서 확인할 수 있습니다.

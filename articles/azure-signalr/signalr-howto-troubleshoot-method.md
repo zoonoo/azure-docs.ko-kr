@@ -6,18 +6,18 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
-ms.openlocfilehash: 4b0b85b08c3f813440d556c61ba5e290ac200049
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 413bb88deac96c1ca12e8a9d25fc9cd16edf4616
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686916"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183960"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>연결 및 메시지 배달 문제를 해결 하는 방법
 
 이 지침에서는 자체 진단을 수행 하 여 근본 원인을 직접 찾거나 문제의 범위를 좁히는 데 도움이 되는 여러 가지 방법을 소개 합니다. 자체 진단 결과는 추가 조사를 위해 microsoft에 보고할 때에도 유용 합니다.
 
-먼저, Azure SignalR Service ( **Asrs** 라고도 함)가로 구성 된 [servicemode](https://docs.microsoft.com/azure/azure-signalr/concept-service-mode) 가 Azure Portal에서 확인 해야 합니다.
+먼저, Azure SignalR Service ( **Asrs** 라고도 함)가로 구성 된 [servicemode](./concept-service-mode.md) 가 Azure Portal에서 확인 해야 합니다.
 
 :::image type="content" source="./media/signalr-howto-troubleshoot-method/service-mode.png" alt-text="ServiceMode":::
 
@@ -49,13 +49,13 @@ ms.locfileid: "94686916"
 
 ### <a name="how-to-view-the-traffic-and-narrow-down-the-issue"></a>트래픽을 확인 하 고 문제의 범위를 좁히는 방법
 
-진행 중인 트래픽을 캡처하는 것은 문제의 범위를 좁히는 가장 간단한 방법입니다. 아래에 설명 된 옵션을 사용 하 여 [네트워크 추적](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#network-traces) 을 캡처할 수 있습니다.
+진행 중인 트래픽을 캡처하는 것은 문제의 범위를 좁히는 가장 간단한 방법입니다. 아래에 설명 된 옵션을 사용 하 여 [네트워크 추적](/aspnet/core/signalr/diagnostics#network-traces) 을 캡처할 수 있습니다.
 
-* [Fiddler를 사용 하 여 네트워크 추적 수집](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#network-traces)
+* [Fiddler를 사용 하 여 네트워크 추적 수집](/aspnet/core/signalr/diagnostics#network-traces)
 
-* [Tcpdump를 사용 하 여 네트워크 추적 수집](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#collect-a-network-trace-with-tcpdump-macos-and-linux-only)
+* [Tcpdump를 사용 하 여 네트워크 추적 수집](/aspnet/core/signalr/diagnostics#collect-a-network-trace-with-tcpdump-macos-and-linux-only)
 
-* [브라우저에서 네트워크 추적 수집](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#collect-a-network-trace-in-the-browser)
+* [브라우저에서 네트워크 추적 수집](/aspnet/core/signalr/diagnostics#collect-a-network-trace-in-the-browser)
 
 <a name="view_traffic_client"></a>
 
@@ -63,7 +63,7 @@ ms.locfileid: "94686916"
 
 SignalR 영구 연결의 경우 먼저 호스트 된 `/negotiate` 앱 서버에 연결한 다음 Azure SignalR 서비스로 리디렉션되고 Azure SignalR service에 대 한 실제 영구 연결을 설정 합니다. 자세한 단계는 [Azure SignalR Service의 내부](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md) 정보를 참조 하세요.
 
-직접 클라이언트 쪽 네트워크 추적을 사용 하 여 어떤 상태 코드와 어떤 응답이 무엇이 실패 하는지 확인 하 고 [문제 해결 가이드](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide)내에서 솔루션을 찾습니다.
+직접 클라이언트 쪽 네트워크 추적을 사용 하 여 어떤 상태 코드와 어떤 응답이 무엇이 실패 하는지 확인 하 고 [문제 해결 가이드](./signalr-howto-troubleshoot-guide.md)내에서 솔루션을 찾습니다.
 
 #### <a name="server-requests"></a>서버 요청
 
@@ -71,7 +71,7 @@ SignalR *서버* 는 *서버* 와 *서비스* 간의 *서버 연결* 을 유지 
 
 Azure SignalR Service의 네트워크 불안정 또는 정기 유지 관리 또는 호스트 된 앱 서버 업데이트/유지 관리 때문에 *서버 연결* 을 삭제할 수 있습니다. 클라이언트 쪽에 연결 끊기/다시 연결 메커니즘이 있으면 클라이언트 쪽에서 연결 끊기-다시 연결에 따른 영향을 최소화 합니다.
 
-서버 쪽 네트워크 추적을 보고 *서비스* 에서 *서버 연결이* 삭제 되거나 거부 되는 이유 및 오류 정보를 확인 하 고 [문제 해결 가이드](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide)내에서 근본 원인을 찾으십시오.
+서버 쪽 네트워크 추적을 보고 *서비스* 에서 *서버 연결이* 삭제 되거나 거부 되는 이유 및 오류 정보를 확인 하 고 [문제 해결 가이드](./signalr-howto-troubleshoot-guide.md)내에서 근본 원인을 찾으십시오.
 
 
 ### <a name="how-to-add-logs"></a>로그를 추가 하는 방법
@@ -86,18 +86,18 @@ Azure SignalR Service의 네트워크 불안정 또는 정기 유지 관리 또�
 
 ##### <a name="enable-client-side-logging-for-aspnet-core-signalr"></a>클라이언트 쪽 로깅 사용 `ASP.NET Core SignalR`
 
-* [JavaScript 클라이언트 로깅](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#javascript-client-logging)
+* [JavaScript 클라이언트 로깅](/aspnet/core/signalr/diagnostics#javascript-client-logging)
 
-* [.NET 클라이언트 로깅](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#net-client-logging)
+* [.NET 클라이언트 로깅](/aspnet/core/signalr/diagnostics#net-client-logging)
 
 
 ##### <a name="enable-client-side-logging-for-aspnet-signalr"></a>클라이언트 쪽 로깅 사용 `ASP.NET SignalR`
 
-* [.NET 클라이언트](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-net-client-windows-desktop-apps)
+* [.NET 클라이언트](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-net-client-windows-desktop-apps)
 
-* [Windows Phone 8 클라이언트에서 추적 사용](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-windows-phone-8-clients)
+* [Windows Phone 8 클라이언트에서 추적 사용](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-windows-phone-8-clients)
 
-* [JavaScript 클라이언트에서 추적 사용](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-javascript-client)
+* [JavaScript 클라이언트에서 추적 사용](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-javascript-client)
 
 <a name="add_logs_server"></a>
 
@@ -105,7 +105,7 @@ Azure SignalR Service의 네트워크 불안정 또는 정기 유지 관리 또�
 
 ##### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>서버 쪽 로깅을 사용 하도록 설정 `ASP.NET Core SignalR`
 
-에 대 한 서버 쪽 로깅은 `ASP.NET Core SignalR` `ILogger` 프레임 워크에서 제공 된 기반 [로깅과](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) 통합 `ASP.NET Core` 됩니다. 다음과 같이 샘플 사용을 사용 하 여 서버 쪽 로깅을 사용 하도록 설정할 수 있습니다 `ConfigureLogging` .
+에 대 한 서버 쪽 로깅은 `ASP.NET Core SignalR` `ILogger` 프레임 워크에서 제공 된 기반 [로깅과](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) 통합 `ASP.NET Core` 됩니다. 다음과 같이 샘플 사용을 사용 하 여 서버 쪽 로깅을 사용 하도록 설정할 수 있습니다 `ConfigureLogging` .
 
 ```cs
 .ConfigureLogging((hostingContext, logging) =>
@@ -162,7 +162,7 @@ SDK 버전 >=를 사용 하 `1.0.0` 는 경우 `web.config` ([세부 정보](htt
 
 #### <a name="how-to-enable-logs-inside-azure-signalr-service"></a>Azure SignalR service 내에서 로그를 사용 하도록 설정 하는 방법
 
-Azure SignalR service에 대 한 [진단 로그를 사용 하도록 설정할](https://docs.microsoft.com/azure/azure-signalr/signalr-tutorial-diagnostic-logs) 수도 있습니다. 이러한 로그는 azure SignalR 서비스에 연결 된 모든 연결에 대 한 자세한 정보를 제공 합니다.
+Azure SignalR service에 대 한 [진단 로그를 사용 하도록 설정할](./signalr-howto-diagnostic-logs.md) 수도 있습니다. 이러한 로그는 azure SignalR 서비스에 연결 된 모든 연결에 대 한 자세한 정보를 제공 합니다.
 
 <a name="serverless_mode_tsg"></a>
 
@@ -194,7 +194,7 @@ Azure SignalR service에 대 한 [진단 로그를 사용 하도록 설정할](h
     * 또는 인스턴스를 다시 시작 합니다.
     * 위의 모든 옵션이 작동 하지 않는 경우 Azure Portal에서 새로운 지원 요청을 추가 하 여 문의해 주세요.
 
-[재해 복구](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-disaster-recovery)에 대 한 자세한 정보.
+[재해 복구](./signalr-concept-disaster-recovery.md)에 대 한 자세한 정보.
 
 ## <a name="next-steps"></a>다음 단계
 

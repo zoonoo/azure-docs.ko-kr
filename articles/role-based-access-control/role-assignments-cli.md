@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1, devx-track-azurecli
-ms.openlocfilehash: e23b6513751764063e3d8c85e063a24165d34648
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 94052b847f48a9fd676496601d85a8cb58a76944
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844883"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184300"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Azure CLI를 사용하여 Azure 역할 할당 추가 또는 제거
 
@@ -183,17 +183,7 @@ az role assignment create --assignee "{assignee}" \
     
 ## <a name="add-role-assignment-examples"></a>역할 할당 예제 추가
 
-### <a name="add-role-assignment-for-a-specific-blob-container-resource-scope"></a>특정 blob 컨테이너 리소스 범위에 대 한 역할 할당 추가
-
-Blob 컨테이너 *-01* 이라는 blob 컨테이너에 대 한 리소스 범위에서 개체 ID가 *55555555-5555-5555-5555-555555555555* 인 서비스 사용자에 게 [저장소 Blob 데이터 참가자](built-in-roles.md#storage-blob-data-contributor) 역할을 할당 합니다.
-
-```azurecli
-az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
---role "Storage Blob Data Contributor" \
---scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
-```
-
-### <a name="add-role-assignment-for-all-blob-containers-in-a-storage-account-resource-scope"></a>저장소 계정 리소스 범위에서 모든 blob 컨테이너에 대 한 역할 할당 추가
+#### <a name="add-role-assignment-for-all-blob-containers-in-a-storage-account-resource-scope"></a>저장소 계정 리소스 범위에서 모든 blob 컨테이너에 대 한 역할 할당 추가
 
 *Storage12345* 라는 저장소 계정에 대 한 리소스 범위에서 개체 ID가 *55555555-5555-5555-5555-555555555555* 인 서비스 사용자에 게 [저장소 Blob 데이터 참가자](built-in-roles.md#storage-blob-data-contributor) 역할을 할당 합니다.
 
@@ -203,7 +193,17 @@ az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345"
 ```
 
-### <a name="add-role-assignment-for-a-group-in-a-specific-virtual-network-resource-scope"></a>특정 가상 네트워크 리소스 범위에서 그룹에 대 한 역할 할당 추가
+#### <a name="add-role-assignment-for-a-specific-blob-container-resource-scope"></a>특정 blob 컨테이너 리소스 범위에 대 한 역할 할당 추가
+
+Blob 컨테이너 *-01* 이라는 blob 컨테이너에 대 한 리소스 범위에서 개체 ID가 *55555555-5555-5555-5555-555555555555* 인 서비스 사용자에 게 [저장소 Blob 데이터 참가자](built-in-roles.md#storage-blob-data-contributor) 역할을 할당 합니다.
+
+```azurecli
+az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
+--role "Storage Blob Data Contributor" \
+--scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
+```
+
+#### <a name="add-role-assignment-for-a-group-in-a-specific-virtual-network-resource-scope"></a>특정 가상 네트워크 리소스 범위에서 그룹에 대 한 역할 할당 추가
 
 *Pharma-sales-projectforcast* 이라는 가상 네트워크에 대 한 리소스 범위에서 ID가 22222222-2222-2222-2222-222222222222 인 *Ann mack 팀* 그룹에 [가상 컴퓨터 참가자](built-in-roles.md#virtual-machine-contributor) 역할을 할당 합니다.
 
@@ -213,7 +213,7 @@ az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network"
 ```
 
-### <a name="add-role-assignment-for-a-user-at-a-resource-group-scope"></a>리소스 그룹 범위에서 사용자에 대 한 역할 할당 추가
+#### <a name="add-role-assignment-for-a-user-at-a-resource-group-scope"></a>리소스 그룹 범위에서 사용자에 대 한 역할 할당 추가
 
 *Pharma-sales-projectforcast-sales* 리소스 그룹 범위에서 *patlong \@ Contoso.com* user에 [가상 컴퓨터 참가자](built-in-roles.md#virtual-machine-contributor) 역할을 할당 합니다.
 
@@ -223,7 +223,7 @@ az role assignment create --assignee "patlong@contoso.com" \
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>리소스 그룹 범위에서 고유한 역할 ID를 사용 하 여 사용자에 대 한 역할 할당 추가
+#### <a name="add-role-assignment-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>리소스 그룹 범위에서 고유한 역할 ID를 사용 하 여 사용자에 대 한 역할 할당 추가
 
 역할 이름이 변경 될 수 있는 몇 가지 경우가 있습니다. 예를 들면 다음과 같습니다.
 
@@ -240,7 +240,7 @@ az role assignment create --assignee "patlong@contoso.com" \
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-all-blob-containers-at-a-resource-group-scope"></a>리소스 그룹 범위에서 모든 blob 컨테이너에 대 한 역할 할당 추가
+#### <a name="add-role-assignment-for-all-blob-containers-at-a-resource-group-scope"></a>리소스 그룹 범위에서 모든 blob 컨테이너에 대 한 역할 할당 추가
 
 저장소 rg 리소스 그룹 범위 *예제* 에서 개체 ID가 *55555555-5555-5555-5555-555555555555* 인 서비스 사용자에 게 [저장소 Blob 데이터 참가자](built-in-roles.md#storage-blob-data-contributor) 역할을 할당 합니다.
 
@@ -258,7 +258,7 @@ az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg"
 ```
 
-### <a name="add-role-assignment-for-an-application-at-a-resource-group-scope"></a>리소스 그룹 범위에서 응용 프로그램에 대 한 역할 할당 추가
+#### <a name="add-role-assignment-for-an-application-at-a-resource-group-scope"></a>리소스 그룹 범위에서 응용 프로그램에 대 한 역할 할당 추가
 
 *Pharma-sales-projectforcast-sales* 리소스 그룹 범위에서 서비스 사용자 개체 ID가 44444444-4444-4444-4444-444444444444 인 응용 프로그램에 [가상 컴퓨터 참가자](built-in-roles.md#virtual-machine-contributor) 역할을 할당 합니다.
 
@@ -268,7 +268,7 @@ az role assignment create --assignee "44444444-4444-4444-4444-444444444444" \
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope"></a>리소스 그룹 범위에서 새 서비스 사용자에 대 한 역할 할당 추가
+#### <a name="add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope"></a>리소스 그룹 범위에서 새 서비스 사용자에 대 한 역할 할당 추가
 
 새 서비스 주체를 만들고 해당 서비스 주체에 역할을 즉시 할당하려고 하면 경우에 따라 해당 역할 할당이 실패할 수 있습니다. 예를 들어 스크립트를 사용 하 여 새로운 관리 되는 id를 만든 다음 해당 서비스 주체에 역할을 할당 하려고 하면 역할 할당이 실패할 수 있습니다. 이 오류가 발생하는 이유는 복제 지연 때문일 수 있습니다. 서비스 주체는 한 지역에 생성됩니다. 그러나 서비스 주체를 아직 복제하지 않은 다른 지역에서 역할 할당이 발생할 수 있습니다. 이 시나리오를 해결 하려면 역할 할당을 만들 때 보안 주체 유형을 지정 해야 합니다.
 
@@ -291,7 +291,7 @@ az role assignment create --assignee-object-id "33333333-3333-3333-3333-33333333
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-a-user-at-a-subscription-scope"></a>구독 범위에서 사용자에 대 한 역할 할당 추가
+#### <a name="add-role-assignment-for-a-user-at-a-subscription-scope"></a>구독 범위에서 사용자에 대 한 역할 할당 추가
 
 구독 범위에서 *\@ example.com* 사용자에 게 [읽기 권한자](built-in-roles.md#reader) 역할을 할당 합니다.
 
@@ -301,7 +301,7 @@ az role assignment create --assignee "annm@example.com" \
 --subscription "00000000-0000-0000-0000-000000000000"
 ```
 
-### <a name="add-role-assignment-for-a-group-at-a-subscription-scope"></a>구독 범위에서 그룹에 대 한 역할 할당 추가
+#### <a name="add-role-assignment-for-a-group-at-a-subscription-scope"></a>구독 범위에서 그룹에 대 한 역할 할당 추가
 
 구독 범위에서 ID가 22222222-2222-2222-2222-222222222222 인 *Ann Mack 팀* 그룹에 [읽기 권한자](built-in-roles.md#reader) 역할을 할당 합니다.
 
@@ -311,7 +311,7 @@ az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 --subscription "00000000-0000-0000-0000-000000000000"
 ```
 
-### <a name="add-role-assignment-for-all-blob-containers-at-a-subscription-scope"></a>구독 범위에서 모든 blob 컨테이너에 대 한 역할 할당 추가
+#### <a name="add-role-assignment-for-all-blob-containers-at-a-subscription-scope"></a>구독 범위에서 모든 blob 컨테이너에 대 한 역할 할당 추가
 
 구독 범위에서 *alain \@ example.com* 사용자에 게 [저장소 Blob 데이터 판독기](built-in-roles.md#storage-blob-data-reader) 역할을 할당 합니다.
 
@@ -321,7 +321,7 @@ az role assignment create --assignee "alain@example.com" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 ```
 
-### <a name="add-role-assignment-for-a-user-at-a-management-group-scope"></a>관리 그룹 범위에서 사용자에 대 한 역할 할당 추가
+#### <a name="add-role-assignment-for-a-user-at-a-management-group-scope"></a>관리 그룹 범위에서 사용자에 대 한 역할 할당 추가
 
 관리 그룹 범위에서 *alain \@ example.com* 사용자에 게 [청구 읽기 권한자](built-in-roles.md#billing-reader) 역할을 할당 합니다.
 
@@ -331,7 +331,7 @@ az role assignment create --assignee "alain@example.com" \
 --scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```
 
-## <a name="remove-role-assignment"></a>역할 할당 제거
+## <a name="remove-a-role-assignment"></a>역할 할당 제거
 
 Azure RBAC에서 액세스 권한을 제거 하려면 [az role 할당 delete](/cli/azure/role/assignment#az_role_assignment_delete)를 사용 하 여 역할 할당을 제거 합니다.
 

@@ -4,12 +4,12 @@ description: GitHub Actions를 사용하여 Azure Resource Manager 템플릿을 
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3dcb246956aae274f17cf938ee3d406562b22941
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cf705f68544c4c4e0db55d4a375e1e50530c8957
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905262"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185711"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>GitHub Actions를 사용하여 Azure Resource Manager 템플릿 배포
 
@@ -17,7 +17,7 @@ ms.locfileid: "95905262"
 
 [Azure Resource Manager 템플릿 배포 작업](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) 을 사용 하 여 Azure에 리소스 관리자 템플릿 배포를 자동화할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요.  
@@ -157,4 +157,4 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [첫 번째 ARM 템플릿 만들기](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [첫 번째 ARM 템플릿 만들기](./template-tutorial-create-first-template.md)

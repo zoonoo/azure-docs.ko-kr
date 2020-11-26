@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 90a5f0f84c72895a8450a42260b07f6dbea15e37
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: b4e35296a999070a6f536f4a52cfb7c3a1d4f42a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428030"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186493"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 ITSM 도구에 Azure 연결
 
@@ -90,7 +90,7 @@ ITSMC를 설치한 후에는 연결을 만들 수 있습니다.
 
 ITSM 도구를 준비 후 다음 단계를 수행 하 여 연결을 만듭니다.
 
-1. **모든 리소스** 에서 **servicedesk ( *작업 영역 이름* )** 를 찾습니다.
+1. **모든 리소스** 에서 **servicedesk (*작업 영역 이름*)** 를 찾습니다.
 
    ![Azure Portal의 최근 리소스를 보여 주는 스크린샷](media/itsmc-overview/itsm-connections.png)
 
@@ -145,7 +145,7 @@ ITSM 연결을 만든 후에는 Azure 경고를 기반으로 ITSM 도구에서 �
 
 7. **작업 항목** 형식을 선택 합니다.
 
-8. 고정 값을 사용 하 여 기본 필드를 입력 하려면 **사용자 지정 템플릿 사용** 을 선택 합니다. 그렇지 않으면 **템플릿** 목록에서 기존 [템플릿을](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) 선택 하 고 템플릿 필드에 고정 값을 입력 합니다.
+8. 고정 값을 사용 하 여 기본 필드를 입력 하려면 **사용자 지정 템플릿 사용** 을 선택 합니다. 그렇지 않으면 **템플릿** 목록에서 기존 [템플릿을](#template-definitions) 선택 하 고 템플릿 필드에 고정 값을 입력 합니다.
 
 9. **각 구성 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 구성 항목에 자체 작업 항목이 포함 됩니다. 구성 항목 마다 작업 항목이 하나씩 있습니다. 생성 되는 경고에 따라 업데이트 됩니다.
 
@@ -329,4 +329,3 @@ IT 서비스 관리 커넥터에 대 한 쿼리 또는 피드백이 있는 경�
 
 ## <a name="next-steps"></a>다음 단계
 [IT 서비스 관리 커넥터에 ITSM 제품/서비스를 추가 합니다.](./itsmc-connections.md)
-

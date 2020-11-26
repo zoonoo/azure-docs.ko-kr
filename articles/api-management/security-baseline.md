@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6ac568e56d201ef43e40428085b226608e83973a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 62b4629d258f8779dc53b4b8e00684d3b793291d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024571"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183756"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>API Management Azure 보안 기준
 
@@ -98,7 +98,7 @@ Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 �
 
 * [Azure Application Gateway 이해](../application-gateway/index.yml)
 
-* [DDoS Protection 표준을 구성하는 방법](../virtual-network/manage-ddos-protection.md)
+* [DDoS Protection 표준을 구성하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 * [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
@@ -301,7 +301,7 @@ Azure Monitor 외에도 Azure API Management는 하나 이상의 Azure Applicati
 
 * [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
-* [Log Analytics 작업 영역 이해](../azure-monitor/log-query/get-started-portal.md)
+* [Log Analytics 작업 영역 이해](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Azure Application Insights와 통합하는 방법](./api-management-howto-app-insights.md)
 
@@ -490,7 +490,7 @@ Azure AD(Active Directory)에서 OAuth 2.0 프로토콜을 사용하여 API를 �
 
 * [Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API를 보호하는 방법](./api-management-howto-protect-backend-with-aad.md)
 
-* [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+* [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -614,7 +614,7 @@ Microsoft는 Azure API Management에 대한 기본 인프라를 관리하고, �
 
 **지침**: 관리 평면 호출은 TLS를 통해 Azure Resource Manager에서 수행됩니다. 유효한 JSON 웹 토큰(JWT)이 필요합니다. 데이터 평면 호출은 TLS 및 지원되는 인증 메커니즘(예: 클라이언트 인증서 또는 JWT) 중 하나를 사용하여 보호할 수 있습니다.
 
-* [Azure API Management의 데이터 보호 이해](./api-management-security-controls.md#data-protection)
+* [Azure API Management의 데이터 보호 이해](#data-protection)
 
 * [Azure API Management에서 TLS 설정 관리](./api-management-howto-manage-protocols-ciphers.md)
 
@@ -664,7 +664,7 @@ Microsoft는 Azure API Management에 대한 기본 인프라를 관리하고, �
 
 **지침**: 명명된 인증서, 키 및 비밀 값과 같은 중요한 데이터는 서비스 인스턴스 키당 서비스 관리형 키를 사용하여 암호화됩니다. 모든 암호화 키는 서비스 인스턴스당 키이며 서비스에서 관리됩니다.
 
-* [Azure API Management를 사용한 저장 데이터 보호/암호화 이해](./api-management-security-controls.md#data-protection)
+* [Azure API Management를 사용한 저장 데이터 보호/암호화 이해](#data-protection)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -692,7 +692,7 @@ Microsoft는 Azure API Management에 대한 기본 인프라를 관리하고, �
 
 Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 서비스 구성 관련 취약성을 줄이기 위해 사용 가능한 보안 제어를 검토합니다.
 
-* [Azure API Management에서 사용할 수 있는 보안 제어 이해](./api-management-security-controls.md)
+* [Azure API Management에서 사용할 수 있는 보안 제어 이해]()
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -728,7 +728,7 @@ Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 서비스 �
 
 Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 고객이 서비스 구성 관련 취약성을 줄이기 위해 사용 가능한 보안 제어를 검토합니다.
 
-* [Azure API Management에서 사용할 수 있는 보안 제어 이해](./api-management-security-controls.md)
+* [Azure API Management에서 사용할 수 있는 보안 제어 이해]()
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -932,8 +932,6 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [Azure Repos 설명서](/azure/devops/repos/index)
 
-* [Azure API Management DevOps 리소스 키트 이해](./api-management-security-controls.md#configuration-management)
-
 **Azure Security Center 모니터링**: 해당 없음
 
 **책임**: Customer
@@ -971,8 +969,6 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 **지침**: Azure API Management DevOps 리소스 키트를 사용하여 Azure API Management에 대한 구성 관리를 수행합니다.
 
 또한 Azure Policy를 사용하여 Azure API Management 서비스에 대한 표준 보안 구성을 정의하고 구현합니다. "Microsoft.ApiManagement" 네임스페이스에서 Azure Policy 별칭을 사용하여 Azure API Management 인스턴스의 구성을 감사하거나 적용하는 사용자 지정 정책을 만듭니다. [거부] 및 [존재하지 않으면 배포] Azure 정책을 사용하여 보안 설정을 Azure 리소스 전체에 적용합니다.
-
-* [Azure API Management DevOps 리소스 키트 이해](./api-management-security-controls.md#configuration-management)
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 

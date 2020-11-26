@@ -3,12 +3,12 @@ title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최대 값으로 제한을 늘리는 방법에 대 한 정보가 포함 되어 있습니다.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 54eb25e302d49be9e3ab1febeb5c636d267d7e4f
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 810d503f1abdc14ad2d255a89aebe7c10954a889
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577841"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186204"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -398,7 +398,7 @@ Azure Files 제한에 대 한 자세한 내용은 [Azure Files 확장성 및 성
 
 #### <a name="disk-encryption-sets"></a>디스크 암호화 집합
 
-구독 당 지역 당 50 디스크 암호화 집합의 제한이 있습니다. 자세한 내용은 [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) 또는 [Windows](../../virtual-machines/windows/disk-encryption.md#restrictions) 가상 머신에 대 한 암호화 설명서를 참조 하세요. 할당량을 늘려야 하는 경우 Azure 지원에 문의 하세요.
+구독 당 지역 당 50 디스크 암호화 집합의 제한이 있습니다. 자세한 내용은 [Linux](../../virtual-machines/disk-encryption.md#restrictions) 또는 [Windows](../../virtual-machines/disk-encryption.md#restrictions) 가상 머신에 대 한 암호화 설명서를 참조 하세요. 할당량을 늘려야 하는 경우 Azure 지원에 문의 하세요.
 
 ### <a name="managed-virtual-machine-disks"></a>관리되는 가상 머신 디스크
 
@@ -442,7 +442,7 @@ Shared Image Gallery를 사용하여 리소스를 배포할 때 구독당 제한
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 * [Azure 제한 및 향상 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Azure의 가상 컴퓨터 및 클라우드 서비스 크기](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

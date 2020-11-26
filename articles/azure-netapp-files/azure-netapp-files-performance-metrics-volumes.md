@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.openlocfilehash: cf25ef59bc1ea5db61dcfb3c76c0d978cb1f95d0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b41575208d0793a33864556ec4313ae1a71f2db5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931839"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184470"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Azure NetApp Files의 성능 벤치마크 테스트 추천 사항
 
@@ -24,7 +24,7 @@ Azure NetApp Files 볼륨의 성능 특징을 이해 하려면 오픈 소스 도
 
 ### <a name="vm-instance-sizing"></a>VM 인스턴스 크기 조정
 
-최상의 결과를 위해서는 테스트를 수행 하도록 적절 한 크기를 지정 하는 VM (가상 머신) 인스턴스를 사용 하 고 있는지 확인 합니다. 다음 예에서는 Standard_D32s_v3 인스턴스를 사용 합니다. VM 인스턴스 크기에 대 한 자세한 내용은 Windows 기반 Vm에 대 한 [azure의 windows 가상 머신 크기](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-network%252ftoc.json) 및 Linux 기반 vm에 대 한 [azure의 linux 가상 머신에](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) 대 한 크기를 참조 하세요.
+최상의 결과를 위해서는 테스트를 수행 하도록 적절 한 크기를 지정 하는 VM (가상 머신) 인스턴스를 사용 하 고 있는지 확인 합니다. 다음 예에서는 Standard_D32s_v3 인스턴스를 사용 합니다. VM 인스턴스 크기에 대 한 자세한 내용은 Windows 기반 Vm에 대 한 [azure의 windows 가상 머신 크기](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 Linux 기반 vm에 대 한 [azure의 linux 가상 머신에](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 대 한 크기를 참조 하세요.
 
 ### <a name="azure-netapp-files-volume-sizing"></a>Azure NetApp Files 볼륨 크기 조정
 

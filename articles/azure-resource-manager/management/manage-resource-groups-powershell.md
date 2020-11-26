@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: jgao
-ms.openlocfilehash: 1e9d44561d79c411bdff167acad4f37c21251e23
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: e5449dc26197a0aa2e2b0da49ad9e5ca4fb19e82
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951743"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185762"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -77,7 +77,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## <a name="redeploy-when-deployment-fails"></a>배포 실패 시 다시 배포
 
-이 기능을 *오류 발생 시 롤백*이 라고도 합니다. 자세한 내용은 [배포 실패 시 재배포](../templates/rollback-on-error.md)를 참조 하세요.
+이 기능을 *오류 발생 시 롤백* 이 라고도 합니다. 자세한 내용은 [배포 실패 시 재배포](../templates/rollback-on-error.md)를 참조 하세요.
 
 ## <a name="move-to-another-resource-group-or-subscription"></a>다른 리소스 그룹 또는 구독으로 이동
 
@@ -206,7 +206,7 @@ Export-AzResourceGroup `
 
 템플릿 내보내기 기능은 Azure Data Factory 리소스 내보내기를 지원 하지 않습니다. Data Factory 리소스를 내보내는 방법에 대 한 자세한 내용은 [Azure Data Factory에서 데이터 팩터리 복사 또는 복제](../../data-factory/copy-clone-data-factory.md)를 참조 하세요.
 
-클래식 배포 모델을 통해 만든 리소스를 내보내려면 [리소스 관리자 배포 모델로 마이그레이션해야](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)합니다.
+클래식 배포 모델을 통해 만든 리소스를 내보내려면 [리소스 관리자 배포 모델로 마이그레이션해야](../../virtual-machines/migration-classic-resource-manager-overview.md)합니다.
 
 자세한 내용은 [Azure Portal에서 템플릿으로 단일 및 다중 리소스 내보내기](../templates/export-template-portal.md)를 참조 하세요.
 

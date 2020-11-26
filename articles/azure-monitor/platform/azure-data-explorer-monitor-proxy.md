@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 9b434c426264fcfee0dfe663a7d1b21a354badec
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 2a21d7a06e8a92022b620704d1fb51a303da3ae0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491259"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185983"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Azure 데이터 탐색기 (미리 보기)를 사용 하 여 Azure Monitor에서 데이터 쿼리
 Azure 데이터 탐색기 프록시 클러스터를 사용 하면 Azure Monitor에서 Azure 데이터 탐색기, Log Analytics 작업 영역 및 클래식 Application Insights 응용 프로그램 간에 제품 간 쿼리를 수행할 수 있습니다. Azure Monitor 또는 클래식 Application Insights 앱의 Log Analytics 작업 영역을 프록시 클러스터로 매핑할 수 있습니다. 그런 다음 Azure 데이터 탐색기 도구를 사용 하 여 프록시 클러스터를 쿼리하고 클러스터 간 쿼리에서이를 참조할 수 있습니다. 이 문서에서는 프록시 클러스터에 연결 하 고, Azure 데이터 탐색기 웹 UI에 프록시 클러스터를 추가 하 고, Azure 데이터 탐색기에서 Log Analytics 작업 영역 또는 클래식 Application Insights 앱에 대해 쿼리를 실행 하는 방법을 보여 줍니다.
@@ -60,7 +60,7 @@ Kusto 탐색기, Azure 데이터 탐색기 웹 UI, Jupyter Kqlmagic, Flow, Power
 > * 데이터베이스 이름에는 프록시 클러스터에 지정 된 리소스와 같은 이름을 지정 해야 합니다. 이름은 대/소문자를 구분합니다.
 > * 클러스터 간 쿼리에서 Application Insights 앱 및 Log Analytics 작업 영역의 이름이 올바른지 확인 합니다.
 >     * 이름에 특수 문자가 포함 되어 있으면 프록시 클러스터 이름에서 URL 인코딩으로 바꿉니다. 
->     * 이름에 [KQL 식별자 이름 규칙](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names)을 충족 하지 않는 문자가 포함 된 경우에는 대시 문자로 대체 됩니다 **-** .
+>     * 이름에 [KQL 식별자 이름 규칙](/azure/data-explorer/kusto/query/schema-entities/entity-names)을 충족 하지 않는 문자가 포함 된 경우에는 대시 문자로 대체 됩니다 **-** .
 
 ### <a name="direct-query-from-your-log-analytics-or-application-insights-proxy-cluster"></a>Log Analytics 또는 Application Insights 프록시 클러스터에서 직접 쿼리
 
@@ -93,9 +93,9 @@ Azure 데이터 탐색기 프록시에서 교차 테 넌 트 쿼리를 지원 �
 
 Azure 데이터 탐색기 리소스가 테 넌 트 ' A '에 있고 Log Analytics 작업 영역이 테 넌 트 ' B '에 있는 경우 다음 두 가지 방법 중 하나를 사용 합니다.
 
-- Azure 데이터 탐색기를 사용 하면 다른 테 넌 트의 보안 주체에 대 한 역할을 추가할 수 있습니다. 테 넌 트 ' B '의 사용자 ID를 Azure 데이터 탐색기 클러스터의 권한 있는 사용자로 추가 합니다. Azure 데이터 탐색기 클러스터의 *[' TrustedExternalTenant '](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* 속성에 테 넌 트 ' B '가 포함 되어 있는지 확인 합니다. ' B ' 테 넌 트에서 완전히 쿼리를 실행 합니다.
+- Azure 데이터 탐색기를 사용 하면 다른 테 넌 트의 보안 주체에 대 한 역할을 추가할 수 있습니다. 테 넌 트 ' B '의 사용자 ID를 Azure 데이터 탐색기 클러스터의 권한 있는 사용자로 추가 합니다. Azure 데이터 탐색기 클러스터의 *[' TrustedExternalTenant '](/powershell/module/az.kusto/update-azkustocluster)* 속성에 테 넌 트 ' B '가 포함 되어 있는지 확인 합니다. ' B ' 테 넌 트에서 완전히 쿼리를 실행 합니다.
 
-- [Lighthouse](/azure/lighthouse/) 를 사용 하 여 Azure Monitor 리소스를 테 넌 트 ' A '에 프로젝션 합니다.
+- [Lighthouse](../../lighthouse/index.yml) 를 사용 하 여 Azure Monitor 리소스를 테 넌 트 ' A '에 프로젝션 합니다.
 
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>다른 테 넌 트에서 Azure 데이터 탐색기 클러스터에 연결
 
@@ -124,7 +124,7 @@ Log Analytics 또는 Application Insights 클러스터를 호출 하는 경우 �
 
 |구문 설명  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| 이 구독에 정의 된 리소스를 포함 하는 클러스터 내의 데이터베이스 ( **클러스터 간 쿼리에 권장** ) |   cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
+| 이 구독에 정의 된 리소스를 포함 하는 클러스터 내의 데이터베이스 (**클러스터 간 쿼리에 권장**) |   cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
 | 이 구독의 모든 앱/작업 영역을 포함 하는 클러스터입니다.    |     cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>` )    |    cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>` )     |
 |구독의 모든 앱/작업 영역을 포함 하 고이 리소스 그룹의 구성원 인 클러스터    |   cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |    cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |
 |이 구독에 정의 된 리소스를 포함 하는 클러스터      |    cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>` )    |  cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>` )     |
@@ -132,4 +132,4 @@ Log Analytics 또는 Application Insights 클러스터를 호출 하는 경우 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Log Analytics 작업 영역 및 Application Insights의 데이터 구조](data-platform-logs.md)에 대해 자세히 알아보세요.
-- [Azure 데이터 탐색기에서 쿼리를 작성](https://docs.microsoft.com/azure/data-explorer/write-queries)하는 방법을 알아봅니다.
+- [Azure 데이터 탐색기에서 쿼리를 작성](/azure/data-explorer/write-queries)하는 방법을 알아봅니다.

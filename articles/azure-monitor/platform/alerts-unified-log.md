@@ -6,28 +6,28 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 89cec12804f6fd2b8a3885248c42646d6c6dbb13
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995083"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186561"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
 
 ## <a name="overview"></a>개요
 
-로그 경고는 [Azure 경고](./alerts-overview.md)에서 지원 되는 경고 유형 중 하나입니다. 로그 경고를 통해 사용자는 [Log Analytics](../log-query/get-started-portal.md) 쿼리를 사용 하 여 설정 된 빈도 마다 리소스 로그를 평가 하 고 결과에 따라 경고를 발생 시킬 수 있습니다. 규칙은 [작업 그룹](./action-groups.md)을 사용 하 여 하나 이상의 작업을 트리거할 수 있습니다.
+로그 경고는 [Azure 경고](./alerts-overview.md)에서 지원 되는 경고 유형 중 하나입니다. 로그 경고를 통해 사용자는 [Log Analytics](../log-query/log-analytics-tutorial.md) 쿼리를 사용 하 여 설정 된 빈도 마다 리소스 로그를 평가 하 고 결과에 따라 경고를 발생 시킬 수 있습니다. 규칙은 [작업 그룹](./action-groups.md)을 사용 하 여 하나 이상의 작업을 트리거할 수 있습니다.
 
 > [!NOTE]
-> [Log Analytics 작업 영역의](../log-query/get-started-portal.md) 로그 데이터를 Azure Monitor 메트릭 저장소로 보낼 수 있습니다. 메트릭 경고는 작업 하는 데이터에 따라 더 적합할 수 있는 [동작이 다릅니다](alerts-metric-overview.md). 로그를 메트릭에 라우팅하는 방법 및 방법에 대 한 자세한 내용은 [로그에 대 한 메트릭 경고](alerts-metric-logs.md)를 참조 하세요.
+> [Log Analytics 작업 영역의](../log-query/log-analytics-tutorial.md) 로그 데이터를 Azure Monitor 메트릭 저장소로 보낼 수 있습니다. 메트릭 경고는 작업 하는 데이터에 따라 더 적합할 수 있는 [동작이 다릅니다](alerts-metric-overview.md). 로그를 메트릭에 라우팅하는 방법 및 방법에 대 한 자세한 내용은 [로그에 대 한 메트릭 경고](alerts-metric-logs.md)를 참조 하세요.
 
 > [!NOTE]
 > 현재 API 버전 `2020-05-01-preview` 및 리소스 중심 로그 경고에 대 한 추가 요금은 없습니다.  미리 보기에 있는 기능의 가격은 추후 발표 되며 청구를 시작 하기 전에 제공 되는 공지가 제공 됩니다. 알림 기간이 끝난 후 새 API 버전 및 리소스 중심 로그 경고를 계속 사용 하도록 선택 하는 경우 해당 요금에 대 한 요금이 청구 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-로그 경고는 Log Analytics 데이터에 대해 쿼리를 실행 합니다. 먼저 [로그 데이터 수집](resource-logs.md) 을 시작 하 고 문제에 대 한 로그 데이터를 쿼리 합니다. Log Analytics의 [경고 쿼리 예제 항목](../log-query/saved-queries.md) 을 사용 하 여 [사용자가 직접 쿼리를 작성](../log-query/get-started-portal.md)하기 위해 검색 하거나 시작할 수 있는 항목을 이해할 수 있습니다.
+로그 경고는 Log Analytics 데이터에 대해 쿼리를 실행 합니다. 먼저 [로그 데이터 수집](resource-logs.md) 을 시작 하 고 문제에 대 한 로그 데이터를 쿼리 합니다. Log Analytics의 [경고 쿼리 예제 항목](../log-query/example-queries.md) 을 사용 하 여 [사용자가 직접 쿼리를 작성](../log-query/log-analytics-tutorial.md)하기 위해 검색 하거나 시작할 수 있는 항목을 이해할 수 있습니다.
 
 [Azure 모니터링 참여자](./roles-permissions-security.md) 는 로그 경고를 만들고 수정 하 고 업데이트 하는 데 필요한 일반적인 역할입니다. 리소스 로그에 대 한 액세스 & 쿼리 실행 권한도 필요 합니다. 리소스 로그에 대 한 부분 액세스는 쿼리가 실패 하거나 부분적인 결과를 반환할 수 있습니다. [Azure에서 로그 경고를 구성 하는 방법에 대해 자세히 알아보세요](./alerts-log.md).
 
@@ -44,7 +44,7 @@ ms.locfileid: "95995083"
 다음 섹션에서는 위의 논리를 설정 하는 데 사용할 수 있는 다양 한 매개 변수를 설명 합니다.
 
 ### <a name="log-query"></a>로그 쿼리
-규칙을 평가 하는 데 사용 되는 [Log Analytics](../log-query/get-started-portal.md) 쿼리입니다. 이 쿼리에서 반환 되는 결과는 경고를 트리거할 지 여부를 결정 하는 데 사용 됩니다. 쿼리 범위를 다음으로 지정할 수 있습니다.
+규칙을 평가 하는 데 사용 되는 [Log Analytics](../log-query/log-analytics-tutorial.md) 쿼리입니다. 이 쿼리에서 반환 되는 결과는 경고를 트리거할 지 여부를 결정 하는 데 사용 됩니다. 쿼리 범위를 다음으로 지정할 수 있습니다.
 
 - 특정 리소스 (예: 가상 머신).
 - 구독 또는 리소스 그룹과 같은 확장 리소스입니다.
@@ -102,7 +102,7 @@ requests
 
 ### <a name="aggregation-type"></a>집계 유형
 
-단일 숫자 값으로 집계 하기 위해 여러 레코드에서 수행 되는 계산입니다. 예들 들어 다음과 같습니다.
+단일 숫자 값으로 집계 하기 위해 여러 레코드에서 수행 되는 계산입니다. 예를 들어:
 - **Count** 는 쿼리의 레코드 수를 반환 합니다.
 - **Average** 는 정의 된 측정값 열 [**집계 세분성**](#aggregation-granularity) 의 평균을 반환 합니다.
 
@@ -182,7 +182,7 @@ requests
 
 이 경고 평가 예를 참조 하세요.
 
-| 시간    | 로그 조건 평가 | 결과 
+| Time    | 로그 조건 평가 | 결과 
 | ------- | ----------| ----------| ------- 
 | 00:05 | FALSE | 경고가 발생 하지 않습니다. 작업은 호출 되지 않습니다.
 | 00:10 | TRUE  | 경고가 발생 하 고 라는 동작 그룹이 있습니다. 새 경고 상태가 활성입니다.
@@ -209,4 +209,3 @@ requests
 * [Azure의 로그 경고에서 웹후크](alerts-log-webhook.md)를 이해합니다.
 * [Azure Alerts](./alerts-overview.md)에 대해 알아봅니다.
 * [Log Analytics](../log-query/log-query-overview.md)에 대해 자세히 알아보세요.
-

@@ -3,12 +3,12 @@ title: 잘못된 템플릿 오류
 description: Azure Resource Manager 템플릿을 배포할 때 잘못된 템플릿 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: 3e68d4634d0092d05222348ca0db0116422faec3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba19d3c4e72a765e2aaff7393915b77a80daf2ba
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373813"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185796"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>잘못된 템플릿 오류 해결
 
@@ -62,7 +62,7 @@ Message=Deployment template validation failed: 'The template resource {resource-
 for type {resource-type} has incorrect segment lengths.
 ```
 
-루트 수준 리소스에는 리소스 형식에 포함된 세그먼트보다 이름에 포함된 세그먼트가 1개 더 적어야 합니다. 각 세그먼트는 슬래시로 구분됩니다. 다음 예제에서는 2개 세그먼트가 형식에 있고 1개 세그먼트가 이름에 있으므로 **유효한 이름**입니다.
+루트 수준 리소스에는 리소스 형식에 포함된 세그먼트보다 이름에 포함된 세그먼트가 1개 더 적어야 합니다. 각 세그먼트는 슬래시로 구분됩니다. 다음 예제에서는 2개 세그먼트가 형식에 있고 1개 세그먼트가 이름에 있으므로 **유효한 이름** 입니다.
 
 ```json
 {
@@ -130,7 +130,7 @@ part of the allowed values
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>해결 방법 4 - 너무 많은 대상 리소스 그룹
 
-단일 배포에서는 5개의 대상 리소스 그룹으로 제한되어 있기 때문에 이전 배포에서 이 오류가 표시될 수 있습니다. 2020년 5월, 이 제한이 800개의 리소스 그룹으로 증가되었습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](cross-scope-deployment.md)를 참조하세요.
+단일 배포에서는 5개의 대상 리소스 그룹으로 제한되어 있기 때문에 이전 배포에서 이 오류가 표시될 수 있습니다. 2020년 5월, 이 제한이 800개의 리소스 그룹으로 증가되었습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](./deploy-to-resource-group.md)를 참조하세요.
 
 <a id="circular-dependency"></a>
 

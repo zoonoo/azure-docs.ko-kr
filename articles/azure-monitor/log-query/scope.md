@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 066e9cf6c63c9f2073ba869e8b40e25bfc993cd8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ddb73de87789934aa66893bdbe6519011cf324b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491378"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186102"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위
-[Azure Portal에서 Log Analytics](get-started-portal.md)에 [로그 쿼리](log-query-overview.md) 를 실행 하는 경우 쿼리에 의해 평가 되는 데이터 집합은 선택한 범위와 시간 범위에 따라 달라 집니다. 이 문서에서는 범위 및 시간 범위와 요구 사항에 따라 각 범위를 설정 하는 방법을 설명 합니다. 또한 다양 한 유형의 범위 동작을 설명 합니다.
+[Azure Portal에서 Log Analytics](./log-analytics-tutorial.md)에 [로그 쿼리](log-query-overview.md) 를 실행 하는 경우 쿼리에 의해 평가 되는 데이터 집합은 선택한 범위와 시간 범위에 따라 달라 집니다. 이 문서에서는 범위 및 시간 범위와 요구 사항에 따라 각 범위를 설정 하는 방법을 설명 합니다. 또한 다양 한 유형의 범위 동작을 설명 합니다.
 
 
 ## <a name="query-scope"></a>쿼리 범위
@@ -34,7 +34,7 @@ ms.locfileid: "94491378"
 | Log Analytics 작업 영역 | Log Analytics 작업 영역에 있는 모든 레코드 | **Azure Monitor** 메뉴 또는 **Log Analytics 작업 영역** 메뉴에서 **로그** 를 선택 합니다.  | 범위를 다른 리소스 유형으로 변경할 수 있습니다. |
 | Application Insights 애플리케이션 | Application Insights 응용 프로그램의 모든 레코드 | 응용 프로그램에 대 한 **Application Insights** 메뉴에서 **로그** 를 선택 합니다. | 범위만 다른 Application Insights 응용 프로그램으로 변경할 수 있습니다. |
 | Resource group | 리소스 그룹의 모든 리소스에 의해 생성 된 레코드입니다. 여러 Log Analytics 작업 영역의 데이터를 포함할 수 있습니다. | 리소스 그룹 메뉴에서 **로그** 를 선택 합니다. | 범위를 변경할 수 없습니다.|
-| Subscription | 구독의 모든 리소스에서 만든 레코드 여러 Log Analytics 작업 영역의 데이터를 포함할 수 있습니다. | 구독 메뉴에서 **로그** 를 선택 합니다.   | 범위를 변경할 수 없습니다. |
+| 구독 | 구독의 모든 리소스에서 만든 레코드 여러 Log Analytics 작업 영역의 데이터를 포함할 수 있습니다. | 구독 메뉴에서 **로그** 를 선택 합니다.   | 범위를 변경할 수 없습니다. |
 | 기타 Azure 리소스 | 리소스에서 만든 레코드입니다. 여러 Log Analytics 작업 영역의 데이터를 포함할 수 있습니다.  | 리소스 메뉴에서 **로그** 를 선택 합니다.<br>또는<br>**Azure Monitor** 메뉴에서 **로그** 를 선택 하 고 새 범위를 선택 합니다. | 범위만 동일한 리소스 유형으로 변경할 수 있습니다. |
 
 ### <a name="limitations-when-scoped-to-a-resource"></a>리소스로 범위가 지정 된 경우의 제한 사항
@@ -87,5 +87,5 @@ Log Analytics 창의 맨 위에 있는 시간 선택에서 시간 범위를 선�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal에서 Log Analytics를 사용 하는 방법에 대 한 자습서](get-started-portal.md)를 안내 합니다.
+- [Azure Portal에서 Log Analytics를 사용 하는 방법에 대 한 자습서](./log-analytics-tutorial.md)를 안내 합니다.
 - [쿼리 작성에 대 한 자습서](get-started-queries.md)를 안내 합니다.

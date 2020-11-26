@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 7486cee351880dc0465a43b1259a5f07ef31c77b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 550c011bb9f4aeb99a4dcb8da0e7ae2be4202788
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173290"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185881"
 ---
 # <a name="quota-increase-requests"></a>할당량 증가 요청
 
@@ -24,7 +24,6 @@ Azure Portal에서 VM 시리즈에 대 한 vCPUs 할당량 한도 증가를 요�
 새 구독을 만들 때 기본 총 지역 vCPUs가 모든 개별 VM 시리즈에 대 한 기본 Vcpus 할당량의 합계와 같지 않을 수 있습니다. 이 경우 배포 하려는 각 개별 VM 시리즈에 대해 충분 한 할당량이 있는 구독이 생성 될 수 있습니다. 모든 배포에 대 한 총 지역 vCPUs에 대해 충분 한 할당량이 부족할 수 있습니다. 이 경우 전체 지역 vCPUs 제한을 명시적으로 늘리기 위해 요청을 제출 해야 합니다. 총 지역 vCPUs 제한은 해당 지역에 대 한 모든 VM 시리즈에서 승인 된 할당량의 합계를 초과할 수 없습니다.
 
 > [!NOTE]
-> 제한 또는 할당량을 기본 한도 이상으로 올리려면 [무료로 온라인 고객 지원 요청을 여세요](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-resource-quota#solution).
+> 제한 또는 할당량을 기본 한도 이상으로 올리려면 [무료로 온라인 고객 지원 요청을 여세요](../../azure-resource-manager/templates/error-resource-quota.md#solution).
 
 할당량에 대 한 자세한 내용은 [가상 머신 vCPU 할당량](../../virtual-machines/windows/quotas.md) 및 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조 하세요.
-

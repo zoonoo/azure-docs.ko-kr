@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 65451ed99580d9f2d66bd28518f0ec40a21ffe65
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ed5eda668f6bd52ba144aa664119ab613fdb7742
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317097"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183586"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Azure Automation에서 Runbook 관리
 
@@ -45,7 +45,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Runbook 가져오기
 
-PowerShell 또는 PowerShell 워크플로( **.ps1** ) 스크립트, 그래픽 Runbook( **.graphrunbook** ) 또는 Python 2 스크립트( **.py** )를 가져와 고유한 Runbook을 만들 수 있습니다. 다음 사항을 고려하여 가져오기 동안 만들어지는 [Runbook 유형](automation-runbook-types.md)을 지정해야 합니다.
+PowerShell 또는 PowerShell 워크플로( **.ps1**) 스크립트, 그래픽 Runbook( **.graphrunbook**) 또는 Python 2 스크립트( **.py**)를 가져와 고유한 Runbook을 만들 수 있습니다. 다음 사항을 고려하여 가져오기 동안 만들어지는 [Runbook 유형](automation-runbook-types.md)을 지정해야 합니다.
 
 * 워크플로가 포함되지 않은 **.ps1** 파일을 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 또는 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)으로 가져올 수 있습니다. PowerShell 워크플로 Runbook으로 가져오는 경우 워크플로로 변환됩니다. 이 경우 변경 내용을 설명하는 주석이 Runbook에 포함됩니다.
 
@@ -223,7 +223,7 @@ Start-AzAutomationRunbook `
 
 1. Automation 계정을 만들고 [기여자 역할](automation-role-based-access-control.md)을 가져옵니다.
 2. [계정을 Azure 작업 영역에 연결](../security-center/security-center-enable-data-collection.md)합니다.
-3. [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [업데이트 관리](update-management/update-mgmt-overview.md) 또는 다른 Automation 기능을 사용 설정합니다. 
+3. [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [업데이트 관리](./update-management/overview.md) 또는 다른 Automation 기능을 사용 설정합니다. 
 4. Linux 컴퓨터의 경우 높은 권한이 필요합니다. 로그인하여 [서명 확인을 해제](automation-linux-hrw-install.md#turn-off-signature-validation)합니다.
 
 ## <a name="test-a-runbook"></a>Runbook 테스트

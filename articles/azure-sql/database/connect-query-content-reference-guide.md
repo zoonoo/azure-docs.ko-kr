@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 4cc345eda8a8d51fb61cbbbd5cf0bf84633ccf0b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ec40e209d522daf882b8c704c7de6a1fb6aa29f9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676099"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183943"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database와 Azure SQL Managed Instance 연결 및 쿼리 문서
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "92676099"
 | 빠른 시작 | Description |
 |---|---|
 |[SQL Server Management Studio](connect-query-ssms.md)|이 빠른 시작은 SSMS를 사용하여 데이터베이스에 연결한 다음, Transact-SQL 문을 사용하여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.|
-|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%252fazure%252fsql-database%252ftoc.json)|이 빠른 시작에서는 Azure Data Studio를 사용하여 데이터베이스에 연결한 다음, T-SQL(Transact-SQL) 문을 사용하여 Azure Data Studio 자습서에서 사용할 TutorialDB를 만드는 방법을 보여 줍니다.|
+|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%2fazure%2fsql-database%2ftoc.json)|이 빠른 시작에서는 Azure Data Studio를 사용하여 데이터베이스에 연결한 다음, T-SQL(Transact-SQL) 문을 사용하여 Azure Data Studio 자습서에서 사용할 TutorialDB를 만드는 방법을 보여 줍니다.|
 |[Azure Portal](connect-query-portal.md)|이 빠른 시작에서는 쿼리 편집기를 사용하여 데이터베이스(Azure SQL Database만)에 연결한 다음, Transact-SQL 문을 사용하여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.|
 |[Visual Studio Code](connect-query-vscode.md)|이 빠른 시작은 Visual Studio 코드를 사용하여 데이터베이스에 연결한 다음, Transact-SQL 문을 사용하여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.|
 |[Visual Studio에서 .NET 사용](connect-query-dotnet-visual-studio.md)|이 빠른 시작에서는 .NET Framework를 사용하여 Visual Studio에서 C# 프로그램을 만들어 데이터베이스에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다.|

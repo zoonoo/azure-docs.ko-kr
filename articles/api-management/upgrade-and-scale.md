@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: c7f0e98b5ea2fdd13b1daa9fd9737998eb6cfaf1
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 466af29a3f073f73d4a0fc62d74709cd59f82425
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "96010217"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183790"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Azure API Management 인스턴스 업그레이드 및 크기 조정  
 
@@ -29,7 +29,7 @@ ms.locfileid: "96010217"
 >[!NOTE]
 >[가격 정보](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 문서에서는 계층별로 대략적인 단위 용량 수를 보여 줍니다. 보다 정확한 수치를 얻기 위해 API에 대해 현실적인 시나리오를 살펴보아야 합니다. [Azure API Management 인스턴스의 용량](api-management-capacity.md) 문서를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 문서의 단계를 따르려면 다음이 필요합니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "96010217"
 개발자 계층에서로 크기를 조정 하는 경우 가동 중지 시간이 발생 합니다. 그렇지 않으면 가동 중지 시간이 발생 하지 않습니다. 
 
 ## <a name="compute-isolation"></a>계산 격리
-보안 요구 사항에 따라 [계산 격리가](https://docs.microsoft.com/azure/azure-government/azure-secure-isolation-guidance#compute-isolation)포함 된 경우 **격리** 된 가격 책정 계층을 사용할 수 있습니다. 이 계층을 사용 하면 API Management 서비스 인스턴스의 계산 리소스가 전체 실제 호스트를 사용 하 고 IL5 (방어 영향 수준 5) 워크 로드의 미국 부서와 같은 지원에 필요한 수준의 격리를 제공할 수 있습니다. 격리 계층에 대 한 액세스 권한을 얻으려면 [지원 티켓을 만드세요](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+보안 요구 사항에 따라 [계산 격리가](../azure-government/azure-secure-isolation-guidance.md#compute-isolation)포함 된 경우 **격리** 된 가격 책정 계층을 사용할 수 있습니다. 이 계층을 사용 하면 API Management 서비스 인스턴스의 계산 리소스가 전체 실제 호스트를 사용 하 고 IL5 (방어 영향 수준 5) 워크 로드의 미국 부서와 같은 지원에 필요한 수준의 격리를 제공할 수 있습니다. 격리 계층에 대 한 액세스 권한을 얻으려면 [지원 티켓을 만드세요](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 
 

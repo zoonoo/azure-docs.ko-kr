@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 2f2221ad10a2e07a3443cab9f957c8ec26969a3b
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7b77a47acba6180df4a067887b79d8cdc0f56df6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031295"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185082"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Azure Synapse 작업 영역에 대 한 지속적인 통합 및 전달
 
@@ -25,7 +25,7 @@ Azure Synapse 작업 영역의 경우 CI/CD (지속적인 통합 및 배달)는 
 
 이 문서에서는 Azure 릴리스 파이프라인을 사용 하 여 여러 환경에 Synapse 작업 영역의 배포를 자동화 하는 방법을 간략하게 설명 합니다.
 
-## <a name="pre-requirements"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 -   개발에 사용 되는 작업 영역이 스튜디오에서 Git 리포지토리로 구성 되었습니다. [Synapse Studio의 소스 제어](source-control.md)를 참조 하세요.
 -   Azure DevOps 프로젝트가 릴리스 파이프라인을 실행할 준비가 되었습니다.
@@ -82,7 +82,7 @@ Azure Synapse 작업 영역의 경우 CI/CD (지속적인 통합 및 배달)는 
     
     ![작업 영역 및 풀 배포](media/pools-resource-deploy.png)
 
-1. 필드 권한 부여 및 업데이트 작업 영역 역할 할당에 대 한 **Azure PowerShell** 를 추가 합니다. 릴리스 파이프라인을 사용 하 여 Synapse 작업 영역을 만드는 경우 파이프라인의 서비스 주체를 기본 작업 영역 관리자로 추가 해야 합니다. PowerShell을 실행 하 여 다른 계정에 작업 영역에 대 한 액세스 권한을 부여할 수 있습니다. 
+1. 필드 권한 부여 및 업데이트 작업 영역 역할 할당에 대 한 **Azure PowerShell** 를 추가 합니다. 릴리스 파이프라인을 사용 하 여 Synapse 작업 영역을 만드는 경우 파이프라인의 서비스 주체가 기본 작업 영역 관리자로 추가 됩니다. PowerShell을 실행 하 여 다른 계정에 작업 영역에 대 한 액세스 권한을 부여할 수 있습니다. 
     
     ![권한 부여](media/release-creation-grant-permission.png)
 
@@ -115,12 +115,8 @@ Azure Synapse 작업 영역의 경우 CI/CD (지속적인 통합 및 배달)는 
 Synapse 작업 영역에서 Git 통합을 사용 하 고 변경 내용을 개발에서 테스트로 이동 하는 CI/CD 파이프라인을 사용 하는 경우 다음 모범 사례를 따르는 것이 좋습니다.
 
 -   **Git 통합**. Git 통합을 사용 하 여 development Synapse 작업 영역을 구성 합니다. 테스트 및 프로덕션 작업 영역에 대 한 변경 내용은 CI/CD를 통해 배포 되며 Git 통합이 필요 하지 않습니다.
--   **아티팩트 마이그레이션 전에 풀을 준비** 합니다. 개발 작업 영역에서 SQL 스크립트나 노트북에 풀을 연결 하는 경우 다른 환경에서 동일한 풀 이름이 필요 합니다. 
--   **기타**. [기타 모범 사례](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd) 를 참조 하세요.
+-   **아티팩트 마이그레이션 전에 풀을 준비** 합니다. 개발 작업 영역의 풀에 연결 된 SQL 스크립트 또는 노트북이 있는 경우 다른 환경에서 동일한 풀 이름이 필요 합니다. 
+-   **IaC (Infrastructure As Code)**. 설명 모델에서 인프라 (네트워크, 가상 컴퓨터, 부하 분산 장치 및 연결 토폴로지)를 관리 하는 것은 DevOps 팀에서 소스 코드에 대해 사용 하는 것과 동일한 버전 관리를 사용 합니다. 
+-   **기타**. [ADF 아티팩트의 모범 사례를](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd) 참조 하세요.
 
-## <a name="unsupported-features"></a>지원되지 않는 기능
-
-- Synapse Studio는 커밋 또는 리소스의 선택적 게시를 cherry-pick 선택할 수 없습니다. 
-- Synapse Studio는 커밋 메시지 사용자 지정을 지원 하지 않습니다.
-- 의도적으로 삭제 작업은 git에 직접 커밋됩니다.
 
