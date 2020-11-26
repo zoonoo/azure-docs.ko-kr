@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 2317e61111c3ad328e8f112e7d9567f3f5d47990
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 031b3bfd30e0272589c5c7ee2c546b9459767b33
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997049"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183195"
 ---
 # <a name="tutorial-monitor-published-apis"></a>자습서: 게시된 API 모니터링
 
@@ -149,7 +149,7 @@ Log Analytics 작업 영역에서 GatewayLogs 또는 메트릭을 수집하도�
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="[모니터링] 메뉴의 [로그] 항목 스크린샷":::
 
-쿼리를 실행하여 데이터를 봅니다. 여러 [샘플 쿼리](../azure-monitor/log-query/saved-queries.md)가 제공되며, 자체 쿼리를 실행해도 됩니다. 예를 들어 다음 쿼리는 GatewayLogs 테이블에서 최근 24시간 동안의 데이터를 검색합니다.
+쿼리를 실행하여 데이터를 봅니다. 여러 [샘플 쿼리](../azure-monitor/log-query/example-queries.md)가 제공되며, 자체 쿼리를 실행해도 됩니다. 예를 들어 다음 쿼리는 GatewayLogs 테이블에서 최근 24시간 동안의 데이터를 검색합니다.
 
 ```kusto
 ApiManagementGatewayLogs
@@ -158,7 +158,7 @@ ApiManagementGatewayLogs
 
 API Management에 대한 리소스 로그 사용에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Monitor Log Analytics 시작](../azure-monitor/log-query/get-started-portal.md) 또는 [Log Analytics 데모 환경](https://portal.loganalytics.io/demo) 사용
+* [Azure Monitor Log Analytics 시작](../azure-monitor/log-query/log-analytics-tutorial.md) 또는 [Log Analytics 데모 환경](https://portal.loganalytics.io/demo) 사용
 
 * [Azure Monitor의 로그 쿼리 개요](../azure-monitor/log-query/log-query-overview.md)
 

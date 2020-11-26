@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0da8755199645b12e9c6ed75a42881fe86e70b5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f10d8a94be53780f732112c012600a7fb840642b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023040"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180645"
 ---
 # <a name="what-is-risk"></a>위험 이란?
 
@@ -74,7 +74,7 @@ Id 보호를 사용 하면 조직에서 강력한 리소스에 액세스 하 여
 
 ### <a name="risk-levels"></a>위험 수준
 
-ID 보호는 위험을 낮음, 중간 및 높음의 세 가지 계층으로 분류합니다. [사용자 지정 id 보호 정책을](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-policies#custom-conditional-access-policy)구성할 때 위험 수준에 트리거되지 **않도록** 구성할 수도 있습니다. 위험 없음은 사용자의 id가 손상 되었음을 나타내는 활성 표시가 없음을 의미 합니다.
+ID 보호는 위험을 낮음, 중간 및 높음의 세 가지 계층으로 분류합니다. [사용자 지정 id 보호 정책을](./concept-identity-protection-policies.md#custom-conditional-access-policy)구성할 때 위험 수준에 트리거되지 **않도록** 구성할 수도 있습니다. 위험 없음은 사용자의 id가 손상 되었음을 나타내는 활성 표시가 없음을 의미 합니다.
 
 Microsoft는 위험을 계산하는 방법에 대한 구체적인 정보를 제공하지 않지만 각 수준에는 사용자 또는 로그인이 손상되었다는 확신을 더 많이 제공합니다. 예를 들어 사용자에 대한 익숙하지 않은 로그인 속성의 한 인스턴스와 같은 것은 다른 사용자의 자격 증명 유출만큼 위협적이지 않을 수 있습니다.
 

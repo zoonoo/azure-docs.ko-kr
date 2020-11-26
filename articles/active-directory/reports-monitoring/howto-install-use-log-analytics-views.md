@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 168b41534f6ea6055294cc9e9cec139853904fea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d9fc1592681429998f5082fbadcd45fa068f130e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013032"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180475"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Azure Active Directory용 로그 분석 보기 설치 및 사용
 
@@ -31,7 +31,7 @@ Azure Active Directory 로그 분석 보기를 통해 Azure AD 테넌트에서 A
 * 감사 로그: [감사 로그 작업 보고서](concept-audit-logs.md) 는 테 넌 트에서 수행 된 모든 작업의 기록에 대 한 액세스를 제공 합니다.
 * 로그인 로그: [로그인 활동 보고서](concept-sign-ins.md)를 사용 하 여 감사 로그에 보고 되는 태스크를 수행한 사용자를 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 로그 분석 보기를 사용하려면 다음이 필요합니다.
 
@@ -74,4 +74,4 @@ Azure Active Directory 로그 분석 보기를 통해 Azure AD 테넌트에서 A
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Monitor 로그를 사용하여 활동 로그를 분석하는 방법](howto-analyze-activity-logs-log-analytics.md)
-* [Azure Portal에서 Azure Monitor 로그 시작](../../azure-monitor/log-query/get-started-portal.md)
+* [Azure Portal에서 Azure Monitor 로그 시작](../../azure-monitor/log-query/log-analytics-tutorial.md)

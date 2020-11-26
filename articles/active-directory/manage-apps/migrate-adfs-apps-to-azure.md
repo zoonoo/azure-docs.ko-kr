@@ -14,14 +14,14 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1012ae32f679d23f16a7483415657596d027cc01
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ab3b655d59e2cb8c6773fa1a34a08638e6926475
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658828"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180662"
 ---
-# <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Active Directory Federation Services에서 Azure Active Directory로 응용 프로그램 인증 이동
+# <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Active Directory Federation Services에서 Azure Active Directory로 애플리케이션 인증 이동
 
 [Azure Active Directory (AZURE AD)](../fundamentals/active-directory-whatis.md) 는 사용자, 파트너 및 고객에 게 응용 프로그램에 액세스 하 고 모든 플랫폼과 장치에서 공동 작업 하는 단일 id를 제공 하는 범용 id 플랫폼을 제공 합니다. Azure AD에는 [완전 한 id 관리 기능이](../fundamentals/active-directory-whatis.md)포함 되어 있습니다. 응용 프로그램 (앱) 인증 및 권한 부여를 Azure AD로 표준화 하면 이러한 기능이 제공 하는 이점을 누릴 수 있습니다.
 
@@ -262,7 +262,7 @@ SaaS 앱은 인증 요청을 보내는 위치와 받은 토큰의 유효성을 �
 
 이는 다음 방법 중 하나로 Azure AD에 매핑됩니다.
 
-[Azure Portal](https://portal.azure.com/)에서 다음을 수행 합니다.
+[Azure portal](https://portal.azure.com/)에서:
 * 옵션 1: 사용자 할당 필요를 아니요로 설정 ![SaaS 앱에 대 한 액세스 제어 정책 편집 ](media/migrate-adfs-apps-to-azure/permit-access-to-all-users-2.png)
 
     사용자 할당 필요를 예로 설정 하려면 응용 프로그램에 사용자를 할당 하 여 액세스 권한을 얻어야 합니다. 아니요로 설정 하면 모든 사용자가 액세스할 수 있습니다. 이 스위치는 내 앱 환경에서 사용자에 게 표시 되는 항목을 제어 하지 않습니다.
@@ -320,7 +320,7 @@ AD FS의 MFA 규칙 설정:
 
 Azure AD에서 사용자 또는 그룹에 대 한 MFA 규칙 지정:
 
-1. [새 조건부 액세스 정책을](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json)만듭니다.
+1. [새 조건부 액세스 정책을](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json)만듭니다.
 
 2. **할당** 을 선택합니다. MFA를 적용 하려는 사용자 또는 그룹을 추가 합니다.
 
@@ -333,7 +333,7 @@ Azure AD에서 사용자 또는 그룹에 대 한 MFA 규칙 지정:
 
 Azure AD에서 등록 되지 않은 장치에 대 한 MFA 규칙 지정:
 
-1. [새 조건부 액세스 정책을](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json)만듭니다.
+1. [새 조건부 액세스 정책을](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json)만듭니다.
 
 2. **모든 사용자** 에 게 **할당** 을 설정 합니다.
 
@@ -348,7 +348,7 @@ Azure AD에서 등록 되지 않은 장치에 대 한 MFA 규칙 지정:
 
 Azure AD에서 사용자의 위치에 따라 MFA 규칙을 지정 합니다.
 
-1. [새 조건부 액세스 정책을](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json)만듭니다.
+1. [새 조건부 액세스 정책을](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json)만듭니다.
 
 1. **모든 사용자** 에 게 **할당** 을 설정 합니다.
 
@@ -386,7 +386,7 @@ AD FS 2016에는 다음 중에서 선택할 수 있는 몇 가지 기본 제공 
 ![Azure AD 기본 제공 access control](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-1.png)
 
 
-Azure AD에서 기본 제공 정책을 구현 하려면 [새 조건부 액세스 정책을](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json) 사용 하 고 액세스 제어를 구성 하거나 AD FS 2016의 사용자 지정 정책 디자이너를 사용 하 여 액세스 제어 정책을 구성할 수 있습니다. 규칙 편집기에는 모든 종류의 순열을 만드는 데 도움이 되는 모든 허용 및 제외 옵션 목록이 있습니다.
+Azure AD에서 기본 제공 정책을 구현 하려면 [새 조건부 액세스 정책을](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json) 사용 하 고 액세스 제어를 구성 하거나 AD FS 2016의 사용자 지정 정책 디자이너를 사용 하 여 액세스 제어 정책을 구성할 수 있습니다. 규칙 편집기에는 모든 종류의 순열을 만드는 데 도움이 되는 모든 허용 및 제외 옵션 목록이 있습니다.
 
 ![Azure AD 액세스 제어 정책](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-2.png)
 

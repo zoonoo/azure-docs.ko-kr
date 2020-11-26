@@ -5,12 +5,12 @@ ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 770b1076f1a711cd863c5d3d468a3ec87ea54e7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a6f154dc3c7a2984c687d55af2cf51a60169d6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212726"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182566"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
@@ -21,7 +21,7 @@ Azure Functions를 사용하면 먼저 VM(가상 머신)을 만들거나 웹 애
 
 | Visual Studio Code | 터미널/명령 프롬프트 | Visual Studio |
 | --- | --- | --- |
-|  &bull;&nbsp;[C 시작 #](./functions-create-first-function-vs-code.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Java 시작](./functions-create-first-function-vs-code.md?pivots=programming-language-java)<br/>&bull;&nbsp;[JavaScript 시작](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[PowerShell 시작](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Python 시작](./functions-create-first-function-vs-code.md?pivots=programming-language-python) |&bull;&nbsp;[C 시작 #](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Java 시작](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)<br/>&bull;&nbsp;[JavaScript 시작](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[PowerShell 시작](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Python 시작](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python) | [C# 시작](functions-create-your-first-function-visual-studio.md) |
+|  &bull;&nbsp;[C 시작 #](./create-first-function-vs-code-csharp.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Java 시작](./create-first-function-vs-code-csharp.md?pivots=programming-language-java)<br/>&bull;&nbsp;[JavaScript 시작](./create-first-function-vs-code-csharp.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[PowerShell 시작](./create-first-function-vs-code-csharp.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Python 시작](./create-first-function-vs-code-csharp.md?pivots=programming-language-python) |&bull;&nbsp;[C 시작 #](./create-first-function-cli-csharp.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Java 시작](./create-first-function-cli-csharp.md?pivots=programming-language-java)<br/>&bull;&nbsp;[JavaScript 시작](./create-first-function-cli-csharp.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[PowerShell 시작](./create-first-function-cli-csharp.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Python 시작](./create-first-function-cli-csharp.md?pivots=programming-language-python) | [C# 시작](functions-create-your-first-function-visual-studio.md) |
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,25 +39,25 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 ## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>HTTP 트리거 함수 만들기
 
-1. **Functions** 창의 왼쪽 메뉴에서 **Functions**를 선택한 다음, 맨 위 메뉴에서 **추가**를 선택합니다. 
+1. **Functions** 창의 왼쪽 메뉴에서 **Functions** 를 선택한 다음, 맨 위 메뉴에서 **추가** 를 선택합니다. 
  
-1. **새 함수** 창에서 **Http 트리거**를 선택합니다.
+1. **새 함수** 창에서 **Http 트리거** 를 선택합니다.
 
     ![HTTP 트리거 함수 선택](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. **새 함수** 창에서 **새 함수**의 기본 이름을 적용하거나 새 이름을 입력합니다. 
+1. **새 함수** 창에서 **새 함수** 의 기본 이름을 적용하거나 새 이름을 입력합니다. 
 
-1. **권한 부여 수준** 드롭다운 목록에서 **익명**을 선택한 다음, **함수 만들기**를 선택합니다.
+1. **권한 부여 수준** 드롭다운 목록에서 **익명** 을 선택한 다음, **함수 만들기** 를 선택합니다.
 
     Azure에서 HTTP 트리거 함수를 만듭니다. 이제 HTTP 요청을 전송하여 새 함수를 실행할 수 있습니다.
 
 ## <a name="test-the-function"></a>함수 테스트
 
-1. 새 HTTP 트리거 함수의 왼쪽 메뉴에서 **코드 + 테스트**를 선택한 다음, 상단 메뉴에서 **함수 URL 가져오기**를 선택합니다.
+1. 새 HTTP 트리거 함수의 왼쪽 메뉴에서 **코드 + 테스트** 를 선택한 다음, 상단 메뉴에서 **함수 URL 가져오기** 를 선택합니다.
 
     ![[함수 URL 가져오기] 선택](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
 
-1. **함수 URL 가져오기** 대화 상자의 드롭다운 목록에서 **기본값**을 선택한 다음, **클립보드에 복사** 아이콘을 선택합니다. 
+1. **함수 URL 가져오기** 대화 상자의 드롭다운 목록에서 **기본값** 을 선택한 다음, **클립보드에 복사** 아이콘을 선택합니다. 
 
     ![Azure Portal에서 함수 URL 복사](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
@@ -80,4 +80,3 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 ## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-

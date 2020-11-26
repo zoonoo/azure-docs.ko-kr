@@ -4,12 +4,12 @@ description: 사용자 고유의 키 (BYOK)를 가져와서 AKS OS 및 데이터
 services: container-service
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: 8d0f66d034bb0566674e521ced3e3887e29e3aaa
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3388b16edee86971b66b3a6b47e08015a6710977
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071730"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183314"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Azure 디스크를 사용 하 여 사용자 고유의 키 (BYOK) 가져오기
 
@@ -19,7 +19,7 @@ Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화�
 * 데이터 디스크 암호화 지원은 Kubernetes 버전 1.17 이상을 실행 하는 AKS 클러스터로 제한 됩니다.
 * AKS 클러스터를 만들 때만 고객 관리 키를 사용 하 여 OS 및 데이터 디스크를 암호화할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 * Key Vault를 사용 하 여 관리 디스크를 암호화할 때 *Azure Key Vault* 에 대해 일시 삭제 및 보호 제거를 사용 하도록 설정 해야 합니다.
 * Azure CLI 버전 2.11.1 이상이 필요 합니다.
 
@@ -27,7 +27,7 @@ Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화�
 
 Azure Key Vault 인스턴스를 사용 하 여 키를 저장 합니다.  필요에 따라 Azure Portal를 사용 하 여 [고객이 관리 하는 키를로 구성할][byok-azure-portal] 수 있습니다 Azure Key Vault
 
-새 *리소스 그룹*을 만든 다음 새 *Key Vault* 인스턴스를 만들고 일시 삭제 및 보호 제거를 사용 하도록 설정 합니다.  각 명령에 대해 동일한 지역 및 리소스 그룹 이름을 사용 해야 합니다.
+새 *리소스 그룹* 을 만든 다음 새 *Key Vault* 인스턴스를 만들고 일시 삭제 및 보호 제거를 사용 하도록 설정 합니다.  각 명령에 대해 동일한 지역 및 리소스 그룹 이름을 사용 해야 합니다.
 
 ```azurecli-interactive
 # Optionally retrieve Azure region short names for use on upcoming commands
@@ -152,7 +152,7 @@ kubectl apply -f byok-azure-disk.yaml
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
 [byok-azure-portal]: ../storage/common/customer-managed-keys-configure-key-vault.md
-[customer-managed-keys-windows]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
-[customer-managed-keys-linux]: ../virtual-machines/linux/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-windows]: ../virtual-machines/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-linux]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
 [supported-regions]: ../virtual-machines/windows/disk-encryption.md#supported-regions

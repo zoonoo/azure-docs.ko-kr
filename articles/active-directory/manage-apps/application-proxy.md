@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 668976e9777b35e514746070f0f4039a12b4e02b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 9d620342d53bdae0b3a520000f6d240eb0e28d15
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651722"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180595"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 원격으로 액세스
 
@@ -36,7 +36,7 @@ Azure Active Directory 애플리케이션 프록시는 온-프레미스 웹 애�
 애플리케이션 프록시는 다음 항목과 함께 작동합니다.
 
 * 인증을 위해 [Windows 통합 인증](application-proxy-configure-single-sign-on-with-kcd.md)을 사용하는 웹 애플리케이션
-* 폼 기반 또는 [헤더 기반](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers) 액세스를 사용하는 웹 애플리케이션
+* 폼 기반 또는 [헤더 기반](./application-proxy-configure-single-sign-on-with-headers.md) 액세스를 사용하는 웹 애플리케이션
 * 여러 디바이스에서 다양한 애플리케이션을 표시하려는 웹 API
 * [원격 데스크톱 게이트웨이](application-proxy-integrate-with-remote-desktop-services.md) 뒤에 호스트 되는 응용 프로그램
 * MSAL(Microsoft Authentication Library)과 통합되는 리치 클라이언트 앱
@@ -63,7 +63,7 @@ Azure Active Directory 애플리케이션 프록시는 온-프레미스 웹 애�
 >
 
 
-| 구성 요소 | 설명 |
+| 구성 요소 | Description |
 | --------- | ----------- |
 | 엔드포인트  | 엔드포인트는 URL 또는 [최종 사용자 포털](end-user-experiences.md)입니다. 사용자는 외부 URL에 액세스하여 네트워크 외부에서 애플리케이션에 연결할 수 있습니다. 네트워크 내 사용자는 URL 또는 최종 사용자 포털을 통해 애플리케이션에 액세스할 수 있습니다. 사용자가 이러한 엔드포인트 중 하나로 이동하면 Azure AD에서 인증한 다음 커넥터를 통해 온-프레미스 애플리케이션에 라우팅됩니다.|
 | Azure AD | Azure AD는 클라우드에 저장된 테넌트 디렉터리를 사용하여 인증을 수행합니다. |

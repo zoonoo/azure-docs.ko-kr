@@ -12,12 +12,12 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 19889c05447db05cc20c8f46e97bd8d16ff43bdf
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f74cdb700013dc9b124c6a2df195456f08e4b60a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445662"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182141"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>SaaS 애플리케이션과 Azure Active Directory를 통합하는 방법에 대한 자습서
 
@@ -25,7 +25,7 @@ Azure Active Directory와 클라우드 지원 [SaaS(Software as a Service)](http
 
 Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps)를 참조하세요.
 
-[애플리케이션 네트워크 포털](../azuread-dev/howto-app-gallery-listing.md)을 사용하여 자동 프로비저닝을 위해 갤러리에 [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 지원 애플리케이션을 추가하도록 요청하거나 SSO를 위해 갤러리에 SAML / OIDC 지원 애플리케이션을 추가하도록 요청합니다.
+[애플리케이션 네트워크 포털](../develop/v2-howto-app-gallery-listing.md)을 사용하여 자동 프로비저닝을 위해 갤러리에 [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 지원 애플리케이션을 추가하도록 요청하거나 SSO를 위해 갤러리에 SAML / OIDC 지원 애플리케이션을 추가하도록 요청합니다.
 
 ## <a name="quick-links"></a>빠른 링크
 

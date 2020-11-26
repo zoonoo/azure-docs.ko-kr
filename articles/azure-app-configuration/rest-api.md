@@ -6,16 +6,16 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 2e89b372e3ee8d71e99baa4072cd577fa4fb8d7c
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: e2753f0f8926ac15f5d32020c8891d1b612d2bb3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424124"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182600"
 ---
 # <a name="azure-app-configuration-rest-api"></a>Azure 앱 구성 REST API
 
-Azure 앱 구성 REST API에 대 한 개략적인 설명서는 주 [AZURE REST 설명서](https://docs.microsoft.com/rest/api/appconfiguration/)에서 확인할 수 있습니다. 이 섹션에는 앱 구성 REST API를 사용 하 여 작업 하는 개발자를 위한 자세한 내용이 포함 되어 있습니다.
+Azure 앱 구성 REST API에 대 한 개략적인 설명서는 주 [AZURE REST 설명서](/rest/api/appconfiguration/)에서 확인할 수 있습니다. 이 섹션에는 앱 구성 REST API를 사용 하 여 작업 하는 개발자를 위한 자세한 내용이 포함 되어 있습니다.
 
 다음 참조 페이지는 Azure 앱 구성 API 화면에 대해 자세히 설명 하는 데 사용할 수 있습니다.
 

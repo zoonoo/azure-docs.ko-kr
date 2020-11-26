@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bc3352dd57a76cbb0b38455adfa11987ec93781a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d73cf3336afad83fadf6f56606161f523e202280
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003024"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180543"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 사용자용 온-프레미스 앱 게시
 
@@ -95,7 +95,7 @@ Azure AD는 애플리케이션 프록시를 사용하여 온-프레미스 및 �
 
 앱 프록시는 타사 통합 또는 특정 구성 시나리오에서 다음 인증 프로토콜을 지원합니다.
 
-* [**헤더 기반 인증**](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers). 이 로그온 메서드 PingAccess라는 타사 인증 서비스를 사용하며 애플리케이션에서 헤더를 사용하여 인증할 때 사용됩니다. 이 시나리오에서는 PingAccess가 인증을 처리합니다.
+* [**헤더 기반 인증**](./application-proxy-configure-single-sign-on-with-headers.md). 이 로그온 메서드 PingAccess라는 타사 인증 서비스를 사용하며 애플리케이션에서 헤더를 사용하여 인증할 때 사용됩니다. 이 시나리오에서는 PingAccess가 인증을 처리합니다.
 * [**폼 또는 암호 기반 인증**](application-proxy-configure-single-sign-on-password-vaulting.md). 이 인증 메서드를 사용하는 경우 사용자는 애플리케이션에 처음 액세스할 때 사용자 이름 및 암호를 사용하여 애플리케이션에 로그온합니다. 첫 번째 로그온 후에는 Azure AD가 사용자 이름 및 암호를 애플리케이션에 제공합니다. 이 시나리오에서는 Azure AD가 인증을 처리합니다.
 * [**SAML 인증**](application-proxy-configure-single-sign-on-on-premises-apps.md). SAML 기반 Single Sign-On은 SAML 2.0 또는 WS-Federation 프로토콜을 사용하는 애플리케이션에 지원됩니다. SAML Single Sign-On을 사용하는 Azure AD는 사용자의 Azure AD 계정을 사용하여 애플리케이션에 인증합니다.
 

@@ -3,12 +3,12 @@ title: Advisor를 사용 하 여 Azure 앱의 성능 향상
 description: Azure Advisor의 성능 권장 사항을 사용 하 여 비즈니스에 중요 한 응용 프로그램의 속도 및 응답성을 향상 시킬 수 있습니다.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 6a008411d4422853e6a98fad59bd4519b42a9548
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 55f5ac6784bf613170fd10060799ab5ad1290a62
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308688"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183348"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 Azure 응용 프로그램의 성능 향상
 
@@ -146,7 +146,7 @@ Advisor는 현재 구성 되지 않은 지역에서 트래픽을 포함 하는 A
 
 ## <a name="configure-your-azure-cosmos-db-indexing-policy-by-using-custom-included-or-excluded-paths"></a>사용자 지정 포함 또는 제외 경로를 사용 하 여 Azure Cosmos DB 인덱싱 정책 구성
 
-Advisor는 기본 인덱싱 정책을 사용 하는 Azure Cosmos DB 컨테이너를 식별 하지만 사용자 지정 인덱싱 정책의 이점을 누릴 수 있습니다. 이러한 결정은 워크 로드 패턴을 기반으로 합니다. 기본 인덱싱 정책은 모든 속성을 인덱싱합니다. 쿼리 필터에 사용 되는 명시적 포함 또는 제외 경로를 사용 하는 사용자 지정 인덱싱 정책은 인덱싱에 사용 된 RUs 및 저장소를 줄일 수 있습니다. [인덱스 정책 수정에 대해 자세히 알아보세요.](/azure/cosmos-db/index-policy)
+Advisor는 기본 인덱싱 정책을 사용 하는 Azure Cosmos DB 컨테이너를 식별 하지만 사용자 지정 인덱싱 정책의 이점을 누릴 수 있습니다. 이러한 결정은 워크 로드 패턴을 기반으로 합니다. 기본 인덱싱 정책은 모든 속성을 인덱싱합니다. 쿼리 필터에 사용 되는 명시적 포함 또는 제외 경로를 사용 하는 사용자 지정 인덱싱 정책은 인덱싱에 사용 된 RUs 및 저장소를 줄일 수 있습니다. [인덱스 정책 수정에 대해 자세히 알아보세요.](../cosmos-db/index-policy.md)
 
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Azure Cosmos DB 쿼리 페이지 크기 (MaxItemCount)를-1로 설정 
 
@@ -163,10 +163,10 @@ Azure Advisor는 지난 7 일간 시스템 로그를 분석 하 고 클러스터
 이 권장 사항은 구성된 캐시 기간(정책)을 초과하여 가장 많은 수의 쿼리를 포함하는 Azure Data Explorer 테이블을 표시합니다(캐시 외부 데이터에 액세스하는 쿼리 비율별로 상위 10개의 테이블이 표시됨). 클러스터의 성능을 향상시키기 위한 권장 조치: 이 테이블에 대한 쿼리를 필요한 최소 시간 범위(정의된 정책 내)로 제한합니다. 또는 전체 시간 범위의 데이터가 필요한 경우 캐시 기간을 권장 값으로 늘립니다.
 
 ## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>MySQL 임시 테이블 크기 조정을 최적화하여 성능 향상
-Advisor 분석은 낮은 임시 테이블 매개 변수 설정으로 인해 MySQL 서버가 불필요 한 i/o 오버 헤드를 발생 시킬 수 있음을 나타냅니다. 이로 인해 불필요한 디스크 기반 트랜잭션이 발생하고 성능이 저하될 수 있습니다. 디스크 기반 트랜잭션 수를 줄이려면 'tmp_table_size' 및 'max_heap_table_size' 매개 변수 값을 늘리는 것이 좋습니다. [자세히 알아보기](https://aka.ms/azure_mysql_tmp_table)
+Advisor 분석은 낮은 임시 테이블 매개 변수 설정으로 인해 MySQL 서버가 불필요 한 i/o 오버 헤드를 발생 시킬 수 있음을 나타냅니다. 이로 인해 불필요한 디스크 기반 트랜잭션이 발생하고 성능이 저하될 수 있습니다. 디스크 기반 트랜잭션 수를 줄이려면 'tmp_table_size' 및 'max_heap_table_size' 매개 변수 값을 늘리는 것이 좋습니다. [자세한 정보](https://aka.ms/azure_mysql_tmp_table)
 
 ## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>서버 그룹에 데이터를 배포하여 노드 간에 워크로드 분산
-Advisor는 데이터가 배포 되지 않았지만 코디네이터에 유지 되는 서버 그룹을 식별 합니다. 이를 기반으로 하는 관리자는 Citus (전체 Hyperscale) 혜택을 통해 서버 그룹의 작업자 노드에 데이터를 배포할 것을 권장 합니다. 이렇게 하면 서버 그룹에서 각 노드의 리소스를 활용 하 여 쿼리 성능을 향상 시킬 수 있습니다. [자세히 알아보기](https://go.microsoft.com/fwlink/?linkid=2135201) 
+Advisor는 데이터가 배포 되지 않았지만 코디네이터에 유지 되는 서버 그룹을 식별 합니다. 이를 기반으로 하는 관리자는 Citus (전체 Hyperscale) 혜택을 통해 서버 그룹의 작업자 노드에 데이터를 배포할 것을 권장 합니다. 이렇게 하면 서버 그룹에서 각 노드의 리소스를 활용 하 여 쿼리 성능을 향상 시킬 수 있습니다. [자세한 정보](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="improve-user-experience-and-connectivity-by-deploying-vms-closer-to-windows-virtual-desktop-deployment-location"></a>Windows 가상 데스크톱 배포 위치에 더 가깝게 Vm을 배포 하 여 사용자 환경 및 연결 개선
 VM이 WVD(Windows Virtual Desktop)를 사용하여 사용자가 연결하는 위치와 다른 지역에 있는 것으로 확인되었습니다. 이로 인해 연결 응답 시간이 길어질 수 있으며 WVD에서 전반적인 사용자 환경에 영향을 줄 수 있습니다. 호스트 풀에 대해 VM을 만들 때 사용자에게 가까운 지역을 사용하려고 해야 합니다. 가까운 근접성을 사용하면 WVD 서비스에 대해 계속 만족할 수 있으며 전반적인 환경의 품질이 향상됩니다. [여기에서 연결 대기 시간에 대해 자세히 알아보세요](../virtual-desktop/connection-latency.md).

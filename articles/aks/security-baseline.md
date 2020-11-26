@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 818ae0b90b71b61c3b33676d81d9c783c577bdcc
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6612e6982ae4826869134dfa46b35a3f202d4bbb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683899"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183246"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 azure 보안 기준
 
@@ -20,7 +20,7 @@ Azure Kubernetes Service에 대 한 Azure 보안 기준에는 배포의 보안 �
 
 이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](../security/benchmarks/overview.md)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
 
-자세한 내용은 [Azure 보안 기준 개요](/azure/security/benchmarks/security-baselines-overview)를 참조하세요.
+자세한 내용은 [Azure 보안 기준 개요](../security/benchmarks/security-baselines-overview.md)를 참조하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
@@ -85,7 +85,7 @@ AKS 환경에서 사용 되는 Api에 대 한 인증, 권한 부여, 제한, 캐
 
 - [AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호](use-network-policies.md)
 
-- [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
+- [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

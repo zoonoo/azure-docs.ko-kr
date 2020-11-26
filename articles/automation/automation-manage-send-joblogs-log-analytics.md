@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8578f8aef779ff80f3965fc21b24b785f11226d0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2e7e798967541748b5572994d48cb5bdf7474cb1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024146"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182872"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Azure Monitor 로그에 Azure Automation 작업 데이터 전달
 
@@ -177,7 +177,7 @@ AzureDiagnostics
 
 ### <a name="filter-job-status-output-converted-into-a-json-object"></a>JSON 개체로 변환 된 작업 상태 출력 필터링
 
-최근 Log Analytics 서비스의 테이블에 자동화 로그 데이터를 쓰는 방법의 동작을 변경 했습니다 `AzureDiagnostics` .이 동작은 JSON 속성을 더 이상 별도의 필드로 분할 하지 않습니다. JSON 형식의 출력 스트림에 있는 개체를 별도의 열로 서식 지정 하도록 runbook을 구성한 경우 해당 속성에 액세스 하기 위해 해당 필드를 JSON 개체로 구문 분석 하도록 쿼리를 다시 구성 해야 합니다. 이를 위해 [parsejson](https://docs.microsoft.com/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#parsejson) 을 사용 하 여 알려진 경로의 특정 JSON 요소에 액세스 합니다.
+최근 Log Analytics 서비스의 테이블에 자동화 로그 데이터를 쓰는 방법의 동작을 변경 했습니다 `AzureDiagnostics` .이 동작은 JSON 속성을 더 이상 별도의 필드로 분할 하지 않습니다. JSON 형식의 출력 스트림에 있는 개체를 별도의 열로 서식 지정 하도록 runbook을 구성한 경우 해당 속성에 액세스 하기 위해 해당 필드를 JSON 개체로 구문 분석 하도록 쿼리를 다시 구성 해야 합니다. 이를 위해 [parsejson](/azure/data-explorer/kusto/query/samples?pivots=#parsejson) 을 사용 하 여 알려진 경로의 특정 JSON 요소에 액세스 합니다.
 
 예를 들어 runbook은 여러 필드를 사용 하 여 JSON 형식의 출력 스트림에 *Resultdescription* 속성의 형식을 지정 합니다. **상태** 라는 필드에 지정 된 대로 실패 한 상태의 작업 상태를 검색 하려면 다음 쿼리 예제를 사용 하 여 상태가 **Failed** 인 *resultdescription* 을 검색 합니다.
 

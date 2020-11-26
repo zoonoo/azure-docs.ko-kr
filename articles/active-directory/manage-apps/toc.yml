@@ -263,7 +263,7 @@
             - name: Kerberos 제한된 위임 구성
               href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
             - name: PingAccess를 사용하여 구성
-              href: /azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide
+              href: ./application-proxy-ping-access-publishing-guide.md
             - name: 회사 애플리케이션에 액세스할 수 없음 오류
               href: application-proxy-sign-in-bad-gateway-timeout-error.md
             - name: 애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생

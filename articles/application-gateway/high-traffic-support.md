@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: 2c5c017ac0faf443a38fc43dfd27c7e776cb52a0
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: a5f7569fc46d4678ca0c12299e33caa3c78df849
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683443"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182923"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Application Gateway 높은 트래픽 지원
 
@@ -23,7 +23,7 @@ ms.locfileid: "94683443"
 
 트래픽 증가 또는 급증에 대비 하 여 QoS에 포함 될 수 있는 영향을 최소화 하도록 트래픽 및 버퍼에 따라 Application Gateway 크기를 조정 하는 것이 중요 합니다. 다음 제안 사항은 추가 트래픽을 처리하도록 WAF를 사용하여 Application Gateway를 설정하는 데 유용합니다.
 
-Application Gateway에서 제공 하는 메트릭의 전체 목록은 [메트릭 설명서](./application-gateway-metrics.md) 를 확인 하세요. 메트릭에 대 한 경고를 설정 하는 방법에 대 한 자세한 내용은 Azure Portal [메트릭 시각화](./application-gateway-metrics.md#metrics-visualization) 및 [Azure monitor 설명서](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric) 를 참조 하세요.
+Application Gateway에서 제공 하는 메트릭의 전체 목록은 [메트릭 설명서](./application-gateway-metrics.md) 를 확인 하세요. 메트릭에 대 한 경고를 설정 하는 방법에 대 한 자세한 내용은 Azure Portal [메트릭 시각화](./application-gateway-metrics.md#metrics-visualization) 및 [Azure monitor 설명서](../azure-monitor/platform/alerts-metric.md) 를 참조 하세요.
 
 ## <a name="scaling-for-application-gateway-v1-sku-standardwaf-sku"></a>Application Gateway v1 SKU에 대 한 크기 조정 (표준/WAF SKU)
 
@@ -65,7 +65,7 @@ Application Gateway v2 SKU의 경우 자동 크기 조정을 통해 트래픽을
 
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
 
-트래픽 또는 사용 변칙에 대 한 알림을 받으려면 특정 메트릭에 대 한 경고를 설정할 수 있습니다. Application Gateway에서 제공 하는 메트릭의 전체 목록은 [메트릭 설명서](./application-gateway-metrics.md) 를 참조 하세요. 메트릭에 대 한 경고를 설정 하는 방법에 대 한 자세한 내용은 Azure Portal [메트릭 시각화](./application-gateway-metrics.md#metrics-visualization) 및 [Azure monitor 설명서](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric) 를 참조 하세요.
+트래픽 또는 사용 변칙에 대 한 알림을 받으려면 특정 메트릭에 대 한 경고를 설정할 수 있습니다. Application Gateway에서 제공 하는 메트릭의 전체 목록은 [메트릭 설명서](./application-gateway-metrics.md) 를 참조 하세요. 메트릭에 대 한 경고를 설정 하는 방법에 대 한 자세한 내용은 Azure Portal [메트릭 시각화](./application-gateway-metrics.md#metrics-visualization) 및 [Azure monitor 설명서](../azure-monitor/platform/alerts-metric.md) 를 참조 하세요.
 
 ## <a name="alerts-for-application-gateway-v1-sku-standardwaf"></a>Application Gateway v1 SKU에 대 한 경고 (표준/WAF)
 

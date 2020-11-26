@@ -10,14 +10,14 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 9abc069c202af425970e46286d88d1c18ece5a20
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: aa3329c3d9e241fb8224ecc69199779d53027474
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616198"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183144"
 ---
-# <a name="configure-a-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Java 앱 구성
+# <a name="configure-a-java-app-for-azure-app-service"></a>Azure App Service용 Java 앱 구성
 
 Azure App Service를 통해 Java 개발자는 완전히 관리 되는 서비스에서 Java SE, Tomcat 및 JBoss EAP 웹 응용 프로그램을 신속 하 게 빌드, 배포 및 확장할 수 있습니다. Maven 플러그 인을 사용 하 여 응용 프로그램을 배포 하거나, 명령줄에서 또는 IntelliJ, Eclipse 또는 Visual Studio Code 같은 편집기에 배포 합니다.
 
@@ -700,7 +700,7 @@ JBoss EAP는 프리미엄 및 격리 된 하드웨어 옵션 에서만 사용할
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK 버전 및 유지 관리
 
-Azure에서 지원되는 JDK(Java Development Kit)는 [Azul Systems](https://www.azul.com/)를 통해 제공하는 [Zulu](https://www.azul.com/downloads/azure-only/zulu/)입니다. OpenJDK의 Azul Zulu Enterprise 빌드는 Microsoft와 Azul Systems가 후원하는 Azure 및 Azure Stack에 대한 OpenJDK의 무료 다중 플랫폼 프로덕션 준비 배포입니다. 여기에는 Java SE 애플리케이션을 빌드하고 실행하기 위한 모든 구성 요소가 포함됩니다. [Java JDK 설치](https://aka.ms/azure-jdks)에서 JDK를 설치할 수 있습니다.
+Azure에서 지원되는 JDK(Java Development Kit)는 [Azul Systems](https://www.azul.com/)를 통해 제공하는 [Zulu](https://www.azul.com/downloads/azure-only/zulu/)입니다. OpenJDK의 Azul Zulu Enterprise 빌드는 Microsoft와 Azul Systems가 후원하는 Azure 및 Azure Stack에 대한 OpenJDK의 무료 다중 플랫폼 프로덕션 준비 배포입니다. 여기에는 Java SE 애플리케이션을 빌드하고 실행하기 위한 모든 구성 요소가 포함됩니다. [Java JDK 설치](/azure/developer/java/fundamentals/java-jdk-long-term-support)에서 JDK를 설치할 수 있습니다.
 
 주 버전 업데이트는 Azure App Service의 새로운 런타임 옵션을 통해 제공 됩니다. 고객은 App Service 배포를 구성하여 최신 버전의 Java로 업데이트해야 하며, 주 업데이트를 테스트하고 요구 사항을 충족하도록 관리할 책임이 있습니다.
 

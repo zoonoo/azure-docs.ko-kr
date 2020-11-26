@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5f26746cbe88a01503c1d6c481a9a938a660c05a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 0362f0d69581c252170b4f37f8564caa7acd3d29
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359326"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182243"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 TeamViewer 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "94359326"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
 * [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md) 
-* 프로비저닝을 구성할 [권한](../users-groups-roles/directory-assign-admin-roles.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
+* 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
 * TeamViewer에 유효한 [Tensor 라이선스](https://www.teamviewer.com/de/teamviewer-tensor/)
 * [Single Sign-On](https://community.teamviewer.com/t5/Knowledge-Base/Single-Sign-On-with-Azure-Active-Directory/ta-p/60209#toc-hId--473669723) 구성에서 유효한 사용자 지정 식별자를 사용할 수 있습니다.
 

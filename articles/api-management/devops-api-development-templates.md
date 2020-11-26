@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 92d108304f788279a636b1dc5e1c4e6c103ede3d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 62f163b9ce649cd5ddb52b4325682570633dfb92
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088882"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183161"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하는 API Management에 대 한 CI/CD
 
@@ -41,14 +41,14 @@ ms.locfileid: "93088882"
 * API 개발자는 개발 인스턴스에 액세스 하 여 Api를 개발 하 고 테스트 하는 데 사용할 수 있습니다. 
 * *API 게시자* 를 호출 하는 지정 된 팀은 프로덕션 인스턴스를 관리 합니다.
 
-이 제안 된 방법의 핵심은 [Azure Resource Manager 템플릿의](../azure-resource-manager/resource-group-authoring-templates.md)모든 API Management 구성을 유지 하는 것입니다. 조직에서는 이러한 템플릿을 Git와 같은 원본 제어 시스템에 보관 해야 합니다. 이미지에 설명 된 것 처럼 게시자 리포지토리에는 템플릿 컬렉션에 있는 프로덕션 API Management 인스턴스의 모든 구성이 포함 됩니다.
+이 제안 된 방법의 핵심은 [Azure Resource Manager 템플릿의](../azure-resource-manager/templates/template-syntax.md)모든 API Management 구성을 유지 하는 것입니다. 조직에서는 이러한 템플릿을 Git와 같은 원본 제어 시스템에 보관 해야 합니다. 이미지에 설명 된 것 처럼 게시자 리포지토리에는 템플릿 컬렉션에 있는 프로덕션 API Management 인스턴스의 모든 구성이 포함 됩니다.
 
-|템플릿  |설명  |
+|템플릿  |Description  |
 |---------|---------|
 |서비스 템플릿     | 가격 책정 계층 및 사용자 지정 도메인과 같은 API Management 인스턴스의 서비스 수준 구성입니다.         |
 |공유 템플릿     |  그룹, 제품 및로 거와 같은 API Management 인스턴스 전체에서 리소스를 공유 합니다.    |
 |API 템플릿     |  Api 및 해당 하위 리소스 구성: 작업, 정책, 진단 설정.        |
-|마스터 (주) 템플릿     |   모든 템플릿을 연결 하 고 순서 대로 배포 하 여 모든 항목을 함께 [연결](../azure-resource-manager/resource-group-linked-templates.md) 합니다. 모든 구성을 API Management 인스턴스에 배포 하려면 주 템플릿을 배포 합니다. 각 템플릿을 개별적으로 배포할 수도 있습니다.       |
+|마스터 (주) 템플릿     |   모든 템플릿을 연결 하 고 순서 대로 배포 하 여 모든 항목을 함께 [연결](../azure-resource-manager/templates/linked-templates.md) 합니다. 모든 구성을 API Management 인스턴스에 배포 하려면 주 템플릿을 배포 합니다. 각 템플릿을 개별적으로 배포할 수도 있습니다.       |
 
 API 개발자는 개발자 리포지토리로 게시자 리포지토리를 포크 하 고 해당 Api에 대 한 변경 작업을 수행 합니다. 대부분의 경우 api에 대 한 API 템플릿에 집중 하 고 공유 또는 서비스 템플릿을 변경할 필요가 없습니다.
 

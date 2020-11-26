@@ -6,23 +6,23 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 4171155f5a9f72ef0c021bd0e37fe4ec2f206646
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: bd1667f6c17922b6c0b0bfba7a7329a3fc96b62e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253357"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182634"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>HMAC 인증-REST API 참조
 
 HMAC-SHA256 인증 체계를 사용 하 여 HTTP 요청을 인증할 수 있습니다. HMAC는 해시 기반 메시지 인증 코드를 나타냅니다. 이러한 요청은 TLS를 통해 전송 되어야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - **증명서** - \<Access Key ID\>
 - **비밀** -Base64 디코딩된 액세스 키 값입니다. ``base64_decode(<Access Key Value>)``
 
-자격 증명 (라고도 함 `id` ) 및 비밀 (라고도 함)의 값은 `value` Azure 앱 구성의 인스턴스에서 가져와야 합니다. [Azure Portal](https://portal.azure.com) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true)를 사용 하 여이 작업을 수행할 수 있습니다.
+자격 증명 (라고도 함 `id` ) 및 비밀 (라고도 함)의 값은 `value` Azure 앱 구성의 인스턴스에서 가져와야 합니다. [Azure Portal](https://portal.azure.com) 또는 [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest)를 사용 하 여이 작업을 수행할 수 있습니다.
 
 인증에 필요한 모든 HTTP 헤더를 사용 하 여 각 요청을 제공 합니다. 필요한 최소는 다음과 같습니다.
 

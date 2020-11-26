@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 31bb0fac302a81c2523a2d2855ca1930cb266ac4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e77a90617d79dab8c71cdf0c7a6a4fb21e052fbd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95906622"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182787"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -20,7 +20,7 @@ Azure Automation는 runbook을 저장 하 고 관리 한 다음 하나 이상의
 
 Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 검토하여 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 시작 하기 전에 다음이 있는지 확인 합니다.
 
@@ -65,7 +65,7 @@ Hybrid Runbook Worker에 대 한 네트워킹 요구 사항은 [네트워크 구
 Automation 계정 중 하나에서 Hybrid Runbook Worker 그룹에 작업자 컴퓨터를 추가할 수 있습니다. 업데이트 관리에서 관리 하는 시스템 Hybrid Runbook worker를 호스트 하는 컴퓨터의 경우 Hybrid Runbook Worker 그룹에 추가할 수 있습니다. 하지만 업데이트 관리와 Hybrid Runbook Worker 그룹 구성원 자격에 대해 동일한 Automation 계정을 사용 해야 합니다.
 
 >[!NOTE]
->Azure Automation [업데이트 관리](update-management/update-mgmt-overview.md) 는 업데이트 관리에 대해 사용 하도록 설정 된 azure 또는 비 azure 컴퓨터에 시스템 Hybrid Runbook Worker를 자동으로 설치 합니다. 그러나이 작업자는 Automation 계정의 Hybrid Runbook Worker 그룹에 등록 되어 있지 않습니다. 이러한 컴퓨터에서 runbook을 실행 하려면 Hybrid Runbook Worker 그룹에 추가 해야 합니다. [수동 배포](#manual-deployment) 섹션 아래의 6 단계를 수행 하 여 그룹에 추가 합니다.
+>Azure Automation [업데이트 관리](./update-management/overview.md) 는 업데이트 관리에 대해 사용 하도록 설정 된 azure 또는 비 azure 컴퓨터에 시스템 Hybrid Runbook Worker를 자동으로 설치 합니다. 그러나이 작업자는 Automation 계정의 Hybrid Runbook Worker 그룹에 등록 되어 있지 않습니다. 이러한 컴퓨터에서 runbook을 실행 하려면 Hybrid Runbook Worker 그룹에 추가 해야 합니다. [수동 배포](#manual-deployment) 섹션 아래의 6 단계를 수행 하 여 그룹에 추가 합니다.
 
 ## <a name="enable-for-management-with-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 사용 하 여 관리 사용
 

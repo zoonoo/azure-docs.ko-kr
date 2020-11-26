@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7311f4faf4d8e93c4d3d2724bb9810342a769473
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 7c1e46fd55cd7beda931db2e24cc2210753ee26f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379233"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180407"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 역할 할당 보기
 
@@ -39,7 +39,7 @@ ms.locfileid: "93379233"
 
 ## <a name="view-role-assignments-using-azure-ad-powershell"></a>Azure AD PowerShell을 사용 하 여 역할 할당 보기
 
-이 섹션에서는 조직 전체 범위에서 역할의 할당을 보는 방법을 설명 합니다. 이 문서에서는 [Azure Active Directory PowerShell 버전 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) 모듈을 사용 합니다. PowerShell을 사용 하 여 단일 응용 프로그램 범위 할당을 보려면 PowerShell을 사용 하 [여 사용자 지정 역할 할당](../users-groups-roles/roles-assign-powershell.md)에서 cmdlet을 사용할 수 있습니다.
+이 섹션에서는 조직 전체 범위에서 역할의 할당을 보는 방법을 설명 합니다. 이 문서에서는 [Azure Active Directory PowerShell 버전 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) 모듈을 사용 합니다. PowerShell을 사용 하 여 단일 응용 프로그램 범위 할당을 보려면 PowerShell을 사용 하 [여 사용자 지정 역할 할당](./custom-assign-powershell.md)에서 cmdlet을 사용할 수 있습니다.
 
 ### <a name="prepare-powershell"></a>PowerShell 준비
 
@@ -78,7 +78,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 
 ## <a name="view-role-assignments-using-microsoft-graph-api"></a>Microsoft Graph API를 사용 하 여 역할 할당 보기
 
-이 섹션에서는 조직 전체 범위에서 역할의 할당을 보는 방법을 설명 합니다.  Graph API를 사용 하 여 단일 응용 프로그램 범위 할당을 보려면 Graph API를 사용 하 [여 사용자 지정 역할 할당](../users-groups-roles/roles-assign-graph.md)에서 작업을 사용할 수 있습니다.
+이 섹션에서는 조직 전체 범위에서 역할의 할당을 보는 방법을 설명 합니다.  Graph API를 사용 하 여 단일 응용 프로그램 범위 할당을 보려면 Graph API를 사용 하 [여 사용자 지정 역할 할당](./custom-assign-graph.md)에서 작업을 사용할 수 있습니다.
 
 지정된 역할 정의에 대한 역할 할당을 가져오기 위한 HTTP 요청입니다.
 
