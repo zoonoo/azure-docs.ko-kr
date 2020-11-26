@@ -9,12 +9,12 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: 394e735be5da65ffa75e10200589a4adb4e7cad2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5fce5871b4bd6c3e2353f7df04018e88b86ec4c7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313935"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912521"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>자습서: Azure Data Lake Storage Gen2, Azure Databricks 및 Spark
 
@@ -35,20 +35,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
   [Data Lake Storage Gen2에서 사용할 스토리지 계정 만들기](create-data-lake-storage-account.md)를 참조하세요.
 
-* 사용자 계정에 [Storage Blob 데이터 기여자 역할](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)이 할당되었는지 확인합니다.
+* 사용자 계정에 [Storage Blob 데이터 기여자 역할](../common/storage-auth-aad-rbac-portal.md)이 할당되었는지 확인합니다.
 
-* AzCopy v10을 설치합니다. [AzCopy v10을 사용하여 데이터 전송](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
+* AzCopy v10을 설치합니다. [AzCopy v10을 사용하여 데이터 전송](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
-* 서비스 주체를 생성합니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)를 참조하세요.
+* 서비스 주체를 생성합니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
   해당 문서의 단계를 수행할 때 해야 하는 두어 가지 항목이 있습니다.
 
-  :heavy_check_mark: 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) 섹션에 있는 단계를 수행할 때 **Storage Blob 데이터 참가자** 역할을 서비스 주체에 할당해야 합니다.
+  :heavy_check_mark: 문서의 [애플리케이션을 역할에 할당](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) 섹션에 있는 단계를 수행할 때 **Storage Blob 데이터 참가자** 역할을 서비스 주체에 할당해야 합니다.
 
   > [!IMPORTANT]
   > 역할을 Data Lake Storage Gen2 스토리지 계정의 범위에 할당해야 합니다. 역할은 부모 리소스 그룹 또는 구독에 할당할 수 있지만, 이러한 역할 할당이 스토리지 계정에 전파될 때까지 권한 관련 오류가 발생합니다.
 
-  :heavy_check_mark: 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에 있는 단계를 수행하는 경우 테넌트 ID, 앱 ID 및 클라이언트 비밀 값을 텍스트 파일에 붙여넣습니다. 곧 이 값들이 필요합니다.
+  :heavy_check_mark: 문서의 [로그인을 위한 값 가져오기](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) 섹션에 있는 단계를 수행하는 경우 테넌트 ID, 앱 ID 및 클라이언트 비밀 값을 텍스트 파일에 붙여넣습니다. 곧 이 값들이 필요합니다.
 
 ### <a name="download-the-flight-data"></a>비행 데이터 다운로드
 

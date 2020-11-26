@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 4392086146642e18b1fdef28a9e602bdbb5b0b18
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b138b3eb52a0bfb6dca2ec6fdf0b855223bab698
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542187"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984450"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>레이블 지정 프로젝트에서 이미지에 태그 지정 
 
@@ -133,7 +133,7 @@ Azure는 사용자가 각 이미지에 하나 이상의 태그를 적용한 후�
 
 1. 만들려는 다각형에 대한 태그를 선택합니다.
 1. **다각형 영역 그리기** 도구 ![다각형 영역 그리기 도구](./media/how-to-label-images/polygon-tool.png)를 선택하거나 "P"를 선택합니다.
-3. 다각형의 각 지점을 클릭합니다.  도형이 완성되면 두 번 클릭하여 마칩니다.
+1. 다각형의 각 지점을 클릭합니다.  도형이 완성되면 두 번 클릭하여 마칩니다.
 
     :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="고양이와 개에 대한 다각형 만들기":::
 
@@ -158,3 +158,5 @@ Azure는 사용자가 각 이미지에 하나 이상의 태그를 적용한 후�
 ## <a name="next-steps"></a>다음 단계
 
 * Azure에서 [이미지 분류 모델을 학습시키는 방법](./tutorial-train-models-with-aml.md) 알아보기
+
+

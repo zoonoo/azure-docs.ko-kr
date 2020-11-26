@@ -8,11 +8,11 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 5747de399e7ae0cfe99ba013f8da376be0ba1b2a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544956"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993638"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache HBase 정책 구성
 

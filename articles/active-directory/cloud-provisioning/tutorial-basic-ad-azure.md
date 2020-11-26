@@ -11,11 +11,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ceffc928a0cf8313723ff6193d9a6a63f8465f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266312"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994777"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>자습서: 기본 Active Directory 환경
 
@@ -78,12 +78,12 @@ ms.locfileid: "91266312"
 1. Hyper-V 관리자에서 가상 머신을 두 번 클릭합니다.
 2. 시작 단추를 클릭합니다.
 3. ‘CD 또는 DVD에서 부팅하려면 아무 키나 누르세요’라는 메시지가 표시됩니다. 계속 진행합니다.
-4. Windows Server 시작 화면에서 언어를 선택하고 **다음**을 클릭합니다.
-5. **지금 설치**를 클릭합니다.
-6. 라이선스 키를 입력하고 **다음**을 클릭합니다.
-7. **사용 약관에 동의에 확인 표시를 한 후 **다음**을 클릭합니다.
+4. Windows Server 시작 화면에서 언어를 선택하고 **다음** 을 클릭합니다.
+5. **지금 설치** 를 클릭합니다.
+6. 라이선스 키를 입력하고 **다음** 을 클릭합니다.
+7. **사용 약관에 동의에 확인 표시를 한 후 **다음** 을 클릭합니다.
 8. **사용자 지정:  Windows만 설치(고급)** 선택
-9. **다음**을 클릭합니다.
+9. **다음** 을 클릭합니다.
 10. 설치가 완료되고 나면 가상 머신을 다시 시작하고, 로그인한 후, Windows 업데이트를 실행하여 VM이 최신 버전이 되도록 합니다.  최신 업데이트를 설치합니다.
 
 ## <a name="install-active-directory-prerequisites"></a>Active Directory 설치 필수 조건
@@ -197,20 +197,20 @@ Active Directory 환경이 준비되었으면 테스트 계정이 필요합니�
 이제 사용자를 클라우드에 동기화할 수 있도록 Azure AD 테넌트를 만들어야 합니다.  새 Azure AD 테넌트를 만들려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동하여 Azure 구독이 있는 계정으로 로그인합니다.
-2. **더하기 아이콘(+)** 을 선택하고 **Azure Active Directory**를 검색합니다.
-3. 검색 결과에서 **Azure Active Directory**를 선택합니다.
-4. **만들기**를 선택합니다.</br>
+2. **더하기 아이콘(+)** 을 선택하고 **Azure Active Directory** 를 검색합니다.
+3. 검색 결과에서 **Azure Active Directory** 를 선택합니다.
+4. **만들기** 를 선택합니다.</br>
 ![Azure Portal의 Azure Active Directory 페이지를 보여주는 스크린샷.](media/tutorial-single-forest/create1.png)</br>
-5. **초기 도메인 이름**과 함께 **조직에 사용할 이름**을 입력합니다. 그런 다음 **만들기**를 선택합니다. 그러면 디렉터리가 만들어집니다.
+5. **초기 도메인 이름** 과 함께 **조직에 사용할 이름** 을 입력합니다. 그런 다음 **만들기** 를 선택합니다. 그러면 디렉터리가 만들어집니다.
 6. 이 작업이 완료되면 **여기** 링크를 클릭하여 디렉터리를 관리합니다.
 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Azure AD에서 글로벌 관리자 만들기
 Azure AD 테넌트가 준비되었으면 전역 관리자 계정을 만듭니다.  글로벌 관리자 계정을 만들려면 다음을 수행합니다.
 
-1.  **관리**에서 **사용자**를 선택합니다.</br>
+1.  **관리** 에서 **사용자** 를 선택합니다.</br>
 !["사용자"가 선택된 상태에서 "개요" 메뉴를 보여주는 스크린샷.](media/tutorial-single-forest/administrator1.png)</br>
-2.  **모든 사용자**를 선택한 다음, **+새 사용자**를 선택합니다.
-3.  이 사용자에 대한 이름 및 사용자 이름을 입력합니다. 이 사용자는 테넌트에 대한 글로벌 관리자가 됩니다. **디렉터리 역할**을 **글로벌 관리자**로 변경해야 합니다. 임시 암호를 표시할 수도 있습니다. 완료되면 **만들기**를 선택합니다.</br>
+2.  **모든 사용자** 를 선택한 다음, **+새 사용자** 를 선택합니다.
+3.  이 사용자에 대한 이름 및 사용자 이름을 입력합니다. 이 사용자는 테넌트에 대한 글로벌 관리자가 됩니다. **디렉터리 역할** 을 **글로벌 관리자** 로 변경해야 합니다. 임시 암호를 표시할 수도 있습니다. 완료되면 **만들기** 를 선택합니다.</br>
 ![만들기](media/tutorial-single-forest/administrator2.png)</br>
 4. 이 작업이 완료되면 새 웹 브라우저를 열고 새 글로벌 관리자 계정 및 임시 암호를 사용하여 myapps.microsoft.com에 로그인합니다.
 5. 글로벌 관리자의 암호를 기억할만한 것으로 변경합니다.
@@ -265,12 +265,12 @@ Azure AD 테넌트가 준비되었으면 전역 관리자 계정을 만듭니다
 1. Hyper-V 관리자에서 가상 머신을 두 번 클릭합니다.
 2. 시작 단추를 클릭합니다.
 3. ‘CD 또는 DVD에서 부팅하려면 아무 키나 누르세요’라는 메시지가 표시됩니다. 계속 진행합니다.
-4. Windows Server 시작 화면에서 언어를 선택하고 **다음**을 클릭합니다.
-5. **지금 설치**를 클릭합니다.
-6. 라이선스 키를 입력하고 **다음**을 클릭합니다.
-7. **사용 약관에 동의에 확인 표시를 한 후 **다음**을 클릭합니다.
+4. Windows Server 시작 화면에서 언어를 선택하고 **다음** 을 클릭합니다.
+5. **지금 설치** 를 클릭합니다.
+6. 라이선스 키를 입력하고 **다음** 을 클릭합니다.
+7. **사용 약관에 동의에 확인 표시를 한 후 **다음** 을 클릭합니다.
 8. **사용자 지정:  Windows만 설치(고급)** 선택
-9. **다음**을 클릭합니다.
+9. **다음** 을 클릭합니다.
 10. 설치가 완료되고 나면 가상 머신을 다시 시작하고, 로그인한 후, Windows 업데이트를 실행하여 VM이 최신 버전이 되도록 합니다.  최신 업데이트를 설치합니다.
 
 ### <a name="install-active-directory-prerequisites"></a>Active Directory 설치 필수 조건

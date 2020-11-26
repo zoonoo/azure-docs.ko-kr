@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 07537e26b169414e3f8ec35cc32945c20f7eb7ce
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d7b198790b1ecc884321ad42c97eb5cf0c239b7e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843284"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241984"
 ---
 # <a name="analyze-with-apache-spark"></a>Apache Spark를 사용하여 분석
 
@@ -93,22 +93,7 @@ ms.locfileid: "94843284"
 
 1. 셀 결과에서 **차트** 를 선택하여 시각화된 데이터를 표시합니다.
 
-## <a name="customize-data-visualization-with-spark-and-notebooks"></a>Spark 및 Notebook을 사용하여 데이터 시각화 데이터 사용자 지정
 
-Notebook을 사용하여 차트가 렌더링되는 방법을 제어할 수 있습니다. 다음 코드에서는 간단한 예를 보여 줍니다. 인기 있는 **matplotlib** 및 **seaborn** 라이브러리를 사용합니다. 이 코드에서는 이전에 실행한 SQL 쿼리와 동일한 종류의 꺾은선형 차트를 렌더링합니다.
-
-```py
-%%pyspark
-import matplotlib.pyplot
-import seaborn
-
-seaborn.set(style = "whitegrid")
-df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
-df = df.toPandas()
-seaborn.lineplot(x="PassengerCount", y="SumTripDistance" , data = df)
-seaborn.lineplot(x="PassengerCount", y="AvgTripDistance" , data = df)
-matplotlib.pyplot.show()
-```
 
 
 

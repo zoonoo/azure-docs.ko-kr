@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: d43a72db385d282ee189c179254cfc270929dbbf
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8b3b6a41da6e3100739da920472d582711d1e9b1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207192"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024384"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 시작
 
@@ -112,7 +112,7 @@ SecurityEvent
 | == | 같은지 여부를 확인<br>(대/소문자 구분) | `Level == 8` |
 | =~ | 같은지 여부를 확인<br>(대/소문자 구분하지 않음) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
 | !=, <> | 같지 않음 확인<br>(두 식이 모두 동일) | `Level != 4` |
-| *and* , *or* | between 조건 필수| `Level == 16 or CommandLine != ""` |
+| *and*, *or* | between 조건 필수| `Level == 16 or CommandLine != ""` |
 
 여러 조건으로 필터링하려면 **and** 를 사용하거나
 
@@ -226,7 +226,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>시간 열별 요약
 결과 그룹화는 time 열 또는 다른 연속 값을 기준으로 할 수도 있습니다. 그러나 간단히 `by TimeGenerated`를 요약하면 이는 고유한 값이므로 시간 범위 동안 모든 단일 밀리초에 대한 그룹을 만듭니다. 
 
-연속 값에 따라 그룹을 만들려면 **bin** 을 사용하여 범위를 관리 가능한 단위로 나누는 것이 가장 좋습니다. 다음 쿼리는 특정 컴퓨터에서 사용 가능한 메모리( *Available MBytes* )를 측정하는 *Perf* 레코드를 분석합니다. 지난 7일 동안 각 1시간의 평균 값을 계산합니다.
+연속 값에 따라 그룹을 만들려면 **bin** 을 사용하여 범위를 관리 가능한 단위로 나누는 것이 가장 좋습니다. 다음 쿼리는 특정 컴퓨터에서 사용 가능한 메모리(*Available MBytes*)를 측정하는 *Perf* 레코드를 분석합니다. 지난 7일 동안 각 1시간의 평균 값을 계산합니다.
 
 ```Kusto
 Perf 
@@ -244,7 +244,7 @@ Perf
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor 로그 쿼리에서 문자열 작업](string-operations.md)을 통해 로그 쿼리에서 문자열 데이터를 사용하는 방법에 대해 자세히 알아봅니다.
-- [Azure Monitor 로그 쿼리에서 문자열 작업](advanced-aggregations.md)을 통해 로그 쿼리에서 문자열 데이터를 사용하는 방법에 대해 자세히 알아봅니다.
-- [Azure Monitor 로그 쿼리에서 조인](joins.md)을 통해 여러 테이블의 데이터를 조인하는 방법에 대해 알아봅니다.
+- [Azure Monitor 로그 쿼리에서 문자열 작업](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations)을 통해 로그 쿼리에서 문자열 데이터를 사용하는 방법에 대해 자세히 알아봅니다.
+- [Azure Monitor 로그 쿼리에서 문자열 작업](/azure/data-explorer/write-queries#advanced-aggregations)을 통해 로그 쿼리에서 문자열 데이터를 사용하는 방법에 대해 자세히 알아봅니다.
+- [Azure Monitor 로그 쿼리에서 조인](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins)을 통해 여러 테이블의 데이터를 조인하는 방법에 대해 알아봅니다.
 - [KQL 언어 참조](/azure/kusto/query/)에서 전체 Kusto 쿼리 언어에 대한 설명서를 가져옵니다.

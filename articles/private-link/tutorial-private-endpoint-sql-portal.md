@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: def14cec9d010104876acaf9588560722dd98884
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: a7eca29dc9390306ac6ad4e66eec75a25c2d33ff
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145670"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522161"
 ---
 # <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-portal"></a>자습서 - Azure Private Endpoint를 사용하여 Azure SQL 서버에 연결 - Azure Portal
 
@@ -224,7 +224,7 @@ Azure Private 엔드포인트는 Azure에서 Private Link를 만드는 데 사�
     SQL 서버 이름에 대해 **10.1.0.5** 의 개인 IP 주소가 반환됩니다.  이 주소는 이전에 만든 가상 네트워크의 서브넷에 있습니다.
 
 
-9. [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true)를 **myVM** 에 설치합니다.
+9. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017)를 **myVM** 에 설치합니다.
 
 10. **SQL Server Management Studio** 를 엽니다.
 

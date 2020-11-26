@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 64856d0c9a06f57eb25a0cbc9279d1c09992f0d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 97795b2a693b68d1bd73a00f7b3e5ee3d4679545
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147590"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522127"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>자습서: Azure Private 엔드포인트를 사용하여 스토리지 계정에 연결
 
@@ -115,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 암호 | 암호를 입력합니다. |
     | 암호 확인 | 암호를 다시 입력합니다. |
 
-3. **네트워킹** 탭을 선택하거나 **다음: 디스크** , **다음: 네트워킹** 을 차례로 선택합니다.
+3. **네트워킹** 탭을 선택하거나 **다음: 디스크**, **다음: 네트워킹** 을 차례로 선택합니다.
   
 4. [네트워킹] 탭에서 다음을 선택하거나 입력합니다.
 
@@ -222,7 +222,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     스토리지 계정 이름에 대해 **10.1.0.5** 의 개인 IP 주소가 반환됩니다.  이 주소는 이전에 만든 가상 네트워크의 서브넷에 있습니다.
 
-9. 가상 머신에 [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows)를 설치합니다.
+9. 가상 머신에 [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%252fazure%252fstorage%252fblobs%252ftoc.json)를 설치합니다.
 
 10. **Microsoft Azure Storage Explorer** 가 설치된 후 **마침** 을 선택합니다.  확인란을 선택된 상태로 두고 애플리케이션을 엽니다.
 

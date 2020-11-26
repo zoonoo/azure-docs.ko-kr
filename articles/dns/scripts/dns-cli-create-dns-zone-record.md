@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 09/20/2019
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1b0f08132ace5de7108702b61e89517fd28b4673
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 348b7911930711a25c88595b6360341ef6e00468
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494913"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954429"
 ---
 # <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Azure CLI 스크립트 예제: DNS 영역 및 레코드 만들기
 
@@ -44,10 +44,9 @@ az group delete -n myResourceGroup
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) | Azure DNS 영역을 만듭니다. |
 | [az network dns record-set a add-record](/cli/azure/network/dns/record-set) | *A* 레코드를 DNS 영역에 추가합니다. |
-| [az network dns record-set list](/cli/azure/network/dns/record-set) | DNS 영역에서 모든*A* 레코드 집합을 나열합니다. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az network dns record-set list](/cli/azure/network/dns/record-set) | DNS 영역에서 모든 *A* 레코드 집합을 나열합니다. |
+| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
-
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.

@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6daf2da5b5bac051ac110ff15ed2c44971300a30
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 705df6ddc6b665ac3d0d62ec3dad93e38f5e513e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421042"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953103"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>자습서: 단일 페이지 애플리케이션에서 Azure AD B2C를 사용하여 인증 설정
 
@@ -53,7 +53,7 @@ ms.locfileid: "93421042"
 
 필수 구성 요소의 일부로 완료한 [두 번째 자습서](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-spa)에서 Azure AD B2C에 단일 페이지 애플리케이션을 등록했습니다. 이 자습서에서 코드 샘플과의 통신을 사용하도록 설정하려면 애플리케이션 등록에 회신 URL(리디렉트 URI라고도 함)을 추가해야 합니다.
 
-Azure AD B2C 테넌트에 애플리케이션을 업데이트하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregtraining).
+Azure AD B2C 테넌트에 애플리케이션을 업데이트하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations-auth-code-flow"></a>[앱 등록(인증 코드 흐름)](#tab/app-reg-auth/)
 

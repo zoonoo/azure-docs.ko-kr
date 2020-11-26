@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cef5c60b8b06a7bedbf65312c3210d5eb746880d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 546d5462c890e73994f04dfe1921b6365a112b7f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649748"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237326"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>기존 포리스트 및 새 포리스트를 단일 Azure AD 테넌트와 통합
 
@@ -65,7 +65,7 @@ ms.locfileid: "94649748"
 
 7. 이 작업이 완료되면 구성 마법사가 시작됩니다.  Azure AD 글로벌 관리자 계정으로 로그인합니다.  IE 보안 강화를 사용하도록 설정한 경우 로그인이 차단됩니다.  이 경우 설치를 닫고, 서버 관리자에서 IE 보안 강화를 사용하지 않도록 설정하고, **AAD Connect 프로비저닝 에이전트 마법사** 를 클릭하여 설치를 다시 시작합니다.
 8. **Active Directory 연결** 화면에서 **디렉터리 추가** 를 클릭한 다음, Active Directory 도메인 관리자 계정으로 로그인합니다. 도메인 관리자 계정에는 암호 변경 요구 사항이 없어야 합니다. 암호가 만료되거나 변경되는 경우 새 자격 증명을 사용하여 에이전트를 다시 구성해야 합니다. 이 작업을 수행하면 온-프레미스 디렉터리가 추가됩니다.  **다음** 을 클릭합니다.</br>
-!["Active Directory 연결" 화면을 보여주는 스크린샷.](media/how-to-install/install-3.png)</br>
+!["Active Directory 연결" 화면을 보여주는 스크린샷.](media/how-to-install/install-3a.png)</br>
 
 9. **구성 완료** 화면에서 **확인** 을 클릭합니다.  이 작업을 수행하면 에이전트가 등록되고 다시 시작됩니다.</br>
 !["구성 완료" 화면을 보여주는 스크린샷.](media/how-to-install/install-4a.png)</br>

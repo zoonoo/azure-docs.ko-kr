@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: ad399272673f1e2ede7bcaa82b66688fbaa8ac45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f340f2a4318fc187d4a7f28b91ab362e232a263e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804047"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95754992"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Azure Monitor의 진단 설정에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure 리소스에 대한 진단 설정을 만들기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
@@ -526,7 +526,7 @@ Azure 리소스에 대한 진단 설정을 만들려면 `<resource namespace>/pr
                 "metrics": [],
                 "logs": [
                     {
-                        "category": "LAQueryLogs",
+                        "category": "Audit",
                         "enabled": true
                     }
                 ]

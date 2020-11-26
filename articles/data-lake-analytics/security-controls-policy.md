@@ -1,18 +1,18 @@
 ---
 title: Azure Data Lake Analytics에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Data Lake Analytics에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: sample
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: data-lake-analytics
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 0077f758322cbf0a76b341bcb300e48da6333196
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 5fda910e24b4650ec6f53259cba4de8a55a0fbee
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701558"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984406"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 Azure Policy 규정 준수 컨트롤
 

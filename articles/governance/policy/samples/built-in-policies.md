@@ -1,21 +1,21 @@
 ---
 title: 기본 제공 정책 정의 목록
 description: Azure Policy에 대한 기본 제공 정책 정의를 나열합니다. 범주에는 태그, 규정 준수, Key Vault, Kubernetes, 게스트 구성 등이 포함됩니다.
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: c1627c05e041b2b4a91f5fb5ad44d79641cb9756
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 66563a4754d706f2c73e90ad3c2e8e0f4fe7d3a0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311971"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96007833"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy 기본 제공 정책 정의
 
 이 페이지는 Azure Policy 기본 제공 정책 정의의 인덱스입니다.
 
-Azure Portal의 정책 정의에 대한 각 기본 제공 링크의 이름입니다. **원본** 열의 링크를 사용하여 [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)에서 원본을 봅니다. 기본 제공 기능은 **메타데이터**의 **범주** 속성을 기준으로 그룹화됩니다. 특정 **범주**로 이동하려면 페이지 오른쪽에 있는 메뉴를 사용합니다. 그렇지 않으면 <kbd>Ctrl</kbd>-<kbd>F</kbd>를 사용하여 브라우저의 검색 기능을 사용합니다.
+Azure Portal의 정책 정의에 대한 각 기본 제공 링크의 이름입니다. **원본** 열의 링크를 사용하여 [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)에서 원본을 봅니다. 기본 제공 기능은 **메타데이터** 의 **범주** 속성을 기준으로 그룹화됩니다. 특정 **범주** 로 이동하려면 페이지 오른쪽에 있는 메뉴를 사용합니다. 그렇지 않으면 <kbd>Ctrl</kbd>-<kbd>F</kbd>를 사용하여 브라우저의 검색 기능을 사용합니다.
 
 ## <a name="api-for-fhir"></a>FHIR용 API
 
@@ -44,6 +44,10 @@ Azure Portal의 정책 정의에 대한 각 기본 제공 링크의 이름입니
 ## <a name="automation"></a>Automation
 
 [!INCLUDE [azure-policy-reference-policies-automation](../../../../includes/policy/reference/bycat/policies-automation.md)]
+
+## <a name="azure-data-explorer"></a>Azure Data Explorer
+
+[!INCLUDE [azure-policy-reference-policies-azure-data-explorer](../../../../includes/policy/reference/bycat/policies-azure-data-explorer.md)]
 
 ## <a name="backup"></a>Backup
 
@@ -133,6 +137,10 @@ Azure Portal의 정책 정의에 대한 각 기본 제공 링크의 이름입니
 
 [!INCLUDE [azure-policy-reference-policies-network](../../../../includes/policy/reference/bycat/policies-network.md)]
 
+## <a name="portal"></a>포털
+
+[!INCLUDE [azure-policy-reference-policies-portal](../../../../includes/policy/reference/bycat/policies-portal.md)]
+
 ## <a name="search"></a>검색
 
 [!INCLUDE [azure-policy-reference-policies-search](../../../../includes/policy/reference/bycat/policies-search.md)]
@@ -164,6 +172,10 @@ Azure Portal의 정책 정의에 대한 각 기본 제공 링크의 이름입니
 ## <a name="stream-analytics"></a>Stream Analytics
 
 [!INCLUDE [azure-policy-reference-policies-stream-analytics](../../../../includes/policy/reference/bycat/policies-stream-analytics.md)]
+
+## <a name="synapse"></a>Synapse
+
+[!INCLUDE [azure-policy-reference-policies-synapse](../../../../includes/policy/reference/bycat/policies-synapse.md)]
 
 ## <a name="tags"></a>태그들
 

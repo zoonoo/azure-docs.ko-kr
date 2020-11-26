@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.openlocfilehash: 05c89c8628b4d4ce10ca4ba12c720b410b72601f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457727"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005149"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>자습서: Asana와 Azure Active Directory 통합
 
@@ -141,7 +141,7 @@ Asana에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -200,7 +200,7 @@ Asana에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     ![Azure AD 테스트 사용자 만들기](./media/asana-tutorial/tutorial_asana_12.png)
 
-2. 텍스트 상자에 사용자의 이메일(예: **britta.simon\@contoso.com** )을 입력한 다음, **초대** 를 선택합니다.
+2. 텍스트 상자에 사용자의 이메일(예: **britta.simon\@contoso.com**)을 입력한 다음, **초대** 를 선택합니다.
 
 3. **초대 보내기** 를 클릭합니다. 새 사용자는 자신의 이메일 계정으로 이메일을 받게 됩니다. 사용자는 계정을 만들고 유효성을 검사해야 합니다.
 

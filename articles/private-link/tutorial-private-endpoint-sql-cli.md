@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
-ms.openlocfilehash: d28a3a304a42ec82ff18ad7f5e72518e2b77ec29
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 8cfe44b9433ee1daac028253aa45c97804c88ae5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280642"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544108"
 ---
 # <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>자습서 - Azure Private Endpoint를 사용하여 Azure SQL 서버에 연결 - Azure CLI
 
@@ -285,7 +285,7 @@ az network private-endpoint dns-zone-group create \
     SQL 서버 이름에 대해 **10.0.0.5** 의 개인 IP 주소가 반환됩니다.  이 주소는 이전에 만든 가상 네트워크의 서브넷에 있습니다.
 
 
-10. [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true)를 **myVM** 에 설치합니다.
+10. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017)를 **myVM** 에 설치합니다.
 
 11. **SQL Server Management Studio** 를 엽니다.
 

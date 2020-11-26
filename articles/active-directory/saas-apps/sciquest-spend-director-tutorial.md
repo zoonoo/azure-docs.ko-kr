@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: a828f945c459142febbc2cee7a14d40a3d534435
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669219"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999861"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>자습서: SciQuest Spend Director와 Azure Active Directory 통합
 
@@ -133,7 +133,7 @@ SciQuest Spend Director에서 Azure AD Single Sign-on을 구성하려면 다음 
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -158,7 +158,7 @@ SciQuest Spend Director에서 Azure AD Single Sign-on을 구성하려면 다음 
 
 이 섹션에서는 Britta Simon이 Azure Single Sign-On을 사용할 수 있도록 SciQuest Spend Director에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **SciQuest Spend Director** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **SciQuest Spend Director** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 58da5c73ea2674bbbd1536a163e163aa0ff31d96
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: eeb3de2fc3f0e3e0be9c98002f11e470eaf04f8c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521291"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020932"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>자습서: Azure Time Series Insights Gen2 환경 설정
 
@@ -91,7 +91,7 @@ ms.locfileid: "92521291"
     | **리소스 그룹** | Azure Time Series Insights Gen2 환경 리소스에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스에 대한 컨테이너입니다. 디바이스 시뮬레이터에서 만든 다른 IoT 리소스와 동일한 리소스 그룹을 사용하는 것이 좋습니다. |
     | **위치** | Azure Time Series Insights Gen2 환경에 사용할 데이터 센터 영역을 선택합니다. 대기 시간이 늘어나지 않도록, 디바이스 시뮬레이터에서 만든 IoT 허브와 동일한 영역에 Azure Time Series Insights Gen2 환경을 만드는 것이 가장 좋습니다. |
     | **계층** |  **Gen2(L1)** 를 선택합니다. Azure Time Series Insights Gen2 제품에 대한 SKU입니다. |
-    | **시계열 ID 속성 이름** | 시계열 인스턴스를 고유하게 식별하는 값을 포함하는 속성의 이름을 입력합니다. **속성 이름** 상자에 시계열 ID로 입력한 값은 나중에 변경할 수 없습니다. 이 자습서에서는 * *_iothub-connection-device-id_* _를 입력합니다. 복합 시계열 ID를 비롯한 시계열 ID에 대한 자세한 내용은 [시계열 ID 선택 모범 사례](./time-series-insights-update-how-to-id.md)를 참조하세요. |
+    | **시계열 ID 속성 이름** | 시계열 인스턴스를 고유하게 식별하는 값을 포함하는 속성의 이름을 입력합니다. **속성 이름** 상자에 시계열 ID로 입력한 값은 나중에 변경할 수 없습니다. 이 자습서에서는 **_iothub-connection-device-id_* _를 입력합니다. 복합 시계열 ID를 비롯한 시계열 ID에 대한 자세한 내용은 [시계열 ID 선택 모범 사례](./how-to-select-tsid.md)를 참조하세요. |
     | _ *스토리지 계정 이름** | 새 스토리지 계정의 전역적으로 고유한 이름을 입력합니다.|
     | **스토리지 계정 종류** | 새 스토리지 계정의 스토리지 종류를 선택합니다. StorageV2 권장|
     | **스토리지 계정 복제** | 새 스토리지 계정의 스토리지 종류를 선택합니다. 선택한 위치에 따라 LRS, GRS 및 ZRS 중에서 선택할 수 있습니다. 이 자습서에서는 LRS를 선택할 수 있습니다.|
@@ -117,7 +117,7 @@ ms.locfileid: "92521291"
    | **IoT Hub 이름** | 디바이스 시뮬레이터에 대해 만든 IoT Hub 이름을 선택합니다. |
    | **Iot Hub 액세스 정책** | **iothubowner** 를 선택합니다. |
    | **IoT Hub 소비자 그룹** | **새로 만들기** 를 선택하고, 고유한 이름을 입력한 다음, **+ 추가** 를 선택합니다. 소비자 그룹은 Azure Time Series Insights Gen2에서 고유한 값이어야 합니다. |
-   | **타임스탬프 속성** | 이 값을 사용하여 들어오는 원격 분석 데이터의 **Timestamp** (타임스탬프) 속성을 식별합니다. 이 자습서에서는 이 상자를 비워 둡니다. 이 시뮬레이터는 Azure Time Series Insights Gen2가 기본값을 지정한 IoT Hub에서 들어오는 타임스탬프를 사용합니다. |
+   | **타임스탬프 속성** | 이 값을 사용하여 들어오는 원격 분석 데이터의 **Timestamp**(타임스탬프) 속성을 식별합니다. 이 자습서에서는 이 상자를 비워 둡니다. 이 시뮬레이터는 Azure Time Series Insights Gen2가 기본값을 지정한 IoT Hub에서 들어오는 타임스탬프를 사용합니다. |
 
 1. **검토 + 만들기** 를 선택합니다.
 
@@ -143,7 +143,7 @@ ms.locfileid: "92521291"
 
    1. 자격 증명이 나열되어 있는지 확인합니다.
 
-      자격 증명이 나열되지 않으면 [추가]를 선택하고 본인의 자격 증명을 검색하여 환경에 대한 액세스 권한을 자신에게 부여해야 합니다. 사용 권한 설정에 대해 자세히 알아보려면 [데이터 액세스 권한 부여](./time-series-insights-data-access.md)를 읽어보세요.
+      자격 증명이 나열되지 않으면 [추가]를 선택하고 본인의 자격 증명을 검색하여 환경에 대한 액세스 권한을 자신에게 부여해야 합니다. 사용 권한 설정에 대해 자세히 알아보려면 [데이터 액세스 권한 부여](./concepts-access-policies.md)를 읽어보세요.
 
 ## <a name="stream-data"></a>스트림 데이터
 
@@ -166,7 +166,7 @@ Azure Time Series Insights Gen2 환경을 배포했으므로, 분석할 데이�
         | **이름** | 시뮬레이터에 사용할 고유한 이름을 입력합니다. |
         | **설명** | 정의를 입력합니다. |
         | **시뮬레이션 기간** | **무기한 실행** 으로 설정합니다. |
-        | **디바이스 모델** | \+ **디바이스 유형 추가** 를 클릭합니다. <br />**Name** : **엘리베이터** 를 입력합니다. <br />**수량** : **3** 을 입력합니다. <br /> 나머지 기본값은 그대로 둡니다. |
+        | **디바이스 모델** | \+ **디바이스 유형 추가** 를 클릭합니다. <br />**Name**: **엘리베이터** 를 입력합니다. <br />**수량**: **3** 을 입력합니다. <br /> 나머지 기본값은 그대로 둡니다. |
         | **대상 IoT Hub** | **사전 프로비전된 IoT Hub 사용** 으로 설정합니다. |
 
         [![매개 변수를 구성하고 시작합니다.](media/v2-update-provision/tsi-launch-solution-accelerator.png)](media/v2-update-provision/tsi-launch-solution-accelerator.png#lightbox)
@@ -177,7 +177,7 @@ Azure Time Series Insights Gen2 환경을 배포했으므로, 분석할 데이�
 
 ## <a name="analyze-data"></a>데이터 분석
 
-이 섹션에서는 [Azure Time Series Insights Gen2 탐색기](./time-series-insights-update-explorer.md)를 사용하여 시계열 데이터에 대해 기본 분석을 수행합니다.
+이 섹션에서는 [Azure Time Series Insights Gen2 탐색기](./concepts-ux-panels.md)를 사용하여 시계열 데이터에 대해 기본 분석을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)의 리소스 페이지에서 URL을 선택하여 Azure Time Series Insights Gen2 탐색기로 이동합니다.
 
@@ -199,7 +199,7 @@ Azure Time Series Insights Gen2 환경을 배포했으므로, 분석할 데이�
 
     [![모든 시계열에 대한 차트.](media/v2-update-provision/tsi-explorer-add-three-instances.png)](media/v2-update-provision/tsi-explorer-add-three-instances.png#lightbox)
 
-1. 오른쪽 위 모서리에서 시간 범위 선택기를 선택합니다. 여기서 특정 시작 및 종료 시간을 밀리초 단위로 선택할 수도 있고, 미리 구성된 옵션(예: **최근 30분** ) 중에 선택할 수도 있습니다. 기본 표준 시간대를 변경할 수도 있습니다.
+1. 오른쪽 위 모서리에서 시간 범위 선택기를 선택합니다. 여기서 특정 시작 및 종료 시간을 밀리초 단위로 선택할 수도 있고, 미리 구성된 옵션(예: **최근 30분**) 중에 선택할 수도 있습니다. 기본 표준 시간대를 변경할 수도 있습니다.
 
     [![시간 범위를 최근 30분으로 설정합니다.](media/v2-update-provision/tsi-explorer-thirty-minute-time-range.png)](media/v2-update-provision/tsi-explorer-thirty-minute-time-range.png#lightbox)
 
@@ -307,7 +307,7 @@ Azure Time Series Insights Gen2 환경을 배포했으므로, 분석할 데이�
     | **도시** | **시애틀** 을 입력합니다. |
     | **빌딩** | **태평양 과학 센터** 를 입력합니다. |
 
-    **엘리베이터 3** :
+    **엘리베이터 3**:
 
     | 매개 변수 | 작업 |
     | --- | --- |

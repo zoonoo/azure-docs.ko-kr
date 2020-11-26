@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 2bd06491b5488223b9a8eba50839a7fdf0cd61b6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 480af87519f8e11c14f009058b0f518bdfc34a1b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478544"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026270"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>자습서: Azure Database for PostgreSQL - 하이퍼스케일(Citus)을 사용하여 실시간 분석 대시보드 설계
 
@@ -227,4 +227,4 @@ DELETE FROM http_request_1min WHERE ingest_time < now() - interval '1 month';
 이 자습서에서는 하이퍼스케일(Citus) 서버 그룹을 프로비저닝하는 방법을 배웠습니다. 그 후 psql을 사용하여 이 서버 그룹에 연결하고, 스키마를 만들고, 데이터를 분산했습니다. 데이터를 원시 형식으로 쿼리하고, 해당 데이터를 주기적으로 집계하고, 집계된 테이블을 쿼리하고, 오래된 데이터를 만료하는 방법을 알아보았습니다.
 
 - 서버 그룹 [노드 유형](./concepts-hyperscale-nodes.md)에 대한 자세한 정보
-- 서버 그룹에 적합한 [처음 크기](howto-hyperscale-scaling.md#picking-initial-size) 결정
+- 서버 그룹에 적합한 [처음 크기](howto-hyperscale-scale-initial.md) 결정

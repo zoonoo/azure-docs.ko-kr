@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: apimpm
 ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108136"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010234"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>자습서: API 변환 및 보호
 
@@ -58,7 +58,7 @@ ms.locfileid: "92108136"
 
 원래 응답은 다음과 비슷합니다.
 
-:::image type="content" source="media/transform-api/original-response.png" alt-text="포털의 정책":::
+:::image type="content" source="media/transform-api/original-response.png" alt-text="원래 API 응답":::
 
 보시는 것처럼 응답에는 **X-AspNet-Version** 및 **X-Powered-By** 헤더가 포함됩니다.
 
@@ -67,12 +67,12 @@ ms.locfileid: "92108136"
 1. **Demo Conference API** > **디자인** > **모든 작업** 을 선택합니다.
 4. **아웃바운드 처리** 섹션에서 코드 편집기( **</>** ) 아이콘을 선택합니다.
 
-   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="포털의 정책" border="false":::
+   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="아웃바운드 정책으로 이동" border="false":::
 
 1. **&lt;아웃 바운드&gt;** 요소 내에 커서를 놓고 오른쪽 위 모서리에 있는 **코드 조각 표시** 를 선택합니다.
 1. 오른쪽 창에서 **변환 정책** 아래에 있는 **HTTP 헤더 설정** 을 두 번 선택합니다(두 개의 정책 조각 삽입).
 
-   :::image type="content" source="media/transform-api/transform-api.png" alt-text="포털의 정책":::
+   :::image type="content" source="media/transform-api/transform-api.png" alt-text="HTTP 헤더 정책 설정":::
 
 1. 다음과 같이 **\<outbound>** 코드를 수정합니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "92108136"
    <set-header name="X-AspNet-Version" exists-action="delete" />
    ```
 
-   :::image type="content" source="media/transform-api/set-policy.png" alt-text="포털의 정책":::
+   :::image type="content" source="media/transform-api/set-policy.png" alt-text="HTTP 헤더 설정":::
 
 1. **저장** 을 선택합니다.
 
@@ -98,7 +98,7 @@ ms.locfileid: "92108136"
 
     보시는 것처럼 응답에는 원래 백 엔드 URL이 포함됩니다.
 
-    :::image type="content" source="media/transform-api/original-response2.png" alt-text="포털의 정책":::
+    :::image type="content" source="media/transform-api/original-response2.png" alt-text="응답의 원래 URL":::
 
 
 ### <a name="set-the-transformation-policy"></a>변환 정책 설정
@@ -117,7 +117,7 @@ ms.locfileid: "92108136"
 1.  **인바운드 처리** 섹션에서 코드 편집기( **</>** ) 아이콘을 선택합니다.
 1.  **&lt;인바운드&gt;** 요소 내에 커서를 놓고 오른쪽 위 모서리에 있는 **코드 조각 표시** 를 선택합니다.
 
-    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="포털의 정책" border="false":::
+    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="인바운드 정책 설정" border="false":::
 
 1.  오른쪽 창의 **액세스 제한 정책** 에서 **+ 키당 호출 속도 제한** 을 선택합니다.
 1.  **rate-limit-by-key** 코드( **\<inbound\>** 요소)를 다음 코드로 수정합니다.
@@ -160,7 +160,7 @@ ms.locfileid: "92108136"
 
     보시는 것처럼 헤더가 삭제되었습니다.
 
-    :::image type="content" source="media/transform-api/final-response1.png" alt-text="포털의 정책":::
+    :::image type="content" source="media/transform-api/final-response1.png" alt-text="삭제된 응답 헤더":::
 
 ### <a name="test-the-replaced-url"></a>대체된 URL 테스트
 
@@ -169,7 +169,7 @@ ms.locfileid: "92108136"
 
     보시는 것처럼 URL이 대체되었습니다.
 
-    :::image type="content" source="media/transform-api/final-response2.png" alt-text="포털의 정책":::
+    :::image type="content" source="media/transform-api/final-response2.png" alt-text="대체된 URL":::
 
 ### <a name="test-the-rate-limit-throttling"></a>속도 제한 테스트
 
@@ -178,7 +178,7 @@ ms.locfileid: "92108136"
 
     요청을 3회 보내면 **429 요청이 너무 많음** 응답이 표시됩니다.
 
-    :::image type="content" source="media/transform-api/test-throttling.png" alt-text="포털의 정책":::
+    :::image type="content" source="media/transform-api/test-throttling.png" alt-text="너무 많은 요청":::
 
 1. 15초 정도 기다렸다가 **보내기** 를 다시 선택합니다. 이번에는 **200 정상** 응답이 표시됩니다.
 

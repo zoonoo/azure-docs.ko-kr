@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: 3413e594179cdca0704cb5db7908276b7502e719
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901155"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004758"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>자습서: ServiceNow와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -260,7 +260,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
              ![[ID 공급자] 섹션의 스크린샷](./media/servicenow-tutorial/automatic-config.png "Single Sign-On 구성")
 
-               a. **이름** 에 구성의 이름을 입력합니다(예: **Microsoft Azure 페더레이션된 Single Sign-On** ).
+               a. **이름** 에 구성의 이름을 입력합니다(예: **Microsoft Azure 페더레이션된 Single Sign-On**).
 
                b. **ServiceNow 홈페이지** 값을 복사하여 Azure Portal의 **ServiceNow 기본 SAML 구성** 섹션에 있는 **로그온 URL** 에 붙여넣습니다.
 
@@ -324,7 +324,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
         ![[ID 공급자]의 스크린샷](./media/servicenow-tutorial/ic7694982.png "Single Sign-On 구성")
 
-        a. **이름** 에 구성의 이름을 입력합니다(예: **Microsoft Azure 페더레이션된 Single Sign-On** ).
+        a. **이름** 에 구성의 이름을 입력합니다(예: **Microsoft Azure 페더레이션된 Single Sign-On**).
 
         b. **ServiceNow 홈페이지** 값을 복사합니다. Azure Portal의 **ServiceNow 기본 SAML 구성** 섹션에 있는 **로그온 URL** 에 붙여넣습니다.
 
@@ -384,7 +384,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![[X.509 인증서] 대화 상자의 스크린샷](./media/servicenow-tutorial/ic7694975.png "Single Sign-On 구성")
 
-    a. **이름** 에 구성의 이름을 입력합니다(예: **TestSAML2.0** ).
+    a. **이름** 에 구성의 이름을 입력합니다(예: **TestSAML2.0**).
 
     b. **활성** 을 선택합니다.
 
@@ -404,7 +404,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![[새 ID 공급자 추가] 대화 상자의 스크린샷](./media/servicenow-tutorial/ic7694982ex.png "Single Sign-On 구성")
 
-    a. **이름** 에 구성의 이름을 입력합니다(예: **SAML 2.0** ).
+    a. **이름** 에 구성의 이름을 입력합니다(예: **SAML 2.0**).
 
     b. **ID 공급자 URL** 에 Azure Portal에서 복사한 ID 공급자 ID 값을 붙여넣습니다.
 

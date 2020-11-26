@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 2939b3b3beac55b537c1dcf844f702a0ad73f06e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d8dee086f55c5596af50245b5271d98536eb7e57
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478612"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026202"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>자습서: Azure Database for PostgreSQL – 하이퍼스케일(Citus)을 사용하여 다중 테넌트 데이터베이스 설계
 
@@ -276,4 +276,4 @@ SELECT id
 이 자습서에서는 하이퍼스케일(Citus) 서버 그룹을 프로비저닝하는 방법을 배웠습니다. 그 후 psql을 사용하여 이 서버 그룹에 연결하고, 스키마를 만들고, 데이터를 분산했습니다. 테넌트 내 또는 테넌트 간에 데이터를 쿼리하고, 스키마를 테넌트별로 사용자 지정하는 방법을 알아보았습니다.
 
 - 서버 그룹 [노드 유형](./concepts-hyperscale-nodes.md)에 대한 자세한 정보
-- 서버 그룹에 적합한 [처음 크기](howto-hyperscale-scaling.md#picking-initial-size) 결정
+- 서버 그룹에 적합한 [처음 크기](howto-hyperscale-scale-initial.md) 결정
