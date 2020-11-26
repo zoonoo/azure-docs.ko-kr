@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 130bb108af5e44ddf61b639c666cb0dba64d69cb
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 2fcb85b2c16bc2dd418c2260420733dd8663382a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356895"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179259"
 ---
 # <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Fuze 구성
 
@@ -38,7 +38,7 @@ ms.locfileid: "94356895"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
 * [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md)
-* 프로비저닝을 구성할 [권한](../users-groups-roles/directory-assign-admin-roles.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자).
+* 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자).
 * [Fuze 테넌트](https://www.fuze.com/)
 * 관리자 권한이 있는 Fuze의 사용자 계정
 
