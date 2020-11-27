@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/05/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: af2eac929e3e3f40e1ac1cd384c943b1e09171a8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b8b8d100eb2ff16e8f8b7a734ad493ed4faddd33
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967468"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299533"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -273,7 +273,7 @@ HANA 용 ANF에 대 한 자세한 내용은 Azure NetApp Files의 [NFS v 4.1 볼
 
 
 ## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Azure premium storage를 사용 하는 비용에 민감한 솔루션
-지금까지이 문서에 설명 된 azure premium storage 솔루션은 [premium storage를 사용 하는 솔루션 섹션의 Azure M 시리즈 가상 컴퓨터에 대 한 azure 쓰기 가속기](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) 에 설명 되어 SAP HANA 프로덕션 지원 시나리오를 위한 것입니다. 프로덕션 지원 가능 구성의 특성 중 하나는 SAP HANA 데이터에 대 한 볼륨을 분리 하 고 두 개의 서로 다른 볼륨으로 다시 실행 하는 것입니다. 이러한 분리의 이유는 볼륨의 워크 로드 특성이 서로 다르기 때문입니다. 그리고 제안 된 프로덕션 구성을 사용 하는 경우 다양 한 유형의 캐싱 또는 다양 한 유형의 Azure 블록 저장소가 필요할 수 있습니다. Azure 블록 저장소 대상을 사용 하는 프로덕션 지원 구성은 [azure Virtual Machines에 대 한 단일 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 를 준수 합니다.  비프로덕션 시나리오의 경우 프로덕션 시스템에 대해 수행 되는 몇 가지 고려 사항은 더 낮은 프로덕션 이외의 시스템에 적용 되지 않을 수 있습니다. 따라서 HANA 데이터 및 로그 볼륨을 결합할 수 있습니다. 궁극적으로는 궁극적으로는 프로덕션 시스템에 필요한 특정 처리량 또는 대기 시간 Kpi를 충족 하지 원인 합니다. 이러한 환경에서 비용을 절감 하는 또 다른 측면은 [Azure 표준 SSD storage](./planning-guide-storage.md#azure-standard-ssd-storage)를 사용 하는 것입니다. 그러나 [Azure Virtual Machines에 대 한 단일 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 무효화 하는 선택이 있습니다. 
+지금까지이 문서에 설명 된 azure premium storage 솔루션은 [premium storage를 사용 하는 솔루션 섹션의 Azure M 시리즈 가상 컴퓨터에 대 한 azure 쓰기 가속기](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) 에 설명 되어 SAP HANA 프로덕션 지원 시나리오를 위한 것입니다. 프로덕션 지원 가능 구성의 특성 중 하나는 SAP HANA 데이터에 대 한 볼륨을 분리 하 고 두 개의 서로 다른 볼륨으로 다시 실행 하는 것입니다. 이러한 분리의 이유는 볼륨의 워크 로드 특성이 서로 다르기 때문입니다. 그리고 제안 된 프로덕션 구성을 사용 하는 경우 다양 한 유형의 캐싱 또는 다양 한 유형의 Azure 블록 저장소가 필요할 수 있습니다. 비프로덕션 시나리오의 경우 프로덕션 시스템에 대해 수행 되는 몇 가지 고려 사항은 더 낮은 프로덕션 이외의 시스템에 적용 되지 않을 수 있습니다. 따라서 HANA 데이터 및 로그 볼륨을 결합할 수 있습니다. 궁극적으로는 궁극적으로는 프로덕션 시스템에 필요한 특정 처리량 또는 대기 시간 Kpi를 충족 하지 원인 합니다. 이러한 환경에서 비용을 절감 하는 또 다른 측면은 [Azure 표준 SSD storage](./planning-guide-storage.md#azure-standard-ssd-storage)를 사용 하는 것입니다. Azure storage 표준 SSD 또는 표준 HDD을 선택 하면  [Virtual Machines에 대 한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines)문서에 설명 된 대로 단일 VM sla에 영향을 줍니다.
 
 이러한 구성에 대 한 비용이 저렴 한 대안은 다음과 같습니다.
 

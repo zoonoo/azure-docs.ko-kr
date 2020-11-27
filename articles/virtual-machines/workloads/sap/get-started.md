@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/05/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f104accad2b23b907d888ce3d0da083f1fa019a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 05b2747dc21e2aedf16c6ca6e6c31af03b38c81f
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964833"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299516"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -80,6 +80,7 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 
 ## <a name="change-log"></a>로그 변경
 
+- 11/26/2020: [SAP 워크 로드에 대 한](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) [Azure 가상 머신 저장소 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 및 Azure Storage 유형을 변경 하 여 단일 [VM sla](https://azure.microsoft.com/support/legal/sla/virtual-machines) 를 변경 SAP HANA
 - 11/05/2020: [Azure virtual machine 저장소 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 에서 HANA 지원 파일 시스템 형식에 대 한 새 SAP 메모에 대 한 링크를 변경 하 고 있습니다. 
 - 10/26/2020: azure [가상 머신 저장소 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 에서 프로 비전 된 처리량과 버스트 처리량을 명확 하 게 하기 위해 azure premium storage 구성의 일부 테이블을 변경 합니다.
 - 10/22/2020: SLES에 대 한 Azure Vm의 sap nw에 [대 한 ha](./high-availability-guide-suse.md)변경, [SLES를 사용](./high-availability-guide-suse-netapp-files.md)하는 azure vm의 sap nw에 대 한 HA, [sap 용 RHEL vm](./high-availability-guide-rhel.md) 에 대 한 ha 및 RHEL의 [Azure vm](./high-availability-guide-rhel-netapp-files.md) 에 있는 azure vm의 ha에 대 한 ha에 대 한 권장 사항 조정 net.ipv4.tcp_keepalive_time  

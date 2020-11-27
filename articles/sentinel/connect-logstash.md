@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 247abafd7abec38e43794b76268ee52538aee508
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 63b9d74fbbb1a79dd4f3d3e7c5fb094a372282e0
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655683"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299635"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Logstash를 사용 하 여 데이터 원본을 Azure 센티널에 연결
 
@@ -57,7 +57,7 @@ Logstash 태 시에 대 한 Azure 센티널 출력 플러그 인은 Log Analytic
 
 Azure 센티널 출력 플러그 인은 Logstash 태 시 컬렉션에서 사용할 수 있습니다.
 
-- Logstash [플러그 인 작업](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) 문서의 지침에 따라 **_microsoft logstash 태 시-출력-azure-logstash_* _ 플러그 인을 설치 합니다.
+- Logstash [플러그 인 작업](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) 문서의 지침에 따라 **_[microsoft logstash 태 시-출력-azure-logstash](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)_* _ 플러그 인을 설치 합니다.
    
 - Logstash 태 시 시스템에서 인터넷에 액세스할 수 없는 경우 Logstash [오프 라인 플러그 인 관리](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) 문서의 지침에 따라 오프 라인 플러그 인 팩을 준비 하 고 사용 합니다. 이렇게 하려면 인터넷에 액세스할 수 있는 다른 Logstash 태 시 시스템을 구축 해야 합니다.
 
