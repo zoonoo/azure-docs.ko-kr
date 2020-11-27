@@ -66,6 +66,10 @@
       href: signalr-concept-authenticate-oauth.md
     - name: 이벤트 처리
       href: signalr-concept-event-grid-integration.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: 확장
