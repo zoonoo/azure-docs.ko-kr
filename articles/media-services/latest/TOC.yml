@@ -45,6 +45,10 @@
           href: manage-assets-quickstart.md
         - name: 포털을 사용하여 콘텐츠 암호화
           href: encrypt-content-quickstart.md
+    - name: ARM 템플릿 사용
+      items:
+        - name: ARM을 사용하여 계정 만들기
+          href: quickstart-arm-template-account.md
 - name: 자습서
   items:
     - name: .NET

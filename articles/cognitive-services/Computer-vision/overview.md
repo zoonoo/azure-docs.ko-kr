@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 11/13/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: 컴퓨터 비전, 컴퓨터 비전 애플리케이션, 컴퓨터 비전 서비스
-ms.openlocfilehash: aeaa10870b8b40b907da1d1660e77ebf0271c300
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1b4768781c45733590639b4a382fecfdb02adf48
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629753"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95532293"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -64,7 +64,7 @@ Computer Vision은 여러 DAM(디지털 자산 관리) 시나리오를 구현할
 
 ### <a name="detect-faces"></a>얼굴 감지
 
-이미지에서 얼굴을 감지하고, 감지된 얼굴 각각에 대한 정보를 제공합니다. Computer Vision은 감지된 얼굴 각각에 대한 좌표, 사각형, 성별 및 나이를 반환합니다.<br/>Computer Vision은 [Face](/azure/cognitive-services/face/) 서비스 기능의 하위 집합을 제공합니다. 얼굴 인식 및 포즈 감지와 같이 더 자세한 분석을 위한 Face 서비스를 사용할 수 있습니다. [얼굴 감지](concept-detecting-faces.md)
+이미지에서 얼굴을 감지하고, 감지된 얼굴 각각에 대한 정보를 제공합니다. Computer Vision은 감지된 얼굴 각각에 대한 좌표, 사각형, 성별 및 나이를 반환합니다.<br/>Computer Vision은 [Face](../face/index.yml) 서비스 기능의 하위 집합을 제공합니다. 얼굴 인식 및 포즈 감지와 같이 더 자세한 분석을 위한 Face 서비스를 사용할 수 있습니다. [얼굴 감지](concept-detecting-faces.md)
 
 ### <a name="detect-image-types"></a>이미지 유형 감지
 
@@ -90,13 +90,12 @@ Computer Vision은 여러 DAM(디지털 자산 관리) 시나리오를 구현할
 
 Computer Vision을 사용하여 이미지에서 [성인 콘텐츠를 감지](concept-detecting-adult-content.md)하고 다양한 분류에 대한 신뢰도 점수를 반환할 수 있습니다. 콘텐츠 플래그 지정 임계값은 기본 설정에 맞게 슬라이딩 배율로 설정할 수 있습니다.
 
-## <a name="use-containers"></a>컨테이너 사용
+## <a name="deploy-on-premises-using-docker-containers"></a>Docker 컨테이너를 사용하여 온-프레미스 배포
 
-Computer Vision Docker 컨테이너를 통해 온-프레미스에서 서비스를 사용합니다. 현재 두 개의 컨테이너를 사용할 수 있습니다.
+Computer Vision 컨테이너를 사용하여 온-프레미스에 API 기능을 배포합니다. 이러한 Docker 컨테이너는 규정 준수, 보안 또는 기타 운영상의 이유로 서비스를 데이터에 더 가깝게 가져올 수 있습니다. Computer Vision은 다음과 같은 컨테이너를 제공합니다.
 
-* [Computer Vision 읽기 컨테이너](computer-vision-how-to-install-containers.md)를 사용하면 이미지에서 활자체 및 필기체 텍스트를 인식할 수 있습니다.
-
-* [Computer Vision 공간 분석 컨테이너](spatial-analysis-container.md)를 사용하면 실시간 스트리밍 비디오를 분석하여 사용자와 사용자의 물리적 환경 간 이동의 공간 관계를 이해할 수 있습니다.
+* [Computer Vision 읽기 OCR 컨테이너(미리 보기)](computer-vision-how-to-install-containers.md)를 사용하면 이미지에서 활자체 및 필기체 텍스트를 인식할 수 있습니다.
+* [Computer Vision 공간 분석 컨테이너(미리 보기)](spatial-analysis-container.md)를 사용하면 실시간 스트리밍 비디오를 분석하여 사용자와 사용자의 물리적 환경 간 이동의 공간 관계를 이해할 수 있습니다.
 
 ## <a name="image-requirements"></a>이미지 요구 사항
 

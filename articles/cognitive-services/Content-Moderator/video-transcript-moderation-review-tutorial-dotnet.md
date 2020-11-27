@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1648bd9a073bca696299e9ed703536db745e7edb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: ad689c746a0f4d7232e7f61982fb8c4f735cbe34
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912840"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95737805"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>자습서: 비디오 및 대본 조정
 
@@ -35,7 +35,7 @@ ms.locfileid: "92912840"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/) 웹 사이트에 가입하고 사용자 지정 태그를 만듭니다. 이 단계에 대한 도움말이 필요하면 [태그 사용](./review-tool-user-guide/configure.md#tags)을 참조하세요.
+- [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/) 웹 사이트에 가입하고 식별하려는 기능에 대한 사용자 지정 태그를 만듭니다. 이 단계에 대한 도움말이 필요하면 [태그 사용](./review-tool-user-guide/configure.md#tags)을 참조하세요.
 
     ![비디오 조정 사용자 지정 태그 스크린샷](images/video-tutorial-custom-tags.png)
 - 샘플 애플리케이션을 실행하려면 Azure 계정, Azure Media Services 리소스, Azure Content Moderator 리소스 및 Azure Active Directory 자격 증명이 필요합니다. 이러한 리소스를 가져오는 방법에 대한 지침은 [비디오 조정 API](video-moderation-api.md) 가이드를 참조하세요.
@@ -57,7 +57,7 @@ ms.locfileid: "92912840"
 
 ## <a name="examine-the-main-code"></a>기본 코드 검사
 
-`Program.cs`의 클래스 `Program`은 비디오 조정 애플리케이션에 대한 기본 진입점입니다.
+_Program.cs_ 의 클래스 **프로그램** 은 비디오 조정 애플리케이션에 대한 기본 진입점입니다.
 
 ### <a name="methods-of-program-class"></a>Program 클래스 메서드
 
@@ -116,7 +116,7 @@ ms.locfileid: "92912840"
 네트워크 트래픽을 최소화하려면 애플리케이션은 비디오 파일을 H.264(MPEG-4 AVC) 형식으로 변환하고 최대 너비 640픽셀로 크기를 조정합니다. 높은 효율성(압축률) 때문에 H.264 코덱이 권장됩니다. 압축은 Visual Studio 솔루션의 `Lib` 폴더에 포함된 무료 `ffmpeg` 명령줄 도구를 사용하여 이루어집니다. 입력 파일은 가장 일반적으로 사용되는 비디오 파일 형식 및 코덱을 포함하여 `ffmpeg`에서 지원하는 모든 형식이 될 수 있습니다.
 
 > [!NOTE]
-> 명령줄 옵션을 사용하여 프로그램을 시작할 경우 조정을 위해 제출될 비디오 파일을 포함하는 디렉터리를 지정합니다. `.mp4` 파일 이름 확장명를 가진 이 디렉터리의 모든 파일이 처리됩니다. 다른 파일 이름 확장명을 처리하려면 `Program.cs`의 `Main()` 메서드를 업데이트하여 원하는 확장명을 포함시킵니다.
+> 명령줄 옵션을 사용하여 프로그램을 시작할 경우 조정을 위해 제출될 비디오 파일을 포함하는 디렉터리를 지정합니다. `.mp4` 파일 이름 확장명를 가진 이 디렉터리의 모든 파일이 처리됩니다. 다른 파일 이름 확장명을 처리하려면 _Program.cs_ 의 `Main()` 메서드를 업데이트하여 원하는 확장명을 포함시킵니다.
 
 단일 비디오 파일을 압축하는 코드는 `AMSComponent.cs`의 `AmsComponent` 클래스입니다. 이 기능을 담당하는 메서드는 여기에 표시된 `CompressVideo()`입니다.
 
@@ -138,7 +138,7 @@ ms.locfileid: "92912840"
 
 ## <a name="upload-and-moderate-the-video"></a>비디오 업로드 및 조정
 
-비디오는 Content Moderation 서비스에서 처리하기 전에 Azure Media Services에 저장되어야 합니다. `Program.cs`의 `Program` 클래스에는 비디오를 업로드하는 데 사용된 스트리밍 요청을 나타내는 개체를 반환하는 짧은 메서드 `CreateVideoStreamingRequest()`가 있습니다.
+비디오는 Content Moderation 서비스에서 처리하기 전에 Azure Media Services에 저장되어야 합니다. _Program.cs_ 의 **프로그램** 클래스에는 비디오를 업로드하는 데 사용된 스트리밍 요청을 나타내는 개체를 반환하는 짧은 메서드 `CreateVideoStreamingRequest()`가 있습니다.
 
 [!code-csharp[CreateVideoStreamingRequest](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/Program.cs?range=120-133)]
 
@@ -228,7 +228,7 @@ ms.locfileid: "92912840"
 
 ## <a name="create-a-human-review"></a>휴먼 검토 만들기
 
-조정 프로세스는 비디오에서 오디오 트랙의 대본과 함께 키 프레임 목록을 반환합니다. 다음 단계는 사람 조정자를 위해 Content Moderator 검토 도구에서 검토를 만드는 것입니다. `Program.cs`의 `ProcessVideo()` 메서드로 돌아가 `CreateVideoReviewInContentModerator()` 메서드에 대한 호출을 봅니다. 이 메서드는 `VideoReviewAPI.cs`에 있는 `videoReviewApi` 클래스에 있으며, 여기에 표시됩니다.
+조정 프로세스는 비디오에서 오디오 트랙의 대본과 함께 키 프레임 목록을 반환합니다. 다음 단계는 사람 조정자를 위해 Content Moderator 검토 도구에서 검토를 만드는 것입니다. _Program.cs_ 의 `ProcessVideo()` 메서드로 돌아가 `CreateVideoReviewInContentModerator()` 메서드에 대한 호출을 봅니다. 이 메서드는 `VideoReviewAPI.cs`에 있는 `videoReviewApi` 클래스에 있으며, 여기에 표시됩니다.
 
 [!code-csharp[CreateVideoReviewInContentModerator](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=42-69)]
 

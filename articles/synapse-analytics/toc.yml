@@ -98,6 +98,8 @@
           items:
             - name: 보안 기준
               href: security-baseline.md
+            - name: 암호화
+              href: ./security/workspaces-encryption.md
             - name: 네트워크 보안
               items:
                 - name: Synapse 작업 영역 IP 방화벽 규칙
@@ -212,7 +214,7 @@
           items:
             - name: 개요
               href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: 모범 사례
+            - name: 최선의 구현 방법
               href: sql/data-loading-best-practices.md
             - name: Columnstore 압축
               href: sql/data-load-columnstore-compression.md
@@ -976,6 +978,8 @@
               href: ../data-factory/data-factory-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 커넥터 문제 해결
               href: ../data-factory/connector-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: 연속 통합 및 배포
+              href: ../data-factory/ci-cd-github-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 보안 및 액세스 제어
               href: ../data-factory/security-and-access-control-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 자체 호스팅 통합 런타임 문제 해결
@@ -1028,6 +1032,9 @@
       href: 'https://github.com/Azure-Samples/Synapse'
     - name: 시스템 뷰
       href: sql/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
     - name: T-SQL
       items:
         - name: 전체 참조

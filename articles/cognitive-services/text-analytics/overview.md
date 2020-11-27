@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/02/2020
+ms.date: 11/17/2020
 ms.author: aahi
 keywords: 텍스트 마이닝, 감정 분석, 텍스트 분석
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 6d10161609abda321ed1be9dfda0acabf2030c9e
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 14dfa6111bbda8750b175c8c9b2a96321e1af2c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365298"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519407"
 ---
 # <a name="what-is-the-text-analytics-api"></a>텍스트 분석 API란?
 
@@ -47,9 +47,18 @@ v3.1 미리 보기부터 오피니언 마이닝은 감정 분석의 기능입니
 
 NER(명명된 엔터티 인식)은 사람, 장소, 조직, 수량으로 텍스트의 [엔터티를 식별하고 분류](how-tos/text-analytics-how-to-entity-linking.md)할 수 있습니다. 잘 알려진 엔터티도 인식되고 웹에서 더 많은 정보에 연결됩니다.
 
-## <a name="use-containers"></a>컨테이너 사용
+## <a name="deploy-on-premises-using-docker-containers"></a>Docker 컨테이너를 사용하여 온-프레미스 배포
 
-[Text Analytics 컨테이너](how-tos/text-analytics-how-to-install-containers.md)를 텍스트 마이닝 및 API 사용을 위한 온-프레미스 솔루션으로 사용합니다. 이러한 Docker 컨테이너를 사용하면 핵심 구를 추출하고, 언어를 감지하고, 데이터에 더 가깝게 감정을 분석할 수 있습니다.
+[Text Analytics 컨테이너를 사용](how-tos/text-analytics-how-to-install-containers.md)하여 온-프레미스에 API 기능을 배포합니다. 이러한 Docker 컨테이너는 규정 준수, 보안 또는 기타 운영상의 이유로 서비스를 데이터에 더 가깝게 가져올 수 있습니다. Text Analytics는 다음과 같은 컨테이너를 제공합니다.
+
+* 감정 분석
+* 핵심 구 추출(미리 보기)
+* 언어 감지(미리 보기)
+* Text Analytics for health(미리 보기)
+
+## <a name="asynchronous-operations"></a>비동기 작업
+
+`/analyze` 엔드포인트를 사용하면 NER 및 키 구문 추출과 같은 Text Analytics API의 선택 기능을 [비동기적으로](how-tos/text-analytics-how-to-call-api.md) 사용할 수 있습니다.
 
 ## <a name="typical-workflow"></a>일반적인 워크플로
 

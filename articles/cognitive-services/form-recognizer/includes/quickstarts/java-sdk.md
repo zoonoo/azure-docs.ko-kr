@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: fa15b48cff73b567187aa078bec02aa82e41e665
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 48162609c27372937337be87d4b8f78af35a46d5
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918728"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95866473"
 ---
 > [!IMPORTANT]
 > 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다.
@@ -30,7 +30,7 @@ ms.locfileid: "92918728"
 * Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Form Recognizer 리소스 만들기"  target="_blank">Form Recognizer 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Form Recognizer API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
-* 학습 데이터 세트가 포함된 Azure Storage Blob. 학습 데이터 세트를 결합하는 옵션 및 팁에 대한 자세한 내용은 [사용자 지정 모델에 대한 학습 데이터 세트 빌드](../../build-training-data-set.md)를 참조하세요. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Train** 폴더에 있는 파일을 사용할 수 있습니다( *sample_data.zip* 다운로드 및 추출).
+* 학습 데이터 세트가 포함된 Azure Storage Blob. 학습 데이터 세트를 결합하는 옵션 및 팁에 대한 자세한 내용은 [사용자 지정 모델에 대한 학습 데이터 세트 빌드](../../build-training-data-set.md)를 참조하세요. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Train** 폴더에 있는 파일을 사용할 수 있습니다(*sample_data.zip* 다운로드 및 추출).
 
 
 ## <a name="setting-up"></a>설치
@@ -58,6 +58,7 @@ gradle init --type basic
 
 프로젝트의 *build.gradle.kts* 파일에서 필요한 플러그 인 및 설정과 함께 클라이언트 라이브러리를 `implementation` 문으로 포함합니다.
 
+#### <a name="version-30"></a>[버전 3.0](#tab/ga)
 ```kotlin
 plugins {
     java
@@ -73,6 +74,23 @@ dependencies {
     implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.0.0")
 }
 ```
+#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/preview)
+```kotlin
+plugins {
+    java
+    application
+}
+application {
+    mainClass.set("FormRecognizer")
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.1")
+}
+```
+---
 
 ### <a name="create-a-java-file"></a>Java 파일 만들기
 
@@ -106,9 +124,16 @@ mkdir -p src/main/java
 * 테스트할 양식의 URL을 가져오려면 위의 단계를 따라 Blob Storage에 있는 개별 문서의 SAS URL을 가져오면 됩니다. 또는 다른 위치에 있는 문서의 URL을 가져옵니다.
 * 위의 방법을 사용하여 영수증 이미지의 URL도 가져올 수 있습니다.
 
+#### <a name="version-30"></a>[버전 3.0](#tab/ga)
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
+#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/preview)
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
+
+---
 
 
 
@@ -140,12 +165,24 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 여기에 나와 있는 코드 조각에서는 Java용 Form Recognizer 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
 
+#### <a name="version-30"></a>[버전 3.0](#tab/ga)
 * [클라이언트 인증](#authenticate-the-client)
 * [양식 콘텐츠 인식](#recognize-form-content)
 * [영수증 확인](#recognize-receipts)
 * [사용자 지정 모델 학습](#train-a-custom-model)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
 * [사용자 지정 모델 관리](#manage-your-custom-models)
+#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/preview)
+* [클라이언트 인증](#authenticate-the-client)
+* [양식 콘텐츠 인식](#recognize-form-content)
+* [영수증 확인](#recognize-receipts)
+* [명함 인식](#recognize-business-cards)
+* [송장 인식](#recognize-invoices)
+* [사용자 지정 모델 학습](#train-a-custom-model)
+* [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
+* [사용자 지정 모델 관리](#manage-your-custom-models)
+
+---
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
@@ -162,7 +199,7 @@ Form Recognizer를 사용하면 모델을 학습시킬 필요 없이 문서의 �
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_call)]
 
 > [!TIP]
-> 로컬 파일에서 콘텐츠를 가져올 수도 있습니다. [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) 메서드(예: **beginRecognizeContent** )를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)의 샘플 코드를 참조하세요.
+> 로컬 파일에서 콘텐츠를 가져올 수도 있습니다. [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) 메서드(예: **beginRecognizeContent**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)의 샘플 코드를 참조하세요.
 
 그러면 제출된 문서의 각 페이지당 하나씩 **FormPage** 개체 컬렉션이 반환됩니다. 다음 코드는 이러한 개체에서 반복되고 추출된 키/값 쌍 및 테이블 데이터를 출력합니다.
 
@@ -195,7 +232,7 @@ URI를 통해 영수증을 확인하려면 **beginRecognizeReceiptsFromUrl** 메
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
 
 > [!TIP]
-> 로컬 영수증 이미지를 인식할 수도 있습니다. [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) 메서드(예: **beginRecognizeReceipts** )를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)의 샘플 코드를 참조하세요.
+> 로컬 영수증 이미지를 인식할 수도 있습니다. [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) 메서드(예: **beginRecognizeReceipts**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)의 샘플 코드를 참조하세요.
 
 그러면 제출된 문서의 각 페이지당 하나씩 **RecognizedReceipt** 개체 컬렉션이 반환됩니다. 다음 코드 블록은 영수증에서 반복되고 콘솔에 세부 정보를 출력합니다.
 
@@ -221,6 +258,43 @@ Name: BACON & EGGS, confidence: 0.94s
 Quantity: null, confidence: 0.927s]
 Total Price: null, confidence: 0.93
 ```
+
+#### <a name="version-30"></a>[버전 3.0](#tab/ga)
+
+#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/preview)
+
+## <a name="recognize-business-cards"></a>명함 인식
+
+이 섹션에서는 사전 학습된 모델을 사용하여 영문 명함의 공통 필드를 인식 및 추출하는 방법을 보여줍니다.
+
+URL에서 명함을 인식하려면 `beginRecognizeBusinessCardsFromUrl` 메서드를 사용합니다. 
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_call)]
+
+> [!TIP]
+> 또한 로컬 명함 이미지를 인식할 수도 있습니다. [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) 메서드(예: **beginRecognizeBusinessCards**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)의 샘플 코드를 참조하세요.
+
+반환된 값은 문서의 각 명함에 하나씩 있는 **RecognizedForm** 개체의 컬렉션입니다. 다음 코드는 지정된 URI에서 명함을 처리하고 주요 필드와 값을 콘솔에 출력합니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
+
+## <a name="recognize-invoices"></a>송장 인식
+
+이 섹션에서는 사전 학습된 모델을 사용하여 판매 송장의 공통 필드를 인식 및 추출하는 방법을 보여줍니다.
+
+URL에서 명함을 인식하려면 `beginRecognizeInvoicesFromUrl` 메서드를 사용합니다. 
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_call)]
+
+> [!TIP]
+> 또한 로컬 송장을 인식할 수도 있습니다. [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) 메서드(예:**beginRecognizeInvoices**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)의 샘플 코드를 참조하세요.
+
+반환된 값은 문서의 각 송장에 하나씩 있는 **RecognizedForm** 개체의 컬렉션입니다. 다음 코드는 지정된 URI에서 명함을 처리하고 주요 필드와 값을 콘솔에 출력합니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_print)]
+
+---
+
 ## <a name="train-a-custom-model"></a>사용자 지정 모델 학습
 
 이 섹션에서는 사용자 고유의 데이터로 모델을 학습시키는 방법을 보여 줍니다. 학습된 모델은 원본 양식 문서의 키/값 관계가 포함된 구조적 데이터를 출력할 수 있습니다. 모델이 학습되면 데이터를 더 많은 양식에서 안정적으로 추출하기 위해 필요에 따라 모델을 테스트, 재학습 및 최종적으로 사용할 수 있습니다.
@@ -268,7 +342,7 @@ The model found field 'field-6' with label: VAT ID
 
 ### <a name="train-a-model-with-labels"></a>레이블을 사용하여 모델 학습
 
-학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습시키려면 학습 문서와 별도로 Blob Storage 컨테이너에 특별한 레이블 정보 파일( *\<filename\>.pdf.labels.json* )이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구](../../quickstarts/label-tool.md)는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 레이블 파일이 있으면 `true`로 설정된 *useTrainingLabels* 매개 변수를 사용하여 **beginTraining** 메서드를 호출할 수 있습니다.
+학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습시키려면 학습 문서와 별도로 Blob Storage 컨테이너에 특별한 레이블 정보 파일( *\<filename\>.pdf.labels.json*)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구](../../quickstarts/label-tool.md)는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 레이블 파일이 있으면 `true`로 설정된 *useTrainingLabels* 매개 변수를 사용하여 **beginTraining** 메서드를 호출할 수 있습니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_call)]
 
@@ -310,7 +384,7 @@ The model found field 'field-6' with label: VAT ID
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_call)]
 
 > [!TIP]
-> 로컬 파일을 분석할 수도 있습니다. [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) 메서드(예: **beginRecognizeCustomForms** )를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)의 샘플 코드를 참조하세요.
+> 로컬 파일을 분석할 수도 있습니다. [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) 메서드(예: **beginRecognizeCustomForms**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)의 샘플 코드를 참조하세요.
 
 반환된 값은 제출된 문서의 각 페이지마다 하나씩 **RecognizedForm** 개체 컬렉션이 됩니다. 다음 코드는 분석 결과를 콘솔에 출력합니다. 인식된 각 필드와 해당 값을 신뢰도 점수와 함께 출력합니다.
 

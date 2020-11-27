@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: ee9f49463e8e6749d29c810afaf7337cc99a98e8
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: a47475ad55c5e6262dc8ba1a384d89b9721fd2e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616045"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736428"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>자습서: Python으로 TensorFlow 모델 실행
 
@@ -34,7 +34,7 @@ Custom Vision Service에서 [TensorFlow 모델을 내보낸](./export-your-model
 
 다음으로, 다음과 같은 패키지를 설치해야 합니다.
 
-```
+```bash
 pip install tensorflow
 pip install pillow
 pip install numpy
@@ -43,7 +43,7 @@ pip install opencv-python
 
 ## <a name="load-your-model-and-tags"></a>모델 및 태그 로드
 
-다운로드한 zip 파일에는 model.pb 및 labels.txt가 포함되어 있습니다. 이러한 파일은 학습된 모델 및 분류 레이블을 나타냅니다. 첫 번째 단계는 프로젝트에 모델을 로드하는 것입니다.
+다운로드한 zip 파일에는 _model.pb_ 및 _labels.txt_ 가 포함되어 있습니다. 이러한 파일은 학습된 모델 및 분류 레이블을 나타냅니다. 첫 번째 단계는 프로젝트에 모델을 로드하는 것입니다. 새 Python 스크립트에 다음 코드를 추가합니다.
 
 ```Python
 import tensorflow as tf
@@ -126,6 +126,8 @@ augmented_image = crop_center(augmented_image, network_input_size, network_input
 
 ```
 
+### <a name="add-helper-functions"></a>도우미 함수 추가
+
 위의 단계는 다음과 같은 도우미 함수를 사용합니다.
 
 ```Python
@@ -191,7 +193,7 @@ with tf.compat.v1.Session() as sess:
         exit(-1)
 ```
 
-## <a name="view-the-results"></a>결과 보기
+## <a name="display-the-results"></a>결과 표시
 
 모델을 통해 이미지 텐서를 실행한 결과를 레이블에 다시 매핑해야 합니다.
 
