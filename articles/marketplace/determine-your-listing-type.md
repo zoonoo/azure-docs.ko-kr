@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 11/16/2020
-ms.openlocfilehash: 38f65253791f28d9ae9806bea1264e594b769b19
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: aaf0374bcafdb91f316b7133de1c2d019b12b285
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94741912"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302863"
 ---
 # <a name="introduction-to-listing-options"></a>목록 옵션 소개
 
@@ -145,7 +145,7 @@ Virtual machine 제품의 경우 고객은 평가 기간 동안 제품 사용에
 
 AppSource의 &#42; SaaS 불가능 제품은 현재 신용 카드만 제공 합니다.
 
-&#42;&#42; Microsoft 365 추가 기능은 무료로 설치할 수 있으며 SaaS 제품을 사용 하 여 수익 화할 수 있습니다. 자세한 내용은 [Microsoft 상업용 Marketplace를 통해 Office 365 추가 기능으로 수익 창출](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace.md)을 참조하세요.
+&#42;&#42; Microsoft 365 추가 기능은 무료로 설치할 수 있으며 SaaS 제품을 사용 하 여 수익 화할 수 있습니다. 자세한 내용은 [Microsoft 상업용 Marketplace를 통해 Office 365 추가 기능으로 수익 창출](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)을 참조하세요.
 
 ## <a name="marketplace-rewards"></a>Marketplace 보상
 

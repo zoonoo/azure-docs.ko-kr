@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: cd9f4ad6b6831b2b15c09b37edc569b3f2d247f7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f75907dc1fa079cebb3b80874090c658fd7b8174
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958210"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302832"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Azure Data Box Azure Key Vault에서 고객이 관리 하는 키 사용
 
@@ -103,7 +103,7 @@ Azure Portal의 기존 Data Box 주문에 대해 고객이 관리 하는 키를 
 
     ![사용할 id 선택](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)
 
-    여기에서는 새 사용자 id를 만들 수 없습니다. 계정을 만드는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 사용자 할당 관리 id에 역할 만들기, 나열, 삭제 또는 할당](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)을 참조 하세요.
+    여기에서는 새 사용자 id를 만들 수 없습니다. 계정을 만드는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 사용자 할당 관리 id에 역할 만들기, 나열, 삭제 또는 할당](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)을 참조 하세요.
 
     선택한 사용자 id가 **암호화 유형** 설정에 표시 됩니다.
 

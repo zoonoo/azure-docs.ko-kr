@@ -3,16 +3,16 @@ title: Azure Migrate Server 평가에서 에이전트 기반 종속성 분석 �
 description: 이 문서에서는 Azure Migrate Server 평가에서 에이전트 기반 종속성 분석을 설정 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 17c6e3e24596727350b11946bdf6896e22d41529
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 58c1aeea00ae033def0f45d220c12d13cc28b4b2
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028965"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302851"
 ---
 # <a name="set-up-dependency-visualization"></a>종속성 시각화 설정
 
-이 문서에서는 Azure Migrate: 서버 평가에서 에이전트 없는 종속성 분석을 설정 하는 방법을 설명 합니다. [종속성 분석](concepts-dependency-visualization.md) 을 사용 하면 평가 하 고 Azure로 마이그레이션하려는 컴퓨터 간의 종속성을 식별 하 고 이해할 수 있습니다.
+이 문서에서는 Azure Migrate: 서버 평가에서 에이전트 기반 종속성 분석을 설정 하는 방법을 설명 합니다. [종속성 분석](concepts-dependency-visualization.md) 을 사용 하면 평가 하 고 Azure로 마이그레이션하려는 컴퓨터 간의 종속성을 식별 하 고 이해할 수 있습니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 

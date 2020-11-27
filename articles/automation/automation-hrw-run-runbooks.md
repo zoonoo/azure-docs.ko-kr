@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2f1c703f2bd2e90e15c566b7e04e8a878c16f6de
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b73fa80085cc0491c8b4d0856d0baacfef1b51c0
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001272"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301535"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -22,7 +22,7 @@ Hybrid Runbook Worker에서 실행되도록 Runbook을 작성하는 경우, 해�
 
 Azure Automation는 Azure 샌드박스에서 실행 되는 작업과는 다른 Hybrid Runbook Worker 작업을 처리 합니다. 장기 실행 Runbook의 경우 다시 시작할 수 있는 복원력이 있는지 확인해야 합니다. 작업 동작에 대한 자세한 내용은 [Hybrid Runbook Worker 작업](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-jobs)을 참조하세요.
 
-Hybrid Runbook Worker에 대 한 작업은 Windows의 로컬 **시스템** 계정 또는 Linux의 **nxautomation** 계정에서 실행 됩니다. Linux의 경우 **nxautomation** 계정에 runbook 모듈이 저장 된 위치에 대 한 액세스 권한이 있는지 확인 합니다. [Install-Module](/powershell/module/powershellget/install-module) cmdlet을 사용할 때는 **nxautomation** 계정이 액세스 권한을 갖도록 `Scope` 매개 변수에 AllUsers를 지정하세요. Linux의 PowerShell에 대한 자세한 내용은 [비 Windows 플랫폼에서 PowerShell의 알려진 문제](/powershell/scripting/whats-new/known-issues-ps6#known-issues-for-powershell-on-non-windows-platforms)를 참조하세요.
+Hybrid Runbook Worker에 대 한 작업은 Windows의 로컬 **시스템** 계정 또는 Linux의 **nxautomation** 계정에서 실행 됩니다. Linux의 경우 **nxautomation** 계정에 runbook 모듈이 저장 된 위치에 대 한 액세스 권한이 있는지 확인 합니다. [Install-Module](/powershell/module/powershellget/install-module) cmdlet을 사용할 때는 **nxautomation** 계정이 액세스 권한을 갖도록 `Scope` 매개 변수에 AllUsers를 지정하세요. Linux의 PowerShell에 대한 자세한 내용은 [비 Windows 플랫폼에서 PowerShell의 알려진 문제](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1)를 참조하세요.
 
 ## <a name="configure-runbook-permissions"></a>Runbook 사용 권한 구성
 

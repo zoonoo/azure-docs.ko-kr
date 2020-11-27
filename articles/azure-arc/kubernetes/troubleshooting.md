@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Arc 사용 Kubernetes 클러스터를 통한 일반적인 문제를 해결합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.openlocfilehash: 4a8f4c652f1ab73e0b9979f77d7de5014c8d31a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e05701b92d2d96074a07e0e61ce65145a1d9dfd
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540611"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302388"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Azure Arc 사용 Kubernetes 문제 해결(미리 보기)
 
@@ -69,7 +69,7 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-모든 Pod는 `STATUS`를 `Running`으로 표시해야 하며 `READY`은 `3/3` 또는 `2/2`여야 합니다. 로그를 가져오고 `Error` 또는 `CrashLoopBackOff`를 반환하는 Pod를 설명합니다. 이러한 pod가 상태를 유지 하는 경우 `Pending` 클러스터 노드에 리소스가 부족 하기 때문일 수 있습니다. [클러스터를 확장](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#resizing-a-cluster) 하면 이러한 pod이 상태로 전환 됩니다 `Running` .
+모든 Pod는 `STATUS`를 `Running`으로 표시해야 하며 `READY`은 `3/3` 또는 `2/2`여야 합니다. 로그를 가져오고 `Error` 또는 `CrashLoopBackOff`를 반환하는 Pod를 설명합니다. 이러한 pod가 상태를 유지 하는 경우 `Pending` 클러스터 노드에 리소스가 부족 하기 때문일 수 있습니다. [클러스터를 확장](https://kubernetes.io/docs/tasks/administer-cluster/) 하면 이러한 pod이 상태로 전환 됩니다 `Running` .
 
 ## <a name="connecting-kubernetes-clusters-to-azure-arc"></a>Azure Arc에 Kubernetes 클러스터 연결
 

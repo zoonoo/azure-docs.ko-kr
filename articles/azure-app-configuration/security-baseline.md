@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 61dc3b9376737f89643473dffc3c915d3e0d9c44
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a885f027250a915347fea758c7c7978af0f45f49
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183450"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302515"
 ---
 # <a name="azure-security-baseline-for-azure-app-configuration"></a>Azure 앱 구성에 대 한 Azure 보안 기준
 
@@ -94,7 +94,7 @@ Azure 앱 구성은 웹 응용 프로그램을 실행 하기 위한 것이 아�
 
 - [Azure Marketplace에 타사 ID 기능이 포함 되어 있습니다.](https://azuremarketplace.microsoft.com/marketplace?search=IDS)
 
-- [Microsoft Defender ATP EDR 기능](/windows/security/threat-protection/microsoft-defender-atp/overviewendpoint-detection-response)
+- [Microsoft Defender ATP EDR 기능](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -327,7 +327,7 @@ Azure AD 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라�
 
 - [Privileged Identity Management (PIM)에서 Azure 리소스 역할에 대 한 액세스 검토 만들기](../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md) 
 
-- [Azure AD ID 및 액세스 검토를 사용하는 방법](/azure/active-directory/governance/access-reviews-overvie)
+- [Azure AD ID 및 액세스 검토를 사용하는 방법](/azure/active-directory/governance/access-reviews-overview)
 
 - [Azure AD를 사용 하 여 Azure 앱 구성에 대 한 액세스 권한 부여](concept-enable-rbac.md)
 
@@ -477,7 +477,7 @@ Azure는 기본적으로 미사용 데이터 암호화를 제공 합니다. 매�
 
 ## <a name="asset-management"></a>자산 관리
 
-*자세한 내용은 [Azure Security Benchmark: 자산 관리](../security/benchmarks/security-controls-v2-asset-management.md)를 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)를 참조하세요.*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: 보안 팀에서 자산 위험에 대한 가시성을 확보하도록 보장
 
@@ -553,7 +553,7 @@ Azure 리소스, 리소스 그룹 및 구독에 태그를 적용 하 여 논리�
 
 ## <a name="logging-and-threat-detection"></a>로깅 및 위협 탐지
 
-*자세한 내용은 [Azure Security Benchmark: 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-protection)를 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)를 참조하세요.*
 
 ### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Azure ID 및 액세스 관리에 위협 탐지 사용
 
@@ -746,7 +746,7 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 ## <a name="posture-and-vulnerability-management"></a>보안 상태 및 취약성 관리
 
-*자세한 내용은 [Azure Security Benchmark: 보안 상태 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-vulnerability-management)를 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 보안 상태 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)를 참조하세요.*
 
 ### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1: Azure 서비스에 대 한 보안 구성 설정 
 
@@ -846,9 +846,9 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 - [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Azure Security Benchmark - 자산 관리](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Azure Security Benchmark - 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)
 
-- [Azure Security Benchmark - 데이터 보호](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Azure Security Benchmark - 데이터 보호](/azure/security/benchmarks/security-controls-v2-data-protection)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -876,7 +876,7 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 **지침**: 개별 자산과 해당 자산이 호스팅되는 환경에 대한 위험을 지속적으로 측정하고 완화합니다. 게시된 애플리케이션, 네트워크 수신 및 송신 지점, 사용자 및 관리자 엔드포인트 등과 같이 높은 가치의 자산과 높은 수준의 공격 노출 영역에 대한 우선 순위를 지정합니다.
 
-- [Azure Security Benchmark - 보안 상태 및 취약성 관리](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - 보안 상태 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -917,7 +917,7 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 자세한 내용은 다음 참조 문서를 참조하세요.
 - [Azure 보안 모범 사례 11 - 아키텍처: 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark - 네트워크 보안](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Azure Security Benchmark - 네트워크 보안](/azure/security/benchmarks/security-controls-v2-network-security)
 
 - [Azure 네트워크 보안 개요](../security/fundamentals/network-overview.md)
 
@@ -945,9 +945,9 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
-- [Azure Security Benchmark - ID 관리](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Azure Security Benchmark - ID 관리](/azure/security/benchmarks/security-controls-v2-identity-management)
 
-- [Azure Security Benchmark - 권한 있는 액세스](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Azure Security Benchmark - 권한 있는 액세스](/azure/security/benchmarks/security-controls-v2-privileged-access)
 
 - [Azure 보안 모범 사례 11 - 아키텍처: 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -979,9 +979,9 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
-- [Azure Security Benchmark - 로깅 및 위협 탐지](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Azure Security Benchmark - 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Azure Security Benchmark - 인시던트 대응](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark - 인시던트 대응](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Azure 보안 모범 사례 4 - 프로세스. 클라우드에 대한 인시던트 대응 프로세스 업데이트](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

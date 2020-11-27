@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 VMware VM의 에이전트 기반 마�
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: ffdbdba0aeae33b04195c5a6bf6aeaff5658424b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 437dbce1c577b5d837ad0c70e8e8865ba59cf9e6
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012240"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302767"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMware VM을 Azure로 마이그레이션(에이전트 기반)
 
@@ -134,35 +134,6 @@ VMware 서버와 VM에서 Azure로 마이그레이션하기 위한 요구 사항
 > [!NOTE]
 > Azure Migrate 서버 마이그레이션을 사용하는 에이전트 기반 마이그레이션은 Azure Site Recover 서비스의 기능을 기반으로 합니다. 일부 요구 사항은 Site Recovery 설명서에 연결될 수 있습니다.
 
-
-
-## <a name="add-the-azure-migrateserver-migration-tool"></a>Azure Migrate:Server Migration 도구 추가
-
-Azure Migrate 프로젝트가 아직 없는 경우 지금 [설정](how-to-add-tool-first-time.md)하고, Server Migration 도구를 추가합니다.
-
-프로젝트가 있는 경우 다음과 같이 도구를 추가합니다.
-
-1. Azure Portal > **모든 서비스** 에서 **Azure Migrate** 를 검색합니다.
-2. **서비스** 아래에서 **Azure Migrate** 를 선택합니다.
-
-    ![Azure Migrate 설정](./media/tutorial-migrate-vmware-agent/azure-migrate-search.png)
-
-3. **개요** 에서 **서버 평가 및 마이그레이션** 을 클릭합니다.
-4. **서버 검색, 평가 및 마이그레이션** 아래에서 **서버 평가 및 마이그레이션** 을 클릭합니다.
-
-    ![서버 검색 및 평가](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
-
-1. **서버 검색, 평가 및 마이그레이션** 에서 **도구 추가** 를 클릭합니다.
-2. **프로젝트 마이그레이션** 에서 Azure 구독을 선택하고, 아직 없는 경우 리소스 그룹을 만듭니다.
-3. **프로젝트 세부 정보** 에서 프로젝트 이름과 프로젝트를 만들려는 지역을 지정하고, **다음** 을 클릭합니다. [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
-
-    ![Azure Migrate 프로젝트 만들기](./media/tutorial-migrate-vmware-agent/migrate-project.png)
-
-
-4. **평가 도구 선택** 에서 **평가 도구 추가 건너뛰기** > **다음** 을 차례로 선택합니다.
-5. **마이그레이션 도구 선택** 에서 **Azure Migrate: 서버 마이그레이션** > **다음** 을 차례로 선택합니다.
-6. **검토 + 도구 추가** 에서 설정을 검토하고, **도구 추가** 를 클릭합니다.
-7. 도구가 추가되면 Azure Migrate 프로젝트 > **서버** > **마이그레이션 도구** 에 표시됩니다.
 
 ## <a name="set-up-the-replication-appliance"></a>복제 어플라이언스 설정
 

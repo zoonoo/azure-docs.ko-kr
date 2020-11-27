@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5b9c41209902e384988064207bb3e1ded1c47477
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 691bb538ea0f46e26c318a68e9f66a9a986eb5d4
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182957"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301842"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>App Service에 대 한 Azure 보안 기준
 
@@ -168,7 +168,7 @@ Azure 방화벽 장치를 통해 모든 응용 프로그램 트래픽 아웃 바
 
 - [포털에서 Application Gateway를 사용 하 여 종단 간 TLS를 구성 하는 방법](../application-gateway/end-to-end-ssl-portal.md)
 
-- [App Service 잠금에 설명 된 대로 ASE를 보호 합니다.](https://review.docs.microsoft.com/azure/app-service/environment/firewall-integrationEnvironment:)
+- [App Service 잠금에 설명 된 대로 ASE를 보호 합니다.](/azure/app-service/environment/firewall-integration)
 
 **Azure Security Center 모니터링**: 예
 
@@ -205,7 +205,7 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 
 - [포털에서 Application Gateway를 사용 하 여 종단 간 TLS를 구성 하는 방법](../application-gateway/end-to-end-ssl-portal.md)
 
-- [App Service 잠금에 설명 된 대로 ASE를 보호 합니다.](https://review.docs.microsoft.com/azure/app-service/environment/firewall-integrationEnvironment:)
+- [App Service 잠금에 설명 된 대로 ASE를 보호 합니다.](/azure/app-service/environment/firewall-integration)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -221,7 +221,7 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 
 - [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-- [Azure App Service 액세스 제한](/azure/app-service/app-service-ip-restriction)
+- [Azure App Service 액세스 제한](/azure/app-service/app-service-ip-restrictions)
 
 **Azure Security Center 모니터링**: 해당 없음
 

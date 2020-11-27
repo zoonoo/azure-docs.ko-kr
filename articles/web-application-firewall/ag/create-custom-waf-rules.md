@@ -8,12 +8,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: f164418c29e9838928f3d03519342ebef40e16e7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b14bd60ab744be5a1735abc073f32f8ebc3e1ab1
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015700"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301707"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Application Gateway에서 웹 응용 프로그램 방화벽 v2 사용자 지정 규칙 만들기 및 사용
 
@@ -21,7 +21,7 @@ Azure 애플리케이션 Gateway의 WAF (웹 응용 프로그램 방화벽) v2�
 
 이 문서에서는 v2 WAF에서 만들고 사용할 수 있는 몇 가지 예제 사용자 지정 규칙을 보여 줍니다. Azure PowerShell를 사용 하 여 사용자 지정 규칙으로 WAF를 배포 하는 방법을 알아보려면 [Azure PowerShell를 사용 하 여 웹 응용 프로그램 방화벽 사용자 지정 규칙 구성](configure-waf-custom-rules.md)을 참조 하세요.
 
-이 문서에 표시 된 JSON 코드 조각은 [ApplicationGatewayWebApplicationFirewallPolicies](/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) 리소스에서 파생 됩니다.
+이 문서에 표시 된 JSON 코드 조각은 [ApplicationGatewayWebApplicationFirewallPolicies](/azure/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) 리소스에서 파생 됩니다.
 
 >[!NOTE]
 > Application Gateway에서 WAF 계층을 사용하지 않는 경우 Application Gateway를 WAF 계층으로 업그레이드하는 옵션이 오른쪽 창에 표시됩니다.

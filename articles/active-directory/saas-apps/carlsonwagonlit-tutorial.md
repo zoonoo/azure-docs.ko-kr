@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 04399dc82a3bd2d70b8b472b121e95a73ca43136
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9c27139e2dca37c1ff8d963e1e8cdb5de682d39d
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009622"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302955"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>자습서: Carlson Wagonlit Travel과 Azure Active Directory 통합
 
@@ -119,7 +119,7 @@ Carlson Wagonlit Travel에서 Azure AD Single Sign-On을 구성하려면 다음 
 
 ### <a name="configure-carlson-wagonlit-travel-single-sign-on"></a>Carlson Wagonlit Travel Single Sign-On 구성
 
-**Carlson Wagonlit Travel** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 URL을 [Carlson Wagonlit Travel 지원 팀](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Carlson Wagonlit Travel** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 URL을 [Carlson Wagonlit Travel 지원 팀](https://www.mycwt.com/traveler-help/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -174,7 +174,7 @@ Carlson Wagonlit Travel에서 Azure AD Single Sign-On을 구성하려면 다음 
 
 ### <a name="create-carlson-wagonlit-travel-test-user"></a>Carlson Wagonlit Travel 테스트 사용자 만들기
 
-이 섹션에서는 Carlson Wagonlit Travel에서 Britta Simon이라는 사용자를 만듭니다. [Carlson Wagonlit Travel 지원 팀](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html)과 협력하여 Carlson Wagonlit Travel 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Carlson Wagonlit Travel에서 Britta Simon이라는 사용자를 만듭니다. [Carlson Wagonlit Travel 지원 팀](https://www.mycwt.com/traveler-help/)과 협력하여 Carlson Wagonlit Travel 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

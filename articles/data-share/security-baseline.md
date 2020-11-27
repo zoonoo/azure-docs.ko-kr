@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7bf78194b50e2e2335d807504ebca5f8a0e9f0eb
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 88feb08851e0b69e31218a42fe877112561bddba
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849213"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301661"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Azure 데이터 공유에 대 한 azure 보안 기준
 
@@ -108,7 +108,7 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 **지침**: Azure 데이터 공유는 AZURE ACTIVE DIRECTORY로 SSO 인증을 지원 합니다. 조직의 기존 id를 사용 하 여 서비스에 대해 SSO를 사용 하도록 설정 하 여 사용자가 관리 해야 하는 id 및 자격 증명의 수를 줄입니다.
 
-- [Azure AD를 사용 하 여 SSO 이해](/azure/active-directory/manage-apps/what-is-single-sign-o)
+- [Azure AD를 사용 하 여 SSO 이해](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -143,7 +143,7 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 **지침**: Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
 
 - [Azure 데이터 공유는 일반적인 Azure 역할에서 작동 합니다. ](../role-based-access-control/built-in-roles.md#general)
 
@@ -157,7 +157,7 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 - [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/) 
 
-- [Azure AD id 및 액세스 검토를 사용 하는 방법](../active-directory/governance/access-reviews-overview.md) 
+- [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md) 
 
 - [Azure 데이터 공유는 일반적인 Azure 역할에서 작동 합니다. ](../role-based-access-control/built-in-roles.md#general)
 
@@ -199,7 +199,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure 데이터 공유 리소스와 관련 된 데이터 및 리소스에 대 한 액세스를 관리 하 고, 그렇지 않은 경우 서비스 특정 액세스 제어 방법을 사용 합니다.
 
-- [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md) 
+- [Azure에서 RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md) 
 
 **Azure Security Center 모니터링**: 예
 

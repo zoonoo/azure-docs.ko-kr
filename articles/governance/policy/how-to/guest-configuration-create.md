@@ -3,12 +3,12 @@ title: Windows용 게스트 구성 정책을 만드는 방법
 description: Windows용 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: ea9b40006deefbac2c253082eda4ef2da12149a4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 124f747a1e7c7925efc2519ee826d62034e69cc5
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700682"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302685"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Windows용 게스트 구성 정책을 만드는 방법
 
@@ -160,7 +160,7 @@ class ResourceName : OMI_BaseResource
 
 PowerShell cmdlet은 패키지를 만드는 데 도움이 됩니다.
 루트 수준 폴더 또는 버전 폴더는 필요하지 않습니다.
-패키지 형식은 .zip 파일이어야 합니다.
+패키지 형식은 .zip 파일 이어야 하며 압축 되지 않은 경우 전체 크기 (100MB)를 초과할 수 없습니다.
 
 ### <a name="storing-guest-configuration-artifacts"></a>게스트 구성 아티팩트 저장
 

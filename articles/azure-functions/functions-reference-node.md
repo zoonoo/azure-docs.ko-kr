@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: d32c63332c530ec05eb9f93661a8f2a0c5d8264c
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 21ab58095fa919e6302251c16e474b02f1445993
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94743323"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301989"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -323,7 +323,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 기본 수준 외에도 다음과 같은 로깅 메서드를 사용 하 여 특정 추적 수준에서 함수 로그를 쓸 수 있습니다.
 
-| 메서드                 | 설명                                |
+| 방법                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **오류 (_메시지_)**   | 로그에 오류 수준 이벤트를 씁니다.   |
 | **warn(_message_)**    | 로그에 경고 수준 이벤트를 씁니다. |
@@ -426,7 +426,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.req`(요청) 개체의 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                    |
+| 속성      | Description                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 요청의 본문을 포함하는 개체입니다.               |
 | _머리글과_     | 요청 헤더를 포함하는 개체입니다.                   |
@@ -441,7 +441,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.res`(응답) 개체의 속성은 다음과 같습니다.
 
-| 속성  | 설명                                               |
+| 속성  | Description                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 응답의 본문을 포함하는 개체입니다.         |
 | _머리글과_ | 응답 헤더를 포함하는 개체입니다.             |
@@ -551,7 +551,7 @@ module.exports = function(context) {
 
 
 ### <a name="using-kudu"></a>Kudu 사용
-1. `https://<function_app_name>.scm.azurewebsites.net` 로 이동합니다.
+1. [https://editor.swagger.io](`https://<function_app_name>.scm.azurewebsites.net`) 로 이동합니다.
 
 2. **디버그 콘솔**  >  **CMD** 를 클릭 합니다.
 
@@ -567,7 +567,7 @@ module.exports = function(context) {
 
 ### <a name="in-local-development-environment"></a>로컬 개발 환경
 
-로컬로 실행 하는 경우 함수 프로젝트에는 환경 변수를 개체에 저장 하는 [ `local.settings.json` 파일이](/functions-run-local.md?tabs=node#local-settings-file)포함 됩니다 `Values` . 
+로컬로 실행 하는 경우 함수 프로젝트에는 환경 변수를 개체에 저장 하는 [ `local.settings.json` 파일이](/azure/azure-functions/functions-run-local)포함 됩니다 `Values` . 
 
 ```json
 {

@@ -7,21 +7,21 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: troubleshooting
-ms.date: 11/26/2020
-ms.openlocfilehash: f07cc8e3d5e9d6f59671a3c8c2efd9f5fb9f27b7
-ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
+ms.date: 11/27/2020
+ms.openlocfilehash: e0b4b31a1d732cbd5cbfaa9b6e5e021caa3adf01
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96299059"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301959"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>ADF의 CI-CD, Azure DevOps 및 GitHub 문제 해결 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 CI CD, Azure DevOps 및 GitHub 문제에 대 한 일반적인 문제 해결 방법을 살펴봅니다.
+이 문서에서는 Azure Data Factory의 CI (지속적인 Integration-Continuous 배포), Azure DevOps 및 GitHub 문제에 대 한 일반적인 문제 해결 방법을 살펴봅니다.
 
-원본 제어 또는 DevOps 기술 사용에 대 한 질문이 나 문제가 있는 경우 다음과 같은 몇 가지 유용한 문서를 확인할 수 있습니다.
+원본 제어 또는 DevOps 기술 사용에 대 한 질문이 나 문제가 있는 경우 다음과 같은 몇 가지 문서를 유용 하 게 사용할 수 있습니다.
 
 - Adf에서 원본 제어를 연습 하는 방법을 알아보려면 [adf의 원본 제어](source-control.md) 를 참조 하세요. 
 - Adf에서 DevOps CI-CD를 연습 하는 방법에 대 한 자세한 내용은  [adf의 ci-cd](continuous-integration-deployment.md) 를 참조 하세요.
@@ -158,9 +158,5 @@ ARM 템플릿을 내보내고 가져올 수 없습니다. 포털에 오류가 �
 *  [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure 비디오](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Microsoft Q&A 질문 페이지](/answers/topics/azure-data-factory.html)
 *  [Data Factory에 대 한 스택 오버플로 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Data Factory에 대한 Twitter 정보](https://twitter.com/hashtag/DataFactory)
-
-
- 

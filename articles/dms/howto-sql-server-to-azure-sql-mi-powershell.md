@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 9e1c45b99138a05ef78976b90f65f57304e676ff
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: aa97fa5e92d4afe11cf8af5f7cfd3458a3c12014
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962776"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302723"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>PowerShell &를 사용 하 여 SQL Managed Instance로 SQL Server 마이그레이션 Azure Database Migration Service
 
@@ -35,7 +35,7 @@ ms.locfileid: "94962776"
 
 이 문서에는 온라인 및 오프 라인 마이그레이션을 모두 수행 하는 방법에 대 한 세부 정보가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 단계를 완료하려면 다음이 필요합니다.
 
@@ -78,9 +78,9 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 
 * *Azure 리소스 그룹 이름* 입니다. [`New-AzResourceGroup`](/powershell/module/az.resources/new-azresourcegroup)명령을 사용 하 여 이전에 표시 된 대로 Azure 리소스 그룹을 만들고 해당 이름을 매개 변수로 제공할 수 있습니다.
 * *서비스 이름* 입니다. Azure Database Migration Service의 원하는 고유 서비스 이름에 해당 하는 문자열입니다.
-* *위치*. 서비스의 위치를 지정합니다. 미국 서 부 또는 동남 아시아와 같은 Azure 데이터 센터 위치를 지정 합니다.
+* *위치* - 서비스의 위치를 지정합니다. 미국 서 부 또는 동남 아시아와 같은 Azure 데이터 센터 위치를 지정 합니다.
 * *Sku*. 이 매개 변수는 DMS Sku 이름에 해당합니다. 현재 지원 되는 Sku 이름은 *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores* 입니다.
-* *가상 서브넷 식별자*. Cmdlet을 사용 하 여 [`New-AzVirtualNetworkSubnetConfig`](//powershell/module/az.network/new-azvirtualnetworksubnetconfig) 서브넷을 만들 수 있습니다.
+* *가상 서브넷 식별자*. Cmdlet을 사용 하 여 [`New-AzVirtualNetworkSubnetConfig`](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) 서브넷을 만들 수 있습니다.
 
 다음 예제에서는 *Mydms* 이라는 가상 네트워크와 *mydms* 이라는 서브넷을 사용 하 여 *미국 동부* 지역에 있는 *Mydmsresourcegroup* 리소스 그룹에 *mydms* 라는 서비스를 만듭니다.
 

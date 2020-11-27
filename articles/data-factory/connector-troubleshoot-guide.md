@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 11/25/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2e54c0b09c3dbe398b0522d0ad9ad2314e29ed26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dcc84dc252001721a3848a008a3db80dcc7822d2
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023843"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301260"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
 
@@ -440,7 +440,7 @@ ms.locfileid: "96023843"
 
 - **메시지**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **원인**: 작업에서 'firstRowAsHeader'를 설정하는 경우 첫 번째 행이 열 이름으로 사용됩니다. 이 오류는 첫 번째 행에 빈 값이 포함되어 있음을 의미합니다. 예: ' ColumnA,, Columna '.
+- **원인**: 작업에서 'firstRowAsHeader'를 설정하는 경우 첫 번째 행이 열 이름으로 사용됩니다. 이 오류는 첫 번째 행에 빈 값이 포함되어 있음을 의미합니다. 예: ' ColumnA, Columna '.
 
 - **권장 사항**:  첫 번째 행을 확인하고 빈 값이 있으면 값을 수정합니다.
 
@@ -449,7 +449,7 @@ ms.locfileid: "96023843"
 
 - **메시지**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
 
-- **원인**: 문제가 있는 행의 열 개수가 첫 번째 행의 열 개수보다 큽니다. 데이터 문제 또는 잘못된 열 구분 기호/따옴표 문자 설정으로 인한 것일 수 있습니다.
+- **원인**: 문제가 있는 행의 열 개수가 첫 번째 행의 열 개수 보다 큽니다. 데이터 문제 또는 잘못된 열 구분 기호/따옴표 문자 설정으로 인한 것일 수 있습니다.
 
 - **권장 사항**: 오류 메시지에서 행 개수를 가져오고 행의 열을 확인 하 고 데이터를 수정 합니다.
 
@@ -645,6 +645,29 @@ ms.locfileid: "96023843"
 
 - **권장 사항**:  페이로드에서 'CompressionType'을 제거합니다.
 
+
+## <a name="rest"></a>REST (영문)
+
+### <a name="unexpected-network-response-from-rest-connector"></a>REST 커넥터에서 예기치 않은 네트워크 응답
+
+- **증상**: 끝점이 REST 커넥터에서 예기치 않은 응답 (400/401/403/500)을 수신 하는 경우도 있습니다.
+
+- **원인**: REST 원본 커넥터는 http 요청을 생성할 때 연결 된 서비스/데이터 집합/복사 원본의 URL 및 http 메서드/헤더를 매개 변수로 사용 합니다. 이 문제는 하나 이상의 지정 된 매개 변수에서 일부 실수로 인해 발생 했을 수 있습니다.
+
+- **해결 방법**: 
+    - Cmd 창에서 ' 말아 '를 사용 하 여 매개 변수가 원인 인지 여부를 확인 합니다 (**Accept** 및 **사용자 에이전트** 헤더는 항상 포함 되어야 함).
+        ```
+        curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
+        ```
+      명령에서 예기치 않은 동일한 응답을 반환 하는 경우 예상 되는 응답을 반환할 때까지 ' a s e '로 위의 매개 변수를 수정 하세요. 
+
+      또한 명령의 고급 사용을 위해 ' 말아--help '를 사용할 수도 있습니다.
+
+    - ADF REST 커넥터도 예기치 않은 응답을 반환 하는 경우 Microsoft 지원에 문의 하 여 문제를 해결 하세요.
+    
+    - ' A s s '는 SSL 인증서 유효성 검사 문제를 재현 하는 데 적합 하지 않을 수 있습니다. 일부 시나리오에서는 SSL 인증서 유효성 검사 문제를 해결 하지 않고 ' 말아 ' 명령이 성공적으로 실행 되었습니다. 그러나 동일한 URL이 브라우저에서 실행 되는 경우 클라이언트에서 서버와의 트러스트를 설정 하기 위해 처음에는 SSL 인증서가 실제로 반환 되지 않습니다.
+
+      위의 경우에는 **Postman** 및 **Fiddler** 와 같은 도구를 권장 합니다.
 
 
 ## <a name="general-copy-activity-error"></a>일반 복사 작업 오류

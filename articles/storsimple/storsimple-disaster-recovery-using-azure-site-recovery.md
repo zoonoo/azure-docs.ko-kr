@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 6d98f1a1dfb575f4af8b666d173f9354b5eeac6b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e2d89718d953f05b3e5500db412ac8ac03bfa00b
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966261"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301937"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>StorSimple에서 호스트되는 파일 공유에 Azure Site Recovery를 사용하는 자동화된 재해 복구 솔루션
 
@@ -37,14 +37,14 @@ Azure Site Recovery, 가상 머신 복제 및 StorSimple 클라우드 스냅샷 
 ## <a name="supported-azure-site-recovery-deployment-options"></a>지원되는 Azure Site Recovery 배포 옵션
 고객은 파일 서버를 Hyper-V 또는 VMware에서 실행되는 물리적 서버 또는 VM(가상 머신)으로 배포한 다음 StorSimple 스토리지의 잘라낸 볼륨에서 파일 공유를 만들 수 있습니다. Azure Site Recovery는 보조 사이트 또는 Azure에 대한 실제 배포와 가상 배포를 모두 보호할 수 있습니다. 이 문서에서는 Hyper-V에서 호스트되는 파일 서버 VM에 대한 복구 사이트로 Azure를 사용하고 StorSimple 스토리지의 파일 공유를 사용하는 DR 솔루션의 세부 정보를 다룹니다. 파일 서버 VM이 VMware VM 또는 물리적 컴퓨터에 있는 다른 시나리오도 유사하게 구현할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 StorSimple 스토리지에서 호스트되는 파일 공유에 Azure Site Recovery를 사용하는 원클릭 재해 복구 솔루션을 구현할 경우 다음과 같은 필수 조건이 있습니다.
 
    - Hyper-V 또는 VMware나 물리적 컴퓨터에서 호스트되는 온-프레미스 Windows Server 2012 R2 파일 서버 VM
    - Azure StorSimple Manager에 등록된 온-프레미스 StorSimple 스토리지 디바이스
    - Azure StorSimple Manager에서 만들어진 StorSimple Cloud Appliance 어플라이언스를 종료 상태로 유지할 수 있습니다.
    - StorSimple 스토리지 디바이스에 구성된 볼륨에서 호스트되는 파일 공유
-   - [Azure Site Recovery 서비스 자격 증명 모음](/azure/storsimple/hyper-v-vmm-disaster-recovery)
+   - [Azure Site Recovery 서비스 자격 증명 모음](/azure/site-recovery/hyper-v-vmm-azure-tutorial)
 
 또한 Azure가 복구 사이트인 경우 VM에서 [Azure Virtual Machine 준비 평가 도구](https://azure.microsoft.com/downloads/vm-readiness-assessment/)를 실행하여 Azure VM 및 Azure Site Recovery 서비스와 호환되는지 확인합니다.
 
@@ -112,7 +112,7 @@ DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하�
    1. 파일 및 Storage 서비스 역할을 사용하여 이러한 볼륨에서 파일 공유를 만듭니다.
 
 #### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>Azure Site Recovery 자격 증명 모음을 만들고 준비하려면
-파일 서버 VM을 보호하기 전에 [Azure Site Recovery 설명서](/azure/storsimple/hyper-v-azure-tutorial) 를 참조하여 Azure Site Recovery를 시작합니다.
+파일 서버 VM을 보호하기 전에 [Azure Site Recovery 설명서](/azure/site-recovery/) 를 참조하여 Azure Site Recovery를 시작합니다.
 
 #### <a name="to-enable-protection"></a>보호를 사용하도록 설정하려면
 1. Azure Site Recovery를 통해 보호하려는 온-프레미스 VM에서 iSCSI 대상의 연결을 끊습니다.
@@ -124,7 +124,7 @@ DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하�
    > [!NOTE]
    > 이렇게 하면 파일 공유를 일시적으로 사용할 수 없게 됩니다.
    
-1. Azure Site Recovery 포털에서 파일 서버 VM의 [가상 머신 보호를 사용](/azure/storsimple/hyper-v-azure-tutorial)하도록 설정합니다.
+1. Azure Site Recovery 포털에서 파일 서버 VM의 [가상 머신 보호를 사용](/azure/site-recovery/hyper-v-azure-tutorial)하도록 설정합니다.
 1. 초기 동기화가 시작되면 대상을 다시 연결할 수 있습니다. iSCSI 초기자로 이동하여 StorSimple 디바이스를 선택한 다음 **연결** 을 클릭합니다.
 1. 동기화가 완료되고 VM 상태가 **보호됨** 이면 VM을 선택하고 **구성** 탭을 선택한 다음 VM 네트워크(장애 조치(failover)된 VM이 속할 네트워크)를 적절하게 업데이트합니다. 네트워크가 표시되지 않으면 동기화가 아직 진행되고 있는 것입니다.
 

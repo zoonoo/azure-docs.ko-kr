@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b9966d4d9ab0a37f5484ec9eb9b7e2472a6b41dc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a7fdb370847e72657829d53df019203b0a5b211b
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012920"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302574"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure Machine Learning을 사용하는 보충 학습(미리 보기)
 
@@ -117,7 +117,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="specify-a-virtual-network"></a>가상 네트워크 지정
 
-여러 컴퓨팅 대상을 사용하는 RL 작업의 경우 작업자 노드와 헤드 노드에서 서로 통신할 수 있는 개방 포트가 있는 가상 네트워크를 지정해야 합니다. 가상 네트워크는 모든 리소스 그룹에 있을 수 있지만 작업 영역과 동일한 지역에 있어야 합니다. 가상 네트워크 설정에 대한 자세한 내용은 사전 요구 사항 섹션에서 찾을 수 있는 [작업 영역 설치 Notebook](https://aka.ms/azure-rl-env-setup)을 참조하세요. 여기서는 리소스 그룹의 가상 네트워크 이름을 지정합니다.
+여러 컴퓨팅 대상을 사용하는 RL 작업의 경우 작업자 노드와 헤드 노드에서 서로 통신할 수 있는 개방 포트가 있는 가상 네트워크를 지정해야 합니다. 가상 네트워크는 모든 리소스 그룹에 있을 수 있지만 작업 영역과 동일한 지역에 있어야 합니다. 가상 네트워크 설정에 대한 자세한 내용은 사전 요구 사항 섹션에서 찾을 수 있는 작업 영역 설치 Notebook을 참조하세요. 여기서는 리소스 그룹의 가상 네트워크 이름을 지정합니다.
 
 ```python
 vnet = 'your_vnet'

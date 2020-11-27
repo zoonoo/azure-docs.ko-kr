@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 9a2bda0a526c307ae17d8415f6f24423ddf51b63
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 8a4f9a5df8def928c06fe95a53c7be0d93ec76c4
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917769"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302673"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Azure HDInsight ID Broker (계층 2)
 
@@ -140,7 +140,7 @@ Beeline 및 Livy를 사용 하는 경우 [여기](https://github.com/Azure-Sampl
 
 ## <a name="faq"></a>FAQ
 ### <a name="what-app-is-created-by-hdinsight-in-aad"></a>AAD에서 HDInsight에 의해 생성 되는 앱은 무엇 인가요?
-각 클러스터에 대해 타사 응용 프로그램은 identifierUri (예:)로 클러스터 uri를 사용 하 여 AAD에 등록 됩니다 https://clustername.azurehdinsight.net .
+각 클러스터에 대해 타사 응용 프로그램은 identifierUri (예:)로 클러스터 uri를 사용 하 여 AAD에 등록 됩니다 `https://clustername.azurehdinsight.net` .
 
 ### <a name="why-are-users-prompted-for-consent-before-using-hib-enabled-clusters"></a>사용자가 설정 된 클러스터를 사용 하기 전에 동의를 요청 하는 이유는 무엇 인가요?
 AAD에서 사용자를 인증 하거나 데이터에 액세스 하기 전에 모든 타사 응용 프로그램에 대 한 동의가 필요 합니다.

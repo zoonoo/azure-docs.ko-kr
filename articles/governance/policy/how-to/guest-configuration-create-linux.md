@@ -4,12 +4,12 @@ description: Linux용 Azure Policy 게스트 구성 정책을 만드는 방법�
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1e81d1a5157cc5872ba2628c8d6cb408e35ab9c6
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 1f6308250717d35dc725b097575bf3921646c6a0
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694245"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302713"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Linux용 게스트 구성 정책을 만드는 방법
 
@@ -89,6 +89,10 @@ DSC는 InSpec에서 실행 방법, 매개 변수가 제공되는 방법 및 출�
 #### <a name="configuration-requirements"></a>구성 요구 사항
 
 사용자 지정 구성의 이름은 모든 위치에서 일관되어야 합니다. 콘텐츠 패키지용 .zip 파일의 이름, MOF 파일의 구성 이름 및 Azure Resource Manager 템플릿 (ARM 템플릿)의 게스트 할당 이름이 동일 해야 합니다.
+
+PowerShell cmdlet은 패키지를 만드는 데 도움이 됩니다.
+루트 수준 폴더 또는 버전 폴더는 필요하지 않습니다.
+패키지 형식은 .zip 파일이어야 합니다. 및는 압축 되지 않은 경우 전체 크기 (100MB)를 초과할 수 없습니다.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Linux에서 사용자 지정 게스트 구성
 
