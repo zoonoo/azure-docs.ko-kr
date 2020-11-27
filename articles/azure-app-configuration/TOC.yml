@@ -70,6 +70,8 @@
       items:
         - name: Azure Pipelines를 사용하여 푸시
           href: push-kv-devops-pipeline.md
+        - name: Azure Pipelines를 사용하여 끌어오기
+          href: pull-key-value-devops-pipeline.md
         - name: GitHub 작업을 사용하여 푸시
           href: concept-github-action.md
         - name: 내보낸 구성을 사용하여 프로젝트 빌드

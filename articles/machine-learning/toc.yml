@@ -454,7 +454,9 @@
               href: ../iot-edge/tutorial-deploy-machine-learning.md?context=%2fazure%2fmachine-learning%2fservice%2fcontext%2fml-context
             - name: FPGA 유추
               href: how-to-deploy-fpga-web-service.md
-        - name: 문제 해결 및 디버그
+        - name: 문제 해결 및 디버그(로컬)
+          href: how-to-troubleshoot-deployment-local.md
+        - name: 문제 해결 및 디버그(원격)
           href: how-to-troubleshoot-deployment.md
         - name: 웹 서비스 사용
           displayName: create client consume request response synchronous

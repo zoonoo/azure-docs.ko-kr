@@ -105,6 +105,8 @@
       href: ../../devtest-labs/security-baseline.md
     - name: Azure Firewall 보안 기준
       href: ../../firewall/security-baseline.md
+    - name: Azure Firewall Manager 보안 기준
+      href: ../../firewall-manager/security-baseline.md
     - name: Azure Front Door 보안 기준
       href: ../../frontdoor/security-baseline.md
     - name: Azure Functions 보안 기준
@@ -185,6 +187,8 @@
       href: ../../logic-apps/security-baseline.md
     - name: Network Watcher 보안 기준
       href: ../../network-watcher/security-baseline.md
+    - name: Power BI 기준
+      href: /power-bi/fundamentals/security-baseline
     - name: Security Center 기준
       href: ../../security-center/security-baseline.md
     - name: Service Bus 기준
@@ -207,5 +211,7 @@
       href: ../../virtual-network/security-baseline.md
     - name: Virtual Network NAT 보안 기준
       href: ../../virtual-network/nat-security-baseline.md
+    - name: Virtual WAN 보안 기준
+      href: ../../virtual-wan/security-baseline.md
     - name: VPN Gateway 보안 기준
       href: ../../vpn-gateway/security-baseline.md
