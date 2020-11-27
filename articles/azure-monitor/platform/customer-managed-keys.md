@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: 9715724fc0fbd25198dd3244215ac2c12638d2b8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ac785b3ad534e80d4dd240d1a29ba5f6aa75e10a
+ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185966"
+ms.locfileid: "96299042"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -538,7 +538,9 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
   1. REST를 사용 하는 경우 응답에서 Azure-AsyncOperation URL 값을 복사 하 고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 따릅니다.
   2. 클러스터 또는 작업 영역에 GET 요청을 보내고 응답을 관찰 합니다. 예를 들어 연결 되지 않은 작업 영역에는 *기능* 아래에 *clusterresourceid* 가 없습니다.
 
-- [이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) 는 지역에 이중 암호화가 있는 경우 10 월 2020에서 만든 클러스터에 대해 자동으로 구성 됩니다. 클러스터를 만들고 "<영역 이름> 클러스터에 대 한 이중 암호화를 지원 하지 않습니다." 라는 오류 메시지가 표시 되 면 클러스터를 만들 수 있지만 이중 암호화를 사용 하지 않도록 설정할 수 있습니다. 클러스터를 만든 후에는 사용 하거나 사용 하지 않도록 설정할 수 없습니다. 지역에서 이중 암호화가 지원 되지 않는 경우 클러스터를 만들려면 `"properties": {"isDoubleEncryptionEnabled": false}` REST 요청 본문을 추가 합니다.
+- [이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) 는 지원 되는 지역에서 10 월 2020 일에 만든 클러스터에 대해 자동으로 구성 됩니다. 클러스터가 클러스터에서 GET 요청을 통해 이중 암호화로 구성 되었는지 확인 하 고 속성 값을 관찰할 수 있습니다 `"isDoubleEncryptionEnabled"` `true` . 이중 암호화를 사용 하는 클러스터의 경우입니다. 
+  - 클러스터를 만들고 "<영역 이름> 클러스터에 대 한 이중 암호화를 지원 하지 않습니다." 라는 오류 메시지가 표시 되 면 이중 암호화 없이 클러스터를 만들 수 있습니다. `"properties": {"isDoubleEncryptionEnabled": false}`REST 요청 본문에를 추가 합니다.
+  - 클러스터를 만든 후에는 이중 암호화 설정을 변경할 수 없습니다.
 
 - 오류 메시지
   
