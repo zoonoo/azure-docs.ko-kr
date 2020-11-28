@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 0aedcc3be4cb319dc24990507d85756bd77777e4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 56a360f461c89d7c60e973bf2d6258d63113ab47
+ms.sourcegitcommit: 6b16e7cc62b29968ad9f3a58f1ea5f0baa568f02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963830"
+ms.lasthandoff: 11/28/2020
+ms.locfileid: "96303784"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
 
@@ -49,6 +49,8 @@ ms.locfileid: "94963830"
 * [NCv3 시리즈](ncv3-series.md)
 * [ND 시리즈](nd-series.md)
 * [NVv3 시리즈](nvv3-series.md)
+* [NVv4 시리즈](nvv4-series.md)
+* [NCasT4_v3 시리즈](nct4-v3-series.md)
 
 <sup>1</sup> Mv2 시리즈는 1세대 VM 이미지를 지원하지 않으며 2세대 이미지의 하위 집합만 지원합니다. 자세한 내용은 [Mv2 시리즈 설명서](mv2-series.md)를 참조하세요.
 
