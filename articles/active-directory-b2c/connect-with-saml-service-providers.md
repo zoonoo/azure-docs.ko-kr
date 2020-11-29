@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4426a305d72fdd86ee58b3f4a05153593515d4b5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7c6ba79a82fe3d291008f3317ddce7df4adcda0a
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949652"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309650"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에 SAML 애플리케이션 등록
 
@@ -340,7 +340,7 @@ SAML 테스트 애플리케이션을 사용하는 이 자습서에서는 `logout
 일반적으로 다음 중 일부 또는 전부가 필요합니다.
 
 * **메타데이터**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **발급자**: SAML 요청 `issuer` 값은 `identifierUris` 응용 프로그램 등록 매니페스트의 요소에 구성 된 uri 중 하 나와 일치 해야 합니다. SAML 요청 `issuer` 이름이 요소에 없으면 `identifierUris` [응용 프로그램 등록 매니페스트에 추가](#identifieruris)합니다. 예들 들어 `https://contoso.onmicrosoft.com/app-name`입니다. 
+* **발급자**: SAML 요청 `issuer` 값은 `identifierUris` 응용 프로그램 등록 매니페스트의 요소에 구성 된 uri 중 하 나와 일치 해야 합니다. SAML 요청 `issuer` 이름이 요소에 없으면 `identifierUris` [응용 프로그램 등록 매니페스트에 추가](#identifieruris)합니다. 예: `https://contoso.onmicrosoft.com/app-name`. 
 * **로그인 Url/saml 끝점/Saml Url**: Azure AD B2C SAML 정책 메타 데이터 파일에서 XML 요소에 대 한 값을 확인 합니다. `<SingleSignOnService>`
 * **인증서**: *B2C_1A_SamlIdpCert* 이며, 프라이빗 키가 없습니다. 인증서의 퍼블릭 키를 가져오려면:
 
@@ -443,7 +443,7 @@ Microsoft에서는 SAML 테스트 앱을 사용하여 테스트하는 데 사용
 
 SAML 토큰은 성공적으로 로그인 한 후 Azure AD B2C에서 발급 하는 보안 토큰입니다. 사용자에 대 한 정보, 토큰을 사용 하는 서비스 공급자, 서명 및 유효 시간에 대 한 정보를 포함 합니다. 다음 표에서는 Azure AD B2C에서 발급 한 SAML 토큰에서 사용할 수 있는 클레임 및 속성을 나열 합니다.
 
-|요소  |속성  |메모  |
+|요소  |속성  |참고  |
 |---------|---------|---------|
 |`<Response>`| `ID` | 자동으로 생성 된 응답의 고유 식별자입니다. | 
 |`<Response>`| `InResponseTo` | 이 메시지가 응답 하는 SAML 요청의 ID입니다. | 
@@ -453,7 +453,7 @@ SAML 토큰은 성공적으로 로그인 한 후 Azure AD B2C에서 발급 하�
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |토큰이 사용자 개체 ID와 같은 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. 기본적으로 주체 클레임은 디렉터리에 있는 사용자의 개체 ID로 채워집니다.|
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | 문자열 기반 식별자 정보의 분류를 나타내는 URI 참조입니다. 기본적으로이 속성은 생략 됩니다. 신뢰 [당사자를 설정 하 여](relyingparty.md#subjectnaminginfo) `NameID` 형식 (예:)을 지정할 수 있습니다 `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` . |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |토큰이 유효해지는 시간입니다. 시간 값은 UTC로 인코딩됩니다. 애플리케이션은 이 클레임을 사용하여 토큰 수명의 유효성을 확인해야 합니다. 토큰 수명에 대 한 설정을 변경 하려면 `TokenNotBeforeSkewInSeconds` SAML 토큰 문제 기술 프로필의 [메타 데이터](saml-issuer-technical-profile.md#metadata) 를 설정 합니다. |
-|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | 토큰이 무효화 되는 시간입니다. 애플리케이션은 이 클레임을 사용하여 토큰 수명의 유효성을 확인해야 합니다. 값은의 15 분 이며 `NotBefore` 변경할 수 없습니다.|
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | 토큰이 무효화 되는 시간입니다. 애플리케이션은 이 클레임을 사용하여 토큰 수명의 유효성을 확인해야 합니다. 기본값은의 5 분이 `NotBefore` 고 `TokenLifeTimeInSeconds` SAML 토큰 문제 기술 프로필의 [메타 데이터](saml-issuer-technical-profile.md#metadata) 를 추가 하 여 업데이트할 수 있습니다.|
 |`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |대상 사용자를 식별 하는 URI 참조입니다. 토큰의 의도 된 수신자를 식별 합니다. 값은 SAML 요청과 동일 합니다 `AssertionConsumerServiceURL` .|
 |`<Response>``<Assertion>` `<AttributeStatement>` 컬렉션`<Attribute>` | | [신뢰 당사자 기술 프로필](relyingparty.md#technicalprofile) 출력 클레임에 구성 된 어설션 컬렉션 (클레임)입니다. 출력 클레임의를 설정 하 여 어설션의 이름을 구성할 수 있습니다 `PartnerClaimType` . |
 

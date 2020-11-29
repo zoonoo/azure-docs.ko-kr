@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: ac785b3ad534e80d4dd240d1a29ba5f6aa75e10a
-ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
+ms.openlocfilehash: 6264ea50f128764a5213a7a1fd9b8c47ddae8961
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96299042"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309684"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -76,7 +76,23 @@ Customer-Managed 키 구성은 Azure Portal에서 지원 되지 않으며 프로
 
 ### <a name="asynchronous-operations-and-status-check"></a>비동기 작업 및 상태 검사
 
-일부 구성 단계는 신속 하 게 완료할 수 없기 때문에 비동기적으로 실행 됩니다. REST를 사용 하는 경우 응답은 처음에 허용 될 때 HTTP 상태 코드 200 (OK) 및 *AsyncOperation* 속성을 사용 하 여 헤더를 반환 합니다.
+일부 구성 단계는 신속 하 게 완료할 수 없기 때문에 비동기적으로 실행 됩니다. `status`응답에 포함 된은 오류 코드를 포함 하 여 ' InProgress ', ' 업데이트 중 ', ' 삭제 중 ', ' 성공 ' 또는 ' 실패 ' 중 하나일 수 있습니다.
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+해당 없음
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+해당 없음
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+해당 없음
+
+# <a name="rest"></a>[REST (영문)](#tab/rest)
+
+REST를 사용 하는 경우 응답은 처음에 허용 될 때 HTTP 상태 코드 200 (OK) 및 *AsyncOperation* 속성을 사용 하 여 헤더를 반환 합니다.
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
@@ -87,7 +103,7 @@ GET https://management.azure.com/subscriptions/subscription-id/providers/microso
 Authorization: Bearer <token>
 ```
 
-`status`응답에 포함 된은 오류 코드를 포함 하 여 ' InProgress ', ' 업데이트 중 ', ' 삭제 중 ', ' 성공 ' 또는 ' 실패 ' 중 하나일 수 있습니다.
+---
 
 ### <a name="allowing-subscription"></a>구독 허용
 
@@ -137,16 +153,25 @@ Azure Monitor 데이터에 대한 액세스와 키를 보호하기 위해 Key Va
 
 작업은 비동기적 이며 완료 하는 데 다소 시간이 걸릴 수 있습니다.
 
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+해당 없음
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
 ```
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
 ```
 
+# <a name="rest"></a>[REST (영문)](#tab/rest)
+
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name"?api-version=2020-08-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2020-08-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -200,6 +225,8 @@ Content-type: application/json
 }
 ```
 
+---
+
 ### <a name="link-workspace-to-cluster"></a>클러스터에 작업 영역 연결
 
 이 작업을 수행 하려면 작업 영역 및 클러스터 모두에 ' 쓰기 ' 권한이 있어야 합니다. 여기에는 다음 작업이 포함 됩니다.
@@ -250,15 +277,25 @@ Log Analytics에 사용 되는 쿼리 언어는 표현 되며 쿼리에 추가 �
 
 *쿼리에* 사용할 저장소 계정을 작업 영역에 연결 합니다. *저장 된 검색* 쿼리는 저장소 계정에 저장 됩니다. 
 
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+해당 없음
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
 ```
+
+# <a name="rest"></a>[REST (영문)](#tab/rest)
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-08-01
@@ -276,21 +313,33 @@ Content-type: application/json
 }
 ```
 
+---
+
 구성 후에는 저장 된 새 *검색* 쿼리가 저장소에 저장 됩니다.
 
 **로그 경고 쿼리를 위한 BYOS 구성**
 
 *경고* 에 대 한 저장소 계정을 작업 영역에 연결 합니다.- *로그-경고* 쿼리는 저장소 계정에 저장 됩니다. 
 
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+해당 없음
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
 ```
+
+# <a name="rest"></a>[REST (영문)](#tab/rest)
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-08-01
@@ -308,9 +357,12 @@ Content-type: application/json
 }
 ```
 
+---
+
 구성 후에는 새 경고 쿼리가 저장소에 저장 됩니다.
 
 ## <a name="customer-lockbox-preview"></a>고객 Lockbox (미리 보기)
+
 Lockbox는 지원 요청 중에 데이터에 액세스 하는 Microsoft 엔지니어 요청을 승인 하거나 거부할 수 있는 컨트롤을 제공 합니다.
 
 Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영역의 데이터에 대해이 컨트롤을 사용할 수 있습니다. Lockbox 컨트롤은 Log Analytics 전용 클러스터에 저장 된 데이터에 적용 되며,이는 Lockbox로 보호 되는 구독에서 클러스터의 저장소 계정에 격리 된 상태를 유지 합니다.  
@@ -321,13 +373,23 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
 
 - **리소스 그룹의 모든 클러스터 가져오기**
   
+  # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+  해당 없음
+
+  # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
   ```azurecli
   az monitor log-analytics cluster list --resource-group "resource-group-name"
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
   ```
+
+  # <a name="rest"></a>[REST (영문)](#tab/rest)
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -369,15 +431,27 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
   }
   ```
 
+  ---
+
 - **구독의 모든 클러스터 가져오기**
+
+  # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+  해당 없음
+
+  # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
   ```azurecli
   az monitor log-analytics cluster list
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Get-AzOperationalInsightsCluster
   ```
+
+  # <a name="rest"></a>[REST (영문)](#tab/rest)
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -388,17 +462,29 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
     
   ' 리소스 그룹의 클러스터 '의 경우와 동일한 응답이 구독 범위에 있습니다.
 
+  ---
+
 - **클러스터에서 *용량 예약* 업데이트**
 
   연결 된 작업 영역에 대 한 데이터 볼륨이 시간이 지남에 따라 변경 되 고 용량 예약 수준을 적절 하 게 업데이트 하려는 경우. [업데이트 클러스터](#update-cluster-with-key-identifier-details) 를 따르고 새 용량 값을 제공 합니다. 1000 ~ 3000 g b의 범위와 100의 단계에 있을 수 있습니다. 하루 3000 g b 보다 높은 수준의 경우 Microsoft 담당자에 게 연락 하 여 사용 하도록 설정 합니다. 전체 REST 요청 본문을 제공할 필요는 없지만 sku는 다음과 같습니다.
+
+  # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+  해당 없음
+
+  # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
   ```azurecli
   az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity daily-ingestion-gigabyte
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity daily-ingestion-gigabyte
   ```
+
+  # <a name="rest"></a>[REST (영문)](#tab/rest)
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -413,6 +499,8 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
   }
   ```
 
+  ---
+
 - **클러스터에서 *billingType* 업데이트**
 
   *BillingType* 속성은 클러스터 및 해당 데이터에 대 한 청구 특성을 결정 합니다.
@@ -420,6 +508,20 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
   - *workspaces* - 작업 영역을 비례적으로 호스팅하는 구독을 기반으로 하는 청구입니다.
   
   [업데이트 클러스터](#update-cluster-with-key-identifier-details) 에 따라 새로운 billingType 값을 제공 합니다. 전체 REST 요청 본문을 제공할 필요는 없으며 *billingType* 을 포함해야 합니다.
+
+  # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+  해당 없음
+
+  # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+  해당 없음
+
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+  해당 없음
+
+  # <a name="rest"></a>[REST (영문)](#tab/rest)
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -433,36 +535,67 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
   }
   ``` 
 
+  ---
+
 - **작업 영역 연결 해제**
 
   이 작업을 수행 하려면 작업 영역 및 클러스터에 대 한 ' 쓰기 ' 권한이 있어야 합니다. 언제 든 지 클러스터에서 작업 영역의 연결을 끊을 수 있습니다. 연결 해제 작업 후 새 수집 데이터는 Log Analytics 저장소에 저장 되 고 Microsoft 키를 사용 하 여 암호화 됩니다. 클러스터가 프로 비전 되 고 유효한 Key Vault 키로 구성 되는 한 연결 해제 전후에 작업 영역에 수집 된 데이터를 쿼리할 수 있습니다.
 
   이 작업은 비동기 작업 이므로 완료 하는 데는 몇를 사용할 수 있습니다.
 
+  # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+  해당 없음
+
+  # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
   ```azurecli
   az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --name "cluster-name" --workspace-name "workspace-name"
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -Name "workspace-name" -LinkedServiceName cluster
   ```
+
+  # <a name="rest"></a>[REST (영문)](#tab/rest)
 
   ```rest
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 
+  ---
+
   - **작업 영역 링크 상태 확인**
   
   작업 영역에서 가져오기 작업을 수행 하 고, *기능의* 응답에 *clusterresourceid* 속성이 있는지 확인 합니다. 연결 된 작업 영역에는 *Clusterresourceid* 속성이 포함 됩니다.
+
+  # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+  해당 없음
+
+  # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
   ```azurecli
   az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
   ```
+
+  # <a name="rest"></a>[REST (영문)](#tab/rest)
+
+   ```rest
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  ```
+
+  ---
 
 - **클러스터 삭제**
 
@@ -470,18 +603,30 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
   
   연결 해제 작업은 비동기적 이며 완료 하는 데 최대 90 분이 걸릴 수 있습니다.
 
+  # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+  해당 없음
+
+  # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
   ```azurecli
   az monitor log-analytics cluster delete --resource-group "resource-group-name" --name "cluster-name"
   ```
- 
+
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
   ```
+
+  # <a name="rest"></a>[REST (영문)](#tab/rest)
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
+
+  ---
   
 - **클러스터 및 데이터 복구** 
   

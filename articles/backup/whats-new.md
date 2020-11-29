@@ -3,12 +3,12 @@ title: Azure Backup의 새로운 기능
 description: Azure Backup의 새로운 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: e48a7df1e42591843c30b77026a4d8656773a57d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ba29ddea5d5f096640f2bfc012c44ab06bb3e131
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511596"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309667"
 ---
 # <a name="whats-new-in-azure-backup"></a>Azure Backup의 새로운 기능
 
@@ -19,6 +19,7 @@ Azure Backup은 Azure에서 데이터의 보호를 향상 시키는 새로운 �
 ## <a name="updates-summary"></a>업데이트 요약
 
 - 2020년 11월
+  - [Azure 파일 공유 (AFS) 백업용 Azure Resource Manager 템플릿](#azure-resource-manager-template-for-afs-backup)
   - [Azure Vm의 SAP HANA 데이터베이스에 대 한 증분 백업](#incremental-backups-for-sap-hana-databases)
 - 2020년 9월
   - [백업 센터](#backup-center)
@@ -30,6 +31,12 @@ Azure Backup은 Azure에서 데이터의 보호를 향상 시키는 새로운 �
   - [RHEL Azure Virtual Machines의 백업 SAP HANA](#backup-sap-hana-in-rhel-azure-virtual-machines)
   - [백업 데이터에 대 한 ZRS (영역 중복 저장소)](#zone-redundant-storage-zrs-for-backup-data)
   - [Azure Vm의 SQL Server 및 SAP HANA 작업에 대 한 일시 삭제](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-resource-manager-template-for-afs-backup"></a>AFS 백업용 Azure Resource Manager 템플릿
+
+이제 Azure Backup는 ARM (Azure Resource Manager) 템플릿을 사용 하 여 기존 Azure 파일 공유에 대 한 백업 구성을 지원 합니다. 템플릿은 Recovery Services 자격 증명 모음 및 백업 정책에 대 한 적절 한 세부 정보를 지정 하 여 기존 Azure 파일 공유에 대 한 보호를 구성 합니다. 필요에 따라 새 Recovery Services 자격 증명 모음 및 백업 정책을 만들고 파일 공유를 포함 하는 저장소 계정을 Recovery Services 자격 증명 모음에 등록 합니다.
+
+자세한 내용은 [Azure Backup Azure Resource Manager 템플릿](backup-rm-template-samples.md)을 참조 하세요.
 
 ## <a name="incremental-backups-for-sap-hana-databases"></a>SAP HANA 데이터베이스에 대 한 증분 백업
 
