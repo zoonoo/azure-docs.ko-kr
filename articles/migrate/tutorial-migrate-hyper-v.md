@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 84f04d2f1f8c9b54a1f2a2a13cc97954ac5add90
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 038d0ec817d4f81371546e8d7aa4b48b299c8d98
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995321"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302564"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 마이그레이션 
 
@@ -43,23 +43,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. 마이그레이션을 위한 Hyper-V 호스트 요구 사항 및 VM 마이그레이션을 위해 Hyper-V 호스트 및 클러스터에서 액세스해야 하는 Azure URL을 [검토](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements)합니다.
 3. Azure로 마이그레이션하려는 Hyper-V VM에 대한 요구 사항을 [검토](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms)합니다.
 4. Azure로 마이그레이션하기 전에 [Hyper-V VM을 평가](tutorial-assess-hyper-v.md)하는 것이 좋지만, 반드시 그럴 필요는 없습니다.
+5. 이미 만든 프로젝트로 이동하거나 [새 프로젝트 만들기](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+6. Azure 계정에 대한 사용 권한 확인 - Azure 계정에는 VM을 만들고 Azure 관리 디스크에 쓸 수 있는 권한이 필요합니다.
 
-   
-## <a name="add-the-azure-migrateserver-migration-tool"></a>Azure Migrate:Server Migration 도구 추가
-
-Azure Migrate:Server Migration 도구를 추가합니다. Azure Migrate 프로젝트가 아직 없는 경우 [먼저 생성](how-to-add-tool-first-time.md)하여 Azure Migrate 프로젝트를 설정합니다. 프로젝트를 만들 때 Azure Migrate:Server Migration 도구를 추가합니다.
-
-프로젝트를 설정한 경우 다음과 같이 도구를 추가합니다.
-
-1. Azure Migrate 프로젝트에서 **개요** 를 클릭합니다. 
-2. **서버 검색, 평가 및 마이그레이션** 에서 **서버 평가 및 마이그레이션** 을 클릭합니다.
-3. **마이그레이션 도구** 에서 **마이그레이션할 준비가 되면 여기를 클릭하여 마이그레이션 도구를 추가하세요.** 를 선택합니다.
-
-    ![도구 선택](./media/tutorial-migrate-hyper-v/select-migration-tool.png)
-
-4. 도구 목록에서 **Azure Migrate: 서버 마이그레이션** > **도구 추가** 를 차례로 선택합니다.
-
-    ![서버 마이그레이션 도구](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
 ## <a name="download-and-install-the-provider"></a>공급자 다운로드 및 설치
 
