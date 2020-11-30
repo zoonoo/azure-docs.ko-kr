@@ -10,10 +10,10 @@ ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 11/29/2020
 ms.locfileid: "92792993"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Azure Storage 계정을 다른 지역으로 이동
@@ -186,11 +186,11 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
 
 2. 속성 값을 입력 하거나 선택 합니다.
 
-- **구독** : Azure 구독을 선택합니다.
+- **구독**: Azure 구독을 선택합니다.
 
-- **리소스 그룹** : **새로 만들기** 를 클릭하고 리소스 그룹에 이름을 지정합니다.
+- **리소스 그룹**: **새로 만들기** 를 클릭하고 리소스 그룹에 이름을 지정합니다.
 
-- **위치** : Azure 위치를 선택 합니다.
+- **위치**: Azure 위치를 선택 합니다.
 
 3. **위에 명시 된 사용 약관에 동의 함** 확인란을 클릭 한 다음 **구매 선택** 단추를 클릭 합니다.
 
@@ -225,7 +225,7 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
 | **정적 웹 사이트** | [Azure Storage에서 정적 웹 사이트 호스트](../blobs/storage-blob-static-website-how-to.md) |
 | **이벤트 구독** | [Blob Storage 이벤트에 응답](../blobs/storage-blob-event-overview.md) |
 | **경고** | [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](../../azure-monitor/platform/alerts-activity-log.md) |
-| **CDN(콘텐츠 전송 네트워크)** | [Azure CDN을 사용하여 HTTP를 통한 사용자 지정 도메인으로 Blob 액세스](../blobs/storage-https-custom-domain-cdn.md) |
+| **CDN (Content Delivery Network)** | [Azure CDN을 사용하여 HTTP를 통한 사용자 지정 도메인으로 Blob 액세스](../blobs/storage-https-custom-domain-cdn.md) |
 
 > [!NOTE] 
 > 원본 저장소 계정에 대 한 CDN을 설정 하는 경우 기존 CDN의 원본을 새 계정의 주 blob service 끝점 (또는 기본 정적 웹 사이트 끝점)으로 변경 하면 됩니다. 
@@ -255,7 +255,7 @@ Azure Portal을 사용하여 스토리지 계정을 제거하려면:
 
 1. Azure Portal에서 왼쪽의 메뉴를 확장 하 여 서비스의 메뉴를 열고 **저장소 계정** 을 선택 하 여 저장소 계정 목록을 표시 합니다.
 
-2. 삭제할 대상 저장소 계정을 찾고 목록 오른쪽에 있는 **자세히** 단추 ( **...** )를 마우스 오른쪽 단추로 클릭 합니다.
+2. 삭제할 대상 저장소 계정을 찾고 목록 오른쪽에 있는 **자세히** 단추 (**...**)를 마우스 오른쪽 단추로 클릭 합니다.
 
 3. **삭제** 를 선택 하 고 확인을 선택 합니다.
 
