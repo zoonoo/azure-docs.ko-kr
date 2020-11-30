@@ -4,12 +4,12 @@ description: 기본 Azure Batch 할당량, 한도 및 제약 조건에 대해 �
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8ca08d43f07633b58cf6f7067c1a8fcd58350678
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b2039794a0c8a13070c9d81b83869ca4097bd02e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107541"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325974"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -23,15 +23,33 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 
 ## <a name="resource-quotas"></a>리소스 할당량
 
-할당량은 신용 한도액일 뿐이며 용량을 보장하는 것은 아닙니다. 대규모 용량이 필요한 경우 Azure 지원에 문의하세요.
+할당량은 용량을 보장 하지 않는 한도입니다. 대규모 용량이 필요한 경우 Azure 지원에 문의하세요.
 
 또한 할당량이 보장되는 값은 아닙니다. 할당량은 Batch 서비스로부터의 변경 또는 사용자의 할당량 값 변경 요청에 따라 달라질 수 있습니다.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+## <a name="core-quotas"></a>코어 할당량
+
+### <a name="cores-quotas-in-batch-service-mode"></a>Batch 서비스 모드의 코어 할당량
+
+전용 코어 할당량의 적용이 개선 되 고 있으며,이는 단계에서 사용 가능 하 고 12 월 2020 일 말에 모든 Batch 계정에 대해 완료 된 변경 내용입니다.
+
+Batch에서 지원 되는 각 VM 시리즈에 대 한 코어 할당량은 포털의 **할당량** 페이지에 표시 됩니다. VM 시리즈 할당량 한도는 아래에 설명 된 대로 지원 요청으로 업데이트할 수 있습니다.
+
+기존 메커니즘을 사용 하 여 VM 시리즈에 대 한 할당량 한도를 선택 하지 않으면 계정에 대 한 총 할당량 한도가 적용 됩니다. 즉, vm 시리즈 할당량에 의해 표시 되는 것 보다 VM 시리즈에 대 한 코어를 총 계정 할당량 한도까지 할당할 수 있습니다.
+
+업데이트 된 메커니즘은 총 계정 할당량 뿐만 아니라 VM 시리즈 할당량을 적용 합니다. 새 메커니즘으로 전환 하는 과정에서 VM 시리즈 할당량 값이 업데이트 되어 할당 오류가 발생 하지 않도록 할 수 있습니다. 최근 달에 사용 되는 모든 VM 시리즈는 총 계정 할당량과 일치 하도록 VM 시리즈 할당량을 업데이트 합니다. 이 변경으로 인해 이미 사용 가능한 용량 보다 더 많은 용량을 사용할 수 없습니다.
+
+다음을 확인 하 여 VM 시리즈 할당량 적용이 Batch 계정에 대해 사용 하도록 설정 되었는지 확인할 수 있습니다.
+
+* Batch 계정 [dedicatedCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount) API 속성입니다.
+
+* 포털의 Batch 계정 **할당량** 페이지에 있는 텍스트입니다.
+
 ### <a name="cores-quotas-in-user-subscription-mode"></a>사용자 구독 모드에서 코어 할당량
 
-풀 할당 모드가 **사용자 구독**으로 설정된 [Batch 계정](accounts.md)을 만든 경우 할당량이 다르게 적용됩니다. 이 모드에서 Batch VM 및 기타 리소스는 풀이 만들어질 때 구독에서 직접 만들어집니다. Azure Batch 코어 할당량은 이 모드에서 생성된 계정에는 적용되지 않습니다. 대신, 지역별 컴퓨팅 코어 및 기타 리소스에 대한 구독의 할당량이 적용됩니다.
+풀 할당 모드가 **사용자 구독** 으로 설정 된 [batch 계정을](accounts.md) 만든 경우 풀을 만들거나 크기를 조정 하면 batch vm 및 기타 리소스가 구독에서 직접 만들어집니다. Azure Batch 코어 할당량은 적용 되지 않으며 지역 계산 코어, 시리즈 별 계산 코어 및 기타 리소스에 대 한 구독의 할당량은 사용 되 고 적용 됩니다.
 
 이러한 할당량에 대해 자세히 알아보려면 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요.
 
@@ -70,18 +88,18 @@ Batch 서비스에 의해 설정된 추가 제한입니다. [리소스 할당량
 [Azure Portal](https://portal.azure.com)에서 Batch 계정 할당량을 보려면
 
 1. **Batch 계정** 을 선택한 다음, 관심 있는 Batch 계정을 선택합니다.
-1. 배치 계정의 메뉴에서 **할당량**을 선택합니다.
+1. 배치 계정의 메뉴에서 **할당량** 을 선택합니다.
 1. Batch 계정에 현재 적용된 할당량을 표시합니다.
 
-    ![Batch 계정 할당량][account_quotas]
+:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Batch 계정 할당량":::
 
 ## <a name="increase-a-quota"></a>할당량 증가
 
 [Azure Portal](https://portal.azure.com)을 사용하여 Batch 계정 또는 구독에 대해 할당량 증가를 요청할 수 있습니다. 할당량 증가 유형은 Batch 계정의 풀 할당 모드에 따라 다릅니다. 할당량 증가를 요청하려면 할당량을 늘릴 VM 시리즈를 포함해야 합니다. 할당량 증가가 적용되는 경우 모든 VM 시리즈에 적용됩니다.
 
 1. 포털 대시보드에서 **도움말 + 지원** 타일을 선택하거나 포털 오른쪽 위 모서리에 있는 물음표( **?** )를 선택합니다.
-1. **새 기본 지원 요청** > **기본**을 클릭합니다.
-1. **기본 사항**에서
+1. **새 기본 지원 요청** > **기본** 을 클릭합니다.
+1. **기본 사항** 에서
    
     1. **문제 유형** > **서비스 및 구독 제한(할당량)**
    
@@ -89,11 +107,11 @@ Batch 서비스에 의해 설정된 추가 제한입니다. [리소스 할당량
    
     1. **할당량 유형** > **배치**
       
-       **다음**을 선택합니다.
+       **다음** 을 선택합니다.
     
-1. **세부 정보**에서 다음을 수행합니다.
+1. **세부 정보** 에서 다음을 수행합니다.
       
-    1. **세부 정보 제공**에서 위치, 할당량 유형 및 Batch 계정을 지정합니다.
+    1. **세부 정보 제공** 에서 위치, 할당량 유형 및 Batch 계정을 지정합니다.
     
        ![Batch 할당량 증가][quota_increase]
 
@@ -105,19 +123,19 @@ Batch 서비스에 의해 설정된 추가 제한입니다. [리소스 할당량
        * **지역당**  
          지역의 모든 Batch 계정에 적용되는 값으로, 구독당 지역별 Batch 계정 수를 포함합니다.
 
-       낮은 우선 순위 할당량은 모든 VM 시리즈에 걸친 단일 값입니다. 제한된 SKU가 필요한 경우 **우선 순위가 낮은 코어**를 선택하고 요청할 VM 제품군을 포함해야 합니다.
+       낮은 우선 순위 할당량은 모든 VM 시리즈에 걸친 단일 값입니다. 제한된 SKU가 필요한 경우 **우선 순위가 낮은 코어** 를 선택하고 요청할 VM 제품군을 포함해야 합니다.
 
-    1. [비즈니스 영향](https://aka.ms/supportseverity)에 따라 **심각도**를 선택합니다.
+    1. [비즈니스 영향](https://aka.ms/supportseverity)에 따라 **심각도** 를 선택합니다.
 
-       **다음**을 선택합니다.
+       **다음** 을 선택합니다.
 
-1. **연락처 정보**에서
+1. **연락처 정보** 에서
    
-    1. **기본 연락 방법**을 선택합니다.
+    1. **기본 연락 방법** 을 선택합니다.
    
     1. 필수 연락처 세부 정보를 확인하고 입력합니다.
    
-       **만들기**를 선택하여 지원 요청을 제출합니다.
+       **만들기** 를 선택하여 지원 요청을 제출합니다.
 
 지원 요청을 제출하면 Azure 지원 팀에서 연락을 드릴 것입니다. 할당량 요청은 몇 분에서 최대 2일(영업일 기준) 이내에 완료될 수 있습니다.
 
@@ -129,7 +147,7 @@ Azure 가상 네트워크에 배포된 Virtual Machine 구성의 Batch 풀은 �
 - [공용 IP 주소](../virtual-network/public-ip-addresses.md) 1개
 - [부하 분산 장치](../load-balancer/load-balancer-overview.md) 1개
 
-이러한 리소스는 Batch 풀을 만들 때 제공되는 가상 네트워크가 포함된 구독에 할당됩니다. 이러한 리소스는 구독의 [리소스 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다. 가상 네트워크에서 대형 풀 배포를 계획하는 경우 이러한 리소스에 대한 구독의 할당량을 확인합니다. 필요한 경우 **도움말 + 지원**을 선택하여 Azure Portal의 증가를 요청합니다.
+이러한 리소스는 Batch 풀을 만들 때 제공되는 가상 네트워크가 포함된 구독에 할당됩니다. 이러한 리소스는 구독의 [리소스 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다. 가상 네트워크에서 대형 풀 배포를 계획하는 경우 이러한 리소스에 대한 구독의 할당량을 확인합니다. 필요한 경우 **도움말 + 지원** 을 선택하여 Azure Portal의 증가를 요청합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

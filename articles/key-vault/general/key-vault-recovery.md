@@ -8,12 +8,12 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
-ms.openlocfilehash: fbeb6f5f223642c09183c149188c6717c1f33a8e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 86190fa307133360c411aafc070412e7d527039e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748500"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324961"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>일시 삭제 및 보호 제거를 사용 하도록 설정 하는 방법
 
@@ -44,7 +44,7 @@ ms.locfileid: "92748500"
 1. 일시 삭제 옆의 라디오 단추가 "복구 사용"으로 설정 되어 있는지 확인 합니다.
 1. 키 자격 증명 모음에서 일시 삭제를 사용 하도록 설정 하지 않은 경우 라디오 단추를 클릭 하 여 일시 삭제를 사용 하도록 설정 하 고 "저장"을 클릭 합니다.
 
-:::image type="content" source="../media/key-vault-recovery-1.png" alt-text=" Azure Portal의 스크린샷<>":::
+:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="속성에서 일시 삭제는 사용 하도록 설정 하는 값과 마찬가지로 강조 표시 됩니다.":::
 
 ## <a name="grant-access-to-a-service-principal-to-purge-and-recover-deleted-secrets"></a>서비스 주체에 게 삭제 된 비밀을 제거 하 고 복구 하는 액세스 권한 부여
 
@@ -56,7 +56,7 @@ ms.locfileid: "92748500"
 1. 드롭다운 아래로 스크롤하고 "복구" 및 "제거"를 클릭 합니다.
 1. 또한 보안 주체에는 대부분의 작업을 수행 하는 get 및 list 기능이 필요 합니다.
 
-:::image type="content" source="../media/key-vault-recovery-2.png" alt-text=" Azure Portal의 스크린샷<>":::
+:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="왼쪽 탐색 창에 액세스 정책이 강조 표시 됩니다. 액세스 정책에서 비밀 위치 드롭다운 목록이 표시 되 고, 가져오기, 나열, 복구 및 제거의 네 가지 항목이 선택 됩니다.":::
 
 ## <a name="list-recover-or-purge-a-soft-deleted-key-vault"></a>일시 삭제 된 키 자격 증명 모음 나열, 복구 또는 제거
 
@@ -72,9 +72,9 @@ ms.locfileid: "92748500"
 1. 주요 자격 증명 모음을 복구 하려는 경우 상황에 맞는 창 맨 아래에 있는 복구 옵션을 선택 합니다.
 1. 키 자격 증명 모음을 영구적으로 삭제 하려면 제거 옵션을 선택 합니다.
 
-:::image type="content" source="../media/key-vault-recovery-3.png" alt-text=" Azure Portal의 스크린샷<>":::
+:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="키 자격 증명 모음에서 삭제 된 자격 증명 모음 관리 옵션이 강조 표시 됩니다.":::
 
-:::image type="content" source="../media/key-vault-recovery-4.png" alt-text=" Azure Portal의 스크린샷<>":::
+:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="삭제 된 키 자격 증명 모음 관리에서 나열 된 key vault만 강조 표시 되 고 선택 되며 복구 단추가 강조 표시 됩니다.":::
 
 ## <a name="list-recover-or-purge-soft-deleted-secrets-keys-and-certificates"></a>일시 삭제 된 비밀, 키 및 인증서 나열, 복구 또는 제거
 
@@ -87,7 +87,7 @@ ms.locfileid: "92748500"
 1. 관리 하려는 비밀, 키 또는 인증서를 선택 합니다.
 1. 컨텍스트 창의 맨 아래에서 복구 또는 제거 옵션을 선택 합니다.
 
-:::image type="content" source="../media/key-vault-recovery-5.png" alt-text=" Azure Portal의 스크린샷<>":::
+:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="키의 경우 삭제 된 키 관리 옵션이 강조 표시 됩니다.":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

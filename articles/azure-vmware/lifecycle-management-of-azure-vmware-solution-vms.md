@@ -3,12 +3,12 @@ title: Azure VMware 솔루션 Vm의 수명 주기 관리
 description: Microsoft Azure native tools를 사용 하 여 Azure VMware 솔루션 Vm의 수명 주기에 대 한 모든 측면을 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 5280d362c1e7b1bf33579d051c4cc11adb1b7e59
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ff1032900fa936895f3adfcb0d8a872f24948aca
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545765"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326814"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Azure VMware 솔루션 Vm의 수명 주기 관리
 
@@ -61,7 +61,7 @@ Azure Automation의 Azure 업데이트 관리는 하이브리드 환경에서 Wi
 
 2. **Log Analytics 작업 영역** 을 사용 하면 Log Analytics 에이전트 또는 확장을 사용 하 여 로그 수집 및 성능 카운터를 수집할 수 있습니다. Log Analytics 작업 영역을 만들려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요. 원하는 경우 [CLI](../azure-monitor/learn/quick-create-workspace-cli.md), [PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md)또는 [Azure Resource Manager 템플릿을](../azure-monitor/samples/resource-manager-workspace.md)통해 작업 영역을 만들 수도 있습니다.
 
-3. Vm에 대 한 Azure 업데이트 관리를 사용 하도록 설정 하려면 [Automation 계정에서 업데이트 관리 사용](../automation/update-management/update-mgmt-enable-automation-account.md)을 참조 하세요. 이 프로세스에서는 Log Analytics 작업 영역을 automation 계정에 연결 합니다. 
+3. Vm에 대 한 Azure 업데이트 관리를 사용 하도록 설정 하려면 [Automation 계정에서 업데이트 관리 사용](../automation/update-management/enable-from-automation-account.md)을 참조 하세요. 이 프로세스에서는 Log Analytics 작업 영역을 automation 계정에 연결 합니다. 
  
 4. Azure 업데이트 관리에 Vm을 추가 하면 [vm에 업데이트를 배포 하 고 결과를 검토할](../automation/update-management/deploy-updates.md)수 있습니다. 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 1459c80c857a436c8369d3ebe89794e0b69c33b1
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 35bed58f95deebb78d8e787c8bc3f522ce7004df
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980884"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326972"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Azure 하이브리드 혜택 – Linux Virtual Machines에 적용 되는 방법
 
@@ -155,9 +155,13 @@ A: 아니요. Azure 하이브리드 혜택는 종 량 제 이미지 에서만 �
 
 A: 아니요. Azure 하이브리드 혜택는 종 량 제 이미지 에서만 변환을 지원 합니다.
 
-*Q: 온-프레미스 (ASR 또는 기타)에서 Azure로 자체 RHEL 이미지를 업로드 했습니다. 이러한 이미지에 대 한 청구를 BYOS에서 PAYG로 변환할 수 있나요?*
+*Q: 온-프레미스 (Azure Migrate, ASR 또는 기타)에서 Azure로 자체 RHEL 이미지를 업로드 했습니다. 이러한 이미지에 대 한 청구를 BYOS에서 PAYG로 변환할 수 있나요?*
 
 A: 아니요. Azure 하이브리드 혜택 기능은 현재 RHEL 및 SLES Marketplace 이미지에만 사용할 수 있습니다. 
+
+*Q: 온-프레미스 (Azure Migrate, ASR 또는 기타)에서 Azure로 자체 RHEL 이미지를 업로드 했습니다. Azure 하이브리드 혜택 혜택을 얻기 위해 어떤 작업을 수행 해야 하나요?*
+
+A: 아니요. 업로드 하는 RHEL 이미지는 이미 BYOS로 간주 되며 Azure 인프라 비용에 대해서만 요금이 청구 됩니다. 온-프레미스 환경에 대 한 것과 같은 방식으로 RHEL 구독 비용을 지불 해야 합니다. 
 
 *Q: Marketplace RHEL 및 SLES SAP 이미지에서 배포 된 Vm에 대 한 Azure 하이브리드 혜택를 사용할 수 있나요?*
 
@@ -179,7 +183,7 @@ A: 아니요, 할 수 없습니다. 이러한 지원에 대 한 계획은 없습
 ## <a name="common-issues"></a>일반적인 문제
 이 섹션에는 발생할 수 있는 일반적인 문제 및 완화 단계에 대 한 목록이 포함 되어 있습니다.
 
-| Error | 완화 방법 |
+| 오류 | 완화 방법 |
 | ----- | ---------- |
 | "Azure 구독에 대 한 Red Hat Cloud Access를 성공적으로 사용 하도록 설정 하지 않았기 때문에 작업을 완료할 수 없습니다." | RHEL Vm에서 혜택을 사용 하려면 먼저 Red Hat Cloud Access를 사용 하 여 Azure 구독을 등록 해야 합니다. Red Hat Cloud Access에 대 한 Azure 구독을 등록 하는 방법에 대 한 자세한 내용을 보려면이 링크를 방문 하세요.
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 3827fa7a98cef9358db0ee102925586bce97fae6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cf0703406b71cb56bdd75a04746dfce7db6af471
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188686"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327137"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>SAP 응용 프로그램에 대 한 SUSE Linux Enterprise Server Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드
 
@@ -90,11 +90,11 @@ ms.locfileid: "96188686"
 * [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]
 ## <a name="overview"></a>개요
 
-장애 조치 (failover)가 발생 하는 경우 클러스터에 참여 하는 가상 머신은 모든 리소스를 실행할 수 있도록 크기를 조정 해야 합니다. 각 SAP SID는 다중 SID 고가용성 클러스터에서 서로 독립적인 장애 조치 (failover) 될 수 있습니다.  SBD fence를 사용 하는 경우 여러 클러스터 간에 SBD 장치를 공유할 수 있습니다.  
+장애 조치 (failover)가 발생 하는 경우 클러스터에 참여 하는 가상 컴퓨터의 크기를 조정 하 여 모든 리소스를 실행할 수 있어야 합니다. 각 SAP SID는 다중 SID 고가용성 클러스터에서 서로 독립적인 장애 조치 (failover) 될 수 있습니다.  SBD fence를 사용 하는 경우 여러 클러스터 간에 SBD 장치를 공유할 수 있습니다.  
 
 고가용성을 위해 SAP NetWeaver에는 항상 사용 가능한 NFS 공유가 필요 합니다. 이 예에서는 SAP NFS 공유가 항상 사용 가능한 [NFS 파일 서버](./high-availability-guide-suse-nfs.md)에 호스트 되는 것으로 가정 합니다 .이 서버는 여러 sap 시스템에서 사용할 수 있습니다. 또는 공유가 [AZURE NETAPP FILES NFS 볼륨](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)에 배포 됩니다.  
 
-![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
+![Pacemaker 클러스터는 두 개의 다중 SID 클러스터 msidcl1 및 msidcl2에 대 한 자세한 정보를 표시 합니다.](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
 > [!IMPORTANT]
 > Azure Vm에서 SUSE Linux를 게스트 운영 체제로 사용 하는 SAP ASCS/ERS의 다중 SID 클러스터링에 대 한 지원은 동일한 클러스터에서 **5 개의** sap sid로 제한 됩니다. 각 새 SID는 복잡성이 증가 합니다. 동일한 클러스터에서 SAP 큐에서 복제 서버 1과 큐에 넣기 복제 서버 2를 혼합 하 여 **사용할 수 없습니다**. 다중 SID 클러스터링은 하나의 Pacemaker 클러스터에서 서로 다른 Sid를 사용 하 여 여러 SAP ASCS/ERS 인스턴스를 설치 하는 방법을 설명 합니다. 현재 다중 SID 클러스터링은 ASCS/ERS에 대해서만 지원 됩니다.  
@@ -179,7 +179,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
-### <a name="prerequisites"></a>전제 조건 
+### <a name="prerequisites"></a>필수 구성 요소 
 
 > [!IMPORTANT]
 > 클러스터에 추가 SAP 시스템을 배포 하기 위한 지침을 수행 하기 전에 첫 번째 시스템 배포 중에만 필요한 단계를 설명 하는 지침에 따라 클러스터의 첫 번째 SAP 시스템을 배포 합니다.  

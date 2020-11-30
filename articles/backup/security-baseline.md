@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5e688fbf653646fcdd500f36930fd6b46bebeefa
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: a2cbd2dd4dd32be137e461985e9f10fd07ed8a60
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842161"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325641"
 ---
 # <a name="azure-security-baseline-for-backup"></a>백업용 Azure 보안 기준
 
@@ -350,7 +350,7 @@ Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케�
 
 - [Azure AD 로그인을 사용 하도록 Azure Backup를 구성 하는 방법](../app-service/configure-authentication-provider-aad.md)
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -534,7 +534,7 @@ MARS 에이전트로 백업 하거나 고객이 관리 하는 키로 암호화 �
 
 Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 서비스 구성 관련 취약성을 줄이기 위해 Azure Backup 사용할 수 있는 보안 제어를 검토 합니다.
 
-- [Azure Backup 사용할 수 있는 보안 컨트롤 이해](./backup-security-controls.md)
+- [Azure Backup 사용할 수 있는 보안 컨트롤 이해]()
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 

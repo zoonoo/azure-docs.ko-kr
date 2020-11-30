@@ -4,12 +4,12 @@ description: 지역 간 복원 기능을 포함 하 여 Azure Portal를 사용 �
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 335dfc665cc7fb9727e4eff3e65a18a2aa5c3f94
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c28de679bd957a472e543489a2dd15b3883aed5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002990"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327188"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원 하는 방법
 
@@ -27,7 +27,7 @@ Azure Backup은 VM을 복원하는 여러 가지 방법을 제공합니다.
 **지역 간(보조 지역)** | 지역 간 복원을 사용하여 보조 지역에서 Azure VM을 복원할 수 있으며, 이 보조 지역은 [Azure 쌍으로 연결된 지역](../best-practices-availability-paired-regions.md#what-are-paired-regions)입니다.<br><br> 백업이 보조 지역에서 수행되는 경우 선택한 복구 지점에 대한 모든 Azure VM을 복원할 수 있습니다.<br><br> 이 기능은 아래 옵션에 사용할 수 있습니다.<br> <li> [VM 만들기](#create-a-vm) <br> <li> [디스크 복원](#restore-disks) <br><br> 현재 [기존 디스크 바꾸기](#replace-existing-disks) 옵션을 지원하지 않습니다.<br><br> 사용 권한<br> 보조 지역에 대한 복원 작업은 Backup Admins 및 App 관리자가 수행할 수 있습니다.
 
 > [!NOTE]
-> Azure VM에서 특정 파일과 폴더를 복구할 수도 있습니다. [자세한 정보를 알아보세요](backup-azure-restore-files-from-vm.md).
+> Azure VM에서 특정 파일과 폴더를 복구할 수도 있습니다. [자세히 알아보기](backup-azure-restore-files-from-vm.md).
 
 ## <a name="storage-accounts"></a>Storage 계정
 
@@ -79,7 +79,7 @@ Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 
 1. **가상 컴퓨터 이름** 에 구독에 존재 하지 않는 VM을 지정 합니다.
 1. **리소스 그룹** 에서 새 VM에 대해 기존 리소스 그룹을 선택하거나, 새 리소스 그룹을 전역 고유 이름으로 만듭니다. 이미 있는 이름을 할당하면 Azure에서 VM과 동일한 이름을 그룹에 할당합니다.
 1. **가상 네트워크** 에서 VM을 배치할 VNet를 선택합니다. 구독과 연관된 모든 VNet가 표시됩니다. 서브넷을 선택합니다. 기본적으로 첫 번째 서브넷이 선택됩니다.
-1. **준비 위치** 에서 VM에 대 한 저장소 계정을 지정 합니다. [자세한 정보를 알아보세요](#storage-accounts).
+1. **준비 위치** 에서 VM에 대 한 저장소 계정을 지정 합니다. [자세히 알아보기](#storage-accounts).
 
     ![복원 구성 마법사-복원 옵션 선택](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
@@ -95,7 +95,7 @@ Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 
 
 1. **복원 구성**  >  **새**  >  **복원 유형** 만들기에서 **디스크 복원** 을 선택 합니다.
 1. **리소스 그룹** 에서 복원된 디스크에 대해 기존 리소스 그룹을 선택하거나, 새 리소스 그룹을 전역 고유 이름으로 만듭니다.
-1. **준비 위치** 에서 vhd를 복사할 저장소 계정을 지정 합니다. [자세한 정보를 알아보세요](#storage-accounts).
+1. **준비 위치** 에서 vhd를 복사할 저장소 계정을 지정 합니다. [자세히 알아보기](#storage-accounts).
 
     ![리소스 그룹 및 스테이징 위치 선택](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
@@ -130,7 +130,7 @@ Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 
 
 1. **복원 구성** 에서 **기존 바꾸기** 를 선택 합니다.
 1. **복원 유형** 에서 **디스크 바꾸기** 를 선택합니다. 이는 기존 VM 디스크를 바꾸는 데 사용할 복원 지점입니다.
-1. **준비 위치** 에서 복원 프로세스 중에 현재 관리 디스크의 스냅숏을 저장 해야 하는 위치를 지정 합니다. [자세한 정보를 알아보세요](#storage-accounts).
+1. **준비 위치** 에서 복원 프로세스 중에 현재 관리 디스크의 스냅숏을 저장 해야 하는 위치를 지정 합니다. [자세히 알아보기](#storage-accounts).
 
    ![기존 항목을 바꾸는 구성 복원 마법사](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
@@ -203,7 +203,7 @@ VM을 복원해야 하는 일반적인 시나리오는 여러 가지가 있습�
 **NIC/서브넷의 NSG (네트워크 보안 그룹)** | Azure VM 백업은 vnet, 서브넷 및 NIC 수준에서 NSG 정보를 백업 하 고 복원 하는 것을 지원 합니다.
 **영역 고정 Vm** | 영역에 고정 된 Azure VM (Azure Backup)을 백업 하는 경우 해당 VM이 고정 된 영역에서 복원할 수 있습니다. [자세한 정보](../availability-zones/az-overview.md)
 **모든 가용성 집합에서 VM 복원** | 포털에서 VM을 복원 하는 경우 가용성 집합을 선택할 수 있는 옵션이 없습니다. 복원된 VM에는 가용성 집합이 없습니다. 복원 디스크 옵션을 사용 하는 경우 제공 된 템플릿 또는 PowerShell을 사용 하 여 디스크에서 VM을 만들 때 [가용성 집합을 지정할](../virtual-machines/windows/tutorial-availability-sets.md) 수 있습니다.
-**SQL Vm과 같은 특수 Vm 복원** | Azure VM 백업을 사용 하 여 SQL VM을 백업 하 고 restore VM 옵션을 사용 하거나 디스크를 복원한 후 VM을 만들려면 [여기](../azure-sql/virtual-machines/windows/sql-vm-resource-provider-register.md?tabs=azure-cli%2Cbash)에 설명 된 대로 새로 만든 VM을 SQL 공급자에 등록 해야 합니다. 이렇게 하면 복원 된 VM이 SQL VM으로 변환 됩니다.
+**SQL Vm과 같은 특수 Vm 복원** | Azure VM 백업을 사용 하 여 SQL VM을 백업 하 고 restore VM 옵션을 사용 하거나 디스크를 복원한 후 VM을 만들려면 [여기](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md?tabs=azure-cli%2cbash)에 설명 된 대로 새로 만든 VM을 SQL 공급자에 등록 해야 합니다. 이렇게 하면 복원 된 VM이 SQL VM으로 변환 됩니다.
 
 ### <a name="restore-domain-controller-vms"></a>도메인 컨트롤러 VM 복원
 

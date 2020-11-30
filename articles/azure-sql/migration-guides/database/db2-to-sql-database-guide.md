@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: bc7db167ed1d1d8823e90bf422f17428a7ed4e48
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 369f17a39b9d7b2f85fffb8b72a293558d16416e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497135"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325165"
 ---
 # <a name="migration-guide-db2-to-sql-database"></a>마이그레이션 가이드: DB2 to SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "94497135"
 
 다른 시나리오는 [데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 DB2 데이터베이스를 SQL Database로 마이그레이션하려면 다음이 필요 합니다.
 
@@ -138,10 +138,10 @@ SSMA(SQL Server Migration Assistant)를 사용하여 평가를 만듭니다.
 
 데이터베이스 마이그레이션의 테스트 접근 방식은 다음 작업으로 구성됩니다.
 
-1. **유효성 검사 테스트 개발** : 데이터베이스 마이그레이션을 테스트하려면 SQL 쿼리를 사용해야 합니다. 원본 데이터베이스와 대상 데이터베이스 둘 다에서 실행할 유효성 검사 쿼리를 만들어야 합니다. 유효성 검사 쿼리는 정의한 범위를 포함해야 합니다.
-1. **테스트 환경 설정** : 테스트 환경에는 원본 데이터베이스와 대상 데이터베이스의 복사본이 포함되어야 합니다. 테스트 환경을 격리해야 합니다.
-1. **유효성 검사 테스트 실행** : 원본 및 대상에서 유효성 검사 테스트를 실행한 다음, 결과를 분석합니다.
-1. **성능 테스트 실행** : 원본 및 대상에서 성능 테스트를 실행한 다음, 결과를 분석하고 비교합니다.
+1. **유효성 검사 테스트 개발**: 데이터베이스 마이그레이션을 테스트하려면 SQL 쿼리를 사용해야 합니다. 원본 데이터베이스와 대상 데이터베이스 둘 다에서 실행할 유효성 검사 쿼리를 만들어야 합니다. 유효성 검사 쿼리는 정의한 범위를 포함해야 합니다.
+1. **테스트 환경 설정**: 테스트 환경에는 원본 데이터베이스와 대상 데이터베이스의 복사본이 포함되어야 합니다. 테스트 환경을 격리해야 합니다.
+1. **유효성 검사 테스트 실행**: 원본 및 대상에서 유효성 검사 테스트를 실행한 다음, 결과를 분석합니다.
+1. **성능 테스트 실행**: 원본 및 대상에서 성능 테스트를 실행한 다음, 결과를 분석하고 비교합니다.
 
    > [!NOTE]
    > 마이그레이션 후 유효성 검사 테스트를 개발하고 실행하는 데 도움이 필요한 경우 파트너 [QuerySurge](https://www.querysurge.com/company/partners/microsoft)에서 제공하는 데이터 품질 솔루션을 사용하는 것이 좋습니다. 
@@ -149,7 +149,7 @@ SSMA(SQL Server Migration Assistant)를 사용하여 평가를 만듭니다.
 
 ## <a name="leverage-advanced-features"></a>고급 기능 활용 
 
-SQL Database에서 제공 하는 고급 클라우드 기반 기능 (예: [기본 제공](../../database/high-availability-sla.md)되는 고가용성, [위협 검색](../../database/advanced-data-security.md), [작업 모니터링 및 튜닝](../../database/monitor-tune-overview.md))을 활용 해야 합니다. 
+SQL Database에서 제공 하는 고급 클라우드 기반 기능 (예: [기본 제공](../../database/high-availability-sla.md)되는 고가용성, [위협 검색](../../database/azure-defender-for-sql.md), [작업 모니터링 및 튜닝](../../database/monitor-tune-overview.md))을 활용 해야 합니다. 
 
 
 일부 SQL Server 기능은 [데이터베이스 호환성 수준이](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) 최신 호환성 수준 (150)으로 변경 된 후에만 사용할 수 있습니다. 

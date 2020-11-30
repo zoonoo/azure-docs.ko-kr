@@ -14,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 347948734da439691bced01cf3693d0990567748
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: ca632a643215b689a9bbb825959e5c5c052d73cb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146231"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326067"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Azure Portal를 사용 하 여 SQL Server에서 Windows 가상 컴퓨터를 프로 비전 하는 방법
 
@@ -83,7 +83,7 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
     ![인스턴스 세부 정보](./media/create-sql-vm-portal/basics-instance-details.png)
 
 > [!IMPORTANT]
-> **크기 선택** 창에 표시된 월별 예상 비용에는 SQL Server 라이선스 비용이 포함되지 않습니다. 이 예상 비용은 VM만의 비용입니다. SQL Server의 Express 및 개발자 버전의 경우, 이 예상 비용은 총 예상 비용입니다. 다른 버전의 경우 [Windows Virtual Machines 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하여 SQL Server의 대상 버전을 선택하세요. 또한 [SQL Server Azure VM에 대한 가격 책정 지침](pricing-guidance.md)과 [가상 머신의 크기](../../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json)를 참조하세요.
+> **크기 선택** 창에 표시된 월별 예상 비용에는 SQL Server 라이선스 비용이 포함되지 않습니다. 이 예상 비용은 VM만의 비용입니다. SQL Server의 Express 및 개발자 버전의 경우, 이 예상 비용은 총 예상 비용입니다. 다른 버전의 경우 [Windows Virtual Machines 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하여 SQL Server의 대상 버전을 선택하세요. 또한 [SQL Server Azure VM에 대한 가격 책정 지침](pricing-guidance.md)과 [가상 머신의 크기](../../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 * **관리자 계정** 에 사용자 이름 및 암호를 제공 합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
 
@@ -188,7 +188,7 @@ SQL Server 인증을 사용 하지 않으려면 VM에서 로컬 관리자 계정
 | **주요 자격 증명 모음 URL** |주요 자격 증명 모음의 위치입니다. |`https://contosokeyvault.vault.azure.net/` |
 | **주체 이름** |Azure Active Directory 서비스 주체 이름. 이 이름을 클라이언트 ID라고도 합니다. |`fde2b411-33d5-4e11-af04eb07b669ccf2` |
 | **주체 암호** |Azure Active Directory 서비스 주체 암호입니다. 이 암호를 클라이언트 암호라고도 합니다. |`9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=` |
-| **자격 증명 이름** |**자격 증명 이름** : AKV 통합은 SQL Server 내에 자격 증명을 만들고 VM에서 키 자격 증명 모음에 액세스할 수 있도록 허용 합니다. 이 자격 증명의 이름을 선택하세요. |`mycred1` |
+| **자격 증명 이름** |**자격 증명 이름**: AKV 통합은 SQL Server 내에 자격 증명을 만들고 VM에서 키 자격 증명 모음에 액세스할 수 있도록 허용 합니다. 이 자격 증명의 이름을 선택하세요. |`mycred1` |
 
 자세한 내용은 [Azure VM에서 SQL Server에 대한 Azure Key Vault 통합 구성](azure-key-vault-integration-configure.md)을 참조하세요.
 

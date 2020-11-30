@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e6f6d1960c07dc23c584dec5bb424f91630fc1bb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 92cd20f9e636c50416a72ec974a33c87da1ae2cb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785071"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327273"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -45,7 +45,7 @@ SQL Server 가상 컴퓨터를 만들 때는 컴퓨터 및 SQL Server에 대한 
 
 ![SQL Server 연결](./media/security-considerations-best-practices/sql-vm-connectivity-option.png)
 
-최상의 보안을 위해 해당 시나리오에 대해 가장 제한적인 옵션을 선택합니다. 예를 들어 같은 VM에 있는 SQL Server에 액세스하는 애플리케이션을 실행 중인 경우 **로컬** 이 가장 안전한 선택 사항입니다. SQL Server에 대 한 액세스가 필요한 Azure 응용 프로그램을 실행 하는 경우 **개인** 설정은 지정 된 [azure virtual network](../../../virtual-network/virtual-networks-overview.md)내 에서만 SQL Server 통신을 보호 합니다. SQL Server VM에 대한 **공용** (인터넷) 액세스가 필요한 경우 이 항목의 모범 사례를 따라 공격 노출 영역을 줄이도록 합니다.
+최상의 보안을 위해 해당 시나리오에 대해 가장 제한적인 옵션을 선택합니다. 예를 들어 같은 VM에 있는 SQL Server에 액세스하는 애플리케이션을 실행 중인 경우 **로컬** 이 가장 안전한 선택 사항입니다. SQL Server에 대 한 액세스가 필요한 Azure 응용 프로그램을 실행 하는 경우 **개인** 설정은 지정 된 [azure virtual network](../../../virtual-network/virtual-networks-overview.md)내 에서만 SQL Server 통신을 보호 합니다. SQL Server VM에 대한 **공용**(인터넷) 액세스가 필요한 경우 이 항목의 모범 사례를 따라 공격 노출 영역을 줄이도록 합니다.
 
 포털에서 선택한 옵션은 VM NSG([네트워크 보안 그룹 ](../../../active-directory/identity-protection/concept-identity-protection-security-overview.md))에 대해 인바운드 보안 규칙을 사용하여 가상 머신에 대한 네트워크 트래픽을 허용하거나 거부합니다. SQL Server 포트(기본값 1433)에 대한 트래픽을 허용하도록 인바운드 NSG 규칙을 수정하거나 새 인바운드 NSG 규칙을 만들 수 있습니다. 이 포트를 통해 통신할 수 있는 특정 IP 주소를 지정할 수도 있습니다.
 
@@ -59,7 +59,7 @@ SQL Server 가상 컴퓨터를 만들 때는 컴퓨터 및 SQL Server에 대한 
 
 ## <a name="encryption"></a>암호화
 
-관리 디스크는 Server-Side 암호화 및 Azure Disk Encryption를 제공 합니다. [서버 쪽 암호화](../../../virtual-machines/windows/disk-encryption.md) 는 미사용 암호화를 제공 하 고 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호 합니다. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md)은 Bitlocker 또는 DM-Crypt 기술을 사용하고 Azure Key Vault와 통합하여 OS 및 데이터 디스크를 모두 암호화합니다. 
+관리 디스크는 Server-Side 암호화 및 Azure Disk Encryption를 제공 합니다. [서버 쪽 암호화](../../../virtual-machines/disk-encryption.md) 는 미사용 암호화를 제공 하 고 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호 합니다. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md)은 Bitlocker 또는 DM-Crypt 기술을 사용하고 Azure Key Vault와 통합하여 OS 및 데이터 디스크를 모두 암호화합니다. 
 
 ## <a name="use-a-non-default-port"></a>기본 포트가 아닌 포트 사용
 

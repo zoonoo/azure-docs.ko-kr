@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 392cc06c6e0bce7ec2304da61033fc508d940bbb
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 079d5ea0259a436100b81489043b71a81ec1a330
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143768"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327222"
 ---
 # <a name="video-moderation-with-the-review-tool"></a>검토 도구를 사용한 비디오 조정
 
@@ -26,7 +26,7 @@ Content Moderator의 기계 지원 [비디오](video-moderation-api.md) 조정 �
 대시보드의 비디오 콘텐츠 형식 내에서 검토 큐를 선택 합니다. 그러면 검토가 시작 되 고 비디오 콘텐츠 중재 페이지가 열립니다.
 
 > [!div class="mx-imgBorder"]
-> ![검토 도구의 비디오 중재 자세히 보기](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
+> ![Content Moderator (미리 보기)에서 슬라이더가 강조 표시 되 고 4 개 리뷰로 설정 됩니다. 모두 흐리게 표시 되 고 검은색 및 흰색 스위치가 강조 표시 되 고 두 스위치가 모두 설정 됩니다.](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
 ### <a name="review-count"></a>개수 검토
 
@@ -55,7 +55,7 @@ Content Moderator의 기계 지원 [비디오](video-moderation-api.md) 조정 �
 * **기록** 탭을 선택 하 여 검토 기록 (예: 생성 된 시기 및 수정 된 방법)을 확인 합니다.
 
 > [!div class="mx-imgBorder"]
-> ![비디오 조정 대량 태그 단추](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
+> ![오른쪽 창이 강조 표시 되 고 메모 탭이 선택 됩니다. 메모 추가 라는 레이블이 붙은 테스트 영역이 있습니다.](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
 ## <a name="apply-moderation-tags"></a>중재 태그 적용
 
@@ -66,7 +66,7 @@ Content Moderator의 기계 지원 [비디오](video-moderation-api.md) 조정 �
 **대량 태그** 도구 모음을 사용 하면 선택한 여러 비디오에 태그를 한 번에 추가할 수 있습니다. 하나 이상의 비디오를 선택한 다음 적용 하려는 태그를 선택 하 고 **제출** 을 클릭 합니다. 
 
 > [!div class="mx-imgBorder"]
-> ![비디오 조정 대량 태그 단추](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+> ![대량 태그 창에 + 단추가 강조 표시 됩니다.](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
 
 
 ### <a name="key-frame-tagging"></a>키 프레임 태그 지정
@@ -77,7 +77,7 @@ Content Moderator의 기계 지원 [비디오](video-moderation-api.md) 조정 �
 > 서비스에서 키 프레임을 추출할 수 없으면 키 프레임 타일 창에 **사용할 수 있는 프레임이 표시 되지** 않고 키 프레임을 선택 하는 옵션이 회색으로 표시 됩니다. 이 경우 비디오 **태그 +** 단추를 사용 하 여 비디오에만 태그를 적용할 수 있습니다.
 
 > [!div class="mx-imgBorder"]
-> ![검토 도구의 비디오 중재 자세히 보기](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+> ![타일 창, 비디오 플레이어, 키프레임 태그 창 및 비디오 태그 창이 모두 표시 됩니다. 키 프레임 태그 + 및 비디오 태그 + 단추가 강조 표시 됩니다.](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
 
 ## <a name="put-a-review-on-hold"></a>보류 중인 검토 배치
 
@@ -86,7 +86,7 @@ Content Moderator의 기계 지원 [비디오](video-moderation-api.md) 조정 �
 화면 위쪽의 **보류** 단추를 클릭 하 여 대기 중인 비디오를 볼 수 있습니다. 보류 창이 오른쪽에 나타납니다. 여기에서 보류 중인 여러 리뷰를 선택 하 고 큐로 다시 릴리스 하거나 만료 시간을 설정할 수 있습니다. 미리 구성 된 시간 후에 보류 중인 검토가 큐로 다시 릴리스됩니다. **저장** 을 선택 하 여 현재 선택 된 만료 시간에서 계산을 시작 합니다.
 
 > [!div class="mx-imgBorder"]
-> ![검토 도구의 비디오 중재 자세히 보기](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+> ![비디오 창에서 보류 단추가 강조 표시 됩니다. 창 아래쪽에서 보류 시간 콤보 상자는 릴리스 및 저장 단추와 함께 강조 표시 됩니다.](./Review-Tool-User-Guide/images/video-moderation-hold.png)
 
 ## <a name="submit-a-review"></a>검토 제출
 

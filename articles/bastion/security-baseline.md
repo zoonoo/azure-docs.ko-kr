@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 461d3800491dbe382beecbcdfe1f2a93bd6b2e5c
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 85638d2ef3499ca71057879852eb582b950b7e2c
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301578"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325687"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Azure 방호의 azure 보안 기준
 
@@ -22,7 +22,7 @@ Azure 방호가 Azure Security 벤치 마크에 완전히 매핑되는 방식을
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](/azure/security/benchmarks/security-controls-v2-network-security)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](../security/benchmarks/security-controls-v2-network-security.md)을 참조 하세요.*
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: 내부 트래픽에 대 한 보안 구현
 
@@ -63,7 +63,7 @@ Azure 인증서를 통해 게이트웨이 관리자 및 Azure 서비스 태그�
 
 ## <a name="identity-management"></a>ID 관리
 
-*자세한 내용은 [Azure Security Benchmark: ID 관리](/azure/security/benchmarks/security-controls-v2-identity-management)를 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: ID 관리](../security/benchmarks/security-controls-v2-identity-management.md)를 참조하세요.*
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Azure Active Directory를 중앙 ID 및 인증 시스템으로 표준화
 
@@ -149,7 +149,7 @@ SSH 키 또는 사용자 이름/암호 외에도 Azure 방호를 사용 하 여 
 
 ## <a name="privileged-access"></a>권한 있는 액세스
 
-*자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](/azure/security/benchmarks/security-controls-v2-privileged-access)를 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](../security/benchmarks/security-controls-v2-privileged-access.md)를 참조하세요.*
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: 업무상 중요 한 시스템에 대 한 관리 액세스 제한
 
@@ -193,7 +193,7 @@ SSH 키 또는 사용자 이름/암호 외에도 Azure 방호를 사용 하 여 
 
 응급 액세스 계정에 대 한 자격 증명 (예: 암호, 인증서 또는 스마트 카드)을 안전 하 게 유지 하 고 비상 시에만 사용할 권한이 있는 개인 에게만 알려집니다.
 
-- [Azure AD에서 응급 액세스 계정 관리](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Azure AD에서 응급 액세스 계정 관리](../active-directory/roles/security-emergency-access.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -246,7 +246,7 @@ Azure 방호를 사용 하 여 가상 머신에 연결 하는 경우 사용자�
 
 ## <a name="asset-management"></a>자산 관리
 
-*자세한 내용은 [Azure Security Benchmark: 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)를 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 자산 관리](../security/benchmarks/security-controls-v2-asset-management.md)를 참조하세요.*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: 보안 팀에서 자산 위험에 대한 가시성을 확보하도록 보장
 
@@ -274,7 +274,7 @@ Azure 방호를 사용 하 여 가상 머신에 연결 하는 경우 사용자�
 
 - [Azure Security Center asset inventory management](../security-center/asset-inventory.md)
 
-- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태그 지정 결정 가이드를 참조 하세요.](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태그 지정 결정 가이드를 참조 하세요.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Azure Security Center 모니터링**: 예
 
@@ -300,7 +300,7 @@ Azure 방호를 사용 하 여 가상 머신에 연결 하는 경우 사용자�
 
 - [강제 삭제-원격 세션 연결 끊기](session-monitoring.md#view)
 
-- [Azure 네트워크 CLI](https://docs.microsoft.com/powershell/module/az.network/?view=azps-5.1.0#networking&amp;preserve-view=true)
+- [Azure 네트워크 CLI](/powershell/module/az.network/?amp;preserve-view=true&view=azps-5.1.0#networking)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -341,7 +341,7 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 
 - [Azure ID 보호 사용](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [위협 방지 및 Azure Security Center](/azure/security-center/threat-protection)
+- [위협 방지 및 Azure Security Center](../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -407,7 +407,7 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 
 - [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../azure-monitor/platform/manage-cost-storage.md)
 
-- [Azure Storage 계정에 리소스 로그 저장](/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Azure Storage 계정에 리소스 로그 저장](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 - [Azure Bastions 로그 사용 및 사용](diagnostic-logs.md)
 
@@ -417,7 +417,7 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [Azure Security Benchmark: 인시던트 대응](/azure/security/benchmarks/security-controls-v2-incident-response)을 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 인시던트 대응](../security/benchmarks/security-controls-v2-incident-response.md)을 참조하세요.*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: 준비 – Azure에 대한 인시던트 대응 프로세스 업데이트
 
@@ -499,7 +499,7 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -527,7 +527,7 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 **지침**: Azure Policy을 사용 하 여 Azure에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Microsoft. Network" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Azure 방호의 네트워크 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다. 고객은 Azure 청사진 또는 ARM 템플릿을 활용 하 여 방호 리소스를 안전 하 고 일관 되 게 배포 하 여 보안 구성을 설정할 수도 있습니다.
 
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -543,7 +543,7 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 **지침**: Azure Policy을 사용 하 여 Azure에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Microsoft. Network" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 사용자 지정 정책을 만들어 방호 리소스의 네트워크 구성을 감사 하거나 적용 합니다.
 
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -569,7 +569,7 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 ## <a name="governance-and-strategy"></a>거버넌스 및 전략
 
-*자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](/azure/security/benchmarks/security-controls-v2-governance-strategy)을 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](../security/benchmarks/security-controls-v2-governance-strategy.md)을 참조하세요.*
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: 자산 관리 및 데이터 보호 전략 정의 
 
@@ -594,11 +594,11 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 -   적절한 암호화 표준
 
 자세한 내용은 다음 참조 문서를 참조하세요.
-- [Azure 보안 아키텍처 추천 사항 - 스토리지, 데이터 및 암호화](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Azure 보안 아키텍처 추천 사항 - 스토리지, 데이터 및 암호화](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure 보안 기본 사항 - Azure 데이터 보안, 암호화 및 스토리지](../security/fundamentals/encryption-overview.md)
 
-- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark - 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)
 
@@ -749,5 +749,5 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 859325bffe1db9cd6a7afc7e5013681c88209eff
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 9d1d0f4b615bbf4cc7faf82d70a4de0b0157ed82
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491786"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326355"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export 서비스를 사용하여 Azure Files로 데이터 가져오기
 
@@ -22,7 +22,7 @@ ms.locfileid: "94491786"
 
 Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 지원합니다. Azure Files의 내보내기는 지원되지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 가져오기 작업을 만들어 Azure Files로 데이터를 전송하기 전에 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다. 다음이 필요합니다.
 
@@ -30,7 +30,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 - Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 스토리지 계정 및 스토리지 유형](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-account-create.md)(영문)을 참조하세요.
 - [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다.
 - [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다.
-- Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://aka.ms/waiev2)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. 예들 들어 `C:\WaImportExport`입니다.
+- Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://aka.ms/waiev2)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExport`.
 - FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에는 Azure Data Box 운영 팀에 문의 하세요 `adbops@microsoft.com` .
     - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
     - 내보내기 작업의 추적 번호를 생성합니다.
@@ -58,7 +58,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
 
        ```
-   - **폴더를 가져오려면** : *MyFolder2* 아래의 모든 파일과 폴더가 fileshare에 반복적으로 복사됩니다. 폴더 구조는 유지됩니다.
+   - **폴더를 가져오려면**: *MyFolder2* 아래의 모든 파일과 폴더가 fileshare에 반복적으로 복사됩니다. 폴더 구조는 유지됩니다.
 
        ```
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
@@ -78,14 +78,14 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 
     이 예제에서는 두 개의 디스크가 연결되어 있고 기본 NTFS 볼륨 G:\ 및 H:\가 생성되었다고 가정합니다. G:가 이미 암호화된 반면 H:\는 암호화되지 않았습니다. 도구는 H:\만을 호스트하는 디스크를 포맷하고 암호화합니다(G:\) 제외).
 
-   - **암호화되지 않은 디스크의 경우** : *암호화* 를 지정하여 디스크에서 BitLocker 암호화를 사용합니다.
+   - **암호화되지 않은 디스크의 경우**: *암호화* 를 지정하여 디스크에서 BitLocker 암호화를 사용합니다.
 
        ```
        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
        H,Format,SilentMode,Encrypt,
        ```
 
-   - **이미 암호화되어 있는 디스크의 경우** : *AlreadyEncrypted* 를 지정하고 BitLocker 키를 제공합니다.
+   - **이미 암호화되어 있는 디스크의 경우**: *AlreadyEncrypted* 를 지정하고 BitLocker 키를 제공합니다.
 
        ```
        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey

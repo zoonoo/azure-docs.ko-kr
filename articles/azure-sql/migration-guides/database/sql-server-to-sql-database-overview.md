@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: cafb32e5bd91c6b7f3cfef4641828963e0731797
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 46216fe06e3d3425d5b237cdbb7326eed596945a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497387"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326933"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>마이그레이션 개요: SQL Database SQL Server
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -61,18 +61,18 @@ SQL Server 온-프레미스 라이선스를 Azure SQL Database으로 마이그�
 Azure SQL Database의 올바른 배포 모델 및 서비스 계층을 선택 하는 데 도움이 되는 일반적인 지침을 고려 합니다. 배포 중에 계산 및 저장소 리소스를 선택 하 고 나중에 응용 프로그램에 대 한 가동 중지 시간 없이  [Azure Portal](../../database/scale-resources.md)  사용 하 여 변경할 수 있습니다.
 
 
-**배포 모델** : 단일 데이터베이스 또는 탄력적 풀을 결정 하는 데 사용 되는 응용 프로그램 워크 로드 및 사용 패턴을 이해 합니다. 
+**배포 모델**: 단일 데이터베이스 또는 탄력적 풀을 결정 하는 데 사용 되는 응용 프로그램 워크 로드 및 사용 패턴을 이해 합니다. 
 
 - [단일 데이터베이스](../../database/single-database-overview.md) 는 대부분의 최신 클라우드 응용 프로그램 및 마이크로 서비스에 적합 한 완전히 관리 되는 데이터베이스를 나타냅니다.
 - [탄력적 풀](../../database/elastic-pool-overview.md) 은 CPU 또는 메모리와 같은 공유 리소스 집합을 포함 하는 단일 데이터베이스 컬렉션으로, 동일한 리소스 집합을 효과적으로 공유할 수 있는 예측 가능한 사용 패턴을 사용 하 여 풀의 데이터베이스를 결합 하는 데 적합 합니다.
 
-**모델 구매** : VCORE, DTU 또는 서버를 사용 하지 않는 구매 모델 중에서 선택 합니다. 
+**모델 구매**: VCORE, DTU 또는 서버를 사용 하지 않는 구매 모델 중에서 선택 합니다. 
 
 - [Vcore 모델](../../database/service-tiers-vcore.md) 을 사용 하면 Azure SQL Database에 대 한 vcore 수를 선택 하 여 온-프레미스 SQL Server에서 변환할 때 가장 쉽게 선택할 수 있습니다. 이 옵션은 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)를 사용 하 여 라이선스 비용을 절감할 수 있도록 지원 합니다. 
 - [Dtu 모델](../../database/service-tiers-dtu.md) 은 혼합 DTU를 제공 하기 위해 기본 계산, 메모리 및 IO 리소스를 추상화 합니다. 
 - [서버 리스 모델](../../database/serverless-tier-overview.md) 은 사용량의 초당 청구 되는 계산 리소스와 함께 자동 주문형 확장을 요구 하는 워크 로드를 위한 것입니다. 서버를 사용 하지 않는 계산 계층은 비활성 기간 (저장소 요금이 청구 되는 경우) 동안 데이터베이스를 자동으로 일시 중지 하 고 작업이 반환 될 때 데이터베이스를 자동으로 다시 시작 
 
-**서비스 계층** : 다양 한 유형의 응용 프로그램에 대해 디자인 된 세 개의 서비스 계층 중에서 선택 합니다.
+**서비스 계층**: 다양 한 유형의 응용 프로그램에 대해 디자인 된 세 개의 서비스 계층 중에서 선택 합니다.
 
 - 범용 [/표준 서비스 계층](../../database/service-tier-general-purpose.md) 은 중간 하위 계층 응용 프로그램을 제공 하는 데 적합 한 계산 및 저장소를 사용 하 여 분산 된 예산 기반 옵션을 제공 합니다 .이 옵션은 저장소 계층에서 중복성을 제공 하 여 오류를 복구 합니다. 대부분의 데이터베이스 작업을 위해 설계 되었습니다. 
 - [중요 비즈니스용/프리미엄 서비스 계층](../../database/service-tier-business-critical.md) 은 높은 트랜잭션 속도, 짧은 대기 시간 IO 및 장애 조치 (failover) 및 읽기 작업을 오프 로드 하는 데 사용할 수 있는 보조 복제본을 포함 하는 높은 수준의 복원 력을 필요로 하는 높은 계층 응용 프로그램용입니다.
@@ -183,7 +183,7 @@ Azure SQL Database의 경우 해당 시스템 데이터베이스만 [master](/sq
 
 SQL Database에서 제공 하는 고급 클라우드 기반 기능을 활용 해야 합니다. 예를 들어 서비스에서 백업 관리에 대해 더 이상 걱정할 필요가 없습니다. [보존 기간 내의 특정 시점](../../database/recovery-using-backups.md#point-in-time-restore)으로 복원할 수 있습니다. 
 
-보안을 강화 하려면 [Azure Active Directory 인증](../../database/authentication-aad-overview.md), [감사](../../database/auditing-overview.md), [위협 검색](../../database/advanced-data-security.md), [행 수준 보안](/sql/relational-databases/security/row-level-security)및 [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)을 사용 하는 것이 좋습니다.
+보안을 강화 하려면 [Azure Active Directory 인증](../../database/authentication-aad-overview.md), [감사](../../database/auditing-overview.md), [위협 검색](../../database/azure-defender-for-sql.md), [행 수준 보안](/sql/relational-databases/security/row-level-security)및 [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)을 사용 하는 것이 좋습니다.
 
 SQL Database는 고급 관리 및 보안 기능 외에도 [워크 로드를 모니터링 하 고 조정](../../database/monitor-tune-overview.md)하는 데 도움이 되는 고급 도구 집합을 제공 합니다. [Azure SQL 분석 (미리 보기)](../../../azure-monitor/insights/azure-sql.md) 는 단일 보기의 여러 구독에서 규모에 맞게 Azure SQL Database 모든 데이터베이스의 성능을 모니터링 하기 위한 고급 클라우드 모니터링 솔루션입니다. Azure SQL 분석는 성능 문제 해결을 위한 기본 제공 인텔리전스를 사용 하 여 주요 성능 메트릭을 수집 하 고 시각화 합니다.
 

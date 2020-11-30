@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d23560e8ee387ca8bc9cb4bba4211f6c8272addd
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 07f1a6ff5d15ee552680c59c86a194aeabe5b866
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490885"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326389"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 많은 양의 데이터를 안전하게 가져오는 방법에 대한 단계별 지침을 제공합니다. 데이터를 Azure Blob으로 가져오려면 서비스를 사용하여 데이터가 포함된 암호화된 디스크 드라이브를 Azure 데이터 센터로 배송해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 가져오기 작업을 만들어 Azure Blob Storage로 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다.
 다음이 필요합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "94490885"
 * Windows 시스템에서 BitLocker를 사용하도록 설정합니다. [BitLocker를 사용하도록 설정하는 방법](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)을 참조하세요.
 * Windows 시스템에서 [최신 WAImportExport 버전 1을 다운로드](https://www.microsoft.com/download/details.aspx?id=42659) 합니다. 최신 버전의 도구에는 BitLocker 키에 대 한 외부 보호기 및 업데이트 된 잠금 해제 모드 기능을 허용 하기 위한 보안 업데이트가 있습니다.
 
-  * `waimportexportv1` 기본 폴더에 압축을 풉니다. 예들 들어 `C:\WaImportExportV1`입니다.
+  * `waimportexportv1` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExportV1`.
 * FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에는 Azure Data Box 운영 팀에 문의 하세요 `adbops@microsoft.com` .
   * 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
   * 내보내기 작업의 추적 번호를 생성합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "94490885"
 1. SATA 커넥터를 통해 디스크 드라이브를 Windows 시스템에 연결합니다.
 2. 각 드라이브에 단일 NTFS 볼륨을 만듭니다. 볼륨에 드라이브 문자를 할당합니다. 탑재 지점은 사용하지 마세요.
 3. NTFS 볼륨에서 BitLocker 암호화를 사용하도록 설정합니다. Windows Server 시스템을 사용하는 경우 [Windows Server 2012 R2에서 BitLocker를 사용하도록 설정하는 방법](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)의 지침을 따르세요.
-4. 데이터를 암호화된 볼륨으로 복사합니다. 끌어서 놓기, Robocopy 또는 이러한 복사 도구를 사용합니다. 저널 ( *jrn* 번째) 파일은 도구를 실행 하는 폴더와 같은 폴더에 만들어집니다.
+4. 데이터를 암호화된 볼륨으로 복사합니다. 끌어서 놓기, Robocopy 또는 이러한 복사 도구를 사용합니다. 저널 (*jrn* 번째) 파일은 도구를 실행 하는 폴더와 같은 폴더에 만들어집니다.
 
    드라이브가 잠기고 드라이브 잠금을 해제 해야 하는 경우 사용 사례에 따라 잠금을 해제 하는 단계가 다를 수 있습니다.
 
@@ -84,7 +84,7 @@ ms.locfileid: "94490885"
     |/id:     |세션 ID. 명령의 각 인스턴스마다 고유한 세션 번호를 사용합니다.      |
     |/t:     |배송할 디스크의 드라이브 문자입니다. 예: `D` 드라이브         |
     |/bk:     |드라이브의 BitLocker 키입니다. `manage-bde -protectors -get D:` 출력의 숫자 암호입니다.      |
-    |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. 예들 들어 `D:\`입니다.         |
+    |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. 예: `D:\`.         |
     |/dstdir:     |Azure Storage에 있는 대상 컨테이너 이름입니다.         |
     |/blobtype     |이 옵션은 데이터를 가져올 blob의 유형을 지정 합니다. 블록 blob의 경우이 `BlockBlob` 고, 페이지 blob의 경우 `PageBlob` 입니다.         |
     |/skipwrite:     |복사하는 데 필요한 새 데이터가 없고 디스크의 기존 데이터를 준비하도록 지정하는 옵션입니다.          |

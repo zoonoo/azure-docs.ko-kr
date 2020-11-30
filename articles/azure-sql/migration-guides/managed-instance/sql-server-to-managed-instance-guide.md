@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5c20fbbe25b51160f42f233d30c39ccaec0f5cac
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5d5404537ad107a54bd32110727e5a7d0f74ebea
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026064"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326899"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>마이그레이션 가이드: SQL Managed Instance SQL Server
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "95026064"
 
 :::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 SQL Server를 Azure SQL Managed Instance로 마이그레이션하려면 다음 필수 구성 요소를 확인 하세요. 
 
@@ -99,10 +99,10 @@ SQL Managed Instance의 작업 성과를 SQL Server에서 실행 되는 원래 �
 
 ### <a name="create-sql-managed-instance"></a>SQL Managed Instance 만들기 
 
-검색 및 평가 단계의 정보에 따라 적절 한 크기의 대상 SQL Managed Instance를 만듭니다. [Azure Portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)또는 [Azure Resource Manager (ARM) 템플릿을](/azure/azure-sql/managed-instance/create-template-quickstart)사용 하 여이 작업을 수행할 수 있습니다. 
+검색 및 평가 단계의 정보에 따라 적절 한 크기의 대상 SQL Managed Instance를 만듭니다. [Azure Portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)또는 [Azure Resource Manager (ARM) 템플릿을](../../managed-instance/create-template-quickstart.md)사용 하 여이 작업을 수행할 수 있습니다. 
 
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>마이그레이션
 
 마이그레이션 전 단계와 관련 된 작업을 완료 하면 스키마 및 데이터 마이그레이션을 수행할 준비가 된 것입니다. 
 
@@ -124,7 +124,7 @@ DMS를 사용 하 여 마이그레이션을 수행 하려면 다음 단계를 �
 1. 데이터베이스가 복원 된 후에 **시작 시작** 을 선택 합니다. 마이그레이션 프로세스는 SMB 네트워크 공유에서 사용 가능 하도록 설정한 후 비상 로그 백업을 복사 하 고 대상에 복원 합니다. 
 1. 원본 데이터베이스에 대 한 모든 들어오는 트래픽을 중지 하 고 새 Azure SQL Managed Instance 데이터베이스에 대 한 연결 문자열을 업데이트 합니다. 
 
-이 마이그레이션 옵션에 대 한 자세한 단계별 자습서는 [DMS를 사용 하 여 온라인으로 AZURE SQL Managed Instance로 SQL Server 마이그레이션](/azure/dms/tutorial-sql-server-managed-instance-online)을 참조 하세요. 
+이 마이그레이션 옵션에 대 한 자세한 단계별 자습서는 [DMS를 사용 하 여 온라인으로 AZURE SQL Managed Instance로 SQL Server 마이그레이션](../../../dms/tutorial-sql-server-managed-instance-online.md)을 참조 하세요. 
    
 
 
@@ -144,14 +144,14 @@ DMS를 사용 하 여 마이그레이션을 수행 하려면 다음 단계를 �
 
 1. Azure blob storage에 데이터베이스를 백업 합니다. 예를 들어 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)의 [url에 백업을](/sql/relational-databases/backup-restore/sql-server-backup-to-url) 사용 합니다. [Microsoft Azure 도구](https://go.microsoft.com/fwlink/?LinkID=324399) 를 사용 하 여 SQL SERVER 2012 SP1 CU2 이전의 데이터베이스를 지원할 수 있습니다. 
 1. SQL Server Management Studio를 사용 하 여 Azure SQL Managed Instance에 연결 합니다. 
-1. 데이터베이스 백업을 사용 하 여 Azure Blob storage 계정에 액세스 하기 위해 공유 액세스 서명을 사용 하 여 자격 증명을 만듭니다. 예를 들면 다음과 같습니다.
+1. 데이터베이스 백업을 사용 하 여 Azure Blob storage 계정에 액세스 하기 위해 공유 액세스 서명을 사용 하 여 자격 증명을 만듭니다. 예:
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
    WITH IDENTITY = 'SHARED ACCESS SIGNATURE'
    , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D'
    ```
-1. Azure storage blob 컨테이너에서 백업을 복원 합니다. 예를 들면 다음과 같습니다. 
+1. Azure storage blob 컨테이너에서 백업을 복원 합니다. 예: 
 
     ```sql
    RESTORE DATABASE [TargetDatabaseName] FROM URL =
@@ -160,7 +160,7 @@ DMS를 사용 하 여 마이그레이션을 수행 하려면 다음 단계를 �
 
 1. 복원이 완료 되 면 SQL Server Management Studio 내 **개체 탐색기** 에서 데이터베이스를 확인 합니다. 
 
-이 마이그레이션 옵션에 대해 자세히 알아보려면 SSMS를 [사용 하 여 AZURE SQL Managed Instance로 데이터베이스 복원](https://docs.microsoft.com/azure/azure-sql/managed-instance/restore-sample-database-quickstart)을 참조 하세요.
+이 마이그레이션 옵션에 대해 자세히 알아보려면 SSMS를 [사용 하 여 AZURE SQL Managed Instance로 데이터베이스 복원](../../managed-instance/restore-sample-database-quickstart.md)을 참조 하세요.
 
 > [!NOTE]
 > 데이터베이스 복원 작업은 비동기로 진행되며 다시 시도할 수 있습니다. 연결이 끊어지거나 제한 시간이 만료되는 경우 SQL Server Management Studio에서 오류가 발생할 수 있습니다. Azure SQL Database는 백그라운드에서 데이터베이스 복원을 계속 시도하며, [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 보기를 사용하여 복원 진행률을 추적할 수 있습니다.
@@ -203,7 +203,7 @@ DMS를 사용 하 여 마이그레이션을 수행 하려면 다음 단계를 �
 
 ## <a name="leverage-advanced-features"></a>고급 기능 활용 
 
-SQL Managed Instance에서 제공 하는 고급 클라우드 기반 기능 (예: [기본 제공](../../database/high-availability-sla.md)되는 고가용성, [위협 검색](../../database/advanced-data-security.md), [작업 모니터링 및 튜닝](../../database/monitor-tune-overview.md))을 활용 해야 합니다. 
+SQL Managed Instance에서 제공 하는 고급 클라우드 기반 기능 (예: [기본 제공](../../database/high-availability-sla.md)되는 고가용성, [위협 검색](../../database/azure-defender-for-sql.md), [작업 모니터링 및 튜닝](../../database/monitor-tune-overview.md))을 활용 해야 합니다. 
 
 [Azure SQL 분석](../../../azure-monitor/insights/azure-sql.md) 를 사용 하 여 중앙 집중식으로 관리 되는 인스턴스의 많은 집합을 모니터링할 수 있습니다.
 

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2c143c299cec1d48dd5438d5350c818d5cc93800
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2241049e5c3cb5039a73c0f7637f7e3553d2e227
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023721"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326878"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>마이그레이션 개요: SQL Managed Instance SQL Server
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -63,7 +63,7 @@ Sql Server를 SQL Managed Instance로 마이그레이션하는 주요 이점 중
 배포 중에 계산 및 저장소 리소스를 선택한 다음 응용 프로그램에 대 한 가동 중지 시간 없이 [Azure Portal](../../database/scale-resources.md) 사용 하 여 변경할 수 있습니다. 
 
 > [!IMPORTANT]
-> [관리 되는 인스턴스 가상 네트워크 요구 사항의](/azure/azure-sql/managed-instance/connectivity-architecture-overview#network-requirements) 차이로 인해 새 인스턴스를 만들거나 기존 인스턴스를 사용 하지 못할 수 있습니다.  [새 네트워크 만들기](/azure/azure-sql/managed-instance/virtual-network-subnet-create-arm-template?branch=release-ignite-arc-data)   및 기존 네트워크 [구성](/azure/azure-sql/managed-instance/vnet-existing-add-subnet?branch=release-ignite-arc-data)에 대해 자세히 알아보세요   . 
+> [관리 되는 인스턴스 가상 네트워크 요구 사항의](../../managed-instance/connectivity-architecture-overview.md#network-requirements) 차이로 인해 새 인스턴스를 만들거나 기존 인스턴스를 사용 하지 못할 수 있습니다.  [새 네트워크 만들기](../../managed-instance/virtual-network-subnet-create-arm-template.md?branch=release-ignite-arc-data)   및 기존 네트워크 [구성](../../managed-instance/vnet-existing-add-subnet.md?branch=release-ignite-arc-data)에 대해 자세히 알아보세요   . 
 
 ### <a name="sql-server-vm-alternative"></a>SQL Server VM 대체
 
@@ -86,9 +86,9 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 
 다음 표에는 권장 마이그레이션 도구가 나열 되어 있습니다. 
 
-|기술 | Description|
+|기술 | 설명|
 |---------|---------|
-|[Azure DMS(Database Migration Service)](/azure/dms/tutorial-sql-server-to-managed-instance)  | 마이그레이션 프로세스 중 가동 중지 시간을 감당할 수 있는 응용 프로그램에 대해 오프 라인 모드에서 마이그레이션을 지 원하는 자사 Azure 서비스입니다. 온라인 모드의 연속 마이그레이션과 달리 오프 라인 모드 마이그레이션은 원본에서 대상으로 전체 데이터베이스 백업에 대 한 일회성 복원을 실행 합니다. | 
+|[Azure DMS(Database Migration Service)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | 마이그레이션 프로세스 중 가동 중지 시간을 감당할 수 있는 응용 프로그램에 대해 오프 라인 모드에서 마이그레이션을 지 원하는 자사 Azure 서비스입니다. 온라인 모드의 연속 마이그레이션과 달리 오프 라인 모드 마이그레이션은 원본에서 대상으로 전체 데이터베이스 백업에 대 한 일회성 복원을 실행 합니다. | 
 |[네이티브 백업 및 복원](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance는 기본 SQL Server 데이터베이스 백업 (.bak 파일)의 복원을 지원 하 여 Azure storage에 전체 데이터베이스 백업을 제공할 수 있는 고객에 게 가장 쉬운 마이그레이션 옵션을 제공 합니다. 전체 및 차등 백업은이 문서의 뒷부분에 있는 [마이그레이션 자산 섹션](#migration-assets) 에도 지원 되며 문서화 되어 있습니다.| 
 | | |
 
@@ -96,12 +96,12 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 
 다음 표에서는 대체 마이그레이션 도구를 보여 줍니다. 
 
-|기술 |Description  |
+|기술 |설명  |
 |---------|---------|
 |[트랜잭션 복제](../../managed-instance/replication-transactional-overview.md) | 트랜잭션 일관성을 유지 하면서 게시자-구독자 유형 마이그레이션 옵션을 제공 하 여 원본 SQL Server 데이터베이스 테이블에서 SQL Managed Instance로 데이터를 복제 합니다. |  |
 |[대량 복사](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| [Bcp (대량 복사 프로그램) 유틸리티](/sql/tools/bcp-utility) 는 SQL Server 인스턴스에서 데이터 파일로 데이터를 복사 합니다. BCP 유틸리티를 사용 하 여 원본에서 데이터를 내보내고 대상 SQL Managed Instance로 데이터 파일을 가져옵니다.</br></br> Azure SQL Database으로 데이터를 이동 하는 고속 대량 복사 작업의 경우, [효율적인 대량 복사 도구](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) 를 사용 하 여 병렬 복사 작업을 활용 하 여 전송 속도를 최대화할 수 있습니다. | 
-|[가져오기 내보내기 마법사/BACPAC](/azure/azure-sql/database/database-import?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) 는 `.bacpac` 데이터베이스의 스키마와 데이터를 캡슐화 하는 확장명을 포함 하는 Windows 파일입니다. BACPAC를 사용 하 여 원본 SQL Server에서 데이터를 내보내고 Azure SQL Managed Instance에 다시 파일을 가져올 수 있습니다.  |  
-|[ADF(Azure Data Factory)](/azure/data-factory/connector-azure-sql-managed-instance)| Azure Data Factory의 [복사 작업](/azure/data-factory/copy-activity-overview) 은 기본 제공 커넥터 및 [Integration Runtime](/azure/data-factory/concepts-integration-runtime)를 사용 하 여 원본 SQL Server 데이터베이스에서 SQL Managed Instance로 데이터를 마이그레이션합니다.</br> </br> ADF는 SQL Server 원본에서 SQL Managed Instance로 데이터를 이동 하는 다양 한 [커넥터](/azure/data-factory/connector-overview) 를 지원 합니다. |
+|[가져오기 내보내기 마법사/BACPAC](../../database/database-import.md?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) 는 `.bacpac` 데이터베이스의 스키마와 데이터를 캡슐화 하는 확장명을 포함 하는 Windows 파일입니다. BACPAC를 사용 하 여 원본 SQL Server에서 데이터를 내보내고 Azure SQL Managed Instance에 다시 파일을 가져올 수 있습니다.  |  
+|[ADF(Azure Data Factory)](../../../data-factory/connector-azure-sql-managed-instance.md)| Azure Data Factory의 [복사 작업](../../../data-factory/copy-activity-overview.md) 은 기본 제공 커넥터 및 [Integration Runtime](../../../data-factory/concepts-integration-runtime.md)를 사용 하 여 원본 SQL Server 데이터베이스에서 SQL Managed Instance로 데이터를 마이그레이션합니다.</br> </br> ADF는 SQL Server 원본에서 SQL Managed Instance로 데이터를 이동 하는 다양 한 [커넥터](../../../data-factory/connector-overview.md) 를 지원 합니다. |
 | | |
 
 ## <a name="compare-migration-options"></a>마이그레이션 옵션 비교
@@ -114,7 +114,7 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 
 |마이그레이션 옵션  |사용 시기  |고려 사항  |
 |---------|---------|---------|
-|[Azure DMS(Database Migration Service)](/azure/dms/tutorial-sql-server-to-managed-instance) | -단일 데이터베이스나 여러 데이터베이스를 대규모로 마이그레이션합니다. </br> -마이그레이션 프로세스 중 가동 중지 시간을 수용할 수 있습니다. </br> </br> 지원 되는 원본: </br> -SQL Server (2005-2019) 온-프레미스 또는 Azure VM </br> -AWS EC2 </br> -AWS RDS </br> -GCP 계산 SQL Server VM |  -규모의 마이그레이션은 [PowerShell](/azure/dms/howto-sql-server-to-azure-sql-mi-powershell)을 통해 자동화할 수 있습니다. </br> -마이그레이션을 완료 하는 데 걸리는 시간은 데이터베이스 크기에 따라 다르며 백업 및 복원 시간의 영향을 받습니다. </br> -충분 한 가동 중지 시간이 필요할 수 있습니다. |
+|[Azure DMS(Database Migration Service)](../../../dms/tutorial-sql-server-to-managed-instance.md) | -단일 데이터베이스나 여러 데이터베이스를 대규모로 마이그레이션합니다. </br> -마이그레이션 프로세스 중 가동 중지 시간을 수용할 수 있습니다. </br> </br> 지원 되는 원본: </br> -SQL Server (2005-2019) 온-프레미스 또는 Azure VM </br> -AWS EC2 </br> -AWS RDS </br> -GCP 계산 SQL Server VM |  -규모의 마이그레이션은 [PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md)을 통해 자동화할 수 있습니다. </br> -마이그레이션을 완료 하는 데 걸리는 시간은 데이터베이스 크기에 따라 다르며 백업 및 복원 시간의 영향을 받습니다. </br> -충분 한 가동 중지 시간이 필요할 수 있습니다. |
 |[네이티브 백업 및 복원](../../managed-instance/restore-sample-database-quickstart.md) | -개별 lob (기간 업무) 응용 프로그램 데이터베이스를 마이그레이션합니다.  </br> -별도의 마이그레이션 서비스 또는 도구를 사용 하지 않고 빠르고 쉽게 마이그레이션할 수 있습니다.  </br> </br> 지원 되는 원본: </br> -SQL Server (2005-2019) 온-프레미스 또는 Azure VM </br> -AWS EC2 </br> -AWS RDS </br> -GCP 계산 SQL Server VM | -데이터베이스 백업은 여러 스레드를 사용 하 여 Azure Blob 저장소로의 데이터 전송을 최적화 하지만 ISV 대역폭과 데이터베이스 크기는 전송 요금에 영향을 줄 수 있습니다. </br> -가동 중지 시간은 전체 백업 및 복원을 수행 하는 데 필요한 시간 (데이터 작업의 크기)을 수용할 수 있어야 합니다.| 
 | | | |
 
@@ -126,8 +126,8 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 |---------|---------|---------|
 |[트랜잭션 복제](../../managed-instance/replication-transactional-overview.md) | -원본 데이터베이스 테이블의 변경 내용을 대상 SQL Managed Instance 데이터베이스 테이블로 지속적으로 게시 하 여 마이그레이션합니다. </br> -선택한 테이블 (데이터베이스의 하위 집합)의 전체 또는 부분 데이터베이스 마이그레이션  </br> </br> 지원 되는 원본: </br> -SQL Server (2012-2019), 몇 가지 제한 사항이 있음 </br> -AWS EC2  </br> -GCP 계산 SQL Server VM | </br> -설치는 다른 마이그레이션 옵션에 비해 비교적 복잡 합니다.   </br> -데이터베이스를 오프 라인으로 전환 하지 않고 데이터를 마이그레이션하는 연속 복제 옵션을 제공 합니다.</br> -트랜잭션 복제에는 원본 SQL Server에서 게시자를 설정할 때 고려해 야 할 몇 가지 제한 사항이 있습니다. 자세히 알아보려면 [개체 게시에 대 한 제한 사항](/sql/relational-databases/replication/publish/publish-data-and-database-objects#limitations-on-publishing-objects) 을 참조 하세요.  </br> - [복제 작업을 모니터링](/sql/relational-databases/replication/monitor/monitoring-replication) 하는 기능을 사용할 수 있습니다.    |
 |[대량 복사](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| -전체 또는 부분 데이터 마이그레이션을 마이그레이션합니다. </br> -가동 중지 시간을 수용할 수 있습니다. </br> </br> 지원 되는 원본: </br> -SQL Server (2005-2019) 온-프레미스 또는 Azure VM </br> -AWS EC2 </br> -AWS RDS </br> -GCP 계산 SQL Server VM   | -원본에서 데이터를 내보내고 대상으로 가져오기 위한 가동 중지 시간이 필요 합니다. </br> -내보내기/가져오기에 사용 되는 파일 형식 및 데이터 형식은 테이블 스키마와 일치 해야 합니다. |
-|[가져오기 내보내기 마법사/BACPAC](/azure/azure-sql/database/database-import)| -개별 lob (기간 업무) 응용 프로그램 데이터베이스를 마이그레이션합니다. </br>-작은 데이터베이스에 적합 합니다.  </br>  별도의 마이그레이션 서비스 또는 도구가 필요 하지 않습니다. </br> </br> 지원 되는 원본: </br> -SQL Server (2005-2019) 온-프레미스 또는 Azure VM </br> -AWS EC2 </br> -AWS RDS </br> -GCP 계산 SQL Server VM  |   </br> -데이터를 원본에서 내보내고 대상에서 가져와야 하므로 가동 중지 시간이 필요 합니다.   </br> -잘림/데이터 형식 불일치 오류를 방지 하기 위해 내보내기/가져오기에 사용 되는 파일 형식 및 데이터 형식이 테이블 스키마와 일치 해야 합니다. </br> -많은 수의 개체를 포함 하는 데이터베이스를 내보내는 데 걸리는 시간이 훨씬 더 높을 수 있습니다. |
-|[ADF(Azure Data Factory)](/azure/data-factory/connector-azure-sql-managed-instance)| -원본 SQL Server 데이터베이스에서 데이터를 마이그레이션 및/또는 변환 합니다.</br> -일반적으로 BI (비즈니스 인텔리전스) 작업에 대 한 여러 데이터 원본에서 Azure SQL Managed Instance로 데이터를 병합 합니다.   </br> -원본에서 대상으로 데이터를 이동 하려면 ADF에서 데이터 이동 파이프라인을 만들어야 합니다.   </br> - [비용은](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) 중요 한 고려 사항이 며 파이프라인 트리거, 작업 실행, 데이터 이동 기간 등을 기준으로 합니다. |
+|[가져오기 내보내기 마법사/BACPAC](../../database/database-import.md)| -개별 lob (기간 업무) 응용 프로그램 데이터베이스를 마이그레이션합니다. </br>-작은 데이터베이스에 적합 합니다.  </br>  별도의 마이그레이션 서비스 또는 도구가 필요 하지 않습니다. </br> </br> 지원 되는 원본: </br> -SQL Server (2005-2019) 온-프레미스 또는 Azure VM </br> -AWS EC2 </br> -AWS RDS </br> -GCP 계산 SQL Server VM  |   </br> -데이터를 원본에서 내보내고 대상에서 가져와야 하므로 가동 중지 시간이 필요 합니다.   </br> -잘림/데이터 형식 불일치 오류를 방지 하기 위해 내보내기/가져오기에 사용 되는 파일 형식 및 데이터 형식이 테이블 스키마와 일치 해야 합니다. </br> -많은 수의 개체를 포함 하는 데이터베이스를 내보내는 데 걸리는 시간이 훨씬 더 높을 수 있습니다. |
+|[ADF(Azure Data Factory)](../../../data-factory/connector-azure-sql-managed-instance.md)| -원본 SQL Server 데이터베이스에서 데이터를 마이그레이션 및/또는 변환 합니다.</br> -일반적으로 BI (비즈니스 인텔리전스) 작업에 대 한 여러 데이터 원본에서 Azure SQL Managed Instance로 데이터를 병합 합니다.   </br> -원본에서 대상으로 데이터를 이동 하려면 ADF에서 데이터 이동 파이프라인을 만들어야 합니다.   </br> - [비용은](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) 중요 한 고려 사항이 며 파이프라인 트리거, 작업 실행, 데이터 이동 기간 등을 기준으로 합니다. |
 | | | |
 
 ## <a name="feature-interoperability"></a>기능 상호 운용성 
@@ -136,7 +136,7 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 
 #### <a name="sql-server-integration-services"></a>SQL Server Integration Services
 
-[DMS (Azure Database Migration Service](/azure/dms/how-to-migrate-ssis-packages-managed-instance))를 사용 하 여 SSISDB의 SQL SERVER INTEGRATION SERVICES (SSIS) 패키지 및 프로젝트를 Azure SQL Managed Instance로 마이그레이션합니다. 
+[DMS (Azure Database Migration Service](../../../dms/how-to-migrate-ssis-packages-managed-instance.md))를 사용 하 여 SSISDB의 SQL SERVER INTEGRATION SERVICES (SSIS) 패키지 및 프로젝트를 Azure SQL Managed Instance로 마이그레이션합니다. 
 
 SQL Server 2012부터 SSISDB의 SSIS 패키지만 마이그레이션할 수 있습니다. 마이그레이션하기 전에 레거시 SSIS 패키지를 변환 합니다. 자세히 알아보려면 [프로젝트 변환 자습서](/sql/integration-services/lesson-6-2-converting-the-project-to-the-project-deployment-model) 를 참조 하세요. 
 
@@ -149,7 +149,7 @@ SQL Server Reporting Services (SSRS) 보고서는 Power BI에서 페이지가 �
 
 SQL Server 2012 이상에서 SQL Server Analysis Services 테이블 형식 모델은 Azure의 Analysis Services 테이블 형식 모델에 대 한 PaaS 배포 모델인 Azure Analysis Services로 마이그레이션할 수 있습니다. 프레미스 모델을 마이그레이션하는 방법에 대 한 자세한 내용은이 [비디오 자습서](https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/)에서 Azure Analysis Services.
 
-또는 [새로운 XMLA 읽기/쓰기 끝점을 사용 하 여](https://docs.microsoft.com/power-bi/admin/service-premium-connect-tools)온-프레미스 Analysis Services 테이블 형식 모델을 Power BI Premium로 마이그레이션할 수도 있습니다. 
+또는 [새로운 XMLA 읽기/쓰기 끝점을 사용 하 여](/power-bi/admin/service-premium-connect-tools)온-프레미스 Analysis Services 테이블 형식 모델을 Power BI Premium로 마이그레이션할 수도 있습니다. 
 > [!NOTE]
 > Power BI XMLA 읽기/쓰기 끝점 기능은 현재 공개 미리 보기로 제공 되며 기능이 일반 공급 될 때까지 프로덕션 워크 로드에 대해 고려 하지 않아야 합니다.
 
@@ -161,7 +161,7 @@ SQL Managed Instance에 포함 된 고가용성 아키텍처 외에도 관리 �
 
 #### <a name="sql-agent-jobs"></a>SQL 에이전트 작업
 
-[SQL 에이전트 작업](/azure/dms/howto-sql-server-to-azure-sql-mi-powershell#offline-migrations)을 마이그레이션하려면 DMS (offline Azure Database Migration Service) 옵션을 사용 합니다. 그렇지 않으면 SQL Server Management Studio를 사용 하 여 Transact-sql (T-sql)에서 작업을 스크립트 한 다음 대상 SQL Managed Instance에서 수동으로 다시 만듭니다. 
+[SQL 에이전트 작업](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md#offline-migrations)을 마이그레이션하려면 DMS (offline Azure Database Migration Service) 옵션을 사용 합니다. 그렇지 않으면 SQL Server Management Studio를 사용 하 여 Transact-sql (T-sql)에서 작업을 스크립트 한 다음 대상 SQL Managed Instance에서 수동으로 다시 만듭니다. 
 
 > [!IMPORTANT]
 > 현재 Azure DMS는 T-sql 하위 시스템 단계로 작업을 지원 합니다. SSIS 패키지 단계를 사용 하는 작업은 수동으로 마이그레이션해야 합니다. 
@@ -193,7 +193,7 @@ Windows 사용자/그룹 로그인 마이그레이션이 가능하도록 Azure D
 
 SQL Managed Instance에서 제공 하는 고급 클라우드 기반 기능을 활용 해야 합니다. 예를 들어 서비스에서 백업 관리에 대해 더 이상 걱정할 필요가 없습니다. [보존 기간 내의 특정 시점](../../database/recovery-using-backups.md#point-in-time-restore)으로 복원할 수 있습니다. 또한 고가용성 [이 기본적으로 제공 되므로](../../database/high-availability-sla.md)고가용성을 설정 하는 것에 대해 걱정할 필요가 없습니다. 
 
-보안을 강화 하려면 [Azure Active Directory 인증](../../database/authentication-aad-overview.md), [감사](../../managed-instance/auditing-configure.md), [위협 검색](../../database/advanced-data-security.md), [행 수준 보안](/sql/relational-databases/security/row-level-security)및 [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)을 사용 하는 것이 좋습니다.
+보안을 강화 하려면 [Azure Active Directory 인증](../../database/authentication-aad-overview.md), [감사](../../managed-instance/auditing-configure.md), [위협 검색](../../database/azure-defender-for-sql.md), [행 수준 보안](/sql/relational-databases/security/row-level-security)및 [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)을 사용 하는 것이 좋습니다.
 
 고급 관리 및 보안 기능 외에도 SQL Managed Instance는 [워크 로드를 모니터링 하 고 조정](../../database/monitor-tune-overview.md)하는 데 도움이 되는 고급 도구 집합을 제공 합니다. [Azure SQL 분석](../../../azure-monitor/insights/azure-sql.md) 를 사용 하 여 중앙 집중식으로 관리 되는 인스턴스의 많은 집합을 모니터링할 수 있습니다.  [자동 조정](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction)   에서 관리 되는 인스턴스는 SQL 계획 실행 통계의 성능을 지속적으로 모니터링 하 고 식별 된 성능 문제를 자동으로 해결 합니다. 
 

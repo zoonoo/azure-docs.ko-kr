@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: 262e15754ba481ee37b6af9783e5a3bc82d9450c
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ff4e6e0451b57046fb8f07f5a1051235e1f6d0f5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556355"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325726"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure 가상 머신의 SQL Server 설명서 변경 내용
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -96,7 +96,7 @@ Azure에서는 SQL Server 이미지가 기본 제공된 VM(가상 머신)을 배
 | **명명된 인스턴스 지원 가능성** | 이제 기본 인스턴스가 제대로 제거되면 [SQL Server IaaS 확장](sql-server-iaas-agent-extension-automate-management.md#installation)을 명명된 인스턴스와 함께 사용할 수 있습니다. | 
 | **포털 기능 향상** | SQL Server VM 배포를 위한 Azure Portal 환경이 사용성을 향상하도록 수정되었습니다. SQL Server VM 배포에 대한 자세한 내용은 간략한 [빠른 시작](sql-vm-create-portal-quickstart.md) 또는 보다 자세한 [방법 가이드](create-sql-vm-portal.md)를 참조하세요.|
 | **포털 개선** | 이제 [Azure Portal](licensing-model-azure-hybrid-benefit-ahb-change.md#change-license-model)을 사용하여 SQL Server VM의 라이선스 모델을 종량제에서 BYOL로 변경할 수 있습니다.|
-| **Azure CLI를 통해 SQL Server VM에 대 한 가용성 그룹 배포 간소화** | 이제 Azure에서 SQL Server VM에 가용성 그룹을 배포하기가 더 쉬워졌습니다. [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) 를 사용 하 여 명령줄에서 Windows 장애 조치 (failover) 클러스터, 내부 부하 분산 장치 및 가용성 그룹 수신기를 만들 수 있습니다. 자세한 내용은 [Azure CLI를 사용 하 여 AZURE VM에서 SQL Server에 대 한 Always On 가용성 그룹 구성을](availability-group-az-cli-configure.md)참조 하세요. | 
+| **Azure CLI를 통해 SQL Server VM에 대 한 가용성 그룹 배포 간소화** | 이제 Azure에서 SQL Server VM에 가용성 그룹을 배포하기가 더 쉬워졌습니다. [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) 를 사용 하 여 명령줄에서 Windows 장애 조치 (failover) 클러스터, 내부 부하 분산 장치 및 가용성 그룹 수신기를 만들 수 있습니다. 자세한 내용은 [Azure CLI를 사용 하 여 AZURE VM에서 SQL Server에 대 한 Always On 가용성 그룹 구성을](./availability-group-az-commandline-configure.md)참조 하세요. | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2018"></a>2018 
@@ -112,7 +112,7 @@ Azure에서는 SQL Server 이미지가 기본 제공된 VM(가상 머신)을 배
 
 ## <a name="additional-resources"></a>추가 리소스
 
-**Windows VM** :
+**Windows VM**:
 
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM에서 SQL Server 프로 비전](create-sql-vm-portal.md)
@@ -121,7 +121,7 @@ Azure에서는 SQL Server 이미지가 기본 제공된 VM(가상 머신)을 배
 * [Azure 가상 머신의 SQL Server에 대한 성능 모범 사례](performance-guidelines-best-practices.md)
 * [Azure 가상 머신의 SQL Server에 대한 애플리케이션 패턴 및 개발 전략](application-patterns-development-strategies.md)
 
-**Linux VM** :
+**Linux VM**:
 
 * [Linux VM의 SQL Server 개요](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Linux 가상 머신에서 SQL Server 프로 비전](../linux/sql-vm-create-portal-quickstart.md)

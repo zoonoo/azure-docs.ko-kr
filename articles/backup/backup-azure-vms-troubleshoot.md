@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신의 백업 및 복원에서 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 343ad80a6b68de352424fa8f16686fcece921954
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: cb25d9263648fbd92bc075751c1a8e627d03bd44
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840919"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325216"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -246,7 +246,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 **2 단계**: VM이 부하가 적을 때의 시간 (예: CPU 또는 IOPS 감소)으로 백업 일정을 변경해 봅니다.
 
-**3 단계**: [VM의 크기를 늘리고](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm) 작업을 다시 시도 합니다.
+**3 단계**: [VM의 크기를 늘리고](../virtual-machines/windows/resize-vm.md) 작업을 다시 시도 합니다.
 
 ### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound-VM이 더 이상 존재 하지 않음/400094, BCMV2VMNotFound-가상 머신이 존재 하지 않거나 Azure 가상 머신을 찾을 수 없어 작업을 수행할 수 없습니다.
 
@@ -321,7 +321,7 @@ VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되�
 
 복원 후 디스크가 오프 라인 상태인 것을 확인 한 후 다음을 수행 합니다.
 
-* 스크립트가 실행 되는 컴퓨터가 OS 요구 사항을 충족 하는지 확인 합니다. [자세한 정보](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).  
+* 스크립트가 실행 되는 컴퓨터가 OS 요구 사항을 충족 하는지 확인 합니다. [자세히 알아보기](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).  
 * 동일한 원본으로 복원 하 고 있지 않은지 확인 하 고 [자세히 알아보세요](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>Usererroron Antrpnotfound-VM의 스냅숏을 찾을 수 없어서 복원에 실패 했습니다.

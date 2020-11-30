@@ -3,12 +3,12 @@ title: Azure Backup 보고서 구성
 description: Log Analytics 및 Azure 통합 문서를 사용하여 Azure Backup에 대한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 11893488c59781bb78cf913a30069e920c66bc71
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2565fa1183635c10e45b247f723788b6fe371c14
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172459"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325250"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
@@ -18,7 +18,7 @@ ms.locfileid: "92172459"
 - 백업 및 복원을 감사합니다.
 - 여러 세분성 수준에서 주요 추세를 확인합니다.
 
-현재 Azure Backup은 [Azure Monitor 로그](../azure-monitor/log-query/get-started-portal.md) 및 [Azure 통합 문서](../azure-monitor/platform/workbooks-overview.md)를 사용하는 보고 솔루션을 제공합니다. 이러한 리소스를 통해 전체 백업 자산의 백업에 대한 풍부한 인사이트를 얻을 수 있습니다. 이 문서에서는 Azure Backup 보고서를 구성하고 보는 방법을 설명합니다.
+현재 Azure Backup은 [Azure Monitor 로그](../azure-monitor/log-query/log-analytics-tutorial.md) 및 [Azure 통합 문서](../azure-monitor/platform/workbooks-overview.md)를 사용하는 보고 솔루션을 제공합니다. 이러한 리소스를 통해 전체 백업 자산의 백업에 대한 풍부한 인사이트를 얻을 수 있습니다. 이 문서에서는 Azure Backup 보고서를 구성하고 보는 방법을 설명합니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
@@ -49,7 +49,7 @@ Log Analytics 작업 영역을 설정하려면 [Azure Portal에서 Log Analytics
 
 Recovery Services 자격 증명 모음과 같은 Azure Resource Manager 리소스는 예약된 작업과 사용자가 트리거한 작업에 대한 정보를 진단 데이터로 기록합니다.
 
-Recovery Services 자격 증명 모음의 모니터링 섹션에서 **진단 설정**을 선택하고 Recovery Services 자격 증명 모음의 진단 데이터 대상을 지정합니다. 진단 이벤트 사용에 대한 자세한 내용은 [Recovery Services 자격 증명 모음에 진단 설정 사용](./backup-azure-diagnostic-events.md)을 참조하세요.
+Recovery Services 자격 증명 모음의 모니터링 섹션에서 **진단 설정** 을 선택하고 Recovery Services 자격 증명 모음의 진단 데이터 대상을 지정합니다. 진단 이벤트 사용에 대한 자세한 내용은 [Recovery Services 자격 증명 모음에 진단 설정 사용](./backup-azure-diagnostic-events.md)을 참조하세요.
 
 ![진단 설정 창](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
@@ -60,7 +60,7 @@ Recovery Services 자격 증명 모음의 모니터링 섹션에서 **진단 설
 
 #### <a name="3-view-reports-in-the-azure-portal"></a>3. Azure Portal에서 보고서 보기
 
-Log Analytics로 데이터를 보내도록 자격 증명 모음을 구성한 후에는 자격 증명 모음 창으로 이동하고 **Backup 보고서**를 선택하여 Backup 보고서를 봅니다.
+Log Analytics로 데이터를 보내도록 자격 증명 모음을 구성한 후에는 자격 증명 모음 창으로 이동하고 **Backup 보고서** 를 선택하여 Backup 보고서를 봅니다.
 
 ![자격 증명 모음 대시보드](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
 
@@ -157,10 +157,10 @@ SQL 및 SAP HANA 같은 데이터베이스 작업의 경우 표에 표시 된 �
 - 필터는 각 탭의 왼쪽에서 오른쪽으로, 위쪽에서 아래쪽으로 적용됩니다. 즉, 필터는 해당 필터의 오른쪽 또는 해당 필터의 아래쪽에 있는 모든 위젯에 적용됩니다.
 - 색이 지정된 타일을 선택하면 해당 타일의 값과 관련된 레코드에 대한 타일 아래의 위젯이 필터링됩니다. 예를 들어 **Backup 항목** 탭에서 **보호 중지됨** 타일을 선택하면 [보호 중지 됨] 상태의 백업 항목에 대한 데이터를 표시하도록 그 아래의 그리드와 차트가 필터링됩니다.
 - 색이 지정 되지 않은 타일은 선택할 수 없습니다.
-- 당일 데이터는 보고서에 표시되지 않습니다. 따라서 **시간 범위** 값을 **지난 7일**로 선택하면 날짜가 완전히 지난 7일의 레코드가 보고서에 표시됩니다. 당일은 포함되지 않습니다.
+- 당일 데이터는 보고서에 표시되지 않습니다. 따라서 **시간 범위** 값을 **지난 7일** 로 선택하면 날짜가 완전히 지난 7일의 레코드가 보고서에 표시됩니다. 당일은 포함되지 않습니다.
 - 보고서에는 선택한 시간 범위에서 *트리거된* 작업(로그 작업과 별개)의 세부 정보가 표시됩니다.
-- **클라우드 스토리지** 및 **보호된 인스턴스**에 대해 표시되는 값은 선택한 시간 범위의 *끝*에 있습니다.
-- 보고서에 표시되는 Backup 항목은 선택한 시간 범위의 *끝*에 있는 항목입니다. 선택한 시간 범위 도중에 삭제된 Backup 항목은 표시되지 않습니다. Backup 정책에도 동일한 규칙이 적용됩니다.
+- **클라우드 스토리지** 및 **보호된 인스턴스** 에 대해 표시되는 값은 선택한 시간 범위의 *끝* 에 있습니다.
+- 보고서에 표시되는 Backup 항목은 선택한 시간 범위의 *끝* 에 있는 항목입니다. 선택한 시간 범위 도중에 삭제된 Backup 항목은 표시되지 않습니다. Backup 정책에도 동일한 규칙이 적용됩니다.
 
 ## <a name="query-load-times"></a>쿼리 로드 시간
 

@@ -3,12 +3,12 @@ title: Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법
 description: 지원 요청을 제출 하 여 Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법을 알아봅니다. 기존 Azure VMware 솔루션 사설 클라우드에서 더 많은 호스트를 요청할 수도 있습니다.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 68f8fe38c67ec5ddad7cf662a7996330ee2a1e73
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 526d6b38f4b4e3f6c4806b71b4728dee90cf558a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95794723"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325080"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법
 지원 요청을 제출 하 여 [Azure VMware 솔루션](introduction.md) 리소스를 사용 하도록 설정 하는 방법을 알아봅니다. 기존 Azure VMware 솔루션 사설 클라우드에서 더 많은 호스트를 요청할 수도 있습니다.
@@ -76,7 +76,7 @@ Csp는 [Microsoft 파트너 센터](https://partner.microsoft.com) 를 사용 �
 
 1. **Azure 계획** 을 선택한 다음 **카트에 추가를** 선택 합니다. 
 
-1. 고객에 대 한 Azure 계획 구독의 일반적인 설정을 검토 하 고 완료 합니다. 자세한 내용은 [Microsoft 파트너 센터 설명서](https://docs.microsoft.com/partner-center/azure-plan-manage)를 참조 하세요.
+1. 고객에 대 한 Azure 계획 구독의 일반적인 설정을 검토 하 고 완료 합니다. 자세한 내용은 [Microsoft 파트너 센터 설명서](/partner-center/azure-plan-manage)를 참조 하세요.
 
 Azure 계획을 구성 하 고 필요한 vSphere RBAC 권한이 CSP로 설정 된 후에 Azure 계획 구독에 대 한 할당량을 사용 하도록 설정 하는 Microsoft에 참여 합니다. (Aobo) 프로시저를 대신 하 여 관리자를 사용 하 여 파트너 센터에서 Azure Portal **에** 액세스 합니다.
 

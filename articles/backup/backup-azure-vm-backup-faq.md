@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: e6e14209a8df7160d103cb036d38c9fee29b34dd
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 0f4f990654cc23fde7cf1ad2e37ba1ada76d94e3
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296066"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324791"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -83,7 +83,7 @@ Azure Backup ResourcePointCollections 개체를 저장할 형식으로 별도의
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>표준 SSD 관리 디스크를 지원할 Azure Backup 있나요?
 
-예, Azure Backup [는 표준 SSD 관리 디스크](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd)를 지원 합니다.
+예, Azure Backup [는 표준 SSD 관리 디스크](../virtual-machines/disks-types.md#standard-ssd)를 지원 합니다.
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>WA(쓰기 가속기) 지원 디스크를 사용하여 VM을 백업할 수 있나요?
 

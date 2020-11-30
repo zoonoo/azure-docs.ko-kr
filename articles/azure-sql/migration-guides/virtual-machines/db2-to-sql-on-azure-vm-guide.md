@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 0522f677c731aa1cd218a14429791db14179686a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 5312ee08bad9d0b84e13c53fe4b1de59fad896f1
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497066"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326049"
 ---
 # <a name="migration-guide-db2-to-sql-server-on-azure-vms"></a>마이그레이션 가이드: Azure Vm에서 SQL Server 하는 DB2
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -139,10 +139,10 @@ SSMA(SQL Server Migration Assistant)를 사용하여 평가를 만듭니다.
 
 데이터베이스 마이그레이션의 테스트 접근 방식은 다음 작업으로 구성됩니다.
 
-1. **유효성 검사 테스트 개발** : 데이터베이스 마이그레이션을 테스트하려면 SQL 쿼리를 사용해야 합니다. 원본 데이터베이스와 대상 데이터베이스 둘 다에서 실행할 유효성 검사 쿼리를 만들어야 합니다. 유효성 검사 쿼리는 정의한 범위를 포함해야 합니다.
-1. **테스트 환경 설정** : 테스트 환경에는 원본 데이터베이스와 대상 데이터베이스의 복사본이 포함되어야 합니다. 테스트 환경을 격리해야 합니다.
-1. **유효성 검사 테스트 실행** : 원본 및 대상에서 유효성 검사 테스트를 실행한 다음, 결과를 분석합니다.
-1. **성능 테스트 실행** : 원본 및 대상에서 성능 테스트를 실행한 다음, 결과를 분석하고 비교합니다.
+1. **유효성 검사 테스트 개발**: 데이터베이스 마이그레이션을 테스트하려면 SQL 쿼리를 사용해야 합니다. 원본 데이터베이스와 대상 데이터베이스 둘 다에서 실행할 유효성 검사 쿼리를 만들어야 합니다. 유효성 검사 쿼리는 정의한 범위를 포함해야 합니다.
+1. **테스트 환경 설정**: 테스트 환경에는 원본 데이터베이스와 대상 데이터베이스의 복사본이 포함되어야 합니다. 테스트 환경을 격리해야 합니다.
+1. **유효성 검사 테스트 실행**: 원본 및 대상에서 유효성 검사 테스트를 실행한 다음, 결과를 분석합니다.
+1. **성능 테스트 실행**: 원본 및 대상에서 성능 테스트를 실행한 다음, 결과를 분석하고 비교합니다.
 
    > [!NOTE]
    > 마이그레이션 후 유효성 검사 테스트를 개발하고 실행하는 데 도움이 필요한 경우 파트너 [QuerySurge](https://www.querysurge.com/company/partners/microsoft)에서 제공하는 데이터 품질 솔루션을 사용하는 것이 좋습니다. 
@@ -164,7 +164,7 @@ SSMA(SQL Server Migration Assistant)를 사용하여 평가를 만듭니다.
 
 마이그레이션한 후 [마이그레이션 후 유효성 검사 및 최적화 가이드](/sql/relational-databases/post-migration-validation-and-optimization-guide)를 검토하세요. 
 
-다양한 데이터베이스 및 데이터 마이그레이션 시나리오와 특수 작업을 지원하는 데 사용할 수 있는 Microsoft와 타사의 서비스 및 도구 표는 [데이터 마이그레이션 서비스 및 도구](/azure/dms/dms-tools-matrix)를 참조하세요.
+다양한 데이터베이스 및 데이터 마이그레이션 시나리오와 특수 작업을 지원하는 데 사용할 수 있는 Microsoft와 타사의 서비스 및 도구 표는 [데이터 마이그레이션 서비스 및 도구](../../../dms/dms-tools-matrix.md)를 참조하세요.
 
 다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](https://datamigration.microsoft.com/)을 참조하세요. 
 

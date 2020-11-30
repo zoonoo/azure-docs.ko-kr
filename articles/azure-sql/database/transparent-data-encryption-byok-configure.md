@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 8881dc3f67ac1c9f699bd2bf7bcf1dbbcd5e9c0c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 40572d50f7653539758ff892019e7e65b0ffa6dd
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905330"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324893"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 및 Azure CLI: Azure Key Vault에서 고객이 관리 하는 키로 투명한 데이터 암호화 사용
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -46,7 +46,7 @@ ms.locfileid: "95905330"
 
 Az 모듈 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. 특정 cmdlet에 대 한 자세한 내용은 [AzureRM](/powershell/module/AzureRM.Sql/)를 참조 하세요.
 
-Key Vault에 대 한 자세한 내용은 [Key Vault powershell 지침](../../key-vault/secrets/quick-create-powershell.md) 및 [powershell에서 일시 삭제 Key Vault 사용 하는 방법](../../key-vault/general/soft-delete-powershell.md)을 참조 하세요.
+Key Vault에 대 한 자세한 내용은 [Key Vault powershell 지침](../../key-vault/secrets/quick-create-powershell.md) 및 [powershell에서 일시 삭제 Key Vault 사용 하는 방법](../../key-vault/general/key-vault-recovery.md)을 참조 하세요.
 
 > [!IMPORTANT]
 > PowerShell Azure RM(Resource Manager) 모듈은 여전히 지원되지만 향후 모든 개발은 Az.Sql 모듈을 위한 것입니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 계속 수신할 예정입니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 호환성에 대한 자세한 내용은 [새로운 Azure PowerShell Az 모듈 소개](/powershell/azure/new-azureps-module-az)를 참조하세요.
@@ -136,7 +136,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 필요한 버전의 Azure CLI (버전 2.0 이상)을 설치 하 고 Azure 구독에 연결 하려면 [Azure 플랫폼 간 Command-Line 설치 및 구성 2.0](/cli/azure/install-azure-cli)을 참조 하세요.
 
-Key Vault에 대 한 자세한 내용은 [cli 2.0를 사용 하 여 Key Vault 관리](../../key-vault/general/manage-with-cli2.md) 및 [cli에서 일시 삭제 Key Vault 사용 하는 방법](../../key-vault/general/soft-delete-cli.md)을 참조 하세요.
+Key Vault에 대 한 자세한 내용은 [cli 2.0를 사용 하 여 Key Vault 관리](../../key-vault/general/manage-with-cli2.md) 및 [cli에서 일시 삭제 Key Vault 사용 하는 방법](../../key-vault/general/key-vault-recovery.md)을 참조 하세요.
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>서버에 Azure AD ID 할당
 

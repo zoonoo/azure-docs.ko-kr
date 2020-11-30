@@ -5,12 +5,12 @@ ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 8a6f154dc3c7a2984c687d55af2cf51a60169d6b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 746ec7aa3ee41204e051e843ff94ed0771a9d244
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182566"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326185"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
@@ -21,7 +21,7 @@ Azure Functions를 사용하면 먼저 VM(가상 머신)을 만들거나 웹 애
 
 | Visual Studio Code | 터미널/명령 프롬프트 | Visual Studio |
 | --- | --- | --- |
-|  &bull;&nbsp;[C 시작 #](./create-first-function-vs-code-csharp.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Java 시작](./create-first-function-vs-code-csharp.md?pivots=programming-language-java)<br/>&bull;&nbsp;[JavaScript 시작](./create-first-function-vs-code-csharp.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[PowerShell 시작](./create-first-function-vs-code-csharp.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Python 시작](./create-first-function-vs-code-csharp.md?pivots=programming-language-python) |&bull;&nbsp;[C 시작 #](./create-first-function-cli-csharp.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Java 시작](./create-first-function-cli-csharp.md?pivots=programming-language-java)<br/>&bull;&nbsp;[JavaScript 시작](./create-first-function-cli-csharp.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[PowerShell 시작](./create-first-function-cli-csharp.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Python 시작](./create-first-function-cli-csharp.md?pivots=programming-language-python) | [C# 시작](functions-create-your-first-function-visual-studio.md) |
+|  &bull;&nbsp;[C 시작 #](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Java 시작](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[JavaScript 시작](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[PowerShell 시작](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;[Python 시작](./create-first-function-vs-code-python.md) |&bull;&nbsp;[C 시작 #](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Java 시작](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[JavaScript 시작](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[PowerShell 시작](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;[Python 시작](./create-first-function-cli-python.md) | [C# 시작](functions-create-your-first-function-visual-studio.md) |
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

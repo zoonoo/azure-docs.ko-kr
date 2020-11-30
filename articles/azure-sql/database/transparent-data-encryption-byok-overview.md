@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2a7d77579eaebd3ee951d0184e25937783420806
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308328"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325199"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용한 Azure SQL 투명한 데이터 암호화
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -78,7 +78,7 @@ Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로
 
 - Key vault 및 SQL Database/관리 되는 인스턴스는 동일한 Azure Active Directory 테 넌 트에 속해야 합니다. 교차 테넌트 키 자격 증명 모음 및 서버 상호 작용은 지원되지 않습니다. 나중에 리소스를 이동 하려면 AKV를 사용 하는 TDE를 다시 구성 해야 합니다. [리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)에 대해 자세히 알아보세요.
 
-- 데이터 손실 실수로 인 한 키 (또는 키 자격 증명 모음) 삭제가 발생 하지 않도록 보호 하기 위해 키 자격 증명 모음에서 [일시 삭제](../../key-vault/general/soft-delete-overview.md) 기능을 사용 하도록 설정 해야 합니다. 일시 삭제 된 리소스는 고객이 복구 하거나 제거 하지 않는 한 90 일간 보존 됩니다. *복구* 및 *제거* 작업에는 키 자격 증명 모음 액세스 정책과 연결된 고유 권한이 있습니다. 일시 삭제 기능은 기본적으로 해제 되어 있으며 [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) 또는 [CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete)를 통해 사용 하도록 설정할 수 있습니다. Azure Portal를 통해 사용 하도록 설정할 수 없습니다.  
+- 데이터 손실 실수로 인 한 키 (또는 키 자격 증명 모음) 삭제가 발생 하지 않도록 보호 하기 위해 키 자격 증명 모음에서 [일시 삭제](../../key-vault/general/soft-delete-overview.md) 기능을 사용 하도록 설정 해야 합니다. 일시 삭제 된 리소스는 고객이 복구 하거나 제거 하지 않는 한 90 일간 보존 됩니다. *복구* 및 *제거* 작업에는 키 자격 증명 모음 액세스 정책과 연결된 고유 권한이 있습니다. 일시 삭제 기능은 기본적으로 해제 되어 있으며 [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) 또는 [CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli)를 통해 사용 하도록 설정할 수 있습니다. Azure Portal를 통해 사용 하도록 설정할 수 없습니다.  
 
 - Azure Active Directory id를 사용 하 여 서버 또는 관리 되는 인스턴스에 키 자격 증명 모음에 대 한 액세스 권한을 부여 합니다 (get, wrapKey, unwrapKey). Azure Portal 사용 하는 경우 Azure AD id가 자동으로 생성 됩니다. PowerShell 또는 CLI를 사용 하는 경우 Azure AD id를 명시적으로 만들고 완료를 확인 해야 합니다. PowerShell 사용에 대 한 자세한 단계별 지침은 [BYOK를 사용 하 여 Tde 구성](transparent-data-encryption-byok-configure.md) 및 [SQL Managed Instance의 byok를 사용 하 여 tde 구성](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) 을 참조 하세요.
 
@@ -146,7 +146,7 @@ Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로
 
 키 자격 증명 모음에 대 한 충분 한 액세스 권한이 있는 사용자가 실수로 키에 대 한 서버 액세스를 사용 하지 않도록 설정할 수 있습니다.
 
-- 서버에서 key vault의 *get* , *wrapKey* , *unwrapKey* 권한을 취소 하는 경우
+- 서버에서 key vault의 *get*, *wrapKey*, *unwrapKey* 권한을 취소 하는 경우
 
 - 키 삭제
 

@@ -4,12 +4,12 @@ description: Java로 함수를 개발하는 방법을 이해합니다.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 9679f6030ac889ac442a40cd852f5cc17f505756
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 1ffbd760ae75605d75652b29d379420d6946aa8f
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422521"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326457"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -45,15 +45,27 @@ Java 함수를 보다 쉽게 만들 수 있도록 특정 함수 트리거를 사
 
 ### <a name="project-scaffolding"></a>프로젝트 스캐폴딩
 
-터미널에서 명령줄 개발을 선호하는 경우 Java 기반 함수 프로젝트를 스캐폴드하는 가장 간단한 방법은 `Apache Maven` 아키타입을 사용하는 것입니다. Azure Functions의 Java Maven 아키타입은 다음 _groupId_ : _artifactId_ 로 게시됩니다. [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
+터미널에서 명령줄 개발을 선호하는 경우 Java 기반 함수 프로젝트를 스캐폴드하는 가장 간단한 방법은 `Apache Maven` 아키타입을 사용하는 것입니다. Azure Functions의 Java Maven 아키타입은 다음 _groupId_:_artifactId_ 로 게시됩니다. [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
 
 다음 명령은 이 아키타입을 사용하여 새 Java 함수 프로젝트를 생성합니다.
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-archetype 
+    -DarchetypeArtifactId=azure-functions-archetype
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+mvn archetype:generate ^
+    -DarchetypeGroupId=com.microsoft.azure ^
+    -DarchetypeArtifactId=azure-functions-archetype
+```
+
+---
 
 이 아키타입 사용을 시작하려면 [Java 빠른 시작](./create-first-function-cli-java.md)을 참조하세요.
 
@@ -153,7 +165,7 @@ Azure에서 함수가 실행 되는 함수 앱을 만들 때 사용 되는 Java 
 
 Maven 원형는 지정 된 Java 버전을 대상으로 하는 pom.xml을 생성 합니다. pom.xml의 다음 요소는 사용할 Java 버전을 표시 합니다.
 
-| 요소 |  Java 8 값 | Java 11 값 | Description |
+| 요소 |  Java 8 값 | Java 11 값 | 설명 |
 | ---- | ---- | ---- | --- |
 | **`Java.version`** | 1.8 | 11 | Maven-플러그 인에서 사용 하는 Java 버전입니다. |
 | **`JavaVersion`** | 8 | 11 | Azure의 함수 앱에서 호스트 하는 Java 버전입니다. |
@@ -210,19 +222,40 @@ JDK 및 함수 앱에 문제가 있는 경우 [정규화된 지원 플랜](https
 
 다음 예제와 같이 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) 명령을 사용하여 `JAVA_OPTS`를 설정할 수 있습니다.
 
-#### <a name="consumption-plan"></a>[사용 플랜](#tab/consumption)
+# <a name="consumption-plan"></a>[사용 플랜](#tab/consumption/bash)
+
 ```azurecli-interactive
 az functionapp config appsettings set \
---settings "JAVA_OPTS=-Djava.awt.headless=true" \
-"WEBSITE_USE_PLACEHOLDER=0" \
---name <APP_NAME> --resource-group <RESOURCE_GROUP>
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" \
+    "WEBSITE_USE_PLACEHOLDER=0" \
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
-#### <a name="dedicated-plan--premium-plan"></a>[전용 플랜/프리미엄 플랜](#tab/dedicated+premium)
+
+# <a name="consumption-plan"></a>[사용 플랜](#tab/consumption/cmd)
+
+```azurecli-interactive
+az functionapp config appsettings set ^
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" ^
+    "WEBSITE_USE_PLACEHOLDER=0" ^
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+
+# <a name="dedicated-plan--premium-plan"></a>[전용 플랜/프리미엄 플랜](#tab/dedicated+premium/bash)
+
 ```azurecli-interactive
 az functionapp config appsettings set \
---settings "JAVA_OPTS=-Djava.awt.headless=true" \
---name <APP_NAME> --resource-group <RESOURCE_GROUP>
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" \
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
+
+# <a name="dedicated-plan--premium-plan"></a>[전용 플랜/프리미엄 플랜](#tab/dedicated+premium/cmd)
+
+```azurecli-interactive
+az functionapp config appsettings set ^
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" ^
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+
 ---
 
 이 예제에서는 헤드리스 모드를 사용합니다. 또한 `<APP_NAME>`을 함수 앱의 이름으로 바꾸고 `<RESOURCE_GROUP>`을 리소스 그룹으로 바꿉니다. 
@@ -460,15 +493,36 @@ Azure CLI를 사용하여 다른 애플리케이션 로깅뿐만 아니라 Java 
 
 Azure CLI를 사용하여 애플리케이션 로깅을 기록하는 함수 앱을 구성하는 방법은 다음과 같습니다.
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli-interactive
 az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli-interactive
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
+```
+
+---
+
 Azure CLI를 사용하여 함수 앱의 로깅 출력을 스트림하려면 새 명령 프롬프트, Bash 또는 터미널 세션을 열고 다음 명령을 입력합니다.
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```azurecli-interactive
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli-interactive
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+
+---
+
 [az webapp log tail](/cli/azure/webapp/log) 명령에는 `--provider` 옵션을 사용하여 출력을 필터링하는 옵션이 있습니다. 
 
 Azure CLI를 사용하여 로그 파일을 단일 ZIP 파일로 다운로드하려면 새 명령 프롬프트, Bash 또는 터미널 세션을 열고 다음 명령을 입력합니다.

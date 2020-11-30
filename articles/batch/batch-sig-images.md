@@ -4,12 +4,12 @@ description: 사용자 지정 이미지 풀은 Batch 워크 로드를 실행 하
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: c24da435540f62a793620fe6005d176ce10c7b05
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917786"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327307"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 풀 만들기
 
@@ -58,7 +58,7 @@ Azure에서는 다음을 통해 만들 수 있는 관리 되는 이미지에서 
 - 클라우드로 업로드된 일반화된 온-프레미스 VHD
 
 > [!NOTE]
-> 현재 Batch는 일반화된 공유 이미지만 지원합니다. 지금은 특수 공유 이미지에서 사용자 지정 이미지 풀을 만들 수 없습니다.
+> Batch는 일반화 된 공유 이미지만 지원 합니다. 특수 공유 이미지를 사용 하 여 풀을 만들 수 없습니다.
 
 다음 단계는 VM을 준비하고 스냅샷을 생성하고 스냅샷에서 이미지를 만드는 방법을 보여 줍니다.
 

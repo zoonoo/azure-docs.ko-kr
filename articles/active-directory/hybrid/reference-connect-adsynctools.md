@@ -5,18 +5,18 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 11/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f81af557242503c6380d0ff7bc1dfaed852cd908
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7d0022cd381a6c5d6592e2097f3c1bd4855a3e4
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070686"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325998"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell 참조
 이 설명서에서는 Azure AD Connect에 포함된 ADSyncTools.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
@@ -27,7 +27,9 @@ ADSyncTools PowerShell 모듈을 설치 하려면 다음을 수행 합니다.
 1.  관리를 사용 하 여 Windows PowerShell 열기
 2.  다음을 입력 하거나 복사 하 여 붙여넣습니다. 
     ``` powershell
-    Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Install-PackageProvider -Name NuGet -MinimumVersion2.8.5.201 -Force
+        Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
     ```
 3.  Enter 키를 누릅니다.
 4.  모듈이 설치 되었는지 확인 하려면 다음을 입력 하거나 복사 하 여 붙여넣습니다.
@@ -100,7 +102,7 @@ Confirm-ADSyncToolsADModuleLoaded
 
 ### <a name="examples"></a>예제
 
-#### <a name="example-1"></a>예제 1
+#### <a name="example-1"></a>예 1
 ```powershell
 PS C:\> {{ Add example code here }}
 ```
@@ -124,7 +126,7 @@ Connect-AdSyncDatabase [-Server] <String> [[-Instance] <String>] [[-Database] <S
 
 ### <a name="examples"></a>예제
 
-#### <a name="example-1"></a>예제 1
+#### <a name="example-1"></a>예 1
 ```powershell
 PS C:\> {{ Add example code here }}
 ```
@@ -321,7 +323,7 @@ Get-ADSyncSQLBrowserInstances [[-hostName] <String>]
 
 ### <a name="examples"></a>예제
 
-#### <a name="example-1"></a>예제 1
+#### <a name="example-1"></a>예 1
 ```powershell
 PS C:\> {{ Add example code here }}
 ```
@@ -679,7 +681,7 @@ Invoke-AdSyncDatabaseQuery [-SqlConnection] <SqlConnection> [[-Query] <String>] 
 
 ### <a name="examples"></a>예제
 
-#### <a name="example-1"></a>예제 1
+#### <a name="example-1"></a>예 1
 ```powershell
 PS C:\> {{ Add example code here }}
 ```
@@ -849,7 +851,7 @@ Resolve-ADSyncHostAddress [[-hostName] <String>]
 
 ### <a name="examples"></a>예제
 
-#### <a name="example-1"></a>예제 1
+#### <a name="example-1"></a>예 1
 ```powershell
 PS C:\> {{ Add example code here }}
 ```
@@ -977,7 +979,7 @@ Test-ADSyncNetworkPort [[-hostName] <String>] [[-port] <String>]
 
 ### <a name="examples"></a>예제
 
-#### <a name="example-1"></a>예제 1
+#### <a name="example-1"></a>예 1
 ```powershell
 PS C:\> {{ Add example code here }}
 ```

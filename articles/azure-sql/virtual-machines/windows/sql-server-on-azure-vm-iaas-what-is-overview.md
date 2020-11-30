@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 60f781ddfa5717bbe5bcbb05ec8c236c8594c587
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c6d03c896242d02e147e880a99eb9f1e7bb15da8
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793095"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326872"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Virtual Machines의 SQL Server란(Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -147,7 +147,7 @@ CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되�
 ### <a name="networking"></a>네트워킹
 * [Virtual Network 개요](../../../virtual-network/virtual-networks-overview.md)
 * [Azure의 IP 주소](../../../virtual-network/public-ip-addresses.md)
-* [Azure 포털에서 정규화된 도메인 이름 만들기](../../../virtual-machines/linux/portal-create-fqdn.md)
+* [Azure 포털에서 정규화된 도메인 이름 만들기](../../../virtual-machines/create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 * [SQL Server 설명서](/sql/index)

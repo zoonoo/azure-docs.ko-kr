@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 3bbe704e6223bb04a17af7109c61875ca3b21bf9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0e2e09bc72991330ccdec7a35400460cbeba26fc
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748196"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327035"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Functions의 Azure Event Grid 트리거
 
@@ -407,13 +407,13 @@ Event Grid 트리거를 사용하여 Azure Portal에서 개발하는 함수의 �
 
 이 링크를 선택하면 포털에서 현재 트리거 엔드포인트가 이미 정의된 **이벤트 구독 만들기** 페이지가 열립니다.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="포털에서 새 이벤트 구독을 트리거에 연결합니다." :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="함수 엔드포인트가 이미 정의된 이벤트 구독 만들기" :::
 
 Azure Portal을 사용하여 구독을 만드는 방법에 대한 자세한 내용은 Event Grid 설명서에서 [사용자 지정 이벤트 만들기 - Azure Portal](../event-grid/custom-event-quickstart-portal.md)을 참조하세요.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 구독을 만들려면 [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create)를 사용합니다.
+[Azure CLI](/cli/azure/get-started-with-azure-cli)를 사용하여 구독을 만들려면 [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create)를 사용합니다.
 
 이 명령에는 함수를 호출하는 엔드포인트 URL이 필요합니다. 다음 예제에서는 버전별 URL 패턴을 보여줍니다.
 
@@ -435,25 +435,55 @@ https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionC
 
 #### <a name="version-2x-and-higher-runtime"></a>버전 2.x 이상 런타임
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 #### <a name="version-1x-runtime"></a>버전 1.x 런타임
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 구독을 만드는 방법에 대한 자세한 내용은 [Blob Storage 빠른 시작](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) 또는 다른 Event Grid 빠른 시작을 참조하세요.
 
@@ -508,7 +538,7 @@ Event Grid 트리거를 로컬로 테스트하려면 클라우드의 원본에�
 1. [요청을 생성](#generate-a-request)하고 뷰어 앱에서 요청 본문을 복사합니다.
 1. Event Grid 트리거 함수의 localhost URL에 [요청을 수동으로 게시](#manually-post-the-request)합니다.
 
-테스트가 완료되면 엔드포인트를 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 명령을 사용합니다.
+테스트가 완료되면 엔드포인트를 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update) Azure CLI 명령을 사용합니다.
 
 ### <a name="create-a-viewer-web-app"></a>뷰어 웹앱 만들기
 

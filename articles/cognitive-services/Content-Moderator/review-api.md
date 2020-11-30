@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: d98f2390be3b3f4b3770125185cb33daa5ff6371
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e2d87d4322ac6b91a19a4775c23ceec75d528030
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143642"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325335"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>콘텐츠 중재 검토, 워크플로 및 작업
 
@@ -26,7 +26,7 @@ Content Moderator은 기계 지원 조정을 사용자의 루프 기능과 결�
 검토에서 콘텐츠는 검토 도구에 업로드 됩니다. 대시보드의 **검토** 탭 아래에서 해당 콘텐츠 형식을 클릭 하 여 볼 수 있습니다. 검토 화면에서 적용 된 태그를 변경 하 고 사용자 지정 태그를 적절 하 게 적용할 수 있습니다. 검토를 제출 하면 결과가 지정 된 콜백 끝점으로 전송 되 고 사이트에서 콘텐츠가 제거 됩니다.
 
 > [!div class="mx-imgBorder"]
-> ![검토 탭이 선택 된 검토 도구 사이트](./Review-Tool-user-Guide/images/review-tab.png)
+> ![검토 드롭다운 메뉴가 강조 표시 됩니다. 이미지, 텍스트 및 비디오 등의 콘텐츠 형식을 표시 합니다.](./Review-Tool-user-Guide/images/review-tab.png)
 
 ### <a name="manage-reviews"></a>검토 관리
 
@@ -40,7 +40,7 @@ Content Moderator은 기계 지원 조정을 사용자의 루프 기능과 결�
 **검색** 도구 모음을 사용 하 여 검토 상태, 태그, 콘텐츠 형식, 하위 팀, 할당 된 사용자, 생성/수정 날짜 등의 다양 한 범주로 검토를 정렬할 수 있습니다.
 
 > [!div class="mx-imgBorder"]
-> ![검토 탭이 선택 된 검토 도구 사이트](./Review-Tool-user-Guide/images/review-search.png)
+> ![검색 도구 모음이 표시 됩니다. 여기에는 검토 상태 및 태그와 같은 검색 조건을 입력 하는 다양 한 콤보 상자가 있습니다.](./Review-Tool-user-Guide/images/review-search.png)
 
 [검토 도구 가이드](./review-tool-user-guide/review-moderated-images.md) 를 참조 하 여 검토 만들기를 시작 하거나 [REST API 가이드](./try-review-api-review.md) 를 참조 하 여 프로그래밍 방식으로 작업을 수행 하는 방법을 알아보세요.
 
