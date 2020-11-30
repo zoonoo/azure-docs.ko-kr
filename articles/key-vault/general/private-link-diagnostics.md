@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 870a55e5bc2701df5c03e142522e8490612b2917
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 03abe4e4e098d46060e33ba114872905e54a443f
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506059"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317065"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Azure Key Vault에서 프라이빗 링크 구성 문제 진단
 
@@ -180,8 +180,15 @@ Windows:
 C:\> nslookup fabrikam.vault.azure.net
 ```
 
-신뢰할 수 없는 응답: 주소: 52.168.109.101 별칭: fabrikam.vault.azure.net fabrikam.privatelink.vaultcore.azure.net data-prod-eus.vaultcore.azure.net data-prod-eus-region.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  52.168.109.101
+Aliases:  fabrikam.vault.azure.net
+          fabrikam.privatelink.vaultcore.azure.net
+          data-prod-eus.vaultcore.azure.net
+          data-prod-eus-region.vaultcore.azure.net
 ```
+
 Linux:
 
 ```console
@@ -295,7 +302,7 @@ Azure 구독에는 정확한 이름을 가진 [사설 DNS 영역](../../dns/priv
 
 ### <a name="query-the-healthstatus-endpoint-of-the-key-vault"></a>`/healthstatus`Key vault의 끝점 쿼리
 
-키 자격 증명 모음은 `/healthstatus` 진단에 사용할 수 있는 끝점을 제공 합니다. 응답 헤더에는 주요 자격 증명 모음 서비스에 표시 되는 원본 IP 주소가 포함 됩니다. 다음 명령을 사용 하 여 해당 끝점을 호출할 수 있습니다. **key vault 호스트 이름을 사용** 해야 합니다.
+키 자격 증명 모음은 `/healthstatus` 진단에 사용할 수 있는 끝점을 제공 합니다. 응답 헤더에는 주요 자격 증명 모음 서비스에 표시 되는 원본 IP 주소가 포함 됩니다. 다음 명령을 사용 하 여 해당 끝점을 호출할 수 있습니다.**key vault 호스트 이름을 사용** 해야 합니다.
 
 Windows (PowerShell):
 

@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: c2c2f9d0ad7bfa50f543b57326b9fc8dab0069c6
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: d06e851390537bf94b59e656f84bf58fe7216410
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029305"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317355"
 ---
 # <a name="increase-resilience-of-authentication-and-authorization-applications-you-develop"></a>개발 하는 인증 및 권한 부여 응용 프로그램의 복원 력 향상
 
@@ -29,4 +29,4 @@ Microsoft Id는 최신 토큰 기반 인증 및 권한 부여를 사용 합니�
 - [사용자가 로그인 하는 응용 프로그램에 복원 력 빌드](resilience-client-app.md)
 - [사용자 없이 응용 프로그램에 복원 력을 빌드](resilience-daemon-app.md)
 - [Id 및 액세스 관리 인프라의 빌드 복원 력](resilience-in-infrastructure.md)
-- [Azure Active Directory B2C를 사용 하 여 고객 id 및 액세스 관리에서 복원 력 빌드](resilience-b2c.md)
+- [CIAM 시스템에서 복원 력 빌드](resilience-b2c.md)

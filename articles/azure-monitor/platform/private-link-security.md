@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 3f9779d2676d4d2b67efff37118d109664b84bd5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8633aba2f7cda5dec4a48e9f7132283f8235f746
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184606"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317523"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결
 
@@ -79,10 +79,10 @@ AMPLS 리소스를 설정하기 전에 네트워크 격리 요구 사항을 고�
 * AMPLS 개체는 최대 10 개의 개인 끝점에 연결할 수 있습니다.
 
 아래 토폴로지에서:
-* 각 VNet은 1 개의 AMPLS 개체에 연결 하므로 다른 AMPLSs에 연결할 수 없습니다.
-* AMPLS B는 2 Vnet: 2/10의 가능한 개인 끝점 연결을 사용 하 여 연결 합니다.
-* AMPLS A는 2 개의 작업 영역 및 1 개의 응용 프로그램 정보 구성 요소에 연결 합니다. 3/50의 가능한 Azure Monitor 리소스를 사용 합니다.
-* 작업 영역 2는 AMPLS A 및 AMPLS B: 2/5를 사용 하 여 가능한 AMPLS 연결을 연결 합니다.
+* 각 VNet은 **1 개의** AMPLS 개체에만 연결 합니다.
+* AMPLS B는 2/10 (20%)를 사용 하 여 두 Vnet (VNet2 및 VNet3)의 개인 끝점에 연결 됩니다. 가능한 개인 끝점 연결의입니다.
+* AMPLS A는 3/50 (6%)를 사용 하 여 두 개의 작업 영역 및 하나의 응용 프로그램 정보 구성 요소에 연결 합니다. 가능한 Azure Monitor 리소스 연결의 수입니다.
+* Workspace2는 2/5 (40%)를 사용 하 여 AMPLS A 및 AMPLS B에 연결 합니다. 가능한 AMPLS 연결입니다.
 
 ![AMPLS 제한 다이어그램](./media/private-link-security/ampls-limits.png)
 
@@ -103,9 +103,9 @@ AMPLS 리소스를 설정하기 전에 네트워크 격리 요구 사항을 고�
 
 6. 유효성 검사를 통과하도록 한 다음, **만들기** 를 클릭합니다.
 
-## <a name="connect-azure-monitor-resources"></a>Azure Monitor 리소스 연결
+### <a name="connect-azure-monitor-resources"></a>Azure Monitor 리소스 연결
 
-먼저 AMPLS를 프라이빗 엔드포인트에 연결한 다음, Azure Monitor 리소스에 연결하거나 그 반대로 연결할 수 있지만, Azure Monitor 리소스를 사용하여 시작하면 연결 프로세스가 더 빠르게 진행됩니다. Azure Monitor Log Analytics 작업 영역 및 Application Insights 구성 요소를 AMPLS에 연결하는 방법은 다음과 같습니다.
+Azure Monitor 리소스 (Log Analytics 작업 영역 및 Application Insights 구성 요소)를 AMPLS에 연결 합니다.
 
 1. Azure Monitor Private Link 범위의 왼쪽 메뉴에서 **Azure Monitor 리소스** 를 클릭합니다. **추가** 단추를 클릭합니다.
 2. 작업 영역 또는 구성 요소를 추가합니다. **추가** 단추를 클릭하면 Azure Monitor 리소스를 선택할 수 있는 대화 상자가 표시됩니다. 구독 및 리소스 그룹을 찾아보거나 이름을 입력하여 이를 필터링할 수 있습니다. 작업 영역 또는 구성 요소를 선택하고, **적용** 을 클릭하여 이를 범위에 추가합니다.
@@ -158,16 +158,19 @@ AMPLS 리소스를 설정하기 전에 네트워크 격리 요구 사항을 고�
 
 ## <a name="configure-log-analytics"></a>Log Analytics 구성
 
-Azure Portal로 이동합니다. Log Analytics 작업 영역 리소스에는 왼쪽에 메뉴 항목 **네트워크 격리가** 있습니다. 이 메뉴에서 별도의 두 가지 상태를 제어할 수 있습니다. 
+Azure Portal로 이동합니다. Log Analytics 작업 영역 리소스에는 왼쪽에 메뉴 항목 **네트워크 격리가** 있습니다. 이 메뉴에서 별도의 두 가지 상태를 제어할 수 있습니다.
 
 ![LA 네트워크 격리](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
-먼저, 액세스할 수 있는 Azure Monitor Private Link 범위에 이 Log Analytics 리소스를 연결할 수 있습니다. **추가** 를 클릭하고, Azure Monitor Private Link 범위를 선택합니다.  **적용** 을 클릭하여 연결합니다. 이 화면에 연결된 모든 범위가 표시됩니다. 이 연결을 설정하면 연결된 가상 네트워크의 네트워크 트래픽이 이 작업 영역에 도달할 수 있습니다. 연결은 [Azure Monitor 리소스 연결](#connect-azure-monitor-resources)에서와 같이 범위에서 연결하는 것과 동일한 효과가 있습니다.  
+### <a name="connected-azure-monitor-private-link-scopes"></a>연결 된 Azure Monitor 개인 링크 범위
+이 작업 영역에 연결 된 모든 범위가이 화면에 표시 됩니다. 범위 (AMPLSs)에 연결 하면 각 AMPLS에 연결 된 가상 네트워크의 네트워크 트래픽이이 작업 영역에 연결 될 수 있습니다. 여기를 통해 연결을 만들면 [Azure Monitor 리소스를 연결할](#connect-azure-monitor-resources)때와 같이 범위에서 설정 하는 것과 동일한 효과가 있습니다. 새 연결을 추가 하려면 **추가** 를 클릭 하 고 Azure Monitor 개인 링크 범위를 선택 합니다. **적용** 을 클릭하여 연결합니다. 작업 영역은 [제한 고려](#consider-limits)에 설명 된 대로 5 개의 AMPLS 개체에 연결할 수 있습니다. 
 
-다음으로, 위에 나열된 프라이빗 링크 범위 외부에서 이 리소스에 연결하는 방법을 제어할 수 있습니다. **수집을 위해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정하면 연결된 범위 외부의 머신에서 데이터를 이 작업 영역에 업로드할 수 없습니다. **쿼리를 위해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정하면 범위 외부의 머신에서 이 작업 영역의 데이터에 액세스할 수 없습니다. 이 데이터에는 통합 문서, 대시보드, 쿼리 API 기반 클라이언트 환경, Azure Portal의 인사이트 등에 대한 액세스가 포함됩니다. Azure Portal 외부에서 실행 되는 환경 및 Log Analytics 데이터 쿼리도 개인 연결 VNET 내에서 실행 되어야 합니다.
+### <a name="access-from-outside-of-private-links-scopes"></a>개인 링크 범위 외부에서 액세스
+이 페이지의 맨 아래에 있는 설정은 공용 네트워크에서의 액세스를 제어 합니다. 즉, 위에 나열 된 범위를 통해 연결 되지 않은 네트워크를 의미 합니다. **수집을 위해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정하면 연결된 범위 외부의 머신에서 데이터를 이 작업 영역에 업로드할 수 없습니다. **쿼리에 대해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정 하는 경우 범위 밖의 컴퓨터는이 작업 영역에 있는 데이터에 액세스할 수 없습니다. 즉, 작업 영역 데이터를 쿼리할 수 없습니다. 여기에는 통합 문서, 대시보드, API 기반 클라이언트 환경, Azure Portal의 통찰력 등에 대 한 쿼리가 포함 됩니다. Azure Portal 외부에서 실행 되는 환경 및 Log Analytics 데이터 쿼리도 개인 연결 VNET 내에서 실행 되어야 합니다.
 
-이러한 방식으로 액세스를 제한 하는 것은 Azure Resource Manager에는 적용 되지 않으므로 다음과 같은 제한 사항이 있습니다.
-* 데이터에 대 한 액세스-공용 네트워크에서 쿼리를 차단 하는 것이 대부분의 Log Analytics 환경에 적용 되는 반면, 일부는 Azure Resource Manager를 통해 쿼리 데이터를 경험 하므로 리소스 관리자에 개인 링크 설정이 적용 되지 않는 한 (곧 제공 되는 기능) 데이터를 쿼리할 수 없습니다. 여기에는 Azure Monitor 솔루션, 통합 문서, 통찰력 및 LogicApp 커넥터가 포함 됩니다.
+### <a name="exceptions"></a>예외
+위에서 설명한 대로 액세스를 제한 하는 것은 Azure Resource Manager에는 적용 되지 않으므로 다음과 같은 제한 사항이 있습니다.
+* 데이터에 대 한 액세스-공용 네트워크에서 쿼리를 차단/허용 하는 것이 대부분의 Log Analytics 환경에 적용 되는 반면, 일부는 Azure Resource Manager를 통해 쿼리 데이터를 경험 하므로 리소스 관리자에도 개인 링크 설정이 적용 되지 않는 한 데이터를 쿼리할 수 없습니다. (기능이 곧 제공 될 예정입니다.) 여기에는 Azure Monitor 솔루션, 통합 문서, 통찰력 및 LogicApp 커넥터가 포함 됩니다.
 * 작업 영역 관리-작업 영역 설정 및 구성 변경 내용 (이러한 액세스 설정을 설정 하거나 해제 하는 등)은 Azure Resource Manager를 통해 관리 됩니다. 적절 한 역할, 권한, 네트워크 제어 및 감사를 사용 하 여 작업 영역 관리에 대 한 액세스를 제한 합니다. 자세한 내용은 [Azure Monitor 역할, 권한 및 보안](roles-permissions-security.md)을 참조하세요.
 
 > [!NOTE]

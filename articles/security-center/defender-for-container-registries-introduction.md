@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d587c4dbdd8f46d6e098ff96f464d456fffc9ccf
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ad880b7c23c687530a79ca1123474e94c923e150
+ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95529991"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96310394"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>컨테이너 레지스트리용 Azure Defender 소개
 
@@ -85,6 +85,8 @@ Security Center는 검사기의 검사 결과를 필터링하고 분류합니다
 
 [통합된 취약성 평가 도구의 결과를 사용하지 않는 규칙을 만드는 방법에 대해 알아봅니다](defender-for-container-registries-usage.md#disable-specific-findings-preview).
 
+### <a name="why-is-security-center-alerting-me-to-vulnerabilities-about-an-image-that-isnt-in-my-registry"></a>Security Center에서 레지스트리에 없는 이미지에 대한 취약성을 경고하는 이유는 무엇인가요?
+Security Center는 레지스트리에서 푸시하거나 끌어온 모든 이미지에 대한 취약성 평가를 제공합니다. 일부 이미지는 이미 스캔된 이미지에서 태그를 재사용할 수 있습니다. 예를 들어 다이제스트에 이미지를 추가할 때마다 “최신” 태그를 다시 할당할 수 있습니다. 이러한 경우 ‘이전’ 이미지는 여전히 레지스트리에 존재하며 해당 다이제스트에 의해 계속 끌어올 수 있습니다. 이미지에 보안 결과가 있고 끌어온 경우 보안 취약성이 노출됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

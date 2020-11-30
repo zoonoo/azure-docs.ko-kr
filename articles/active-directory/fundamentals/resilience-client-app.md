@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: 69967035f98d7ec2fcedff173dcf481455014ac2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9189d4d8cda5f9fcfce7e6ac2097414aa29f0a68
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920040"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317472"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-client-applications-you-develop"></a>개발 하는 클라이언트 응용 프로그램에서 인증 및 권한 부여의 복원 력 향상
 
@@ -157,4 +157,4 @@ CAE는 초기 단계에 있지만 응용 프로그램에서 채택 CAE를 사용
 - [응용 프로그램에서 지속적인 액세스 평가를 사용 하도록 설정 된 Api를 사용 하는 방법](../develop/app-resilience-continuous-access-evaluation.md)
 - [디먼 응용 프로그램에 복원 력 빌드](resilience-daemon-app.md)
 - [Id 및 액세스 관리 인프라의 빌드 복원 력](resilience-in-infrastructure.md)
-- [Azure Active Directory B2C를 사용 하 여 고객 id 및 액세스 관리에서 복원 력 빌드](resilience-b2c.md)
+- [CIAM 시스템에서 복원 력 빌드](resilience-b2c.md)

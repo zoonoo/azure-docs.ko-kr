@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: 6264ea50f128764a5213a7a1fd9b8c47ddae8961
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: c2a9dbb5fa821d408835cd1bcbf3e6afdade36e1
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309684"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317489"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -568,7 +568,7 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
 
   ---
 
-  - **작업 영역 링크 상태 확인**
+- **작업 영역 링크 상태 확인**
   
   작업 영역에서 가져오기 작업을 수행 하 고, *기능의* 응답에 *clusterresourceid* 속성이 있는지 확인 합니다. 연결 된 작업 영역에는 *Clusterresourceid* 속성이 포함 됩니다.
 

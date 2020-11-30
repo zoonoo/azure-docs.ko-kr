@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 7b77a47acba6180df4a067887b79d8cdc0f56df6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5dbd49312b58dc656e2239e8a0a4acea614023de
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185082"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317139"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Azure Synapse 작업 영역에 대 한 지속적인 통합 및 전달
 
@@ -25,7 +25,7 @@ Azure Synapse 작업 영역의 경우 CI/CD (지속적인 통합 및 배달)는 
 
 이 문서에서는 Azure 릴리스 파이프라인을 사용 하 여 여러 환경에 Synapse 작업 영역의 배포를 자동화 하는 방법을 간략하게 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 -   개발에 사용 되는 작업 영역이 스튜디오에서 Git 리포지토리로 구성 되었습니다. [Synapse Studio의 소스 제어](source-control.md)를 참조 하세요.
 -   Azure DevOps 프로젝트가 릴리스 파이프라인을 실행할 준비가 되었습니다.
@@ -91,15 +91,25 @@ Azure Synapse 작업 영역의 경우 CI/CD (지속적인 통합 및 배달)는 
 
 ## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>아티팩트 배포에 대 한 단계 작업 설정 
 
-[Synapse Workspaces 빌드 & 릴리스](https://marketplace.visualstudio.com/items?itemName=PraveenMathamsetty.synapsecicd-deploy) 작업을 사용 하 여 Synapse 작업 영역에 데이터 집합, SQL 스크립트, 노트북, spark 작업 정의, 데이터 흐름, 파이프라인, 연결 된 서비스, 자격 증명 및 IR (Integration Runtime) 등의 다른 항목을 배포 합니다.  
+[Synapse workspace deployment](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) extension을 사용 하 여 데이터 집합, SQL 스크립트, 노트북, spark 작업 정의, 데이터 흐름, 파이프라인, 연결 된 서비스, 자격 증명 및 IR (Integration Runtime)와 같은 Synapse 작업 영역에 다른 항목을 배포 합니다.  
+
+1. **Azure DevOps marketplace** 에서 확장을 검색 하 고 가져옵니다 (https://marketplace.visualstudio.com/azuredevops) 
+
+     ![확장 가져오기](media/get-extension-from-market.png)
+
+1. 확장을 설치할 조직을 선택 합니다. 
+
+     ![확장 설치](media/install-extension.png)
 
 1. Azure DevOps 파이프라인의 서비스 원칙이 구독 권한이 부여 되 고 대상 작업 영역에 대 한 작업 영역 관리자로 할당 되었는지 확인 합니다. 
 
-1. 새 작업을 만듭니다. **Synapse 작업 영역 빌드 & 릴리스** 를 검색 한 다음 **추가** 를 선택 합니다.
+1. 새 작업을 만듭니다. **Synapse 작업 영역 배포** 를 검색 한 다음 **추가** 를 선택 합니다.
+
+     ![확장 추가](media/add-extension-task.png)
 
 1.  작업에서 **workspace_publish** 관련 git 리포지토리 정보를 제공 하 고 대상 작업 영역에 대 한 리소스 그룹, 지역, 이름 및 클라우드 환경을 선택 합니다. 필요한 경우 매개 변수 및 값을 제공 합니다.
 
-    ![synapse 작업 영역 배포](media/create-release-artifacts-deployment.png)
+    ![Synapse 작업 영역 배포](media/create-release-artifacts-deployment.png)
 
 > [!IMPORTANT]
 > CI/CD 시나리오에서는 서로 다른 환경에서의 IR(통합 런타임) 형식이 동일해야 합니다. 예를 들어 개발 환경에 자체 호스팅 IR이 있는 경우 테스트 및 프로덕션과 같은 다른 환경에서 동일한 IR이 자체 호스팅 유형이어야 합니다. 마찬가지로 여러 단계에서 통합 런타임을 공유하는 경우 개발, 테스트 및 프로덕션과 같은 모든 환경에서 통합 런타임을 연결된 자체 호스팅으로 구성해야 합니다.

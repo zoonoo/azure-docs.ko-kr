@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 89cec12804f6fd2b8a3885248c42646d6c6dbb13
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9f8004b41e8048dfc97fb61bb67a634963c0c575
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186561"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317557"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
 
@@ -25,7 +25,7 @@ ms.locfileid: "96186561"
 > [!NOTE]
 > 현재 API 버전 `2020-05-01-preview` 및 리소스 중심 로그 경고에 대 한 추가 요금은 없습니다.  미리 보기에 있는 기능의 가격은 추후 발표 되며 청구를 시작 하기 전에 제공 되는 공지가 제공 됩니다. 알림 기간이 끝난 후 새 API 버전 및 리소스 중심 로그 경고를 계속 사용 하도록 선택 하는 경우 해당 요금에 대 한 요금이 청구 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 로그 경고는 Log Analytics 데이터에 대해 쿼리를 실행 합니다. 먼저 [로그 데이터 수집](resource-logs.md) 을 시작 하 고 문제에 대 한 로그 데이터를 쿼리 합니다. Log Analytics의 [경고 쿼리 예제 항목](../log-query/example-queries.md) 을 사용 하 여 [사용자가 직접 쿼리를 작성](../log-query/log-analytics-tutorial.md)하기 위해 검색 하거나 시작할 수 있는 항목을 이해할 수 있습니다.
 
@@ -90,7 +90,7 @@ requests
 | where resultCode == "500"
 ```
 
-- **기간:** 15 분
+- **기간/집계 세분성:** 15 분
 - **경고 빈도:** 15 분
 - **임계값:** 0 초과
 
@@ -102,7 +102,7 @@ requests
 
 ### <a name="aggregation-type"></a>집계 유형
 
-단일 숫자 값으로 집계 하기 위해 여러 레코드에서 수행 되는 계산입니다. 예를 들어:
+단일 숫자 값으로 집계 하기 위해 여러 레코드에서 수행 되는 계산입니다. 예를 들면 다음과 같습니다.
 - **Count** 는 쿼리의 레코드 수를 반환 합니다.
 - **Average** 는 정의 된 측정값 열 [**집계 세분성**](#aggregation-granularity) 의 평균을 반환 합니다.
 
@@ -145,7 +145,7 @@ requests
 - **리소스 Id 열:** _ResourceId (경고 규칙의 리소스 ID 열로 분할은 현재 구독 및 리소스 그룹에 대해서만 사용할 수 있음)
 - **차원/집계 위치:**
   - Computer = VM1, V M 2 (현재 작업 영역 및 Application Insights에 대 한 경고 규칙 정의의 필터링 값을 사용할 수 없습니다. 쿼리 텍스트를 필터링 합니다.
-- **기간:** 15 분
+- **기간/집계 세분성:** 15 분
 - **경고 빈도:** 15 분
 - **임계값:** 0 초과
 
