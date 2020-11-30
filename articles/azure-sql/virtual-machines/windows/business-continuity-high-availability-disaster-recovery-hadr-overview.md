@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 81d0bddbd62f9f2d15d8404fee63b15c8ab2c0a3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 194c6a5cead400e1bac78ba42cb7238b64bd3b7b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102278"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327477"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server에 대 한 비즈니스 연속성 및 HADR
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -101,7 +101,7 @@ Azure VM, 스토리지 및 네트워킹은 온-프레미스, 가상화되지 않
 ### <a name="high-availability-nodes-in-an-availability-set"></a>가용성 집합의 고가용성 노드
 Azure의 가용성 집합을 사용 하면 고가용성 노드를 별도의 장애 도메인에 추가 하 고 도메인을 업데이트할 수 있습니다. Azure 플랫폼은 가용성 집합의 각 가상 머신에 업데이트 도메인 및 장애 도메인을 할당 합니다. 데이터 센터 내에서이 구성은 계획 된 유지 관리 또는 계획 되지 않은 유지 관리 이벤트 중에 하나 이상의 가상 머신을 사용할 수 있고 Azure SLA 99.95%를 충족 하도록 합니다. 
 
-고가용성 설치를 구성 하려면 유지 관리 이벤트 중에 응용 프로그램이 나 데이터 손실을 방지 하기 위해 모든 참여 하는 SQL Server 가상 컴퓨터를 동일한 가용성 집합에 저장 합니다. 같은 클라우드 서비스에 있는 노드만 같은 가용성 집합에 참여할 수 있습니다. 자세한 내용은 [가상 머신의 가용성 관리](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json)를 참조하세요.
+고가용성 설치를 구성 하려면 유지 관리 이벤트 중에 응용 프로그램이 나 데이터 손실을 방지 하기 위해 모든 참여 하는 SQL Server 가상 컴퓨터를 동일한 가용성 집합에 저장 합니다. 같은 클라우드 서비스에 있는 노드만 같은 가용성 집합에 참여할 수 있습니다. 자세한 내용은 [가상 머신의 가용성 관리](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>가용성 영역의 고가용성 노드
 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 지역 내에서 가용성 영역을 물리적으로 분리 하면 하나 이상의 가상 머신을 사용할 수 있고 Azure SLA 99.99%를 충족 하 여 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호할 수 있습니다. 

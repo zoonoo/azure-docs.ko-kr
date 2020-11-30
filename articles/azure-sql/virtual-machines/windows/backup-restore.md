@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: db270224a753f815a2d94e6a1fa79ebbedf49278
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: f3723c792dfe962f2cbf16e3b167faf66c50a92e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94991573"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327460"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Azure VM에서 SQL Server의 백업 및 복원
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -93,7 +93,7 @@ SQL VM에서 백업 및 복원 작업을 수동으로 관리하려는 경우 사
 
 ### <a name="backup-to-attached-disks"></a>연결된 디스크에 백업
 
-Azure VM을 기반으로 하는 SQL Server의 경우 백업 파일의 대상에 대한 VM에서 연결된 디스크를 사용하는 기본 백업 및 복원 기법을 사용할 수 있습니다. 그러나 [가상 머신의 크기](../../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json)에 따라 Azure 가상 머신에 연결할 수 있는 디스크의 수에는 제한이 있습니다. 또한 고려해야 할 디스크 관리에 대한 오버헤드도 있습니다.
+Azure VM을 기반으로 하는 SQL Server의 경우 백업 파일의 대상에 대한 VM에서 연결된 디스크를 사용하는 기본 백업 및 복원 기법을 사용할 수 있습니다. 그러나 [가상 머신의 크기](../../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 따라 Azure 가상 머신에 연결할 수 있는 디스크의 수에는 제한이 있습니다. 또한 고려해야 할 디스크 관리에 대한 오버헤드도 있습니다.
 
 SSMS(SQL Server Management Studio) 또는 Transact-SQL을 사용하여 전체 데이터베이스 백업을 수동으로 만드는 방법의 예제는 [전체 데이터베이스 백업 만들기](/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server)를 참조하세요.
 

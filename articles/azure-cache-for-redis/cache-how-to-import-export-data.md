@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: e8bb1457bbf5d610518c3bc84768186972734099
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 9ee3b447b2b5f6dfa8972749c3c46ae01f79bfdc
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536864"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327511"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Azure Cache for Redis에서 데이터 가져오기 및 내보내기
 가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅샷을 가져오고 내보내는 방식으로 Azure Cache for Redis에서 데이터를 가져오고 내보낼 수 있습니다.
@@ -66,7 +66,7 @@ ms.locfileid: "92536864"
 
 1. 캐시의 현재 콘텐츠를 스토리지로 내보내려면 Azure Portal에서 [캐시로 이동](cache-configure.md#configure-azure-cache-for-redis-settings)하여 **리소스 메뉴** 에서 **데이터 내보내기** 를 클릭합니다.
 
-    ![스토리지 컨테이너 선택](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
+    ![Contoso5premium의 탐색 창에서 관리 목록의 데이터 내보내기 옵션이 강조 표시 됩니다.](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
 2. **스토리지 컨테이너 선택** 을 클릭하고 원하는 스토리지 계정을 선택합니다. 스토리지 계정은 캐시와 동일한 구독 및 지역 내에 있어야 합니다.
 
    > [!IMPORTANT]
@@ -76,7 +76,7 @@ ms.locfileid: "92536864"
     ![스토리지 계정](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
 3. 원하는 Blob 컨테이너를 선택하고 **선택** 을 클릭합니다. 새 컨테이너를 사용하려면 **컨테이너 추가** 를 클릭하여 컨테이너를 추가한 다음 목록에서 선택합니다.
 
-    ![스토리지 컨테이너 선택](./media/cache-how-to-import-export-data/cache-export-data-container.png)
+    ![Contoso55 용 컨테이너에서 + 컨테이너 옵션이 강조 표시 됩니다. Cachesaves 목록에는 하나의 컨테이너가 있고 선택 되어 강조 표시 됩니다. 선택 옵션이 선택 되 고 강조 표시 됩니다.](./media/cache-how-to-import-export-data/cache-export-data-container.png)
 4. **Blob 이름 접두사** 를 입력하고 **내보내기** 를 클릭하여 내보내기 프로세스를 시작합니다. Blob 이름 접두사는 내보내기 작업에 의해 생성되는 파일의 이름에 접두사를 붙이는 데 사용됩니다.
 
     ![내보내기](./media/cache-how-to-import-export-data/cache-export-data.png)

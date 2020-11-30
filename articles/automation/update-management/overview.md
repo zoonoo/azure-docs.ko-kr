@@ -3,14 +3,14 @@ title: Azure Automation - 업데이트 관리 개요
 description: 이 문서에서는 Windows 및 Linux 머신의 업데이트를 구현하는 업데이트 관리 기능의 개요를 살펴봅니다.
 services: automation
 ms.subservice: update-management
-ms.date: 11/23/2020
+ms.date: 11/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: eadceb17d01b40deab656bdd6223cb8f0844f54f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 37ab05ce7e963ab7fdc4d2b02e254adaa205446c
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528247"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327494"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -79,7 +79,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 |CentOS 6 및 7 (x64)      | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다. 분류 기반 패치를 사용하려면 `yum`에서 CentOS가 RTM 릴리스에 없는 보안 데이터를 반환해야 합니다. CentOS의 분류 기반 패치에 대한 자세한 내용은 [Linux의 업데이트 분류](view-update-assessments.md#linux)를 참조하세요.          |
 |Red Hat Enterprise 6 및 7 (x64)     | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.        |
 |SUSE Linux Enterprise Server 12(x64)     | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.        |
-|Ubuntu 14.04 LTS, 16.04 LTS 및 18.04 (x64)      |Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.         |
+|Ubuntu 14.04 LTS, 16.04 LTS 및 18.04 LTS (x64)      |Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.         |
 
 > [!NOTE]
 > Azure Virtual Machine Scale Sets는 업데이트 관리를 통해 관리할 수 있습니다. 업데이트 관리는 기본 이미지가 아닌 인스턴스 자체에 대해 작동합니다. 모든 VM 인스턴스가 한 번에 업데이트되지 않도록 업데이트를 증분 방식으로 예약해야 합니다. [변경 내용 추적 및 인벤토리에 비 Azure 머신 추가](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory)의 단계에 따라 가상 머신 확장 집합의 노드를 추가할 수 있습니다.
