@@ -3,12 +3,12 @@ title: Azure Site Recovery의 새로운 기능
 description: Azure Site Recovery 서비스의 새 기능 및 최신 업데이트에 대 한 요약 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 2e85ee19012f6ae13c18e26b3aa0b5ae28bcaade
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3667f963eac0ebc719872db00ac069c7da70ec91
+ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341351"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96310360"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -22,14 +22,27 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 
 **Update** |  **통합 설치** | **구성 서버 ova** | **모바일 서비스 에이전트** | **Site Recovery Provider** | **Recovery Services 에이전트**
 --- | --- | --- | --- | --- | ---
+[롤업 52](https://support.microsoft.com/help/4597409/)  | 9.39.5796.1 | 5.1.6458.0 | 9.39.5796.1 | 5.1.6458.0  | 2.0.9196.0
 [롤업 51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
 [롤업 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
 [롤업 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
 [롤업 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
-[롤업 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | HyperV 컴퓨터-2.0.9183.0 <br> VMware 컴퓨터-2.0.9177.0
-
 
 업데이트 설치 및 지원에 [대해 자세히 알아보세요](service-updates-how-to.md) .
+
+
+## <a name="updates-november-2020"></a>업데이트 (11 월 2020)
+
+### <a name="update-rollup-52"></a>업데이트 롤업 52
+
+[업데이트 롤업 52](https://support.microsoft.com/help/4597409/update-rollup-52-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
+
+**Update** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | 롤업에 설명 된 대로 Site Recovery 에이전트 및 공급자를 업데이트 합니다.
+**문제 해결/향상** | 모바일 서비스에 대 한 새로운 Linux 지원을 비롯 하 여 rollup에 설명 된 다양 한 수정 사항 및 개선 사항입니다.
+**Azure VM 재해 복구** | 이제 RHEL 8.3 및 Oracle Linux 7.9를 실행 하는 Vm에 대해 지원 됩니다.
+**Azure에 대 한 VMware v m/물리적 재해 복구** | 이제 RHEL 8.3를 실행 하는 Vm에 대해 지원 됩니다 (Oracle Linux 7.9/8.3).
 
 ## <a name="updates-october-2020"></a>업데이트 (10 월 2020)
 

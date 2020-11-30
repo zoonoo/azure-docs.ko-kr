@@ -62,7 +62,7 @@
         - name: Azure Sentinel에 온보딩
           href: scenario-onboard-azure-sentinel.md
         - name: Azure Security Center에 온보딩
-          href: /security-center/quickstart-onboard-machines
+          href: ../../security-center/quickstart-onboard-machines.md
     - name: 문제 해결
       items:
         - name: 에이전트 연결 문제
