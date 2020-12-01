@@ -1,18 +1,18 @@
 ---
 title: 템플릿의 매개 변수
-description: Azure Resource Manager 템플릿에서 매개 변수를 정의 하는 방법을 설명 합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 매개 변수를 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 8cdc95037967a32c2d8464f4dc39b1e7369102bb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ac1aeb579040b35b2a9b4cb90fb5687f91ebd3b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911416"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353513"
 ---
-# <a name="parameters-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 매개 변수
+# <a name="parameters-in-arm-templates"></a>ARM 템플릿의 매개 변수
 
-이 문서에서는 Azure Resource Manager 템플릿에서 매개 변수를 정의 하 고 사용 하는 방법을 설명 합니다. 매개 변수에 대해 서로 다른 값을 제공 하 여 다른 환경에 대 한 템플릿을 다시 사용할 수 있습니다.
+이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 매개 변수를 정의 하 고 사용 하는 방법을 설명 합니다. 매개 변수에 대해 서로 다른 값을 제공 하 여 다른 환경에 대 한 템플릿을 다시 사용할 수 있습니다.
 
 리소스 관리자는 배포 작업을 시작 하기 전에 매개 변수 값을 확인 합니다. 템플릿에서 매개 변수를 사용 하는 경우에는 리소스 관리자이 매개 변수를 확인 된 값으로 바꿉니다.
 
@@ -154,14 +154,13 @@ ms.locfileid: "95911416"
 
 다음 예제에서는 매개 변수를 사용 하는 시나리오를 보여 줍니다.
 
-|템플릿  |Description  |
+|템플릿  |설명  |
 |---------|---------|
 |[parameters with functions for default values](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json)(기본값에 대한 함수가 있는 매개 변수) | 매개 변수의 기본값을 정의할 때 템플릿 함수를 사용하는 방법을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |
 |[parameter 개체](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | 매개 변수에 대한 개체 사용을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |
 
-
 ## <a name="next-steps"></a>다음 단계
 
-* 매개 변수에 사용할 수 있는 속성에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 매개 변수에 사용할 수 있는 속성에 대 한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
 * 매개 변수 값을 파일로 전달 하는 방법에 대 한 자세한 내용은 [리소스 관리자 매개 변수 파일 만들기](parameter-files.md)를 참조 하세요.
 * 매개 변수 만들기에 대 한 권장 사항은 [모범 사례-매개 변수](template-best-practices.md#parameters)를 참조 하세요.

@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: 49d11dfe3d42d99c610fae9fa64079a5fd87501f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: c8b0ae7058aecc1813d720a3fbb2a1a1f967cf40
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006793"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352607"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Data Factory 매핑 데이터 흐름에서 SQL 잘림 오류 행 처리
 
@@ -23,7 +23,7 @@ ms.locfileid: "96006793"
 
 ADF 데이터 흐름의 데이터베이스 싱크에 데이터를 쓸 때 오류를 정상적으로 처리 하는 두 가지 기본 방법이 있습니다.
 
-* 데이터베이스 데이터를 처리할 때 싱크 [오류 행 처리](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#error-row-handling) 를 "오류 발생 시 계속"로 설정 합니다. 이는 데이터 흐름에 사용자 지정 논리가 필요 하지 않은 자동 catch 방법입니다.
+* 데이터베이스 데이터를 처리할 때 싱크 [오류 행 처리](./connector-azure-sql-database.md#error-row-handling) 를 "오류 발생 시 계속"로 설정 합니다. 이는 데이터 흐름에 사용자 지정 논리가 필요 하지 않은 자동 catch 방법입니다.
 * 또는 다음 단계를 수행 하 여 대상 문자열 열에 맞지 않는 열에 대 한 로깅을 제공 하 여 데이터 흐름을 계속할 수 있도록 합니다.
 
 > [!NOTE]

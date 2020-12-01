@@ -3,12 +3,12 @@ title: Azure DevTest Labs의 네트워크 격리
 description: Azure DevTest Labs의 네트워크 격리에 대해 알아봅니다.
 ms.topic: article
 ms.date: 08/25/2020
-ms.openlocfilehash: aafa6bf94c7963d69bfb67a28a520b811c4fbacf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 28bfa048a8a6666deb58a8ecfff38779c91d95b8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149150"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352935"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>DevTest Labs의 네트워크 격리
 
@@ -61,11 +61,11 @@ ms.locfileid: "92149150"
 
    > [!div class="mx-imgBorder"]
    > ![Contoso lab 방화벽](./media/network-isolation/contoso-lab-firewalls-vnets.png)
-1. 그런 다음, **기존 가상 네트워크 추가**를 클릭 하 고 랩을 만들 때 선택한 가상 네트워크 및 서브넷을 선택 하 고 **사용**을 클릭 합니다. 
+1. 그런 다음, **기존 가상 네트워크 추가** 를 클릭 하 고 랩을 만들 때 선택한 가상 네트워크 및 서브넷을 선택 하 고 **사용** 을 클릭 합니다. 
 
    > [!div class="mx-imgBorder"]
    > ![Contoso 내 vnet](./media/network-isolation/contoso-lab-my-vnet.png)
-5.  선택한 가상 네트워크에 대해 서비스 끝점이 성공적으로 설정 되 면 **추가**를 클릭 합니다. 
+5.  선택한 가상 네트워크에 대해 서비스 끝점이 성공적으로 설정 되 면 **추가** 를 클릭 합니다. 
 
    > [!div class="mx-imgBorder"]
    > ![추가](./media/network-isolation/contoso-firewall-add.png)
@@ -74,7 +74,7 @@ ms.locfileid: "92149150"
 
 이러한 단계를 자동화 하 여 여러 랩에 대해이 설정을 구성 하도록 선택할 수도 있습니다. 
 
-[PowerShell 및 CLI를 사용 하 여 Azure Storage에 대 한 기본 네트워크 액세스 규칙 관리에 대해 자세히 알아보세요.](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#powershell)
+[PowerShell 및 CLI를 사용 하 여 Azure Storage에 대 한 기본 네트워크 액세스 규칙 관리에 대해 자세히 알아보세요.](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#powershell)
 
 ## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>네트워크 격리 모드에서 랩을 사용 하는 동안 기억할 사항
 

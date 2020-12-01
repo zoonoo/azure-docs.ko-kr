@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 39c0556350482e171234a3ff9dce0c16ed88d110
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2ccff72be66a88b9bf0a5e9eb9c29ade8397804b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93406650"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356196"
 ---
 Azure Functions 발생 하는 오류는 다음 원본 중 하나에서 가져올 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure Functions 발생 하는 오류는 다음 원본 중 하나에서 가져올
 
 **재시도 전략** 은 재시도 동작을 제어 합니다.  다음은 두 가지 지원 되는 다시 시도 옵션입니다.
 
-| 옵션 | Description|
+| 옵션 | 설명|
 |---|---|
 |**`fixedDelay`**| 각 다시 시도 사이에 지정 된 시간이 경과할 수 있습니다.|
 | **`exponentialBackoff`**| 첫 번째 다시 시도는 최소 지연 시간 동안 대기 합니다. 이후 재시도 시 최대 지연 시간에 도달할 때까지 다시 시도 하는 각 다시 시도에 대 한 초기 기간에는 시간이 상당히 추가 됩니다.  지 수 백오프는 처리량이 많은 시나리오에서 다시 시도를 분산 하는 몇 가지 작은 임의를 지연에 추가 합니다.|
@@ -130,6 +130,27 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 ```
 
 # <a name="java"></a>[Java](#tab/java)
+
+다음은 파일 *에 대 한function.js* 의 재시도 정책입니다.
+
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 4,
+        "delayInterval": "00:00:10"
+    }
+}
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 다음은 파일 *에 대 한function.js* 의 재시도 정책입니다.
 
@@ -249,12 +270,33 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
     }
 }
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+다음은 파일 *에 대 한function.js* 의 재시도 정책입니다.
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "exponentialBackoff",
+        "maxRetryCount": 5,
+        "minimumInterval": "00:00:10",
+        "maximumInterval": "00:15:00"
+    }
+}
+```
 ---
 
-|function.json 속성  |Attribute 속성 | Description |
+|function.json 속성  |Attribute 속성 | 설명 |
 |---------|---------|---------| 
-|방식의|해당 없음|필수 사항입니다. 사용하는 재시도 전략입니다. 유효한 값은 `fixedDelay` 또는 `exponentialBackoff`입니다.|
-|maxRetryCount|해당 없음|필수 사항입니다. 함수 실행 당 허용 되는 최대 다시 시도 횟수입니다. `-1` 무기한으로 다시 시도 하는 것을 의미 합니다.|
+|방식의|해당 없음|필수 요소. 사용하는 재시도 전략입니다. 유효한 값은 `fixedDelay` 또는 `exponentialBackoff`입니다.|
+|maxRetryCount|해당 없음|필수 요소. 함수 실행 당 허용 되는 최대 다시 시도 횟수입니다. `-1` 무기한으로 다시 시도 하는 것을 의미 합니다.|
 |delayInterval|해당 없음|전략을 사용할 때 재시도 사이에 사용 되는 지연입니다 `fixedDelay` .|
 |minimumInterval|해당 없음|전략을 사용 하는 경우 최소 재시도 지연 `exponentialBackoff` 입니다.|
 |maximumInterval|해당 없음|전략을 사용 하는 경우 다시 시도 하는 최대 시간 `exponentialBackoff` 입니다.| 

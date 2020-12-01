@@ -1,20 +1,20 @@
 ---
 title: 템플릿 구조 및 구문
-description: 선언적 JSON 구문을 사용하여 Azure Resource Manager 템플릿의 구조 및 속성을 설명합니다.
+description: 선언적 JSON 구문을 사용 하 여 Azure Resource Manager 템플릿 (ARM 템플릿)의 구조 및 속성을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: b7cf30741cfd2b85046f64fddf01c414676a97e4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c0e1e3225d63d0463164a3ed599fb0b760367123
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911501"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353496"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>ARM 템플릿의 구조 및 구문 이해
 
-이 문서에서는 ARM (Azure Resource Manager) 템플릿의 구조에 대해 설명 합니다. 여기서는 템플릿의 다른 섹션 및 해당 섹션에서 사용할 수 있는 속성을 보여 줍니다.
+이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)의 구조에 대해 설명 합니다. 여기서는 템플릿의 다른 섹션 및 해당 섹션에서 사용할 수 있는 속성을 보여 줍니다.
 
-이 문서는 ARM 템플릿에 대해 잘 알고 있는 사용자를 위한 것입니다. 템플릿의 구조에 대 한 자세한 정보를 제공 합니다. 템플릿을 만드는 과정을 안내 하는 단계별 자습서는 [자습서: 첫 번째 Azure Resource Manager 템플릿 만들기 및 배포](template-tutorial-create-first-template.md)를 참조 하세요.
+이 문서는 ARM 템플릿에 대해 잘 알고 있는 사용자를 위한 것입니다. 템플릿의 구조에 대 한 자세한 정보를 제공 합니다. 템플릿 만들기 프로세스를 안내하는 단계별 자습서는 [자습서: 첫 번째 ARM 템플릿 만들기 및 배포](template-tutorial-create-first-template.md)를 참조하세요.
 
 ## <a name="template-format"></a>템플릿 형식
 
@@ -33,7 +33,7 @@ ms.locfileid: "95911501"
 }
 ```
 
-| 요소 이름 | 필수 | Description |
+| 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
 | $schema |Yes |템플릿 언어의 버전을 설명하는 JSON 스키마 파일의 위치입니다. 사용할 버전 번호는 배포 범위 및 JSON 편집기에 따라 다릅니다.<br><br>[Azure Resource Manager 도구 확장과 함께 VS Code](quickstart-create-templates-use-visual-studio-code.md)를 사용 하는 경우 리소스 그룹 배포에 대 한 최신 버전을 사용 합니다.<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>다른 편집기 (Visual Studio 포함)가이 스키마를 처리 하지 못할 수 있습니다. 이러한 편집기의 경우 다음을 사용 합니다.<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>구독 배포의 경우 다음을 사용 합니다.<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>관리 그룹 배포의 경우 다음을 사용 합니다.<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>테 넌 트 배포의 경우 다음을 사용 합니다.<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | contentVersion |Yes |템플릿의 버전입니다(예: 1.0.0.0). 이 요소에 값을 제공할 수 있습니다. 이 값을 사용하여 템플릿에서 중요한 변경 내용을 문서화할 수 있습니다. 템플릿을 사용하여 리소스를 배포할 때 이 값을 사용하면 정확한 템플릿이 사용되도록 할 수 있습니다. |
@@ -125,7 +125,7 @@ ARM 템플릿 내에서 다음 데이터 형식을 사용할 수 있습니다.
 }
 ```
 
-| 요소 이름 | 필수 | Description |
+| 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
 | 매개 변수-이름 |Yes |매개 변수의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
 | 형식 |Yes |매개 변수 값의 유형입니다. 허용되는 유형 및 값은 **string**, **securestring**, **int**, **bool**, **object**, **secureObject** 및 **array** 입니다. [데이터 형식](#data-types)을 참조 하세요. |
@@ -135,9 +135,9 @@ ARM 템플릿 내에서 다음 데이터 형식을 사용할 수 있습니다.
 | maxValue |예 |Int 형식 매개 변수의 최대값이며, 이 값이 포함됩니다. |
 | minLength |예 |string, securestring 및 array 형식 매개 변수의 최소 길이이며, 이 값이 포함됩니다. |
 | maxLength |예 |string, securestring 및 array 형식 매개 변수의 최대 길이이며, 이 값이 포함됩니다. |
-| 설명 |예 |포털에서 사용자에게 표시되는 매개 변수의 설명입니다. 자세한 내용은 [템플릿의 주석](#comments)을 참조하세요. |
+| description |예 |포털에서 사용자에게 표시되는 매개 변수의 설명입니다. 자세한 내용은 [템플릿의 주석](#comments)을 참조하세요. |
 
-매개 변수를 사용 하는 방법에 대 한 예제는 [Azure Resource Manager 템플릿의 매개 변수](template-parameters.md)를 참조 하세요.
+매개 변수를 사용 하는 방법에 대 한 예제는 [ARM 템플릿의 매개 변수](template-parameters.md)를 참조 하세요.
 
 ## <a name="variables"></a>변수
 
@@ -172,7 +172,7 @@ ARM 템플릿 내에서 다음 데이터 형식을 사용할 수 있습니다.
 
 를 사용 하 여 `copy` 변수에 대 한 여러 값을 만드는 방법에 대 한 자세한 내용은 [변수 반복](copy-variables.md)을 참조 하세요.
 
-변수를 사용 하는 방법에 대 한 예제는 [Azure Resource Manager 템플릿의 변수](template-variables.md)를 참조 하세요.
+변수를 사용 하는 방법에 대 한 예제는 [ARM 템플릿의 변수](template-variables.md)를 참조 하세요.
 
 ## <a name="functions"></a>Functions
 
@@ -208,7 +208,7 @@ ARM 템플릿 내에서 다음 데이터 형식을 사용할 수 있습니다.
 ],
 ```
 
-| 요소 이름 | 필수 | Description |
+| 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
 | namespace |Yes |사용자 지정 함수에 대 한 네임 스페이스입니다. 템플릿 함수와의 이름 충돌을 방지 하는 데 사용 합니다. |
 | 함수 이름 |Yes |사용자 지정 함수의 이름입니다. 함수를 호출할 때 함수 이름을 네임 스페이스와 결합 합니다. 예를 들어 contoso 네임 스페이스에서 uniqueName 이라는 함수를 호출 하려면를 사용 `"[contoso.uniqueName()]"` 합니다. |
@@ -217,7 +217,7 @@ ARM 템플릿 내에서 다음 데이터 형식을 사용할 수 있습니다.
 | 출력 형식 |Yes |출력 값의 유형입니다. 출력 값은 함수 입력 매개 변수와 동일한 형식을 지원 합니다. |
 | 출력-값 |Yes |함수에서 계산 되 고 반환 되는 템플릿 언어 식입니다. |
 
-사용자 지정 함수를 사용 하는 방법에 대 한 예제는 [Azure Resource Manager 템플릿의 사용자 정의 함수](template-user-defined-functions.md)를 참조 하세요.
+사용자 지정 함수를 사용 하는 방법에 대 한 예제는 [ARM 템플릿의 사용자 정의 함수](template-user-defined-functions.md)를 참조 하세요.
 
 ## <a name="resources"></a>리소스
 
@@ -279,7 +279,7 @@ ARM 템플릿 내에서 다음 데이터 형식을 사용할 수 있습니다.
 ]
 ```
 
-| 요소 이름 | 필수 | Description |
+| 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
 | condition(조건) | 예 | 리소스가 이 배포 중 프로비전되는지 여부를 나타내는 부울 값입니다. `true`인 경우 리소스는 배포하는 동안 만들어집니다. `false`인 경우 리소스는 이 배포에 대해 건너뛰어집니다. [조건](conditional-resource-deployment.md)을 참조 하세요. |
 | 형식 |Yes |리소스 유형입니다. 이 값은 리소스 공급자의 네임 스페이스와 리소스 유형 (예: **Microsoft. Storage/storageAccounts**)의 조합입니다. 사용 가능한 값을 확인 하려면 [템플릿 참조](/azure/templates/)를 참조 하세요. 자식 리소스의 경우 형식의 형식은 부모 리소스 내에 중첩 되어 있는지, 부모 리소스 외부에 정의 되는지에 따라 달라 집니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요. |
@@ -287,7 +287,7 @@ ARM 템플릿 내에서 다음 데이터 형식을 사용할 수 있습니다.
 | name |예 |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 외부 파티에 리소스 이름을 노출 하는 Azure 서비스는 이름 유효성을 검사 하 여 다른 id를 스푸핑 하려고 하지 않았는지 확인 합니다. 자식 리소스의 경우 이름의 형식은 부모 리소스 내에 중첩 되어 있는지, 부모 리소스 외부에 정의 되는지에 따라 달라 집니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요. |
 | comments |예 |템플릿에서 리소스를 문서화하는 내용에 대한 참고입니다. 자세한 내용은 [템플릿의 주석](template-syntax.md#comments)을 참조하세요. |
 | 위치 |상황에 따라 다름 |제공된 리소스의 지역적 위치를 지원합니다. 사용 가능한 위치 중 하나를 선택할 수 있지만 대개는 사용자에게 가까운 하나를 선택하는 것이 좋습니다. 일반적으로 동일한 지역에서 서로 상호 작용하도록 리소스를 배치하는 것도 좋습니다. 대부분의 리소스 종류에는 위치가 필요하지만 일부 종류(예: 역할 할당)에는 위치가 필요하지 않습니다. [리소스 위치 설정](resource-location.md)을 참조 하세요. |
-| dependsOn |예 |이 리소스를 배포하기 전에 배포해야 하는 리소스입니다. Resource Manager는 리소스 간의 종속성을 평가한 후 올바른 순서에 따라 리소스를 배포합니다. 리소스는 서로 종속되지 않을 경우, 병렬로 배포됩니다. 이 값은 리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록입니다. 이 템플릿에 배포된 리소스만 나열합니다. 이 템플릿에 정의되지 않은 리소스는 이미 존재해야 합니다. 불필요한 종속성은 배포 속도를 느리게 만들고 순환 종속성을 만들기 때문에 추가하지 않습니다. 종속성 설정에 대한 지침은 [Azure Resource Manager 템플릿에서 종속성 정의](define-resource-dependency.md)를 참조하세요. |
+| dependsOn |예 |이 리소스를 배포하기 전에 배포해야 하는 리소스입니다. Resource Manager는 리소스 간의 종속성을 평가한 후 올바른 순서에 따라 리소스를 배포합니다. 리소스는 서로 종속되지 않을 경우, 병렬로 배포됩니다. 이 값은 리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록입니다. 이 템플릿에 배포된 리소스만 나열합니다. 이 템플릿에 정의되지 않은 리소스는 이미 존재해야 합니다. 불필요한 종속성은 배포 속도를 느리게 만들고 순환 종속성을 만들기 때문에 추가하지 않습니다. 종속성 설정에 대 한 지침은 [ARM 템플릿에서 리소스를 배포 하는 순서 정의](define-resource-dependency.md)를 참조 하세요. |
 | tags |예 |리소스와 연결된 태그입니다. 태그를 적용하여 구독에서 리소스를 논리적으로 구성합니다. |
 | sku | 예 | 일부 리소스에서는 SKU를 정의하는 값을 허용합니다. 예를 들어 스토리지 계정에 대한 중복 유형을 지정할 수 있습니다. |
 | kind | 예 | 일부 리소스에서는 배포하는 리소스 종류를 정의하는 값을 허용합니다. 예를 들어 만들 Cosmos DB 종류를 지정할 수 있습니다. |
@@ -316,15 +316,15 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 일반�
 }
 ```
 
-| 요소 이름 | 필수 | Description |
+| 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
 | 출력-이름 |Yes |출력 값의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
 | condition(조건) |예 | 이 출력 값의 반환 여부를 나타내는 부울 값입니다. `true`이면 해당 값이 배포의 출력에 포함됩니다. `false`이면 이 배포에 대한 출력 값을 건너뜁니다. 지정하지 않으면 기본값은 `true`입니다. |
 | 형식 |Yes |출력 값의 유형입니다. 출력 값은 템플릿 입력 매개 변수와 동일한 유형을 지원합니다. 출력 유형에 대해 **securestring** 을 지정 하는 경우 값은 배포 기록에 표시 되지 않으며 다른 템플릿에서 검색할 수 없습니다. 둘 이상의 템플릿에서 비밀 값을 사용 하려면 Key Vault에 비밀을 저장 하 고 매개 변수 파일에서 비밀을 참조 합니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](key-vault-parameter.md)을 참조하세요. |
 | 값 |예 |출력 값으로 계산되어 반환되는 템플릿 언어 식입니다. **값** 또는 **복사** 를 지정 합니다. |
-| copy |예 | 출력에 대해 둘 이상의 값을 반환 하는 데 사용 됩니다. **값** 또는 **복사** 를 지정 합니다. 자세한 내용은 [Azure Resource Manager 템플릿에서 출력 반복](copy-outputs.md)을 참조 하세요. |
+| copy |예 | 출력에 대해 둘 이상의 값을 반환 하는 데 사용 됩니다. **값** 또는 **복사** 를 지정 합니다. 자세한 내용은 [ARM 템플릿의 출력 반복](copy-outputs.md)을 참조 하세요. |
 
-출력을 사용 하는 방법에 대 한 예제는 [Azure Resource Manager 템플릿의 출력](template-outputs.md)을 참조 하세요.
+출력을 사용 하는 방법에 대 한 예제는 [ARM 템플릿의 출력](template-outputs.md)을 참조 하세요.
 
 <a id="comments"></a>
 
@@ -453,7 +453,7 @@ Visual Studio Code에서 [Azure Resource Manager 도구 확장](quickstart-creat
 ## <a name="next-steps"></a>다음 단계
 
 * 다양한 유형의 솔루션에 대한 전체 템플릿을 보려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
-* 템플릿 내에서 사용할 수 있는 함수에 대한 자세한 내용은 [Azure Resource Manager 템플릿 함수](template-functions.md)를 참조하세요.
-* 배포 중 여러 템플릿을 결합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](linked-templates.md)을 참조하세요.
-* 템플릿을 만드는 방법에 대한 권장 사항은 [Azure Resource Manager 템플릿 모범 사례](template-best-practices.md)를 참조하세요.
+* 템플릿 내에서 사용할 수 있는 함수에 대 한 자세한 내용은 [ARM 템플릿 함수](template-functions.md)를 참조 하세요.
+* 배포 하는 동안 여러 템플릿을 결합 하려면 [Azure 리소스를 배포할 때 연결 된 템플릿 및 중첩 된 템플릿 사용](linked-templates.md)을 참조 하세요.
+* 템플릿을 만드는 방법에 대 한 권장 사항은 [ARM 템플릿 모범 사례](template-best-practices.md)를 참조 하세요.
 * 일반적인 질문에 대 한 대답은 [ARM 템플릿에 대 한](frequently-asked-questions.md)질문과 대답을 참조 하세요.

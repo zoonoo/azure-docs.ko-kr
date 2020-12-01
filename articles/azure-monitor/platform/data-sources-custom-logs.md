@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 10a2ae71d8c26d82a4a730bab3ba16e7c62d1243
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2b27da096ed18170ca8c9d70f31dc955fb74950
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911739"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352833"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 에이전트를 사용 하 여 사용자 지정 로그 수집
 
@@ -30,7 +30,7 @@ Azure Monitor의 Log Analytics 에이전트에 대 한 사용자 지정 로그 �
 
 - 로그 파일은 새 항목으로 파일을 덮어쓰는 순환 로깅 또는 로그 회전을 허용하지 말아야 합니다.
 - 로그 파일은 ASCII 또는 UTF-8 인코딩을 사용해야 합니다.  UTF-16 등의 다른 형식은 지원되지 않습니다.
-- Linux의 경우 로그의 타임 스탬프에 대 한 표준 시간대 converesion 지원 되지 않습니다.
+- Linux의 경우 로그의 타임 스탬프에 대해 표준 시간대 변환이 지원 되지 않습니다.
 
 >[!NOTE]
 > 로그 파일에 중복된 항목이 있는 경우 Azure Monitor에서 수집합니다. 그러나 쿼리 결과는 필터 결과가 결과 개수보다 더 많은 이벤트를 표시하는 위치에서 일치하지 않습니다. 이를 만드는 애플리케이션에서 이 문제를 일으키는지 확인하도록 로그의 유효성을 검사하고 가능한 경우 사용자 지정 로그 컬렉션 정의를 만들기 전에 해결하는 것이 중요합니다.  
@@ -78,7 +78,7 @@ Azure Monitor의 Log Analytics 에이전트에 대 한 사용자 지정 로그 �
 
 다음 테이블은 다른 로그 파일을 지정하는 데 유효한 패턴의 예를 제공합니다.
 
-| Description | 경로 |
+| 설명 | 경로 |
 |:--- |:--- |
 | Windows 에이전트에서 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\\\*.txt |
 | Windows 에이전트에서 이름이 log로 시작되고 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\log\*.txt |

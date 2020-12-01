@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 6dbe97d615753f0a90c8ba80aa7afa6dafa15eb2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7f8fb0488c863868b1076ad5b3fa7868d1880a6b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658471"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353785"
 ---
 # <a name="what-is-custom-speech"></a>Custom Speech란?
 
@@ -31,7 +31,7 @@ Custom Speech를 사용 하 여 모든 작업을 수행 하려면 Azure 계정 �
 
 1. [프로젝트 구독 및 만들기](#set-up-your-azure-account) -Azure 계정을 만들고 음성 서비스를 구독 합니다. 이 통합 구독은 음성 텍스트, 텍스트 음성 변환, 음성 번역 및 [Custom Speech 포털](https://speech.microsoft.com/customspeech)에 대 한 액세스를 제공 합니다. 그런 다음 음성 서비스 구독을 사용 하 여 첫 번째 Custom Speech 프로젝트를 만듭니다.
 
-1. [테스트 데이터](how-to-custom-speech-test-data.md) 업로드-테스트 데이터 (오디오 파일)를 업로드 하 여 응용 프로그램, 도구 및 제품에 대 한 Microsoft의 음성 텍스트 제품을 평가 합니다.
+1. [테스트 데이터](./how-to-custom-speech-test-and-train.md) 업로드-테스트 데이터 (오디오 파일)를 업로드 하 여 응용 프로그램, 도구 및 제품에 대 한 Microsoft의 음성 텍스트 제품을 평가 합니다.
 
 1. [인식 품질 검사](how-to-custom-speech-inspect-data.md) - [Custom Speech 포털](https://speech.microsoft.com/customspeech) 을 사용 하 여 업로드 된 오디오를 재생 하 고 테스트 데이터의 음성 인식 품질을 검사 합니다. 양적 측정에 대해서는 [데이터 검사](how-to-custom-speech-inspect-data.md)를 참조 하세요.
 
@@ -101,7 +101,7 @@ Azure 계정과 음성 서비스 구독을 만든 후에는 [Custom Speech 포�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
+* [데이터 준비 및 테스트](./how-to-custom-speech-test-and-train.md)
 * [데이터 검사](how-to-custom-speech-inspect-data.md)
 * [모델 정확도 평가 및 향상](how-to-custom-speech-evaluate-data.md)
 * [모델 학습 및 배포](how-to-custom-speech-train-model.md)

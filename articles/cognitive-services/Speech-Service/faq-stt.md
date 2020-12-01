@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 7c0b399f84e793d9e762c89dbbd1901bb5a95f26
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 32f6a9dae1a5b0be604b53d814ebc85cb7813b91
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024333"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353768"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
-이 FAQ에서 질문에 대한 답변을 찾을 수 없는 경우 [다른 지원 옵션](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)을 확인하세요.
+이 FAQ에서 질문에 대한 답변을 찾을 수 없는 경우 [다른 지원 옵션](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)을 확인하세요.
 
 ## <a name="general"></a>일반
 
@@ -71,7 +71,7 @@ ms.locfileid: "95024333"
 
 **Q: 내 요청이 기록되나요?**
 
-**A**: 기본적으로 요청은 기록 되지 않습니다 (오디오, 기록도 아님). 필요한 경우 추적을 사용 하도록 설정 하기 위해 [사용자 지정 끝점을 만들](how-to-custom-speech-deploy-model.md) 때 *이 끝점에서 콘텐츠 기록* 옵션을 선택할 수 있습니다. 그런 다음 요청은 보안 저장소의 Azure에 기록 됩니다.
+**A**: 기본적으로 요청은 기록 되지 않습니다 (오디오, 기록도 아님). 필요한 경우 추적을 사용 하도록 설정 하기 위해 [사용자 지정 끝점을 만들](./how-to-custom-speech-train-model.md) 때 *이 끝점에서 콘텐츠 기록* 옵션을 선택할 수 있습니다. 그런 다음 요청은 보안 저장소의 Azure에 기록 됩니다.
 
 **Q: 내 요청이 제한되나요?**
 

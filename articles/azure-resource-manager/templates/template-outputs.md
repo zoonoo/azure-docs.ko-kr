@@ -1,18 +1,18 @@
 ---
 title: 템플릿의 출력
-description: Azure Resource Manager 템플릿에서 출력 값을 정의 하는 방법을 설명 합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 출력 값을 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 8f782a78e523ebc55faac98344643982172476fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6a375dfbc767bcbbfd8ec6b7f8cb9e942e275582
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911433"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353530"
 ---
-# <a name="outputs-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 출력
+# <a name="outputs-in-arm-templates"></a>ARM 템플릿의 출력
 
-이 문서에서는 Azure Resource Manager 템플릿에서 출력 값을 정의 하는 방법을 설명 합니다. 배포 된 리소스에서 값을 반환 해야 하는 경우 출력을 사용 합니다.
+이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 출력 값을 정의 하는 방법을 설명 합니다. 배포 된 리소스에서 값을 반환 해야 하는 경우 출력을 사용 합니다.
 
 각 출력 값의 형식은 [데이터 형식](template-syntax.md#data-types)중 하 나와 일치 해야 합니다.
 
@@ -112,7 +112,7 @@ az deployment group show \
 
 다음 예제에서는 출력을 사용 하는 시나리오를 보여 줍니다.
 
-|템플릿  |Description  |
+|템플릿  |설명  |
 |---------|---------|
 |[변수 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | 복잡한 변수를 만들고 해당 값을 출력합니다. 여기서는 리소스를 배포하지 않습니다. |
 |[공용 IP 주소](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | 공용 IP 주소를 만들고 리소스 ID를 출력합니다. |
@@ -120,4 +120,4 @@ az deployment group show \
 
 ## <a name="next-steps"></a>다음 단계
 
-* 출력에 사용할 수 있는 속성에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 출력에 사용할 수 있는 속성에 대 한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.

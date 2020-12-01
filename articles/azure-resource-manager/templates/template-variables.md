@@ -1,18 +1,18 @@
 ---
 title: 템플릿의 변수
-description: Azure Resource Manager 템플릿에서 변수를 정의 하는 방법을 설명 합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 변수를 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 7758451747503cb8c42566dc081a91f84bafa375
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5d9b58d63e96656c45d3494d24099bbeadc46b11
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95916006"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353462"
 ---
-# <a name="variables-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 변수
+# <a name="variables-in-arm-template"></a>ARM 템플릿의 변수
 
-이 문서에서는 Azure Resource Manager 템플릿에서 변수를 정의 하 고 사용 하는 방법을 설명 합니다. 변수를 사용 하 여 템플릿을 단순화 합니다. 템플릿 전체에서 복잡 한 식을 반복 하는 대신 복잡 한 식을 포함 하는 변수를 정의 합니다. 그런 다음 템플릿 전체에서 필요에 따라 해당 변수를 참조 합니다.
+이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 변수를 정의 하 고 사용 하는 방법을 설명 합니다. 변수를 사용 하 여 템플릿을 단순화 합니다. 템플릿 전체에서 복잡 한 식을 반복 하는 대신 복잡 한 식을 포함 하는 변수를 정의 합니다. 그런 다음 템플릿 전체에서 필요에 따라 해당 변수를 참조 합니다.
 
 리소스 관리자는 배포 작업을 시작 하기 전에 변수를 확인 합니다. 템플릿에서 변수를 사용하는 모든 경우에는 Resource Manager는 변수를 확인된 값으로 바꿉니다.
 
@@ -87,7 +87,7 @@ Variables 섹션에는 [reference](template-functions-resource.md#reference) 함
 
 다음 예에서는 변수를 사용 하는 시나리오를 보여 줍니다.
 
-|템플릿  |Description  |
+|템플릿  |설명  |
 |---------|---------|
 | [변수 정의](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | 다양한 변수 형식을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 변수 값을 구성하고 해당 값을 반환합니다. |
 | [구성 변수](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | 구성 값을 정의하는 변수의 사용을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 변수 값을 구성하고 해당 값을 반환합니다. |
@@ -95,5 +95,5 @@ Variables 섹션에는 [reference](template-functions-resource.md#reference) 함
 
 ## <a name="next-steps"></a>다음 단계
 
-* 변수에 사용할 수 있는 속성에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 변수에 사용할 수 있는 속성에 대 한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
 * 변수를 만드는 방법에 대 한 권장 사항은 [모범 사례-변수](template-best-practices.md#variables)를 참조 하세요.

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652626"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353547"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -18,7 +18,7 @@ ms.locfileid: "91652626"
 
 트리거는 함수를 실행 하는 원인이 됩니다. 트리거는 함수를 호출 하는 방법을 정의 하며 함수에는 정확히 하나의 트리거를 포함 해야 합니다. 트리거에는 관련 데이터가 있으며, 일반적으로 함수의 페이로드로 제공됩니다. 
 
-함수에 바인딩하는 것은 다른 리소스를 함수에 선언적으로 연결 하는 방법입니다. 바인딩은 *입력 바인딩*, *출력 바인딩*또는 둘 다로 연결 될 수 있습니다. 바인딩의 데이터가 매개 변수로 함수에 제공됩니다.
+함수에 바인딩하는 것은 다른 리소스를 함수에 선언적으로 연결 하는 방법입니다. 바인딩은 *입력 바인딩*, *출력 바인딩* 또는 둘 다로 연결 될 수 있습니다. 바인딩의 데이터는 함수에 매개 변수로 제공됩니다.
 
 필요에 맞게 다른 바인딩과 혼합하고 일치시킬 수 있습니다. 바인딩은 선택 사항이며 함수는 여러 개의 입력 및 출력 바인딩을 가질 수 있습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "91652626"
 | 예제 시나리오 | 트리거 | 입력 바인딩 | 출력 바인딩 |
 |-------------|---------|---------------|----------------|
 | 새 큐 메시지가 도착 하면 함수를 실행 하 여 다른 큐에 기록 합니다. | 큐<sup>*</sup> | *없음* | 큐<sup>*</sup> |
-|예약 된 작업은 Blob Storage 내용을 읽고 새 Cosmos DB 문서를 만듭니다. | Timer | Blob Storage | Cosmos DB |
+|예약 된 작업은 Blob Storage 내용을 읽고 새 Cosmos DB 문서를 만듭니다. | 타이머 | Blob Storage | Cosmos DB |
 |Event Grid은 Blob Storage에서 이미지를 읽고 Cosmos DB의 문서에서 전자 메일을 보내는 데 사용 됩니다. | Event Grid | Blob Storage 및 Cosmos DB | SendGrid |
 | Microsoft Graph를 사용 하 여 Excel 시트를 업데이트 하는 webhook입니다. | HTTP | *없음* | Microsoft Graph |
 
@@ -43,7 +43,7 @@ ms.locfileid: "91652626"
 
 | 플랫폼 | 트리거 및 바인딩을 구성 하는 방법 ... |
 |-------------|--------------------------------------------|
-| C # 클래스 라이브러리 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c # 특성을 사용 하 여 메서드 및 매개 변수 데코레이팅 |
+| C# 클래스 라이브러리 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c # 특성을 사용 하 여 메서드 및 매개 변수 데코레이팅 |
 | 기타 모든 항목 (Azure Portal 포함) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[function.js](./functions-reference.md) 업데이트 ([스키마](http://json.schemastore.org/function)) |
 
 포털은이 구성에 대 한 UI를 제공 하지만 함수에서 **통합** 탭을 통해 사용할 수 있는 **고급 편집기** 를 열어 직접 파일을 편집할 수 있습니다.
@@ -88,6 +88,10 @@ JavaScript와 같은 동적으로 형식화되는 언어의 경우 *function.jso
 다음 표를 사용 하 여 함수에서 바인딩을 사용 하는 방법을 보여 주는 특정 바인딩 유형에 대 한 예제를 찾을 수 있습니다. 먼저 프로젝트에 해당 하는 언어 탭을 선택 합니다. 
 
 [!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
+
+## <a name="custom-bindings"></a>사용자 지정 바인딩
+
+사용자 지정 입력 및 출력 바인딩을 만들 수 있습니다. 바인딩은 .NET에서 작성 되어야 하지만 지원 되는 모든 언어에서 사용할 수 있습니다. 사용자 지정 바인딩을 만드는 방법에 대 한 자세한 내용은 [사용자 지정 입력 및 출력 바인딩 만들기](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings)를 참조 하세요.
 
 ## <a name="resources"></a>리소스
 - [바인딩 식 및 패턴](./functions-bindings-expressions-patterns.md)

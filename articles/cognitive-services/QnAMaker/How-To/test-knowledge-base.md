@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 21984a03947e4f9f60e705955cb1be3b2df8933c
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 273548ec095ce04772438a2d732b914d80d976cc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376194"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353156"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>QnA Maker에서 기술 자료 테스트
 
@@ -18,7 +18,7 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
 
 ## <a name="interactively-test-in-qna-maker-portal"></a>QnA Maker 포털의 대화형 테스트
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 1. **내 기술 자료** 페이지에서 해당 이름을 선택하여 기술 자료에 액세스합니다.
 1. 테스트 슬라이드 아웃 패널에 액세스하려면 애플리케이션의 위쪽 패널에서 **테스트** 를 선택합니다.
@@ -66,14 +66,14 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
 > [!NOTE]
 > **저장 후 학습** 을 누를 경우에만 기술 자료에 대한 모든 편집 내용이 저장됩니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
 1. **내 기술 자료** 페이지에서 해당 이름을 선택하여 기술 자료에 액세스합니다.
 1. 테스트 슬라이드 아웃 패널에 액세스하려면 애플리케이션의 위쪽 패널에서 **테스트** 를 선택합니다. 
 1. 맨 위에 표시 되는 **짧은 답** 에는 기본적으로 선택 되어 있는 확인란이 표시 됩니다. 이 옵션은 테스트 패널에서 MRC 기반 응답 범위 검색을 사용 하도록 설정 하는 데 사용 됩니다. 
 1. 텍스트 상자에 쿼리를 입력하고 Enter 키를 선택합니다. 
 1. 모든 쿼리에 대해 답변 통로에 정확히 일치 하는 대답 및 짧은 답변이 있는 경우 기술 자료에 있는 가장 일치 하는 대답 통로를 사용 하 여 쿼리에 대 한 짧은 답을 갖게 됩니다.
-    ![관리 되는 활성화 된 테스트 창](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
+    ![활성화된 관리형 테스트 창](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
 1. **짧은 답 표시** 를 선택 취소 하면 기술 자료에서 가장 일치 하는 대답 통로만 응답으로 반환 됩니다.
 
 ### <a name="clear-test-panel"></a>테스트 패널 지우기
@@ -323,4 +323,4 @@ batchtesting.exe batch-test-data-1.tsv https://YOUR-RESOURCE-NAME.azurewebsites.
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [기술 자료 게시](./publish-knowledge-base.md)
+> [기술 자료 게시](../quickstarts/create-publish-knowledge-base.md)

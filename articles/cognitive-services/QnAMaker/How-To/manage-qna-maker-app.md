@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 93d9cc871d1cb114f7f08b68eb8ae9d597e228b9
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 9c042d044f5ceba5a64d6bd7dfefa34bbc69b107
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376488"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353207"
 ---
 # <a name="manage-qna-maker-app"></a>QnA Maker 앱 관리
 
@@ -23,7 +23,7 @@ QnA Maker를 사용 하면 협력자의 역할에 따라 협력자 액세스를 
 
 ## <a name="add-azure-role-based-access-control-azure-rbac"></a>Azure 역할 기반 access control 추가 (Azure RBAC)
 
-QnA Maker를 사용 하면 여러 사용자가 동일한 QnA Maker 리소스의 모든 기술 자료에 대해 공동 작업할 수 있습니다. 이 기능은 azure [RBAC (역할 기반 액세스 제어)](../../../active-directory/role-based-access-control-configure.md)와 함께 제공 됩니다.
+QnA Maker를 사용 하면 여러 사용자가 동일한 QnA Maker 리소스의 모든 기술 자료에 대해 공동 작업할 수 있습니다. 이 기능은 azure [RBAC (역할 기반 액세스 제어)](../../../role-based-access-control/role-assignments-portal.md)와 함께 제공 됩니다.
 
 ## <a name="access-at-the-qna-maker-resource-level"></a>QnA Maker 리소스 수준에서 액세스
 
@@ -73,11 +73,11 @@ QnA Maker 서비스를 공유 하는 사람이 [QnA Maker 포털](https://qnamak
 
 ## <a name="upgrade-runtime-version-to-use-active-learning"></a>활성 학습을 사용 하도록 런타임 버전 업그레이드
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 활성 학습은 런타임 버전 4.4.0 이상에서 지원됩니다. 기술 자료가 이전 버전에서 작성된 경우 이 기능을 사용하려면 [런타임을 업그레이드](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates)합니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
 QnA Maker 관리 (미리 보기)에서 런타임은 QnA Maker 서비스 자체에서 호스트 되므로 런타임을 수동으로 업그레이드할 필요가 없습니다.
 
@@ -85,7 +85,7 @@ QnA Maker 관리 (미리 보기)에서 런타임은 QnA Maker 서비스 자체�
 
 ## <a name="turn-on-active-learning-for-alternate-questions"></a>대체 질문에 대해 활성 학습 설정
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 활성 학습은 기본적으로 해제되어 있습니다. 제안된 질문을 확인하려면 활성 학습을 설정합니다. 활성 학습을 켠 후에는 클라이언트 앱의 정보를 QnA Maker으로 보내야 합니다. 자세한 내용은 [GenerateAnswer를 사용 하는 아키텍처 흐름 및 봇에서 Api 학습](improve-knowledge-base.md#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot)을 참조 하세요.
 
@@ -104,7 +104,7 @@ QnA Maker 관리 (미리 보기)에서 런타임은 QnA Maker 서비스 자체�
     > 이전 이미지의 정확한 버전은 예제로만 표시 됩니다. 버전이 다를 수 있습니다.
     **활성 학습** 을 사용 하도록 설정 하면 기술 자료에서 사용자가 제출한 질문에 따라 정기적인 간격으로 새로운 질문을 제안 합니다. 설정을 다시 전환하여 **활성 학습** 을 사용하지 않도록 설정할 수 있습니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
 기본적으로 활성 학습은 QnA Maker 관리 (미리 보기)에서 **설정** 됩니다. 제안 된 대체 질문을 확인 하려면 편집 페이지에서 [보기 옵션을 사용](../How-To/improve-knowledge-base.md#view-suggested-questions) 합니다.
 

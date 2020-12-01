@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 43b57d0b58c9268482ca27fd51040c7152ecdc25
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 15f66e836a2900349007fb5068a172b89f39d4de
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026054"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352799"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역을 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기
 
@@ -34,11 +34,8 @@ AKS 클러스터는 현재 다음 지역에서 가용성 영역을 사용하여 
 * 미국 동부 
 * 미국 동부 2
 * 프랑스 중부
-* 독일 중서부
 * 일본 동부
 * 북유럽
-* 남아프리카 북부
-* 미국 중남부
 * 동남아시아
 * 영국 남부
 * 서유럽

@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: af3935bab5cd4d6a2aa4a9e3250f6beec19a8ea4
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 5c8af8ddb7a0870de37b73cbe09965ee63c88ba1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736682"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353751"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>양식 인식기 미리 빌드된 송장 모델
 
-Azure 양식 인식기는 미리 작성 된 청구서 모델을 사용 하 여 판매 청구서에서 정보를 분석 하 고 추출할 수 있습니다. 송장 API를 통해 고객은 다양 한 형식으로 송장을 만들고 구조화 된 데이터를 반환 하 여 송장 처리를 자동화할 수 있습니다. 또한 강력한 [OCR (광학 인식)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) 기능을 송장과 결합 하 여 심층 학습 모델을 이해 하 여 영어로 된 청구서에서 핵심 정보를 추출 합니다. 이 도구는 고객, 공급 업체, 청구서 ID, 청구서 기한, 청구서 총액, 세금 금액, 배송 대상, 청구서 받는 사람 등의 텍스트, 테이블 및 정보를 추출 합니다. 미리 작성 된 청구서 API는 인식기 v 2.1 preview에서 공개적으로 사용할 수 있습니다.
+Azure 양식 인식기는 미리 작성 된 청구서 모델을 사용 하 여 판매 청구서에서 정보를 분석 하 고 추출할 수 있습니다. 송장 API를 통해 고객은 다양 한 형식으로 송장을 만들고 구조화 된 데이터를 반환 하 여 송장 처리를 자동화할 수 있습니다. 또한 강력한 [OCR (광학 인식)](../computer-vision/concept-recognizing-text.md) 기능을 송장과 결합 하 여 심층 학습 모델을 이해 하 여 영어로 된 청구서에서 핵심 정보를 추출 합니다. 이 도구는 고객, 공급 업체, 청구서 ID, 청구서 기한, 청구서 총액, 세금 금액, 배송 대상, 청구서 받는 사람 등의 텍스트, 테이블 및 정보를 추출 합니다. 미리 작성 된 청구서 API는 인식기 v 2.1 preview에서 공개적으로 사용할 수 있습니다.
 
 ## <a name="what-does-the-invoice-service-do"></a>청구서 서비스는 무엇을 하나요?
 
@@ -32,7 +32,7 @@ Azure 양식 인식기는 미리 작성 된 청구서 모델을 사용 하 여 �
 양식 인식기 청구서 서비스를 사용해 보려면 온라인 샘플 UI 도구로 이동 합니다.
 
 > [!div class="nextstepaction"]
-> [미리 작성 한 모델 사용해 보기](https://fott-preview.azurewebsites.net/)
+> [미리 빌드된 모델 사용해보기](https://fott-preview.azurewebsites.net/)
 
 양식 인식기 청구서 서비스를 사용해 보려면 Azure 구독 ([무료로 하나 만들기](https://azure.microsoft.com/free/cognitive-services))과 [Recognzier 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) 끝점 및 키 양식이 필요 합니다. 
 
@@ -55,7 +55,7 @@ Azure 양식 인식기는 미리 작성 된 청구서 모델을 사용 하 여 �
 
 두 번째 단계는 [분석 송장 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeInvoiceResult) 작업을 호출 하는 것입니다. 이 작업은 송장 분석 작업에 의해 생성 된 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
 
-|필드| Type | 가능한 값 |
+|필드| 형식 | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 분석 작업이 시작 되지 않았습니다.<br /><br />실행 중: 분석 작업이 진행 중입니다.<br /><br />실패: 분석 작업이 실패 했습니다.<br /><br />성공: 분석 작업이 성공 했습니다.|
 
@@ -74,7 +74,7 @@ JSON 출력에는 3 가지 부분이 있습니다.
 
 송장 서비스는 text, tables 및 26 개의 송장 필드를 추출 합니다. 다음은 JSON 출력 응답의 청구서에서 추출 된 필드입니다 (아래 출력은이 [샘플 송장을](./media/sample-invoice.jpg)사용).  
 
-|Name| Type | 설명 | 텍스트 | 값 (표준화 된 출력) |
+|Name| 유형 | 설명 | 텍스트 | 값 (표준화 된 출력) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | 문자열 | 송장이 청구 되는 고객 | Microsoft Corp |  |
 | CustomerId | 문자열 | 고객에 대 한 참조 ID | CID-12345 |  |
@@ -113,4 +113,3 @@ JSON 출력에는 3 가지 부분이 있습니다.
 
 * [Form Recognizer란?](./overview.md)
 * [REST API 참조 문서](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
-

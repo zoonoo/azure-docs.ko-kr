@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 57e878f11f5857f4c5b629a8069f64de259e8e7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26fc976983fc08857e7771d58f15d0abcd9a1d3c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777799"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353224"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>추가 작업 프롬프트를 사용하여 여러 대화 설정 만들기
 
-후속 프롬프트와 컨텍스트를 사용 하 여 한 질문에서 다른 질문으로의 봇에 대해 _다중 턴_이라고 하는 여러 턴을 관리 합니다.
+후속 프롬프트와 컨텍스트를 사용 하 여 한 질문에서 다른 질문으로의 봇에 대해 _다중 턴_ 이라고 하는 여러 턴을 관리 합니다.
 
 다중 턴이 작동 하는 방식을 확인 하려면 다음 데모 비디오를 확인 하세요.
 
@@ -22,7 +22,7 @@ ms.locfileid: "91777799"
 
 ## <a name="what-is-a-multi-turn-conversation"></a>다중 전환 대화 란?
 
-일부 질문은 단일 턴으로 대답할 수 없습니다. 클라이언트 응용 프로그램 (chat bot) 대화를 디자인할 때 사용자는 필터링 또는 구체화 해야 하는 질문을 하 여 올바른 답을 확인할 수 있습니다. 사용자에 게 *추가 작업 프롬프트를 제공*하 여 가능한 질문을 통해이 흐름을 만들 수 있습니다.
+일부 질문은 단일 턴으로 대답할 수 없습니다. 클라이언트 응용 프로그램 (chat bot) 대화를 디자인할 때 사용자는 필터링 또는 구체화 해야 하는 질문을 하 여 올바른 답을 확인할 수 있습니다. 사용자에 게 *추가 작업 프롬프트를 제공* 하 여 가능한 질문을 통해이 흐름을 만들 수 있습니다.
 
 사용자가 질문을 하면 QnA Maker는 대답 _및_ 추가 작업 프롬프트를 반환 합니다. 이 응답을 통해 추가 질문을 선택 사항으로 표시할 수 있습니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "91777799"
 
 ![대화를 통해 사용자에 게 안내 하는 메시지가 표시 된 다중 전환 대화 상자](../media/conversational-context/conversation-in-bot.png)
 
-이전 이미지에서 사용자는 **내 계정을**입력 하 여 대화를 시작 했습니다. 기술 자료에는 세 개의 연결 된 질문 및 답변 쌍이 있습니다. 답변을 구체화 하기 위해 사용자는 기술 자료에서 세 가지 옵션 중 하나를 선택 합니다. 질문 (#1)에는 세 가지 옵션 (#2)으로 채팅 봇에 표시 되는 세 가지 추가 프롬프트가 있습니다.
+이전 이미지에서 사용자는 **내 계정을** 입력 하 여 대화를 시작 했습니다. 기술 자료에는 세 개의 연결 된 질문 및 답변 쌍이 있습니다. 답변을 구체화 하기 위해 사용자는 기술 자료에서 세 가지 옵션 중 하나를 선택 합니다. 질문 (#1)에는 세 가지 옵션 (#2)으로 채팅 봇에 표시 되는 세 가지 추가 프롬프트가 있습니다.
 
 사용자가 옵션 (#3)을 선택 하면 다음의 구체화 옵션 (#4) 목록이 표시 됩니다. 사용자가 올바른 최종 응답 (#6)을 결정할 때까지이 시퀀스는 계속 (#5) 합니다.
 
@@ -82,42 +82,42 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>API 만들기를 사용 하 여 다중 전환 프롬프트에서 기술 자료 만들기
 
-[QNA MAKER API 만들기](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)를 사용 하 여 다중 전환 프롬프트가 포함 된 기술 자료를 만들 수 있습니다. 프롬프트는 `context` 속성의 배열에 추가 됩니다 `prompts` .
+[QNA MAKER API 만들기](/rest/api/cognitiveservices/qnamaker/knowledgebase/create)를 사용 하 여 다중 전환 프롬프트가 포함 된 기술 자료를 만들 수 있습니다. 프롬프트는 `context` 속성의 배열에 추가 됩니다 `prompts` .
 
 ## <a name="show-questions-and-answers-with-context"></a>컨텍스트를 사용 하 여 질문 및 답변 표시
 
 표시 되는 질문 및 답변 쌍을 컨텍스트 대화가 포함 된 쌍 으로만 줄입니다.
 
-**보기 옵션**을 선택한 다음 **컨텍스트 표시**를 선택 합니다. 이 목록에는 추가 작업 프롬프트가 포함 된 질문 및 답변 쌍이 표시 됩니다.
+**보기 옵션** 을 선택한 다음 **컨텍스트 표시** 를 선택 합니다. 이 목록에는 추가 작업 프롬프트가 포함 된 질문 및 답변 쌍이 표시 됩니다.
 
 ![상황별 대화 별로 질문 및 답변 쌍 필터링](../media/conversational-context/filter-question-and-answers-by-context.png)
 
 다중 턴 컨텍스트는 첫 번째 열에 표시 됩니다.
 
-:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="스크린샷 사용자 설명서의 구조 예를 보여 줍니다." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="강조 표시 된 컨텍스트 섹션을 보여 주는 스크린샷" lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 위의 그림에서 **#1** 는 현재 질문을 의미 하는 열의 굵은 텍스트를 나타냅니다. 부모 질문은 행의 맨 위 항목입니다. 아래 질문은 연결 된 질문 및 답변 쌍입니다. 이러한 항목은 선택할 수 있으므로 다른 컨텍스트 항목으로 바로 이동할 수 있습니다.
 
 ## <a name="add-an-existing-question-and-answer-pair-as-a-follow-up-prompt"></a>기존 질문 및 답변 쌍을 추가 작업 프롬프트로 추가
 
-원래 질문 **내 계정**에는 **계정, 로그인**등의 추가 작업이 표시 됩니다.
+원래 질문 **내 계정** 에는 **계정, 로그인** 등의 추가 작업이 표시 됩니다.
 
 !["계정 및 로그인" 답변 및 추가 작업 프롬프트](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
 
 현재 연결 되어 있지 않은 기존 질문 및 답변 쌍에 추가 작업 프롬프트를 추가 합니다. 질문 및 답변 쌍에 연결 되지 않기 때문에 현재 보기 설정을 변경 해야 합니다.
 
 1. 기존 질문 및 답변 쌍을 추가 작업 프롬프트로 연결 하려면 질문 및 답변 쌍에 대 한 행을 선택 합니다. Surface 설명서의 경우 **로그 아웃** 을 검색 하 여 목록을 줄입니다.
-1. **Signout**에 대 한 행의 **응답** 열에서 **추가 작업 프롬프트 추가**를 선택 합니다.
+1. **Signout** 에 대 한 행의 **응답** 열에서 **추가 작업 프롬프트 추가** 를 선택 합니다.
 1. **추가 작업 프롬프트** 팝업 창의 필드에 다음 값을 입력 합니다.
 
     |필드|값|
     |--|--|
-    |표시 텍스트|**장치 끄기를**입력 합니다. 추가 작업 프롬프트에 표시할 사용자 지정 텍스트입니다.|
+    |표시 텍스트|**장치 끄기를** 입력 합니다. 추가 작업 프롬프트에 표시할 사용자 지정 텍스트입니다.|
     |컨텍스트 전용| 이 확인란을 선택합니다. 질문이 컨텍스트를 지정 하는 경우에만 대답이 반환 됩니다.|
     |답변에 대 한 링크|**로그인 화면 사용** 을 입력 하 여 기존 질문 및 답변 쌍을 찾습니다.|
 
 
-1.  일치 항목 하나가 반환 됩니다. 이 답변을 추가 작업으로 선택한 다음, **저장**을 선택 합니다.
+1.  일치 항목 하나가 반환 됩니다. 이 답변을 추가 작업으로 선택한 다음, **저장** 을 선택 합니다.
 
     !["추가 작업 프롬프트 (미리 보기)" 페이지](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
 
@@ -125,43 +125,43 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 
 ### <a name="edit-the-display-text"></a>표시 텍스트 편집
 
-추가 작업 프롬프트가 만들어지고 기존 질문 및 답변 쌍이 **답변할 링크로**입력 되 면 새 **표시 텍스트**를 입력할 수 있습니다. 이 텍스트는 기존 질문을 대체 하지 않으며 새로운 대체 질문을 추가 하지 않습니다. 이러한 값은 해당 값과는 별개입니다.
+추가 작업 프롬프트가 만들어지고 기존 질문 및 답변 쌍이 **답변할 링크로** 입력 되 면 새 **표시 텍스트** 를 입력할 수 있습니다. 이 텍스트는 기존 질문을 대체 하지 않으며 새로운 대체 질문을 추가 하지 않습니다. 이러한 값은 해당 값과는 별개입니다.
 
 1. 표시 텍스트를 편집 하려면 **컨텍스트** 필드에서 질문을 검색 하 여 선택 합니다.
 1. 해당 질문에 대 한 행에서 대답 열의 추가 작업 프롬프트를 선택 합니다.
-1. 편집 하려는 표시 텍스트를 선택한 다음 **편집**을 선택 합니다.
+1. 편집 하려는 표시 텍스트를 선택한 다음 **편집** 을 선택 합니다.
 
     ![표시 텍스트에 대 한 편집 명령](../media/conversational-context/edit-existing-display-text.png)
 
 1. **추가 작업 프롬프트** 팝업 창에서 기존 표시 텍스트를 변경 합니다.
-1. 표시 텍스트 편집이 완료 되 면 **저장**을 선택 합니다.
-1. 위쪽 탐색 모음에서를 **저장 하 고 학습**합니다.
+1. 표시 텍스트 편집이 완료 되 면 **저장** 을 선택 합니다.
+1. 위쪽 탐색 모음에서를 **저장 하 고 학습** 합니다.
 
 
 ## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>새 질문 및 답변 쌍을 추가 작업 프롬프트로 추가 합니다.
 
 새 질문 및 답변 쌍을 기술 자료에 추가 하는 경우 각 쌍을 추가 작업 프롬프트로 기존 질문에 연결 해야 합니다.
 
-1. 기술 자료 도구 모음에서 **계정 및 로그인**에 대 한 기존 질문 및 답변 쌍을 검색 하 고 선택 합니다.
+1. 기술 자료 도구 모음에서 **계정 및 로그인** 에 대 한 기존 질문 및 답변 쌍을 검색 하 고 선택 합니다.
 
-1. 이 질문에 대 한 **응답** 열에서 **추가 작업 프롬프트 추가**를 선택 합니다.
+1. 이 질문에 대 한 **응답** 열에서 **추가 작업 프롬프트 추가** 를 선택 합니다.
 1. **추가 작업 프롬프트 (미리 보기)** 에서 다음 값을 입력 하 여 새 추가 작업 프롬프트를 만듭니다.
 
     |필드|값|
     |--|--|
     |표시 텍스트|*Windows 계정을 만듭니다*. 추가 작업 프롬프트에 표시할 사용자 지정 텍스트입니다.|
     |컨텍스트 전용|이 확인란을 선택합니다. 이 대답은 질문이 컨텍스트를 지정 하는 경우에만 반환 됩니다.|
-    |답변에 대 한 링크|답변으로 다음 텍스트를 입력 합니다.<br>*신규 또는 기존 전자 메일 계정을 사용 하 여 Windows 계정을 [만듭니다](https://account.microsoft.com/) *.<br>데이터베이스를 저장 하 고 학습 하면이 텍스트가 변환 됩니다. |
+    |답변에 대 한 링크|답변으로 다음 텍스트를 입력 합니다.<br>*신규 또는 기존 전자 메일 계정을 사용 하 여 Windows 계정을 [만듭니다](https://account.microsoft.com/)*.<br>데이터베이스를 저장 하 고 학습 하면이 텍스트가 변환 됩니다. |
     |||
 
     ![새 프롬프트 질문 및 답변 만들기](../media/conversational-context/create-child-prompt-from-parent.png)
 
 
-1. **새로 만들기**를 선택한 다음, **저장**을 선택 합니다.
+1. **새로 만들기** 를 선택한 다음, **저장** 을 선택 합니다.
 
     이 작업은 새 질문 및 답변 쌍을 만들고 선택한 질문을 추가 작업 프롬프트로 연결 합니다. 두 질문에 대 한 **컨텍스트** 열은 후속 프롬프트 관계를 나타냅니다.
 
-1. **보기 옵션**을 선택한 다음 [**컨텍스트 표시 (미리 보기)**](#show-questions-and-answers-with-context)를 선택 합니다.
+1. **보기 옵션** 을 선택한 다음 [**컨텍스트 표시 (미리 보기)**](#show-questions-and-answers-with-context)를 선택 합니다.
 
     새 질문에는 연결 된 방법이 나와 있습니다.
 
@@ -169,7 +169,7 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 
     부모 질문은 선택 항목 중 하나로 새 질문을 표시 합니다.
 
-    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="스크린샷 사용자 설명서의 구조 예를 보여 줍니다." lightbox="../media/conversational-context/child-prompt-created.png":::
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="스크린샷은 두 질문에 대 한 컨텍스트 열을 보여 줍니다 .이는 추가 작업 프롬프트 관계를 나타냅니다." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. 추가 작업 프롬프트를 추가한 후 위쪽 탐색 모음에서 **저장 및 학습** 을 선택 합니다.
 
@@ -197,7 +197,7 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 
 ## <a name="a-json-response-to-return-an-initial-answer-and-follow-up-prompts"></a>초기 응답 및 추가 작업 프롬프트를 반환 하는 JSON 응답
 
-이전 섹션에서는 대답을 요청 하 고 추가 작업 프롬프트에 **계정 및 로그인**을 요청 합니다. 응답에는 *[0] 컨텍스트*및 사용자에 게 표시할 텍스트에 대 한 프롬프트 정보가 포함 됩니다.
+이전 섹션에서는 대답을 요청 하 고 추가 작업 프롬프트에 **계정 및 로그인** 을 요청 합니다. 응답에는 *[0] 컨텍스트* 및 사용자에 게 표시할 텍스트에 대 한 프롬프트 정보가 포함 됩니다.
 
 ```JSON
 {
@@ -274,7 +274,7 @@ The `promptsToDelete` array provides the ...
 
 `context`이전 컨텍스트를 포함 하도록 개체를 채웁니다.
 
-다음 JSON 요청에서 현재 질문은 *Windows Hello를 사용 하 여 로그인 하* 고 이전 질문은 *계정 및 로그인*이었습니다.
+다음 JSON 요청에서 현재 질문은 *Windows Hello를 사용 하 여 로그인 하* 고 이전 질문은 *계정 및 로그인* 이었습니다.
 
 ```JSON
 {
@@ -357,11 +357,11 @@ QnA Maker _Generateanswer_ JSON 응답에는 `context` 개체의 첫 번째 항�
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>표시 순서는 업데이트 API에서 지원 됩니다.
 
-JSON 응답에서 반환 되는 [표시 텍스트와 표시 순서](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto)는 [업데이트 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update)에서 편집할 수 있도록 지원 됩니다.
+JSON 응답에서 반환 되는 [표시 텍스트와 표시 순서](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto)는 [업데이트 API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update)에서 편집할 수 있도록 지원 됩니다.
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>업데이트 API를 사용 하 여 다중 전환 프롬프트 추가 또는 삭제
 
-[QnA Maker 업데이트 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update)를 사용 하 여 다중 전환 프롬프트를 추가 하거나 삭제할 수 있습니다.  프롬프트는 `context` 속성의 `promptsToAdd` 배열 및 배열에 추가 됩니다 `promptsToDelete` .
+[QnA Maker 업데이트 API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update)를 사용 하 여 다중 전환 프롬프트를 추가 하거나 삭제할 수 있습니다.  프롬프트는 `context` 속성의 `promptsToAdd` 배열 및 배열에 추가 됩니다 `promptsToDelete` .
 
 ## <a name="export-knowledge-base-for-version-control"></a>버전 제어를 위한 기술 자료 내보내기
 
@@ -369,7 +369,7 @@ QnA Maker은 내보낸 파일에 다중 전환 대화 단계를 포함 하 여 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 [대화 상자의](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) 상황별 대화에 대 한 자세한 내용을 보거나, [다중 전환 대화를 위한 개념 봇 디자인](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0)에 대해 자세히 알아보세요.
+이 [대화 상자의](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) 상황별 대화에 대 한 자세한 내용을 보거나, [다중 전환 대화를 위한 개념 봇 디자인](/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0)에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [기술 자료 마이그레이션](../Tutorials/migrate-knowledge-base.md)

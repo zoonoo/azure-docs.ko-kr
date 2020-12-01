@@ -1,20 +1,20 @@
 ---
 title: 템플릿의 사용자 정의 함수
-description: Azure Resource Manager 템플릿에서 사용자 정의 함수를 정의 하 고 사용 하는 방법에 대해 설명 합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용자 정의 함수를 정의 하 고 사용 하는 방법에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 69f4e98d389cc8dbe5cd3f4b628189676c501106
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0d62abb5362d51a77db872c11416b04dcfb3f97
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84672938"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353479"
 ---
-# <a name="user-defined-functions-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 사용자 정의 함수
+# <a name="user-defined-functions-in-arm-template"></a>ARM 템플릿의 사용자 정의 함수
 
 템플릿 내에서 함수를 직접 만들 수 있습니다. 이러한 함수는 템플릿에서 사용할 수 있습니다. 사용자 정의 함수는 템플릿 내에서 자동으로 사용할 수 있는 [표준 템플릿 함수와](template-functions.md) 는 별개입니다. 템플릿에서 반복적으로 사용 되는 복잡 한 식이 있는 경우 고유한 함수를 만듭니다.
 
-이 문서에서는 Azure Resource Manager 템플릿에 사용자 정의 함수를 추가 하는 방법을 설명 합니다.
+이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용자 정의 함수를 추가 하는 방법을 설명 합니다.
 
 ## <a name="define-the-function"></a>함수 정의
 

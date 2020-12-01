@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 5185e7d0bd60eec239f1233db7f9789cbefc2c10
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 83917214705546b21553e997ccab11a7511f77fd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006169"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353309"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA Maker 리소스 관리
 
@@ -81,7 +81,7 @@ QnA Maker 관리 SKU를 업그레이드하려면
 
  기술 자료가 클라이언트 앱에서 더 많은 요청을 처리 해야 하는 경우 App Service 가격 책정 계층을 업그레이드 합니다.
 
-App Service를 [강화 하거나 규모](https://docs.microsoft.com/azure/app-service/manage-scale-up) 를 확장할 수 있습니다.
+App Service를 [강화 하거나 규모](../../../app-service/manage-scale-up.md) 를 확장할 수 있습니다.
 
 Azure Portal에서 App Service 리소스로 이동 하 고 필요에 따라 **수직 확장** 또는 **수평 확장** 옵션을 선택 합니다.
 
@@ -154,13 +154,13 @@ QnA Maker 인식 서비스는 서비스 태그를 사용 `CognitiveServicesManag
 
 위에 표시된 것처럼 대략적인 아이디어는 다음과 같습니다.
 
-1. [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에서 두 개의 병렬 [QnA Maker 서비스](set-up-qnamaker-service-azure.md)를 설정합니다.
+1. [Azure 쌍을 이루는 지역](../../../best-practices-availability-paired-regions.md)에서 두 개의 병렬 [QnA Maker 서비스](set-up-qnamaker-service-azure.md)를 설정합니다.
 
 1. 기본 QnA Maker App service를 [백업](../../../app-service/manage-backup.md) 하 고 보조 설정에서 [복원](../../../app-service/web-sites-restore.md) 합니다. 이렇게 하면 두 설정이 동일한 호스트 이름 및 키로 작동 합니다.
 
 1. 기본 및 보조 Azure 검색 인덱스를 동기화 된 상태로 유지 합니다. Azure 인덱스를 백업 하는 방법을 보려면 [여기](https://github.com/pchoudhari/QnAMakerBackupRestore) 에서 GitHub 샘플을 사용 하세요.
 
-1. [연속 내보내기](../../../application-insights/app-insights-export-telemetry.md)를 사용하여 Application Insights를 백업합니다.
+1. [연속 내보내기](../../../azure-monitor/app/export-telemetry.md)를 사용하여 Application Insights를 백업합니다.
 
 1. 기본 및 보조 스택이 설치되면 [트래픽 관리자](../../../traffic-manager/traffic-manager-overview.md)를 사용하여 두 개의 엔드포인트를 구성하고 라우팅 메서드를 설정합니다.
 
@@ -256,7 +256,7 @@ QnA Maker 관리 (미리 보기) 리소스를 만든 Azure Portal에서 작성 �
 
 많은 기술 자료를 사용할 계획인 경우 Azure Cognitive Search 서비스 가격 책정 계층을 업그레이드 하세요.
 
-현재 Azure search SKU의 전체 업그레이드를 수행할 수 없습니다. 그러나 원하는 SKU로 새 Azure Search 리소스를 만들고, 데이터를 새 리소스로 복원한 다음, QnA Maker 스택에 연결할 수 있습니다. 이렇게 하려면 다음 단계를 수행하세요.
+현재 Azure search SKU의 전체 업그레이드를 수행할 수 없습니다. 그러나 원하는 SKU로 새 Azure Search 리소스를 만들고, 데이터를 새 리소스로 복원한 다음, QnA Maker 스택에 연결할 수 있습니다. 이를 수행하려면 다음 단계를 따르십시오.
 
 1. Azure Portal에서 새 Azure search 리소스를 만들고 원하는 SKU를 선택 합니다.
 
@@ -345,7 +345,7 @@ QnA maker 리소스를 사용 하지 않는 경우 모든 리소스를 제거 �
 
 많은 기술 자료를 사용할 계획인 경우 Azure Cognitive Search 서비스 가격 책정 계층을 업그레이드 하세요.
 
-현재 Azure search SKU의 전체 업그레이드를 수행할 수 없습니다. 그러나 원하는 SKU로 새 Azure Search 리소스를 만들고, 데이터를 새 리소스로 복원한 다음, QnA Maker 스택에 연결할 수 있습니다. 이렇게 하려면 다음 단계를 수행하세요.
+현재 Azure search SKU의 전체 업그레이드를 수행할 수 없습니다. 그러나 원하는 SKU로 새 Azure Search 리소스를 만들고, 데이터를 새 리소스로 복원한 다음, QnA Maker 스택에 연결할 수 있습니다. 이를 수행하려면 다음 단계를 따르십시오.
 
 1. Azure Portal에서 새 Azure search 리소스를 만들고 원하는 SKU를 선택 합니다.
 
@@ -386,4 +386,4 @@ QnA Maker 기술 자료에 사용되는 Azure 리소스를 삭제하는 경우 �
 [App service](../../../app-service/index.yml) 및 [Search 서비스](../../../search/index.yml)에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [다른 사용자와 작성 하는 방법 알아보기](../how-to/collaborate-knowledge-base.md)
+> [다른 사용자와 작성 하는 방법 알아보기](../index.yml)

@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: b489964e5ef8ea483cbe203be1ff665078a6d66a
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 60ef490bbba4dca4f01b82967ad6ea8636e7bd4e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95741732"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353700"
 ---
 # <a name="form-recognizer-layout-service"></a>폼 인식기 레이아웃 서비스
 
-Azure 양식 인식기는 레이아웃 서비스를 사용 하 여 문서에서 텍스트, 테이블, 선택 표시 및 구조 정보를 추출할 수 있습니다. 사용자는 레이아웃 API를 사용 하 여 다양 한 형식으로 문서를 가져와서 구조화 된 데이터 및 문서 표현을 반환할 수 있습니다. 강력한 [OCR (광학 인식)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) 기능을 문서와 결합 하 여 심층 학습 모델을 이해 하 여 텍스트, 테이블, 선택 표시 및 문서의 구조를 추출 합니다. 
+Azure 양식 인식기는 레이아웃 서비스를 사용 하 여 문서에서 텍스트, 테이블, 선택 표시 및 구조 정보를 추출할 수 있습니다. 사용자는 레이아웃 API를 사용 하 여 다양 한 형식으로 문서를 가져와서 구조화 된 데이터 및 문서 표현을 반환할 수 있습니다. 강력한 [OCR (광학 인식)](../computer-vision/concept-recognizing-text.md) 기능을 문서와 결합 하 여 심층 학습 모델을 이해 하 여 텍스트, 테이블, 선택 표시 및 문서의 구조를 추출 합니다. 
 
 ## <a name="what-does-the-layout-service-do"></a>레이아웃 서비스는 어떤 역할을 하나요?
 
@@ -54,7 +54,7 @@ Azure 양식 인식기는 레이아웃 서비스를 사용 하 여 문서에서 
 
 두 번째 단계는 [분석 레이아웃 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeLayoutResult) 작업을 호출 하는 것입니다. 이 작업은 레이아웃 분석 작업에 의해 생성 된 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. 
 
-|필드| Type | 가능한 값 |
+|필드| 형식 | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | `notStarted`: 분석 작업이 시작 되지 않았습니다.<br /><br />`running`: 분석 작업이 진행 중입니다.<br /><br />`failed`: 분석 작업이 실패 했습니다.<br /><br />`succeeded`: 분석 작업에 성공 했습니다.|
 
@@ -96,7 +96,3 @@ JSON 출력에는 두 부분이 있습니다.
 
 * [Form Recognizer란?](./overview.md)
 * [REST API 참조 문서](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync)
-
-
-
-
