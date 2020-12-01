@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: 8195c4d072acce5345fa9752f97713aed22d962f
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 635178999398287649d8630fc5262a385afc48b2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296957"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341787"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -167,7 +167,7 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-예를 들면 다음과 같습니다. 
+예: 
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -752,7 +752,7 @@ ADF 서비스의 서버 인증서를 확인 하는 방법:
 - 이유 1에서는 SHIR이 설치 된 컴퓨터에서 ADF 서버 인증서와 인증서 체인을 신뢰할 수 있는지 확인 합니다.
 - 이유 2에서는 SHIR 컴퓨터에서 대체 된 루트 CA를 신뢰 하거나 ADF 서버 인증서를 교체 하지 않도록 프록시를 구성 합니다.
 
-Windows에서 인증서를 신뢰 하는 방법에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) 를 참조 하세요.
+Windows에서 인증서를 신뢰 하는 방법에 대 한 자세한 내용은 [이 문서](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) 를 참조 하세요.
 
 #### <a name="additional-info"></a>추가 정보
 DigiCert에서 서명 된 새 SSL 인증서를 배포 하는 중입니다. DigiCert Global Root G2가 신뢰할 수 있는 루트 CA에 있는지 확인 하세요.

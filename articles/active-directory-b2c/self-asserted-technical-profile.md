@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4e76e3924b1b14660dce8a3b58f7dd5b2715eec
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e17c390dddcb2af9fdc83b45ae812ef1fff7f1c3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670122"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345085"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 자체 어설션된 기술 프로필 정의
 
@@ -114,7 +114,7 @@ ms.locfileid: "92670122"
 </TechnicalProfile>
 ```
 
-`age`기본 정책의 클레임은 사용자에 게 더 이상 화면에 표시 되지 않습니다. 실제로 "숨김"입니다. `age`사용자 로부터 클레임을 표시 하 고 age 값을 수집 하려면 DisplayClaim를 추가 해야 합니다 `age` **DisplayClaim** .
+`age`기본 정책의 클레임은 사용자에 게 더 이상 화면에 표시 되지 않습니다. 실제로 "숨김"입니다. `age`사용자 로부터 클레임을 표시 하 고 age 값을 수집 하려면 DisplayClaim를 추가 해야 합니다 `age` **DisplayClaim**.
 
 ## <a name="output-claims"></a>출력 클레임
 
@@ -133,7 +133,7 @@ ms.locfileid: "92670122"
 
 다음 경우에 출력 클레임을 사용 합니다.
 
-- **클레임은 출력 클레임 변환에 의해 출력 됩니다** .
+- **클레임은 출력 클레임 변환에 의해 출력 됩니다**.
 - 사용자 로부터 데이터를 수집 하거나 유효성 검사 기술 프로필의 데이터를 반환 하지 않고 **출력 클레임에 기본값을 설정** 합니다. `LocalAccountSignUpWithLogonEmail` 자체 어설션된 기술 프로필은 **executed-SelfAsserted-Input** 클레임을 `true`로 설정합니다.
 - **유효성 검사 기술 프로필이 출력 클레임 반환** - 기술 프로필이 일부 클레임을 반환하는 유효성 검사 기술 프로필을 호출할 수 있습니다. 해당 클레임을 확장하여 사용자 경험의 다음 오케스트레이션 단계로 반환할 수 있습니다. 로컬 계정으로 로그인할 때 자체 어설션된 기술 프로필 `SelfAsserted-LocalAccountSignin-Email`이 유효성 검사 기술 프로필 `login-NonInteractive`를 호출하는 경우를 예로 들어 보겠습니다. 이 기술 프로필은 사용자 자격 증명의 유효성을 검사하며 사용자 프로필도 반환합니다. 즉, 'userPrincipalName', 'displayName', 'givenName', 'surName' 등의 프로필을 반환할 수 있습니다.
 - **표시 컨트롤은 출력 클레임을 반환** 합니다. 기술 프로필에는 [표시 컨트롤](display-controls.md)에 대 한 참조가 있을 수 있습니다. 표시 컨트롤은 확인 된 전자 메일 주소와 같은 일부 클레임을 반환 합니다. 해당 클레임을 확장하여 사용자 경험의 다음 오케스트레이션 단계로 반환할 수 있습니다. 표시 컨트롤 기능은 현재 **미리 보기** 상태입니다.
@@ -197,21 +197,21 @@ PersistedClaims 요소는 사용 되지 않습니다. 자체 어설션된 기술
 
 ## <a name="metadata"></a>메타데이터
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| operatingMode <sup>1</sup>| 아니요 | 로그인 페이지의 경우 이 속성은 입력 유효성 검사, 오류 메시지 등 username 필드의 동작을 제어합니다. 필요한 값은 `Username` 또는 `Email`입니다.  |
-| AllowGenerationOfClaimsWithNullValues| 아니요| Null 값이 포함 된 클레임을 생성 하도록 허용 합니다. 예를 들어 사용자가 확인란을 선택 하지 않은 경우입니다.|
-| ContentDefinitionReferenceId | 예 | 이 기술 프로필과 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. |
-| EnforceEmailVerification | 아니요 | 등록 또는 프로필 편집의 경우 전자 메일 확인을 적용합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
-| setting.retryLimit | 아니요 | 사용자가 유효성 검사 기술 프로필에 대해 확인 된 데이터를 제공 하기 위해 시도할 수 있는 횟수를 제어 합니다. 사용자가 이미 있는 계정으로 등록을 계속 시도할 수 있는 제한 횟수를 예로 들 수 있습니다.
-| SignUpTarget <sup>1</sup>| 아니요 | 등록 대상 교환 식별자입니다. 사용자가 등록 단추를 클릭하면 Azure AD B2C는 지정된 교환 식별자를 실행합니다. |
-| setting.showCancelButton | 아니요 | 취소 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
-| setting.showContinueButton | 아니요 | 계속 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
-| 설정. showSignupLink <sup>2</sup>| 아니요 | 등록 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
-| forgotPasswordLinkLocation <sup>2</sup>| 아니요| 암호 찾기 링크를 표시 합니다. 가능한 값: `AfterInput` (기본값) 링크는 페이지 맨 아래에 표시 되거나 `None` 암호 찾기 링크를 제거 합니다.|
-| enableRememberMe <sup>2</sup>| 아니요| [로그인 유지](custom-policy-keep-me-signed-in.md) 확인란을 표시 합니다. 가능한 값은 `true` , 또는 `false` (기본값)입니다. |
-| inputVerificationDelayTimeInMilliseconds <sup>3</sup>| 아니요| 사용자가 입력을 중지할 때까지 기다린 후 값의 유효성을 검사 하 여 사용자 환경을 개선 합니다. 기본값은 2000 밀리초입니다. |
-| IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
+| operatingMode <sup>1</sup>| 예 | 로그인 페이지의 경우 이 속성은 입력 유효성 검사, 오류 메시지 등 username 필드의 동작을 제어합니다. 필요한 값은 `Username` 또는 `Email`입니다.  |
+| AllowGenerationOfClaimsWithNullValues| 예| Null 값이 포함 된 클레임을 생성 하도록 허용 합니다. 예를 들어 사용자가 확인란을 선택 하지 않은 경우입니다.|
+| ContentDefinitionReferenceId | Yes | 이 기술 프로필과 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. |
+| EnforceEmailVerification | 예 | 등록 또는 프로필 편집의 경우 전자 메일 확인을 적용합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
+| setting.retryLimit | 예 | 사용자가 유효성 검사 기술 프로필에 대해 확인 된 데이터를 제공 하기 위해 시도할 수 있는 횟수를 제어 합니다. 사용자가 이미 있는 계정으로 등록을 계속 시도할 수 있는 제한 횟수를 예로 들 수 있습니다.
+| SignUpTarget <sup>1</sup>| 예 | 등록 대상 교환 식별자입니다. 사용자가 등록 단추를 클릭하면 Azure AD B2C는 지정된 교환 식별자를 실행합니다. |
+| setting.showCancelButton | 예 | 취소 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
+| setting.showContinueButton | 예 | 계속 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
+| 설정. showSignupLink <sup>2</sup>| 예 | 등록 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
+| forgotPasswordLinkLocation <sup>2</sup>| 예| 암호 찾기 링크를 표시 합니다. 가능한 값: `AfterInput` (기본값) 링크는 페이지 맨 아래에 표시 되거나 `None` 암호 찾기 링크를 제거 합니다.|
+| enableRememberMe <sup>2</sup>| 예| [로그인 유지](custom-policy-keep-me-signed-in.md) 확인란을 표시 합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. |
+| inputVerificationDelayTimeInMilliseconds <sup>3</sup>| 예| 사용자가 입력을 중지할 때까지 기다린 후 값의 유효성을 검사 하 여 사용자 환경을 개선 합니다. 기본값은 2000 밀리초입니다. |
+| IncludeClaimResolvingInClaimsHandling  | 예 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
 
 참고:
 1. , 또는의 콘텐츠 정의 [Datauri](contentdefinitions.md#datauri) 형식에 사용할 수 있습니다 `unifiedssp` `unifiedssd` .

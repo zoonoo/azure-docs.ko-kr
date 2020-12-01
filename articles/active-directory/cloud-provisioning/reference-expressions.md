@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c14f406e5671e1eefb43f0208044f9945e446267
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a775ce6b7c560783a22697c5dd92288c5d5b7d4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226576"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343708"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory에서 특성 매핑 식 작성
 클라우드 프로비저닝을 구성하는 경우 식 매핑은 지정할 수 있는 특성 매핑 유형 중 하나입니다. 
@@ -65,7 +65,7 @@ ms.locfileid: "89226576"
 |[Left](#left)|Left 함수는 문자열 왼쪽부터 지정된 수의 문자를 반환합니다.|
 |[Mid](#mid) |원본 값의 부분 문자열을 반환합니다. 부분 문자열은 원본 문자열에서 문자 중 일부만 포함하는 문자열입니다.|
 |[NormalizeDiacritics](#normalizediacritics)|하나의 문자열 인수가 필요합니다. 문자열을 반환하지만 해당하는 비분음 부호 문자로 대체된 분음 부호 문자를 포함합니다.|
-|[Not](#not) |**원본**의 부울 값을 대칭 이동합니다. **원본** 값이 "*True*"인 경우 "*False*"를 반환합니다. 그렇지 않은 경우 "*True*"를 반환합니다.| 
+|[Not](#not) |**원본** 의 부울 값을 대칭 이동합니다. **원본** 값이 "*True*"인 경우 "*False*"를 반환합니다. 그렇지 않은 경우 "*True*"를 반환합니다.| 
 |[RemoveDuplicates](#removeduplicates)|RemoveDuplicates 함수는 다중값 문자열을 사용하여 개별 값을 고유하게 만듭니다.| 
 |[바꾸기](#replace) |문자열 내 값을 대체합니다. | 
 |[SelectUniqueValue](#selectuniquevalue)|최소 두 개의 인수가 필요하며, 이는 표현식을 사용하여 정의된 고유한 값 생성 규칙입니다. 함수는 각 규칙을 평가한 후 대상 앱/디렉터리에서 생성된 값이 고유한지 확인합니다.| 
@@ -73,7 +73,7 @@ ms.locfileid: "89226576"
 |[Split](#split)|지정된 구분 기호 문자를 사용하여 문자열을 다중 값 배열로 분할합니다.|
 |[StringFromSID](#stringfromsid)|StringFromSid 함수는 보안 식별자를 포함한 바이트 배열을 문자열로 변환합니다.| 
 |[StripSpaces](#stripspaces) |원본 문자열에서 모든 공백(" ")을 제거합니다.| 
-|[스위치](#switch)|**원본** 값이 **key**와 일치하면, 해당 **key**의 **value**를 반환합니다. | 
+|[스위치](#switch)|**원본** 값이 **key** 와 일치하면, 해당 **key** 의 **value** 를 반환합니다. | 
 |[ToLower](#tolower)|*원본* 문자열 값을 가져와서 지정된 문화권 규칙을 사용하여 소문자로 변환합니다.| 
 |[ToUpper](#toupper)|*원본* 문자열 값을 가져와서 지정된 문화권 규칙을 사용하여 대문자로 변환합니다.|
 |[Trim](#trim)|Trim 함수는 선행 및 후행 공백을 문자열에서 제거합니다.|
@@ -105,7 +105,7 @@ BitAnd 함수는 값에 지정된 비트를 설정합니다.
 **설명:**  
 이 함수는 두 매개 변수를 전부 이진 표현으로 변환시키고 비트를 다음과 같이 설정합니다.
 
-* 0 - *value1* 및 *value2*의 해당 비트 중 하나 또는 둘 모두가 0인 경우
+* 0 - *value1* 및 *value2* 의 해당 비트 중 하나 또는 둘 모두가 0인 경우
 * 1 - 2개 모두 해당 비트일 경우 1입니다.
 
 즉, 두 매개 변수의 해당 비트가 1일 경우를 제외하는 모든 경우에는 0을 반환합니다.
@@ -289,7 +289,7 @@ InStr 함수는 문자열에서 부분 문자열이 처음 나오는 경우를 �
 
 `num InStr(str stringcheck, str stringmatch)`  
 `num InStr(str stringcheck, str stringmatch, num start)`  
-`num InStr(str stringcheck, str stringmatch, num start , enum compare)`
+`num InStr(str stringcheck, str stringmatch, num start, enum compare)`
 
 * stringcheck: 검색할 문자열
 * stringmatch: 찾을 문자열
@@ -451,7 +451,7 @@ Left 함수는 문자열 왼쪽부터 지정된 수의 문자를 반환합니다
 ### <a name="not"></a>Not
 **함수:**<br> Not(source)
 
-**설명:**<br> **원본**의 부울 값을 대칭 이동합니다. **원본** 값이 "*True*"인 경우 "*False*"를 반환합니다. 그렇지 않은 경우 "*True*"를 반환합니다.
+**설명:**<br> **원본** 의 부울 값을 대칭 이동합니다. **원본** 값이 "*True*"인 경우 "*False*"를 반환합니다. 그렇지 않은 경우 "*True*"를 반환합니다.
 
 **매개 변수:**<br> 
 
@@ -478,34 +478,34 @@ RemoveDuplicates 함수는 다중값 문자열을 사용하여 개별 값을 고
 **설명:**<br>
 문자열 내 값을 대체합니다. 제공된 매개 변수에 따라 다르게 작동합니다.
 
-* **oldValue** 및 **replacementValue**가 제공되는 경우:
+* **oldValue** 및 **replacementValue** 가 제공되는 경우:
   
-  * **source**에서 발생하는 모든 **oldValue**를 **replacementValue**로 바꿉니다.
-* **oldValue** 및 **template**이 제공되는 경우:
+  * **source** 에서 발생하는 모든 **oldValue** 를 **replacementValue** 로 바꿉니다.
+* **oldValue** 및 **template** 이 제공되는 경우:
   
-  * **template**에서 **oldValue**의 모든 항목을 **원본** 값으로 바꿉니다.
-* **regexPattern** 및 **replacementValue**가 제공되는 경우:
+  * **template** 에서 **oldValue** 의 모든 항목을 **원본** 값으로 바꿉니다.
+* **regexPattern** 및 **replacementValue** 가 제공되는 경우:
 
-  * 함수에서 **regexPattern**을 **source** 문자열에 적용하고, regex 그룹 이름을 사용하여 **replacementValue**에 대한 문자열을 생성할 수 있습니다.
-* **regexPattern**, **regexGroupName**, **replacementValue**가 제공되는 경우:
+  * 함수에서 **regexPattern** 을 **source** 문자열에 적용하고, regex 그룹 이름을 사용하여 **replacementValue** 에 대한 문자열을 생성할 수 있습니다.
+* **regexPattern**, **regexGroupName**, **replacementValue** 가 제공되는 경우:
   
-  * 함수에서 **regexPattern**을 **source** 문자열에 적용하고, **regexGroupName**과 일치하는 모든 값을 **replacementValue**로 바꿉니다.
-* **regexPattern**, **regexGroupName**, **replacementAttributeName**이 제공되는 경우:
+  * 함수에서 **regexPattern** 을 **source** 문자열에 적용하고, **regexGroupName** 과 일치하는 모든 값을 **replacementValue** 로 바꿉니다.
+* **regexPattern**, **regexGroupName**, **replacementAttributeName** 이 제공되는 경우:
   
-  * **source**에 값이 없는 경우 **source**가 반환됩니다.
-  * **source**에 값이 있는 경우 함수에서 **regexPattern**을 **source** 문자열에 적용하고, **regexGroupName**과 일치하는 모든 값을 **replacementAttributeName**과 연결된 값으로 바꿉니다.
+  * **source** 에 값이 없는 경우 **source** 가 반환됩니다.
+  * **source** 에 값이 있는 경우 함수에서 **regexPattern** 을 **source** 문자열에 적용하고, **regexGroupName** 과 일치하는 모든 값을 **replacementAttributeName** 과 연결된 값으로 바꿉니다.
 
 **매개 변수:**<br> 
 
    | 속성 | 필수/ 반복 | Type | 메모 |
    | --- | --- | --- | --- |
    | **원본(source)** |필수 |String |일반적으로 **source** 개체의 특성 이름입니다. |
-   | **oldValue** |옵션 |String |**원본** 또는 **템플릿**에서 대체될 값입니다. |
-   | **regexPattern** |옵션 |String |**원본**에서 대체될 값에 대한 Regex 패턴입니다. 또는 **replacementPropertyName**을 사용하는 경우 **replacementPropertyName**에서 값을 추출하는 패턴입니다. |
-   | **regexGroupName** |옵션 |String |**regexPattern**내 그룹의 이름입니다. **replacementPropertyName**을 사용하는 경우에만 **replacementPropertyName**에서 이 그룹의 값을 **replacementValue**로 추출합니다. |
+   | **oldValue** |옵션 |String |**원본** 또는 **템플릿** 에서 대체될 값입니다. |
+   | **regexPattern** |옵션 |String |**원본** 에서 대체될 값에 대한 Regex 패턴입니다. 또는 **replacementPropertyName** 을 사용하는 경우 **replacementPropertyName** 에서 값을 추출하는 패턴입니다. |
+   | **regexGroupName** |옵션 |String |**regexPattern** 내 그룹의 이름입니다. **replacementPropertyName** 을 사용하는 경우에만 **replacementPropertyName** 에서 이 그룹의 값을 **replacementValue** 로 추출합니다. |
    | **replacementValue** |옵션 |String |이전 값과 대체할 새로운 값입니다. |
    | **replacementAttributeName** |옵션 |String |대체 값에 사용할 특성의 이름입니다. |
-   | **template** |옵션 |String |**template** 값이 제공되는 경우 템플릿 내에서 **oldValue**를 찾아서 **source** 값으로 바꿉니다. |
+   | **template** |옵션 |String |**template** 값이 제공되는 경우 템플릿 내에서 **oldValue** 를 찾아서 **source** 값으로 바꿉니다. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -516,7 +516,7 @@ RemoveDuplicates 함수는 다중값 문자열을 사용하여 개별 값을 고
 > [!NOTE]
 > - 최상위 레벨 함수이므로 중첩할 수 없습니다.
 > - 우선 순위가 일치하는 특성에는 이 함수를 적용할 수 없습니다.  
-> - 이 함수는 항목 만들기에만 사용할 수 있습니다. 특성과 함께 사용할 경우 **매핑 적용** 속성을 **개체를 만드는 동안만**으로 설정합니다.
+> - 이 함수는 항목 만들기에만 사용할 수 있습니다. 특성과 함께 사용할 경우 **매핑 적용** 속성을 **개체를 만드는 동안만** 으로 설정합니다.
 > - 이 함수는 현재 "Workday에서 Active Directory로의 사용자 프로비저닝"에만 지원되며, 다른 프로비저닝 애플리케이션에서는 사용할 수 없습니다. 
 
 
@@ -576,7 +576,7 @@ StringFromSid 함수는 보안 식별자를 포함한 바이트 배열을 문자
 ### <a name="switch"></a>스위치
 **함수:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
-**설명:**<br> **원본** 값이 **key**와 일치하면, 해당 **key**의 **value**를 반환합니다. **원본** 값과 일치하는 키가 없으면 **defaultValue**를 반환합니다.  **Key** 및 **value** 매개 변수는 항상 쌍으로 제공되어야 합니다. 함수는 항상 짝수 개수의 매개 변수를 예상합니다.
+**설명:**<br> **원본** 값이 **key** 와 일치하면, 해당 **key** 의 **value** 를 반환합니다. **원본** 값과 일치하는 키가 없으면 **defaultValue** 를 반환합니다.  **Key** 및 **value** 매개 변수는 항상 쌍으로 제공되어야 합니다. 함수는 항상 짝수 개수의 매개 변수를 예상합니다.
 
 **매개 변수:**<br> 
 
@@ -584,7 +584,7 @@ StringFromSid 함수는 보안 식별자를 포함한 바이트 배열을 문자
    | --- | --- | --- | --- |
    | **원본(source)** |필수 |String |확인할 **원본** 값입니다. |
    | **defaultValue** |옵션 |String |원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
-   | **key** |필수 |String |**원본** 값과 비교할 **Key**입니다. |
+   | **key** |필수 |String |**원본** 값과 비교할 **Key** 입니다. |
    | **value** |필수 |String |키와 일치하는 **원본** 의 대체 값입니다. |
 
 ---
@@ -598,7 +598,7 @@ StringFromSid 함수는 보안 식별자를 포함한 바이트 배열을 문자
    | 속성 | 필수/ 반복 | Type | 메모 |
    | --- | --- | --- | --- |
    | **원본(source)** |필수 |String |대개는 원본 개체의 특성 이름 |
-   | **문화권** |옵션 |String |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
+   | **문화권** |옵션 |String |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2* 이며, 여기서 *languagecode2* 는 2자 언어 코드이고 *country/regioncode2* 는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
 
 ---
 
@@ -612,7 +612,7 @@ StringFromSid 함수는 보안 식별자를 포함한 바이트 배열을 문자
   | 속성 | 필수/ 반복 | Type | 메모 |
   | --- | --- | --- | --- |
   | **원본(source)** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
-  | **문화권** |옵션 |String |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
+  | **문화권** |옵션 |String |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2* 이며, 여기서 *languagecode2* 는 2자 언어 코드이고 *country/regioncode2* 는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
 
 ---
 
@@ -712,7 +712,7 @@ Split([extensionAttribute5], ",")
 
 **샘플 입/출력:** <br>
 
-* **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **INPUT** (extensionAttribute5): ""
 * **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>특정 형식에서 문자열로 출력 날짜

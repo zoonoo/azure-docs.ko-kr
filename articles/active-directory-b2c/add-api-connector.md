@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 47885e64b40db07ca3b4a7380389967a36abbd9e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9117474c3cbf5087a5b63512fcc17c4771bf7aa6
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949839"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343878"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>등록 사용자 흐름에 API 커넥터 추가 (미리 보기)
 
@@ -237,7 +237,7 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수                                          | Type              | 필수 | Description                                                                                                                                                                                                                                                                            |
+| 매개 변수                                          | 형식              | 필수 | Description                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 버전                                            | String            | 예      | API 버전입니다.                                                                                                                                                                                                                                                                |
 | action                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
@@ -258,7 +258,7 @@ Content-type: application/json
 
 ```
 
-| 매개 변수   | Type   | 필수 | Description                                                                |
+| 매개 변수   | 형식   | 필수 | Description                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | 버전     | String | 예      | API 버전입니다.                                                    |
 | action      | String | 예      | 값은 이어야 합니다. `ShowBlockPage`                                              |
@@ -284,11 +284,11 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수   | Type    | 필수 | Description                                                                |
+| 매개 변수   | 형식    | 필수 | Description                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | 버전     | String  | 예      | API 버전입니다.                                                    |
 | action      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |
-| 상태      | 정수 | 예      | `400`ValidationError 응답의 값 이어야 합니다.                        |
+| 상태      | 정수 | Yes      | `400`ValidationError 응답의 값 이어야 합니다.                        |
 | userMessage | String  | 예      | 사용자에게 표시할 메시지입니다.                                            |
 
 > [!NOTE]

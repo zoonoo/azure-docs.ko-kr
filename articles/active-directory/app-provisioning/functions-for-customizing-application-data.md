@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
 ms.custom: contperfq2
-ms.openlocfilehash: 4c37923b0955652a0627808b19762095c18bdedc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a1d83f91ad82bddacb7e806e31151b8e4a7ab612
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737674"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344932"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Azure AD에서 특성 매핑에 대 한 식 작성에 대 한 참조
 
@@ -41,7 +41,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 [Append](#append) &nbsp; &nbsp; 추가 &nbsp; &nbsp; [BitAnd](#bitand) &nbsp; &nbsp; Bitand &nbsp; &nbsp; [CBool](#cbool) &nbsp; &nbsp; Cbool &nbsp; &nbsp; [Coalesce](#coalesce) &nbsp; &nbsp; 병합 &nbsp; &nbsp; [ConvertToBase64](#converttobase64) &nbsp; &nbsp; ConvertToBase64 &nbsp; &nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp; &nbsp; ConvertToUTF8Hex &nbsp; &nbsp; [Count](#count) &nbsp; &nbsp; 개수 &nbsp; &nbsp; [CStr](#cstr) &nbsp; &nbsp; CStr &nbsp; &nbsp; [DateFromNum](#datefromnum) &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; Formatdatetime &nbsp; &nbsp; [Guid](#guid) &nbsp; &nbsp; Guid &nbsp; &nbsp; [IIF](#iif) &nbsp; &nbsp; IIF &nbsp; &nbsp; [InStr](#instr) &nbsp; &nbsp; InStr &nbsp; &nbsp; [IsNull](#isnull) &nbsp; &nbsp; IsNull &nbsp; &nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp; &nbsp; IsNullOrEmpty &nbsp; &nbsp; [IsPresent](#ispresent) &nbsp; &nbsp; IsPresent &nbsp; &nbsp; [IsString](#isstring) &nbsp; &nbsp; Isstring &nbsp; &nbsp; [Item](#item) &nbsp; &nbsp; 항목 &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; 조인 &nbsp; &nbsp; [Left](#left) &nbsp; &nbsp; 왼쪽 &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp; &nbsp; &nbsp; &nbsp; [removeduplicates](#removeduplicates) &nbsp; &nbsp; &nbsp; &nbsp; [Replace](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [singleapproleassignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [분할](#split) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper) &nbsp; &nbsp; &nbsp; &nbsp; [Word](#word)
 
 ---
-### <a name="append"></a>추가
+### <a name="append"></a>Append
 
 **함수:** 추가 (원본, 접미사)
 
@@ -49,7 +49,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의**
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **source** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
 | **접미사** |필수 |String |원본 값의 끝에 추가하려는 문자열입니다. |
@@ -67,7 +67,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **value1** |필수 |num |Value2로 AND'ed 해야 하는 숫자 값입니다.|
 | **value2** |필수 |num |Value1으로 AND'ed 해야 하는 숫자 값입니다.|
@@ -87,7 +87,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **expression** |필수 | expression | 모든 유효한 식 |
 
@@ -103,7 +103,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **source1  … sourceN** | 필수 | String |필수, 가변적인 횟수 대개는 원본 개체의 특성 이름입니다. |
 | **defaultValue** | 선택 | 문자열 | 모든 원본 값이 NULL 일 때 사용할 기본값입니다. 빈 문자열("")일 수 있습니다.
@@ -116,7 +116,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **source** |필수 |String |64 기본으로 변환 될 문자열|
 
@@ -133,7 +133,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **source** |필수 |String |UTF8 Hex로 변환할 문자열|
 
@@ -150,7 +150,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **특성도** |필수 |특성 |요소가 계산 될 다중값 특성|
 
@@ -162,7 +162,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **value** |필수 | 숫자, 참조 또는 부울 | 숫자 값, 참조 특성 또는 부울입니다. |
 
@@ -179,7 +179,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **value** |필수 | Date | DateTime 형식으로 변환 될 광고 날짜 |
 
@@ -198,7 +198,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **source** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
 | **inputFormat** |필수 |String |원본 값의 예상된 형식입니다. 지원 되는 형식은 [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings)를 참조 하세요. |
@@ -218,7 +218,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **조건** |필수 |변수 또는 식 |true 또는 false로 평가될 수 있는 값 또는 식입니다. |
 | **valueIfTrue** |필수 |변수 또는 문자열 | 조건이 true로 평가되는 경우 반환된 값입니다. |
@@ -235,7 +235,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **value1** |필수 |String |검색할 문자열입니다. |
 | **value2** |필수 |String |찾을 문자열 |
@@ -259,7 +259,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **expression** |필수 |expression |평가할 식입니다. |
 
@@ -277,7 +277,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **expression** |필수 |expression |평가할 식입니다. |
 
@@ -294,7 +294,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **expression** |필수 |expression |평가할 식입니다. |
 
@@ -309,7 +309,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **expression** |필수 |expression |평가할 식입니다. |
 
@@ -321,7 +321,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **특성도** |필수 |attribute |검색할 다중 값 특성 |
 | **index** |필수 |정수 | 다중값 문자열의 항목에 대 한 인덱스|
@@ -339,7 +339,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **separator** |필수 |String |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
 | **source1  … sourceN** |필수, 시간 변수 |String |값이 함께 조인될 문자열입니다. |
@@ -355,7 +355,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **String** |필수 |attribute | 문자를 반환할 문자열입니다. |
 | **NumChars** |필수 |정수 | 문자열의 시작 (왼쪽)부터 반환할 문자 수를 나타내는 숫자입니다.|
@@ -373,7 +373,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **source** |필수 |String |일반적으로 특성 이름입니다. |
 | **start** |필수 |integer |하위 문자열이 시작되어야 하는 **source** 문자열의 인덱스입니다. 문자열의 첫번째 문자에는 인덱스 1이 있고, 두번째 문자에는 인덱스 2가 있습니다. |
@@ -387,7 +387,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **source** |필수 |String | 일반적으로 이름 또는 성 특성입니다. |
 
@@ -399,7 +399,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **source** |필수 |부울 문자열 |필요한 **source** 값은 "True"나 "False"입니다. |
 
@@ -411,7 +411,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **value** |필수 | String | 지원 되는 형식의 날짜/시간 문자열입니다. 지원되는 형식은 https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx를 참조하세요. |
 
@@ -431,7 +431,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **특성도** |필수 |다중값 특성 |중복 항목을 제거 하는 다중값 특성|
 
@@ -453,17 +453,17 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 * **regexPattern** 및 **replacementValue** 가 제공되는 경우:
 
   * 함수에서 **regexPattern** 을 **source** 문자열에 적용하고, regex 그룹 이름을 사용하여 **replacementValue** 에 대한 문자열을 생성할 수 있습니다.
-* **regexPattern** , **regexGroupName** , **replacementValue** 가 제공되는 경우:
+* **regexPattern**, **regexGroupName**, **replacementValue** 가 제공되는 경우:
   
   * 함수에서 **regexPattern** 을 **source** 문자열에 적용하고, **regexGroupName** 과 일치하는 모든 값을 **replacementValue** 로 바꿉니다.
-* **regexPattern** , **regexGroupName** , **replacementAttributeName** 이 제공되는 경우:
+* **regexPattern**, **regexGroupName**, **replacementAttributeName** 이 제공되는 경우:
   
   * **source** 에 값이 없는 경우 **source** 가 반환됩니다.
   * **source** 에 값이 있는 경우 함수에서 **regexPattern** 을 **source** 문자열에 적용하고, **regexGroupName** 과 일치하는 모든 값을 **replacementAttributeName** 과 연결된 값으로 바꿉니다.
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **source** |필수 |String |일반적으로 **소스** 개체의 특성 이름입니다. |
 | **oldValue** |선택 |문자열 |**원본** 또는 **템플릿** 에서 대체될 값입니다. |
@@ -488,7 +488,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |2개 이상 필요, 상한 없음 |String | 평가할 고유한 값 생성 규칙 목록입니다. |
 
@@ -501,7 +501,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |필수 |String |**[appRoleAssignments]** 개체. |
 
@@ -513,7 +513,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **source** |필수 |String |업데이트할 **source** 값입니다. |
 | **문자가** |필수 |String |문자열을 분할하는 데 사용할 문자(예: ",")를 지정 |
@@ -526,7 +526,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **source** |필수 |String |업데이트할 **source** 값입니다. |
 
@@ -538,7 +538,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **source** |필수 |String |**Source** 값입니다. |
 | **defaultValue** |선택 |문자열 |원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
@@ -553,7 +553,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **source** |필수 |String |대개는 원본 개체의 특성 이름 |
 | **culture** |선택 |문자열 |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2* 이며, 여기서 *languagecode2* 는 2자 언어 코드이고 *country/regioncode2* 는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
@@ -566,7 +566,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **source** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
 | **culture** |선택 |문자열 |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2* 이며, 여기서 *languagecode2* 는 2자 언어 코드이고 *country/regioncode2* 는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
@@ -583,7 +583,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **변수의** 
 
-| Name | 필수/ 반복 | Type | 메모 |
+| Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **String** |필수 |다중값 특성 |단어를 반환할 문자열입니다.|
 | **WordNumber** |필수 | 정수 | 반환할 단어 번호를 식별 하는 번호|
@@ -609,8 +609,8 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **샘플 입출력:** 
 
-* **입력** (메일): “john.doe@contoso.com”
-* **출력** : "john. doe"
+* **입력**(메일): “john.doe@contoso.com”
+* **출력**: "john. doe"
 
 ### <a name="append-constant-suffix-to-user-name"></a>사용자 이름에 상수 접미사 추가
 Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사용자 이름에 추가 접미사를 추가해야할 수 있습니다.
@@ -620,8 +620,8 @@ Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사
 
 **샘플 입/출력:** 
 
-* **입력** : (userPrincipalName): “John.Doe@contoso.com”
-* **출력** : " John.Doe@contoso.com.test "
+* **입력**: (userPrincipalName): “John.Doe@contoso.com”
+* **출력**: " John.Doe@contoso.com.test "
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>이름과 성의 부분을 연결하여 사용자 별칭을 생성합니다.
 사용자의 이름 중 처음 3개 문자 및 사용자 성의 처음 5개 문자를 사용하여 사용자 별칭을 생성해야 합니다.
@@ -633,7 +633,7 @@ Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사
 
 * **입력** (givenName): "John"
 * **입력** (surname): "Doe"
-* **출력** : "JohDoe"
+* **출력**: "JohDoe"
 
 ### <a name="remove-diacritics-from-a-string"></a>문자열에서 분음 부호 제거
 악센트 기호를 포함하지 않는 해당 문자로 악센트 기호를 포함하는 문자를 바꿔야 합니다.
@@ -643,7 +643,7 @@ Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사
 **샘플 입/출력:** 
 
 * **입력** (givenName): "Zoë"
-* **출력** : "Zoe"
+* **출력**: "Zoe"
 
 ### <a name="split-a-string-into-a-multi-valued-array"></a>문자열을 다중 값 배열로 분할
 문자열의 쉼표로 구분된 목록을 가져와 Salesforce의 PermissionSets 특성과 같은 다중 값 특성에 연결할 수 있는 배열로 분할해야 합니다. 이 예의 경우 Azure AD에서 사용 권한 세트의 목록을 extensionAttribute5에 채웠습니다.
@@ -652,8 +652,8 @@ Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사
 
 **샘플 입/출력:** 
 
-* **INPUT** (extensionAttribute5): "PermisionSetTwo"
-* **OUTPUT** :  ["PermissionSetOne", "PermissionSetTwo"]
+* **INPUT** (extensionAttribute5): ""
+* **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>특정 형식에서 문자열로 출력 날짜
 SaaS 애플리케이션에 특정 형식의 날짜를 전송하려고 합니다.  예를 들어 ServiceNow에 대한 날짜 형식을 지정하려고 할 수 있습니다.
@@ -665,7 +665,7 @@ SaaS 애플리케이션에 특정 형식의 날짜를 전송하려고 합니다.
 **샘플 입/출력:**
 
 * **입력** (extensionAttribute1): "20150123105347.1Z"
-* **출력** : "2015-01-23"
+* **출력**: "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>미리 정의된 옵션 집합을 기반으로 값 바꾸기
 
@@ -677,7 +677,7 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 **샘플 입/출력:**
 
 * **입력** (상태): "QLD"
-* **출력** : "오스트레일리아/브리즈번"
+* **출력**: "오스트레일리아/브리즈번"
 
 ### <a name="replace-characters-using-a-regular-expression"></a>정규식을 사용하여 문자를 바꿈
 정규식 값과 일치하는 문자를 찾아 제거해야 합니다.
@@ -689,7 +689,7 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 **샘플 입/출력:**
 
 * **INPUT** (mailNickname: "john_doe72"
-* **출력** : "72"
+* **출력**: "72"
 
 ### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>생성된 userPrincipalName(UPN) 값을 소문자로 변환
 아래 예에서 UPN 값은 PreferredFirstName 및 PreferredLastName 원본 필드를 연결하여 생성되고, ToLower 함수는 생성된 문자열에서 작동하여 모든 문자를 소문자로 변환합니다. 
@@ -698,9 +698,9 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 
 **샘플 입/출력:**
 
-* (PreferredFirstName) **입력** : “John”
-* (PreferredLastName) **입력** : “Smith”
-* **출력** : " john.smith@contoso.com "
+* (PreferredFirstName) **입력**: “John”
+* (PreferredLastName) **입력**: “Smith”
+* **출력**: " john.smith@contoso.com "
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>UPN(userPrincipalName) 특성의 고유한 값 생성
 사용자의 이름, 중간 이름, 성에 따라, UPN 특성에 값을 할당하려면 먼저 해당 UPN 특성에 대해 값을 생성하고 대상 AD 디렉터리에서 해당 값이 고유한지 확인해야 합니다.
@@ -717,11 +717,11 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 
 **샘플 입/출력:**
 
-* (PreferredFirstName) **입력** : “John”
-* (PreferredLastName) **입력** : “Smith”
-* **출력** : " John.Smith@contoso.com " UPN 값이 John.Smith@contoso.com 디렉터리에 아직 없는 경우
-* **출력** : " J.Smith@contoso.com " UPN 값이 John.Smith@contoso.com 디렉터리에 이미 있는 경우
-* **출력** : " Jo.Smith@contoso.com " 위의 두 UPN 값이 디렉터리에 이미 있는 경우
+* (PreferredFirstName) **입력**: “John”
+* (PreferredLastName) **입력**: “Smith”
+* **출력**: " John.Smith@contoso.com " UPN 값이 John.Smith@contoso.com 디렉터리에 아직 없는 경우
+* **출력**: " J.Smith@contoso.com " UPN 값이 John.Smith@contoso.com 디렉터리에 이미 있는 경우
+* **출력**: " Jo.Smith@contoso.com " 위의 두 UPN 값이 디렉터리에 이미 있는 경우
 
 ### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>NULL이 아닌 경우 흐름 메일 값, 그렇지 않으면 flow userPrincipalName
 메일 특성이 있는 경우이 특성을 이동 하려고 합니다. 그렇지 않으면 userPrincipalName의 값을 대신 전달 합니다.
@@ -733,7 +733,7 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 
 * **입력** (메일): NULL
 * **INPUT** (userPrincipalName): " John.Doe@contoso.com "
-* **출력** : " John.Doe@contoso.com "
+* **출력**: " John.Doe@contoso.com "
 
 ## <a name="related-articles"></a>관련 문서
 * [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](../app-provisioning/user-provisioning.md)

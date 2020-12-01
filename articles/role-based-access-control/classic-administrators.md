@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/24/2020
+ms.date: 11/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 935c0bf76e298ab1e2e4d25fab8685ac4ce617db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4c758dca9f6020fd948ad8c3a8cdf014306e8ae7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95916168"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344011"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 클래식 구독 관리자
 
@@ -105,7 +105,7 @@ Azure Portal에서 서비스 관리자를 변경 하려면 다음 단계를 수�
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 열고 구독을 선택합니다.
+1. **Cost Management + 청구** 를 열고 구독을 선택 합니다.
 
 1. 왼쪽 탐색 영역에서 **속성** 을 클릭 합니다.
 
@@ -140,7 +140,7 @@ Microsoft 계정 및 Azure AD 계정에 대 한 자세한 내용은 [Azure Activ
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 열고 구독을 선택합니다.
+1. **Cost Management + 청구** 를 열고 구독을 선택 합니다.
 
 1. 왼쪽 탐색 영역에서 **속성** 을 클릭 합니다.
 

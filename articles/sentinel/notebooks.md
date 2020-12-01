@@ -10,14 +10,14 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: ded332813a840892f640aa6f6e48debbfe381b4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5d182276cd77493be5184503a1afc47934bf8ea
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90889238"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344196"
 ---
-# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Jupyter Notebook을 사용하여 보안 위협 헌팅
+# <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Jupyter Notebook를 사용 하 여 보안 위협 구하기
 
 Azure 센티널의 기반은 데이터 저장소입니다. 고성능 쿼리, 동적 스키마 및 크기 조정 기능을 대규모 데이터 볼륨으로 결합 합니다. Azure Portal과 모든 Azure Sentinel 도구는 공통 API를 사용하여 데이터 저장소에 액세스합니다. 동일한 API를 [Jupyter](https://jupyter.org/) Notebook 및 Python과 같은 외부 도구에도 사용할 수 있습니다. 포털에서 다수의 일반적인 작업을 수행할 수 있지만 Jupyter는 데이터로 수행할 수 있는 작업의 범위를 확장합니다. 기계 학습, 시각화 및 데이터 분석을 위해 방대한 라이브러리 컬렉션과 전체 프로그래밍 기능을 결합합니다. 이러한 특성 덕분에 Jupyter는 보안 조사 및 헌팅에 맞는 강력한 도구가 될 수 있습니다.
 
@@ -49,24 +49,24 @@ Azure Sentinel Notebook은 pandas, matplotlib, bokeh 등 널리 사용되는 다
 
 ## <a name="create-an-azure-ml-workspace"></a>Azure ML 작업 영역 만들기
 
-1. Azure Portal에서 **Azure 센티널**  >  **Threat management**  >  **노트북** 으로 이동한 다음, **노트북 시작**을 선택 합니다.
+1. Azure Portal에서 **Azure 센티널**  >  **Threat management**  >  **노트북** 으로 이동한 다음, **노트북 시작** 을 선택 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![노트북을 시작 하 여 azure ml 작업 영역 시작](./media/notebooks/sentinel-notebooks-launch.png)
 
-1. **AzureML 작업 영역**에서 **새로 만들기**를 선택 합니다.
+1. **AzureML 작업 영역** 에서 **새로 만들기** 를 선택 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![작업 영역 만들기](./media/notebooks/sentinel-notebooks-azureml-create.png)
 
-1. **Machine Learning** 페이지에서 다음 정보를 입력 한 다음 **검토 + 만들기**를 선택 합니다.
+1. **Machine Learning** 페이지에서 다음 정보를 입력 한 다음 **검토 + 만들기** 를 선택 합니다.
 
     |필드|설명|
     |--|--|
     |Subscription|사용할 Azure 구독을 선택합니다.|
-    |Resource group|구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다. 이 예제에서는 **AzureMLRG**를 사용 합니다.|
-    |작업 영역 이름|작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **testworkspace1**를 사용 합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요.|
-    |지역|사용자 및 데이터 리소스와 가장 가까운 위치를 선택하여 작업 영역을 만듭니다.|
+    |Resource group|구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다. 이 예제에서는 **AzureMLRG** 를 사용 합니다.|
+    |작업 영역 이름|작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **testworkspace1** 를 사용 합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요.|
+    |Azure 지역|사용자 및 데이터 리소스와 가장 가까운 위치를 선택하여 작업 영역을 만듭니다.|
     |Workspace Edition|이 예제에서 작업 영역 형식으로 **기본** 을 선택 합니다. 작업 영역 유형 (Basic & Enterprise)에는 액세스 및 가격 책정을 사용할 수 있는 기능이 결정 됩니다.|
 
     > [!div class="mx-imgBorder"]
@@ -89,7 +89,7 @@ Azure Sentinel Notebook은 pandas, matplotlib, bokeh 등 널리 사용되는 다
 
 ## <a name="launch-a-notebook-using-your-azure-ml-workspace"></a>Azure ML 작업 영역을 사용 하 여 노트북 시작
 
-1. Azure Portal에서 **Azure Sentinel** > **위협 관리** > **Notebook**으로 이동하면 Azure Sentinel이 제공하는 Notebook을 볼 수 있습니다.
+1. Azure Portal에서 **Azure Sentinel** > **위협 관리** > **Notebook** 으로 이동하면 Azure Sentinel이 제공하는 Notebook을 볼 수 있습니다.
 
     > [!TIP]
     > **설명서 & 피드백** 을 선택 하 여 전자 필기장에 대 한 추가 도움말과 지침이 포함 된 창을 엽니다.
@@ -105,7 +105,7 @@ Azure Sentinel Notebook은 pandas, matplotlib, bokeh 등 널리 사용되는 다
     > [!div class="mx-imgBorder"]
     > ![노트북 선택](./media/notebooks/sentinel-azure-notebooks-select.png)
 
-1. AzureML 작업 영역에서 Azure ML 작업 영역을 선택 하 고 **시작**을 선택 합니다.
+1. AzureML 작업 영역에서 Azure ML 작업 영역을 선택 하 고 **시작** 을 선택 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![Notebook 시작](./media/notebooks/sentinel-azure-notebooks-launch.png)
@@ -116,7 +116,7 @@ Azure Sentinel Notebook은 pandas, matplotlib, bokeh 등 널리 사용되는 다
         > [!div class="mx-imgBorder"]
         > ![계산 인스턴스 시작 마법사](./media/notebooks/sentinel-azure-notebooks-compute-wizard.png)
 
-    1. **새 계산 인스턴스** 페이지에서 필요한 정보를 입력 한 다음 **만들기**를 선택 합니다.
+    1. **새 계산 인스턴스** 페이지에서 필요한 정보를 입력 한 다음 **만들기** 를 선택 합니다.
 
         > [!div class="mx-imgBorder"]
         > ![계산 인스턴스 만들기](./media/notebooks/sentinel-azure-notebooks-compute-create.png)
@@ -140,7 +140,7 @@ Azure Sentinel Notebook은 pandas, matplotlib, bokeh 등 널리 사용되는 다
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Sentinel에서 Jupyter Notebook 사용을 시작하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 Azure 센티널에서 Jupyter Notebook 사용을 시작 하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [위협 요소를 사전에 헌팅하기](hunting.md)
 - [헌팅 시 책갈피를 사용하여 흥미로운 정보 저장하기](bookmarks.md)

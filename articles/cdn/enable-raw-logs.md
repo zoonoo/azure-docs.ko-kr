@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: allensu
-ms.openlocfilehash: 2fbefd3b7761976cffbd6be8714cb849e1253aec
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e73b4b2eefeb26dad4d028f617cbe453dbd1870d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778024"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342467"
 ---
 # <a name="monitoring-metrics-and-raw-logs-for-azure-cdn-from-microsoft"></a>Microsoft의 Azure CDN에 대 한 메트릭 및 원시 로그 모니터링
 Microsoft에서 Azure CDN 하 여 다음과 같은 방법으로 문제를 해결 하 고 문제를 해결 하 고 디버그할 수 있도록 리소스를 모니터링할 수 있습니다. 
@@ -59,9 +59,9 @@ Microsoft 프로필에서 Azure CDN의 원시 로그를 구성하려면:
     * **스토리지 계정에 보관**
         * **구독** 및 **스토리지 계정** 을 선택합니다.
     * **이벤트 허브로 스트림**
-        * **구독** , **이벤트 허브 네임스페이스** , **이벤트 허브 이름(선택 사항)** 및 **이벤트 허브 정책 이름** 을 선택합니다.
+        * **구독**, **이벤트 허브 네임스페이스**, **이벤트 허브 이름(선택 사항)** 및 **이벤트 허브 정책 이름** 을 선택합니다.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="CDN 프로필에 대 한 진단 설정을 추가 합니다." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="로그 설정에 대 한 대상을 구성 합니다." border="true":::
 
 7. **저장** 을 선택합니다.
 
@@ -235,31 +235,31 @@ Microsoft 측정값에서 Azure CDN 하 고 60 초 간격으로 메트릭을 보
 
 2. **모니터링** 아래에서 **메트릭** 을 선택 합니다.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="CDN 프로필에 대 한 진단 설정을 추가 합니다." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="CDN 프로필에 대 한 메트릭입니다." border="true":::
 
 3. **메트릭 추가** 를 선택 하 고 추가할 메트릭을 선택 합니다.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="CDN 프로필에 대 한 진단 설정을 추가 합니다." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="CDN 프로필에 대 한 메트릭을 추가 하 고 선택 합니다." border="true":::
 
 4. 필터 **추가** 를 선택 하 여 필터를 추가 합니다.
     
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="CDN 프로필에 대 한 진단 설정을 추가 합니다." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="메트릭에 필터를 적용 합니다." border="true":::
 
 5. 분할 **적용** 을 선택 하 여 다양 한 차원의 추세를 확인 합니다.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="CDN 프로필에 대 한 진단 설정을 추가 합니다." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="메트릭에 분할을 적용 합니다." border="true":::
 
 6. 새 차트를 추가 하려면 **새 차트** 를 선택 합니다.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="CDN 프로필에 대 한 진단 설정을 추가 합니다." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="메트릭 보기에 새 차트를 추가 합니다." border="true":::
 
 ### <a name="alerts"></a>경고
 
-경고 **모니터링** 을 선택 하 여 Microsoft CDN에 대 한 경고를 설정할 수 있습니다  >>  **Alerts** .
+경고 **모니터링** 을 선택 하 여 Microsoft CDN에 대 한 경고를 설정할 수 있습니다  >>  **Alerts**.
 
 메트릭 섹션에 나열 된 메트릭에 대 한 **새 경고 규칙** 을 선택 합니다.
 
-:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="CDN 프로필에 대 한 진단 설정을 추가 합니다." border="true":::
+:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="CDN 끝점에 대 한 경고를 구성 합니다." border="true":::
 
 경고는 Azure Monitor 기반으로 청구 됩니다. 경고에 대 한 자세한 내용은 [Azure Monitor 경고](../azure-monitor/platform/alerts-overview.md)를 참조 하세요.
 
@@ -270,21 +270,21 @@ Microsoft 측정값에서 Azure CDN 하 고 60 초 간격으로 메트릭을 보
 
 2. 만든 Log Analytics 작업 영역을 선택 합니다.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="CDN 프로필에 대 한 진단 설정을 추가 합니다." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Log analytics 작업 영역 선택" border="true":::   
 
 3. Log analytics 작업 영역에서 **일반** 아래에 있는 **로그** 를 선택 합니다.  **시작** 을 선택 합니다.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="CDN 프로필에 대 한 진단 설정을 추가 합니다." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Log analytics 리소스 작업 영역입니다." border="true":::   
  
 4. **CDN 프로필** 을 선택 합니다.  예제 쿼리를 선택 하 여 실행 하거나 예제 화면을 닫아 사용자 지정 쿼리를 입력 합니다.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="CDN 프로필에 대 한 진단 설정을 추가 합니다." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="예제 쿼리 화면." border="true":::   
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="CDN 프로필에 대 한 진단 설정을 추가 합니다." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="쿼리 실행." border="true":::   
 
 4. 차트에서 데이터를 보려면 **차트** 를 선택 합니다.  **대시보드에 고정** 을 선택 하 여 차트를 Azure 대시보드에 고정 합니다.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="CDN 프로필에 대 한 진단 설정을 추가 합니다." border="true"::: 
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="대시보드에 차트를 고정합니다." border="true"::: 
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Microsoft CDN 서비스의 HTTP 원시 로그를 사용하도록 설정했습니다.
@@ -295,4 +295,4 @@ Azure CDN 및 이 문서에 언급된 다른 Azure 서비스에 대한 자세한
 
 * [Azure Monitor](../azure-monitor/overview.md)에 대해 자세히 알아봅니다.
 
-* [Azure Monitor의 Log Analytics](../azure-monitor/log-query/get-started-portal.md)를 구성합니다.
+* [Azure Monitor의 Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)를 구성합니다.

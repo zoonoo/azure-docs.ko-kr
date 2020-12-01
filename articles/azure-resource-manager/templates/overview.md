@@ -1,14 +1,14 @@
 ---
 title: 템플릿 개요
-description: 리소스 배포를 위한 Azure Resource Manager 템플릿을 사용 하는 이점에 대해 설명 합니다.
+description: 리소스 배포를 위한 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하는 이점에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 188fd5782795a4fb5456978a2a596cabc6dfd874
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: e25404fc74456f99a4d41c25786b34b6e1f3edda
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325063"
+ms.locfileid: "96342331"
 ---
 # <a name="what-are-arm-templates"></a>ARM 템플릿이란?
 
@@ -16,7 +16,7 @@ ms.locfileid: "96325063"
 
 이러한 문제를 충족 하기 위해 배포를 자동화 하 고 인프라의 사례를 코드로 사용할 수 있습니다. 코드에서 배포 해야 하는 인프라를 정의 합니다. 인프라 코드는 프로젝트의 일부가 됩니다. 응용 프로그램 코드와 마찬가지로, 인프라 코드를 원본 리포지토리에 저장 하 고 버전을 표시 합니다. 팀의 모든 팀이 코드를 실행 하 고 유사한 환경을 배포할 수 있습니다.
 
-Azure 솔루션에 대 한 코드로 서의 인프라를 구현 하려면 ARM (Azure Resource Manager) 템플릿을 사용 합니다. 템플릿은 프로젝트의 인프라 및 구성을 정의 하는 JSON (JavaScript Object Notation) 파일입니다. 이 템플릿은 대상을 만들기 위한 프로그래밍 명령 시퀀스를 작성하지 않고도 배포하려는 대상을 설명할 수 있는 선언적 구문입니다. 템플릿에서 배포할 리소스 및 해당 리소스에 대 한 속성을 지정 합니다.
+Azure 솔루션에 대 한 코드로 서의 인프라를 구현 하려면 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 합니다. 템플릿은 프로젝트의 인프라 및 구성을 정의 하는 JSON (JavaScript Object Notation) 파일입니다. 이 템플릿은 대상을 만들기 위한 프로그래밍 명령 시퀀스를 작성하지 않고도 배포하려는 대상을 설명할 수 있는 선언적 구문입니다. 템플릿에서 배포할 리소스 및 해당 리소스에 대 한 속성을 지정 합니다.
 
 ## <a name="why-choose-arm-templates"></a>ARM 템플릿을 선택 해야 하는 이유
 

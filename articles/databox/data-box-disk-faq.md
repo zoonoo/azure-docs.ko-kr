@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 9305ff5904588241ff8319f28eab2ce20ad77876
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 483ae81f22358e41f252dd8090c01d5b4cad7fb1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125118"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344167"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: 질문과 대답
 
@@ -66,7 +66,7 @@ A. Data Box Disk는 해당 대상과 동일한 국가/지역 내 에서만 데�
 
 ### <a name="option-1"></a>옵션 1: 
 
-Microsoft azure [Import/Export 서비스](../storage/common/storage-import-export-service.md) 를 사용 하 여 데이터를 포함 하는 [지원 되는 디스크](../storage/common/storage-import-export-requirements.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#supported-disks) 를 캐나다의 원본 위치에서 azure WestUS datacenter로 배송 합니다.
+Microsoft azure [Import/Export 서비스](../storage/common/storage-import-export-service.md) 를 사용 하 여 데이터를 포함 하는 [지원 되는 디스크](../storage/common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) 를 캐나다의 원본 위치에서 azure WestUS datacenter로 배송 합니다.
 
 ### <a name="option-2"></a>옵션 2:
 
@@ -85,7 +85,7 @@ A. Data Box Disk에 문제가 발생하면 [Microsoft 지원에 문의](./data-b
 A.  아니요. 데이터 크기 및 디스크 가용성에 따라 8TB 디스크(최대 5개 디스크)를 얻을 수 있습니다.  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>17. Data Box Disk의 잠금을 해제하려면 어떻게 할까요? 
-A.  Azure Portal에서 해당 Data Box Disk 주문, **디바이스 세부 정보**로 차례로 이동합니다. 지원 암호를 복사합니다. 운영 체제에 대한 Azure Portal에서 Data Box Disk 잠금 해제 도구를 다운로드하고 추출합니다. 디스크에 복사할 데이터가 있는 컴퓨터에서 도구를 실행합니다. 지원 암호를 제공하여 디스크의 잠금을 해제합니다. 동일한 지원 암호를 사용하여 모든 디스크의 잠금을 해제할 수 있습니다. 
+A.  Azure Portal에서 해당 Data Box Disk 주문, **디바이스 세부 정보** 로 차례로 이동합니다. 지원 암호를 복사합니다. 운영 체제에 대한 Azure Portal에서 Data Box Disk 잠금 해제 도구를 다운로드하고 추출합니다. 디스크에 복사할 데이터가 있는 컴퓨터에서 도구를 실행합니다. 지원 암호를 제공하여 디스크의 잠금을 해제합니다. 동일한 지원 암호를 사용하여 모든 디스크의 잠금을 해제할 수 있습니다. 
 
 단계별 지침을 보려면 [Windows 클라이언트에서 디스크 잠금 해제](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) 또는 [Linux 클라이언트에서 디스크 잠금 해제](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client)로 이동하세요.
 
@@ -104,7 +104,7 @@ A. 예. 여러 개의 Data Box Disk를 동일한 호스트 컴퓨터에 연결�
 A.  Azure Portal에서 Data Box Disk 주문의 상태를 추적할 수 있습니다. 주문을 만들 때 알림 이메일을 제공하라는 메시지도 표시됩니다. 이메일을 제공한 경우 주문의 모든 상태 변경 내용에 대한 알림을 이 이메일을 통해 받게 됩니다. 자세한 내용은 [알림 이메일을 구성하는 방법](data-box-portal-ui-admin.md#edit-notification-details)을 참조하세요.
 
 ### <a name="q-how-do-i-return-the-disks"></a>17. 디스크를 반환하려면 어떻게 할까요? 
-A.  Microsoft에서는 배송 패키지에 Data Box Disk와 함께 배송 레이블을 제공합니다. 레이블을 배송 상자에 부착하고 봉인된 패키지를 배송업체 지점에 위탁합니다. 레이블이 손상되거나 분실되었으면 **개요 > 배송 레이블 다운로드**로 차례로 이동하여 새 반송 레이블을 다운로드합니다.
+A.  Microsoft에서는 배송 패키지에 Data Box Disk와 함께 배송 레이블을 제공합니다. 레이블을 배송 상자에 부착하고 봉인된 패키지를 배송업체 지점에 위탁합니다. 레이블이 손상되거나 분실되었으면 **개요 > 배송 레이블 다운로드** 로 차례로 이동하여 새 반송 레이블을 다운로드합니다.
 
 ### <a name="can-i-pick-up-my-data-box-disk-order-myself-can-i-return-the-disks-via-a-carrier-that-i-choose"></a>주문한 Data Box Disk를 직접 픽업할 수 있나요? 원하는 운송업체를 통해 디스크를 반환할 수 있나요?
 A. 예. Microsoft는 US Gov 지역에만 자체 관리형 배송을 제공합니다. Data Box Disk를 주문할 때 자체 관리형 배송 옵션을 선택할 수 있습니다. 주문한 Data Box Disk를 직접 픽업하려면 다음 단계를 수행합니다.
@@ -120,7 +120,7 @@ A. 예. Microsoft는 US Gov 지역에만 자체 관리형 배송을 제공합니
 
     - 최초 배송의 포장재를 다시 사용합니다. 안전하게 보호하는 공기 쿠션 랩을 사용하여 디스크를 포장하는 것이 좋습니다.
     - 상자 내의 움직임을 줄이기 위해 빈틈 없이 채워졌는지 확인합니다.
-3. Azure Portal에서 주문한 제품의 **개요 블레이드**로 이동합니다. 코드가 포함된 알림이 표시됩니다.
+3. Azure Portal에서 주문한 제품의 **개요 블레이드** 로 이동합니다. 코드가 포함된 알림이 표시됩니다.
 4. 이 코드를 사용하여 [Azure Data Box 운영 팀](mailto:adbops@microsoft.com)에게 이메일을 통해 코드를 보냅니다. 그러면 운영 팀에서는 디스크가 배송되는 위치와 시간 정보를 알려줄 것입니다.
 
 
