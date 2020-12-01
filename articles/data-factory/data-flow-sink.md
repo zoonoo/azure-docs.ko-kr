@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: fa048473f0f285b793dad88c7defdb6189ca1ccd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 63be912986542741359cd5e88227f06905d42647
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023009"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350877"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 싱크 변환
 
@@ -100,7 +100,7 @@ Azure Data Factory는 90 개 이상의 [기본 커넥터](connector-overview.md)
 ![사용자 지정 싱크 순서를 보여 주는 스크린샷](media/data-flow/custom-sink-ordering.png "사용자 지정 싱크 순서를 보여 주는 스크린샷")
 
 > [!NOTE]
-> 캐시 된 [조회](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup)를 활용 하는 경우 싱크 순서 지정에서 캐시 된 싱크가 1로 설정 되어 있는지 확인 합니다 (또는 first).
+> 캐시 된 [조회](./concepts-data-flow-expression-builder.md#cached-lookup)를 활용 하는 경우 싱크 순서 지정에서 캐시 된 싱크가 1로 설정 되어 있는지 확인 합니다 (또는 first).
 
 ![사용자 지정 싱크 순서 지정](media/data-flow/cache-2.png "사용자 지정 싱크 순서 지정")
 

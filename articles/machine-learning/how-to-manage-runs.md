@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 0da4127960450a13b64ec23908b4a4fd4c69bd7e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 921c88f4771fedb910dc41983d559987a8cdfb0c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542017"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349336"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Python에서 학습 실행 시작, 모니터링 및 취소
 
@@ -278,7 +278,7 @@ with exp.start_logging() as parent_run:
 
 ### <a name="submit-child-runs"></a>자식 실행 제출
 
-자식 실행은 부모 실행에서 제출할 수도 있습니다. 이렇게 하면 부모 및 자식 실행의 계층 구조를 만들 수 있습니다. 
+자식 실행은 부모 실행에서 제출할 수도 있습니다. 이렇게 하면 부모 및 자식 실행의 계층 구조를 만들 수 있습니다. Parentless 자식 실행을 만들 수 없습니다. 부모 실행은 아무 작업도 수행 하지 않지만 자식 실행을 시작 하더라도 계층 구조를 만들어야 합니다. 모든 실행의 상태는 독립적입니다. `"Completed"` 하나 이상의 자식 실행이 취소 되거나 실패 한 경우에도 부모는 성공 상태로 있을 수 있습니다.  
 
 부모 실행과 다른 실행 구성을 사용 하 여 자녀의 실행을 원할 수 있습니다. 예를 들어, 부모에 대해 더 강력 하 고 CPU 기반 구성을 사용할 수 있으며, 자식에 대 한 GPU 기반 구성을 사용할 수 있습니다. 또 다른 일반적인 방법은 서로 다른 인수 및 데이터를 전달 하는 것입니다. 자식 실행을 사용자 지정 하려면 `ScriptRunConfig` 자식 실행에 대 한 개체를 만듭니다. 아래 코드에서는 다음을 수행 합니다.
 
@@ -327,6 +327,24 @@ child_run.parent.id
 ```python
 print(parent_run.get_children())
 ```
+
+### <a name="log-to-parent-or-root-run"></a>부모 또는 루트 실행에 기록
+
+필드를 사용 `Run.parent` 하 여 현재 자식 실행을 시작한 실행에 액세스할 수 있습니다. 이에 대 한 일반적인 사용 사례는 로그 결과를 한 장소에 통합 하려는 경우입니다. 자식 실행은 비동기적으로 실행 되며 부모에서 자식 실행이 완료 될 때까지 대기 하는 기능 이상으로 인해 순서나 동기화가 보장 되지 않습니다.
+
+```python
+# in child (or even grandchild) run
+
+def root_run(self : Run) -> Run :
+    if self.parent is None : 
+        return self
+    return root_run(self.parent)
+
+current_child_run = Run.get_context()
+root_run(current_child_run).log("MyMetric", f"Data from child run {current_child_run.id}")
+
+```
+
 
 ## <a name="tag-and-find-runs"></a>태그 및 실행 찾기
 

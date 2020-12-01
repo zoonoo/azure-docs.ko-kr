@@ -1,6 +1,6 @@
 ---
-title: 공유 이미지 갤러리에 관리 되는 이미지 마이그레이션
-description: Azure PowerShell를 사용 하 여 공유 이미지 갤러리의 이미지 버전으로 관리 되는 이미지를 마이그레이션하는 방법에 대해 알아봅니다.
+title: 공유 이미지 갤러리에 관리 되는 이미지 복제
+description: Azure PowerShell를 사용 하 여 공유 이미지 갤러리의 이미지 버전에 관리 되는 이미지를 복제 하는 방법에 대해 알아봅니다.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1c57d9d283714da6905335fd3167c4f8a69292f8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 92cae59978b172993c779e9a486ff67d82309800
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964884"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349925"
 ---
-# <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>관리 되는 이미지에서 공유 이미지 갤러리 이미지로 마이그레이션
+# <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>공유 이미지 갤러리 이미지에 관리 되는 이미지 복제
 
-공유 이미지 갤러리로 마이그레이션할 기존 관리 이미지가 있는 경우 관리 되는 이미지에서 직접 공유 이미지 갤러리 이미지를 만들 수 있습니다. 새 이미지를 테스트 한 후에는 원본 관리 이미지를 삭제할 수 있습니다. [Azure CLI](image-version-managed-image-cli.md)를 사용 하 여 관리 되는 이미지에서 공유 이미지 갤러리로 마이그레이션할 수도 있습니다.
+복제 하 고 공유 이미지 갤러리로 이동 하려는 기존 관리 이미지가 있는 경우 관리 되는 이미지에서 직접 공유 이미지 갤러리 이미지를 만들 수 있습니다. 새 이미지를 테스트 한 후에는 원본 관리 이미지를 삭제할 수 있습니다. [Azure CLI](image-version-managed-image-cli.md)를 사용 하 여 관리 되는 이미지에서 공유 이미지 갤러리로 마이그레이션할 수도 있습니다.
 
 이미지 갤러리의 이미지에는 다음 예제에서 만들 두 가지 구성 요소가 있습니다.
 - 이미지 **정의** 는 이미지 및 사용에 대 한 요구 사항에 대 한 정보를 전달 합니다. 여기에는 이미지가 Windows 또는 Linux 인지, 특수 하거나 일반화 되었는지, 릴리스 정보, 최소 및 최대 메모리 요구 사항이 포함 됩니다. 이미지의 형식 정의입니다. 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 877aa96b189de47d158721df6585cb94ace4a855
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 827abcdb9eb2eb8b7328eb3e3a78f49d51e87e6b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94932915"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349183"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Azure Databricks를 사용 하 여 Cassandra에서 Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -28,7 +28,7 @@ Azure Cosmos DB Cassandra API는 다음과 같은 다양 한 이유로 Apache Ca
 
 한 플랫폼에서 다른 플랫폼으로 데이터베이스 워크 로드를 마이그레이션하는 다양 한 방법이 있습니다. [Azure Databricks](https://azure.microsoft.com/services/databricks/) 는 대규모에서 오프 라인 마이그레이션을 수행 하는 방법을 제공 하는 [Apache Spark](https://spark.apache.org/) 에 대 한 서비스 제공 플랫폼입니다. 이 문서에서는 Azure Databricks를 사용 하 여 네이티브 Apache Cassandra keyspaces/tables에서 Azure Cosmos DB Cassandra API로 데이터를 마이그레이션하는 데 필요한 단계를 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Cosmos DB Cassandra API 계정 프로비전](create-cassandra-dotnet.md#create-a-database-account)
 
@@ -114,7 +114,7 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> `spark.cassandra.output.concurrent.writes`및 `connections_per_executor_max` 구성은 프로 비전 된 처리량을 초과 하는 Cosmos DB 요청 ([요청 단위](https://docs.microsoft.com/azure/cosmos-db/request-units))을 초과 하는 경우 발생 하는 [속도 제한을](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/)방지 하는 데 중요 합니다. Spark 클러스터의 실행자 수에 따라 이러한 설정을 조정 해야 할 수 있으며, 대상 테이블에 기록 되는 각 레코드의 크기 (및 그에 따른 비용)를 줄일 수 있습니다.
+> `spark.cassandra.output.concurrent.writes`및 `connections_per_executor_max` 구성은 프로 비전 된 처리량을 초과 하는 Cosmos DB 요청 ([요청 단위](./request-units.md))을 초과 하는 경우 발생 하는 [속도 제한을](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/)방지 하는 데 중요 합니다. Spark 클러스터의 실행자 수에 따라 이러한 설정을 조정 해야 할 수 있으며, 대상 테이블에 기록 되는 각 레코드의 크기 (및 그에 따른 비용)를 줄일 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

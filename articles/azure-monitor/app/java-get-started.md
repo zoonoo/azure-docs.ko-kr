@@ -6,24 +6,24 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/22/2020
-ms.openlocfilehash: 1a68cea423678dd8582d65b839d57076e84de940
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 288b7463098b1c63b816f5544581e6222c7548c9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029543"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351557"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>빠른 시작: Java 웹 프로젝트에서 Application Insights 시작
 
 
 > [!CAUTION]
-> 11 월 2020을 기반으로 Java 응용 프로그램을 모니터링 하려면 Azure Monitor Application Insights 3.0 에이전트를 사용 하 여 자동 계측을 권장 합니다. 시작 하는 방법에 대 한 자세한 내용은 [Application Insights Java 3.0 agent](./java-in-process-agent.md)를 참조 하세요.
+> 2020 년 11 월, Java 응용 프로그램 모니터링에 대 한 Azure Monitor Application Insights Java 3.0 agent를 사용 하 여 자동 계측을 권장 합니다. 시작 하는 방법에 대 한 자세한 내용은 [Application Insights Java 3.0 agent](./java-in-process-agent.md)를 참조 하세요.
 
 이 빠른 시작에서는 Application Insights SDK를 사용 하 여 요청을 계측 하 고, 종속성을 추적 하 고, 성능 카운터를 수집 하 고, 성능 문제 및 예외를 진단 하 고, 앱을 통해 사용자가 수행 하는 작업을 추적 하는 코드
 
 Application Insights는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱을 지원합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * 작동 하는 Java 응용 프로그램입니다.

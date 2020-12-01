@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 728dda7c702d7fc52c9285c7cb15fc4b6dc3003c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: aef85b263a142c001d47bac4aed7a71066e26dae
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182063"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350452"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -639,7 +639,7 @@ Git가 구성되지 않은 경우 **ARM 템플릿** 목록에서 **ARM 템플릿
 
 ## <a name="exposure-control-and-feature-flags"></a>노출 컨트롤 및 기능 플래그
 
-팀에서 작업 하는 경우 변경 내용을 병합할 수 있지만 PROD 및 QA와 같은 높은 수준의 환경에서 실행 하지 않으려는 경우가 있습니다. 이 시나리오를 처리 하기 위해 ADF 팀은 [기능 플래그를 사용 하는 DevOps 개념](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops)을 권장 합니다. ADF에서 [전역 매개 변수](author-global-parameters.md) 및 [if 조건 작업](control-flow-if-condition-activity.md) 을 결합 하 여 이러한 환경 플래그에 따라 논리 집합을 숨길 수 있습니다.
+팀에서 작업 하는 경우 변경 내용을 병합할 수 있지만 PROD 및 QA와 같은 높은 환경에서 실행 하지 않으려는 경우가 있습니다. 이 시나리오를 처리 하기 위해 ADF 팀은 [기능 플래그를 사용 하는 DevOps 개념](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops)을 권장 합니다. ADF에서 [전역 매개 변수](author-global-parameters.md) 및 [if 조건 작업](control-flow-if-condition-activity.md) 을 결합 하 여 이러한 환경 플래그에 따라 논리 집합을 숨길 수 있습니다.
 
 기능 플래그를 설정 하는 방법을 알아보려면 아래 비디오 자습서를 참조 하세요.
 

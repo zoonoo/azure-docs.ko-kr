@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 96cca89b1206aaa7890648def694074a18b2aa17
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4ab32cd37d732cd9f177363da547edd22bd5af77
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368868"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349268"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services 및 기계 학습
 
@@ -20,11 +20,11 @@ Cognitive Services는 감정적 감정의 텍스트 분석 또는 개체나 얼�
 
 [Cognitive Services](./what-are-cognitive-services.md) 는 각각 서로 다른 일반화 된 예측 기능을 지 원하는 서비스 그룹입니다. 서비스는 올바른 서비스를 찾는 데 도움이 되는 여러 범주로 나뉩니다. 
 
-|서비스 범주|용도|
+|서비스 범주|목적|
 |--|--|
 |[의사 결정](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|합리적이고 효율적인 의사 결정을 위해 권장 사항을 표시하는 앱을 빌드하세요.|
-|[언어](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|앱에서 사전 구축된 스크립트를 통해 자연어를 처리하고, 감성을 평가하며, 사용자가 원하는 것을 인식하는 방법을 학습하도록 지원하세요.|
-|[검색](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Bing Search API를 앱에 추가하고, 단일 API 호출을 통해 수십억 개의 웹 페이지, 이미지, 비디오 및 뉴스를 검색하세요.|
+|[언어](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|미리 빌드된 스크립트를 사용하여 자연어를 처리하고, 감정을 평가하고, 사용자가 원하는 것을 인식하는 방법을 알아보세요.|
+|[검색](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Add Bing Search API를 앱에 추가하고 단일 API 호출 기능을 활용하여 수십억 개의 웹 페이지, 이미지, 동영상 및 뉴스를 철저히 검색하는 기능을 활용해 보세요.|
 |[Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|음성을 텍스트로 변환하고 텍스트를 자연스러운 음성으로 변환합니다. 한 언어를 다른 언어로 번역하고 화자 검증 및 인식 기능을 사용하도록 설정할 수 있습니다.|
 |[Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|사진, 동영상 및 디지털 잉크 콘텐츠를 인식 및 식별하고 캡션을 추가하고 인덱싱 및 조정합니다.|
 ||||
@@ -38,13 +38,13 @@ Cognitive Services 사용 하는 경우:
 
 * 알고리즘을 선택 하 고 매우 구체적인 데이터를 학습 해야 합니다.
 
-## <a name="what-is-machine-learning"></a>머신 러닝이란 무엇인가요?
+## <a name="what-is-machine-learning"></a>기계 학습이란 무엇인가요?
 
 Machine learning은 데이터와 알고리즘을 함께 가져와서 특정 요구를 해결 하는 개념입니다. 데이터 및 알고리즘을 학습 한 후에는 다른 데이터를 사용 하 여 다시 사용할 수 있는 모델을 출력 합니다. 학습 된 모델은 새 데이터를 기반으로 하는 정보를 제공 합니다. 
 
 기계 학습 시스템을 빌드하는 과정에는 기계 학습 또는 데이터 과학에 대 한 지식이 필요 합니다.
 
-기계 학습은 [Azure Machine Learning (AML) 제품 및 서비스](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context)를 사용 하 여 제공 됩니다.
+기계 학습은 [Azure Machine Learning (AML) 제품 및 서비스](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%2fmachine-learning%2fstudio%2fcontext%2fml-context)를 사용 하 여 제공 됩니다.
 
 ## <a name="what-is-a-cognitive-service"></a>인지 서비스는 무엇 인가요?
 

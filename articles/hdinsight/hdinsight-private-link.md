@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 66c9a3afb91aaff448d6eadc86175d8515be766c
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: fac26c616c977eedc466f004a9455297ec995fb8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94889085"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352544"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>개인 링크를 사용 하 여 Azure HDInsight 클러스터 보호 및 격리 (미리 보기)
 
@@ -102,10 +102,10 @@ networkProperties: {
 
 ### <a name="use-azure-powershell"></a>Azure Powershell 사용
 
-Powershell을 사용 하려면 [여기](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature)에서 예제를 참조 하세요.
+Powershell을 사용 하려면 [여기](/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature)에서 예제를 참조 하세요.
 
 ### <a name="use-azure-cli"></a>Azure CLI 사용
-Azure CLI를 사용 하려면 [여기](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples)의 예제를 참조 하세요.
+Azure CLI를 사용 하려면 [여기](/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples)의 예제를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

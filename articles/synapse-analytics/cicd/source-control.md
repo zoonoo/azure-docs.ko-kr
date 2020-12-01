@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 111b2b5b660133c20afdb3c56e1c3e3ed607398c
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: b6cadbf5c3a33c1a954a47f37b33ad8703f40b69
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96297056"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350741"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Azure Synapse Studio의 소스 제어
 
@@ -61,7 +61,7 @@ Git 리포지토리에 연결 하는 경우 먼저 리포지토리 유형을 Azu
 
 구성 창에는 다음과 같은 Azure DevOps git 설정이 표시 됩니다.
 
-| 설정 | Description | 값 |
+| 설정 | 설명 | 값 |
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다.<br/> | Azure DevOps Git 또는 GitHub |
 | **Azure Active Directory** | Azure AD 테넌트 이름입니다. | `<your tenant name>` |
@@ -192,7 +192,7 @@ Azure Synapse Studio에는 한 번에 하나의 게시 분기만 있을 수 있�
 
 ## <a name="best-practices-for-git-integration"></a>Git 통합에 대한 모범 사례
 
--   **사용 권한**. 작업 영역에 연결 된 git 리포지토리가 있으면 작업 영역에서 임의의 역할을 사용 하 여 git 리포지토리에 액세스할 수 있는 모든 사용자가 sql 스크립트, 노트북, spark 작업 정의, 데이터 집합, 데이터 흐름, 파이프라인 등의 아티팩트를 git 모드에서 업데이트할 수 있습니다. 일반적으로 모든 팀 멤버에 게 작업 영역을 업데이트할 수 있는 권한이 필요 하지 않습니다. Synapse workspace 아티팩트 작성자에 게는 git 리포지토리 권한만 부여 합니다. 
+-   **사용 권한**. 작업 영역에 연결 된 git 리포지토리가 있으면 작업 영역에서 임의의 역할을 가진 git 리포지토리에 액세스할 수 있는 모든 사용자가 sql 스크립트, 노트북, spark 작업 정의, 데이터 집합, 데이터 흐름, 파이프라인 등의 아티팩트를 git 모드로 업데이트할 수 있습니다. 일반적으로 모든 팀 멤버에 게 작업 영역을 업데이트할 수 있는 권한이 필요 하지 않습니다. Synapse workspace 아티팩트 작성자에 게는 git 리포지토리 권한만 부여 합니다. 
 -   **공동 작업**. 협업 분기에 대한 직접 체크 인은 허용하지 않는 것이 좋습니다. 이렇게 제한하면 [기능 분기 만들기](source-control.md#creating-feature-branches)의 설명대로 모든 체크 인이 끌어오기 요청 검토 프로세스를 거치기 때문에 버그를 방지하는 데 유용할 수 있습니다
 -   **Synapse 라이브 모드** 입니다. Git 모드로 게시 한 후에는 모든 변경 내용이 Synapse live 모드로 반영 됩니다. Synapse live 모드에서는 게시를 사용할 수 없습니다. 적절 한 사용 권한이 부여 된 경우 라이브 모드에서 아티팩트를 실행 하 고 볼 수 있습니다. 
 -   **Studio에서 아티팩트를 편집** 합니다. Synapse studio는 작업 영역 소스 제어를 사용 하도록 설정 하 고 변경 내용을 git에 자동으로 동기화 할 수 있는 유일한 장소입니다. SDK, PowerShell을 통한 모든 변경 내용은 git와 동기화 되지 않습니다. Git를 사용 하는 경우 항상 Studio에서 아티팩트를 편집 하는 것이 좋습니다.

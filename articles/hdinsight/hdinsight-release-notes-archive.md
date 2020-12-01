@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/07/2020
-ms.openlocfilehash: 1f62623758f683e5fa0580816f1497df3ab23637
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: d5103cbbeb5a8ab12f9ce497ee4ed227ca180728
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95748872"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350299"
 ---
 # <a name="archived-release-notes"></a>보관된 릴리스 정보
 
@@ -25,19 +25,19 @@ Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분�
 
 이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 #### <a name="hdinsight-identity-broker-hib-is-now-ga"></a>이제 GA (HDInsight Identity Broker)는 GA입니다.
 이제이 릴리스에서는 ESP 클러스터에 대 한 OAuth 인증을 사용 하도록 설정 하는 이 릴리스 후에 생성 된 모든 클러스터는 최신 버전의 기능을 제공 합니다.
 - HA (고가용성)
 - Multi-Factor Authentication에 대 한 지원 (MFA)
-- 페더레이션 사용자는 AAD에 대 한 암호 해시 동기화를 사용 하지 않고 로그인 합니다. 자세한 내용은 전체 정보 [b 설명서](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker)를 참조 하세요.
+- 페더레이션 사용자는 AAD에 대 한 암호 해시 동기화를 사용 하지 않고 로그인 합니다. 자세한 내용은 전체 정보 [b 설명서](./domain-joined/identity-broker.md)를 참조 하세요.
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
-이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 이 버전부터 서비스는 [Azure 가상 머신 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)으로 점진적으로 마이그레이션됩니다. 전체 프로세스에는 몇 개월이 걸릴 수 있습니다. 지역 및 구독이 마이그레이션된 후에는 새로 만든 HDInsight 클러스터가 고객의 작업 없이도 가상 머신 확장 집합에서 실행 됩니다. 주요 변경 내용은 필요 하지 않습니다.
+이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 이 버전부터 서비스는 [Azure 가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)으로 점진적으로 마이그레이션됩니다. 전체 프로세스에는 몇 개월이 걸릴 수 있습니다. 지역 및 구독이 마이그레이션된 후에는 새로 만든 HDInsight 클러스터가 고객의 작업 없이도 가상 머신 확장 집합에서 실행 됩니다. 주요 변경 내용은 필요 하지 않습니다.
 
 ### <a name="deprecation"></a>사용 중단
 #### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>HDInsight 3.6 ML 서비스 클러스터의 사용 중단
-HDInsight 3.6 ML Services 클러스터 유형은 12 월 31 2020 일까 지 지원 될 예정입니다. 고객은 12 월 31 2020 일 이후 새로운 3.6 ML 서비스 클러스터를 만들지 않습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. [여기](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions)에서 HDInsight 버전 및 클러스터 유형에 대 한 지원 만료를 확인 합니다.
+HDInsight 3.6 ML Services 클러스터 유형은 12 월 31 2020 일까 지 지원 될 예정입니다. 고객은 12 월 31 2020 일 이후 새로운 3.6 ML 서비스 클러스터를 만들지 않습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. [여기](./hdinsight-component-versioning.md#available-versions)에서 HDInsight 버전 및 클러스터 유형에 대 한 지원 만료를 확인 합니다.
 
 #### <a name="disabled-vm-sizes"></a>비활성화 된 VM 크기
 11 월 16 2020부터 HDInsight는 standand_A8, standand_A9, standand_A10 및 standand_A11 VM 크기를 사용 하 여 클러스터를 만드는 새 고객을 차단 합니다. 지난 3 달 동안 이러한 VM 크기를 사용한 기존 고객에 게는 영향을 주지 않습니다. 9 2021 년 1 월 1 일부 터 HDInsight는 standand_A8, standand_A9, standand_A10 및 standand_A11 VM 크기를 사용 하 여 클러스터를 만드는 모든 고객을 차단 합니다. 기존 클러스터는 그대로 실행 됩니다. 잠재적인 시스템/지원 중단을 방지 하려면 HDInsight 4.0로 이동 하는 것이 좋습니다.
@@ -52,7 +52,7 @@ HDInsight 3.6 ML Services 클러스터 유형은 12 월 31 2020 일까 지 지�
 현재 HDInsight는 Spark, Hadoop 및 ML 서비스 클러스터 유형에 대해 아웃 지원팀 노드 크기를 사용자 지정할 수 없습니다. 기본적으로 A2_v2/A2 가상 머신 크기가 무료로 제공 됩니다. 향후 릴리스에서는 시나리오에 가장 적합 한 사육 사 가상 머신 크기를 선택할 수 있습니다. A2_v2/A2 이외의 가상 컴퓨터 크기를 포함 하는 사육 아웃 노드에는 요금이 부과 됩니다. A2_v2 및 A2 가상 머신은 계속 무료로 제공 됩니다.
 
 #### <a name="default-cluster-version-will-be-changed-to-40"></a>기본 클러스터 버전이 4.0로 변경 됩니다.
-2021 2 월부터 HDInsight 클러스터의 기본 버전이 3.6에서 4.0로 변경 됩니다. 사용 가능한 버전에 대 한 자세한 내용은 [사용 가능한 버전](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions)을 참조 하세요. [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hdinsight-version-release) 의 새로운 기능에 대 한 자세한 정보
+2021 2 월부터 HDInsight 클러스터의 기본 버전이 3.6에서 4.0로 변경 됩니다. 사용 가능한 버전에 대 한 자세한 내용은 [사용 가능한 버전](./hdinsight-component-versioning.md#available-versions)을 참조 하세요. [HDInsight 4.0](./hdinsight-version-release.md) 의 새로운 기능에 대 한 자세한 정보
 
 #### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>HDInsight 3.6 6 월 30 2021의 지원 종료
 HDInsight 3.6은 지원 종료 될 예정입니다. 6 월 30 2021 양식을 시작 하면 고객이 새 HDInsight 3.6 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지 하려면 HDInsight 4.0로 이동 하는 것이 좋습니다.
@@ -60,7 +60,7 @@ HDInsight 3.6은 지원 종료 될 예정입니다. 6 월 30 2021 양식을 시�
 ### <a name="bug-fixes"></a>버그 수정
 HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다. 
 #### <a name="fix-issue-for-restarting-vms-in-cluster"></a>클러스터에서 Vm을 다시 시작 하는 문제 해결
-클러스터에서 Vm을 다시 시작 하는 문제가 해결 되었습니다. [PowerShell 또는 REST API를 사용 하 여 클러스터의 노드를 다시 다시 부팅할](https://docs.microsoft.com/azure/hdinsight/cluster-reboot-vm) 수 있습니다.
+클러스터에서 Vm을 다시 시작 하는 문제가 해결 되었습니다. [PowerShell 또는 REST API를 사용 하 여 클러스터의 노드를 다시 다시 부팅할](./cluster-reboot-vm.md) 수 있습니다.
 
 ### <a name="component-version-change"></a>구성 요소 버전 변경
 이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](./hdinsight-component-versioning.md)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
@@ -69,7 +69,7 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 
 이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 #### <a name="hdinsight-private-clusters-with-no-public-ip-and-private-link-preview"></a>공용 IP 및 개인 링크가 없는 HDInsight 개인 클러스터 (미리 보기)
 이제 HDInsight는 미리 보기에서 클러스터에 대 한 공용 IP 및 개인 링크 액세스 권한이 없는 클러스터 만들기를 지원 합니다. 고객은 새 고급 네트워킹 설정을 사용 하 여 공용 IP가 없는 완전히 격리 된 클러스터를 만들고 자신의 개인 끝점을 사용 하 여 클러스터에 액세스할 수 있습니다. 
 
@@ -99,7 +99,7 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 
 이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 #### <a name="autoscale-for-interactive-query-with-hdinsight-40-is-now-generally-available"></a>HDInsight 4.0를 사용 하 여 대화형 쿼리에 대 한 자동 크기 조정이 이제 일반 공급 됩니다.
 대화형 쿼리 클러스터 유형에 대 한 자동 크기 조정 기능은 이제 HDInsight 4.0에 대 한 GA (일반 공급)로 제공 됩니다. 27 2020 월 27 일 이후에 만들어진 모든 대화형 쿼리 4.0 클러스터는 자동 크기 조정에 대해 GA를 지원 합니다.
 
@@ -140,7 +140,7 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 
 이 릴리스는 HDInsight 4.0에만 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 #### <a name="support-for-sparkcruise"></a>SparkCruise 지원
 SparkCruise는 Spark의 자동 계산 재사용 시스템입니다. 이전 쿼리 워크 로드를 기준으로 구체화 하는 공통 부분식을 선택 합니다. SparkCruise는 이러한 하위 식을 쿼리 처리의 일부로 구체화 하 고 계산 재사용은 백그라운드에서 자동으로 적용 됩니다. Spark 코드를 수정 하지 않고 SparkCruise의 이점을 누릴 수 있습니다.
  
@@ -194,7 +194,7 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 
 이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 #### <a name="support-for-customer-lockbox-for-microsoft-azure"></a>Microsoft Azure에 대 한 고객 Lockbox 지원
 Azure HDInsight는 이제 Azure 고객 Lockbox을 지원 합니다. 고객이 고객 데이터 액세스 요청을 검토 하 고 승인 하거나 거부할 수 있는 인터페이스를 제공 합니다. 지원 요청 시 Microsoft 엔지니어가 고객 데이터에 액세스 해야 할 때 사용 됩니다. 자세한 내용은 [Microsoft Azure에 대 한 고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview)를 참조 하세요.
 
@@ -235,7 +235,7 @@ Zeppelin가 문자열 형식에 대 한 테이블 출력의 앞에 오는 0을 �
 
 이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
 HDInsight는 Azure virtual machines를 사용 하 여 클러스터를 지금 프로 비전 합니다. 이 릴리스에서 새로 만든 HDInsight 클러스터는 Azure 가상 머신 확장 집합을 사용 하기 시작 합니다. 변경 내용이 점진적으로 롤아웃 됩니다. 주요 변경 내용은 필요 하지 않습니다. [Azure 가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)에 대 한 자세한 내용을 참조 하세요.
  
@@ -352,7 +352,7 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 
 이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 #### <a name="service-tags"></a>서비스 태그
 서비스 태그는 azure 서비스에 대 한 네트워크 액세스를 쉽게 제한할 수 있도록 하 여 Azure virtual machines 및 Azure virtual network에 대 한 보안을 간소화 합니다. NSG (네트워크 보안 그룹) 규칙에서 서비스 태그를 사용 하 여 전역적으로 또는 Azure 지역에 따라 특정 Azure 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Azure는 각 태그를 기반으로 하는 IP 주소의 유지 관리를 제공 합니다. NSGs (네트워크 보안 그룹)에 대 한 HDInsight 서비스 태그는 상태 및 관리 서비스에 대 한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 생성의 복잡성을 최소화 하는 데 도움이 됩니다. HDInsight 고객은 Azure Portal, PowerShell 및 REST API를 통해 서비스 태그를 사용 하도록 설정할 수 있습니다. 자세한 내용은 [Azure HDInsight용 NSG(네트워크 보안 그룹) 서비스 태그](./hdinsight-service-tags.md)를 참조하세요.
@@ -411,7 +411,7 @@ HDInsight 3.6의 Apache Zeppelin: 0.7.0-->0.7.3.
 
 이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 #### <a name="hdinsight-identity-broker-hib-preview"></a>HDInsight Identity Broker (기타) (미리 보기)
 
@@ -588,7 +588,7 @@ Apache Storm 및 ML 서비스는 HDInsight 4.0에서 사용할 수 없습니다.
 
 ## <a name="release-date-04142019"></a>릴리스 날짜: 04/14/2019
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 새로운 업데이트와 기능은 다음 범주로 분류됩니다.
 

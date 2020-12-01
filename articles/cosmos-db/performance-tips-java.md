@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 9a074b872ed19a7d3e6b3e410c69da0f2b78e85e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3eced4e727954906d8ff67e7afe2279100f8f1cc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012581"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349064"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Azure Cosmos DB Sync Java SDK v2에 관한 성능 팁
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -141,7 +141,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    자세한 내용은 [Azure Cosmos DB 인덱싱 정책](/azure/cosmos-db/index-policy)을 참조하세요.
+    자세한 내용은 [Azure Cosmos DB 인덱싱 정책](./index-policy.md)을 참조하세요.
 
 ## <a name="throughput"></a>처리량
 <a id="measure-rus"></a>

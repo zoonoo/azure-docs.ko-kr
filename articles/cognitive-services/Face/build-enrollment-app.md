@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: bd2032d565f5bd1fb430449be8b8c08e222f531d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 085dd18214f795566669fb862bba63b67eb9115d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025785"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350367"
 ---
 # <a name="build-an-enrollment-app-for-android-with-react"></a>반응으로 Android 용 등록 앱 빌드
 
@@ -24,7 +24,7 @@ ms.locfileid: "95025785"
 
 샘플 등록 앱은 JavaScript 및 반응 네이티브 프레임 워크를 사용 하 여 작성 됩니다. 현재 Android 장치에 배포할 수 있습니다. 나중에 더 많은 배포 옵션을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 * Azure 구독- [무료로 무료로 만드세요](https://azure.microsoft.com/free/cognitive-services/).  
 * Azure 구독이 있으면 Azure Portal에서 [얼굴 리소스를 만들어](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) 키와 끝점을 가져옵니다. 배포 후 **리소스로 이동** 을 선택합니다.  
@@ -74,7 +74,7 @@ ms.locfileid: "95025785"
 
 ### <a name="android"></a>Android
 
-먼저 앱이 프로덕션 배포에 대해 준비 되었는지 확인 합니다. 앱 코드에서 키 또는 비밀을 제거 하 고 [보안 모범 사례](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp)를 따르고 있는지 확인 합니다.
+먼저 앱이 프로덕션 배포에 대해 준비 되었는지 확인 합니다. 앱 코드에서 키 또는 비밀을 제거 하 고 [보안 모범 사례](../cognitive-services-security.md?tabs=command-line%2ccsharp)를 따르고 있는지 확인 합니다.
 
 프로덕션을 위해 앱을 릴리스할 준비가 되 면 Android 앱에 대 한 패키지 파일 형식인 릴리스가 준비 된 APK 파일을 생성 합니다. 이 APK 파일은 개인 키로 서명 해야 합니다. 이 릴리스 빌드를 사용 하 여 장치에 직접 앱을 배포할 수 있습니다. 
 

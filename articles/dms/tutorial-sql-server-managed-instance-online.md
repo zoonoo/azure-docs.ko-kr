@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 3674c6a0579eb901cc490d08bb8a4893296884c4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0041779abcd97901fb9315125a287a1d45cff133
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020656"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350112"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 SQL Managed Instance로 온라인 마이그레이션
 
@@ -220,7 +220,7 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
     ![마이그레이션 설정 구성](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
     > [!NOTE]
-    > Azure Database Migration Service에 '시스템 오류 53' 또는 '시스템 오류 57' 오류가 표시되면 이로 인해 Azure Database Migration Service에서 Azure 파일 공유에 액세스하지 못할 수 있습니다. 이러한 오류 중 하나가 발생하면 [여기](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network)의 지침을 사용하여 가상 네트워크에서 스토리지 계정에 대한 액세스 권한을 부여합니다.
+    > Azure Database Migration Service에 '시스템 오류 53' 또는 '시스템 오류 57' 오류가 표시되면 이로 인해 Azure Database Migration Service에서 Azure 파일 공유에 액세스하지 못할 수 있습니다. 이러한 오류 중 하나가 발생하면 [여기](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)의 지침을 사용하여 가상 네트워크에서 스토리지 계정에 대한 액세스 권한을 부여합니다.
 
     > [!IMPORTANT]
     > 루프백 확인 기능을 사용하도록 설정되어 있고 원본 SQL Server와 파일 공유가 동일한 컴퓨터에 있으면 원본은 FQDN을 사용하여 파일 공유에 액세스할 수 없습니다. 이 문제를 해결하려면 [여기](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd)의 지침을 사용하여 루프백 확인 기능을 사용하지 않도록 설정합니다.

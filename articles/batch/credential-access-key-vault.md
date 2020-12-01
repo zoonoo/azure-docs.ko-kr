@@ -4,12 +4,12 @@ description: Azure Batch를 사용하여 Key Vault의 자격 증명에 프로그
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 25cb05374fc0667306e2b1004b3cd237413b4409
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: b8b3d2655e79862c068aa48c29c7e89b7df85482
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337494"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350690"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Batch를 사용하여 Key Vault에 안전하게 액세스
 
@@ -67,7 +67,7 @@ $newAzureAdPrincipal = New-AzureRmADServicePrincipal -ApplicationId $newADApplic
 
 ## <a name="grant-rights-to-key-vault"></a>Key Vault에 대한 권한 부여
 
-이전 단계에서 만든 서비스 사용자는 Key Vault에서 비밀을 검색할 수 있는 권한이 필요합니다. 사용 권한은 [Azure Portal](/azure/key-vault/general/assign-access-policy-portal) 또는 아래의 PowerShell 명령을 통해 부여할 수 있습니다.
+이전 단계에서 만든 서비스 사용자는 Key Vault에서 비밀을 검색할 수 있는 권한이 필요합니다. 사용 권한은 [Azure Portal](../key-vault/general/assign-access-policy-portal.md) 또는 아래의 PowerShell 명령을 통해 부여할 수 있습니다.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'
@@ -94,7 +94,7 @@ if($psModuleCheck.count -eq 0) {
 
 ## <a name="access-key-vault"></a>Key Vault에 액세스합니다.
 
-이제 Batch 노드에서 실행 중인 스크립트의 Key Vault에 액세스할 준비가 되었습니다. 스크립트에서 Key Vault에 액세스하려면 스크립트가 인증서를 사용하여 Azure AD에 대해 인증하기만 하면 됩니다. PowerShell에서 이 작업을 수행하려면 다음 예제 명령을 사용합니다. **지문** , **앱 ID** (서비스 사용자의 ID) 및 **테넌트 ID** (서비스 사용자가 위치한 테넌트)에 적절한 GUID를 지정합니다.
+이제 Batch 노드에서 실행 중인 스크립트의 Key Vault에 액세스할 준비가 되었습니다. 스크립트에서 Key Vault에 액세스하려면 스크립트가 인증서를 사용하여 Azure AD에 대해 인증하기만 하면 됩니다. PowerShell에서 이 작업을 수행하려면 다음 예제 명령을 사용합니다. **지문**, **앱 ID**(서비스 사용자의 ID) 및 **테넌트 ID**(서비스 사용자가 위치한 테넌트)에 적절한 GUID를 지정합니다.
 
 ```powershell
 Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint -ApplicationId

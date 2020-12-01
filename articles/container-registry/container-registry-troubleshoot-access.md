@@ -3,12 +3,12 @@ title: 레지스트리의 네트워크 문제 해결
 description: 가상 네트워크에서 또는 방화벽 뒤에 있는 Azure container registry에 액세스할 때 발생 하는 일반적인 문제에 대 한 증상, 원인 및 해결 방법
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 5f2cf2d72e6641d4871b7acccdbd7cc37c653f74
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 95b32b839d1b3b804a2035b797e1146a09d5236a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148464"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351796"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>레지스트리의 네트워크 문제 해결
 
@@ -103,7 +103,7 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
 
 ### <a name="configure-service-access"></a>서비스 액세스 구성
 
-현재 개인 끝점, 선택한 서브넷 또는 IP 주소에 대 한 액세스를 제한 하는 레지스트리에서 [이미지 취약성 검사](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) 를 수행할 수 Azure Security Center. 또한 다음 서비스의 리소스는 네트워크 제한을 사용 하 여 컨테이너 레지스트리에 액세스할 수 없습니다.
+현재 개인 끝점, 선택한 서브넷 또는 IP 주소에 대 한 액세스를 제한 하는 레지스트리에서 [이미지 취약성 검사](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) 를 수행할 수 Azure Security Center. 또한 다음 서비스의 리소스는 네트워크 제한을 사용 하 여 컨테이너 레지스트리에 액세스할 수 없습니다.
 
 * Azure DevOps Services 
 * Azure Container Instances

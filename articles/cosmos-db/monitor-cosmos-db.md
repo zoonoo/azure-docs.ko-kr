@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 19137f3384a1b97ae1ae7e3faeb4dc2e0e4fd3bd
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 550418761e91a8292761d7595ff32d939c0d542e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017800"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350401"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB 모니터링
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -93,7 +93,7 @@ Azure Cosmos DB에 대한 모든 메트릭은 **Cosmos DB 표준 메트릭** 네
 * 지역
 * StatusCode
 
-참조를 위해 [Azure Monitor에서 지원 되는 모든 리소스 메트릭의](/azure/azure-monitor/platform/metrics-supported)목록을 볼 수 있습니다.
+참조를 위해 [Azure Monitor에서 지원 되는 모든 리소스 메트릭의](../azure-monitor/platform/metrics-supported.md)목록을 볼 수 있습니다.
 
 ### <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 작업 수준 메트릭 보기
 
@@ -127,7 +127,7 @@ Azure Cosmos DB에 대한 모든 메트릭은 **Cosmos DB 표준 메트릭** 네
 
 Azure Monitor 로그의 데이터는 각 테이블에 고유한 속성 집합이 있는 테이블에 저장됩니다.
 
-Azure Monitor의 모든 리소스 로그에는 동일한 필드와 서비스별 필드가 있습니다. 공용 스키마는 [Azure Monitor 리소스 로그 스키마](../azure-monitor/platform/diagnostic-logs-schema.md#top-level-resource-logs-schema)에 설명 되어 있습니다. Azure Cosmos DB에 대해 수집 되는 리소스 로그의 형식 목록은 [모니터링 Azure Cosmos DB 데이터 참조] (Cosmos # resource-logs)를 참조 하세요.  
+Azure Monitor의 모든 리소스 로그에는 동일한 필드와 서비스별 필드가 있습니다. 공용 스키마는 [Azure Monitor 리소스 로그 스키마](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema)에 설명 되어 있습니다. Azure Cosmos DB에 대해 수집 되는 리소스 로그의 유형 목록은 [모니터링 Azure Cosmos DB 데이터 참조](monitor-cosmos-db-reference.md#resource-logs)를 참조 하세요.
 
 [활동 로그](/azure/azure-monitor/platform/activity-log) 는 구독 수준 이벤트에 대 한 통찰력을 제공 하는 플랫폼 로그인 Azure입니다. 독립적으로 보거나 Azure Monitor 로그로 라우팅할 수 있습니다. 그러면 Log Analytics를 사용 하 여 훨씬 더 복잡 한 쿼리를 수행할 수 있습니다.  
 
@@ -172,11 +172,11 @@ Azure Cosmos DB는 다음 테이블에 데이터를 저장합니다.
 
 ## <a name="alerts"></a>경고
 
-Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견 될 때 사용자에 게 사전에 알려 줍니다. 이를 통해 사용자는 시스템에서 문제를 파악 하 고 해결할 수 있습니다. [메트릭](/azure/azure-monitor/platform/alerts-metric-overview), [로그](/azure/azure-monitor/platform/alerts-unified-log)및 [활동 로그](/azure/azure-monitor/platform/activity-log-alerts)에 대 한 경고를 설정할 수 있습니다. 서로 다른 유형의 경고에는 장점과 단점이 있습니다.
+Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견 될 때 사용자에 게 사전에 알려 줍니다. 이를 통해 사용자는 시스템에서 문제를 파악 하 고 해결할 수 있습니다. [메트릭](../azure-monitor/platform/alerts-metric-overview.md), [로그](../azure-monitor/platform/alerts-unified-log.md)및 [활동 로그](../azure-monitor/platform/activity-log-alerts.md)에 대 한 경고를 설정할 수 있습니다. 서로 다른 유형의 경고에는 장점과 단점이 있습니다.
 
 예를 들어 다음 표에서는 리소스에 대 한 몇 가지 경고 규칙을 보여 줍니다. Azure Portal에서 경고 규칙의 자세한 목록을 찾을 수 있습니다. 자세히 알아보려면 [경고를 구성 하는 방법](create-alerts.md) 문서를 참조 하세요.  
 
-| 경고 유형 | 조건 | Description  |
+| 경고 유형 | 조건 | 설명  |
 |:---|:---|:---|
 |요청 단위에 대 한 전송률 제한 (메트릭 경고) |차원 이름: StatusCode, 연산자: 같음, 차원 값: 429  | 컨테이너 또는 데이터베이스가 프로 비전 된 처리량 제한을 초과 하는 경우 경고 합니다. |
 |지역 장애 조치 |연산자: 보다 큼, 집계 유형: 개수, 임계값: 1 | 단일 지역이 장애 조치 (failover) 되는 경우 이 경고는 자동 장애 조치 (failover)를 사용 하도록 설정 하지 않은 경우에 유용 합니다. |

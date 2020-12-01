@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 6e7e4dd6383b1f264ff2da7893d9f86a3708217d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b036f558628d51242a78c00d2ee17332816d25
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227919"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348762"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 SAML 전달자 어설션 흐름
 OAuth 2.0 SAML 전달자 어설션 흐름을 사용하면 클라이언트에서 기존 트러스트 관계를 사용해야 할 때 SAML 어설션을 사용하여 OAuth 액세스 토큰을 요청할 수 있습니다. SAML 어설션에 적용되는 서명은 권한 있는 앱의 인증을 제공합니다. SAML 어설션은 ID 공급자가 발급하고 서비스 공급자가 사용하는 XML 보안 토큰입니다. 서비스 공급자는 해당 콘텐츠를 사용하여 보안 관련 목적의 어설션 주체를 식별합니다.
@@ -32,7 +32,7 @@ OAuth SAML 전달자 어설션 흐름은 Azure Active Directory에 페더레이�
 ![OAuth 흐름](./media/v2-saml-bearer-assertion/1.png)
 
 ## <a name="call-graph-using-saml-bearer-assertion"></a>SAML 전달자 어설션을 사용하여 그래프 호출
-이제 프로그래밍 방식으로 SAML 어설션을 실제로 페치할 수 있는 방법에 대해 알아보겠습니다. 이 접근 방식은 ADFS로 테스트됩니다. 그러나 이 방식은 SAML 어설션의 반환을 프로그래밍 방식으로 지원하는 모든 ID 공급자에서 작동합니다. 기본 프로세스는 SAML 어설션을 가져오고, 액세스 토큰을 가져오고, Microsoft Graph에 액세스하는 것입니다.
+이제 프로그래밍 방식으로 SAML 어설션을 실제로 페치할 수 있는 방법에 대해 알려주세요. 이 접근 방식은 ADFS로 테스트됩니다. 그러나이는 SAML 어설션의 반환을 프로그래밍 방식으로 지 원하는 모든 id 공급자와 함께 작동 합니다. 기본 프로세스는 SAML 어설션을 가져오고, 액세스 토큰을 가져오고, Microsoft Graph에 액세스하는 것입니다.
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
@@ -40,15 +40,15 @@ OAuth SAML 전달자 어설션 흐름은 Azure Active Directory에 페더레이�
 
 [포털](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)에 애플리케이션을 등록합니다.
 1. [포털의 앱 등록 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)에 로그인합니다. Graph API용 v2.0 엔드포인트를 사용하고 있으므로 이 포털에서 애플리케이션을 등록해야 합니다. 그렇지 않은 경우 Azure Active Directory에서 등록을 사용할 수 있습니다. 
-1. **새 등록**을 선택합니다.
+1. **새 등록** 을 선택합니다.
 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다. 
     1. **이름** -앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름을 입력합니다.
     1. **지원되는 계정 유형** - 애플리케이션이 지원하려는 계정을 선택합니다.
     1. **리디렉션 URI(선택 사항)** - 빌드하는 앱의 유형을 웹 또는 퍼블릭 클라이언트(모바일 및 데스크톱)로 선택한 다음, 애플리케이션의 리디렉션 URI(또는 답장 URL)를 입력합니다.
-    1. 작업을 마쳤으면 **등록**을 선택합니다.
+    1. 작업을 마쳤으면 **등록** 을 선택합니다.
 1. 애플리케이션(클라이언트) ID를 적어 둡니다.
-1. 왼쪽 창에서 **인증서 및 암호**를 선택합니다. **새 클라이언트 비밀** 섹션에서 **새 클라이언트 비밀**을 선택합니다. 새 클라이언트 암호를 복사하면 블레이드를 나갈 때를 검색할 수 없습니다.
-1. 왼쪽 창에서 **API 사용 권한**을 선택한 다음, **권한 추가**를 선택합니다. **Microsoft Graph**를 선택하고 **위임된 권한**을 선택한 후 Outlook Graph API를 사용하려고 하므로 **Tasks.read**를 선택합니다. 
+1. 왼쪽 창에서 **인증서 및 암호** 를 선택합니다. **새 클라이언트 비밀** 섹션에서 **새 클라이언트 비밀** 을 선택합니다. 새 클라이언트 암호를 복사하면 블레이드를 나갈 때를 검색할 수 없습니다.
+1. 왼쪽 창에서 **API 사용 권한** 을 선택한 다음, **권한 추가** 를 선택합니다. **Microsoft Graph** 를 선택하고 **위임된 권한** 을 선택한 후 Outlook Graph API를 사용하려고 하므로 **Tasks.read** 를 선택합니다. 
 
 샘플 요청을 테스트하는 데 필요한 도구인 [Postman](https://www.getpostman.com/)을 설치합니다.  나중에 요청을 코드로 변환할 수 있습니다.
 

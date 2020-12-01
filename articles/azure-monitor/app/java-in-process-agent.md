@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: 코드를 수정할 필요 없이 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 8423443abac90b87349a4a80fce0ec33a8b686da
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 36e2b419da2bccdf2f5f13227457172cf644994c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444744"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351540"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights
 
@@ -139,12 +139,12 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 
 |                     | 마이크로미터 | Log4j, logback, 7 월 | 2.x SDK |
 |---------------------|------------|---------------------|---------|
-| **사용자 지정 이벤트**   |            |                     |  예    |
+| **사용자 지정 이벤트**   |            |                     |  Yes    |
 | **사용자 지정 메트릭**  |  예       |                     |  yes    |
-| **종속성**    |            |                     |  예    |
+| **종속성**    |            |                     |  Yes    |
 | **예외**      |            |  예                |  예    |
-| **페이지 보기**      |            |                     |  예    |
-| **요청**        |            |                     |  예    |
+| **페이지 보기**      |            |                     |  Yes    |
+| **요청**        |            |                     |  Yes    |
 | **추적**          |            |  예                |  예    |
 
 현재 Application Insights 3.0를 사용 하 여 SDK를 릴리스할 계획은 아닙니다.
@@ -228,17 +228,3 @@ telemetryClient.trackEvent("WinGame");
       telemetryClient.trackException(e);
   }
 ```
-
-## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Application Insights Java SDK 2.x에서 업그레이드
-
-응용 프로그램에서 Java SDK 2.x Application Insights 이미 사용 중인 경우에는 제거할 필요가 없습니다.
-Java 3.0 에이전트는이를 검색 하 여 java SDK 2.x를 통해 전송 하는 모든 사용자 지정 원격 분석을 캡처하고 상관 관계를 지정 하는 동시에 Java SDK 2.x에서 수행 되는 자동 컬렉션을 무시 하 고 중복 된 원격 분석을 방지 합니다.
-
-Application Insights 2.x 에이전트를 사용 하는 경우 2.x `-javaagent:` 에이전트를 가리키는 JVM 인수를 제거 해야 합니다.
-
-> [!NOTE]
-> 3.0 에이전트를 사용 하는 경우 Java SDK 2.x TelemetryInitializers 및 TelemetryProcessors가 실행 되지 않습니다.
-> [사용자 지정 차원을](./java-standalone-config.md#custom-dimensions) 구성 하거나 [원격 분석 프로세서](./java-standalone-telemetry-processors.md)를 구성 하 여 이전에 필요한 사용 사례를 3.0에서 해결할 수 있습니다.
-
-> [!NOTE]
-> 3.0는 단일 JVM에서 여러 계측 키를 아직 지원 하지 않습니다.

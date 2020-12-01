@@ -2,14 +2,14 @@
 title: 리소스 공급자 및 리소스 종류
 description: Azure Resource Manager를 지 원하는 리소스 공급자에 대해 설명 합니다. 해당 스키마, 사용 가능한 API 버전 및 리소스를 호스팅할 수 있는 지역을 설명 합니다.
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 702836e0dc98b06ccf6e0eeb0d0f373374c4e783
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8adbce80d5e8f9ee9df2050d8f43363cbf57dc3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972541"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352102"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 리소스 공급자 및 종류
 
@@ -36,6 +36,9 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 �
 
 이 문서에서는 리소스 공급자의 등록 상태를 확인 하 고 필요에 따라 등록 하는 방법을 보여 줍니다. `/register/action`리소스 공급자에 대 한 작업을 수행할 수 있는 권한이 있어야 합니다. 이 사용 권한은 참가자 및 소유자 역할에 포함 되어 있습니다.
 
+> [!IMPORTANT]
+> 사용할 준비가 된 경우에만 리소스 공급자를 등록 합니다. 등록 단계를 통해 구독 내에서 최소의 권한을 유지할 수 있습니다. 악의적인 사용자는 등록 되지 않은 리소스 공급자를 사용할 수 없습니다.
+
 응용 프로그램 코드는 **등록** 상태에 있는 리소스 공급자에 대 한 리소스 생성을 차단 하지 않아야 합니다. 리소스 공급자를 등록 하면 지원 되는 각 지역에 대해 작업이 개별적으로 수행 됩니다. 지역에서 리소스를 만들려면 해당 지역 에서만 등록을 완료 해야 합니다. 등록 상태에서 리소스 공급자를 차단 하지 않으면 응용 프로그램은 모든 지역이 완료 될 때까지 대기 하는 것 보다 훨씬 더 빨리 계속할 수 있습니다.
 
 구독에서 해당 리소스 공급자의 리소스 형식이 여전히 있는 경우 리소스 공급자를 등록 취소할 수 없습니다.
@@ -55,7 +58,7 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 �
 
     ![리소스 공급자 보기](./media/resource-providers-and-types/show-resource-providers.png)
 
-6. 리소스 공급자를 등록하려면 **등록** 을 선택합니다. 이전 스크린샷에는 **Microsoft.Blueprint** 에 대한 **등록** 링크가 강조 표시되어 있습니다.
+6. 리소스 공급자를 등록하려면 **등록** 을 선택합니다. 이전 스크린샷에는 **Microsoft.Blueprint** 에 대한 **등록** 링크가 강조 표시되어 있습니다. 구독에서 최소 권한을 유지 하려면 사용할 준비가 된 리소스 공급자만 등록 합니다.
 
 특정 리소스 공급자에 대한 정보를 보려면 다음을 수행합니다.
 
@@ -107,7 +110,7 @@ Microsoft.CognitiveServices      Registered
  Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
 ```
 
-리소스 공급자를 등록하려면 다음을 사용합니다.
+구독에서 최소 권한을 유지 하려면 사용할 준비가 된 리소스 공급자만 등록 합니다. 리소스 공급자를 등록하려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -216,7 +219,7 @@ Microsoft.CognitiveServices      Registered
 az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
 ```
 
-리소스 공급자를 등록하려면 다음을 사용합니다.
+구독에서 최소 권한을 유지 하려면 사용할 준비가 된 리소스 공급자만 등록 합니다. 리소스 공급자를 등록하려면 다음을 사용합니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Batch

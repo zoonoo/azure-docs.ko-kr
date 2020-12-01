@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de255836cb269f5077a417a203e136f9e903f05d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d121e6280b83265a742736f9b8dd3aee96a8b32e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441677"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351762"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>사용자 흐름에 API 커넥터 추가
 
@@ -25,20 +25,20 @@ ms.locfileid: "92441677"
 ## <a name="create-an-api-connector"></a>API 커넥터 만들기
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **Azure Services** 아래에서 **Azure Active Directory**를 선택합니다.
-3. 왼쪽 메뉴에서 **외부 ID**를 선택합니다.
-4. **모든 api 커넥터 (미리 보기)** 를 선택한 다음 **새 api 커넥터**를 선택 합니다.
+2. **Azure Services** 아래에서 **Azure Active Directory** 를 선택합니다.
+3. 왼쪽 메뉴에서 **외부 ID** 를 선택합니다.
+4. **모든 api 커넥터 (미리 보기)** 를 선택한 다음 **새 api 커넥터** 를 선택 합니다.
 
    ![새 API 커넥터 추가](./media/self-service-sign-up-add-api-connector/api-connector-new.png)
 
-5. 호출에 대 한 표시 이름을 제공 합니다. 예를 들어 **승인 상태를 확인**합니다.
+5. 호출에 대 한 표시 이름을 제공 합니다. 예를 들어 **승인 상태를 확인** 합니다.
 6. API 호출에 대 한 **끝점 URL** 을 제공 합니다.
 7. API에 대 한 인증 정보를 제공 합니다.
 
-   - 현재 기본 인증만 지원 됩니다. 개발 목적으로 기본 인증 없이 API를 사용 하려는 경우에는 API에서 무시할 수 있는 더미 **사용자 이름** 및 **암호** 를 입력 하기만 하면 됩니다. API 키를 사용 하 여 Azure 함수와 함께 사용 하기 위해 코드를 **끝점 URL** 에 쿼리 매개 변수로 포함할 수 있습니다 (예: https []() ://contoso.azurewebsites.net/api/endpoint<b>? code = 0123456789</b>).
+   - 현재 기본 인증만 지원 됩니다. 개발 목적으로 기본 인증 없이 API를 사용 하려는 경우에는 API에서 무시할 수 있는 더미 **사용자 이름** 및 **암호** 를 입력 하기만 하면 됩니다. API 키를 사용 하 여 Azure 함수와 함께 사용 하기 위해 코드를 **끝점 URL** 에 쿼리 매개 변수로 포함할 수 있습니다 (예: https []() ://contoso.azurewebsites.net/api/endpoint <b>? code = 0123456789</b>).
 
    ![새 API 커넥터 구성](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
-8. **저장**을 선택합니다.
+8. **저장** 을 선택합니다.
 
 > [!IMPORTANT]
 > 이전에는 API에 보낼 사용자 특성 (' 보낼 클레임 ') 및 API에서 수락할 사용자 특성 (' 수신 클레임 ')을 구성 해야 했습니다. 이제 값이 있는 경우 모든 사용자 특성은 기본적으로 전송 되 고, 모든 사용자 특성은 API에서 ' 연속 ' 응답으로 반환 될 수 있습니다.
@@ -92,17 +92,17 @@ Content-type: application/json
 다음 단계를 수행 하 여 API 커넥터를 셀프 서비스 등록 사용자 흐름에 추가 합니다.
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **Azure Services** 아래에서 **Azure Active Directory**를 선택합니다.
-3. 왼쪽 메뉴에서 **외부 ID**를 선택합니다.
+2. **Azure Services** 아래에서 **Azure Active Directory** 를 선택합니다.
+3. 왼쪽 메뉴에서 **외부 ID** 를 선택합니다.
 4. **사용자 흐름 (미리 보기)** 을 선택한 다음 API 커넥터를 추가 하려는 사용자 흐름을 선택 합니다.
-5. **Api 커넥터**를 선택 하 고 사용자 흐름에서 다음 단계에 호출 하려는 api 끝점을 선택 합니다.
+5. **Api 커넥터** 를 선택 하 고 사용자 흐름에서 다음 단계에 호출 하려는 api 끝점을 선택 합니다.
 
    - **Id 공급자를 사용 하 여 로그인 한 후**
    - **사용자를 만들기 전에**
 
    ![사용자 흐름에 Api 추가](./media/self-service-sign-up-add-api-connector/api-connectors-user-flow-select.png)
 
-6. **저장**을 선택합니다.
+6. **저장** 을 선택합니다.
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Id 공급자를 사용 하 여 로그인 한 후
 
@@ -248,8 +248,8 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 버전                                            | String            | 예      | API 버전입니다.                                                                                                                                                                                                                                                                |
 | action                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | API 커넥터 구성에서 *를*수신할 _ 클레임*으로 선택 하 고 사용자 흐름의 **사용자 특성** 을 선택 하는 경우 디렉터리에 값을 저장할 수 있습니다. **응용 프로그램 클레임**으로 선택한 경우 토큰에서 값을 반환할 수 있습니다.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 아니요       | 반환 된 클레임에는를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 값이 디렉터리에 저장 됩니다. 사용자 지정 특성은 토큰으로 다시 보낼 수 없습니다. |
+| \<builtInUserAttribute>                            | \<attribute-type> | 예       | API 커넥터 구성에서 *를 *수신할 _ 클레임* 으로 선택 하 고 사용자 흐름의 **사용자 특성** 을 선택 하는 경우 디렉터리에 값을 저장할 수 있습니다. **응용 프로그램 클레임** 으로 선택한 경우 토큰에서 값을 반환할 수 있습니다.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 예       | 반환 된 클레임에는를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 값이 디렉터리에 저장 됩니다. 사용자 지정 특성은 토큰으로 다시 보낼 수 없습니다. |
 
 ### <a name="example-of-a-blocking-response"></a>차단 응답의 예
 
@@ -271,7 +271,7 @@ Content-type: application/json
 | 버전     | String | 예      | API 버전입니다.                                                    |
 | action      | String | 예      | 값은 이어야 합니다. `ShowBlockPage`                                              |
 | userMessage | String | 예      | 사용자에게 표시할 메시지입니다.                                            |
-| code        | String | 아니요       | 오류 코드 디버깅을 위해 사용할 수 있습니다. 사용자에 게 표시 되지 않습니다. |
+| code        | String | 예       | 오류 코드 디버깅을 위해 사용할 수 있습니다. 사용자에 게 표시 되지 않습니다. |
 
 **차단 응답이 있는 최종 사용자 환경**
 
@@ -296,9 +296,9 @@ Content-type: application/json
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | 버전     | String  | 예      | API 버전입니다.                                                    |
 | action      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |
-| 상태      | 정수 | 예      | `400`ValidationError 응답의 값 이어야 합니다.                        |
+| 상태      | 정수 | Yes      | `400`ValidationError 응답의 값 이어야 합니다.                        |
 | userMessage | String  | 예      | 사용자에게 표시할 메시지입니다.                                            |
-| code        | String  | 아니요       | 오류 코드 디버깅을 위해 사용할 수 있습니다. 사용자에 게 표시 되지 않습니다. |
+| code        | String  | 예       | 오류 코드 디버깅을 위해 사용할 수 있습니다. 사용자에 게 표시 되지 않습니다. |
 
 **유효성 검사 오류 응답과 함께 최종 사용자 환경**
 

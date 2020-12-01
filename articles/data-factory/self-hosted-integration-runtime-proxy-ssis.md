@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/19/2020
-ms.openlocfilehash: a79055a77ec73ce2b267bb4f16fa91f37e22ea75
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 82cc58d46061ec7b623d062ab0b0e5a1fdae7ddd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916783"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352221"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성
 
@@ -70,7 +70,7 @@ ms.locfileid: "94916783"
 - **인증 방법** 에 대해 **계정 키**, **SAS URI**, **서비스 주체** 또는 **관리 id** 를 선택 합니다.  
 
 >[!TIP]
->**서비스 주체** 방법을 선택 하는 경우 적어도 *저장소 Blob 데이터 참가자* 역할을 서비스 주체에 부여 합니다. 자세한 내용은 [Azure Blob Storage 커넥터](connector-azure-blob-storage.md#linked-service-properties)를 참조 하세요. **관리 되는 id** 메서드를 선택 하는 경우 ADF 관리 id에 적절 한 역할을 부여 하 여 Azure Blob Storage에 액세스 합니다. 자세한 내용은 [ADF 관리 id로 Azure Active Directory 인증을 사용 하 여 Azure Blob Storage 액세스](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication)를 참조 하세요.
+>**서비스 주체** 방법을 선택 하는 경우 적어도 *저장소 Blob 데이터 참가자* 역할을 서비스 주체에 부여 합니다. 자세한 내용은 [Azure Blob Storage 커넥터](connector-azure-blob-storage.md#linked-service-properties)를 참조 하세요. **관리 되는 id** 메서드를 선택 하는 경우 ADF 관리 id에 적절 한 역할을 부여 하 여 Azure Blob Storage에 액세스 합니다. 자세한 내용은 [ADF 관리 id로 Azure Active Directory 인증을 사용 하 여 Azure Blob Storage 액세스](/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication)를 참조 하세요.
 
 ![스테이징을 위해 Azure Blob 저장소 연결 된 서비스 준비](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -157,7 +157,7 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 ## <a name="debug-the-on-premises-and-cloud-staging-tasks"></a>온-프레미스 및 클라우드 준비 작업 디버그
 
-자체 호스팅 IR에서 *C:\ProgramData\SSISTelemetry* 폴더의 런타임 로그와 *C:\ProgramData\SSISTelemetry\ExecutionLog* 폴더에 있는 온-프레미스 준비 태스크의 실행 로그를 찾을 수 있습니다.  Ssisdb에서 클라우드 준비 작업의 실행 로그를 찾거나, 지정 된 로깅 파일 경로를 사용 하거나, SSISDB에 패키지를 저장 하는지 여부에 따라 Azure Monitor 하 고, [Azure Monitor 통합](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#monitor-ssis-operations-with-azure-monitor)을 사용 하도록 설정 하는 등의 작업을 수행할 수 있습니다. 클라우드 준비 작업의 실행 로그에서 온-프레미스 준비 작업의 고유 Id를 찾을 수도 있습니다. 
+자체 호스팅 IR에서 *C:\ProgramData\SSISTelemetry* 폴더의 런타임 로그와 *C:\ProgramData\SSISTelemetry\ExecutionLog* 폴더에 있는 온-프레미스 준비 태스크의 실행 로그를 찾을 수 있습니다.  Ssisdb에서 클라우드 준비 작업의 실행 로그를 찾거나, 지정 된 로깅 파일 경로를 사용 하거나, SSISDB에 패키지를 저장 하는지 여부에 따라 Azure Monitor 하 고, [Azure Monitor 통합](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor)을 사용 하도록 설정 하는 등의 작업을 수행할 수 있습니다. 클라우드 준비 작업의 실행 로그에서 온-프레미스 준비 작업의 고유 Id를 찾을 수도 있습니다. 
 
 ![첫 번째 준비 태스크의 고유 ID](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
@@ -173,7 +173,7 @@ Azure-SSIS IR에서 실행 되는 클라우드 스테이징 작업은 별도로 
 
 사용자 지정/타사 구성 요소가 자체 호스팅 Azure-SSIS IR IR을 사용 하 여 온-프레미스의 데이터에 액세스 하도록 설정 하려면 다음 지침을 따르세요.
 
-1. [표준/express 사용자 지정](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)설치를 통해 Azure-SSIS IR에 SQL Server 2017를 대상으로 하는 사용자 지정/타사 구성 요소를 설치 합니다.
+1. [표준/express 사용자 지정](./how-to-configure-azure-ssis-ir-custom-setup.md)설치를 통해 Azure-SSIS IR에 SQL Server 2017를 대상으로 하는 사용자 지정/타사 구성 요소를 설치 합니다.
 
 1. 아직 존재 하지 않는 경우 자체 호스팅 IR에서 다음 DTSPath 레지스트리 키를 만듭니다.
    1. `C:\Program Files\Microsoft SQL Server\140\DTS\`로 설정된 `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath`
@@ -197,7 +197,7 @@ Azure-SSIS IR에서 실행 되는 클라우드 스테이징 작업은 별도로 
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
-- Hadoop/HDFS/DQS 구성 요소를 제외 하 고 Azure-SSIS IR Standard Edition에서 기본 제공/미리 설치 된 데이터 흐름 구성 요소만 현재 지원 됩니다. [Azure-SSIS IR의 모든 기본 제공/미리 설치 된 구성 요소](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime)를 참조 하세요.
+- Hadoop/HDFS/DQS 구성 요소를 제외 하 고 Azure-SSIS IR Standard Edition에서 기본 제공/미리 설치 된 데이터 흐름 구성 요소만 현재 지원 됩니다. [Azure-SSIS IR의 모든 기본 제공/미리 설치 된 구성 요소](./built-in-preinstalled-components-ssis-integration-runtime.md)를 참조 하세요.
 - 관리 코드로 작성 된 사용자 지정/타사 데이터 흐름 구성 요소 (.NET Framework)만 현재 지원 됩니다. 네이티브 코드 (c + +)로 작성 된 데이터 흐름 구성 요소는 현재 지원 되지 않습니다.
 - 온-프레미스 및 클라우드 준비 작업에서 변수 값을 변경 하는 작업은 현재 지원 되지 않습니다.
 - 온-프레미스 준비 태스크에서 object 유형의 변수 값을 변경 해도 다른 작업에는 반영 되지 않습니다.

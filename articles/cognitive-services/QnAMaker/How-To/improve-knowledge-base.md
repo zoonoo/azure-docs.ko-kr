@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: dcf912f431d578a6e678801d3dc8f4e11484ea78
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a77083c721328a8df9facd2f4b320b863aa03c68
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997021"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352408"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>기술 자료에서 활성 학습 제안 질문 수락
 
@@ -22,7 +22,7 @@ ms.locfileid: "95997021"
 
 ## <a name="turn-on-active-learning"></a>활성 학습 설정
 
-제안 된 질문을 보려면 QnA Maker 리소스에 대해 [활성 학습을 설정](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/active-learning-suggestions) 해야 합니다.
+제안 된 질문을 보려면 QnA Maker 리소스에 대해 [활성 학습을 설정](../concepts/active-learning-suggestions.md) 해야 합니다.
 
 ## <a name="view-suggested-questions"></a>제안 된 질문 보기
 

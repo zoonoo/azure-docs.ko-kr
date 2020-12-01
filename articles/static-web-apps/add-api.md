@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: e0af8e0674a15c98fadbedfa42f735d269b3de2b
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 53be2ee9b6b3ab46f081747aec58b9c99fc54f0d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920494"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349959"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Azure Functions를 사용하여 Azure Static Web Apps 미리 보기에 API 추가
 
@@ -32,7 +32,7 @@ Azure Functions와의 통합을 통해 Azure Static Web Apps에 서버리스 API
 
 다음 단계에서는 새 리포지토리를 만들고 파일을 컴퓨터에 복제하는 방법을 보여 줍니다.
 
-1. GitHub에 로그인 되어 있는지 확인 하 고로 이동 https://github.com/staticwebdev/vanilla-basic/generate 하 여 새 리포지토리를 만듭니다.
+1. GitHub에 로그인 되어 있는지 확인 하 고로 이동 [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate) 하 여 새 리포지토리를 만듭니다.
 1. _리포지토리 이름_ 상자에 **my-vanilla-api** 를 입력합니다.
 1. **템플릿에서 리포지토리 만들기** 를 클릭합니다.
 

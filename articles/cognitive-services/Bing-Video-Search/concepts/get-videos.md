@@ -10,19 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 2fab4a57a939f9516140562cb8b8508b2ba69dc0
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 10277efe1f06de3633b2d614e2ee5ec0cc351c76
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379891"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351932"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Bing Video Search API를 사용한 비디오 검색
 
 > [!WARNING]
-> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
 > Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 Bing Video Search API를 통해 Bing의 인지적 뉴스 검색 기능을 애플리케이션으로 쉽게 통합할 수 있습니다. API에서는 주로 관련 비디오를 웹에서 찾고 반환하는 반면, 웹에서 지능적이고 포커스가 있는 비디오 검색을 위한 몇 가지 기능을 제공합니다.
 
@@ -149,7 +149,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>쿼리 확장
 
-Bing이 원래 검색을 좁히기 위해 쿼리를 확장할 수 있는 경우 [Videos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 개체에는 `queryExpansions` 필드가 포함됩니다. 예를 들어 쿼리가 *배수로 청소* 인 경우 확장된 쿼리는 배수로 청소 **도구** , 배수로 청소의 **기초** , 배수로 청소 **기계** 및 **손쉬운** 배수로 청소일 수 있습니다.
+Bing이 원래 검색을 좁히기 위해 쿼리를 확장할 수 있는 경우 [Videos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 개체에는 `queryExpansions` 필드가 포함됩니다. 예를 들어 쿼리가 *배수로 청소* 인 경우 확장된 쿼리는 배수로 청소 **도구**, 배수로 청소의 **기초**, 배수로 청소 **기계** 및 **손쉬운** 배수로 청소일 수 있습니다.
 
 다음 예제에서는 *배수로 청소* 에 대한 확장된 쿼리를 보여줍니다.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: a24f1337a68f38db273688e9a91c65ac2f4736b4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 737b6e0534111924a31204d4548dfa59805c2fe5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963609"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352578"
 ---
 # <a name="update-a-command-from-a-web-endpoint"></a>웹 엔드포인트에서 명령 업데이트
 
@@ -23,13 +23,13 @@ ms.locfileid: "94963609"
 
 이 문서에서는 웹 끝점에서 진행 중인 명령을 업데이트 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 > [!div class = "checklist"]
 > * 이전에 [만든 사용자 지정 명령 앱](quickstart-custom-commands-application.md)
 
 ## <a name="create-an-azure-function"></a>Azure Function 만들기 
 
-이 예제에서는 다음 입력 또는이 입력의 하위 집합을 지 원하는 HTTP 트리거 [Azure 함수가](https://docs.microsoft.com/azure/azure-functions/) 필요 합니다.
+이 예제에서는 다음 입력 또는이 입력의 하위 집합을 지 원하는 HTTP 트리거 [Azure 함수가](../../azure-functions/index.yml) 필요 합니다.
 
 ```JSON
 {

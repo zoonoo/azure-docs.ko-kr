@@ -3,12 +3,12 @@ title: Azure DevTest Labs에 대 한 Azure 보안 기준
 description: Azure DevTest Labs에 대 한 Azure 보안 기준
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 64e5ac46fbeb71706f7b1ae2d3682260e3cbc651
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ae3886e1c47b1d6835dc348b474e3d9e82a8f41
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993655"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348826"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azure DevTest Labs에 대 한 Azure 보안 기준
 
@@ -212,7 +212,7 @@ _ *책임:** 고객
 ### <a name="39-use-azure-active-directory"></a>3.9: Azure Active Directory 사용
 **지침:** Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)  
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)  
 
 **Azure Security Center 모니터링:** 현재 사용할 수 없음
 
@@ -379,7 +379,7 @@ Microsoft는 Azure DevTest Labs을 지 원하는 기본 리소스에서 취약�
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: 자동화된 운영 체제 패치 관리 솔루션 배포
 **지침:** Azure 업데이트 관리를 사용 하 여 DevTest Labs 내에서 호스트 되는 Windows 및 Linux Vm에 최신 보안 업데이트가 설치 되어 있는지 확인 합니다. Windows Vm의 경우 Windows 업데이트를 사용 하도록 설정 하 고 자동으로 업데이트 하도록 설정 되어 있는지 확인 합니다. 이 설정은 현재 DevTest Labs를 통해 구성 하는 데 사용할 수 없지만 lab admin/subscription 관리자는 구독의 기본 계산 Vm에서이 설정을 구성할 수 있습니다. 
 
-- [Azure에서 Vm에 대 한 업데이트 관리를 구성 하는 방법](../automation/update-management/update-mgmt-overview.md)
+- [Azure에서 Vm에 대 한 업데이트 관리를 구성 하는 방법](../automation/update-management/overview.md)
 - [Security Center에서 모니터링 하는 Azure 보안 정책 이해](../security-center/policy-reference.md)
 
 **Azure Security Center 모니터링:** 해당 없음
@@ -393,8 +393,8 @@ Microsoft는 Azure DevTest Labs을 지 원하는 기본 리소스에서 취약�
 
 구독 관리자는 Azure 업데이트 관리 솔루션을 사용 하 여 DevTest Labs Vm에 대 한 업데이트 및 패치를 관리할 수도 있습니다. 업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 Windows 시스템을 패치 합니다. System Center Updates Publisher (Updates Publisher)와 같은 도구를 사용 하 여 WSUS (Windows Server Update Services)에 사용자 지정 업데이트를 게시할 수 있습니다. 이 시나리오를 사용 하면 Configuration Manager를 사용 하는 컴퓨터를 타사 소프트웨어를 사용 하 여 업데이트 리포지토리로 패치 업데이트 관리 수 있습니다.
 
-- [Azure의 업데이트 관리 솔루션](../automation/update-management/update-mgmt-overview.md)
-- [Vm에 대 한 업데이트 및 패치 관리](../automation/update-management/update-mgmt-overview.md)
+- [Azure의 업데이트 관리 솔루션](../automation/update-management/overview.md)
+- [Vm에 대 한 업데이트 및 패치 관리](../automation/update-management/overview.md)
 
 _ *Azure Security Center 모니터링:** 해당 사항 없음
 
@@ -877,7 +877,7 @@ Azure Security Center 모니터링: * * * * 해당 사항 없음
 
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: Azure 리소스에 대한 침투 테스트를 정기적으로 수행 및 모든 중요한 보안 결과를 60일 이내에 수정
-**지침:** Microsoft Engagement 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
+**지침:** Microsoft Engagement 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft 관리형 클라우드 인프라, 서비스 및 애플리케이션에 대한 Microsoft의 전략과 Red Teaming 및 라이브 사이트 침투 테스트의 실행을 사용합니다.
 
 - [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 - [Microsoft cloud red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)

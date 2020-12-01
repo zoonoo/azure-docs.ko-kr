@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7865562a8161e6fc7bed52791b42b867a3dac6f8
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 6f9f0a78fa8fbe892c40ecfd9e7881bb6346d794
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302415"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352374"
 ---
 # <a name="azure-security-baseline-for-content-delivery-network"></a>Content Delivery Network에 대 한 Azure 보안 기준
 
@@ -22,7 +22,7 @@ Content Delivery Network 완전히 Azure 보안 벤치 마크에 매핑되는 �
 
 ## <a name="identity-management"></a>ID 관리
 
-*자세한 내용은 [Azure Security Benchmark: ID 관리](/azure/security/benchmarks/security-controls-v2-identity-management)를 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: ID 관리](../security/benchmarks/security-controls-v2-identity-management.md)를 참조하세요.*
 
 ### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: 조건에 따라 Azure 리소스 액세스 제한
 
@@ -36,7 +36,7 @@ Content Delivery Network 완전히 Azure 보안 벤치 마크에 매핑되는 �
 
 ## <a name="privileged-access"></a>권한 있는 액세스
 
-*자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](/azure/security/benchmarks/security-controls-v2-privileged-access)를 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](../security/benchmarks/security-controls-v2-privileged-access.md)를 참조하세요.*
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: 업무상 중요 한 시스템에 대 한 관리 액세스 제한
 
@@ -88,7 +88,7 @@ Content Delivery Network 완전히 Azure 보안 벤치 마크에 매핑되는 �
 
 ## <a name="asset-management"></a>자산 관리
 
-*자세한 내용은 [Azure Security Benchmark: 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)를 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 자산 관리](../security/benchmarks/security-controls-v2-asset-management.md)를 참조하세요.*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: 보안 팀에서 자산 위험에 대한 가시성을 확보하도록 보장
 
@@ -116,7 +116,7 @@ Content Delivery Network 완전히 Azure 보안 벤치 마크에 매핑되는 �
 
 - [Azure Security Center asset inventory management](../security-center/asset-inventory.md) 
 
-- [리소스 명명 및 태그 지정 의사 결정 가이드](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [리소스 명명 및 태그 지정 의사 결정 가이드](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -194,7 +194,7 @@ CDN에 대 한 Azure 리소스 로그를 사용 하도록 설정 Azure Security 
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [Azure Security Benchmark: 인시던트 대응](/azure/security/benchmarks/security-controls-v2-incident-response)을 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 인시던트 대응](../security/benchmarks/security-controls-v2-incident-response.md)을 참조하세요.*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: 준비 – Azure에 대한 인시던트 대응 프로세스 업데이트
 
@@ -276,7 +276,7 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -335,7 +335,7 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 ## <a name="governance-and-strategy"></a>거버넌스 및 전략
 
-*자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](/azure/security/benchmarks/security-controls-v2-governance-strategy)을 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](../security/benchmarks/security-controls-v2-governance-strategy.md)을 참조하세요.*
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: 자산 관리 및 데이터 보호 전략 정의 
 
@@ -361,11 +361,11 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 참조 된 링크에서 자세한 내용을 확인할 수 있습니다.
 
-- [Azure 보안 아키텍처 추천 사항 - 스토리지, 데이터 및 암호화](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Azure 보안 아키텍처 추천 사항 - 스토리지, 데이터 및 암호화](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure 보안 기본 사항 - Azure 데이터 보안, 암호화 및 스토리지](../security/fundamentals/encryption-overview.md)
 
-- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark - 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)
 
@@ -516,5 +516,5 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

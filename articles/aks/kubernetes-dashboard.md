@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: a80082ac524a4777b3b5ee32d946e9db8ec6e7f5
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 85f0a42cdfcbea2223d202a9dc35f58746580e85
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681621"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350129"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 웹 대시보드에 액세스
 
@@ -41,6 +41,10 @@ az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
 
 ## <a name="start-the-kubernetes-dashboard"></a>Kubernetes 대시보드 시작
+
+> [!WARNING]
+> AKS 대시보드 추가 기능은 버전 1.19 +에서 더 이상 사용 되지 않습니다. 대신 [Azure Portal (미리 보기)에서 Kubernetes 리소스 뷰][kubernetes-portal] 를 사용 하세요. 
+> * 이제 다음 명령을 실행 하면 버전 1.19 이상에 대 한 kubernetes 대시보드 대신 Azure Portal 리소스 뷰가 열립니다.
 
 클러스터에서 Kubernetes 대시보드를 시작 하려면 [az aks browse][az-aks-browse] 명령을 사용 합니다. 이 명령을 사용 하려면 클러스터에 kube 추가 기능을 설치 해야 합니다 .이 추가 기능은 Kubernetes 1.18 보다 오래 된 버전을 실행 하는 클러스터에 기본적으로 포함 되어 있습니다.
 

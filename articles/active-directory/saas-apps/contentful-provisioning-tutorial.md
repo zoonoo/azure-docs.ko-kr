@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: a473ecc21a5f8a0eb427f01ffba785732f0151e9
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4ff08e51f6e3b2ae72da43052c25046be8bb5397
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181053"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352153"
 ---
 # <a name="tutorial-configure-contentful-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Contentful 구성 합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "96181053"
 > * 그룹 및 그룹 멤버 자격을 프로 비전 합니다.
 > * Contentful에 대 [한 Single sign-on](./contentful-tutorial.md) (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 

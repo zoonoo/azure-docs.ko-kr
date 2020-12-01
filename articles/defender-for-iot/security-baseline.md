@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 209caaa40f30e579736f228eaa8aaa7916dccb7c
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: a5003a68047c526996ec2c0065e08d5d5829b8ae
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302397"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351659"
 ---
 # <a name="azure-security-baseline-for-azure-defender-for-iot"></a>IoT 용 Azure Defender에 대 한 azure 보안 기준
 
@@ -22,7 +22,7 @@ Azure Defender for IoT가 Azure 보안 벤치 마크에 완전히 매핑되는 �
 
 ## <a name="identity-management"></a>ID 관리
 
-*자세한 내용은 [Azure Security Benchmark: ID 관리](/azure/security/benchmarks/security-controls-v2-identity-management)를 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: ID 관리](../security/benchmarks/security-controls-v2-identity-management.md)를 참조하세요.*
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Azure Active Directory를 중앙 ID 및 인증 시스템으로 표준화
 
@@ -40,7 +40,7 @@ Azure AD는 외부 id를 사용 하 여 응용 프로그램 및 리소스에 로
 
 - [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
 
-- [응용 프로그램에 외부 id 공급자 사용](/azure/active-directory/b2b/identity-providers) 
+- [응용 프로그램에 외부 id 공급자 사용](../active-directory/external-identities/identity-providers.md) 
 
 - [Azure Active Directory에서 id 보안 점수는 무엇 인가요?](../active-directory/fundamentals/identity-secure-score.md)
 
@@ -99,9 +99,9 @@ Azure ATP(Advanced Threat Protection)는 Active Directory 신호를 사용하여
 
 - [Azure AD의 감사 활동 보고서](../active-directory/reports-monitoring/concept-audit-logs.md) 
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](/azure/active-directory/reports-monitoring/concept-user-at-risk) 
+- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Azure Security Center에서 사용자의 ID 및 액세스 활동을 모니터링하는 방법](../security-center/security-center-identity-access.md) 
 
@@ -115,7 +115,7 @@ Azure ATP(Advanced Threat Protection)는 Active Directory 신호를 사용하여
 
 ## <a name="privileged-access"></a>권한 있는 액세스
 
-*자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](/azure/security/benchmarks/security-controls-v2-privileged-access)를 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](../security/benchmarks/security-controls-v2-privileged-access.md)를 참조하세요.*
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: 업무상 중요 한 시스템에 대 한 관리 액세스 제한
 
@@ -141,7 +141,7 @@ Azure ATP(Advanced Threat Protection)는 Active Directory 신호를 사용하여
 
 응급 액세스 계정에 대 한 자격 증명 (예: 암호, 인증서 또는 스마트 카드)을 안전 하 게 유지 하 고 비상 시에만 사용할 권한이 있는 개인 에게만 알려집니다.
 
-- [Azure AD에서 응급 액세스 계정 관리](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Azure AD에서 응급 액세스 계정 관리](../active-directory/roles/security-emergency-access.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -177,7 +177,7 @@ Azure ATP(Advanced Threat Protection)는 Active Directory 신호를 사용하여
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [Azure Security Benchmark: 데이터 보호](/azure/security/benchmarks/security-controls-v2-data-protection)를 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 데이터 보호](../security/benchmarks/security-controls-v2-data-protection.md)를 참조하세요.*
 
 ### <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1: 중요한 데이터 검색, 분류 및 레이블 지정
 
@@ -189,7 +189,7 @@ Azure SQL 정보 보호를 사용하여 Azure SQL Database에 저장된 정보�
 
 - [Azure Information Protection을 사용하여 중요한 정보 태그 지정](/azure/information-protection/what-is-information-protection) 
 
-- [Azure SQL 데이터 검색을 구현하는 방법](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Azure SQL 데이터 검색을 구현하는 방법](../azure-sql/database/data-discovery-and-classification-overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -231,7 +231,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ## <a name="asset-management"></a>자산 관리
 
-*자세한 내용은 [Azure Security Benchmark: 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)를 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 자산 관리](../security/benchmarks/security-controls-v2-asset-management.md)를 참조하세요.*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: 보안 팀에서 자산 위험에 대한 가시성을 확보하도록 보장
 
@@ -289,7 +289,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [Azure Security Benchmark: 인시던트 대응](/azure/security/benchmarks/security-controls-v2-incident-response)을 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 인시던트 대응](../security/benchmarks/security-controls-v2-incident-response.md)을 참조하세요.*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: 준비 – Azure에 대한 인시던트 대응 프로세스 업데이트
 
@@ -371,7 +371,7 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -412,7 +412,7 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 ## <a name="governance-and-strategy"></a>거버넌스 및 전략
 
-*자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](/azure/security/benchmarks/security-controls-v2-governance-strategy)을 참조하세요.*
+*자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](../security/benchmarks/security-controls-v2-governance-strategy.md)을 참조하세요.*
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: 자산 관리 및 데이터 보호 전략 정의 
 
@@ -437,11 +437,11 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 -   적절한 암호화 표준
 
 자세한 내용은 다음 참조 문서를 참조하세요.
-- [Azure 보안 아키텍처 추천 사항 - 스토리지, 데이터 및 암호화](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Azure 보안 아키텍처 추천 사항 - 스토리지, 데이터 및 암호화](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure 보안 기본 사항 - Azure 데이터 보안, 암호화 및 스토리지](../security/fundamentals/encryption-overview.md)
 
-- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark - 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)
 
@@ -592,5 +592,5 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

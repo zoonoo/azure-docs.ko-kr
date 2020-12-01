@@ -10,19 +10,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 3057a118117f4f293ec5f90405a4bbd82d7a353d
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 14dacc4351af444c75517df4d4e02ecca3bbf40a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592076"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350078"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Bing Image Search API에 대한 언어 및 지역 지원
 
 > [!WARNING]
-> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
 > Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 Bing Image Search API는 수십 개의 국가/지역을 지원하며, 이 중에는 둘 이상의 언어를 사용하는 국가/지역도 많습니다. 쿼리를 통한 국가/지역 지정은 해당 국가/지역의 관심 분야에 따라 검색 결과를 구체화하는 데 주로 사용됩니다. 또한 결과는 Bing에 대한 링크를 포함할 수 있으며 이러한 링크는 지정된 국가/지역 또는 언어에 따라 Bing 사용자 경험을 지역화할 수 있습니다.
 
@@ -89,19 +89,19 @@ Bing Image Search API는 수십 개의 국가/지역을 지원하며, 이 중에
 |벨기에|네덜란드어|nl-BE|
 |벨기에|프랑스어|fr-BE|
 |브라질|포르투갈어|pt-BR|
-|Canada|영어|en-CA|
-|Canada|프랑스어|fr-CA|
+|캐나다|영어|en-CA|
+|캐나다|프랑스어|fr-CA|
 |칠레|스페인어|es-CL|
 |덴마크|덴마크어|da-DK|
 |핀란드|핀란드어|fi-FI|
 |프랑스|프랑스어|fr-FR|
 |독일|독일어|de-DE|
-|홍콩 특별 행정구|중국어 번체|zh-HK|
+|홍콩 특별행정구|중국어 번체|zh-HK|
 |인도|영어|en-IN|
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|
 |일본|일본어|ja-JP|
-|한국|한국어|en-US|
+|한국|한국어|ko-KR|
 |말레이시아|영어|en-MY|
 |멕시코|스페인어|es-MX|
 |네덜란드|네덜란드어|nl-NL|
@@ -112,14 +112,14 @@ Bing Image Search API는 수십 개의 국가/지역을 지원하며, 이 중에
 |필리핀|영어|en-PH|
 |러시아|러시아어|ru-RU|
 |사우디아라비아|아랍어|ar-SA|
-|남아프리카|영어|en-ZA|
+|남아프리카 공화국|영어|en-ZA|
 |스페인|스페인어|es-ES|
 |스웨덴|스웨덴어|sv-SE|
 |스위스|프랑스어|fr-CH|
 |스위스|독일어|de-CH|
 |대만|중국어 번체|zh-TW|
 |터키|터키어|tr-TR|
-|United Kingdom|영어|en-GB|
+|영국|영어|en-GB|
 |미국|영어|ko-KR|
 |미국|스페인어|es-US|
 

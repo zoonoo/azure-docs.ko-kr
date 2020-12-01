@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 890b555703f922168a820a0535296b9f55218752
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8c13dc0854fb29467b0fe8a1ce5f2dfc1c19bd78
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011050"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352340"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>기술 자료 만들기 및 설정 관리
 
@@ -107,7 +107,7 @@ KB(기술 자료)를 삭제하는 것은 영구 작업입니다. 실행을 취�
 
 ## <a name="next-steps"></a>다음 단계
 
-리소스에서 모든 기술 자료의 [언어를 관리 하는](language-knowledge-base.md) 방법에 대해 알아봅니다.
+리소스에서 모든 기술 자료의 [언어를 관리 하는](../index.yml) 방법에 대해 알아봅니다.
 
 * QnA 쌍 편집
 * QnA Maker에서 사용 하는 Azure 리소스 관리

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: de74d7e3cf854f36d122be6a32c7fb4d449c5fe5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f591a9781cb81ec735d22f4f687f8d413923dc93
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175919"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349132"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -78,8 +78,8 @@ Cosmos 컨테이너(또는 공유 처리량 데이터베이스)의 처리량이 
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 컨테이너 당 최소 RUs ([프로 비전 된 전용 처리량 모드](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| 데이터베이스당 최소 RUs ([공유 처리량 프로 비전 된 모드](databases-containers-items.md#azure-cosmos-containers)) | 처음 25 개 컨테이너에 대해 400 r u/초 이후 각 컨테이너에 대 한 추가 100 o s/s를 추가 합니다. |
+| 컨테이너 당 최소 RUs ([프로 비전 된 전용 처리량 모드](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| 데이터베이스당 최소 RUs ([공유 처리량 프로 비전 된 모드](./account-databases-containers-items.md#azure-cosmos-containers)) | 처음 25 개 컨테이너에 대해 400 r u/초 이후 각 컨테이너에 대 한 추가 100 o s/s를 추가 합니다. |
 
 Cosmos DB는 Sdk 또는 포털을 통해 컨테이너 또는 데이터베이스당 처리량 (r u/초)의 프로그래밍 방식 크기 조정을 지원 합니다.    
 

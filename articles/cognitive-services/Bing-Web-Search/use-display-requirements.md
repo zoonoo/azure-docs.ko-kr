@@ -10,19 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 93be72f2afcda90dde1b74c5ee317a7ad3350be1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4300860039b76bd076f19acfc252f59ef10d462b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075690"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351847"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Bing Search API 사용 및 표시 요구 사항
 
 > [!WARNING]
-> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
-> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 이러한 사용 및 표시 요구 사항은 관계, 메타데이터 및 기타 신호를 포함한 다음 Bing Search API의 콘텐츠 및 관련 정보 구현에 적용됩니다.
 
@@ -172,5 +172,4 @@ Search API 응답의 데이터는 복사, 저장 또는 캐시하면 안 됩니�
 
 ## <a name="gdpr-compliance"></a>GDPR 규정 준수  
 
-유럽 연합 GDPR(일반 데이터 보호 규정)을 따르며 Search API, Bing Spell Check API 또는 Bing Autosuggest API 호출과 연계해서 처리되는 모든 개인 데이터 주체와 관련해서, 사용자 및 Microsoft가 GDPR에서 독립적인 데이터 통제자임을 이해해야 합니다. 사용자는 GDPR 준수에 대해 별도로 책임을 집니다.  
-
+유럽 연합 GDPR(일반 데이터 보호 규정)을 따르며 Search API, Bing Spell Check API 또는 Bing Autosuggest API 호출과 연계해서 처리되는 모든 개인 데이터 주체와 관련해서, 사용자 및 Microsoft가 GDPR에서 독립적인 데이터 통제자임을 이해해야 합니다. 사용자는 GDPR 준수에 대해 별도로 책임을 집니다.

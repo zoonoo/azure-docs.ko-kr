@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 4476e20772c0736f35c074b200ea9fd47a0ae81c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 434917c1cee26a4a8eeb7f27808e3fcb487f3f55
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109173"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350044"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대한 진단 로그 액세스
 Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 설정하는 방법 및 계정에 대해 수집된 로그를 보는 방법을 알아봅니다.
 
 조직에서는 Azure Data Lake Storage Gen1 계정에 대 한 진단 로깅을 사용 하도록 설정 하 여 데이터에 액세스 하는 사용자 목록, 데이터에 액세스 하는 빈도, 계정에 저장 된 데이터의 양 등의 정보를 제공 하는 데이터 액세스 감사 내역을 수집할 수 있습니다. 사용 하도록 설정 하는 경우 진단 및/또는 요청은 최상의 노력을 기반으로 기록 됩니다. 서비스 엔드포인트에 대한 요청이 있는 경우에만 요청 및 진단 로그 항목이 만들어집니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Storage Gen1 계정**. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정에 대해 진단 로깅 사용
 1. 새 [Azure Portal](https://portal.azure.com)에 로그인 합니다.
-2. Data Lake Storage Gen1 계정을 열고, Data Lake Storage Gen1 계정 블레이드에서 **진단 설정**을 클릭합니다.
-3. **진단 설정** 블레이드에서 **진단 켜기**를 클릭합니다.
+2. Data Lake Storage Gen1 계정을 열고, Data Lake Storage Gen1 계정 블레이드에서 **진단 설정** 을 클릭합니다.
+3. **진단 설정** 블레이드에서 **진단 켜기** 를 클릭합니다.
 
     ![진단 설정 옵션과 진단 켜기 옵션을 사용 하 여 Data Lake Storage Gen 1 계정의 스크린샷](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "진단 로그 활성화")
 
@@ -39,18 +39,18 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
    
     ![이름 텍스트 상자와 저장 옵션이 out 인 진단 설정 섹션의 스크린샷](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "진단 로그 활성화")
    
-   * **이름**으로 진단 로그 구성에 대한 값을 입력합니다.
+   * **이름** 으로 진단 로그 구성에 대한 값을 입력합니다.
    * 다양한 방법으로 데이터를 저장/처리하도록 선택할 수 있습니다.
      
         * Azure Storage 계정에 로그를 저장하려면 **스토리지 계정에 보관** 옵션을 선택합니다. 나중에 배치로 처리할 데이터를 보관하려는 경우 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 Azure Storage 계정을 제공하여 로그를 저장해야 합니다.
         
         * Azure Event Hub에 로그 데이터를 스트리밍하려면 **이벤트 허브로 스트리밍** 옵션을 선택합니다. 들어오는 로그를 실시간으로 분석하는 다운스트림 처리 파이프라인을 사용하는 경우 대개 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 사용하려는 Azure 이벤트 허브에 대한 세부 정보를 제공해야 합니다.
 
-        * Azure Monitor 서비스를 사용 하 여 생성 된 로그 데이터를 분석 하려면 **Log Analytics 보내기** 옵션을 선택 합니다. 이 옵션을 선택하는 경우 로그 분석을 수행하는 데 사용하는 Log Analytics 작업 영역에 세부 정보를 제공해야 합니다. Azure Monitor 로그 사용에 대 한 자세한 내용은 [Azure Monitor 로그 검색을 사용 하 여 수집한 데이터 보기 또는 분석](../azure-monitor/log-query/get-started-portal.md) 을 참조 하세요.
+        * Azure Monitor 서비스를 사용 하 여 생성 된 로그 데이터를 분석 하려면 **Log Analytics 보내기** 옵션을 선택 합니다. 이 옵션을 선택하는 경우 로그 분석을 수행하는 데 사용하는 Log Analytics 작업 영역에 세부 정보를 제공해야 합니다. Azure Monitor 로그 사용에 대 한 자세한 내용은 [Azure Monitor 로그 검색을 사용 하 여 수집한 데이터 보기 또는 분석](../azure-monitor/log-query/log-analytics-tutorial.md) 을 참조 하세요.
      
    * 감사 로그 또는 요청 로그를 가져올지, 혹은 둘 모두를 가져올지를 지정합니다.
    * 데이터를 유지해야 하는 일 수를 지정합니다. Azure Storage 계정을 사용하여 로그 데이터를 보관하는 경우에만 보존 기능이 적용됩니다.
-   * **저장**을 클릭합니다.
+   * **저장** 을 클릭합니다.
 
 진단 설정을 사용하도록 설정했으면 **진단 로그** 탭에서 로그를 볼 수 있습니다.
 
@@ -61,10 +61,10 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 * 데이터가 저장된 Azure Storage 계정에서
 
 ### <a name="using-the-data-lake-storage-gen1-settings-view"></a>Data Lake Storage Gen1 설정 보기 사용
-1. Data Lake Storage Gen1 계정 **설정** 블레이드에서 **진단 로그**를 클릭합니다.
+1. Data Lake Storage Gen1 계정 **설정** 블레이드에서 **진단 로그** 를 클릭합니다.
    
     ![진단 로그 보기](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "진단 로그 보기") 
-2. **진단 로그** 블레이드에 **감사 로그** 및 **요청 로그**로 분류된 로그가 표시됩니다.
+2. **진단 로그** 블레이드에 **감사 로그** 및 **요청 로그** 로 분류된 로그가 표시됩니다.
    
    * 요청 로그는 Data Lake Storage Gen1 계정에 대한 모든 API 요청을 캡처합니다.
    * 감사 로그는 요청 로그와 비슷하지만 Data Lake Storage Gen1 계정에 대해 수행된 작업의 세부적인 분석 결과를 제공합니다. 예를 들어, 요청 로그에서 단일 업로드 API 호출은 감사 로그에서 여러 "추가" 작업을 발생시킬 수 있습니다.
@@ -115,7 +115,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 ```
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
-| Name | 유형 | Description |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 ID |
@@ -128,11 +128,11 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
-| Name | 유형 | Description |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | HttpMethod |String |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | 경로 |String |작업이 수행된 경로 |
-| RequestContentLength |Int |HTTP 요청의 콘텐츠 길이 |
+| RequestContentLength |int |HTTP 요청의 콘텐츠 길이 |
 | ClientRequestId |String |이 요청을 고유하게 식별하는 ID |
 | StartTime |String |서버가 요청을 받은 시간 |
 | EndTime |String |서버가 응답을 전송한 시간 |
@@ -164,7 +164,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 ```
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
-| Name | 유형 | Description |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 ID |
@@ -177,12 +177,12 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
-| Name | 유형 | Description |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | StreamName |String |작업이 수행된 경로 |
 
 ## <a name="samples-to-process-the-log-data"></a>로그 데이터를 처리하는 샘플
-Azure Data Lake Storage Gen1에서 Azure Monitor 로그로 로그를 보낼 때 (Azure Monitor 로그 사용에 대 한 자세한 내용은 Azure Monitor 로그를 사용 하 [여 수집 된 데이터 보기 또는 분석](../azure-monitor/log-query/get-started-portal.md) 참조) 다음 쿼리는 사용자 표시 이름 목록, 이벤트의 시간 및 이벤트의 시간에 대 한 이벤트 수를 시각적 차트와 함께 포함 하는 테이블을 반환 합니다. 사용자 GUID 또는 기타 특성을 표시하도록 쉽게 수정할 수 있습니다.
+Azure Data Lake Storage Gen1에서 Azure Monitor 로그로 로그를 보낼 때 (Azure Monitor 로그 사용에 대 한 자세한 내용은 Azure Monitor 로그를 사용 하 [여 수집 된 데이터 보기 또는 분석](../azure-monitor/log-query/log-analytics-tutorial.md) 참조) 다음 쿼리는 사용자 표시 이름 목록, 이벤트의 시간 및 이벤트의 시간에 대 한 이벤트 수를 시각적 차트와 함께 포함 하는 테이블을 반환 합니다. 사용자 GUID 또는 기타 특성을 표시하도록 쉽게 수정할 수 있습니다.
 
 ```
 search *
@@ -193,6 +193,6 @@ search *
 
 Azure Data Lake Storage Gen1에서는 로그 데이터를 처리하고 분석하는 방법에 대한 샘플을 제공합니다. 에서 샘플을 찾을 수 있습니다 [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) . 
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참조
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)

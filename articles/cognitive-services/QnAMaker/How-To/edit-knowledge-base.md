@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 3940f060209ea5ba55957a3673020656d45de9e4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9541320f65060a0b1f2b5c84a131c08e92554e9e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000099"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351710"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>기술 자료에서 QnA 쌍 편집
 
@@ -128,11 +128,11 @@ QnA 쌍 연결은 [추가 작업 프롬프트](multiturn-conversation.md)와 함
 
 서식 [있는 텍스트](#add-an-editorial-qna-set) 를 수정 하면 서식 도구 모음을 사용 하 여 텍스트를 빠르게 선택 하 고 서식을 지정할 수 있습니다.
 
-[Markdown](../reference-markdown-format.md) 는 CI/CD 파이프라인의 일부로 또는 [일괄 테스트](../Quickstarts/batch-testing.md)를 위해 가져올 기술 자료를 만들기 위해 콘텐츠를 자동 생성 해야 하는 경우에 더 나은 도구입니다.
+[Markdown](../reference-markdown-format.md) 는 CI/CD 파이프라인의 일부로 또는 [일괄 테스트](../index.yml)를 위해 가져올 기술 자료를 만들기 위해 콘텐츠를 자동 생성 해야 하는 경우에 더 나은 도구입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [기술 자료에 대한 공동 작업](./collaborate-knowledge-base.md)
+> [기술 자료에 대한 공동 작업](../index.yml)
 
 * [QnA Maker에서 사용 하는 Azure 리소스 관리](set-up-qnamaker-service-azure.md)
