@@ -6,15 +6,15 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 17e01844463b6d18bd7d2c3b56ee86d938682b8e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a2144827cd27c0af6610dabdf5ad205359f550cc
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536322"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435487"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
-작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
+작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 
 
 이 문서에서는 Azure Portal에서 작업 그룹을 만들고 관리하는 방법을 보여 줍니다.
 
@@ -65,7 +65,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
     
     b. **이름**: 알림의 고유한 이름을 입력 합니다.
 
-    다. **세부 정보**: 선택한 알림 유형에 따라 전자 메일 주소, 전화 번호 등을 입력 합니다.
+    c. **세부 정보**: 선택한 알림 유형에 따라 전자 메일 주소, 전화 번호 등을 입력 합니다.
     
     d. **일반 경고 스키마**: Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](./alerts-common-schema.md)를 사용하도록 선택할 수 있습니다.
 
@@ -81,7 +81,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
     
     b. **이름**: 동작에 대 한 고유한 이름을 입력 합니다.
 
-    다. **세부 정보**: 작업 유형에 따라 webhook URI, Azure 앱, itsm 연결 또는 자동화 runbook을 입력 합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
+    c. **세부 정보**: 작업 유형에 따라 webhook URI, Azure 앱, itsm 연결 또는 자동화 runbook을 입력 합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
     
     d. **일반 경고 스키마**: Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](./alerts-common-schema.md)를 사용하도록 선택할 수 있습니다.
     

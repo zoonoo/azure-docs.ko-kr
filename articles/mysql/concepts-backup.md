@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 4438ceaa7bb4e9c29a05de0481acdad571e3bb64
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 05cc6579d83fe0cd861f3f91b8d44297963f8101
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542340"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433277"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Azure Database for MySQL의 백업 및 복원
 
@@ -43,8 +43,6 @@ Azure Database for MySQL는 데이터 파일과 트랜잭션 로그의 백업을
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>최대 16TB의 저장소를 포함 하는 범용 저장소 서버
 
 [Azure 지역의](/azure/mysql/concepts-pricing-tiers#storage)하위 집합에서 새로 프로 비전 된 모든 서버는 16gb 저장소까지 범용 저장소를 지원할 수 있습니다. 즉, 최대 16TB 저장소 저장소는 지원 되는 모든 [지역](concepts-pricing-tiers.md#storage) 에 대 한 기본 범용 저장소입니다. 이러한 16gb 저장소 서버에 대 한 백업은 스냅숏 기반입니다. 첫 번째 전체 스냅샷 백업은 서버를 만든 직후에 예약됩니다. 첫 번째 전체 스냅숏 백업은 서버의 기본 백업으로 유지 됩니다. 후속 스냅샷 백업은 차등 백업만 수행합니다.
-
-[Azure 지역의](concepts-pricing-tiers.md#storage)하위 집합에서 새로 프로 비전 된 모든 서버는 16gb 저장소까지 범용 저장소를 지원할 수 있습니다. 즉, 최대 16TB 저장소 저장소는 지원 되는 모든 [지역](concepts-pricing-tiers.md#storage) 에 대 한 기본 범용 저장소입니다. 이러한 16gb 저장소 서버에 대 한 백업은 스냅숏 기반입니다. 첫 번째 전체 스냅샷 백업은 서버를 만든 직후에 예약됩니다. 첫 번째 전체 스냅숏 백업은 서버의 기본 백업으로 유지 됩니다. 후속 스냅샷 백업은 차등 백업만 수행합니다.
 
 차등 스냅샷 백업은 하루에 한 번 이상 발생합니다. 차등 스냅샷 백업은 정해진 일정으로 발생하지 않습니다. 차등 스냅숏 백업은 마지막 차등 백업 이후 트랜잭션 로그 (MySQL의 binlog)가 50 GB를 초과 하지 않는 한 24 시간 마다 발생 합니다. 하루에 최대 6번의 차등 스냅샷이 허용됩니다.
 

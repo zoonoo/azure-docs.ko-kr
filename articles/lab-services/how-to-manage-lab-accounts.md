@@ -3,15 +3,15 @@ title: Azure Lab Services의 랩 계정 관리 | Microsoft Docs
 description: Azure 구독에서 랩 계정을 만들거나 랩 계정을 모두 보거나 랩 계정을 삭제하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 33e5e42f65fdd34bb37b12947b5173700ad7970c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 65ff28401b73698e320735613b32c96bf3de58f2
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999504"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434093"
 ---
 # <a name="create-and-manage-lab-accounts"></a>랩 계정 만들기 및 관리
-Azure Lab Services에서 랩 계정은 클래스룸 랩과 같은 관리되는 랩 형식의 컨테이너입니다. 관리자는 Azure Lab Services를 사용하여 랩 계정을 설정하고 계정에 랩을 만들 수 있는 랩 소유자에게 액세스 권한을 제공합니다. 이 문서는 랩 계정을 만들거나, 모든 랩 계정을 보거나, 랩 계정을 삭제하는 방법을 설명합니다.
+Azure Lab Services에서 랩 계정은 lab과 같은 관리 되는 랩 형식에 대 한 컨테이너입니다. 관리자는 Azure Lab Services를 사용하여 랩 계정을 설정하고 계정에 랩을 만들 수 있는 랩 소유자에게 액세스 권한을 제공합니다. 이 문서는 랩 계정을 만들거나, 모든 랩 계정을 보거나, 랩 계정을 삭제하는 방법을 설명합니다.
 
 ## <a name="create-a-lab-account"></a>랩 계정 만들기
 다음 단계는 Azure Portal을 사용하여 Azure DevTest Labs로 랩 계정을 만드는 방법을 설명합니다. 

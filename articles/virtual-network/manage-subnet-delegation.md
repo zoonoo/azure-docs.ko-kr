@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: d2db8eb5b93d84a5ece182fffbca5870762ee89e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e4f002d038820edf128e3fefb229a0918a8ac55
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84703906"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433518"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>서브넷 위임 추가 또는 제거
 
@@ -27,28 +27,28 @@ ms.locfileid: "84703906"
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ### <a name="create-the-virtual-network"></a>가상 네트워크 만들기
 
 이 섹션에서는 나중에 Azure 서비스에 위임할 가상 네트워크 및 서브넷을 만듭니다.
 
-1. 화면 왼쪽 위에서 **리소스 만들기**  >  **네트워킹**  >  **가상 네트워크**를 선택 합니다.
-1. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
+1. 화면 왼쪽 위에서 **리소스 만들기**  >  **네트워킹**  >  **가상 네트워크** 를 선택 합니다.
+1. **가상 네트워크 만들기** 에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | *MyVirtualNetwork*를 입력 합니다. |
-    | 주소 공간 | *10.0.0.0/16*을 입력합니다. |
+    | 속성 | *MyVirtualNetwork* 를 입력 합니다. |
+    | 주소 공간 | *10.0.0.0/16* 을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
-    | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
-    | 위치 | **Eastus**를 선택 합니다.|
-    | 서브넷 - 이름 | *Mysubnet*을 입력 합니다. |
-    | 서브넷 - 주소 범위 | *10.0.0.0/24*를 입력합니다. |
+    | Resource group | **새로 만들기** 를 선택하고 *myResourceGroup* 을 입력한 다음, **확인** 을 선택합니다. |
+    | 위치 | **Eastus** 를 선택 합니다.|
+    | 서브넷 - 이름 | *Mysubnet* 을 입력 합니다. |
+    | 서브넷 - 주소 범위 | *10.0.0.0/24* 를 입력합니다. |
     |||
-1. 나머지를 기본값으로 유지 하 고 **만들기**를 선택 합니다.
+1. 나머지를 기본값으로 유지 하 고 **만들기** 를 선택 합니다.
 
-### <a name="permissions"></a>사용 권한
+### <a name="permissions"></a>권한
 
 Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 권한이 필요 합니다. `Microsoft.Network/virtualNetworks/subnets/write` .
 
@@ -58,28 +58,30 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
 
 이 섹션에서는 이전 섹션에서 만든 서브넷을 Azure 서비스에 위임 합니다.
 
-1. 포털의 검색 창에서 *myVirtualNetwork*를 입력합니다. 검색 결과에 **myVirtualNetwork**가 표시되면 선택합니다.
-2. 검색 결과에서 *myVirtualNetwork*를 선택 합니다.
-3. **설정**에서 **서브넷**을 선택 하 고 **mysubnet**을 선택 합니다.
+1. 포털의 검색 창에서 *myVirtualNetwork* 를 입력합니다. 검색 결과에 **myVirtualNetwork** 가 표시되면 선택합니다.
+2. 검색 결과에서 *myVirtualNetwork* 를 선택 합니다.
+3. **설정** 에서 **서브넷** 을 선택 하 고 **mysubnet** 을 선택 합니다.
 4. *Mysubnet* 페이지의 **서브넷 위임** 목록에서 **서비스에 대 한 서브넷 위임** 에 나열 된 서비스 (예: **DBforPostgreSQL/serversv2**)를 선택 합니다.  
 
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Azure 서비스에서 서브넷 위임 제거
 
-1. 포털의 검색 창에서 *myVirtualNetwork*를 입력합니다. 검색 결과에 **myVirtualNetwork**가 표시되면 선택합니다.
-2. 검색 결과에서 *myVirtualNetwork*를 선택 합니다.
-3. **설정**에서 **서브넷**을 선택 하 고 **mysubnet**을 선택 합니다.
-4. *Mysubnet* 페이지의 **서브넷 위임** 목록에서 **서비스에 서브넷 위임**아래에 나열 된 서비스에서 **없음** 을 선택 합니다. 
+1. 포털의 검색 창에서 *myVirtualNetwork* 를 입력합니다. 검색 결과에 **myVirtualNetwork** 가 표시되면 선택합니다.
+2. 검색 결과에서 *myVirtualNetwork* 를 선택 합니다.
+3. **설정** 에서 **서브넷** 을 선택 하 고 **mysubnet** 을 선택 합니다.
+4. *Mysubnet* 페이지의 **서브넷 위임** 목록에서 **서비스에 서브넷 위임** 아래에 나열 된 서비스에서 **없음** 을 선택 합니다. 
 
 ## <a name="azure-cli"></a>Azure CLI
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Azure CLI에 대한 환경을 준비합니다.
 
-Azure CLI를 로컬로 설치 하 고 사용 하려는 경우이 문서에서는 Azure CLI 버전 2.0.28 이상을 사용 해야 합니다. 설치된 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드 정보는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 [az group create](https://docs.microsoft.com/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-다음 예제에서는 **eastus** 위치에 **myResourceGroup**이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 **eastus** 위치에 **myResourceGroup** 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 
@@ -90,7 +92,7 @@ Azure CLI를 로컬로 설치 하 고 사용 하려는 경우이 문서에서는
 ```
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
-[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet)를 사용하여 **myResourceGroup**에 **mySubnet**이라는 서브넷이 있는 **myVnet** 가상 네트워크를 만듭니다.
+[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet)를 사용하여 **myResourceGroup** 에 **mySubnet** 이라는 서브넷이 있는 **myVnet** 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive
   az network vnet create \
@@ -101,7 +103,7 @@ Azure CLI를 로컬로 설치 하 고 사용 하려는 경우이 문서에서는
     --subnet-name mySubnet \
     --subnet-prefix 10.0.0.0/24
 ```
-### <a name="permissions"></a>사용 권한
+### <a name="permissions"></a>권한
 
 Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 권한이 필요 합니다. `Microsoft.Network/virtualNetworks/subnets/write` .
 
@@ -121,7 +123,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
   --delegations Microsoft.DBforPostgreSQL/serversv2
 ```
 
-위임이 적용 되었는지 확인 하려면 [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show)를 사용 합니다. 서비스가 속성 **serviceName**의 서브넷에 위임 되었는지 확인 합니다.
+위임이 적용 되었는지 확인 하려면 [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show)를 사용 합니다. 서비스가 속성 **serviceName** 의 서브넷에 위임 되었는지 확인 합니다.
 
 ```azurecli-interactive
   az network vnet subnet show \
@@ -150,7 +152,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
 
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Azure 서비스에서 서브넷 위임 제거
 
-[Az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) 를 사용 하 여 **mysubnet**이라는 서브넷에서 위임을 제거 합니다.
+[Az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) 를 사용 하 여 **mysubnet** 이라는 서브넷에서 위임을 제거 합니다.
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -159,7 +161,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
   --vnet-name myVnet \
   --remove delegations
 ```
-위임이 제거 되었는지 확인 하려면 [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show)를 사용 합니다. 서비스를 속성 **serviceName**의 서브넷에서 제거 했는지 확인 합니다.
+위임이 제거 되었는지 확인 하려면 [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show)를 사용 합니다. 서비스를 속성 **serviceName** 의 서브넷에서 제거 했는지 확인 합니다.
 
 ```azurecli-interactive
   az network vnet subnet show \
@@ -186,21 +188,21 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 [New-AzResourceGroup](https://docs.microsoft.com/cli/azure/group)을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
   New-AzResourceGroup -Name myResourceGroup -Location eastus
 ```
 ### <a name="create-virtual-network"></a>가상 네트워크 만들기
 
-[New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest)를 사용하여 **myResourceGroup**에서 [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest)를 사용하여 **mySubnet**이라는 서브넷이 있는 **myVnet**이라는 가상 네트워크를 만듭니다. 가상 네트워크에 대 한 IP 주소 공간은 **10.0.0.0/16**입니다. 가상 네트워크 내의 서브넷은 **10.0.0.0/24**입니다.  
+[New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest)를 사용하여 **myResourceGroup** 에서 [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest)를 사용하여 **mySubnet** 이라는 서브넷이 있는 **myVnet** 이라는 가상 네트워크를 만듭니다. 가상 네트워크에 대 한 IP 주소 공간은 **10.0.0.0/16** 입니다. 가상 네트워크 내의 서브넷은 **10.0.0.0/24** 입니다.  
 
 ```azurepowershell-interactive
   $subnet = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix "10.0.0.0/24"
 
   New-AzVirtualNetwork -Name myVnet -ResourceGroupName myResourceGroup -Location eastus -AddressPrefix "10.0.0.0/16" -Subnet $subnet
 ```
-### <a name="permissions"></a>사용 권한
+### <a name="permissions"></a>권한
 
 Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 권한이 필요 합니다. `Microsoft.Network/virtualNetworks/subnets/write` .
 
@@ -234,7 +236,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
 ```
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Azure 서비스에서 서브넷 위임 제거
 
-[AzDelegation](https://docs.microsoft.com/powershell/module/az.network/remove-azdelegation?view=latest) 를 사용 하 여 **mysubnet**이라는 서브넷에서 위임을 제거 합니다.
+[AzDelegation](https://docs.microsoft.com/powershell/module/az.network/remove-azdelegation?view=latest) 를 사용 하 여 **mysubnet** 이라는 서브넷에서 위임을 제거 합니다.
 
 ```azurepowershell-interactive
   $vnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"

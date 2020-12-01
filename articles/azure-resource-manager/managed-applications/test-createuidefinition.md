@@ -5,18 +5,18 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: f45e8435ea26e575398801471904b5038a518a44
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: f76d3b81c2d5425f7bb91c5c86a79faa097794e3
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948836"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435003"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Azure Managed Applications에 대 한 포털 인터페이스 테스트
 
 관리 되는 응용 프로그램에 대 한 [파일에 createUiDefinition.js를 만든](create-uidefinition-overview.md) 후 사용자 환경을 테스트 해야 합니다. 테스트를 간소화 하려면 포털에서 파일을 로드 하는 샌드박스 환경을 사용 합니다. 실제로 관리되는 애플리케이션을 배포할 필요는 없습니다. 샌드박스는 현재 전체 화면 포털 환경에서 사용자 인터페이스를 제공 합니다. 또는 인터페이스를 테스트 하는 데 스크립트를 사용할 수 있습니다. 두 방법은 모두 이 문서에 나와 있습니다. 샌드박스는 인터페이스를 미리 보는 데 권장 되는 방법입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **createUiDefinition.json** 파일. 이 파일이 없으면 [샘플 파일](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json)을 복사 합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "91948836"
 
    ![샌드박스 표시](./media/test-createuidefinition/show-sandbox.png)
 
-1. 빈 정의를 파일에 createUiDefinition.js의 콘텐츠로 바꿉니다. **미리 보기**를 선택합니다.
+1. 빈 정의를 파일에 createUiDefinition.js의 콘텐츠로 바꿉니다. **미리 보기** 를 선택합니다.
 
    ![미리 보기 선택](./media/test-createuidefinition/select-preview.png)
 
@@ -38,11 +38,11 @@ ms.locfileid: "91948836"
 
 ### <a name="troubleshooting"></a>문제 해결
 
-**미리 보기**를 선택한 후 양식이 표시 되지 않으면 구문 오류가 발생할 수 있습니다. 오른쪽 스크롤 막대에서 빨간색 표시기를 찾아 이동 합니다.
+**미리 보기** 를 선택한 후 양식이 표시 되지 않으면 구문 오류가 발생할 수 있습니다. 오른쪽 스크롤 막대에서 빨간색 표시기를 찾아 이동 합니다.
 
 ![구문 오류 표시](./media/test-createuidefinition/show-syntax-error.png)
 
-양식이 표시 되지 않고, 대신 삭제를 사용 하는 클라우드의 아이콘이 표시 되는 경우 누락 된 속성과 같은 오류가 폼에 표시 됩니다. 브라우저에서 웹 개발자 도구를 엽니다. **콘솔**은 인터페이스에 관한 중요 메시지를 표시합니다.
+양식이 표시 되지 않고, 대신 삭제를 사용 하는 클라우드의 아이콘이 표시 되는 경우 누락 된 속성과 같은 오류가 폼에 표시 됩니다. 브라우저에서 웹 개발자 도구를 엽니다. **콘솔** 은 인터페이스에 관한 중요 메시지를 표시합니다.
 
 ![오류 표시](./media/test-createuidefinition/show-error.png)
 
@@ -104,4 +104,4 @@ Azure CLI의 경우
 
 ## <a name="next-steps"></a>다음 단계
 
-포털 인터페이스 유효성 검사 후 [Marketplace에서 Azure Managed Application](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)을 제공하는 방법을 알아보세요.
+포털 인터페이스 유효성 검사 후 [Marketplace에서 Azure Managed Application](../../marketplace/create-new-azure-apps-offer.md)을 제공하는 방법을 알아보세요.

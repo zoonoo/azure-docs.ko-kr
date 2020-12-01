@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8dfc34699bb973dc1f5b74807043e9f208d64f4c
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 9de4a4534551c4a41b2c81c1d10fecf6118ff868
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242150"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434518"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL에 대 한 데이터 암호화
 
@@ -34,11 +34,23 @@ Azure Portal를 사용 하 여 Azure Database for MySQL 데이터 암호화를 �
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
+  * 보존 일 수를 90 일로 설정
+  
+    ```azurecli-interactive
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
+    ```
 
 * 키에는 고객 관리 키로 사용할 다음 특성이 있어야 합니다.
   * 만료 날짜 없음
   * 사용 안 함 없음
-  * 가져오기, 키 래핑, 키 래핑 해제 작업도 수행 가능
+  * **가져오기**, **래핑**, **래핑** 해제 작업 수행
+  * recoverylevel 특성이 **복구** 가능으로 설정 되었습니다.
+
+다음 명령을 사용 하 여 위의 키 특성을 확인할 수 있습니다.
+
+```azurecli-interactive
+az keyvault key show --vault-name <key_vault_name> -n <key_name>
+```
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>키 작업에 대 한 올바른 사용 권한 설정
 
@@ -46,7 +58,7 @@ Azure Portal를 사용 하 여 Azure Database for MySQL 데이터 암호화를 �
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png" alt-text="액세스 정책을 사용 하는 Key Vault의 스크린샷 강조 표시 된 액세스 정책 추가":::
 
-2. **키 사용 권한** 을 선택 하 고 **가져오기** , **래핑** , **래핑** 해제, **보안 주체** (MySQL 서버의 이름)를 차례로 선택 합니다. 기존 보안 주체 목록에서 서버 보안 주체를 찾을 수 없는 경우 등록 해야 합니다. 처음으로 데이터 암호화를 설정 하려고 할 때 서버 보안 주체를 등록 하 라는 메시지가 표시 되 고 실패 합니다.
+2. **키 사용 권한** 을 선택 하 고 **가져오기**, **래핑**, **래핑** 해제, **보안 주체**(MySQL 서버의 이름)를 차례로 선택 합니다. 기존 보안 주체 목록에서 서버 보안 주체를 찾을 수 없는 경우 등록 해야 합니다. 처음으로 데이터 암호화를 설정 하려고 할 때 서버 보안 주체를 등록 하 라는 메시지가 표시 되 고 실패 합니다.
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="액세스 정책 개요":::
 

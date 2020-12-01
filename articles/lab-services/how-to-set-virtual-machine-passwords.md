@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services의 VM 암호 설정 | Microsoft Docs
-description: Azure Lab Services의 클래스룸 랩에서 VM(가상 머신)의 암호를 설정하고 재설정하는 방법을 알아봅니다.
+description: Azure Lab Services 랩에서 Vm (가상 머신)에 대 한 암호를 설정 하 고 다시 설정 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e24fee26670a664012ec5f0216b0638d6149453f
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6ae577ee4c0c7e31760e0fb12afeaeac1ef8b7e2
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379692"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434229"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>가상 머신 풀 설정 및 관리 
 이 문서에서는 다음 작업을 수행하는 방법을 보여줍니다.
@@ -102,4 +102,4 @@ ms.locfileid: "93379692"
 ## <a name="next-steps"></a>다음 단계
 랩 소유자가 구성할 수 있는 다른 학생 사용량 옵션에 대해 알아보려면 다음 문서를 참조하세요. [학생 사용량 구성](how-to-configure-student-usage.md)
 
-학생이 자신의 VM에 대한 암호를 다시 설정하는 방법에 대한 자세한 내용은 [클래스룸 랩에서 가상 머신의 암호 설정 또는 다시 설정(학생)](how-to-set-virtual-machine-passwords-student.md)을 참조하세요.
+학생이 자신의 Vm에 대 한 암호를 다시 설정 하는 방법에 대 한 자세한 내용은 [랩의 가상 컴퓨터에 대 한 암호 설정 또는 다시 설정 (학생용)](how-to-set-virtual-machine-passwords-student.md)을 참조 하세요.

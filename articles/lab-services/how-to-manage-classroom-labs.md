@@ -1,17 +1,17 @@
 ---
-title: Azure Lab Services의 클래스룸 랩 관리 | Microsoft Docs
-description: 클래스룸 랩을 만들고 구성하거나, 모든 클래스룸 랩을 보거나, 랩 사용자와 등록 링크를 공유하거나 또는 랩을 삭제하는 방법에 대해 알아봅니다.
+title: Azure Lab Services에서 랩 관리 | Microsoft Docs
+description: 교실 랩을 만들고 구성 하 고, 모든 랩을 보거나, 랩 사용자와 등록 링크를 공유 하거나, 랩을 삭제 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: dd05b13a34e2be1a9d6bdc011a9aa24e79bc8dd1
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: db7a2f58f99252a7e5076dd86c37b65bbe8ea37a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148374"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434212"
 ---
-# <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 랩 관리 
-이 문서에서는 클래스룸 랩을 만들고 삭제하는 방법을 설명합니다. 또한 랩 계정에서 모든 클래스룸 랩을 보는 방법을 보여 줍니다. 
+# <a name="manage-labs-in-azure-lab-services"></a>Azure Lab Services에서 랩 관리 
+이 문서에서는 클래스룸 랩을 만들고 삭제하는 방법을 설명합니다. 또한 랩 계정에서 모든 랩을 보는 방법을 보여 줍니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 랩 계정에서 클래스룸 랩을 설정하려면 랩 계정에서 **랩 작성자** 역할의 멤버여야 합니다. 랩 계정을 만드는 데 사용한 계정이 이 역할에 자동으로 추가됩니다. 랩 소유자는 다음 문서의 단계에 따라 랩 작성자 역할에 다른 사용자를 추가할 수 있습니다. [랩 작성자 역할에 사용자 추가](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role)
@@ -49,7 +49,7 @@ ms.locfileid: "93148374"
         ![새 랩 창](./media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
     4. 그런 다음, **가상 머신 자격 증명** 페이지에서 **다음** 을 선택합니다. 
 5. **랩 정책** 페이지에서 다음 단계를 수행합니다.
-    1. 각 사용자에게 할당되는 시간( **각 사용자에 대한 할당량** )을 랩에 예약된 시간 이외의 시간으로 입력합니다. 
+    1. 각 사용자에게 할당되는 시간(**각 사용자에 대한 할당량**)을 랩에 예약된 시간 이외의 시간으로 입력합니다. 
     2. **가상 머신 자동 종료** 옵션의 경우 사용자 연결이 끊길 때 VM이 자동으로 종료되도록 설정할지 여부를 지정합니다. VM이 자동으로 종료되기 전에 사용자가 다시 연결될 때까지 대기해야 하는 기간도 지정할 수 있습니다. 자세한 내용은 [연결 해제 시 VM 자동 종료 사용](how-to-enable-shutdown-disconnect.md)을 참조하세요.
     3. 그런 다음, **마침** 을 선택합니다. 
 
@@ -103,7 +103,7 @@ ms.locfileid: "93148374"
 > [!NOTE]
 > 클래스룸 랩을 만들 때 이러한 VM 크기 중 일부가 목록에 표시되지 않을 수 있습니다. 이 목록은 랩 위치의 현재 용량을 기준으로 채워집니다. 랩 계정 작성자가 [랩 작성자가 랩의 위치를 선택하도록 허용](allow-lab-creator-pick-lab-location.md)할 경우 랩에 다른 위치를 선택하고 VM 크기를 사용할 수 있는지 확인할 수 있습니다. 
 
-## <a name="view-all-classroom-labs"></a>모든 클래스룸 랩 보기
+## <a name="view-all-labs"></a>모든 랩 보기
 
 1. [Azure Lab Services Portal](https://labs.azure.com)로 이동합니다.
 1. **로그인** 을 선택합니다. 랩 계정에서 **랩 작성자** 역할의 멤버인 **사용자 ID** 를 선택하거나 입력하고 암호를 입력합니다. Azure Lab Services는 조직 계정 및 Microsoft 계정을 지원합니다. 
@@ -139,5 +139,5 @@ ms.locfileid: "93148374"
 
 - [랩 소유자 권한으로 템플릿 설정 및 게시](how-to-create-manage-template.md)
 - [랩 소유자 권한으로 랩 사용 구성 및 제어](how-to-configure-student-usage.md)
-- [랩 사용자 권한으로 클래스룸 랩 액세스](how-to-use-classroom-lab.md)
+- [랩 사용자로 서 액세스 랩](how-to-use-classroom-lab.md)
 

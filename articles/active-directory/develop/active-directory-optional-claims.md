@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/30/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 7eedb9ce30be236e8d47152f0e114b7bc5ae2304
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e71ab0293dade56c14dce7318fc96021a040b102
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348095"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433313"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>방법: 앱에 선택적 클레임 제공
 
@@ -58,7 +58,7 @@ ms.locfileid: "96348095"
 | `verified_secondary_email` | 사용자의 SecondaryAuthoritativeEmail에서 소싱됩니다.   | JWT        |           |        |
 | `vnet`                     | VNET 지정자 정보입니다. | JWT        |           |      |
 | `fwd`                      | IP 주소입니다.| JWT    |   | 요청 클라이언트의 원래 IPv4 주소를 추가합니다(VNET 내에 있는 경우). |
-| `ctry`                     | 사용자의 국가/지역 | JWT, SAML |  | Azure AD는 `ctry` 선택적 클레임 (있는 경우)을 반환 하 고 필드의 값은 fr-fr, JP, SZ 등의 표준 2 자로 된 국가/지역 코드입니다. |
+| `ctry`                     | 사용자의 국가/지역 | JWT |  | Azure AD는 `ctry` 선택적 클레임 (있는 경우)을 반환 하 고 필드의 값은 fr-fr, JP, SZ 등의 표준 2 자로 된 국가/지역 코드입니다. |
 | `tenant_ctry`              | 리소스 테 넌 트의 국가 | JWT | | `ctry`관리자가 테 넌 트 수준에서 설정 하는 것과 동일 합니다.  또한은 표준 두 문자로 된 값 이어야 합니다. |
 | `xms_pdl`             | 기본 설정 데이터 위치   | JWT | | 다중 지역 테넌트의 경우 기본 데이터 위치는 사용자가 거주하는 지리적 지역을 나타내는 세 문자로 된 코드입니다. 자세한 내용은 [기본 설정 데이터 위치에 대한 Azure AD Connect 설명서](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md)를 참조합니다.<br/>예를 들어 아시아 태평양의 경우 `APC`입니다. |
 | `xms_pl`                   | 사용자 기본 설정 언어  | JWT ||설정되는 경우 사용자의 기본 설정 언어입니다. 게스트 액세스 시나리오에서 해당 홈 테넌트의 원본 위치입니다. 형식이 지정된 LL-CC("en-us")입니다. |
@@ -76,7 +76,7 @@ ms.locfileid: "96348095"
 
 **표 3: v2.0 전용 선택적 클레임**
 
-| JWT 클레임     | Name                            | 설명                                | 메모 |
+| JWT 클레임     | 속성                            | 설명                                | 메모 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |
@@ -186,7 +186,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 5: OptionalClaims 형식 속성**
 
-| Name          | 유형                       | Description                                           |
+| 속성          | Type                       | Description                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다.     |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -199,7 +199,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 6: OptionalClaim 형식 속성**
 
-| Name                   | 유형                    | Description                                                                                                                                                                                                                                                                                                   |
+| 속성                   | Type                    | Description                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6b767a2cf4739a0b36b9f5c5c960e3e3ead58262
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: fc260736a740362db2c19730afc93dd4f3d22c2e
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353088"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435420"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Azure Digital Twins (Api 및 CLI)에서 끝점 및 경로 관리
 
@@ -24,7 +24,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 또는 [Azure Portal](https://portal.azure.com)를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. 포털을 대신 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (포털)*](how-to-manage-routes-portal.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
 * Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-cli.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
@@ -90,18 +90,31 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 끝점이 특정 기간 내에 이벤트를 전달할 수 없거나 특정 횟수 만큼 이벤트를 배달 하려고 시도한 후에는 배달 되지 않은 이벤트를 저장소 계정으로 보낼 수 있습니다. 이 프로세스를 **배달 못 한 문자** 라고 합니다.
 
-배달 못 한 편지 처리를 사용 하도록 설정 된 끝점을 만들려면 [ARM api](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) 를 사용 하 여 끝점을 만들어야 합니다. 
-
-배달 못한 편지 위치를 설정하기 전에 컨테이너를 포함하는 스토리지 계정이 있어야 합니다. 끝점을 만들 때이 컨테이너의 URL을 제공 합니다. 배달 못 한 편지는 SAS 토큰을 포함 하는 컨테이너 URL로 제공 됩니다. 해당 토큰 `write` 은 저장소 계정 내에서 대상 컨테이너에 대 한 권한만 필요 합니다. 완전히 구성 된 URL의 형식은 다음과 같습니다. `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
-
-SAS 토큰에 대 한 자세한 내용은 [sas (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대해 제한 된 액세스 권한 부여](../storage/common/storage-sas-overview.md) 를 참조 하세요.
-
 배달 못 한 편지에 대해 자세히 알아보려면 [*개념: 이벤트 경로*](concepts-route-events.md#dead-letter-events)를 참조 하세요.
 
-#### <a name="configuring-the-endpoint"></a>끝점 구성
+#### <a name="set-up-storage-resources"></a>저장소 리소스 설정
 
-끝점을 만들 때 `deadLetterSecret` `properties` 저장소 계정에 대 한 컨테이너 URL 및 SAS 토큰을 포함 하는 요청 본문의 개체에를 추가 합니다.
+배달 못 한 편지 위치를 설정 하기 전에 Azure 계정에 [컨테이너](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) 를 설정 하는 [저장소 계정이](../storage/common/storage-account-create.md?tabs=azure-portal) 있어야 합니다. 나중에 끝점을 만들 때이 컨테이너에 대 한 URL을 제공 합니다.
+배달 못 한 편지는 [SAS 토큰](../storage/common/storage-sas-overview.md)을 포함 하는 컨테이너 URL로 제공 됩니다. 해당 토큰 `write` 은 저장소 계정 내에서 대상 컨테이너에 대 한 권한만 필요 합니다. 완전히 구성 된 URL의 형식은 다음과 같습니다. `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
+다음 섹션에서 끝점 연결 설정 준비를 위해 다음 단계에 따라 Azure 계정에 이러한 저장소 리소스를 설정 합니다.
+
+1. [이 문서](../storage/common/storage-account-create.md?tabs=azure-portal) 에 따라 저장소 계정을 만들고 나중에 사용할 저장소 계정 이름을 저장 합니다.
+2. 컨테이너와 끝점 간의 연결을 설정할 때 [이 문서](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) 를 사용 하 여 컨테이너를 만들고 나중에 사용할 수 있도록 컨테이너 이름을 저장 합니다.
+3. 그런 다음 저장소 계정에 대 한 SAS 토큰을 만듭니다. [Azure Portal](https://ms.portal.azure.com/#home) 에서 저장소 계정으로 이동 하 여 시작 합니다 (포털 검색 표시줄에서 이름으로 찾을 수 있음).
+4. 저장소 계정 페이지의 왼쪽 탐색 모음에서 _공유 액세스 서명_ 링크를 선택 하 여 SAS 토큰을 생성 하는 데 적합 한 권한을 선택 합니다.
+5. 허용 되는 _서비스_ 및 _허용 되는 리소스 종류_ 에 대해 원하는 설정을 선택 합니다. 각 범주에서 하나 이상의 상자를 선택 해야 합니다. 허용 되는 사용 권한에 대해 **쓰기** 를 선택 합니다. 원하는 경우 기타 사용 권한을 선택할 수도 있습니다.
+원하는 대로 나머지 설정을 설정 합니다.
+6. Sas _및 연결 문자열 생성_ 단추를 선택 하 여 sas 토큰을 생성 합니다. 그러면 동일한 페이지의 아래쪽에 있는 설정 선택 항목 아래에 몇 개의 SAS 및 연결 문자열 값이 생성 됩니다. 아래로 스크롤하여 값을 확인 하 고 클립보드로 복사 아이콘을 사용 하 여 **SAS 토큰** 값을 복사 합니다. 나중에 사용할 수 있도록 저장 합니다.
+
+:::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token.png" alt-text="SAS 토큰을 생성 하는 모든 설정 선택을 보여 주는 Azure Portal의 저장소 계정 페이지입니다." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
+
+:::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="배달 못 한 문자 암호에 사용할 SAS 토큰을 복사 합니다." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+
+#### <a name="configure-the-endpoint"></a>끝점 구성
+
+배달 못 한 편지 끝점은 Azure Resource Manager Api를 사용 하 여 생성 됩니다. 끝점을 만들 때 [Azure Resource Manager api 설명서](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) 를 사용 하 여 필요한 요청 매개 변수를 채웁니다. 또한 `deadLetterSecret` 요청 **본문** 의 속성 개체에를 추가 합니다 .이 개체에는 저장소 계정에 대 한 컨테이너 URL 및 SAS 토큰이 포함 되어 있습니다.
+      
 ```json
 {
   "properties": {
@@ -113,8 +126,7 @@ SAS 토큰에 대 한 자세한 내용은 [sas (공유 액세스 서명)를 사�
   }
 }
 ```
-
-자세한 내용은 Azure Digital Twins REST API 설명서: [끝점-DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate)를 참조 하세요.
+이 요청을 구조화 하는 방법에 대 한 자세한 내용은 Azure Digital Twins REST API 설명서: [끝점-DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate)를 참조 하세요.
 
 ### <a name="message-storage-schema"></a>메시지 저장소 스키마
 

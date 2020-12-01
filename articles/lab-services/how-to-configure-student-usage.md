@@ -1,14 +1,14 @@
 ---
-title: Azure Lab Services의 교실 랩에서 사용 설정 구성
+title: Azure Lab Services 랩에서 사용 설정 구성
 description: 랩에 대 한 학생 수를 구성 하 고, 랩에 등록 하 고, VM을 사용할 수 있는 시간 수를 제어 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 11/11/2020
-ms.openlocfilehash: d3100f1a7e67e3b0d403375de02cb3daf5fcfb31
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: e768c74d338cf21eb56660fe3790fc1f0f3ec80d
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555722"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434552"
 ---
 # <a name="add-and-manage-lab-users"></a>랩 사용자 추가 및 관리
 
@@ -81,7 +81,7 @@ CSV 텍스트 파일은 쉼표로 구분 된 CSV () 테이블 형식 데이터 (
 
 1. **전자 메일을 통해 초대 보내기** 창에서 선택적 메시지를 입력 한 다음 **보내기** 를 선택 합니다. 
 
-    이메일에는 등록 링크가 자동으로 포함됩니다. 등록 링크를 별도로 가져오고 저장 하려면 **사용자** 창의 맨 위에 있는 줄임표 ( **...** )를 선택 하 고 **등록 링크** 를 선택 합니다. 
+    이메일에는 등록 링크가 자동으로 포함됩니다. 등록 링크를 별도로 가져오고 저장 하려면 **사용자** 창의 맨 위에 있는 줄임표 (**...**)를 선택 하 고 **등록 링크** 를 선택 합니다. 
 
     !["전자 메일로 등록 링크 보내기" 창](./media/tutorial-setup-classroom-lab/send-email.png)
 
@@ -169,7 +169,7 @@ CSV 텍스트 파일은 쉼표로 구분 된 CSV () 테이블 형식 데이터 (
 교실 랩에 학생을 추가 하려면 전자 메일 계정을 사용 합니다. 학생 들에 게는 다음과 같은 유형의 전자 메일 계정이 있을 수 있습니다.
 
 - 대학 Azure Active Directory 인스턴스에서 제공 하는 학생 전자 메일 계정입니다.
-- Microsoft 도메인 전자 메일 계정 (예: *outlook.com* , *hotmail.com* , *msn.com* 또는 *live.com* )
+- Microsoft 도메인 전자 메일 계정 (예: *outlook.com*, *hotmail.com*, *msn.com* 또는 *live.com*)
 - Yahoo!에서 제공 하는 것과 같은 타사 전자 메일 계정 또는 Google. 그러나 이러한 유형의 계정은 Microsoft 계정 연결 해야 합니다.
 - GitHub 계정. 이 계정은 Microsoft 계정 연결 해야 합니다.
 
@@ -207,7 +207,7 @@ CSV 텍스트 파일은 쉼표로 구분 된 CSV () 테이블 형식 데이터 (
 ## <a name="export-a-list-of-users-to-a-csv-file"></a>CSV 파일로 사용자 목록 내보내기
 
 1. **사용자** 창으로 이동 합니다.
-1. 도구 모음에서 줄임표 ( **...** )를 선택한 다음, **CSV 내보내기** 를 선택 합니다. 
+1. 도구 모음에서 줄임표 (**...**)를 선택한 다음, **CSV 내보내기** 를 선택 합니다. 
 
     !["CSV 내보내기" 단추](./media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
 
@@ -218,4 +218,4 @@ CSV 텍스트 파일은 쉼표로 구분 된 CSV () 테이블 형식 데이터 (
 
 - 관리자: [랩 계정 만들기 및 관리](how-to-manage-lab-accounts.md)
 - 랩 소유자: 랩 [만들기 및 관리](how-to-manage-classroom-labs.md) 및 [템플릿 설정 및 게시](how-to-create-manage-template.md)
-- 랩 사용자: [교실 랩 액세스](how-to-use-classroom-lab.md)
+- 랩 사용자: [액세스 랩](how-to-use-classroom-lab.md)

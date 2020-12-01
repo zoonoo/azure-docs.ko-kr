@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: 033f06aa61baf04b5c74fbbe9cc8f925d5d4e3d3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c1406e6a1f2f36c5d42544c52ade3f991fe2ba0a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182311"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433022"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure Security Center의 보안 경고
 
@@ -91,7 +91,7 @@ Azure Security Center는 위협 환경의 변화를 지속적으로 모니터링
 
 - 경고 대시보드에서 **csv 보고서 다운로드** 는 csv로 일회성 내보내기를 제공 합니다.
 - 가격 책정에서 **연속 내보내기** & 설정을 사용 하면 작업 영역 및 Event Hubs에 Log Analytics 대 한 보안 경고 및 권장 사항 스트림을 구성할 수 있습니다. [연속 내보내기에 대 한 자세한 정보](continuous-export.md)
-- **Azure 센티널 커넥터** 는 Azure Security Center에서 azure 센티널로 azure Defender 경고를 스트리밍합니다. [센티널로 Azure Security Center 연결에 대 한 자세한 정보](../sentinel/connect-azure-security-center.md)
+- **Azure 센티널 커넥터** 는 Azure Security Center의 보안 경고를 azure 센티널로 스트리밍합니다. [센티널로 Azure Security Center 연결에 대 한 자세한 정보](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>다음 단계

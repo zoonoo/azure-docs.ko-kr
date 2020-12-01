@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 3cbca82ba88baf5ddda2a6d7a6cdd35b62f28b8e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 264d103cd5f1459a6d29a35a1ecefc595285587a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647939"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433991"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>GPU virtual machines를 사용 하 여 랩 설정
 
@@ -66,7 +66,7 @@ ms.locfileid: "94647939"
 
    a. 브라우저에서 [NVIDIA 드라이버 다운로드 페이지로](https://www.nvidia.com/Download/index.aspx)이동 합니다.  
    b. **제품 유형을** **Tesla** 로 설정 합니다.  
-   다. **제품 시리즈** 를 **K 시리즈** 로 설정 합니다.  
+   c. **제품 시리즈** 를 **K 시리즈** 로 설정 합니다.  
    d. 랩을 만들 때 선택한 기본 이미지 유형에 따라 **운영 체제** 를 설정 합니다.  
    e. 필요한 verda 드라이버의 버전으로 **Verda Toolkit** 을 설정 합니다.  
    f. **검색** 을 선택 하 여 드라이버를 찾습니다.  
@@ -115,6 +115,6 @@ Linux를 실행 하는 [N 시리즈 vm에 NVIDIA GPU 드라이버 설치](../vir
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.
 
-- [클래스룸 랩 만들기 및 관리](how-to-manage-classroom-labs.md)
+- [랩 만들기 및 관리](how-to-manage-classroom-labs.md)
 - [SOLIDWORKS 컴퓨터-CAD (design) 클래스 형식](class-type-solidworks.md)
 - [MATLAB (matrix 실습) 클래스 형식](class-type-matlab.md)

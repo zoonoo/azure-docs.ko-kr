@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 관리
+title: Apache Spark에 대 한 라이브러리 관리
 description: Azure Synapse Analytics에서 Apache Spark에 사용 되는 라이브러리를 추가 하 고 관리 하는 방법을 알아봅니다.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 8d478b35b702e02f303358972526c091ceb3657e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 27881b048a738d4de2acb57dcc4c2dad1f4d5b24
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95917128"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435368"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 관리
 
@@ -36,7 +36,7 @@ Spark 응용 프로그램에 사용할 라이브러리를 확인 한 후에는 S
 
 > [!IMPORTANT]
 > - 설치 하는 패키지가 크거나 설치 하는 데 시간이 오래 걸리는 경우 Spark 인스턴스 시작 시간에 영향을 줍니다.
-> - 설치 시 GCC와 같이 컴파일러 지원이 필요한 패키지는 지원 되지 않습니다.
+> - 설치 시 GCC와 같이 컴파일러 지원이 필요한 패키지는 지원되지 않습니다.
 > - 패키지를 다운 그레이드할 수 없습니다. 추가 하거나 업그레이드할 수 있습니다.
 > - 라이브러리를 설치 하려면 Synapse 작업 영역에 연결 된 기본 Gen2 저장소 계정에 대 한 저장소 Blob 데이터 참가자 또는 저장소 Blob 데이터 소유자 권한이 있어야 합니다.
 

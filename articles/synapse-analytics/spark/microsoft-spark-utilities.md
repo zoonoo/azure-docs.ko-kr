@@ -1,6 +1,6 @@
 ---
 title: Microsoft Spark 유틸리티 소개
-description: Azure Synapse Analytics 노트북에서 MSSparkutils를 사용 하는 방법에 대 한 자습서입니다.
+description: '자습서: Azure Synapse Analytics 노트북의 MSSparkutils'
 author: ruxu
 services: synapse-analytics
 ms.service: synapse-analytics
@@ -10,14 +10,14 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 3c4e062393f9d75d478720041436c2e0f54485a3
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: ff294c0227bb6a830a5aef2379248714a7f2f64a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95795080"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435198"
 ---
-# <a name="introduction-of-microsoft-spark-utilities"></a>Microsoft Spark 유틸리티 소개
+# <a name="introduction-to-microsoft-spark-utilities"></a>Microsoft Spark 유틸리티 소개
 
 Microsoft Spark 유틸리티 (MSSparkUtils)는 일반적인 작업을 쉽게 수행할 수 있도록 하는 기본 제공 패키지입니다. MSSparkUtils를 사용 하 여 파일 시스템 작업을 수행 하 고, 환경 변수를 가져오고, 암호를 사용할 수 있습니다. MSSparkUtils는 `PySpark (Python)` , `Scala` 및 `.NET Spark (C#)` 노트북 및 Synapse 파이프라인에서 사용할 수 있습니다.
 
