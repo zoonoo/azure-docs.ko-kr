@@ -1,5 +1,5 @@
 ---
-title: 검색 상자에 자동 완성 및 제안 추가
+title: 검색 상자에 자동 완성 추가
 titleSuffix: Azure Cognitive Search
 description: 완성 된 용어나 구를 사용 하 여 검색 상자를 자동으로 자동 완성 하는 요청을 확인 기 하 고 작성 하 여 Azure Cognitive Search에서 검색 형식 쿼리 작업을 사용 하도록 설정 합니다. 제안 된 일치 항목을 반환할 수도 있습니다.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5b498b8f49f2f0636b010e3c4d86f13ad44ac090
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029016"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339611"
 ---
-# <a name="add-autocomplete-and-suggestions-to-client-apps"></a>클라이언트 앱에 자동 완성 및 제안 추가
+# <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Azure Cognitive Search을 사용 하 여 클라이언트 앱에 자동 완성 및 제안 추가
 
 검색 형식은 사용자가 시작한 쿼리의 생산성을 개선 하는 일반적인 기술입니다. Azure Cognitive Search에서는이 환경이 *자동 완성* 을 통해 지원 되며,이는 부분 입력 ("microsoft"로 "마이크로" 완료)을 기반으로 용어 또는 구를 완료 합니다. 두 번째 사용자 환경에는 *제안 사항이* 나 일치 하는 문서의 짧은 목록 (해당 책에 대 한 세부 정보 페이지에 연결할 수 있도록 책 제목을 ID로 반환)이 있습니다. 인덱스의 일치 항목에 대 한 자동 완성 및 제안이 모두 예측 됩니다. 서비스는 결과를 0으로 반환 하는 쿼리를 제공 하지 않습니다.
 
@@ -67,7 +67,7 @@ REST 및 .NET SDK 참조 페이지에 대 한 다음 링크를 따르세요.
 
 제안 사항을 위해 중복을 방지 하기 위해 응답을 구체화 하거나 관련 되지 않은 결과를 표시 하는 것이 좋습니다. 결과를 제어 하려면 요청에 추가 매개 변수를 포함 합니다. 다음 매개 변수는 자동 완성 및 제안에 모두 적용 되지만 특히 확인 기에 여러 필드가 포함 된 경우 제안에 더 필요할 수 있습니다.
 
-| 매개 변수 | 사용량 |
+| 매개 변수 | 사용 |
 |-----------|-------|
 | **$select** | 확인 기에 여러 **sourcefields** 가 있는 경우 **$select** 를 사용 하 여 값을 제공 하는 필드를 선택 `$select=GameTitle` 합니다 (). |
 | **searchFields** | 특정 필드에 대 한 쿼리를 제한 합니다. |

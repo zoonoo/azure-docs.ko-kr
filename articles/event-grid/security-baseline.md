@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ccc39513505f299e85cbc270e2daeafeac6ca6fd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 575742ab0d886a69dc5acccf4a65ac8c91b5a871
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845189"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341038"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Event Grid에 대 한 Azure 보안 기준
 
@@ -70,11 +70,11 @@ Microsoft Azure Event Grid의 Azure 보안 기준에는 배포의 보안 상태�
 
 선택한 가상 네트워크 에서만 액세스를 제한 하도록 개인 끝점을 구성할 수 있습니다.
 
-DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러한 가상 네트워크에 DDoS Protection 표준을 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다. 자세한 내용은 다음 아티클을 참조하세요. 
+DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러한 가상 네트워크에 DDoS Protection 표준을 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다. 자세한 내용은 다음 문서를 참조하세요. 
 
 - [Azure Event Grid 토픽 또는 도메인에 대 한 개인 끝점을 구성 하는 방법](configure-private-endpoints.md)
 
-- [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
+- [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 - [Azure Security Center 통합 위협 인텔리전스에 대 한 자세한 내용은](../security-center/azure-defender.md)
 
@@ -227,7 +227,7 @@ Azure Event Grid와 관련 된 기본 제공 정책 정의를 사용할 수도 �
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics 쿼리 시작](../azure-monitor/log-query/get-started-portal.md)
+- [Log Analytics 쿼리 시작](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
@@ -289,7 +289,7 @@ Azure Event Grid 메트릭 및 활동 로그 작업에 대 한 경고를 만들 
 
 **지침**: Azure Event Grid를 사용 하면 이벤트 구독 나열, 새 구독 만들기 및 키 생성과 같은 다양 한 관리 작업을 수행 하기 위해 다른 사용자에 게 제공 되는 액세스 수준을 제어할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 Event Grid입니다. Event Grid은 기본 제공 역할 및 사용자 지정 역할을 지원 합니다.
 
-Azure RBAC (역할 기반 액세스 제어)를 통해 역할 할당을 통해 Azure 리소스에 대 한 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. 특정 리소스에 대 한 미리 정의 된 기본 제공 역할이 있으며 이러한 역할은 Azure CLI, Azure PowerShell 또는 Azure Portal와 같은 도구를 통해 인벤토리 또는 쿼리할 수 있습니다.
+Azure RBAC (역할 기반 액세스 제어)를 통해 역할 할당을 통해 Azure 리소스에 대 한 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. 특정 리소스에 대해 미리 정의된 기본 제공 역할이 있으며 이러한 역할은 Azure CLI, Azure PowerShell 또는 Azure Portal과 같은 도구를 통해 쿼리하거나 인벤토리에 포함할 수 있습니다.
 
 - [Event Grid 리소스에 대 한 액세스 권한 부여](security-authorization.md)
 
@@ -381,7 +381,7 @@ Azure event Grid 토픽 또는 도메인에 대해 관리 서비스 id를 사용
 
 - [게시 클라이언트 인증 (Azure Event Grid)](security-authenticate-publishing-clients.md)
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -395,7 +395,7 @@ Azure event Grid 토픽 또는 도메인에 대해 관리 서비스 id를 사용
 
 - [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
-- [Azure AD id 및 액세스 검토를 사용 하는 방법](../active-directory/governance/access-reviews-overview.md)
+- [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
 - [Azure AD PIM(Privileged Identity Management) 배포](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
@@ -984,11 +984,11 @@ Azure Key Vault와 함께 관리 되는 id를 사용 하 여 클라우드 응용
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
-**지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
+**지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft 관리형 클라우드 인프라, 서비스 및 애플리케이션에 대한 Microsoft의 전략과 Red Teaming 및 라이브 사이트 침투 테스트의 실행을 사용합니다.
 
 - [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 

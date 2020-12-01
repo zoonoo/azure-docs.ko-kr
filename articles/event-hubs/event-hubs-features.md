@@ -3,12 +3,12 @@ title: 기능 개요 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs의 기능 및 용어에 대한 정보를 제공합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: db7c0244fd4e9e04f9cfbcbba8748ec8190fc5c5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a38cf4ba6a06dc6e977f9ea168fcf67ce83ff5de
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96007439"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339985"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure Event Hubs의 기능 및 용어
 
@@ -33,7 +33,7 @@ Event Hub로 데이터를 전송하는 모든 엔터티는 이벤트 생산자 �
 
 ### <a name="publishing-an-event"></a>이벤트 게시
 
-AMQP 1.0, Kafka 1.0 이상 또는 HTTPS를 통해 이벤트를 게시할 수 있습니다. Event Hubs 서비스는 이벤트 허브에 이벤트를 게시 하기 위한 [REST API](https://docs.microsoft.com/rest/api/eventhub/) 및 [.net](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [JavaScript](event-hubs-node-get-started-send.md)및 [Go](event-hubs-go-get-started-send.md) 클라이언트 라이브러리를 제공 합니다. 다른 런타임 및 플랫폼의 경우, [Apache Qpid](https://qpid.apache.org/)와 같은 모든 AMQP 1.0 클라이언트를 사용할 수 있습니다. 
+AMQP 1.0, Kafka 1.0 이상 또는 HTTPS를 통해 이벤트를 게시할 수 있습니다. Event Hubs 서비스는 이벤트 허브에 이벤트를 게시 하기 위한 [REST API](/rest/api/eventhub/) 및 [.net](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [JavaScript](event-hubs-node-get-started-send.md)및 [Go](event-hubs-go-get-started-send.md) 클라이언트 라이브러리를 제공 합니다. 다른 런타임 및 플랫폼의 경우, [Apache Qpid](https://qpid.apache.org/)와 같은 모든 AMQP 1.0 클라이언트를 사용할 수 있습니다. 
 
 이벤트를 개별적으로 게시하거나 일괄처리할 수 있습니다. 단일 게시(이벤트 데이터 인스턴스)는 단일 이벤트 또는 일괄 처리인지에 관계 없이 1MB로 제한됩니다. 이 임계값보다 큰 이벤트를 게시하면 오류가 발생합니다. 게시자는 이벤트 허브 내에서 파티션을 인식 하지 못하고 *파티션 키* (다음 섹션에서 도입 된) 또는 해당 SAS 토큰을 통해 id를 지정 하는 것이 가장 좋습니다.
 
@@ -41,7 +41,7 @@ AMQP 또는 HTTPS 사용 선택은 사용량 시나리오에 해당됩니다. �
 
 ![파티션 키](./media/event-hubs-features/partition_keys.png)
 
-Event Hubs는 파티션 키 값을 공유하는 모든 이벤트가 동일한 파티션으로 순서대로 배달되도록 합니다. 파티션 키가 게시자 정책과 함께 사용되는 경우 게시자 ID와 파티션 키 값이 일치해야 합니다. 그렇지 않은 경우 오류가 발생합니다.
+Event Hubs는 파티션 키 값을 공유하는 모든 이벤트가 동일한 파티션으로 순서대로 배달되도록 합니다. 파티션 키가 게시자 정책과 함께 사용되는 경우 게시자 ID와 파티션 키 값이 일치해야 합니다. 그렇지 않으면 오류가 발생합니다.
 
 ### <a name="publisher-policy"></a>게시자 정책
 

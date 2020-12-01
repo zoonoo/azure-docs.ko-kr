@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 0b0e198075455f697c87ad48741a770e6f78b5a5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a42b07254deaf19d253f7523631018bfe7166a57
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542153"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339594"
 ---
 # <a name="azure-dedicated-hosts"></a>Azure 전용 호스트
 
@@ -165,13 +165,15 @@ SKU는 호스트에 대해 정의 되며 VM 크기 계열과 유형을 나타냅
 
 크기와 하드웨어 유형은 지역에 따라 다릅니다. 자세히 알아보려면 호스트 [가격 책정 페이지](https://aka.ms/ADHPricing)를 참조하세요.
 
+> [!NOTE]
+> 전용 호스트가 프로 비전 경우 크기 또는 유형을 변경할 수 없습니다. 다른 크기의 형식이 필요한 경우에는 새 호스트를 만들어야 합니다.  
 
 ## <a name="host-life-cycle"></a>호스트 수명 주기
 
 
 Azure는 호스트의 상태를 모니터링 하 고 관리 합니다. 호스트를 쿼리할 때 반환 되는 상태는 다음과 같습니다.
 
-| 성능 상태   | Description       |
+| 성능 상태   | 설명       |
 |----------|----------------|
 | 호스트 사용 가능     | 호스트와 관련 하 여 알려진 문제가 없습니다.   |
 | 확인 중인 호스트  | Microsoft에서 찾고 있는 호스트에 몇 가지 문제가 있습니다. 이는 Azure에서 식별 된 문제의 범위 및 근본 원인을 파악 하는 데 필요한 전환 상태입니다. 호스트에서 실행 중인 가상 컴퓨터에 영향을 줄 수 있습니다. |

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 55a27dbb6c2ec3569bae9d6fb96fcd8087f08daf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d2d6ee8357698e4af59f44579ce7f2c3aa82991c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001680"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340325"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사
 
@@ -94,7 +94,7 @@ Azure Data Factory 복사 마법사는 일반적으로 엔드투엔드 데이터
 이 섹션에서는 Azure Data Factory의 복사 마법사에 대 한 일반적인 문제 해결 방법을 살펴봅니다.
 
 > [!NOTE] 
-> 이러한 문제 해결 팁은 Data Factory 버전 1의 복사 마법사에 적용 됩니다. Data Factory v 2의 경우 문제 해결 가이드 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-ux-troubleshoot-guide)를 참조 하세요.
+> 이러한 문제 해결 팁은 Data Factory 버전 1의 복사 마법사에 적용 됩니다. Data Factory v 2의 경우 문제 해결 가이드 [Azure Data Factory](../data-factory-ux-troubleshoot-guide.md)를 참조 하세요.
 
 ### <a name="error-code-unable-to-validate-in-copy-wizard"></a>오류 코드: 복사 마법사에서 유효성을 검사할 수 없습니다.
 

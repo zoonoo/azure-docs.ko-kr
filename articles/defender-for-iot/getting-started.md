@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: e3de253ee6f45f9296d6b09189fe4bc488be36ad
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6aa525fd7f2d82194baa2e2a0c910cb71509c2d5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090066"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340019"
 ---
 # <a name="getting-started-with-azure-defender-for-iot"></a>IoT 용 Azure Defender 시작
 
@@ -30,9 +30,9 @@ IoT 용 Azure Defender를 시작 하려면 다음 단계를 완료 합니다.
 
 ## <a name="1-set-up-azure"></a>1. Azure 설정
 
-- Azure 계정을 설정 합니다. 자세한 내용은 [Azure 계정 만들기](https://docs.microsoft.com/learn/modules/create-an-azure-account/)를 참조 하세요.
+- Azure 계정을 설정 합니다. 자세한 내용은 [Azure 계정 만들기](/learn/modules/create-an-azure-account/)를 참조 하세요.
 
-- 방화벽 또는 프록시: 특정 연결을 허용 하도록 구성 된 방화벽 또는 유사한 중개 네트워크 장치가 있는 경우 *. azure-devices.net:443이 방화벽 또는 프록시에 열려 있는지 확인 합니다. 와일드 카드가 지원 되지 않거나 더 많은 제어를 원하는 경우에는 FW 또는 프록시에서 특정 IoT Hub FQDN을 열어야 합니다. 자세한 내용은 [참조 IoT Hub 끝점](/azure/iot-hub/iot-hub-devguide-endpoints)을 참조 하세요.
+- 방화벽 또는 프록시: 특정 연결을 허용 하도록 구성 된 방화벽 또는 유사한 중개 네트워크 장치가 있는 경우 *. azure-devices.net:443이 방화벽 또는 프록시에 열려 있는지 확인 합니다. 와일드 카드가 지원 되지 않거나 더 많은 제어를 원하는 경우에는 FW 또는 프록시에서 특정 IoT Hub FQDN을 열어야 합니다. 자세한 내용은 [참조 IoT Hub 끝점](../iot-hub/iot-hub-devguide-endpoints.md)을 참조 하세요.
 
 ## <a name="2-deploy-hardware-software-and-onboard-to-sensor"></a>2. 하드웨어 및 소프트웨어를 배포 하 고 센서에 등록
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: a39b6973767b72e69a82750ab8d0d487c733eda0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e525fc0705dffcd4765e6a1f6c5235bdef260fcd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657111"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339679"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>집계 된 네임 스페이스 설정
 
@@ -83,7 +83,7 @@ NFS 저장소 시스템에 대 한 모든 네임 스페이스 경로는 하나�
   * 6TB 캐시-10 개의 네임 스페이스 경로
   * 23tb 캐시-20 개의 네임 스페이스 경로
 
-* 최대 5 g b/초 처리량:
+* 최대 4gb/초 처리량:
 
   * 6TB 캐시-10 개의 네임 스페이스 경로
   * 12tb 캐시-10 개의 네임 스페이스 경로

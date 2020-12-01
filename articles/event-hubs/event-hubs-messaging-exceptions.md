@@ -3,12 +3,12 @@ title: Azure Event Hubs-예외 (레거시)
 description: 이 문서에서는 Azure Event Hubs 메시징 예외 및 제안된 작업의 목록을 제공합니다.
 ms.topic: article
 ms.date: 11/02/2020
-ms.openlocfilehash: adaf7242530727a1f77a9662110a43341e57e80a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 357a87c53023962dd9195a616bd9ce9e01c55bf9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289345"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340970"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Event Hubs 메시징 예외-.NET (레거시)
 이 섹션에서는 .NET Framework Api에 의해 생성 된 .NET 예외를 나열 합니다. 
@@ -123,7 +123,7 @@ Event Hubs의 경우 시간 제한은 연결 문자열의 일부로 또는 [Serv
     
     **개요** 페이지의 **메트릭 표시** 섹션에서 **처리량** 탭으로 전환 합니다. 차트를 선택 하 여 x 축에 1 분 간격으로 더 큰 창에서 엽니다. 최대 값을 확인 하 고 60로 나누어 수신 바이트/초 또는 보내는 바이트/초를 가져옵니다. **요청** 탭에서 사용량이 많은 시간에 초당 요청 수를 계산 하려면 비슷한 방법을 사용 합니다. 
 
-    Tu * 제한 (초당 1mb의 수신 또는 1000 요청, 송신에 대 한 요청) 보다 높은 값이 표시 되는 경우 Event Hubs 네임 스페이스의 왼쪽 메뉴에 있는 **크기** 를 사용 하 여 tu 수를 늘려 수동으로 확장 하거나 Event Hubs의 [자동](event-hubs-auto-inflate.md) 확장 기능을 사용 합니다. 자동 확장은 최대 20 개의 TU 늘릴 수 있습니다. 정확 하 게 40 Tu를 발생 시키려면 [지원 요청](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 제출 합니다.
+    Tu * 제한 (초당 1mb의 수신 또는 1000 요청, 송신에 대 한 요청) 보다 높은 값이 표시 되는 경우 Event Hubs 네임 스페이스의 왼쪽 메뉴에 있는 **크기** 를 사용 하 여 tu 수를 늘려 수동으로 확장 하거나 Event Hubs의 [자동](event-hubs-auto-inflate.md) 확장 기능을 사용 합니다. 자동 확장은 최대 20 개의 TU 늘릴 수 있습니다. 정확 하 게 40 Tu를 발생 시키려면 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출 합니다.
 
 ### <a name="error-code-50001"></a>오류 코드 50001
 
