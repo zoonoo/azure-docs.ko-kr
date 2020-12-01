@@ -1,5 +1,5 @@
 - name: Azure Stack Edge Pro 및 Data Box Gateway 설명서
-  href: /azure/databox-online/
+  href: ./index.yml
   expanded: true
 - name: Azure Stack Edge Pro - GPU
   items:
@@ -9,7 +9,7 @@
           href: azure-stack-edge-gpu-overview.md
     - name: 빠른 시작
       items:
-        - name: 시작
+        - name: 시작하기
           href: azure-stack-edge-gpu-quickstart.md
     - name: 자습서
       items:
@@ -186,11 +186,11 @@
         - name: 'API, SDK, PowerShell을 통한 IoT Edge 역할'
           href: azure-stack-edge-gpu-iot-edge-api-update.md
         - name: Azure PowerShell
-          href: 'https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge'
+          href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
         - name: REST API
-          href: 'https://docs.microsoft.com/rest/api/databoxedgegateway'
+          href: /rest/api/databoxedgegateway
         - name: .NET SDK
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet'
+          href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
 - name: Azure Stack Edge Pro - FPGA
   items:
     - name: 개요
@@ -274,11 +274,11 @@
     - name: 참조
       items:
         - name: Azure PowerShell
-          href: 'https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge'
+          href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
         - name: REST API
-          href: 'https://docs.microsoft.com/rest/api/databoxedgegateway'
+          href: /rest/api/databoxedgegateway
         - name: .NET SDK
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet'
+          href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
 - name: Azure Stack Edge Pro R
   items:
     - name: 개요

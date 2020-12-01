@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: QnA Maker 설명서
   description: QnA Maker는 데이터 위에 대화형 질문 및 답변 레이어를 만드는 클라우드 기반 API 서비스입니다. QnA Maker를 사용하면 FAQ 문서, URL 및 제품 설명서와 같은 반구조적 내용에서 질문과 대답 서비스를 사용할 수 있습니다. QnA Maker 서비스는 지식의 QnA에서 최상의 답변과 매칭하는 방식으로 사용자의 자연어 질문에 답합니다.
-  ms.openlocfilehash: 487e783aa0c3ac5ad294c34f8522ee54fbfd6aea
-  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+  ms.openlocfilehash: 54c5e8c880020ac4c29dc730902dadef10838390
+  ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/21/2020
-  ms.locfileid: "95021340"
+  ms.lasthandoff: 11/30/2020
+  ms.locfileid: "96338092"
 landingContent:
 - title: QnA Maker 정보
   linkLists:
@@ -34,18 +34,12 @@ landingContent:
     links:
     - text: 개발 수명 주기
       url: concepts/development-lifecycle-knowledge-base.md
-    - text: 데이터 원본
-      url: concepts/knowledge-base.md
   - linkListType: video
     links:
     - text: 몇 분 만에 봇 빌드
       url: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
 - title: 기술 자료 만들기 및 편집
   linkLists:
-  - linkListType: concept
-    links:
-    - text: 기술 자료 정의
-      url: concepts/knowledge-base.md
   - linkListType: get-started
     links:
     - text: '빠른 시작: 새 기술 자료 만들기'
@@ -95,11 +89,11 @@ landingContent:
   - linkListType: get-started
     links:
     - text: '포털: Azure Bot 서비스 봇 만들기'
-      url: tutorials/create-qna-bot.md
+      url: ./quickstarts/create-publish-knowledge-base.md#create-a-bot
     - text: 'Power Apps: QnA Maker 기반 봇 만들기'
       url: tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
     - text: '봇 프레임워크: LUIS 앱과 QnA Maker 앱 간의 디스패치'
-      url: https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs
+      url: /azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0
     - text: 기타 봇 샘플
       url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
 - title: 참조
@@ -109,15 +103,15 @@ landingContent:
     - text: 기술 자료의 한도
       url: limits.md
     - text: API 작성
-      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
+      url: /rest/api/cognitiveservices/qnamaker/knowledgebase
     - text: 응답 API 생성
-      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/Runtime
+      url: /rest/api/cognitiveservices/qnamaker4.0/Runtime
     - text: .Net SDK 참조 설명서
-      url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+      url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
+      url: /powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
     - text: Azure CLI(명령줄 인터페이스)
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+      url: /cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
 - title: 도움말 및 피드백
   linkLists:
   - linkListType: reference

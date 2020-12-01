@@ -101,7 +101,7 @@
         - name: 보안 기준
           href: security-baseline.md
     - name: 보안 특성
-      href: expressroute-security-controls.md
+      href: ./security-baseline.md
     - name: ExpressRoute를 통한 BFD
       href: expressroute-bfd.md
     - name: QoS 요구 사항
