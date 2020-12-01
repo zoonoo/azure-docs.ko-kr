@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 03e89b0da25a915a00c70a9a87bd0f675b8e12d6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bfa9367e06c099e21a54ad8c03f8d5ab853aaafb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997531"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348078"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시
 
@@ -96,7 +96,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
    ```
 
-   **예들 들어 다음과 같습니다.**
+   **예:**
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
@@ -130,7 +130,7 @@ Windows 7 또는 10 컴퓨터에서 Internet Explorer를 사용하여 시나리�
 
 | 인증 방법 | 지원되는 클라이언트 구성 |
 | --------------------- | ------------------------------ |
-| 사전 인증    | RD 웹-Internet Explorer 또는 [Edge CHROMIUM IE mode](/deployedge/edge-ie-mode) + RDS ActiveX 추가 기능을 사용 하는 Windows 7/10 |
+| 사전 인증    | RD 웹-Internet Explorer 또는 [Edge CHROMIUM IE mode](/deployedge/edge-ie-mode) + RDS ActiveX 추가 기능을 사용 하는 Windows 7/10 <br /> *참고 내 앱 포털은 Edge만 지원 합니다.* |
 | 사전 인증    | RD 웹 클라이언트-Microsoft Edge, Internet Explorer 11, Google Chrome, Safari 또는 Mozilla Firefox (v 55.0 이상)와 같은 HTML5 호환 웹 브라우저 |
 | 통과 | Microsoft 원격 데스크톱 애플리케이션을 지원하는 다른 운영 체제 |
 

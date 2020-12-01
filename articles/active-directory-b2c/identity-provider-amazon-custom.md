@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 90b107b2335bd5f08eeb0b9aa66c7a9db9b74eb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5a22655dca5af86729d5a906093a389b2bdc2d0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388564"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345289"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Amazon 계정으로 로그인하도록 설정
 
@@ -35,8 +35,8 @@ Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션
 
 > [!NOTE]  
 > 아래의 **8 단계** 에서 다음 url을 사용 하 여를 `your-tenant-name` 테 넌 트의 이름으로 바꿉니다. 테 넌 트 이름을 입력 하는 경우 Azure AD B2C에 대 문자가 대문자로 정의 된 경우에도 모든 소문자를 사용 합니다.
-> - **허용 되는 원본**에 대해 다음을 입력 합니다.`https://your-tenant-name.b2clogin.com` 
-> - **허용 되는 반환 url**에 대해 다음을 입력 합니다.`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
+> - **허용 되는 원본** 에 대해 다음을 입력 합니다.`https://your-tenant-name.b2clogin.com` 
+> - **허용 되는 반환 url** 에 대해 다음을 입력 합니다.`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
 
 [!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
 
@@ -46,14 +46,14 @@ Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-4. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
-5. **정책 키**, **추가**를 차례로 선택합니다.
-6. **옵션**으로는 `Manual`을 선택합니다.
-7. 정책 키의 **이름**을 입력합니다. 예들 들어 `AmazonSecret`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
-8. 이전에 기록해 두었던 클라이언트 비밀을 **비밀**에 입력합니다.
-9. **키 사용**에서 `Signature`를 선택합니다.
-10. **만들기**를 클릭합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+4. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
+5. **정책 키**, **추가** 를 차례로 선택합니다.
+6. **옵션** 으로는 `Manual`을 선택합니다.
+7. 정책 키의 **이름** 을 입력합니다. 예들 들어 `AmazonSecret`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+8. 이전에 기록해 두었던 클라이언트 비밀을 **비밀** 에 입력합니다.
+9. **키 사용** 에서 `Signature`를 선택합니다.
+10. **만들기** 를 클릭합니다.
 
 ## <a name="add-a-claims-provider"></a>클레임 공급자 추가
 
@@ -62,9 +62,9 @@ Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션
 정책의 확장 파일에서 **ClaimsProviders** 요소에 Amazon 계정을 추가하여 해당 계정을 클레임 공급자로 정의할 수 있습니다.
 
 
-1. *TrustFrameworkExtensions.xml*을 엽니다.
+1. *TrustFrameworkExtensions.xml* 을 엽니다.
 2. **ClaimsProviders** 요소를 찾습니다. 해당 요소가 없으면 루트 요소 아래에 추가합니다.
-3. 다음과 같이 새 **ClaimsProvider**를 추가합니다.
+3. 다음과 같이 새 **ClaimsProvider** 를 추가합니다.
 
     ```xml
     <ClaimsProvider>
@@ -81,7 +81,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션
           <Item Key="ClaimsEndpoint">https://api.amazon.com/user/profile</Item>
           <Item Key="scope">profile</Item>
           <Item Key="HttpBinding">POST</Item>
-          <Item Key="UsePolicyInRedirectUri">0</Item>
+          <Item Key="UsePolicyInRedirectUri">false</Item>
           <Item Key="client_id">Your Amazon application client ID</Item>
         </Metadata>
         <CryptographicKeys>
@@ -105,16 +105,16 @@ Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션
     </ClaimsProvider>
     ```
 
-4. **client_id**를 애플리케이션 등록의 애플리케이션 ID로 설정합니다.
+4. **client_id** 를 애플리케이션 등록의 애플리케이션 ID로 설정합니다.
 5. 파일을 저장합니다.
 
 ### <a name="upload-the-extension-file-for-verification"></a>확인을 위한 확장 파일 업로드
 
 지금까지 Azure AD B2C에서 Azure AD 디렉터리와 통신하는 방법을 알 수 있도록 정책을 구성했습니다. 정책의 확장 파일을 업로드하여 지금까지 문제가 발생하지 않았는지 확인합니다.
 
-1. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **업로드 정책**을 선택합니다.
-2. **정책이 있는 경우 덮어쓰기**를 사용하도록 설정하고 *TrustFrameworkExtensions.xml* 파일을 찾아서 선택합니다.
-3. **업로드**를 클릭합니다.
+1. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **업로드 정책** 을 선택합니다.
+2. **정책이 있는 경우 덮어쓰기** 를 사용하도록 설정하고 *TrustFrameworkExtensions.xml* 파일을 찾아서 선택합니다.
+3. **업로드** 를 클릭합니다.
 
 ## <a name="register-the-claims-provider"></a>클레임 공급자 등록
 
@@ -122,7 +122,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션
 
 1. 시작 팩에서 *TrustFrameworkBase.xml* 파일을 엽니다.
 2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
-3. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
+3. *TrustFrameworkExtensions.xml* 을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
 5. 사용자 경험 ID의 이름을 바꿉니다. 예들 들어 `SignUpSignInAmazon`입니다.
 
@@ -141,8 +141,8 @@ Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션
 
 이제 단추가 준비되었으므로 동작에 연결해야 합니다. 여기서는 Azure AD B2C가 Amazon 계정과 통신하여 토큰을 수신하는 작업을 연결합니다.
 
-1. 사용자 경험에서 `Order="2"`가 포함된 **OrchestrationStep**을 찾습니다.
-2. 다음 **ClaimsExchange** 요소를 추가합니다. ID에는 **TargetClaimsExchangeId**에 사용한 것과 같은 값을 사용해야 합니다.
+1. 사용자 경험에서 `Order="2"`가 포함된 **OrchestrationStep** 을 찾습니다.
+2. 다음 **ClaimsExchange** 요소를 추가합니다. ID에는 **TargetClaimsExchangeId** 에 사용한 것과 같은 값을 사용해야 합니다.
 
     ```xml
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
@@ -162,9 +162,9 @@ Azure AD B2C와의 통신은 B2C 테넌트에서 등록하는 애플리케이션
 
 만든 사용자 경험을 시작하는 RP(신뢰 당사자) 파일을 업데이트합니다.
 
-1. 작업 디렉터리에서 *SignUpOrSignIn.xml*의 복사본을 만들고 이름을 바꿉니다. 예를 들어 파일 이름을 *SignUpSignInAmazon.xml*로 바꿉니다.
-2. 새 파일을 열고 **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. 예들 들어 `SignUpSignInAmazon`입니다.
+1. 작업 디렉터리에서 *SignUpOrSignIn.xml* 의 복사본을 만들고 이름을 바꿉니다. 예를 들어 파일 이름을 *SignUpSignInAmazon.xml* 로 바꿉니다.
+2. 새 파일을 열고 **TrustFrameworkPolicy** 의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. 예들 들어 `SignUpSignInAmazon`입니다.
 3. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예를 들어 `http://contoso.com/B2C_1A_signup_signin_amazon`으로 업데이트할 수 있습니다.
-4. 새로 만든 사용자 경험의 ID(SignUpSignAmazon)와 일치하도록 **DefaultUserJourney**의 **ReferenceId** 특성을 업데이트합니다.
+4. 새로 만든 사용자 경험의 ID(SignUpSignAmazon)와 일치하도록 **DefaultUserJourney** 의 **ReferenceId** 특성을 업데이트합니다.
 5. 변경 내용을 저장하고 파일을 업로드한 다음, 목록에서 새 정책을 선택합니다.
-6. **애플리케이션 선택** 필드에서 직접 만든 Azure AD B2C 애플리케이션이 선택되어 있는지 확인하고 **지금 실행**을 클릭하여 테스트를 진행합니다.
+6. **애플리케이션 선택** 필드에서 직접 만든 Azure AD B2C 애플리케이션이 선택되어 있는지 확인하고 **지금 실행** 을 클릭하여 테스트를 진행합니다.

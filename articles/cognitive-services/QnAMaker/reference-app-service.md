@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: 1dfe14d96efd37e3dec7faeae1dfff21122958bc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e7dfc6db50432b19d515671fabe26edf9cfb45ef
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95894204"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345671"
 ---
 # <a name="service-configuration"></a>서비스 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "95894204"
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
-QnA Maker는 App Service를 사용 하 여 [Generateanswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime/generateanswer)에서 사용 하는 쿼리 런타임을 제공 합니다.
+QnA Maker는 App Service를 사용 하 여 [Generateanswer API](/rest/api/cognitiveservices/qnamaker4.0/runtime/generateanswer)에서 사용 하는 쿼리 런타임을 제공 합니다.
 
 이러한 설정은 App Service에 대 한 Azure Portal에서 사용할 수 있습니다. 설정은 **설정**, **구성** 을 차례로 선택 하 여 사용할 수 있습니다.
 

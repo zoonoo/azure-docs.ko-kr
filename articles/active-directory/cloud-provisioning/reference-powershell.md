@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect 클라우드 동기화에 대 한 AADCloudSyncTools PowerShell 모듈
+title: Azure AD Connect 클라우드 프로 비전을 위한 AADCloudSyncTools PowerShell 모듈
 description: 이 문서에서는 Azure AD Connect 클라우드 프로비저닝 에이전트를 설치하는 방법을 설명합니다.
 services: active-directory
 author: billmath
@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3ce5a7a313ab0f0680558aa60b34e3ebb9b51c9
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: ba71d3eedbb75780c20499daa890556574494a35
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255125"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348140"
 ---
-# <a name="aadcloudsynctools-powershell-module-for-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화에 대 한 AADCloudSyncTools PowerShell 모듈
+# <a name="aadcloudsynctools-powershell-module-for-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 클라우드 프로 비전을 위한 AADCloudSyncTools PowerShell 모듈
 
 공개 미리 보기 2의 릴리스에서는 AADCloudSyncTools PowerShell 모듈이 도입 되었습니다.  이 모듈에서는 Azure AD Connect 클라우드 동기화 배포를 관리 하는 데 사용할 수 있는 유용한 도구 집합을 제공 합니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 900021e258bb96c0d0c83ef182262515449ad5df
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 982f4a9cdf3984bae79cd11dad2bd637a1772f05
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912589"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348503"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob Storage 기능
 
@@ -44,9 +44,11 @@ ms.locfileid: "95912589"
 |정적 웹 사이트|미리 보기|미리 보기|[Azure Storage에서 정적 웹 사이트 호스팅](storage-blob-static-website.md)|
 |변경 불가능한 스토리지|미리 보기|미리 보기|[비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장](storage-blob-immutable-storage.md)|
 |컨테이너 일시 삭제|미리 보기|미리 보기|[컨테이너에 대 한 일시 삭제 (미리 보기)](soft-delete-container-overview.md)|
+|Azure Storage 인벤토리|미리 보기|미리 보기|[Azure Storage 인벤토리를 사용 하 여 blob 데이터 관리 (미리 보기)](blob-inventory.md)|
+|Blob 일시 삭제|아직 지원되지 않음|아직 지원되지 않음|[Blob에 대한 일시 삭제](storage-blob-soft-delete.md)|
 |Blob 일시 삭제|아직 지원되지 않음|아직 지원되지 않음|[Blob에 대한 일시 삭제](./soft-delete-blob-overview.md)|
 |Blobfuse|일반 공급|일반 공급|[blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법](storage-how-to-mount-container-linux.md)|
-|계정 장애 조치(failover)|아직 지원되지 않음|아직 지원되지 않음|[재해 복구 및 계정 장애 조치(failover)](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|고객 관리 계정 장애 조치 (failover)|아직 지원되지 않음|아직 지원되지 않음|[재해 복구 및 계정 장애 조치(failover)](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Blob 컨테이너 ACL|지원되지 않음<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|지원되지 않음<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|이 표 아래의 관련 정보를 참조 하세요.|
 |고객이 제공한 키|아직 지원되지 않음|아직 지원되지 않음|[Blob 저장소에 대 한 요청에 암호화 키 제공](encryption-customer-provided-keys.md)|
 |사용자 지정 도메인|아직 지원되지 않음|아직 지원되지 않음|[Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)|

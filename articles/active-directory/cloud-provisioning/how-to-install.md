@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3960b8afeb9d7ecc80aa49fc13eee4977fa5494
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4c4ba11dabc8e805f3604afc2fc4388840ac67cf
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173973"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348537"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Azure AD Connect 클라우드 프로비저닝 에이전트 설치
 이 문서에서는 Azure AD(Azure Active Directory) Connect 프로비저닝 에이전트의 설치 프로세스와 Azure Portal에 이를 처음으로 구성하는 방법을 안내합니다.
@@ -58,11 +58,11 @@ Azure AD Connect 프로비저닝을 설치하고 구성하는 작업은 다음 �
    ![GMSA 만들기](media/how-to-install/install-12.png)</br>
  11. **Active Directory 연결** 화면에서 **디렉터리 추가** 를 선택합니다. 그런 다음, Active Directory 관리자 계정으로 로그인합니다. 이 작업을 수행하면 온-프레미스 디렉터리가 추가됩니다. 
  12. 필요에 따라 **도메인 컨트롤러 우선 순위 선택** 및 도메인 컨트롤러 목록 순서 지정을 선택 하 여 에이전트가 사용 하는 도메인 컨트롤러의 기본 설정을 관리할 수 있습니다.   **확인** 을 클릭합니다.
-  ![주문 도메인 controlllers](media/how-to-install/install-2a.png)</br>
+  ![도메인 컨트롤러 주문](media/how-to-install/install-2a.png)</br>
  13. **다음** 을 선택합니다.
   ![Active Directory 연결 화면](media/how-to-install/install-3a.png)</br>
  14.  **에이전트 설치** 화면에서 설정 및 생성 될 계정을 확인 하 고 **확인** 을 클릭 합니다.
-  ![설정 구성 확인](media/how-to-install/install-11.png)</br>
+  ![설정 확인](media/how-to-install/install-11.png)</br>
  15. 이 작업이 완료 **되 면 에이전트 설치가 완료 된 것** 을 확인할 수 있습니다. **끝내기** 를 선택합니다.
   ![구성 완료 화면](media/how-to-install/install-4a.png)</br>
 1. 초기 **Microsoft Azure AD Connect Provisioning Agent Package** 화면이 계속 표시되는 경우 **닫기** 를 선택합니다.

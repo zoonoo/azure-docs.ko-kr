@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7caeefb741e6916d69894ede3a7c64eb2e8f623f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b79eb842105734f0f6c145884d73f886a02dbbbc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174499"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348161"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>셀프 서비스 암호 재설정 질문과 대답
 
@@ -263,7 +263,7 @@ ms.locfileid: "96174499"
   >
 * **Q:  비밀번호 쓰기 저장에 대해 어떤 유형의 계정이 작동합니까?**
 
-  > **A:** 페더레이션되고 암호 해시 동기화된 통과 인증 사용자를 비롯하여 온-프레미스 Active Directory에서 Azure AD로 동기화되는 사용자 계정에 대한 비밀번호 쓰기 저장이 작동합니다.
+  > **A:** 비밀 번호 쓰기 저장은 페더레이션, 암호 해시 동기화 및 Pass-Through 인증 사용자를 포함 하 여 온-프레미스 Active Directory에서 Azure AD로 동기화 되는 사용자 계정에 대해 작동 합니다.
   >
   >
 * **Q:  비밀번호 쓰기 저장이 내 도메인의 암호 정책을 적용하나요?**

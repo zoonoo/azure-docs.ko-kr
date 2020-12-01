@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ed1c183281aea830e9cd61c1d95c6c092adbe05c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6ad91b7cf8cd8a79654774b1b5463bc661a981d5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960685"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348180"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Azure DNS에 대 한 Azure 보안 기준
 
@@ -64,7 +64,7 @@ Azure Monitor를 통해 로그를 수집 하 여 끝점 장치, 네트워크 리
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics 쿼리 시작](../azure-monitor/log-query/get-started-portal.md)
+- [Log Analytics 쿼리 시작](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
@@ -200,7 +200,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -212,7 +212,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 - [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
-- [Azure AD id 및 액세스 검토를 사용 하는 방법](../active-directory/governance/access-reviews-overview.md)
+- [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -308,7 +308,7 @@ Azure DNS에는 DNS 영역 참가자 역할 뿐만 아니라 영역 수준 및 �
 
 **지침**: 정책 이름, 설명 및 범주를 사용 하 여 분류에 따라 자산을 논리적으로 구성 합니다.
 
-- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태깅 결정 가이드를 참조 하세요.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
+- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태깅 결정 가이드를 참조 하세요.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -514,7 +514,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: MSRC(Microsoft 보안 대응 센터)에서 불법적이거나 권한이 없는 당사자가 데이터에 액세스했다고 검색하는 경우 Microsoft에서 보안 인시던트 연락처 정보를 사용하여 사용자에게 연락합니다. 문제가 해결되었는지 확인하기 위해 사후에 인시던트를 검토합니다.
 
-- [Azure Security Center 보안 연락처를 설정 하는 방법](../security-center/security-center-provide-security-contact-details.md)
+- [Azure Security Center 보안 연락처를 설정하는 방법](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -548,11 +548,11 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
-**지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
+**지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft 관리형 클라우드 인프라, 서비스 및 애플리케이션에 대한 Microsoft의 전략과 Red Teaming 및 라이브 사이트 침투 테스트의 실행을 사용합니다.
 
 - [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

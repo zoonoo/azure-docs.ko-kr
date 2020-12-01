@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 4d899fe7f84a8708bb8ee32cc008567b272a885c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 566c429fc70ae3f0fc18f024b745d8142535932c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169378"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348410"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>국가별 클라우드 환경에서 MSAL 사용
 
@@ -34,7 +34,7 @@ Microsoft의 전 세계 클라우드 외에도 MSAL (Microsoft 인증 라이브�
 
 이 가이드에서는 회사 및 학교 계정에 로그인 하 고, 액세스 토큰을 가져오고, [Azure Government 클라우드](https://azure.microsoft.com/global-infrastructure/government/) 환경에서 Microsoft Graph API를 호출 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 이러한 필수 구성 요소를 충족 하는지 확인 합니다.
 
@@ -55,7 +55,7 @@ Azure Government 구독이 없는 경우 시작 하기 전에 [무료 계정](ht
 
 특정 프로그래밍 언어에서 국가 클라우드를 사용 하는 방법에 대 한 자세한 내용은 해당 언어와 일치 하는 탭을 선택 합니다.
 
-## <a name="net"></a>[.NET](#tab/donet)
+## <a name="net"></a>[.NET](#tab/dotnet)
 
 MSAL.NET를 사용 하 여 사용자를 로그인 하 고 토큰을 획득 하 고 국가별 클라우드에서 Microsoft Graph API를 호출할 수 있습니다.
 

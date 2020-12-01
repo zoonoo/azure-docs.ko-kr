@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 458fbdf4cdfa40da871d34a62101020330c79265
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 4ac878db8d81cc7d9d9dfc6d7c3a4ba63f966110
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95488796"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348367"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft 365 그룹에 명명 정책 적용
 
@@ -47,7 +47,7 @@ ms.locfileid: "95488796"
 
 #### <a name="fixed-strings"></a>고정 문자열
 
-문자열을 사용하여 전체 주소 목록의 그룹과 그룹 워크로드의 왼쪽 탐색 링크에 있는 그룹을 쉽게 검색하고 구별할 수 있습니다. 일부 공통 접두사는 ‘Grp\_Name’ , ‘\#Name’, ‘\_Name’과 같은 키워드입니다.
+문자열을 사용하여 전체 주소 목록의 그룹과 그룹 워크로드의 왼쪽 탐색 링크에 있는 그룹을 쉽게 검색하고 구별할 수 있습니다. 일부 일반적인 접두사는 ' Grp \_ Name ', ' \# name ', ' \_ name '과 같은 키워드입니다.
 
 #### <a name="user-attributes"></a>사용자 특성
 
@@ -69,13 +69,13 @@ ms.locfileid: "95488796"
 ### <a name="roles-and-permissions"></a>역할 및 권한
 
 명명 정책을 구성 하려면 다음 역할 중 하나가 필요 합니다.
-- 글로벌 관리자
+- 전역 관리자
 - 그룹 관리자
 
 
 선택한 관리자는 모든 그룹 워크로드와 엔드포인트에서 이러한 정책으로부터 제외될 수 있어 차단된 단어와 고유한 명명 규칙을 사용하여 그룹을 생성할 수 있습니다. 다음은 그룹 명명 정책이 적용되지 않는 관리자 역할 목록입니다.
 
-- 글로벌 관리자
+- 전역 관리자
 - 파트너 계층 1 지원
 - 파트너 계층 2 지원
 - 사용자 관리자

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: 975c92256ea0993badde0faf840a939f42901059
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: cf5a7a5902484536d0cf2a1844be469f29e15f4b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95753700"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348469"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>응용 프로그램에서 지속적인 액세스 평가를 사용 하도록 설정 된 Api를 사용 하는 방법
 
@@ -35,7 +35,7 @@ CAE ( [연속 액세스 평가](../conditional-access/concept-continuous-access-
 
 첫 번째 단계는 CAE로 인해 호출을 거부 하는 리소스 API의 응답을 처리 하는 코드를 추가 하는 것입니다. CAE를 사용 하는 경우 Api는 액세스 토큰이 해지 되었거나 API에서 사용 되는 IP 주소 변경을 감지한 경우 401 상태 및 WWW-Authenticate 헤더를 반환 합니다. WWW-Authenticate 헤더는 응용 프로그램이 새 액세스 토큰을 획득 하는 데 사용할 수 있는 클레임 챌린지를 포함 합니다.
 
-예를 들면 다음과 같습니다.
+예:
 
 ```console
 HTTP 401; Unauthorized
@@ -57,7 +57,7 @@ WWW-Authenticate=Bearer
 ```csharp
 if (APIresponse.IsSuccessStatusCode)
 {
-    // . . .
+    // ...
 }
 else
 {
@@ -99,7 +99,7 @@ catch (MsalUiRequiredException)
             .ExecuteAsync()
             .ConfigureAwait(false);
     }
-    // . . .
+    // ...
 ```
 
 응용 프로그램이 CAE 사용 리소스에서 반환 된 클레임 챌린지를 처리할 준비가 되 면 앱을 CAE ready로 Microsoft Id에 지시할 수 있습니다. MSAL 응용 프로그램에서이 작업을 수행 하려면 "cp1"의 클라이언트 기능을 사용 하 여 공용 클라이언트를 빌드합니다.

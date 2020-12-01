@@ -12,12 +12,12 @@ ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 50f57f48ca839c5389df49fc5dc7586030916b6b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7eedb9ce30be236e8d47152f0e114b7bc5ae2304
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169752"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348095"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>방법: 앱에 선택적 클레임 제공
 
@@ -76,7 +76,7 @@ ms.locfileid: "96169752"
 
 **표 3: v2.0 전용 선택적 클레임**
 
-| JWT 클레임     | Name                            | Description                                | 메모 |
+| JWT 클레임     | Name                            | 설명                                | 메모 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |

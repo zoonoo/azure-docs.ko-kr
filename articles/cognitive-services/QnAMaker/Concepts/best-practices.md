@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 2f87f5c7e43757db476153db93d6ecc5082dde89
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: ee8d838ba315c2e261a61699948b71a710341165
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376760"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346361"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 모범 사례
 
@@ -18,7 +18,7 @@ ms.locfileid: "94376760"
 
 ## <a name="extraction"></a>추출
 
-QnA Maker 서비스는 콘텐츠에서 QnA를 추출하고 지원되는 파일 및 HTML 형식 목록을 확장하는 알고리즘을 지속적으로 개선하고 있습니다. 문서 형식에 따라 데이터 추출에 대한 [지침](../Concepts/content-types.md)을 수행합니다.
+QnA Maker 서비스는 콘텐츠에서 QnA를 추출하고 지원되는 파일 및 HTML 형식 목록을 확장하는 알고리즘을 지속적으로 개선하고 있습니다. 문서 형식에 따라 데이터 추출에 대한 [지침](../index.yml)을 수행합니다.
 
 일반적으로 FAQ 페이지는 독립 실행형이어야 하며, 다른 정보와 결합되지 않아야 합니다. 제품 설명서는 제목에 명확해야 하고 인덱스 페이지까지 명확하면 더욱 좋습니다.
 
@@ -116,11 +116,11 @@ QnA Maker가 지원하는 순위 기능을 최대로 활용하시기 바랍니�
 [메타 데이터](../How-To/edit-knowledge-base.md) 는 클라이언트 응용 프로그램에서 모든 답변을 받지 않고 메타 데이터 태그를 기준으로 사용자 쿼리 결과의 범위를 좁히는 기능을 추가 합니다. 쿼리가 같더라도 메타데이터 태그에 따라 기술 자료 답변이 달라질 수 있습니다. 예를 들어 식당 지점의 위치가 다르면 *"주차장 위치는 어디인가요"* 에 대한 대답이 달라질 수 있습니다. 즉, 메타데이터는 *위치: 시애틀* 또는 *위치: 레드몬드* 입니다.
 
 ### <a name="use-synonyms"></a>동의어 사용
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
-영어에서 동의어에 대 한 지원이 제공 되는 경우에는 변경 [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) 를 통해 대/소문자를 구분 하지 않는 단어 변경 사항을 사용 하 여 다른 형태를 사용 하는 키워드에 동의어를 추가 합니다. 동의어는 QnA Maker 서비스 수준에서 추가 되 고 **서비스의 모든 기술 자료에서 공유** 됩니다.
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
+영어에서 동의어에 대 한 지원이 제공 되는 경우에는 변경 [API](/rest/api/cognitiveservices/qnamaker/alterations/replace) 를 통해 대/소문자를 구분 하지 않는 단어 변경 사항을 사용 하 여 다른 형태를 사용 하는 키워드에 동의어를 추가 합니다. 동의어는 QnA Maker 서비스 수준에서 추가 되 고 **서비스의 모든 기술 자료에서 공유** 됩니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
-영어에서 동의어에 대 한 지원이 제공 되는 경우에는 변경 [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) 를 통해 대/소문자를 구분 하지 않는 단어 변경 사항을 사용 하 여 다른 형태를 사용 하는 키워드에 동의어를 추가 합니다. QnA Maker 관리 (미리 보기)의 동의어가 **기술 자료에 따라 추가** 됩니다.
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+영어에서 동의어에 대 한 지원이 제공 되는 경우에는 변경 [API](/rest/api/cognitiveservices/qnamaker/alterations/replace) 를 통해 대/소문자를 구분 하지 않는 단어 변경 사항을 사용 하 여 다른 형태를 사용 하는 키워드에 동의어를 추가 합니다. QnA Maker 관리 (미리 보기)의 동의어가 **기술 자료에 따라 추가** 됩니다.
 
 |원래 단어|동의어|
 |--|--|
@@ -141,7 +141,7 @@ QnA Maker가 지원하는 순위 기능을 최대로 활용하시기 바랍니�
 이러한 두 QnA가 매우 유사한 단어로 구성되었으므로 이 유사성은 *"`<x>`위치는 어디인가요"* 와 같이 구성된 사용자 쿼리에 대해 유사한 점수가 발생할 수 있습니다. 대신, KB에서 많은 질문을 받을 수 있는 "위치"와 같은 단어를 방지 하 여 "  *어디에 주차장"* 및 *"ATM"* 과 같은 쿼리를 명확 하 게 구분 합니다.
 
 ## <a name="collaborate"></a>공동 작업
-QnA Maker를 통해 사용자들이 기술 자료를 [공동으로 작업](../How-to/collaborate-knowledge-base.md)할 수 있습니다. 사용자는 기술 자료에 액세스하기 위해 Azure QnA Maker 리소스 그룹에 대한 액세스 권한이 필요합니다. 기술 자료 편집 및 유지 관리를 아웃소싱하려는 조직도 있을 것이며, 이 경우에도 여전히 Azure 리소스에 대한 액세스를 보호할 수 있습니다. 이 편집자-승인자 모델은 서로 다른 구독에 최대 2개의 동일한 [QnA Maker 서비스](../How-to/set-up-qnamaker-service-azure.md)를 설정하고 하나를 편집-테스트 주기용으로 지정하여 수행할 수 있습니다. 테스트가 완료되면 [가져오기-내보내기](../Tutorials/migrate-knowledge-base.md) 프로세스를 사용하여 최종적으로 기술 자료를 게시하고 엔드포인트를 업데이트하는 승인자의 QnA Maker 서비스로 기술 자료 콘텐츠를 전송할 수 있습니다.
+QnA Maker를 통해 사용자들이 기술 자료를 [공동으로 작업](../index.yml)할 수 있습니다. 사용자는 기술 자료에 액세스하기 위해 Azure QnA Maker 리소스 그룹에 대한 액세스 권한이 필요합니다. 기술 자료 편집 및 유지 관리를 아웃소싱하려는 조직도 있을 것이며, 이 경우에도 여전히 Azure 리소스에 대한 액세스를 보호할 수 있습니다. 이 편집자-승인자 모델은 서로 다른 구독에 최대 2개의 동일한 [QnA Maker 서비스](../How-to/set-up-qnamaker-service-azure.md)를 설정하고 하나를 편집-테스트 주기용으로 지정하여 수행할 수 있습니다. 테스트가 완료되면 [가져오기-내보내기](../Tutorials/migrate-knowledge-base.md) 프로세스를 사용하여 최종적으로 기술 자료를 게시하고 엔드포인트를 업데이트하는 승인자의 QnA Maker 서비스로 기술 자료 콘텐츠를 전송할 수 있습니다.
 
 
 

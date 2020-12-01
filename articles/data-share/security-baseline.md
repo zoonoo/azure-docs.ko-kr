@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 88feb08851e0b69e31218a42fe877112561bddba
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: ef516e021b33c465139ecab621369223f61608f4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301661"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348554"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Azure 데이터 공유에 대 한 azure 보안 기준
 
@@ -78,7 +78,7 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md) 
 
-- [Log Analytics 쿼리 시작](/azure/azure-monitor/log-query/get-started-portal) 
+- [Log Analytics 쿼리 시작](../azure-monitor/log-query/log-analytics-tutorial.md) 
 
 - [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md) 
 
@@ -155,7 +155,7 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 **지침**: Azure AD는 부실 계정을 검색하는 데 유용한 로그를 제공합니다. 또한 Azure AD id 및 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리 합니다. 사용자 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 할 수 있습니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/) 
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml) 
 
 - [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md) 
 
@@ -171,7 +171,7 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성할 수 있습니다.
 
-- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) 
+- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -181,7 +181,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure AD ID 보호 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -227,7 +227,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 타사 솔루션을 사용 하 여 네트워크 장치 및 웹 응용 프로그램에 대 한 취약성 평가를 수행 합니다. 원격 검색을 수행할 때 단일 영구 관리자 계정을 사용 하지 마십시오. 검색 계정에 대 한 JIT 프로 비전 방법론을 구현 하는 것이 좋습니다. 검색 계정에 대 한 자격 증명을 보호 하 고, 모니터링 하 고, 취약성 검색에만 사용 해야 합니다.
 
-- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](/azure/security-center/security-center-vulnerability-assessment-recommendations) 
+- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/deploy-vulnerability-assessment-vm.md) 
 
 **Azure Security Center 모니터링**: 예
 
@@ -257,11 +257,11 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 해당 하는 경우 태그 지정, 관리 그룹 및 별도의 구독을 사용 하 여 자산을 구성 하 고 추적 합니다. 정기적으로 인벤토리를 조정하고, 구독에서 권한 없는 리소스가 적시에 삭제되도록 합니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription) 
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md) 
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create) 
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md) 
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -292,7 +292,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: Azure 리소스는 더 이상 필요 하지 않을 때 제거 합니다 .이 작업은 Azure Portal, POWERSHELL 또는 CLI를 통해 수행할 수 있습니다.
 
-- [Azure 리소스 그룹 및 리소스 삭제](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)
+- [Azure 리소스 그룹 및 리소스 삭제](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell)
 
 Azure 데이터 공유는 OS를 노출 하지 않거나 해당 리소스에 타사 소프트웨어 응용 프로그램을 설치할 수 있도록 합니다.
 
@@ -330,7 +330,7 @@ Azure 데이터 공유는 OS를 노출 하지 않거나 해당 리소스에 타�
 
 **지침**: Azure devops를 사용 하 여 사용자 지정 Azure Policy 정의, Azure Resource Manager 템플릿 및 필요한 상태 구성 스크립트와 같은 코드를 안전 하 게 저장 하 고 관리할 수 있습니다. Azure DevOps에서 관리 하는 리소스에 액세스 하려면 Azure DevOps와 통합 된 경우 Azure Active Directory (Azure AD)에 정의 된 특정 사용자, 기본 제공 보안 그룹 또는 그룹에 대 한 권한을 부여 하거나 거부할 수 있습니다. 또는 TFS와 통합 된 경우 Active Directory 합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
 - [Azure DevOps의 사용 권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions) 
 
@@ -362,5 +362,5 @@ Azure 데이터 공유는 OS를 노출 하지 않거나 해당 리소스에 타�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.
