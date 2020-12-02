@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, 마이크로 프로필, liberty, websphere-liberty, aro, openshift, red hat
-ms.openlocfilehash: 41891b58942efbfd705747cc16219185f2a2daa2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0c17c911d1eefe646785314a26b6a9b1e964ca67
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018395"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493947"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Azure Red Hat OpenShift 4 클러스터에서 Open Liberty/WebSphere Liberty를 사용 하 여 Java 응용 프로그램 배포
 
@@ -20,31 +20,31 @@ ms.locfileid: "95018395"
 
 [!INCLUDE [aro-support](includes/aro-support.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 가이드를 성공적으로 진행 하려면 다음 필수 구성 요소를 완료 합니다.
 
 > [!NOTE]
-> Azure Red Hat OpenShift에는 OpenShift 클러스터를 만들고 실행하는 데 최소 40개의 코어가 필요합니다. 새 Azure 구독에 대한 기본 Azure 리소스 할당량은 이 요구 사항을 충족하지 않습니다. 리소스 제한 늘리기를 요청하려면 [표준 할당량: VM 시리즈별 제한 늘리기](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)를 참조하세요. 무료 평가판 구독은 할당량 증가에 적합 하지 않습니다. 할당량 증가를 요청 하기 전에 [종 량 제 구독으로 업그레이드](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) 하세요.
+> Azure Red Hat OpenShift에는 OpenShift 클러스터를 만들고 실행하는 데 최소 40개의 코어가 필요합니다. 새 Azure 구독에 대한 기본 Azure 리소스 할당량은 이 요구 사항을 충족하지 않습니다. 리소스 제한 늘리기를 요청하려면 [표준 할당량: VM 시리즈별 제한 늘리기](../azure-portal/supportability/per-vm-quota-requests.md)를 참조하세요. 무료 평가판 구독은 할당량 증가에 적합 하지 않습니다. 할당량 증가를 요청 하기 전에 [종 량 제 구독으로 업그레이드](../cost-management-billing/manage/upgrade-azure-subscription.md) 하세요.
 
 1. Unix와 비슷한 운영 체제가 설치 된 로컬 컴퓨터를 준비 합니다 (예: Ubuntu, macOS).
 1. Java SE 구현 (예: [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9))을 설치 합니다.
 1. [Maven](https://maven.apache.org/download.cgi) 3.5.0 이상을 설치 합니다.
 1. OS에 대 한 [Docker](https://docs.docker.com/get-docker/) 를 설치 합니다.
-1. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 2.0.75 이상을 설치 합니다.
+1. [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) 2.0.75 이상을 설치 합니다.
 1. [`envsubst`](https://command-not-found.com/envsubst)운영 체제에 사전 설치 되지 않은 경우를 확인 하 고 설치 합니다.
 1. 로컬 시스템에서이 샘플에 대 한 코드를 복제 합니다. 이 샘플은 [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro)에 있습니다.
-1. [Azure Red Hat OpenShift 4 클러스터 만들기](/azure/openshift/tutorial-create-cluster)의 지침을 따릅니다.
+1. [Azure Red Hat OpenShift 4 클러스터 만들기](./tutorial-create-cluster.md)의 지침을 따릅니다.
 
    "Red Hat pull 비밀 가져오기" 단계는 선택 사항으로 레이블이 지정 되어 있지만 **이 문서에 필요** 합니다.  끌어오기 암호를 사용 하면 Azure Red Hat OpenShift 클러스터에서 Open Liberty 연산자를 찾을 수 있습니다.
 
    클러스터에서 메모리를 많이 사용 하는 응용 프로그램을 실행 하려는 경우 매개 변수를 사용 하 여 작업자 노드에 대 한 적절 한 가상 컴퓨터 크기를 지정 합니다 `--worker-vm-size` . 예를 들어 `Standard_E4s_v3` 는 클러스터에 Elasticsearch 연산자를 설치 하기 위한 최소 가상 머신 크기입니다. 자세한 내용은 다음을 참조하세요.
 
-   * [클러스터를 만드는 Azure CLI](https://docs.microsoft.com/cli/azure/aro?view=azure-cli-latest&preserve-view=true#az-aro-create)
-   * [메모리 최적화를 위해 지원 되는 가상 머신 크기](/azure/openshift/support-policies-v4#memory-optimized)
+   * [클러스터를 만드는 Azure CLI](/cli/azure/aro?preserve-view=true&view=azure-cli-latest#az-aro-create)
+   * [메모리 최적화를 위해 지원 되는 가상 머신 크기](./support-policies-v4.md#memory-optimized)
    * [Elasticsearch 연산자를 설치 하기 위한 필수 구성 요소](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-deploying.html#cluster-logging-deploy-eo-cli_cluster-logging-deploying)
 
-1. [Azure Red Hat OpenShift 4 클러스터에 연결](/azure/openshift/tutorial-connect-cluster)의 단계를 수행 하 여 클러스터에 연결 합니다.
+1. [Azure Red Hat OpenShift 4 클러스터에 연결](./tutorial-connect-cluster.md)의 단계를 수행 하 여 클러스터에 연결 합니다.
    * 이 문서의 뒷부분에 나오는 명령을 사용 하기 때문에 "OpenShift CLI 설치"의 단계를 수행 해야 `oc` 합니다.
    * 와 같은 클러스터 콘솔 URL을 기록 합니다 `https://console-openshift-console.apps.<random>.<region>.aroapp.io/` .
    * 자격 증명을 기록해 둡니다 `kubeadmin` .
@@ -314,7 +314,7 @@ oc delete -f openlibertyapplication.yaml
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[자습서: Azure Red Hat OpenShift 4 클러스터 삭제](/azure/openshift/tutorial-delete-cluster) 의 단계를 수행 하 여 ARO 클러스터를 삭제 합니다.
+[자습서: Azure Red Hat OpenShift 4 클러스터 삭제](./tutorial-delete-cluster.md) 의 단계를 수행 하 여 ARO 클러스터를 삭제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

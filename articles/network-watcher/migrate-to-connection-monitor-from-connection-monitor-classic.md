@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: eed68ff7e6b002e7a5985b336686b646a1a9acee
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a97f3bf3a479d956747755a421d7946f7aafd4f1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522956"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494242"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>연결 모니터에서 연결 모니터로 마이그레이션 (클래식)
 
@@ -34,7 +34,7 @@ ms.locfileid: "95522956"
    * **경고**: 새 메트릭에 자동으로 마이그레이션됩니다.
    * **대시보드 및 통합**: 메트릭 집합을 수동으로 편집 해야 합니다. 
     
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 사용자 지정 작업 영역을 사용 하는 경우 구독 및 Log Analytics 작업 영역의 지역에서 Network Watcher를 사용 하도록 설정 해야 합니다. 
 
@@ -64,5 +64,5 @@ ms.locfileid: "95522956"
 ## <a name="next-steps"></a>다음 단계
 
 연결 모니터에 대 한 자세한 내용은 다음을 참조 하세요.
-* [네트워크 성능 모니터에서 연결 모니터로 마이그레이션](/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor)
+* [네트워크 성능 모니터에서 연결 모니터로 마이그레이션](./migrate-to-connection-monitor-from-network-performance-monitor.md)
 * [Azure Portal를 사용 하 여 연결 모니터 만들기](./connection-monitor-create-using-portal.md)

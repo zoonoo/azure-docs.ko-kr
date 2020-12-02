@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory 데이터 흐름 랭 글 링
 description: Azure Data Factory의 랭 글 링 데이터 흐름에 대 한 개요
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: fe3fd25753344c5ccfd21310ae01fca9962e3971
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 607ed6167ec761a6bf380a2cc420eb72f808f0a3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636071"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494871"
 ---
 # <a name="what-are-wrangling-data-flows"></a>랭 글 링 데이터 흐름은 무엇 인가요?
 

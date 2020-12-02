@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 792908236c4f240db64bd3899474d779d5b0570c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b6f66813ea23f6c9d4b47a3733d0c72c683d0676
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018106"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493987"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -59,7 +59,7 @@ Nsg ( [네트워크 보안 그룹](../virtual-network/network-security-groups-ov
 **핵심 개념**
 
 - 소프트웨어 정의 네트워크는 Vnet (가상 네트워크) 및 서브넷을 중심으로 구성 됩니다. 이러한 Vnet 및 서브넷의 보안은 NSG를 사용 하 여 관리할 수 있습니다.
-- NSG (네트워크 보안 그룹)에는 연결 된 리소스의 네트워크 트래픽을 허용 하거나 거부 하는 _보안 규칙_ 목록이 포함 되어 있습니다. NSGs는 서브넷, 개별 Vm 또는 Vm에 연결 된 개별 NIC (네트워크 인터페이스)에 연결 될 수 있습니다 (리소스 관리자). 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json)를 참조하세요.
+- NSG (네트워크 보안 그룹)에는 연결 된 리소스의 네트워크 트래픽을 허용 하거나 거부 하는 _보안 규칙_ 목록이 포함 되어 있습니다. NSGs는 서브넷, 개별 Vm 또는 Vm에 연결 된 개별 NIC (네트워크 인터페이스)에 연결 될 수 있습니다 (리소스 관리자). 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 - 네트워크의 모든 트래픽 흐름은 해당 NSG의 규칙을 사용 하 여 평가 됩니다.
 - 이러한 평가 결과는 NSG 흐름 로그입니다. 흐름 로그는 Azure 플랫폼을 통해 수집 되며 고객 리소스를 변경할 필요가 없습니다.
 - 참고: 규칙은 종료 & 두 가지 유형으로, 각각 서로 다른 로깅 동작을 포함 합니다.
@@ -365,7 +365,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 - [AKS(Azure Kubernetes Service)](https://azure.microsoft.com/services/kubernetes-service/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 **중요 한 vnet/서브넷에 대해 설정**: 흐름 로그는 감사 기능 및 보안 모범 사례로 서 구독의 모든 중요 한 vnet/서브넷에서 사용 하도록 설정 되어야 합니다. 
 

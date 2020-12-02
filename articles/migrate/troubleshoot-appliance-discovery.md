@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: b6fed24c7de87424bde94b864d4a9db91828a510
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0d4630cad94a30e0dd53785c512e452d7b4a7d38
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315777"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494446"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Azure Migrate 어플라이언스 및 검색 문제 해결
 
@@ -31,7 +31,7 @@ ms.locfileid: "92315777"
 2. 그래도 배포가 실패 하 고 VMware vSphere 클라이언트를 사용 하 여 파일을 배포 하는 경우 vSphere 웹 클라이언트를 통해 배포 해 보세요. 그래도 배포가 실패 하면 다른 웹 브라우저를 사용해 보세요.
 3. VSphere 웹 클라이언트를 사용 하 고 vCenter Server 6.5 또는 6.7에 배포 하려는 경우 ESXi 호스트에 직접 OVA를 배포 해 보세요.
    - 웹 클라이언트를 사용 하 여 (vCenter Server 대신) ESXi 호스트에 직접 연결 합니다 (https://<*호스트 IP 주소*>/uis).
-   - **홈**  >  **인벤토리**에서 파일 배포 **파일**  >  **템플릿 템플릿**을 선택 합니다. OVA로 이동 하 여 배포를 완료 합니다.
+   - **홈**  >  **인벤토리** 에서 파일 배포 **파일**  >  **템플릿 템플릿** 을 선택 합니다. OVA로 이동 하 여 배포를 완료 합니다.
 4. 배포가 여전히 실패하는 경우 Azure Migrate 지원에 문의합니다.
 
 ## <a name="cant-connect-to-the-internet"></a>인터넷에 연결할 수 없음
@@ -56,8 +56,8 @@ Azure에 로그인 하는 데 잘못 된 Azure 계정을 사용 하는 경우 "�
 날짜 및 시간 동기화 (802)에 대 한 오류는 서버 클록이 현재 시간과 5 분 넘게 동기화 되지 않았을 수 있음을 나타냅니다. 현재 시간과 일치 하도록 수집기 VM의 클록 시간을 변경 합니다.
 
 1. VM에서 관리자 명령 프롬프트를 엽니다.
-2. 표준 시간대를 확인 하려면 **w32tm/crers**를 실행 합니다.
-3. 시간을 동기화 하려면 **w32tm/resync**를 실행 합니다.
+2. 표준 시간대를 확인 하려면 **w32tm/crers** 를 실행 합니다.
+3. 시간을 동기화 하려면 **w32tm/resync** 를 실행 합니다.
 
 
 ## <a name="unabletoconnecttoserver"></a>UnableToConnectToServer
@@ -80,7 +80,7 @@ Azure에 로그인 하는 데 잘못 된 Azure 계정을 사용 하는 경우 "�
     - 필요한 Azure 역할 및 권한에 [대해 자세히 알아보세요](./migrate-appliance.md#appliance---vmware) .
 - 오류 60039, "어플라이언스를 등록 하는 데 사용 된 Azure Migrate 프로젝트를 찾을 수 없어 등록이 실패 하는 경우" 기기가 Azure Migrate 프로젝트에 성공적으로 등록 되지 않을 수 있습니다. "가 발생할 수 있습니다.
     - Azure Portal에서 프로젝트가 리소스 그룹에 있는지 여부를 확인 합니다.
-    - 프로젝트가 존재 하지 않는 경우 리소스 그룹에 새 Azure Migrate 프로젝트를 만들고 어플라이언스를 다시 등록 합니다. 새 프로젝트를 만드는 [방법에 대해 알아봅니다](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) .
+    - 프로젝트가 존재 하지 않는 경우 리소스 그룹에 새 Azure Migrate 프로젝트를 만들고 어플라이언스를 다시 등록 합니다. 새 프로젝트를 만드는 [방법에 대해 알아봅니다](./create-manage-projects.md#create-a-project-for-the-first-time) .
 
 ## <a name="error-6003060031-key-vault-management-operation-failed"></a>오류 60030/60031: Key Vault 관리 작업에 실패 했습니다.
 
@@ -98,7 +98,7 @@ Azure에 로그인 하는 데 잘못 된 Azure 계정을 사용 하는 경우 "�
 - 유효성 검사 오류가 있는 경우 수정 지침을 검토 하 여 오류를 수정 하 고 **검색 저장 및 시작** 옵션을 다시 시도 합니다.
 
 ## <a name="error-60025-azure-ad-operation-failed"></a>오류 60025: Azure AD 작업이 실패 했습니다. 
-오류 60025: "Azure AD 작업이 실패 했습니다. Azure AD 응용 프로그램을 만들거나 업데이트 하는 동안 발생 한 오류는 검색을 시작 하는 데 사용 되는 Azure 사용자 계정이 어플라이언스를 등록 하는 데 사용 된 계정과 다를 때 발생 합니다. 다음 중 하나를 수행합니다.
+오류 60025: "Azure AD 작업이 실패 했습니다. Azure AD 응용 프로그램을 만들거나 업데이트 하는 동안 발생 한 오류는 검색을 시작 하는 데 사용 되는 Azure 사용자 계정이 어플라이언스를 등록 하는 데 사용 된 계정과 다를 때 발생 합니다. 다음 작업 중 하나를 수행합니다.
 
 - 검색을 시작 하는 사용자 계정이 어플라이언스를 등록 하는 데 사용한 것과 동일한 지 확인 합니다.
 - 검색 작업이 실패 하는 사용자 계정에 Azure Active Directory 응용 프로그램 액세스 권한을 제공 합니다.
@@ -157,9 +157,9 @@ Azure에 로그인 하는 데 잘못 된 Azure 계정을 사용 하는 경우 "�
 
 검색 된 Vm이 포털에 표시 되지 않거나 VM 데이터가 오래 된 경우 몇 분 정도 기다립니다. 검색 된 VM 구성 데이터의 변경 내용이 포털에 표시 되는 데 최대 30 분이 걸립니다. 응용 프로그램 데이터의 변경 내용이 나타날 때까지 몇 시간이 걸릴 수 있습니다. 이 시간 이후 데이터가 없으면 다음과 같이 새로 고쳐 보세요.
 
-1. 서버 **Servers**  >  **Azure Migrate 서버 평가**에서 **개요**를 선택 합니다.
-2. **관리**에서 **에이전트 상태**를 선택 합니다.
-3. **에이전트 새로 고침**을 선택 합니다.
+1. 서버 **Servers**  >  **Azure Migrate 서버 평가** 에서 **개요** 를 선택 합니다.
+2. **관리** 에서 **에이전트 상태** 를 선택 합니다.
+3. **에이전트 새로 고침** 을 선택 합니다.
 4. 새로 고침 작업이 완료 될 때까지 기다립니다. 이제 최신 정보가 표시 됩니다.
 
 ## <a name="deleted-vms-appear-in-portal"></a>삭제 된 Vm이 포털에 표시 됨
@@ -179,9 +179,9 @@ Vm을 삭제 하 고 포털에 계속 표시 되는 경우 30 분 동안 기다�
 ## <a name="do-not-see-application-details-even-after-updating-guest-credentials"></a>게스트 자격 증명을 업데이트 한 후에도 응용 프로그램 세부 정보 표시 안 함
 응용 프로그램 검색은 24 시간 마다 한 번씩 실행 됩니다. 세부 정보를 즉시 보려면 다음과 같이 새로 고칩니다. 아니요에 따라 몇 분 정도 걸릴 수 있습니다. 검색 된 Vm입니다.
 
-1. 서버 **Servers**  >  **Azure Migrate 서버 평가**에서 **개요**를 선택 합니다.
-2. **관리**에서 **에이전트 상태**를 선택 합니다.
-3. **에이전트 새로 고침**을 선택 합니다.
+1. 서버 **Servers**  >  **Azure Migrate 서버 평가** 에서 **개요** 를 선택 합니다.
+2. **관리** 에서 **에이전트 상태** 를 선택 합니다.
+3. **에이전트 새로 고침** 을 선택 합니다.
 4. 새로 고침 작업이 완료 될 때까지 기다립니다. 이제 최신 정보가 표시 됩니다.
 
 ## <a name="unable-to-export-application-inventory"></a>응용 프로그램 인벤토리를 내보낼 수 없음
@@ -196,7 +196,7 @@ Azure Migrate은 Azure Migrate: 서버 평가를 사용 하 여 응용 프로그
 
 일반적인 앱 검색 오류는 표에 요약 되어 있습니다. 
 
-**오류** | **원인** | **동작**
+**오류** | **원인** | **작업**
 --- | --- | ---
 9000: VMware 도구 상태를 검색할 수 없습니다.     |   VMWare 도구가 설치 되어 있지 않거나 손상 되었을 수 있습니다.    |   VMware 도구가 VM에 설치 되어 있고 실행 중인지 확인 합니다.
 9001: VMware 도구가 설치 되어 있지 않습니다.     |   VMWare 도구가 설치 되어 있지 않거나 손상 되었을 수 있습니다.    |   VMware 도구가 VM에 설치 되어 있고 실행 중인지 확인 합니다.

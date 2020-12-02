@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
-ms.openlocfilehash: 227e27d25ad5d0c61ed4f36c234222a079315619
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6009975337f8f4caaf43e4b8b715e42c6ce2ffdc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317150"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494582"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Azure로의 마이그레이션에 대 한 많은 수의 물리적 서버 평가
 
@@ -73,7 +73,7 @@ ms.locfileid: "92317150"
 1. Azure Migrate 프로젝트를 만듭니다.
 2. 프로젝트에 Azure Migrate 서버 평가 도구를 추가 합니다.
 
-[자세히 알아보기](how-to-add-tool-first-time.md)
+[자세한 정보](./create-manage-projects.md)
 
 ## <a name="create-and-review-an-assessment"></a>평가 만들기 및 검토
 

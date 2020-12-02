@@ -3,20 +3,20 @@ title: Azure 데이터 팩터리 - 샘플
 description: Azure Data Factory 서비스와 함께 제공 되는 샘플에 대 한 세부 정보를 제공 합니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ed63d148afa6f5674d36cc50c18351b2a06966eb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b373b5c440bf2ef2f50bf323baa2488981cdc775
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019619"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495194"
 ---
 # <a name="azure-data-factory---samples"></a>Azure 데이터 팩터리 - 샘플
 > [!NOTE]
@@ -46,7 +46,7 @@ ms.locfileid: "96019619"
 ## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿을 찾을 수 있습니다.
 
-| 템플릿 | Description |
+| 템플릿 | 설명 |
 | --- | --- |
 | [Azure Blob Storage에서 Azure SQL Database로 데이터 복사](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |이 템플릿을 배포 하면 지정 된 Azure blob 저장소의 데이터를 Azure SQL Database로 복사 하는 파이프라인이 있는 Azure 데이터 팩터리가 생성 됩니다. |
 | [Salesforce에서 Azure Blob Storage로 데이터 복사](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |이 템플릿을 배포하면 지정된 Salesforce 계정에서 Azure Blob Storage에 데이터를 복사하는 파이프라인으로 Azure Data Factory가 만들어집니다. |
@@ -75,7 +75,7 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
     ![데이터 팩터리 블레이드](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Visual Studio의 샘플
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 다음 항목이 컴퓨터에 설치되어 있어야 합니다.
 
 * Visual Studio 2013 또는 Visual Studio 2015

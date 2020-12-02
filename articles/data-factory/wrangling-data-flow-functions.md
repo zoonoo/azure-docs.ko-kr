@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory의 랭 글 링 데이터 흐름 변환 함수
 description: Azure Data Factory에서 사용 가능한 랭 글 링 데이터 흐름 함수 개요
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: c56c52193f433571f16e4acf7bd6e7b89641b26f
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 28c6228d4401db0fd1301137167a86cb6f18cbeb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233953"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494922"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>랭 글 링 데이터 흐름의 변환 함수
 
@@ -88,9 +88,9 @@ M 함수 테이블을 사용 합니다. 다음 조건을 필터링 하려면 [�
 
 ## <a name="known-unsupported-functions"></a>지원 되지 않는 알려진 함수
 
-| 함수 | 상태 |
+| 기능 | 상태 |
 | -- | -- |
-| Table.PromoteHeaders | 지원되지 않습니다. 데이터 집합에서 "First row as header"를 설정 하 여 동일한 결과를 얻을 수 있습니다. |
+| Table.PromoteHeaders | 지원 안 됨 데이터 집합에서 "First row as header"를 설정 하 여 동일한 결과를 얻을 수 있습니다. |
 | Table.CombineColumns | 이는 직접 지원 되지 않지만 지정 된 두 열을 연결 하는 새 열을 추가 하 여 달성할 수 있는 일반적인 시나리오입니다.  예: Table. AddColumn (RemoveEmailColumn, "Name", each [FirstName] & "" & [LastName]) |
 | Table.TransformColumnTypes | 이는 대부분의 경우 지원 됩니다. 다음 시나리오는 지원 되지 않습니다. 문자열을 통화 형식으로 변환, 문자열을 시간 형식으로 변환, 문자열을 백분율 형식으로 변환 |
 | Table.NestedJoin | 조인을 수행 하면 유효성 검사 오류가 발생 합니다. 열이 제대로 작동 하려면 확장 해야 합니다. |
