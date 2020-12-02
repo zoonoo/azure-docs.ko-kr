@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: c7a2373f0cf7005e465c2d3bd42817b3394a84de
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 27b0485fdd7b3c352a85fe7eb39fba33c53bf727
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510280"
+ms.locfileid: "96519215"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Apache HBase에 대한 Azure HDInsight 가속 쓰기
 
@@ -36,7 +36,7 @@ MemStore를 플러시하는 동안에는 지역 **서버가** 충돌 하거나 �
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>HDInsight에서 HBase에 대해 가속화 되는 쓰기를 사용 하도록 설정 하는 방법
 
-가속화 된 쓰기 기능을 사용 하 여 새 HBase 클러스터를 만들려면 **3 단계 저장소** 에 도달할 때까지 [HDInsight에서 클러스터 설정](../hdinsight-hadoop-provision-linux-clusters.md) 의 단계를 따릅니다. **Metastore 설정** 에서 **HBase 가속 쓰기 사용** 옆의 확인란을 선택 합니다. 그런 다음 클러스터를 만들기 위한 나머지 단계를 계속 진행 합니다.
+가속화 된 쓰기 기능을 사용 하 여 새 HBase 클러스터를 만들려면 [HDInsight에서 클러스터 설정](../hdinsight-hadoop-provision-linux-clusters.md)의 단계를 따르세요. **기본** 탭에서 클러스터 유형을 hbase로 선택 하 고 구성 요소 버전을 지정한 후 **hbase 가속화 된 쓰기 사용** 옆의 확인란을 클릭 합니다. 그런 다음 클러스터를 만들기 위한 나머지 단계를 계속 진행 합니다.
 
 ![HDInsight Apache HBase에 대 한 가속 쓰기 옵션 사용](./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png)
 
