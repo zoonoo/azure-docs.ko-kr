@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
-ms.openlocfilehash: 8192b1351d54acbb553bacb8b36474cba271cb05
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 89e4b1c7d7499a0d6e38a0a662bc610b3914bdfa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638077"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444891"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Azure Data Factory를 사용 하 여 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션 
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory은 온-프레미스 Netezza 서버에서 Azure storage 계정 또는 Azure Synapse Analytics (이전의 SQL Data Warehouse) 데이터베이스로 대규모로 데이터를 마이그레이션하는 안정적이 고, 강력 하며, 비용 효율적인 메커니즘을 제공 합니다. 
+Azure Data Factory은 온-프레미스 Netezza 서버에서 Azure storage 계정 또는 Azure Synapse Analytics 데이터베이스로 대규모로 데이터를 마이그레이션하는 데 성능과 강력 하 고 비용 효율적인 메커니즘을 제공 합니다. 
 
 이 문서에서는 데이터 엔지니어 및 개발자를 위한 다음 정보를 제공합니다.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 236a604c2c1cecfb18a2d82c3796a88cc4341a34
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: d37c362da484a2a7e400da8f87dd0a37f0f80d3a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636387"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436728"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>컴퓨터의 SQL server에 대 한 Azure Defender 
 
@@ -112,7 +112,7 @@ Security Center에서 직접 취약성 평가 결과를 볼 수 있습니다.
 
 ## <a name="explore-and-investigate-security-alerts"></a>보안 경고 탐색 및 조사
 
-Azure Defender 경고는 Security Center의 경고 페이지, 리소스의 보안 탭, [Azure defender 대시보드](azure-defender-dashboard.md)또는 경고 전자 메일의 직접 링크를 통해 사용할 수 있습니다.
+Azure Defender for SQL 경고는 Security Center의 경고 페이지, 리소스의 보안 탭, [Azure Defender 대시보드](azure-defender-dashboard.md)또는 경고 전자 메일의 직접 링크를 통해 사용할 수 있습니다.
 
 1. 경고를 보려면 Security Center의 메뉴에서 **보안 경고** 를 선택 하 고 경고를 선택 합니다.
 

@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 3728fdd07172f2402ddb1dc7434ddb1993b984b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e9e630f4199e0bfb67509f008f403c0a7a490887
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999878"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436694"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>상업적 마켓플레이스 파트너 및 고객 사용 특성
 
@@ -32,7 +32,7 @@ Azure Marketplace, 빠른 시작 리포지토리, 프라이빗 GitHub 리포지�
 >
 >- 고객 사용량 특성은 새 배포용이며 이미 배포된 기존 리소스의 태그 지정은 지원하지 않습니다.
 >
->- 고객 사용량 특성은 Azure Marketplace에 게시된 [Azure 애플리케이션](./partner-center-portal/create-new-azure-apps-offer.md) 제품에 필요합니다.
+>- 고객 사용량 특성은 Azure Marketplace에 게시된 [Azure 애플리케이션](./create-new-azure-apps-offer.md) 제품에 필요합니다.
 >
 >- 모든 Azure 서비스는 고객 사용 특성과 호환 되지 않습니다. AKS (Azure Kubernetes Services) 및 VM Scale Sets에는 사용 현황 보고를 야기 하는 알려진 문제가 있습니다.
 
@@ -64,7 +64,7 @@ GUID는 32자리의 16진수가 있는 고유 참조 식별자입니다. 추적�
 GUID가 템플릿이나 사용자 에이전트에 추가되고 해당 GUID가 파트너 센터에 등록되면 향후 배포가 추적됩니다.
 
 > [!NOTE]
-> 파트너 센터를 통해 Azure Marketplace에 [Azure 애플리케이션](./partner-center-portal/create-new-azure-apps-offer.md) 제품을 게시 하는 경우 템플릿 내에서 사용 되는 모든 새 GUID는 템플릿이 업로드 될 때 파트너 센터 프로필에 자동으로 등록 됩니다.  
+> 파트너 센터를 통해 Azure Marketplace에 [Azure 애플리케이션](./create-new-azure-apps-offer.md) 제품을 게시 하는 경우 템플릿 내에서 사용 되는 모든 새 GUID는 템플릿이 업로드 될 때 파트너 센터 프로필에 자동으로 등록 됩니다.  
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인합니다.
 
@@ -90,7 +90,7 @@ GUID가 템플릿이나 사용자 에이전트에 추가되고 해당 GUID가 �
 > [!NOTE]
 > 솔루션 템플릿을 만들고 게시하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 > * [첫 번째 Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
->* [Azure 애플리케이션 제안](./partner-center-portal/create-new-azure-apps-offer.md)
+>* [Azure 애플리케이션 제안](./create-new-azure-apps-offer.md)
 >* 비디오: [솔루션 템플릿 및 Azure Marketplace에 대 한 관리 되는 응용 프로그램 빌드](https://channel9.msdn.com/Events/Build/2018/BRK3603)
 
 

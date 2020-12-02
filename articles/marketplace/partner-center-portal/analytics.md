@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rajap
 ms.author: rajap
 ms.date: 12/11/2019
-ms.openlocfilehash: 6fd42e7661e04b6eab35e3b076e9c8c2fb55a363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 379047532542fdb45a4378687a4c6b99f6cdcd77
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86122016"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444415"
 ---
 # <a name="access-analytic-reports-for-the-commercial-marketplace-in-partner-center"></a>파트너 센터에서 상업적 marketplace에 대 한 분석 보고서 액세스
 
@@ -23,14 +23,14 @@ Microsoft 파트너 센터의 분석 보고서에 액세스 하 여 판매를 �
 파트너 센터 분석 도구에 액세스 하려면 상업적 Marketplace에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 대시보드를 엽니다.
 
 >[!NOTE]
-> 분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](./faq-terminology.md)를 참조하세요.
+> 분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](../analytics-faq.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 제품에 대한 Marketplace 활동을 요약하는 집계 데이터의 그래프, 추세 및 값은 [상업용 마켓플레이스 분석의 요약 대시보드](./summary-dashboard.md)를 참조하세요.
-- 그래픽 및 다운로드 가능 형식으로 주문 정보를 보려면 [상업용 마켓플레이스 분석의 주문 대시보드](./orders-dashboard.md)를 참조하세요.
-- VM(가상 머신) 제품 사용량 및 요금제 청구 메트릭은 [상업용 마켓플레이스 분석의 사용량 대시보드](./usage-dashboard.md)를 참조하세요.
-- 증가 추세를 비롯한 고객에 대한 자세한 내용은 [상업용 마켓플레이스 분석의 고객 대시보드](./customer-dashboard.md)를 참조하세요.
+- 제품에 대한 Marketplace 활동을 요약하는 집계 데이터의 그래프, 추세 및 값은 [상업용 마켓플레이스 분석의 요약 대시보드](../summary-dashboard.md)를 참조하세요.
+- 그래픽 및 다운로드 가능 형식으로 주문 정보를 보려면 [상업용 마켓플레이스 분석의 주문 대시보드](../orders-dashboard.md)를 참조하세요.
+- VM(가상 머신) 제품 사용량 및 요금제 청구 메트릭은 [상업용 마켓플레이스 분석의 사용량 대시보드](../usage-dashboard.md)를 참조하세요.
+- 증가 추세를 비롯한 고객에 대한 자세한 내용은 [상업용 마켓플레이스 분석의 고객 대시보드](../customer-dashboard.md)를 참조하세요.
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 마켓플레이스 분석의 다운로드 대시보드](./downloads-dashboard.md)를 참조하세요.
 - Azure Marketplace 및 AppSource의 제품에 대한 고객 의견의 통합 보기를 확인하려면 [상업용 마켓플레이스 분석의 평가 및 검토 대시보드](./ratings-reviews.md)를 참조하세요.
-- 상업용 마켓플레이스 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](./faq-terminology.md)를 참조하세요.
+- 상업용 마켓플레이스 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](../analytics-faq.md)를 참조하세요.

@@ -1,24 +1,27 @@
 ---
 title: Synapse 링크를 사용 하 여 Azure Cosmos DB 데이터를 분석 하기 위해 Power BI 및 서버 리스 SQL 풀
-description: Synapse SQL 서버를 사용 하지 않는 데이터베이스 및 뷰를 사용 하 여 Azure Cosmos DB에 대 한 Synapse 링크를 빌드하고 Azure Cosmos DB 컨테이너를 쿼리 한 다음 해당 보기에 대해 Power BI를 사용 하 여 모델을 작성 하는 방법을 알아봅니다
+description: Azure Cosmos DB에 대 한 서버를 사용 하지 않는 SQL 풀 데이터베이스 및 뷰를 빌드하는 방법에 대해 알아봅니다. Synapse 링크를 사용 하 여 Azure Cosmos DB 컨테이너를 쿼리하고 해당 보기에 대 한 Power BI 모델을 작성 합니다.
 author: ArnoMicrosoft
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: 55a73ada39f4f48aeb22c5482bd85d1092d54c35
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 959070ca431c3397779a2a22c16f03b3adebbb35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342252"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444506"
 ---
-# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Power BI 및 서버를 사용 하지 않는 Synapse SQL 풀을 사용 하 여 Synapse 링크로 Azure Cosmos DB 데이터 분석 (미리 보기) 
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Power BI 및 서버를 사용 하지 않는 Synapse SQL 풀 (미리 보기)을 사용 하 여 Synapse 링크로 Azure Cosmos DB 데이터 분석 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 이 문서에서는 Azure Cosmos DB에 대 한 Synapse 링크를 통해 서버 리스 SQL 풀 데이터베이스 및 뷰를 빌드하는 방법에 대해 알아봅니다. Azure Cosmos DB 컨테이너를 쿼리 한 다음 해당 쿼리를 반영 하기 위해 Power BI를 사용 하 여 모델을 작성 합니다.
 
 이 시나리오에서는 파트너 소매점의 Surface 제품 판매에 대 한 더미 데이터를 사용 합니다. 큰 명인 가구의 근접성 및 특정 주에 대 한 광고의 영향을 기준으로 매장 당 수익을 분석 합니다. 이 문서에서는 **RetailSales** 및 파일 **인구 통계** 와 둘 간의 쿼리 라는 두 개의 뷰를 만듭니다. 이 [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) 리포지토리에서 샘플 제품 데이터를 가져올 수 있습니다.
+
+> [!IMPORTANT]
+> Azure Cosmos DB에 대 한 Azure Synapse 링크에 대 한 Synapse 서버 리스 SQL 풀 지원은 현재 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 Microsoft Azure Preview에 대한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="prerequisites"></a>전제 조건
 
@@ -55,7 +58,7 @@ Create database RetailCosmosDB
 
 다음으로, 다른 Synapse Link enabled Azure Cosmos 컨테이너에서 여러 뷰를 만듭니다. 뷰를 사용 하면 T-sql을 사용 하 여 서로 다른 컨테이너에 있는 Azure Cosmos DB 데이터를 조인 하 고 쿼리할 수 있습니다.  뷰를 만들 때 **RetailCosmosDB** 데이터베이스를 선택 해야 합니다.
 
-다음 스크립트는 각 컨테이너에 대 한 뷰를 만드는 방법을 보여 줍니다. 편의상 Synapse Link enabled 컨테이너에서 서버를 사용 하지 않는 Synapse SQL의 [자동 스키마 유추](analytical-store-introduction.md#analytical-schema) 기능을 사용 하겠습니다.
+다음 스크립트는 각 컨테이너에 대 한 뷰를 만드는 방법을 보여 줍니다. 편의상 Synapse Link enabled 컨테이너를 통한 서버 리스 SQL 풀의 [자동 스키마 유추](analytical-store-introduction.md#analytical-schema) 기능을 사용 하겠습니다.
 
 
 ### <a name="retailsales-view"></a>RetailSales 보기:
@@ -118,7 +121,7 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 1. Azure AD와 같은 기본 인증 방법을 선택 합니다.
 
-1. **RetailCosmosDB** 데이터베이스와 **RetailSales** , 데이터 **인구 통계** 보기를 선택 합니다.
+1. **RetailCosmosDB** 데이터베이스와 **RetailSales**, 데이터 **인구 통계** 보기를 선택 합니다.
 
 1. **부하** 를 선택 하 여 두 뷰를 직접 쿼리 모드로 로드 합니다.
 

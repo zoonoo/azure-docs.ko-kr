@@ -1,22 +1,22 @@
 ---
-title: Synapse Studio와 storage 간의 연결 문제 해결
-description: Synapse Studio와 storage 간의 연결 문제 해결
+title: Synapse Studio와 스토리지 간의 연결 문제 해결
+description: Synapse Studio와 스토리지 간의 연결 문제 해결
 author: saveenr
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0b8a64d24242e6fb34c963b14429fdfee2398f62
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: cee6d030a9639a7203a32a3c0957733cecb1f8b6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557870"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445323"
 ---
-# <a name="troubleshoot-connectivity-between-azure-synapse-analytics-synapse-studio-and-storage"></a>Azure Synapse Analytics Synapse Studio와 저장소 간 연결 문제 해결
+# <a name="troubleshoot-connectivity-between-azure-synapse-analytics-synapse-studio-and-storage"></a>Azure Synapse Analytics Synapse Studio와 스토리지 간 연결 문제 해결
 
-Synapse Studio (미리 보기)에서 연결 된 저장소에 있는 데이터 리소스를 탐색할 수 있습니다. 이 가이드는 데이터 리소스에 액세스 하려고 할 때 연결 문제를 해결 하는 데 도움이 됩니다. 
+Synapse Studio에서는 연결 된 저장소에 있는 데이터 리소스를 탐색할 수 있습니다. 이 가이드는 데이터 리소스에 액세스 하려고 할 때 연결 문제를 해결 하는 데 도움이 됩니다. 
 
 ## <a name="case-1-storage-account-lacks-proper-permissions"></a>Case #1: 저장소 계정에 적절 한 사용 권한이 부족 합니다.
 

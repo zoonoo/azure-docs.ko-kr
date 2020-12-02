@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: e29aeb7570ad6daba9d6fc652291471fa246bf0a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b75964f8cfc41efc35858284dbffded3aa406eb6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674637"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436065"
 ---
 # <a name="marketplace-metered-billing-apis"></a>Marketplace 요금제 청구 Api
 
@@ -20,7 +20,7 @@ ms.locfileid: "92674637"
 
 SaaS에 대 한 사용자 지정 계량 차원을 만드는 방법에 대 한 자세한 내용은 [saas 요금제](saas-metered-billing.md)를 참조 하세요.
 
-관리 되는 앱 요금제를 사용 하 여 Azure 애플리케이션 제품에 대 한 사용자 지정 계량 차원을 만드는 방법에 대 한 자세한 내용은 [새 Azure 앱 만들기 제품의 기술 구성 섹션](create-new-azure-apps-offer.md#technical-configuration)을 참조 하세요.
+관리 되는 앱 요금제를 사용 하 여 Azure 애플리케이션 제품에 대 한 사용자 지정 계량 차원을 만드는 방법에 대 한 자세한 내용은 [Azure 응용 프로그램 제공 설정 정보 구성](../create-new-azure-apps-offer.md#configure-your-azure-application-offer-setup-details)을 참조 하세요.
 
 ## <a name="enforcing-tls-12-note"></a>TLS 1.2 메모 적용
 
@@ -34,7 +34,7 @@ TLS 버전 1.2 버전은 HTTPS 통신을 위한 최소 버전으로 적용 됩�
 
 기간별 각 시간에 대해 하나의 사용 이벤트만 내보낼 수 있습니다. 한 시간에 두 개 이상의 단위를 사용 하는 경우에는 해당 시간에 사용 된 모든 단위를 누적 한 다음 단일 이벤트로 내보냅니다. 최근 24 시간 동안에만 사용 이벤트를 내보낼 수 있습니다. 언제 든 지 8:00과 8:59:59 사이의 사용 이벤트를 내보내고이를 허용 하 고 8:00과 8:59:59 사이에 같은 날에 대 한 추가 이벤트를 보내는 경우에는 중복으로 거부 됩니다.
 
-**POST** : `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 

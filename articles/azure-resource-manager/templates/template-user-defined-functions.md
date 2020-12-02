@@ -3,12 +3,12 @@ title: 템플릿의 사용자 정의 함수
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용자 정의 함수를 정의 하 고 사용 하는 방법에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: c0d62abb5362d51a77db872c11416b04dcfb3f97
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 12199aca788438e4558ed2c607b866f0dc723e2a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353479"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436966"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>ARM 템플릿의 사용자 정의 함수
 
@@ -103,8 +103,7 @@ ms.locfileid: "96353479"
 * 함수는 [reference](template-functions-resource.md#reference) 함수 또는 [list](template-functions-resource.md#list) 함수를 사용할 수 없습니다.
 * 함수의 매개 변수는 기본값을 가질 수 없습니다.
 
-
 ## <a name="next-steps"></a>다음 단계
 
-* 사용자 정의 함수에 사용할 수 있는 속성에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
-* 사용 가능한 템플릿 함수 목록은 [Azure Resource Manager 템플릿 함수](template-functions.md)를 참조 하세요.
+* 사용자 정의 함수에 사용할 수 있는 속성에 대 한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 사용 가능한 템플릿 함수 목록은 [ARM 템플릿 함수](template-functions.md)를 참조 하세요.

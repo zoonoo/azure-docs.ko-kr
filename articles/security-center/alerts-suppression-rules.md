@@ -1,6 +1,6 @@
 ---
 title: 중복된 경고 제거 규칙을 사용하여 Azure Security Center에서 가양성 또는 기타 원치 않는 보안 경고 표시 안 함.
-description: 이 문서에서는 Azure Security Center의 비 표시 규칙을 사용 하 여 원치 않는 Azure Defender 경고를 숨기는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Security Center의 비 표시 규칙을 사용 하 여 원치 않는 보안 경고를 숨기는 방법을 설명 합니다.
 author: memildin
 manager: rkarlin
 services: security-center
@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: b954d6ed29074aa9261611f0d1bb79b5917d03f2
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 4f5049d1589b741e60db69c782107cab1f047b77
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372662"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436796"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Azure Defender의 경고 표시 안 함
 
@@ -127,9 +127,9 @@ Security Center의 REST API를 통해 중복된 경고 제거 규칙을 만들�
 
 REST API에서 중복된 경고 제거 규칙의 관련 HTTP 메서드는 다음과 같습니다.
 
-- **PUT** : 지정된 구독에서 중복된 경고 제거 규칙을 만들거나 업데이트합니다.
+- **PUT**: 지정된 구독에서 중복된 경고 제거 규칙을 만들거나 업데이트합니다.
 
-- **GET** :
+- **GET**:
 
     - 지정된 구독에 대해 구성된 모든 규칙을 나열합니다. 이 메서드는 해당하는 규칙의 배열을 반환합니다.
 
@@ -137,7 +137,7 @@ REST API에서 중복된 경고 제거 규칙의 관련 HTTP 메서드는 다음
 
     - 설계 단계에서 중복된 경고 제거 규칙의 영향을 시뮬레이션합니다. 이 호출은 규칙이 활성화되면 해제되는 기존 경고를 식별합니다.
 
-- **DELETE** : 기존 규칙을 삭제하되 이 규칙에 의해 이미 해제된 경고의 상태는 변경하지 않습니다.
+- **DELETE**: 기존 규칙을 삭제하되 이 규칙에 의해 이미 해제된 경고의 상태는 변경하지 않습니다.
 
 전체 세부 정보 및 사용 예제는 [API 설명서](/rest/api/securitycenter/)를 참조하세요. 
 

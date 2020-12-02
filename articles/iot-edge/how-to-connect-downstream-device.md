@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 78600b7b57a7c30fc609434a700f13fa21e079ce
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 35bb17a5cdfcc6aff4a513a594a08283ab1f1305
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019262"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437034"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -100,7 +100,7 @@ sudo update-ca-certificates
 
 다음 단계는 Windows 호스트에 CA 인증서를 설치하는 방법의 예제입니다. 이 예에서는 필수 구성 요소 문서에서 **azure-iot-test-only** 인증서를 사용 하 고 있으며,이 인증서를 다운스트림 장치의 위치로 복사 했다고 가정 합니다.
 
-관리자 권한으로 PowerShell의 [가져오기-인증서](/powershell/module/pkiclient/import-certificate?view=win10-ps) 를 사용 하 여 인증서를 설치할 수 있습니다.
+관리자 권한으로 PowerShell의 [가져오기-인증서](/powershell/module/pkiclient/import-certificate) 를 사용 하 여 인증서를 설치할 수 있습니다.
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root

@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 002c718466b9e13d2f92fbea6dd055eb13d4d3a7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 41d98750f3c869eff5abf7482a9bb04435407318
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789117"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436762"
 ---
 # <a name="introduction-to-azure-defender"></a>Azure Defender 소개
 
@@ -61,7 +61,7 @@ Azure 환경을 방어할 수 있을 뿐 아니라, 하이브리드 클라우드
 
 
 
-## <a name="azure-defender-alerts"></a>Azure Defender 경고 
+## <a name="security-alerts"></a>보안 경고 
 
 Azure Defender는 환경의 모든 영역에서 위협을 탐지하면 경고를 생성합니다. 이러한 경고는 영향을 받는 리소스의 세부 정보, 제안된 수정 단계 및 경우에 따라 응답으로 논리 앱을 트리거하는 옵션을 설명합니다.
 

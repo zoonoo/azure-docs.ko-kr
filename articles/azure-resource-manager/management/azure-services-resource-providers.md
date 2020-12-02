@@ -2,13 +2,13 @@
 title: Azure 서비스의 리소스 공급자
 description: Azure Resource Manager에 대 한 모든 리소스 공급자 네임 스페이스를 나열 하 고 해당 네임 스페이스에 대 한 Azure 서비스를 표시 합니다.
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 7c8e535978bff38146caee1a3b5177d5befaa6a1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 11/30/2020
+ms.openlocfilehash: fffac8fef8742cf1f151de06ba6b528035a6668d
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185864"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436830"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 서비스의 리소스 공급자
 
@@ -20,7 +20,7 @@ ms.locfileid: "96185864"
 | --------------------------- | ------------- |
 | Microsoft.AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
 | Microsoft.Addons | core |
-| ADHybridHealthService<sup>1</sup> | [Azure Active Directory](../../active-directory/index.yml) |
+| ADHybridHealthService- [등록](#registration) 됨 | [Azure Active Directory](../../active-directory/index.yml) |
 | Microsoft.Advisor | [Azure Advisor](../../advisor/index.yml) |
 | Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
@@ -28,7 +28,7 @@ ms.locfileid: "96185864"
 | Microsoft.AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
 | Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft.Attestation | Azure 증명 서비스 |
-| Microsoft 인증<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft 권한 부여- [등록](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
 | AutonomousSystems | [자치 시스템](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.AVS | [Azure VMware 솔루션](../../azure-vmware/index.yml) |
@@ -37,7 +37,7 @@ ms.locfileid: "96185864"
 | Microsoft.AzureStack | core |
 | Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
-| Microsoft 청구<sup>1</sup> | [Cost Management 및 청구](/azure/billing/) |
+| Microsoft 청구- [등록](#registration) 됨 | [Cost Management 및 청구](/azure/billing/) |
 | Microsoft.BingMaps | [Bing 지도](/BingMaps/#pivot=main&panel=BingMapsAPI) |
 | Microsoft.Blockchain | [Azure Blockchain 서비스](../../blockchain/workbench/index.yml) |
 | Microsoft.BlockchainTokens | [Azure Blockchain 토큰](https://azure.microsoft.com/services/blockchain-tokens/) |
@@ -52,15 +52,15 @@ ms.locfileid: "96185864"
 | Microsoft.ClassicInfrastructureMigrate | 클래식 배포 모델 마이그레이션 |
 | Microsoft.ClassicNetwork | 클래식 배포 모델 가상 네트워크 |
 | Microsoft.ClassicStorage | 클래식 배포 모델 저장소 |
-| ClassicSubscription<sup>1</sup> | 클래식 배포 모델 |
+| ClassicSubscription- [등록](#registration) 됨 | 클래식 배포 모델 |
 | Microsoft.CognitiveServices | [Cognitive Services](../../cognitive-services/index.yml) |
-| Microsoft 상거래<sup>1</sup> | core |
+| Microsoft 상거래 [등록](#registration) | core |
 | Microsoft.Compute | [Virtual Machines](../../virtual-machines/index.yml)<br />[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) |
-| Microsoft 사용<sup>1</sup> | [Cost Management](/azure/cost-management/) |
+| Microsoft 소비량- [등록](#registration) | [Cost Management](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Container Instances](../../container-instances/index.yml) |
 | Microsoft.ContainerRegistry | [Container Registry](../../container-registry/index.yml) |
 | Microsoft.ContainerService | [AKS(Azure Kubernetes Service)](../../aks/index.yml) |
-| CostManagement<sup>1</sup> | [Cost Management](/azure/cost-management/) |
+| CostManagement- [등록](#registration) 됨 | [Cost Management](/azure/cost-management/) |
 | Microsoft.CostManagementExports | [Cost Management](/azure/cost-management/) |
 | Microsoft.CustomerLockbox | [Microsoft Azure에 대한 고객 Lockbox](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft.CustomProviders | [Azure 사용자 지정 공급자](../custom-providers/overview.md) |
@@ -90,7 +90,7 @@ ms.locfileid: "96185864"
 | Microsoft.EnterpriseKnowledgeGraph | 엔터프라이즈 지식 그래프 |
 | Microsoft.EventGrid | [Event Grid](../../event-grid/index.yml) |
 | Microsoft.EventHub | [Event Hubs](../../event-hubs/index.yml) |
-| Microsoft 기능<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft 기능- [등록](#registration) 됨 | [Azure Resource Manager](../index.yml) |
 | Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft.HanaOnAzure | [Azure의 SAP HANA(대규모 인스턴스)](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.HardwareSecurityModules | [Azure Dedicated HSM](../../dedicated-hsm/index.yml) |
@@ -120,7 +120,7 @@ ms.locfileid: "96185864"
 | Microsoft.Maps | [Azure Maps](../../azure-maps/index.yml) |
 | Microsoft.Marketplace | core |
 | Microsoft.MarketplaceApps | core |
-| MarketplaceOrdering<sup>1</sup> | core |
+| MarketplaceOrdering- [등록](#registration) 됨 | core |
 | Microsoft.Media | [Media Services](../../media-services/index.yml) |
 | Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
@@ -135,7 +135,7 @@ ms.locfileid: "96185864"
 | Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.Peering | [Azure Peering Service](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft 포털<sup>1</sup> | [Azure Portal](../../azure-portal/index.yml) |
+| Microsoft 포털- [등록](#registration) | [Azure Portal](../../azure-portal/index.yml) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft PowerPlatform | [Power Platform](/power-platform/) |
@@ -144,15 +144,15 @@ ms.locfileid: "96185864"
 | Microsoft.RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.RedHatOpenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
 | Microsoft.Relay | [Azure Relay](../../azure-relay/relay-what-is-it.md) |
-| Microsoft ResourceGraph<sup>1</sup> | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
+| Microsoft ResourceGraph- [등록](#registration) 됨 | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
 | Microsoft.ResourceHealth | [Azure Service Health](../../service-health/index.yml) |
-| Microsoft .Resources<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft .Resources- [등록](#registration) 됨 | [Azure Resource Manager](../index.yml) |
 | Microsoft.SaaS | core |
 | Microsoft.Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft.Security | [Security Center](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
-| SerialConsole<sup>1</sup> | [Windows의 Azure 직렬 콘솔](../../virtual-machines/troubleshooting/serial-console-windows.md) |
+| SerialConsole- [등록](#registration) 됨 | [Windows의 Azure 직렬 콘솔](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
@@ -168,7 +168,7 @@ ms.locfileid: "96185864"
 | Microsoft.StorSimple | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |
-| microsoft. 지원<sup>1</sup> | core |
+| microsoft 지원- [등록](#registration) | core |
 | Microsoft.Synapse | [Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft.Token | 토큰 |
@@ -181,9 +181,14 @@ ms.locfileid: "96185864"
 | Microsoft.WindowsDefenderATP | [Microsoft Defender Advanced Threat Protection](../../security-center/security-center-wdatp.md) |
 | Microsoft.WindowsESU | 확장 된 보안 업데이트 |
 | Microsoft.WindowsIoT | [Windows 10 IoT Core Services](/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
-| WorkloadMonitor<sup>1</sup> | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft.WorkloadMonitor | [Azure Monitor](../../azure-monitor/index.yml) |
 
-<sup>1</sup> 기본적으로 등록 됨
+## <a name="registration"></a>등록
+
+**등록** 된 것으로 표시 된 위의 리소스 공급자는 구독에 대해 기본적으로 등록 됩니다. 다른 리소스 공급자를 사용 하려면 해당 공급자를 [등록](resource-providers-and-types.md)해야 합니다. 그러나 특정 작업을 수행할 때 많은 리소스 공급자가 등록 됩니다. 예를 들어 포털을 통해 리소스를 만드는 경우 포털은 필요한 등록 되지 않은 리소스 공급자를 자동으로 등록 합니다. [Azure Resource Manager 템플릿을](../templates/overview.md)통해 리소스를 배포 하는 경우 필요한 모든 리소스 공급자도 등록 됩니다.
+
+> [!IMPORTANT]
+> 사용할 준비가 된 경우에만 리소스 공급자를 등록 합니다. 등록 단계를 통해 구독 내에서 최소의 권한을 유지할 수 있습니다. 악의적인 사용자는 등록 되지 않은 리소스 공급자를 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

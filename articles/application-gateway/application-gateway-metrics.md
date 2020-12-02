@@ -2,17 +2,17 @@
 title: Application Gateway에 대 한 Azure Monitor 메트릭
 description: 메트릭을 사용 하 여 application gateway의 성능을 모니터링 하는 방법을 알아봅니다.
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
-ms.author: absha
-ms.openlocfilehash: c072e7c1339a2217a3c167be3237029bd71429c2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.author: surmb
+ms.openlocfilehash: be629d9f8441ad40fe15f005f4aeb0ec5565a7ec
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397742"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437068"
 ---
 # <a name="metrics-for-application-gateway"></a>Application Gateway에 대 한 메트릭
 
@@ -40,7 +40,7 @@ Application Gateway는 모두 밀리초 단위로 측정 되는 요청 및 응�
 
   백 엔드 서버에 대 한 연결을 설정 하 고 응답 헤더의 첫 번째 바이트를 수신 하는 시작 사이의 시간 간격입니다. 
 
-  이는 *백 엔드 연결 시간* , Application Gateway에서 백 엔드에 연결 하는 데 걸린 시간, 백 엔드 응용 프로그램에서 응답 하는 데 걸린 시간 (서버가 콘텐츠를 생성 하는 데 걸린 시간, 데이터베이스 쿼리를 잠재적으로 페치) 및 응답의 첫 번째 바이트가 백 엔드에서 Application Gateway에 도달 하는 데 걸린 시간 합계를 대략적으로 계산 합니다.
+  이는 *백 엔드 연결 시간*, Application Gateway에서 백 엔드에 연결 하는 데 걸린 시간, 백 엔드 응용 프로그램에서 응답 하는 데 걸린 시간 (서버가 콘텐츠를 생성 하는 데 걸린 시간, 데이터베이스 쿼리를 잠재적으로 페치) 및 응답의 첫 번째 바이트가 백 엔드에서 Application Gateway에 도달 하는 데 걸린 시간 합계를 대략적으로 계산 합니다.
 
 - **백 엔드 마지막 바이트 응답 시간**
 
@@ -98,7 +98,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
    
 - **예상 청구 용량 단위**
 
-  v2 SKU를 사용하는 경우 가격 책정 모델은 사용량에 따라 결정됩니다. 용량 단위는 고정 비용 외에 청구되는 소비 기반 비용을 측정합니다. 청구 된 *예상 용량 단위* 는 청구를 예상 하는 데 사용 하는 용량 단위 수를 나타냅니다. 이 값은 *현재 용량 단위* (트래픽 부하를 분산하는 데 필요한 용량 단위)와 *고정 청구 가능 용량 단위* (프로비저닝된 최소 용량 단위) 중에서 더 큰 값으로 계산됩니다.
+  v2 SKU를 사용하는 경우 가격 책정 모델은 사용량에 따라 결정됩니다. 용량 단위는 고정 비용 외에 청구되는 소비 기반 비용을 측정합니다. 청구 된 *예상 용량 단위* 는 청구를 예상 하는 데 사용 하는 용량 단위 수를 나타냅니다. 이 값은 *현재 용량 단위*(트래픽 부하를 분산하는 데 필요한 용량 단위)와 *고정 청구 가능 용량 단위*(프로비저닝된 최소 용량 단위) 중에서 더 큰 값으로 계산됩니다.
 
 - **실패 한 요청**
 
@@ -162,7 +162,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
 - **실패 한 요청**
 
-  Application Gateway에서 5xx 서버 오류 코드와 함께 제공 된 요청 수입니다. 여기에는 Application Gateway에서 생성 된 5xx 코드 뿐 아니라 백 엔드에서 생성 된 5xx 코드도 포함 됩니다. 각/특정 백 엔드 풀-http 설정 조합의 수를 표시 하도록 요청 수를 추가로 필터링 할 수 있습니다.
+  연결 문제로 인해 실패 한 요청 수입니다. 이 수에는 "요청 시간 초과" HTTP 설정 및 응용 프로그램 게이트웨이와 백 엔드 간의 연결 문제로 인해 실패 한 요청이 초과 되어 실패 한 요청이 포함 됩니다. 정상적인 백 엔드를 사용할 수 없기 때문에이 수에는 오류가 포함 되지 않습니다. 백 엔드의 4xx 및 5xx 응답도이 메트릭의 일부로 간주 되지 않습니다.
 
 - **응답 상태**
 
@@ -214,7 +214,7 @@ Application gateway로 이동 하 고 **모니터링** 에서 **메트릭** 을 
 
 2. **규칙 추가** 페이지에서 이름, 조건 및 알림 섹션을 입력 하 고 **확인** 을 선택 합니다.
 
-   * **조건** 선택기에서 **보다 큼** , **보다 크거나 같음** , **보다 작음** , **보다 작거나 같음** 의 네 가지 값 중 하나를 선택합니다.
+   * **조건** 선택기에서 **보다 큼**, **보다 크거나 같음**, **보다 작음**, **보다 작거나 같음** 의 네 가지 값 중 하나를 선택합니다.
 
    * **기간** 선택기에서 5분에서 6시간 사이의 기간까지 선택합니다.
 

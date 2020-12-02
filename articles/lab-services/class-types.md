@@ -3,16 +3,16 @@ title: Azure Lab Services의 클래스 유형 예제 | Microsoft Docs
 description: Azure Lab Services를 사용하여 랩을 설정할 수 있는 몇 가지 유형의 클래스를 제공합니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1c2caac35125c3f69c2257750bac417971af5dbd
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 7ebc89c040be732c230f0c3f54f68fb91466eb68
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490987"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436405"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>클래스 유형 개요 - Azure Lab Services
 
-Azure Lab Services를 사용하면 클라우드에서 클래스룸 랩 환경을 빠르게 설정할 수 있습니다. 이 섹션의 문서에서는 Azure Lab Services를 사용하여 여러 유형의 클래스룸 랩을 설정하는 방법에 대한 지침을 제공합니다.
+Azure Lab Services를 사용하면 클라우드에서 클래스룸 랩 환경을 빠르게 설정할 수 있습니다. 이 섹션의 문서에서는 Azure Lab Services를 사용 하 여 여러 유형의 랩을 설정 하는 방법에 대 한 지침을 제공 합니다.
 
 ## <a name="big-data-analytics"></a>빅 데이터 분석
 빅 데이터 분석 클래스를 학습 하도록 GPU 랩을 설정할 수 있습니다. 이러한 종류의 클래스를 사용 하 여 많은 양의 데이터를 처리 하는 방법을 알아보고 기계 및 통계적 학습 알고리즘을 적용 하 여 데이터 정보를 도출 합니다. 학생의 핵심 목표는 빅 데이터를 저장, 관리 및 처리 하기 위한 도구를 제공 하는 Apache Hadoop의 오픈 소스 소프트웨어 패키지와 같은 데이터 분석 도구를 사용 하는 방법을 배우는 것입니다. 

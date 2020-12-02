@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
-ms.reviewer: negoe,celested
+ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1ea6462d22242d23629bcec192d7760314dfed
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141502"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444807"
 ---
 # <a name="national-clouds"></a>국가별 클라우드
 
@@ -60,8 +60,8 @@ ms.locfileid: "88141502"
 
 적절한 지역별 기본 URL을 사용하여 Azure AD 권한 부여 또는 토큰 엔드포인트에 대한 요청을 구성할 수 있습니다. 예를 들어 Azure Germany의 경우
 
-  - 권한 부여 공통 엔드포인트는 `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`입니다.
-  - 토큰 공통 엔드포인트는 `https://login.microsoftonline.de/common/oauth2/v2.0/token`입니다.
+- 권한 부여 공통 엔드포인트는 `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`입니다.
+- 토큰 공통 엔드포인트는 `https://login.microsoftonline.de/common/oauth2/v2.0/token`입니다.
 
 단일 테넌트 애플리케이션의 경우 이전 URL의 "common"을 테넌트 ID 또는 이름으로 바꿉니다. 예제는 `https://login.microsoftonline.de/contoso.com`입니다.
 
@@ -76,9 +76,10 @@ Microsoft ID 플랫폼을 사용하여 애플리케이션을 빌드하는 방법
 
 ## <a name="next-steps"></a>다음 단계
 
-다음에 대해 자세히 알아봅니다.
+[국가 클라우드 환경에서 MSAL (Microsoft 인증 라이브러리)](msal-national-cloud.md)을 사용 하는 방법에 대해 알아봅니다.
+
+국가별 클라우드 설명서:
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
 - [Azure 독일](../../germany/index.yml)
-- [Azure AD 인증 기본 사항](./authentication-vs-authorization.md)

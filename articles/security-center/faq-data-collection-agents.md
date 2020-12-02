@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 64fa6c72e3bc37276dd108e3981bbefb5a2021a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638817"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444518"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - 데이터 수집, 에이전트 및 작업 영역에 대한 질문
 
@@ -86,9 +86,9 @@ Security Center는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합, I
 - 오스트레일리아에 있는 VM의 경우 작업 영역 위치는 오스트레일리아입니다.
 
 
-## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Log Analytics 에이전트에서 수집 하는 데이터는 무엇 인가요?
+## <a name="what-security-events-are-collected-by-the-log-analytics-agent"></a>Log Analytics 에이전트에서 수집 하는 보안 이벤트는 무엇입니까?
 
-에이전트에서 모니터링 하는 응용 프로그램 및 서비스의 전체 목록은 [Azure Monitor에서 모니터링 하는 기능](../azure-monitor/monitor-reference.md#azure-services)을 참조 하세요.
+에이전트에서 수집 하는 보안 이벤트의 전체 목록은 ["Common" 및 "최소" 보안 이벤트 설정에 대해 저장 되는 이벤트 유형](security-center-enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal)을 참조 하세요.
 
 > [!IMPORTANT]
 > Azure 방화벽과 같은 일부 서비스의 경우 로깅을 사용 하도록 설정 하 고 번잡 리소스 (예: 로그를 *자세한 정보* 로 설정)를 선택한 경우 Log Analytics 작업 영역 저장소 요구에 상당한 영향을 줄 수 있습니다. 
@@ -250,7 +250,7 @@ Log Analytics 에이전트를 수동으로 제거할 수 있습니다. Security 
 
 ## <a name="how-do-i-enable-data-collection"></a>데이터 컬렉션을 사용하도록 설정하려면 어떻게 해야 하나요?
 
-보안 정책에서 Azure 구독에 대한 데이터 수집을 사용하도록 설정할 수 있습니다. 데이터 수집을 사용하도록 설정하려면 [Azure Portal에 로그인](https://portal.azure.com)하여 **찾아보기** , **Security Center** , **보안 정책** 을 차례로 선택합니다. 자동 프로비전을 사용할 구독을 선택합니다. 구독을 선택하면 **보안 정책 - 데이터 수집** 이 열립니다. **자동 프로비전** 에서 **켬** 을 선택합니다.
+보안 정책에서 Azure 구독에 대한 데이터 수집을 사용하도록 설정할 수 있습니다. 데이터 수집을 사용하도록 설정하려면 [Azure Portal에 로그인](https://portal.azure.com)하여 **찾아보기**, **Security Center**, **보안 정책** 을 차례로 선택합니다. 자동 프로비전을 사용할 구독을 선택합니다. 구독을 선택하면 **보안 정책 - 데이터 수집** 이 열립니다. **자동 프로비전** 에서 **켬** 을 선택합니다.
 
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>데이터 수집을 사용하도록 설정하면 어떻게 될까요?

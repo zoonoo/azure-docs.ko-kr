@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 2f262b328efcc341c93f1e5c31cab8cbd3ecbf6b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5a2238f5c1561abb1e11d69aa6d0bfe761097c64
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184640"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437306"
 ---
 # <a name="azure-monitor-for-networks"></a>Networks용 Azure Monitor
 네트워크에 대 한 Azure Monitor는 구성 없이 모든 배포 된 네트워크 리소스에 대 한 [상태](../../service-health/resource-health-checks-resource-types.md) 및 [메트릭의](../platform/metrics-supported.md) 포괄적인 보기를 제공 합니다. 또한 [연결 모니터](../../network-watcher/connection-monitor-preview.md), [nsgs (네트워크 보안 그룹)에 대 한 흐름 로깅](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)및 [트래픽 분석](../../network-watcher/traffic-analytics.md)같은 네트워크 모니터링 기능에 대 한 액세스를 제공 합니다. 그리고 다른 네트워크 [진단](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) 기능을 제공 합니다.
@@ -26,7 +26,7 @@ ms.locfileid: "96184640"
 
 네트워크 **개요** 페이지의 Azure Monitor는 네트워킹 리소스 인벤토리를 리소스 상태 및 경고와 함께 쉽게 시각화할 수 있는 방법을 제공 합니다. 검색 및 필터링, 리소스 상태, 메트릭, 경고 및 종속성 보기의 네 가지 주요 기능 영역으로 구분 됩니다.
 
-[ ![ 개요 페이지 #lightbox)를 보여 주는 스크린샷](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png)
+[![개요 페이지를 보여 주는 스크린샷](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png#lightbox)
 
 ### <a name="search-and-filtering"></a>검색 및 필터링
 **구독**, **리소스 그룹** 및 **유형과** 같은 필터를 사용 하 여 리소스 상태 및 경고 보기를 사용자 지정할 수 있습니다.

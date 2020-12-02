@@ -6,14 +6,16 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 2a9a8f3fe7422468ff2c8886dff7415322cf70f0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f7d69c4e112ded678c70a516202492d37ee8f60a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676867"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436864"
 ---
-# <a name="how-to-manually-fix-servicenow-sync-problems"></a>ServiceNow 동기화 문제를 수동으로 수정 하는 방법
+# <a name="troubleshooting-problems-in-itsm-connector"></a>ITSM 커넥터 문제 해결
+
+## <a name="how-to-manually-fix-servicenow-sync-problems"></a>ServiceNow 동기화 문제를 수동으로 수정 하는 방법
 
 Azure Monitor 타사 ITSM (IT Service Management) 공급자에 연결할 수 있습니다. ServiceNow는 이러한 공급자 중 하나입니다.
 

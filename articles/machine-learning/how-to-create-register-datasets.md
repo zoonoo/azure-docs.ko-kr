@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: f82c3b894a54dc08b0f6dd73108d6f4b2c17f8d6
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: e8388832985ca3b27baea008ff1a9bdd5df06964
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359836"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445114"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 
@@ -37,7 +37,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 * 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
@@ -124,7 +124,7 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 작업 영역에서 실험을 통해 데이터 집합을 다시 사용 하 고 공유 하려면 [데이터 집합을 등록](#register-datasets)합니다. 
 
 > [!TIP] 
-> 로컬 디렉터리에서 파일을 업로드 하 고 공개 미리 보기 메서드인 [upload_directory ()](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py#methods)를 사용 하 여 단일 메서드에서 filedataset을 만듭니다. 이 방법은 [실험적](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) 미리 보기 기능으로, 언제 든 지 변경 될 수 있습니다. 
+> 로컬 디렉터리에서 파일을 업로드 하 고 공개 미리 보기 메서드인 [upload_directory ()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?preserve-view=true&view=azure-ml-py#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-)를 사용 하 여 단일 메서드에서 filedataset을 만듭니다. 이 방법은 [실험적](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) 미리 보기 기능으로, 언제 든 지 변경 될 수 있습니다. 
 > 
 >  이 메서드는 데이터를 기본 저장소에 업로드 하므로 저장소 비용이 발생 합니다. 
 ### <a name="create-a-tabulardataset"></a>TabularDataset 만들기
@@ -208,7 +208,7 @@ dataset = Dataset.Tabular.from_delimited_files(path = [(datastore, ('data/prepar
 ```
 
 > [!TIP]
-> 공용 미리 보기 메서드 및를 사용 하 여 단일 메서드를 사용 하 여 메모리 내 spark 또는 pandas 데이터 프레임에서 TabularDataset을 만들고 등록 [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#methods) [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#methods) 합니다. 이러한 register 메서드는 [실험적](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다. 
+> 공용 미리 보기 메서드 및를 사용 하 여 단일 메서드를 사용 하 여 메모리 내 spark 또는 pandas 데이터 프레임에서 TabularDataset을 만들고 등록 [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#methods) [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#methods) 합니다. 이러한 register 메서드는 [실험적](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다. 
 > 
 >  이러한 메서드는 데이터를 기본 저장소에 업로드 하므로 저장소 비용이 발생 합니다. 
 

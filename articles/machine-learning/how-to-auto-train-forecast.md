@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 0bbb18a82de508f79cd2fd5dde58c1cf33520950
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 57b54fbe20df4eb74ee17c7b5ac83d773114463b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887402"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437374"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
@@ -33,7 +33,7 @@ ms.locfileid: "94887402"
 
 기존 시계열 메서드와 달리 자동화 된 ML에서 과거 시계열 값은 다른 예측 변수와 함께 회귀 변수의 추가 차원이 되도록 "피벗" 됩니다. 이 방법은 학습 중에 여러 컨텍스트 변수와 각 변수 간 관계를 통합합니다. 여러 요인이 예측에 영향을 줄 수 있으므로 이 방법은 실제 예측 시나리오에 적합합니다. 예를 들어 판매를 예측 하는 경우 과거 추세, 환율 및 가격의 상호 작용은 판매 결과를 모두 공동으로 구동 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에는 다음이 필요 합니다. 
 
@@ -146,6 +146,7 @@ ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크�
 |`forecast_horizon`|예측 하려는 기간을 정의 합니다. 수평은 시계열 빈도의 단위입니다. 단위는 예측자가 예측해야 하는 학습 데이터의 시간 간격(예: 매월, 매주)을 기준으로 합니다.|✓|
 |`enable_dnn`|[DNNs 예측을 사용 하도록 설정]()합니다.||
 |`time_series_id_column_names`|타임 스탬프를 사용 하는 여러 행이 있는 데이터의 시계열을 고유 하 게 식별 하는 데 사용 되는 열 이름입니다. 시계열 식별자가 정의 되지 않은 경우 데이터 집합은 하나의 시계열으로 간주 됩니다. 단일 시계열에 대한 자세한 내용은 [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)을 참조하세요.||
+|`freq`| 시계열 데이터 집합 빈도입니다. 이 매개 변수는 매일, 매주, 매년 등 이벤트가 발생 하는 기간을 나타냅니다. 빈도는 [pandas 오프셋 별칭](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)이어야 합니다.||
 |`target_lags`|데이터의 빈도에 따라 대상 값을 지연시킬 행 수입니다. 지연은 목록 또는 단일 정수로 표시됩니다. 지연은 독립 변수와 종속 변수 간 관계가 일치하지 않거나 기본적으로 상관 관계가 없는 경우에 사용해야 합니다. ||
 |`feature_lags`| 지연 되는 기능은 `target_lags` 가 설정 되 고 `feature_lags` 가로 설정 된 경우 자동 ML에 의해 자동으로 결정 됩니다 `auto` . 기능 지연을 사용 하면 정확도를 향상 시키는 데 도움이 될 수 있습니다. 기능 지연은 기본적으로 사용 되지 않습니다. ||
 |`target_rolling_window_size`|예측 값(학습 세트 크기 이하)을 생성하는 데 사용할 *n* 개 기록 기간입니다. 생략하면 *n* 은 전체 학습 세트 크기입니다. 모델을 학습시킬 때 특정한 양의 기록만 고려하려는 경우 이 매개 변수를 지정합니다. [대상 롤링 창 집계](#target-rolling-window-aggregation)에 대해 자세히 알아보세요.||
@@ -297,12 +298,12 @@ from azureml.automl.core.forecasting_parameters import ForecastingParameters
 forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                             forecast_horizon=50,
                                             short_series_handling_config='auto',
-                                            freq = 50
+                                            freq = '7',
                                             target_lags='auto')
 ```
 다음 표에는에 대 한 사용 가능한 설정이 요약 되어 `short_series_handling_config` 있습니다.
  
-|설정|설명
+|설정|Description
 |---|---
 |`auto`| 다음은 간단한 시리즈 처리의 기본 동작입니다. <li> *모든 계열이 짧으면* 데이터를 채웁니다. <br> <li> *모든 계열이 짧으면* short 시리즈를 삭제 합니다. 
 |`pad`| 인 경우 `short_series_handling_config = pad` 자동화 된 ML은 찾은 각 짧은 계열에 더미 값을 추가 합니다. 다음 목록에는 열 형식과 해당 열이 채워져 있는 항목이 나와 있습니다. <li>Nan를 사용 하는 개체 열 <li> 0으로 숫자 열 <li> False를 사용 하는 부울/논리 열 <li> 대상 열은 0과 표준 편차가 1 인 임의 값으로 채워집니다. 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 647256949d1f8f13439a0a5db87f3b02d697d32b
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 20d38e5caee67ca8bb13877d3162401fa245dc2d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95318136"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444770"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>VM용 Azure Monitor 게스트 상태 (미리 보기) 사용
 VM용 Azure Monitor 게스트 상태를 사용 하면 일정 한 간격으로 샘플링 되는 성능 측정 집합에 정의 된 대로 가상 컴퓨터의 상태를 볼 수 있습니다. 이 문서에서는 구독에서이 기능을 사용 하도록 설정 하는 방법과 각 가상 컴퓨터에 대해 게스트 모니터링을 사용 하도록 설정 하는 방법을 설명 합니다.
@@ -46,7 +46,7 @@ VM용 Azure Monitor 게스트 상태는 공개 미리 보기에서 다음과 같
   - 미국 동부 2 EUAP
   - 유럽 서부 지역
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - VM용 Azure Monitor 하려면 가상 컴퓨터를 등록 해야 합니다.
 - 온 보 딩 단계를 실행 하는 사용자에 게는 가상 머신과 데이터 수집 규칙이 있는 구독에 대 한 최소 참가자 수준 액세스 권한이 있어야 합니다.
@@ -87,7 +87,7 @@ Azure Resource Manager를 사용 하 여 가상 컴퓨터를 사용 하도록 �
 > [!NOTE]
 > Azure Portal를 사용 하 여 가상 컴퓨터를 사용 하도록 설정 하면 여기에 설명 된 데이터 수집 규칙이 생성 됩니다. 이 경우이 단계를 수행할 필요가 없습니다.
 
-VM용 Azure Monitor 게스트 상태의 모니터 구성은 [데이터 수집 규칙 (DCR)](../platform/data-collection-rule-overview.md)에 저장 됩니다. 게스트 상태 확장이 있는 가상 컴퓨터에 대 한 모든 모니터를 사용 하도록 설정 하려면 아래 리소스 관리자 템플릿에 정의 된 데이터 수집 규칙을 설치 합니다. 게스트 상태 확장이 있는 각 가상 컴퓨터에는이 규칙과의 연결이 필요 합니다.
+VM용 Azure Monitor 게스트 상태의 모니터 구성은 [데이터 수집 규칙 (DCR)](../platform/data-collection-rule-overview.md)에 저장 됩니다. 게스트 상태 확장이 있는 각 가상 컴퓨터에는이 규칙과의 연결이 필요 합니다.
 
 > [!NOTE]
 > [VM용 Azure Monitor 게스트 상태 (미리 보기)의 모니터링 구성](vminsights-health-configure.md)에 설명 된 대로 추가 데이터 수집 규칙을 만들어 모니터의 기본 구성을 수정할 수 있습니다.
@@ -115,7 +115,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
 
 ---
 
-
+아래 리소스 관리자 템플릿에 정의 된 데이터 수집 규칙은 게스트 상태 확장이 있는 가상 컴퓨터에 대 한 모든 모니터를 사용 하도록 설정 합니다. 모니터에서 사용 하는 각 성능 카운터에 대 한 데이터 원본을 포함 해야 합니다.
 
 ```json
 {
@@ -138,7 +138,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
     "dataCollectionRuleLocation": {
       "type": "string",
       "metadata": {
-        "description": "The location code in which the data colleciton rule should be deployed. Examples: eastus, westeurope, etc"
+        "description": "The location code in which the data collection rule should be deployed. Examples: eastus, westeurope, etc"
       }
     }
   },
@@ -151,6 +151,19 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
       "properties": {
         "description": "Data collection rule for VM Insights health.",
         "dataSources": {
+          "performanceCounters": [
+              {
+                  "name": "VMHealthPerfCounters",
+                  "streams": [ "Microsoft-Perf" ],
+                  "scheduledTransferPeriod": "PT1M",
+                  "samplingFrequencyInSeconds": 60,
+                  "counterSpecifiers": [
+                      "\\LogicalDisk(*)\\% Free Space",
+                      "\\Memory\\Available Bytes",
+                      "\\Processor(_Total)\\% Processor Time"
+                  ]
+              }
+          ],
           "extensions": [
             {
               "name": "Microsoft-VMInsights-Health",
@@ -170,7 +183,11 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
                     }
                   }
                 ]
-              }
+              },
+              "inputDataSources": [
+                  "VMHealthPerfCounters"
+              ]
+
             }
           ]
         },
@@ -181,7 +198,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
               "name": "Microsoft-HealthStateChange-Dest"
             }
           ]
-        },
+        },                  
         "dataFlows": [
           {
             "streams": [
@@ -205,7 +222,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "healthDataCollectionRuleResourceId": {
+      "destinationWorkspaceResourceId": {
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
       },
       "dataCollectionRuleLocation": {
@@ -217,7 +234,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
 
 
 
-## <a name="install-guest-health-extension-and-associate-with-data-collection-rule"></a>게스트 상태 확장 설치 및 데이터 수집 규칙에 연결
+### <a name="install-guest-health-extension-and-associate-with-data-collection-rule"></a>게스트 상태 확장 설치 및 데이터 수집 규칙에 연결
 게스트 상태에 대해 가상 컴퓨터를 사용 하도록 설정 하려면 다음 리소스 관리자 템플릿을 사용 합니다. 그러면 게스트 상태 확장이 설치 되 고 데이터 수집 규칙과의 연결이 생성 됩니다. [리소스 관리자 템플릿에 대 한 배포 방법을](../../azure-resource-manager/templates/deploy-powershell.md)사용 하 여이 템플릿을 배포할 수 있습니다.
 
 
@@ -370,9 +387,6 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
       },
       "healthDataCollectionRuleResourceId": {
         "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionRules/Microsoft-VMInsights-Health"
-      },
-      "healthExtensionVersion": {
-        "value": "private-preview"
       }
   }
 }

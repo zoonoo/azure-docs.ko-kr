@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07d2e9fa98c24695a119c651539d4003ecd8524a
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: ac87e8394eaa609f7c57eaf9d83fe11a2bdb04f6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242095"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435827"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MySQL에 대 한 데이터 암호화
 
@@ -46,11 +46,22 @@ Azure CLI를 사용 하 여 Azure Database for MySQL 데이터 암호화를 설�
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
+  * 보존 일 수를 90 일로 설정
+  ```azurecli-interactive
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
+    ```
 
 * 키에는 고객 관리 키로 사용할 다음 특성이 있어야 합니다.
   * 만료 날짜 없음
   * 사용 안 함 없음
-  * **가져오기** , **래핑** , **래핑** 해제 작업 수행
+  * **가져오기**, **래핑**, **래핑** 해제 작업 수행
+  * recoverylevel 특성이 **복구** 가능으로 설정 되었습니다.
+
+다음 명령을 사용 하 여 위의 키 특성을 확인할 수 있습니다.
+
+```azurecli-interactive
+az keyvault key show --vault-name <key_vault_name> -n <key_name>
+```
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>키 작업에 대 한 올바른 사용 권한 설정
 
@@ -68,7 +79,7 @@ Azure CLI를 사용 하 여 Azure Database for MySQL 데이터 암호화를 설�
    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
    ```
 
-2. **보안 주체** 에 대 한 **키 사용 권한** ( **가져오기** , **래핑** , **래핑** 해제)을 MySQL 서버의 이름으로 설정 합니다.
+2. **보안 주체** 에 대 한 **키 사용 권한** (**가져오기**, **래핑**, **래핑** 해제)을 MySQL 서버의 이름으로 설정 합니다.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

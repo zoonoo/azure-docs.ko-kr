@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 8bce19e384e600e95b8306dcbba38652b4432bc9
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 90af33a01450002c7d36a4ab4cf4a3da647068c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340532"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444577"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Azure HPC 캐시에 대해 고객이 관리 하는 암호화 키 사용
 
@@ -20,7 +20,7 @@ Azure Key Vault를 사용 하 여 Azure HPC 캐시에서 데이터를 암호화 
 > [!NOTE]
 > 캐시 디스크를 포함 하 여 Azure에 저장 된 모든 데이터는 기본적으로 Microsoft 관리 키를 사용 하 여 미사용에 암호화 됩니다. 데이터를 암호화 하는 데 사용 되는 키를 관리 하려는 경우에만이 문서의 단계를 수행 해야 합니다.
 
-또한 Azure HPC 캐시는 캐시 디스크에 대 한 고객 키를 추가 하는 경우에도 캐시 된 데이터를 보관 하는 관리 디스크에서 [VM 호스트 암호화](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) 를 통해 보호 됩니다. 이중 암호화를 위해 고객이 관리 하는 키를 추가 하면 보안 요구 사항이 높은 고객에 게 추가 보안 수준이 제공 됩니다. 자세한 내용은 [Azure disk storage의 서버 쪽 암호화](../virtual-machines/linux/disk-encryption.md) 를 참조 하세요.
+또한 Azure HPC 캐시는 캐시 디스크에 대 한 고객 키를 추가 하는 경우에도 캐시 된 데이터를 보관 하는 관리 디스크에서 [VM 호스트 암호화](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) 를 통해 보호 됩니다. 이중 암호화를 위해 고객이 관리 하는 키를 추가 하면 보안 요구 사항이 높은 고객에 게 추가 보안 수준이 제공 됩니다. 자세한 내용은 [Azure disk storage의 서버 쪽 암호화](../virtual-machines/disk-encryption.md) 를 참조 하세요.
 
 이 기능은 Azure HPC 캐시를 사용할 수 있는 일부 Azure 지역 에서만 사용할 수 있습니다. 자세한 내용은 [지역 가용성](hpc-cache-overview.md#region-availability) 목록을 참조 하세요.
 
@@ -109,7 +109,7 @@ Azure HPC 캐시를 만들 때 암호화 키 원본을 지정 해야 합니다. 
 > [!NOTE]
 > 캐시를 만든 후 90 분 이내에 암호화에 권한을 부여 해야 합니다. 이 단계를 완료 하지 않으면 캐시 시간이 초과 되 고 실패 합니다. 실패 한 캐시는 다시 만들어야 하므로 수정할 수 없습니다.
 
-캐시는 **키 대기**상태를 표시 합니다. 페이지 맨 위에 있는 **암호화 사용** 단추를 클릭 하 여 캐시에 지정 된 키 자격 증명 모음에 액세스할 수 있는 권한을 부여 합니다.
+캐시는 **키 대기** 상태를 표시 합니다. 페이지 맨 위에 있는 **암호화 사용** 단추를 클릭 하 여 캐시에 지정 된 키 자격 증명 모음에 액세스할 수 있는 권한을 부여 합니다.
 
 ![암호화 사용 단추 (위쪽 행) 및 상태: 키 대기 중에 강조 표시 된 포털의 캐시 개요 페이지 스크린샷](media/waiting-for-key.png)
 
@@ -135,7 +135,7 @@ Azure Portal에서 캐시에 대 한 주요 자격 증명 모음, 키 또는 키
 
 이 캐시와 동일한 구독 및 동일한 지역에 있는 주요 자격 증명 모음은 목록에 표시 됩니다.
 
-새 암호화 키 값을 선택한 후 **선택**을 클릭 합니다. 새 값이 포함 된 확인 페이지가 나타납니다. **저장** 을 클릭 하 여 선택을 마무리 합니다.
+새 암호화 키 값을 선택한 후 **선택** 을 클릭 합니다. 새 값이 포함 된 확인 페이지가 나타납니다. **저장** 을 클릭 하 여 선택을 마무리 합니다.
 
 ![왼쪽 위에 저장 단추가 있는 확인 페이지의 스크린샷](media/save-key-settings.png)
 
@@ -144,7 +144,7 @@ Azure Portal에서 캐시에 대 한 주요 자격 증명 모음, 키 또는 키
 이러한 문서에서는 Azure Key Vault 및 고객 관리 키를 사용 하 여 Azure에서 데이터를 암호화 하는 방법에 대해 자세히 설명 합니다.
 
 * [Azure storage 암호화 개요](../storage/common/storage-service-encryption.md)
-* [고객 관리 키를 사용 하는 디스크 암호화](../virtual-machines/linux/disk-encryption.md#customer-managed-keys) -Azure HPC 캐시와 유사한 시나리오인 관리 디스크와 Azure Key Vault 사용에 대 한 설명서입니다.
+* [고객 관리 키를 사용 하는 디스크 암호화](../virtual-machines/disk-encryption.md#customer-managed-keys) -Azure HPC 캐시와 유사한 시나리오인 관리 디스크와 Azure Key Vault 사용에 대 한 설명서입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

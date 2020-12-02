@@ -6,14 +6,14 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 936e98b3efa27f2d0a85c373ccae0ab223f4fd95
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7d50185169b22a136ce81bd3aebae235cf49498b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340909"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436626"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 액세스 보호
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -111,7 +111,7 @@ User user = await database.CreateUserAsync("User 1");
 > [!NOTE]
 > 각 Cosmos DB 사용자에 게는 사용자와 연결 된 [사용 권한](#permissions) 목록을 검색 하는 데 사용할 수 있는 ReadAsync () 메서드가 있습니다.
 
-## <a name="permissions"></a>사용 권한<a id="permissions"></a>
+## <a name="permissions"></a>권한에<a id="permissions"></a>
 
 권한 리소스는 사용자와 연결 되며 컨테이너 및 파티션 키 수준에서 할당 됩니다. 각 사용자는 0 개 이상의 권한을 포함할 수 있습니다. 권한 리소스는 특정 파티션 키의 특정 컨테이너 또는 데이터에 액세스 하려고 할 때 사용자가 필요로 하는 보안 토큰에 대 한 액세스를 제공 합니다. 권한 리소스에서 제공될 수 있는 사용 가능한 액세스 수준은 다음 두 가지입니다.
 
@@ -169,7 +169,7 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 
 ## <a name="delete-or-export-user-data"></a>사용자 데이터 삭제 또는 내보내기
 
-Azure Cosmos DB를 사용하면 데이터베이스 또는 컬렉션에 있는 개인 데이터를 검색, 선택, 수정 및 삭제할 수 있습니다. Azure Cosmos DB는 개인 데이터를 찾고 삭제하는 API를 제공하지만, API를 사용하고 개인 데이터를 지우는 데 필요한 논리를 정의하는 것은 사용자의 책임입니다. 각 다중 모델 API(SQL, MongoDB, Gremlin, Cassandra, Table)는 개인 데이터를 검색하고 삭제하는 방법이 포함된 여러 가지 언어 SDK를 제공합니다. 또한 [TTL(Time to Live)](time-to-live.md) 기능을 사용하여 추가 비용을 발생시키지 않고 지정한 기간 후에 데이터를 자동으로 삭제할 수 있습니다.
+데이터베이스 서비스인 Azure Cosmos DB를 사용 하면 데이터베이스 또는 컨테이너에 있는 모든 데이터를 검색, 선택, 수정 및 삭제할 수 있습니다. 그러나 필요한 경우에는 제공 된 Api를 사용 하 고 개인 데이터를 찾고 지우는 데 필요한 논리를 정의 하는 것은 사용자의 책임입니다. 각 다중 모델 API (SQL, MongoDB, Gremlin, Cassandra, 테이블)는 사용자 지정 조건자에 따라 데이터를 검색 하 고 삭제 하는 메서드를 포함 하는 다양 한 언어 Sdk를 제공 합니다. 또한 [TTL(Time to Live)](time-to-live.md) 기능을 사용하여 추가 비용을 발생시키지 않고 지정한 기간 후에 데이터를 자동으로 삭제할 수 있습니다.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

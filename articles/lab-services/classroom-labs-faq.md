@@ -1,17 +1,17 @@
 ---
-title: Azure Lab Services의 클래스룸 랩 - FAQ | Microsoft Docs
-description: 이 문서는 Azure Lab Services의 클래스룸 랩에 대한 질문과 대답(FAQ)을 제공합니다.
+title: Azure Lab Services의 랩-FAQ | Microsoft Docs
+description: 이 문서에서는 Azure Lab Services 실습에 대 한 FAQ (질문과 대답)를 제공 합니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ca35d70bc1106e46df4e3c68889b03679fd54b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757af8f30e9a71a3889d9f625c87a002af2e1302
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443301"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437187"
 ---
-# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Azure Lab Services의 클래스룸 랩 - 질문과 대답(FAQ)
-Azure Lab Services의 클래스룸 랩에 관해 가장 자주 묻는 질문에 대한 답변을 확인합니다. 
+# <a name="labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Azure Lab Services의 랩-질문과 대답 (FAQ)
+Azure Lab Services에서 labs에 대해 가장 일반적인 질문 중 일부에 대 한 답변을 받으세요. 
 
 ## <a name="quotas"></a>할당량
 
@@ -29,13 +29,14 @@ Azure Lab Services의 클래스룸 랩에 관해 가장 자주 묻는 질문에 
 ## <a name="lab-accounts"></a>랩 계정
 
 ### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>주소 범위를 사용할 수 없는 경우에 랩을 만들 수 없는 이유는 무엇인가요? 
-클래스룸 랩은 랩 생성자가 Azure Portal에서 랩 계정을 만들 때 지정한 IP 주소 범위 내에서 랩 VM을 만들 수 있습니다. 주소 범위가 지정된 후에 생성된 각 랩에는 랩 VM의 512개 IP 주소가 할당됩니다. 랩 계정의 주소 범위는 랩 계정에서 만들려는 랩을 모두 수용할 수 있을 만큼 커야 합니다. 
+
+랩은 Azure Portal에서 랩 계정을 만들 때 지정 하는 IP 주소 범위 내에서 랩 Vm을 만들 수 있습니다. 주소 범위가 지정된 후에 생성된 각 랩에는 랩 VM의 512개 IP 주소가 할당됩니다. 랩 계정의 주소 범위는 랩 계정에서 만들려는 랩을 모두 수용할 수 있을 만큼 커야 합니다. 
 
 예를 들어 /19 - 10.0.0.0/19 블록이 있는 경우 이 주소 범위는 8192개 IP 주소 및 16개 랩(8192/512 = 16개 랩)을 수용합니다. 이 경우 17번째 랩을 만들면 오류가 발생합니다.
 
 ### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>RDP/SSH를 통해 랩 가상 머신에 연결하려면 조직의 방화벽 설정에서 어떤 포트 범위를 열어야 하나요?
 
-열어야 할 포트는 49152–65535입니다. 클래스룸 랩은 부하 분산 장치 뒤에 있습니다. 각 랩에는 단일 공용 IP 주소가 있으며 랩의 각 가상 머신에는 고유한 포트가 있습니다. 
+열어야 할 포트는 49152–65535입니다. 랩은 부하 분산 장치 뒤에 있습니다. 각 랩에는 단일 공용 IP 주소가 있으며 랩의 각 가상 머신에는 고유한 포트가 있습니다. 
 
 Azure Portal에서 랩 홈페이지의 **가상 머신 풀** 탭에서 각 가상 머신의 개인 IP 주소를 볼 수도 있습니다. 랩을 다시 게시하는 경우 랩의 공용 IP 주소는 변경되지 않지만 랩에서 각 가상 머신의 개인 IP 및 포트 번호는 변경될 수 있습니다. 자세한 정보는 다음 문서에서 확인할 수 있습니다. [Azure Lab Services에 대한 방화벽 설정](how-to-configure-firewall-settings.md)
 
