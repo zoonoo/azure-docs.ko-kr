@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: 2977946b2e1f37aa356ee075d2caac237170df0f
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 90a4da2aadbbdf07d851e4407d2d417fc76d32af
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95993350"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512327"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>텍스트 분석 REST API를 호출하는 방법
 
@@ -35,7 +35,7 @@ V 3.1-preview. 3부터 텍스트 분석 API는 두 개의 비동기 끝점을 �
 |--|--|--|
 | 언어 검색 | ✔ |  |
 | 정서 분석 | ✔ |  |
-| 의견 마이닝 | ✔ |  |
+| 오피니언 마이닝 | ✔ |  |
 | 핵심 문구 추출 | ✔ | ✔* |
 | 명명 된 엔터티 인식 (PII 및 no 포함) | ✔ | ✔* |
 | 상태 (컨테이너)에 대 한 Text Analytics | ✔ |  |
@@ -48,15 +48,15 @@ V 3.1-preview. 3부터 텍스트 분석 API는 두 개의 비동기 끝점을 �
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 
 > [!NOTE]
 > 또는 끝점을 사용 하려는 경우 표준 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) 을 사용 하 여 Text Analytics 리소스가 필요 합니다 `/analyze` `/health` .
 
-1.  먼저 [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) 로 이동 하 여 새 Text Analytics 리소스를 만듭니다 (아직 없는 경우). 또는 끝점을 사용 하려는 경우 표준 가격 책정 계층을 선택 합니다 `/analyze` `/health` .
+1.  먼저 [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) 로 이동 하 여 새 Text Analytics 리소스를 만듭니다 (아직 없는 경우). 또는 끝점을 사용 하려는 경우 **표준 가격 책정 계층** 을 선택 합니다 `/analyze` `/health` .
 
-2.  사용할 끝점을 사용 하려는 지역을 선택 합니다.
+2.  끝점에 사용할 지역을 선택 합니다.  `/analyze`및 끝점은 미국 `/health` 서 부 2, 미국 동부 2, 미국 중부, 서유럽 및 유럽 서부 지역 에서만 사용할 수 있습니다.
 
 3.  Text Analytics 리소스를 만들고 페이지 왼쪽의 "키 및 끝점 블레이드"로 이동 합니다. 나중에 Api를 호출할 때 사용할 키를 복사 합니다. 나중에 헤더에 대 한 값으로이를 추가 `Ocp-Apim-Subscription-Key` 합니다.
 
@@ -69,7 +69,7 @@ V 3.1-preview. 3부터 텍스트 분석 API는 두 개의 비동기 끝점을 �
 
 API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 JSON 개체에서 원시 비구조적 텍스트로 전송 됩니다. XML은 지원되지 않습니다. JSON 스키마는 아래에 설명 된 요소로 구성 됩니다.
 
-| 요소 | 유효한 값 | 필수 여부 | 사용량 |
+| 요소 | 유효한 값 | 필수 여부 | 사용 |
 |---------|--------------|-----------|-------|
 |`id` |데이터 형식은 문자열이지만 실제로 문서 ID는 정수인 경우가 많습니다. | 필수 | 시스템은 사용자가 제공하는 ID를 사용하여 출력을 구성합니다. 언어 코드, 핵심 구 및 감정 점수가 요청의 각 ID에 대해 생성됩니다.|
 |`text` | 최대 5120 자의 비구조적 원시 텍스트입니다. | 필수 | 언어 감지의 경우 텍스트를 어떤 언어로도 나타낼 수 있습니다. 감정 분석, 핵심 구 추출 및 엔터티 식별의 경우 텍스트는 [지원되는 언어](../language-support.md)로 작성되어야 합니다. |
@@ -102,7 +102,7 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
 * 핵심 구 추출 
 * 명명 된 엔터티 인식 (PII 및 no 포함)
 
-| 요소 | 유효한 값 | 필수 여부 | 사용량 |
+| 요소 | 유효한 값 | 필수 여부 | 사용 |
 |---------|--------------|-----------|-------|
 |`displayName` | String | 선택 사항 | 작업에 대 한 고유 식별자의 표시 이름으로 사용 됩니다.|
 |`analysisInput` | 아래 필드가 포함 됩니다. `documents` | 필수 | 보내려는 문서에 대 한 정보를 포함 합니다. |
@@ -154,11 +154,11 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
 
 ```
 
-#### <a name="text-analytics-for-health"></a>[의료 분야 Text Analytics](#tab/health)
+#### <a name="text-analytics-for-health"></a>[Text Analytics for health](#tab/health)
 
 상태 호스팅 API에 대 한 Text Analytics에 대 한 API 요청 형식은 해당 컨테이너의 경우와 동일 합니다. 문서는 JSON 개체에서 원시 비구조적 텍스트로 전송 됩니다. XML은 지원되지 않습니다. JSON 스키마는 아래에 설명 된 요소로 구성 됩니다.  상태 공개 미리 보기에 대 한 Text Analytics에 대 한 액세스를 요청 하려면 [Cognitive Services 요청 양식을](https://aka.ms/csgate) 작성 하 고 제출 하세요. 상태 사용에 대 한 Text Analytics 요금은 청구 되지 않습니다. 
 
-| 요소 | 유효한 값 | 필수 여부 | 사용량 |
+| 요소 | 유효한 값 | 필수 여부 | 사용 |
 |---------|--------------|-----------|-------|
 |`id` |데이터 형식은 문자열이지만 실제로 문서 ID는 정수인 경우가 많습니다. | 필수 | 시스템은 사용자가 제공하는 ID를 사용하여 출력을 구성합니다. |
 |`text` | 최대 5120 자의 비구조적 원시 텍스트입니다. | 필수 | 영어 텍스트만 현재 지원 됩니다. |
@@ -188,7 +188,7 @@ example.json
 
 ## <a name="set-up-a-request"></a>요청 설정 
 
-Postman (또는 다른 web API 테스트 도구)에서 사용 하려는 기능에 대 한 끝점을 추가 합니다. 아래 표를 사용 하 여 적절 한 끝점 형식을 찾고를 `<your-text-analytics-resource>` 리소스 끝점으로 바꿉니다. 예들 들어 다음과 같습니다.
+Postman (또는 다른 web API 테스트 도구)에서 사용 하려는 기능에 대 한 끝점을 추가 합니다. 아래 표를 사용 하 여 적절 한 끝점 형식을 찾고를 `<your-text-analytics-resource>` 리소스 끝점으로 바꿉니다. 예를 들어:
 
 `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.0/languages`
 
@@ -198,7 +198,7 @@ Postman (또는 다른 web API 테스트 도구)에서 사용 하려는 기능�
 |--|--|--|
 | 언어 검색 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
 | 정서 분석 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
-| 의견 마이닝 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment?opinionMining=true` |
+| 오피니언 마이닝 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment?opinionMining=true` |
 | 핵심 문구 추출 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
 | 명명 된 엔터티 인식-일반 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
 | 명명 된 엔터티 인식-PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
@@ -211,13 +211,13 @@ Postman (또는 다른 web API 테스트 도구)에서 사용 하려는 기능�
 | 분석 작업 제출 | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
 | 분석 상태 및 결과 가져오기 | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
 
-#### <a name="text-analytics-for-health"></a>[의료 분야 Text Analytics](#tab/health)
+#### <a name="text-analytics-for-health"></a>[Text Analytics for health](#tab/health)
 
 | 기능 | 요청 유형 | 리소스 엔드포인트 |
 |--|--|--|
 | 상태 작업을 위한 Text Analytics 제출  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
 | 작업 상태 및 결과 가져오기 | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
-| 작업 취소 | Delete | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
+| 작업 취소 | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
 
 --- 
 
@@ -253,7 +253,7 @@ API 요청을 제출 합니다. 동기 끝점에 대 한 호출을 수행한 경
 비동기 또는 끝점에 대 한 호출을 수행한 경우 `/analyze` `/health` 202 응답 코드를 받았는지 확인 합니다. 결과를 보려면 응답을 받아야 합니다.
 
 1. API 응답에서, `Operation-Location` api로 보낸 작업을 식별 하는 헤더에서를 찾습니다. 
-2. 사용한 끝점에 대 한 GET 요청을 만듭니다. 끝점 형식에 대 한 [위의 표](#set-up-a-request) 를 참조 하 고 [API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus)를 검토 하세요. 예들 들어 다음과 같습니다.
+2. 사용한 끝점에 대 한 GET 요청을 만듭니다. 끝점 형식에 대 한 [위의 표](#set-up-a-request) 를 참조 하 고 [API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus)를 검토 하세요. 예를 들어:
 
     `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>`
 
@@ -330,11 +330,11 @@ API 요청을 제출 합니다. 동기 끝점에 대 한 호출을 수행한 경
 }
 ```
 
-# <a name="text-analytics-for-health"></a>[의료 분야 Text Analytics](#tab/health)
+# <a name="text-analytics-for-health"></a>[Text Analytics for health](#tab/health)
 
 상태 비동기 API 응답의 Text Analytics에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-+ [의료 분야 Text Analytics](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
++ [Text Analytics for health](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
 
 
 --- 

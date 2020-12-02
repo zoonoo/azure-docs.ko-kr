@@ -1,21 +1,21 @@
 ---
-title: Windows 가상 데스크톱 안전 URL 목록-Azure
+title: Windows 가상 데스크톱 필수 URL 목록-Azure
 description: Windows 가상 데스크톱 배포가 의도 한 대로 작동 하도록 차단 해야 하는 Url 목록입니다.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 12/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3d19a60fd6a22eb9245722c6ff69d3b39c05d29e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6b3fdc18a04dadf4bf1cf380c7bb51d21f826633
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023176"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512344"
 ---
-# <a name="safe-url-list"></a>안전 URL 목록
+# <a name="required-url-list"></a>필수 URL 목록
 
-Windows 가상 데스크톱 배포가 제대로 작동 하도록 특정 Url을 차단 해제 해야 합니다. 이 문서에서는 이러한 Url을 나열 하므로 안전 하 게 보호 되는 항목을 알 수 있습니다.
+Windows 가상 데스크톱을 배포 하 고 사용 하려면 Vm (가상 컴퓨터)에서 언제 든 지 액세스할 수 있도록 특정 Url을 차단 해제 해야 합니다. 이 문서에서는 차단 해제 해야 하는 필수 Url을 나열 합니다.
 
 ## <a name="virtual-machines"></a>가상 머신
 
@@ -53,7 +53,7 @@ Windows 가상 데스크톱에 대해 만든 Azure virtual machines는 Azure Gov
 |*.servicebus.usgovcloudapi.net|443|에이전트 트래픽|AzureCloud|
 |* xt.table.core.usgovcloudapi.net|443|에이전트 트래픽|AzureCloud|
 |Kms.core.usgovcloudapi.net|1688|Windows 정품 인증|인터넷|
-|mrsglobalstugviffx.core.usgovcloudapi.net|443|에이전트 및 SXS 스택 업데이트|AzureCloud|
+|mrsglobalstugviffx.blob.core.usgovcloudapi.net|443|에이전트 및 SXS 스택 업데이트|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Azure Portal 지원|AzureCloud|
 | 169.254.169.254 | 80 | [Azure Instance Metadata service 끝점](../virtual-machines/windows/instance-metadata-service.md) | 해당 없음 |
 | 168.63.129.16 | 80 | [세션 호스트 상태 모니터링](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | 해당 없음 |
@@ -69,9 +69,13 @@ Windows 가상 데스크톱에 대해 만든 Azure virtual machines는 Azure Gov
 |login.windows.net|443|Microsoft Online Services, Microsoft 365에 로그인|login.microsoftonline.us|
 |*.sfx.ms|443|OneDrive 클라이언트 소프트웨어에 대한 업데이트|oneclient.sfx.ms|
 |*.digicert.com|443|인증서 해지 확인|None|
+|*. azure-dns.com|443|Azure DNS 해상도|None|
+|*. azure-dns.net|443|Azure DNS 해상도|None|
 
 >[!NOTE]
 >현재 Windows 가상 데스크톱에는 네트워크 트래픽을 허용 하기 위해 차단 해제할 수 있는 IP 주소 범위 목록이 없습니다. 지금은 특정 Url의 차단 해제만 지원 합니다.
+>
+>차세대 방화벽 (NGFW)을 사용 하는 경우 Azure Ip에 대해 특별히 만든 동적 목록을 사용 하 여 연결할 수 있는지 확인 해야 합니다.
 >
 >필수 Azure Active Directory 관련 Url을 포함 하 여 안전한 Office 관련 Url 목록은 [office 365 url 및 IP 주소 범위](/office365/enterprise/urls-and-ip-address-ranges)를 참조 하세요.
 >

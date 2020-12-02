@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: a68501bd1189993b4dd0c2acdecaa7434fa51dcc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d2446e866c0e12d50a0759373682f4f62bc4bba0
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488037"
+ms.locfileid: "96512225"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>전용 클러스터 Azure Monitor 로그
 
-Azure Monitor Logs 전용 클러스터는 Azure Monitor 고객에 게 고급 기능을 사용할 수 있도록 하는 배포 옵션입니다. 전용 클러스터를 사용 하는 고객은 이러한 클러스터에서 호스팅될 작업 영역을 선택할 수 있습니다.
+Azure Monitor Logs 전용 클러스터는 Azure Monitor 로그 고객을 위한 고급 기능을 제공 하는 배포 옵션입니다. 전용 클러스터를 사용 하는 고객은 이러한 클러스터에서 호스팅될 작업 영역을 선택할 수 있습니다.
 
 전용 클러스터를 필요로 하는 기능은 다음과 같습니다.
 
@@ -48,11 +48,11 @@ Log Analytics 전용 클러스터는 최소 1000 g b/일의 용량 예약 가격
 
 클러스터에서 사용 하기 위한 두 가지 모드의 요금 청구 방법이 있습니다. `billingType`클러스터를 구성할 때 매개 변수를 통해 지정할 수 있습니다. 
 
-1. **Cluster**:이 경우 (기본값) 수집 데이터에 대 한 청구는 클러스터 수준에서 수행 됩니다. 클러스터의 일별 청구 금액을 계산하기 위해 클러스터에 연결된 각 작업 영역의 수집된 데이터 수량이 집계됩니다. 
+1. **Cluster**:이 경우 (기본값) 수집 데이터에 대 한 청구는 클러스터 수준에서 수행 됩니다. 클러스터에 연결 된 각 작업 영역의 수집 데이터 수량은 집계 되어 클러스터의 일별 청구 금액을 계산 합니다. 
 
 2. **작업 영역**: 클러스터의 용량 예약 비용은 클러스터의 작업 영역에 대 한 특성을 사용 합니다 (각 작업 영역에 대 한 노드 별 [Azure Security Center](../../security-center/index.yml) 할당에 대 한 회계).
 
-작업 영역이 레거시 노드당 가격 책정 계층을 사용 하는 경우 클러스터에 연결 된 경우 클러스터의 용량 예약에 대 한 데이터 수집를 기준으로 요금이 청구 되 고 노드당 더 이상 청구 되지 않습니다. 노드당 데이터 할당 Azure Security Center 계속 적용 됩니다.
+작업 영역이 레거시 노드당 가격 책정 계층을 사용 하는 경우 클러스터에 연결 되 면 클러스터의 용량 예약에 대 한 데이터 수집를 기준으로 요금이 청구 되 고 노드당 더 이상 청구 되지 않습니다. 노드당 데이터 할당 Azure Security Center 계속 적용 됩니다.
 
 자세한 내용은 [여기]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters)에서 사용할 수 있는 Log Analytics 전용 클러스터에 대 한 청구입니다.
 
@@ -75,7 +75,7 @@ Log Analytics 전용 클러스터는 최소 1000 g b/일의 용량 예약 가격
 
 클러스터를 만드는 사용자 계정에는 표준 Azure 리소스 만들기 권한 `Microsoft.Resources/deployments/*` 및 클러스터 쓰기 권한이 있어야 `(Microsoft.OperationalInsights/clusters/write)` 합니다.
 
-### <a name="create"></a>만들기 
+### <a name="create"></a>생성 
 
 **PowerShell**
 
@@ -183,7 +183,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 > [!NOTE]
 > PATCH를 사용 하 여 *클러스터* 리소스 *sku*, *keyVaultProperties* 또는 *billingType* 를 업데이트할 수 있습니다.
 
-다음은 그 예입니다.  
+예를 들어: 
 
 *호출*
 
