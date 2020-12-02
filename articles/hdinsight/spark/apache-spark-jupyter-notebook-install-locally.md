@@ -1,6 +1,6 @@
 ---
 title: Jupyter를 로컬로 설치하고 Azure HDInsight에서 Spark에 연결
-description: 컴퓨터에서 로컬로 Jupyter 노트북을 설치하고 Apache Spark 클러스터에 연결하는 방법을 알아봅니다.
+description: 컴퓨터에 로컬로 Jupyter Notebook를 설치 하 고 Apache Spark 클러스터에 연결 하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,21 +8,21 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 96b2e7deff464f00ced4457a514ac833a90bd42d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 16cb8a9c2a951c9f60640248ef74757d1e5ee200
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999895"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518926"
 ---
-# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>컴퓨터에 Jupyter 노트북을 설치하고 HDInsight에서 Apache Spark에 연결
+# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>컴퓨터에 Jupyter Notebook을 설치 하 고 HDInsight의 Apache Spark에 연결
 
-이 문서에서는 Spark magic이 있는 사용자 지정 PySpark (Python 용) 및 Apache Spark (Scala) 커널을 사용 하 여 Jupyter 노트북을 설치 하는 방법에 대해 알아봅니다. 그런 다음, 노트북을 HDInsight 클러스터에 연결 합니다.
+이 문서에서는 Spark magic이 있는 사용자 지정 PySpark (Python 용) 및 Apache Spark (Scala) 커널을 사용 하 여 Jupyter Notebook를 설치 하는 방법에 대해 알아봅니다. 그런 다음, 노트북을 HDInsight 클러스터에 연결 합니다.
 
 Jupyter를 설치 하 고 HDInsight에서 Apache Spark에 연결 하는 데는 4 가지 주요 단계가 있습니다.
 
 * Spark 클러스터를 구성 합니다.
-* Jupyter 노트를 설치합니다.
+* Jupyter Notebook를 설치 합니다.
 * Spark Magic과 함께 PySpark 및 Spark 커널을 설치합니다.
 * HDInsight에서 Spark 클러스터에 액세스하도록 Spark Magic을 구성합니다.
 
@@ -34,7 +34,7 @@ Jupyter를 설치 하 고 HDInsight에서 Apache Spark에 연결 하는 데는 4
 
 * HDInsight의 Spark에서 Jupyter Notebook을 사용하는 방법 이해.
 
-## <a name="install-jupyter-notebook-on-your-computer"></a>컴퓨터에 Jupyter 노트북 설치
+## <a name="install-jupyter-notebook-on-your-computer"></a>컴퓨터에 Jupyter Notebook 설치
 
 Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 배포](https://www.anaconda.com/download/) 는 Python 및 Jupyter Notebook를 모두 설치 합니다.
 
@@ -150,7 +150,7 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
 
     a. 새 Notebook을 만듭니다. 오른쪽 모서리에서 **새로 만들기** 를 선택 합니다. 기본 커널 **python 2** 또는 **python 3** 및 사용자가 설치한 커널을 표시 되어야 합니다. 실제 값은 설치 선택 사항에 따라 달라질 수 있습니다.  **PySpark** 를 선택 합니다.
 
-    ![Jupyter 노트북에서 사용 가능한 커널](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jupyter 노트북의 커널")
+    ![Jupyter Notebook에서 사용 가능한 커널](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jupyter Notebook의 커널")
 
     > [!IMPORTANT]  
     > **새로 만들기** 를 선택한 후 오류에 대 한 셸을 검토 합니다.  오류가 표시 되는 경우 `TypeError: __init__() got an unexpected keyword argument 'io_loop'` 특정 버전의 토네이도에서 알려진 문제가 발생할 수 있습니다.  그렇다면 커널을 중지 한 후 다음 명령을 사용 하 여 토네이도 설치를 다운 그레이드 합니다. `pip install tornado==4.5.3`
@@ -170,7 +170,7 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
 
 컴퓨터에 Jupyter를 설치 하 고 HDInsight의 Apache Spark 클러스터에 연결 하는 이유는 다음과 같습니다.
 
-* 는 전자 필기장을 로컬로 만들고, 실행 중인 클러스터에 대해 응용 프로그램을 테스트 한 다음, 노트북을 클러스터에 업로드 하는 옵션을 제공 합니다. 클러스터에 노트북을 업로드 하려면 또는 클러스터를 실행 하는 Jupyter 노트북을 사용 하 여 업로드 하거나 클러스터 `/HdiNotebooks` 와 연결 된 저장소 계정의 폴더에 저장 합니다. 클러스터에 Notebook을 저장하는 방법에 대한 자세한 내용은 [Jupyter Notebook이 저장되는 위치](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)를 참조하세요.
+* 는 전자 필기장을 로컬로 만들고, 실행 중인 클러스터에 대해 응용 프로그램을 테스트 한 다음, 노트북을 클러스터에 업로드 하는 옵션을 제공 합니다. 클러스터에 노트북을 업로드 하려면 또는 클러스터를 실행 하는 Jupyter Notebook을 사용 하 여 업로드 하거나 클러스터 `/HdiNotebooks` 와 연결 된 저장소 계정의 폴더에 저장할 수 있습니다. 클러스터에 노트북을 저장 하는 방법에 대 한 자세한 내용은 [Jupyter 노트북이 어디에 저장](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)되나요?를 참조 하세요.
 * 로컬에서 사용할 수 있는 Notebook을 사용하여 애플리케이션 요구 사항에 따라 다른 Spark 클러스터에 연결할 수 있습니다.
 * GitHub를 사용하여 원본 제어 시스템을 구현하고 Notebook에 대한 버전을 제어할 수 있습니다. 여러 사용자가 동일한 Notebook으로 작업할 수 있는 공동 작업 환경이 있을 수도 있습니다.
 * 클러스터 없이 로컬로 Notebook을 사용할 수 있습니다. Notebook 또는 개발 환경을 수동으로 관리하기 위해서가 아니라 Notebook을 테스트하기 위해 클러스터가 필요합니다.
@@ -182,5 +182,5 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
 ## <a name="next-steps"></a>다음 단계
 
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
-* [Apache Spark에서 Jupyter 노트북에 대 한 커널](apache-spark-jupyter-notebook-kernels.md)
+* [Apache Spark의 Jupyter Notebook에 대 한 커널](apache-spark-jupyter-notebook-kernels.md)
 * [Apache Spark에서 Jupyter 노트북과 함께 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)

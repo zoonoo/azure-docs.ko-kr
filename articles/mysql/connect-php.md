@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: b93bc4d1adfa2787f14106707b3848ebfe5c57bc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: cb3b711c532ccf44bebf08d42b5284db458cf5b7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021204"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492661"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: PHP를 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 이 빠른 시작에서는 [PHP](https://secure.php.net/manual/intro-whatis.php) 애플리케이션을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.
@@ -30,7 +30,7 @@ ms.locfileid: "95021204"
     | **서비스 엔드포인트 구성** | 공용 | [포털](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
     | **프라이빗 링크 구성** | Private | [포털](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-- [데이터베이스 및 비관리 사용자 만들기](/azure/mysql/howto-create-users?tabs=single-server)
+- [데이터베이스 및 비관리 사용자 만들기](./howto-create-users.md?tabs=single-server)
 - 운영 체제에 최신 PHP 버전 설치
     - [macOS의 PHP](https://secure.php.net/manual/install.macosx.php)
     - [Linux의 PHP](https://secure.php.net/manual/install.unix.php)

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 8c6a27f0cfaafe7e6c1181651e672d0e828af855
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 605e8cd57ab5863c1011082f0f2dbd93d078980b
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444493"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518943"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
@@ -33,7 +33,7 @@ ms.locfileid: "96444493"
 
 기존 시계열 메서드와 달리 자동화 된 ML에서 과거 시계열 값은 다른 예측 변수와 함께 회귀 변수의 추가 차원이 되도록 "피벗" 됩니다. 이 방법은 학습 중에 여러 컨텍스트 변수와 각 변수 간 관계를 통합합니다. 여러 요인이 예측에 영향을 줄 수 있으므로 이 방법은 실제 예측 시나리오에 적합합니다. 예를 들어 판매를 예측 하는 경우 과거 추세, 환율 및 가격의 상호 작용은 판매 결과를 모두 공동으로 구동 합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에는 다음이 필요 합니다. 
 
@@ -286,27 +286,27 @@ DNN을 활용하는 자세한 코드 예제는 [음료 생산 예측 Notebook](h
 
 ### <a name="short-series-handling"></a>간단한 시리즈 처리
 
-자동화 된 ML은 모델 개발의 학습 및 유효성 검사 단계를 수행 하기에 충분 한 데이터 요소가 없는 경우 시계열을 **짧은 계열로** 간주 합니다. 데이터 요소 수는 각 실험에 따라 달라 지 며, max_horizon, 교차 유효성 검사 분할의 수, 모델 lookback의 길이 (시계열 기능을 생성 하는 데 필요한 기록의 최대값)에 따라 달라 집니다. 정확한 계산은 [short_series_handling_config 참조 설명서](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration)를 참조 하세요.
+자동화 된 ML은 모델 개발의 학습 및 유효성 검사 단계를 수행 하기에 충분 한 데이터 요소가 없는 경우 시계열을 **짧은 계열로** 간주 합니다. 데이터 요소 수는 각 실험에 따라 달라 지 며, max_horizon, 교차 유효성 검사 분할의 수, 모델 lookback의 길이 (시계열 기능을 생성 하는 데 필요한 기록의 최대값)에 따라 달라 집니다. 정확한 계산은 [short_series_handling_configuration 참조 설명서](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration)를 참조 하세요.
 
-자동화 된 ML은 개체의 매개 변수를 사용 하 여 기본적으로 짧은 계열 처리를 제공 `short_series_handling_config` `ForecastingParameters` 합니다. 
+자동화 된 ML은 개체의 매개 변수를 사용 하 여 기본적으로 짧은 계열 처리를 제공 `short_series_handling_configuration` `ForecastingParameters` 합니다. 
 
-Short 시리즈 처리를 사용 하려면 `freq` 매개 변수도 정의 해야 합니다. 기본 동작을 변경 하려면 `short_series_handling_config = auto` `short_series_handling_config` 개체에서 매개 변수를 업데이트 `ForecastingParameter` 합니다.  
+Short 시리즈 처리를 사용 하려면 `freq` 매개 변수도 정의 해야 합니다. 매시간 빈도를 정의 하려면를 설정 `freq='H'` 합니다. [여기](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)에서 빈도 문자열 옵션을 봅니다. 기본 동작을 변경 하려면 `short_series_handling_configuration = 'auto'` `short_series_handling_configuration` 개체에서 매개 변수를 업데이트 `ForecastingParameter` 합니다.  
 
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
 
 forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                             forecast_horizon=50,
-                                            short_series_handling_config='auto',
-                                            freq = '7',
+                                            short_series_handling_configuration='auto',
+                                            freq = 'H',
                                             target_lags='auto')
 ```
 다음 표에는에 대 한 사용 가능한 설정이 요약 되어 `short_series_handling_config` 있습니다.
  
-|설정|설명
+|설정|Description
 |---|---
 |`auto`| 다음은 간단한 시리즈 처리의 기본 동작입니다. <li> *모든 계열이 짧으면* 데이터를 채웁니다. <br> <li> *모든 계열이 짧으면* short 시리즈를 삭제 합니다. 
-|`pad`| 인 경우 `short_series_handling_config = pad` 자동화 된 ML은 찾은 각 짧은 계열에 더미 값을 추가 합니다. 다음 목록에는 열 형식과 해당 열이 채워져 있는 항목이 나와 있습니다. <li>Nan를 사용 하는 개체 열 <li> 0으로 숫자 열 <li> False를 사용 하는 부울/논리 열 <li> 대상 열은 0과 표준 편차가 1 인 임의 값으로 채워집니다. 
+|`pad`| 인 경우 `short_series_handling_config = pad` 자동화 된 ML은 찾은 각 짧은 계열에 임의 값을 추가 합니다. 다음 목록에는 열 형식과 해당 열이 채워져 있는 항목이 나와 있습니다. <li>Nan를 사용 하는 개체 열 <li> 0으로 숫자 열 <li> False를 사용 하는 부울/논리 열 <li> 대상 열은 0과 표준 편차가 1 인 임의 값으로 채워집니다. 
 |`drop`| 이면 `short_series_handling_config = drop` 자동화 된 ML이 짧은 계열을 삭제 하 고 학습 또는 예측에 사용 되지 않습니다. 이러한 계열에 대 한 예측은 NaN을 반환 합니다.
 |`None`| 패딩 되거나 삭제 된 계열이 없습니다.
 

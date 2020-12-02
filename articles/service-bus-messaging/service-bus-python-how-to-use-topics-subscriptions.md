@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 11/18/2020
 ms.author: spelluru
 ms.custom: devx-track-python
-ms.openlocfilehash: 4035eaabb727d0db07553804b6fe94c60ddea64c
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 43f633e427e20cfb0b044bd42b77f866e4cc0c61
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95804832"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489414"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-python"></a>Azure Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지 받기(Python)
 이 문서에서는 Python을 사용하여 Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지를 받는 방법을 보여줍니다. 
@@ -217,4 +217,4 @@ Azure Portal에서 Service Bus 네임스페이스로 이동합니다. **개요**
 - [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples). 
     - **sync_samples** 폴더에는 동기 방식으로 Service Bus와 상호 작용하는 방법을 보여주는 샘플이 있습니다. 이 빠른 시작에서는 이 메서드를 사용했습니다. 
     - **async_samples** 폴더에는 비동기 방식으로 Service Bus와 상호 작용하는 방법을 보여주는 샘플이 있습니다. 
-- [azure-servicebus 참조 설명서](https://docs.microsoft.com/python/api/azure-servicebus/azure.servicebus?view=azure-python-preview&preserve-view=true)
+- [azure-servicebus 참조 설명서](/python/api/azure-servicebus/azure.servicebus?preserve-view=true&view=azure-python-preview)

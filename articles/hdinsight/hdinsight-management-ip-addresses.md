@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 35f2f82b4fe6862f0d023a70b32c964698b0c0eb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 682db0ef52e624a23d95aa18a007f05a78f39677
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547812"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518790"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 관리 IP 주소
 
@@ -32,7 +32,7 @@ NSGs (네트워크 보안 그룹) 또는 UDRs (사용자 정의 경로)를 사�
 
 ## <a name="azure-dns-service"></a>Azure DNS 서비스
 
-Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 포트 53에서 __168.63.129.16__ 의 액세스를 허용 합니다. 자세한 내용은 [vm 및 역할 인스턴스에 대 한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 문서를 참조 하세요. 사용자 지정 DNS를 사용 하는 경우이 단계를 건너뜁니다.
+Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 TCP와 UDP 모두에 대해 53 포트에서 __168.63.129.16__ 에 대 한 액세스를 허용 합니다. 자세한 내용은 [vm 및 역할 인스턴스에 대 한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 문서를 참조 하세요. 사용자 지정 DNS를 사용 하는 경우이 단계를 건너뜁니다.
 
 ## <a name="health-and-management-services-all-regions"></a>상태 및 관리 서비스: 모든 지역
 
@@ -52,10 +52,10 @@ Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 포트 53에서 
 > [!IMPORTANT]  
 > 사용 중인 Azure 지역이 나열 되지 않은 경우 네트워크 보안 그룹에 대 한 [서비스 태그](hdinsight-service-tags.md) 기능을 사용 합니다.
 
-| 국가 | 지역 | 허용된 원본 IP 주소 | 허용 된 대상 | Direction |
+| 국가 | 지역 | 허용된 원본 IP 주소 | 허용 된 대상 | 방향 |
 | ---- | ---- | ---- | ---- | ----- |
 | 아시아 | 동아시아 | 23.102.235.122</br>52.175.38.134 | \*: 443 | 인바운드 |
-| &nbsp; | 동남아시아 | 13.76.245.160</br>13.76.136.249 | \*: 443 | 인바운드 |
+| &nbsp; | 동남 아시아 | 13.76.245.160</br>13.76.136.249 | \*: 443 | 인바운드 |
 | 오스트레일리아 | 오스트레일리아 동부 | 104.210.84.115</br>13.75.152.195 | \*: 443 | 인바운드 |
 | &nbsp; | 오스트레일리아 남동부 | 13.77.2.56</br>13.77.2.94 | \*: 443 | 인바운드 |
 | 브라질 | 브라질 남부 | 191.235.84.104</br>191.235.87.113 | \*: 443 | 인바운드 |
@@ -76,7 +76,7 @@ Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 포트 53에서 
 | &nbsp; | 일본 서부 | 40.74.125.69</br>138.91.29.150 | \*: 443 | 인바운드 |
 | 한국 | 한국 중부 | 52.231.39.142</br>52.231.36.209 | \*: 443 | 인바운드 |
 | &nbsp; | 한국 남부 | 52.231.203.16</br>52.231.205.214 | \*: 443 | 인바운드
-| 영국 | 영국 서부 | 51.141.13.110</br>51.141.7.20 | \*: 443 | 인바운드 |
+| United Kingdom | 영국 서부 | 51.141.13.110</br>51.141.7.20 | \*: 443 | 인바운드 |
 | &nbsp; | 영국 남부 | 51.140.47.39</br>51.140.52.16 | \*: 443 | 인바운드 |
 | 미국 | 미국 중부 | 13.89.171.122</br>13.89.171.124 | \*: 443 | 인바운드 |
 | &nbsp; | 미국 동부 | 13.82.225.233</br>40.71.175.99 | \*: 443 | 인바운드 |

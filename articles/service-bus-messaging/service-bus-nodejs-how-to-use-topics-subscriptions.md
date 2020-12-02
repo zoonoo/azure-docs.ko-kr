@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: 56bed63a9030135966a208dd1ad9b4c45cde328d
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: aac3b6339c318c76e9b0c9abd0bc3778f2563a6f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95811707"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498696"
 ---
 # <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>빠른 시작: Node.js 및 미리 보기 azure/service-bus 패키지를 사용하는 Service Bus 토픽 및 구독
 이 자습서에서는 JavaScript 프로그램에서 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하여 Service Bus 토픽으로 메시지를 보내고 Service Bus 구독에서 해당 토픽으로 메시지를 받는 방법에 대해 알아봅니다.
@@ -208,4 +208,4 @@ Azure Portal에서 Service Bus 네임스페이스로 이동하고 아래쪽 창�
 
 - [Python용 Azure Service Bus 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
 - [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). **javascript** 폴더에는 JavaScript 샘플이 있고 **typescript** 에는 TypeScript 샘플이 있습니다. 
-- [azure-servicebus 참조 설명서](https://docs.microsoft.com/javascript/api/overview/azure/service-bus)
+- [azure-servicebus 참조 설명서](/javascript/api/overview/azure/service-bus)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: e67a323e03ae8ac0a0e34df1f7cc1ee4fe0901d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 00a7a081f29458ae81d8d8ea4dd8f7abef42f78f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95901505"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519011"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob Storage 이벤트에 대응
 
@@ -58,7 +58,7 @@ Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscription
 
 ## <a name="filtering-events"></a>이벤트 필터링
 
-Blob 이벤트는 이벤트 유형, 컨테이너 이름 또는 생성/삭제 된 개체의 이름으로 [필터링 할 수 있습니다](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) . Event Grid 필터는 주체의 시작 또는 끝과 일치 하므로 일치 하는 제목이 있는 이벤트는 구독자에 게 전달 됩니다.
+Blob 이벤트는 이벤트 유형, 컨테이너 이름 또는 생성/삭제 된 개체의 이름으로 [필터링 할 수 있습니다](/cli/azure/eventgrid/event-subscription) . Event Grid 필터는 주체의 시작 또는 끝과 일치 하므로 일치 하는 제목이 있는 이벤트는 구독자에 게 전달 됩니다.
 
 필터를 적용하는 방법에 대한 자세한 내용은 [Event Grid에 대한 이벤트 필터링](../../event-grid/how-to-filter-events.md)을 참조하세요.
 
@@ -96,7 +96,7 @@ Blob Storage 이벤트를 처리하는 애플리케이션은 아래 권장되는
 > [!div class="checklist"]
 > * 동일한 이벤트 처리기로 이벤트를 라우팅하도록 여러 구독이 구성될 수 있으므로, 이벤트가 특정 원본에서 온 것이라고 가정하지 않고 메시지의 토픽을 확인하여 예상하는 스토리지 계정에서 왔음을 확실히 아는 것이 중요합니다.
 > * 마찬가지로, eventType이 본인이 처리하려는 형식인지 확인하고, 수신된 모든 이벤트가 예상하는 형식일 것이라고 간주하지 않도록 합니다.
-> * 잠시 후 메시지가 도착할 수 있으므로 etag 필드를 사용 하 여 개체에 대 한 정보가 아직 최신 상태 인지를 파악 합니다. Etag 필드를 사용 하는 방법을 알아보려면 [Blob storage에서 동시성 관리](../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage)를 참조 하세요. 
+> * 잠시 후 메시지가 도착할 수 있으므로 etag 필드를 사용 하 여 개체에 대 한 정보가 아직 최신 상태 인지를 파악 합니다. Etag 필드를 사용 하는 방법을 알아보려면 [Blob storage에서 동시성 관리](../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage)를 참조 하세요.
 > * 메시지가 잘못 된 순서로 도착할 수 있으므로 sequencer 필드를 사용 하 여 특정 개체에 대 한 이벤트의 순서를 이해 합니다. Sequencer 필드는 특정 blob 이름에 대 한 이벤트의 논리적 시퀀스를 나타내는 문자열 값입니다. 표준 문자열 비교를 사용 하 여 동일한 blob 이름에서 두 이벤트의 상대 시퀀스를 이해할 수 있습니다.
 > * 저장소 이벤트는 구독자에 게 한 번 이상 배달 되도록 보장 하므로 모든 메시지가 출력 됩니다. 그러나 구독을 다시 시도 하거나 사용할 수 있기 때문에 중복 된 메시지가 때때로 발생할 수 있습니다. 메시지 배달 및 다시 시도에 대 한 자세한 내용은 [Event Grid 메시지 배달 및 다시 시도](../../event-grid/delivery-and-retry.md)를 참조 하세요.
 > * blobType 필드를 사용하여 Blob에 허용되는 작업 형식을 파악하고 Blob에 액세스하는 데 사용해야 하는 클라이언트 라이브러리 형식을 확인합니다. 유효한 값은 `BlockBlob` 또는 `PageBlob`입니다. 

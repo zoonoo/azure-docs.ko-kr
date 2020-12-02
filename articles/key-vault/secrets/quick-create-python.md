@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 7fe5b8da0b6dfa69d04a5ad152aa34a8686d854f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 68c58769302bbefd29b483a8fda225201d242dd9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786108"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483647"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 비밀 클라이언트 라이브러리
 
@@ -21,7 +21,7 @@ Python용 Azure Key Vault 비밀 클라이언트 라이브러리를 시작합니
 
 [API 참조 설명서](/python/api/overview/azure/keyvault-secrets-readme) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-keyvault-secrets/)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Python 2.7+ 또는 3.5.3+](/azure/developer/python/configure-local-development-environment)
@@ -54,7 +54,7 @@ Python용 Azure Key Vault 비밀 클라이언트 라이브러리를 시작합니
 1. Azure Active Directory ID 라이브러리를 설치합니다.
 
     ```terminal
-    pip install azure.identity
+    pip install azure-identity
     ```
 
 
@@ -136,7 +136,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>코드 실행
 
-이전 섹션의 코드가 *kv_secrets.py* 라는 파일에 있는지 확인합니다. 그런 다음, 다음 명령을 사용하여 코드를 실행합니다.
+이전 섹션의 코드가 *kv_secrets.py* 라는 파일에 있는지 확인합니다. 그런 후, 다음 명령을 사용하여 코드를 실행합니다.
 
 ```terminal
 python kv_secrets.py

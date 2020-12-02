@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: d3e38de191557f0602d1b544c6590018f98405b0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: f15a739904c28361a60210a0cc4606c7048d0f53
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560794"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518977"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Azure Application Gateway의 Azure 웹 애플리케이션 방화벽이란?
 
@@ -22,9 +22,6 @@ Azure Application Gateway의 Azure WAF(웹 애플리케이션 방화벽)는 일�
 Application Gateway의 WAF는 OWASP(Open Web Application Security Project)의 [CRS(핵심 규칙 세트)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1, 3.0 또는 2.2.9를 기반으로 합니다. WAF는 새로운 취약점에 대한 방어 기능을 포함하도록 자동으로 업데이트되며, 추가 구성이 필요 없습니다. 
 
 아래에 나열된 모든 WAF 기능은 WAF 정책 내에 있습니다. 여러 정책을 만들 수 있으며, 정책을 Application Gateway, 개별 수신기 또는 Application Gateway의 경로 기반 회람 규칙에 연결할 수 있습니다. 이러한 방식으로 필요에 따라 Application Gateway 뒤에 있는 각 사이트에 별도의 정책을 적용할 수 있습니다. WAF 정책에 대한 자세한 내용은 [WAF 정책 만들기](create-waf-policy-ag.md)를 참조하세요.
-
-   > [!NOTE]
-   > URI별 WAF 정책은 공개 미리 보기로 제공됩니다. 즉, 이 기능은 Microsoft의 추가 사용 약관을 따릅니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ![Application Gateway WAF 다이어그램](../media/ag-overview/waf1.png)
 
@@ -122,8 +119,8 @@ Application Gateway는 사용자 지정 규칙도 지원합니다. 사용자 지
 
 Application Gateway WAF는 다음 두 가지 모드에서 실행되도록 구성할 수 있습니다.
 
-* **탐지 모드** : 모든 위협 경고를 모니터링하고 기록합니다. **진단** 섹션에서 Application Gateway에 대한 진단 로깅을 켜야 합니다. 그리고 WAF 로그가 선택되어 있고 켜져 있는지 확인해야 합니다. 웹 애플리케이션 방화벽을 탐지 모드로 실행하면 수신 요청을 차단하지 않습니다.
-* **방지 모드** : 규칙에서 탐지하는 침입 및 공격을 차단합니다. 공격자는 "403 무단 액세스" 예외를 수신하고, 연결이 종료됩니다. 방지 모드는 이러한 공격을 WAF 로그에 기록합니다.
+* **탐지 모드**: 모든 위협 경고를 모니터링하고 기록합니다. **진단** 섹션에서 Application Gateway에 대한 진단 로깅을 켜야 합니다. 그리고 WAF 로그가 선택되어 있고 켜져 있는지 확인해야 합니다. 웹 애플리케이션 방화벽을 탐지 모드로 실행하면 수신 요청을 차단하지 않습니다.
+* **방지 모드**: 규칙에서 탐지하는 침입 및 공격을 차단합니다. 공격자는 "403 무단 액세스" 예외를 수신하고, 연결이 종료됩니다. 방지 모드는 이러한 공격을 WAF 로그에 기록합니다.
 
 > [!NOTE]
 > 새로 배포된 WAF를 프로덕션 환경에서 짧은 시간 동안 탐지 모드로 실행하는 것이 좋습니다. 이렇게 하면 방지 모드로 전환하기 전에 [방화벽 로그](../../application-gateway/application-gateway-diagnostics.md#firewall-log)를 얻고 모든 예외 또는 [사용자 지정 규칙](./custom-waf-rules-overview.md)을 업데이트할 수 있습니다. 이를 통해 예기치 않은 트래픽 차단 발생을 줄일 수 있습니다.
@@ -132,9 +129,9 @@ Application Gateway WAF는 다음 두 가지 모드에서 실행되도록 구성
 
 OWASP는 트래픽 차단 여부를 결정하는 기존 모드와 변칙 채점 모드 두 가지가 있습니다.
 
-기존 모드에서는 특정 규칙과 일치하는 트래픽은 다른 규칙과 상관없이 일치 항목으로 간주됩니다. 이 모드는 이해하기 쉽습니다. 그러나 특정 요청과 일치하는 규칙이 몇 개인지 알 수 없다는 제한이 있습니다. 이러한 제한을 극복하기 위해 변칙 채점 모드가 도입되었습니다. 변칙 채점 모드는 OWASP 3. *x* 의 기본값입니다.
+기존 모드에서는 특정 규칙과 일치하는 트래픽은 다른 규칙과 상관없이 일치 항목으로 간주됩니다. 이 모드는 이해하기 쉽습니다. 그러나 특정 요청과 일치하는 규칙이 몇 개인지 알 수 없다는 제한이 있습니다. 이러한 제한을 극복하기 위해 변칙 채점 모드가 도입되었습니다. 변칙 채점 모드는 OWASP 3.*x* 의 기본값입니다.
 
-변칙 채점 모드에서는 방화벽이 방지 모드일 때 특정 규칙과 일치하는 트래픽이 즉시 차단되지 않습니다. 규칙에는 네 가지 심각도 *중요* , *오류* , *경고* 또는 *알림* 이 있습니다. 이 심각도는 요청의 숫자 값에 영향을 주며, 이것을 변칙 점수라고 합니다. 예를 들어 *경고* 규칙 일치 항목 하나당 3점입니다. *중요* 규칙 일치 항목 하나당 5점입니다.
+변칙 채점 모드에서는 방화벽이 방지 모드일 때 특정 규칙과 일치하는 트래픽이 즉시 차단되지 않습니다. 규칙에는 네 가지 심각도 *중요*, *오류*, *경고* 또는 *알림* 이 있습니다. 이 심각도는 요청의 숫자 값에 영향을 주며, 이것을 변칙 점수라고 합니다. 예를 들어 *경고* 규칙 일치 항목 하나당 3점입니다. *중요* 규칙 일치 항목 하나당 5점입니다.
 
 |심각도  |값  |
 |---------|---------|

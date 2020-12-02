@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: dineshm
-ms.openlocfilehash: f618b7203cdbf99d79079cf81de38c6d15c91981
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: cb9d25bc9449c96ec7bf5ba11f8d64d59c8ddb4d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345570"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491947"
 ---
 # <a name="what-are-azure-queues"></a>Azure 큐란?
 
@@ -41,5 +41,5 @@ Azure Queue Storage는 대량의 메시지를 저장하기 위한 서비스입�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [스토리지 계정을 만드는](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)
+- [스토리지 계정을 만드는](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [.NET을 사용하여 큐 시작하기](storage-dotnet-how-to-use-queues.md)

@@ -7,21 +7,16 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: b546b043b856fd6ec69acd63fd69a01c48d0553b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 59ca0b85ba2aff29bdb2ad3379c1054041d2b4cb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990128"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518739"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Azure WAF (웹 응용 프로그램 방화벽) 정책 개요
 
 웹 응용 프로그램 방화벽 정책에는 모든 WAF 설정 및 구성이 포함 됩니다. 여기에는 제외, 사용자 지정 규칙, 관리 되는 규칙 등이 포함 됩니다. 이러한 정책은 응용 프로그램 게이트웨이 (전역), 수신기 (사이트당) 또는 경로 기반 규칙 (URI 당)에 연결 되어 적용 됩니다.
-
-> [!NOTE]
-> URI 별 Azure WAF (웹 응용 프로그램 방화벽) 정책은 공개 미리 보기 상태입니다.
-> 
-> 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능이 지원되지 않거나, 기능이 제한되거나, 일부 Azure 위치에 제공되지 않을 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 만들 수 있는 정책 수에는 제한이 없습니다. 정책을 만들 때 적용 하려면 응용 프로그램 게이트웨이에 연결 해야 합니다. 응용 프로그램 게이트웨이, 수신기 및 경로 기반 규칙의 조합에 연결 될 수 있습니다.
 
@@ -43,7 +38,7 @@ URI 수준까지 더 많은 사용자 지정을 위해 경로 기반 규칙과 W
 
 사이트별 WAF 정책과 마찬가지로 보다 구체적인 정책은 더 낮은 특정 정책을 무시 합니다. 이는 URL 경로 맵에 대 한 URI 별 정책이 위의 사이트별 또는 전역 WAF 정책을 재정의 함을 의미 합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 Contoso.com, fabrikam.com 및 adatum.com의 세 사이트가 동일한 응용 프로그램 게이트웨이 뒤에 있다고 가정해 보겠습니다. 세 사이트 모두에 WAF를 적용 하려고 하지만 고객이 제품을 방문 하 고, 검색 하 고, 구입 하는 경우 adatum.com를 사용 하 여 보안을 추가 해야 합니다.
 

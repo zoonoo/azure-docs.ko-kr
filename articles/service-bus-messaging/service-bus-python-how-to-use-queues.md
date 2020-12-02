@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 11/18/2020
 ms.author: spelluru
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 2b54b167413b0fcbe7022eab4bbbf34b37225be5
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 7275e33e44c20ece6eb7d620e2c1e8032be41a7b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95810603"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498662"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-python"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(Python)
 이 문서에서는 Python을 사용하여 Azure Service Bus 큐에서 메시지를 보내고 받는 방법을 설명합니다. 
@@ -208,5 +208,4 @@ Azure Portal에서 Service Bus 네임스페이스로 이동합니다. **개요**
 - [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples). 
     - **sync_samples** 폴더에는 동기 방식으로 Service Bus와 상호 작용하는 방법을 보여주는 샘플이 있습니다. 이 빠른 시작에서는 이 메서드를 사용했습니다. 
     - **async_samples** 폴더에는 비동기 방식으로 Service Bus와 상호 작용하는 방법을 보여주는 샘플이 있습니다. 
-- [azure-servicebus 참조 설명서](https://docs.microsoft.com/python/api/azure-servicebus/azure.servicebus?view=azure-python-preview&preserve-view=true)
-
+- [azure-servicebus 참조 설명서](/python/api/azure-servicebus/azure.servicebus?preserve-view=true&view=azure-python-preview)

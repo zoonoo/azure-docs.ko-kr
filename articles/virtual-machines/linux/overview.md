@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 95e4ac884e0eda3b4f469484226962e3fd2e2eea
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 54982189a5da584c7daf66855ffb655e403a455a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375383"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500515"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신
 
@@ -114,7 +114,7 @@ Azure는 Azure를 지원하는 대부분의 Linux 배포판에서 [cloud-init](h
 * [Virtual Network 개요](../../virtual-network/virtual-networks-overview.md)
 * [Azure의 IP 주소](../../virtual-network/public-ip-addresses.md)
 * [Azure에서 Linux VM에 포트 열기](nsg-quickstart.md)
-* [Azure 포털에서 정규화된 도메인 이름 만들기](portal-create-fqdn.md)
+* [Azure 포털에서 정규화된 도메인 이름 만들기](../create-fqdn.md)
 
 
 ## <a name="data-residency"></a>데이터 상주

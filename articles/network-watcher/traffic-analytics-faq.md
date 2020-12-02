@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 25f4ae0dbfd7827a36dede6a889c342ea490e273
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f27f2a6319bf2648546a62c2566d938db657738f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948479"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518467"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -401,3 +401,6 @@ destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," ") , pack_array(DestIP_
 - 토폴로지 보기에서 강조 표시된 다른 노드로 이동하려면 `Shift+Right arrow` 키를 사용하여 앞으로 이동합니다. 
 - 강조 표시된 노드에서는 노드의 **정보 도구 상자** 로 포커스가 이동됩니다. 기본적으로 포커스는 **정보 도구 상자** 의 **자세한 정보** 단추로 이동합니다. **상자** 보기 내부에서 추가로 이동하려면 `Right arrow` 및 `Left arrow` 키를 사용하여 각각 앞으로 또는 뒤로 이동할 수 있습니다. `Enter` 키를 누르면 **정보 도구 상자** 에서 포커스가 있는 단추를 선택한 것과 동일한 효과가 적용됩니다.
 - 이러한 노드를 선택할 때 `Shift+Left arrow` 키를 눌러 해당 연결을 모두 하나씩 방문할 수 있습니다. 포커스가 해당 연결의 **정보 도구 상자** 로 이동합니다. 언제든지 `Shift+Right arrow`를 다시 눌러 포커스를 다시 노드로 이동할 수 있습니다.
+
+## <a name="are-classic-nsgs-supported"></a>클래식 NSGs가 지원 되나요?
+아니요, 트래픽 분석는 클래식 NSG를 지원 하지 않습니다. 클래식 리소스가 [사용 되지 않으므로](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation)클래식에서 Azure Resource Manager IaaS 리소스를 마이그레이션하는 것이 좋습니다. [마이그레이션 방법을](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview)이해 하려면이 문서를 참조 하세요.

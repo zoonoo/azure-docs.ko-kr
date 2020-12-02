@@ -3,12 +3,12 @@ title: 연결 된 템플릿을 사용 하 여 템플릿 사양 만들기
 description: 연결 된 템플릿으로 템플릿 사양을 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: d86b46a88dde7ebffea81cdeb8dc184dd275c0da
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 038fb3e6bbb6086535b83a69de7a3fe49a8e60bb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747437"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518892"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>자습서: 연결 된 템플릿을 사용 하 여 템플릿 사양 만들기 (미리 보기)
 
@@ -19,7 +19,7 @@ ms.locfileid: "94747437"
 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> 템플릿 사양은 현재 미리 보기 상태입니다. 이 버전을 사용 하려면 최신 버전의 PowerShell 또는 Azure CLI를 설치 해야 합니다. Azure PowerShell [버전 5.0.0](/powershell/azure/install-az-ps)이상을 사용 합니다. Azure CLI [버전 2.14.2](/cli/azure/install-azure-cli)이상을 사용 합니다.
+> 템플릿 사양은 현재 미리 보기 상태입니다. Azure PowerShell에서 사용 하려면 [버전 5.0.0 이상을](/powershell/azure/install-az-ps)설치 해야 합니다. Azure CLI에서 사용 하려면 [버전 2.14.2](/cli/azure/install-azure-cli)이상을 사용 합니다.
 
 ## <a name="create-linked-templates"></a>연결된 템플릿 만들기
 

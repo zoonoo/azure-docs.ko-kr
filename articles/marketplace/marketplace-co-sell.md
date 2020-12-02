@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/20/2020
-ms.openlocfilehash: 9d6970331024ea0cd08e890cc62507d9eb230678
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/2/2020
+ms.openlocfilehash: 99b5e7bee93ffee14585f048506104ec313b9bff
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016336"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518538"
 ---
 # <a name="co-sell-partner-engagement"></a>공동 판매 파트너 참여
 
@@ -24,7 +24,7 @@ ms.locfileid: "95016336"
 
     ![판매 잠재 고객이 Microsoft에서 관리 하는 고객에 대해 공유, 승인 및 적용 될 때 공동 판매를 수행 하는 방법을 보여 주는 다이어그램입니다.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
 
-- **공동 판매 incentivized** IP 솔루션은 아래에 나열 된 marketplace 혜택 외에도 Microsoft 영업 팀과 협력 하 여 판매 될 때 Microsoft 현장 판매자의 성과급을 얻을 수 있습니다.</li></ul>
+- **공동 판매 incentivized** IP 제품은 아래 나열 된 marketplace 혜택 외에도 Microsoft 영업 팀과 협력 하 여 판매 될 때 Microsoft 현장 판매자의 성과급을 얻을 수 있습니다.</li></ul>
 
 ## <a name="marketplace-benefits-for-incentivized-offers"></a>Incentivized 제품에 대 한 Marketplace 혜택
 
@@ -67,7 +67,7 @@ ms.locfileid: "95016336"
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="이 이미지는 공동 판매 탭의 목록 섹션을 보여 줍니다.":::  
 
-1. 제품에 대 한 세부 정보를 제공 하 고 **문서** 섹션에서 참고 자료를 업로드 합니다. Microsoft 판매자는이 정보를 사용 하 여 제품을 권장 하 고 판매 합니다. (*필수: 고객 1 호출기 및 고객 프레젠테이션 데크*)
+1. 제품에 대 한 세부 정보를 제공 하 고 **문서** 섹션에서 참고 자료를 업로드 합니다. Microsoft 판매자는이 정보를 사용 하 여 제품을 권장 하 고 판매 합니다. *(필수: 솔루션/제안 1-호출기 및 솔루션/제안 피치 데크. Azure IP 공동 판매 incentivized 상태를 얻기 위해 필요 합니다. 참조 아키텍처 다이어그램.*
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="이 이미지는 공동 판매 탭의 문서 섹션을 보여 줍니다.":::
 

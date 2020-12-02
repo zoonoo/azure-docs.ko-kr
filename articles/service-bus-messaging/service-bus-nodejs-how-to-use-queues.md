@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: ec5bb299bed5545c3935b2f0ae28a50de9d79c45
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 3f37fcc6d58eb1c206aef6db15c7826cfdcda274
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95808902"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489431"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(JavaScript)
 이 자습서에서는 JavaScript 프로그램에서 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하여 Service Bus 큐와 메시지를 주고 받는 방법에 대해 알아봅니다.
@@ -207,4 +207,4 @@ Azure Portal의 Service Bus 네임스페이스에 대한 **개요** 페이지에
 
 - [Python용 Azure Service Bus 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
 - [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). **javascript** 폴더에는 JavaScript 샘플이 있고 **typescript** 에는 TypeScript 샘플이 있습니다. 
-- [azure-servicebus 참조 설명서](https://docs.microsoft.com/javascript/api/overview/azure/service-bus)
+- [azure-servicebus 참조 설명서](/javascript/api/overview/azure/service-bus)

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: e919db24a70b0ed69aca6977865cc76c0c9c5845
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dd7616bdc07aee86ac56a2f2fe0ac282838c58b4
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182464"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518858"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Azure Resource Manager 템플릿 사양 (미리 보기)
 
@@ -21,7 +21,7 @@ ms.locfileid: "96182464"
 템플릿 사양을 배포 하려면 PowerShell, Azure CLI, Azure Portal, REST 및 기타 지원 되는 Sdk와 클라이언트와 같은 표준 Azure 도구를 사용 합니다. 템플릿과 동일한 명령을 사용 합니다.
 
 > [!NOTE]
-> 템플릿 사양은 현재 미리 보기 상태입니다. 이를 사용하려면 최신 버전의 PowerShell 또는 Azure CLI를 설치해야 합니다. Azure PowerShell의 경우 [버전 5.0.0 이상](/powershell/azure/install-az-ps)을 사용합니다. Azure CLI의 경우 [버전 2.14.2 이상](/cli/azure/install-azure-cli)을 사용합니다.
+> 템플릿 사양은 현재 미리 보기 상태입니다. Azure PowerShell에서 사용 하려면 [버전 5.0.0 이상을](/powershell/azure/install-az-ps)설치 해야 합니다. Azure CLI에서 사용 하려면 [버전 2.14.2](/cli/azure/install-azure-cli)이상을 사용 합니다.
 
 ## <a name="why-use-template-specs"></a>템플릿 사양을 사용 하는 이유
 

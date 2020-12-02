@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 4282294ff54fd3da3f764f53efc8b040b9522191
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f71bcc1fd3b92a32a3e6d9fa056bae7131a663bd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542255"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492610"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database for MySQL 서버 만들기
 
@@ -45,7 +45,7 @@ Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하�
    서버 이름 | **mydemoserver** | 고유한 이름을 입력합니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3~63자를 포함해야 합니다.
    데이터 원본 |**없음** | 새 서버를 처음부터 만들려면 **없음** 을 선택합니다. 기존 서버의 지역 백업에서 복원하는 경우에만 **백업** 을 선택합니다.
    위치 |원하는 위치 | 목록에서 위치를 선택합니다.
-   버전 | 최신 주 버전| 최신 주 버전을 사용합니다. [지원되는 모든 버전](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions)을 참조하세요.
+   버전 | 최신 주 버전| 최신 주 버전을 사용합니다. [지원되는 모든 버전](../postgresql/concepts-supported-versions.md)을 참조하세요.
    컴퓨팅 + 스토리지 | 기본값 사용| 기본 가격 책정 계층은 **4개 vCore** 및 **100GB** 스토리지를 사용하는 **범용** 입니다. 백업 보존은 **지리적 중복** 백업 옵션을 사용하여 **7일** 로 설정됩니다.<br/>[가격 책정](https://azure.microsoft.com/pricing/details/mysql/) 페이지를 검토하고, 필요한 경우 기본값을 업데이트합니다.
    관리자 사용자 이름 | **mydemoadmin** | 서버 관리 사용자 이름을 입력합니다. 관리 사용자 이름으로 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public** 을 사용할 수 없습니다.
    암호 | 암호 | 서버 관리 사용자의 새 암호입니다. 암호는 대문자 또는 소문자, 숫자 및 영숫자가 아닌 문자(!, $, #, % 등)를 조합하여 8~128자 길이여야 합니다.
@@ -67,7 +67,7 @@ Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하�
 
 기본적으로 새 서버는 방화벽으로 보호됩니다. 연결하려면 다음 단계를 완료하여 IP에 대한 액세스 권한을 제공해야 합니다.
 
-1. 서버 리소스의 왼쪽 창에서 **연결 보안** 으로 이동합니다. 리소스를 찾는 방법을 모르는 경우 [리소스를 여는 방법](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources)을 참조하세요.
+1. 서버 리소스의 왼쪽 창에서 **연결 보안** 으로 이동합니다. 리소스를 찾는 방법을 모르는 경우 [리소스를 여는 방법](../azure-resource-manager/management/manage-resources-portal.md#open-resources)을 참조하세요.
 
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="[연결 보안] > [방화벽 규칙] 페이지를 보여주는 스크린샷":::
@@ -151,9 +151,9 @@ IP를 더 추가하거나 IP 범위를 제공하여 해당 IP에서 서버에 �
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
->[MySQL을 사용하여 Windows에서 PHP 앱 빌드](../app-service/app-service-web-tutorial-php-mysql.md) <br/>
+>[MySQL을 사용하여 Windows에서 PHP 앱 빌드](../app-service/tutorial-php-mysql-app.md) <br/>
 
 > [!div class="nextstepaction"]
->[MySQL을 사용하여 Linux에서 PHP 앱 빌드](../app-service/containers/tutorial-php-mysql-app.md)<br/><br/>
+>[MySQL을 사용하여 Linux에서 PHP 앱 빌드](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%3fpivots%3dplatform-linux)<br/><br/>
 
 [원하는 항목을 찾을 수 없나요? 알려주세요.](https://aka.ms/mysql-doc-feedback)

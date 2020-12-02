@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: ad9f3a115ed226b492a08dae29db61029d9098eb
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 03cf20e5c796a7092dc16c466934f377c945ad48
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95557007"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509463"
 ---
 스토리지 계정은 Azure 파일 공유 또는 Blob나 큐와 같은 다른 스토리지 리소스를 배포할 수 있는 스토리지의 공유 풀입니다. 스토리지 계정에 포함될 수 있는 공유 수에는 제한이 없습니다. 공유에 저장할 수 있는 파일 수에는 제한이 없으며, 스토리지 계정의 최대 용량까지 저장할 수 있습니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "95557007"
     > [!NOTE]
     > 이 빠른 시작에서는 표준 파일 공유를 만들지만 프리미엄 파일 공유를 사용하려면 대신 **프리미엄** 을 선택합니다.
 
-1. **계정 종류** 에서 **StorageV2** 를 선택합니다. 다양한 종류의 스토리지 계정을 자세히 알아보려면 [Azure storage 계정 이해](../articles/storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)를 참조하세요.
+1. **계정 종류** 에서 **StorageV2** 를 선택합니다. 다양한 종류의 스토리지 계정을 자세히 알아보려면 [Azure storage 계정 이해](../articles/storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
 
     > [!NOTE]
     > 이 빠른 시작에서는 범용 v2 계정을 만듭니다. 프리미엄 파일 공유를 사용하려면 대신 **FileStorage** 를 선택합니다.

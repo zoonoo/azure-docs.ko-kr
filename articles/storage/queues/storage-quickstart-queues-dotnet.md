@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a62aa9df818bb6ff7026d95daa625acabe66b990
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: f8900db8ed43b8c255915bf5429e1211f04e7338
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345638"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491964"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -34,7 +34,7 @@ ms.locfileid: "93345638"
 - [API 참조 설명서](/dotnet/api/azure.storage.queues)
 - [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
 - [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-- [샘플](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [샘플](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

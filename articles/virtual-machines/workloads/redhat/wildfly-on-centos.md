@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
 ms.date: 10/23/2020
-ms.openlocfilehash: 842913b8e9f83ff3b188976da55aef7c909518ca
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: ddd6f277bc71467060aa2279d93f9410a1327dde
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359921"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486609"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>빠른 시작: CentOS 8 기반 WildFly
 
@@ -63,7 +63,7 @@ Azure CentOS 8 이미지는 PAYG(종량제) VM 이미지이며 사용자가 라�
 
 템플릿을 배포할 수 있는 세 가지 방법은 다음과 같습니다.
 
-- PowerShell 사용 - 다음 명령을 실행하여 템플릿을 배포합니다. (Azure PowerShell 설치 및 구성에 대한 자세한 내용은 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)을 확인하세요.)
+- PowerShell 사용 - 다음 명령을 실행하여 템플릿을 배포합니다. (Azure PowerShell 설치 및 구성에 대한 자세한 내용은 [Azure PowerShell](/powershell/azure/)을 확인하세요.)
 
     ```
     New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
@@ -73,7 +73,7 @@ Azure CentOS 8 이미지는 PAYG(종량제) VM 이미지이며 사용자가 라�
     New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
     ```
     
-- Azure CLI 사용 - 다음 명령을 실행하여 템플릿을 배포합니다. (Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄](https://docs.microsoft.com/cli/azure/install-azure-cli)을 확인하세요.)
+- Azure CLI 사용 - 다음 명령을 실행하여 템플릿을 배포합니다. (Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄](/cli/azure/install-azure-cli)을 확인하세요.)
 
     ```
     az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
@@ -92,7 +92,7 @@ Azure CentOS 8 이미지는 PAYG(종량제) VM 이미지이며 사용자가 라�
 ## <a name="resource-links"></a>리소스 링크
 
 * [WildFly 18](https://docs.wildfly.org/18/)에 대한 자세한 정보
-* [Azure의 Linux 배포판](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)에 대한 자세한 정보
+* [Azure의 Linux 배포판](../../linux/endorsed-distros.md)에 대한 자세한 정보
 * [Java용 Azure 개발자 설명서](https://github.com/JasonFreeberg/jboss-on-app-service)
 
 ## <a name="next-steps"></a>다음 단계

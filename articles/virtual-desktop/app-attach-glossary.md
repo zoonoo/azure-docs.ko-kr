@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6107ffea4fe4d615a42973ab1b231ca9f6b5241f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7132eae073f3d53a104536076ae801ec9ff93e5f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674946"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518671"
 ---
 # <a name="msix-app-attach-glossary"></a>MSIX 앱 연결 용어집
 
@@ -109,6 +109,18 @@ Destaging은 현재 실행 되 고 있지 않고 사용자에 대해 준비 되�
 ## <a name="cim"></a>CIM
 
 . CIM은 CimFS (복합 이미지 파일 시스템)와 연결 된 새 파일 확장명입니다. CIM 파일 탑재 및 탑재 해제는 VHD 파일 보다 더 빠릅니다. 또한 CIM은 VHD 보다 더 작은 CPU와 메모리를 사용 합니다.
+
+CIM 파일은를 사용 하는 파일입니다. 메타 데이터와 실제 데이터가 포함 된 6 개 이상의 추가 파일을 포함 하는 CIM 확장입니다. CIM 파일 내의 파일에는 확장명이 없습니다. 다음 표는 CIM 내에서 찾을 예제 파일의 목록입니다.
+
+| 파일 이름 | 내선 번호 | 크기 |
+|-----------|-----------|------|
+| VSC | CIM | 1KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | 해당 없음 | 27kb |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | 해당 없음 | 20KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | 해당 없음 | 42 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | 해당 없음 | 428 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | 해당 없음 | 217 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | 해당 없음 | 264132 KB |
 
 다음 표는 VHD와 CimFS 간의 성능 비교입니다. 이러한 숫자는 DSv4 컴퓨터에서 실행 되는 각 형식의 500 300 MB 파일을 사용 하 여 테스트를 실행 한 결과입니다.
 

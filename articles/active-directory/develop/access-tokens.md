@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: b1ce076befc325fef7717c0404b31dadff952af6
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 909c8910a86734b0a34787f75c233975cd3503c3
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433294"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518246"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft ID 플랫폼 액세스 토큰
 
@@ -75,7 +75,7 @@ JWT(JSON Web Token)는 세 부분으로 분할됩니다.
 
 각 부분은 마침표(`.`)로 구분되며 개별적으로 Base64로 인코딩됩니다.
 
-클레임은 채울 값이 존재하는 경우에만 제공됩니다. 앱은 존재 하는 클레임에 대 한 종속성을 사용 하지 않아야 합니다. 예를 들면 `pwd_exp` (모든 테 넌 트가 만료 되는 암호가 필요 하지 않음) 및 `family_name` ([클라이언트 자격 증명] (v2-oauth2-client-creds-grant-flow.md) 흐름은 이름이 없는 응용 프로그램을 대신 함)을 포함 합니다. 액세스 토큰 유효성 검사에 사용되는 클레임은 항상 제공됩니다.
+클레임은 채울 값이 존재하는 경우에만 제공됩니다. 앱은 존재 하는 클레임에 대 한 종속성을 사용 하지 않아야 합니다. 예를 들면 `pwd_exp` (모든 테 넌 트가 암호가 만료 되는 것이 아님) 및 `family_name` ([클라이언트 자격 증명](v2-oauth2-client-creds-grant-flow.md) 흐름은 이름이 없는 응용 프로그램을 대신 함)을 포함 합니다. 액세스 토큰 유효성 검사에 사용되는 클레임은 항상 제공됩니다.
 
 일부 클레임은 Azure AD에서 토큰을 다시 사용하는 경우 안전하게 보호하는 데 사용됩니다. 이러한 클레임은 설명에 "불투명"으로 되어 공개 사용되지 않는 것으로 표시됩니다. 이러한 클레임은 토큰에 표시되거나 표시되지 않을 수 있으며, 통지 없이 새로 추가될 수도 있습니다.
 

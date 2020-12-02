@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0e1b7aa0eb56d5668b6561b36a0f63e719974573
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 69cef4c17fd17219f0221c509775ad3fd6a80a27
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698899"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498985"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>빠른 시작: JavaScript SDK를 사용하여 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "94698899"
 > * [REST (영문)](search-get-started-rest.md)
 
 
-[Azure Cognition Search용 JavaScript/Typescript SDK](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme)를 사용하여 JavaScript에서 검색 인덱스를 만들고, 로드하고, 쿼리하는 Node.js 애플리케이션을 만듭니다.
+[Azure Cognition Search용 JavaScript/Typescript SDK](/javascript/api/overview/azure/search-documents-readme)를 사용하여 JavaScript에서 검색 인덱스를 만들고, 로드하고, 쿼리하는 Node.js 애플리케이션을 만듭니다.
 
 이 문서에서는 애플리케이션을 단계별로 만드는 방법을 보여 줍니다. 또는 [소스 코드와 데이터를 다운로드](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11)하고 명령줄에서 애플리케이션을 실행할 수 있습니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "94698899"
     ```
      기본값을 그대로 사용하되, 라이선스는 "MIT"로 설정해야 합니다. 
 
-3. `@azure/search-documents`([Azure Cognition Search용 Javascript/Typscript SDK](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme))를 설치합니다.
+3. `@azure/search-documents`([Azure Cognition Search용 Javascript/Typscript SDK](/javascript/api/overview/azure/search-documents-readme))를 설치합니다.
 
     ```cmd
     npm install @azure/search-documents

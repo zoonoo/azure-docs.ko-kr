@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ac87e8394eaa609f7c57eaf9d83fe11a2bdb04f6
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6d9abc67035b4581a028d8e59ef080b4f1ffa5b9
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435827"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519045"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MySQL에 대 한 데이터 암호화
 
@@ -24,7 +24,7 @@ Azure CLI를 사용 하 여 Azure Database for MySQL 데이터 암호화를 설�
 * 고객 관리 키에 사용할 키 자격 증명 모음 및 키를 만듭니다. 또한 키 자격 증명 모음에서 보호 제거 및 일시 삭제를 사용 하도록 설정 합니다.
 
   ```azurecli-interactive
-  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true -enable-purge-protection true
+  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
   ```
 
 * 만든 Azure Key Vault에서 Azure Database for MySQL의 데이터 암호화에 사용할 키를 만듭니다.
@@ -55,7 +55,8 @@ Azure CLI를 사용 하 여 Azure Database for MySQL 데이터 암호화를 설�
   * 만료 날짜 없음
   * 사용 안 함 없음
   * **가져오기**, **래핑**, **래핑** 해제 작업 수행
-  * recoverylevel 특성이 **복구** 가능으로 설정 되었습니다.
+  * recoverylevel 특성이 **복구** 가능으로 설정 됨 (보존 기간이 90 일로 설정 된 일시 삭제를 사용 해야 함)
+  * 보호 제거 사용
 
 다음 명령을 사용 하 여 위의 키 특성을 확인할 수 있습니다.
 

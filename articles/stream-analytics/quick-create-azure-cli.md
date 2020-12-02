@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 4e50560d2f090c99d1f354ebbc11ab2357dd61e8
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 48ef9cc48f48cec92ae57774e5d89e300ee43385
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874732"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485385"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Stream Analytics 작업 만들기
 
@@ -94,7 +94,7 @@ Stream Analytics 작업을 정의하기 전에, 작업의 입력에 사용할 �
    az storage account keys list -g streamanalyticsrg -n <storage-account>
    ```
 
-3. Blob 저장을 위한 컨테이너는 [az storage container create](/cli/azure/storage/container) 명령을 사용하여 만듭니다. 스토리지 계정 키를 사용하여 컨테이너를 만들 수 있는 권한을 작업에 부여합니다. Azure CLI 사용하여 데이터 작업에 권한을 부여하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 blob 또는 큐 데이터에 대한 액세스 권한 부여](../storage/common/authorize-data-operations-cli.md)를 참조하세요.
+3. Blob 저장을 위한 컨테이너는 [az storage container create](/cli/azure/storage/container) 명령을 사용하여 만듭니다. 스토리지 계정 키를 사용하여 컨테이너를 만들 수 있는 권한을 작업에 부여합니다. Azure CLI 사용하여 데이터 작업에 권한을 부여하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 blob 또는 큐 데이터에 대한 액세스 권한 부여](../storage/blobs/authorize-data-operations-cli.md)를 참조하세요.
 
    ```azurecli
    az storage container create \

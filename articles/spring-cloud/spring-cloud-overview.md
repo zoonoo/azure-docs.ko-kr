@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 159851f5b1ca38cc34da785b39229a6a91e1e4dd
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 74ebdafb835aff75f282b9d6ac02d8ccf672a2be
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090695"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501093"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Azure Spring Cloud란?
 
@@ -48,7 +48,7 @@ Azure Spring Cloud를 사용하면 Azure Spring Cloud 대시보드에서 마이�
 
 ## <a name="application-monitoring"></a>애플리케이션 모니터링
 
-개발자는 Spring Cloud의 분산 추적 도구를 사용하여 애플리케이션에서 마이크로서비스 간의 복잡한 상호 연결을 디버깅하고 모니터링할 수 있습니다.  [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth)를 Azure의 [Application Insights](../azure-monitor/insights/insights-overview.md)와 통합하면 Azure가 Azure Portal에서 바로 강력한 분산 추적 기능을 제공합니다.  자세히 알아보려면 이 [자습서](spring-cloud-tutorial-distributed-tracing.md)를 완료하세요.
+개발자는 Spring Cloud의 분산 추적 도구를 사용하여 애플리케이션에서 마이크로서비스 간의 복잡한 상호 연결을 디버깅하고 모니터링할 수 있습니다.  [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth)를 Azure의 [Application Insights](../azure-monitor/monitor-reference.md)와 통합하면 Azure가 Azure Portal에서 바로 강력한 분산 추적 기능을 제공합니다.  자세히 알아보려면 이 [자습서](spring-cloud-tutorial-distributed-tracing.md)를 완료하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
