@@ -1,6 +1,6 @@
 ---
-title: 서버리스 SQL 풀(미리 보기)로 데이터 스토리지 쿼리
-description: 이 문서에서는 Azure Synapse Analytics 내에서 서버리스 SQL 풀(미리 보기) 리소스를 사용하여 Azure 스토리지를 쿼리하는 방법을 설명합니다.
+title: 서버리스 SQL 풀을 사용하여 데이터 스토리지 쿼리
+description: 이 문서에서는 Azure Synapse Analytics 내에서 서버리스 SQL 풀 리소스를 사용하여 Azure 스토리지를 쿼리하는 방법을 설명합니다.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 81a892b10996686cf58d45867e3d889505b5d3d9
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: 967250cf29d1f0248f296cb545a764bd8e611773
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299584"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462658"
 ---
-# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 스토리지 파일 쿼리
+# <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지 파일 쿼리
 
-서버리스 SQL 풀(미리 보기)을 사용하면 데이터 레이크의 데이터를 쿼리할 수 있습니다. 이는 반정형 및 비정형 데이터 쿼리를 수용하는 T-SQL 쿼리 노출 영역을 제공합니다. 쿼리에 지원되는 T-SQL 측면은 다음과 같습니다.
+서버리스 SQL 풀을 사용하면 데이터 레이크의 데이터를 쿼리할 수 있습니다. 이는 반정형 및 비정형 데이터 쿼리를 수용하는 T-SQL 쿼리 노출 영역을 제공합니다. 쿼리에 지원되는 T-SQL 측면은 다음과 같습니다.
 
 - 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함하는 전체 [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 노출 영역.
 - CREATE EXTERNAL TABLE AS SELECT([CETAS](develop-tables-cetas.md))는 [외부 테이블](develop-tables-external-tables.md)을 만든 다음, Transact-SQL SELECT 문의 결과를 Azure Storage에 병렬로 내보냅니다.
@@ -222,7 +222,7 @@ Array 또는 Map의 요소와 같은 반복된 열의 요소에 액세스하려�
 ### <a name="tools"></a>도구
 
 쿼리를 실행하는 데 필요한 도구:
-    - Azure Synapse Studio(미리 보기)
+    - Azure Synapse Studio 
     - Azure Data Studio
     - SQL Server Management Studio
 

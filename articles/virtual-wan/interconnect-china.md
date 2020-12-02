@@ -5,24 +5,24 @@ services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/01/2020
 ms.author: sukishen
-ms.openlocfilehash: 6b2595eaf1e373c3a15014d0bc684d6e3914a665
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a92dafe6237d0f061f837f07c5dcf2686b1a8a7e
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566642"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510740"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Azure Virtual WAN 및 보안 허브를 사용하여 중국과 상호 연결
 
-일반적인 자동차, 제조, 물류 산업 또는 대사관과 같은 다른 기관을 살펴볼 때, 중국과의 상호 연결을 개선하는 방법에 대한 질문이 있는 경우가 많습니다. 이러한 향상 된 기능은 주로 고객 백본으로 중국 내에서 Microsoft 365, Azure 글로벌 서비스 또는 상호 연결 분기와 같은 Cloud Services를 사용 하는 것과 관련이 있습니다.
+일반적인 자동차, 제조, 물류 산업 또는 다른 institutes of (예: embassies)를 살펴볼 때 중국과의 상호 연결이 향상 되는 방법에 대 한 질문은 종종 있습니다. 이러한 향상 된 기능은 주로 고객 백본으로 중국 내에서 Microsoft 365, Azure 글로벌 서비스 또는 상호 연결 분기와 같은 Cloud Services를 사용 하는 것과 관련이 있습니다.
 
 대부분의 경우 고객은 대기 시간이 길고 대역폭이 낮으며 연결이 불안정하고 중국 외부(예: 유럽 또는 미국)에 연결하는 비용이 높다는 어려움을 겪고 있습니다.
 
 이런 어려움을 겪는 이유는 인터넷에서 중국 부분을 보호하고 중국으로 유입되는 트래픽을 필터링하는 "GFW(Great Firewall of China)" 때문입니다. 홍콩 및 마카오와 같은 특별 행정 구역을 제외하고 중국 본토에서 중국 외부로 흐르는 거의 모든 트래픽은 Great Firewall을 통과합니다. 홍콩과 마카오를 통과하는 트래픽은 Great Firewall에 완전히 도달하지는 않고, Great Firewall의 하위 집합에 의해 처리됩니다.
 
-![공급자 상호 연결](./media/interconnect-china/provider.png)
+:::image type="content" source="./media/interconnect-china/provider.png" alt-text="다이어그램은 공급자 상호 연결을 보여 줍니다.":::
 
 Virtual WAN을 사용하면 중국 사이버 보안법을 위반하지 않고도 고객이 Microsoft 클라우드 서비스와 성능에 맞는 안정적인 연결을 구축하고 자사 엔터프라이즈 네트워크에 연결할 수 있습니다.
 
@@ -71,11 +71,17 @@ Virtual WAN을 사용하면 중국 사이버 보안법을 위반하지 않고도
 
 이 연결을 사용할 때 Microsoft Services에 대한 다음 BGP 홉은 Microsoft AS #(Autonomous System Number) 8075여야 합니다. 단일 위치 또는 SDWAN 솔루션을 사용하는 경우 해당 연결을 선택할 수 있습니다.
 
-어느 쪽이든, 중국 본토에 대한 두 번째 및 정규 인터넷 브레이크아웃을 두는 것이 좋습니다. 기업 간의 트래픽을 Microsoft 365 및 Azure와 같은 클라우드 서비스와 법률에 의해 규제되는 인터넷 트래픽으로 분할하기 위해서입니다.
+이러한 대부분의 네트워크 공급자는 중국 본토와 홍콩 간의 상호 연결에 대 한 현재 변경 내용을 사용 하 여 중국 본토와 홍콩 간에 MPLS 브리지를 구축 합니다.
+
+중국 내에서 사이트 간 VPN 연결이 허용 되 고 대부분 안정적이 지 확인할 수 있습니다. 전 세계의 분기 간 사이트 간 연결에도 마찬가지입니다. 이제 공급자는 양쪽 모두에서 VPN/SDWAN 집계를 만들고 둘 사이에 MPLS를 통해 연결 합니다.
+
+:::image type="content" source="./media/interconnect-china/china-mpls-bridge.png" alt-text="다이어그램은 중국 MPLS 브리지를 보여줍니다.":::
+
+어떤 경우 든 지 중국어 본토에 대 한 두 번째 및 일반적인 인터넷 브레이크를 제공 하는 것이 좋습니다. 이는 엔터프라이즈 트래픽 간의 트래픽을 Microsoft 365 및 Azure와 같은 클라우드 서비스 및 법률에의 한 인터넷 트래픽을 분할 하는 것입니다.
 
 중국 내 규격 네트워크 아키텍처는 다음 예와 같은 모양입니다.
 
-![여러 지점](./media/interconnect-china/multi-branch.png)
+:::image type="content" source="./media/interconnect-china/multi-branch.png" alt-text="다이어그램에는 여러 분기가 표시 됩니다.":::
 
 이 예에서는 홍콩에 Microsoft 글로벌 네트워크와 상호 연결이 있으며, 중국 외부의 지점 및 데이터 센터에 상호 연결하고 서비스를 소비하기 위해 [Azure Virtual WAN 글로벌 전송 아키텍처](virtual-wan-global-transit-network-architecture.md) 및 Azure 보안 Virtual WAN 허브와 같은 추가 서비스를 활용할 수 있습니다.
 
@@ -85,7 +91,7 @@ Virtual WAN을 사용하면 중국 사이버 보안법을 위반하지 않고도
 
 샘플 아키텍처는 다음 예제와 같은 모양입니다.
 
-![샘플 WAN](./media/interconnect-china/sample.png)
+:::image type="content" source="./media/interconnect-china/sample.png" alt-text="다이어그램에는 샘플 WAN이 표시 됩니다.":::
 
 이 예제에 중국 지점은 VPN 또는 MPLS 연결을 사용하여 서로 연결하거나 Azure Cloud 중국에 연결합니다. 글로벌 서비스에 연결해야 하는 지점은 홍콩에 직접 연결된 MPLS 또는 인터넷 기반 서비스를 사용합니다. 홍콩 및 기타 지역에서 ExpressRoute를 사용하려면 ExpressRoute 회로를 서로 연결하여 [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md)를 구성해야 합니다.
 
@@ -93,7 +99,7 @@ Virtual WAN을 사용하면 중국 사이버 보안법을 위반하지 않고도
 
 아래 그림은 이 시나리오에 대한 두 가지 예제를 보여줍니다.
 
-![Global Reach](./media/interconnect-china/global.png)
+:::image type="content" source="./media/interconnect-china/global.png" alt-text="다이어그램에 Global Reach 표시 됩니다.":::
 
 ## <a name="secure-internet-breakout-for-microsoft-365"></a><a name="secure"></a>Microsoft 365에 대 한 보안 인터넷 분리
 
@@ -103,7 +109,7 @@ Virtual WAN을 사용하는 두 시나리오 모두 [Azure Virtual WAN 보안 �
 
 다음 그림은 이러한 시나리오의 예를 보여 줍니다.
 
-![웹 및 Microsoft 서비스 트래픽을 위한 인터넷 브레이크아웃](./media/interconnect-china/internet.png)
+:::image type="content" source="./media/interconnect-china/internet.png" alt-text="웹 및 Microsoft 서비스 트래픽의 인터넷 분리를 보여 주는 다이어그램입니다.":::
 
 ## <a name="architecture-and-traffic-flows"></a><a name="traffic"></a>아키텍처 및 트래픽 흐름
 
@@ -117,7 +123,7 @@ Virtual WAN을 사용하는 두 시나리오 모두 [Azure Virtual WAN 보안 �
 
 이 섹션에서는 홍콩 및 기타 지점에 대해 SDWAN 또는 VPN을 사용하는 디자인을 설명합니다. 이 옵션은 Virtual WAN 백본의 두 사이트에서 순수한 인터넷 연결을 사용하는 경우 트래픽 흐름과 사용을 보여줍니다. 이 경우 전용 인터넷 액세스 또는 ICP 공급자 SDWAN 솔루션을 사용하여 홍콩으로 연결됩니다. 다른 지점에서도 순수한 인터넷 또는 SDWAN 솔루션을 사용합니다.
 
-![홍콩에서 중국으로 가는 트래픽](./media/interconnect-china/china-traffic.png)
+:::image type="content" source="./media/interconnect-china/china-traffic.png" alt-text="다이어그램은 중국에서 홍콩 트래픽을 보여 줍니다.":::
 
 이 아키텍처에서 모든 사이트는 VPN 및 Azure Virtual WAN을 사용하여 Microsoft 글로벌 네트워크에 연결됩니다. 사이트와 홍콩 사이의 트래픽은 Microsoft 네트워크를 통해 전송되며 마지막에는 일반 인터넷 연결만 사용됩니다.
 
@@ -125,7 +131,7 @@ Virtual WAN을 사용하는 두 시나리오 모두 [Azure Virtual WAN 보안 �
 
 이 섹션에서는 홍콩에서 ExpressRoute를 사용하고 다른 지점은 VPN/SDWAN 분기를 사용하는 디자인을 설명합니다. 이 옵션은 홍콩에서 ExpressRoute 사용과 종료 및 SDWAN 또는 VPN을 통해 연결된 다른 지점을 보여줍니다. 홍콩의 ExpressRoute는 현재 간단한 공급자 목록으로 제한되어 있으며 [Express Route 파트너](../expressroute/expressroute-locations-providers.md#global-commercial-azure) 목록에서 찾을 수 있습니다.
 
-![홍콩에서 중국으로 가는 트래픽 ExpressRoute](./media/interconnect-china/expressroute.png)
+:::image type="content" source="./media/interconnect-china/expressroute.png" alt-text="다이어그램은 중국에서 홍콩 트래픽 (Express 경로)을 보여 줍니다.":::
 
 예를 들어 대한민국 또는 일본에서 중국의 ExpressRoute를 종료하는 옵션도 있습니다. 하지만 규정 준수, 규제 및 대기 시간을 고려하면 현재는 홍콩이 최선의 선택입니다.
 
@@ -135,7 +141,7 @@ Virtual WAN을 사용하는 두 시나리오 모두 [Azure Virtual WAN 보안 �
 
 상호 연결된 지점으로 이동하거나 이 지점에서 중국 내 위치로 이동하는 트래픽은 해당 아키텍처 내에서 다른 접근 방식을 따릅니다. 현재 가상 WAN은 ExpressRoute 간의 전송을 지원하지 않습니다. 트래픽은 가상 WAN 허브를 통과하지 않고 ExpressRoute Global Reach 또는 타사 상호 연결을 활용합니다. 한 MSEE(Microsoft Enterprise Edge)에서 다른 MSEE로 직접 흐릅니다.
 
-![ExpressRoute Global Reach](./media/interconnect-china/expressroute-virtual.png)
+:::image type="content" source="./media/interconnect-china/expressroute-virtual.png" alt-text="다이어그램에서 Express 경로 Global Reach를 보여 줍니다.":::
 
 현재 일부 국가/지역에서는 ExpressRoute Global Reach를 사용할 수 없지만 Azure Virtual WAN을 사용하여 솔루션을 구성할 수 있습니다.
 

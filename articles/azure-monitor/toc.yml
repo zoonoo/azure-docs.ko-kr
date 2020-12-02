@@ -255,7 +255,7 @@
               href: log-query/query-audit.md
             - name: 쿼리 최적화
               href: log-query/query-optimization.md
-            - name: 함수
+            - name: Functions
               href: log-query/functions.md
             - name: 텍스트 데이터 구문 분석
               href: log-query/parse-text.md
@@ -676,6 +676,8 @@
                       href: app/java-standalone-telemetry-processors.md
                     - name: JVM 인수 설정
                       href: app/java-standalone-arguments.md
+                    - name: 2.x에서 업그레이드
+                      href: app/java-standalone-upgrade-from-2x.md
             - name: 온-프레미스 서버
               items:
                 - name: ASP.NET
@@ -1187,7 +1189,7 @@
               href: platform/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: platform/view-designer-conversion-tiles.md
-            - name: 예제
+            - name: 예
               href: platform/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

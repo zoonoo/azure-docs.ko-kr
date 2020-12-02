@@ -8,24 +8,24 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 244408cc512a51683ecb3c062113170b1c7f4781
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6e0f3d318cc462b03151d5a4935ae318df46e2c5
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499563"
+ms.locfileid: "96510559"
 ---
 # <a name="python-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 Python 코드 샘플
 
 Azure Cognitive Search의 기능을 보여 주는 Python 코드 샘플에 대해 알아봅니다. 기본 리포지토리는 다음과 같습니다.
 
-| 리포지토리 | 설명 |
+| 리포지토리 | Description |
 |------------|-------------|
 | [azure-s e r v e r-o s/s e r/a s/s e r/s i o/s i d/검색](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/samples) | SDK에서 Azure.Search.Documents client 라이브러리와 함께 제공 되는 Azure SDK 팀이 생성 한 샘플입니다. 클라이언트 라이브러리에 대 한 [단위 테스트](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/tests) 를 검토 하 여 다양 한 api를 호출 하는 방법을 확인할 수도 있습니다. |
 | [Azure-샘플/azure-검색-python-샘플](https://github.com/Azure-Samples/azure-search-python-samples) | [빠른 시작: Python에서 검색 인덱스 만들기](search-get-started-python.md)를 비롯 한 방법 문서와 함께 제공 되는 코드 샘플입니다.|
 
 > [!Tip]
-> [샘플 브라우저](/samples/browse/?languages=csharp&products=azure-cognitive-search) 에서 제품, 서비스 및 언어를 기준으로 필터링 된 Microsoft 코드 샘플을 검색 해 보세요.
+> [샘플 브라우저](/samples/browse/?languages=python&products=azure-cognitive-search) 에서 제품, 서비스 및 언어를 기준으로 필터링 된 Microsoft 코드 샘플을 검색 해 보세요.
 
 ## <a name="python-sdk-samples"></a>Python SDK 샘플
 

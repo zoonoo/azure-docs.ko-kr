@@ -487,7 +487,7 @@
                       href: ../image-version-vm-cli.md
                     - name: Managed Disk 또는 스냅샷에서
                       href: ../image-version-snapshot-cli.md
-                    - name: 관리형 이미지에서 마이그레이션
+                    - name: 관리형 이미지 복제
                       href: ../image-version-managed-image-cli.md
                     - name: 다른 갤러리에서 복사
                       href: ../image-version-another-gallery-cli.md
@@ -511,7 +511,7 @@
                       href: ../image-version-vm-powershell.md
                     - name: Managed Disk 또는 스냅샷에서
                       href: ../image-version-snapshot-powershell.md
-                    - name: 관리형 이미지에서 마이그레이션
+                    - name: 관리형 이미지 복제
                       href: ../image-version-managed-image-powershell.md
                     - name: 다른 갤러리에서 복사
                       href: ../image-version-another-gallery-powershell.md
@@ -1168,7 +1168,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/compute
     - name: Resource Manager 템플릿
       displayName: ARM

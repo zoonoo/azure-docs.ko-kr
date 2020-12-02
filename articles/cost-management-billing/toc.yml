@@ -50,6 +50,8 @@
           href: costs/manage-automation.md
         - name: 파트너용 Cost Management
           href: costs/get-started-partners.md
+        - name: EA 보고에서 Azure Resource Manager API로 마이그레이션
+          href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
     - name: 예약
       items:
         - name: Azure Reservations란?
@@ -327,7 +329,7 @@
             - name: Azure Synapse Analytics
               href: reservations/prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/toc.json
             - name: 가상 머신
-              href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/toc.json
+              href: ../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2ftoc.json
         - name: '구매 후 보기, 관리 및 최적화'
           items:
             - name: 예약 및 사용률 보기

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
-ms.openlocfilehash: 1e71d3883b8dacefa9b501ee3a9a0533d5c7d515
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 12/02/2020
+ms.openlocfilehash: 57b4b6f3f49e9b82ada4b37c8e2de0697781e063
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592671"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510593"
 ---
 # <a name="execute-r-script-module"></a>R 스크립트 실행 모듈
 
@@ -78,25 +78,27 @@ azureml_main <- function(dataframe1, dataframe2){
  > [!NOTE]
  > 패키지를 설치 하기 전에 설치를 반복 하지 않도록 이미 존재 하는지 확인 합니다. 설치를 반복 하면 웹 서비스 요청 시간이 초과 될 수 있습니다.     
 
+## <a name="access-to-registered-dataset"></a>등록 된 데이터 집합에 대 한 액세스
+
+다음 샘플 코드를 참조 하 여 작업 영역에서 등록 된 [데이터 집합](../how-to-create-register-datasets.md) 에 액세스할 수 있습니다.
+
+```R
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="uploading-files"></a>파일 업로드
 R 스크립트 실행 모듈은 Azure Machine Learning R SDK를 사용 하 여 파일 업로드를 지원 합니다.
 
 다음 샘플에서는 R 스크립트 실행에서 이미지 파일을 업로드 하는 방법을 보여 줍니다.
 ```R
-
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main,
-# which is the entry point for this module.
-
-# Note that functions dependent on the X11 library,
-# such as "View," are not supported because the X11 library
-# is not preinstalled.
-
-# The entry point function MUST have two input arguments.
-# If the input port is not connected, the corresponding
-# dataframe argument will be null.
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
 
@@ -119,22 +121,6 @@ azureml_main <- function(dataframe1, dataframe2){
 > [!div class="mx-imgBorder"]
 > ![업로드 된 이미지 미리 보기](media/module/upload-image-in-r-script.png)
 
-## <a name="access-to-registered-dataset"></a>등록 된 데이터 집합에 대 한 액세스
-
-다음 샘플 코드를 참조 하 여 작업 영역에서 등록 된 [데이터 집합](../how-to-create-register-datasets.md) 에 액세스할 수 있습니다.
-
-```R
-    azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-  run = get_current_run()
-  ws = run$experiment$workspace
-  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
-  dataframe2 <- dataset$to_pandas_dataframe()
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
-
 ## <a name="how-to-configure-execute-r-script"></a>R 스크립트 실행을 구성 하는 방법
 
 R 스크립트 실행 모듈에는 샘플 코드가 포함 되어 있습니다.
@@ -147,11 +133,11 @@ R 스크립트 실행 모듈에는 샘플 코드가 포함 되어 있습니다.
 
 1. 스크립트에 필요한 모든 입력을 연결 합니다. 입력은 선택 사항이 며 데이터 및 추가 R 코드를 포함할 수 있습니다.
 
-    * **Dataset1** : 첫 번째 입력을로 참조 합니다 `dataframe1` . 입력 데이터 집합은 CSV, TSV 또는 ARFF 파일 형식으로 지정 해야 합니다. 또는 Azure Machine Learning 데이터 집합을 연결할 수 있습니다.
+    * **Dataset1**: 첫 번째 입력을로 참조 합니다 `dataframe1` . 입력 데이터 집합은 CSV, TSV 또는 ARFF 파일 형식으로 지정 해야 합니다. 또는 Azure Machine Learning 데이터 집합을 연결할 수 있습니다.
 
-    * **Dataset2** : 두 번째 입력을로 참조 합니다 `dataframe2` . 또한이 데이터 집합은 CSV, TSV 또는 ARFF 파일이 나 Azure Machine Learning 데이터 집합으로 포맷 되어야 합니다.
+    * **Dataset2**: 두 번째 입력을로 참조 합니다 `dataframe2` . 또한이 데이터 집합은 CSV, TSV 또는 ARFF 파일이 나 Azure Machine Learning 데이터 집합으로 포맷 되어야 합니다.
 
-    * **스크립트 번들** : 세 번째 입력은 .zip 파일을 허용 합니다. 압축 된 파일은 여러 파일 및 여러 파일 형식을 포함할 수 있습니다.
+    * **스크립트 번들**: 세 번째 입력은 .zip 파일을 허용 합니다. 압축 된 파일은 여러 파일 및 여러 파일 형식을 포함할 수 있습니다.
 
 1. **R 스크립트** 텍스트 상자에 올바른 R 스크립트를 입력 하거나 붙여 넣습니다.
 

@@ -124,6 +124,8 @@
           href: concepts-supported-versions.md
         - name: 제한 사항
           href: concepts-limits.md
+        - name: 운영 모범 사례
+          href: concept-operation-excellence-best-practices.md
         - name: 가격 책정 계층
           items:
             - name: 가격 책정 계층
@@ -195,6 +197,10 @@
             - name: 성능 권장 사항
               href: concepts-performance-recommendations.md
               displayName: recommendation
+            - name: 모범 사례 모니터링
+              href: concept-monitoring-best-practices.md
+            - name: 성능 모범 사례
+              href: concept-performance-best-practices.md
         - name: 애플리케이션 개발
           items:
             - name: 애플리케이션 개발 개요
