@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Studio의 SQL 스크립트 (미리 보기)
-description: Azure Synapse Studio (미리 보기) SQL 스크립트 소개
+title: Synapse Studio의 SQL 스크립트
+description: Azure Synapse Analytics의 Synapse Studio SQL 스크립트에 대해 소개 합니다.
 services: synapse-analytics
 author: pimorano
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 3f3009799889bd6b118f586676e22338d821d37c
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 077815d117af0328a3466346727e135caaf8ff21
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635292"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457999"
 ---
-# <a name="using-sql-scripts-in-azure-synapse-studio-preview"></a>Azure Synapse Studio에서 SQL 스크립트 사용 (미리 보기)
+# <a name="synapse-studio-sql-scripts-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Synapse Studio SQL 스크립트 
 
-Azure Synapse Studio (미리 보기)는 SQL 쿼리를 작성 하는 데 사용할 수 있는 SQL 스크립트 웹 인터페이스를 제공 합니다. SQL 풀 (미리 보기)에 연결할 수 있습니다. 
+Synapse Studio는 SQL 쿼리를 작성 하는 데 사용할 수 있는 SQL 스크립트 웹 인터페이스를 제공 합니다. 
 
 ## <a name="begin-authoring-in-sql-script"></a>SQL 스크립트에서 작성 시작 
 

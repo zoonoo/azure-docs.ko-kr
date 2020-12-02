@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d7c95317667999ac17803f08575e68641100b967
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a9d8c42432d619ab120afd0bd5734f6fa269b514
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023269"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458099"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>자습서: 샘플 클라이언트 앱으로 Azure Digital Twins 살펴보기
 
@@ -47,9 +47,9 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창에서 *솔루
 
 *Room.json* 을 선택하여 편집 창에서 열고 다음과 같은 방법으로 변경합니다.
 
-* **버전 번호를 업데이트** 하여 이 모델의 최신 버전을 제공하고 있음을 나타냅니다. 이렇게 하려면 `@id` 값의 끝에 있는 *1* 을 *2* 로 변경합니다. 현재 버전 번호보다 큰 번호도 사용할 수 있습니다.
-* **속성을 편집** 합니다. `Humidity` 속성의 이름을 *HumidityLevel* 로 변경합니다. 원하는 경우 다른 이름을 사용할 수 있습니다. *HumidityLevel* 이 아닌 다른 이름을 사용하는 경우 해당 이름을 기억하여 자습서 전체에서 *HumidityLevel* 대신 사용합니다.
-* **속성을 추가** 합니다. 줄 15에서 끝나는 `HumidityLevel` 속성 아래에 다음 코드를 붙여 넣어 `RoomName` 속성을 room에 추가합니다.
+1. **버전 번호를 업데이트** 하여 이 모델의 최신 버전을 제공하고 있음을 나타냅니다. 이렇게 하려면 `@id` 값의 끝에 있는 *1* 을 *2* 로 변경합니다. 현재 버전 번호보다 큰 번호도 사용할 수 있습니다.
+1. **속성을 편집** 합니다. `Humidity` 속성의 이름을 *HumidityLevel* 로 변경합니다. 원하는 경우 다른 이름을 사용할 수 있습니다. *HumidityLevel* 이 아닌 다른 이름을 사용하는 경우 해당 이름을 기억하여 자습서 전체에서 *HumidityLevel* 대신 사용합니다.
+1. **속성을 추가** 합니다. 줄 15에서 끝나는 `HumidityLevel` 속성 아래에 다음 코드를 붙여 넣어 `RoomName` 속성을 room에 추가합니다.
 
     ```json
     ,
@@ -59,13 +59,13 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창에서 *솔루
       "schema": "string"
     }
     ```
-* **관계를 추가** 합니다. 방금 추가한 `RoomName` 속성 아래에 다음 코드를 붙여 넣어 이러한 유형의 트윈이 다른 트윈과 *포함* 관계를 형성하는 기능을 추가합니다.
+1. **관계를 추가** 합니다. 방금 추가한 `RoomName` 속성 아래에 다음 코드를 붙여 넣어 이러한 유형의 트윈이 다른 트윈과 *포함* 관계를 형성하는 기능을 추가합니다.
 
     ```json
     ,
     {
       "@type": "Relationship",
-      "name": "contains",
+      "name": "contains"
     }
     ```
 

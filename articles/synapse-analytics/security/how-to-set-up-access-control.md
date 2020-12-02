@@ -1,5 +1,5 @@
 ---
-title: Synapse 작업 영역(미리 보기) 보호
+title: Synapse 작업 영역 보호
 description: 이 문서에서는 역할 및 액세스 제어를 사용하여 Synapse 작업 영역에서 작업을 제어하고 데이터에 액세스하는 방법을 설명합니다.
 services: synapse-analytics
 author: matt1883
@@ -9,20 +9,20 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 79a4db1f7d4be88260ea41ce1090007bc66cc7c8
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 25e191af919c5880045a6c4c7c79b675cf02520e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556032"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458719"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Synapse 작업 영역(미리 보기) 보호 
+# <a name="secure-your-synapse-workspace"></a>Synapse 작업 영역 보호 
 
 이 문서에서는 역할 및 액세스 제어를 사용하여 작업을 제어하고 데이터에 액세스하는 방법을 설명합니다. 이러한 지침을 따르면 Azure Synapse Analytics에서 액세스를 간단하게 제어할 수 있습니다. 세 가지 보안 그룹 중 하나에 사용자를 추가하고 제거하기만 하면 됩니다.
 
 ## <a name="overview"></a>개요
 
-Synapse 작업 영역(미리 보기)을 보호하려면 다음 항목을 구성하는 패턴을 따릅니다.
+Synapse 작업 영역을 보호 하려면 다음 항목을 구성 하는 패턴을 따릅니다.
 
 - Azure 역할(예: 소유자, 기여자 등의 기본 역할)
 - Synapse 역할 - 이러한 역할은 Synapse에 고유하며 Azure 역할을 기반으로 하지 않습니다. 이러한 역할로는 다음과 같은 세 가지가 있습니다.

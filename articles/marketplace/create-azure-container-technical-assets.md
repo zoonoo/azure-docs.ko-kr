@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 11/30/2020
-ms.openlocfilehash: 30f9eac0a0e88092a243b4d9421d2a4f33b07841
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 014bcd6fc519c267cdf17e9e98b850425c25ead6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759000"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459328"
 ---
 # <a name="prepare-your-azure-container-technical-assets"></a>Azure 컨테이너 기술 자산 준비
 
@@ -20,7 +20,7 @@ ms.locfileid: "95759000"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-빠른 시작, 자습서 및 샘플에 대해서는 [Azure Container Instances 설명서](/azure/container-instances/)를 참조하세요.
+빠른 시작, 자습서 및 샘플에 대해서는 [Azure Container Instances 설명서](../container-instances/index.yml)를 참조하세요.
 
 ## <a name="fundamental-technical-knowledge"></a>기본 기술 지식
 
@@ -43,7 +43,7 @@ ms.locfileid: "95759000"
 
 개발 환경에 다음 도구를 추가하는 것이 좋습니다.
 
-- [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
+- [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
 - [Visual Studio Code](https://code.visualstudio.com/)
   - 확장: [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - 확장: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -55,9 +55,9 @@ ms.locfileid: "95759000"
 
 온-프레미스 레지스트리에서 Azure Container Instances에 이미지를 배포할 수 없습니다.
 
-- 로컬 레지스트리에 작업 중인 컨테이너가 이미 있는 경우 Azure 레지스트리를 만들고 컨테이너 이미지를 Azure Container Registry에 업로드 합니다. 자세히 알아보려면 [자습서: Azure Container Registry 작업을 사용 하 여 클라우드에서 컨테이너 이미지 빌드 및 배포](/azure/container-registry/container-registry-tutorial-quick-task.md)를 참조 하세요.
+- 로컬 레지스트리에 작업 중인 컨테이너가 이미 있는 경우 Azure 레지스트리를 만들고 컨테이너 이미지를 Azure Container Registry에 업로드 합니다. 자세히 알아보려면 [자습서: Azure Container Registry 작업을 사용 하 여 클라우드에서 컨테이너 이미지 빌드 및 배포](../container-registry/container-registry-tutorial-quick-task.md)를 참조 하세요.
 
-- 아직 컨테이너 이미지가 없고 기존 응용 프로그램을 컨테이너 화 하거나 새 컨테이너 기반 응용 프로그램을 만들고, GitHub에서 응용 프로그램 소스 코드를 복제 하 고, 응용 프로그램 원본에서 컨테이너 이미지를 만들고, 로컬 Docker 환경에서 이미지를 테스트 해야 하는 경우. 자세한 내용은 [자습서: 배포할 컨테이너 이미지 만들기 Azure Container Instances를](/azure/container-instances/container-instances-tutorial-prepare-app.md)참조 하세요.
+- 아직 컨테이너 이미지가 없고 기존 응용 프로그램을 컨테이너 화 하거나 새 컨테이너 기반 응용 프로그램을 만들고, GitHub에서 응용 프로그램 소스 코드를 복제 하 고, 응용 프로그램 원본에서 컨테이너 이미지를 만들고, 로컬 Docker 환경에서 이미지를 테스트 해야 하는 경우. 자세한 내용은 [자습서: 배포할 컨테이너 이미지 만들기 Azure Container Instances를](../container-instances/container-instances-tutorial-prepare-app.md)참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

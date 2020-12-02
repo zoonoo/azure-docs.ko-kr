@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 24c2fe9b6bbb0b5a40edd395bfe669abfc8c9adc
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 0ab0e64d9a088a332ba037dccf01dc445998ebfb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183178"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457554"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 샘플
 
@@ -28,7 +28,7 @@ GitHub의 [Analysis Services용 Adventure Works](https://github.com/Microsoft/sq
 
 ## <a name="sample-database-on-azure"></a>Azure의 샘플 데이터베이스
 
-Azure Synapse Analytics (이전의 SQL Data Warehouse)는 프로 비전 된 리소스에 포함할 수 있는 샘플 AdventureWorksDW 데이터베이스를 제공 합니다. 자세히 알아보려면 [빠른 시작: Azure Synapse Analytics에서 전용 SQL 풀 만들기 및 쿼리 ](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)를 참조 하세요.
+Azure Synapse Analytics는 프로 비전 된 리소스에 포함할 수 있는 샘플 AdventureWorksDW 데이터베이스를 제공 합니다. 자세히 알아보려면 [빠른 시작: Azure Synapse Analytics에서 전용 SQL 풀 만들기 및 쿼리 ](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)를 참조 하세요.
 
 ## <a name="sample-databases-on-github"></a>GitHub의 샘플 데이터베이스
 

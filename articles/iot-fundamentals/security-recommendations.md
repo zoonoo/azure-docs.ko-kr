@@ -12,12 +12,12 @@ ms.custom:
 - security-recommendations
 - amqp
 - mqtt
-ms.openlocfilehash: 5a7fc2a5a5a6be7695fa816f28e3cdf61c5839f2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a1de3a71253b1a82b4423bff279fbf3f7e378da4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208274"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457619"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>IoT (Azure 사물 인터넷) 배포에 대 한 보안 권장 사항
 
@@ -40,7 +40,7 @@ ms.locfileid: "92208274"
 
 | 권장 | 주석 | ASC에서 지원 됨 |
 |-|----|--|
-| 허브에 대 한 액세스 제어 정의 | 기능에 따라 각 구성 요소가 IoT Hub 솔루션에 포함할 [액세스 유형을 이해 하 고 정의](iot-security-deployment.md#securing-the-cloud) 합니다. 허용 되는 권한은 *Registry Read*, *RegistryReadWrite*, *ServiceConnect*및 *DeviceConnect*입니다. [IoT hub의 기본 공유 액세스 정책은](../iot-hub/iot-hub-devguide-security.md#access-control-and-permissions) 해당 역할에 따라 각 구성 요소에 대 한 사용 권한을 정의 하는 데도 도움이 됩니다. | - |
+| 허브에 대 한 액세스 제어 정의 | 기능에 따라 각 구성 요소가 IoT Hub 솔루션에 포함할 [액세스 유형을 이해 하 고 정의](iot-security-deployment.md#securing-the-cloud) 합니다. 허용 되는 권한은 *Registry Read*, *RegistryReadWrite*, *ServiceConnect* 및 *DeviceConnect* 입니다. [IoT hub의 기본 공유 액세스 정책은](../iot-hub/iot-hub-devguide-security.md#access-control-and-permissions) 해당 역할에 따라 각 구성 요소에 대 한 사용 권한을 정의 하는 데도 도움이 됩니다. | - |
 | 백 엔드 서비스에 대 한 액세스 제어 정의 | IoT Hub 솔루션에 의해 수집 된 데이터는 [Cosmos DB](../cosmos-db/index.yml), [Stream Analytics](../stream-analytics/index.yml), [App Service](../app-service/index.yml), [Logic Apps](../logic-apps/index.yml)및 [Blob 저장소](../storage/blobs/storage-blobs-introduction.md)와 같은 다른 Azure 서비스에서 사용 될 수 있습니다. 이러한 서비스에 대해 문서화 된 적절 한 액세스 권한을 이해 하 고 허용 해야 합니다. | - |
 
 ## <a name="data-protection"></a>데이터 보호
@@ -63,8 +63,8 @@ ms.locfileid: "92208274"
 | 권장 | 주석 | ASC에서 지원 됨 |
 |-|----|--|
 | 장치에 대 한 무단 액세스 모니터링 |  장치 운영 체제의 로깅 기능을 사용 하 여 장치 또는 해당 포트의 보안 위반 또는 물리적 변조를 모니터링 합니다. | - |
-| 클라우드에서 IoT 솔루션 모니터링 | [Azure Monitor 메트릭을](../iot-hub/iot-hub-metrics.md)사용 하 여 IoT Hub 솔루션의 전반적인 상태를 모니터링 합니다. | - |
-| 진단 설정 | 솔루션에서 이벤트를 기록 하 고 Azure Monitor에 진단 로그를 전송 하 여 성능에 대 한 가시성을 확보 하 여 작업을 면밀 하 게 시청 하세요. 자세한 내용은 [IoT hub의 모니터링 및 진단 문제](../iot-hub/iot-hub-monitor-resource-health.md) 를 참조 하세요. | - |
+| 클라우드에서 IoT 솔루션 모니터링 | [Azure Monitor 메트릭을](../iot-hub/monitor-iot-hub.md)사용 하 여 IoT Hub 솔루션의 전반적인 상태를 모니터링 합니다. | - |
+| 진단 설정 | 솔루션에서 이벤트를 기록 하 고 Azure Monitor에 진단 로그를 전송 하 여 성능에 대 한 가시성을 확보 하 여 작업을 면밀 하 게 시청 하세요. 자세한 내용은 [IoT hub의 모니터링 및 진단 문제](../iot-hub/monitor-iot-hub.md) 를 참조 하세요. | - |
 
 ## <a name="next-steps"></a>다음 단계
 

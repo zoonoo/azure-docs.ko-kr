@@ -8,12 +8,12 @@ ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: ccdc87d03181bad1aba4dd362a651fa42381343a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 39a9b363c847b615bfbe049b4b47628e8688c607
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542289"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458121"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
@@ -114,7 +114,7 @@ Microsoft 파트너 네트워크 계정을 사용 하는 경우 회사의 회사
 >
 >개별 계정은 각자 작업 하는 개발자를 위한 것입니다. 회사 계정은 조직과 기업을 위한 것입니다. 회사 계정은 추가 기능을 사용 하 여 앱을 제출할 수 있는 액세스 권한을 제공 합니다.
 >
-> 회사에 대 한 계정을 설정할 수 있는 권한이 있는지 확인 하려면 등록 한 후 회사 계정에 대 한 추가 확인이 필요 합니다. 이 확인은 며칠에서 몇 주까지 걸릴 수 있으며 회사에 대 한 전화 통화를 포함 하는 경우가 많습니다. 두 가지 유형의 계정을 모두 사용 하 여 앱, 추가 기능 및 서비스를 제출할 수 있습니다. 자세한 내용은 [계정 유형, 위치 및 요금](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees)을 참조 하세요.
+> 회사에 대 한 계정을 설정할 수 있는 권한이 있는지 확인 하려면 등록 한 후 회사 계정에 대 한 추가 확인이 필요 합니다. 이 확인은 며칠에서 몇 주까지 걸릴 수 있으며 회사에 대 한 전화 통화를 포함 하는 경우가 많습니다. 두 가지 유형의 계정을 모두 사용 하 여 앱, 추가 기능 및 서비스를 제출할 수 있습니다. 자세한 내용은 [계정 유형, 위치 및 요금](/windows/uwp/publish/account-types-locations-and-fees)을 참조 하세요.
 
 개발자 프로그램과 동일한 계정으로 상용 marketplace 프로그램을 등록 하면 파트너 센터의 왼쪽 창에서 기존 프로그램 등록 모두 볼 수 있습니다.
 

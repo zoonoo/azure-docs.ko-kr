@@ -1,30 +1,30 @@
 ---
 title: 변수 할당
-description: 이 문서에서는 SQL 풀에서 T-sql 변수를 할당 하는 데 필요한 팁을 찾을 수 있습니다.
+description: 이 문서에서는 Azure Synapse Analytics에서 전용 SQL 풀에 대 한 T-sql 변수를 할당 하기 위한 필수 팁을 찾을 수 있습니다.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 0cbadc10fb817c70bd259397c840aae68abc2d54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 87448ea737c11af13a52632e5bf4f67dc54d9ae3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213332"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459226"
 ---
-# <a name="assign-variables-in-synapse-sql-pool"></a>Synapse SQL 풀에서 변수 할당
+# <a name="assign-variables-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀에 대 한 변수 할당
 
-이 문서에서는 SQL 풀에서 T-sql 변수를 할당 하는 데 필요한 팁을 찾을 수 있습니다.
+이 문서에서는 전용 SQL 풀에서 T-sql 변수를 할당 하는 데 필요한 팁을 찾을 수 있습니다.
 
 ## <a name="set-variables-with-declare"></a>DECLARE을 사용 하 여 변수 설정
 
-SQL 풀의 변수는 문 또는 문을 사용 하 여 설정 됩니다 `DECLARE` `SET` . DECLARE을 사용 하 여 변수를 초기화 하는 것은 SQL 풀에서 변수 값을 설정 하는 가장 유연한 방법 중 하나입니다.
+전용 SQL 풀의 변수는 문 또는 문을 사용 하 여 설정 됩니다 `DECLARE` `SET` . DECLARE을 사용 하 여 변수를 초기화 하는 것은 SQL 풀에서 변수 값을 설정 하는 가장 유연한 방법 중 하나입니다.
 
 ```sql
 DECLARE @v  int = 0

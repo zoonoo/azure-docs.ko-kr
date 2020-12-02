@@ -1,5 +1,5 @@
 ---
-title: Apache Spark를 사용 하 여 데이터 시각화
+title: Apache Spark를 사용하여 데이터 시각화
 description: Apache Spark 및 Azure Synapse Analytics 노트북을 사용 하 여 다양 한 데이터 시각화 만들기
 services: synapse-analytics
 author: midesa
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
-ms.openlocfilehash: 820dd8b607f5ec2fdc44d25063e0a941f76237ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8735514b639cb0322a83ffb19d661027327c0f73
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920171"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458764"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Apache Spark를 사용 하 여 데이터 분석
 
@@ -99,7 +99,7 @@ ORDER BY day_of_month ASC
 
 > [!Note]
 > 
-> 기본적으로 모든 Azure Synapse Analytics Apache Spark 풀에는 일반적으로 사용 되는 라이브러리 및 기본 라이브러리 집합이 포함 되어 있습니다. [Azure Synapse 런타임에](../spark/apache-spark-version-support.md)라이브러리의 전체 목록을 볼 수 있습니다. 참조하세요. 또한 응용 프로그램에서 타사 또는 로컬로 빌드된 코드를 사용할 수 있도록 하려면 Spark 풀 (미리 보기) 중 하나에 [라이브러리를 설치](../spark/apache-spark-azure-portal-add-libraries.md) 하면 됩니다.
+> 기본적으로 모든 Azure Synapse Analytics Apache Spark 풀에는 일반적으로 사용 되는 라이브러리 및 기본 라이브러리 집합이 포함 되어 있습니다. [Azure Synapse 런타임에](../spark/apache-spark-version-support.md)라이브러리의 전체 목록을 볼 수 있습니다. 참조하세요. 또한 응용 프로그램에서 타사 또는 로컬로 빌드된 코드를 사용할 수 있도록 하려면 Spark 풀 중 하나에 [라이브러리를 설치](../spark/apache-spark-azure-portal-add-libraries.md) 하면 됩니다.
 >
 
 1. 개발을 더 쉽고 저렴 하 게 하기 위해 데이터 집합을 다운 샘플링 합니다. 기본 제공 Apache Spark 샘플링 기능을 사용 합니다. 또한 Seaborn 및 Matplotlib에는 Pandas 데이터 프레임 또는 Numpy 배열이 필요 합니다. Pandas 데이터 프레임를 얻기 위해 명령을 사용 하 여 ```toPandas()``` 데이터 프레임을 변환 합니다.

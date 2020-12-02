@@ -10,18 +10,18 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 1a6708214eadb2f5d0d66d72f5db5cb4a195d206
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 43b03abb2aac13358a2187a0a5dc570c1e45934e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324861"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458493"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Azure Machine Learning의 심층 학습 및 기계 학습
 
 이 문서에서는 심층 학습 vs machine learning과 이러한 기능이 더 광범위 한 인공 지능 범주에 어떻게 부합 하는지 설명 합니다. 사기 감지, 음성 및 얼굴 인식, 감정 분석 및 시계열 예측과 같은 Azure Machine Learning에서 빌드할 수 있는 심층 학습 솔루션에 대해 알아봅니다.
 
-솔루션에 대 한 알고리즘을 선택 하는 방법에 대 한 지침은 [Machine Learning Algorithm 참고 자료 시트](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri)를 참조 하세요.
+솔루션에 대 한 알고리즘을 선택 하는 방법에 대 한 지침은 [Machine Learning Algorithm 참고 자료 시트](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri)를 참조 하세요.
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>심층 학습, 기계 학습 및 AI
 

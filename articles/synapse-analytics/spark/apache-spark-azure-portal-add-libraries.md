@@ -9,16 +9,16 @@ ms.date: 10/16/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 27881b048a738d4de2acb57dcc4c2dad1f4d5b24
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 62610e1b86671021e66891ae232bacbd4b3e40ed
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435368"
+ms.locfileid: "96458817"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 관리
 
-라이브러리는 프로그램 또는 프로젝트에 포함 시킬 수 있는 재사용 가능한 코드를 제공 합니다. 응용 프로그램에서 타사 또는 로컬로 빌드된 코드를 사용할 수 있도록 하려면 서버를 사용 하지 않는 Apache Spark 풀 (미리 보기) 중 하나에 라이브러리를 설치 하면 됩니다. Spark 풀에 대해 라이브러리를 설치한 후에는 동일한 풀을 사용 하는 모든 세션에 대해 사용할 수 있습니다. 
+라이브러리는 프로그램 또는 프로젝트에 포함 시킬 수 있는 재사용 가능한 코드를 제공 합니다. 응용 프로그램에서 타사 또는 로컬로 빌드된 코드를 사용할 수 있도록 하려면 서버를 사용 하지 않는 Apache Spark 풀 중 하나에 라이브러리를 설치 하면 됩니다. Spark 풀에 대해 라이브러리를 설치한 후에는 동일한 풀을 사용 하는 모든 세션에 대해 사용할 수 있습니다. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 - 라이브러리를 설치 하 고 업데이트 하려면 Azure Synapse Analytics 작업 영역에 연결 된 기본 Gen2 저장소 계정에 대 한 **저장소 Blob 데이터 참가자** 또는 **저장소 blob 데이터 소유자** 권한이 있어야 합니다.
@@ -26,11 +26,11 @@ ms.locfileid: "96435368"
 ## <a name="default-installation"></a>기본 설치
 Azure Synapse Analytics의 Apache Spark에는 완전 한 Anacondas 설치와 추가 라이브러리가 있습니다. 전체 라이브러리 목록은 [Apache Spark 버전 지원](apache-spark-version-support.md)에서 찾을 수 있습니다. 
 
-Spark 인스턴스가 시작 되 면 이러한 라이브러리가 자동으로 포함 됩니다. 추가 Python 및 사용자 지정 빌드 패키지는 Spark 풀 (미리 보기) 수준에서 추가할 수 있습니다.
+Spark 인스턴스가 시작 되 면 이러한 라이브러리가 자동으로 포함 됩니다. 추가 Python 및 사용자 지정 빌드 패키지는 Spark 풀 수준에서 추가할 수 있습니다.
 
 
 ## <a name="manage-python-packages"></a>Python 패키지 관리
-Spark 응용 프로그램에 사용할 라이브러리를 확인 한 후에는 Spark 풀 (미리 보기)에 설치할 수 있습니다. 
+Spark 응용 프로그램에 사용할 라이브러리를 확인 한 후에는 Spark 풀에 설치할 수 있습니다. 
 
  *requirements.txt* 파일 (명령의 출력)을 `pip freeze` 사용 하 여 가상 환경을 업그레이드할 수 있습니다. 설치 또는 업그레이드를 위해이 파일에 나열 된 패키지는 풀을 시작할 때 PyPi에서 다운로드 됩니다. 이 요구 사항 파일은 spark 인스턴스를 Spark 풀에서 만들 때마다 사용 됩니다.
 
@@ -54,7 +54,7 @@ alabaster==0.7.10
 Spark 응용 프로그램을 개발할 때 기존 라이브러리를 업데이트 하거나 새 라이브러리를 설치 해야 하는 경우가 있습니다. 풀을 만들 때 또는 이후에 라이브러리를 업데이트할 수 있습니다.
 
 #### <a name="install-packages-during-pool-creation"></a>풀을 만드는 동안 패키지 설치
-풀을 만드는 동안 Spark 풀 (미리 보기)에 라이브러리를 설치 하려면 다음을 수행 합니다.
+풀을 만드는 동안 Spark 풀에 라이브러리를 설치 하려면 다음을 수행 합니다.
    
 1. Azure Portal에서 Azure Synapse Analytics 작업 영역으로 이동 합니다.
    
@@ -66,7 +66,7 @@ Spark 응용 프로그램을 개발할 때 기존 라이브러리를 업데이�
  
 
 #### <a name="install-packages-from-the-synapse-workspace"></a>Synapse 작업 영역에서 패키지 설치
-Azure Synapse Analytics 포털에서 Spark 풀 (미리 보기)에 라이브러리를 추가 하거나 업데이트 하려면 다음을 수행 합니다.
+Azure Synapse Analytics 포털에서 Spark 풀에 라이브러리를 추가 하거나 업데이트 하려면 다음을 수행 합니다.
 
 1.  Azure Portal에서 Azure Synapse Analytics 작업 영역으로 이동 합니다.
    
@@ -79,7 +79,7 @@ Azure Synapse Analytics 포털에서 Spark 풀 (미리 보기)에 라이브러�
     ![Synapse에서 Python 라이브러리 추가](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
    
 #### <a name="install-packages-from-the-azure-portal"></a>Azure Portal에서 패키지 설치
-Azure Portal에서 직접 Spark 풀 (미리 보기)에 라이브러리를 설치 하려면 다음을 수행 합니다.
+Azure Portal에서 직접 Spark 풀에 라이브러리를 설치 하려면 다음을 수행 합니다.
    
  1. Azure Portal에서 Azure Synapse Analytics 작업 영역으로 이동 합니다.
    

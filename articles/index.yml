@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/25/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 2f8379447edbe6ce7d74780e2f87b79cf77c72b7
-  ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+  ms.openlocfilehash: aeb75bcfb25fdfb23e559b3f07f33c23c5f927de
+  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/24/2020
-  ms.locfileid: "95527040"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96458165"
 highlightedContent:
   items:
   - title: Azure 개발자를 위한 시작 가이드
@@ -320,11 +320,11 @@ productDirectory:
     - iot
     url: stream-analytics/index.yml
   - title: Azure Synapse Analytics
-    summary: 빠른 인사이트를 제공하는 무제한 분석 서비스(이전의 SQL Data Warehouse)
+    summary: 인사이트에 대한 시간이 일치하지 않는 무제한 분석 서비스
     imageSrc: https://static.docs.com/ui/media/product/azure/synapse.svg
     azureCategories:
     - analytics
-    url: synapse-analytics/sql-data-warehouse/index.yml
+    url: synapse-analytics/index.yml
   - title: Data Catalog
     summary: 엔터프라이즈 데이터 자산에서 더 많은 가치 창출
     imageSrc: https://static.docs.com/ui/media/product/azure/data-catalog.svg
@@ -501,7 +501,7 @@ productDirectory:
     azureCategories:
     - compute
     - databases
-    url: ./azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json
+    url: ./azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - title: Static Web Apps(미리 보기)
     summary: 소스 코드에서 글로벌 고가용성까지 간소화된 전체 스택 개발을 제공하는 최신 웹앱 서비스
     imageSrc: ./media/index/static-apps.svg

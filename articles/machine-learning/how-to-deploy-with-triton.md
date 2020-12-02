@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: 8e479367a04e105ae2111ce66707999aff7ef960
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: b47b8f9d9429f38fb8b5da6d8f9083736f230fcb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302446"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458276"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Triton 유추 서버를 사용 하는 고성능 서비스 (미리 보기) 
 
@@ -32,7 +32,7 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 > [!TIP]
 > 이 문서의 코드 조각은 설명 목적으로 작성 되었으며 전체 솔루션을 표시 하지 않을 수 있습니다. 작업 예제 코드는 [Azure Machine Learning에서 Triton의 종단 간 샘플](https://github.com/Azure/azureml-examples/tree/main/tutorials)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. 구독이 없는 경우[Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * Azure Machine Learning를 사용 하 여 [모델을 배포 하는 방법과 위치](how-to-deploy-and-where.md) 에 대해 잘 알고 있어야 합니다.
@@ -53,7 +53,7 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 
 ### <a name="setting-the-number-of-workers"></a>작업자 수 설정
 
-배포의 작업자 수를 설정 하려면 환경 변수를 설정 `WORKER_COUNT` 합니다. 라는 [환경](/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) 개체가 있는 경우 다음을 `env` 수행할 수 있습니다.
+배포의 작업자 수를 설정 하려면 환경 변수를 설정 `WORKER_COUNT` 합니다. 라는 [환경](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) 개체가 있는 경우 다음을 `env` 수행할 수 있습니다.
 
 ```{py}
 env.environment_variables["WORKER_COUNT"] = "1"

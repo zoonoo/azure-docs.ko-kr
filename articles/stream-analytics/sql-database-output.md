@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 9d5ddb508740cf5fec670d258926419512e3d549
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ac2c9cb1710c4b4f67ba2aa06707d08cc45d4907
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129833"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459248"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 출력 Azure SQL Database
 
@@ -35,11 +35,11 @@ ms.locfileid: "93129833"
 |파티션 구성표 상속| 이전 쿼리 단계의 파티션 구성표를 상속하여 여러 기록기를 사용하는 완전 병렬 토폴로지를 테이블에서 사용하도록 설정하는 옵션입니다. 자세한 내용은 [Azure SQL Database에 Azure Stream Analytics 출력](stream-analytics-sql-output-perf.md)을 참조하세요.|
 |최대 일괄 처리 수| 모든 대량 삽입 트랜잭션을 통해 보내는 레코드 수에 추천되는 상한값입니다.|
 
-Azure Stream Analytics에서 Azure Synapse Analytics(이전의 SQL Data Warehouse)로 출력할 수 있는 두 가지 어댑터, 즉, SQL Database 및 Azure Synapse가 있습니다. 다음 조건 중 하나라도 충족 되는 경우 SQL Database 어댑터 대신 Azure Synapse Analytics 어댑터를 선택 하는 것이 좋습니다.
+Azure Stream Analytics에서 Azure Synapse Analytics로 출력을 사용 하도록 설정 하는 두 개의 어댑터가 SQL Database 및 Azure Synapse입니다. 다음 조건 중 하나라도 충족 되는 경우 SQL Database 어댑터 대신 Azure Synapse Analytics 어댑터를 선택 하는 것이 좋습니다.
 
-* **처리량** : 현재 또는 미래의 예상 처리량이 10MB/초보다 큰 경우 더 나은 성능을 위해 Azure Synapse 출력 옵션을 사용합니다.
+* **처리량**: 현재 또는 미래의 예상 처리량이 10MB/초보다 큰 경우 더 나은 성능을 위해 Azure Synapse 출력 옵션을 사용합니다.
 
-* **입력 파티션** : 8개 이상의 입력 파티션이 있는 경우 더 나은 확장을 위해 Azure Synapse 출력 옵션을 사용합니다.
+* **입력 파티션**: 8개 이상의 입력 파티션이 있는 경우 더 나은 확장을 위해 Azure Synapse 출력 옵션을 사용합니다.
 
 ## <a name="partitioning"></a>분할
 

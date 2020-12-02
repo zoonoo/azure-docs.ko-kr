@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 8af3da5d04f9aaafc18299f4837660694ee34b51
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 0719f2d9200741798c798aca4b4196812f1229c9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345272"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458437"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대한 액세스 관리
 
@@ -27,7 +27,7 @@ ms.locfileid: "96345272"
 >
 > * [Azure Kubernetes 클러스터 리소스에 대 한 액세스 제어](../aks/azure-ad-rbac.md)
 > * [Kubernetes 권한 부여에 Azure RBAC 사용](../aks/manage-azure-rbac.md)
-> * [Blob 데이터에 액세스 하기 위해 Azure RBAC 사용](/azure/storage/common/storage-auth-aad-rbac-portal)
+> * [Blob 데이터에 액세스 하기 위해 Azure RBAC 사용](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!WARNING]
 > 일부 역할을 적용 하면 Azure Machine Learning studio에서 다른 사용자에 대 한 UI 기능이 제한 될 수 있습니다. 예를 들어 사용자의 역할에 계산 인스턴스를 만들 수 있는 권한이 없는 경우에는 계산 인스턴스를 만드는 옵션을 스튜디오에서 사용할 수 없습니다. 이 동작은 예상 된 것 이며, 사용자가 액세스 거부 오류를 반환 하는 작업을 시도 하지 못하도록 합니다.
