@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: b9bcdbdf8bdad0d1ad96fc043f29a84b962318c2
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 9081ba0aae14c39d70e62818dc13aa4d92c91986
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95324020"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445955"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -239,7 +239,7 @@ New-AzNetworkSecurityGroup @nsg
 
 * [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)를 사용하여 세 개의 네트워크 인터페이스를 만듭니다.
 
-* [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
+* [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
 
 * 다음과 같은 가상 머신을 만듭니다.
     * [New-AzVM](/powershell/module/az.compute/new-azvm)
@@ -618,7 +618,7 @@ New-AzNetworkSecurityGroup @nsg
 
 * [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)를 사용하여 세 개의 네트워크 인터페이스를 만듭니다.
 
-* [Get-Credential](/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
+* [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
 
 * [New-AzAvailabilitySet](/powershell/module/az.compute/new-azvm)를 사용하여 가상 머신에 대한 가용성 집합을 만듭니다.
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 212e5fb62043c2ffe2b8876249a6aad1d224411d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3d7e6357fd8f1091509cbf27875c028d3af310cb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685854"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445916"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -45,13 +45,13 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. **생성/가져오기** 를 클릭합니다.
 1. **비밀 만들기** 화면에서 다음 값을 선택합니다.
     - **업로드 옵션**: 수동.
-    - **이름**: 비밀의 이름을 입력합니다. 비밀 이름은 Key Vault 내에서 고유해야 합니다. 이름은 문자로 시작하고 0~9, a~z, A~Z 및 -만 포함된 1-127자 길이의 문자열이어야 합니다. 이름 지정에 대한 자세한 내용은 [Key Vault 개체, 식별자 및 버전 관리](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning)를 참조하세요.
+    - **이름**: 비밀의 이름을 입력합니다. 비밀 이름은 Key Vault 내에서 고유해야 합니다. 이름은 문자로 시작하고 0~9, a~z, A~Z 및 -만 포함된 1-127자 길이의 문자열이어야 합니다. 이름 지정에 대한 자세한 내용은 [Key Vault 개체, 식별자 및 버전 관리](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)를 참조하세요.
     - **값**: 비밀에 대한 값을 입력합니다. Key Vault API는 비밀 값을 문자열로 수락 및 반환합니다. 
     - 다른 값은 기본값으로 그대로 둡니다. **만들기** 를 클릭합니다.
 
 비밀이 성공적으로 생성되었다는 메시지가 표시되면 목록에서 클릭할 수 있습니다. 
 
-비밀 특성에 대한 자세한 내용은 [Azure Key Vault 비밀 정보](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets)를 참조하세요.
+비밀 특성에 대한 자세한 내용은 [Azure Key Vault 비밀 정보](./about-secrets.md)를 참조하세요.
 
 ## <a name="retrieve-a-secret-from-key-vault"></a>Key Vault에서 비밀 검색
 
@@ -75,7 +75,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 3. **리소스 그룹 이름 입력** 상자에 리소스 그룹 이름을 입력하고 **삭제** 를 선택합니다.
 
 > [!NOTE]
-> 비밀, 키, 인증서 또는 키 자격 증명 모음이 삭제되면 7~90일의 구성 가능 기간 동안 복구 가능한 상태로 유지됩니다. 구성을 지정하지 않으면 기본 복구 기간이 90일로 설정됩니다. 이를 통해 사용자는 실수로 인한 비밀 삭제를 확인하고 대응할 수 있는 충분한 시간을 확보할 수 있습니다. 키 자격 증명 모음 및 키 자격 증명 모음 개체 삭제 및 복구에 대한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview)를 참조하세요.
+> 비밀, 키, 인증서 또는 키 자격 증명 모음이 삭제되면 7~90일의 구성 가능 기간 동안 복구 가능한 상태로 유지됩니다. 구성을 지정하지 않으면 기본 복구 기간이 90일로 설정됩니다. 이를 통해 사용자는 실수로 인한 비밀 삭제를 확인하고 대응할 수 있는 충분한 시간을 확보할 수 있습니다. 키 자격 증명 모음 및 키 자격 증명 모음 개체 삭제 및 복구에 대한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](../general/soft-delete-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

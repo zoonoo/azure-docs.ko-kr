@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: cda36539e4a24bbb017873dafd2c12356a785e55
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0a1f4ed46ab9e467a19cfa722a2d345284fdc94a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966601"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463054"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>빠른 시작: Java 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록
 
@@ -27,7 +27,7 @@ ms.locfileid: "94966601"
 - [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 완료
 - [TPM 디바이스의 암호화 키 읽기](quick-create-simulated-device.md#simulatetpm) 완료
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Java SE Development Kit 8](https://aka.ms/azure-jdks). 이 빠른 시작에서는 아래 [Java 서비스 SDK](https://azure.github.io/azure-iot-sdk-java/master/service/)를 설치합니다. Windows와 Linux 모두에서 작동합니다. 이 빠른 시작에서는 Windows를 사용합니다.
+- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support). 이 빠른 시작에서는 아래 [Java 서비스 SDK](https://azure.github.io/azure-iot-sdk-java/master/service/)를 설치합니다. Windows와 Linux 모두에서 작동합니다. 이 빠른 시작에서는 Windows를 사용합니다.
 - [Maven 3](https://maven.apache.org/download.cgi)
 - [Git](https://git-scm.com/download/)
 

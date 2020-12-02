@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: e84afc949a84da90a4799d7db3b3e7ad3e0057a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3fc7a7f137701590e4bddd791a3fdd2d1eaeca4a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323529"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461604"
 ---
 # <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 새 서버리스 Apache Spark 풀 만들기
 
@@ -89,7 +89,7 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 Apache Spark 풀을 삭제하려면 다음을 수행합니다.
 
 1. 작업 영역에서 Apache Spark 풀 블레이드로 이동합니다.
-2. 삭제할 Apache Spark 풀을 선택합니다(여기서는 **contosospark** ).
+2. 삭제할 Apache Spark 풀을 선택합니다(여기서는 **contosospark**).
 3. **삭제** 를 누릅니다.
  ![최근에 만든 풀이 선택된 Apache Spark 풀 목록](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
 4. 삭제를 확인하고 **삭제** 단추를 누릅니다.
@@ -99,4 +99,4 @@ Apache Spark 풀을 삭제하려면 다음을 수행합니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [빠른 시작: Apache Spark Notebook 만들기](quickstart-apache-spark-notebook.md)를 참조하세요.
-- [빠른 시작: Azure Portal을 사용하여 Synapse 전용 SQL 풀 만들기](quickstart-create-sql-pool-portal.md)를 참조하세요.
+- [빠른 시작: Azure Portal을 사용하여 전용 SQL 풀 만들기](quickstart-create-sql-pool-portal.md)를 참조하세요.

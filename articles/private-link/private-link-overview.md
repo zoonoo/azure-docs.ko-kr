@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: ce3903bad4f7e4675406956ddedbc9011a6d2be8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: f4803cc9871b71e65e4d94ed37d3f9771be1cae0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522263"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454952"
 ---
 # <a name="what-is-azure-private-link"></a>Azure Private Link란? 
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.
@@ -47,7 +47,7 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 | Azure Queue 스토리지       |  모든 공용 지역<br/> Azure Government 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [큐 스토리지에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](tutorial-private-endpoint-storage-portal.md) |
 | Azure Table Storage       |  모든 공용 지역<br/> Azure Government 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [테이블 스토리지에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](tutorial-private-endpoint-storage-portal.md)  |
 |  Azure SQL Database         | 모든 공용 지역 <br/> Azure Government 지역<br/>모든 중국 지역      |  프록시 [연결 정책](../azure-sql/database/connectivity-architecture.md#connection-policy)에 대해 지원됨 | GA <br/> [Azure SQL에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](create-private-endpoint-portal.md)      |
-|Azure Synapse Analytics(이전의 SQL Data Warehouse)| 모든 공용 지역 <br/> Azure Government 지역 |  프록시 [연결 정책](../azure-sql/database/connectivity-architecture.md#connection-policy)에 대해 지원됨 |GA <br/> [Azure Synapse Analytics에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-sql/database/private-endpoint-overview.md)|
+|Azure Synapse Analytics| 모든 공용 지역 <br/> Azure Government 지역 |  프록시 [연결 정책](../azure-sql/database/connectivity-architecture.md#connection-policy)에 대해 지원됨 |GA <br/> [Azure Synapse Analytics에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-sql/database/private-endpoint-overview.md)|
 |Azure Cosmos DB|  모든 공용 지역<br/> Azure Government 지역</br> 모든 중국 지역 | |GA <br/> [Cosmos DB에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](./tutorial-private-endpoint-cosmosdb-portal.md)|
 |  Azure Database for PostgreSQL - 단일 서버         | 모든 공용 지역 <br/> Azure Government 지역<br/>모든 중국 지역     | 범용 및 메모리 최적화된 가격 책정 계층에 지원됨 | GA <br/> [Azure Database for PostgreSQL에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Azure Database for MySQL         | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역      |  | GA <br/> [Azure Database for MySQL에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../mysql/concepts-data-access-security-private-link.md)     |

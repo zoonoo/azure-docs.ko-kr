@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: f18f1184f921aca4f2c1e33ac00dcf14c63b24eb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bb8a52a2258143e1c68ca46ac31a8c986b1bcfe7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95893361"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457141"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -282,13 +282,13 @@ Azure EA Portal에서 Azure EA 비용 및 사용량을 관리할 수 있습니�
 
 각 역할의 액세스 및 권한 수준은 서로 다릅니다.
 
-사용자 역할에 대한 자세한 내용은 [엔터프라이즈 사용자 역할](/azure/cost-management-billing/manage/understand-ea-roles#enterprise-user-roles)을 참조하세요.
+사용자 역할에 대한 자세한 내용은 [엔터프라이즈 사용자 역할](./understand-ea-roles.md#enterprise-user-roles)을 참조하세요.
 
 ## <a name="add-an-azure-ea-account"></a>Azure EA 계정 추가
 
 Azure EA 계정은 Azure EA Portal의 조직 구성 단위입니다. 구독을 관리하는 데 사용되며, 보고하는 데에도 사용됩니다. Azure 서비스에 액세스하여 사용하려면 계정을 만들거나 다른 사람이 대신 계정을 만들어주어야 합니다.
 
-Azure 계정에 대한 자세한 내용은 [계정 추가](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration#add-an-account)를 참조하세요.
+Azure 계정에 대한 자세한 내용은 [계정 추가](#add-an-account)를 참조하세요.
 
 ## <a name="enterprise-devtest-offer"></a>Enterprise 개발/테스트 제안
 
@@ -361,7 +361,7 @@ _Microsoft Azure 엔터프라이즈_ 는 구독을 만들 때의 기본 이름�
 
 계정 관리자만 구독을 취소할 수 있습니다.
 
-자세한 내용은 [구독이 취소되면 어떻게 되나요?](cancel-azure-subscription.md#what-happens-after-i-cancel-my-subscription)를 참조하세요.
+자세한 내용은 [구독이 취소되면 어떻게 되나요?](cancel-azure-subscription.md#what-happens-after-subscription-cancellation)를 참조하세요.
 
 ## <a name="delete-an-account"></a>계정 삭제
 

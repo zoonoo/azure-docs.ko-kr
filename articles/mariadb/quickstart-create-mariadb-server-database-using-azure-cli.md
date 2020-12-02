@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4d2300e36bd06313cf889f40f37d672d66534db6
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3279150d0cb7b287f0a78581094a51356033596c
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538396"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435742"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Database for MariaDB 서버 만들기
 
@@ -21,9 +21,9 @@ Azure CLI를 사용하여 명령줄 또는 스크립트에서 Azure 리소스를
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하여 사용하는 경우 이 빠른 시작에서는 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 구독이 여러 개인 경우 리소스 또는 구독 요금이 청구되는 구독을 선택합니다. 계정에 속한 특정 구독 ID를 선택하려면 [az account set](/cli/azure/account#az-account-set) 명령을 사용합니다.
 

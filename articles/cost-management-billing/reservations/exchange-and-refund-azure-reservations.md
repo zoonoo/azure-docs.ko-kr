@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 32db8396a687428c668a9b8a4213b50986614083
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 89b01205c08216b3ce1ec2d36cce48335b49eb47
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150119"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344286"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure Reservations의 셀프 서비스 교환 및 환불
 
@@ -28,18 +28,18 @@ US Government 기업계약 고객은 셀프 서비스 교환 및 취소 기능�
 
 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)에서 예약을 교환할 수 있습니다.
 
-1. 환불하려는 예약을 선택하고 **교환**을 선택합니다.  
+1. 환불하려는 예약을 선택하고 **교환** 을 선택합니다.  
     [![반환할 예약을 보여 주는 예제 이미지](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png#lightbox)
-1. 구매하려는 VM 제품을 선택하고 수량을 입력합니다. 새 구매 합계가 반품 합계보다 많은지 확인합니다. [구매하기 전에 적절한 크기를 결정합니다](../../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
+1. 구매하려는 VM 제품을 선택하고 수량을 입력합니다. 새 구매 합계가 반품 합계보다 많은지 확인합니다. [구매하기 전에 적절한 크기를 결정합니다](../../virtual-machines/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     [![교환으로 구매할 VM 제품을 보여 주는 예제 이미지](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png#lightbox)
 1. 검토 후 거래를 완료합니다.  
     [![교환으로 구매하여 반환이 완료되는 VM 제품을 보여 주는 예제 이미지](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png#lightbox)
 
-예약을 환불하려면**예약 정보**로 이동하여 **환불**을 선택합니다.
+예약을 환불하려면 **예약 정보** 로 이동하여 **환불** 을 선택합니다.
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>프리미엄이 아닌 스토리지를 프리미엄 스토리지로 교환
 
-프리미엄 스토리지를 지원하지 않는 VM 크기에 대해 구매한 예약을 프리미엄 스토리지를 지원하는 해당 VM 크기로 교환할 수 있습니다. 예를 들어, _F1_을 _F1s_로 교환할 수 있습니다. 교환을 수행하려면 예약 정보로 이동하여 **교환**을 선택합니다. 교환은 예약 인스턴스의 기간을 재설정하거나 새 트랜잭션을 만들지 않습니다. 
+프리미엄 스토리지를 지원하지 않는 VM 크기에 대해 구매한 예약을 프리미엄 스토리지를 지원하는 해당 VM 크기로 교환할 수 있습니다. 예를 들어, _F1_ 을 _F1s_ 로 교환할 수 있습니다. 교환을 수행하려면 예약 정보로 이동하여 **교환** 을 선택합니다. 교환은 예약 인스턴스의 기간을 재설정하거나 새 트랜잭션을 만들지 않습니다. 
 
 ## <a name="how-transactions-are-processed"></a>거래가 처리되는 방식
 

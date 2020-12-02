@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 8ae95518bab5ed9bc100a5902acf1fd1db631dbe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3fb4085ba275bda1fe784f368eb5d92ac0c668f0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91617165"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448516"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>GPU가 있는 Azure Stack Edge Pro란?
 
@@ -25,7 +25,7 @@ GPU가 있는 Azure Stack Edge Pro는 Hardware-as-a-Service 솔루션입니다. 
 
 다음은 데이터를 Azure로 보내기 전에 Edge에서 유추하고 전처리하는 빠른 ML(Machine Learning)에 Azure Stack Edge Pro를 사용할 수 있는 다양한 시나리오입니다.
 
-- **Azure Machine Learning에서 유추** - Azure Stack Edge Pro를 사용하면 ML 모델을 실행하여 결과를 빠르게 생성한 다음, 클라우드로 데이터를 전송하기 전에 해당 결과와 관련한 조치를 취할 수 있습니다. ML 모델을 계속 다시 학습시키고 개선할 수 있도록 필요에 따라 전체 데이터 집합이 전송될 수 있습니다. Azure Stack Edge Pro 디바이스에서 Azure ML 하드웨어 가속 모델을 사용하는 방법에 대한 자세한 내용은 [Azure Stack Edge Pro에서 Azure ML 하드웨어 가속 모델 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server)를 참조하세요.
+- **Azure Machine Learning에서 유추** - Azure Stack Edge Pro를 사용하면 ML 모델을 실행하여 결과를 빠르게 생성한 다음, 클라우드로 데이터를 전송하기 전에 해당 결과와 관련한 조치를 취할 수 있습니다. ML 모델을 계속 다시 학습시키고 개선할 수 있도록 필요에 따라 전체 데이터 집합이 전송될 수 있습니다. Azure Stack Edge Pro 디바이스에서 Azure ML 하드웨어 가속 모델을 사용하는 방법에 대한 자세한 내용은 [Azure Stack Edge Pro에서 Azure ML 하드웨어 가속 모델 배포](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)를 참조하세요.
 
 - **데이터 전처리** - 컨테이너화된 워크로드나 Virtual Machines 같은 컴퓨팅 옵션을 통해 데이터를 Azure에 전송하기 전에 변환하여 보다 실행 가능한 데이터 세트를 만듭니다. 전처리를 사용하여 다음 작업을 수행할 수 있습니다. 
 

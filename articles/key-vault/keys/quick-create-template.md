@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: c16fc475e4982724ebc9f4f55301b6fc56dfb7c7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 73c52963df65dc4037f087a93108ccfacb3fb5d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95017012"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461555"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Key Vault 및 키 만들기(미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "95017012"
 이 문서를 완료하려면 다음이 필요합니다.
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-- 사용자는 예를 들어 RBAC 기본 제공 역할을 할당해야 합니다. 기여자. [여기서 자세히 알아보세요.](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- 사용자는 예를 들어 RBAC 기본 제공 역할을 할당해야 합니다. 기여자. [여기서 자세히 알아보세요.](../../role-based-access-control/role-assignments-portal.md)
 - 권한을 구성하려면 템플릿에 Azure AD 사용자 개체 ID가 필요합니다. 다음 절차는 개체 ID(GUID)를 가져옵니다.
 
     1. **사용해 보세요** 를 선택하여 다음 Azure PowerShell 또는 Azure CLI 명령을 수행한 다음, 스크립트를 셸 창에 붙여넣습니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭하고 **붙여넣기** 를 선택합니다.

@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: banders
-ms.openlocfilehash: 3b936cb15114d81d1dff1eb052a9bafe01adeff7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2c17b2f9dc12fa7bff2dae8603bcf95a3a8ddfa0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681688"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350843"
 ---
 # <a name="azure-software-plan-discount"></a>Azure 소프트웨어 요금제 할인
 
@@ -33,7 +33,7 @@ VM을 종료하면 사용 가능한 경우 일치하는 다른 VM에 할인이 �
 
 사용량 데이터에서 제품 이름을 가져오고 동일한 유형 및 크기의 RedHat 요금제를 구입합니다.
 
-예를 들어 사용량에 제품 **Red Hat Enterprise Linux - 1-4 vCPU VM 라이선스**가 있는 경우 **1-4 vCPU VM**에 대한 **Red Hat Enterprise Linux**를 구매해야 합니다.
+예를 들어 사용량에 제품 **Red Hat Enterprise Linux - 1-4 vCPU VM 라이선스** 가 있는 경우 **1-4 vCPU VM** 에 대한 **Red Hat Enterprise Linux** 를 구매해야 합니다.
 
 <!--ADD RHEL SCREENSHOT -->
 
@@ -41,7 +41,7 @@ VM을 종료하면 사용 가능한 경우 일치하는 다른 VM에 할인이 �
 
 사용량 데이터에서 제품 이름을 가져오고 동일한 유형 및 크기의 SUSE 요금제를 구입합니다.
 
-예를 들어 사용량이 제품 **SUSE Linux Enterprise Server 우선 순위 - 2-4 vCPU VM 지원**에 대한 것인 경우 **2-4 vCPU**에 대한 **SUSE Linux Enterprise Server 우선 순위**를 구매해야 합니다.
+예를 들어 사용량이 제품 **SUSE Linux Enterprise Server 우선 순위 - 2-4 vCPU VM 지원** 에 대한 것인 경우 **2-4 vCPU** 에 대한 **SUSE Linux Enterprise Server 우선 순위** 를 구매해야 합니다.
 
 ![구매할 제품을 선택하는 예제](./media/understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
 
@@ -123,7 +123,7 @@ Azure Portal Marketplace 이름:
 
 - [Azure 예약이란?](save-compute-costs-reservations.md)
 - [Azure 예약에서 SUSE 소프트웨어 요금제에 대한 선불](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Azure Reservations 관리](manage-reserved-vm-instance.md)
 - [종량제 구독의 예약 사용량 이해](understand-reserved-instance-usage.md)
 - [엔터프라이즈 등록에서 예약 사용량 이해](understand-reserved-instance-usage-ea.md)

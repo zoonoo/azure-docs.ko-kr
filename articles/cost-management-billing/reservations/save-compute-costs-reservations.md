@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: overview
 ms.date: 11/18/2020
 ms.author: banders
-ms.openlocfilehash: eef19a6c421a64c3951d35eea78ea84f7e7d97b2
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 0ef3f833d1bac4f26f49ace2b366cdfcf5ef3e35
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887215"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352986"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -125,7 +125,7 @@ Windows 가상 머신 및 SQL Database의 경우, 예약 할인은 소프트웨�
     - [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](/partner-center/azure-reservations)
 
 - 다음과 같은 서비스 플랜 예약에 대해 자세히 알아보세요.
-    - [Azure Reserved VM Instances를 사용하는 Virtual Machines](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+    - [Azure Reserved VM Instances를 사용하는 Virtual Machines](../../virtual-machines/prepay-reserved-vm-instances.md)
     - [Azure Cosmos DB 예약 용량을 사용하는 Azure Cosmos DB 리소스](../../cosmos-db/cosmos-db-reserved-capacity.md)
     - [Azure SQL Database 예약 용량을 사용하는 SQL Database 컴퓨팅 리소스](../../azure-sql/database/reserved-capacity-overview.md)
     - [Azure Cache for Redis 예약 용량을 사용하는 Azure Cache for Redis 리소스](../../azure-cache-for-redis/cache-reserved-pricing.md) 다음과 같은 소프트웨어 플랜 예약에 대해 자세히 알아보세요.

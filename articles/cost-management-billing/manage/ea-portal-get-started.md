@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 15e45143d1da5ac405b3e408df197ab04b4dea39
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0f4f4d934361f1e59eceaaccca680f0cf155bb04
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412275"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348962"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Azure Enterprise Portal 시작
 
@@ -44,33 +44,33 @@ Azure EA 온보딩 가이드는 [Azure EA 온보딩 가이드(PDF)](https://ea.a
 - 부서 관리자(읽기 전용)
 - 계정 소유자
 
-각 역할에는 다양한 수준의 사용자 제한과 권한이 있습니다. 자세한 내용은 [역할별 조직 구조 및 사용 권한](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-ea-roles#organization-structure-and-permissions-by-role)을 참조하세요.
+각 역할에는 다양한 수준의 사용자 제한과 권한이 있습니다. 자세한 내용은 [역할별 조직 구조 및 사용 권한](./understand-ea-roles.md#organization-structure-and-permissions-by-role)을 참조하세요.
 
 ## <a name="activate-your-enrollment-create-a-subscription-and-other-administrative-tasks"></a>등록 활성화, 구독 만들기 및 기타 관리 작업
 
-등록 활성화, 부서 또는 구독 만들기, 관리자 및 계정 소유자 추가, 기타 관리 작업에 대한 자세한 내용은 [Azure EA 포털 관리](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration)를 참조하세요.
+등록 활성화, 부서 또는 구독 만들기, 관리자 및 계정 소유자 추가, 기타 관리 작업에 대한 자세한 내용은 [Azure EA 포털 관리](./ea-portal-administration.md)를 참조하세요.
 
-종량제 구독으로 엔터프라이즈 구독을 전송하는 방법에 대해 자세히 알아보려면 [Azure Enterprise 전송](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-transfers)을 참조하세요.
+종량제 구독으로 엔터프라이즈 구독을 전송하는 방법에 대해 자세히 알아보려면 [Azure Enterprise 전송](./ea-transfers.md)을 참조하세요.
 
 ## <a name="view-usage-summary-and-download-reports"></a>사용 요약 정보 보기 및 보고서 다운로드
 
 Azure EA 청구서를 관리하고 조치를 취할 수 있습니다. 청구서는 요금 고지서를 나타내며 정확한지 검토해야 합니다.
 
-사용 요약을 보고, 보고서를 다운로드하고, 등록 청구서를 관리하려면 [Azure Enterprise 등록 청구서](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-enrollment-invoices)를 참조하세요.
+사용 요약을 보고, 보고서를 다운로드하고, 등록 청구서를 관리하려면 [Azure Enterprise 등록 청구서](./ea-portal-enrollment-invoices.md)를 참조하세요.
 
 ## <a name="now-that-youre-familiar-with-the-basics-here-are-some-additional-links-to-help-you-get-onboarded"></a>이제 기본 사항에 대해 익숙해졌으므로, 등록하는 데 도움이 되는 몇 가지 추가 링크를 제공합니다.
 
-[Azure EA 가격 책정](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-pricing-overview)은 사용량 계산 방법에 대한 세부 정보를 제공하며 계산이 더 복잡한 기업계약에서 다양한 Azure 서비스에 대한 요금을 부과합니다.
+[Azure EA 가격 책정](./ea-pricing-overview.md)은 사용량 계산 방법에 대한 세부 정보를 제공하며 계산이 더 복잡한 기업계약에서 다양한 Azure 서비스에 대한 요금을 부과합니다.
 
-VM 예약 인스턴스에 대한 Azure 예약을 통해 엔터프라이즈 등록과 관련된 비용을 절감할 수 있는 방법에 대해 알아보려면 [Azure EA VM 예약 인스턴스](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-vm-reservations)를 참조하세요.
+VM 예약 인스턴스에 대한 Azure 예약을 통해 엔터프라이즈 등록과 관련된 비용을 절감할 수 있는 방법에 대해 알아보려면 [Azure EA VM 예약 인스턴스](./ea-portal-vm-reservations.md)를 참조하세요.
 
-Azure 엔터프라이즈 등록에 사용할 REST API에 대한 정보와 REST API와 관련된 일반적인 문제를 해결하는 방법에 대한 설명은 [Azure Enterprise REST API](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis)를 참조하세요.
+Azure 엔터프라이즈 등록에 사용할 REST API에 대한 정보와 REST API와 관련된 일반적인 문제를 해결하는 방법에 대한 설명은 [Azure Enterprise REST API](./ea-portal-rest-apis.md)를 참조하세요.
 
-[Azuree EA 계약 및 수정안](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements)은 Azuree EA 계약 및 수정이 Azure 서비스에 대한 액세스, 사용 및 결제 방법에 어떤 영향을 미칠 수 있는지 설명합니다.
+[Azuree EA 계약 및 수정안](./ea-portal-agreements.md)은 Azuree EA 계약 및 수정이 Azure 서비스에 대한 액세스, 사용 및 결제 방법에 어떤 영향을 미칠 수 있는지 설명합니다.
 
-[Azure Marketplace](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-azure-marketplace)는 EA 고객 및 파트너가 마켓플레이스 요금을 보고 Azure Marketplace 구매를 사용하도록 설정하는 방법을 설명합니다.
+[Azure Marketplace](./ea-azure-marketplace.md)는 EA 고객 및 파트너가 마켓플레이스 요금을 보고 Azure Marketplace 구매를 사용하도록 설정하는 방법을 설명합니다.
 
-파트너 EA 관리자가 Azure EA 포털에서 수행하는 일반 작업에 대한 설명은 [파트너를 위한 Azure EA 포털 관리](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-partner-portal-administration)를 참조하세요.
+파트너 EA 관리자가 Azure EA 포털에서 수행하는 일반 작업에 대한 설명은 [파트너를 위한 Azure EA 포털 관리](./ea-partner-portal-administration.md)를 참조하세요.
 
 ## <a name="get-started-on-azure-ea---faq"></a>Azure EA 시작 - FAQ
 
@@ -132,7 +132,7 @@ Azure EA 등록에서 필요한 만큼 부서를 만들 수 있습니다. 사용
 
 부서 및 구독을 만든 후에는 사용량 보고서에서 데이터를 볼 수 있습니다. 이 정보는 부서 수준에서 사용량을 추적하고 비용 및 지출을 관리하는 데 도움이 됩니다.
 
-Reporting API를 통해 사용량 데이터에 액세스할 수도 있습니다. 자세한 내용 및 샘플 코드는 [Azure 엔터프라이즈 REST API](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis)를 참조하세요.
+Reporting API를 통해 사용량 데이터에 액세스할 수도 있습니다. 자세한 내용 및 샘플 코드는 [Azure 엔터프라이즈 REST API](./ea-portal-rest-apis.md)를 참조하세요.
 
 ### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>지출 할당량을 설정하고 한도에 도달하면 경고를 받을 수 있나요?
 
@@ -144,7 +144,7 @@ Reporting API를 통해 사용량 데이터에 액세스할 수도 있습니다.
 
 _리소스 그룹_ 및 _태그_ 를 사용하는 경우 이 정보는 서비스 수준에서 추적되며, 세부 사용량 다운로드(CSV) 파일에서 이 정보에 액세스할 수 있습니다. Azure Enterprise Portal에서 [사용량 현황 보고서 다운로드](https://ea.azure.com/report/downloadusage)를 참조하세요.
 
-API를 통해 사용량에 액세스할 수도 있습니다. 자세한 내용 및 샘플 코드는 [Azure 엔터프라이즈 REST API](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis)를 참조하세요.
+API를 통해 사용량에 액세스할 수도 있습니다. 자세한 내용 및 샘플 코드는 [Azure 엔터프라이즈 REST API](./ea-portal-rest-apis.md)를 참조하세요.
 
 > [!NOTE]
 > Azure Resource Manager 작업을 지원하는 리소스에만 태그를 적용할 수 있습니다. 클래식 배포 모델을 통해(예: 클래식 포털을 통해) 가상 머신, 가상 네트워크 또는 스토리지를 만든 경우 해당 리소스에 태그를 적용할 수 없습니다. 태그를 지원하려면 Resource Manager를 통해 이러한 리소스를 다시 배포해야 합니다. 다른 모든 리소스는 태그 지정을 지원합니다.
