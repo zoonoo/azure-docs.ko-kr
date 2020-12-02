@@ -11,14 +11,14 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 05551f39203f2c070dd2ede0740135d6963aedcf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fea314d595fb39a1e35dec8ab24533ad4b893f98
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323570"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448082"
 ---
-# <a name="indexing-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 테이블 인덱싱
+# <a name="indexing-dedicated-sql-pool-tables-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 테이블 인덱싱
 
 전용 SQL 풀의 테이블 인덱싱에 대 한 권장 사항 및 예제입니다.
 

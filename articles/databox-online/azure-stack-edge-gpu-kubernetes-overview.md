@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 0f67a36ac4ccb27d7b955158b7e4a9cf4f5185d0
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 5b96e568b57c34fec1c93727aabe8e739a2a45cd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636921"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448649"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치의 Kubernetes
 
@@ -61,7 +61,7 @@ Kubernetes 클러스터 아키텍처에 대 한 자세한 내용은 [Kubernetes 
 
 Kubernetes 네트워킹을 사용 하면 컨테이너 간 네트워킹, pod-pod 네트워킹, pod-서비스 네트워킹 및 인터넷-서비스 네트워킹을 비롯 한 Kubernetes 네트워크 내에서 통신을 구성할 수 있습니다. 자세한 내용은 [Azure Stack Edge Pro 장치에 대 한 Kubernetes 네트워킹](azure-stack-edge-gpu-kubernetes-networking.md)의 네트워킹 모델을 참조 하세요.
 
-## <a name="updates"></a>업데이트
+## <a name="updates"></a>Updates
 
 새 Kubernetes 버전을 사용할 수 있게 되 면 Azure Stack Edge Pro 장치에 사용할 수 있는 표준 업데이트를 사용 하 여 클러스터를 업그레이드할 수 있습니다. 업그레이드 하는 방법에 대 한 단계는 [Azure Stack Edge Pro에 업데이트 적용](azure-stack-edge-gpu-install-update.md)을 참조 하세요.
 
@@ -106,7 +106,7 @@ IoT Edge를 통해 Kubernetes 클러스터에 응용 프로그램을 배포 하�
 
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes 및 Azure Arc
 
-Azure Arc는 Kubernetes 클러스터에 응용 프로그램을 배포 하는 데 사용할 수 있는 하이브리드 관리 도구입니다. 또한 Azure Arc를 사용 하면 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터를 보고 모니터링할 수 있습니다. 자세한 내용은 [Azure-Arc Enabled Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)를 참조 하세요. Azure Arc 가격 책정에 대 한 자세한 내용은 [Azure arc 가격 책정](https://azure.microsoft.com/services/azure-arc/#pricing)을 참조 하세요.
+Azure Arc는 Kubernetes 클러스터에 응용 프로그램을 배포 하는 데 사용할 수 있는 하이브리드 관리 도구입니다. 또한 Azure Arc를 사용 하면 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터를 보고 모니터링할 수 있습니다. 자세한 내용은 [Azure-Arc Enabled Kubernetes?](../azure-arc/kubernetes/overview.md)를 참조 하세요. Azure Arc 가격 책정에 대 한 자세한 내용은 [Azure arc 가격 책정](https://azure.microsoft.com/services/azure-arc/#pricing)을 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

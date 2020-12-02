@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 7fa6beacf4456145e312494a72dad321dfef3754
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ca8a36584c09d850ed1daab8cba301b244f76526
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843930"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447013"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정
 
@@ -67,7 +67,7 @@ SP를 만들고 작업 영역에 대 한 액세스 권한을 부여 하는 가�
 
     CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 페이지를 로드합니다. CLI가 브라우저를 열 수 없는 경우에는 사용자가 브라우저를 열고 명령줄의 지침을 따릅니다. 지침에 따라 [https://aka.ms/devicelogin](https://aka.ms/devicelogin)으로 이동하고 인증 코드를 입력합니다.
 
-    여러 Azure 구독이 있는 경우 명령을 사용 하 여 구독을 `az account set -s <subscription name or ID>` 설정할 수 있습니다. 자세한 내용은 [여러 Azure 구독 사용](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조하세요.
+    여러 Azure 구독이 있는 경우 명령을 사용 하 여 구독을 `az account set -s <subscription name or ID>` 설정할 수 있습니다. 자세한 내용은 [여러 Azure 구독 사용](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조하세요.
 
     다른 인증 방법은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest)을 참조하세요.
 
@@ -184,7 +184,7 @@ SP를 만들고 작업 영역에 대 한 액세스 권한을 부여 하는 가�
 > interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
 > ```
 
-Azure CLI 사용 하는 경우 `az login` 명령은 CLI 세션을 인증 하는 데 사용 됩니다. 자세한 내용은 [Azure CLI 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 참조 하세요.
+Azure CLI 사용 하는 경우 `az login` 명령은 CLI 세션을 인증 하는 데 사용 됩니다. 자세한 내용은 [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)을 참조 하세요.
 
 > [!TIP]
 > 이전에 Azure CLI를 사용 하 여 대화형으로 인증 한 환경에서 SDK를 사용 하는 경우 클래스를 사용 하 여 `AzureCliAuthentication` CLI에서 캐시 된 자격 증명을 사용 하 여 작업 영역에 인증할 수 있습니다.

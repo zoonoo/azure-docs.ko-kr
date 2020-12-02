@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: c27f6ef47b8e4db83ceb63e308e318803800f8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12935a4b0b9cbbf088ba7b9c5ea804be0ce85a1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890713"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447356"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Azure CLI 및 Python을 사용하여 Azure Stack Edge Pro GPU 디바이스에 VM 배포
 
@@ -53,7 +53,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
 
 2. 컴퓨팅을 위한 네트워크 인터페이스를 사용하도록 설정했습니다. 이 네트워크 인터페이스 IP는 VM 배포를 위한 가상 스위치를 만드는 데 사용됩니다. 이 프로세스를 안내하는 단계는 다음과 같습니다.
 
-    1. **Compute**로 이동합니다. 가상 스위치를 만드는 데 사용할 네트워크 인터페이스를 선택합니다.
+    1. **Compute** 로 이동합니다. 가상 스위치를 만드는 데 사용할 네트워크 인터페이스를 선택합니다.
 
         > [!IMPORTANT] 
         > 컴퓨팅용 포트는 하나만 구성할 수 있습니다.
@@ -96,7 +96,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
     > [!IMPORTANT]
     > 엔드포인트 이름 확인을 위해 DNS 서버 구성을 수정하는 것이 좋습니다.
 
-    1. **메모장**을 관리자(파일을 저장하려면 관리자 권한이 필요함) 권한으로 시작한 다음, `C:\Windows\System32\Drivers\etc`에 있는 **hosts** 파일을 엽니다.
+    1. **메모장** 을 관리자(파일을 저장하려면 관리자 권한이 필요함) 권한으로 시작한 다음, `C:\Windows\System32\Drivers\etc`에 있는 **hosts** 파일을 엽니다.
     
         ![Windows 탐색기 호스트 파일](media/azure-stack-edge-j-series-connect-resource-manager/hosts-file.png)
     
@@ -117,7 +117,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
 
 ### <a name="verify-profile-and-install-azure-cli"></a>프로필 확인 및 Azure CLI 설치
 
-<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
 
 1. 클라이언트에 Azure CLI를 설치합니다. 이 예제에서는 Azure CLI 2.0.80이 설치되었습니다. Azure CLI의 버전을 확인하려면 `az --version` 명령을 실행합니다.
 
@@ -147,7 +147,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
     PS C:\windows\system32>
     ```
 
-    Azure CLI가 없으면 [Windows에서 Azure CLI를 다운로드하여 설치](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)합니다. Windows 명령 프롬프트 또는 Windows PowerShell을 통해 Azure CLI를 실행할 수 있습니다.
+    Azure CLI가 없으면 [Windows에서 Azure CLI를 다운로드하여 설치](/cli/azure/install-azure-cli-windows?view=azure-cli-latest)합니다. Windows 명령 프롬프트 또는 Windows PowerShell을 통해 Azure CLI를 실행할 수 있습니다.
 
 2. CLI의 Python 위치를 기록해 둡니다. 이 정보는 Azure CLI에 대한 신뢰할 수 있는 루트 인증서 저장소의 위치를 확인하는 데 필요합니다.
 
@@ -308,9 +308,9 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-4. `az login` 명령을 사용하여 Azure Stack Edge Pro 환경에 로그인합니다. 사용자나 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)로 Azure Stack Edge Pro 환경에 로그인할 수 있습니다.
+4. `az login` 명령을 사용하여 Azure Stack Edge Pro 환경에 로그인합니다. 사용자나 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)로 Azure Stack Edge Pro 환경에 로그인할 수 있습니다.
 
-   *사용자*로 로그인하려면 다음 단계를 수행합니다.
+   *사용자* 로 로그인하려면 다음 단계를 수행합니다.
 
    `az login` 명령 내에 직접 사용자 이름과 암호를 지정하거나 브라우저를 사용하여 인증할 수 있습니다. 계정에 다단계 인증을 사용하도록 설정된 경우 후자를 수행해야 합니다.
 

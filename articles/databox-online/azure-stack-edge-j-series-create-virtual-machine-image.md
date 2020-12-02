@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 745d0df07b6d0d01acf0d564df8c242e16f3f56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b49659f67e779b6eb8079492b47fef9419ca6b1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890996"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447521"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 디바이스용 사용자 지정 VM 이미지 만들기
 
@@ -42,7 +42,7 @@ Azure Stack Edge Pro 디바이스에 VM을 배포하려면 VM을 만드는 데 �
     
         `c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm`
    
-       [Sysprep(시스템 준비) 개요](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 참조할 수도 있습니다.
+       [Sysprep(시스템 준비) 개요](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 참조할 수도 있습니다.
 
 이제 이 VHD를 사용하여 Azure Stack Edge Pro 디바이스에서 VM을 만들고 배포합니다.
 
@@ -63,8 +63,8 @@ Azure Stack Edge Pro 디바이스에 VM을 배포하려면 VM을 만드는 데 �
        > [!NOTE]
        > 이미지로 캡처하려는 VM에서만 이 명령을 실행합니다. 이 명령이 이미지에서 중요한 정보가 모두 지워졌다거나 재배포에 적합하다는 것을 보장하지는 않습니다. 또한 `+user` 매개 변수는 마지막 프로비전된 사용자 계정을 제거합니다. VM에 사용자 계정 자격 증명을 유지하려면 `-deprovision`만 사용합니다.
      
-    3. 계속하려면 **y**를 입력합니다. `-force` 매개 변수를 추가하여 이 확인 단계를 피할 수 있습니다.
-    4. 명령이 완료되면 **종료**를 입력하여 SSH 클라이언트를 닫습니다.  이 시점에서 VM은 계속 실행되고 있습니다.
+    3. 계속하려면 **y** 를 입력합니다. `-force` 매개 변수를 추가하여 이 확인 단계를 피할 수 있습니다.
+    4. 명령이 완료되면 **종료** 를 입력하여 SSH 클라이언트를 닫습니다.  이 시점에서 VM은 계속 실행되고 있습니다.
 
 
 1. [기존 OS 디스크를 다운로드합니다](../virtual-machines/linux/download-vhd.md).
@@ -76,7 +76,7 @@ Azure Stack Edge Pro 디바이스에 VM을 배포하려면 VM을 만드는 데 �
 |[Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |Ubuntu Server는 클라우드 환경에 세계적으로 가장 많이 사용되는 Linux입니다.|Canonical|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux는 가장 많이 사용되는 Linux 배포 중 하나입니다.     |credativ|
 
-사용 가능한 Azure Marketplace 이미지의 전체 목록은(현재 테스트되지 않음) [Azure Stack Hub에 사용할 수 있는 Azure Marketplace 항목](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910)을 참조하세요.
+사용 가능한 Azure Marketplace 이미지의 전체 목록은(현재 테스트되지 않음) [Azure Stack Hub에 사용할 수 있는 Azure Marketplace 항목](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

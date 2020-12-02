@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: b179bb3566cc19b8033a56348db34cd1f05cee10
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506399"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446412"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Azure IoT Hub와의 연결 끊김 모니터링, 진단 및 문제 해결
 
@@ -58,7 +58,7 @@ Event Grid를 사용 하 여 장치 연결 이벤트를 모니터링 하는 방�
 
 * 장치 연결 이벤트를 정렬 하는 방법에 대 한 자습서는 [Azure Cosmos DB를 사용 하 여 Azure IoT Hub에서 장치 연결 이벤트 순서](iot-hub-how-to-order-connection-state-events.md)지정을 참조 하세요.
 
-* 전자 메일 알림을 보내는 방법에 대 한 자습서는 Event Grid 설명서의 [Logic Apps Event Grid를 사용 하 여 Azure IoT Hub 이벤트에 대 한 전자 메일 알림 보내기](/azure/event-grid/publish-iot-hub-events-to-logic-apps) 를 참조 하세요.
+* 전자 메일 알림을 보내는 방법에 대 한 자습서는 Event Grid 설명서의 [Logic Apps Event Grid를 사용 하 여 Azure IoT Hub 이벤트에 대 한 전자 메일 알림 보내기](../event-grid/publish-iot-hub-events-to-logic-apps.md) 를 참조 하세요.
 
 ## <a name="azure-monitor-route-connection-events-to-logs"></a>Azure Monitor: 연결 이벤트를 로그로 라우팅
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: de060be7ace84ea309b71087a50fd572091bed43
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 88d732cc3feaa2c9a528443d4a783227f3d8e641
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004792"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446799"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에 IoT Edge 디바이스 추가
 
@@ -34,9 +34,9 @@ IoT Edge 디바이스를 원격 모니터링 솔루션 가속기에 추가하려
 
 솔루션 가속기에서 IoT Hub 인스턴스에 직접 IoT Edge 디바이스를 등록할 수도 있습니다. 이러한 방법 가이드 중 하나를 수행하기 전에 솔루션 가속기에서 IoT Hub의 이름을 알고 있어야 합니다.
 
-- [Azure Portal에서 새 Azure IoT Edge 디바이스 등록](../iot-edge/how-to-register-device.md#register-in-the-azure-portal)
-- [Azure CLI를 사용하여 새 Azure IoT Edge 디바이스 등록](../iot-edge/how-to-register-device.md#register-with-the-azure-cli)
-- [Visual Studio Code에서 새 Azure IoT Edge 디바이스 등록](../iot-edge/how-to-register-device.md#register-with-visual-studio-code)
+- [Azure Portal에서 새 Azure IoT Edge 디바이스 등록](../iot-edge/how-to-manual-provision-symmetric-key.md?tabs=azure-portal%2Cwindows)
+- [Azure CLI를 사용하여 새 Azure IoT Edge 디바이스 등록](../iot-edge/how-to-manual-provision-symmetric-key.md?tabs=azure-cli%2Cwindows)
+- [Visual Studio Code에서 새 Azure IoT Edge 디바이스 등록](../iot-edge/how-to-manual-provision-symmetric-key.md?tabs=visual-studio-code%2Cwindows)
 
 원격 모니터링 솔루션 가속기에서 IoT hub에 직접 장치를 등록 하는 경우 웹 UI의 **Device Explorer** 페이지에 나열 됩니다.
 
@@ -44,11 +44,11 @@ IoT Edge 디바이스를 원격 모니터링 솔루션 가속기에 추가하려
 
 Edge 디바이스에 모듈을 배포하려면 먼저 IoT Edge 런타임을 실제 디바이스에 설치해야 합니다. 다음 방법 가이드는 일반적인 디바이스 플랫폼에 런타임을 설치하는 방법을 보여 줍니다.
 
-- [Linux(x64)에서 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge-linux.md)
-- [Linux(ARM32v7/armhf)에 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge-linux.md)
-- [Windows 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge-windows.md)
-- [Linux 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge-windows-with-linux.md)
-- [Windows IoT Core에 IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge-windows.md)
+- [Linux(x64)에서 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge.md)
+- [Linux(ARM32v7/armhf)에 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge.md)
+- [Windows 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge.md)
+- [Linux 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge.md)
+- [Windows IoT Core에 IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge.md)
 
 ## <a name="next-steps"></a>다음 단계
 

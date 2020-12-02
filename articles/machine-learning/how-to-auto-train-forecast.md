@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 57b54fbe20df4eb74ee17c7b5ac83d773114463b
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 8c6a27f0cfaafe7e6c1181651e672d0e828af855
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437374"
+ms.locfileid: "96444493"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
@@ -33,7 +33,7 @@ ms.locfileid: "96437374"
 
 기존 시계열 메서드와 달리 자동화 된 ML에서 과거 시계열 값은 다른 예측 변수와 함께 회귀 변수의 추가 차원이 되도록 "피벗" 됩니다. 이 방법은 학습 중에 여러 컨텍스트 변수와 각 변수 간 관계를 통합합니다. 여러 요인이 예측에 영향을 줄 수 있으므로 이 방법은 실제 예측 시나리오에 적합합니다. 예를 들어 판매를 예측 하는 경우 과거 추세, 환율 및 가격의 상호 작용은 판매 결과를 모두 공동으로 구동 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에는 다음이 필요 합니다. 
 
@@ -154,7 +154,7 @@ ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크�
 
 
 다음 코드 
-* 클래스를 활용 [`ForecastingParameters`](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) 하 여 실험 학습에 대 한 예측 매개 변수를 정의 합니다.
+* 클래스를 활용 [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) 하 여 실험 학습에 대 한 예측 매개 변수를 정의 합니다.
 * 을 `time_column_name` `day_datetime` 데이터 집합의 필드로 설정 합니다. 
 * `time_series_id_column_names`에 대 한 매개 변수를 정의 `"store"` 합니다. 이렇게 하면 데이터에 대해 **두 개의 개별 시계열 그룹이** 만들어집니다. 저장소 A와 B에 대 한 하나입니다.
 * `forecast_horizon`전체 테스트 집합을 예측 하기 위해를 50로 설정 합니다. 
@@ -303,7 +303,7 @@ forecast_parameters = ForecastingParameters(time_column_name='day_datetime',
 ```
 다음 표에는에 대 한 사용 가능한 설정이 요약 되어 `short_series_handling_config` 있습니다.
  
-|설정|Description
+|설정|설명
 |---|---
 |`auto`| 다음은 간단한 시리즈 처리의 기본 동작입니다. <li> *모든 계열이 짧으면* 데이터를 채웁니다. <br> <li> *모든 계열이 짧으면* short 시리즈를 삭제 합니다. 
 |`pad`| 인 경우 `short_series_handling_config = pad` 자동화 된 ML은 찾은 각 짧은 계열에 더미 값을 추가 합니다. 다음 목록에는 열 형식과 해당 열이 채워져 있는 항목이 나와 있습니다. <li>Nan를 사용 하는 개체 열 <li> 0으로 숫자 열 <li> False를 사용 하는 부울/논리 열 <li> 대상 열은 0과 표준 편차가 1 인 임의 값으로 채워집니다. 

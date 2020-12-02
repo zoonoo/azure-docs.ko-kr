@@ -11,22 +11,22 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: cb10eb0f89ce37bc484c8570995ebaa098c696f1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 492d1370a228fc4fc80880102899c9207a514f57
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541303"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447192"
 ---
 # <a name="configure-and-submit-training-runs"></a>학습 실행 구성 및 제출
 
-이 문서에서는 모델을 학습 하는 Azure Machine Learning 실행을 구성 하 고 제출 하는 방법에 대해 알아봅니다.
+이 문서에서는 모델을 학습 하는 Azure Machine Learning 실행을 구성 하 고 제출 하는 방법에 대해 알아봅니다. 코드 조각은 학습 스크립트 구성 및 제출의 주요 부분을 설명 합니다.  그런 다음 [예제 노트북](#notebooks) 중 하나를 사용 하 여 완전 한 종단 간 작업 예제를 찾습니다.
 
 훈련 시 로컬 컴퓨터에서 시작 하 여 나중에 클라우드 기반 클러스터로 확장 하는 것이 일반적입니다. Azure Machine Learning를 사용 하면 학습 스크립트를 변경 하지 않고도 다양 한 계산 대상에서 스크립트를 실행할 수 있습니다.
 
 **스크립트 실행 구성** 내에서 각 계산 대상에 대 한 환경을 정의 하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 체험
 * [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
@@ -38,10 +38,10 @@ ms.locfileid: "94541303"
 
 ScriptRunConfig 개체를 사용 하 여 학습 실험을 제출 합니다.  이 개체는 다음을 포함합니다.
 
-* **source_directory** : 학습 스크립트를 포함하는 원본 디렉터리
-* **스크립트** : 실행할 학습 스크립트
-* **compute_target** : 실행할 계산 대상
-* **환경** : 스크립트를 실행할 때 사용할 환경
+* **source_directory**: 학습 스크립트를 포함하는 원본 디렉터리
+* **스크립트**: 실행할 학습 스크립트
+* **compute_target**: 실행할 계산 대상
+* **환경**: 스크립트를 실행할 때 사용할 환경
 * 구성 가능한 몇 가지 옵션이 있습니다. 자세한 내용은 [참조 설명서](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) 를 참조 하세요.
 
 ## <a name="train-your-model"></a><a id="submit"></a>모델 학습
@@ -164,7 +164,7 @@ run.wait_for_completion(show_output=True)
 
 원본 디렉터리가 로컬 Git 리포지토리인 학습 실행을 시작하면 리포지토리에 대한 정보가 실행 기록에 저장됩니다. 자세한 내용은 [Azure Machine Learning에 대한 Git 통합](concept-train-model-git-integration.md)을 참조하세요.
 
-## <a name="notebook-examples"></a>Notebook 예제
+## <a name="notebook-examples"></a><a name="notebooks"></a>Notebook 예제
 
 다양 한 학습 시나리오에 대 한 실행 구성 예제는 이러한 노트북을 참조 하세요.
 * [다양 한 계산 대상에 대 한 교육](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)

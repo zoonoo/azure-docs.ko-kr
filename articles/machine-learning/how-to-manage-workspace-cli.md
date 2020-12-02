@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: aa85822b433e2d8128df9ae3664411ea3fcddec4
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 66a9c9d605911a9d3b30a55d47e16026e26e502a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012925"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447255"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "95012925"
 
 ## <a name="limitations"></a>제한 사항
 
-* 새 작업 영역을 만들 때 작업 영역이 자동으로 필요한 Azure 서비스를 만들도록 허용 하거나 기존 서비스를 제공할 수 있습니다. 기존 서비스를 제공 하는 경우 이러한 서비스는 모두 작업 영역과 동일한 Azure 구독에 있어야 합니다.
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Azure 구독에 CLI 연결
 

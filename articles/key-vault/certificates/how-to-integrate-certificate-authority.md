@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 50f2515cee92ead8018ffaaf4b4574905f8007d5
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d29d7401cf944e8d999db847ce2e1266169ea34
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844508"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448409"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>DigiCert 인증 기관과 Key Vault 통합
 
@@ -108,7 +108,7 @@ $org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCer
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 ```
 
-4. **발급자** 설정 키 자격 증명 모음에 Digicert를 인증 기관으로 추가합니다. 매개 변수에 대한 자세한 내용은 [여기를 참조](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)하세요.
+4. **발급자** 설정 키 자격 증명 모음에 Digicert를 인증 기관으로 추가합니다. 매개 변수에 대한 자세한 내용은 [여기를 참조](/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)하세요.
 ```azurepowershell-interactive
 Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```

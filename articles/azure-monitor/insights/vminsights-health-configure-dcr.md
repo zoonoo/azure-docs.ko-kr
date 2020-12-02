@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 2bbc57d8ddc004c1926da7e0037efdc1fcf2d76e
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 55e5a587a0ad02fa1f8993027b46162a14a58832
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95318102"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448252"
 ---
 # <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>데이터 수집 규칙을 사용 하 여 VM용 Azure Monitor 게스트 상태에서 모니터링 구성 (미리 보기)
 [VM용 Azure Monitor 게스트 상태](vminsights-health-overview.md) 를 사용 하면 일정 한 간격으로 샘플링 되는 성능 측정 집합에 정의 된 대로 가상 컴퓨터의 상태를 볼 수 있습니다. 이 문서에서는 데이터 수집 규칙을 사용 하 여 여러 가상 컴퓨터에서 기본 모니터링을 수정 하는 방법을 설명 합니다.
@@ -49,9 +49,9 @@ VM용 Azure Monitor 게스트 상태 및 해당 구성에서 사용 하는 모�
 
 | 모니터 | 사용 | 경고 | 경고 | 위험 | 평가 빈도 | Lookback | 평가 유형 | Min 샘플 | 최대 샘플 |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| CPU 사용률  | True | False | None | \> 90%    | 60초 | 240 초 | 최소값 | 2 | 3 |
-| 사용 가능한 메모리 | True | False | None | \< 100 M B | 60초 | 240 초 | 최대값 | 2 | 3 |
-| 파일 시스템      | True | False | None | \< 100 M B | 60초 | 120 초 | 최대값 | 1 | 1 |
+| CPU 사용률  | True | False | 없음 | \> 90%    | 60초 | 240 초 | 최소값 | 2 | 3 |
+| 사용 가능한 메모리 | True | False | 없음 | \< 100 M B | 60초 | 240 초 | 최대값 | 2 | 3 |
+| 파일 시스템      | True | False | 없음 | \< 100 M B | 60초 | 120 초 | 최대값 | 1 | 1 |
 
 
 ## <a name="overrides"></a>재정의
@@ -154,7 +154,7 @@ VM용 Azure Monitor 게스트 상태 및 해당 구성에서 사용 하는 모�
 
 다음 표에서는 다양 한 범위의 예를 보여 줍니다.
 
-| Scope | 예제 |
+| 범위 | 예제 |
 |:---|:---|
 | 단일 가상 컴퓨터 | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-name/providers/Microsoft.Compute/virutalMachines/my-vm` |
 | 리소스 그룹의 모든 가상 머신 | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-name` |
@@ -175,7 +175,7 @@ VM용 Azure Monitor 게스트 상태 및 해당 구성에서 사용 하는 모�
 
 다음 표에서는 현재 사용 가능한 모니터 이름을 나열 합니다.
 
-| 형식 이름 | Name | 설명 |
+| 형식 이름 | 이름 | 설명 |
 |:---|:---|:---|
 | 루트 | 루트 | 가상 컴퓨터 상태를 나타내는 최상위 모니터입니다. | |
 | cpu 사용률 | cpu 사용률 | CPU 사용률 모니터입니다. | |
@@ -271,106 +271,8 @@ Lookback interval에 더 작은 샘플이 있는 경우 `minSamples` 모니터�
 | `operator`  | 아니요 | 임계값 식에 사용할 비교 연산자를 정의 합니다. 가능한 값은 >, <, >=, <=, = =입니다. |
 
 ## <a name="sample-data-collection-rule"></a>샘플 데이터 수집 규칙
-다음 샘플 데이터 수집 규칙은 모니터링을 구성 하는 재정의의 예를 보여 줍니다.
+게스트 모니터링을 사용 하는 샘플 데이터 수집 규칙은 [리소스 관리자 템플릿을 사용 하 여 가상 머신 사용](vminsights-health-enable.md#enable-a-virtual-machine-using-resource-manager-template)을 참조 하세요.
 
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "defaultHealthDataCollectionRuleName": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the name of the data collection rule to create."
-      },
-      "defaultValue": "Microsoft-VMInsights-Health"
-    },
-    "destinationWorkspaceResourceId": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the Azure resource ID of the Log Analytics workspace to use to store virtual machine health data."
-      }
-    },
-    "dataCollectionRuleLocation": {
-      "type": "string",
-      "metadata": {
-        "description": "The location code in which the data collection rule should be deployed. Examples: eastus, westeurope, etc"
-      }
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Insights/dataCollectionRules",
-      "name": "[parameters('defaultHealthDataCollectionRuleName')]",
-      "location": "[parameters('dataCollectionRuleLocation')]",
-      "apiVersion": "2019-11-01-preview",
-      "properties": {
-        "description": "Data collection rule for VM Insights health.",
-        "dataSources": {
-          "performanceCounters": [
-              {
-                  "name": "VMHealthPerfCounters",
-                  "streams": [ "Microsoft-Perf" ],
-                  "scheduledTransferPeriod": "PT1M",
-                  "samplingFrequencyInSeconds": 60,
-                  "counterSpecifiers": [
-                      "\\LogicalDisk(*)\\% Free Space",
-                      "\\Memory\\Available Bytes",
-                      "\\Processor(_Total)\\% Processor Time"
-                  ]
-              }
-          ],
-          "extensions": [
-            {
-              "name": "Microsoft-VMInsights-Health",
-              "streams": [
-                "Microsoft-HealthStateChange"
-              ],
-              "extensionName": "HealthExtension",
-              "extensionSettings": {
-                "schemaVersion": "1.0",
-                "contentVersion": "",
-                "healthRuleOverrides": [
-                  {
-                    "scopes": [ "*" ],
-                    "monitors": ["root"],
-                    "alertConfiguration": {
-                      "isEnabled": true
-                    }
-                  }
-                ]
-              },
-              "inputDataSources": [
-                  "VMHealthPerfCounters"
-              ]
-
-            }
-          ]
-        },
-        "destinations": {
-          "logAnalytics": [
-            {
-              "workspaceResourceId": "[parameters('destinationWorkspaceResourceId')]",
-              "name": "Microsoft-HealthStateChange-Dest"
-            }
-          ]
-        },                  
-        "dataFlows": [
-          {
-            "streams": [
-              "Microsoft-HealthStateChange"
-            ],
-            "destinations": [
-              "Microsoft-HealthStateChange-Dest"
-            ]
-          }
-        ]
-      }
-    }
-  ]
-}
-```
 
 ## <a name="next-steps"></a>다음 단계
 

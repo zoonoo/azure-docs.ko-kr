@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 9a01dabbd0a3e9d76caaead544be655b9505030d
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 55e9d2d1af863084b080c2de7833712413221050
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289197"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445641"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Just-In-Time 액세스를 사용하여 관리 포트 보호
 
@@ -89,9 +89,9 @@ Security Center에서 JIT VM 액세스를 사용 하도록 설정 하 고 구성
 
     포트 **추가 구성** 창에는 각 포트 (사용자 지정 및 기본값)에 대해 다음 옵션이 제공 됩니다.
 
-    - **프로토콜** -요청이 승인 될 때이 포트에서 허용 되는 프로토콜입니다.
-    - **허용 된 원본 ip** -요청이 승인 될 때이 포트에서 허용 되는 IP 범위
-    - **최대 요청 시간** -특정 포트를 열 수 있는 최대 시간 창
+    - **프로토콜**-요청이 승인 될 때이 포트에서 허용 되는 프로토콜입니다.
+    - **허용 된 원본 ip**-요청이 승인 될 때이 포트에서 허용 되는 IP 범위
+    - **최대 요청 시간**-특정 포트를 열 수 있는 최대 시간 창
 
      1. 포트 보안을 필요에 따라 설정 합니다.
 
@@ -300,7 +300,7 @@ PowerShell에서 다음 내용을 실행하세요.
 
     ```azurepowershell
     $JitPolicyVm1 = (@{
-        id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
+        id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
            number=22;
            endTimeUtc="2020-07-15T17:00:00.3658798Z";

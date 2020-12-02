@@ -7,14 +7,14 @@ author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: fda3a9fc3c5a2620fe9fe3bcd63ae94875282122
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 655cf05ece748ae66ffd99bb170c59af74fb1f07
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296094"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446754"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-synapse-analytics-workspace-preview"></a>Azure Synapse Analytics (작업 영역 미리 보기)에 대 한 기본 제공 정의 Azure Policy
+# <a name="azure-policy-built-in-definitions-for-azure-synapse-analytics"></a>Azure Synapse Analytics에 대 한 기본 제공 정의 Azure Policy 
 
 이 페이지는 Azure Synapse에 대 한 [Azure Policy](../governance/policy/overview.md) 기본 제공 정책 정의의 인덱스입니다. 다른 서비스에 대한 추가 Azure Policy 기본 제공 기능은 [Azure Policy 기본 제공 정의](../governance/policy/samples/built-in-policies.md)를 참조하세요.
 

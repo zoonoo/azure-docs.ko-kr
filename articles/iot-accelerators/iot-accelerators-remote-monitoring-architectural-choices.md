@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27a65d8a499f6eba130dc9537de3cb2b3dc3abe8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61447187"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446761"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>원격 모니터링 아키텍처 선택
 
@@ -23,7 +23,7 @@ Azure IoT 원격 모니터링 솔루션 가속기는 오픈 소스, MIT 사용�
 - 디바이스 관리
 - 스트림 처리
 
-원격 모니터링 솔루션은 권장되는 [Azure IoT 참조 아키텍처](https://aka.ms/iotrefarchitecture)를 따릅니다.
+원격 모니터링 솔루션은 권장되는 [Azure IoT 참조 아키텍처](/azure/architecture/reference-architectures/iot)를 따릅니다.
 
 이 문서에서는 각 원격 모니터링 하위 시스템의 핵심 아키텍처 및 기술 옵션에 대해 설명합니다. 그렇지만 원격 모니터링 솔루션에서 선택하는 Microsoft 기술은 원격 모니터링 IoT 솔루션을 구현하는 유일한 방법은 아닙니다. 이러한 기술 구현을 성공적인 애플리케이션 빌드를 위한 기준으로 사용하고 다음과 같이 수정해야 합니다.
 
@@ -86,4 +86,4 @@ Docker 대신, Azure App Service와 같은 PaaS 서비스에서 마이크로 서
 
 * [여기](https://www.azureiotsolutions.com/)에서 원격 모니터링 솔루션을 배포합니다.
 * [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) 및 [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/)에서 GitHub 코드를 탐색합니다.  
-* [여기](https://aka.ms/iotrefarchitecture)에서 IoT 참조 아키텍처에 대해 자세히 알아봅니다.
+* [여기](/azure/architecture/reference-architectures/iot)에서 IoT 참조 아키텍처에 대해 자세히 알아봅니다.

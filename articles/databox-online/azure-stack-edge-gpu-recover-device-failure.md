@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 91efdac9d17e679226f10012bbff9b5b6676ff0e
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: bf4d0a845b7f26c82ba3940d6613a33bcacf9187
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205581"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448330"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>실패 한 Azure Stack Edge Pro GPU 장치에서 복구 
 
@@ -81,7 +81,7 @@ ms.locfileid: "92205581"
 
 | 백업 솔루션        | 지원되는 OS   | 참조                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
-| Azure Backup에 대 한 MARS (Microsoft Azure Recovery Services) 에이전트 | Windows        | [MARS 에이전트 정보](/azure/backup/backup-azure-about-mars)    |
+| Azure Backup에 대 한 MARS (Microsoft Azure Recovery Services) 에이전트 | Windows        | [MARS 에이전트 정보](../backup/backup-azure-about-mars.md)    |
 | Cohesity                | Windows, Linux | [Microsoft Azure 통합, 백업 및 복구 솔루션 brief](https://www.cohesity.com/solution/cloud/azure) <br>자세한 내용은 Cohesity에 문의 하세요.                          |
 | Commvault               | Windows, Linux | https://www.commvault.com/azure <br> 자세한 내용은 Commvault에 문의 하세요.
 | Veritas                 | Windows, Linux | http://veritas.com/azure <br> 자세한 내용은 Veritas에 문의 하세요.                    |

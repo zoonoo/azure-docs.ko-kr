@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: cd877a91c7c082ce7845394f2636857f33b7940f
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 957274e6080ab4b77e6528386fe0b24b2d877219
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578759"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447307"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Azure PowerShell 스크립트를 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
 
@@ -21,7 +21,7 @@ ms.locfileid: "94578759"
 
 이 자습서에서는 Azure PowerShell 스크립트를 사용 하 여 Azure Stack Edge Pro 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 스크립트를 사용 하 여 Azure Stack Edge Pro 장치에서 VM 만들기 및 관리를 시작 하기 전에 다음 단계에 나열 된 필수 구성 요소를 완료 했는지 확인 해야 합니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "94578759"
 
     `Uninstall-Module -Name Azure.Storage`
 
-5. Windows 클라이언트에 [AzCopy 10을 다운로드](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#download-azcopy) 합니다. 스크립트를 실행 하는 동안 매개 변수로 전달 하므로이 위치를 기록해 둡니다.
+5. Windows 클라이언트에 [AzCopy 10을 다운로드](../storage/common/storage-use-azcopy-v10.md#download-azcopy) 합니다. 스크립트를 실행 하는 동안 매개 변수로 전달 하므로이 위치를 기록해 둡니다.
 
 6. Windows 클라이언트에서 TLS 1.2 이상을 실행 하 고 있는지 확인 합니다.
 

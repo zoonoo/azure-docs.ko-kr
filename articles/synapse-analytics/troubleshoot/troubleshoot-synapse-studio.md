@@ -1,5 +1,5 @@
 ---
-title: Synapse Studio (미리 보기) 문제 해결
+title: Synapse Studio 문제 해결
 description: Azure Synapse Studio 문제 해결
 author: julieMSFT
 ms.service: synapse-analytics
@@ -8,18 +8,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3fe31f83ccc0dcbd2d61a7c70d40a64da08d13a1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a96709c7538bda6d6b338c29dc512902e9ca2c87
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321026"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445850"
 ---
-# <a name="azure-synapse-studio-preview-troubleshooting"></a>Azure Synapse Studio (미리 보기) 문제 해결
+# <a name="azure-synapse-studio-troubleshooting"></a>Azure Synapse Studio 문제 해결
 
 이 문제 해결 가이드에서는 네트워크 연결 문제에 대 한 지원 티켓을 열 때 제공할 정보에 대 한 지침을 제공 합니다. 적절 한 정보를 사용 하 여 문제를 신속 하 게 해결할 수 있습니다.
 
-## <a name="serverless-sql-pool-preview-service-connectivity-issue"></a>서버를 사용 하지 않는 SQL 풀 (미리 보기) 서비스 연결 문제
+## <a name="serverless-sql-pool-service-connectivity-issue"></a>서버를 사용 하지 않는 SQL 풀 서비스 연결 문제
 
 ### <a name="symptom-1"></a>증상 1
 
@@ -61,7 +61,7 @@ Url 열이 다음 패턴과 일치 하는 항목을 찾습니다.
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-여기서 [ *A* ]는 작업 영역 이름이 고 "-ondemand"는 "-sqlod"이 고, 여기서 [ *B* ]는 "master"와 같은 데이터베이스 이름 이어야 합니다. URL 값이 같지만 메서드 값이 다른 항목이 최대 두 개 있어야 합니다. 옵션 및 게시물. 이러한 두 항목의 상태 열에 "200" 또는 "20x"가 있는지 여부를 확인 합니다. 여기서 "x"는 단일 숫자일 수 있습니다.
+여기서 [*A*]는 작업 영역 이름이 고 "-ondemand"는 "-sqlod"이 고, 여기서 [*B*]는 "master"와 같은 데이터베이스 이름 이어야 합니다. URL 값이 같지만 메서드 값이 다른 항목이 최대 두 개 있어야 합니다. 옵션 및 게시물. 이러한 두 항목의 상태 열에 "200" 또는 "20x"가 있는지 여부를 확인 합니다. 여기서 "x"는 단일 숫자일 수 있습니다.
 
 둘 중 하나에 "20x" 및가 아닌 다른 항목이 있는 경우:
 
