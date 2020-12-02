@@ -3,20 +3,20 @@ title: Azure Data Factory의 웹 활동
 description: Data Factory에서 지원하는 제어 흐름 작업 중 하나인 웹 작업을 사용하여 파이프라인에서 REST 엔드포인트를 호출하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: e74361d6fb3eb1f9708f39f198506d16c7c046c4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8ee23adf569a6afafc57dac786cd907a3481abde
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635102"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485810"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory에서 웹 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -74,7 +74,7 @@ ms.locfileid: "92635102"
 -------- | ----------- | -------------- | --------
 name | 웹 작업의 이름입니다. | String | 예
 type | **WebActivity** 로 설정해야 합니다. | String | 예
-method | 대상 엔드포인트에 대한 Rest API 메서드입니다. | 문자열. <br/><br/>지원되는 형식: "GET", "POST", "PUT" | 예
+method | 대상 엔드포인트에 대한 Rest API 메서드입니다. | 문자열입니다. <br/><br/>지원되는 형식: "GET", "POST", "PUT" | 예
 url | 대상 엔드포인트 및 경로입니다. | 문자열(또는 resultType 문자열이 있는 식). 활동이 엔드포인트에서 응답을 수신하지 않는 경우 오류가 발생하여 1분에 시간이 초과됩니다. | 예
 headers | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 문자열(또는 resultType 문자열이 있는 식) | 예, Content-Type 헤더가 필요합니다. `"headers":{ "Content-Type":"application/json"}`
 본문 | 엔드포인트에 전송된 페이로드를 나타냅니다.  | 문자열(또는 resultType 문자열이 있는 식). <br/><br/>[요청 페이로드 스키마](#request-payload-schema) 섹션에서 요청 페이로드의 스키마를 참조하세요. | POST/PUT 메서드에 필요합니다.

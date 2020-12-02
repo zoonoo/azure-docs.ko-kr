@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fbfec218c1bf1d018157fc6d78c700991f332a13
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5a4586c9c1be51b0ebbdebcf0c23289fc39f9eda
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172798"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485504"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>서비스 패브릭 서비스에 대한 배치 정책
 배치 정책은 보다 덜 일반적인 일부 구체적인 시나리오에서 서비스 배치를 제어하는 데 사용할 수 있는 추가적인 규칙입니다. 이러한 시나리오의 몇 가지 예는 다음과 같습니다.
@@ -98,7 +98,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 ## <a name="requiring-replica-distribution-and-disallowing-packing"></a>복제본 배포 요구 및 압축 허용 안 함
-복제본은 _일반적으로_ 클러스터가 정상 상태일 때 장애 및 업그레이드 도메인에 걸쳐 분산됩니다. 그러나 특정 파티션에 대해 둘 이상의 복제본이 단일 도메인으로 압축될 수 있는 경우가 있습니다. 예를 들어, 클러스터에 3개의 장애 도메인(fd:/0, fd:/1 및 fd:/2)에 있는 9개의 노드가 있고 서비스에 3개의 복제본이 있다고 가정하겠습니다. fd:/1 및 fd:/2의 해당 복제본에 사용되는 노드가 중단되었다고 가정하겠습니다. 일반적으로 Cluster Resource Manager는 이러한 동일한 장애 도메인에서 다른 노드를 기본으로 사용합니다. 이 경우에 용량 문제로 인해 해당 도메인의 다른 노드가 유효하지 않다고 가정하겠습니다. Cluster Resource Manager가 해당 복제본에 대한 대체 항목을 빌드하는 경우 fd:/0에서 노드를 선택해야 합니다. 그러나 _해당 작업_을 수행하면 장애 도메인 제약을 위반하는 상황이 발생합니다. 복제본을 압축하면 전체 복제본 세트가 가동 중단되거나 손실될 가능성도 높아집니다. 
+복제본은 _일반적으로_ 클러스터가 정상 상태일 때 장애 및 업그레이드 도메인에 걸쳐 분산됩니다. 그러나 특정 파티션에 대해 둘 이상의 복제본이 단일 도메인으로 압축될 수 있는 경우가 있습니다. 예를 들어, 클러스터에 3개의 장애 도메인(fd:/0, fd:/1 및 fd:/2)에 있는 9개의 노드가 있고 서비스에 3개의 복제본이 있다고 가정하겠습니다. fd:/1 및 fd:/2의 해당 복제본에 사용되는 노드가 중단되었다고 가정하겠습니다. 일반적으로 Cluster Resource Manager는 이러한 동일한 장애 도메인에서 다른 노드를 기본으로 사용합니다. 이 경우에 용량 문제로 인해 해당 도메인의 다른 노드가 유효하지 않다고 가정하겠습니다. Cluster Resource Manager가 해당 복제본에 대한 대체 항목을 빌드하는 경우 fd:/0에서 노드를 선택해야 합니다. 그러나 _해당 작업_ 을 수행하면 장애 도메인 제약을 위반하는 상황이 발생합니다. 복제본을 압축하면 전체 복제본 세트가 가동 중단되거나 손실될 가능성도 높아집니다. 
 
 > [!NOTE]
 > 제약 조건 및 제약 조건 우선 순위에 대한 자세한 내용은 [이 항목](service-fabric-cluster-resource-manager-management-integration.md#constraint-priorities)을 확인하세요.
@@ -150,7 +150,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> 현재이 정책은 ExclusiveProcess [서비스 패키지 활성화 모드](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet)를 사용 하는 상태 비저장 서비스에 대해서만 지원 됩니다.
+> 현재이 정책은 ExclusiveProcess [서비스 패키지 활성화 모드](/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet)를 사용 하는 상태 비저장 서비스에 대해서만 지원 됩니다.
 >
 
 > [!WARNING]
@@ -158,7 +158,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> 이 배치 정책에 높은 값의 [MinInstanceCount](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) 를 사용 하면 응용 프로그램 업그레이드가 중단 될 수 있습니다. 예를 들어 5 개 노드 클러스터가 있고 InstanceCount = 10을 설정 하는 경우 각 노드에 두 개의 인스턴스가 있습니다. MinInstanceCount = 9를 설정 하는 경우 시도 된 앱 업그레이드는 중단 될 수 있습니다. MinInstanceCount = 8 인 경우이를 방지할 수 있습니다.
+> 이 배치 정책에 높은 값의 [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) 를 사용 하면 응용 프로그램 업그레이드가 중단 될 수 있습니다. 예를 들어 5 개 노드 클러스터가 있고 InstanceCount = 10을 설정 하는 경우 각 노드에 두 개의 인스턴스가 있습니다. MinInstanceCount = 9를 설정 하는 경우 시도 된 앱 업그레이드는 중단 될 수 있습니다. MinInstanceCount = 8 인 경우이를 방지할 수 있습니다.
 >
 
 ## <a name="next-steps"></a>다음 단계
