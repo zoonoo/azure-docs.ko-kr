@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 44d17bafe534fea2d408c92a3a01efb699250a78
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: afebb6a67b4c8a33e812c0e51ff225f16cd35356
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974428"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461472"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>전용 SQL 풀로 데이터 수집
 
@@ -24,7 +24,7 @@ ms.locfileid: "95974428"
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure storage 계정**: Azure Data Lake Storage Gen 2를 *원본* 데이터 저장소로 사용 합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)에서 만들기 단계를 참조하세요.
-* **Azure Synapse Analytics**: 전용 SQL 풀을 *싱크* 데이터 저장소로 사용 합니다. Azure Synapse Analytics 인스턴스가 없는 경우 새로 만드는 단계는 [전용 SQL 풀 만들기](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 를 참조 하세요.
+* **Azure Synapse Analytics**: 전용 SQL 풀을 *싱크* 데이터 저장소로 사용 합니다. Azure Synapse Analytics 인스턴스가 없는 경우 새로 만드는 단계는 [전용 SQL 풀 만들기](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 
@@ -68,9 +68,9 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
 1. 도구 모음에서 **트리거 추가** 를 선택한 다음, **지금 트리거** 를 선택합니다. **파이프라인 실행** 페이지에서 **마침** 을 선택합니다.  
 1. 왼쪽 사이드바에 있는 **모니터** 탭으로 이동합니다. 수동 트리거로 트리거되는 파이프라인 실행이 표시됩니다. **작업** 열의 링크를 사용하여 활동 세부 정보를 보고 파이프라인을 다시 실행할 수 있습니다.
 1. 파이프라인 실행과 연결된 활동 실행을 확인하려면 **작업** 열에서 **활동 실행 보기** 링크를 선택합니다. 이 예제에서는 활동이 하나뿐이므로 목록에 하나의 항목만 표시됩니다. 복사 활동에 대한 자세한 내용은 **작업** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 위쪽의 **파이프라인 실행** 을 선택하여 파이프라인 실행 보기로 돌아갑니다. 보기를 새로 고치려면 **새로 고침** 을 선택합니다.
-1. 데이터가 전용 SQL 풀에 올바르게 작성 되었는지 확인 합니다.
+1. 데이터가 전용 SQL 풀에 올바르게 작성되었는지 확인합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Synapse Analytics의 데이터 통합에 대 한 자세한 내용은 [수집 data into Azure Data Lake Storage Gen2 ](data-integration-data-lake.md) 문서를 참조 하세요.
+Azure Synapse Analytics의 데이터 통합에 대 한 자세한 내용은 [수집 data into Azure Data Lake Storage Gen2 ](data-integration-data-lake.md) 문서를 참조 하세요.

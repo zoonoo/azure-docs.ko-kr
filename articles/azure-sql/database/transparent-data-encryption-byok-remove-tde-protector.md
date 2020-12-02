@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: a879ac81859c855bb7b7bc2eddb1e3c9b62adb34
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 31298be4d50c7f562e2e2b9adbf889b165b197e5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321403"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461856"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell을 사용하여 TDE(Transparent Data Encryption) 보호기 제거
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -35,13 +35,13 @@ Key Vault에서 TDE 보호기를 삭제 한 후에는 최대 10 분 내에 모�
 이 방법 가이드는 손상 된 인시던트 응답 후 원하는 결과에 따라 두 가지 방법으로 이동 합니다.
 
 - Azure SQL Database/Azure Synapse Analytics의 데이터베이스에 **액세스할 수** 없게 합니다.
-- Azure SQL Database/Azure Azure Synapse Analytics (이전의 SQL Data Warehouse)의 데이터베이스에 **액세스할** 수 없도록 설정 합니다.
+- Azure SQL Database/Azure Azure Synapse Analytics의 데이터베이스에 **액세스할 수** 없도록 설정 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 구독 및 해당 구독에 대한 관리자 권한이 있어야 합니다.
 - Azure PowerShell 설치 되 고 실행 중 이어야 합니다.
-- 이 방법 가이드에서는 이미 Azure Key Vault의 키를 Azure SQL Database 또는 Azure Synapse (이전의 SQL Data Warehouse)의 TDE 보호기로 사용 한다고 가정 합니다. 자세한 내용은 [BYOK 지원을 통한 투명한 데이터 암호화](transparent-data-encryption-byok-overview.md)를 참조하세요.
+- 이 방법 가이드에서는 Azure Key Vault의 키를 Azure SQL Database 또는 Azure Synapse의 TDE 보호기로 이미 사용 한다고 가정 합니다. 자세한 내용은 [BYOK 지원을 통한 투명한 데이터 암호화](transparent-data-encryption-byok-overview.md)를 참조하세요.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

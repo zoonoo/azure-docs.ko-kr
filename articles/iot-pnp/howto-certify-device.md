@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 7aa84336a3d71349c127ad15a90af98ffe2133fe
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 1b17729437b238b98f60e2cd97664fa6aafcccd4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980238"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462464"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>IoT 플러그 앤 플레이 디바이스를 인증하는 방법
 
@@ -42,9 +42,9 @@ IoT 플러그 앤 플레이에서 실행 되는 응용 프로그램 코드는 �
 - IoT 플러그 앤 플레이 규칙에 따라 원격 분석, 속성 또는 명령을 구현 합니다.
 - [Dtdl v2](https://aka.ms/dtdl) 모델과의 장치 상호 작용에 대해 설명 합니다.
 - [Azure IoT 공용 모델 리포지토리에](https://devicemodels.azureiotsolutions.com/) 모델 및 모든 필수 인터페이스를 게시 합니다.
-- Dps 프로 비전 페이로드의 [dps 등록](concepts-developer-guide-device-csharp.md#dps-payload) 중에 모델 ID를 보냅니다.
-- [Mqtt 연결](concepts-developer-guide-device-csharp.md#model-id-announcement)중에 모델 ID를 알립니다.
-- 모든 장치 모델은 [Azure IoT Central](https://aka.ms/pnp-iotc-getstarted)와 호환 되어야 합니다.
+- Dps 프로 비전 페이로드의 [dps 등록](./concepts-developer-guide-device.md#dps-payload) 중에 모델 ID를 보냅니다.
+- [Mqtt 연결](./concepts-developer-guide-device.md#model-id-announcement)중에 모델 ID를 알립니다.
+- 모든 장치 모델은 [Azure IoT Central](../iot-central/core/overview-iot-central-developer.md)와 호환 되어야 합니다.
 
 > [!NOTE]
 > 현재 Azure IoT Central는 **배열** 및 **지리 공간적** dtdl 데이터 형식을 완전히 지원 하지 않습니다.

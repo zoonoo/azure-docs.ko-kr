@@ -62,7 +62,7 @@
   items:
     - name: 원격 모니터링
       items:
-        - name: Architecture
+        - name: 아키텍처
           href: iot-accelerators-remote-monitoring-architectural-choices.md
         - name: 디바이스 모델 스키마
           href: iot-accelerators-remote-monitoring-device-schema.md
@@ -255,7 +255,7 @@
       href: /azure/architecture/reference-architectures/iot
       items:
         - name: 다운로드
-          href: 'https://aka.ms/iotrefarchitecture'
+          href: /azure/architecture/reference-architectures/iot
         - name: 파트너 구현
           items:
             - name: Intel 연결 물류 플랫폼

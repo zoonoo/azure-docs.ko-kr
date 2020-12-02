@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 766da55f2589e2a8eb09e0f1b1c9a0a5027c8c3c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1e263886d0cc199bb30fd28877be32209ab32a22
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002768"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462388"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Windows Data Science Virtual Machine를 사용 하는 데이터 과학
 
@@ -40,7 +40,7 @@ DSVM은 Azure 서비스와 긴밀 하 게 연동 됩니다. Azure Synapse (이�
 > 
 > 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독이 필요합니다. [무료 평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 * Azure Portal에서 Data Science Virtual Machine를 프로 비전 하는 방법에 대 한 지침은 [가상 컴퓨터를 만들](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)때 제공 됩니다.
@@ -156,7 +156,7 @@ Git을 사용 하 여 github.com에서 사용할 수 있는 리소스에서 GitH
 ### <a name="azure-blob-storage"></a>Azure Blob 스토리지
 Azure Blob storage는 크고 작은 데이터를 위한 안정적이 고 경제적인 클라우드 저장소 서비스입니다. 이 섹션에서는 Blob 저장소로 데이터를 이동 하 고 Azure blob에 저장 된 데이터에 액세스 하는 방법을 설명 합니다.
 
-#### <a name="prerequisites"></a>필수 조건
+#### <a name="prerequisites"></a>전제 조건
 
 * [Azure Portal](https://portal.azure.com)에서 Azure Blob storage 계정을 만듭니다.
 
@@ -252,8 +252,8 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 ![데이터의 처음 10개 행의 스크린샷](./media/vm-do-ten-things/IPNB_data_readin.png)
 
 
-### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure Synapse Analytics (이전의 SQL DW) 및 데이터베이스
-Azure Synapse Analytics (이전의 SQL DW)는 엔터프라이즈급 SQL Server 환경을 갖춘 탄력적 데이터 웨어하우스 서비스로 서,
+### <a name="azure-synapse-analytics-and-databases"></a>Azure Synapse Analytics 및 데이터베이스
+Azure Synapse Analytics는 엔터프라이즈급 SQL Server 환경을 갖춘 탄력적 데이터 웨어하우스 서비스로 서,
 
 [이 문서의](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)지침에 따라 Azure Synapse Analytics를 프로 비전 할 수 있습니다. Azure Synapse Analytics를 프로 비전 한 후 [이 연습](../team-data-science-process/sqldw-walkthrough.md) 을 사용 하 여 Azure Synapse analytics 내에서 데이터를 사용 하 여 데이터 업로드, 탐색 및 모델링을 수행할 수 있습니다.
 

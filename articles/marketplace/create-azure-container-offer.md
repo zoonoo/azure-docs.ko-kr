@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 76211e2aaf27fd28500bb539c94fa409b239e785
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: bcb334074d842fa5c35e4619f1c5d654405388a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759008"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459565"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Azure Marketplace에서 Azure Container 제품 만들기
 
@@ -291,7 +291,7 @@ Azure 구독 ID GUID와 각각에 대한 선택적 설명과 함께 미리 보�
 
 Azure Container 제품에 대 한 모든 계획은 **Azure Global** 에서 자동으로 사용할 수 있습니다.  요금제는 상업적 marketplace를 사용 하는 모든 글로벌 Azure 지역의 고객이 사용할 수 있습니다. 자세한 내용은 [지리적 가용성 및 통화 지원](marketplace-geo-availability-currencies.md)을 참조하세요.
 
-[Azure Government](/azure/azure-government/documentation-government-welcome.md) 옵션을 선택 하 여 솔루션을 여기에 표시 합니다. 이는 미국 연방, 주, 지방 또는 부족 정부 기관과 여기서 일할 자격이 있는 파트너의 고객에 대한 액세스를 제어하는 정부 커뮤니티 클라우드입니다. 게시자는 이 클라우드 커뮤니티에 대한 모든 규정 준수 제어, 보안 조치 및 모범 사례를 담당해야 합니다. Azure Government는 물리적으로 격리되어 미국에만 있는 데이터 센터와 네트워크를 사용합니다. 결과와 다를 수 있으므로 Azure Government에 [게시](/azure/azure-government/documentation-government-manage-marketplace-partners.md)하기 전에 해당 영역 내에서 솔루션을 테스트하고 확인합니다. 솔루션을 만들고 테스트하려면 [Microsoft Azure Government 평가판](https://azure.microsoft.com/global-infrastructure/government/request/)에서 평가판 계정을 요청합니다.
+[Azure Government](../azure-government/documentation-government-welcome.md) 옵션을 선택 하 여 솔루션을 여기에 표시 합니다. 이는 미국 연방, 주, 지방 또는 부족 정부 기관과 여기서 일할 자격이 있는 파트너의 고객에 대한 액세스를 제어하는 정부 커뮤니티 클라우드입니다. 게시자는 이 클라우드 커뮤니티에 대한 모든 규정 준수 제어, 보안 조치 및 모범 사례를 담당해야 합니다. Azure Government는 물리적으로 격리되어 미국에만 있는 데이터 센터와 네트워크를 사용합니다. 결과와 다를 수 있으므로 Azure Government에 [게시](../azure-government/documentation-government-manage-marketplace-partners.md)하기 전에 해당 영역 내에서 솔루션을 테스트하고 확인합니다. 솔루션을 만들고 테스트하려면 [Microsoft Azure Government 평가판](https://azure.microsoft.com/global-infrastructure/government/request/)에서 평가판 계정을 요청합니다.
 
 > [!NOTE]
 > 계획을 게시 하 고 특정 지역에서 사용할 수 있게 되 면 해당 지역을 제거할 수 없습니다.
@@ -357,11 +357,11 @@ Azure Portal에 대한 플랜 세부 정보는 다음과 같습니다.
 
 **Azure 구독 ID** – 구독 ID를 제공하여 사용량이 보고되고 컨테이너 이미지를 포함하는 Azure Container Registry에 대한 서비스 요금이 청구될 수 있도록 합니다. 이 ID는 Azure Portal의 [구독 페이지](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 찾을 수 있습니다.
 
-**Azure 리소스 그룹 이름** – 컨테이너 이미지로 Azure Container Registry를 포함하는 [리소스 그룹](/azure/azure-resource-manager/management/manage-resource-groups-portal.md) 이름을 제공합니다. 리소스 그룹은 위의 구독 ID에서 액세스할 수 있어야 합니다. Azure Portal의 [리소스 그룹](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) 페이지에서 이름을 찾을 수 있습니다.
+**Azure 리소스 그룹 이름** – 컨테이너 이미지로 Azure Container Registry를 포함하는 [리소스 그룹](../azure-resource-manager/management/manage-resource-groups-portal.md) 이름을 제공합니다. 리소스 그룹은 위의 구독 ID에서 액세스할 수 있어야 합니다. Azure Portal의 [리소스 그룹](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) 페이지에서 이름을 찾을 수 있습니다.
 
-**Azure Container Registry 이름** – 컨테이너 이미지를 포함하는 [Azure Container Registry](/azure/container-registry/container-registry-intro.md)의 이름을 제공합니다. 컨테이너 레지스트리는 앞에서 제공한 Azure 리소스 그룹에 있어야 합니다. 전체 로그인 서버 이름이 아닌 레지스트리 이름만 포함합니다. 이름에서 **azurecr.io** 를 생략해야 합니다. Azure Portal의 [컨테이너 레지스트리 페이지](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries)에서 레지스트리 이름을 찾을 수 있습니다.
+**Azure Container Registry 이름** – 컨테이너 이미지를 포함하는 [Azure Container Registry](../container-registry/container-registry-intro.md)의 이름을 제공합니다. 컨테이너 레지스트리는 앞에서 제공한 Azure 리소스 그룹에 있어야 합니다. 전체 로그인 서버 이름이 아닌 레지스트리 이름만 포함합니다. 이름에서 **azurecr.io** 를 생략해야 합니다. Azure Portal의 [컨테이너 레지스트리 페이지](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries)에서 레지스트리 이름을 찾을 수 있습니다.
 
-**Azure Container Registry에 대 한 관리자 사용자 이름** – 컨테이너 이미지가 있는 Azure Container Registry에 연결 된 [관리자 사용자 이름을](/azure/container-registry/container-registry-authentication.md#admin-account)제공 합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. 관리 사용자 이름 및 암호를 가져오려면 Azure CLI(명령줄 인터페이스)를 사용하여 **admin enabled** 속성을 **True** 로 설정합니다. 필요에 따라 Azure Portal에서 **관리 사용자** 를 **사용** 으로 설정할 수 있습니다.
+**Azure Container Registry에 대 한 관리자 사용자 이름** – 컨테이너 이미지가 있는 Azure Container Registry에 연결 된 [관리자 사용자 이름을](../container-registry/container-registry-authentication.md#admin-account)제공 합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. 관리 사용자 이름 및 암호를 가져오려면 Azure CLI(명령줄 인터페이스)를 사용하여 **admin enabled** 속성을 **True** 로 설정합니다. 필요에 따라 Azure Portal에서 **관리 사용자** 를 **사용** 으로 설정할 수 있습니다.
 
  :::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="컨테이너 레지스트리 업데이트 대화 상자를 보여 줍니다.":::
 
@@ -369,7 +369,7 @@ Azure Portal에 대한 플랜 세부 정보는 다음과 같습니다.
 
 :::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="액세스 키 메뉴를 보여 줍니다.":::
 
-**Azure Container Registry 내 리포지토리 이름입니다**. 이미지를 포함하는 Azure Container Registry 리포지토리의 이름을 제공합니다. 레지스트리에 이미지를 푸시할 때 리포지토리의 이름을 포함합니다. [Container Registry](https://azure.microsoft.com/services/container-registry/) > **리포지토리 페이지** 로 이동하여 리포지토리의 이름을 찾을 수 있습니다. 자세한 내용은 [Azure Portal에서 컨테이너 레지스트리 리포지토리 보기](/azure/container-registry/container-registry-repositories.md)를 참조하세요.
+**Azure Container Registry 내 리포지토리 이름입니다**. 이미지를 포함하는 Azure Container Registry 리포지토리의 이름을 제공합니다. 레지스트리에 이미지를 푸시할 때 리포지토리의 이름을 포함합니다. [Container Registry](https://azure.microsoft.com/services/container-registry/) > **리포지토리 페이지** 로 이동하여 리포지토리의 이름을 찾을 수 있습니다. 자세한 내용은 [Azure Portal에서 컨테이너 레지스트리 리포지토리 보기](../container-registry/container-registry-repositories.md)를 참조하세요.
 
 > [!NOTE]
 > 이름이 설정되면 변경할 수 없습니다. 계정의 각 제품마다 고유한 이름을 사용합니다.

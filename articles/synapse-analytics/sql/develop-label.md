@@ -11,19 +11,19 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 0b2c03c5c7ea8c65cb1cde3cbdb73b6bb838dc06
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 59fa68d12f1d8be598810399fc5623c2af983979
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324464"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462253"
 ---
 # <a name="use-query-labels-in-synapse-sql"></a>Synapse SQL에서 쿼리 레이블 사용
 
 이 문서에는 Synapse SQL에서 쿼리 레이블을 사용 하기 위한 필수 팁이 포함 되어 있습니다.
 
 > [!NOTE]
-> 서버를 사용 하지 않는 SQL 풀 (미리 보기)은 labelling 쿼리를 지원 하지 않습니다.
+> 서버를 사용 하지 않는 SQL 풀은 labelling 쿼리를 지원 하지 않습니다.
 
 ## <a name="what-are-query-labels"></a>쿼리 레이블 이란?
 

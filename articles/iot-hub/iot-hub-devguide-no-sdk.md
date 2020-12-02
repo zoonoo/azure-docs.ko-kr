@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 3968f19329536169c3fb3eb1fbbaff99e99c293d
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ae8b01522a248b8b1dbdd255a9fcd55f16cf2369
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079651"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461700"
 ---
 # <a name="develop-without-using-an-azure-iot-hub-sdk"></a>Azure IoT Hub SDK를 사용 하지 않고 개발
 
@@ -44,11 +44,11 @@ Microsoft는 Azure IoT SDK를 사용 하 여 강력한 조언를 합니다. Azur
 
 Azure IoT SDK 없이 다음 프로토콜을 사용 하는 데 도움이 필요 합니다.
 
-* **Amqp**의 장치 또는 백 엔드 앱은 [amqp 지원](iot-hub-amqp-support.md)을 참조 하세요.
+* **Amqp** 의 장치 또는 백 엔드 앱은 [amqp 지원](iot-hub-amqp-support.md)을 참조 하세요.
 
-* **Mqtt**의 장치 앱에 대해서는 [mqtt 지원](iot-hub-mqtt-support.md)을 참조 하세요. 이 항목의 대부분은 MQTT 프로토콜을 직접 사용 하는 것을 처리 합니다. [IOT MQTT 샘플 리포지토리](https://github.com/Azure-Samples/IoTMQTTSample)를 사용 하는 방법에 대 한 정보도 포함 됩니다. 이 리포지토리에는 Eclipse Mosquitto 라이브러리를 사용 하 여 IoT Hub로 메시지를 보내는 C 샘플이 포함 되어 있습니다.
+* **Mqtt** 의 장치 앱에 대해서는 [mqtt 지원](iot-hub-mqtt-support.md)을 참조 하세요. 이 항목의 대부분은 MQTT 프로토콜을 직접 사용 하는 것을 처리 합니다. [IOT MQTT 샘플 리포지토리](https://github.com/Azure-Samples/IoTMQTTSample)를 사용 하는 방법에 대 한 정보도 포함 됩니다. 이 리포지토리에는 Eclipse Mosquitto 라이브러리를 사용 하 여 IoT Hub로 메시지를 보내는 C 샘플이 포함 되어 있습니다.
 
-* **HTTPS**의 장치 또는 백 엔드 앱 [Azure IoT Hub REST api](https://docs.microsoft.com/rest/api/iothub/)를 참조 하세요. [개발 필수 구성 요소](#development-prerequisites)에서 설명한 대로 HTTPS로 x.509 CA (인증 기관) 인증을 사용할 수 없습니다.
+* **HTTPS** 의 장치 또는 백 엔드 앱 [Azure IoT Hub REST api](/rest/api/iothub/)를 참조 하세요. [개발 필수 구성 요소](#development-prerequisites)에서 설명한 대로 HTTPS로 x.509 CA (인증 기관) 인증을 사용할 수 없습니다.
 
 장치의 경우 장치에서 지 원하는 경우 MQTT를 사용 하는 것이 좋습니다.
 

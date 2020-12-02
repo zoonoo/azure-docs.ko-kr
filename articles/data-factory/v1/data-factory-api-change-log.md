@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
-ms.openlocfilehash: 24e468007e0e5ea849ac4d7f945b0aaf6377e580
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b7f0a352afeb4a2e58d97bd5278115673f6b6df6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633810"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461688"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure 데이터 팩터리 - .NET API 변경 로그
 > [!NOTE]
@@ -75,10 +75,10 @@ ms.locfileid: "92633810"
 ### <a name="feature-additions"></a>기능 추가 사항
 * 파일을 ORC(Optimized Row Columnar) 형식으로 복사하기 위해 새 StorageFormat 형식 [OrcFormat](/dotnet/api/microsoft.azure.management.datafactories.models.orcformat) 형식이 추가되었습니다.
 * [AllowPolyBase](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsink) 및 PolyBaseSettings 속성을 SqlDWSink에 추가합니다.
-  * PolyBase를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 데이터를 복사할 수 있도록 합니다.
+  * PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 복사할 수 있도록 합니다.
 
 ## <a name="version-461"></a>버전 4.6.1
-### <a name="bug-fixes"></a>버그 수정
+### <a name="bug-fixes"></a>버그 픽스
 * 작업 창을 나열하기 위한 HTTP 요청을 해결합니다.
   * 요청 페이로드에서 리소스 그룹 이름 및 데이터 팩터리 이름을 제거합니다.
 

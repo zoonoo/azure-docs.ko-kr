@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 09/29/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a543f03cb73d9eae8eaa81eeb3a37fd59e4e6a81
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 9ae13b88d767e43c425ceb86d0be455cebc0e6ac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685803"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462531"
 ---
 # <a name="common-error-codes-for-azure-key-vault"></a>Azure Key Vault에 대 한 일반적인 오류 코드
 
@@ -22,7 +22,7 @@ ms.locfileid: "94685803"
 
 | 오류 코드 | 사용자 메시지 |
 |--|--|
-| VaultAlreadyExists |  이름이 이미 사용 중 이므로 지정 된 이름을 사용 하 여 새 key vault를 만들려고 했습니다. 이 이름을 사용 하 여 키 자격 증명 모음을 최근에 삭제 한 경우에도 일시 삭제 된 상태에 있을 수 있습니다. [여기](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault) 에서 일시 삭제 된 상태로 존재 하지 않는 여부를 확인할 수 있습니다. |
+| VaultAlreadyExists |  이름이 이미 사용 중 이므로 지정 된 이름을 사용 하 여 새 key vault를 만들려고 했습니다. 이 이름을 사용 하 여 키 자격 증명 모음을 최근에 삭제 한 경우에도 일시 삭제 된 상태에 있을 수 있습니다. [여기](./key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault) 에서 일시 삭제 된 상태로 존재 하지 않는 여부를 확인할 수 있습니다. |
 | VaultNameNotValid |  자격 증명 모음 이름은 24 자, 영숫자 및 영문자로 시작 해야 합니다. |
 | AccessDenied |  액세스 정책에서이 작업을 수행 하는 데 필요한 권한이 없을 수 있습니다. |
 | ForbiddenByFirewall |  클라이언트 주소는 권한이 없고 호출자는 신뢰할 수 있는 서비스가 아닙니다. |

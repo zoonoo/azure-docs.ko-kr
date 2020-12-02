@@ -1,6 +1,6 @@
 ---
-title: 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Parquet 중첩 형식 쿼리 (미리 보기)
-description: 이 문서에서는 서버를 사용 하지 않는 SQL 풀 (미리 보기)을 사용 하 여 Parquet 중첩 형식을 쿼리 하는 방법에 대해 알아봅니다.
+title: 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Parquet 중첩 형식 쿼리
+description: 이 문서에서는 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Parquet 중첩 형식을 쿼리 하는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 426c95638422fa4260508aa81bb47a7c9565e6eb
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 91f612ba7f19deb739dbb6004e275ea044a5a3d3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685718"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462561"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀 (미리 보기)을 사용 하 여 Parquet 및 JSON 파일의 중첩 형식 쿼리
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Parquet 및 JSON 파일의 중첩 형식 쿼리
 
-이 문서에서는 Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀 (미리 보기)를 사용 하 여 쿼리를 작성 하는 방법을 알아봅니다. 이 쿼리는 Parquet 중첩 형식을 읽습니다.
+이 문서에서는 Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 쿼리를 작성 하는 방법을 알아봅니다. 이 쿼리는 Parquet 중첩 형식을 읽습니다.
 중첩 형식은 개체 또는 배열을 나타내는 복잡 한 구조입니다. 중첩 형식은 다음 위치에 저장할 수 있습니다. 
 - [Parquet](query-parquet-files.md)-배열 및 개체를 포함 하는 여러 개의 복합 열을 사용할 수 있습니다.
 - 계층적 [json 파일](query-json-files.md)은 단일 열로 복잡 한 json 문서를 읽을 수 있습니다.
@@ -47,7 +47,7 @@ FROM
 > [!IMPORTANT]
 > 이 예에서는 COVID-19 Open Research 데이터 집합의 파일을 사용 합니다. [여기에서 데이터의 라이선스 및 구조를 참조](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/)하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 첫 번째 단계는 데이터 원본이 생성 될 데이터베이스를 만드는 것입니다. 그런 다음 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) 를 실행 하 여 개체를 초기화 합니다. 설치 스크립트는 데이터 원본, 데이터베이스 범위 자격 증명 및 샘플에서 사용 되는 외부 파일 형식을 만듭니다.
 

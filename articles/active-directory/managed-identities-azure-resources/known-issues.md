@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/06/2020
+ms.date: 12/01/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref, devx-track-azurecli
-ms.openlocfilehash: c41ec06b1f985296377d27dcbe72b5f41224809b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d7debce83928e21072c981b007e8048bfc4c594
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835410"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460942"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 관련 FAQ 및 알려진 문제
 
@@ -74,7 +74,7 @@ ID의 보안 경계는 연결되는 리소스입니다. 예를 들어, Azure 리
 
 아니요. 구독을 다른 디렉터리로 이동 하는 경우 수동으로 다시 만들고 Azure 역할 할당을 다시 부여 해야 합니다.
 - 시스템에서 할당된 관리 ID: 비활성화하거나 재활성화합니다. 
-- 사용자가 할당한 관리 ID: 삭제한 후 다시 생성하여 필요한 리소스(예: 가상 머신)에 다시 연결합니다.
+- 사용자 할당 관리 id의 경우: 삭제 하 고 다시 만든 다음 필요한 리소스 (예: 가상 머신)에 다시 연결 합니다.
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>관리 ID를 사용하여 다른 디렉터리/테넌트의 리소스에 액세스할 수 있나요?
 
@@ -85,6 +85,46 @@ ID의 보안 경계는 연결되는 리소스입니다. 예를 들어, Azure 리
 - 시스템이 할당한 관리형 ID: 리소스에 대한 쓰기 권한이 필요합니다. 예를 들어 가상 머신의 경우 Microsoft.Compute/virtualMachines/write가 필요합니다. 이 작업은 [Virtual Machine 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)와 같은 리소스별 기본 제공 역할에 포함됩니다.
 - 사용자가 할당한 관리형 ID: 리소스에 대한 쓰기 권한이 필요합니다. 예를 들어 가상 머신의 경우 Microsoft.Compute/virtualMachines/write가 필요합니다. 관리 ID에 대한 [관리 ID 운영자](../../role-based-access-control/built-in-roles.md#managed-identity-operator) 역할 할당도 필요합니다.
 
+### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>사용자 할당 관리 id 생성을 방지 하는 어떻게 할까요?
+
+사용자가 [Azure Policy](../../governance/policy/overview.md) 를 사용 하 여 사용자 할당 관리 id를 만들지 못하게 할 수 있습니다.
+
+- [Azure Portal](https://portal.azure.com) 로 이동 하 고 **정책** 으로 이동 합니다.
+- **정의** 선택
+- **+ 정책 정의** 를 선택 하 고 필요한 정보를 입력 합니다.
+- 정책 규칙 섹션에서 붙여넣기
+
+```json
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "field": "type",
+      "equals": "Microsoft.ManagedIdentity/userAssignedIdentities"
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}
+
+```
+
+정책을 만든 후 사용 하려는 리소스 그룹에 할당 합니다.
+
+- 리소스 그룹으로 이동 합니다.
+- 테스트에 사용 하는 리소스 그룹을 찾습니다.
+- 왼쪽 메뉴에서 **정책** 을 선택 합니다.
+- **정책 할당** 선택
+- **기본 사항** 섹션에서 다음을 제공 합니다.
+    - **범위** 테스트에 사용 하는 리소스 그룹
+    - **정책 정의**: 이전에 만든 정책입니다.
+- 다른 모든 설정은 기본값으로 유지 하 고 **검토 + 만들기** 를 선택 합니다.
+
+이 시점에서 리소스 그룹에 사용자 할당 관리 id를 만들려고 하면 실패 합니다.
+
+  ![정책 위반](./media/known-issues/policy-violation.png)
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -127,7 +167,7 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 다른 디렉터리로 이동한 구독의 관리 ID에 대한 해결 방법:
 
  - 시스템에서 할당된 관리 ID: 비활성화하거나 재활성화합니다. 
- - 사용자가 할당한 관리 ID: 삭제한 후 다시 생성하여 필요한 리소스(예: 가상 머신)에 다시 연결합니다.
+ - 사용자 할당 관리 id의 경우: 삭제 하 고 다시 만든 다음 필요한 리소스 (예: 가상 머신)에 다시 연결 합니다.
 
 자세한 내용은 [다른 Azure AD 디렉터리로 Azure 구독 양도](../../role-based-access-control/transfer-subscription.md)를 참조하세요.
 

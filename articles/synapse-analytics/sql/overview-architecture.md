@@ -10,18 +10,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 22cbd0b4ce512df70d13d89c5f2539420dac2b85
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: da6c9f6df0e9e74de297cf6c8f655b62e3446bad
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307015"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462709"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Azure Synapse SQL 아키텍처 
 
 이 문서에서는 Synapse SQL의 아키텍처 구성 요소에 대해 설명합니다.
-
-[!INCLUDE [preview](../includes/note-preview.md)]
 
 ## <a name="synapse-sql-architecture-components"></a>Synapse SQL 아키텍처 구성 요소
 

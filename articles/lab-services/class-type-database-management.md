@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: bed43e586beff890f0aa8947140ae7d8e50439f3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 32079d6dc31cf3fcad66976737630472129b4271
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659831"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462427"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>관계형 데이터베이스에 대 한 데이터베이스 관리를 학습 하는 랩 설정
 
@@ -20,7 +20,7 @@ ms.locfileid: "94659831"
 
 ## <a name="lab-configuration"></a>랩 구성
 
-이 랩을 설정 하려면 시작 하려면 Azure 구독 및 랩 계정이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독을 받은 후 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정을 만드는 방법에 대 한 자세한 내용은 자습서를 참조 [하 여 랩 계정 설정](tutorial-setup-lab-account.md)을 참조 하세요.  기존 랩 계정을 사용할 수도 있습니다.
+이 랩을 설정 하려면 시작 하려면 Azure 구독 및 랩 계정이 필요 합니다. Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만드세요. Azure 구독을 받은 후 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정을 만드는 방법에 대 한 자세한 내용은 자습서를 참조 [하 여 랩 계정 설정](tutorial-setup-lab-account.md)을 참조 하세요.  기존 랩 계정을 사용할 수도 있습니다.
 
 ### <a name="lab-account-settings"></a>랩 계정 설정
 
@@ -41,7 +41,7 @@ ms.locfileid: "94659831"
 
 ## <a name="template-machine-configuration"></a>템플릿 컴퓨터 구성
 
-Windows Server 2019에 MySQL을 설치 하려면 [가상 머신에서 Mysql 커뮤니티 서버 설치 및 실행](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine)에 설명 된 단계를 수행 하면 됩니다.
+Windows Server 2019에 MySQL을 설치 하려면 [가상 머신에서 Mysql 커뮤니티 서버 설치 및 실행](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine)에 설명 된 단계를 수행 하면 됩니다.
 
 SQL Server 2019는 새 랩을 만들 때 선택한 가상 머신 이미지에 사전 설치 되어 있습니다.
 

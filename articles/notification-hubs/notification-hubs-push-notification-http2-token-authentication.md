@@ -16,12 +16,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8258aeef33be9192608f0d4cb29b46f08da64e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f8de6389a04448579672b84e91f0bb4dd0f4ce2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010633"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460468"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>APNS에 대 한 토큰 기반 (HTTP/2) 인증
 
@@ -52,7 +52,7 @@ APNS에 대 한 인증서 자격 증명을 사용 하 여 마이그레이션한 
 
 ### <a name="key-identifier"></a>키 식별자
 
-키 식별자는 Apple 개발자 계정의 **인증서, 식별자 & 프로필**아래에 있는 **키** 페이지에서 가져올 수 있습니다.
+키 식별자는 Apple 개발자 계정의 **인증서, 식별자 & 프로필** 아래에 있는 **키** 페이지에서 가져올 수 있습니다.
 
 ![인증서](./media/notification-hubs-push-notification-http2-token-authentification/keys.png)
 
@@ -78,7 +78,7 @@ APNS에 대 한 인증서 자격 증명을 사용 하 여 마이그레이션한 
 
 * **키 ID**: Apple 개발자 포털에서 생성 된 개인 키의 식별자입니다. 예를 들면 `2USFGKSKLT` 입니다.
 * **팀 ID**: "접두사" 또는 "앱 접두사" 라고도 합니다. Apple 개발자 포털의 조직에 대 한 식별자입니다. 예를 들면 `S4V3D7CHJR` 입니다.
-* **번들 id**: "앱 id" 라고도 합니다. 응용 프로그램에 대 한 번들 식별자입니다. 예를 들면 `com.example.myapp` 입니다. 많은 앱에 하나의 키를 사용할 수 있습니다. 이 값 `apns-topic` 은 알림을 보낼 때 HTTP 헤더에 매핑되고 특정 응용 프로그램을 대상으로 지정 하는 데 사용 됩니다. 값은 명시적으로 설정할 수 없습니다 `apns-topic` .
+* **번들 id**: "앱 id" 라고도 합니다. 응용 프로그램에 대 한 번들 식별자입니다. 예를 들면 `com.example.myapp` 입니다. 한 앱에 하나의 키만 사용할 수 있습니다. 이 값 `apns-topic` 은 알림을 보낼 때 HTTP 헤더에 매핑되고 특정 응용 프로그램을 대상으로 지정 하는 데 사용 됩니다. 값은 명시적으로 설정할 수 없습니다 `apns-topic` .
 * **Token**: "키" 또는 "개인 키" 라고도 합니다. 이는 Apple 개발자 포털에서 생성 된 p8 파일에서 가져옵니다. 키에 APNS를 사용 하도록 설정 되어 있어야 합니다 (키를 생성할 때 Apple 개발자 포털에서 선택 됨). NH 포털/API에 값을 제공 하는 경우 값은 PEM 헤더/바닥글을 제거 해야 합니다.
 * **끝점**: Notification Hubs 포털 블레이드의 토글 이며 API의 문자열 필드입니다. 유효한 값은 `https://api.development.push.apple.com:443/3/device` 또는 `https://api.sandbox.push.apple.com:443/3/device`입니다. Notification Hubs는 프로덕션 또는 샌드박스 환경에 대해이 값을 사용 하 여 알림을 보냅니다. 이는 앱의 자격과 일치 해야 합니다 `aps-environment` . 그렇지 않으면 생성 된 APNS 장치 토큰이 환경과 일치 하지 않고 알림이 전송 되지 않습니다.
 

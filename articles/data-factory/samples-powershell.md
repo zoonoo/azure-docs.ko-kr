@@ -10,12 +10,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 6df400e7ce4b66a1589a0c44089148b33ab88638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20ee36989acbc36f86478d8205dd61097362eea3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439064"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461541"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Azure Data Factory에 대한 Azure PowerShell 샘플
 
@@ -28,7 +28,7 @@ ms.locfileid: "89439064"
 |**데이터 복사**||
 |[Azure Blob Storage의 폴더에서 다른 폴더로 Blob 복사](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure Blob Storage의 폴더에서 동일한 Blob Storage에 있는 다른 폴더로 Blob을 복사합니다. |
 |[SQL Server에서 Azure Blob Storage로 데이터 복사](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 SQL Server 데이터베이스에서 Azure blob 저장소로 데이터를 복사 합니다. |
-|[대량 복사](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 샘플 PowerShell 스크립트는 Azure SQL Database의 데이터베이스에 있는 여러 테이블의 데이터를 Azure Synapse Analytics (이전의 SQL Data Warehouse)로 복사 합니다. |
+|[대량 복사](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 샘플 PowerShell 스크립트는 Azure SQL Database의 데이터베이스에 있는 여러 테이블의 데이터를 Azure Synapse Analytics로 복사 합니다. |
 |[증분 복사](scripts/incremental-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 샘플 PowerShell 스크립트는 원본에서 싱크로 데이터를 초기 전체 복사한 후에 원본 데이터 저장소에서 싱크 데이터 저장소로 새롭거나 업데이트된 레코드만을 로드합니다. |
 |**데이터 변환**||
 |[Spark 클러스터를 사용하여 데이터 변환](scripts/transform-data-spark-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Spark 클러스터에서 프로그램을 실행하여 데이터를 변환합니다. |

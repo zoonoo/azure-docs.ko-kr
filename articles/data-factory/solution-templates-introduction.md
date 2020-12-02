@@ -11,12 +11,12 @@ author: djpmsft
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
-ms.openlocfilehash: 515de0fed987f412adb060a3ba58978f0400ae0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2725d498b6fded56ad28235b051b1e8f4fbadadb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441955"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461206"
 ---
 # <a name="templates"></a>템플릿
 
@@ -28,7 +28,7 @@ ms.locfileid: "89441955"
 
 다음 두 가지 방법으로 템플릿에서 Data Factory 파이프라인 생성을 시작할 수 있습니다.
 
-1.  개요 페이지에서, **템플릿에서 파이프라인 만들기**를 선택하여 템플릿 갤러리를 엽니다.
+1.  개요 페이지에서, **템플릿에서 파이프라인 만들기** 를 선택하여 템플릿 갤러리를 엽니다.
 
     ![개요 페이지에서 템플릿 갤러리 열기](media/solution-templates-introduction/templates-intro-image1.png)
 
@@ -68,9 +68,9 @@ Data Factory는 데이터 팩터리 파이프라인 템플릿을 저장하기 �
 
         -   온-프레미스 SQL Server에서 Azure SQL Database로 복사
 
-        -   SQL Server 온-프레미스에서 Azure Synapse Analytics로 (이전의 SQL Data Warehouse)
+        -   SQL Server 온-프레미스에서 Azure Synapse Analytics로
 
-        -   Oracle 온-프레미스에서 Azure Synapse Analytics로 (이전에 SQL Data Warehouse)
+        -   Oracle 온-프레미스에서 Azure Synapse Analytics로
 
 -   SSIS 템플릿
 
@@ -82,7 +82,7 @@ Data Factory는 데이터 팩터리 파이프라인 템플릿을 저장하기 �
 
 ### <a name="my-templates"></a>내 템플릿
 
-파이프라인 탭에서 **템플릿으로 저장**을 선택하여 파이프라인을 템플릿으로 저장할 수도 있습니다.
+파이프라인 탭에서 **템플릿으로 저장** 을 선택하여 파이프라인을 템플릿으로 저장할 수도 있습니다.
 
 ![파이프라인을 템플릿으로 저장](media/solution-templates-introduction/templates-intro-image4.png)
 

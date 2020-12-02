@@ -12,17 +12,17 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 40572d50f7653539758ff892019e7e65b0ffa6dd
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: b4480f3d28cb89165a6ba3c5b26b10b1aba9765c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324893"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461842"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 및 Azure CLI: Azure Key Vault에서 고객이 관리 하는 키로 투명한 데이터 암호화 사용
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-이 문서에서는 Azure SQL Database 또는 Azure Synapse Analytics (이전의 SQL Data Warehouse)에서 TDE (Azure Key Vault 투명한 데이터 암호화)의 키를 사용 하는 방법을 안내 합니다. Azure Key Vault 통합으로 TDE - BYOK(Bring Your Own Key) 지원에 대해 자세히 알아보려면 [Azure Key Vault에서 고객 관리형 키로 TDE](transparent-data-encryption-byok-overview.md)를 참조하세요.
+이 문서에서는 Azure SQL Database 또는 Azure Synapse Analytics에서 TDE (Azure Key Vault 투명한 데이터 암호화)의 키를 사용 하는 방법을 안내 합니다. Azure Key Vault 통합으로 TDE - BYOK(Bring Your Own Key) 지원에 대해 자세히 알아보려면 [Azure Key Vault에서 고객 관리형 키로 TDE](transparent-data-encryption-byok-overview.md)를 참조하세요.
 
 > [!NOTE] 
 > 이제 Azure SQL은 TDE 보호기로 관리 되는 HSM에 저장 된 RSA 키를 사용 하도록 지원 합니다. 이 기능은 **공개 미리 보기로** 제공 됩니다. Azure Key Vault 관리 되는 HSM은 FIPS 140-2 수준 3의 유효성을 검사 한 Hsm을 사용 하 여 클라우드 응용 프로그램에 대 한 암호화 키를 보호할 수 있도록 하는 완전히 관리 되 고 항상 사용 가능한 단일 테 넌 트 표준 호환 클라우드 서비스입니다. [관리 되는 hsm](../../key-vault/managed-hsm/index.yml)에 대해 자세히 알아보세요.

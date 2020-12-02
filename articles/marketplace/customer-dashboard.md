@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9821cc8905caa9576662a192fc704c53b35af82d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 878fa181ff09d547ef6594a238e9c1d883cc89b7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564874"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460482"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>상용 marketplace 분석의 고객 대시보드
 
@@ -21,7 +21,7 @@ ms.locfileid: "94564874"
 파트너 센터의 고객 대시보드에 액세스 하려면 **상업적 Marketplace** 에서 고객 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 을 선택  >  **Customers** 합니다.
 
 >[!NOTE]
-> 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./partner-center-portal/faq-terminology.md)을 참조 하세요.
+> 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.
 
 ## <a name="customers-dashboard"></a>고객 대시보드
 
@@ -151,7 +151,7 @@ _**표 1: 데이터 용어 사전**_
 | 공급자 이메일 | 공급자 이메일 | Microsoft와 고객 간의 관계와 관련 된 공급자의 전자 메일 주소입니다. 고객이 재판매인을 통한 Enterprise인 경우 재판매인이 됩니다. CSP(클라우드 솔루션 공급자)가 관련된 경우 이는 CSP가 됩니다. |
 | FirstName | 고객 이름 | 고객이 제공한 이름입니다. 이름은 고객의 Azure 구독에 제공 된 이름과 다를 수 있습니다. |
 | LastName | 고객 성 | 고객이 제공한 성입니다. 이름은 고객의 Azure 구독에 제공 된 이름과 다를 수 있습니다. |
-| 메일 | 고객 이메일 | 최종 고객이 입력한 이메일 주소입니다. 전자 메일은 고객의 Azure 구독에 있는 전자 메일 주소와 다를 수 있습니다. |
+| Email | 고객 이메일 | 최종 고객이 입력한 이메일 주소입니다. 전자 메일은 고객의 Azure 구독에 있는 전자 메일 주소와 다를 수 있습니다. |
 | 고객 회사 이름 | 고객 회사 이름 | 고객이 입력한 회사 이름입니다. 이름은 고객의 Azure 구독에서 구/군/시와 다를 수 있습니다. |
 | CustomerCity | 고객 구/군/시 | 고객이 입력한 구/군/시 이름입니다. 도시는 고객의 Azure 구독에서 구/군/시와 다를 수 있습니다. |
 | 고객 우편 번호 | 고객 우편 번호 | 고객이 입력한 우편 번호입니다. 코드는 고객의 Azure 구독에서 제공 되는 우편 번호와 다를 수 있습니다. |
@@ -180,4 +180,4 @@ _**표 1: 데이터 용어 사전**_
 - VM (가상 컴퓨터)은 사용량 및 요금제 청구 메트릭을 제공 합니다. [상용 marketplace 분석의 사용량 대시보드](./usage-dashboard.md)를 참조 하세요.
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](./partner-center-portal/downloads-dashboard.md)를 참조하세요.
 - Azure Marketplace 및 Microsoft AppSource에서 제공 하는 제품에 대 한 고객 피드백의 통합 보기를 보려면 [파트너 센터에서 등급 & 리뷰 분석 대시보드](./partner-center-portal/ratings-reviews.md)를 참조 하세요.
-- 상용 marketplace 분석 및 데이터 용어의 포괄적인 사전에 대 한 질문과 대답은 [상용 marketplace 분석 용어 및 일반적인 질문](./partner-center-portal/faq-terminology.md)을 참조 하세요.
+- 상용 marketplace 분석 및 데이터 용어의 포괄적인 사전에 대 한 질문과 대답은 [상용 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.

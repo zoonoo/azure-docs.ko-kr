@@ -1,34 +1,34 @@
 ---
 title: T-sql 루프 사용
-description: T-sql 루프를 사용 하 여 솔루션을 개발 하 고 Synapse SQL 풀에서 커서를 바꾸는 방법에 대 한 팁입니다.
+description: Azure Synapse Analytics의 전용 SQL 풀에 대해 T-sql 루프를 사용 하 여 솔루션을 개발 하 고 커서를 대체 하는 방법을 설명 합니다.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 25dad01a54b6ffe08656379340f58e0fe70ec666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3477b3095414248afa9fbc7417ab707c94f35546
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213417"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462724"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql-pool"></a>Synapse SQL 풀에서 T-sql 루프 사용
+# <a name="using-t-sql-loops-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀에 대해 T-sql 루프 사용
 
-이 문서에는 T-sql 루프를 사용 하 여 SQL 풀 솔루션을 개발 하 고 커서를 바꾸는 방법에 대 한 팁이 포함 되어 있습니다.
+이 문서에는 T-sql 루프를 사용 하 고 커서를 바꾸는 전용 SQL 풀 솔루션 개발에 대 한 팁이 포함 되어 있습니다.
 
 ## <a name="purpose-of-while-loops"></a>WHILE 루프의 목적
 
-Synapse SQL 풀은 문 블록을 반복 실행 하기 위한 [while](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 루프를 지원 합니다. 이 WHILE 루프는 지정한 조건이 true이거나 코드가 BREAK 키워드를 사용하여 루프를 명시적으로 종료할 때까지 계속됩니다.
+Azure Synapse의 전용 SQL 풀은 문 블록을 반복 실행 하기 위한 [while](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 루프를 지원 합니다. 이 WHILE 루프는 지정한 조건이 true이거나 코드가 BREAK 키워드를 사용하여 루프를 명시적으로 종료할 때까지 계속됩니다.
 
 루프는 SQL 코드에 정의된 커서를 대체하는 데 유용합니다. 다행히 SQL 코드로 작성된 거의 모든 커서는 빠른 정방향 읽기 전용 변형만 존재합니다. 따라서 루프는 커서를 대체 하는 좋은 방법입니다.
 
-## <a name="replacing-cursors-in-synapse-sql-pool"></a>Synapse SQL 풀에서 커서 바꾸기
+## <a name="replacing-cursors-in-dedicated-sql-pool"></a>전용 SQL 풀에서 커서 바꾸기
 
 그러나 처음에는 먼저 "set 기반 작업을 사용 하도록이 커서를 다시 작성할 수 있나요?" 라는 질문을 해야 합니다.
 

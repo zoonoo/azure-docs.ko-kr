@@ -9,14 +9,18 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: eda05cbdf2f5b077fd6cf217a00cc58b1c6eda27
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 439337233e24dfcae2c8c911a9224fd3394d6846
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94986643"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462692"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Azure Synapse Link Preview에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB 데이터 쿼리
+
+> [!IMPORTANT]
+> Azure Cosmos DB에 대 한 Azure Synapse 링크에 대 한 서버 리스 SQL 풀 지원은 현재 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 Microsoft Azure Preview에 대한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
 
 서버 리스 SQL 풀을 사용 하면 트랜잭션 워크 로드의 성능에 영향을 주지 않고 거의 실시간으로 [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 로 설정 된 Azure Cosmos DB 컨테이너의 데이터를 분석할 수 있습니다. [분석 저장소](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 에서 데이터를 쿼리 하는 친숙 한 T-sql 구문과 t-sql 인터페이스를 통한 다양 한 BI (비즈니스 인텔리전스) 및 임시 쿼리 도구에 대 한 통합 연결을 제공 합니다.
 
@@ -345,7 +349,7 @@ GROUP BY geo_id
 
 가능한 오류 및 문제 해결 작업은 다음 표에 나와 있습니다.
 
-| 오류 | 근본 원인 |
+| Error | 근본 원인 |
 | --- | --- |
 | 구문 오류:<br/> -"Openrowset" 근처의 구문이 잘못 되었습니다.<br/> - `...` 은 (는) 인식할 수 없는 대량 OPENROWSET 공급자 옵션입니다.<br/> -근처의 구문이 잘못 되었습니다. `...` | 가능한 근본 원인은 다음과 같습니다.<br/> -첫 번째 매개 변수로 CosmosDB를 사용 하지 않습니다.<br/> -세 번째 매개 변수에서 식별자 대신 문자열 리터럴을 사용 합니다.<br/> -세 번째 매개 변수 (컨테이너 이름)를 지정 하지 않습니다. |
 | CosmosDB 연결 문자열에 오류가 있습니다. | -계정, 데이터베이스 또는 키가 지정 되지 않았습니다. <br/> -인식 되지 않는 연결 문자열에는 몇 가지 옵션이 있습니다.<br/> -세미콜론 ( `;` )은 연결 문자열의 끝에 배치 됩니다. |

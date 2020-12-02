@@ -10,15 +10,15 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 2e76f48466d084d448cceea0490e44041e7d062e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: f61f2932ad9c6342a81ec05df335e9ea4d659fce
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212142"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461979"
 ---
-# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Sqlcmd를 사용 하 여 Synapse SQL 풀에 연결
+# <a name="connect-to-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Sqlcmd를 사용 하 여 Azure Synapse Analytics에서 SQL 풀에 연결
 
 > [!div class="op_single_selector"]
 >
@@ -32,10 +32,10 @@ ms.locfileid: "85212142"
 
 ## <a name="1-connect"></a>1. 연결
 
-[Sqlcmd] [sqlcmd]를 시작 하려면 명령 프롬프트를 열고 SQL 풀 데이터베이스의 연결 문자열 뒤에 **sqlcmd** 를 입력 합니다. 연결 문자열에는 다음 매개 변수가 필요합니다.
+[Sqlcmd] [sqlcmd]를 시작 하려면 명령 프롬프트를 열고 SQL 풀에 대 한 연결 문자열 뒤에 **sqlcmd** 를 입력 합니다. 연결 문자열에는 다음 매개 변수가 필요합니다.
 
 * **서버(-S):** `<`서버 이름`>`.database.windows.net 형식의 서버
-* **데이터베이스 (-d):** 데이터베이스 이름입니다.
+* **데이터베이스 (-d):** SQL 풀 이름입니다.
 * **따옴표 붙은 식별자 사용 (-I):** SQL 풀 인스턴스에 연결 하려면 따옴표 붙은 식별자를 사용 하도록 설정 해야 합니다.
 
 SQL Server 인증을 사용하려면 사용자 이름/암호 매개 변수를 추가해야 합니다.

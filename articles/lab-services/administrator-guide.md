@@ -3,12 +3,12 @@ title: Azure Lab Services - 관리자 가이드 | Microsoft Docs
 description: 이 가이드는 Azure Lab Services를 사용 하 여 랩 계정을 만들고 관리 하는 관리자에 게 도움을 줍니다.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 08d2fea719ad67f666ea9da09721dc3f7ab54768
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3ad3ee38a6c08a6af85822d76012cc6dfc34ff4e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999283"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462476"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - 관리자 가이드
 대학 클라우드 리소스를 관리 하는 IT (정보 기술) 관리자는 일반적으로 학교에 대 한 랩 계정을 설정 해야 합니다. 랩 계정을 설정한 후 administrators 또는 교육자는 계정 내에 포함 된 랩을 만듭니다. 이 문서에서는 관련 된 Azure 리소스에 대 한 개략적인 개요와 해당 리소스를 만들기 위한 지침을 제공 합니다.
@@ -21,7 +21,7 @@ ms.locfileid: "95999283"
 
 아키텍처에 대 한 자세한 내용은 [랩 아키텍처 기본 사항](./classroom-labs-fundamentals.md)을 참조 하세요.
 
-## <a name="subscription"></a>구독
+## <a name="subscription"></a>Subscription
 대학에는 하나 이상의 Azure 구독이 있을 수 있습니다. 구독을 사용 하면 랩 계정을 포함 하 여 it 내에서 사용 되는 모든 Azure 리소스 및 서비스에 대 한 청구 및 보안을 관리할 수 있습니다.
 
 랩 계정과 해당 구독 간의 관계는 다음과 같은 이유로 중요합니다.
@@ -129,7 +129,7 @@ Azure Lab Services를 시작 하는 경우 리소스 그룹, 랩 계정, 랩 및
 
 Azure Lab Services 리소스를 설정 하는 경우 리소스를 호스트 하는 데이터 센터의 지역 또는 위치를 제공 해야 합니다. 다음 섹션에서는 지역 또는 위치가 랩 설정에 관련 된 각 리소스에 영향을 줄 수 있는 방법에 대해 설명 합니다.
 
-### <a name="resource-group"></a>리소스 그룹
+### <a name="resource-group"></a>Resource group
 
 지역은 리소스 그룹에 대 한 정보가 저장 되는 데이터 센터를 지정 합니다. 리소스 그룹 내에 포함 된 Azure 리소스는 부모와 다른 지역에 있을 수 있습니다.
 
@@ -167,14 +167,14 @@ Azure Lab Services 리소스를 설정 하는 경우 리소스를 호스트 하�
 
 | 크기 | 사양 | 계열 | 권장 사용 |
 | ---- | ----- | ------ | ------------- |
-| 작음| <ul><li>2 &nbsp; 코어</li><li>3.5 기가바이트 (GB) RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | 명령줄에 가장 적합 하며, 웹 브라우저, 트래픽이 적은 웹 서버, 중소 규모의 데이터베이스를 엽니다. |
-| 중간 | <ul><li>4 &nbsp; 코어</li><li>&nbsp;7gb &nbsp; RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다. |
-| 중간 (중첩 된 가상화) | <ul><li>4 &nbsp; 코어</li><li>16gb &nbsp; &nbsp; RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다.
-| 큰 | <ul><li>8 &nbsp; 코어</li><li>16gb &nbsp; &nbsp; RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | 더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 대량 데이터베이스, 많은 메모리 캐시를 필요로 하는 응용 프로그램에 가장 적합 합니다.  이 크기는 중첩된 가상화도 지원합니다. |
-| 큼 (중첩 된 가상화) | <ul><li>8 &nbsp; 코어</li><li>32 &nbsp; GB &nbsp; RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | 더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 대량 데이터베이스, 많은 메모리 캐시를 필요로 하는 응용 프로그램에 가장 적합 합니다. |
+| 작음| <ul><li>2 &nbsp; 코어</li><li>3.5 기가바이트 (GB) RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 명령줄에 가장 적합 하며, 웹 브라우저, 트래픽이 적은 웹 서버, 중소 규모의 데이터베이스를 엽니다. |
+| 중간 | <ul><li>4 &nbsp; 코어</li><li>&nbsp;7gb &nbsp; RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다. |
+| 중간 (중첩 된 가상화) | <ul><li>4 &nbsp; 코어</li><li>16gb &nbsp; &nbsp; RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다.
+| 큼 | <ul><li>8 &nbsp; 코어</li><li>16gb &nbsp; &nbsp; RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | 더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 대량 데이터베이스, 많은 메모리 캐시를 필요로 하는 응용 프로그램에 가장 적합 합니다.  이 크기는 중첩된 가상화도 지원합니다. |
+| 큼 (중첩 된 가상화) | <ul><li>8 &nbsp; 코어</li><li>32 &nbsp; GB &nbsp; RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | 더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 대량 데이터베이스, 많은 메모리 캐시를 필요로 하는 응용 프로그램에 가장 적합 합니다. |
 | 소형 GPU (시각화) | <ul><li>6 &nbsp; 코어</li><li>56 &nbsp; GB &nbsp; RAM</li>  | [Standard_NV6](../virtual-machines/nv-series.md) | OpenGL 및 DirectX와 같은 프레임 워크를 사용 하 여 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합 합니다. |
 | 소형 GPU(컴퓨팅) | <ul><li>6 &nbsp; 코어</li><li>56 &nbsp; GB &nbsp; RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md) |AI 및 심층 학습 등 컴퓨터를 많이 사용 하는 응용 프로그램에 가장 적합 합니다. |
-| 중형 GPU (시각화) | <ul><li>12 &nbsp; 코어</li><li>112 &nbsp; GB &nbsp; RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | OpenGL 및 DirectX와 같은 프레임 워크를 사용 하 여 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합 합니다. |
+| 중형 GPU (시각화) | <ul><li>12 &nbsp; 코어</li><li>112 &nbsp; GB &nbsp; RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | OpenGL 및 DirectX와 같은 프레임 워크를 사용 하 여 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합 합니다. |
 
 ## <a name="manage-identity"></a>ID 관리
 

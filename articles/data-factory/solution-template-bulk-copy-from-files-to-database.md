@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: c7f4cba10117efef4099b3524b49cae313593a9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecf3c3954bd77962e56ee289b623806efb352410
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442718"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461263"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>파일에서 데이터베이스로 대량 복사
 
@@ -33,8 +33,8 @@ ms.locfileid: "89442718"
 - **복사** 작업은 *ForEach* 작업에 있으며 각 파일을 원본 데이터 저장소에서 대상 데이터 저장소로 복사합니다.
 
 템플릿은 다음 두 매개 변수를 정의합니다.
-- *SourceContainer*는 Azure Data Lake Storage Gen2에서 데이터가 복사되는 루트 컨테이너 경로입니다. 
-- *SourceDirectory*는 Azure Data Lake Storage Gen2에서 데이터가 복사되는 루트 컨테이너 아래의 디렉터리 경로입니다.
+- *SourceContainer* 는 Azure Data Lake Storage Gen2에서 데이터가 복사되는 루트 컨테이너 경로입니다. 
+- *SourceDirectory* 는 Azure Data Lake Storage Gen2에서 데이터가 복사되는 루트 컨테이너 아래의 디렉터리 경로입니다.
 
 ## <a name="how-to-use-this-solution-template"></a>이 솔루션 템플릿을 사용하는 방법
 
@@ -46,7 +46,7 @@ ms.locfileid: "89442718"
 
     ![싱크 데이터 저장소에 대한 새 연결 만들기](media/solution-template-bulk-copy-from-files-to-database/destination-connection.png)
     
-3. **이 템플릿 사용**을 선택합니다.
+3. **이 템플릿 사용** 을 선택합니다.
 
     ![이 템플릿 사용](media/solution-template-bulk-copy-from-files-to-database/use-template.png)
     
@@ -55,11 +55,11 @@ ms.locfileid: "89442718"
     ![파이프라인 검토](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > 위에서 설명한 **2 단계** 에서 **azure Synapse ANALYTICS (이전의 SQL DW)** 를 데이터 대상으로 선택한 경우 azure Synapse analytics (이전의 SQL Data Warehouse) Polybase에서 필요에 따라 스테이징을 위해 azure Blob 저장소에 대 한 연결을 입력 해야 합니다. 다음 스크린샷에 표시된 것처럼 템플릿은 Blob 스토리지에 대한 *스토리지 경로*를 자동으로 생성합니다. 파이프라인이 실행된 후 컨테이너를 만들었는지 확인합니다.
+    > 위에서 설명한 **2 단계** 에서 **azure Synapse ANALYTICS (이전의 SQL DW)** 를 데이터 대상으로 선택한 경우 azure Synapse analytics Polybase에서 필요에 따라 스테이징을 위해 azure Blob 저장소에 대 한 연결을 입력 해야 합니다. 다음 스크린샷에 표시된 것처럼 템플릿은 Blob 스토리지에 대한 *스토리지 경로* 를 자동으로 생성합니다. 파이프라인이 실행된 후 컨테이너를 만들었는지 확인합니다.
         
     ![Polybase 설정](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 
-5. **디버그**를 선택하고 **매개 변수**를 입력한 다음, **마침**을 선택합니다.
+5. **디버그** 를 선택하고 **매개 변수** 를 입력한 다음, **마침** 을 선택합니다.
 
     ![**디버그** 클릭](media/solution-template-bulk-copy-from-files-to-database/debug-run.png)
 

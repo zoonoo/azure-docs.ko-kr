@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: de0224c51debe4d0203400b55721208ce7093649
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 05f336af62bc0869249d5b32700ea3515ac5994f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636292"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459703"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Office 365에서 데이터 로드
 
@@ -34,11 +34,11 @@ ms.locfileid: "92636292"
       
    ![새 데이터 팩터리 페이지](./media/load-office-365-data/new-azure-data-factory.png)
  
-    * **Name** : Azure Data Factory의 전역적으로 고유 이름을 입력합니다. "Data factory name *LoadFromOffice365Demo* 를 사용할 수 없습니다." 오류가 표시 되 면 데이터 팩터리에 대해 다른 이름을 입력 합니다. 예를 들어 _**yourname**_**LoadFromOffice365Demo** 라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
-    * **구독** : 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
-    * **리소스 그룹** : 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 옵션을 선택하고 리소스 그룹의 이름을 입력합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.  
-    * **버전** : **V2** 를 선택합니다.
-    * **위치** : 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소가 다른 위치 및 지역에 있어도 됩니다. 이러한 데이터 저장소는 Azure Data Lake Store, Azure Storage, Azure SQL Database 등을 포함합니다.
+    * **Name**: Azure Data Factory의 전역적으로 고유 이름을 입력합니다. "Data factory name *LoadFromOffice365Demo* 를 사용할 수 없습니다." 오류가 표시 되 면 데이터 팩터리에 대해 다른 이름을 입력 합니다. 예를 들어 _**yourname**_**LoadFromOffice365Demo** 라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
+    * **구독**: 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
+    * **리소스 그룹**: 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 옵션을 선택하고 리소스 그룹의 이름을 입력합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.  
+    * **버전**: **V2** 를 선택합니다.
+    * **위치**: 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소가 다른 위치 및 지역에 있어도 됩니다. 이러한 데이터 저장소는 Azure Data Lake Store, Azure Storage, Azure SQL Database 등을 포함합니다.
 
 3. **만들기** 를 선택합니다.
 4. 만들기가 완료되면 데이터 팩터리로 이동합니다. 다음 그림과 같이 **데이터 팩터리** 홈페이지가 표시됩니다.
@@ -147,7 +147,7 @@ _데이터 추출 중 상태:_
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Synapse Analytics (이전의 SQL Data Warehouse) 지원에 대해 알아보려면 다음 문서로 이동 합니다. 
+Azure Synapse Analytics 지원에 대해 알아보려면 다음 문서로 계속 진행하세요. 
 
 > [!div class="nextstepaction"]
 >[Office 365 커넥터](connector-office-365.md)

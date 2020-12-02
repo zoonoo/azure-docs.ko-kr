@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: 3c8e18a3a216240a624b3b14f5e2e397d6c06012
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c85989dc02bddd136c56a81993df7a507a84d3b4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961331"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460288"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Azure에서 저장소 서비스에 연결
 
@@ -80,7 +80,7 @@ Azure Machine Learning의 데이터 액세스 워크플로 전체에서 데이�
 
 [Azure Blob 컨테이너](../storage/blobs/storage-blobs-introduction.md)에 대한 데이터 저장소를 만드는 것이 좋습니다. BLOB에 표준 스토리지와 프리미엄 스토리지 둘 다 제공됩니다. 프리미엄 스토리지는 더 비싸지만 처리 속도가 빨라서 학습 실행 속도를 높일 수 있으며, 특히 대량의 데이터 세트를 학습시킬 때 유용합니다. 스토리지 계정 비용에 대한 내용은 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service)를 참조하세요.
 
-[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)는 Azure Blob Storage를 기반으로 하며 엔터프라이즈 빅 데이터 분석용으로 설계되었습니다. Data Lake Storage Gen2의 기본적인 부분은 [계층 구조 네임스페이스](../storage/blobs/data-lake-storage-namespace.md)를 Blob 스토리지에 추가하는 것입니다. 계층 구조 네임스페이스는 효율적인 데이터 액세스를 위해 개체/파일을 디렉터리 계층 구조로 구성합니다.
+[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)는 Azure Blob Storage를 기반으로 하며 엔터프라이즈 빅 데이터 분석용으로 설계되었습니다. Data Lake Storage Gen2의 기본적인 부분은 [계층 구조 네임스페이스](../storage/blobs/data-lake-storage-namespace.md)를 Blob 스토리지에 추가하는 것입니다. 계층 구조 네임스페이스는 효율적인 데이터 액세스를 위해 개체/파일을 디렉터리 계층 구조로 구성합니다.
 
 ## <a name="storage-access-and-permissions"></a>저장소 액세스 및 사용 권한
 
@@ -112,7 +112,7 @@ Azure storage 서비스에 안전 하 게 연결 하려면 해당 하는 데이�
 > * Azure Storage 계정 (계정 키 또는 SAS 토큰)에 대 한 액세스 키를 변경 해야 하는 경우 새 자격 증명과 해당 작업 영역에 연결 된 데이터 저장소를 동기화 해야 합니다. [업데이트 된 자격 증명을 동기화](how-to-change-storage-access-key.md)하는 방법을 알아봅니다. 
 ### <a name="permissions"></a>사용 권한
 
-Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)에 대해 자세히 알아보세요. 계정 SAS 토큰의 기본값은 사용 권한 없음입니다. 
+Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)에 대해 자세히 알아보세요. 계정 SAS 토큰의 기본값은 사용 권한 없음입니다. 
 * 데이터 **읽기 액세스** 의 경우 인증 자격 증명에는 최소한의 목록 및 컨테이너와 개체에 대 한 읽기 권한이 있어야 합니다. 
 
 * 데이터 **쓰기 액세스** 의 경우 쓰기 및 추가 권한도 필요 합니다.

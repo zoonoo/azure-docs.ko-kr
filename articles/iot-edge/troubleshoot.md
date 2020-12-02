@@ -8,12 +8,12 @@ ms.date: 11/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: daae45c9eca45022225ea47aa048815d5eff70c4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 035cf5be4471cad7ac11eb8ce9a8a0ecb13a68da
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964510"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462374"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>IoT Edge 장치 문제 해결
 
@@ -81,7 +81,7 @@ iotedge support-bundle --since 6h
 
 ## <a name="verify-the-installation-of-iot-edge-on-your-devices"></a>장치에 IoT Edge 설치 확인
 
-[EdgeAgent 모듈 쌍을 모니터링](https://docs.microsoft.com/azure/iot-edge/how-to-monitor-module-twins)하 여 장치에 IoT Edge 설치를 확인할 수 있습니다.
+[EdgeAgent 모듈 쌍을 모니터링](./how-to-monitor-module-twins.md)하 여 장치에 IoT Edge 설치를 확인할 수 있습니다.
 
 최신 edgeAgent 모듈 쌍을 가져오려면 [Azure Cloud Shell](https://shell.azure.com/)에서 다음 명령을 실행 합니다.
 
@@ -89,7 +89,7 @@ iotedge support-bundle --since 6h
    az iot hub module-twin show --device-id <edge_device_id> --module-id $edgeAgent --hub-name <iot_hub_name>
    ```
 
-이 명령은 보고 된 모든 edgeAgent [속성](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub)을 출력 합니다. 다음은 장치 상태를 모니터링 하는 데 도움이 되는 몇 가지 유용한 항목입니다.
+이 명령은 보고 된 모든 edgeAgent [속성](./module-edgeagent-edgehub.md)을 출력 합니다. 다음은 장치 상태를 모니터링 하는 데 도움이 되는 몇 가지 유용한 항목입니다.
 
 * 런타임 상태
 * 런타임 시작 시간

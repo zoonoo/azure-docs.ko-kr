@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 09/04/2020
-ms.openlocfilehash: 3b2fc1ea37b09f6e4813d2a3c2333bc6d744293d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 08c5b5d8351105744f7a912b352a940df3b4baa7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006509"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462137"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Marketplace 목록 가이드라인
 
@@ -93,5 +93,5 @@ ms.locfileid: "96006509"
 * Azure Marketplace의 다양한 제품 유형에 대해 알아보세요.
   * [SaaS 앱](./plan-saas-offer.md)
   * [컨테이너](./marketplace-containers.md)
-  * [컨설팅 서비스](./consulting-services.md)
+  * [컨설팅 서비스](./plan-consulting-service-offer.md)
 * [게시 옵션 확인](./determine-your-listing-type.md)

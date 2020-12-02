@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6fa9f5d86d3640bf3ae0233e7d6d8a00752f5b6d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013975"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460800"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -120,7 +120,7 @@ Azure Id 클라이언트 li바 항에 대 한 자세한 내용은 다음을 참�
 - Key Vault- [Windows](../../virtual-machines/extensions/key-vault-windows.md), [Linux](../../virtual-machines/extensions/key-vault-linux.md) 에서 vm에 인증서를 배포 하는 방법-Azure의 vm에서 실행 되는 클라우드 응용 프로그램에는 인증서가 필요 합니다. 지금 이 VM으로 인증서를 가져오려면 어떻게 하나요?
 - [Key Vault를 통해 Azure Web App 인증서 배포](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)
 - 액세스 정책 할당 ([CLI](assign-access-policy-cli.md)  |  [PowerShell](assign-access-policy-powershell.md)  |  [포털](assign-access-policy-portal.md))을 선택 합니다. 
-- [CLI로 Key Vault 일시 삭제를 사용하는 방법](soft-delete-cli.md)에서는 활성화된 일시 삭제를 사용하는 Key Vault 및 다양한 Key Vault 개체의 사용 및 수명 주기에 대해 설명합니다.
+- [CLI로 Key Vault 일시 삭제를 사용하는 방법](./key-vault-recovery.md)에서는 활성화된 일시 삭제를 사용하는 Key Vault 및 다양한 Key Vault 개체의 사용 및 수명 주기에 대해 설명합니다.
 - [배포하는 동안 보안 값(예: 암호)을 전달하는 방법](../../azure-resource-manager/templates/key-vault-parameter.md) - 배포하는 동안 보안 값(예: 암호)을 매개 변수로 전달해야 하는 경우 이 값을 Azure Key Vault에 암호로 저장하고 다른 Resource Manager 템플릿에서 이 값을 참조할 수 있습니다.
 
 ## <a name="integrated-with-key-vault"></a>주요 자격 증명 모음과 통합됨

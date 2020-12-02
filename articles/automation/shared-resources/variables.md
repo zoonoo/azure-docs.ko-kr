@@ -3,14 +3,14 @@ title: Azure Automation의 변수 관리
 description: 이 문서에서는 Runbook 및 DSC 구성에서 변수를 사용하는 방법을 설명합니다.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/05/2020
+ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4749fcb6698ff1716f2cae257cc0efad458bf9a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be0d45843eed8c7c0d7d9b6dc4655de01e914c3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766202"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461446"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Azure Automation의 변수 관리
 
@@ -26,10 +26,10 @@ Automation 변수는 다음과 같은 시나리오에 유용합니다.
 
 Azure Automation은 변수를 유지하고 Runbook 또는 DSC 구성이 실패한 경우에도 변수를 사용할 수 있도록 합니다. 이 동작 덕분에 하나의 Runbook 또는 DSC 구성이 설정한 값을 다른 Runbook이 사용하거나 동일한 Runbook이나 DSC 구성이 다음에 실행될 때 다시 사용할 수 있습니다.
 
-Azure Automation은 암호화된 각 변수를 안전하게 저장합니다. 변수를 만들 때 보안 자산으로 Azure Automation 여 해당 암호화 및 저장소를 지정할 수 있습니다. 변수를 만든 후에는 변수를 다시 만들지 않고 암호화 상태를 변경할 수 없습니다. Azure Security Center [Automation 계정 변수에 설명 된](../../security-center/recommendations-reference.md#recs-computeapp)대로 모든 Azure Automation 변수를 암호화 하는 것이 좋습니다.
+Azure Automation은 암호화된 각 변수를 안전하게 저장합니다. 변수를 만들 때 보안 자산으로 Azure Automation 여 해당 암호화 및 저장소를 지정할 수 있습니다. 변수를 만든 후에는 변수를 다시 만들지 않고 암호화 상태를 변경할 수 없습니다. 아직 암호화 되지 않은 중요 한 데이터를 저장 하는 Automation 계정 변수가 있는 경우이를 삭제 하 고 암호화 된 변수로 다시 만들어야 합니다. Azure Security Center [Automation 계정 변수에 설명 된](../../security-center/recommendations-reference.md#recs-computeapp)대로 모든 Azure Automation 변수를 암호화 하는 것이 좋습니다. 이 보안 권장 사항에서 제외 하려는 암호화 되지 않은 변수가 있는 경우 권장 구성 [에서 리소스 제외 및 보안 점수](../../security-center/exempt-resource.md) 를 참조 하 여 예외 규칙을 만듭니다.
 
 >[!NOTE]
->Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. Azure Automation은 시스템 관리 키 자격 증명 모음에 키를 저장합니다. 보안 자산을 저장하기 전에 Automation이 Key Vault에서 키를 로드한 다음, 자산을 암호화하는 데 사용합니다. 
+>Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. Azure Automation은 시스템 관리 키 자격 증명 모음에 키를 저장합니다. 보안 자산을 저장하기 전에 Automation이 Key Vault에서 키를 로드한 다음, 자산을 암호화하는 데 사용합니다.
 
 ## <a name="variable-types"></a>변수 형식
 
@@ -99,8 +99,8 @@ Write-output "The encrypted value of the variable is: $mytestencryptvar"
 
 ### <a name="create-and-get-a-variable-using-the-azure-portal"></a>Azure Portal을 사용하여 변수를 만들고 가져오기
 
-1. Automation 계정의 왼쪽 창에서 **공유 리소스**아래에 있는 **변수** 를 선택 합니다.
-2. **변수** 페이지에서 **변수 추가**를 선택 합니다.
+1. Automation 계정의 왼쪽 창에서 **공유 리소스** 아래에 있는 **변수** 를 선택 합니다.
+2. **변수** 페이지에서 **변수 추가** 를 선택 합니다.
 3. **새** 변수 페이지에서 옵션을 완료 하 고 **만들기** 를 선택 하 여 새 변수를 저장 합니다.
 
 > [!NOTE]

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6cda99bfcb883dd42aa813d6edb922f2701ed1fe
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e48b1357b8576baca0e8defca94f4c5248c6f74e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352204"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461287"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Azure Data Factory에 대 한 Azure 보안 기준
 
@@ -578,7 +578,7 @@ Azure SQL Database 데이터 검색 및 분류 기능을 사용 합니다. 데�
 
 **지침**: 클라우드 데이터 저장소가 HTTPS 또는 tls를 지 원하는 경우 Data Factory의 데이터 이동 서비스와 클라우드 데이터 저장소 간의 모든 데이터 전송은 보안 채널 HTTPS 또는 tls를 통해 수행 됩니다. 사용된 TLS 버전은 1.2입니다.
 
-Azure SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 대 한 모든 연결은 데이터를 데이터베이스에 전송 하는 동안 암호화 (SSL/TLS)가 필요 합니다. JSON을 사용하여 파이프라인을 작성하는 동안 암호화 속성을 추가하고 연결 문자열에서 true로 설정합니다. Azure Storage의 경우 연결 문자열에 HTTPS를 사용할 수 있습니다.
+Azure SQL Database 및 Azure Synapse Analytics에 대 한 모든 연결은 데이터를 데이터베이스에 전송 하는 동안 암호화 (SSL/TLS)가 필요 합니다. JSON을 사용하여 파이프라인을 작성하는 동안 암호화 속성을 추가하고 연결 문자열에서 true로 설정합니다. Azure Storage의 경우 연결 문자열에 HTTPS를 사용할 수 있습니다.
 
 * [Azure Data Factory에서 전송 암호화 이해](./data-movement-security-considerations.md)
 

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 803c9a98f0dc10ff8218ac7b7c20dcb117700034
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1217d3af855e96b6d6a0f403c2ff351a6b957d9a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187105"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459665"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "96187105"
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>이 가이드에서 다루지 않는 배포 제안
 
-- Azure Synapse Analytics(이전의 SQL Data Warehouse)
+- Azure Synapse Analytics
 - Azure SQL Vm (IaaS)
 - SQL Server
 
@@ -255,7 +255,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 - 필요한 정확한 권한을 사용 하 여 사용자 지정 역할을 만들고 사용 합니다. 실제로 사용 되는 일반적인 역할은 다음과 같습니다.
   - 보안 배포
   - 관리자
-  - 개발자
+  - Developer
   - 지원 담당자
   - 감사자
   - 자동화 된 프로세스
@@ -283,7 +283,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 **구현 방법**:
 
-- 필요한 의무의 분리 수준을 식별 합니다. 예제:
+- 필요한 의무의 분리 수준을 식별 합니다. 예:
   - 개발/테스트 및 프로덕션 환경 간
   - 보안에 중요 한 작업은 DBA (데이터베이스 관리자) 관리 수준 작업과 개발자 작업을 비교 합니다.
     - 예: 감사자, RLS (역할 수준 보안)에 대 한 보안 정책 만들기, DDL 권한으로 개체 SQL Database 구현

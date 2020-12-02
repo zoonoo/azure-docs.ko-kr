@@ -1,5 +1,5 @@
 ---
-title: Columnstore 인덱스 성능 향상 (작업 영역 미리 보기)
+title: Columnstore 인덱스 성능 향상
 description: 메모리 요구 사항을 줄이거나 사용 가능한 메모리를 늘려 columnstore 인덱스가 각 행 그룹으로 압축되는 행 수를 최대화합니다.
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fecb78b240f5c983580d4bdb34535a879ffe3e2e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e4656531f1424c3414ab00afbbe241a532738400
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022550"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462270"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Columnstore 인덱스 성능에 대 한 행 그룹 품질 최대화
 

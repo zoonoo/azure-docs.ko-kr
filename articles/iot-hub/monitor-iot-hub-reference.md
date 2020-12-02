@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 03941c3abe833deb218844cc60e2f04556fccc22
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 609c44991e7deca183321758fabdef80b71210c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078206"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460851"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>모니터링 Azure IoT Hub 데이터 참조
 
@@ -23,9 +23,9 @@ Azure IoT Hub의 모니터링 데이터를 수집 및 분석 하는 방법에 �
 
 다음 하위 섹션에서는 일반적인 범주별로 IoT Hub 플랫폼 메트릭을 분리 하 고 Azure Portal에 표시 되는 표시 이름으로 나열 합니다. 또한 정보는 각 하위 섹션에 나타나는 메트릭과 관련 되어 제공 됩니다.
 
-Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](/azure/azure-monitor/platform/metrics-supported#microsoftdevicesiothubs) 에서 메트릭 이름별로 모든 IoT Hub 플랫폼 메트릭을 나열 하는 단일 테이블을 찾을 수도 있습니다. 이 표에서는이 문서에서 사용할 수 있는 일부 메트릭에 대해 [지원 되는 집계](#supported-aggregations) 와 같은 일부 정보는 제공 하지 않습니다.
+Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs) 에서 메트릭 이름별로 모든 IoT Hub 플랫폼 메트릭을 나열 하는 단일 테이블을 찾을 수도 있습니다. 이 표에서는이 문서에서 사용할 수 있는 일부 메트릭에 대해 [지원 되는 집계](#supported-aggregations) 와 같은 일부 정보는 제공 하지 않습니다.
 
-다른 Azure 서비스에서 지 원하는 메트릭에 대 한 자세한 내용은 [Azure Monitor에서 지원 되는 메트릭](/azure/azure-monitor/platform/metrics-supported)을 참조 하세요.
+다른 Azure 서비스에서 지 원하는 메트릭에 대 한 자세한 내용은 [Azure Monitor에서 지원 되는 메트릭](../azure-monitor/platform/metrics-supported.md)을 참조 하세요.
 
 **이 단원의 항목**
 
@@ -53,7 +53,7 @@ Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](/azure/azure-monitor/pla
 
 * **단일 지점** 수 메트릭에 대해 IoT Hub는 단일 데이터 요소를 등록 합니다. 즉, 측정 된 작업이 발생 될 때마다 기본적으로 1이 됩니다. 그런 다음 지정 된 세분성을 통해 이러한 데이터 요소의 합계를 Azure Monitor 합니다. **단일 지점** 메트릭의 예는 보내고 *메시지 배달이 완료 된 C2D* *원격 분석 메시지* 입니다. 이러한 메트릭에 대해 유일 하 게 관련 된 집계 유형만 합계 (합계)입니다. 포털에서 최소, 최대 및 평균을 선택할 수 있습니다. 그러나 이러한 값은 항상 1입니다.
 
-* **스냅숏** 개수 메트릭에 대해 측정 된 작업이 발생 하는 경우 IoT Hub 총 개수를 등록 합니다. 현재 *사용 되는 총 메시지 수* , *총 장치 (미리 보기)* 및 *연결 된 장치 (미리 보기)* IoT Hub에서 내보내는 세 개의 **스냅숏** 메트릭이 있습니다. 이러한 메트릭은 내보낼 때마다 "전체" 수량을 제공 하므로 지정 된 세분성을 기준으로 합계를 합산 하는 것은 의미가 없습니다. Azure Monitor는 이러한 메트릭의 집계 유형에 대 한 평균, 최소값 및 최대값을 선택 하는 것을 제한 합니다.
+* **스냅숏** 개수 메트릭에 대해 측정 된 작업이 발생 하는 경우 IoT Hub 총 개수를 등록 합니다. 현재 *사용 되는 총 메시지 수*, *총 장치 (미리 보기)* 및 *연결 된 장치 (미리 보기)* IoT Hub에서 내보내는 세 개의 **스냅숏** 메트릭이 있습니다. 이러한 메트릭은 내보낼 때마다 "전체" 수량을 제공 하므로 지정 된 세분성을 기준으로 합계를 합산 하는 것은 의미가 없습니다. Azure Monitor는 이러한 메트릭의 집계 유형에 대 한 평균, 최소값 및 최대값을 선택 하는 것을 제한 합니다.
 
 ### <a name="cloud-to-device-command-metrics"></a>클라우드-장치 명령 메트릭
 
@@ -117,7 +117,7 @@ Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](/azure/azure-monitor/pla
 |총 디바이스(미리 보기)|totalDeviceCount|개수|평균|IoT 허브에 등록된 디바이스 수|없음|
 |연결된 디바이스(미리 보기)|connectedDeviceCount|개수|평균|IoT 허브에 연결된 디바이스 수|없음|
 
-*총 장치 (사용 되지 않음)* 및 *연결 된 장치 (사용 되지 않음* )의 경우 총 집계 (합계)만 유효 합니다. 최소값, 최대값 및 평균 집계는 항상 1을 반환 합니다. 자세한 내용은 [지원 되는 집계](#supported-aggregations)를 참조 하세요.
+*총 장치 (사용 되지 않음)* 및 *연결 된 장치 (사용 되지 않음*)의 경우 총 집계 (합계)만 유효 합니다. 최소값, 최대값 및 평균 집계는 항상 1을 반환 합니다. 자세한 내용은 [지원 되는 집계](#supported-aggregations)를 참조 하세요.
 
 *총 장치 (미리 보기)* 및 *연결 된 장치 (미리 보기)* 의 경우 최소, 최대 및 평균 집계만 유효 합니다. 자세한 내용은 [지원 되는 집계](#supported-aggregations)를 참조 하세요.
 
@@ -150,8 +150,8 @@ Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](/azure/azure-monitor/pla
 
 |메트릭 표시 이름|메트릭|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|Event Grid 배달 (미리 보기)|EventGridDeliveries|개수|합계|Event Grid에 게시 된 IoT Hub 이벤트 수입니다. 성공 및 실패 한 요청의 수에 대해 결과 차원을 사용 합니다. EventType dimension 이벤트 유형 ()을 표시 합니다 https://aka.ms/ioteventgrid) .|결과,<br/>EventType<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조 하세요* .|
-|Event Grid 대기 시간(미리 보기)|EventGridLatency|밀리초|평균|Event Grid에 이벤트가 게시 될 때 Iot Hub 이벤트가 생성 된 시간에 대 한 평균 대기 시간 (밀리초)입니다. 이 숫자는 모든 이벤트 유형 사이의 평균입니다. 특정 유형의 이벤트에 대 한 대기 시간을 확인 하려면 EventType 차원을 사용 합니다.|EventType<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조 하세요* .|
+|Event Grid 배달 (미리 보기)|EventGridDeliveries|개수|합계|Event Grid에 게시 된 IoT Hub 이벤트 수입니다. 성공 및 실패 한 요청의 수에 대해 결과 차원을 사용 합니다. EventType dimension 이벤트 유형 ()을 표시 합니다 https://aka.ms/ioteventgrid) .|결과,<br/>EventType<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조 하세요*.|
+|Event Grid 대기 시간(미리 보기)|EventGridLatency|밀리초|평균|Event Grid에 이벤트가 게시 될 때 Iot Hub 이벤트가 생성 된 시간에 대 한 평균 대기 시간 (밀리초)입니다. 이 숫자는 모든 이벤트 유형 사이의 평균입니다. 특정 유형의 이벤트에 대 한 대기 시간을 확인 하려면 EventType 차원을 사용 합니다.|EventType<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조 하세요*.|
 
 **단위** 값이 **Count** 인 메트릭의 경우 합계 집계만 유효 합니다. 최소값, 최대값 및 평균 집계는 항상 1을 반환 합니다. 자세한 내용은 [지원 되는 집계](#supported-aggregations)를 참조 하세요.
 
@@ -178,9 +178,9 @@ Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](/azure/azure-monitor/pla
 
 |메트릭 표시 이름|메트릭|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-| 라우팅 배달 시도 (미리 보기) |RoutingDeliveries | 개수 | 합계 |라우팅 배달 메트릭입니다. 차원을 사용 하 여 특정 끝점 또는 특정 라우팅 원본의 배달 상태를 식별할 수 있습니다.| 결과,<br>RoutingSource,<br>EndpointType<br>FailureReasonCategory,<br>EndpointName<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조 하세요* . |
-| 라우팅 배달 데이터 크기 (바이트) (미리 보기)|RoutingDataSizeInBytesDelivered| 바이트 | 합계 |사용자 지정 끝점과 기본 제공 끝점에 IoT Hub 의해 라우팅되는 총 바이트 수입니다. 차원을 사용 하 여 특정 끝점 또는 특정 라우팅 원본에 대해 라우팅되는 데이터 크기를 식별할 수 있습니다.| RoutingSource,<br>EndpointType<br>EndpointName<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조 하세요* .|
-| 라우팅 대기 시간 (미리 보기) |RoutingDeliveryLatency| 밀리초 | 평균 |라우팅 전달 대기 시간 메트릭입니다. 차원을 사용 하 여 특정 끝점 또는 특정 라우팅 원본의 대기 시간을 확인 합니다.| RoutingSource,<br>EndpointType<br>EndpointName<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조 하세요* .|
+| 라우팅 배달 시도 (미리 보기) |RoutingDeliveries | 개수 | 합계 |라우팅 배달 메트릭입니다. 차원을 사용 하 여 특정 끝점 또는 특정 라우팅 원본의 배달 상태를 식별할 수 있습니다.| 결과,<br>RoutingSource,<br>EndpointType<br>FailureReasonCategory,<br>EndpointName<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조 하세요*. |
+| 라우팅 배달 데이터 크기 (바이트) (미리 보기)|RoutingDataSizeInBytesDelivered| 바이트 | 합계 |사용자 지정 끝점과 기본 제공 끝점에 IoT Hub 의해 라우팅되는 총 바이트 수입니다. 차원을 사용 하 여 특정 끝점 또는 특정 라우팅 원본에 대해 라우팅되는 데이터 크기를 식별할 수 있습니다.| RoutingSource,<br>EndpointType<br>EndpointName<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조 하세요*.|
+| 라우팅 대기 시간 (미리 보기) |RoutingDeliveryLatency| 밀리초 | 평균 |라우팅 전달 대기 시간 메트릭입니다. 차원을 사용 하 여 특정 끝점 또는 특정 라우팅 원본의 대기 시간을 확인 합니다.| RoutingSource,<br>EndpointType<br>EndpointName<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조 하세요*.|
 |라우팅: 스토리지에 배달된 Blob|d2c.endpoints.egress.storage.blobs|개수|합계|IoT Hub 라우팅에서 스토리지 엔드포인트에 Blob을 배달한 횟수입니다.|없음|
 |라우팅: 스토리지에 배달된 데이터|d2c.endpoints.egress.storage.bytes|바이트|합계|IoT Hub 라우팅에서 스토리지 엔드포인트에 배달된 데이터 양입니다(바이트).|없음|
 |라우팅: 이벤트 허브에 대한 메시지 대기 시간|d2c.endpoints.latency.eventHubs|밀리초|평균|IoT Hub에 대 한 메시지 수신 간의 평균 대기 시간 (밀리초) 및 이벤트 허브 유형의 사용자 지정 끝점에 대 한 메시지 수신입니다. 여기에는 기본 제공 끝점 (이벤트)에 대 한 경로 메시지가 포함 되지 않습니다.|없음|
@@ -219,17 +219,17 @@ Azure IoT Hub에는 라우팅 및 event grid 메트릭과 관련 된 다음과 �
 |---|---|
 ||
 |**EndpointName**| 엔드포인트 이름입니다.|
-|**EndpointType**|다음 중 하나: **eventHubs** , **servicebusqueues** , **cosmosDB** , **serviceulstopics** . **기본 제공** 또는 **blobstorage** 를 제공 합니다.|
-|**EventType**| 다음 Event Grid 이벤트 유형 중 하나입니다. **DeviceCreated** . **Microsoft.** **DeviceConnected** **, microsoft** . Devices, microsoft. devices 또는 **DeviceTelemetry** ... 자세한 내용은 [이벤트 유형](iot-hub-event-grid.md#event-types)을 참조 하세요.|
-|**FailureReasonCategory**| **잘못 됨** , **삭제** 됨, **분리** 됨 또는 **null** 중 하나입니다.|
+|**EndpointType**|다음 중 하나: **eventHubs**, **servicebusqueues**, **cosmosDB**, **serviceulstopics**. **기본 제공** 또는 **blobstorage** 를 제공 합니다.|
+|**EventType**| 다음 Event Grid 이벤트 유형 중 하나입니다. **DeviceCreated**. **Microsoft.** **DeviceConnected** **, microsoft**. Devices, microsoft. devices 또는 **DeviceTelemetry**... 자세한 내용은 [이벤트 유형](iot-hub-event-grid.md#event-types)을 참조 하세요.|
+|**FailureReasonCategory**| **잘못 됨**, **삭제** 됨, **분리** 됨 또는 **null** 중 하나입니다.|
 |**결과**| **성공** 또는 **실패** 입니다.|
 |**RoutingSource**| 장치 메시지<br>쌍 변경 이벤트<br>장치 수명 주기 이벤트|
 
-메트릭 차원에 대 한 자세한 내용은 [다차원 메트릭](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics)을 참조 하세요.
+메트릭 차원에 대 한 자세한 내용은 [다차원 메트릭](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics)을 참조 하세요.
 
 ## <a name="resource-logs"></a>리소스 로그
 
-이 섹션에서는 Azure IoT Hub에 대해 수집 된 모든 리소스 로그 범주 유형 및 스키마를 나열 합니다. 모든 IoT Hub 로그의 리소스 공급자와 유형은 [Microsoft. Devices/IotHubs](/azure/azure-monitor/platform/resource-logs-categories#microsoftdevicesiothubs)입니다.
+이 섹션에서는 Azure IoT Hub에 대해 수집 된 모든 리소스 로그 범주 유형 및 스키마를 나열 합니다. 모든 IoT Hub 로그의 리소스 공급자와 유형은 [Microsoft. Devices/IotHubs](../azure-monitor/platform/resource-logs-categories.md#microsoftdevicesiothubs)입니다.
 
 **이 단원의 항목**
 
@@ -384,7 +384,7 @@ Azure IoT Hub에는 라우팅 및 event grid 메트릭과 관련 된 다음과 �
 
 ### <a name="routes"></a>경로
 
-[메시지 라우팅](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) 범주는 IoT Hub에서 인식 되는 메시지 경로 평가 및 끝점 상태에서 발생 하는 오류를 추적 합니다. 이 범주는 다음과 같은 이벤트를 포함합니다.
+[메시지 라우팅](./iot-hub-devguide-messages-d2c.md) 범주는 IoT Hub에서 인식 되는 메시지 경로 평가 및 끝점 상태에서 발생 하는 오류를 추적 합니다. 이 범주는 다음과 같은 이벤트를 포함합니다.
 
 * 규칙에서 "정의되지 않음"으로 평가,
 * IoT Hub에서 엔드포인트를 데드로 표시 또는
@@ -559,7 +559,7 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 IoT Hub에 도착�
 
 여기서 `durationMs`는 IoT Hub 시계가 디바이스 시계와 동기화되지 않아 기간 계산이 잘못될 수 있기 때문에 계산되지 않습니다. 디바이스-클라우드 대기 시간의 급증을 캡처하려면 `properties` 섹션에서 타임스탬프를 사용한 논리를 작성하는 것이 좋습니다.
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | 정수 | 디바이스-클라우드 메시지의 크기(바이트) |
 | **deviceId** | ASCII 7비트 영숫자 문자의 문자열 | 디바이스의 ID |
@@ -593,7 +593,7 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 내부 또는 기�
 
 섹션에서 `properties` 이 로그에는 메시지 수신에 대 한 추가 정보가 포함 되어 있습니다.
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **isRoutingEnabled** | String | true 또는 false이며, IoT Hub에서 메시지 라우팅이 사용되는지 여부를 나타냅니다. |
 | **parentSpanId** | String | 부모 메시지(이 경우 D2C 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
@@ -625,7 +625,7 @@ IoT Hub는 [라우팅](iot-hub-devguide-messages-d2c.md)이 사용되고 메시�
 
 섹션에서 `properties` 이 로그에는 메시지 수신에 대 한 추가 정보가 포함 되어 있습니다.
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **endpointName** | String | 라우팅 엔드포인트의 이름입니다. |
 | **endpointType** | String | 라우팅 엔드포인트의 유형입니다. |
@@ -689,4 +689,4 @@ IoT Hub 구성 로그는 자동 장치 관리 기능 집합에 대 한 이벤트
 ## <a name="see-also"></a>참고 항목
 
 * Azure IoT Hub 모니터링에 대 한 설명은 [Azure IoT Hub 모니터링](monitor-iot-hub.md) 을 참조 하세요.
-* Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](/azure/azure-monitor/insights/monitor-azure-resource)을 참조하세요.
+* Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/insights/monitor-azure-resource.md)을 참조하세요.

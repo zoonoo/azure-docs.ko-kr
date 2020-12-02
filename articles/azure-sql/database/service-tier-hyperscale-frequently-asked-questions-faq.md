@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 400dd66827e82c1ede496526c49977e6f5383487
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4ea1982e7545f4ac39a5ecd15dc9e19a582ae31c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780192"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459633"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database Hyperscale FAQ
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -118,7 +118,7 @@ Hyperscale은 모든 SQL Server 작업을 지원 하지만 주로 OLTP에 최적
 
 현재 데이터 웨어하우스로 SQL Server를 사용 하 여 대화형 분석 쿼리를 실행 하는 경우에는 저렴 한 비용으로 중소 규모의 데이터 웨어하우스 (예: 몇 TB에서 최대 100 TB)를 호스트할 수 있고, SQL Server 데이터 웨어하우스 워크 로드를 최소 T-sql 코드 변경으로 Hyperscale으로 마이그레이션할 수 있기 때문에 Hyperscale은 좋은 옵션입니다.
 
-복잡 한 쿼리를 사용 하 여 대규모 데이터 분석을 실행 하 고 있거나 100 m b/초 보다 높은 수집 속도를 사용 하거나 PDW (병렬 데이터 웨어하우스), Teradata 또는 다른 대규모 병렬 처리 (MPP) 데이터 웨어하우스를 사용 하는 경우 Azure Synapse 분석 (이전의 SQL Data Warehouse)이 가장 적합할 수 있습니다.
+복잡 한 쿼리를 사용 하 여 대규모 데이터 분석을 실행 하 고 있거나 100 m b/초 보다 높은 수집 속도를 사용 하는 경우 나 PDW (병렬 데이터 웨어하우스), Teradata 또는 다른 대규모 병렬 처리 (MPP) 데이터 웨어하우스를 사용 하는 경우 Azure Synapse Analytics를 선택 하는 것이 가장 적합할 수 있습니다.
   
 ## <a name="hyperscale-compute-questions"></a>분산 계산 질문
 

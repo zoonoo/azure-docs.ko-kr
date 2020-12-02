@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: f06777e559187a57bfe0625cde700f30fb636a2b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 495300d677d6d898bfc916e5115b801c815bd587
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974462"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461490"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>데이터를 Azure Data Lake Storage Gen2 수집 
 
@@ -67,9 +67,9 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
 1. 도구 모음에서 **트리거 추가** 를 선택한 다음, **지금 트리거** 를 선택합니다. **파이프라인 실행** 페이지에서 **마침** 을 선택합니다.  
 1. 왼쪽 사이드바에 있는 **모니터** 탭으로 이동합니다. 수동 트리거로 트리거되는 파이프라인 실행이 표시됩니다. **작업** 열의 링크를 사용하여 활동 세부 정보를 보고 파이프라인을 다시 실행할 수 있습니다.
 1. 파이프라인 실행과 연결된 활동 실행을 확인하려면 **작업** 열에서 **활동 실행 보기** 링크를 선택합니다. 이 예제에서는 활동이 하나뿐이므로 목록에 하나의 항목만 표시됩니다. 복사 활동에 대한 자세한 내용은 **작업** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 위쪽의 **파이프라인 실행** 을 선택하여 파이프라인 실행 보기로 돌아갑니다. 보기를 새로 고치려면 **새로 고침** 을 선택합니다.
-1. 데이터가 전용 SQL 풀에 올바르게 작성 되었는지 확인 합니다.
+1. 데이터가 전용 SQL 풀에 올바르게 작성되었는지 확인합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Synapse Analytics의 데이터 통합에 대 한 자세한 내용은 [수집 data into a 전용 SQL pool](data-integration-sql-pool.md) 문서를 참조 하세요.
+Azure Synapse Analytics의 데이터 통합에 대 한 자세한 내용은 [수집 data into a 전용 SQL pool](data-integration-sql-pool.md) 문서를 참조 하세요.
