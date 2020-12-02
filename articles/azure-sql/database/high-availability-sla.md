@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 10/28/2020
-ms.openlocfilehash: 6b6ae2ffca420dc126d56c0f1cfed9188dec0e47
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e5e58f8592fcf8627870c3a574335bbe34394064
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185609"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452455"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대 한 고가용성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -112,7 +112,7 @@ Hyperscale의 가용성 모델에는 다음 4 개의 계층이 포함 됩니다.
 
 ## <a name="accelerated-database-recovery-adr"></a>ADR(가속 데이터베이스 복구)
 
-[ADR (가속화 된 데이터베이스 복구)](../accelerated-database-recovery.md) 는 특히 장기 실행 트랜잭션이 있을 때 데이터베이스 가용성을 크게 향상 시키는 새로운 데이터베이스 엔진 기능입니다. ADR는 현재 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 사용할 수 있습니다.
+[ADR (가속화 된 데이터베이스 복구)](../accelerated-database-recovery.md) 는 특히 장기 실행 트랜잭션이 있을 때 데이터베이스 가용성을 크게 향상 시키는 새로운 데이터베이스 엔진 기능입니다. ADR는 현재 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse 분석에 사용할 수 있습니다.
 
 ## <a name="testing-application-fault-resiliency"></a>응용 프로그램 오류 복원 력 테스트
 

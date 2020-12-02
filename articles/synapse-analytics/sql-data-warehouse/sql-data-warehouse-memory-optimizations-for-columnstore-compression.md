@@ -1,6 +1,6 @@
 ---
-title: Columnstore 인덱스 성능 향상
-description: 각 행 그룹 내의 행 수를 최대화 하기 위해 메모리 요구 사항을 줄이거나 사용 가능한 메모리를 늘리십시오.
+title: 전용 SQL 풀의 columnstore 인덱스 성능 향상
+description: 전용 SQL 풀에서 각 행 그룹 내의 행 수를 최대화 하기 위해 메모리 요구 사항을 줄이거나 사용 가능한 메모리를 늘리십시오.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 5308599f43788b35dbe278ddbbea2253c2f94cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6984ad41c07f7790a746dbd197c18dce2aa83e2f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797771"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453727"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>columnstore의 행 그룹 품질 최대화
+# <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>전용 SQL 풀에서 columnstore 인덱스에 대 한 행 그룹 품질 최대화 
 
 행 그룹 품질은 행 그룹의 행 수에 따라 결정됩니다. 사용 가능한 메모리를 늘려서 columnstore 인덱스가 각 행 그룹에 압축 되는 행 수를 최대화할 수 있습니다.  이 방법을 사용하여 columnstore 인덱스에 대한 압축 비율 및 쿼리 성능을 개선시킬 수 있습니다.
 
@@ -97,9 +97,9 @@ To view an estimate of the memory requirements to compress a rowgroup of maximum
 > [!NOTE]
 > Short 문자열 열은 <= 32 바이트의 문자열 데이터 형식을 사용 하 고, 긴 문자열 열에는 > 32 바이트의 문자열 데이터 형식이 사용 됩니다.
 
-긴 문자열은 텍스트 압축용으로 고안된 압축 방법으로 압축됩니다. 이 압축 방법은 *사전*을 사용하여 텍스트 패턴을 저장합니다. 사전의 최대 크기는 16MB입니다. 행 그룹에는 긴 문자열 각각에 대해 사전이 한 개만 있습니다.
+긴 문자열은 텍스트 압축용으로 고안된 압축 방법으로 압축됩니다. 이 압축 방법은 *사전* 을 사용하여 텍스트 패턴을 저장합니다. 사전의 최대 크기는 16MB입니다. 행 그룹에는 긴 문자열 각각에 대해 사전이 한 개만 있습니다.
 
-Columnstore 메모리 요구 사항에 대 한 자세한 내용은 video [SYNAPSE SQL pool 크기 조정: 구성 및 지침](https://channel9.msdn.com/Events/Ignite/2016/BRK3291)을 참조 하세요.
+Columnstore 메모리 요구 사항에 대 한 자세한 내용은 비디오 [전용 SQL 풀 크기 조정: 구성 및 지침](https://channel9.msdn.com/Events/Ignite/2016/BRK3291)을 참조 하세요.
 
 ## <a name="ways-to-reduce-memory-requirements"></a>메모리 요구 사항을 줄이는 방법
 
@@ -122,7 +122,7 @@ Columnstore 메모리 요구 사항에 대 한 자세한 내용은 video [SYNAPS
 
 ### <a name="avoid-over-partitioning"></a>오버 분할 방지
 
-Columnstore 인덱스는 파티션당 행 그룹을 하나 이상 만듭니다. Azure Synapse Analytics의 SQL 풀의 경우 데이터가 분산 되 고 각 배포가 분할 되므로 파티션 수가 빠르게 증가 합니다.
+Columnstore 인덱스는 파티션당 행 그룹을 하나 이상 만듭니다. Azure Synapse Analytics의 전용 SQL 풀의 경우 데이터가 분산 되 고 각 배포가 분할 되므로 파티션 수가 빠르게 증가 합니다.
 
 테이블에 너무 많은 파티션이 있으면 행 그룹을 채우기에 충분하지 않을 수 있습니다. 행이 부족 하면 압축 하는 동안 메모리 부족이 발생 하지 않습니다. 그러나 최상의 columnstore 쿼리 성능을 실현 하지 않는 행 그룹으로 이어집니다.
 
@@ -165,4 +165,4 @@ DWU 크기와 사용자 리소스 클래스를 함께 사용하여 사용자 쿼
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL 풀의 성능을 향상 시킬 수 있는 다른 방법을 찾으려면 [성능 개요](cheat-sheet.md)를 참조 하세요.
+전용 SQL 풀의 성능을 향상 시킬 수 있는 다른 방법을 찾으려면 [성능 개요](cheat-sheet.md)를 참조 하세요.

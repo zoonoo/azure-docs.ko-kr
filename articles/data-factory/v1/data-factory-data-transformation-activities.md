@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 91755dd1b5eea9f72978e09a605fc47d41ff3dee
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dfe8863f38da0aeb701b063f051a199e27745eeb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371718"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453364"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Azure Data Factory 버전 1의 데이터 변환
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Azure Data Factory를 사용 하면 예측 분석을 위해 게시 된 Azure Mac
 이러한 Studio (클래식) 활동에 대 한 자세한 내용은 [Azure Machine Learning Studio (클래식) 활동 사용](data-factory-azure-ml-batch-execution-activity.md) 을 참조 하세요. 
 
 ## <a name="stored-procedure-activity"></a>저장 프로시저 작업
-Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사용 하 여 엔터프라이즈 또는 Azure VM의 데이터 저장소 Azure SQL Database, Azure Synapse Analytics (이전의 SQL Data Warehouse), SQL Server 데이터베이스 중 하나에서 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 [저장 프로시저 작업](data-factory-stored-proc-activity.md) 문서를 참조 하세요.  
+Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사용 하 여 엔터프라이즈 또는 Azure VM의 데이터 저장소 Azure SQL Database, Azure Synapse Analytics, SQL Server 데이터베이스 중 하나에서 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 [저장 프로시저 작업](data-factory-stored-proc-activity.md) 문서를 참조 하세요.  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 작업
 Data Lake Analytics U-SQL 작업은 Azure Data Lake Analytics 클러스터에 대해 U-SQL 스크립트를 실행합니다. 자세한 내용은 [데이터 분석의 U-SQL 작업](data-factory-usql-activity.md) 문서를 참조 하세요. 
@@ -92,7 +92,7 @@ Azure Data Factory는 작업에 대한 다음 데이터 변환 작업 및 컴퓨
 | [Pig](data-factory-pig-activity.md) |HDInsight [Hadoop] |
 | [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
-| [Azure Machine Learning Studio (클래식) 작업: 일괄 처리 실행 및 리소스 업데이트](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
+| [Azure Machine Learning Studio(클래식) 작업: 일괄 처리 실행 및 리소스 업데이트](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
 | [저장 프로시저](data-factory-stored-proc-activity.md) |Azure SQL, Azure Synapse Analytics 또는 SQL Server |
 | [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |Azure 데이터 레이크 분석 |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] 또는 Azure Batch |

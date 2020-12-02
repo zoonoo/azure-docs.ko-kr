@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1c12727e08c6ec9075aa6c1e256279ab7596417b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 33eb5977ecb373a0dba87c26cacea247f541be8f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324525"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452736"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL을 사용 하 여 테이블 디자인
 
-이 문서에는 전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀 (미리 보기)을 사용 하 여 테이블을 디자인 하기 위한 주요 개념이  
+이 문서에는 전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀을 사용 하 여 테이블을 디자인 하기 위한 주요 개념이 포함  
 
-서버를 사용 하지 않는 [SQL 풀 (미리 보기)](on-demand-workspace-overview.md) 은 data lake의 데이터에 대 한 쿼리 서비스입니다. 데이터 수집을 위한 로컬 저장소가 없습니다. [전용 sql 풀](best-practices-sql-pool.md) 은 Synapse sql을 사용 하는 경우 프로 비전 되는 분석 리소스의 컬렉션을 나타냅니다. 전용 SQL 풀의 크기는 DWU (데이터 웨어하우징 단위)에 의해 결정 됩니다.
+서버를 사용 하지 않는 [SQL 풀](on-demand-workspace-overview.md) 은 data lake의 데이터에 대 한 쿼리 서비스입니다. 데이터 수집을 위한 로컬 저장소가 없습니다. [전용 sql 풀](best-practices-sql-pool.md) 은 Synapse sql을 사용 하는 경우 프로 비전 되는 분석 리소스의 컬렉션을 나타냅니다. 전용 SQL 풀의 크기는 DWU(Data Warehousing Unit)로 결정됩니다.
 
 다음 표에서는 전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀과 관련 된 항목을 보여 줍니다.
 
-| 토픽                                                        | 전용 SQL 풀 | 서버를 사용 하지 않는 SQL 풀 |
+| 항목                                                        | 전용 SQL 풀 | 서버리스 SQL 풀 |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
 | [테이블 범주 확인](#determine-table-category)        | 예                | 아니요                      |
 | [스키마 이름](#schema-names)                                | 예                | 예                     |
@@ -37,7 +37,7 @@ ms.locfileid: "93324525"
 | [데이터 형식](#data-types)                                    | 예                | 예                     |
 | [분산 테이블](#distributed-tables)                    | 예                | 아니요                      |
 | [해시 분산 테이블](#hash-distributed-tables)          | 예                | 아니요                      |
-| [복제된 테이블](#replicated-tables)                      | 예                | 아니요                      |
+| [복제 된 테이블](#replicated-tables)                      | 예                | 아니요                      |
 | [라운드 로빈 테이블](#round-robin-tables)                    | 예                | 아니요                      |
 | [테이블에 대한 일반적인 분산 방법](#common-distribution-methods-for-tables) | 예                | 아니요                      |
 | [파티션](#partitions)                                    | 예                | 예                     |
@@ -115,7 +115,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 전용 SQL 풀의 기본 기능은 [배포](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#distributions)를 통해 테이블에 저장 하 고 작업할 수 있는 방법입니다.  전용 SQL 풀은 데이터를 배포 하는 세 가지 방법을 지원 합니다.
 
 - 라운드 로빈(기본값)
-- Hash
+- 해시
 - 복제됨
 
 ### <a name="hash-distributed-tables"></a>해시 분산 테이블

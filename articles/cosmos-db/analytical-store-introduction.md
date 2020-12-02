@@ -1,24 +1,21 @@
 ---
-title: Microsoft Azure Cosmos DB 분석 저장소(미리 보기)란?
+title: Azure Cosmos DB 분석 저장소 란?
 description: Microsoft Azure Cosmos DB 트랜잭션(행 기반) 및 분석(열 기반) 저장소에 대해 알아봅니다. 분석 저장소의 이점, 대규모 워크로드 성능에 미치는 영향 및 트랜잭션 저장소에서 분석 저장소로 데이터 자동 동기화
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 9cde9586d453632ceaa61de7c095a5f95d1ea2e4
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 5dc233348188791404f826870b235d2bdfa4c202
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337409"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452845"
 ---
-# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Azure Cosmos DB 분석 저장소 (미리 보기) 란?
+# <a name="what-is-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소 란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
-
-> [!IMPORTANT]
-> Microsoft Azure Cosmos DB 분석 저장소는 현재 미리 보기입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 Microsoft Azure Preview에 대한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure Cosmos DB 분석 저장소는 트랜잭션 워크 로드에 영향을 주지 않고 Azure Cosmos DB에서 작업 데이터에 대해 대규모 분석을 사용할 수 있는 완전히 격리 된 열 저장소입니다. 
 
@@ -36,7 +33,7 @@ Microsoft Azure Cosmos DB 컨테이너의 다중 모델 작동 데이터는 인�
 
 Microsoft Azure Cosmos DB 분석 저장소는 기존의 ETL 파이프라인에서 발생하는 복잡성과 대기 시간 문제를 해결합니다. Microsoft Azure Cosmos DB 분석 저장소는 작동 데이터를 별도의 열 저장소로 자동 동기화할 수 있습니다. 열 저장소 형식은 대규모 분석 쿼리가 최적화 된 방식으로 수행 되는 데 적합 하므로 이러한 쿼리의 대기 시간이 향상 됩니다.
 
-이제 Azure Synapse Link로 Synapse Analytics에서 Microsoft Azure Cosmos DB 분석 저장소에 직접 연결하여 비 ETL HTAP 솔루션을 구축할 수 있습니다. 이를 통해 작동 데이터에 대해 거의 실시간으로 대규모 분석을 실행할 수 있습니다.
+이제 azure Synapse 링크를 사용 하 여 Azure Synapse Analytics에서 Azure Cosmos DB 분석 저장소에 직접 연결 하 여 ETL HTAP 솔루션을 빌드할 수 있습니다. 이를 통해 작동 데이터에 대해 거의 실시간으로 대규모 분석을 실행할 수 있습니다.
 
 ## <a name="features-of-analytical-store"></a>분석 저장소의 기능 
 
@@ -181,10 +178,10 @@ salary: 1000000
 
 분석 저장소는 컴퓨팅 실행 시간에 종속되지 않고 분석 워크로드에 확장성, 탄력성 및 성능을 제공하도록 최적화되었습니다. 스토리지 기술은 수동 작업 없이 분석 워크로드를 최적화하기 위해 자체 관리됩니다.
 
-분석 컴퓨팅 시스템에서 분석 스토리지 시스템을 분리하면 Azure Synapse Analytics에서 지원하는 여러 분석 런타임에서 Microsoft Azure Cosmos DB 분석 저장소의 데이터를 동시에 쿼리할 수 ​​있습니다. 현재 Synapse Analytics는 Microsoft Azure Cosmos DB 분석 저장소를 통해 Apache Spark와 SQL 서버리스를 지원합니다.
+분석 컴퓨팅 시스템에서 분석 스토리지 시스템을 분리하면 Azure Synapse Analytics에서 지원하는 여러 분석 런타임에서 Microsoft Azure Cosmos DB 분석 저장소의 데이터를 동시에 쿼리할 수 ​​있습니다. 현재 Azure Synapse Analytics는 Azure Cosmos DB 분석 저장소를 사용 하 여 Apache Spark 및 서버 리스 SQL 풀을 지원 합니다.
 
 > [!NOTE]
-> Synapse Analytics 런타임을 사용하는 분석 저장소에서만 읽을 수 있습니다. 트랜잭션 저장소에 서비스 레이어로 데이터를 다시 작성할 수 있습니다.
+> Azure Synapse Analytics 런타임에만 분석 저장소에서 읽을 수 있습니다. 트랜잭션 저장소에 서비스 레이어로 데이터를 다시 작성할 수 있습니다.
 
 ## <a name="pricing"></a><a id="analytical-store-pricing"></a> 가격 책정
 
@@ -194,10 +191,7 @@ salary: 1000000
 
 * 분석 쓰기 작업: 트랜잭션 저장소에서 분석 저장소로 작동 데이터 업데이트의 완전 관리형 동기화(자동 동기화)
 
-* 분석 읽기 작업: Synapse Analytics Spark 및 SQL 서버를 사용 하지 않는 실행 시간에서 분석 저장소에 대해 수행 되는 읽기 작업입니다.
-
-> [!NOTE]
-> Azure Cosmos DB 분석 저장소는 현재 무료로 공개 미리 보기로 제공 됩니다.
+* 분석 읽기 작업: Azure Synapse Analytics Spark 풀에서 분석 저장소에 대해 수행 되 고 서버 리스 SQL 풀 실행 시간에 대해 수행 되는 읽기 작업입니다.
 
 분석 저장소 가격은 트랜잭션 저장소 가격 책정 모델과는 별개입니다. 분석 저장소에는 프로비저닝된 RU의 개념이 없습니다. 분석 저장소의 가격 책정 모델에 대한 자세한 내용은 [Microsoft Azure Cosmos DB 가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
 

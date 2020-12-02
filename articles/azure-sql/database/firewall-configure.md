@@ -12,17 +12,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 72af066cbff809521c34bb8db88ab0b3e5092fc4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ce528e268e0ed1e34f53e32196bceef5ad8a2fcb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841137"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452495"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database 및 Azure Synapse IP 방화벽 규칙
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-예를 들어 이름이 *mysqlserver* 인 Azure Synapse Analytics Azure SQL Database에서 새 서버를 만들 경우 서버 수준 방화벽은 서버에 대 한 공용 끝점 ( *mysqlserver.database.windows.net* 에서 액세스할 수 있음)에 대 한 모든 액세스를 차단 합니다. 간단히 하기 위해 *SQL Database* 를 사용 하 여 SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)를 모두 참조 합니다.
+예를 들어 이름이 *mysqlserver* 인 Azure Synapse Analytics Azure SQL Database에서 새 서버를 만들 경우 서버 수준 방화벽은 서버에 대 한 공용 끝점 ( *mysqlserver.database.windows.net* 에서 액세스할 수 있음)에 대 한 모든 액세스를 차단 합니다. 간단히 하기 위해 *SQL Database* 를 사용 하 여 SQL Database 및 Azure Synapse Analytics를 모두 참조 합니다.
 
 > [!IMPORTANT]
 > 이 문서는 *Azure SQL Managed Instance* 에 적용되지 *않습니다*. 네트워크 구성에 대 한 자세한 내용은 [AZURE SQL Managed Instance에 응용 프로그램 연결](../managed-instance/connect-application-instance.md)을 참조 하세요.

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 3aea2322129c383a385168c54001464da5dae276
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9a4c331d82695aecb53990fd604ade82f3361959
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520087"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452918"
 ---
 # <a name="features"></a>기능
 
@@ -27,7 +27,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 
 ## <a name="rest-api"></a>REST API
 
-| API                            | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견                                             |
+| API                            | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 설명                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
 | 읽기                           | 예       | 예       | 예       |                                                     |
 | vread                          | 예       | 예       | 예       |                                                     |
@@ -53,7 +53,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 
 모든 검색 매개 변수 유형이 지원 됩니다. 
 
-| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
+| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 설명 |
 |-----------------------|-----------|-----------|-----------|---------|
 | 숫자                | 예       | 예       | 예       |         |
 | Date/DateTime         | 예       | 예       | 예       |         |
@@ -96,7 +96,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | `_query`                | 아니요        | 아니요        | 아니요        |         |
 | `_filter`               | 아니요        | 아니요        | 아니요        |         |
 
-| 검색 결과 매개 변수 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
+| 검색 결과 매개 변수 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 설명 |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Partial        | Partial   | Partial        |   `_sort=_lastUpdated`가 지원됨       |
 | `_count`                | 예       | 예       | 예       | `_count` 는 100 자로 제한 됩니다. 100 보다 높게 설정 하면 100만 반환 되 고 번들에 경고가 반환 됩니다. |
@@ -113,7 +113,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 
 RESTful API를 확장 하는 지원 되는 모든 작업입니다.
 
-| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
+| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 설명 |
 |------------------------|-----------|-----------|-----------|---------|
 | $export (전체 시스템) | 예       | 예       | 예       |         |
 | 환자/$export        | 예       | 예       | 예       |         |
@@ -135,7 +135,7 @@ FHIR 서버는 액세스 제어를 위해 [Azure Active Directory](https://azure
 
 ## <a name="service-limits"></a>서비스 제한
 
-* [**Rus (요청 단위)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) -Azure API for FHIR에 대 한 포털에서 최대 1만 RUs를 구성할 수 있습니다. 최소 400 RUs 또는 10 RUs/GB 중 더 큰 값이 필요 합니다. 1만 명 이상의 RUs가 필요한 경우 지원 티켓에 추가 하 여이를 늘릴 수 있습니다. 사용 가능한 최대값은 100만입니다.
+* [**Rus (요청 단위)**](../cosmos-db/concepts-limits.md) -Azure API for FHIR에 대 한 포털에서 최대 1만 RUs를 구성할 수 있습니다. 최소 400 RUs 또는 10 RUs/GB 중 더 큰 값이 필요 합니다. 1만 명 이상의 RUs가 필요한 경우 지원 티켓에 추가 하 여이를 늘릴 수 있습니다. 사용 가능한 최대값은 100만입니다.
 
 * **동시 연결** 및 **인스턴스** -dafault에서 클러스터의 두 인스턴스에 대해 5 개의 동시 연결이 있습니다 (총 10 개의 동시 요청). 더 많은 동시 요청이 필요 하다 고 생각 되는 경우 요구 사항에 대 한 세부 정보가 포함 된 지원 티켓을 엽니다.
 

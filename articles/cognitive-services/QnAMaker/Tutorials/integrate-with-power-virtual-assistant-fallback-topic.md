@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 11/09/2020
-ms.openlocfilehash: 322db4e1535e763f4c3e7c87afaa370471ba0b66
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 3801bb44fed6bf24788957c41de77c89b3025ae8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376301"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351115"
 ---
 # <a name="tutorial-add-your-knowledge-base-to-power-virtual-agents"></a>자습서: Power Virtual Agents에 기술 자료 추가
 기술 자료에서 대답을 제공하는 [Power Virtual Agents](https://powervirtualagents.microsoft.com/) 봇을 만들고 확장합니다.
@@ -53,7 +53,7 @@ Power Virtual Agents의 에이전트를 QnA Maker의 기술 자료에 연결하�
     * 작업(Power Automate 흐름에 대한)을 호출합니다.
 * [Power Automate](https://us.flow.microsoft.com/) 포털에서
     * _QnA Maker를 사용하여 답변 생성_ 템플릿을 검색합니다.
-    * 템플릿을 사용하여 [QnA Maker의 GenerateAnswer](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/)를 사용하도록 흐름을 구성합니다.
+    * 템플릿을 사용하여 [QnA Maker의 GenerateAnswer](/connectors/cognitiveservicesqnamaker/)를 사용하도록 흐름을 구성합니다.
         * QnA Maker에서 게시하는 기술 자료 정보:
             * 기술 자료 ID
             * QnA Maker 리소스 엔드포인트 호스트
@@ -258,6 +258,6 @@ Power Virtual Agents 제작 캔버스를 사용하여 대체 항목을 기술 �
 [기술 자료에 대한 분석 가져오기](../How-To/get-analytics-knowledge-base.md)
 
 다음에 대해 자세히 알아봅니다.
-* [Power Virtual Agents](https://docs.microsoft.com/power-virtual-agents/)
-* [Power Automate](https://docs.microsoft.com/power-automate/)
-* [QnA Maker 커넥터](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) 및 [커넥터 설정](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/)
+* [Power Virtual Agents](/power-virtual-agents/)
+* [Power Automate](/power-automate/)
+* [QnA Maker 커넥터](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) 및 [커넥터 설정](/connectors/cognitiveservicesqnamaker/)

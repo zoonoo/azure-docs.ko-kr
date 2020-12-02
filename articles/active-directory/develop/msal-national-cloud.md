@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
-ms.reviewer: nacanuma
+ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 566c429fc70ae3f0fc18f024b745d8142535932c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f631ad650b20110084ff902043447f26c2d4ab3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348410"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453604"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>국가별 클라우드 환경에서 MSAL 사용
 
@@ -34,7 +34,7 @@ Microsoft의 전 세계 클라우드 외에도 MSAL (Microsoft 인증 라이브�
 
 이 가이드에서는 회사 및 학교 계정에 로그인 하 고, 액세스 토큰을 가져오고, [Azure Government 클라우드](https://azure.microsoft.com/global-infrastructure/government/) 환경에서 Microsoft Graph API를 호출 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 시작 하기 전에 이러한 필수 구성 요소를 충족 하는지 확인 합니다.
 
@@ -150,9 +150,9 @@ const myMSALObj = new UserAgentApplication(msalConfig);
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- Microsoft graph를 호출 하려면 사용 중인 클라우드에 따라 달라 지는 특정 그래프 끝점 URL이 필요 합니다. 모든 국가별 클라우드의 Microsoft Graph 끝점을 찾으려면 [Microsoft Graph 및 그래프 탐색기 서비스 루트 끝점](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)을 참조 하세요.
+- Microsoft Graph API를 호출 하려면 사용 중인 클라우드와 관련 된 끝점 URL이 필요 합니다. 모든 국가별 클라우드의 Microsoft Graph 끝점을 찾으려면 [Microsoft Graph 및 그래프 탐색기 서비스 루트 끝점](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)을 참조 하세요.
 
-    다음은 범위를 포함 하는 그래프 끝점의 예입니다.
+    다음은 범위가 있는 Microsoft Graph 끝점의 예입니다.
 
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
@@ -173,7 +173,7 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- Microsoft graph를 호출 하려면 사용 중인 클라우드에 따라 달라 지는 특정 그래프 끝점 URL이 필요 합니다. 모든 국가별 클라우드의 Microsoft Graph 끝점을 찾으려면 [Microsoft Graph 및 그래프 탐색기 서비스 루트 끝점](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)을 참조 하세요.
+- Microsoft Graph API를 호출 하려면 사용 중인 클라우드와 관련 된 끝점 URL이 필요 합니다. 모든 국가별 클라우드의 Microsoft Graph 끝점을 찾으려면 [Microsoft Graph 및 그래프 탐색기 서비스 루트 끝점](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)을 참조 하세요.
 
 다음은 범위를 포함 하는 그래프 끝점의 예입니다.
 
@@ -222,9 +222,10 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>다음 단계
 
-다음에 대해 자세히 알아봅니다.
+각 클라우드의 Azure Portal Url 및 토큰 끝점 목록은 [국가별 클라우드 인증 끝점](authentication-national-cloud.md) 을 참조 하세요.
 
-- [국가별 클라우드의 인증](authentication-national-cloud.md)
+국가별 클라우드 설명서:
+
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
 - [Azure 독일](../../germany/index.yml)

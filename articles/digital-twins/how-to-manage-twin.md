@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9e00e0e5a34eecd6974e8919ce0d0e16f48757f3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ba444a497fa4fccab6b8dec1fadb3383420e4d49
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540971"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452975"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "94540971"
 > [!TIP]
 > 모든 SDK 함수는 동기 및 비동기 버전으로 제공 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
@@ -99,7 +99,7 @@ Console.WriteLine("The twin is created successfully");
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
-이 호출은와 같은 강력한 형식의 개체 형식으로 쌍으로 된 데이터를 반환 `BasicDigitalTwin` 합니다. 다음은이를 사용 하 여 쌍 세부 정보를 보는 방법에 대 한 예입니다.
+이 호출은와 같은 강력한 형식의 개체 형식으로 쌍으로 된 데이터를 반환 `BasicDigitalTwin` 합니다. `BasicDigitalTwin` 는 SDK에 포함 된 serialization 도우미 클래스로,이 클래스는 미리 구문 분석 된 형식으로 핵심 쌍 메타 데이터 및 속성을 반환 합니다. 다음은이를 사용 하 여 쌍 세부 정보를 보는 방법에 대 한 예입니다.
 
 ```csharp
 Response<BasicDigitalTwin> twin = client.GetDigitalTwin("myRoomId");
@@ -176,21 +176,7 @@ foreach (string prop in twin.Contents.Keys)
     - 쓰기 가능한 각 속성의 동기화 상태입니다. 장치에 가장 유용 합니다 .이는 서비스와 장치에 분기 된 상태가 있을 수 있습니다 (예: 장치가 오프 라인 상태인 경우). 현재이 속성은 IoT Hub에 연결 된 물리적 장치에만 적용 됩니다. 메타 데이터 섹션의 데이터를 사용 하 여 마지막 수정 타임 스탬프 뿐만 아니라 속성의 전체 상태를 이해할 수 있습니다. 동기화 상태에 대 한 자세한 내용은 장치 상태 동기화에 대 한 [이 IoT Hub 자습서](../iot-hub/tutorial-device-twins.md) 를 참조 하세요.
     - IoT Hub 또는 Azure Digital Twins와 같은 서비스별 메타 데이터. 
 
-와 같이 선택한 JSON 구문 분석 라이브러리를 사용 하 여 쌍에 대해 반환 된 JSON을 구문 분석할 수 있습니다 `System.Text.Json` .
-
-SDK에 포함 된 serialization 도우미 클래스를 사용할 수도 있습니다 .이 클래스 `BasicDigitalTwin` 는 미리 구문 분석 된 형식으로 핵심 쌍 메타 데이터 및 속성을 반환 합니다. 다음은 예제입니다.
-
-```csharp
-Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_Id);
-Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.Contents.Keys)
-{
-    if (twin.Contents.TryGetValue(prop, out object value))
-        Console.WriteLine($"Property '{prop}': {value}");
-}
-```
-
-[*방법: Azure Digital Twins api 및 Sdk 사용*](how-to-use-apis-sdks.md)에서 serialization 도우미 클래스에 대해 자세히 알아볼 수 있습니다.
+`BasicDigitalTwin` [*방법: Azure Digital Twins Api 및 sdk 사용*](how-to-use-apis-sdks.md)에서와 같은 serialization 도우미 클래스에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="view-all-digital-twins"></a>모든 디지털 쌍 보기
 

@@ -2,19 +2,21 @@
 title: Azure 서비스의 리소스 공급자
 description: Azure Resource Manager에 대 한 모든 리소스 공급자 네임 스페이스를 나열 하 고 해당 네임 스페이스에 대 한 Azure 서비스를 표시 합니다.
 ms.topic: conceptual
-ms.date: 11/30/2020
-ms.openlocfilehash: fffac8fef8742cf1f151de06ba6b528035a6668d
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 12/01/2020
+ms.openlocfilehash: faea6badc24d0152e94fc507cafdb15932d1ea3e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436830"
+ms.locfileid: "96452635"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 서비스의 리소스 공급자
 
 이 문서에서는 리소스 공급자 네임 스페이스를 Azure 서비스에 매핑하는 방법을 보여 줍니다.
 
 ## <a name="match-resource-provider-to-service"></a>리소스 공급자를 서비스에 매칭
+
+**등록** 된 것으로 표시 된 리소스 공급자는 구독에 대해 기본적으로 등록 됩니다. 자세한 내용은 [등록](#registration)을 참조 하세요.
 
 | 리소스 공급자 네임 스페이스 | Azure 서비스 |
 | --------------------------- | ------------- |

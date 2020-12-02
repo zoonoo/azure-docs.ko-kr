@@ -1,19 +1,19 @@
 ---
 title: '자습서: 세션 및 디바이스에서 앵커 공유'
 description: 이 자습서에서는 백 엔드 서비스가 있는 Unity의 Android/iOS 디바이스 간에 Azure Spatial Anchors 식별자를 공유하는 방법을 알아봅니다.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 07/31/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b29873e161b64c52abbfdf3f2611714f6b012361
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 3048eb1ca7f9312a43bc1ab5885bf19d4c2e7931
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097289"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185390"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>자습서: 세션 및 디바이스에서 공간 앵커 공유
 
@@ -64,15 +64,15 @@ Visual Studio Code에서 서비스를 배포하기 전에 리소스 그룹 및 A
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
-**리소스 그룹** 옆에 있는 **새로 만들기**를 선택합니다.
+**리소스 그룹** 옆에 있는 **새로 만들기** 를 선택합니다.
 
-리소스 그룹 이름을 **myResourceGroup**으로 지정한 다음, **확인**을 선택합니다.
+리소스 그룹 이름을 **myResourceGroup** 으로 지정한 다음, **확인** 을 선택합니다.
 
 ### <a name="create-an-app-service-plan"></a>App Service 플랜 만들기
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan.md)]
 
-**호스팅 계획** 옆에 있는 **새로 만들기**를 선택합니다.
+**호스팅 계획** 옆에 있는 **새로 만들기** 를 선택합니다.
 
 **호스팅 계획 구성** 창에서 다음 설정을 사용합니다.
 
@@ -82,7 +82,7 @@ Visual Studio Code에서 서비스를 배포하기 전에 리소스 그룹 및 A
 | 위치 | 미국 서부 | 웹앱이 호스팅되는 데이터 센터 |
 | 크기 | 무료 | 호스팅 기능을 결정하는 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 
-**확인**을 선택합니다.
+**확인** 을 선택합니다.
 
 Visual Studio Code를 연 다음, *Sharing\SharingServiceSample* 폴더에서 프로젝트를 엽니다. 
 

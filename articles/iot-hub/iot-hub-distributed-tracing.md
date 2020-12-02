@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: efc4d07e9e3a64a36f2ecf3fa0000379bef380f9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f8d37cf8f23de1d0535c7a9ff4a95ac217eddf74
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538581"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452385"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
 
@@ -35,12 +35,12 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 이 문서에서는 분산 추적과 함께 [C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md)를 사용합니다. 다른 SDK의 경우 분산 추적 지원이 아직 진행 중입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - 분산 추적의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
 
   - **북유럽**
-  - **동남아시아**
+  - **동남 아시아**
   - **미국 서부 2**
 
 - 이 문서에서는 사용자가 IoT Hub로 원격 분석 메시지를 전송하는 방법을 잘 알고 있다고 가정합니다. [원격 분석 전송 C 빠른 시작](quickstart-send-telemetry-c.md)을 완료해야 합니다.
@@ -63,9 +63,9 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 1. 로깅 전송 위치를 결정하는 다음 옵션 중 하나 이상을 선택합니다.
 
-    - **저장소 계정에 보관** : 로깅 정보를 포함 하도록 저장소 계정을 구성 합니다.
-    - **이벤트 허브로 스트림** : 로깅 정보를 포함 하도록 이벤트 허브를 구성 합니다.
-    - **Log Analytics 보내기** : 로깅 정보를 포함 하도록 Log Analytics 작업 영역을 구성 합니다.
+    - **저장소 계정에 보관**: 로깅 정보를 포함 하도록 저장소 계정을 구성 합니다.
+    - **이벤트 허브로 스트림**: 로깅 정보를 포함 하도록 이벤트 허브를 구성 합니다.
+    - **Log Analytics 보내기**: 로깅 정보를 포함 하도록 Log Analytics 작업 영역을 구성 합니다.
 
 1. **로그** 섹션에서 로깅 정보를 사용하려는 작업을 선택합니다.
 
@@ -293,9 +293,9 @@ IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 
 
 ## <a name="understand-azure-iot-distributed-tracing"></a>Azure IoT 분산 추적 이해
 
-### <a name="context"></a>Context
+### <a name="context"></a>컨텍스트
 
-고유한 [참조 아키텍처](https://aka.ms/iotrefarchitecture)(영문만 지원)를 포함하는 많은 IoT 솔루션은 일반적으로 [마이크로 서비스 아키텍처](/azure/architecture/microservices/)의 변형을 따릅니다. IoT 솔루션이 좀 더 복잡해지면서 결과적으로 수십 개가 넘는 마이크로 서비스를 사용하게 됩니다. 이러한 마이크로 서비스는 Azure에서 제공된 것일 수도 있고 그렇지 않을 수도 있습니다. IoT 메시지가 삭제되거나 느려지는 지점을 찾아내는 일은 어려울 수 있습니다. 예를 들어, 5개의 다른 Azure 서비스와 1,500개의 활성 디바이스를 사용하는 IoT 솔루션이 있을 수 있습니다. 각 디바이스는 초당 10개의 디바이스-클라우드 메시지(초당 총 15,000개 메시지)를 보내지만, 웹앱에는 초당 10,000개의 메시지가 표시되는 것으로 확인되었습니다. 문제가 무엇인가요? 원인은 어떻게 찾을 수 있을까요?
+고유한 [참조 아키텍처](/azure/architecture/reference-architectures/iot)(영문만 지원)를 포함하는 많은 IoT 솔루션은 일반적으로 [마이크로 서비스 아키텍처](/azure/architecture/microservices/)의 변형을 따릅니다. IoT 솔루션이 좀 더 복잡해지면서 결과적으로 수십 개가 넘는 마이크로 서비스를 사용하게 됩니다. 이러한 마이크로 서비스는 Azure에서 제공된 것일 수도 있고 그렇지 않을 수도 있습니다. IoT 메시지가 삭제되거나 느려지는 지점을 찾아내는 일은 어려울 수 있습니다. 예를 들어, 5개의 다른 Azure 서비스와 1,500개의 활성 디바이스를 사용하는 IoT 솔루션이 있을 수 있습니다. 각 디바이스는 초당 10개의 디바이스-클라우드 메시지(초당 총 15,000개 메시지)를 보내지만, 웹앱에는 초당 10,000개의 메시지가 표시되는 것으로 확인되었습니다. 문제가 무엇인가요? 원인은 어떻게 찾을 수 있을까요?
 
 ### <a name="distributed-tracing-pattern-in-microservice-architecture"></a>마이크로 서비스 아키텍처의 분산 추적 패턴
 

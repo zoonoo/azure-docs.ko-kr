@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: c53f78702aeb5404bd353274ddb29b9356229fae
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ab9e122ba0b2b50203a2d66ae14f03f3b6300f96
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145767"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452344"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 IoT hub의 센서 데이터를 사용한 날씨 예측 (클래식)
 
@@ -46,7 +46,7 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 Azure IoT hub에서 
   - 구독 중인 Azure IoT Hub
   - 메시지를 Azure IoT Hub로 보내는 클라이언트 애플리케이션
 - [Azure Machine Learning Studio(클래식)](https://studio.azureml.net/) 계정입니다.
-- [Azure Storage 계정은](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts) **범용 V2** 계정 이지만 Azure Blob 저장소를 지 원하는 Azure Storage 계정도 작동 합니다.
+- [Azure Storage 계정은](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts) **범용 V2** 계정 이지만 Azure Blob 저장소를 지 원하는 Azure Storage 계정도 작동 합니다.
 
 > [!Note]
 > 이 문서에서는 Azure Stream Analytics 및 기타 유료 서비스를 사용 합니다. 추가 요금은 Azure 지역 간에 데이터를 전송 해야 하는 경우 Azure Stream Analytics에 발생 합니다. 이러한 이유로이 자습서의 뒷부분에서 추가 된 리소스 그룹, IoT Hub 및 Azure Storage 계정 뿐만 아니라 Machine Learning Studio (클래식) 작업 영역과이 자습서의 뒷부분에 추가 된 Azure Stream Analytics 작업을 확인 하는 것이 좋습니다.-는 모두 동일한 Azure 지역에 있습니다. 지역별 [azure 제품 가용성 페이지](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all)에서 Azure Machine Learning Studio (클래식) 및 기타 azure 서비스에 대 한 지역별 지원을 확인할 수 있습니다.
@@ -106,7 +106,7 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 Azure IoT hub에서 
 
    ![실험을 실행하여 단계의 유효성을 검사합니다.](media/iot-hub-weather-forecast-machine-learning/run-experiment.png)
 
-1. **웹 서비스**  >  **예측 웹 서비스**설정을 선택 합니다. 예측 실험 다이어그램이 열립니다.
+1. **웹 서비스**  >  **예측 웹 서비스** 설정을 선택 합니다. 예측 실험 다이어그램이 열립니다.
 
    ![Azure Machine Learning Studio(클래식)에서 날씨 예측 모델 배포](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
 
@@ -118,14 +118,14 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 Azure IoT hub에서 
 
 1. 웹 서비스 **배포** 를 선택 하 여 모델을 웹 서비스로 배포 합니다.
 
-1. 모델의 대시보드에서 **요청/응답**에 대한 **Excel 2010 또는 이전 통합 문서**를 다운로드합니다.
+1. 모델의 대시보드에서 **요청/응답** 에 대한 **Excel 2010 또는 이전 통합 문서** 를 다운로드합니다.
 
    > [!Note]
-   > 컴퓨터에서 최신 버전의 Excel을 실행하더라도 **Excel 2010 또는 이전 통합 문서**를 다운로드해야 합니다.
+   > 컴퓨터에서 최신 버전의 Excel을 실행하더라도 **Excel 2010 또는 이전 통합 문서** 를 다운로드해야 합니다.
 
    ![REQUEST RESPONSE 엔드포인트에 대한 Excel 다운로드](media/iot-hub-weather-forecast-machine-learning/download-workbook.png)
 
-1. Excel 통합 문서를 열고 **웹 서비스 URL** 및 **액세스 키**를 기록해 둡니다.
+1. Excel 통합 문서를 열고 **웹 서비스 URL** 및 **액세스 키** 를 기록해 둡니다.
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
@@ -133,7 +133,7 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 Azure IoT hub에서 
 
 ### <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
 
-1. [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기**를 선택 합니다. 검색 상자에 "stream analytics 작업"을 입력 하 고 결과 드롭다운에서 **Stream Analytics 작업** 을 선택 합니다. **Stream Analytics 작업** 창이 열리면 **만들기**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기** 를 선택 합니다. 검색 상자에 "stream analytics 작업"을 입력 하 고 결과 드롭다운에서 **Stream Analytics 작업** 을 선택 합니다. **Stream Analytics 작업** 창이 열리면 **만들기** 를 선택 합니다.
 1. 작업에 대한 다음 정보를 입력합니다.
 
    **작업 이름**: 작업의 이름입니다. 이름은 전역적으로 고유해야 합니다.
@@ -148,13 +148,13 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 Azure IoT hub에서 
 
    ![Azure에서 Stream Analytics 작업 만들기](media/iot-hub-weather-forecast-machine-learning/create-stream-analytics-job.png)
 
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Stream Analytics 작업에 입력 추가
 
 1. Stream Analytics 작업을 엽니다.
-1. **작업 토폴로지**에서 **입력**을 선택합니다.
-1. **입력** 창에서 **스트림 입력 추가**를 선택 하 고 드롭다운에서 **IoT Hub** 를 선택 합니다. **새 입력** 창에서 **구독에서 IoT Hub 선택** 을 선택 하 고 다음 정보를 입력 합니다.
+1. **작업 토폴로지** 에서 **입력** 을 선택합니다.
+1. **입력** 창에서 **스트림 입력 추가** 를 선택 하 고 드롭다운에서 **IoT Hub** 를 선택 합니다. **새 입력** 창에서 **구독에서 IoT Hub 선택** 을 선택 하 고 다음 정보를 입력 합니다.
 
    **입력 별칭**: 입력에 대한 고유 별칭입니다.
 
@@ -162,7 +162,7 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 Azure IoT hub에서 
 
    **IoT Hub**: 구독에서 IoT Hub를 선택 합니다.
 
-   **공유 액세스 정책 이름**:  **서비스**를 선택 합니다. **Iothubowner**를 사용할 수도 있습니다.
+   **공유 액세스 정책 이름**:  **서비스** 를 선택 합니다. **Iothubowner** 를 사용할 수도 있습니다.
 
    **소비자 그룹**: 앞서 만든 소비자 그룹을 선택합니다.
 
@@ -170,12 +170,12 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 Azure IoT hub에서 
 
    ![Azure에서 Stream Analytics 작업에 입력 추가](media/iot-hub-weather-forecast-machine-learning/add-input-stream-analytics-job.png)
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Stream Analytics 작업에 출력 추가
 
-1. **작업 토폴로지**에서 **출력**을 선택합니다.
-1. **출력** 창에서 **추가**를 선택한 다음 드롭다운에서 **Blob storage/Data Lake Storage** 를 선택 합니다. **새 출력** 창에서 **구독에서 저장소 선택** 을 선택 하 고 다음 정보를 입력 합니다.
+1. **작업 토폴로지** 에서 **출력** 을 선택합니다.
+1. **출력** 창에서 **추가** 를 선택한 다음 드롭다운에서 **Blob storage/Data Lake Storage** 를 선택 합니다. **새 출력** 창에서 **구독에서 저장소 선택** 을 선택 하 고 다음 정보를 입력 합니다.
 
    **출력 별칭**: 출력에 대한 고유 별칭입니다.
 
@@ -185,16 +185,16 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 Azure IoT hub에서 
 
    **컨테이너**: Blob이 저장되는 컨테이너입니다. 컨테이너를 만들거나 기존 컨테이너를 사용할 수 있습니다.
 
-   **이벤트 직렬화 형식**: **CSV**를 선택합니다.
+   **이벤트 직렬화 형식**: **CSV** 를 선택합니다.
 
    ![Azure에서 Stream Analytics 작업에 출력 추가](media/iot-hub-weather-forecast-machine-learning/add-output-stream-analytics-job.png)
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Stream Analytics 작업에 배포된 웹 서비스를 호출하는 함수 추가
 
-1. **작업 토폴로지**아래에서 **함수**를 선택 합니다.
-1. **함수** 창에서 **추가**를 선택한 다음 드롭다운에서 **Azure ML Studio** 를 선택 합니다. Azure **ML 서비스가**아닌 **azure ML Studio**를 선택 했는지 확인 합니다. **새 함수** 창에서 **Azure Machine Learning 함수 설정 수동으로 제공** 을 선택 하 고 다음 정보를 입력 합니다.
+1. **작업 토폴로지** 아래에서 **함수** 를 선택 합니다.
+1. **함수** 창에서 **추가** 를 선택한 다음 드롭다운에서 **Azure ML Studio** 를 선택 합니다. Azure **ML 서비스가** 아닌 **azure ML Studio** 를 선택 했는지 확인 합니다. **새 함수** 창에서 **Azure Machine Learning 함수 설정 수동으로 제공** 을 선택 하 고 다음 정보를 입력 합니다.
 
    **함수 별칭**: `machinelearning`를 입력합니다.
 
@@ -204,18 +204,18 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 Azure IoT hub에서 
 
    ![Azure에서 Stream Analytics 작업에 함수 추가](media/iot-hub-weather-forecast-machine-learning/add-function-stream-analytics-job.png)
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Stream Analytics 작업의 쿼리 구성
 
-1. **작업 토폴로지**에서 **쿼리**를 선택합니다.
+1. **작업 토폴로지** 에서 **쿼리** 를 선택합니다.
 1. 기존 코드를 다음 코드로 바꿉니다.
 
    ```sql
    WITH machinelearning AS (
       SELECT EventEnqueuedUtcTime, temperature, humidity, machinelearning(temperature, humidity) as result from [YourInputAlias]
    )
-   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
+   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
    Into [YourOutputAlias]
    From machinelearning
    ```
@@ -224,14 +224,14 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 Azure IoT hub에서 
 
    `[YourOutputAlias]`를 작업의 출력 별칭으로 바꿉니다.
 
-1. **쿼리 저장**을 선택합니다.
+1. **쿼리 저장** 을 선택합니다.
 
 > [!Note]
-> **쿼리 테스트**를 선택 하면 다음 메시지가 표시 됩니다. Machine Learning 함수로 쿼리 테스트는 지원 되지 않습니다. 쿼리를 수정 하 고 다시 시도 하세요. 이 메시지를 무시 하 고 **확인** 을 선택 하 여 메시지 상자를 닫을 수 있습니다. 다음 섹션으로 진행 하기 전에 쿼리를 저장 해야 합니다.
+> **쿼리 테스트** 를 선택 하면 다음 메시지가 표시 됩니다. Machine Learning 함수로 쿼리 테스트는 지원 되지 않습니다. 쿼리를 수정 하 고 다시 시도 하세요. 이 메시지를 무시 하 고 **확인** 을 선택 하 여 메시지 상자를 닫을 수 있습니다. 다음 섹션으로 진행 하기 전에 쿼리를 저장 해야 합니다.
 
 ### <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행
 
-Stream Analytics 작업의 왼쪽 창에서 **개요** 를 선택 합니다. 이제 시작 **시작**을 선택  >  **Now**  >  **Start**합니다. 작업이 성공적으로 시작되면 작업 상태가 **중지됨**에서 **실행 중**으로 변경됩니다.
+Stream Analytics 작업의 왼쪽 창에서 **개요** 를 선택 합니다. 이제 시작 **시작** 을 선택  >  **Now**  >  **Start** 합니다. 작업이 성공적으로 시작되면 작업 상태가 **중지됨** 에서 **실행 중** 으로 변경됩니다.
 
 ![Stream Analytics 작업 실행](media/iot-hub-weather-forecast-machine-learning/run-stream-analytics-job.png)
 

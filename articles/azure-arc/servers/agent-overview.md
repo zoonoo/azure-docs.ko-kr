@@ -1,14 +1,14 @@
 ---
 title: Connected Machine Windows 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트 되는 가상 컴퓨터를 모니터링 하는 데 사용할 수 있는 Azure Arc 사용 가능 서버 에이전트에 대 한 자세한 개요를 제공 합니다.
-ms.date: 09/30/2020
+ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8a66f99f535013b8aac52fdee43b91a8c734b10a
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1bc9546e6db35153424ba670f8157adb86d19b71
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577586"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452952"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
 
@@ -31,7 +31,7 @@ Azure 연결 된 컴퓨터 에이전트 패키지에는 여러 개의 논리적 
     * 게스트 할당은 14 일 동안 로컬에 저장 됩니다. 14 일 기간 내에 연결 된 컴퓨터 에이전트가 서비스에 다시 연결 하는 경우 정책 할당이 다시 적용 됩니다.
     * 할당은 14 일 후에 삭제 되며 14 일 기간 후에는 컴퓨터에 재할당 되지 않습니다.
 
-* 확장 에이전트는 설치, 제거 및 업그레이드를 포함 하 여 VM 확장을 관리 합니다. 확장은 Azure에서 다운로드 되 고 Windows의 `%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads` 폴더 및 Linux에 복사 됩니다 `/opt/GC_Ext/downloads` . Windows에서는 확장이 다음 경로에 설치 되 `%SystemDrive%\Packages\Plugins\<extension>` 고 Linux에서 확장이에 설치 됩니다 `/var/lib/waagent/<extension>` .
+* 확장 에이전트는 설치, 제거 및 업그레이드를 포함 하 여 VM 확장을 관리 합니다. 확장은 Azure에서 다운로드 되 고 Windows의 `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` 폴더 및 Linux에 복사 됩니다 `/opt/GC_Ext/downloads` . Windows에서는 확장이 다음 경로에 설치 되 `%SystemDrive%\Packages\Plugins\<extension>` 고 Linux에서 확장이에 설치 됩니다 `/var/lib/waagent/<extension>` .
 
 ## <a name="download-agents"></a>에이전트 다운로드
 
@@ -92,7 +92,7 @@ URL:
 
 | 에이전트 리소스 | Description |
 |---------|---------|
-|`management.azure.com`|Azure 리소스 관리자|
+|`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |게스트 구성|
@@ -170,9 +170,9 @@ Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 추�
     |%ProgramData%\AzureConnectedMachineAgent |에이전트 구성 파일이 포함되어 있습니다.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |가져온 토큰이 포함되어 있습니다.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |서비스 등록 정보를 기록하는 에이전트 구성 파일 `agentconfig.json`이 포함되어 있습니다.|
-    |%SystemDrive%\Program Files\ArcConnectedMachineAgent\ExtensionService\GC | 게스트 구성 에이전트 파일을 포함 하는 설치 경로입니다. |
+    |%ProgramFiles%\ArcConnectedMachineAgent\ExtensionService\GC | 게스트 구성 에이전트 파일을 포함 하는 설치 경로입니다. |
     |%ProgramData%\GuestConfig |Azure의 (적용) 정책을 포함 합니다.|
-    |%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads | 확장은 Azure에서 다운로드 되 고 여기에 복사 됩니다.|
+    |%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads | 확장은 Azure에서 다운로드 되 고 여기에 복사 됩니다.|
 
 * 에이전트를 설치하는 동안 대상 머신에 다음 Windows 서비스가 만들어집니다.
 
@@ -196,14 +196,14 @@ Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 추�
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |자세한 정보(-v) 인수를 사용하는 경우 azcmagent tool 명령의 출력이 포함됩니다.|
     |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |DSC 서비스 활동의 세부 정보,<br> 특히 HIMDS 서비스와 Azure Policy 간의 연결입니다.|
     |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |DSC 서비스 원격 분석 및 자세한 정보 로깅에 대한 세부 정보를 기록합니다.|
-    |%SystemDrive%\ProgramData\GuestConfig\ ext_mgr_logs|확장 에이전트 구성 요소에 대 한 세부 정보를 기록 합니다.|
-    |%SystemDrive%\ProgramData\GuestConfig\ extension_logs\<Extension>|설치 된 확장의 세부 정보를 기록 합니다.|
+    |%ProgramData%\GuestConfig\ ext_mgr_logs|확장 에이전트 구성 요소에 대 한 세부 정보를 기록 합니다.|
+    |%ProgramData%\GuestConfig\ extension_logs\<Extension>|설치 된 확장의 세부 정보를 기록 합니다.|
 
 * 로컬 보안 그룹 **하이브리드 에이전트 확장 애플리케이션** 이 만들어집니다.
 
 * 에이전트를 제거하는 동안 다음 아티팩트가 제거되지 않습니다.
 
-    * *%ProgramData%\AzureConnectedMachineAgent\Log
+    * %ProgramData%\AzureConnectedMachineAgent\Log
     * %ProgramData%\AzureConnectedMachineAgent 및 하위 디렉터리
     * %ProgramData%\GuestConfig
 

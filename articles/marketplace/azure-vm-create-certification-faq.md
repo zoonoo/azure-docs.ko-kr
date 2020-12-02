@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 5124e7084a8e878e54e594424ec0926410f002ca
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: eb290b8c154c40388bfb3e7f9cbac7b645aa9609
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682488"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452685"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>가상 컴퓨터 인증 문제 해결
 
@@ -29,7 +29,7 @@ VM (가상 컴퓨터) 이미지를 Azure Marketplace에 게시 하는 경우 Azu
 
 이 오류는 다른 게시자에 속하는 기본 이미지를 사용 하 여 이미지를 업데이트 한 경우에 발생 합니다. 이 경우 이미지를 게시할 수 없습니다.
 
-이 문제를 해결 하려면 Azure Marketplace에서 이미지를 검색 하 고 변경 합니다. 자세한 내용은 다음 아티클을 참조하세요.
+이 문제를 해결 하려면 Azure Marketplace에서 이미지를 검색 하 고 변경 합니다. 자세한 내용은 다음 문서를 참조하세요.
 
 - [Linux 이미지](../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Windows 이미지](azure-vm-create-using-approved-base.md)
@@ -68,7 +68,7 @@ VM 확장이 제대로 활성화 되었는지 확인 하려면:
 
 프로 비전 문제는 다음과 같은 오류 시나리오를 포함할 수 있습니다.
 
-|시나리오|오류|이유|솔루션|
+|시나리오|Error|이유|해결 방법|
 |---|---|---|---|
 |1|잘못 된 VHD (가상 하드 디스크)|VHD 바닥글의 지정 된 쿠키 값이 잘못 된 경우 VHD가 잘못 된 것으로 간주 됩니다.|이미지를 다시 만들고 요청을 제출 합니다.|
 |2|잘못 된 blob 유형|사용 된 블록이 페이지 유형이 아닌 blob 유형 이므로 VM을 프로 비전 하지 못했습니다.|이미지를 다시 만들고 요청을 제출 합니다.|
@@ -208,7 +208,7 @@ OS 디스크 크기에 대 한 제한 사항은 다음 규칙을 참조 하세�
 
 Vm은 기본 운영 체제에 대 한 액세스를 허용 하므로 vhd 크기가 VHD에 대해 충분히 큰지 확인 합니다. 가동 중지 시간 없이 디스크를 확장할 필요가 없습니다. 30GB에서 50 GB 까지의 디스크 크기를 사용 합니다.
 
-|VHD 크기|실제 차지 크기|솔루션|
+|VHD 크기|실제 차지 크기|해결 방법|
 |---|---|---|
 |>500 tebibytes (TiB)|해당 없음|예외 승인에 대해서는 지원 팀에 문의 하세요.|
 |250-500 TiB|Blob 크기와 >200 GiB) 차이|예외 승인에 대해서는 지원 팀에 문의 하세요.|
@@ -247,7 +247,7 @@ Linux 이미지를 제출할 때 커널 버전 문제로 인해 요청이 거부
 - CVE-2019-11478 
 - CVE-2019-11479
 
-|OS 제품군|버전|커널|
+|OS 제품군|Version|커널|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0| 
 ||14.04 LTS|4.15.0-1049-*-azure|
@@ -319,7 +319,7 @@ Azure의 모든 Vhd에는 1 메가바이트 (MB)의 배수로 크기를 맞춘 �
     
 SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드 하는 경우 발생 하는 문제에 대해서는 다음 표를 참조 하세요.
 
-|시나리오|오류|이유|솔루션|
+|시나리오|Error|이유|해결 방법|
 |---|---|---|---|
 |1|Blob을 찾을 수 없음|VHD는 지정 된 위치에서 삭제 되거나 이동 될 수 있습니다.|| 
 |2|사용 중인 Blob|다른 내부 프로세스에서 VHD를 사용 합니다.|SAS URL을 사용 하 여 VHD를 다운로드 하는 경우 VHD가 사용 된 상태 여야 합니다.|
@@ -474,13 +474,13 @@ Azure Marketplace에서 가져온 모든 이미지를 다시 사용 하는 경�
 
 * **Windows** 의 경우를 사용 하 여 windows 이미지를 일반화 `sysreptool` 합니다.
 
-  이 도구에 대 한 자세한 내용은 `sysreptool` [시스템 준비 (Sysprep) 개요](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 참조 하세요.
+  이 도구에 대 한 자세한 내용은 `sysreptool` [시스템 준비 (Sysprep) 개요](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 참조 하세요.
 
 ## <a name="datadisk-errors"></a>DataDisk 오류
 
 데이터 디스크와 관련 된 오류에 대 한 해결 방법은 다음 표를 사용 하십시오.
 
-|오류|이유|솔루션|
+|Error|이유|해결 방법|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|이 오류는 제품이 제출 될 때 잘못 된 LUN (논리 단위 번호)으로 인해 발생할 수 있습니다.|데이터 디스크에 대 한 LUN 번호 시퀀스가 파트너 센터에 있는지 확인 합니다.|
 |`DataDisk- NotFound:`|이 오류는 데이터 디스크가 지정 된 SAS URL에 있지 않기 때문에 발생할 수 있습니다.|데이터 디스크가 지정 된 SAS URL에 있는지 확인 합니다.|

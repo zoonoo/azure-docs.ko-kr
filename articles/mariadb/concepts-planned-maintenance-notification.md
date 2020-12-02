@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 1c9ae694fefcede599331d5d57a298bda4739f53
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: c290236dfe7e88999847f8cb0d66b2d3c868c1ab
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920528"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453289"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 계획 된 유지 관리 알림
 
@@ -61,7 +61,7 @@ Azure Portal에 대 한 계획 된 유지 관리 알림을 확인 하거나 알�
 7. 규칙을 만들 때 규칙 사용이 예로 설정 되어 있는지 확인 합니다.
 8. 경고 **규칙 만들기** 를 선택 하 여 경고를 완료 합니다.
 
-**서비스 상태 경고** 를 만드는 방법에 대 한 자세한 단계는 [서비스 알림에서 활동 로그 경고 만들기](../service-health/alerts-activity-log-service-notifications.md)를 참조 하세요.
+**서비스 상태 경고** 를 만드는 방법에 대 한 자세한 단계는 [서비스 알림에서 활동 로그 경고 만들기](../service-health/alerts-activity-log-service-notifications-portal.md)를 참조 하세요.
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>계획 된 유지 관리를 취소 하거나 연기할 수 있나요?
 

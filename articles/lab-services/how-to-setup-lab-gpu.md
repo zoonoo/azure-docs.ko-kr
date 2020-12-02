@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 264d103cd5f1459a6d29a35a1ecefc595285587a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 8293ed1bfb53895b9631d9730fb75a2364457180
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433991"
+ms.locfileid: "96452369"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>GPU virtual machines를 사용 하 여 랩 설정
 
@@ -37,7 +37,7 @@ ms.locfileid: "96433991"
 | 크기 | 코어 수 | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
 | 소형 GPU(시각화) | -&nbsp;6 &nbsp; 코어<br>-&nbsp;56 &nbsp; GB &nbsp; RAM  | [Standard_NV6](../virtual-machines/nv-series.md) | 이 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하는 원격 시각화, 스트리밍, 게임 및 인코딩에 적합 합니다. |
-| 중간 GPU(시각화) | -&nbsp;12 &nbsp; 코어<br>-&nbsp;112 &nbsp; GB &nbsp; RAM  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | 이 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하는 원격 시각화, 스트리밍, 게임 및 인코딩에 적합 합니다. |
+| 중간 GPU(시각화) | -&nbsp;12 &nbsp; 코어<br>-&nbsp;112 &nbsp; GB &nbsp; RAM  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 이 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하는 원격 시각화, 스트리밍, 게임 및 인코딩에 적합 합니다. |
 
 > [!NOTE]
 > 클래스룸 랩을 만들 때 이러한 VM 크기 중 일부가 목록에 표시되지 않을 수 있습니다. 이 목록은 랩 위치의 현재 용량을 기준으로 채워집니다. 랩 계정 작성자가 [랩 작성자가 랩의 위치를 선택하도록 허용](allow-lab-creator-pick-lab-location.md)할 경우 랩에 다른 위치를 선택하고 VM 크기를 사용할 수 있는지 확인할 수 있습니다. Vm의 가용성에 대해서는 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/?products=virtual-machines)을 참조 하세요.
@@ -76,7 +76,7 @@ ms.locfileid: "96433991"
 1. 클래스에 필요한 드라이버 및 기타 소프트웨어를 설치한 후 **게시** 를 선택 하 여 학생의 vm을 만듭니다.
 
 > [!NOTE]
-> Linux 이미지를 사용 하는 경우 설치 관리자를 다운로드 한 후 [linux에서 VERDA 드라이버 설치](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#install-cuda-drivers-on-n-series-vms)의 지침에 따라 드라이버를 설치 합니다.
+> Linux 이미지를 사용 하는 경우 설치 관리자를 다운로드 한 후 [linux에서 VERDA 드라이버 설치](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#install-cuda-drivers-on-n-series-vms)의 지침에 따라 드라이버를 설치 합니다.
 
 #### <a name="install-the-visualization-gpu-drivers"></a>시각화 GPU 드라이버 설치
 
@@ -86,7 +86,7 @@ ms.locfileid: "96433991"
 1. 랩을 만든 후 템플릿 VM에 연결 하 여 적절 한 드라이버를 설치 합니다.
 1. 운영 체제에 대 한 지침에 따라 템플릿 VM에 Microsoft에서 제공 하는 그리드 드라이버를 설치 합니다.
    -  [Windows NVIDIA GRID 드라이버](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)
-   -  [Linux NVIDIA 그리드 드라이버](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#nvidia-grid-drivers)
+   -  [Linux NVIDIA 그리드 드라이버](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#nvidia-grid-drivers)
   
 1. 템플릿 VM을 다시 시작 합니다.
 1. [설치 된 드라이버 유효성 검사](how-to-setup-lab-gpu.md#validate-the-installed-drivers) 섹션의 지침에 따라 드라이버가 올바르게 설치 되었는지 확인 합니다.

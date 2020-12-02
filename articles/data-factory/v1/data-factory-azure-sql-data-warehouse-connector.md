@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Analytics 간에 데이터 복사 (이전에 SQL Data Warehouse)
-description: Azure Data Factory를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse) 간에 데이터를 복사 하는 방법을 알아봅니다.
+title: Azure Synapse Analytics 간 데이터 복사
+description: Azure Data Factory를 사용 하 여 Azure Synapse Analytics 간에 데이터를 복사 하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 55582fb8c4fc80ab005a01ec015035963404e639
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 0d071599b72f6a71bdff815f514311fb87f53d5b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637414"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452351"
 ---
-# <a name="copy-data-to-and-from-azure-synapse-analytics-formerly-sql-data-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse) 간에 데이터 복사
+# <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](data-factory-azure-sql-data-warehouse-connector.md)
 > * [버전 2(현재 버전)](../connector-azure-sql-data-warehouse.md)
@@ -42,7 +42,7 @@ ms.locfileid: "92637414"
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!TIP]
-> SQL Server 또는 Azure SQL Database에서 Azure Synapse Analytics로 데이터를 복사 하는 경우 대상 Data Factory 저장소에 테이블이 없으면 원본 데이터 저장소에 있는 테이블의 스키마를 사용 하 여 Synapse Analytics에서 테이블을 자동으로 만들 수 있습니다. 자세한 내용은 [자동 테이블 만들기](#auto-table-creation)를 참조하세요.
+> SQL Server 또는 Azure SQL Database에서 Azure Synapse Analytics로 데이터를 복사 하는 경우 대상 저장소에 테이블이 없으면 원본 데이터 저장소에 있는 테이블의 스키마를 사용 하 여 Azure Synapse Analytics에서 테이블을 자동으로 만들 수 Data Factory. 자세한 내용은 [자동 테이블 만들기](#auto-table-creation)를 참조하세요.
 
 ## <a name="supported-authentication-type"></a>지원되는 인증 유형
 Azure Synapse Analytics 커넥터는 기본 인증을 지원 합니다.
@@ -50,9 +50,9 @@ Azure Synapse Analytics 커넥터는 기본 인증을 지원 합니다.
 ## <a name="getting-started"></a>시작
 다른 도구/a p i를 사용 하 여 Azure Synapse Analytics에서 데이터를 이동 하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-Azure Synapse Analytics 간에 데이터를 복사 하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용 하는 것입니다. 데이터 복사 마법사를 사용 하 여 파이프라인을 만드는 방법에 대 한 간략 한 연습은 [자습서: Synapse Data Factory Analytics로 데이터 로드](../load-azure-sql-data-warehouse.md) 를 참조 하세요.
+Azure Synapse Analytics 간에 데이터를 복사 하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용 하는 것입니다. 데이터 복사 마법사를 사용 하 여 파이프라인을 만드는 방법에 대 한 빠른 연습은 [자습서: Azure Synapse Data Factory Analytics로 데이터 로드](../load-azure-sql-data-warehouse.md) 를 참조 하세요.
 
-또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio** , **Azure PowerShell** **Azure Resource Manager 템플릿** , **.net API** 및 **REST API** . 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요.
+또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API** 및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -68,7 +68,7 @@ Azure Synapse Analytics 간에 데이터를 복사 하는 파이프라인을 만
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 Azure Synapse Analytics 연결 된 서비스에 특정 된 JSON 요소에 대 한 설명을 제공 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |Type 속성은 **AzureSqlDW** 로 설정 해야 합니다. |예 |
 | connectionString |ConnectionString 속성에 대 한 Azure Synapse Analytics 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. 기본 인증만 지원됩니다. |예 |
@@ -81,7 +81,7 @@ Azure Synapse Analytics 간에 데이터를 복사 하는 파이프라인을 만
 
 typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **AzureSqlDWTable** 형식의 데이터 집합에 대 한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | tableName |연결 된 서비스가 참조 하는 Azure Synapse Analytics 데이터베이스에 있는 테이블 또는 뷰의 이름입니다. |예 |
 
@@ -194,13 +194,13 @@ Azure Synapse Analytics PolyBase는 Azure Blob Azure Data Lake Store을 직접 �
 조건을 충족하지 않는 경우 Azure 데이터 팩터리는 설정을 확인한 후 데이터 이동을 위한 BULKINSERT 메커니즘으로 자동으로 대체됩니다.
 
 1. **원본으로 연결 된 서비스** 는 **azurestorage** 또는 **서비스 주체 인증을 사용 하는 AzureDataLakeStore** 유형입니다.
-2. **입력 데이터 세트** 는 **AzureBlob** 또는 **AzureDataLakeStore** 형식이고 `type` 속성의 서식 형식은 다음 구성이 포함된 **OrcFormat** , **ParquetFormat** 또는 **TextFormat** 입니다.
+2. **입력 데이터 세트** 는 **AzureBlob** 또는 **AzureDataLakeStore** 형식이고 `type` 속성의 서식 형식은 다음 구성이 포함된 **OrcFormat**, **ParquetFormat** 또는 **TextFormat** 입니다.
 
    1. `rowDelimiter`는 **\n** 이어야 합니다.
-   2. `nullValue`가 **빈 문자열** ("")으로 설정되어 있거나 `treatEmptyAsNull`이 **true** 로 설정되어 있습니다.
+   2. `nullValue`가 **빈 문자열**("")으로 설정되어 있거나 `treatEmptyAsNull`이 **true** 로 설정되어 있습니다.
    3. `encodingName`이 **기본값** 인 **utf-8** 로 설정됩니다.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader` 및 `skipLineCount`는 지정되지 않습니다.
-   5. `compression`은 **no compression** , **GZip** 또는 **Deflate** 일 수 있습니다.
+   5. `compression`은 **no compression**, **GZip** 또는 **Deflate** 일 수 있습니다.
 
       ```JSON
       "typeProperties": {
@@ -305,7 +305,7 @@ Data Factory는 원본 데이터 저장소와 동일한 테이블 이름으로 �
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
-| bit | bit |
+| 비트 | 비트 |
 | Decimal | Decimal |
 | 숫자 | Decimal |
 | Float | Float |
@@ -314,7 +314,7 @@ Data Factory는 원본 데이터 저장소와 동일한 테이블 이름으로 �
 | SmallMoney | SmallMoney |
 | 이진 | 이진 |
 | Varbinary | Varbinary(최대 8000) |
-| Date | Date |
+| 날짜 | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | 시간 | 시간 |
@@ -328,7 +328,7 @@ Data Factory는 원본 데이터 저장소와 동일한 테이블 이름으로 �
 | NChar | NChar |
 | VarChar | VarChar(최대 8000) |
 | NVarChar | NVarChar(최대 4000) |
-| Xml | Varchar(최대 8000) |
+| xml | Varchar(최대 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
