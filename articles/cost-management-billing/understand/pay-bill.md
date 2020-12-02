@@ -7,15 +7,15 @@ ms.reviewer: judupont
 tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 09/21/2020
+ms.topic: how-to
+ms.date: 11/20/2020
 ms.author: banders
-ms.openlocfilehash: e9ad580ae5e3ffe7a7f5781423f96897272a4844
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 5397bb4ebd5909406d0bae1ef68ec2c6453549d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972070"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026338"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Microsoft Azure에 대한 청구서를 지불하는 방법
 
@@ -29,14 +29,14 @@ ms.locfileid: "90972070"
 
 ## <a name="pay-now-in-the-azure-portal"></a>Azure Portal에서 지금 지불
 
-Azure Portal에서 송장을 결제하려면 청구 계정 관리자여야 합니다. 청구 계정 관리자는 처음에 MCA 계정에 등록한 사용자입니다.
+Azure Portal에서 청구서를 결제하려면 올바른 [MCA 권한](../manage/understand-mca-roles.md)이 있거나 청구 계정 관리자여야 합니다. 청구 계정 관리자는 처음에 MCA 계정에 등록한 사용자입니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Cost Management + 청구**에서 검색합니다.
-1. 왼쪽 메뉴에서 **청구** 아래의 **청구서**를 선택합니다.
-1. 청구서의 기한이 지났거나 만료된 경우 해당 청구서에 파란색 **지금 지불** 링크가 표시됩니다. **지금 지불**을 선택합니다.
-1. 새 블레이드에서 **결제 방법 선택**을 클릭하여 기존 신용 카드를 선택하거나 새 신용 카드를 추가합니다.
-1. 결제 방법을 선택했으면 **지금 지불**을 클릭합니다.
+1. **Cost Management + 청구** 에서 검색합니다.
+1. 왼쪽 메뉴에서 **청구** 아래의 **청구서** 를 선택합니다.
+1. 청구서의 기한이 지났거나 만료된 경우 해당 청구서에 파란색 **지금 지불** 링크가 표시됩니다. **지금 지불** 을 선택합니다.
+1. 새 블레이드에서 **결제 방법 선택** 을 클릭하여 기존 신용 카드를 선택하거나 새 신용 카드를 추가합니다.
+1. 결제 방법을 선택했으면 **지금 지불** 을 클릭합니다.
 
 청구서의 상태는 청구서 블레이드에서 지불로 업데이트됩니다.
 

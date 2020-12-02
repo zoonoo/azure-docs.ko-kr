@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: de85e4eb553f623790b472e79f8f97487ba96b48
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 553eba3898a5ea42e5d478603e35e82c68abcab1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95751116"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462894"
 ---
 # <a name="test-drive-technical-configuration"></a>시험 사용 기술 구성
 
@@ -38,9 +38,9 @@ Microsoft는 서비스 프로 비전 및 프로 비전 해제를 호스트 하 �
 
 - **역할 이름**(필수) – 사용자 지정 Dynamics 365 시험 사용에서 정의한 보안 역할 이름을 제공합니다(예: test-drive-role). 시험 사용 중 사용자에게 이 역할이 할당됩니다.
 
-시험 사용을 위한 Dynamics 365 환경을 설정 하 고 테 넌 트에서 테스트 드라이브 사용자를 프로 비전 하 고 프로 비전 할 수 있는 AppSource 권한을 부여 하는 방법에 대 한 도움말을 보려면 [다음 지침](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup)을 따르세요.
+시험 사용을 위한 Dynamics 365 환경을 설정 하 고 테 넌 트에서 테스트 드라이브 사용자를 프로 비전 하 고 프로 비전 할 수 있는 AppSource 권한을 부여 하는 방법에 대 한 도움말을 보려면 [다음 지침](./test-drive-azure-subscription-setup.md)을 따르세요.
 
-호스팅된 테스트 드라이브를 나열 하 고 구성 하는 방법에 대 한 단계별 지침은 [호스팅된 테스트 드라이브에 대 한 자세한 구성](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) 페이지를 참조 하세요.
+호스팅된 테스트 드라이브를 나열 하 고 구성 하는 방법에 대 한 단계별 지침은 [호스팅된 테스트 드라이브에 대 한 자세한 구성](./test-drive-hosted-detailed-config.md) 페이지를 참조 하세요.
 
 ## <a name="logic-app-test-drive"></a>논리 앱 테스트 드라이브
 
@@ -95,7 +95,7 @@ Microsoft가 사용자를 대신해서 시험 사용을 배포하도록 하려�
 
 현재 파트너 센터에서 테스트 드라이브를 만들고 있는 경우 계속 하기 전에 **초안 저장** 을 선택 합니다.
 
-호스팅된 테스트 드라이브를 나열 하 고 구성 하는 방법에 대 한 단계별 지침은 [호스팅된 테스트 드라이브에 대 한 자세한 구성](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) 페이지를 참조 하세요.
+호스팅된 테스트 드라이브를 나열 하 고 구성 하는 방법에 대 한 단계별 지침은 [호스팅된 테스트 드라이브에 대 한 자세한 구성](./test-drive-hosted-detailed-config.md) 페이지를 참조 하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

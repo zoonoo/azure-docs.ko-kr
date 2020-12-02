@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b3ea370a686e272a1d8ea201dd953fc09c1098ee
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: de25aafcfefee195e8d674c60ebdbaf79cb1ae10
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628189"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95406891"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft ID 플랫폼 코드 샘플(v2.0 엔드포인트)
 
@@ -59,10 +59,12 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | ![이 이미지는 ASP.NET Framework 로고를 보여줍니다.](media/sample-v2-code/logo_NETframework.png)</p>ASP.NET Core | [개발자를 위한 AD FS에서 Azure AD로의 애플리케이션 마이그레이션 플레이북](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad): AD FS(Active Directory Federation Services)와 통합된 애플리케이션을 Azure AD(Azure Active Directory)로 안전하게 마이그레이션하는 방법을 알아봅니다. | |
 | ![이 이미지는 ASP.NET Framework 로고를 보여줍니다.](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET 빠른 시작](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![이 이미지는 Java 로고를 표시](media/sample-v2-code/logo_java.png)  |                   | [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
+| ![이 이미지는 Java 로고를 표시](media/sample-v2-code/logo_java.png)  | [ms-identity-b2c-java-servlet-webapp-authentication](https://github.com/Azure-Samples/ms-identity-b2c-java-servlet-webapp-authentication)|  |
 | ![이 이미지는 Python 로고를 표시](media/sample-v2-code/logo_python.png)  | [ms-identity-python-flask-webapp-authentication](https://github.com/Azure-Samples/ms-identity-python-flask-webapp-authentication) | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
 | ![이 이미지는 Python 로고를 표시](media/sample-v2-code/logo_python.png)  | [Python Flask 웹앱](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) 로그인 사용자 자습서                   | [Python Flask 웹앱](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) 로그인 사용자 및 호출 그래프 자습서 |
 | ![이 이미지는 Python 로고를 표시](media/sample-v2-code/logo_python.png)  | B2C를 사용하는 [Python Flask 웹앱](https://github.com/Azure-Samples/ms-identity-b2c-python-flask-webapp-authentication/blob/main/README.md) 로그인 사용자                    |  |
 | ![이 이미지는 Ruby 로고를 표시](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
+
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>데스크톱 및 모바일 공용 클라이언트 앱
 

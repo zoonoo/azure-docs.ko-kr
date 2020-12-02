@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos Emulator 다운로드 및 릴리스 정보
-description: 다양한 버전에 대한 Azure Cosmos 에뮬레이터 릴리스 정보를 가져오고 정보를 다운로드합니다.
+description: 다양한 버전에 대한 Azure Cosmos Emulator 릴리스 정보를 가져오고 정보를 다운로드합니다.
 ms.service: cosmos-db
 ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 6ffd5670a8b84f0f4a5b7d3dee8a7a5080be26f5
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e9f28aeb2a47c2ce7b439cbe46dcc39df3011c33
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357320"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95997157"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - 릴리스 정보 및 다운로드 정보
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "94357320"
 | | |
 |---------|---------|
 |**MSI 다운로드**|[Microsoft 다운로드 센터](https://aka.ms/cosmosdb-emulator)|
-|**시작**|[Azure Cosmos 에뮬레이터로 로컬에서 개발](local-emulator.md)|
+|**시작**|[Azure Cosmos Emulator를 사용하여 로컬로 개발](local-emulator.md)|
 
 ## <a name="release-notes"></a>릴리스 정보
 
@@ -77,7 +77,7 @@ ms.locfileid: "94357320"
 
 ### <a name="246"></a>2.4.6
 
-- 이 릴리스에서는 [Azure Cosmos 에뮬레이터로 로컬에서 개발](local-emulator.md)에 설명된 예외가 포함된 2019년 7월 현재 Azure Cosmos 서비스의 기능과 패리티를 제공합니다. 또한 직접 모드 연결을 사용하는 SDK 클라이언트에 대한 명령줄 및 내부 IP 주소 재정의를 통해 호출될 때 에뮬레이터 종료와 관련된 몇 가지 버그를 수정합니다.
+- 이 릴리스에서는 [Azure Cosmos Emulator를 사용하여 로컬로 개발](local-emulator.md)에 설명된 예외가 포함된 2019년 7월 현재 Azure Cosmos 서비스의 기능과 패리티를 제공합니다. 또한 직접 모드 연결을 사용하는 SDK 클라이언트에 대한 명령줄 및 내부 IP 주소 재정의를 통해 호출될 때 에뮬레이터 종료와 관련된 몇 가지 버그를 수정합니다.
 
 ### <a name="243"></a>2.4.3
 

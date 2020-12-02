@@ -3,12 +3,12 @@ title: Azure Event Grid 배달 및 다시 시도
 description: Azure Event Grid에서 이벤트를 배달하는 방법 및 배달되지 않은 메시지를 처리하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 9a7bde33e322183f86c3c51d30bb004d06fa1406
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 51473cf457a1c713e6694edd23c344be8c4d439e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345356"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463234"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 메시지 배달 및 다시 시도
 
@@ -57,7 +57,7 @@ Event Grid에서 Azure CLI를 사용 하는 방법에 대 한 자세한 내용�
 
 이벤트 배달 시도에 대 한 오류를 EventGrid에 수신 하는 경우 EventGrid는 해당 오류 유형에 따라 배달 또는 배달 못 한 편지를 재시도 하거나 이벤트를 삭제할지를 결정 합니다. 
 
-구독 된 끝점에서 반환 된 오류가 다시 시도로 해결할 수 없는 구성 관련 오류 (예: 끝점이 삭제 된 경우) 인 경우 EventGrid는 배달 못 한 편지 처리 이벤트를 수행 하거나 배달 못 한 편지가 구성 되지 않은 경우 이벤트를 삭제 합니다.
+구독 된 끝점에서 반환 된 오류가 다시 시도로 해결할 수 없는 구성 관련 오류 (예: 끝점이 삭제 된 경우) 인 경우 EventGrid는 이벤트의 배달 못 한 편지 처리를 수행 하거나 배달 못한 편지가 구성 되지 않은 경우 이벤트를 삭제 합니다.
 
 다음은 다시 시도를 수행 하지 않는 끝점의 유형입니다.
 

@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 7cbb628f6af286141fb1c7b330117ded33142c4f
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 4cc213db19a567f18c5ff483b64a75e3bbeef892
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94744241"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962113"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>구독자와 CSP 간에 Azure 구독 전송
 
@@ -58,7 +58,7 @@ ms.locfileid: "94744241"
 
 1. 대상 Azure 구독을 만듭니다.
 1. 원본 및 대상 구독이 동일한 Azure Active Directory(Azure AD) 테넌트에 있는지 확인합니다. Azure AD 테넌트 변경에 대한 자세한 내용은 [Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
-    변경 디렉터리는 CSP 구독이 아닙니다. 예를 들어 CSP에서 종량제 구독으로 전송하고 있습니다. 디렉터리와 일치하도록 종량제 구독의 디렉터리를 변경해야 합니다.
+    CSP 구독에는 디렉터리 변경 옵션이 지원되지 않습니다. 예를 들어 CSP에서 종량제 구독으로 전송하고 있습니다. 디렉터리와 일치하도록 종량제 구독의 디렉터리를 변경해야 합니다.
 
     > [!IMPORTANT]
     >  - 구독을 다른 디렉터리에 연결하면 [Azure RBAC](../../role-based-access-control/role-assignments-portal.md)를 사용하여 역할이 할당된 사용자가 액세스 권한을 잃게 됩니다. 서비스 관리자 및 공동 관리자를 비롯한 클래식 구독 관리자도 액세스 권한을 잃게 됩니다.

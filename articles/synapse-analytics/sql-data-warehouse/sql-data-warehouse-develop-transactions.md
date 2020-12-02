@@ -1,5 +1,5 @@
 ---
-title: Synapse SQL 풀에서 트랜잭션 사용
+title: Azure Synapse Analytics SQL 풀에서 트랜잭션 사용
 description: 이 문서에는 Synapse SQL 풀에서 트랜잭션을 구현 하 고 솔루션을 개발 하기 위한 팁이 포함 되어 있습니다.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/22/2019
 ms.author: xiaoyul
+ms.custom: azure-synapse
 ms.reviewer: igorstan
-ms.openlocfilehash: 40a9e5268b7fccc5c01775c10e55eee47f1aaf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a3c0863bb35f0988d7928bb9a2857f6aceded6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213383"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463197"
 ---
-# <a name="use-transactions-in-synapse-sql-pool"></a>Synapse SQL 풀에서 트랜잭션 사용
+# <a name="use-transactions-in-a-sql-pool-in-azure-synapse"></a>Azure Synapse에서 SQL 풀의 트랜잭션 사용 
 
 이 문서에는 트랜잭션을 구현 하 고 SQL 풀에서 솔루션을 개발 하기 위한 팁이 포함 되어 있습니다.
 
@@ -27,7 +28,7 @@ ms.locfileid: "85213383"
 
 ## <a name="transaction-isolation-levels"></a>트랜잭션 격리 수준
 
-SQL 풀은 ACID 트랜잭션을 구현합니다. 트랜잭션 지원의 격리 수준은 기본적으로 READ UNCOMMITTED로 설정되어 있습니다.  master 데이터베이스에 연결된 경우 사용자 데이터베이스의 READ_COMMITTED_SNAPSHOT 데이터베이스 옵션을 ON으로 설정하여 이 기본값을 READ COMMITTED SNAPSHOT ISOLATION으로 변경할 수 있습니다.  
+SQL 풀은 ACID 트랜잭션을 구현합니다. 트랜잭션 지원의 격리 수준은 기본적으로 READ UNCOMMITTED로 설정되어 있습니다.  Master 데이터베이스에 연결 된 경우 사용자 SQL 풀에 대해 READ_COMMITTED_SNAPSHOT 데이터베이스 옵션을 설정 하 여 커밋된 스냅숏 격리를 읽도록 변경할 수 있습니다.  
 
 활성화되면 이 데이터베이스의 모든 트랜잭션이 READ COMMITTED SNAPSHOT ISOLATION으로 실행되고 세션 수준의 READ UNCOMMITTED 설정은 적용되지 않습니다. 자세한 내용은 [ALTER DATABASE SET 옵션(Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요.
 

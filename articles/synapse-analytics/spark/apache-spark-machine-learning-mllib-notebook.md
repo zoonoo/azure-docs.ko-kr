@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: d7c5bd2d1918ecebe2d2aabc213de43e7cdb1fef
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 595b3a57594401df6b61db1fcf8ee16be98ef364
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306973"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95900427"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>자습서: Apache Spark MLlib 및 Azure Synapse Analytics를 사용하여 기계 학습 앱 빌드
 
 이 문서에서는 Apache Spark [MLlib](https://spark.apache.org/mllib/)를 사용하여 Azure 공개 데이터 세트에 대한 간단한 예측 분석을 수행하는 기계 학습 애플리케이션을 만드는 방법에 대해 알아봅니다. Spark는 기본 제공 기계 학습 라이브러리를 제공합니다. 이 예제에서는 로지스틱 회귀를 통한 *분류* 를 사용합니다.
 
-MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 기계 학습 태스크에 유용한 여러 유틸리티를 제공하는 핵심 Spark 라이브러리입니다.
+SparkML 및 MLlib는 다음 작업에 적합한 유틸리티를 비롯하여 기계 학습 태스크에 유용한 여러 유틸리티를 제공하는 핵심 Spark 라이브러리입니다.
 
 - 분류
 - 회귀
@@ -46,7 +46,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 기계 학습 �
 
 다음 단계에서는 특정 이동에 팁이 포함되어 있는지 여부를 예측하는 모델을 개발합니다.
 
-## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Apache Spark MLlib 기계 학습 앱 만들기
+## <a name="create-an-apache-spark--machine-learning-model"></a>Apache Spark 기계 학습 모델 만들기
 
 1. PySpark 커널을 사용하여 Notebook을 만듭니다. 자세한 지침은 [Notebook 만들기](../quickstart-apache-spark-notebook.md#create-a-notebook)를 참조하세요.
 2. 이 애플리케이션에 필요한 형식을 가져옵니다. 다음 코드를 복사하여 빈 셀에 붙여넣은 다음, **SHIFT + ENTER** 키를 누르거나 코드 왼쪽의 파란색 재생 아이콘을 사용하여 셀을 실행합니다.
@@ -109,44 +109,6 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 기계 학습 �
 ```Python
 sampled_taxi_df.createOrReplaceTempView("nytaxi")
 ```
-
-## <a name="understand-the-data"></a>데이터 이해
-
-일반적으로 이 시점에서 데이터 이해를 높이기 위해 *EDA(예비 데이터 분석)* 의 단계를 진행합니다. 다음 코드는 데이터의 상태 및 품질에 대한 결론을 이끌어내는 팁과 관련된 데이터의 세 가지 시각화를 보여 줍니다.
-
-```python
-# The charting package needs a Pandas dataframe or numpy array do the conversion
-sampled_taxi_pd_df = sampled_taxi_df.toPandas()
-
-# Look at tips by amount count histogram
-ax1 = sampled_taxi_pd_df['tipAmount'].plot(kind='hist', bins=25, facecolor='lightblue')
-ax1.set_title('Tip amount distribution')
-ax1.set_xlabel('Tip Amount ($)')
-ax1.set_ylabel('Counts')
-plt.suptitle('')
-plt.show()
-
-# How many passengers tipped by various amounts
-ax2 = sampled_taxi_pd_df.boxplot(column=['tipAmount'], by=['passengerCount'])
-ax2.set_title('Tip amount by Passenger count')
-ax2.set_xlabel('Passenger count')
-ax2.set_ylabel('Tip Amount ($)')
-plt.suptitle('')
-plt.show()
-
-# Look at the relationship between fare and tip amounts
-ax = sampled_taxi_pd_df.plot(kind='scatter', x= 'fareAmount', y = 'tipAmount', c='blue', alpha = 0.10, s=2.5*(sampled_taxi_pd_df['passengerCount']))
-ax.set_title('Tip amount by Fare amount')
-ax.set_xlabel('Fare Amount ($)')
-ax.set_ylabel('Tip Amount ($)')
-plt.axis([-2, 80, -2, 20])
-plt.suptitle('')
-plt.show()
-```
-
-![히스토그램](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-histogram.png)
-![상자 수염 그림](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
-![산점도](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
 
 ## <a name="prepare-the-data"></a>데이터 준비
 
@@ -272,7 +234,7 @@ plt.ylabel('True Positive Rate')
 plt.show()
 ```
 
-![로지스틱 회귀 팁 모델에 대한 ROC Curve](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-nyctaxi-roc.png "로지스틱 회귀 팁 모델에 대한 ROC Curve")
+![로지스틱 회귀 팁 모델에 대한 ROC Curve](./media/apache-spark-machine-learning-mllib-notebook/nyc-taxi-roc.png)
 
 ## <a name="shut-down-the-spark-instance"></a>Spark 인스턴스 종료
 

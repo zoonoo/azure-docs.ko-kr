@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f18f1184f921aca4f2c1e33ac00dcf14c63b24eb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683648"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95893361"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -146,7 +146,7 @@ ms.locfileid: "94683648"
 - 동일한 테넌트 내에 있는 두 조직 ID 간에 구독 또는 계정 소유권 양도를 수행할 때 Azure RBAC 정책, 기존 서비스 관리자 및 공동 관리자 역할이 유지됩니다.
 - 테넌트 간에 구독 또는 계정 소유권 양도로 인해 Azure RBAC 정책과 역할 할당이 손실됩니다.
 - 정책 및 관리자 역할은 디렉터리 간에 양도되지 않습니다. 서비스 관리자는 대상 계정의 소유자로 업데이트됩니다.
-- 테넌트 간에 구독을 양도할 때 RBAC 정책 및 역할 할당이 손실되지 않도록 하려면 **구독을 받는 사람의 Azure AD 테넌트로 이동** 확인란이 **선택 취소** 상태가 유지되도록 합니다. 그러면 현재 Azure AD 테넌트의 서비스, RBAC 역할 및 정책이 유지되고 해당 계정에 대한 청구 소유권만 이전됩니다.  
+- 테넌트 간에 구독을 양도할 때 Azure RBAC 정책 및 역할 할당이 손실되지 않도록 하려면 **구독을 받는 사람의 Azure AD 테넌트로 이동** 확인란이 **선택 취소** 상태가 유지되도록 합니다. 그러면 현재 Azure AD 테넌트의 서비스, Azure 역할 및 정책이 유지되고 해당 계정에 대한 청구 소유권만 이전됩니다.  
     :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Azure AD 테넌트로 구독을 이동하기 위한 선택 취소 확인란을 보여주는 이미지" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 
 
@@ -282,7 +282,7 @@ Azure EA Portal에서 Azure EA 비용 및 사용량을 관리할 수 있습니�
 
 각 역할의 액세스 및 권한 수준은 서로 다릅니다.
 
-사용자 역할에 대한 자세한 내용은 [엔터프라이즈 사용자 역할](https://docs.microsoft.com/azure/manage/understand-ea-roles#enterprise-user-roles)을 참조하세요.
+사용자 역할에 대한 자세한 내용은 [엔터프라이즈 사용자 역할](/azure/cost-management-billing/manage/understand-ea-roles#enterprise-user-roles)을 참조하세요.
 
 ## <a name="add-an-azure-ea-account"></a>Azure EA 계정 추가
 

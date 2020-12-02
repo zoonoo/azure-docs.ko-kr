@@ -9,23 +9,24 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec7337ad798d586cb93bd13e60ead1ef9f2a4abe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0695af6922182aa8be7acfb4b0a931bed35ef7d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857251"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959308"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>자습서: 투명 게이트웨이를 통해 데이터 보내기
-
-> [!NOTE]
-> 이 문서는 IoT Edge에서 Azure Machine Learning을 사용하는 방법에 대한 자습서 시리즈의 일부입니다. 이 문서로 바로 이동한 경우에는 학습 효과를 극대화할 수 있도록 시리즈의 [첫 번째 문서](tutorial-machine-learning-edge-01-intro.md)부터 시작하는 것이 좋습니다.
 
 이 문서에서는 개발 VM을 시뮬레이션된 디바이스로 다시 사용합니다. 그러나 IoT Hub로 직접 데이터를 보내는 대신 투명 게이트웨이로 구성된 IoT Edge 디바이스로 데이터를 보냅니다.
 
 시뮬레이션된 디바이스가 데이터를 보내는 동안 IoT Edge 디바이스의 작업을 모니터링하겠습니다. 디바이스 실행이 완료되면 스토리지 계정의 데이터를 살펴보고 모든 것이 예상대로 작동했는지 확인하겠습니다.
 
 이 단계는 일반적으로 클라우드 또는 디바이스 개발자가 수행합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+이 문서는 IoT Edge에서 Azure Machine Learning을 사용하는 방법에 대한 자습서 시리즈의 일부입니다. 시리즈의 각 문서는 이전 문서의 작업을 기반으로 합니다. 이 문서에 직접 도착한 경우 시리즈의 [첫 번째 문서](tutorial-machine-learning-edge-01-intro.md)를 방문하세요.
 
 ## <a name="review-device-harness"></a>디바이스 도구 검토
 
@@ -54,13 +55,13 @@ ms.locfileid: "91857251"
 
 ## <a name="build-and-run-leaf-device"></a>리프 디바이스 빌드 및 실행
 
-1. Visual Studio Code에서 DeviceHarness 프로젝트가 열려 있는 상태에서 프로젝트를 빌드합니다. **터미널** 메뉴에서 **빌드 작업 실행**을 선택하고 **빌드**를 선택합니다.
+1. Visual Studio Code에서 DeviceHarness 프로젝트가 열려 있는 상태에서 프로젝트를 빌드합니다. **터미널** 메뉴에서 **빌드 작업 실행** 을 선택하고 **빌드** 를 선택합니다.
 
 1. Azure Portal에서 IoT Edge 디바이스(Linux VM)로 이동하고 개요 페이지에서 **DNS 이름** 값을 복사하여 에지 게이트웨이의 FQDN(정규화된 도메인 이름)을 찾습니다.
 
 1. IoT 디바이스(Linux VM)가 아직 실행되지 않은 경우 시작합니다.
 
-1. Visual Studio Code 터미널을 엽니다. **터미널** 메뉴에서 **새 터미널**을 선택하고 다음 명령을 실행하여 `<edge_device_fqdn>`을 IoT Edge 디바이스(Linux VM)에서 복사한 DNS 이름으로 바꿉니다.
+1. Visual Studio Code 터미널을 엽니다. **터미널** 메뉴에서 **새 터미널** 을 선택하고 다음 명령을 실행하여 `<edge_device_fqdn>`을 IoT Edge 디바이스(Linux VM)에서 복사한 DNS 이름으로 바꿉니다.
 
    ```cmd
    dotnet run -- --gateway-host-name "<edge_device_fqdn>" --certificate C:\edgecertificates\certs\azure-iot-test-only.root.ca.cert.pem --max-devices 1
@@ -68,7 +69,7 @@ ms.locfileid: "91857251"
 
 1. 애플리케이션이 개발 머신에 인증서를 설치하려고 시도합니다. 이때 표시되는 보안 경고를 수락합니다.
 
-1. IoT Hub 연결 문자열을 요청하는 메시지가 표시되면 Azure IoT Hub 디바이스 패널에서 줄임표( **...** )를 클릭하고 **IoT Hub 연결 문자열 복사**를 선택합니다. 이 값을 터미널에 붙여넣습니다.
+1. IoT Hub 연결 문자열을 요청하는 메시지가 표시되면 Azure IoT Hub 디바이스 패널에서 줄임표( **...** )를 클릭하고 **IoT Hub 연결 문자열 복사** 를 선택합니다. 이 값을 터미널에 붙여넣습니다.
 
 1. 다음과 같은 출력이 표시됩니다.
 
@@ -124,11 +125,11 @@ IoT Edge 디바이스를 살펴보면 avroFileWriter 모듈의 출력을 쉽게 
 
 1. 이름이 `<IoT Hub Name>/<partition>/<year>/<month>/<day>/<hour>/<minute>` 형식인 Blob 파일이 하나 이상 표시됩니다.
 
-1. 파일 중 하나를 마우스 오른쪽 단추로 클릭하고 **Blob 다운로드**를 선택하여 개발 머신에 파일을 저장합니다.
+1. 파일 중 하나를 마우스 오른쪽 단추로 클릭하고 **Blob 다운로드** 를 선택하여 개발 머신에 파일을 저장합니다.
 
 1. **uploadturbofanfiles** 노드를 확장합니다. 이전 문서에서 이 위치를 avroFileWriter 모듈이 업로드한 파일의 대상으로 설정했습니다.
 
-1. 파일을 마우스 오른쪽 단추로 클릭하고 **Blob 다운로드**를 선택하여 개발 머신에 파일을 저장합니다.
+1. 파일을 마우스 오른쪽 단추로 클릭하고 **Blob 다운로드** 를 선택하여 개발 머신에 파일을 저장합니다.
 
 ### <a name="read-avro-file-contents"></a>Avro 파일 콘텐츠 읽기
 
@@ -142,7 +143,7 @@ Avro 파일을 읽고 파일에 메시지의 JSON 문자열을 반환하기 위�
    pip install c:\source\IoTEdgeAndMlSample\HubAvroReader
    ```
 
-1. hubavroreader를 사용하여 **ruldata**에서 다운로드한 Avro 파일을 읽습니다.
+1. hubavroreader를 사용하여 **ruldata** 에서 다운로드한 Avro 파일을 읽습니다.
 
    ```cmd
    hubavroreader <avro file with ath> | more
@@ -179,7 +180,7 @@ Avro 파일을 읽고 파일에 메시지의 JSON 문자열을 반환하기 위�
    }
    ```
 
-1. **uploadturbofanfiles**에서 다운로드한 Avro 파일을 전달하는 동일한 명령을 실행합니다.
+1. **uploadturbofanfiles** 에서 다운로드한 Avro 파일을 전달하는 동일한 명령을 실행합니다.
 
 1. 예상대로 이러한 메시지에는 원래 메시지의 모든 센서 데이터와 운영 설정이 포함되어 있습니다. 이 데이터를 사용하여 에지 디바이스의 RUL 모델을 개선할 수 있습니다.
 

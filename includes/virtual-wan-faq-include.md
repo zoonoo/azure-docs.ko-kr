@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: da2535a9764c909af3a491402311fe263dbb48fb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c476fe2af1fb4bddff4799609b164aab14f57b00
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93331118"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187404"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN이 GA에 있나요?
 
@@ -273,3 +273,7 @@ Azure Firewall을 통해 인터넷이 중단되는 지점 및 사이트 간(사�
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Virtual WAN 유형(기본 및 표준) 사이의 차이점은 무엇인가요?
 
 [기본 및 표준 Virtual WAN](../articles/virtual-wan/virtual-wan-about.md#basicstandard)을 참조하세요. 가격 책정에 대해서는 [가격 책정](https://azure.microsoft.com/pricing/details/virtual-wan/) 페이지를 참조하세요.
+
+### <a name="does-virtual-wan-store-customer-data"></a>Virtual WAN은 고객 데이터를 저장하나요? 
+
+아니요. Virtual WAN은 고객 데이터를 저장하지 않습니다.

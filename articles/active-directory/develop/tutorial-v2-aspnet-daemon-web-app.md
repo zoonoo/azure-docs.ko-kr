@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 72b72959f7b5c89bfad4495c8534de5dfaaefe8b
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 031ee9a6d945d923279fd3025c32212c3ead98ed
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611098"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95406602"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>자습서: Microsoft ID 플랫폼을 사용하는 다중 테넌트 디먼 빌드
 
-이 자습서에서는 Microsoft ID 플랫폼을 사용하여 장기간 실행되는 비대화형 프로세스에서 Microsoft 비즈니스 고객의 데이터에 액세스하는 방법에 대해 알아봅니다. 디먼 샘플은 [OAuth2 클라이언트 자격 증명 부여](v2-oauth2-client-creds-grant-flow.md)를 사용하여 액세스 토큰을 획득합니다. 그런 다음, 디먼에서 이 토큰을 사용하여 [Microsoft Graph](https://graph.microsoft.io)를 호출하고 조직 데이터에 액세스합니다.
+이 자습서에서는 OAuth 2.0 클라이언트 자격 증명 부여를 사용하여 Microsoft Graph API를 호출하는 액세스 토큰을 가져오는 방법을 보여주는 ASP.NET 디먼 웹앱을 다운로드하고 실행합니다.
+
+이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * 디먼 앱과 Microsoft ID 플랫폼 통합
@@ -43,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 샘플의 "daemon" 구성 요소는 `SyncController.cs` API 컨트롤러입니다. 컨트롤러가 호출되면 Microsoft Graph에서 고객의 Azure AD(Azure Active Directory) 테넌트에 있는 사용자 목록을 가져옵니다. `SyncController.cs`는 웹 애플리케이션의 AJAX 호출을 통해 트리거되며, [.NET용 MSAL(Microsoft 인증 라이브러리)](msal-overview.md)을 사용하여 Microsoft Graph에 대한 액세스 토큰을 획득합니다.
 
-이 앱은 Microsoft 비즈니스 고객을 위한 다중 테넌트 앱이므로 고객이 애플리케이션을 회사 데이터에 "가입"하거나 "연결"할 수 있는 방법을 제공해야 합니다. 연결 흐름 중에 회사 관리자는 먼저 로그인한 사용자가 없어도 비대화형 방식으로 회사 데이터에 액세스할 수 있도록 *애플리케이션 권한*을 앱에 직접 부여합니다. 이 샘플의 논리 대부분에서는 ID 플랫폼의 [관리자 동의](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) 엔드포인트를 사용하여 이 연결 흐름을 수행하는 방법을 보여 줍니다.
+이 앱은 Microsoft 비즈니스 고객을 위한 다중 테넌트 앱이므로 고객이 애플리케이션을 회사 데이터에 "가입"하거나 "연결"할 수 있는 방법을 제공해야 합니다. 연결 흐름 중에 회사 관리자는 먼저 로그인한 사용자가 없어도 비대화형 방식으로 회사 데이터에 액세스할 수 있도록 *애플리케이션 권한* 을 앱에 직접 부여합니다. 이 샘플의 논리 대부분에서는 ID 플랫폼의 [관리자 동의](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) 엔드포인트를 사용하여 이 연결 흐름을 수행하는 방법을 보여 줍니다.
 
 ![다이어그램은 Azure에 연결되는 세 개의 로컬 항목이 있는 UserSync 앱을 보여줍니다. Start dot Auth는 대화형으로 토큰을 획득하여 Azure AD에 연결하고, AccountController는 Azure AD에 연결하기 위한 관리자 동의를 가져오고, SyncController는 사용자를 읽어 Microsoft Graph에 연결합니다.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
@@ -85,50 +87,50 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
    스크립트를 실행하는 다른 방법은 [앱 만들기 스크립트](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/blob/master/AppCreationScripts/AppCreationScripts.md)에서 설명하고 있습니다.
 
-1. Visual Studio 솔루션을 열고, **시작**을 선택하여 코드를 실행합니다.
+1. Visual Studio 솔루션을 열고, **시작** 을 선택하여 코드를 실행합니다.
 
 자동화를 사용하지 않으려면 다음 섹션의 단계를 사용합니다.
 
 ### <a name="choose-the-azure-ad-tenant"></a>Azure AD 테넌트 선택
 
 1. 회사 계정, 학교 계정 또는 개인 Microsoft 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 계정이 둘 이상의 Azure AD 테넌트에 있는 경우 페이지 위쪽의 메뉴에서 프로필을 선택한 다음, **디렉터리 전환**을 선택합니다.
+1. 계정이 둘 이상의 Azure AD 테넌트에 있는 경우 페이지 위쪽의 메뉴에서 프로필을 선택한 다음, **디렉터리 전환** 을 선택합니다.
 1. 포털 세션을 원하는 Azure AD 테넌트로 변경합니다.
 
 ### <a name="register-the-client-app-dotnet-web-daemon-v2"></a>클라이언트 앱(dotnet-web-daemon-v2) 등록
 
 1. 개발자용 Microsoft ID 플랫폼의 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
-1. **새 등록**을 선택합니다.
+1. **새 등록** 을 선택합니다.
 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
-   - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름을 입력합니다. 예를 들어 **dotnet-web-daemon-v2**를 입력합니다.
-   - **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정**을 선택합니다.
-   - **리디렉션 URI(선택 사항)** 섹션의 콤보 상자에서 **웹**을 선택하고, 다음 리디렉션 URI를 입력합니다.
+   - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름을 입력합니다. 예를 들어 **dotnet-web-daemon-v2** 를 입력합니다.
+   - **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정** 을 선택합니다.
+   - **리디렉션 URI(선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택하고, 다음 리디렉션 URI를 입력합니다.
        - **https://localhost:44316/**
        - **https://localhost:44316/Account/GrantPermissions**
 
      셋 이상의 리디렉션 URI가 있는 경우 나중에 앱이 성공적으로 만들어지면 **인증** 탭에서 이러한 URI를 추가해야 합니다.
-1. **등록**을 선택하여 애플리케이션을 만듭니다.
+1. **등록** 을 선택하여 애플리케이션을 만듭니다.
 1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 기록해 둡니다. 이 프로젝트의 Visual Studio 구성 파일을 구성하는 데 필요합니다.
-1. 앱의 페이지 목록에서 **인증**을 선택합니다. 그렇다면
-   - **고급 설정** 섹션에서 **로그아웃 URL**을 **https://localhost:44316/Account/EndSession** 으로 설정합니다.
-   - **액세스 토큰** > **암시적 허용** 섹션에서 **액세스 토큰** 및 **ID 토큰**을 선택합니다. 이 샘플에서는 사용자를 로그인하고 API를 호출하는 [암시적 허용 흐름](v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 합니다.
-1. **저장**을 선택합니다.
-1. **인증서 및 비밀** 페이지의 **클라이언트 암호** 섹션에서 **새 클라이언트 암호**를 선택합니다. 그렇다면
+1. 앱의 페이지 목록에서 **인증** 을 선택합니다. 그렇다면
+   - **고급 설정** 섹션에서 **로그아웃 URL** 을 **https://localhost:44316/Account/EndSession** 으로 설정합니다.
+   - **액세스 토큰** > **암시적 허용** 섹션에서 **액세스 토큰** 및 **ID 토큰** 을 선택합니다. 이 샘플에서는 사용자를 로그인하고 API를 호출하는 [암시적 허용 흐름](v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 합니다.
+1. **저장** 을 선택합니다.
+1. **인증서 및 비밀** 페이지의 **클라이언트 암호** 섹션에서 **새 클라이언트 암호** 를 선택합니다. 그렇다면
 
    1. 키 설명(예: **앱 비밀**)을 입력합니다.
-   1. 키 기간을 **1년 후**, **2년 후** 또는 **만료 기한 제한 없음**으로 선택합니다.
+   1. 키 기간을 **1년 후**, **2년 후** 또는 **만료 기한 제한 없음** 으로 선택합니다.
    1. **추가** 단추를 선택합니다.
    1. 키 값이 표시되면 이를 복사하여 안전한 위치에 저장합니다. 나중에 Visual Studio에서 프로젝트를 구성하려면 이 키가 필요합니다. 다른 방법으로 다시 표시하거나 검색할 수 없습니다.
-1. 앱의 페이지 목록에서 **API 권한**을 선택합니다. 그렇다면
-   1. **권한 추가**를 선택합니다.
+1. 앱의 페이지 목록에서 **API 권한** 을 선택합니다. 그렇다면
+   1. **권한 추가** 를 선택합니다.
    1. **Microsoft API** 탭이 선택되어 있는지 확인합니다.
-   1. **일반적으로 사용되는 Microsoft API** 섹션에서 **Microsoft Graph**를 선택합니다.
+   1. **일반적으로 사용되는 Microsoft API** 섹션에서 **Microsoft Graph** 를 선택합니다.
    1. **애플리케이션 권한** 섹션에서 올바른 권한(**User.Read.All**)이 선택되었는지 확인합니다.
    1. **사용 권한 추가** 단추를 선택합니다.
 
 ## <a name="configure-the-sample-to-use-your-azure-ad-tenant"></a>Azure AD 테넌트를 사용하도록 샘플 구성
 
-다음 단계에서 **ClientID**는 "애플리케이션 ID" 또는 **AppId**와 동일합니다.
+다음 단계에서 **ClientID** 는 "애플리케이션 ID" 또는 **AppId** 와 동일합니다.
 
 Visual Studio에서 솔루션을 열어 프로젝트를 구성합니다.
 
@@ -171,9 +173,9 @@ Visual Studio에서 솔루션을 열어 프로젝트를 구성합니다.
 ## <a name="re-create-the-sample-app"></a>샘플 앱 다시 만들기
 
 1. Visual Studio에서 새 **Visual C#** **ASP.NET 웹 애플리케이션(.NET Framework)** 프로젝트를 만듭니다.
-1. 다음 화면에서 **MVC** 프로젝트 템플릿을 선택합니다. 나중에 웹 API 컨트롤러를 추가하므로 **Web API**에 대한 폴더 및 코어 참조도 추가합니다. 선택된 프로젝트의 인증 모드를 기본값, 즉 **인증 없음**으로 둡니다.
+1. 다음 화면에서 **MVC** 프로젝트 템플릿을 선택합니다. 나중에 웹 API 컨트롤러를 추가하므로 **Web API** 에 대한 폴더 및 코어 참조도 추가합니다. 선택된 프로젝트의 인증 모드를 기본값, 즉 **인증 없음** 으로 둡니다.
 1. **솔루션 탐색기** 창에서 프로젝트, **F4** 키를 차례로 선택합니다.
-1. 프로젝트 속성에서 **SSL 사용**을 **True**로 설정합니다. **SSL URL**의 정보를 적어둡니다. 이는 Azure Portal에서 이 애플리케이션의 등록을 구성할 때 필요합니다.
+1. 프로젝트 속성에서 **SSL 사용** 을 **True** 로 설정합니다. **SSL URL** 의 정보를 적어둡니다. 이는 Azure Portal에서 이 애플리케이션의 등록을 구성할 때 필요합니다.
 1. 다음 ASP.NET OWIN 미들웨어 NuGet 패키지를 추가합니다.
    - Microsoft.Owin.Security.ActiveDirectory
    - Microsoft.Owin.Security.Cookies
@@ -182,20 +184,20 @@ Visual Studio에서 솔루션을 열어 프로젝트를 구성합니다.
    - Microsoft.Owin.Security.OpenIdConnect
    - Microsoft.Identity.Client
 1. **App_Start** 폴더에서 다음을 수행합니다.
-   1. **Startup.Auth.cs**라는 클래스를 만듭니다.
-   1. 네임스페이스 이름에서 **.App_Start**를 제거합니다.
+   1. **Startup.Auth.cs** 라는 클래스를 만듭니다.
+   1. 네임스페이스 이름에서 **.App_Start** 를 제거합니다.
    1. **Startup** 클래스의 코드를 샘플 앱의 동일한 파일에 있는 코드로 바꿉니다.
-   클래스 정의 전체를 사용해야 합니다. 정의가 **퍼블릭 클래스 Startup**에서 **퍼블릭 partial 클래스 Startup**으로 변경됩니다.
-1. **Startup.Auth.cs**에서 Visual Studio IntelliSense에서 제안한 대로 **using** 문을 추가하여 누락된 참조를 확인합니다.
-1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **추가**를 선택한 다음, **클래스**를 선택합니다.
-1. 검색 상자에서 **OWIN**을 입력합니다. **OWIN Startup 클래스**가 선택 항목으로 표시됩니다. 이를 선택한 다음, 클래스 이름을 **Startup.cs**로 지정합니다.
-1. **Startup.cs**에서 **Startup** 클래스의 코드를 샘플 앱의 동일한 파일에 있는 코드로 바꿉니다. 다시 한 번 정의가 **퍼블릭 클래스 Startup**에서 **퍼블릭 partial 클래스 Startup**으로 변경됩니다.
-1. **Models** 폴더에서 **MsGraphUser.cs**라는 새 클래스를 추가합니다. 구현을 샘플에서 이름이 동일한 파일의 내용으로 바꿉니다.
-1. **AccountController**라는 새 **MVC 5 컨트롤러 - 비어 있음** 인스턴스를 추가합니다. 구현을 샘플에서 이름이 동일한 파일의 내용으로 바꿉니다.
-1. **UserController**라는 새 **MVC 5 컨트롤러 - 비어 있음** 인스턴스를 추가합니다. 구현을 샘플에서 이름이 동일한 파일의 내용으로 바꿉니다.
-1. **SyncController**라는 새 **Web API 2 컨트롤러 - 비어 있음** 인스턴스를 추가합니다. 구현을 샘플에서 이름이 동일한 파일의 내용으로 바꿉니다.
-1. 사용자 인터페이스의 경우 **Views\Account** 폴더에서 **GrantPermissions**, **Index** 및 **UserMismatch**라는 세 개의 **비어 있음(모델 없음) 보기** 인스턴스를 추가합니다. **Index**라는 인스턴스를 **Views\User** 폴더에 추가합니다. 구현을 샘플에서 이름이 동일한 파일의 내용으로 바꿉니다.
-1. 다양한 보기를 모두 올바르게 연결하도록 **Shared\_Layout.cshtml** 및 **Home\Index.cshtml**을 업데이트합니다.
+   클래스 정의 전체를 사용해야 합니다. 정의가 **퍼블릭 클래스 Startup** 에서 **퍼블릭 partial 클래스 Startup** 으로 변경됩니다.
+1. **Startup.Auth.cs** 에서 Visual Studio IntelliSense에서 제안한 대로 **using** 문을 추가하여 누락된 참조를 확인합니다.
+1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **추가** 를 선택한 다음, **클래스** 를 선택합니다.
+1. 검색 상자에서 **OWIN** 을 입력합니다. **OWIN Startup 클래스** 가 선택 항목으로 표시됩니다. 이를 선택한 다음, 클래스 이름을 **Startup.cs** 로 지정합니다.
+1. **Startup.cs** 에서 **Startup** 클래스의 코드를 샘플 앱의 동일한 파일에 있는 코드로 바꿉니다. 다시 한 번 정의가 **퍼블릭 클래스 Startup** 에서 **퍼블릭 partial 클래스 Startup** 으로 변경됩니다.
+1. **Models** 폴더에서 **MsGraphUser.cs** 라는 새 클래스를 추가합니다. 구현을 샘플에서 이름이 동일한 파일의 내용으로 바꿉니다.
+1. **AccountController** 라는 새 **MVC 5 컨트롤러 - 비어 있음** 인스턴스를 추가합니다. 구현을 샘플에서 이름이 동일한 파일의 내용으로 바꿉니다.
+1. **UserController** 라는 새 **MVC 5 컨트롤러 - 비어 있음** 인스턴스를 추가합니다. 구현을 샘플에서 이름이 동일한 파일의 내용으로 바꿉니다.
+1. **SyncController** 라는 새 **Web API 2 컨트롤러 - 비어 있음** 인스턴스를 추가합니다. 구현을 샘플에서 이름이 동일한 파일의 내용으로 바꿉니다.
+1. 사용자 인터페이스의 경우 **Views\Account** 폴더에서 **GrantPermissions**, **Index** 및 **UserMismatch** 라는 세 개의 **비어 있음(모델 없음) 보기** 인스턴스를 추가합니다. **Index** 라는 인스턴스를 **Views\User** 폴더에 추가합니다. 구현을 샘플에서 이름이 동일한 파일의 내용으로 바꿉니다.
+1. 다양한 보기를 모두 올바르게 연결하도록 **Shared\_Layout.cshtml** 및 **Home\Index.cshtml** 을 업데이트합니다.
 
 ## <a name="deploy-the-sample-to-azure"></a>Azure에 샘플 배포
 
@@ -208,31 +210,31 @@ Visual Studio에서 솔루션을 열어 프로젝트를 구성합니다.
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>Azure 웹 사이트에 dotnet-web-daemon-v2 만들기 및 게시
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 왼쪽 위 구석에서 **리소스 만들기**를 선택합니다.
-1. **웹** > **웹앱**을 차례로 선택한 다음, 웹 사이트 이름을 지정합니다. 예를 들어 이름을 **dotnet-web-daemon-v2-contoso.azurewebsites.net**으로 지정합니다.
-1. **구독**, **리소스 그룹** 및 **앱 서비스 계획 및 위치**에 대한 정보를 선택합니다. **OS**는 **Windows**이고 **게시**는 **코드**입니다.
-1. **만들기**를 선택하고, 앱 서비스가 만들어질 때까지 기다립니다.
-1. **배포 성공** 알림이 표시되면 **리소스로 이동**을 선택하여 새로 만든 앱 서비스로 이동합니다.
-1. 웹 사이트가 만들어지면 **대시보드**에서 해당 웹 사이트를 찾아서 선택하여 앱 서비스의 **개요** 화면을 엽니다.
+1. 왼쪽 위 구석에서 **리소스 만들기** 를 선택합니다.
+1. **웹** > **웹앱** 을 차례로 선택한 다음, 웹 사이트 이름을 지정합니다. 예를 들어 이름을 **dotnet-web-daemon-v2-contoso.azurewebsites.net** 으로 지정합니다.
+1. **구독**, **리소스 그룹** 및 **앱 서비스 계획 및 위치** 에 대한 정보를 선택합니다. **OS** 는 **Windows** 이고 **게시** 는 **코드** 입니다.
+1. **만들기** 를 선택하고, 앱 서비스가 만들어질 때까지 기다립니다.
+1. **배포 성공** 알림이 표시되면 **리소스로 이동** 을 선택하여 새로 만든 앱 서비스로 이동합니다.
+1. 웹 사이트가 만들어지면 **대시보드** 에서 해당 웹 사이트를 찾아서 선택하여 앱 서비스의 **개요** 화면을 엽니다.
 1. 앱 서비스의 **개요** 탭에서 **게시 프로필 가져오기** 링크를 선택하여 게시 프로필을 다운로드하고 저장합니다. 원본 제어에서 배포와 같은 다른 배포 메커니즘을 사용할 수 있습니다.
 1. Visual Studio로 전환하고 다음을 수행합니다.
    1. **dotnet-web-daemon-v2** 프로젝트로 이동합니다.
-   1. 솔루션 탐색기에서 마우스 오른쪽 단추로 프로젝트를 클릭한 다음, **게시**를 선택합니다.
-   1. 아래쪽 표시줄에서 **프로필 가져오기**를 선택하고, 이전에 다운로드한 게시 프로필을 가져옵니다.
-1. **구성**을 선택합니다.
-1. **연결** 탭에서 "https"를 사용하도록 대상 URL을 업데이트합니다. 예를 들면 `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`를 사용합니다. **다음**을 선택합니다.
-1. **설정** 탭에서 **조직 인증 사용**이 선택 취소되어 있는지 확인합니다.
-1. **저장**을 선택합니다. 주 화면에서 **게시**를 선택합니다.
+   1. 솔루션 탐색기에서 마우스 오른쪽 단추로 프로젝트를 클릭한 다음, **게시** 를 선택합니다.
+   1. 아래쪽 표시줄에서 **프로필 가져오기** 를 선택하고, 이전에 다운로드한 게시 프로필을 가져옵니다.
+1. **구성** 을 선택합니다.
+1. **연결** 탭에서 "https"를 사용하도록 대상 URL을 업데이트합니다. 예를 들면 `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`를 사용합니다. **다음** 을 선택합니다.
+1. **설정** 탭에서 **조직 인증 사용** 이 선택 취소되어 있는지 확인합니다.
+1. **저장** 을 선택합니다. 주 화면에서 **게시** 를 선택합니다.
 
 Visual Studio에서 프로젝트를 게시하고, 브라우저를 프로젝트의 URL로 자동으로 엽니다. 프로젝트의 기본 웹 페이지가 표시되면 게시가 성공적으로 수행된 것입니다.
 
 ### <a name="update-the-azure-ad-tenant-application-registration-for-dotnet-web-daemon-v2"></a>dotnet-web-daemon-v2에 대한 Azure AD 테넌트 애플리케이션 등록 업데이트
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. 왼쪽 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 선택합니다.
+1. 왼쪽 창에서 **Azure Active Directory** 서비스, **앱 등록** 을 차례로 선택합니다.
 1. **dotnet-web-daemon-v2** 애플리케이션을 선택합니다.
 1. 애플리케이션에 대한 **인증** 페이지에서 **로그아웃 URL** 필드를 서비스 주소로 업데이트합니다. 예를 들면 `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`를 사용합니다.
-1. **브랜딩** 메뉴에서 **홈 페이지 URL**을 서비스 주소로 업데이트합니다. 예를 들면 `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`를 사용합니다.
+1. **브랜딩** 메뉴에서 **홈 페이지 URL** 을 서비스 주소로 업데이트합니다. 예를 들면 `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`를 사용합니다.
 1. 구성을 저장합니다.
 1. 동일한 URL을 **인증** > **리디렉션 URI** 메뉴의 값 목록에 추가합니다. 여러 개의 리디렉션 URL이 있는 경우 각 리디렉션 URL에 대해 앱 서비스의 URI를 사용하는 새 항목이 있는지 확인합니다.
 

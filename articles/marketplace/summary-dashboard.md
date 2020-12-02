@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 6b59da408ae7c88aaf8b9e7423fe955a861edf0f
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: c02ba12c790d745904d241f121e269aac3ed12f6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565520"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462988"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 요약 대시보드
 
@@ -21,7 +21,7 @@ ms.locfileid: "94565520"
 파트너 센터의 요약 대시보드에 액세스 하려면 **상업적 Marketplace** 에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **요약** 을 선택 합니다.
 
 >[!NOTE]
-> 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./partner-center-portal/faq-terminology.md)을 참조 하세요.
+> 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.
 
 ## <a name="summary-dashboard"></a>요약 대시보드
 
@@ -109,4 +109,4 @@ Marketplace Insights에는 Azure Marketplace 및 AppSource에서 제품의 페�
 - 증가 추세를 비롯한 고객에 대한 자세한 내용은 [상업용 마켓플레이스 분석의 고객 대시보드](customer-dashboard.md)를 참조하세요.
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 마켓플레이스 분석의 다운로드 대시보드](./partner-center-portal/downloads-dashboard.md)를 참조하세요.
 - Azure Marketplace 및 AppSource의 제품에 대 한 고객 의견의 통합 보기를 보려면 [파트너 센터의 등급 & 리뷰 분석 대시보드](./partner-center-portal/ratings-reviews.md)를 참조 하세요.
-- 상용 marketplace 분석 및 데이터 용어의 포괄적인 사전에 대 한 질문과 대답은 [상용 marketplace 분석 용어 및 일반적인 질문](./partner-center-portal/faq-terminology.md)을 참조 하세요.
+- 상용 marketplace 분석 및 데이터 용어의 포괄적인 사전에 대 한 질문과 대답은 [상용 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.

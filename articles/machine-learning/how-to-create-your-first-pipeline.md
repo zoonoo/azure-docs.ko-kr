@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 452904e18a0910c2dd4781ca978042e0cdd4996d
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 57806ecaf4b0e295457c78faaff6033126ddb2c8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630127"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463017"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -24,7 +24,7 @@ ms.locfileid: "94630127"
 
 이 문서에서는 [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용 하 여 [기계 학습 파이프라인](concept-ml-pipelines.md) 을 만들고 실행 하는 방법에 대해 알아봅니다. **Ml 파이프라인** 을 사용 하 여 다양 한 ml 단계를 함께 연결 하는 워크플로를 만듭니다. 그런 다음 나중에 액세스 하거나 다른 사용자와 공유 하기 위해 해당 파이프라인을 게시 합니다. ML 파이프라인을 추적 하 여 모델을 실제 세계에서 어떻게 수행 하 고 있는지 확인 하 고 데이터 드리프트를 검색 합니다. ML 파이프라인은 다양 한 계산을 사용 하 여 일괄 처리를 다시 실행 하는 대신 단계를 다시 사용 하 고 ML 워크플로를 다른 사람들과 공유 하는 일괄 처리 점수 매기기 시나리오에 적합 합니다.
 
-ML 작업의 CI/CD 자동화를 위해 [Azure 파이프라인](/azure/devops/pipelines/targets/azure-machine-learning?context=azure%252fmachine-learning%252fservice%252fcontext%252fml-context&preserve-view=true&tabs=yaml&view=azure-devops) 이라는 다른 종류의 파이프라인을 사용할 수 있지만 해당 유형의 파이프라인은 작업 영역에 저장 되지 않습니다. [이러한 서로 다른 파이프라인을 비교](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)합니다.
+ML 작업의 CI/CD 자동화를 위해 [Azure 파이프라인](/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context&preserve-view=true&tabs=yaml&view=azure-devops) 이라는 다른 종류의 파이프라인을 사용할 수 있지만 해당 유형의 파이프라인은 작업 영역에 저장 되지 않습니다. [이러한 서로 다른 파이프라인을 비교](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)합니다.
 
 만든 ML 파이프라인은 Azure Machine Learning [작업 영역의](how-to-manage-workspace.md)구성원에 게 표시 됩니다. 
 
@@ -32,7 +32,7 @@ ML 파이프라인은 계산 대상에서 실행 됩니다 ( [Azure Machine Lear
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
@@ -110,7 +110,7 @@ output_data1 = PipelineData(
 ## <a name="set-up-a-compute-target"></a>컴퓨팅 대상 설정
 
 
-Azure Machine Learning에서 ‘ __컴퓨팅__ ’(또는 ‘ __컴퓨팅 대상__ ’) 용어는 기계 학습 파이프라인에서 계산 단계를 수행하는 머신 또는 클러스터를 가리킵니다.   계산 대상의 전체 목록은 [모델 학습을 위한 계산 대상](concept-compute-target.md#train) 을 참조 하 고 작업 영역에 연결 하는 방법에 대 한 [계산 대상을 만듭니다](how-to-create-attach-compute-studio.md) .   계산 대상을 만들거나 연결 하는 프로세스는 모델을 학습 하거나 파이프라인 단계를 실행 하는 경우와 동일 합니다. 컴퓨팅 대상을 만들고 연결한 후 [파이프라인 단계](#steps)에서 `ComputeTarget` 개체를 사용합니다.
+Azure Machine Learning에서 ‘__컴퓨팅__’(또는 ‘__컴퓨팅 대상__’) 용어는 기계 학습 파이프라인에서 계산 단계를 수행하는 머신 또는 클러스터를 가리킵니다.   계산 대상의 전체 목록은 [모델 학습을 위한 계산 대상](concept-compute-target.md#train) 을 참조 하 고 작업 영역에 연결 하는 방법에 대 한 [계산 대상을 만듭니다](how-to-create-attach-compute-studio.md) .   계산 대상을 만들거나 연결 하는 프로세스는 모델을 학습 하거나 파이프라인 단계를 실행 하는 경우와 동일 합니다. 컴퓨팅 대상을 만들고 연결한 후 [파이프라인 단계](#steps)에서 `ComputeTarget` 개체를 사용합니다.
 
 > [!IMPORTANT]
 > 컴퓨팅 대상에 대한 관리 작업 수행은 원격 작업 내에서 지원되지 않습니다. 기계 학습 파이프라인은 원격 작업으로 제출되므로 파이프라인 내부에서 컴퓨팅 대상에 관리 작업을 사용하지 마십시오.

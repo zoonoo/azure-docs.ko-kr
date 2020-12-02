@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: e900d63ba7e521cbf7e63d8580d22b08726d1ef6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2b8a008decc41a5686fb2c8d9fee271f95f0fef3
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517347"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122415"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>AWS 비용 및 사용 현황 보고서 통합 설정 및 구성
 
@@ -72,7 +72,7 @@ Cost Management의 AWS 계정에 대한 역할 기반 액세스를 사용하도�
     > [!NOTE]
     > **MFA 요구** 에 대한 선택 항목을 변경하지 마세요. 선택 해제로 두어야 합니다.
 8. 완료되면 **다음: 사용 권한** 을 클릭합니다.
-9. **Create policy** (정책 만들기)를 선택합니다. 새 브라우저 탭이 열립니다. 여기에서 정책을 만들 수 있습니다.
+9. **Create policy**(정책 만들기)를 선택합니다. 새 브라우저 탭이 열립니다. 여기에서 정책을 만들 수 있습니다.
 10. **서비스 선택** 을 선택합니다.
 
 비용 및 사용 현황 보고서에 대한 사용 권한을 구성합니다.
@@ -150,7 +150,8 @@ AWS 조직에 대한 권한을 추가합니다.
 다음 정보를 사용하여 AWS 커넥터를 만들고 AWS 비용 모니터링을 시작합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Cost Management + 청구** > **Cost Management** 로 이동합니다.
+2. 왼쪽의 메뉴에서 **홈**(3줄이 있는 "햄버거" 메뉴 아이콘)을 클릭하여 Azure Home으로 이동합니다.
+3. 페이지 하단에 있는 **도구** > **Cost Management** 로 이동합니다.
 3. **설정** 에서 **AWS용 커넥터** 를 선택합니다.  
 4. 페이지 맨 위에 있는 **+ 추가** 를 선택하여 커넥터를 만듭니다.  
     :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="AWS용 커넥터 설정을 보여주는 예제" :::

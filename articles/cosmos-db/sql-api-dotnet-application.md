@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e4e2ba15dad7459ba3f7926a965292be37249054
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 528cab915a1ac3918146e428e9ae6b3c401324c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097365"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96010360"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET Core MVC 웹 애플리케이션 개발
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -58,7 +58,7 @@ ms.locfileid: "93097365"
 
 ## <a name="step-1-create-an-azure-cosmos-account"></a><a name="create-an-azure-cosmos-account"></a>1단계: Azure Cosmos 계정 만들기
 
-Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정이 이미 있거나 Azure Cosmos DB 에뮬레이터를 사용하는 경우 [2단계: 새 ASP.NET MVC 애플리케이션 만들기](#create-a-new-mvc-application)로 건너뜁니다.
+Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정이 이미 있거나 Azure Cosmos DB Emulator를 사용하는 경우 [2단계: 새 ASP.NET MVC 애플리케이션 만들기](#create-a-new-mvc-application)로 건너뜁니다.
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -307,7 +307,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 1. **게시 대상 선택** 에서 **App Service** 를 선택합니다.
 
-1. 기존 App Service 프로필을 사용하려면 **기존 항목 선택** , **게시** 를 차례로 선택합니다.
+1. 기존 App Service 프로필을 사용하려면 **기존 항목 선택**, **게시** 를 차례로 선택합니다.
 
 1. **App Service** 에서 **구독** 을 선택합니다. **뷰** 필터를 사용하여 리소스 그룹 또는 리소스 형식별로 정렬합니다.
 
@@ -321,7 +321,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
   
 1. **게시 대상 선택** 에서 **App Service** 를 선택합니다.
 
-1. **게시 대상 선택** 에서 **새로 만들기** , **게시** 를 차례로 선택합니다.
+1. **게시 대상 선택** 에서 **새로 만들기**, **게시** 를 차례로 선택합니다.
 
 1. **App Service** 에서 웹앱 이름과 적절한 구독, 리소스 그룹 및 호스팅 계획을 입력한 다음, **만들기** 를 선택합니다.
 

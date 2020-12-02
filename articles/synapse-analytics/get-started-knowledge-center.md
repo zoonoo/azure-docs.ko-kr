@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 57213e228359fd6c201d501d3bb75f7267054277
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 0314f5e55a476cd1cd1f8a31bd918e0ebb64c75f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685429"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254241"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Synapse 지식 센터 살펴보기
 
@@ -33,8 +33,8 @@ Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습�
 ## <a name="overview"></a>개요
 
 **지식 센터** 를 통해 다음과 같은 세 가지 작업을 수행할 수 있습니다.
-* **샘플 즉시 사용**. 이 옵션은 작동 중인 분석을 최대한 빨리 표시하도록 최적화되어 있습니다. Synapse의 작동 방식에 대한 빠른 예제를 원하는 경우 이 옵션을 선택합니다.
-* **브라우저에서 사용할 수 있는 샘플**. 이 옵션을 사용하면 샘플 데이터 세트를 연결하고, 샘플 코드를 SQL 스크립트, Notebook 및 파이프라인 형식으로 추가할 수 있습니다.
+* **샘플 즉시 사용**. Synapse의 작동 방식에 대한 빠른 예제를 원하는 경우 이 옵션을 선택합니다.
+* **갤러리 찾아보기**. 이 옵션을 사용하면 샘플 데이터 세트를 연결하고, 샘플 코드를 SQL 스크립트, Notebook 및 파이프라인 형식으로 추가할 수 있습니다.
 * **Synapse Studio 둘러보기**. 이 옵션을 사용하면 Synapse Studio의 기본 부분을 간략히 둘러볼 수 있습니다. 이 옵션은 Synapse Studio를 사용한 적이 없는 경우에 유용합니다.
 
 ## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>서버리스 SQL 풀을 사용하여 Blob 스토리지 살펴보기
@@ -47,7 +47,7 @@ Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습�
 1. 실행을 클릭합니다. 선택한 텍스트가 실행됩니다.
 
 ## <a name="loading-more-nyc-taxi-data"></a>더 많은 NYC Taxi 데이터 로드
-1. **지식 센터** 로 이동하여 **사용 가능한 샘플 찾아보기** 를 클릭합니다. 
+1. **지식 센터** 로 이동하여 **갤러리 찾아보기** 를 클릭합니다. 
 1. 위쪽에서 **SQL 스크립트** 탭을 선택합니다.
 1. **New York Taxicab 데이터 세트 로드** 를 선택합니다.
 1. **입력** 아래에서 **기존 풀 선택**, **SQLDB1** 을 차례로 선택합니다.

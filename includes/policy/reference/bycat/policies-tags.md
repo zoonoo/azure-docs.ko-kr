@@ -2,22 +2,24 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 94b28c001bf4b74476d8dac271de1b3864d981c2
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 747890641aa8dfa94696f3d61b773737dcc327ee
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734510"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008006"
 ---
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[리소스 그룹에 태그 추가](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F726aca4c-86e9-4b04-b0c5-073027359532) |이 태그를 누락하는 리소스 그룹을 만들거나 업데이트할 때 지정된 태그 및 값을 추가합니다. 기존 리소스 그룹은 수정 작업을 트리거하여 수정할 수 있습니다. 태그가 다른 값으로 존재하는 경우 변경되지 않습니다. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_ResourceGroup_Modify.json) |
 |[리소스에 태그 추가](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f9dc7db-30c1-420c-b61a-e1d640128d26) |이 태그를 누락하는 리소스를 만들거나 업데이트할 때 지정된 태그 및 값을 추가합니다. 기존 리소스는 수정 작업을 트리거하여 수정할 수 있습니다. 태그가 다른 값으로 존재하는 경우 변경되지 않습니다. 리소스 그룹에 대한 태그는 수정하지 않습니다. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_Modify.json) |
+|[구독에 태그 추가](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F96d9a89c-0d67-41fc-899d-2b9599f76a24) |수정 작업을 통해 지정된 태그 및 값을 구독에 추가합니다. 태그가 다른 값으로 존재하는 경우 변경되지 않습니다. 정책 수정에 대한 자세한 내용은 [https://aka.ms/azurepolicyremediation](https://aka.ms/azurepolicyremediation)을 참조하세요. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_Subscription_Modify.json) |
 |[리소스 그룹에 태그 추가 또는 바꾸기](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd157c373-a6c4-483d-aaad-570756956268) |리소스 그룹을 만들거나 업데이트할 때 지정된 태그 및 값을 추가하거나 바꿉니다. 기존 리소스 그룹은 수정 작업을 트리거하여 수정할 수 있습니다. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddOrReplaceTag_ResourceGroup_Modify.json) |
 |[리소스에 태그 추가 또는 바꾸기](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5ffd78d9-436d-4b41-a421-5baa819e3008) |리소스를 만들거나 업데이트할 때 지정된 태그 및 값을 추가하거나 바꿉니다. 기존 리소스는 수정 작업을 트리거하여 수정할 수 있습니다. 리소스 그룹에 대한 태그는 수정하지 않습니다. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddOrReplaceTag_Modify.json) |
+|[구독에 태그 추가 또는 바꾸기](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F61a4d60b-7326-440e-8051-9f94394d4dd1) |수정 작업을 통해 지정된 태그 및 값을 구독에 추가하거나 바꿉니다. 기존 리소스 그룹은 수정 작업을 트리거하여 수정할 수 있습니다. 정책 수정에 대한 자세한 내용은 [https://aka.ms/azurepolicyremediation](https://aka.ms/azurepolicyremediation)을 참조하세요. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddOrReplaceTag_Subscription_Modify.json) |
 |[리소스 그룹에서 태그 및 해당 값 추가](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9ea02ca2-71db-412d-8b00-7c7ca9fcd32d) |이 태그를 누락하는 리소스를 만들거나 업데이트할 때 리소스 그룹의 해당 값으로 지정된 태그를 추가합니다. 해당 리소스가 변경될 때까지 이 정책을 적용하기 전에 만들어진 리소스의 태그를 수정하지 않습니다. 기존 리소스에 대한 태그 수정을 지원하는 새로운 '수정' 효과 정책을 사용할 수 있습니다([https://aka.ms/modifydoc](https://aka.ms/modifydoc) 참조). |추가 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Append.json) |
 |[리소스 그룹에서 태그 및 해당 값 추가](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F49c88fc8-6fd1-46fd-a676-f12d1d3a4c71) |이 태그를 누락하는 리소스 그룹을 만들거나 업데이트할 때 지정된 태그 및 값을 추가합니다. 해당 리소스 그룹이 변경될 때까지 이 정책을 적용하기 전에 만들어진 리소스 그룹의 태그를 수정하지 않습니다. 기존 리소스에 대한 태그 수정을 지원하는 새로운 '수정' 효과 정책을 사용할 수 있습니다([https://aka.ms/modifydoc](https://aka.ms/modifydoc) 참조). |추가 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/ResourceGroupApplyTag_Append.json) |
 |[리소스에 태그 및 해당 값 추가](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2a0e14a6-b0a6-4fab-991a-187a4f81c498) |이 태그를 누락하는 리소스를 만들거나 업데이트할 때 지정된 태그 및 값을 추가합니다. 해당 리소스가 변경될 때까지 이 정책을 적용하기 전에 만들어진 리소스의 태그를 수정하지 않습니다. 리소스 그룹에는 적용되지 않습니다. 기존 리소스에 대한 태그 수정을 지원하는 새로운 '수정' 효과 정책을 사용할 수 있습니다([https://aka.ms/modifydoc](https://aka.ms/modifydoc) 참조). |추가 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/ApplyTag_Append.json) |

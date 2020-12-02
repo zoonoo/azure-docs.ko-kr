@@ -11,29 +11,28 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: jeedes
-ms.openlocfilehash: 7f23551fee5331d14cdcf9e31e248cf42022d4c3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d88cbb79b42637721412dd0a35c231782a896721
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92449305"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029866"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-cloud---enterprise-account"></a>자습서: GitHub Enterprise Cloud - Enterprise Account와 Azure Active Directory SSO(Single Sign-On) 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 GitHub Enterprise Cloud - Enterprise Account를 통합하는 방법에 대해 알아봅니다. GitHub Enterprise Cloud - Enterprise Account를 Azure AD와 통합하면 다음을 수행할 수 있습니다.
 
-* GitHub Enterprise Cloud - Enterprise Account에 액세스할 수 있는 사용자를 Azure AD에서 제어합니다.
-* 사용자가 자신의 Azure AD 계정으로 GitHub Enterprise Cloud - Enterprise Account에 자동으로 로그인되도록 설정합니다.
-* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
+* Azure AD에서 GitHub Enterprise Account 및 Enterprise Account 내의 모든 조직에 액세스할 수 있는 사용자를 제어합니다.
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* GitHub Enterprise Cloud - Enterprise Account SSO(Single Sign-On)가 설정된 구독
+* [GitHub Enterprise Account](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)
+* Enterprise Account 소유자인 GitHub 사용자 계정 
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -63,10 +62,9 @@ GitHub Enterprise Cloud - Enterprise Account에서 Azure AD SSO를 구성하고 
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
     1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-1. **[GitHub Enterprise Cloud-Enterprise Account SSO 구성](#configure-github-enterprise-cloud-enterprise-account-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    1. **[GitHub Enterprise Cloud-Enterprise Account 테스트 사용자 만들기](#create-github-enterprise-cloud-enterprise-account-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 GitHub Enterprise Cloud-Enterprise Account에 만듭니다.
-1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+    1. **[GitHub 앱에 Azure AD 사용자 및 테스트 사용자 계정 할당](#assign-the-azure-ad-test-user)** - 사용자 계정 및 `B.Simon` 테스트 사용자가 Azure AD Single Sign-On을 사용하도록 설정합니다.
+1. **[Enterprise Account 및 해당 조직에 SAML 사용 및 테스트](#enable-and-test-saml-for-the-enterprise-account-and-its-organizations)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+    1. **[다른 엔터프라이즈 계정 소유자 또는 조직 멤버 계정을 사용하여 SSO 테스트](#test-sso)** - 구성이 작동하는지 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
@@ -89,7 +87,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
      **로그온 URL** 텍스트 상자에서 `https://github.com/enterprises/<ENTERPRISE-SLUG>/sso` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 회신 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [GitHub Enterprise Cloud-Enterprise Account 클라이언트 지원 팀](mailto:support@github.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > `<ENTERPRISE-SLUG>`를 GitHub Enterprise Account의 실제 이름으로 바꿉니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -101,9 +99,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
-이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
+이 섹션에서는 Azure Portal에서 `B.Simon`이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -111,9 +109,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+<a name="assign-the-azure-ad-test-user"></a>
 
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 GitHub Enterprise Cloud-Enterprise Account에 대한 액세스 권한을 부여합니다.
+### <a name="assign-your-azure-ad-user-and-the-test-user-account-to-the-github-app"></a>GitHub 앱에 Azure AD 사용자 및 테스트 사용자 계정 할당
+
+이 섹션에서는 `B.Simon` 및 사용자 계정에 GitHub Enterprise Cloud - Enterprise Account에 대한 액세스 권한을 부여하여 이러한 항목에서 Azure Single Sign-On을 사용하도록 설정합니다.
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 애플리케이션 목록에서 **GitHub Enterprise Cloud-Enterprise Account** 를 선택합니다.
@@ -125,29 +125,42 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![사용자 추가 링크](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 [사용자] 목록에서 **B.Simon** 및 사용자 계정을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name="configure-github-enterprise-cloud-enterprise-account-sso"></a>GitHub Enterprise Cloud-Enterprise Account SSO 구성
+## <a name="enable-and-test-saml-for-the-enterprise-account-and-its-organizations"></a>Enterprise Account 및 해당 조직에 SAML 사용 및 테스트
 
-**GitHub Enterprise Cloud-Enterprise Account** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)** 및 Azure Portal에서 복사한 적절한 URL을 [GitHub Enterprise Cloud-Enterprise Account 지원 팀](mailto:support@github.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**GitHub Enterprise Cloud - Enterprise Account** 쪽에서 Single Sign-On을 구성하려면 [이 GitHub 설명서](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)에 나열된 단계를 수행합니다. 
+1. [엔터프라이즈 계정 소유자](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)인 사용자 계정 권한으로 GitHub.com에 로그인합니다. 
+1. Azure Portal에서 앱의 `Login URL` 필드 값을 복사하고, 이 값을 GitHub Enterprise Account SAML 설정의 `Sign on URL` 필드에 붙여넣습니다. 
+1. Azure Portal에서 앱의 `Azure AD Identifier` 필드 값을 복사하고, 이 값을 GitHub Enterprise Account SAML 설정의 `Issuer` 필드에 붙여넣습니다. 
+1. 위의 Azure Portal 단계에서 다운로드한 **Certificate (Base64)** 파일의 콘텐츠를 복사하고, 이를 GitHub Enterprise Account SAML 설정의 해당 필드에 붙여넣습니다. 
+1. `Test SAML configuration`을 클릭하고, GitHub Enterprise Account에서 Azure AD로 성공적으로 인증할 수 있는지 확인합니다.
+1. 테스트가 성공적으로 완료되면 해당 설정을 저장합니다. 
+1. GitHub 엔터프라이즈 계정에서 SAML을 통해 처음으로 인증하면 로그인한 GitHub 사용자 계정을 Azure AD 사용자 계정에 연결하는 _연결된 외부 ID_ 가 GitHub 엔터프라이즈 계정에 만들어집니다.  
+ 
+SAML SSO를 GitHub Enterprise Account에 사용하도록 설정하면 기본적으로 SAML SSO를 Enterprise Account에서 소유한 모든 조직에 사용하도록 설정됩니다. 모든 멤버는 자신이 멤버인 조직에 대한 액세스 권한을 얻기 위해 SAML SSO를 사용하여 인증해야 하며, 엔터프라이즈 소유자는 Enterprise Account에 액세스할 때 SAML SSO를 사용하여 인증해야 합니다.
 
-### <a name="create-github-enterprise-cloud-enterprise-account-test-user"></a>GitHub Enterprise Cloud-Enterprise Account 테스트 사용자 만들기
+<a name="test-sso"></a>
 
-이 섹션에서는 GitHub Enterprise Cloud-Enterprise Account에서 B.Simon이라는 사용자를 만듭니다. GitHub Enterprise Cloud-Enterprise Account는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. GitHub Enterprise Cloud-Enterprise Account에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
+## <a name="test-sso-with-another-enterprise-account-owner-or-organization-member-account"></a>다른 엔터프라이즈 계정 소유자 또는 조직 멤버 계정을 사용하여 SSO 테스트
 
-## <a name="test-sso"></a>SSO 테스트 
+GitHub 엔터프라이즈 계정에 대해 SAML 통합이 설정되면(엔터프라이즈 계정의 GitHub 조직에도 적용됨) Azure AD에서 앱에 할당된 다른 엔터프라이즈 계정 소유자는 GitHub 엔터프라이즈 계정 URL(`https://github.com/enterprises/<enterprise account>`)로 이동하고, SAML을 통해 인증하고, GitHub 엔터프라이즈 계정의 정책 및 설정에 액세스할 수 있어야 합니다. 
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+엔터프라이즈 계정의 조직에 대한 조직 소유자는 [GitHub 조직에 참가하도록 사용자를 초대](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization)할 수 있어야 합니다. 조직 소유자 계정 권한으로 GitHub.com에 로그인하고, 이 문서의 단계에 따라 `B.Simon`을 조직에 초대합니다. `B.Simon`에 대한 GitHub 사용자 계정이 없는 경우 해당 계정을 만들어야 합니다. 
 
-액세스 패널에서 GitHub Enterprise Cloud-Enterprise Account 타일을 클릭하면 SSO를 설정한 GitHub Enterprise Cloud-Enterprise Account에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+`B.Simon` 테스트 사용자 계정을 사용하여 엔터프라이즈 계정에서 GitHub 조직 액세스를 테스트하려면 다음을 수행합니다.
+1. `B.Simon`을 조직 소유자로 엔터프라이즈 계정의 조직에 초대합니다. 
+1. `B.Simon` Azure AD 사용자 계정에 연결하려는 사용자 계정을 사용하여 GitHub.com에 로그인합니다.
+1. `B.Simon` 사용자 계정을 사용하여 Azure AD에 로그인합니다.
+1. GitHub 조직으로 이동합니다. 사용자에게 SAML을 통해 인증하라는 메시지가 표시됩니다. SAML 인증에 성공하면 `B.Simon`이 조직 리소스에 액세스할 수 있습니다. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 - [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 

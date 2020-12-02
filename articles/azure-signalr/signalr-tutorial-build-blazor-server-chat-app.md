@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
-ms.openlocfilehash: 16fd15a5939cc6c268a80e88401f05042a206075
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ea55762aa40360d8eea94223a030f08aad504206
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516818"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95485395"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>자습서: Blazor Server 채팅 앱 빌드
 
@@ -39,7 +39,7 @@ Visual Studio 2019 버전 16.2.0부터 Azure SignalR Service는 기본 제공 �
    
    Visual Studio에서 새 프로젝트 만들기 -> Blazor 앱 -> (앱 이름 지정 및 폴더 선택) -> Blazor Server 앱을 차례로 선택합니다. Visual Studio에서 대상 프레임워크를 올바르게 인식할 수 있도록 .NET Core SDK 3.0 이상을 이미 설치했는지 확인합니다.
 
-   [ ![blazor-chat-create](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png#lightbox)
+   [ ![새 프로젝트 만들기에서 Blazor 앱 템플릿이 선택됩니다.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png#lightbox)
    
    또는 cmd를 실행합니다.
    ```dotnetcli
@@ -355,7 +355,7 @@ Visual Studio 2019 버전 16.2.0부터 Azure SignalR Service는 기본 제공 �
 
 1. <kbd>F5</kbd> 키를 클릭하여 앱을 실행합니다. 아래와 같이 채팅할 수 있습니다.
 
-   [ ![blazor-chat](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif#lightbox)
+   [ ![Bob과 Alice 간의 애니메이션 채팅이 표시됩니다. Alice는 Hello라고 하고, Bob은 Hi라고 합니다.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif#lightbox)
    
 [문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsblazor)
 
@@ -375,13 +375,13 @@ Visual Studio 2019 버전 16.2.0부터 Azure SignalR Service는 기본 제공 �
    * 특정 대상: 모든 유형의 **Azure App Service** 가 지원됩니다.
    * App Service: 새로 만들거나 기존 앱 서비스를 선택합니다.
 
-   [ ![blazor-chat-profile](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif#lightbox)
+   [ ![애니메이션은 Azure를 대상으로 선택한 다음, 특정 대상으로 Azure App Serice를 선택합니다.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif#lightbox)
 
 1. Azure SignalR Service 종속성을 추가합니다.
 
    게시 프로필이 만들어지면 **서비스 종속성** 아래에서 추천 메시지를 확인할 수 있습니다. **구성** 을 클릭하여 패널에서 새로 만들거나 기존 Azure SignalR Service를 선택합니다.
 
-   [ ![blazor-chat-dependency](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png#lightbox)
+   [ ![게시 시 구성 링크가 강조 표시됩니다.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png#lightbox)
 
    서비스 종속성은 Azure에서 앱이 Azure SignalR Service로 자동으로 전환되도록 하기 위해 아래 작업을 수행합니다.
 
@@ -391,7 +391,7 @@ Visual Studio 2019 버전 16.2.0부터 Azure SignalR Service는 기본 제공 �
    * 비밀 저장소 구성은 사용자의 선택에 따라 달라집니다.
    * 앱에서 선택한 Azure SignalR Service를 대상으로 하는 `appsettings` 구성을 추가합니다.
 
-   [ ![blazor-chat-dependency-summary](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png#lightbox)
+   [ ![변경 내용 요약에서 확인란은 모든 종속성을 선택하는 데 사용됩니다.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png#lightbox)
 
 1. 앱 게시
 
@@ -400,7 +400,7 @@ Visual Studio 2019 버전 16.2.0부터 Azure SignalR Service는 기본 제공 �
    > Azure App Service 배포 시작 대기 시간으로 인해 처음 방문하는 페이지에서 즉시 작동하지 않을 수 있으며, 페이지를 새로 고쳐 약간의 지연을 제공합니다.
    > 또한 <kbd>F12</kbd> 키를 통해 브라우저 디버거 모드를 사용하여 트래픽이 이미 Azure SignalR Service로 리디렉션되었는지 확인할 수 있습니다.
 
-   [ ![blazor-chat-azure](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png#lightbox)
+   [ ![Blazor SignalR Chat 샘플에는 사용자 이름의 텍스트 상자와 채팅을 시작하기 위한 Chat! 단추가 있습니다.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png#lightbox)
    
 [문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsblazor)
 

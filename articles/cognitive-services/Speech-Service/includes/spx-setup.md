@@ -5,35 +5,39 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 4b04558077f6b59d0fef613308a6ab96680d7ff8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6f80d41001d11c52a00454ea2a593f3f1fce32db
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470968"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025624"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
 #### <a name="windows-install"></a>[Windows 설치](#tab/windowsinstall)
 
-> [!NOTE]
-> Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다. 이 패키지를 처음 설치하면 Windows를 다시 시작해야 할 수 있습니다.
-
 Windows에 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 
-1. Speech CLI [zip 보관 파일](https://aka.ms/speech/spx-zips.zip)을 다운로드한 다음, 압축을 풉니다.
-2. 다운로드에서 추출한 루트 디렉터리 `spx-zips`로 이동하여 필요한 하위 디렉터리(.NET Framework 4.7에 대해 `spx-net471` 또는 x64 CPU에서 .NET Core 3.0에 대해 `spx-netcore-win-x64`)를 추출합니다.
+1. Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다. 처음 설치하려면 다시 시작해야 할 수 있습니다.
+2. Speech CLI [zip 보관 파일](https://aka.ms/speech/spx-zips.zip)을 다운로드한 다음, 압축을 풉니다.
+3. `spx-zips`를 추출한 디렉터리로 이동합니다. 이 폴더에는 다양한 플랫폼의 Speech CLI용 프로그램 파일이 포함되어 있습니다. 
+4. 플랫폼에 대한 파일을 추출합니다(.NET Framework 4.7의 경우 `spx-net471` 또는 x64 CPU의 .NET Core 3.0의 경우 `spx-netcore-win-x64`). 이 디렉터리에서 `spx`를 실행한다는 점에 유의하세요.
 
-명령 프롬프트에서 디렉터리를 이 위치로 변경한 다음, `spx`를 입력하여 Speech CLI에 대한 도움말을 표시합니다.
+### <a name="run-the-speech-cli"></a>Speech CLI 실행
 
-> [!NOTE]
-> Windows에서 Speech CLI는 로컬 컴퓨터에서 명령 프롬프트에 사용할 수 있는 글꼴만 표시할 수 있습니다.
-> [Windows 터미널](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701)은 Speech CLI에서 대화형으로 생성된 모든 글꼴을 지원합니다.
-> 파일로 출력하면 메모장과 같은 텍스트 편집기나 Microsoft Edge와 같은 웹 브라우저도 모든 글꼴을 표시할 수 있습니다.
+1. 명령 프롬프트 또는 PowerShell을 연 다음, Speech CLI를 추출한 디렉터리로 이동합니다.  
+2. `spx`를 입력하여 Speech CLI에 대한 도움말 명령을 표시합니다.
 
 > [!NOTE]
 > Powershell은 명령을 찾을 때 로컬 디렉터리를 확인하지 않습니다. Powershell에서 디렉터리를 `spx` 위치로 변경하고 `.\spx`를 입력하여 도구를 호출합니다.
 > 경로에 이 디렉터리를 추가하면 Powershell 및 Windows 명령 프롬프트가 `.\` 접두사를 포함하지 않고 모든 디렉터리에서 `spx`를 찾습니다.
+
+### <a name="font-limitations"></a>글꼴 제한 사항
+
+Windows에서 Speech CLI는 로컬 컴퓨터에서 명령 프롬프트에 사용할 수 있는 글꼴만 표시할 수 있습니다.
+[Windows 터미널](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701)은 Speech CLI에서 대화형으로 생성된 모든 글꼴을 지원합니다.
+
+파일로 출력하면 메모장과 같은 텍스트 편집기나 Microsoft Edge와 같은 웹 브라우저도 모든 글꼴을 표시할 수 있습니다.
 
 #### <a name="linux-install"></a>[Linux 설치](#tab/linuxinstall)
 
