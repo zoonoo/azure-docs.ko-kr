@@ -9,21 +9,22 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: b85984207742e0b8991ab65875dd22505b918185
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f57e809373a8bd06c4b4afbb9b193464315e788f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736740"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959580"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>자습서: IoT Edge 디바이스 구성
-
-> [!NOTE]
-> 이 문서는 IoT Edge에서 Azure Machine Learning을 사용하는 방법에 대한 자습서 시리즈의 일부입니다. 이 문서로 바로 이동한 경우에는 학습 효과를 극대화할 수 있도록 시리즈의 [첫 번째 문서](tutorial-machine-learning-edge-01-intro.md)부터 시작하는 것이 좋습니다.
 
 이 문서에서는 Linux를 실행하는 Azure 가상 머신을 투명 게이트웨이로 작동하는 Azure IoT Edge 디바이스로 구성합니다. 투명 게이트웨이를 구성하면 디바이스가 게이트웨이 존재 여부를 알지 못해도 게이트웨이를 통해 Azure IoT Hub에 연결할 수 있습니다. 그와 동시에, Azure IoT Hub의 디바이스와 상호 작용하는 사용자는 중간에 있는 게이트웨이 디바이스를 인식하지 못합니다. 궁극적으로 투명 게이트웨이에 IoT Edge 모듈을 추가함으로써 시스템에 에지 분석 기능을 추가합니다.
 
 이 문서의 단계는 일반적으로 클라우드 개발자가 수행합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+이 문서는 IoT Edge에서 Azure Machine Learning을 사용하는 방법에 대한 자습서 시리즈의 일부입니다. 시리즈의 각 문서는 이전 문서의 작업을 기반으로 합니다. 이 문서에 직접 도착한 경우 시리즈의 [첫 번째 문서](tutorial-machine-learning-edge-01-intro.md)를 방문하세요.
 
 ## <a name="create-certificates"></a>인증서 만들기
 
@@ -152,11 +153,11 @@ Marketplace의 이미지를 스크립트 방식 배포에 사용하려면 이미
 
 3. 각 매개 변수의 값을 입력하라는 메시지가 표시되면 입력합니다. 구독, 리소스 그룹 및 위치의 경우 이 자습서 전체에서 동일한 값을 사용하는 것이 좋습니다.
 
-    * **Azure 구독 ID** : Azure Portal에서 확인합니다.
-    * **리소스 그룹 이름** : 이 자습서의 리소스를 그룹화하는 기억하기 쉬운 이름입니다.
-    * **위치** : 가상 머신이 만들어지는 Azure 위치입니다. 예: westus2 또는 northeurope. 자세한 내용은 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조하세요.
-    * **AdminUsername** : 가상 머신에 로그인할 때 사용하는 관리자 계정의 이름입니다.
-    * **AdminPassword** : 가상 머신에서 AdminUsername에 대해 설정하는 암호입니다.
+    * **Azure 구독 ID**: Azure Portal에서 확인합니다.
+    * **리소스 그룹 이름**: 이 자습서의 리소스를 그룹화하는 기억하기 쉬운 이름입니다.
+    * **위치**: 가상 머신이 만들어지는 Azure 위치입니다. 예: westus2 또는 northeurope. 자세한 내용은 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조하세요.
+    * **AdminUsername**: 가상 머신에 로그인할 때 사용하는 관리자 계정의 이름입니다.
+    * **AdminPassword**: 가상 머신에서 AdminUsername에 대해 설정하는 암호입니다.
 
 4. 스크립트에서 VM을 설정하려면 사용하는 Azure 구독과 연결된 자격 증명으로 Azure에 로그인해야 합니다.
 
@@ -230,7 +231,7 @@ Marketplace의 이미지를 스크립트 방식 배포에 사용하려면 이미
 
 IoT Edge 런타임은 `/etc/iotedge/config.yaml` 파일을 사용하여 구성을 유지합니다. 이 파일의 세 가지 정보를 업데이트해야 합니다.
 
-* **디바이스 연결 문자열** : IoT Hub의 이 디바이스 ID에서 연결 문자열 부분
+* **디바이스 연결 문자열**: IoT Hub의 이 디바이스 ID에서 연결 문자열 부분
 * **인증서:** 다운스트림 디바이스로 연결할 때 사용되는 인증서
 * **호스트 이름:** VM IoT Edge 디바이스의 FQDN(정규화된 도메인 이름)
 

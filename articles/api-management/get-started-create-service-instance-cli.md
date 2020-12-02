@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 8e41e20752e4203bf9916813b86cd901f4f75c09
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 863cb6cd10664e14966898045cb2b1861ef75b9f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708226"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887453"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli-preview"></a>빠른 시작: Azure CLI(미리 보기)를 사용하여 새 Azure API Management 서비스 인스턴스 만들기
 
@@ -22,15 +22,15 @@ Azure APIM(API Management)을 사용하여 조직은 외부, 파트너 및 내�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 빠른 시작을 완료할 수 있습니다. 로컬에서 사용하려는 경우 버전 2.11.1 이상을 권장합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.11.1 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 모든 Azure 리소스와 마찬가지로 Azure API Management 인스턴스는 리소스 그룹에 배포해야 합니다. 리소스 그룹을 사용하면 관련 Azure 리소스를 구성하고 관리할 수 있습니다.
 
-먼저, 다음 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 미국 중부 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+먼저, 다음 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 미국 중부 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location centralus
@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location centralus
 
 이제 리소스 그룹이 있으므로 API Management 서비스 인스턴스를 만들 수 있습니다. [az apim create](/cli/azure/apim#az-apim-create) 명령을 사용하여 만들고 서비스 이름과 게시자 세부 정보를 제공합니다. 서비스 이름은 Azure 내에서 고유해야 합니다. 
 
-다음 예제에서는 *myapim*이 서비스 이름에 사용됩니다. 이름을 고유한 값으로 업데이트합니다. 또한 API 게시자의 조직 이름과 알림을 받을 이메일 주소를 업데이트합니다. 
+다음 예제에서는 *myapim* 이 서비스 이름에 사용됩니다. 이름을 고유한 값으로 업데이트합니다. 또한 API 게시자의 조직 이름과 알림을 받을 이메일 주소를 업데이트합니다. 
 
 ```azurecli-interactive
 az apim create --name myapim --resource-group myResourceGroup \

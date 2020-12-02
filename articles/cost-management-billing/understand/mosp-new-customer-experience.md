@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: 0b3cf0c705048d37d422d62b77dc7d94c5ae13bd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7bec455b804d1f4b13ab7e13677092077214a121
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149400"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965853"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>업데이트된 Azure 청구 계정 시작
 
@@ -42,7 +42,7 @@ ms.locfileid: "92149400"
 
 청구 프로필의 역할에는 청구서 및 결제 방법을 보고 관리할 수 있는 권한이 있습니다. 조직의 회계 팀원처럼 청구서 대금을 결제하는 사용자에게 이러한 역할을 할당해야 합니다. 자세한 내용은 [청구 프로필 역할 및 작업](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks)을 참조하세요. 
 
-계정이 업데이트되면 다른 사람에게 [청구서 보기](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice) 권한을 부여한 각 구독에서 소유자, 기여자, 읽기 권한자 또는 청구 읽기 권한자 Azure RBAC 역할이 있는 사용자에게 해당 청구 프로필에 대한 읽기 권한자 역할이 부여됩니다.
+계정이 업데이트되면 다른 사람에게 [청구서 보기](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice) 권한을 부여한 각 구독에서 소유자, 기여자, 읽기 권한자 또는 청구 읽기 권한자 Azure 역할이 있는 사용자에게 해당 청구 프로필에 대한 읽기 권한자 역할이 부여됩니다.
 
 ## <a name="invoice-sections"></a>청구서 섹션
 
@@ -104,7 +104,7 @@ Cost Management 또는 청구 API를 사용하여 청구 또는 비용 데이터
 
 |API | 변경  |
 |---------|---------|
-|[청구 계정 - 나열](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | 청구 계정 - 나열 API에서 이전 청구 계정의 agreementType은 **MicrosoftOnlineServiceProgram**이고, 새 청구 계정의 agreementType은 **MicrosoftCustomerAgreement**입니다. agreementType을 사용하는 경우 업데이트하세요. |
+|[청구 계정 - 나열](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | 청구 계정 - 나열 API에서 이전 청구 계정의 agreementType은 **MicrosoftOnlineServiceProgram** 이고, 새 청구 계정의 agreementType은 **MicrosoftCustomerAgreement** 입니다. agreementType을 사용하는 경우 업데이트하세요. |
 |[청구서 - 청구 구독별 나열](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | 이 API는 계정이 업데이트되기 전에 생성된 청구서만 반환합니다. 새 청구 계정에서 생성된 청구서를 가져오려면 [청구서 - 청구서 계정별 나열](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) API를 사용해야 합니다. |
 
 ## <a name="additional-information"></a>추가 정보

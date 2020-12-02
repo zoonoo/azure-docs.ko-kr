@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: aaf803d463e03f2de7814fed4b20a0b4312fa1ef
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7f1acc44a80d5ef70145997698a928e6f9ce0d48
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148829"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888881"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT Hub란?
 
@@ -119,6 +119,12 @@ Azure 구독마다 서비스 남용을 방지하기 위해 기본 할당량 한�
 * [Azure 구독 및 서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [IoT Hub 제한 및 사용자](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
+
+## <a name="iot-hub-on-azure-stack-hub-preview"></a>Azure Stack Hub의 IoT Hub(미리 보기)
+
+Azure Stack Hub(미리 보기)의 IoT Hub를 사용하면 하이브리드 IoT 솔루션을 만들 수 있습니다. IoT Hub는 관리되는 서비스로, IoT 애플리케이션과 이를 통해 관리하는 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다. Azure Stack Hub의 IoT Hub를 사용하여 IoT 디바이스와 온-프레미스 솔루션 간에 안정적이고 안전한 통신을 통해 IoT 솔루션을 빌드할 수 있습니다.
+
+Azure Stack Hub의 IoT Hub는 공개 미리 보기 동안에는 무료로 제공됩니다. 자세한 내용은 [Azure Stack Hub의 IoT Hub 개요](/azure-stack/operator/iot-hub-rp-overview)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

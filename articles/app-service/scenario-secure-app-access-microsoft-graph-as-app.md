@@ -10,28 +10,28 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 70b180efa35d6310735f045a85103719b17c8555
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: a7b8ca309bf5710ddbd88413935bef5e97a1ed9f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428383"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95999674"
 ---
-# <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>자습서: 보안 앱에서 Microsoft Graph에 앱으로 액세스
+# <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>자습서: 보안 앱에서 앱으로 Microsoft Graph에 액세스
 
 Azure App Service에서 실행되는 웹앱에서 Microsoft Graph에 액세스하는 방법에 대해 알아봅니다.
 
-:::image type="content" alt-text="Microsoft Graph 액세스" source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
+:::image type="content" alt-text="Microsoft Graph 액세스를 보여주는 다이어그램." source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-웹앱을 대신하여 Microsoft Graph를 호출하려 합니다.  웹앱에 데이터 액세스 권한을 부여하는 안전한 방법은 [시스템이 할당한 관리 ID](/azure/active-directory/managed-identities-azure-resources/overview)를 사용하는 것입니다. Azure AD의 관리 ID를 사용하면 앱 자격 증명 없이 App Services가 RBAC(역할 기반 액세스 제어)를 통해 리소스에 액세스할 수 있습니다. 웹앱에 관리 ID를 할당한 후에는 인증서를 만들고 배포하는 작업을 Azure가 처리합니다.  사용자는 비밀 또는 앱 자격 증명 관리에 대해 신경 쓸 필요가 없습니다.
+웹앱용 Microsoft Graph를 호출하려고 합니다. 웹앱에 데이터 액세스 권한을 부여하는 안전한 방법은 [시스템이 할당한 관리 ID](/azure/active-directory/managed-identities-azure-resources/overview)를 사용하는 것입니다. Azure Active Directory의 관리 ID를 사용하면 앱 자격 증명 없이 App Service가 RBAC(역할 기반 액세스 제어)를 통해 리소스에 액세스할 수 있습니다. 웹앱에 관리 ID를 할당한 후에는 인증서를 만들고 배포하는 작업을 Azure가 처리합니다. 사용자는 비밀 또는 앱 자격 증명 관리에 대해 신경 쓸 필요가 없습니다.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 >
-> * 웹앱에서 시스템이 할당한 관리 ID 만들기
-> * 관리 ID에 Microsoft Graph API 권한 추가
-> * 웹앱에서 관리 ID를 사용하여 Microsoft Graph 호출
+> * 웹앱에서 시스템이 할당한 관리 ID를 만듭니다.
+> * 관리 ID에 Microsoft Graph API 권한을 추가합니다.
+> * 관리 ID를 사용하여 웹앱에서 Microsoft Graph를 호출합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,11 +41,11 @@ Azure App Service에서 실행되는 웹앱에서 Microsoft Graph에 액세스�
 
 ## <a name="enable-managed-identity-on-app"></a>앱에서 관리 ID 사용
 
-Visual Studio를 통해 웹앱을 만들고 게시하는 경우 앱에서 관리 ID를 사용하도록 자동으로 설정되었습니다. 앱 서비스의 왼쪽 탐색 창에서 **ID** 를 선택한 다음, **시스템 할당** 을 선택합니다.  **상태** 가 **켜기** 로 설정되어 있는지 확인합니다.  설정되지 않았으면 **저장** 을 클릭하고 **예** 를 클릭하여 시스템이 할당한 관리 ID를 사용하도록 설정합니다.  관리 ID를 사용하도록 설정하면 상태가 *켜기* 로 설정되고 개체 ID를 사용할 수 있습니다.
+Visual Studio를 통해 웹앱을 만들고 게시하는 경우 앱에서 관리 ID를 사용하도록 자동으로 설정되었습니다. 앱 서비스의 왼쪽 창에서 **ID** 를 선택한 다음, **시스템 할당** 을 선택합니다. **상태** 가 **켜기** 로 설정되어 있는지 확인합니다. 설정되지 않았으면 **저장** 을 선택한 다음, **예** 를 선택하여 시스템이 할당한 관리 ID를 사용하도록 설정합니다. 관리 ID를 사용하도록 설정하면 상태가 **켜기** 로 설정되고 개체 ID를 사용할 수 있습니다.
 
-**개체 ID** 를 기록해 둡니다. 다음 단계에서 필요합니다.
+다음 단계에서 필요한 **개체 ID** 값을 기록해 둡니다.
 
-:::image type="content" alt-text="시스템 할당 ID" source="./media/scenario-secure-app-access-microsoft-graph/create-system-assigned-identity.png":::
+:::image type="content" alt-text="시스템 할당 ID를 보여주는 스크린샷." source="./media/scenario-secure-app-access-microsoft-graph/create-system-assigned-identity.png":::
 
 ## <a name="grant-access-to-microsoft-graph"></a>Microsoft Graph에 액세스
 
@@ -54,26 +54,26 @@ Microsoft Graph에 액세스할 때 수행하려는 작업에 대한 적절한 �
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
-# Install the module (You need admin on the machine)
-#Install-Module AzureAD 
+# Install the module. (You need admin on the machine.)
+# Install-Module AzureAD.
 
-# Your tenant id (in Azure Portal, under Azure Active Directory -> Overview )
+# Your tenant ID (in the Azure portal, under Azure Active Directory > Overview).
 $TenantID="<tenant-id>"
 $resourceGroup = "securewebappresourcegroup"
 $webAppName="SecureWebApp-20201102125811"
 
-# Get ID of the managed identity for the web app
+# Get the ID of the managed identity for the web app.
 $spID = (Get-AzWebApp -ResourceGroupName $resourceGroup -Name $webAppName).identity.principalid
 
-# Check the Microsoft Graph documentation for the permission you need for the operation
+# Check the Microsoft Graph documentation for the permission you need for the operation.
 $PermissionName = "User.Read.All"
 
 Connect-AzureAD -TenantId $TenantID
 
-# Get the service principal for Microsoft Graph
+# Get the service principal for Microsoft Graph.
 $GraphServicePrincipal = Get-AzureADServicePrincipal -SearchString "Microsoft Graph"
 
-# Assign permissions to managed identity service principal
+# Assign permissions to the managed identity service principal.
 $AppRole = $GraphServicePrincipal.AppRoles | `
 Where-Object {$_.Value -eq $PermissionName -and $_.AllowedMemberTypes -contains "Application"}
 
@@ -103,21 +103,25 @@ az rest --method post --uri $uri --body $body --headers "Content-Type=applicatio
 
 ---
 
-스크립트를 실행한 후에는 [Azure Portal](https://portal.azure.com)에서 요청된 API 권한이 관리 ID에 할당되었는지 확인할 수 있습니다.  **Azure Active Directory** 로 이동한 다음, **엔터프라이즈 애플리케이션** 을 선택합니다.  이 블레이드에는 테넌트의 모든 서비스 주체가 표시됩니다.  **모든 애플리케이션** 에서 관리 ID의 서비스 주체를 선택합니다.  이 자습서를 수행하는 경우 동일한 표시 이름(예: "SecureWebApp2020094113531")을 가진 두 개의 서비스 주체가 있습니다.  *홈페이지 URL* 이 있는 서비스 주체는 테넌트의 웹앱을 나타냅니다.  *홈페이지* URL이 없는 서비스 주체는 웹앱의 시스템이 할당한 관리 ID를 나타냅니다. 관리 ID의 개체 ID는 이전에 만든 관리 ID의 개체 ID와 일치합니다.  
+스크립트를 실행한 후에는 [Azure Portal](https://portal.azure.com)에서 요청된 API 권한이 관리 ID에 할당되었는지 확인할 수 있습니다.
+
+**Azure Active Directory** 로 이동한 다음, **엔터프라이즈 애플리케이션** 을 선택합니다. 이 창에는 테넌트의 모든 서비스 주체가 표시됩니다. **모든 애플리케이션** 에서 관리 ID의 서비스 주체를 선택합니다. 
+
+이 자습서를 수행하는 경우 동일한 표시 이름(예: SecureWebApp2020094113531)을 가진 두 개의 서비스 주체가 있습니다. **홈페이지 URL** 이 있는 서비스 주체는 테넌트의 웹앱을 나타냅니다. **홈페이지 URL** 이 없는 서비스 주체는 웹앱의 시스템이 할당한 관리 ID를 나타냅니다. 관리 ID의 **개체 ID** 값은 이전에 만든 관리 ID의 개체 ID와 일치합니다.
 
 관리 ID의 서비스 주체를 선택합니다.
 
-:::image type="content" alt-text="모든 애플리케이션" source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-all-applications.png":::
+:::image type="content" alt-text="모든 애플리케이션 옵션을 보여주는 스크린샷." source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-all-applications.png":::
 
-**개요** 에서 **권한** 를 선택하면 Microsoft Graph에 대한 추가 권한이 표시됩니다.
+**개요** 에서 **권한** 을 선택하면 Microsoft Graph에 대한 추가 권한이 표시됩니다.
 
-:::image type="content" alt-text="권한" source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-permissions.png":::
+:::image type="content" alt-text="권한 창을 보여주는 스크린샷." source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-permissions.png":::
 
 ## <a name="call-microsoft-graph-net"></a>Microsoft Graph(.NET) 호출
 
-[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스는 Azure Storage에 대한 요청에 권한을 부여하기 위해 코드의 토큰 자격 증명을 가져오는 데 사용됩니다.  관리 ID를 사용하여 토큰을 가져오고 서비스 클라이언트에 연결하는 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스의 인스턴스를 만듭니다. 다음 코드 예제에서는 인증된 토큰 자격 증명을 가져와서 서비스 클라이언트 개체를 만드는 데 사용합니다. 이 개체는 그룹의 사용자를 가져옵니다.  
+[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스는 Microsoft Graph에 대한 요청에 권한을 부여하기 위해 코드의 토큰 자격 증명을 가져오는 데 사용됩니다. 관리 ID를 사용하여 토큰을 가져오고 서비스 클라이언트에 연결하는 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스의 인스턴스를 만듭니다. 다음 코드 예제에서는 인증된 토큰 자격 증명을 가져와서 서비스 클라이언트 개체를 만드는 데 사용합니다. 이 개체는 그룹의 사용자를 가져옵니다.
 
-### <a name="install-microsoftgraph-client-library-package"></a>Microsoft.Graph 클라이언트 라이브러리 패키지 설치
+### <a name="install-the-microsoftgraph-client-library-package"></a>Microsoft.Graph 클라이언트 라이브러리 패키지 설치
 
 .NET Core 명령줄 인터페이스 또는 Visual Studio의 패키지 관리자 콘솔을 사용하여 프로젝트에 [Microsoft.Graph.NuGet 패키지](https://www.nuget.org/packages/Microsoft.Graph)를 설치합니다.
 
@@ -125,7 +129,7 @@ az rest --method post --uri $uri --body $body --headers "Content-Type=applicatio
 
 명령줄을 열고 프로젝트 파일이 포함된 디렉터리로 전환합니다.
 
-다음 설치 명령을 실행합니다.
+설치 명령을 실행합니다.
 
 ```dotnetcli
 dotnet add package Microsoft.Graph
@@ -135,7 +139,7 @@ dotnet add package Microsoft.Graph
 
 Visual Studio에서 프로젝트/솔루션을 열고, **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 명령을 사용하여 콘솔을 엽니다.
 
-다음 설치 명령을 실행합니다.
+설치 명령을 실행합니다.
 ```powershell
 Install-Package Microsoft.Graph
 ```
@@ -159,7 +163,7 @@ public IList<MSGraphUser> Users { get; set; }
 
 public async Task OnGetAsync()
 {
-    // Create the Graph service client with a DefaultAzureCredential which gets an access token using the available Managed Identity
+    // Create the Microsoft Graph service client with a DefaultAzureCredential class, which gets an access token by using the available Managed Identity.
     var credential = new DefaultAzureCredential();
     var token = credential.GetToken(
         new Azure.Core.TokenRequestContext(
@@ -202,7 +206,7 @@ public async Task OnGetAsync()
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서를 마친 후 웹앱 또는 관련 리소스가 더 이상 필요하지 않은 경우 [이 자습서에서 만든 리소스를 정리](scenario-secure-app-clean-up-resources.md)합니다.
+이 자습서를 완료하고 웹앱 또는 관련 리소스가 더 이상 필요하지 않으면 [만든 리소스를 정리](scenario-secure-app-clean-up-resources.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -210,8 +214,8 @@ public async Task OnGetAsync()
 
 > [!div class="checklist"]
 >
-> * 웹앱에서 시스템이 할당한 관리 ID 만들기
-> * 관리 ID에 Microsoft Graph API 권한 추가
-> * 웹앱에서 관리 ID를 사용하여 Microsoft Graph 호출
+> * 웹앱에서 시스템이 할당한 관리 ID를 만듭니다.
+> * 관리 ID에 Microsoft Graph API 권한을 추가합니다.
+> * 관리 ID를 사용하여 웹앱에서 Microsoft Graph를 호출합니다.
 
 [.NET Core 앱](tutorial-dotnetcore-sqldb-app.md), [Python 앱](tutorial-python-postgresql-app.md), [Java 앱](tutorial-java-spring-cosmosdb.md) 또는 [Node.js 앱](tutorial-nodejs-mongodb-app.md)을 데이터베이스에 연결하는 방법을 알아봅니다.

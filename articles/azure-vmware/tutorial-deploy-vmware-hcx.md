@@ -3,18 +3,21 @@ title: 자습서 - VMware HCX 배포 및 구성
 description: Azure VMware Solution 프라이빗 클라우드를 위한 VMware HCX 솔루션을 배포 및 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 11/18/2020
-ms.openlocfilehash: 57bcf1bd3023e56f6a64b5d82d8f1fc90be9dd47
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: afb5c653ce7c4b4a453a4031c5664042357de6c0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888745"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95999633"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>VMware HCX 배포 및 구성
 
 이 문서에서는 Azure VMware Solution 프라이빗 클라우드용 온-프레미스 VMware HCX Connector를 배포하고 구성하는 방법을 보여 줍니다. VMware HCX를 사용하면 다양한 마이그레이션 유형을 통해 VMware 워크로드를 Azure VMware Solution 및 기타 연결된 사이트로 마이그레이션할 수 있습니다. Azure VMware Solution은 HCX Cloud Manager를 배포하고 구성하므로 온-프레미스 VMware 데이터 센터에서 HCX 커넥터를 다운로드, 활성화 및 구성해야 합니다.
 
 VMware HCX 고급 커넥터는 Azure VMware Solution에 미리 배포되어 있습니다. 이 커넥터는 최대 3개의 사이트 연결(온-프레미스에서 클라우드로 연결 또는 클라우드에서 클라우드로 연결)을 지원합니다. 사이트 연결 4개 이상 필요한 경우 [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) 추가 기능을 사용할 수 있도록 [지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 제출하세요. 추가 기능은 현재 미리 보기에 있습니다. 
+
+>[!Note]
+>VMware 구성 최대 도구는 온-프레미스 커넥터와 클라우드 관리자 간의 최대 25개까지 사이트 쌍을 설명하지만, 라이선스는 이를 다시 3개(Advanced의 경우) 및 10개(Enterprise Edition의 경우)로 제한합니다.
 
 >[!NOTE]
 >VMware HCX Enterprise는 Azure VMware Solution에서 미리 보기 서비스로 사용할 수 있습니다. 무료이며 미리 보기 서비스의 약관이 적용됩니다. VMware HCX Enterprise 서비스가 일반 공급되면 30일 이내에 요금 청구가 변경된다는 알림을 받게 됩니다. 또한 서비스를 해제하거나 옵트아웃하는 옵션이 있습니다. VMware HCX Enterprise에서 VMware HCX Advanced로 다운그레이드하는 간단한 경로가 없습니다. 다운그레이드하도록 결정하는 경우 다시 배포해야 하므로 가동 중지 시간이 발생합니다.

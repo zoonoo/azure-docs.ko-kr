@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: b5a2064e2fd80b895b0e801090c66d7119cf69dd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3cfcf57f455a5c3b17b794acf2ded66ed2285eff
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151015"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873508"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>빠른 시작: SignalR Service를 사용하여 대화방 만들기
 
@@ -32,13 +32,13 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows)를 설치합니다.
 * [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub 리포지토리를 다운로드하거나 복제합니다. 
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnetcore)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="create-an-azure-signalr-resource"></a>Azure SignalR 리소스 만들기
 
 [!INCLUDE [azure-signalr-create](../../includes/signalr-create.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnetcore)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core 웹앱 만들기
 
@@ -52,7 +52,7 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
     dotnet new mvc
     ```
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnetcore)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="add-secret-manager-to-the-project"></a>프로젝트에 암호 관리자 추가
 
@@ -76,7 +76,7 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
     </Project>
     ```
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnetcore)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="add-azure-signalr-to-the-web-app"></a>웹앱에 Azure SignalR 추가
 
@@ -347,7 +347,7 @@ SignalR에서 허브는 클라이언트에서 호출할 수 있는 메서드 세
     }
     ```
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnetcore)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="build-and-run-the-app-locally"></a>로컬로 앱 빌드 및 실행
 
@@ -382,7 +382,7 @@ SignalR에서 허브는 클라이언트에서 호출할 수 있는 메서드 세
 
     ![Azure SignalR 그룹 채팅 예](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnetcore)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -403,7 +403,7 @@ SignalR에서 허브는 클라이언트에서 호출할 수 있는 메서드 세
 
 잠시 후, 리소스 그룹 및 모든 해당 리소스가 삭제됩니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnetcore)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -411,5 +411,3 @@ SignalR에서 허브는 클라이언트에서 호출할 수 있는 메서드 세
 
 > [!div class="nextstepaction"]
 > [Azure SignalR Service 인증](./signalr-concept-authenticate-oauth.md)
-
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnetcore)

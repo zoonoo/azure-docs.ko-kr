@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3a2de9b167fcbe9dc603d33fd816e70d5c3705e5
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 7aa65cb8e37ce48a59c276fdf2631f75397d3236
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372781"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122506"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Azure Security Center에 AWS 계정 연결
 
@@ -77,7 +77,7 @@ Security Center에서 AWS에 인증하도록 허용하는 두 가지 방법이 �
 1. 다음 페이지에서 **다른 AWS 계정** 을 선택합니다.
 1. 다음 세부 정보를 입력합니다.
 
-    - **계정 ID** - Security Center의 AWS 커넥터 페이지에 표시된 것처럼 Microsoft 계정 ID( **158177204117** )를 입력합니다.
+    - **계정 ID** - Security Center의 AWS 커넥터 페이지에 표시된 것처럼 Microsoft 계정 ID(**158177204117**)를 입력합니다.
     - **필요한 외부 ID** - 선택해야 합니다.
     - **외부 ID** - Security Center의 AWS 커넥터 페이지에 표시된 것처럼 구독 ID를 입력합니다. 
 
@@ -98,7 +98,7 @@ Security Center에서 AWS에 인증하도록 허용하는 두 가지 방법이 �
 #### <a name="create-an-aws-user-for-security-center"></a>Security Center에 대한 AWS 사용자 만들기 
 1. **사용자** 탭을 열고 **사용자 추가** 를 선택합니다.
 1. **세부 정보** 단계에서 Security Center의 사용자 이름을 입력하고 AWS 액세스 형식으로 **프로그래밍 방식 액세스** 를 선택합니다. 
-1. **Next Permissions** (다음: 권한)를 클릭합니다.
+1. **Next Permissions**(다음: 권한)를 클릭합니다.
 1. **기존 정책 직접 연결** 을 선택하고 다음 정책을 적용합니다.
     - SecurityAudit
     - AmazonSSMAutomationRole

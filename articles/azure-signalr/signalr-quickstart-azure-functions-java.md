@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.custom: devx-track-java
-ms.openlocfilehash: fac992ba0d6be945fcb3184d27394ff58d98c44c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: aa300122ab6c448862d46579d6e9ce1e5fc06a79
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151029"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874409"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>빠른 시작: Java를 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
@@ -37,21 +37,21 @@ Azure SignalR Service를 사용하면 애플리케이션에 실시간 기능을 
 > [!NOTE]
 > 이 빠른 시작은 macOS, Windows 또는 Linux에서 실행할 수 있습니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjava)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsjava).
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
 Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 로그인합니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjava)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjava)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjava)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsjava).
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Azure 함수 앱을 구성하고 실행합니다.
 
@@ -59,7 +59,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
     ![SignalR Service 인스턴스를 검색합니다.](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-1. SignalR Service 인스턴스의 연결 문자열을 보려면 **키**를 선택합니다.
+1. SignalR Service 인스턴스의 연결 문자열을 보려면 **키** 를 선택합니다.
 
 1. 기본 연결 문자열을 선택하여 복사합니다.
 
@@ -67,11 +67,11 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 1. 코드 편집기에서 복제된 리포지토리의 *src/chat/java* 폴더를 엽니다.
 
-1. *local.settings.sample.json*의 이름을 *local.settings.json*으로 바꿉니다.
+1. *local.settings.sample.json* 의 이름을 *local.settings.json* 으로 바꿉니다.
 
 1. **local.settings.json** 에서 연결 문자열을 **AzureSignalRConnectionString** 설정 값에 붙여넣습니다. 파일을 저장합니다.
 
-1. 함수가 포함된 주 파일은 *src/chat/java/src/main/java/com/function/Functions.java*에 있습니다.
+1. 함수가 포함된 주 파일은 *src/chat/java/src/main/java/com/function/Functions.java* 에 있습니다.
 
     - **negotiate** - *SignalRConnectionInfo* 입력 바인딩을 사용하여 올바른 연결 정보를 생성하고 리턴합니다.
     - **sendMessage** - 요청 본문에서 대화 메시지를 수신하고 *SignalR* 출력 바인딩을 사용하여 모든 연결된 클라이언트 애플리케이션으로 메시지를 브로드캐스트합니다.
@@ -87,15 +87,16 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
     ```bash
     mvn azure-functions:run
     ```
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjava)
+    
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjava)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjava)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsjava).
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -103,5 +104,3 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 > [!div class="nextstepaction"]
 > [Java 및 Maven을 사용하여 첫 번째 함수 만들기](../azure-functions/functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java%252cprogramming-language-java)
-
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjava)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 9dacbfacdbb9a1ecc103b0cec224d861b42b1576
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3e4d3145263b4b0379f85dea86d075480935a28c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369638"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029339"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-panorays"></a>자습서: Panorays와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -75,18 +75,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. 앱이 Azure와 이미 사전 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다.
-
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
-
-    **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
-
-    | 로그온 URL |
-    |--------------|
-    | `https://www.panoraysapp.com` |
-    | `https://auth.panoraysapp.com` |
-
-1. **저장** 을 클릭합니다.
+1. **기본 SAML 구성** 섹션에서 애플리케이션은 미리 구성되어 있으며 필요한 URL은 이미 Azure로 미리 채워져 있습니다. 사용자는 저장 단추를 클릭하여 구성을 저장해야 합니다.
 
 1. Panorays 애플리케이션에는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 **고유 사용자 식별자** 가 **user.userprincipalname** 과 매핑되는 기본 특성 목록을 보여줍니다. Panorays 애플리케이션에서는 **고유 사용자 식별자** 가 **user.mail** 과 매핑되므로 특성 매핑을 변경하려면 **편집** 아이콘을 클릭하고 특성 매핑을 편집해야 합니다.
 
@@ -134,9 +123,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 #### <a name="sp-initiated"></a>SP 시작:
 
-1. Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Panorays 로그온 URL로 리디렉션됩니다.  
-
-1. Panorays 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+[Panorays 로그온 URL](https://www.panoraysapp.com)로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
 #### <a name="idp-initiated"></a>IDP 시작:
 

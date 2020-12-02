@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 85cda8458dca4ce24fed9433af1527f49a2393ad
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2613f91e8c7f1ad3a05792a9a165f4560c09a637
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150973"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874528"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>빠른 시작: 콘솔 앱에서 실시간 메시지 브로드캐스트
 
@@ -28,17 +28,17 @@ Azure SignalR Service는 브로드캐스트와 같은 서버-클라이언트 통
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsapi)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsapi).
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 로그인합니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsapi)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsapi).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsapi)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsapi).
 
 ## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
@@ -51,7 +51,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
     ```bash
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsapi)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsapi).
 
 ## <a name="build-and-run-the-sample"></a>샘플 빌드 및 실행
 
@@ -88,7 +88,7 @@ cd bin/Release/netcoreapp2.1/osx.10.13-x64/
 Serverless server -c "<ConnectionString>" -h <HubName>
 ```
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsapi)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsapi).
 
 ## <a name="run-the-sample-without-publishing"></a>게시하지 않고 샘플 실행
 
@@ -106,7 +106,7 @@ dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 샘플의 루트 디렉터리에서 `dotnet user-secrets set Azure:SignalR:ConnectionString "<ConnectionString>"`을 실행할 수 있습니다. 그 뒤에는 `-c "<ConnectionString>"` 옵션이 더 이상 필요하지 않습니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsapi)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsapi).
 
 ## <a name="usage"></a>사용
 
@@ -122,7 +122,7 @@ broadcast
 
 각기 다른 클라이언트 이름으로 여러 클라이언트를 시작할 수 있습니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsapi)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsapi).
 
 ## <a name="integration-with-third-party-services"></a><a name="usage"> </a> 타사 서비스와 통합
 
@@ -257,11 +257,11 @@ API 버전 | API HTTP 메서드 | 요청 URL
 `200` | 서비스 양호
 `5xx` | 서비스 오류
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsapi)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsapi).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsapi)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsapi).
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -269,5 +269,3 @@ API 버전 | API HTTP 메서드 | 요청 URL
 
 > [!div class="nextstepaction"]
 > [Azure SignalR Service 바인딩을 사용하여 Azure Functions 개발](signalr-quickstart-azure-functions-csharp.md)
-
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsapi)
