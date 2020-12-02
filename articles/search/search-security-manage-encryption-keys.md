@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: b0871b6365d78129cd6fdaec82fee14e2b0a7a4b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4fb20b221858c4717d67e0777afbe5c067c00a69
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693446"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499614"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Azure Cognitive Search에서 데이터 암호화를 위해 고객이 관리 하는 키 구성
 
@@ -41,7 +41,7 @@ CMK 암호화는 [Azure Key Vault](../key-vault/general/overview.md)에 따라 �
 
 다른 지역 또는 8 월 1 일 이전에 만든 서비스를 사용 하는 경우 CMK 암호화는 서비스에서 사용 하는 임시 디스크를 제외 하 고 데이터 디스크로만 제한 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 시나리오에서 사용 되는 도구 및 서비스는 다음과 같습니다.
 
@@ -96,7 +96,7 @@ Portal, PowerShell 또는 Azure CLI 명령을 사용 하 여 두 속성을 모�
 
 ### <a name="using-azure-cli"></a>Azure CLI 사용
 
-+ [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)을 설치한 경우 다음 명령을 실행 하 여 필수 속성을 사용 하도록 설정할 수 있습니다.
++ [Azure CLI](/cli/azure/install-azure-cli)을 설치한 경우 다음 명령을 실행 하 여 필수 속성을 사용 하도록 설정할 수 있습니다.
 
    ```azurecli-interactive
    az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
@@ -173,7 +173,7 @@ Azure Key Vault에 키가 이미 있는 경우이 단계를 건너뜁니다.
 
 ## <a name="5---encrypt-content"></a>5-콘텐츠 암호화
 
-인덱스, 데이터 원본, 기술, 인덱서 또는 동의어 맵에 고객이 관리 하는 키를 추가 하려면 [검색 REST API](https://docs.microsoft.com/rest/api/searchservice/) 또는 SDK를 사용 해야 합니다. 포털은 동의어 맵 또는 암호화 속성을 노출 하지 않습니다. 유효한 API 인덱스를 사용 하는 경우 데이터 원본, 기술력과, 인덱서 및 동의어 맵이 최상위 **encryptionKey** 속성을 지원 합니다.
+인덱스, 데이터 원본, 기술, 인덱서 또는 동의어 맵에 고객이 관리 하는 키를 추가 하려면 [검색 REST API](/rest/api/searchservice/) 또는 SDK를 사용 해야 합니다. 포털은 동의어 맵 또는 암호화 속성을 노출 하지 않습니다. 유효한 API 인덱스를 사용 하는 경우 데이터 원본, 기술력과, 인덱서 및 동의어 맵이 최상위 **encryptionKey** 속성을 지원 합니다.
 
 이 예에서는 Azure Key Vault 및 Azure Active Directory에 대 한 값과 함께 REST API를 사용 합니다.
 
@@ -196,7 +196,7 @@ Azure Key Vault에 키가 이미 있는 경우이 단계를 건너뜁니다.
 
 ## <a name="example-index-encryption"></a>예: 인덱스 암호화
 
-[Create Index Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)를 사용 하 여 암호화 된 인덱스를 만듭니다. `encryptionKey`사용할 암호화 키를 지정 하려면 속성을 사용 합니다.
+[Create Index Azure Cognitive Search REST API](/rest/api/searchservice/create-index)를 사용 하 여 암호화 된 인덱스를 만듭니다. `encryptionKey`사용할 암호화 키를 지정 하려면 속성을 사용 합니다.
 > [!Note]
 > 이러한 주요 자격 증명 모음 세부 정보는 비밀로 간주 되지 않으며 Azure Portal의 관련 Azure Key Vault 키 페이지로 이동 하 여 쉽게 검색할 수 있습니다.
 
@@ -239,7 +239,7 @@ REST API를 통해 새 인덱스를 만드는 방법에 대 한 자세한 내용
 
 ### <a name="synonym-map-encryption"></a>동의어 맵 암호화
 
-[동의어 맵 만들기 Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)를 사용 하 여 암호화 된 동의어 맵을 만듭니다. `encryptionKey`사용할 암호화 키를 지정 하려면 속성을 사용 합니다.
+[동의어 맵 만들기 Azure Cognitive Search REST API](/rest/api/searchservice/create-synonym-map)를 사용 하 여 암호화 된 동의어 맵을 만듭니다. `encryptionKey`사용할 암호화 키를 지정 하려면 속성을 사용 합니다.
 
 ```json
 {
@@ -263,7 +263,7 @@ REST API를 통해 새 인덱스를 만드는 방법에 대 한 자세한 내용
 
 ## <a name="example-data-source-encryption"></a>예: 데이터 원본 암호화
 
-[데이터 원본 만들기 (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-data-source)를 사용 하 여 암호화 된 데이터 원본을 만듭니다. `encryptionKey`사용할 암호화 키를 지정 하려면 속성을 사용 합니다.
+[데이터 원본 만들기 (Azure Cognitive Search REST API)](/rest/api/searchservice/create-data-source)를 사용 하 여 암호화 된 데이터 원본을 만듭니다. `encryptionKey`사용할 암호화 키를 지정 하려면 속성을 사용 합니다.
 
 ```json
 {
@@ -289,7 +289,7 @@ REST API를 통해 새 인덱스를 만드는 방법에 대 한 자세한 내용
 
 ## <a name="example-skillset-encryption"></a>예: 기술 encryption
 
-[Create 기술 Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset)를 사용 하 여 암호화 된 기술를 만듭니다. `encryptionKey`사용할 암호화 키를 지정 하려면 속성을 사용 합니다.
+[Create 기술 Azure Cognitive Search REST API](/rest/api/searchservice/create-skillset)를 사용 하 여 암호화 된 기술를 만듭니다. `encryptionKey`사용할 암호화 키를 지정 하려면 속성을 사용 합니다.
 
 ```json
 {
@@ -315,7 +315,7 @@ REST API를 통해 새 인덱스를 만드는 방법에 대 한 자세한 내용
 
 ## <a name="example-indexer-encryption"></a>예: 인덱서 암호화
 
-[Create 인덱서 Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-indexer)를 사용 하 여 암호화 된 인덱서를 만듭니다. `encryptionKey`사용할 암호화 키를 지정 하려면 속성을 사용 합니다.
+[Create 인덱서 Azure Cognitive Search REST API](/rest/api/searchservice/create-indexer)를 사용 하 여 암호화 된 인덱서를 만듭니다. `encryptionKey`사용할 암호화 키를 지정 하려면 속성을 사용 합니다.
 
 ```json
 {

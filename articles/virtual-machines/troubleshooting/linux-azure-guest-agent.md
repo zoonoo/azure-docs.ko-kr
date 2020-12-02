@@ -11,16 +11,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: axelg
-ms.openlocfilehash: 9e3b376cfaf5379acaf92713c42509471200d066
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: fc609b60c9d5d4d4734c3d73cbda87935b533caf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95550001"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500260"
 ---
 # <a name="troubleshooting-azure-linux-guest-agent"></a>Azure Linux 게스트 에이전트 문제 해결
 
-[Azure Linux 게스트 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) 는 VM (가상 머신) 에이전트입니다. IP 주소 168.63.129.16에서 VM이 패브릭 컨트롤러 (VM이 호스트 되는 기본 실제 서버)와 통신할 수 있습니다. 이 IP 주소는 통신을 용이 하 게 하는 가상 공용 IP 주소입니다. 자세한 내용은 [IP 주소 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md)을 참조 하세요.
+[Azure Linux 게스트 에이전트](../extensions/agent-linux.md) 는 VM (가상 머신) 에이전트입니다. IP 주소 168.63.129.16에서 VM이 패브릭 컨트롤러 (VM이 호스트 되는 기본 실제 서버)와 통신할 수 있습니다. 이 IP 주소는 통신을 용이 하 게 하는 가상 공용 IP 주소입니다. 자세한 내용은 [IP 주소 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md)을 참조 하세요.
 
 ## <a name="checking-agent-status-and-version"></a>에이전트 상태 및 버전 확인
 

@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: dc6706d4ec9090c59d4dd668d2ae1dd3ce7d188a
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 819654ef88584cb91d6032e46256258aaed524fd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928045"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500311"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B-시리즈 버스터블 가상 머신 크기
 
@@ -21,7 +21,7 @@ B 시리즈 Vm은 웹 서버, 개념 증명, 소규모 데이터베이스 및 �
 
 B 시리즈는 다음과 같은 VM 크기를 제공 합니다.
 
-[ACU (Azure Compute Unit)](./acu.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json): 다름 *<br>
+[ACU (Azure Compute Unit)](./acu.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): 다름 *<br>
 [Premium Storage](premium-storage-performance.md): 지원 됨<br>
 [Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
@@ -94,23 +94,23 @@ B16 특징:
 ## <a name="q--a"></a>Q & A
 
 ### <a name="q-what-happens-when-my-credits-run-out"></a>Q: 내 크레딧을 실행 하면 어떻게 되나요?
-**A** : 크레딧이 소진 되 면 VM이 기준 성능으로 돌아옵니다.
+**A**: 크레딧이 소진 되 면 VM이 기준 성능으로 돌아옵니다.
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>Q: VM에서 135% 기준 성능을 얻으려면 어떻게 할까요?
 
-**A** : 135%는 VM 크기를 구성하는 8개 vCPU에서 공유됩니다. 예를 들어 애플리케이션에서 일괄 처리를 수행하는 8개 코어 중 4개를 사용하고 해당 4개 vCPU에서 30% 사용률에서 실행하는 경우 총 VM CPU 성능은 120%가 됩니다.  즉 VM이 기준 성능에서 15% 델타에 따라 크레딧 시간을 적립한다는 것을 의미합니다.  그러나 동일한 VM에서 8개 vCPU를 모두 100% 사용하여 해당 VM에 최대 800% CPU 성능을 제공하는 크레딧을 사용할 수 있음도 의미합니다.
+**A**: 135%는 VM 크기를 구성하는 8개 vCPU에서 공유됩니다. 예를 들어 애플리케이션에서 일괄 처리를 수행하는 8개 코어 중 4개를 사용하고 해당 4개 vCPU에서 30% 사용률에서 실행하는 경우 총 VM CPU 성능은 120%가 됩니다.  즉 VM이 기준 성능에서 15% 델타에 따라 크레딧 시간을 적립한다는 것을 의미합니다.  그러나 동일한 VM에서 8개 vCPU를 모두 100% 사용하여 해당 VM에 최대 800% CPU 성능을 제공하는 크레딧을 사용할 수 있음도 의미합니다.
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Q: 내 크레딧 잔액 및 소비량을 모니터링 하려면 어떻게 해야 하나요?
 
-**A** : **크레딧** 메트릭은 vm에서 적립 된 크레딧 수를 볼 수 있으며 **CONSUMEDCREDIT** 메트릭은 은행에서 사용한 CPU 크레딧 수를 표시 합니다.    포털의 메트릭 창에서 또는 Azure Monitor API를 통한 프로그래밍 방식으로 이러한 메트릭을 볼 수 있습니다.
+**A**: **크레딧** 메트릭은 vm에서 적립 된 크레딧 수를 볼 수 있으며 **CONSUMEDCREDIT** 메트릭은 은행에서 사용한 CPU 크레딧 수를 표시 합니다.    포털의 메트릭 창에서 또는 Azure Monitor API를 통한 프로그래밍 방식으로 이러한 메트릭을 볼 수 있습니다.
 
 Azure에 대한 메트릭 데이터에 액세스하는 방법에 대한 자세한 내용은 [Microsoft Azure의 메트릭 개요](../azure-monitor/platform/data-platform.md)를 참조하세요.
 
 ### <a name="q-how-are-credits-accumulated-and-consumed"></a>Q: 크레딧을 누적 하 고 소비 하는 방법은 무엇입니까?
 
-**A** : 정확히 기준 성능 수준에서 실행되는 VM이 버스팅 크레딧의 순 적립 또는 소비가 적용되지 않도록 VM 적립 및 소비 속도가 설정됩니다.  VM이 기준 성능 수준 이하로 실행될 때마다 크레딧이 순 증가하고, VM이 기준 성능 수준보다 더 많은 CPU를 활용할 때마다 크레딧이 순 감소합니다.
+**A**: 정확히 기준 성능 수준에서 실행되는 VM이 버스팅 크레딧의 순 적립 또는 소비가 적용되지 않도록 VM 적립 및 소비 속도가 설정됩니다.  VM이 기준 성능 수준 이하로 실행될 때마다 크레딧이 순 증가하고, VM이 기준 성능 수준보다 더 많은 CPU를 활용할 때마다 크레딧이 순 감소합니다.
 
-**예제** : 내가 사용하는 적은 시간과 출석 데이터베이스 애플리케이션에 대해 B1ms 크기를 사용하여 VM을 배포합니다. 이 크기에 따라 애플리케이션에서 vCPU의 최대 20%를 기준으로 사용할 수 있으며, 사용하거나 적립할 수 있는 분당 크레딧은 0.2입니다.
+**예제**: 내가 사용하는 적은 시간과 출석 데이터베이스 애플리케이션에 대해 B1ms 크기를 사용하여 VM을 배포합니다. 이 크기에 따라 애플리케이션에서 vCPU의 최대 20%를 기준으로 사용할 수 있으며, 사용하거나 적립할 수 있는 분당 크레딧은 0.2입니다.
 
 내 애플리케이션은 직원들의 작업일 중 업무 시작과 종료에 해당하는 오전 7-9시와 오후 4-6시 사이에 바쁘게 사용됩니다. 다른 20시간 동안에는 일반적으로 유휴 상태이며 vCPU의 10%만 사용합니다. 최대 사용 시간이 아닌 경우 분당 0.2 크레딧을 적립하지만 분당 0.1 크레딧만 사용하므로 VM은 시간당 0.1 x 60 = 6 크레딧을 적립합니다.  최대 사용 시간이 아닌 20시간 동안 나는 120 크레딧을 적립하게 됩니다.  
 
@@ -120,7 +120,7 @@ Azure에 대한 메트릭 데이터에 액세스하는 방법에 대한 자세�
 
 ### <a name="q-how-can-i-calculate-credits-accumulated-and-used"></a>Q: 축적 된 크레딧을 계산 하 고 사용 하려면 어떻게 해야 하나요?
 
-**A** : 다음 수식을 사용할 수 있습니다.
+**A**: 다음 수식을 사용할 수 있습니다.
 
 (VM의 기본 CPU 성능-CPU 사용량)/100 = 크레딧 뱅크 또는 분당 사용
 
@@ -128,7 +128,7 @@ Azure에 대한 메트릭 데이터에 액세스하는 방법에 대한 자세�
 
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>Q: B 시리즈에서 Premium Storage 데이터 디스크를 지원하나요?
 
-**A** : 예, B 시리즈 크기는 모두 Premium Storage 데이터 디스크를 지원합니다.
+**A**: 예, B 시리즈 크기는 모두 Premium Storage 데이터 디스크를 지원합니다.
 
 ### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>Q: redepoy 또는 중지/시작 후에 남은 크레딧이 0으로 설정되는 이유는 무엇인가요?
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 91dfb3cb07cca8ec89c77dea43f1cd075db11bbf
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ed2cb967b24ce5abdebadfe29847ae1a16b4e745
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014767"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498747"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
 이 문서에서는 가상 컴퓨터에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공 합니다.
@@ -117,7 +117,7 @@ Site Recovery:
 자세한 정보:
 
 * [Azure Site Recovery 이란?](../../site-recovery/site-recovery-overview.md)
-* [Azure Site Recovery 작동 방식](/azure/site-recovery/azure-to-azure-architecture)
+* [Azure Site Recovery 작동 방식](../../site-recovery/azure-to-azure-architecture.md)
 * [Azure Site Recovery에서 보호 하는 작업은 무엇입니까?](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>가상 네트워킹

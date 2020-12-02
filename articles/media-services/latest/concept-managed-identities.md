@@ -8,20 +8,20 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.author: inhenkel
-ms.openlocfilehash: a0ded2a1ad5cd590ab5715edebde2ab19e399e8d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d0811e8f9183ee334d413bcad69f2c7b32023be3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686869"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499359"
 ---
 # <a name="managed-identities-and-trusted-storage-with-media-services"></a>Media services를 사용 하 여 관리 되는 id 및 신뢰할 수 있는 저장소
 
-Media Services는 [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 와 함께 사용 하 여 신뢰할 수 있는 저장소를 사용 하도록 설정할 수 있습니다. Media Services 계정을 만드는 경우 저장소 계정과 연결 해야 합니다. Media Services는 시스템 인증을 사용 하 여 해당 저장소 계정에 액세스할 수 있습니다. Media Services Media Services 계정과 저장소 계정이 동일한 구독에 있는지 확인 하 고 연결을 추가 하는 사용자가 Azure Resource Manager RBAC를 사용 하 여 저장소 계정에 액세스 하는지 확인 합니다.
+Media Services는 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 와 함께 사용 하 여 신뢰할 수 있는 저장소를 사용 하도록 설정할 수 있습니다. Media Services 계정을 만드는 경우 저장소 계정과 연결 해야 합니다. Media Services는 시스템 인증을 사용 하 여 해당 저장소 계정에 액세스할 수 있습니다. Media Services Media Services 계정과 저장소 계정이 동일한 구독에 있는지 확인 하 고 연결을 추가 하는 사용자가 Azure Resource Manager RBAC를 사용 하 여 저장소 계정에 액세스 하는지 확인 합니다.
 
 ## <a name="trusted-storage"></a>신뢰할 수 있는 저장소
 
-그러나 방화벽을 사용 하 여 저장소 계정을 보호 하려면 관리 되는 id 인증을 사용 해야 합니다. 이를 통해 Media Services는 신뢰할 수 있는 저장소 액세스를 통해 방화벽이 나 VNet 제한으로 구성 된 저장소 계정에 액세스할 수 있습니다.  신뢰할 수 있는 Microsoft 서비스에 대 한 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)을 참조 하세요.
+그러나 방화벽을 사용 하 여 저장소 계정을 보호 하려면 관리 되는 id 인증을 사용 해야 합니다. 이를 통해 Media Services는 신뢰할 수 있는 저장소 액세스를 통해 방화벽이 나 VNet 제한으로 구성 된 저장소 계정에 액세스할 수 있습니다.  신뢰할 수 있는 Microsoft 서비스에 대 한 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../../storage/common/storage-network-security.md#trusted-microsoft-services)을 참조 하세요.
 
 ## <a name="media-services-managed-identity-scenarios"></a>Media services 관리 id 시나리오
 
@@ -57,4 +57,4 @@ Media Services는 [관리 id](https://docs.microsoft.com/azure/active-directory/
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 및 Azure 응용 프로그램에 대해 수행할 수 있는 관리 되는 id에 대 한 자세한 내용은 [AZURE AD 관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조 하세요.
+사용자 및 Azure 응용 프로그램에 대해 수행할 수 있는 관리 되는 id에 대 한 자세한 내용은 [AZURE AD 관리 id](../../active-directory/managed-identities-azure-resources/overview.md)를 참조 하세요.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: 5df56b304463ab981026fbe0c82d831d83d702c3
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: f23d1fb0162abf05fba97c2f6fb02be9238fabd2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93380268"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500362"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances-linux"></a>Azure Reserved VM Instances를 사용 하 여 비용 절감 (Linux)
 
@@ -86,7 +86,7 @@ VM 예약은 VM 배포뿐만 아니라 여러 서비스에서 내보낸 VM 사�
 
 ## <a name="buy-a-reserved-vm-instance"></a>예약 VM 인스턴스 구입
 
-[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D)에서 예약 VM 인스턴스를 구입할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../cost-management-billing/reservations/monthly-payments-reservations.md)로 처리할 수 있습니다.
+[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D)에서 예약 VM 인스턴스를 구입할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../cost-management-billing/reservations/prepare-buy-reservation.md)로 처리할 수 있습니다.
 이러한 요구 사항은 예약 VM 인스턴스 구매에 적용 됩니다.
 
 - 하나 이상의 EA 구독에 대 한 소유자 역할 또는 종 량 제 요금이 있는 구독 이어야 합니다.
@@ -103,11 +103,11 @@ VM 예약은 VM 배포뿐만 아니라 여러 서비스에서 내보낸 VM 사�
 EA 계약이 있는 경우 추가 **옵션** 을 사용 하 여 인스턴스를 빠르게 추가할 수 있습니다. 다른 구독 유형에 대해서는이 옵션을 사용할 수 없습니다.
 
 
-| 필드      | Description|
+| 필드      | 설명|
 |------------|--------------|
 |구독|예약에 대해 비용을 지불하는 데 사용하는 구독입니다. 구독의 결제 방법으로 예약 요금이 청구됩니다. 구독 유형은 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 또는 Microsoft 고객 계약 또는 종 량 제 요금 (제품 번호: MS-MS-AZR-0017P-0003P 또는 MS-AZR-0017P-0017P)을 포함 하는 개별 구독 이어야 합니다. 요금은 약정 잔액에서 차감되거나(있는 경우) 초과분 요금으로 청구됩니다. 종 량 제 요금이 있는 구독의 경우 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.|    
 |범위       |예약 범위는 하나의 구독 또는 여러 구독 (공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: <ul><li>**단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li>**단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li>**공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. EA 고객의 경우 요금 청구 컨텍스트가 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.</li></ul>|
-|지역    |예약이 적용 되는 Azure 지역입니다.|    
+|Azure 지역    |예약이 적용 되는 Azure 지역입니다.|    
 |VM 크기     |VM 인스턴스의 크기입니다.|
 |다음에 맞게 최적화     |VM 인스턴스 크기 유연성이 기본적으로 선택 됩니다. **고급 설정** 을 클릭 하 여 인스턴스 크기 유연성 값을 변경 하 여 동일한 [vm 크기 그룹](reserved-vm-instance-size-flexibility.md)의 다른 vm에 예약 할인을 적용 합니다. 용량 우선 순위는 배포를 위해 데이터 센터 용량에서 우선됩니다. 필요할 때 VM 인스턴스를 시작 하는 기능에 추가 신뢰도를 제공 합니다. 용량 우선 순위는 예약 범위가 단일 구독일 때에 사용할 수 있습니다. |
 |용어        |1년 또는 3년입니다. HBv2 Vm에 대해서만 5 년 이라는 용어를 사용할 수 있습니다.|
@@ -136,7 +136,7 @@ EA 계약이 있는 경우 추가 **옵션** 을 사용 하 여 인스턴스를 
 - 기존 예약 영역
 - SKU
 - 수량
-- Duration
+- 기간
 
 그러나 변경을 수행 하려는 경우 예약을 *교환할* 수 있습니다.
 
@@ -158,6 +158,4 @@ EA 계약이 있는 경우 추가 **옵션** 을 사용 하 여 인스턴스를 
     - [종량제 요금을 사용하는 구독에 대한 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
     - [엔터프라이즈 등록에서 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
     - [예약에 포함되지 않는 Windows 소프트웨어 비용](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
-    - [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](https://docs.microsoft.com/partner-center/azure-reservations)
-
-
+    - [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](/partner-center/azure-reservations)

@@ -3,20 +3,20 @@ title: Azure Data Factory에서 파이프라인 실행 및 트리거
 description: 이 문서에서는 요청 시 또는 트리거를 만들어 Azure Data Factory에서 파이프라인을 실행하는 방법에 대한 정보를 제공합니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: e090b4c3b4ecc3870f060aba4b03be3abe2942ec
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c72538de8aba60ce7ed880561b55773c22737f97
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180713"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498628"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거
 
@@ -235,7 +235,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 ### <a name="schema-overview"></a>스키마 개요
 다음 표에서는 되풀이 및 트리거 예약과 관련된 주요 스키마 요소에 대한 개괄적인 개요를 제공합니다.
 
-| JSON 속성 | Description |
+| JSON 속성 | 설명 |
 | --- | --- |
 | **startTime** | 날짜-시간 값입니다. 기본 일정의 경우 **startTime** 속성의 값이 첫 번째 되풀이 항목에 적용됩니다. 복잡한 일정의 경우 트리거는 특정 **startTime** 값 이후에 시작합니다. |
 | **endTime** | 트리거의 종료 날짜 및 시간입니다. 트리거는 지정된 종료 날짜 및 시간 이후에 실행되지 않습니다. 속성에 대한 값은 이전에 있을 수 없습니다. <!-- This property is optional. --> |
@@ -283,10 +283,10 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 | JSON 속성 | 형식 | 필수 | 기본값 | 유효한 값 | 예제 |
 | --- | --- | --- | --- | --- | --- |
-| **startTime** | 문자열 | Yes | 없음 | ISO 8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **방법** | 개체 | Yes | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | 문자열 | 예 | 없음 | ISO 8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **방법** | 개체 | 예 | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **간격은** | 숫자 | No | 1 | 1~1000 | `"interval":10` |
-| **endTime** | 문자열 | Yes | 없음 | 미래의 시간을 나타내는 날짜-시간 값 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | 문자열 | 예 | 없음 | 미래의 시간을 나타내는 날짜-시간 값 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **일정과** | 개체 | 예 | None | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime 속성
@@ -314,7 +314,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 다음 테이블에서는 **일정** 요소의 세부 정보를 설명합니다.
 
-| JSON 요소 | Description | 유효한 값 |
+| JSON 요소 | 설명 | 유효한 값 |
 | --- | --- | --- |
 | **내** | 트리거가 실행될 시간(분)입니다. |- 정수<br />- 정수 배열 |
 | **시간의** | 트리거가 실행될 일(시간)입니다. |- 정수<br />- 정수 배열 |
@@ -338,7 +338,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 이 예에서는 **interval** 값이 1이 고 **frequency** 값이 일정 정의에 따라 올바른 것으로 가정 합니다. 예를 들어 **frequency** 값으로 "day"를 사용할 수 없으며, **schedule** 개체의 **monthDays** 를 수정할 수도 있습니다. 이러한 종류의 제한 사항은 앞 섹션의 표에서 설명하고 있습니다.
 
-| 예제 | Description |
+| 예제 | 설명 |
 | --- | --- |
 | `{"hours":[5]}` | 매일 오전 5시에 실행됩니다. |
 | `{"minutes":[15], "hours":[5]}` | 매일 오전 5시 15분에 실행됩니다. |
@@ -377,10 +377,10 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 | 항목 | 연속 창 트리거 | 일정 트리거 |
 | --- | --- | --- |
-| **백필 시나리오** | 지원됨. 이전의 창에 대해 파이프라인 실행을 예약할 수 있습니다. | 지원되지 않습니다. 파이프라인 실행은 현재 시간 및 미래 시간의 기간에서만 실행될 수 있습니다. |
+| **백필 시나리오** | 지원됨. 이전의 창에 대해 파이프라인 실행을 예약할 수 있습니다. | 지원 안 됨 파이프라인 실행은 현재 시간 및 미래 시간의 기간에서만 실행될 수 있습니다. |
 | **신뢰성** | 100% 신뢰성 파이프라인 실행은 간격 없이 지정된 시작 날짜에서 모든 창에 대해 예약될 수 있습니다. | 낮은 신뢰성 |
-| **다시 시도 기능** | 지원됨. 실패한 파이프라인 실행에는 0의 기본 다시 시도 정책 또는 트리거 정의에서 사용자가 지정한 정책이 있습니다. 동시성/서버/제한 제한 (즉, 상태 코드 400: 사용자 오류, 429: 너무 많은 요청 및 500: 내부 서버 오류)으로 인해 파이프라인이 실행 되지 않으면 자동으로 다시 시도 합니다. | 지원되지 않습니다. |
-| **동시성** | 지원됨. 사용자는 트리거에 대한 동시성 제한을 명시적으로 설정할 수 있습니다. 동시에 트리거되는 1~50개의 파이프라인 실행을 허용합니다. | 지원되지 않습니다. |
+| **다시 시도 기능** | 지원됨. 실패한 파이프라인 실행에는 0의 기본 다시 시도 정책 또는 트리거 정의에서 사용자가 지정한 정책이 있습니다. 동시성/서버/제한 제한 (즉, 상태 코드 400: 사용자 오류, 429: 너무 많은 요청 및 500: 내부 서버 오류)으로 인해 파이프라인이 실행 되지 않으면 자동으로 다시 시도 합니다. | 지원 안 됨 |
+| **동시성** | 지원됨. 사용자는 트리거에 대한 동시성 제한을 명시적으로 설정할 수 있습니다. 동시에 트리거되는 1~50개의 파이프라인 실행을 허용합니다. | 지원 안 됨 |
 | **시스템 변수** | @trigger() ScheduledTime 및 @trigger (). startTime과 함께 **Windowstart** 및 **windowstart** 시스템 변수를 사용할 수도 있습니다. 사용자는 트리거 정의에서 트리거 시스템 변수로 `triggerOutputs().windowStartTime` 및 `triggerOutputs().windowEndTime`에 액세스할 수 있습니다. 값은 각각 창 시작 시간 및 창 종료 시간으로 사용됩니다. 예를 들어 매 시간 실행되는 연속 창 트리거의 경우 창 오전 1시~오전 2시에 대해 정의는 `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` 및 `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`입니다. | 는 default @trigger (). scheduledTime 및 @trigger () startTime 변수만 지원 합니다. |
 | **파이프라인-트리거 관계** | 일대일 관계를 지원합니다. 하나의 파이프라인만 트리거될 수 있습니다. | 다대다 관계를 지원합니다. 다중 트리거는 단일 파이프라인을 시작할 수 있습니다. 단일 트리거는 여러 파이프라인을 시작할 수 있습니다. |
 

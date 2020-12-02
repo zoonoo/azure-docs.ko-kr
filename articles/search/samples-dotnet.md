@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: d068365cc8197a579c0b043d3fff2da3d54eb803
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ab6408621616a4be62631391456f73e90fced752
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687091"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499002"
 ---
 # <a name="net-c-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 .NET (c #) 코드 샘플
 
@@ -44,7 +44,7 @@ Azure Cognitive Search의 기능을 보여 주는 c # 코드 샘플에 대해 �
 
 ## <a name="documentation-samples"></a>설명서 샘플
 
-다음 샘플에는 [Azure Cognitive Search 설명서](https://docs.microsoft.com/azure/search/)에 관련 된 문서가 있습니다.
+다음 샘플에는 [Azure Cognitive Search 설명서](./index.yml)에 관련 된 문서가 있습니다.
 
 | 샘플 | Description |
 |---------|-------------|
@@ -63,6 +63,6 @@ Azure Cognitive Search의 기능을 보여 주는 c # 코드 샘플에 대해 �
 | 샘플 | Description |
 |---------|-------------|
 | [azure-검색-전력 기술](https://github.com/Azure-Samples/azure-search-power-skills)  | 원하는 솔루션에 통합할 수 있는 사용할 수 있는 사용자 지정 기술에 대 한 소스 코드입니다.  |
-| [지식 마이닝 솔루션 가속기](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | 에는 포괄적인 기술 자료 마이닝 솔루션을 프로토타입 하는 데 도움이 되는 템플릿, 지원 파일 및 분석 보고서가 포함 되어 있습니다.  |
+| [지식 마이닝 솔루션 가속기](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | 에는 포괄적인 기술 자료 마이닝 솔루션을 프로토타입 하는 데 도움이 되는 템플릿, 지원 파일 및 분석 보고서가 포함 되어 있습니다.  |
 | [Covid-19 검색 앱 리포지토리](https://github.com/liamca/covid19search) | Cognitive Search 기반 [Covid-19 검색 앱](https://covid19search.azurewebsites.net/) 에 대 한 소스 코드 리포지토리 |
 | [JFK](https://github.com/Microsoft/AzureSearch_JFK_Files) | [Jfk 솔루션](https://www.microsoft.com/ai/ai-lab-jfk-files)에 대해 자세히 알아보세요. |

@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40d77f4ebb897884f03377e6d9f1243a6d436766
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295025"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500209"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>원활한 Single Sign-on Azure Active Directory: 빠른 시작
 
@@ -37,7 +37,7 @@ Seamless SSO를 배포하려면 다음 단계를 수행합니다.
 
 * **Azure AD Connect 서버 설정**: 로그인 방법으로 [통과 인증](how-to-connect-pta.md) 을 사용 하는 경우 추가 필수 구성 요소 확인이 필요 하지 않습니다. 로그인 방법으로 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)를 사용하고 Azure AD Connect와 Azure AD 사이에 방화벽이 있는 경우 다음을 확인합니다.
    - Azure AD Connect 버전 1.1.644.0 이상을 사용합니다. 
-   - 방화벽 또는 프록시에서 허용 하는 경우 포트 443을 통해 ** \* msappproxy.net** url에 대해 허용 된 목록에 대 한 연결을 추가 합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다. 이 필수 조건은 해당 기능을 사용하도록 설정한 경우에만 적용할 수 있습니다. 실제 사용자 로그인에서는 필요하지 않습니다.
+   - 방화벽 또는 프록시에서 허용 하는 경우 포트 443을 통해 **\* msappproxy.net** url에 대해 허용 된 목록에 대 한 연결을 추가 합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다. 이 필수 조건은 해당 기능을 사용하도록 설정한 경우에만 적용할 수 있습니다. 실제 사용자 로그인에서는 필요하지 않습니다.
 
     >[!NOTE]
     >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 자세한 내용은 [Azure AD Connect 릴리스 정보](./reference-connect-version-history.md)를 참조하세요.
@@ -65,11 +65,11 @@ Seamless SSO를 배포하려면 다음 단계를 수행합니다.
 Azure AD Connect를 새로 설치하는 경우 [사용자 지정 설치 경로](how-to-connect-install-custom.md)를 선택합니다. **사용자 로그인** 페이지에서 **Single Sign-On 사용** 옵션을 선택합니다.
 
 >[!NOTE]
-> Sign On 메서드가 **암호 해시 동기화** 또는 **통과 인증**인 경우만 선택에 대해 옵션을 사용할 수 있습니다.
+> Sign On 메서드가 **암호 해시 동기화** 또는 **통과 인증** 인 경우만 선택에 대해 옵션을 사용할 수 있습니다.
 
 ![Azure AD Connect: 사용자 로그인](./media/how-to-connect-sso-quick-start/sso8.png)
 
-Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **사용자 로그인 변경** 페이지를 선택하고 **다음**을 선택합니다. Azure AD Connect 버전 1.1.880.0 이상을 사용하는 경우 **Single Sign On 사용** 옵션이 기본적으로 선택됩니다. 이전 버전의 Azure AD Connect를 사용하는 경우 **Single Sign On 사용** 옵션을 선택합니다.
+Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **사용자 로그인 변경** 페이지를 선택하고 **다음** 을 선택합니다. Azure AD Connect 버전 1.1.880.0 이상을 사용하는 경우 **Single Sign On 사용** 옵션이 기본적으로 선택됩니다. 이전 버전의 Azure AD Connect를 사용하는 경우 **Single Sign On 사용** 옵션을 선택합니다.
 
 ![Azure AD Connect: 사용자 로그인 변경](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
@@ -86,9 +86,9 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 다음 지침에 따라 Seamless SSO를 올바르게 설정했는지 확인합니다.
 
 1. 테넌트에 대한 전역 관리자 자격 증명을 사용하여 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
-2. 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
-3. **Azure AD Connect**를 선택합니다.
-4. **Seamless Single Sign-On** 기능이 **설정**으로 표시되는지 확인합니다.
+2. 왼쪽 창에서 **Azure Active Directory** 를 선택합니다.
+3. **Azure AD Connect** 를 선택합니다.
+4. **Seamless Single Sign-On** 기능이 **설정** 으로 표시되는지 확인합니다.
 
 ![Azure Portal: Azure AD Connect 창](./media/how-to-connect-sso-quick-start/sso10.png)
 
@@ -104,10 +104,10 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 - `https://autologon.microsoftazuread-sso.com`
 
-또한 그룹 정책을 통해 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용**이라는 인트라넷 영역 정책 설정을 활성화해야 합니다. 
+또한 그룹 정책을 통해 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용** 이라는 인트라넷 영역 정책 설정을 활성화해야 합니다. 
 
 >[!NOTE]
-> 다음 지침은 Windows의 Internet Explorer 및 Google Chrome(Internet Explorer와 신뢰할 수 있는 사이트 URL 집합을 공유하는 경우)에서만 작동합니다. macOS에서 Mozilla Firefox 및 Google Chrome을 설정하는 방법에 대한 지침은 다음 섹션을 참조하세요.
+> 다음 지침은 Windows의 Internet Explorer, Microsoft Edge 및 Google Chrome (Internet Explorer와 신뢰할 수 있는 사이트 Url 집합을 공유 하는 경우) 에서만 작동 합니다. macOS에서 Mozilla Firefox 및 Google Chrome을 설정하는 방법에 대한 지침은 다음 섹션을 참조하세요.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>사용자의 인트라넷 영역 설정을 수정해야 하는 이유
 
@@ -123,12 +123,12 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 ### <a name="group-policy-option---detailed-steps"></a>"그룹 정책" 옵션 - 자세한 단계
 
 1. 그룹 정책 관리 편집기 도구를 엽니다.
-2. 일부 또는 모든 사용자에게 적용되는 그룹 정책을 편집합니다. 예를 들어 **기본 도메인 정책**은 다음과 같습니다.
-3. **사용자 구성**  >  **정책**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **internet Explorer**  >  **인터넷 제어판**  >  **보안 페이지**로 이동 합니다. 그런 다음 **영역에 사이트 할당 목록**을 선택합니다.
+2. 일부 또는 모든 사용자에게 적용되는 그룹 정책을 편집합니다. 예를 들어 **기본 도메인 정책** 은 다음과 같습니다.
+3. **사용자 구성**  >  **정책**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **internet Explorer**  >  **인터넷 제어판**  >  **보안 페이지** 로 이동 합니다. 그런 다음 **영역에 사이트 할당 목록** 을 선택합니다.
     !["사이트 간 할당 목록"이 선택 된 "보안 페이지"를 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso6.png)
 4. 정책을 사용하도록 설정한 다음, 대화 상자에서 다음 값을 입력합니다.
    - **값 이름**: Kerberos 티켓이 전달되는 Azure AD URL입니다.
-   - **값**(데이터): **1**은 인트라넷 영역을 나타냅니다.
+   - **값**(데이터): **1** 은 인트라넷 영역을 나타냅니다.
 
      결과는 다음과 같습니다.
 
@@ -137,34 +137,34 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
      값(데이터): 1
 
    >[!NOTE]
-   > 일부 사용자가 공유 키오스크에 로그인하는 경우와 같이 이러한 사용자가 Seamless SSO를 사용하지 못하게 하려면 이전 값을 **4**로 설정합니다. 이 작업에서는 Azure AD URL이 제한된 영역에 추가되고 Seamless SSO가 항상 실패하게 됩니다.
+   > 일부 사용자가 공유 키오스크에 로그인하는 경우와 같이 이러한 사용자가 Seamless SSO를 사용하지 못하게 하려면 이전 값을 **4** 로 설정합니다. 이 작업에서는 Azure AD URL이 제한된 영역에 추가되고 Seamless SSO가 항상 실패하게 됩니다.
    >
 
-5. **확인**을 선택한 후 **만들기**를 선택합니다.
+5. **확인** 을 선택한 후 **만들기** 를 선택합니다.
 
     ![영역 할당이 선택 된 "내용 표시" 창을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. **사용자 구성**  >  **정책**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **internet Explorer**  >  **인터넷 제어판**  >  **보안 페이지**  >  **인트라넷 영역**으로 이동 합니다. 그런 다음 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용**을 선택합니다.
+6. **사용자 구성**  >  **정책**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **internet Explorer**  >  **인터넷 제어판**  >  **보안 페이지**  >  **인트라넷 영역** 으로 이동 합니다. 그런 다음 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용** 을 선택합니다.
 
     !["인트라넷 영역" 페이지를 보여 주는 스크린샷 "스크립트를 통해 상태 표시줄에 대 한 업데이트 허용"이 선택 되어 있습니다.](./media/how-to-connect-sso-quick-start/sso11.png)
 
-7. 정책 설정을 활성화한 다음, **확인**을 선택합니다.
+7. 정책 설정을 활성화한 다음, **확인** 을 선택합니다.
 
     ![정책 설정이 사용 하도록 설정 된 "스크립트를 통해 상태 표시줄에 대 한 업데이트 허용" 창을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>"그룹 정책 기본 설정" 옵션 - 자세한 단계
 
 1. 그룹 정책 관리 편집기 도구를 엽니다.
-2. 일부 또는 모든 사용자에게 적용되는 그룹 정책을 편집합니다. 예를 들어 **기본 도메인 정책**은 다음과 같습니다.
-3. **사용자 구성**  >  **기본 설정**  >  **Windows 설정**  >  **레지스트리**  >  **새**  >  **레지스트리 항목**으로 이동 합니다.
+2. 일부 또는 모든 사용자에게 적용되는 그룹 정책을 편집합니다. 예를 들어 **기본 도메인 정책** 은 다음과 같습니다.
+3. **사용자 구성**  >  **기본 설정**  >  **Windows 설정**  >  **레지스트리**  >  **새**  >  **레지스트리 항목** 으로 이동 합니다.
 
     ![선택한 "레지스트리" 및 "레지스트리 항목"을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso15.png)
 
-4. 적절한 필드에서 다음 값을 입력하고 **확인**을 클릭합니다.
-   - **키 경로**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
-   - **값 이름**: ***https***
-   - **값 형식**: ***REG_DWORD***
-   - **값 데이터**: ***00000001***
+4. 적절한 필드에서 다음 값을 입력하고 **확인** 을 클릭합니다.
+   - **키 경로**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon_* _
+   - _* 값 이름 * *: **_https_*_
+   - _* 값 형식 * *: **_REG_DWORD_*_
+   - _* 값 데이터 * *: **_00000001_*_
  
      !["새 레지스트리 속성" 창을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -176,10 +176,10 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 Mozilla Firefox는 Kerberos 인증을 자동으로 사용하지 않습니다. 각 사용자는 다음 단계에 따라 Firefox 설정에 Azure AD URL을 수동으로 추가해야 합니다.
 1. Firefox를 실행하고 주소 표시줄에 `about:config` 를 입력합니다. 표시되는 모든 알림을 해제합니다.
-2. **network.negotiate-auth.trusted-uris** 기본 설정을 검색합니다. 이 기본 설정은 Firefox의 신뢰할 수 있는 Kerberos 인증 사이트를 나열합니다.
-3. 마우스 오른쪽 단추로 클릭하고 **수정**을 선택합니다.
+2. _ 네트워크를 검색 합니다.*negotiate-auth.-uri** 기본 설정. 이 기본 설정은 Firefox의 신뢰할 수 있는 Kerberos 인증 사이트를 나열합니다.
+3. 마우스 오른쪽 단추로 클릭하고 **수정** 을 선택합니다.
 4. 필드에 `https://autologon.microsoftazuread-sso.com` 을 입력합니다.
-5. **확인**을 선택한 다음, 브라우저를 다시 엽니다.
+5. **확인** 을 선택한 다음, 브라우저를 다시 엽니다.
 
 #### <a name="safari-macos"></a>Safari(macOS)
 
@@ -219,8 +219,8 @@ Firefox 및 Microsoft Edge 브라우저의 프라이빗 검색 모드에서는 S
    - 새 프라이빗 브라우저 세션에서 `https://myapps.microsoft.com/`에 로그인합니다.
 
 사용자가 사용자 이름이나 암호를 입력할 필요가 없는 시나리오를 테스트하려면 다음 중 하나를 수행합니다. 
-   - 새 프라이빗 브라우저 세션에서 `https://myapps.microsoft.com/contoso.onmicrosoft.com`에 로그인합니다. *contoso*를 테넌트의 이름으로 바꿉니다.
-   - 새 프라이빗 브라우저 세션에서 `https://myapps.microsoft.com/contoso.com`에 로그인합니다. *contoso.com*을 테넌트에서 확인된 도메인(페더레이션 도메인이 아님)으로 바꿉니다.
+   - 새 프라이빗 브라우저 세션에서 `https://myapps.microsoft.com/contoso.onmicrosoft.com`에 로그인합니다. *contoso* 를 테넌트의 이름으로 바꿉니다.
+   - 새 프라이빗 브라우저 세션에서 `https://myapps.microsoft.com/contoso.com`에 로그인합니다. *contoso.com* 을 테넌트에서 확인된 도메인(페더레이션 도메인이 아님)으로 바꿉니다.
 
 ## <a name="step-5-roll-over-keys"></a>5단계: 키 롤오버
 

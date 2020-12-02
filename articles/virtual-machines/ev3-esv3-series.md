@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: daberry
-ms.openlocfilehash: 250223c5c15a0179fe105e66e7004f8920c5eb34
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 07564955e9cfa6931e461df00ef50a237a66b9b3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637618"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500685"
 ---
 # <a name="ev3-and-esv3-series"></a>Ev3 및 Esv3 시리즈
 
@@ -80,7 +80,7 @@ Esv3 시리즈 VM의 기능 Intel® Hyper-Threading 기술입니다.
 
 <sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 
-<sup>3</sup> Esv3 시리즈 vm은 디스크 성능을 [버스트](linux/disk-bursting.md) 하 고 한 번에 최대 30 분 동안 최대 버스트를 얻을 수 있습니다.
+<sup>3</sup> Esv3 시리즈 vm은 디스크 성능을 [버스트](./disk-bursting.md) 하 고 한 번에 최대 30 분 동안 최대 버스트를 얻을 수 있습니다.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

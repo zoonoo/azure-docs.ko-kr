@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c02b6bcb6587313f84c4b900fba49df540d12c07
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0418c11d84fb82ac4a4b181289f032407a29f92e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966363"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500668"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Windows용 Key Vault 가상 머신 확장
 
@@ -36,9 +36,9 @@ Key Vault VM 확장은 Windows Server 2019 core 설치를 사용 하 여 Azure�
 - PEM
 
 ## <a name="prerequisities"></a>필수 구성 요소
-  - 인증서를 사용 하 여 인스턴스를 Key Vault 합니다. [Key Vault 만들기를](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) 참조 하세요.
-  - VM/VMSS에서 [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 를 할당 해야 함
-  - `get` `list` 암호의 인증서 부분을 검색 하려면 VM/vmss 관리 id에 대 한 암호 및 사용 권한을 Key Vault 액세스 정책을 설정 해야 합니다. [Key Vault에 인증](/azure/key-vault/general/authentication) 하 고 [Key Vault 액세스 정책을 할당](/azure/key-vault/general/assign-access-policy-cli)하는 방법을 참조 하세요.
+  - 인증서를 사용 하 여 인스턴스를 Key Vault 합니다. [Key Vault 만들기를](../../key-vault/general/quick-create-portal.md) 참조 하세요.
+  - VM/VMSS에서 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 할당 해야 함
+  - `get` `list` 암호의 인증서 부분을 검색 하려면 VM/vmss 관리 id에 대 한 암호 및 사용 권한을 Key Vault 액세스 정책을 설정 해야 합니다. [Key Vault에 인증](../../key-vault/general/authentication.md) 하 고 [Key Vault 액세스 정책을 할당](../../key-vault/general/assign-access-policy-cli.md)하는 방법을 참조 하세요.
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -88,7 +88,7 @@ Key Vault VM 확장은 Windows Server 2019 core 설치를 사용 하 여 Azure�
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | 문자열 |
@@ -111,7 +111,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 가상 머신 확장에 대한 JSON 구성은 템플릿의 가상 머신 리소스 조각, 특히 가상 머신 템플릿의 `"resources": []` 개체 및 `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` 개체의 가상 머신 확장 집합 내에 중첩되어야 합니다.
 
  > [!NOTE]
-> VM 확장을 사용 하려면 키 자격 증명 모음에 인증 하기 위해 시스템 또는 사용자 관리 id를 할당 해야 합니다.  [Key Vault에 인증 하 고 Key Vault 액세스 정책을 할당 하는 방법](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) 을 참조 하세요.
+> VM 확장을 사용 하려면 키 자격 증명 모음에 인증 하기 위해 시스템 또는 사용자 관리 id를 할당 해야 합니다.  [Key Vault에 인증 하 고 Key Vault 액세스 정책을 할당 하는 방법](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) 을 참조 하세요.
 > 
 
 ```json

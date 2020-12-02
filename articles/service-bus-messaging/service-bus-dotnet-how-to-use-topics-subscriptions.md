@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5ddfca1186025f4118013815af7bbf7f500951ce
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 5dfdf846410e9b622f3ef1e9006aa9846de9979c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95809308"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498713"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-net"></a>Azure Service Bus 토픽에 메시지 보내기 및 토픽의 구독에서 메시지 받기(.NET)
 이 자습서에서는 메시지를 Service Bus 토픽으로 보내고 해당 토픽의 구독에서 메시지를 받는 .NET Core 콘솔 앱을 만드는 방법을 보여 줍니다. 
@@ -18,7 +18,7 @@ ms.locfileid: "95809308"
 > [!Important]
 > 이 빠른 시작에서는 새 **Azure.Messaging.ServiceBus** 패키지를 사용합니다. 이전 Microsoft.Azure.ServiceBus 패키지를 사용하는 빠른 시작은 [Microsoft.Azure.ServiceBus 패키지를 사용하여 메시지 보내기 및 받기](service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs)
 - Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
@@ -151,7 +151,7 @@ Visual Studio를 시작하고, C#용 새 **콘솔 앱(.NET Core)** 프로젝트�
             await SendMessageBatchToTopicAsync();
         }
     ```
-5. 애플리케이션을 실행합니다. 다음과 같은 출력이 표시됩니다.
+5. 애플리케이션을 실행합니다. 다음 출력이 표시됩니다.
 
     ```console
     Sent a single message to the topic: mytopic
@@ -270,5 +270,4 @@ Stopped receiving messages
 
 - [.NET용 Azure Service Bus 클라이언트 라이브러리 - 추가 정보](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [GitHub 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [.NET API 참조](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus?view=azure-dotnet-preview&preserve-view=true)
-
+- [.NET API 참조](/dotnet/api/azure.messaging.servicebus?preserve-view=true&view=azure-dotnet-preview)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: a3ff2a1f92cabb61f58d70b732738e613afa7cd9
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 87bc411903604a7068f346604853a2a61c9a6f1c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025636"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499189"
 ---
 # <a name="inspect-custom-speech-data"></a>Custom Speech 데이터 검사
 
@@ -99,8 +99,8 @@ Custom Speech는 오디오 데이터를 해당 하는 인식 결과와 비교 �
 
 - [데이터 평가](how-to-custom-speech-evaluate-data.md)
 - [모델 학습](how-to-custom-speech-train-model.md)
-- [모델 개선](how-to-custom-speech-improve-accuracy.md)
-- [모델 배포](how-to-custom-speech-deploy-model.md)
+- [모델 개선](./how-to-custom-speech-evaluate-data.md)
+- [모델 배포](./how-to-custom-speech-train-model.md)
 
 ## <a name="additional-resources"></a>추가 리소스
 

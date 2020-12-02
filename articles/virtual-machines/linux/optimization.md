@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: fceef1fa9f79ead0ffbbfd7de17b21b750659fc9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1e3551834e7664d5036fa8a5e0497e5a37f61c2f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370239"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498509"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure에서 Linux VM 최적화
 Linux 가상 머신(VM) 만들기는 명령줄 또는 포털에서 수행하는 것이 쉽습니다. 이 자습서에서는 Microsoft Azure Platform에서 해당 성능을 최적화하도록 설정하는 방법을 보여줍니다. 이 항목에서는 Ubuntu Server VM을 사용 하지만 [템플릿으로 사용자 고유의 이미지](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 Linux 가상 머신을 만들 수도 있습니다.  
@@ -22,16 +22,16 @@ Linux 가상 머신(VM) 만들기는 명령줄 또는 포털에서 수행하는 
 이 항목에서는 사용하는 Azure 구독([무료 평가판 등록](https://azure.microsoft.com/pricing/free-trial/))이 이미 있으며 Azure 구독에 VM을 이미 프로비전했다고 가정합니다. [VM을 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 전에 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 구독에 로그인했는지 확인합니다.
 
 ## <a name="azure-os-disk"></a>Azure OS 디스크
-Azure에서 Linux VM을 만들면 이에 연결된 두 개의 디스크가 있습니다. **/dev/sda**는 OS 디스크이며 **/dev/sdb**는 임시 디스크입니다.  OS 디스크( **/dev/sda**)는 신속한 VM 부팅 시간에 최적화되고 워크로드에 좋은 성능을 제공하지 않으므로 운영 체제 이외에 사용하지 않습니다. 데이터에 대한 영구적이고 최적화된 스토리지를 얻기 위해 VM에 하나 이상의 디스크를 연결하려고 합니다. 
+Azure에서 Linux VM을 만들면 이에 연결된 두 개의 디스크가 있습니다. **/dev/sda** 는 OS 디스크이며 **/dev/sdb** 는 임시 디스크입니다.  OS 디스크( **/dev/sda**)는 신속한 VM 부팅 시간에 최적화되고 워크로드에 좋은 성능을 제공하지 않으므로 운영 체제 이외에 사용하지 않습니다. 데이터에 대한 영구적이고 최적화된 스토리지를 얻기 위해 VM에 하나 이상의 디스크를 연결하려고 합니다. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>크기 및 성능 대상에 디스크 추가
 VM 크기에 따라 A 시리즈에 16개, D 시리즈에 32개 및 G 시리즈에 64개의 디스크를 최대로 연결할 수 있고 각각 최대 크기는 32TB입니다. 공간 및 IOps 요구 사항에 따라 필요한 만큼 디스크를 더 추가합니다. 각 디스크의 성능 목표는 Standard Storage의 경우 최대 500IOps이며 Premium Storage의 경우 디스크당 최대 20,000IOps입니다.
 
-**읽기 전용** 또는 **해당 없음**으로 캐시를 설정한 Premium Storage 디스크에서 가장 높은 IOps를 수행하기 위해 Linux에서 파일 시스템을 탑재하는 동안 **장벽**을 사용하지 않도록 설정해야 합니다. Premium Storage 백업 디스크에 쓰기는 이러한 캐시 설정에 대해 내구성이 있기 때문에 장벽이 필요하지 않습니다.
+**읽기 전용** 또는 **해당 없음** 으로 캐시를 설정한 Premium Storage 디스크에서 가장 높은 IOps를 수행하기 위해 Linux에서 파일 시스템을 탑재하는 동안 **장벽** 을 사용하지 않도록 설정해야 합니다. Premium Storage 백업 디스크에 쓰기는 이러한 캐시 설정에 대해 내구성이 있기 때문에 장벽이 필요하지 않습니다.
 
-* **reiserFS**를 사용하는 경우 탑재 옵션 `barrier=none`을 사용하여 장벽을 사용하지 않도록 설정합니다(장벽 사용의 경우 `barrier=flush` 사용).
-* **ext3/ext4**를 사용하는 경우 탑재 옵션 `barrier=0`을 사용하여 장벽을 사용하지 않도록 설정합니다(장벽 사용의 경우 `barrier=1` 사용).
-* **XFS**를 사용하는 경우 탑재 옵션 `nobarrier`을 사용하여 장벽을 사용하지 않도록 설정합니다(장벽 사용의 경우 `barrier` 옵션 사용).
+* **reiserFS** 를 사용하는 경우 탑재 옵션 `barrier=none`을 사용하여 장벽을 사용하지 않도록 설정합니다(장벽 사용의 경우 `barrier=flush` 사용).
+* **ext3/ext4** 를 사용하는 경우 탑재 옵션 `barrier=0`을 사용하여 장벽을 사용하지 않도록 설정합니다(장벽 사용의 경우 `barrier=1` 사용).
+* **XFS** 를 사용하는 경우 탑재 옵션 `nobarrier`을 사용하여 장벽을 사용하지 않도록 설정합니다(장벽 사용의 경우 `barrier` 옵션 사용).
 
 ## <a name="unmanaged-storage-account-considerations"></a>관리되지 않는 스토리지 계정 고려 사항
 Azure CLI를 사용하여 VM을 만들 때 기본 작업은 Azure Managed Disks를 사용하는 것입니다.  이들 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다.  관리되지 않는 디스크는 스토리지 계정이 필요하며 추가 성능 고려 사항이 있습니다.  관리 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../managed-disks-overview.md)를 참조하세요.  다음 섹션에서는 관리되지 않는 디스크를 사용하는 경우에만 성능 고려 사항을 설명합니다.  권장되는 기본 스토리지 솔루션은 Managed Disks를 사용하는 것입니다.
@@ -51,7 +51,7 @@ Azure VM을 Ubuntu 또는 CoreOS 이미지에서 가져온 경우 CustomData를 
 
 이러한 이미지에 대 한 교체를 관리 하는 가장 쉬운 방법은 다음 단계를 완료 하는 것입니다.
 
-1. **/Var/lib/cloud/scripts/per-boot** 폴더에서 **create_swapfile. sh**라는 파일을 만듭니다.
+1. **/Var/lib/cloud/scripts/per-boot** 폴더에서 **create_swapfile. sh** 라는 파일을 만듭니다.
 
    **$ sudo touch/var/lib/cloud/scripts/per-boot/create_swapfile sh**
 
@@ -126,9 +126,9 @@ root@myVM:~# update-grub
 ```
 
 > [!NOTE]
-> **/dev/sda**에 대해서만 이 설정 적용하는 것은 유용하지 않습니다. 순차 I/O가 I/O 패턴의 우위를 차지한 모든 데이터 디스크에 설정합니다.  
+> **/dev/sda** 에 대해서만 이 설정 적용하는 것은 유용하지 않습니다. 순차 I/O가 I/O 패턴의 우위를 차지한 모든 데이터 디스크에 설정합니다.  
 
-**grub.cfg**가 성공적으로 다시 빌드되었으며 기본 스케줄러가 NOOP로 업데이트되었음을 나타내는 다음 출력이 표시됩니다.  
+**grub.cfg** 가 성공적으로 다시 빌드되었으며 기본 스케줄러가 NOOP로 업데이트되었음을 나타내는 다음 출력이 표시됩니다.  
 
 ```bash
 Generating grub configuration file ...
@@ -150,9 +150,9 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 Azure 조정 커널이 있는 Ubuntu 18.04는 다중 큐 I/O 스케줄러를 사용합니다. 이 시나리오에서는 `noop` 대신 `none`을 선택하는 것이 적절합니다. 자세한 내용은 [Ubuntu I/O 스케줄러](https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers)를 참조하세요.
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>소프트웨어 RAID를 사용하여 높은 I/Ops 달성
-워크로드가 단일 디스크에서 제공하는 것보다 많은 IOps를 필요로 하는 경우 여러 디스크의 소프트웨어 RAID 구성을 사용해야 합니다. Azure는 이미 로컬 패브릭 계층에서 디스크 복구를 수행하기 때문에 가장 높은 수준의 성능 RAID-0 스트라이프 구성을 얻게 됩니다.  Azure 환경에서 디스크를 프로비전하고 만들며 드라이브를 분할하고 서식을 지정하며 탑재하기 전에 Linux VM에 연결합니다.  Azure에서 Linux VM의 소프트웨어 RAID 설정을 구성하는 방법에 대한 자세한 내용은 **[Linux에서 소프트웨어 RAID 구성](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** 문서에서 찾을 수 있습니다.
+워크로드가 단일 디스크에서 제공하는 것보다 많은 IOps를 필요로 하는 경우 여러 디스크의 소프트웨어 RAID 구성을 사용해야 합니다. Azure는 이미 로컬 패브릭 계층에서 디스크 복구를 수행하기 때문에 가장 높은 수준의 성능 RAID-0 스트라이프 구성을 얻게 됩니다.  Azure 환경에서 디스크를 프로비전하고 만들며 드라이브를 분할하고 서식을 지정하며 탑재하기 전에 Linux VM에 연결합니다.  Azure에서 Linux VM의 소프트웨어 RAID 설정을 구성하는 방법에 대한 자세한 내용은 **[Linux에서 소프트웨어 RAID 구성](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** 문서에서 찾을 수 있습니다.
 
-기존 RAID 구성 대신, 단일 스트라이프 논리적 스토리지 볼륨에 여러 개의 물리적 디스크를 구성하기 위해 LVM(논리 볼륨 관리자)을 설치하도록 선택할 수도 있습니다. 이 구성에서는 읽기 및 쓰기가 볼륨 그룹에 포함된 여러 디스크에 배포됩니다(RAID0와 유사). 성능상의 이유로 논리 볼륨을 스트라이프하여 읽기 및 쓰기가 연결된 모든 데이터 디스크를 사용하는 것이 좋습니다.  Azure에서 Linux VM의 스트라이프 논리 볼륨을 구성하는 방법에 대한 자세한 내용은 **[Azure에서 Linux VM에 LVM 구성](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** 을 참조하세요.
+기존 RAID 구성 대신, 단일 스트라이프 논리적 스토리지 볼륨에 여러 개의 물리적 디스크를 구성하기 위해 LVM(논리 볼륨 관리자)을 설치하도록 선택할 수도 있습니다. 이 구성에서는 읽기 및 쓰기가 볼륨 그룹에 포함된 여러 디스크에 배포됩니다(RAID0와 유사). 성능상의 이유로 논리 볼륨을 스트라이프하여 읽기 및 쓰기가 연결된 모든 데이터 디스크를 사용하는 것이 좋습니다.  Azure에서 Linux VM의 스트라이프 논리 볼륨을 구성하는 방법에 대한 자세한 내용은 **[Azure에서 Linux VM에 LVM 구성](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** 을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 모든 최적화에 관련된 토론 대로 변경 사항이 가져올 영향을 측정하기 위해 각 변경 사항의 전후에 테스트를 수행해야 합니다.  최적화는 환경에서 여러 컴퓨터에 다른 결과를 발생시키는 단계별 프로세스입니다.  하나의 구성에 작동한 최적화가 다른 사용자에게는 작동하지 않을 수 있습니다.
@@ -160,4 +160,4 @@ Azure 조정 커널이 있는 Ubuntu 18.04는 다중 큐 I/O 스케줄러를 사
 추가 리소스에 대한 몇 가지 유용한 링크:
 
 * [Azure Linux 에이전트 사용자 가이드](../extensions/agent-linux.md)
-* [Linux에서 소프트웨어 RAID 구성](configure-raid.md)
+* [Linux에서 소프트웨어 RAID 구성](/previous-versions/azure/virtual-machines/linux/configure-raid)

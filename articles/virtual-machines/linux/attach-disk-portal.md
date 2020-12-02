@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 565b781b5015f82cafe4e47be2170f2327660821
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8f60c83417e9c614ca30f140e6acbbf08e5643cf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971594"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500651"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>포털을 사용하여 데이터 디스크를 Linux VM에 연결 
 이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Linux 가상 머신에 연결하는 방법을 보여줍니다. 또한 [Azure Portal에서 Windows VM에 데이터 디스크를 연결](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다. 
@@ -20,19 +20,19 @@ ms.locfileid: "91971594"
 VM에 디스크를 연결하기 전에 다음 팁을 검토합니다.
 
 * 가상 머신의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 머신의 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
-* 가상 머신에 연결된 디스크는 실제로 Azure에 저장된 .vhd 파일입니다. 자세한 내용은 [관리 디스크 소개](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)를 참조하세요.
+* 가상 머신에 연결된 디스크는 실제로 Azure에 저장된 .vhd 파일입니다. 자세한 내용은 [관리 디스크 소개](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 * 디스크를 연결한 후 [Linux VM에 연결하여 새 디스크를 탑재](#connect-to-the-linux-vm-to-mount-the-new-disk)해야 합니다.
 
 
 ## <a name="find-the-virtual-machine"></a>가상 머신 찾기
-1. [Azure Portal](https://portal.azure.com/)로 이동하여 VM을 찾습니다. **가상 머신**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)로 이동하여 VM을 찾습니다. **가상 머신** 을 검색하여 선택합니다.
 2. 목록에서 VM을 선택합니다.
-3. **가상 컴퓨터** 페이지의 **설정**에서 **디스크**를 선택 합니다.
+3. **가상 컴퓨터** 페이지의 **설정** 에서 **디스크** 를 선택 합니다.
 
 
 ## <a name="attach-a-new-disk"></a>새 디스크 연결
 
-1. **디스크** 창에서 **데이터 디스크**아래에 있는 **새 디스크 만들기 및 연결**을 선택 합니다.
+1. **디스크** 창에서 **데이터 디스크** 아래에 있는 **새 디스크 만들기 및 연결** 을 선택 합니다.
 
 1. 관리되는 디스크에 대한 이름을 입력합니다. 기본 설정을 검토 하 고 필요에 따라 **저장소 유형**, **크기 (GiB)**, **암호화** 및 **호스트 캐싱을** 업데이트 합니다.
    
@@ -43,14 +43,14 @@ VM에 디스크를 연결하기 전에 다음 팁을 검토합니다.
 
 
 ## <a name="attach-an-existing-disk"></a>기존 디스크 연결
-1. **디스크** 창의 **데이터 디스크**에서 **기존 디스크 연결**을 선택 합니다.
+1. **디스크** 창의 **데이터 디스크** 에서 **기존 디스크 연결** 을 선택 합니다.
 1. **디스크 이름** 드롭다운 메뉴를 클릭 하 고 사용 가능한 관리 디스크 목록에서 디스크를 선택 합니다. 
 
-1. **저장**을 클릭하여 기존 관리되는 디스크를 연결하고 VM 구성을 업데이트합니다.
+1. **저장** 을 클릭하여 기존 관리되는 디스크를 연결하고 VM 구성을 업데이트합니다.
    
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Linux VM에 연결하여 새 디스크 탑재
-Linux VM에서 사용할 수 있도록 새 디스크를 분할, 포맷 및 탑재하려면 VM에 SSH합니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md)을 참조하세요. 다음 예제에서는 사용자 이름 *azureuser*를 사용 하 여 *10.123.123.25* 의 공용 IP 주소를 사용 하 여 VM에 연결 합니다. 
+Linux VM에서 사용할 수 있도록 새 디스크를 분할, 포맷 및 탑재하려면 VM에 SSH합니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md)을 참조하세요. 다음 예제에서는 사용자 이름 *azureuser* 를 사용 하 여 *10.123.123.25* 의 공용 IP 주소를 사용 하 여 VM에 연결 합니다. 
 
 ```bash
 ssh azureuser@10.123.123.25
@@ -203,7 +203,7 @@ sdc     3:0:0:0       4G
 
 Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
 
-* */etc/fstab*에 `discard` 탑재 옵션을 사용합니다. 예:
+* */etc/fstab* 에 `discard` 탑재 옵션을 사용합니다. 예:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,discard   1   2

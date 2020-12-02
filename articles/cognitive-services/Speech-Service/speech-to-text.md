@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: 음성 텍스트 변환, 음성 텍스트 변환 소프트웨어
-ms.openlocfilehash: f26d896397a950bc2c5f5d1f66dca6a01da045d7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 102289fd233a744952f37568abf77a753953637e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015225"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499648"
 ---
 # <a name="what-is-speech-to-text"></a>음성 텍스트 변환이란?
 
@@ -34,7 +34,7 @@ ms.locfileid: "95015225"
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 음성 텍스트를 시작 하려면 [빠른](get-started-speech-to-text.md) 시작을 참조 하세요. 이 서비스는 [음성 SDK](speech-sdk.md), [REST API](rest-speech-to-text.md#pronunciation-assessment-parameters)및 [음성 CLI](spx-overview.md)를 통해 사용할 수 있습니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "95015225"
 
 ## <a name="customization"></a>사용자 지정
 
-표준 음성 서비스 모델 외에도 사용자 지정 모델을 만들 수 있습니다. 사용자 지정은 말하는 스타일, 어휘 및 배경 소음과 같은 음성 인식 장벽을 극복 하는 데 도움이 됩니다 [Custom Speech](how-to-custom-speech.md)를 참조 하세요. 언어/로캘에 따라 사용자 지정 옵션은 지원 [되는 언어](./language-support.md) 를 참조 하세요.
+표준 음성 서비스 모델 외에도 사용자 지정 모델을 만들 수 있습니다. 사용자 지정은 말하는 스타일, 어휘 및 배경 소음과 같은 음성 인식 장벽을 극복 하는 데 도움이 됩니다 [Custom Speech](./custom-speech-overview.md)를 참조 하세요. 언어/로캘에 따라 사용자 지정 옵션은 지원 [되는 언어](./language-support.md) 를 참조 하세요.
 
 ## <a name="batch-transcription"></a>일괄 처리 기록
 

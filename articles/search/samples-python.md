@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 3de630552f7ad2cc941fe23369398c10ffce5870
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 244408cc512a51683ecb3c062113170b1c7f4781
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686849"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499563"
 ---
 # <a name="python-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 Python 코드 샘플
 
@@ -45,7 +45,7 @@ Python 용 Azure SDK에는 필수 구성 요소 및 패키지 설치를 포함 �
 
 ## <a name="documentation-samples"></a>설명서 샘플
 
-다음 샘플에는 [Azure Cognitive Search 설명서](https://docs.microsoft.com/azure/search/)에 관련 된 문서가 있습니다.
+다음 샘플에는 [Azure Cognitive Search 설명서](./index.yml)에 관련 된 문서가 있습니다.
 
 | 샘플 | Description | 
 |---------|-------------|

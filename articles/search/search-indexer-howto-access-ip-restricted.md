@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 0be69b72cc068d017202b0694e24fb4573172dba
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 12943d5d22a9e81c7e99522fa4728f4798549682
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101395"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499954"
 ---
 # <a name="configure-ip-firewall-rules-to-allow-indexer-connections-azure-cognitive-search"></a>인덱서 연결을 허용 하도록 IP 방화벽 규칙 구성 (Azure Cognitive Search)
 
@@ -81,7 +81,7 @@ JSON 파일에서 검색 서비스가 미국 서 부에 있다고 가정 하면 
 
    ![방화벽 및 가상 네트워크](media\search-indexer-howto-secure-access\storage-firewall.png "방화벽 및 가상 네트워크")
 
-주소 범위에서 이전에 얻은 3 개의 IP 주소 (검색 서비스 IP의 경우 1, 서비스 태그의 경우 2 개)를 추가 `AzureCognitiveSearch` 하 고 **저장**을 선택 합니다.
+주소 범위에서 이전에 얻은 3 개의 IP 주소 (검색 서비스 IP의 경우 1, 서비스 태그의 경우 2 개)를 추가 `AzureCognitiveSearch` 하 고 **저장** 을 선택 합니다.
 
    ![방화벽 IP 규칙](media\search-indexer-howto-secure-access\storage-firewall-ip.png "방화벽 IP 규칙")
 
@@ -90,5 +90,5 @@ JSON 파일에서 검색 서비스가 미국 서 부에 있다고 가정 하면 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Storage 방화벽 구성](../storage/common/storage-network-security.md)
-- [Cosmos DB에 대 한 IP 방화벽 구성](../cosmos-db/firewall-support.md)
+- [Cosmos DB에 대 한 IP 방화벽 구성](../cosmos-db/how-to-configure-firewall.md)
 - [Azure SQL Server에 대 한 IP 방화벽 구성](../azure-sql/database/firewall-configure.md)

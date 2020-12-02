@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 357f44149cb17976556c1e4609f6f2af531b80ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f36502eb464f051cd50b51245db69fa76daa915
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935775"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499546"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>특수 문자를 포함 하는 부분 용어 검색 및 패턴 (와일드 카드, regex, 패턴)
 
@@ -160,7 +160,7 @@ Postman과 같은 웹 API 테스트 도구를 사용 하는 경우 [테스트 �
 
 기본 제공 되거나 미리 정의 된 분석기는 `analyzer` 인덱스에 추가 구성이 필요 없는 필드 정의의 속성에 이름으로 지정할 수 있습니다. 다음 예에서는 필드에서 분석기를 설정 하는 방법을 보여 줍니다 `whitespace` . 
 
-다른 시나리오와 기타 기본 제공 분석기에 대 한 자세한 내용은 [미리 정의 된 분석기 목록](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference)을 참조 하십시오. 
+다른 시나리오와 기타 기본 제공 분석기에 대 한 자세한 내용은 [미리 정의 된 분석기 목록](./index-add-custom-analyzers.md#predefined-analyzers-reference)을 참조 하십시오. 
 
 ```json
     {

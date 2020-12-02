@@ -3,16 +3,16 @@ title: Azure Service Bus Subscription Rule SQL 필터 구문 | Microsoft Docs
 description: 이 문서에서는 SQL 필터 문법에 대 한 세부 정보를 제공 합니다. SQL 필터는 SQL-92 표준의 하위 집합을 지원 합니다.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: bd263e8177652165376d4f6fe9e231af71ebdcbe
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 9bff18b2161e419d728c360c9ed950ac2867fea8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95805625"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498679"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Subscription Rule SQL 필터 구문
 
-*SQL 필터* 는 Service Bus 토픽 구독의 사용 가능한 필터 유형 중 하나입니다. SQL-92 표준의 하위 집합을 기울어집니다 하는 텍스트 식입니다. 필터 식은 `sqlExpression` Azure Resource Manager 템플릿에서 Service Bus의 ' sqlFilter ' 속성 요소 `Rule` , Azure CLI [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md) `az servicebus topic subscription rule create` 명령 [`--filter-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) 인수 및 구독 규칙 관리를 허용 하는 여러 SDK 함수에 사용 됩니다.
+*SQL 필터* 는 Service Bus 토픽 구독의 사용 가능한 필터 유형 중 하나입니다. SQL-92 표준의 하위 집합을 기울어집니다 하는 텍스트 식입니다. 필터 식은 `sqlExpression` Azure Resource Manager 템플릿에서 Service Bus의 ' sqlFilter ' 속성 요소 `Rule` , Azure CLI [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md) `az servicebus topic subscription rule create` 명령 [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule?preserve-view=true&view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) 인수 및 구독 규칙 관리를 허용 하는 여러 SDK 함수에 사용 됩니다.
 
 Service Bus Premium은 JMS 2.0 API를 통해 [JMS SQL 메시지 선택기 구문도](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) 지원 합니다.
 

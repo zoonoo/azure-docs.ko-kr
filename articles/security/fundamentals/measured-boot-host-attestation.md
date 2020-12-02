@@ -8,19 +8,19 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
-ms.openlocfilehash: 73ae811c17a578cafc557b0cda9e98b101dd5c03
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f4906d4e0590df047bac4ee15cb0e996a59c3d5b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557822"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498866"
 ---
 # <a name="measured-boot-and-host-attestation"></a>측정 된 부팅 및 호스트 증명
 이 문서에서는 Microsoft가 측정 된 부팅 및 호스트 증명을 통해 호스트의 무결성 및 보안을 보장 하는 방법을 설명 합니다.
 
 ## <a name="measured-boot"></a>측정 된 부팅
 
-TPM ( [신뢰할 수 있는 플랫폼 모듈](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-top-node) )은 신뢰할 수 있는 타사에서 제공 하는 펌웨어가 포함 된 변조 방지 증명 보안 감사 구성 요소입니다. 부팅 구성 로그에는 호스트가 부트스트랩 시퀀스를 마지막으로 클러스터가 거쳤다 때 PCR (플랫폼 구성 레지스터)에 기록 된 해시 체인 측정이 포함 됩니다. 다음 그림에서는이 기록 프로세스를 보여 줍니다. 이전에 해시 된 측정값을 다음 측정의 해시에 증분 방식으로 추가 하 고 공용 구조체에서 해싱 알고리즘을 실행 하면 해시 체인이 수행 됩니다.
+TPM ( [신뢰할 수 있는 플랫폼 모듈](/windows/security/information-protection/tpm/trusted-platform-module-top-node) )은 신뢰할 수 있는 타사에서 제공 하는 펌웨어가 포함 된 변조 방지 증명 보안 감사 구성 요소입니다. 부팅 구성 로그에는 호스트가 부트스트랩 시퀀스를 마지막으로 클러스터가 거쳤다 때 PCR (플랫폼 구성 레지스터)에 기록 된 해시 체인 측정이 포함 됩니다. 다음 그림에서는이 기록 프로세스를 보여 줍니다. 이전에 해시 된 측정값을 다음 측정의 해시에 증분 방식으로 추가 하 고 공용 구조체에서 해싱 알고리즘을 실행 하면 해시 체인이 수행 됩니다.
 
 ![호스트 증명 서비스 해시 체인을 보여 주는 다이어그램입니다.](./media/measured-boot-host-attestation/hash-chaining.png)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d6cf0ba06293a073fc8fbe26e2386f1852429002
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: dcfef81f2d7f3413489490d97c143fdec7e11bed
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843998"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499325"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -151,7 +151,7 @@ Azure 디스크 예약은 프리미엄 SSD를 1년 동안 P30(1TiB)부터 P80(32
 예약은 용량이 아닌 디스크 형식으로 이루어집니다. 즉, P80(32TiB) 디스크를 예약하면 P80 디스크 하나를 얻게 되며, 이 디스크를 두 개의 작은 P70(16TiB) 디스크로 분할할 수 없습니다. 물론 P70(16TiB) 디스크 2개를 포함하여 디스크를 원하는 만큼 예약할 수 있습니다.
 
 **Azure 디스크 예약은 어떻게 적용되나요?**     
-디스크 예약은 예약된 VM(가상 머신) 인스턴스와 유사한 모델을 따릅니다. 디스크 예약은 다른 SKU에 적용할 수 없지만 VM 인스턴스는 적용할 수 있다는 차이가 있습니다. VM 인스턴스에 대한 자세한 내용은 [Azure Reserved VM Instances를 사용하여 비용 절감](./linux/prepay-reserved-vm-instances.md)을 참조하세요.     
+디스크 예약은 예약된 VM(가상 머신) 인스턴스와 유사한 모델을 따릅니다. 디스크 예약은 다른 SKU에 적용할 수 없지만 VM 인스턴스는 적용할 수 있다는 차이가 있습니다. VM 인스턴스에 대한 자세한 내용은 [Azure Reserved VM Instances를 사용하여 비용 절감](./prepay-reserved-vm-instances.md)을 참조하세요.     
 
 **Azure 디스크 예약을 통해 구매한 데이터 스토리지를 여러 지역에서 사용할 수 있나요?**     
 Azure 디스크 예약은 특정 지역과 SKU(예: 미국 동부 2에서 P30)에 대해 구매하는 것이므로 해당 구성 외부에서 사용할 수 없습니다. 언제든지 다른 지역 또는 SKU에서 디스크 스토리지 요구 사항에 맞는 Azure 디스크 예약을 추가로 구매할 수 있습니다.    

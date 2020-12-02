@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 4b7950759914724234ec89e6eaee13b48e735ec9
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: d0ffd786d3fb6bb5f0d70095d947c81caa070518
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024316"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499138"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing Speech에서 Speech service로 마이그레이션
 
@@ -26,7 +26,7 @@ ms.locfileid: "95024316"
 단일 Speech service 구독 키는 다음 기능에 대 한 액세스 권한을 부여 합니다. 각 기능은 별도로 측정되므로 사용하는 기능에 대해서만 요금이 청구됩니다.
 
 * [음성 텍스트](speech-to-text.md)
-* [음성 텍스트 변환 사용자 지정](https://cris.ai)
+* [사용자 지정 음성 텍스트](https://cris.ai)
 * [텍스트 음성 변환](text-to-speech.md)
 * [사용자 지정 텍스트 음성 변환](./how-to-custom-voice-create-voice.md)
 * [음성 번역](speech-translation.md)([텍스트 번역](../translator/translator-info-overview.md) 제외)
@@ -79,7 +79,7 @@ Speech Devices SDK를 시작하려면
 
 Bing Speech 고객은 [지원 티켓](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 개설하여 고객 지원 서비스에 문의해야 합니다. 지원을 받으려면 [기술 지원 플랜](https://azure.microsoft.com/support/plans/)이 필요한 경우에도 Microsoft로 연락 주시면 됩니다.
 
-Speech service, SDK 및 API 지원이 필요한 경우 Speech service [지원 페이지](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)를 방문 하세요.
+Speech service, SDK 및 API 지원이 필요한 경우 Speech service [지원 페이지](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)를 방문 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -87,7 +87,7 @@ Speech service, SDK 및 API 지원이 필요한 경우 Speech service [지원 �
 * [음성 텍스트 변환 시작](get-started-speech-to-text.md)
 * [텍스트 음성 변환 시작](get-started-text-to-speech.md)
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 * [Speech service 릴리스 정보](releasenotes.md)
 * [음성 서비스는 무엇 인가요?](overview.md)

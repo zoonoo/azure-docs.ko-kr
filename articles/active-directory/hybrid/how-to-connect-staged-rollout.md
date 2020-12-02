@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a79ec9a54ae597bc7e9795029dc4292c2c82345
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fd1c7f5dec57127f92da52be908bd6faa2c90e85
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836396"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500226"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션(미리 보기)
 
@@ -66,6 +66,8 @@ ms.locfileid: "94836396"
 ## <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 
 다음은 단계적 롤아웃이 불가능한 시나리오입니다.
+
+- 응용 프로그램 또는 클라우드 서비스는 POP3 및 SMTP와 같은 레거시 인증을 사용 합니다.
 
 - 인증하는 동안 특정 애플리케이션이 Azure AD에 "domain_hint" 쿼리 매개 변수를 보냅니다. 이러한 흐름이 계속되며, 단계적 롤아웃을 사용하도록 설정된 사용자는 계속해서 인증에 페더레이션을 사용합니다.
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: scottnap
-ms.openlocfilehash: beb59674d678ed9c61c9ee0b425da7032794ca64
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 70b5732e1293e35127a19fbe736d8562056a870b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660613"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499682"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>원격 작업: 원격 작업에 대 한 NVA (네트워크 가상 어플라이언스) 고려 사항
 
@@ -64,3 +64,6 @@ Azure Marketplace의 모든 주요 NVA 공급 업체에는 솔루션을 배포�
 [고객 및 파트너를 위한 Fortinet COVID-19 업데이트](https://www.fortinet.com/covid-19.html "고객 및 파트너를 위한 COVID-19 업데이트")
 
 [Palo Alto Networks COVID-19 응답 센터](https://live.paloaltonetworks.com/t5/COVID-19-Response-Center/ct-p/COVID-19_Response_Center "Palo Alto Networks COVID-19 응답 센터")
+
+[Kemp는 비즈니스 연속성을 위해 원격 작업을 사용 하 고 앱 환경을 Always-On 합니다.](https://kemptechnologies.com/remote-work-always-on-application-experience-business-continuity/ "Kemp는 비즈니스 연속성을 위해 원격 작업을 사용 하 고 앱 환경을 Always-On 합니다.")
+

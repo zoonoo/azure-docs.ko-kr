@@ -3,18 +3,18 @@ title: Azure Data Factory의 파이프라인 및 작업
 description: Azure Data Factory의 파이프라인 및 작업에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 93d741d22ac03c132954a48731451f891042d7b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ceaced5860976b0fa9f84903804700f778ed9550
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003068"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500084"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
 
@@ -57,7 +57,7 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [Azure Machine Learning Studio(클래식) 작업: 일괄 처리 실행 및 리소스 업데이트](transform-data-using-machine-learning.md) | Azure VM
-[저장 프로시저](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (이전의 SQL Data Warehouse) 또는 SQL Server
+[저장 프로시저](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics 또는 SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure 데이터 레이크 분석
 [사용자 지정 작업](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
@@ -109,11 +109,11 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 태그 | 설명 | 형식 | 필수
 --- | ----------- | ---- | --------
 name | 파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 140개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" </li></ul> | String | 예
-description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | No
+description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | 아니요
 작업 | **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. JSON 작업 요소에 대한 자세한 내용은 [JSON 작업](#activity-json) 섹션을 참조하세요. | Array | 예
-매개 변수 | **매개 변수** 섹션은 파이프라인 내에 정의된 매개 변수 한 개 이상을 포함할 수 있으므로 파이프라인을 유연하게 다시 사용할 수 있습니다. | 목록 | No
-동시성 | 파이프라인에 포함할 수 있는 최대 동시 실행 수입니다. 기본적으로 최대값이 없습니다. 동시성 한도에 도달 하는 경우 추가 파이프라인 실행은 이전 작업이 완료 될 때까지 큐에 대기 됩니다. | 숫자 | No 
-주석 | 파이프라인과 연결 된 태그 목록입니다. | 배열 | No
+매개 변수 | **매개 변수** 섹션은 파이프라인 내에 정의된 매개 변수 한 개 이상을 포함할 수 있으므로 파이프라인을 유연하게 다시 사용할 수 있습니다. | 목록 | 아니요
+동시성 | 파이프라인에 포함할 수 있는 최대 동시 실행 수입니다. 기본적으로 최대값이 없습니다. 동시성 한도에 도달 하는 경우 추가 파이프라인 실행은 이전 작업이 완료 될 때까지 큐에 대기 됩니다. | 숫자 | 아니요 
+주석 | 파이프라인과 연결 된 태그 목록입니다. | 배열 | 아니요
 
 ## <a name="activity-json"></a>활동 JSON
 **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. 작업에는 실행 및 제어 작업의 두 가지 주요 유형이 있습니다.
@@ -147,9 +147,9 @@ name | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 
 description | 활동의 용도를 설명하는 텍스트입니다. | 예
 type | 활동의 형식입니다. 작업의 여러 가지 유형에 대해서는 [데이터 이동 작업](#data-movement-activities), [데이터 변환 작업](#data-transformation-activities) 및 [제어 작업](#control-flow-activities) 섹션을 참조하세요. | 예
 linkedServiceName | 작업에서 사용하는 연결된 서비스의 이름입니다.<br/><br/>작업은 필요한 컴퓨팅 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. | HDInsight 활동의 경우 예, Azure Machine Learning Studio (클래식) 일괄 처리 점수 매기기 활동, 저장 프로시저 활동. <br/><br/>다른 모든 사용자의 경우 아니요
-typeProperties | typeProperties 섹션의 속성은 각 작업 유형에 따라 달라집니다. 활동의 형식 속성을 보려면 이전 섹션의 활동 링크를 클릭합니다. | No
-policy | 작업의 런타임 동작에 영향을 주는 정책입니다. 이 속성은 시간 제한 및 재시도 동작을 포함 합니다. 지정 되지 않은 경우 기본값이 사용 됩니다. 자세한 내용은 [작업 정책](#activity-policy)을 참조하세요. | No
-dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이전 작업에 따라 달라지는 방법을 정의합니다. 자세한 내용은 [작업 종속성](#activity-dependency) 참조 | No
+typeProperties | typeProperties 섹션의 속성은 각 작업 유형에 따라 달라집니다. 활동의 형식 속성을 보려면 이전 섹션의 활동 링크를 클릭합니다. | 아니요
+policy | 작업의 런타임 동작에 영향을 주는 정책입니다. 이 속성은 시간 제한 및 재시도 동작을 포함 합니다. 지정 되지 않은 경우 기본값이 사용 됩니다. 자세한 내용은 [작업 정책](#activity-policy)을 참조하세요. | 아니요
+dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이전 작업에 따라 달라지는 방법을 정의합니다. 자세한 내용은 [작업 종속성](#activity-dependency) 참조 | 아니요
 
 ### <a name="activity-policy"></a>작업 정책
 정책은 작업의 런타임 동작에 영향을 미치며 구성 기능 옵션을 제공합니다. 작업 정책은 실행 작업에 대해서만 사용할 수 있습니다.
@@ -211,8 +211,8 @@ secureOutput | True로 설정 하면 활동의 출력이 안전한 것으로 간
 name | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 55개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | 예</li><ul>
 description | 활동의 용도를 설명하는 텍스트입니다. | 예
 type | 활동의 형식입니다. 다양 한 유형의 작업에 대 한 [데이터 이동 작업](#data-movement-activities), [데이터 변환 작업](#data-transformation-activities)및 [제어 작업](#control-flow-activities) 섹션을 참조 하세요. | 예
-typeProperties | typeProperties 섹션의 속성은 각 작업 유형에 따라 달라집니다. 활동의 형식 속성을 보려면 이전 섹션의 활동 링크를 클릭합니다. | No
-dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이전 작업에 따라 달라지는 방법을 정의합니다. 자세한 내용은 [활동 종속성](#activity-dependency)을 참조 하세요. | No
+typeProperties | typeProperties 섹션의 속성은 각 작업 유형에 따라 달라집니다. 활동의 형식 속성을 보려면 이전 섹션의 활동 링크를 클릭합니다. | 아니요
+dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이전 작업에 따라 달라지는 방법을 정의합니다. 자세한 내용은 [활동 종속성](#activity-dependency)을 참조 하세요. | 아니요
 
 ### <a name="activity-dependency"></a>작업 종속성
 작업 종속성은 후속 작업이 이전 작업에 의존 하는 방법을 정의 하 여 다음 작업을 계속할지 여부를 결정 합니다. 작업은 서로 다른 종속성 조건을 포함하는 한 개 또는 여러 이전 작업에 따라 달라질 수 있습니다.

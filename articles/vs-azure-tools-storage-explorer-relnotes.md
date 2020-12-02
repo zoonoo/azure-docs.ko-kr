@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: a53f947eb2a44cc8773be8ee2b2bd03ca899be22
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7c250f1351d83d213c5c7af5b00d7a648c5d8bc6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95521005"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499665"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage Explorer 릴리스 정보
 
@@ -39,7 +39,7 @@ ms.locfileid: "95521005"
       * & 끌어서 놓기를 포함 하 여 업로드
       * 다운로드
       * 복사 & 붙여넣기 #1249
-      * DELETE
+      * 삭제
    * ADLS Gen2 Blob
       * & 끌어서 놓기를 포함 하 여 업로드
       * 다운로드
@@ -168,7 +168,7 @@ ms.locfileid: "95521005"
   * 자동 새로 고침 #1526
   * AzCopy 사용
   * AzCopy SAS 기간 추가 하려는 다른 설정이 있는 경우 확인할 설정을 설명 하는 [GitHub에서 문제를 여세요](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=) .
-* 이제 Storage 탐색기 Managed Disks를 지원 합니다. 다음을 수행할 수 있습니다.
+* 이제 Storage 탐색기 Managed Disks를 지원 합니다. 다음 작업을 수행할 수 있습니다.
   * 온-프레미스 VHD를 새 디스크에 업로드 합니다.
   * 디스크 다운로드
   * 리소스 그룹 및 지역에서 디스크 복사 및 붙여넣기
@@ -242,7 +242,7 @@ ms.locfileid: "95521005"
     * AzCopy SAS 기간
 
     추가 하려는 다른 설정이 있는 경우 [GitHub에서 보려는 설정을 설명](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=)하는 문제를 여세요.
-* 이제 Storage 탐색기 Managed Disks를 지원 합니다. 다음을 수행할 수 있습니다.
+* 이제 Storage 탐색기 Managed Disks를 지원 합니다. 다음 작업을 수행할 수 있습니다.
     * 온-프레미스 VHD를 새 디스크에 업로드 합니다.
     * 디스크 다운로드
     * 리소스 그룹 및 지역에서 디스크 복사 및 붙여넣기
@@ -559,7 +559,7 @@ ms.locfileid: "95521005"
         
 ### <a name="new"></a>새로 만들기
 
-* 이제 Storage Explorer를 사용하여 [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage Explorer가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
+* 이제 Storage Explorer를 사용하여 [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage Explorer가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
 * Storage Explorer는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage Explorer가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage Explorer는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage Explorer를 사용하여 다음 작업을 수행할 수 있습니다.
   * 컨테이너 만들기 및 삭제
   * 컨테이너 속성 및 사용 권한 관리(왼쪽)
@@ -628,7 +628,7 @@ ms.locfileid: "95521005"
         
 ### <a name="new"></a>새로 만들기
 
-* 이제 Storage Explorer를 사용하여 [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage Explorer가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
+* 이제 Storage Explorer를 사용하여 [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage Explorer가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
 * Storage Explorer는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage Explorer가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage Explorer는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage Explorer를 사용하여 다음 작업을 수행할 수 있습니다.
   * 컨테이너 만들기 및 삭제
   * 컨테이너 속성 및 사용 권한 관리(왼쪽)
@@ -683,7 +683,7 @@ ms.locfileid: "95521005"
 
 ### <a name="new"></a>새로 만들기
 
-* 이제 Storage Explorer를 사용하여 [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage Explorer가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
+* 이제 Storage Explorer를 사용하여 [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage Explorer가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
 * Storage Explorer는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage Explorer가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage Explorer는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage Explorer를 사용하여 다음 작업을 수행할 수 있습니다.
   * 컨테이너 만들기 및 삭제
   * 컨테이너 속성 및 사용 권한 관리(왼쪽)
@@ -810,7 +810,7 @@ ms.locfileid: "95521005"
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
+* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음 작업을 수행할 수 있습니다.
    * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
    * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
    * 일시 삭제된 Blob을 삭제 취소합니다.
@@ -866,7 +866,7 @@ ms.locfileid: "95521005"
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
+* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음 작업을 수행할 수 있습니다.
    * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
    * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
    * 일시 삭제된 Blob을 삭제 취소합니다.
@@ -921,7 +921,7 @@ ms.locfileid: "95521005"
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
+* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음 작업을 수행할 수 있습니다.
    * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
    * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
    * 일시 삭제된 Blob을 삭제 취소합니다.
@@ -981,7 +981,7 @@ ms.locfileid: "95521005"
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
+* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음 작업을 수행할 수 있습니다.
    * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
    * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
    * 일시 삭제된 Blob을 삭제 취소합니다.

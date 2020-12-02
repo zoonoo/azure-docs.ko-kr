@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: 839ba1f8a5215c9059cfeff6e2158165b154f1f7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3b0acd683309ceb105c49dc5b0bd493ce2e461b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289362"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500430"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure Managed Disks 소개
 
@@ -71,7 +71,7 @@ vhd를 Azure로 전송하는 방법을 알아보려면 [CLI](linux/disks-upload-
 
 서버 쪽 암호화는 저장 데이터 암호화를 제공하고, 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호합니다. 서버 쪽 암호화는 관리 디스크를 사용할 수 있는 모든 지역의 모든 관리 디스크, 스냅샷 및 이미지에서 기본적으로 사용하도록 설정됩니다. (반면 호스트에서 암호화를 사용하도록 설정하지 않으면 임시 디스크가 서버 쪽 암호화를 통해 암호화되지 않습니다. [디스크 역할: 임시 디스크](#temporary-disk) 참조).
 
-Azure에서 키를 관리하도록 허용하거나 플랫폼 관리 키, 직접 키를 관리할 수 있습니다. 이러한 키는 고객 관리 키입니다. 자세한 내용은 [Azure Disk Storage의 서버 쪽 암호화](windows/disk-encryption.md) 문서를 참조하세요.
+Azure에서 키를 관리하도록 허용하거나 플랫폼 관리 키, 직접 키를 관리할 수 있습니다. 이러한 키는 고객 관리 키입니다. 자세한 내용은 [Azure Disk Storage의 서버 쪽 암호화](./disk-encryption.md) 문서를 참조하세요.
 
 
 #### <a name="azure-disk-encryption"></a>Azure 디스크 암호화
@@ -96,7 +96,7 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 
 ### <a name="temporary-disk"></a>임시 디스크
 
-대부분의 Vm에는 관리 디스크가 아닌 임시 디스크가 포함 되어 있습니다. 임시 디스크는 응용 프로그램 및 프로세스를 위한 단기 저장소를 제공 하며 페이지 또는 스왑 파일과 같은 데이터를 저장 하기 위한 것입니다. 임시 디스크의 데이터는 [유지 관리 이벤트](./manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 또는 [VM을 다시 배포](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json)할 때 손실될 수 있습니다. VM의 표준 다시 부팅이 완료 되 면 임시 디스크의 데이터가 유지 됩니다. 임시 디스크가 없는 Vm에 대 한 자세한 내용은 [로컬 임시 디스크가 없는 AZURE vm 크기](azure-vms-no-temp-disk.md)를 참조 하세요.
+대부분의 Vm에는 관리 디스크가 아닌 임시 디스크가 포함 되어 있습니다. 임시 디스크는 응용 프로그램 및 프로세스를 위한 단기 저장소를 제공 하며 페이지 또는 스왑 파일과 같은 데이터를 저장 하기 위한 것입니다. 임시 디스크의 데이터는 [유지 관리 이벤트](./manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 또는 [VM을 다시 배포](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json)할 때 손실될 수 있습니다. VM의 표준 다시 부팅이 완료 되 면 임시 디스크의 데이터가 유지 됩니다. 임시 디스크가 없는 Vm에 대 한 자세한 내용은 [로컬 임시 디스크가 없는 AZURE vm 크기](azure-vms-no-temp-disk.md)를 참조 하세요.
 
 Azure Linux VM의 임시 디스크는 일반적으로 /dev/sdb이고, Windows VM의 임시 디스크는 기본적으로 D:입니다. 호스트에서 암호화를 사용하도록 설정하지 않으면 임시 디스크가 서버 쪽 암호화를 통해 암호화되지 않습니다.
 

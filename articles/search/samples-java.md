@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 26e30b42906a3d8d7a3fcdc013537104a85f32fe
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c1d21d88ed49cb14aa9f964791154f001a40fbe2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701860"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499580"
 ---
 # <a name="java-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 Java 코드 샘플
 
 Azure Cognitive Search의 기능을 설명 하는 Java 코드 샘플에 대해 알아봅니다. 기본 리포지토리는 다음과 같습니다.
 
-| 리포지토리 | Description |
+| 리포지토리 | 설명 |
 |------------|-------------|
 | [azure-sdk-java/tree/master/sdk/search/azure-검색-documents/src/samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/samples) | SDK에서 Azure.Search.Documents client 라이브러리와 함께 제공 되는 Azure SDK 팀이 생성 한 샘플입니다. 클라이언트 라이브러리에 대 한 [단위 테스트](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/test) 를 검토 하 여 다양 한 api를 호출 하는 방법을 확인할 수도 있습니다. |
 | [Azure-샘플/azure-검색-java-샘플](https://github.com/Azure-Samples/azure-search-java-samples) | 방법 문서와 함께 제공 되는 코드 샘플입니다. **이 리포지토리의 샘플은 Java 용 AZURE SDK 사용으로 아직 업데이트 되지 않았습니다**. 현재 이러한 샘플은 Java 코드에서 REST Api를 호출 합니다.|
@@ -43,7 +43,7 @@ Java 용 Azure SDK에는 다양 한 샘플과 패키지 설치를 다루는 [시
 
 ## <a name="documentation-samples"></a>설명서 샘플
 
-다음 샘플에는 [Azure Cognitive Search 설명서](https://docs.microsoft.com/azure/search/)에 관련 된 문서가 있습니다.
+다음 샘플에는 [Azure Cognitive Search 설명서](./index.yml)에 관련 된 문서가 있습니다.
 
 | 샘플 | Description | 
 |---------|-------------|

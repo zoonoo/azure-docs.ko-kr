@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e594dab3e4bf36fedee7a068068934501ca02f24
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 07ef3da9f67de92c3526b83222c1c8088660d7c7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842790"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499869"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 azure 보안 기준
 
@@ -64,7 +64,7 @@ Azure Cognitive Search 완전히 azure 보안 벤치 마크에 매핑되는 방�
 
 **지침**: Cognitive Search은 배포 된 서비스 거부 공격을 방지할 수 있는 특정 기능을 제공 하지 않지만, 일반 보호를 위해 Cognitive Search 서비스와 연결 된 가상 네트워크에서 DDoS Protection 표준을 사용 하도록 설정할 수 있습니다.
 
-- [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
+- [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -223,7 +223,7 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics에 대해 알아보기](../azure-monitor/log-query/get-started-portal.md)
+- [Log Analytics에 대해 알아보기](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
@@ -275,7 +275,7 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
-**지침**: azure RBAC (역할 기반 액세스 제어)를 통해 역할 할당을 통해 azure 리소스에 대 한 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. 특정 리소스에 대 한 미리 정의 된 기본 제공 역할이 있으며 이러한 역할은 Azure CLI, Azure PowerShell 또는 Azure Portal와 같은 도구를 통해 인벤토리 또는 쿼리할 수 있습니다.
+**지침**: azure RBAC (역할 기반 액세스 제어)를 통해 역할 할당을 통해 azure 리소스에 대 한 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. 특정 리소스에 대해 미리 정의된 기본 제공 역할이 있으며 이러한 역할은 Azure CLI, Azure PowerShell 또는 Azure Portal과 같은 도구를 통해 쿼리하거나 인벤토리에 포함할 수 있습니다.
 
 Cognitive Search 역할은 서비스 수준 관리 작업을 지 원하는 사용 권한과 연결 됩니다.  이러한 역할은 서비스 끝점에 대 한 액세스 권한을 부여 하지 않습니다. 끝점에 대 한 작업 (예: 인덱스 관리, 인덱스 채우기 및 검색 데이터에 대 한 쿼리)에 대 한 액세스는 API 키를 사용 하 여 요청을 인증 합니다.
 
@@ -374,7 +374,7 @@ Cognitive Search 역할은 서비스 수준 관리 작업을 지 원하는 사�
 
 **지침**: azure Cognitive Search에서 서비스 수준 관리 작업을 위한 중앙 인증 및 권한 부여 시스템으로 Azure Active Directory (azure AD)를 사용 합니다. Azure AD id는 검색 서비스 끝점에 대 한 액세스 권한을 부여 하지 않습니다.  인덱스 관리, 인덱스 채우기 및 검색 데이터에 대 한 쿼리와 같은 작업에 대 한 액세스는 API 키를 통해 사용할 수 있습니다.
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 - [Azure Cognitive Search 서비스에 대 한 api 키 만들기 및 관리](./search-security-api-keys.md)
 
@@ -390,7 +390,7 @@ Cognitive Search 역할은 서비스 수준 관리 작업을 지 원하는 사�
 
 - [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
-- [Azure AD id 및 액세스 검토를 사용 하는 방법](../active-directory/governance/access-reviews-overview.md)
+- [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
 - [Azure Cognitive Search의 작업 및 활동 모니터링](./search-monitor-usage.md)
 
@@ -495,7 +495,7 @@ Microsoft는 기본 플랫폼을 관리 하 고 모든 고객 콘텐츠를 중�
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6: Azure RBAC를 사용 하 여 리소스에 대 한 액세스 관리
 
 **지침**: 서비스 관리의 경우 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 키와 구성에 대 한 액세스를 관리 합니다. 인덱싱 및 쿼리와 같은 콘텐츠 작업의 경우 Cognitive Search는 id 기반 액세스 제어 모델 대신 키를 사용 합니다. Azure RBAC를 사용 하 여 키에 대 한 액세스를 제어 합니다.
-- [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md) 
+- [Azure에서 RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md) 
 
  
 - [Cognitive Search에 대 한 관리 액세스를 위해 역할을 사용 하는 방법](./search-security-rbac.md)
@@ -522,7 +522,7 @@ Microsoft는 Cognitive Search에 대 한 기본 인프라를 관리 하 고, 고
 
 - [Azure Cognitive Search에서 데이터 암호화를 위해 고객이 관리 하는 키 구성](./search-security-manage-encryption-keys.md)
 
-- [Azure에서 미사용 암호화 이해](../security/fundamentals/encryption-atrest.md)
+- [Azure의 저장 데이터 암호화 이해](../security/fundamentals/encryption-atrest.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -956,7 +956,7 @@ Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하 �
 
 - [Azure Cognitive Search 인덱스 백업 및 복원](/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
 
-- [Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Key Vault에서 일시 삭제 및 제거 보호를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [Azure Blob 저장소에 대 한 일시 삭제](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
@@ -1044,9 +1044,9 @@ Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하 �
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
-**지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
+**지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft의 전략과 Microsoft에서 관리하는 클라우드 인프라, 서비스, 애플리케이션에 대한 레드 팀 실행 및 실시간 사이트 침투 테스트를 사용합니다.
 - [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
-- [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

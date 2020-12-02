@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: d15f58a2d87483e8e2fd6711481bfe8866ca1548
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 74e1dc12be9bfec57d76357a335b46a55912f6df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920613"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500277"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Azure에서 공유 이미지 갤러리 문제 해결
 
@@ -137,7 +137,7 @@ ms.locfileid: "94920613"
 
 *ZRS 저장소 계정 유형은이 지역에서 지원 되지 않습니다.*  
 **원인**: 아직 지원 하지 않는 지역에서 표준 ZRS (영역 중복 저장소)를 선택 했습니다.  
-**해결 방법**: storage 계정 유형을 **Premium \_ LRS** 또는 **Standard \_ LRS** 로 변경 합니다. ZRS preview가 설정 된 최신 [지역 목록은](/azure/storage/common/storage-redundancy#zone-redundant-storage) 설명서를 참조 하세요.
+**해결 방법**: storage 계정 유형을 **Premium \_ LRS** 또는 **Standard \_ LRS** 로 변경 합니다. ZRS preview가 설정 된 최신 [지역 목록은](../storage/common/storage-redundancy.md#zone-redundant-storage) 설명서를 참조 하세요.
 
 ## <a name="creating-or-updating-image-versions"></a>이미지 버전 만들기 또는 업데이트 ##
 

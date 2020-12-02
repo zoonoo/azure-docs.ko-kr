@@ -3,12 +3,12 @@ title: Azure Service Bus의 AMQP 1.0 개요
 description: 개방형 표준 프로토콜인 고급 메시지 큐 프로토콜 (AMQP) Azure Service Bus 지 원하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 11/20/2020
-ms.openlocfilehash: 85943344fd8f20cf3a73af5d637b65676584f93f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: e585fcc905d1651d49008b623b01a6c2f8a04fcc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96022180"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498781"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Service Bus의 AMQP 1.0 지원
 Azure Service Bus 클라우드 서비스는 기본 통신 수단으로 [AMQP (Advanced Message Queuing Protocol) 1.0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) 를 사용 합니다. Microsoft는 [OASIS Amqp 기술 위원회](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp)에서 새로운 확장 프로그램을 개발 하 고 지난 10 년간의 amqp를 개발 하 고 개선 하기 위해 경쟁 메시징 브로커를 갖춘 고객과 공급 업체의 파트너와 협력 하 고 있습니다. AMQP 1.0는 ISO 및 IEC 표준 ([iso 19464:20149](https://www.iso.org/standard/64955.html))입니다. 
@@ -64,11 +64,11 @@ Azure Service Bus의 AMQP 1.0 지원은 효율적인 이진 프로토콜을 사�
 
 Azure SDK를 통해 사용할 수 있는 지원 되는 모든 Service Bus 클라이언트 라이브러리는 AMQP 1.0를 사용 합니다.
 
-- [.NET 용 Azure Service Bus](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet&preserve-view=true)
-- [Java 용 Azure Service Bus 라이브러리](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-stable&preserve-view=true)
+- [.NET 용 Azure Service Bus](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
+- [Java 용 Azure Service Bus 라이브러리](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
 - [Azure Service Bus provider for Java JMS 2.0](how-to-use-java-message-service-20.md)
-- [JavaScript 및 TypeScript 용 Azure Service Bus 모듈](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
-- [Python 용 Azure Service Bus 라이브러리](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
+- [JavaScript 및 TypeScript 용 Azure Service Bus 모듈](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
+- [Python 용 Azure Service Bus 라이브러리](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
 
 [!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 
@@ -89,4 +89,4 @@ Azure SDK를 통해 사용할 수 있는 지원 되는 모든 Service Bus 클라
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [AMQP를 사용하여 .NET에서 Service Bus 사용]: service-bus-amqp-dotnet.md
 [AMQP를 사용하여 Java에서 Service Bus 사용]: ./service-bus-java-how-to-use-jms-api-amqp.md
-[Azure Linux VM에 Apache Qpid Proton 설치]:: 
+[Azure Linux VM에 Apache Qpid Proton 설치]::

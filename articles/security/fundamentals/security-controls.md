@@ -10,12 +10,12 @@ ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ef0b360b2c32de685124113da526461f53e52b7a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 59f3e6ac5e6df6d2643a9877ba16e62ca650563b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369916"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498832"
 ---
 # <a name="index-of-built-in-security-controls-articles-for-azure-services"></a>Azure 서비스에 대 한 "기본 제공 보안 컨트롤" 문서의 인덱스
 
@@ -24,7 +24,7 @@ ms.locfileid: "92369916"
 기본 제공 보안 제어 문서는 다음 서비스에 사용할 수 있습니다.
 
 
-- [Azure App Service](../../app-service/app-service-security-controls.md)
+- [Azure App Service](../../app-service/security-baseline.md)
 - [Azure Resource Manager](../../azure-resource-manager/management/azure-resource-manager-security-controls.md)
-- [Azure Service Bus Relay](../../service-bus-relay/service-bus-relay-security-controls.md)
+- [Azure Service Bus Relay](../../azure-relay/service-bus-relay-security-controls.md)
 - [Azure Spring Cloud](../../spring-cloud/spring-cloud-concept-security-controls.md)

@@ -8,27 +8,27 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: guybo
-ms.openlocfilehash: cc8d4458de5f3bbf1eaf111aa10f1377f3c9d46a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c352b9e6b067724fbfc00bf5b0338baf8514421
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292292"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500498"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure용 RedHat 기반 가상 머신 준비
 이 문서에서는 Azure용 RHEL(Red Hat Enterprise Linux) 가상 머신을 준비하는 방법을 알아봅니다. 이 문서에 설명되어 있는 RHEL의 버전은 6.7+ 및 7.1+입니다. 이 문서에서 다룰 준비에 대한 하이퍼바이저는 Hyper-V, KVM(커널 기반 가상 머신) 및 VMware입니다. Red Hat 클라우드 액세스 프로그램에 참여하기 위한 자격 요구 사항에 대한 자세한 내용은 [Red Hat 클라우드 액세스 웹 사이트](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 및 [Azure에서 실행 중인 RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure)을 참조하세요. RHEL 이미지 빌드를 자동화 하는 방법은 [Azure 이미지 작성기](./image-builder-overview.md)를 참조 하세요.
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Hyper-V 관리자에서 Red Hat 기반 가상 머신 준비
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 이 섹션은 RedHat 웹 사이트에서 ISO 파일을 확보했으며 VHD(가상 하드 디스크)에 RHEL 이미지를 이미 설치한 것으로 가정합니다. Hyper-V 관리자를 사용하여 운영 체제 이미지를 설치하는 방법에 대한 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))을 참조하세요.
 
 **RHEL 설치 참고 사항**
 
-* Azure는 VHDX 형식을 지원하지 않습니다. Azure는 고정 VHD만 지원합니다. Hyper-V 관리자를 사용하여 디스크를 VHD 형식으로 변환하거나, convert-vhd cmdlet을 사용할 수 있습니다. VirtualBox를 사용하는 경우 디스크를 만들 때 기본 동적 할다 옵션과 달리 **고정 크기**를 선택합니다.
+* Azure는 VHDX 형식을 지원하지 않습니다. Azure는 고정 VHD만 지원합니다. Hyper-V 관리자를 사용하여 디스크를 VHD 형식으로 변환하거나, convert-vhd cmdlet을 사용할 수 있습니다. VirtualBox를 사용하는 경우 디스크를 만들 때 기본 동적 할다 옵션과 달리 **고정 크기** 를 선택합니다.
 * Azure는 Gen1 (BIOS boot) & Gen2 (UEFI 부팅) 가상 머신을 지원 합니다.
 * VHD에 허용되는 최대 크기는 1,023GB입니다.
-* LVM(논리 볼륨 관리자)이 지원되며 Azure 가상 머신의 OS 디스크 또는 데이터 디스크에 사용할 수 있습니다. 그러나 일반적으로 OS 디스크에서 LVM이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이 방법은 특히 문제 해결을 위해 운영 체제 디스크를 다른 동일한 가상 머신에 연결해야 하는 경우, 복제된 가상 머신과 LVM 이름이 충돌하는 것을 방지합니다. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 및 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 설명서도 살펴보세요.
+* LVM(논리 볼륨 관리자)이 지원되며 Azure 가상 머신의 OS 디스크 또는 데이터 디스크에 사용할 수 있습니다. 그러나 일반적으로 OS 디스크에서 LVM이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이 방법은 특히 문제 해결을 위해 운영 체제 디스크를 다른 동일한 가상 머신에 연결해야 하는 경우, 복제된 가상 머신과 LVM 이름이 충돌하는 것을 방지합니다. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 및 [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 설명서도 살펴보세요.
 * UDF(범용 디스크 형식) 파일 시스템을 탑재하기 위한 커널 지원이 필요합니다. Azure에서 처음 부팅 시 게스트에 연결된 UDF 형식 미디어는 프로비저닝 구성을 Linux 가상 머신에 전달합니다. Azure Linux 에이전트는 해당 구성을 읽고 가상 머신을 프로비전하기 위해 UDF 파일 시스템을 탑재할 수 있어야 합니다.
 * 운영 체제 디스크에서는 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다.  여기에 대한 자세한 내용은 다음 단계에서 확인할 수 있습니다.
 * Azure의 모든 VHD는 가상 크기가 1MB 단위로 조정되어야 합니다. 원시 디스크에서 VHD로 변환할 때 변환하기 전에 원시 디스크 크기가 1MB의 배수인지 확인해야 합니다. 자세한 내용은 아래 단계에서 찾을 수 있습니다. 자세한 내용은 [Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
@@ -153,7 +153,7 @@ ms.locfileid: "87292292"
     # logout
     ```
 
-1. **Action**  >  Hyper-v 관리자에서 작업**종료** 를 클릭 합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+1. **Action**  >  Hyper-v 관리자에서 작업 **종료** 를 클릭 합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Hyper-V 관리자에서 RHEL 7 가상 머신 준비
@@ -195,7 +195,7 @@ ms.locfileid: "87292292"
     # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 수정하려면 텍스트 편집기에서 `/etc/default/grub`를 열고 `GRUB_CMDLINE_LINUX` 매개 변수를 편집합니다. 예를 들면 다음과 같습니다.
+1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 수정하려면 텍스트 편집기에서 `/etc/default/grub`를 열고 `GRUB_CMDLINE_LINUX` 매개 변수를 편집합니다. 다음은 그 예입니다. 
 
     ```config-grub
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -265,7 +265,7 @@ ms.locfileid: "87292292"
     # logout
     ```
 
-1. **Action**  >  Hyper-v 관리자에서 작업**종료** 를 클릭 합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+1. **Action**  >  Hyper-v 관리자에서 작업 **종료** 를 클릭 합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>KVM에서 RedHat 기반 가상 머신 준비
@@ -294,7 +294,7 @@ ms.locfileid: "87292292"
 
    루트 사용자의 두 번째 필드를 “!!”에서 암호화된 암호로 변경합니다.
 
-1. qcow2 이미지에서 KVM에 가상 머신을 만듭니다. 디스크 형식을 **qcow2**로 설정하고 가상 네트워크 인터페이스 디바이스 모델을 **virtio**로 설정합니다. 그 후 가상 머신을 시작하고 루트로 로그인합니다.
+1. qcow2 이미지에서 KVM에 가상 머신을 만듭니다. 디스크 형식을 **qcow2** 로 설정하고 가상 네트워크 인터페이스 디바이스 모델을 **virtio** 로 설정합니다. 그 후 가상 머신을 시작하고 루트로 로그인합니다.
 
 1. 파일 `/etc/sysconfig/network`를 만들거나 편집하고 다음 텍스트를 추가합니다.
 
@@ -490,7 +490,7 @@ ms.locfileid: "87292292"
 
    루트 사용자의 두 번째 필드를 “!!”에서 암호화된 암호로 변경합니다.
 
-1. qcow2 이미지에서 KVM에 가상 머신을 만듭니다. 디스크 형식을 **qcow2**로 설정하고 가상 네트워크 인터페이스 디바이스 모델을 **virtio**로 설정합니다. 그 후 가상 머신을 시작하고 루트로 로그인합니다.
+1. qcow2 이미지에서 KVM에 가상 머신을 만듭니다. 디스크 형식을 **qcow2** 로 설정하고 가상 네트워크 인터페이스 디바이스 모델을 **virtio** 로 설정합니다. 그 후 가상 머신을 시작하고 루트로 로그인합니다.
 
 1. 파일 `/etc/sysconfig/network`를 만들거나 편집하고 다음 텍스트를 추가합니다.
 
@@ -525,7 +525,7 @@ ms.locfileid: "87292292"
     # subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 구성하려면 텍스트 편집기에서 `/etc/default/grub`를 열고 `GRUB_CMDLINE_LINUX` 매개 변수를 편집합니다. 예를 들면 다음과 같습니다.
+1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 구성하려면 텍스트 편집기에서 `/etc/default/grub`를 열고 `GRUB_CMDLINE_LINUX` 매개 변수를 편집합니다. 다음은 그 예입니다. 
 
     ```config-grub
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -664,12 +664,12 @@ ms.locfileid: "87292292"
     ```
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>VMware에서 RedHat 기반 가상 머신 준비
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 이 섹션은 VMWare에 RHEL 가상 머신이 이미 설치되어 있다고 가정합니다. VMWare에서 운영 체제를 설치하는 자세한 방법은 [VMWare 게스트 운영 체제 설치 가이드](https://partnerweb.vmware.com/GOSIG/home.html)를 참조하세요.
 
 * Linux 운영 체제를 설치하는 경우 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이 방법은 특히 문제 해결을 위해 운영 체제 디스크를 다른 가상 머신에 연결해야 하는 경우, 복제된 가상 머신과 LVM 이름이 충돌하는 것을 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 RAID를 사용할 수 있습니다.
 * 운영 체제 디스크에서는 스왑 파티션을 구성하지 마세요. Linux 에이전트를 구성하여 임시 리소스 디스크에서 스왑 파일을 만들 수 있습니다. 여기에 대한 자세한 내용은 아래 단계에서 찾을 수 있습니다.
-* 가상 하드 디스크를 만들 때 **가상 디스크를 단일 파일로 저장**을 선택합니다.
+* 가상 하드 디스크를 만들 때 **가상 디스크를 단일 파일로 저장** 을 선택합니다.
 
 ### <a name="prepare-a-rhel-6-virtual-machine-from-vmware"></a>VMWare에서 RHEL 6 가상 머신 준비
 1. RHEL 6에서 NetworkManager는 Azure Linux 에이전트 작동을 방해할 수 있습니다. 다음 명령을 실행하여 이 패키지를 제거합니다.
@@ -723,7 +723,7 @@ ms.locfileid: "87292292"
     # subscription-manager repos --enable=rhel-6-server-extras-rpms
     ```
 
-1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 하려면 텍스트 편집기에서 `/etc/default/grub`를 열고 `GRUB_CMDLINE_LINUX` 매개 변수를 편집합니다. 예를 들면 다음과 같습니다.
+1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 하려면 텍스트 편집기에서 `/etc/default/grub`를 열고 `GRUB_CMDLINE_LINUX` 매개 변수를 편집합니다. 다음은 그 예입니다. 
 
     ```config-grub
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
@@ -864,7 +864,7 @@ ms.locfileid: "87292292"
     # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 수정하려면 텍스트 편집기에서 `/etc/default/grub`를 열고 `GRUB_CMDLINE_LINUX` 매개 변수를 편집합니다. 예를 들면 다음과 같습니다.
+1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 수정하려면 텍스트 편집기에서 `/etc/default/grub`를 열고 `GRUB_CMDLINE_LINUX` 매개 변수를 편집합니다. 다음은 그 예입니다. 
 
     ```config-grub
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -1112,19 +1112,19 @@ ms.locfileid: "87292292"
 
 1. 설치 시스템에서 액세스할 수 있는 위치에 kickstart 파일을 배치합니다.
 
-1. Hyper-V 관리자에서 새 가상 머신을 만듭니다. **가상 하드 디스크 연결** 페이지에서 **나중에 가상 하드 디스크 연결**을 선택하고 새 Virtual Machine 마법사를 완료합니다.
+1. Hyper-V 관리자에서 새 가상 머신을 만듭니다. **가상 하드 디스크 연결** 페이지에서 **나중에 가상 하드 디스크 연결** 을 선택하고 새 Virtual Machine 마법사를 완료합니다.
 
 1. 가상 머신 설정을 엽니다.
 
-    a.  새 가상 하드 디스크를 가상 머신에 연결합니다. **VHD 형식** 및 **고정된 크기**를 선택하도록 합니다.
+    a.  새 가상 하드 디스크를 가상 머신에 연결합니다. **VHD 형식** 및 **고정된 크기** 를 선택하도록 합니다.
 
     b.  설치 ISO를 DVD 드라이브에 연결합니다.
 
-    다.  CD에서 부팅하도록 BIOS를 설정합니다.
+    c.  CD에서 부팅하도록 BIOS를 설정합니다.
 
 1. 가상 머신을 시작합니다. 설치 가이드가 나타나면 **Tab** 키를 눌러서 부팅 옵션을 구성합니다.
 
-1. 부팅 옵션 마지막에 `inst.ks=<the location of the kickstart file>` 을 입력하고 **Enter**키를 누릅니다.
+1. 부팅 옵션 마지막에 `inst.ks=<the location of the kickstart file>` 을 입력하고 **Enter** 키를 누릅니다.
 
 1. 설치가 완료될 때까지 기다립니다. 완료되면 가상 머신이 자동으로 종료됩니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
