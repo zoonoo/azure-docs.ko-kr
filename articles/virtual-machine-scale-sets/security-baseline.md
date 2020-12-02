@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3932a1dee0eee16e7d64ff4c6085919d85b431ab
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5c00d08fcaeed8eba5b9732c9196b9abddc32b36
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843267"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500719"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets에 대 한 Azure 보안 기준
 
@@ -76,7 +76,7 @@ Virtual Machine Scale Sets에 대 한 Azure 보안 기준에는 배포의 보안
 
 Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 제한 된 기간 동안 Windows Virtual Machines의 노출을 승인 된 IP 주소로 제한할 수 있습니다. 또한 적응 네트워크 강화 Azure Security Center 사용 하 여 실제 트래픽 및 위협 인텔리전스에 따라 포트와 원본 Ip를 제한 하는 NSG 구성을 권장 합니다.
 
-* [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
+* [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 * [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -284,7 +284,7 @@ Azure 가상 머신 확장 집합에서 지 원하는 응용 프로그램 및 �
 
 * [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-* [Log Analytics 작업 영역 이해](../azure-monitor/log-query/get-started-portal.md)
+* [Log Analytics 작업 영역 이해](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
@@ -318,7 +318,7 @@ Azure 가상 머신 확장 집합에서 지 원하는 응용 프로그램 및 �
 
 * [Azure Security center에 Linux 서버를 등록 하는 방법에 대 한 지침](../security-center/quickstart-onboard-machines.md)
 
-* [다음 링크는 선택한 취약점 소프트웨어의 조건 목록으로 사용할 수 있는 Microsoft 권장 보안 지침을 제공 합니다.](../virtual-machines/linux/security-recommendations.md)
+* [다음 링크는 선택한 취약점 소프트웨어의 조건 목록으로 사용할 수 있는 Microsoft 권장 보안 지침을 제공 합니다.](../virtual-machines/security-recommendations.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -450,7 +450,7 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **지침**: Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다. 관리 id를 사용 하 여 코드에 자격 증명 없이 Key Vault를 포함 하 여 Azure AD 인증을 지 원하는 모든 서비스에 인증할 수 있습니다. 가상 머신에서 실행 되는 코드는 관리 되는 id를 사용 하 여 Azure AD 인증을 지 원하는 서비스에 대 한 액세스 토큰을 요청할 수 있습니다.
 
-* [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory-domain-services/tutorial-create-instance.md)
+* [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory-domain-services/tutorial-create-instance.md)
 
 * [Azure 리소스에 대한 관리 ID 개요](../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -472,7 +472,7 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **지침**: Azure Active Directory에 대 한 진단 설정을 구성 하 여 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 보냅니다. 또한 Azure Monitor를 사용 하 여 Azure 가상 머신에서 로그 데이터에 대 한 로그를 검토 하 고 쿼리를 수행 합니다.
 
-* [Log Analytics 작업 영역 이해](../azure-monitor/log-query/get-started-portal.md)
+* [Log Analytics 작업 영역 이해](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -756,7 +756,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [Azure Automation 소개](../automation/automation-intro.md)
 
-* [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](../automation/change-tracking.md)
+* [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](../automation/change-tracking/overview.md)
 
 * [Azure Automation 상태 구성 개요](../automation/automation-dsc-overview.md)
 
@@ -1036,7 +1036,7 @@ Azure Linux 가상 머신에서 맬웨어 방지 보호를 위한 타사 도구�
 
 * [Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
 
-* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지 프로그램을 구성 하는 방법](../virtual-machines/linux/security-recommendations.md)
+* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지 프로그램을 구성 하는 방법](../virtual-machines/security-recommendations.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1190,7 +1190,7 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 * [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

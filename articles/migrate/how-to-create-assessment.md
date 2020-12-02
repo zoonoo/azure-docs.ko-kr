@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: c4132ca675af136d7fd50b8ddd02277919a5ed28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 534619ace09b4e11934062a591adf8d9ab6f77ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361095"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500804"
 ---
 # <a name="create-an-azure-vm-assessment"></a>Azure VM 평가 만들기
 
@@ -21,9 +21,9 @@ ms.locfileid: "91361095"
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-- Azure Migrate 프로젝트를 [만들었는지](how-to-add-tool-first-time.md) 확인 합니다.
+- Azure Migrate 프로젝트를 [만들었는지](./create-manage-projects.md) 확인 합니다.
 - 프로젝트를 이미 만든 경우 Azure Migrate: 서버 평가 도구를 [추가](how-to-assess.md) 했는지 확인 합니다.
-- 평가를 만들려면 [VMware](how-to-set-up-appliance-vmware.md) 또는 [hyper-v](how-to-set-up-appliance-hyper-v.md)에 대 한 Azure Migrate 어플라이언스를 설정 해야 합니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다. [자세히 알아봅니다](migrate-appliance.md).
+- 평가를 만들려면 [VMware](how-to-set-up-appliance-vmware.md) 또는 [hyper-v](how-to-set-up-appliance-hyper-v.md)에 대 한 Azure Migrate 어플라이언스를 설정 해야 합니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다. [자세히 알아보기](migrate-appliance.md).
 
 
 ## <a name="azure-vm-assessment-overview"></a>Azure VM 평가 개요
@@ -41,27 +41,27 @@ Azure Migrate: 서버 평가를 사용 하 여 Azure VM 평가를 만드는 데 
 다음과 같이 평가를 실행합니다.
 
 1. 평가를 만드는 방법에 대한 [모범 사례](best-practices-assessment.md)를 검토합니다.
-2. **서버** 탭의 **Azure Migrate: 서버 평가** 타일에서 **평가**를 클릭합니다.
+2. **서버** 탭의 **Azure Migrate: 서버 평가** 타일에서 **평가** 를 클릭합니다.
 
     ![평가 도구에서 평가를 선택한 Azure Migrate 서버가 스크린샷으로 표시 됩니다.](./media/how-to-create-assessment/assess.png)
 
-3. **서버 평가**에서 평가 유형을 "Azure VM"으로 선택하고, 검색 원본을 선택하고, 평가 이름을 지정합니다.
+3. **서버 평가** 에서 평가 유형을 "Azure VM"으로 선택하고, 검색 원본을 선택하고, 평가 이름을 지정합니다.
 
     ![평가 기본 사항](./media/how-to-create-assessment/assess-servers-azurevm.png)
 
-4. 평가 속성을 검토하려면 **모두 보기**를 클릭합니다.
+4. 평가 속성을 검토하려면 **모두 보기** 를 클릭합니다.
 
     ![평가 속성](./media/how-to-create-assessment//view-all.png)
 
-5. **다음**을 클릭하여 **평가할 머신을 선택**합니다. **그룹 선택 또는 만들기**에서 **새로 만들기**를 선택하고 그룹 이름을 지정합니다. 그룹은 평가를 위해 하나 이상의 VM을 수집합니다.
-6. **그룹에 머신 추가**에서 그룹에 추가할 VM을 선택합니다.
-7. **다음**에서 **검토 + 평가 만들기**를 클릭하여 평가 세부 정보를 검토합니다.
-8. **평가 만들기**를 클릭하여 그룹을 만들고, 평가를 실행합니다.
+5. **다음** 을 클릭하여 **평가할 머신을 선택** 합니다. **그룹 선택 또는 만들기** 에서 **새로 만들기** 를 선택하고 그룹 이름을 지정합니다. 그룹은 평가를 위해 하나 이상의 VM을 수집합니다.
+6. **그룹에 머신 추가** 에서 그룹에 추가할 VM을 선택합니다.
+7. **다음** 에서 **검토 + 평가 만들기** 를 클릭하여 평가 세부 정보를 검토합니다.
+8. **평가 만들기** 를 클릭하여 그룹을 만들고, 평가를 실행합니다.
 
     ![평가 만들기](./media/how-to-create-assessment//assessment-create.png)
 
-9. 평가가 만들어지면 **서버** > **Azure Migrate: 서버 평가** > **평가**에서 해당 평가를 확인합니다.
-10. **평가 내보내기**를 클릭하고, Excel 파일로 다운로드합니다.
+9. 평가가 만들어지면 **서버** > **Azure Migrate: 서버 평가** > **평가** 에서 해당 평가를 확인합니다.
+10. **평가 내보내기** 를 클릭하고, Excel 파일로 다운로드합니다.
 
 
 
@@ -75,14 +75,14 @@ Azure VM 평가는 다음을 설명합니다.
 
 ### <a name="view-an-azure-vm-assessment"></a>Azure VM 평가 보기
 
-1. **마이그레이션 목표** >  **서버**의 **Azure Migrate: 서버 평가**에서 **평가**를 클릭합니다.
-2. **평가**에서 해당 평가를 클릭하여 엽니다.
+1. **마이그레이션 목표** >  **서버** 의 **Azure Migrate: 서버 평가** 에서 **평가** 를 클릭합니다.
+2. **평가** 에서 해당 평가를 클릭하여 엽니다.
 
     ![평가 요약](./media/how-to-create-assessment/assessment-summary.png)
 
 ### <a name="review-azure-readiness"></a>Azure 준비 상태 검토
 
-1. **Azure 준비 상태**에서 VM이 Azure로 마이그레이션할 준비가 되었는지 확인합니다.
+1. **Azure 준비 상태** 에서 VM이 Azure로 마이그레이션할 준비가 되었는지 확인합니다.
 2. VM 상태를 검토합니다.
     - **Azure 준비 완료**: Azure Migrate는 평가에서 VM의 크기 및 예상 비용을 추천합니다.
     - **조건과 함께 준비 완료**: 문제 및 제안된 수정 사항을 보여 줍니다.

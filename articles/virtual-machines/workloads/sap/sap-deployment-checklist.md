@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ac75ab31f8c9cdd9405115db4f5c35d28707e29f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 06d20dd47ceb71b51e226d662892eab06b072685
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950366"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500940"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -243,8 +243,8 @@ ms.locfileid: "94950366"
     - Azure Premium Storage는 대기 시간에 민감한 디스크 또는 [99.9%의 단일 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) 가 필요한 경우에 사용 됩니다.
     - Azure 쓰기 가속기 올바르게 배포 되었습니다.
         - Vm, 저장소 공간 또는 스트라이프 집합이 쓰기 가속기 필요한 디스크 전체에 올바르게 빌드 되었는지 확인 합니다.
-        - [Linux에서 소프트웨어 RAID의 구성을](../../linux/configure-raid.md)확인 합니다.
-        - [Azure의 Linux vm에서 LVM의 구성을](../../linux/configure-lvm.md)확인 합니다.
+        - [Linux에서 소프트웨어 RAID의 구성을](/previous-versions/azure/virtual-machines/linux/configure-raid)확인 합니다.
+        - [Azure의 Linux vm에서 LVM의 구성을](/previous-versions/azure/virtual-machines/linux/configure-lvm)확인 합니다.
     - [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) 는 독점적으로 사용 됩니다.
     - Vm이 올바른 가용성 집합에 배포 되 고 가용성 영역.
     - SAP 응용 프로그램 계층 및 SAP DBMS 계층에 사용 되는 Vm에서 [Azure 가속화 된 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) 을 사용할 수 있습니다.

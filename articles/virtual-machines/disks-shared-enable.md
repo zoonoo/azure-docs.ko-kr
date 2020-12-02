@@ -8,12 +8,12 @@ ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 661d4ba575eafa4e261a1c92c1112a259b95eac7
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: e8bb97196fcceea0c86f58fe4a63146e681c427e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683594"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500736"
 ---
 # <a name="enable-shared-disk"></a>공유 디스크 사용
 
@@ -27,7 +27,7 @@ ms.locfileid: "94683594"
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-공유 디스크는 여러 운영 체제를 지원 합니다. 지원 되는 운영 체제에 대 한 개념 문서의 [Windows](windows/disks-shared.md#windows) 및 [Linux](linux/disks-shared.md#linux) 섹션을 참조 하세요.
+공유 디스크는 여러 운영 체제를 지원 합니다. 지원 되는 운영 체제에 대 한 개념 문서의 [Windows](./disks-shared.md#windows) 및 [Linux](./disks-shared.md#linux) 섹션을 참조 하세요.
 
 ## <a name="disk-sizes"></a>디스크 크기
 

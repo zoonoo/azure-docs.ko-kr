@@ -5,12 +5,12 @@ ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: daberry
-ms.openlocfilehash: 5c028fc1abd77bda1a41857a7a7c77da1ad1b2d2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eb864837e9063aa39827abf61f7efece4c909118
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027969"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509418"
 ---
 조직에서는 표준화된 VM(가상 머신) 이미지를 사용하여 클라우드로 마이그레이션하고 배포의 일관성을 유지할 수 있습니다. 이미지에는 일반적으로 미리 정의된 보안 및 구성 설정과 필수 소프트웨어가 포함되어 있습니다. 사용자 고유의 이미징 파이프라인을 설정하려면 시간, 인프라 및 설정이 필요하지만, Azure VM Image Builder를 사용하면 이미지를 설명하는 간단한 구성을 제공하고, 서비스에 제출하고, 이미지를 빌드하고 배포하기만 하면 됩니다.
  
@@ -84,7 +84,7 @@ Azure VM Image Builder에서 관리형 이미지 또는 공유 이미지 갤러�
 사용 권한은 [여기](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements)에 좀 더 자세히 설명되며 구현 방법을 보여 주는 예제가 나와 있습니다.
 
 > [!Note]
-> 이전에 AIB SPN을 사용하고 이미지 리소스 그룹에 SPN 권한을 부여한 적이 있을 것입니다. 향후 기능을 허용하기 위해 이 모델에서 전환할 것입니다. 2020년 5월 26일부터 Image Builder는 사용자 할당 ID가 없는 템플릿을 수락하지 않으며 기존 템플릿은 [사용자 ID](../articles/virtual-machines/linux/image-builder-json.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#identity)를 사용하여 서비스에 다시 제출해야 합니다. 여기에 나오는 예제는 사용자 할당 ID를 만들고 템플릿에 추가하는 방법을 보여 줍니다. 자세한 내용은 이 [설명서](https://github.com/danielsollondon/azvmimagebuilder#service-updates-and-latest-release-information)에서 이러한 변경 및 릴리스 업데이트를 검토하세요.
+> 이전에 AIB SPN을 사용하고 이미지 리소스 그룹에 SPN 권한을 부여한 적이 있을 것입니다. 향후 기능을 허용하기 위해 이 모델에서 전환할 것입니다. 2020년 5월 26일부터 Image Builder는 사용자 할당 ID가 없는 템플릿을 수락하지 않으며 기존 템플릿은 [사용자 ID](../articles/virtual-machines/linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#identity)를 사용하여 서비스에 다시 제출해야 합니다. 여기에 나오는 예제는 사용자 할당 ID를 만들고 템플릿에 추가하는 방법을 보여 줍니다. 자세한 내용은 이 [설명서](https://github.com/danielsollondon/azvmimagebuilder#service-updates-and-latest-release-information)에서 이러한 변경 및 릴리스 업데이트를 검토하세요.
 
 ## <a name="costs"></a>비용
 Azure Image Builder를 사용하여 이미지를 만들고, 빌드하고, 저장하는 경우 컴퓨팅, 네트워킹 및 스토리지 비용이 일부 발생합니다. 이러한 비용은 사용자 지정 이미지를 수동으로 만들 때 발생하는 비용과 비슷합니다. 리소스의 경우 Azure 요금에 청구됩니다. 

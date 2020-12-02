@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b1ef29eb71ccd945552550f64e5ae95bc85be44d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 79ccf0f8aae7e915601081f875cea294de52d787
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672115"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500855"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Azure SQL Database에 대 한 Database Advisor 성능 권장 사항
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -105,7 +105,7 @@ CPU, 데이터 IO 또는 로그 IO가 이전 30 분 동안 80% 보다 높은 경
 
 | SQL 오류 코드 | 메시지 |
 | --- | --- |
-| 201 |프로시저 또는 함수 ' *'에서 매개 변수 '* '이(가) 필요하지만 제공되지 않았습니다. |
+| 201 |프로시저 또는 함수 '*'에서 매개 변수 '*'이(가) 필요하지만 제공되지 않았습니다. |
 | 207 |잘못된 열 이름: '*'. |
 | 208 |잘못된 개체 이름: '*'. |
 | 213 |제공된 값의 개수나 열 이름이 테이블 정의와 일치하지 않습니다. |
