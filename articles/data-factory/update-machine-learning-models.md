@@ -3,20 +3,20 @@ title: Azure Data Factory를 사용 하 여 Azure Machine Learning Studio (클�
 description: Azure Data Factory 및 Azure Machine Learning Studio (클래식)를 사용 하 여 예측 파이프라인을 만드는 방법을 설명 합니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 83950c2d3c5439886ff787b69d9da4d0c214de31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bec300414483181617a7aa009157a4c4a332c745
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092544"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496741"
 ---
 # <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용 하 여 Azure Machine Learning Studio (클래식) 모델 업데이트
 
@@ -63,7 +63,7 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 만드는 모델은 
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | 파이프라인의 작업 이름입니다.     | 예      |
 | description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
-| type                          | Azure Machine Learning Studio (클래식) 리소스 업데이트 작업의 경우 활동 형식은  **AzureMLUpdateResource**입니다. | 예      |
+| type                          | Azure Machine Learning Studio (클래식) 리소스 업데이트 작업의 경우 활동 형식은  **AzureMLUpdateResource** 입니다. | 예      |
 | linkedServiceName             | UpdateResourceEndpoint 속성을 포함 하는 Azure Machine Learning Studio (클래식) 연결 된 서비스입니다. | 예      |
 | trainedModelName              | 업데이트할 웹 서비스 실험의 학습된 모델 모듈의 이름입니다. | 예      |
 | trainedModelLinkedServiceName | 업데이트 작업으로 업로드되는 ilearner 파일을 보유한 Azure Storage 연결된 서비스의 이름입니다. | 예      |
@@ -73,8 +73,8 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 만드는 모델은 
 
 모델을 다시 학습하고 예측 웹 서비스를 업데이트하는 전체 프로세스에는 다음 단계가 포함됩니다.
 
-- **일괄 처리 실행 작업**을 사용하여 **학습 웹 서비스**를 호출합니다. 학습 웹 서비스를 호출 하는 것은 [Azure Machine Learning Studio (클래식)를 사용 하 여 예측 파이프라인 만들기 및 Data Factory Batch 실행 작업](transform-data-using-machine-learning.md)에 설명 된 예측 웹 서비스를 호출 하는 것과 같습니다. 학습 웹 서비스의 출력은 예측 웹 서비스를 업데이트 하는 데 사용할 수 있는 iLearner 파일입니다.
-- **리소스 업데이트 작업**을 통해 **예측 웹 서비스**의 **리소스 업데이트 엔드포인트**를 호출하여 새로운 학습된 모델을 통해 웹 서비스를 업데이트합니다.
+- **일괄 처리 실행 작업** 을 사용하여 **학습 웹 서비스** 를 호출합니다. 학습 웹 서비스를 호출 하는 것은 [Azure Machine Learning Studio (클래식)를 사용 하 여 예측 파이프라인 만들기 및 Data Factory Batch 실행 작업](transform-data-using-machine-learning.md)에 설명 된 예측 웹 서비스를 호출 하는 것과 같습니다. 학습 웹 서비스의 출력은 예측 웹 서비스를 업데이트 하는 데 사용할 수 있는 iLearner 파일입니다.
+- **리소스 업데이트 작업** 을 통해 **예측 웹 서비스** 의 **리소스 업데이트 엔드포인트** 를 호출하여 새로운 학습된 모델을 통해 웹 서비스를 업데이트합니다.
 
 ## <a name="azure-machine-learning-studio-classic-linked-service"></a>Azure Machine Learning Studio (클래식) 연결 된 서비스
 
@@ -87,7 +87,7 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 만드는 모델은 
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>새 Azure Resource Manager 웹 서비스
 
-웹 서비스가 Azure Resource Manager 엔드포인트를 노출하는 새로운 유형의 웹 서비스인 경우 두 번째 **기본이 아닌** 엔드포인트를 추가할 필요가 없습니다. 연결된 서비스의 **updateResourceEndpoint**는 다음 형식을 갖습니다.
+웹 서비스가 Azure Resource Manager 엔드포인트를 노출하는 새로운 유형의 웹 서비스인 경우 두 번째 **기본이 아닌** 엔드포인트를 추가할 필요가 없습니다. 연결된 서비스의 **updateResourceEndpoint** 는 다음 형식을 갖습니다.
 
 ```
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview
@@ -170,13 +170,13 @@ Azure Storage는 다음 데이터를 보관합니다.
 }
 ```
 
-**Azure Machine Learning Studio (클래식)** 에서 다음을 수행 하 여 **Mlendpoint** 및 **apikey**에 대 한 값을 가져옵니다.
+**Azure Machine Learning Studio (클래식)** 에서 다음을 수행 하 여 **Mlendpoint** 및 **apikey** 에 대 한 값을 가져옵니다.
 
 1. 왼쪽 메뉴에서 **웹 서비스** 를 클릭합니다.
 2. 웹 서비스 목록에서 **학습 웹 서비스** 를 클릭합니다.
 3. **API 키** 텍스트 상자 옆의 복사를 클릭합니다. 클립보드의 키를 Data Factory JSON 편집기에 붙여넣습니다.
 4. **Azure Machine Learning Studio (클래식)** 에서 **BATCH 실행** 링크를 클릭 합니다.
-5. **요청** 섹션에서 **요청 URI**를 복사하여 Data Factory JSON 편집기에 붙여넣습니다.
+5. **요청** 섹션에서 **요청 URI** 를 복사하여 Data Factory JSON 편집기에 붙여넣습니다.
 
 ### <a name="linked-service-for-azure-machine-learning-studio-classic-updatable-scoring-endpoint"></a>Azure Machine Learning Studio (클래식) 업데이트 가능한 점수 매기기 끝점에 대 한 연결 된 서비스:
 다음 JSON 코드 조각은 점수 매기기 웹 서비스의 업데이트 가능한 끝점을 가리키는 Azure Machine Learning Studio (클래식) 연결 된 서비스를 정의 합니다.
@@ -199,7 +199,7 @@ Azure Storage는 다음 데이터를 보관합니다.
 ```
 
 ### <a name="pipeline"></a>파이프라인
-파이프라인에는 **AzureMLBatchExecution** 및 **AzureMLUpdateResource**라는 두 활동이 있습니다. 일괄 처리 실행 작업에서는 학습 데이터를 입력으로 가져오고, iLearner 파일을 출력으로 생성합니다. 그런 다음 리소스 업데이트 작업에서 이 iLearner 파일을 가져오고, 이를 사용하여 예측 웹 서비스를 업데이트합니다.
+파이프라인에는 **AzureMLBatchExecution** 및 **AzureMLUpdateResource** 라는 두 활동이 있습니다. 일괄 처리 실행 작업에서는 학습 데이터를 입력으로 가져오고, iLearner 파일을 출력으로 생성합니다. 그런 다음 리소스 업데이트 작업에서 이 iLearner 파일을 가져오고, 이를 사용하여 예측 웹 서비스를 업데이트합니다.
 
 ```JSON
 {

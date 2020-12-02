@@ -3,20 +3,20 @@ title: Azure Portal 및 PowerShell을 사용 하 여 파이프라인 모니터�
 description: Azure Portal과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 4473df318f65c0e0097aed298d0be57e3bca382b
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2a30c755bc19849ad3a821cbbc75b787a3b0bb98
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636938"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495857"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Azure Portal 및 PowerShell을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -87,10 +87,10 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
 <table>
 <tr>
-    <th align="left">시스템 상태</th><th align="left">하위 상태</th><th align="left">Description</th>
+    <th align="left">주</th><th align="left">하위 상태</th><th align="left">설명</th>
 </tr>
 <tr>
-    <td rowspan="8">대기 중</td><td>ScheduleTime</td><td>아직 조각이 실행할 시간이 되지 않습니다.</td>
+    <td rowspan="8">대기</td><td>ScheduleTime</td><td>아직 조각이 실행할 시간이 되지 않습니다.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>업스트림 종속성이 준비되지 않습니다.</td>
@@ -105,7 +105,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <td>ActivityResume</td><td>활동이 일시 중지되어 재개될 때까지 조각을 실행할 수 없습니다.</td>
 </tr>
 <tr>
-<td>다시 시도</td><td>작업 실행을 다시 시도하는 중입니다.</td>
+<td>재시도</td><td>작업 실행을 다시 시도하는 중입니다.</td>
 </tr>
 <tr>
 <td>유효성 검사</td><td>유효성 검사가 아직 시작되지 않았습니다.</td>
@@ -121,7 +121,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <td>조각이 처리되고 있습니다.</td>
 </tr>
 <tr>
-<td rowspan="4">Failed</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
+<td rowspan="4">실패</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
 </tr>
 <tr>
 <td>취소됨</td><td>이 조각은 사용자 동작으로 취소되었습니다.</td>
@@ -132,7 +132,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <tr>
 <td>-</td><td>조각 생성 및 유효성 검사가 실패했습니다.</td>
 </tr>
-<td>Ready</td><td>-</td><td>조각을 사용할 준비가 되었습니다.</td>
+<td>준비</td><td>-</td><td>조각을 사용할 준비가 되었습니다.</td>
 </tr>
 <tr>
 <td>건너뜀</td><td>없음</td><td>조각이 처리되고 있지 않습니다.</td>
@@ -163,9 +163,9 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
 데이터 팩터리의 데이터 세트 상태 전환 흐름에는 Waiting(대기)-&gt; In-Progress/In-Progress (Validating)(진행 중/진행 중(확인 중)) -&gt; Ready/Failed(준비/실패)가 포함됩니다.
 
-조각은 **Waiting** (대기) 상태로 시작하여 실행 전에 사전 조건이 충족되기를 기다립니다. 그런 다음 작업은 실행을 시작하고 조각은 **In-Progress** (진행 중) 상태가 됩니다. 작업 실행이 성공 또는 실패할 수 있습니다. 조각은 실행 결과에 따라 **Ready** (준비) 또는 **Failed** (실패)로 표시됩니다.
+조각은 **Waiting**(대기) 상태로 시작하여 실행 전에 사전 조건이 충족되기를 기다립니다. 그런 다음 작업은 실행을 시작하고 조각은 **In-Progress**(진행 중) 상태가 됩니다. 작업 실행이 성공 또는 실패할 수 있습니다. 조각은 실행 결과에 따라 **Ready**(준비) 또는 **Failed**(실패)로 표시됩니다.
 
-조각은 **Ready** (준비) 또는 **Failed** (실패) 상태에서 **Waiting** (대기 중) 상태로 다시 설정할 수 있습니다. 조각 상태를 **Skip** (건너뛰기)로 표시할 수도 있으며, 이렇게 하면 작업이 실행되지 않고 조각이 처리되지 않습니다.
+조각은 **Ready**(준비) 또는 **Failed**(실패) 상태에서 **Waiting**(대기 중) 상태로 다시 설정할 수 있습니다. 조각 상태를 **Skip**(건너뛰기)로 표시할 수도 있으며, 이렇게 하면 작업이 실행되지 않고 조각이 처리되지 않습니다.
 
 ## <a name="pause-and-resume-pipelines"></a>파이프라인 일시 중지 및 다시 시작
 Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 예를 들어 Azure PowerShell cmdlet을 실행하여 파이프라인을 일시 중지하거나 다시 시작할 수 있습니다. 
@@ -178,7 +178,7 @@ Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -189,7 +189,7 @@ Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrec
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -222,7 +222,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다. 
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -236,7 +236,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    예를 들면 다음과 같습니다.
+    다음은 그 예입니다. 
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"

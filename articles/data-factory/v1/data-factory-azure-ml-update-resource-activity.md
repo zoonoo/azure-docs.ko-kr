@@ -3,20 +3,20 @@ title: Azure Data Factory를 사용 하 여 Machine Learning 모델 업데이트
 description: Azure Data Factory v1 및 Azure Machine Learning Studio (클래식)를 사용 하 여 예측 파이프라인을 만드는 방법을 설명 합니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: c456c7eb31e1e8e66aa3276a0cb5f6f8b39efa9a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 556936eb6e8c1c1c2dd1fab4ce7dfc1b648710b7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631753"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496605"
 ---
 # <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>업데이트 리소스 작업을 사용 하 여 Azure Machine Learning Studio (클래식) 모델 업데이트
 
@@ -42,7 +42,7 @@ ms.locfileid: "92631753"
 시간이 지남에 따라 Azure Machine Learning Studio (클래식) 점수 매기기 실험의 예측 모델은 새 입력 데이터 집합을 사용 하 여 다시 학습 해야 합니다. 재학습으로 완료한 후에는 재학습한 ML 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. 웹 서비스를 통해 Studio (클래식) 모델을 다시 학습 하 고 업데이트 하는 일반적인 단계는 다음과 같습니다.
 
 1. [Azure Machine Learning Studio (클래식)](https://studio.azureml.net)에서 실험을 만듭니다.
-2. 모델에 만족 하는 경우 Azure Machine Learning Studio (클래식)를 사용 하 여 **학습 실험** 및 점수 매기기/ **예측 실험** 에 대 한 웹 서비스를 게시 합니다.
+2. 모델에 만족 하는 경우 Azure Machine Learning Studio (클래식)를 사용 하 여 **학습 실험** 및 점수 매기기/**예측 실험** 에 대 한 웹 서비스를 게시 합니다.
 
 다음 표에서는 이 예제에 사용된 웹 서비스에 대해 설명합니다.  자세한 내용은 [프로그래밍 방식으로 다시 학습 Azure Machine Learning Studio (클래식) 모델](../../machine-learning/classic/retrain-machine-learning-model.md) 을 참조 하세요.
 

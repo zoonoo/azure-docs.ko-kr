@@ -3,20 +3,20 @@ title: Azure Data Factory를 사용 하 여 예측 데이터 파이프라인 만
 description: Azure Data Factory 및 Azure Machine Learning Studio (클래식)를 사용 하 여 예측 파이프라인을 만드는 방법을 설명 합니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: ce3175a015b7a5813f62c639fdadbeea367bbc22
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 481b801d481f32ef84279be2d8bd6089670a01b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631770"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496522"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Azure Machine Learning Studio (클래식) 및 Azure Data Factory를 사용 하 여 예측 파이프라인 만들기
 
@@ -40,9 +40,9 @@ ms.locfileid: "92631770"
 ### <a name="azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)
 [Azure Machine Learning Studio (클래식)](https://azure.microsoft.com/documentation/services/machine-learning/) 를 사용 하 여 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다. 대략적인 관점에서 이 작업은 다음 세 단계로 수행됩니다.
 
-1. **학습 실험을 만듭니다** . Azure Machine Learning Studio (클래식)를 사용 하 여이 단계를 수행 합니다. Studio (클래식)는 학습 데이터를 사용 하 여 예측 분석 모델을 학습 하 고 테스트 하는 데 사용 하는 공동 작업 시각적 개발 환경입니다.
+1. **학습 실험을 만듭니다**. Azure Machine Learning Studio (클래식)를 사용 하 여이 단계를 수행 합니다. Studio (클래식)는 학습 데이터를 사용 하 여 예측 분석 모델을 학습 하 고 테스트 하는 데 사용 하는 공동 작업 시각적 개발 환경입니다.
 2. **예측 실험으로 변환** 합니다. 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 점수 매기기를 위해 실험을 준비하고 간소화합니다.
-3. **웹 서비스로 배포** . 점수 매기기 실험을 Azure 웹 서비스로 게시할 수 있습니다. 이 웹 서비스 끝점을 통해 데이터를 모델로 전송하고 모델로부터 결과 예측을 받을 수 있습니다.
+3. **웹 서비스로 배포**. 점수 매기기 실험을 Azure 웹 서비스로 게시할 수 있습니다. 이 웹 서비스 끝점을 통해 데이터를 모델로 전송하고 모델로부터 결과 예측을 받을 수 있습니다.
 
 ### <a name="azure-data-factory"></a>Azure 데이터 팩터리
 Data Factory은 데이터의 **이동과** **변환을** 오케스트레이션 하 고 자동화 하는 클라우드 기반 데이터 통합 서비스입니다. 다양한 데이터 저장소에서 데이터를 수집하고 변환/처리하며 데이터 저장소에 결과 데이터를 게시할 수 있는 Azure Data Factory를 사용하여 데이터 통합 솔루션을 만들 수 있습니다.
@@ -80,7 +80,7 @@ Azure Data Factory를 사용 하 여 데이터 이동 및 처리를 오케스트
 > [!IMPORTANT]
 > 웹 서비스에서 다중 입력을 받을 경우 **webServiceInput** 를 사용하는 대신에 **webServiceInputs** 속성을 사용합니다. webServiceInputs 속성을 사용하는 예제는 [웹 서비스에는 다중 입력이 필요합니다](#web-service-requires-multiple-inputs) 섹션을 참조합니다.
 >
-> **Webserviceinput** / **webserviceinput** 및 **webserviceinput** 속성에서 참조 하는 데이터 집합 ( **typeProperties** )은 활동 **입력** 및 **출력** 에도 포함 되어야 합니다.
+> **Webserviceinput** / **webserviceinput** 및 **webserviceinput** 속성에서 참조 하는 데이터 집합 ( **typeProperties**)은 활동 **입력** 및 **출력** 에도 포함 되어야 합니다.
 >
 > Studio (클래식) 실험에서 웹 서비스 입력 및 출력 포트와 전역 매개 변수에는 사용자 지정할 수 있는 기본 이름 ("input1", "input2")이 있습니다. WebServiceInputs, webServiceOutputs 및 globalParameters 설정에 대해 사용하는 이름은 실험에서의 이름과 정확히 일치해야 합니다. Studio (클래식) 끝점에 대 한 일괄 처리 실행 도움말 페이지에서 샘플 요청 페이로드를 보고 필요한 매핑을 확인할 수 있습니다.
 >
@@ -182,7 +182,7 @@ Azure Data Factory를 사용 하 여 데이터 이동 및 처리를 오케스트
     }
     ```
 
-    입력 csv 파일에는 열 머리글 행이 있어야 합니다. **복사 작업** 을 사용하여 csv를 만들고 Blob Storage로 이동하는 경우 싱크 속성 **blobWriterAddHeader** 를 **true** 로 설정해야 합니다. 예를 들면 다음과 같습니다.
+    입력 csv 파일에는 열 머리글 행이 있어야 합니다. **복사 작업** 을 사용하여 csv를 만들고 Blob Storage로 이동하는 경우 싱크 속성 **blobWriterAddHeader** 를 **true** 로 설정해야 합니다. 다음은 그 예입니다. 
 
     ```JSON
     sink:
@@ -192,7 +192,7 @@ Azure Data Factory를 사용 하 여 데이터 이동 및 처리를 오케스트
     }
     ```
 
-    Csv 파일에 헤더 행이 없는 경우 다음 오류가 표시 될 수 있습니다. **작업에 오류: 문자열을 읽는 중 오류가 발생 했습니다. 예기치 않은 토큰: StartObject. 경로 ' ', 줄 1, 위치 1** .
+    Csv 파일에 헤더 행이 없는 경우 다음 오류가 표시 될 수 있습니다. **작업에 오류: 문자열을 읽는 중 오류가 발생 했습니다. 예기치 않은 토큰: StartObject. 경로 ' ', 줄 1, 위치 1**.
 3. **출력** Azure Data Factory **데이터 세트** 를 만듭니다. 이 예제에서는 분할을 사용하여 각 조각 실행의 고유한 출력 경로를 만듭니다. 분할하지 않으면 작업에서 파일을 덮어씁니다.
 
     ```JSON
@@ -301,7 +301,7 @@ Azure Data Factory를 사용 하 여 데이터 이동 및 처리를 오케스트
       }
       ```
 
-      **시작** 및 **종료** 날짜/시간 모두 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **End** 속성의 값을 지정 하지 않으면 " **시작 + 48 시간** "으로 계산 됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09** 를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](/previous-versions/azure/dn835050(v=azure.100)) 를 참조하세요.
+      **시작** 및 **종료** 날짜/시간 모두 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **End** 속성의 값을 지정 하지 않으면 "**시작 + 48 시간**"으로 계산 됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09** 를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](/previous-versions/azure/dn835050(v=azure.100)) 를 참조하세요.
 
       > [!NOTE]
       > AzureMLBatchExecution 작업에 대한 입력 지정은 선택 사항입니다.
@@ -405,7 +405,7 @@ Studio (클래식) 실험에서 판독기 모듈을 사용 하는 경우 Azure B
 위 JSON 예제에서
 
 * 배포 된 Studio (클래식) 웹 서비스는 판독기 및 기록기 모듈을 사용 하 여 Azure SQL Database에서 데이터를 읽고 씁니다. 이 웹 서비스는 네 개의 매개 변수, 즉 데이터베이스 서버 이름, 데이터베이스 이름, 서버 사용자 계정 이름 및 서버 사용자 계정 암호를 공개합니다.
-* **시작** 및 **종료** 날짜/시간 모두 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **End** 속성의 값을 지정 하지 않으면 " **시작 + 48 시간** "으로 계산 됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09** 를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](/previous-versions/azure/dn835050(v=azure.100)) 를 참조하세요.
+* **시작** 및 **종료** 날짜/시간 모두 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **End** 속성의 값을 지정 하지 않으면 "**시작 + 48 시간**"으로 계산 됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09** 를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](/previous-versions/azure/dn835050(v=azure.100)) 를 참조하세요.
 
 ### <a name="other-scenarios"></a>기타 시나리오
 #### <a name="web-service-requires-multiple-inputs"></a>웹 서비스에는 다중 입력이 필요합니다
