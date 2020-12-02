@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d6449a00886b7366bcd1f6e2fcec910fd3cb38db
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1ea326cc4537176c0ddcff070f4dc3b3f77f4b58
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461043"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512038"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>상업적 marketplace의 SaaS 등록 Api 버전 2
 
@@ -20,7 +20,7 @@ ms.locfileid: "96461043"
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>SaaS 구독 수명 주기 관리
 
-상업적 marketplace는 최종 사용자가 구매한 후 SaaS 구독의 전체 수명 주기를 관리 합니다.  방문 페이지, 다시 사용 Api, 운영 Api 및 웹 후크를 사용 하 여 실제 SaaS 구독 활성화, 사용, 업데이트 및 취소를 구동 하는 메커니즘으로 사용 합니다.  최종 사용자의 청구는 Microsoft에서 유지 관리 하는 SaaS 구독의 상태를 기준으로 합니다. 
+상업적 marketplace는 최종 사용자가 구매한 후 SaaS 구독의 전체 수명 주기를 관리 합니다. 방문 페이지, 다시 사용 Api, 운영 Api 및 웹 후크를 사용 하 여 실제 SaaS 구독 활성화, 사용, 업데이트 및 취소를 구동 하는 메커니즘으로 사용 합니다. 최종 사용자의 청구는 Microsoft에서 유지 관리 하는 SaaS 구독의 상태를 기준으로 합니다. 
 
 ### <a name="states-of-a-saas-subscription"></a>SaaS 구독의 상태
 
@@ -44,11 +44,11 @@ ms.locfileid: "96461043"
 
 방문 페이지 URL은 매일, 매일, 그리고 항상 Microsoft에서 새로운 호출을 받을 준비가 되어 있어야 합니다. 방문 페이지를 사용할 수 없게 되 면 고객은 SaaS 서비스에 등록 하 고 사용을 시작할 수 없습니다.
 
-그런 다음, 게시자는 [SaaS RESOLVE API](#resolve-a-purchased-subscription)를 호출 하 고 헤더 매개 변수 값으로 토큰을 입력 하 여 *토큰* 을 Microsoft에 다시 전달 해야 합니다 `x-ms-marketplace-token header` .  Resolve API 호출의 결과로 구매 구매의 고유 ID, 구매한 제품 ID 및 구매한 계획 ID와 같은 SaaS 구매 세부 정보에 대 한 토큰을 교환 합니다.
+그런 다음, 게시자는 [SaaS RESOLVE API](#resolve-a-purchased-subscription)를 호출 하 고 헤더 매개 변수 값으로 토큰을 입력 하 여 *토큰* 을 Microsoft에 다시 전달 해야 합니다 `x-ms-marketplace-token header` . Resolve API 호출의 결과로 구매 구매의 고유 ID, 구매한 제품 ID 및 구매한 계획 ID와 같은 SaaS 구매 세부 정보에 대 한 토큰을 교환 합니다.
 
 방문 페이지에서 고객은 Azure Active Directory (Azure AD) Single Sign-On (SSO)를 통해 신규 또는 기존 SaaS 계정에 로그인 해야 합니다.
 
-게시자는이 흐름에 Microsoft에서 요구 하는 사용자 환경을 제공 하는 SSO를 구현 해야 합니다. SSO를 구성할 때 다중 테 넌 트 Azure AD 응용 프로그램을 사용 하 고 회사 및 학교 계정이 나 개인 Microsoft 계정을 모두 허용 해야 합니다.  이 요구 사항은 Microsoft 자격 증명을 사용 하 여 이미 로그인 한 경우 SaaS 서비스로 리디렉션되는 사용자에 게 방문 페이지에만 적용 됩니다. SSO는 SaaS 서비스에 대 한 모든 로그인에 필요 하지 않습니다.
+게시자는이 흐름에 Microsoft에서 요구 하는 사용자 환경을 제공 하는 SSO를 구현 해야 합니다. SSO를 구성할 때 다중 테 넌 트 Azure AD 응용 프로그램을 사용 하 고 회사 및 학교 계정이 나 개인 Microsoft 계정을 모두 허용 해야 합니다. 이 요구 사항은 Microsoft 자격 증명을 사용 하 여 이미 로그인 한 경우 SaaS 서비스로 리디렉션되는 사용자에 게 방문 페이지에만 적용 됩니다. SSO는 SaaS 서비스에 대 한 모든 로그인에 필요 하지 않습니다.
 
 > [!NOTE]
 >SSO를 사용 하려면 관리자가 앱에 권한을 부여 해야 하는 경우 파트너 센터의 제안에 대 한 설명은 관리자 수준 액세스가 필요 하다는 것을 공개 해야 합니다. 이러한 공개는 [상업적 marketplace 인증 정책을](/legal/marketplace/certification-policies#10003-authentication-options)준수 하기 위한 것입니다.
@@ -82,11 +82,11 @@ SaaS 구독에는 두 가지 유형의 업데이트를 사용할 수 있습니�
 
 ##### <a name="update-initiated-from-the-commercial-marketplace"></a>상업적 marketplace에서 시작 된 업데이트
 
-이 흐름에서 고객은 Azure Portal 또는 Microsoft 365 관리 센터에서 구독 계획 또는 수량을 변경 합니다.  
+이 흐름에서 고객은 Azure Portal 또는 Microsoft 365 관리 센터에서 구독 계획 또는 수량을 변경 합니다.
 
-1. 업데이트를 입력 한 후 Microsoft는 파트너 센터의 **연결 webhook** 필드에 구성 된 게시자의 웹 후크 URL을 호출 하 고 적절 한 *작업* 및 기타 관련 매개 변수에 대 한 적절 한 값을 호출 합니다.  
+1. 업데이트를 입력 한 후 Microsoft는 파트너 센터의 **연결 webhook** 필드에 구성 된 게시자의 웹 후크 URL을 호출 하 고 적절 한 *작업* 및 기타 관련 매개 변수에 대 한 적절 한 값을 호출 합니다. 
 1. 게시자 쪽에서 SaaS 서비스에 필요한 변경을 수행 하 고 [작업 API의 업데이트 상태](#update-the-status-of-an-operation)를 호출 하 여 완료 되 면 Microsoft에 알려야 합니다.
-1. 패치가 *실패* 상태와 함께 전송 되는 경우 Microsoft 쪽에서 업데이트 프로세스가 완료 되지 않습니다.  SaaS 구독은 기존 계획과 수량을 유지 합니다.
+1. 패치가 *실패* 상태와 함께 전송 되는 경우 Microsoft 쪽에서 업데이트 프로세스가 완료 되지 않습니다. SaaS 구독은 기존 계획과 수량을 유지 합니다.
 
 > [!NOTE]
 > 게시자는 webhook 알림을 받은 후 *10 초 내* 에 실패/성공 응답으로 [작업 API의 상태를 업데이트](#update-the-status-of-an-operation) 하기 위해 패치를 호출 해야 합니다. 작업 상태 패치가 10 초 내에 수신 되지 않으면 변경 계획이 *자동으로 성공으로 패치* 됩니다. 
@@ -101,7 +101,7 @@ SaaS 구독에는 두 가지 유형의 업데이트를 사용할 수 있습니�
 
 1. 게시자 쪽에서 요청 된 변경을 수행 하기 전에 게시자 코드에서 [변경 계획 api](#change-the-plan-on-the-subscription) 및/또는 [변경 수량 api](#change-the-quantity-of-seats-on-the-saas-subscription) 를 호출 해야 합니다. 
 
-1. Microsoft에서 구독에 변경 내용을 적용 한 다음 동일한 변경 내용을 적용 하도록 **연결 Webhook** 를 통해 게시자에 게 알립니다.  
+1. Microsoft에서 구독에 변경 내용을 적용 한 다음 동일한 변경 내용을 적용 하도록 **연결 Webhook** 를 통해 게시자에 게 알립니다.
 
 1. 그런 다음 게시자가 SaaS 구독에 필요한 변경을 수행 하 고 [작업 API의 업데이트 상태](#update-the-status-of-an-operation)를 호출 하 여 변경 작업을 수행 하면 Microsoft에이를 알립니다.
 
@@ -113,7 +113,7 @@ SaaS 구독에는 두 가지 유형의 업데이트를 사용할 수 있습니�
 
 이 상태는 SaaS 서비스에 대 한 고객의 지불을 받지 못했음을 나타냅니다. Microsoft에서 제공 하는 SaaS 구독 상태 변경 내용에 대 한 알림이 게시자에 게 표시 됩니다. 알림은 *action* 매개 변수를 *Suspended* 로 설정 하 여 webhook 호출을 통해 수행 됩니다.
 
-게시자가 게시자 쪽에서 SaaS 서비스를 변경 하거나 변경할 수 없습니다. 이 정보를 일시 중단 된 고객에 게 제공 하 고 고객의 SaaS 서비스 액세스를 제한 하거나 차단 하는 것이 좋습니다.  결제는 수신 되지 않습니다.
+게시자가 게시자 쪽에서 SaaS 서비스를 변경 하거나 변경할 수 없습니다. 이 정보를 일시 중단 된 고객에 게 제공 하 고 고객의 SaaS 서비스 액세스를 제한 하거나 차단 하는 것이 좋습니다. 결제는 수신 되지 않습니다.
 
 Microsoft는 구독을 자동으로 취소 하기 전에 30 일의 유예 기간을 고객에 게 제공 합니다. 구독이 *일시 중단* 된 상태에 있는 경우:
 
@@ -126,26 +126,26 @@ Microsoft는 구독을 자동으로 취소 하기 전에 30 일의 유예 기간
 
 이 작업은 고객의 결제 방법을 다시 사용할 수 있고, SaaS 구독에 대 한 지불을 수행 하 고, 구독을 복원 하는 중임을 나타냅니다. 이 경우 다음과 같습니다. 
 
-1. Microsoft는 *작업* 매개 변수를 *복원* 값으로 설정 하 여 webhook를 호출 합니다.  
+1. Microsoft는 *작업* 매개 변수를 *복원* 값으로 설정 하 여 webhook를 호출 합니다.
 1. 게시자는 구독이 게시자 쪽에서 다시 완전히 작동 하는지 확인할 수 있습니다.
-1. 게시자는 성공 상태를 사용 하 여 [Patch 작업 API](#update-the-status-of-an-operation) 를 호출 합니다.  
+1. 게시자는 성공 상태를 사용 하 여 [Patch 작업 API](#update-the-status-of-an-operation) 를 호출 합니다.
 1. 복원 프로세스가 성공 하 고 고객에 게 SaaS 구독에 대 한 요금이 다시 청구 됩니다. 
 
 패치가 *실패* 상태와 함께 전송 되 면 Reinstatement 프로세스가 Microsoft 쪽에서 완료 되지 않고 구독은 *일시 중단* 된 상태로 유지 됩니다.
 
-일시 중단 된 구독만 복원할 수 있습니다.  일시 중단 된 SaaS 구독은 복원 되는 동안 *일시 중단* 된 상태로 유지 됩니다.  이 작업이 완료 되 면 구독의 상태가 *활성* 상태가 됩니다.
+일시 중단 된 구독만 복원할 수 있습니다. 일시 중단 된 SaaS 구독은 복원 되는 동안 *일시 중단* 된 상태로 유지 됩니다. 이 작업이 완료 되 면 구독의 상태가 *활성* 상태가 됩니다.
 
 #### <a name="renewed-subscribed"></a>갱신 됨 (*구독* 됨)
 
-SaaS 구독은 월 또는 연도의 구독 기간이 끝날 때 Microsoft에서 자동으로 갱신 합니다.  자동 갱신 설정의 기본값은 모든 SaaS 구독에 *적용* 됩니다. 활성 SaaS 구독은 정기적으로 계속 갱신 됩니다. 구독을 갱신 하는 경우 Microsoft는 게시자에 게 알리지 않습니다. 고객은 Microsoft 365 관리 포털을 통해 또는 Azure Portal를 통해 SaaS 구독에 대 한 자동 갱신을 해제할 수 있습니다.  이 경우 SaaS 구독은 현재 청구 기간 종료 시 자동으로 취소 됩니다.  또한 고객은 언제 든 지 SaaS 구독을 취소할 수 있습니다.
+SaaS 구독은 월 또는 연도의 구독 기간이 끝날 때 Microsoft에서 자동으로 갱신 합니다. 자동 갱신 설정의 기본값은 모든 SaaS 구독에 *적용* 됩니다. 활성 SaaS 구독은 정기적으로 계속 갱신 됩니다. 구독을 갱신 하는 경우 Microsoft는 게시자에 게 알리지 않습니다. 고객은 Microsoft 365 관리 포털을 통해 SaaS 구독에 대 한 자동 갱신을 해제할 수 있습니다. 이 경우 SaaS 구독은 현재 청구 기간 종료 시 자동으로 취소 됩니다. 또한 고객은 언제 든 지 SaaS 구독을 취소할 수 있습니다.
 
-활성 구독만 자동으로 갱신 됩니다.  갱신 하는 동안 구독을 활성 상태로 유지 하 고 자동 갱신에 성공 합니다.  갱신 후 구독 기간의 시작 및 종료 날짜가 새 기간의 날짜로 업데이트 됩니다.
+활성 구독만 자동으로 갱신 됩니다. 갱신 하는 동안 구독을 활성 상태로 유지 하 고 자동 갱신에 성공 합니다. 갱신 후 구독 기간의 시작 및 종료 날짜가 새 기간의 날짜로 업데이트 됩니다.
 
 지불 문제로 인해 자동 갱신에 실패 하는 경우 구독이 *일시 중단* 되 고 게시자에 게 알림이 제공 됩니다.
 
 #### <a name="canceled-unsubscribed"></a>취소 됨 (*구독* 취소 됨) 
 
-구독은 게시자 사이트, Azure Portal 또는 Microsoft 365 관리 센터에서 구독을 취소 하 여 명시적 고객 또는 CSP 동작에 대 한 응답으로이 상태에 도달 합니다.  30 일 동안 *일시 중단* 된 상태가 된 후에 dues를 지불 하지 않은 경우에도 구독을 암시적으로 취소할 수 있습니다.
+구독은 게시자 사이트, Azure Portal 또는 Microsoft 365 관리 센터에서 구독을 취소 하 여 명시적 고객 또는 CSP 동작에 대 한 응답으로이 상태에 도달 합니다. 30 일 동안 *일시 중단* 된 상태가 된 후에 dues를 지불 하지 않은 경우에도 구독을 암시적으로 취소할 수 있습니다.
 
 게시자가 취소 webhook 호출을 받은 후 최소 7 일 동안 요청 시 복구 하기 위해 고객 데이터를 보존 해야 합니다. 그런 후에만 고객 데이터를 삭제할 수 있습니다.
 
@@ -163,7 +163,7 @@ SaaS 구독은 수명 주기 동안 언제 든 지 취소할 수 있습니다. �
 * 게시자에서 승인 대기 중인 앱의 보류 중인 작업 목록을 가져옵니다.
 
 > [!NOTE]
-> TLS 버전 1.2 버전은 HTTPS 통신을 위한 최소 버전으로 곧 적용 됩니다. 코드에서이 TLS 버전을 사용 하는지 확인 합니다.  TLS 버전 1.0 및 1.1은 곧 사용 되지 않을 예정입니다.
+> TLS 버전 1.2 버전은 HTTPS 통신을 위한 최소 버전으로 곧 적용 됩니다. 코드에서이 TLS 버전을 사용 하는지 확인 합니다. TLS 버전 1.0 및 1.1은 곧 사용 되지 않을 예정입니다.
 
 ### <a name="subscription-apis"></a>구독 Api
 
@@ -580,7 +580,7 @@ Code: 200 이미 구매한 계획을 포함 하 여 기존 SaaS 구독에 대해
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 URL입니다.  예: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 URL입니다.  예들 들어 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`입니다. |
 
 코드: 400 잘못 된 요청: 유효성 검사 오류입니다.
 
@@ -645,7 +645,7 @@ Code: 200 이미 구매한 계획을 포함 하 여 기존 SaaS 구독에 대해
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`.  |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예들 들어 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`입니다.  |
 
 코드: 400 잘못 된 요청: 유효성 검사 오류입니다.
 
@@ -710,7 +710,7 @@ Code: 200 이미 구매한 계획을 포함 하 여 기존 SaaS 구독에 대해
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예들 들어 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`입니다. |
 
 코드: 400 잘못 된 요청입니다.  `allowedCustomerOperations`이 SaaS 구독의 삭제는 목록에 없습니다.
 

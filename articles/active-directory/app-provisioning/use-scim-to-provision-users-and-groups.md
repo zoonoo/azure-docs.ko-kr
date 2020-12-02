@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 19942e5400be63dfde48b9653282fb93bcb1ec42
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f524eae791ab3944fb326b867e5f6823a35b432c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174818"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348197"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>자습서 - Azure AD를 사용하여 SCIM 엔드포인트 빌드 및 사용자 프로비저닝 구성
 
@@ -199,29 +199,21 @@ Azure AD와의 호환성을 보장하기 위해 SCIM 엔드포인트를 구현�
   - [사용자 만들기](#create-user)([요청](#request) / [응답](#response))
   - [사용자 가져오기](#get-user)([요청](#request-1) / [응답](#response-1))
   - [쿼리로 사용자 가져오기](#get-user-by-query)([요청](#request-2) / [응답](#response-2))
-  - [쿼리로 사용자 가져오기 - 결과 없음](#get-user-by-query---zero-results)([요청](#request-3)
-/ [응답](#response-3))
-  - [사용자 업데이트[다중값 속성]](#update-user-multi-valued-properties)([요청](#request-4) /  [응답](#response-4))
-  - [사용자 업데이트[단일값 속성]](#update-user-single-valued-properties)([요청](#request-5)
-/ [응답](#response-5)) 
-  - [사용자 사용 안 함](#disable-user)([요청](#request-14) / 
-[응답](#response-14))
-  - [사용자 삭제](#delete-user)([요청](#request-6) / 
-[응답](#response-6))
+  - [쿼리로 사용자 가져오기 - 결과 없음](#get-user-by-query---zero-results)([요청](#request-3) / [응답](#response-3))
+  - [사용자 업데이트[다중값 속성]](#update-user-multi-valued-properties)([요청](#request-4) / [응답](#response-4))
+  - [사용자 업데이트[단일값 속성]](#update-user-single-valued-properties)([요청](#request-5) / [응답](#response-5)) 
+  - [사용자 사용 안 함](#disable-user)([요청](#request-14) / [응답](#response-14))
+  - [사용자 삭제](#delete-user)([요청](#request-6) / [응답](#response-6))
 
 
 [그룹 작업](#group-operations)
   - [그룹 만들기](#create-group)([요청](#request-7) / [응답](#response-7))
   - [그룹 가져오기](#get-group)([요청](#request-8) / [응답](#response-8))
   - [displayName으로 그룹 가져오기](#get-group-by-displayname)([요청](#request-9) / [응답](#response-9))
-  - [그룹 업데이트[비멤버 특성]](#update-group-non-member-attributes)([요청](#request-10) /
- [응답](#response-10))
-  - [그룹 업데이트[멤버 추가]](#update-group-add-members)([요청](#request-11) /
-[응답](#response-11))
-  - [그룹 업데이트[멤버 제거]](#update-group-remove-members)([요청](#request-12) /
-[응답](#response-12))
-  - [그룹 삭제](#delete-group)([요청](#request-13) /
-[응답](#response-13))
+  - [그룹 업데이트[비멤버 특성]](#update-group-non-member-attributes)([요청](#request-10) / [응답](#response-10))
+  - [그룹 업데이트[멤버 추가]](#update-group-add-members)([요청](#request-11) / [응답](#response-11))
+  - [그룹 업데이트[멤버 제거]](#update-group-remove-members)([요청](#request-12) / [응답](#response-12))
+  - [그룹 삭제](#delete-group)([요청](#request-13) / [응답](#response-13))
 
 ### <a name="user-operations"></a>사용자 작업
 
@@ -750,7 +742,7 @@ TLS 1.2 암호 도구 모음 최소 막대:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>IP 범위
-Azure AD 프로비저닝 서비스는 현재 [여기](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all)에 나열된 AzureActiveDirectory의 IP 범위에서 작동합니다. AzureActiveDirectory 태그 아래에 나열된 IP 범위를 추가하면 Azure AD 프로비저닝 서비스에서 애플리케이션으로의 트래픽을 허용할 수 있습니다. 계산된 주소에 대해 IP 범위 목록을 신중하게 검토해야 합니다. '40.126.25.32'와 같은 주소는 IP 범위 목록에 '40.126.0.0/18'로 표시될 수 있습니다. 다음 [API](/rest/api/virtualnetwork/servicetags/list)를 사용하여 IP 범위 목록을 프로그래밍 방식으로 검색할 수도 있습니다.
+Azure AD 프로비저닝 서비스는 현재 [여기](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all)에 나열된 AzureActiveDirectory의 IP 범위에서 작동합니다. AzureActiveDirectory 태그 아래에 나열된 IP 범위를 추가하면 Azure AD 프로비저닝 서비스에서 애플리케이션으로의 트래픽을 허용할 수 있습니다. 계산된 주소에 대해 IP 범위 목록을 신중하게 검토해야 합니다. '40.126.25.32'와 같은 주소는 IP 범위 목록에 '40.126.0.0/18'로 표시될 수 있습니다. 또한 다음 [API](/rest/api/virtualnetwork/servicetags/list)를 사용하여 IP 범위 목록을 프로그래밍 방식으로 검색할 수도 있습니다.
 
 ## <a name="step-3-build-a-scim-endpoint"></a>3단계: SCIM 엔드포인트 빌드
 
@@ -1176,7 +1168,7 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 둘 이상의 테넌트가 사용할 애플리케이션을 빌드하는 경우 Azure AD 애플리케이션 갤러리에서 사용하도록 할 수 있습니다. 그러면 조직은 쉽게 애플리케이션을 찾고 프로비저닝을 구성할 수 있습니다. Azure AD 갤러리에 앱을 게시하고 다른 사용자가 프로비저닝을 쉽게 사용할 수 있도록 합니다. [여기](../develop/v2-howto-app-gallery-listing.md)서 단계를 확인하세요. Microsoft는 사용자와 협력하여 애플리케이션을 갤러리에 통합하고, 엔드포인트를 테스트하며, 고객이 사용할 수 있도록 온보딩 [설명서](../saas-apps/tutorial-list.md)를 제공합니다.
 
 ### <a name="gallery-onboarding-checklist"></a>갤러리 온보딩 검사 목록
-아래의 검사 목록에 따라 애플리케이션이 빠르게 온보드되고 고객이 원활한 배포 환경을 갖추도록 하세요. 갤러리에 온보딩하면 해당 정보가 수집됩니다. 
+아래의 검사 목록에 따라 애플리케이션이 빠르게 온보딩되고 고객이 원활한 배포 환경을 갖추도록 합니다. 갤러리에 온보딩하면 해당 정보가 수집됩니다. 
 > [!div class="checklist"]
 > * [SCIM 2.0 ](#step-2-understand-the-azure-ad-scim-implementation) 사용자 및 그룹 엔드포인트 지원(하나만 필요하지만 둘 다 권장됨)
 > * 사용자 및 그룹이 지연 없이 프로비저닝 및 프로비저닝 해제되도록 한 테넌트에 대해 초당 최소 25개의 요청을 지원합니다(필수).

@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
-ms.openlocfilehash: e0da478e221fe392135362cd74cbdd8baca101ef
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 12/02/2020
+ms.openlocfilehash: 360f0ce60a35bc96c6dd8e46d636f07124d01255
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421365"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511919"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
@@ -37,7 +37,7 @@ Azure Machine Learning는 데이터 처리를 위한 여러 일반적인 유틸�
 
 전체 목록은 [사전 설치 된 Python 패키지](#preinstalled-python-packages)섹션을 참조 하세요.
 
-사전 설치 된 목록에 없는 패키지 (예: *scikit* )를 설치 하려면 스크립트에 다음 코드를 추가 합니다. 
+사전 설치 된 목록에 없는 패키지 (예: *scikit*)를 설치 하려면 스크립트에 다음 코드를 추가 합니다. 
 
 ```python
 import os
@@ -59,6 +59,36 @@ if spec is None:
 
 > [!WARNING]
 > Excute Python 스크립트 모듈은 Java, PyODBC 등의 명령을 사용 하 여 추가 네이티브 라이브러리에 종속 된 패키지를 설치 하는 것을 지원 하지 않습니다. 이 모듈은 Python이 사전 설치 되어 있고 비관리자 권한이 있는 간단한 환경에서 실행 되기 때문입니다.  
+
+## <a name="access-to-registered-datasets"></a>등록 된 데이터 집합에 대 한 액세스
+
+다음 샘플 코드를 참조 하 여 작업 영역에서 등록 된 [데이터 집합](../how-to-create-register-datasets.md) 에 액세스할 수 있습니다.
+
+```Python
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    ws = run.experiment.workspace
+
+    from azureml.core import Dataset
+    dataset = Dataset.get_by_name(ws, name='test-register-tabular-in-designer')
+    dataframe1 = dataset.to_pandas_dataframe()
+     
+    # If a zip file is connected to the third input port,
+    # it is unzipped under "./Script Bundle". This directory is added
+    # to sys.path. Therefore, if your zip file contains a Python file
+    # mymodule.py you can import it using:
+    # import mymodule
+
+    # Return value must be of a sequence of pandas.DataFrame
+    # E.g.
+    #   -  Single return value: return dataframe1,
+    #   -  Two return values: return dataframe1, dataframe2
+    return dataframe1,
+```
 
 ## <a name="upload-files"></a>파일 업로드
 Python 스크립트 실행 모듈은 [Azure Machine Learning PYTHON SDK](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-)를 사용 하 여 파일 업로드를 지원 합니다.

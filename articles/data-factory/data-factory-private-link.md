@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: c21b4d746d763f41f4360cf93f67939bcd6dc49f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8d28a1f2040cfec7b81081754a6abd3bc3e14439
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632688"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511477"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Data Factory에 대 한 Azure 개인 링크
 
@@ -41,7 +41,7 @@ IPsec (인터넷 프로토콜 보안) VPN (사이트 간) 연결 또는 Azure Ex
 | ---------- | -------- | --------------- |
 | `adf.azure.com` | 443 | Data Factory 작성 및 모니터링에 필요한 제어 평면입니다. |
 | `*.{region}.datafactory.azure.net` | 443 | 자체 호스팅 통합 런타임에서 Data Factory 서비스에 연결하는 데 필요합니다. |
-| `*.servicebus.windows.net` | 443 | 대화형 작성을 위해 자체 호스팅 통합 런타임에 필요 합니다. |
+| `*.servicebus.windows.net` | 443 | 대화형 작성을 위해 자체 호스팅 통합 런타임에 필요합니다. |
 | `download.microsoft.com` | 443 | 업데이트를 다운로드하기 위해 자체 호스팅 통합 런타임에서 필요합니다. |
 
 Azure Data Factory에 대 한 개인 링크를 지 원하는 경우 다음을 수행할 수 있습니다.
@@ -53,10 +53,10 @@ Azure Data Factory 서비스에 대 한 통신은 개인 링크를 통해 이동
 ![Azure Data Factory 아키텍처에 대 한 개인 링크 다이어그램](./media/data-factory-private-link/private-link-architecture.png)
 
 위의 각 통신 채널에 대해 개인 링크 서비스를 사용 하도록 설정 하면 다음과 같은 기능을 제공 합니다.
-- **지원 됨** :
+- **지원 됨**:
    - 모든 아웃 바운드 통신을 차단 하는 경우에도 가상 네트워크에서 데이터 팩터리를 작성 하 고 모니터링할 수 있습니다.
    - 자체 호스팅 통합 런타임과 Azure Data Factory 서비스 간의 명령 통신은 개인 네트워크 환경에서 안전 하 게 수행할 수 있습니다. 자체 호스팅 통합 런타임과 Azure Data Factory 서비스 간의 트래픽은 개인 링크를 통해 이동 합니다. 
-- **현재 지원 되지 않음** :
+- **현재 지원 되지 않음**:
    - 연결 테스트, 폴더 목록 및 테이블 목록 찾아보기, 스키마 가져오기 및 데이터 미리 보기와 같은 자체 호스팅 통합 런타임을 사용 하는 대화형 작성은 개인 링크를 통해 이동 합니다.
    - 자동 업데이트를 사용 하도록 설정 하는 경우 자체 호스팅 통합 런타임의 새 버전이 Microsoft 다운로드 센터에서 자동으로 다운로드 될 수 있습니다.
 
@@ -65,6 +65,33 @@ Azure Data Factory 서비스에 대 한 통신은 개인 링크를 통해 이동
 
 > [!WARNING]
 > 연결 된 서비스를 만들 때 자격 증명이 Azure key vault에 저장 되어 있는지 확인 합니다. 그렇지 않으면 Azure Data Factory에서 개인 링크를 사용 하도록 설정 하는 경우 자격 증명이 작동 하지 않습니다.
+
+## <a name="dns-changes-for-private-endpoints"></a>전용 끝점에 대 한 DNS 변경
+개인 끝점을 만들 때 Data Factory에 대 한 DNS CNAME 리소스 레코드는 접두사가 ' privatelink ' 인 하위 도메인의 별칭으로 업데이트 됩니다. 또한 기본적으로 개인 끝점에 대 한 DNS A 리소스 레코드를 사용 하 여 ' privatelink ' 하위 도메인에 해당 하는 [개인 DNS 영역](https://docs.microsoft.com/azure/dns/private-dns-overview)을 만듭니다.
+
+개인 끝점을 사용 하 여 VNet 외부에서 데이터 팩터리 끝점 URL을 확인 하면 data factory 서비스의 공용 끝점으로 확인 됩니다. 개인 끝점을 호스트 하는 VNet에서 확인 되 면 저장소 끝점 URL은 개인 끝점의 IP 주소로 확인 됩니다.
+
+위의 예에서는 개인 끝점을 호스트 하는 VNet 외부에서 확인 되는 Data Factory ' DataFactoryA '에 대 한 DNS 리소스 레코드는 다음과 같습니다.
+
+| Name | Type | 값 |
+| ---------- | -------- | --------------- |
+| DataFactoryA. {region}. datafactory | CNAME   | DataFactoryA. {region}. privatelink. datafactory. |
+| DataFactoryA. {region}. privatelink. datafactory. | CNAME   | < data factory 서비스 공용 끝점 > |
+| < data factory 서비스 공용 끝점 >  | A | < data factory 서비스 공용 IP 주소 > |
+
+DataFactoryA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 VNet에서 확인 되는 경우 다음과 같습니다.
+
+| Name | Type | 값 |
+| ---------- | -------- | --------------- |
+| DataFactoryA. {region}. datafactory | CNAME   | DataFactoryA. {region}. privatelink. datafactory. |
+| DataFactoryA. {region}. privatelink. datafactory.   | A | < 개인 끝점 IP 주소 > |
+
+네트워크에서 사용자 지정 DNS 서버를 사용 하는 경우 클라이언트는 개인 끝점 IP 주소에 대 한 Data Factory 끝점의 FQDN을 확인할 수 있어야 합니다. 개인 링크 하위 도메인을 VNet의 개인 DNS 영역에 위임 하도록 DNS 서버를 구성 하거나 ' DataFactoryA '에 대 한 A 레코드를 구성 해야 합니다. 개인 끝점 IP 주소를 사용 하는 {region}. privatelink. datafactory.
+
+전용 끝점을 지원 하기 위해 자체 DNS 서버를 구성 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+- [Azure 가상 네트워크의 리소스 이름 확인](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [전용 끝점에 대 한 DNS 구성](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Azure Data Factory에 대 한 개인 링크 설정
 [Azure Portal를](../private-link/create-private-endpoint-portal.md)사용 하 여 개인 끝점을 만들 수 있습니다.

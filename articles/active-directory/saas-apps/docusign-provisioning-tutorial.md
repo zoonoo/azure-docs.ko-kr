@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: d813757d5adb8cee9b83e0486baed80ae1bac874
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dc3f307a21b746981a84b1c0747c4b22c448541f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180934"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349908"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 DocuSign 구성
 
@@ -74,7 +74,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
     b. **관리자 암호** 텍스트 상자에 이 계정의 암호를 입력합니다.
 
 > [!NOTE]
-> SSO 및 사용자 프로비저닝이 모두 설정된 경우 프로비저닝에 사용되는 권한 부여 자격 증명을 SSO 및 사용자 이름/암호 둘 다에서 작동하도록 구성해야 합니다.
+> SSO 및 사용자 프로비저닝이 모두 설정된 경우 프로비저닝에 사용되는 권한 부여 자격 증명은 SSO 및 사용자 이름/암호 모두에서 작동하도록 구성해야 합니다.
 
 1. Azure Portal에서 **연결 테스트** 를 클릭하여 Azure AD가 DocuSign 앱에 연결되었는지 확인합니다.
 

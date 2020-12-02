@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 68d084b7fde7d4c28b1c9b1da1e1c66cb6a63dd8
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: c158358b1c4fcd72d9189d7a991645cb65a4dc83
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359445"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348129"
 ---
 # <a name="tutorial-configure-mindtickle-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 MindTickle 구성
 
@@ -83,7 +83,7 @@ Azure AD를 사용하여 자동 사용자 프로비저닝을 위해 MindTickle�
 이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 MindTickle에서 사용자 및/또는 그룹을 만들고, 업데이트하고, 사용 해제하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
 
 > [!TIP]
-> [MindTickle Single Sign-On 자습서](mindtickle-tutorial.md)에서 제공한 지침에 따라 MindTickle에 SAML 기반 Single Sign-On을 사용하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
+> [MindTickle Single Sign-On 자습서](mindtickle-tutorial.md)에서 제공하는 지침에 따라 SAML 기반 Single Sign-On을 MindTickle에 사용하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-mindtickle-in-azure-ad"></a>Azure AD에서 MindTickle에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 

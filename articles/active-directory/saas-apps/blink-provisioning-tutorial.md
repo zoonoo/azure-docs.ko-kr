@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 717500050aff89964ff959a4741aed01533ada70
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 886d6ff1d3437a9d45bdabc68b2bf3ab8cdaa3ef
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357133"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349976"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Blink 구성
 
@@ -81,7 +81,7 @@ Azure AD를 사용하여 사용자를 자동으로 프로비저닝하도록 Blin
 이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 Blink에서 사용자를 만들고, 업데이트하고, 사용 해제하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
 
 > [!TIP]
-> [Blink Single Sign-On 자습서](./blink-tutorial.md)에서 제공한 지침에 따라 Blink에 SAML 기반 Single Sign-On을 사용하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
+> [Blink Single Sign-On 자습서](./blink-tutorial.md)에서 제공하는 지침에 따라 SAML 기반 Single Sign-On을 Blink에 사용하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-blink-in-azure-ad"></a>Azure AD에서 Blink에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: c4ddffa5f9e9ff4b313f05c9cedb3cb207695225
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4765c0c43cfd9760eb5b4392604bfaeedc69c388
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129706"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511443"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Stream Analytics 창 함수 소개
 
@@ -36,7 +36,7 @@ ms.locfileid: "93129706"
 
 ## <a name="sliding-window"></a>슬라이딩 윈도우
 
-연속 또는 도약 windows와 달리 슬라이딩 윈도우는 창의 내용이 실제로 변경 된 시점에 대 한 이벤트만 출력 합니다. 즉, 이벤트가 창에 들어가거나 종료 될 때 도약 windows의 경우와 같이 모든 창에는 하나 이상의 이벤트가 있습니다. 이벤트는 둘 이상의 슬라이딩 윈도우에 속할 수 있습니다.
+연속 또는 도약 windows와 달리 슬라이딩 윈도우는 창의 내용이 실제로 변경 된 시점에 대 한 이벤트만 출력 합니다. 즉, 이벤트가 창에 들어가거나 종료 될 때 따라서 모든 창에는 하나 이상의 이벤트가 있습니다. 도약 창과 마찬가지로 이벤트는 둘 이상의 슬라이딩 윈도우에 속할 수 있습니다.
 
 ![Stream Analytics 슬라이딩 윈도우](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 

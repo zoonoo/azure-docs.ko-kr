@@ -4,16 +4,16 @@ description: 이 문서에는 컨테이너를 만들고, 파일을 복사 하 �
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 12/01/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 294adce3dc312003d72336bd0752ba3aba5eaace
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1c9c271fed094bf4777af73d588551f66f4db6f5
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792857"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512123"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송
 
@@ -31,7 +31,7 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 >
 > 대신 SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 각 AzCopy 명령의 리소스 URL에 해당 토큰을 추가할 수 있습니다.
 >
-> 예: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`
+> 예를 들어 `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`을 참조하십시오.
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
@@ -56,6 +56,7 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 > * 디렉터리 업로드
 > * 디렉터리의 콘텐츠 업로드 
 > * 특정 파일 업로드
+> * 인덱스 태그를 사용 하 여 파일 업로드
 
 > [!TIP]
 > 선택적 플래그를 사용 하 여 업로드 작업을 조정할 수 있습니다. 다음은 몇 가지 예입니다.
@@ -153,6 +154,27 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 
 자세한 참조는 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 참조 하세요.
 
+### <a name="upload-a-file-with-index-tags"></a>인덱스 태그를 사용 하 여 파일 업로드
+
+파일을 업로드 하 고 [blob 인덱스 태그 (미리 보기)](../blobs/storage-manage-find-blobs.md) 를 대상 blob에 추가할 수 있습니다.  
+
+Azure AD 인증을 사용 하는 경우 보안 주체에 게 [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할을 할당 하거나 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` 사용자 지정 azure 역할을 통해 [azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) 에 대 한 권한을 부여 해야 합니다. SAS (공유 액세스 서명) 토큰을 사용 하는 경우 해당 토큰은 sas 권한을 통해 blob의 태그에 대 한 액세스를 제공 해야 합니다 `t` .
+
+태그를 추가 하려면 `--blob-tags` URL 인코딩 키-값 쌍과 함께 옵션을 사용 합니다. 예를 들어 a 키와 값을 추가 하려면 `my tag` `my tag value` `--blob-tags='my%20tag=my%20tag%20value'` 대상 매개 변수에를 추가 합니다. 
+
+앰퍼샌드 ()를 사용 하 여 여러 인덱스 태그를 구분 `&` 합니다.  예를 들어 키와 값을 추가 하려는 경우 `my second tag` `my second tag value` 전체 옵션 문자열은 `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` 입니다.
+
+다음 예에서는 옵션을 사용 하는 방법을 보여 줍니다 `--blob-tags` .
+
+|    |     |
+|--------|-----------|
+| **파일 업로드** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **디렉터리 업로드** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`|
+| **디렉터리 콘텐츠 업로드** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+
+> [!NOTE]
+> 원본에 대 한 디렉터리를 지정 하는 경우 대상에 복사 된 모든 blob에는 명령에서 지정 하는 것과 동일한 태그가 지정 됩니다.
+
 ## <a name="download-files"></a>파일 다운로드
 
 [Azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용 하 여 로컬 컴퓨터에 blob, 디렉터리 및 컨테이너를 다운로드할 수 있습니다.
@@ -199,7 +221,7 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 
 ### <a name="download-the-contents-of-a-directory"></a>디렉터리의 콘텐츠 다운로드
 
-와일드 카드 기호 (*)를 사용 하 여 포함 하는 디렉터리 자체를 복사 하지 않고 디렉터리의 콘텐츠를 다운로드할 수 있습니다.
+와일드카드 기호(*)를 사용하여 포함하는 디렉터리 자체를 복사하지 않고 디렉터리의 콘텐츠를 다운로드할 수 있습니다.
 
 > [!NOTE]
 > 현재이 시나리오는 계층 네임 스페이스가 없는 계정에 대해서만 지원 됩니다.
@@ -260,7 +282,7 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 
 [Blob 버전 관리](../blobs/versioning-enable.md)를 사용 하도록 설정한 경우 blob의 이전 버전을 하나 이상 다운로드할 수 있습니다. 
 
-먼저 [버전 id](../blobs/versioning-overview.md)목록을 포함 하는 텍스트 파일을 만듭니다. 각 버전 ID는 별도의 줄에 표시 되어야 합니다. 예를 들면 다음과 같습니다. 
+먼저 [버전 id](../blobs/versioning-overview.md)목록을 포함 하는 텍스트 파일을 만듭니다. 각 버전 ID는 별도의 줄에 표시 되어야 합니다. 예를 들어: 
 
 ```
 2020-08-17T05:50:34.2199403Z
@@ -297,6 +319,7 @@ AzCopy는 [서버](/rest/api/storageservices/put-block-from-url) 간 [api](/rest
 > * 다른 저장소 계정에 디렉터리 복사
 > * 컨테이너를 다른 저장소 계정에 복사
 > * 모든 컨테이너, 디렉터리 및 파일을 다른 저장소 계정에 복사 합니다.
+> * 인덱스 태그를 사용 하 여 다른 저장소 계정에 blob 복사
 
 이러한 예제는 계층 네임 스페이스가 있는 계정 에서도 작동 합니다. [Data Lake Storage에 대 한 다중 프로토콜 액세스](../blobs/data-lake-storage-multi-protocol-access.md) 를 사용 하면 `blob.core.windows.net` 해당 계정에 대해 동일한 URL 구문 ()을 사용할 수 있습니다.
 
@@ -321,6 +344,9 @@ AzCopy는 [서버](/rest/api/storageservices/put-block-from-url) 간 [api](/rest
 | **예제** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 | **예** (계층적 네임 스페이스) | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 
+> [!NOTE]
+> 원본 blob에 인덱스 태그가 있는 경우 해당 태그를 유지 하려면 대상 blob에 다시 적용 해야 합니다. 인덱스 태그를 설정 하는 방법에 대 한 자세한 내용은이 문서의 [인덱스 태그를 사용 하 여 다른 저장소 계정에 Blob 복사](#copy-between-accounts-and-add-index-tags) 섹션을 참조 하세요.  
+
 ### <a name="copy-a-directory-to-another-storage-account"></a>다른 저장소 계정에 디렉터리 복사
 
 계층 네임 스페이스가 있는 계정에 동일한 URL 구문 ()을 사용 합니다 `blob.core.windows.net` .
@@ -341,6 +367,9 @@ AzCopy는 [서버](/rest/api/storageservices/put-block-from-url) 간 [api](/rest
 | **예제** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 | **예** (계층적 네임 스페이스)| `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 
+> [!NOTE]
+> 원본 blob에 인덱스 태그가 있는 경우 해당 태그를 유지 하려면 대상 blob에 다시 적용 해야 합니다. 인덱스 태그를 설정 하는 방법에 대 한 자세한 내용은이 문서의 [인덱스 태그를 사용 하 여 다른 저장소 계정에 Blob 복사](#copy-between-accounts-and-add-index-tags) 섹션을 참조 하세요. 
+
 ### <a name="copy-all-containers-directories-and-blobs-to-another-storage-account"></a>모든 컨테이너, 디렉터리 및 blob을 다른 저장소 계정에 복사 합니다.
 
 계층 네임 스페이스가 있는 계정에 동일한 URL 구문 ()을 사용 합니다 `blob.core.windows.net` .
@@ -350,6 +379,36 @@ AzCopy는 [서버](/rest/api/storageservices/put-block-from-url) 간 [api](/rest
 | **구문** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/' --recursive` |
 | **예제** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
 | **예** (계층적 네임 스페이스)| `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
+
+> [!NOTE]
+> 원본 blob에 인덱스 태그가 있는 경우 해당 태그를 유지 하려면 대상 blob에 다시 적용 해야 합니다. 인덱스 태그를 설정 하는 방법에 대 한 자세한 내용은 아래의 **인덱스 태그를 사용 하 여 다른 저장소 계정에 Blob 복사** 섹션을 참조 하세요. 
+
+<a id="copy-between-accounts-and-add-index-tags"></a>
+
+### <a name="copy-blobs-to-another-storage-account-with-index-tags"></a>인덱스 태그를 사용 하 여 다른 저장소 계정에 blob 복사
+
+Blob을 다른 저장소 계정에 복사 하 고 [blob 인덱스 태그 (미리 보기)](../blobs/storage-manage-find-blobs.md) 를 대상 blob에 추가할 수 있습니다.
+
+Azure AD 인증을 사용 하는 경우 보안 주체에 게 [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할을 할당 하거나 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` 사용자 지정 azure 역할을 통해 [azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) 에 대 한 권한을 부여 해야 합니다. SAS (공유 액세스 서명) 토큰을 사용 하는 경우 해당 토큰은 sas 권한을 통해 blob의 태그에 대 한 액세스를 제공 해야 합니다 `t` .
+
+태그를 추가 하려면 `--blob-tags` URL 인코딩 키-값 쌍과 함께 옵션을 사용 합니다. 
+
+예를 들어 a 키와 값을 추가 하려면 `my tag` `my tag value` `--blob-tags='my%20tag=my%20tag%20value'` 대상 매개 변수에를 추가 합니다. 
+
+앰퍼샌드 ()를 사용 하 여 여러 인덱스 태그를 구분 `&` 합니다.  예를 들어 키와 값을 추가 하려는 경우 `my second tag` `my second tag value` 전체 옵션 문자열은 `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` 입니다.
+
+다음 예에서는 옵션을 사용 하는 방법을 보여 줍니다 `--blob-tags` .
+
+|    |     |
+|--------|-----------|
+| **Blob** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **디렉터리** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **컨테이너** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags="--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **계정** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive --blob-tags="--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+
+> [!NOTE]
+> 원본에 대 한 디렉터리, 컨테이너 또는 계정을 지정 하는 경우 대상에 복사 된 모든 blob에는 명령에서 지정 하는 것과 동일한 태그가 지정 됩니다. 
+
 
 ## <a name="synchronize-files"></a>파일 동기화
 

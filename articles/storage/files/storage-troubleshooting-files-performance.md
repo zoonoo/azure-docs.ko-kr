@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5a35d939c12639770e25c3096c77f13d31310f85
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 90942e4deebdc65fe26ce94f04a15fe2b8c0684c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492015"
+ms.locfileid: "96512072"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Azure 파일 공유 성능 문제 해결
 
@@ -74,11 +74,12 @@ ms.locfileid: "96492015"
 
 ### <a name="cause"></a>원인
 
-클라이언트 VM (가상 컴퓨터)은 파일 공유와 다른 지역에 있을 수 있습니다.
+클라이언트 VM (가상 컴퓨터)은 파일 공유와 다른 지역에 있을 수 있습니다. 대기 시간이 긴 다른 이유는 클라이언트나 네트워크에서 발생 하는 대기 시간으로 인해 발생할 수 있습니다.
 
 ### <a name="solution"></a>해결 방법
 
 - 파일 공유와 동일한 지역에 있는 VM에서 응용 프로그램을 실행 합니다.
+- 저장소 계정의 경우 Azure Portal에서 **Azure Monitor** 를 통해 트랜잭션 메트릭 **SuccessE2ELatency** 및 **SuccessServerLatency** 를 검토 합니다. SuccessE2ELatency 및 SuccessServerLatency 메트릭 값 간의 큰 차이는 네트워크 또는 클라이언트에 의해 발생 하는 대기 시간을 나타냅니다. Azure Files 모니터링 데이터 참조의 [트랜잭션 메트릭](storage-files-monitoring-reference.md#transaction-metrics) 을 참조 하세요.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>클라이언트에서 네트워크에 의해 지원 되는 최대 처리량을 달성할 수 없습니다.
 

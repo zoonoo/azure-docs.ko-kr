@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: Zhchia
-ms.openlocfilehash: 31631209a16024e4414cc19bca37166332b427de
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d3dee76ada7a9ed48813928937f8f8da8be4add1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359230"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348044"
 ---
 # <a name="tutorial-configure-miro-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Miro 구성
 
@@ -79,7 +79,7 @@ Azure AD를 사용하여 사용자를 자동으로 프로비저닝하도록 Miro
 이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 Miro에서 사용자 및/또는 그룹을 만들고, 업데이트하고, 사용 해제하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
 
 > [!TIP]
-> [Miro Single Sign-On 자습서](./miro-tutorial.md)에서 제공한 지침에 따라 Miro에 SAML 기반 Single Sign-On을 사용하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
+> [Miro Single Sign-On 자습서](./miro-tutorial.md)에서 제공하는 지침에 따라 SAML 기반 Single Sign-On을 Miro에 사용하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
 
 > [!NOTE]
 > Miro의 SCIM 엔드포인트에 대한 자세한 내용은 [이](https://help.miro.com/hc/en-us/articles/360036777814)를 참조하세요.

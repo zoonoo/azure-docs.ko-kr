@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 65bd5a89d132a575817480d0609109a3f379e969
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f0cb7d4ebe428da4a370433b3e90a829f30489db
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833965"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512208"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대 한 FAQ (질문과 대답)
 
@@ -32,6 +32,14 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며 Azure
 **Q**: 회사 또는 서비스에 장치에 대 한 액세스 권한을 부여 하는 것에 동의 하는 장치를 등록 하 고 있습니까?
 
 **A**: 장치를 등록 하면 조직의 서비스에 액세스할 수 있으며 조직에서 장치에 액세스할 수 없습니다.
+
+## <a name="too-many-app-permissions"></a>앱 사용 권한 너무 많음
+
+**Q**: 앱에서 많은 권한을 요청 하는 이유는 무엇 인가요?
+
+**A**: 요청 될 수 있는 사용 권한의 전체 목록 및 앱에서 사용 하는 방법은 다음과 같습니다. 표시되는 특정 사용 권한은 사용하는 휴대폰의 종류에 따라 달라집니다.
+
+- **위치** - 경우에 따라 특정 리소스에 액세스할 수 있도록 하기 전에 조직에서 사용자의 위치를 알고 싶을 수 있습니다. 앱은 조직에 위치가 필요한 정책이 있는 경우에만이 권한을 요청 합니다. 
 
 ### <a name="legacy-apns-support-deprecated"></a>레거시 APNs 지원 사용 되지 않음
 
@@ -148,7 +156,7 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며 Azure
 
 ### <a name="one-time-passcodes"></a>일회성 암호
 
-**Q**: 내 일회성 암호 작동 하지 않습니다.   어떻게 해야 합니까?
+**Q**: 내 일회성 암호 작동 하지 않습니다. 어떻게 해야 합니까?
 
 **A**: 장치의 날짜와 시간이 올바르고 자동으로 동기화 되 고 있는지 확인 합니다. 날짜 및 시간이 잘못되었거나 동기화되지 않으면 코드가 작동하지 않습니다.
 

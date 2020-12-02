@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: daa7c657a47414b01197bed3644caefeda98af1c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630280"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512174"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 8100 및 8600 마이그레이션
 
@@ -133,7 +133,7 @@ StorSimple은 볼륨 수준에서 차등 백업을 제공 합니다. Azure 파�
 
 여러 Azure storage 계정을 배포 해야 할 수도 있습니다. 각 항목에는이 문서의 이전 섹션에서 완료 한 배포 계획에 따라 적은 수의 Azure 파일 공유가 포함 됩니다. Azure Portal로 이동 하 여 [계획 된 저장소 계정을 배포](../common/storage-account-create.md#create-a-storage-account)합니다. 새 저장소 계정에 대해 다음과 같은 기본 설정을 준수 하는 것이 좋습니다.
 
-#### <a name="subscription"></a>Subscription
+#### <a name="subscription"></a>구독
 
 StorSimple 배포에 사용한 것과 동일한 구독 또는 다른 구독을 사용할 수 있습니다. 유일한 제한 사항은 구독이 StorSimple 구독과 동일한 Azure Active Directory 테 넌 트에 있어야 한다는 것입니다. 마이그레이션을 시작 하기 전에 StorSimple 구독을 올바른 테 넌 트로 이동 하는 것이 좋습니다. 전체 구독만 이동할 수 있습니다. 개별 StorSimple 리소스는 다른 테 넌 트 또는 구독으로 이동할 수 없습니다.
 
@@ -209,7 +209,7 @@ Azure 파일 공유 또는 표준 저장소에 대해 premium storage (SSD)를 �
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="새 파일 공유 UI를 보여 주는 Azure Portal 스크린샷.":::
     :::column-end:::
     :::column:::
-        </br>**Name**</br>소문자, 숫자 및 하이픈만 사용할 수 있습니다.</br></br>**할당량**</br>여기에서 할당량은 Windows Server 인스턴스의 SMB 하드 할당량과 비교할 수 있습니다. 할당량에 도달 하면 마이그레이션 및 기타 서비스가 실패 하기 때문에 여기서 할당량을 설정 하지 않는 것이 좋습니다.</br></br>**계층**</br>새 파일 공유에 대해 **최적화 된 트랜잭션** 을 선택 합니다. 마이그레이션 중에는 많은 트랜잭션이 발생 합니다. 계층을 나중에 작업에 가장 적합 한 계층으로 변경 하는 것이 더 비용 효율적입니다.
+        </br>**이름**</br>소문자, 숫자 및 하이픈만 사용할 수 있습니다.</br></br>**할당량**</br>여기에서 할당량은 Windows Server 인스턴스의 SMB 하드 할당량과 비교할 수 있습니다. 할당량에 도달 하면 마이그레이션 및 기타 서비스가 실패 하기 때문에 여기서 할당량을 설정 하지 않는 것이 좋습니다.</br></br>**계층**</br>새 파일 공유에 대해 **최적화 된 트랜잭션** 을 선택 합니다. 마이그레이션 중에는 많은 트랜잭션이 발생 합니다. 계층을 나중에 작업에 가장 적합 한 계층으로 변경 하는 것이 더 비용 효율적입니다.
     :::column-end:::
 :::row-end:::
 
@@ -320,8 +320,8 @@ Azure File Sync를 사용 하면 자주 액세스 하는 파일의 온-프레미
 
 Azure 파일 공유에 액세스 하는 두 가지 주요 전략은 다음과 같습니다.
 
-* **Azure File Sync** : 온-프레미스 Windows Server 인스턴스에 [Azure File Sync를 배포](#deploy-azure-file-sync) 합니다. Azure File Sync에는 StorSimple과 마찬가지로 로컬 캐시의 모든 이점이 있습니다.
-* **직접 공유-액세스** : [직접 공유 액세스를 배포](#deploy-direct-share-access)합니다. 지정 된 Azure 파일 공유에 대 한 액세스 시나리오에서 로컬 캐싱을 활용 하지 않거나 더 이상 온-프레미스 Windows Server 인스턴스를 호스트할 수 없는 경우이 전략을 사용 합니다. 여기서 사용자와 앱은 SMB 프로토콜을 통해 SMB 공유에 계속 액세스 합니다. 이러한 공유는 더 이상 온-프레미스 서버에 없지만 클라우드에서 직접 사용할 수 있습니다.
+* **Azure File Sync**: 온-프레미스 Windows Server 인스턴스에 [Azure File Sync를 배포](#deploy-azure-file-sync) 합니다. Azure File Sync에는 StorSimple과 마찬가지로 로컬 캐시의 모든 이점이 있습니다.
+* **직접 공유-액세스**: [직접 공유 액세스를 배포](#deploy-direct-share-access)합니다. 지정 된 Azure 파일 공유에 대 한 액세스 시나리오에서 로컬 캐싱을 활용 하지 않거나 더 이상 온-프레미스 Windows Server 인스턴스를 호스트할 수 없는 경우이 전략을 사용 합니다. 여기서 사용자와 앱은 SMB 프로토콜을 통해 SMB 공유에 계속 액세스 합니다. 이러한 공유는 더 이상 온-프레미스 서버에 없지만 클라우드에서 직접 사용할 수 있습니다.
 
 이 가이드의 [1 단계](#phase-1-prepare-for-migration) 에서 사용자에 게 가장 적합 한 옵션을 이미 결정 해야 합니다.
 
@@ -429,7 +429,7 @@ Windows Server 인스턴스에서 이벤트 뷰어를 사용 하 여 네임 스�
 1. 로 이동 하 여 **Microsoft\FileSync\Agent\Telemetry** 를 엽니다.
 1. 완료 된 동기화 세션에 해당 하는 최신 **이벤트 9102** 을 찾습니다.
 1. **세부 정보** 를 선택 하 고 **Syncdirection** 값이 **다운로드** 되는 이벤트를 확인 하 고 있는지 확인 합니다.
-1. 네임 스페이스에서 서버에 대 한 다운로드를 완료 한 경우에는 **시나리오** , 값 **FullGhostedSync** 및 **HResult** 0을 포함 하는 단일 이벤트가 발생  =  **0** 합니다.
+1. 네임 스페이스에서 서버에 대 한 다운로드를 완료 한 경우에는 **시나리오**, 값 **FullGhostedSync** 및 **HResult** 0을 포함 하는 단일 이벤트가 발생  =  **0** 합니다.
 1. 해당 이벤트를 놓친 경우 **syncdirection** **9102 events**  =  **다운로드** 및 **시나리오**  =  **"RegularSync"** 를 사용 하 여 다른 9102 이벤트를 찾을 수도 있습니다. 이러한 이벤트 중 하나를 찾으면 동기화가 완료 되었는지 여부에 관계 없이 네임 스페이스의 다운로드 및 동기화가 일반 동기화 세션으로 진행 되었음을 알 수 있습니다.
 
 ### <a name="a-final-robocopy"></a>최종 RoboCopy
@@ -448,7 +448,7 @@ Windows Server 인스턴스에서 이벤트 뷰어를 사용 하 여 네임 스�
 RoboCopy에는 여러 매개 변수가 있습니다. 다음 예제에서는 완성 된 명령과 이러한 매개 변수를 선택 하는 이유 목록을 보여 줍니다.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 배경:
@@ -475,6 +475,14 @@ Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
    :::column-end:::
    :::column span="1":::
       콘솔 창에 출력 합니다. 로그 파일에 대 한 출력과 함께 사용 됩니다.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /NP
+   :::column-end:::
+   :::column span="1":::
+      로그를 읽을 수 있도록 진행률 기록을 생략 합니다.
    :::column-end:::
 :::row-end:::
 :::row:::

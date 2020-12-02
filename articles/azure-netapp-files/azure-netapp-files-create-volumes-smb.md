@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 9740506da2c03996db756175551867ed43575a7c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 682a97738e94c2a8188b4976a229d6a850a5b6ac
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488182"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512004"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -84,7 +84,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 
 * Azure NetApp Files은 Azure NetApp Files 서비스와 대상 [Active Directory 도메인 컨트롤러](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)간의 ldap 트래픽을 안전 하 게 전송할 수 있는 [ldap 서명을](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server)지원 합니다. LDAP 서명에 대 한 Microsoft 자문 [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) 의 지침을 수행 하는 경우 [조인 Active Directory](#create-an-active-directory-connection) 창에서 **ldap 서명** 상자를 선택 하 여 Azure NetApp Files에서 ldap 서명 기능을 사용 하도록 설정 해야 합니다. 
 
-    [LDAP 채널 바인딩](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) 구성은 Azure NetApp Files 서비스에 영향을 주지 않습니다. 
+    [LDAP 채널 바인딩](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) 구성만 Azure NetApp Files 서비스에 영향을 주지 않습니다. 그러나 LDAP 채널 바인딩과 보안 LDAP를 모두 사용 하는 경우 (예: LDAPS 또는 `start_tls` ) SMB 볼륨 만들기가 실패 합니다.
 
 추가 AD 정보에 대한 Azure NetApp Files [SMB FAQ](./azure-netapp-files-faqs.md#smb-faqs)를 참조하세요. 
 
@@ -119,7 +119,7 @@ Azure NetApp Files에는 다음과 같은 추가 AADDS 고려 사항이 적용�
 
 Active Directory 연결을 만들 때 AADDS에 대한 다음 사항에 유의해야 합니다.
 
-* AADDS 메뉴에서 **기본 DNS** , **보조 DNS** 및 **AD DNS 도메인 이름** 에 대한 정보를 찾을 수 있습니다.  
+* AADDS 메뉴에서 **기본 DNS**, **보조 DNS** 및 **AD DNS 도메인 이름** 에 대한 정보를 찾을 수 있습니다.  
 DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사용됩니다. 
 * **조직 구성 단위 경로** 는 `OU=AADDC Computers`입니다.  
 이 설정은 **Active Directory 연결** 의 **NetApp 계정** 에서 구성합니다.

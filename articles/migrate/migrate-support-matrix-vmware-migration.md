@@ -3,12 +3,12 @@ title: Azure Migrate에서 VMware 마이그레이션 지원
 description: Azure Migrate에서 VMware VM 마이그레이션에 대 한 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 7a7713021683c394e609a302a1aa6fcb282484e5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 833d0b15677fe92d9ef4f6d0055f7ce84340ef90
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008296"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511902"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>VMware 마이그레이션을 위한 지원 매트릭스
 
@@ -41,7 +41,7 @@ VMware Vm은 몇 가지 방법으로 마이그레이션할 수 있습니다.
 --- | ---
 **VMware vCenter Server** | 버전 5.5, 6.0, 6.5, 6.7, 7.0.
 **VMware vSphere ESXI 호스트** | 버전 5.5, 6.0, 6.5, 6.7, 7.0.
-**vCenter Server 권한** | 에이전트 없는 마이그레이션은 마이그레이션 [어플라이언스](migrate-appliance.md)를 사용 합니다. 어플라이언스는 vCenter Server에서 다음 권한이 필요 합니다.<br/><br/> - **데이터 저장소. 찾아보기**: VM 로그 파일을 검색 하 여 스냅숏 만들기 및 삭제 문제를 해결할 수 있습니다.<br/><br/> - **FileManagement**: 데이터 저장소 브라우저에서 읽기/쓰기/삭제/이름 바꾸기 작업을 허용 하 여 스냅숏 생성 및 삭제 문제를 해결 합니다.<br/><br/> - **VirtualMachine.Config. ChangeTracking**: VM 디스크의 변경 내용 추적을 사용 하거나 사용 하지 않도록 설정 하 여 스냅숏 간에 변경 된 데이터 블록을 가져옵니다.<br/><br/> - **VirtualMachine.Config. DiskLease**: VM에 대 한 디스크 임대 작업을 허용 하 VMWARE VSPHERE VDDK (가상 디스크 개발 키트)를 사용 하 여 디스크를 읽습니다.<br/><br/> - **VirtualMachine**: (특히 vsphere 6.0 이상) VDDK를 사용 하 여 디스크에서 임의 읽기 액세스를 위해 VM에서 디스크를 열 수 있도록 허용 합니다.<br/><br/> - **VirtualMachine. DiskRandomRead**: VM에서 디스크를 열고 VDDK를 사용 하 여 디스크를 읽을 수 있습니다.<br/><br/> - **VirtualMachine. DiskRandomAccess**: VM에서 디스크를 열고 VDDK를 사용 하 여 디스크를 읽을 수 있습니다.<br/><br/> - **VirtualMachine. GetVmFiles**: VM과 연결 된 파일에 대 한 읽기 작업을 허용 하 여 로그를 다운로드 하 고 오류가 발생 하는 경우 문제를 해결 합니다.<br/><br/> - **VirtualMachine \* . *_: 복제를 위한 VM 스냅숏 만들기 및 관리를 허용 합니다. <br/> <br/> -_* VirtualMachine. 전원 꺼짐**: Azure로 마이그레이션하는 동안 VM의 전원을 끌 수 있습니다.
+**vCenter Server 권한** | 에이전트 없는 마이그레이션은 마이그레이션 [어플라이언스](migrate-appliance.md)를 사용 합니다. 어플라이언스는 vCenter Server에서 다음 권한이 필요 합니다.<br/><br/> - **데이터 저장소. 찾아보기** (데이터 저장소-> 검색 데이터 저장소): VM 로그 파일을 검색 하 여 스냅숏 만들기 및 삭제 문제를 해결할 수 있습니다.<br/><br/> - **FileManagement** (데이터 저장소-> 낮은 수준 파일 작업): 데이터 저장소 브라우저에서 읽기/쓰기/삭제/이름 바꾸기 작업을 허용 하 여 스냅숏 생성 및 삭제 문제를 해결 합니다.<br/><br/> - **VirtualMachine.Config. ChangeTracking** (가상 머신-> 디스크 변경 내용 추적): VM 디스크의 변경 내용 추적을 사용 하거나 사용 하지 않도록 설정 하 여 스냅숏 간에 변경 된 데이터 블록을 가져옵니다.<br/><br/> - **VirtualMachine.Config. DiskLease** (가상 머신-> 디스크 임대): VMWARE VSPHERE VDDK (가상 디스크 개발 키트)를 사용 하 여 VM에 대 한 디스크 임대 작업을 통해 디스크를 읽을 수 있습니다.<br/><br/> - **VirtualMachine**: (특히 vsphere 6.0 이상) VDDK를 사용 하 여 디스크에서 임의 읽기 액세스를 위해 VM에서 디스크를 열 수 있도록 허용 합니다.<br/><br/> - **VirtualMachine DiskRandomRead** (가상 컴퓨터-> 프로 비전-읽기 전용 디스크 액세스를 허용 >): VM에서 디스크를 열고 VDDK를 사용 하 여 디스크를 읽을 수 있습니다.<br/><br/> - **VirtualMachine DiskRandomAccess** (가상 컴퓨터-> 프로 비전-디스크 액세스 허용 >): VM에서 디스크를 열고 VDDK를 사용 하 여 디스크를 읽을 수 있습니다.<br/><br/> - **VirtualMachine. GetVmFiles** (가상 머신-> 프로 비전-가상 머신 다운로드 허용 >): VM과 연결 된 파일에 대 한 읽기 작업을 허용 하 여 로그를 다운로드 하 고 오류가 발생 하는 경우 문제를 해결 합니다.<br/><br/> - **VirtualMachine \* . *_ (가상 컴퓨터-> 스냅숏 관리): 복제를 위한 VM 스냅숏 만들기 및 관리를 허용 합니다. <br/> <br/> -_* VirtualMachine. 전원 꺼짐** (가상 컴퓨터-> 상호 작용 > 전원 꺼짐): Azure로 마이그레이션하는 동안 VM의 전원을 끌 수 있습니다.
 
 
 
@@ -59,15 +59,15 @@ VMware Vm은 몇 가지 방법으로 마이그레이션할 수 있습니다.
 **디스크 크기** | 2TB OS 디스크 (BIOS 부팅); 4tb OS 디스크 (UEFI 부팅); 데이터 디스크의 경우 32 TB입니다.
 **디스크 제한** |  VM 당 최대 60 디스크
 **암호화 된 디스크/볼륨** | 암호화 된 디스크/볼륨이 있는 Vm은 마이그레이션을 지원 하지 않습니다.
-**공유된 디스크 클러스터** | 지원되지 않습니다.
-**독립 디스크** | 지원되지 않습니다.
+**공유된 디스크 클러스터** | 지원 안 됨
+**독립 디스크** | 지원 안 됨
 **RDM/통과 디스크** | Vm에 RDM 또는 통과 디스크가 있는 경우 이러한 디스크는 Azure에 복제 되지 않습니다.
 **NFS** | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다.
 **iSCSI 대상** | ISCSI 대상을 사용 하는 Vm은 에이전트 없는 마이그레이션에 대해 지원 되지 않습니다.
-**다중 경로 IO** | 지원되지 않습니다.
-**저장소 vMotion** | 지원되지 않습니다. VM에서 저장소 vMotion를 사용 하는 경우 복제가 작동 하지 않습니다.
-**팀 Nic** | 지원되지 않습니다.
-**IPv6** | 지원되지 않습니다.
+**다중 경로 IO** | 지원 안 됨
+**저장소 vMotion** | 지원 안 됨 VM에서 저장소 vMotion를 사용 하는 경우 복제가 작동 하지 않습니다.
+**팀 Nic** | 지원 안 됨
+**IPv6** | 지원 안 됨
 **대상 디스크** | Vm은 Azure에서 관리 되는 디스크 (표준 HDD, 표준 SSD, 프리미엄 SSD)로만 마이그레이션할 수 있습니다.
 **동시 복제** | vCenter Server 당 Vm 300 더 많은 경우 300의 일괄 처리로 마이그레이션합니다.
 
@@ -122,15 +122,15 @@ vSphere/ESXI 호스트 | 어플라이언스의 TCP 포트 902에 대 한 인바�
 **디스크 크기** | 2TB OS 디스크 (BIOS 부팅); 4tb OS 디스크 (UEFI 부팅); 데이터 디스크의 경우 8TB입니다.
 **디스크 제한** |  VM 당 최대 63 디스크
 **암호화 된 디스크/볼륨** | 암호화 된 디스크/볼륨이 있는 Vm은 마이그레이션을 지원 하지 않습니다.
-**공유된 디스크 클러스터** | 지원되지 않습니다.
+**공유된 디스크 클러스터** | 지원 안 됨
 **독립 디스크** | 지원됨.
 **통과 디스크** | 지원됨.
 **NFS** | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다.
 **iSCSI 대상** | 지원됨.
-**다중 경로 IO** | 지원되지 않습니다.
+**다중 경로 IO** | 지원 안 됨
 **저장소 vMotion** | 지원됨
-**팀 Nic** | 지원되지 않습니다.
-**IPv6** | 지원되지 않습니다.
+**팀 Nic** | 지원 안 됨
+**IPv6** | 지원 안 됨
 
 
 
@@ -156,7 +156,7 @@ VM | Vm에서 실행 되는 모바일 서비스는 복제 관리를 위해 HTTPS
 
 Azure에 복제 되는 모든 온-프레미스 Vm (에이전트 없는 에이전트 또는 에이전트 기반 마이그레이션 사용)은이 표에 요약 된 Azure VM 요구 사항을 충족 해야 합니다. 
 
-**구성 요소** | **Requirements** 
+**구성 요소** | **요구 사항** 
 --- | --- | ---
 게스트 운영 체제 | 마이그레이션에 대해 지원 되는 VMware VM 운영 체제를 확인 합니다.<br/> 지원 되는 운영 체제에서 실행 되는 모든 워크 로드를 마이그레이션할 수 있습니다. 
 게스트 운영 체제 아키텍처 | 64비트. 
@@ -165,11 +165,11 @@ Azure에 복제 되는 모든 온-프레미스 Vm (에이전트 없는 에이전
 데이터 디스크 수 | 64개 이하. 
 데이터 디스크 크기 | 최대 8095
 네트워크 어댑터 | 여러 어댑터가 지원됩니다.
-공유 VHD | 지원되지 않습니다. 
-FC 디스크 | 지원되지 않습니다. 
-BitLocker | 지원되지 않습니다.<br/><br/> 컴퓨터를 마이그레이션하기 전에 BitLocker를 사용 하지 않도록 설정 해야 합니다.
+공유 VHD | 지원 안 됨 
+FC 디스크 | 지원 안 됨 
+BitLocker | 지원 안 됨<br/><br/> 컴퓨터를 마이그레이션하기 전에 BitLocker를 사용 하지 않도록 설정 해야 합니다.
 VM 이름 | 1~63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으로 제한됩니다.<br/><br/> 컴퓨터 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. 
-마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/><br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다.<br/><br/> **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> 사이트 간 VPN 액세스의 경우 rdp를 사용 하도록 설정 하 고, **Windows Firewall**  ->  **도메인 및 개인** 네트워크의 Windows 방화벽 **허용 되는 앱 및 기능** 에서 rdp를 허용 합니다.<br/><br/> 또한 운영 체제의 SAN 정책이 **OnlineAll** 으로 설정 되어 있는지 확인 합니다. [자세한 정보를 알아보세요](prepare-for-migration.md).
+마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/><br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다.<br/><br/> **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> 사이트 간 VPN 액세스의 경우 rdp를 사용 하도록 설정 하 고, **Windows Firewall**  ->  **도메인 및 개인** 네트워크의 Windows 방화벽 **허용 되는 앱 및 기능** 에서 rdp를 허용 합니다.<br/><br/> 또한 운영 체제의 SAN 정책이 **OnlineAll** 으로 설정 되어 있는지 확인 합니다. [자세히 알아보기](prepare-for-migration.md).
 마이그레이션 후 연결-Linux | SSH를 사용 하 여 마이그레이션한 후 Azure Vm에 연결 하려면:<br/><br/> 마이그레이션 전에 온-프레미스 컴퓨터에서 Secure Shell 서비스가 시작으로 설정 되어 있고 방화벽 규칙에서 SSH 연결을 허용 하는지 확인 합니다.<br/><br/> 장애 조치 (failover) 후에 Azure VM에서 장애 조치 (failover) 된 VM의 네트워크 보안 그룹 규칙에 대 한 SSH 포트 및 연결 된 Azure 서브넷에 대 한 들어오는 연결을 허용 합니다.<br/><br/> 또한 VM에 대 한 공용 IP 주소를 추가 합니다.  
 
 

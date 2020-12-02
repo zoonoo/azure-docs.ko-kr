@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: ab729460a676bb5daa8860b3b4a837ec276fc5db
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5894a57e6495ca02002c8f32b893e696c7f5679b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182343"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350707"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 ServiceNow 구성
 
@@ -137,7 +137,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 * **InvalidLookupReference:** ServiceNow에서 부서 및 위치와 같은 특정 특성을 프로비저닝할 때 ServiceNow의 참조 테이블에 값이 이미 있어야 합니다. 예를 들어 ServiceNow의 **테이블 이름 삽입** 테이블에 두 개의 위치(Seattle, Los Angeles)와 3개의 부서(Sales, Finance, Marketing)가 있을 수 있습니다. 해당 부서가 "Sales"이고 위치가 "Seattle"인 사용자를 프로비저닝하면 성공적으로 프로비저닝됩니다. 부서가 "Sales"이고 위치가 "LA"인 사용자는 프로비저닝되지 않습니다. 위치 LA를 ServiceNow의 참조 테이블에 추가하거나, ServiceNow의 형식과 일치하도록 Azure AD의 사용자 특성을 업데이트해야 합니다. 
 * **EntryJoiningPropertyValueIsMissing:** [특성 매핑](../app-provisioning/customize-application-attributes.md)을 검토하여 일치하는 특성을 식별합니다. 이 값이 프로비저닝하려는 사용자 또는 그룹에 있어야 합니다. 
 * [ServiceNow SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html)를 검토하여 요구 사항 또는 제한 사항을 파악합니다(예: 사용자에 대한 국가 코드를 지정하는 형식).
-* 프로비저닝 요청은 기본적으로 https://{인스턴스 이름}.service-now.com/{테이블 이름}으로 전송됩니다. 사용자 지정 테넌트 URL이 필요한 경우 인스턴스 이름 필드에 전체 URL을 제공할 수 있습니다.
+* 프로비저닝 요청은 기본적으로 https://{your-instance-name}.service-now.com/{table-name}으로 보내집니다. 사용자 지정 테넌트 URL이 필요한 경우 인스턴스 이름 필드에 전체 URL을 제공할 수 있습니다.
 * **ServiceNowInstanceInvalid** 
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              

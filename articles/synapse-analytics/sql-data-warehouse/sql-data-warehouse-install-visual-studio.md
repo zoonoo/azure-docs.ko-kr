@@ -12,12 +12,12 @@ ms.subservice: sql-dw
 ms.date: 05/11/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 47002a59bf085b2a943a40a0804fd9b9a2a75092
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3ab0188fa44eeb09e3981b8e1809832948963d47
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422232"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511644"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Visual Studio 2019 시작
 
@@ -42,8 +42,7 @@ Synapse SQL의 기능 릴리스에 SSDT에 대한 지원이 포함되지 않는 
 - [워크로드 관리](sql-data-warehouse-workload-management.md) - 워크로드 그룹 및 분류자
 - [행 수준 보안](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (테이블 반환 함수 포함)
   - 지원되는 기능을 가져오려면 [지원 티켓 또는 투표](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security)를 제출합니다.
-- [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#defining-a-dynamic-data-mask)
-   - 지원되는 기능을 가져오려면 [지원 티켓 또는 투표](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking)를 제출합니다.
+  - 지원되는 기능을 가져오려면 [지원 티켓 또는 투표](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking)를 제출합니다.
 - [Id 열](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15) 이 있는 테이블
 - 특정 T-sql 기능 (예:
    - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql?view=sqlallproducts-allversions) STRING 함수의 *GROUP 절 내* 에 있습니다.

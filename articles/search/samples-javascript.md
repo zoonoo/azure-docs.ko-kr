@@ -8,24 +8,24 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 234c70fffb6f353c670d23624cc446fdaf6bd886
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 09a9ca2ad1b1f1e5578ecc5d35a85c81b32a5b1a
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498968"
+ms.locfileid: "96511749"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 JavaScript 코드 샘플
 
 Azure Cognitive Search의 기능을 설명 하는 JavaScript 코드 샘플에 대해 알아봅니다. 기본 리포지토리는 다음과 같습니다.
 
-| 리포지토리 | 설명 |
+| 리포지토리 | Description |
 |------------|-------------|
 | [azure-s e r v e r/s s d/트리/마스터/s i d/검색/검색-문서](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents) | SDK에서 Azure.Search.Documents client 라이브러리와 함께 제공 되는 Azure SDK 팀이 생성 한 샘플입니다. 클라이언트 라이브러리에 대 한 [단위 테스트](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test) 를 검토 하 여 다양 한 api를 호출 하는 방법을 확인할 수도 있습니다. |
 | [Azure-샘플/azure-검색-javascript-샘플](https://github.com/Azure-Samples/azure-search-javascript-samples) | [빠른 시작: JavaScript에서 검색 인덱스 만들기](search-get-started-javascript.md)를 비롯 한 방법 문서와 함께 제공 되는 코드 샘플입니다.|
 
 > [!Tip]
-> [샘플 브라우저](/samples/browse/?languages=csharp&products=azure-cognitive-search) 에서 제품, 서비스 및 언어를 기준으로 필터링 된 Microsoft 코드 샘플을 검색 해 보세요.
+> [샘플 브라우저](/samples/browse/?languages=javascript&products=azure-cognitive-search) 에서 제품, 서비스 및 언어를 기준으로 필터링 된 Microsoft 코드 샘플을 검색 해 보세요.
 
 ## <a name="javascript-sdk-samples"></a>JavaScript SDK 샘플
 
