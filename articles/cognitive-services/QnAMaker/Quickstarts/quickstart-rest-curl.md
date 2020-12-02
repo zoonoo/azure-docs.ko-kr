@@ -7,16 +7,16 @@ ms.date: 11/09/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
-ms.openlocfilehash: 021628b92f1068743b097a455306df742f308f86
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 7592b9fb509f39504ad2399d0e939ceca1156221
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427686"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351098"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>빠른 시작: cURL 및 REST를 사용하여 기술 자료 관리
 
-이 빠른 시작에서는 기술 자료를 만들고, 게시하고, 쿼리하는 과정을 안내합니다. QnA Maker는 [데이터 원본](../Concepts/knowledge-base.md)에서 반구조화된 콘텐츠(예: FAQ)의 질문과 답변을 자동으로 추출합니다. 기술 자료 모델은 API 요청 본문에 전송된 JSON에 정의되어 있습니다.
+이 빠른 시작에서는 기술 자료를 만들고, 게시하고, 쿼리하는 과정을 안내합니다. QnA Maker는 [데이터 원본](../index.yml)에서 반구조화된 콘텐츠(예: FAQ)의 질문과 답변을 자동으로 추출합니다. 기술 자료 모델은 API 요청 본문에 전송된 JSON에 정의되어 있습니다.
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -54,7 +54,7 @@ REST API 및 cURL을 사용하여 기술 자료를 만드는 데 필요한 정�
 |--|--|--|
 |QnA Maker 리소스 이름|URL|URL을 생성하는 데 사용됨|
 |QnA Maker 리소스 키|`Ocp-Apim-Subscription-Key` 헤더의 `-h` 매개 변수|QnA Maker 서비스에 인증|
-|기술 자료를 설명하는 JSON|`-d` 매개 변수|JSON [예제](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples)|
+|기술 자료를 설명하는 JSON|`-d` 매개 변수|JSON [예제](/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples)|
 |JSON 크기(바이트 단위)|`Content-Size` 헤더의 `-h` 매개 변수||
 
 cURL 명령은 BASH 셸에서 실행됩니다. 사용자 고유의 리소스 이름, 리소스 키 및 JSON 값과 JSON 크기를 사용하여 이 명령을 편집합니다.
@@ -89,7 +89,7 @@ REST API 및 cURL을 사용하여 기술 자료를 만드는 데 필요한 정�
 |--|--|--|
 |QnA Maker 리소스 이름|URL|URL을 생성하는 데 사용됨|
 |QnA Maker 리소스 키|`Ocp-Apim-Subscription-Key` 헤더의 `-h` 매개 변수|QnA Maker 서비스에 인증|
-|기술 자료를 설명하는 JSON|`-d` 매개 변수|JSON [예제](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples)|
+|기술 자료를 설명하는 JSON|`-d` 매개 변수|JSON [예제](/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples)|
 |JSON 크기(바이트 단위)|`Content-Size` 헤더의 `-h` 매개 변수||
 
 cURL 명령은 BASH 셸에서 실행됩니다. 사용자 고유의 리소스 이름, 리소스 키 및 JSON 값과 JSON 크기를 사용하여 이 명령을 편집합니다.
@@ -322,7 +322,7 @@ cURL 응답에는 런타임 엔드포인트 키가 포함됩니다. 기술 자�
 |QnA Maker 리소스 이름|URL|URL을 생성하는 데 사용됨|
 |QnA Maker 런타임 키|`Authorization` 헤더의 `-h` 매개 변수|키는 `Endpointkey ` 단어가 포함된 문자열의 일부입니다. QnA Maker 서비스에 인증|
 |기술 자료 ID|URL 경로|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|쿼리를 설명하는 JSON|`-d` 매개 변수|JSON의 [요청 본문 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) 및 [예제](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples)|
+|쿼리를 설명하는 JSON|`-d` 매개 변수|JSON의 [요청 본문 매개 변수](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) 및 [예제](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples)|
 |JSON 크기(바이트 단위)|`Content-Size` 헤더의 `-h` 매개 변수||
 
 cURL 명령은 BASH 셸에서 실행됩니다. 리소스 이름, 리소스 키 및 기술 자료 ID를 사용하여 이 명령을 편집합니다.
@@ -347,7 +347,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker/knowledg
 |QnA Maker 리소스 이름|URL|URL을 생성하는 데 사용됨|
 |QnA Maker 리소스 키|`Ocp-Apim-Subscription-Key` 헤더의 `-h` 매개 변수|QnA Maker 서비스에 인증|
 |기술 자료 ID|URL 경로|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|쿼리를 설명하는 JSON|`-d` 매개 변수|JSON의 [요청 본문 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) 및 [예제](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples)|
+|쿼리를 설명하는 JSON|`-d` 매개 변수|JSON의 [요청 본문 매개 변수](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) 및 [예제](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples)|
 |JSON 크기(바이트 단위)|`Content-Size` 헤더의 `-h` 매개 변수||
 
 cURL 명령은 BASH 셸에서 실행됩니다. 리소스 이름, 리소스 키 및 기술 자료 ID를 사용하여 이 명령을 편집합니다.
@@ -414,11 +414,11 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [작성](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) 참조 설명서
-* [런타임](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime) 참조 설명서
+* [작성](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) 참조 설명서
+* [런타임](/rest/api/cognitiveservices/qnamaker4.0/runtime) 참조 설명서
 * [cURL을 사용하는 BASH 스크립트 샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [QnA Maker(V4) REST API 참조](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [QnA Maker(V4) REST API 참조](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)

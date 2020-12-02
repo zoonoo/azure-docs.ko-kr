@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 2f7d2df8561efe7188fc2d070c57dcb0236fefb1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ac5106aa661cb2baea31ee15d57e9c6fac8c7192
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95029368"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350333"
 ---
 # <a name="face-api-enrollment"></a>Face API 등록
 
@@ -44,7 +44,7 @@ Microsoft 사용자 연구, Microsoft의 책임 있는 AI 원칙 및 [외부 연
 |---|---|
 |하드웨어 | 등록 디바이스의 카메라 품질을 고려합니다. |
 |권장된 등록 기능 | 다단계 인증을 사용한 로그온 단계를 포함합니다.</br></br>별칭 또는 식별 번호와 같은 사용자 정보를 Face API(개인 ID라고 함)의 얼굴 템플릿 ID와 연결합니다. 이 매핑은 사용자 등록을 검색하고 관리하는 데 필요합니다. 참고: 개인 ID는 애플리케이션에서 비밀로 취급되어야 합니다.</br></br>이전 직원과 같이 얼굴 인식 기술을 더 이상 사용하지 않는 사람의 얼굴 템플릿 및 등록 사진을 포함하여 모든 등록 데이터를 삭제하기 위한 자동 프로세스를 설정합니다.</br></br>자동 등록은 사용자에게 동의를 얻기 위해 권장되는 인식, 이해, 선택의 자유 또는 통제를 제공하지 않으므로 사용을 피하세요. </br></br>사용자에게 등록에 사용된 이미지를 저장할 수 있는 권한을 요청하세요. 이는 약 10개월마다 새 모델에 다시 등록하려면 새 등록 사진이 필요하므로 모델 업데이트가 있을 때 유용합니다. 기존 이미지를 저장하지 않은 경우 사용자는 처음부터 등록 프로세스를 진행해야 합니다.</br></br>사용자가 시스템에 사진을 저장하지 않도록 허용합니다. 선택을 명확히 하기 위해 두 번째 동의 요청 화면을 추가하여 등록 사진을 저장할 수 있습니다. </br></br>사진이 저장된 경우 모델 업데이트가 있을 때 모든 사용자를 다시 등록하는 자동 프로세스를 만듭니다. 등록 사진을 저장한 사용자는 다시 등록할 필요가 없습니다. </br></br>사용자가 등록하는 데 문제가 있을 경우 지정된 관리자가 특정 품질 필터를 재정의할 수 있는 앱 기능을 만듭니다. |
-|보안 | Cognitive Services는 유휴 및 전송 중인 사용자 미사용 데이터를 암호화하는 [모범 사례](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)를 따릅니다. 다음은 등록 환경에서 사용자에게 제공한 보안 약속을 유지하는 데 도움이 되는 추가 관례입니다. </br></br>등록 중 언제든지 개인 ID에 액세스하지 못하도록 보안 조치를 취합니다. 참고: 개인 ID는 등록 시스템에서 비밀로 취급되어야 합니다. </br></br>Cognitive Services를 사용하여 [역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/overview)를 사용합니다. </br></br>키 및 비밀 위에 토큰 기반 인증 및/또는 공유 액세스 서명(SAS)을 사용하여 데이터베이스와 같은 리소스에 액세스합니다. 요청 또는 SAS 토큰을 사용하면 계정 키를 손상시키지 않고 데이터에 제한된 액세스 권한을 부여할 수 있으며 토큰에 만료 시간을 지정할 수 있습니다. </br></br>앱에 비밀, 키 또는 암호를 저장하지 마세요. |
+|보안 | Cognitive Services는 유휴 및 전송 중인 사용자 미사용 데이터를 암호화하는 [모범 사례](../cognitive-services-virtual-networks.md?tabs=portal)를 따릅니다. 다음은 등록 환경에서 사용자에게 제공한 보안 약속을 유지하는 데 도움이 되는 추가 관례입니다. </br></br>등록 중 언제든지 개인 ID에 액세스하지 못하도록 보안 조치를 취합니다. 참고: 개인 ID는 등록 시스템에서 비밀로 취급되어야 합니다. </br></br>Cognitive Services를 사용하여 [역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 사용합니다. </br></br>키 및 비밀 위에 토큰 기반 인증 및/또는 공유 액세스 서명(SAS)을 사용하여 데이터베이스와 같은 리소스에 액세스합니다. 요청 또는 SAS 토큰을 사용하면 계정 키를 손상시키지 않고 데이터에 제한된 액세스 권한을 부여할 수 있으며 토큰에 만료 시간을 지정할 수 있습니다. </br></br>앱에 비밀, 키 또는 암호를 저장하지 마세요. |
 |사용자 개인 정보 |다양한 수준의 개인 정보 보호 문제를 해결하는 다양한 등록 옵션을 제공합니다. 사용자에게 자신의 개인 디바이스를 사용하여 얼굴 인식 시스템에 등록할 것을 요구하지 마세요. </br></br>사용자가 언제든지 어떤 이유로든 등록 애플리케이션에서 재등록, 동의 취소, 데이터 삭제 등을 할 수 있도록 허용합니다. |
 |접근성 |접근성 표준(예: [ADA](https://www.ada.gov/regs2010/2010ADAStandards/2010ADAstandards.htm) 또는 [W3C](https://www.w3.org/TR/WCAG21/))을 준수하여 이동성 또는 시각 장애가 있는 사용자가 애플리케이션을 사용할 수 있도록 합니다. |
 

@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 1a57660733b7257b224c38a55059f1bf069495a0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0de93eff0fc422bc28fe7b2c42c295c8d8b1acc4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890246"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344473"
 ---
 # <a name="what-is-metrics-advisor-preview"></a>Metrics Advisor(미리 보기)란? 
 
@@ -63,4 +63,4 @@ Metrics Advisor는 다음을 포함한 여러 데이터 저장소의 [다차원 
 ## <a name="next-steps"></a>다음 단계
 
 * 빠른 시작 살펴보기: [웹에서 첫 번째 메트릭 모니터링](quickstarts/web-portal.md)
-* 빠른 시작 살펴보기: [REST API를 사용하여 솔루션 사용자 지정](quickstarts/rest-api.md)
+* 빠른 시작 살펴보기: [REST API를 사용하여 솔루션 사용자 지정](./quickstarts/rest-api-and-client-library.md)

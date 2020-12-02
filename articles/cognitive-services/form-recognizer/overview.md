@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 자동화된 데이터 처리, 문서 처리, 자동화된 데이터 입력, 양식 처리
-ms.openlocfilehash: 05024b8d7f4cf76024d71a79cb1fce489d58ee70
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 39243f4428d055ee5d4491c3e87b4b91213f63f1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519526"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353683"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 
@@ -76,7 +76,7 @@ Form Recognizer 사용자 지정 모델은 사용자 고유의 데이터로 학�
 
 Form Recognizer는 [레이아웃 API](#layout-api)를 사용하여 인쇄 및 필기된 텍스트 요소의 예상 크기와 위치를 학습합니다. 그 후 사용자 지정 레이블을 사용하여 문서의 키/값 연결을 학습합니다. 새 모델을 학습시킬 때 동일한 유형(동일한 구조)의 수동 레이블 지정 양식 5개를 사용하여 시작한 후 필요에 따라 레이블 지정 데이터를 추가하여 모델 정확도를 개선하는 것이 좋습니다.
 
-[레이블로 학습 시작](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+[레이블로 학습 시작](./quickstarts/label-tool.md)
 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
