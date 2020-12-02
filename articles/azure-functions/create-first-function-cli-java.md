@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 5c8993bdf892ceb7d9886d0d2b97063dedec720c
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: db24fa4721e2e502c5098b415c4cf06da80f697d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635554"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175681"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Java 함수 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "94635554"
 
 + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상.
 
-+ [Java Developer Kit](https://aka.ms/azure-jdks) 버전 8 또는 11. `JAVA_HOME` 환경 변수는 올바른 버전의 JDK 설치 위치로 설정해야 합니다.     
++ [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) 버전 8 또는 11. `JAVA_HOME` 환경 변수는 올바른 버전의 JDK 설치 위치로 설정해야 합니다.     
 
 + [Apache Maven](https://maven.apache.org) 버전 3.0 이상
 

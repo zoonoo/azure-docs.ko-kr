@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 35713a2e854cf65054d162ce0191bf2dfde4e90b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 73a12edb4576fe26fbb8e0918566aa8e292e35fc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786142"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184317"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-javascript-v4"></a>빠른 시작: JavaScript용 Azure Key Vault 클라이언트 라이브러리(v4)
 
@@ -21,7 +21,7 @@ JavaScript용 Azure Key Vault 비밀 클라이언트 라이브러리를 시작�
 
 [API 참조 설명서](/javascript/api/overview/azure/key-vault-index) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [패키지(npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - 현재 운영 체제의 [Node.js](https://nodejs.org)입니다.
@@ -69,7 +69,7 @@ npm install @azure/identity
 비밀 권한을 사용자 계정에 부여하는 키 자격 증명 모음에 대한 액세스 정책을 만듭니다.
 
 ```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
 ```
 
 #### <a name="set-environment-variables"></a>환경 변수 설정

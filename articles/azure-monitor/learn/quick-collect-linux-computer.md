@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 04d53dc213d5e992dc79e322b071025bdb447b1b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4527d871df3667f483efd529d93f044377f34651
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057504"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186187"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>빠른 시작: Azure Monitor를 사용하여 하이브리드 환경에서 Linux 컴퓨터의 데이터 수집
 
@@ -34,23 +34,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 
-1. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
+1. Azure Portal에서 **모든 서비스** 를 선택합니다. 리소스 목록에서 **Log Analytics** 를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역** 을 선택합니다.
 
     ![Azure Portal에서 Log Analytics 작업 영역 찾기](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
-2. **만들기**를 선택한 후, 다음 항목에 대한 선택 사항을 지정합니다.
+2. **만들기** 를 선택한 후, 다음 항목에 대한 선택 사항을 지정합니다.
 
-   * 새 **Log Analytics 작업 영역**의 이름(예: *DefaultLAWorkspace*)을 지정합니다.  
-   * 기본으로 선택된 값이 적절하지 않으면 드롭다운 목록에서 선택하여 연결할 **구독**을 선택합니다.
-   * **리소스 그룹**에 대해 하나 이상의 Azure Virtual Machines를 포함하는 기존 리소스 그룹을 선택합니다.  
-   * VM이 배포된 **위치**를 선택합니다.  자세한 내용은 [Log Analytics를 사용할 수 있는 지역](https://azure.microsoft.com/regions/services/)을 참조하세요.
+   * 새 **Log Analytics 작업 영역** 의 이름(예: *DefaultLAWorkspace*)을 지정합니다.  
+   * 기본으로 선택된 값이 적절하지 않으면 드롭다운 목록에서 선택하여 연결할 **구독** 을 선택합니다.
+   * **리소스 그룹** 에 대해 하나 이상의 Azure Virtual Machines를 포함하는 기존 리소스 그룹을 선택합니다.  
+   * VM이 배포된 **위치** 를 선택합니다.  자세한 내용은 [Log Analytics를 사용할 수 있는 지역](https://azure.microsoft.com/regions/services/)을 참조하세요.
    * 2018년 4월 2일 이후에 만들어진 새 구독에서 작업 영역을 만드는 경우 *GB당* 가격 책정 계획이 자동으로 사용되며 가격 책정 계층을 선택할 수 있는 옵션이 제공되지 않습니다.  4월 2일 전에 만들어진 기존 구독 또는 기존 EA 등록과 연결된 구독에서 작업 영역을 만드는 경우 선호하는 가격 책정 계층을 선택합니다.  특정 계층에 대한 자세한 내용은 [Log Analytics 가격 책정 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요.
   
         ![Azure Portal에서 Log Analytics 작업 영역 만들기](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
-3. **Log Analytics 작업 영역** 창에서 필요한 정보를 제공한 후 **확인**을 선택합니다.  
+3. **Log Analytics 작업 영역** 창에서 필요한 정보를 제공한 후 **확인** 을 선택합니다.  
 
-정보가 확인되고 작업 영역이 만들어지는 동안 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다. 
+정보가 확인되고 작업 영역이 만들어지는 동안 메뉴의 **알림** 에서 진행 상황을 추적할 수 있습니다. 
 
 ## <a name="obtain-workspace-id-and-key"></a>작업 영역 ID 및 키 가져오기
 
@@ -58,15 +58,15 @@ Linux용 Log Analytics 에이전트를 설치하기 전에 Log Analytics 작업 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
-1. Azure Portal의 왼쪽 위 모서리에서 **모든 서비스**를 선택합니다. 검색 상자에서 **Log Analytics**를 입력합니다. 입력하는 대로 입력 내용에 따라 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **모든 서비스** 를 선택합니다. 검색 상자에서 **Log Analytics** 를 입력합니다. 입력하는 대로 입력 내용에 따라 목록이 필터링됩니다. **Log Analytics 작업 영역** 을 선택합니다.
 
-2. Log Analytics 작업 영역 목록에서 이전에 만든 작업 영역을 선택합니다. (이름은 **DefaultLAWorkspace**로 지정했을 수 있습니다.)
+2. Log Analytics 작업 영역 목록에서 이전에 만든 작업 영역을 선택합니다. (이름은 **DefaultLAWorkspace** 로 지정했을 수 있습니다.)
 
-3. **에이전트 관리**를 선택합니다.
+3. **에이전트 관리** 를 선택합니다.
  
-4. 그런 다음, **Linux 서버**를 선택합니다.
+4. 그런 다음, **Linux 서버** 를 선택합니다.
 
-5. **작업 영역 ID** 및 **기본 키**의 오른쪽에 값이 있습니다. 두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.
+5. **작업 영역 ID** 및 **기본 키** 의 오른쪽에 값이 있습니다. 두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.
 
 ## <a name="install-the-agent-for-linux"></a>Linux용 에이전트 설치
 
@@ -113,33 +113,33 @@ Linux 컴퓨터에서 프록시 서버를 통해 Log Analytics에 통신해야 �
 
 Azure Monitor는 장기 분석 및 보고를 위해 Linux Syslog 및 성능 카운터에서 이벤트를 수집할 수 있습니다. 또한 특정 조건이 감지되면 조치를 취할 수도 있습니다. 다음 단계에 따라 Linux Syslog의 수집과 시작할 몇 가지 일반 성능 카운터를 구성하세요.  
 
-1. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 Log Analytics를 입력합니다. 입력하는 대로 입력 내용에 따라 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택하고, Log Analytics 작업 영역 목록에서 원하는 작업 영역을 선택하고, **Log Analytics** 작업 영역의 **고급 설정**을 선택합니다.
+1. Azure Portal에서 **모든 서비스** 를 선택합니다. 리소스 목록에서 Log Analytics를 입력합니다. 입력하는 대로 입력 내용에 따라 목록이 필터링됩니다. **Log Analytics 작업 영역** 을 선택하고, Log Analytics 작업 영역 목록에서 원하는 작업 영역을 선택하고, **Log Analytics** 작업 영역의 **고급 설정** 을 선택합니다.
 
-2. **데이터**를 선택한 다음, **Syslog**를 선택합니다.  
+2. **데이터** 를 선택한 다음, **Syslog** 를 선택합니다.  
 
-3. 로그 이름을 입력하여 Syslog를 추가합니다. **Syslog**를 입력한 다음, 더하기 기호( **+** )를 선택합니다.  
+3. 로그 이름을 입력하여 Syslog를 추가합니다. **Syslog** 를 입력한 다음, 더하기 기호( **+** )를 선택합니다.  
 
-4. 표에서 심각도 **정보**, **알림** 및 **디버그**를 선택 취소합니다. 
+4. 표에서 심각도 **정보**, **알림** 및 **디버그** 를 선택 취소합니다. 
 
-5. 페이지 맨 위에서 **저장**을 선택하여 구성을 저장합니다.
+5. 페이지 맨 위에서 **저장** 을 선택하여 구성을 저장합니다.
 
-6. **Linux 성능 데이터**를 선택하여 Linux 컴퓨터의 성능 카운터 수집을 사용하도록 설정합니다. 
+6. **Linux 성능 데이터** 를 선택하여 Linux 컴퓨터의 성능 카운터 수집을 사용하도록 설정합니다. 
 
 7. 새 Log Analytics 작업 영역에 대한 Linux 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다. 각 항목은 옆에 확인란과 함께 나열됩니다.
 
     ![Azure Monitor에서 선택된 기본 Linux 성능 카운터](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
-    **내 머신에 아래 구성 적용**을 선택한 다음, **선택한 성능 카운터 추가**를 선택합니다. 해당 성능 카운터가 추가되고, 10초의 수집 샘플 간격으로 미리 설정됩니다.  
+    **내 머신에 아래 구성 적용** 을 선택한 다음, **선택한 성능 카운터 추가** 를 선택합니다. 해당 성능 카운터가 추가되고, 10초의 수집 샘플 간격으로 미리 설정됩니다.  
 
-8. 페이지 맨 위에서 **저장**을 선택하여 구성을 저장합니다.
+8. 페이지 맨 위에서 **저장** 을 선택하여 구성을 저장합니다.
 
 ## <a name="view-data-collected"></a>수집되는 데이터 보기
 
 데이터 수집을 사용하도록 설정했으므로 대상 컴퓨터의 일부 데이터를 확인하는 간단한 로그 검색 예제를 실행해보겠습니다.  
 
-1. 선택한 작업 영역의 왼쪽 창에서 **로그**를 선택합니다.
+1. 선택한 작업 영역의 왼쪽 창에서 **로그** 를 선택합니다.
 
-2. 로그 쿼리 페이지에서 쿼리 편집기에 `Perf`를 입력하고 **실행**을 선택합니다.
+2. 로그 쿼리 페이지에서 쿼리 편집기에 `Perf`를 입력하고 **실행** 을 선택합니다.
  
     ![Log Analytics 로그 검색](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
 
@@ -155,16 +155,15 @@ Azure Monitor는 장기 분석 및 보고를 위해 Linux Syslog 및 성능 카�
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
-작업 영역을 삭제하려면 앞서 만든 Log Analytics 작업 영역을 선택하고 리소스 페이지에서 **삭제**를 선택합니다.
+작업 영역을 삭제하려면 앞서 만든 Log Analytics 작업 영역을 선택하고 리소스 페이지에서 **삭제** 를 선택합니다.
 
 ![Log Analytics 리소스 삭제](media/quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-온-프레미스 Linux 컴퓨터에서 운영 및 성능 데이터를 수집하도록 구성했으므로 이제 *무료*로 수집하는 데이터를 쉽게 탐색하고 분석하고 관련 작업을 수행할 수 있습니다.  
+온-프레미스 Linux 컴퓨터에서 운영 및 성능 데이터를 수집하도록 구성했으므로 이제 *무료* 로 수집하는 데이터를 쉽게 탐색하고 분석하고 관련 작업을 수행할 수 있습니다.  
 
 데이터를 보고 분석하는 방법을 알아보려면 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Log Analytics에서 데이터 보기 또는 분석](../log-query/get-started-portal.md)
-
+> [Log Analytics에서 데이터 보기 또는 분석](../log-query/log-analytics-tutorial.md)

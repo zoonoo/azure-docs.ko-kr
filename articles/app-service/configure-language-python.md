@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 149f8deb8839b3adce3555300c94b8ebdf587100
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: f12ed42755af64f024fdcb0452173134f7b58482
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873848"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183739"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Azure App Service용 Linux Python 앱 구성
 
@@ -126,10 +126,10 @@ Azure App Service와 같은 프로덕션 환경의 경우 Django 앱은 Django�
 
 | Django 설정 | Azure에 대한 지침 |
 | --- | --- |
-| `SECRET_KEY` | [환경 변수로 앱 설정에 액세스](#access-app-settings-as-environment-variables)에 설명된 대로 App Service 설정에 값을 저장합니다. [값을 Azure Key Vault에 "비밀"로 저장](/azure/key-vault/secrets/quick-create-python)할 수도 있습니다. |
+| `SECRET_KEY` | [환경 변수로 앱 설정에 액세스](#access-app-settings-as-environment-variables)에 설명된 대로 App Service 설정에 값을 저장합니다. [값을 Azure Key Vault에 "비밀"로 저장](../key-vault/secrets/quick-create-python.md)할 수도 있습니다. |
 | `DEBUG` | App Service에서 값이 0(false)인 `DEBUG` 설정을 만든 다음, 해당 값을 환경 변수로 로드합니다. 개발 환경에서 값이 1(true)인 `DEBUG` 환경 변수를 만듭니다. |
 | `ALLOWED_HOSTS` | Django 앱을 프로덕션 환경에서 사용하려면 *settings.py* 의 `ALLOWED_HOSTS` 배열에 앱 URL을 포함해야 합니다. 이 URL은 런타임에 `os.environ['WEBSITE_HOSTNAME']` 코드를 사용하여 검색할 수 있습니다. App Service는 자동으로 `WEBSITE_HOSTNAME` 환경 변수를 앱의 URL로 설정합니다. |
-| `DATABASES` | App Service에서 데이터베이스 연결에 대한 설정을 정의한 다음, 해당 설정을 환경 변수로 로드하여 [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) 사전을 채웁니다. 값(특히 사용자 이름 및 암호)을 [Azure Key Vault 비밀](/azure/key-vault/secrets/quick-create-python)로 저장할 수도 있습니다. |
+| `DATABASES` | App Service에서 데이터베이스 연결에 대한 설정을 정의한 다음, 해당 설정을 환경 변수로 로드하여 [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) 사전을 채웁니다. 값(특히 사용자 이름 및 암호)을 [Azure Key Vault 비밀](../key-vault/secrets/quick-create-python.md)로 저장할 수도 있습니다. |
 
 ## <a name="container-characteristics"></a>컨테이너 특성
 

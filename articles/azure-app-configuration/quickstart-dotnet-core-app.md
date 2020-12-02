@@ -9,11 +9,11 @@ ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: lcozzens
 ms.openlocfilehash: bb12224fd29d50765bc56a531787b7a0849cd06e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075793"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183518"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>빠른 시작: App Configuration을 사용하여 .NET Core 앱 만들기
 
@@ -28,15 +28,15 @@ ms.locfileid: "92075793"
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-7. **구성 탐색기** > **만들기** > **키-값**을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
+7. **구성 탐색기** > **만들기** > **키-값** 을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|
     | TestApp:Settings:Message | Azure App Configuration의 정보 |
 
-    지금은 **레이블**과 **콘텐츠 형식**을 비워 두세요.
+    지금은 **레이블** 과 **콘텐츠 형식** 을 비워 두세요.
 
-8. **적용**을 선택합니다.
+8. **적용** 을 선택합니다.
 
 ## <a name="create-a-net-core-console-app"></a>.NET Core 콘솔 앱 만들기
 
@@ -64,7 +64,7 @@ ms.locfileid: "92075793"
     dotnet restore
     ```
 
-3. *Program.cs*를 열고, .NET Core App Configuration 공급자에 대한 참조를 추가합니다.
+3. *Program.cs* 를 열고, .NET Core App Configuration 공급자에 대한 참조를 추가합니다.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
@@ -86,7 +86,7 @@ ms.locfileid: "92075793"
 
 ## <a name="build-and-run-the-app-locally"></a>로컬로 앱 빌드 및 실행
 
-1. **ConnectionString**이라는 환경 변수를 설정하고, App Configuration 스토리지에 대한 액세스 키로 설정합니다. 명령줄에서 다음 명령을 실행합니다.
+1. **ConnectionString** 이라는 환경 변수를 설정하고, App Configuration 스토리지에 대한 액세스 키로 설정합니다. 명령줄에서 다음 명령을 실행합니다.
 
     ```cmd
     setx ConnectionString "connection-string-of-your-app-configuration-store"

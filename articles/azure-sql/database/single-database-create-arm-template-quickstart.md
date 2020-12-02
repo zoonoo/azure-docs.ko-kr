@@ -11,12 +11,12 @@ author: mumian
 ms.author: jgao
 ms.reviewer: sstein
 ms.date: 06/24/2020
-ms.openlocfilehash: 6e56d6558b3a80707a9f845740980f8ebbc87e35
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b7883144509760c9670decd50062d2595b8dc495
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791497"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187088"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기
 
@@ -85,7 +85,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 - 온-프레미스 또는 원격 도구에서 단일 데이터베이스에 연결하기 위한 서버 수준 방화벽 규칙을 만듭니다. 자세한 내용은 [서버 수준 방화벽 규칙 만들기](firewall-create-server-level-portal-quickstart.md)를 참조하세요.
 - 서버 수준 방화벽 규칙을 만든 후 여러 다양한 도구 및 언어를 사용하여 데이터베이스를 [연결 및 쿼리](connect-query-content-reference-guide.md)할 수 있습니다.
   - [SQL Server Management Studio를 사용하여 연결 및 쿼리](connect-query-ssms.md)
-  - [Azure Data Studio를 사용하여 연결 및 쿼리](/sql/azure-data-studio/quickstart-sql-database?toc=%252fazure%252fsql-database%252ftoc.json)
+  - [Azure Data Studio를 사용하여 연결 및 쿼리](/sql/azure-data-studio/quickstart-sql-database?toc=%2fazure%2fsql-database%2ftoc.json)
 - Azure CLI를 사용하여 단일 데이터베이스를 만들려면 [Azure CLI 샘플](az-cli-script-samples-content-guide.md)을 참조하세요.
 - Azure PowerShell을 사용하여 단일 데이터베이스를 만들려면 [Azure PowerShell 샘플](powershell-script-content-guide.md)을 참조하세요.
 - ARM 템플릿을 만드는 방법을 알아보려면 [첫 번째 템플릿 만들기](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)를 참조하세요.

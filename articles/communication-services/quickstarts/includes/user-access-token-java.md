@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 6be69a1ec20ed859769c944a2f66de1310c09507
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: e7968f4ab01706aa5f8d7d016d93a1b9de2e74b6
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915384"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325316"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -134,8 +134,7 @@ List<String> scopes = new ArrayList<>(Arrays.asList("voip"));
 CommunicationUserToken response = communicationIdentityClient.issueToken(identity, scopes);
 OffsetDateTime expiresOn = response.getExpiresOn();
 String token = response.getToken();
-String identityId = response.getUser().getId();
-System.out.println("\nIssued a access token with 'voip' scope for identity with ID: " + identityId + ": " + token);
+System.out.println("\nIssued an access token with 'voip' scope that expires at: " + expiresOn + ": " + token);
 ```
 
 액세스 토큰은 다시 발급해야 하는 단기 자격 증명입니다. 이렇게 하지 않으면 애플리케이션의 사용자 환경이 중단될 수 있습니다. `expiresAt` 응답 속성은 액세스 토큰의 수명을 나타냅니다.
@@ -156,7 +155,7 @@ response = communicationIdentityClient.issueToken(identity, scopes);
 
 ```java  
 communicationIdentityClient.revokeTokens(identity, OffsetDateTime.now());
-System.out.println("\nRevoked access tokens for the user with ID: " + identity.getId());
+System.out.println("\nSuccessfully revoked all access tokens for identity with ID: " + identity.getId());
 ```
 
 ## <a name="delete-an-identity"></a>ID 삭제
@@ -165,7 +164,7 @@ ID를 삭제하면 모든 활성 액세스 토큰이 취소되고 ID에 대한 �
 
 ```java
 communicationIdentityClient.deleteUser(identity);
-System.out.println("\nSuccessfully deleted the identity with ID: " + identity.getId());
+System.out.println("\nDeleted the identity with ID: " + identity.getId());
 ```
 
 ## <a name="run-the-code"></a>코드 실행

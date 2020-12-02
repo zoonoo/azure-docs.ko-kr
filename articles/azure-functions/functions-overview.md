@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: 6713c0d45a8b5363122c726d1d31e5c479ba8fff
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 514f2e9a82a50f95f9c054c6a54e7b5af3c0af15
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95504646"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167780"
 ---
 # <a name="introduction-to-azure-functions"></a>Azure Functions 소개
 
@@ -38,7 +38,7 @@ ms.locfileid: "95504646"
 | --- | --- |
 | **Web API 빌드** | [HTTP 트리거](./functions-bindings-http-webhook.md)를 사용하여 웹 애플리케이션에 대한 엔드포인트를 구현합니다. |
 | **파일 업로드 처리** | [Blob 스토리지](./functions-bindings-storage-blob.md)에서 파일이 업로드되거나 변경될 때 코드를 실행합니다. |
-| **서버리스 워크플로 빌드** | [지속성 함수](./durable-functions-overview.md)를 사용하여 일련의 함수를 모두 연결합니다. |
+| **서버리스 워크플로 빌드** | [지속성 함수](./durable/durable-functions-overview.md)를 사용하여 일련의 함수를 모두 연결합니다. |
 | **데이터베이스 변경에 응답** | [Cosmos DB](./functions-bindings-cosmosdb-v2.md)에서 문서를 만들거나 업데이트할 때 사용자 지정 논리를 실행합니다. |
 | **예약된 작업 실행** | 코드를 [설정 시간](./functions-bindings-timer.md)에 실행합니다. |
 | **안정적인 메시지 큐 시스템 만들기** | [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md) 또는 [Event Hubs](./functions-bindings-event-hubs.md)를 사용하여 메시지 큐를 처리합니다. |

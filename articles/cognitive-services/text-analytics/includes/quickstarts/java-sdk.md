@@ -150,7 +150,7 @@ Text Analytics 클라이언트는 키를 사용하여 Azure를 인증하고 텍�
 
 * [클라이언트 인증](#authenticate-the-client)
 * [감정 분석](#sentiment-analysis) 
-* [의견 마이닝](#opinion-mining)
+* [오피니언 마이닝](#opinion-mining)
 * [언어 감지](#language-detection)
 * [명명된 엔터티 인식](#named-entity-recognition-ner)
 * [엔터티 연결](#entity-linking)

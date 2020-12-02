@@ -32,7 +32,7 @@ ms.locfileid: "94979490"
 
 ---
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
@@ -175,7 +175,7 @@ Text Analytics 클라이언트는 키를 사용하여 Azure를 인증하고 텍�
 ## <a name="code-examples"></a>코드 예제
 
 * [감정 분석](#sentiment-analysis)
-* [의견 마이닝](#opinion-mining)
+* [오피니언 마이닝](#opinion-mining)
 * [언어 감지](#language-detection)
 * [명명된 엔터티 인식](#named-entity-recognition-ner)
 * [엔터티 연결](#entity-linking)

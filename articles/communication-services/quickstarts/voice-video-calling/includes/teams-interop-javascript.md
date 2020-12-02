@@ -5,12 +5,12 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ab13e02c9154dbfc1bd28872f1bd6f993019a604
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 820659c513674dc04e914c8f1094afab4f5a89e2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915270"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356463"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -22,7 +22,7 @@ ms.locfileid: "94915270"
 Teams 상호 운용성 기능은 현재 프라이빗 미리 보기에 있습니다. 이 기능을 Communication Services 리소스에 사용하도록 설정하려면 다음 항목이 포함된 이메일을 [acsfeedback@microsoft.com](mailto:acsfeedback@microsoft.com)으로 보내주세요.
 
 1. Communication Services 리소스가 포함된 Azure 구독의 구독 ID
-2. Teams 테넌트 ID. 이를 가져오는 가장 쉬운 방법은 [Team에 대한 링크를 가져와서 공유](https://support.microsoft.com/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f#:~:text=Create%20a%20link%20If%20you%E2%80%99re%20a%20team%20owner%2C,link%20into%20any%20browser%20to%20join%20the%20team)하는 것입니다.
+2. Teams 테넌트 ID. 이를 가져오는 가장 쉬운 방법은 [Team에 대한 링크를 가져와서 공유](https://support.microsoft.com/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f)하는 것입니다.
 
 이 기능을 사용하려면 두 엔터티를 소유하는 조직의 구성원이어야 합니다.
 

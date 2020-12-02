@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: a274d3701b52e3db989193479468892240f11993
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 6851253e2737d56ab2c3f812ebb0b38133163460
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511674"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122470"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-linux-or-windows-to-iot-hub"></a>빠른 시작: Linux 또는 Windows에서 실행되는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 IoT Hub에 연결
 
 :::zone pivot="programming-language-ansi-c"
 
-[!INCLUDE [iot-pnp-connect-device-csharp](../../includes/iot-pnp-connect-device-c.md)]
+[!INCLUDE [iot-pnp-connect-device-c](../../includes/iot-pnp-connect-device-c.md)]
 
 :::zone-end
 

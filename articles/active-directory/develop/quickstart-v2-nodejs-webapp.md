@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 5cde4b539262c9e20bbcf2e7dd8c8e9de38035c3
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 643305057490cc550a5a8e39a892297b000cbc8e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594252"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169412"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>빠른 시작: OpenID Connect를 사용하여 Node.js 웹앱에 로그인 추가
 
@@ -51,7 +51,7 @@ ms.locfileid: "94594252"
 1. 앱의 페이지 목록에서 **인증** 을 선택합니다.
     - **리디렉션 URI** 섹션의 콤보 상자에서 **웹** 을 선택하고 다음 리디렉션 URI를 입력합니다. `http://localhost:3000/auth/openid/return`
     - **고급 설정** 섹션에서 **로그아웃 URL** 을 `https://localhost:3000`으로 설정합니다.
-    - 이 샘플에서는 사용자를 로그인할 수 있도록 [암시적 허용 흐름](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow)을 사용하도록 설정해야 하므로, **고급 설정 > 암시적 허용** 섹션에서 **ID 토큰** 을 선택합니다.
+    - 이 샘플에서는 사용자를 로그인할 수 있도록 [암시적 허용 흐름](./v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 하므로, **고급 설정 > 암시적 허용** 섹션에서 **ID 토큰** 을 선택합니다.
 
 1. **저장** 을 선택합니다.
 

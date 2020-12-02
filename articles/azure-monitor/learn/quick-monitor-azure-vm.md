@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 11475de159cf3d59923d6f2129aa46ddf0ef8f2c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: ef0e3a451a5687278acaf1e857012027a5e657a3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084433"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186765"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신 모니터링을 참조하세요.
 [Azure Monitor](../overview.md)는 생성되는 순간부터 Azure 가상 머신에서 데이터 수집을 시작합니다. 이 빠른 시작에서는 Azure VM에 대해 자동으로 수집되는 데이터의 종류와 이러한 데이터를 Azure Portal에서 살펴보는 방법을 간단하게 연습합니다. 그런 다음, VM에 [VM용 Azure Monitor](../insights/vminsights-overview.md)를 사용하도록 설정합니다. 그러면 VM의 에이전트는 프로세스 및 프로세스의 종속성을 포함하여 게스트 운영 체제에서 데이터를 수집하고 분석할 수 있습니다.
@@ -30,11 +30,11 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
 호스트 VM에 대한 메트릭 및 활동 로그가 수집되는 동안 게스트 운영 체제 및 해당 워크로드의 모니터링 데이터를 수집하고 분석하도록 에이전트를 구성해야 합니다. VM용 Azure Monitor는 이러한 에이전트를 설치하고, 가상 머신을 모니터링하기 위한 강력한 추가 기능을 제공합니다.
 
 1. 가상 머신의 메뉴로 이동합니다.
-2. **개요** 페이지에서 **인사이트로 이동**을 클릭하거나, **모니터링** 메뉴에서 **인사이트**를 클릭합니다.
+2. **개요** 페이지에서 **인사이트로 이동** 을 클릭하거나, **모니터링** 메뉴에서 **인사이트** 를 클릭합니다.
 
     ![개요 페이지](media/quick-monitor-azure-vm/overview-insights.png)
 
-3. 아직 가상 머신에 VM용 Azure Monitor를 사용하도록 설정하지 않은 경우 **사용**을 클릭합니다. 
+3. 아직 가상 머신에 VM용 Azure Monitor를 사용하도록 설정하지 않은 경우 **사용** 을 클릭합니다. 
 
     ![인사이트 사용](media/quick-monitor-azure-vm/enable-insights.png)
 
@@ -42,7 +42,7 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
 
     ![작업 영역 선택](media/quick-monitor-azure-vm/select-workspace.png)
 
-5. 확장이 사용하도록 설정되고 가상 머신에 에이전트가 설치되기 때문에 온보딩에 몇 분 정도 걸립니다. 완료되면 인사이트가 성공적으로 배포되었다는 메시지를 받게 됩니다. **Azure Monitor**를 클릭하여 VM용 Azure Monitor를 엽니다.
+5. 확장이 사용하도록 설정되고 가상 머신에 에이전트가 설치되기 때문에 온보딩에 몇 분 정도 걸립니다. 완료되면 인사이트가 성공적으로 배포되었다는 메시지를 받게 됩니다. **Azure Monitor** 를 클릭하여 VM용 Azure Monitor를 엽니다.
 
     ![Azure Monitor 열기](media/quick-monitor-azure-vm/azure-monitor.png)
 
@@ -54,32 +54,32 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
 ## <a name="configure-workspace"></a>작업 영역 구성
 새 Log Analytics 작업 영역을 만들 때 로그를 수집하도록 작업 영역을 구성해야 합니다. 이 구성 작업은 구성이 연결하는 가상 머신으로 구성이 전송된 후 한 번만 수행하면 됩니다.
 
-1. **작업 영역 구성**을 선택한 다음, 해당하는 작업 영역을 선택합니다.
+1. **작업 영역 구성** 을 선택한 다음, 해당하는 작업 영역을 선택합니다.
 
-2. **고급 설정**을 선택합니다.
+2. **고급 설정** 을 선택합니다.
 
     ![Log Analytics 고급 설정](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
 
 ### <a name="data-collection-from-windows-vm"></a>Windows VM에서 데이터 수집
 
 
-2. **데이터**를 선택한 후 **Windows 이벤트 로그**를 선택합니다.
+2. **데이터** 를 선택한 후 **Windows 이벤트 로그** 를 선택합니다.
 
-3. 로그 이름을 입력하여 이벤트 로그를 추가합니다.  **System**을 입력한 다음, 더하기 기호(**+**)를 선택합니다.
+3. 로그 이름을 입력하여 이벤트 로그를 추가합니다.  **System** 을 입력한 다음, 더하기 기호(**+**)를 선택합니다.
 
-4. 표에서 심각도 **오류** 및 **경고**를 선택합니다.
+4. 표에서 심각도 **오류** 및 **경고** 를 선택합니다.
 
-5. 페이지 맨 위에서 **저장**을 선택하여 구성을 저장합니다.
+5. 페이지 맨 위에서 **저장** 을 선택하여 구성을 저장합니다.
 
 ### <a name="data-collection-from-linux-vm"></a>Linux VM에서 데이터 수집
 
-1. **Syslog**를 선택합니다.  
+1. **Syslog** 를 선택합니다.  
 
-2. 로그 이름을 입력하여 이벤트 로그를 추가합니다.  **Syslog**을 입력한 다음, 더하기 기호(**+**)를 선택합니다.  
+2. 로그 이름을 입력하여 이벤트 로그를 추가합니다.  **Syslog** 을 입력한 다음, 더하기 기호(**+**)를 선택합니다.  
 
-3. 표에서 심각도 **정보**, **알림** 및 **디버그**를 선택 취소합니다. 
+3. 표에서 심각도 **정보**, **알림** 및 **디버그** 를 선택 취소합니다. 
 
-4. 페이지 맨 위에서 **저장**을 선택하여 구성을 저장합니다.
+4. 페이지 맨 위에서 **저장** 을 선택하여 구성을 저장합니다.
 
 ## <a name="view-data-collected"></a>수집되는 데이터 보기
 
@@ -87,7 +87,7 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
 
     ![스크린샷에 성능 창이 표시됩니다.](media/quick-monitor-azure-vm/performance.png)
 
-9. **맵**을 선택하여 가상 머신에서 실행 중인 프로세스와 해당 종속성을 보여주는 맵 기능을 엽니다. 아직 속성 창을 열지 않았으면 **속성**을 선택하여 속성 창을 엽니다.
+9. **맵** 을 선택하여 가상 머신에서 실행 중인 프로세스와 해당 종속성을 보여주는 맵 기능을 엽니다. 아직 속성 창을 열지 않았으면 **속성** 을 선택하여 속성 창을 엽니다.
 
     ![스크린샷에 맵 창이 표시됩니다.](media/quick-monitor-azure-vm/map.png)
 
@@ -95,7 +95,7 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
 
     ![스크린샷에 가상 머신에 대한 프로세스가 확장된 맵 창이 표시됩니다.](media/quick-monitor-azure-vm/processes.png)
 
-12. 가상 머신을 다시 선택한 다음, **로그 이벤트**를 선택합니다. 
+12. 가상 머신을 다시 선택한 다음, **로그 이벤트** 를 선택합니다. 
 
     ![로그 이벤트](media/quick-monitor-azure-vm/log-events.png)
 
@@ -107,4 +107,4 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
 이 빠른 시작에서는 가상 머신에 VM용 Azure Monitor를 사용하도록 설정하고, 게스트 운영 체제에 대한 이벤트를 수집 하도록 Log Analytics 작업 영역을 구성했습니다. 데이터를 보고 분석하는 방법을 알아보려면 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Log Analytics에서 데이터 보기 또는 분석](../log-query/get-started-portal.md)
+> [Log Analytics에서 데이터 보기 또는 분석](../log-query/log-analytics-tutorial.md)

@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 4fa00bffc35c4ed67ce70751c8882b74ad6b01a1
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bf15e380eb1a88acc39ca63165d18d04a260b35d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95534503"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185898"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 설명서의 새로운 기능이란?
 
@@ -230,7 +230,7 @@ ms.locfileid: "95534503"
 - [Azure Monitor 고객 관리형 키](platform/customer-managed-keys.md) - 오류 메시지와 쿼리를 위한 CMK 구성 섹션이 추가됨
 - [Azure Monitor HTTP 데이터 수집기 API](platform/data-collector-api.md) - Python 3 샘플이 추가됨
 - [Azure Monitor에서 로그 쿼리 최적화](log-query/query-optimization.md) - 하위 쿼리를 사용할 때 여러 데이터 검색 방지에 대한 섹션이 추가됨
-- [자습서: Log Analytics 쿼리 시작](log-query/get-started-portal.md) - 비디오가 추가됨
+- [자습서: Log Analytics 쿼리 시작](./log-query/log-analytics-tutorial.md) - 비디오가 추가됨
 
 ### <a name="platform-logs"></a>플랫폼 로그
 - [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](platform/diagnostic-settings.md) - 비디오가 추가됨
