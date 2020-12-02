@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 87f27f316914f3efce5a750f50471c65dceca84e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9863ed24da9e427f885a4794bda7e103b0c1cc8e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127844"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455454"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>파트너 센터에서 Azure 앱을 온보딩하기 위한 파트너 센터 제출 API
 
@@ -73,5 +73,5 @@ https://apidocs.microsoft.com/services/partneringestion/
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure VM 기술 자산](create-azure-container-technical-assets.md)을 만드는 방법에 대해 알아봅니다.
-* [Azure Container 제품](create-azure-container-offer.md)을 만드는 방법에 대해 알아봅니다.
+* [Azure VM 기술 자산](../create-azure-container-technical-assets.md)을 만드는 방법에 대해 알아봅니다.
+* [Azure Container 제품](../create-azure-container-offer.md)을 만드는 방법에 대해 알아봅니다.

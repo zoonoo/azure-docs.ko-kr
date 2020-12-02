@@ -12,20 +12,20 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 094e40fe55e1ba51b0539d740ecb449a8327d6a6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4f90299daed46d06dad9ab37103e3b8f53763ed4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841243"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454375"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>SQL Server Management Studio 및 Azure AD에 대한 Multi-factor Authentication(MFA) 구성
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-이 문서에서는 SSMS (SQL Server Management Studio)에서 Azure Active Directory (Azure AD) multi-factor authentication (MFA)을 사용 하는 방법을 보여 줍니다. Azure AD MFA는 SSMS 또는 SqlPackage.exe을 [Azure SQL Database](sql-database-paas-overview.md), [azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) 및 [azure Synapse Analytics (이전의 SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결할 때 사용할 수 있습니다. Multi-factor authentication에 대 한 개요는 [SQL Database, SQL Managed Instance 및 Azure Synapse를 사용 하는 유니버설 인증 (MFA에 대 한 SSMS 지원)](../database/authentication-mfa-ssms-overview.md)을 참조 하세요.
+이 문서에서는 SSMS (SQL Server Management Studio)에서 Azure Active Directory (Azure AD) multi-factor authentication (MFA)을 사용 하는 방법을 보여 줍니다. Azure AD MFA는 SSMS 또는 SqlPackage.exe을 [Azure SQL Database](sql-database-paas-overview.md), [azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) 및 [azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결 하는 경우에 사용할 수 있습니다. Multi-factor authentication에 대 한 개요는 [SQL Database, SQL Managed Instance 및 Azure Synapse를 사용 하는 유니버설 인증 (MFA에 대 한 SSMS 지원)](../database/authentication-mfa-ssms-overview.md)을 참조 하세요.
 
 > [!IMPORTANT]
-> Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse (이전의 SQL Data Warehouse)의 데이터베이스는이 문서의 나머지 부분에서 전체적으로 참조 되며 서버는 Azure SQL Database 및 Azure Synapse 용 데이터베이스를 호스트 하는 [서버](logical-servers.md) 를 참조 합니다.
+> Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse의 데이터베이스는이 문서의 나머지 부분에서 전체적으로 참조 되며 서버는 Azure SQL Database 및 Azure Synapse에 대 한 데이터베이스를 호스트 하는 [서버](logical-servers.md) 를 참조 합니다.
 
 ## <a name="configuration-steps"></a>구성 단계
 

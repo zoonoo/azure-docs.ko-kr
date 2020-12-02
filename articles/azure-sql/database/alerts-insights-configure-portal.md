@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 64bef8a1cd4353ed9602c36cf728a0d727458251
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 512f6044e46fba49ea1c63a89d11135751e7ce43
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675144"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455987"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure SQL Database 및 Azure Synapse 분석에 대 한 경고 만들기
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "92675144"
 
 ## <a name="overview"></a>개요
 
-이 문서에서는 Azure Portal를 사용 하 여 Azure SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에서 데이터베이스에 대 한 경고를 설정 하는 방법을 보여 줍니다. 메트릭(예: 데이터베이스 크기 또는 CPU 사용량)이 임계값에 도달하면 경고에서 이메일을 보내거나 webhook를 호출할 수 있습니다.
+이 문서에서는 Azure Portal를 사용 하 여 Azure SQL Database 및 Azure Synapse Analytics의 데이터베이스에 대 한 경고를 설정 하는 방법을 보여 줍니다. 메트릭(예: 데이터베이스 크기 또는 CPU 사용량)이 임계값에 도달하면 경고에서 이메일을 보내거나 webhook를 호출할 수 있습니다.
 
 > [!NOTE]
 > Azure SQL Managed Instance 관련 지침은 [AZURE sql Managed Instance에 대 한 경고 만들기](../managed-instance/alerts-create.md)를 참조 하세요.

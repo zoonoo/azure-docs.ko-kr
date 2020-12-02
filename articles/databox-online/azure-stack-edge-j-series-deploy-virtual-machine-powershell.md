@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: aa492acdedc2d131d28c894031de2181e87a2f3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed6b77f77c9df0bb69edeb7451022605f1633aa3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890706"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454313"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Azure PowerShell를 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
 
@@ -27,7 +27,7 @@ ms.locfileid: "90890706"
 
 ![VM 배포 워크플로](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
@@ -103,10 +103,10 @@ Azure Resource Manager의 경우 사용자가 볼 수 있는 단일 고정 구�
     
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 저장소 계정, 디스크, 관리 디스크와 같은 Azure 리소스가 배포 및 관리 되는 논리적 컨테이너입니다.
+[New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 저장소 계정, 디스크, 관리 디스크와 같은 Azure 리소스가 배포 및 관리 되는 논리적 컨테이너입니다.
 
 > [!IMPORTANT]
-> 모든 리소스는 장치와 동일한 위치에 만들어지고 위치는 **Dbelocal**로 설정 됩니다.
+> 모든 리소스는 장치와 동일한 위치에 만들어지고 위치는 **Dbelocal** 로 설정 됩니다.
 
 ```powershell
 New-AzureRmResourceGroup -Name <Resource group name> -Location DBELocal
@@ -187,7 +187,7 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 ## <a name="install-certificates"></a>인증서 설치
 
-*Https*를 사용 하는 경우 장치에 적절 한 인증서를 설치 해야 합니다. 이 경우 blob 끝점 인증서를 설치 합니다. 자세한 내용은 [인증서 관리](azure-stack-edge-j-series-manage-certificates.md)에서 인증서를 만들고 업로드 하는 방법을 참조 하세요.
+*Https* 를 사용 하는 경우 장치에 적절 한 인증서를 설치 해야 합니다. 이 경우 blob 끝점 인증서를 설치 합니다. 자세한 내용은 [인증서 관리](azure-stack-edge-j-series-manage-certificates.md)에서 인증서를 만들고 업로드 하는 방법을 참조 하세요.
 
 ## <a name="upload-a-vhd"></a>VHD 업로드
 
@@ -227,7 +227,7 @@ $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –S
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
-샘플 출력은 다음과 같습니다. 이 cmdlet에 대 한 자세한 내용은 [new-azurermdisk](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0)를 참조 하세요.
+샘플 출력은 다음과 같습니다. 이 cmdlet에 대 한 자세한 내용은 [new-azurermdisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0)를 참조 하세요.
 
 ```powershell
 Tags               :
@@ -267,7 +267,7 @@ Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized
 New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName <Resource group name>
 ```
 
-샘플 출력은 다음과 같습니다. 이 cmdlet에 대 한 자세한 내용은 [new-azurermimage](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0)를 참조 하세요.
+샘플 출력은 다음과 같습니다. 이 cmdlet에 대 한 자세한 내용은 [new-azurermimage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0)를 참조 하세요.
 
 ```powershell
 New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig191113014333  -ResourceGroupName rg191113014333
@@ -463,11 +463,11 @@ Azure Stack Edge Pro 장치에서 실행 되는 모든 Vm의 목록을 반환 �
 `Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
 
 
-이 cmdlet에 대 한 자세한 내용은 [new-azurermvm](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0)를 참조 하세요.
+이 cmdlet에 대 한 자세한 내용은 [new-azurermvm](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0)를 참조 하세요.
 
 ### <a name="suspend-or-shut-down-the-vm"></a>VM 일시 중단 또는 종료
 
-다음 cmdlet을 실행 하 여 장치에서 실행 되는 가상 컴퓨터를 중지 하거나 종료 합니다.
+다음 cmdlet을 실행하여 디바이스에서 실행되는 가상 머신을 중지하거나 종료합니다.
 
 
 ```powershell
@@ -475,7 +475,7 @@ Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
 
-이 cmdlet에 대 한 자세한 내용은 [new-azurermvm cmdlet](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0)을 참조 하세요.
+이 cmdlet에 대 한 자세한 내용은 [new-azurermvm cmdlet](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0)을 참조 하세요.
 
 ### <a name="add-a-data-disk"></a>데이터 디스크 추가
 
@@ -489,13 +489,13 @@ Update-AzureRmVM -ResourceGroupName "<Resource Group Name string>" -VM $VirtualM
 
 ### <a name="delete-the-vm"></a>VM 삭제
 
-장치에서 가상 컴퓨터를 제거 하려면 다음 cmdlet을 실행 합니다.
+디바이스에서 가상 머신을 제거하려면 다음 cmdlet을 실행합니다.
 
 ```powershell
 Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
 
-이 cmdlet에 대 한 자세한 내용은 [new-azurermvm cmdlet](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0)을 참조 하세요.
+이 cmdlet에 대 한 자세한 내용은 [new-azurermvm cmdlet](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0)을 참조 하세요.
 
 
 ## <a name="supported-vm-sizes"></a>지원되는 VM 크기
@@ -553,7 +553,7 @@ Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 클라이언�
 
 ### <a name="on-windows-client"></a>Windows 클라이언트 
 
-`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
+`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
 
 ### <a name="on-linux-client"></a>Linux 클라이언트에서
 
@@ -567,4 +567,4 @@ AzCopy에 대 한 환경 변수가 올바르게 설정 되었는지 확인 하�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Resource Manager cmdlet](https://docs.microsoft.com/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager cmdlet](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)

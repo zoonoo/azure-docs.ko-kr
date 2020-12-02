@@ -6,17 +6,17 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 10/16/2020
+ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 72fe7965f3e2b7ce0cdd53e4ec6e122e5bcbc6ee
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c1545efc43d034dba5b8ffe8d19b9bbee95dff68
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746264"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455468"
 ---
-# <a name="use-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Synapse Studio (미리 보기)를 사용 하 여 Apache Spark 응용 프로그램 모니터링
+# <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Synapse Studio를 사용 하 여 Apache Spark 응용 프로그램 모니터링
 
 Azure Synapse Analytics를 사용 하면 Spark 풀의 작업 영역에서 Spark를 사용 하 여 노트북, 작업 및 기타 종류의 응용 프로그램을 실행할 수 있습니다.
 
@@ -41,8 +41,6 @@ Azure Synapse Analytics를 사용 하면 Spark 풀의 작업 영역에서 Spark�
 원하는 응용 프로그램에 대 한 Apache Spark 응용 프로그램 목록을 필터링 할 수 있습니다. 화면 위쪽의 필터를 사용 하 여 필터링 할 필드를 지정할 수 있습니다.
 
 예를 들어 뷰를 필터링 하 여 이름이 "sales" 인 Apache Spark 응용 프로그램만 볼 수 있습니다.
-
-![필터 단추](./media/common/filter-button.png)
 
 ![샘플 필터](./media/how-to-monitor-spark-applications/filter-example.png)
 

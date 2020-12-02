@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ccfc290df64417bf0504849a83dbe68efcbddefe
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b625a81ff328e6760ec0ad8d9acb5735f402df73
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843709"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455624"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Logic Apps에 대 한 Azure 보안 기준
 
@@ -98,7 +98,7 @@ Azure Security Center Just-in-time 네트워크 액세스를 사용 하 여 제�
 
 - [인바운드 IP 주소를 제한 하는 방법](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
-- [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
+- [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 - [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -496,7 +496,7 @@ Azure Logic Apps는 시스템이 할당한 관리 ID 및 사용자가 할당한 
 
 -  Azure App Services 
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 - [Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증](create-managed-service-identity.md)
 
@@ -1286,7 +1286,7 @@ Soft-Delete를 사용 하도록 설정 하 고 Key Vault 보호를 제거 하 �
 
 - [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

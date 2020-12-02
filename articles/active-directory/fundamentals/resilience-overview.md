@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dfd51b0ed43badbc6a4882f619cb718952b0e85
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 39021fecb79f6b8e7536daad592378ed998760a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919872"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454340"
 ---
 # <a name="building-resilience-into-identity-and-access-management-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 id 및 액세스 관리에 대 한 복원 력 빌드
 
@@ -48,4 +48,4 @@ IAM 솔루션의 복원 력을 계획할 때 다음 요소를 고려 하십시�
 
 * [응용 프로그램의 빌드 IAM 복원 력](resilience-app-development-overview.md)
 
-* [CIAM 시스템에서 복원 력 빌드](resilience-b2c.md)
+* [CIAM (고객 Id 및 액세스 관리) 시스템에서 복원 력을 빌드 하세요.](resilience-b2c.md)
