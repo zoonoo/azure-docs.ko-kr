@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Analysis Services가 ID 관리 및 사용
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b40be802f30bac8438f10c4ab60e1c196c9f7164
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 551bae56565140da3754e74a23b1cc18087f1171
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833795"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487442"
 ---
 # <a name="authentication-and-user-permissions"></a>인증 및 사용자 권한
 
@@ -24,7 +24,7 @@ Azure Analysis Services는 [Azure AD B2B 협업](../active-directory/external-id
 
 ## <a name="authentication"></a>인증
 
-모든 클라이언트 애플리케이션 및 도구에서 하나 이상의 Analysis Services [클라이언트 라이브러리](/analysis-services/client-libraries?view=azure-analysis-services-current)(AMO, MSOLAP, ADOMD)를 사용하여 서버에 연결합니다. 
+모든 클라이언트 애플리케이션 및 도구에서 하나 이상의 Analysis Services [클라이언트 라이브러리](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)(AMO, MSOLAP, ADOMD)를 사용하여 서버에 연결합니다. 
 
 세 클라이언트 라이브러리는 Azure AD 대화형 흐름과 비대화형 인증 방법을 모두 지원합니다. Active Directory 암호 및 Active Directory 통합 인증 방법의 두 가지 비대화형 방법은 AMOMD 및 MSOLAP를 활용하는 애플리케이션에서 사용할 수 있습니다. 이러한 두 가지 방법을 사용할 경우 팝업 대화 상자가 절대 표시되지 않습니다.
 

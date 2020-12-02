@@ -31,6 +31,10 @@
       href: concepts-built-in-policy.md
     - name: 역할 정의 아티팩트
       href: concepts-custom-role-definition.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: 게시자
@@ -40,7 +44,7 @@
         - name: 포털 인터페이스 테스트
           href: test-createuidefinition.md
         - name: Azure 애플리케이션 제품 만들기
-          href: ../../marketplace/partner-center-portal/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
+          href: ../../marketplace/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
         - name: Just-In-Time 액세스 요청
           href: request-just-in-time-access.md
         - name: 기존 가상 네트워크 사용

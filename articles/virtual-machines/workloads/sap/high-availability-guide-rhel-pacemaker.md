@@ -13,14 +13,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/29/2020
+ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: 6e906e6c86d615852191e2fd65a2b1a58695ed34
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b111dae035e7a055628642fe7c460734199ff608
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968556"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486345"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
 
@@ -69,6 +69,7 @@ ms.locfileid: "94968556"
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)(Microsoft Azure에서 Red Hat Enterprise Linux 7.4 이상 고가용성 클러스터 설치 및 구성)
   * [RHEL 8-고가용성 및 클러스터 채택 시 고려 사항](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/high-availability-and-clusters_considerations-in-adopting-rhel-8)
   * [RHEL 7.6의 Pacemaker에서 독립 실행형 큐에 넣기 서버 2(ENSA2)를 사용하여 SAP S/4HANA ASCS/ERS 구성](https://access.redhat.com/articles/3974941)
+  * [Azure의 SAP 제품에 대 한 RHEL](https://access.redhat.com/articles/5456301)
 
 ## <a name="cluster-installation"></a>클러스터 설치
 
@@ -80,7 +81,7 @@ ms.locfileid: "94968556"
 
 다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
-1. **[A]** 레지스터입니다. RHEL 8.x HA 사용 이미지를 사용 하는 경우에는이 단계가 필요 하지 않습니다.  
+1. **[A]** 레지스터입니다. RHEL SAP HA 사용 이미지를 사용 하는 경우에는이 단계가 필요 하지 않습니다.  
 
    가상 머신을 등록하고 RHEL 7의 리포지토리가 포함된 풀에 연결합니다.
 
@@ -90,9 +91,9 @@ ms.locfileid: "94968556"
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   풀을 Azure Marketplace PAYG RHEL 이미지에 연결 하면 RHEL 사용에 대 한 비용이 효과적으로 두 배 청구 됩니다. PAYG 이미지에 대해 한 번, 연결한 풀의 RHEL 자격에 대해 한 번입니다. 이제 Azure는 이와 같은 이중 청구를 완화하기 위해 BYOS RHEL 이미지를 제공합니다. 자세한 내용은 [여기](../redhat/byos.md)를 참조하세요.
+   풀을 Azure Marketplace PAYG RHEL 이미지에 연결 하면 RHEL 사용에 대 한 비용이 효과적으로 두 배 청구 됩니다. PAYG 이미지에 대해 한 번, 연결한 풀의 RHEL 자격에 대해 한 번입니다. 이제 Azure는 이와 같은 이중 청구를 완화하기 위해 BYOS RHEL 이미지를 제공합니다. 자세한 내용은 [여기](../redhat/byos.md)를 참조하세요.  
 
-1. **[A]** RHEL for SAP 리포지토리를 사용 하도록 설정 합니다. RHEL 8.x HA 사용 이미지를 사용 하는 경우에는이 단계가 필요 하지 않습니다.  
+1. **[A]** RHEL for SAP 리포지토리를 사용 하도록 설정 합니다. RHEL SAP HA 사용 이미지를 사용 하는 경우에는이 단계가 필요 하지 않습니다.  
 
    필수 패키지를 설치하려면 다음 리포지토리를 사용하도록 설정합니다.
 

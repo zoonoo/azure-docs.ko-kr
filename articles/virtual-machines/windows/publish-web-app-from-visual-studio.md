@@ -10,23 +10,23 @@ ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: bdc03e8c136606ab7768705b0c8dbcc97782966f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7cf2474c9ca005d85cea28f2b8fa1e23836b191f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008891"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487561"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Visual Studio에서 Azure Virtual Machine으로 ASP.NET 웹앱 게시
 
 이 문서에서는 Visual Studio 2019의 **Microsoft Azure Virtual Machines** 게시 기능을 사용 하 여 Azure VM (가상 머신)에 ASP.NET 웹 응용 프로그램을 게시 하는 방법을 설명 합니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려면 VM 을 올바르게 설정해야 합니다.
 
 - ASP.NET 웹 응용 프로그램을 실행 하 고 WebDeploy를 설치 하도록 컴퓨터를 구성 해야 합니다. 자세한 내용은 [WebDeploy를 사용 하 여 ASP.NET VM 만들기](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md)를 참조 하세요.
 
-- VM에 구성된 DNS 이름이 있어야 합니다. 자세한 내용은 [Azure Portal에서 Windows VM에 대한 정규화된 도메인 이름 만들기](portal-create-fqdn.md)를 참조하세요.
+- VM에 구성된 DNS 이름이 있어야 합니다. 자세한 내용은 [Azure Portal에서 Windows VM에 대한 정규화된 도메인 이름 만들기](../create-fqdn.md)를 참조하세요.
 
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Visual Studio를 사용하여 Azure VM에 ASP.NET 웹앱 게시
 다음 섹션에서는 Azure Virtual Machine에 기존 ASP.NET 웹 애플리케이션을 게시하는 방법을 설명합니다.
@@ -69,7 +69,7 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 
 11. 게시에 성공하면 브라우저가 실행되어 새로 게시한 사이트의 URL이 열립니다.
 
-**성공할!**
+**성공!**
 
 이제 Azure Virtual Machine에 웹앱을 게시했습니다.
 

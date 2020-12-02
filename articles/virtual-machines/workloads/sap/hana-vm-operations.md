@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ce9ab371c0ed1e81cf1dfb53fca7e359e1aeb35
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9a907f2a6fc54c96dbef9f2091a91cac50bbd4ca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967502"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486524"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -245,8 +245,8 @@ DT 2.0 모범 사례 지침에 따라 디스크 IO 처리량은 물리적 코어
 DT 2.0 VM에 여러 Azure 디스크를 연결하고 OS 수준에서 소프트웨어 RAID(스트라이핑)를 만들어 VM당 최대 디스크 처리량 한도를 달성해야 합니다. 이와 관련하여 단일 Azure 디스크는 최대 VM 한도에 도달하는 처리량을 제공할 수 없습니다. DT 2.0을 실행하려면 Azure Premium Storage가 필수적입니다. 
 
 - 사용 가능한 Azure 디스크 유형에 대한 자세한 내용은 [여기서](../../disks-types.md) 찾을 수 있습니다.
-- mdadm을 통해 소프트웨어 RAID를 만드는 방법에 대한 자세한 내용은 [여기서](../../linux/configure-raid.md) 찾을 수 있습니다.
-- 최대 처리량에 적합한 스트라이프 볼륨을 만들도록 LVM을 구성하는 방법에 대한 자세한 내용은 [여기서](../../linux/configure-lvm.md) 찾을 수 있습니다.
+- mdadm을 통해 소프트웨어 RAID를 만드는 방법에 대한 자세한 내용은 [여기서](/previous-versions/azure/virtual-machines/linux/configure-raid) 찾을 수 있습니다.
+- 최대 처리량에 적합한 스트라이프 볼륨을 만들도록 LVM을 구성하는 방법에 대한 자세한 내용은 [여기서](/previous-versions/azure/virtual-machines/linux/configure-lvm) 찾을 수 있습니다.
 
 크기 요구 사항에 따라 VM의 최대 처리량에 도달할 수 있는 다양한 옵션이 있습니다. 여기에는 VM 처리량 상한을 달성하도록 각 DT 2.0 VM 유형에 적용할 수 있는 데이터 볼륨 디스크 구성이 있습니다. E32sv3 VM은 더 작은 워크로드에 대한 항목 수준으로 간주되어야 합니다. 이 경우 속도가 충분히 빠르지 않아 VM의 크기를 M64-32ms로 조정해야 할 수도 있습니다.
 M64-32ms VM에는 많은 메모리가 있으므로 특히 읽기 집약적인 워크로드의 경우 IO 로드가 한도에 도달하지 못할 수 있습니다. 따라서 스트라이프 집합에서 적은 수의 디스크가 고객 특정 워크로드에 따라 충분할 수 있습니다. 그러나 만일의 경우에 대비하여 아래의 디스크 구성이 최대 처리량을 보장하기 위해 선택되었습니다.
@@ -324,4 +324,3 @@ SUSE Linux Enterprise Server 또는 Red Hat을 실행하는 경우 STONITH 디�
 - [Red Hat Enterprise Linux에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포](./sap-hana-scale-out-standby-netapp-files-rhel.md)
 - [SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성](./sap-hana-high-availability.md)
 - [Red Hat Enterprise Linux의 Azure VM에 있는 SAP HANA의 고가용성](./sap-hana-high-availability-rhel.md)
-

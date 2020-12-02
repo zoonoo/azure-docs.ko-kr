@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 86f3ef8ccac83cdc939cff5572dd81e78137d396
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 83da8cbf3a87570cfb967e0a6c8da3f0f2ed1766
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968726"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486745"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Azure의 Oracle Database Enterprise Edition에 대 한 참조 아키텍처
 
@@ -207,12 +207,12 @@ Oracle Data Guard는 시스템 관리, 사용자 정의 및 복합 분할 메서
 
 Oracle 워크 로드를 Azure에 배포 하는 경우 Microsoft는 모든 호스트 OS 수준 패치를 처리 합니다. 계획 된 모든 OS 수준 유지 관리는 고객이 계획 된 유지 관리를 위해 고객에 게 미리 전달 됩니다. 서로 다른 두 가용성 영역의 두 서버는 동시에 패치할 수 없습니다. VM 유지 관리 및 패치 적용에 대 한 자세한 내용은 [virtual machines의 가용성 관리](../../manage-availability.md) 를 참조 하세요. 
 
-[Azure Automation 업데이트 관리](../../../automation/update-management/update-mgmt-overview.md)를 사용 하 여 가상 머신 운영 체제 패치를 자동화할 수 있습니다. [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) 또는 [Azure Automation 업데이트 관리](../../../automation/update-management/update-mgmt-overview.md) 를 사용 하 여 Oracle 데이터베이스를 패치 및 유지 관리 하 여 가동 중지 시간을 최소화할 수 있습니다. Oracle 데이터베이스의 컨텍스트에서 사용할 수 있는 방법을 이해 하려면 [연속 배달 및 Blue/녹색 배포](/azure/devops/learn/what-is-continuous-delivery) 를 참조 하세요.
+[Azure Automation 업데이트 관리](../../../automation/update-management/overview.md)를 사용 하 여 가상 머신 운영 체제 패치를 자동화할 수 있습니다. [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) 또는 [Azure Automation 업데이트 관리](../../../automation/update-management/overview.md) 를 사용 하 여 Oracle 데이터베이스를 패치 및 유지 관리 하 여 가동 중지 시간을 최소화할 수 있습니다. Oracle 데이터베이스의 컨텍스트에서 사용할 수 있는 방법을 이해 하려면 [연속 배달 및 Blue/녹색 배포](/azure/devops/learn/what-is-continuous-delivery) 를 참조 하세요.
 
 ## <a name="architecture-and-design-considerations"></a>아키텍처 및 디자인 고려 사항
 
 - 라이선스 비용을 절감 하 고 성능을 최대화 하려면 Oracle Database VM에 대해 [제약이 있는 코어 vCPUs](../../../virtual-machines/constrained-vcpu.md) 가 포함 된 하이퍼 스레드 [메모리 최적화 가상 머신을](../../sizes-memory.md) 사용 하는 것이 좋습니다. 성능 및 가용성을 위해 여러 프리미엄 또는 ultra disks (관리 디스크)를 사용 합니다.
-- 관리 디스크를 사용 하는 경우 재부팅 시 디스크/장치 이름이 변경 될 수 있습니다. 다시 부팅 간에 탑재를 유지 하려면 이름 대신 장치 UUID를 사용 하는 것이 좋습니다. 자세한 내용은 [여기](../../../virtual-machines/linux/configure-raid.md#add-the-new-file-system-to-etcfstab)를 참조하세요.
+- 관리 디스크를 사용 하는 경우 재부팅 시 디스크/장치 이름이 변경 될 수 있습니다. 다시 부팅 간에 탑재를 유지 하려면 이름 대신 장치 UUID를 사용 하는 것이 좋습니다. 자세한 내용은 [여기](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab)를 참조하세요.
 - 가용성 영역을 사용 하 여 지역에서 고가용성을 구현 합니다.
 - Oracle 데이터베이스에 대 한 ultra disks (사용 가능한 경우) 또는 프리미엄 디스크를 사용 하는 것이 좋습니다.
 - Oracle Data Guard를 사용 하 여 다른 Azure 지역에 대기 Oracle 데이터베이스를 설정 하는 것이 좋습니다.

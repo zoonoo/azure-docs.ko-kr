@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b8dde3ed76587e2343edaec8626287853ec6ef9b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023530"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487510"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Express 경로 암호화: 가상 WAN을 위한 Express 경로를 통한 IPsec
 
@@ -95,7 +95,7 @@ Azure 가상 WAN 및 Express 경로 연결을 사용 하는 허브를 만드는 
 
    BGP를 사용 하는 경우 Azure에서이 사이트에 대해 만들어진 모든 연결에 적용 됩니다. 가상 WAN에서 BGP를 구성 하는 것은 Azure VPN gateway에서 BGP를 구성 하는 것과 같습니다. 
    
-   온-프레미스 BGP 피어 주소는 장치에 대 한 VPN의 IP 주소 또는 VPN 사이트의 가상 네트워크 주소 공간과 같지 *않아야 합니다.* VPN 디바이스에서 BGP 피어 IP에 다른 IP 주소를 사용하세요. 디바이스에서 루프백 인터페이스에 할당한 주소가 될 수 있습니다. 그러나 APIPA (169.254) 일 수 *없습니다* .*x*. *x*) 주소입니다. 위치를 나타내는 해당 로컬 네트워크 게이트웨이에서이 주소를 지정 합니다. BGP 필수 조건은 [Azure VPN Gateway의 BGP 정보](../vpn-gateway/vpn-gateway-bgp-overview.md)를 참조하세요.
+   온-프레미스 BGP 피어 주소는 장치에 대 한 VPN의 IP 주소 또는 VPN 사이트의 가상 네트워크 주소 공간과 같지 *않아야 합니다.* VPN 디바이스에서 BGP 피어 IP에 다른 IP 주소를 사용하세요. 디바이스에서 루프백 인터페이스에 할당한 주소가 될 수 있습니다. 그러나 APIPA (169.254) 일 수 *없습니다* .*x*. *x*) 주소입니다. 위치를 나타내는 해당 VPN 사이트에서이 주소를 지정 합니다. BGP 필수 조건은 [Azure VPN Gateway의 BGP 정보](../vpn-gateway/vpn-gateway-bgp-overview.md)를 참조하세요.
 
 1. **다음: 검토 + >만들기** 를 선택 하 여 설정 값을 확인 하 고 VPN 사이트를 만듭니다. **허브** 를 선택 하 여 연결 하는 경우 온-프레미스 네트워크와 허브 VPN gateway 간에 연결이 설정 됩니다.
 
@@ -137,15 +137,15 @@ VPN 장치 구성을 다운로드 하 여 허브 VPN 게이트웨이의 개인 I
 * **vpnSiteConfiguration**:이 섹션에서는 가상 WAN에 연결 하는 사이트로 설정 된 장치 세부 정보를 나타냅니다. 여기에는 분기 장치의 이름 및 공용 IP 주소가 포함 됩니다.
 * **vpnSiteConnections**:이 섹션에서는 다음 설정에 대 한 정보를 제공 합니다.
 
-    * 가상 허브의 가상 네트워크에 대 한 주소 공간입니다.<br/>예제:
+    * 가상 허브의 가상 네트워크에 대 한 주소 공간입니다.<br/>예:
            ```
            "AddressSpace":"10.51.230.0/24"
            ```
-    * 허브에 연결 된 가상 네트워크의 주소 공간입니다.<br>예제:
+    * 허브에 연결 된 가상 네트워크의 주소 공간입니다.<br>예:
            ```
            "ConnectedSubnets":["10.51.231.0/24"]
             ```
-    * 가상 허브의 VPN 게이트웨이의 IP 주소입니다. VPN 게이트웨이의 각 연결은 활성-활성 구성에서 두 개의 터널로 구성 되므로이 파일에 나열 된 두 IP 주소가 모두 표시 됩니다. 이 예제에서는 `Instance0` `Instance1` 각 사이트에 대해 및를 확인 하 고 공용 ip 주소 대신 개인 ip 주소입니다.<br>예제:
+    * 가상 허브의 VPN 게이트웨이의 IP 주소입니다. VPN 게이트웨이의 각 연결은 활성-활성 구성에서 두 개의 터널로 구성 되므로이 파일에 나열 된 두 IP 주소가 모두 표시 됩니다. 이 예제에서는 `Instance0` `Instance1` 각 사이트에 대해 및를 확인 하 고 공용 ip 주소 대신 개인 ip 주소입니다.<br>예:
            ``` 
            "Instance0":"10.51.230.4"
            "Instance1":"10.51.230.5"

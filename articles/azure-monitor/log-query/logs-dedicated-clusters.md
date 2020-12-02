@@ -6,24 +6,23 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: d261640dfdb59b2b06cfe3066fca26640a0bed54
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: a68501bd1189993b4dd0c2acdecaa7434fa51dcc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874647"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488037"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>전용 클러스터 Azure Monitor 로그
 
-Azure Monitor Logs 전용 클러스터는 대용량 고객에 게 더 나은 서비스를 제공 하는 배포 옵션입니다. 하루에 최대 4 TB 이상의 데이터를 수집 하는 고객은 전용 클러스터를 사용 합니다. 전용 클러스터를 사용 하는 고객은 이러한 클러스터에서 호스팅될 작업 영역을 선택할 수 있습니다.
+Azure Monitor Logs 전용 클러스터는 Azure Monitor 고객에 게 고급 기능을 사용할 수 있도록 하는 배포 옵션입니다. 전용 클러스터를 사용 하는 고객은 이러한 클러스터에서 호스팅될 작업 영역을 선택할 수 있습니다.
 
-대용량 클러스터를 지 원하는 것 외에 전용 클러스터를 사용 하는 경우 다음과 같은 이점이 있습니다.
+전용 클러스터를 필요로 하는 기능은 다음과 같습니다.
 
-- **요금 제한** -고객은 전용 클러스터에 대해서만 수집 [속도가](../service-limits.md#data-ingestion-volume-rate) 더 높아질 수 있습니다.
-- **기능** -특정 엔터프라이즈 기능은 전용 클러스터-특히 cmk (고객 관리 키) 및 LockBox 지원 에서만 사용할 수 있습니다. 
-- **일관성** -고객은 자신의 전용 리소스를 가지 므로 동일한 공유 인프라에서 실행 되는 다른 고객의 영향을 받지 않습니다.
-- **비용 효율성** -할당 된 용량 예약 계층이 모든 클러스터 수집을 고려 하므로 전용 클러스터를 사용 하는 것이 더 비용 효율적일 수 있습니다. 이러한 항목 중 일부는 작고 용량 예약 할인이 적합 하지 않은 경우에도 마찬가지입니다.
-- 모든 작업 영역이 동일한 클러스터에 있으면 **작업 영역 간** 쿼리가 더 빠르게 실행 됩니다.
+- **[고객 관리 키](../platform/customer-managed-keys.md)** -고객이 제공 하 고 제어 하는 키를 사용 하 여 클러스터 데이터를 암호화 합니다.
+- **[Lockbox](../platform/customer-managed-keys.md#customer-lockbox-preview)** -고객은 Microsoft 지원 엔지니어에 게 데이터에 대 한 액세스 요청을 제어할 수 있습니다.
+- **[이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** 는 암호화 알고리즘 또는 키 중 하나가 손상 될 수 있는 시나리오를 방지 합니다. 이 경우 추가 암호화 계층은 계속 해 서 데이터를 보호 합니다.
+- **[다중 작업 영역](../log-query/cross-workspace-query.md)** -고객이 프로덕션을 위해 둘 이상의 작업 영역을 사용 하는 경우 전용 클러스터를 사용 하는 것이 적합할 수 있습니다. 작업 영역 간 쿼리는 모든 작업 영역이 동일한 클러스터에 있는 경우 더 빨리 실행 됩니다. 또한 할당 된 용량 예약 계층이 모든 클러스터 수집을 고려 하므로 전용 클러스터를 사용 하는 것이 더 비용 효율적일 수 있습니다. 그 중 일부는 작고 용량 예약 할인이 적합 하지 않은 경우에도 마찬가지입니다.
 
 전용 클러스터는 매일 1TB 이상의 데이터 수집 용량을 사용 하 여 커밋하는 고객이 필요 합니다. 전용 클러스터로의 마이그레이션은 간단 합니다. 데이터 손실이 나 서비스가 중단 되지 않습니다. 
 
@@ -76,7 +75,7 @@ Log Analytics 전용 클러스터는 최소 1000 g b/일의 용량 예약 가격
 
 클러스터를 만드는 사용자 계정에는 표준 Azure 리소스 만들기 권한 `Microsoft.Resources/deployments/*` 및 클러스터 쓰기 권한이 있어야 `(Microsoft.OperationalInsights/clusters/write)` 합니다.
 
-### <a name="create"></a>생성 
+### <a name="create"></a>만들기 
 
 **PowerShell**
 

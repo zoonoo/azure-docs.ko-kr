@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ad3980db6348867e92664e314326d23b4274abcc
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 743412b7602e5781911cdf190e41a5ee15bfddd4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701571"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487680"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure에서 보안 응용 프로그램 디자인
 이 문서에서는 클라우드 용 응용 프로그램을 디자인할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) 의 요구 사항 및 디자인 단계에서 고려해 야 하는 보안 질문 및 개념과 함께 학습 리소스를 다룹니다. 목표는 보다 안전한 응용 프로그램을 디자인 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
@@ -157,7 +157,7 @@ Azure는 웹 사이트 및 웹 응용 프로그램을 호스트 하는 데 사�
 | 변조              | 무결성             | SSL/TLS 인증서의 유효성을 검사 합니다. SSL/TLS를 사용 하는 응용 프로그램은 연결 하는 엔터티의 x.509 인증서를 완전히 확인 해야 합니다. Azure Key Vault 인증서를 사용 하 여 [x509 인증서를 관리](../../key-vault/general/about-keys-secrets-certificates.md)합니다. |
 | 부인            | 부인 방지       | Azure [모니터링 및 진단](/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다.|
 | 정보 공개 | 기밀성       | [미사용](../fundamentals/encryption-atrest.md) 및 [전송 중](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit)에 중요 한 데이터를 암호화 합니다. |
-| 서비스 거부      | 사용 가용성          | 잠재적 서비스 거부 조건에 대 한 성능 메트릭을 모니터링 합니다. 연결 필터를 구현합니다. 응용 프로그램 설계 모범 사례와 결합 된 [Azure DDoS protection](../../virtual-network/ddos-protection-overview.md#next-steps)은 DDoS 공격에 대 한 방어를 제공 합니다.|
+| 서비스 거부      | 사용 가용성          | 잠재적 서비스 거부 조건에 대 한 성능 메트릭을 모니터링 합니다. 연결 필터를 구현합니다. 응용 프로그램 설계 모범 사례와 결합 된 [Azure DDoS protection](../../ddos-protection/ddos-protection-overview.md#next-steps)은 DDoS 공격에 대 한 방어를 제공 합니다.|
 | 권한 상승 | 권한 부여         | Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)를 사용 합니다.|
 
 ### <a name="reduce-your-attack-surface"></a>공격 노출 영역 축소

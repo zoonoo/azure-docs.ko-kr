@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/24/2020
 ms.author: memildin
-ms.openlocfilehash: ee2582d25477d9b9f4fe0bac6b230132a797fd0f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6c0e92c566dd69cdea14c9c7d346a5ec65f892bf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95896597"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487952"
 ---
 # <a name="pricing-of-azure-security-center"></a>Azure Security Center 가격 책정
 Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으로 통합 보안 관리 및 고급 위협 보호 기능을 제공합니다. 또한 하이브리드 클라우드 워크로드에 대한 가시성과 제어, 위협에 대한 노출을 줄이는 적극적인 방어 및 빠르게 진화하는 사이버 위험에 보조를 맞추는 데 도움이 되는 인텔리전트 탐지를 제공합니다.
@@ -86,9 +86,9 @@ Security Center에는 다음 두 가지 제품이 있습니다.
 |메서드  |지침  |
 |---------|---------|
 |Azure Portal의 Azure Security Center 페이지|[Azure Defender 사용](#enable-azure-defender)|
-|REST API|[가격 책정 API](https://docs.microsoft.com/rest/api/securitycenter/pricings)|
-|Azure CLI|[az security pricing](https://docs.microsoft.com/cli/azure/security/pricing)|
-|PowerShell|[Set-AzSecurityPricing](https://docs.microsoft.com/powershell/module/az.security/set-azsecuritypricing)|
+|REST API|[가격 책정 API](/rest/api/securitycenter/pricings)|
+|Azure CLI|[az security pricing](/cli/azure/security/pricing)|
+|PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|
 |Azure Policy|[가격 책정 번들](https://github.com/Azure/Azure-Security-Center/tree/master/Pricing%20%26%20Settings/Azure%20Policy%20definitions/Bundle%20Pricings)|
 |||
 

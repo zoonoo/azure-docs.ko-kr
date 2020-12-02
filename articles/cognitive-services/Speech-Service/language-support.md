@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: a430333f57b3734e5977db5c104c8f6d37bfd3c4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 27cf5fef027b1e4786c0ff77f9f673bafea15f98
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949091"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487272"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -26,7 +26,7 @@ ms.locfileid: "94949091"
 
 Microsoft Speech SDK와 REST API는 모두 다음 언어(로캘)를 지원합니다. 
 
-정확성을 향상시키기 위해 사용자 지정은 **오디오 + 휴먼 레이블 음성 텍스트** 또는 **관련 텍스트: 문장** 을 업로드하여 언어의 하위 집합에 제공됩니다. 사용자 지정에 대한 자세한 내용은 [Custom Speech 시작](how-to-custom-speech.md)을 참조하세요.
+정확성을 향상시키기 위해 사용자 지정은 **오디오 + 휴먼 레이블 음성 텍스트** 또는 **관련 텍스트: 문장** 을 업로드하여 언어의 하위 집합에 제공됩니다. 사용자 지정에 대한 자세한 내용은 [Custom Speech 시작](./custom-speech-overview.md)을 참조하세요.
 
 <!--
 To get the AM and ML bits:
@@ -55,10 +55,10 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |중국어 (북경어, 간체)     |`zh-CN` | 음향 모델<br>언어 모델                 |
 |중국어(대만어)       |`zh-TW` | 언어 모델                                   |
 |크로아티아어(크로아티아)                 |`hr-HR` | 언어 모델                                   |
-|체코어(체코)             |`cs-CZ` | 언어 모델                                   |
+|체코어(체코 공화국)             |`cs-CZ` | 언어 모델                                   |
 |덴마크어(덴마크)                   |`da-DK` | 언어 모델                                   |
 |네덜란드어(네덜란드)                |`nl-NL` | 언어 모델                                   |
-|영어(오스트레일리아)                |`en-AU` | 음향 모델<br>언어 모델                 |
+|영어(호주)                |`en-AU` | 음향 모델<br>언어 모델                 |
 |영어(캐나다)                   |`en-CA` | 음향 모델<br>언어 모델                 |
 |영어 (홍콩)                |`en-HK` | 언어 모델                                   |
 |영어(인도)                    |`en-IN` | 음향 모델<br>언어 모델                 |
@@ -66,14 +66,14 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |영어(뉴질랜드)              |`en-NZ` | 음향 모델<br>언어 모델                 |
 |영어(필리핀)              |`en-PH` | 언어 모델                                   |
 |영어(싱가포르)                |`en-SG` | 언어 모델                                   |
-|영어(남아프리카)             |`en-ZA` | 언어 모델                                   |
+|영어(남아프리카 공화국)             |`en-ZA` | 언어 모델                                   |
 |영어(영국)           |`en-GB` | 음향 모델<br>언어 모델<br>발음|
 |영어(미국)            |`en-US` | 음향 모델<br>언어 모델<br>발음|
 |에스토니아어 (에스토니아)                  |`et-EE` | 언어 모델                                   |
 |핀란드어(핀란드)                  |`fi-FI` | 언어 모델                                   |
 |프랑스어(캐나다)                    |`fr-CA` | 음향 모델<br>언어 모델                 |
 |프랑스어(프랑스)                    |`fr-FR` | 음향 모델<br>언어 모델<br>발음|
-|독일어 (독일)                   |`de-DE` | 음향 모델<br>언어 모델<br>발음|
+|독일어(독일)                   |`de-DE` | 음향 모델<br>언어 모델<br>발음|
 |그리스어(그리스)                     |`el-GR` | 언어 모델                                   |
 |구자라트어(인도)                  |`gu-IN` | 언어 모델                                   |
 |힌디어(인도)                      |`hi-IN` | 음향 모델<br>언어 모델                 |
@@ -138,7 +138,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 |---|---|---|---|---|
 | 아랍어(이집트) | `ar-EG` | Female | `ar-EG-SalmaNeural` | 일반 |
 | 아랍어(사우디아라비아) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | 일반 |
-| 불가리아어 (Bulgary) | `bg-BG` | Female | `bg-BG-KalinaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 불가리아어 (Bulgary) | `bg-BG` | Female | `bg-BG-KalinaNeural` <sup>새로 만들기</sup> | 일반 |
 | 카탈로니아어(스페인) | `ca-ES` | Female | `ca-ES-AlbaNeural` | 일반 |
 | 중국어(광둥어, 번체) | `zh-HK` | Female | `zh-HK-HiuGaaiNeural` | 일반 |
 | 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoxiaoNeural` | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일 |
@@ -146,64 +146,64 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 중국어 (북경어, 간체) | `zh-CN` | Male   | `zh-CN-YunyangNeural` | 뉴스 읽기에 최적화 됨<br /> [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일 |
 | 중국어 (북경어, 간체) | `zh-CN` | Male   | `zh-CN-YunyeNeural` | 이야기 내레이션에 최적화 |
 | 중국어(대만어) | `zh-TW` | Female | `zh-TW-HsiaoYuNeural` | 일반 |
-| 크로아티아어(크로아티아) | `hr-HR` | Female | `hr-HR-GabrijelaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 체코어 (체코) | `cs-CZ` | Female | `cs-CZ-VlastaNeural` <sup>단추를 사용하여 새</sup>    | 일반 |
+| 크로아티아어(크로아티아) | `hr-HR` | Female | `hr-HR-GabrijelaNeural` <sup>새로 만들기</sup> | 일반 |
+| 체코어 (체코) | `cs-CZ` | Female | `cs-CZ-VlastaNeural` <sup>새로 만들기</sup>    | 일반 |
 | 덴마크어(덴마크) | `da-DK` | Female | `da-DK-ChristelNeural` | 일반 |
 | 네덜란드어(네덜란드) | `nl-NL` | Female | `nl-NL-ColetteNeural` | 일반 |
 | 영어(오스트레일리아) | `en-AU` | Female | `en-AU-NatashaNeural` | 일반 |
-| 영어(오스트레일리아) | `en-AU` | Male   | `en-AU-WilliamNeural` <sup>단추를 사용하여 새</sup>  | 일반 |
+| 영어(오스트레일리아) | `en-AU` | Male   | `en-AU-WilliamNeural` <sup>새로 만들기</sup>  | 일반 |
 | 영어(캐나다) | `en-CA` | Female | `en-CA-ClaraNeural` | 일반 |
 | 영어(인도) | `en-IN` | Female | `en-IN-NeerjaNeural` | 일반 |
-| 영어(아일랜드) | `en-IE` | Female | `en-IE-EmilyNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 영어(아일랜드) | `en-IE` | Female | `en-IE-EmilyNeural` <sup>새로 만들기</sup> | 일반 |
 | 영어(영국) | `en-GB` | Female | `en-GB-LibbyNeural` | 일반 |
 | 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural` | 일반 |
-| 영어(영국) | `en-GB` | Male | `en-GB-RyanNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 영어(영국) | `en-GB` | Male | `en-GB-RyanNeural` <sup>새로 만들기</sup> | 일반 |
 | 영어(미국) | `en-US` | Female | `en-US-AriaNeural` | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일 |
 | 영어(미국) | `en-US` | Male | `en-US-GuyNeural` | 일반 |
-| 영어(미국) | `en-US` | Female | `en-US-JennyNeural` <sup>단추를 사용하여 새</sup> | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일 |
+| 영어(미국) | `en-US` | Female | `en-US-JennyNeural` <sup>새로 만들기</sup> | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일 |
 | 핀란드어(핀란드) | `fi-FI` | Female | `fi-FI-NooraNeural` | 일반 |
 | 프랑스어(캐나다) | `fr-CA` | Female | `fr-CA-SylvieNeural` | 일반 |
-| 프랑스어(캐나다) | `fr-CA` | Male | `fr-CA-JeanNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 프랑스어(캐나다) | `fr-CA` | Male | `fr-CA-JeanNeural` <sup>새로 만들기</sup> | 일반 |
 | 프랑스어(프랑스) | `fr-FR` | Female | `fr-FR-DeniseNeural` | 일반 |
-| 프랑스어(프랑스) | `fr-FR` | Male | `fr-FR-HenriNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 프랑스어(스위스) | `fr-CH` | Female | `fr-CH-ArianeNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 독일어(오스트리아) | `de-AT` | Female | `de-AT-IngridNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 프랑스어(프랑스) | `fr-FR` | Male | `fr-FR-HenriNeural` <sup>새로 만들기</sup> | 일반 |
+| 프랑스어(스위스) | `fr-CH` | Female | `fr-CH-ArianeNeural` <sup>새로 만들기</sup> | 일반 |
+| 독일어(오스트리아) | `de-AT` | Female | `de-AT-IngridNeural` <sup>새로 만들기</sup> | 일반 |
 | 독일어(독일) | `de-DE` | Female | `de-DE-KatjaNeural` | 일반 |
-| 독일어 (독일) | `de-DE` | Male | `de-DE-ConradNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 독일어(스위스) | `de-CH` | Female | `de-CH-LeniNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 그리스어(그리스) | `el-GR` | Female | `el-GR-AthinaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 히브리어(이스라엘) | `he-IL` | Female | `he-IL-HilaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 독일어(독일) | `de-DE` | Male | `de-DE-ConradNeural` <sup>새로 만들기</sup> | 일반 |
+| 독일어(스위스) | `de-CH` | Female | `de-CH-LeniNeural` <sup>새로 만들기</sup> | 일반 |
+| 그리스어(그리스) | `el-GR` | Female | `el-GR-AthinaNeural` <sup>새로 만들기</sup> | 일반 |
+| 히브리어(이스라엘) | `he-IL` | Female | `he-IL-HilaNeural` <sup>새로 만들기</sup> | 일반 |
 | 힌디어(인도) | `hi-IN` | Female | `hi-IN-SwaraNeural` | 일반 |
-| 헝가리어(헝가리) | `hu-HU` | Female | `hu-HU-NoemiNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 인도네시아어(인도네시아) | `id-ID` | Male | `id-ID-ArdiNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 헝가리어(헝가리) | `hu-HU` | Female | `hu-HU-NoemiNeural` <sup>새로 만들기</sup> | 일반 |
+| 인도네시아어(인도네시아) | `id-ID` | Male | `id-ID-ArdiNeural` <sup>새로 만들기</sup> | 일반 |
 | 이탈리아어(이탈리아) | `it-IT` | Female | `it-IT-ElsaNeural` | 일반 |
-| 이탈리아어(이탈리아) | `it-IT` | Female | `it-IT-IsabellaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 이탈리아어(이탈리아) | `it-IT` | Male | `it-IT-DiegoNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 일본어 (일본) | `ja-JP` | Female | `ja-JP-NanamiNeural` | 일반 |
-| 일본어 (일본) | `ja-JP` | Male | `ja-JP-KeitaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 이탈리아어(이탈리아) | `it-IT` | Female | `it-IT-IsabellaNeural` <sup>새로 만들기</sup> | 일반 |
+| 이탈리아어(이탈리아) | `it-IT` | Male | `it-IT-DiegoNeural` <sup>새로 만들기</sup> | 일반 |
+| 일본어(일본) | `ja-JP` | Female | `ja-JP-NanamiNeural` | 일반 |
+| 일본어(일본) | `ja-JP` | Male | `ja-JP-KeitaNeural` <sup>새로 만들기</sup> | 일반 |
 | 한국어(한국) | `ko-KR` | Female | `ko-KR-SunHiNeural` | 일반 |
-| 한국어(한국) | `ko-KR` | Male | `ko-KR-InJoonNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 말레이어(말레이시아) | `ms-MY` | Female | `ms-MY-YasminNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 한국어(한국) | `ko-KR` | Male | `ko-KR-InJoonNeural` <sup>새로 만들기</sup> | 일반 |
+| 말레이어(말레이시아) | `ms-MY` | Female | `ms-MY-YasminNeural` <sup>새로 만들기</sup> | 일반 |
 | 노르웨이어(복말)(노르웨이) | `nb-NO` | Female | `nb-NO-IselinNeural` | 일반 |
 | 폴란드어(폴란드) | `pl-PL` | Female | `pl-PL-ZofiaNeural` | 일반 |
 | 포르투갈어(브라질) | `pt-BR` | Female | `pt-BR-FranciscaNeural` | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일 |
-| 포르투갈어(브라질) | `pt-BR` | Male | `pt-BR-AntonioNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 포르투갈어(브라질) | `pt-BR` | Male | `pt-BR-AntonioNeural` <sup>새로 만들기</sup> | 일반 |
 | 포르투갈어(포르투갈) | `pt-PT` | Female | `pt-PT-FernandaNeural` | 일반 |
-| 루마니아어(루마니아) | `ro-RO` | Female | `ro-RO-AlinaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 루마니아어(루마니아) | `ro-RO` | Female | `ro-RO-AlinaNeural` <sup>새로 만들기</sup> | 일반 |
 | 러시아어(러시아) | `ru-RU` | Female | `ru-RU-DariyaNeural` | 일반 |
-| 슬로바키아어(슬로바키아) | `sk-SK` | Female | `sk-SK-ViktoriaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 슬로베니아어(슬로베니아) | `sl-SI` | Female | `sl-SI-PetraNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 슬로바키아어(슬로바키아) | `sk-SK` | Female | `sk-SK-ViktoriaNeural` <sup>새로 만들기</sup> | 일반 |
+| 슬로베니아어(슬로베니아) | `sl-SI` | Female | `sl-SI-PetraNeural` <sup>새로 만들기</sup> | 일반 |
 | 스페인어(멕시코) | `es-MX` | Female | `es-MX-DaliaNeural` | 일반 |
-| 스페인어(멕시코) | `es-MX` | Male | `es-MX-JorgeNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 스페인어(멕시코) | `es-MX` | Male | `es-MX-JorgeNeural` <sup>새로 만들기</sup> | 일반 |
 | 스페인어(스페인) | `es-ES` | Female | `es-ES-ElviraNeural` | 일반 |
-| 스페인어(스페인) | `es-ES` | Male | `es-ES-AlvaroNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 스페인어(스페인) | `es-ES` | Male | `es-ES-AlvaroNeural` <sup>새로 만들기</sup> | 일반 |
 | 스웨덴어(스웨덴) | `sv-SE` | Female | `sv-SE-HilleviNeural` | 일반 |
-| 타밀어(인도) | `ta-IN` | Female | `ta-IN-PallaviNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 텔루구어(인도) | `te-IN` | Female | `te-IN-ShrutiNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 타밀어(인도) | `ta-IN` | Female | `ta-IN-PallaviNeural` <sup>새로 만들기</sup> | 일반 |
+| 텔루구어(인도) | `te-IN` | Female | `te-IN-ShrutiNeural` <sup>새로 만들기</sup> | 일반 |
 | 태국어(태국) | `th-TH` | Female | `th-TH-AcharaNeural` | 일반 |
-| 태국어(태국) | `th-TH` | Female | `th-TH-PremwadeeNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 태국어(태국) | `th-TH` | Female | `th-TH-PremwadeeNeural` <sup>새로 만들기</sup> | 일반 |
 | 터키어(터키) | `tr-TR` | Female | `tr-TR-EmelNeural` | 일반 |
-| 베트남어(베트남) | `vi-VN` <sup>단추를 사용하여 새</sup> | Female | `vi-VN-HoaiMyNeural` | 일반|
+| 베트남어(베트남) | `vi-VN` <sup>새로 만들기</sup> | Female | `vi-VN-HoaiMyNeural` | 일반|
 
 #### <a name="neural-voices-in-preview"></a>미리 보기의 신경망
 
@@ -211,16 +211,16 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 | 언어                         | 로캘  | 성별 | 음성 이름                             | 스타일 지원 |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| 중국어 (북경어, 간체) | `zh-CN` | Male   | `zh-CN-YunxiNeural` <sup>단추를 사용하여 새</sup> | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 스타일 |
-| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaohanNeural` <sup>단추를 사용하여 새</sup> | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 스타일 |
-| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` <sup>단추를 사용하여 새</sup> | 일반적으로 [SSML을 사용 하 여 사용할 수 있는](speech-synthesis-markup.md#adjust-speaking-styles) 여러 역할 재생 및 스타일 |
-| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaomoNeural` <sup>단추를 사용하여 새</sup> | 일반적으로 [SSML을 사용 하 여 사용할 수 있는](speech-synthesis-markup.md#adjust-speaking-styles) 여러 역할 재생 및 스타일 |
-| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` <sup>단추를 사용하여 새</sup> | [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 여러 스타일을 사용할 수 있는 선임 음성 |
-| 에스토니아어(에스토니아) | `et-EE` | Female | `et-EE-AnuNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 게일어 (아일랜드) | `ga-IE` | Female | `ga-IE-OrlaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 리투아니아어(리투아니아) | `lt-LT` | Female | `lt-LT-OnaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 라트비아어(라트비아) | `lv-LV` | Female | `lv-LV-EveritaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 몰타어(몰타) | `mt-MT` | Female | `mt-MT-GraceNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 중국어 (북경어, 간체) | `zh-CN` | Male   | `zh-CN-YunxiNeural` <sup>새로 만들기</sup> | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 스타일 |
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaohanNeural` <sup>새로 만들기</sup> | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 스타일 |
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` <sup>새로 만들기</sup> | 일반적으로 [SSML을 사용 하 여 사용할 수 있는](speech-synthesis-markup.md#adjust-speaking-styles) 여러 역할 재생 및 스타일 |
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaomoNeural` <sup>새로 만들기</sup> | 일반적으로 [SSML을 사용 하 여 사용할 수 있는](speech-synthesis-markup.md#adjust-speaking-styles) 여러 역할 재생 및 스타일 |
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` <sup>새로 만들기</sup> | [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 여러 스타일을 사용할 수 있는 선임 음성 |
+| 에스토니아어(에스토니아) | `et-EE` | Female | `et-EE-AnuNeural` <sup>새로 만들기</sup> | 일반 |
+| 게일어 (아일랜드) | `ga-IE` | Female | `ga-IE-OrlaNeural` <sup>새로 만들기</sup> | 일반 |
+| 리투아니아어(리투아니아) | `lt-LT` | Female | `lt-LT-OnaNeural` <sup>새로 만들기</sup> | 일반 |
+| 라트비아어(라트비아) | `lv-LV` | Female | `lv-LV-EveritaNeural` <sup>새로 만들기</sup> | 일반 |
+| 몰타어(몰타) | `mt-MT` | Female | `mt-MT-GraceNeural` <sup>새로 만들기</sup> | 일반 |
 
 > [!IMPORTANT]
 > 공개 미리 보기의 음성은 미국 동부, 유럽 서부 및 동남 아시아의 세 가지 서비스 지역 에서만 사용할 수 있습니다.
@@ -254,7 +254,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 중국어(대만어) |  `zh-TW` | Female | `zh-TW-Yating`|
 | 중국어(대만어) |  `zh-TW` | Male | `zh-TW-Zhiwei`|
 | 크로아티아어(크로아티아) | `hr-HR` | Male | `hr-HR-Matej`|
-| 체코어(체코) | `cs-CZ` | Male | `cs-CZ-Jakub`|
+| 체코어(체코 공화국) | `cs-CZ` | Male | `cs-CZ-Jakub`|
 | 덴마크어(덴마크) | `da-DK` | Female | `da-DK-HelleRUS`|
 | 네덜란드어(네덜란드) | `nl-NL` | Female | `nl-NL-HannaRUS`|
 | 영어(오스트레일리아) | `en-AU` | Female | `en-AU-Catherine`|
@@ -281,7 +281,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 프랑스어(스위스) | `fr-CH` | Male | `fr-CH-Guillaume`|
 | 독일어(오스트리아) | `de-AT` | Male | `de-AT-Michael`|
 | 독일어(독일) | `de-DE` | Female | `de-DE-HeddaRUS`|
-| 독일어 (독일) | `de-DE` | Male | `de-DE-Stefan`|
+| 독일어(독일) | `de-DE` | Male | `de-DE-Stefan`|
 | 독일어(스위스) | `de-CH` | Male | `de-CH-Karsten`|
 | 그리스어(그리스) | `el-GR` | Male | `el-GR-Stefanos`|
 | 히브리어(이스라엘) | `he-IL` | Male | `he-IL-Asaf`|
@@ -291,9 +291,9 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 인도네시아어(인도네시아) | `id-ID` | Male | `id-ID-Andika`|
 | 이탈리아어(이탈리아) | `it-IT` | Male | `it-IT-Cosimo`|
 | 이탈리아어(이탈리아) | `it-IT` | Female | `it-IT-LuciaRUS`|
-| 일본어 (일본) | `ja-JP` | Female | `ja-JP-Ayumi`|
-| 일본어 (일본) | `ja-JP` | Female | `ja-JP-HarukaRUS`|
-| 일본어 (일본) | `ja-JP` | Male | `ja-JP-Ichiro`|
+| 일본어(일본) | `ja-JP` | Female | `ja-JP-Ayumi`|
+| 일본어(일본) | `ja-JP` | Female | `ja-JP-HarukaRUS`|
+| 일본어(일본) | `ja-JP` | Male | `ja-JP-Ichiro`|
 | 한국어(한국) | `ko-KR` | Female | `ko-KR-HeamiRUS`|
 | 말레이어(말레이시아) | `ms-MY` | Male | `ms-MY-Rizwan`|
 | 노르웨이어(복말)(노르웨이) | `nb-NO` | Female | `nb-NO-HuldaRUS`|
@@ -434,5 +434,5 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [평가판 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
+* [무료 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* [C#에서 음성을 인식하는 방법 참조](./get-started-speech-to-text.md?pivots=programming-language-chsarp)

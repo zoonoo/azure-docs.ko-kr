@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bfa9367e06c099e21a54ad8c03f8d5ab853aaafb
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bfe8af8c30bbc2bc66c363fbd85f6764a48c28a1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348078"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488071"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시
 
@@ -96,7 +96,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
    ```
 
-   **예:**
+   **다음은 그 예입니다.**
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
@@ -130,9 +130,11 @@ Windows 7 또는 10 컴퓨터에서 Internet Explorer를 사용하여 시나리�
 
 | 인증 방법 | 지원되는 클라이언트 구성 |
 | --------------------- | ------------------------------ |
-| 사전 인증    | RD 웹-Internet Explorer 또는 [Edge CHROMIUM IE mode](/deployedge/edge-ie-mode) + RDS ActiveX 추가 기능을 사용 하는 Windows 7/10 <br /> *참고 내 앱 포털은 Edge만 지원 합니다.* |
+| 사전 인증    | RD 웹-Internet Explorer * 또는 [Edge CHROMIUM IE mode](/deployedge/edge-ie-mode) + RDS ActiveX 추가 기능을 사용 하는 Windows 7/10 |
 | 사전 인증    | RD 웹 클라이언트-Microsoft Edge, Internet Explorer 11, Google Chrome, Safari 또는 Mozilla Firefox (v 55.0 이상)와 같은 HTML5 호환 웹 브라우저 |
 | 통과 | Microsoft 원격 데스크톱 애플리케이션을 지원하는 다른 운영 체제 |
+
+* Edge Chromium IE 모드는 원격 데스크톱 앱에 액세스 하기 위해 My Apps 포털을 사용 하는 경우에 필요 합니다.  
 
 사전 인증 흐름은 통과 흐름보다 더 많은 보안 이점을 제공합니다. 사전 인증을 사용 하 여 온-프레미스 리소스에 대 한 Single Sign-On, 조건부 액세스 및 2 단계 인증과 같은 Azure AD 인증 기능을 사용할 수 있습니다. 또한 인증된 트래픽만 네트워크에 도달하도록합니다.
 
