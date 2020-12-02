@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: e949f1ac5259ba35772ce98c2ee88e5ea66c2d84
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: b57bafdc3f4748bf634955334424941b55e02fd8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221165"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492372"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대 한 Azure AD 테 넌 트 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "92221165"
 > 이 가이드에 따라 [Azure Red Hat OpenShift 4 클러스터를 만듭니다](tutorial-create-cluster.md).
 > 특정 질문이 있는 경우 문의해 주시기 [바랍니다](mailto:arofeedback@microsoft.com).
 
-Red Hat OpenShift를 Microsoft Azure 클러스터를 만들 [Azure Active Directory (AZURE AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 테 넌 트가 필요 합니다. *테 넌 트는* azure, Microsoft Intune 또는 Microsoft 365에 등록 하 여 Microsoft와의 관계를 만들 때 조직 또는 앱 개발자가 받는 azure AD의 전용 인스턴스입니다. 각 Azure AD 테 넌 트는 서로 다르며 다른 Azure AD 테 넌 트와 별개 이며 고유한 회사 및 학교 id와 앱 등록을 포함 합니다.
+Red Hat OpenShift를 Microsoft Azure 클러스터를 만들 [Azure Active Directory (AZURE AD)](../active-directory/develop/quickstart-create-new-tenant.md) 테 넌 트가 필요 합니다. *테 넌 트는* azure, Microsoft Intune 또는 Microsoft 365에 등록 하 여 Microsoft와의 관계를 만들 때 조직 또는 앱 개발자가 받는 azure AD의 전용 인스턴스입니다. 각 Azure AD 테 넌 트는 서로 다르며 다른 Azure AD 테 넌 트와 별개 이며 고유한 회사 및 학교 id와 앱 등록을 포함 합니다.
 
 Azure AD 테 넌 트가 아직 없는 경우 다음 지침에 따라 새로 만듭니다.
 
@@ -30,16 +30,16 @@ Azure AD 테 넌 트가 아직 없는 경우 다음 지침에 따라 새로 만�
 테 넌 트를 만들려면:
 
 1. Azure Red Hat OpenShift 클러스터와 연결 하려는 계정을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
-2. [Azure Active Directory 블레이드](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) 를 열어 새 테 넌 트 (새 *Azure Active Directory*라고도 함)를 만듭니다.
-3. **조직 이름을**제공 합니다.
-4. **초기 도메인 이름을**제공 하십시오. 그러면 *onmicrosoft.com* 이 추가 됩니다. 여기에서 *조직 이름* 에 대 한 값을 다시 사용할 수 있습니다.
+2. [Azure Active Directory 블레이드](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) 를 열어 새 테 넌 트 (새 *Azure Active Directory* 라고도 함)를 만듭니다.
+3. **조직 이름을** 제공 합니다.
+4. **초기 도메인 이름을** 제공 하십시오. 그러면 *onmicrosoft.com* 이 추가 됩니다. 여기에서 *조직 이름* 에 대 한 값을 다시 사용할 수 있습니다.
 5. 테 넌 트가 생성 되는 국가 또는 지역을 선택 합니다.
-6. **만들기**를 클릭합니다.
+6. **만들기** 를 클릭합니다.
 7. Azure AD 테 넌 트를 만든 후 **새 디렉터리를 관리 하려면 여기를 클릭** 하세요. 링크를 선택 합니다. Azure Portal의 오른쪽 위에 새 테 넌 트 이름이 표시 됩니다.  
 
     ![오른쪽 위에서 테 넌 트 이름을 보여 주는 포털의 스크린샷][tenantcallout]  
 
-8. 나중에 Azure Red Hat OpenShift 클러스터를 만들 위치를 지정할 수 있도록 *테 넌 트 ID* 를 기록해 둡니다. 이제 포털에 새 테 넌 트에 대 한 Azure Active Directory 개요 블레이드가 표시 됩니다. **속성** 을 선택 하 고 **디렉터리 ID**의 값을 복사 합니다. `TENANT` [Azure Red Hat openshift 클러스터 만들기](tutorial-create-cluster.md) 자습서에서와 같이이 값을 참조 합니다.
+8. 나중에 Azure Red Hat OpenShift 클러스터를 만들 위치를 지정할 수 있도록 *테 넌 트 ID* 를 기록해 둡니다. 이제 포털에 새 테 넌 트에 대 한 Azure Active Directory 개요 블레이드가 표시 됩니다. **속성** 을 선택 하 고 **디렉터리 ID** 의 값을 복사 합니다. `TENANT` [Azure Red Hat openshift 클러스터 만들기](tutorial-create-cluster.md) 자습서에서와 같이이 값을 참조 합니다.
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 

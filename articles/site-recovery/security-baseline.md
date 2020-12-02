@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 095a97d27439c54e2ade96e3a40349a0d95b9c11
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f6d17b007fcccd87aed17a9ec3ca039b9559ab6d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843097"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492236"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Site Recovery에 대 한 Azure 보안 기준
 
@@ -22,7 +22,7 @@ Site Recovery 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조 하세요.*
+자세한 내용은 [Azure Security Benchmark: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조하세요.
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
@@ -52,7 +52,7 @@ Site Recovery 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보
 
 Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리소스에 대 한 작업을 조회 하거나 수행할 수 있습니다. 
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags) 
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md) 
 
 - [Azure Virtual Network을 만드는 방법](../virtual-network/quick-create-portal.md) 
 
@@ -164,9 +164,9 @@ Log Analytics 쿼리를 수행 하 여 용어를 검색 하 고, 추세를 식�
 
 **참고**: 기본적으로 역할은 할당 되지 않습니다. 비즈니스 요구에 따라 명시적으로 할당 해야 합니다. PowerShell CLI 또는 Azure Active Directory (Azure AD)를 사용 하 여 역할 할당을 확인 하 여 관리 그룹의 구성원 인 계정을 검색할 수 있습니다.
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 **Azure Security Center 모니터링**: 예
 
@@ -256,7 +256,7 @@ Azure AD 위험 감지 기능을 사용 하 여 위험한 사용자 동작에 �
 
 **지침**: Azure AD를 중앙 인증 및 Site Recovery 권한 부여 시스템으로 사용 합니다. Azure AD는 미사용 데이터에 대해 강력한 암호화를 사용 하 여 데이터를 보호 하 고 전송 중에는 salts, 해시 및 안전 하 게 사용자 자격 증명을 저장 합니다. 
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -270,7 +270,7 @@ Azure AD의 Id 및 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔�
 
 정기적으로 사용자 액세스를 검토 하는 프로세스를 만들어, 완료 된 액세스 검토를 가진 사용자만 지속적으로 액세스할 수 있도록 합니다. 
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -286,7 +286,7 @@ Azure AD 로그인 활동, 감사 및 위험 이벤트 로그 원본에 액세�
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 Log Analytics 작업 영역에 감사 및 로그인 로그를 전송 하 여이 프로세스를 더욱 간소화 합니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성할 수 있습니다.
 
-- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -312,7 +312,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 Log Analytics �
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [Azure 보안 벤치 마크: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조 하세요.*
+자세한 내용은 [Azure Security Benchmark: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조하세요.
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요한 정보의 인벤토리 유지 관리
 
@@ -431,7 +431,7 @@ Site Recovery는 데이터에 대 한 미사용 데이터 암호화를 지원 �
 
 - [Azure Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -505,7 +505,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -530,7 +530,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 **지침**: Azure Policy를 사용 하 여 Recovery Services 자격 증명 모음에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. 
 
 "Microsoft RecoveryServices" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 감사를 위한 사용자 지정 정책을 만들거나 Site Recovery 서비스의 Recovery Services 자격 증명 모음 리소스 구성을 적용 합니다.
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -553,9 +553,9 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: Recovery Services 자격 증명 모음 및 관련 리소스에 대 한 사용자 지정 Azure Policy 정의를 사용 하는 경우 코드를 안전 하 게 저장 하 고 관리 하려면 Azure Repos을 선택 합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos 설명서](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -608,7 +608,7 @@ Azure 리소스에 대 한 구성을 자동으로 적용 하려면 Azure Policy 
 
 관리 id를 사용 하면 코드에 자격 증명 없이 Key Vault를 포함 하 여 Azure AD 인증을 지 원하는 모든 서비스에 인증할 수 있습니다.
 
-- [Azure 관리 Id와 통합 하는 방법](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core2x)
+- [Azure 관리 Id와 통합 하는 방법](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md?tabs=core2x)
 
 - [Recovery Services 자격 증명 모음에서 시스템 관리 Id를 사용 하도록 설정 하는 방법](azure-to-azure-how-to-enable-replication-private-endpoints.md#enable-the-managed-identity-for-the-vault)
 
@@ -638,7 +638,7 @@ Azure 리소스에 대 한 구성을 자동으로 적용 하려면 Azure Policy 
 
 - [Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지 이해](../security/fundamentals/antimalware.md)
 
-- [데이터 서비스에 대 한 Azure Security Center의 위협 검색 이해](/azure/security-center/threat-protection)
+- [데이터 서비스에 대 한 Azure Security Center의 위협 검색 이해](../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -656,7 +656,7 @@ Azure 리소스에 대 한 구성을 자동으로 적용 하려면 Azure Policy 
 
 이는 고객 범위를 벗어난 것 이며 Site Recovery 팀은 내부적으로이를 처리 합니다. 고객은 Azure에서 Key Vault 키를 백업할 수 있습니다.
 
-- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -666,7 +666,7 @@ Azure 리소스에 대 한 구성을 자동으로 적용 하려면 Azure Policy 
 
 **지침**: 백업 된 고객이 관리 하는 키의 복원을 정기적으로 테스트 합니다.
 
-- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -676,7 +676,7 @@ Azure 리소스에 대 한 구성을 자동으로 적용 하려면 Azure Policy 
 
 **지침**: Azure의 IaaS (Infrastructure As a Service)를 Virtual Machines 기반으로 하는 저장소 서비스 암호화 (SSE)를 사용 하 여 미사용 데이터를 암호화 합니다. Key Vault에서 일시 삭제를 사용 하도록 설정 하 여 실수로 또는 악의적인 삭제 로부터 키를 보호 합니다.
 
-- [Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
+- [Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 예
 
@@ -684,7 +684,7 @@ Azure 리소스에 대 한 구성을 자동으로 적용 하려면 Azure Policy 
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [Azure 보안 벤치 마크: 인시던트 응답](../security/benchmarks/security-control-incident-response.md)을 참조 하세요.*
+자세한 내용은 [Azure Security Benchmark: 인시던트 응답](../security/benchmarks/security-control-incident-response.md)을 참조하세요.
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
@@ -712,7 +712,7 @@ Azure 리소스에 대 한 구성을 자동으로 적용 하려면 Azure Policy 
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md) 
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -778,5 +778,5 @@ Azure 리소스에 대 한 구성을 자동으로 적용 하려면 Azure Policy 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security 벤치 마크 V2 개요](/azure/security/benchmarks/overview) 를 참조 하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

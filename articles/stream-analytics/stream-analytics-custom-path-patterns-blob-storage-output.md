@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72718285ff83a23acd21a5e29001ea96e1f061c8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9763a0ac3cba15dcfd66b8fad83230e2b0eb356b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95531358"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491675"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics 사용자 지정 Blob 출력 분할
 
@@ -25,7 +25,7 @@ Azure Stream Analytics는 사용자 지정 필드 또는 특성과 사용자 지
 
 ### <a name="partition-key-options"></a>파티션 키 옵션
 
-입력 데이터 분할에 사용되는 파티션 키 또는 열 이름에는 하이픈, 밑줄 및 공백이 있는 영숫자가 포함될 수 있습니다. 별칭과 함께 사용하지 않는 한 중첩 필드를 파티션 키로 사용하는 것은 불가능합니다. 파티션 키는 NVARCHAR (MAX), BIGINT, FLOAT 또는 BIT (1.2 호환성 수준 이상) 여야 합니다. 자세한 내용은 [Azure Stream Analytics 데이터 형식](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)을 참조 하세요.
+입력 데이터 분할에 사용되는 파티션 키 또는 열 이름에는 하이픈, 밑줄 및 공백이 있는 영숫자가 포함될 수 있습니다. 별칭과 함께 사용하지 않는 한 중첩 필드를 파티션 키로 사용하는 것은 불가능합니다. 파티션 키는 NVARCHAR (MAX), BIGINT, FLOAT 또는 BIT (1.2 호환성 수준 이상) 여야 합니다. 자세한 내용은 [Azure Stream Analytics 데이터 형식](/stream-analytics-query/data-types-azure-stream-analytics)을 참조 하세요.
 
 ### <a name="example"></a>예제
 

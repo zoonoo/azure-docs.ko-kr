@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 038d0ec817d4f81371546e8d7aa4b48b299c8d98
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 2d31c5b90f37f336b48118e4f4adde4777f8cf4a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302564"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493137"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 마이그레이션 
 
@@ -45,7 +45,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 4. Azure로 마이그레이션하기 전에 [Hyper-V VM을 평가](tutorial-assess-hyper-v.md)하는 것이 좋지만, 반드시 그럴 필요는 없습니다.
 5. 이미 만든 프로젝트로 이동하거나 [새 프로젝트 만들기](https://docs.microsoft.com/azure/migrate/create-manage-projects)
 6. Azure 계정에 대한 사용 권한 확인 - Azure 계정에는 VM을 만들고 Azure 관리 디스크에 쓸 수 있는 권한이 필요합니다.
-
 
 ## <a name="download-and-install-the-provider"></a>공급자 다운로드 및 설치
 

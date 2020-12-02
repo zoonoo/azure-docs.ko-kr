@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 7d41893d734037e466ad786641fed98c461adcfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21d9f318ef18b7ffb49a95ce495c09f1fa46ec1a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86231814"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491318"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-the-azure-portal"></a>Azure Portal를 사용하여 공용 IP 주소에 대한 라우팅 기본 설정 구성
 
@@ -38,18 +38,12 @@ ms.locfileid: "86231814"
 
 Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 지금 만드세요.
 
-## <a name="register-the-feature-for-your-subscription"></a>구독에 대한 기능 등록
-라우팅 기본 설정 기능은 현재 미리 보기로 제공됩니다. 다음과 같이 Azure PowerShell을 사용하여 구독에 대한 기능을 등록합니다.
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
-```
-
 ## <a name="create-a-public-ip-address-with-a-routing-preference"></a>라우팅 기본 설정을 사용하여 공용 IP 주소 만들기
 1. [Azure Portal](https://preview.portal.azure.com/)에 로그인합니다.
-2. **리소스 만들기**를 선택합니다. 
-3. 검색 상자에 *공용 IP 주소*를 입력합니다.
-3. 검색 결과에서 **공용 IP 주소**를 선택합니다. 그런 다음, **공용 IP 주소** 페이지에서 **만들기**를 선택합니다.
-3. **라우팅 기본 설정** 옵션에서 **인터넷**을 선택합니다.
+2. **리소스 만들기** 를 선택합니다. 
+3. 검색 상자에 *공용 IP 주소* 를 입력합니다.
+3. 검색 결과에서 **공용 IP 주소** 를 선택합니다. 그런 다음, **공용 IP 주소** 페이지에서 **만들기** 를 선택합니다.
+3. **라우팅 기본 설정** 옵션에서 **인터넷** 을 선택합니다.
 
       ![공용 IP 주소 만들기](./media/routing-preference-portal/pip-new.png)
 

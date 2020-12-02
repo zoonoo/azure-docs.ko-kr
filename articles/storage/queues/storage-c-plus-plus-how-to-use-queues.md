@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: f31a883a2b10f37d6a4a7a91fff37739e340ac60
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 73d88f69057dc6fe39f6329e89eb72ecebf853f0
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348851"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491981"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>C++에서 Queue Storage를 사용하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "93348851"
 
 ## <a name="overview"></a>개요
 
-이 가이드에서는 Azure Queue Storage 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C++로 작성되었으며 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기 및 삭제** 뿐만 아니라 큐 메시지 **삽입** , **보기** , **가져오기** 및 **삭제** 가 포함됩니다.
+이 가이드에서는 Azure Queue Storage 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C++로 작성되었으며 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기 및 삭제** 뿐만 아니라 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제** 가 포함됩니다.
 
 > [!NOTE]
 > 이 가이드는 Azure Storage Client Library for C++ 버전 1.0.0 이상을 대상으로 합니다. 권장되는 버전은 Storage Client Library 2.2.0이며, [NuGet](https://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp/)를 통해 사용 가능합니다.
@@ -60,7 +60,7 @@ Azure Storage API를 사용하여 큐에 액세스하려는 C++ 파일의 맨 �
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Azure Storage 연결 문자열 설정
 
-Azure Storage 클라이언트는 스토리지 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행 하는 경우 저장소 계정의 이름 및 *AccountName* 및 *AccountKey* 값에 대 한 [Azure Portal](https://portal.azure.com) 에 나열 된 저장소 계정의 저장소 액세스 키를 사용 하 여 다음 형식의 저장소 연결 문자열을 제공 해야 합니다. 저장소 계정 및 액세스 키에 대 한 자세한 내용은 [Azure Storage 계정 정보](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)를 참조 하세요. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
+Azure Storage 클라이언트는 스토리지 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행 하는 경우 저장소 계정의 이름 및 *AccountName* 및 *AccountKey* 값에 대 한 [Azure Portal](https://portal.azure.com) 에 나열 된 저장소 계정의 저장소 액세스 키를 사용 하 여 다음 형식의 저장소 연결 문자열을 제공 해야 합니다. 저장소 계정 및 액세스 키에 대 한 자세한 내용은 [Azure Storage 계정 정보](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)를 참조 하세요. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
 
 ```cpp
 // Define the connection-string with your values.

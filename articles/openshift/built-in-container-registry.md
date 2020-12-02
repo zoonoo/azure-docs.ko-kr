@@ -6,12 +6,12 @@ ms.author: jiangma
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 0a6449e6b728ee690dd6ddee192868aaeb3511ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9ed53721b66dc03bad24e0510e0c8a970c61aec1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911042"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492423"
 ---
 # <a name="configure-built-in-container-registry-for-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 4에 대한 기본 제공 컨테이너 레지스트리 구성
 
@@ -26,9 +26,9 @@ Azure Red Hat OpenShift는 새 이미지 리포지토리를 요청 시 자동으
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 ARO 클러스터가 있다고 가정 합니다. ARO 클러스터가 필요한 경우 ARO 자습서 인 [Azure Red Hat OpenShift 4 클러스터 만들기](/azure/openshift/tutorial-create-cluster)를 참조 하세요. 에 대 한 인수를 사용 하 여 클러스터를 만들어야 `--pull-secret` `az aro create` 합니다.  이는 Azure Active Directory 인증 및 기본 제공 컨테이너 레지스트리를 구성 하는 데 필요 합니다.
+이 문서에서는 기존 ARO 클러스터가 있다고 가정 합니다. ARO 클러스터가 필요한 경우 ARO 자습서 인 [Azure Red Hat OpenShift 4 클러스터 만들기](./tutorial-create-cluster.md)를 참조 하세요. 에 대 한 인수를 사용 하 여 클러스터를 만들어야 `--pull-secret` `az aro create` 합니다.  이는 Azure Active Directory 인증 및 기본 제공 컨테이너 레지스트리를 구성 하는 데 필요 합니다.
 
-클러스터가 있으면 [Azure Red Hat OpenShift 4 클러스터에 연결](/azure/openshift/tutorial-connect-cluster)의 단계를 수행 하 여 클러스터에 연결 합니다.
+클러스터가 있으면 [Azure Red Hat OpenShift 4 클러스터에 연결](./tutorial-connect-cluster.md)의 단계를 수행 하 여 클러스터에 연결 합니다.
    * 이 문서의 뒷부분에 나오는 명령을 사용 하기 때문에 "OpenShift CLI 설치"의 단계를 수행 해야 `oc` 합니다.
    * 클러스터 콘솔 URL (예:)을 기록해 둡니다 `https://console-openshift-console.apps.<random>.<region>.aroapp.io/` . 및의 값 `<random>` 은 `<region>` 이 문서의 뒷부분에서 사용 됩니다.
    * `kubeadmin`자격 증명을 확인 합니다. 또한이 문서의 뒷부분에서 사용 됩니다.

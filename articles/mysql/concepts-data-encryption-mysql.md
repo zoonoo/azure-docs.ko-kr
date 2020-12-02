@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 554b3ad1dbe1e736300387aefde195b9054ab326
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 87dff3bbb4a7ff5e40a06d1b63bdc38987d727fe
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437102"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492695"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>고객 관리형 키를 사용한 Azure Database for MySQL 데이터 암호화
 
@@ -97,8 +97,8 @@ Key Vault에서 고객 관리형 키를 사용하여 데이터 암호화를 구�
 
 * 데이터 암호화를 사용하는 Azure Database for MySQL에 대한 특정 시점 복원 서버를 만들면 새로 만든 서버는 *액세스할 수 없음* 상태가 됩니다. [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) 또는 [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers)를 통해 이 문제를 수정할 수 있습니다.
 * 데이터 암호화를 사용하는 Azure Database for MySQL에 대한 읽기 복제본을 만들면 복제본 서버는 *액세스할 수 없음* 상태가 됩니다. [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) 또는 [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers)를 통해 이 문제를 수정할 수 있습니다.
-* KeyVault를 삭제하면 Azure Database for MySQL은 키에 액세스할 수 없게 되고 *액세스할 수 없음* 상태로 변경됩니다. 서버를 *사용 가능* 상태로 만들려면 [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects)를 복구하고 데이터 암호화의 유효성을 다시 검사하세요.
-* KeyVault에서 키를 삭제하면 Azure Database for MySQL은 키에 액세스할 수 없게 되고 *액세스할 수 없음* 상태로 변경됩니다. 서버를 *사용 가능* 상태로 만들려면 [키](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects)를 복구하고 데이터 암호화의 유효성을 다시 검사하세요.
+* KeyVault를 삭제하면 Azure Database for MySQL은 키에 액세스할 수 없게 되고 *액세스할 수 없음* 상태로 변경됩니다. 서버를 *사용 가능* 상태로 만들려면 [Key Vault](../key-vault/general/key-vault-recovery.md)를 복구하고 데이터 암호화의 유효성을 다시 검사하세요.
+* KeyVault에서 키를 삭제하면 Azure Database for MySQL은 키에 액세스할 수 없게 되고 *액세스할 수 없음* 상태로 변경됩니다. 서버를 *사용 가능* 상태로 만들려면 [키](../key-vault/general/key-vault-recovery.md)를 복구하고 데이터 암호화의 유효성을 다시 검사하세요.
 * Azure KeyVault에 저장된 키가 만료되면 키가 무효화되고 Azure Database for MySQL이 *액세스할 수 없음* 상태로 전환됩니다. [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes)를 사용하여 키 만료 날짜를 연장한 다음, 데이터 암호화의 유효성을 다시 검사하여 서버를 *사용 가능* 상태로 만드세요.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Key Vault에서 실수로 인한 키 액세스 해지

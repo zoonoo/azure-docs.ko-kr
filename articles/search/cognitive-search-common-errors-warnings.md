@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcdc05ae696a207546eb62160fe89ea38d307058
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362817"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492270"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure Cognitive Search에서 일반적인 인덱서 오류 및 경고 문제 해결
 
@@ -348,8 +348,8 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>경고: Cosmos DB 컬렉션 ' X '에 지연 인덱싱 정책이 있습니다. 일부 데이터가 손실 될 수 있습니다.
 
-[지연](/azure/cosmos-db/index-policy#indexing-mode) 인덱싱 정책을 사용 하는 컬렉션은 일관 되 게 쿼리할 수 없습니다 .이로 인해 인덱서가 데이터를 누락 하 게 됩니다. 이 경고를 해결 하려면 인덱싱 정책을 일관 되 게 변경 합니다.
+[지연](../cosmos-db/index-policy.md#indexing-mode) 인덱싱 정책을 사용 하는 컬렉션은 일관 되 게 쿼리할 수 없습니다 .이로 인해 인덱서가 데이터를 누락 하 게 됩니다. 이 경고를 해결 하려면 인덱싱 정책을 일관 되 게 변경 합니다.
 
 ## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>경고: 문서에 매우 긴 단어가 포함 되어 있습니다 (64 자 초과). 이러한 단어를 통해 모델 예측이 잘릴 수도 있고 그렇지 않을 수도 있습니다.
 
-이 경고는 Text Analytics 서비스에서 전달 됩니다.  경우에 따라 문서에 긴 URL이 포함 된 경우 (예: 키 구 또는 주행 감정 등)에는이 경고를 무시 해도 안전 합니다.  단어가 64 자 보다 길면 모델 예측에 영향을 줄 수 있는 64 문자로 잘립니다.  
+이 경고는 Text Analytics 서비스에서 전달 됩니다.  경우에 따라 문서에 긴 URL이 포함 된 경우 (예: 키 구 또는 주행 감정 등)에는이 경고를 무시 해도 안전 합니다.  단어가 64 자 보다 길면 모델 예측에 영향을 줄 수 있는 64 문자로 잘립니다.

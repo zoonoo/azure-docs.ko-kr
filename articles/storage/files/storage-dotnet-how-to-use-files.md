@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0196330df01f98e216c39bcc689eac2bde2f4cd9
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e112060db4a44884d3094a939b03ff106ba72e65
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629345"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492202"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
 
@@ -316,7 +316,7 @@ if (share.Exists())
 
 Azure Files 클라이언트 라이브러리의 버전 5.x부터 파일을 다른 파일에 복사 하거나 파일을 blob에 복사 하거나 blob을 파일로 복사할 수 있습니다.
 
-AzCopy를 사용 하 여 한 파일을 다른 파일에 복사 하거나 blob을 파일에 복사 하거나 다른 방식으로 복사할 수도 있습니다. [AzCopy 시작](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)을 참조하세요.
+AzCopy를 사용 하 여 한 파일을 다른 파일에 복사 하거나 blob을 파일에 복사 하거나 다른 방식으로 복사할 수도 있습니다. [AzCopy 시작](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 
 > [!NOTE]
 > BLOB을 파일에 복사하거나 파일을 BLOB에 복사하는 경우 두 항목이 동일한 스토리지 계정 내에 있더라도 SAS(공유 액세스 서명)를 사용하여 원본 개체에 대한 액세스를 인증해야 합니다.
@@ -624,7 +624,7 @@ Azure Files에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
 
 ### <a name="tooling-support-for-file-storage"></a>File Storage용 도구 지원
 
-- [AzCopy 시작](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)
+- [AzCopy 시작](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 - [Windows에서 Azure Files 문제 해결](./storage-troubleshoot-windows-file-connection-problems.md)
 
 ### <a name="reference"></a>참조

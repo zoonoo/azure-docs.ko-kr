@@ -3,12 +3,12 @@ title: Azure Migrate를 사용 하 여 Azure로의 마이그레이션에 대 한
 description: Azure Migrate 서비스를 사용 하 여 Azure로 마이그레이션하기 위해 많은 수의 VMware Vm을 평가 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: 0a5a29ffc8abe0e8ec4fe85a41b4b67c2e655d2b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0be7a7ea4afc400787456533689fe00b1db1c116
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314108"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492933"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대 한 많은 수의 VMware Vm 평가
 
@@ -53,7 +53,7 @@ ms.locfileid: "92314108"
 이러한 한도를 염두에 두면 몇 가지 예 배포를 고려해 야 합니다.
 
 
-**vCenter 서버** | **서버의 Vm** | **권장** | **동작**
+**vCenter 서버** | **서버의 Vm** | **권장** | **작업**
 ---|---|---|---
 하나 | < 1만 | Azure Migrate 프로젝트 하나<br/> 어플라이언스 하나<br/> 검색을 위한 vCenter 계정이 하나 있습니다. | 어플라이언스를 설정 하 고 계정을 사용 하 여 vCenter Server에 연결 합니다.
 하나 | > 1만 | Azure Migrate 프로젝트 하나<br/> 여러 어플라이언스.<br/> 여러 vCenter 계정. | 1만 Vm 마다 어플라이언스를 설정 합니다.<br/><br/> VCenter 계정을 설정 하 고, 계정에 대 한 액세스를 1만 Vm 미만으로 제한 하도록 인벤토리를 나눕니다.<br/> 계정을 사용 하 여 각 어플라이언스를 vCenter server에 연결 합니다.<br/> 다른 어플라이언스로 검색 된 컴퓨터 간에 종속성을 분석할 수 있습니다. <br/> <br/> 제공 된 vCenter 계정에 있는 Vm 간에 중복이 없는지 확인 합니다. 이러한 겹치는 검색은 지원되지 않는 시나리오입니다. 하나 이상의 어플라이언스에서 VM을 검색 하는 경우이로 인해 검색에서 중복이 발생 하 고, 서버 마이그레이션의 Azure Portal를 사용 하 여 VM에 대 한 복제를 사용 하도록 설정 하는 데 문제가 발생 합니다.
@@ -88,7 +88,7 @@ ms.locfileid: "92314108"
 1. Azure Migrate 프로젝트를 만듭니다.
 2. 프로젝트에 Azure Migrate 서버 평가 도구를 추가 합니다.
 
-[자세히 알아보기](how-to-add-tool-first-time.md)
+[자세한 정보](./create-manage-projects.md)
 
 ## <a name="create-and-review-an-assessment"></a>평가 만들기 및 검토
 

@@ -9,18 +9,18 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: eb5fac5987a36c425b9e130df17412e5ad902345
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 94f347cc24c675c69c69dad6a7d7a796b395c1a6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310935"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493615"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>을 사용 하 여 Azure Arc 데이터 컨트롤러 만들기 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 개요 정보는 [Azure Arc data Controller 만들기](create-data-controller.md) 항목을 검토 하세요.
 
@@ -102,7 +102,7 @@ azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace ar
 azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 명령을 실행 한 후에는 계속 해 서 [만들기 상태를 모니터링](#monitoring-the-creation-status)합니다.

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c9a68661a89f53c5aa27bdd046b5bc09a47db400
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 092320db9b7fe2b1f3fe142f84ad201d40dc6e2e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556627"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492287"
 ---
-# <a name="azure-data-encryption-at-rest"></a>휴지 상태의 Azure 데이터 암호화
+# <a name="azure-data-encryption-at-rest"></a>미사용 Azure 데이터 암호화
 
 Microsoft Azure에는 회사의 보안 및 규정 준수 요구 사항에 따라 데이터를 보호 하는 도구가 포함 되어 있습니다. 이 문서는 다음 내용을 집중적으로 다룹니다.
 

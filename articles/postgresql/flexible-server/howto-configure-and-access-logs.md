@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 319b7a40a87d29454b22a26088df313ef524dc56
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3b54fe1ffd49c12db82a038ad449190a0049133f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545823"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492355"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에서 로그 구성 및 액세스
 
@@ -36,7 +36,7 @@ Azure Portal를 사용 하 여 리소스 로그를 사용 하도록 설정 하�
 4. 기본 설정 끝점 (저장소 계정, 이벤트 허브, log analytics)을 선택 합니다. 
 
 5. **PostgreSQLLogs** 로그 유형을 선택 합니다.
-   :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="진단 설정 추가 단추":::
+   :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="PostgreSQL 로그 선택":::
 
 7. 설정을 저장합니다.
 
@@ -71,5 +71,5 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Log analytics 쿼리 시작](../../azure-monitor/log-query/get-started-portal.md)
+- [Log analytics 쿼리 시작](../../azure-monitor/log-query/log-analytics-tutorial.md)
 - [Azure event hubs](../../event-hubs/event-hubs-about.md) 에 대 한 자세한 정보

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c57ad181f35d3c0498804f65390792d0e600f1ff
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1c1a5a96742d380ce42c0aea8c77a199083df47f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843420"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492253"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Azure DDoS Protection 표준에 대 한 Azure 보안 기준
 
@@ -38,7 +38,7 @@ ms.locfileid: "94843420"
 
 Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 보관을 위해 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure storage 계정으로 로그를 보냅니다. 활동 로그는 제어 평면 수준에서 Redis 인스턴스에 대 한 Azure 캐시에서 수행 된 작업에 대 한 통찰력을 제공 합니다. Azure 활동 로그 데이터를 사용 하 여 Azure DDoS Protection 인스턴스에 대 한 제어 평면 수준에서 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대 한 "무엇을, 누가, 언제"를 결정할 수 있습니다.
 
-- [DDoS protection 메트릭에 대 한 경고를 구성 하는 방법](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [DDoS protection 메트릭에 대 한 경고를 구성 하는 방법](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
 
 - [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../../azure-monitor/platform/activity-log.md)
 
@@ -60,7 +60,7 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 보관을 �
 
 **지침**: Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 Log Analytics 작업 영역으로 보냅니다. Log Analytics에서 쿼리를 수행 하 여 용어를 검색 하 고, 추세를 식별 하 고, 패턴을 분석 하 고, Recovery Services 자격 증명 모음에 대해 수집 되었을 수 있는 활동 로그 데이터를 기반으로 다양 한 통찰력을 제공
 
-- [DDoS Protection 표준 서비스에 대 한 원격 분석, 로그 및 공격 분석에 액세스 하는 방법에 대 한 정보](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [DDoS Protection 표준 서비스에 대 한 원격 분석, 로그 및 공격 분석에 액세스 하는 방법에 대 한 정보](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
 
 - [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../../azure-monitor/platform/activity-log.md)
 
@@ -96,7 +96,7 @@ Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케�
 
 또한 AD (Azure Active Directory)에는 명시적으로 할당 되어야 하며 쿼리할 수 있는 기본 제공 역할이 있습니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다.
 
-- [Azure DDoS protection에서 사용 권한 이해](../../virtual-network/manage-ddos-protection.md#permissions-and-restrictions)
+- [Azure DDoS protection에서 사용 권한 이해](../../ddos-protection/manage-permissions.md)
 
 - [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -200,7 +200,7 @@ Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케�
 
 **지침**: 해당 하는 경우 중앙 인증 및 권한 부여 시스템으로 Azure Active Directory (Azure AD)를 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -266,7 +266,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure DDoS Protection 계획을 사용 하려면 계정을 네트워크 기여자 역할 또는 특정 작업이 할당 된 사용자 지정 역할에 할당 해야 합니다.
 
-- [Azure DDoS Protection에서 Azure RBAC (역할 기반 액세스 제어) 관리](../../virtual-network/manage-ddos-protection.md)
+- [Azure DDoS Protection에서 Azure RBAC (역할 기반 액세스 제어) 관리](../../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -342,7 +342,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure Policy을 사용 하 여 구독에 만들 수 있는 리소스 유형에 대 한 제한을 설정할 수 있습니다.
 
-Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리하고 검색 합니다.  환경에 있는 모든 Azure 리소스가 승인되었는지 확인합니다.
+Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 검색합니다.  환경에 있는 모든 Azure 리소스가 승인되었는지 확인합니다.
 
 - [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -512,7 +512,7 @@ DDoS 공격을 시뮬레이션 하기 위해 응용 프로그램에 대 한 트�
 
 **지침**: MSRC(Microsoft 보안 대응 센터)에서 불법적이거나 권한이 없는 당사자가 데이터에 액세스했다고 검색하는 경우 Microsoft에서 보안 인시던트 연락처 정보를 사용하여 사용자에게 연락합니다. 문제가 해결되었는지 확인하기 위해 사후에 인시던트를 검토합니다.
 
-- [Azure Security Center 보안 연락처를 설정 하는 방법](../../security-center/security-center-provide-security-contact-details.md)
+- [Azure Security Center 보안 연락처를 설정하는 방법](../../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -524,7 +524,7 @@ DDoS 공격을 시뮬레이션 하기 위해 응용 프로그램에 대 한 트�
 
 Azure Monitor 경고 구성을 사용 하 여 공격 중에 활성 완화가 있는 경우 경고를 표시 하려면 사용 가능한 DDoS 보호 메트릭을 선택 합니다. 조건을 충족 하는 경우 지정 된 주소가 경고 전자 메일을 받습니다.
 
-- [DDoS 보호 메트릭에 대한 경고 구성](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [DDoS 보호 메트릭에 대한 경고 구성](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
 
 - [연속 내보내기를 구성하는 방법](../../security-center/continuous-export.md)
 
@@ -554,7 +554,7 @@ Azure Monitor 경고 구성을 사용 하 여 공격 중에 활성 완화가 있
 
 - [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

@@ -6,16 +6,16 @@ author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 756604b71efd1715ae3b4ca3d5eebf0fdfa41e34
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 988b9d364f09a4c88bcaab1fe81ae80c8de5d4d9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129799"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491573"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>Visual Studio Code Azure Stream Analytics 도구에서 IntelliSense
 
-IntelliSense는 [VS Code에 대 한 Azure Stream Analytics 도구](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview)에서 [Stream Analytics 쿼리 언어](/stream-analytics-query/stream-analytics-query-language-reference?bc=https%253a%252f%252fdocs.microsoft.com%252fazure%252fbread%252ftoc.json&toc=https%253a%252f%252fdocs.microsoft.com%252fazure%252fstream-analytics%252ftoc.json) 에 사용할 수 있습니다. IntelliSense는 목록 멤버, 매개 변수 정보, 요약 정보 및 단어 자동 완성 등 여러 기능을 포함하는 코드 완성 지원 기능입니다. IntelliSense 기능을 "코드 완성", "내용 지원" 및 "코드 힌트"와 같은 다른 이름으로 라고도 합니다.
+IntelliSense는 [VS Code에 대 한 Azure Stream Analytics 도구](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview)에서 [Stream Analytics 쿼리 언어](/stream-analytics-query/stream-analytics-query-language-reference?bc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fbread%2ftoc.json&toc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fstream-analytics%2ftoc.json) 에 사용할 수 있습니다. IntelliSense는 다음과 같은 다양한 기능을 포함하는 코드 완성 지원 도구입니다. 멤버 목록, 매개 변수 정보, 요약 정보 및 전체 단어. IntelliSense 기능을 "코드 완성", "내용 지원" 및 "코드 힌트"와 같은 다른 이름으로 라고도 합니다.
 
 ![IntelliSense 데모](./media/vs-code-intellisense/intellisense.gif)
 
@@ -37,7 +37,7 @@ IntelliSense for VS Code Stream Analytics 도구는 언어 서버 제안, 코드
 |Completion     |  형식       |
 | ----- | ------- |
 | 키워드 | `keyword`
-| Functions | `build-in function`, `user defined function`  |
+| 함수 | `build-in function`, `user defined function`  |
 | 데이터 집합 이름| `input`, `output`, `intermediate result set`|
 | 데이터 집합 열 이름|`input`, `intermediate result set`|
 

@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 4ccd668fb6afa6787fadeda6ed92ebd954e2b892
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3e4d75c59d0e3c97b0900dd72a27d4afbf4015c9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657808"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492321"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Azure RBAC 변경 내용에 대 한 활동 로그 보기
 
@@ -46,9 +46,9 @@ ms.locfileid: "94657808"
 | 필터 | 값 |
 | --------- | --------- |
 | 이벤트 범주 | <ul><li>관리</li></ul> |
-| 작업(Operation) | <ul><li>역할 할당 만들기</li><li>역할 할당 삭제</li><li>사용자 지정 역할 정의 만들기 또는 업데이트</li><li>사용자 지정 역할 정의 삭제</li></ul> |
+| 연산 | <ul><li>역할 할당 만들기</li><li>역할 할당 삭제</li><li>사용자 지정 역할 정의 만들기 또는 업데이트</li><li>사용자 지정 역할 정의 삭제</li></ul> |
 
-활동 로그에 대 한 자세한 내용은 [활동 로그를 확인 하 여 리소스에 대 한 작업 모니터링](../azure-resource-manager/management/view-activity-logs.md?toc=%252fazure%252fmonitoring-and-diagnostics%252ftoc.json)을 참조 하세요.
+활동 로그에 대 한 자세한 내용은 [활동 로그를 확인 하 여 리소스에 대 한 작업 모니터링](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)을 참조 하세요.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -162,5 +162,5 @@ AzureActivity
 ![고급 분석 포털을 사용한 활동 로그 - 스크린샷](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [활동 로그의 이벤트 보기](../azure-resource-manager/management/view-activity-logs.md?toc=%252fazure%252fmonitoring-and-diagnostics%252ftoc.json)
+* [활동 로그의 이벤트 보기](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 * [Azure 활동 로그로 구독 활동 모니터링](../azure-monitor/platform/platform-logs-overview.md)

@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c94c7709a8066b31a6ac1ebc54180d41a303f44a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41c0f9546b07158a2c7fb3344698598f0c38521f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078234"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492083"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>PowerShell을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -38,7 +38,7 @@ ms.locfileid: "89078234"
 * 다른 서브넷에 VM(가상 머신) 배포
 * NVA를 통해 한 서브넷에서 다른 서브넷으로 트래픽 라우팅
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -46,13 +46,13 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 �
 
 ## <a name="create-a-route-table"></a>경로 테이블 만들기
 
-경로 테이블을 만들기 전에 [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)를 사용 하 여 리소스 그룹을 만듭니다. 다음 예제에서는 이 문서에서 만든 모든 리소스에 대해 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+경로 테이블을 만들기 전에 [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)를 사용 하 여 리소스 그룹을 만듭니다. 다음 예제에서는 이 문서에서 만든 모든 리소스에 대해 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-[AzRouteTable](/powershell/module/az.network/new-azroutetable)를 사용 하 여 경로 테이블을 만듭니다. 다음 예제에서는 *myRouteTablePublic*이라는 경로 테이블을 만듭니다.
+[AzRouteTable](/powershell/module/az.network/new-azroutetable)를 사용 하 여 경로 테이블을 만듭니다. 다음 예제에서는 *myRouteTablePublic* 이라는 경로 테이블을 만듭니다.
 
 ```azurepowershell-interactive
 $routeTablePublic = New-AzRouteTable `
@@ -79,7 +79,7 @@ Get-AzRouteTable `
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>서브넷에 경로 테이블 연결
 
-서브넷에 경로 테이블을 연결하려면 먼저 가상 네트워크 및 서브넷을 만들어야 합니다. [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제는 주소 접두사 *10.0.0.0/16*을 사용하는 *myVirtualNetwork*라는 가상 네트워크를 만듭니다.
+서브넷에 경로 테이블을 연결하려면 먼저 가상 네트워크 및 서브넷을 만들어야 합니다. [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제는 주소 접두사 *10.0.0.0/16* 을 사용하는 *myVirtualNetwork* 라는 가상 네트워크를 만듭니다.
 
 ```azurepowershell-interactive
 $virtualNetwork = New-AzVirtualNetwork `
@@ -121,7 +121,7 @@ Set-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork `
   -Name 'Public' `
   -AddressPrefix 10.0.0.0/24 `
-  -RouteTable $routeTablePublic | `
+  -RouteTable $myRouteTablePublic | `
 Set-AzVirtualNetwork
 ```
 
@@ -178,7 +178,7 @@ $vmConfig = New-AzVMConfig `
   Add-AzVMNetworkInterface -Id $nic.Id
 ```
 
-[New-azvm](/powershell/module/az.compute/new-azvm)와 함께 vm 구성을 사용 하 여 vm을 만듭니다. 다음 예제에서는 *myVmNva*라는 VM을 만듭니다.
+[New-azvm](/powershell/module/az.compute/new-azvm)와 함께 vm 구성을 사용 하 여 vm을 만듭니다. 다음 예제에서는 *myVmNva* 라는 VM을 만듭니다.
 
 ```azurepowershell-interactive
 $vmNva = New-AzVM `
@@ -194,7 +194,7 @@ $vmNva = New-AzVM `
 
 이후 단계에서 *공용* 서브넷의 해당 트래픽이 네트워크 가상 어플라이언스를 통해 *프라이빗* 서브넷에 라우팅되는지 유효성을 검사할 수 있도록 가상 네트워크에 두 개의 VM을 만듭니다.
 
-[New-azvm](/powershell/module/az.compute/new-azvm)를 사용 하 여 *공용* 서브넷에 VM을 만듭니다. 다음 예제는 *myVirtualNetwork* 가상 네트워크의 *공용* 서브넷에 *myVmPublic*이라는 VM을 만듭니다.
+[New-azvm](/powershell/module/az.compute/new-azvm)를 사용 하 여 *공용* 서브넷에 VM을 만듭니다. 다음 예제는 *myVirtualNetwork* 가상 네트워크의 *공용* 서브넷에 *myVmPublic* 이라는 VM을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -238,9 +238,9 @@ Get-AzPublicIpAddress `
 mstsc /v:<publicIpAddress>
 ```
 
-다운로드한 RDP 파일을 엽니다. 메시지가 표시되면 **연결**을 선택합니다.
+다운로드한 RDP 파일을 엽니다. 메시지가 표시되면 **연결** 을 선택합니다.
 
-VM을 만들 때 지정한 사용자 이름과 암호를 입력(VM을 만들 때 입력한 자격 증명을 지정하기 위해 **다른 옵션 선택**을 선택한 다음, **다른 계정 사용**을 선택해야 할 수도 있음)한 다음, **확인**을 선택합니다. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예**를 선택하여 연결을 진행합니다.
+VM을 만들 때 지정한 사용자 이름과 암호를 입력(VM을 만들 때 입력한 자격 증명을 지정하기 위해 **다른 옵션 선택** 을 선택한 다음, **다른 계정 사용** 을 선택해야 할 수도 있음)한 다음, **확인** 을 선택합니다. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예** 를 선택하여 연결을 진행합니다.
 
 이후 단계에서 `tracert.exe` 명령은 라우팅을 테스트 하는 데 사용 됩니다. Tracert는 ICMP(Internet Control Message Protocol)를 사용하는데, ICMP는 Windows 방화벽에서 허용되지 않습니다. *myVmPrivate* VM의 PowerShell에서 다음 명령을 입력하여 Windows 방화벽을 통해 ICMP를 사용하도록 설정합니다.
 
@@ -250,9 +250,9 @@ New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 
 이 문서에서는 라우팅을 테스트하는 데 경로 추적이 사용되지만, 프로덕션 배포에 Windows 방화벽을 통한 ICMP를 허용하지 않는 것이 좋습니다.
 
-IP 전달을 사용하도록 설정에서 VM의 네트워크 인터페이스에 대해 Azure 내에서 IP 전달을 사용하도록 설정했습니다. VM 내 운영 체제 또는 VM 내에서 실행 중인 애플리케이션도 네트워크 트래픽을 전달할 수 있어야 합니다. *myVmNva*의 운영 체제 내에서 IP 전달을 사용하도록 설정합니다.
+IP 전달을 사용하도록 설정에서 VM의 네트워크 인터페이스에 대해 Azure 내에서 IP 전달을 사용하도록 설정했습니다. VM 내 운영 체제 또는 VM 내에서 실행 중인 애플리케이션도 네트워크 트래픽을 전달할 수 있어야 합니다. *myVmNva* 의 운영 체제 내에서 IP 전달을 사용하도록 설정합니다.
 
-*myVmPrivate* VM의 명령 프롬프트에서 다음과 같이 *myVmNva*에 대한 원격 데스크톱 연결을 만듭니다.
+*myVmPrivate* VM의 명령 프롬프트에서 다음과 같이 *myVmNva* 에 대한 원격 데스크톱 연결을 만듭니다.
 
 ``` 
 mstsc /v:myvmnva

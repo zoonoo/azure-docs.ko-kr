@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 1eddca26152f27ced20bbae66b3265639b97e64e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 266862a1691387caf1b1ffa9a47b0e60e84970d8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629498"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492134"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md) 는 업계 표준 [SMB (서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 및 [NFS (네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System) (미리 보기)을 통해 액세스할 수 있는 완전히 관리 되는 파일 공유를 클라우드에서 제공 합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -184,7 +184,7 @@ ms.locfileid: "94629498"
 
     - Azure 파일 동기화는 동기화하는 모든 서버 엔드포인트에 대한 모든 임의 ACL 또는 DACL(Active Directory 기반 또는 로컬 여부)을 유지합니다. 
     
-    Azure Storage 서비스에서 지원되는 모든 프로토콜을 포괄적으로 보려면 [Azure Storage 액세스 권한 부여](../common/storage-auth.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)를 참조하세요. 
+    Azure Storage 서비스에서 지원되는 모든 프로토콜을 포괄적으로 보려면 [Azure Storage 액세스 권한 부여](../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요. 
     
 * <a id="encryption-at-rest"></a>
 **Azure 파일 공유가 미사용 암호화되도록 하려면 어떻게 해야 하나요?**  

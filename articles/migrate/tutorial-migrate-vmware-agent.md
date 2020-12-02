@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 VMware VM의 에이전트 기반 마�
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 437dbce1c577b5d837ad0c70e8e8865ba59cf9e6
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 46f23953e6572b752f8773bc9db86be946ccf212
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302767"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493000"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMware VM을 Azure로 마이그레이션(에이전트 기반)
 
@@ -133,7 +133,6 @@ VMware 서버와 VM에서 Azure로 마이그레이션하기 위한 요구 사항
 
 > [!NOTE]
 > Azure Migrate 서버 마이그레이션을 사용하는 에이전트 기반 마이그레이션은 Azure Site Recover 서비스의 기능을 기반으로 합니다. 일부 요구 사항은 Site Recovery 설명서에 연결될 수 있습니다.
-
 
 ## <a name="set-up-the-replication-appliance"></a>복제 어플라이언스 설정
 

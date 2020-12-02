@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 5357a1f2d1f042f9dab01edf205926992e4225d0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c33771bc67a67d6b3b73769071126db6a913f702
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843828"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492151"
 ---
 # <a name="monitoring-azure-files"></a>모니터링 Azure Files
 
@@ -44,7 +44,7 @@ Azure Files는 다른 Azure 리소스와 동일한 종류의 모니터링 데이
 
 Azure Files에서 만든 메트릭 및 로그 메트릭에 대 한 자세한 내용은 [Azure 파일 모니터링 데이터 참조](storage-files-monitoring-reference.md) 를 참조 하세요.
 
-Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계정만 지원합니다. Azure Monitor는 클래식 스토리지 계정을 지원하지 않습니다. 클래식 스토리지 계정에서 메트릭 또는 로그를 사용하려면 Azure Resource Manager 스토리지 계정으로 마이그레이션해야 합니다. [Azure Resource Manager로 마이그레이션](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
+Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계정만 지원합니다. Azure Monitor는 클래식 스토리지 계정을 지원하지 않습니다. 클래식 스토리지 계정에서 메트릭 또는 로그를 사용하려면 Azure Resource Manager 스토리지 계정으로 마이그레이션해야 합니다. [Azure Resource Manager로 마이그레이션](../../virtual-machines/migration-classic-resource-manager-overview.md)을 참조하세요.
 
 ## <a name="collection-and-routing"></a>컬렉션 및 라우팅
 
