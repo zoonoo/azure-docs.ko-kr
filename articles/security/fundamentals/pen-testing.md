@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2020
 ms.author: terrylan
-ms.openlocfilehash: dfacf124f8db0e5323c9abff56c4a78f85f6f014
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af61b6ee1e69d175f47170df30f75832033d61d5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816136"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489720"
 ---
 # <a name="penetration-testing"></a>침투 테스트
 
@@ -46,7 +46,7 @@ Microsoft가 [Azure 환경에서의 침투 테스트](https://gallery.technet.mi
 사용자가 수행할 수 없는 일종의 펜 테스트는 [DoS (서비스 거부)](https://en.wikipedia.org/wiki/Denial-of-service_attack) 공격입니다. 이 테스트에는 DoS 공격 자체를 시작 하거나 모든 유형의 DoS 공격을 확인, 시연 또는 시뮬레이션할 수 있는 관련 테스트를 수행 하는 작업이 포함 됩니다.
 
 >[!Note]
->Microsoft는 BreakingPoint Cloud와 협력하여 시뮬레이션을 위해 DDoS Protection을 사용하도록 설정된 공용 IP 주소에 대한 트래픽을 생성할 수 있는 인터페이스를 구축했습니다. 중단점 클라우드 시뮬레이션에 대 한 자세한 내용은 [DDoS 검색 유효성 검사](../../virtual-network/manage-ddos-protection.md#validate-ddos-detection)를 참조 하세요.
+>Microsoft는 BreakingPoint Cloud와 협력하여 시뮬레이션을 위해 DDoS Protection을 사용하도록 설정된 공용 IP 주소에 대한 트래픽을 생성할 수 있는 인터페이스를 구축했습니다. 중단점 클라우드 시뮬레이션에 대 한 자세한 내용은 [DDoS 검색 유효성 검사](../../ddos-protection/manage-ddos-protection.md#validate-and-test)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

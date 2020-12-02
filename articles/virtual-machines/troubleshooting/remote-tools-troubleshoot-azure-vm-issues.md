@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 5abb509f1753c65554bd74ababe9acca4103c15a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5974388c096c9bc8693c5fc2cf918989c6eadd3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509089"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488734"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>원격 도구를 사용하여 Azure VM 문제 해결
 
@@ -180,7 +180,7 @@ Azure Resource Manager Vm의 경우 포털에서 명령 실행을 사용 하 여
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-  * Azure Resource Manager VM의 경우 먼저 공용 IP 주소에 DNS 이름을 추가 합니다. 자세한 단계는 [Azure Portal에서 Windows VM에 대한 정규화된 도메인 이름 만들기](../windows/portal-create-fqdn.md)를 참조하세요. 그런 후 다음 명령을 실행합니다.
+  * Azure Resource Manager VM의 경우 먼저 공용 IP 주소에 DNS 이름을 추가 합니다. 자세한 단계는 [Azure Portal에서 Windows VM에 대한 정규화된 도메인 이름 만들기](../create-fqdn.md)를 참조하세요. 그런 후 다음 명령을 실행합니다.
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
@@ -214,7 +214,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 1. 동일한 가상 네트워크의 다른 VM에서 레지스트리 편집기 (regedit.exe)를 엽니다.
 
-2. **파일**  >  **연결 네트워크 레지스트리**를 선택 합니다.
+2. **파일**  >  **연결 네트워크 레지스트리** 를 선택 합니다.
 
    ![레지스트리 편집기](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
 
@@ -235,11 +235,11 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 >
 >RDFE VM의 경우 프라이빗 포트 5986 및 공용 포트가 있는 엔드포인트가 필요합니다. 또한 NSG에서 해당 공용 포트를 열어야 합니다.
 
-1. 동일한 가상 네트워크의 다른 VM에서 **services.msc**의 인스턴스를 엽니다.
+1. 동일한 가상 네트워크의 다른 VM에서 **services.msc** 의 인스턴스를 엽니다.
 
 2. **서비스(로컬)** 을 마우스 오른쪽 단추로 클릭합니다.
 
-3. **다른 컴퓨터에 연결**을 선택합니다.
+3. **다른 컴퓨터에 연결** 을 선택합니다.
 
    ![원격 서비스](./media/remote-tools-troubleshoot-azure-vm-issues/remote-services.png)
 

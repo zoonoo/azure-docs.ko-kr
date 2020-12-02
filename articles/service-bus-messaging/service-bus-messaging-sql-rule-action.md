@@ -3,16 +3,16 @@ title: Azure Service Bus Subscription Rule SQL 작업 구문 | Microsoft Docs
 description: 이 문서에서는 SQL 규칙 작업 구문에 대 한 참조를 제공 합니다. 작업은 메시지에 대해 수행 되는 SQL 언어 기반 구문으로 작성 됩니다.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: a156a9d8f18a7763f03c63b56681fa25ce6de289
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 7ce3332fb1a2025e89135e5e42e72d4afe1e7a5e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95808856"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489397"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>구독 규칙 SQL 작업 구문
 
-*SQL 작업* 은 구독 규칙의 필터에서 메시지를 선택한 후 메시지 메타 데이터를 조작 하는 데 사용 됩니다. SQL-92 표준의 하위 집합을 기울어집니다 하는 텍스트 식입니다. 작업 식은 `sqlExpression` Azure Resource Manager 템플릿에서 Service Bus ' action ' 속성의 요소 `Rule` 또는 Azure CLI [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md) `az servicebus topic subscription rule create` 명령의 [`--action-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) 인수 및 구독 규칙 관리를 허용 하는 여러 SDK 함수에 사용 됩니다.
+*SQL 작업* 은 구독 규칙의 필터에서 메시지를 선택한 후 메시지 메타 데이터를 조작 하는 데 사용 됩니다. SQL-92 표준의 하위 집합을 기울어집니다 하는 텍스트 식입니다. 작업 식은 `sqlExpression` Azure Resource Manager 템플릿에서 Service Bus ' action ' 속성의 요소 `Rule` 또는 Azure CLI [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md) `az servicebus topic subscription rule create` 명령의 [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule?preserve-view=true&view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) 인수 및 구독 규칙 관리를 허용 하는 여러 SDK 함수에 사용 됩니다.
   
   
 ```  

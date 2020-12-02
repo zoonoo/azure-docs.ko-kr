@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2020
 ms.author: memildin
-ms.openlocfilehash: 0e853a4ce1e3891ddffd2f9fb1315da49a896933
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 3cd536d051f3e227ba86429ae3f1633bf6c2e82f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433232"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490536"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
@@ -80,7 +80,7 @@ Security Center의 포털 페이지에서 다음 위치에 보안 점수가 표�
 
 ### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>Azure 리소스 그래프 (ARG)에서 보안 점수 가져오기
 
-Azure 리소스 그래프를 사용 하면 강력한 필터링, 그룹화 및 정렬 기능을 통해 클라우드 환경에서 리소스 정보에 즉시 액세스할 수 있습니다. Azure 구독 간에 프로그래밍 방식으로 또는 Azure Portal 내에서 정보를 쿼리하는 빠르고 효율적인 방법입니다. [Azure 리소스 그래프에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/governance/resource-graph/).
+Azure 리소스 그래프를 사용 하면 강력한 필터링, 그룹화 및 정렬 기능을 통해 클라우드 환경에서 리소스 정보에 즉시 액세스할 수 있습니다. Azure 구독 간에 프로그래밍 방식으로 또는 Azure Portal 내에서 정보를 쿼리하는 빠르고 효율적인 방법입니다. [Azure 리소스 그래프에 대해 자세히 알아보세요](../governance/resource-graph/index.yml).
 
 인수를 사용 하 여 여러 구독의 보안 점수에 액세스 하려면:
 

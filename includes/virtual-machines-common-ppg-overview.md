@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: daed8dc62fdfd86ecf785a0bfd83b2b6c0b4cc03
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e2be62180907e94401548774b3403db0f36caca3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028567"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488473"
 ---
 Vm을 단일 지역에 배치 하면 인스턴스 간의 물리적인 거리가 줄어듭니다. 단일 가용성 영역에 배치 하는 경우에도 물리적으로 긴밀 하 게 통합 됩니다. 그러나 Azure 공간이 증가 함에 따라 단일 가용성 영역은 여러 물리적 데이터 센터에 걸쳐 있을 수 있으며이로 인해 응용 프로그램에 영향을 주는 네트워크 대기 시간이 발생할 수 있습니다. 
 
@@ -81,8 +81,8 @@ Azure 데이터 센터에서 하드웨어 서비스 해제와 같은 계획 된 
 
 배포 제약 조건으로 인해 할당 오류가 발생 한 경우에는 영향을 받는 근접 배치 그룹 (정렬 된 리소스 포함)의 모든 리소스를 중지 하 고 정렬을 복원 하려면 다시 시작 해야 할 수 있습니다.
 
-## <a name="best-practices"></a>모범 사례 
-- 대기 시간이 가장 짧은 경우 근접 배치 그룹을 가속 네트워킹과 함께 사용 합니다. 자세한 내용은 [가속화 된 네트워킹을 사용 하 여 Linux 가상 머신 만들기](../articles/virtual-network/create-vm-accelerated-networking-cli.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) 또는 [가속화 된 네트워킹을 사용 하 여 Windows 가상 머신](../articles/virtual-network/create-vm-accelerated-networking-powershell.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json)만들기를 참조 하세요.
+## <a name="best-practices"></a>최선의 구현 방법 
+- 대기 시간이 가장 짧은 경우 근접 배치 그룹을 가속 네트워킹과 함께 사용 합니다. 자세한 내용은 [가속화 된 네트워킹을 사용 하 여 Linux 가상 머신 만들기](../articles/virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [가속화 된 네트워킹을 사용 하 여 Windows 가상 머신](../articles/virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)만들기를 참조 하세요.
 - 모든 VM 크기를 단일 템플릿으로 배포 합니다. 필요한 모든 VM Sku 및 크기를 지원 하지 않는 하드웨어를 사용 하지 않도록 하려면 모든 응용 프로그램 계층을 단일 템플릿에 포함 하 여 모든 응용 프로그램을 동시에 배포 해야 합니다.
 - PowerShell, CLI 또는 SDK를 사용 하 여 배포를 스크립팅 하는 경우 할당 오류가 발생할 수 있습니다 `OverconstrainedAllocationRequest` . 이 경우 모든 기존 Vm을 중지/할당 취소 하 고 실패 한 VM SKU/크기로 시작 하도록 배포 스크립트의 시퀀스를 변경 해야 합니다. 
 - Vm을 삭제 한 기존 배치 그룹을 다시 사용 하는 경우 Vm을 추가 하기 전에 삭제가 완전히 완료 될 때까지 기다립니다.

@@ -1,19 +1,19 @@
 ---
 title: 매핑 데이터 흐름의 순위 변환
 description: Azure Data Factory를 사용 하는 방법 데이터 흐름 순위 변환에서 순위 열 생성
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/05/2020
-ms.openlocfilehash: 8584d1b64191cc5258c6eeeef9ae4125bf1a2c65
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b7adb6bf13cba5f886b442515e8ba5661cfeb8ef
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044737"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490927"
 ---
 # <a name="rank-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 순위 변환 
 

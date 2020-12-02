@@ -1,5 +1,5 @@
 ---
-title: Windows 중지 오류-하드웨어 오작동
+title: Windows 중지 오류 - 하드웨어 오작동
 description: 이 문서에서는 Windows Server 2008 가상 컴퓨터가 하드웨어 오작동을 나타내는 오류 메시지와 함께 작동이 중단 되는 문제를 해결 하는 단계를 제공 합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/13/2020
 ms.author: v-mibufo
-ms.openlocfilehash: eb4e0a246d6a33c3fad5f44b99a37997e4462f05
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 18622d60f3a33658fadfd28c53c93a07b4b438a9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663865"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488649"
 ---
-# <a name="windows-stop-error---hardware-malfunction"></a>Windows 중지 오류-하드웨어 오작동
+# <a name="windows-stop-error---hardware-malfunction"></a>Windows 중지 오류 - 하드웨어 오작동
 
 이 문서에서는 Windows Server 2008 가상 컴퓨터가 하드웨어 오작동을 나타내는 오류 메시지와 함께 작동이 중단 되는 문제를 해결 하는 단계를 제공 합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "94663865"
     ```
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
     ```
-    [REG ADD 명령에 대 한 추가 정보 보기](https://docs.microsoft.com/windows-server/administration/windows-commands/reg-add)
+    [REG ADD 명령에 대 한 추가 정보 보기](/windows-server/administration/windows-commands/reg-add)
 4. *(선택 사항)* 설치 메모리 덤프 컬렉션:
 
     ```
@@ -77,13 +77,13 @@ ms.locfileid: "94663865"
     BCDEDIT /ems {current} on, or bcdedit /ems '{current}' on if you are using PowerShell
     BCDEDIT /emssettings EMSPORT:1 EMSBAUDRATE:115200 
     ```
-    [BCDEDIT 명령에 대 한 추가 정보 보기](https://docs.microsoft.com/windows-server/administration/windows-commands/bcdedit)
+    [BCDEDIT 명령에 대 한 추가 정보 보기](/windows-server/administration/windows-commands/bcdedit)
 6. 다음 명령을 사용 하 여 VM을 다시 시작 합니다.
 
     ```
     SHUTDOWN /r /t 0 /f 
     ```
-    [SHUTDOWN 명령에 대 한 추가 정보 보기](https://docs.microsoft.com/windows-server/administration/windows-commands/shutdown)
+    [SHUTDOWN 명령에 대 한 추가 정보 보기](/windows-server/administration/windows-commands/shutdown)
 
 > [!IMPORTANT]
 > 이제 문제를 해결 해야 합니다.

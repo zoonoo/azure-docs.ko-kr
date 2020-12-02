@@ -2,19 +2,19 @@
 title: Linux Python 앱 구성
 description: Azure Portal 및 Azure CLI를 사용하여 웹앱이 실행되는 Python 컨테이너를 구성하는 방법에 대해 알아봅니다.
 ms.topic: quickstart
-ms.date: 11/06/2020
+ms.date: 11/16/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 9e0e9098959231d4283608e8191081ae2df6737a
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 149f8deb8839b3adce3555300c94b8ebdf587100
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425918"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873848"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Azure App Service용 Linux Python 앱 구성
 
-이 문서에서는 [Azure App Service](overview.md)에서 Python 앱을 실행하는 방법 및 필요한 경우 App Service의 동작을 사용자 지정하는 방법에 대해 설명합니다. Python 앱을 배포할 때 모든 필수 [pip](https://pypi.org/project/pip/) 모듈을 함께 배포해야 합니다.
+이 문서에서는 [Azure App Service](overview.md)에서 Python 앱을 실행하는 방법, 기존 앱을 Azure로 마이그레이션하는 방법 및 필요한 경우 App Service의 동작을 사용자 지정하는 방법에 대해 설명합니다. Python 앱을 배포할 때 모든 필수 [pip](https://pypi.org/project/pip/) 모듈을 함께 배포해야 합니다.
 
 사용자가 [Git 리포지토리](deploy-local-git.md) 또는 [Zip 패키지](deploy-zip.md)를 배포하면 App Service 배포 엔진은 자동으로 가상 환경을 활성화하고 사용자 대신 `pip install -r requirements.txt`를 실행합니다.
 
@@ -94,7 +94,31 @@ Linux에서 App Service를 실행하고 Python 앱을 빌드하는 방법에 대
 > [!NOTE]
 > Oryx가 실행되는 빌드 컨테이너는 앱이 실행되는 런타임 컨테이너와 다르므로 모든 빌드 전 및 빌드 후 스크립트에서 항상 상대 경로를 사용해야 합니다. 컨테이너 내에서 앱 프로젝트 폴더의 정확한 배치를 사용하지 마세요(예를 들어 *site/wwwroot* 에 배치됨).
 
-## <a name="production-settings-for-django-apps"></a>Django 앱의 프로덕션 설정
+## <a name="migrate-existing-applications-to-azure"></a>기존 애플리케이션을 Azure로 마이그레이션
+
+기존 웹 애플리케이션은 다음과 같이 Azure에 다시 배포할 수 있습니다.
+
+1. **원본 리포지토리**: GitHub와 같은 적절한 리포지토리에서 소스 코드를 유지 관리하여 이 프로세스의 뒷부분에서 지속적인 배포를 설정할 수 있습니다.
+    1. App Service에서 필요한 패키지를 자동으로 설치하려면 *requirements.txt* 파일이 리포지토리의 루트에 있어야 합니다.    
+
+1. **데이터베이스**: 앱이 데이터베이스에 종속되는 경우 Azure에서도 필요한 리소스를 프로비저닝합니다. 예를 들어 [자습서: PostgreSQL을 사용하는 Django 웹앱 배포 - 데이터베이스 만들기](tutorial-python-postgresql-app.md#create-postgres-database-in-azure)를 참조하세요.
+
+1. **App Service 리소스**: 애플리케이션을 호스팅하는 리소스 그룹, App Service 요금제 및 App Service 웹앱을 만듭니다. 이 작업은 [자습서: PostgreSQL을 사용하는 Django 웹앱 배포 - 코드 배포](tutorial-python-postgresql-app.md#deploy-the-code-to-azure-app-service)에서 표시한 대로 `az webapp up` Azure CLI 명령을 통해 코드의 초기 배포를 수행하여 가장 쉽게 수행할 수 있습니다. 리소스 그룹, App Service 요금제 및 웹앱의 이름을 애플리케이션에 더 적합하도록 바꿉니다.
+
+1. **환경 변수**: 애플리케이션에 환경 변수가 필요한 경우 해당하는 [App Service 애플리케이션 설정](configure-common.md#configure-app-settings)을 만듭니다. 이러한 App Service 설정은 [환경 변수 액세스](#access-app-settings-as-environment-variables)에서 설명한 대로 코드에서 환경 변수로 표시됩니다.
+    - 예를 들어 데이터베이스 연결은 [자습서: PostgreSQL을 사용하는 Django 웹앱 배포 - 데이터베이스를 연결하도록 변수 구성](tutorial-python-postgresql-app.md#configure-environment-variables-to-connect-the-database)에서 표시한 대로 이러한 설정을 통해 관리되는 경우가 많습니다.
+    - 일반적인 Django 앱에 대한 특정 설정은 [Django 앱에 대한 프로덕션 설정](#production-settings-for-django-apps)을 참조하세요.
+
+1. **앱 시작**: 이 문서의 뒷부분에 나오는 [컨테이너 시작 프로세스](#container-startup-process) 섹션을 검토하여 App Service에서 앱 실행을 시도하는 방법을 이해합니다. App Service는 기본적으로 Gunicorn 웹 서버를 사용하며, 이 서버는 앱 개체 또는 *wsgi.py* 폴더를 찾을 수 있어야 합니다. 필요한 경우 [시작 명령을 사용자 지정](#customize-startup-command)할 수 있습니다.
+
+1. **지속적인 배포**: Azure Pipelines 또는 Kudu 배포를 사용하는 경우 [Azure App Service에 지속적인 배포](deploy-continuous-deployment.md)에서 설명한 대로 지속적인 배포를 설정하거나, GitHub 작업을 사용하는 경우 [GitHub Actions를 사용하여 App Service에 배포](deploy-github-actions.md)합니다.
+
+1. **사용자 지정 작업**: Django 데이터베이스 마이그레이션과 같이 앱을 호스팅하는 App Service 컨테이너 내에서 작업을 수행하려면 [SSH를 통해 컨테이너에 연결](configure-linux-open-ssh-session.md)할 수 있습니다. Django 데이터베이스 마이그레이션을 실행하는 방법에 대한 예제는 [자습서: PostgreSQL을 사용하는 Django 웹앱 배포 - 데이터베이스 마이그레이션 실행](tutorial-python-postgresql-app.md#run-django-database-migrations)을 참조하세요.
+    - 지속적인 배포를 사용하는 경우 이러한 작업은 앞부분의 [빌드 자동화 사용자 지정](#customize-build-automation)에서 설명한 대로 빌드 후 명령을 사용하여 수행할 수 있습니다.
+
+이러한 단계가 완료되면 변경 내용을 원본 리포지토리에 커밋하고 해당 업데이트가 App Service에 자동으로 배포되도록 할 수 있습니다.
+
+### <a name="production-settings-for-django-apps"></a>Django 앱의 프로덕션 설정
 
 Azure App Service와 같은 프로덕션 환경의 경우 Django 앱은 Django의 [배포 검사 목록](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/)(djangoproject.com)을 따라야 합니다.
 

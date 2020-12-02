@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 94cb40522a9e463fea2efae329daf910b5386cdd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: bf593eab54233ab65435585485dd8e3940f5addb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832605"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489822"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 
@@ -229,12 +229,12 @@ Azure RBAC와 같은 기능을 사용 하 여 데이터 액세스 제어를 적�
 
 권한 있는 계정은 IT 시스템을 운영하고 관리하는 계정입니다. 사이버 공격자는 조직의 데이터와 시스템에 대한 액세스 권한을 얻기 위해 이러한 계정을 대상으로 지정합니다. 권한 있는 액세스를 보호하려면 계정과 시스템을 악의적 사용자에게 노출될 위험으로부터 격리해야 합니다.
 
-사이버 공격자로부터 권한 있는 액세스를 보호하기 위한 로드맵을 개발하고 따르는 것이 좋습니다. Azure AD, Microsoft Azure, Microsoft 365 및 기타 클라우드 서비스에서 관리 되거나 보고 되는 id 및 액세스를 보호 하기 위한 자세한 로드맵을 만드는 방법에 대 한 자세한 내용은 [AZURE ad에서 하이브리드 및 클라우드 배포에 대 한 권한 있는 액세스 보안](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)을 참조 하세요.
+사이버 공격자로부터 권한 있는 액세스를 보호하기 위한 로드맵을 개발하고 따르는 것이 좋습니다. Azure AD, Microsoft Azure, Microsoft 365 및 기타 클라우드 서비스에서 관리 되거나 보고 되는 id 및 액세스를 보호 하기 위한 자세한 로드맵을 만드는 방법에 대 한 자세한 내용은 [AZURE ad에서 하이브리드 및 클라우드 배포에 대 한 권한 있는 액세스 보안](../../active-directory/roles/security-planning.md)을 참조 하세요.
 
-다음에서는 [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)에 있는 모범 사례를 요약합니다.
+다음에서는 [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](../../active-directory/roles/security-planning.md)에 있는 모범 사례를 요약합니다.
 
 **모범 사례**: 권한 있는 계정에 대한 액세스를 관리, 제어 및 모니터링합니다.   
-**세부 정보**: [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)를 켭니다. Privileged Identity Management가 설정되면 권한 있는 액세스 역할 변경에 대한 알림 이메일 메시지를 받게 됩니다. 이러한 알림에서는 디렉터리에서 권한이 높은 역할에 추가 사용자가 추가될 때 조기 경고를 제공합니다.
+**세부 정보**: [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md)를 켭니다. Privileged Identity Management가 설정되면 권한 있는 액세스 역할 변경에 대한 알림 이메일 메시지를 받게 됩니다. 이러한 알림에서는 디렉터리에서 권한이 높은 역할에 추가 사용자가 추가될 때 조기 경고를 제공합니다.
 
 **모범 사례**: 모든 중요 관리자 계정이 관리형 Azure AD 계정인지 확인합니다.
 **세부 정보**: 중요한 관리자 역할(예: hotmail.com, live.com, outlook.com 등의 Microsoft 계정)에서 소비자 계정을 제거합니다.
@@ -261,10 +261,10 @@ Azure RBAC와 같은 기능을 사용 하 여 데이터 액세스 제어를 적�
 **모범 사례**: 둘 이상의 응급 액세스 계정을 정의합니다.   
 **세부 정보**: 응급 액세스 계정을 사용하면 조직이 기존 Azure Active Directory 환경 내에서 권한 있는 액세스를 제한할 수 있습니다. 이러한 계정은 높은 권한을 부여받으며 특정 개인에게 할당되지 않습니다. 응급 액세스 계정은 일반 관리 계정을 사용할 수 없는 시나리오로 제한됩니다. 조직에서는 응급 계정의 사용량을 필요한 기간으로만 제한해야 합니다.
 
-전역 관리자 역할에 할당되었거나 적합한 계정을 평가합니다. `*.onmicrosoft.com` 도메인을 사용하여 클라우드 전용 계정(응급 액세스용)이 표시되지 않으면 해당 계정을 만듭니다. 자세한 내용은 [Azure AD에서 응급 액세스 관리 계정의 관리](../../active-directory/users-groups-roles/directory-emergency-access.md)를 참조하세요.
+전역 관리자 역할에 할당되었거나 적합한 계정을 평가합니다. `*.onmicrosoft.com` 도메인을 사용하여 클라우드 전용 계정(응급 액세스용)이 표시되지 않으면 해당 계정을 만듭니다. 자세한 내용은 [Azure AD에서 응급 액세스 관리 계정의 관리](../../active-directory/roles/security-emergency-access.md)를 참조하세요.
 
 **모범 사례**: 긴급 상황을 대비한 "비상" 프로세스가 준비되어 있어야 합니다.
-**세부 정보**: [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)의 단계를 따릅니다.
+**세부 정보**: [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](../../active-directory/roles/security-planning.md)의 단계를 따릅니다.
 
 **모범 사례**: 모든 중요 관리자 계정에 암호 없이 액세스하게 하거나(기본 설정) Multi-Factor Authentication을 요구합니다.
 **세부 정보**: 암호를 사용하지 않고 [Microsoft Authenticator](../../active-directory/authentication/howto-authentication-passwordless-phone.md) 앱을 사용하여 모든 Azure AD 계정에 로그인합니다. [비즈니스용 Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification)와 마찬가지로 Microsoft Authenticator는 키 기반 인증을 사용하여 디바이스에 연결되고 생체 인식 또는 PIN을 사용하는 사용자 자격 증명을 사용하도록 설정합니다.
@@ -284,25 +284,25 @@ Azure RBAC와 같은 기능을 사용 하 여 데이터 액세스 제어를 적�
 **세부 정보**: Microsoft 365 공격 시뮬레이터 또는 타사 제품을 사용 하 여 조직에서 현실적인 공격 시나리오를 실행 합니다. 이렇게 하면 실제 공격이 발생하기 전에 취약한 사용자를 찾는 데 도움이 됩니다.
 
 **모범 사례**: 가장 많이 사용되는 공격 기술을 완화하는 단계를 수행합니다.  
-**세부 정보**: [직장 또는 학교 계정으로 전환해야 하는 관리 역할의 Microsoft 계정 식별](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
+**세부 정보**: [직장 또는 학교 계정으로 전환해야 하는 관리 역할의 Microsoft 계정 식별](../../active-directory/roles/security-planning.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
 
-[글로벌 관리자 계정에 대해 별도의 사용자 계정 및 메일 전달 보장](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
+[글로벌 관리자 계정에 대해 별도의 사용자 계정 및 메일 전달 보장](../../active-directory/roles/security-planning.md)  
 
-[관리 계정의 암호가 최근에 변경되었는지 확인](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
+[관리 계정의 암호가 최근에 변경되었는지 확인](../../active-directory/roles/security-planning.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
 
-[암호 해시 동기화 설정](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)  
+[암호 해시 동기화 설정](../../active-directory/roles/security-planning.md#turn-on-password-hash-synchronization)  
 
-[모든 권한이 있는 역할의 사용자 및 노출된 사용자에 대해 Multi-Factor Authentication 요구](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
+[모든 권한이 있는 역할의 사용자 및 노출된 사용자에 대해 Multi-Factor Authentication 요구](../../active-directory/roles/security-planning.md#require-multi-factor-authentication-for-users-in-privileged-roles-and-exposed-users)  
 
-[Microsoft 365 보안 점수 얻기 (Microsoft 365를 사용 하는 경우)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#obtain-your-office-365-secure-score-if-using-office-365)  
+[Microsoft 365 보안 점수 얻기 (Microsoft 365를 사용 하는 경우)](../../active-directory/roles/security-planning.md#obtain-your-microsoft-365-secure-score-if-using-microsoft-365)  
 
-[Microsoft 365를 사용 하는 경우 Microsoft 365 보안 지침 검토](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
+[Microsoft 365를 사용 하는 경우 Microsoft 365 보안 지침 검토](../../active-directory/roles/security-planning.md#review-the-microsoft-365-security-and-compliance-guidance-if-using-microsoft-365)  
 
-[Microsoft 365 작업 모니터링 구성 (Microsoft 365를 사용 하는 경우)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#configure-office-365-activity-monitoring-if-using-office-365)  
+[Microsoft 365 작업 모니터링 구성 (Microsoft 365를 사용 하는 경우)](../../active-directory/roles/security-planning.md#configure-microsoft-365-activity-monitoring-if-using-microsoft-365)  
 
-[인시던트/비상 대응 계획 소유자 설정](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#establish-incidentemergency-response-plan-owners)  
+[인시던트/비상 대응 계획 소유자 설정](../../active-directory/roles/security-planning.md#establish-incidentemergency-response-plan-owners)  
 
-[권한 있는 온-프레미스 관리 계정 보호](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)
+[권한 있는 온-프레미스 관리 계정 보호](../../active-directory/roles/security-planning.md#turn-on-password-hash-synchronization)
 
 권한 있는 액세스를 보호하지 않는 경우 권한이 높은 역할에 너무 많은 사용자가 포함되면 공격에 더 취약할 수 있습니다. 사이버 공격자를 포함한 악의적인 행위자는 자격 증명 도난을 사용하여 중요한 데이터 및 시스템에 대해 액세스하는 권한 있는 액세스의 관리자 계정 및 기타 요소를 대상으로 지정하는 경우가 많습니다.
 

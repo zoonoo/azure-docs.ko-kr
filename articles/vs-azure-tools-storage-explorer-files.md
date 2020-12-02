@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: f9a828b78dc5ba6bdbc77e22daa75be4182015f0
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 84f6473c25a5be11eeda7cd2b311d93a7226a78c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95805706"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488394"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Azure File Storage와 함께 Storage Explorer 사용
 
 Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. SMB 2.1과 SMB 3.0 모두를 지원합니다. Azure File Storage를 사용하여 파일 공유에 의존하는 레거시 애플리케이션을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. File Storage를 사용하여 세상에 공개적으로 표시하거나 애플리케이션 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage Explorer를 사용하여 파일 공유 및 파일을 작업하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서의 단계를 완료하려면 다음과 같이 하는 것이 필요합니다.
 
 - [Storage Explorer 다운로드 및 설치](https://www.storageexplorer.com/)
 
-- [Azure storage 계정 또는 서비스에 연결](/azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Azure storage 계정 또는 서비스에 연결](./vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>파일 공유 만들기
 
@@ -47,7 +47,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
     ![파일 공유 만들기](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-1. 텍스트 상자가 **파일 공유** 폴더 아래에 표시됩니다. 파일 공유에 대한 이름을 입력합니다. 파일 공유 이름 명명 규칙 및 제한 사항 목록은 [공유 이름 명명 규칙](/azure/storage/storage-dotnet-how-to-use-blobs) 섹션을 참조하세요.
+1. 텍스트 상자가 **파일 공유** 폴더 아래에 표시됩니다. 파일 공유에 대한 이름을 입력합니다. 파일 공유 이름 명명 규칙 및 제한 사항 목록은 [공유 이름 명명 규칙](./storage/blobs/storage-quickstart-blobs-dotnet.md) 섹션을 참조하세요.
 
     ![공유 이름 지정](media/vs-azure-tools-storage-explorer-files/image2.png)
 
@@ -77,7 +77,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 ## <a name="delete-a-file-share"></a>파일 공유 삭제
 
-필요에 따라 파일 공유를 쉽게 만들고 삭제할 수 있습니다. (개별 파일 삭제 방법에 대한 자세한 내용은 [파일 공유의 파일 관리](/azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) 섹션을 참조하세요.)
+필요에 따라 파일 공유를 쉽게 만들고 삭제할 수 있습니다. (개별 파일 삭제 방법에 대한 자세한 내용은 [파일 공유의 파일 관리](./vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container) 섹션을 참조하세요.)
 
 다음 단계에서는 Storage Explorer 내에서 파일 공유를 삭제하는 방법을 보여줍니다.
 
@@ -97,7 +97,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 ## <a name="copy-a-file-share"></a>파일 공유 복사
 
-Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다음, 다른 Storage 계정에 붙여넣을 수 있습니다. (개별 파일 복사 방법에 대한 자세한 내용은 [파일 공유의 파일 관리](/azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) 섹션을 참조하세요.)
+Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다음, 다른 Storage 계정에 붙여넣을 수 있습니다. (개별 파일 복사 방법에 대한 자세한 내용은 [파일 공유의 파일 관리](./vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container) 섹션을 참조하세요.)
 
 다음 단계에서는 한 스토리지 계정에서 다른 계정으로 파일 공유를 복사하는 방법을 보여 줍니다.
 
@@ -117,7 +117,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
 
 ## <a name="get-the-sas-for-a-file-share"></a>파일 공유에 대한 SAS 가져오기
 
-[SAS (공유 액세스 서명)](/azure/storage/storage-dotnet-shared-access-signature-part-1) 는 저장소 계정의 리소스에 대 한 위임 된 액세스를 제공 합니다. 즉, 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에게 스토리지 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다.
+[SAS (공유 액세스 서명)](./storage/common/storage-sas-overview.md) 는 저장소 계정의 리소스에 대 한 위임 된 액세스를 제공 합니다. 즉, 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에게 스토리지 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다.
 
 다음 단계에서는 파일 공유에 대한 SAS를 만드는 방법을 보여 줍니다.
 
@@ -207,7 +207,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
 
         ![파일 추가](media/vs-azure-tools-storage-explorer-files/image19.png)
 
-        다. **업로드** 를 선택합니다.
+        c. **업로드** 를 선택합니다.
 
     - **파일 공유에 폴더 업로드**
         
@@ -217,7 +217,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
 
         b. **폴더 업로드** 대화 상자에서 **폴더** 텍스트 상자 오른쪽에 있는 줄임표(**…**) 단추를 선택하여 내용을 업로드할 폴더를 선택합니다.
 
-        다. 필요에 따라 선택한 폴더 내용을 업로드할 대상 폴더를 지정합니다. 대상 폴더가 없다면 폴더가 만들어집니다.
+        c. 필요에 따라 선택한 폴더 내용을 업로드할 대상 폴더를 지정합니다. 대상 폴더가 없다면 폴더가 만들어집니다.
 
         d. **업로드** 를 선택합니다.
 
@@ -227,7 +227,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
         
         b. 기본 창 도구 모음에서 **다운로드** 를 선택합니다.
         
-        다. **다운로드한 파일을 저장할 위치 지정** 대화 상자에서 파일을 다운로드할 위치와 명명하려는 이름을 지정합니다.
+        c. **다운로드한 파일을 저장할 위치 지정** 대화 상자에서 파일을 다운로드할 위치와 명명하려는 이름을 지정합니다.
 
         d. **저장** 을 선택합니다.
 
@@ -237,7 +237,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
         
         b.  기본 창 도구 모음에서 **열기** 를 선택합니다.
         
-        다.  파일의 기본 파일 형식과 연결된 애플리케이션을 사용하여 파일을 다운로드하고 엽니다.
+        c.  파일의 기본 파일 형식과 연결된 애플리케이션을 사용하여 파일을 다운로드하고 엽니다.
 
     - **파일을 클립보드에 복사**
 
@@ -245,7 +245,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
 
         b. 기본 창 도구 모음에서 **복사** 를 선택합니다.
 
-        다. 왼쪽 창에서 또 다른 파일 공유로 이동하고 기본 창에서 보려면 두 번 클릭합니다.
+        c. 왼쪽 창에서 또 다른 파일 공유로 이동하고 기본 창에서 보려면 두 번 클릭합니다.
 
         d. 기본 창 도구 모음에서 파일의 복사본을 만들려면 **붙여넣기** 를 선택합니다.
 
@@ -255,7 +255,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
 
         b. 기본 창 도구 모음에서 **삭제** 를 선택합니다.
 
-        다. 확인 대화 상자에서 **확인** 을 선택합니다.
+        c. 확인 대화 상자에서 **확인** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

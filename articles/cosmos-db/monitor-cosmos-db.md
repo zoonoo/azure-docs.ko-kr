@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 550418761e91a8292761d7595ff32d939c0d542e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9410a38f7bc7a787fc439b5ad51f4a49f76771f8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350401"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488785"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB 모니터링
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -83,7 +83,7 @@ Azure Portal 및 일부 진단 쿼리 예제를 사용 하 여 진단 설정을 
 
 Azure Cosmos DB는 메트릭을 사용하기 위한 사용자 지정 환경을 제공합니다. 메트릭 탐색기를 사용하여 다른 Azure 서비스의 메트릭으로 Azure Cosmos DB에 대한 메트릭을 분석하려면 **Azure Monitor** 메뉴에서 **메트릭** 을 엽니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md)을 참조하세요. 또한 Azure Cosmos DB 리소스에 대 한 [서버 쪽 대기 시간](monitor-server-side-latency.md), [요청 단위 사용](monitor-request-unit-usage.md)및 정규화 된 [요청 단위 사용량](monitor-normalized-request-units.md) 을 모니터링 하는 방법을 확인할 수 있습니다.
 
-Azure Cosmos DB에 대해 수집 되는 플랫폼 메트릭의 목록은 [모니터링 Azure Cosmos DB 데이터 참조 메트릭] Cosmos-참조) 문서를 참조 하세요.
+Azure Cosmos DB에 대해 수집 되는 플랫폼 메트릭의 목록은 [모니터링 Azure Cosmos DB 데이터 참조 메트릭](monitor-cosmos-db-reference.md#metrics) 문서를 참조 하세요.
 
 Azure Cosmos DB에 대한 모든 메트릭은 **Cosmos DB 표준 메트릭** 네임스페이스에 있습니다. 차트에 필터를 추가할 때 이러한 메트릭에 다음 차원을 사용할 수 있습니다.
 

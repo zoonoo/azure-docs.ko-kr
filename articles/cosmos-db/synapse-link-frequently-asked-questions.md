@@ -5,13 +5,13 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: 0791ed6882feedeab47b75eff6a69bf0a49ab7ee
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 11/30/2020
+ms.openlocfilehash: 82133f990c1714276aa13ff22c3f19d0993d16df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341294"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488717"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -22,7 +22,7 @@ Azure Cosmos DB용 Azure Synapse Link는 Azure Cosmos DB와 Azure Synapse Analyt
 
 ### <a name="is-azure-synapse-link-supported-for-all-azure-cosmos-db-apis"></a>Azure Synapse Link는 모든 Azure Cosmos DB Api에 대해 지원 되나요?
 
-공개 미리 보기 릴리스에서는 Azure Synapse 링크가 Azure Cosmos DB SQL (Core) API 및 MongoDB 용 Azure Cosmos DB API에 대해 지원 됩니다. 
+Azure Synapse 링크는 Azure Cosmos DB SQL (Core) API 및 MongoDB 용 Azure Cosmos DB API에 대해 지원 됩니다. 
 
 ### <a name="is-azure-synapse-link-supported-for-multi-region-azure-cosmos-db-accounts"></a>Azure Synapse Link는 다중 지역 Azure Cosmos DB 계정에 대해 지원 되나요?
 
@@ -32,7 +32,7 @@ Azure Cosmos DB용 Azure Synapse Link는 Azure Cosmos DB와 Azure Synapse Analyt
 
 ### <a name="can-i-choose-to-enable-azure-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>특정 지역에 대해서만 Azure Synapse 링크를 사용 하도록 선택할 수 있으며, 다중 지역 계정 설정의 모든 지역이 아닌 경우
 
-미리 보기 릴리스에서는 여러 지역 계정에 대해 Azure Synapse 링크를 사용 하도록 설정 하면 분석 저장소가 모든 지역에 생성 됩니다. 기본 데이터는 트랜잭션 저장소의 처리량 및 트랜잭션 일관성을 위해 최적화됩니다.
+다중 지역 계정에 대해 Azure Synapse 링크를 사용 하도록 설정 하면 분석 저장소가 모든 지역에 생성 됩니다. 기본 데이터는 트랜잭션 저장소의 처리량 및 트랜잭션 일관성을 위해 최적화됩니다.
 
 ### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>Azure Synapse Link 활성화 계정에 대해 백업 및 복원이 지원 되나요?
 
@@ -42,9 +42,13 @@ Azure Cosmos DB용 Azure Synapse Link는 Azure Cosmos DB와 Azure Synapse Analyt
 
 ### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에 대해 Azure Synapse Link 기능을 사용 하지 않도록 설정할 수 있나요?
 
-현재, 계정 수준에서 Synapse Link 기능을 사용하도록 설정한 후에는 사용하지 않도록 설정할 수 없습니다. Synapse Link 기능이 계정 수준에서 사용하도록 설정되어 있지만 분석 스토리지를 사용하도록 설정된 컨테이너가 없으면 청구에 영향을 주지 않습니다. 
+현재, 계정 수준에서 Synapse Link 기능을 사용하도록 설정한 후에는 사용하지 않도록 설정할 수 없습니다. Synapse Link 기능이 계정 수준에서 사용하도록 설정되어 있지만 분석 스토리지를 사용하도록 설정된 컨테이너가 없으면 청구에 영향을 주지 않습니다.
 
 이 기능을 해제해야 하는 경우에는 두 가지 옵션이 있습니다. 첫 번째는 필요한 경우 데이터를 마이그레이션하여 새 Azure Cosmos DB 계정을 삭제하고 다시 만드는 것입니다. 두 번째 옵션은 다른 계정으로의 데이터 마이그레이션에 대한 지원을 받기 위해 지원 티켓을 여는 것입니다.
+
+### <a name="does-analytical-store-have-any-impact-on-cosmos-db-transactional-slas"></a>분석 저장소는 Cosmos DB 트랜잭션 Sla에 영향을 미칩니까?
+
+아니요, 영향을 주지 않습니다.
 
 ## <a name="azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소
 
@@ -73,7 +77,7 @@ Azure Cosmos DB는 트랜잭션 워크로드와 분석 워크로드 간의 성�
 Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 경우에만 분석 저장소에 액세스하고 쿼리를 실행할 수 있습니다. 분석 저장소는 다음을 사용하여 쿼리하고 분석할 수 있습니다.
 
 * Scala, Python, SparkSQL 및 C#을 완벽하게 지원하는 Synapse Spark. Synapse Spark는 데이터 엔지니어링 및 과학 시나리오의 중심입니다.
-* T-SQL 언어 및 익숙한 BI 도구(예 : Power BI Premium 등) 지원이 포함된 SQL 서버리스
+* T-sql 언어를 사용 하는 서버 리스 SQL 풀 및 익숙한 BI 도구에 대 한 지원 (예: Power BI Premium 등)
 
 ### <a name="can-i-connect-to-analytical-store-from-synapse-sql-provisioned"></a>프로비저닝된 Synapse SQL에서 분석 저장소에 연결할 수 있나요?
 
@@ -121,7 +125,12 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 
 ### <a name="what-is-the-billing-model-of-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 Azure Synapse 링크의 청구 모델은 무엇 인가요?
 
-[Azure Cosmos DB 분석 저장소](analytical-store-introduction.md)는 2020년 8월 30일까지 분석 저장소에 대한 비용 없이 공개 미리 보기로 제공됩니다. Synapse Spark 및 Synapse SQL은 [Synapse 서비스 사용](https://azure.microsoft.com/pricing/details/synapse-analytics/)을 통해 청구됩니다.
+Azure Synapse Link의 청구 모델은 Microsoft Azure Cosmos DB 분석 저장소와 Synapse 런타임을 사용하여 발생하는 비용을 포함합니다. 자세한 내용은 [Microsoft Azure Cosmos DB 분석 저장소 가격 책정](analytical-store-introduction.md#analytical-store-pricing)과 [Azure Synapse Analytics 가격 책정](https://azure.microsoft.com/pricing/details/synapse-analytics/) 문서를 참조하세요.
+
+### <a name="what-is-the-billing-impact-if-i-enable-synapse-link-in-my-azure-cosmos-db-database-account"></a>Azure Cosmos DB 데이터베이스 계정에서 Synapse 링크를 사용 하도록 설정 하는 경우 청구 영향은 무엇 인가요?
+
+없음 분석 저장소를 사용 하도록 설정 된 컨테이너를 만들고 데이터를 로드 하기 시작 하는 경우에만 요금이 부과 됩니다.
+
 
 ## <a name="security"></a>보안
 
@@ -136,10 +145,10 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 |Azure Synapse 런타임 |현재 지원 |
 |---------|---------|
 |Azure Synapse Spark 풀 | 읽기, 쓰기(트랜잭션 저장소를 통해), 테이블, 임시 뷰 |
-|Azure Synapse SQL 서버 리스 풀    | 읽기, 보기 |
+|Azure Synapse 서버 리스 SQL 풀    | 읽기, 보기 |
 |프로 비전 된 Azure Synapse SQL   |  사용할 수 없음 |
 
-### <a name="do-my-azure-synapse-spark-tables-sync-with-my-azure-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Azure Synapse Spark 테이블이 Azure Data Lake와 동일한 방식으로 Azure Synapse SQL 서버 리스 테이블과 동기화 하나요?
+### <a name="do-my-azure-synapse-spark-tables-sync-with-my-azure-synapse-serverless-sql-pool-tables-the-same-way-they-do-with-azure-data-lake"></a>Azure Synapse Spark 테이블이 Azure Data Lake와 동일한 방식으로 Azure Synapse 서버 리스 SQL 풀 테이블과 동기화 하나요?
 
 현재 이 기능은 사용할 수 없습니다.
 
