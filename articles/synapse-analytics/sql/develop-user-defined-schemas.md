@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5d167ef06e8319004a1f33bead29485b22abc3d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6920d6cd190927747a69fc4dc0f0791278665abe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685786"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451699"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Synapse SQL 내의 사용자 정의 스키마
 
@@ -27,7 +27,7 @@ ms.locfileid: "94685786"
 대신 Synapse SQL은 단일 데이터베이스 내에서 전체 분석 작업을 실행 합니다. 크로스 데이터베이스 조인은 허용 되지 않습니다. Synapse SQL은 웨어하우스에서 사용 되는 모든 테이블을 하나의 데이터베이스 내에 저장할 것으로 예상 합니다.
 
 > [!NOTE]
-> 전용 SQL 풀은 모든 종류의 데이터베이스 간 쿼리를 지원 하지 않습니다. 따라서이 패턴을 활용 하는 분석 구현을 수정 해야 합니다. 서버를 사용 하지 않는 SQL 풀 (미리 보기)은 데이터베이스 간 쿼리를 지원 합니다.
+> 전용 SQL 풀은 모든 종류의 데이터베이스 간 쿼리를 지원 하지 않습니다. 따라서이 패턴을 활용 하는 분석 구현을 수정 해야 합니다. 서버를 사용 하지 않는 SQL 풀은 데이터베이스 간 쿼리를 지원 합니다.
 
 ## <a name="user-defined-schema-recommendations"></a>사용자 정의 스키마 권장 사항
 
@@ -50,7 +50,7 @@ ms.locfileid: "94685786"
 > 
 > 
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 데이터베이스 이름을 기반으로 사용자 정의 스키마를 구현 합니다.
 

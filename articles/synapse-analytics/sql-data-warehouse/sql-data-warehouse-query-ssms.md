@@ -1,6 +1,6 @@
 ---
-title: SSMS를 사용하여 연결
-description: SSMS (SQL Server Management Studio)를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀에 연결 하 고 쿼리 합니다.
+title: SSMS를 사용 하 여 전용 SQL 풀 (이전의 SQL DW)에 연결
+description: SSMS (SQL Server Management Studio)를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)에 연결 하 고 쿼리 합니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c2fab8f02f31897a2e3d38094b9bd365f8e921e9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 950cb4c40a534f252ec8b0daa5a57eb87c098450
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325329"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450464"
 ---
-# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>SSMS (SQL Server Management Studio를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀에 연결
+# <a name="connect-to-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>SSMS (SQL Server Management Studio)를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)에 연결
 
 > [!div class="op_single_selector"]
 >
@@ -28,17 +28,17 @@ ms.locfileid: "93325329"
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-SSMS (SQL Server Management Studio)를 사용 하 여 Azure Synapse 내에서 데이터 웨어하우스에 연결 하 고 쿼리 합니다.
+SSMS (SQL Server Management Studio)를 사용 하 여 전용 SQL 풀에 연결 하 고 쿼리 합니다 (이전의 SQL DW).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-* 기존 전용 SQL 풀 하나를 만들려면 [전용 SQL 풀 만들기](create-data-warehouse-portal.md)를 참조 하세요.
+* 기존 전용 SQL 풀 하나를 만들려면 [전용 sql 풀 만들기 (이전의 SQL DW)](create-data-warehouse-portal.md)를 참조 하세요.
 * SSMS(SQL Server Management Studio) 설치됨. 아직 없는 경우 SSMS를 무료로 [다운로드](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 하세요.
-* 정규화된 SQL 서버 이름. 이 정보를 찾으려면 [전용 SQL 풀에 연결](sql-data-warehouse-connect-overview.md)을 참조 하세요.
+* 정규화된 SQL 서버 이름. 이 정보를 찾으려면 [전용 sql 풀 (이전의 SQL DW)](sql-data-warehouse-connect-overview.md)을 참조 하세요.
 
-## <a name="1-connect-to-your-dedicated-sql-pool"></a>1. 전용 SQL 풀에 연결
+## <a name="1-connect-to-your-dedicated-sql-pool-formerly-sql-dw"></a>1. 전용 SQL 풀에 연결 (이전의 SQL DW)
 
 1. SSMS를 엽니다.
 2. **파일**  >  **연결 개체 탐색기** 을 선택 하 여 개체 탐색기을 엽니다.

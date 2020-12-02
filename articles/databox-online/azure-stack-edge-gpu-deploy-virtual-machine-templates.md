@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 11/16/2020
 ms.author: alkohli
-ms.openlocfilehash: d0d02532f39d676772e5ee5d6414b802faffba7c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 93df80cd6fcd6f5553ea509a4778a155299bb057
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505940"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449066"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>템플릿을 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
 
@@ -76,7 +76,7 @@ Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 클라이언�
     
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 저장소 계정, 디스크, 관리 디스크와 같은 Azure 리소스가 배포 및 관리 되는 논리적 컨테이너입니다.
+[New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 저장소 계정, 디스크, 관리 디스크와 같은 Azure 리소스가 배포 및 관리 되는 논리적 컨테이너입니다.
 
 > [!IMPORTANT]
 > 모든 리소스는 장치와 동일한 위치에 만들어지고 위치는 **Dbelocal** 로 설정 됩니다.
@@ -189,7 +189,7 @@ Blob storage에 연결 하는 데 사용 하는 클라이언트의 호스트 파
 
     ![Azure Storage 2에 연결](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. **연결 이름 및 키** 에 **표시 이름** , **저장소 계정 이름** , Azure Storage **계정 키** 를 제공 합니다. **다른** 저장소 도메인을 선택한 다음 `<device name>.<DNS domain>` 연결 문자열을 입력 합니다. Storage 탐색기에서 인증서를 설치 하지 않은 경우 **HTTP 사용** 옵션을 선택 합니다. **다음** 을 선택합니다.
+6. **연결 이름 및 키** 에 **표시 이름**, **저장소 계정 이름**, Azure Storage **계정 키** 를 제공 합니다. **다른** 저장소 도메인을 선택한 다음 `<device name>.<DNS domain>` 연결 문자열을 입력 합니다. Storage 탐색기에서 인증서를 설치 하지 않은 경우 **HTTP 사용** 옵션을 선택 합니다. **다음** 을 선택합니다.
 
     ![이름 및 키로 연결](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
@@ -249,7 +249,7 @@ VM에 대 한 이미지 및 가상 네트워크를 만들려면 `CreateImageAndV
               "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
         },
         "imageName": {
-            "value": "<Name for the VM iamge>"
+            "value": "<Name for the VM image>"
         },
         "imageUri": {
               "value": "<Path to the VHD that you uploaded in the Storage account>"
@@ -441,7 +441,7 @@ VM을 만들려면 `CreateVM.parameters.json` 매개 변수 파일을 사용합�
 
 1. 고유한 이름, 네트워크 인터페이스 이름 및 ipconfig 이름을 제공 합니다. 
 1. 사용자 이름, 암호 및 지원 되는 VM 크기를 입력 합니다.
-1. 의 매개 변수에 지정 된 대로 **Vnetname** , **subnetName** 및 **ImageName** 에 동일한 이름을 지정 `CreateImageAndVnet.parameters.json` 합니다. 예를 들어 VnetName, subnetName 및 ImageName를 **vnet1** , **subnet1** 및 **image1** 로 지정한 경우이 템플릿의 매개 변수에 대해서도 이러한 값을 동일 하 게 유지 합니다.
+1. 의 매개 변수에 지정 된 대로 **Vnetname**, **subnetName** 및 **ImageName** 에 동일한 이름을 지정 `CreateImageAndVnet.parameters.json` 합니다. 예를 들어 VnetName, subnetName 및 ImageName를 **vnet1**, **subnet1** 및 **image1** 로 지정한 경우이 템플릿의 매개 변수에 대해서도 이러한 값을 동일 하 게 유지 합니다.
 1. 이제 위에 정의 된 서브넷 네트워크에 있는 VM에 할당할 고정 IP 주소가 필요 합니다. **PrivateIPAddress** 를 매개 변수 파일의이 주소로 바꿉니다. VM이 로컬 DCHP 서버에서 IP 주소를 가져오도록 하려면 `privateIPAddress` 값을 비워 둡니다.  
     
     ```json
@@ -629,4 +629,4 @@ To verify if the environment variable for AzCopy was set correctly, take the fol
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Resource Manager cmdlet](https://docs.microsoft.com/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager cmdlet](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)

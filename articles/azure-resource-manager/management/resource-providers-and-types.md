@@ -2,14 +2,14 @@
 title: 리소스 공급자 및 리소스 종류
 description: Azure Resource Manager를 지 원하는 리소스 공급자에 대해 설명 합니다. 해당 스키마, 사용 가능한 API 버전 및 리소스를 호스팅할 수 있는 지역을 설명 합니다.
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a8adbce80d5e8f9ee9df2050d8f43363cbf57dc3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6413a1279c9c7a995bb144097e3db55d5f3a90d2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352102"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452096"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 리소스 공급자 및 종류
 
@@ -32,7 +32,7 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 �
 
 ## <a name="register-resource-provider"></a>리소스 공급자 등록
 
-리소스 공급자를 사용 하기 전에 리소스 공급자에 대 한 Azure 구독을 등록 해야 합니다. 등록은 리소스 공급자와 함께 작동 하도록 구독을 구성 합니다. 일부 리소스 공급자는 기본적으로 등록 됩니다. 다른 리소스 공급자는 특정 작업을 수행할 때 자동으로 등록 됩니다. 예를 들어 포털을 통해 리소스를 만드는 경우 리소스 공급자가 일반적으로 등록 됩니다. 다른 시나리오의 경우 리소스 공급자를 수동으로 등록 해야 할 수 있습니다.
+리소스 공급자를 사용 하기 전에 리소스 공급자에 대 한 Azure 구독을 등록 해야 합니다. 등록은 리소스 공급자와 함께 작동 하도록 구독을 구성 합니다. 일부 리소스 공급자는 기본적으로 등록 됩니다. 다른 리소스 공급자는 특정 작업을 수행할 때 자동으로 등록 됩니다. 예를 들어 포털을 통해 리소스를 만드는 경우 리소스 공급자가 일반적으로 등록 됩니다. 다른 시나리오의 경우 리소스 공급자를 수동으로 등록 해야 할 수 있습니다. 기본적으로 등록 된 리소스 공급자 목록은 [Azure 서비스에 대 한 리소스 공급자](azure-services-resource-providers.md)를 참조 하세요.
 
 이 문서에서는 리소스 공급자의 등록 상태를 확인 하 고 필요에 따라 등록 하는 방법을 보여 줍니다. `/register/action`리소스 공급자에 대 한 작업을 수행할 수 있는 권한이 있어야 합니다. 이 사용 권한은 참가자 및 소유자 역할에 포함 되어 있습니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2020
-ms.openlocfilehash: c6db5a856b127d4549de9597f8157f524a38af79
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9c453219638b9586d4ad2cc2a89311b1f2bdeefe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186663"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450095"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -176,6 +176,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                        |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7 이상                     |   | X | X | X |
+| SUSE Linux Enterprise Server 15.1                        |   | X |   |   |
 | SUSE Linux Enterprise Server 15                          | X | X |   |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
 | Ubuntu 20.04 LTS                                         |   | X |   |   |
@@ -187,7 +188,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 #### <a name="dependency-agent-linux-kernel-support"></a>종속성 에이전트 Linux 커널 지원
 종속성 에이전트는 커널 수준에서 작동 하므로 커널 버전에도 종속 됩니다. 다음 표에는 종속성 에이전트에 대 한 주 및 부 Linux OS 릴리스와 지원 되는 커널 버전이 나와 있습니다.
 
-| 배포 | OS 버전 | 커널 버전 |
+| 분포 | OS 버전 | 커널 버전 |
 |:---|:---|:---|
 |  Red Hat Linux 7   | 7.6     | 3.10.0-957  |
 |                    | 7.5     | 3.10.0-862  |

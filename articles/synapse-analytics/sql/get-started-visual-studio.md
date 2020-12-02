@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a284e453a621860c0aebf68bef13d30e77971f88
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ef8e2a3d1a6b78e8f2b6b9a900ed2485c1a4a5d7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686160"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451589"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용하여 Synapse SQL에 연결
 
@@ -30,7 +30,7 @@ ms.locfileid: "94686160"
 Visual Studio를 사용 하 여 Azure Synapse Analytics를 사용 하 여 전용 SQL 풀을 쿼리 합니다. 이 메서드는 Visual Studio 2019에서 SSDT(SQL Server Data Tools) 확장을 사용합니다. 
 
 > [!NOTE]
-> 서버를 사용 하지 않는 SQL 풀 (미리 보기)은 SSDT에서 지원 되지 않습니다.
+> SSDT에서는 서버를 사용 하지 않는 SQL 풀을 지원 하지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

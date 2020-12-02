@@ -1,6 +1,6 @@
 ---
 title: SQL 풀을 사용 하는 t-sql 뷰
-description: Azure Synapse Analytics에서 T-sql 뷰를 사용 하 고 전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀 (미리 보기)을 사용 하 여 솔루션을 개발 하기 위한 팁입니다.
+description: Azure Synapse Analytics에서 T-sql 뷰를 사용 하 고 전용 SQL 풀 및 서버 리스 SQL 풀을 사용 하 여 솔루션을 개발 하기 위한 팁입니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5097c35d97e33ef2d6fa0be12c796bf7e4e06950
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6fb75257a86e9e46d6c180a2a38193adecb2b36a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685735"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451682"
 ---
-# <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-preview--in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀 (미리 보기)를 사용 하는 t-sql 뷰
+# <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀을 사용 하는 t-sql 뷰
 
-이 문서에서는 Azure Synapse Analytics에서 T-sql 뷰를 사용 하 고 전용 SQL 풀 및 서버 리스 SQL 풀 (미리 보기)을 사용 하 여 솔루션을 개발 하기 위한 팁을 찾을 수 있습니다.
+이 문서에서는 Azure Synapse Analytics에서 T-sql 뷰를 사용 하 고 전용 SQL 풀 및 서버 리스 SQL 풀에서 솔루션을 개발 하는 방법에 대 한 팁을 찾을 수 있습니다.
 
 ## <a name="why-use-views"></a>뷰를 사용 하는 이유
 

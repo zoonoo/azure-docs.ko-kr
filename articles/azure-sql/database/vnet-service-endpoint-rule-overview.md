@@ -11,17 +11,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 97be3bf0ecec20c4bf2e1633f893c9aa0d9ba49d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2ff8f6134f74e0eda355342a7282e8be81a3d8df
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020285"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450234"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Azure SQL Database의 서버에 대 한 가상 네트워크 서비스 끝점 및 규칙 사용
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*가상 네트워크 규칙* 은 데이터베이스에 대 한 서버 및 [Azure SQL Database](sql-database-paas-overview.md) 의 탄력적 풀 또는 [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 의 데이터베이스에 대 한 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락 하는지 여부를 제어 하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 가상 네트워크 규칙 기능이 때때로 Azure SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에서 데이터베이스에 대 한 통신을 안전 하 게 허용 하는 데 가장 적합 한 옵션을 설명 합니다.
+*가상 네트워크 규칙* 은 데이터베이스에 대 한 서버 및 [Azure SQL Database](sql-database-paas-overview.md) 의 탄력적 풀 또는 [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 의 데이터베이스에 대 한 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락 하는지 여부를 제어 하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 가상 네트워크 규칙 기능이 때때로 Azure SQL Database 및 Azure Synapse Analytics의 데이터베이스와 안전 하 게 통신 하는 데 가장 적합 한 옵션을 설명 합니다.
 
 > [!NOTE]
 > 이 문서는 Azure SQL Database 및 Azure Synapse 분석 모두에 적용 됩니다. 편의상 '데이터베이스'라는 용어는 Azure SQL Database 및 Azure Synapse Analytics의 데이터베이스를 모두 나타냅니다. 마찬가지로 '서버'에 대한 모든 참조는 Azure SQL Database 및 Azure Synapse Analytics를 호스트하는 [논리 SQL 서버](logical-servers.md)를 참조하는 것입니다.
@@ -228,7 +228,7 @@ PowerShell을 사용하여 **IgnoreMissingVNetServiceEndpoint** 플래그를 설
 
 - [가상 네트워크 규칙: 작업][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 Azure SQL Database에 관련된 특정 Virtual Network 서비스 엔드포인트 *형식 이름* 으로 태그가 지정된 서브넷이 있어야 합니다.
 
@@ -276,7 +276,7 @@ Azure SQL Database에 관련된 특정 Virtual Network 서비스 엔드포인트
 
 <a name="anchor-how-to-links-60h"></a>
 
-## <a name="related-articles"></a>관련된 문서
+## <a name="related-articles"></a>관련 문서
 
 - [Azure 가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]
 - [서버 수준 및 데이터베이스 수준 방화벽 규칙][sql-db-firewall-rules-config-715d]

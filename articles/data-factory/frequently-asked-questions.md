@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: ba3cc376edef1e6dc8fbf859e456219a1fd3ca60
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: f65ee85b37e74f0ca16ccf6988eb2117231c3bc5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635765"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452201"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 
@@ -22,7 +22,7 @@ ms.locfileid: "92635765"
 
 이 아티클에서는 Azure Data Factory에 대한 질문과 대답을 제공합니다.  
 
-## <a name="what-is-azure-data-factory"></a>Azure Data Factory란? 
+## <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요? 
 Data Factory은 데이터의 이동과 변환을 자동화 하는 완전히 관리 되는 클라우드 기반의 데이터 통합 ETL 서비스입니다. 장비를 작동하여 원자재를 완제품으로 변형하는 공장처럼 Azure Data Factory는 원시 데이터를 수집하여 바로 사용할 수 있는 정보로 변환하는 기존 서비스를 오케스트레이션합니다. 
 
 Azure Data Factory를 사용하여 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는 데이터 기반 워크플로를 만들 수 있습니다. 데이터 흐름을 사용 하 여 데이터를 처리 하 고 변환할 수 있습니다. 또한 ADF는 Azure HDInsight, Azure Databricks 및 SQL Server Integration Services (SSIS) Integration runtime과 같은 계산 서비스를 사용 하 여 직접 코딩 된 변환에 대 한 외부 계산 엔진을 지원 합니다. 
@@ -95,9 +95,9 @@ SSIS 워크로드를 이동하려는 경우 Data Factory를 만들고 Azure-SSIS
 ## <a name="what-is-the-integration-runtime"></a>Integration runtime 이란?
 Integration runtime은 다양 한 네트워크 환경에서 다음과 같은 데이터 통합 기능을 제공 하기 위해 Azure Data Factory 사용 하는 계산 인프라입니다.
 
-- **데이터 이동** : 데이터 이동의 경우 integration runtime은 기본 제공 커넥터, 형식 변환, 열 매핑, 성능과 확장성이 뛰어난 데이터 전송에 대 한 지원을 제공 하는 동시에 원본 및 대상 데이터 저장소 간에 데이터를 이동 합니다.
-- **디스패치 활동** : 변환의 경우 통합 런타임은 SSIS 패키지를 고유 하 게 실행 하는 기능을 제공 합니다.
-- **Ssis 패키지 실행** : integration runtime은 기본적으로 관리 되는 Azure 계산 환경에서 ssis 패키지를 실행 합니다. Integration runtime은 Azure HDInsight, Azure Machine Learning, SQL Database 및 SQL Server와 같은 다양 한 계산 서비스에서 실행 되는 변환 작업을 디스패치 하 고 모니터링 하는 기능도 지원 합니다.
+- **데이터 이동**: 데이터 이동의 경우 integration runtime은 기본 제공 커넥터, 형식 변환, 열 매핑, 성능과 확장성이 뛰어난 데이터 전송에 대 한 지원을 제공 하는 동시에 원본 및 대상 데이터 저장소 간에 데이터를 이동 합니다.
+- **디스패치 활동**: 변환의 경우 통합 런타임은 SSIS 패키지를 고유 하 게 실행 하는 기능을 제공 합니다.
+- **Ssis 패키지 실행**: integration runtime은 기본적으로 관리 되는 Azure 계산 환경에서 ssis 패키지를 실행 합니다. Integration runtime은 Azure HDInsight, Azure Machine Learning, SQL Database 및 SQL Server와 같은 다양 한 계산 서비스에서 실행 되는 변환 작업을 디스패치 하 고 모니터링 하는 기능도 지원 합니다.
 
 데이터를 이동 하 고 변환 하는 데 필요한 만큼 하나 이상의 통합 런타임 인스턴스를 배포할 수 있습니다. Integration runtime은 Azure 공용 네트워크 또는 개인 네트워크 (온-프레미스, Azure Virtual Network 또는 Amazon Web Services 가상 사설 클라우드 [VPC])에서 실행할 수 있습니다. 
 
@@ -190,7 +190,7 @@ Microsoft에서 데이터 흐름에 대 한 도움말 또는 문제 해결을 �
 
 ### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Data Factory에서 다른 90 데이터 집합 형식을 사용 하 여 데이터에 액세스 어떻게 할까요??
 
-데이터 흐름 매핑 기능은 현재 Azure SQL Database, Azure Synapse Analytics (이전의 SQL Data Warehouse), Azure Blob storage 또는 Azure Data Lake Storage Gen2에서 분리 된 텍스트 파일, Blob storage의 Parquet 파일 및 원본 및 싱크에 대해 기본적으로 Data Lake Storage Gen2 수 있습니다. 
+데이터 흐름 매핑 기능을 사용 하면 현재 Azure Blob storage 또는 Azure Data Lake Storage Gen2의 분리 된 텍스트 파일 및 Blob storage의 Synapse 파일을 사용 하거나 원본 및 싱크에 대해 기본적으로 Data Lake Storage Gen2 수 Azure SQL Database 있습니다. 
 
 복사 작업을 사용 하 여 다른 커넥터에서 데이터를 준비 하 고 데이터 흐름 작업을 실행 하 여 데이터를 준비한 후 데이터를 변환 합니다. 예를 들어 파이프라인이 먼저 Blob storage에 복사 된 다음 데이터 흐름 작업은 원본에서 데이터 집합을 사용 하 여 해당 데이터를 변환 합니다.
 

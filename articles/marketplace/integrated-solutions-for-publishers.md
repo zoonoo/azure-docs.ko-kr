@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 2e976b895c6aa63b73c55b458668c00b64c6f960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 705b0f02682b6aa41cb5c8e77d8da39faa5edb1f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91660907"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450120"
 ---
 # <a name="publish-an-integrated-solution"></a>통합 솔루션 게시
 
-이 문서에서는 상업용 Marketplace에 통합 솔루션을 게시하기 위한 전체 프로세스 및 요구 사항을 설명합니다. 단일 번들로 제공되는 제품의 통합 솔루션에서는 소프트웨어 공급업체의 포인트 솔루션 기술을 서비스 파트너의 배포 및 지원과 결합합니다. 서비스 파트너는 Microsoft AppSource 또는 Azure Marketplace에 제품을 [컨설팅 서비스](./consulting-services.md)로 나열합니다.
+이 문서에서는 상업용 Marketplace에 통합 솔루션을 게시하기 위한 전체 프로세스 및 요구 사항을 설명합니다. 단일 번들로 제공되는 제품의 통합 솔루션에서는 소프트웨어 공급업체의 포인트 솔루션 기술을 서비스 파트너의 배포 및 지원과 결합합니다. 서비스 파트너는 Microsoft AppSource 또는 Azure Marketplace에 제품을 [컨설팅 서비스](./plan-consulting-service-offer.md)로 나열합니다.
 
 통합 솔루션은 특정 고객의 요구 또는 시나리오를 해결하는 것을 목표로 합니다. 공급자는 업계의 당면 과제나 불만 사항을 파악하는 것으로 시작합니다. 그런 다음 두 개 이상의 최상의 기술을 통합하여 고객을 위한 통합 및 반복 가능한 배포 환경을 만듭니다. 공급자는 고객이 신속하게 적용하여 실행하도록 합니다. 관련한 사용자 지정, 컨설팅 및 솔루션 지원을 제공하는 단일 연락 지점을 고객에게 제공합니다. 이를 통해 기술 및 서비스를 포함하는 통합 솔루션이 제공됩니다.
 
@@ -104,7 +104,7 @@ ms.locfileid: "91660907"
 
 ## <a name="publish-your-integrated-solution"></a>통합 솔루션을 게시합니다.
 
-기술 통합 및 마케팅 참고 자료를 작성한 후 [Microsoft AppSource 및 Azure Marketplace를 위한 컨설팅 서비스](./consulting-services.md)에 대한 게시자 가이드를 참조하세요. 이 리소스를 사용하여 솔루션을 Microsoft AppSource 또는 Azure Marketplace에 게시할지 결정합니다. 또한 가이드를 사용하여 게시 아티팩트를 준비하고 게시 프로세스를 완료합니다.
+기술 통합 및 마케팅 참고 자료를 작성한 후 [Microsoft AppSource 및 Azure Marketplace를 위한 컨설팅 서비스](./plan-consulting-service-offer.md)에 대한 게시자 가이드를 참조하세요. 이 리소스를 사용하여 솔루션을 Microsoft AppSource 또는 Azure Marketplace에 게시할지 결정합니다. 또한 가이드를 사용하여 게시 아티팩트를 준비하고 게시 프로세스를 완료합니다.
 
 컨설팅 서비스 제품에는 5가지 서비스 유형을 사용할 수 있지만 통합 솔루션은 개념 증명 또는 전체 구현이어야 합니다.
 

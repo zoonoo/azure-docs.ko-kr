@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: dd285e8029d8e140380b0f90c60081d0e1f8dd56
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 06faa1da71331c299245a93af96166880e7732de
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305036"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451776"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Synapse SQL의 임시 테이블
 
 이 문서에는 임시 테이블 사용에 대 한 필수 지침이 포함 되어 있으며 Synapse SQL 내에서 세션 수준 임시 테이블의 원리를 강조 표시 합니다. 
 
-전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀 (미리 보기) 리소스는 모두 임시 테이블을 사용할 수 있습니다. 서버를 사용 하지 않는 SQL 풀에는이 문서의 끝 부분에서 설명 하는 제한 사항이 있습니다. 
+전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀 리소스는 모두 임시 테이블을 사용할 수 있습니다. 서버를 사용 하지 않는 SQL 풀에는이 문서의 끝 부분에서 설명 하는 제한 사항이 있습니다. 
 
 ## <a name="temporary-tables"></a>임시 테이블
 
@@ -226,7 +226,7 @@ DROP TABLE #stats_ddl;
 - 임시 테이블에는 뷰를 만들 수 없습니다.
 - 임시 테이블은 해시 또는 라운드 로빈 배포를 통해서만 만들 수 있습니다.  복제된 임시 테이블 배포가 지원되지 않습니다. 
 
-## <a name="temporary-tables-in-serverless-sql-pool-preview"></a>서버를 사용 하지 않는 SQL 풀의 임시 테이블 (미리 보기)
+## <a name="temporary-tables-in-serverless-sql-pool"></a>서버를 사용 하지 않는 SQL 풀의 임시 테이블
 
 서버를 사용 하지 않는 SQL 풀의 임시 테이블은 지원 되지만 사용이 제한 됩니다. 이러한 파일은 파일을 대상으로 하는 쿼리에서 사용할 수 없습니다. 
 
