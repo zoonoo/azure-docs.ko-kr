@@ -2,13 +2,13 @@
 title: 템플릿 모범 사례
 description: Azure Resource Manager 템플릿 작성에 대한 권장되는 방법을 설명합니다. 템플릿을 사용할 때 일반적인 문제를 방지하기 위한 제안을 제공합니다.
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/01/2020
+ms.openlocfilehash: c62bde8fc8cfc79330d13b7b2ff4f778dadf1339
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87809258"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497982"
 ---
 # <a name="arm-template-best-practices"></a>ARM 템플릿 모범 사례
 
@@ -87,11 +87,9 @@ ms.locfileid: "87809258"
    },
    ```
 
-* 리소스 유형의 API 버전에 대해서는 매개 변수를 사용하지 마세요. 리소스 속성 및 값은 버전 번호에 따라 달라질 수 있습니다. API 버전이 매개 변수로 설정되면 코드 편집기의 IntelliSense에서 올바른 스키마를 확인할 수 없습니다. 대신, 템플릿에 API 버전을 하드 코드합니다.
-
 * `allowedValues`를 제한적으로 사용합니다. 일부 값이 허용되는 옵션에 포함되지 않도록 해야 하는 경우에만 사용합니다. 너무 광범위 하 게 사용 하는 경우 `allowedValues` 목록을 최신 상태로 유지 하지 않는 방식으로 유효한 배포를 차단할 수 있습니다.
 
-* 템플릿의 매개 변수 이름이 PowerShell 배포 명령의 매개 변수와 일치하는 경우 Resource Manager는 템플릿 매개 변수에 **FromTemplate**이라는 접미사를 추가하여 이러한 이름 충돌을 해결합니다. 예를 들어 템플릿에 **ResourceGroupName**이라는 매개 변수가 포함되면 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet의 **ResourceGroupName** 매개 변수와 충돌합니다. 배포하는 동안 **ResourceGroupNameFromTemplate**에 대한 값을 제공하라는 메시지가 표시됩니다.
+* 템플릿의 매개 변수 이름이 PowerShell 배포 명령의 매개 변수와 일치하는 경우 Resource Manager는 템플릿 매개 변수에 **FromTemplate** 이라는 접미사를 추가하여 이러한 이름 충돌을 해결합니다. 예를 들어 템플릿에 **ResourceGroupName** 이라는 매개 변수가 포함되면 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet의 **ResourceGroupName** 매개 변수와 충돌합니다. 배포하는 동안 **ResourceGroupNameFromTemplate** 에 대한 값을 제공하라는 메시지가 표시됩니다.
 
 ### <a name="security-recommendations-for-parameters"></a>매개 변수에 대한 보안 권장 사항
 
@@ -136,7 +134,7 @@ ms.locfileid: "87809258"
 
 * 모든 위치에서 사용할 수 없는 리소스의 경우 별도 매개 변수를 사용하거나 리터럴 위치 값을 지정합니다.
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>변수
 
 다음 정보는 [변수](template-variables.md)로 작업하는 경우 도움이 될 수 있습니다.
 
@@ -146,8 +144,6 @@ ms.locfileid: "87809258"
 
 * 복잡한 배열의 템플릿 함수에서 생성하는 값에 대해 변수를 사용합니다. 복잡한 식이 변수에만 표시되는 경우 템플릿을 읽기 쉽습니다.
 
-* 리소스에서 `apiVersion`에 대해 변수를 사용하지 마세요. API 버전은 리소스의 스키마를 결정합니다. 종종 리소스에 대한 속성을 변경하지 않고 버전을 변경할 수 없습니다.
-
 * 템플릿의 **변수** 섹션에서 [reference](template-functions-resource.md#reference) 함수를 사용할 수 없습니다. **reference** 함수는 리소스의 런타임 상태에서 해당 값을 파생합니다. 하지만 템플릿의 초기 구문 분석 중에 변수가 확인됩니다. 템플릿의 **resources** 또는 **outputs** 섹션에서 직접 **reference** 함수에 필요한 값을 생성합니다.
 
 * 고유해야 하는 리소스 이름에 대한 변수를 포함합니다.
@@ -155,6 +151,16 @@ ms.locfileid: "87809258"
 * [변수에서 루프 복사](copy-variables.md)를 사용하여 JSON 개체의 반복된 패턴을 생성합니다.
 
 * 사용하지 않는 변수를 제거합니다.
+
+## <a name="api-version"></a>API 버전
+
+속성을 `apiVersion` 리소스 종류에 대 한 하드 코딩 된 API 버전으로 설정 합니다. 새 템플릿을 만들 때 리소스 유형에 대 한 최신 API 버전을 사용 하는 것이 좋습니다. 사용 가능한 값을 확인 하려면 [템플릿 참조](/azure/templates/)를 참조 하세요.
+
+템플릿이 예상 대로 작동 하는 경우 동일한 API 버전을 계속 사용 하는 것이 좋습니다. 동일한 API 버전을 사용 하 여 이후 버전에서 도입 된 주요 변경 내용에 대해서는 걱정할 필요가 없습니다.
+
+API 버전에는 매개 변수를 사용 하지 마세요. 리소스 속성 및 값은 API 버전에 따라 다를 수 있습니다. API 버전이 매개 변수로 설정되면 코드 편집기의 IntelliSense에서 올바른 스키마를 확인할 수 없습니다. 템플릿의 속성과 일치 하지 않는 API 버전을 전달 하는 경우 배포에 실패 합니다.
+
+API 버전에 대 한 변수를 사용 하지 마세요. 특히 배포 중에 [공급자 함수](template-functions-resource.md#providers) 를 사용 하 여 API 버전을 동적으로 가져오지 마세요. 동적으로 검색 된 API 버전이 템플릿의 속성과 일치 하지 않을 수 있습니다.
 
 ## <a name="resource-dependencies"></a>리소스 종속성
 
@@ -174,7 +180,7 @@ ms.locfileid: "87809258"
 
 다음 정보는 [리소스](template-syntax.md#resources)로 작업하는 경우 도움이 될 수 있습니다.
 
-* 다른 참가자들이 리소스의 용도를 이해하도록 하려면 템플릿에 각 리소스에 대한 **설명**을 지정합니다.
+* 다른 참가자들이 리소스의 용도를 이해하도록 하려면 템플릿에 각 리소스에 대한 **설명** 을 지정합니다.
    
    ```json
    "resources": [

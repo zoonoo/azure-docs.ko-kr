@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: eee711917a732bfc24b10db82c75786fd9734b57
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: c77f0e93e9f0084f335df39d2878871d66af0aac
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555688"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498033"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -291,8 +291,8 @@ Azure Policy에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 
 |관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | 미리 보기 |
-| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | 미리 보기 |
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | ![사용 가능][check] |
+| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | ![사용 가능][check] |
 
 사용 가능한 지역에서 Azure Virtual Machines Scale Sets용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
@@ -308,8 +308,8 @@ Azure Policy에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | 미리 보기 |
-| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | 미리 보기 |
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | ![사용 가능][check] |
+| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | ![사용 가능][check] |
 
 사용 가능한 지역에서 Azure Virtual Machines용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 

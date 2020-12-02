@@ -2,13 +2,13 @@
 title: 템플릿 개요
 description: 리소스 배포를 위한 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하는 이점에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: e25404fc74456f99a4d41c25786b34b6e1f3edda
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 12/01/2020
+ms.openlocfilehash: da091d09f6d242d4b98903a8dcd76fe305e578b8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96342331"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497999"
 ---
 # <a name="what-are-arm-templates"></a>ARM 템플릿이란?
 
@@ -80,13 +80,13 @@ ARM 템플릿과 다른 인프라 중 하나를 코드 서비스로 사용 하�
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2016-01-01",
+    "apiVersion": "2019-04-01",
     "name": "mystorageaccount",
     "location": "westus",
     "sku": {
       "name": "Standard_LRS"
     },
-    "kind": "Storage",
+    "kind": "StorageV2",
     "properties": {}
   }
 ]
@@ -96,17 +96,19 @@ Microsoft.Storage 리소스 공급자에게 전송되는 다음 REST API 작업�
 
 ```HTTP
 PUT
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2019-04-01
 REQUEST BODY
 {
   "location": "westus",
   "sku": {
     "name": "Standard_LRS"
   },
-  "kind": "Storage",
+  "kind": "StorageV2",
   "properties": {}
 }
 ```
+
+리소스에 대해 템플릿에서 설정한 **apiVersion** 는 REST 작업에 대 한 API 버전으로 사용 됩니다. 템플릿을 반복적으로 배포 하 고 안심 하 고 계속 작동할 수 있습니다. 동일한 API 버전을 사용 하 여 이후 버전에서 도입 된 주요 변경 내용에 대해서는 걱정할 필요가 없습니다.
 
 ## <a name="template-design"></a>템플릿 디자인
 
@@ -114,7 +116,7 @@ REQUEST BODY
 
 ![3계층 템플릿](./media/overview/3-tier-template.png)
 
-그러나 단일 템플릿에서 전체 인프라를 정의할 필요가 없습니다. 대부분 배포 요구 사항을 대상, 목적에 특정 템플릿 집합으로 나누는 것이 좋습니다. 서로 다른 솔루션에 이러한 템플릿을 쉽게 다시 사용할 수 있습니다. 특정 솔루션을 배포하려면 모든 필수 템플릿에 연결하는 마스터 템플릿을 만듭니다. 다음 이미지는 세 개의 중첩된 템플릿을 포함하는 부모 템플릿을 통해 3계층 솔루션을 배포하는 방법을 보여 줍니다.
+그러나 단일 템플릿에서 전체 인프라를 정의할 필요가 없습니다. 대부분 배포 요구 사항을 대상, 목적에 특정 템플릿 집합으로 나누는 것이 좋습니다. 서로 다른 솔루션에 이러한 템플릿을 쉽게 다시 사용할 수 있습니다. 특정 솔루션을 배포 하려면 필요한 모든 템플릿을 연결 하는 기본 템플릿을 만듭니다. 다음 이미지는 세 개의 중첩된 템플릿을 포함하는 부모 템플릿을 통해 3계층 솔루션을 배포하는 방법을 보여 줍니다.
 
 ![중첩된 계층 템플릿](./media/overview/nested-tiers-template.png)
 

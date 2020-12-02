@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: b51746326c2df81e2dd2bdc72bf2a9ab72b649b5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d9e0e63a3586be139620c154616acfcba2ab10f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790562"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498220"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Azure Storage 에뮬레이터를 사용 하 여 개발 및 테스트
 
@@ -170,7 +170,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 버전 3.0부터 스토리지 에뮬레이터를 시작할 때 콘솔 창이 표시됩니다. 콘솔 창에서 명령줄을 사용 하 여 에뮬레이터를 시작 및 중지 합니다. 또한 명령줄에서 상태를 쿼리하고 다른 작업을 수행할 수 있습니다.
 
 > [!NOTE]
-> Microsoft Azure 컴퓨팅 에뮬레이터가 설치되어 있으면 스토리지 에뮬레이터를 시작할 때 시스템 트레이 아이콘이 표시됩니다. 해당 아이콘을 마우스 오른쪽 단추로 클릭하면 표시되는 메뉴에서 그래픽 방식으로 스토리지 에뮬레이터를 시작하고 중지할 수 있습니다.
+> Microsoft Azure 계산 에뮬레이터가 설치 되어 있으면 저장소 에뮬레이터를 시작할 때 시스템 트레이 아이콘이 표시 됩니다. 해당 아이콘을 마우스 오른쪽 단추로 클릭하면 표시되는 메뉴에서 그래픽 방식으로 스토리지 에뮬레이터를 시작하고 중지할 수 있습니다.
 >
 >
 
@@ -182,13 +182,13 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 옵션 목록을 보려면 명령 프롬프트에 `/help` 을(를) 입력합니다.
 
-| 옵션 | Description | 명령 | 인수 |
+| 옵션 | 설명 | 명령 | 인수 |
 | --- | --- | --- | --- |
-| **시작** |저장소 에뮬레이터를 시작 합니다. |`AzureStorageEmulator.exe start [-inprocess]` |*-다시 처리* : 새 프로세스를 만드는 대신 현재 프로세스에서 에뮬레이터를 시작 합니다. |
+| **Start** |저장소 에뮬레이터를 시작 합니다. |`AzureStorageEmulator.exe start [-inprocess]` |*-다시 처리*: 새 프로세스를 만드는 대신 현재 프로세스에서 에뮬레이터를 시작 합니다. |
 | **중지** |저장소 에뮬레이터를 중지 합니다. |`AzureStorageEmulator.exe stop` | |
 | **상태** |저장소 에뮬레이터의 상태를 인쇄 합니다. |`AzureStorageEmulator.exe status` | |
-| **지우기** |명령줄에 지정된 모든 서비스의 데이터를 지웁니다. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob* : blob 데이터를 지웁니다. <br/>*queue* : 큐 데이터를 지웁니다. <br/>*table* : 테이블 데이터를 지웁니다. <br/>*all* : 모든 서비스의 모든 데이터를 지웁니다. |
-| **Init** |에뮬레이터를 설정 하기 위해 일회성 초기화를 수행 합니다. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName* : SQL 인스턴스를 호스팅하는 서버를 지정합니다. <br/>*-sqlinstance instanceName* : 기본 서버 인스턴스에서 사용할 SQL 인스턴스의 이름을 지정합니다. <br/>*-forcecreate* : 이미 존재하는 경우라도 SQL Database를 강제로 생성합니다. <br/>*-skipcreate* : SQL 데이터베이스 만들기를 건너뜁니다. 이 옵션은 -forcecreate보다 우선합니다.<br/>*-reserveports* : 서비스와 연결된 HTTP 포트를 예약하려고 합니다.<br/>*-unreserveports* : 서비스와 연결된 HTTP 포트에 대한 예약을 제거하려고 합니다. 이 옵션은 -reserveports보다 우선합니다.<br/>*-inprocess* : 새 프로세스를 생성하는 대신 현재 프로세스의 초기화를 수행합니다. 포트 예약을 변경할 경우 관리자 권한으로 현재 프로세스를 시작해야 합니다. |
+| **지우기** |명령줄에 지정된 모든 서비스의 데이터를 지웁니다. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: blob 데이터를 지웁니다. <br/>*queue*: 큐 데이터를 지웁니다. <br/>*table*: 테이블 데이터를 지웁니다. <br/>*all*: 모든 서비스의 모든 데이터를 지웁니다. |
+| **Init** |에뮬레이터를 설정 하기 위해 일회성 초기화를 수행 합니다. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: SQL 인스턴스를 호스팅하는 서버를 지정합니다. <br/>*-sqlinstance instanceName*: 기본 서버 인스턴스에서 사용할 SQL 인스턴스의 이름을 지정합니다. <br/>*-forcecreate*: 이미 존재하는 경우라도 SQL Database를 강제로 생성합니다. <br/>*-skipcreate*: SQL 데이터베이스 만들기를 건너뜁니다. 이 옵션은 -forcecreate보다 우선합니다.<br/>*-reserveports*: 서비스와 연결된 HTTP 포트를 예약하려고 합니다.<br/>*-unreserveports*: 서비스와 연결된 HTTP 포트에 대한 예약을 제거하려고 합니다. 이 옵션은 -reserveports보다 우선합니다.<br/>*-inprocess*: 새 프로세스를 생성하는 대신 현재 프로세스의 초기화를 수행합니다. 포트 예약을 변경할 경우 관리자 권한으로 현재 프로세스를 시작해야 합니다. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>저장소 에뮬레이터와 Azure Storage 간의 차이점
 

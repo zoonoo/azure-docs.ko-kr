@@ -7,15 +7,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/11/2020
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 3c7765d65b63c9cee83a76a13448506f61aa8472
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 4eb9b0077d1d0591953a40d98a220d7aa0683de7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637159"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497948"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링
 
@@ -45,14 +45,14 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 다음 테이블은 Azure 통합 런타임에 대해 cmdlet에서 반환하는 속성에 대한 설명을 제공합니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 -------- | ------------- | 
 | Name | Azure 통합 런타임의 이름. |  
-| 시스템 상태 | Azure 통합 런타임의 상태. | 
+| 주 | Azure 통합 런타임의 상태. | 
 | 위치 | Azure 통합 런타임의 위치. Azure 통합 런타임의 위치에 대한 자세한 내용은 [통합 런타임 소개](concepts-integration-runtime.md)를 참조하세요. |
 | DataFactoryName | Azure 통합 런타임이 속한 데이터 팩터리의 이름. | 
 | ResourceGroupName | 데이터 팩터리가 속한 리소스 그룹의 이름.  |
-| Description | 통합 런타임에 대한 설명.  |
+| 설명 | 통합 런타임에 대한 설명.  |
 
 ### <a name="status"></a>상태
 
@@ -74,7 +74,7 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 다음 테이블은 **각 노드** 의 속성 모니터링에 대한 설명을 제공합니다.
 
-| 속성 | Description | 
+| 속성 | 설명 | 
 | -------- | ----------- | 
 | Name | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
 | 상태 | 전반적인 자체 호스팅 통합 런타임 및 각 노드의 상태. 예: 온라인/오프 라인/제한 됨/등 이러한 상태에 대 한 자세한 내용은 다음 섹션을 참조 하세요. | 
@@ -82,7 +82,7 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 | 사용 가능한 메모리 | 자체 호스팅 통합 런타임 노드에서 사용 가능한 메모리. 이 값은 거의 실시간 스냅샷입니다. | 
 | CPU 사용률 | 자체 호스팅 통합 런타임 노드의 CPU 사용률. 이 값은 거의 실시간 스냅샷입니다. |
 | 네트워킹(수신/송신) | 자체 호스팅 통합 런타임 노드의 네트워크 사용률. 이 값은 거의 실시간 스냅샷입니다. | 
-| 동시 작업(실행/제한) | **실행 중** . 각 노드에서 실행되는 작업 또는 태스크의 수입니다. 이 값은 거의 실시간 스냅샷입니다. <br/><br/>**제한** . 제한은 각 노드의 최대 동시 작업 수를 나타냅니다. 이 값은 컴퓨터 크기에 따라 정의됩니다. CPU, 메모리 또는 네트워크가 충분히 활용되지 않는 경우에도 작업 시간이 초과하면 제한을 늘려 고급 시나리오에서 동시 작업 실행을 강화할 수 있습니다. 이 기능은 단일 노드 자체 호스팅 통합 런타임에서도 사용할 수 있습니다. |
+| 동시 작업(실행/제한) | **실행 중**. 각 노드에서 실행되는 작업 또는 태스크의 수입니다. 이 값은 거의 실시간 스냅샷입니다. <br/><br/>**제한**. 제한은 각 노드의 최대 동시 작업 수를 나타냅니다. 이 값은 컴퓨터 크기에 따라 정의됩니다. CPU, 메모리 또는 네트워크가 충분히 활용되지 않는 경우에도 작업 시간이 초과하면 제한을 늘려 고급 시나리오에서 동시 작업 실행을 강화할 수 있습니다. 이 기능은 단일 노드 자체 호스팅 통합 런타임에서도 사용할 수 있습니다. |
 | 역할 | 다중 노드 자체 호스팅 통합 런타임에는 디스패처 및 작업자라는 두 가지 유형의 역할이 있습니다. 모든 노드는 작업자이며, 이는 모두 작업을 실행하는 데 사용할 수 있음을 의미합니다. 디스패처 노드는 하나만 존재합니다. 이 노드는 클라우드 서비스에서 작업/태스크를 가져와서 다른 작업자 노드에 발송하는 데 사용됩니다. 디스패처 노드는 작업자 노드이기도 합니다. |
 
 자체 호스팅 통합 런타임에 둘 이상의 노드가 있는 경우(즉, 규모 확장 시나리오) 속성의 일부 설정이 더 적합합니다.
@@ -99,7 +99,7 @@ Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성�
 
 다음 테이블은 자체 호스팅 통합 런타임 노드의 가능한 상태를 제공합니다.
 
-| 상태 | Description |
+| 상태 | 설명 |
 | ------ | ------------------ | 
 | 온라인 | 노드가 Data Factory 서비스에 연결되어 있습니다. |
 | 오프라인 | 노드가 오프라인 상태입니다. |
@@ -113,7 +113,7 @@ Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성�
 
 다음 테이블은 자체 호스팅 통합 런타임의 가능한 상태를 제공합니다. 이 상태는 런타임에 속한 모든 노드의 상태에 따라 달라집니다. 
 
-| 상태 | Description |
+| 상태 | 설명 |
 | ------ | ----------- | 
 | 등록 필요 | 자체 호스팅 통합 런타임에 등록된 노드가 아직 없습니다. |
 | 온라인 | 모든 노드가 온라인 상태입니다. |
@@ -175,13 +175,13 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 다음 표에서는 Azure-SSIS IR에 대해 위의 cmdlet에서 반환 하는 속성에 대해 설명 합니다.
 
-| 속성/상태              | Description                  |
+| 속성/상태              | 설명                  |
 | ---------------------------- | ---------------------------- |
 | CreateTime                   | Azure-SSIS IR를 만든 UTC 시간입니다. |
 | 노드                        | 노드 관련 상태 (시작/사용/재생/사용 불가)와 실행 가능한 오류를 사용 하 여 Azure-SSIS IR의 할당 된/사용 가능한 노드입니다. |
 | OtherErrors                  | Azure-SSIS IR에 대 한 비 노드의 특정 조치 가능한 오류입니다. |
 | LastOperation                | 실패 한 경우 실행 가능한 오류가 발생 하 여 Azure-SSIS IR에 대 한 마지막 시작/중지 작업의 결과입니다. |
-| 시스템 상태                        | Azure-SSIS IR의 전체 상태 (초기/시작/시작/중지/중지/중지)입니다. |
+| 주                        | Azure-SSIS IR의 전체 상태 (초기/시작/시작/중지/중지/중지)입니다. |
 | 위치                     | Azure-SSIS IR 위치입니다. |
 | NodeSize                     | Azure-SSIS IR의 각 노드 크기입니다. |
 | NodeCount                    | Azure-SSIS IR의 노드 수입니다. |
@@ -193,11 +193,11 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 | VNetId                       | 연결할 Azure-SSIS IR의 가상 네트워크 리소스 ID입니다. |
 | 서브넷                       | 조인할 Azure-SSIS IR의 서브넷 이름입니다. |
 | ID                           | Azure-SSIS IR의 리소스 ID입니다. |
-| Type                         | Azure-SSIS IR IR 유형 (관리/자체 호스팅)입니다. |
+| 형식                         | Azure-SSIS IR IR 유형 (관리/자체 호스팅)입니다. |
 | ResourceGroupName            | ADF와 Azure-SSIS IR를 만든 Azure 리소스 그룹의 이름입니다. |
 | DataFactoryName              | ADF의 이름입니다. |
 | Name                         | Azure-SSIS IR 이름입니다. |
-| Description                  | Azure-SSIS IR에 대 한 설명입니다. |
+| 설명                  | Azure-SSIS IR에 대 한 설명입니다. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>상태 (Azure-SSIS IR 노드당)
 
@@ -208,13 +208,13 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 | 시작 중             | 이 노드가 준비 중입니다. |
 | 사용 가능            | 이 노드는 SSIS 패키지를 배포/실행할 준비가 되었습니다. |
 | 재생 중            | 이 노드는 복구 중/다시 시작 중입니다. |
-| 사용할 수 없음          | 이 노드는 SSIS 패키지를 배포/실행할 준비가 되지 않았으며 해결할 수 있는 조치 가능한 오류/문제를 포함 합니다. |
+| Unavailable          | 이 노드는 SSIS 패키지를 배포/실행할 준비가 되지 않았으며 해결할 수 있는 조치 가능한 오류/문제를 포함 합니다. |
 
 #### <a name="status-overall-azure-ssis-ir"></a>상태 (전체 Azure-SSIS IR)
 
 다음 표에서는 가능한 Azure-SSIS IR의 전체 상태를 제공 합니다. 전체 상태는 Azure-SSIS IR에 속하는 모든 노드의 결합 된 상태에 따라 달라 집니다. 
 
-| 전반적인 상태 | Description | 
+| 전반적인 상태 | 설명 | 
 | -------------- | ----------- | 
 | Initial        | Azure-SSIS IR 노드가 할당/준비 되지 않았습니다. | 
 | 시작 중       | Azure-SSIS IR 노드를 할당/준비 하 고 청구를 시작 했습니다. |
@@ -234,7 +234,7 @@ Azure Portal에서 Azure-SSIS IR를 모니터링 하려면 모든 통합 런타�
 
 #### <a name="status-tile"></a>상태 타일
 
-Azure-SSIS IR 모니터링 페이지의 **상태** 타일에서 전체 상태 (예: **실행 중** 또는 **중지 됨** )를 볼 수 있습니다. **실행** 상태를 선택 하면 Azure-SSIS IR를 중지 하는 라이브 **중지** 단추가 포함 된 창이 표시 됩니다. **중지 됨** 상태를 선택 하면 Azure-SSIS IR 시작 하는 라이브 **시작** 단추가 있는 창이 표시 됩니다. 또한 팝업 창에는 Azure-SSIS IR에서 실행 되는 ssis 패키지 실행 작업을 사용 하 여 ADF 파이프라인을 자동 생성 하는 데 사용할 수 **있는 ssis 패키지 실행 단추 (** [adf 파이프라인에서 Ssis 패키지를 실행](./how-to-invoke-ssis-package-ssis-activity.md)하는 ssis 패키지 실행 참조) 및 **리소스 id** 텍스트 상자 (Azure-SSIS IR 리소스 id ()를 복사할 수 있습니다 `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` . ADF 및 Azure-SSIS IR 이름을 포함 하는 Azure-SSIS IR 리소스 ID의 접미사는 Isv (독립 소프트웨어 공급 업체)에서 추가 프리미엄/사용이 허가 된 SSIS 구성 요소를 구매 하 고 Azure-SSIS IR에 바인딩하는 데 사용할 수 있는 클러스터 ID를 형성 합니다 ( [Azure-SSIS IR에서 프리미엄/라이선스 구성 요소 설치](./how-to-develop-azure-ssis-ir-licensed-components.md)참조).
+Azure-SSIS IR 모니터링 페이지의 **상태** 타일에서 전체 상태 (예: **실행 중** 또는 **중지 됨**)를 볼 수 있습니다. **실행** 상태를 선택 하면 Azure-SSIS IR를 중지 하는 라이브 **중지** 단추가 포함 된 창이 표시 됩니다. **중지 됨** 상태를 선택 하면 Azure-SSIS IR 시작 하는 라이브 **시작** 단추가 있는 창이 표시 됩니다. 또한 팝업 창에는 Azure-SSIS IR에서 실행 되는 ssis 패키지 실행 작업을 사용 하 여 ADF 파이프라인을 자동 생성 하는 데 사용할 수 **있는 ssis 패키지 실행 단추 (** [adf 파이프라인에서 Ssis 패키지를 실행](./how-to-invoke-ssis-package-ssis-activity.md)하는 ssis 패키지 실행 참조) 및 **리소스 id** 텍스트 상자 (Azure-SSIS IR 리소스 id ()를 복사할 수 있습니다 `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` . ADF 및 Azure-SSIS IR 이름을 포함 하는 Azure-SSIS IR 리소스 ID의 접미사는 Isv (독립 소프트웨어 공급 업체)에서 추가 프리미엄/사용이 허가 된 SSIS 구성 요소를 구매 하 고 Azure-SSIS IR에 바인딩하는 데 사용할 수 있는 클러스터 ID를 형성 합니다 ( [Azure-SSIS IR에서 프리미엄/라이선스 구성 요소 설치](./how-to-develop-azure-ssis-ir-licensed-components.md)참조).
 
 ![Azure-SSIS IR 상태 타일 모니터링](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
 

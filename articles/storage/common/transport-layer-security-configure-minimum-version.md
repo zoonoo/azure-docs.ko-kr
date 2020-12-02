@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 5f772bd996b126a4cd7182a2ce088c2d3edc8e7d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 683f0e070ad77add62ed76eabd70b42ba15f012e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312028"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498135"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>저장소 계정에 대 한 요청에 필요한 최소 버전의 TLS (Transport Layer Security)를 적용 합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "93312028"
 
 Azure Storage 계정에 요청을 기록 하 고 클라이언트에서 사용 하는 TLS 버전을 확인 하려면 Azure Monitor (미리 보기)에서 Azure Storage 로깅을 사용할 수 있습니다. 자세한 내용은 [Azure Storage 모니터링](../blobs/monitor-blob-storage.md)을 참조 하세요.
 
-Azure Monitor Azure Storage 로깅은 로그 쿼리를 사용 하 여 로그 데이터를 분석 합니다. 로그를 쿼리하려면 Azure Log Analytics 작업 영역을 사용할 수 있습니다. 로그 쿼리에 대해 자세히 알아보려면 [자습서: Log Analytics 쿼리 시작](../../azure-monitor/log-query/get-started-portal.md)을 참조 하세요.
+Azure Monitor Azure Storage 로깅은 로그 쿼리를 사용 하 여 로그 데이터를 분석 합니다. 로그를 쿼리하려면 Azure Log Analytics 작업 영역을 사용할 수 있습니다. 로그 쿼리에 대해 자세히 알아보려면 [자습서: Log Analytics 쿼리 시작](../../azure-monitor/log-query/log-analytics-tutorial.md)을 참조 하세요.
 
 Azure Monitor를 사용 하 여 Azure Storage 데이터를 기록 하 고 Azure Log Analytics를 사용 하 여 분석 하려면 먼저 요청 유형과 데이터를 기록할 저장소 서비스를 나타내는 진단 설정을 만들어야 합니다. Azure Portal에서 진단 설정을 만들려면 다음 단계를 수행 합니다.
 
@@ -44,7 +44,7 @@ Azure Monitor를 사용 하 여 Azure Storage 데이터를 기록 하 고 Azure 
 1. Azure Portal의 스토리지 계정으로 이동합니다.
 1. 모니터링 섹션에서 **진단 설정 (미리 보기)** 을 선택 합니다.
 1. 요청을 기록 하려는 Azure Storage 서비스를 선택 합니다. 예를 들어 blob 저장소에 요청을 기록 하려면 **blob** 을 선택 합니다.
-1. **진단 설정 추가** 를 선택 합니다.
+1. **진단 설정 추가** 를 선택합니다.
 1. 진단 설정의 이름을 제공 합니다.
 1. **범주 세부 정보** 의 **로그** 섹션에서 로깅할 요청 형식을 선택 합니다. 읽기, 쓰기 및 삭제 요청을 기록할 수 있습니다. 예를 들어 **StorageRead** 및 **storagewrite** 를 선택 하면 선택한 서비스에 대 한 읽기 및 쓰기 요청이 기록 됩니다.
 1. **대상 세부 정보** 에서 **Log Analytics 보내기를** 선택 합니다. 다음 이미지와 같이 앞에서 만든 구독 및 Log Analytics 작업 영역을 선택 합니다.

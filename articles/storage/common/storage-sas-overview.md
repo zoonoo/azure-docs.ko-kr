@@ -10,16 +10,16 @@ ms.date: 11/20/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: cc3a2a1ee28ad3c1fdefad08c8ec133ad45cb408
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 118aaa368f48838a33d130d8dddc89bb8dce3f3e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435078"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498186"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여
 
-SAS (공유 액세스 서명)는 저장소 계정의 리소스에 대 한 안전한 위임 된 액세스를 제공 합니다. SAS를 사용 하면 클라이언트가 데이터에 액세스 하는 방법을 세부적으로 제어할 수 있습니다. 예를 들면 다음과 같습니다.
+SAS (공유 액세스 서명)는 저장소 계정의 리소스에 대 한 안전한 위임 된 액세스를 제공 합니다. SAS를 사용 하면 클라이언트가 데이터에 액세스 하는 방법을 세부적으로 제어할 수 있습니다. 다음은 그 예입니다. 
  
 - 클라이언트에서 액세스할 수 있는 리소스
 
@@ -191,7 +191,7 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 스토리�
 
 ### <a name="service-sas"></a>서비스 SAS
 
-- [.NET을 사용 하 여 컨테이너 또는 blob에 대 한 서비스 SAS 만들기](../blobs/storage-blob-service-sas-create-dotnet.md)
+- [.NET을 사용 하 여 컨테이너 또는 blob에 대 한 서비스 SAS 만들기](../blobs/sas-service-create.md)
 
 ### <a name="account-sas"></a>계정 SAS
 

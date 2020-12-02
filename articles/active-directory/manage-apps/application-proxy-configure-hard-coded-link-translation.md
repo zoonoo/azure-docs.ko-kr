@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ad45d5f0e313c06619fa9c998515e434de957ea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 08c4020fc03f89b2c583a2458c70e18ecbbe0ba1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997565"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498067"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시로 게시 된 앱에 대 한 하드 코드 된 링크 리디렉션
 
@@ -86,28 +86,28 @@ MyApps 브라우저 확장을 사용하여 애플리케이션 프록시로 게�
 - **상대 내부 링크** - `/claims/claims.html` 같은 로컬 파일 구조에서 공유 리소스를 가리킵니다. 이러한 링크는 애플리케이션 프록시를 통해 게시되는 앱에서 자동으로 작동하며 링크 변환과 관계없이 계속 작동합니다. 
 - 등의 다른 온-프레미스 앱에 대 한 **내부 링크** 또는 등의 `http://expenses` 게시 된 파일 `http://expenses/logo.jpg` 입니다. 링크 변환 기능은 하드 코드 된 내부 링크에서 작동 하며, 원격 사용자가 통과 해야 하는 외부 Url을 가리키도록 변경 합니다.
 
-응용 프로그램 프록시에서 링크 변환을 지 원하는 HTML 코드 태그의 전체 목록은 다음과 같습니다.
-* a
-* 오디오
-* base
-* 선택합니다.
-* div
-* embed
-* 양식
-* frame
-* head
-* html
-* iframe
-* img
-* input
-* link
-* menuitem
-* meta
-* 개체
-* 스크립트
-* source
-* track
-* 비디오
+응용 프로그램 프록시가에 대 한 링크 변환을 지 원하는 HTML 코드 태그의 전체 특성 목록은 다음과 같습니다.
+* a (href)
+* 오디오 (src)
+* base (href)
+* 단추 (formaction)
+* div (데이터-배경, 스타일, 데이터-src)
+* embed (src)
+* 양식 (동작)
+* 프레임 (src)
+* 헤드 (프로필)
+* html (매니페스트)
+* iframe (longdesc, src)
+* img (longdesc, src)
+* input (formaction, src, value)
+* link (href)
+* menuitem (아이콘)
+* meta (콘텐츠)
+* 개체 (archive, data, codebase)
+* 스크립트 (src)
+* 원본 (src)
+* 트랙 (src)
+* 비디오 (src, 포스터)
 
 또한 CSS 내에서 URL 특성도 변환 됩니다.
 

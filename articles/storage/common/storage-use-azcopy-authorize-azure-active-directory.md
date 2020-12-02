@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/03/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 89aab37b750a61bd21ba9af23875536a8cfbff4a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: b13b5e1e27e9717066ff8f1aa8e245e8d9f54bbb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414828"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498118"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>AzCopy 및 Azure Active Directory를 사용 하 여 blob에 대 한 액세스 권한 부여 (Azure AD)
 
@@ -42,7 +42,7 @@ AzCopy에 대 한 자세한 내용은 [AzCopy 시작을 시작](storage-use-azco
 - Resource group
 - Subscription
 
-역할을 확인 하 고 할당 하는 방법을 알아보려면 [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할 할당](./storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)을 참조 하세요.
+역할을 확인 하 고 할당 하는 방법을 알아보려면 [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할 할당](./storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조 하세요.
 
 > [!NOTE]
 > Azure 역할 할당을 전파 하는 데 최대 5 분이 걸릴 수 있다는 점에 유의 하세요.

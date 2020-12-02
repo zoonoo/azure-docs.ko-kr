@@ -2,66 +2,34 @@
 title: 배포 계획 - Azure Active Directory | Microsoft Docs
 description: 많은 Azure Active Directory 기능을 배포하는 방법에 대한 엔드투엔드 지침입니다.
 services: active-directory
-author: ajburnle
+author: BarbaraSelden
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
-ms.author: ajburnle
+ms.date: 12/01/2020
+ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2a7c2813919321227bfcdc4ee43ca15186b89df
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 069cf348bb6d0432d02a8350bc0847c2b155f90a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836821"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498084"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 배포 계획
 Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 찾으십니까? Azure AD 배포 계획은 일반적인 Azure AD 기능을 성공적으로 배포 하는 데 필요한 비즈니스 가치, 계획 고려 사항 및 운영 절차를 안내 합니다.
 
 계획 페이지에서 브라우저의 PDF 인쇄 기능을 사용 하 여 문서의 최신 오프 라인 버전을 만듭니다.
-## <a name="include-the-right-stakeholders"></a>올바른 관련자 포함
-
-새 기능에 대 한 배포 계획을 시작할 때 조직 전반에 주요 관련자를 포함 하는 것이 중요 합니다. 다음의 각 역할을 수행 하는 사람 또는 사람을 식별 하 고 문서화 하는 것이 좋습니다. 이러한 역할을 사용 하 여 프로젝트의 참여를 확인 하는 것이 좋습니다.  
-
-역할에는 다음이 포함 될 수 있습니다. 
-
-|역할 |설명 |
-|-|-|
-|최종 사용자|기능이 구현 될 사용자의 담당자 그룹입니다. 자주 파일럿 프로그램의 변경 내용을 미리 봅니다.
-|IT 지원 관리자|기술 지원팀 관점에서이 변경의 지원 가능성에 대 한 입력을 제공할 수 있는 조직 담당자를 지원 합니다.  
-|Id 설계자 또는 Azure 전역 관리자|Id 관리 팀 담당자는 조직의 핵심 id 관리 인프라에 이러한 변경을 적용 하는 방법을 정의 합니다.|
-|응용 프로그램 비즈니스 소유자 |영향을 받는 응용 프로그램의 전반적인 비즈니스 소유자입니다. 여기에는 액세스 관리 작업이 포함 될 수 있습니다.최종 사용자의 관점에서 이러한 변경의 사용자 환경 및 유용성에 대 한 입력을 제공할 수도 있습니다.
-|보안 소유자|보안 팀에서 조직의 보안 요구 사항을 충족 하는 계획을 받을 수 있는 담당자입니다.|
-|규정 준수 관리자|조직 내 사용자는 회사, 산업 또는 정부 요구 사항을 준수 하는지 확인 해야 합니다.|
-
-**참여 수준에는 다음이 포함 될 수 있습니다.**
-
-- 프로젝트 계획 및 결과 구현에 대 한 **R** esponsible 
-
-- **A** 프로젝트 계획 및 결과의 pproval 
-
-- 프로젝트 계획 및 결과에 대 한 **C** ontributor 
-
-- **I** 프로젝트 계획 및 결과의 형식입니다.
-
-
-## <a name="best-practices-for-a-pilot"></a>파일럿에 대 한 모범 사례
-파일럿을 통해 모든 사용자에 대 한 기능을 설정 하기 전에 작은 그룹으로 테스트할 수 있습니다. 테스트의 일부로 조직 내의 각 사용 사례가 철저 하 게 테스트 되었는지 확인 합니다. 조직 전체에 배포 하기 전에 특정 파일럿 사용자 그룹을 대상으로 지정 하는 것이 가장 좋습니다.
-
-첫 번째 wave에서 테스트 하 고 피드백을 제공할 수 있는 IT, 유용성 및 기타 적절 한 사용자를 대상으로 합니다. 이 피드백은 사용자에 게 보내는 통신 및 지침을 추가로 개발 하 고 지원 담당자가 볼 수 있는 문제 유형에 대 한 정보를 제공 하는 데 사용 됩니다. 
-
-더 큰 사용자 그룹에 대 한 롤아웃 확대는 대상 그룹의 범위를 늘려 수행 해야 합니다. [동적 그룹 멤버 자격](../enterprise-users/groups-dynamic-membership.md)을 통해 또는 대상 그룹에 사용자를 수동으로 추가 하 여이 작업을 수행할 수 있습니다.
 
 
 ## <a name="deploy-authentication"></a>인증 배포
 
 | 기능 | 설명|
 | -| -|
-| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| MFA (Azure AD Multi-Factor Authentication)는 Microsoft의 2 단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용 하는 경우 Azure AD MFA는 간단한 로그인 프로세스에 대 한 수요를 충족 하면서 데이터와 응용 프로그램에 대 한 액세스를 보호 하는 데 도움이 됩니다. |
+| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure AD MFA(Multi-Factor Authentication)는 Microsoft의 2단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용하는 Azure AD MFA는 간단한 로그인 프로세스에 대한 요구 사항을 충족하는 동시에 데이터와 애플리케이션에 대한 액세스를 보호합니다. |
 | [조건부 액세스](../conditional-access/plan-conditional-access.md)| 조건부 액세스를 사용하면 조건에 따라 클라우드 앱에 액세스할 수 있는 사용자를 결정하는 자동 액세스 제어 결정 시스템을 구현할 수 있습니다. |
 | [셀프 서비스 암호 재설정](../authentication/howto-sspr-deployment.md)| 셀프 서비스 암호 재설정 기능을 사용 하면 사용자가 관리자 개입 없이 암호를 다시 설정할 수 있습니다 (필요한 경우). |
 | [암호 없음](../authentication/howto-authentication-passwordless-deployment.md) | 조직에서 Microsoft Authenticator 앱 또는 FIDO2 보안 키를 사용 하 여 암호 없는 인증 구현 |
@@ -98,3 +66,36 @@ Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 
 | [Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)| Azure AD PIM(Privileged Identity Management)을 사용하면 Azure AD, Azure 리소스 및 기타 Microsoft 온라인 서비스 간에 권한 있는 관리자 역할을 관리할 수 있습니다. PIM은 권한 있는 역할의 악성 활동을 실시간으로 식별, 발견 및 방지할 수 있도록 Just-In-Time 액세스, 요청 승인 워크플로 및 완전히 통합된 액세스 검토와 같은 솔루션을 제공합니다. |
 | [보고 및 모니터링](../reports-monitoring/plan-monitoring-and-reporting.md)| Azure AD 보고 및 모니터링 솔루션의 디자인은 법적 요구 사항, 보안 및 운영 요구 사항 뿐만 아니라 기존 환경 및 프로세스에 따라 달라 집니다. 이 문서에서는 다양 한 디자인 옵션을 제공 하 고 올바른 배포 전략에 대 한 지침을 제공 합니다. |
 | [액세스 검토](../governance/deploy-access-reviews.md) | 액세스 검토는 거 버 넌 스 전략의 중요 한 부분으로, 액세스 권한이 있는 사용자 및 액세스 권한이 있는 사용자를 파악 하 고 관리할 수 있도록 합니다. 이 문서는 원하는 보안 및 공동 작업 postures을 얻기 위해 액세스 검토를 계획 하 고 배포 하는 데 도움이 됩니다. |
+
+## <a name="include-the-right-stakeholders"></a>올바른 관련자 포함
+
+새 기능에 대 한 배포 계획을 시작할 때 조직 전반에 주요 관련자를 포함 하는 것이 중요 합니다. 다음의 각 역할을 수행 하는 사람 또는 사람을 식별 하 고 문서화 하는 것이 좋습니다. 이러한 역할을 사용 하 여 프로젝트의 참여를 확인 하는 것이 좋습니다.  
+
+역할에는 다음이 포함 될 수 있습니다. 
+
+|역할 |설명 |
+|-|-|
+|최종 사용자|기능이 구현 될 사용자의 담당자 그룹입니다. 자주 파일럿 프로그램의 변경 내용을 미리 봅니다.
+|IT 지원 관리자|기술 지원팀 관점에서이 변경의 지원 가능성에 대 한 입력을 제공할 수 있는 조직 담당자를 지원 합니다.  
+|Id 설계자 또는 Azure 전역 관리자|Id 관리 팀 담당자는 조직의 핵심 id 관리 인프라에 이러한 변경을 적용 하는 방법을 정의 합니다.|
+|응용 프로그램 비즈니스 소유자 |영향을 받는 응용 프로그램의 전반적인 비즈니스 소유자입니다. 여기에는 액세스 관리 작업이 포함 될 수 있습니다.최종 사용자의 관점에서 이러한 변경의 사용자 환경 및 유용성에 대 한 입력을 제공할 수도 있습니다.
+|보안 소유자|보안 팀에서 조직의 보안 요구 사항을 충족 하는 계획을 받을 수 있는 담당자입니다.|
+|규정 준수 관리자|조직 내 사용자는 회사, 산업 또는 정부 요구 사항을 준수 하는지 확인 해야 합니다.|
+
+**참여 수준에는 다음이 포함 될 수 있습니다.**
+
+- 프로젝트 계획 및 결과 구현에 대 한 **R** esponsible 
+
+- **A** 프로젝트 계획 및 결과의 pproval 
+
+- 프로젝트 계획 및 결과에 대 한 **C** ontributor 
+
+- **I** 프로젝트 계획 및 결과의 형식입니다.
+
+
+## <a name="best-practices-for-a-pilot"></a>파일럿에 대 한 모범 사례
+파일럿을 통해 모든 사용자에 대 한 기능을 설정 하기 전에 작은 그룹으로 테스트할 수 있습니다. 테스트의 일부로 조직 내의 각 사용 사례가 철저 하 게 테스트 되었는지 확인 합니다. 조직 전체에 배포 하기 전에 특정 파일럿 사용자 그룹을 대상으로 지정 하는 것이 가장 좋습니다.
+
+첫 번째 wave에서 테스트 하 고 피드백을 제공할 수 있는 IT, 유용성 및 기타 적절 한 사용자를 대상으로 합니다. 이 피드백은 사용자에 게 보내는 통신 및 지침을 추가로 개발 하 고 지원 담당자가 볼 수 있는 문제 유형에 대 한 정보를 제공 하는 데 사용 됩니다. 
+
+더 큰 사용자 그룹에 대 한 롤아웃 확대는 대상 그룹의 범위를 늘려 수행 해야 합니다. [동적 그룹 멤버 자격](../enterprise-users/groups-dynamic-membership.md)을 통해 또는 대상 그룹에 사용자를 수동으로 추가 하 여이 작업을 수행할 수 있습니다.

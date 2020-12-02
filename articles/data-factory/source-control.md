@@ -4,19 +4,19 @@ description: Azure Data Factory에서 소스 제어를 구성하는 방법을 �
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 37982d1c28d445d40fa9d53a2a1eb076fbbf7f2f
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: d219ff8469c471a37deb47e0f217292d70e8f0f9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566710"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497115"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -96,7 +96,7 @@ Azure Repos Git 통합을 통한 시각적 작성은 데이터 팩터리 파이�
 
 구성 창에 다음 Azure Repos 코드 리포지토리 설정이 표시됩니다.
 
-| 설정 | Description | 값 |
+| 설정 | 설명 | 값 |
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다.<br/> | Azure DevOps Git 또는 GitHub |
 | **Azure Active Directory** | Azure AD 테넌트 이름입니다. | `<your tenant name>` |
