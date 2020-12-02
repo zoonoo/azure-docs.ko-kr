@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Unity iOS 앱 만들기'
 description: 이 빠른 시작에서는 Spatial Anchors를 사용하여 Unity 지원 iOS 앱을 빌드하는 방법을 알아봅니다.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 09/29/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 630e90069cd1b9735dbaec4c0d825be71df7e69c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: b278ac6c824b1583e90cfc9152264f61357dd228
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539350"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95971502"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Unity iOS 앱 만들기
 
@@ -56,19 +56,19 @@ ms.locfileid: "91539350"
 
 [!INCLUDE [Configure Xcode](../../../includes/spatial-anchors-unity-ios-xcode.md)]
 
-앱에서 화살표를 사용하여 **BasicDemo**를 선택한 다음, **Go!** 를 누릅니다. 데모를 실행하는 단추입니다. 지침에 따라 앵커를 배치하고 회수합니다.
+앱에서 화살표를 사용하여 **BasicDemo** 를 선택한 다음, **Go!** 를 누릅니다. 데모를 실행하는 단추입니다. 지침에 따라 앵커를 배치하고 회수합니다.
 
 ![스크린샷 1](./media/get-started-unity-ios/screenshot-1.jpg)
 ![스크린샷 2](./media/get-started-unity-ios/screenshot-2.jpg)
 ![스크린샷 3](./media/get-started-unity-ios/screenshot-3.jpg)
 
-완료되면 Xcode에서 **중지**를 눌러 앱을 중지합니다.
+완료되면 Xcode에서 **중지** 를 눌러 앱을 중지합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
 ### <a name="rendering-issues"></a>렌더링 문제
 
-앱 실행 시 백그라운드로 카메라가 보이지 않으면(대신 공백, 파랑 또는 기타 질감 등이 보이면) Unity에서 자산을 다시 가져와야 할 가능성이 높습니다. 앱을 중지합니다. Unity의 맨 위 메뉴에서 **자산 -> 모두 다시 가져오기**를 선택합니다. 그런 다음, 앱을 다시 실행합니다.
+앱 실행 시 백그라운드로 카메라가 보이지 않으면(대신 공백, 파랑 또는 기타 질감 등이 보이면) Unity에서 자산을 다시 가져와야 할 가능성이 높습니다. 앱을 중지합니다. Unity의 맨 위 메뉴에서 **자산 -> 모두 다시 가져오기** 를 선택합니다. 그런 다음, 앱을 다시 실행합니다.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

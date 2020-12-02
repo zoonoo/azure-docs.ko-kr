@@ -8,11 +8,11 @@ ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, 기계 학습
 ms.openlocfilehash: f843e7bfa014ad8391e20efff83a3c21a9de11b9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363904"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171962"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?
 
@@ -29,7 +29,7 @@ Azure Personalizer는 애플리케이션에서 사용자를 표시하는 데 가
 
 ## <a name="how-does-personalizer-select-the-best-content-item"></a>Personalizer에서 가장 적합한 콘텐츠 항목을 어떻게 선택하나요?
 
-Personalizer는 **보충 학습** 을 사용하여 모든 사용자의 집합적 동작 및 보상 점수에 따라 가장 적합한 항목( _작업_ )을 선택합니다. 작업은 뉴스 기사, 특정 영화 또는 제품과 같은 콘텐츠 항목입니다.
+Personalizer는 **보충 학습** 을 사용하여 모든 사용자의 집합적 동작 및 보상 점수에 따라 가장 적합한 항목(_작업_)을 선택합니다. 작업은 뉴스 기사, 특정 영화 또는 제품과 같은 콘텐츠 항목입니다.
 
 **순위** 호출에서는 작업 기능과 함께 작업 항목 및 컨텍스트 기능을 사용하여 상위 작업 항목을 선택합니다.
 
@@ -66,7 +66,7 @@ Personalizer의 **보상** [API](https://westus2.dev.cognitive.microsoft.com/doc
 콘텐츠가 다음과 같은 경우 Personalizer를 사용합니다.
 
 * 선택할 수 있는 항목 세트가 제한되어 있습니다(최대 50개 항목). 더 큰 목록이 있는 경우 [추천 엔진을 사용](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution)하여 목록을 50개 항목으로 줄입니다.
-* 순위를 지정하려는 콘텐츠를 설명하는 정보( _기능이 포함된 작업_ 및  _컨텍스트 기능_ )가 있습니다.
+* 순위를 지정하려는 콘텐츠를 설명하는 정보(_기능이 포함된 작업_ 및  _컨텍스트 기능_)가 있습니다.
 * Personalizer가 효과적일 수 있도록 최소 1k/일의 콘텐츠 관련 이벤트가 있습니다. Personalizer가 필요한 최소 트래픽을 받지 못하는 경우 서비스에서 가장 적합한 단일 콘텐츠 항목을 결정하는 데 시간이 더 오래 걸립니다.
 
 Personalizer는 그룹 정보를 거의 실시간으로 사용하여 가장 적합한 단일 콘텐츠 항목을 반환하므로 서비스에서 수행하지 않는 작업은 다음과 같습니다.
