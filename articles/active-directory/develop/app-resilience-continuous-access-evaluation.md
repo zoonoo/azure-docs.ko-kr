@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: cf5a7a5902484536d0cf2a1844be469f29e15f4b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 86c379316737b7718b62165a6feb93ca3a0e9954
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348469"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484042"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>응용 프로그램에서 지속적인 액세스 평가를 사용 하도록 설정 된 Api를 사용 하는 방법
 
@@ -27,15 +27,15 @@ CAE ( [연속 액세스 평가](../conditional-access/concept-continuous-access-
 
 ## <a name="implementation-considerations"></a>구현 고려 사항
 
-연속 액세스 평가를 사용 하려면 앱 및 액세스 하는 리소스 API 모두 CAE를 사용 하도록 설정 해야 합니다. 그러나 CAE 사용 리소스를 사용 하도록 코드를 준비 해도 CAE 사용 되지 않는 Api를 사용 하는 것은 차단 되지 않습니다. 
+연속 액세스 평가를 사용 하려면 앱 및 액세스 하는 리소스 API 모두 CAE를 사용 하도록 설정 해야 합니다. 그러나 CAE 사용 리소스를 사용 하도록 코드를 준비 해도 CAE 사용 되지 않는 Api를 사용 하는 것은 차단 되지 않습니다.
 
-리소스 API가 CAE을 구현 하 고 응용 프로그램에서 CAE를 처리할 수 있도록 선언 하는 경우 앱은 해당 리소스에 대 한 CAE 토큰을 가져옵니다. 이러한 이유로 CAE ready 앱을 선언 하는 경우 응용 프로그램은 Microsoft Id 액세스 토큰을 수락 하는 모든 리소스 Api에 대 한 CAE 클레임 챌린지를 처리 해야 합니다. 이러한 API 호출에서 CAE 응답을 처리 하지 않는 경우 앱은 여전히 토큰의 반환 된 수명 동안 토큰을 사용 하 여 API 호출을 다시 시도 하지만 CAE로 인해 해지 된 루프에서 종료 될 수 있습니다. 
+리소스 API가 CAE을 구현 하 고 응용 프로그램에서 CAE를 처리할 수 있도록 선언 하는 경우 앱은 해당 리소스에 대 한 CAE 토큰을 가져옵니다. 이러한 이유로 CAE ready 앱을 선언 하는 경우 응용 프로그램은 Microsoft Id 액세스 토큰을 수락 하는 모든 리소스 Api에 대 한 CAE 클레임 챌린지를 처리 해야 합니다. 이러한 API 호출에서 CAE 응답을 처리 하지 않는 경우 앱은 여전히 토큰의 반환 된 수명 동안 토큰을 사용 하 여 API 호출을 다시 시도 하지만 CAE로 인해 해지 된 루프에서 종료 될 수 있습니다.
 
 ## <a name="the-code"></a>코드
 
 첫 번째 단계는 CAE로 인해 호출을 거부 하는 리소스 API의 응답을 처리 하는 코드를 추가 하는 것입니다. CAE를 사용 하는 경우 Api는 액세스 토큰이 해지 되었거나 API에서 사용 되는 IP 주소 변경을 감지한 경우 401 상태 및 WWW-Authenticate 헤더를 반환 합니다. WWW-Authenticate 헤더는 응용 프로그램이 새 액세스 토큰을 획득 하는 데 사용할 수 있는 클레임 챌린지를 포함 합니다.
 
-예:
+다음은 그 예입니다. 
 
 ```console
 HTTP 401; Unauthorized
@@ -116,4 +116,4 @@ _clientApp = PublicClientApplicationBuilder.Create(App.ClientId)
 
 ## <a name="next-steps"></a>다음 단계
 
-자세히 알아보려면 [연속 액세스 평가](/conditional-access/concept-continuous-access-evaluation.md)를 참조 하세요.
+자세히 알아보려면 [연속 액세스 평가](../conditional-access/concept-continuous-access-evaluation.md)를 참조 하세요.

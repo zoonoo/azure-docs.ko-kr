@@ -3,12 +3,12 @@ title: Azure Migrate를 사용 하 여 온-프레미스 서버에서 앱, 역할
 description: Azure Migrate Server 평가를 사용 하 여 온-프레미스 서버에서 앱, 역할 및 기능을 검색 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 960877ac4eab4d8f23b5616dc04628142964b46a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315205"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483456"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>컴퓨터 앱, 역할 및 기능 검색
 
@@ -23,7 +23,7 @@ ms.locfileid: "92315205"
 ## <a name="before-you-start"></a>시작하기 전에
 
 - 다음 사항을 확인하세요.
-    - Azure Migrate 프로젝트를 [만들었습니다](how-to-add-tool-first-time.md) .
+    - Azure Migrate 프로젝트를 [만들었습니다](./create-manage-projects.md) .
     - Azure Migrate: 서버 평가 도구가 프로젝트에 [추가 되었습니다](how-to-assess.md) .
 - [앱 검색 지원 및 요구 사항을](migrate-support-matrix-vmware.md#vmware-requirements)검토 합니다.
 - 앱 검색을 실행 하는 Vm에 PowerShell 버전 2.0 이상이 설치 되어 있고 VMware 도구 (10.2.0 이상)가 설치 되어 있는지 확인 합니다.
@@ -46,7 +46,7 @@ ms.locfileid: "92315205"
 
 ## <a name="verify-permissions"></a>권한 확인
 
-검색 및 평가를 위해 [vCenter Server 읽기 전용 계정을 만들었습니다](./tutorial-discover-vmware.md#prepare-vmware) . **Virtual Machines**  >  앱 검색용 VM과 상호 작용 하기 위해 읽기 전용 계정에는 Virtual Machines**게스트 작업**에 대해 사용 하도록 설정 된 권한이 있어야 합니다.
+검색 및 평가를 위해 [vCenter Server 읽기 전용 계정을 만들었습니다](./tutorial-discover-vmware.md#prepare-vmware) . **Virtual Machines**  >  앱 검색용 VM과 상호 작용 하기 위해 읽기 전용 계정에는 Virtual Machines **게스트 작업** 에 대해 사용 하도록 설정 된 권한이 있어야 합니다.
 
 ### <a name="add-the-user-account-to-the-appliance"></a>사용자 계정을 어플라이언스에 추가 합니다.
 
@@ -54,10 +54,10 @@ ms.locfileid: "92315205"
 
 1. 어플라이언스 관리 앱을 엽니다. 
 2. **VCenter 세부 정보 제공** 패널로 이동 합니다.
-3. **검색 응용 프로그램 및 vm에 대 한 종속성**에서 **자격 증명 추가** 를 클릭 합니다.
-3. **운영 체제**를 선택 하 고 계정의 이름을 입력 하 고 **사용자 이름** / **암호** 를 입력 합니다.
-6. **저장**을 클릭합니다.
-7. **저장 및 검색 시작을**클릭 합니다.
+3. **검색 응용 프로그램 및 vm에 대 한 종속성** 에서 **자격 증명 추가** 를 클릭 합니다.
+3. **운영 체제** 를 선택 하 고 계정의 이름을 입력 하 고 **사용자 이름** / **암호** 를 입력 합니다.
+6. **저장** 을 클릭합니다.
+7. **저장 및 검색 시작을** 클릭 합니다.
 
     ![VM 사용자 계정 추가](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
 
@@ -66,14 +66,14 @@ ms.locfileid: "92315205"
 
 검색이 종료 된 후 앱 검색을 위한 자격 증명을 제공한 경우 Azure Portal에서 앱 인벤토리를 검토 하 고 내보낼 수 있습니다.
 
-1. **Azure Migrate 서버**  >  **Azure Migrate: 서버 평가**에서 표시 된 수를 클릭 하 여 검색 된 **서버** 페이지를 엽니다.
+1. **Azure Migrate 서버**  >  **Azure Migrate: 서버 평가** 에서 표시 된 수를 클릭 하 여 검색 된 **서버** 페이지를 엽니다.
 
     > [!NOTE]
     > 또한이 단계에서는 검색 된 컴퓨터에 대 한 종속성 분석을 선택적으로 설정 하 여 평가 하려는 컴퓨터에서 종속성을 시각화할 수 있습니다. 종속성 분석에 [대해 자세히 알아보세요](concepts-dependency-visualization.md) .
 
-2. **검색 된 응용 프로그램**에서 표시 된 수를 클릭 합니다.
-3. **응용 프로그램 인벤토리에서**검색 된 앱, 역할 및 기능을 검토할 수 있습니다.
-4. 인벤토리를 내보내려면 **검색 된 서버**에서 **앱 인벤토리 내보내기**를 클릭 합니다.
+2. **검색 된 응용 프로그램** 에서 표시 된 수를 클릭 합니다.
+3. **응용 프로그램 인벤토리에서** 검색 된 앱, 역할 및 기능을 검토할 수 있습니다.
+4. 인벤토리를 내보내려면 **검색 된 서버** 에서 **앱 인벤토리 내보내기** 를 클릭 합니다.
 
 앱 인벤토리는 Excel 형식으로 내보내고 다운로드 됩니다. **응용 프로그램 인벤토리** 시트에는 모든 컴퓨터에서 검색 된 모든 앱이 표시 됩니다.
 

@@ -3,12 +3,12 @@ title: Azure Migrate Server 평가에서 에이전트 기반 종속성 분석 �
 description: 이 문서에서는 Azure Migrate Server 평가에서 에이전트 기반 종속성 분석을 설정 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 58c1aeea00ae033def0f45d220c12d13cc28b4b2
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 1ab5d639d68b5ce2298f907ef8346488e16b4020
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302851"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483473"
 ---
 # <a name="set-up-dependency-visualization"></a>종속성 시각화 설정
 
@@ -21,7 +21,7 @@ ms.locfileid: "96302851"
     - [물리적 서버](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
     - [Hyper-v vm](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
 - 다음을 확인합니다.
-    - Azure Migrate 프로젝트가 있어야 합니다. 그렇지 않은 경우 지금 [만듭니다](how-to-add-tool-first-time.md) .
+    - Azure Migrate 프로젝트가 있어야 합니다. 그렇지 않은 경우 지금 [만듭니다](./create-manage-projects.md) .
     - Azure Migrate: 서버 평가 도구를 프로젝트에 [추가](how-to-assess.md) 했는지 확인 합니다.
     - 온-프레미스 컴퓨터를 검색 하도록 [Azure Migrate 어플라이언스](migrate-appliance.md) 를 설정 합니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다. 어플라이언스 설정:
         - [VMware](how-to-set-up-appliance-vmware.md) Vm.
@@ -147,7 +147,7 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure
 Azure Migrate 프로젝트와 연결 된 Log Analytics 작업 영역에서 서비스 맵 하 여 캡처한 종속성 데이터를 쿼리할 수 있습니다. Log Analytics은 Azure Monitor 로그 쿼리를 작성 하 고 실행 하는 데 사용 됩니다.
 
 - Log Analytics에서 서비스 맵 데이터를 검색 하 [는 방법을 알아봅니다](../azure-monitor/insights/service-map.md#log-analytics-records) .
-- [Log Analytics](../azure-monitor/log-query/get-started-portal.md)에서 로그 쿼리를 작성 하는 방법에 대 한 [개요를](../azure-monitor/log-query/get-started-queries.md) 확인 하세요.
+- [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)에서 로그 쿼리를 작성 하는 방법에 대 한 [개요를](../azure-monitor/log-query/get-started-queries.md) 확인 하세요.
 
 다음과 같이 종속성 데이터에 대 한 쿼리를 실행 합니다.
 

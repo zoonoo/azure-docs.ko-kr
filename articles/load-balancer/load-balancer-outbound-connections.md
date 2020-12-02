@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 5a2d7f9f60253916eae808a7f65bc4b4b289bd67
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3f4791c5cbcf731e118bac4bf692adcad7e9ff44
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694783"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483592"
 ---
 # <a name="using-snat-for-outbound-connections"></a>아웃 바운드 연결에 SNAT 사용
 
@@ -66,7 +66,7 @@ SNAT 백 엔드 인스턴스의 **IP** 를 가장 하는 것을 가능 하 게 �
  | 공용 부하 분산 장치 또는 독립 실행형 | [SNAT (원본 네트워크 주소 변환)](#snat) </br> 사용되지 않습니다. | TCP (전송 제어 프로토콜) </br> UDP (사용자 데이터 그램 프로토콜) </br> ICMP (Internet Control Message Protocol) </br> ESP (보안 페이로드 캡슐화) |
 
 
- #### <a name="description"></a>Description
+ #### <a name="description"></a>설명
 
 
  Azure는 모든 아웃 바운드 흐름에 대해 인스턴스의 NIC IP 구성에 할당 된 공용 IP를 사용 합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. VM이 부하 분산 되었는지 여부는 중요 하지 않습니다. 이 시나리오는 다른 시나리오에 우선합니다. 
@@ -83,7 +83,7 @@ SNAT 백 엔드 인스턴스의 **IP** 를 가장 하는 것을 가능 하 게 �
  | 공용 부하 분산 장치 | [SNAT](#snat)에 대 한 부하 분산 장치 프런트 엔드 ip 사용.| TCP </br> UDP |
 
 
- #### <a name="description"></a>Description
+ #### <a name="description"></a>설명
 
 
  부하 분산 장치 리소스는 아웃 바운드 규칙 또는 기본 SNAT를 사용 하는 부하 분산 규칙을 사용 하 여 구성 됩니다. 이 규칙은 백 엔드 풀을 사용 하 여 공용 IP 프런트 엔드 간에 링크를 만드는 데 사용 됩니다. 
@@ -111,7 +111,7 @@ SNAT 백 엔드 인스턴스의 **IP** 를 가장 하는 것을 가능 하 게 �
  | ------------ | ------ | ------------ |
  |없음 </br> 기본 부하 분산 장치 | 인스턴스 수준 동적 IP 주소를 사용 하는 [SNAT](#snat)| TCP </br> UDP | 
 
- #### <a name="description"></a>Description
+ #### <a name="description"></a>설명
 
 
  VM이 아웃 바운드 흐름을 만들 때 Azure는 원본 IP 주소를 동적으로 할당 된 공용 원본 IP 주소로 변환 합니다. 이 공용 IP 주소는 **구성할** 수 없으며 예약할 수 없습니다. 이 주소는 구독의 공용 IP 리소스 제한에 대해 계산 되지 않습니다. 
@@ -182,8 +182,6 @@ Azure Virtual Network NAT에 대 한 자세한 내용은 [azure VIRTUAL NETWORK 
 
 ## <a name="constraints"></a>제약 조건
 
-*   **TCP RST** 을 받거나 보낼 때 15 초 후에 포트가 해제 됩니다.
-*   **Finack** 를 받거나 보내는 경우 240 초 후에 포트가 해제 됩니다.
 *   새 패킷이 전송 되지 않고 연결이 유휴 상태 이면 4 ~ 120 분 후에 포트가 해제 됩니다.
   * 이 임계값은 아웃 바운드 규칙을 통해 구성할 수 있습니다.
 *   각 IP 주소는 SNAT에 사용할 수 있는 64000 포트를 제공 합니다.

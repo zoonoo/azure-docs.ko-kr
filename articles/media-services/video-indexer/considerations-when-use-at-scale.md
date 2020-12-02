@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: juliako
-ms.openlocfilehash: 7d5108d2c155c7e21f2f94f532bd1aa0a96c5b3f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: b955c0f494b757fd29c400194ef8b11314a89a03
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "96020543"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483613"
 ---
 # <a name="things-to-consider-when-using-video-indexer-at-scale"></a>규모에 Video Indexer을 사용할 때 고려해 야 할 사항
 
@@ -50,7 +50,7 @@ URL을 사용 하 여 비디오를 업로드 하는 경우 미디어 파일의 �
 > [!TIP]
 > `videoUrl`VIDEO API 업로드의 선택적 매개 변수를 사용 합니다.
 
-URL을 사용 하 여 비디오를 업로드 하는 방법의 예제를 보려면 [다음 예제](upload-index-videos.md#code-sample)를 확인 하세요. 또는 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)을 사용 하 여 Video Indexer에 전송할 수 있는 저장소 계정에 콘텐츠를 가져오는 빠르고 안정적인 방법으로 [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) 를 사용할 수 있습니다.
+URL을 사용 하 여 비디오를 업로드 하는 방법의 예제를 보려면 [다음 예제](upload-index-videos.md#code-sample)를 확인 하세요. 또는 [SAS URL](../../storage/common/storage-sas-overview.md)을 사용 하 여 Video Indexer에 전송할 수 있는 저장소 계정에 콘텐츠를 가져오는 빠르고 안정적인 방법으로 [AzCopy](../../storage/common/storage-use-azcopy-v10.md) 를 사용할 수 있습니다.
 
 ## <a name="increase-media-reserved-units-if-needed"></a>필요한 경우 미디어 예약 단위 늘리기
 

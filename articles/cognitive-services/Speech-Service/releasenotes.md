@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: e786c4caae13ffaa541697d083158e17d42383fb
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: c6cc033e4814553020957310224a8ed4cdacbc8e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122562"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483957"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
@@ -40,14 +40,13 @@ ms.locfileid: "96122562"
 
 **새로운 기능**
 - **Linux**: Debian 10 및 Ubuntu 20.04 lts에 대 한 지원이 추가 되었습니다.
-- **Python/목표-C**: API에 대 한 지원이 추가 되었습니다 `KeywordRecognizer` . 설명서는 [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics)에 있습니다.
+- **Python/목표-C**: API에 대 한 지원이 추가 되었습니다 `KeywordRecognizer` . 설명서는 [여기](./custom-keyword-basics.md)에 있습니다.
 - **C + +/Java/C #**:를 `HttpHeader` 통해 키/값을 설정 하는 지원이 추가 되었습니다 `ServicePropertyChannel::HttpHeader` .
-- **JavaScript**: API에 대 한 지원이 추가 되었습니다 `ConversationTranscriber` . [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript)에서 설명서를 참조 하세요. 
-- **C + +/c #**: 새 `AudioDataStream FromWavFileInput` 메서드 (읽기)를 추가 했습니다. WAV 파일) [여기 (c + +)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) 및 [여기 (c #)](
-https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet)를 참조 하세요.
--  **C + +/c #/Java/Python/Objective-C/Swift**: `stopSpeakingAsync()` 텍스트-음성 합성을 중지 하는 메서드를 추가 했습니다. 여기 [(c](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet) [+ +)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), 여기 ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech), 여기 ( [Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python), 여기 ( [목적-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/)에서 참조 설명서를 읽으십시오.
-- **C #, c + +, Java**: `FromDialogServiceConnector()` `Connection` 에 대 한 연결 및 연결 끊기 이벤트를 모니터링 하는 데 사용할 수 있는 함수를 클래스에 추가 했습니다 `DialogServiceConnector` . 여기 ( [c #)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), 여기 ( [c + +)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection), 여기 ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection)에서 참조 설명서를 읽으십시오.
-- **C + +/c #/Java/Python/Objective-C/Swift**: 음성 발음을 평가 하 고 음성 오디오의 정확도와 능숙에 대 한 발표자 피드백을 제공 하는 발음 평가에 대 한 지원이 추가 되었습니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment)에서 설명서를 참조 하세요.
+- **JavaScript**: API에 대 한 지원이 추가 되었습니다 `ConversationTranscriber` . [여기](./how-to-use-conversation-transcription.md?pivots=programming-language-javascript)에서 설명서를 참조 하세요. 
+- **C + +/c #**: 새 `AudioDataStream FromWavFileInput` 메서드 (읽기)를 추가 했습니다. WAV 파일) [여기 (c + +)](/cpp/cognitive-services/speech/audiodatastream) 및 [여기 (c #)](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet)를 참조 하세요.
+-  **C + +/c #/Java/Python/Objective-C/Swift**: `stopSpeakingAsync()` 텍스트-음성 합성을 중지 하는 메서드를 추가 했습니다. 여기 [(c](/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet) [+ +)](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), 여기 ( [Java)](/java/api/com.microsoft.cognitiveservices.speech), 여기 ( [Python)](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python), 여기 ( [목적-C/Swift)](/objectivec/cognitive-services/speech/)에서 참조 설명서를 읽으십시오.
+- **C #, c + +, Java**: `FromDialogServiceConnector()` `Connection` 에 대 한 연결 및 연결 끊기 이벤트를 모니터링 하는 데 사용할 수 있는 함수를 클래스에 추가 했습니다 `DialogServiceConnector` . 여기 ( [c #)](/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), 여기 ( [c + +)](/cpp/cognitive-services/speech/connection), 여기 ( [Java)](/java/api/com.microsoft.cognitiveservices.speech.connection)에서 참조 설명서를 읽으십시오.
+- **C + +/c #/Java/Python/Objective-C/Swift**: 음성 발음을 평가 하 고 음성 오디오의 정확도와 능숙에 대 한 발표자 피드백을 제공 하는 발음 평가에 대 한 지원이 추가 되었습니다. [여기](how-to-pronunciation-assessment.md)에서 설명서를 참조 하세요.
 
 **주요 변경 내용**
 - **JavaScript**: PullAudioOutputStream ()에는 내부 약속에서 네이티브 JavaScript 약속으로의 반환 형식 변경 내용이 있습니다.
@@ -83,7 +82,7 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 정상 상태를 유지 하세요.
 
 ## <a name="speech-cli-also-known-as-spx-2020-october-release"></a>Speech CLI (SPX 라고도 함): 2020-10 월 릴리스
-SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명령줄 인터페이스입니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics)에서 최신 버전을 다운로드 하세요. <br>
+SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명령줄 인터페이스입니다. [여기](./spx-basics.md)에서 최신 버전을 다운로드 하세요. <br>
 
 **새로운 기능**
 - `spx csr dataset upload --kind audio|language|acoustic` – Url 뿐만 아니라 로컬 데이터에서 데이터 집합을 만듭니다.
@@ -156,12 +155,12 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 | 로캘  | 언어                          |
 |---------|-----------------------------------|
-| `cs-CZ` | 체코어(체코)            | 
+| `cs-CZ` | 체코어(체코 공화국)            | 
 | `en-HK` | 영어 (홍콩)               | 
 | `en-IE` | 영어(아일랜드)                 | 
 | `en-PH` | 영어(필리핀)             | 
 | `en-SG` | 영어(싱가포르)               | 
-| `en-ZA` | 영어(남아프리카)            | 
+| `en-ZA` | 영어(남아프리카 공화국)            | 
 | `es-AR` | 스페인어(아르헨티나)               | 
 | `es-BO` | 스페인어(볼리비아)                 | 
 | `es-CL` | 스페인어(칠레)                   | 

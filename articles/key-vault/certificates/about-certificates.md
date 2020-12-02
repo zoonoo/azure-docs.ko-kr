@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 45c0108ed87dd5264b9192f5dd69e0198bd59fc1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 66f077028b9f9f7a7644a318d4447eeaaab19e98
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289786"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919933"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Azure Key Vault 인증서 정보
 
@@ -44,8 +44,17 @@ Key Vault 인증서가 만들어지면 PFX 또는 PEM 형식의 프라이빗 키
 
 주소 지정이 가능한 키는 내보낼 수 없는 KV 인증서와 더 관련이 있습니다. 주소 지정 가능한 KV 키의 작업은 KV 인증서를 만드는 데 사용되는 KV 인증서 정책의 *keyusage* 필드에서 매핑됩니다.  
 
+인증서에 대해 지원되는 키 쌍 유형
+
  - 지원되는 키 유형: RSA, RSA-HSM, EC, EC-HSM, oct([여기](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)에 나열됨) Exportable은 RSA, EC에서만 사용할 수 있습니다. HSM 키는 내보낼 수 없습니다.
 
+|키 유형|정보|보안|
+|--|--|--|
+|**RSA**| "소프트웨어 보호" RSA 키|FIPS 140-2 수준 1|
+|**RSA-HSM**| "HSM 보호" RSA 키(프리미엄 SKU에만 해당)|FIPS 140-2 수준 2 HSM|
+|**EC**| "소프트웨어 보호" 타원 곡선 키|FIPS 140-2 수준 1|
+|**EC-HSM**| "HSM 보호" 타원 곡선 키(프리미엄 SKU에만 해당)|FIPS 140-2 수준 2 HSM|
+|||
 
 ## <a name="certificate-attributes-and-tags"></a>인증서 특성 및 태그
 
@@ -57,14 +66,14 @@ Key Vault 인증서에는 인증서 메타데이터, 주소 지정 가능한 키
 
 Key Vault 인증서에 포함되는 특성은 다음과 같습니다.  
 
--   *enabled* : 부울, 선택 사항, 기본값은 **true** 입니다. 인증서 데이터를 비밀로 검색할 수 있는지 또는 키로 작동할 수 있는지 여부를 나타내기 위해 지정할 수 있습니다. 또한 *nbf* 과 *exp* 사이에 작업이 발생할 때 *nbf* 및 *exp* 와 함께 사용되며, enabled가 true로 설정된 경우에만 허용됩니다. *nbf* 및 *exp* 시간 범위에 속하지 않은 작업은 자동으로 허용되지 않습니다.  
+-   *enabled*: 부울, 선택 사항, 기본값은 **true** 입니다. 인증서 데이터를 비밀로 검색할 수 있는지 또는 키로 작동할 수 있는지 여부를 나타내기 위해 지정할 수 있습니다. 또한 *nbf* 과 *exp* 사이에 작업이 발생할 때 *nbf* 및 *exp* 와 함께 사용되며, enabled가 true로 설정된 경우에만 허용됩니다. *nbf* 및 *exp* 시간 범위에 속하지 않은 작업은 자동으로 허용되지 않습니다.  
 
 응답에 포함되는 추가 읽기 전용 특성은 다음과 같습니다.
 
--   *created* : IntDate: 이 버전의 인증서를 만든 시점을 나타냅니다.  
--   *updated* : IntDate: 이 버전의 인증서를 업데이트한 시점을 나타냅니다.  
--   *exp* : IntDate: x509 인증서의 만료 날짜 값을 포함합니다.  
--   *nbf* : IntDate: x509 인증서의 날짜 값을 포함합니다.  
+-   *created*: IntDate: 이 버전의 인증서를 만든 시점을 나타냅니다.  
+-   *updated*: IntDate: 이 버전의 인증서를 업데이트한 시점을 나타냅니다.  
+-   *exp*: IntDate: x509 인증서의 만료 날짜 값을 포함합니다.  
+-   *nbf*: IntDate: x509 인증서의 날짜 값을 포함합니다.  
 
 > [!Note] 
 > Key Vault 인증서가 만료되면 주소 지정 가능한 해당 키와 비밀이 작동하지 않게 됩니다.  

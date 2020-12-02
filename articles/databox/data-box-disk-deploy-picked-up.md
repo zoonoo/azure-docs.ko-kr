@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/03/2020
+ms.date: 11/20/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 0aace1041eba771a26bed4c85361ea2551c71ba6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f1d667f55a8be1b701fda6240895dd8f96315cff
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659423"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94986320"
 ---
 ::: zone target="docs"
 
@@ -164,23 +164,28 @@ ms.locfileid: "94659423"
 
 2. 배송 상자를 봉인하고 반송 포장용 레이블이 식별 가능한지 확인합니다.
 
-3. DHL로 픽업을 예약하려면 다음을 수행합니다.
+3. Azure Data Box 작업에서 반환 코드를 요청합니다. 패키지를 데이터 센터로 다시 전달하려면 반환 코드가 필요합니다. [adbops@microsoft.com](mailto:adbops@microsoft.com)에 이메일을 보냅니다. 반환 주소 옆에 있는 배송 레이블에 이 코드를 명확하게 표시합니다.
 
-    * 고객 서비스 센터 +27(0) 11 9213600으로 전화하여 옵션 1을 선택하고 화물 운송장 번호를 지정합니다.
-    * 픽업을 예약하려면 남아프리카 표준시(ZA) 오후 2시 전에 전화해야 합니다.  
-    * 다음 이메일 템플릿을 사용하여 픽업을 구성하려면 [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com)에 이메일을 보냅니다.
+4. 다음 방법 중 하나를 사용하여 DHL로 픽업을 예약합니다.
+   * [DHL Express 남아프리카, **픽업예약**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference)으로 이동하여 온라인으로 픽업을 예약합니다.
+   * 다음 템플릿을 사용하여 [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com)에 이메일을 보냅니다.
 
-    ```output
-    To: Priority.Support@dhl.com
-    Subject:Pickup request for Microsoft Azure
-    Body:  Need pick up for the below shipment
-    *  DHL tracking number (reference number/waybill number)
-    *  Requested pickup date：yyyy/mm/dd; time: HH MM
-    ```
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
 
-    * 또는 가장 가까운 DHL 서비스 지점에서 패키지를 삭제할 수 있습니다.
+    * 또는 가장 가까운 DHL 서비스 지점에서 패키지를 삭제합니다.
 
-4. 문제가 발생하는 경우 발생한 문제에 대한 세부 정보가 포함된 [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) 이메일을 보내고 화물 운송장 번호를 제목: 줄에 입력합니다. +27(0)119213902로 전화할 수도 있습니다.
+5. 문제가 발생하는 경우 발생한 문제에 대한 세부 정보가 포함된 [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) 이메일을 보내고 화물 운송장 번호를 제목: 줄에 입력합니다. +27(0)119213902로 전화할 수도 있습니다.
 
 ### <a name="china"></a>[중국](#tab/in-china)
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8eaadc031039b22e209db1023c65da39e1e096b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782232"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483286"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Azure Storage 암호화를 위한 고객 관리 키
 
@@ -113,10 +113,10 @@ Azure storage 암호화는 2048, 3072 및 4096 크기의 RSA 및 RSA HSM 키를 
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Azure managed disks에 대 한 고객 관리 키
 
-고객 관리 키를 사용 하 여 Azure managed disks의 암호화를 관리할 수도 있습니다. 고객 관리 키는 Azure Storage 리소스 보다는 관리 디스크에서 다르게 작동 합니다. 자세한 내용은 Windows 용 [azure managed disks의 서버 쪽 암호화](../../virtual-machines/windows/disk-encryption.md) 또는 Linux 용 [azure Managed disks의 서버 쪽 암호화](../../virtual-machines/linux/disk-encryption.md) 를 참조 하세요.
+고객 관리 키를 사용 하 여 Azure managed disks의 암호화를 관리할 수도 있습니다. 고객 관리 키는 Azure Storage 리소스 보다는 관리 디스크에서 다르게 작동 합니다. 자세한 내용은 Windows 용 [azure managed disks의 서버 쪽 암호화](../../virtual-machines/disk-encryption.md) 또는 Linux 용 [azure Managed disks의 서버 쪽 암호화](../../virtual-machines/disk-encryption.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [미사용 데이터에 대한 Azure Storage 암호화](storage-service-encryption.md)
-- [Azure Key Vault에 저장 된 고객 관리 키를 사용 하 여 암호화 구성](customer-managed-keys-configure-key-vault.md)
+- [Azure Key Vault에 저장된 고객 관리형 키를 사용하여 암호화 구성](customer-managed-keys-configure-key-vault.md)
 - [Azure Key Vault 관리 HSM에 저장 된 고객 관리 키를 사용 하 여 암호화 구성 (미리 보기)](customer-managed-keys-configure-key-vault-hsm.md)

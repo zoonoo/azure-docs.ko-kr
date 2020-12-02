@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: da046fd633120944231ee440605367bdb730cbff
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 450d471beebbcc554a6d534fb2d5361778f158bc
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543224"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992321"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>데이터 레이블 지정 프로젝트 만들기 및 레이블 내보내기 
 
@@ -250,7 +250,7 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 
 ## <a name="export-the-labels"></a>레이블 내보내기
 
-레이블 데이터는 Machine Learning 실험을 위해 언제든지 내보낼 수 있습니다. 이미지 레이블은 [COCO 형식](http://cocodataset.org/#format-data) 또는 Azure Machine Learning 데이터 세트로 내보낼 수 있습니다. 레이블 지정 프로젝트의 **프로젝트 세부 정보** 페이지에서 **내보내기** 단추를 사용합니다.
+레이블 데이터는 Machine Learning 실험을 위해 언제든지 내보낼 수 있습니다. 이미지 레이블은 [COCO 형식](http://cocodataset.org/#format-data) 또는 [레이블이 있는 Azure Machine Learning 데이터 세트](how-to-use-labeled-dataset.md)로 내보낼 수 있습니다. 레이블 지정 프로젝트의 **프로젝트 세부 정보** 페이지에서 **내보내기** 단추를 사용합니다.
 
 COCO 파일은 *export/coco* 내의 폴더에 있는 Azure Machine Learning 작업 영역의 기본 Blob 저장소에 만들어집니다. Machine Learning의 **데이터 세트** 섹션 아래에서 내보낸 Azure Machine Learning 데이터 세트에 액세스할 수 있습니다. 데이터 세트 세부 정보 페이지에는 Python에서 레이블에 액세스할 수 있는 샘플 코드도 있습니다.
 

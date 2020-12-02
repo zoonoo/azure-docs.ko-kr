@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 5bb40ec930731b58d457500d83b66c7a187b44d8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bcb912a24dfb2a5e78719cf9010fd23afe0df185
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957438"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484399"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>SAP 솔루션에 대 한 Azure monitor (미리 보기)
 
@@ -35,7 +35,7 @@ SAP 솔루션에 대 한 Azure Monitor Azure Marketplace을 통해 제공 됩니
 - SAP HANA 데이터베이스
 - Microsoft SQL server
 
-SAP 솔루션에 대 한 Azure Monitor는 Log Analytics 및 [통합 문서](../../../azure-monitor/platform/workbooks-overview.md) 와 같은 기존 [Azure Monitor](../../../azure-monitor/overview.md) 기능의 기능을 활용 하 여 추가 모니터링 기능을 제공 합니다. 고객은 Azure Log Analytics 작업 영역을 사용 [하 여 Azure Monitor](../../../azure-monitor/learn/tutorial-response.md) 에서 제공 하는 기본 통합 문서를 편집 하 고, 사용자 지정 [쿼리](../../../azure-monitor/log-query/get-started-portal.md) 를 작성 하 고, [유연한 보존 기간](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 을 활용 하 고, 모니터링 데이터를 티켓 시스템과 연결 하 여 [사용자 지정 시각화](../../../azure-monitor/platform/workbooks-overview.md#getting-started) 를 만들 수 있습니다.
+SAP 솔루션에 대 한 Azure Monitor는 Log Analytics 및 [통합 문서](../../../azure-monitor/platform/workbooks-overview.md) 와 같은 기존 [Azure Monitor](../../../azure-monitor/overview.md) 기능의 기능을 활용 하 여 추가 모니터링 기능을 제공 합니다. 고객은 Azure Log Analytics 작업 영역을 사용 [하 여 Azure Monitor](../../../azure-monitor/learn/tutorial-response.md) 에서 제공 하는 기본 통합 문서를 편집 하 고, 사용자 지정 [쿼리](../../../azure-monitor/log-query/log-analytics-tutorial.md) 를 작성 하 고, [유연한 보존 기간](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 을 활용 하 고, 모니터링 데이터를 티켓 시스템과 연결 하 여 [사용자 지정 시각화](../../../azure-monitor/platform/workbooks-overview.md#getting-started) 를 만들 수 있습니다.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>SAP 솔루션에 어떤 데이터를 수집 Azure Monitor?
 

@@ -4,12 +4,12 @@ description: Azure Migrate 서비스에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 48447959f0a60baf8802a9939612bf0d536c2557
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5a003fc740d08c24af301a6c7ad06cc342530c56
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314759"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746883"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -18,7 +18,7 @@ ms.locfileid: "92314759"
 Azure Migrate는 온-프레미스 서버, 인프라, 애플리케이션 및 데이터를 평가하고 Azure로 마이그레이션할 수 있는 중앙 허브를 제공합니다. 다음 기능을 제공합니다.
 
 - **통합 마이그레이션 플랫폼**: Azure로의 마이그레이션을 시작, 실행 및 추적하는 단일 포털입니다.
-- **도구 범위**: 평가 및 마이그레이션에 사용할 도구 범위입니다. Azure Migrate 도구에는 서버 평가 및 Azure Migrate가 포함됩니다. Server Migration에 연결합니다. Azure Migrate는 다른 Azure 서비스, 도구 및 ISV(독립 소프트웨어 공급업체) 제품과도 통합됩니다.
+- **도구 범위**: 평가 및 마이그레이션에 사용할 도구 범위입니다. Azure Migrate 도구에는 Azure Migrate가 포함됩니다. Server Assessment 및 Azure Migrate: Server Migration에 연결합니다. Azure Migrate는 다른 Azure 서비스, 도구 및 ISV(독립 소프트웨어 공급업체) 제품과도 통합됩니다.
 - **평가 및 마이그레이션**: Azure Migrate 허브에서 다음을 평가하고 마이그레이션할 수 있습니다.
     - **서버**: 온-프레미스 서버를 평가하고 Azure 가상 머신 또는 AVS(Azure VMware 솔루션)로 마이그레이션합니다(미리 보기).
     - **데이터베이스**: 온-프레미스 데이터베이스를 평가하고 Azure SQL Database 또는 SQL Managed Instance로 마이그레이션합니다.
@@ -82,9 +82,9 @@ Azure Migrate: 서버 마이그레이션 도구를 사용하여 Azure로 마이�
 
 **마이그레이션** | **세부 정보**
 --- | ---
-온-프레미스 VMware VM | 에이전트 없는 또는 에이전트 기반 마이그레이션을 사용하여 VM을 Azure로 마이그레이션합니다.<br/><br/> 에이전트 없는 마이그레이션의 경우 온-프레미스에 배포되는 Azure Migrate 어플라이언스를 사용합니다. 서버 평가에 사용하는 것과 동일한 유형의 어플라이언스입니다.<br/><br/> 에이전트 기반 마이그레이션의 경우 서버 평가는 복제 어플라이언스를 사용합니다.
-온-프레미스 Hyper-V VM | VM을 Azure로 마이그레이션합니다.<br/><br/> 서버 평가는 마이그레이션을 위해 Hyper-V 호스트에 설치된 공급자 에이전트를 사용합니다.
-온-프레미스 물리적 서버 | 물리적 머신을 Azure로 마이그레이션할 수 있습니다. 다른 가상화된 머신과 VM을 마이그레이션하기 위해 가상 머신으로 처리하여 다른 퍼블릭 클라우드에서 마이그레이션할 수도 있습니다. | 서버 평가는 마이그레이션에 복제 어플라이언스를 사용합니다.
+온-프레미스 VMware VM | 에이전트 없는 또는 에이전트 기반 마이그레이션을 사용하여 VM을 Azure로 마이그레이션합니다.<br/><br/> 에이전트 없는 마이그레이션의 경우 서버 마이그레이션은 VMware VM의 검색 및 평가를 위해 서버 평가에서도 사용할 수 있는 것과 동일한 Azure Migrate 어플라이언스를 사용합니다.<br/><br/> 에이전트 기반 마이그레이션의 경우 마이그레이션은 복제 어플라이언스를 사용합니다.
+온-프레미스 Hyper-V VM | VM을 Azure로 마이그레이션합니다.<br/><br/> 서버 마이그레이션은 마이그레이션을 위해 Hyper-V 호스트에 설치된 공급자 에이전트를 사용합니다.
+온-프레미스 물리적 서버 | 물리적 머신을 Azure로 마이그레이션할 수 있습니다. 다른 가상화된 머신과 VM을 마이그레이션하기 위해 물리적 서버로 처리하여 다른 퍼블릭 클라우드에서 마이그레이션할 수도 있습니다. | 서버 마이그레이션은 마이그레이션에 복제 어플라이언스를 사용합니다.
 
 
 ## <a name="selecting-assessment-and-migration-tools"></a>평가 및 마이그레이션 도구 선택
@@ -120,7 +120,7 @@ Azure Migrate 서비스에는 다음과 같은 두 가지 버전이 있습니다
 - **현재 버전**: 이 버전을 사용하여 Azure Migrate 프로젝트를 만들고, 온-프레미스 컴퓨터를 검색하고, 평가 및 마이그레이션을 오케스트레이션합니다. 이 버전의 새로운 기능에 대해 [자세히 알아보세요](whats-new.md).
 - **이전 버전**: 이전 버전의 Azure Migrate에는 온-프레미스 VMware VM의 평가만 지원됩니다. 이전 버전을 사용한 경우 이제 버전을 사용해야 합니다. 더 이상 이전 버전을 사용하여 Azure Migrate 프로젝트를 만들 수 없습니다. 또한 새 검색은 수행하지 않는 것이 좋습니다.
 
-    기존 프로젝트에 액세스하려면 Azure Portal에서 **Azure Migrate**를 검색하고 선택합니다. **Azure Migrate** 대시보드에는 이전 Azure Migrate 프로젝트에 액세스할 수 있는 알림 및 링크가 있습니다.
+    기존 프로젝트에 액세스하려면 Azure Portal에서 **Azure Migrate** 를 검색하고 선택합니다. **Azure Migrate** 대시보드에는 이전 Azure Migrate 프로젝트에 액세스할 수 있는 알림 및 링크가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

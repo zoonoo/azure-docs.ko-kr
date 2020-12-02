@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: e7ea3ef16b60e53450436bda66ce3dde091c81c2
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4339e8217702e9f25877bc8c250b5363e2c59a42
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289563"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483698"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Azure Key Vault의 인증서 내보내기
 
@@ -33,8 +33,8 @@ Key Vault 인증서가 만들어지면 주소 지정 가능한 *키* 와 *비밀
 
 Key Vault 인증서가 만들어지면 프라이빗 키를 사용하여 주소 지정 가능한 비밀에서 이를 검색할 수 있습니다. PFX 또는 PEM 형식의 인증서를 검색합니다.
 
-- **내보내기 가능** : 인증서를 만드는 데 사용된 정책은 키를 내보낼 수 있다고 표시합니다.
-- **내보내기 불가능** : 인증서를 만드는 데 사용된 정책은 키를 내보낼 수 없다고 표시합니다. 이 경우 프라이빗 키는 비밀로 검색될 때 값의 일부가 아닙니다.
+- **내보내기 가능**: 인증서를 만드는 데 사용된 정책은 키를 내보낼 수 있다고 표시합니다.
+- **내보내기 불가능**: 인증서를 만드는 데 사용된 정책은 키를 내보낼 수 없다고 표시합니다. 이 경우 프라이빗 키는 비밀로 검색될 때 값의 일부가 아닙니다.
 
 지원되는 키 유형: RSA, RSA-HSM, EC, EC-HSM, oct([여기](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)에 나열됨) Exportable은 RSA, EC에서만 사용할 수 있습니다. HSM 키는 내보낼 수 없습니다.
 
@@ -83,7 +83,7 @@ Azure PowerShell에서 이 명령을 사용하여 **ContosoKV01** 이라는 키 
 
 ```azurepowershell
 $cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
-$secret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $cert.Name
+$secret = Get-AzKeyVaultSecret -VaultName "ContosoKV01" -Name $cert.Name
 $secretValueText = '';
 $ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
 try {

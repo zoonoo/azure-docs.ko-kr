@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 49a89228afd3b46f38afafb8ff16bc63a40dd35b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: ce0ea938cac4afa043b8770a4d6a98f08ec145ec
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635214"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484892"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Azure Storage 계정에 대 한 공유 키 권한 부여 방지 (미리 보기)
 
@@ -77,7 +77,7 @@ Azure Storage 로그는 요청에 대 한 권한이 부여 된 방법을 포함 
 
 권한 부여 방법을 평가 하기 위해 Azure Storage 계정에 요청을 기록 하려면 Azure Monitor (미리 보기)에서 Azure Storage 로깅을 사용할 수 있습니다. 자세한 내용은 [Azure Storage 모니터링](../blobs/monitor-blob-storage.md)을 참조 하세요.
 
-Azure Monitor Azure Storage 로깅은 로그 쿼리를 사용 하 여 로그 데이터를 분석 합니다. 로그를 쿼리하려면 Azure Log Analytics 작업 영역을 사용할 수 있습니다. 로그 쿼리에 대해 자세히 알아보려면 [자습서: Log Analytics 쿼리 시작](../../azure-monitor/log-query/get-started-portal.md)을 참조 하세요.
+Azure Monitor Azure Storage 로깅은 로그 쿼리를 사용 하 여 로그 데이터를 분석 합니다. 로그를 쿼리하려면 Azure Log Analytics 작업 영역을 사용할 수 있습니다. 로그 쿼리에 대해 자세히 알아보려면 [자습서: Log Analytics 쿼리 시작](../../azure-monitor/log-query/log-analytics-tutorial.md)을 참조 하세요.
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Azure Portal에서 진단 설정 만들기
 
@@ -88,9 +88,9 @@ Azure Monitor를 사용 하 여 Azure Storage 데이터를 기록 하 고 Azure 
 1. Azure Portal의 스토리지 계정으로 이동합니다.
 1. 모니터링 섹션에서 **진단 설정 (미리 보기)** 을 선택 합니다.
 1. 요청을 기록 하려는 Azure Storage 서비스를 선택 합니다. 예를 들어 blob 저장소에 요청을 기록 하려면 **blob** 을 선택 합니다.
-1. **진단 설정 추가** 를 선택 합니다.
+1. **진단 설정 추가** 를 선택합니다.
 1. 진단 설정의 이름을 제공 합니다.
-1. **범주 세부 정보** 의 **로그** 섹션에서 **StorageRead** , **storagewrite** 및 **storagewrite** 를 선택 하 여 선택한 서비스에 모든 데이터 요청을 기록 합니다.
+1. **범주 세부 정보** 의 **로그** 섹션에서 **StorageRead**, **storagewrite** 및 **storagewrite** 를 선택 하 여 선택한 서비스에 모든 데이터 요청을 기록 합니다.
 1. **대상 세부 정보** 에서 **Log Analytics 보내기를** 선택 합니다. 다음 이미지와 같이 앞에서 만든 구독 및 Log Analytics 작업 영역을 선택 합니다.
 
     :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="요청 로깅에 대 한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
@@ -217,7 +217,7 @@ resources
 | AzCopy | Blob 저장소에 대해 지원 됩니다. AzCopy 작업에 권한을 부여 하는 방법에 대 한 자세한 내용은 AzCopy 설명서에서 [권한 부여 자격 증명을 제공 하는 방법 선택](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) 을 참조 하세요. |
 | Azure Storage Explorer | Blob 저장소 및 Azure Data Lake Storage Gen2에만 지원 됩니다. 큐 저장소에 대 한 Azure AD 액세스는 지원 되지 않습니다. 올바른 Azure AD 테 넌 트를 선택 해야 합니다. 자세한 내용은 [Storage 탐색기 시작](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) 을 참조 하세요. |
 | Azure PowerShell | 지원됨. Azure AD를 사용 하 여 blob 또는 큐 작업에 대 한 PowerShell 명령에 권한을 부여 하는 방법에 대 한 자세한 내용은 [AZURE ad 자격 증명을 사용 하 여 powershell 명령을 실행 하 여 blob 데이터에 액세스](../blobs/authorize-data-operations-powershell.md) 또는 [azure ad 자격 증명을 사용 하 여 powershell 명령 실행](../queues/authorize-data-operations-powershell.md) |
-| Azure CLI | 지원됨. Blob 및 큐 데이터에 액세스 하기 위해 Azure AD를 사용 하 여 Azure CLI 명령에 권한을 부여 하는 방법에 대 한 자세한 내용은 [AZURE ad 자격 증명을 사용 하 여 Azure CLI 명령 실행](authorize-data-operations-cli.md)을 참조 하세요. |
+| Azure CLI | 지원됨. Blob 및 큐 데이터에 액세스 하기 위해 Azure AD를 사용 하 여 Azure CLI 명령에 권한을 부여 하는 방법에 대 한 자세한 내용은 [AZURE ad 자격 증명을 사용 하 여 Azure CLI 명령 실행](../blobs/authorize-data-operations-cli.md)을 참조 하세요. |
 | Azure IoT Hub | 지원됨. 자세한 내용은 [가상 네트워크에 대 한 지원 IoT Hub](../../iot-hub/virtual-network-support.md)를 참조 하세요. |
 | Azure Cloud Shell | Azure Cloud Shell은 Azure Portal의 통합 셸입니다. Azure Cloud Shell는 저장소 계정의 Azure 파일 공유에서 지 속성 파일을 호스트 합니다. 이러한 파일은 해당 저장소 계정에 대해 공유 키 권한이 허용 되지 않는 경우 액세스할 수 없게 됩니다. 자세한 내용은 [연결 Microsoft Azure 파일 저장소](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage)를 참조 하세요. <br /><br /> 공유 키 액세스가 허용 되지 않는 저장소 계정을 관리 하기 위해 Azure Cloud Shell에서 명령을 실행 하려면 먼저 Azure RBAC (역할 기반 액세스 제어)를 통해 이러한 계정에 필요한 사용 권한을 부여 받았는지 확인 합니다. 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md)을 참조 하세요. |
 

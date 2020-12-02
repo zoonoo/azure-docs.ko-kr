@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4c1284c13d1516ac4061319287adb64ab7e14ff5
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 73902cf53d9995f7dfc1991e3b7ed7c7c469bf2a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579473"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026664"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -23,7 +23,7 @@ ms.locfileid: "94579473"
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |------------------------------|----------|-------------|---------------|
-|[인덱서, 데이터 원본 및 기술 세트에 대한 고객 관리형 키 암호화](search-security-manage-encryption-keys.md) | 보안 | 이러한 추가는 검색 서비스에서 만들고 관리하는 전체 자산의 범위에 대해 고객 관리 암호화를 확장합니다. CMK 지원에서는 Microsoft에서 수행하고 관리하는 기본 암호화 위에 추가 암호화 계층을 추가합니다. | 일반적으로 REST api-version=2020-06-30을 통해 사용 가능 |  
+|[인덱서, 데이터 원본 및 기술 세트에 대한 고객 관리형 키 암호화](search-security-manage-encryption-keys.md) | 보안 | 이러한 추가는 검색 서비스에서 만들고 관리하는 전체 자산의 범위에 대해 고객 관리 암호화를 확장합니다. 고객 관리형 키 지원에서는 Microsoft에서 수행하고 관리하는 기본 암호화 위에 추가 암호화 계층을 추가합니다. | 일반적으로 REST api-version=2020-06-30을 통해 사용 가능 |  
 
 ## <a name="september-2020"></a>2020년 9월
 
@@ -41,7 +41,7 @@ Azure Active Directory에서 검색 서비스에 대한 ID를 만든 다음, Azu
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |---------|------------------|-------------|---------------|
-| [이중 암호화](search-security-overview.md#encryption) | 보안 | 새 검색 서비스에서 CMK(고객 관리형 키) 암호화를 구성하여 스토리지 레이어에서 이중 암호화를 사용하도록 설정합니다. 새 서비스를 만들고, [고객 관리형 키를 구성하여 인덱스 또는 동의어 맵에 적용](search-security-manage-encryption-keys.md)하고, 해당 콘텐츠에 이중 암호화 기능을 활용합니다. | 2020년 8월 1일 이후에 미국 서부 2, 미국 동부, 미국 중부, US Gov 버지니아, US Gov 애리조나 지역에서 만든 모든 검색 서비스에 일반 공급됩니다. 포털, 관리 REST API 또는 SDK를 사용하여 서비스를 만들어야 합니다. |
+| [이중 암호화](search-security-overview.md#encryption) | 보안 | 새 검색 서비스에서 고객 관리형 키 암호화를 구성하여 스토리지 계층에서 이중 암호화를 사용하도록 설정합니다. 새 서비스를 만들고, [고객 관리형 키를 구성하여 인덱스 또는 동의어 맵에 적용](search-security-manage-encryption-keys.md)하고, 해당 콘텐츠에 이중 암호화 기능을 활용합니다. | 2020년 8월 1일 이후에 미국 서부 2, 미국 동부, 미국 중부, US Gov 버지니아, US Gov 애리조나 지역에서 만든 모든 검색 서비스에 일반 공급됩니다. 포털, 관리 REST API 또는 SDK를 사용하여 서비스를 만들어야 합니다. |
 
 ## <a name="july-2020"></a>2020년 7월
 

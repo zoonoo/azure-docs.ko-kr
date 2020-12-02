@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/29/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b571b2b8e0d334a02631e3f443ec54398117ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cd1fb7f33c56aefe76bc55181ae92ca3d149754
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532672"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006973"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Cosmos DB에 액세스
 
@@ -55,11 +55,11 @@ ms.locfileid: "91532672"
 Cosmos DB 계정이 아직 없는 경우 지금 만듭니다. 이 단계를 건너뛰고 기존 Cosmos DB 계정을 사용해도 됩니다. 
 
 1. Azure Portal의 왼쪽 위에 있는 **+/새 서비스 만들기** 단추를 클릭합니다.
-2. **데이터베이스**를 클릭한 다음, **Azure Cosmos DB**를 클릭하면 새로운 "새 계정" 패널이 표시됩니다.
-3. 나중에 사용하는 Cosmos DB 계정에 대한 **ID**를 입력합니다.  
-4. **API**는 "SQL"로 설정되어야 합니다. 이 자습서에서 설명하는 방식은 사용 가능한 다른 API 형식으로 사용될 수 있지만 이 자습서의 단계는 SQL API에 대한 것입니다.
-5. **구독** 및 **리소스 그룹**은 이전 단계에서 VM을 만들 때 지정한 것과 일치합니다.  Cosmos DB를 사용할 수 있는 **위치**를 선택합니다.
-6. **만들기**를 클릭합니다.
+2. **데이터베이스** 를 클릭한 다음, **Azure Cosmos DB** 를 클릭하면 새로운 "새 계정" 패널이 표시됩니다.
+3. 나중에 사용하는 Cosmos DB 계정에 대한 **ID** 를 입력합니다.  
+4. **API** 는 "SQL"로 설정되어야 합니다. 이 자습서에서 설명하는 방식은 사용 가능한 다른 API 형식으로 사용될 수 있지만 이 자습서의 단계는 SQL API에 대한 것입니다.
+5. **구독** 및 **리소스 그룹** 은 이전 단계에서 VM을 만들 때 지정한 것과 일치합니다.  Cosmos DB를 사용할 수 있는 **위치** 를 선택합니다.
+6. **만들기** 를 클릭합니다.
 
 ### <a name="create-a-collection"></a>컬렉션 만들기 
 
@@ -67,7 +67,7 @@ Cosmos DB 계정이 아직 없는 경우 지금 만듭니다. 이 단계를 건�
 
 1. 새로 만든 Cosmos DB 계정으로 이동합니다.
 2. **개요** 탭에서 **+/컬렉션 추가** 단추를 클릭하면 "컬렉션 추가" 패널이 슬라이드됩니다.
-3. 컬렉션에 데이터베이스 ID, 컬렉션 ID를 제공하고, 스토리지 용량을 선택하고, 파티션 키를 입력하고, 처리량 값을 입력한 다음, **확인**을 클릭합니다.  이 자습서의 경우 데이터베이스 ID 및 컬렉션 ID로 &quot;Test&quot;를 사용하고, 고정된 스토리지 용량 및 가장 낮은 처리량(400RU/s)을 선택하는 데 충분합니다.  
+3. 컬렉션에 데이터베이스 ID, 컬렉션 ID를 제공하고, 스토리지 용량을 선택하고, 파티션 키를 입력하고, 처리량 값을 입력한 다음, **확인** 을 클릭합니다.  이 자습서의 경우 데이터베이스 ID 및 컬렉션 ID로 &quot;Test&quot;를 사용하고, 고정된 스토리지 용량 및 가장 낮은 처리량(400RU/s)을 선택하는 데 충분합니다.  
 
 
 ### <a name="grant-access-to-the-cosmos-db-account-access-keys"></a>Cosmos DB 계정 액세스 키에 대한 액세스 권한 부여
@@ -82,7 +82,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 ```
 
 >[!NOTE]
-> 작업을 수행할 수 없는 경우 올바른 권한이 없을 수 있습니다. 키에 대한 쓰기 액세스 권한을 원하는 경우 DocumentDB 계정 기여자와 같은 RBAC 역할을 사용하거나 사용자 지정 역할을 만들어야 합니다. 자세한 내용은 [Azure Cosmos DB의 역할 기반 액세스 제어](../../cosmos-db/role-based-access-control.md)를 검토하세요.
+> 작업을 수행할 수 없는 경우 올바른 권한이 없을 수 있습니다. 키에 대한 쓰기 액세스 권한을 원하는 경우 DocumentDB 계정 기여자와 같은 Azure 역할을 사용하거나 사용자 지정 역할을 만들어야 합니다. 자세한 내용은 [Azure Cosmos DB의 Azure 역할 기반 액세스 제어](../../cosmos-db/role-based-access-control.md)를 검토하세요.
 
 ## <a name="access-data"></a>데이터 액세스
 
@@ -94,9 +94,9 @@ Windows VM에 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli)를 설�
 
 ### <a name="get-an-access-token"></a>액세스 토큰 가져오기
 
-1. Azure Portal에서 **Virtual Machines**, Windows 가상 머신으로 이동한 후 **개요** 페이지 위쪽의 **연결**을 클릭합니다. 
-2. Windows VM을 만들 때 추가한 **사용자 이름**과 **암호**를 입력합니다. 
-3. 이제 가상 머신에 대한 **원격 데스크톱 연결**을 만들었으므로 원격 세션에서 PowerShell을 엽니다.
+1. Azure Portal에서 **Virtual Machines**, Windows 가상 머신으로 이동한 후 **개요** 페이지 위쪽의 **연결** 을 클릭합니다. 
+2. Windows VM을 만들 때 추가한 **사용자 이름** 과 **암호** 를 입력합니다. 
+3. 이제 가상 머신에 대한 **원격 데스크톱 연결** 을 만들었으므로 원격 세션에서 PowerShell을 엽니다.
 4. PowerShell의 Invoke-WebRequest를 사용하여 Azure Resource Manager에 대한 액세스 토큰을 가져오도록 Azure 리소스 엔드포인트의 로컬 관리 ID에 요청합니다.
 
    ```powershell

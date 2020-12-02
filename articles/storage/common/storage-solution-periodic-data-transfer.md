@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a0efc6f6f6d4ae6355fbb42fbc7e13ad7c078cf3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 19a4645e2bde4cf6b9f9a78123b334c290581ac4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792891"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484535"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>정기적 데이터 전송을 위한 솔루션
  
@@ -65,9 +65,9 @@ ms.locfileid: "92792891"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [AzCopy를 사용 하 여 데이터를 전송](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ftables%252ftoc.json)합니다.
+- [AzCopy를 사용 하 여 데이터를 전송](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)합니다.
 - [Storage REST API를 사용한 데이터 전송에 대한 자세한 정보](/dotnet/api/overview/azure/storage)
 - 다음 작업을 수행하는 방법을 이해합니다.
     - [Data Box Gateway를 통해 데이터 전송](../../databox-online/data-box-gateway-deploy-add-shares.md).
-    - [Azure로 보내기 전에 Data Box Edge를 사용하여 데이터 변환](../../databox-online/azure-stack-edge-deploy-configure-compute.md)
+    - [Azure로 보내기 전에 Data Box Edge 데이터를 변환](../../databox-online/azure-stack-edge-deploy-configure-compute.md)합니다.
 - [Azure Data Factory를 사용하여 데이터를 전송하는 방법 알아보기](../../data-factory/tutorial-bulk-copy-portal.md)

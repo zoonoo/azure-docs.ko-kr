@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 10/07/2020
-ms.openlocfilehash: 862d2a93058c63dbfad1db49346edcbfe3c02ad1
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 11/21/2020
+ms.openlocfilehash: 42b586062378c59b66ca945880bf723418264071
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592450"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241933"
 ---
 # <a name="creating-a-synapse-workspace"></a>Synapse 작업 영역 만들기
 
@@ -65,9 +65,9 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 
 Spark 풀은 사용할 Spark 리소스의 수를 Azure Synapse에 알려줍니다. 사용하는 리소스에 대해서만 비용을 지불합니다. 풀 사용을 적극적으로 중지하면 리소스가 자동으로 시간 제한되고 재활용됩니다.
 
-## <a name="the-serverless-sql-pool"></a>서버리스 SQL 풀
+## <a name="the-built-in-serverless-sql-pool"></a>기본 제공 서버리스 SQL 풀
 
-모든 작업 영역에는 **기본 제공** 이라는 미리 빌드된 풀이 제공됩니다. 이 풀은 삭제할 수 없습니다. 서버리스 SQL 풀을 사용하면 Azure Synapse에서 서버리스 SQL 풀을 만들거나 관리할 필요 없이 SQL을 사용할 수 있습니다. 전용 SQL 풀과 달리 서버리스 SQL 풀에 대한 요금 청구는 쿼리를 실행하는 데 사용된 리소스의 수가 아니라 쿼리를 실행하는 데 검사된 데이터의 양을 기준으로 합니다.
+모든 작업 영역에는 **기본 제공** 이라는 미리 빌드된 서버리스 SQL 풀이 제공됩니다. 이 풀은 삭제할 수 없습니다. 서버리스 SQL 풀을 사용하면 전용 SQL 풀로 용량을 예약하지 않고도 SQL을 사용할 수 있습니다. 전용 SQL 풀과 달리 서버리스 SQL 풀에 대한 요금 청구는 풀에 할당된 용량 수가 아니라 쿼리를 실행하는 데 검사된 데이터의 양을 기준으로 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

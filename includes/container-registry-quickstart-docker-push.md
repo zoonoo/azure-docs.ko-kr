@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 16c1dec9e52be98e5b4e0103a583bdc219bc2417
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6a16106495e584c9acbc02d380242df665f35ce5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88031826"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020013"
 ---
 ## <a name="push-image-to-registry"></a>레지스트리에 이미지 푸시
 
@@ -23,7 +23,7 @@ Azure Container Registry에 이미지를 푸시하려면 먼저 이미지가 있
 docker pull hello-world
 ```
 
-레지스트리에 이미지를 푸시하기 전에 레지스트리 로그인 서버의 정규화된 이름을 사용하여 태그를 지정해야 합니다. 로그인 서버 이름은 *\<registry-name\>.azurecr.io*(모두 소문자) 형식입니다(예: *mycontainerregistry.azurecr.io*).
+레지스트리에 이미지를 푸시하기 전에 레지스트리 로그인 서버의 정규화된 이름을 사용하여 태그를 지정해야 합니다. 로그인 서버 이름은 *\<registry-name\>.azurecr.io*(모두 소문자여야 함) 형식입니다(예: *mycontainerregistry.azurecr.io*).
 
 [docker tag][docker-tag] 명령을 사용하여 이미지에 태그를 지정합니다. `<login-server>`를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
 

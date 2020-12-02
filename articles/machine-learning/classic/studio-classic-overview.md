@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 08/19/2020
-ms.openlocfilehash: 1aadf1fe59c5300a4f16ea96b1e1d7a5fbcbdd6d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0a18f9adb8c3723619b44b30bfa334edf4300c0d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325728"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95509479"
 ---
 # <a name="what-can-i-do-with-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)로 수행할 수 있는 작업은?
 
-**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요 ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![이는 이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) ![이는 이 문서가 Azure Machine Learning에 적용됨을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -30,14 +30,14 @@ Machine Learning Studio(클래식)는 기계 학습 모델을 빌드, 테스트 
 
 예측 분석 모델을 개발하려면 일반적으로 하나 이상의 소스에서 얻은 데이터를 사용하고, 다양한 데이터 조작과 통계 함수를 통해 해당 데이터를 변환 및 분석하고, 결과 세트를 생성합니다. 이와 같은 모델을 개발하는 과정은 반복 프로세스이며, 다양한 함수와 해당 매개 변수를 수정할 때 학습된 효과적인 모델을 마련했다고 만족할 때까지 결과가 수렴됩니다.
 
-Machine Learning Studio(클래식)에서는 예측 분석 모델을 간편하게 빌드, 테스트, 반복할 수 있는 대화형 시각적 작업 영역을 제공합니다. * *_데이터 세트_* _ 및 분석 _*_모듈_*_ 을 대화형 캔버스로 끌어서 놓고 함께 연결하여 _*_실험_*_ 을 생성하고 Machine Learning Studio(클래식)에서 실행합니다. 모델 디자인을 반복하려면 실험을 편집하고 필요에 따라 복사본을 저장하고 실험을 다시 실행합니다. 준비가 되면 _*_학습 실험_*_ 을 _*_예측_*_ 실험으로 변환한 다음, 다른 사용자가 모델에 액세스할 수 있도록 _*_웹 서비스_*_ 로 게시할 수 있습니다.
+Machine Learning Studio(클래식)에서는 예측 분석 모델을 간편하게 빌드, 테스트, 반복할 수 있는 대화형 시각적 작업 영역을 제공합니다. **_데이터 세트_* _ 및 분석 _*_모듈_*_ 을 대화형 캔버스로 끌어서 놓고 함께 연결하여 _*_실험_*_ 을 생성하고 Machine Learning Studio(클래식)에서 실행합니다. 모델 디자인을 반복하려면 실험을 편집하고 필요에 따라 복사본을 저장하고 실험을 다시 실행합니다. 준비가 되면 _*_학습 실험_*_ 을 _*_예측_*_ 실험으로 변환한 다음, 다른 사용자가 모델에 액세스할 수 있도록 _*_웹 서비스_*_ 로 게시할 수 있습니다.
 
 프로그래밍이 필요하지 않으며, 데이터 세트와 모듈을 시각적으로 연결하여 예측 분석 모델을 구성할 수 있습니다.
 
 ![Machine Learning Studio(클래식) 다이어그램: 실험을 만들고, 여러 원본에 대한 데이터 읽고, 점수 데이터를 쓰고, 모델을 작성합니다.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 ## <a name="download-the-ml-studio-classic-overview-diagram"></a>ML Studio(클래식) 개요 다이어그램 다운로드
-_ *Microsoft ML Studio(클래식) 기능 개요* * 다이어그램을 다운로드하여 Machine Learning Studio(클래식)의 기능을 개략적으로 봅니다. 옆에 두고 보려면, tabloid 크기(11 x 17인치)로 다이어그램을 인쇄하면 됩니다.
+_ *Microsoft ML Studio(클래식) 기능 개요** 다이어그램을 다운로드하여 Machine Learning Studio(클래식)의 기능을 개략적으로 봅니다. 옆에 두고 보려면, tabloid 크기(11 x 17인치)로 다이어그램을 인쇄하면 됩니다.
 
 **여기서 다이어그램 다운로드: [Microsoft Machine Learning Studio(클래식) 기능 개요](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)** 
 ![Microsoft Machine Learning Studio(클래식) 기능 개요](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)

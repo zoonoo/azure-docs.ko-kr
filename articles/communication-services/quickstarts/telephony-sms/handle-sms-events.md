@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e153c873305cc128ce97ae7c6a907a8f592f8b32
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: e8decbe22f869573bf7a2221099d2bc30c00fc8a
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357473"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888847"
 ---
 # <a name="quickstart-handle-sms-events"></a>빠른 시작: SMS 이벤트 처리
 
@@ -24,7 +24,7 @@ Communication Services SMS 이벤트를 처리하기 위해 Azure Event Grid를 
 
 ## <a name="about-azure-event-grid"></a>Azure Event Grid 정보
 
-[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview)는 클라우드 기반 이벤트 서비스입니다. 이 문서에서는 [Communication Services 이벤트](../../concepts/event-handling.md)에 대한 이벤트를 구독하고, 이벤트를 트리거하여 결과를 확인하는 방법에 대해 알아봅니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 이 문서에서는 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
+[Azure Event Grid](../../../event-grid/overview.md)는 클라우드 기반 이벤트 서비스입니다. 이 문서에서는 [Communication Services 이벤트](../../concepts/event-handling.md)에 대한 이벤트를 구독하고, 이벤트를 트리거하여 결과를 확인하는 방법에 대해 알아봅니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 이 문서에서는 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -49,7 +49,7 @@ Azure Portal에서 다음을 수행합니다.
 
 ### <a name="event-grid-viewer-deployment"></a>Event Grid Viewer 배포
 
-이 빠른 시작에서는 [Azure Event Grid Viewer 샘플](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/)을 사용하여 이벤트를 거의 실시간으로 볼 수 있습니다. 이렇게 하면 사용자에게 실시간 피드 환경이 제공됩니다. 또한 각 이벤트의 페이로드를 검사할 수도 있습니다.  
+이 빠른 시작에서는 [Azure Event Grid Viewer 샘플](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/)을 사용하여 이벤트를 거의 실시간으로 볼 수 있습니다. 이렇게 하면 사용자에게 실시간 피드 환경이 제공됩니다. 또한 각 이벤트의 페이로드를 검사할 수도 있습니다.  
 
 ## <a name="subscribe-to-the-sms-events-using-web-hooks"></a>웹후크를 사용하여 SMS 이벤트 구독
 
@@ -63,7 +63,7 @@ Azure Portal에서 다음을 수행합니다.
 
 특정 이벤트를 구독하여 추적하려는 SMS 이벤트와 이벤트를 보내는 위치를 Event Grid에 알릴 수 있습니다. 드롭다운 메뉴에서 구독하려는 이벤트를 선택합니다. SMS에 대해 `SMS Received` 및 `SMS Delivery Report Received`를 선택할 수 있습니다. 
 
-**시스템 토픽 이름** 을 제공하라는 메시지가 표시되면 이벤트를 내보낸 후 선택적으로 이벤트를 필터링하는 데 사용할 수 있는 고유한 식별자를 자유롭게 제공합니다.
+**시스템 항목 이름** 을 제공하라는 메시지가 표시되면 고유한 문자열을 자유롭게 제공합니다. 이 필드는 사용자 환경에 영향을 주지 않으며 내부 원격 분석 용도로 사용됩니다.
 
 [Azure Communication Services에서 지원하는 이벤트](../../concepts/event-handling.md)의 전체 목록을 확인하세요.
 
@@ -75,7 +75,7 @@ Azure Portal에서 다음을 수행합니다.
 
 **엔드포인트** 에 대해 **엔드포인트 선택** 을 클릭하고 웹앱의 URL을 입력합니다.
 
-이 경우 빠른 시작의 앞부분에서 설정한 [Azure Event Grid Viewer 샘플](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/)의 URL을 사용합니다. 샘플의 URL 형식은 `https://{{site-name}}.azurewebsites.net/api/updates`입니다.
+이 경우 빠른 시작의 앞부분에서 설정한 [Azure Event Grid Viewer 샘플](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/)의 URL을 사용합니다. 샘플의 URL 형식은 `https://{{site-name}}.azurewebsites.net/api/updates`입니다.
 
 그런 다음, **선택 확인** 을 선택합니다.
 
@@ -94,7 +94,7 @@ Azure Portal에서 다음을 수행합니다.
 
 ### <a name="receiving-sms-events"></a>SMS 이벤트 받기
 
-위의 작업 중 하나가 완료되면 `SMS Received` 및 `SMS Delivery Report Received` 이벤트를 엔드포인트로 보낸다는 것을 알 수 있습니다. 이러한 이벤트는 처음에 설정한 [Azure Event Grid Viewer 샘플](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/)에 표시됩니다. 이벤트 옆에 있는 눈 모양 아이콘을 눌러 전체 페이로드를 볼 수 있습니다. 이벤트는 다음과 같이 표시됩니다.
+위의 작업 중 하나가 완료되면 `SMS Received` 및 `SMS Delivery Report Received` 이벤트를 엔드포인트로 보낸다는 것을 알 수 있습니다. 이러한 이벤트는 처음에 설정한 [Azure Event Grid Viewer 샘플](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/)에 표시됩니다. 이벤트 옆에 있는 눈 모양 아이콘을 눌러 전체 페이로드를 볼 수 있습니다. 이벤트는 다음과 같이 표시됩니다.
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="SMS 받음 이벤트에 대한 Event Grid 스키마를 보여 주는 스크린샷":::
 
@@ -116,4 +116,4 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 다음을 수행할 수도 있습니다.
 
  - [이벤트 처리 개념에 대해 알아보기](../../concepts/event-handling.md)
- - [Event Grid에 대해 알아보기](https://docs.microsoft.com/azure/event-grid/overview)
+ - [Event Grid에 대해 알아보기](../../../event-grid/overview.md)

@@ -7,12 +7,12 @@ ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 0806c6e0ed89c2c0f4712ec985599810119fcf89
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0d1edde5ac1b83feab458eb5d12d524163d3ffb1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015522"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483303"
 ---
 # <a name="monitoring-scheduled-events"></a>예약된 이벤트 모니터링
 
@@ -132,7 +132,7 @@ New-AzVm `
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>Azure Monitor를 사용하여 경고 규칙 만들기 
 
 
-이벤트가 Log Analytics에 푸시되면 다음 [쿼리](../../azure-monitor/log-query/get-started-portal.md)를 실행하여 일정 이벤트를 찾을 수 있습니다.
+이벤트가 Log Analytics에 푸시되면 다음 [쿼리](../../azure-monitor/log-query/log-analytics-tutorial.md)를 실행하여 일정 이벤트를 찾을 수 있습니다.
 
 1. 페이지 위쪽에서 **로그** 를 선택하고 텍스트 상자에 다음을 붙여 넣습니다.
 

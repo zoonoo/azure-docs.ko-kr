@@ -7,11 +7,11 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 85ad78eeb095b427b1a6334f57c351e926022dff
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217816"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021880"
 ---
 # <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>자습서: Azure FXT Edge Filer 클러스터에 클러스터 노드 추가
 
@@ -73,7 +73,7 @@ ms.locfileid: "92217816"
 
 ## <a name="3-click-the-allow-to-join-button"></a>3. “조인 허용” 단추를 클릭합니다.
 
-추가할 노드에 대해 **작업** 열에서 **조인 허용*** 단추를 클릭합니다.
+추가할 노드에 대해 _ *작업** 열에서 **조인 허용** _ 단추를 클릭합니다.
 
 단추를 클릭하면 노드의 소프트웨어가 클러스터에 추가될 준비를 위해 업데이트될 때 노드의 상태가 변경될 수 있습니다.
 
@@ -104,7 +104,7 @@ HA(고가용성)를 통해 클러스터 노드 중 하나가 중단되면 서로
 
 2. **HA 사용** 레이블이 있는 상자를 클릭하고 **제출** 단추를 클릭합니다.
 
-HA를 사용하도록 설정할지 확인하기 위해 경고가 **대시보드**에 표시됩니다.
+HA를 사용하도록 설정할지 확인하기 위해 경고가 **대시보드** 에 표시됩니다.
 
 ![“HA가 이제 완벽하게 구성됨” 메시지를 보여주는 대시보드 테이블](media/fxt-cluster-config/ha-configured-alert.png)
 

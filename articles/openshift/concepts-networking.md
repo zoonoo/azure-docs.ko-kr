@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 06/22/2020
-ms.openlocfilehash: fb81405e85d6e2653e0cf6c007c363493992161a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3417b59d0be9e285f8793ef598abb7f98bda7549
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87419974"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527992"
 ---
 # <a name="networking-in-azure-red-hat-on-openshift-4"></a>OpenShift 4의 Azure Red Hat 네트워킹
 
@@ -98,7 +98,7 @@ OpenShift SDN(소프트웨어 정의 네트워킹)은 CNI(Container Network Inte
     * "퍼블릭" - 외부 네트워크에서 API 서버에 액세스할 수 있습니다.
     * "프라이빗" - API 서버에 마스터 서브넷의 개인 IP가 할당되므로, 연결된 네트워크(피어링된 가상 네트워크, 클러스터의 다른 서브넷)를 사용해야만 액세스할 수 있습니다. 프라이빗 DNS 영역은 고객을 대신하여 생성됩니다.
 * **수신 표시 유형** - [az aro create 명령](tutorial-create-cluster.md#create-the-cluster)을 실행할 때 API 표시 여부를 설정합니다.
-    * "퍼블릭" 경로는 기본적으로 퍼블릭 Azure 표준 Load Balancer입니다(변경 가능).
+    * "퍼블릭" 경로는 기본적으로 퍼블릭 표준 Load Balancer입니다(변경 가능).
     * "프라이빗" 경로는 기본적으로 내부 부하 분산 장치입니다(변경 가능).
 
 ## <a name="network-security-groups"></a>네트워크 보안 그룹

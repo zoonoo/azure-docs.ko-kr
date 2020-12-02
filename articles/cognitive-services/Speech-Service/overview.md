@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: 291ac7804109b098b556e38c57ca493ba74f1b14
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 3b20773de62f036b507f1612f2b38d613d54ba2f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528893"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485198"
 ---
 # <a name="what-is-the-speech-service"></a>Speech Service란?
 
@@ -49,7 +49,7 @@ Speech Service 기능 중 일부는 다음과 같습니다. 이 표의 링크를
 Microsoft 계정이 있으면 [Azure 가입 페이지](https://azure.microsoft.com/free/ai/)로 이동하고, **평가판 시작** 을 선택한 다음, Microsoft 계정을 사용하여 새 Azure 계정을 만듭니다. 다음은 [Azure 체험 계정에 등록하는 방법](https://www.youtube.com/watch?v=GWT2R1C_uUU)에 대한 비디오입니다.
 
 > [!NOTE]
-> Azure 체험 계정에 가입하면 유료 Speech Service 구독에 적용할 수 있는 $200의 서비스 크레딧이 제공되며, 최대 30일 동안 유효합니다. 크레딧이 부족하거나 30일이 만료된 경우 Azure 서비스가 비활성화됩니다. Azure 서비스를 계속 사용하려면 계정을 업그레이드해야 합니다. 자세한 내용은 [Azure 체험 계정을 업그레이드하는 방법](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription)을 참조하세요. 
+> Azure 체험 계정에 가입하면 유료 Speech Service 구독에 적용할 수 있는 $200의 서비스 크레딧이 제공되며, 최대 30일 동안 유효합니다. 크레딧이 부족하거나 30일이 만료된 경우 Azure 서비스가 비활성화됩니다. Azure 서비스를 계속 사용하려면 계정을 업그레이드해야 합니다. 자세한 내용은 [Azure 체험 계정을 업그레이드하는 방법](../../cost-management-billing/manage/upgrade-azure-subscription.md)을 참조하세요. 
 >
 > Speech Service에는 체험(f0) 및 구독(s0)의 두 가지 서비스 계층이 있으며, 제한 사항과 혜택이 서로 다릅니다. 적은 볼륨의 Speech Service 체험 계층을 사용하는 경우 평가판 또는 서비스 크레딧이 만료된 후에도 이 체험 구독을 유지할 수 있습니다. 자세한 내용은 [Cognitive Services 가격 - Speech Service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)를 참조하세요.
 
@@ -70,8 +70,8 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
 1. **만들기** 를 선택하고 다음을 수행합니다.
 
    - 새 리소스에 대한 고유한 이름을 지정합니다. 이름은 동일한 서비스에 연결된 여러 구독을 구분하는 데 도움이 됩니다.
-   - 새 리소스가 연결되는 Azure 구독을 선택하여 요금이 얼마나 청구되는지 확인합니다. 다음은 Azure Portal에서 [Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal)에 대한 소개입니다.
-   - 리소스가 사용될 [지역](regions.md)을 선택합니다. Azure는 전 세계 여러 지역에서 일반적으로 사용 가능한 글로벌 클라우드 플랫폼입니다. 최상의 성능을 얻으려면 사용자에게 가장 가까운 지역이나 애플리케이션이 실행되는 위치를 선택합니다. Speech Service 가용성은 지역마다 다릅니다. 지원되는 지역에서 리소스를 만들어야 합니다. [Speech Service에 대한 지역 지원](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-to-text-text-to-speech-and-translation)을 참조하세요.
+   - 새 리소스가 연결되는 Azure 구독을 선택하여 요금이 얼마나 청구되는지 확인합니다. 다음은 Azure Portal에서 [Azure 구독을 만드는 방법](../../cost-management-billing/manage/create-subscription.md#create-a-subscription-in-the-azure-portal)에 대한 소개입니다.
+   - 리소스가 사용될 [지역](regions.md)을 선택합니다. Azure는 전 세계 여러 지역에서 일반적으로 사용 가능한 글로벌 클라우드 플랫폼입니다. 최상의 성능을 얻으려면 사용자에게 가장 가까운 지역이나 애플리케이션이 실행되는 위치를 선택합니다. Speech Service 가용성은 지역마다 다릅니다. 지원되는 지역에서 리소스를 만들어야 합니다. [Speech Service에 대한 지역 지원](./regions.md#speech-to-text-text-to-speech-and-translation)을 참조하세요.
    - F0(체험) 또는 S0(유료) 가격 책정 계층을 선택합니다. 각 계층의 가격 책정 및 사용 할당량에 대한 전체 정보를 보려면 **전체 가격 책정 세부 정보 보기** 를 선택하거나 [Speech Service 가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조하세요. 리소스에 대한 제한 사항은 [Azure Cognitive Services 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits)을 참조하세요.
    - 이 Speech 구독에 대한 새 리소스 그룹을 만들거나 기존 리소스 그룹에 해당 구독을 할당합니다. 리소스 그룹은 다양한 Azure 구독의 구성을 유지하는 데 도움이 됩니다.
    - **만들기** 를 선택합니다. 그러면 배포 개요로 이동하여 배포 진행률 메시지가 표시됩니다.  
@@ -112,7 +112,7 @@ Speech Service를 시작한 후에는 다양한 시나리오를 해결하는 방
 
 - [자습서: Speech SDK 및 LUIS, C#을 사용하여 음성에서 의도 인식](how-to-recognize-intents-from-speech-csharp.md)
 - [자습서: 음성 SDK, C#으로 음성을 지원하도록 봇 설정](tutorial-voice-enable-your-bot-speech-sdk.md)
-- [자습서: 텍스트 번역, 감정 분석 및 번역된 텍스트를 음성, REST로 합성하는 Flask 앱 빌드](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%252fazure%252fcognitive-services%252fspeech-service%252fbreadcrumb%252ftoc.json%252c%252fen-us%252fazure%252fbread%252ftoc.json&toc=%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json%252c%252fen-us%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json)
+- [자습서: 텍스트 번역, 감정 분석 및 번역된 텍스트를 음성, REST로 합성하는 Flask 앱 빌드](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json%252c%2fen-us%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json%252c%2fen-us%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json)
 
 ## <a name="get-sample-code"></a>샘플 코드 가져오기
 

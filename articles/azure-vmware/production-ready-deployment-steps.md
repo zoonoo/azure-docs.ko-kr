@@ -3,12 +3,12 @@ title: Azure VMware Solution 배포 계획
 description: 이 문서에서는 Azure VMware Solution 배포 워크플로를 간략하게 설명합니다.  결국에는 VM(가상 머신)을 만들고 마이그레이션할 수 있는 환경이 준비됩니다.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 08a15e6f8cad4068415cec3353544829f2218fb0
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1ef83a568e41fe99f1e8e385a599de9c5ab7c0ca
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888983"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95529736"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Azure VMware Solution 배포 계획
 
@@ -48,7 +48,7 @@ Azure VMware Solution을 배포할 때 사용할 호스트 크기를 확인합�
 
 ## <a name="number-of-hosts"></a>호스트 수
 
-Azure VMware Solution 프라이빗 클라우드에 배포하려는 호스트 수를 정의합니다.  최소 노드 수는 3개이고, 최대 노드 수는 클러스터당 16개입니다.  자세한 내용은 [Azure VMware Solution 프라이빗 클라우드 및 클러스터](concepts-private-clouds-clusters.md#clusters) 설명서를 참조하세요.
+Azure VMware Solution 프라이빗 클라우드에 배포하려는 호스트 수를 정의합니다.  최소 호스트 수는 3개이고, 최대 노드 수는 클러스터당 16개입니다.  자세한 내용은 [Azure VMware Solution 프라이빗 클라우드 및 클러스터](concepts-private-clouds-clusters.md#clusters) 설명서를 참조하세요.
 
 초기 배포 수를 초과해야 하는 경우 나중에 언제든지 클러스터를 확장할 수 있습니다.
 

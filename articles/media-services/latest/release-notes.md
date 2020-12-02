@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: cdc6cbbea8b222007d94ecac99902bc4498a42fe
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 4ddb02bbcf284566550517f8fa343a728e2275a9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505260"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483630"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -51,7 +51,7 @@ ms.locfileid: "94505260"
 
 이제 라이브 이벤트가 중지 될 때 대부분의 속성에 대 한 업데이트가 허용 됩니다. 또한 사용자는 라이브 이벤트의 입력 및 미리 보기 Url에 대 한 정적 호스트 이름에 대 한 접두사를 지정할 수 있습니다. 이제 `useStaticHostName` 속성의 의도를 보다 잘 반영 하기 위해 VanityUrl가 호출 됩니다.
 
-이제 라이브 이벤트에는 대기 상태가 있습니다.  [Media Services에서 라이브 이벤트 및 라이브 출력을](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept)참조 하세요.
+이제 라이브 이벤트에는 대기 상태가 있습니다.  [Media Services에서 라이브 이벤트 및 라이브 출력을](./live-events-outputs-concept.md)참조 하세요.
 
 라이브 이벤트는 다양 한 입력 가로 세로 비율 수신을 지원 합니다. 스트레치 모드를 사용 하면 고객이 출력의 스트레치 동작을 지정할 수 있습니다.
 
@@ -196,7 +196,7 @@ Media Services v3 라이브 이벤트의 라이브 선형 인코딩의 연중무
 
 #### <a name="deprecation-of-media-processors"></a>미디어 프로세서 사용 중단
 
-WAME( *Windows Azure Media Encoder* ) 및 AME( *Azure Media Encoder* ) 미디어 프로세서의 사용이 중단될 예정입니다. 사용 중지 날짜는이 [레거시 구성 요소](../previous/legacy-components.md) 문서를 참조 하세요.
+WAME(*Windows Azure Media Encoder*) 및 AME(*Azure Media Encoder*) 미디어 프로세서의 사용이 중단될 예정입니다. 사용 중지 날짜는이 [레거시 구성 요소](../previous/legacy-components.md) 문서를 참조 하세요.
 
 자세한 내용은 [WAME에서 Media Encoder Standard로 마이그레이션](../previous/migrate-windows-azure-media-encoder.md) 및 [AME에서 Media Encoder Standard로 마이그레이션](../previous/migrate-azure-media-encoder.md)을 참조하세요.
  

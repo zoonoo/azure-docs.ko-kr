@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 4487aeba72cc71a31871169c0647efbff34ee068
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9b35a3cbe23af91f7f0b8aceecfb8ba3c9720461
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968624"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484416"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>현재 위치의 업그레이드 Red Hat Enterprise Linux
 
@@ -35,7 +35,7 @@ Red Hat 및 Azure는 전체 업그레이드를 사용 하 여 시스템을 다�
 >[!Important] 
 > 업그레이드를 시작 하기 전에 이미지의 스냅숏을 만듭니다.
 
-* 최신 RHEL 7 버전을 사용 하 고 있는지 확인 합니다. 현재 최신 버전은 RHEL 7.9입니다. 잠긴 버전을 사용 하 고 RHEL 7.9로 업그레이드할 수 없는 경우 다음 단계에 따라 [EUS (확장 업데이트 지원) 리포지토리로 전환](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock)합니다.
+* 최신 RHEL 7 버전을 사용 하 고 있는지 확인 합니다. 현재 최신 버전은 RHEL 7.9입니다. 잠긴 버전을 사용 하 고 RHEL 7.9로 업그레이드할 수 없는 경우 다음 단계에 따라 [EUS (확장 업데이트 지원) 리포지토리로 전환](./redhat-rhui.md#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock)합니다.
 
 * 다음 명령을 실행 하 여 업그레이드를 확인 하 고 성공적으로 완료 되는지 확인 합니다. 명령은 */var/log/leapp/leapp-report.txt* 파일을 생성 해야 합니다. 이 파일은 프로세스, 진행 상황 및 업그레이드가 가능한 지 여부를 설명 합니다.
 

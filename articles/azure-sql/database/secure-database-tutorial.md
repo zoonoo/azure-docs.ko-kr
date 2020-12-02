@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: b9afb35a0e8a1c2513ce032030271599d181cd14
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 77ed71d74e75abfdf7f84aee9b116f1d9d2ccc9d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792687"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985861"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>자습서: Azure SQL Database의 데이터베이스 보안
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ SQL Database의 데이터베이스는 Azure에서 방화벽으로 보호됩니�
     ![서버 방화벽 규칙](./media/secure-database-tutorial/server-name.png)
 
     > [!NOTE]
-    > 이 자습서의 뒷부분에서 사용할 수 있도록 정규화된 서버 이름(예: *yourserver.database.windows.net* )을 복사합니다.
+    > 이 자습서의 뒷부분에서 사용할 수 있도록 정규화된 서버 이름(예: *yourserver.database.windows.net*)을 복사합니다.
 
 1. **개요** 페이지에서 **서버 방화벽 설정** 을 선택합니다. 서버에 대한 **방화벽 설정** 페이지가 열립니다.
 
@@ -131,7 +131,7 @@ Azure AD 관리자를 설정하려면,
     ![관리자 선택](./media/secure-database-tutorial/admin-select.png)
 
     > [!IMPORTANT]
-    > RBAC(역할 기반 액세스 제어)는 포털에만 적용되며 SQL Server에 전파되지 않습니다.
+    > Azure RBAC(Azure 역할 기반 액세스 제어)는 포털에만 적용되며 SQL Server에 전파되지 않습니다.
 
 1. **Active Directory 관리자** 페이지의 위쪽에서 **저장** 을 선택합니다.
 

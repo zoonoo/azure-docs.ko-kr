@@ -13,21 +13,23 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: cbfaf52a7c5bb5e44b85513d8e2c2ec5f1cea356
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 08ee000d8f801559fcf572b8ab489161fd090b77
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101986"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996205"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>자습서: Android 애플리케이션에서 사용자 로그인 및 Microsoft Graph API 호출
 
-이 자습서에서는 Android용 MSAL(Microsoft 인증 라이브러리)을 사용하여 Android 앱을 Microsoft ID 플랫폼과 통합하는 방법을 알아봅니다. 사용자로 로그인 및 로그아웃하고, 액세스 토큰을 가져오고, Microsoft Graph API를 요청하는 방법을 알아봅니다.
+이 자습서에서는 Microsoft ID 플랫폼과 통합되어 사용자를 로그인하고 Microsoft Graph API를 호출하는 액세스 토큰을 가져오는 Android 앱을 빌드합니다.
 
 이 자습서를 완료했으면 애플리케이션에서 Azure Active Directory를 사용하는 모든 회사 또는 조직의 회사 또는 학교 계정뿐만 아니라 개인 Microsoft 계정(outlook.com, live.com 등 포함)의 로그인을 수락하게 됩니다.
 
+이 자습서에서는 다음을 수행합니다. 
+
 > [!div class="checklist"]
-> * *Android Studio*에서 Android 앱 프로젝트 만들기
+> * *Android Studio* 에서 Android 앱 프로젝트 만들기
 > * Azure Portal에 앱 등록
 > * 사용자 로그인 및 로그아웃을 지원하는 코드 추가
 > * Microsoft Graph API를 호출하는 코드 추가
@@ -61,36 +63,36 @@ MSAL은 자동으로 토큰을 갱신하고, 디바이스의 다른 앱 간에 S
 ## <a name="create-a-project"></a>프로젝트 만들기
 아직 Android 애플리케이션이 없는 경우 다음 단계에 따라 새 프로젝트를 설정합니다.
 
-1. Android Studio를 열고 **새 Android Studio 프로젝트 시작**을 선택합니다.
-2. **기본 작업**을 선택하고 **다음**을 선택합니다.
+1. Android Studio를 열고 **새 Android Studio 프로젝트 시작** 을 선택합니다.
+2. **기본 작업** 을 선택하고 **다음** 을 선택합니다.
 3. 애플리케이션의 이름을 지정합니다.
 4. 패키지 이름을 저장합니다. 나중에 Azure Portal에 입력할 것입니다.
-5. 언어를 **Kotlin**에서 **Java**로 변경합니다.
-6. **최소 API 수준**을 **API 19** 이상으로 설정하고 **마침**을 클릭합니다.
-7. 프로젝트 보기의 드롭다운 목록에서 **프로젝트**를 선택하여 소스 및 소스가 아닌 프로젝트 파일을 표시하고, **app/build.gradle**을 열고, `targetSdkVersion`을 `28`로 설정합니다.
+5. 언어를 **Kotlin** 에서 **Java** 로 변경합니다.
+6. **최소 API 수준** 을 **API 19** 이상으로 설정하고 **마침** 을 클릭합니다.
+7. 프로젝트 보기의 드롭다운 목록에서 **프로젝트** 를 선택하여 소스 및 소스가 아닌 프로젝트 파일을 표시하고, **app/build.gradle** 을 열고, `targetSdkVersion`을 `28`로 설정합니다.
 
 ## <a name="integrate-with-microsoft-authentication-library"></a>Microsoft 인증 라이브러리와 통합
 
 ### <a name="register-your-application"></a>애플리케이션 등록
 
 1. [Azure 포털](https://aka.ms/MobileAppReg)로 이동합니다.
-2. [앱 등록 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)를 열고 **+새 등록**을 클릭합니다.
-3. 앱의 **이름**을 입력한 다음, 리디렉션 URI를 설정하지 **않고****등록**을 클릭합니다.
-4. 나타나는 창의 **관리** 섹션에서 **인증** > **+ 플랫폼 추가** > **Android**를 선택합니다. (이 섹션을 보려면 블레이드 상단 근처에 있는 "새 환경으로 전환"을 선택해야 할 수도 있습니다.)
+2. [앱 등록 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)를 열고 **+새 등록** 을 클릭합니다.
+3. 앱의 **이름** 을 입력한 다음, 리디렉션 URI를 설정하지 **않고****등록** 을 클릭합니다.
+4. 나타나는 창의 **관리** 섹션에서 **인증** > **+ 플랫폼 추가** > **Android** 를 선택합니다. (이 섹션을 보려면 블레이드 상단 근처에 있는 "새 환경으로 전환"을 선택해야 할 수도 있습니다.)
 5. 프로젝트의 패키지 이름을 입력합니다. 코드를 다운로드한 경우 이 값은 `com.azuresamples.msalandroidapp`입니다.
-6. **Android 앱 구성** 페이지의 **서명 해시** 섹션에서 **개발 서명 해시 생성**을 클릭합니다. 플랫폼에 사용할 KeyTool 명령을 복사합니다.
+6. **Android 앱 구성** 페이지의 **서명 해시** 섹션에서 **개발 서명 해시 생성** 을 클릭합니다. 플랫폼에 사용할 KeyTool 명령을 복사합니다.
 
    > [!Note]
    > KeyTool.exe는 JDK(Java Development Kit)의 일부로 설치됩니다. 또한 OpenSSL 도구를 설치하여 KeyTool 명령도 실행해야 합니다. 자세한 내용은 [키 생성에 대한 Android 설명서](https://developer.android.com/studio/publish/app-signing#generate-key)를 참조하세요.
 
-7. KeyTool에서 생성된 **서명 해시**를 입력합니다.
-8. `Configure`를 클릭하고 **Android 구성** 페이지에 나타나는 **MSAL 구성**을 저장합니다. 그러면 나중에 앱을 구성할 때 이 구성을 입력할 수 있습니다.  **완료**를 클릭합니다.
+7. KeyTool에서 생성된 **서명 해시** 를 입력합니다.
+8. `Configure`를 클릭하고 **Android 구성** 페이지에 나타나는 **MSAL 구성** 을 저장합니다. 그러면 나중에 앱을 구성할 때 이 구성을 입력할 수 있습니다.  **완료** 를 클릭합니다.
 
 ### <a name="configure-your-application"></a>애플리케이션 구성
 
-1. Android Studio의 프로젝트 창에서 **app\src\main\res**로 이동합니다.
-2. **res**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기** > **디렉터리**를 선택합니다. 새 디렉터리 이름으로 `raw`를 입력하고 **확인**을 클릭합니다.
-3. **app** > **src** > **main** > **res** > **raw**에서 `auth_config_single_account.json`이라는 새 JSON 파일을 만들고, 앞에서 저장한 MSAL 구성을 붙여넣습니다.
+1. Android Studio의 프로젝트 창에서 **app\src\main\res** 로 이동합니다.
+2. **res** 를 마우스 오른쪽 단추로 클릭하고 **새로 만들기** > **디렉터리** 를 선택합니다. 새 디렉터리 이름으로 `raw`를 입력하고 **확인** 을 클릭합니다.
+3. **app** > **src** > **main** > **res** > **raw** 에서 `auth_config_single_account.json`이라는 새 JSON 파일을 만들고, 앞에서 저장한 MSAL 구성을 붙여넣습니다.
 
     리디렉션 URI 아래에 다음을 복사합니다.
     ```json
@@ -119,7 +121,7 @@ MSAL은 자동으로 토큰을 갱신하고, 디바이스의 다른 앱 간에 S
    >[!NOTE]
    >이 자습서에서는 단일 계정 모드에서 앱을 구성하는 방법만 보여줍니다. [단일 계정 모드와 다중 계정 모드](./single-multi-account.md) 및 [앱 구성](./msal-configuration.md)에 대한 자세한 내용은 설명서를 참조하세요.
 
-4. **app** > **src** > **main** > **AndroidManifest.xml**에서 아래의 `BrowserTabActivity` 작업을 애플리케이션 본문에 추가합니다. 이 항목은 다음과 같이 Microsoft에서 인증을 완료한 후 애플리케이션을 콜백할 수 있게 해줍니다.
+4. **app** > **src** > **main** > **AndroidManifest.xml** 에서 아래의 `BrowserTabActivity` 작업을 애플리케이션 본문에 추가합니다. 이 항목은 다음과 같이 Microsoft에서 인증을 완료한 후 애플리케이션을 콜백할 수 있게 해줍니다.
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -145,7 +147,7 @@ MSAL은 자동으로 토큰을 갱신하고, 디바이스의 다른 앱 간에 S
 
 ### <a name="add-msal-to-your-project"></a>프로젝트에 MSAL 추가
 
-1. Android Studio 프로젝트 창에서 **app** > **src** > **build.gradle**로 이동하여 다음을 추가합니다.
+1. Android Studio 프로젝트 창에서 **app** > **src** > **build.gradle** 로 이동하여 다음을 추가합니다.
 
     ```gradle
     repositories{

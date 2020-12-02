@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: cd9b85f22866c529b66fa6df07bd524516726086
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a5457dc94082f089d3adf02c9614d05d2c5db244
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165335"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484008"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Custom Speech에 대한 데이터 준비
 
@@ -48,7 +48,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 |-----------|-----------------|----------|-------------------|----------|
 | [오디오](#audio-data-for-testing) | 예<br>시각적 검사에 사용 됨 | 5 + 오디오 파일 | 아니요 | 해당 없음 |
 | [오디오 + 사람이 레이블 지정 된 성적 증명서](#audio--human-labeled-transcript-data-for-testingtraining) | 예<br>정확도를 평가 하는 데 사용 됩니다. | 0.5-오디오의 5 시간 | 예 | 1 ~ 1000 시간 (오디오) |
-| [관련 텍스트](#related-text-data-for-training) | No | 해당 사항 없음 | 예 | 1-200 MB의 관련 텍스트 |
+| [관련 텍스트](#related-text-data-for-training) | 아니요 | 해당 사항 없음 | 예 | 1-200 MB의 관련 텍스트 |
 
 파일은 형식에 따라 데이터 집합으로 그룹화 되 고 .zip 파일로 업로드 되어야 합니다. 각 데이터 집합은 단일 데이터 형식만 포함할 수 있습니다.
 
@@ -119,7 +119,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 단어 삭제 또는 대체와 같은 문제를 해결 하기 위해 많은 양의 데이터가 필요 하므로 인식 기능을 향상 시킬 수 있습니다. 일반적으로 약 10 ~ 1000 시간의 오디오에 대해 word를 통해 word를 제공 하는 것이 좋습니다. 모든 WAV 파일에 대한 전사는 단일 일반 텍스트 파일에 포함되어야 합니다. 전사 파일의 각 줄은 오디오 파일 중 하나의 이름을 포함하고 그 뒤에 해당 전사가 와야 합니다. 파일 이름과 전사는 탭(\t)으로 구분 해야 합니다.
 
-  예를 들면 다음과 같습니다.
+  다음은 그 예입니다. 
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -186,7 +186,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 사용자 지정 된 발음은 영어 ( `en-US` ) 및 독일어 ()로 제공 됩니다 `de-DE` . 다음 표에서는 언어에 따라 지원 되는 문자를 보여 줍니다.
 
-| Language | 로캘 | 문자 |
+| 언어 | 로캘 | 문자 |
 |----------|--------|------------|
 | 영어 | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | 독일어 | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
@@ -204,4 +204,4 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 * [데이터 검사](how-to-custom-speech-inspect-data.md)
 * [데이터 평가](how-to-custom-speech-evaluate-data.md)
 * [모델 학습](how-to-custom-speech-train-model.md)
-* [모델 배포](how-to-custom-speech-deploy-model.md)
+* [모델 배포](./how-to-custom-speech-train-model.md)

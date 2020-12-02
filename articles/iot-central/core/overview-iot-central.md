@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 3952736af9cf7c3b720769cee6a58e3fc52a6111
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b62a0da7074676787b7e1c0182ca7588b83cdbe0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127406"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985045"
 ---
 # <a name="what-is-azure-iot-central"></a>Azure IoT Central이란?
 
@@ -34,10 +34,10 @@ IoT Central은 엔터프라이즈급 IoT 솔루션의 개발, 관리 및 유지 
 
 IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 다음 4명의 일반적인 가상 사용자와 관련이 있습니다.
 
-- _솔루션 개발자_는 애플리케이션에 연결하는 [디바이스 유형을 정의](howto-set-up-template.md)하고 운영자에 맞게 애플리케이션을 사용자 지정하는 역할을 담당합니다.
-- _운영자_는 애플리케이션에 연결된 [디바이스를 관리](howto-manage-devices.md)합니다.
-- _관리자_는 애플리케이션 내 [사용자 및 권한](howto-administer.md) 관리와 같은 관리 작업을 담당합니다.
-- _디바이스 개발자_는 애플리케이션에 연결된 [디바이스에서 실행되는 코드를 만들](concepts-telemetry-properties-commands.md)거나 [IoT Edge 모듈](concepts-iot-edge.md)을 만듭니다.
+- _솔루션 개발자_ 는 애플리케이션에 연결하는 [디바이스 유형을 정의](howto-set-up-template.md)하고 운영자에 맞게 애플리케이션을 사용자 지정하는 역할을 담당합니다.
+- _운영자_ 는 애플리케이션에 연결된 [디바이스를 관리](howto-manage-devices.md)합니다.
+- _관리자_ 는 애플리케이션 내 [사용자 및 권한](howto-administer.md) 관리와 같은 관리 작업을 담당합니다.
+- _디바이스 개발자_ 는 애플리케이션에 연결된 [디바이스에서 실행되는 코드를 만들](concepts-telemetry-properties-commands.md)거나 [IoT Edge 모듈](concepts-iot-edge.md)을 만듭니다.
 
 ## <a name="create-your-iot-central-application"></a>IoT Central 애플리케이션 만들기
 
@@ -48,7 +48,7 @@ IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 �
 
 새로운 IoT Central 애플리케이션을 빠르게 배포한 다음, 브라우저에서 특정 요구 사항에 맞게 사용자 지정할 수 있습니다. 일반 _애플리케이션 템플릿_, 또는 산업에 초점을 둔 [소매](../retail/overview-iot-central-retail.md), [에너지](../energy/overview-iot-central-energy.md), [정부](../government/overview-iot-central-government.md) 또는 [의료](../healthcare/overview-iot-central-healthcare.md)용 애플리케이션 템플릿 중 하나를 시작할 수 있습니다.
 
-솔루션 개발자는 웹 기반 도구를 사용하여 애플리케이션에 연결하는 디바이스를 위한 _디바이스 템플릿_을 만들 수 있습니다. 디바이스 템플릿은 다음과 같은 디바이스 유형의 특성과 동작을 정의하는 청사진입니다.
+솔루션 개발자는 웹 기반 도구를 사용하여 애플리케이션에 연결하는 디바이스를 위한 _디바이스 템플릿_ 을 만들 수 있습니다. 디바이스 템플릿은 다음과 같은 디바이스 유형의 특성과 동작을 정의하는 청사진입니다.
 
 - 전송하는 원격 분석. 온도 및 습도를 예로 들 수 있습니다. 원격 분석은 스트리밍 데이터입니다.
 - 운영자가 수정할 수 있는 비즈니스 속성. 고객 주소와 마지막 서비스 날짜를 예로 들 수 있습니다.
@@ -58,7 +58,7 @@ IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 �
 
 이 [디바이스 템플릿](howto-set-up-template.md)에는 다음이 포함됩니다.
 
-- 디바이스에서 구현해야 하는 기능을 설명하는 _디바이스 기능 모델_입니다. 디바이스 기능은 다음과 같습니다.
+- 디바이스에서 구현해야 하는 기능을 설명하는 _디바이스 모델_ 입니다. 디바이스 기능은 다음과 같습니다.
 
   - IoT Central로 스트리밍하는 원격 분석입니다.
   - IoT Central에 상태를 보고하는 데 사용하는 읽기 전용 속성입니다.
@@ -72,9 +72,9 @@ IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 �
 
 솔루션 개발자는 다음과 같은 여러 가지 옵션을 통해 디바이스 템플릿을 만들 수 있습니다.
 
-- IoT Central에서 디바이스 템플릿을 디자인한 다음, 디바이스 코드에서 디바이스 기능 모델을 구현합니다.
-- Visual Studio Code를 사용하여 디바이스 기능 모델을 만들고 모델을 리포지토리에 게시합니다. 모델에서 디바이스 코드를 구현하고, 디바이스를 IoT Central 애플리케이션에 연결합니다. IoT Central은 자동으로 리포지토리에서 디바이스 기능 모델을 찾아서 간단한 디바이스 템플릿을 만듭니다.
-- Visual Studio Code를 사용하여 디바이스 기능 모델을 만듭니다. 모델에서 디바이스 코드를 구현합니다. 수동으로 디바이스 기능 모델을 IoT Central 애플리케이션으로 가져온 다음, IoT Central 애플리케이션에 필요한 클라우드 속성, 사용자 지정 및 대시보드를 추가합니다.
+- IoT Central에서 디바이스 템플릿을 디자인한 다음, 디바이스 코드에서 디바이스 모델을 구현합니다.
+- Visual Studio Code를 사용하여 디바이스 모델을 만들고 모델을 리포지토리에 게시합니다. 모델에서 디바이스 코드를 구현하고, 디바이스를 IoT Central 애플리케이션에 연결합니다. IoT Central은 자동으로 리포지토리에서 디바이스 모델을 찾아서 간단한 디바이스 템플릿을 만듭니다.
+- Visual Studio Code를 사용하여 디바이스 모델을 만듭니다. 모델에서 디바이스 코드를 구현합니다. 디바이스 모델을 IoT Central 애플리케이션으로 수동으로 가져온 다음, IoT Central 애플리케이션에 필요한 클라우드 속성, 사용자 지정 및 대시보드를 추가합니다.
 
 솔루션 개발자는 IoT Central을 사용하여 디바이스 템플릿의 유효성을 검사하는 테스트 디바이스용 코드를 생성할 수 있습니다.
 
@@ -151,7 +151,6 @@ IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트하므�
 - 배열 스키마 형식은 지원되지 않습니다.
 - C 디바이스 SDK와 Node.js 디바이스 및 서비스 SDK만 지원됩니다.
 - IoT Central은 현재 미국, 유럽, 아시아 태평양, 오스트레일리아, 영국 및 일본 위치에서 사용할 수 있습니다.
-- 디바이스 기능 모델의 모든 인터페이스가 동일한 파일에 인라인으로 정의되어 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

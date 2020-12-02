@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: victorh
-ms.openlocfilehash: 00a84fbf694a58128712abf806ff12df96f0e5e9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 84ecea7764ddf48d68c983eaa5bccbac5f332d9b
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596687"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95489697"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Azure Firewall Manager란?
 
@@ -25,7 +25,7 @@ Firewall Manager는 다음 두 가지 네트워크 아키텍처 유형에 대한
    [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources)는 허브 및 스포크 아키텍처를 쉽게 만들 수 있는 Microsoft 관리 리소스입니다. 보안 및 라우팅 정책이 이러한 허브와 연결된 경우에는 *[보안 가상 허브](secured-virtual-hub.md)* 라고도 합니다. 
 - **Hub 가상 네트워크**
 
-   이는 사용자가 직접 만들고 관리하는 표준 Azure 가상 네트워크입니다. 이러한 허브와 연결된 보안 정책을 *보안 가상 허브*라고도 합니다. 지금은 Azure Firewall Policy만 지원됩니다. 워크로드 서버 및 서비스가 포함된 스포크 가상 네트워크를 피어링할 수 있습니다. 어떤 스포크에도 피어링되지 않는 독립 실행형 가상 네트워크에서 방화벽을 관리할 수도 있습니다.
+   이는 사용자가 직접 만들고 관리하는 표준 Azure 가상 네트워크입니다. 이러한 허브와 연결된 보안 정책을 *보안 가상 허브* 라고도 합니다. 지금은 Azure Firewall Policy만 지원됩니다. 워크로드 서버 및 서비스가 포함된 스포크 가상 네트워크를 피어링할 수 있습니다. 어떤 스포크에도 피어링되지 않는 독립 실행형 가상 네트워크에서 방화벽을 관리할 수도 있습니다.
 
 *보안 가상 허브* 및 *허브 가상 네트워크* 아키텍처에 대한 자세한 비교는 [Azure Firewall Manager 아키텍처 옵션이란?](vhubs-and-vnets.md)을 참조하세요.
 
@@ -76,7 +76,7 @@ Azure Firewall 정책은 여러 지역에 걸쳐 사용할 수 있습니다. 예
 
 Azure Firewall Manager에는 다음과 같이 알려진 문제가 있습니다.
 
-|문제  |설명  |완화 방법  |
+|문제  |Description  |완화 방법  |
 |---------|---------|---------|
 |트래픽 분할|Microsoft 365 및 Azure Public PaaS 트래픽 분할은 현재 지원되지 않습니다. 따라서 V2I 또는 B2I에 대해 타사 공급자를 선택하면 모든 Azure Public PaaS 및 Microsoft 365 트래픽도 파트너 서비스를 통해 전송됩니다.|허브에서 트래픽 분할을 조사 중입니다.
 |지역당 하나의 보안 가상 허브|지역당 둘 이상의 보안 가상 허브를 가질 수 없습니다.|한 지역에 여러 가상 WAN을 만듭니다.|
@@ -89,7 +89,8 @@ Azure Firewall Manager에는 다음과 같이 알려진 문제가 있습니다.
 |사용자 지정 DNS(미리 보기)가 구성된 보안 허브에서 애플리케이션 규칙이 실패합니다.|사용자 지정 DNS(미리 보기)는 강제 터널링이 설정된 보안 허브 배포 및 Hub 가상 네트워크 배포에서 작동하지 않습니다.|조사 중에 수정합니다.|
 |DDoS Protection 표준은 보안 가상 허브에서 지원되지 않습니다.|DDoS Protection 표준은 vWAN과 통합되지 않습니다.|조사|
 |활동 로그가 완전히 지원되지 않습니다.|방화벽 정책은 현재 활동 로그를 지원하지 않습니다.|조사|
-|SNAT 개인 IP 주소 범위 구성|Azure Firewall 정책이 구성된 경우 [개인 IP 범위 설정](../firewall/snat-private-range.md)은 무시됩니다. 기본 Azure Firewall이 작동하며 대상 IP 주소가 [IANA RFC 1918](https://tools.ietf.org/html/rfc1918)에 따라 개인 IP 주소 범위에 있는 경우 SNAT 네트워크 규칙이 적용되지 않습니다.|조사
+|SNAT 개인 IP 주소 범위 구성|Azure Firewall 정책이 구성된 경우 [개인 IP 범위 설정](../firewall/snat-private-range.md)은 무시됩니다. 기본 Azure Firewall이 작동하며 대상 IP 주소가 [IANA RFC 1918](https://tools.ietf.org/html/rfc1918)에 따라 개인 IP 주소 범위에 있는 경우 SNAT 네트워크 규칙이 적용되지 않습니다.|조사|
+|Firewall Policy를 사용하도록 방화벽을 마이그레이션할 때 일부 방화벽 설정이 마이그레이션되지 않음|Azure Firewall Policy로 마이그레이션하면 가용성 영역 및 SNAT 프라이빗 주소가 마이그레이션되지 않습니다.|조사| 
 
 ## <a name="next-steps"></a>다음 단계
 

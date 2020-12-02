@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f1ea8d16a441230323b4f0213229d223a0b035bc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8dbf3b5de4b908eb831158b73b2b17472bc4895e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778641"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020966"
 ---
 # <a name="what-are-the-comparisons-between-azure-cdn-product-features"></a>Azure CDN 제품 기능 간의 비교는 무엇인가요?
 
@@ -23,7 +23,7 @@ Azure CDN(Content Delivery Network)에는 다음과 같은 네 가지 제품이 
 * **Microsoft의 Azure CDN 표준**
 * **Akamai의 Azure CDN 표준**
 * **Verizon의 Azure CDN 표준**
-* **Verizon의 Azure CDN 프리미엄** . 
+* **Verizon의 Azure CDN 프리미엄**. 
 
 다음 표는 각 제품에 사용할 수 있는 기능을 비교합니다.
 
@@ -72,7 +72,7 @@ Azure CDN(Content Delivery Network)에는 다음과 같은 네 가지 제품이 
 | [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md) 및 [Media Services](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) 등의 Azure 서비스와 손쉬운 통합  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [REST API](/rest/api/cdn/), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) 또는 [PowerShell](cdn-manage-powershell.md)을 통한 관리  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [압축 MIME 형식](./cdn-improve-performance.md)  |기본값만 |구성 가능 여부 |구성 가능  |구성 가능 여부  |
-| 압축 인코딩  |gzip, brotli |gzip |gzip, deflate, bzip2, brotili  |gzip, deflate, bzip2, brotili  |
+| 압축 인코딩  |gzip, brotli |gzip |gzip, deflate, bzip2, brotli  |gzip, deflate, bzip2, brotli  |
 
 ## <a name="migration"></a>마이그레이션
 

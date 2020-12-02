@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 38f6cf039de2404c7b3eeecc74ee33233f4a2058
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5638b60b60f3952ab40fa000e457082f4748ac35
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965292"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484348"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -160,8 +160,8 @@ IOPS 요구 사항이 단일 VHD가 제공할 수 있는 작업을 초과 하는
 >
 > Linux에서 소프트웨어 RAID를 빌드하는 경우 MDADM 및 LVM(논리 볼륨 관리자)만 지원됩니다. 자세한 내용은 다음을 참조하세요.
 >
-> - [Linux에서 소프트웨어 RAID 구성](../../linux/configure-raid.md)(MDADM 사용)
-> - [Azure에서 Linux VM에 LVM 구성](../../linux/configure-lvm.md)(LVM 사용)
+> - [Linux에서 소프트웨어 RAID 구성](/previous-versions/azure/virtual-machines/linux/configure-raid)(MDADM 사용)
+> - [Azure에서 Linux VM에 LVM 구성](/previous-versions/azure/virtual-machines/linux/configure-lvm)(LVM 사용)
 >
 >
 

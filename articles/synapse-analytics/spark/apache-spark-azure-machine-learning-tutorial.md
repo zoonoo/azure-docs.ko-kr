@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
-ms.reviewer: jrasnick,
-ms.openlocfilehash: 979e360bb920fc3b34a201b1287b50b141bffa9b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.reviewer: jrasnick
+ms.openlocfilehash: e6708874fee3e15349b4389f1ecafa3d48a628dd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313625"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95917198"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>자습서: Azure 자동화된 ML 및 Apache Spark를 사용하여 실험 실행
 
@@ -50,51 +50,52 @@ Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관
 
 1. PySpark 커널을 사용하여 Notebook을 만듭니다. 자세한 지침은 [Notebook 만들기](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook.)를 참조하세요.
    
-   > [!Note]
-   > 
-   > PySpark 커널로 인해 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 컨텍스트가 자동으로 만들어집니다.
-   >
+> [!Note]
+> 
+> PySpark 커널로 인해 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 컨텍스트가 자동으로 만들어집니다.
+>
 
 2. 원시 데이터는 Parquet 형식이기 때문에 Spark 컨텍스트를 사용하여 직접 데이터 프레임으로 파일을 메모리로 풀할 수 있습니다. Open Datasets API를 통해 데이터를 검색하여 Spark 데이터 프레임을 만듭니다. 여기서는 *read* 속성에서 Spark 데이터 프레임 스키마를 사용하여 데이터 형식 및 스키마를 유추합니다. 
    
-   ```python
-   blob_account_name = "azureopendatastorage"
-   blob_container_name = "nyctlc"
-   blob_relative_path = "yellow"
-   blob_sas_token = r""
+```python
+blob_account_name = "azureopendatastorage"
+blob_container_name = "nyctlc"
+blob_relative_path = "yellow"
+blob_sas_token = r""
 
-   # Allow Spark to read from Blob remotely
-   wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
-   spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),blob_sas_token)
+# Allow Spark to read from Blob remotely
+wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
+spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),blob_sas_token)
 
-   # Spark read parquet, note that it won't load any data yet by now
-   df = spark.read.parquet(wasbs_path)
-   ```
+# Spark read parquet, note that it won't load any data yet by now
+df = spark.read.parquet(wasbs_path)
+
+```
 
 3. Spark 풀(미리 보기)의 크기에 따라 원시 데이터가 너무 크거나 작업하는 데 너무 많은 시간이 걸릴 수 있습니다. ```start_date``` 및 ```end_date``` 필터를 사용하여 이 데이터를 더 작은 데이터로 필터링할 수 있습니다. 이 경우 한 달 분량의 데이터를 반환하는 필터를 적용합니다. 필터링된 데이터 프레임이 있으면 새 데이터 프레임에서 ```describe()``` 함수도 실행하여 각 필드에 대한 요약 통계를 확인할 수 있습니다. 
 
    요약 통계를 기반으로 하여 데이터에 몇 가지 불규칙성과 이상값이 있음을 알 수 있습니다. 예를 들어 통계에 따르면 최소 이동 거리가 0보다 작습니다. 이러한 불규칙한 데이터 요소를 필터링해야 합니다.
    
-   ```python
-   # Create an ingestion filter
-   start_date = '2015-01-01 00:00:00'
-   end_date = '2015-12-31 00:00:00'
+```python
+# Create an ingestion filter
+start_date = '2015-01-01 00:00:00'
+end_date = '2015-12-31 00:00:00'
 
-   filtered_df = df.filter('tpepPickupDateTime > "' + start_date + '" and tpepPickupDateTime < "' + end_date + '"')
+filtered_df = df.filter('tpepPickupDateTime > "' + start_date + '" and tpepPickupDateTime < "' + end_date + '"')
 
-   filtered_df.describe().show()
-   ```
+filtered_df.describe().show()
+```
 
 4. 이제 열 세트를 선택하고 픽업 날짜/시간 필드에서 다양한 시간 기반 기능을 만들어 데이터 세트에서 기능을 생성합니다. 또한 이전 단계에서 확인된 이상값을 필터링한 다음, 학습하는 데 필요하지 않은 마지막 몇 개의 열을 제거합니다.
    
-   ```python
-   from datetime import datetime
-   from pyspark.sql.functions import *
+```python
+from datetime import datetime
+from pyspark.sql.functions import *
 
-   # To make development easier, faster and less expensive down sample for now
-   sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
+# To make development easier, faster and less expensive down sample for now
+sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
 
-   taxi_df = sampled_taxi_df.select('vendorID', 'passengerCount', 'tripDistance',  'startLon', 'startLat', 'endLon' \
+taxi_df = sampled_taxi_df.select('vendorID', 'passengerCount', 'tripDistance',  'startLon', 'startLat', 'endLon' \
                                 , 'endLat', 'paymentType', 'fareAmount', 'tipAmount'\
                                 , column('puMonth').alias('month_num') \
                                 , date_format('tpepPickupDateTime', 'hh').alias('hour_of_day')\
@@ -108,12 +109,13 @@ Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관
                                 & (sampled_taxi_df.tripDistance > 0) & (sampled_taxi_df.tripDistance <= 200)\
                                 & (sampled_taxi_df.rateCodeId <= 5)\
                                 & (sampled_taxi_df.paymentType.isin({"1", "2"})))
-   taxi_df.show(10)
-   ```
+taxi_df.show(10)
+```
    
-여기서 볼 수 있듯이 월의 날짜, 픽업 시간, 평일 및 총 이동 시간에 대한 추가 열이 포함된 새 데이터 프레임이 만들어집니다. 
+   여기서 볼 수 있듯이 월의 날짜, 픽업 시간, 평일 및 총 이동 시간에 대한 추가 열이 포함된 새 데이터 프레임이 만들어집니다. 
 
-![택시 데이터 프레임의 그림](./media/apache-spark-machine-learning-aml-notebook/aml-dataset.png)
+
+![택시 데이터 프레임의 그림](./media/azure-machine-learning-spark-notebook/dataset.png#lightbox)
 
 ## <a name="generate-test-and-validation-datasets"></a>테스트 및 유효성 검사 데이터 세트 생성
 
@@ -124,7 +126,6 @@ Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관
 training_data, validation_data = taxi_df.randomSplit([0.8,0.2], 223)
 
 ```
-
 이 단계에서는 데이터를 사용하여 모델을 학습시키는 데 사용되지 않은 완성된 모델을 테스트하도록 합니다. 
 
 ## <a name="connect-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 연결
@@ -165,43 +166,41 @@ datastore.upload_files(files = ['training_pd.csv'],
                        show_progress = True)
 dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'train-dataset/tabular/training_pd.csv')])
 ```
-
-![업로드된 데이터 세트의 그림](./media/apache-spark-machine-learning-aml-notebook/upload-dataset.png)
+![업로드된 데이터 세트의 그림](./media/azure-machine-learning-spark-notebook/upload-dataset.png)
 
 ## <a name="submit-an-automl-experiment"></a>AutoML 실험 제출
 
 #### <a name="define-training-settings"></a>학습 설정 정의
-
 1. 실험을 제출하려면 학습을 위한 실험 매개 변수와 모델 설정을 정의해야 합니다. 설정의 전체 목록은 [여기](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train)서 볼 수 있습니다.
 
-   ```python
-   import logging
+```python
+import logging
 
-   automl_settings = {
-       "iteration_timeout_minutes": 10,
-       "experiment_timeout_minutes": 30,
-       "enable_early_stopping": True,
-       "primary_metric": 'r2_score',
-       "featurization": 'auto',
-       "verbosity": logging.INFO,
-       "n_cross_validations": 2}
-   ```
+automl_settings = {
+    "iteration_timeout_minutes": 10,
+    "experiment_timeout_minutes": 30,
+    "enable_early_stopping": True,
+    "primary_metric": 'r2_score',
+    "featurization": 'auto',
+    "verbosity": logging.INFO,
+    "n_cross_validations": 2}
+```
 
-2. 이제 정의된 학습 설정을 \*\*kwargs 매개 변수로 AutoMLConfig 개체에 전달합니다. Spark에서 학습시키므로 ```sc``` 변수에서 자동으로 액세스할 수 있는 Spark 컨텍스트도 전달해야 합니다. 또한 학습 데이터와 모델 유형(이 경우 회귀)을 지정합니다.
+2. 이제 정의된 학습 설정을 **kwargs 매개 변수로 AutoMLConfig 개체에 전달합니다. Spark에서 학습시키므로 ```sc``` 변수에서 자동으로 액세스할 수 있는 Spark 컨텍스트도 전달해야 합니다. 또한 학습 데이터와 모델 유형(이 경우 회귀)을 지정합니다.
 
-   ```python
-   from azureml.train.automl import AutoMLConfig
+```python
+from azureml.train.automl import AutoMLConfig
 
-   automl_config = AutoMLConfig(task='regression',
+automl_config = AutoMLConfig(task='regression',
                              debug_log='automated_ml_errors.log',
                              training_data = dataset_training,
                              spark_context = sc,
                              model_explainability = False, 
                              label_column_name ="fareAmount",**automl_settings)
-   ```
+```
 
 > [!NOTE]
-> 자동화된 기계 학습 사전 처리 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 전처리 단계가 입력 데이터에 자동으로 적용됩니다.
+>자동화된 기계 학습 사전 처리 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 전처리 단계가 입력 데이터에 자동으로 적용됩니다.
 
 #### <a name="train-the-automatic-regression-model"></a>자동 회귀 모델 학습 
 이제 Azure Machine Learning 작업 영역에서 실험 개체를 만듭니다. 실험은 개별 실행에 대한 컨테이너 역할을 합니다. 
@@ -217,10 +216,9 @@ local_run = experiment.submit(automl_config, show_output=True, tags = tags)
 # Use the get_details function to retrieve the detailed output for the run.
 run_details = local_run.get_details()
 ```
-
 실험이 완료되면 출력에서 완료된 반복에 대한 세부 정보를 반환합니다. 각 반복의 경우 모델 유형, 실행 지속 및 학습 정확도가 표시됩니다. BEST 필드는 메트릭 유형에 따라 최상의 실행 학습 점수를 추적합니다.
 
-![모델 출력의 스크린샷](./media/apache-spark-machine-learning-aml-notebook/aml-model-output.png)
+![모델 출력의 스크린샷](./media/azure-machine-learning-spark-notebook/model-output.png)
 
 > [!NOTE]
 > 제출되면 AutoML 실험에서 다양한 반복 및 모델 유형을 실행합니다. 이 실행에는 일반적으로 1-1.5시간이 걸립니다. 
@@ -234,94 +232,92 @@ best_run, fitted_model = local_run.get_output()
 ```
 
 #### <a name="test-model-accuracy"></a>모델 정확도 테스트
-
 1. 모델 정확도를 테스트하기 위해 테스트 데이터 세트에서 택시 요금 예측을 실행하는 데 가장 적합한 모델을 사용합니다. ```predict``` 함수는 가장 적합한 모델을 사용하고 유효성 검사 데이터 세트에서 y 값(운임 금액)을 예측합니다. 
 
-   ```python
-   # Test best model accuracy
-   validation_data_pd = validation_data.toPandas()
-   y_test = validation_data_pd.pop("fareAmount").to_frame()
-   y_predict = fitted_model.predict(validation_data_pd)
-   ```
+```python
+# Test best model accuracy
+validation_data_pd = validation_data.toPandas()
+y_test = validation_data_pd.pop("fareAmount").to_frame()
+y_predict = fitted_model.predict(validation_data_pd)
+```
 
 2. RMSE(제곱 평균 오차)는 모델에서 예측한 샘플 값과 관찰된 값 간의 차이를 측정하는 데 자주 사용됩니다. y_test 데이터 프레임을 모델에서 예측한 값과 비교하여 결과의 제곱 평균 오차를 계산합니다. 
 
    ```mean_squared_error``` 함수는 두 개의 배열을 가져와서 두 배열 간의 평균 제곱 오차를 계산합니다. 그런 다음, 결과의 제곱근을 사용합니다. 이 메트릭은 택시 요금 예측과 실제 요금 값의 차이를 대략적으로 나타냅니다.
 
-   ```python
-   from sklearn.metrics import mean_squared_error
-   from math import sqrt
+```python
+from sklearn.metrics import mean_squared_error
+from math import sqrt
 
-   # Calculate Root Mean Square Error
-   y_actual = y_test.values.flatten().tolist()
-   rmse = sqrt(mean_squared_error(y_actual, y_predict))
+# Calculate Root Mean Square Error
+y_actual = y_test.values.flatten().tolist()
+rmse = sqrt(mean_squared_error(y_actual, y_predict))
 
-   print("Root Mean Square Error:")
-   print(rmse)
-   ```
+print("Root Mean Square Error:")
+print(rmse)
+```
 
-   ```Output
-   Root Mean Square Error:
-   2.309997102577151
-   ```
-   
-   제곱 평균 오차는 모델에서 예측하는 응답에 대한 정확도를 보여주는 좋은 척도입니다. 결과에서 모델이 데이터 세트의 기능에서 택시 요금(일반적으로 $2.00 내외)을 예측하는 데 상당히 적합하다는 것을 알 수 있습니다.
+```Output
+Root Mean Square Error:
+2.309997102577151
+```
+제곱 평균 오차는 모델에서 예측하는 응답에 대한 정확도를 보여주는 좋은 척도입니다. 결과에서 모델이 데이터 세트의 기능에서 택시 요금(일반적으로 $2.00 내외)을 예측하는 데 상당히 적합하다는 것을 알 수 있습니다.
 
 3. 다음 코드를 실행하여 MAPE(절대 백분율 평균 오차)를 계산합니다. 이 메트릭은 정확도를 오류에 대한 백분율로 나타냅니다. 이 작업은 각 예측 값과 실제 값 간의 절대 차이를 계산한 다음, 모든 차이의 합계를 계산하여 수행됩니다. 그런 다음, 해당 합계를 실제 값의 합계에 대한 백분율로 나타냅니다.
 
-   ```python
-   # Calculate MAPE and Model Accuracy 
-   sum_actuals = sum_errors = 0
+```python
+# Calculate MAPE and Model Accuracy 
+sum_actuals = sum_errors = 0
 
-   for actual_val, predict_val in zip(y_actual, y_predict):
-       abs_error = actual_val - predict_val
-       if abs_error < 0:
-           abs_error = abs_error * -1
+for actual_val, predict_val in zip(y_actual, y_predict):
+    abs_error = actual_val - predict_val
+    if abs_error < 0:
+        abs_error = abs_error * -1
 
-       sum_errors = sum_errors + abs_error
-       sum_actuals = sum_actuals + actual_val
+    sum_errors = sum_errors + abs_error
+    sum_actuals = sum_actuals + actual_val
 
-   mean_abs_percent_error = sum_errors / sum_actuals
+mean_abs_percent_error = sum_errors / sum_actuals
 
-   print("Model MAPE:")
-   print(mean_abs_percent_error)
-   print()
-   print("Model Accuracy:")
-   print(1 - mean_abs_percent_error)
-   ```
+print("Model MAPE:")
+print(mean_abs_percent_error)
+print()
+print("Model Accuracy:")
+print(1 - mean_abs_percent_error)
+```
 
-   ```Output
-   Model MAPE:
-   0.03655071038487368
+```Output
+Model MAPE:
+0.03655071038487368
 
-   Model Accuracy:
-   0.9634492896151263
-   ```
-   두 가지 예측 정확도 메트릭에서 모델이 데이터 세트의 기능에서 택시 요금을 예측하는 데 상당히 적합하다는 것을 알 수 있습니다. 
+Model Accuracy:
+0.9634492896151263
+```
+두 가지 예측 정확도 메트릭에서 모델이 데이터 세트의 기능에서 택시 요금을 예측하는 데 상당히 적합하다는 것을 알 수 있습니다. 
 
 4. 적합한 선형 회귀 모델이 준비되면 이제 모델이 데이터에 적합한 정도를 확인해야 합니다. 이를 위해 예측 출력에 대한 실제 요금 값을 도표에 표시합니다. 또한 R 제곱 측정값도 계산하여 데이터가 적합 회귀선에 얼마나 가까운지 파악합니다.
 
-   ```python
-   import matplotlib.pyplot as plt
-   import numpy as np
-   from sklearn.metrics import mean_squared_error, r2_score
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.metrics import mean_squared_error, r2_score
 
-   # Calculate the R2 score using the predicted and actual fare prices
-   y_test_actual = y_test["fareAmount"]
-   r2 = r2_score(y_test_actual, y_predict)
+# Calculate the R2 score using the predicted and actual fare prices
+y_test_actual = y_test["fareAmount"]
+r2 = r2_score(y_test_actual, y_predict)
 
-   # Plot the Actual vs Predicted Fare Amount Values
-   plt.style.use('ggplot')
-   plt.figure(figsize=(10, 7))
-   plt.scatter(y_test_actual,y_predict)
-   plt.plot([np.min(y_test_actual), np.max(y_test_actual)], [np.min(y_test_actual), np.max(y_test_actual)], color='lightblue')
-   plt.xlabel("Actual Fare Amount")
-   plt.ylabel("Predicted Fare Amount")
-   plt.title("Actual vs Predicted Fare Amont R^2={}".format(r2))
-   plt.show()
-   ```
-   
-   ![회귀 도표의 스크린샷](./media/apache-spark-machine-learning-aml-notebook/aml-fare-amount.png)
+# Plot the Actual vs Predicted Fare Amount Values
+plt.style.use('ggplot')
+plt.figure(figsize=(10, 7))
+plt.scatter(y_test_actual,y_predict)
+plt.plot([np.min(y_test_actual), np.max(y_test_actual)], [np.min(y_test_actual), np.max(y_test_actual)], color='lightblue')
+plt.xlabel("Actual Fare Amount")
+plt.ylabel("Predicted Fare Amount")
+plt.title("Actual vs Predicted Fare Amont R^2={}".format(r2))
+plt.show()
+
+```
+![회귀 도표의 스크린샷](./media/azure-machine-learning-spark-notebook/fare-amount.png)
 
    결과에서 R 제곱 측정값이 분산의 95%를 차지한다는 것을 알 수 있습니다. 또한 이는 실제 값 및 관찰된 값의 도표를 통해서도 확인됩니다. 회귀 모델에서 설명하는 분산이 많을수록 데이터 요소가 적합 회귀선에 더 가깝습니다.  
 
@@ -334,15 +330,13 @@ model_path='outputs/model.pkl'
 model = best_run.register_model(model_name = 'NYCGreenTaxiModel', model_path = model_path, description = description)
 print(model.name, model.version)
 ```
-
 ```Output
 NYCGreenTaxiModel 1
 ```
-
 ## <a name="view-results-in-azure-machine-learning"></a>Azure Machine Learning에서 결과 보기
 마지막으로 Azure Machine Learning 작업 영역에서 실험으로 이동하여 반복 결과에 액세스할 수도 있습니다. 여기서는 실행 상태, 시도된 모델 및 기타 모델 메트릭에 대한 추가 세부 정보를 살펴볼 수 있습니다. 
 
-![AML 작업 영역의 스크린샷](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-aml-workspace.png)
+![AML 작업 영역의 스크린샷](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

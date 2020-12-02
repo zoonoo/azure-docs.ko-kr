@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 908bf21d2fe101731b11e3a8ad783f17728c8ed3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e289bea6b1a23f1622ced62656164d9865303298
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677326"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912827"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>빠른 시작: Databricks로 데이터 분석
 
@@ -23,7 +23,7 @@ ms.locfileid: "92677326"
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Azure Data Lake Gen2 스토리지 계정의 이름입니다. [Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다](data-lake-storage-quickstart-create-account.md).
+* 계층 구조 네임스페이스 기능이 활성화된 스토리지 계정. 계정을 만들려면 [Azure Data Lake Storage Gen2에서 사용할 스토리지 계정 만들기](create-data-lake-storage-account.md)를 참조하세요.
 
 * 할당된 역할이 **Storage Blob Data Contributor** 인 Azure 서비스 사용자의 테넌트 ID, 앱 ID 및 암호입니다. [서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -72,7 +72,7 @@ ms.locfileid: "92677326"
 
     - 클러스터의 이름을 입력합니다.
      
-    - **Terminate after 120 minutes of inactivity** (비활성 120분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
+    - **Terminate after 120 minutes of inactivity**(비활성 120분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
 
 4. **클러스터 만들기** 를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 
@@ -162,7 +162,7 @@ dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<container-name>@<st
 
     ![샘플 JSON 데이터](./media/data-lake-storage-quickstart-create-databricks-account/databricks-sample-csv-data.png "샘플 JSON 데이터")
 
-    기타 세부 사항 중 샘플 데이터는 라디오 채널(열 이름, **성별** )의 청중의 성별과 구독이 무료 또는 유료(열 이름, **수준** )인지 여부를 캡처합니다.
+    기타 세부 사항 중 샘플 데이터는 라디오 채널(열 이름, **성별**)의 청중의 성별과 구독이 무료 또는 유료(열 이름, **수준**)인지 여부를 캡처합니다.
 
 4. 이제 이 데이터를 시각적으로 표현하여 각 성별, 무료 계정을 가진 사용자 수 및 유료 구독자 수를 보여줍니다. 테이블 형식 출력 하단에서 **가로 막대형 차트** 아이콘을 클릭한 다음 **플롯 옵션** 을 클릭합니다.
 
@@ -189,7 +189,7 @@ dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<container-name>@<st
 
 ![Databricks 클러스터 중지](./media/data-lake-storage-quickstart-create-databricks-account/terminate-databricks-cluster.png "Databricks 클러스터 중지")
 
-클러스터를 수동으로 종료하지 않으면 클러스터를 만드는 중에 **Terminate after \_\_ minutes of inactivity** (비활성 __분 후 종료) 확인란을 선택한 경우 클러스터가 자동으로 중지됩니다. 이 옵션을 설정하면 클러스터가 지정된 시간 동안 비활성 상태가 된 후에 클러스터가 중지됩니다.
+클러스터를 수동으로 종료하지 않으면 클러스터를 만드는 중에 **Terminate after \_\_ minutes of inactivity**(비활성 __분 후 종료) 확인란을 선택한 경우 클러스터가 자동으로 중지됩니다. 이 옵션을 설정하면 클러스터가 지정된 시간 동안 비활성 상태가 된 후에 클러스터가 중지됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -198,7 +198,7 @@ dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<container-name>@<st
 Azure Databricks를 사용하여 ETL 작업(데이터 추출, 변환 및 로드)을 수행하는 방법을 알아보려면 다음 문서로 이동합니다.
 
 > [!div class="nextstepaction"]
->[Azure Databricks를 사용하여 데이터를 추출, 변환 및 로드합니다](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md).
+>[Azure Databricks를 사용하여 데이터를 추출, 변환 및 로드합니다](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse).
 
 - 다른 데이터 원본에서 Azure Databricks로 데이터를 가져오는 방법에 대해 알아보려면 [Spark 데이터 원본](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html)을 참조하세요.
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 11/19/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 72575725c0924b8ec5f9466f4ffbba86bf071db4
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 28637f35294e9c70cbf0e96fb2cdcb1853d2ba39
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631541"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992729"
 ---
 ::: zone target="docs"
 
@@ -106,12 +106,6 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## <a name="australia"></a>[오스트레일리아](#tab/in-australia)
 
 오스트레일리아의 Azure 데이터 센터에는 추가 보안 알림이 있습니다. 모든 인바운드 배송에는 고급 알림이 있어야 합니다. 오스트레일리아에서 배송하려면 다음 단계를 수행합니다.
@@ -131,12 +125,6 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 ## <a name="erasure-of-data-from-data-box"></a>Data Box에서 데이터 지우기
 
 Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NIST SP800-88 개정 1 지침](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi)에 따라 지워집니다.
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -182,12 +170,6 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## <a name="singapore"></a>[싱가포르](#tab/in-singapore)
 
 1. 반품 발송을 위해 디바이스를 배송하는 데 사용된 원래 상자를 보관하세요.
@@ -223,33 +205,33 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## <a name="south-africa"></a>[남아프리카 공화국](#tab/in-sa)
 
 1. 반품 배송을 위해 디바이스를 원래 상자에 포장합니다.
 2. 디바이스와 함께 제공된 전원 코드를 디바이스 뒷면에 스풀링하고 안전하게 고정합니다.
-3. DHL로 픽업을 예약하려면 다음을 수행합니다.
+3. Data Box 로컬 웹 UI의 **배송 준비** 페이지에 참조 번호로 표시된 추적 번호를 적어둡니다. 이는 "배송 준비" 단계가 성공적으로 완료된 후에 사용할 수 있습니다. 이 페이지에서 배송 레이블을 다운로드하고 포장 상자에 붙여넣습니다.
+4. Azure Data Box 작업에서 반환 코드를 요청합니다. 패키지를 데이터 센터로 다시 전달하려면 반환 코드가 필요합니다. [adbops@microsoft.com](mailto:adbops@microsoft.com)에 이메일을 보냅니다. 반환 주소 옆에 있는 배송 레이블에 이 코드를 명확하게 표시합니다.
+5. 다음 방법 중 하나를 사용하여 DHL로 픽업을 예약합니다.
+ 
+   * [DHL Express 남아프리카, **픽업예약**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference)으로 이동하여 온라인으로 픽업을 예약합니다.
+   * 다음 템플릿을 사용하여 [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com)에 이메일을 보냅니다.
 
-    * 고객 서비스 연락처 센터 +27(0) 11 9213600으로 전화하여 옵션 1을 선택한 다음, 화물 운송장 번호를 지정합니다.
-    * 픽업을 예약하려면 오후 2시 전에 전화해야 합니다.
-    * 다음 템플릿을 사용하여 [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com)에 이메일을 보냅니다.
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
 
-    ```output
-    To: Priority.Support@dhl.com
-    Subject: Pickup request for Microsoft Azure
-    Body: Need pick up for the below shipment
-      *  DHL tracking number (reference number/waybill number)
-      *  Requested pickup date: yyyy/mm/dd;time:HH MM
-    ```
+    * 또는 가장 가까운 DHL 서비스 지점에서 패키지를 삭제합니다.
 
-    * 또는 가장 가까운 DHL 서비스 지점에서 패키지를 삭제할 수 있습니다.
-
-4. 문제가 발생하는 경우 발생한 문제에 대한 세부 정보가 포함된 [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) 이메일을 보내고 화물 운송장 번호를 제목: 줄에 입력합니다. +27(0)119213902로 전화할 수도 있습니다.
+6. 문제가 발생하는 경우 발생한 문제에 대한 세부 정보가 포함된 [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) 이메일을 보내고 화물 운송장 번호를 제목: 줄에 입력합니다. +27(0)119213902로 전화할 수도 있습니다.
 
 ::: zone target="chromeless"
 
@@ -260,12 +242,6 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 ## <a name="erasure-of-data-from-data-box"></a>Data Box에서 데이터 지우기
 
 Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NIST SP800-88 개정 1 지침](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi)에 따라 지워집니다.
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -301,12 +277,6 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 ## <a name="erasure-of-data-from-data-box"></a>Data Box에서 데이터 지우기
  
 Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NIST SP800-88 개정 1 지침](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi)에 따라 지워집니다.
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -369,8 +339,6 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone target="chromeless"
 
----
-
 ## <a name="verify-data-upload-to-azure"></a>Azure에 대한 데이터 업로드 확인
 
 [!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
@@ -381,7 +349,11 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 
 ::: zone-end
 
+---
+
 ::: zone target="docs"
+
+## <a name="verify-data-upload-to-azure"></a>Azure에 대한 데이터 업로드 확인
 
 [!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 

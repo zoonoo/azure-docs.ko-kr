@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: 5c4f02eff06c08f1829f9f1c74d1dcb09ee57905
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a562c28235608d4a2425455b5543a76c99374f80
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024792"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483817"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>음성 서비스: docs의 새로운 기능
 
@@ -32,7 +32,7 @@ ms.locfileid: "95024792"
 
 ### <a name="new-articles"></a>새 문서
 
-* [Custom Speech 모델 향상](how-to-custom-speech-improve-accuracy.md)
+* [Custom Speech 모델 향상](./how-to-custom-speech-evaluate-data.md)
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
@@ -44,7 +44,7 @@ ms.locfileid: "95024792"
 * [빠른 시작: Python의 긴 형식 오디오에 대 한 비동기 통합 (미리 보기)](./long-audio-api.md) -공용 신경망 및 관련 매개 변수를 지원 하도록 업데이트 되었습니다.
 * [빠른 시작: 오디오 파일에서 음성 인식](./get-started-speech-to-text.md) -설명서에 JavaScript 지침을 추가 했습니다.
 * [빠른 시작: 마이크가 추가 된](./get-started-speech-to-text.md) 이동 및 JavaScript 지침에서 설명서로 음성을 인식 합니다.
-* [빠른 시작: blob storage에 저장 된 음성 인식](quickstarts/from-blob.md) -설명서에 JavaScript 지침을 추가 했습니다.
+* [빠른 시작: blob storage에 저장 된 음성 인식](./batch-transcription.md) -설명서에 JavaScript 지침을 추가 했습니다.
 * [빠른 시작: Language Understanding을 사용 하 여 음성, 의도 및 엔터티 인식 (LUIS)](quickstarts/intent-recognition.md)
 * [빠른 시작: 개발 환경 설치](quickstarts/setup-platform.md) -설명서에 JavaScript 명령이 추가 되었습니다.
 * [빠른 시작: 음성 파일에 음성 합성](./get-started-text-to-speech.md) -설명서에 추가 된 JavaScript 명령입니다.
@@ -58,28 +58,28 @@ ms.locfileid: "95024792"
 
 이 테이블은 매월 업데이트 되며 5 월에 열린 문제를 반영 합니다.  
 
-|ID|사용자|Description|열림|시스템 상태|형식|
+|ID|사용자|설명|열림|주|형식|
 | :--- | :--- | :--- | :--- | :--- | :--- |
-|[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|Bot 끝점이 누락 되어 작업을 삭제 했습니다.|2020-05-31|해결됨|문제|
+|[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|Bot 끝점이 누락 되어 작업을 삭제 했습니다.|2020-05-31|닫힘|문제|
 |[56038](https://github.com/MicrosoftDocs/azure-docs/issues/56038)|rhalaly|잘못 된 게시 봇 단계|2020-05-31|열기|문제|
 |[56014](https://github.com/MicrosoftDocs/azure-docs/issues/56014)|mosdav|PCM 샘플 형식에 대 한 보다 명확한 문서 추가|2020-05-30|열기|문제|
-|[55984](https://github.com/MicrosoftDocs/azure-docs/issues/55984)|chschrae|제목이 세로 막대와 일치 하지 않습니다.|2020-05-29|해결됨|문제|
-|[55857](https://github.com/MicrosoftDocs/azure-docs/issues/55857)|nitinbhatia-dev|웨이브 파일에 CLI 오류가 있습니다.|2020-05-28|해결됨|문제|
+|[55984](https://github.com/MicrosoftDocs/azure-docs/issues/55984)|chschrae|제목이 세로 막대와 일치 하지 않습니다.|2020-05-29|닫힘|문제|
+|[55857](https://github.com/MicrosoftDocs/azure-docs/issues/55857)|nitinbhatia-dev|웨이브 파일에 CLI 오류가 있습니다.|2020-05-28|닫힘|문제|
 |[55717](https://github.com/MicrosoftDocs/azure-docs/pull/55717)|d argilco|Speech-sdk.md 업데이트|2020-05-27|열기|끌어오기 요청|
-|[55299](https://github.com/MicrosoftDocs/azure-docs/issues/55299)|Tirumala-K|지원 되지 않는 음성 이름에 이상한 오류가 있습니다.|2020-05-20|해결됨|문제|
+|[55299](https://github.com/MicrosoftDocs/azure-docs/issues/55299)|Tirumala-K|지원 되지 않는 음성 이름에 이상한 오류가 있습니다.|2020-05-20|닫힘|문제|
 |[55099](https://github.com/MicrosoftDocs/azure-docs/issues/55099)|kmoore|음성 텍스트 api에 대 한 설명서가 잘못 되었습니다.|2020-05-18|열기|문제|
-|[55032](https://github.com/MicrosoftDocs/azure-docs/issues/55032)|dubbySwords|Microsoft Cognitiveservices account Speech 클래스 SpeechRecognizer, 결과 텍스트를 수집할 수 없습니다.|2020-05-18|해결됨|문제|
-|[55031](https://github.com/MicrosoftDocs/azure-docs/issues/55031)|dubbySwords|지우지 않음|2020-05-18|해결됨|문제|
-|[55027](https://github.com/MicrosoftDocs/azure-docs/issues/55027)|ovishesh|어두운 테마에 그래픽이 표시 되지 않음|2020-05-17|해결됨|문제|
+|[55032](https://github.com/MicrosoftDocs/azure-docs/issues/55032)|dubbySwords|Microsoft Cognitiveservices account Speech 클래스 SpeechRecognizer, 결과 텍스트를 수집할 수 없습니다.|2020-05-18|닫힘|문제|
+|[55031](https://github.com/MicrosoftDocs/azure-docs/issues/55031)|dubbySwords|지우지 않음|2020-05-18|닫힘|문제|
+|[55027](https://github.com/MicrosoftDocs/azure-docs/issues/55027)|ovishesh|어두운 테마에 그래픽이 표시 되지 않음|2020-05-17|닫힘|문제|
 |[54919](https://github.com/MicrosoftDocs/azure-docs/issues/54919)|kmoore|섹션이 없습니다.|2020-05-15|열기|문제|
 |[54743](https://github.com/MicrosoftDocs/azure-docs/issues/54743)|fifteenjoy|음성 서비스 컨테이너 실행 실패|2020-05-13|열기|문제|
 |[54550](https://github.com/MicrosoftDocs/azure-docs/issues/54550)|manish-95|음성 파일의 예|2020-05-11|열기|문제|
 |[54522](https://github.com/MicrosoftDocs/azure-docs/issues/54522)|pjmlp|Java 샘플이 잘못 되었습니다.|2020-05-10|열기|문제|
-|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|발음 점수를 가져올 수 없음|2020-05-08|해결됨|문제|
-|[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|YAML 파일 템플릿|2020-05-07|해결됨|문제|
-|[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|C # 샘플 코드는 사용자에 게 메시지를 표시 하지 않습니다.|2020-05-06|해결됨|문제|
-|[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|V 1.3에서 v 1.4로 TTS 업그레이드|2020-05-05|해결됨|끌어오기 요청|
-|[54111](https://github.com/MicrosoftDocs/azure-docs/pull/54111)|anthonsu|사용자 지정 STT 최신 버전을 v 2.2.0로 업데이트 합니다.|2020-05-05|해결됨|끌어오기 요청|
+|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|발음 점수를 가져올 수 없음|2020-05-08|닫힘|문제|
+|[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|YAML 파일 템플릿|2020-05-07|닫힘|문제|
+|[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|C # 샘플 코드는 사용자에 게 메시지를 표시 하지 않습니다.|2020-05-06|닫힘|문제|
+|[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|V 1.3에서 v 1.4로 TTS 업그레이드|2020-05-05|닫힘|끌어오기 요청|
+|[54111](https://github.com/MicrosoftDocs/azure-docs/pull/54111)|anthonsu|사용자 지정 STT 최신 버전을 v 2.2.0로 업데이트 합니다.|2020-05-05|닫힘|끌어오기 요청|
 |[53919](https://github.com/MicrosoftDocs/azure-docs/issues/53919)|eyast|Github 프로젝트에 대 한 링크가 손상 되었습니다.|2020-05-03|열기|문제|
-|[53892](https://github.com/MicrosoftDocs/azure-docs/issues/53892)|viju2008|정의할 속성: Android 마이크의 최대 오디오 인식 시간입니다. 15 초 후 오디오 인식 중지|2020-05-02|해결됨|문제|
-|[53796](https://github.com/MicrosoftDocs/azure-docs/pull/53796)|singhsaumya|사용자 지정 명령: 문서 업데이트|2020-05-01|해결됨|끌어오기 요청|
+|[53892](https://github.com/MicrosoftDocs/azure-docs/issues/53892)|viju2008|정의할 속성: Android 마이크의 최대 오디오 인식 시간입니다. 15 초 후 오디오 인식 중지|2020-05-02|닫힘|문제|
+|[53796](https://github.com/MicrosoftDocs/azure-docs/pull/53796)|singhsaumya|사용자 지정 명령: 문서 업데이트|2020-05-01|닫힘|끌어오기 요청|

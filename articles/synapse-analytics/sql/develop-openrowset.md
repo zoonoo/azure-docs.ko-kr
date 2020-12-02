@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20003a91726e5ccee7f73d85b7c9a9389801e0ad
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 2458b5f3f0c0091bb6ec24e62a1d5614e4e1ecd8
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701758"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888592"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 OPENROWSET를 사용하는 방법
 
@@ -225,6 +225,9 @@ CSV 파서 버전 2.0 세부 정보:
 - 최대 행 크기 제한은 8MB입니다.
 - 다음 옵션은 지원되지 않습니다. DATA_COMPRESSION.
 - 따옴표로 묶인 빈 문자열("")은 빈 문자열로 해석됩니다.
+- DATE 데이터 형식에 지원되는 형식: YYYY-MM-DD
+- TIME 데이터 형식에 지원되는 형식: HH:MM:SS[.fractional seconds]
+- DATETIME2 데이터 형식에 지원되는 형식: YYYY-MM-DD HH:MM:SS[.fractional seconds]
 
 HEADER_ROW = { TRUE | FALSE }
 
