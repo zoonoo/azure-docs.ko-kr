@@ -129,6 +129,8 @@
       href: ../../load-balancer/security-baseline.md
     - name: Azure Machine Learning 보안 기준
       href: ../../machine-learning/security-baseline.md
+    - name: Azure Managed Applications 보안 기준
+      href: ../../azure-resource-manager/managed-applications/security-baseline.md
     - name: Azure Monitor 보안 기준
       href: ../../azure-monitor/security-baseline.md
     - name: Azure Migrate Learning 보안 기준
@@ -201,7 +203,7 @@
       href: ../../site-recovery/security-baseline.md
     - name: Stream Analytics 기준
       href: ../../stream-analytics/security-baseline.md
-    - name: Synapse Analytics 보안 기준
+    - name: Azure Synapse Analytics 보안 기준
       href: ../../synapse-analytics/security-baseline.md
     - name: Traffic Manager 보안 기준
       href: ../../traffic-manager/security-baseline.md

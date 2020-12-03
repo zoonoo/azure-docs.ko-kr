@@ -617,7 +617,7 @@
                           items:
                             - name: SQL Database 사용
                               href: database/saas-tenancy-tenant-analytics.md
-                            - name: Azure Synapse Analytics(이전의 SQL Data Warehouse) 사용
+                            - name: Azure Synapse Analytics 사용
                               href: database/saas-tenancy-tenant-analytics-adf.md
                     - name: 지역 복원을 사용하여 재해 복구
                       href: database/saas-dbpertenant-dr-geo-restore.md
@@ -1217,7 +1217,7 @@
       href: /dotnet/api/microsoft.azure.management.sql.models
     - name: Java
       href: /java/api/com.microsoft.azure.management.sql
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/sql/
     - name: SQL용 Resource Manager 템플릿
       displayName: ARM
@@ -1226,7 +1226,7 @@
       href: /sql/tools/overview-sql-tools
     - name: SSMS(SQL Server Management Studio)
       href: /sql/ssms/download-sql-server-management-studio-ssms
-    - name: SQL Server Data Tools(SSDT)
+    - name: SSDT(SQL Server Data Tools)
       href: /sql/ssdt/download-sql-server-data-tools-ssdt
     - name: BCP
       href: /sql/tools/bcp-utility

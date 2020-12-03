@@ -111,8 +111,8 @@
     - name: 분석
       href: cdn-log-analysis.md
       items:
-        - name: HTTP 원시 로그
-          href: enable-raw-logs.md
+        - name: '모니터링, 메트릭 및 액세스 로그'
+          href: monitoring-and-access-log.md
         - name: Azure 진단 로그
           href: cdn-azure-diagnostic-logs.md
         - name: Verizon의 Azure CDN에 대한 분석 도구
@@ -178,7 +178,7 @@
       href: /dotnet/api/microsoft.azure.management.cdn
     - name: Java
       href: /java/api/com.microsoft.azure.management.cdn
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/cdn/
 - name: 리소스
   items:

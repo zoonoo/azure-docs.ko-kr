@@ -214,7 +214,7 @@
               href: synthetic-partition-keys.md
         - name: SQL 쿼리(SQL query)
           items:
-            - name: 시작
+            - name: 시작하기
               displayName: 'sql query, query basics'
               href: sql-query-getting-started.md
             - name: 절
@@ -1315,7 +1315,7 @@
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Azure Synapse Spark를 사용하여 쿼리
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Synapse SQL 서버리스로 쿼리
+        - name: 서버리스 SQL 풀을 사용하여 쿼리
           href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Synapse Link를 지원하는 Power BI 사용
           href: synapse-link-power-bi.md

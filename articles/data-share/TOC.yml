@@ -45,7 +45,7 @@
       items:
         - name: Azure Storage에서 공유
           href: how-to-share-from-storage.md
-        - name: Azure SQL Database 또는 Synapse Analytics에서 공유
+        - name: Azure SQL Database 또는 Azure Synapse Analytics에서 공유
           href: how-to-share-from-sql.md
         - name: Azure Data Explorer에서 공유
           href: /azure/data-explorer/data-share

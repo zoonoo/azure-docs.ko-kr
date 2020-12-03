@@ -2,8 +2,10 @@
   href: index.yml
 - name: 개요
   items:
-    - name: Azure AD 역할
+    - name: Azure AD RBAC란?
       href: custom-overview.md
+    - name: Azure AD 역할 이해
+      href: concept-understand-roles.md
 - name: 빠른 시작
   items:
     - name: 무제한 앱 등록 만들기
@@ -50,8 +52,6 @@
     - name: 사용자 지정 역할
       expanded: true
       items:
-        - name: 사용자 지정 역할 개요
-          href: custom-overview.md
         - name: 사용자 지정 역할 만들기
           href: custom-create.md
         - name: 사용자 지정 역할 할당 보기

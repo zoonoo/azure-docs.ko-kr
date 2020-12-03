@@ -1,6 +1,6 @@
-- name: Azure Synapse(작업 영역 미리 보기)
-  href: overview-what-is.md
-- name: Azure Synapse(이전의 SQL DW)로 전환
+- name: Azure Synapse Analytics
+  href: index.yml
+- name: 전용 SQL 풀(이전에는 SQL DW)로 전환
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: 개요
   items:
@@ -9,8 +9,8 @@
       displayName: overview
     - name: 용어
       href: overview-terminology.md
-    - name: 릴리스 정보
-      href: release-notes.md
+    - name: FAQ
+      href: overview-faq.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -125,17 +125,12 @@
                   displayname: 'access, control'
                 - name: Synapse 작업 영역 관리 ID
                   href: ./security/synapse-workspace-managed-identity.md
-        - name: '도구 통합(AI, ETL, BI)'
-          items:
-            - name: Synapse Studio 문제 해결
-              href: troubleshoot/troubleshoot-synapse-studio.md
-            - name: Synapse Studio 연결 문제 해결
-              href: troubleshoot/troubleshoot-synapse-studio-powershell.md
-              displayname: powershell
-            - name: Synapse Studio와 스토리지 간의 연결 문제 해결
-              href: troubleshoot/troubleshoot-synapse-studio-and-storage-connectivity.md
     - name: 방법 가이드
       items:
+        - name: 관리 및 모니터링
+          items:
+            - name: 'Azure Monitor 메트릭, 경고 및 로그'
+              href: monitoring/how-to-monitor-using-azure-monitor.md
         - name: 보안
           items:
             - name: 액세스 제어 관리
@@ -156,6 +151,19 @@
                   href: ./data-integration/linked-service.md
                 - name: 제한된 네트워크에서 Synapse 작업 영역에 연결
                   href: security/how-to-connect-to-workspace-from-restricted-network.md
+        - name: 문제 해결
+          items:
+            - name: Synapse Studio 문제 해결
+              href: troubleshoot/troubleshoot-synapse-studio.md
+            - name: Synapse Studio 연결 문제 해결
+              href: troubleshoot/troubleshoot-synapse-studio-powershell.md
+              displayname: powershell
+            - name: Synapse Studio와 스토리지 간의 연결 문제 해결
+              href: troubleshoot/troubleshoot-synapse-studio-and-storage-connectivity.md
+            - name: SDK로 인한 작업 영역 문제 해결
+              href: troubleshoot/workspaces-created-by-sdk.md
+            - name: UTF-8 텍스트 읽기 문제 해결
+              href: troubleshoot/reading-utf8-text.md
 - name: Synapse SQL
   items:
     - name: 개요
@@ -175,6 +183,8 @@
           href: sql/overview-features.md
         - name: 리소스 사용 모델
           href: sql/resource-consumption-models.md
+        - name: 용량 제한
+          href: ./sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: 서버리스 SQL 풀에 대한 비용 관리
           href: sql/data-processed.md
         - name: 모범 사례 서버리스 SQL 풀
@@ -183,10 +193,14 @@
           href: sql/best-practices-sql-pool.md
     - name: 빠른 시작
       items:
+        - name: 서버리스 SQL 풀 사용
+          href: quickstart-sql-on-demand.md
         - name: Synapse Studio를 사용하여 전용 SQL 풀 만들기
           href: quickstart-create-sql-pool-studio.md
         - name: Azure Portal을 사용하여 전용 SQL 풀 만들기
           href: quickstart-create-sql-pool-portal.md
+        - name: Azure Portal을 사용하여 일시 중지 및 계속하기
+          href: ./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: 전용 SQL 풀을 사용하여 데이터 로드
           items:
             - name: COPY 문
@@ -198,8 +212,20 @@
             - name: Synapse Studio
               href: quickstart-load-studio-sql-pool.md
               displayname: sql pool
-        - name: 서버리스 SQL 풀 사용
-          href: quickstart-sql-on-demand.md
+        - name: 워크로드 관리
+          items:
+            - name: 워크로드 분류자 만들기
+              items:
+                - name: 포털
+                  href: ./sql-data-warehouse/quickstart-create-a-workload-classifier-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: T-SQL
+                  href: ./sql-data-warehouse/quickstart-create-a-workload-classifier-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: 워크로드 격리 만들기
+              items:
+                - name: 포털
+                  href: ./sql-data-warehouse/quickstart-configure-workload-isolation-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: T-SQL
+                  href: ./sql-data-warehouse/quickstart-configure-workload-isolation-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: 자습서
       items:
         - name: 서버리스 SQL 풀을 사용하여 데이터 분석
@@ -229,6 +255,7 @@
             - name: 구체화된 뷰
               items:
                 - name: 성능 튜닝 지침
+                  displayname: 'materialized, view,'
                   href: sql/develop-materialized-view-performance-tuning.md
                 - name: 생성
                   href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -236,8 +263,23 @@
                 - name: 변경
                   href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                   displayname: 'materialized, view'
+            - name: 순서가 지정된 클러스터형 columnstore 인덱스
+              items:
+                - name: 성능 튜닝 지침
+                  displayname: 'CCI, clustered, column, store'
+                  href: ./sql-data-warehouse/performance-tuning-ordered-CCI.md
             - name: 결과 세트 캐싱
-              href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              items:
+                - name: 성능 튜닝 지침
+                  href: ./sql-data-warehouse/performance-tuning-result-set-caching.md
+                - name: 데이터베이스 설정
+                  href: /sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+                - name: 세션 설정
+                  href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+                - name: 캐시 크기 확인
+                  href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+                - name: 캐시 정리
+                  href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: 기계 학습 예측
               href: ./sql-data-warehouse/sql-data-warehouse-predict.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 테이블
@@ -252,6 +294,8 @@
                   href: sql/develop-tables-data-types.md
                 - name: 분산 테이블
                   href: ./sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: 테이블 제약 조건
+                  href: ./sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: 외부 테이블
                   href: sql/develop-tables-external-tables.md
                 - name: 인덱스
@@ -276,8 +320,14 @@
                   href: sql/develop-stored-procedures.md
                 - name: 트랜잭션
                   href: sql/develop-transactions.md
-                - name: 트랜잭션 모범 사례
-                  href: sql/develop-transaction-best-practices.md
+                - name: 트랜잭션
+                  items:
+                    - name: 서버리스 SQL 풀
+                      displayname: 'Transaction, best, practices'
+                      href: sql/develop-transaction-best-practices.md
+                    - name: 전용 SQL 풀
+                      displayname: 'Transactions, best, practices'
+                      href: ./sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: 사용자 정의 스키마
                   href: sql/develop-user-defined-schemas.md
                 - name: 변수 할당
@@ -306,6 +356,8 @@
               href: ./sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 리소스 사용률 및 쿼리 작업
               href: ./sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: 권장 사항
+              href: ./sql-data-warehouse/sql-data-warehouse-concept-recommendations.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: 보안
           items:
             - name: 데이터베이스 액세스 제어
@@ -352,6 +404,10 @@
               href: ./backuprestore/restore-sql-pool.md
         - name: 관리 및 모니터링
           items:
+            - name: SQL 요청 - Synapse Studio
+              href: monitoring/how-to-monitor-sql-requests.md
+            - name: SQL 풀 - Synapse Studio
+              href: monitoring/how-to-monitor-sql-pools.md
             - name: Gen2 캐시 모니터링
               href: ./sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 워크로드 모니터링 - DMV
@@ -366,8 +422,8 @@
                   href: ./sql-data-warehouse/sql-data-warehouse-how-to-configure-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: 워크로드 중요도 관리 및 모니터링
                   href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Gen2로 업그레이드
-              href: ./sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: 리소스 클래스를 작업 그룹으로 변환
+                  href: ./sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: 데이터 수집 및 준비
           items:
             - name: 데이터 웨어하우스에
@@ -395,46 +451,58 @@
               items:
                 - name: 복사 작업 사용
                   href: data-integration/data-integration-data-lake.md
+        - name: 변경 관리 및 배포
+          items:
+            - name: Visual Studio SSDT 설치
+              href: ./sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: 연속 통합 및 배포
+              href: ./sql-data-warehouse/sql-data-warehouse-continuous-integration-and-deployment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: 외부 데이터 쿼리
           items:
             - name: 개요
-              href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: sql/query-data-storage.md
               displayname: query
             - name: CSV 파일 쿼리
-              href: sql/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: sql/query-single-csv-file.md
             - name: Parquet 파일 쿼리
-              href: sql/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: sql/query-parquet-files.md
             - name: JSON 파일 쿼리
-              href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: sql/query-json-files.md
             - name: 중첩 형식 쿼리
-              href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: sql/query-parquet-nested-types.md
             - name: 폴더 및 여러 파일 쿼리
-              href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: sql/query-folders-multiple-csv-files.md
               displayname: csv
             - name: 파일 메타데이터를 사용하여 분할된 파일 쿼리
-              href: sql/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: sql/query-specific-files.md
             - name: 보기 만들기 및 사용
-              href: sql/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: sql/create-use-views.md
             - name: 외부 테이블 만들기 및 사용
               href: sql/create-use-external-tables.md
             - name: 스토리지에 쿼리 결과 저장
               href: sql/create-external-table-as-select.md
-        - name: 도구를 Synapse 작업 영역에 연결
+        - name: 통합
+          items:
+            - name: 데이터 파이프라인 작성
+              items:
+                - name: Azure Stream Analytics 작업 추가
+                  href: ./sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Synapse 작업 영역에 연결하기 위한 도구
           items:
             - name: 개요
-              href: sql/connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: sql/connect-overview.md
             - name: Azure Data Studio를 사용하여 쿼리
-              href: sql/get-started-azure-data-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: sql/get-started-azure-data-studio.md
             - name: 연결 문자열
               href: sql/connection-strings.md
             - name: sqlcmd를 사용하여 쿼리
               href: sql/get-started-connect-sqlcmd.md
             - name: SSMS를 사용하여 쿼리
-              href: sql/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: sql/get-started-ssms.md
             - name: Visual Studio를 사용하여 쿼리
-              href: sql/get-started-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: sql/get-started-visual-studio.md
             - name: Power BI Desktop에 연결
-              href: sql/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: sql/get-started-power-bi-professional.md
 - name: Apache Spark
   items:
     - name: 개요
@@ -511,6 +579,10 @@
               href: ./spark/apache-spark-history-server.md
             - name: Spark 애플리케이션 모니터링
               href: monitoring/apache-spark-applications.md
+            - name: Apache Spark 풀
+              href: monitoring/how-to-monitor-spark-pools.md
+            - name: Apache Spark를 사용하여 JSON 분석
+              href: how-to-analyze-complex-schema.md
         - name: 데이터 수집 및 준비
           items:
             - name: SQL Data Warehouse
@@ -641,7 +713,7 @@
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure SQL Managed Instance
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure Synapse Analytics(이전의 SQL Data Warehouse)
+            - name: Azure Synapse Analytics
               href: ../data-factory/connector-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure Table Storage
               href: ../data-factory/connector-azure-table-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -750,7 +822,7 @@
               href: ../data-factory/connector-presto.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: QuickBooks Online
               href: ../data-factory/connector-quickbooks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: REST (영문)
+            - name: REST
               href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Salesforce
               href: ../data-factory/connector-salesforce.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -1003,15 +1075,23 @@
         - name: Apache Spark를 사용하여 데이터 시각화
           href: ./spark/apache-spark-data-visualization-tutorial.md
           displayname: machine learning
-        - name: SQL 풀에 대한 모델 점수 매기기 마법사
+        - name: 전용 SQL 풀에 채점 마법사 사용
           href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
           displayname: machine learning
-        - name: Azure AutoML을 사용하여 회귀 실험 실행
+        - name: 코드 없이 Azure AutoML을 사용하여 모델 학습
+          href: ./machine-learning/tutorial-automl.md
+        - name: Python에서 Azure AutoML을 사용하여 모델 학습
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
           displayname: machine learning
-        - name: Apache Spark MLlib를 사용하여 기계 학습 모델 만들기
+        - name: Apache Spark MLlib를 사용하여 모델 만들기
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
           displayname: machine learning
+        - name: Cognitive Services를 사용하여 감정 분석
+          href: ./machine-learning/tutorial-cognitive-services-sentiment.md
+        - name: Cognitive Services를 사용하여 변칙 검색
+          href: ./machine-learning/tutorial-cognitive-services-anomaly.md
+        - name: Azure Synapse에 맞게 Cognitive Services 구성
+          href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
 - name: 참조
   items:
     - name: Azure CLI

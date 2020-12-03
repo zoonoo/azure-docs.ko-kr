@@ -106,6 +106,8 @@
       href: azure-advisor.md
     - name: 해결 권장 사항
       href: azure-advisor-recommendations.md
+    - name: Azure Monitor for Windows Virtual Desktop 사용
+      href: azure-monitor.md
     - name: 재해 복구 계획 설정
       href: disaster-recovery.md
 - name: 개념
@@ -150,6 +152,8 @@
           href: app-attach-glossary.md
         - name: FAQ
           href: app-attach-faq.md
+    - name: Azure Monitor 용어집
+      href: azure-monitor-glossary.md
     - name: 데이터 위치
       href: data-locations.md
 - name: 문제 해결
@@ -170,6 +174,8 @@
       href: troubleshoot-powershell.md
     - name: 그래픽 성능 문제 진단
       href: remotefx-graphics-performance-counters.md
+    - name: Azure Monitor
+      href: troubleshoot-azure-monitor.md
 - name: 참조
   items:
     - name: 보안 모범 사례

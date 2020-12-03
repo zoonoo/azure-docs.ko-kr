@@ -20,11 +20,11 @@
       href: tutorial-track-usage.md
 - name: 개념
   items:
-    - name: 클래스룸 랩 개요
+    - name: 랩 개요
       href: classroom-labs-overview.md
-    - name: 클래스룸 랩 개념
+    - name: 랩 개념
       href: classroom-labs-concepts.md
-    - name: 클래스룸 랩 아키텍처 기본 사항
+    - name: 랩 아키텍처 기본 사항
       href: classroom-labs-fundamentals.md
     - name: 용량 제한
       href: capacity-limits.md
@@ -36,7 +36,7 @@
           href: classroom-labs-scenarios.md
         - name: 해커톤용 Lab Services 사용
           href: hackathon-labs.md
-        - name: 클래스룸 랩 - 클래스 형식
+        - name: 랩 - 클래스 형식
           items:
             - name: 클래스 형식 개요
               href: class-types.md
@@ -112,9 +112,9 @@
           href: lab-account-owner-support-information.md
         - name: Shared Image Gallery에 사용자 지정 이미지 업로드
           href: upload-custom-image-shared-image-gallery.md
-    - name: 클래스룸 랩 만들기 및 구성(교육자)
+    - name: 랩 만들기 및 구성(교육자)
       items:
-        - name: 클래스룸 랩 만들기 및 관리
+        - name: 랩 만들기 및 관리
           href: how-to-manage-classroom-labs.md
         - name: 대시보드 사용
           href: use-dashboard.md
@@ -150,9 +150,9 @@
           href: lab-creator-support-information.md
         - name: 교육자 보기에서 학생 VM 액세스
           href: instructor-access-virtual-machines.md
-    - name: 클래스룸 랩에서 VM에 연결(학생)
+    - name: 랩에서 VM에 연결(학생)
       items:
-        - name: 클래스룸 랩 액세스
+        - name: 랩 액세스
           href: how-to-use-classroom-lab.md
         - name: Linux VM에 연결
           href: how-to-use-remote-desktop-linux-student.md

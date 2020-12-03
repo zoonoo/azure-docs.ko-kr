@@ -151,9 +151,9 @@
           href: security-center-network-recommendations.md
         - name: ID 및 액세스 보호
           href: security-center-identity-access.md
-    - name: Azure Defender 경고
+    - name: 보안 경고에 대한 자세한 정보
       items:
-        - name: Azure Defender 경고 개요
+        - name: 보안 경고 개요
           href: security-center-alerts-overview.md
         - name: 경고의 참조 목록
           href: alerts-reference.md
@@ -244,7 +244,7 @@
           href: continuous-export.md
         - name: 모든 경고에 대한 CSV 보고서 다운로드
           href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
-    - name: Azure Defender 경고 처리
+    - name: 보안 경고 처리
       items:
         - name: 보안 경고 관리
           href: security-center-managing-and-responding-alerts.md
