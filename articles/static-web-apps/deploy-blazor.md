@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: cshoe
-ms.openlocfilehash: 80a48a948c70db7344ac9cbc20474177309bd909
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0086f7f68fd05d6925d19c7ab457fbc125e36be4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024231"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350231"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>자습서: Azure Static Web Apps에서 Blazor를 사용하여 정적 웹앱 빌드
 
@@ -64,7 +64,7 @@ Azure Static Web Apps를 사용하면 서버리스 백 엔드에서 지원하는
 이 문서에서는 GitHub 템플릿 리포지토리를 사용하여 쉽게 시작할 수 있습니다. 이 템플릿에는 Azure Static Web Apps에 배포되는 스타터 앱이 있습니다.
 
 1. GitHub에 로그인했는지 확인하고 다음 위치로 이동하여 새 리포지토리를 만듭니다.
-    - https://github.com/staticwebdev/blazor-starter/generate
+    - [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=/staticwebdev/blazor-starter/generate)
 1. 리포지토리 이름을 **my-first-static-blazor-app** 으로 지정합니다.
 
 ## <a name="create-a-static-web-app"></a>정적 웹앱 만들기

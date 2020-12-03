@@ -3,20 +3,20 @@ title: 첫 번째 데이터 팩터리(Resource Manager 템플릿) 빌드
 description: 이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 414271c269e72b942195d541a6192911e1ea0217
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce8710cb8f1cf49752f95340d931ddd79d43ec35
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566451"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496384"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "91566451"
 
 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory를 만듭니다. 다른 도구/SDK를 사용하여 이 자습서를 수행하려면 드롭다운 목록에서 옵션 중 하나를 선택합니다.
 
-이 자습서의 파이프라인에는 **HDInsight Hive 작업**이라는 하나의 작업이 있습니다. 이 작업은 Azure HDInsight 클러스터에서 입력 데이터를 변환하여 출력 데이터를 생성하는 Hive 스크립트를 실행합니다. 파이프라인은 지정된 시작 및 종료 시간 사이, 한 달에 한 번 실행되도록 예약됩니다. 
+이 자습서의 파이프라인에는 **HDInsight Hive 작업** 이라는 하나의 작업이 있습니다. 이 작업은 Azure HDInsight 클러스터에서 입력 데이터를 변환하여 출력 데이터를 생성하는 Hive 스크립트를 실행합니다. 파이프라인은 지정된 시작 및 종료 시간 사이, 한 달에 한 번 실행되도록 예약됩니다. 
 
 > [!NOTE]
 > 이 자습서의 데이터 파이프라인은 출력 데이터를 생성하는 입력 데이터를 변환합니다. Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대한 자습서는 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
@@ -88,7 +88,7 @@ ms.locfileid: "91566451"
     ]
 }
 ```
-**C:\ADFGetStarted** 폴더에 다음과 같은 내용으로 **ADFTutorialARM.json**이라는 JSON 파일을 만듭니다.
+**C:\ADFGetStarted** 폴더에 다음과 같은 내용으로 **ADFTutorialARM.json** 이라는 JSON 파일을 만듭니다.
 
 ```json
 {
@@ -266,7 +266,7 @@ ms.locfileid: "91566451"
 > 
 
 ## <a name="parameters-json"></a>매개 변수 JSON
-Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTutorialARM-Parameters.json**이라는 JSON 파일을 만듭니다.  
+Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTutorialARM-Parameters.json** 이라는 JSON 파일을 만듭니다.  
 
 > [!IMPORTANT]
 > 이 매개 변수 파일의 **storageAccountName** 및 **storageAccountKey** 매개 변수에 대한 Azure Storage 계정 이름과 키를 지정합니다. 
@@ -332,19 +332,19 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTu
     ```
 
 ## <a name="monitor-pipeline"></a>파이프라인 모니터링
-1. [Azure Portal](https://portal.azure.com/)에 로그인한 후 **찾아보기**를 클릭하고 **데이터 팩터리**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인한 후 **찾아보기** 를 클릭하고 **데이터 팩터리** 를 선택합니다.
      ![찾아보기->데이터 팩터리](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2. **데이터 팩터리** 블레이드에서 만든 데이터 팩터리(**TutorialFactoryARM**)를 클릭합니다.    
-3. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **다이어그램**을 클릭합니다.
+3. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **다이어그램** 을 클릭합니다.
 
      ![다이어그램 타일](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
-4. **다이어그램 보기**에 파이프라인의 개요와 이 자습서에 사용된 데이터 세트가 표시됩니다.
+4. **다이어그램 보기** 에 파이프라인의 개요와 이 자습서에 사용된 데이터 세트가 표시됩니다.
    
    ![다이어그램 뷰](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
-5. 다이어그램 보기에서 **AzureBlobOutput**데이터 세트를 두 번 클릭합니다. 현재 처리 중인 조각이 표시됩니다.
+5. 다이어그램 보기에서 **AzureBlobOutput** 데이터 세트를 두 번 클릭합니다. 현재 처리 중인 조각이 표시됩니다.
    
     ![AzureBlobOutput 데이터 세트를 보여주는 스크린샷.](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-6. 처리가 완료되면 **준비** 상태인 조각이 표시됩니다. 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분) 따라서 파이프라인이 조각을 처리하는 데 **약 30분**이 걸릴 수 있습니다.
+6. 처리가 완료되면 **준비** 상태인 조각이 표시됩니다. 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분) 따라서 파이프라인이 조각을 처리하는 데 **약 30분** 이 걸릴 수 있습니다.
    
     ![데이터 세트](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    
 7. 조각이 **준비** 상태에 있으면 출력 데이터에 대한 Blob Storage의 **adfgetstarted** 컨테이너에 있는 **partitioneddata** 폴더를 확인합니다.  
@@ -407,7 +407,7 @@ dataFactoryName은 다음과 같이 정의됩니다.
     }
 }
 ```
-**connectionString**은 storageAccountName 및 storageAccountKey 매개 변수를 사용합니다. 이러한 매개 변수의 값은 구성 파일을 사용하여 전달됩니다. 정의 또한 템플릿에 정의된 azureStorageLinkedService 및 dataFactoryName 변수를 사용합니다. 
+**connectionString** 은 storageAccountName 및 storageAccountKey 매개 변수를 사용합니다. 이러한 매개 변수의 값은 구성 파일을 사용하여 전달됩니다. 정의 또한 템플릿에 정의된 azureStorageLinkedService 및 dataFactoryName 변수를 사용합니다. 
 
 #### <a name="hdinsight-on-demand-linked-service"></a>HDInsight 주문형 연결된 서비스
 HDInsight 주문형 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [컴퓨팅 연결 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 문서를 참조하세요.  
@@ -437,9 +437,9 @@ HDInsight 주문형 연결된 서비스를 정의하는 데 사용되는 JSON �
 
 * 데이터 팩터리는 위의 JSON으로 사용자에게 **Linux 기반** HDInsight 클러스터를 만들어 줍니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요. 
 * 주문형 HDInsight 클러스터를 사용하는 대신 **고유의 HDInsight 클러스터** 를 사용할 수 있습니다. 자세한 내용은 [HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 를 참조하세요.
-* HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리해야 할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다.
+* HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob Storage에 **기본 컨테이너** 를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리해야 할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다.
   
-    온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이 컨테이너의 이름은 "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp" 패턴을 따릅니다. [Microsoft Azure Storage Explorer](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob 스토리지에서 컨테이너를 삭제합니다.
+    온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이 컨테이너의 이름은 "adf **yourdatafactoryname**-**linkedservicename**-datetimestamp" 패턴을 따릅니다. [Microsoft Azure Storage Explorer](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob 스토리지에서 컨테이너를 삭제합니다.
 
 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요.
 

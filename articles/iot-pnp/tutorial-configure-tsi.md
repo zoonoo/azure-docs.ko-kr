@@ -7,16 +7,16 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ca2319a78fb4c0c720a21e97944d5b75ada9d008
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ad5c6f205fc832eb125e52b4135990fc58742e62
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014985"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453247"
 ---
 # <a name="preview-tutorial-create-and-connect-to-time-series-insights-gen2-to-store-visualize-and-analyze-iot-plug-and-play-device-telemetry"></a>미리 보기 자습서: Time Series Insights Gen2를 만들고 연결하여 IoT 플러그 앤 플레이 디바이스 원격 분석 데이터를 저장, 시각화 및 분석합니다.
 
-이 자습서에서는 IoT 플러그 앤 플레이 솔루션과 통합할 [Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/overview-what-is-tsi)(TSI) 환경을 만들고 올바르게 구성하는 방법을 알아봅니다. TSI를 사용하여 IoT(사물 인터넷) 규모로 시계열 데이터를 수집, 처리, 저장, 쿼리 및 시각화합니다.
+이 자습서에서는 IoT 플러그 앤 플레이 솔루션과 통합할 [Azure Time Series Insights Gen2](../time-series-insights/overview-what-is-tsi.md)(TSI) 환경을 만들고 올바르게 구성하는 방법을 알아봅니다. TSI를 사용하여 IoT(사물 인터넷) 규모로 시계열 데이터를 수집, 처리, 저장, 쿼리 및 시각화합니다.
 
 먼저 TSI 환경을 프로비저닝하고 IoT 허브를 스트리밍 이벤트 원본으로 연결합니다. 그런 다음, 모델 동기화를 통해 온도 컨트롤러 및 자동 온도 조절기 디바이스에 사용한 [DTDL(Digital Twins 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl) 샘플 모델 파일을 기반으로 [시계열 모델](../time-series-insights/concepts-model-overview.md)을 작성합니다.
 
@@ -39,7 +39,7 @@ Azure CLI를 로컬에 설치해야 하는 요구 사항을 피하려면, Azure 
 
 ## <a name="prepare-your-event-source"></a>이벤트 원본 준비
 
-앞에서 만든 IoT 허브는 TSI 환경의 [이벤트 원본](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingestion-event-sources)이 될 것입니다.
+앞에서 만든 IoT 허브는 TSI 환경의 [이벤트 원본](../time-series-insights/concepts-streaming-ingestion-event-sources.md)이 될 것입니다.
 
 > [!IMPORTANT]
 > 기존 IoT Hub 경로를 사용하지 않도록 설정하세요. IoT 허브를 [라우팅](../iot-hub/iot-hub-devguide-messages-d2c.md#routing-endpoints)이 구성된 TSI 이벤트 원본으로 사용할 때 발생하는 것으로 알려진 문제가 있습니다. 라우팅 엔드포인트를 일시적으로 사용하지 않도록 설정하고, IoT 허브가 TSI에 연결되면 다시 사용하도록 설정할 수 있습니다.
@@ -67,7 +67,7 @@ IoT 플러그 앤 플레이 디바이스 모델에서 현재 구성 요소를 �
 
 다음 명령은 아래와 같은 작업을 수행합니다.
 
-* 기록 데이터에 대한 장기 보존 및 분석을 위해 설계된 환경의 [콜드 저장소](https://docs.microsoft.com/azure/time-series-insights/concepts-storage#cold-store)용 Azure 스토리지 계정을 만듭니다.
+* 기록 데이터에 대한 장기 보존 및 분석을 위해 설계된 환경의 [콜드 저장소](../time-series-insights/concepts-storage.md#cold-store)용 Azure 스토리지 계정을 만듭니다.
   * `mytsicoldstore`를 콜드 스토리지 계정의 고유한 이름으로 바꿉니다.
 * 보존 기간이 7일인 웜 스토리지와 보존 기간이 무한인 콜드 스토리지를 포함하여 Azure Time Series Insights Gen2 환경을 만듭니다
   * `my-tsi-env`를 TSI 환경의 고유한 이름으로 바꿉니다.

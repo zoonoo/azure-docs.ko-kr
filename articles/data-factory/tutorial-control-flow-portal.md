@@ -2,8 +2,8 @@
 title: Azure Portal을 사용한 파이프라인 분기 및 연결 작업
 description: Azure Portal을 사용하여 Azure Data Factory 파이프라인에서 데이터 흐름을 제어하는 방법을 알아봅니다.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc82cfdc4e5a063e7c5cb833b617da58023d1ba6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568543"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497438"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Azure Portal을 사용한 Azure Data Factory 파이프라인 분기 및 연결 작업
 
@@ -105,7 +105,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ### <a name="fail-email-workflow"></a>실패 전자 메일 워크플로
-동일한 단계에 따라 **CopyFailEmail**의 다른 Logic Apps 워크플로를 만듭니다. 요청 트리거에서 `Request Body JSON schema`은 동일합니다. `Subject`와 같은 전자 메일의 형식을 변경하여 실패 전자 메일에 맞게 조정합니다. 다음은 예제입니다.
+동일한 단계에 따라 **CopyFailEmail** 의 다른 Logic Apps 워크플로를 만듭니다. 요청 트리거에서 `Request Body JSON schema`은 동일합니다. `Subject`와 같은 전자 메일의 형식을 변경하여 실패 전자 메일에 맞게 조정합니다. 다음은 예제입니다.
 
 ![Logic Apps 디자이너 - 실패 전자 메일 워크플로](media/tutorial-control-flow-portal/fail-email-workflow-2.png)
 
@@ -129,29 +129,29 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
-1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다.
+1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory** 를 차례로 선택합니다.
 
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
-2. **새 데이터 팩터리** 페이지에서 **이름**에 대해 **ADFTutorialDataFactory**를 입력합니다.
+2. **새 데이터 팩터리** 페이지에서 **이름** 에 대해 **ADFTutorialDataFactory** 를 입력합니다.
 
      ![새 데이터 팩터리 페이지](./media/tutorial-control-flow-portal/new-azure-data-factory.png)
 
-   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactory) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
+   Azure Data Factory의 이름은 **전역적으로 고유** 해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactory) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
 
    *데이터 팩터리 이름 “ADFTutorialDataFactory”를 사용할 수 없습니다.*
 
-3. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다.
-4. **리소스 그룹**에 대해 다음 단계 중 하나를 수행합니다.
+3. 데이터 팩터리를 만들려는 위치에 Azure **구독** 을 선택합니다.
+4. **리소스 그룹** 에 대해 다음 단계 중 하나를 수행합니다.
 
-      - **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
-      - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
+      - **기존 항목 사용** 을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
+      - **새로 만들기** 를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
         리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.  
-4. **버전**에 대해 **V2**를 선택합니다.
+4. **버전** 에 대해 **V2** 를 선택합니다.
 5. 데이터 팩터리의 **위치** 를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
-6. **대시보드에 고정**을 선택합니다.     
-7. **만들기**를 클릭합니다.      
+6. **대시보드에 고정** 을 선택합니다.     
+7. **만들기** 를 클릭합니다.      
 8. 대시보드에서 다음과 같은 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다.
 
     ![데이터 팩터리 배포 중 타일](media/tutorial-control-flow-portal/deploying-data-factory.png)
@@ -172,64 +172,64 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 1. Data Factory UI의 **시작** 페이지에서 **파이프라인 만들기** 타일을 클릭합니다.  
 
    ![시작 페이지](./media/tutorial-control-flow-portal/get-started-page.png)
-3. 파이프라인에 대한 속성 창에서 **매개 변수**탭으로 전환하고, **새로 만들기** 단추를 사용하여 문자열 형식의 세 매개 변수인 sourceBlobContainer, sinkBlobContainer 및 receiver를 추가합니다.
+3. 파이프라인에 대한 속성 창에서 **매개 변수** 탭으로 전환하고, **새로 만들기** 단추를 사용하여 문자열 형식의 세 매개 변수인 sourceBlobContainer, sinkBlobContainer 및 receiver를 추가합니다.
 
     - **sourceBlobContainer** - 원본 Blob 데이터 세트에서 사용하는 파이프라인의 매개 변수입니다.
     - **sinkBlobContainer** - 싱크 Blob 데이터 세트에서 사용하는 파이프라인의 매개 변수입니다.
     - **receiver** – 이 매개 변수로 지정된 이메일 주소의 받는 사람에게 성공 또는 실패 전자 메일을 보내는 파이프라인의 두 개의 웹 활동에서 사용됩니다.
 
    ![새 파이프라인 메뉴](./media/tutorial-control-flow-portal/pipeline-parameters.png)
-4. **활동** 도구 상자에서 **데이터 흐름**을 펼치고, **복사** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다.
+4. **활동** 도구 상자에서 **데이터 흐름** 을 펼치고, **복사** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다.
 
    ![복사 활동 끌어서 놓기](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
-5. 아래쪽의 **복사** 활동에 대한 **속성** 창에서 **원본** 탭으로 전환하고, **+ 새로 만들기**를 클릭합니다. 이 단계에서는 복사 활동에 대한 원본 데이터 세트를 만듭니다.
+5. 아래쪽의 **복사** 활동에 대한 **속성** 창에서 **원본** 탭으로 전환하고, **+ 새로 만들기** 를 클릭합니다. 이 단계에서는 복사 활동에 대한 원본 데이터 세트를 만듭니다.
 
    ![복사 작업을 위한 원본 데이터 세트를 만드는 방법을 보여주는 스크린샷.](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
-6. **새 데이터 세트** 창에서 **Azure Blob Storage**를 선택하고 **마침**을 클릭합니다.
+6. **새 데이터 세트** 창에서 **Azure Blob Storage** 를 선택하고 **마침** 을 클릭합니다.
 
    ![Azure Blob Storage 선택](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
-7. **AzureBlob1**이라는 제목의 새 **탭**이 표시됩니다. 데이터 세트의 이름을 **SourceBlobDataset**로 변경합니다.
+7. **AzureBlob1** 이라는 제목의 새 **탭** 이 표시됩니다. 데이터 세트의 이름을 **SourceBlobDataset** 로 변경합니다.
 
    ![데이터 세트 일반 설정](./media/tutorial-control-flow-portal/dataset-general-page.png)
-8. **속성** 창에서 **연결** 탭으로 전환하고, **연결된 서비스**에 대한 새로 만들기를 클릭합니다. 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결하기 위한 연결된 서비스를 만듭니다.
+8. **속성** 창에서 **연결** 탭으로 전환하고, **연결된 서비스** 에 대한 새로 만들기를 클릭합니다. 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결하기 위한 연결된 서비스를 만듭니다.
 
    ![데이터 세트 연결 - 새 연결된 서비스](./media/tutorial-control-flow-portal/dataset-connection-new-button.png)
 9. **새 연결된 서비스** 창에서 다음 단계를 수행합니다.
 
-    1. **이름**에 대해 **AzureStorageLinkedService**를 입력합니다.
-    2. **스토리지 계정 이름**에 대해 Azure Storage 계정을 선택합니다.
-    3. **저장**을 클릭합니다.
+    1. **이름** 에 대해 **AzureStorageLinkedService** 를 입력합니다.
+    2. **스토리지 계정 이름** 에 대해 Azure Storage 계정을 선택합니다.
+    3. **저장** 을 클릭합니다.
 
    ![새 Azure Storage 연결된 서비스](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. 폴더에는 `@pipeline().parameters.sourceBlobContainer`를 입력하고, 파일 이름에는 `emp.txt`를 입력합니다. sourceBlobContainer 파이프라인 매개 변수를 사용하여 데이터 세트의 폴더 경로를 설정합니다.
 
     ![원본 데이터 세트 설정](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 
-13. **파이프라인** 탭으로 전환하거나 트리 뷰에서 파이프라인을 클릭합니다. **Source Dataset**에 대해 **SourceBlobDataset**가 선택되어 있는지 확인합니다.
+13. **파이프라인** 탭으로 전환하거나 트리 뷰에서 파이프라인을 클릭합니다. **Source Dataset** 에 대해 **SourceBlobDataset** 가 선택되어 있는지 확인합니다.
       
    ![원본 데이터 세트](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 
-13. 속성 창에서 **싱크** 탭으로 전환하고, **싱크 데이터 세트**에 대해 **+ 새로 만들기**를 클릭합니다. 이 단계에서는 원본 데이터 세트를 만드는 것과 비슷한 방식으로 복사 활동에 대한 싱크 데이터 세트를 만듭니다.
+13. 속성 창에서 **싱크** 탭으로 전환하고, **싱크 데이터 세트** 에 대해 **+ 새로 만들기** 를 클릭합니다. 이 단계에서는 원본 데이터 세트를 만드는 것과 비슷한 방식으로 복사 활동에 대한 싱크 데이터 세트를 만듭니다.
 
     ![새 싱크 데이터 세트 단추](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
-14. **새 데이터 세트** 창에서 **Azure Blob Storage**를 선택하고 **마침**을 클릭합니다.
-15. 데이터 세트에 대한 **일반** 설정 페이지에서 **이름**에 대해 **SinkBlobDataset**를 입력합니다.
+14. **새 데이터 세트** 창에서 **Azure Blob Storage** 를 선택하고 **마침** 을 클릭합니다.
+15. 데이터 세트에 대한 **일반** 설정 페이지에서 **이름** 에 대해 **SinkBlobDataset** 를 입력합니다.
 16. **연결** 탭으로 전환하고 다음 단계를 수행합니다.
 
-    1. **LinkedService**에 대해 **AzureStorageLinkedService**를 선택합니다.
+    1. **LinkedService** 에 대해 **AzureStorageLinkedService** 를 선택합니다.
     2. 폴더에 대해 `@pipeline().parameters.sinkBlobContainer`를 입력합니다.
     1. 파일 이름에 대해 `@CONCAT(pipeline().RunId, '.txt')`를 입력합니다. 이 식은 파일 이름에 대해 현재 파이프라인 실행의 ID를 사용합니다. 지원되는 시스템 변수 및 식에 대한 목록은 [시스템 변수](control-flow-system-variables.md) 및 [식 언어](control-flow-expression-language-functions.md)를 참조하세요.
 
         ![싱크 데이터 세트 설정](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
-17. 위쪽의 **파이프라인** 탭으로 전환합니다. **활동** 도구 상자에서 **일반**을 펼치고, **웹** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **SendSuccessEmailActivity**로 설정합니다. 웹 작업은 모든 REST 엔드포인트에 대한 호출을 허용합니다. 작업에 대한 자세한 내용은 [웹 작업](control-flow-web-activity.md)을 참조하세요. 이 파이프라인은 웹 작업을 사용하여 Logic Apps 전자 메일 워크플로를 호출합니다.
+17. 위쪽의 **파이프라인** 탭으로 전환합니다. **활동** 도구 상자에서 **일반** 을 펼치고, **웹** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **SendSuccessEmailActivity** 로 설정합니다. 웹 작업은 모든 REST 엔드포인트에 대한 호출을 허용합니다. 작업에 대한 자세한 내용은 [웹 작업](control-flow-web-activity.md)을 참조하세요. 이 파이프라인은 웹 작업을 사용하여 Logic Apps 전자 메일 워크플로를 호출합니다.
 
     ![첫 번째 웹 활동 끌어서 놓기](./media/tutorial-control-flow-portal/success-web-activity-general.png)
 18. **일반** 탭에서 **설정** 탭으로 전환하고 다음 단계를 수행합니다.
-    1. **URL**에 대해 성공 전자 메일을 보내는 Logic Apps 워크플로에 대한 URL을 지정합니다.  
-    2. **메서드**에 대해 **POST**를 선택합니다.
+    1. **URL** 에 대해 성공 전자 메일을 보내는 Logic Apps 워크플로에 대한 URL을 지정합니다.  
+    2. **메서드** 에 대해 **POST** 를 선택합니다.
     3. **헤더** 섹션에서 **+ 헤더 추가** 링크를 클릭합니다.
-    4. **Content-Type** 헤더를 추가하고 **application/json**으로 설정합니다.
-    5. **본문**에 대해 다음 JSON을 지정합니다.
+    4. **Content-Type** 헤더를 추가하고 **application/json** 으로 설정합니다.
+    5. **본문** 에 대해 다음 JSON을 지정합니다.
 
         ```json
         {
@@ -250,16 +250,16 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 19. 복사 활동 옆의 녹색 단추를 끌어 웹 활동에 놓아서 **복사** 활동을 **웹** 활동에 연결합니다.
 
     ![첫 번째 웹 활동 및 복사 활동 연결](./media/tutorial-control-flow-portal/connect-copy-web-activity1.png)
-20. 다른 **웹** 활동을 [활동] 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓고, **이름**을 **SendFailureEmailActivity**로 설정합니다.
+20. 다른 **웹** 활동을 [활동] 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓고, **이름** 을 **SendFailureEmailActivity** 로 설정합니다.
 
     ![두 번째 웹 활동 이름](./media/tutorial-control-flow-portal/web-activity2-name.png)
 21. **설정** 탭으로 전환하고 다음 단계를 수행합니다.
 
-    1. **URL**에 대해 실패 전자 메일을 보내는 Logic Apps 워크플로에 대한 URL을 지정합니다.  
-    2. **메서드**에 대해 **POST**를 선택합니다.
+    1. **URL** 에 대해 실패 전자 메일을 보내는 Logic Apps 워크플로에 대한 URL을 지정합니다.  
+    2. **메서드** 에 대해 **POST** 를 선택합니다.
     3. **헤더** 섹션에서 **+ 헤더 추가** 링크를 클릭합니다.
-    4. **Content-Type** 헤더를 추가하고 **application/json**으로 설정합니다.
-    5. **본문**에 대해 다음 JSON을 지정합니다.
+    4. **Content-Type** 헤더를 추가하고 **application/json** 으로 설정합니다.
+    5. **본문** 에 대해 다음 JSON을 지정합니다.
 
         ```json
         {
@@ -271,29 +271,29 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
         ```
 
         ![두 번째 웹 활동에 대한 설정](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
-22. 파이프라인 디자이너에서 **복사** 활동을 선택하고, **+->** 단추를 클릭하고, **오류**를 선택합니다.  
+22. 파이프라인 디자이너에서 **복사** 활동을 선택하고, **+->** 단추를 클릭하고, **오류** 를 선택합니다.  
 
     ![파이프라인 디자이너의 복사 작업에서 오류를 선택하는 방법을 보여주는 스크린샷.](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
-23. 복사 활동 옆의 **빨간색** 단추를 두 번째 웹 활동인 **SendFailureEmailActivity**로 끕니다. 파이프라인이 다음 이미지와 같이 표시되도록 활동을 이동할 수 있습니다.
+23. 복사 활동 옆의 **빨간색** 단추를 두 번째 웹 활동인 **SendFailureEmailActivity** 로 끕니다. 파이프라인이 다음 이미지와 같이 표시되도록 활동을 이동할 수 있습니다.
 
     ![모든 활동이 포함된 전체 파이프라인](./media/tutorial-control-flow-portal/full-pipeline.png)
 24. 파이프라인에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사** 단추를 클릭합니다. **>>** 단추를 클릭하여 **파이프라인 유효성 검사 출력** 창을 닫습니다.
 
     ![파이프라인 유효성 검사](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. 엔터티(데이터 세트, 파이프라인 등)를 Data Factory 서비스에 게시하려면 **모두 게시**를 선택합니다. **게시됨** 메시지가 표시될 때까지 기다립니다.
+24. 엔터티(데이터 세트, 파이프라인 등)를 Data Factory 서비스에 게시하려면 **모두 게시** 를 선택합니다. **게시됨** 메시지가 표시될 때까지 기다립니다.
 
     ![게시](./media/tutorial-control-flow-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run-that-succeeds"></a>성공한 파이프라인 실행 트리거
-1. 파이프라인 실행을 **트리거**하려면 도구 모음에서 **트리거**, **지금 트리거**를 차례로 클릭합니다.
+1. 파이프라인 실행을 **트리거** 하려면 도구 모음에서 **트리거**, **지금 트리거** 를 차례로 클릭합니다.
 
     ![파이프라인 실행 트리거](./media/tutorial-control-flow-portal/trigger-now-menu.png)
 2. **파이프라인 실행** 창에서 다음 단계를 수행 합니다.
 
-    1. **sourceBlobContainer** 매개 변수에 대해 **adftutorial/adfv2branch/input**을 입력합니다.
-    2. **sinkBlobContainer** 매개 변수에 대해 **adftutorial/adfv2branch/output**을 입력합니다.
-    3. **받는 사람**의 **이메일 주소**를 입력합니다.
-    4. **마침**을 클릭합니다.
+    1. **sourceBlobContainer** 매개 변수에 대해 **adftutorial/adfv2branch/input** 을 입력합니다.
+    2. **sinkBlobContainer** 매개 변수에 대해 **adftutorial/adfv2branch/output** 을 입력합니다.
+    3. **받는 사람** 의 **이메일 주소** 를 입력합니다.
+    4. **마침** 을 클릭합니다.
 
         ![파이프라인 실행 매개 변수](./media/tutorial-control-flow-portal/pipeline-run-parameters.png)
 
@@ -302,19 +302,19 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 1. 파이프라인 실행을 모니터링하려면 왼쪽의 **모니터** 탭으로 전환합니다. 수동으로 트리거된 파이프라인 실행이 표시됩니다. **새로 고침** 단추를 사용하여 목록을 새로 고칩니다.
 
     ![성공적인 파이프라인 실행](./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png)
-2. 이 파이프라인 실행과 연결된 **활동 실행을 보려면** **작업** 열에서 첫 번째 링크를 클릭합니다. 위쪽의 **파이프라인**을 클릭하여 이전 보기로 다시 전환할 수 있습니다. **새로 고침** 단추를 사용하여 목록을 새로 고칩니다.
+2. 이 파이프라인 실행과 연결된 **활동 실행을 보려면** **작업** 열에서 첫 번째 링크를 클릭합니다. 위쪽의 **파이프라인** 을 클릭하여 이전 보기로 다시 전환할 수 있습니다. **새로 고침** 단추를 사용하여 목록을 새로 고칩니다.
 
     ![활동 실행 목록을 보는 방법을 보여주는 스크린샷.](./media/tutorial-control-flow-portal/activity-runs-success.png)
 
 ## <a name="trigger-a-pipeline-run-that-fails"></a>실패한 파이프라인 실행 트리거
 1. 왼쪽의 **편집** 탭으로 전환합니다.
-2. 파이프라인 실행을 **트리거**하려면 도구 모음에서 **트리거**, **지금 트리거**를 차례로 클릭합니다.
+2. 파이프라인 실행을 **트리거** 하려면 도구 모음에서 **트리거**, **지금 트리거** 를 차례로 클릭합니다.
 3. **파이프라인 실행** 창에서 다음 단계를 수행 합니다.
 
-    1. **sourceBlobContainer** 매개 변수에 대해 **adftutorial/dummy/input**을 입력합니다. 더미 폴더가 adftutorial 컨테이너에 존재하지 않는지 확인합니다.
-    2. **sinkBlobContainer** 매개 변수에 대해 **adftutorial/dummy/output**을 입력합니다.
-    3. **받는 사람**의 **이메일 주소**를 입력합니다.
-    4. **Finish**를 클릭합니다.
+    1. **sourceBlobContainer** 매개 변수에 대해 **adftutorial/dummy/input** 을 입력합니다. 더미 폴더가 adftutorial 컨테이너에 존재하지 않는지 확인합니다.
+    2. **sinkBlobContainer** 매개 변수에 대해 **adftutorial/dummy/output** 을 입력합니다.
+    3. **받는 사람** 의 **이메일 주소** 를 입력합니다.
+    4. **Finish** 를 클릭합니다.
 
 ## <a name="monitor-the-failed-pipeline-run"></a>실패한 파이프라인 실행 모니터링
 

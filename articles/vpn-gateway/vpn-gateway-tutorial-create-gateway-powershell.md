@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: b70a3fe4884ef209e57fbb954c27aa83486b5c98
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: aaeb38b4d46188205841d6a93437533e30061485
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94661004"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512099"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>자습서: PowerShell을 사용하여 VPN 게이트웨이 만들기 및 관리
 
@@ -26,7 +26,7 @@ Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스
 
 다음 다이어그램은 이 자습서에서 만든 가상 네트워크 및 VPN 게이트웨이를 보여줍니다.
 
-:::image type="content" source="./media/vpn-gateway-tutorial-create-gateway-powershell/gateway-diagram.png" alt-text="VNet 및 VPN 게이트웨이 다이어그램":::
+:::image type="content" source="./media/vpn-gateway-tutorial-create-gateway-powershell/diagram.png" alt-text="VNet 및 VPN 게이트웨이 다이어그램":::
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

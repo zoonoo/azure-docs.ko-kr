@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3a3518ba68c9474fc4a34390e6fd9a7d1e88f6c6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f261db8d40e1a1cc1737ff6a3f5c50da661b73e6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959597"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433479"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>자습서: IoT Edge의 기계 학습에 사용할 환경 설정
 
@@ -39,7 +39,7 @@ ms.locfileid: "94959597"
 * [.NET Core SDK](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure PowerShell](/powershell/azure/?view=azps-1.1.0)
+* [Azure PowerShell](/powershell/azure/)
 * [VS Code 확장](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
@@ -83,7 +83,7 @@ ms.locfileid: "94959597"
 
    스크립트가 몇 분 정도 실행되면서 다음 단계를 수행합니다.
 
-    1. [Azure PowerShell Az 모듈](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)을 설치합니다.
+    1. [Azure PowerShell Az 모듈](/powershell/azure/new-azureps-module-az)을 설치합니다.
     1. Azure에 로그인하라는 메시지가 표시됩니다.
     1. VM을 만드는 데 필요한 정보를 확인합니다. **y** 또는 **Enter** 키를 눌러 계속 진행합니다.
     1. 없는 경우 리소스 그룹을 만듭니다.

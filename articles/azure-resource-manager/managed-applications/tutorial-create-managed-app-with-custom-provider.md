@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f327749d1bdfb8cf2cba00cf4c5f68b4b2b77999
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 50a65583c41dd94b174a33432afcf42b31e67df0
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379556"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437051"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>자습서: 사용자 지정 작업 및 리소스가 있는 관리형 애플리케이션 만들기
 
@@ -353,6 +353,6 @@ Azure Managed Applications에 대한 질문이 있는 경우 [Stack Overflow](ht
 
 ## <a name="next-steps"></a>다음 단계
 
-관리되는 애플리케이션을 Azure Marketplace에 게시하려면 [Marketplace의 Azure 관리되는 애플리케이션](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)을 참조하세요.
+관리되는 애플리케이션을 Azure Marketplace에 게시하려면 [Marketplace의 Azure 관리되는 애플리케이션](../../marketplace/create-new-azure-apps-offer.md)을 참조하세요.
 
 [Azure 사용자 지정 공급자](../custom-providers/overview.md)에 대해 자세히 알아봅니다.

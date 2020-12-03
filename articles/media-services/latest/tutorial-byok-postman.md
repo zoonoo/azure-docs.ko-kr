@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: tutorial
 ms.date: 10/18/2020
-ms.openlocfilehash: 93bbd84c25f02ac1653a46ebb4a70c1dfa90c744
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c8a5b682e2ac4879d2181bdb069cf554bad512d9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686395"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498288"
 ---
 # <a name="tutorial-use-customer-managed-keys-or-byok-with-media-services-rest-api"></a>자습서: Media Services REST API에서 고객 관리형 키 또는 BYOK 사용
 
@@ -43,8 +43,8 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 
 ### <a name="register-a-service-principal-with-the-needed-permissions"></a>필요한 권한으로 서비스 주체를 등록합니다.
 
-1. [서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-1. [옵션 2: 새 애플리케이션 비밀 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#authentication-two-options)로 이동하여 서비스 주체 비밀을 가져옵니다.
+1. [서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md).
+1. [옵션 2: 새 애플리케이션 비밀 만들기](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)로 이동하여 서비스 주체 비밀을 가져옵니다.
 
    > [!IMPORTANT]
    >나중에 사용하기 위해 비밀을 복사하여 저장합니다. 포털의 비밀 페이지에서 나가면 비밀에 액세스할 수 없습니다.

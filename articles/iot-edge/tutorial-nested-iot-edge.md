@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: db77df29d1b9b0adf07c7da377c028dee5312617
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 28b34ecaf51406b35c67d3838714691390f5adf7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579201"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453055"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>자습서: IoT Edge 디바이스의 계층 구조 만들기(미리 보기)
 
@@ -50,10 +50,10 @@ ms.locfileid: "94579201"
 IoT Edge 디바이스의 계층 구조를 만들려면 다음이 필요합니다.
 
 * 인터넷에 연결된 컴퓨터(Windows 또는 Linux)
-* IoT Edge 디바이스로 구성할 Linux 디바이스 2개. 사용 가능한 디바이스가 없으면 [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/)를 사용할 수 있습니다.
-* 유효한 구독이 있는 Azure 계정. [Azure 구독](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* IoT Edge 디바이스로 구성할 Linux 디바이스 2개. 사용 가능한 디바이스가 없으면 [Azure Virtual Machines](../virtual-machines/linux/index.yml)를 사용할 수 있습니다.
+* 유효한 구독이 있는 Azure 계정. [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* Azure IoT 확장 v0.10.6 이상이 설치된 Azure CLI v2.3.1. 이 자습서에서는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용합니다. Azure Cloud Shell에 익숙하지 않은 경우 [빠른 시작에서 자세한 내용을 확인하세요.](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#use-azure-cloud-shell)
+* Azure IoT 확장 v0.10.6 이상이 설치된 Azure CLI v2.3.1. 이 자습서에서는 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용합니다. Azure Cloud Shell에 익숙하지 않은 경우 [빠른 시작에서 자세한 내용을 확인하세요.](./quickstart-linux.md#use-azure-cloud-shell)
 
 이 시나리오는 스크립팅된 [산업 IoT용 Azure IoT Edge 샘플](https://aka.ms/iotedge-nested-sample)을 수행하여 시도할 수도 있습니다. 이 샘플에서는 Azure 가상 머신을 미리 구성된 디바이스로 배포하여 공장 환경을 시뮬레이션합니다.
 
@@ -188,8 +188,8 @@ Linux 디바이스에서 데모 인증서를 만들려면 생성 스크립트를
 1. hsmlib 및 IoT Edge 디먼을 설치합니다. <!-- Update with proper image links on release -->
 
    ```bash
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0.rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0_rc1-1_debian9_amd64.deb -o iotedge.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc2/libiothsm-std_1.2.0.rc2-1-1_debian9_amd64.deb -o libiothsm-std.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc2/iotedge_1.2.0_rc2-1_debian9_amd64.deb -o iotedge.deb
    sudo dpkg -i ./libiothsm-std.deb
    sudo dpkg -i ./iotedge.deb
    ```
@@ -261,7 +261,7 @@ Linux 디바이스에서 데모 인증서를 만들려면 생성 스크립트를
      type: "docker"
      env: {}
      config:
-       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1"
+       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2"
        auth: {}
    ```
 
@@ -273,7 +273,7 @@ Linux 디바이스에서 데모 인증서를 만들려면 생성 스크립트를
      type: "docker"
      env: {}
      config:
-       image: "<parent_device_fqdn_or_ip>:8000/azureiotedge-agent:1.2.0-rc1"
+       image: "<parent_device_fqdn_or_ip>:8000/azureiotedge-agent:1.2.0-rc2"
        auth: {}
    ```
 
@@ -305,7 +305,7 @@ IoT Edge 런타임 구성을 완료하고 워크로드를 배포하기 위한 �
 
 1. 기어 아이콘 옆에 있는 **런타임 설정** 을 선택합니다.
 
-1. **Edge 허브** 아래 이미지 필드에 `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1`을 입력합니다.
+1. **Edge 허브** 아래 이미지 필드에 `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2`을 입력합니다.
 
    ![Edge 허브의 이미지 편집](./media/tutorial-nested-iot-edge/edge-hub-image.png)
 
@@ -318,7 +318,7 @@ IoT Edge 런타임 구성을 완료하고 워크로드를 배포하기 위한 �
 
    ![Edge 허브의 환경 변수 편집](./media/tutorial-nested-iot-edge/edge-hub-environment-variables.png)
 
-1. **Edge 에이전트** 아래 이미지 필드에 `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1`을 입력합니다. **저장** 을 선택합니다.
+1. **Edge 에이전트** 아래 이미지 필드에 `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2`을 입력합니다. **저장** 을 선택합니다.
 
 1. Docker 레지스트리 모듈을 최상위 계층 디바이스에 추가합니다. **+ 추가** 를 선택하고 드롭다운에서 **IoT Edge 모듈** 을 선택합니다. Docker 레지스트리 모듈에 이름 `registry`를 제공하고 이미지 URI로 `registry:latest`를 입력합니다. 다음으로, 환경 변수를 추가하고 Microsoft 컨테이너 레지스트리에서 로컬 레지스트리 모듈을 가리키도록 옵션을 만들고 registry:5000에서 컨테이너 이미지를 다운로드하고 이러한 이미지를 제공합니다.
 
@@ -412,14 +412,14 @@ IoT Edge 런타임 구성을 완료하고 워크로드를 배포하기 위한 �
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1",
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1",
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
@@ -478,7 +478,7 @@ Azure Portal 및 Azure CLI를 모두 사용하여 클라우드에서 **하위 �
 
 1. 기어 아이콘 옆에 있는 **런타임 설정** 을 선택합니다.
 
-1. **Edge 허브** 아래 이미지 필드에 `$upstream:8000/azureiotedge-hub:1.2.0-rc1`을 입력합니다.
+1. **Edge 허브** 아래 이미지 필드에 `$upstream:8000/azureiotedge-hub:1.2.0-rc2`을 입력합니다.
 
 1. Edge 허브 모듈에 다음 환경 변수를 추가합니다.
 
@@ -487,7 +487,7 @@ Azure Portal 및 Azure CLI를 모두 사용하여 클라우드에서 **하위 �
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. **Edge 에이전트** 아래 이미지 필드에 `$upstream:8000/azureiotedge-agent:1.2.0-rc1`을 입력합니다. **저장** 을 선택합니다.
+1. **Edge 에이전트** 아래 이미지 필드에 `$upstream:8000/azureiotedge-agent:1.2.0-rc2`을 입력합니다. **저장** 을 선택합니다.
 
 1. 온도 센서 모듈을 추가합니다. **+ 추가** 를 선택하고 드롭다운에서 **마켓플레이스 모듈** 을 선택합니다. `Simulated Temperature Sensor`를 검색하고 모듈을 선택합니다.
 
@@ -534,14 +534,14 @@ Azure Portal 및 Azure CLI를 모두 사용하여 클라우드에서 **하위 �
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "$upstream:8000/azureiotedge-agent:1.2.0-rc1",
+                               "image": "$upstream:8000/azureiotedge-agent:1.2.0-rc2",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc1",
+                               "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc2",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",

@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 154a7b17fc09c55e83b65eef8d479904c36e87eb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: eddee58d70cf621bd6c82d54fe75434f4e596d9e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791191"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498169"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>자습서: AzCopy를 사용하여 클라우드 스토리지로 온-프레미스 데이터 마이그레이션
 
@@ -176,7 +176,7 @@ Windows에서 예약된 작업 만들기에 대해 자세히 알아보려면 [Sc
 
 온-프레미스 데이터를 Azure Storage로 또는 그 반대로 이동하는 방법을 자세히 알아보려면 다음 링크를 따라 이동하세요.
 
-* [Azure Storage의 데이터 이동](./storage-choose-data-transfer-solution.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).  
+* [Azure Storage의 데이터 이동](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 AzCopy에 대한 자세한 내용은 다음 문서를 참조하세요.
 

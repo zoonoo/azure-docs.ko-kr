@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: a544d0c5fafbdaf9d272fed552fb38eda613292f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c9866ac2c14e4deb29326ffdd1a93a7d8eae1ea3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522144"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484807"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>자습서: Azure Private 엔드포인트를 사용하여 Azure Cosmos 계정에 연결
 
@@ -248,7 +248,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     Cosmos DB 계정 이름에 대해 **10.1.0.5** 의 개인 IP 주소가 반환됩니다.  이 주소는 이전에 만든 가상 네트워크의 서브넷에 있습니다.
 
-9. 가상 머신에 [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%252fazure%252fstorage%252fblobs%252ftoc.json)를 설치합니다.
+9. 가상 머신에 [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 설치합니다.
 
 10. **Microsoft Azure Storage Explorer** 가 설치된 후 **마침** 을 선택합니다.  확인란을 선택된 상태로 두고 애플리케이션을 엽니다.
 

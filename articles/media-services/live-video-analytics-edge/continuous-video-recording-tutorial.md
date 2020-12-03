@@ -3,12 +3,12 @@ title: 클라우드에 지속적으로 비디오를 녹화하고 클라우드에
 description: 이 자습서에서는 Azure Live Video Analytics on IoT Edge를 사용하여 클라우드에 지속적으로 비디오를 녹화하고, Azure Media Services를 사용하여 비디오에서 원하는 부분을 스트리밍하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 7e8bf1202e95cb4e76b54473f9d84076d24accea
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: c38ab1f32d1ef4e54cd8568ff17d325fabdefc31
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346369"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498373"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>자습서: 클라우드에 지속적으로 비디오를 녹화하고 클라우드에서 재생
 
@@ -49,7 +49,7 @@ ms.locfileid: "93346369"
 * Azure IoT Hub
 * Azure Storage 계정
 * Azure Media Services 계정
-* [IoT Edge 런타임](../../iot-edge/how-to-install-iot-edge-linux.md)이 설치된 Azure의 Linux VM
+* [IoT Edge 런타임](../../iot-edge/how-to-install-iot-edge.md)이 설치된 Azure의 Linux VM
 
 ## <a name="concepts"></a>개념
 
@@ -298,7 +298,7 @@ Live Video Analytics on IoT Edge 모듈을 사용하여 라이브 비디오 스�
 
 applicationProperties의 subject 섹션은 이 메시지를 생성한 그래프의 자산 싱크 노드를 참조합니다.
 
-body 섹션에는 출력 위치에 대한 정보가 포함됩니다. 여기서는 비디오가 녹화되는 Azure Media Services 자산의 이름입니다. 이 값을 적어 두세요.
+body 섹션에는 출력 위치에 대한 정보가 포함됩니다. 이 경우 비디오가 녹화되는 Azure Media Services 자산의 이름입니다. 이 값을 적어 두세요.
 
 ### <a name="recordingavailable-event"></a>RecordingAvailable 이벤트
 
@@ -325,7 +325,7 @@ body 섹션에는 출력 위치에 대한 정보가 포함됩니다. 여기서�
 
 applicationProperties의 subject 섹션은 이 메시지를 생성한 그래프의 AssetSink 노드를 참조합니다.
 
-body 섹션에는 출력 위치에 대한 정보가 포함됩니다. 여기서는 비디오가 녹화되는 Azure Media Services 자산의 이름입니다.
+body 섹션에는 출력 위치에 대한 정보가 포함됩니다. 이 경우 비디오가 녹화되는 Azure Media Services 자산의 이름입니다.
 
 ### <a name="recordingstopped-event"></a>RecordingStopped 이벤트
 
@@ -385,4 +385,4 @@ Azure Portal에 로그인하여 비디오를 살펴보면 미디어 그래프에
 ## <a name="next-steps"></a>다음 단계
 
 * RTSP 시뮬레이터 대신 RTSP를 지원하는 [IP 카메라](https://en.wikipedia.org/wiki/IP_camera)를 사용합니다. [ONVIF 규격](https://www.onvif.org/conformant-products/) 제품 페이지에서 프로필 G, S 또는 T를 준수하는 디바이스를 찾아 RTSP를 지원하는 IP 카메라를 검색할 수 있습니다.
-* Azure Linux VM 대신 AMD64 또는 X64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge-linux.md)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md) 빠른 시작의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.
+* Azure Linux VM 대신 AMD64 또는 X64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge.md)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md) 빠른 시작의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.

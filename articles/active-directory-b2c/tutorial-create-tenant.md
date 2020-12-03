@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/22/2020
+ms.date: 11/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dce41f979a46ae2bda568b5db79f0e0304705dd8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c15b3a64b4a0017c5c352e08cebc796537255479
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670190"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447036"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>자습서: Azure Active Directory B2C 테넌트 만들기
 
@@ -50,25 +50,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **새 Azure AD B2C 테넌트 만들기** 를 선택합니다.
 
     ![Azure Portal에서 선택한 새 Azure AD B2C 테넌트 만들기](media/tutorial-create-tenant/portal-02-create-tenant.png)
-    
-1. **조직 이름** 과 **초기 도메인 이름** 을 입력합니다. **국가 또는 지역** (나중에 변경할 수 없음)을 선택한 다음, **만들기** 를 선택합니다.
 
-    도메인 이름은 전체 테넌트 도메인 이름의 일부로 사용됩니다. 이 예제에서 테넌트 이름은 *contosob2c.onmicrosoft.com* 입니다.
+1. **디렉터리 만들기** 페이지에서 다음 정보를 입력합니다.
 
-1. 테넌트 만들기가 완료되면 테넌트 만들기 페이지 상단에 있는 **새 B2C 테넌트 만들기 또는 기존 테넌트에 연결** 링크를 선택합니다.
+   - **조직 이름** - Azure AD B2C 테넌트의 이름을 입력합니다.
+   - **초기 도메인 이름** - Azure AD B2C 테넌트의 도메인 이름을 입력합니다.
+   - **국가 또는 지역** - 목록에서 국가 또는 지역을 선택합니다. 이 이름은 나중에 변경할 수 없습니다.
+   - **구독** - 목록에서 구독을 선택합니다.
+   - **리소스 그룹** - 테넌트를 포함하는 리소스 그룹을 선택합니다. 또는 **새로 만들기** 에서 리소스 그룹에 사용할 **이름** 을 입력하고 **리소스 그룹 위치** 를 선택한 다음, **확인** 을 선택합니다.
 
-    ![Azure Portal에서 강조 표시된 테넌트 이동 경로 링크 연결](media/tutorial-create-tenant/portal-04-select-link-sub-link.png)
+    ![Azure Portal에서 예제 값을 사용하여 테넌트 양식 만들기](media/tutorial-create-tenant/review-and-create-tenant.png)
 
-1. **내 Azure 구독에 기존 Azure AD B2C 테넌트 연결** 을 선택합니다. 이 단계를 수행하려면 소유자 역할로 로그인해야 합니다.
-
-   ![Azure Portal에서 기존 구독 선택 항목 연결](media/tutorial-create-tenant/portal-05-link-subscription.png)
-
-1. 사용자가 만든 **Azure AD B2C 테넌트** 를 선택한 다음, **구독** 을 선택합니다.
-
-    **리소스 그룹** 에 대해 **새로 만들기** 를 선택합니다. 테넌트를 포함할 리소스 그룹의 **이름** 을 입력하고 **리소스 그룹 위치** 를 선택한 다음, **만들기** 를 선택합니다.
-
-    ![Azure Portal에서 구독 설정 양식 연결](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
-    
+1. **검토 + 만들기** 를 선택합니다.
+1. 디렉터리 설정을 검토합니다. 그런 다음 **만들기** 를 선택합니다.
 
 청구 목적으로 여러 Azure AD B2C 테넌트를 단일 Azure 구독에 연결할 수 있습니다. 테넌트를 연결하려면 Azure AD B2C 테넌트의 관리자여야 하고 Azure 구독 내에서 적어도 기여자 역할을 할당받아야 합니다. [구독에 Azure AD B2C 테넌트 연결](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription)을 참조하세요.
 

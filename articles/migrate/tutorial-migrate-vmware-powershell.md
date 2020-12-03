@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
 ms.author: rahugup
-ms.openlocfilehash: 185979fcc0eeaebbe1c3b09d74050e05899737af
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 3cd8d29a498a6a00fa8fff679afc969b339934b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376802"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494344"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음) - PowerShell
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
 1. [검색 자습서를 완료](tutorial-discover-vmware.md)하여 마이그레이션을 위한 Azure 및 VMware를 준비합니다.
-2. Azure로 마이그레이션하기 전에 [VMware VM을 평가](tutorial-assess-vmware.md)하는 두 번째 자습서를 완료하는 것이 좋습니다.
+2. Azure로 마이그레이션하기 전에 [VMware VM을 평가](./tutorial-assess-vmware-azure-vm.md)하는 두 번째 자습서를 완료하는 것이 좋습니다.
 3. Azure PowerShell `Az` 모듈이 있어야 합니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
 
 ## <a name="install-azure-migrate-powershell-module"></a>Azure Migrate PowerShell 모듈 설치
@@ -480,11 +480,8 @@ Write-Output $StopReplicationJob.State
     - Site Recovery를 통해 Azure VM을 보조 지역에 복제하면 워크로드를 계속 실행하고 지속적으로 사용할 수 있습니다. [자세히 알아보기](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - 보안 강화:
     - [Azure Security Center - Just-In-Time 관리](../security-center/security-center-just-in-time.md)를 사용하여 인바운드 트래픽 액세스를 잠그고 제한합니다.
-    - [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
+    - [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
     - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
     - [IaaS 리소스 보호](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)에 대해 자세히 알아보고 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 방문하세요.
 - 모니터링 및 관리 앱:
 -  리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](../cost-management-billing/cloudyn/overview.md)를 배포하는 것이 좋습니다.
-
-
-

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 46c5271c8ded970442d1ae4022573473997d98af
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: cdfd012d5015e156439a1afa89e818bf82b64dc6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426996"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449330"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>자습서: Azure Stack Edge Pro device with GPU 배포 준비 
 
@@ -66,7 +66,7 @@ Azure Stack Edge Pro를 배포하려면 먼저 환경을 준비해야 합니다.
 
 시작하기 전에 다음 사항을 확인합니다.
 
-- Azure Stack Edge 리소스에 대해 Microsoft Azure 구독이 활성화되어 있습니다. [Microsoft EA(기업계약)](https://azure.microsoft.com/overview/sales-number/), [CSP(클라우드 솔루션 공급자)](https://docs.microsoft.com/partner-center/azure-plan-lp) 또는 [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/)과 같은 지원되는 구독을 사용했는지 확인합니다. 종량제 구독은 지원되지 않습니다. 보유한 Azure 구독의 유형을 식별하려면 [Azure 제품이란?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer)을 참조하세요.
+- Azure Stack Edge 리소스에 대해 Microsoft Azure 구독이 활성화되어 있습니다. [Microsoft EA(기업계약)](https://azure.microsoft.com/overview/sales-number/), [CSP(클라우드 솔루션 공급자)](/partner-center/azure-plan-lp) 또는 [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/)과 같은 지원되는 구독을 사용했는지 확인합니다. 종량제 구독은 지원되지 않습니다. 보유한 Azure 구독의 유형을 식별하려면 [Azure 제품이란?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer)을 참조하세요.
 - Azure Stack Edge Pro/Data Box Gateway, IoT Hub 및 Azure Storage 리소스에 대한 리소스 그룹 수준의 소유자 또는 기여자 액세스 권한이 있습니다.
 
     - Azure Stack Edge / Data Box Gateway 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정된 기여자(또는 그 이상)로서 권한이 있어야 합니다. 
@@ -74,7 +74,7 @@ Azure Stack Edge Pro를 배포하려면 먼저 환경을 준비해야 합니다.
         - 리소스 공급자를 등록하려면 Azure Portal에서 **홈 > 구독 > 사용자 구독 > 리소스 공급자** 로 이동합니다. 
         - 특정 리소스 공급자(예: `Microsoft.DataBoxEdge`)를 검색하고 리소스 공급자를 등록합니다. 
     - 스토리지 계정 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정되는 기여자 이상의 액세스 권한이 다시 필요합니다. Azure Storage는 기본적으로 등록된 리소스 공급자입니다.
-- 스토리지 계정을 사용하는 공유 만들기와 같이 활성화 키 또는 자격 증명 작업을 생성하는 Azure Active Directory Graph API에 대한 관리자 또는 사용자 액세스 권한이 있습니다. 자세한 내용은 [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)를 참조하세요.
+- 스토리지 계정을 사용하는 공유 만들기와 같이 활성화 키 또는 자격 증명 작업을 생성하는 Azure Active Directory Graph API에 대한 관리자 또는 사용자 액세스 권한이 있습니다. 자세한 내용은 [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)를 참조하세요.
 
 
 ### <a name="for-the-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 디바이스
@@ -126,7 +126,7 @@ Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 �
     |설정  |값  |
     |---------|---------|
     |Subscription    |이 항목은 이전에 선택한 내용에 따라 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
-    |Resource group  |기존 그룹을 선택하거나 새 그룹을 만듭니다.<br>[Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.     |
+    |Resource group  |기존 그룹을 선택하거나 새 그룹을 만듭니다.<br>[Azure 리소스 그룹](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.     |
 
 7. 다음 **인스턴스 세부 정보** 를 입력하거나 선택합니다.
 
@@ -207,6 +207,3 @@ Azure Stack Edge Pro를 설치하는 방법을 알아보려면 다음 자습서�
 
 > [!div class="nextstepaction"]
 > [Azure Stack Edge Pro 설치](./azure-stack-edge-gpu-deploy-install.md)
-
-
-

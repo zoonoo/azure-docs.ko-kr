@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: b02c16c63d83fc33be5512d26eafb0ca0d6c9b98
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 54ac7b27ada62a969dd40428fd9a753bb5a99530
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145891"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499835"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>자습서: 템플릿을 사용하여 Service Fabric Mesh에 애플리케이션 배포
 
@@ -107,7 +107,7 @@ ACR 인스턴스로 이미지를 푸시하려면 컨테이너 이미지가 있�
 >[!NOTE]
 > 2020년 11월 2일부터 Docker Free 계획 계정에서 Docker Hub에 대한 익명 및 인증된 요청에 [다운로드 속도 제한이 적용](https://docs.docker.com/docker-hub/download-rate-limit/)되며 IP 주소에 의해 적용됩니다. 
 > 
-> 이러한 명령은 Docker Hub의 공용 이미지를 사용합니다. 요금이 제한될 수 있다는 점에 유의하세요. 자세한 내용은 [Docker Hub를 사용하여 인증](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub)을 참조하세요.
+> 이러한 명령은 Docker Hub의 공용 이미지를 사용합니다. 요금이 제한될 수 있다는 점에 유의하세요. 자세한 내용은 [Docker Hub를 사용하여 인증](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub)을 참조하세요.
 
 Windows 이미지를 끌어옵니다.
 

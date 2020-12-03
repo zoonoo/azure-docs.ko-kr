@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0408d43fe897882fe09f6dd61a22d46349f2978e
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: d205cff71b962afb9ead8271ee0c220fa1e2242f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95974394"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518773"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>자습서: Windows 데스크톱 앱에서 Microsoft Graph API 호출
 
@@ -259,6 +259,7 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
                 DisplayBasicTokenInfo(authResult);
                 this.SignOutButton.Visibility = Visibility.Visible;
             }
+        }
         }
     ```
 

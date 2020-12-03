@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: f5ffc7472bb0744d76b5ceaacc95f74af22e762e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e234cc29589e7b104ea7ef54ab7493e27d11cf27
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739808"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460430"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>자습서: 원격 모니터링 솔루션 가속기를 사용하여 에지에서 변칙 검색
 
@@ -336,6 +336,6 @@ Edge 모듈로 패키징하기 전에 포털에서 Stream Analytics 작업을 �
 > [!div class="nextstepaction"]
 > [원격 모니터링 솔루션 가속기로 IoT Edge 패키지 가져오기](iot-accelerators-remote-monitoring-import-edge-package.md)
 
-IoT Edge 런타임을 설치하는 방법에 대한 자세한 내용은 [Linux(x64)에서 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge-linux.md)를 참조하세요.
+IoT Edge 런타임을 설치하는 방법에 대한 자세한 내용은 [Linux(x64)에서 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge.md)를 참조하세요.
 
 Edge 디바이스의 Azure Stream Analytics에 대한 자세한 내용은 [Azure Stream Analytics를 IoT Edge 모듈로 배포](../iot-edge/tutorial-deploy-stream-analytics.md)를 참조하세요.

@@ -10,12 +10,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ceffc928a0cf8313723ff6193d9a6a63f8465f90
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0b6acaa76d21cb1321feb5466c4fb7a9bacfa846
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994777"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348112"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>자습서: 기본 Active Directory 환경
 
@@ -331,7 +331,7 @@ VM을 만들고 이름을 변경했으며 고정 IP 주소가 준비되었으면
 
     ```powershell
     # Filename:    3_InstallAD_CP.ps1
-    # Description: Creates an on-premises AD envrionment.  This is part of
+    # Description: Creates an on-premises AD environment.  This is part of
     #              the Azure AD Connect password hash sync tutorial.
     #
     # DISCLAIMER:

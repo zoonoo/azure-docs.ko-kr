@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: b7d587f2be5141f7de82e9294b1fdb9fba4a6a41
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c628ba780ae64fceb32322fdb2004d69e2ebf24b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488646"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452752"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>자습서: Kubernetes에서 비밀 저장소 CSI 드라이버에 대한 Azure Key Vault 공급자 구성 및 실행
 
@@ -362,4 +362,4 @@ kubectl exec -it nginx-secrets-store-inline -- cat /mnt/secrets-store/secret1
 
 키 자격 증명 모음을 복구할 수 있도록 하려면 다음을 참조하세요.
 > [!div class="nextstepaction"]
-> [일시 삭제 설정](./soft-delete-cli.md)
+> [일시 삭제 설정](./key-vault-recovery.md)

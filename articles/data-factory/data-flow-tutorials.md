@@ -1,17 +1,17 @@
 ---
 title: 데이터 흐름 매핑 비디오 자습서
 description: 매핑 데이터 흐름 개념을 설명하는 비디오 자습서 목록
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 11/02/2020
-ms.openlocfilehash: 2fbdaa2329ba2765da7c7ad4023ef164a56aa497
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 605d740b56b4f1cd57ab705e442a8b3e3946fcff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359377"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490706"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 

@@ -3,20 +3,20 @@ title: 첫 번째 데이터 팩터리(Azure Portal) 빌드
 description: 이 자습서에서는 Azure Portal의 Data Factory Editor를 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: e948962a73137f78ec26a01c1d2f54d883e76783
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 360fbc3e1bfe7890f1f3b05899eb95ce7a3a72c2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637448"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496623"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 첫 번째 데이터 팩터리 빌드
 > [!div class="op_single_selector"]
@@ -159,9 +159,9 @@ ms.locfileid: "92637448"
 
      b. 주문형 HDInsight 클러스터를 사용하는 대신 고유의 HDInsight 클러스터를 사용할 수 있습니다. 자세한 내용은 [HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 참조하세요.
 
-     다. HDInsight 클러스터는 JSON 속성( **linkedServiceName** )에서 지정한 Blob Storage에 기본 컨테이너를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터( **timeToLive** )가 없는 경우 조각을 처리할 때마다 HDInsight 클러스터가 만들어집니다. 클러스터는 처리가 완료되면 자동으로 삭제됩니다.
+     다. HDInsight 클러스터는 JSON 속성(**linkedServiceName**)에서 지정한 Blob Storage에 기본 컨테이너를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 경우 조각을 처리할 때마다 HDInsight 클러스터가 만들어집니다. 클러스터는 처리가 완료되면 자동으로 삭제됩니다.
 
-     많은 조각이 처리될수록 Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결에 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 “adf **yourdatafactoryname**-**linkedservicename** -datetimestamp” 패턴을 따릅니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 도구를 사용하여 Blob Storage에서 컨테이너를 삭제합니다.
+     많은 조각이 처리될수록 Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결에 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 “adf **yourdatafactoryname**-**linkedservicename**-datetimestamp” 패턴을 따릅니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 도구를 사용하여 Blob Storage에서 컨테이너를 삭제합니다.
 
      자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요.
 
@@ -319,13 +319,13 @@ ms.locfileid: "92637448"
 
     JSON 코드 조각에서 Hive를 사용하여 HDInsight 클러스터에서 데이터를 처리하는 단일 작업으로 구성되는 파이프라인을 만듭니다.
 
-    Hive 스크립트 파일 **partitionweblogs.hql** 은 스토리지 계정( **AzureStorageLinkedService** 이라고 하는 scriptLinkedService에 의해 지정됨)에 저장됩니다. 컨테이너 **adfgetstarted** 의 **스크립트** 폴더에서 찾을 수 있습니다.
+    Hive 스크립트 파일 **partitionweblogs.hql** 은 스토리지 계정(**AzureStorageLinkedService** 이라고 하는 scriptLinkedService에 의해 지정됨)에 저장됩니다. 컨테이너 **adfgetstarted** 의 **스크립트** 폴더에서 찾을 수 있습니다.
 
     **defines** 섹션은 Hive 스크립트에 Hive 구성 값으로 전달되는 런타임 설정을 지정하는 데 사용됩니다. 예는 ${hiveconf:inputtable} 및 ${hiveconf:partitionedtable}입니다.
 
     파이프라인의 **start** 및 **end** 속성은 파이프라인의 활성 기간을 지정합니다.
 
-    작업 JSON에서 **linkedServiceName** : **HDInsightOnDemandLinkedService** 에서 지정한 컴퓨팅에 대해 Hive 스크립트가 실행되도록 지정합니다.
+    작업 JSON에서 **linkedServiceName**: **HDInsightOnDemandLinkedService** 에서 지정한 컴퓨팅에 대해 Hive 스크립트가 실행되도록 지정합니다.
 
    > [!NOTE]
    > 예제에서 사용되는 JSON 속성에 대한 자세한 내용은 [Data Factory의 파이프라인 및 활동](data-factory-create-pipelines.md)에서 “파이프라인 JSON” 섹션을 참조하세요.
@@ -367,7 +367,7 @@ ms.locfileid: "92637448"
 
     이전 보기로 돌아가려면 맨 위의 메뉴에서 **데이터 팩터리** 를 선택합니다.
 
-1. **다이어그램** 보기에서 **AzureBlobInput** 데이터 세트를 두 번 클릭합니다. 조각이 **준비** 상태인지 확인합니다. 조각이 **Ready** 상태로 표시되려면 몇 분이 걸릴 수 있습니다. 잠시 기다려도 표시되지 않는 경우 오른쪽 컨테이너( **adfgetstarted** ) 및 폴더( **inputdata** )에 배치된 입력 파일( **input.log** )이 있는지 확인합니다.
+1. **다이어그램** 보기에서 **AzureBlobInput** 데이터 세트를 두 번 클릭합니다. 조각이 **준비** 상태인지 확인합니다. 조각이 **Ready** 상태로 표시되려면 몇 분이 걸릴 수 있습니다. 잠시 기다려도 표시되지 않는 경우 오른쪽 컨테이너(**adfgetstarted**) 및 폴더(**inputdata**)에 배치된 입력 파일(**input.log**)이 있는지 확인합니다.
 
    ![준비 상태인 입력 조각](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
 
@@ -402,7 +402,7 @@ ms.locfileid: "92637448"
    자세한 내용은 [Azure Portal 블레이드를 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 조각이 성공적으로 처리될 때 입력된 파일이 삭제됩니다. 따라서 조각을 다시 실행하거나 자습서를 다시 수행하려는 경우 **adfgetstarted** 컨테이너의 **inputdata** 폴더에 입력 파일( **input.log** )을 업로드합니다.
+> 조각이 성공적으로 처리될 때 입력된 파일이 삭제됩니다. 따라서 조각을 다시 실행하거나 자습서를 다시 수행하려는 경우 **adfgetstarted** 컨테이너의 **inputdata** 폴더에 입력 파일(**input.log**)을 업로드합니다.
 >
 >
 

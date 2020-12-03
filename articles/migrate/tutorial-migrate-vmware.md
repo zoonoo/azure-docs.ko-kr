@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 VMware VM의 에이전트 없는 마�
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 3e263306cf18dfebe4b73f8d940b8eb5c99ed16f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 202886bc0a7738f8211cfea6d90a380c7bac82b8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310626"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492950"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음)
 
@@ -38,24 +38,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. [첫 번째 자습서를 완료](./tutorial-discover-vmware.md)하여 마이그레이션을 위해 Azure 및 VMware를 준비합니다.
 2. Azure로 마이그레이션하기 전에 [VMware VM을 평가](./tutorial-assess-vmware-azure-vm.md)하는 두 번째 자습서를 완료하는 것이 좋지만, 반드시 그럴 필요는 없습니다. 
-
-
-## <a name="add-the-azure-migrate-server-migration-tool"></a>Azure Migrate 서버 마이그레이션 도구 추가
-
-Azure Migrate 프로젝트를 아직 설정하지 않은 경우 도구를 추가하기 전에 [설정](how-to-add-tool-first-time.md)합니다. 프로젝트를 설정한 경우 다음과 같이 도구를 추가합니다.
-
-1. Azure Migrate 프로젝트에서 **개요**를 클릭합니다. 
-2. **서버 검색, 평가 및 마이그레이션**에서 **서버 평가 및 마이그레이션**을 클릭합니다.
-
-     ![서버 평가 및 마이그레이션](./media/tutorial-migrate-vmware/assess-migrate.png)
-
-3. **마이그레이션 도구**에서 **마이그레이션할 준비가 되면 여기를 클릭하여 마이그레이션 도구를 추가하세요.** 를 선택합니다.
-
-    ![도구 선택](./media/tutorial-migrate-vmware/select-migration-tool.png)
-
-4. 도구 목록에서 **Azure Migrate: 서버 마이그레이션** > **도구 추가**를 차례로 선택합니다.
-
-    ![서버 마이그레이션 도구](./media/tutorial-migrate-vmware/server-migration-tool.png)
+3. 이미 만든 프로젝트로 이동하거나 [새 프로젝트 만들기](./create-manage-projects.md)
+4. Azure 계정에 대한 사용 권한 확인 - Azure 계정에는 VM을 만들고 Azure 관리 디스크에 쓸 수 있는 권한이 필요합니다.
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Azure Migrate 어플라이언스 설정
 
@@ -75,40 +59,40 @@ Azure Migrate Server Migration은 VMware VM의 검색, 평가 및 에이전트 �
 
 다음과 같이 복제를 사용합니다.
 
-1. Azure Migrate 프로젝트 > **서버**, **Azure Migrate: 서버 마이그레이션**에서 **복제**를 클릭합니다.
+1. Azure Migrate 프로젝트 > **서버**, **Azure Migrate: 서버 마이그레이션** 에서 **복제** 를 클릭합니다.
 
     ![VM 복제](./media/tutorial-migrate-vmware/select-replicate.png)
 
-2. **복제** > **원본 설정** > **머신이 가상화되어 있습니까?** 에서 **예, VMware vSphere 사용**을 선택합니다.
-3. **온-프레미스 어플라이언스**에서 설정한 Azure Migrate 어플라이언스의 이름 > **확인**을 차례로 선택합니다. 
+2. **복제** > **원본 설정** > **머신이 가상화되어 있습니까?** 에서 **예, VMware vSphere 사용** 을 선택합니다.
+3. **온-프레미스 어플라이언스** 에서 설정한 Azure Migrate 어플라이언스의 이름 > **확인** 을 차례로 선택합니다. 
 
     ![원본 설정](./media/tutorial-migrate-vmware/source-settings.png)
 
-4. **가상 머신**에서 복제하려는 머신을 선택합니다. 실행한 경우 평가에서 VM 크기 조정 및 디스크 유형을 적용하려면 **Azure Migrate 평가에서 마이그레이션 설정을 가져오시겠습니까?** 에서 **예**를 선택하고, VM 그룹 및 평가 이름을 선택합니다. 평가 설정을 사용하지 않는 경우 **아니요**를 선택합니다.
+4. **가상 머신** 에서 복제하려는 머신을 선택합니다. 실행한 경우 평가에서 VM 크기 조정 및 디스크 유형을 적용하려면 **Azure Migrate 평가에서 마이그레이션 설정을 가져오시겠습니까?** 에서 **예** 를 선택하고, VM 그룹 및 평가 이름을 선택합니다. 평가 설정을 사용하지 않는 경우 **아니요** 를 선택합니다.
    
     ![평가 선택](./media/tutorial-migrate-vmware/select-assessment.png)
 
-5. **가상 머신**에서 마이그레이션하려는 VM을 선택합니다. 그런 다음, **다음: 대상 설정**을 클릭합니다.
+5. **가상 머신** 에서 마이그레이션하려는 VM을 선택합니다. 그런 다음, **다음: 대상 설정** 을 클릭합니다.
 
     ![VM 선택](./media/tutorial-migrate-vmware/select-vms.png)
 
-6. **대상 설정**에서 구독 및 대상 지역을 선택합니다. 마이그레이션 후 Azure VM이 상주하는 리소스 그룹을 지정합니다.
-7. **Virtual Network**에서 마이그레이션 후 Azure VM이 조인하는 Azure VNet/서브넷을 선택합니다.
-8. **가용성 옵션**에서 다음을 선택합니다.
-    -  마이그레이션된 머신을 지역의 특정 가용성 영역에 고정하는 가용성 영역 이 옵션을 사용하여 가용성 영역에서 다중 노드 애플리케이션 계층을 구성하는 서버를 배포합니다. 이 옵션을 선택하는 경우 Compute 탭에서 선택한 각 머신에 사용할 가용성 영역을 지정해야 합니다. 이 옵션은 마이그레이션을 위해 선택한 대상 지역이 가용성 영역을 지원하는 경우에만 사용할 수 있습니다.
+6. **대상 설정** 에서 구독 및 대상 지역을 선택합니다. 마이그레이션 후 Azure VM이 상주하는 리소스 그룹을 지정합니다.
+7. **Virtual Network** 에서 마이그레이션 후 Azure VM이 조인하는 Azure VNet/서브넷을 선택합니다.
+8. **가용성 옵션** 에서 다음을 선택합니다.
+    -  마이그레이션된 머신을 지역의 특정 가용성 영역에 고정하는 가용성 영역. 이 옵션을 사용하여 가용성 영역에서 다중 노드 애플리케이션 계층을 구성하는 서버를 배포합니다. 이 옵션을 선택하는 경우 Compute 탭에서 선택한 각 머신에 사용할 가용성 영역을 지정해야 합니다. 이 옵션은 마이그레이션을 위해 선택한 대상 지역이 가용성 영역을 지원하는 경우에만 사용할 수 있습니다.
     -  마이그레이션된 머신을 가용성 집합에 배치하기 위한 가용성 집합입니다. 이 옵션을 사용하려면 선택한 대상 리소스 그룹에 하나 이상의 가용성 집합이 있어야 합니다.
     - 마이그레이션된 머신에 대해 이러한 가용성 구성이 필요하지 않은 경우에는 인프라 중복이 필요하지 않습니다.
 
-9. **Azure 하이브리드 혜택**에서
+9. **Azure 하이브리드 혜택** 에서
 
-    - Azure 하이브리드 혜택을 적용하지 않으려면 **아니요**를 선택합니다. 그런 후 **Next** 를 클릭합니다.
-    - 활성 Software Assurance 또는 Windows Server 구독이 적용되는 Windows Server 머신이 있고 마이그레이션할 머신에 이 혜택을 적용하려면 **예**를 선택합니다. 그런 후 **Next** 를 클릭합니다.
+    - Azure 하이브리드 혜택을 적용하지 않으려면 **아니요** 를 선택합니다. 그런 후 **Next** 를 클릭합니다.
+    - 활성 Software Assurance 또는 Windows Server 구독이 적용되는 Windows Server 머신이 있고 마이그레이션할 머신에 이 혜택을 적용하려면 **예** 를 선택합니다. 그런 후 **Next** 를 클릭합니다.
 
     ![대상 설정](./media/tutorial-migrate-vmware/target-settings.png)
 
-10. **Compute**에서 VM 이름, 크기, OS 디스크 유형 및 가용성 구성을 검토합니다(이전 단계에서 선택한 경우). VM은 [Azure 요구 사항](migrate-support-matrix-vmware-migration.md#azure-vm-requirements)을 준수해야 합니다.
+10. **Compute** 에서 VM 이름, 크기, OS 디스크 유형 및 가용성 구성을 검토합니다(이전 단계에서 선택한 경우). VM은 [Azure 요구 사항](migrate-support-matrix-vmware-migration.md#azure-vm-requirements)을 준수해야 합니다.
 
-    - **VM 크기**: 평가 권장 사항을 사용하는 경우 VM 크기 드롭다운에서 권장 크기를 표시합니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기**에서 수동 크기를 선택합니다. 
+    - **VM 크기**: 평가 권장 사항을 사용하는 경우 VM 크기 드롭다운에서 권장 크기를 표시합니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기** 에서 수동 크기를 선택합니다. 
     - **OS 디스크**: VM에 맞는 OS(부팅) 디스크를 지정합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다. 
     - **가용성 영역**: 사용할 가용성 영역을 지정합니다.
     - **가용성 집합**: 사용할 가용성 집합을 지정합니다.
@@ -119,11 +103,11 @@ Azure Migrate Server Migration은 VMware VM의 검색, 평가 및 에이전트 �
 
  ![VM 컴퓨팅 설정](./media/tutorial-migrate-vmware/compute-settings.png)
 
-11. **디스크**에서 VM 디스크를 Azure에 복제해야 하는지 여부를 지정하고, Azure에서 디스크 유형(표준 SSD/HDD 또는 프리미엄 관리 디스크)을 선택합니다. 그런 후 **Next** 를 클릭합니다.
+11. **디스크** 에서 VM 디스크를 Azure에 복제해야 하는지 여부를 지정하고, Azure에서 디스크 유형(표준 SSD/HDD 또는 프리미엄 관리 디스크)을 선택합니다. 그런 후 **Next** 를 클릭합니다.
    
     ![스크린샷은 복제 대화 상자의 디스크 탭을 표시합니다.](./media/tutorial-migrate-vmware/disks.png)
 
-12. **검토 및 복제 시작**에서 설정을 검토하고, **복제**를 클릭하여 서버에 대한 초기 복제를 시작합니다.
+12. **검토 및 복제 시작** 에서 설정을 검토하고, **복제** 를 클릭하여 서버에 대한 초기 복제를 시작합니다.
 
 > [!NOTE]
 > 복제가 시작되기 전에 언제든지 복제 설정을 업데이트할 수 있습니다(**관리** > **머신 복제 중**). 복제가 시작된 후에는 설정을 변경할 수 없습니다.
@@ -140,7 +124,7 @@ Azure Migrate Server Migration은 VMware VM의 검색, 평가 및 에이전트 �
 ## <a name="track-and-monitor"></a>추적 및 모니터링
 
 1. 포털 알림에서 작업 상태를 추적합니다.
-2. **서버 복제 중**을 **Azure Migrate: Server Migration**에서 클릭하여 복제 상태를 모니터링합니다.
+2. **서버 복제 중** 을 **Azure Migrate: Server Migration** 에서 클릭하여 복제 상태를 모니터링합니다.
 
      ![복제 모니터링](./media/tutorial-migrate-vmware/replicating-servers.png)
 
@@ -161,18 +145,18 @@ Azure Migrate Server Migration은 VMware VM의 검색, 평가 및 에이전트 �
 다음과 같이 테스트 마이그레이션을 수행합니다.
 
 
-1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 마이그레이션**에서 **마이그레이션된 서버 테스트**를 클릭합니다.
+1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 마이그레이션** 에서 **마이그레이션된 서버 테스트** 를 클릭합니다.
 
      ![마이그레이션된 서버 테스트](./media/tutorial-migrate-vmware/test-migrated-servers.png)
 
-2. 마우스 오른쪽 단추로 테스트할 VM을 클릭하고, **테스트 마이그레이션**을 클릭합니다.
+2. 마우스 오른쪽 단추로 테스트할 VM을 클릭하고, **테스트 마이그레이션** 을 클릭합니다.
 
     ![테스트 마이그레이션](./media/tutorial-migrate-vmware/test-migrate.png)
 
-3. **테스트 마이그레이션**에서 마이그레이션 후 Azure VM이 위치할 Azure VNet을 선택합니다. 비프로덕션 VNet을 사용하는 것이 좋습니다.
+3. **테스트 마이그레이션** 에서 마이그레이션 후 Azure VM이 위치할 Azure VNet을 선택합니다. 비프로덕션 VNet을 사용하는 것이 좋습니다.
 4. **테스트 마이그레이션** 작업이 시작됩니다. 포털 알림에서 작업을 모니터링합니다.
-5. 마이그레이션이 완료되면 Azure Portal의 **Virtual Machines**에서 마이그레이션된 Azure VM을 확인합니다. 머신 이름에는 **-Test** 접미사가 있습니다.
-6. 테스트가 완료되면 **머신 복제 중**에서 마우스 오른쪽 단추로 Azure VM을 클릭하고, **테스트 마이그레이션 정리**를 클릭합니다.
+5. 마이그레이션이 완료되면 Azure Portal의 **Virtual Machines** 에서 마이그레이션된 Azure VM을 확인합니다. 머신 이름에는 **-Test** 접미사가 있습니다.
+6. 테스트가 완료되면 **머신 복제 중** 에서 마우스 오른쪽 단추로 Azure VM을 클릭하고, **테스트 마이그레이션 정리** 를 클릭합니다.
 
     ![마이그레이션 정리](./media/tutorial-migrate-vmware/clean-up.png)
 
@@ -181,20 +165,20 @@ Azure Migrate Server Migration은 VMware VM의 검색, 평가 및 에이전트 �
 
 테스트 마이그레이션이 예상대로 작동하는지 확인한 후에는 온-프레미스 머신을 마이그레이션할 수 있습니다.
 
-1. Azure Migrate 프로젝트 > **서버** > **Azure Migrate: 서버 마이그레이션**에서 **서버 복제 중**을 클릭합니다.
+1. Azure Migrate 프로젝트 > **서버** > **Azure Migrate: 서버 마이그레이션** 에서 **서버 복제 중** 을 클릭합니다.
 
     ![서버 복제 중](./media/tutorial-migrate-vmware/replicate-servers.png)
 
-2. **머신 복제 중**에서 마우스 오른쪽 단추로 VM > **마이그레이션**을 차례로 클릭합니다.
-3. **마이그레이션** > **가상 머신을 종료하고 데이터 손실 없이 계획된 마이그레이션을 수행하시겠습니까?** 에서 **예** > **확인**을 차례로 선택합니다.
+2. **머신 복제 중** 에서 마우스 오른쪽 단추로 VM > **마이그레이션** 을 차례로 클릭합니다.
+3. **마이그레이션** > **가상 머신을 종료하고 데이터 손실 없이 계획된 마이그레이션을 수행하시겠습니까?** 에서 **예** > **확인** 을 차례로 선택합니다.
     - 기본적으로 Azure Migrate는 온-프레미스 VM을 종료하고, 요청 시 복제를 실행하여 마지막 복제가 수행된 이후 발생한 모든 VM 변경 내용을 동기화합니다. 이렇게 하면 데이터가 손실되지 않습니다.
-    - VM을 종료하지 않으려면 **아니요**를 선택합니다.
+    - VM을 종료하지 않으려면 **아니요** 를 선택합니다.
 4. VM에 대한 마이그레이션 작업이 시작됩니다. Azure 알림에서 작업을 추적합니다.
 5. 작업이 완료되면 **Virtual Machines** 페이지에서 VM을 보고 관리할 수 있습니다.
 
 ## <a name="complete-the-migration"></a>마이그레이션 완료
 
-1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **복제 중지**를 차례로 클릭합니다. 그러면 온-프레미스 머신에 대한 복제가 중지되고, VM에 대한 복제 상태 정보가 정리됩니다.
+1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **복제 중지** 를 차례로 클릭합니다. 그러면 온-프레미스 머신에 대한 복제가 중지되고, VM에 대한 복제 상태 정보가 정리됩니다.
 2. Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) 또는 [Linux](../virtual-machines/extensions/agent-linux.md) 에이전트를 마이그레이션된 머신에 설치합니다.
 3. 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
 4. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
