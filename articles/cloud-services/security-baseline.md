@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7deee88210acf700916961be7c4ccaf9477accf8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 100871ab2188aa638c4c9f2b058021706c7741bb
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353445"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531907"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Azure Cloud Services에 대 한 azure 보안 기준
 
@@ -36,7 +36,7 @@ Microsoft Azure Cloud Services (클래식)은 (는) Azure Resource Manager 가�
 
 - [네트워크 보안 그룹 개요](../virtual-network/network-security-groups-overview.md)
 
-- [가상 네트워크 피어링](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
+- [가상 네트워크 피어링](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -58,7 +58,7 @@ Microsoft Azure Cloud Services (클래식)은 (는) Azure Resource Manager 가�
 
 - [Cloud Services 구성 파일](schema-cscfg-file.md)
 
-- [Azure Policy에서 지 원하는 서비스 목록](/cli/azure/azure-services-the-azure-cli-can-manage?amp;preserve-view=)
+- [Azure Policy에서 지 원하는 서비스 목록](/cli/azure/azure-services-the-azure-cli-can-manage?preserve-view=)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -89,9 +89,9 @@ Azure Cloud Services 내에서 플랫폼 수준 보호 외에도 통신을 차�
 
 클래식 구독 관리자 할당에 대 한 거부 적용 규칙을 구성 합니다. 기본적으로 내부 엔드포인트가 정의된 후에 어떤 역할에서도 제한 없이 역할의 내부 엔드포인트로 통신할 수 있습니다. 통신을 제한하려면 서비스 정의 파일의 ServiceDefinition 요소에 NetworkTrafficRules 요소를 추가해야 합니다.
 
-- [내 클라우드 서비스의 기본 URL에 들어오는 트래픽을 차단 하거나 사용 하지 않도록 설정 하는 방법](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
+- [내 클라우드 서비스의 기본 URL에 들어오는 트래픽을 차단 하거나 사용 하지 않도록 설정 하는 방법](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
 
-- [Azure DDOS 보호](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
+- [Azure DDOS 보호](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
 
 - [특정 IP 주소 차단](cloud-services-startup-tasks-common.md#block-a-specific-ip-address)
 
@@ -107,7 +107,7 @@ Azure Cloud Services 내에서 플랫폼 수준 보호 외에도 통신을 차�
 
 - [네트워크 보안 그룹에 대 한 흐름 로깅 구성](../virtual-machines/extensions/network-watcher-linux.md)
 
-- [흐름 로그를 구성 하는 방법에 대 한 자세한 내용은을 참조 하세요.](/cli/azure/azure-services-the-azure-cli-can-manage?amp;preserve-view=)
+- [흐름 로그를 구성 하는 방법에 대 한 자세한 내용은을 참조 하세요.](/cli/azure/azure-services-the-azure-cli-can-manage?preserve-view=)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -231,13 +231,13 @@ Azure Monitor 내의 활동 로그에서 일부 이벤트에 대 한 변경 기�
 
 Azure Cloud Services는 가용성, 성능, 실패 및 사용에 대 한 Application Insights에서 모니터링할 수 있습니다. 사용자 지정 차트를 Application Insights에 추가하여 가장 중요한 데이터를 볼 수 있습니다. Azure Cloud Services 프로젝트에서 Application Insights SDK를 사용 하 여 역할 인스턴스 데이터를 수집할 수 있습니다. 
 
-- [배포 하기 전에 Visual Studio에서 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?amp;preserve-view=#to-turn-on-diagnostics-in-visual-studio-before-deployment)
+- [배포 하기 전에 Visual Studio에서 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?preserve-view=true#to-turn-on-diagnostics-in-visual-studio-before-deployment)
 
 - [변경 기록 보기](../azure-monitor/platform/activity-log.md#view-change-history)
 
 - [Azure 클라우드 서비스에 대 한 Application Insights (클래식)](../azure-monitor/app/cloudservices.md)
 
-- [Azure Cloud service (클래식) 및 virtual machines에 대 한 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?amp;preserve-view=true&toc=%2fazure%2fcloud-services%2ftoc.json)
+- [Azure Cloud service (클래식) 및 virtual machines에 대 한 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?preserve-view=true&toc=%2fazure%2fcloud-services%2ftoc.json)
 
 **Azure Security Center 모니터링**: 예
 
@@ -289,7 +289,7 @@ Azure 진단 확장은 데이터를 수집하고 Azure Storage 계정에 저장�
 
 **지침**: azure에 대 한 Microsoft 맬웨어 방지 프로그램은 azure Cloud Services 및 가상 머신을 보호 합니다. 웹 응용 프로그램 방화 벽, 네트워크 방화벽, 맬웨어 방지 프로그램, 침입 감지 및 방지 시스템 (ID 또는 IP) 등과 같은 타사 보안 솔루션을 배포할 수도 있습니다.
 
-- [Azure 기본 IP/ID 및 DDOS에서 제공 하는 기능 및 기능](./cloud-services-configuration-and-management-faq.md?amp;preserve-view=#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
+- [Azure 기본 IP/ID 및 DDOS에서 제공 하는 기능 및 기능](./cloud-services-configuration-and-management-faq.md?preserve-view=true#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -840,7 +840,7 @@ Azure Cloud Services에서 시작 작업의 PowerShell 스크립트를 사용 �
 
 지능적이 고 자동화 된 종단 간 솔루션인 Azure Security Center에서 적응 응용 프로그램 제어 기능을 선택 합니다. 맬웨어 방지를 위해 컴퓨터를 강화 하는 데 도움이 되며 맬웨어 방지 솔루션에 의해 누락 될 수 있는 응용 프로그램을 포함 하 여 악의적인 응용 프로그램의 실행 시도를 차단 하거나 경고할 수 있습니다.
 
-- [Azure Cloud Services에 대 한 맬웨어 방지 확장을 자동화 된 방식으로 추가 하려면 어떻게 해야 하나요?](./cloud-services-configuration-and-management-faq.md?amp;preserve-view=#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
+- [Azure Cloud Services에 대 한 맬웨어 방지 확장을 자동화 된 방식으로 추가 하려면 어떻게 해야 하나요?](./cloud-services-configuration-and-management-faq.md?preserve-view=true#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 
 - [맬웨어 방지 프로그램 배포 시나리오](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)
 

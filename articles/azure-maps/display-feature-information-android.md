@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 44c5f9f1a7c0d014d101ad45a80e1e53c42f69a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fabb4cd1e555a7a67a53bf2f5a99d93c87df436c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009038"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532808"
 ---
 # <a name="display-feature-information"></a>기능 정보 표시
 
@@ -63,9 +63,7 @@ map.events.add((OnFeatureClick) (features) -> {
 }, symbolLayer.getId());    //Limit this event to the symbol layer.
 ```
 
-<center>
-
-![탭 하는 기능 및 표시 되는 알림 메시지의 애니메이션](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)</center>
+![탭 하는 기능 및 표시 되는 알림 메시지의 애니메이션](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)
 
 알림 메시지 외에도 다음과 같은 다양 한 방법으로 기능의 메타 데이터 속성을 표시할 수 있습니다.
 

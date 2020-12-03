@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure PowerShell를 사용 하 여 Azure 방화
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 11/12/2020
+ms.date: 12/02/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 18a7da6402d7835be8dbad0551973a262ab335c8
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ca4e313d4836764009feccf5acfaefe48b01b55e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660239"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531765"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 방화벽 배포 및 구성
 
@@ -47,7 +47,7 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 절차를 수행 하려면 PowerShell을 로컬로 실행 해야 합니다. Azure PowerShell 모듈을 설치해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Connect-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
 
@@ -65,7 +65,7 @@ New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 
 ### <a name="create-a-virtual-network-and-azure-bastion-host"></a>가상 네트워크 및 Azure Bastion 호스트 만들기
 
-이 가상 네트워크에는 네 개의 서브넷이 있습니다.
+이 가상 네트워크에는 세 개의 서브넷이 있습니다.
 
 > [!NOTE]
 > AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)를 참조하세요.
@@ -226,7 +226,7 @@ $NIC01 | Set-AzNetworkInterface
 
    두 명령 모두 응답을 반환 해야 DNS 쿼리가 방화벽을 통해 수신 하 고 있음을 보여 줍니다.
 
-1. 다음 명령을 실행합니다.
+1. 다음 명령을 실행 합니다.
 
    ```
    Invoke-WebRequest -Uri https://www.google.com

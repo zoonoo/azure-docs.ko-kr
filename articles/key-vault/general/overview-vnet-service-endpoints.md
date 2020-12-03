@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: a1159da782a8cb822bf726173ad0d0bcd9da844a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9cbce00e2c2743aec57cd857b6f38d20bce33698
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460890"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532910"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
 
@@ -80,7 +80,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 |Azure Event Hubs|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](../../event-hubs/configure-customer-managed-key.md)|
 |Azure Service Bus|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](../../service-bus-messaging/configure-customer-managed-key.md)|
 |Azure Import/Export| [Azure Key Vault에서 Import/Export 서비스에 고객 관리형 키 사용](../../storage/common/storage-import-export-encryption-key-portal.md)
-|Azure Container Registry|[고객 관리 키를 사용 하는 레지스트리 암호화](../../container-registry/container-registry-customer-managed-keys.md)<br><br/>[다른 레지스트리에 아티팩트 전송](../../container-registry/container-registry-transfer-images.md)
+|Azure Container Registry|[고객 관리 키를 사용 하는 레지스트리 암호화](../../container-registry/container-registry-customer-managed-keys.md)
 
 > [!NOTE]
 > 해당 서비스가 Key Vault에 액세스할 수 있도록 하려면 관련 Key Vault 액세스 정책을 설정해야 합니다.

@@ -3,25 +3,27 @@ title: Android map에 트래픽 데이터 표시 | Microsoft Azure 맵
 description: 이 문서에서는 Microsoft Azure Maps Android SDK를 사용 하 여 지도에 트래픽 데이터를 표시 하는 방법에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 02/27/2020
+ms.date: 11/25/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bc37f2b3f603262f67a46746187df6e4b5a494b5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5f7e67d159c2b7dea3ebac7fd4d0856f508cb298
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895531"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532757"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 트래픽 데이터 표시
 
 흐름 데이터 및 인시던트 데이터는 맵에 표시 될 수 있는 두 가지 트래픽 데이터 유형입니다. 이 가이드에서는 두 가지 유형의 트래픽 데이터를 표시 하는 방법을 보여 줍니다. 인시던트 데이터는 생성,도로 클로저 및 사고와 같은 사물에 대 한 점 및 선 기반 데이터로 구성 됩니다. 흐름 데이터는 도로의 트래픽 흐름에 대 한 메트릭을 표시 합니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
-맵에 트래픽을 표시 하려면 먼저 [Azure 계정을](quick-demo-map-app.md#create-an-azure-maps-account)만들고 [구독 키를 가져와야](quick-demo-map-app.md#get-the-primary-key-for-your-account)합니다. 그런 다음 [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) 를 설치 하 고 맵을 로드 해야 합니다.
+1. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
+2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+3. [Azure Maps Android SDK](./how-to-use-android-map-control-library.md)를 다운로드 하 여 설치 합니다.
 
 ## <a name="incidents-traffic-data"></a>인시던트 트래픽 데이터
 
@@ -53,7 +55,7 @@ import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 
 다음 코드 조각을 사용 하 여 트래픽 흐름 데이터를 설정 합니다. 이전 섹션의 코드와 마찬가지로 메서드의 반환 값을 메서드에 전달 합니다 `flow` `setTraffic` . 에 전달할 수 있는 4 개의 값이 `flow` 있고 각 값은 `flow` 해당 값을 반환 하도록 트리거합니다. 그런 다음의 반환 값은 `flow` 에 대 한 인수로 전달 됩니다 `setTraffic` . 이러한 4 가지 값에 대해서는 아래 표를 참조 하세요.
 
-|흐름 값 | 설명|
+|흐름 값 | Description|
 | :-- | :-- |
 | TrafficFlow | 지도에 트래픽 데이터를 표시 하지 않습니다. |
 | TrafficFlow | 도로의 자유 흐름 속도에 상대적인 트래픽 데이터를 표시 합니다. |
@@ -73,7 +75,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 특정 기능에 대 한 인시던트를 얻으려면 아래 코드를 사용할 수 있습니다. 기능을 클릭 하면 코드 논리에서 인시던트를 확인 하 고 인시던트에 대 한 메시지를 작성 합니다. 화면 맨 아래에 세부 정보를 표시 하는 메시지가 표시 됩니다.
 
-1. 먼저 **activity_main.xml> res > 레이아웃** 을 편집 해야 합니다. 그러면 아래와 같이 표시 됩니다. `mapcontrol_centerLat`, `mapcontrol_centerLng` 및를 `mapcontrol_zoom` 원하는 값으로 바꿀 수 있습니다. 회수, 확대/축소 수준은 0에서 22 사이의 값입니다. 확대/축소 수준 0에서 전체 세계는 단일 타일에 맞게 조정 됩니다.
+1. 먼저 아래와 같이 편집 해야 합니다 `res > layout > activity_main.xml` . `mapcontrol_centerLat`, `mapcontrol_centerLng` 및를 `mapcontrol_zoom` 원하는 값으로 바꿀 수 있습니다. 회수, 확대/축소 수준은 0에서 22 사이의 값입니다. 확대/축소 수준 0에서 전체 세계는 단일 타일에 맞게 조정 됩니다.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -223,11 +225,9 @@ protected void onCreate(Bundle savedInstanceState) {
 
 3. 응용 프로그램에 위의 코드를 통합 하면 기능을 클릭 하 고 트래픽 인시던트의 세부 정보를 볼 수 있습니다. **activity_main.xml** 파일에 사용 된 위도, 경도 및 확대/축소 수준 값에 따라 다음 이미지와 유사한 결과가 표시 됩니다.
 
-   <center>
 
-   ![인시던트-지도에 대 한 트래픽](./media/how-to-show-traffic-android/android-traffic.png)
+    ![인시던트-지도에 대 한 트래픽](./media/how-to-show-traffic-android/android-traffic.png)
 
-   </center>
 
 ## <a name="next-steps"></a>다음 단계
 

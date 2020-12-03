@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: sukishen
-ms.openlocfilehash: a92dafe6237d0f061f837f07c5dcf2686b1a8a7e
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 169477ffdf6fd593f1b6f01469c7303f8bd3a488
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510740"
+ms.locfileid: "96531840"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Azure Virtual WAN 및 보안 허브를 사용하여 중국과 상호 연결
 
@@ -20,7 +20,7 @@ ms.locfileid: "96510740"
 
 대부분의 경우 고객은 대기 시간이 길고 대역폭이 낮으며 연결이 불안정하고 중국 외부(예: 유럽 또는 미국)에 연결하는 비용이 높다는 어려움을 겪고 있습니다.
 
-이런 어려움을 겪는 이유는 인터넷에서 중국 부분을 보호하고 중국으로 유입되는 트래픽을 필터링하는 "GFW(Great Firewall of China)" 때문입니다. 홍콩 및 마카오와 같은 특별 행정 구역을 제외하고 중국 본토에서 중국 외부로 흐르는 거의 모든 트래픽은 Great Firewall을 통과합니다. 홍콩과 마카오를 통과하는 트래픽은 Great Firewall에 완전히 도달하지는 않고, Great Firewall의 하위 집합에 의해 처리됩니다.
+이런 어려움을 겪는 이유는 인터넷에서 중국 부분을 보호하고 중국으로 유입되는 트래픽을 필터링하는 "GFW(Great Firewall of China)" 때문입니다. 홍콩, 마카오 같은 특수 한 관리 영역을 제외 하 고 중국의 중국에서 실행 되는 거의 모든 트래픽은 뛰어난 방화벽을 전달 합니다. 홍콩과 마카오를 통과하는 트래픽은 Great Firewall에 완전히 도달하지는 않고, Great Firewall의 하위 집합에 의해 처리됩니다.
 
 :::image type="content" source="./media/interconnect-china/provider.png" alt-text="다이어그램은 공급자 상호 연결을 보여 줍니다.":::
 
@@ -71,13 +71,13 @@ Virtual WAN을 사용하면 중국 사이버 보안법을 위반하지 않고도
 
 이 연결을 사용할 때 Microsoft Services에 대한 다음 BGP 홉은 Microsoft AS #(Autonomous System Number) 8075여야 합니다. 단일 위치 또는 SDWAN 솔루션을 사용하는 경우 해당 연결을 선택할 수 있습니다.
 
-이러한 대부분의 네트워크 공급자는 중국 본토와 홍콩 간의 상호 연결에 대 한 현재 변경 내용을 사용 하 여 중국 본토와 홍콩 간에 MPLS 브리지를 구축 합니다.
+중국와 홍콩 특별 행정구 간의 상호 연결에 대 한 현재 변경 내용으로, 이러한 네트워크 공급자 대부분은 중국 및 홍콩 특별 행정구 간에 MPLS 브리지를 작성 합니다.
 
 중국 내에서 사이트 간 VPN 연결이 허용 되 고 대부분 안정적이 지 확인할 수 있습니다. 전 세계의 분기 간 사이트 간 연결에도 마찬가지입니다. 이제 공급자는 양쪽 모두에서 VPN/SDWAN 집계를 만들고 둘 사이에 MPLS를 통해 연결 합니다.
 
 :::image type="content" source="./media/interconnect-china/china-mpls-bridge.png" alt-text="다이어그램은 중국 MPLS 브리지를 보여줍니다.":::
 
-어떤 경우 든 지 중국어 본토에 대 한 두 번째 및 일반적인 인터넷 브레이크를 제공 하는 것이 좋습니다. 이는 엔터프라이즈 트래픽 간의 트래픽을 Microsoft 365 및 Azure와 같은 클라우드 서비스 및 법률에의 한 인터넷 트래픽을 분할 하는 것입니다.
+어떤 경우 든 지 중국으로의 두 번째 및 일반 인터넷을 전환 하는 것이 좋습니다. 이는 엔터프라이즈 트래픽 간의 트래픽을 Microsoft 365 및 Azure와 같은 클라우드 서비스 및 법률에의 한 인터넷 트래픽을 분할 하는 것입니다.
 
 중국 내 규격 네트워크 아키텍처는 다음 예와 같은 모양입니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Android maps에 타일 계층 추가 | Microsoft Azure 맵
-description: 지도에 타일 계층을 추가 하는 방법에 대해 알아봅니다. Azure Maps Android SDK를 사용 하 여 날씨 레이더 오버레이를 지도에 추가 하는 예제를 참조 하세요.
+title: Azure Maps Android SDK를 사용 하 여 지도에 타일 계층 추가
+description: 지도에 타일 계층을 추가 하는 방법에 대해 알아봅니다. 지도에 날씨 방사형 오버레이를 추가 하려면 Microsoft Azure 지도 Android SDK를 사용 하는 예제를 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: faa5e3e3177e18787a73c6b4c43aa04b6bc760b7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 22618a28f1a87e68c19467aedf639e96ec2fb91e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897095"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532679"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 타일 계층 추가
 
@@ -37,7 +37,7 @@ ms.locfileid: "92897095"
 * `{bbox-epsg-3857}` - EPSG 3857 공간 참조 시스템에서 `{west},{south},{east},{north}` 형식을 사용하는 경계 상자 문자열입니다.
 * `{subdomain}` -하위 도메인 값이 지정 된 경우 하위 도메인 값에 대 한 자리 표시자입니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 프로세스를 완료 하려면 맵을 로드 하기 위해 [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) 를 설치 해야 합니다.
 

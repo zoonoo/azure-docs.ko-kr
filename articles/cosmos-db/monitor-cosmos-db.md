@@ -5,15 +5,15 @@ author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 12/01/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 9410a38f7bc7a787fc439b5ad51f4a49f76771f8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f7cc9d4062ad9a49ff84db6ac035ff53934ae0a0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488785"
+ms.locfileid: "96532060"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB 모니터링
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -176,7 +176,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 
 예를 들어 다음 표에서는 리소스에 대 한 몇 가지 경고 규칙을 보여 줍니다. Azure Portal에서 경고 규칙의 자세한 목록을 찾을 수 있습니다. 자세히 알아보려면 [경고를 구성 하는 방법](create-alerts.md) 문서를 참조 하세요.  
 
-| 경고 유형 | 조건 | 설명  |
+| 경고 유형 | 조건 | Description  |
 |:---|:---|:---|
 |요청 단위에 대 한 전송률 제한 (메트릭 경고) |차원 이름: StatusCode, 연산자: 같음, 차원 값: 429  | 컨테이너 또는 데이터베이스가 프로 비전 된 처리량 제한을 초과 하는 경우 경고 합니다. |
 |지역 장애 조치 |연산자: 보다 큼, 집계 유형: 개수, 임계값: 1 | 단일 지역이 장애 조치 (failover) 되는 경우 이 경고는 자동 장애 조치 (failover)를 사용 하도록 설정 하지 않은 경우에 유용 합니다. |

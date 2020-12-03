@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 5442ddab5b4925e40250e63833a634006db7aead
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f8d352dac98f953f7f6d8033d0d9e1376c4da313
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781450"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532247"
 ---
 # <a name="dynamic-data-masking"></a>동적 데이터 마스킹 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -30,7 +30,7 @@ Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics는 �
 
 ## <a name="dynamic-data-masking-basics"></a>동적 데이터 마스킹 기본 사항
 
-SQL Database 구성 창의 **보안** 에서 **동적 데이터 마스킹** 블레이드를 선택 하 여 Azure Portal에서 동적 데이터 마스킹 정책을 설정 합니다. 이 기능은 Azure Synapse (PowerShell 또는 REST API 사용) 또는 SQL Managed Instance에 대 한 포털을 사용 하 여 설정할 수 없습니다. 자세한 내용은 [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)을 참조하세요.
+SQL Database 구성 창의 **보안** 에서 **동적 데이터 마스킹** 블레이드를 선택 하 여 Azure Portal에서 동적 데이터 마스킹 정책을 설정 합니다. SQL Managed Instance 포털을 사용 하 여이 기능을 설정할 수 없습니다 (PowerShell 또는 REST API 사용). 자세한 내용은 [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)을 참조하세요.
 
 ### <a name="dynamic-data-masking-permissions"></a>동적 데이터 마스킹 사용 권한
 
