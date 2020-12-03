@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e988b88f222750bc7de505a24eb44877eea4d966
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f9b1193a4eb2c7299cbfb0c729673b72d1e8fbad
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452436"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545844"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2를 지원하는 Azure 서비스
 
@@ -37,13 +37,13 @@ Azure 서비스를 사용 하 여 데이터를 수집 하 고 분석을 수행 �
 |Azure Stream Analytics|일반 공급|예|예|[빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Azure Data Lake Gen2로 송신](../../stream-analytics/stream-analytics-define-outputs.md)|
 |Data Box|일반 공급|아니요|예|[Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage 데이터를 마이그레이션합니다.](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|
 |HDInsight |일반 공급|예|예|[Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[Data Lake Storage Gen2에서 HDFS CLI 사용](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[자습서: Azure HDInsight에서 Apache Hive를 사용 하 여 데이터 추출, 변환 및 로드](data-lake-storage-tutorial-extract-transform-load-hive.md)|
-|IoT Hub |일반 공급|아니요|예|[IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기](../../iot-hub/iot-hub-devguide-messages-d2c.md)|
+|IoT Hub |일반 공급|예|예|[IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기](../../iot-hub/iot-hub-devguide-messages-d2c.md)|
 |Power BI|일반 공급|예|예|[Power BI를 사용 하 여 Data Lake Storage Gen2 데이터 분석](/power-query/connectors/datalakestorage)|
 |Azure Synapse Analytics(이전의 SQL Data Warehouse)|일반 공급|예|예|[Azure Synapse Analytics와 함께 사용](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|SSIS(SQL Server Integration Services)|일반 공급|예|예|[Azure Storage 연결 관리자](/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-2017)|
+|SSIS(SQL Server Integration Services)|일반 공급|예|예|[Azure Storage 연결 관리자](/sql/integration-services/connection-manager/azure-storage-connection-manager)|
 |Azure Data Explorer|일반 공급|예|예|[Azure 데이터 탐색기를 사용 하 여 Azure Data Lake에서 데이터 쿼리](/azure/data-explorer/data-lake-query-data)|
 |Azure Cognitive Search|미리 보기|예|예|[문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](../../search/search-howto-index-azure-data-lake-storage.md)|
-|Azure Content Delivery Network|아직 지원되지 않음|해당 없음|해당 없음|[문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](../../cdn/cdn-overview.md)|
+|Azure Content Delivery Network|아직 지원되지 않음|해당 사항 없음|해당 사항 없음|[문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](../../cdn/cdn-overview.md)|
 
 ## <a name="see-also"></a>참고 항목
 

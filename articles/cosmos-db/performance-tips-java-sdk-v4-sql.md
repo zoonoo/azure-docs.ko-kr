@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperfq2
-ms.openlocfilehash: 6b87a06620a6e20ff67bde6fde9ed01aaef7fc9e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1359d01136067b6a939efd1cc0cd7db36f4dc2d6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339719"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545471"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4에 대한 성능 팁
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 * **연결 모드: 직접 모드 사용**
 <a id="direct-connection"></a>
     
-    Java SDK 기본 연결 모드는 direct입니다. 아래와 같이 *Directmode ()* 또는 *gmode ()* 메서드를 사용 하 여 클라이언트 작성기에서 연결 모드를 구성할 수 있습니다. 기본 설정을 사용 하 여 두 모드를 구성 하려면 인수 없이 메서드를 호출 합니다. 그렇지 않으면 구성 설정 클래스 인스턴스를 인수로 전달 합니다 ( *Directmode ()* 의 경우 *directconnectionconfig* , gmode의 경우 *directconnectionconfig* *()* ). 다양 한 연결 옵션에 대해 자세히 알아보려면 [연결 모드](sql-sdk-connection-modes.md) 문서를 참조 하세요.
+    Java SDK 기본 연결 모드는 direct입니다. 아래와 같이 *Directmode ()* 또는 *gmode ()* 메서드를 사용 하 여 클라이언트 작성기에서 연결 모드를 구성할 수 있습니다. 기본 설정을 사용 하 여 두 모드를 구성 하려면 인수 없이 메서드를 호출 합니다. 그렇지 않으면 구성 설정 클래스 인스턴스를 인수로 전달 합니다 ( *Directmode ()* 의 경우 *directconnectionconfig* , gmode의 경우 *directconnectionconfig* *()*). 다양 한 연결 옵션에 대해 자세히 알아보려면 [연결 모드](sql-sdk-connection-modes.md) 문서를 참조 하세요.
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
@@ -124,7 +124,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     
     지리적 배치를 사용하면 Sync API를 사용할 때 더 높고 일관된 처리량을 제공할 수 있습니다([성능을 위해 동일한 Azure 지역에 클라이언트 배치](#collocate-clients) 참조). 그러나 여전히 달성 가능한 Async API 처리량을 초과하지는 않습니다.
 
-    또한 일부 사용자는 Azure Cosmos DB Java SDK v4 Async API를 구현하는 데 사용되는 Reactive Streams 프레임워크인 [Project Reactor](https://projectreactor.io/)에 익숙하지 않을 수 있습니다. 문제가 되는 경우 [Reactor 패턴 가이드](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) 소개를 읽은 다음, 이 [반응성 프로그래밍 소개](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro)를 살펴보고 숙지합니다. 이미 비동기 인터페이스를 통해 Azure Cosmos DB를 사용했고 사용한 SDK가 Azure Cosmos DB Async Java SDK v2인 경우 [ReactiveX](http://reactivex.io/)/[RxJava](https://github.com/ReactiveX/RxJava)에는 익숙하지만 Project Reactor에서 변경된 내용을 확실히 알지 못할 수 있습니다. 이 경우 [Reactor 및 RxJava 가이드](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md)를 살펴보고 숙지합니다.
+    또한 일부 사용자는 Azure Cosmos DB Java SDK v4 Async API를 구현하는 데 사용되는 Reactive Streams 프레임워크인 [Project Reactor](https://projectreactor.io/)에 익숙하지 않을 수 있습니다. 문제가 되는 경우 [Reactor 패턴 가이드](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md) 소개를 읽은 다음, 이 [반응성 프로그래밍 소개](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro)를 살펴보고 숙지합니다. 이미 비동기 인터페이스를 통해 Azure Cosmos DB를 사용했고 사용한 SDK가 Azure Cosmos DB Async Java SDK v2인 경우 [ReactiveX](http://reactivex.io/)/[RxJava](https://github.com/ReactiveX/RxJava)에는 익숙하지만 Project Reactor에서 변경된 내용을 확실히 알지 못할 수 있습니다. 이 경우 [Reactor 및 RxJava 가이드](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md)를 살펴보고 숙지합니다.
 
     다음 코드 조각에서는 각각 Async API 또는 Sync API 작업을 위해 Azure Cosmos DB 클라이언트를 초기화하는 방법을 보여 줍니다.
 
@@ -154,7 +154,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
         :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="직접 모드 아키텍처의 그림" border="false":::
 
-        직접 모드에서 사용되는 클라이언트 쪽 아키텍처를 사용하면 네트워크 사용률을 예측할 수 있고 Azure Cosmos DB 복제본에 멀티플렉싱 방식으로 액세스할 수 있습니다. 위의 다이어그램에서는 직접 모드에서 Cosmos DB 백 엔드를 통해 클라이언트 요청을 복제본으로 라우팅하는 방법을 보여 줍니다. 직접 모드 아키텍처는 DB 복제본 당 클라이언트 쪽에서 최대 10 _ *채널* *을 할당 합니다. 채널은 요청 깊이가 30개인 요청 버퍼 뒤에 오는 TCP 연결입니다. 복제본에 속하는 채널은 복제본의 **서비스 엔드포인트** 에서 필요에 따라 동적으로 할당됩니다. 사용자가 직접 모드에서 요청을 실행하면 **TransportClient** 에서 파티션 키에 따라 요청을 적절한 서비스 엔드포인트로 라우팅합니다. **요청 큐** 는 서비스 엔드포인트 앞에 요청을 버퍼링합니다.
+        직접 모드에서 사용되는 클라이언트 쪽 아키텍처를 사용하면 네트워크 사용률을 예측할 수 있고 Azure Cosmos DB 복제본에 멀티플렉싱 방식으로 액세스할 수 있습니다. 위의 다이어그램에서는 직접 모드에서 Cosmos DB 백 엔드를 통해 클라이언트 요청을 복제본으로 라우팅하는 방법을 보여 줍니다. 직접 모드 아키텍처는 DB 복제본 당 클라이언트 쪽에서 최대 10 _ *채널**을 할당 합니다. 채널은 요청 깊이가 30개인 요청 버퍼 뒤에 오는 TCP 연결입니다. 복제본에 속하는 채널은 복제본의 **서비스 엔드포인트** 에서 필요에 따라 동적으로 할당됩니다. 사용자가 직접 모드에서 요청을 실행하면 **TransportClient** 에서 파티션 키에 따라 요청을 적절한 서비스 엔드포인트로 라우팅합니다. **요청 큐** 는 서비스 엔드포인트 앞에 요청을 버퍼링합니다.
 
     * ***직접 모드의 구성 옵션** _
 
@@ -182,7 +182,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
         데이터가 쿼리와 관련하여 모든 파티션에 균등하게 분산되어 있는 경우 병렬 쿼리가 최고의 성능을 발휘한다는 것이 중요합니다. 쿼리에서 반환된 전체 또는 대부분의 데이터가 몇 개의 파티션(최악의 경우 하나의 파티션)에 집중되는 것처럼 분할된 컬렉션이 분할되는 경우 해당 파티션으로 인해 쿼리의 성능에는 장애가 발생합니다.
 
-    _ * **튜닝 setMaxBufferedItemCount \:** _
+    _ ***튜닝 setMaxBufferedItemCount \:** _
     
         Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
 
@@ -198,7 +198,7 @@ _ **클라이언트 규모 확장-워크 로드**
 
 * **성능 향상을 위해 쿼리/읽기 피드에 맞게 페이지 크기 조정**
 
-    읽기 피드 기능(예: *readItems* )을 사용하여 문서를 대량으로 읽거나 SQL 쿼리( *queryItems* )를 실행하는 경우 결과 세트가 너무 크면 결과가 분할되어 반환됩니다. 기본적으로, 100개의 항목 또는 1MB 단위(둘 중 먼저 도달하는 단위)로 결과가 반환됩니다.
+    읽기 피드 기능(예: *readItems*)을 사용하여 문서를 대량으로 읽거나 SQL 쿼리(*queryItems*)를 실행하는 경우 결과 세트가 너무 크면 결과가 분할되어 반환됩니다. 기본적으로, 100개의 항목 또는 1MB 단위(둘 중 먼저 도달하는 단위)로 결과가 반환됩니다.
 
     애플리케이션에서 Azure Cosmos DB에 대한 쿼리를 실행하고 작업을 완료하기 위해 전체 쿼리 결과 세트를 요구한다고 가정합니다. 적용 가능한 모든 결과를 검색하는 데 필요한 네트워크 왕복 횟수를 줄이려면 [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 요청 헤더 필드를 조정하여 페이지 크기를 늘릴 수 있습니다. 
 
@@ -237,7 +237,7 @@ _ **클라이언트 규모 확장-워크 로드**
 
         동기 로거의 대기 시간은 반드시 요청 생성 스레드의 전체 대기 시간 계산에 영향을 미칩니다. 고성능 애플리케이션 스레드에서 로깅 오버헤드를 분리하려면 [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0)와 같은 비동기 로거를 사용하는 것이 좋습니다.
 
-    _ * **Netty의 로깅 사용 안 함** _
+    _ ***Netty의 로깅 사용 안 함** _
 
         Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
 

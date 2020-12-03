@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b8883d7040ad5c73a376838f7cb1aaa1b558bfbd
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 71dc5b84deda04c02b6d1722b11abf6631e9aa03
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340834"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546372"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>시스템 함수 (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,4 +47,4 @@ Cosmos DB 함수와 ANSI SQL 함수 간의 주요 차이점은 Cosmos DB 함수�
 - [문자열 함수](sql-query-string-functions.md)
 - [형식 검사 함수](sql-query-type-checking-functions.md)
 - [사용자 정의 함수](sql-query-udfs.md)
-- [집계](sql-query-aggregates.md)
+- [집계](sql-query-aggregate-functions.md)

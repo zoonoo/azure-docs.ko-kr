@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 4d12a7ec76f3390aabc7b45aeb0cd8cedcc6febd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3f6342fcb658611c754a16399ec05f5fa76c79b8
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186476"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546117"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>보안 내보내기를 사용 하 여 Azure를 ITSM 도구에 연결
 
@@ -108,7 +108,7 @@ Azure AD에 응용 프로그램을 등록 하려면 다음 단계를 따르세�
 
 다음 섹션에서는 Azure에서 ServiceNow 제품 및 보안 내보내기를 연결 하는 방법에 대 한 세부 정보를 제공 합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 다음 필수 구성 요소를 충족 하는지 확인 합니다.
 
@@ -122,12 +122,13 @@ Azure AD에 응용 프로그램을 등록 하려면 다음 단계를 따르세�
 2. 버전에 따라 다음 지침을 따르세요.
    * [파리](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [올랜도](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
+   * [뉴욕](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
 
 ### <a name="connect-bmc-helix-to-azure-monitor"></a>BMC Helix Azure Monitor에 연결
 
 다음 섹션에서는 Azure에서 BMC Helix 제품 및 보안 내보내기를 연결 하는 방법에 대 한 세부 정보를 제공 합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 다음 필수 구성 요소를 충족 하는지 확인 합니다.
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 8219611ac2334594dc826db3c8191102d7383835
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c49fee169b7bd01ee7cf8a6d539c2125cf6568b3
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93338274"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545318"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Azure Cosmos DB의 페이지 매김
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ Azure Cosmos DB 쿼리에서는 결과의 여러 페이지가 있을 수 있습�
 
 을 설정 하 여 쿼리에서 반환 되는 최대 항목 수를 지정할 수 있습니다 `MaxItemCount` . 는 `MaxItemCount` 요청당 지정 되며 쿼리 엔진은 해당 항목 수를 반환 하도록 지시 합니다. `MaxItemCount` `-1` 쿼리 실행 당 결과 수에 제한을 두지 않으려는 경우를로 설정할 수 있습니다.
 
-또한 쿼리 엔진이 쿼리 결과를 여러 페이지로 분할 해야 하는 다른 이유가 있습니다. 여기에는 다음이 포함됩니다.
+또한 쿼리 엔진이 쿼리 결과를 여러 페이지로 분할 해야 하는 다른 이유가 있습니다. 이러한 위협은 다음과 같습니다.
 
 - 컨테이너가 제한 되었으며 추가 쿼리 결과를 반환 하는 데 사용할 수 있는 RUs가 없습니다.
 - 쿼리 실행의 응답이 너무 깁니다.
@@ -41,7 +41,7 @@ Azure Cosmos DB 쿼리에서는 결과의 여러 페이지가 있을 수 있습�
 여러 페이지가 있는 쿼리에서 결과를 처리 하는 몇 가지 예는 다음과 같습니다.
 
 - [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L280)
-- [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L162-L176)
+- [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L162-L176)
 - [Node.js SDK](https://github.com/Azure/azure-sdk-for-js/blob/83fcc44a23ad771128d6e0f49043656b3d1df990/sdk/cosmosdb/cosmos/samples/IndexManagement.ts#L128-L140)
 - [Python SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/examples.py#L89)
 
@@ -52,7 +52,7 @@ Azure Cosmos DB 쿼리에서는 결과의 여러 페이지가 있을 수 있습�
 연속 토큰을 사용 하는 몇 가지 예는 다음과 같습니다.
 
 - [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L699-L734)
-- [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
 - [Python SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 쿼리가 연속 토큰을 반환 하는 경우 추가 쿼리 결과가 있습니다.

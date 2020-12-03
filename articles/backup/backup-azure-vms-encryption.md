@@ -3,12 +3,12 @@ title: 암호화 된 Azure Vm 백업 및 복원
 description: Azure Backup 서비스를 사용 하 여 암호화 된 Azure Vm을 백업 하 고 복원 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: c4760a54d0200e48b2d6a38c963e9fc23925f7ff
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ee7fedffd58ffb9e98f8c412833d151eb1a95530
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324927"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547154"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>암호화 된 Azure 가상 컴퓨터 백업 및 복원
 
@@ -22,7 +22,11 @@ ms.locfileid: "96324927"
 
 ## <a name="encryption-using-customer-managed-keys"></a>고객 관리형 키를 사용하여 암호화
 
-CMK (사용자 지정 관리 키)를 사용 하 여 디스크를 암호화 하는 경우 디스크 암호화에 사용 되는 키는 Azure Key Vault에 저장 되며 사용자가 관리 합니다. CMK를 사용 하는 SSE (저장소 서비스 암호화)는 Azure Disk Encryption (ADE) 암호화와 다릅니다. ADE는 운영 체제의 암호화 도구를 사용 합니다. SSE는 저장소 서비스의 데이터를 암호화 하 여 Vm에 대 한 모든 OS 또는 이미지를 사용할 수 있도록 합니다. 고객이 관리 하는 키를 사용 하 여 관리 디스크를 암호화 하는 방법에 대 한 자세한 내용은 [이 문서](../virtual-machines/disk-encryption.md#customer-managed-keys)를 참조 하세요.
+CMK (고객 관리 키)를 사용 하 여 디스크를 암호화 하는 경우 디스크 암호화에 사용 되는 키는 Azure Key Vault에 저장 되며 사용자가 관리 합니다. CMK를 사용 하는 SSE (저장소 서비스 암호화)는 Azure Disk Encryption (ADE) 암호화와 다릅니다. ADE는 운영 체제의 암호화 도구를 사용 합니다. SSE는 저장소 서비스의 데이터를 암호화 하 여 Vm에 대 한 모든 OS 또는 이미지를 사용할 수 있도록 합니다.
+
+고객 관리 키를 사용 하 여 디스크를 암호화 하는 Vm의 백업 또는 복원에 대 한 명시적 작업을 수행할 필요가 없습니다. 자격 증명 모음에 저장 된 이러한 Vm에 대 한 백업 데이터는 [자격 증명 모음에서 사용 되는 암호화](encryption-at-rest-with-cmk.md)와 동일한 방법으로 암호화 됩니다.
+
+고객이 관리 하는 키를 사용 하 여 관리 디스크를 암호화 하는 방법에 대 한 자세한 내용은 [이 문서](../virtual-machines/disk-encryption.md#customer-managed-keys)를 참조 하세요.
 
 ## <a name="encryption-support-using-ade"></a>ADE를 사용 하 여 암호화 지원
 

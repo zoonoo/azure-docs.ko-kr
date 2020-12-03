@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperfq2
-ms.openlocfilehash: 1f57e14893e6f43b98b0e45cc2bd2d49e31271d0
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bfbf764aaf1061808d128d16e8a96b08e75fcfe6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350350"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545573"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Azure Cosmos DB Async Java SDK v2에 대한 성능 팁
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "96350350"
 
 
 > [!IMPORTANT]  
-> Azure Cosmos DB의 최신 Java SDK가 ‘아닙니다’. [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)로 프로젝트를 업그레이드한 다음, Azure Cosmos DB Java SDK v4 [성능 팁 가이드](performance-tips-java-sdk-v4-sql.md)를 참조하세요. 업그레이드하려면 [Azure Cosmos DB Java SDK v4로 마이그레이션](migrate-java-v4-sdk.md) 가이드 및 [Reactor 및 RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 가이드의 지침을 따르세요. 
+> Azure Cosmos DB의 최신 Java SDK가 ‘아닙니다’. [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)로 프로젝트를 업그레이드한 다음, Azure Cosmos DB Java SDK v4 [성능 팁 가이드](performance-tips-java-sdk-v4-sql.md)를 참조하세요. 업그레이드하려면 [Azure Cosmos DB Java SDK v4로 마이그레이션](migrate-java-v4-sdk.md) 가이드 및 [Reactor 및 RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) 가이드의 지침을 따르세요. 
 > 
 > 이 문서의 성능 팁은 Azure Cosmos DB Async Java SDK v2에만 해당됩니다. 자세한 내용은 Azure Cosmos DB Async Java SDK v2 [릴리스 정보](sql-api-sdk-async-java.md), [Maven 리포지토리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) 및 Azure Cosmos DB Async Java SDK v2 [문제 해결 가이드](troubleshoot-java-async-sdk.md)를 참조하세요.
 >
