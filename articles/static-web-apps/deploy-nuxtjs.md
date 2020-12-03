@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: bc11dd6113bbf5b07e19b83735c83e4895e4a796
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 919688a05081c6f0b717fa4a524da769f2a281fd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323599"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351625"
 ---
 # <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기에서 서버에 렌더링된 Nuxt.js 웹 사이트 배포
 
@@ -30,8 +30,8 @@ ms.locfileid: "91323599"
 `create-nuxt-app`을 사용하여 새 Nuxt.js 프로젝트를 설정할 수 있습니다. 이 자습서에서는 새 프로젝트 대신 기존 리포지토리를 복제하는 것으로 시작합니다. 이 리포지토리는 동적 Nuxt.js 앱을 정적 사이트로 배포하는 방법을 보여 주기 위해 설정되었습니다.
 
 1. 템플릿 리포지토리에서 GitHub 계정 아래에 새 리포지토리를 만듭니다.
-1. <http://github.com/staticwebdev/nuxtjs-starter/generate>로 이동합니다.
-1. 리포지토리 이름을 **nuxtjs-starter**로 지정합니다.
+1. [http://github.com/staticwebdev/nuxtjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nuxtjs-starter/generate)로 이동합니다.
+1. 리포지토리 이름을 **nuxtjs-starter** 로 지정합니다.
 1. 그런 다음, 새 리포지토리를 머신에 복제합니다. <YOUR_GITHUB_ACCOUNT_NAME>을 계정 이름으로 바꾸어야 합니다.
 
     ```bash
@@ -62,13 +62,13 @@ ms.locfileid: "91323599"
 
 프레임워크/라이브러리를 클릭하면 선택한 항목에 대한 세부 정보 페이지가 표시됩니다.
 
-:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-details.png" alt-text="Nuxt.js 앱 시작":::
+:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-details.png" alt-text="자세히 페이지":::
 
 ## <a name="generate-a-static-website-from-nuxtjs-build"></a>Nuxt.js 빌드에서 정적 웹 사이트 생성
 
 `npm run build`를 사용하여 Nuxt.js를 빌드하면 앱은 정적 사이트가 아닌 기존 웹앱으로 빌드됩니다. 정적 사이트를 생성하려면 다음 애플리케이션 구성을 사용합니다.
 
-1. `nuxt generate` 명령을 사용하여 정적 사이트만 생성하도록 _package.json_의 빌드 스크립트를 업데이트합니다.
+1. `nuxt generate` 명령을 사용하여 정적 사이트만 생성하도록 _package.json_ 의 빌드 스크립트를 업데이트합니다.
 
     ```json
     "scripts": {
@@ -119,29 +119,29 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 배포하고 지정
 ### <a name="create-an-azure-static-web-apps-preview-resource"></a>Azure Static Web Apps 미리 보기 리소스 만들기
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. **리소스 만들기**를 클릭합니다.
-1. **Static Web Apps**를 검색합니다.
+1. **리소스 만들기** 를 클릭합니다.
+1. **Static Web Apps** 를 검색합니다.
 1. **Static Web Apps(미리 보기)** 를 클릭합니다.
 1. **만들기**
 
 1. *구독* 드롭다운 목록에서 구독을 선택하거나 기본값을 사용합니다.
-1. *리소스 그룹* 드롭다운 아래의 **새로 만들기** 링크를 클릭합니다. *새 리소스 그룹 이름*에 **mystaticsite**를 입력하고 **확인**을 클릭합니다.
+1. *리소스 그룹* 드롭다운 아래의 **새로 만들기** 링크를 클릭합니다. *새 리소스 그룹 이름* 에 **mystaticsite** 를 입력하고 **확인** 을 클릭합니다.
 1. **이름** 텍스트 상자에 앱의 전역적으로 고유한 이름을 입력합니다. 유효한 문자에는 `a-z`, `A-Z`, `0-9` 및 `-`가 포함됩니다. 이 값은 `https://<APP_NAME>.azurestaticapps.net` 형식의 정적 앱에 대한 URL 접두사로 사용됩니다.
 1. *지역* 드롭다운에서 가장 가까운 지역을 선택합니다.
-1. SKU 드롭다운에서 **무료**를 선택합니다.
+1. SKU 드롭다운에서 **무료** 를 선택합니다.
 
-   :::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Nuxt.js 앱 시작":::
+   :::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Static Web App 만들기":::
 
 ### <a name="add-a-github-repository"></a>GitHub 리포지토리 추가
 
 새 Static Web Apps 계정은 Nuxt.js 앱으로 리포지토리에 액세스해야 커밋을 자동으로 배포할 수 있습니다.
 
-1. **GitHub로 로그인 단추**를 클릭합니다.
-1. Nuxt.js 프로젝트의 리포지토리를 만든 **조직**을 선택합니다. 이는 GitHub 사용자 이름일 수 있습니다.
+1. **GitHub로 로그인 단추** 를 클릭합니다.
+1. Nuxt.js 프로젝트의 리포지토리를 만든 **조직** 을 선택합니다. 이는 GitHub 사용자 이름일 수 있습니다.
 1. 이전에 만든 리포지토리의 이름을 찾아서 선택합니다.
-1. *분기* 드롭다운에서 분기로 **마스터**를 선택합니다.
+1. *분기* 드롭다운에서 분기로 **마스터** 를 선택합니다.
 
-   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Nuxt.js 앱 시작":::
+   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="GitHub 연결":::
 
 ### <a name="configure-the-build-process"></a>빌드 프로세스 구성
 
@@ -149,15 +149,15 @@ Azure Static Web Apps는 각 배포 중에 npm 모듈을 설치하고 `npm run b
 
 1. **빌드** 탭을 클릭하여 정적 출력 폴더를 구성합니다.
 
-      :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Nuxt.js 앱 시작":::
+      :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="빌드 탭":::
 
-1. *앱 아티팩트 위치* 텍스트 상자에 **dist**를 입력합니다.
+1. *앱 아티팩트 위치* 텍스트 상자에 **dist** 를 입력합니다.
 
 ### <a name="review-and-create"></a>검토 및 만들기
 
 1. **검토 + 만들기** 단추를 클릭하여 세부 정보가 모두 올바른지 확인합니다.
-1. **만들기**를 클릭하여 리소스 만들기를 시작하고 배포를 위한 GitHub 작업을 프로비저닝합니다.
-1. 배포가 완료되면 **리소스로 이동**을 클릭합니다.
+1. **만들기** 를 클릭하여 리소스 만들기를 시작하고 배포를 위한 GitHub 작업을 프로비저닝합니다.
+1. 배포가 완료되면 **리소스로 이동** 을 클릭합니다.
 1. _개요_ 창에서 *URL* 링크를 클릭하여 배포된 애플리케이션을 엽니다. 
 
 웹 사이트에서 즉시 로드를 기록하는 경우 백그라운드 GitHub 작업 워크플로가 계속 실행됩니다. 워크플로가 완료되면 브라우저 새로 고침을 클릭하여 웹앱을 볼 수 있습니다.
@@ -178,7 +178,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nuxtjs-starter/actions
 
 새로 배포된 사이트로 이동하여 프레임워크 또는 라이브러리 로고 중 하나를 클릭합니다. 세부 정보 페이지를 가져오는 대신 404 오류 페이지가 표시됩니다.
 
-:::image type="content" source="media/deploy-nuxtjs/404-in-production.png" alt-text="Nuxt.js 앱 시작":::
+:::image type="content" source="media/deploy-nuxtjs/404-in-production.png" alt-text="동적 경로의 404 오류":::
 
 그 이유는 Nuxt.js가 홈페이지를 위해서만 정적 사이트를 생성했기 때문입니다. Nuxt.js는 모든 `.vue` 페이지 파일에 대해 동일한 정적 `.html` 파일을 생성할 수 있지만 예외가 있습니다. 
 
@@ -215,7 +215,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nuxtjs-starter/actions
 
 2. GitHub 리포지토리에 새 변경 내용을 푸시하고 GitHub 작업에서 사이트를 다시 빌드하는 동안 몇 분 정도 기다립니다. 빌드가 완료되면 404 오류가 사라집니다.
 
-   :::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="Nuxt.js 앱 시작":::
+   :::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="동적 경로의 404 오류 수정":::
 
 > [!div class="nextstepaction"]
 > [사용자 지정 도메인 설정](custom-domain.md)

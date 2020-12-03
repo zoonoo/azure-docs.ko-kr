@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: e706649957bf427cd577d7995fb9ce104c687f4b
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: ef1ca41f54a15554a04fa3edf608bb13f5fb3398
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378995"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182022"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>자습서: Workday 모바일 애플리케이션과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -33,13 +33,13 @@ ms.locfileid: "93378995"
 시작하기:
 
 * Workday와 Azure AD를 통합합니다.
-* [Workday와 Azure Active Directory SSO(Single Sign-On) 통합](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial)을 읽어보세요.
+* [Workday와 Azure Active Directory SSO(Single Sign-On) 통합](./workday-tutorial.md)을 읽어보세요.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 Workday Mobile Application을 사용하여 Azure AD 조건부 액세스 정책 및 Intune을 구성하고 테스트합니다.
 
-SSO(Single Sign-On)를 사용하도록 설정하려면 Azure AD를 사용하여 Workday 페더레이션 애플리케이션을 구성하면 됩니다. 자세한 내용은 [Workday와 Azure Active Directory SSO(Single Sign-On) 통합](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial)을 참조하세요.
+SSO(Single Sign-On)를 사용하도록 설정하려면 Azure AD를 사용하여 Workday 페더레이션 애플리케이션을 구성하면 됩니다. 자세한 내용은 [Workday와 Azure Active Directory SSO(Single Sign-On) 통합](./workday-tutorial.md)을 참조하세요.
 
 > [!NOTE] 
 > Workday는 Intune의 앱 보호 정책을 지원하지 않습니다. 조건부 액세스를 사용하려면 모바일 디바이스 관리를 사용해야 합니다.
@@ -182,4 +182,3 @@ iOS 디바이스가 모바일 디바이스 관리를 통해 관리되는 Workday
 6. **플랫폼** 에서 **Android** 를 선택합니다.
 7. **연결된 앱** 에서 추가한 Android 앱용 Workday를 선택합니다.
 8. **구성 설정** 을 선택합니다. **구성 설정 형식** 에서 **JSON 데이터 입력** 을 선택합니다.
-

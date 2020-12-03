@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: e6708874fee3e15349b4389f1ecafa3d48a628dd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2fbc74304cdb71d9cb3e1ea476af8c92eb99b7e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95917198"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458837"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>자습서: Azure 자동화된 ML 및 Apache Spark를 사용하여 실험 실행
 
@@ -72,7 +72,7 @@ df = spark.read.parquet(wasbs_path)
 
 ```
 
-3. Spark 풀(미리 보기)의 크기에 따라 원시 데이터가 너무 크거나 작업하는 데 너무 많은 시간이 걸릴 수 있습니다. ```start_date``` 및 ```end_date``` 필터를 사용하여 이 데이터를 더 작은 데이터로 필터링할 수 있습니다. 이 경우 한 달 분량의 데이터를 반환하는 필터를 적용합니다. 필터링된 데이터 프레임이 있으면 새 데이터 프레임에서 ```describe()``` 함수도 실행하여 각 필드에 대한 요약 통계를 확인할 수 있습니다. 
+3. Spark 풀의 크기에 따라 원시 데이터가 너무 크거나 작업하는 데 너무 많은 시간이 걸릴 수 있습니다. ```start_date``` 및 ```end_date``` 필터를 사용하여 이 데이터를 더 작은 데이터로 필터링할 수 있습니다. 이 경우 한 달 분량의 데이터를 반환하는 필터를 적용합니다. 필터링된 데이터 프레임이 있으면 새 데이터 프레임에서 ```describe()``` 함수도 실행하여 각 필드에 대한 요약 통계를 확인할 수 있습니다. 
 
    요약 통계를 기반으로 하여 데이터에 몇 가지 불규칙성과 이상값이 있음을 알 수 있습니다. 예를 들어 통계에 따르면 최소 이동 거리가 0보다 작습니다. 이러한 불규칙한 데이터 요소를 필터링해야 합니다.
    

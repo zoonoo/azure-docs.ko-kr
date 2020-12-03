@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center의 모든 Azure Defender 경고에 대한 참조 표
+title: Azure Security Center의 모든 보안 경고에 대한 참조 테이블
 description: 이 문서에는 Azure Security Center의 Azure Defender 대시보드에 표시되는 보안 경고가 나와 있습니다.
 services: security-center
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6d001e638b00cace1dd81d9631f498a911ca19a4
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: c5ee275fb92ff2c3787bef7868665c19fea2109c
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96014604"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436779"
 ---
 # <a name="security-alerts---a-reference-guide"></a>보안 경고 - 참조 가이드
 
-이 문서에는 Azure Defender에서 수신할 수 있는 보안 경고가 나열되어 있습니다. 사용자 환경에 표시되는 경고는 보호하는 리소스 및 서비스와 사용자 지정된 구성에 따라 다릅니다.
+이 문서에는 Azure Security Center에서 가져올 수 있는 보안 경고와 사용자가 사용하도록 설정한 모든 Azure Defender 계획이 나열되어 있습니다. 사용자 환경에 표시되는 경고는 보호하는 리소스 및 서비스와 사용자 지정된 구성에 따라 다릅니다.
 
 이러한 경고에 대응하는 방법을 알아보려면 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 참조하세요.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 20a3337ab054ca1feefc2f5f08f8e6398417fb9e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6f96b74726684d37795c94be74e48611b4145402
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441616"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350214"
 ---
 # <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기에서 정적으로 렌더링된 Next.js 웹 사이트 배포
 
@@ -29,9 +29,9 @@ ms.locfileid: "94441616"
 
 Next.js CLI를 사용하여 앱을 만드는 대신 기존 Next.js 앱이 포함된 스타터 리포지토리를 사용할 수 있습니다. 이 리포지토리는 일반적인 배포 문제를 강조하는 동적 경로가 있는 Next.js 앱을 제공합니다. 동적 경로에는 잠시 후 자세히 알아볼 추가 배포 구성이 필요합니다.
 
-시작하려면 템플릿 리포지토리에서 GitHub 계정 아래에 새 리포지토리를 만듭니다. 
+시작하려면 템플릿 리포지토리에서 GitHub 계정 아래에 새 리포지토리를 만듭니다.
 
-1. <http://github.com/staticwebdev/nextjs-starter/generate>로 이동
+1. [https://github.com/staticwebdev/nextjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nextjs-starter/generate)로 이동합니다.
 1. 리포지토리 이름을 **nextjs-starter** 로 지정
 1. 그런 다음, 새 리포지토리를 머신에 복제합니다. `<YOUR_GITHUB_ACCOUNT_NAME>`을 계정 이름으로 바꿔야 합니다.
 

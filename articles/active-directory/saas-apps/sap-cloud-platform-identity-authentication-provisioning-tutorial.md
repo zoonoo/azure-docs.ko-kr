@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: f43d7b2a858c5047c40157429dc5c50b467c8efc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 419f25ee3df471bc2fc4526254f5677b8bd71856
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012393"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342744"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>자습서: 자동으로 사용자를 프로비저닝하도록 SAP Cloud Platform Identity Authentication 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "96012393"
 
 ## <a name="assigning-users-to-sap-cloud-platform-identity-authentication"></a>SAP Cloud Platform Identity Authentication에 사용자 할당
 
-Azure Active Directory는 *할당* 이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로비저닝의 컨텍스트에서는 Azure AD의 애플리케이션에 할당된 사용자 및/또는 그룹만 동기화됩니다.
+Azure Active Directory는 *할당* 이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로비저닝의 컨텍스트에서 Azure AD의 애플리케이션에 할당된 사용자 및/또는 그룹만 동기화됩니다.
 
 자동 사용자 프로비저닝을 구성하고 사용하도록 설정하려면 먼저 SAP Cloud Platform Identity Authentication에 액세스해야 하는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 결정되면 다음 지침에 따라 해당 사용자 및/또는 그룹을 SAP Cloud Platform Identity Authentication에 할당할 수 있습니다.
 * [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
@@ -94,7 +94,7 @@ Azure AD를 사용하여 자동으로 사용자를 프로비저닝하도록 SAP 
 이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 SAP Cloud Platform Identity Authentication에서 사용자 및/또는 그룹을 만들고, 업데이트하고, 사용하지 않도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
 
 > [!TIP]
-> [SAP Cloud Platform Identity Authentication Single Sign-On 자습서](./sap-hana-cloud-platform-identity-authentication-tutorial.md)의 지침에 따라 SAP Cloud Platform Identity Authentication에 SAML 기반 Single Sign-On를 사용하도록 선택할 수도 있습니다. Single Sign-On은 자동 사용자 프로비저닝과 별개로 구성할 수 있지만, 이러한 두 기능은 서로 보완적입니다.
+> [SAP Cloud Platform Identity Authentication Single Sign-On 자습서](./sap-hana-cloud-platform-identity-authentication-tutorial.md)에서 제공하는 지침에 따라 SAP Cloud Platform Identity Authentication에 SAML 기반 Single Sign-On를 사용하도록 선택할 수도 있습니다. Single Sign-On은 자동 사용자 프로비저닝과 별개로 구성할 수 있지만, 이러한 두 기능은 서로 보완적입니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-sap-cloud-platform-identity-authentication-in-azure-ad"></a>Azure AD에서 자동으로 사용자를 프로비저닝하도록 SAP Cloud Platform Identity Authentication을 구성하려면 다음을 수행합니다.
 
@@ -114,7 +114,7 @@ Azure AD를 사용하여 자동으로 사용자를 프로비저닝하도록 SAP 
 
     ![자동 옵션이 호출된 프로비저닝 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래의 **테넌트 URL** 에서 `https://<tenantID>.accounts.ondemand.com/service/scim `를 입력합니다. 각각 **관리 사용자 이름** 및 **관리자 암호** 에서 검색된 **사용자 ID** 및 **암호** 값을 입력합니다. **연결 테스트** 를 클릭하여 Azure AD가 SAP Cloud Platform Identity Authentication에 연결할 수 있는지 확인합니다. 연결이 실패하면 SAP Cloud Platform Identity Authentication 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
+5. **관리자 자격 증명** 섹션 아래의 **테넌트 URL** 에 `https://<tenantID>.accounts.ondemand.com/service/scim `를 입력합니다. 각각 **관리 사용자 이름** 및 **관리자 암호** 에서 검색된 **사용자 ID** 및 **암호** 값을 입력합니다. **연결 테스트** 를 클릭하여 Azure AD가 SAP Cloud Platform Identity Authentication에 연결할 수 있는지 확인합니다. 연결이 실패하면 SAP Cloud Platform Identity Authentication 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
     ![테넌트 URL + 토큰](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/testconnection.png)
 
