@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: jeedes
 ms.openlocfilehash: 822e28402d0b7829b835ad03a3b3cf7d05c3d343
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455811"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181002"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-cloud-academy---sso"></a>자습서: Cloud Academy - SSO와 Azure Active Directory SSO 통합
 
@@ -88,7 +88,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** 를 선택합니다. **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** 를 선택합니다. **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 완료합니다.
    1. **이름** 상자에서 **B.Simon** 을 입력합니다.  
@@ -100,7 +100,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Cloud Academy - SSO에 대한 사용자 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 1. 애플리케이션 목록에서 **Cloud Academy - SSO** 를 선택합니다.
 1. 앱의 개요 페이지에 있는 **관리** 섹션에서 **사용자 및 그룹** 을 선택합니다.
 

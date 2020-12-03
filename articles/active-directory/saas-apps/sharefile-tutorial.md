@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/04/2020
 ms.author: jeedes
-ms.openlocfilehash: ac7382f60d5c49ac8c784566af4d9db8ea78956b
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: e0cabcbaaf8e84ac1bdfd13c0ef4ab14f326fcf7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331307"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182290"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>자습서: Citrix ShareFile과 Azure Active Directory 통합
 
@@ -190,7 +190,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. Citrix ShareFile 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Citrix ShareFile 타일을 클릭하면 Citrix ShareFile 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Citrix ShareFile 타일을 클릭하면 Citrix ShareFile 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

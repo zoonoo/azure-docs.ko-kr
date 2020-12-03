@@ -15,11 +15,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b82dcc633f0f2bb13cb84f80873117f9eb94a24f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91313165"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176123"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>자습서:  PHS(암호 해시 동기화)를 사용하여 단일 AD 포리스트 통합
 
@@ -78,12 +78,12 @@ Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
 1. Hyper-V 관리자에서 가상 머신을 두 번 클릭합니다.
 2. 시작 단추를 클릭합니다.
 3. ‘CD 또는 DVD에서 부팅하려면 아무 키나 누르세요’라는 메시지가 표시됩니다. 계속 진행합니다.
-4. Windows Server 시작 화면에서 언어를 선택하고 **다음**을 클릭합니다.
-5. **지금 설치**를 클릭합니다.
-6. 라이선스 키를 입력하고 **다음**을 클릭합니다.
-7. **사용 약관에 동의에 확인 표시를 한 후 **다음**을 클릭합니다.
+4. Windows Server 시작 화면에서 언어를 선택하고 **다음** 을 클릭합니다.
+5. **지금 설치** 를 클릭합니다.
+6. 라이선스 키를 입력하고 **다음** 을 클릭합니다.
+7. **사용 약관에 동의에 확인 표시를 한 후 **다음** 을 클릭합니다.
 8. **사용자 지정:  Windows만 설치(고급)** 선택
-9. **다음**을 클릭합니다.
+9. **다음** 을 클릭합니다.
 10. 설치가 완료되고 나면 가상 머신을 다시 시작하고, 로그인한 후, Windows 업데이트를 실행하여 VM이 최신 버전이 되도록 합니다.  최신 업데이트를 설치합니다.
 
 ## <a name="install-active-directory-prerequisites"></a>Active Directory 설치 필수 조건
@@ -181,20 +181,20 @@ Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogo
 이제 사용자를 클라우드에 동기화할 수 있도록 Azure AD 테넌트를 만들어야 합니다.  새 Azure AD 테넌트를 만들려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동하여 Azure 구독이 있는 계정으로 로그인합니다.
-2. **더하기 아이콘(+)** 을 선택하고 **Azure Active Directory**를 검색합니다.
-3. 검색 결과에서 **Azure Active Directory**를 선택합니다.
-4. **만들기**를 선택합니다.</br>
+2. **더하기 아이콘(+)** 을 선택하고 **Azure Active Directory** 를 검색합니다.
+3. 검색 결과에서 **Azure Active Directory** 를 선택합니다.
+4. **만들기** 를 선택합니다.</br>
 ![Azure AD 테넌트를 만드는 방법을 보여주는 스크린샷.](media/tutorial-password-hash-sync/create1.png)</br>
-5. **초기 도메인 이름**과 함께 **조직에 사용할 이름**을 입력합니다. 그런 다음 **만들기**를 선택합니다. 그러면 디렉터리가 만들어집니다.
+5. **초기 도메인 이름** 과 함께 **조직에 사용할 이름** 을 입력합니다. 그런 다음 **만들기** 를 선택합니다. 그러면 디렉터리가 만들어집니다.
 6. 이 작업이 완료되면 **여기** 링크를 클릭하여 디렉터리를 관리합니다.
 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Azure AD에서 글로벌 관리자 만들기
 Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠습니다.  이 계정은 Azure AD Connect를 설치하는 동안 Azure AD Connector 계정을 만드는 데 사용됩니다.  Azure AD Connect 계정은 Azure AD에 정보를 쓰는 데 사용됩니다.   글로벌 관리자 계정을 만들려면 다음을 수행합니다.
 
-1.  **관리**에서 **사용자**를 선택합니다.</br>
+1.  **관리** 에서 **사용자** 를 선택합니다.</br>
 ![Azure AD에서 전역 관리자를 만드는 관리 섹션에서 선택한 사용자 옵션을 보여주는 스크린샷.](media/tutorial-password-hash-sync/gadmin1.png)</br>
-2.  **모든 사용자**를 선택한 다음, **+새 사용자**를 선택합니다.
-3.  이 사용자에 대한 이름 및 사용자 이름을 입력합니다. 이 사용자는 테넌트에 대한 글로벌 관리자가 됩니다. **디렉터리 역할**을 **글로벌 관리자**로 변경해야 합니다. 임시 암호를 표시할 수도 있습니다. 완료되면 **만들기**를 선택합니다.</br>
+2.  **모든 사용자** 를 선택한 다음, **+새 사용자** 를 선택합니다.
+3.  이 사용자에 대한 이름 및 사용자 이름을 입력합니다. 이 사용자는 테넌트에 대한 글로벌 관리자가 됩니다. **디렉터리 역할** 을 **글로벌 관리자** 로 변경해야 합니다. 임시 암호를 표시할 수도 있습니다. 완료되면 **만들기** 를 선택합니다.</br>
 ![Azure AD에서 전역 관리자를 만들 때 선택하는 만들기 단추를 보여주는 스크린샷.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. 이 작업이 완료되면 새 웹 브라우저를 열고 새 글로벌 관리자 계정 및 임시 암호를 사용하여 myapps.microsoft.com에 로그인합니다.
 5. 글로벌 관리자의 암호를 기억할만한 것으로 변경합니다.
@@ -203,14 +203,14 @@ Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠
 이제 Azure AD Connect를 다운로드하고 설치할 순서입니다.  설치가 완료되면 빠른 설치를 실행합니다.  다음을 수행합니다.
 
 1. [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)를 다운로드합니다.
-2. **AzureADConnect.msi**를 찾아서 두 번 클릭합니다.
-3. 시작 화면에서 사용권 계약에 동의하는 상자를 선택하고 **계속**을 클릭합니다.  
+2. **AzureADConnect.msi** 를 찾아서 두 번 클릭합니다.
+3. 시작 화면에서 사용권 계약에 동의하는 상자를 선택하고 **계속** 을 클릭합니다.  
 4. 기본 설정 화면에서 **Use express settings**(기본 설정 사용)를 클릭합니다.</br>  
 ![기본 설정 화면 및 기본 설정 사용 단추를 보여주는 스크린샷.](media/tutorial-password-hash-sync/express1.png)</br>
-5. Azure AD에 연결 화면에서 Azure AD에 대한 글로벌 관리자의 사용자 이름 및 암호를 입력합니다. **다음**을 클릭합니다.  
-6. AD DS에 연결 화면에서 엔터프라이즈 관리자 계정의 사용자 이름 및 암호를 입력합니다. **다음**을 클릭합니다.  
-7. 구성 준비 화면에서 **설치**를 클릭합니다.
-8. 설치가 완료되면 **끝내기**를 클릭합니다.
+5. Azure AD에 연결 화면에서 Azure AD에 대한 글로벌 관리자의 사용자 이름 및 암호를 입력합니다. **다음** 을 클릭합니다.  
+6. AD DS에 연결 화면에서 엔터프라이즈 관리자 계정의 사용자 이름 및 암호를 입력합니다. **다음** 을 클릭합니다.  
+7. 구성 준비 화면에서 **설치** 를 클릭합니다.
+8. 설치가 완료되면 **끝내기** 를 클릭합니다.
 9. 설치가 완료된 후 Synchronization Service Manager 또는 Synchronization Rule Editor를 사용하기 전에 로그아웃하고 다시 로그인합니다.
 
 
@@ -219,8 +219,8 @@ Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠
 
 
 1. [Azure Portal](https://portal.azure.com)로 이동하여 Azure 구독이 있는 계정으로 로그인합니다.
-2. 왼쪽에서 **Azure Active Directory**를 선택합니다.
-3. **관리**에서 **사용자**를 선택합니다.
+2. 왼쪽에서 **Azure Active Directory** 를 선택합니다.
+3. **관리** 에서 **사용자** 를 선택합니다.
 4. 새 사용자가 테넌트에 표시되는지 확인</br>
 ![동기화](media/tutorial-password-hash-sync/synch1.png)</br>
 

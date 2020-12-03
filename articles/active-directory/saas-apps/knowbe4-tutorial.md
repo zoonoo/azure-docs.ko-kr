@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: jeedes
-ms.openlocfilehash: 7bc2ebf394eb5b20e5f0a7d3722f8bcc2a9127a6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 77d810fc8327e3777102f2a09f0ca32835aad4b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928028"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>자습서: KnowBe4 Security Awareness Training과 Azure Active Directory 통합
 
@@ -135,9 +135,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. KnowBe4 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 KnowBe4 타일을 클릭하면 KnowBe4 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 KnowBe4 타일을 클릭하면 KnowBe4 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-KnowBe4가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
+KnowBe4가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

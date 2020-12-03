@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 9bebb11c3a1162a0a7b72140f7d3812f86f793ce
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 9272114dd472717e59680b40c07d8435dea19682
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95791354"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181971"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>자습서: NetSuite와 Azure AD SSO(Single Sign-On) 통합
 
@@ -253,7 +253,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음을 수
 
 - Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 NetSuite에 자동으로 로그인됩니다.
 
-- Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 NetSuite 타일을 클릭하면 SSO를 설정한 NetSuite에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+- Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 NetSuite 타일을 클릭하면 SSO를 설정한 NetSuite에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

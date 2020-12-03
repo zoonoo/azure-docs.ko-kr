@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85da26c9ff302c526ea6210dde776f3a34929ccd
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: fa17a18de8e71b099d6ed717974486203c4379f4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360383"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180509"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Key Vault에 액세스 
 
@@ -40,7 +40,7 @@ ms.locfileid: "93360383"
 - Azure 계정, [체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 - 적절한 범위(사용자 구독 또는 리소스 그룹)에서 필요한 리소스 생성 및 역할 관리 단계를 수행할 수 있는 "소유자" 권한. 역할 할당에 관한 도움이 필요한 경우 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 - 시스템 할당 관리 ID가 활성화된 Windows 가상 머신도 필요합니다.
-  - 이 자습서에 대한 가상 머신을 만들어야 하는 경우 [시스템 할당 ID가 설정된 가상 머신 만들기](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)라는 제목의 문서를 수행하면 됩니다.
+  - 이 자습서에 대한 가상 머신을 만들어야 하는 경우 [시스템 할당 ID가 설정된 가상 머신 만들기](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)라는 제목의 문서를 수행하면 됩니다.
 
 ## <a name="create-a-key-vault"></a>주요 자격 증명 모음 만들기  
 

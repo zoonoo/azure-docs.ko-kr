@@ -9,12 +9,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9fef834e550f144075ec9cc72cac3b11cc1e99e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3e8e359a97c091e025049ac8a978e1beca1d759
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504214"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184225"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 호스트 이름, 포트 및 키 가져오기
 
@@ -33,12 +33,12 @@ ms.locfileid: "87504214"
 
 | 명령 | 메모 |
 |---|---|
-| [az redis show](https://docs.microsoft.com/cli/azure/redis) | Azure Redis Cache 인스턴스에 대한 세부 정보를 검색합니다. |
-| [az redis list-keys](https://docs.microsoft.com/cli/azure/redis) | Azure Cache for Redis 인스턴스에 대한 액세스 키를 검색합니다. |
+| [az redis show](/cli/azure/redis) | Azure Redis Cache 인스턴스에 대한 세부 정보를 검색합니다. |
+| [az redis list-keys](/cli/azure/redis) | Azure Cache for Redis 인스턴스에 대한 액세스 키를 검색합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
 추가 Azure Cache for Redis CLI 스크립트 샘플은 [Azure Cache for Redis 설명서](../cli-samples.md)에서 찾을 수 있습니다.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 87741420a693c22be7d549eb57dfeb834b0e6ca8
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 8d5881d838c4fe952206afb827fd60ed98dbba86
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686382"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96178329"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hownow-webapp-sso"></a>자습서: HowNow WebApp SSO와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -138,10 +138,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * HowNow WebApp SSO 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 HowNow WebApp SSO 타일을 클릭하면 HowNow WebApp SSO 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 HowNow WebApp SSO 타일을 클릭하면 HowNow WebApp SSO 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-HowNow WebApp SSO가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+HowNow WebApp SSO가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

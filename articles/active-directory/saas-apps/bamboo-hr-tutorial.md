@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 8025728ffc40aca27807068eff29f5a889a8d76e
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 3926e98cb55d1afd80caf4af5d67910b66c09cdd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331399"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180339"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>자습서: BambooHR과 Azure Active Directory 통합
 
@@ -178,9 +178,9 @@ Azure AD 사용자가 BambooHR에 로그인할 수 있도록 다음을 수행하
 
 2. BambooHR 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 BambooHR 타일을 클릭하면 BambooHR 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 BambooHR 타일을 클릭하면 BambooHR 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-BambooHR이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+BambooHR이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/19/2020
 ms.author: alkohli
-ms.openlocfilehash: e1dca046177634842de25b255dd1bb22c5d2c5a5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: db97a34a79ac45525177a79a59a17426003aeab0
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964219"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302618"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
@@ -336,7 +336,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
 
     사용자가 할당한 관리 ID는 여러 리소스를 관리하는 데 사용할 수 있는 독립 실행형 Azure 리소스입니다. 자세한 내용은 [관리 ID 유형](/azure/active-directory/managed-identities-azure-resources/overview)을 참조하세요.  
 
-    새 관리 ID를 만들어야 하는 경우 [Azure Portal을 사용하여 사용자가 할당한 관리 ID에 역할 만들기, 나열, 삭제 또는 할당](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)의 지침을 따릅니다.
+    새 관리 ID를 만들어야 하는 경우 [Azure Portal을 사용하여 사용자가 할당한 관리 ID에 역할 만들기, 나열, 삭제 또는 할당](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)의 지침을 따릅니다.
     
     ![사용자 ID 선택](./media/data-box-deploy-ordered/customer-managed-key-10.png)
 

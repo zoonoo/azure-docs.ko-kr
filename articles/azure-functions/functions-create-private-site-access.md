@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: e367e4f2a704d8c718551fb031164520b3ff5bb3
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 75e3886e31592b0672487bacd5ff2266e07e39cd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579133"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182509"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>자습서: Azure Functions 프라이빗 사이트 액세스 설정
 
@@ -113,7 +113,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     | _서브넷_ | AzureBastionSubnet | 새 Bastion 호스트 리소스가 배포될 가상 네트워크의 서브넷입니다. **AzureBastionSubnet** 이름 값을 사용하여 서브넷을 만들어야 합니다. 이 값을 통해 Azure에서 Bastion 리소스를 배포할 서브넷을 인식할 수 있습니다. 최소 **/27** 이상(/27, /26 등)의 서브넷을 사용해야 합니다. |
 
     > [!NOTE]
-    > Azure Bastion 리소스를 만드는 방법에 대한 자세한 단계별 가이드는 [Azure Bastion 호스트 만들기](../bastion/bastion-create-host-portal.md) 자습서를 참조하세요.
+    > Azure Bastion 리소스를 만드는 방법에 대한 자세한 단계별 가이드는 [Azure Bastion 호스트 만들기](../bastion/tutorial-create-host-portal.md) 자습서를 참조하세요.
 
 1. Azure에서 Azure Bastion 호스트를 프로비저닝할 수 있는 서브넷을 만듭니다. **서브넷 구성 관리** 를 선택하면 새 서브넷을 정의할 수 있는 새 창이 열립니다.  **+ 서브넷** 을 선택하여 새 서브넷을 만듭니다.
 1. 서브넷 이름은 **AzureBastionSubnet** 이고, 서브넷 접두사는 **/27** 이상이어야 합니다.  **확인** 을 선택하여 서브넷을 만듭니다.
@@ -194,9 +194,9 @@ VM이 가상 네트워크를 통해 사이트에 액세스하므로 VM의 웹 �
 
 1. 다음 빠른 시작 중 하나를 수행하여 Azure Functions 앱을 만들고 배포합니다.
 
-    * [Visual Studio Code](./functions-create-first-function-vs-code.md)
+    * [Visual Studio Code](./create-first-function-vs-code-csharp.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
-    * [명령줄](./functions-create-first-azure-function-azure-cli.md)
+    * [명령줄](./create-first-function-cli-csharp.md)
     * [Maven(Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. Azure Functions 프로젝트를 게시하는 경우 이 자습서의 앞부분에서 만든 함수 앱 리소스를 선택합니다.

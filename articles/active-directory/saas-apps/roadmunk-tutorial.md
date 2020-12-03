@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 26424106098a8385faff5ab6d3de33d98576ef4e
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a7f4682be2f7fbf308aba32768efa932f27b7a87
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381306"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181710"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-roadmunk"></a>자습서: Roadmunk와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -171,12 +171,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트합니다.
 
-내 앱 포털에서 **Roadmunk** 타일을 선택하면 SSO를 설정한 Roadmunk 계정에 자동으로 로그인됩니다. 자세한 내용은 [내 앱 포털에서 앱에 로그인하여 시작](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)을 참조하세요.
+내 앱 포털에서 **Roadmunk** 타일을 선택하면 SSO를 설정한 Roadmunk 계정에 자동으로 로그인됩니다. 자세한 내용은 [내 앱 포털에서 앱에 로그인하여 시작](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 Roadmunk가 구성되면 세션 제어를 적용할 수 있습니다. 세션 제어는 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호합니다. 세션 제어는 조건부 액세스에서 확장됩니다. 
 
-[Microsoft Cloud App Security를 사용하여 세션 제어를 적용](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)하는 방법을 알아봅니다.
-
-
+[Microsoft Cloud App Security를 사용하여 세션 제어를 적용](/cloud-app-security/proxy-deployment-any-app)하는 방법을 알아봅니다.

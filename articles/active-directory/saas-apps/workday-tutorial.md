@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: b7ee726c9a5501235123a393d144c56a0342a5ee
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: af001ddd8dc468d06706e63eaf092d1179fe3fdc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748358"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181376"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>자습서: Workday와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -90,7 +90,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 회신 URL 및 로그아웃 URL로 이러한 값을 업데이트합니다. 회신 URL에 하위 도메인(예: www, wd2, wd3, wd3-impl, wd5, wd5-impl)이 있어야 합니다.
     > `http://www.myworkday.com`과 같이 사용해도 되지만 `http://myworkday.com`은 가능하지 않습니다. 이러한 값을 얻으려면 [Workday 클라이언트 지원 팀](https://www.workday.com/en-us/partners-services/services/support.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. Workday 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 **nameidentifier** 가 **user.userprincipalname** 과 매핑되는 기본 특성 목록을 보여줍니다. Workday 애플리케이션에서는 **nameidentifier** 가 **user.mail** , **UPN** 등과 매핑되어야 하므로 **편집** 아이콘을 클릭하여 특성 매핑을 편집하여 특성 매핑을 변경해야 합니다.
+1. Workday 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 **nameidentifier** 가 **user.userprincipalname** 과 매핑되는 기본 특성 목록을 보여줍니다. Workday 애플리케이션에서는 **nameidentifier** 가 **user.mail**, **UPN** 등과 매핑되어야 하므로 **편집** 아이콘을 클릭하여 특성 매핑을 편집하여 특성 매핑을 변경해야 합니다.
 
     ![스크린샷은 편집 아이콘이 선택된 사용자 특성을 보여줍니다.](common/edit-attribute.png)
 
@@ -119,11 +119,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -162,7 +162,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![SAML ID 공급자 1](./media/workday-tutorial/IC7829271.png "SAML ID 공급자")
 
-    * **ID 공급 기업 이름** 텍스트 상자에 공급 기업 이름(예: *SPInitiatedSSO* )을 입력합니다.
+    * **ID 공급 기업 이름** 텍스트 상자에 공급 기업 이름(예: *SPInitiatedSSO*)을 입력합니다.
 
     * Azure Portal의 **Workday 설정** 섹션에서 **Azure AD 식별자** 값을 복사한 다음, **발급자** 텍스트 상자에 붙여넣습니다.
 
@@ -237,8 +237,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. Workday 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Workday 타일을 클릭하면 SSO를 설정한 Workday에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Workday 타일을 클릭하면 SSO를 설정한 Workday에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Workday를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+Workday를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)

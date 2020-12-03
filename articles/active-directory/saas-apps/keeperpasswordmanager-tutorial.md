@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.author: jeedes
-ms.openlocfilehash: ef49a8a3ac1779071a4d4906bfd053530063102d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: b70c50e7c2900f884dd4d91c6650205bc626326e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984467"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96178044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>자습서: Keeper Password Manager & Digital Vault와 Azure Active Directory 통합
 
@@ -157,7 +157,7 @@ Azure AD 사용자가 Keeper Password Manager & Digital Vault에 로그인할 �
 
 * 애플리케이션에 대한 로그온 URL로 직접 이동하여 여기서 로그인을 시작할 수 있습니다.
 
-* Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 **Keeper Password Manager & Digital Vault** 타일을 선택하면 애플리케이션에 대한 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [내 앱 포털에서 로그인하고 앱 시작](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)을 참조하세요.
+* Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 **Keeper Password Manager & Digital Vault** 타일을 선택하면 애플리케이션에 대한 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [내 앱 포털에서 로그인하고 앱 시작](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 5abfc662f810e01508f178a1bc391a288c23e497
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 0faaf37e55e5b3f7bb89b9a601a6f4b98e7fdd15
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147683"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181687"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-prodpad"></a>자습서: ProdPad와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -96,7 +96,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | User.ProdpadRole | user.assignedroles |
 
     > [!NOTE]
-    > ProdPad는 애플리케이션에 할당된 사용자의 역할이 필요합니다. 사용자가 적절한 역할을 할당 받을 수 있도록 Azure AD에서 이러한 역할을 설정하세요. Azure AD에서 역할을 구성하는 방법을 이해하려면 [여기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)를 참조하세요.
+    > ProdPad는 애플리케이션에 할당된 사용자의 역할이 필요합니다. 사용자가 적절한 역할을 할당 받을 수 있도록 Azure AD에서 이러한 역할을 설정하세요. Azure AD에서 역할을 구성하는 방법을 이해하려면 [여기](../develop/active-directory-enterprise-app-role-management.md)를 참조하세요.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -151,11 +151,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 ProdPad에 자동으로 로그인됩니다. 
 
-Microsoft 액세스 패널을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 액세스 패널에서 ProdPad 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 ProdPad에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+Microsoft 액세스 패널을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 액세스 패널에서 ProdPad 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 ProdPad에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-ProdPad가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+ProdPad가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

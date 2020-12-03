@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 19d14ae681a8d991c26a211d0042ece0aefb21b4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: c14af3698826405244b65bc8fef6f241f7f0032f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255045"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181359"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tribeloo"></a>자습서: Tribeloo와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -125,11 +125,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Tribeloo 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Tribeloo 타일을 클릭하면 Tribeloo 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Tribeloo 타일을 클릭하면 Tribeloo 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Tribeloo가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Tribeloo가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

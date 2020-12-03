@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: jeedes
-ms.openlocfilehash: a903bbd27b1f7e6890b0dcb6088cc843788207b5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: dbb6f6d278256730e77677e78f452615fe4b611e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663204"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180745"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-looker-analytics-platform"></a>자습서: Looker Analytics Platform과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -166,10 +166,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Looker Analytics Platform에 자동으로 로그인됩니다. 
 
-Microsoft 액세스 패널을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 액세스 패널에서 Looker Analytics Platform 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우 SSO를 설정한 Looker Analytics Platform에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+Microsoft 액세스 패널을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 액세스 패널에서 Looker Analytics Platform 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우 SSO를 설정한 Looker Analytics Platform에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Looker Analytics Platform이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Looker Analytics Platform이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

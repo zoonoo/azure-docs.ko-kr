@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 764342f237452d9322d44c86ebdb41691b44495d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: d5e191107366c6932d3ba66234776ffaaf6cf98c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360720"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180625"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -378,18 +378,18 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 AWS(Amazon Web Services)에 자동으로 로그인됩니다. 
 
-Microsoft 액세스 패널을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 액세스 패널에서 AWS(Amazon Web Services) 타일을 클릭할 때 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 AWS(Amazon Web Services)에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+Microsoft 액세스 패널을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 액세스 패널에서 AWS(Amazon Web Services) 타일을 클릭할 때 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 AWS(Amazon Web Services)에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="known-issues"></a>알려진 문제
 
  * **프로비저닝** 섹션에서 **매핑** 하위 섹션에 "로드 중..." 메시지가 표시되고 특성 매핑이 표시되지 않습니다. 현재 지원되는 유일한 프로비저닝 워크플로는 사용자 또는 그룹을 할당하는 중에 선택할 수 있도록 역할을 AWS에서 Azure AD로 가져오는 것입니다. 이에 대한 특성 매핑은 미리 결정되어 있으며 구성할 수 없습니다.
 
- * **프로비전** 섹션에서는 한 번에 하나의 AWS 테넌트에 대한 하나의 자격 증명 집합만 입력할 수 있습니다. 가져온 모든 역할은 AWS 테넌트에 대한 Azure AD [`servicePrincipal` 개체](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)의 `appRoles` 속성에 기록됩니다.
+ * **프로비전** 섹션에서는 한 번에 하나의 AWS 테넌트에 대한 하나의 자격 증명 집합만 입력할 수 있습니다. 가져온 모든 역할은 AWS 테넌트에 대한 Azure AD [`servicePrincipal` 개체](/graph/api/resources/serviceprincipal?view=graph-rest-beta)의 `appRoles` 속성에 기록됩니다.
 
    프로비저닝을 위해 여러 AWS 테넌트(`servicePrincipals`로 표시됨)를 갤러리에서 Azure AD에 추가할 수 있습니다. 그러나 SSO에 사용되는 단일 `servicePrincipal`에 프로비저닝하는 데 사용되는 여러 AWS `servicePrincipals`에서 가져온 역할을 모두 자동으로 작성할 수 없는 알려진 문제가 있습니다.
 
-   해결 방법으로 [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)를 사용하여 가져온 모든 `appRoles`를 프로비저닝이 구성된 각 AWS `servicePrincipal`에 추출할 수 있습니다. 그런 다음, 이러한 역할 문자열을 SSO가 구성된 AWS `servicePrincipal`에 추가할 수 있습니다.
+   해결 방법으로 [Microsoft Graph API](/graph/api/resources/serviceprincipal?view=graph-rest-beta)를 사용하여 가져온 모든 `appRoles`를 프로비저닝이 구성된 각 AWS `servicePrincipal`에 추출할 수 있습니다. 그런 다음, 이러한 역할 문자열을 SSO가 구성된 AWS `servicePrincipal`에 추가할 수 있습니다.
 
 * AWS에서 Azure AD로 가져올 수 있으려면 역할이 다음 요구 사항을 충족해야 합니다.
 

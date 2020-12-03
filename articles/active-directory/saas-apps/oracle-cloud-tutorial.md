@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 90623c6fd1c0eba3042688ae6fd6fdc92b088fd4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 914858471432979e5516a1f075ed4fcbb8061a5d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096998"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181856"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>자습서: Azure Active Directory와 Oracle Cloud Infrastructure Console 통합
 
@@ -202,5 +202,4 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="next-steps"></a>다음 단계
 
-Oracle Cloud Infrastructure Console을 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
-
+Oracle Cloud Infrastructure Console을 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)

@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 8b3b6a41da6e3100739da920472d582711d1e9b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a949c9b34e299e0dc4eccbb62f4b4ebb38d6ccb9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024384"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186714"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 시작
 
 > [!NOTE]
-> 하나 이상의 가상 머신에서 데이터를 수집하는 경우 사용자 환경에서 이 연습을 수행할 수 있습니다. 그렇지 않은 경우 다양한 샘플 데이터를 포함하는 [데모 환경](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade)을 사용합니다.  KQL에서 쿼리하는 방법을 이미 알고 있지만 리소스 유형에 따라 유용한 쿼리를 신속하게 만들어야 하는 경우 [저장된 예제 쿼리 창](saved-queries.md)을 참조하세요.
+> 하나 이상의 가상 머신에서 데이터를 수집하는 경우 사용자 환경에서 이 연습을 수행할 수 있습니다. 그렇지 않은 경우 다양한 샘플 데이터를 포함하는 [데모 환경](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade)을 사용합니다.  KQL에서 쿼리하는 방법을 이미 알고 있지만 리소스 유형에 따라 유용한 쿼리를 신속하게 만들어야 하는 경우 [저장된 예제 쿼리 창](./example-queries.md)을 참조하세요.
 
 이 자습서에서는 Azure Monitor에서 로그 쿼리를 작성하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "95024384"
 - 사용자 지정 필드 정의 및 사용
 - 결과 집계 및 그룹화
 
-Azure Portal에서 Log Analytics를 사용하는 방법에 대한 자습서는 [Azure Monitor Log Analytics 시작](get-started-portal.md)을 참조하세요.<br>
+Azure Portal에서 Log Analytics를 사용하는 방법에 대한 자습서는 [Azure Monitor Log Analytics 시작](./log-analytics-tutorial.md)을 참조하세요.<br>
 Azure Monitor에서 로그 쿼리에 대한 자세한 내용은 [Azure Monitor에서 로그 쿼리 개요](log-query-overview.md)를 참조하세요.
 
 아래 자습서의 비디오 버전을 따르세요.

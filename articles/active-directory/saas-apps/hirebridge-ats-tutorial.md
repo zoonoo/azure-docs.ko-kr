@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/29/2020
 ms.author: jeedes
-ms.openlocfilehash: 68ebd88be1a8c68df65557ae29fd50639df0aef5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e421efc4076ab075984022ccb5281d4b9e250c26
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133371"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96178325"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hirebridge-ats"></a>자습서: Hirebridge ATS와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -123,10 +123,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal에서 [이 애플리케이션 테스트]를 클릭하면 SSO를 설정한 Hirebridge ATS에 자동으로 로그인됩니다.
 
-1. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Hirebridge ATS 타일을 클릭하는 경우 SSO를 설정하려면 Hirebridge ATS에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+1. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Hirebridge ATS 타일을 클릭하는 경우 SSO를 설정하려면 Hirebridge ATS에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Hirebridge ATS가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Hirebridge ATS가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

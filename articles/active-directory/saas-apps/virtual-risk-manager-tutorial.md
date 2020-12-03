@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 7bf9f909331faff7b821a98042d07473573c9cef
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: e3de90084c42a6ce5f71977de7e90e0767f858db
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917961"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181320"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-virtual-risk-manager"></a>자습서: Virtual Risk Manager와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -121,10 +121,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 Virtual Risk Manager에 자동으로 로그인됩니다.
 
-* Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Virtual Risk Manager 타일을 클릭하면 SSO를 설정한 Virtual Risk Manager에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Virtual Risk Manager 타일을 클릭하면 SSO를 설정한 Virtual Risk Manager에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Virtual Risk Manager가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Virtual Risk Manager가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
