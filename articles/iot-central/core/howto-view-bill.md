@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8f46c402c8c25a144cd4c12137aeabfdfa31e096
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 50d0119b08d2c76a5f6111e485408ebcdace83c6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463155"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549024"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>IoT Central 응용 프로그램에서 청구 관리
 
@@ -34,11 +34,11 @@ ms.locfileid: "96463155"
 
 1. **관리** 섹션의 **가격 책정** 페이지로 이동 합니다.
 
-    ![평가판 상태](media/howto-view-bill/freetrialbilling.png)
+    :::image type="content" source="media/howto-view-bill/freetrialbilling.png" alt-text="평가판 상태":::
 
 1. **유료 요금제로 변환을** 선택 합니다.
 
-    ![평가판 변환](media/howto-view-bill/convert.png)
+    :::image type="content" source="media/howto-view-bill/convert.png" alt-text="평가판 변환":::
 
 1. 적절 한 Azure Active Directory를 선택 하 고 유료 요금제를 사용 하는 응용 프로그램에 사용할 Azure 구독을 선택 합니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "96463155"
 
 1. **관리** 섹션의 **가격 책정** 페이지로 이동 합니다.
 
-    ![업그레이드 prcing 계획](media/howto-view-bill/pricing.png)
+    :::image type="content" source="media/howto-view-bill/pricing.png" alt-text="업그레이드 가격 책정 계획":::
 
 1. **계획** 을 선택한 다음 **저장** 을 선택 하 여 업그레이드 또는 다운 그레이드를 선택 합니다.
 

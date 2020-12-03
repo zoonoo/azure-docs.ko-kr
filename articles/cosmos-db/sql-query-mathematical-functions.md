@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 9dc3631b738da78df83113d89d23051033674d11
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 63d349c8cfff52932d51ce7143aba33521c43890
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93338376"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549194"
 ---
 # <a name="mathematical-functions-azure-cosmos-db"></a>수치 연산 함수 (Azure Cosmos DB)  
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "93338376"
     [4]
 ```
 
-## <a name="functions"></a>함수
+## <a name="functions"></a>Functions
 
 다음 지원 되는 기본 제공 수치 연산 함수는 일반적으로 입력 인수를 기반으로 계산을 수행 하 고 숫자 식을 반환 합니다.
  
@@ -69,4 +69,4 @@ RAND를 제외한 모든 산술 함수는 결정적 함수입니다. 이는 지�
 - [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 소개](introduction.md)
 - [사용자 정의 함수](sql-query-udfs.md)
-- [집계](sql-query-aggregates.md)
+- [집계](sql-query-aggregate-functions.md)

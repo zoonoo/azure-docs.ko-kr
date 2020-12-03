@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 11/13/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4105698198e6fb7f4e3d3526ff9590ebca4898f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47a2aae39be93361e1e0e581efb56cc678b444cd
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612169"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549092"
 ---
 # <a name="object-replication-for-block-blobs"></a>블록 blob에 대 한 개체 복제
 
@@ -43,14 +43,36 @@ ms.locfileid: "91612169"
 
 변경 피드 및 Blob 버전 관리를 사용하도록 설정하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 [Azure Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/)를 참조하세요.
 
+## <a name="how-object-replication-works"></a>개체 복제 작동 방법
+
+개체 복제는 사용자가 구성한 규칙에 따라 컨테이너에 블록 blob을 비동기적으로 복사 합니다. Blob의 내용, blob와 연결 된 모든 버전 및 blob의 메타 데이터와 속성이 모두 원본 컨테이너에서 대상 컨테이너로 복사 됩니다.
+
+> [!IMPORTANT]
+> 블록 Blob 데이터는 비동기식으로 복제되므로 원본 계정 및 대상 계정이 즉시 동기화되지는 않습니다. 현재 데이터를 대상 계정에 복제하는 데 걸리는 시간에 대한 SLA는 없습니다. 원본 blob에서 복제 상태를 확인 하 여 복제가 완료 되었는지 여부를 확인할 수 있습니다. 자세한 내용은 [blob의 복제 상태 확인](object-replication-configure.md#check-the-replication-status-of-a-blob)을 참조 하세요.
+
+### <a name="blob-versioning"></a>Blob 버전 관리
+
+개체를 복제 하려면 원본 및 대상 계정 모두에서 blob 버전 관리를 사용 하도록 설정 해야 합니다. 원본 계정에 복제 된 blob이 수정 되 면 수정 전에 blob의 이전 상태를 반영 하는 새 버전의 blob이 원본 계정에 만들어집니다. 원본 계정의 현재 버전 (또는 기본 blob)은 최신 업데이트를 반영 합니다. 업데이트 된 현재 버전과 새 이전 버전이 모두 대상 계정에 복제 됩니다. 쓰기 작업이 blob 버전에 미치는 영향에 대 한 자세한 내용은 [쓰기 작업의 버전 관리](versioning-overview.md#versioning-on-write-operations)를 참조 하세요.
+
+원본 계정에서 blob을 삭제 하면 현재 blob 버전이 이전 버전에서 캡처되고 삭제 됩니다. 모든 이전 버전의 blob은 현재 버전을 삭제 한 후에도 유지 됩니다. 이 상태는 대상 계정에 복제 됩니다. 삭제 작업이 blob 버전에 미치는 영향에 대 한 자세한 내용은 [삭제 작업에 대 한 버전 관리](versioning-overview.md#versioning-on-delete-operations)를 참조 하세요.
+
+### <a name="snapshots"></a>스냅샷
+
+개체 복제는 blob 스냅숏을 지원 하지 않습니다. 원본 계정에 있는 blob의 스냅숏은 대상 계정에 복제 되지 않습니다.
+
+### <a name="blob-tiering"></a>Blob 계층화
+
+원본 및 대상 계정이 핫 또는 쿨 계층에 있는 경우 개체 복제가 지원 됩니다. 원본 및 대상 계정이 서로 다른 계층에 있을 수 있습니다. 그러나 원본 또는 대상 계정의 blob이 보관 계층으로 이동 된 경우에는 개체 복제가 실패 합니다. Blob 계층에 대 한 자세한 내용은 [Azure Blob Storage-핫, 쿨 및 보관에 대 한 액세스 계층](storage-blob-storage-tiers.md)을 참조 하세요.
+
+### <a name="immutable-blobs"></a>변경이 불가능한 Blob
+
+개체 복제는 변경할 수 없는 blob을 지원 하지 않습니다. 원본 또는 대상 컨테이너에 시간 기반 보존 정책이 나 법적 보류가 있는 경우 개체 복제가 실패 합니다. 변경할 수 없는 blob에 대 한 자세한 내용은 변경할 수 없는 [저장소로 비즈니스에 중요 한 blob 데이터 저장](storage-blob-immutable-storage.md)을 참조 하세요.
+
 ## <a name="object-replication-policies-and-rules"></a>개체 복제 정책 및 규칙
 
 개체 복제를 구성하는 경우 원본 스토리지 계정 및 대상 계정을 지정하는 복제 정책을 만듭니다. 복제 정책에는 원본 컨테이너와 대상 컨테이너를 지정하고 원본 컨테이너에서 복제할 블록 Blob을 나타내는 하나 이상의 규칙이 포함되어 있습니다.
 
 개체 복제를 구성하고 나면 Azure Storage에서 원본 계정에 대한 변경 피드를 정기적으로 확인하고 대상 계정에 대한 쓰기 또는 삭제 작업을 비동기적으로 복제합니다. 복제 대기 시간은 복제 중인 블록 Blob의 크기에 따라 달라집니다.
-
-> [!IMPORTANT]
-> 블록 Blob 데이터는 비동기식으로 복제되므로 원본 계정 및 대상 계정이 즉시 동기화되지는 않습니다. 현재 데이터를 대상 계정에 복제하는 데 걸리는 시간에 대한 SLA는 없습니다.
 
 ### <a name="replication-policies"></a>복제 정책
 

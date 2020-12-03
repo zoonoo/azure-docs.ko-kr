@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 682db0ef52e624a23d95aa18a007f05a78f39677
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 9fa38e045bbe29e5d45587adf0d277c1414fee4c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518790"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549041"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 관리 IP 주소
 
@@ -27,6 +27,8 @@ ms.locfileid: "96518790"
 NSGs (네트워크 보안 그룹) 또는 UDRs (사용자 정의 경로)를 사용 하 여 HDInsight 클러스터에 대 한 인바운드 트래픽을 제어 하는 경우 클러스터가 중요 한 Azure 상태 및 관리 서비스와 통신할 수 있는지 확인 해야 합니다.  이러한 서비스의 일부 IP 주소는 지역에 따라 달라 지 며 일부는 모든 Azure 지역에 적용 됩니다. 사용자 지정 DNS를 사용하지 않는 경우에도 Azure DNS 서비스의 트래픽을 허용해야 할 수도 있습니다.
 
 여기에 나열 되지 않은 지역에 대 한 IP 주소가 필요한 경우 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) 를 사용 하 여 해당 지역에 대 한 ip 주소를 찾을 수 있습니다. API를 사용할 수 없는 경우 [서비스 태그 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) 을 다운로드 하 고 원하는 지역을 검색 합니다.
+
+HDInsight는 클러스터를 만들고 크기를 조정 하 여 이러한 규칙의 유효성을 검사 하 여 추가 오류를 방지 합니다. 유효성 검사를 통과 하지 못하면 생성 및 크기 조정이 실패 합니다.
 
 다음 섹션에서는 허용 해야 하는 특정 IP 주소에 대해 설명 합니다.
 

@@ -6,34 +6,28 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 12/01/2020
 ms.author: alkohli
-ms.openlocfilehash: f5bcb5c42661c375372d4d0b17571d784152dd5f
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 751ac870996fa1a2805bb018c991f85525fd797d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337290"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548973"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용 하 여 Data Box를 관리 하 고 Data Box Heavy
 
 이 문서에서는 Data Box 및 Data Box Heavy 장치에서 수행 되는 구성 및 관리 작업에 대해 설명 합니다. Azure Portal UI와 장치의 로컬 웹 UI를 통해 Data Box 및 Data Box Heavy 장치를 관리할 수 있습니다. 이 문서에서는 로컬 웹 UI를 사용 하 여 수행 되는 작업을 중점적으로 설명 합니다.
 
-Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성에 사용 됩니다. 로컬 웹 UI를 사용 하 여 장치를 종료 하거나 다시 시작 하 고, 진단 테스트를 실행 하 고, 소프트웨어를 업데이트 하 고, 복사 로그를 보고, Microsoft 지원에 대 한 로그 패키지를 생성할 수도 있습니다. 독립적인 노드가 두 개인 Data Box Heavy 장치에서는 장치의 각 노드에 해당 하는 두 개의 개별 로컬 웹 Ui에 액세스할 수 있습니다.
-
-이 문서에는 다음 자습서가 포함되어 있습니다.
-
-- 지원 패키지 생성
-- 디바이스 종료 또는 다시 시작
-- BOM (자재 자료) 또는 매니페스트 파일 다운로드
-- 디바이스의 사용 가능한 용량 확인
-- 체크섬 유효성 검사 건너뛰기
+Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성에 사용 됩니다. 로컬 웹 UI를 사용 하 여 장치를 종료 하거나 다시 시작 하 고, 진단 테스트를 실행 하 고, 소프트웨어를 업데이트 하 고, 복사 로그를 보고, 장치에서 로컬 데이터를 지우고, Microsoft 지원에 대 한 지원 패키지를 생성할 수도 있습니다. 독립적인 노드가 두 개인 Data Box Heavy 장치에서는 장치의 각 노드에 해당 하는 두 개의 개별 로컬 웹 Ui에 액세스할 수 있습니다.
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>지원 패키지 생성
 
-디바이스 문제가 발생하는 경우 시스템 로그에서 지원 패키지를 만들 수 있습니다. Microsoft 지원에서는 이 패키지를 사용하여 문제를 해결합니다. 지원 패키지를 생성 하려면 다음 단계를 수행 합니다.
+디바이스 문제가 발생하는 경우 시스템 로그에서 지원 패키지를 만들 수 있습니다. Microsoft 지원에서는 이 패키지를 사용하여 문제를 해결합니다.
+
+지원 패키지를 생성 하려면 다음 단계를 수행 합니다.
 
 1. 로컬 웹 UI에서 **지원 담당자** 로 이동 하 여 지원 **패키지 만들기** 를 선택 합니다.
 
@@ -51,9 +45,29 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 
     ![지원 패키지 만들기 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
 
+## <a name="erase-local-data-from-your-device"></a>장치에서 로컬 데이터 지우기
+
+로컬 웹 UI를 사용 하 여 Azure 데이터 센터에 반환 하기 전에 장치에서 로컬 데이터를 지울 수 있습니다.
+
+> [!IMPORTANT]
+> 데이터 지우기는 되돌릴 수 없습니다. 장치에서 로컬 데이터를 지우기 전에 파일을 백업 해야 합니다.
+
+장치에서 로컬 데이터를 지우려면 다음 단계를 수행 합니다.
+
+1. 로컬 웹 UI에서 **데이터 지우기** 로 이동 합니다.
+2. 장치 암호를 입력 하 고 **데이터 지우기** 를 선택 합니다.
+
+    ![장치에 대 한 데이터 지우기 옵션](media/data-box-local-web-ui-admin/erase-local-data-1.png)
+
+3. 확인 메시지가 표시 되 면 **예** 를 선택 하 여 계속 합니다. 데이터 지우기는 50 분까지 걸릴 수 있습니다.
+
+   장치에서 삭제 하기 전에 로컬 데이터를 백업 해야 합니다. 데이터 지우기는 되돌릴 수 없습니다.
+
+    ![데이터 지우기 확인 프롬프트](media/data-box-local-web-ui-admin/erase-local-data-2.png)
+
 ## <a name="shut-down-or-restart-your-device"></a>디바이스 종료 또는 다시 시작
 
-로컬 웹 UI를 사용 하 여 장치를 종료 하거나 다시 시작할 수 있습니다. 다시 시작하기 전에 호스트에서 공유를 오프라인으로 전환한 후 디바이스를 다시 시작하는 것이 좋습니다. 이렇게 하면 데이터 손상 가능성이 최소화 됩니다. 장치를 종료할 때 데이터 복사가 진행 되 고 있지 않은지 확인 합니다.
+로컬 웹 UI를 사용 하 여 장치를 종료 하거나 다시 시작할 수 있습니다. 다시 시작 하기 전에 호스트와 장치에서 공유를 오프 라인 상태로 전환 하는 것이 좋습니다. 이렇게 하면 데이터 손상 가능성이 최소화 됩니다. 장치를 종료할 때 데이터 복사가 진행 되 고 있지 않은지 확인 합니다.
 
 장치를 종료 하려면 다음 단계를 수행 합니다.
 
@@ -105,8 +119,8 @@ BOM 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 �
     |utSAC1_202006051000_BlockBlob-BOM.txt     |블록 Blob         |SMB/NFS         |
     |utSAC1_202006051000_PageBlob-BOM.txt     |페이지 Blob         |SMB/NFS         |
     |utSAC1_202006051000_AzFile-BOM.txt    |Azure 파일         |SMB/NFS         |
-    |utsac1_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST (영문)        |
-    |utsac1_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST (영문)         |
+    |utsac1_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST        |
+    |utsac1_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST         |
 
 이 목록을 사용하여 Data Box가 Azure 데이터 센터로 반환된 후 Azure Storage 계정에 업로드된 파일을 확인합니다. 샘플 매니페스트 파일은 아래에 표시되어 있습니다.
 
@@ -168,7 +182,7 @@ BOM 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 �
 
 기본적으로는 배송을 준비할 때 데이터의 체크섬이 생성됩니다. 드물지만 파일 형식(작은 파일 크기)에 따라 성능이 저하될 수 있습니다. 이러한 경우에는 체크섬을 건너뛸 수 있습니다.
 
-발송 준비 중에 체크섬 계산은 가져오기 주문에 대해서만 수행 되며 내보내기 주문에 대해서는 수행 되지 않습니다. 
+발송 준비 중에 체크섬 계산은 가져오기 주문에 대해서만 수행 되며 내보내기 주문에 대해서는 수행 되지 않습니다.
 
 성능이 매우 낮은 경우가 아니면 체크섬은 사용하는 것이 좋습니다.
 

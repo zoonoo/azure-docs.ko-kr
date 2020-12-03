@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: rkarlin
-ms.openlocfilehash: 4189cb8628db58343c816535836af82825014b7e
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a8697094a3366e3b82ca65f1b962101243b22f84
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096320"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548922"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>IoT 용 Azure Defender 아키텍처
 
@@ -82,7 +82,7 @@ IoT 센서에 대 한 Defender는 범위 포트 또는 네트워크 탭에 연�
 - Azure Portal
 
 #### <a name="sensor-console"></a>센서 콘솔
-센서 검색은 네트워크 맵, 자산 인벤토리 및 광범위 한 보고서 (예: 위험 평가 보고서, 데이터 마이닝 쿼리 및 공격 벡터)에서 보고 조사 하 고 분석할 수 있는 센서 콘솔에 표시 됩니다. 또한 콘솔을 사용 하 여 센서 엔진에서 검색 한 위협, 타사 시스템에 정보 전달, 사용자 관리 등을 확인 하 고 처리할 수 있습니다.
+센서 검색은 네트워크 맵, 자산 인벤토리 및 광범위 한 보고서 (예: 위험 평가 보고서, 데이터 마이닝 쿼리 및 공격 벡터)에서 보고 조사 하 고 분석할 수 있는 센서 콘솔에 표시 됩니다. 또한 콘솔을 사용 하 여 센서 엔진에서 검색 한 위협 요소를 확인 및 처리 하 고, 타사 시스템에 정보를 전달 하 고, 사용자를 관리할 수 있습니다.
 
 ![IoT 센서 콘솔용 Defender](./media/architecture/sensor-console.png)
 

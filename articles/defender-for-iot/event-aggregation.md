@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 12/03/2020
 ms.author: mlottner
-ms.openlocfilehash: aec750d246ce99fa65431e23ef68e70418db0017
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f7575697706363c082a4e6374b3df7a49e65cdf
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940937"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548854"
 ---
 # <a name="defender-for-iot-event-aggregation"></a>IoT 용 Defender 이벤트 집계
 
@@ -36,7 +36,7 @@ IoT 용 Defender 보안 에이전트는 로컬 장치에서 데이터 및 시스
 
 ## <a name="how-does-event-aggregation-work"></a>이벤트 집계는 어떻게 작동 하나요?
 
-이벤트 집계가 **설정**되어 있으면 IoT 용 Defender 에이전트는 간격 기간이 나 시간 창에 대 한 이벤트를 집계 합니다.
+이벤트 집계가 **설정** 되어 있으면 IoT 용 Defender 에이전트는 간격 기간이 나 시간 창에 대 한 이벤트를 집계 합니다.
 간격 기간이 지나면 에이전트는 추가 분석을 위해 집계 된 이벤트를 Azure 클라우드로 보냅니다.
 집계 된 이벤트는 Azure 클라우드로 전송 될 때까지 메모리에 저장 됩니다.
 
@@ -44,7 +44,7 @@ IoT 용 Defender 보안 에이전트는 로컬 장치에서 데이터 및 시스
 
 이벤트는 다음 조건이 충족 될 때만 동일 하 게 간주 됩니다.
 
-* ProcessCreate 이벤트- **명령줄**, **실행 파일**, **사용자 이름**및 **userid** 가 동일한 경우
+* ProcessCreate 이벤트- **명령줄**, **실행 파일**, **사용자 이름** 및 **userid** 가 동일한 경우
 * ConnectionCreate 이벤트- **명령줄**, **userId**, **방향**, **로컬 주소**, **원격 주소**, * * 프로토콜 및 **대상 포트가** 동일한 경우
 * ProcessTerminate events- **실행 파일** 및 **종료 상태가** 동일한 경우
 
@@ -52,8 +52,8 @@ IoT 용 Defender 보안 에이전트는 로컬 장치에서 데이터 및 시스
 
 집계 중에 집계 되지 않은 이벤트 속성은 무시 되 고 값이 0 인 log analytics에 표시 됩니다.
 
-* ProcessCreate 이벤트- **processId**및 **parentprocessid** 가 0으로 설정 되어 있습니다.
-* ConnectionCreate 이벤트- **processId**및 **원본 포트가** 0으로 설정 됨
+* ProcessCreate 이벤트- **processId** 및 **parentprocessid** 가 0으로 설정 되어 있습니다.
+* ConnectionCreate 이벤트- **processId** 및 **원본 포트가** 0으로 설정 됨
 
 ## <a name="event-aggregation-based-alerts"></a>이벤트 집계 기반 경고
 

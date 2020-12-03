@@ -4,12 +4,12 @@ description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: ae2eb97f214204b813564b6373c4e9dc176f483c
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 70a81b42ad2fb417902a627afb1651d572844648
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555439"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548514"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -150,10 +150,10 @@ Azure Backup는 데이터 가용성 및 복원 력 기능을 강화 하기 위�
 
 | 백업 관리 유형 | 지원됨                                                    | 지원되는 지역 |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | 예.   4TB 미만의 디스크를 사용하는 암호화된 VM 및 VM 지원됨 | 모든 Azure 공용 지역 및 소 버린 클라우드.  |
-| SQL/SAP HANA | Yes                                                          | 프랑스를 제외한 모든 공용 지역 |
+| Azure VM               | 예.   4TB 미만의 디스크를 사용하는 암호화된 VM 및 VM 지원됨 | 모든 Azure 공용 지역입니다.  |
+| SQL/SAP HANA | 예                                                          | 프랑스를 제외한 모든 공용 지역 |
 | MARS 에이전트/온-프레미스  | 예                                                           | 해당 없음               |
-| AFS (Azure 파일 공유)                 | 예                                                           | 해당 없음               |
+| AFS (Azure 파일 공유)                 | 아니요                                                           | 해당 없음               |
 
 ## <a name="next-steps"></a>다음 단계
 

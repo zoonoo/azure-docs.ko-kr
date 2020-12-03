@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 12/02/2020
 ms.author: jlian
-ms.openlocfilehash: fdc106a1a446f51d309ac4317062c8fd20204bae
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f79b03884109ffbd856ff4f60909565daeb0e792
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413397"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549119"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Private Link 및 관리 ID를 사용하는 가상 네트워크에 대한 IoT Hub 지원
 
@@ -36,7 +36,7 @@ ms.locfileid: "94413397"
 
 ## <a name="ingress-connectivity-to-iot-hub-using-azure-private-link"></a>Azure Private Link를 사용한 IoT Hub로의 수신 연결
 
-프라이빗 엔드포인트는 Azure 리소스에 연결할 수 있는 고객 소유의 VNet 내에 할당된 프라이빗 IP 주소입니다. Azure Private Link를 통해 IoT 허브의 프라이빗 엔드포인트를 설정하여 VNet 내부 서비스가 IoT Hub의 퍼블릭 엔드포인트로 트래픽을 보내지 않아도 IoT Hub에 도달하도록 허용할 수 있습니다. 마찬가지로, 온-프레미스 디바이스는 [VPN(가상 사설망)](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [ExpressRoute](https://azure.microsoft.com/services/expressroute/) 피어링을 사용하여 VNet 및 IoT Hub(프라이빗 엔드포인트를 통해)에 연결할 수 있습니다. 따라서 [IoT Hub IP 필터](./iot-hub-ip-filtering.md)를 사용하고 [기본 제공 엔드포인트에 데이터를 보내지 않도록 라우팅을 구성](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint)하여 IoT 허브의 퍼블릭 엔드포인트에 대한 연결을 제한하거나 완전히 차단할 수 있습니다. 이 방법은 디바이스의 프라이빗 엔드포인트를 사용하여 허브에 대한 연결을 유지합니다. 이 설정은 주요 온-프레미스 네트워크에 있는 디바이스에 적용되며, 광역 네트워크에 배포된 디바이스에는 권장되지 않습니다.
+프라이빗 엔드포인트는 Azure 리소스에 연결할 수 있는 고객 소유의 VNet 내에 할당된 프라이빗 IP 주소입니다. Azure Private Link를 통해 IoT 허브의 프라이빗 엔드포인트를 설정하여 VNet 내부 서비스가 IoT Hub의 퍼블릭 엔드포인트로 트래픽을 보내지 않아도 IoT Hub에 도달하도록 허용할 수 있습니다. 마찬가지로, 온-프레미스 디바이스는 [VPN(가상 사설망)](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [ExpressRoute](https://azure.microsoft.com/services/expressroute/) 피어링을 사용하여 VNet 및 IoT Hub(프라이빗 엔드포인트를 통해)에 연결할 수 있습니다. 결과적으로 [IOT HUB IP 필터](./iot-hub-ip-filtering.md) 또는 [공용 네트워크 액세스 설정/](iot-hub-public-network-access.md)해제를 사용 하 여 IoT hub의 공용 끝점에 대 한 연결을 제한 하거나 완전히 차단할 수 있습니다. 이 방법은 디바이스의 프라이빗 엔드포인트를 사용하여 허브에 대한 연결을 유지합니다. 이 설정은 주요 온-프레미스 네트워크에 있는 디바이스에 적용되며, 광역 네트워크에 배포된 디바이스에는 권장되지 않습니다.
 
 ![IoT Hub 가상 네트워크 engress](./media/virtual-network-support/virtual-network-ingress.png)
 
@@ -50,7 +50,7 @@ ms.locfileid: "94413397"
 
 개인 끝점은 장치-클라우드 메시지와 같은 IoT Hub 장치 Api 및 서비스 Api (예: 장치 만들기 및 업데이트)에 대해 작동 합니다.
 
-1. Azure portal에서 **네트워킹** , **프라이빗 엔드포인트 연결** 을 선택하고 **+ 프라이빗 엔드포인트** 를 클릭합니다.
+1. Azure portal에서 **네트워킹**, **프라이빗 엔드포인트 연결** 을 선택하고 **+ 프라이빗 엔드포인트** 를 클릭합니다.
 
     :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="IoT Hub의 프라이빗 엔드포인트를 추가할 곳을 보여 주는 스크린샷":::
 
@@ -64,17 +64,12 @@ ms.locfileid: "94413397"
 
 1. **검토 + 만들기** 를 클릭하여 프라이빗 링크 리소스를 만듭니다.
 
-### <a name="built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint"></a>기본 제공 이벤트 허브 호환 엔드포인트는 프라이빗 엔드포인트를 통한 액세스를 지원하지 않음
+### <a name="built-in-event-hub-compatible-endpoint"></a>기본 제공 Event Hub 호환 끝점 
 
-[기본 제공 이벤트 허브 호환 엔드포인트](iot-hub-devguide-messages-read-builtin.md)는 프라이빗 엔드포인트를 통한 액세스를 지원하지 않습니다. IoT 허브의 프라이빗 엔드포인트가 구성된 경우 이 엔드포인트는 수신 연결 전용입니다. 기본 제공 이벤트 허브 호환 엔드포인트의 데이터를 사용하는 것은 공용 인터넷을 통해서만 가능합니다. 
+[기본 제공 Event Hub 호환 끝점](iot-hub-devguide-messages-read-builtin.md) 은 개인 끝점을 통해 액세스할 수도 있습니다. 개인 링크가 구성 되 면 기본 제공 끝점에 대 한 추가 개인 끝점 연결이 표시 됩니다. FQDN에 포함 된 항목 `servicebus.windows.net` 입니다.
 
-IoT Hub의 [IP 필터](iot-hub-ip-filtering.md)도 기본 제공 엔드포인트에 대한 공용 액세스를 제어하지 않습니다. IoT 허브에 대한 공용 네트워크 액세스를 완전히 차단하려면 다음을 수행해야 합니다. 
+:::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="각 IoT Hub 개인 링크를 지정 하 여 두 개의 개인 끝점을 보여 주는 이미지":::
 
-1. IoT Hub에 대한 프라이빗 엔드포인트 액세스 구성
-1. [공용 네트워크 액세스를 끄거나](iot-hub-public-network-access.md) ip 필터를 사용 하 여 모든 ip 차단
-1. [데이터를 전송 하지 않도록 라우팅을 설정](iot-hub-devguide-messages-d2c.md) 하 여 기본 제공 이벤트 허브 끝점 사용을 중지 합니다.
-1. [대체 경로](iot-hub-devguide-messages-d2c.md#fallback-route) 끄기
-1. [신뢰할 수 있는 Microsoft 서비스](#egress-connectivity-from-iot-hub-to-other-azure-resources)를 사용하여 다른 Azure 리소스에 대한 송신 구성
 
 ### <a name="pricing-for-private-link"></a>Private Link의 가격
 
@@ -174,7 +169,7 @@ IoT Hub는 고객 소유 스토리지 계정으로 메시지를 라우팅할 수
 
 1. Azure Portal에서 스토리지 계정의 **액세스 제어(IAM)** 탭으로 이동하여 **역할 할당 추가** 섹션에서 **추가** 를 클릭합니다.
 
-2. **Storage Blob 데이터 기여자** 를 **역할** 로 선택하고( [기여자나 스토리지 계정 기여자가 ‘아닌’](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)), **Azure AD 사용자, 그룹 또는 서비스 주체** 를 **액세스 할당 중** 으로 선택하고 드롭다운 목록에서 IoT Hub의 리소스 이름을 선택합니다. **저장** 단추를 클릭합니다.
+2. **Storage Blob 데이터 기여자** 를 **역할** 로 선택하고([기여자나 스토리지 계정 기여자가 ‘아닌’](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)), **Azure AD 사용자, 그룹 또는 서비스 주체** 를 **액세스 할당 중** 으로 선택하고 드롭다운 목록에서 IoT Hub의 리소스 이름을 선택합니다. **저장** 단추를 클릭합니다.
 
 3. 스토리지 계정의 **방화벽 및 가상 네트워크** 탭으로 이동하여 **선택한 네트워크에서 액세스 허용** 옵션을 사용하도록 설정합니다. **예외** 목록에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다** 확인란을 선택합니다. **저장** 단추를 클릭합니다.
 
@@ -216,7 +211,7 @@ IoT Hub는 메시지를 고객 소유 서비스 버스 네임스페이스로 라
 
 4. IoT Hub의 리소스 페이지에서 **메시지 라우팅** 탭으로 이동합니다.
 
-5. **사용자 지정 엔드포인트** 섹션으로 이동하여 **추가** 를 클릭합니다. 엔드포인트 형식으로 **서비스 버스 큐** 또는 **Service Bus 토픽** (해당하는 바에 따라)을 선택합니다.
+5. **사용자 지정 엔드포인트** 섹션으로 이동하여 **추가** 를 클릭합니다. 엔드포인트 형식으로 **서비스 버스 큐** 또는 **Service Bus 토픽**(해당하는 바에 따라)을 선택합니다.
 
 6. 표시되는 페이지에서 엔드포인트의 이름을 지정하고, 서비스 버스 네임스페이스와 큐 또는 토픽(해당하는 바에 따라)을 선택합니다. **인증 유형** 으로 **id 기반** 을 선택 하 고 **만들기** 단추를 클릭 합니다.
 
@@ -230,13 +225,13 @@ IoT Hub의 파일 업로드 기능에서는 디바이스가 고객 소유 스토
 
 1. Azure Portal에서 스토리지 계정의 **액세스 제어(IAM)** 탭으로 이동하여 **역할 할당 추가** 섹션에서 **추가** 를 클릭합니다.
 
-2. **Storage Blob 데이터 기여자** 를 **역할** 로 선택하고( [기여자나 스토리지 계정 기여자가 ‘아닌’](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)), **Azure AD 사용자, 그룹 또는 서비스 주체** 를 **액세스 할당 중** 으로 선택하고 드롭다운 목록에서 IoT Hub의 리소스 이름을 선택합니다. **저장** 단추를 클릭합니다.
+2. **Storage Blob 데이터 기여자** 를 **역할** 로 선택하고([기여자나 스토리지 계정 기여자가 ‘아닌’](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)), **Azure AD 사용자, 그룹 또는 서비스 주체** 를 **액세스 할당 중** 으로 선택하고 드롭다운 목록에서 IoT Hub의 리소스 이름을 선택합니다. **저장** 단추를 클릭합니다.
 
 3. 스토리지 계정의 **방화벽 및 가상 네트워크** 탭으로 이동하여 **선택한 네트워크에서 액세스 허용** 옵션을 사용하도록 설정합니다. **예외** 목록에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다** 확인란을 선택합니다. **저장** 단추를 클릭합니다.
 
 4. IoT Hub의 리소스 페이지에서 **파일 업로드** 탭으로 이동합니다.
 
-5. 표시되는 페이지에서 Blob Storage에서 사용할 컨테이너를 선택하고, **파일 알림 설정** , **SAS TTL** , **기본 TTL** 및 **최대 전달 횟수** 를 원하는 대로 구성합니다. **Id 기반** 을 저장소 끝점에 대 한 **인증 형식** 으로 선택 합니다. **만들기** 단추를 클릭합니다. 이 단계에서 오류가 발생 하면 **모든 네트워크** 에서 액세스할 수 있도록 저장소 계정을 임시로 설정 하 고 다시 시도 합니다. 파일 업로드 구성이 완료 되 면 저장소 계정에서 방화벽을 구성할 수 있습니다.
+5. 표시되는 페이지에서 Blob Storage에서 사용할 컨테이너를 선택하고, **파일 알림 설정**, **SAS TTL**, **기본 TTL** 및 **최대 전달 횟수** 를 원하는 대로 구성합니다. **Id 기반** 을 저장소 끝점에 대 한 **인증 형식** 으로 선택 합니다. **만들기** 단추를 클릭합니다. 이 단계에서 오류가 발생 하면 **모든 네트워크** 에서 액세스할 수 있도록 저장소 계정을 임시로 설정 하 고 다시 시도 합니다. 파일 업로드 구성이 완료 되 면 저장소 계정에서 방화벽을 구성할 수 있습니다.
 
 이제 파일 업로드를 위한 스토리지 엔드포인트가 허브의 시스템 할당 ID를 사용하도록 설정되었고 방화벽 제한에도 불구하고 스토리지 리소스에 액세스할 권한을 갖게 되었습니다.
 
@@ -248,7 +243,7 @@ IoT Hub는 고객이 제공한 스토리지 Blob에서/(으)로 디바이스의 
 
 1. Azure Portal에서 스토리지 계정의 **액세스 제어(IAM)** 탭으로 이동하여 **역할 할당 추가** 섹션에서 **추가** 를 클릭합니다.
 
-2. **Storage Blob 데이터 기여자** 를 **역할** 로 선택하고( [기여자나 스토리지 계정 기여자가 ‘아닌’](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)), **Azure AD 사용자, 그룹 또는 서비스 주체** 를 **액세스 할당 중** 으로 선택하고 드롭다운 목록에서 IoT Hub의 리소스 이름을 선택합니다. **저장** 단추를 클릭합니다.
+2. **Storage Blob 데이터 기여자** 를 **역할** 로 선택하고([기여자나 스토리지 계정 기여자가 ‘아닌’](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)), **Azure AD 사용자, 그룹 또는 서비스 주체** 를 **액세스 할당 중** 으로 선택하고 드롭다운 목록에서 IoT Hub의 리소스 이름을 선택합니다. **저장** 단추를 클릭합니다.
 
 3. 스토리지 계정의 **방화벽 및 가상 네트워크** 탭으로 이동하여 **선택한 네트워크에서 액세스 허용** 옵션을 사용하도록 설정합니다. **예외** 목록에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다** 확인란을 선택합니다. **저장** 단추를 클릭합니다.
 

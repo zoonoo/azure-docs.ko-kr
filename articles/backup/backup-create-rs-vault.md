@@ -4,12 +4,12 @@ description: 이 문서에서는 백업과 복구 지점이 저장 되는 Recove
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: c7e7509f18e7511cd60099a70785b4e2c890afad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ef3d464c051f15d656a4a60937bb05ac496ee52d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019296"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548429"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기 및 구성
 
@@ -65,7 +65,7 @@ VM을 복원 하는 경우 VM 또는 해당 디스크를 복원할 수 있습니
 >시작하기 전에
 >
 >- 지원 되는 관리 되는 형식 및 지역 목록은 [지원 매트릭스](backup-support-matrix.md#cross-region-restore) 를 검토 하세요.
->- 이제 모든 Azure 공용 지역 및 소 버린 클라우드에서 CRR (교차 지역 복원) 기능을 미리 볼 수 있습니다.
+>- 이제 모든 Azure 공용 지역에서 CRR (교차 지역 복원) 기능을 미리 볼 수 있습니다.
 >- CRR은 GRS 자격 증명 모음에 대 한 자격 증명 모음 수준 옵트인 기능입니다 (기본적으로 해제 됨).
 >- 옵트인 후에는 보조 지역에서 백업 항목을 사용 하는 데 최대 48 시간이 걸릴 수 있습니다.
 >- 현재 azure Vm 용 CRR은 azure 리소스 관리자 Azure Vm에 대해서만 지원 됩니다. 클래식 Azure Vm은 지원 되지 않습니다.  추가 관리 유형이 CRR을 지 원하는 경우 **자동으로** 등록 됩니다.

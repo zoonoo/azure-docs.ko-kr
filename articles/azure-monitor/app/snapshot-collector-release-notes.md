@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: 89c13566c3710e56a4cd737d9aa03c6fb57edc93
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 73fea1e1928cf4e1bd5342aa0a4c885ccb5cf137
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542731"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548174"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Microsoft.applicationinsights.snapshotcollector에 대 한 릴리스 정보입니다.
 
@@ -22,6 +22,11 @@ ms.locfileid: "94542731"
 
 ## <a name="release-notes"></a>릴리스 정보
 
+## <a name="1374"></a>[1.3.7.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.4)
+Azure App Service의 코드 없는 attach 시나리오 테스트에서 발견 된 문제를 해결 하기 위한 지점 릴리스입니다.
+### <a name="changes"></a>변경
+- 이제 netcoreapp1.0 3.0 대상은 AspNetCore >= 2.1.1 (이전에는 >= 2.1.2)에 따라 달라 집니다.
+
 ## <a name="1373"></a>[1.3.7.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.3)
 여러 가지 심각한 문제를 해결 하기 위한 지점 릴리스입니다.
 ### <a name="bug-fixes"></a>버그 수정
@@ -30,9 +35,9 @@ ms.locfileid: "94542731"
 
 ## <a name="137"></a>[1.3.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7)
 ### <a name="changes"></a>변경
-Microsoft.applicationinsights.snapshotcollector의 netcoreapp1.0 2.0 대상은 AspNetCore >= 2.1.1 (다시)에 따라 달라 집니다. 이렇게 하면 1.3.5 전의 동작으로 되돌아갑니다. 1.3.6에서 업그레이드 하려고 했지만 일부 Azure App Service 시나리오는 중단 되었습니다.
-### <a name="new-features"></a>새 기능
-Snapshot Collector는 APPLICATIONINSIGHTS_CONNECTION_STRING 환경 변수 또는 TelemetryConfiguration에서 ConnectionString을 읽고 구문 분석 합니다. 주로이는 스냅숏 서비스에 연결 하기 위한 끝점을 설정 하는 데 사용 됩니다. 자세한 내용은 [연결 문자열 설명서](./sdk-connection-string.md)를 참조 하세요.
+- Microsoft.applicationinsights.snapshotcollector의 netcoreapp1.0 2.0 대상은 AspNetCore >= 2.1.1 (다시)에 따라 달라 집니다. 이렇게 하면 1.3.5 전의 동작으로 되돌아갑니다. 1.3.6에서 업그레이드 하려고 했지만 일부 Azure App Service 시나리오는 중단 되었습니다.
+### <a name="new-features"></a>새로운 기능
+- Snapshot Collector는 APPLICATIONINSIGHTS_CONNECTION_STRING 환경 변수 또는 TelemetryConfiguration에서 ConnectionString을 읽고 구문 분석 합니다. 주로이는 스냅숏 서비스에 연결 하기 위한 끝점을 설정 하는 데 사용 됩니다. 자세한 내용은 [연결 문자열 설명서](./sdk-connection-string.md)를 참조 하세요.
 ### <a name="bug-fixes"></a>버그 수정
 - 호환 되지 않는 SecurityProtocol (TLS 1.2 필요)으로 인해 일부 환경에서 WebRequest가 실패 했기 때문에 net45를 제외한 모든 대상에 대해 HttpClient를 사용 하도록 전환 되었습니다.
 
@@ -42,7 +47,7 @@ Snapshot Collector는 APPLICATIONINSIGHTS_CONNECTION_STRING 환경 변수 또는
 - 스냅숏 업 로더에서 TLS 1.0 및 1.1에 대 한 지원을 제거 합니다.
 - 이제 PDB 검색 기간에는 15 분이 아닌 24 시간이 기본값으로 설정 됩니다. SnapshotCollectorConfiguration의 PdbRescanInterval를 통해 구성할 수 있습니다.
 - PDB 검색은 재귀적이 아닌 최상위 폴더만 검색 합니다. 기호가 이진 폴더의 하위 폴더에 있는 경우에는이 변경 내용이 크게 바뀔 수 있습니다.
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 - 로그 폴더를 오래 된 파일로 채우지 않도록 SnapshotUploader의 로그 회전
 - .NET Core 3.0 응용 프로그램에 대 한 최적화 지원 (ReJIT on attach를 통해)
 - NuGet 패키지에 기호를 추가 합니다.
@@ -60,20 +65,20 @@ Snapshot Collector는 APPLICATIONINSIGHTS_CONNECTION_STRING 환경 변수 또는
 - AddSnapshotCollector ()를 사용 하 여 더 쉽게 스냅숏 수집기를 추가 했습니다. 자세한 내용은 [여기](./snapshot-debugger-appservice.md)를 참조하세요.
 - Blob 블록을 확인 하려면 FISMA MD5 설정을 사용 합니다. 이렇게 하면 OS가 FIPS 규격 모드로 설정 된 경우 사용할 수 없는 기본 .NET MD5 암호화 알고리즘이 방지 됩니다.
 - 함수 호출을 최적화할 때 .NET Framework 프레임을 무시 합니다. 이 동작은 DeoptimizeIgnoredModules 구성 설정으로 제어할 수 있습니다.
-- 둘 `DeoptimizeMethodCount` 이상의 함수 호출을 최적화할 수 있도록 하는 구성 설정을 추가 합니다. 자세한 내용은 여기를 참조 하세요.
+- 둘 `DeoptimizeMethodCount` 이상의 함수 호출을 최적화할 수 있도록 하는 구성 설정을 추가 합니다. 자세한 내용은 여기를 참조하세요.
 
 ## <a name="134"></a>[1.3.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.4)
 - 구조화 된 계측 키를 허용 합니다.
 - SnapshotUploader 견고성 강화-이전 업 로더 로그를 이동할 수 없는 경우에도 계속 시작 합니다.
 - 1.3.3에서 사용 하지 않도록 설정 된 SnapshotUploader.exe 즉시 종료 될 때 추가 원격 분석 보고를 다시 사용 하도록 설정 합니다.
 - 내부 원격 분석을 간소화 합니다.
-- _실험적 기능_ : Snappoint 수집 계획: "snapshotOnFirstOccurence"를 추가 합니다. 자세한 내용은 [여기](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe)를 참조하세요.
+- _실험적 기능_: Snappoint 수집 계획: "snapshotOnFirstOccurence"를 추가 합니다. 자세한 내용은 [여기](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe)를 참조하세요.
 
 ## <a name="133"></a>[1.3.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.3)
 - SnapshotUploader.exe 응답을 중지 하 고 .NET Core 앱에 대 한 스냅숏을 업로드 하지 않는 버그가 수정 되었습니다.
 
 ## <a name="132"></a>[1.3.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.2)
-- _실험적 기능_ : Snappoint collection 계획. 자세한 내용은 [여기](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe)를 참조하세요.
+- _실험적 기능_: Snappoint collection 계획. 자세한 내용은 [여기](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe)를 참조하세요.
 - SnapshotUploader.exe 프로세스가 종료 될 때까지 기다리지 않고 Microsoft.applicationinsights.snapshotcollector가 로드 된 AppDomain을 언로드할 때 종료 됩니다. 이렇게 하면 IIS에서 호스팅될 때 수집기 안정성이 향상 됩니다.
 - 동일한 계측 키를 사용 하는 여러 Microsoft.applicationinsights.snapshotcollector 인스턴스가 동일한 SnapshotUploader 프로세스를 공유 하도록 허용 하는 구성을 추가 합니다. ShareUploaderProcess (기본값 `true` ).
 - SnapshotUploader.exe 즉시 종료 될 때 추가 원격 분석을 보고 합니다.
@@ -135,7 +140,7 @@ Snapshot Collector는 APPLICATIONINSIGHTS_CONNECTION_STRING 환경 변수 또는
 - 수집 계획의 만료 시간으로 버그를 수정 하 여 24 시간 후에 스냅숏을 방지할 수 있습니다.
 
 ## <a name="120"></a>[1.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.2.0)
-이 버전의 가장 큰 변경 내용 (따라서 새 부 버전 번호로 이동)은 스냅숏 만들기 및 처리 파이프라인을 다시 작성 하는 것입니다. 이전 버전에서는이 기능이 네이티브 코드 (ProductionBreakpoints *및 SnapshotHolder* )에서 구현 되었습니다. 새 구현은 P/Invoke를 사용 하는 모든 관리 코드입니다. 새 파이프라인을 사용 하는이 첫 번째 버전에서는 원래 동작에서 멀리 strayed 하지 않았습니다. 새 구현에서는 더 나은 오류 보고를 허용 하 고 향후 개선 사항에 대해 설정 합니다.
+이 버전의 가장 큰 변경 내용 (따라서 새 부 버전 번호로 이동)은 스냅숏 만들기 및 처리 파이프라인을 다시 작성 하는 것입니다. 이전 버전에서는이 기능이 네이티브 코드 (ProductionBreakpoints *및 SnapshotHolder*)에서 구현 되었습니다. 새 구현은 P/Invoke를 사용 하는 모든 관리 코드입니다. 새 파이프라인을 사용 하는이 첫 번째 버전에서는 원래 동작에서 멀리 strayed 하지 않았습니다. 새 구현에서는 더 나은 오류 보고를 허용 하 고 향후 개선 사항에 대해 설정 합니다.
 
 ### <a name="other-changes-in-this-version"></a>이 버전의 기타 변경 내용
 - MinidumpUploader.exe SnapshotUploader.exe (또는 SnapshotUploader64.exe)로 이름이 변경 되었습니다.

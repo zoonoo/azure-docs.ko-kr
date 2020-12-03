@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d4983ecd1b8afe1ec6bd3cc31df8b711cebaddf1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 00b5d220cdbc511a309d55cfca2049508049fa30
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350265"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549007"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 릴리스 정보
 
@@ -46,8 +46,9 @@ HDInsight 3.6 ML Services 클러스터 유형은 12 월 31 2020 일까 지 지�
 ### <a name="disabled-vm-sizes"></a>비활성화 된 VM 크기
 11 월 16 2020부터 HDInsight는 standand_A8, standand_A9, standand_A10 및 standand_A11 VM 크기를 사용 하 여 클러스터를 만드는 새 고객을 차단 합니다. 지난 3 달 동안 이러한 VM 크기를 사용한 기존 고객에 게는 영향을 주지 않습니다. 9 2021 년 1 월 1 일부 터 HDInsight는 standand_A8, standand_A9, standand_A10 및 standand_A11 VM 크기를 사용 하 여 클러스터를 만드는 모든 고객을 차단 합니다. 기존 클러스터는 그대로 실행 됩니다. 잠재적인 시스템/지원 중단을 방지 하려면 HDInsight 4.0로 이동 하는 것이 좋습니다.
 
-### <a name="behavior-changes"></a>동작 변경
-이 릴리스에 대 한 동작은 변경 되지 않습니다.
+## <a name="behavior-changes"></a>동작 변경
+### <a name="add-nsg-rule-checking-before-scaling-operation"></a>크기 조정 작업 전에 NSG 규칙 검사 추가
+HDInsight는 크기 조정 작업을 통해 NSGs (네트워크 보안 그룹) 및 UDRs (사용자 정의 경로) 검사를 추가 했습니다. 클러스터를 만들 뿐만 아니라 클러스터 크기 조정을 위해 동일한 유효성 검사가 수행 됩니다. 이 유효성 검사는 예기치 않은 오류를 방지 하는 데 도움이 됩니다. 유효성 검사를 통과 하지 못하면 크기 조정이 실패 합니다. NSGs 및 UDRs를 올바르게 구성 하는 방법에 대 한 자세한 내용은 [HDInsight 관리 IP 주소](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)를 참조 하세요.
 
 ## <a name="upcoming-changes"></a>예정된 변경
 이후 릴리스에서는 다음과 같은 변경이 수행됩니다.

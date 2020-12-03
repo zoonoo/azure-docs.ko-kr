@@ -7,13 +7,13 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: troubleshooting
-ms.date: 11/27/2020
-ms.openlocfilehash: e0b4b31a1d732cbd5cbfaa9b6e5e021caa3adf01
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.date: 12/03/2020
+ms.openlocfilehash: d5cf39cf91b69574fc1423cfe0942b567cf9a278
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301959"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548209"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>ADF의 CI-CD, Azure DevOps 및 GitHub 문제 해결 
 
@@ -58,7 +58,7 @@ ms.locfileid: "96301959"
 
 #### <a name="recommendation"></a>권장
 
-이 오류는 일반적으로 매개 변수화 된 트리거를 삭제 하기 때문에 발생 합니다. 따라서 트리거는 더 이상 존재 하지 않기 때문에 ARM 템플릿에서는 매개 변수를 사용할 수 없습니다. 매개 변수가 ARM 템플릿에 더 이상 포함 되어 있지 않으므로 DevOps 파이프라인에서 재정의 된 매개 변수를 업데이트 해야 합니다. 그렇지 않고 ARM 템플릿의 매개 변수가 변경 될 때마다 배포 작업에서 DevOps 파이프라인의 재정의 된 매개 변수를 업데이트 해야 합니다.
+이 오류는 종종 매개 변수화 된 트리거를 삭제 하기 때문에 발생 합니다. 즉, 트리거가 더 이상 존재 하지 않기 때문에 ARM 템플릿에서 매개 변수를 사용할 수 없습니다. 매개 변수가 ARM 템플릿에 더 이상 포함 되어 있지 않으므로 DevOps 파이프라인에서 재정의 된 매개 변수를 업데이트 해야 합니다. 그렇지 않고 ARM 템플릿의 매개 변수가 변경 될 때마다 배포 작업에서 DevOps 파이프라인의 재정의 된 매개 변수를 업데이트 해야 합니다.
 
 ### <a name="updating-property-type-is-not-supported"></a>속성 유형 업데이트가 지원 되지 않습니다.
 
@@ -107,7 +107,7 @@ Data Factory에 변경 내용을 게시 하려고 하면 다음과 같은 오류
 
 Git 구성을 분리 하 고 "리소스 가져오기" 플래그를 선택 하 여 다시 설정 하 여 Data Factory를 "동기화 된"로 설정 합니다. 이는 게시할 변경 내용이 없음을 의미 합니다.
 
-**해결 방법**
+#### <a name="resolution"></a>해결 방법
 
 Git 구성을 분리 하 고 다시 설정 하 고 "기존 리소스 가져오기" 확인란을 선택 하지 않았는지 확인 합니다.
 
