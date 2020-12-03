@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 8b75345743bb398458752d03f853738df713b4f9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 64ba24eb0eab581310122908fc05d1d671ac1d40
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456446"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531576"
 ---
 # <a name="data-loading-strategies-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 데이터 로드 전략
 
@@ -119,8 +119,9 @@ Parquet 파일을 로드할 때 다음 SQL 데이터 형식 매핑을 사용 합
 | [복합 형식](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  MAP                  |   varchar(max)   |
 
 >[!IMPORTANT] 
-> - SQL 전용 풀은 현재 마이크로 s 및 NANOS 정밀도로 Parquet 데이터 형식을 지원 하지 않습니다. 
-> - Parquet와 SQL 간에 형식이 일치 하지 않거나 Parquet 데이터 형식이 지원 되지 않는 경우 다음과 같은 오류가 발생할 수 있습니다.  **"HdfsBridge:: recordReaderFillBuffer-레코드 판독기 버퍼를 채우는 동안 예기치 않은 오류 발생: ClassCastException: ..."**
+>- SQL 전용 풀은 현재 마이크로 s 및 NANOS 정밀도로 Parquet 데이터 형식을 지원 하지 않습니다. 
+>- Parquet와 SQL 간에 형식이 일치 하지 않거나 Parquet 데이터 형식이 지원 되지 않는 경우 다음과 같은 오류가 발생할 수 있습니다. **"HdfsBridge:: recordReaderFillBuffer-레코드 판독기 버퍼를 채우는 동안 예기치 않은 오류 발생: ClassCastException: ..."**
+>- 0-127 범위 밖의 값을 Parquet 및 ORC 파일 형식에 대 한 tinyint 열로 로드 하는 것은 지원 되지 않습니다.
 
 외부 개체를 만드는 예제는 [외부 테이블 만들기](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool)를 참조 하세요.
 

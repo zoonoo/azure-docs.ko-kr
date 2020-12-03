@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service) 클러스터를 업그레이드 하 
 services: container-service
 ms.topic: article
 ms.date: 11/17/2020
-ms.openlocfilehash: 262905c9f840850795ba9555912e81eca61369d1
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 30ad80727c238ae7e415039adf3e4eb75dbbc1b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683236"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531346"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
@@ -121,6 +121,64 @@ Name          Location    ResourceGroup    KubernetesVersion    ProvisioningStat
 myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
+## <a name="set-auto-upgrade-channel-preview"></a>자동 업그레이드 채널 설정 (미리 보기)
+
+클러스터를 수동으로 업그레이드 하는 것 외에도 클러스터에서 자동 업그레이드 채널을 설정할 수 있습니다. 다음 업그레이드 채널을 사용할 수 있습니다.
+
+* *없음*-자동 업그레이드를 사용 하지 않도록 설정 하 고 클러스터를 현재 버전의 Kubernetes에 보관 합니다. 이는 기본값이 며 옵션이 지정 되지 않은 경우 사용 됩니다.
+* *patch*-보조 버전을 동일 하 게 유지 하면서 클러스터를 사용할 수 있게 되 면 지원 되는 최신 패치 버전으로 자동 업그레이드 됩니다. 예를 들어 클러스터가 버전 *1.17.7* 을 실행 하 고 *1.17.9*, *1.18.4*, *1.18.6* 및 *1.19.1* 을 사용할 수 있는 경우 클러스터가 *1.17.9* 로 업그레이드 됩니다.
+* *안정적* 으로 클러스터를 부 버전 *n-1* 에서 지원 되는 최신 패치 릴리스로 자동 업그레이드 됩니다. 여기서 *n* 은 지원 되는 최신 부 버전입니다. 예를 들어 클러스터가 버전 *1.17.7* 을 실행 하 고 *1.17.9*, *1.18.4*, *1.18.6* 및 *1.19.1* 을 사용할 수 있는 경우 클러스터가 *1.18.6* 로 업그레이드 됩니다.
+* *신속* 하 게 지원 되는 최신 보조 버전에서 클러스터를 지원 되는 최신 패치 릴리스로 자동으로 업그레이드 합니다. 클러스터가 n *-2* 부 버전에 있는 Kubernetes의 버전에 있는 경우 *n* 은 지원 되는 최신 부 버전입니다. n *-1* 부 버전에서는 클러스터가 먼저 지원 되는 최신 패치 버전으로 업그레이드 됩니다. 예를 들어 클러스터가 버전 *1.17.7* 을 실행 하 고 *1.17.9*, *1.18.4*, *1.18.6* 및 *1.19.1* 을 사용할 수 있는 경우 클러스터는 먼저 *1.18.6* 로 업그레이드 된 다음 *1.19.1* 로 업그레이드 됩니다.
+
+> [!NOTE]
+> 클러스터 자동 업그레이드는 Kubernetes의 GA 버전 으로만 업데이트 되며 미리 보기 버전으로 업데이트 되지 않습니다.
+
+클러스터를 자동으로 업그레이드 하는 것은 클러스터를 수동으로 업그레이드 하는 것과 동일한 프로세스를 따릅니다. 자세한 내용은 [AKS 클러스터 업그레이드][upgrade-cluster]를 참조 하세요.
+
+AKS 클러스터에 대 한 클러스터 자동 업그레이드는 미리 보기 기능입니다.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+`AutoUpgradePreview`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 기능 플래그를 등록 합니다.
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
+```
+
+상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용 하 여 등록 상태를 확인 합니다.
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"
+```
+
+준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+[Az extension add][az-extension-add] 명령을 사용 하 여 *aks* 확장을 설치 하 고 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+클러스터를 만들 때 자동 업그레이드 채널을 설정 하려면 다음 예제와 유사 하 게 *자동 업그레이드 채널* 매개 변수를 사용 합니다.
+
+```azurecli-interactive
+az aks create --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable --generate-ssh-keys
+```
+
+기존 클러스터에서 자동 업그레이드 채널을 설정 하려면 다음 예제와 비슷한 *자동 업그레이드-채널* 매개 변수를 업데이트 합니다.
+
+```azurecli-interactive
+az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
+```
+
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 기존 AKS 클러스터를 업그레이드하는 방법을 설명했습니다. AKS 클러스터의 배포 및 관리에 대해 더 자세히 알아보려면 자습서 세트를 참조하세요.
@@ -137,6 +195,10 @@ myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded      
 [az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [az-aks-show]: /cli/azure/aks#az-aks-show
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[upgrade-cluster]:  #upgrade-an-aks-cluster

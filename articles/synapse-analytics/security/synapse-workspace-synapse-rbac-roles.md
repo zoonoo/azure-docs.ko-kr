@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 55a1255ffa82aec8ea7b9e1ec2bbc6746b9b0636
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: bae214fb8eff9747bf3f79323d8eb9ce1cb6cdb7
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523504"
+ms.locfileid: "96531601"
 ---
 # <a name="synapse-rbac-roles"></a>Synapse RBAC 역할
 
@@ -28,12 +28,11 @@ ms.locfileid: "96523504"
 - **새 하위 수준 범위** 는 여러 역할에 대해 도입 됩니다.  이러한 범위를 통해 특정 리소스나 개체로 역할을 제한할 수 있습니다.
 
 >[!Note]
->- 새 역할 및 하위 수준 범위는 현재 미리 보기 상태입니다.  
->- Apache Spark 관리자 및 SQL 관리자 역할은 새로운 Synapse RBAC 역할을 위해 향후 릴리스에서 더 이상 사용 되지 않습니다.  완전히 지원 되는 새 미리 보기 역할을 채택 하 고 사용에 대 한 피드백을 제공 하는 것이 좋습니다.
+>- **새 역할 및 하위 수준 범위는 현재 미리 보기** 상태입니다.  이러한 새로운 역할 및 범위를 사용 하 여 완전 하 게 지원 되 고 사용에 대 한 피드백을 제공 하는 것이 좋습니다.
 
 ## <a name="built-in-synapse-rbac-roles-and-scopes"></a>기본 제공 Synapse RBAC 역할 및 범위
 
-다음 표에서는 각 기본 제공 역할 및 이러한 역할을 사용할 수 있는 범위에 대해 설명 합니다.
+다음 표에서는 기본 제공 역할 및 해당 역할을 사용할 수 있는 범위에 대해 설명 합니다.
 
 >[!Note]
 > 모든 범위에서 Synapse RBAC 역할을 가진 사용자는 작업 영역 범위에 Synapse 사용자 역할을 자동으로 포함 합니다. 

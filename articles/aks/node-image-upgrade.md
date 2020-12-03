@@ -5,12 +5,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jpalma
-ms.openlocfilehash: e8214345bd1c328f0996f8aa8a2a8bb402a76e8d
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 83d7d48922806334e2b49494fe0ef1d15e1a7a6a
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309599"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531482"
 ---
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>AKS (Azure Kubernetes Service) 노드 이미지 업그레이드
 
@@ -158,12 +158,12 @@ az aks nodepool show \
 
 - 최신 노드 이미지에 대 한 자세한 내용은 [AKS 릴리스 정보](https://github.com/Azure/AKS/releases) 를 참조 하세요.
 - [AKS 클러스터 업그레이드][upgrade-cluster]를 사용 하 여 Kubernetes 버전을 업그레이드 하는 방법을 알아봅니다.
-- [Azure Kubernetes 서비스 (AKS)에서 Linux 노드에 보안 및 커널 업데이트 적용][security-update]
+- [GitHub 작업을 사용 하 여 클러스터 및 노드 풀 업그레이드 자동 적용][github-schedule]
 - 여러 노드 풀 및 [여러 노드 풀 만들기 및 관리][use-multiple-node-pools]를 사용 하 여 노드 풀을 업그레이드 하는 방법에 대해 자세히 알아보세요.
 
 <!-- LINKS - internal -->
 [upgrade-cluster]: upgrade-cluster.md
-[security-update]: node-updates-kured.md
+[github-schedule]: node-upgrade-github-actions.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade
 [az-extension-add]: /cli/azure/extension#az-extension-add

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 85638d2ef3499ca71057879852eb582b950b7e2c
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 7849027c704c8b8d7d36a33cd58c84566ce96da3
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325687"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530955"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Azure 방호의 azure 보안 기준
 
@@ -22,7 +22,7 @@ Azure 방호가 Azure Security 벤치 마크에 완전히 매핑되는 방식을
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](../security/benchmarks/security-controls-v2-network-security.md)을 참조 하세요.*
+자세한 내용은 [Azure Security Benchmark: 네트워크 보안](../security/benchmarks/security-controls-v2-network-security.md)을 참조하세요.
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: 내부 트래픽에 대 한 보안 구현
 
@@ -63,7 +63,7 @@ Azure 인증서를 통해 게이트웨이 관리자 및 Azure 서비스 태그�
 
 ## <a name="identity-management"></a>ID 관리
 
-*자세한 내용은 [Azure Security Benchmark: ID 관리](../security/benchmarks/security-controls-v2-identity-management.md)를 참조하세요.*
+자세한 내용은 [Azure Security Benchmark: ID 관리](../security/benchmarks/security-controls-v2-identity-management.md)를 참조하세요.
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Azure Active Directory를 중앙 ID 및 인증 시스템으로 표준화
 
@@ -92,7 +92,7 @@ SSH 키 또는 사용자 이름/암호 외에도 Azure 방호를 사용 하 여 
 
 **지침**: Azure 방호는 가상 머신 리소스에 인증할 때 인증을 위한 SSO를 지원 하지 않습니다. SSH 또는 사용자 이름/암호만 지원 됩니다. 그러나 Azure 방호는 Azure Active Directory (Azure AD)를 사용 하 여 전체 서비스에 대 한 id 및 액세스 관리를 제공 합니다. 사용자는 azure에 대 한 인증을 통해 azure 방호 리소스에 액세스 하 고 관리 하 고, Azure AD Connect를 통해 자체 동기화 된 엔터프라이즈 id로 원활한 single sign-on을 경험할 수 있습니다. 
 
-- [Azure AD를 사용하는 애플리케이션 SSO 이해](../active-directory/manage-apps/what-is-single-sign-on.md)
+- [Azure AD에서의 애플리케이션 SSO 이해](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 - [Azure AD connect](../active-directory/hybrid/whatis-azure-ad-connect.md)
 
@@ -119,7 +119,7 @@ SSH 키 또는 사용자 이름/암호 외에도 Azure 방호를 사용 하 여 
 
 **책임**: Customer
 
-### <a name="im-5-monitor-and-alert-on-account-anomalies"></a>IM-5: 비정상 계정 활동 모니터링 및 경고
+### <a name="im-5-monitor-and-alert-on-account-anomalies"></a>IM-5: 계정 변칙 모니터링 및 경고
 
 **지침**: Azure 방호 원격 세션에 대 한 진단 로그를 사용 하도록 설정 하 고, 이러한 로그를 사용 하 여 어떤 사용자가 어떤 작업에 연결 되어 어떤 시간에 어떤 시간에 연결 되 든 관련 로깅 정보를 볼 수 있습니다. Azure Monitor를 사용 하 여 로깅되는 특정 요새 세션에 대해 경고를 만들어 로그에서 변칙이 검색 되 면 알림을 받을 수 있습니다.
 
@@ -141,7 +141,7 @@ SSH 키 또는 사용자 이름/암호 외에도 Azure 방호를 사용 하 여 
 
 - [일반적인 조건부 액세스 정책](../active-directory/conditional-access/concept-conditional-access-policy-common.md)
 
-- [조건부 액세스를 사용 하 여 인증 세션 관리 구성](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
+- [조건부 액세스를 사용하여 인증 세션 관리 구성](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -149,9 +149,9 @@ SSH 키 또는 사용자 이름/암호 외에도 Azure 방호를 사용 하 여 
 
 ## <a name="privileged-access"></a>권한 있는 액세스
 
-*자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](../security/benchmarks/security-controls-v2-privileged-access.md)를 참조하세요.*
+자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](../security/benchmarks/security-controls-v2-privileged-access.md)를 참조하세요.
 
-### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: 업무상 중요 한 시스템에 대 한 관리 액세스 제한
+### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: 중요 비즈니스용 시스템에 대한 관리 액세스 제한
 
 **지침**: azure에서 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 특정 가상 컴퓨터에 대 한 연결 액세스 권한이 부여 된 계정을 제한 함으로써 업무상 중요 한 시스템에 대 한 액세스를 격리 합니다. 사용자가 특정 작업을 수행 하는 데 필요한 권한만 갖도록 최소 권한의 원칙을 따라야 합니다.
 
@@ -171,7 +171,7 @@ SSH 키 또는 사용자 이름/암호 외에도 Azure 방호를 사용 하 여 
 
 **책임**: Customer
 
-### <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3: 정기적으로 사용자 액세스 검토 및 조정
+### <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3: 정기적으로 사용자 액세스 권한 검토 및 조정
 
 **지침**: azure 방호는 Azure Active Directory (azure AD) 계정 및 azure RBAC를 사용 하 여 리소스를 관리 합니다. 사용자 계정 및 액세스 할당을 정기적으로 검토 하 여 계정 및 액세스 권한이 올바른지 확인 합니다. Azure AD 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 검토할 수 있습니다. Azure AD reporting은 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공할 수 있습니다. 또한 Azure AD Privileged Identity Management를 사용 하 여 검토 프로세스를 용이 하 게 하는 액세스 검토 보고서 워크플로를 만들 수 있습니다.
 
@@ -189,9 +189,9 @@ SSH 키 또는 사용자 이름/암호 외에도 Azure 방호를 사용 하 여 
 
 ### <a name="pa-4-set-up-emergency-access-in-azure-ad"></a>PA-4: Azure AD에서 응급 액세스 설정
 
-**지침**: azure 방호은 리소스를 관리 하기 위해 Azure Active Directory 및 azure RBAC와 통합 됩니다. 실수로 Azure AD 조직에서 잠기는 것을 방지 하려면 일반 관리 계정을 사용할 수 없는 경우 액세스를 위한 응급 액세스 계정을 설정 합니다. 응급 액세스 계정은 일반적으로 매우 특권 이며 특정 사용자에 게 할당 되 면 안 됩니다. 응급 액세스 계정은 일반 관리 계정을 사용할 수 없는 '비상' 시나리오의 긴급한 상황으로 제한됩니다.
+**지침**: azure 방호은 리소스를 관리 하기 위해 Azure Active Directory 및 azure RBAC와 통합 됩니다. 실수로 Azure AD 조직에서 잠기는 것을 방지 하려면 일반 관리 계정을 사용할 수 없는 경우 액세스를 위한 응급 액세스 계정을 설정 합니다. 응급 액세스 계정은 일반적으로 권한이 높으며 특정 사용자에게 할당되면 안 됩니다. 응급 액세스 계정은 일반 관리 계정을 사용할 수 없는 '비상' 시나리오의 긴급한 상황으로 제한됩니다.
 
-응급 액세스 계정에 대 한 자격 증명 (예: 암호, 인증서 또는 스마트 카드)을 안전 하 게 유지 하 고 비상 시에만 사용할 권한이 있는 개인 에게만 알려집니다.
+응급 액세스 계정의 자격 증명(예: 암호, 인증서 또는 스마트 카드)을 안전하게 유지하고 비상시에만 사용할 권한이 있는 사용자에게만 알립니다.
 
 - [Azure AD에서 응급 액세스 계정 관리](../active-directory/roles/security-emergency-access.md)
 
@@ -213,7 +213,7 @@ SSH 키 또는 사용자 이름/암호 외에도 Azure 방호를 사용 하 여 
 
 ### <a name="pa-6-use-privileged-access-workstations"></a>PA-6: 권한 있는 액세스 워크스테이션 사용
 
-**지침**: 보안이 유지 되 고 격리 된 워크스테이션은 관리자, 개발자 및 중요 서비스 운영자와 같은 중요 한 역할의 보안에 매우 중요 합니다. 요구 사항에 따라 프로덕션 환경에서 Azure 방호 리소스를 사용 하 여 관리 관리 작업을 수행 하는 데 매우 안전한 사용자 워크스테이션을 사용할 수 있습니다. Azure Active Directory, Microsoft Defender ATP (Advanced Threat Protection) 및/또는 Microsoft Intune를 사용 하 여 관리 작업을 위한 안전 하 고 관리 되는 사용자 워크스테이션을 배포할 수 있습니다. 보안 된 워크스테이션을 중앙에서 관리 하 여 강력한 인증, 소프트웨어 및 하드웨어 기준, 제한 된 논리 및 네트워크 액세스를 비롯 한 보안 구성을 적용할 수 있습니다. 
+**지침**: 안전하고 격리된 워크스테이션은 관리자, 개발자 및 중요 서비스 운영자와 같은 중요한 역할의 보안에 매우 중요합니다. 요구 사항에 따라 프로덕션 환경에서 Azure 방호 리소스를 사용 하 여 관리 관리 작업을 수행 하는 데 매우 안전한 사용자 워크스테이션을 사용할 수 있습니다. Azure Active Directory, Microsoft Defender ATP(Advanced Threat Protection) 및/또는 Microsoft Intune을 사용하여 관리 작업을 위한 관리형 보안 사용자 워크스테이션을 배포할 수 있습니다. 보안 된 워크스테이션을 중앙에서 관리 하 여 강력한 인증, 소프트웨어 및 하드웨어 기준, 제한 된 논리 및 네트워크 액세스를 비롯 한 보안 구성을 적용할 수 있습니다. 
 
 - [권한 있는 액세스 워크스테이션 이해](../active-directory/devices/concept-azure-managed-workstation.md)
 
@@ -246,7 +246,7 @@ Azure 방호를 사용 하 여 가상 머신에 연결 하는 경우 사용자�
 
 ## <a name="asset-management"></a>자산 관리
 
-*자세한 내용은 [Azure Security Benchmark: 자산 관리](../security/benchmarks/security-controls-v2-asset-management.md)를 참조하세요.*
+자세한 내용은 [Azure Security Benchmark: 자산 관리](../security/benchmarks/security-controls-v2-asset-management.md)를 참조하세요.
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: 보안 팀에서 자산 위험에 대한 가시성을 확보하도록 보장
 
@@ -266,7 +266,7 @@ Azure 방호를 사용 하 여 가상 머신에 연결 하는 경우 사용자�
 
 **책임**: Customer
 
-### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>오전-2: 보안 팀에 asset inventory and metadata에 대 한 액세스 권한이 있는지 확인
+### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: 보안 팀에 자산 인벤토리 및 메타데이터에 대한 액세스 권한이 있는지 확인
 
 **지침**: Azure 방호 리소스, 리소스 그룹 및 구독에 태그를 적용 하 여 논리적으로 분류로 구성 합니다. 각 태그는 이름과 값 쌍으로 이루어져 있습니다. 예를 들어 프로덕션의 모든 리소스에 "환경" 이름과 "프로덕션" 값을 적용할 수 있습니다. 보안 팀이 Azure에서 지속적으로 업데이트 되는 자산의 인벤토리에 액세스할 수 있는지 확인 합니다. Azure 리소스 그래프를 사용 하 여 Azure 서비스, 응용 프로그램 및 네트워크 리소스를 비롯 하 여 구독에 있는 모든 리소스를 쿼리하고 검색할 수 있습니다.
 
@@ -280,9 +280,9 @@ Azure 방호를 사용 하 여 가상 머신에 연결 하는 경우 사용자�
 
 **책임**: Customer
 
-### <a name="am-3-use-only-approved-azure-services"></a>오전 3: 승인 된 Azure 서비스만 사용
+### <a name="am-3-use-only-approved-azure-services"></a>AM-3: 승인된 Azure 서비스만 사용
 
-**지침**: Azure Policy을 사용 하 여 사용자 환경에서 프로 비전 할 수 있는 서비스를 감사 하 고 제한할 수 있습니다. 여기에는 Azure 방호 리소스의 배포를 허용 하거나 거부할 수 있는 기능이 포함 됩니다. Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리하고 검색 합니다. 또한 Azure Monitor를 사용 하 여 승인 되지 않은 서비스가 검색 될 때 경고를 트리거하는 규칙을 만들 수 있습니다.
+**지침**: Azure Policy을 사용 하 여 사용자 환경에서 프로 비전 할 수 있는 서비스를 감사 하 고 제한할 수 있습니다. 여기에는 Azure 방호 리소스의 배포를 허용 하거나 거부할 수 있는 기능이 포함 됩니다. Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 검색합니다. 또한 Azure Monitor를 사용하여 승인되지 않은 서비스가 검색되면 경고를 트리거하는 규칙을 만들 수 있습니다.
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -300,7 +300,7 @@ Azure 방호를 사용 하 여 가상 머신에 연결 하는 경우 사용자�
 
 - [강제 삭제-원격 세션 연결 끊기](session-monitoring.md#view)
 
-- [Azure 네트워크 CLI](/powershell/module/az.network/?amp;preserve-view=true&view=azps-5.1.0#networking)
+- [Azure 네트워크 CLI](/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -318,9 +318,9 @@ Azure 방호를 사용 하 여 가상 머신에 연결 하는 경우 사용자�
 
 ## <a name="logging-and-threat-detection"></a>로깅 및 위협 탐지
 
-*자세한 내용은 [Azure Security Benchmark: 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-data-protection)를 참조하세요.*
+자세한 내용은 [Azure Security Benchmark: 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-data-protection)를 참조하세요.
 
-### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Azure ID 및 액세스 관리에 위협 탐지 사용
+### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Azure ID 및 액세스 관리를 위한 위협 탐지 사용
 
 **지침**: azure 방호는 Azure Active Directory (azure AD)와 통합 되며 서비스는 Azure Portal를 통해 액세스 됩니다. 서비스에 대 한 관리 작업 (예: 만들기, 업데이트 및 삭제)은 기본적으로 Azure 활동 로그를 통해 캡처됩니다. 또한 사용자는 세션 BastionAuditLogs 같은 Azure 방호 리소스 로그를 사용 하도록 설정 하 여 요새 세션을 추적 해야 합니다.
 
@@ -347,7 +347,7 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 
 **책임**: Customer
 
-### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Azure 네트워크 작업에 대 한 로깅 사용
+### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Azure 네트워크 활동에 대한 로깅 사용
 
 **지침**: Azure 방호 리소스 로그를 사용 하도록 설정 하 고, 이러한 진단 로그를 사용 하 여 어떤 사용자가 어떤 시간에 어떤 작업에 연결 되어 어떤 시간에 어떤 작업을 관련 로깅 정보를 볼 수 있습니다. 사용자는 장기 보존 및 감사를 위해 저장소 계정에 보내도록 이러한 로그를 구성할 수 있습니다.
 
@@ -367,7 +367,7 @@ Azure 방호 리소스를 배포한 가상 네트워크에 적용 되는 네트�
 
 **책임**: Customer
 
-### <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Azure 리소스에 대 한 로깅 사용
+### <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Azure 리소스에 대한 로깅 사용
 
 **참고**: 자동으로 사용할 수 있는 활동 로그에는 읽기 작업 (GET)을 제외 하 고 Azure 방호 리소스에 대 한 모든 쓰기 작업 (PUT, POST, DELETE)이 포함 됩니다. 활동 로그를 사용 하 여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다.
 
@@ -381,7 +381,7 @@ Azure 방호 리소스를 배포한 가상 네트워크에 적용 되는 네트�
 
 **책임**: Customer
 
-### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT: 보안 로그 관리 및 분석을 중앙 집중화
+### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: 보안 로그 관리 및 분석 중앙 집중화
 
 **지침**: 상관 관계를 설정 하기 위해 저장소 및 분석을 중앙 집중화 합니다. 각 로그 원본에 대해 데이터 소유자, 액세스 지침, 저장소 위치, 데이터를 처리 하 고 액세스 하는 데 사용 되는 도구 및 데이터 보존 요구 사항을 할당 했는지 확인 합니다.
 
@@ -399,7 +399,7 @@ Azure 활동 로그를 중앙 로깅에 통합 하 고 있는지 확인 합니�
 
 **책임**: Customer
 
-### <a name="lt-6-configure-log-storage-retention"></a>LT-6: 로그 저장소 보존 구성
+### <a name="lt-6-configure-log-storage-retention"></a>LT-6: 로그 스토리지 보존 구성
 
 **지침**: Azure 방호 로그를 저장 하는 데 사용 되는 저장소 계정 또는 Log Analytics 작업 영역에는 조직의 규정 준수 규정에 따라 설정 된 로그 보존 기간이 있는지 확인 합니다.
 
@@ -417,23 +417,23 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [Azure Security Benchmark: 인시던트 대응](../security/benchmarks/security-controls-v2-incident-response.md)을 참조하세요.*
+자세한 내용은 [Azure Security Benchmark: 인시던트 응답](../security/benchmarks/security-controls-v2-incident-response.md)을 참조하세요.
 
-### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: 준비 – Azure에 대한 인시던트 대응 프로세스 업데이트
+### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: 준비 - Azure에 대한 인시던트 응답 프로세스 업데이트
 
-**지침**: 조직에서 보안 인시던트에 대응할 수 있는 프로세스가 있고, Azure에 대한 이러한 프로세스를 업데이트했으며, 정기적으로 프로세스를 실행하여 준비 상태를 보장하고 있는지 확인합니다.
+**지침**: 조직이 보안 인시던트에 대응하는 프로세스를 보유하고, 해당 프로세스를 Azure에 대해 업데이트했으며, 준비 상태를 확인하기 위해 프로세스를 정기적으로 수행하는지 확인합니다.
 
-- [엔터프라이즈 환경 전체에서 보안 구현](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [엔터프라이즈 환경에서 보안 구현](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-- [인시던트 대응 참조 가이드](/microsoft-365/downloads/IR-Reference-Guide.pdf)
+- [인시던트 응답 참조 가이드](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
 **Azure Security Center 모니터링**: 해당 없음
 
 **책임**: Customer
 
-### <a name="ir-2-preparation--setup-incident-notification"></a>IR-2: 준비 – 인시던트 알림 설정
+### <a name="ir-2-preparation--setup-incident-notification"></a>IR-2: 준비 - 인시던트 알림 설정
 
-**지침**: Azure Security Center에서 보안 인시던트 연락처 정보를 설정합니다. 이 연락처 정보는 MSRC(Microsoft 보안 대응 센터)에서 불법적이거나 권한이 없는 당사자가 데이터에 액세스했음을 검색한 경우 Microsoft에서 사용자에게 연락하는 데 사용됩니다. 또한 인시던트 대응 요구 사항에 따라 다양한 Azure 서비스에서 인시던트 경고 및 알림을 사용자 지정할 수 있는 옵션이 있습니다. 
+**지침**: Azure Security Center에서 보안 인시던트 연락처 정보를 설정합니다. 이 연락처 정보는 MSRC(Microsoft 보안 대응 센터)가 불법적인 당사자나 권한 없는 당사자가 데이터에 액세스한 것을 발견한 경우 Microsoft가 연락하는 데 사용됩니다. 또한 인시던트 응답 요구 사항에 따라 다양한 Azure 서비스에서 인시던트 경고 및 알림을 사용자 지정하는 옵션도 있습니다. 
 
 - [Azure Security Center 보안 연락처를 설정하는 방법](../security-center/security-center-provide-security-contact-details.md)
 
@@ -441,11 +441,11 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 
 **책임**: Customer
 
-### <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3: 검색 및 분석 – 고품질 경고에 기반한 인시던트 만들기
+### <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3: 탐지 및 분석 – 고품질 경고를 기반으로 인시던트 만들기
 
-**지침**: 고품질 경고를 만들고 경고 품질을 측정 하는 프로세스가 있는지 확인 합니다. 이를 통해 과거 인시던트로부터 교훈을 습득하고 분석가에 대한 경고의 우선 순위를 지정할 수 있으므로 가양성에 시간을 낭비하지 않습니다.
+**지침**: 고품질 경고를 만들고 경고의 품질을 측정하는 프로세스가 있는지 확인합니다. 이렇게 하면 이전 인시던트에서 상황을 확인하고 분석가를 위한 경고의 우선 순위를 지정할 수 있으므로 가양성으로 인해 시간을 낭비하지 않습니다.
 
-높은 품질의 경고는 다양 한 신호 원본을 융합 하 고 상관 관계를 설정 하 여 경고를 생성 하 고 정리 하도록 설계 된 과거 인시던트, 유효성 검사 된 커뮤니티 원본 및 도구의 환경을 기반으로 구축 될 수 있습니다. 
+고품질 경고는 이전 인시던트, 유효성이 검사된 커뮤니티 소스, 다양한 신호 원본을 결합하고 상관 관계를 설정하여 경고를 생성하고 정리하도록 설계된 도구 등에서 얻은 경험을 기반으로 구축할 수 있습니다. 
 
 Azure Security Center는 여러 Azure 자산에서 고품질의 경고를 제공 합니다. ASC 데이터 커넥터를 사용하여 경고를 Azure Sentinel로 스트림할 수 있습니다. Azure Sentinel을 사용하면 조사를 위해 인시던트를 자동으로 생성하는 고급 경고 규칙을 만들 수 있습니다. 
 
@@ -489,7 +489,7 @@ Azure Sentinel은 거의 모든 로그 원본 및 사례 관리 포털에서 광
 
 **책임**: Customer
 
-### <a name="ir-5-detection-and-analysis--prioritize-incidents"></a>IR-5: 검색 및 분석 – 인시던트 우선 순위 지정
+### <a name="ir-5-detection-and-analysis--prioritize-incidents"></a>IR-5: 탐지 및 분석 – 인시던트 우선 순위 지정
 
 **지침**: 경고 심각도 및 자산 민감도에 따라 먼저 집중해야 하는 인시던트에 대한 컨텍스트를 분석가에게 제공합니다. 
 
@@ -505,9 +505,9 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 **책임**: Customer
 
-### <a name="ir-6-containment-eradication-and-recovery--automate-the-incident-handling"></a>IR-6: 포함, 제거 및 복구 – 인시던트 처리 자동화
+### <a name="ir-6-containment-eradication-and-recovery--automate-the-incident-handling"></a>IR-6: 차단, 제거, 복구 - 인시던트 처리 자동화
 
-**지침**: 반복적인 수동 작업을 자동화하여 대응 시간을 단축하고 분석가의 부담을 줄입니다. 수동 작업은 실행하는 데 더 오랜 시간이 걸리고, 각 인시던트의 속도가 느려지고, 분석가가 처리할 수 있는 인시던트 수가 줄어듭니다. 또한 수동 작업은 분석가를 지치게 하여 지연을 유발하는 인간 오류의 위험을 높이고, 복잡한 작업에 효과적으로 집중할 수 있는 분석가의 능력을 저하시킵니다. Azure Security Center 및 Azure Sentinel의 워크플로 자동화 기능을 사용하여 작업을 자동으로 트리거하거나 플레이북을 실행하여 들어오는 보안 경고에 대응합니다. 플레이북은 알림 보내기, 계정 사용 안 함 및 문제가 있는 네트워크 격리와 같은 작업을 수행합니다. 
+**지침**: 수동 반복 작업을 자동화하여 응답 시간을 단축하고 분석가의 부담을 줄입니다. 수동 작업은 실행하는 데 더 오래 걸려 각 인시던트의 속도를 늦추고 분석가가 처리할 수 있는 인시던트 수를 줄입니다. 또한 수동 작업은 분석가를 지치게 하여 지연을 유발하는 인간 오류의 위험을 높이고, 복잡한 작업에 효과적으로 집중할 수 있는 분석가의 능력을 저하시킵니다. Azure Security Center 및 Azure Sentinel의 워크플로 자동화 기능을 사용하여 작업을 자동으로 트리거하거나 플레이북을 실행하여 들어오는 보안 경고에 대응합니다. 플레이북은 알림 보내기, 계정 사용 안 함 및 문제가 있는 네트워크 격리와 같은 작업을 수행합니다. 
 
 - [Security Center에서 워크플로 자동화 구성](../security-center/workflow-automation.md)
 
@@ -519,15 +519,15 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 **책임**: Customer
 
-## <a name="posture-and-vulnerability-management"></a>보안 상태 및 취약성 관리
+## <a name="posture-and-vulnerability-management"></a>태세 및 취약성 관리
 
-*자세한 내용은 [Azure Security Benchmark: 보안 상태 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)를 참조하세요.*
+자세한 내용은 [Azure Security Benchmark: 태세 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)를 참조하세요.
 
-### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1: Azure 서비스에 대 한 보안 구성 설정 
+### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1: Azure 서비스에 대한 보안 구성 설정 
 
 **지침**: Azure Policy을 사용 하 여 Azure에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Microsoft. Network" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Azure 방호의 네트워크 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다. 고객은 Azure 청사진 또는 ARM 템플릿을 활용 하 여 방호 리소스를 안전 하 고 일관 되 게 배포 하 여 보안 구성을 설정할 수도 있습니다.
 
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -539,11 +539,11 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 **책임**: Customer
 
-### <a name="pv-2-sustain-secure-configurations-for-azure-services"></a>PV-2: Azure 서비스에 대 한 보안 구성 유지
+### <a name="pv-2-sustain-secure-configurations-for-azure-services"></a>PV-2: Azure 서비스에 대한 보안 구성 유지
 
 **지침**: Azure Policy을 사용 하 여 Azure에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Microsoft. Network" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 사용자 지정 정책을 만들어 방호 리소스의 네트워크 구성을 감사 하거나 적용 합니다.
 
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -551,17 +551,17 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 **책임**: Customer
 
-### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8: 일반적인 공격 시뮬레이션 수행
+### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8: 정기적인 공격 시뮬레이션 수행
 
-**지침**: 필요에 따라 Azure 리소스에 대한 침투 테스트 또는 레드 팀 활동을 수행하고 모든 중요한 보안 결과를 수정하도록 보장합니다.
+**지침**: 필요에 따라 Azure 리소스에 대한 침투 테스트 또는 레드 팀 활동을 수행하고 모든 중요한 보안 결과를 수정해야 합니다.
 
-Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트에서 Microsoft 정책을 위반하지 않는지 확인합니다. Microsoft 관리형 클라우드 인프라, 서비스 및 애플리케이션에 대한 Microsoft의 전략과 Red Teaming 및 라이브 사이트 침투 테스트의 실행을 사용합니다.
+Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Microsoft 정책을 위반하지 않는지 확인합니다. Microsoft의 전략과 Microsoft에서 관리하는 클라우드 인프라, 서비스, 애플리케이션에 대한 레드 팀 실행 및 실시간 사이트 침투 테스트를 사용합니다.
 
 - [Azure의 침투 테스트](../security/fundamentals/pen-testing.md)
 
 - [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -569,36 +569,36 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 ## <a name="governance-and-strategy"></a>거버넌스 및 전략
 
-*자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](../security/benchmarks/security-controls-v2-governance-strategy.md)을 참조하세요.*
+자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](../security/benchmarks/security-controls-v2-governance-strategy.md)을 참조하세요.
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: 자산 관리 및 데이터 보호 전략 정의 
 
-**지침**: 시스템과 데이터를 지속적으로 모니터링하고 보호하기 위한 명확한 전략을 문서화하고 전달합니다. 중요 비즈니스용 데이터 및 시스템을 검색, 평가, 보호 및 모니터링하는 데 적용할 우선 순위를 지정합니다. 
+**지침**: 시스템 및 데이터를 지속적으로 모니터링하고 보호하기 위한 명확한 전략을 문서화하고 전달해야 합니다. 중요 비즈니스용 데이터 및 시스템의 검색, 평가, 보호, 모니터링에 우선 순위를 지정합니다. 
 
-이 전략에는 다음 요소에 대한 문서화된 지침, 정책 및 표준이 포함되어야 합니다. 
+이 전략에는 다음 요소에 대한 문서화된 지침, 정책, 표준이 포함되어야 합니다. 
 
--   비즈니스 위험에 따른 데이터 분류 기준
+-   비즈니스 위험에 따른 데이터 분류 표준
 
--   위험 및 자산 인벤토리에 대한 보안 조직 가시성 
+-   위험 및 자산 인벤토리에 대한 보안 조직의 가시성 
 
--   사용할 Azure 서비스에 대한 보안 조직 승인 
+-   사용할 Azure 서비스에 대한 보안 조직의 승인 
 
--   수명 주기를 통한 자산 보안
+-   수명 주기 전체에서 자산 보안
 
--   조직 데이터 분류에 따른 필수 액세스 제어 전략
+-   조직 데이터 분류에 따라 필요한 액세스 제어 전략
 
 -   Azure 기본 및 타사 데이터 보호 기능 사용
 
--   전송 중 및 저장 사용 사례에 대한 데이터 암호화 요구 사항
+-   전송 중 및 미사용 사용 사례에 대한 데이터 암호화 요구 사항
 
 -   적절한 암호화 표준
 
 자세한 내용은 다음 참조 문서를 참조하세요.
-- [Azure 보안 아키텍처 추천 사항 - 스토리지, 데이터 및 암호화](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+- [Azure 보안 아키텍처 권장 사항 - 스토리지, 데이터, 암호화](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
-- [Azure 보안 기본 사항 - Azure 데이터 보안, 암호화 및 스토리지](../security/fundamentals/encryption-overview.md)
+- [Azure 보안 기본 사항 - Azure 데이터 보안, 암호화, 스토리지](../security/fundamentals/encryption-overview.md)
 
-- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
+- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark - 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)
 
@@ -608,43 +608,43 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 **책임**: Customer
 
-### <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: 엔터프라이즈 조각화 전략 정의 
+### <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: 엔터프라이즈 구분 전략 정의 
 
-**지침**: ID, 네트워크, 애플리케이션, 구독, 관리 그룹 및 기타 제어를 조합하여 자산에 대한 액세스를 조각화하는 엔터프라이즈 수준 전략을 수립합니다.
+**지침**: ID, 네트워크, 애플리케이션, 구독, 관리 그룹 및 기타 컨트롤의 조합을 사용하여 자산에 대한 액세스를 구분하는 엔터프라이즈 전체 전략을 수립합니다.
 
-보안 분리 필요성 및 서로 통신하고 데이터에 액세스해야 하는 시스템의 일상적인 작업을 가능하게 해야 하는 필요성의 균형을 신중하게 조정합니다.
+서로 통신하고 데이터에 액세스해야 하는 시스템의 일상 작업을 사용하도록 설정해야 할 필요성과 보안 분리의 필요성을 신중하게 조정해야 합니다.
 
-네트워크 보안, ID/액세스 모델, 애플리케이션 권한/액세스 모델 및 사용자 프로세스 제어를 포함한 제어 유형 전반에 걸쳐 조각화 전략을 일관되게 구현합니다.
+구분 전략이 네트워크 보안, ID 및 액세스 모델, 애플리케이션 권한/액세스 모델 및 사용자 프로세스 컨트롤을 비롯하여 컨트롤 형식 간에 일관되게 구현되는지 확인합니다.
 
-- [Azure의 조각화 전략에 대한 지침(비디오)](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
+- [Azure의 구분 전략에 대한 지침(동영상)](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
 
-- [Azure의 조각화 전략에 대한 지침(문서)](/security/compass/governance#enterprise-segmentation-strategy)
+- [Azure의 구분 전략에 대한 지침(문서)](/security/compass/governance#enterprise-segmentation-strategy)
 
-- [엔터프라이즈 조각화 전략에 맞게 네트워크 조각화 조정](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
-
-**Azure Security Center 모니터링**: 해당 없음
-
-**책임**: Customer
-
-### <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: 보안 상태 관리 전략 정의
-
-**지침**: 개별 자산과 해당 자산이 호스팅되는 환경에 대한 위험을 지속적으로 측정하고 완화합니다. 게시된 애플리케이션, 네트워크 수신 및 송신 지점, 사용자 및 관리자 엔드포인트 등과 같이 높은 가치의 자산과 높은 수준의 공격 노출 영역에 대한 우선 순위를 지정합니다.
-
-- [Azure Security Benchmark - 보안 상태 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [엔터프라이즈 구분 전략에 맞춰 네트워크 구분 조정](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
 
 **Azure Security Center 모니터링**: 해당 없음
 
 **책임**: Customer
 
-### <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: 조직의 역할, 책임 및 의무
+### <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: 보안 태세 관리 전략 정의
 
-**지침**: 보안 조직의 역할 및 책임에 대한 명확한 전략을 문서화하고 전달합니다. 보안 결정에 대한 명확한 책임을 제공하고, 모든 사용자에게 책임 분담 모델을 교육하며, 기술 팀에 클라우드 보안 기술을 교육하는 데 적용되는 우선 순위를 지정합니다.
+**지침**: 개별 자산과 해당 자산이 호스트되는 환경에 대한 위험을 지속적으로 측정하고 완화합니다. 게시된 애플리케이션, 네트워크 수신 및 송신 지점, 사용자 및 관리자 엔드포인트 등과 같은 고가치 자산과 노출이 많은 공격 노출 영역에 우선 순위를 지정합니다.
 
-- [Azure 보안 모범 사례 1 – 사람: 클라우드 보안 경험에 대한 팀 교육](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
+- [Azure Security Benchmark - 태세 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
-- [Azure 보안 모범 사례 2 - 사람: 클라우드 보안 기술에 대한 팀 교육](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
+**Azure Security Center 모니터링**: 해당 없음
 
-- [Azure 보안 모범 사례 3 - 프로세스: 클라우드 보안 결정에 대한 책임 할당](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+**책임**: Customer
+
+### <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: 조직 역할, 책임, 의무 조정
+
+**지침**: 보안 조직의 역할 및 책임에 대한 명확한 전략을 문서화하고 전달하는지 확인합니다. 보안 의사 결정에 대한 명확한 책임을 제시하고, 공유 책임 모델을 모두에게 교육하고, 클라우드를 보호하는 기술에 관해 기술 팀을 교육하는 일에 우선 순위를 지정합니다.
+
+- [Azure 보안 모범 사례 1 – 사용자: 클라우드 보안 경험에 대한 팀 교육](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
+
+- [Azure 보안 모범 사례 2 – 사용자: 클라우드 보안 기술에 대한 팀 교육](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
+
+- [Azure 보안 모범 사례 3 – 프로세스: 클라우드 보안 결정에 대한 책임 할당](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -652,24 +652,24 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 ### <a name="gs-5-define-network-security-strategy"></a>GS-5: 네트워크 보안 전략 정의
 
-**지침**: 조직의 전체 보안 액세스 제어 전략의 일부로 Azure 네트워크 보안 방법을 설정합니다.  
+**지침**: 조직의 전반적인 보안 액세스 제어 전략의 일부로 Azure 네트워크 보안 방법을 설정합니다.  
 
-이 전략에는 다음 요소에 대한 문서화된 지침, 정책 및 표준이 포함되어야 합니다. 
+이 전략에는 다음 요소에 대한 문서화된 지침, 정책, 표준이 포함되어야 합니다. 
 
 -   중앙 집중식 네트워크 관리 및 보안 책임
 
--   엔터프라이즈 조각화 전략에 맞춘 조정된 가상 네트워크 조각화 모델
+-   엔터프라이즈 구분 전략에 맞춰 조정된 가상 네트워크 구분 모델
 
--   다양한 위협 및 공격 시나리오에서의 수정 전략
+-   다양한 위협 및 공격 시나리오에서 수정 전략
 
--   인터넷 에지 및 송수신 전략
+-   인터넷 에지 및 수신/송신 전략
 
 -   하이브리드 클라우드 및 온-프레미스 상호 연결 전략
 
 -   최신 네트워크 보안 아티팩트(예: 네트워크 다이어그램, 참조 네트워크 아키텍처)
 
 자세한 내용은 다음 참조 문서를 참조하세요.
-- [Azure 보안 모범 사례 11 - 아키텍처: 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+- [Azure 보안 모범 사례 11 – 아키텍처 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Azure Security Benchmark - 네트워크 보안](/azure/security/benchmarks/security-controls-v2-network-security)
 
@@ -683,19 +683,19 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 ### <a name="gs-6-define-identity-and-privileged-access-strategy"></a>GS-6: ID 및 권한 있는 액세스 전략 정의
 
-**지침**: 조직의 전체 보안 액세스 제어 전략의 일부로 Azure ID 및 권한 있는 액세스 방법을 설정합니다.  
+**지침**: 조직의 전반적인 보안 액세스 제어 전략의 일부로 Azure ID 및 권한 있는 액세스 방법을 설정합니다.  
 
-이 전략에는 다음 요소에 대한 문서화된 지침, 정책 및 표준이 포함되어야 합니다. 
+이 전략에는 다음 요소에 대한 문서화된 지침, 정책, 표준이 포함되어야 합니다. 
 
--   중앙 집중식 ID/인증 시스템 및 다른 내부/외부 ID 시스템과의 상호 연결
+-   중앙 집중식 ID 및 인증 시스템과 다른 내부 및 외부 ID 시스템 간의 상호 연결
 
 -   다양한 사용 사례 및 조건에서 강력한 인증 방법
 
--   높은 권한이 있는 사용자 보호
+-   권한이 높은 사용자 보호
 
--   비정상 사용자 활동 모니터링 및 처리  
+-   변칙 사용자 활동 모니터링 및 처리  
 
--   사용자 ID, 액세스 검토 및 조정 프로세스
+-   사용자 ID 및 액세스 검토와 조정 프로세스
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
@@ -703,7 +703,7 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 - [Azure Security Benchmark - 권한 있는 액세스](/azure/security/benchmarks/security-controls-v2-privileged-access)
 
-- [Azure 보안 모범 사례 11 - 아키텍처: 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+- [Azure 보안 모범 사례 11 – 아키텍처 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Azure ID 관리 보안 개요](../security/fundamentals/identity-management-overview.md)
 
@@ -713,35 +713,35 @@ Microsoft 클라우드 침투 테스트 시행 규칙에 따라 침투 테스트
 
 ### <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: 로깅 및 위협 대응 전략 정의
 
-**지침**: 로그 및 위협 대응 전략을 수립하여 규정 준수 요구 사항을 충족하면서 위협을 신속하게 탐지하고 수정합니다. 개발 및 수동 단계가 아닌 위협에 집중할 수 있도록 고품질 경고 및 원활한 환경을 제공 하는 우선 순위를 지정 합니다. 
+**지침**: 규정 준수 요구 사항을 충족하면서 신속하게 위협을 탐지하고 수정할 수 있는 로깅 및 위협 대응 전략을 수립합니다. 통합 및 수동 단계가 아닌 위협에 집중할 수 있도록 분석가에게 고품질 경고 및 원활한 환경을 제공하는 것에 우선 순위를 지정합니다. 
 
-이 전략에는 다음 요소에 대한 문서화된 지침, 정책 및 표준이 포함되어야 합니다. 
+이 전략에는 다음 요소에 대한 문서화된 지침, 정책, 표준이 포함되어야 합니다. 
 
--   보안 작업(SecOps) 조직의 역할 및 책임 
+-   보안 운영(SecOps) 조직의 역할 및 책임 
 
--   NIST 또는 다른 업계 프레임워크에 맞춘 잘 정의된 인시던트 대응 프로세스 
+-   NIST 또는 다른 업계 프레임워크를 사용하여 잘 정의된 인시던트 응답 프로세스 
 
--   위협 탐지, 인시던트 대응 및 규정 준수 요구 사항을 지원하기 위한 로그 캡처 및 보존
+-   위협 탐지, 인시던트 응답 및 규정 준수 요구 사항을 지원하는 로그 캡처 및 보존
 
--   SIEM, 기본 Azure 기능 및 기타 원본을 사용하여 위협에 대한 중앙 집중식 가시성 및 상관 관계 정보 
+-   SIEM, 네이티브 Azure 기능, 기타 소스를 사용하여 위협에 대한 중앙 집중식 가시성 및 상관 관계 정보 
 
--   고객, 공급자 및 관심 있는 퍼블릭 당사자와의 통신 및 알림 계획
+-   고객, 공급자 및 공공 당사자와의 통신 및 알림 계획
 
--   로깅/위협 탐지, 법정 분석 및 공격 수정/제거와 같은 인시던트 처리에 Azure 기본 및 타사 플랫폼 사용
+-   로깅 및 위협 탐지, 포렌식, 공격 수정, 제거와 같은 인시던트 처리를 위해 Azure 네이티브 및 타사 플랫폼 사용
 
--   학습된 교훈 및 증거 보존과 같은 인시던트 및 인시던트 후 활동을 처리하기 위한 프로세스
+-   확인한 상황 및 증거 보존을 포함하여 인시던트 및 인시던트 후 활동을 처리하는 프로세스
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
 - [Azure Security Benchmark - 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Azure Security Benchmark - 인시던트 대응](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Azure Security Benchmark - 인시던트 응답](/azure/security/benchmarks/security-controls-v2-incident-response)
 
-- [Azure 보안 모범 사례 4 - 프로세스. 클라우드에 대한 인시던트 대응 프로세스 업데이트](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Azure 보안 모범 사례 4 - 프로세스 클라우드에 대한 인시던트 응답 프로세스 업데이트](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-- [Azure 채택 프레임워크, 로깅 및 보고 결정 가이드](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
+- [Azure 채택 프레임워크, 로깅, 보고 의사 결정 가이드](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
-- [Azure 엔터프라이즈 크기 조정, 관리 및 모니터링](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
+- [Azure 엔터프라이즈 규모, 관리, 모니터링](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
 
 **Azure Security Center 모니터링**: 해당 없음
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 12/02/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 6374164bb5049742d63a669b4c1e552c93967977
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 396d6f69673f8758d8d1302f8d10b8a92e5f50b4
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173382"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530755"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에 앱 게시
 
@@ -69,7 +69,7 @@ Azure AD 앱 갤러리에 앱을 게시 하는 단계는 다음과 같습니다.
 - 상호 고객을 위한 단계별 구성 자습서가 있습니다.
 - [Scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(도메인 간 id 관리)을 위해 시스템을 사용 하는 고객은 동일한 앱에 대 한 프로 비전을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 두 명 이상의 사용자를 등록 하 여 테스트 하려면 영구 계정이 필요 합니다.
 
@@ -168,14 +168,25 @@ ASP.NET Core WS-Fed에 대 한 자세한 내용은 [ASP.NET Core에서 WS-Federa
 
 HTML 로그인 페이지가 있는 웹 응용 프로그램을 만듭니다. 응용 프로그램에서 폼 인증을 지원 하는지 확인 하 여 예상 대로 작동 하도록 Single Sign-On 수 있도록 암호 보관을 수행할 수 있도록 합니다.
 
+## <a name="step-3---implement-scim-user-provisioning-in-your-app"></a>3 단계-앱에서 SCIM 사용자 프로 비전 구현
+[Scim](https://aka.ms/scimoverview) 프로 비전 지원은 선택 사항 이지만 응용 프로그램을 빌드하는 데 매우 권장 되는 단계입니다. SCIM 표준 지원은 쉽게 수행할 수 있으며, 고객은 CSV 파일 업로드와 같은 수동 프로세스에 의존 하지 않고 앱에서 사용자 계정을 자동으로 만들고 업데이트할 수 있습니다. 또한 고객은 사용자 제거를 자동화 하 고, 그룹 멤버 자격을 동기화 된 상태로 유지할 수 있습니다 .이는 SAML JIT와 같은 솔루션을 사용 하 여 수행할 수 없습니다. 
 
-## <a name="step-3---create-your-azure-tenant-and-test-your-app"></a>3 단계-Azure 테 넌 트 만들기 및 앱 테스트
+### <a name="learn-about-scim"></a>SCIM에 대해 알아보기
+고객에 대 한 SCIM 표준 및 혜택에 대해 자세히 알아보려면 [scim으로 프로 비전-시작](https://aka.ms/scimoverview)을 참조 하세요.
+
+### <a name="understand-the-azure-ad-scim-implementation"></a>Azure AD SCIM 구현 이해
+Azure AD SCIM 구현에 대해 자세히 알아보려면 [scim 끝점 빌드 및 AZURE ad를 사용 하 여 사용자 프로 비전 구성](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups)을 참조 하세요.
+
+### <a name="implement-scim"></a>SCIM 구현
+Azure AD는 SCIM 끝점을 빌드하는 데 도움이 되는 [참조 코드](https://aka.ms/scimoverview) 를 제공 합니다. Github에서 찾을 수 있는 많은 타사 라이브러리/참조도 있습니다.  
+
+## <a name="step-4---create-your-azure-tenant-and-test-your-app"></a>4 단계-Azure 테 넌 트 만들기 및 앱 테스트
 
 앱을 테스트 하려면 Azure AD 테 넌 트가 필요 합니다. 개발 환경을 설정 하려면 [빠른 시작: 테 넌 트 설정](quickstart-create-new-tenant.md)을 참조 하세요.
 
 또는 Azure AD 테 넌 트는 모든 Microsoft 365 구독과 함께 제공 됩니다. 무료 Microsoft 365 개발 환경을 설정 하려면 [Microsoft 365 개발자 프로그램 참여](/office/developer-program/microsoft-365-developer-program)를 참조 하세요.
 
-테 넌 트가 있으면 single sign-on 액세스를 사용 하도록 설정 하 고 테스트 해야 합니다. 
+테 넌 트가 있으면 single sign-on 및 [프로 비전](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client)을 테스트 해야 합니다. 
 
 **OIDC 또는 Oath 응용 프로그램의** 경우 [응용 프로그램](quickstart-register-app.md) 을 다중 테 넌 트 응용 프로그램으로 등록 합니다. 지원 되는 계정 유형에서 조직 디렉터리 및 개인 Microsoft 계정 옵션의 계정을 선택 합니다.
 
@@ -184,7 +195,7 @@ HTML 로그인 페이지가 있는 웹 응용 프로그램을 만듭니다. 응�
 필요한 경우 [단일 테 넌 트 응용 프로그램을 다중 테 넌 트로 변환할](howto-convert-app-to-be-multi-tenant.md) 수도 있습니다.
 
 
-## <a name="step-4---create-and-publish-documentation"></a>4 단계-문서 만들기 및 게시
+## <a name="step-5---create-and-publish-documentation"></a>5 단계-문서 만들기 및 게시
 
 ### <a name="documentation-on-your-site"></a>사이트에 대 한 설명서
 
@@ -206,13 +217,14 @@ HTML 로그인 페이지가 있는 웹 응용 프로그램을 만듭니다. 응�
 * 파일럿 사용자를 위한 테스트 단계
 * 오류 코드 및 메시지를 비롯 한 문제 해결 정보
 * 고객을 위한 지원 메커니즘
+* 지원 되는 리소스 및 특성을 비롯 한 SCIM 끝점에 대 한 세부 정보
 
 ### <a name="documentation-on-the-microsoft-site"></a>Microsoft 사이트 설명서
 
 응용 프로그램을 Azure Marketplace에 게시 하는 Azure Active Directory 응용 프로그램 갤러리를 사용 하 여 응용 프로그램을 나열 하는 경우 Microsoft는 단계별 프로세스를 설명 하는 상호 고객에 대 한 설명서를 생성 합니다. [여기](../saas-apps/tutorial-list.md)에서 예제를 확인할 수 있습니다. 이 설명서는 갤러리에 대 한 제출에 따라 만들어지며, GitHub 계정을 사용 하 여 응용 프로그램을 변경 하는 경우 쉽게 업데이트할 수 있습니다.
 
 
-## <a name="step-5---submit-your-app"></a>5 단계-앱 제출
+## <a name="step-6---submit-your-app"></a>6 단계-앱 제출
 
 응용 프로그램 통합이 Azure AD에서 작동 하는지 테스트 한 후에는 [Microsoft 응용 프로그램 네트워크 포털](https://microsoft.sharepoint.com/teams/apponboarding/Apps)에서 응용 프로그램 요청을 제출 합니다.
 
@@ -262,7 +274,7 @@ Openid connect Connect를 사용 하 여 갤러리의 목록에 응용 프로그
 
 ![갤러리에 암호 SSO 응용 프로그램 나열](./media/howto-app-gallery-listing/passwordsso.png)
 
-사용자 프로 비전을 위해 [Scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 끝점을 구현 하는 경우 표시 된 대로 옵션을 선택 합니다. 
+사용자 프로 비전을 위해 [Scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 끝점을 구현 하는 경우 표시 된 대로 옵션을 선택 합니다. 온 보 딩 요청에서 스키마를 제공 하는 경우 [여기](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration) 에 있는 지침에 따라 스키마를 다운로드 하세요. 갤러리 응용 프로그램을 빌드하는 비 갤러리 응용 프로그램을 테스트할 때 구성한 스키마를 사용 합니다. 
 
    ![사용자 프로 비전 요청](./media/howto-app-gallery-listing/user-provisioning.png)
 
@@ -301,7 +313,7 @@ Openid connect Connect를 사용 하 여 갤러리의 목록에 응용 프로그
 모든 에스컬레이션에 대해 [AZURE AD SSO 통합 팀](mailto:SaaSApplicationIntegrations@service.microsoft.com)에 전자 메일을 보내면 가능한 한 빨리 응답 하 게 됩니다.
 
 
-## <a name="step-6---join-the-microsoft-partner-network"></a>6 단계-Microsoft 파트너 네트워크에 가입
+## <a name="step-7---join-the-microsoft-partner-network"></a>7 단계-Microsoft 파트너 네트워크에 가입
 Microsoft 파트너 네트워크는 전용 리소스, 프로그램, 도구 및 연결에 대 한 즉각적인 액세스를 제공 합니다. 네트워크에 가입 하 고 시장 출시 계획을 만들려면 [상업 고객](https://partner.microsoft.com/explore/commercial#gtm)에 게 도달 하세요 .를 참조 하세요.
 
 

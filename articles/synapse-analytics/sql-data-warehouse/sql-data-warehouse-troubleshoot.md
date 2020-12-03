@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6da80ec4c9c3c4e6c95eb1c9001596ffe3dd5711
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c69df88828a179cf1dce7bd35ac19c518b07903d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447854"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530717"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW) 문제 해결
 
@@ -45,6 +45,7 @@ ms.locfileid: "96447854"
 | 문제                                                        | 해결 방법                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | CETAS를 사용 하 여 빈 문자열을 내보내면 Parquet 및 ORC 파일에 NULL 값이 생성 됩니다. 참고 NOT NULL 제약 조건이 있는 열에서 빈 문자열을 내보내는 경우 CETAS는 거부 된 레코드를 생성 하며 내보내기에 실패할 수 있습니다. | CETAS의 SELECT 문에서 빈 문자열이 나 잘못 된 열을 제거 합니다. |
+| 0-127 범위 밖의 값을 Parquet 및 ORC 파일 형식에 대 한 tinyint 열로 로드 하는 것은 지원 되지 않습니다. | 대상 열에 대해 더 큰 데이터 형식을 지정 하십시오.           |
 
 ## <a name="performance"></a>성능
 

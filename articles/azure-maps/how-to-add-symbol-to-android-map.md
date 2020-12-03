@@ -1,27 +1,29 @@
 ---
-title: Android maps에 기호 계층 추가 | Microsoft Azure 맵
-description: 지도에 표식을 추가 하는 방법에 대해 알아봅니다. Azure Maps Android SDK를 사용 하 여 데이터 원본의 지점 기반 데이터를 포함 하는 기호 계층을 추가 하는 예제를 참조 하세요.
+title: Azure Maps Android SDK를 사용 하 여 지도에 기호 계층 추가
+description: 지도에 표식을 추가 하는 방법에 대해 알아봅니다. Microsoft Azure Maps Android SDK를 사용 하 여 데이터 원본의 지점 기반 데이터를 포함 하는 기호 계층을 추가 하는 예제를 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/26/2019
+ms.date: 11/24/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: acd5f06a5383308ce736f2860810ebee7e5bce28
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 300a7968b2072459d6d7709e4d89388e1bcf59f3
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897112"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531210"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 기호 계층 추가
 
 이 문서에서는 Azure Maps Android SDK를 사용 하 여 데이터 소스의 요소 데이터를 맵의 기호 계층으로 렌더링 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서의 단계를 완전히 따르려면 지도를 로드 하는 [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) 를 설치 해야 합니다.
+1. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
+2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+3. [Azure Maps Android SDK](./how-to-use-android-map-control-library.md)를 다운로드 하 여 설치 합니다.
 
 ## <a name="add-a-symbol-layer"></a>기호 레이어 추가
 
@@ -62,7 +64,7 @@ ms.locfileid: "92897112"
         //Create a point feature and add it to the data source.
         dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
     
-        //Add a custom image icon to the map resources.
+        //Add a red custom image icon to the map resources.
         map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
     
         //Create a symbol layer and add it to the map.
@@ -71,8 +73,6 @@ ms.locfileid: "92897112"
         });
     
     ```
-    
-    위의 코드 조각은 먼저 **Onready ()** 콜백 메서드를 사용 하 여 Azure Maps map 컨트롤 인스턴스를 가져옵니다. 그런 다음 **DataSource** 클래스를 사용 하 여 데이터 소스 개체를 만들어 맵에 추가 합니다. 그런 다음 점 기 하 도형을 포함 하는 **기능** 을 추가 합니다. 그러면 빨간색 표식 이미지가 기호에 대 한 아이콘으로 설정 됩니다. **기호 계층** 은 텍스트 또는 아이콘을 사용 하 여 데이터 원본에 래핑된 지점 기반 데이터를 맵의 기호로 렌더링 합니다. 그런 다음 기호 계층이 만들어지고 데이터 원본이 렌더링에 전달 된 다음 지도 계층에 추가 됩니다.
     
     위의 코드 조각을 추가한 후에 `MainActivity.java` 는 아래와 같이 표시 됩니다.
     
@@ -165,19 +165,17 @@ ms.locfileid: "92897112"
         }
     }
     ```
-    
-이제 응용 프로그램을 실행 하는 경우 다음과 같이 맵에 마커가 표시 됩니다.
 
-<center>
+응용 프로그램을 실행 하면 다음과 같이 맵에 마커가 표시 됩니다.
 
-![Android 지도 핀](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
+![Android 지도 핀](./media/how-to-add-symbol-to-android-map/android-map-pin.png)
 
 > [!TIP]
 > 기본적으로 기호 레이어는 겹치는 기호를 숨겨 기호 렌더링을 최적화 합니다. 확대 하는 동안 숨겨진 기호가 표시 됩니다. 이 기능을 사용 하지 않도록 설정 하 고 모든 기호를 항상 렌더링 하려면 `iconAllowOverlap` 옵션을로 설정 `true` 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-맵에 추가 정보를 추가 하려면 다음을 참조 하세요.
+지도에 더 많은 데이터를 추가 하려면 다음을 참조 하세요.
 
 > [!div class="nextstepaction"]
 > [Android 맵에 도형 추가](./how-to-add-shapes-to-android-map.md)
