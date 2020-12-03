@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 6b8a9cbfd3e7057f0d85d5f4e19fea3aa4fbe90b
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 79fe821e2da494ab8c9e4cb407e2c2b025f75568
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980221"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169106"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>자습서: 권한 부여 코드 흐름을 사용하여 사용자 로그인 및 JavaScript SPA(단일 페이지 앱)에서 Microsoft Graph API 호출
 
@@ -351,7 +351,7 @@ const graphConfig = {
 
 - `Enter_the_Graph_Endpoint_Here`는 애플리케이션과 통신해야 하는 Microsoft Graph API의 인스턴스입니다.
   - **글로벌** Microsoft Graph API 엔드포인트의 경우 이 문자열의 두 인스턴스를 모두 `https://graph.microsoft.com`으로 바꿉니다.
-  - **국가별** 클라우드 배포의 엔드포인트는 Microsoft Graph 설명서의 [국가별 클라우드 배포](https://docs.microsoft.com/graph/deployments)를 참조하세요.
+  - **국가별** 클라우드 배포의 엔드포인트는 Microsoft Graph 설명서의 [국가별 클라우드 배포](/graph/deployments)를 참조하세요.
 
 글로벌 엔드포인트를 사용하는 경우 *graphConfig.js* 의 `graphMeEndpoint` 및 `graphMailEndpoint` 값은 다음과 비슷해야 합니다.
 

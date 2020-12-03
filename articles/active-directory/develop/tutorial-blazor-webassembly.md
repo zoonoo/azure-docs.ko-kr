@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 5489feeeec64c7b3d4b5fc28eddfe8b780308796
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 09e922ffddcce732d9213eb91026561528c0728a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979881"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169140"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>자습서: Blazor WebAssembly 앱에서 사용자를 로그인하고 보호된 API 호출
 
@@ -26,7 +26,7 @@ ms.locfileid: "94979881"
 > [!div class="checklist"]
 >
 > * Microsoft ID 플랫폼을 사용하여 [인증 및 권한 부여](authentication-vs-authorization.md)에 Azure AD(Azure Active Directory)를 사용하도록 구성된 새 Blazor WebAssembly 앱 만들기
-> * 보호된 웹 API(여기서는 [Microsoft Graph](https://docs.microsoft.com/graph/overview))에서 데이터 검색
+> * 보호된 웹 API(여기서는 [Microsoft Graph](/graph/overview))에서 데이터 검색
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
