@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 1b23d6c7952e60ee693bb481fec04d358654632c
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 3f2cbd7afe206866ae4d5b7c0925c8f3be9ab785
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530496"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558813"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 가격 책정 계층 선택
 
@@ -21,7 +21,7 @@ ms.locfileid: "96530496"
 
 + 인덱스 및 기타 개체의 수량 (최대 제한)
 + 파티션(실제 스토리지)의 크기와 속도
-+ 사용 중인 파티션 및 복제본 수를 포함 하는 고정 된 비용 (청구 가능 요금)
++ 청구 가능 요금, 고정 월별 비용, 파티션 또는 복제본을 추가 하는 경우의 증분 비용
 
 또한 몇 가지 [프리미엄 기능](#premium-features) 을 계층 요구 사항과 함께 제공 합니다.
 
@@ -49,7 +49,7 @@ Azure Portal의 다음 스크린샷은 사용 가능한 계층, 가격 책정 (�
 
 다음 표에서는 계층 관련 기능 제약 조건에 대해 설명 합니다.
 
-| 기능 | 제한 사항 |
+| 특징 | 제한 사항 |
 |---------|-------------|
 | [인덱서에](search-indexer-overview.md) | S3 HD에서는 인덱서를 사용할 수 없습니다.  |
 | [AI 보강](search-security-manage-encryption-keys.md) | 무료 계층에서 실행 되지만 권장 되지 않습니다. |

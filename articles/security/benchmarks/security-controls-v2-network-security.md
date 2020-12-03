@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b6aaad9cce330d755fb69f8be48737f9a8f6c4a7
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 38ab16fbadee245810a4486170dd54922c0c38f9
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487748"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558915"
 ---
 # <a name="security-control-v2-network-security"></a>보안 제어 V2: 네트워크 보안
 
@@ -54,7 +54,7 @@ Azure 센티널을 사용 하 여 SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, 서명 �
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| NS-2 | 해당 없음 | CA-3, AC-17, MA-4 |
+| NS-2 | N/A | CA-3, AC-17, MA-4 |
 
 Azure Express 경로 또는 Azure VPN (가상 사설망)을 사용 하 여 공동 배치 환경의 온-프레미스 인프라와 Azure 데이터 센터 간에 개인 연결을 만듭니다. Express 경로 연결은 공용 인터넷을 통해 이동 하지 않으며 일반적인 인터넷 연결 보다 안정적이 고 속도가 빠르며 대기 시간이 짧습니다. 지점 및 사이트 간 VPN 및 사이트 간 VPN의 경우 이러한 VPN 옵션과 Azure Express 경로를 조합 하 여 온-프레미스 장치 또는 네트워크를 가상 네트워크에 연결할 수 있습니다.
 
@@ -126,7 +126,11 @@ DDoS (분산 서비스 거부) 공격, 응용 프로그램별 공격, 원치 않
 
 **고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-없음
+- [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
+
+- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+
+- [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 ## <a name="ns-5-deploy-intrusion-detectionintrusion-prevention-systems-idsips"></a>NS-5: 침입 감지/침입 방지 시스템 (IDS/IPS) 배포
 
@@ -184,7 +188,7 @@ Virtual Network 서비스 태그를 사용 하 여 네트워크 보안 그룹 �
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| NS-7 | 해당 없음 | SC-20, SC-21 |
+| NS-7 | N/A | SC-20, SC-21 |
 
 DNS 보안에 대 한 모범 사례에 따라 현 DNS, DNS amplifications 공격, DNS 포 이즈 및 스푸핑 등의 일반적인 공격을 완화 합니다. 
 

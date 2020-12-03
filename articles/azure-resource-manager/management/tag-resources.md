@@ -2,14 +2,14 @@
 title: 논리적 조직에 대 한 리소스, 리소스 그룹 및 구독 태그
 description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리소스를 구성하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/03/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e9ef96a712e5ac2ba483170fb8ef9c89115b4f8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e47d3acf15ce5e4f5cb70444419b76beb21ae98b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972568"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558150"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>태그를 사용 하 여 Azure 리소스 및 관리 계층 구조 구성
 
@@ -26,9 +26,11 @@ Azure 리소스, 리소스 그룹 및 구독에 태그를 적용 하 여 논리�
 
 ## <a name="required-access"></a>필요한 액세스
 
-리소스에 태그를 적용 하려면 **Microsoft .resources/tags** 리소스 유형에 대 한 쓰기 권한이 있어야 합니다. [태그 참여자](../../role-based-access-control/built-in-roles.md#tag-contributor) 역할을 사용 하면 엔터티 자체에 액세스 하지 않고도 엔터티에 태그를 적용할 수 있습니다. 현재 태그 참여자 역할은 포털을 통해 리소스 또는 리소스 그룹에 태그를 적용할 수 없습니다. 포털을 통해 구독에 태그를 적용할 수 있습니다. PowerShell 및 REST API를 통한 모든 태그 작업을 지원 합니다.  
+태그 리소스에 대 한 필수 액세스를 가져오는 방법에는 두 가지가 있습니다.
 
-또한 [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할은 모든 엔터티에 태그를 적용 하는 데 필요한 액세스 권한을 부여 합니다. 하나의 리소스 형식에만 태그를 적용하려면 해당 리소스에 대한 기여자 역할을 사용합니다. 예를 들어, 가상 머신에 태그를 적용하려면 [가상 머신 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)를 사용합니다.
+- **Microsoft .resources/tags** 리소스 유형에 대 한 쓰기 액세스 권한이 있을 수 있습니다. 이 액세스를 통해 리소스에 액세스할 수 없는 경우에도 리소스에 태그를 지정할 수 있습니다. [태그 참여자](../../role-based-access-control/built-in-roles.md#tag-contributor) 역할은이 액세스 권한을 부여 합니다. 현재 태그 참여자 역할은 포털을 통해 리소스 또는 리소스 그룹에 태그를 적용할 수 없습니다. 포털을 통해 구독에 태그를 적용할 수 있습니다. PowerShell 및 REST API를 통한 모든 태그 작업을 지원 합니다.  
+
+- 리소스 자체에 대 한 쓰기 권한을 가질 수 있습니다. [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할은 모든 엔터티에 태그를 적용 하는 데 필요한 액세스 권한을 부여 합니다. 하나의 리소스 형식에만 태그를 적용하려면 해당 리소스에 대한 기여자 역할을 사용합니다. 예를 들어, 가상 머신에 태그를 적용하려면 [가상 머신 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)를 사용합니다.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -277,7 +279,7 @@ az tag create --resource-id $resource --tags Team=Compliance Environment=Product
 },
 ```
 
-태그가 이미 있는 리소스에 태그를 추가 하려면 **az tag update** 를 사용 합니다. **--Operation** 매개 변수를 **Merge** 로 설정 합니다.
+태그가 이미 있는 리소스에 태그를 추가 하려면를 사용 `az tag update` 합니다. `--operation`매개 변수를로 설정 `Merge` 합니다.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
@@ -313,7 +315,7 @@ az tag update --resource-id $resource --operation Merge --tags Status=Green
 },
 ```
 
-**--Operation** 매개 변수를 **Replace** 로 설정 하면 기존 태그가 새 태그 집합으로 대체 됩니다.
+`--operation`매개 변수를로 설정 하면 `Replace` 기존 태그가 새 태그 집합으로 대체 됩니다.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
@@ -406,7 +408,7 @@ az group list --tag Dept=Finance
 
 ### <a name="remove-tags"></a>태그 제거
 
-특정 태그를 제거 하려면 **az tag update** 및 set **--operation** 을 사용 하 여 **삭제** 합니다. 삭제 하려는 태그를 전달 합니다.
+특정 태그를 제거 하려면를 사용 하 `az tag update` 고 `--operation` 를로 설정 `Delete` 합니다. 삭제 하려는 태그를 전달 합니다.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web

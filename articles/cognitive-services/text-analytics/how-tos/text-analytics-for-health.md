@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/02/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: e7f017c1f3dc189af2b0fc053912decca3459478
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 27af0ffdeb254dbb671a0618d0e9973336a7f529
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952763"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559017"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>방법: 상태에 대 한 Text Analytics 사용 (미리 보기)
 
@@ -28,6 +28,8 @@ ms.locfileid: "94952763"
 
 * 웹 기반 API (비동기) 
 * Docker 컨테이너 (동기)   
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
 ## <a name="features"></a>기능
 
@@ -106,7 +108,7 @@ Text Analytics 클라이언트 라이브러리의 최신 시험판을 사용 하
 
 다음 형식의 JSON 문서가 있어야 합니다. ID, 텍스트 및 언어. 
 
-문서 크기는 문서당 5,120자 미만이어야 합니다. 컬렉션에 허용 되는 최대 문서 수는 개념의 [데이터 제한](../concepts/data-limits.md?tabs=version-3) 문서를 참조 하세요. 컬렉션은 요청 본문에 제출됩니다.
+문서 크기는 문서당 5,120자 미만이어야 합니다. 컬렉션에 허용되는 최대 문서 수는 개념 아래의 [데이터 제한](../concepts/data-limits.md?tabs=version-3) 문서를 참조하세요. 컬렉션은 요청 본문에 제출됩니다.
 
 ### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>호스트 된 비동기 웹 API에 대 한 API 요청 구성
 

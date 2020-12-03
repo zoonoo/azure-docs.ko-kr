@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: dd4586128bf2ce657352c0a1d4608637ecf9dba9
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 69fda41249ced8518e430af8305c0cb10822b214
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531227"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559068"
 ---
 # <a name="azure-monitor-logs-overview"></a>Azure Monitor 로그 개요
 Azure Monitor 로그는 모니터링 되는 [리소스](../monitor-reference.md)에서 로그 및 성능 데이터를 수집 하 고 구성 하는 Azure Monitor의 기능입니다. Azure 서비스의 [플랫폼 로그](platform-logs-overview.md) , [virtual machines 에이전트](agents-overview.md)의 로그 및 성능 데이터, [응용 프로그램](../app/app-insights-overview.md) 의 사용 현황 및 성능 데이터와 같은 여러 원본의 데이터를 단일 작업 영역으로 통합 하 여 수백만 개의 레코드를 신속 하 게 분석할 수 있는 정교한 쿼리 언어를 사용 하 여 함께 분석할 수 있습니다. 특정 레코드 집합을 검색 하거나 정교한 데이터 분석을 수행 하 여 모니터링 데이터에서 중요 한 패턴을 식별 하는 간단한 쿼리를 수행할 수 있습니다. Log Analytics를 사용 하 여 대화형으로 로그 쿼리 및 해당 결과를 작업 하 고, 경고 규칙에서 사용 하 여 문제를 사전에 통보 하거나, 통합 문서 또는 대시보드에서 결과를 시각화할 수 있습니다.

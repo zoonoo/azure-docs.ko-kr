@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba22745923f1b157c477dce0b5704c7e278e748e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6eb63a4a0b7b7fdefd636d3460b182f8d907dd36
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96176004"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558932"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Azure Active Directory의 질문과 대답 Id 보호
 
@@ -29,7 +29,7 @@ Id 보호에서 **사용자 위험 해제** 는 id 보호에서 사용자의 위
 사용자 위험 해제 흐름에서 대기 시간이 발생 하는 현재 알려진 문제가 있습니다. “사용자 위험 정책”이 있는 경우 “사용자 위험 해제”를 클릭하면 몇 분 이내에 해제된 사용자에게 정책 적용이 중지됩니다. 그러나 해제된 사용자의 “위험 상태”를 새로 고치는 UX에서 알려진 지연이 있습니다. 해결 방법으로, 브라우저 수준에서 페이지를 새로 고쳐 최신 사용자 “위험 상태”를 확인합니다.
 
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="why-is-a-user-is-at-risk"></a>사용자가 위험에 노출 되는 이유는 무엇 인가요?
 
@@ -82,9 +82,11 @@ IP 지리적 위치 매핑은 업계 전체에서 사용되는 챌린지입니�
 
 - 이 피드백이 수신되면 사용자가 아닌 로그인 위험 상태가 **안전 확인** 으로 전환되며 위험 수준은 **-** 로 설정됩니다.
 
-- 또한 향후에 위험 평가를 개선할 수 있도록 Microsoft 기계 학습 시스템에도 정보가 제공됩니다.
+- 또한 향후에 위험 평가를 개선할 수 있도록 Microsoft 기계 학습 시스템에도 정보가 제공됩니다. 
 
     > [!NOTE]
+    >현재는 로그인 시 안전 확인을 선택 해도 동일한 속성의 이후 로그인이 위험으로 플래그가 지정 되지 않습니다. 사용자의 속성을 학습할 수 있도록 시스템을 학습 하는 가장 좋은 방법은 MFA에 위험한 로그인 정책을 사용 하는 것입니다. MFA에 대해 위험한 로그인에 대 한 메시지가 표시 되 고 사용자가 요청에 성공적으로 응답 하면 로그인이 성공 하 고 합법적인 사용자의 행동에 따라 시스템을 학습 하는 데 도움이 될 수 있습니다.
+    >
     > 사용자의 보안이 손상되지 않았다고 생각되면 로그인 수준에서 **안전 확인** 을 사용하는 대신 사용자 수준에서 **사용자 위험 해제** 를 사용합니다. 사용자 수준에 대 한 **해제 사용자 위험은** 사용자 위험과 모든 이전 위험한 로그인 및 위험 검색을 종료 합니다.
 
 ### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>Id 보호에 위험한 로그인 또는 위험 검색이 표시 되지 않는 경우에도 위험 점수가 낮음 인 사용자가 표시 되는 이유는 무엇 인가요?

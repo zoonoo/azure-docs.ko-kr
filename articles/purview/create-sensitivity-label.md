@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
-ms.openlocfilehash: b286533da90565429f96c5701aaa72dab0fb21d0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 12/03/2020
+ms.openlocfilehash: 195ddfcc3c781c1866a7751f989c9460463edbb9
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555202"
+ms.locfileid: "96558167"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Azure 부서의 범위에서 데이터에 자동으로 레이블
 
@@ -36,13 +36,7 @@ ms.locfileid: "96555202"
 > 분류는 직접 일치 하는 반면 (주민 등록 번호는 **주민 등록 번호** 를 포함 함), 민감도 레이블은 하나 이상의 분류와 시나리오가 함께 발견 될 때 적용 됩니다. 
 > 
 
-Azure 부서의 범위의 민감도 레이블을 사용 하 여 다음 작업을 수행할 수 있습니다.
-
-- 파일 및 데이터베이스 열에 **레이블 자동 적용**
-
-- 데이터에 액세스할 수 있는 사용자 및 액세스할 수 없는 사용자 **제어**
-
-- 레이블이 지정 된 데이터에 암호화와 같은 **보호 설정 적용**
+Azure 부서의 범위의 민감도 레이블을 사용 하 여 파일 및 데이터베이스 열에 레이블을 자동으로 적용할 수 있습니다.
 
 자세한 내용은 다음을 참조하세요.
 

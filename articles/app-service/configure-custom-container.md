@@ -4,12 +4,12 @@ description: Azure App Service에서 사용자 지정 컨테이너를 구성 하
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 9f71efbf7cc606efd598880e90ade3a549402245
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2aece0550d7b78ac4312e71b2671de4a64e4b86b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787060"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557929"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Azure App Service에 대한 사용자 지정 컨테이너 구성
 
@@ -139,7 +139,17 @@ IIS 또는 .NET Framework (4.0 이상) 기반 컨테이너의 경우 `System.Con
 
 영구 저장소를 사용 하지 않도록 설정 하면 디렉터리에 대 한 쓰기는 `C:\home` 지속 되지 않습니다. [Docker 호스트 로그 및 컨테이너 로그](#access-diagnostic-logs) 는 컨테이너에 연결 되지 않은 기본 영구 공유 저장소에 저장 됩니다. 영구 저장소를 사용 하도록 설정 하면 디렉터리에 대 한 모든 쓰기 `C:\home` 는 유지 되 고 확장 된 앱의 모든 인스턴스에서 액세스할 수 있으며 로그는에서 액세스할 수 있습니다 `C:\home\LogFiles` .
 
-기본적으로 영구 저장소는 *사용 하지 않도록* 설정 되 고 설정은 응용 프로그램 설정에 표시 되지 않습니다. 이 기능을 사용 하도록 설정 하려면 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` [Cloud Shell](https://shell.azure.com)을 통해 앱 설정을 설정 합니다. Bash:
+::: zone-end
+
+::: zone pivot="container-linux"
+
+앱의 파일 시스템에서 */home* 디렉터리를 사용 하 여 다시 시작할 때마다 파일을 유지 하 고 인스턴스 간에 공유할 수 있습니다. `/home`컨테이너 앱이 영구 저장소에 액세스할 수 있도록 앱의가 제공 됩니다.
+
+영구 저장소를 사용 하지 않도록 설정 하면 디렉터리에 대 한 쓰기가 `/home` 앱을 다시 시작 하거나 여러 인스턴스에 걸쳐 지속 되지 않습니다. 유일한 예외는 `/home/LogFiles` Docker 및 컨테이너 로그를 저장 하는 데 사용 되는 디렉터리입니다. 영구 저장소를 사용 하도록 설정 하면 디렉터리에 대 한 모든 쓰기 `/home` 는 유지 되며 확장 된 앱의 모든 인스턴스에서 액세스할 수 있습니다.
+
+::: zone-end
+
+기본적으로 영구 저장소는 사용 하지 않도록 설정 되 고 설정은 앱 설정에 표시 되지 않습니다. 이 기능을 사용 하도록 설정 하려면 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` [Cloud Shell](https://shell.azure.com)을 통해 앱 설정을 설정 합니다. Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
@@ -150,28 +160,6 @@ PowerShell에서:
 ```azurepowershell-interactive
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=true}
 ```
-
-::: zone-end
-
-::: zone pivot="container-linux"
-
-앱의 파일 시스템에서 */home* 디렉터리를 사용 하 여 다시 시작할 때마다 파일을 유지 하 고 인스턴스 간에 공유할 수 있습니다. `/home`컨테이너 앱이 영구 저장소에 액세스할 수 있도록 앱의가 제공 됩니다.
-
-영구 저장소를 사용 하지 않도록 설정 하면 디렉터리에 대 한 쓰기가 `/home` 앱을 다시 시작 하거나 여러 인스턴스에 걸쳐 지속 되지 않습니다. 유일한 예외는 `/home/LogFiles` Docker 및 컨테이너 로그를 저장 하는 데 사용 되는 디렉터리입니다. 영구 저장소를 사용 하도록 설정 하면 디렉터리에 대 한 모든 쓰기 `/home` 는 유지 되며 확장 된 앱의 모든 인스턴스에서 액세스할 수 있습니다.
-
-기본적으로 영구 저장소는 *사용 하도록* 설정 되어 있으며 설정은 응용 프로그램 설정에 표시 되지 않습니다. 이 기능을 사용 하지 않도록 설정 하려면 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` [Cloud Shell](https://shell.azure.com)을 통해 앱 설정을 설정 합니다. Bash:
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
-```
-
-PowerShell에서:
-
-```azurepowershell-interactive
-Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=false}
-```
-
-::: zone-end
 
 > [!NOTE]
 > 사용자 [고유의 영구 저장소를 구성할](configure-connect-to-azure-storage.md)수도 있습니다.
@@ -290,7 +278,7 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"CO
 
 | 값 | 설명 |
 | - | - |
-| **Repair** | 3 회 연속 가용성 검사 후 컨테이너를 다시 시작 합니다. |
+| **복구한** | 3 회 연속 가용성 검사 후 컨테이너를 다시 시작 합니다. |
 | **ReportOnly** | 기본값입니다. 3 개의 연속 가용성 검사 후 컨테이너를 다시 시작 하지 않고 컨테이너의 Docker 로그에 보고 합니다. |
 | 해제 | 가용성을 확인 하지 않습니다. |
 
@@ -365,7 +353,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 *Docker-compose.ci.build.yml* 파일에서 `volumes` 옵션을에 매핑합니다 `${WEBAPP_STORAGE_HOME}` . 
 
-`WEBAPP_STORAGE_HOME`은 앱의 영구 스토리지에 매핑되는 App Service의 환경 변수입니다. 예를 들면 다음과 같습니다.
+`WEBAPP_STORAGE_HOME`은 앱의 영구 스토리지에 매핑되는 App Service의 환경 변수입니다. 다음은 그 예입니다. 
 
 ```yaml
 wordpress:

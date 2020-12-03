@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: ef06faa17739153b2a04e777498e1de6e97c0646
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 804d739efa5ac96c0b2d7228573f031f324e590e
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957098"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558983"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법
 
@@ -31,13 +31,13 @@ NER (명명 된 엔터티 인식)는 텍스트에서 다양 한 엔터티를 식
 
 ## <a name="personally-identifiable-information-pii"></a>PII(개인 식별 정보)
 
-PII 기능은 NER의 일부 이며, 전화 번호, 전자 메일 주소, 우편 주소, 여권 번호 등의 개별 사람과 연결 된 텍스트에서 중요 한 엔터티를 식별 하 고 교정 할 수 있습니다.  
+PII 기능은 NER의 일부 이며, 전화 번호, 전자 메일 주소, 우편 주소, 여권 번호 등의 개별 사람과 연결 된 텍스트에서 중요 한 엔터티를 식별 하 고 교정 할 수 있습니다.
 
 ## <a name="named-entity-recognition-features-and-versions"></a>명명 된 엔터티 인식 기능 및 버전
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| 기능                                                         | NER v 3.0 | NER v 3.1-preview. 3 |
+| 특징                                                         | NER v 3.0 | NER v 3.1-preview. 3 |
 |-----------------------------------------------------------------|--------|----------|
 | 단일 및 일괄 처리 요청을 위한 메서드                          | X      | X        |
 | 여러 범주에서 확장 된 엔터티 인식           | X      | X        |
