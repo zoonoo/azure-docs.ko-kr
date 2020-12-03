@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 73887515eea344e920455e3c24f3eae3d5ad515a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 50cce15d14561bb1c8ebfdbbeeedd99dc8efcda1
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95013738"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532995"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
@@ -61,7 +61,7 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
 
 두 번째 단계는 [Get Results Get](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) 작업을 호출 하는 것입니다. 이 작업은 읽기 작업에서 만든 작업 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)가 초과 되는 것을 방지 하려면 1 ~ 2 초 간격을 사용 합니다.
 
-|필드| 형식 | 가능한 값 |
+|필드| Type | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 작업이 시작 되지 않았습니다. |
 | |  | 실행 중: 작업이 처리 중입니다. |
@@ -133,7 +133,7 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
 ### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Read 3.2 preview는 텍스트 선 스타일을 추가 합니다 (라틴어 언어에만 해당).
 [읽기 3.2 미리 보기 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) 는 신뢰도 점수와 함께 각 텍스트 줄이 인쇄 또는 필기 스타일 인지 여부를 분류 하는 **모양** 개체를 출력 합니다. 이 기능은 라틴어 언어에 대해서만 지원 됩니다.
 
-Ocr [SDK 퀵 스타트를 읽고](./quickstarts-sdk/client-library.md) [읽기 REST API](./QuickStarts/CSharp-hand-text.md) 빠른 시작을 사용 하 여 ocr 기능을 응용 프로그램에 통합 하기 시작 하는 Computer Vision를 시작 합니다.
+OCR 기능을 응용 프로그램에 통합 하기 시작 하려면 [Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md) 빠른 시작을 시작 하세요.
 
 ## <a name="supported-languages-for-print-text"></a>인쇄 텍스트에 대해 지원 되는 언어
 [읽기 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) 는 영어, 스페인어, 독일어, 프랑스어, 이탈리아어, 포르투갈어 및 네덜란드어 언어로 인쇄 텍스트 추출을 지원 합니다.
@@ -197,7 +197,6 @@ OCR 지원 언어의 전체 목록은 [지원 되는 언어](./language-support.
 
 ## <a name="next-steps"></a>다음 단계
 
-- C #, Java, JavaScript 또는 Python에서 SDK 빠른 시작 [Computer Vision 읽어](./quickstarts-sdk/client-library.md) 보세요.
-- C #, Java, JavaScript 또는 Python에서 [Read REST API](./QuickStarts/CSharp-hand-text.md) 빠른 시작을 사용 하 여 REST api를 사용 하는 방법을 알아보세요.
+- [Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md)빠른 시작을 시작 하세요.
 - [읽기 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005)에 대해 알아봅니다.
 - 중국어 간체 및 일본어에 대 한 지원이 추가 된 [REST API 읽기 3.2 공개 미리 보기](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) 에 대해 알아봅니다.

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 12/02/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 01a5c696a41b9361c35e7af90f68088acea2944b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f12a899d3b6daa3b233e6a799871afca1e24d046
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913779"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533753"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 차단
 
@@ -166,6 +166,8 @@ New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 
 최적의 성능을 가진 일련의 저장소 계정에서 공용 액세스 설정을 확인 하려면 Azure Portal에서 Azure 리소스 그래프 탐색기를 사용할 수 있습니다. 리소스 그래프 탐색기를 사용 하는 방법에 대해 자세히 알아보려면 [빠른 시작: Azure 리소스 그래프 탐색기를 사용 하 여 첫 번째 리소스 그래프 쿼리 실행](../../governance/resource-graph/first-query-portal.md)을 참조 하세요.
 
+**Allowblobpublicaccess** 속성은 기본적으로 저장소 계정에 대해 설정 되지 않으며 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정은 속성 값이 **null** 또는 **true** 일 때 공용 액세스를 허용 합니다.
+
 리소스 그래프 탐색기에서 다음 쿼리를 실행 하면 저장소 계정 목록이 반환 되 고 각 계정에 대 한 공용 액세스 설정이 표시 됩니다.
 
 ```kusto
@@ -174,6 +176,10 @@ resources
 | extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
 | project subscriptionId, resourceGroup, name, allowBlobPublicAccess
 ```
+
+다음 이미지에서는 구독에 대 한 쿼리 결과를 보여 줍니다. **Allowblobpublicaccess** 속성이 명시적으로 설정 된 저장소 계정의 경우 결과에 **true** 또는 **false** 로 표시 됩니다. 저장소 계정에 대해 **Allowblobpublicaccess** 속성이 설정 되지 않은 경우 쿼리 결과에 공백 (또는 null)로 표시 됩니다.
+
+:::image type="content" source="media/anonymous-read-access-prevent/check-public-access-setting-accounts.png" alt-text="저장소 계정에서 공용 액세스 설정에 대 한 쿼리 결과를 보여 주는 스크린샷":::
 
 ## <a name="use-azure-policy-to-audit-for-compliance"></a>Azure Policy를 사용 하 여 규정 준수 감사
 

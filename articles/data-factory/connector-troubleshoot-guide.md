@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/25/2020
+ms.date: 12/02/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: dcc84dc252001721a3848a008a3db80dcc7822d2
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: c90b7ce86e06669696a4b9f7e0b2f5287e9dd97e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301260"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533199"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
 
@@ -205,7 +205,7 @@ ms.locfileid: "96301260"
 - **해결 방법**: 몇 분 후에 복사 작업을 다시 실행합니다.
                   
 
-## <a name="azure-synapse-analytics-formerly-sql-data-warehouseazure-sql-databasesql-server"></a>Azure Synapse Analytics (이전의 SQL Data Warehouse)/azure SQL Database/SQL Server
+## <a name="azure-synapse-analyticsazure-sql-databasesql-server"></a>Azure Synapse Analytics/Azure SQL Database/SQL Server
 
 ### <a name="error-code--sqlfailedtoconnect"></a>오류 코드:  SqlFailedToConnect
 
@@ -488,7 +488,28 @@ ms.locfileid: "96301260"
 
 - **권장 사항**:  파이프라인을 다시 실행합니다. 계속 실패하는 경우 병렬 처리를 줄입니다. 그래도 실패하면 dynamics 지원 서비스에 문의하세요.
 
+## <a name="excel-format"></a>Excel 형식
 
+### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>대량 Excel 파일을 구문 분석할 때 시간 초과 또는 성능 저하
+
+- **증상**:
+
+    1. Excel 데이터 집합을 만들고 연결/저장소에서 스키마를 가져오거나 데이터를 미리 보거나 워크시트를 새로 고칠 때 excel 파일 크기가 큰 경우 시간 초과 오류가 발생할 수 있습니다.
+    2. 복사 작업을 사용 하 여 대량 Excel 파일 (>= 100MB)에서 다른 데이터 저장소로 데이터를 복사 하는 경우 성능이 저하 되거나 OOM 문제가 발생할 수 있습니다.
+
+- **원인**: 
+
+    1. 스키마 가져오기, 데이터 미리 보기, excel 데이터 집합의 워크시트 나열 등의 작업을 수행 하려면 시간 제한이 100 및 정적입니다. 대량 Excel 파일의 경우 이러한 작업은 제한 시간 값 내에 완료 되지 않을 수 있습니다.
+
+    2. ADF 복사 작업은 전체 Excel 파일을 메모리로 읽은 다음 지정 된 워크시트와 데이터를 읽을 셀을 찾습니다. 이 동작은 기본 SDK ADF에서 사용 되기 때문에 발생 합니다.
+
+- **해결 방법**: 
+
+    1. 스키마를 가져올 때 원본 파일의 하위 집합인 작은 샘플 파일을 생성 하 고 "연결/저장소에서 스키마 가져오기" 대신 "샘플 파일에서 스키마 가져오기"를 선택할 수 있습니다.
+
+    2. 워크시트 드롭다운 목록에서 "편집"을 클릭 하 고 시트 이름/인덱스를 입력할 수 있습니다.
+
+    3. 대량 excel 파일 (>100MB)을 다른 저장소로 복사 하려면 스포츠 스트리밍이 읽고 수행 하는 데이터 흐름 Excel 원본을 사용할 수 있습니다.
 
 ## <a name="json-format"></a>JSON 형식
 
@@ -646,7 +667,7 @@ ms.locfileid: "96301260"
 - **권장 사항**:  페이로드에서 'CompressionType'을 제거합니다.
 
 
-## <a name="rest"></a>REST (영문)
+## <a name="rest"></a>REST
 
 ### <a name="unexpected-network-response-from-rest-connector"></a>REST 커넥터에서 예기치 않은 네트워크 응답
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/02/2020
-ms.openlocfilehash: 8b372cc0fc19c6bf163d9d4e61cde6ce74cb3f28
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: cc853285e193dd3ac4e348525b8bf0db9f8cb023
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95538389"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533947"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업용 Marketplace 계정 관리
 
@@ -293,7 +293,7 @@ Azure AD 애플리케이션에서 Microsoft Azure AD의 데이터를 읽고 쓰�
 파트너 센터에서 상업적 marketplace 프로그램에 대해 회사의 사용자에 게 다음 역할 및 권한을 할당할 수 있습니다.
 
 - **소유자**
-  - "이 사용자는 계정을 먼저 만들고 모든 계정 사용자를 만들고 편집 하며 모든 금융 및 계정 설정을 변경 하는 기능을 포함 하 여 전체 액세스 권한이 있는 사용자입니다. 계정에는 일반적으로 하나의 소유자만 있습니다. "
+  - 계정을 처음 만든 사람이 모든 계정 사용자를 만들고 편집 하 고 모든 금융 및 계정 설정을 변경 하는 기능을 포함 하 여이에 대 한 완전 한 액세스 권한을가지고 있습니다. 계정에는 일반적으로 하나의 소유자만 있습니다.
 - **관리자**
   - 세금 및 지급 설정을 제외한 모든 Microsoft 계정 기능에 액세스할 수 있음
   - 사용자, 역할 및 회사 계정(테넌트)를 관리할 수 있음

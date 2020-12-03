@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: 0a538deb3b7da19261e1bc2b7c0d29f35315f786
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 255cfe11f8601abc89a1d96f702f453c2af1ccbd
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015416"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533063"
 ---
 # <a name="long-audio-api-preview"></a>긴 오디오 API (미리 보기)
 
@@ -265,7 +265,7 @@ ID : xxx , Name : xxx : Succeeded
 
 | API | HTTP 상태 코드 | Description | 해결 방법 |
 |-----|------------------|-------------|----------|
-| 만들기 | 400 | 음성 합성은이 지역에서 사용할 수 없습니다. | 음성 구독 키를 지원 되는 지역으로 변경 합니다. |
+| 생성 | 400 | 음성 합성은이 지역에서 사용할 수 없습니다. | 음성 구독 키를 지원 되는 지역으로 변경 합니다. |
 |        | 400 | 이 영역에 대 한 **표준** 음성 구독만 유효 합니다. | 음성 구독 키를 "표준" 가격 책정 계층으로 변경 합니다. |
 |        | 400 | Azure 계정에 대 한 2만 요청 제한을 초과 합니다. 새 요청을 제출 하기 전에 일부 요청을 제거 하세요. | 서버는 각 Azure 계정에 대해 최대 2만 개의 요청을 유지 합니다. 새 요청을 제출 하기 전에 일부 요청을 삭제 합니다. |
 |        | 400 | 이 모델은 음성 합성에서 사용할 수 없습니다. {modelID}. | {ModelID}의 상태가 올바른지 확인 하세요. |
@@ -278,7 +278,7 @@ ID : xxx , Name : xxx : Succeeded
 |        | 404 | 음성 합성 정의에 선언 된 모델을 찾을 수 없습니다. {modelID}. | {ModelID}가 올바른지 확인 하세요. |
 |        | 429 | 활성 음성 합성 제한을 초과 합니다. 일부 요청이 완료 될 때까지 기다려 주세요. | 서버를 실행 하 고 각 Azure 계정에 대해 최대 120 개의 요청을 큐에 대기 시킬 수 있습니다. 잠시 기다렸다가 일부 요청이 완료 될 때까지 새 요청을 제출 하지 마세요. |
 | 모두       | 429 | 요청이 너무 많습니다. | 클라이언트는 각 Azure 계정에 대해 초당 최대 5 개의 요청을 서버에 제출할 수 있습니다. 초당 요청 크기를 줄이십시오. |
-| 삭제    | 400 | 음성 합성 작업을 계속 사용 하 고 있습니다. | **완료** 또는 **실패** 한 요청만 삭제할 수 있습니다. |
+| DELETE    | 400 | 음성 합성 작업을 계속 사용 하 고 있습니다. | **완료** 또는 **실패** 한 요청만 삭제할 수 있습니다. |
 | GetByID   | 404 | 지정 된 엔터티를 찾을 수 없습니다. | 합성 ID가 올바른지 확인 합니다. |
 
 ## <a name="regions-and-endpoints"></a>지역 및 엔드포인트
@@ -287,15 +287,11 @@ ID : xxx , Name : xxx : Succeeded
 
 | 지역 | 엔드포인트 |
 |--------|----------|
-| 오스트레일리아 동부 | `https://australiaeast.customvoice.api.speech.microsoft.com` |
-| 캐나다 중부 | `https://canadacentral.customvoice.api.speech.microsoft.com` |
 | 미국 동부 | `https://eastus.customvoice.api.speech.microsoft.com` |
 | 인도 중부 | `https://centralindia.customvoice.api.speech.microsoft.com` |
-| 미국 중남부 | `https://southcentralus.customvoice.api.speech.microsoft.com` |
 | 동남아시아 | `https://southeastasia.customvoice.api.speech.microsoft.com` |
 | 영국 남부 | `https://uksouth.customvoice.api.speech.microsoft.com` |
 | 서유럽 | `https://westeurope.customvoice.api.speech.microsoft.com` |
-| 미국 서부 2 | `https://westus2.customvoice.api.speech.microsoft.com` |
 
 ## <a name="audio-output-formats"></a>오디오 출력 형식
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6d17b007fcccd87aed17a9ec3ca039b9559ab6d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 860bc9440547a4c62336ccc573859ec56b3400b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492236"
+ms.locfileid: "96533862"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Site Recovery에 대 한 Azure 보안 기준
 
@@ -164,9 +164,9 @@ Log Analytics 쿼리를 수행 하 여 용어를 검색 하 고, 추세를 식�
 
 **참고**: 기본적으로 역할은 할당 되지 않습니다. 비즈니스 요구에 따라 명시적으로 할당 해야 합니다. PowerShell CLI 또는 Azure Active Directory (Azure AD)를 사용 하 여 역할 할당을 확인 하 여 관리 그룹의 구성원 인 계정을 검색할 수 있습니다.
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Azure Security Center 모니터링**: 예
 
@@ -431,7 +431,7 @@ Site Recovery는 데이터에 대 한 미사용 데이터 암호화를 지원 �
 
 - [Azure Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -530,7 +530,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 **지침**: Azure Policy를 사용 하 여 Recovery Services 자격 증명 모음에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. 
 
 "Microsoft RecoveryServices" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 감사를 위한 사용자 지정 정책을 만들거나 Site Recovery 서비스의 Recovery Services 자격 증명 모음 리소스 구성을 적용 합니다.
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -553,9 +553,9 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: Recovery Services 자격 증명 모음 및 관련 리소스에 대 한 사용자 지정 Azure Policy 정의를 사용 하는 경우 코드를 안전 하 게 저장 하 고 관리 하려면 Azure Repos을 선택 합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Azure Repos 설명서](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Azure Repos 설명서](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -656,7 +656,7 @@ Azure 리소스에 대 한 구성을 자동으로 적용 하려면 Azure Policy 
 
 이는 고객 범위를 벗어난 것 이며 Site Recovery 팀은 내부적으로이를 처리 합니다. 고객은 Azure에서 Key Vault 키를 백업할 수 있습니다.
 
-- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -666,7 +666,7 @@ Azure 리소스에 대 한 구성을 자동으로 적용 하려면 Azure Policy 
 
 **지침**: 백업 된 고객이 관리 하는 키의 복원을 정기적으로 테스트 합니다.
 
-- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Azure Security Center 모니터링**: 해당 없음
 

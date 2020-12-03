@@ -4,12 +4,12 @@ description: Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플�
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 96a9eda23268bc06029292c3c5f10502216e3658
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 197423670ffe05f15fdc5bfd351efdfba33b53cd
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087063"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533777"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 
@@ -36,20 +36,15 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
 
   이 문서의 경우 클러스터 노드에서 실행되는 컨테이너가 포함된 Windows Server의 버전은 개발 컴퓨터와 일치해야 합니다. 이는 개발 컴퓨터에 docker 이미지를 작성하고 컨테이너 OS 버전과 해당 OS가 배포된 호스트 OS 버전 간의 호환성 제약 조건이 있기 때문입니다. 자세한 내용은 [Windows Server 컨테이너 OS 및 호스트 OS 호환성](#windows-server-container-os-and-host-os-compatibility)을 참조하세요. 
   
-클러스터에 필요한 컨테이너가 포함된 Windows Server의 버전을 확인하려면 개발 컴퓨터의 Windows 명령 프롬프트에서 `ver` 명령을 실행합니다.
-
-* 버전에 *x.x.14323.x* 가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServer 2016-Datacenter-with-Containers* 를 선택합니다.
-  * 버전에 *x.x.16299.x* 가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* 를 선택합니다.
+    클러스터에 필요한 컨테이너를 포함 하는 Windows Server 버전을 확인 하려면 `ver` 개발 컴퓨터의 windows 명령 프롬프트에서 명령을 실행 합니다. [클러스터를 만들기](service-fabric-cluster-creation-via-portal.md)전에 [WINDOWS Server 컨테이너 OS 및 호스트 OS 호환성](#windows-server-container-os-and-host-os-compatibility) 을 참조 하세요.
 
 * Azure Container Registry의 레지스트리 - Azure 구독 내에서 [컨테이너 레지스트리를 만듭니다](../container-registry/container-registry-get-started-portal.md).
 
 > [!NOTE]
 > Windows 10에서 실행 중인 Service Fabric 클러스터에 컨테이너 배포는 지원되지 않습니다.  Windows 컨테이너를 실행하도록 Windows 10을 구성하는 방법에 대한 정보는 [이 문서](service-fabric-how-to-debug-windows-containers.md)를 참조하세요.
->   
 
 > [!NOTE]
-> Service Fabric 버전 6.2 이상은 Windows Server version 1709에서 실행 중인 클러스터에 컨테이너 배포를 지원합니다.  
-> 
+> Service Fabric 버전 6.2 이상은 Windows Server version 1709에서 실행 중인 클러스터에 컨테이너 배포를 지원합니다.
 
 ## <a name="define-the-docker-container"></a>Docker 컨테이너 정의
 
@@ -109,10 +104,18 @@ if __name__ == "__main__":
 ```
 
 <a id="Build-Containers"></a>
-## <a name="build-the-image"></a>이미지 빌드
-`docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 Dockerfile이 있는 디렉터리로 이동합니다. 다음 명령을 실행합니다.
+
+## <a name="login-to-docker-and-build-the-image"></a>Docker에 로그인 하 고 이미지를 빌드합니다.
+
+다음으로, 웹 응용 프로그램을 실행 하는 이미지를 만듭니다. Docker에서 공용 이미지를 끌어올 때 (예: `python:2.7-windowsservercore` Dockerfile) 익명 끌어오기 요청을 수행 하는 대신 Docker 허브 계정으로 인증 하는 것이 좋습니다.
+
+> [!NOTE]
+> 빈번 하 게 익명 끌어오기 요청을 만드는 경우 `ERROR: toomanyrequests: Too Many Requests.` `You have reached your pull rate limit.` 이러한 오류를 방지 하기 위해 docker 허브와 유사한 docker 오류가 표시 될 수 있습니다. 자세한 내용은 [Azure Container Registry를 사용 하 여 공용 콘텐츠 관리](../container-registry/buffer-gate-public-content.md) 를 참조 하세요.
+
+PowerShell 창을 열고 Dockerfile이 있는 디렉터리로 이동합니다. 그런 다음, 다음 명령을 실행합니다.
 
 ```
+docker login
 docker build -t helloworldapp .
 ```
 
@@ -321,7 +324,7 @@ ApplicationManifest에서 **ContainerHostPolicies** 의 일부로 **HealthConfig
 ## <a name="deploy-the-container-application"></a>컨테이너 애플리케이션 배포
 모든 변경 내용을 저장하고 애플리케이션을 빌드합니다. 애플리케이션을 게시하려면 [솔루션 탐색기]에서 **MyFirstContainer** 를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
 
-**연결 엔드포인트** 에서 클러스터에 대한 관리 엔드포인트을 입력합니다. 예: `containercluster.westus2.cloudapp.azure.com:19000`. [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
+**연결 엔드포인트** 에서 클러스터에 대한 관리 엔드포인트을 입력합니다. 예들 들어 `containercluster.westus2.cloudapp.azure.com:19000`입니다. [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
 
 **게시** 를 클릭합니다.
 
@@ -344,7 +347,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Windows Server 컨테이너 OS 및 호스트 OS 호환성
 
-Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 다음은 그 예입니다.
+Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 예를 들어:
  
 - Windows Server 버전 1709를 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 2016을 실행하는 호스트에서 작동하지 않습니다. 
 - Windows server 2016를 사용 하 여 빌드된 windows Server 컨테이너는 Windows Server 버전 1709을 실행 하는 호스트 에서만 Hyper-v 격리 모드로 작동 합니다. 
@@ -352,7 +355,7 @@ Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 
  
 자세한 내용은 [Windows 컨테이너 버전 호환성](/virtualization/windowscontainers/deploy-containers/version-compatibility)을 참조하세요.
 
-Service Fabric 클러스터에 컨테이너를 배포할 때 호스트 OS와 컨테이너 OS의 호환성을 고려해야 합니다. 다음은 그 예입니다.
+Service Fabric 클러스터에 컨테이너를 배포할 때 호스트 OS와 컨테이너 OS의 호환성을 고려해야 합니다. 예를 들어:
 
 - OS가 클러스터 노드의 OS와 호환되는 컨테이너를 배포해야 합니다.
 - 컨테이너 앱에 대해 지정된 격리 모드가 배포 중인 노드의 컨테이너 OS에 대한 지원과 일치하는지 확인합니다.

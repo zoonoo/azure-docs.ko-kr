@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 18f8df90cd59a1fb32024ec93674fed7eb49519a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: baf2734c2f3c4de86b75a20239ecf7440c61a632
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451977"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534049"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Azure Synapse Analytics의 전용 SQL 풀 (이전의 SQL DW) 릴리스 정보
 
@@ -39,6 +39,13 @@ ms.locfileid: "96451977"
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="dec-2020"></a>12 월 2020
+
+| 서비스 개선 사항 | 세부 정보 |
+| --- | --- |
+|**열에 대 한 저장 프로시저 sp_rename (미리 보기)**|[Ctas](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas) 를 사용 하지 않고 열 이름을 바꾸는 것은 간단 합니다. 이제 Azure Synapse SQL은 시스템 저장 프로시저 sp_rename (미리 보기)에 대 한 지원을 추가 하 여 사용자 테이블에 배포 되지 않은 열의 이름을 변경 합니다. 이 기능은 현재 미리 보기 상태 이며 GA의 도구에서 지원 됩니다. 자세한 내용은 [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?view=azure-sqldw-latest)를 참조 하세요.|
+|**T-sql Predict의 추가 매개 변수**|이 새 릴리스에서는 기존 T-sql PREDICT 문에 대해 ' RUNTIME ' 이라는 필수 추가 매개 변수를 추가 했습니다. 기존 스크립트를 업데이트 하는 방법에 대해서는 [T-SQL PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)의 예제를 참조 하세요.|
 
 ## <a name="oct-2020"></a>10 월 2020
 

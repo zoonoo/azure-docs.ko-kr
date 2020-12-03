@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: inhenkel
-ms.openlocfilehash: e00079190371b3ae0e318aaadd8cf724d9d339d0
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: c14dbe4253696e01e99111a24319e455c1d551e9
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512724"
+ms.locfileid: "96533998"
 ---
 # <a name="media-services-architectures"></a>Media Services 아키텍처
 
@@ -30,12 +30,6 @@ ms.locfileid: "96512724"
 이 솔루션은 Azure 관리 서비스: Media Services 및 Content Delivery Network를 기반으로 합니다. 이러한 서비스는 고가용성 환경에서 실행 되 고 패치 되며 지원 되므로 사용자가에서 실행 되는 환경 대신 솔루션에 집중할 수 있습니다.
 
 Azure 아키텍처 센터에서 [라이브 스트리밍 디지털 미디어](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-media-live-stream) 를 참조 하세요.
-
-## <a name="instant-broadcasting-on-serverless-architecture"></a>서버 리스 아키텍처에서 즉시 브로드캐스트
-
-서버 리스 코드를 사용 하 여 일대다 실시간 통신과 업데이트를 간소화 합니다. 이 아키텍처는 Azure Functions, SignalR 서비스, 저장소 계정 및 SQL database를 사용 합니다.
-
-Azure 아키텍처 센터에서 [서버 리스 아키텍처의 인스턴트 브로드캐스팅](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/instant-broadcasting-on-serverless-architecture) 을 참조 하세요.
 
 ## <a name="video-on-demand-digital-media"></a>주문형 비디오 디지털 미디어
 

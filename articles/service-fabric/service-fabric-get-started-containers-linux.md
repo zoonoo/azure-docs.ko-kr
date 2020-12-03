@@ -4,12 +4,12 @@ description: Azure Service Fabric에서 첫 번째 Linux 컨테이너 애플리�
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: d085f8704850cdbb03e21b15b3cca7c8998b96fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0481cc2d36f7882bbd8eea9b984c3dc388de5dee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004231"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534083"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -21,7 +21,7 @@ Service Fabric 클러스터의 Linux 컨테이너에서 기존 애플리케이�
 > [!NOTE]
 > 이 문서는 Linux 개발 환경에 적용됩니다.  Service Fabric 클러스터 런타임 및 Docker 런타임이 동일한 OS에서 실행되어야 합니다.  Linux 컨테이너는 Windows 클러스터에서 실행할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * 다음을 실행하는 개발 컴퓨터
   * [SDK 및 도구를 Service Fabric](service-fabric-get-started-linux.md)합니다.
   * [Linux용 Docker CE](https://docs.docker.com/engine/installation/#prior-releases) 
@@ -87,10 +87,17 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
-## <a name="build-the-image"></a>이미지 빌드
-`docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 *c:\temp\helloworldapp* 으로 이동합니다. 다음 명령 실행:
+## <a name="login-to-docker-and-build-the-image"></a>Docker에 로그인 하 고 이미지를 빌드합니다.
 
-```bash
+다음으로, 웹 응용 프로그램을 실행 하는 이미지를 만듭니다. Docker에서 공용 이미지를 끌어올 때 (예: `python:2.7-slim` Dockerfile) 익명 끌어오기 요청을 수행 하는 대신 Docker 허브 계정으로 인증 하는 것이 좋습니다.
+
+> [!NOTE]
+> 빈번 하 게 익명 끌어오기 요청을 만드는 경우 `ERROR: toomanyrequests: Too Many Requests.` `You have reached your pull rate limit.` 이러한 오류를 방지 하기 위해 docker 허브와 유사한 docker 오류가 표시 될 수 있습니다. 자세한 내용은 [Azure Container Registry를 사용 하 여 공용 콘텐츠 관리](../container-registry/buffer-gate-public-content.md) 를 참조 하세요.
+
+PowerShell 창을 열고 Dockerfile이 있는 디렉터리로 이동합니다. 그런 다음, 다음 명령을 실행합니다.
+
+```
+docker login
 docker build -t helloworldapp .
 ```
 
