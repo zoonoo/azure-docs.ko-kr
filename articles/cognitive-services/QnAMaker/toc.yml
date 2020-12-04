@@ -67,6 +67,8 @@
       items:
         - name: QnA 쌍 편집
           href: How-To/edit-knowledge-base.md
+        - name: 메타데이터 태그 추가
+          href: Quickstarts/add-question-metadata-portal.md
         - name: 후속 프롬프트 추가
           href: How-To/multiturn-conversation.md
           displayName: 'multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question'
