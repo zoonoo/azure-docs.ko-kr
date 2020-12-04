@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 7aa65cb8e37ce48a59c276fdf2631f75397d3236
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 23609613cace2f9be90ad5c88d4d51bb1c2f1a9b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122506"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573513"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Azure Security Center에 AWS 계정 연결
 
@@ -48,6 +48,8 @@ AWS 계정을 Security Center에 온보딩하면 AWS Security Hub와 Azure Secur
 
 
 ## <a name="connect-your-aws-account"></a>AWS 계정 연결
+
+아래 단계에 따라 AWS 클라우드 커넥터를 만듭니다. 
 
 ### <a name="step-1-set-up-aws-security-hub"></a>1단계: AWS Security Hub 설정:
 
@@ -160,7 +162,7 @@ AWS Systems Manager는 AWS 리소스의 작업을 자동화하는 데 필요합�
 
         Azure 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 및 관리 계층 구조 구성](../azure-resource-manager/management/tag-resources.md)을 참조하세요.
 
-### <a name="step-7-confirmation"></a>7단계. 확인
+### <a name="step-6-confirmation"></a>6단계. 확인
 
 커넥터가 성공적으로 생성되고 AWS Security Hub가 올바르게 구성된 경우:
 

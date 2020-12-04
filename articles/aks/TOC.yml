@@ -146,6 +146,8 @@
           href: reduce-latency-ppg.md
         - name: 노드 이미지 업그레이드
           href: node-image-upgrade.md
+        - name: GitHub Actions를 사용하여 노드 이미지를 자동으로 업그레이드
+          href: node-upgrade-github-actions.md
         - name: 프로세스 노드 OS 업데이트
           href: node-updates-kured.md
         - name: AKS 클러스터 구성

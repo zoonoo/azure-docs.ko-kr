@@ -68,7 +68,7 @@
             - name: 기본 사항
               href: data-lake-analytics-u-sql-get-started.md
             - name: 언어 참조
-              href: /u-sql/
+              href: 'https://docs.microsoft.com/u-sql'
             - name: 카탈로그
               href: data-lake-analytics-u-sql-catalog.md
             - name: 사용자 정의 연산자
@@ -79,8 +79,6 @@
               href: data-lake-analytics-u-sql-r-extensions.md
             - name: 인지 확장
               href: data-lake-analytics-u-sql-cognitive.md
-            - name: 프로그램 기능 가이드
-              href: data-lake-analytics-u-sql-programmability-guide.md
         - name: Visual Studio
           items:
             - name: 설치
@@ -115,6 +113,28 @@
               href: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
             - name: 로컬 실행 및 디버그
               href: data-lake-tools-for-vscode-local-run-and-debug.md
+        - name: 프로그램 기능 가이드
+          items:
+            - name: 프로그램 기능 가이드 개요
+              href: data-lake-analytics-u-sql-programmability-guide.md
+            - name: 프로그램 기능 가이드 - UDT 및 UDAGG
+              href: data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md
+            - name: 프로그램 기능 가이드 - UDO
+              items:
+                - name: 사용자 정의 개체 개요
+                  href: data-lake-analytics-u-sql-programmability-guide-UDO.md
+                - name: 사용자 정의 추출기 사용
+                  href: data-lake-analytics-u-sql-programmability-guide-extractor.md
+                - name: 사용자 정의 출력자 사용
+                  href: data-lake-analytics-u-sql-programmability-guide-outputter.md
+                - name: 사용자 정의 처리기 사용
+                  href: data-lake-analytics-u-sql-programmability-guide-processor.md
+                - name: 사용자 정의 적용자 사용
+                  href: data-lake-analytics-u-sql-programmability-guide-applier.md
+                - name: 사용자 정의 결합자 사용
+                  href: data-lake-analytics-u-sql-programmability-guide-combiner.md
+                - name: 사용자 정의 리듀서 사용
+                  href: data-lake-analytics-u-sql-programmability-guide-reducer.md
     - name: U-SQL 작업 예약
       items:
         - name: SSIS를 사용하여 작업 예약
@@ -153,7 +173,7 @@
       href: 'https://www.npmjs.com/package/azure-arm-datalake-analytics'
     - name: Python
       href: /python/api/overview/azure/data-lake-analytics
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/datalakeanalytics/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.datalakeanalytics/allversions

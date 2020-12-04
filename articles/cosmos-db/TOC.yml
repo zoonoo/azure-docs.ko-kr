@@ -214,7 +214,7 @@
               href: synthetic-partition-keys.md
         - name: SQL 쿼리(SQL query)
           items:
-            - name: 시작하기
+            - name: 시작
               displayName: 'sql query, query basics'
               href: sql-query-getting-started.md
             - name: 절
@@ -1305,7 +1305,7 @@
           href: tutorial-setup-ci-cd.md
         - name: Azure Storage Explorer 사용
           href: storage-explorer.md
-        - name: Azure Cosmos 탐색기 사용
+        - name: Azure Cosmos DB Explorer 사용
           href: data-explorer.md
     - name: Azure Synapse Link를 지원하는 Analytics 및 BI
       items:

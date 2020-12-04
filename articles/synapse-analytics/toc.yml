@@ -109,6 +109,10 @@
                   displayname: vnet
                 - name: Synapse 작업 영역 관리형 프라이빗 엔드포인트
                   href: ./security/synapse-workspace-managed-private-endpoints.md
+                - name: Synapse 작업 영역 데이터 반출 방지
+                  href: ./security/workspace-data-exfiltration-protection.md
+                - name: 프라이빗 링크 허브를 지원하는 Synapse 작업 영역
+                  href: ./security/synapse-private-link-hubs.md
             - name: 인증 및 통과
               items:
                 - name: Azure Active Directory
@@ -121,8 +125,13 @@
             - name: Access Control
               items:
                 - name: 개요
-                  href: ./security/access-control.md
-                  displayname: 'access, control'
+                  href: ./security/synapse-workspace-access-control-overview.md
+                - name: Synapse RBAC
+                  href: ./security/synapse-workspace-synapse-rbac.md
+                - name: Synapse RBAC 역할
+                  href: ./security/synapse-workspace-synapse-rbac-roles.md
+                - name: Synapse RBAC 역할 이해
+                  href: ./security/synapse-workspace-understand-what-role-you-need.md
                 - name: Synapse 작업 영역 관리 ID
                   href: ./security/synapse-workspace-managed-identity.md
     - name: 방법 가이드
@@ -135,11 +144,19 @@
           items:
             - name: 액세스 제어 관리
               items:
+                - name: 액세스 제어 설정
+                  href: ./security/how-to-set-up-access-control.md
+                - name: Synapse 역할 할당 검토
+                  href: ./security/how-to-review-synapse-rbac-role-assignments.md
+                - name: Synapse 역할 할당 관리
+                  href: ./security/how-to-manage-synapse-rbac-role-assignments.md
                 - name: Azure Synapse 작업 영역 관리 ID에 대한 권한 설정
                   href: security/how-to-grant-workspace-managed-identity-permissions.md
                   displayname: grant
-                - name: 액세스 제어 설정
-                  href: security/how-to-set-up-access-control.md
+            - name: 데이터 반출 방지
+              items:
+                - name: 데이터 반출 방지를 지원하는 작업 영역 생성 및 관리
+                  href: security/how-to-create-a-workspace-with-data-exfiltration-protection.md
             - name: 프라이빗 엔드포인트 관리
               items:
                 - name: 데이터 원본에 대한 관리형 프라이빗 엔드포인트 설정
@@ -240,7 +257,7 @@
           items:
             - name: 개요
               href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: 최선의 구현 방법
+            - name: 모범 사례
               href: sql/data-loading-best-practices.md
             - name: Columnstore 압축
               href: sql/data-load-columnstore-compression.md
@@ -565,7 +582,7 @@
               href: ./spark/spark-dotnet.md
         - name: 보안
           items:
-            - name: TokenLibrary를 사용하여 자격 증명 보안
+            - name: TokenLibrary를 사용하여 자격 증명 보호
               href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
         - name: 성능 최적화
           items:
