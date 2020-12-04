@@ -5,13 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
-ms.custom: sfrev
-ms.openlocfilehash: 7b2f1a170a792e0b4d069258264407c121dab3ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2ac4b81a284ed8c38bc9cefccd08db5afa51d600
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018837"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575944"
 ---
 # <a name="service-fabric-terminology-overview"></a>서비스 패브릭 용어 개요
 
@@ -180,7 +179,7 @@ Service Fabric은 여러 서비스 및 제품의 기초가 되는 오픈 소스 
 
 * [서비스 패브릭의 개요](service-fabric-overview.md)
 * [애플리케이션 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
-* [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
+* [애플리케이션 시나리오](service-fabric-application-scenarios.md)
 
 Service Fabric Mesh를 자세히 알아보려면 다음을 참고하세요.
 

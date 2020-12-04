@@ -3,13 +3,12 @@ title: Azure Service Fabric 응용 프로그램 리소스 모델
 description: 이 문서에서는 Azure Resource Manager를 사용 하 여 Azure Service Fabric 응용 프로그램을 관리 하는 개요를 제공 합니다.
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.custom: sfrev
-ms.openlocfilehash: 886b7d6b40bebf6234064b0627017db1d8cfe31f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: f4fbd775ab479437c350dc24b9b5511f7a614c8b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888830"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576097"
 ---
 # <a name="service-fabric-application-resource-model"></a>응용 프로그램 리소스 모델 Service Fabric
 
@@ -92,7 +91,7 @@ Service Fabric 클러스터에 Azure Service Fabric 응용 프로그램을 배�
 >
 
 
-| 매개 변수              | 설명                                 | 예제                                                      | 주석                                                     |
+| 매개 변수              | Description                                 | 예제                                                      | 주석                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | 배포 하는 클러스터의 이름 | sf-cluster123                                                |                                                              |
 | 애플리케이션            | 애플리케이션의 이름                 | Voting                                                       |

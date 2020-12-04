@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 10/13/2020
+ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: d82cbafbbdeb379c8eb97494ca8d3243f356b7a1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 18eb952d06d83b4604625a795be3c8512c3f90d7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542119"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576590"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning 사용 하 여 리소스에 대 한 할당량 관리 및 늘리기
 
@@ -45,25 +45,29 @@ Azure는 제한 및 할당량을 사용 하 여 사기 문제로 인 한 예산 
 
 이 섹션에서는 다음 리소스에 대 한 기본 및 최대 할당량 한도에 대해 알아봅니다.
 
++ Azure Machine Learning 자산
+  + Azure Machine Learning 컴퓨팅
+  + 파이프라인 Azure Machine Learning
 + 가상 머신
-+ Azure Machine Learning 컴퓨팅
-+ 파이프라인 Azure Machine Learning
 + Azure Container Instances
 + Azure Storage
 
 > [!IMPORTANT]
 > 한도는 변경될 수 있습니다. 최신 정보는 azure [구독 및 서비스 제한, 할당량 및](../azure-resource-manager/management/azure-subscription-service-limits.md) 모든 azure에 대 한 제약 조건을 참조 하세요.
 
-### <a name="virtual-machines"></a>가상 머신
-각 Azure 구독에는 모든 서비스의 가상 머신 수에 대 한 제한이 있습니다. 가상 컴퓨터 코어에는 지역별 총 한도와 크기 별 지역별 제한이 있습니다. 두 제한 모두 개별적으로 적용 됩니다.
+### <a name="azure-machine-learning-assets"></a>Azure Machine Learning 자산
+자산에 대 한 다음 제한은 작업 영역 별로 적용 됩니다. 
 
-미국 동부 총 VM 코어 한도가 30이고, A 시리즈 코어 한도 30이며, D 시리즈 코어 한도는 30인 구독을 예로 들 수 있습니다. 이 구독은 30 개의 A1 Vm 또는 30 D1 개의 Vm을 배포할 수 있도록 허용 하거나 총 30 개 코어를 초과 하지 않는 둘의 조합을 허용 합니다.
+| **리소스** | **최대 한도** |
+| --- | --- |
+| 데이터 세트 | 1천만 |
+| 실행 | 1천만 |
+| 모델 | 1천만|
+| Artifacts | 1천만 |
 
-다음 표에 표시 된 값을 초과 하 여 가상 컴퓨터에 대 한 제한을 발생 시킬 수 없습니다.
+또한 최대 **실행 시간은** 30 일이 고 **실행 당 로깅되** 는 최대 메트릭 수는 100만입니다.
 
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
-
-### <a name="azure-machine-learning-compute"></a>Azure Machine Learning 컴퓨팅
+#### <a name="azure-machine-learning-compute"></a>Azure Machine Learning 컴퓨팅
 [Azure Machine Learning 계산](concept-compute-target.md#azure-machine-learning-compute-managed) 에는 코어 수와 구독에서 지역 당 허용 되는 고유 계산 리소스 수에 대 한 기본 할당량 한도가 있습니다. 이 할당량은 이전 섹션의 VM 코어 할당량과 별개입니다.
 
 [할당량 증가를 요청](#request-quota-increases) 하 여이 섹션의 제한을 표에 표시 된 최대 제한까지 올립니다.
@@ -90,7 +94,7 @@ Azure는 제한 및 할당량을 사용 하 여 사기 문제로 인 한 예산 
 <sup>1</sup> 최대 수명은 실행 시작 시간과 완료 시간 사이의 기간입니다. 완료 된 실행은 무기한 지속 됩니다. 최대 수명 내에 완료 되지 않은 실행에 대 한 데이터는 액세스할 수 없습니다.
 용량 제약 조건이 있을 때마다 우선 순위가 낮은 노드의 작업 <sup>2</sup> 개를 선점할 수 있습니다. 작업에서 검사점을 구현 하는 것이 좋습니다.
 
-### <a name="azure-machine-learning-pipelines"></a>파이프라인 Azure Machine Learning
+#### <a name="azure-machine-learning-pipelines"></a>파이프라인 Azure Machine Learning
 [Azure Machine Learning 파이프라인](concept-ml-pipelines.md) 의 제한은 다음과 같습니다.
 
 | **리소스** | **제한** |
@@ -98,11 +102,20 @@ Azure는 제한 및 할당량을 사용 하 여 사기 문제로 인 한 예산 
 | 파이프라인의 단계 | 30,000 |
 | 리소스 그룹당 작업 영역 | 800 |
 
+### <a name="virtual-machines"></a>가상 머신
+각 Azure 구독에는 모든 서비스의 가상 머신 수에 대 한 제한이 있습니다. 가상 컴퓨터 코어에는 지역별 총 한도와 크기 별 지역별 제한이 있습니다. 두 제한 모두 개별적으로 적용 됩니다.
+
+미국 동부 총 VM 코어 한도가 30이고, A 시리즈 코어 한도 30이며, D 시리즈 코어 한도는 30인 구독을 예로 들 수 있습니다. 이 구독은 30 개의 A1 Vm 또는 30 D1 개의 Vm을 배포할 수 있도록 허용 하거나 총 30 개 코어를 초과 하지 않는 둘의 조합을 허용 합니다.
+
+다음 표에 표시 된 값을 초과 하 여 가상 컴퓨터에 대 한 제한을 발생 시킬 수 없습니다.
+
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
+
 ### <a name="container-instances"></a>Container Instances
 
 자세한 내용은 [Container Instances 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits)을 참조 하세요.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 Azure Storage은 구독 당 지역 당 저장소 계정 250 개로 제한 됩니다. 이 제한에는 표준 및 프리미엄 저장소 계정이 모두 포함 됩니다.
 
 제한을 늘리려면 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)을 통해 요청을 수행 합니다. Azure Storage 팀은 해당 사례를 검토 하 고 지역에 대해 최대 250 개의 저장소 계정을 승인할 수 있습니다.
@@ -174,7 +187,7 @@ Azure Machine Learning는 (고객) 구독에 리소스를 만들지만 일부 �
 
 1. [Azure 지원 요청을 만들고](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) __기본 사항__ 섹션에서 다음 옵션을 선택 합니다.
 
-    | 필드 | 선택 영역 |
+    | 필드 | 선택 |
     | ----- | ----- |
     | 문제 유형 | **기술** |
     | 서비스 | **내 서비스**. 그런 다음 드롭다운 목록에서 __Machine Learning__ 을 선택 합니다. |

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: c8fa2efe708823ff4154edfd58f1b18e0176a990
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ccc5a63da40950fbf9f05e3e029393fce8814d7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381002"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576692"
 ---
 # <a name="how-to-market-your-saas-offer"></a>SaaS 제품을 출시 하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "89381002"
 
 **Microsoft 페이지와 공동 판매** 에 대 한 정보를 제공 하는 것은 모두 선택 사항입니다. 그러나 _공동 판매 준비_ 및 _IP 공동 판매 준비_ 상태를 구현 하는 데 필요 합니다. Microsoft 영업 팀은이 정보를 사용 하 여 고객의 요구에 맞게 해당 솔루션에 대해 자세히 알아보세요. 이 탭에서 제공 하는 정보는 고객에 게 직접 제공 되지 않습니다.
 
-**Microsoft와 공동 판매** 탭을 구성 하는 방법에 대 한 자세한 내용과 지침은 [파트너 센터의 공동 판매 옵션](partner-center-portal/commercial-marketplace-co-sell.md)을 참조 하세요.
+**Microsoft와 공동 판매** 탭을 구성 하는 방법에 대 한 자세한 내용과 지침은 [파트너 센터의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조 하세요.
 
 ## <a name="resell-through-csps"></a>CSP를 통한 재판매
 

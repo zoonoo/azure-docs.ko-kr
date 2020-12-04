@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: 5045a13bb932f5907584bae23e956374a5757a68
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: ac93d835b8dbdd5a12d031825dcb879160df5e95
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554843"
+ms.locfileid: "96575349"
 ---
 # <a name="asset-insights-on-your-data-in-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 Asset insights
 
@@ -20,9 +20,10 @@ ms.locfileid: "96554843"
 
 이 방법 가이드에서는 다음 방법에 대해 알아봅니다.
 
-* 부서의 범위 계정에서 정보를 봅니다.
-* 데이터의 멋진 뷰를 가져옵니다.
-* 드릴 다운 하 여 더 많은 자산 개수 정보를 확인 합니다.
+> [!div class="checklist"]
+> * 부서의 범위 계정에서 정보를 봅니다.
+> * 데이터의 멋진 뷰를 가져옵니다.
+> * 드릴 다운 하 여 더 많은 자산 개수 정보를 확인 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

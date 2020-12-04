@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 1e263886d0cc199bb30fd28877be32209ab32a22
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 09a4dc8467b9b3c11c8daeb5ca8c62a0e26e79de
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462388"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575009"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Windows Data Science Virtual Machine를 사용 하는 데이터 과학
 
@@ -25,7 +25,7 @@ DSVM은 Azure 서비스와 긴밀 하 게 연동 됩니다. Azure Synapse (이�
 
 이 문서에서는 DSVM을 사용 하 여 데이터 과학 작업을 수행 하 고 다른 Azure 서비스와 상호 작용 하는 방법을 알아봅니다. 다음은 DSVM에서 수행할 수 있는 작업 중 일부입니다.
 
-- Jupyter 노트북을 사용 하 여 Python 2, Python 3 및 Microsoft R을 사용 하 여 브라우저에서 데이터를 시험해 보세요. Microsoft R은 성능을 위해 설계 된 R의 엔터프라이즈급 버전입니다.
+- Jupyter Notebook를 사용 하 여 Python 2, Python 3 및 Microsoft R을 사용 하 여 브라우저에서 데이터를 시험해 볼 수 있습니다. Microsoft R은 엔터프라이즈급 버전의 R을 사용 하도록 설계 되었습니다.
 - Microsoft Machine Learning Server 및 Python을 사용 하 여 DSVM에서 로컬로 데이터를 탐색 하 고 모델을 개발 합니다.
 - Azure Portal 또는 PowerShell을 사용 하 여 Azure 리소스를 관리 합니다.
 - DSVM에 탑재 가능한 드라이브로 Azure Files 공유를 만들어 저장소 공간을 확장 하 고 전체 팀에서 대규모 데이터 집합/코드를 공유 합니다.
@@ -40,7 +40,7 @@ DSVM은 Azure 서비스와 긴밀 하 게 연동 됩니다. Azure Synapse (이�
 > 
 > 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독이 필요합니다. [무료 평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 * Azure Portal에서 Data Science Virtual Machine를 프로 비전 하는 방법에 대 한 지침은 [가상 컴퓨터를 만들](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)때 제공 됩니다.
@@ -50,7 +50,7 @@ DSVM은 Azure 서비스와 긴밀 하 게 연동 됩니다. Azure Synapse (이�
 
 
 ## <a name="use-jupyter-notebooks"></a>Jupyter Notebook 사용
-Jupyter Notebook는 데이터 탐색 및 모델링을 위한 브라우저 기반 IDE를 제공 합니다. Jupyter 노트북에서 Python 2, Python 3 또는 R (오픈 소스 및 Microsoft R Server 모두)을 사용할 수 있습니다.
+Jupyter Notebook는 데이터 탐색 및 모델링을 위한 브라우저 기반 IDE를 제공 합니다. Jupyter Notebook에서 Python 2, Python 3 또는 R (오픈 소스와 Microsoft R Server 모두)을 사용할 수 있습니다.
 
 Jupyter Notebook를 시작 하려면 **시작** 메뉴 또는 바탕 화면에서 **Jupyter Notebook** 아이콘을 선택 합니다. DSVM 명령 프롬프트에서 ```jupyter notebook``` 기존 전자 필기장이 있거나 새 노트북을 만들 디렉터리에서 명령을 실행할 수도 있습니다.  
 
@@ -153,10 +153,10 @@ Visual Studio에서 동일한 복제 작업을 수행할 수 있습니다. 다�
 Git을 사용 하 여 github.com에서 사용할 수 있는 리소스에서 GitHub 리포지토리로 작업 하는 방법에 대 한 자세한 내용을 확인할 수 있습니다. [참고 자료](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) 를 보시면 많은 도움이 될 것입니다.
 
 ## <a name="access-azure-data-and-analytics-services"></a>Azure 데이터 및 분석 서비스에 액세스
-### <a name="azure-blob-storage"></a>Azure Blob 스토리지
+### <a name="azure-blob-storage"></a>Azure Blob Storage
 Azure Blob storage는 크고 작은 데이터를 위한 안정적이 고 경제적인 클라우드 저장소 서비스입니다. 이 섹션에서는 Blob 저장소로 데이터를 이동 하 고 Azure blob에 저장 된 데이터에 액세스 하는 방법을 설명 합니다.
 
-#### <a name="prerequisites"></a>전제 조건
+#### <a name="prerequisites"></a>필수 조건
 
 * [Azure Portal](https://portal.azure.com)에서 Azure Blob storage 계정을 만듭니다.
 
@@ -201,7 +201,7 @@ Azure Storage 탐색기를 사용 하 여 VM의 로컬 파일에서 데이터를
 
 #### <a name="read-data-from-an-azure-blob-python-odbc"></a>Azure blob에서 데이터 읽기: Python ODBC
 
-BlobService 라이브러리를 사용 하 여 Jupyter 노트북 또는 Python 프로그램의 blob에서 직접 데이터를 읽을 수 있습니다.
+BlobService 라이브러리를 사용 하 여 Jupyter Notebook 또는 Python 프로그램의 blob에서 직접 데이터를 읽을 수 있습니다.
 
 먼저 필요한 패키지를 가져옵니다.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f705150f927a08b5ca2f91b702ee0853766ac23a
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: cfd7b5ac981fcb87d0fc929d944205dec9432b74
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511120"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575825"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Azure AD 조인 디바이스에서 로컬 관리자 그룹을 관리하는 방법
 
@@ -81,7 +81,7 @@ Windows 10 2004 업데이트부터 Azure AD 그룹을 사용 하 여 [제한 된
 
 현재는 이러한 정책을 관리 하는 데 Intune에 UI가 없으며 [사용자 지정 Oma-uri 설정을](/mem/intune/configuration/custom-settings-windows-10)사용 하 여 구성 해야 합니다. 이러한 정책 중 하나를 사용 하기 위한 몇 가지 고려 사항은 다음과 같습니다. 
 
-- 정책을 통해 Azure AD 그룹을 추가 하려면 그룹 API를 실행 하 여 가져올 수 있는 그룹의 SID가 필요 합니다. SID는 그룹 API의 속성으로 정의 됩니다 `securityIdentifier` .
+- 정책을 통해 Azure AD 그룹을 추가 하려면 그룹 [에 대 한 MICROSOFT GRAPH API](/graph/api/resources/group?view=graph-rest-beta)를 실행 하 여 가져올 수 있는 그룹의 SID가 필요 합니다. SID는 API 응답의 속성에 의해 정의 됩니다 `securityIdentifier` .
 - 제한 된 그룹 정책을 적용 하면 멤버 목록에 없는 그룹의 현재 구성원이 제거 됩니다. 따라서이 정책을 새 구성원 또는 그룹으로 적용 하면 장치에서 장치 관리자 역할 및 전역 관리자 역할을 조인한 기존 관리자가 제거 됩니다. 기존 구성원을 제거 하지 않으려면 제한 된 그룹 정책에서 구성원 목록의 일부로 구성 해야 합니다. 그룹 구성원 자격에 대 한 증분 업데이트를 허용 하는 로컬 사용자 및 그룹 정책을 사용 하는 경우에는이 제한 사항이 적용 됩니다.
 - 두 정책을 모두 사용 하는 관리자 권한은 Windows 10 장치 (관리자, 사용자, 게스트, Power Users, 원격 데스크톱 사용자 및 원격 관리 사용자)의 잘 알려진 다음 그룹에 대해서만 평가 됩니다. 
 - Azure AD 그룹을 사용 하 여 로컬 관리자를 관리 하는 것은 하이브리드 Azure AD 조인 또는 Azure AD 등록 장치에 적용 되지 않습니다.

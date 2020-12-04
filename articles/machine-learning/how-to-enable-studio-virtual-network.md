@@ -11,24 +11,25 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: df4d777ad78240b3ca84c51152b37861c4ccc486
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a90b98e8be976da9ee2669ab3b5fed4a890f0fb2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960005"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576627"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning studio 사용
 
-이 문서에서는 가상 네트워크에서 Azure Machine Learning studio를 사용 하는 방법에 대해 알아봅니다. 다음 방법을 알아봅니다.
+이 문서에서는 가상 네트워크에서 Azure Machine Learning studio를 사용 하는 방법에 대해 알아봅니다. 스튜디오에는 AutoML, 디자이너 및 데이터 레이블 지정과 같은 기능이 포함 되어 있습니다. 가상 네트워크에서 이러한 기능을 사용 하려면이 문서의 단계를 수행 해야 합니다.
+
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
-> - 가상 네트워크 내의 리소스에서 studio에 액세스 합니다.
-> - 저장소 계정에 대 한 개인 끝점을 구성 합니다.
 > - 가상 네트워크 내에 저장 된 데이터에 대 한 액세스를 스튜디오에 제공 합니다.
+> - 가상 네트워크 내의 리소스에서 studio에 액세스 합니다.
 > - 스튜디오에서 저장소 보안에 미치는 영향을 이해 합니다.
 
-이 문서는 Azure Machine Learning 워크플로를 보호 하는 과정을 안내 하는 다섯 부분으로 구성 된 시리즈의 5 부입니다. 먼저 전체 아키텍처를 이해 하려면 [1 부: VNet 개요](how-to-network-security-overview.md) 를 읽어 보는 것이 좋습니다. 
+이 문서는 Azure Machine Learning 워크플로를 보호 하는 과정을 안내 하는 다섯 부분으로 구성 된 시리즈의 5 부입니다. 이전 파트를 읽고 가상 네트워크 환경을 설정 하는 것이 좋습니다.
 
 이 시리즈의 다른 문서를 참조 하세요.
 
@@ -39,9 +40,9 @@ ms.locfileid: "94960005"
 > 작업 영역이 Azure Government 또는 Azure 중국 21Vianet과 같은 __소 버린 클라우드에__ 있는 경우 통합 된 노트북은 가상 네트워크에 있는 저장소 사용을 지원 _하지 않습니다_ . 대신 컴퓨팅 인스턴스에서 Jupyter Notebook을 사용할 수 있습니다. 자세한 내용은 [Compute Instance 노트북의 데이터 액세스](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) 섹션을 참조 하세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-+ [네트워크 보안 개요](how-to-network-security-overview.md) 를 읽고 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 합니다.
++ 일반적인 가상 네트워크 시나리오 및 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 를 참조 하세요.
 
 + 사용할 기존 가상 네트워크 및 서브넷
 
@@ -49,21 +50,16 @@ ms.locfileid: "94960005"
 
 + 기존 [Azure 저장소 계정에서 가상 네트워크를 추가 했습니다](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
-## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>VNet 내의 리소스에서 studio에 액세스 합니다.
+## <a name="configure-data-access-in-the-studio"></a>Studio에서 데이터 액세스 구성
 
-가상 네트워크 내의 리소스 (예: 계산 인스턴스 또는 가상 머신)에서 studio에 액세스 하는 경우 가상 네트워크에서 스튜디오로의 아웃 바운드 트래픽을 허용 해야 합니다. 
+일부 스튜디오 기능은 가상 네트워크에서 기본적으로 사용 하지 않도록 설정 되어 있습니다. 이러한 기능을 다시 사용 하도록 설정 하려면 스튜디오에서 사용 하려는 저장소 계정에 대해 관리 되는 id를 사용 하도록 설정 해야 합니다. 
 
-예를 들어 NSG (네트워크 보안 그룹)를 사용 하 여 아웃 바운드 트래픽을 제한 하는 경우 __AzureFrontDoor__ 의 __서비스 태그__ 대상에 규칙을 추가 합니다.
-
-## <a name="access-data-using-the-studio"></a>Studio를 사용 하 여 데이터 액세스
-
-[서비스 엔드포인트](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) 나 [개인 끝점](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)을 사용 하 여 가상 네트워크에 Azure storage 계정을 추가한 후에 [는 관리 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 저장소 계정에 데이터에 대 한 액세스 권한을 부여 해야 합니다.
-
-관리 되는 id를 사용 하지 않는 경우이 오류가 표시 되 고, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` 다음과 같은 작업을 사용할 수 없게 됩니다.
+가상 네트워크에서 다음 작업은 기본적으로 사용 하지 않도록 설정 되어 있습니다.
 
 * Studio에서 데이터를 미리 봅니다.
 * 디자이너에서 데이터를 시각화 합니다.
-* AutoML 실험을 제출 합니다.
+* 디자이너 ([기본 저장소 계정](#enable-managed-identity-authentication-for-default-storage-accounts))에 모델을 배포 합니다.
+* AutoML 실험 ([기본 저장소 계정](#enable-managed-identity-authentication-for-default-storage-accounts))을 제출 합니다.
 * 레이블 지정 프로젝트를 시작 합니다.
 
 스튜디오는 가상 네트워크의 다음 데이터 저장소 형식에서 데이터를 읽을 수 있도록 지원 합니다.
@@ -73,36 +69,58 @@ ms.locfileid: "94960005"
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
-### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>저장소 개인 링크에 대 한 작업 영역 관리 id __판독기__ 액세스 권한 부여
-
-이 단계는 [개인 끝점](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)을 사용 하 여 가상 네트워크에 Azure storage 계정을 추가한 경우에만 필요 합니다. 자세한 내용은 [판독기](../role-based-access-control/built-in-roles.md#reader) 기본 제공 역할을 참조 하세요.
-
 ### <a name="configure-datastores-to-use-workspace-managed-identity"></a>작업 영역 관리 id를 사용 하도록 데이터 저장소 구성
 
-Azure Machine Learning는 데이터 저장소를 사용 [하 여 저장소](concept-data.md#datastores) 계정에 연결 합니다. 관리 id를 사용 하도록 데이터 저장소를 구성 하려면 다음 단계를 사용 합니다. 
+[서비스 엔드포인트](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) 나 [개인 끝점](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)을 사용 하 여 가상 네트워크에 Azure storage 계정을 추가한 후 [관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 인증을 사용 하도록 데이터 저장소를 구성 해야 합니다. 이렇게 하면 스튜디오에서 저장소 계정의 데이터에 액세스할 수 있습니다.
+
+Azure Machine Learning는 데이터 저장소를 사용 [하 여 저장소](concept-data.md#datastores) 계정에 연결 합니다. 다음 단계를 사용 하 여 관리 id를 사용 하도록 데이터 저장소를 구성 합니다.
 
 1. 스튜디오에서 __Datastores__ 를 선택 합니다.
 
-1. 새 데이터 저장소를 만들려면 __+ 새 데이터 저장소__ 를 선택 합니다.
+1. 기존 데이터 저장소를 업데이트 하려면 데이터 저장소를 선택 하 고 __자격 증명 업데이트__ 를 선택 합니다.
 
-    기존 데이터 저장소를 업데이트 하려면 데이터 저장소를 선택 하 고 __자격 증명 업데이트__ 를 선택 합니다.
+    새 데이터 저장소를 만들려면 __+ 새 데이터 저장소__ 를 선택 합니다.
 
-1. 데이터 저장소 설정에서 __작업 영역 관리 id를 사용 하 여 Azure Machine Learning 서비스에서 저장소에 액세스 하도록 허용__ 에 대해 __예__ 를 선택 합니다.
+1. 데이터 저장소 설정에서 작업 영역 관리 id 사용에 대해 __예__ 를 선택 하  __고 데이터 미리 보기에는 Azure Machine Learning studio에서 프로 파일링__ 을 선택 합니다.
+
+    ![관리 되는 작업 영역 id를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷](./media/how-to-enable-studio-virtual-network/enable-managed-identity.png)
+
+이러한 단계는 Azure RBAC를 사용 하 여 저장소 서비스에 작업 영역 관리 id를 __판독기__ 로 추가 합니다. __읽기 권한자__ 액세스를 통해 작업 영역에서 방화벽 설정을 검색 하 여 데이터가 가상 네트워크를 떠나지 않도록 할 수 있습니다. 변경 내용을 적용 하는 데 최대 10 분이 걸릴 수 있습니다.
+
+### <a name="enable-managed-identity-authentication-for-default-storage-accounts"></a>기본 저장소 계정에 관리 되는 id 인증 사용
+
+각 Azure Machine Learning 작업 영역에는 작업 영역을 만들 때 정의 되는 두 개의 기본 저장소 계정과 함께 제공 됩니다. 스튜디오는 기본 저장소 계정을 사용 하 여 실험 및 모델 아티팩트를 저장 하며,이는 스튜디오의 특정 기능에 중요 합니다.
+
+다음 표에서는 작업 영역 기본 저장소 계정에 대해 관리 id 인증을 사용 하도록 설정 해야 하는 이유에 대해 설명 합니다.
+
+|스토리지 계정  | 메모  |
+|---------|---------|
+|작업 영역 기본 blob storage| 디자이너에서 모델 자산을 저장 합니다. 디자이너에서 모델을 배포 하려면이 저장소 계정에서 관리 되는 id 인증을 사용 하도록 설정 해야 합니다. <br> <br> 관리 id를 사용 하도록 구성 된 기본이 아닌 데이터 저장소를 사용 하는 경우 디자이너 파이프라인을 시각화 하 고 실행할 수 있습니다. 그러나 기본 데이터 저장소에서 관리 id를 사용 하도록 설정 하지 않고 학습 된 모델을 배포 하려고 하면 사용 중인 다른 데이터 저장소에 관계 없이 배포가 실패 합니다.|
+|작업 영역 기본 파일 저장소| AutoML 실험 자산을 저장 합니다. AutoML 실험을 제출 하려면이 저장소 계정에서 관리 되는 id 인증을 사용 하도록 설정 해야 합니다. |
 
 
-이러한 단계에서는 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 작업 영역 관리 id를 __판독기__ 로 저장소 서비스에 추가 합니다. __읽기 권한자__ 액세스를 통해 작업 영역에서 방화벽 설정을 검색 하 고 데이터가 가상 네트워크를 떠나지 않도록 할 수 있습니다.
+![기본 데이터 저장소를 찾을 수 있는 위치를 보여 주는 스크린샷](./media/how-to-enable-studio-virtual-network/default-datastores.png)
 
-> [!NOTE]
-> 이러한 변경 내용을 적용 하는 데 최대 10 분이 걸릴 수 있습니다.
+
+### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>저장소 개인 링크에 대 한 작업 영역 관리 id __판독기__ 액세스 권한 부여
+
+Azure 저장소 계정에서 개인 끝점을 사용 하는 경우 개인 링크에 대 한 작업 영역 관리 id **판독기** 액세스 권한을 부여 해야 합니다. 자세한 내용은 [판독기](../role-based-access-control/built-in-roles.md#reader) 기본 제공 역할을 참조 하세요. 
+
+저장소 계정에서 서비스 끝점을 사용 하는 경우이 단계를 건너뛸 수 있습니다.
+
+## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>VNet 내의 리소스에서 studio에 액세스 합니다.
+
+가상 네트워크 내의 리소스 (예: 계산 인스턴스 또는 가상 머신)에서 studio에 액세스 하는 경우 가상 네트워크에서 스튜디오로의 아웃 바운드 트래픽을 허용 해야 합니다. 
+
+예를 들어 NSG (네트워크 보안 그룹)를 사용 하 여 아웃 바운드 트래픽을 제한 하는 경우 __AzureFrontDoor__ 의 __서비스 태그__ 대상에 규칙을 추가 합니다.
 
 ## <a name="technical-notes-for-managed-identity"></a>관리 id에 대 한 기술 정보
 
-관리 id를 사용 하 여 저장소 서비스에 액세스 하면 몇 가지 보안 고려 사항에 영향을 줍니다. 이 섹션에서는 각 저장소 계정 유형에 대 한 변경 내용을 설명 합니다.
+관리 id를 사용 하 여 저장소 서비스에 액세스 하면 보안 고려 사항에 영향을 줍니다. 이 섹션에서는 각 저장소 계정 유형에 대 한 변경 내용을 설명 합니다. 
 
-> [!IMPORTANT]
-> 이러한 고려 사항은 액세스 하는 __저장소 계정 유형에 대해__ 고유 합니다.
+이러한 고려 사항은 액세스 하는 __저장소 계정 유형에 대해__ 고유 합니다.
 
-### <a name="azure-blob-storage"></a>Azure Blob 스토리지
+### <a name="azure-blob-storage"></a>Azure Blob Storage
 
 __Azure blob storage__ 의 경우 blob storage에서 데이터를 읽을 수 있도록 작업 영역 관리 Id도 [blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 로 추가 됩니다.
 
@@ -124,23 +142,17 @@ Azure Data Lake Storage Gen1는 POSIX 스타일의 액세스 제어 목록만 �
 
 SQL 포함 된 사용자를 만든 후에는 [Grant t-sql 명령을](/sql/t-sql/statements/grant-object-permissions-transact-sql)사용 하 여 해당 사용자에 게 사용 권한을 부여 합니다.
 
-### <a name="azure-machine-learning-designer-default-datastore"></a>Azure Machine Learning designer 기본 데이터 저장소
+### <a name="azure-machine-learning-designer-intermediate-module-output"></a>Azure Machine Learning 디자이너 중간 모듈 출력
 
-디자이너는 작업 영역에 연결 된 저장소 계정을 사용 하 여 기본적으로 출력을 저장 합니다. 그러나 사용자가 액세스할 수 있는 모든 데이터 저장소에 출력을 저장 하도록 지정할 수 있습니다. 환경에서 가상 네트워크를 사용 하는 경우 이러한 컨트롤을 사용 하 여 데이터가 안전 하 게 유지 되 고 액세스 가능한 지 확인할 수 있습니다.
-
-파이프라인에 대 한 새 기본 저장소를 설정 하려면 다음을 수행 합니다.
-
-1. 파이프라인 초안에서 파이프라인 제목 근처의 **설정 기어 아이콘** 을 선택 합니다.
-1. **기본 데이터 저장소 선택** 을 선택 합니다.
-1. 새 데이터 저장소를 지정 합니다.
-
-모듈 별로 기본 데이터 저장소를 재정의할 수도 있습니다. 이를 통해 각 개별 모듈의 저장소 위치를 제어할 수 있습니다.
+디자이너에서 모듈의 출력 위치를 지정할 수 있습니다. 이를 사용 하 여 보안, 로깅 또는 감사를 위해 중간 데이터 집합을 별도의 위치에 저장 합니다. 출력을 지정 하려면:
 
 1. 출력을 지정 하려는 모듈을 선택 합니다.
-1. **출력 설정** 섹션을 확장 합니다.
-1. **기본 출력 설정 재정의** 를 선택 합니다.
-1. **출력 설정 설정** 을 선택 합니다.
-1. 새 데이터 저장소를 지정 합니다.
+1. 오른쪽에 표시 되는 모듈 설정 창에서 **출력 설정** 을 선택 합니다.
+1. 각 모듈 출력에 사용 하려는 데이터 저장소를 지정 합니다.
+ 
+가상 네트워크의 중간 저장소 계정에 대 한 액세스 권한이 있는지 확인 합니다. 그렇지 않으면 파이프라인이 실패 합니다.
+
+또한 출력 데이터를 시각화 하기 위해 중간 저장소 계정에 [관리 되는 id 인증을 사용 하도록 설정](#configure-datastores-to-use-workspace-managed-identity) 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

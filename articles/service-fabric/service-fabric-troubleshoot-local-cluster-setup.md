@@ -1,16 +1,14 @@
 ---
 title: 로컬 Azure Service Fabric 클러스터 설정 문제 해결
 description: 이 문서에서는 로컬 개발 클러스터 문제 해결을 위한 여러 제안 사항을 다룹니다.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: mikhegn
-ms.openlocfilehash: 76ca0bb7b81b3896538f08ff2ef52ed1ac6b363f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20948cd1626c02d73fb6e9ef096b552bbab627fb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87091609"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575910"
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>로컬 개발 클러스터 설정 문제 해결
 로컬 Azure 서비스 패브릭 개발 클러스터와 상호 작용하는 동안 문제가 발생할 경우 다음 제안 사항에서 잠재적인 해결 방법이 있는지 검토하세요.
@@ -28,7 +26,7 @@ At line:1 char:1 + .\DevClusterSetup.ps1
 + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,DevClusterSetup.ps1
 ```
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 현재 Powershell 창을 닫고 관리자 권한으로 새 Powershell 창을 엽니다. 이제는 스크립트를 성공적으로 실행할 수 있습니다.
 
 ## <a name="cluster-connection-failures"></a>클러스터 연결 오류
@@ -37,7 +35,7 @@ At line:1 char:1 + .\DevClusterSetup.ps1
 #### <a name="problem"></a>문제
 PowerShell에서 클러스터에 연결할 때 System.Fabric.Common.AppTrace에 대해 TypeInitializationException 오류가 표시됩니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 설치하는 동안 경로 변수가 올바르게 설정되지 않았습니다. Windows에서 로그아웃하고 다시 로그인합니다. 경로를 새로 고칩니다.
 
 ### <a name="cluster-connection-fails-with-object-is-closed"></a>“개체 닫힘"으로 인해 클러스터 연결 실패
@@ -53,14 +51,14 @@ At line:1 char:1
 + FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
 ```
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 현재 Powershell 창을 닫고 관리자 권한으로 새 Powershell 창을 엽니다.
 
 ### <a name="fabric-connection-denied-exception"></a>패브릭 연결 거부 예외
 #### <a name="problem"></a>문제
 Visual Studio에서 디버그 시 FabricConnectionDeniedException 오류가 나타납니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 이 오류는 일반적으로 서비스 호스트 프로세스를 수동으로 시작하려고 할 때 발생합니다.
 
 솔루션에서 시작 프로젝트로 설정된 서비스 프로젝트가 없어야 합니다. Service Fabric 애플리케이션 프로젝트만 시작 프로젝트로 설정되어야 합니다.

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: ea12bf8a8d93f14c5364864b97d1173fe8602765
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 00f72e1de230cdc68f86010b7b25d86debaa5eb5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554430"
+ms.locfileid: "96575791"
 ---
 # <a name="scan-insights-on-your-data-in-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 정보 검색
 
@@ -20,8 +20,9 @@ ms.locfileid: "96554430"
 
 이 방법 가이드에서는 다음 방법에 대해 알아봅니다.
 
-* 부서의 범위 계정에서 정보를 봅니다.
-* 검색에 대 한 사람의 눈 보기를 가져옵니다.
+> [!div class="checklist"]
+> * 부서의 범위 계정에서 정보를 봅니다.
+> * 검색에 대 한 사람의 눈 보기를 가져옵니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

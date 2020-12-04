@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: ca57c1ae4797f69c1fe7034ddc4a47a3b0c1e602
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: d559496996d1cdc9052542977b26f5bd1925eefb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370314"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576080"
 ---
 # <a name="how-to-market-your-azure-application-offer"></a>Azure 애플리케이션 제품을 출시 하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "94370314"
 
 **Microsoft와 공동 판매** 탭에 대 한 정보를 제공 하는 것은 모두 선택 사항입니다. 그러나 _공동 판매 준비_ 및 _IP 공동 판매 준비_ 상태를 구현 하는 데 필요 합니다. Microsoft 영업 팀은이 정보를 사용 하 여 고객의 요구에 맞게 해당 솔루션에 대해 자세히 알아보세요. 이 탭에서 제공 하는 정보는 고객에 게 직접 제공 되지 않습니다.
 
-**Microsoft와 공동 판매** 탭을 구성 하는 방법에 대 한 자세한 내용과 지침은 [파트너 센터의 공동 판매 옵션](partner-center-portal/commercial-marketplace-co-sell.md)을 참조 하세요.
+**Microsoft와 공동 판매** 탭을 구성 하는 방법에 대 한 자세한 내용과 지침은 [파트너 센터의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조 하세요.
 
 ## <a name="resell-through-csps"></a>CSP를 통한 재판매
 

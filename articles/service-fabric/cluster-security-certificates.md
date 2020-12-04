@@ -3,13 +3,12 @@ title: Service Fabric 클러스터의 x.509 인증서 기반 인증
 description: Service Fabric 클러스터의 인증서 기반 인증에 대해 알아보고 인증서 관련 문제를 검색, 완화 및 수정 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.custom: sfrev
-ms.openlocfilehash: 36717f526f88af753f3929d62e84ee65be4320e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d81cb9d224bdc2e3002c621c86729df235e0d81
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259026"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574771"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Service Fabric 클러스터의 x.509 인증서 기반 인증
 

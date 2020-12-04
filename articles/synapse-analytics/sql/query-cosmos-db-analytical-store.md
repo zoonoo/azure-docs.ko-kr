@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 439337233e24dfcae2c8c911a9224fd3394d6846
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a7e9cdb18d109abeef7d7d7237444ac55f9e7da1
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462692"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576352"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Azure Synapse Link Preview에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB 데이터 쿼리
 
@@ -33,6 +33,12 @@ Azure Cosmos DB 쿼리를 위해 전체 [SELECT](/sql/t-sql/queries/select-trans
 
 ## <a name="overview"></a>개요
 
+서버 리스 SQL 풀을 사용 하면 함수를 사용 하 여 Azure Cosmos DB 분석 저장소를 쿼리할 수 있습니다 `OPENROWSET` . 
+- `OPENROWSET` 인라인 키를 사용 합니다. 이 구문을 사용 하 여 자격 증명을 준비할 필요 없이 Azure Cosmos DB 컬렉션을 쿼리할 수 있습니다.
+- `OPENROWSET` Cosmos DB 계정 키를 포함 하는 참조 된 자격 증명입니다. 이 구문을 사용 하 여 Azure Cosmos DB 컬렉션에 대 한 뷰를 만들 수 있습니다.
+
+### <a name="openrowset-with-key"></a>[키가 있는 OPENROWSET](#tab/openrowset-key)
+
 Azure Cosmos DB 분석 저장소에서 데이터 쿼리 및 분석을 지원 하기 위해 서버 리스 SQL 풀은 다음 구문을 사용 합니다 `OPENROWSET` .
 
 ```sql
@@ -45,17 +51,39 @@ OPENROWSET(
 
 Azure Cosmos DB 연결 문자열에는 Azure Cosmos DB 계정 이름, 데이터베이스 이름, 데이터베이스 계정 마스터 키 및 함수에 대 한 선택적 지역 이름이 지정 `OPENROWSET` 됩니다.
 
-> [!IMPORTANT]
-> `Latin1_General_100_CI_AS_SC_UTF8`Azure Cosmos DB 분석 저장소의 문자열 값이 utf-8 텍스트로 인코딩 되기 때문에 일부 utf-8 데이터베이스 데이터 정렬 (예:)을 사용 하 고 있는지 확인 합니다.
-> 파일 및 데이터 정렬에서 텍스트 인코딩이 일치 하지 않으면 예기치 않은 텍스트 변환 오류가 발생할 수 있습니다.
-> T-sql 문을 사용 하 여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다 `alter database current collate Latin1_General_100_CI_AI_SC_UTF8` .
-
 연결 문자열의 형식은 다음과 같습니다.
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
 
 구문에서 따옴표 없이 Azure Cosmos DB 컨테이너 이름을 지정 합니다 `OPENROWSET` . 컨테이너 이름에 특수 문자 (예: 대시 (-))가 있는 경우이 이름은 구문에서 대괄호 () 안에 래핑됩니다 `[]` `OPENROWSET` .
+
+### <a name="openrowset-with-credential"></a>[OPENROWSET 및 자격 증명](#tab/openrowset-credential)
+
+`OPENROWSET`자격 증명을 참조 하는 구문을 사용할 수 있습니다.
+
+```sql
+OPENROWSET( 
+       PROVIDER = 'CosmosDB',
+       CONNECTION = '<Azure Cosmos DB connection string without account key>',
+       OBJECT = '<Container name>',
+       [ CREDENTIAL | SERVER_CREDENTIAL ] = '<credential name>'
+    )  [ < with clause > ] AS alias
+```
+
+이 경우 Azure Cosmos DB 연결 문자열에는 키가 포함 되지 않습니다. 연결 문자열의 형식은 다음과 같습니다.
+```sql
+'account=<database account name>;database=<database name>;region=<region name>'
+```
+
+데이터베이스 계정 마스터 키가 서버 수준 자격 증명 또는 데이터베이스 범위 자격 증명에 배치 됩니다. 
+
+---
+
+> [!IMPORTANT]
+> `Latin1_General_100_CI_AS_SC_UTF8`Azure Cosmos DB 분석 저장소의 문자열 값이 utf-8 텍스트로 인코딩 되기 때문에 일부 utf-8 데이터베이스 데이터 정렬 (예:)을 사용 하 고 있는지 확인 합니다.
+> 파일 및 데이터 정렬에서 텍스트 인코딩이 일치 하지 않으면 예기치 않은 텍스트 변환 오류가 발생할 수 있습니다.
+> T-sql 문을 사용 하 여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다 `alter database current collate Latin1_General_100_CI_AI_SC_UTF8` .
 
 > [!NOTE]
 > 서버를 사용 하지 않는 SQL 풀은 Azure Cosmos DB 트랜잭션 저장소 쿼리를 지원 하지 않습니다.
@@ -76,6 +104,9 @@ Azure Cosmos DB 연결 문자열에는 Azure Cosmos DB 계정 이름, 데이터�
 
 Azure Cosmos DB에서 데이터를 탐색 하는 가장 쉬운 방법은 자동 스키마 유추 기능을 사용 하는 것입니다. 문에서 절을 생략 하면 서버를 사용 `WITH` `OPENROWSET` 하지 않는 SQL 풀에서 Azure Cosmos DB 컨테이너의 분석 저장소 스키마를 자동으로 검색 (유추) 하도록 지시할 수 있습니다.
 
+
+### <a name="openrowset-with-key"></a>[키가 있는 OPENROWSET](#tab/openrowset-key)
+
 ```sql
 SELECT TOP 10 *
 FROM OPENROWSET( 
@@ -83,6 +114,25 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
+
+### <a name="openrowset-with-credential"></a>[OPENROWSET 및 자격 증명](#tab/openrowset-credential)
+
+```sql
+/*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
+    CREATE CREDENTIAL MyCosmosDbAccountCredential
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+*/
+SELECT TOP 10 *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
+      OBJECT = 'EcdcCases',
+      SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+
+---
+
 앞의 예제에서는 서버를 사용 하지 않는 SQL 풀에서 `covid` `MyCosmosDbAccount` Azure Cosmos DB 키 (위 예제의 더미)를 사용 하 여 인증 된 Azure Cosmos DB 계정에서 데이터베이스에 연결 하도록 지시 했습니다. 그런 다음 해당 `EcdcCases` 지역의 컨테이너 분석 저장소에 액세스 합니다 `West US 2` . 특정 속성의 프로젝션이 없으므로 `OPENROWSET` 함수는 Azure Cosmos DB 항목의 모든 속성을 반환 합니다.
 
 Azure Cosmos DB 컨테이너의 항목에 `date_rep` , 및 속성이 있다고 가정 하면 `cases` `geo_id` 이 쿼리의 결과는 다음 표에 나와 있습니다.
@@ -119,6 +169,7 @@ FROM OPENROWSET(
 
 Azure Cosmos DB의 이러한 플랫 JSON 문서를 Synapse SQL의 행 및 열 집합으로 표시할 수 있습니다. `OPENROWSET`함수를 사용 하면 절에서 읽을 속성의 하위 집합 및 정확한 열 형식을 지정할 수 있습니다 `WITH` .
 
+### <a name="openrowset-with-key"></a>[키가 있는 OPENROWSET](#tab/openrowset-key)
 ```sql
 SELECT TOP 10 *
 FROM OPENROWSET(
@@ -127,7 +178,21 @@ FROM OPENROWSET(
        EcdcCases
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
-
+### <a name="openrowset-with-credential"></a>[OPENROWSET 및 자격 증명](#tab/openrowset-credential)
+```sql
+/*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
+    CREATE CREDENTIAL MyCosmosDbAccountCredential
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+*/
+SELECT TOP 10 *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
+      OBJECT = 'EcdcCases',
+      SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+---
 이 쿼리의 결과는 다음 표와 같습니다.
 
 | date_rep | cases | geo_id |
@@ -137,6 +202,26 @@ FROM OPENROWSET(
 | 2020-08-11 | 163 | RS |
 
 Azure Cosmos DB 값에 사용 해야 하는 SQL 형식에 대 한 자세한 내용은 문서의 끝에 있는 [sql 형식 매핑 규칙](#azure-cosmos-db-to-sql-type-mappings) 을 참조 하세요.
+
+## <a name="create-view"></a>뷰 만들기
+
+스키마를 확인 한 후 Azure Cosmos DB 데이터를 기반으로 보기를 준비할 수 있습니다. Azure Cosmos DB 계정 키를 별도의 자격 증명에 넣고 함수에서이 자격 증명을 참조 해야 합니다 `OPENROWSET` . 계정 키를 보기 정의에 보관 하지 마세요.
+
+```sql
+CREATE CREDENTIAL MyCosmosDbAccountCredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+GO
+CREATE OR ALTER VIEW EcdcCases
+AS SELECT *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
+      OBJECT = 'EcdcCases',
+      SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+
+`OPENROWSET`성능에 영향을 줄 수 있으므로 명시적으로 정의 하지 않은 스키마를 사용 하지 마세요. 열에 사용할 수 있는 최소 크기를 사용 해야 합니다 (예: 기본 VARCHAR (8000) 대신 VARCHAR (100)). Utf-8 [변환 문제](/troubleshoot/reading-utf8-text)를 방지 하려면 utf-8 데이터 정렬을 기본 데이터베이스 데이터 정렬로 사용 하거나 명시적 열 데이터 정렬로 설정 해야 합니다. `Latin1_General_100_BIN2_UTF8`데이터 정렬은 yu에서 일부 문자열 열을 사용 하 여 데이터를 필터링 할 때 최상의 성능을 제공 합니다.
 
 ## <a name="query-nested-objects-and-arrays"></a>중첩 된 개체 및 배열 쿼리
 
@@ -349,7 +434,7 @@ GROUP BY geo_id
 
 가능한 오류 및 문제 해결 작업은 다음 표에 나와 있습니다.
 
-| Error | 근본 원인 |
+| 오류 | 근본 원인 |
 | --- | --- |
 | 구문 오류:<br/> -"Openrowset" 근처의 구문이 잘못 되었습니다.<br/> - `...` 은 (는) 인식할 수 없는 대량 OPENROWSET 공급자 옵션입니다.<br/> -근처의 구문이 잘못 되었습니다. `...` | 가능한 근본 원인은 다음과 같습니다.<br/> -첫 번째 매개 변수로 CosmosDB를 사용 하지 않습니다.<br/> -세 번째 매개 변수에서 식별자 대신 문자열 리터럴을 사용 합니다.<br/> -세 번째 매개 변수 (컨테이너 이름)를 지정 하지 않습니다. |
 | CosmosDB 연결 문자열에 오류가 있습니다. | -계정, 데이터베이스 또는 키가 지정 되지 않았습니다. <br/> -인식 되지 않는 연결 문자열에는 몇 가지 옵션이 있습니다.<br/> -세미콜론 ( `;` )은 연결 문자열의 끝에 배치 됩니다. |
