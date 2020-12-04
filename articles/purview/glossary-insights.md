@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: 9f7d81423c75c3e1a51f5b5d5f37c54307488eb3
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: f61d99a61cb50886d70489b586d948bfa751e196
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554053"
+ms.locfileid: "96576777"
 ---
 # <a name="glossary-insights-on-your-data-in-azure-purview"></a>Azure 부서의 범위의 데이터에 대 한 용어집 정보
 
@@ -20,6 +20,7 @@ ms.locfileid: "96554053"
 
 이 방법 가이드에서는 다음 방법에 대해 알아봅니다.
 
+> [!div class="checklist"]
 > - 부서의 범위 계정에서 정보로 이동
 > - 데이터의 눈 모양 보기
 

@@ -2,22 +2,22 @@
 title: 포함 파일
 description: 포함 파일
 services: container-service
-author: dlepow
+author: mlearned
 ms.service: container-service
 ms.topic: include
 ms.date: 11/22/2019
-ms.author: danlep
+ms.author: mlearned
 ms.custom: include file
-ms.openlocfilehash: 32edd880e5e455393e60c87f4f963d71a3e59a20
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a42bba1b6524825aa571e4c18319b61b97829792
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028077"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96584511"
 ---
 | 리소스 | 제한 |
 | --- | :--- |
-| 구독당 최대 클러스터 수 | 100 |
+| 구독당 최대 클러스터 수 | 1000 |
 | Virtual Machine Availability Sets 및 기본 Load Balancer SKU를 사용하는 클러스터당 최대 노드 수  | 100 |
 | Virtual Machine Scale Sets 및 [표준 Load Balancer SKU][standard-load-balancer]를 사용하는 클러스터당 최대 노드 수 | 1000([노드 풀][node-pool]당 100개 노드) |
 | 노드당 최대 Pod 수: Kubenet을 사용하는 [기본 네트워킹][basic-networking] | 110 |

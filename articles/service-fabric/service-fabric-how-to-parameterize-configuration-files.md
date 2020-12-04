@@ -1,16 +1,14 @@
 ---
 title: Azure Service Fabric에서 구성 파일 매개 변수화
 description: 여러 환경을 관리 하는 데 유용한 방법인 Service Fabric 구성 파일을 매개 변수화 하는 방법을 알아봅니다.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: mikhegn
-ms.openlocfilehash: 4e96a732cffd70b0a5c24e7ebafe214297a72720
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ca376230c427c47e839b2dee96e8daa83ccedf15
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006050"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576760"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Service Fabric에서 구성 파일을 매개 변수화하는 방법
 
