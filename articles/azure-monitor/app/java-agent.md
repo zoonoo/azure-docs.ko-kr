@@ -3,13 +3,15 @@ title: Java 웹 앱 성능 모니터링-Azure 애플리케이션 정보
 description: Application Insights로 Java 웹 사이트의 확장된 성능 및 사용량 모니터링
 ms.topic: conceptual
 ms.date: 01/10/2019
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: e91e0252ac2af02157c30fe025e75b6cfee7de6e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.author: jgol
+ms.openlocfilehash: 299e9010b74c8363cacd1c20044d183dc1def6a6
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002020"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601291"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Java 웹 앱에서 종속성, catch 한 예외 및 메서드 실행 시간 모니터링
 
@@ -125,7 +127,7 @@ Application Insights 리소스에서 집계 된 원격 종속성과 메서드 �
 
 [종속성 문제 진단 - 자세한 내용](./asp-net-dependencies.md#diagnosis).
 
-## <a name="questions-problems"></a>궁금한 점이 더 있나요? 문제가 있습니까?
+## <a name="questions-problems"></a>질문이 있으세요? 문제가 있습니까?
 * 데이터가 없나요? [방화벽 예외 설정](./ip-addresses.md)
 * [Java 문제 해결](java-troubleshoot.md)
 

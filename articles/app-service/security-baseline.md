@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 94ab7e235f0796277d65aebb33d9011fc76b74ce
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 3d84f0df44f17bdc7dd68aa9cae1f01b06d261b4
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532791"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601644"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>App Service에 대 한 Azure 보안 기준
 
@@ -71,7 +71,7 @@ Azure 방화벽을 사용 하 여 트래픽을 전송 하 고, 구독 및 가상
 
 - [Azure Security Center에서 제공 하는 네트워크 보안 이해](../security-center/security-center-network-recommendations.md)
 
-- [App Service의 모니터링 및 보호를 사용 하도록 설정 하는 방법](/azure/security-center/defender-for-app-service-intro)
+- [App Service의 모니터링 및 보호를 사용 하도록 설정 하는 방법](/azure/security-center/defender-for-app-service-introduction)
 
 **Azure Security Center 모니터링**: 예
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29580564ffa2fed579065e6a8551a6f44597e41a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: d8825dcb2d8dbcf4a1296d8bace84b3d2716687f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433260"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602034"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한이란?
 Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집합이 부여됩니다. 사용자 액세스는 사용자 유형, [역할 할당](active-directory-users-assign-role-azure-portal.md) 및 개별 개체의 소유권으로 구성됩니다. 이 문서에서는 이 기본 권한을 설명하며 멤버와 게스트 사용자 기본값을 비교합니다. 기본 사용자 권한은 Azure AD의 사용자 설정에서만 변경할 수 있습니다.
@@ -32,13 +32,13 @@ Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집�
 
 **영역** | **멤버 사용자 권한** | **기본 게스트 사용자 권한** | **제한 된 게스트 사용자 권한 (미리 보기)**
 ------------ | --------- | ---------- | ----------
-사용자 및 연락처 | <ul><li>모든 사용자 및 연락처 목록 열거<li>사용자 및 연락처의 모든 공용 속성 읽기</li><li>게스트 초대<li>자신의 암호 변경<li>휴대전화 번호 관리<li>자신의 사진 관리<li>자신의 새로 고침 토큰 무효화</li></ul> | <ul><li>자신의 속성 읽기<li>다른 사용자 및 연락처의 표시 이름, 전자 메일, 로그인 이름, 사진, 사용자 계정 이름 및 사용자 유형 속성을 읽습니다.<li>자신의 암호 변경<li>표시 이름, 사용자 계정 이름 또는 ObjectId (허용 된 경우)를 사용 하 여 다른 사용자를 검색 합니다.<li>다른 사용자의 관리자 및 직접 보고서 정보 읽기</li></ul> | <ul><li>자신의 속성 읽기<li>자신의 암호 변경</li></ul>
+사용자 및 연락처 | <ul><li>모든 사용자 및 연락처 목록 열거<li>사용자 및 연락처의 모든 공용 속성 읽기</li><li>게스트 초대<li>자신의 암호 변경<li>휴대전화 번호 관리<li>자신의 사진 관리<li>자신의 새로 고침 토큰 무효화</li></ul> | <ul><li>자신의 속성 읽기<li>다른 사용자 및 연락처의 표시 이름, 전자 메일, 로그인 이름, 사진, 사용자 계정 이름 및 사용자 유형 속성을 읽습니다.<li>자신의 암호 변경<li>ObjectId를 사용 하 여 다른 사용자 검색 (허용 된 경우)<li>다른 사용자의 관리자 및 직접 보고서 정보 읽기</li></ul> | <ul><li>자신의 속성 읽기<li>자신의 암호 변경</li></ul>
 그룹 | <ul><li>보안 그룹 만들기<li>Microsoft 365 그룹 만들기<li>모든 그룹 목록 열거<li>모든 그룹 속성 읽기<li>숨겨지지 않은 그룹 멤버 자격 읽기<li>조인 된 그룹의 숨겨진 Microsoft 365 그룹 멤버 자격 읽기<li>사용자가 소유한 그룹의 속성, 소유권 및 멤버 자격 관리<li>게스트를 소유 그룹에 추가<li>동적 멤버 자격 설정 관리<li>소유 그룹 삭제<li>소유 Microsoft 365 그룹 복원</li></ul> | <ul><li>멤버 자격 및 소유권 (조인 되지 않은 그룹도 포함)을 포함 하 여 숨겨지지 않은 그룹의 속성을 읽습니다.<li>조인 된 그룹의 숨겨진 Microsoft 365 그룹 멤버 자격 읽기<li>표시 이름 또는 ObjectId를 기준으로 그룹 검색 (허용 되는 경우)</li></ul> | <ul><li>조인 된 그룹의 개체 id를 읽습니다.<li>일부 Microsoft 365 앱에서 조인 된 그룹의 멤버 자격 및 소유권 읽기 (허용 된 경우)</li></ul>
 애플리케이션 | <ul><li>새 애플리케이션 등록(만들기)<li>모든 응용 프로그램 목록 열거<li>등록 및 엔터프라이즈 애플리케이션의 속성 읽기<li>소유 애플리케이션의 애플리케이션 속성, 할당 및 자격 증명 관리<li>사용자에 대한 애플리케이션 암호 만들기 또는 삭제<li>소유 애플리케이션 삭제<li>소유 애플리케이션 복원</li></ul> | <ul><li>등록 및 엔터프라이즈 애플리케이션의 속성 읽기</li></ul> | <ul><li>등록 및 엔터프라이즈 애플리케이션의 속성 읽기
 디바이스</li></ul> | <ul><li>모든 장치의 목록 열거<li>모든 디바이스 속성 읽기<li>소유한 디바이스의 모든 속성 읽기</li></ul> | 사용 권한 없음 | 사용 권한 없음
 디렉터리 | <ul><li>모든 회사 정보 읽기<li>모든 도메인 읽기<li>모든 파트너 계약 읽기</li></ul> | <ul><li>회사 표시 이름 읽기<li>모든 도메인 읽기</li></ul> | <ul><li>회사 표시 이름 읽기<li>모든 도메인 읽기</li></ul>
 역할 및 범위 | <ul><li>모든 관리 역할 및 멤버 자격 읽기<li>관리 단위의 모든 속성 및 멤버 자격 읽기</li></ul> | 사용 권한 없음 | 사용 권한 없음
-Subscriptions | <ul><li>모든 구독 읽기<li>서비스 계획 멤버를 사용하도록 설정</li></ul> | 사용 권한 없음 | 사용 권한 없음
+구독 | <ul><li>모든 구독 읽기<li>서비스 계획 멤버를 사용하도록 설정</li></ul> | 사용 권한 없음 | 사용 권한 없음
 정책 | <ul><li>모든 정책 속성 읽기<li>소유한 정책의 모든 속성 읽기</li></ul> | 사용 권한 없음 | 사용 권한 없음
 
 ## <a name="restrict-member-users-default-permissions"></a>구성원 사용자의 기본 권한 제한 

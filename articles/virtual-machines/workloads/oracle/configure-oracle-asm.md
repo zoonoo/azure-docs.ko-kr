@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: e5593d530891e39404e0b9760861f2f22ae333d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6f0b58374ae3eb972993b544117d8cbb98371ce5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999997"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602617"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에 Oracle ASM 설정  
 
-Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 Oracle ASM(Automated Storage Management) 설치 및 구성과 결합된 기본 Azure 가상 머신 배포에 대해 설명합니다.  다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 Oracle ASM(Automated Storage Management) 설치 및 구성과 결합된 기본 Azure 가상 머신 배포에 대해 설명합니다.  다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Oracle 데이터베이스 VM 만들기 및 연결
@@ -33,7 +33,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹을 만들려면 [az group create](/cli/azure/group) 명령을 사용합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 이 예제에서는 *eastus* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
+리소스 그룹을 만들려면 [az group create](/cli/azure/group) 명령을 사용 합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 이 예제에서는 *eastus* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -345,7 +345,7 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
 
 Oracle Grid Infrastructure 소프트웨어를 다운로드 및 준비하려면 다음 단계를 완료합니다.
 
-1. [Oracle ASM 다운로드 페이지](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html)에서 Oracle Grid Infrastructure를 다운로드합니다. 
+1. [Oracle ASM 다운로드 페이지](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html)에서 Oracle Grid Infrastructure를 다운로드합니다. 
 
    다운로드 제목 **Linux x86-64용 Oracle Database 12c 릴리스 1 Grid Infrastructure(12.1.0.2.0)** 에서 두 개의 .zip 파일을 다운로드합니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 10ad0b83f3c85b48f9d066e1feec8d8aac4dd057
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a6a1b41dd4ede055ba81c069c2164bb36da99876
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533675"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602311"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Azure Lighthouse에 대 한 azure 보안 기준
 
@@ -306,7 +306,7 @@ Azure Lighthouse는 Azure 기본 제공 역할을 사용 하 여 위임 된 고�
 
 ## <a name="logging-and-threat-detection"></a>로깅 및 위협 탐지
 
-자세한 내용은 [Azure Security Benchmark: 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-protection)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)를 참조하세요.
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Azure 리소스에 대 한 위협 감지 사용
 
@@ -676,7 +676,7 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 -   다양한 위협 및 공격 시나리오에서 수정 전략
 
--   인터넷에 지 및 수신 및 송신 전략/azure/security/benchmarks/security-controls-v2-logging-threat-protection
+-   인터넷에 지 및 수신 및 송신 전략/azure/security/benchmarks/security-controls-v2-logging-threat-detection
 -   하이브리드 클라우드 및 온-프레미스 상호 연결 전략
 
 -   최신 네트워크 보안 아티팩트(예: 네트워크 다이어그램, 참조 네트워크 아키텍처)
@@ -748,7 +748,7 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 - [Azure Security Benchmark - 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Azure Security Benchmark - 인시던트 응답](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark - 인시던트 응답](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Azure 보안 모범 사례 4 - 프로세스 클라우드에 대한 인시던트 응답 프로세스 업데이트](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

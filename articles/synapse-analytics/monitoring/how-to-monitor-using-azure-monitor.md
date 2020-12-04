@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: f495de13c20aa2953f55e2837fab15a6c62e1083
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9032fcaf35265c791913f5b69fb0972bada6885f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467766"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602464"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Azure Synapse Analytics 작업 영역에서 Azure Monitor 사용
 
@@ -103,17 +103,16 @@ Azure Portal에 로그인 하 고 **Monitor**  >  **경고** 모니터링을 선
 
 Azure Synapse Analytics 작업 영역에서 내보낸 로그는 다음과 같습니다.
 
-| Log Analytics 테이블 이름 | 로그 범주 이름                 | 설명 |
+| Log Analytics 테이블 이름 | 로그 범주 이름                 | Description |
 |-------------------------------|-------------------------------------------------|-------------|
 | SynapseGatewayApiRequests     | 게이트웨이 Apirequests             | Azure Synapse gateway API 요청. |
 | SynapseRbacOperations         | SynapseRbacOperations          | Azure Synapse SRBAC (역할 기반 액세스 제어) 작업 |
-| SynapseBuiltinSqlPoolRequestsEnded   | BuiltInSqlReqsEnded    | Azure Synapse 기본 제공 서버를 사용 하지 않는 SQL 요청을 종료 했습니다. |
 
 ### <a name="dedicated-sql-pool-logs"></a>전용 SQL 풀 로그
 
 다음은 전용 SQL 풀에서 내보낸 로그입니다.
 
-| Log Analytics 테이블 이름        | 로그 범주 이름             | 설명 |
+| Log Analytics 테이블 이름        | 로그 범주 이름             | Description |
 |----------------------|--------------------------------------|-------------|
 | SynapseSqlPoolExecRequests  | ExecRequests | Azure Synapse 전용 SQL 풀의 SQL 요청/쿼리에 대 한 정보입니다.
 | SynapseSqlPoolDmsWorkers    | DmsWorkers   | Azure Synapse 전용 SQL 풀에서 DMS 단계를 완료 하는 작업자에 대 한 정보입니다.
@@ -132,7 +131,7 @@ Azure Synapse Analytics 작업 영역에서 내보낸 로그는 다음과 같습
 
 Apache Spark 풀이 내보내는 로그는 다음과 같습니다.
 
-| Log Analytics 테이블 이름               | 로그 범주 이름              | 설명                 |
+| Log Analytics 테이블 이름               | 로그 범주 이름              | Description                 |
 |-----------------------------|---------------------------------------|-----------------------------|
 | SynapseBigDataPoolApplicationsEnded | BigDataPoolAppsEnded | 종료 된 Apache Spark 응용 프로그램에 대 한 정보 |
 

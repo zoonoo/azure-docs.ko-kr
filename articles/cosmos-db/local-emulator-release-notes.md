@@ -1,22 +1,22 @@
 ---
-title: Azure Cosmos Emulator 다운로드 및 릴리스 정보
-description: 다양한 버전에 대한 Azure Cosmos Emulator 릴리스 정보를 가져오고 정보를 다운로드합니다.
+title: Azure Cosmos DB Emulator 다운로드 및 릴리스 정보
+description: 다양한 버전에 대한 Azure Cosmos DB Emulator 릴리스 정보를 가져오고 정보를 다운로드합니다.
 ms.service: cosmos-db
 ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: e9f28aeb2a47c2ce7b439cbe46dcc39df3011c33
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 42259b36f1a9bfe243df47cc08b33fe8c46d819d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95997157"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493069"
 ---
-# <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - 릴리스 정보 및 다운로드 정보
+# <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Azure Cosmos DB Emulator - 릴리스 정보 및 다운로드 정보
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-이 문서에서는 Azure Cosmos Emulator 릴리스 정보와 각 릴리스의 기능 업데이트 목록을 알아봅니다. 또한 다운로드 및 사용할 수 있는 에뮬레이터의 최신 버전도 나와 있습니다.
+이 문서에서는 Azure Cosmos DB Emulator 릴리스 정보와 각 릴리스의 기능 업데이트 목록을 알아봅니다. 또한 다운로드 및 사용할 수 있는 에뮬레이터의 최신 버전도 나와 있습니다.
 
 ## <a name="download"></a>다운로드
 

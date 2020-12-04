@@ -3,13 +3,15 @@ title: JVM 인수 추가-Azure Monitor Application Insights Java
 description: Azure Monitor Application Insights Java에 대 한 JVM 인수 추가
 ms.topic: conceptual
 ms.date: 04/16/2020
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: 3c9c38d4173413310b715e05c9dcfb9c15be9d4f
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.author: jgol
+ms.openlocfilehash: e665bf734d2141081796f7810eed02eff3b5c5ad
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377636"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601104"
 ---
 # <a name="adding-the-jvm-arg-for-azure-monitor-application-insights-java"></a>Azure Monitor Application Insights Java에 대 한 JVM 인수 추가
 

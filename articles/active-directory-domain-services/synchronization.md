@@ -11,18 +11,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 683a6c9f31947355a5415a5b8b57b621f717af91
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 92d440d019942219b322ef084b45317983d04fbe
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967667"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602243"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인에서 개체 및 자격 증명을 동기화 하는 방법
 
 Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인의 개체 및 자격 증명은 도메인 내에서 로컬로 만들거나 Azure Active Directory (Azure AD) 테 넌 트에서 동기화 할 수 있습니다. Azure AD DS를 처음 배포 하는 경우 Azure AD에서 개체를 복제 하기 위해 자동 단방향 동기화가 구성 되 고 시작 됩니다. 이 단방향 동기화는 azure AD에서 변경 내용을 적용 하 여 Azure AD DS 관리 되는 도메인을 최신 상태로 유지 하기 위해 백그라운드에서 계속 실행 됩니다. Azure AD DS에서 Azure AD로 다시 동기화가 수행 되지 않습니다.
 
 하이브리드 환경에서는 Azure AD Connect를 사용 하 여 온-프레미스 AD DS 도메인의 개체 및 자격 증명을 Azure AD로 동기화 할 수 있습니다. 이러한 개체가 Azure AD에 성공적으로 동기화 되 면 자동 백그라운드 동기화를 통해 관리 되는 도메인을 사용 하는 응용 프로그램에서 해당 개체 및 자격 증명을 사용할 수 있습니다.
+
+온-프레미스 AD DS 및 Azure AD가 ADFS를 사용 하 여 페더레이션된 인증에 대해 구성 된 경우 Azure DS에서 사용할 수 있는 (현재/유효한) 암호 해시가 없습니다. 공급 인증을 위해 생성 하기 전에 만든 Azure AD 사용자 계정은 이전 암호 해시가 있지만이는 온-프레미스 암호의 해시와 일치 하지 않을 수 있습니다. 따라서 Azure AD DS 사용자 자격 증명의 유효성을 검사할 수 없습니다.
 
 다음 다이어그램에서는 Azure AD DS, Azure AD 및 선택적 온-프레미스 AD DS 환경 간에 동기화가 작동 하는 방법을 보여 줍니다.
 

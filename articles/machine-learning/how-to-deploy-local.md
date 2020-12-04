@@ -10,14 +10,14 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy
-ms.openlocfilehash: 1d2e25f76d9a68eeb01a45c34651fe1537297980
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 71f393897dff266f1b0922a19eefd70cffea133d
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510576"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600356"
 ---
-# <a name="deploy-on-your-local-machines-models-trained-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 학습 한 로컬 컴퓨터 모델에 배포
+# <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>로컬 컴퓨터에서 Azure Machine Learning를 사용 하 여 학습 한 모델 배포 
 
 이 문서에서는 로컬 컴퓨터를 대상으로 사용 하 여 Azure Machine Learning에서 만든 모델을 학습 하거나 배포 하는 방법을 설명 합니다. Azure Machine Learning은 대부분의 Python 기계 학습 프레임 워크에서 작동할 수 있을 만큼 유연 합니다. 기계 학습 솔루션에는 일반적으로 복제 하기 어려울 수 있는 복잡 한 종속성이 있습니다. 이 문서에서는 사용 편의성으로 전체 제어의 균형을 조정 하는 방법을 보여 줍니다.
 

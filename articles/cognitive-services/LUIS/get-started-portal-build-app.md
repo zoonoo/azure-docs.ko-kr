@@ -4,13 +4,13 @@ description: 이 빠른 시작에서는 앱, 의도 및 엔터티의 기본 부�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/19/2020
-ms.openlocfilehash: 74866c65111fae9e6fb3b79d9b59819b14b03c16
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/30/2020
+ms.openlocfilehash: a5443dce9fc8bc028232f66f45b537a46858f35a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131475"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436677"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 새 앱 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "93131475"
 
 ## <a name="create-an-app"></a>앱 만들기
 
-애플리케이션을 만들려면  **+ 새 앱** 을 클릭합니다. 
+애플리케이션을 만들려면 **+ 새 앱** 을 선택합니다. 
 
 표시되는 창에 다음 정보를 입력합니다.
 
@@ -46,7 +46,7 @@ LUIS 앱이 만들어지면 의도를 만들어야 합니다. 의도는 사용�
 
 앱의 2가지 다른 _의도_ 는 다음과 같습니다.
 
-|Intent|사용자의 예제 텍스트<br>( _발화_ )|
+|Intent|사용자의 예제 텍스트<br>(_발화_)|
 |--|--|
 |ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
 |FindForm|`Where is the job transfer form hrf-123456?`|

@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb63931f883c6061ded996621a09aacbacd14af
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 766fd80ae5f7450c8e45d10afa4612a788a8d5fc
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919847"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602159"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>모니터링 및 분석을 통한 복원 력
 
@@ -41,7 +41,7 @@ ms.locfileid: "95919847"
 
   - **성공 비율 (%)**: 성공한 요청 수/총 요청 수입니다.
 
-  Azure AD B2C 정책 기반 로그, [감사 로그](https://docs.microsoft.coms/azure/active-directory-b2c/analytics-with-application-insights)및 로그인 로그가 저장 되는 [application insights](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights) 의 [키 표시기](https://docs.microsoft.com/azure/active-directory-b2c/view-audit-logs) 에 액세스 합니다.  
+  Azure AD B2C 정책 기반 로그, [감사 로그](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights)및 로그인 로그가 저장 되는 [application insights](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights) 의 [키 표시기](https://docs.microsoft.com/azure/active-directory-b2c/view-audit-logs) 에 액세스 합니다.  
 
    - **시각화**: Log analytics 빌드 대시보드를 사용 하 여 키 표시기를 시각적으로 모니터링 합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "95919847"
 
    - **이전 기간**: 전체 요청 및 성공률 (%)의 변경 내용을 표시 하는 임시 차트 만들기 이전 기간 동안 (예: 지난 주)
 
-- **경고**: log analytics를 사용 하면 키 표시기가 급격 하 게 변경 될 때 트리거되는 [경고](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) 를 정의 합니다. 이러한 변경으로 인해 Slo에 부정적인 영향을 줄 수 있습니다. 경고는 전자 메일, SMS 및 웹 후크를 비롯 한 다양 한 형태의 알림 방법을 사용 합니다. 먼저 경고가 트리거되는 임계값으로 작동 하는 조건을 정의 합니다. 예들 들어 다음과 같습니다.
+- **경고**: log analytics를 사용 하면 키 표시기가 급격 하 게 변경 될 때 트리거되는 [경고](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) 를 정의 합니다. 이러한 변경으로 인해 Slo에 부정적인 영향을 줄 수 있습니다. 경고는 전자 메일, SMS 및 웹 후크를 비롯 한 다양 한 형태의 알림 방법을 사용 합니다. 먼저 경고가 트리거되는 임계값으로 작동 하는 조건을 정의 합니다. 예를 들어:
   - 전체 요청에 대 한 갑작스러운 삭제에 대 한 경고: 총 요청 수가 갑자기 삭제 될 때 경고를 트리거합니다. 예를 들어 이전 기간과 비교 하 여 총 요청 수에 25% 놓기가 있으면 경고를 발생 시킵니다.  
   - 성공 율의 중요 한 삭제에 대 한 경고 (%): 선택한 정책의 성공률을 크게 떨어지면 경고를 트리거합니다.
   - 경고가 수신 되 면 Azure AD B2C에 대 한 [Log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views), [Application Insights](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-with-application-insights#:~:text=Setup%20Application%20Insights%201%20Go%20to%20the%20Azure,left-menu%2C%20and%20click%20on%20it.%20More%20items...%20)및 [VS Code 확장](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) 을 사용 하 여 문제를 해결 합니다. 문제를 해결 하 고 업데이트 된 응용 프로그램 또는 정책을 배포한 후에는 정상 범위로 돌아갈 때까지 키 표시기를 계속 모니터링 합니다.

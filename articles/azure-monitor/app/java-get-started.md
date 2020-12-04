@@ -2,16 +2,16 @@
 title: '빠른 시작: Azure 애플리케이션 Insights를 사용 하는 Java 웹 앱 분석'
 description: 'Application Insights를 사용하여 Java 웹앱에 대한 애플리케이션 성능 모니터링. '
 ms.topic: conceptual
-author: lgayhardt
-ms.custom: devx-track-java
-ms.author: lagayhar
 ms.date: 11/22/2020
-ms.openlocfilehash: 288b7463098b1c63b816f5544581e6222c7548c9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
+ms.openlocfilehash: 25d0d409c8112292afd20f052e82494dd8e656ea
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351557"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601308"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>빠른 시작: Java 웹 프로젝트에서 Application Insights 시작
 
@@ -293,7 +293,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 [가용성 웹 테스트를 설정 하는 방법에 대해 자세히 알아보세요.][availability]
 
-## <a name="questions-problems"></a>궁금한 점이 더 있나요? 문제가 있습니까?
+## <a name="questions-problems"></a>질문이 있으세요? 문제가 있습니까?
 [Java 문제 해결](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>다음 단계

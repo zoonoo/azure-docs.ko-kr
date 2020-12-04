@@ -3,12 +3,12 @@ title: 해커 톤에 대 한 Azure Lab Services 사용
 description: 이 문서에서는 해커 톤 행사를 실행 하는 데 사용할 수 있는 랩을 만들기 위해 Azure Lab Services를 사용 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 561351636a37c2cd5c3070dbfef2a3122e5c29b0
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: a0917ede4502dcbb59d1a30b7985b06c06975599
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434263"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602583"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>다음 해커 톤 Azure Lab Services 사용
 Azure Lab Services는 해커 톤에 대 한 Vm (가상 머신)의 새 랩을 신속 하 게 실행 하기 위해 간단 하 고 쉽게 사용할 수 있도록 설계 되었습니다.  다음 검사 목록을 사용 하 여 해커 톤가 최대한 원활 하 게 작동 하는지 확인 합니다. 이 검사 목록은 해커 톤 랩을 만들고 관리 하는 IT 부서 또는 교직원에 의해 완료 되어야 합니다. 
@@ -39,7 +39,7 @@ Azure Lab Services는 해커 톤에 대 한 Vm (가상 머신)의 새 랩을 신
 
 - **랩 액세스를 제한할지 여부를 결정** 합니다. 
 
-    랩에 사용자를 추가할 때 기본적으로 사용 하도록 설정 된 액세스 제한 옵션이 있습니다. 이 기능을 사용 하려면 등록 링크를 사용 하 여 랩에 등록 하 고 액세스 하려면 먼저 모든 해커 톤 참가자의 메일을 목록에 추가 해야 합니다. 이벤트 이전에 참가자가 누구 인지 모르는 해커 톤 있는 경우 액세스 제한 옵션을 사용 하지 않도록 설정 하 여 누구나 등록 링크를 사용 하 여 랩에 등록할 수 있습니다. 자세한 내용은 [사용자 추가에 대 한 방법 가이드](how-to-configure-student-usage.md#add-users-to-a-lab)를 참조 하세요.
+    랩에 사용자를 추가할 때 기본적으로 사용 하도록 설정 된 액세스 제한 옵션이 있습니다. 이 기능을 사용 하려면 등록 링크를 사용 하 여 랩에 등록 하 고 액세스 하려면 먼저 모든 해커 톤 참가자의 메일을 목록에 추가 해야 합니다. 이벤트 이전에 참가자가 누구 인지 모르는 해커 톤 있는 경우 액세스 제한 옵션을 사용 하지 않도록 설정 하 여 누구나 등록 링크를 사용 하 여 랩에 등록할 수 있습니다. 자세한 내용은 [사용자 추가에 대 한 방법 가이드](how-to-configure-student-usage.md)를 참조 하세요.
 
 - **일정, 할당량 및 자동 종료 설정을 확인** 합니다. 
 

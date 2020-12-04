@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f9b1193a4eb2c7299cbfb0c729673b72d1e8fbad
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 66efc02990c958ba056b6e678cdbf2815f10078c
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545844"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600390"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2를 지원하는 Azure 서비스
 
@@ -44,6 +44,7 @@ Azure 서비스를 사용 하 여 데이터를 수집 하 고 분석을 수행 �
 |Azure Data Explorer|일반 공급|예|예|[Azure 데이터 탐색기를 사용 하 여 Azure Data Lake에서 데이터 쿼리](/azure/data-explorer/data-lake-query-data)|
 |Azure Cognitive Search|미리 보기|예|예|[문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](../../search/search-howto-index-azure-data-lake-storage.md)|
 |Azure Content Delivery Network|아직 지원되지 않음|해당 사항 없음|해당 사항 없음|[문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](../../cdn/cdn-overview.md)|
+|Azure SQL Database|아직 지원되지 않음|해당 사항 없음|해당 사항 없음|[Azure SQL Database란?](/azure/azure-sql/database/sql-database-paas-overview.md)|
 
 ## <a name="see-also"></a>참고 항목
 

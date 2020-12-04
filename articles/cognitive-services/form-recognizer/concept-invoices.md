@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: eb1be4c78be0eb7fb943700b168fa82ede4d3861
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9a3a6bd6489baea90ed4143b42a09e7d697bbc50
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458401"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602447"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>양식 인식기 미리 빌드된 송장 모델
 
@@ -55,7 +55,7 @@ Azure 양식 인식기는 미리 작성 된 청구서 모델을 사용 하 여 �
 
 두 번째 단계는 [분석 송장 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9acb78c40a2533aee83) 작업을 호출 하는 것입니다. 이 작업은 송장 분석 작업에 의해 생성 된 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
 
-|필드| Type | 가능한 값 |
+|필드| 형식 | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 분석 작업이 시작 되지 않았습니다.<br /><br />실행 중: 분석 작업이 진행 중입니다.<br /><br />실패: 분석 작업이 실패 했습니다.<br /><br />성공: 분석 작업이 성공 했습니다.|
 
@@ -74,14 +74,14 @@ JSON 출력에는 3 가지 부분이 있습니다.
 
 송장 서비스는 text, tables 및 26 개의 송장 필드를 추출 합니다. 다음은 JSON 출력 응답의 청구서에서 추출 된 필드입니다 (아래 출력은이 [샘플 송장을](./media/sample-invoice.jpg)사용).  
 
-|이름| Type | 설명 | 텍스트 | 값 (표준화 된 출력) |
+|Name| Type | Description | 텍스트 | 값 (표준화 된 출력) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | 문자열 | 송장이 청구 되는 고객 | Microsoft Corp |  |
 | CustomerId | 문자열 | 고객에 대 한 참조 ID | CID-12345 |  |
 | PurchaseOrder | 문자열 | 구매 주문 참조 번호 | PO-3333 | |  |
 | InvoiceId | 문자열 | 이 특정 송장의 Id (종종 "송장 번호") | INV-100 | |  |
-| InvoiceDate | date | 송장이 발행 된 날짜 | 11/15/2019 | 
-| DueDate | date | 이 청구서의 결제 기한 | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| InvoiceDate | 날짜 | 송장이 발행 된 날짜 | 11/15/2019 | 
+| DueDate | 날짜 | 이 청구서의 결제 기한 | 12/15/2019 | 2019-12-15 | 2019-11-15 |
 | 이름의 | 문자열 | 이 송장을 만든 공급 업체 | CONTOSO L T D. | |
 | VendorAddress | 문자열 | 공급 업체의 우편 주소 | 123 456th 세인트 뉴욕, 전, 10001 | |
 | VendorAddressRecipient | 문자열 | VendorAddress와 연결 된 이름입니다. | Contoso 본사 | |
@@ -99,8 +99,8 @@ JSON 출력에는 3 가지 부분이 있습니다.
 | ServiceAddressRecipient | 문자열 | ServiceAddress와 연결 된 이름 | Microsoft 서비스 | |
 | RemittanceAddress | 문자열 | 고객에 대 한 명시적 송금 또는 지불 주소 | 123 remit St 뉴욕, 전, 10001 |  |
 | RemittanceAddressRecipient | 문자열 | RemittanceAddress와 연결 된 이름입니다. | Contoso 청구 |  |
-| ServiceStartDate | date | 서비스 기간에 대 한 첫 번째 날짜 (예: 유틸리티 청구 서비스 기간) | 2019/10/14 | 2019-10-14 |
-| ServiceEndDate | date | 서비스 기간의 종료 날짜 (예: 유틸리티 청구 서비스 기간) | 11/14/2019 | 2019-11-14 |
+| ServiceStartDate | 날짜 | 서비스 기간에 대 한 첫 번째 날짜 (예: 유틸리티 청구 서비스 기간) | 2019/10/14 | 2019-10-14 |
+| ServiceEndDate | 날짜 | 서비스 기간의 종료 날짜 (예: 유틸리티 청구 서비스 기간) | 11/14/2019 | 2019-11-14 |
 | PreviousUnpaidBalance | 숫자 | 명시적으로 이전 미지불 잔액 | $500.00 | 500 |
 
 
@@ -112,4 +112,4 @@ JSON 출력에는 3 가지 부분이 있습니다.
 ## <a name="see-also"></a>참조
 
 * [Form Recognizer란?](./overview.md)
-* [REST API 참조 문서](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
+* [REST API 참조 문서](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291)

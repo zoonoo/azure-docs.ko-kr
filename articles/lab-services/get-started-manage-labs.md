@@ -3,12 +3,12 @@ title: Azure Lab Services 시작
 description: 이 문서에서는 Azure Lab Services를 시작 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: 6fb0da7f91e0eecdeefecdb6635b657245fda9af
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 44afe13fb6f555b12dfce939ce8e88e3af8dc7ef
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434433"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602668"
 ---
 # <a name="get-started-with-lab-services"></a>Lab Services 시작 
 
@@ -115,12 +115,8 @@ Azure Lab Services의 랩에 대 한 대시보드는 VM 정보, 할당 되 고 �
 
 1. [Azure Lab services 웹 사이트](https://labs.azure.com/) 에서 창의 왼쪽에 있는 **사용자** 를 클릭 합니다.
 1. 창 위쪽에서 **사용자 추가** 를 클릭 하 고 **전자 메일 주소로 추가** 를 선택 합니다. 
-
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-button.png" alt-text="' 사용자 추가 ' 단추":::
 1. 오른쪽에 표시 되는 **사용자 추가** 창에서 학생의 전자 메일 주소를 별도의 줄에 입력 하거나 한 줄에 세미콜론으로 구분 하 여 입력 합니다.
-1. **저장** 을 클릭합니다.
-
-    :::image type="content" source="./media/get-started-manage-labs/add-students.png" alt-text="랩에 학생 추가":::
+1. **Save** 을 클릭합니다.
 1. 이제 사용자 목록이 전자 메일, 상태, 초대 및 할당량 시간으로 업데이트 됩니다.
 
     랩을 위해 학생을 등록 한 후에는 이름이 Azure Active Directory의 성과 이름으로 업데이트 됩니다.
@@ -138,7 +134,7 @@ Azure Lab Services의 랩에 대 한 대시보드는 VM 정보, 할당 되 고 �
 1. 학생의 전자 메일 주소가 포함 된 CSV 파일을 선택 하 고 **열기** 를 클릭 합니다.
 
     :::image type="content" source="./media/get-started-manage-labs/add-users-spreadsheet.png" alt-text="스프레드시트를 사용 하 여 사용자 추가":::
-1. 이제 창의 오른쪽 창에 메일이 표시 됩니다. **저장** 을 클릭합니다.
+1. 이제 창의 오른쪽 창에 메일이 표시 됩니다. **Save** 을 클릭합니다.
 
     :::image type="content" source="./media/get-started-manage-labs/register-users.png" alt-text="사용자 등록":::
 

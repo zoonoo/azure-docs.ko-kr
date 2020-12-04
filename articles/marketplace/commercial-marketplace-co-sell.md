@@ -1,22 +1,22 @@
 ---
-title: 파트너 센터의 공동 판매 옵션 | Azure Marketplace
-description: 제품의 공동 판매 탭에 제공 하는 정보는 Microsoft 영업 팀에서 고객 요구 사항에 맞게 평가할 때 제품에 대해 자세히 알아보는 데 사용 됩니다.
+title: 상업적 marketplace의 공동 판매 옵션 | Azure Marketplace
+description: Microsoft 영업 팀이 제품의 Microsoft와 공동 판매에 대 한 정보를 제공 하는 데 사용 하는 정보는 고객의 요구 사항에 맞게 평가할 때 제품에 대해 자세히 알아보세요.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 12/03/2020
-ms.openlocfilehash: f424cd85e26511f8fe3d863b1f2c77bc1e5e7537
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/04/2020
+ms.openlocfilehash: baa99518498b05b0a658627d9908298eb58f7775
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583011"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602736"
 ---
-# <a name="co-sell-option-in-partner-center"></a>파트너 센터의 공동 판매 옵션
+# <a name="co-sell-option-in-the-commercial-marketplace"></a>상업적 marketplace의 공동 판매 옵션
 
-공동 판매 탭에 대 한 정보를 제공 하는 것은 모두 선택 사항입니다. [공동 판매 준비 및 IP 공동 판매 Incentivized 상태](/legal/marketplace/certification-policies.md#3000-requirements-for-co-sell-status)를 구현 해야 합니다. Microsoft 영업 팀에서 제공 하는 정보를 사용 하 여 고객의 요구에 맞게 제품을 평가할 때 제품에 대해 자세히 알아볼 수 있습니다. 고객에게 직접 제공되지 않습니다. 자세한 내용은 [Microsoft와 공동 판매](https://partner.microsoft.com/membership/co-sell-with-microsoft)를 참조 하세요.
+**Microsoft와 공동 판매** 탭에 대 한 정보를 제공 하는 것은 모두 선택 사항입니다. [공동 판매 준비 및 IP 공동 판매 Incentivized 상태](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)를 구현 해야 합니다. Microsoft 영업 팀에서 제공 하는 정보를 사용 하 여 고객의 요구에 맞게 제품을 평가할 때 제품에 대해 자세히 알아볼 수 있습니다. 고객에게 직접 제공되지 않습니다. 자세한 내용은 [Microsoft와 공동 판매](https://partner.microsoft.com/membership/co-sell-with-microsoft)를 참조 하세요.
 
 파트너 센터의 공동 판매 옵션은 현재 다음 제품 유형에 서 사용할 수 있습니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "96583011"
 | 장치 (하드웨어) | 장치 제조업체에서 하드웨어를 빌드 또는 판매 하는 것을 포함 하는 제품입니다. |
 | IP (응용 프로그램) | 고객 사용에 대 한 라이선스를 받은 앱 또는 기타 copyrightable 자료입니다. 예: 온-프레미스에서 사용이 허가 되 고 설치 될 수 있는 CRM 프로그램입니다. |
 | 서비스 | 컨설턴트를 통해 제공 되는 특정 일회성 프로젝트에 대 한 실습 전문 기술입니다. 예: 클라이언트에 대 한 고객 데이터베이스 설정 (클라이언트에서 배달 후 데이터베이스 작동을 담당 하는 경우). |
-| 관리 서비스 | 일반적으로 지속적으로 클라우드 기반 프로젝트에 대 한 실습 기술입니다. 예: 관리 서비스 공급자가 제공 하는 지속적인 관리를 통해 온라인 데이터베이스 실행을 위한 플랫폼과 도구 제공 |
+| 관리형 서비스 | 일반적으로 지속적으로 클라우드 기반 프로젝트에 대 한 실습 기술입니다. 예: 관리 서비스 공급자가 제공 하는 지속적인 관리를 통해 온라인 데이터베이스 실행을 위한 플랫폼과 도구 제공 |
 
 ### <a name="solution-areas"></a>솔루션 영역
 

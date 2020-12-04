@@ -4,18 +4,18 @@ description: Azure Storage inventory는 저장소 계정 내의 모든 blob 데�
 services: storage
 author: mhopkins-msft
 ms.service: storage
-ms.date: 11/04/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 149fb9c888c54ea45d273890f3fe2cd59730fa01
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 86ded3dea819702631b1fa04dbc56f727566fc98
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355007"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602685"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Azure Storage blob 인벤토리를 사용 하 여 blob 데이터 관리 (미리 보기)
 
@@ -23,7 +23,7 @@ Azure Storage blob 인벤토리 기능은 저장소 계정 내의 blob 데이터
 
 ## <a name="availability"></a>가용성
 
-Blob 인벤토리는 GPv2 (범용 버전 2), 프리미엄 블록 blob storage 및 Azure DataLake Storage Gen2 (ADLS Gen2) 계정에 대해 지원 됩니다.
+Blob 인벤토리는 GPv2 (범용 버전 2) 및 프리미엄 블록 blob storage 계정 둘 다에 대해 지원 됩니다. 이 기능은 [계층 구조 네임 스페이스](data-lake-storage-namespace.md) 기능을 사용 하도록 설정 하거나 제외 하 고 지원 됩니다.
 
 ### <a name="preview-regions"></a>미리 보기 영역
 
@@ -85,7 +85,7 @@ Blob 인벤토리 실행은 매일 자동으로 예약 됩니다. 인벤토리 �
 
 Azure Portal의 **Blob inventory** 섹션에서 **코드 보기** 탭을 선택 하 여 인벤토리 정책에 대 한 JSON을 표시 합니다.
 
-| 매개 변수 이름 | 매개 변수 형식        | 참고 | 필수 여부 |
+| 매개 변수 이름 | 매개 변수 형식        | 메모 | 필수 여부 |
 |----------------|-----------------------|-------|-----------|
 | destination    | String                | 모든 인벤토리 파일이 생성 될 대상 컨테이너입니다. 대상 컨테이너는 이미 존재 해야 합니다. | Yes |
 | 사용        | 부울               | 전체 정책을 사용 하지 않도록 설정 하는 데 사용 됩니다. **True** 로 설정 되 면 규칙 수준 사용 필드가이 매개 변수를 재정의 합니다. 사용 하지 않도록 설정 하면 모든 규칙에 대 한 인벤토리가 사용 하지 않도록 설정 됩니다. | Yes |
@@ -97,7 +97,7 @@ Azure Portal의 **Blob inventory** 섹션에서 **코드 보기** 탭을 선택 
 
 정책 내의 각 규칙에는 다음과 같은 몇 가지 매개 변수가 있습니다.
 
-| 매개 변수 이름 | 매개 변수 형식                 | 참고 | 필수 여부 |
+| 매개 변수 이름 | 매개 변수 형식                 | 메모 | 필수 여부 |
 |----------------|--------------------------------|-------|-----------|
 | name           | String                         | 규칙 이름에는 대/소문자를 구분 하는 영숫자 문자를 256 개까지 포함할 수 있습니다. 이 이름은 정책 내에서 고유 해야 합니다. | Yes |
 | 사용        | 부울                        | 규칙을 사용 하거나 사용 하지 않도록 설정할 수 있는 플래그입니다. 기본값은 **true** 입니다. | Yes |
@@ -109,12 +109,12 @@ Azure Portal의 **Blob inventory** 섹션에서 **코드 보기** 탭을 선택 
 
 Blob 인벤토리 보고서를 사용자 지정 하는 데 사용할 수 있는 몇 가지 필터는 다음과 같습니다.
 
-| 필터 이름         | 필터 형식                     | 참고 | 필수 여부 |
+| 필터 이름         | 필터 형식                     | 메모 | 필수 여부 |
 |---------------------|---------------------------------|-------|-----------|
 | blobTypes           | 미리 정의 된 열거형 값의 배열 | 유효한 값은 `blockBlob` 및 `appendBlob` 계층 구조 네임 스페이스를 사용 하는 계정의 경우이 고 `blockBlob` , `appendBlob` `pageBlob` 다른 계정에 대해서는, 및입니다. | Yes |
-| prefixMatch         | 일치 시킬 접두사에 대 한 최대 10 개의 문자열 배열입니다. 접두사는 컨테이너 이름으로 시작 해야 합니다 (예: "container1/foo"). | *PrefixMatch* 를 정의 하지 않거나 빈 접두사를 제공 하는 경우 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 예 |
-| includeSnapshots    | 부울                         | 인벤토리에 스냅숏을 포함할지 여부를 지정 합니다. 기본값은 **false** 입니다. | 예 |
-| includeBlobVersions | 부울                         | 인벤토리에 blob 버전을 포함할지 여부를 지정 합니다. 기본값은 **false** 입니다. | 예 |
+| prefixMatch         | 일치 시킬 접두사에 대 한 최대 10 개의 문자열 배열입니다. 접두사는 컨테이너 이름으로 시작 해야 합니다 (예: "container1/foo"). | *PrefixMatch* 를 정의 하지 않거나 빈 접두사를 제공 하는 경우 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 아니요 |
+| includeSnapshots    | 부울                         | 인벤토리에 스냅숏을 포함할지 여부를 지정 합니다. 기본값은 **false** 입니다. | 아니요 |
+| includeBlobVersions | 부울                         | 인벤토리에 blob 버전을 포함할지 여부를 지정 합니다. 기본값은 **false** 입니다. | 아니요 |
 
 Azure Portal의 **Blob inventory** 섹션에서 **코드 보기** 탭을 선택 하 여 인벤토리 규칙에 대 한 JSON을 표시 합니다. 필터는 규칙 정의 내에서 지정 됩니다.
 

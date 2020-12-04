@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77e34e4a18012f15b9e907e3b9efc1965b98f824
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3222c790ccd0cee936b246253a16b5c434c61c8
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612123"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602209"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Microsoft ID 플랫폼 애플리케이션 인증 인증서 자격 증명
 
@@ -34,13 +34,13 @@ Microsoft id 플랫폼을 사용 하면 응용 프로그램에서 클라이언�
 
 | 매개 변수 |  설명 |
 | --- | --- |
-| `alg` | **RS256**이어야 함 |
-| `typ` | **JWT**여야 함 |
-| `x5t` | Base64 문자열 값으로 인코드된 x.509 인증서 해시의 (인증서의 SHA-1 *지문이*라고도 함) 16 진수 표현입니다. 예를 들어 x.509 인증서 해시 `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (16 진수)가 지정 된 경우 클레임은 `x5t` `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64)가 됩니다. |
+| `alg` | **RS256** 이어야 함 |
+| `typ` | **JWT** 여야 함 |
+| `x5t` | Base64url 문자열 값으로 인코드된 x.509 인증서 해시의 (인증서의 SHA-1 *지문이* 라고도 함) 16 진수 표현입니다. 예를 들어 x.509 인증서 해시 `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (16 진수)가 지정 된 경우 클레임은 `x5t` `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64url)입니다. |
 
 ### <a name="claims-payload"></a>클레임(페이로드)
 
-클레임 유형 | 값 | 설명
+클레임 유형 | 값 | Description
 ---------- | ---------- | ----------
 aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | "Aud" (대상) 클레임은 JWT가 의도 된 받는 사람을 식별 합니다 (여기서는 Azure AD). [RFC 7519, 섹션 4.1.3을](https://tools.ietf.org/html/rfc7519#section-4.1.3)참조 하세요.  이 경우 해당 수신자는 로그인 서버 (login.microsoftonline.com)입니다.
 exp | 1601519414 | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다. [RFC 7519, 4.1.4 섹션을](https://tools.ietf.org/html/rfc7519#section-4.1.4)참조 하세요.  이렇게 하면 어설션을 사용할 때까지 사용할 수 있으므로 잠시 후에 짧은 5-10 분을 유지 `nbf` 합니다.  Azure AD는 현재 시간에 제한을 두지 않습니다 `exp` . 
@@ -94,9 +94,9 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ### <a name="uploading-the-certificate-file"></a>인증서 파일 업로드
 
 클라이언트 애플리케이션에 대한 Azure 앱 등록에서:
-1. **인증서 및 비밀**을 선택합니다.
-2. **인증서 업로드**를 클릭하고 업로드할 인증서 파일을 선택합니다.
-3. **추가**를 클릭합니다.
+1. **인증서 및 비밀** 을 선택합니다.
+2. **인증서 업로드** 를 클릭하고 업로드할 인증서 파일을 선택합니다.
+3. **추가** 를 클릭합니다.
   인증서가 업로드되고 지문, 시작 날짜 및 만료 값이 표시됩니다.
 
 ### <a name="updating-the-application-manifest"></a>애플리케이션 매니페스트 업데이트
@@ -109,7 +109,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 애플리케이션 매니페스트에서 키를 식별하는 GUID도 제공해야 합니다(`$keyId`).
 
 클라이언트 애플리케이션에 대한 Azure 앱 등록에서:
-1. **매니페스트**를 선택하여 애플리케이션 매니페스트를 엽니다.
+1. **매니페스트** 를 선택하여 애플리케이션 매니페스트를 엽니다.
 2. 다음 스키마를 사용해서 *keyCredentials* 속성을 새 인증서 정보로 바꿉니다.
 
    ```JSON
@@ -131,7 +131,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 클라이언트 어설션은 클라이언트 암호를 사용 하는 모든 위치에서 사용할 수 있습니다.  예를 들어 [인증 코드 흐름](v2-oauth2-auth-code-flow.md)에서를 전달 하 여 요청이 앱에서 제공 되는 것을 입증할 수 있습니다 `client_secret` . 이를 `client_assertion` 및 매개 변수로 바꿀 수 있습니다 `client_assertion_type` . 
 
-| 매개 변수 | 값 | 설명|
+| 매개 변수 | 값 | Description|
 |-----------|-------|------------|
 |`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| 인증서 자격 증명을 사용 중임을 나타내는 고정 값입니다. |
 |`client_assertion`| JWT |위에서 만든 JWT입니다. |

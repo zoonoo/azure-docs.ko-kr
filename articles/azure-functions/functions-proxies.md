@@ -3,12 +3,12 @@ title: Azure Functions에서 프록시 사용
 description: Azure Functions 프록시를 사용하는 방법의 개요
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb263239f99bcb4ec4c893b700d5c1cce078659f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020401"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601376"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -55,11 +55,11 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 ### <a name="reference-local-functions"></a><a name="reference-localhost"></a>로컬 함수 참조
 `localhost`를 사용하면 왕복 프록시 요청없이 동일한 함수 앱 내에 있는 함수를 직접 참조할 수 있습니다.
 
-`"backendurl": "https://localhost/api/httptriggerC#1"`은 `/api/httptriggerC#1` 경로의 로컬 HTTP 트리거 함수를 참조합니다.
+`"backendUri": "https://localhost/api/httptriggerC#1"`은 `/api/httptriggerC#1` 경로의 로컬 HTTP 트리거 함수를 참조합니다.
 
  
 >[!Note]  
->함수에서 *function, admin 또는 sys* 권한 부여 수준을 사용하는 경우 원본 함수 URL에 따라 코드 및 clientId를 제공해야 합니다. 이 경우 참조는 다음과 같습니다. `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` 이러한 키를 [응용 프로그램 설정] 에 저장 하 고 프록시에서 해당 키를 참조 하는 것이 좋습니다. 이렇게 하면 소스 코드에 비밀을 저장 하지 않습니다. 
+>함수에서 *function, admin 또는 sys* 권한 부여 수준을 사용하는 경우 원본 함수 URL에 따라 코드 및 clientId를 제공해야 합니다. 이 경우 참조는 다음과 같습니다. `"backendUri": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` 이러한 키를 [응용 프로그램 설정] 에 저장 하 고 프록시에서 해당 키를 참조 하는 것이 좋습니다. 이렇게 하면 소스 코드에 비밀을 저장 하지 않습니다. 
 
 ### <a name="reference-request-parameters"></a><a name="request-parameters"></a>요청 매개 변수 참조
 

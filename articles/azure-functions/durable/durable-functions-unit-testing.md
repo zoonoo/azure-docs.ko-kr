@@ -3,12 +3,12 @@ title: Azure Durable Functions 단위 테스트
 description: Durable Functions를 단위 테스트하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7786a0a2e2d31086e1938b70e63fe2374e16fe7f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74231219"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601359"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions 단위 테스트
 
@@ -17,7 +17,7 @@ ms.locfileid: "74231219"
 > [!NOTE]
 > 이 문서에서는 Durable Functions 1.x를 대상으로 하는 Durable Functions 앱에 대 한 단위 테스트에 대 한 지침을 제공 합니다. Durable Functions 2.x에 도입 된 변경 내용을 고려 하도록 아직 업데이트 되지 않았습니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 문서의 예제를 살펴보려면 다음과 같은 개념과 프레임워크에 대한 지식이 필요합니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "74231219"
 
 * 지속성 함수
 
-* [xUnit](https://xunit.github.io/) - 프레임워크 테스트
+* [xUnit](https://github.com/xunit/xunit) - 프레임워크 테스트
 
 * [moq](https://github.com/moq/moq4) - 모의 프레임워크 만들기
 
@@ -179,6 +179,6 @@ Mock는 Durable Functions 1.x의 세 가지 추상 클래스를 통해 지원 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [xUnit에 대해 자세히 알아보기](https://xunit.github.io/docs/getting-started-dotnet-core)
+> [xUnit에 대해 자세히 알아보기](https://xunit.net/docs/getting-started/netcore/cmdline)
 > 
 > [moq에 대해 자세히 알아보기 ](https://github.com/Moq/moq4/wiki/Quickstart)

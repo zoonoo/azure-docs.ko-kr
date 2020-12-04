@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bf314510a8569a825ccd309ec855e3ff186bba86
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7a1b178450a1aa06db07d7b1ef525f7f781db9ef
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023380"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602821"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -114,7 +114,7 @@ deviceTRUST는 회사 엔터프라이즈를 tsi 하는 Windows 가상 데스크�
 
 deviceTRUST는 Windows 가상 데스크톱의 가치를 상황별 보안 기술로 확장 합니다. deviceTRUST를 사용 하면 보안 Windows 가상 데스크톱 액세스에 대 한 조건부 액세스, Windows 가상 데스크톱 내에서 조건부 응용 프로그램 액세스 및 추가 인프라 없이 조건부 Windows 가상 데스크톱 정책을 적용할 수 있습니다. DeviceTRUST를 사용 하면 모든 보안, 규정 준수 및 규정 요구 사항을 충족 하는 유연한 모바일 작업 영역을 사용할 수 있습니다.
 
-- [파트너 웹 사이트로 이동](https://devicetrust.com/wvd)합니다.
+- [파트너 웹 사이트로 이동](https://devicetrust.com/)합니다.
 
 ## <a name="ekran-system"></a>Ekran 시스템
 

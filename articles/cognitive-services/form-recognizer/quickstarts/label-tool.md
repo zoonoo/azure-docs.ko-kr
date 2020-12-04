@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 문서 처리
-ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 7671d8d58ffbd0fca444eefe53c46c99a4e76d37
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360873"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96009333"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -42,8 +42,17 @@ ms.locfileid: "93360873"
 
 온라인으로 Form Recognizer 샘플 레이블 지정 도구를 사용해 보려면 [FOTT 웹 사이트](https://fott-preview.azurewebsites.net/)로 이동합니다.
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
-> [Form Recognizer 샘플 레이블 지정 도구](https://fott-preview.azurewebsites.net/)
+> [미리 빌드된 모델 사용해보기](https://fott.azurewebsites.net/)
+
+# <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)
+> [!div class="nextstepaction"]
+> [미리 빌드된 모델 사용해보기](https://fott-preview.azurewebsites.net/)
+
+---
+
+Form Recognizer 서비스를 사용해보려면 Azure 구독([무료로 하나 생성](https://azure.microsoft.com/free/cognitive-services))과 [Form Recognizer 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) 엔드포인트 및 키가 필요합니다. 
 
 
 ## <a name="set-up-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 설정
@@ -68,8 +77,6 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 
 
-
-
 1. `docker pull` 명령을 사용하여 샘플 레이블 지정 도구 컨테이너를 가져옵니다.
 
     # <a name="v20"></a>[v2.0](#tab/v2-0)    
@@ -78,7 +85,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
     ```
     # <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)    
     ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
     ```
 
     ---
@@ -91,12 +98,12 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
     ```
     # <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)    
     ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview eula=accept    
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept    
     ```
 
     --- 
 
-   이 명령을 사용하면 웹 브라우저를 통해 샘플 레이블 지정 도구를 사용할 수 있습니다. `http://localhost:3000` 로 이동합니다.
+   이 명령을 사용하면 웹 브라우저를 통해 샘플 레이블 지정 도구를 사용할 수 있습니다. [https://editor.swagger.io](`http://localhost:3000`) 로 이동합니다.
 
 > [!NOTE]
 > Form Recognizer REST API를 사용하여 레이블을 문서에 지정하고 모델을 학습시킬 수도 있습니다. REST API를 사용하여 학습시키고 분석하려면 [REST API 및 Python을 사용하여 레이블로 학습](./python-labeled-data.md)을 참조하세요.
@@ -193,7 +200,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
    1. **+** 를 클릭하여 새 태그를 만듭니다.
    1. 태그 이름을 입력합니다.
    1. Enter 키를 눌러 태그를 저장합니다.
-1. 주 편집기에서 강조 표시된 텍스트 요소에서 단어를 선택하려면 클릭합니다. _v2.1 미리 보기_ 에서 클릭하여 라디오 단추 및 확인란과 같은 _선택 표시_ 를 키 값 쌍으로 선택할 수도 있습니다. Form Recognizer는 선택 표시가 값으로 "선택됨" 또는 "선택되지 않음"인지 여부를 식별합니다.
+1. 주 편집기에서 강조 표시된 텍스트 요소에서 단어를 선택하려면 클릭합니다. _v2.1 preview.2_ 에서 라디오 단추 및 확인란과 같은 _선택 표시_ 를 클릭하여 키 값 쌍으로 선택할 수도 있습니다. Form Recognizer는 선택 표시가 값으로 "선택됨" 또는 "선택되지 않음"인지 여부를 식별합니다.
 1. 적용하려는 태그를 클릭하거나 해당 키보드 키를 누릅니다. 숫자 키는 처음 10개 태그에 대한 바로 가기 키로 할당됩니다. 태그 편집기 창에서 위쪽 및 아래쪽 화살표 아이콘을 사용하여 태그를 다시 정렬할 수 있습니다.
     > [!Tip]
     > 양식에 레이블을 지정할 때 다음 팁을 참조하세요.

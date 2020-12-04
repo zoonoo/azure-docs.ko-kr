@@ -3,13 +3,15 @@ title: Java 웹 프로젝트에서 Application Insights 문제 해결
 description: 문제 해결 가이드 - Application Insights를 사용하여 라이브 Java 앱을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 03/14/2019
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d11eaa76f2133b9fdc66ba4e6bc91e2cc38c51c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.author: jgol
+ms.openlocfilehash: dbc9e48987f527c9579decc3db84091a432a17e5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972865"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601019"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Java SDK에 대 한 Application Insights 문제 해결 및 Q 및 A
 

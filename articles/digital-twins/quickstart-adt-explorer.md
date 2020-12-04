@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d203cb5ccef90fd09659ba64b7bcbc8b9be9e47a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d42a32e236eb73f2aa9f2f61d9708314783564dd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358102"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187303"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>빠른 시작 - ADT Explorer를 사용하여 Azure Digital Twins 샘플 시나리오 살펴보기
 
@@ -66,6 +66,7 @@ ADT Explorer 애플리케이션은 로컬 머신에서 실행할 때 [DefaultAzu
 1. [이 설치 링크](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)의 프로세스에 따라 OS와 일치하는 설치를 완료합니다.
 1. 머신에서 콘솔 창을 엽니다.
 1. `az login`을 실행하고 인증 프롬프트에 따라 Azure 계정에 로그인합니다.
+1. 마지막 단계: 이 계정에서 여러 Azure 구독을 사용하는 경우 `az account set --subscription "<your-subscription-name-or-ID>"`를 실행하여 Azure Digital Twins 인스턴스가 포함된 Azure 구독에 대한 인증 컨텍스트를 설정합니다(구독의 이름 또는 ID 값이 유효함).
 
 로그인하고 다음 섹션에서 ADT Explorer를 실행하면 ADT Explorer가 자동으로 해당 Azure 자격 증명을 선택합니다.
 
@@ -90,7 +91,7 @@ ADT Explorer 애플리케이션은 로컬 머신에서 실행할 때 [DefaultAzu
 
    :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="창 위쪽 근처에 있는 로그인 아이콘이 강조 표시된 ADT 탐색기입니다. 이 아이콘은 열쇠의 실루엣과 겹쳐진 사람의 간단한 실루엣을 보여 줍니다." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
-1. 이전에 필수 구성 요소 섹션에서 수집한 [Azure Digital Twins 인스턴스 URL](#prerequisites)을 *https://{instance host name}* 형식으로 입력합니다.
+1. 이전에 [Azure Digital Twins 인스턴스 설정](#set-up-an-azure-digital-twins-instance) 섹션에서 수집한 Azure Digital Twins 인스턴스 URL을 *https://{instance host name}* 형식으로 입력합니다.
 
 >[!NOTE]
 > 언제든지 동일한 아이콘을 선택하여 **로그인** 상자를 다시 열어서 이 정보를 다시 방문/편집할 수 있습니다. 전달한 값을 유지합니다.

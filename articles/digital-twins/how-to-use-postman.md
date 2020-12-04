@@ -1,5 +1,5 @@
 ---
-title: Postman을 사용 하 여 요청 만들기
+title: Postman으로 요청하기
 titleSuffix: Azure Digital Twins
 description: Postman을 구성 하 고 사용 하 여 Azure Digital Twins Api를 테스트 하는 방법을 알아봅니다.
 ms.author: baanders
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: f9be9dd94aad8c206b562f2c984ec944f70d3957
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5dbe161af172b65919328fca0b272f3b658f1b32
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188048"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600492"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Postman을 사용 하 여 Azure Digital Twins Api에 요청을 보내는 방법
 
@@ -130,7 +130,7 @@ Azure Digital Twins Api 중 하나에 대 한 Postman 요청을 만들려면 API
 
 예제 쿼리를 계속 하기 위해이 문서에서는 쿼리 API (및 해당 [참조 설명서](/rest/api/digital-twins/dataplane/query/querytwins))를 사용 하 여 인스턴스의 모든 디지털 쌍을 쿼리 합니다.
 
-1. 참조 설명서에서 요청 URL과 형식을 가져옵니다. 쿼리 API의 경우 *POST https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31* 입니다.
+1. 참조 설명서에서 요청 URL과 형식을 가져옵니다. 쿼리 API의 경우 *POST `https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31`* 입니다.
 1. Postman에서 요청에 대 한 형식을 설정 하 고 요청 URL을 입력 하 고 필요에 따라 URL에 자리 표시자를 채웁니다. 여기서는 [*필수 구성 요소*](#prerequisites) 섹션에서 인스턴스의 **호스트 이름을** 사용 합니다.
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="새 요청의 세부 정보에서 참조 설명서의 쿼리 URL은 요청 URL 상자에 채워집니다." lightbox="media/how-to-use-postman/postman-request-url.png":::

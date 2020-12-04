@@ -3,12 +3,15 @@ title: Azure Monitor Application Insights Java
 description: 코드를 수정할 필요 없이 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 7046e4a1aeeda5e537208c79858c95c79e188348
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
+ms.openlocfilehash: 4b29e5375c10fc3c1aaa203df720fdd24090d11e
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437204"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601138"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights
 
@@ -140,12 +143,12 @@ Application Insights Java 3.0은 이러한 Api를 통해 전송 되는 원격 �
 
 |                     | 마이크로미터 | Log4j, logback, 7 월 | 2.x SDK |
 |---------------------|------------|---------------------|---------|
-| **사용자 지정 이벤트**   |            |                     |  예    |
+| **사용자 지정 이벤트**   |            |                     |  Yes    |
 | **사용자 지정 메트릭**  |  예       |                     |  yes    |
-| **종속성**    |            |                     |  예    |
+| **종속성**    |            |                     |  Yes    |
 | **예외**      |            |  예                |  예    |
-| **페이지 보기**      |            |                     |  예    |
-| **요청**        |            |                     |  예    |
+| **페이지 보기**      |            |                     |  Yes    |
+| **요청**        |            |                     |  Yes    |
 | **추적**          |            |  예                |  예    |
 
 현재 Application Insights 3.0를 사용 하 여 SDK를 릴리스할 계획은 아닙니다.

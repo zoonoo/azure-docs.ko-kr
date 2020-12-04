@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect 동기화 V2 엔드포인트 공개 미리 보기 | Microsoft Docs
+title: Azure AD Connect sync V2 끝점 | Microsoft Docs
 description: 이 문서에서는 Azure AD Connect 동기화 v2 엔드포인트 API에 대한 업데이트를 다룹니다.
 services: active-directory
 author: billmath
@@ -12,34 +12,24 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b9b73e30094ed7d07e19f4b93f2fe8ab8f6af3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ffb298bca53a06bd1ef14a750648fe6e76fd45ee
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339424"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602107"
 ---
-# <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect 동기화 V2 엔드포인트 API(공개 미리 보기) 
+# <a name="azure-ad-connect-sync-v2-endpoint-api"></a>Azure AD Connect 동기화 V2 엔드포인트 API 
 Microsoft는 Azure AD Connect에 대한 새 엔드포인트(API)를 배포하여 Azure Active Directory에 대한 동기화 서비스 작업의 성능을 향상시켰습니다. 새 V2 엔드포인트를 활용하면 Azure AD로 내보내기 및 가져오기에 대한 성능이 크게 향상됩니다. 이 새 엔드포인트는 다음을 지원합니다.
     
- -  최대 250k 멤버가 포함된 그룹 동기화
+ - 최대 250k 멤버가 포함된 그룹 동기화
  - Azure AD로 내보내기 및 가져오기 성능 향상
  
 > [!NOTE]
 > 현재 새 끝점에는 다시 작성 된 Microsoft 365 그룹에 대 한 그룹 크기 제한이 구성 되어 있지 않습니다. 이는 Active Directory 및 동기화 주기 대기 시간에 영향을 미칠 수 있습니다. 그룹 크기를 점진적으로 늘리는 것이 좋습니다.  
 
-
 ## <a name="pre-requisites"></a>필수 구성 요소  
 새 V2 엔드포인트를 사용하려면 [Azure AD Connect 버전 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) 이상을 사용하고 아래 제공되는 배포 단계에 따라 Azure AD Connect 서버에 대해 V2 엔드포인트를 사용하도록 설정해야 합니다.   
-
->[!NOTE]
->현재 이 공개 미리 보기는 Azure 글로벌 클라우드에서만 사용할 수 있으며 [국가별 클라우드](../develop/authentication-national-cloud.md)에는 사용할 수 없습니다.
-
-### <a name="public-preview-limitations"></a>공용 미리 보기 제한 사항  
-이 릴리스는 광범위한 테스트를 거쳤지만 여전히 문제가 발생할 수 있습니다. 이 공개 미리 보기 릴리스의 목표 중 하나는 이러한 문제를 찾아서 수정하는 것입니다.  
-
->[!IMPORTANT]
-> 이 공개 미리 보기 릴리스에 대해 지원이 제공되지만, 발생할 수 있는 모든 문제를 Microsoft가 즉시 해결할 수 있는 것은 아닙니다. 따라서 프로덕션 환경에 이 릴리스를 배포하기 전에 신중히 판단하는 것이 좋습니다. 
 
 ## <a name="deployment-guidance"></a>배포 지침 
 V2 엔드포인트를 사용하려면 [Azure AD Connect 버전 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) 이상을 배포해야 합니다. 제공된 링크를 사용하여 다운로드합니다. 
@@ -184,17 +174,9 @@ V2 엔드포인트를 사용 설정한 상황에서 롤백해야 하는 경우 �
 > V 2에서 V1 끝점으로 다시 전환 하는 경우, Azure Microsoft 365 AD에 프로 비전 된 AD 그룹과 AD에 프로 비전 된 통합 그룹 모두에 대해 전체 동기화를 실행 한 후에는 전체 동기화를 실행 한 후에 50 개 이상의 구성원과 동기화 된 그룹이 삭제 됩니다. 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답  
-**Q: 고객이 프로덕션에서 이 기능을 사용할 수 있나요?**   
-</br>예, 앞에서 설명한 주의 사항을 참고하여 프로덕션 환경에서 사용할 수 있습니다.
  
-**Q: 문제가 발생할 경우 고객은 누구에게 연락하나요?**   
-</br>이 기능을 사용하면서 지원이 필요한 경우 지원 사례를 열어야 합니다. 
- 
-**Q: 공개 미리 보기는 자주 업데이트될 예정인가요?**   
-</br>공개 미리 보기 동안에는 제한된 수준의 지속적인 변화가 발생합니다. 프로덕션에 공개 미리 보기 기능을 배포하는 경우 이에 따르는 위험을 감안해야 합니다.  
- 
-**Q: 다음 마일스톤까지 얼마나 걸리나요?**   
-</br>추가 마일스톤에 도달하기 전에 공개 미리 보기 기능은 철회되고 다시 설계될 수 있습니다.  
+**업그레이드 및 새 설치의 경우 새 끝점이 기본값이 됩니다.**  
+</br>2021 년 1 월에 다운로드를 위해 게시할 새로운 AADConnect 릴리스를 계획 중입니다. 이 릴리스에서는 기본적으로 V2 끝점이 사용 되며, 추가 구성 보다 큰 50K 보다 큰 그룹을 동기화 할 수 있습니다. 이 릴리스는 이후 적격 서버에 자동으로 업그레이드 하기 위해 게시 됩니다.
  
 ## <a name="next-steps"></a>다음 단계
 
