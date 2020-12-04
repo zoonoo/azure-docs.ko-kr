@@ -50,7 +50,7 @@
         - name: 공동 판매 파트너 참여
           href: marketplace-co-sell.md
         - name: 파트너 센터의 공동 판매 옵션
-          href: partner-center-portal/commercial-marketplace-co-sell.md
+          href: commercial-marketplace-co-sell.md
         - name: CSP 파트너를 통한 재판매
           href: cloud-solution-providers.md
         - name: 프로그램 온보딩 연결 가이드
@@ -382,9 +382,9 @@
     - name: 지원되는 국가 및 지역
       href: sell-from-countries.md
     - name: 공동 판매 국가 및 지역 코드
-      href: partner-center-portal/commercial-marketplace-co-sell-countries.md
+      href: commercial-marketplace-co-sell-countries.md
     - name: 공동 판매 상태 코드
-      href: partner-center-portal/commercial-marketplace-co-sell-states.md
+      href: commercial-marketplace-co-sell-states.md
     - name: 범주 및 하위 범주
       href: categories.md
     - name: 지원되는 HTML 태그
