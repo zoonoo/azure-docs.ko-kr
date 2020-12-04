@@ -8,20 +8,23 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6d6a0bdb9a6aaa2d9ca75ccd4a6d71e9046bee4a
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 9ebbe54dd41cd7d7b83ef12f465326db3ef2b9ab
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523549"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572187"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Synapse RBAC 역할 할당을 검토 하는 방법
 
-Synapse RBAC 역할은 사용자, 그룹 및 기타 보안 주체에 게 사용 권한을 할당 하 여 Synapse 리소스에 대 한 액세스 및 사용을 가능 하 게 하는 데 사용 됩니다.  [자세한 정보](https://go.microsoft.com/fwlink/?linkid=2148306)
+Synapse RBAC 역할은 사용자, 그룹 및 기타 보안 주체에 게 사용 권한을 할당 하 여 Synapse 리소스에 대 한 액세스 및 사용을 가능 하 게 하는 데 사용 됩니다.  [자세히 알아보기](https://go.microsoft.com/fwlink/?linkid=2148306)
 
 이 문서에서는 작업 영역에 대 한 현재 역할 할당을 검토 하는 방법을 설명 합니다.
 
-모든 Synapse RBAC 역할을 사용 하 여 액세스할 수 없는 개체에 대 한 할당을 포함 하 여 모든 범위에 대 한 Synapse RBAC 역할 할당을 나열할 수 있습니다. Synapse 관리자만 Synapse RBAC 액세스 권한을 부여할 수 있습니다.   
+모든 Synapse RBAC 역할을 사용 하 여 액세스할 수 없는 개체에 대 한 할당을 포함 하 여 모든 범위에 대 한 Synapse RBAC 역할 할당을 나열할 수 있습니다. Synapse 관리자만 Synapse RBAC 액세스 권한을 부여할 수 있습니다.  
+
+>[!Note]
+>게스트 사용자 (다른 AD 테 넌 트의 사용자)는 Synapse 관리자 역할이 할당 된 경우에도 역할 할당을 보거나 관리할 수 없습니다.    
 
 ## <a name="open-synapse-studio"></a>Synapse Studio 열기  
 

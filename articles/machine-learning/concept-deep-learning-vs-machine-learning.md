@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 43b03abb2aac13358a2187a0a5dc570c1e45934e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c612e2a95e2596b2732ed8282037c8ded908a0a0
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458493"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571388"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Azure Machine Learning의 심층 학습 및 기계 학습
 
@@ -93,8 +93,6 @@ Azure Machine Learning의 오픈 소스 프레임 워크에서 이미지 분류 
 
 회사는 심층 학습을 통해 텍스트 분석을 수행 하 여 insider 거래 및 정부 규정 준수를 감지 합니다. 또 다른 일반적인 예는 보험 사기 행위입니다. 텍스트 분석은 종종 많은 양의 문서를 분석 하 여 보험 청구의 사기 가능성을 인식 하는 데 사용 됩니다. 
 
-Azure Machine Learning에서 TensorFlow 모델을 사용 하는 방법에 대해 알아봅니다. [TensorFlow 모델을 사용 하 여 필기 숫자 분류](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
-
 ## <a name="artificial-neural-networks"></a>인공 신경망
 
 인공 신경망은 연결 된 노드 계층으로 구성 됩니다. 심층 학습 모델에서는 계층 수가 많은 신경망을 사용 합니다. 
@@ -107,7 +105,7 @@ Feedforward 신경망은 가장 간단한 유형의 인공 신경망입니다. F
 
 ### <a name="recurrent-neural-network"></a>되풀이 신경망
 
-되풀이 신경망은 널리 사용 되는 인공 신경망입니다. 이러한 네트워크는 계층의 출력을 저장 하 고 다시 입력 계층에 공급 하 여 계층의 결과를 예측 합니다. 되풀이 신경망에는 훌륭한 학습 기능이 있습니다. 시계열 예측, 필기 학습 및 언어 인식 등의 복잡 한 작업에 널리 사용 되 고 있습니다.
+되풀이 신경망은 널리 사용 되는 인공 신경망입니다. 이러한 네트워크는 계층의 출력을 저장 하 고 다시 입력 계층에 공급 하 여 계층의 결과를 예측 합니다. 되풀이 신경망에는 훌륭한 학습 기능이 있습니다. 시계열 예측, 필기 학습, 언어 인식 등의 복잡 한 작업에 널리 사용 되 고 있습니다.
 
 ### <a name="convolutional-neural-networks"></a>나선형 신경망
 
@@ -118,6 +116,9 @@ Feedforward 신경망은 가장 간단한 유형의 인공 신경망입니다. F
 ## <a name="next-steps"></a>다음 단계
 
 다음 문서에서는 [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri)에서 오픈 소스 심층 학습 모델을 사용 하기 위한 추가 옵션을 보여 줍니다.
+
+
+- [TensorFlow 모델을 사용 하 여 필기 숫자 분류](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
 
 - [TensorFlow 평가기 및 Keras를 사용 하 여 필기 숫자 분류](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 

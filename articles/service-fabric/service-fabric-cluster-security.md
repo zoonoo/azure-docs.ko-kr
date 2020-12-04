@@ -3,13 +3,12 @@ title: Azure Service Fabric 클러스터 보호
 description: Azure Service Fabric 클러스터에 대한 보안 시나리오 및 이를 구현하는 데 사용할 수 있는 다양한 기술에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/14/2018
-ms.custom: sfrev
-ms.openlocfilehash: 642356f08a946cae5d2b2d395aaddd8e4dad27ed
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6f7bb785184938fe5c1e20e3c915b0112c7723ee
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682794"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573071"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>서비스 패브릭 클러스터 보안 시나리오
 

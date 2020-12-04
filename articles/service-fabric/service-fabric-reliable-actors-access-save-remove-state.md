@@ -1,17 +1,15 @@
 ---
 title: Azure Service Fabric 상태 관리
 description: Azure Service Fabric 신뢰할 수 있는 행위자의 상태에 액세스, 저장 및 제거 하는 방법과 응용 프로그램을 디자인할 때 고려해 야 할 사항에 대해 알아봅니다.
-author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e97fadb374fc45110f5071aab48da0a57eef4284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e796232719342883efc2aa5dd377d586f3039ad
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012792"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571320"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Reliable Actors 상태에 액세스, 저장 및 제거
 [Reliable Actors](service-fabric-reliable-actors-introduction.md)는 논리와 상태를 모두 캡슐화하고 상태를 안정적으로 유지할 수 있는 단일 스레드 개체입니다. 모든 행위자 인스턴스에는 키/값 쌍을 안정적으로 저장 하는 사전 유사 데이터 구조와 같은 고유한 [상태 관리자](service-fabric-reliable-actors-state-management.md)가 있습니다. 상태 관리자는 상태 제공자에 대한 래퍼입니다. 사용 되는 [지 속성 설정](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) 에 관계 없이 데이터를 저장 하는 데 사용할 수 있습니다.
@@ -107,7 +105,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 ## <a name="save-state"></a>상태 저장
 상태 관리자 검색 메서드는 로컬 메모리에 개체에 대한 참조를 반환합니다. 로컬 메모리에서 이 개체를 수정하는 것만으로는 지속적으로 저장하지 못합니다. 개체를 상태 관리자에서 검색하고 수정하는 경우 지속적으로 저장되도록 상태 관리자에 다시 삽입해야 합니다.
 
-`dictionary["key"] = value` 구문과 동등한 무조건 *설정*을 사용하여 상태를 삽입할 수 있습니다.
+`dictionary["key"] = value` 구문과 동등한 무조건 *설정* 을 사용하여 상태를 삽입할 수 있습니다.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]

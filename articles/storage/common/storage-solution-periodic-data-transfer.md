@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 19a4645e2bde4cf6b9f9a78123b334c290581ac4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a15ebd43861e2116ddbb2d9055b289645962e203
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484535"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573921"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>정기적 데이터 전송을 위한 솔루션
  
@@ -52,7 +52,7 @@ ms.locfileid: "96484535"
 
 ### <a name="continuous-data-ingestion-over-network"></a>네트워크를 통한 지속적인 데이터 수집
 
-| 기능                                       | Data Box Gateway | Data Box Edge   | Azure 데이터 팩터리        |
+| 특징                                       | Data Box Gateway | Data Box Edge   | Azure 데이터 팩터리        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | 폼 팩터                                   | 가상 디바이스             | 물리적 디바이스          | Azure Portal의 서비스, 온-프레미스의 에이전트                                                            |
 | 하드웨어                                      | 하이퍼바이저            | Microsoft 제공    | 해당 없음                                                            |
@@ -68,6 +68,6 @@ ms.locfileid: "96484535"
 - [AzCopy를 사용 하 여 데이터를 전송](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)합니다.
 - [Storage REST API를 사용한 데이터 전송에 대한 자세한 정보](/dotnet/api/overview/azure/storage)
 - 다음 작업을 수행하는 방법을 이해합니다.
-    - [Data Box Gateway를 통해 데이터 전송](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Data Box Gateway를 통해 데이터 전송](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
     - [Azure로 보내기 전에 Data Box Edge 데이터를 변환](../../databox-online/azure-stack-edge-deploy-configure-compute.md)합니다.
 - [Azure Data Factory를 사용하여 데이터를 전송하는 방법 알아보기](../../data-factory/tutorial-bulk-copy-portal.md)

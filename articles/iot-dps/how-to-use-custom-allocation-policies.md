@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 9db4328ce6519bef05017ba697d8f0f029f2096a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 26615b82bb9dcbc1247bec9b7a06b579dfa1eb2b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967417"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571643"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>사용자 지정 할당 정책을 사용하는 방법
 
@@ -40,15 +40,15 @@ ms.locfileid: "94967417"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 다음 필수 구성 요소는 Windows 개발 환경을 위한 것입니다. Linux 또는 macOS의 경우 SDK 설명서에서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)의 해당 섹션을 참조하세요.
 
-* ['C++를 사용한 데스크톱 개발'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
+- ['C++를 사용한 데스크톱 개발'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
 
-* 최신 버전의 [Git](https://git-scm.com/download/) 설치
+- 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-the-provisioning-service-and-two-divisional-iot-hubs"></a>프로 비전 서비스 및 두 개의 디비전 IoT hub 만들기
 
@@ -133,7 +133,7 @@ ms.locfileid: "94967417"
 
 7. 다음 페이지에서 **함수 만들기** 단계에 대해 웹 후크 **+ API** 타일을 선택 하 고 **만들기** 를 선택 합니다. **HttpTrigger1** 라는 함수가 만들어지고, 포털에는 **실행. csx** 코드 파일의 내용이 표시 됩니다.
 
-8. 필요한 Nuget 패키지를 참조 합니다. 초기 장치 쌍을 만들기 위해 사용자 지정 할당 함수는 호스팅 환경에 로드 되어야 하는 두 개의 Nuget 패키지에 정의 된 클래스를 사용 합니다. Azure Functions를 사용 하 여 Nuget 패키지는 *함수. 호스트* 파일을 사용 하 여 참조 됩니다. 이 단계에서는 *함수. 호스트* 파일을 저장 하 고 업로드 합니다.
+8. 필요한 NuGet 패키지를 참조 합니다. 초기 장치 쌍을 만들기 위해 사용자 지정 할당 함수는 호스팅 환경에 로드 되어야 하는 두 개의 NuGet 패키지에 정의 된 클래스를 사용 합니다. Azure Functions를 사용 하 여 NuGet 패키지는 *함수. 호스트* 파일을 사용 하 여 참조 됩니다. 이 단계에서는 *함수. 호스트* 파일을 저장 하 고 업로드 합니다.
 
     1. 다음 줄을 원하는 편집기에 복사 하 고 컴퓨터의 파일을 *함수. 호스트로* 저장 합니다.
 

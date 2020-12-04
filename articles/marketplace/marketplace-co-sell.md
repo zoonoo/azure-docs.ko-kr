@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/2/2020
-ms.openlocfilehash: 99b5e7bee93ffee14585f048506104ec313b9bff
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 3e4c793e7822021fd1690d53a2d9df5399f3e6e2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518538"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572986"
 ---
 # <a name="co-sell-partner-engagement"></a>공동 판매 파트너 참여
 
@@ -37,21 +37,23 @@ ms.locfileid: "96518538"
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>공동 판매 게시 단계 및 요구 사항
 
-아래 표에는 marketplace에서 공동 판매 준비 또는 공동 판매 incentivized을 제공 하기 위한 단계와 요구 사항이 정리 되어 있습니다. 모든 상용 marketplace 제품 유형을 파트너 센터의 공동 판매에 대해 구성할 수 있는 것은 아닙니다. [파트너 센터에서 공동 판매 옵션](./partner-center-portal/commercial-marketplace-co-sell.md) 을 참조 하 여 최신 정보를 확인할 수 있습니다.
+이 표에는 marketplace에서 공동 판매 준비 또는 공동 판매 incentivized을 제공 하기 위한 단계와 요구 사항이 정리 되어 있습니다. 모든 상용 marketplace 제품 유형을 파트너 센터의 공동 판매에 대해 구성할 수 있는 것은 아닙니다. 공동 판매를 지 원하는 제품 형식의 최신 목록은 [파트너 센터의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조 하세요. 
 
 |단계    |제품 유형    |요구 사항    |공동 판매 상태    |
 |----    |-------------    |------------    |---------------   |
 |<ol start=1><li>파트너 센터에서 계정을 만들고 상용 marketplace에 제품을 게시 합니다.</li>|모두|<ul><li>제품은 상업적 marketplace 게시 요구 사항을 충족 합니다.</li><li>파트너 센터에서 전체 비즈니스 프로필을 사용할 수 있습니다.</li></ul>| 시장에서 |
-|<ol start=2><li>필요한 공동 판매 자료를 제출 합니다.</li>|[파트너 센터의 공동 판매 옵션](./partner-center-portal/commercial-marketplace-co-sell.md) *을 사용한* IP 제안|[파트너 센터에서 필수 자료 업로드](#how-to-submit-co-sell-materials-in-partner-center)|공동 판매 준비|
-||[파트너 센터에서 공동 판매 옵션을 사용](./partner-center-portal/commercial-marketplace-co-sell.md) *하지 않는* IP 제안|<ul><li>[클라우드 전문가와 협력](https://partner.microsoft.com/campaigns/ced-nomination-form/) 하 여 필요한 공동 판매 설명서를 제공 하는 요청입니다.</li></ul>|공동 판매 준비|
+|<ol start=2><li>필요한 공동 판매 자료를 제출 합니다.</li>|[파트너 센터의 공동 판매 옵션](commercial-marketplace-co-sell.md) *을 사용한* IP 제안|[파트너 센터에서 필수 자료 업로드](#how-to-submit-co-sell-materials-in-partner-center)|공동 판매 준비|
+||[파트너 센터에서 공동 판매 옵션을 사용](commercial-marketplace-co-sell.md) *하지 않는* IP 제안|<ul><li>[클라우드 전문가와 협력](https://partner.microsoft.com/campaigns/ced-nomination-form/) 하 여 필요한 공동 판매 설명서를 제공 하는 요청입니다.</li></ul>|공동 판매 준비|
 ||컨설팅 서비스|<ul><li>[클라우드 전문가와 협력](https://partner.microsoft.com/campaigns/ced-nomination-form/) 하 여 필요한 공동 판매 설명서를 제공 하는 요청입니다.</li><li>적극적인 골드 역량.</li></ul>|공동 판매 준비|
-|<ol start=3><li>IP 공동 판매 성과급을 위한 자격</li>|Azure 응용 프로그램, Azure 컨테이너, IoT Edge 모듈, SaaS, Vm|공동 판매 준비를 완료 한 후에는 다음과 같은 두 가지 요구 사항이 추가로 적용 됩니다. <ul> 요구 사항 1: 다음 중 하나를 수행 합니다.<ul><li>*조직 수준에서:* 지난 12 개월 동안 Azure에서 사용 된 수익의 $10만 USD를 충족 하거나 초과 합니다.</li><li>*제안 수준:* $10만 USD의 누적 marketplace 청구 수익</li></ul><br>요구 사항 2: 제품 인프라의 50% 이상이 Azure에서 실행 되어야 합니다.<ul><li>[파트너 센터의 공동 판매 옵션인](./partner-center-portal/commercial-marketplace-co-sell.md) *IP 제품:* 검토를 위해 파트너 센터에서 공동 판매 문서로 아키텍처 다이어그램 업로드</li><li>[파트너 센터에서 공동 판매 옵션을 사용](./partner-center-portal/commercial-marketplace-co-sell.md) *하지 않는* IP 제공: OCP GTM에 아키텍처 다이어그램 업로드|Azure IP 공동 판매 incentivized|
+|<ol start=3><li>IP 공동 판매 성과급을 위한 자격</li>|Azure 응용 프로그램, Azure 컨테이너, IoT Edge 모듈, SaaS, Vm|공동 판매 준비를 완료 한 후에는 다음과 같은 두 가지 요구 사항이 추가로 적용 됩니다. <ul> 요구 사항 1: 다음 중 하나를 수행 합니다.<ul><li>*조직 수준에서:* 지난 12 개월 동안 Azure에서 사용 된 수익의 $10만 USD를 충족 하거나 초과 합니다.</li><li>*제안 수준:* $10만 USD의 누적 marketplace 청구 수익</li></ul><br>요구 사항 2: 제품 인프라의 50% 이상이 Azure에서 실행 되어야 합니다.<ul><li>[파트너 센터의 공동 판매 옵션인](commercial-marketplace-co-sell.md) *IP 제품:* 검토를 위해 파트너 센터에서 공동 판매 문서로 아키텍처 다이어그램 업로드</li><li>[파트너 센터에서 공동 판매 옵션을 사용](commercial-marketplace-co-sell.md) *하지 않는* IP 제공: OCP GTM에 아키텍처 다이어그램 업로드|Azure IP 공동 판매 incentivized|
 ||Dynamics|<ul><li>ISV Connect premium 계층에 활성 등록이 있습니다.</li></ul>|Business Applications 공동 판매 incentivized|
 |||
 
+공동 판매 솔루션 제품에 대 한 요구 사항에 대 한 자세한 내용은 [공동 판매 상태에 대 한 3000 요구 사항](/legal/marketplace/certification-policies.md#3000-requirements-for-co-sell-status)을 참조 하세요.
+
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>파트너 센터에서 공동 판매 자료를 제출 하는 방법
 
-아래 단계를 수행 하 여 파트너 센터에서 직접 공동 판매 여행을 시작 합니다. 자세한 내용은 [파트너 센터의 공동 판매 옵션](./partner-center-portal/commercial-marketplace-co-sell.md)을 참조 하세요.
+아래 단계를 수행 하 여 파트너 센터에서 직접 공동 판매 여행을 시작 합니다. 자세한 내용은 [파트너 센터의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조 하세요.
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 1. 왼쪽 창에서 **상업용 마켓플레이스**  >  **개요** 를 선택 하 고 공동 판매 하려는 제품을 선택 합니다.
@@ -88,7 +90,7 @@ ms.locfileid: "96518538"
 
 ## <a name="see-your-offers-co-sell-status"></a>제품의 공동 판매 상태 확인
 
-[파트너 센터에서 공동 판매 옵션이](./partner-center-portal/commercial-marketplace-co-sell.md)제공 되는 제품의 경우 제품 개요 페이지에서 제품의 현재 공동 판매 상태를 볼 수 있습니다.
+[파트너 센터에서 공동 판매 옵션이](commercial-marketplace-co-sell.md)제공 되는 제품의 경우 제품 개요 페이지에서 제품의 현재 공동 판매 상태를 볼 수 있습니다.
 
  :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="이 이미지는 제품의 현재 공동 판매 상태를 보여 줍니다.":::
 
@@ -96,5 +98,5 @@ ms.locfileid: "96518538"
 ## <a name="next-steps"></a>다음 단계
 
 - [Microsoft와 함께 판매](https://partner.microsoft.com/membership/sell-with-microsoft)에 대해 자세히 알아봅니다.
-- [파트너 센터의 공동 판매 옵션](./partner-center-portal/commercial-marketplace-co-sell.md)에 대해 자세히 알아보세요.
+- [파트너 센터의 공동 판매 옵션](commercial-marketplace-co-sell.md)에 대해 자세히 알아보세요.
 - [공동 판매 플레이 북](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF)를 참조 하세요.

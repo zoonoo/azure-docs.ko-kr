@@ -1,7 +1,7 @@
 ---
 title: 외부 id Azure Active Directory의 새로운 기능
 description: Azure Active Directory 외부 id에 대 한 새로운 및 업데이트 된 설명서입니다.
-ms.date: 11/10/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,24 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: f7c296b4a5bed0c3e599f59e9f0461295b86f197
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 35fa6909160ca707035ee9fc599e4035c2ae7981
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550096"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573904"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Azure Active Directory 외부 id: 새로운 기능
 
 Azure Active Directory 외부 id 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다. 외부 id 서비스의 새로운 기능에 대 한 자세한 내용은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조 하세요.
+
+## <a name="november-2020"></a>2020년 11월
+
+### <a name="updated-articles"></a>업데이트된 문서
+- [Microsoft 365 외부 공유 및 Azure Active Directory (Azure AD) B2B 공동 작업](o365-external-user.md)
+- [Azure AD B2B 협업을 사용하여 로컬로 관리되는 파트너 계정에게 클라우드 리소스에 대한 액세스 권한 부여](hybrid-on-premises-to-cloud.md)
+- [Azure Active Directory B2B 협업 사용자 속성](user-properties.md)
+
 
 ## <a name="october-2020"></a>2020년 10월
 

@@ -6,16 +6,16 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: f14ded89ad294abbfaf9861e5f4caf17dd82fb98
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: f1aad2464e4979ecbf35deceaad4de70e05b3004
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490715"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573666"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>관리 Id를 사용 하 여 Azure Blob Storage 출력에 Azure Stream Analytics 작업 인증
+# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>관리 Id (미리 보기)를 사용 하 여 Azure Stream Analytics 작업을 Azure Blob Storage 출력으로 인증
 
-Azure Blob 저장소에 대 한 출력에 대 한 [관리 id 인증](../active-directory/managed-identities-azure-resources/overview.md) 을 사용 하면 연결 문자열을 사용 하는 대신 저장소 계정에 직접 액세스 하 Stream Analytics 작업을 제공 합니다. 이 기능을 사용 하면 보안을 개선 하는 것 외에도 Azure 내에서 VNET (Virtual Network)의 저장소 계정에 데이터를 쓸 수 있습니다.
+Azure Blob storage에 출력 하 [는 관리 id 인증](../active-directory/managed-identities-azure-resources/overview.md) (미리 보기)은 연결 문자열을 사용 하는 대신 저장소 계정에 직접 액세스 하 Stream Analytics 작업을 제공 합니다. 이 기능을 사용 하면 보안을 개선 하는 것 외에도 Azure 내에서 VNET (Virtual Network)의 저장소 계정에 데이터를 쓸 수 있습니다.
 
 이 문서에서는 Azure Portal 및 Azure Resource Manager 배포를 통해 Stream Analytics 작업의 Blob 출력에 대해 관리 되는 Id를 사용 하도록 설정 하는 방법을 보여 줍니다.
 

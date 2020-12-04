@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 2d041782e8df795acb120ba1357cec5ef204dc28
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 9032e4c04279d87bf4422d3a87d19fdbecec1a64
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656331"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571796"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
@@ -167,6 +167,9 @@ FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 �
 커넥터 연결 문제를 식별하고 해결하는 좋은 방법은 커넥터 서비스를 시작하는 동안 네트워크 캡처를 사용하는 것입니다. 다음은 네트워크 추적을 캡처 및 필터링하는 몇 가지 간단한 팁입니다.
 
 원하는 모니터링 도구를 사용할 수 있습니다. 이 문서에서는 Microsoft 메시지 분석기를 사용했습니다.
+
+> [!NOTE]
+> [MMA (Microsoft Message Analyzer)가 사용 중지 되었으며](https://docs.microsoft.com/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) 11 월 25 2019에 microsoft.com 사이트에서 다운로드 패키지가 제거 되었습니다.  현재 개발 중인 microsoft Message Analyzer에 대 한 Microsoft 대체가 없습니다.  유사한 기능을 사용 하려면 Wireshark와 같은 타사 네트워크 프로토콜 분석기 도구를 사용 하는 것을 고려 하세요.
 
 다음 예는 메시지 분석기에 대한 내용이지만 원칙은 모든 분석 도구에 적용할 수 있습니다.
 

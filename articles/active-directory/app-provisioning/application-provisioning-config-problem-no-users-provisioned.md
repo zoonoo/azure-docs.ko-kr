@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 12/03/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 21f16a0b9c8b3b603735520d5dcdbf61601e1480
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 89a5838524daa1959ecf6b4fe3c17d6175ca8553
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994828"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571779"
 ---
 # <a name="no-users-are-being-provisioned"></a>프로비전된 사용자 없음 
 >[!NOTE]
@@ -24,7 +24,7 @@ ms.locfileid: "95994828"
 >
 앱에 연결할 Azure AD에 제공된 앱 자격 증명이 유효한지 확인을 비롯하여 애플리케이션에 대해 자동 프로비전이 구성되면 사용자 및/또는 그룹이 앱에 프로비전됩니다. 프로비전은 다음 사항에 의해 결정됩니다.
 
--   애플리케이션에 **할당된** 사용자 및 그룹. 중첩 된 그룹 또는 Microsoft 365 그룹을 프로 비전 하는 것은 지원 되지 않습니다. 할당에 대한 자세한 내용은 [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)을 참조하세요.
+-   애플리케이션에 **할당된** 사용자 및 그룹. 중첩 그룹 프로 비전은 지원 되지 않습니다. 할당에 대한 자세한 내용은 [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)을 참조하세요.
 -   **특성 매핑** 을 사용하도록 설정했으며 Azure AD의 유효한 특성을 앱에 동기화하도록 구성했는지 여부. 특성 매핑에 대한 자세한 내용은 [Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비전 특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
 -   특정 특성 값을 기반으로 사용자를 필터링하는 **범위 지정 필터** 가 있는지 여부. 범위 지정 필터에 대한 자세한 내용은 [범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)을 참조하세요.
   

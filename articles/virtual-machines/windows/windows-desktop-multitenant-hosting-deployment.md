@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 5bd41396cf075f83fd37a4276f7a30223ec8c1f3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 101f2cfe57624502764d145351a6343cfdd2a334
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96482946"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572867"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>다중 테넌트 호스팅 권한으로 Azure에서 Windows 10을 배포하는 방법 
 Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Access 사용자 단위(사용자 구독 라이선스 또는 추가 기능 사용자 구독 라이선스)를 사용하는 사용자의 경우, Windows 10용 다중 테넌트 호스팅 권한을 사용하면 클라우드로 Windows 10 라이선스를 가져오고, 다른 라이선스에 비용을 지불하지 않으면서 Azure에서 Windows 10 Virtual Machines를 실행할 수 있습니다. 자세한 내용은 [Windows 10용 다중 테넌트 호스팅](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)을 참조하세요.
@@ -112,7 +112,7 @@ LicenseType              :
 
 ## <a name="additional-information-about-joining-azure-ad"></a>Azure AD 가입에 대한 추가 정보
 >[!NOTE]
->Azure는 AAD 가입에 사용될 수 없는 기본 제공 관리자 계정을 사용하여 모든 Windows VM을 프로비전합니다. 예를 들어 *설정 > 계정 > 회사 또는 학교 액세스 > + 연결* 은 작동하지 않습니다. Azure AD에 수동으로 가입하려면 두 번째 관리자 계정을 만들어 로그온해야 합니다. 또한 프로비저닝 패키지를 사용하여 Azure AD를 구성할 수 있습니다. *다음 단계* 섹션에 대한 링크를 사용하여 자세한 내용을 알아보세요.
+>Azure는 AAD 가입에 사용될 수 없는 기본 제공 관리자 계정을 사용하여 모든 Windows VM을 프로비전합니다. 예를 들어 *설정 > 계정 > 회사 또는 학교 액세스 > + 연결* 은 작동하지 않습니다. Azure AD에 수동으로 가입하려면 두 번째 관리자 계정을 만들어 로그온해야 합니다. 프로 비전 패키지를 사용 하 여 Azure AD를 구성 하 고, *다음 단계* 섹션의 링크를 사용 하 여 자세한 내용을 확인할 수도 있습니다.
 >
 >
 

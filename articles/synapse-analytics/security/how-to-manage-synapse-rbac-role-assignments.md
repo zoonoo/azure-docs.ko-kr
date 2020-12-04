@@ -8,27 +8,28 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: a4016751944e5b7ec5d32dc586e9034db99c9d73
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: f26b54a18ff137575cac208d70e4693c0b9914a8
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523559"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572289"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Synapse Studio에서 Synapse RBAC 역할 할당을 관리 하는 방법
 
-Synapse RBAC는 역할을 사용 하 여 사용자, 그룹 및 기타 보안 주체에 게 사용 권한을 할당 하 여 Synapse 리소스 및 코드 아티팩트의 액세스 및 사용을 가능 하 게 합니다.  [자세한 정보](./synapse-workspace-synapse-rbac.md)
+Synapse RBAC는 역할을 사용 하 여 사용자, 그룹 및 기타 보안 주체에 게 사용 권한을 할당 하 여 Synapse 리소스 및 코드 아티팩트의 액세스 및 사용을 가능 하 게 합니다.  [자세히 알아보기](./synapse-workspace-synapse-rbac.md)
 
 이 문서에서는 Synapse RBAC 역할 할당을 추가 하 고 삭제 하는 방법을 보여 줍니다.
 
 >[!Note]
 >- Synapse RBAC 역할 할당을 관리 하려면 작업 영역에 대 한 Synapse 관리자 역할이 나 관리 하려는 개체를 포함 하는 하위 수준 범위에 있어야 합니다. 작업 영역에서 Synapse 관리자 인 경우 작업 영역의 모든 개체에 대 한 액세스 권한을 부여할 수 있습니다. 
->- Synapse 관리자를 할당 하거나 사용할 수 없는 경우 작업 영역에 대 한 액세스 권한을 다시 얻을 수 있도록 작업 영역에서 **AZURE RBAC** 역할 할당을 관리할 수 있는 권한이 있는 사용자는 **Synapse rbac** 역할 할당을 관리할 수 있습니다 .이를 통해 Synapse rbac의 Synapse 관리자 또는 기타 역할 할당을 추가할 수 있습니다.
+>- Synapse 관리자 역할이 할당 된 경우에도 다른 AD 테 넌 트에서 **게스트 사용자** 는 역할 할당을 보거나 관리할 수 없습니다.
+>- Synapse 관리자를 할당 하거나 사용할 수 없는 경우 작업 영역에 대 한 액세스 권한을 다시 얻으려면 작업 영역에 대 한 **AZURE RBAC** 역할 할당을 관리할 수 있는 권한이 있는 사용자는 **Synapse RBAC** 역할 할당을 관리할 수도 있습니다 .이를 통해 Synapse 관리자나 기타 Synapse 역할 할당을 추가할 수 있습니다.
 >- Sql 풀에 대 한 액세스는 SQL 권한을 사용 하 여 관리 됩니다.  Synapse 관리자 및 Synapse SQL 관리자 역할을 제외 하 고 Synapse RBAC 역할은 SQL 풀에 대 한 액세스 권한을 부여 하지 않습니다.
 
 >[!important]
 >- Synapse RBAC 역할 할당에 대 한 변경 내용은 적용 되는 데 2-5 분 정도 걸릴 수 있습니다. 
->- 보안 그룹의 멤버 자격을 수정 하 여 Synapse RBAC 권한을 관리 하는 경우 멤버 자격에 대 한 변경 내용은 Azure Active Directory를 사용 하 여 관리 됩니다.  그룹 멤버 자격에 대 한 변경 내용을 적용 하는 데 몇 분 정도 걸릴 수 있습니다.
+>- 보안 그룹의 멤버 자격을 수정 하 여 Synapse RBAC 권한을 관리 하는 경우 멤버 자격에 대 한 변경 내용은 Azure Active Directory를 사용 하 여 관리 됩니다.  그룹 멤버 자격에 대 한 변경 내용은 적용 되는 데 10-15 분 이상 걸릴 수 있습니다.
 
 ## <a name="open-synapse-studio"></a>Synapse Studio 열기  
 

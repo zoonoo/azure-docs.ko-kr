@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 9034757539a3dfd8b5e43e97ec518479da396456
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: d2d890db3c246ad7f3d0a56a3df264d5f78bd54d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917548"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571133"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 SaaS 제품을 계획 하는 방법
 
@@ -41,7 +41,7 @@ ms.locfileid: "94917548"
 
 ![온라인 스토어의 제품 목록을 보여 줍니다.](./media/listing-options.png)
 
-## <a name="technical-requirements"></a>기술적인 요구 사항
+## <a name="technical-requirements"></a>기술 요구 사항
 
 기술 요구 사항은 제품에 대해 선택 하는 목록 옵션에 따라 다릅니다.
 
@@ -113,10 +113,10 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
 
 | 요금제 청구 | 공개 계획 | 비공개 계획 | 사용 가능한 위치: |
 |---|---|---|---|
-| 예             | 예         | 예           | Azure Marketplace 및 Azure Portal |
+| 예             | 예         | 아니요           | Azure Marketplace 및 Azure Portal |
 | 예             | 예         | 예          | Azure Marketplace 및 Azure Portal * |
-| 예             | 예          | 예          | Azure Portal만 |
-| 예              | 예          | 예          | Azure Portal만 |
+| 예             | 아니요          | 예          | Azure Portal만 |
+| 아니요              | 아니요          | 예          | Azure Portal만 |
 |||||
 
 &#42; 제품의 비공개 요금제를 통해서만 사용할 수 있습니다 Azure Portal
@@ -202,7 +202,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
   - .png 파일
   - 캡션을 포함 해야 합니다.
 - **미디어-비디오** (선택 사항): 제품을 설명 하는 다음과 같은 요구 사항을 사용 하 여 최대 4 개의 비디오를 추가할 수 있습니다.
-  - 속성
+  - 이름
   - URL: YouTube 또는 Vimeo에만 호스팅되어야 합니다.
   - 축소판 그림: 1280 x 720 .png 파일
 
@@ -258,7 +258,7 @@ Microsoft에서 지 원하는 마케팅 및 판매 채널을 옵트인 (opt in) 
 
 - **Csp를 통한 재판매**:이 옵션을 사용 하면 csp (Microsoft 클라우드 솔루션 공급자) 파트너가 번들 제안의 일부로 솔루션을 재판매 수 있습니다. 자세한 내용은 [클라우드 솔루션 공급자 프로그램](cloud-solution-providers.md) 을 참조 하세요.
 
-- **Microsoft와 공동 판매**:이 옵션을 사용 하면 microsoft 영업 팀에서 고객의 요구를 평가할 때 IP 공동 판매에 적합 한 솔루션을 고려할 수 있습니다. 평가를 위해 제품을 준비 하는 방법에 대 한 자세한 내용은 [파트너 센터의 공동 판매 옵션](./partner-center-portal/commercial-marketplace-co-sell.md) 을 참조 하세요.
+- **Microsoft와 공동 판매**:이 옵션을 사용 하면 microsoft 영업 팀에서 고객의 요구를 평가할 때 IP 공동 판매에 적합 한 솔루션을 고려할 수 있습니다. 평가를 위해 제품을 준비 하는 방법에 대 한 자세한 내용은 [파트너 센터의 공동 판매 옵션](commercial-marketplace-co-sell.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

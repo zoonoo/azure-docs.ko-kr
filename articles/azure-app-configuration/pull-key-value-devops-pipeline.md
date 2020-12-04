@@ -7,18 +7,18 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 15810e65873c685565ccaad6c2dcdc1707713f2c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1c28b4e9821f31f927ef4f640aa664d330cf8792
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182651"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96570997"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Azure Pipelines를 사용 하 여 앱 구성으로 설정 끌어오기
 
 [Azure 앱 구성](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task) 작업은 앱 구성 저장소에서 키-값을 끌어오고 Azure 파이프라인 변수로 설정 합니다 .이 변수는 후속 작업에서 사용 될 수 있습니다. 이 작업은 구성 파일의 키-값을 앱 구성 저장소로 푸시하는 [Azure 앱 구성 푸시](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push) 작업을 보완 합니다. 자세한 내용은 [Azure Pipelines를 사용 하 여 앱 구성에 설정 밀어넣기](push-kv-devops-pipeline.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - 앱 구성 저장소- [Azure Portal](https://portal.azure.com)에서 무료로 무료로 만듭니다.
@@ -27,7 +27,7 @@ ms.locfileid: "96182651"
 
 ## <a name="create-a-service-connection"></a>서비스 연결 만들기
 
-서비스 연결을 사용 하 여 azure DevOps 프로젝트에서 Azure 구독의 리소스에 액세스할 수 있습니다.
+[서비스 연결](/azure/devops/pipelines/library/service-endpoints) 을 사용 하 여 Azure devops 프로젝트에서 azure 구독의 리소스에 액세스할 수 있습니다.
 
 1. Azure DevOps에서 대상 파이프라인이 포함 된 프로젝트로 이동 하 여 왼쪽 아래에서 **프로젝트 설정을** 엽니다.
 1. **파이프라인** 아래에서 **서비스 연결** 을 선택 합니다.

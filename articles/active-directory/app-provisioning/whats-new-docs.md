@@ -1,7 +1,7 @@
 ---
 title: 응용 프로그램 프로 비전 Azure Active Directory의 새로운 기능
 description: Azure Active Directory 응용 프로그램 프로 비전을 위한 새로운 설명서 및 업데이트 된 설명서입니다.
-ms.date: 11/05/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,24 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 51a2facfdaccc6cb29264873e9ffd60fc48735da
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: fd9be81e8c23686695f8cdb49d873d5a663d69c4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174665"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571762"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory 응용 프로그램 프로 비전: 새로운 기능
 
 Azure Active Directory 응용 프로그램 프로 비전 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다. 프로 비전 서비스의 새로운 기능에 대 한 자세한 내용은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조 하세요.
+
+## <a name="november-2020"></a>2020년 11월
+
+### <a name="updated-articles"></a>업데이트된 문서
+- [자습서 - Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정](customize-application-attributes.md)
+- [프로비저닝 작동 방법](how-provisioning-works.md)
+- [자습서 - Azure AD를 사용하여 SCIM 엔드포인트 빌드 및 사용자 프로비저닝 구성](use-scim-to-provision-users-and-groups.md)
+
 
 ## <a name="october-2020"></a>2020년 10월
 

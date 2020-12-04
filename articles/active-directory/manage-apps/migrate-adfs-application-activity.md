@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1245010ae0b21c5bb8e3ebd93a9fe851d48c858b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 77a43d5bd5f2b228d5ed4384fc1efdca76f8ea0b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835512"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573887"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>AD FS 응용 프로그램 작업 보고서 (미리 보기)를 사용 하 여 응용 프로그램을 Azure AD로 마이그레이션합니다.
 
@@ -26,19 +26,23 @@ ms.locfileid: "94835512"
 
 Azure Portal의 AD FS 응용 프로그램 작업 보고서 (미리 보기)를 사용 하면 Azure AD로 마이그레이션할 수 있는 응용 프로그램을 신속 하 게 식별할 수 있습니다. Azure AD와의 호환성을 위해 모든 AD FS 응용 프로그램을 평가 하 고, 문제를 확인 하 고, 개별 응용 프로그램을 마이그레이션하기 위한 지침을 제공 합니다. AD FS 응용 프로그램 활동 보고서를 사용 하 여 다음을 수행할 수 있습니다.
 
-* **AD FS 응용 프로그램을 검색 하 고 마이그레이션 범위를 확인 합니다.** AD FS 응용 프로그램 작업 보고서는 조직에 있는 모든 AD FS 응용 프로그램을 나열 하 고 Azure AD로의 마이그레이션 준비를 나타냅니다.
+* **AD FS 응용 프로그램을 검색 하 고 마이그레이션 범위를 확인 합니다.** AD FS 응용 프로그램 활동 보고서에는 지난 30 일 동안 활성 사용자 로그인이 있는 조직 내 모든 AD FS 응용 프로그램이 나열 됩니다. 이 보고서는 Azure AD로의 마이그레이션을 준비 하는 앱을 나타냅니다. 이 보고서에는 Office 365와 같은 AD FS의 Microsoft 관련 신뢰 당사자가 표시 되지 않습니다. 예를 들어 이름이 ' urn: federation: MicrosoftOnline ' 인 신뢰 당사자입니다.
+
 * **마이그레이션을 위해 응용 프로그램의 우선 순위를 지정 합니다.** 응용 프로그램 마이그레이션의 중요도를 결정 하는 데 도움이 되도록 지난 1, 7 또는 30 일 동안 응용 프로그램에 로그인 한 고유 사용자 수를 가져옵니다.
-* **마이그레이션 테스트를 실행 하 고 문제를 해결 합니다.** 보고 서비스는 테스트를 자동으로 실행 하 여 응용 프로그램을 마이그레이션할 준비가 되었는지 여부를 확인 합니다. 결과는 AD FS 응용 프로그램 작업 보고서에 마이그레이션 상태로 표시 됩니다. 잠재적인 마이그레이션 문제가 식별 되 면 문제를 해결 하는 방법에 대 한 구체적인 지침을 얻을 수 있습니다.
+* **마이그레이션 테스트를 실행 하 고 문제를 해결 합니다.** 보고 서비스는 테스트를 자동으로 실행 하 여 응용 프로그램을 마이그레이션할 준비가 되었는지 여부를 확인 합니다. 결과는 AD FS 응용 프로그램 작업 보고서에 마이그레이션 상태로 표시 됩니다. AD FS 구성이 Azure AD 구성과 호환 되지 않는 경우 Azure AD에서 구성의 주소를 지정 하는 방법에 대 한 구체적인 지침을 얻을 수 있습니다.
 
 전역 관리자, 보고서 읽기 권한자, 보안 읽기 권한자, 응용 프로그램 관리자 또는 클라우드 응용 프로그램 관리자와 같은 관리 역할이 할당 된 사용자는 AD FS 응용 프로그램 작업 데이터를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * 조직에서 응용 프로그램에 액세스 하려면 현재 AD FS를 사용 해야 합니다.
 * Azure AD 테 넌 트에서 Azure AD Connect Health를 사용 하도록 설정 해야 합니다.
 * AD FS 에이전트에 대 한 Azure AD Connect Health를 설치 해야 합니다.
    * [Azure AD Connect Health에 대 한 자세한 정보](../hybrid/how-to-connect-health-adfs.md)
    * [Azure AD Connect Health 설정 시작 및 AD FS 에이전트 설치](../hybrid/how-to-connect-health-agent-install.md)
+
+>[!IMPORTANT] 
+>Azure AD Connect Health를 설치한 후에는 예상 되는 모든 응용 프로그램이 표시 되지 않는 몇 가지 이유가 있습니다. AD FS 응용 프로그램 작업 보고서는 지난 30 일 동안 사용자 로그인이 있는 AD FS 신뢰 당사자만 보여 줍니다. 또한 보고서에는 Office 365와 같은 Microsoft 관련 신뢰 당사자가 표시 되지 않습니다.
 
 ## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>마이그레이션할 수 있는 AD FS 응용 프로그램 검색 
 
@@ -74,7 +78,7 @@ AD FS 응용 프로그램 작업 보고서는 Azure AD **사용량 & insights** 
 
 다음 표에는 AD FS 응용 프로그램에서 수행 되는 모든 구성 테스트가 나열 되어 있습니다.
 
-|결과  |성공/경고/실패  |설명  |
+|결과  |성공/경고/실패  |Description  |
 |---------|---------|---------|
 |Test-ADFSRPAdditionalAuthenticationRules <br> AdditionalAuthentication에 대해 마이그레이션할 수 있고 규칙이 하나 이상 검색 되지 않았습니다.       | 통과/경고          | 신뢰 당사자에 게 MFA (multi-factor authentication)를 요구 하는 규칙이 있습니다. Azure AD로 이동 하려면 이러한 규칙을 조건부 액세스 정책으로 변환 합니다. 온-프레미스 MFA를 사용 하는 경우 Azure AD MFA로 이동 하는 것이 좋습니다. [조건부 액세스에 대해 자세히 알아보세요](../authentication/concept-mfa-howitworks.md).        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> 신뢰 당사자가 AdditionalWSFedEndpoint를 true로 설정 했습니다.       | 성공/실패          | AD FS 신뢰 당사자는 여러 WS-Fed 어설션 끝점을 허용 합니다.현재 Azure AD는 하나만 지원 합니다.이 결과가 마이그레이션을 차단 하는 시나리오를 [사용](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints)하는 경우 알려주세요.     |
@@ -110,7 +114,7 @@ AD FS에서 응용 프로그램에 대 한 클레임 규칙을 구성한 경우�
 
 다음 표에는 AD FS 응용 프로그램에서 수행 되는 모든 클레임 규칙 테스트가 나열 되어 있습니다.
 
-|속성  |설명  |
+|속성  |Description  |
 |---------|---------|
 |UNSUPPORTED_CONDITION_PARAMETER      | 조건문은 정규식을 사용 하 여 클레임이 특정 패턴과 일치 하는지 여부를 평가 합니다.Azure AD에서 유사한 기능을 얻기 위해 IfEmpty (), StartWith (), Contains () 등의 미리 정의 된 변환을 사용할 수 있습니다. 자세한 내용은 [엔터프라이즈 응용 프로그램에 대 한 SAML 토큰에서 발급 된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조 하세요.          |
 |UNSUPPORTED_CONDITION_CLASS      | Condition 문에는 발급 문을 실행 하기 전에 평가 해야 하는 여러 조건이 있습니다.Azure AD는 클레임의 변환 함수를 사용 하 여 여러 클레임 값을 평가할 수 있는이 기능을 지원할 수 있습니다.자세한 내용은 [엔터프라이즈 응용 프로그램에 대 한 SAML 토큰에서 발급 된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조 하세요.          |
@@ -121,6 +125,17 @@ AD FS에서 응용 프로그램에 대 한 클레임 규칙을 구성한 경우�
 |EXTERNAL_ATTRIBUTE_STORE      | 발급 문에서 Active Directory 다른 특성 저장소를 사용 합니다. 현재 Azure AD는 Active Directory 또는 Azure AD와 다른 저장소에서의 원본 클레임을 따르지 않습니다. 이로 인해 응용 프로그램을 Azure AD로 마이그레이션하는 것을 [차단 하는](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire)경우에는 알려주세요.          |
 |UNSUPPORTED_ISSUANCE_CLASS      | 발급 문은 ADD를 사용 하 여 들어오는 클레임 집합에 클레임을 추가 합니다. Azure AD에서이는 여러 클레임 변환으로 구성 될 수 있습니다.자세한 내용은 [엔터프라이즈 응용 프로그램에 대 한 SAML 토큰에서 발급 된 클레임 사용자 지정](../develop/active-directory-claims-mapping.md)을 참조 하세요.         |
 |UNSUPPORTED_ISSUANCE_TRANSFORMATION      | 발급 문은 정규식을 사용 하 여 내보낼 클레임 값을 변환 합니다.Azure AD에서 유사한 기능을 얻기 위해 Extract (), Trim (), ToLower 등의 미리 정의 된 변환을 사용할 수 있습니다. 자세한 내용은 [엔터프라이즈 응용 프로그램에 대 한 SAML 토큰에서 발급 된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조 하세요.          |
+
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="cant-see-all-my-ad-fs-applications-in-the-report"></a>보고서에서 내 AD FS 응용 프로그램을 모두 볼 수 없음
+
+ Azure AD Connect 상태를 설치 했지만이를 설치 하 라는 메시지가 표시 되는 경우 또는 보고서에 AD FS 응용 프로그램이 모두 표시 되지 않는 경우 활성 AD FS 응용 프로그램이 없거나 AD FS 응용 프로그램이 microsoft 응용 프로그램이 아닐 수 있습니다.
+ 
+ AD FS 응용 프로그램 활동 보고서에는 지난 30 일 동안 활성 사용자 로그인을 사용 하 여 조직의 모든 AD FS 응용 프로그램이 나열 됩니다. 또한 보고서에는 Office 365와 같은 AD FS의 microsoft 관련 신뢰 당사자가 표시 되지 않습니다. 예를 들어 이름이 ' urn: federation: MicrosoftOnline ', ' MicrosoftOnline ', ' microsoft: winhello: cert: prov: server ' 인 신뢰 당사자가 목록에 표시 되지 않습니다.
+
+
+
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -7,20 +7,20 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 12/03/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d93ced4b45befec207494909de61d30a98d2a67e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: eddab12e8ecf2e4757998bbd1e6e07c4c4d85f3c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "91333735"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573865"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>검색 트래픽 분석을 위한 원격 분석 데이터 수집
 
 검색 트래픽 분석은 사용자가 시작한 클릭 이벤트 및 키보드 입력과 같이 Azure Cognitive Search 애플리케이션과의 사용자 상호 작용에 대한 원격 분석을 수집하기 위한 패턴입니다. 이 정보를 사용하면 인기 있는 검색어, 클릭 광고 비율 및 결과가 0인 쿼리 입력을 비롯한 검색 솔루션의 효율성을 확인할 수 있습니다.
 
-이 패턴은 사용자 데이터를 수집하는 [Application Insights](../azure-monitor/app/app-insights-overview.md)([Azure Monitor](../azure-monitor/index.yml)의 기능)에 의존합니다. 이 문서에 설명된 대로 클라이언트 코드에 계측을 추가해야 합니다. 마지막으로 데이터를 분석하는 보고 메커니즘이 필요합니다. Power BI가 권장되지만, Application Insights에 연결되는 도구 또는 Application Dashboard를 사용할 수 있습니다.
+이 패턴은 사용자 데이터를 수집하는 [Application Insights](../azure-monitor/app/app-insights-overview.md)([Azure Monitor](../azure-monitor/index.yml)의 기능)에 의존합니다. 이 문서에 설명된 대로 클라이언트 코드에 계측을 추가해야 합니다. 마지막으로 데이터를 분석하는 보고 메커니즘이 필요합니다. Power BI 하는 것이 좋지만 Application Insights에 연결 되는 응용 프로그램 대시보드 또는 도구를 사용할 수 있습니다.
 
 > [!NOTE]
 > 이 문서에 설명된 패턴은 고급 시나리오 및 클라이언트에 추가하는 코드에서 생성된 클릭 동향 데이터를 위한 것입니다. 이와 대조적으로 서비스 로그는 설정하기 쉬우며, 다양한 메트릭을 제공하고, 포털에서 코드 없이 수행할 수 있습니다. 모든 시나리오에 대해 로깅을 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [로그 데이터 수집 및 분석](search-monitor-logs.md)을 참조하세요.
@@ -29,7 +29,7 @@ ms.locfileid: "91333735"
 
 검색 트래픽 검색의 유용한 메트릭을 확보하려면 검색 애플리케이션의 사용자로부터 일부 신호를 기록해야 합니다. 이러한 신호는 사용자가 관심을 보이고 관련이 있다고 생각하는 콘텐츠를 나타냅니다. 검색 트래픽 분석의 경우에는 다음이 포함됩니다.
 
-+ 사용자 생성 검색 이벤트: 사용자가 시작한 검색 쿼리에만 주목합니다. 패싯, 추가 콘텐츠 또는 내부 정보를 채우는 데 사용되는 검색 요청은 중요하지 않으며 결과를 왜곡하고 편견을 갖게 만듭니다.
++ 사용자 생성 검색 이벤트: 사용자가 시작한 검색 쿼리에만 주목합니다. 패싯을 채우거 나 내부 정보를 검색 하는 데 사용 되는 것과 같은 다른 검색 요청은 중요 하지 않습니다. 사용자가 시작한 이벤트를 계측 하 여 결과의 기울기 나 바이어스를 방지 해야 합니다.
 
 + 사용자 생성 클릭 이벤트: 검색 결과 페이지에서 클릭 이벤트는 일반적으로 문서가 특정 검색 쿼리와 관련된 결과라는 의미입니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "91333735"
 
 ## <a name="add-search-traffic-analytics"></a>트래픽 분석 검색 추가
 
-Azure Cognitive Search 서비스의 [포털](https://portal.azure.com) 페이지에 있는 검색 트래픽 분석 페이지에는 이 원격 분석 패턴을 따르는 치트 시트를 포함하고 있습니다. 이 페이지에서 Application Insights 리소스를 선택하거나 만들고, 계측 키를 가져오고, 솔루션에 맞게 조정할 수 있는 코드 조각을 복사하고, 패턴에 반영된 스키마를 통해 빌드된 Power BI 보고서를 다운로드할 수 있습니다.
+Azure Cognitive Search 서비스에 대 한 [포털](https://portal.azure.com) 페이지에서 트래픽 분석 검색 페이지를 열어이 원격 분석 패턴에 따라 참고 자료 시트에 액세스 합니다. 이 페이지에서 Application Insights 리소스를 선택하거나 만들고, 계측 키를 가져오고, 솔루션에 맞게 조정할 수 있는 코드 조각을 복사하고, 패턴에 반영된 스키마를 통해 빌드된 Power BI 보고서를 다운로드할 수 있습니다.
 
 ![포털의 검색 트래픽 분석 페이지](media/search-traffic-analytics/azuresearch-trafficanalytics.png "포털의 검색 트래픽 분석 페이지")
 
@@ -71,7 +71,7 @@ Application Insights에 이벤트를 보내는 개체를 만듭니다. 브라우
 
 **C# 사용**
 
-C#에서는 프로젝트가 ASP.NET인 경우 appsettings.json과 같은 애플리케이션 구성에서 **InstrumentationKey** 를 찾을 수 있습니다. 키 위치를 잘 모르는 경우 등록 지침을 다시 참조하세요.
+C #의 경우 프로젝트가 ASP.NET 경우 appsettings.js와 같은 응용 프로그램 구성에서 **InstrumentationKey** 를 정의 해야 합니다. 키 위치를 잘 모르는 경우 등록 지침을 다시 참조하세요.
 
 ```csharp
 private static TelemetryClient _telemetryClient;
@@ -98,9 +98,26 @@ window.appInsights=appInsights;
 
 검색 요청과 클릭의 상관 관계를 지정하려면 이러한 두 개의 고유한 이벤트에 연관된 상관 관계 ID가 필요합니다. 사용자가 HTTP 헤더를 사용하여 검색 ID를 요청하면 Azure Cognitive Search가 검색 ID를 제공합니다.
 
-검색 ID는 요청 자체에 대해 Azure Cognitive Search에서 내보낸 메트릭과 Application Insights에 로깅하는 사용자 지정 메트릭의 상관 관계를 허용합니다.  
+검색 ID는 요청 자체에 대해 Azure Cognitive Search에서 내보낸 메트릭과 Application Insights에 로깅하는 사용자 지정 메트릭의 상관 관계를 허용합니다.
 
-**C# 사용**
+**C # 사용 (최신 v11 SDK)**
+
+```csharp
+// This sample uses the .NET SDK https://www.nuget.org/packages/Azure.Search.Documents
+
+var client = new SearchClient(<SearchServiceName>, <IndexName>, new AzureKeyCredentials(<QueryKey>)
+
+// Use HTTP headers so that you can get the search ID from the response
+var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
+var response = await client.searchasync(searchText: searchText, searchOptions: options, customHeaders: headers);
+string searchId = string.Empty;
+if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues))
+{
+    searchId = headerValues.FirstOrDefault();
+}
+```
+
+**C # 사용 (이전 v10 SDK)**
 
 ```csharp
 // This sample uses the .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
@@ -129,12 +146,12 @@ var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
 사용자는 검색 요청을 실행할 때마다 Application Insights 사용자 지정 이벤트에 다음 스키마를 사용하여 검색 이벤트로 기록해야 합니다. 사용자가 생성한 검색 쿼리만 기록해야 합니다.
 
-+ **SearchServiceName** : (문자열) 검색 서비스 이름
-+ **SearchId** : (guid) 검색 쿼리의 고유 식별자(검색 응답에 제공됨)
-+ **IndexName** : (문자열) 쿼리할 검색 서비스 인덱스
-+ **QueryTerms** : (문자열) 사용자가 입력한 검색어
-+ **ResultCount** : (int) 반환된 문서의 수(검색 응답에 제공됨)
-+ **ScoringProfile** : (문자열) 사용된 점수 매기기 프로필의 이름(있는 경우).
++ **SearchServiceName**: (문자열) 검색 서비스 이름
++ **SearchId**: (guid) 검색 쿼리의 고유 식별자(검색 응답에 제공됨)
++ **IndexName**: (문자열) 쿼리할 검색 서비스 인덱스
++ **QueryTerms**: (문자열) 사용자가 입력한 검색어
++ **ResultCount**: (int) 반환된 문서의 수(검색 응답에 제공됨)
++ **ScoringProfile**: (문자열) 사용된 점수 매기기 프로필의 이름(있는 경우).
 
 > [!NOTE]
 > 검색 쿼리에 $count=true를 추가하여 사용자가 생성한 쿼리 수를 요청합니다. 자세한 내용은 [문서 검색(REST)](/rest/api/searchservice/search-documents#counttrue--false)을 참조하세요.
@@ -172,10 +189,10 @@ appInsights.trackEvent("Search", {
 
 사용자가 문서를 클릭할 때마다 검색 분석을 위해 신호를 기록해야 합니다. Application Insights 사용자 지정 이벤트를 사용하여 다음 스키마로 이러한 이벤트를 기록합니다.
 
-+ **ServiceName** : (문자열) 검색 서비스 이름
-+ **SearchId** : (guid) 관련 검색 쿼리의 고유 식별자
-+ **DocId** : (문자열) 문서 식별자
-+ **Position** : (int) 검색 결과 페이지의 문서 순위
++ **ServiceName**: (문자열) 검색 서비스 이름
++ **SearchId**: (guid) 관련 검색 쿼리의 고유 식별자
++ **DocId**: (문자열) 문서 식별자
++ **Position**: (int) 검색 결과 페이지의 문서 순위
 
 > [!NOTE]
 > 위치는 애플리케이션의 카디널 순서를 참조합니다. 이 숫자가 항상 같다면 이 숫자를 자유롭게 설정하여 비교할 수 있습니다.

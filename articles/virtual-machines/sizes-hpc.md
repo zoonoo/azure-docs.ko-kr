@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/23/2020
+ms.date: 12/03/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 29033cbabfcfa00c9f8458cbc161af67df5806cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21b1004a347dec3a7f2a6460d8b853350bf36ff0
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325966"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571048"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>고성능 컴퓨팅 VM 크기
 
@@ -40,7 +40,7 @@ HBv2 Vm 기능 200 g b/초 Mellanox HDR InfiniBand이 고, HB 및 HC 시리즈 V
 이 인터페이스를 사용 하면 RDMA 지원 인스턴스가 InfiniBand (IB) 네트워크를 통해 통신할 수 있으며, HBv2에 대 한 HDR 요금에서 작동 하 고, HB, HC, NDv2, H16r, H16mr 및 기타 RDMA 지원 N 시리즈 가상 컴퓨터에 대 한 EDR 요금 및 A8 및 A9 Vm에 대 한 QDR 요금을 확인할 수 있습니다. 이러한 RDMA 기능은 특정 MPI(Message Passing Interface) 애플리케이션의 확장성 및 성능을 향상시킬 수 있습니다.
 
 > [!NOTE]
-> Azure HPC에는 InfiniBand에 대해 SR-IOV를 사용 하도록 설정 되었는지 여부에 따라 Vm의 두 가지 클래스가 있습니다. 현재 InfiniBand 사용 Vm에 대 한 SR-IOV는 HBv2, HB, HC, NCv3 및 NDv2입니다. InfiniBand 사용 Vm의 나머지는 현재 SR-IOV를 사용 하도록 설정 되어 있지 않습니다.
+> Azure HPC에는 InfiniBand에 대해 SR-IOV를 사용 하도록 설정 되었는지 여부에 따라 Vm의 두 가지 클래스가 있습니다. 현재 Azure에서 모든 최신 세대, RDMA 지원 또는 InfiniBand 사용 하도록 설정 된 Vm은 H16r, H16mr, NC24r, A8, A9를 제외 하 고 sr-iov를 사용 하도록 설정 되어 있습니다.
 > RDMA는 InfiniBand (IB) 네트워크를 통해 사용 하도록 설정 되며 모든 RDMA 지원 Vm에 대해 지원 됩니다.
 > IP over IB는 SR-IOV 사용 Vm 에서만 지원 됩니다.
 > RDMA는 이더넷 네트워크를 통해 사용 하도록 설정 되지 않습니다.
@@ -55,7 +55,7 @@ HBv2 Vm 기능 200 g b/초 Mellanox HDR InfiniBand이 고, HB 및 HC 시리즈 V
 
    VM에 VM 확장을 추가해야 하는 경우 [Azure PowerShell](/powershell/azure/) cmdlet을 사용할 수 있습니다. 자세한 내용은 [가상 머신 확장 및 기능](./extensions/overview.md)을 참조하세요. 또한 [클래식 배포 모델](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic)에서 배포된 VM의 확장으로 작업할 수 있습니다.
 
-- **Mpi** -AZURE에서 SR-IOV 지원 VM 크기 (HBv2, HB, HC, NCv3, NDv2)는 모든 MPI의 모든 버전을 Mellanox OFED와 함께 사용할 수 있습니다. SR-IOV를 사용할 수 없는 Vm에서 지원 되는 MPI 구현은 Microsoft 네트워크 직접 (ND) 인터페이스를 사용 하 여 Vm 간에 통신 합니다. 따라서 Microsoft MPI (MS MPI) 2012 R2 이상 및 Intel MPI 5.x 버전만 지원 됩니다. Intel MPI 런타임 라이브러리의 이후 버전 (2017, 2018)은 Azure RDMA 드라이버와 호환 될 수도 있고 그렇지 않을 수도 있습니다. Azure의 HPC Vm에서 MPI를 설정 하는 방법에 대 한 자세한 내용은 [hpc에 대 한 Mpi 설정](./workloads/hpc/setup-mpi.md) 을 참조 하세요.
+- **Mpi** -AZURE에서 sr-iov를 사용 하도록 설정 된 VM 크기는 대부분의 MPI를 Mellanox OFED와 함께 사용할 수 있습니다. SR-IOV를 사용할 수 없는 Vm에서 지원 되는 MPI 구현은 Microsoft 네트워크 직접 (ND) 인터페이스를 사용 하 여 Vm 간에 통신 합니다. 따라서 Microsoft MPI (MS MPI) 2012 R2 이상 및 Intel MPI 5.x 버전만 지원 됩니다. Intel MPI 런타임 라이브러리의 이후 버전 (2017, 2018)은 Azure RDMA 드라이버와 호환 될 수도 있고 그렇지 않을 수도 있습니다. Azure의 HPC Vm에서 MPI를 설정 하는 방법에 대 한 자세한 내용은 [hpc에 대 한 Mpi 설정](./workloads/hpc/setup-mpi.md) 을 참조 하세요.
 
 - **RDMA 네트워크 주소 공간** - Azure의 RDMA 네트워크는 주소 공간 172.16.0.0/16을 예약합니다. Azure 가상 네트워크에 배포된 인스턴스에서 MPI 애플리케이션을 실행하려면 가상 네트워크 주소 공간이 RDMA 네트워크와 겹치지 않도록 해야 합니다.
 

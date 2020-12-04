@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: bae214fb8eff9747bf3f79323d8eb9ce1cb6cdb7
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a978113265e5e61c0fc09ef0daeb1da9826f294d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531601"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572799"
 ---
 # <a name="synapse-rbac-roles"></a>Synapse RBAC 역할
 
@@ -28,7 +28,7 @@ ms.locfileid: "96531601"
 - **새 하위 수준 범위** 는 여러 역할에 대해 도입 됩니다.  이러한 범위를 통해 특정 리소스나 개체로 역할을 제한할 수 있습니다.
 
 >[!Note]
->- **새 역할 및 하위 수준 범위는 현재 미리 보기** 상태입니다.  이러한 새로운 역할 및 범위를 사용 하 여 완전 하 게 지원 되 고 사용에 대 한 피드백을 제공 하는 것이 좋습니다.
+>**새 SYNAPSE RBAC 역할 및 하위 수준 범위는 현재 미리 보기로 제공 됩니다**.  이러한 새로운 역할 및 범위를 사용 하 여 완전 하 게 지원 되 고 사용에 대 한 피드백을 제공 하는 것이 좋습니다.
 
 ## <a name="built-in-synapse-rbac-roles-and-scopes"></a>기본 제공 Synapse RBAC 역할 및 범위
 
@@ -58,7 +58,7 @@ ms.locfileid: "96531601"
 
 다음 표에서는 기본 제공 역할 및 각 역할에서 지 원하는 작업/사용 권한을 보여 줍니다.
 
-역할|동작
+Role|작업
 --|--
 Synapse 관리자|작업 영역/읽기</br>작업 영역/역할 할당/쓰기, 삭제</br>workspace/managedPrivateEndpoint/write, delete</br>작업 영역/bigDataPools/useCompute/작업</br>작업 영역/bigDataPools/viewLogs/작업</br>작업 영역/integrationRuntimes/useCompute/작업</br>작업 영역/아티팩트/읽기</br>작업 영역/노트북/쓰기, 삭제</br>workspace/sparkJobDefinitions/write, delete</br>workspace/sqlScripts/write, delete</br>workspace/데이터 흐름/write, delete</br>작업 영역/파이프라인/쓰기, 삭제</br>작업 영역/트리거/쓰기, 삭제</br>작업 영역/데이터 집합/쓰기, 삭제</br>작업 영역/라이브러리/쓰기, 삭제</br>workspace/Linkedservices.json 및 datasets.json/write, delete</br>작업 영역/자격 증명/쓰기, 삭제</br>작업 영역/노트북/viewOutputs/작업</br>작업 영역/파이프라인/viewOutputs/작업</br>workspace/Linkedservices.json 및 datasets.json/useSecret/작업</br>작업 영역/자격 증명/기능/작업|
 |Synapse Apache Spark 관리자|작업 영역/읽기</br>작업 영역/bigDataPools/useCompute/작업</br>작업 영역/bigDataPools/viewLogs/작업</br>작업 영역/노트북/viewOutputs/작업</br>작업 영역/아티팩트/읽기</br>작업 영역/노트북/쓰기, 삭제</br>workspace/sparkJobDefinitions/write, delete</br>작업 영역/라이브러리/쓰기, 삭제</br>workspace/Linkedservices.json 및 datasets.json/write, delete</br>작업 영역/자격 증명/쓰기, 삭제|
@@ -75,7 +75,7 @@ Synapse 관리자|작업 영역/읽기</br>작업 영역/역할 할당/쓰기, �
 
 다음 표에서는 Synapse 작업 및 이러한 작업을 허용 하는 기본 제공 역할을 보여 줍니다.
 
-작업|역할
+작업|Role
 --|--
 작업 영역/읽기|Synapse 관리자</br>Synapse Apache Spark 관리자</br>Synapse SQL 관리자</br>Synapse 기여자</br>Synapse 아티팩트 게시자</br>Synapse 아티팩트 사용자</br>Synapse Compute 연산자 </br>Synapse 자격 증명 사용자</br>Synapse 연결 된 Data Manager</br>Synapse 사용자 
 작업 영역/역할 할당/쓰기, 삭제|Synapse 관리자
@@ -106,7 +106,7 @@ workspace/Linkedservices.json 및 datasets.json/useSecret/작업|Synapse 관리�
 >[!note]
 >개체를 만들거나 삭제 하려면 상위 수준 범위에서 사용 권한이 있어야 합니다.
 
-Scope|역할
+범위|역할
 --|--
 작업 영역 |Synapse 관리자</br>Synapse Apache Spark 관리자</br>Synapse SQL 관리자</br>Synapse 기여자</br>Synapse 아티팩트 게시자</br>Synapse 아티팩트 사용자</br>Synapse Compute 연산자 </br>Synapse 자격 증명 사용자</br>Synapse 연결 된 Data Manager</br>Synapse 사용자
 Apache Spark 풀 | Synapse 관리자 </br>Synapse 기여자 </br> Synapse Compute 연산자

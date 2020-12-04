@@ -2,16 +2,16 @@
 title: AKS(Azure Kubernetes Service)의 클러스터 구성
 description: AKS(Azure Kubernetes Service)에서 클러스터를 구성하는 방법 알아보기
 services: container-service
-ms.topic: conceptual
+ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 88774450fb196da5de24bcad047ecdb8c424f653
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: dcd9ec52992da8037bb498dc09701879c4c94667
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736536"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572578"
 ---
 # <a name="configure-an-aks-cluster"></a>AKS 클러스터 구성
 
@@ -302,7 +302,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --node-resour
 
 ## <a name="next-steps"></a>다음 단계
 
-- 클러스터에서 `Kured`를 사용하여 [Linux 노드에 보안 및 커널 업데이트를 적용](node-updates-kured.md)하는 방법에 대해 알아봅니다.
+- 클러스터에서 [노드 이미지를 업그레이드](node-image-upgrade.md) 하는 방법을 알아봅니다.
 - 클러스터를 최신 버전의 Kubernetes로 업그레이드하는 방법을 알아보려면 [AKS(Azure Kubernetes Service) 클러스터 업그레이드](upgrade-cluster.md)를 참조하세요.
 - [ `containerd` 및 Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/) 에 대해 자세히 알아보세요.
 - 몇 가지 일반적인 AKS 질문에 대한 답변을 확인하려면 [AKS에 대한 질문과 대답](faq.md) 목록을 참조하세요.

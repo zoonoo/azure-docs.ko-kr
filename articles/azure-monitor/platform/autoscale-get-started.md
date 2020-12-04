@@ -4,12 +4,12 @@ description: Azure에서 리소스 웹앱, 클라우드 서비스, 가상 머신
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: dbfffd98cd05e3ab2efbbe33e05da208fdc05600
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 364309301b403234936da1bac6e1b74af24c2fdb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518705"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573309"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
@@ -51,13 +51,13 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
 
     b. **연산자** 를 **보다 작음** 으로 설정합니다.
 
-    다. **임계값** 을 **20** 으로 설정합니다.
+    c. **임계값** 을 **20** 으로 설정합니다.
 
     d. **작업** 을 **다음을 기준으로 개수 줄이기** 로 설정합니다.
 
    이제 CPU 사용량을 기준으로 확장/축소하는 크기 조정 설정이 있어야 합니다.
    ![CPU 기준 크기 조정][8]
-1. **저장** 을 클릭합니다.
+1. **Save** 을 클릭합니다.
 
 축하합니다! 이제 CPU 사용량을 기준으로 웹앱의 크기를 자동으로 조정하는 첫 번째 크기 조정 설정을 성공적으로 만들었습니다.
 
@@ -115,7 +115,7 @@ CPU 기준 크기 조정 외에도 특정 날짜에 대한 크기 조정을 다�
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>정상적인 인스턴스로 트래픽 라우팅 (App Service)
 
-여러 인스턴스로 확장 하는 경우 인스턴스에 대 한 상태 검사를 수행 하 여 트래픽을 정상 인스턴스로만 라우팅할 수 App Service. 이렇게 하려면 App Service 포털을 열고 **모니터링** 아래에서 **상태 확인** 을 선택 합니다. **사용** 을 선택 하 고 응용 프로그램에서 또는와 같은 올바른 URL 경로를 제공 `/health` `/api/health` 합니다. **저장** 을 클릭합니다.
+여러 인스턴스로 확장 하는 경우 인스턴스에 대 한 상태 검사를 수행 하 여 트래픽을 정상 인스턴스로만 라우팅할 수 App Service. 이렇게 하려면 App Service 포털을 열고 **모니터링** 아래에서 **상태 확인** 을 선택 합니다. **사용** 을 선택 하 고 응용 프로그램에서 또는와 같은 올바른 URL 경로를 제공 `/health` `/api/health` 합니다. **Save** 을 클릭합니다.
 
 ARM 템플릿을 사용 하 여 기능을 사용 하도록 설정 하려면 `healthcheckpath` 리소스의 속성을 `Microsoft.Web/sites` 사이트의 health check 경로 (예:)로 설정 `"/api/health/"` 합니다. 기능을 사용 하지 않도록 설정 하려면 속성을 다시 빈 문자열인로 설정 `""` 합니다.
 
@@ -131,10 +131,10 @@ ARM 템플릿을 사용 하 여 기능을 사용 하도록 설정 하려면 `hea
 
 ### <a name="behavior"></a>동작
 
-상태 검사 경로를 제공 하면 App Service는 모든 인스턴스의 경로를 ping 합니다. 5 개의 ping 후에 성공적인 응답 코드를 받지 못한 경우 해당 인스턴스는 "비정상"으로 간주 됩니다. 비정상 인스턴스는 부하 분산 장치 순환에서 제외 됩니다. 앱 설정을 사용 하 여 필요한 실패 한 ping 수를 구성할 수 있습니다 `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` . 이 앱 설정은 2에서 10 사이의 정수로 설정할 수 있습니다. 예를 들어이가로 설정 된 경우 `2` 두 개의 ping이 실패 하면 부하 분산 장치에서 인스턴스가 제거 됩니다. 또한 확장 또는 App Service 축소 하는 경우에는 상태 검사 경로를 ping 하 여 새 인스턴스가 부하 분산 장치에 추가 되기 전에 요청에 대해 준비 되도록 할 수 있습니다.
+상태 검사 경로를 제공 하면 App Service는 모든 인스턴스의 경로를 ping 합니다. 5 개의 ping 후에 성공적인 응답 코드를 받지 못한 경우 해당 인스턴스는 "비정상"으로 간주 됩니다. 2 개 이상의 인스턴스로 확장 하 고 [기본 계층](../../app-service/overview-hosting-plans.md) 이상을 사용 하는 경우 부하 분산 장치 순환에서 비정상 인스턴스가 제외 됩니다. 앱 설정을 사용 하 여 필요한 실패 한 ping 수를 구성할 수 있습니다 `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` . 이 앱 설정은 2에서 10 사이의 정수로 설정할 수 있습니다. 예를 들어이가로 설정 된 경우 `2` 두 개의 ping이 실패 하면 부하 분산 장치에서 인스턴스가 제거 됩니다. 또한 확장 또는 App Service 축소 하는 경우에는 상태 검사 경로를 ping 하 여 새 인스턴스가 부하 분산 장치에 추가 되기 전에 요청에 대해 준비 되도록 할 수 있습니다.
 
 > [!NOTE]
-> 부하 분산 장치 제외를 수행 하려면 App Service 계획을 2 개 이상의 인스턴스로 확장 해야 합니다. 인스턴스가 1 개만 있는 경우 비정상 인 경우에도 부하 분산 장치에서 제거 되지 않습니다. 
+> App Service 요금제는 2 개 이상의 인스턴스로 규모를 확장 해야 하며 부하 분산 장치 제외를 발생 시킬 **기본 계층 이상** 이어야 합니다. 인스턴스가 1 개만 있는 경우 비정상 인 경우에도 부하 분산 장치에서 제거 되지 않습니다. 
 
 나머지 정상 인스턴스는 부하가 증가할 수 있습니다. 나머지 인스턴스가 과도 하 게 사용 되지 않도록 하려면 인스턴스 중 절반이 제외 됩니다. 예를 들어 App Service 계획을 4 개의 인스턴스로 확장 하 고 비정상 상태에서 3 개를 확장 하는 경우 최대 2 개는 loadbalancer 순환에서 제외 됩니다. 다른 두 인스턴스 (정상 및 비정상 1 개)는 계속 해 서 요청을 받습니다. 모든 인스턴스가 비정상 인 최악의 시나리오에서는 none이 제외 됩니다. 이 동작을 재정의 하려면 `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` 앱 설정을 및 사이의 값으로 설정 하면 `0` `100` 됩니다. 이 값을 큰 값으로 설정 하면 더 비정상 인스턴스가 제거 됩니다 (기본값은 50).
 

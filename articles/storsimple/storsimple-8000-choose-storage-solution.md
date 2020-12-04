@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: e6f5bb1c2716acbbac8d3e776eb9beda045fd881
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f2de6dbba2548f0c281df35edf2883d0c00af667
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968743"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571916"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>StorSimple을 Azure 파일 동기화 및 Data Box Edge 데이터 전송 옵션과 비교 
 
@@ -33,7 +33,7 @@ ms.locfileid: "94968743"
 |**Edge 컴퓨팅** |사용할 수 없음 |사용할 수 없음 |Azure IoT Edge를 사용한 컨테이너 실행 지원    |
 |**폼 팩터**  |물리적 디바이스   |Windows Server에 에이전트 설치 |물리적 디바이스   |
 |**하드웨어**     |서비스의 일부로 Microsoft에서 물리적 디바이스 제공 | 고객이 제공 |서비스의 일부로 Microsoft에서 물리적 디바이스 제공  |
-|**날짜 형식**  |사용자 지정 형식   |Files         |Blob 또는 파일    |
+|**날짜 형식**  |사용자 지정 형식   |파일         |Blob 또는 파일    |
 |**프로토콜 지원** |iSCSI          |SMB, NFS    | SMB 또는 NFS      |
 |**가격**      |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure 파일 동기화](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 

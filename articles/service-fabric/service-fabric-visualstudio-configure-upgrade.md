@@ -1,16 +1,14 @@
 ---
 title: Service Fabric 응용 프로그램의 업그레이드 구성
 description: Microsoft Visual Studio를 사용하여 Service Fabric 애플리케이션을 업그레이드하기 위한 설정을 구성하는 방법에 대해 알아봅니다.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.author: mikhegn
-ms.openlocfilehash: 1db6cea0af229664b07e88463e279b2a64d7e267
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 11df0387db07669ebacdba2e3d850e32903da133
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008517"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573683"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Visual Studio에서 Service Fabric 애플리케이션의 업그레이드 구성
 Azure 서비스 패브릭에 대한 Visual Studio Tools는 로컬 또는 원격 클러스터에 게시하기 위한 업그레이드를 지원합니다. 테스트 및 디버그 중에 애플리케이션을 바꾸지 않고 새 버전으로 업그레이드하려는 세 가지 시나리오가 있습니다.

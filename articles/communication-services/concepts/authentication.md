@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 96e10bc19d59b60824a908c67816a21ca80326d0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d6e02852dcd2d30a764417a4b5e0e012a1d2ab5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832809"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571099"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Azure 통신 서비스에 인증
 
@@ -27,7 +27,7 @@ ms.locfileid: "94832809"
 | 클라이언트 라이브러리 | 액세스 키    | 사용자 액세스 토큰 |
 | -------------- | ------------- | ------------------ |
 | 관리 | 지원됨     | 지원되지 않음      |
-| sms            | 지원됨     | 지원되지 않음      |
+| SMS            | 지원됨     | 지원되지 않음      |
 | 채팅           | 지원되지 않음 | 지원됨          |
 | 호출        | 지원되지 않음 | 지원됨          |
 
@@ -58,9 +58,9 @@ Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signatur
     URLPathAndQuery + "\n"
     DateHeaderValue + ";" + HostHeaderValue + ";" + ContentHashHeaderValue
     ```
-1. 이전 단계에서 만든 u t f-8로 인코딩된 문자열의 HMAC-256 서명을 생성 합니다. 그런 다음 결과를 b a s e 64로 인코딩합니다. 저장소 계정 키를 Base64로 디코딩하도 해야 합니다. 다음 형식을 사용 합니다 (의사 코드로 표시 됨).
+1. 이전 단계에서 만든 u t f-8로 인코딩된 문자열의 HMAC-256 서명을 생성 합니다. 그런 다음 결과를 b a s e 64로 인코딩합니다. 액세스 키를 Base64로 디코딩하도 해야 합니다. 다음 형식을 사용 합니다 (의사 코드로 표시 됨).
     ```
-    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_azure_storage_account_shared_key>)))
+    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_access_key>)))
     ```
 1. 권한 부여 헤더를 다음과 같이 지정 합니다.
     ```
@@ -192,5 +192,5 @@ CommunicationUserCredential credential = new CommunicationUserCredential(tokenRe
 > [!div class="nextstepaction"]
 > [사용자 액세스 토큰 만들기](../quickstarts/access-tokens.md)
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 - [클라이언트 및 서버 아키텍처에 대한 자세한 정보](../concepts/client-and-server-architecture.md)

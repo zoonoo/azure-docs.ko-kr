@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 8884fd56cfc1e18a0a358d6902f7f8bcbfc1f5d3
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 5cb2f7b3b07c20e09d61e97412bc35f03b15cb3b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553881"
+ms.locfileid: "96572153"
 ---
 # <a name="cross-resource-query-azure-data-explorer-using-azure-monitor"></a>Azure Monitor를 사용 하 여 리소스 간 쿼리 Azure 데이터 탐색기
 Azure Monitor는 Azure 데이터 탐색기, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview)및 [Log Analytics (LA)](/azure/azure-monitor/platform/data-platform-logs)간의 서비스 간 쿼리를 지원 합니다. 그런 다음 Log Analytics/Application Insights 도구를 사용 하 여 Azure 데이터 탐색기 클러스터를 쿼리하고 크로스 서비스 쿼리에서이를 참조할 수 있습니다. 이 문서에서는 서비스 간 쿼리를 수행 하는 방법을 보여 줍니다.
@@ -20,7 +20,7 @@ Azure Monitor는 Azure 데이터 탐색기, [Application Insights (AI)](/azure/a
 Azure Monitor 서비스 간 흐름: :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="azure Monitor 및 azure 데이터 탐색기 크로스 서비스 흐름.":::
 
 >[!NOTE]
->* Azure Monitor 프록시가 비공개 미리 보기-AllowListing 필요 합니다.
+>* Azure Monitor 크로스 서비스 쿼리가 비공개 미리 보기 상태입니다. AllowListing 필요 합니다.
 >* 의문 사항이 있으면 [서비스 팀](mailto:ADXProxy@microsoft.com) 에 문의 하세요.
 ## <a name="cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer"></a>Log Analytics 또는 Application Insights 리소스 및 Azure 데이터 탐색기 교차 쿼리
 
@@ -66,9 +66,3 @@ Kusto Explorer는 사용자 계정이 원래 속한 테 넌 트에 자동으로 
 * [쿼리 작성](https://docs.microsoft.com/azure/data-explorer/write-queries)
 * [Azure 데이터 탐색기를 사용 하 여 Azure Monitor에서 데이터 쿼리](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)
 * [Azure Monitor에서 리소스 간 로그 쿼리 수행](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query)
-
-
-
-
-
-
