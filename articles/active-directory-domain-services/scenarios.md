@@ -2,7 +2,7 @@
 title: Azure AD Domain Services에 대 한 일반적인 배포 시나리오 Microsoft Docs
 description: 가치를 제공 하 고 비즈니스 요구를 충족 하는 Azure Active Directory Domain Services에 대 한 일반적인 시나리오 및 사용 사례에 대해 알아봅니다.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.author: joflore
-ms.openlocfilehash: 6c63609642b8dd8d1269222b06b57033d84ad8a0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: d33698ed2f9ac53aae3c836acd54f19a4b72ceef
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967905"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619031"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 일반적인 사용 사례 및 시나리오
 

@@ -1,5 +1,5 @@
 ---
-title: Microsoft 파트너 센터에서 SaaS 제품을 출시 하는 방법
+title: Microsoft 파트너 센터에서 SaaS 제품을 판매 하는 방법
 description: Microsoft 상업적 marketplace에서 SaaS (software as a service) 제품에 대 한 CSP (클라우드 솔루션 공급자) 프로그램 옵션을 통해 Microsoft 및 재판매와 공동 판매 하는 방법에 대해 알아봅니다.
 author: mingshen-ms
 ms.author: mingshen
@@ -8,22 +8,22 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 4ccc5a63da40950fbf9f05e3e029393fce8814d7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e61d85b5f02cb73d078888badc2fa24c4506fe64
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576692"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620887"
 ---
-# <a name="how-to-market-your-saas-offer"></a>SaaS 제품을 출시 하는 방법
+# <a name="how-to-sell-your-saas-offer"></a>SaaS 제품을 판매 하는 방법
 
-이 문서에서는 Microsoft를 통해 SaaS (software as a service) 제품을 판매 하는 경우 선택할 수 있는 추가 마케팅 옵션을 설명 합니다. Microsoft와 함께 제품을 공동 판매 하거나, [CSP (클라우드 솔루션 공급자) 프로그램](cloud-solution-providers.md)을 통해 재판매 하거나, 둘 다를 수행할 수 있습니다.
+이 문서에서는 Microsoft를 통해 SaaS (software as a service) 제품을 판매 하는 경우 선택할 수 있는 추가 옵션을 설명 합니다. Microsoft와 함께 제품을 공동 판매 하거나, [CSP (클라우드 솔루션 공급자) 프로그램](cloud-solution-providers.md)을 통해 재판매 하거나, 둘 다를 수행할 수 있습니다.
 
 ## <a name="co-sell-with-microsoft"></a>Microsoft와 공동 판매
 
 **Microsoft 페이지와 공동 판매** 에 대 한 정보를 제공 하는 것은 모두 선택 사항입니다. 그러나 _공동 판매 준비_ 및 _IP 공동 판매 준비_ 상태를 구현 하는 데 필요 합니다. Microsoft 영업 팀은이 정보를 사용 하 여 고객의 요구에 맞게 해당 솔루션에 대해 자세히 알아보세요. 이 탭에서 제공 하는 정보는 고객에 게 직접 제공 되지 않습니다.
 
-**Microsoft와 공동 판매** 탭을 구성 하는 방법에 대 한 자세한 내용과 지침은 [파트너 센터의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조 하세요.
+**Microsoft와 공동 판매** 탭을 구성 하는 방법에 대 한 자세한 내용과 지침은 [상업적 marketplace의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조 하세요.
 
 ## <a name="resell-through-csps"></a>CSP를 통한 재판매
 

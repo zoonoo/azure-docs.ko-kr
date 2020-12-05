@@ -2,7 +2,7 @@
 title: Azure AD Domain Services에 대 한 보안 감사 사용 | Microsoft Docs
 description: 보안 감사를 사용 하 여의 분석 및 경고에 대 한 이벤트 로깅을 중앙 집중화 하는 방법에 대해 알아봅니다 Azure AD Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: b4fb5c1dcb2bb34b472c2a3eda88ca4c219303d0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.author: justinha
+ms.openlocfilehash: 13bdc8797af8facaa73d3e43ecfbe504a6bd1dc2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175171"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618878"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 보안 감사 사용
 
@@ -49,7 +49,7 @@ Azure Portal를 사용 하 여 Azure AD DS 보안 감사 이벤트를 사용 하
 > [!IMPORTANT]
 > Azure AD DS 보안 감사는 소급 되지 않습니다. 과거에는 이벤트를 검색 하거나 재생할 수 없습니다. Azure AD DS는 보안 감사를 사용 하도록 설정한 후에 발생 하는 이벤트만 보낼 수 있습니다.
 
-1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 1. Azure Portal 맨 위에서 **Azure AD Domain Services** 를 검색 하 고 선택 합니다. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
 1. Azure AD DS 창의 왼쪽에서 **진단 설정** 을 선택 합니다.
 1. 진단이 기본적으로 구성 되지 않습니다. 시작 하려면 **진단 설정 추가** 를 선택 합니다.
@@ -217,7 +217,7 @@ Azure AD DS 보안 감사는 기존의 AD DS 도메인 컨트롤러에 대 한 �
 
 다음 감사 이벤트 범주를 사용할 수 있습니다.
 
-| 감사 범주 이름 | Description |
+| 감사 범주 이름 | 설명 |
 |:---|:---|
 | 계정 로그온|감사는 도메인 컨트롤러 또는 로컬 SAM (보안 계정 관리자)의 계정 데이터를 인증 하려고 시도 합니다.</p>로그온 및 로그 오프 정책 설정 및 이벤트 트랙은 특정 컴퓨터에 대 한 액세스를 시도 합니다. 이 범주의 설정 및 이벤트는 사용 되는 계정 데이터베이스에 중점을 둡니다. 이 범주에는 다음과 같은 하위 범주가 포함 됩니다.<ul><li>[자격 증명 유효성 검사 감사](/windows/security/threat-protection/auditing/audit-credential-validation)</li><li>[Kerberos 인증 오류 감사](/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)</li><li>[Kerberos 서비스 티켓 작업 감사](/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)</li><li>[기타 로그온/로그 오프 이벤트 감사](/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li></ul>|
 | 계정 관리|사용자 및 컴퓨터 계정 및 그룹에 대 한 변경 내용을 감사 합니다. 이 범주에는 다음과 같은 하위 범주가 포함 됩니다.<ul><li>[애플리케이션 그룹 관리 감사](/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[컴퓨터 계정 관리 감사](/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[메일 그룹 관리 감사](/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[다른 계정 관리 감사](/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[보안 그룹 관리 감사](/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[사용자 계정 관리 감사](/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|
@@ -237,10 +237,10 @@ Azure AD DS 보안 감사는 기존의 AD DS 도메인 컨트롤러에 대 한 �
 |:---|:---|
 |계정 로그온 보안|4767, 4774, 4775, 4776, 4777|
 |계정 관리 보안|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
-|세부 정보 추적 보안|없음|
+|세부 정보 추적 보안|None|
 |DS 액세스 보안|5136, 5137, 5138, 5139, 5141|
 |Logon-Logoff 보안|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
-|개체 액세스 보안|없음|
+|개체 액세스 보안|None|
 |정책 변경 보안|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
 |권한 사용 보안|4985|
 |시스템 보안|4612, 4621|

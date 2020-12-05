@@ -1,20 +1,20 @@
 ---
 title: 클래식 가상 네트워크에서 Azure AD Domain Services 마이그레이션 | Microsoft Docs
 description: 기존 Azure AD Domain Services 관리 되는 도메인을 클래식 가상 네트워크 모델에서 리소스 관리자 기반 가상 네트워크로 마이그레이션하는 방법에 대해 알아봅니다.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.author: joflore
-ms.openlocfilehash: aae665b5982ab2b5c1163bb9297eda5f2e5d344a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.author: justinha
+ms.openlocfilehash: 1fcd46870a4f85d1b88d22d77de5c201404c3a09
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175375"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619371"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>클래식 가상 네트워크 모델에서 리소스 관리자으로 Azure Active Directory Domain Services 마이그레이션
 
@@ -153,7 +153,7 @@ Azure AD DS는 일반적으로 주소 범위에서 처음 두 개의 사용 가�
 
 | 단계    | 수행한  | 예상 시간  | 가동 중지 시간  | 롤백/복원 할까요? |
 |---------|--------------------|-----------------|-----------|-------------------|
-| [1 단계-새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure 포털 | 15분 | 가동 중지 시간 없음 | 해당 없음 |
+| [1 단계-새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure portal | 15분 | 가동 중지 시간 없음 | 해당 없음 |
 | [2 단계-마이그레이션에 대 한 관리 되는 도메인 준비](#prepare-the-managed-domain-for-migration) | PowerShell | 15 ~ 30 분 (평균) | 이 명령이 완료 된 후 Azure AD DS의 가동 중지 시간이 시작 됩니다. | 롤백 및 복원 사용 가능. |
 | [3 단계-관리 되는 도메인을 기존 가상 네트워크로 이동](#migrate-the-managed-domain) | PowerShell | 1 ~ 3 시간 (평균) | 이 명령이 완료 되 면 하나의 도메인 컨트롤러를 사용할 수 있으며 가동 중지 시간이 종료 됩니다. | 오류가 발생 하면 롤백 (셀프 서비스) 및 복원을 모두 사용할 수 있습니다. |
 | [4 단계-복제본 도메인 컨트롤러 테스트 및 대기](#test-and-verify-connectivity-after-the-migration)| PowerShell 및 Azure Portal | 테스트 수에 따라 1 시간 이상 | 두 도메인 컨트롤러를 모두 사용할 수 있으며 정상적으로 작동 해야 합니다. | 해당 없음. 첫 번째 VM이 성공적으로 마이그레이션되면 롤백 또는 복원에 대 한 옵션이 없습니다. |

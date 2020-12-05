@@ -3,19 +3,22 @@ title: Windows 가상 데스크톱 필수 URL 목록-Azure
 description: Windows 가상 데스크톱 배포가 의도 한 대로 작동 하도록 차단 해야 하는 Url 목록입니다.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6b3fdc18a04dadf4bf1cf380c7bb51d21f826633
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 70b7042e4006cc59419d0ea6798fe7626a82c086
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512344"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621079"
 ---
 # <a name="required-url-list"></a>필수 URL 목록
 
-Windows 가상 데스크톱을 배포 하 고 사용 하려면 Vm (가상 컴퓨터)에서 언제 든 지 액세스할 수 있도록 특정 Url을 차단 해제 해야 합니다. 이 문서에서는 차단 해제 해야 하는 필수 Url을 나열 합니다.
+Windows 가상 데스크톱을 배포 하 고 사용 하려면 Vm (가상 컴퓨터)에서 언제 든 지 액세스할 수 있도록 특정 Url을 차단 해제 해야 합니다. 이 문서에서는 Windows 가상 데스크톱이 제대로 작동 하기 위해 차단 해제 해야 하는 필수 Url을 나열 합니다. 
+
+>[!IMPORTANT]
+>Windows 가상 데스크톱은이 문서에 나열 된 Url을 차단 하는 배포를 지원 하지 않습니다.
 
 ## <a name="virtual-machines"></a>가상 머신
 

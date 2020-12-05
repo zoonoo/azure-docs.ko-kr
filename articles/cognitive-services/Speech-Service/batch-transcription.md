@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b9ed43019e7af0cb810c3e0fc849281a458a43e1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 426cf78f6b87acf1d8c7551b0b0a6172a30167b1
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023636"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621098"
 ---
 # <a name="how-to-use-batch-transcription"></a>일괄 처리 기록을 사용 하는 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "95023636"
 |    인증 된 구독의 기록 목록을 검색 합니다.    |    GET       |    speechtotext/v 3.0/            |
 |    오프 라인 상태에서 지원 되는 로캘 목록을 가져옵니다.              |    GET       |    speechtotext/v 3.0//및 로캘    |
 |    ID로 식별 되는 기록의 변경 가능한 세부 정보를 업데이트 합니다.    |    패치     |    speechtotext/v 3.0//{id}       |
-|    지정 된 기록 작업을 삭제 합니다.                                 |    Delete    |    speechtotext/v 3.0//{id}       |
+|    지정 된 기록 작업을 삭제 합니다.                                 |    DELETE    |    speechtotext/v 3.0//{id}       |
 |    지정 된 ID로 식별 되는 기록을 가져옵니다.                        |    GET       |    speechtotext/v 3.0//{id}       |
 |    지정 된 ID로 식별 되는 기록의 결과 파일을 가져옵니다.    |    GET       |    speechtotext/v 3.0//{id}/파일 |
 
@@ -39,7 +39,7 @@ ms.locfileid: "95023636"
 일괄 처리 작업은 최상의 노력으로 예약 됩니다.
 작업이 실행 중 상태로 변경 되는 경우를 예측할 수 없지만 일반적인 시스템 로드에서 몇 분 내에 발생 해야 합니다. 실행 중 상태가 되 면 기록을 오디오 런타임 재생 속도 보다 빠르게 수행 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.md#try-the-speech-service-for-free)에 따라 [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다.
 
@@ -180,7 +180,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
       Azure에서 쓰기 가능한 컨테이너에 [서비스 임시 SAS](../../storage/common/storage-sas-overview.md) 를 사용 하는 선택적 URL입니다. 결과는이 컨테이너에 저장 됩니다. 저장 된 액세스 정책을 사용 하는 SAS는 지원 **되지 않습니다** . 지정 하지 않으면 microsoft에서 관리 하는 저장소 컨테이너에 결과를 저장 합니다. [삭제 기록을](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)호출 하 여 기록을 삭제 하면 결과 데이터도 삭제 됩니다.
 :::row-end:::
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 일괄 처리는 공개 된 인터넷 URI에서 오디오를 읽을 수 있으며, [Azure Blob storage](../../storage/blobs/storage-blobs-overview.md)에서 SAS URI를 사용 하 여 오디오를 읽거나 비디오를 작성할 수 있습니다.
 
@@ -214,7 +214,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
       "duration": "PT1.59S",            // audio duration of this phrase, ISO 8601 encoded duration
       "offsetInTicks": 700000.0,        // offset in audio of this phrase in ticks (1 tick is 100 nanoseconds)
       "durationInTicks": 15900000.0,    // audio duration of this phrase in ticks (1 tick is 100 nanoseconds)
-      
+
       // possible transcriptions of the current phrase with confidences
       "nBest": [
         {
@@ -224,7 +224,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
           "itn": "hello world",
           "maskedITN": "hello world",
           "display": "Hello world.",
-          
+
           // if wordLevelTimestampsEnabled is `true`, there will be a result for each word of the phrase, otherwise this property is not present
           "words": [
             {
@@ -245,7 +245,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
             }
           ]
         }
-      ]    
+      ]
     }
   ]
 }

@@ -2,20 +2,20 @@
 title: Azure AD Domain Services에서 계정 잠금 문제 해결 | Microsoft Docs
 description: Azure Active Directory Domain Services에서 사용자 계정을 잠그기 위해 발생 하는 일반적인 문제를 해결 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 340811ee1c518cdccb5bbb0ae9b5f215f5564cfa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 7967347fa63c657ba6211328bdd1d55512358521
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967616"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618776"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인의 계정 잠금 문제 해결
 
@@ -56,7 +56,7 @@ Fgpp입니다 (세분화 된 암호 정책)를 사용 하면 암호 및 계정 �
 
 계정 잠금 이벤트가 발생 하는 경우와 이러한 이벤트가 발생 하는 위치를 해결 하려면 [Azure AD DS에 대 한 보안 감사를 사용 하도록 설정][security-audit-events]합니다. 감사 이벤트는 기능을 사용 하도록 설정한 시간에만 캡처됩니다. 문제를 해결 하기 위해 계정 잠금 문제가 발생 *하기 전에* 보안 감사를 사용 하도록 설정 하는 것이 가장 좋습니다. 사용자 계정에 잠금 문제가 반복적으로 발생 하는 경우 다음에 상황이 발생할 때 보안 감사를 준비 하도록 설정할 수 있습니다.
 
-보안 감사를 사용 하도록 설정 하면 다음 샘플 쿼리에서 *계정 잠금 이벤트*, 코드 *4740*을 검토 하는 방법을 보여 줍니다.
+보안 감사를 사용 하도록 설정 하면 다음 샘플 쿼리에서 *계정 잠금 이벤트*, 코드 *4740* 을 검토 하는 방법을 보여 줍니다.
 
 지난 7 일간의 모든 계정 잠금 이벤트를 표시 합니다.
 
@@ -66,7 +66,7 @@ AADDomainServicesAccountManagement
 | where OperationName has "4740"
 ```
 
-*Driley*이라는 계정에 대해 지난 7 일간의 모든 계정 잠금 이벤트를 표시 합니다.
+*Driley* 이라는 계정에 대해 지난 7 일간의 모든 계정 잠금 이벤트를 표시 합니다.
 
 ```Kusto
 AADDomainServicesAccountLogon

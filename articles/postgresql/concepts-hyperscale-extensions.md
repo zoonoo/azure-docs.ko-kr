@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 2e4a09ba07a5fa5eb3a5af7aa88e092feb3e7efc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 000f8a1457298901dcfc94bc5e0923e94ba35dc7
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487979"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620905"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)의 PostgreSQL 확장
 
-PostgreSQL는 확장을 사용 하 여 데이터베이스의 기능을 확장 하는 기능을 제공 합니다. 확장을 통해 관련된 여러 SQL 개체를 단일 패키지에 번들로 묶을 수 있으며 단일 명령을 사용해서 데이터베이스에서 로드하거나 제거할 수 있습니다. 데이터베이스에 로드 된 확장은 기본 제공 기능 처럼 작동할 수 있습니다. PostgreSQL 확장에 대 한 자세한 내용은 [패키지 관련 개체를 확장](https://www.postgresql.org/docs/current/static/extend-extensions.html)합니다 .를 참조 하세요.
+PostgreSQL은 확장을 사용하여 데이터베이스 기능을 확장할 수 있도록 지원합니다. 확장을 통해 관련된 여러 SQL 개체를 단일 패키지에 번들로 묶을 수 있으며 단일 명령을 사용해서 데이터베이스에서 로드하거나 제거할 수 있습니다. 데이터베이스에 로드된 확장은 기본 제공 기능처럼 작동할 수 있습니다. PostgreSQL 확장에 대 한 자세한 내용은 [패키지 관련 개체를 확장](https://www.postgresql.org/docs/current/static/extend-extensions.html)합니다 .를 참조 하세요.
 
 ## <a name="use-postgresql-extensions"></a>PostgreSQL 확장 사용
 
@@ -35,8 +35,8 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | 대/소문자 구분 문자 문자열 형식을 제공합니다. |
 > | [큐브](https://www.postgresql.org/docs/current/static/cube.html) | 다차원 큐브의 데이터 형식을 제공합니다. |
-> | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | 키-값 쌍 집합을 저장 하기 위한 데이터 형식을 제공 합니다. |
 > | [hll](https://github.com/citusdata/postgresql-hll) | HyperLogLog 데이터 구조를 제공 합니다. |
+> | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | 키-값 쌍 집합을 저장 하기 위한 데이터 형식을 제공 합니다. |
 > | [isn](https://www.postgresql.org/docs/current/static/isn.html) | 국제 제품 번호 매기기 표준에 대한 데이터 형식을 제공합니다. |
 > | [xt](https://www.postgresql.org/docs/current/lo.html) | 대량 개체 유지 관리. |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | 계층적 트리 구조에 대한 데이터 형식을 제공합니다. |
@@ -65,9 +65,9 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 > | [intagg](https://www.postgresql.org/docs/current/intagg.html) | 정수 집계 및 열거자 (사용 되지 않음). |
 > | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | null 없는 정수 배열을 조작하기 위한 함수 및 연산자를 제공합니다. |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | 마지막 수정 시간을 추적 하는 함수입니다. |
-> | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | 암호화 함수를 제공합니다. |
 > | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | 시간 또는 ID로 분할된 테이블을 관리합니다. |
 > | [pg\_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | trigram 일치를 기준으로 영숫자 텍스트의 유사성을 확인하기 위한 함수 및 연산자를 제공합니다. |
+> | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | 암호화 함수를 제공합니다. |
 > | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | 참조 무결성을 구현 하는 함수입니다 (사용 되지 않음). |
 > | 세션 \_ 분석 | Hstore 배열을 쿼리 하는 함수입니다. |
 > | [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html) | 크로스탭을 비롯하여 전체 테이블을 조작하는 함수를 제공합니다. |
@@ -81,7 +81,6 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 > | **내선 번호** | **설명** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus 분산 데이터베이스입니다. |
-> | 분할 \_ 재 분산 | 노드 추가 또는 제거의 경우 서버 그룹의 데이터를 안전 하 게 리 밸런스 합니다. |
 
 ### <a name="index-types-extensions"></a>인덱스 형식 확장
 
@@ -106,6 +105,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 > |---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | PostgreSQL에 대 한 관리 기능. |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | 관계 무결성을 확인 하는 함수입니다. |
+> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | 데이터베이스 세션 내에서 다른 PostgreSQL 데이터베이스로의 연결을 지원하는 모듈입니다. 이 확장에 대 한 자세한 내용은 "eblink 및 postgres_fdw" 섹션을 참조 하세요. |
 > | [파일 \_ fdw](https://www.postgresql.org/docs/current/file-fdw.html) | 플랫 파일 액세스용 외래 데이터 래퍼입니다. |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | 낮은 수준에서 데이터베이스 페이지의 내용을 검사 합니다. |
 > | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | 공유 버퍼 캐시에서 일어나는 작업을 실시간으로 검사하기 위한 수단을 제공합니다. |
@@ -120,8 +120,6 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 > | [sslin](https://www.postgresql.org/docs/current/sslinfo.html) | TLS/SSL 인증서에 대 한 정보입니다. |
 > | [tsm \_ 시스템 \_ 행](https://www.postgresql.org/docs/current/tsm-system-rows.html) | 행 수를 한도로 허용 하는 TABLESAMPLE 메서드. |
 > | [tsm \_ 시스템 \_ 시간](https://www.postgresql.org/docs/current/tsm-system-time.html) | 제한 시간을 밀리초 단위로 허용 하는 TABLESAMPLE 메서드. |
-> | [hypopg](https://hypopg.readthedocs.io/en/latest/) | CPU나 디스크 비용이 들지 않는 가상의 인덱스를 만드는 방법을 제공합니다. |
-> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | 데이터베이스 세션 내에서 다른 PostgreSQL 데이터베이스로의 연결을 지원하는 모듈입니다. 이 확장에 대 한 자세한 내용은 "eblink 및 postgres_fdw" 섹션을 참조 하세요. |
 > | [xml2](https://www.postgresql.org/docs/current/xml2.html) | XPath 쿼리 및 XSLT. |
 
 
@@ -147,4 +145,4 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ## <a name="dblink-and-postgres_fdw"></a>ablink 및 postgres_fdw
 
 Dblink 및 postgres \_ fdw를 사용 하 여 한 PostgreSQL 서버에서 다른 서버에 연결 하거나 동일한 서버의 다른 데이터베이스에 연결할 수 있습니다.  받는 서버는 해당 방화벽을 통한 보내는 서버의 연결을 허용해야 합니다.  이러한 확장을 사용 하 여 Azure Database for PostgreSQL 서버 또는 Citus (Hyperscale) 서버 그룹 간에 연결 하려면 **Azure 서비스 및 리소스에서이 서버 그룹 (또는 서버)에 액세스할 수 있도록 허용** 을 설정 합니다.  또한 확장을 사용 하 여 동일한 서버에 다시 루프를 사용 하려는 경우이 설정을 켜야 합니다.
-**이 서버 그룹에 액세스할 수 있는 Azure 서비스 및 리소스 허용** 설정은 **네트워킹**아래의 Citus (hyperscale) 서버 그룹에 대 한 Azure Portal 페이지에서 찾을 수 있습니다.  현재는 다른 Azure Database for PostgreSQL 서버 및 Citus (Hyperscale) 서버 그룹에 대 한 연결을 제외 하 고 Azure Database for PostgreSQL 단일 서버 및 Citus (Hyperscale)의 아웃 바운드 연결이 지원 되지 않습니다.
+**이 서버 그룹에 액세스할 수 있는 Azure 서비스 및 리소스 허용** 설정은 **네트워킹** 아래의 Citus (hyperscale) 서버 그룹에 대 한 Azure Portal 페이지에서 찾을 수 있습니다.  현재는 다른 Azure Database for PostgreSQL 서버 및 Citus (Hyperscale) 서버 그룹에 대 한 연결을 제외 하 고 Azure Database for PostgreSQL 단일 서버 및 Citus (Hyperscale)의 아웃 바운드 연결이 지원 되지 않습니다.

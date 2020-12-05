@@ -2,20 +2,20 @@
 title: Azure AD Domain Services에 대 한 네트워크 계획 및 연결 | Microsoft Docs
 description: Azure Active Directory Domain Services을 실행할 때 연결에 사용 되는 가상 네트워크 디자인 고려 사항 및 리소스에 대해 알아봅니다.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 43731f84066943b991b566ff5936e4288aa669eb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.author: justinha
+ms.openlocfilehash: 246da3a35396430bbda86e5a5e927a456618ac05
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175222"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619286"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 가상 네트워크 디자인 고려 사항 및 구성 옵션
 
@@ -91,7 +91,7 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 
 관리 되는 도메인은 배포 중에 일부 네트워킹 리소스를 만듭니다. 이러한 리소스는 관리 되는 도메인의 성공적인 작업 및 관리에 필요 하며 수동으로 구성할 수 없습니다.
 
-| Azure 리소스                          | Description |
+| Azure 리소스                          | 설명 |
 |:----------------------------------------|:---|
 | 네트워크 인터페이스 카드                  | Azure AD DS는 Windows Server에서 실행 되는 두 개의 Dc (도메인 컨트롤러)에서 관리 되는 도메인을 Azure Vm으로 호스팅합니다. 각 VM에는 가상 네트워크 서브넷에 연결 하는 가상 네트워크 인터페이스가 있습니다. |
 | 동적 표준 공용 IP 주소      | Azure AD DS는 표준 SKU 공용 IP 주소를 사용 하 여 동기화 및 관리 서비스와 통신 합니다. 공용 IP 주소에 대 한 자세한 내용은 [Azure의 ip 주소 유형 및 할당 방법](../virtual-network/public-ip-addresses.md)을 참조 하세요. |

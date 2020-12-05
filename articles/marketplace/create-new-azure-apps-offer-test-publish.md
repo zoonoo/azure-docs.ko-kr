@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: b54e965188be51ec54110bb85d8cda8f01256836
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 461f9354bb3a6eae0af186de8fe9f39c6b5fff2c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370229"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620922"
 ---
 # <a name="how-to-test-and-publish-an-azure-application-offer"></a>Azure 애플리케이션 제안을 테스트 하 고 게시 하는 방법
 

@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jlian
-ms.openlocfilehash: ddb89f60c9fe380012c299afaafb6046bf6849c9
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: f4438aebcb81d665a19a595ac7ade4fea27fc43f
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602753"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621011"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>IoT Hub에서 TLS (전송 계층 보안) 지원
 
@@ -22,7 +22,7 @@ TLS 1.0 및 1.1은 레거시로 간주되며 사용 중단될 예정입니다. �
 
 ## <a name="iot-hubs-server-tls-certificate"></a>IoT Hub의 서버 TLS 인증서
 
-TLS 핸드셰이크 중 IoT Hub은 클라이언트를 연결 하는 데 RSA 키 서버 인증서를 제공 합니다. 루트는 Baltimore Cybertrust Root CA입니다. 최근에 새로운 ICAs (중간 인증 기관)가 발급자를 변경 했습니다. 자세한 내용은 [IOT HUB TLS 인증서 업데이트](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/) 를 참조 하세요.
+TLS 핸드셰이크 중 IoT Hub은 클라이언트를 연결 하는 데 RSA 키 서버 인증서를 제공 합니다. 루트는 Baltimore Cybertrust Root CA입니다. 최근, 새 중개 인증 기관 (ICA)에서 발급 되도록 TLS 서버 인증서에 대 한 변경 내용이 출시 되었습니다. 자세한 내용은 [IOT HUB TLS 인증서 업데이트](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/)를 참조 하세요.
 
 ### <a name="elliptic-curve-cryptography-ecc-server-tls-certificate-preview"></a>ECC (타원 Curve Cryptography) 서버 TLS 인증서 (미리 보기)
 
@@ -31,7 +31,7 @@ IoT Hub ECC server TLS 인증서는 공개 미리 보기로 제공 됩니다. RS
 IoT Hub의 ECC 서버 인증서를 미리 보려면:
 
 1. [미리 보기 모드를 사용 하 여 새 IoT hub를 만듭니다](iot-hub-preview-mode.md).
-1. *ECDSA 암호 모음만 포함* 하 고 RSA를 *제외* 하도록 [클라이언트를 구성](#tls-configuration-for-sdk-and-iot-edge) 합니다. ECC 인증서 공개 미리 보기에 대 한 암호 그룹은 다음과 같습니다.
+1. *ECDSA 암호 모음만 포함* 하 고 RSA를 *제외* 하도록 [클라이언트를 구성](#tls-configuration-for-sdk-and-iot-edge) 합니다. ECC 인증서 공개 미리 보기에 대해 지원 되는 암호 그룹은 다음과 같습니다.
     - `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
     - `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
     - `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`
@@ -133,7 +133,7 @@ IoT Hub은 tls 프레임 크기 협상이 라고도 하는 TLS 최대 조각 길
 이 공개 미리 보기 기능에 대 한 공식 SDK 지원은 아직 제공 되지 않습니다. 시작하려면
 
 1. [미리 보기 모드를 사용 하 여 새 IoT hub를 만듭니다](iot-hub-preview-mode.md).
-1. `SSL_CTX_set_tlsext_max_fragment_length`2 ^ 9, 2 ^ 10, 2 ^ 11 및 2 ^ 12 값 중 하나로 설정 하도록 클라이언트를 구성 합니다.
+1. OpenSSL를 사용 하는 경우 [SSL_CTX_set_tlsext_max_fragment_length](https://manpages.debian.org/testing/libssl-doc/SSL_CTX_set_max_send_fragment.3ssl.en.html) 를 호출 하 여 조각 크기를 지정 합니다.
 1. 클라이언트를 미리 보기 IoT Hub에 연결 합니다.
 
 ## <a name="next-steps"></a>다음 단계

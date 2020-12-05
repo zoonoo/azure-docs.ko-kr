@@ -2,7 +2,7 @@
 title: Azure AD Domain Services에 대 한 범위 동기화 Microsoft Docs
 description: Azure Portal를 사용 하 여 Azure AD에서 관리 되는 Azure Active Directory Domain Services 도메인으로 범위가 지정 된 동기화를 구성 하는 방법을 알아봅니다.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: joflore
+ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 514932726d9283af0c3fb404f787a10057ce8842
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4e65b47b2a1fd71c69ecb350f60df1fedff66b74
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967854"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618912"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure AD에서 Azure Active Directory Domain Services로 범위 동기화 구성
 
@@ -57,11 +57,11 @@ ms.locfileid: "91967854"
 
 Azure Portal에서 범위 동기화를 사용 하도록 설정 하려면 다음 단계를 완료 합니다.
 
-1. Azure Portal에서 **Azure AD Domain Services**를 검색하여 선택합니다. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
+1. Azure Portal에서 **Azure AD Domain Services** 를 검색하여 선택합니다. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
 1. 왼쪽의 메뉴에서 **동기화** 를 선택 합니다.
-1. *동기화 유형에*대해 **범위**지정을 선택 합니다.
-1. **그룹 선택**을 선택 하 고 추가할 그룹을 검색 하 여 선택 합니다.
-1. 모든 변경이 수행 되 면 **동기화 범위 저장**을 선택 합니다.
+1. *동기화 유형에* 대해 **범위** 지정을 선택 합니다.
+1. **그룹 선택** 을 선택 하 고 추가할 그룹을 검색 하 여 선택 합니다.
+1. 모든 변경이 수행 되 면 **동기화 범위 저장** 을 선택 합니다.
 
 동기화 범위를 변경 하면 관리 되는 도메인에서 모든 데이터를 다시 동기화 합니다. 관리 되는 도메인에서 더 이상 필요 하지 않은 개체가 삭제 되며 다시 동기화를 완료 하는 데 다소 시간이 걸릴 수 있습니다.
 
@@ -69,11 +69,11 @@ Azure Portal에서 범위 동기화를 사용 하도록 설정 하려면 다음 
 
 사용자가 관리 되는 도메인에 동기화 해야 하는 그룹 목록을 수정 하려면 다음 단계를 완료 합니다.
 
-1. Azure Portal에서 **Azure AD Domain Services**를 검색하여 선택합니다. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
+1. Azure Portal에서 **Azure AD Domain Services** 를 검색하여 선택합니다. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
 1. 왼쪽의 메뉴에서 **동기화** 를 선택 합니다.
 1. 그룹을 추가 하려면 위쪽에서 **+ 그룹을 선택** 하 고 추가할 그룹을 선택 합니다.
-1. 동기화 범위에서 그룹을 제거 하려면 현재 동기화 된 그룹 목록에서 해당 그룹을 선택 하 고 **그룹 제거**를 선택 합니다.
-1. 모든 변경이 수행 되 면 **동기화 범위 저장**을 선택 합니다.
+1. 동기화 범위에서 그룹을 제거 하려면 현재 동기화 된 그룹 목록에서 해당 그룹을 선택 하 고 **그룹 제거** 를 선택 합니다.
+1. 모든 변경이 수행 되 면 **동기화 범위 저장** 을 선택 합니다.
 
 동기화 범위를 변경 하면 관리 되는 도메인에서 모든 데이터를 다시 동기화 합니다. 관리 되는 도메인에서 더 이상 필요 하지 않은 개체가 삭제 되며 다시 동기화를 완료 하는 데 다소 시간이 걸릴 수 있습니다.
 
@@ -81,9 +81,9 @@ Azure Portal에서 범위 동기화를 사용 하도록 설정 하려면 다음 
 
 관리 되는 도메인에 대 한 그룹 기반 범위 동기화를 사용 하지 않도록 설정 하려면 다음 단계를 완료 합니다.
 
-1. Azure Portal에서 **Azure AD Domain Services**를 검색하여 선택합니다. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
+1. Azure Portal에서 **Azure AD Domain Services** 를 검색하여 선택합니다. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
 1. 왼쪽의 메뉴에서 **동기화** 를 선택 합니다.
-1. *동기화 유형을* **범위** 에서 **모두**로 변경한 다음, **동기화 범위 저장**을 선택 합니다.
+1. *동기화 유형을* **범위** 에서 **모두** 로 변경한 다음, **동기화 범위 저장** 을 선택 합니다.
 
 동기화 범위를 변경 하면 관리 되는 도메인에서 모든 데이터를 다시 동기화 합니다. 관리 되는 도메인에서 더 이상 필요 하지 않은 개체가 삭제 되며 다시 동기화를 완료 하는 데 다소 시간이 걸릴 수 있습니다.
 

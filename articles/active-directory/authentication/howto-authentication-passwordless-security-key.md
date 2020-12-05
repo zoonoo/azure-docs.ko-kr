@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d9c4dff1e4a3ba7c7a2b11311e97eb5e66a1585
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8530b74a63f4e5e2c04ff95a0106b896102dda2c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994250"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618096"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>암호 없는 보안 키 로그인 사용 (미리 보기)
 
@@ -38,7 +38,7 @@ ms.locfileid: "95994250"
 
 ## <a name="prepare-devices-for-preview"></a>미리 보기용으로 장치 준비
 
-를 사용 하 여 파일럿 할 Azure AD 조인 장치는 Windows 10 버전 1909 이상을 실행 해야 합니다. 최상의 환경은 Windows 10 버전 1903 이상에 있습니다.
+Azure AD 가입 장치에 대 한 최상의 환경은 Windows 10 버전 1903 이상에 있습니다.
 
 하이브리드 Azure AD 조인 장치는 Windows 10 버전 2004 이상을 실행 해야 합니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "95994250"
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>FIDO2 보안 키의 사용자 등록 및 관리
 
-1. [https://myprofile.microsoft.com](https://myprofile.microsoft.com)으로 이동합니다.
+1. [https://myprofile.microsoft.com](https://myprofile.microsoft.com) 으로 이동합니다.
 1. 아직 로그인 하지 않은 경우 로그인 합니다.
 1. **보안 정보** 를 클릭 합니다.
    1. 사용자가 이미 하나 이상의 Azure AD Multi-Factor Authentication 메서드를 등록 한 경우 FIDO2 보안 키를 즉시 등록할 수 있습니다.

@@ -2,7 +2,7 @@
 title: Azure Active Directory Domain Services 삭제 | Microsoft Docs
 description: 을 사용 하 여 관리 되는 Azure Active Directory Domain Services 도메인을 사용 하지 않도록 설정 하거나 삭제 하는 방법을 알아봅니다 Azure Portal
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 89e407e1-e1e0-49d1-8b89-de11484eee46
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 30b087bc2c3e68a6ce1302a2266b39399110ce5c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: a5126abd6643eba7f63b2bf4ca984bb9892b2d7a
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960867"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619813"
 ---
 # <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Active Directory Domain Services 관리 되는 도메인 삭제
 
@@ -37,9 +37,9 @@ Azure Active Directory Domain Services (Azure AD DS) 관리 도메인이 더 이
 
 관리 되는 도메인을 삭제 하려면 다음 단계를 완료 합니다.
 
-1. Azure Portal에서 **Azure AD Domain Services**를 검색하여 선택합니다.
+1. Azure Portal에서 **Azure AD Domain Services** 를 검색하여 선택합니다.
 1. 관리 되는 도메인의 이름 (예: *aaddscontoso.com*)을 선택 합니다.
-1. **개요** 페이지에서 **삭제**를 선택합니다. 삭제를 확인 하려면 관리 되는 도메인의 도메인 이름을 다시 입력 하 고 **삭제**를 선택 합니다.
+1. **개요** 페이지에서 **삭제** 를 선택합니다. 삭제를 확인 하려면 관리 되는 도메인의 도메인 이름을 다시 입력 하 고 **삭제** 를 선택 합니다.
 
 관리 되는 도메인을 삭제 하는 데 15-20 분 이상 걸릴 수 있습니다.
 

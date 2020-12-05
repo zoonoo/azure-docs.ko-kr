@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 1823de88597756ba3db9aee0dc29501b1ba914a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d122cedbad41d6984614a0edccb2fd98269710f2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646239"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618079"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Azure AD에서 암호 기반 Single Sign-On 문제 해결
 
@@ -150,6 +150,13 @@ Microsoft에는 애플리케이션 통합이 중단되었을 때 자동으로 �
 - *Incognito*, *inPrivate* 또는 *개인 모드* 에서 사용자가 내 앱에서 앱에 로그인을 시도 하지 않는지 확인 합니다.
 - 수동 캡처 프로세스를 다시 시도 합니다. 빨간색 표식이 올바른 필드 위에 있는지 확인 합니다.
 - 수동 캡처 프로세스가 응답 하지 않거나 로그인 페이지가 응답 하지 않는 것으로 보이면 수동 캡처 프로세스를 다시 시도 하세요. 그러나 이번에는 프로세스를 완료 한 후 F12 키를 눌러 브라우저의 개발자 콘솔을 엽니다. **콘솔** 탭을 선택 합니다. **location = "*&lt; 앱 &gt; 을 구성할 때 지정한 로그인 URL*"** 을 입력 한 다음 enter 키를 누릅니다. 이렇게 하면 캡처 프로세스를 종료 하 고 캡처된 필드를 저장 하는 페이지 리디렉션이 강제로 수행 됩니다.
+
+### <a name="i-cant-add-another-user-to-my-password-based-sso-app"></a>암호 기반 SSO 앱에 다른 사용자를 추가할 수 없습니다.
+
+암호 기반 SSO 앱은 사용자 수가 48 개로 제한 됩니다. 따라서 앱 당 사용자 이름/암호 쌍에 대해 48 개 키 제한이 있습니다.
+사용자를 더 추가 하려면 다음 중 하나를 수행 합니다.
+-   앱 인스턴스 추가
+-   앱을 더 이상 사용 하지 않는 사용자를 제거 합니다.
 
 ## <a name="request-support"></a>지원 요청 
 SSO를 설정 하 고 사용자를 할당 하는 경우 오류 메시지가 표시 되 면 지원 티켓을 엽니다. 가능한 한 많은 다음 정보를 포함 합니다.

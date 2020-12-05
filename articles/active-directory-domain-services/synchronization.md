@@ -2,7 +2,7 @@
 title: Azure AD Domain Services에서 동기화가 작동 하는 방식 | Microsoft Docs
 description: Azure AD 테 넌 트 또는 온-프레미스 Active Directory Domain Services 환경에서 관리 되는 Azure Active Directory Domain Services 도메인으로 개체 및 자격 증명에 대 한 동기화 프로세스가 작동 하는 방식을 알아봅니다.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 92d440d019942219b322ef084b45317983d04fbe
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.author: justinha
+ms.openlocfilehash: 41ba337765b4a0a93be52f08ae6656707cf7aa73
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602243"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618810"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인에서 개체 및 자격 증명을 동기화 하는 방법
 

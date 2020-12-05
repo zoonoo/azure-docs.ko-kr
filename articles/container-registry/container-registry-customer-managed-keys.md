@@ -2,14 +2,14 @@
 title: 고객이 관리 하는 키를 사용 하 여 레지스트리 암호화
 description: Azure container registry의 미사용 암호화 및에 저장 된 고객 관리 키를 사용 하 여 Premium registry를 암호화 하는 방법에 대해 알아봅니다 Azure Key Vault
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: 6dac2239f223b5dee6ec728833caa01562873210
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 708a42a4f965f484060d42d89ea4f535c4365a10
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255023"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620451"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>고객 관리형 키를 사용하여 레지스트리 암호화
 
@@ -46,12 +46,9 @@ ms.locfileid: "95255023"
 
 * **수동으로 키 버전 업데이트** -레지스트리 암호화에 특정 키 버전을 사용 하려면 고객이 관리 하는 키를 사용 하 여 레지스트리 암호화를 사용 하도록 설정할 때 해당 키 버전을 지정 합니다. 특정 키 버전을 사용 하 여 레지스트리를 암호화 하는 경우 고객이 관리 하는 키를 수동으로 회전할 때까지 해당 버전을 암호화에 사용 Azure Container Registry 합니다.
 
-> [!NOTE]
-> 현재는 Azure CLI만 사용 하 여 고객이 관리 하는 키 버전을 자동으로 업데이트 하도록 레지스트리를 구성할 수 있습니다. 포털을 사용 하 여 암호화를 사용 하는 경우 키 버전을 수동으로 업데이트 해야 합니다.
-
 자세한 내용은이 문서의 뒷부분에 나오는 키 [버전을 사용 하거나 사용 하지 않고 키 ID 선택](#choose-key-id-with-or-without-key-version) 및 키 [버전 업데이트](#update-key-version)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 Azure CLI 단계를 사용 하려면 버전이 2.2.0 이상 이거나 Azure Cloud Shell Azure CLI 필요 합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -112,7 +109,7 @@ az keyvault create --name <key-vault-name> \
   --enable-purge-protection
 ```
 
-이후 단계에서 사용 하기 위해 key vault의 리소스 Id를 가져옵니다.
+이후 단계에서 사용 하기 위해 key vault의 리소스 ID를 가져옵니다.
 
 ```azurecli
 keyvaultID=$(az keyvault show --resource-group <resource-group-name> --name <key-vault-name> --query 'id' --output tsv)
@@ -252,7 +249,7 @@ ID 이름은 이후 단계에서 사용합니다.
 
 ### <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
 
-주요 자격 증명 모음을 만드는 단계는 [빠른 시작: Azure Portal를 사용 하 여 Azure Key Vault 만들기](../key-vault/general/quick-create-portal.md)를 참조 하세요.
+주요 자격 증명 모음을 만드는 단계는 [빠른 시작: Azure Portal 사용 하 여 주요 자격 증명 모음 만들기](../key-vault/general/quick-create-portal.md)를 참조 하세요.
 
 고객 관리 키에 대 한 키 자격 증명 모음을 만들 때 **기본 사항** 탭에서 **보호 제거** 설정을 사용 하도록 설정 합니다. 이 설정은 실수로 키 또는 키 자격 증명 모음 삭제로 인 한 데이터 손실을 방지 하는 데 도움이 됩니다.
 
@@ -279,13 +276,15 @@ ID에서 액세스할 수 있도록 키 자격 증명 모음에 대한 정책을
     1. **사용자 할당 관리 id** 에 대 한 액세스 권한을 할당 합니다.
     1. 사용자 할당 관리 id의 리소스 이름을 선택 하 고 **저장** 을 선택 합니다.
 
-### <a name="create-key"></a>키 만들기
+### <a name="create-key-optional"></a>키 만들기 (선택 사항)
+
+필요에 따라 레지스트리를 암호화 하는 데 사용할 키를 키 자격 증명 모음에 만듭니다. 특정 키 버전을 고객이 관리 하는 키로 선택 하려는 경우 다음 단계를 수행 합니다. 
 
 1. 키 자격 증명 모음으로 이동합니다.
 1. **설정** > **키** 를 차례로 선택합니다.
 1. **+ 생성/가져오기** 를 선택하고, 키에 대한 고유한 이름을 입력합니다.
 1. 나머지 기본값을 그대로 적용하고 **만들기** 를 선택합니다.
-1. 만들어지면 키를 선택하고 현재 키 버전을 적어 둡니다.
+1. 만든 후에 키를 선택 하 고 현재 버전을 선택 합니다. 키 버전의 **키 식별자** 를 복사 합니다.
 
 ### <a name="create-azure-container-registry"></a>Azure 컨테이너 레지스트리 만들기
 
@@ -293,10 +292,11 @@ ID에서 액세스할 수 있도록 키 자격 증명 모음에 대한 정책을
 1. **기본 사항** 탭에서 리소스 그룹을 선택하거나 만들고, 레지스트리 이름을 입력합니다. **SKU** 에서 **프리미엄** 을 선택합니다.
 1. **암호화** 탭의 **고객 관리형 키** 에서 **사용** 을 선택합니다.
 1. **ID** 에서 사용자가 만든 관리 ID를 선택합니다.
-1. **암호화** 에서 **Key Vault에서 선택** 을 선택합니다.
-1. **Azure Key Vault에서 키 선택** 창에서 이전 섹션에서 만든 키 자격 증명 모음, 키 및 버전을 선택합니다.
+1. **암호화** 에서 다음 중 하나를 선택 합니다.
+    * **Key Vault에서 선택** 을 선택 하 고 기존 키 자격 증명 모음 및 키를 선택 하거나 **새로 만들기** 를 선택 합니다. 선택 하는 키는 버전이 지정 되지 않으며 자동 키 회전을 사용 합니다.
+    * **키 URI 입력** 을 선택 하 고 키 식별자를 직접 제공 합니다. 버전이 지정 된 키 URI (수동으로 회전 해야 하는 키의 경우) 또는 버전이 지정 되지 않은 키 URI (자동 키 회전이 가능 함) 중 하나를 제공할 수 있습니다. 
 1. **암호화** 탭에서 **검토 + 만들기** 를 선택합니다.
-1. **만들기** 를 선택 하 여 레지스트리 인스턴스를 만듭니다.
+1. **만들기** 를 선택하여 레지스트리 인스턴스를 배포합니다.
 
 :::image type="content" source="media/container-registry-customer-managed-keys/create-encrypted-registry.png" alt-text="Azure Portal에서 암호화 된 레지스트리 만들기":::
 
@@ -498,11 +498,11 @@ az acr encryption rotate-key \
 
 1. 포털에서 레지스트리로 이동합니다.
 1. **설정** 아래에서 **암호화** > **키 변경** 을 차례로 선택합니다.
-1. **키 선택** 을 선택 합니다.
 
     :::image type="content" source="media/container-registry-customer-managed-keys/rotate-key.png" alt-text="Azure Portal에서 키 회전":::
-1. **Azure Key Vault에서 키 선택** 창에서 이전에 구성한 키 자격 증명 모음 및 키를 선택하고, **버전** 에서 **새로 만들기** 를 선택합니다.
-1. **키 만들기** 창에서 **생성**, **만들기** 를 차례로 선택합니다.
+1. **암호화** 에서 다음 중 하나를 선택 합니다.
+    * **Key Vault에서 선택** 을 선택 하 고 기존 키 자격 증명 모음 및 키를 선택 하거나 **새로 만들기** 를 선택 합니다. 선택 하는 키는 버전이 지정 되지 않으며 자동 키 회전을 사용 합니다.
+    * **키 URI 입력** 을 선택 하 고 키 식별자를 직접 제공 합니다. 버전이 지정 된 키 URI (수동으로 회전 해야 하는 키의 경우) 또는 버전이 지정 되지 않은 키 URI (자동 키 회전이 가능 함) 중 하나를 제공할 수 있습니다.
 1. 키 선택을 완료하고, **저장** 을 선택합니다.
 
 ## <a name="revoke-key"></a>키 철회

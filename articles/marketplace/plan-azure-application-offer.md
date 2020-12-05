@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 4e256d97d055b56df8c917c841416e5c7eb52465
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 45bc3aaf5217c626e2593b4eda861eaace2a8be2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573530"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620412"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 Azure 애플리케이션 제품 계획
 
@@ -121,7 +121,7 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
 5. 개인 정보 취급 방침 주소 (링크)
 6. Offer name
 7. 요약
-8. Description
+8. 설명
 9. 스크린샷/비디오
 
 다음 스크린샷은 Azure Portal에서 제공 정보를 표시 하는 방법을 보여 줍니다.
@@ -131,7 +131,7 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 제목
-2. Description
+2. 설명
 3. 유용한 링크
 4. 스크린샷
 
@@ -210,7 +210,7 @@ Azure 구독 Id를 사용 하 여 미리 보기 대상 그룹을 정의 하 고 
 Microsoft에서 지 원하는 마케팅 및 판매 채널을 옵트인 (opt in) 하도록 선택할 수 있습니다. 파트너 센터에서 제품을 만들 때 프로세스의 끝에 두 개의 탭이 표시 됩니다.
 
 - **Csp를 통한 재판매**:이 옵션을 사용 하면 csp (Microsoft 클라우드 솔루션 공급자) 파트너가 번들 제안의 일부로 솔루션을 재판매 수 있습니다. 자세한 내용은 [클라우드 솔루션 공급자 프로그램](./cloud-solution-providers.md) 을 참조 하세요.
-- **Microsoft와 공동 판매**:이 옵션을 사용 하면 microsoft 영업 팀에서 고객의 요구를 평가할 때 IP 공동 판매에 적합 한 솔루션을 고려할 수 있습니다. 평가를 위해 제품을 준비 하는 방법에 대 한 자세한 내용은 [파트너 센터의 공동 판매 옵션](commercial-marketplace-co-sell.md) 을 참조 하세요. Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](cloud-solution-providers.md)를 참조 하세요.
+- **Microsoft와 공동 판매**:이 옵션을 사용 하면 microsoft 영업 팀에서 고객의 요구를 평가할 때 IP 공동 판매에 적합 한 솔루션을 고려할 수 있습니다. 평가를 위해 제품을 준비 하는 방법에 대 한 자세한 내용은 [상용 marketplace의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조 하세요. IP 공동 판매 요구 사항에 대 한 자세한 내용은 [공동 판매 상태에 대 한 요구 사항](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)을 참조 하세요. Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](cloud-solution-providers.md)를 참조 하세요.
 
 자세히 알아보려면 [Azure Marketplace를 사용 하 여 클라우드 비즈니스 성장](https://azuremarketplace.microsoft.com/sell)을 참조 하세요.
 

@@ -2,7 +2,7 @@
 title: Azure AD Domain Services |에서 조직 구성 단위 (OU) 만들기 Microsoft Docs '
 description: Azure AD Domain Services 관리 되는 도메인에서 사용자 지정 OU (조직 구성 단위)를 만들고 관리 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: df8d32fb38d9ea6750ef47651e4f660428fd1fbe
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: fbdfcc23553a27aaa4d7bbd4bff9c4f33cb8fd19
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961003"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620021"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인에 OU (조직 구성 단위) 만들기
 
@@ -67,17 +67,17 @@ Azure AD DS를 사용 하는 워크 로드를 만들고 실행할 때 응용 프
 > 관리 되는 도메인에서 사용자 지정 OU를 만들려면 *AAD DC Administrators* 그룹의 구성원 인 사용자 계정에 로그인 해야 합니다.
 
 1. 관리 VM에 로그인 합니다. Azure Portal를 사용 하 여 연결 하는 방법에 대 한 단계는 [Windows SERVER VM에 연결][connect-windows-server-vm]을 참조 하세요.
-1. 시작 화면에서 **관리 도구**를 선택 합니다. [관리 VM을 만드는][tutorial-create-management-vm]자습서에 설치 된 사용 가능한 관리 도구 목록이 표시 됩니다.
+1. 시작 화면에서 **관리 도구** 를 선택 합니다. [관리 VM을 만드는][tutorial-create-management-vm]자습서에 설치 된 사용 가능한 관리 도구 목록이 표시 됩니다.
 1. Ou를 만들고 관리 하려면 관리 도구 목록에서 **Active Directory 관리 센터** 을 선택 합니다.
 1. 왼쪽 창에서 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다. 기존 Ou 및 리소스 목록이 표시 됩니다.
 
     ![Active Directory 관리 센터에서 관리 되는 도메인을 선택 합니다.](./media/create-ou/create-ou-adac-overview.png)
 
-1. **작업** 창은 Active Directory 관리 센터 오른쪽에 표시 됩니다. *Aaddscontoso.com*와 같은 도메인에서 **새로 만들기 > 조직 구성 단위**를 선택 합니다.
+1. **작업** 창은 Active Directory 관리 센터 오른쪽에 표시 됩니다. *Aaddscontoso.com* 와 같은 도메인에서 **새로 만들기 > 조직 구성 단위** 를 선택 합니다.
 
     ![Active Directory 관리 센터에서 새 OU를 만드는 옵션을 선택 합니다.](./media/create-ou/create-ou-adac-new-ou.png)
 
-1. **조직 구성 단위 만들기** 대화 상자에서 *mycustomou*와 같은 새 OU의 **이름을** 지정 합니다. *서비스 계정에 대 한 사용자 지정 ou*와 같이 ou에 대 한 간단한 설명을 제공 합니다. 원하는 경우 OU에 대해 **관리 기준** 필드를 설정할 수도 있습니다. 사용자 지정 OU를 만들려면 **확인**을 선택 합니다.
+1. **조직 구성 단위 만들기** 대화 상자에서 *mycustomou* 와 같은 새 OU의 **이름을** 지정 합니다. *서비스 계정에 대 한 사용자 지정 ou* 와 같이 ou에 대 한 간단한 설명을 제공 합니다. 원하는 경우 OU에 대해 **관리 기준** 필드를 설정할 수도 있습니다. 사용자 지정 OU를 만들려면 **확인** 을 선택 합니다.
 
     ![Active Directory 관리 센터에서 사용자 지정 OU 만들기](./media/create-ou/create-ou-dialog.png)
 
