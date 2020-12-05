@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse에 고객 온보딩
 description: Azure Lighthouse에 고객을 등록 하 여 Azure 위임 된 리소스 관리를 통해 자신의 테 넌 트를 통해 해당 리소스에 액세스 하 고 관리할 수 있도록 하는 방법을 알아봅니다.
-ms.date: 09/24/2020
+ms.date: 12/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 43f28073c996167c82e241476020bdc341486b26
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b353a8194b9f5dd48b315340435669531359e8d5
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024299"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608472"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 온보딩
 
@@ -301,8 +301,9 @@ Get-AzManagedServicesAssignment
 az account list
 ```
 
+고객이 등록 한 후에 변경 해야 하 [는 경우 위임을 업데이트할](update-delegation.md)수 있습니다. [위임에 대 한 액세스를 완전히 제거할](remove-delegation.md) 수도 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 - [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.
 - Azure Portal의 **내 고객** 으로 이동하여 [고객을 보고 관리](view-manage-customers.md)합니다.
-- 이전에 등록된 [위임에 대한 액세스 권한 제거](remove-delegation.md) 방법을 알아봅니다.

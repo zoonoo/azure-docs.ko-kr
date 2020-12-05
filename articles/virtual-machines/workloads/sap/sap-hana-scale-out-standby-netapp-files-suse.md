@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 1383db44922a044f5e51075b6e1feafa70c78009
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 13644872fca06ad8fc5806326736aea23e504520
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958762"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608659"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포 
 
@@ -655,6 +655,9 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
    > SAP Note [2631285](https://launchpad.support.sap.com/#/notes/2631285)에 주의 하세요. 
 
 ## <a name="test-sap-hana-failover"></a>테스트 SAP HANA 장애 조치 
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *마스터* 및 *슬레이브* 용어에 대 한 참조가 포함 되어 있습니다. 이러한 용어가 소프트웨어에서 제거 되 면이 문서에서 제거 합니다.
 
 1. SAP HANA 작업자 노드에서 노드 충돌을 시뮬레이트합니다. 다음을 수행합니다. 
 

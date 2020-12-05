@@ -15,16 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: fcc247e9e3122515ebe9230f58860df8c6dd3948
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 85f268990ac9e0c04cba1b9c409a232a24ce0d61
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484331"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608637"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Red Hat Enterprise Linux Server의 Azure VM에서 IBM DB2 LUW의 고가용성
 
 HADR (고가용성 [및 재해 복구) 구성](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) 에서 LINUX, UNIX 및 WINDOWS 용 IBM DB2 (LUW)는 주 데이터베이스 인스턴스를 실행 하는 노드 하 나와 보조 데이터베이스 인스턴스를 실행 하는 하나 이상의 노드로 구성 됩니다. 주 데이터베이스 인스턴스에 대 한 변경 내용은 구성에 따라 동기식 또는 비동기적으로 보조 데이터베이스 인스턴스에 복제 됩니다. 
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *마스터* 및 *슬레이브* 용어에 대 한 참조가 포함 되어 있습니다. 이러한 용어가 소프트웨어에서 제거 되 면이 문서에서 제거 합니다.
 
 이 문서에서는 Azure Vm (가상 머신)을 배포 및 구성 하 고, 클러스터 프레임 워크를 설치 하 고, HADR 구성으로 IBM Db2 LUW을 설치 하는 방법을 설명 합니다. 
 

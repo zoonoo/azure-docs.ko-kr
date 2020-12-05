@@ -4,12 +4,12 @@ description: C#을 사용하여 Azure Functions를 개발하는 방법을 알아
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 3c363d13933e6554a6eefbeaf02d87dc6b382628
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dc08e378d68743ed7906f4dec7c8f31202959880
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002399"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608285"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -327,6 +327,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 {
     logger.LogInformation("Request for item with key={itemKey}.", id);
 ```
+
+함수를 구현 하는 방법에 대 한 자세한 `ILogger` 내용은 [원격 분석 데이터 수집](functions-monitoring.md#collecting-telemetry-data)을 참조 하세요. 접두사가 접두사로 붙은 범주는 `Function` 인스턴스를 사용 하 고 있다고 가정 `ILogger` 합니다. 대신를 사용 하도록 선택 하 `ILogger<T>` 는 경우 범주 이름은 대신을 기반으로 할 수 있습니다 `T` .  
 
 ### <a name="structured-logging"></a>구조적 로깅
 

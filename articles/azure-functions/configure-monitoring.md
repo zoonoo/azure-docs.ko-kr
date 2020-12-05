@@ -4,12 +4,12 @@ description: 모니터링을 위해 함수 앱을 Application Insights에 연결
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperfq2, devx-track-azurecli
-ms.openlocfilehash: 0b8aae707f0fb055677af111f1e88c0a2e19b227
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 02d5ad2e9697c14818a985325267d7caea80f65e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175749"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607129"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Azure Functions에 대 한 모니터링을 구성 하는 방법
 
@@ -28,7 +28,7 @@ Azure Functions 로거에는 모든 로그에 대한 *범주* 가 포함되어 �
 
 # <a name="v2x"></a>[v2. x +](#tab/v2)
 
-| 범주 | 테이블 | Description |
+| 범주 | 테이블 | 설명 |
 | ----- | ----- | ----- |
 | **`Function.<YOUR_FUNCTION_NAME>`** | **관계도**| 일부 서비스의 경우 종속성 데이터가 자동으로 수집 됩니다. 성공적인 실행의 경우 이러한 로그는 수준에 있습니다 `Information` . 자세히 알아보려면 [종속성](functions-monitoring.md#dependencies)을 참조 하세요. 예외는 수준에서 기록 됩니다 `Error` . 또한 런타임은 `Warning` 큐 메시지가 [포이즌 큐](functions-bindings-storage-queue-trigger.md#poison-messages)로 전송 되는 경우와 같은 수준 로그를 만듭니다. | 
 | **`Function.<YOUR_FUNCTION_NAME>`** | **customMetrics**<br/>**customEvents** | C # 및 JavaScript Sdk를 사용 하면 사용자 지정 메트릭을 수집 하 고 사용자 지정 이벤트를 로그할 수 있습니다. 자세히 알아보려면 [사용자 지정 원격 분석 데이터](functions-monitoring.md#custom-telemetry-data)를 참조 하세요.|
@@ -38,6 +38,9 @@ Azure Functions 로거에는 모든 로그에 대한 *범주* 가 포함되어 �
 | **`Host.Results`** | **requests** | 이러한 런타임 생성 로그는 함수의 성공 또는 실패를 표시 합니다. 이러한 로그는 모두 `Information` 수준에서 작성됩니다. `Warning` 이상에서 필터링하면 이 데이터가 표시되지 않습니다. |
 | **`Microsoft`** | **traces** | 호스트에서 호출 하는 .NET 런타임 구성 요소를 반영 하는 정규화 된 로그 범주입니다.  |
 | **`Worker`** | **traces** | Non-.NET 언어에 대 한 언어 작업자 프로세스에서 생성 된 로그입니다. 언어 작업자 로그는와 같은 범주에도 기록 될 수 있습니다 `Microsoft.*` `Microsoft.Azure.WebJobs.Script.Workers.Rpc.RpcFunctionInvocationDispatcher` . 이러한 로그는 수준으로 기록 됩니다 `Information` .|
+
+> [!NOTE]
+> .NET 클래스 라이브러리 함수의 경우 이러한 범주는를 사용 하 `ILogger` 고 있지 않다고 가정 `ILogger<T>` 합니다. 자세히 알아보려면 [함수 ILogger 설명서](functions-dotnet-class-library.md#ilogger)를 참조 하세요. 
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
 
@@ -192,7 +195,7 @@ Application Insights에는 최대 부하 시 실행이 완료될 때 원격 분�
 
 ## <a name="configure-scale-controller-logs"></a>크기 조정 컨트롤러 로그 구성
 
-_이 기능은 미리 보기 상태입니다._ 
+‘이 기능은 미리 보기로 제공됩니다.’ 
 
 크기 조정 컨트롤러에서 함수 앱에 대해 수행 하는 결정을 더 잘 이해할 수 있도록 Application Insights 또는 Blob 저장소에 [Azure Functions scale controller](./functions-scale.md#runtime-scaling) 로그를 내보낼 수 있습니다.
 

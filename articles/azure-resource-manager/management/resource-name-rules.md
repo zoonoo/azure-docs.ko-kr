@@ -2,13 +2,13 @@
 title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 206bd6604ecd9dfece9c946c653b2720e75ff1e3
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 12/04/2020
+ms.openlocfilehash: a6aac03277a11cf671f5a618bc85ff987cfdc2dd
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347797"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608319"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -20,9 +20,9 @@ ms.locfileid: "93347797"
 
 다음 표에서 용어 영숫자는 다음을 나타냅니다.
 
-* **a** ~ **z** (소문자)
-* **A** ~ **Z** (대문자)
-* **0** ~ **9** (숫자)
+* **a**~**z**(소문자)
+* **A**~**Z**(대문자)
+* **0**~**9**(숫자)
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
@@ -596,6 +596,7 @@ ms.locfileid: "93347797"
 > | resourcegroups | subscription | 1-90 | [regex 설명서](/rest/api/resources/resourcegroups/createorupdate)와 일치하는 영숫자, 밑줄, 괄호, 하이픈, 마침표 및 유니코드 문자<br><br>마침표로 끝날 수 없습니다. |
 > | tagNames | resource | 1-512 | 다음을 사용할 수 없습니다.<br>`<>%&\?/` |
 > | tagNames / tagValues | 태그 이름 | 1-256 | 모두 문자입니다. |
+> | templateSpecs | 리소스 그룹 | 1-90 | 영숫자, 밑줄, 괄호, 하이픈 및 마침표 |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 

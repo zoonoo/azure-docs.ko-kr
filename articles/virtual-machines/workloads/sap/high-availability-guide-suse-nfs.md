@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 5976649ee396d897b76713b7863668d92279612e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6b0504f5e4199ee3cd8e86660b866fddf2568485
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484311"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608574"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성
 
@@ -53,6 +53,10 @@ ms.locfileid: "96484311"
 
 이 문서에서는 가상 머신을 배포하고, 가상 머신을 구성하고, 클러스터 프레임워크를 설치하고, 가용성이 높은 SAP 시스템의 공유 데이터를 저장하는 데 사용할 수 있는 고가용성 NFS 서버를 설치하는 방법을 설명합니다.
 이 가이드에서는 NW1 및 NW2라는 두 개의 SAP 시스템에 사용되는 고가용성 NFS 서버를 설정하는 방법에 대해 설명합니다. 예제에 포함된 리소스(예: 가상 머신, 가상 네트워크) 이름은 [SAP 파일 서버 템플릿][template-file-server]을 리소스 접두사인 **prod** 와 함께 사용한 것으로 가정합니다.
+
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 사용 약관 *종속* 및 *마스터* 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
 
 먼저 다음 SAP 참고와 문서 읽기
 

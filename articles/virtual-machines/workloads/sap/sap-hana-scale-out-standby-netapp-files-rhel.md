@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: f4693af9c29a36aad60b7b525fec024509a4d586
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d2cc8487f9864a27c1a2b02ef6e846bc43727e27
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958752"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608540"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포 
 
@@ -59,6 +59,10 @@ ms.locfileid: "94958752"
 이 문서에서는 공유 저장소 볼륨에 대 한 [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) 를 사용 하 여 Azure Red Hat Enterprise Linux vm (가상 머신)에서 대기 모드로 확장 구성에서 항상 사용 가능한 SAP HANA 시스템을 배포 하는 방법을 설명 합니다.  
 
 예제 구성, 설치 명령 등에서 HANA 인스턴스는 **03** 이 고 HANA 시스템 ID는 **h n 1** 입니다. 예제는 HANA 2.0 SP4 및 SAP 7.6 용 Red Hat Enterprise Linux을 기반으로 합니다. 
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *마스터* 및 *슬레이브* 용어에 대 한 참조가 포함 되어 있습니다. 이러한 용어가 소프트웨어에서 제거 되 면이 문서에서 제거 합니다.
+
 
 시작 하기 전에 다음 SAP note 및 백서를 참조 하세요.
 

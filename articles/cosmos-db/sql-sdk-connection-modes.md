@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: 892d73c2b23a9806cd38b188f594f129fda9303d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7901ad4f67f6f3243a2d3b8dc25733ac68b612db
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340722"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608370"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Azure Cosmos DB SQL SDK 연결 모드
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,7 +47,7 @@ ms.locfileid: "93340722"
 |연결 모드  |지원되는 프로토콜  |지원되는 SDK  |API/서비스 포트  |
 |---------|---------|---------|---------|
 |게이트웨이  |   HTTPS    |  모든 Sdk    |   SQL (443), MongoDB (10250, 10255, 10256), 테이블 (443), Cassandra (10350), 그래프 (443) <br> 10250 포트는 지역에서 복제를 사용 하지 않고 MongoDB 인스턴스에 대 한 기본 Azure Cosmos DB API에 매핑됩니다. 반면에 포트 10255 및 10256은 지역에서 복제를 포함 하는 인스턴스에 매핑됩니다.   |
-|직접    |     TCP    |  .NET SDK    | 공개/서비스 끝점을 사용 하는 경우: 1만 ~ 2만 범위의 포트<br>개인 끝점을 사용 하는 경우: 0-65535 범위의 포트 |
+|직접    |     TCP    |  .NET SDK Java SDK    | 공개/서비스 끝점을 사용 하는 경우: 1만 ~ 2만 범위의 포트<br>개인 끝점을 사용 하는 경우: 0-65535 범위의 포트 |
 
 ## <a name="next-steps"></a>다음 단계
 

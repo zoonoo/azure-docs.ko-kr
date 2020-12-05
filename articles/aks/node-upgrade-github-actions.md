@@ -5,12 +5,12 @@ description: GitHub 작업을 사용 하 여 AKS 노드를 업데이트 하는 �
 services: container-service
 ms.topic: article
 ms.date: 11/27/2020
-ms.openlocfilehash: 7a24911fd771663c7edbbdf0c8d2d763a74fc586
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 504c99a7305a5010f8dbe56a30b53d6fc3a13c5b
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96535216"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607843"
 ---
 # <a name="apply-security-updates-to-azure-kubernetes-service-aks-nodes-automatically-using-github-actions"></a>GitHub 작업을 사용 하 여 자동으로 AKS (Azure Kubernetes Service) 노드에 보안 업데이트 적용
 
@@ -169,9 +169,9 @@ Azure CLI 명령을 실행 하는 단계를 만듭니다.
 커밋을 만들면 워크플로가 저장 되 고 실행할 준비가 됩니다.
 
 > [!NOTE]
-> 클러스터의 모든 노드 풀 대신 단일 노드 풀을 업그레이드 하려면 `--name` 명령에 매개 변수를 추가 하 여 `az aks nodepool upgrade` 노드 풀 이름을 지정 합니다. 예를 들어:
-> ```
-> inlineScript: az aks nodepool upgrade -g {resourceGroupName} --cluster-name {aksClusterName} --name {{nodePoolName}} --node-image-only
+> 클러스터의 모든 노드 풀 대신 단일 노드 풀을 업그레이드 하려면 `--name` 명령에 매개 변수를 추가 하 여 `az aks nodepool upgrade` 노드 풀 이름을 지정 합니다. 예를 들면 다음과 같습니다.
+> ```azurecli-interactive
+> az aks nodepool upgrade -g {resourceGroupName} --cluster-name {aksClusterName} --name {{nodePoolName}} --node-image-only
 > ```
 
 ## <a name="run-the-github-action-manually"></a>수동으로 GitHub 작업 실행

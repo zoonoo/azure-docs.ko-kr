@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 6fb1ef45ff4e77ab21480a1013a3cec6bcc7cfa1
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: bfab099c3b81164e0d9ffaa009ea13f42aefb875
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030903"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608625"
 ---
 # <a name="install-and-use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트를 위해 Azure Cosmos DB 에뮬레이터 설치 및 사용
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -60,7 +60,7 @@ Azure Cosmos DB 에뮬레이터는 로컬 개발자 워크스테이션에서 실
 에뮬레이터를 설치 하기 전에 다음 하드웨어 및 소프트웨어 요구 사항이 있는지 확인 합니다.
 
 * 소프트웨어 요구 사항:
-  * 현재 Windows Server 2012 R2, Windows Server 2016, 2019 또는 Windows 8, 10 개의 호스트 OS가 지원 됩니다. Active Directory 사용 하도록 설정 된 호스트 OS는 현재 지원 되지 않습니다.
+  * 현재 Windows Server 2016, 2019 또는 Windows 10 호스트 OS가 지원 됩니다. Active Directory 사용 하도록 설정 된 호스트 OS는 현재 지원 되지 않습니다.
   * 64비트 운영 체제
 
 * 최소 하드웨어 요구 사항:

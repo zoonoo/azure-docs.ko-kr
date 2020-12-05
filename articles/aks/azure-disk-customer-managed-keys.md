@@ -4,12 +4,12 @@ description: 사용자 고유의 키 (BYOK)를 가져와서 AKS OS 및 데이터
 services: container-service
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: 3388b16edee86971b66b3a6b47e08015a6710977
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c71052f44f6912006a952bae16fd89ec1dc937db
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183314"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607894"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Azure 디스크를 사용 하 여 사용자 고유의 키 (BYOK) 가져오기
 
@@ -19,7 +19,7 @@ Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화�
 * 데이터 디스크 암호화 지원은 Kubernetes 버전 1.17 이상을 실행 하는 AKS 클러스터로 제한 됩니다.
 * AKS 클러스터를 만들 때만 고객 관리 키를 사용 하 여 OS 및 데이터 디스크를 암호화할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * Key Vault를 사용 하 여 관리 디스크를 암호화할 때 *Azure Key Vault* 에 대해 일시 삭제 및 보호 제거를 사용 하도록 설정 해야 합니다.
 * Azure CLI 버전 2.11.1 이상이 필요 합니다.
 
@@ -48,10 +48,10 @@ az keyvault create -n myKeyVaultName -g myResourceGroup -l myAzureRegionName  --
     
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
-keyVaultId=$(az keyvault show --name myKeyVaultName --query [id] -o tsv)
+keyVaultId=$(az keyvault show --name myKeyVaultName --query "[id]" -o tsv)
 
 # Retrieve the Key Vault key URL and store it in a variable
-keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyName  --query [key.kid] -o tsv)
+keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyName  --query "[key.kid]" -o tsv)
 
 # Create a DiskEncryptionSet
 az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl 
@@ -63,7 +63,7 @@ az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup --query [identity.principalId] -o tsv)
+desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup --query "[identity.principalId]" -o tsv)
 
 # Update security policy settings
 az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIdentity --key-permissions wrapkey unwrapkey get
@@ -78,7 +78,7 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIden
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query [id] -o tsv)
+diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query "[id]" -o tsv)
 
 # Create a resource group for the AKS cluster
 az group create -n myResourceGroup -l myAzureRegionName

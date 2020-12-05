@@ -8,16 +8,16 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb298bca53a06bd1ef14a750648fe6e76fd45ee
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 07acd71eb1a77592c82b80aa574d79b98c48f60e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602107"
+ms.locfileid: "96608302"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>Azure AD Connect 동기화 V2 엔드포인트 API 
 Microsoft는 Azure AD Connect에 대한 새 엔드포인트(API)를 배포하여 Azure Active Directory에 대한 동기화 서비스 작업의 성능을 향상시켰습니다. 새 V2 엔드포인트를 활용하면 Azure AD로 내보내기 및 가져오기에 대한 성능이 크게 향상됩니다. 이 새 엔드포인트는 다음을 지원합니다.

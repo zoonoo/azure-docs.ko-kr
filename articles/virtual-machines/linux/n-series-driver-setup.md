@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: b80a09c82b1e932fb93b4c85ee250773aa7d3c38
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 716a8853a2e2e0988cc50f5289f448d7a4adc9be
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016151"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608710"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -22,6 +22,9 @@ NVIDIA GPU가 지원하는 Azure N 시리즈 VM의 GPU 기능을 활용하려면
 NVIDIA GPU 드라이버를 수동으로 설치하려는 경우 이 문서는 지원되는 배포판, 드라이버, 설치 및 확인 단계를 제공합니다. [Windows VM](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대한 드라이버 수동 설치 정보도 제공합니다.
 
 N 시리즈 VM 사양, 스토리지 용량 및 디스크 세부 정보는 [GPU Linux VM 크기](../sizes-gpu.md?toc=/azure/virtual-machines/linux/toc.json)를 참조하세요. 
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *블랙 리스트* 에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 2e263e1bf8849c3936fdaab713c3fcb3583c114a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5af2c40dd1efa542ac13bd4cf96ba3017810bf00
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489051"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608676"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -529,6 +529,10 @@ sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana
 >
 > 변경 내용 적용을 위해 잠시의 가동 중지 시간이 필요합니다.  
 > 기존 Pacemaker 클러스터의 경우 [Azure Load-Balancer 감지 강화](https://www.suse.com/support/kb/doc/?id=7024128)의 설명에 따라 socat을 사용하도록 구성을 이미 변경한 경우 즉시 azure-lb 리소스 에이전트로 전환할 필요가 없습니다.
+
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *마스터* 및 *슬레이브* 용어에 대 한 참조가 포함 되어 있습니다. 이러한 용어가 소프트웨어에서 제거 되 면이 문서에서 제거 합니다.
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 
