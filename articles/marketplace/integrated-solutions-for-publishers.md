@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 705b0f02682b6aa41cb5c8e77d8da39faa5edb1f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 70dfccb32389d2f1fb492669c9f84a3e6ae77bbb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450120"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621351"
 ---
 # <a name="publish-an-integrated-solution"></a>통합 솔루션 게시
 
@@ -32,18 +32,17 @@ ms.locfileid: "96450120"
 ## <a name="eligibility-criteria"></a>자격 기준
 
 * 참여하는 파트너는 MPN ID가 있어야 합니다.
-* 참여하는 서비스 공급자는 공동 판매를 준비해야 합니다.
-* 참여 소프트웨어 공급업체는 IP 공동 판매를 준비해야 합니다.
+* 참여 하는 서비스 공급자는 [공동 판매 준비](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)를 해야 합니다.
+* 참여 소프트웨어 공급 업체는 [IP 공동 판매 준비](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)를 해야 합니다.
 * 하나 이상의 참여 파트너는 다음 영역 중 하나에서 골드 역량이 있어야 합니다.
-
-    * 애플리케이션 개발
-    * 애플리케이션 통합
-    * 애플리케이션 수명 주기 관리.
-    * 클라우드 플랫폼
-    * 데이터 분석
-    * 데이터 센터
-    * 데이터 플랫폼
-    * DevOps
+    - 애플리케이션 개발
+    - 애플리케이션 통합
+    - 애플리케이션 수명 주기 관리.
+    - 클라우드 플랫폼
+    - 데이터 분석
+    - 데이터 센터
+    - 데이터 플랫폼
+    - DevOps
 
 * 솔루션에는 완벽한 고객 솔루션 및 환경을 위해 IP와 서비스를 함께 제공하는 파트너 조직이 두 개 이상 포함되어야 합니다.
 * 파트너 IP는 Azure, Dynamics 365 또는 Power Platform에 구축되어야 합니다.

@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 12/04/2020
-ms.openlocfilehash: baa99518498b05b0a658627d9908298eb58f7775
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 7b335c3db5fb52c4323b797556d48e3ed9ae410a
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602736"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621623"
 ---
 # <a name="co-sell-option-in-the-commercial-marketplace"></a>상업적 marketplace의 공동 판매 옵션
 
-**Microsoft와 공동 판매** 탭에 대 한 정보를 제공 하는 것은 모두 선택 사항입니다. [공동 판매 준비 및 IP 공동 판매 Incentivized 상태](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)를 구현 해야 합니다. Microsoft 영업 팀에서 제공 하는 정보를 사용 하 여 고객의 요구에 맞게 제품을 평가할 때 제품에 대해 자세히 알아볼 수 있습니다. 고객에게 직접 제공되지 않습니다. 자세한 내용은 [Microsoft와 공동 판매](https://partner.microsoft.com/membership/co-sell-with-microsoft)를 참조 하세요.
+**Microsoft와 공동 판매** 탭에 대 한 정보를 제공 하는 것은 모두 선택 사항입니다. [공동 판매 준비 및 IP 공동 판매 Incentivized 상태](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)를 구현 해야 합니다. Microsoft 영업 팀에서 제공 하는 정보를 사용 하 여 고객의 요구에 맞게 제품을 평가할 때 제품에 대해 자세히 알아볼 수 있습니다. 고객에게 직접 제공되지 않습니다. 자세한 내용은 [Microsoft와 공동 판매](https://partner.microsoft.com/membership/co-sell-with-microsoft)를 참조 하세요.
 
 파트너 센터의 공동 판매 옵션은 현재 다음 제품 유형에 서 사용할 수 있습니다.
 

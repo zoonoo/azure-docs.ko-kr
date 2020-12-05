@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: jlian
-ms.openlocfilehash: 5299a049ab2cc2246a861dd3fb81f466b56afad3
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 864870c4392b12477c321c86afd9da848120490c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603482"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621708"
 ---
 # <a name="turn-on-preview-mode-for-iot-hub-to-try-select-new-features"></a>IoT Hub의 미리 보기 모드를 사용 하 여 새 기능 선택 시도
 
@@ -66,7 +66,7 @@ ms.locfileid: "96603482"
 
 프로덕션 환경에는 미리 보기 모드에서 IoT hub를 사용 *하지* 마세요. 미리 보기 모드는이 페이지의 맨 위에 나열 된 선택 *기능을 미리 보기만 하기 위한 것* 입니다. IoT Hub 미리 보기 모드에는 다음과 같은 몇 가지 제한 사항이 있습니다.
 
-- 개인 링크, 관리 되는 id, 장치 스트림 및 장애 조치 (failover)와 같은 기존 IoT Hub 기능 중 일부는 예기치 않게 작동 하거나 전혀 작동 하지 않을 수 있습니다.
+- IP 필터, 개인 링크, 관리 되는 id, 장치 스트림 및 장애 조치 (failover)와 같은 기존 IoT Hub 기능 중 일부는 예기치 않게 작동 하거나 전혀 작동 하지 않을 수 있습니다.
 - 미리 보기 모드의 IoT hub는 변경 하거나 일반적인 IoT hub로 업그레이드할 수 없습니다.
 - 정상적인 [IOT HUB SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/) 를 보장할 수 없습니다. 프로덕션에 사용 하지 마세요.
 

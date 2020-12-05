@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: d2d890db3c246ad7f3d0a56a3df264d5f78bd54d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5f7278a688147842b7dbfab79a20afea2b4a9288
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571133"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621606"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 SaaS 제품을 계획 하는 방법
 
@@ -150,7 +150,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. Description
+9. 설명
 10. 스크린샷/비디오
 11. 문서
 
@@ -161,7 +161,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
 **호출 설명**
 
 1. 제목
-1. Description
+1. 설명
 1. 유용한 링크
 1. 스크린샷
 
@@ -250,15 +250,15 @@ Microsoft에서 제공 하는 SaaS 앱 제품은 [요금제 서비스](./partner
 | Microsoft는 라이선스 비용의 80%를 지불합니다.<br>`*` Microsoft는 정규화 된 SaaS 앱에 대해 90%의 라이선스 비용을 지불 합니다.| 매월 $80.00<br>``*`` 매월 $90.00 |
 |||
 
-**`*` Marketplace 서비스 요금 절감** – 상업적 Marketplace에 게시 한 특정 SaaS 제품의 경우 Microsoft는 microsoft 게시자 계약에 설명 된 대로 20%에서 Marketplace 서비스 요금을 10%까지 줄일 수 있습니다. 제품을 자격이 있는 경우 Microsoft에서 귀하의 제품을 Azure IP 공동 판매 incentivized로 지정 해야 합니다. 해당 월의 Marketplace 서비스 요금을 절감 하려면 각 월이 끝날 때까지 영업일 (5) 이상의 영업일을 충족 해야 합니다. 또한 Azure IP 공동 판매 incentivized Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 제품에도 적용 됩니다.
+**`*` Marketplace 서비스 요금 절감** – 상업적 Marketplace에 게시 한 특정 SaaS 제품의 경우 Microsoft는 microsoft 게시자 계약에 설명 된 대로 20%에서 Marketplace 서비스 요금을 10%까지 줄일 수 있습니다. 제품을 자격이 있는 경우 Microsoft에서 귀하의 제품을 Azure IP 공동 판매 incentivized로 지정 해야 합니다. 해당 월의 Marketplace 서비스 요금을 절감 하려면 각 월이 끝날 때까지 영업일 (5) 이상의 영업일을 충족 해야 합니다. IP 공동 판매 자격에 대 한 자세한 내용은 [공동 판매 상태를 위한 요구 사항](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)을 참조 하세요. 또한 Azure IP 공동 판매 incentivized Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 제품에도 적용 됩니다.
 
 ## <a name="additional-sales-opportunities"></a>추가 판매 기회
 
 Microsoft에서 지 원하는 마케팅 및 판매 채널을 옵트인 (opt in) 하도록 선택할 수 있습니다. 파트너 센터에서 제품을 만들 때 프로세스의 끝에 두 개의 탭이 표시 됩니다.
 
-- **Csp를 통한 재판매**:이 옵션을 사용 하면 csp (Microsoft 클라우드 솔루션 공급자) 파트너가 번들 제안의 일부로 솔루션을 재판매 수 있습니다. 자세한 내용은 [클라우드 솔루션 공급자 프로그램](cloud-solution-providers.md) 을 참조 하세요.
+- **Csp를 통한 재판매**:이 옵션을 사용 하면 csp (Microsoft 클라우드 솔루션 공급자) 파트너가 번들 제안의 일부로 솔루션을 재판매 수 있습니다. 이 프로그램에 대 한 자세한 내용은 [클라우드 솔루션 공급자 프로그램](cloud-solution-providers.md)을 참조 하세요.
 
-- **Microsoft와 공동 판매**:이 옵션을 사용 하면 microsoft 영업 팀에서 고객의 요구를 평가할 때 IP 공동 판매에 적합 한 솔루션을 고려할 수 있습니다. 평가를 위해 제품을 준비 하는 방법에 대 한 자세한 내용은 [파트너 센터의 공동 판매 옵션](commercial-marketplace-co-sell.md) 을 참조 하세요.
+- **Microsoft와 공동 판매**:이 옵션을 사용 하면 microsoft 영업 팀에서 고객의 요구를 평가할 때 IP 공동 판매에 적합 한 솔루션을 고려할 수 있습니다. 공동 판매 자격에 대 한 자세한 내용은 [공동 판매 상태를 위한 요구 사항](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)을 참조 하세요. 평가를 위해 제품을 준비 하는 방법에 대 한 자세한 내용은 [파트너 센터의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

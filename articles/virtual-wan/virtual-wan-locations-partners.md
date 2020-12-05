@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: c689c83e50a42885900f62d1a65d0aa75f36f2ec
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 188bc14de502640ae05f1d1eb55330d86cee50b4
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014032"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621482"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>가상 WAN 파트너 및 가상 허브 위치
 
@@ -60,7 +60,7 @@ Azure Virtual WAN에 연결하는 디바이스에는 연결 자동화가 기본�
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Barracuda CloudGen WAN 배포 가이드](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
 |[Cisco CSR (클라우드 서비스 라우터) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Cisco Cloud Services (CSR) WAN의 공개 미리 보기 중에는 VWAN 허브에 대 한 전자 메일을 보내고 Vwan 배포 가이드를 요청 하 여 최종 고객이 Cisco EFT (초기 현장 평가판) 고객으로 등록 해야 합니다 vwan_public_preview@external.cisco.com . |
 
-다음 파트너는 가까운 장래에 가상 허브 제품에 NVA를 제공할 예정입니다. Citrix, 그 반대의 경우 네트워크와 VeloCloud.
+다음 파트너는 나중에 Aviatrix, Citrix, VeloCloud 및 그 반대로 네트워크에서 가상 허브 제품에 NVA를 제공할 예정입니다.
 
 ## <a name="locations"></a><a name="locations"></a>위치
 

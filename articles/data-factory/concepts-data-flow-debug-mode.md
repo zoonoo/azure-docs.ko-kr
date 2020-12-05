@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/11/2020
-ms.openlocfilehash: 2cfd498f73646b0021d5fbb3e982dc82871ef35c
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 12/04/2020
+ms.openlocfilehash: 87465ff381c62343a11c54130378b48580ca40e2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027009"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621650"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>매핑 데이터 흐름 디버그 모드
 
@@ -25,9 +25,9 @@ ms.locfileid: "93027009"
 
 ![디버그 슬라이더](media/data-flow/debugbutton.png "디버그 슬라이더")
 
-슬라이더를 켜면 사용할 integration runtime 구성을 선택 하 라는 메시지가 표시 됩니다. AutoResolveIntegrationRuntime가 선택 된 경우 60 분의 일반 계산 코어 8 개를 포함 하는 클러스터가 분리 됩니다. 데이터 흐름 통합 런타임에 대 한 자세한 내용은 [데이터 흐름 성능](concepts-data-flow-performance.md#ir)을 참조 하세요.
+슬라이더를 켜면 사용할 integration runtime 구성을 선택 하 라는 메시지가 표시 됩니다. AutoResolveIntegrationRuntime를 선택 하면 일반 계산의 8 코어를 포함 하는 클러스터가 기본 60 분 ttl (time to live) 인 클러스터가 분리 됩니다. 세션 시간이 초과 되기 전에 더 많은 유휴 팀을 허용 하려면 더 높은 TTL 설정을 선택할 수 있습니다. 데이터 흐름 통합 런타임에 대 한 자세한 내용은 [데이터 흐름 성능](concepts-data-flow-performance.md#ir)을 참조 하세요.
 
-![IR 선택 항목 디버그](media/data-flow/debugbutton2.png "IR 선택 항목 디버그")
+![IR 선택 항목 디버그](media/data-flow/debug-new-1.png "IR 선택 항목 디버그")
 
 디버그 모드를 설정 하면 활성 Spark 클러스터로 데이터 흐름을 대화형으로 작성할 수 있습니다. Azure Data Factory에서 디버그를 끄면 세션이 닫힙니다. 디버그 세션이 켜진 시간 동안 Azure Databricks에서 부과되는 시간당 요금에 유의해야 합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "93027009"
 ![데이터 흐름 디버그 세션 보기](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
 
 > [!NOTE]
-> 사용자가 ADF 브라우저 UI에서 시작 하는 모든 디버그 세션은 자체 Spark 클러스터가 포함 된 새 세션입니다. 위의 디버그 세션에 대 한 모니터링 보기를 사용 하 여 팩터리 당 디버그 세션을 보고 관리할 수 있습니다.
+> 사용자가 ADF 브라우저 UI에서 시작 하는 모든 디버그 세션은 자체 Spark 클러스터가 포함 된 새 세션입니다. 위의 디버그 세션에 대 한 모니터링 보기를 사용 하 여 팩터리 당 디버그 세션을 보고 관리할 수 있습니다. 각 디버그 세션이 TTL 시간을 포함 하 여 실행 되는 시간 마다 요금이 청구 됩니다.
 
 ## <a name="cluster-status"></a>클러스터 상태
 

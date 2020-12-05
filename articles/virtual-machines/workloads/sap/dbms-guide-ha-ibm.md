@@ -8,17 +8,20 @@ ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 01f02efd36c51f3969ee53e9efc78fbe1664b187
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 54bde8c9dd47e88ffdc831ccb9f7833720583238
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486541"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621385"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Pacemaker를 사용 하는 SUSE Linux Enterprise Server의 Azure Vm에서 IBM Db2 LUW의 고가용성
 
 HADR (고가용성 [및 재해 복구) 구성](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) 에서 LINUX, UNIX 및 WINDOWS 용 IBM DB2 (LUW)는 주 데이터베이스 인스턴스를 실행 하는 노드 하 나와 보조 데이터베이스 인스턴스를 실행 하는 하나 이상의 노드로 구성 됩니다. 주 데이터베이스 인스턴스에 대 한 변경 내용은 구성에 따라 동기식 또는 비동기적으로 보조 데이터베이스 인스턴스에 복제 됩니다. 
 
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *마스터* 및 *슬레이브* 용어에 대 한 참조가 포함 되어 있습니다. 이러한 용어가 소프트웨어에서 제거 되 면이 문서에서 제거 합니다.
+   
 이 문서에서는 Azure Vm (가상 머신)을 배포 및 구성 하 고, 클러스터 프레임 워크를 설치 하 고, HADR 구성으로 IBM Db2 LUW을 설치 하는 방법을 설명 합니다. 
 
 이 문서에서는 HADR 또는 SAP 소프트웨어 설치에서 IBM Db2 LUW을 설치 하 고 구성 하는 방법에 대해 다루지 않습니다. 이러한 작업을 수행 하는 데 도움이 되도록 SAP 및 IBM 설치 설명서에 대 한 참조를 제공 합니다. 이 문서에서는 Azure 환경과 관련 된 파트에 대해 집중적으로 설명 합니다. 

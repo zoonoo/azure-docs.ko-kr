@@ -4,16 +4,16 @@ description: Azure 파일 네트워크 끝점을 구성 하는 방법을 알아�
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/17/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 880eeb87d8727d65b2aaecdad8b0ed9ccaacea7a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 079d7aa9b654a318c7269a41605c3e146b08f127
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629855"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621334"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Azure Files 네트워크 엔드포인트 구성
 
@@ -45,15 +45,26 @@ Azure Files는 Azure 파일 공유에 액세스하기 위한 다음과 같은 �
 
 스토리지 계정의 프라이빗 엔드포인트를 만들면 다음 Azure 리소스가 배포됩니다.
 
-- **프라이빗 엔드포인트** : 스토리지 계정의 프라이빗 엔드포인트를 나타내는 Azure 리소스입니다. 스토리지 계정과 네트워크 인터페이스를 연결하는 리소스라고 생각하시면 됩니다.
+- **프라이빗 엔드포인트**: 스토리지 계정의 프라이빗 엔드포인트를 나타내는 Azure 리소스입니다. 스토리지 계정과 네트워크 인터페이스를 연결하는 리소스라고 생각하시면 됩니다.
 - **NIC(네트워크 인터페이스)** : 지정된 가상 네트워크/서브넷 내에서 개인 IP 주소를 유지 관리하는 네트워크 인터페이스입니다. 가상 머신을 배포할 때 배포되는 것과 정확히 동일한 리소스이지만, VM에 할당되는 것이 아니라 프라이빗 엔드포인트의 소유입니다.
-- **프라이빗 DNS 영역** : 이전에 이 가상 네트워크에 대한 프라이빗 엔드포인트를 한 번도 배포하지 않은 경우 가상 네트워크에 대한 새 프라이빗 DNS 영역이 배포됩니다. 이 DNS 영역의 스토리지 계정에 대한 DNS A 레코드도 생성됩니다. 이 가상 네트워크에 프라이빗 엔드포인트를 이미 배포한 경우 스토리지 계정에 대한 새 A 레코드가 기존 DNS 영역에 추가됩니다. DNS 영역을 배포하는 것은 선택 사항이지만 배포할 것을 적극 권장하며, AD 서비스 주체 또는 FileREST API를 사용하여 Azure 파일 공유를 탑재하는 경우에는 필수입니다.
+- **프라이빗 DNS 영역**: 이전에 이 가상 네트워크에 대한 프라이빗 엔드포인트를 한 번도 배포하지 않은 경우 가상 네트워크에 대한 새 프라이빗 DNS 영역이 배포됩니다. 이 DNS 영역의 스토리지 계정에 대한 DNS A 레코드도 생성됩니다. 이 가상 네트워크에 프라이빗 엔드포인트를 이미 배포한 경우 스토리지 계정에 대한 새 A 레코드가 기존 DNS 영역에 추가됩니다. DNS 영역을 배포하는 것은 선택 사항이지만 배포할 것을 적극 권장하며, AD 서비스 주체 또는 FileREST API를 사용하여 Azure 파일 공유를 탑재하는 경우에는 필수입니다.
 
 > [!Note]  
 > 이 문서에서는 `core.windows.net` Azure 퍼블릭 지역에 대한 스토리지 계정 DNS 접미사를 사용합니다. 이는 Azure US Government 클라우드 및 Azure 중국 클라우드와 같은 Azure 소버린 클라우드에도 적용되며, 사용자 환경에 적합한 접미사로 바꾸기만 하면 됩니다. 
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-private-portal](../../../includes/storage-files-networking-endpoints-private-portal.md)]
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+[!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+[!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
+---
+
+## <a name="verify-connectivity"></a>연결 확인
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 가상 네트워크 내에 가상 머신이 있거나 [Azure 파일용 DNS 전달 구성](storage-files-networking-dns.md)에 설명된 대로 DNS 전달을 구성한 경우, PowerShell, 명령줄 또는 터미널에서 다음 명령을 실행하여 프라이빗 엔드포인트가 올바르게 설정되었는지 테스트할 수 있습니다(Windows, Linux 또는 macOS에서 작동). 다음과 같이 `<storage-account-name>`을 적절한 스토리지 계정 이름으로 바꿔야 합니다.
 
@@ -74,7 +85,6 @@ Aliases:  storageaccount.file.core.windows.net
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-[!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
 
 가상 네트워크 내에 가상 머신이 있거나 [Azure 파일용 전달 DNS 구성](storage-files-networking-dns.md)에 설명된 대로 DNS 전달을 구성한 경우, 다음 명령을 사용하여 프라이빗 엔드포인트가 올바르게 설정되었는지 테스트할 수 있습니다.
 
@@ -101,7 +111,6 @@ IP4Address : 192.168.0.5
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-[!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
 
 가상 네트워크 내에 가상 머신이 있거나 [Azure 파일용 전달 DNS 구성](storage-files-networking-dns.md)에 설명된 대로 DNS 전달을 구성한 경우, 다음 명령을 사용하여 프라이빗 엔드포인트가 올바르게 설정되었는지 테스트할 수 있습니다.
 
@@ -127,10 +136,9 @@ storageaccount.file.core.windows.net      canonical name = storageaccount.privat
 Name:   storageaccount.privatelink.file.core.windows.net
 Address: 192.168.0.5
 ```
-
 ---
 
-### <a name="restrict-public-endpoint-access"></a>공용 끝점 액세스 제한
+## <a name="restrict-public-endpoint-access"></a>공용 끝점 액세스 제한
 
 공용 끝점 액세스를 제한 하려면 먼저 공용 끝점에 대 한 일반 액세스를 사용 하지 않도록 설정 해야 합니다. 공용 끝점에 대 한 액세스를 사용 하지 않도록 설정 해도 전용 끝점에는 영향을 주지 않습니다. 공용 끝점을 사용 하지 않도록 설정한 후에는 특정 네트워크 또는 IP 주소를 선택 하 여 계속 액세스할 수 있습니다. 일반적으로 저장소 계정에 대 한 대부분의 방화벽 정책은 하나 이상의 가상 네트워크에 대 한 네트워킹 액세스를 제한 합니다.
 

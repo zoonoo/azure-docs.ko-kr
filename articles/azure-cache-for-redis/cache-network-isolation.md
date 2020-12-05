@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 0fda0b659dd2500e811fac1f53c99a9987276185
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ef284661d44f700cf0b5282efcd2e6f7b94fa3b6
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537476"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621521"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Redis 용 Azure Cache 네트워크 격리 옵션 
 이 문서에서는 사용자의 요구에 가장 적합 한 네트워크 격리 솔루션을 확인 하는 방법을 알아봅니다. Azure 개인 링크, Azure Virtual Network (VNet) 주입 및 Azure 방화벽 규칙에 대 한 기본 사항을 활용 하 여 장점과 제한 사항을 설명 합니다.  
@@ -22,7 +22,7 @@ Azure 개인 링크는 가상 네트워크에서 Azure PaaS 서비스로 개인 
 ### <a name="advantages"></a>장점
 * Redis 인스턴스에 대 한 Basic, Standard 및 Premium Azure Cache에서 지원 됩니다. 
 * [Azure 개인 링크](../private-link/private-link-overview.md)를 사용 하 여 가상 네트워크 내의 서브넷에서 개인 IP 주소가 할당 된 개인 끝점을 통해 가상 네트워크에서 azure Cache 인스턴스에 연결할 수 있습니다. 이를 통해 캐시 인스턴스는 VNet 내에서 공개적으로 사용할 수 있습니다.  
-* 개인 끝점을 만든 후에는 플래그를 통해 공용 네트워크에 대 한 액세스를 제한할 수 있습니다 `publicNetworkAccess` . 이 플래그는 기본적으로로 설정 되어 `Enabled` 있으며, 캐시에 대 한 공용 및 개인 링크 액세스를 모두 허용 하는 옵션을 제공 합니다. 로 설정 되 면 `Disabled` 개인 링크 액세스만 허용 됩니다. PATCH 요청을 사용 하 여 값을로 설정할 수 있습니다 `Disabled` . 자세한 내용은 azure [개인 링크를 사용 하는 Redis 용 Azure Cache (미리 보기)](cache-private-link.md)를 참조 하세요. 
+* 개인 끝점을 만든 후에는 플래그를 통해 공용 네트워크에 대 한 액세스를 제한할 수 있습니다 `publicNetworkAccess` . 이 플래그는 기본적으로로 설정 되며 `Disabled` ,이 경우 개인 링크 액세스만 허용 됩니다. PATCH 요청을 사용 하 여 또는로 값을 설정할 수 있습니다 `Enabled` `Disabled` . 자세한 내용은 azure [개인 링크를 사용 하는 Redis 용 Azure Cache (미리 보기)](cache-private-link.md)를 참조 하세요. 
 * 모든 외부 캐시 종속성은 VNet의 NSG 규칙에 영향을 주지 않습니다.
 
 ### <a name="limitations"></a>제한 사항 

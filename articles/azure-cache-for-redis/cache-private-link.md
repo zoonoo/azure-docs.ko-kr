@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 1a9d5fe69cd9d853d0bf8ec971f31518bbf47c9a
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 31ae4605b6cc9e26c89beea692fe61fcbda49c4c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504699"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621504"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure 개인 링크를 사용 하는 azure Cache for Redis (공개 미리 보기)
 이 문서에서는 Azure Portal를 사용 하 여 개인 끝점이 있는 Redis 인스턴스에 대 한 가상 네트워크 및 Azure Cache를 만드는 방법에 대해 알아봅니다. Redis 인스턴스에 대 한 기존 Azure 캐시에 개인 끝점을 추가 하는 방법에 대해서도 알아봅니다.
@@ -111,8 +111,8 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
     
 > [!IMPORTANT]
 > 
-> `publicNetworkAccess` `Enabled` 기본적으로 플래그가 있습니다. 
-> 이 플래그는가로 설정 된 경우 선택적으로 공용 및 개인 끝점 액세스를 모두 허용할 수 있도록 하기 위한 것입니다 `Enabled` . 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. 다음 PATCH 요청을 사용 하 여 값을로 설정할 수 있습니다 `Disabled` .
+> `publicNetworkAccess` `Disabled` 기본적으로 플래그가 있습니다. 
+> 이 플래그는가로 설정 된 경우 선택적으로 공용 및 개인 끝점 액세스를 모두 허용할 수 있도록 하기 위한 것입니다 `Enabled` . 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. `Disabled`다음 PATCH 요청을 사용 하 여 값을 또는로 설정할 수 있습니다 `Enabled` . 캐시에 사용할 플래그를 반영 하도록 값을 편집 합니다.
 > ```http
 > PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 > {    "properties": {
@@ -212,8 +212,9 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 ### <a name="what-features-are-not-supported-with-private-endpoints"></a>개인 끝점에서 지원 되지 않는 기능은 무엇입니까?
 지역에서 복제, 방화벽 규칙, 포털 콘솔 지원, 클러스터 된 캐시 당 여러 끝점, 방화벽 규칙 및 영역 중복성에 대 한 지 속성 
 
-### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-from-public-network-access"></a>내 개인 끝점을 공용 네트워크 액세스에서 사용 하지 않도록 변경 하려면 어떻게 해야 하나요?
-`publicNetworkAccess` `Enabled` 기본적으로 플래그가 있습니다. 이 플래그는가로 설정 된 경우 선택적으로 공용 및 개인 끝점 액세스를 모두 허용할 수 있도록 하기 위한 것입니다 `Enabled` . 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. 다음 PATCH 요청을 사용 하 여 값을로 설정할 수 있습니다 `Disabled` .
+### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>공용 네트워크 액세스에서 개인 끝점을 사용 하지 않도록 설정 하거나 사용 하도록 설정 하려면 어떻게 해야 하나요?
+`publicNetworkAccess` `Disabled` 기본적으로 플래그가 있습니다. 이 플래그는가로 설정 된 경우 선택적으로 공용 및 개인 끝점 액세스를 모두 허용할 수 있도록 하기 위한 것입니다 `Enabled` . 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. `Disabled`다음 PATCH 요청을 사용 하 여 값을 또는로 설정할 수 있습니다 `Enabled` . 캐시에 사용할 플래그를 반영 하도록 값을 편집 합니다.
+
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 {    "properties": {

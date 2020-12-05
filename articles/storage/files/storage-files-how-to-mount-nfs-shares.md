@@ -4,16 +4,16 @@ description: 네트워크 파일 시스템 공유를 탑재 하는 방법에 대
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 530ae82720e6b4eb6a3e4d1021c0b37b9f4dbf5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a993d9c1de35132198de5e3becc4f16d6a2a437
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707444"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621300"
 ---
 # <a name="how-to-mount-an-nfs-file-share"></a>NFS 파일 공유를 탑재 하는 방법
 
@@ -44,20 +44,24 @@ ms.locfileid: "90707444"
 
 1. Azure Portal에 로그인 하 여 만든 NFS 공유를 포함 하는 저장소 계정에 액세스 합니다.
 1. **Configuration(구성)** 을 선택합니다.
-1. **보안 전송 필요**에 대해 **사용 안 함** 을 선택 합니다.
-1. **저장**을 선택합니다.
+1. **보안 전송 필요** 에 대해 **사용 안 함** 을 선택 합니다.
+1. **저장** 을 선택합니다.
 
     :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="보안 전송이 사용 하지 않도록 설정 된 저장소 계정 구성 화면의 스크린샷":::
 
 ## <a name="mount-an-nfs-share"></a>NFS 공유 탑재
 
-1. 파일 공유를 만든 후 공유를 선택 하 고 **Linux에서 연결**을 선택 합니다.
+1. 파일 공유를 만든 후 공유를 선택 하 고 **Linux에서 연결** 을 선택 합니다.
 1. 사용할 탑재 경로를 입력 한 다음 스크립트를 복사 합니다.
 1. 클라이언트에 연결 하 고 제공 된 탑재 스크립트를 사용 합니다.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="보안 전송이 사용 하지 않도록 설정 된 저장소 계정 구성 화면의 스크린샷":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="파일 공유 연결 블레이드의 스크린샷":::
 
 이제 NFS 공유를 탑재 했습니다.
+
+### <a name="validate-connectivity"></a>연결 유효성 검사
+
+마운트가 실패 한 경우 개인 끝점이 올바르게 설정 되지 않았거나 액세스할 수 없는 것일 수 있습니다. 연결 확인에 대 한 자세한 내용은 네트워킹 끝점 문서의 [연결 확인](storage-files-networking-endpoints.md#verify-connectivity) 섹션을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

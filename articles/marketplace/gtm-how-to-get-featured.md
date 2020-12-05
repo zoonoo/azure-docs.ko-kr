@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/16/2020
-ms.openlocfilehash: 09f5d61984d5802184d70867f94815fac8fe2b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a3d0ef3c112da87e73f83c6c87de8f3fce1fea0
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103571"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621368"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>AppSource 및 Azure Marketplace에서 추천되는 방법
 
@@ -28,10 +28,10 @@ Azure Marketplace와 AppSource에는 **추천 앱** 섹션이 있으며, 여기�
 다음 작업 항목을 사용하여 점수를 개선할 수 있습니다.
 
 1. *앱 또는 서비스가 적절 하 게 분류 되었는지 확인*: 앱 또는 서비스의 기능을 나타내는 세 가지 범주를 선택 합니다.
-2. Azure Marketplace 앱: 매달 Azure 사용을 늘립니다.** 매달 1,000 시간의 Azure 사용량을 달성할 수 있는 경우 추천될 가능성이 훨씬 높아집니다.
-3. AppSource 앱: 제품에 대한 취득을 늘립니다.** 매달 10개 취득을 달성할 수 있는 경우 추천될 가능성이 훨씬 높아집니다. 
-4. Co-Sell 준비 상태 달성: 공동 판매 준비 요구 사항을 완료합니다.**
-5. 제품 품질 개선: 제품을 수정하는 방법에 대한 자세한 내용은 [콘텐츠 목록 지침](marketplace-criteria-content-validation.md)을 참조하세요.**
+2. Azure Marketplace 앱: 매달 Azure 사용을 늘립니다. 매달 1,000 시간의 Azure 사용량을 달성할 수 있는 경우 추천될 가능성이 훨씬 높아집니다.
+3. AppSource 앱: 제품에 대한 취득을 늘립니다. 매달 10개 취득을 달성할 수 있는 경우 추천될 가능성이 훨씬 높아집니다.
+4. *Co-Sell 준비 상태 얻기*: [공동 판매 준비를 위한 요구 사항을](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)완료 합니다.
+5. 제품 품질 개선: 제품을 수정하는 방법에 대한 자세한 내용은 [콘텐츠 목록 지침](marketplace-criteria-content-validation.md)을 참조하세요.
 6. 마켓플레이스에 여러 개의 제품 게시: 모든 핵심 앱과 서비스가 목록에 추가되었나요? 평가판 경험이 있나요?
 7. 고객에게 리뷰를 작성하도록 권장합니다.
 

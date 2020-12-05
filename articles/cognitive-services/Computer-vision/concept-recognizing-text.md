@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 50cce15d14561bb1c8ebfdbbeeedd99dc8efcda1
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 37a989082b63dc101bb519fea1cc4ef16c76ae49
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532995"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621538"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
@@ -61,7 +61,7 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
 
 두 번째 단계는 [Get Results Get](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) 작업을 호출 하는 것입니다. 이 작업은 읽기 작업에서 만든 작업 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)가 초과 되는 것을 방지 하려면 1 ~ 2 초 간격을 사용 합니다.
 
-|필드| Type | 가능한 값 |
+|필드| 형식 | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 작업이 시작 되지 않았습니다. |
 | |  | 실행 중: 작업이 처리 중입니다. |
@@ -147,7 +147,7 @@ OCR 지원 언어의 전체 목록은 [지원 되는 언어](./language-support.
 읽기 작업은 현재 필기 텍스트를 영어로 독점적으로 추출할 수 있도록 지원 합니다.
 
 ## <a name="use-the-rest-api-and-sdk"></a>REST API 및 SDK 사용
-[읽기 2.x REST API](./QuickStarts/CSharp-hand-text.md) 는 간편 하 게 통합 되 고 빠르게 생산성을 높일 수 있기 때문에 대부분의 고객에 게 선호 되는 옵션입니다. Azure와 Computer Vision 서비스는 고객의 요구를 충족 하는 동안 규모, 성능, 데이터 보안 및 규정 준수 요구 사항을 처리 합니다.
+[읽기 2.x REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) 는 간편 하 게 통합 되 고 빠르게 생산성을 높일 수 있기 때문에 대부분의 고객에 게 선호 되는 옵션입니다. Azure와 Computer Vision 서비스는 고객의 요구를 충족 하는 동안 규모, 성능, 데이터 보안 및 규정 준수 요구 사항을 처리 합니다.
 
 ## <a name="deploy-on-premise-with-docker-containers"></a>Docker 컨테이너를 사용 하 여 온-프레미스 배포
 [Docker 컨테이너 읽기 (미리 보기)](./computer-vision-how-to-install-containers.md) 를 사용 하면 새 OCR 기능을 자체 로컬 환경에 배포할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다.

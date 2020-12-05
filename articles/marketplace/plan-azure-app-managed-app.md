@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: a915b5a348e3167d2cf81906b19abd9850584ce9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 694f501efc565ed498c1c8d8e2e38326277e8605
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460977"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621419"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Azure 응용 프로그램 제품에 대 한 Azure 관리 응용 프로그램 계획
 
@@ -90,7 +90,7 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관리형 애플리케이션의 리소스에 대한 높은 액세스 권한을 요청할 수 있습니다. 항상 리소스에 대한 읽기 전용 액세스 권한을 가지지만 특정 기간 동안 더 큰 액세스 권한을 가질 수 있습니다. 자세한 내용은 [Azure Managed Applications의 JIT(Just-In-Time) 액세스 사용 및 요청](../azure-resource-manager/managed-applications/request-just-in-time-access.md)을 참조하세요.
 
 > [!NOTE]
-> 이 기능을 지원 하기 위해 skimmingBe에서 파일을 업데이트 해야 하는 경우에도 사용자에 게 알리는 정보 `createUiDefinition.json` 입니다.
+> 이 기능을 지원하려면 `createUiDefinition.json` 파일을 업데이트해야 합니다.
 
 ## <a name="deployment-mode"></a>배포 모드
 
@@ -127,9 +127,9 @@ JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관�
 | 정책 유형 | 정책 매개 변수가 필요 합니다. |
 | ------------ | ------------- |
 | 암호화 Azure SQL Database | 아니요 |
-| Azure SQL Server 감사 설정 | 예 |
+| Azure SQL Server 감사 설정 | Yes |
 | 암호화 Azure Data Lake Store | 아니요 |
-| 진단 설정 감사 | 예 |
+| 진단 설정 감사 | Yes |
 | 감사 리소스 위치 준수 | 아니요 |
 |||
 

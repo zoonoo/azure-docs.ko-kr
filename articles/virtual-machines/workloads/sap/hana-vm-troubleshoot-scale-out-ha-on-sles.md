@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 7cf18e2d375d7a45c3641876b8a3ed5974882927
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 87758100299eb170a7950a1a7a2c6bd2029b27fb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010030"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621555"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>SLES 12 SP3에서 SAP HANA 스케일 아웃 고가용성 설정 확인 및 문제 해결 
 
@@ -45,6 +45,9 @@ SAP HANA System Replication 및 Pacemaker와 함께 SAP HANA 스케일 아웃에
 SUSE의 [성능 최적화 설정에 대한 자세한 설명][sles-hana-scale-out-ha-paper]이 게시되어 있습니다.
 
 SAP HANA 스케일 아웃에 지원되는 가상 머신 유형은 [SAP HANA 인증 IaaS 디렉터리][sap-hana-iaas-list]를 확인하세요.
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *마스터* 및 *슬레이브* 용어에 대 한 참조가 포함 되어 있습니다. 이러한 용어가 소프트웨어에서 제거 되 면이 문서에서 제거 합니다.
 
 여러 서브넷과 vNIC 및 HSR 설정과 함께 SAP HANA 스케일 아웃에 기술적인 문제가 있었습니다. 이 문제가 해결된 최신 SAP HANA 2.0 패치는 반드시 사용해야 합니다. 지원되는 SAP HANA 버전은 다음과 같습니다. 
 

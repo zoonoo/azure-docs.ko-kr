@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: 63be912986542741359cd5e88227f06905d42647
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: da89d4fbc3f9e03e76d901c2215e4f16c5273013
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350877"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621113"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 싱크 변환
 
@@ -103,6 +103,10 @@ Azure Data Factory는 90 개 이상의 [기본 커넥터](connector-overview.md)
 > 캐시 된 [조회](./concepts-data-flow-expression-builder.md#cached-lookup)를 활용 하는 경우 싱크 순서 지정에서 캐시 된 싱크가 1로 설정 되어 있는지 확인 합니다 (또는 first).
 
 ![사용자 지정 싱크 순서 지정](media/data-flow/cache-2.png "사용자 지정 싱크 순서 지정")
+
+### <a name="sink-groups"></a>싱크 그룹
+
+일련의 싱크에 동일한 순서 번호를 적용 하 여 싱크를 함께 그룹화 할 수 있습니다. ADF는 병렬로 실행할 수 있는 그룹으로 이러한 싱크를 처리 합니다. 병렬 실행 옵션은 파이프라인 데이터 흐름 작업에 노출 됩니다.
 
 ## <a name="error-row-handling"></a>오류 행 처리
 
