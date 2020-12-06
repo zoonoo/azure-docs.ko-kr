@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 611107ed02aeb4dc75302f519681c932980f612e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d7bd9913cccbe077a4deed9a7c5bfdc601f3dd5e
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174173"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96742343"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버로 시작하기
 
@@ -55,11 +55,11 @@ Azure Multi-Factor Authentication 서버를 다운로드하기 전에 로드 및
 
 Azure Multi-Factor Authentication에 사용 중인 서버가 다음 요구 사항을 충족하는지 확인합니다.
 
-| Azure Multi-Factor Authentication 서버 요구 사항 | Description |
+| Azure Multi-Factor Authentication 서버 요구 사항 | 설명 |
 |:--- |:--- |
 | 하드웨어 |<li>200MB의 하드 디스크 공간</li><li>x32 또는 x64 지원 프로세서</li><li>1GB 이상 RAM</li> |
 | 소프트웨어 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008/R2 ( [Esu](/lifecycle/faq/extended-security-updates) 만)</li><li>Windows 10</li><li>Windows 8.1, 모든 버전</li><li>Windows 8, 모든 버전</li><li>Windows 7, 모든 버전 ( [Esu](/lifecycle/faq/extended-security-updates) 만 있음)</li><li>Microsoft .NET 4.0 Framework</li><li>사용자 포털 또는 웹 서비스 SDK를 설치하는 경우 IIS 7.0 이상</li> |
-| 사용 권한 | Active Directory에 등록할 도메인 관리자 또는 엔터프라이즈 관리자 계정 |
+| 권한 | Active Directory에 등록할 도메인 관리자 또는 엔터프라이즈 관리자 계정 |
 
 ### <a name="azure-mfa-server-components"></a>Azure MFA 서버 구성 요소
 

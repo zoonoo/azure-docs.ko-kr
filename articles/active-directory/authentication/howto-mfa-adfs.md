@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 999fb350aaa5f11510db0d4ecc036e188d76e20f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b42f920726d4b3046ab0c292e1090f5217e8b1f9
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839338"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743244"
 ---
 # <a name="securing-cloud-resources-with-azure-ad-multi-factor-authentication-and-ad-fs"></a>Azure AD Multi-Factor Authentication 및 AD FS를 사용 하 여 클라우드 리소스 보안 유지
 
@@ -81,7 +81,7 @@ ms.locfileid: "94839338"
 
 13. **Finish** 를 클릭합니다.
 14. **적용** 을 클릭합니다.
-15. **Ok** 를 클릭합니다.
+15. **확인** 을 클릭합니다.
 16. AD FS 관리를 닫습니다.
 
 ### <a name="configure-azure-ad-multi-factor-authentication-trusted-ips-with-federated-users"></a>페더레이션된 사용자를 사용 하 여 Azure AD Multi-Factor Authentication 신뢰할 수 있는 Ip 구성
@@ -97,4 +97,4 @@ ms.locfileid: "94839338"
 4. [서비스 설정] 페이지의 **신뢰할 수 있는 IP** 에서 **인트라넷의 페더레이션 사용자로부터 발생한 요청인 경우 다단계 인증 건너뛰기** 를 선택합니다.  
 5. **저장** 을 클릭합니다.
 
-이것으로 끝입니다. 이 시점에서 페더레이션 Microsoft 365 사용자는 클레임이 회사 인트라넷 외부에서 시작 된 경우에만 MFA를 사용 해야 합니다.
+간단하죠. 이 시점에서 페더레이션 Microsoft 365 사용자는 클레임이 회사 인트라넷 외부에서 시작 된 경우에만 MFA를 사용 해야 합니다.

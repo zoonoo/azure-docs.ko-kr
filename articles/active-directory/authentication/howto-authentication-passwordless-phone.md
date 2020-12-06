@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/11/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9da0c00bd8498e3f43d5f8258308fbc010a6a274
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 35eff46a0470d429c8ec6f364ffa836501c65f47
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839525"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743601"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Microsoft Authenticator 앱 (미리 보기)을 사용 하 여 암호 없는 로그인 사용
 
@@ -32,7 +32,7 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용 하도록 설정
 2. **승인** 을 선택합니다.
 3. PIN 또는 생체 인식 기능을 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Microsoft Authenticator 앱에서 암호 없는 휴대폰 로그인을 사용 하려면 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -67,7 +67,7 @@ Azure AD를 사용 하면 로그인 프로세스 중에 사용할 수 있는 인
 
 사용자는 다음 단계를 사용 하 여 Azure AD의 암호 없는 인증 방법에 등록 합니다.
 
-1. [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)으로 이동합니다.
+1. [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 으로 이동합니다.
 1. 로그인 한 다음 add **메서드 > authenticator 앱**, **추가** 를 차례로 선택 하 여 인증자 앱을 추가 합니다.
 1. 지침에 따라 장치에 Microsoft Authenticator 앱을 설치 하 고 구성 합니다.
 1. **완료** 를 선택 하 여 인증자 구성을 완료 합니다.

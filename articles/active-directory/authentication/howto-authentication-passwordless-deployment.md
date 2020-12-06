@@ -7,16 +7,16 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: baselden
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4c06e53d3ddfb5f344a759e31d83cb22ce6d4d3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a786907c5c954aa45de266b6d92dd47867a8445d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174139"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743618"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory에서 암호 없는 인증 배포 계획
 
@@ -61,7 +61,7 @@ Microsoft의 암호 없는 인증 방법으로 다양 한 시나리오를 사용
 
 조직에 가장 적합 한 방법을 선택 하는 방법에 대 한 자세한 내용은 [암호 없는 방법 결정](./concept-authentication-passwordless.md#choose-a-passwordless-method)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 조직에서 암호 없는 배포를 시작 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -82,7 +82,7 @@ Windows Hello에 대 한 필수 구성 요소는 온-프레미스, 하이브리�
 
 사용자는 Azure AD Multi-Factor Authentication 등록 흐름의 일부로 암호 없는 메서드를 등록 합니다. 일부 시나리오에서는 휴대폰 또는 보안 키를 사용할 수 없는 경우 다른 등록 된 방법과 함께 사용자 이름 및 암호를 사용 하는 multi-factor authentication을 대체 방법으로 사용할 수 있습니다.
 
-### <a name="licensing"></a>라이선싱 
+### <a name="licensing"></a>라이선스 
 일부 필수 구성 요소에는 프리미엄 구독이 필요할 수도 있지만 암호 없는 인증에 대 한 추가 비용은 없습니다. 자세한 기능 및 라이선스 정보는 [Azure Active Directory 라이선스 페이지](https://azure.microsoft.com/pricing/details/active-directory/)에 있습니다. 
 
 ## <a name="develop-a-plan"></a>계획 개발
@@ -93,7 +93,7 @@ Windows Hello에 대 한 필수 구성 요소는 온-프레미스, 하이브리�
 
 다음 표에서는이 프로젝트 중에 구현 되는 사용 사례를 간략하게 설명 합니다.
 
-| 영역 | Description |
+| 영역 | 설명 |
 | --- | --- |
 | **Access** | Passwordless 로그인은 회사 네트워크 내부 또는 외부의 회사 또는 개인 장치에서 사용할 수 있습니다. |
 | **감사** | 사용 현황 데이터는 관리자가 거의 실시간으로 감사 하는 데 사용할 수 있습니다. <br> 사용 현황 데이터는 최소 29 일 마다 회사 시스템에 다운로드 되거나 SIEM 도구가 사용 됩니다. |
@@ -292,7 +292,7 @@ FIDO2 보안 장치를 이미 등록 한 사용자에 게 다음 로그인 시 �
 
 ### <a name="required-administrative-roles"></a>필요한 관리 역할
 
-| Azure AD 역할 | Description |
+| Azure AD 역할 | 설명 |
 | --- | --- |
 | 전역 관리자|결합 된 등록 환경을 구현할 수 있는 최소 권한 있는 역할입니다. |
 | 인증 관리자 | 인증 방법을 구현 하 고 관리할 수 있는 최소 권한 있는 역할입니다. |

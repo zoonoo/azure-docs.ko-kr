@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/05/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b0b34ce55a0896fb804a48779c9c1007c8c340f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: deb1f74902fe28d53a5180e4f341547f339a83ac
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94838215"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741987"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>온-프레미스 Azure Active Directory 암호 보호 계획 및 배포
 
@@ -42,7 +42,7 @@ ms.locfileid: "94838215"
 * 사용자는 보안 되지 않은 암호를 사용 하는 경우가 많습니다.
 * 사용자에 게 보안 적용의 예정 된 변경 내용, 영향을 받는 보안 암호를 선택 하는 방법에 대 한 정보를 알려 주어 야 합니다.
 
-기존 Active Directory 도메인 컨트롤러 배포 자동화에 영향을 주는 더 강력한 암호 유효성 검사를 수행할 수도 있습니다. 이러한 문제를 해결 하는 데 도움이 되도록 감사 기간 평가 중에 하나 이상의 DC 수준 올리기 및 DC 수준 내리기를 수행 하는 것이 좋습니다. 자세한 내용은 다음 아티클을 참조하세요.
+기존 Active Directory 도메인 컨트롤러 배포 자동화에 영향을 주는 더 강력한 암호 유효성 검사를 수행할 수도 있습니다. 이러한 문제를 해결 하는 데 도움이 되도록 감사 기간 평가 중에 하나 이상의 DC 수준 올리기 및 DC 수준 내리기를 수행 하는 것이 좋습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Ntdsutil.exe에서 weak 디렉터리 서비스 복구 모드 암호를 설정할 수 없습니다.](howto-password-ban-bad-on-premises-troubleshoot.md#ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [취약 한 디렉터리 서비스 복구 모드 암호로 인해 도메인 컨트롤러 복제본 수준을 올리지 못했습니다.](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)

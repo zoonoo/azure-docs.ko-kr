@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/05/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: adca22b3a8d9b93dfbc62202106127a5833a4c38
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 964cd77a24a7a73bf1151ba9e6ab43509e664b9f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839202"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743074"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Azure AD Multi-Factor Authentication 설정 구성
 
@@ -244,7 +244,7 @@ Azure AD Multi-Factor Authentication의 _신뢰할 수_ 있는 ip 기능은 정�
 
 | Microsoft Azure Active Directory 테넌트 유형 | 신뢰할 수 있는 IP 기능 옵션 |
 |:--- |:--- |
-| 관리형 |**특정 범위의 ip 주소**: 관리자는 회사 인트라넷에서 로그인 하는 사용자에 대해 multi-factor authentication을 무시할 수 있는 ip 주소 범위를 지정 합니다. 최대 50의 신뢰할 수 있는 IP 범위를 구성할 수 있습니다.|
+| 관리 |**특정 범위의 ip 주소**: 관리자는 회사 인트라넷에서 로그인 하는 사용자에 대해 multi-factor authentication을 무시할 수 있는 ip 주소 범위를 지정 합니다. 최대 50의 신뢰할 수 있는 IP 범위를 구성할 수 있습니다.|
 | 페더레이션 |**모든 페더레이션된 사용자**: 조직 내에서 로그인 하는 모든 페더레이션된 사용자는 multi-factor authentication을 무시할 수 있습니다. 사용자는 AD FS(Active Directory Federation Services)에서 발급된 클레임을 사용하여 인증을 바이패스합니다.<br/>**특정 범위의 ip 주소**: 관리자는 회사 인트라넷에서 로그인 하는 사용자에 대해 multi-factor authentication을 무시할 수 있는 ip 주소 범위를 지정 합니다. |
 
 신뢰할 수 있는 IP 바이패스는 회사 인트라넷 내부 에서만 작동 합니다. **모든 페더레이션된 사용자** 옵션을 선택 하 고 사용자가 회사 인트라넷 외부에서 로그인 하는 경우 사용자는 multi-factor authentication을 사용 하 여 인증 해야 합니다. 이 프로세스는 사용자가 AD FS 클레임을 제시하는 경우에도 동일합니다.

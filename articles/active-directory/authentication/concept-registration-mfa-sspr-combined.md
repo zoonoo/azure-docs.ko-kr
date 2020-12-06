@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/04/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 12/04/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22f43c5f9848670b9df4b061c5abb6cc30912172
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c8dce284c0fffe10fe077fcb6c6713ba65c45751
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839797"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743907"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Azure Active Directory 개요에 대 한 결합 된 보안 정보 등록
 
 결합 된 등록 전에 사용자는 Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정 (SSPR)에 대 한 인증 방법을 별도로 등록 했습니다. 사용자는 비슷한 메서드가 Multi-Factor Authentication 및 SSPR에 사용 되었지만 두 기능 모두에 등록 해야 했습니다. 이제는 결합 된 등록을 통해 사용자가 한 번 등록 하 고 Multi-Factor Authentication 및 SSPR의 이점을 얻을 수 있습니다.
 
 > [!NOTE]
-> 2020 년 8 월 15 일부터 모든 새 Azure AD 테 넌 트가 결합 된 등록에 대해 자동으로 사용 하도록 설정 됩니다.
+> 2020 년 8 월 15 일부터 모든 새 Azure AD 테 넌 트가 결합 된 등록에 대해 자동으로 사용 하도록 설정 됩니다. 12 월 14 일 2020부터 한 사용자가 있는 모든 Azure AD 테 넌 트가 결합 된 등록에 대해 자동으로 사용 하도록 설정 됩니다.
 
 이 문서에서는 결합 된 보안 등록을 간략하게 설명 합니다. 결합 된 보안 등록을 시작 하려면 다음 문서를 참조 하세요.
 
@@ -51,7 +51,7 @@ Azure AD 통합 보안 정보 등록은 현재 Azure 독일 또는 Azure 중국 
 
 결합 된 등록에서는 다음과 같은 인증 방법과 작업을 지원 합니다.
 
-| 메서드 | 등록 | 변경 | 삭제 |
+| 메서드 | 레지스터 | 변경 | 삭제 |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | 예 (최대 5 개) | 아니요 | 예 |
 | 기타 authenticator 앱 | 예 (최대 5 개) | 아니요 | 예 |
@@ -59,7 +59,7 @@ Azure AD 통합 보안 정보 등록은 현재 Azure 독일 또는 Azure 중국 
 | 전화 | 예 | 예 | 예 |
 | 대체 전화 | 예 | 예 | 예 |
 | 사무실 전화 | 예 | 예 | 예 |
-| 메일 | 예 | 예 | 예 |
+| 전자 메일 | 예 | 예 | 예 |
 | 본인 확인 질문 | 예 | 아니요 | 예 |
 | 앱 암호 | 예 | 아니요 | 예 |
 | FIDO2 보안 키<br />*관리 모드는 [보안 정보](https://mysignins.microsoft.com/security-info) 페이지 에서만*| 예 | 예 | 예 |

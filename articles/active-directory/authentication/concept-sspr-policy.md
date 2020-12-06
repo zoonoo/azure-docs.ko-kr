@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b1583307771dd58053128d71cb0ae5dd7e709f68
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 344fee9482cd935375d25fab80b1f365d72586f8
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174384"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743669"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Azure Active Directory의 암호 정책 및 계정 제한
 
@@ -71,7 +71,7 @@ Azure AD에서 직접 만들고 관리 하는 모든 사용자 계정에 암호 
 * 다음과 같은 모든 Azure 관리자 역할이 영향을 받습니다.
   * 기술 지원팀 관리자
   * 서비스 지원 관리자
-  * 청구 관리자
+  * 대금 청구 관리자
   * 파트너 계층1 지원
   * 파트너 계층2 지원
   * Exchange 관리자

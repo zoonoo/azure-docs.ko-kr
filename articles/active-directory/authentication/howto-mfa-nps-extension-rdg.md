@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ad3d76227e833f648070bd55469861dffe3d540
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 20b0150c18f2c007ed104d34daacd49ab03131a7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839559"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743380"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -59,7 +59,7 @@ Azure용 NPS 확장을 NPS 및 원격 데스크톱 게이트웨이와 통합한 
 1. 확장이 설치된 NPS 서버에서 RD CAP 정책에 대한 RADIUS 액세스 허용 메시지를 원격 데스크톱 게이트웨이 서버로 보냅니다.
 1. 사용자에게 RD 게이트웨이를 통해 요청된 네트워크 리소스에 대한 액세스 권한이 부여됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 섹션에서는 Azure AD MFA를 원격 데스크톱 게이트웨이 통합 하기 전에 필요한 필수 구성 요소에 대해 자세히 설명 합니다. 이 문서를 시작하기 전에 다음과 같은 필수 구성 요소가 있어야 합니다.  
 

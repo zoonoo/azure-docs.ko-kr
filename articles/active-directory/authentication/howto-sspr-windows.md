@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/17/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cd40b8df0251aee7692df24e9bc3f7186c155d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 478ae6146caeb8a27cdaf13b7f33e421b8121afc
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966511"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741493"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Windows 로그인 화면에서 Azure Active Directory 셀프 서비스 암호 재설정을 사용 하도록 설정
 
@@ -74,27 +74,27 @@ Intune을 사용 하 여 로그인 화면에서 SSPR을 사용 하도록 구성 
 
 #### <a name="create-a-device-configuration-policy-in-intune"></a>Intune에서 디바이스 구성 정책 만들기
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **Intune**을 선택 합니다.
-1. **장치 구성**  >  **프로필**로 이동한 다음 **+ 프로필 만들기** 를 선택 하 여 새 장치 구성 프로필을 만듭니다.
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **Intune** 을 선택 합니다.
+1. **장치 구성**  >  **프로필** 로 이동한 다음 **+ 프로필 만들기** 를 선택 하 여 새 장치 구성 프로필을 만듭니다.
    - **플랫폼** 의 경우 *Windows 10 이상을* 선택 합니다.
-   - **프로필 유형**으로 *사용자 지정* 을 선택 합니다.
-1. **만들기**를 선택한 다음 프로필에 대 한 의미 있는 이름 (예: *Windows 10 로그인 화면 SSPR* )을 입력 합니다.
+   - **프로필 유형** 으로 *사용자 지정* 을 선택 합니다.
+1. **만들기** 를 선택한 다음 프로필에 대 한 의미 있는 이름 (예: *Windows 10 로그인 화면 SSPR* )을 입력 합니다.
 
-    필요에 따라 프로필에 대 한 의미 있는 설명을 입력 하 고 **다음**을 선택 합니다.
-1. *구성 설정*에서 **추가** 를 선택 하 고 암호 재설정 링크를 사용 하도록 설정 하려면 다음 oma-uri 설정을 제공 합니다.
-      - *SSPR 추가 링크*와 같이 설정에서 수행 하는 작업을 설명 하는 의미 있는 이름을 제공 합니다.
+    필요에 따라 프로필에 대 한 의미 있는 설명을 입력 하 고 **다음** 을 선택 합니다.
+1. *구성 설정* 에서 **추가** 를 선택 하 고 암호 재설정 링크를 사용 하도록 설정 하려면 다음 oma-uri 설정을 제공 합니다.
+      - *SSPR 추가 링크* 와 같이 설정에서 수행 하는 작업을 설명 하는 의미 있는 이름을 제공 합니다.
       - 필요에 따라 설정에 대 한 의미 있는 설명을 제공 합니다.
-      - **OMA URI**을 `./Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`으로 설정
-      - **데이터 형식**을 **정수**로 설정
-      - **값**을 **1**로 설정
+      - **OMA URI** 을 `./Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`으로 설정
+      - **데이터 형식** 을 **정수** 로 설정
+      - **값** 을 **1** 로 설정
 
-    **추가**를 선택 하 고 **다음**을 선택 합니다.
-1. 정책은 특정 사용자, 장치 또는 그룹에 할당할 수 있습니다. 가장 적합 한 사용자 환경에 맞게 프로필을 할당 하 고, 먼저 장치 테스트 그룹을 선택한 후 **다음**을 선택 합니다.
+    **추가** 를 선택 하 고 **다음** 을 선택 합니다.
+1. 정책은 특정 사용자, 장치 또는 그룹에 할당할 수 있습니다. 가장 적합 한 사용자 환경에 맞게 프로필을 할당 하 고, 먼저 장치 테스트 그룹을 선택한 후 **다음** 을 선택 합니다.
 
     자세한 내용은 [Microsoft Intune에서 사용자 및 장치 프로필 할당](/mem/intune/configuration/device-profile-assign)을 참조 하세요.
 
-1. *OS 버전이 Windows 10 Enterprise 인 경우 프로필을 할당 하는*등 사용자 환경에 적용할 수 있는 규칙을 적절 하 게 구성 하 고 **다음**을 선택 합니다.
-1. 프로필을 검토 한 후 **만들기**를 선택 합니다.
+1. *OS 버전이 Windows 10 Enterprise 인 경우 프로필을 할당 하는* 등 사용자 환경에 적용할 수 있는 규칙을 적절 하 게 구성 하 고 **다음** 을 선택 합니다.
+1. 프로필을 검토 한 후 **만들기** 를 선택 합니다.
 
 ### <a name="enable-for-windows-10-using-the-registry"></a>레지스트리를 사용하여 Windows 10에 사용
 

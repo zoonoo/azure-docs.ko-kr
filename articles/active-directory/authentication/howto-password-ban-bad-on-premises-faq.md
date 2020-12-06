@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27075af51c8deb886a060c81927f30bb70b5f638
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6d5517afe7407da7428d4a83f3d2de67836280c7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077662"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741901"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Azure AD 암호 보호 온-프레미스 질문과 대답
 
@@ -38,7 +38,7 @@ Azure AD portal은 지원 되지 않는 클라우드에서도 온-프레미스 �
 
 **Q: 온-프레미스 사용자의 하위 집합에 Azure AD 암호 보호 혜택을 적용 하려면 어떻게 해야 하나요?**
 
-지원되지 않습니다. Azure AD 암호 보호가 배포되고 사용하도록 설정되면 모든 사용자가 차별 없이 동등한 보안 혜택을 받습니다.
+지원 안 됨 Azure AD 암호 보호가 배포되고 사용하도록 설정되면 모든 사용자가 차별 없이 동등한 보안 혜택을 받습니다.
 
 **Q: 암호 변경 및 암호 설정 (또는 다시 설정)의 차이점은 무엇 인가요?**
 
@@ -70,11 +70,11 @@ Active Directory는 [NetValidatePasswordPolicy](/windows/win32/api/lmaccess/nf-l
 
 **Q: Azure를 사용 하지 않고 내 Active Directory 환경에서 Azure AD 암호 보호를 배포 하 고 구성 하려면 어떻게 해야 하나요?**
 
-지원되지 않습니다. Azure AD 암호 보호는 온-프레미스 Active Directory 환경으로 지원이 확장되는 Azure 기능입니다.
+지원 안 됨 Azure AD 암호 보호는 온-프레미스 Active Directory 환경으로 지원이 확장되는 Azure 기능입니다.
 
 **Q: Active Directory 수준에서 정책의 내용을 수정 하려면 어떻게 해야 하나요?**
 
-지원되지 않습니다. 정책은 Azure AD 포털을 사용 해야만 관리할 수 있습니다. 이전 질문도 참조하세요.
+지원 안 됨 정책은 Azure AD 포털을 사용 해야만 관리할 수 있습니다. 이전 질문도 참조하세요.
 
 **Q: sysvol 복제에 DFSR이 필요한가요?**
 

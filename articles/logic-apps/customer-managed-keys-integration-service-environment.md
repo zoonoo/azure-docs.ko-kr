@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: 59c60c876058f8664b38411b562e57c2d5cdc2a8
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 0057a4671dbc63bf53bafa8d2d742d4edcda1e5e
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510627"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741051"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>고객 관리 키를 설정 하 여 ISEs (integration service environment)에 대 한 미사용 데이터를 암호화 Azure Logic Apps
 
@@ -37,7 +37,7 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
 
   * **사용자 할당 관리 id**: ise를 만드는 HTTPS PUT 요청을 보내기 전에 [ise의 관리 되는 id에 대 한 key vault 액세스 권한을 부여](#identity-access-to-key-vault)합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Portal ISE를 만들 때 [ise에 대 한 액세스를 가능 하 게 하](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) 는 동일한 [필수 구성 요소](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) 및 요구 사항
 
@@ -51,7 +51,7 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
   |----------|-------|
   | **키 유형** | RSA |
   | **RSA 키 크기** | 2048 |
-  | **사용** | 예 |
+  | **사용** | Yes |
   |||
 
   ![고객이 관리 하는 암호화 키 만들기](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -101,7 +101,7 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
 
 ```json
 {
-   "id": "/subscriptions/{Azure-subscription-ID/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
+   "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
    "name": "{ISE-name}",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "{Azure-region}",

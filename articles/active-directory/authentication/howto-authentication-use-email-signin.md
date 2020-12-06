@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 10/01/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: c3fcff5673f4498e92f5d66fe96d806a08527197
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: ff6ae6ea6812397e737deb4b97bf1cd15e022c03
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576022"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743176"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>대체 로그인 ID (미리 보기)로 전자 메일을 사용 하 여 Azure Active Directory 로그인
 

@@ -5,30 +5,39 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.openlocfilehash: 427b488fe6673bef505fccdaa7185d69437bceaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/05/2020
+ms.openlocfilehash: 783431c4888a68e24cf3d2603c541c4797ea65d8
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231319"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741102"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Logic Apps REST API를 사용하여 ISE(통합 서비스 환경) 만들기
 
-이 문서에서는 논리 앱 및 통합 계정에 [Azure virtual network](../virtual-network/virtual-networks-overview.md)에 대 한 액세스 권한이 필요한 시나리오에 대 한 Logic Apps REST API 통해 [ISE ( *통합 서비스 환경* ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) )를 만드는 방법을 보여 줍니다. ISE는 "글로벌" 다중 테넌트 Logic Apps 서비스와 별도로 유지되는 전용 스토리지 및 기타 리소스를 사용하는 전용 환경입니다. 이러한 격리로 인해 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향이 감소됩니다. 또한 ISE는 자체 고정 IP 주소를 제공합니다. 이러한 IP 주소는 공용 다중 테넌트 서비스에서 논리 앱이 공유하는 고정 IP 주소와는 별개입니다.
+논리 앱 및 통합 계정에 [Azure virtual network](../virtual-network/virtual-networks-overview.md)에 대 한 액세스 권한이 필요한 시나리오의 경우 Logic Apps REST API를 사용 하 여 [ISE ( *통합 서비스 환경* )](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 를 만들 수 있습니다. ISE에 대해 자세히 알아보려면 [Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스](connect-virtual-network-vnet-isolated-environment-overview.md)를 참조하세요.
 
-[샘플 Azure Resource Manager 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) 또는 [Azure Portal](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)를 사용 하 여 ISE를 만들 수도 있습니다.
+이 문서에서는 Logic Apps REST API를 사용 하 여 일반적으로 ISE를 만드는 방법을 보여 줍니다. 필요에 따라 ISE에서 [시스템 할당 또는 사용자 할당 관리 id](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) 를 사용 하도록 설정할 수도 있습니다. 단,이 경우에는 Logic Apps REST API 사용 해야 합니다. ISE는이 id를 사용 하 여 Azure 가상 네트워크에 있거나 연결 되어 있는 가상 머신, 기타 시스템 또는 서비스와 같은 보안 리소스에 대 한 액세스를 인증할 수 있습니다. 이렇게 하면 자격 증명을 사용 하 여 로그인 할 필요가 없습니다.
 
-> [!IMPORTANT]
-> ISE에서 실행되는 논리 앱, 기본 제공 트리거, 기본 제공 작업 및 커넥터는 사용량 기반 가격 책정 플랜과 다른 가격 책정 플랜을 사용합니다. ISE의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조하세요. 가격 책정 요금은 [Logic Apps 가격 책정](../logic-apps/logic-apps-pricing.md)을 참조하세요.
+ISE를 만드는 다른 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+
+* [Azure Portal를 사용 하 여 ISE 만들기](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [샘플 Azure Resource Manager 빠른 시작 템플릿을 사용 하 여 ISE 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment)
+* [미사용 데이터를 암호화 하기 위해 고객이 관리 하는 키를 사용할 수 있도록 지 원하는 ISE 만들기](customer-managed-keys-integration-service-environment.md)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure Portal ISE를 만들 때 [ise에 대 한 액세스를 가능 하 게 하](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) 는 동일한 [필수 구성 요소](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) 및 요구 사항
+* Azure Portal에서 ISE를 만들 때와 동일한 [필수 구성 요소](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) 및 [액세스 요구 사항](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access)
+
+* Ise 정의에 정보를 포함할 수 있도록 ISE와 함께 사용 하려는 추가 리소스입니다. 예를 들면 다음과 같습니다. 
+
+  * 자체 서명 된 인증서 지원을 사용 하려면 ISE 정의에 해당 인증서에 대 한 정보를 포함 해야 합니다.
+
+  * 사용자 할당 관리 id를 사용 하도록 설정 하려면 해당 id를 미리 만들고 `objectId` `principalId` `clientId` ISE 정의에, 및 속성 및 해당 값을 포함 해야 합니다. 자세한 내용은 [Azure Portal에서 사용자 할당 관리 Id 만들기](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)를 참조 하세요.
 
 * HTTPS PUT 요청을 사용 하 여 Logic Apps REST API를 호출 하 여 ISE를 만드는 데 사용할 수 있는 도구입니다. 예를 들어 [Postman](https://www.getpostman.com/downloads/)을 사용 하거나이 작업을 수행 하는 논리 앱을 빌드할 수 있습니다.
 
-## <a name="send-the-request"></a>요청 보내기
+## <a name="create-the-ise"></a>ISE 만들기
 
 Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만듭니다.
 
@@ -58,17 +67,40 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
 
 ## <a name="request-body"></a>요청 본문
 
-다음은 ISE를 만들 때 사용할 속성을 설명 하는 요청 본문 구문입니다. 위치에 설치 된 자체 서명 된 인증서를 사용할 수 있도록 하는 ISE를 만들려면 `TrustedRoot` `certificates` ise 정의의 섹션 내에 개체를 포함 합니다 `properties` . 기존 ISE의 경우 개체에 대 한 패치 요청을 보낼 수 있습니다 `certificates` . 자체 서명 된 인증서를 사용 하는 방법에 대 한 자세한 내용은 [다른 서비스와 시스템에 대 한 아웃 바운드 호출을 위한 보안 액세스 및 데이터 액세스](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)를 참조 하세요.
+요청 본문에서 ise에 대해 사용 하도록 설정 하려는 추가 기능에 대 한 정보를 포함 하 여 ISE를 만드는 데 사용할 리소스 정의를 제공 합니다. 예를 들면 다음과 같습니다.
+
+* 위치에 설치 된 자체 서명 된 인증서를 사용할 수 있도록 하는 ISE를 만들려면 `TrustedRoot` 나중에 설명 하는 `certificates` 것 처럼 ise 정의의 섹션 내에 개체를 포함 합니다 `properties` .
+
+  기존 ISE에서이 기능을 사용 하도록 설정 하려면 해당 개체에 대 한 패치 요청을 보낼 수 있습니다 `certificates` . 자체 서명 된 인증서를 사용 하는 방법에 대 한 자세한 내용은 [다른 서비스와 시스템에 대 한 아웃 바운드 호출을 위한 보안 액세스 및 데이터 액세스](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)를 참조 하세요.
+
+* 시스템 할당 또는 사용자 할당 관리 id를 사용 하는 ISE를 만들려면 `identity` 나중에이 문서에서 설명 하는 것 처럼 관리 되는 id 형식 및 기타 필수 정보를 포함 하는 개체를 ise 정의에 포함 합니다.
+
+* 고객이 관리 하는 키와 Azure Key Vault 사용 하 여 미사용 데이터를 암호화 하는 ISE를 만들려면 [고객이 관리 하는 키 지원을 사용 하도록 설정 하는 정보](customer-managed-keys-integration-service-environment.md)를 포함 합니다. 고객이 관리 하는 키는 나중에 *만들 때만* 설정할 수 있습니다.
+
+### <a name="request-body-syntax"></a>요청 본문 구문
+
+다음은 ISE를 만들 때 사용할 속성을 설명 하는 요청 본문 구문입니다.
 
 ```json
 {
-   "id": "/subscriptions/{Azure-subscription-ID/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
+   "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
    "name": "{ISE-name}",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "{Azure-region}",
    "sku": {
       "name": "Premium",
       "capacity": 1
+   },
+   // Include the `identity` object to enable the system-assigned identity or user-assigned identity
+   "identity": {
+      "type": <"SystemAssigned" | "UserAssigned">,
+      // When type is "UserAssigned", include the following "userAssignedIdentities" object:
+      "userAssignedIdentities": {
+         "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-assigned-managed-identity-object-ID}": {
+            "principalId": "{principal-ID}",
+            "clientId": "{client-ID}"
+         }
+      }
    },
    "properties": {
       "networkConfiguration": {
@@ -112,6 +144,15 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
    "name": "Fabrikam-ISE",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "WestUS2",
+   "identity": {
+      "type": "UserAssigned",
+      "userAssignedIdentities": {
+         "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/*********************************": {
+            "principalId": "*********************************",
+            "clientId": "*********************************"
+         }
+      }
+   },
    "sku": {
       "name": "Premium",
       "capacity": 1
@@ -150,4 +191,3 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
 
 * [통합 서비스 환경에 리소스 추가](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 * [통합 서비스 환경 관리](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)
-
