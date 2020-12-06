@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 8d28a1f2040cfec7b81081754a6abd3bc3e14439
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 5d13a6a77ede6277eebc7fdab7cd42165cb602fa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511477"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746372"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Data Factory에 대 한 Azure 개인 링크
 
@@ -73,7 +73,7 @@ Azure Data Factory 서비스에 대 한 통신은 개인 링크를 통해 이동
 
 위의 예에서는 개인 끝점을 호스트 하는 VNet 외부에서 확인 되는 Data Factory ' DataFactoryA '에 대 한 DNS 리소스 레코드는 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---------- | -------- | --------------- |
 | DataFactoryA. {region}. datafactory | CNAME   | DataFactoryA. {region}. privatelink. datafactory. |
 | DataFactoryA. {region}. privatelink. datafactory. | CNAME   | < data factory 서비스 공용 끝점 > |
@@ -81,7 +81,7 @@ Azure Data Factory 서비스에 대 한 통신은 개인 링크를 통해 이동
 
 DataFactoryA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 VNet에서 확인 되는 경우 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---------- | -------- | --------------- |
 | DataFactoryA. {region}. datafactory | CNAME   | DataFactoryA. {region}. privatelink. datafactory. |
 | DataFactoryA. {region}. privatelink. datafactory.   | A | < 개인 끝점 IP 주소 > |
@@ -96,20 +96,26 @@ DataFactoryA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 �
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Azure Data Factory에 대 한 개인 링크 설정
 [Azure Portal를](../private-link/create-private-endpoint-portal.md)사용 하 여 개인 끝점을 만들 수 있습니다.
 
+공용 끝점 또는 개인 끝점을 통해 Azure Data Factory에 자체 호스팅 통합 런타임을 연결할지 여부를 선택할 수 있습니다. 
+
+![자체 호스팅 Integration Runtime에 대 한 공용 액세스를 차단 하는 스크린샷](./media/data-factory-private-link/disable-public-access-shir.png)
+
+
 Azure Portal에서 Azure 데이터 팩터리로 이동 하 여 다음과 같이 개인 끝점을 만들 수도 있습니다.
 
 ![개인 끝점을 만들기 위한 "개인 끝점 연결" 창의 스크린샷](./media/data-factory-private-link/create-private-endpoint.png)
 
+**리소스** 단계에서 **Datafactory/factory** 를 **리소스 유형** 으로 선택 합니다. 자체 호스팅 통합 런타임과 Azure Data Factory 서비스 간의 명령 통신용 개인 끝점을 만들려면 **대상 하위 리소스로** **datafactory** 를 선택 합니다.
 
-Azure data factory에 대 한 공용 액세스를 차단 하 고 개인 링크를 통해서만 액세스를 허용 하려면 아래와 같이 Azure Portal에서 Azure Data Factory에 대 한 네트워크 액세스를 사용 하지 않도록 설정 합니다.
-
-![개인 끝점을 만들기 위한 "네트워크 액세스" 창의 스크린샷](./media/data-factory-private-link/disable-network-access.png)
+![리소스를 선택 하기 위한 "개인 끝점 연결" 창의 스크린샷](./media/data-factory-private-link/private-endpoint-resource.png)
 
 > [!NOTE]
 > 공용 네트워크 액세스를 사용 하지 않도록 설정 하는 것은 자체 호스팅 통합 런타임에서만 적용 되며 SSIS (Azure Integration Runtime 및 SQL Server Integration Services) Integration Runtime에만 적용 됩니다.
 
+가상 네트워크에서 데이터 팩터리를 작성 하 고 모니터링 하기 위한 개인 끝점을 만들려면 **대상 하위 리소스로** **포털** 을 선택 합니다.
+
 > [!NOTE]
-> 공용 네트워크 액세스를 사용 하지 않도록 설정한 후에도 공용 네트워크를 통해 Azure Data Factory 포털에 액세스할 수 있습니다.
+> 포털에 대 한 개인 끝점을 만든 후에도 공용 네트워크를 통해 Azure Data Factory 포털에 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

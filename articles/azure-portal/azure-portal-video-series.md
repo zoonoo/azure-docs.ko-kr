@@ -1,20 +1,15 @@
 ---
 title: Azure Portal 방법 비디오 시리즈
 description: 포털에서 Azure 서비스를 사용 하는 방법에 대 한 비디오 데모를 찾습니다. 최신 방법 비디오를 보고 직접 연결 하세요.
-services: azure-portal
 keywords: ''
-author: mgblythe
-ms.author: mblythe
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 42d9c418ee6feae7a763b1a2cc76d8edb2fec6ce
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 0762174a3207c0620d3b6413d14c817014fc49a0
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873713"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745862"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Azure Portal 방법 비디오 시리즈
 

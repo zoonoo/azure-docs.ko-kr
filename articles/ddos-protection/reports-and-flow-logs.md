@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 96e22beb9f9b088e698f0db12104f526af2b936b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 5c3bfbdf133777f0bc219d1306f80bd4d38b56ea
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989456"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746270"
 ---
 # <a name="configure-ddos-attack-mitigation-reports-and-flow-logs"></a>DDoS 공격 완화 보고서 및 흐름 로그 구성 
 
@@ -28,7 +28,7 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 > * DDoS 공격 완화 보고서 보기 및 구성
 > * DDoS 공격 완화 흐름 로그 보기 및 구성
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 이 자습서의 단계를 완료 하기 전에 먼저 [Azure DDoS Standard 보호 계획](manage-ddos-protection.md)을 만들어야 합니다.
@@ -74,7 +74,7 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 
 ### <a name="azure-sentinel-data-connector"></a>Azure 센티널 데이터 커넥터
 
-를 Azure 센티널에 연결 하 고, 통합 문서에서 데이터를 보고 분석 하 고, 사용자 지정 경고를 만들어 조사 프로세스에 통합할 수 있습니다. Azure 센티널에 연결 하려면 [Azure 센티널에 연결](../sentinel/connect-azure-ddos-protection.md)을 참조 하세요. 
+공격 완화 흐름 로그를 Azure 센티널에 연결 하 고, 통합 문서에서 데이터를 보고 분석 하며, 사용자 지정 경고를 만들어 조사 프로세스에 통합할 수 있습니다. Azure 센티널에 연결 하려면 [Azure 센티널에 연결](../sentinel/connect-azure-ddos-protection.md)을 참조 하세요. 
 
 ![Azure 센티널 DDoS 커넥터](./media/ddos-attack-telemetry/azure-sentinel-ddos.png)
 
@@ -112,7 +112,7 @@ Azure 분석 대시보드에서 흐름 로그 데이터를 보려면 https://git
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업 방법을 알아보았습니다.
+본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
 
 - DDoS 공격 완화 보고서 보기 및 구성
 - DDoS 공격 완화 흐름 로그 보기 및 구성

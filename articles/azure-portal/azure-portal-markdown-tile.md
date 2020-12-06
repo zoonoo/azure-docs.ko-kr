@@ -1,21 +1,15 @@
 ---
 title: Azure 대시보드에서 사용자 지정 markdown 타일 사용
 description: Azure 대시보드에 markdown 타일을 추가하여 정적 콘텐츠를 표시하는 방법을 알아봅니다.
-services: azure-portal
-keywords: ''
-author: mgblythe
-ms.author: mblythe
 ms.date: 01/08/2020
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 2d9344d8b97d9a6ba361a337e0c6165438c04897
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 5121142ecf568aa1ac9a7ec19f7211c6f9a6253f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745091"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745760"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Azure 대시보드에서 markdown 타일을 사용하여 사용자 지정 콘텐츠 표시
 

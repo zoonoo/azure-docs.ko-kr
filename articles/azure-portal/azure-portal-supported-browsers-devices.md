@@ -1,26 +1,16 @@
 ---
-title: Azure Portal에서 지원되는 브라우저 및 디바이스 | Microsoft Docs
+title: Azure Portal에 대해 지원 되는 브라우저 및 장치
 description: 최신 브라우저 버전의 모든 최신 장치에서 Azure Portal를 사용할 수 있습니다. 브라우저가 지원 되는지 확인 하려면이 문서를 참조 하세요.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: lwelicki
-editor: ''
 ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
-ms.service: azure-portal
-ms.workload: multiple
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: b900373c7e6a3b3701ae30274ff27629b7f47ef9
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 8009d0d4ac971d81e25b276b19605bc6a70cff02
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916851"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745675"
 ---
 # <a name="supported-devices"></a>지원되는 디바이스
 

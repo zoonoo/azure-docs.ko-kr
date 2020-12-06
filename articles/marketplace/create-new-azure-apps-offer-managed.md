@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 61ee0b769664d1f574177e27b5b1fb10e9845035
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a67a721b8d94112347282e1cd9be4d43f4ac85da
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463101"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744638"
 ---
 # <a name="configure-a-managed-application-plan"></a>관리 되는 응용 프로그램 계획 구성
 
@@ -114,7 +114,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 
 ### <a name="assign-a-version-number-for-the-package"></a>패키지에 대 한 버전 번호를 할당 합니다.
 
-**버전** 상자에서 기술 구성의 현재 버전을 제공 합니다. 이 페이지에 변경 내용을 게시할 때마다 이 버전을 증분합니다. 버전 번호는 integer 형식 이어야 합니다. 정수. 정수. 예: `1.0.2`.
+**버전** 상자에서 기술 구성의 현재 버전을 제공 합니다. 이 페이지에 변경 내용을 게시할 때마다 이 버전을 증분합니다. 버전 번호는 integer 형식 이어야 합니다. 정수. 정수. 예들 들어 `1.0.2`입니다.
 
 ### <a name="upload-a-package-file"></a>패키지 파일 업로드
 

@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 8f7baca94d653d9851c506068ccf7ecf84063641
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3218df4601ef7a5e1b1e04c20c89eefc367b720b
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832180"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746457"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>웹 애플리케이션에서 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -184,7 +184,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
 5. App Service에 코드를 배포하려면 [사용자 수준 배포 자격 증명](../app-service/deploy-configure-credentials.md)을 사용합니다. 사용자 수준 배포 자격 증명은 Azure 자격 증명과는 다르며 웹앱에 대한 Git 로컬 및 FTP 배포에 사용됩니다. 설정되면 Azure 계정의 모든 구독에 있는 모든 App Service 앱에서 유효합니다. 사용자 수준 배포 자격 증명을 이전에 설정한 경우 해당 자격 증명을 사용할 수 있습니다.
 
-   이전에 사용자 수준 배포 자격 증명을 설정하지 않았거나 암호를 기억할 수 없는 경우 다음 명령을 실행합니다. 배포 사용자 이름은 Azure 내에서 고유해야 하며 로컬 Git 푸시에 대한 '@' 기호를 포함하지 않아야 합니다. 암호를 묻는 메시지가 표시되면 암호를 입력하고 새 암호를 확인합니다. 암호는 글자, 숫자, 기호의 세 가지 요소 중 두 가지를 사용하고 8자 이상이어야 합니다.
+   이전에 사용자 수준 배포 자격 증명을 설정하지 않았거나 암호를 기억할 수 없는 경우 다음 명령을 실행합니다. 배포 사용자 이름은 Azure 내에서 고유 해야 하며 \@ 로컬 Git 푸시에 대 한 ' ' 기호를 포함 하지 않아야 합니다. 암호를 묻는 메시지가 표시되면 암호를 입력하고 새 암호를 확인합니다. 암호는 글자, 숫자, 기호의 세 가지 요소 중 두 가지를 사용하고 8자 이상이어야 합니다.
 
    ```azurecli-interactive
    az webapp deployment user set --user-name <your deployment user name>

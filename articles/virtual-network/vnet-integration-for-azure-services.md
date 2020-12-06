@@ -12,18 +12,18 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: b01ade25c6592e68e34eeb542a90cdd0124a0446
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4a6cd529511d4a2e71e1a31c1600f8a51f455a37
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738050"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746134"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>네트워크 격리를 위해 가상 네트워크와 Azure 서비스 통합
 
-Azure 서비스에 대 한 통합을 Virtual Network 하 여 가상 네트워크 인프라로만 서비스에 대 한 액세스를 잠글 수 있습니다. VNet 인프라에는 피어 링 가상 네트워크 및 온-프레미스 네트워크도 포함 됩니다.
+Azure 서비스에 대 한 VNet (Virtual Network) 통합을 사용 하면 가상 네트워크 인프라로만 서비스에 대 한 액세스를 잠글 수 있습니다. VNet 인프라에는 피어 링 가상 네트워크 및 온-프레미스 네트워크도 포함 됩니다.
 
-Azure 서비스는 다음 방법 중 하나 이상을 통해 네트워크 격리를 구현 합니다.
+VNet 통합은 Azure 서비스에 네트워크 격리의 이점을 제공 하 고 다음 방법 중 하나 이상을 통해 수행할 수 있습니다.
 - [서비스의 전용 인스턴스를 가상 네트워크에 배포](virtual-network-service-endpoints-overview.md)합니다. 이렇게 하면 가상 네트워크 내에서 그리고 온-프레미스에서 서비스에 비공개적으로 액세스할 수 있습니다.
 - [개인 끝점](../private-link/private-endpoint-overview.md) 을 사용 하 여 [Azure 개인 링크](../private-link/private-link-overview.md)를 통해 제공 되는 서비스에 비공개로 안전 하 게 연결 합니다. 개인 끝점은 VNet의 개인 IP 주소를 사용 하 여 서비스를 가상 네트워크에 효과적으로 제공 합니다.
 - 서비스 [끝점](virtual-network-service-endpoints-overview.md)을 통해 가상 네트워크를 서비스로 확장 하 여 공용 끝점을 사용 하 여 서비스에 액세스 합니다. 서비스 엔드포인트를 통해 서비스 리소스를 가상 네트워크로 보호할 수 있습니다.

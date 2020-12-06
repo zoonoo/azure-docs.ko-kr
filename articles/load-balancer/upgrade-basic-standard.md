@@ -7,37 +7,54 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: dd0617536147787f436e5817f3f2367a19ba6aa4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f97facd8d184be05cbfd79af92dbcaab3a022ebd
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009282"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746304"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Azure Public Load Balancer 업그레이드
 [Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](./skus.md#skus)를 참조 하세요.
 
-업그레이드에는 세 가지 단계가 있습니다.
+업그레이드에는 두 단계가 있습니다.
 
-1. 구성 마이그레이션
-2. 표준 Load Balancer 백 엔드 풀에 Vm 추가
-
-이 문서에서는 구성 마이그레이션을 다룹니다. Vm을 백 엔드 풀에 추가 하는 것은 특정 환경에 따라 달라질 수 있습니다. 그러나 일부 고급 일반 권장 사항이 [제공 됩니다](#add-vms-to-backend-pools-of-standard-load-balancer).
+1. IP 할당 방법을 동적에서 정적으로 변경 합니다.
+2. PowerShell 스크립트를 실행 하 여 업그레이드 및 트래픽 마이그레이션을 완료 합니다.
 
 ## <a name="upgrade-overview"></a>업그레이드 개요
 
 다음을 수행 하는 Azure PowerShell 스크립트를 사용할 수 있습니다.
 
 * 지정 된 리소스 그룹 및 위치에 표준 SKU Load Balancer를 만듭니다.
+* 기본 SKU에서 표준 SKU로 공용 IP 주소를 업그레이드 합니다.
 * 기본 SKU Load Balancer의 구성을 새로 만든 표준 Load Balancer에 원활 하 게 복사 합니다.
 * 아웃 바운드 연결을 사용 하는 기본 아웃 바운드 규칙을 만듭니다.
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
 * 스크립트는 공용 Load Balancer 업그레이드만 지원 합니다. 내부 기본 Load Balancer 업그레이드에 대 한 자세한 내용은 [이 페이지](./upgrade-basicinternal-standard.md) 를 참조 하세요.
-* 표준 Load Balancer에 새 공용 주소가 있습니다. 기존 기본 Load Balancer와 연결 된 IP 주소는 Sku가 다르기 때문에 표준 Load Balancer로 원활 하 게 이동할 수 없습니다.
-* 표준 부하 분산 장치를 다른 지역에 만든 경우 이전 지역의 기존 Vm을 새로 만든 표준 Load Balancer에 연결할 수 없습니다. 이 제한 사항을 해결 하려면 새 지역에 새 VM을 만들어야 합니다.
+* 스크립트를 실행 하기 전에 공용 IP 주소의 할당 방법을 "정적"으로 변경 해야 합니다. 
 * Load Balancer 프런트 엔드 IP 구성 또는 백 엔드 풀이 없는 경우 스크립트를 실행 하는 동안 오류가 발생할 수 있습니다. 비어 있지 않은지 확인 하세요.
+
+### <a name="change-allocation-method-of-the-public-ip-address-to-static"></a>공용 IP 주소의 할당 방법을 정적으로 변경
+
+* * * 권장 단계는 다음과 같습니다.
+
+    1. 이 빠른 시작의 작업을 수행하려면 [Azure Portal](https://portal.azure.com)에 로그인해야 합니다.
+ 
+    1. 왼쪽 메뉴에서 **모든 리소스** 를 선택한 다음, 리소스 목록에서 **기본 Load Balancer와 연결 된 기본 공용 IP 주소** 를 선택 합니다.
+   
+    1. **설정** 아래에서 **구성** 을 선택 합니다.
+   
+    1. **할당** 에서 **고정** 을 선택합니다.
+    1. **저장** 을 선택합니다.
+    >[!NOTE]
+    >공용 ip가 있는 Vm의 경우에는 동일한 IP 주소를 보장 하지 않는 표준 IP 주소를 먼저 만들어야 합니다. 기본 Ip에서 Vm의 연결을 끊고 새로 만든 표준 IP 주소에 연결 합니다. 그런 다음 표준 Load Balancer의 백 엔드 풀에 Vm을 추가 하는 지침을 따를 수 있습니다. 
+
+* **새로 만든 표준 공용 Load Balancer의 백 엔드 풀에 추가할 새 vm을 만듭니다**.
+    * VM을 만들고 표준 Load Balancer와 연결 하는 방법에 대 한 자세한 지침은 [여기](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines)에서 찾을 수 있습니다.
+
 
 ## <a name="download-the-script"></a>스크립트 다운로드
 
@@ -76,39 +93,14 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-Insta
    * **Oldrgname: [String]: 필수** – 업그레이드 하려는 기존 기본 Load Balancer의 리소스 그룹입니다. 이 문자열 값을 찾으려면 Azure Portal로 이동 하 고, 기본 Load Balancer 원본을 선택 하 고, 부하 분산 장치에 대 한 **개요** 를 클릭 합니다. 리소스 그룹은 해당 페이지에 있습니다.
    * **Oldlbname: [String]: 필수** – 업그레이드 하려는 기존 기본 분산 장치의 이름입니다. 
    * **newrgName: [String]: Required** -표준 Load Balancer을 만들 리소스 그룹입니다. 새 리소스 그룹 또는 기존 리소스 그룹 일 수 있습니다. 기존 리소스 그룹을 선택 하는 경우 Load Balancer 이름이 리소스 그룹 내에서 고유 해야 합니다. 
-   * **newlocation: [String]: Required** -표준 Load Balancer을 만들 위치입니다. 다른 기존 리소스와의 연결을 개선 하기 위해 선택한 기본 Load Balancer의 동일한 위치를 표준 Load Balancer에 상속 하는 것이 좋습니다.
    * **newLBName: [String]: Required** – 만들려는 표준 Load Balancer의 이름입니다.
 1. 적절 한 매개 변수를 사용 하 여 스크립트를 실행 합니다. 완료 하는 데 5 ~ 7 분 정도 걸릴 수 있습니다.
 
     **예제**
 
    ```azurepowershell
-   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newLbName "LBForUpgrade"
    ```
-
-### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>표준 Load Balancer 백 엔드 풀에 Vm 추가
-
-먼저 기본 공용 Load Balancer에서 마이그레이션할 정확한 구성을 사용 하 여 스크립트가 새 표준 공용 Load Balancer를 성공적으로 만들었는지 확인 합니다. Azure Portal에서이를 확인할 수 있습니다.
-
-표준 Load Balancer를 통해 적은 양의 트래픽을 수동 테스트로 보내야 합니다.
-  
-새로 만든 표준 Public Load Balancer의 백 엔드 풀에 Vm을 추가 하는 방법에 대 한 몇 가지 시나리오는 다음과 같습니다. 구성 될 수 있습니다.
-
-* **기존 vm을 이전 기본 공용 Load Balancer의 백 엔드 풀에서 새로 만든 표준 공용 Load Balancer의 백 엔드 풀로 이동** 합니다.
-    1. 이 빠른 시작의 작업을 수행하려면 [Azure Portal](https://portal.azure.com)에 로그인해야 합니다.
- 
-    1. 왼쪽 메뉴에서 **모든 리소스** 를 선택한 다음, 리소스 목록에서 **새로 만든 표준 Load Balancer** 를 선택 합니다.
-   
-    1. **설정** 에서 **백 엔드 풀** 을 선택합니다.
-   
-    1. 기본 Load Balancer의 백 엔드 풀과 일치 하는 백 엔드 풀을 선택 하 고 다음 값을 선택 합니다. 
-      - **가상 컴퓨터**: 기본 Load Balancer의 일치 하는 백 엔드 풀에서 vm을 드롭다운 및 선택 합니다.
-    1. **저장** 을 선택합니다.
-    >[!NOTE]
-    >공용 ip가 있는 Vm의 경우에는 동일한 IP 주소를 보장 하지 않는 표준 IP 주소를 먼저 만들어야 합니다. 기본 Ip에서 Vm의 연결을 끊고 새로 만든 표준 IP 주소에 연결 합니다. 그런 다음 표준 Load Balancer의 백 엔드 풀에 Vm을 추가 하는 지침을 따를 수 있습니다. 
-
-* **새로 만든 표준 공용 Load Balancer의 백 엔드 풀에 추가할 새 vm을 만듭니다**.
-    * VM을 만들고 표준 Load Balancer와 연결 하는 방법에 대 한 자세한 지침은 [여기](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines)에서 찾을 수 있습니다.
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>아웃 바운드 연결에 대 한 아웃 바운드 규칙 만들기
 
@@ -122,9 +114,13 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-Insta
 
 예. [주의 사항/제한 사항](#caveatslimitations)을 참조 하세요.
 
+### <a name="how-long-does-the-upgrade-take"></a>업그레이드는 얼마나 걸립니까?
+
+스크립트를 완료 하는 데는 일반적으로 약 5-10 분이 소요 되며 Load Balancer 구성의 복잡성에 따라 시간이 오래 걸릴 수 있습니다. 따라서 가동 중지 시간을 염두에 두고 필요한 경우 장애 조치 (failover)를 계획 합니다.
+
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>또한 Azure PowerShell 스크립트는 기본 Load Balancer에서 새로 만든 표준 Load Balancer으로 트래픽을 전환 하나요?
 
-아니요. Azure PowerShell 스크립트는 구성만 마이그레이션합니다. 실제 트래픽 마이그레이션은 사용자의 책임 이며 컨트롤에 있습니다.
+예. Azure PowerShell 스크립트는 공용 IP 주소를 업그레이드할 뿐만 아니라, 구성을 Basic에서 표준 Load Balancer로 복사 하 고, 새로 만든 표준 공용 Load Balancer 뒤에도 VM을 마이그레이션합니다. 
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>이 스크립트를 사용 하는 경우 몇 가지 문제가 발생 했습니다. 도움을 받으려면 어떻게 해야 하나요?
   

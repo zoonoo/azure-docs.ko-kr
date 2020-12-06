@@ -4,15 +4,15 @@ description: Azure Migrate 보안 기준은 Azure 보안 벤치 마크에 지정
 author: msmbaldwin
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 12/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0562e395cc877dc4eec751880a01551bce016cb7
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 338052e8bc9b25a3cf04069f2a44ede8180e508f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530870"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744757"
 ---
 # <a name="azure-security-baseline-for-azure-migrate"></a>Azure Migrate에 대 한 Azure 보안 기준
 
@@ -24,15 +24,15 @@ Azure Migrate 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보
 
 ## <a name="identity-management"></a>ID 관리
 
-자세한 내용은 [Azure Security Benchmark: ID 관리](../security/benchmarks/security-controls-v2-identity-management.md)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: ID 관리](/azure/security/benchmarks/security-controls-v2-identity-management)를 참조하세요.
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Azure Active Directory를 중앙 ID 및 인증 시스템으로 표준화
 
 **지침**: Azure Migrate는 기본 id 및 액세스 관리 서비스로 Azure Active Directory (Azure AD)를 사용 합니다. 에서 조직의 id 및 액세스 관리를 관리 하려면 Azure AD를 표준화 해야 합니다.
 
- Azure Portal, Azure Storage, Azure 가상 머신 (Linux 및 Windows), Azure Key Vault, PaaS, SaaS 응용 프로그램 등의 리소스를 Microsoft 클라우드 합니다.
+- Azure Portal, Azure Storage, Azure 가상 머신 (Linux 및 Windows), Azure Key Vault, PaaS, SaaS 응용 프로그램 등의 리소스를 Microsoft 클라우드 합니다.
 
- 조직의 리소스(예: Azure의 애플리케이션 또는 회사 네트워크 리소스)
+- Azure의 응용 프로그램 또는 회사 네트워크 리소스와 같은 조직의 리소스
 
 Azure AD 보안은 조직의 클라우드 보안 관행에서 높은 우선 순위에 둬야 합니다. Azure AD는 Microsoft의 모범 사례 권장 사항을 기준으로 ID 보안 태세를 평가하는 데 도움이 되는 ID 보안 점수를 제공합니다. 점수를 사용하여 구성이 모범 사례 권장 사항에 얼마나 근접하게 일치하는지 측정하고 보안 태세를 개선할 수 있습니다.
 
@@ -42,11 +42,11 @@ Azure AD는 외부 id를 사용 하 여 응용 프로그램 및 리소스에 로
 
 - [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
 
-- [애플리케이션에 외부 ID 공급자 사용](../active-directory/external-identities/identity-providers.md) 
+- [애플리케이션에 외부 ID 공급자 사용](/azure/active-directory/b2b/identity-providers) 
 
 - [Azure Active Directory의 ID 보안 점수란?](../active-directory/fundamentals/identity-secure-score.md)
 
-**Azure Security Center 모니터링**: 예
+**Azure Security Center 모니터링**: 해당 없음
 
 **책임**: Customer
 
@@ -56,21 +56,21 @@ Azure AD는 외부 id를 사용 하 여 응용 프로그램 및 리소스에 로
 
 - [Azure AD에서의 애플리케이션 SSO 이해](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Azure Security Center 모니터링**: 예
+**Azure Security Center 모니터링**: 해당 없음
 
 **책임**: Customer
 
 ### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: 모든 Azure Active Directory 기반 액세스에 강력한 인증 제어 사용
 
-**지침**: Azure Migrate는 MFA (multi-factor authentication)를 통해 강력한 인증 제어를 지 원하는 Azure Active Directory를 사용 하 고 강력한 암호 없는 메서드를 사용 합니다.
+**지침**: Azure Migrate에서는 다단계 인증을 통해 강력한 인증 제어를 지 원하는 Azure Active Directory를 사용 하 고 강력한 암호 없는 메서드를 사용 합니다.
 
-다단계 인증 - Azure AD MFA를 지원하고 MFA 설정에서 Azure Security Center ID 및 액세스 관리 모범 사례 권장 사항을 따릅니다. MFA는 로그인 조건 및 위험 요소에 따라 모든 사용자나 일부 사용자에게 또는 사용자별 수준에서 적용할 수 있습니다.
+다단계 인증-Azure AD 다단계 인증을 사용 하도록 설정 하 고 다단계 인증 설정에서 몇 가지 모범 사례에 대 한 Azure Security Center Id 및 액세스 관리 권장 사항을 따릅니다. Multi-factor authentication은 모든 사용자에 게 적용 하거나 로그인 조건 및 위험 요소에 따라 사용자 단위 수준에서 선택할 수 있습니다.
 
 암호 없는 인증 - 암호 없는 인증 옵션 3가지, 즉 비즈니스용 Windows Hello, Microsoft Authenticator 앱, 스마트 카드 등의 온-프레미스 인증 방법을 사용할 수 있습니다.
 
 관리자 및 권한 있는 사용자의 경우 가장 높은 수준의 강력한 인증 방법을 사용 하 고 그 다음에는 적절 한 강력한 인증 정책을 다른 사용자에 게 배포 해야 합니다.
 
-- [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md) 
+- [Azure에서 다단계 인증을 사용 하도록 설정 하는 방법](../active-directory/authentication/howto-mfa-getstarted.md) 
 
 - [Azure Active Directory에 대한 암호 없는 인증 옵션 소개](../active-directory/authentication/concept-authentication-passwordless.md) 
 
@@ -86,13 +86,13 @@ Azure AD는 외부 id를 사용 하 여 응용 프로그램 및 리소스에 로
 
 **지침**: Azure Migrate은 다음과 같은 데이터 원본을 제공 하는 Azure Active Directory와 통합 됩니다.
 
-로그인 – 로그인 보고서는 관리형 애플리케이션 및 사용자 로그인 활동의 사용에 대한 정보를 제공합니다.
+- 로그인 – 로그인 보고서는 관리형 애플리케이션 및 사용자 로그인 활동의 사용에 대한 정보를 제공합니다.
 
-감사 로그 - Azure AD 내의 다양한 기능에 의해 수행된 모든 변경 내용에 대한 로그를 통한 추적 기능을 제공합니다. 감사 로그의 예제로는 사용자, 앱, 그룹, 역할 및 정책 추가 또는 제거와 같은 Azure AD 내의 모든 리소스에 대한 변경 내용이 있습니다.
+- 감사 로그 - Azure AD 내의 다양한 기능에 의해 수행된 모든 변경 내용에 대한 로그를 통한 추적 기능을 제공합니다. 감사 로그의 예제로는 사용자, 앱, 그룹, 역할 및 정책 추가 또는 제거와 같은 Azure AD 내의 모든 리소스에 대한 변경 내용이 있습니다.
 
-위험한 로그인-위험한 로그인은 사용자 계정의 합법적인 소유자가 아닌 사용자가 수행 했을 수 있는 로그인 시도에 대 한 표시기입니다.
+- 위험한 로그인-위험한 로그인은 사용자 계정의 합법적인 소유자가 아닌 사용자가 수행 했을 수 있는 로그인 시도에 대 한 표시기입니다.
 
-위험 플래그가 지정된 사용자 - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
+- 위험 플래그가 지정된 사용자 - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
 
 이러한 데이터 원본은 Azure Monitor, Azure 센티널 또는 타사 SIEM 시스템과 통합할 수 있습니다.
 
@@ -102,9 +102,9 @@ Azure ATP(Advanced Threat Protection)는 Active Directory 신호를 사용하여
 
 - [Azure Active Directory의 감사 활동 보고서](../active-directory/reports-monitoring/concept-audit-logs.md) 
 
-- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md) 
+- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
 
-- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](../active-directory/identity-protection/overview-identity-protection.md) 
+- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](/azure/active-directory/reports-monitoring/concept-user-at-risk) 
 
 - [Azure Security Center에서 사용자의 ID 및 액세스 활동을 모니터링하는 방법](../security-center/security-center-identity-access.md) 
 
@@ -118,7 +118,7 @@ Azure ATP(Advanced Threat Protection)는 Active Directory 신호를 사용하여
 
 ## <a name="privileged-access"></a>권한 있는 액세스
 
-자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](../security/benchmarks/security-controls-v2-privileged-access.md)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](/azure/security/benchmarks/security-controls-v2-privileged-access)를 참조하세요.
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: 중요 비즈니스용 시스템에 대한 관리 액세스 제한
 
@@ -150,7 +150,7 @@ Azure ATP(Advanced Threat Protection)는 Active Directory 신호를 사용하여
 
 - [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
-**Azure Security Center 모니터링**: 해당 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: Customer
 
@@ -160,7 +160,18 @@ Azure ATP(Advanced Threat Protection)는 Active Directory 신호를 사용하여
 
 응급 액세스 계정의 자격 증명(예: 암호, 인증서 또는 스마트 카드)을 안전하게 유지하고 비상시에만 사용할 권한이 있는 사용자에게만 알립니다.
 
-- [Azure AD에서 응급 액세스 계정 관리](../active-directory/roles/security-emergency-access.md)
+- [Azure AD에서 응급 액세스 계정 관리](/azure/active-directory/users-groups-roles/directory-emergency-access)
+
+**Azure Security Center 모니터링**: 해당 없음
+
+**책임**: Customer
+
+### <a name="pa-5-automate-entitlement-management"></a>PA-5: 자격 관리 자동화 
+
+**지침**: Azure Migrate는 Azure Active Directory와 통합 되어 해당 리소스를 관리 합니다. Azure AD 자격 관리 기능을 사용 하 여 액세스 권한 부여, 검토, 만료 등의 액세스 요청 워크플로를 자동화할 수 있습니다. 이중 또는 다단계 승인도 지원 됩니다.
+
+- [Azure AD 액세스 검토 란?](../active-directory/governance/access-reviews-overview.md) 
+- [Azure AD 자격 관리 란?](../active-directory/governance/entitlement-management-overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -184,7 +195,7 @@ Azure ATP(Advanced Threat Protection)는 Active Directory 신호를 사용하여
 
 기본 제공 역할을 사용하여 권한을 할당하고 필요한 경우에만 사용자 지정 역할을 만듭니다.
 
-- [Azure 역할 기반 access control (Azure RBAC) 이란?](../role-based-access-control/overview.md) 
+- [Azure 역할 기반 access control (Azure RBAC) 이란?](../role-based-access-control/overview.md)
 
 - [Azure에서 RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md) 
 
@@ -196,7 +207,7 @@ Azure ATP(Advanced Threat Protection)는 Active Directory 신호를 사용하여
 
 ## <a name="data-protection"></a>데이터 보호
 
-자세한 내용은 [Azure Security Benchmark: 데이터 보호](../security/benchmarks/security-controls-v2-data-protection.md)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 데이터 보호](/azure/security/benchmarks/security-controls-v2-data-protection)를 참조하세요.
 
 ### <a name="dp-2-protect-sensitive-data"></a>DP-2: 중요한 데이터 보호
 
@@ -214,26 +225,6 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **책임**: Customer
 
-### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: 전송 중인 중요한 정보 암호화
-
-**지침**: 액세스 제어를 보완 하기 위해 전송 중인 데이터를 암호화를 사용 하 여 ' 대역 외 ' 공격 (예: 트래픽 캡처) 으로부터 보호 하 여 공격자가 데이터를 쉽게 읽거나 수정할 수 없도록 해야 합니다.
-
-Azure Migrate는 TLS v 1.2 이상으로 전송 중인 데이터 암호화를 지원 합니다.
-
-개인 네트워크의 트래픽에 대 한 옵션은 선택 사항 이지만 외부 및 공용 네트워크의 트래픽에 매우 중요 합니다. HTTP 트래픽의 경우 Azure 리소스에 연결 하는 모든 클라이언트 (Azure Migrate 어플라이언스 및 Azure Migrate 소프트웨어를 설치한 기타 컴퓨터 포함)가 TLS v 1.2 이상을 협상할 수 있는지 확인 합니다. 원격 관리의 경우 암호화 되지 않은 프로토콜 대신 SSH (Linux) 또는 RDP/TLS (Windows 용)를 사용 합니다. 사용 되지 않는 SSL, TLS, SSH 버전 및 프로토콜, 약한 암호를 사용 하지 않도록 설정 해야 합니다.
-
-기본적으로 Azure는 Azure 데이터 센터 간에 전송 중인 데이터에 대 한 암호화를 제공 합니다.
-
-- [Azure를 사용 하 여 전송 중인 암호화 이해](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) 
-
-- [TLS 보안에 대한 정보](/security/engineering/solving-tls1-problem) 
-
-- [전송 중인 Azure 데이터에 대 한 이중 암호화](../security/fundamentals/double-encryption.md#data-in-transit)
-
-**Azure Security Center 모니터링**: 해당 없음
-
-**책임**: 공유됨
-
 ### <a name="dp-5-encrypt-sensitive-data-at-rest"></a>DP-5: 중요한 미사용 데이터 암호화
 
 **지침**: Azure Migrate는 중요 한 데이터를 유지 하지 않습니다. Azure Migrate에 유지 되는 모든 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 미사용으로 암호화 됩니다.
@@ -250,7 +241,7 @@ Azure Migrate의 서버 마이그레이션 도구는 Azure 구독의 저장소 �
 
 ## <a name="asset-management"></a>자산 관리
 
-자세한 내용은 [Azure Security Benchmark: 자산 관리](../security/benchmarks/security-controls-v2-asset-management.md)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)를 참조하세요.
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: 보안 팀에서 자산 위험에 대한 가시성을 확보하도록 보장
 
@@ -280,7 +271,7 @@ Azure Migrate은 해당 리소스에 대해 응용 프로그램 또는 소프트
 
 - [Azure Security Center asset inventory management](../security-center/asset-inventory.md) 
 
-- [리소스 명명 및 태그 지정 의사 결정 가이드](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
+- [리소스 명명 및 태그 지정 의사 결정 가이드](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -300,20 +291,12 @@ Azure Migrate은 해당 리소스에 대해 응용 프로그램 또는 소프트
 
 **책임**: Customer
 
-### <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>AM-4: 자산 수명 주기 관리의 보안 보장
-
-**지침**: 해당 사항 없음 Azure Migrate은 수명 주기 관리 프로세스에서 자산의 보안을 유지 하는 데 사용할 수 없습니다. 높은 영향을 미치는 자산의 네트워크 구성과 특성을 유지 관리 하는 것은 고객의 책임입니다. 특성 및 네트워크 구성 변경 사항을 캡처하고 변경 영향을 측정 하 고 해당 하는 수정 작업을 만드는 프로세스를 만드는 것이 좋습니다.
-
-**Azure Security Center 모니터링**: 해당 없음
-
-**책임**: Customer
-
 ### <a name="am-5-limit-users-ability-to-interact-with-azure-resource-manager"></a>오전 5: 사용자가 Azure Resource Manager 상호 작용할 수 있도록 제한
 
-**지침**: Azure 조건부 액세스를 사용 하 여 "Microsoft Azure 관리" 앱에 대 한 "액세스 차단"을 구성 함으로써 사용자의 Azure 리소스 관리자와 상호 작용 하는 기능을 제한 합니다.
+**지침**: "Microsoft Azure 관리" 앱에 대한 "액세스 차단"을 구성함으로써 Azure 조건부 액세스를 사용하여 Azure Resource Manager와 상호 작용하는 사용자 기능을 제한합니다.
 
 구성 방법
-- [Azure 리소스 관리자에 대 한 액세스를 차단 하는 조건부 액세스](../role-based-access-control/conditional-access-azure-management.md)
+- [Azure Resource Manager에 대 한 액세스를 차단 하는 조건부 액세스](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -321,7 +304,7 @@ Azure Migrate은 해당 리소스에 대해 응용 프로그램 또는 소프트
 
 ## <a name="logging-and-threat-detection"></a>로깅 및 위협 탐지
 
-자세한 내용은 [Azure Security Benchmark: 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-protection)를 참조하세요.
 
 ### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Azure ID 및 액세스 관리에 위협 탐지 사용
 
@@ -335,13 +318,13 @@ Azure Migrate은 해당 리소스에 대해 응용 프로그램 또는 소프트
 
 - 위험 플래그가 지정된 사용자 - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
 
-또한 Azure Security Center는 과도한 인증 시도 실패 횟수, 구독에서 사용되지 않는 계정과 같은 의심스러운 특정 활동에 대해 경고할 수 있습니다. 기본 보안 예방 조치 모니터링 외에도 Azure Security Center의 위협 방지 모듈은 개별 Azure 컴퓨팅 리소스(가상 머신, 컨테이너, 앱 서비스), 데이터 리소스(SQL DB 및 스토리지) 및 Azure 서비스 계층에서 더 심층적인 보안 경고를 수집할 수 있습니다. 이 기능을 사용하면 개별 리소스 내에서 비정상 계정 활동을 볼 수 있습니다.
+또한 Azure Security Center는 과도한 인증 시도 실패 횟수, 구독에서 사용되지 않는 계정과 같은 의심스러운 특정 활동에 대해 경고할 수 있습니다. 기본 보안 예방 조치 모니터링 외에도 Azure Security Center의 위협 방지 모듈은 개별 Azure 컴퓨팅 리소스(가상 머신, 컨테이너, 앱 서비스), 데이터 리소스(SQL DB 및 스토리지) 및 Azure 서비스 계층에서 더 심층적인 보안 경고를 수집할 수 있습니다. 이 기능을 사용 하면 개별 리소스 내에서 계정 비정상을 볼 수 있습니다.
 
 - [Azure Active Directory의 감사 활동 보고서](../active-directory/reports-monitoring/concept-audit-logs.md) 
 
 - [Azure ID 보호 사용](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [위협 방지 및 Azure Security Center](../security-center/azure-defender.md)
+- [위협 방지 및 Azure Security Center](/azure/security-center/threat-protection)
 
 **Azure Security Center 모니터링**: 예
 
@@ -349,15 +332,15 @@ Azure Migrate은 해당 리소스에 대해 응용 프로그램 또는 소프트
 
 ### <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Azure 리소스에 대한 로깅 사용
 
-**지침**: 자동으로 사용할 수 있는 활동 로그에는 읽기 작업 (GET)을 제외 하 고 Azure Migrate 리소스에 대 한 모든 쓰기 작업 (PUT, POST, DELETE)이 포함 됩니다. 활동 로그를 사용 하 여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다.
+**지침**: 현재 Azure Migrate Azure 리소스 로그를 생성 하지 않습니다.
+
+자동으로 사용할 수 있는 활동 로그에는 읽기 작업 (GET)을 제외 하 고 Azure Migrate 리소스에 대 한 모든 쓰기 작업 (PUT, POST, DELETE)이 포함 됩니다. 활동 로그를 사용 하 여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다.
 
 - [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md) 
 
-- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/platform/platform-logs-overview.md) 
+- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/platform/platform-logs-overview.md)
 
-Azure Migrate 현재 Azure 리소스 로그를 생성 하지 않습니다.
-
-**Azure Security Center 모니터링**: 예
+**Azure Security Center 모니터링**: 해당 없음
 
 **책임**: Customer
 
@@ -375,13 +358,13 @@ Azure 활동 로그를 중앙 로깅에 통합 하 고 있는지 확인 합니�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center 모니터링**: 해당 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: Customer
 
 ## <a name="incident-response"></a>사고 대응
 
-자세한 내용은 [Azure Security Benchmark: 인시던트 응답](../security/benchmarks/security-controls-v2-incident-response.md)을 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 인시던트 응답](/azure/security/benchmarks/security-controls-v2-incident-response)을 참조하세요.
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: 준비 - Azure에 대한 인시던트 응답 프로세스 업데이트
 
@@ -405,13 +388,13 @@ Azure 활동 로그를 중앙 로깅에 통합 하 고 있는지 확인 합니�
 
 **책임**: Customer
 
-### <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3: 검색 및 분석 – 고품질 경고에 기반한 인시던트 만들기
+### <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3: 탐지 및 분석 – 고품질 경고를 기반으로 인시던트 만들기
 
-**지침**: 고품질 경고를 만들고 경고 품질을 측정하는 프로세스가 있는지 확인합니다. 이를 통해 과거 인시던트로부터 교훈을 습득하고 분석가에 대한 경고의 우선 순위를 지정할 수 있으므로 가양성에 시간을 낭비하지 않습니다. 
+**지침**: 고품질 경고를 만들고 경고의 품질을 측정하는 프로세스가 있는지 확인합니다. 이렇게 하면 이전 인시던트에서 상황을 확인하고 분석가를 위한 경고의 우선 순위를 지정할 수 있으므로 가양성으로 인해 시간을 낭비하지 않습니다. 
 
-고품질 경고는 과거 인시던트로부터의 경험, 유효성이 검사된 커뮤니티 원본 및 다양한 신호 원본을 융합하고 상관 관계를 설정하여 경고를 생성하고 정리하도록 설계된 도구를 기반으로 하여 작성될 수 있습니다. 
+고품질 경고는 이전 인시던트, 유효성이 검사된 커뮤니티 소스, 다양한 신호 원본을 결합하고 상관 관계를 설정하여 경고를 생성하고 정리하도록 설계된 도구 등에서 얻은 경험을 기반으로 구축할 수 있습니다. 
 
-Azure Security Center는 많은 Azure 자산에 대해 고품질 경고를 제공합니다. ASC 데이터 커넥터를 사용하여 경고를 Azure Sentinel로 스트림할 수 있습니다. Azure Sentinel을 사용하면 조사를 위해 인시던트를 자동으로 생성하는 고급 경고 규칙을 만들 수 있습니다. 
+Azure Security Center는 여러 Azure 자산에서 고품질의 경고를 제공 합니다. ASC 데이터 커넥터를 사용하여 경고를 Azure Sentinel로 스트림할 수 있습니다. Azure Sentinel을 사용하면 조사를 위해 인시던트를 자동으로 생성하는 고급 경고 규칙을 만들 수 있습니다. 
 
 Azure 리소스에 대한 위험을 식별하는 데 도움이 되도록 내보내기 기능을 사용하여 Azure Security Center 경고 및 추천 사항을 내보냅니다. 경고 및 추천 사항을 수동 또는 지속적인 방식으로 내보냅니다.
 
@@ -457,13 +440,13 @@ Azure Sentinel은 거의 모든 로그 원본 및 사례 관리 포털에서 광
 
 **지침**: 경고 심각도 및 자산 민감도에 따라 먼저 집중해야 하는 인시던트에 대한 컨텍스트를 분석가에게 제공합니다. 
 
-Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 지정하는 데 도움이 되도록 심각도를 각 경고에 할당합니다. 심각도는 Security Center에서 경고를 실행하는 데 사용되는 결과 또는 분석의 신뢰도 및 경고가 발생한 활동에 악의적인 의도가 있었다는 신뢰 수준을 기준으로 합니다.
+Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 지정하는 데 도움이 되도록 심각도를 각 경고에 할당합니다. 심각도는 경고를 실행 하는 데 사용 되는 찾기 또는 분석의 Security Center 얼마나 확실 한지에 따라 달라 지 며, 경고를 발생 시킨 활동의 악의적인 의도를가지고 있는 신뢰도 수준을 기준으로 합니다.
 
 또한 태그를 사용하여 리소스를 표시하고, Azure 리소스, 특히 중요한 데이터를 처리하는 리소스를 식별하고 분류할 수 있는 명명 시스템을 만듭니다.  인시던트가 발생한 Azure 리소스 및 환경의 중요도에 따라 경고의 수정에 대한 우선 순위를 지정해야 합니다.
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
+- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -485,7 +468,7 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 ## <a name="posture-and-vulnerability-management"></a>태세 및 취약성 관리
 
-자세한 내용은 [Azure Security Benchmark: 태세 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 태세 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-vulnerability-management)를 참조하세요.
 
 ### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8: 정기적인 공격 시뮬레이션 수행
 
@@ -504,7 +487,7 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 ## <a name="governance-and-strategy"></a>거버넌스 및 전략
 
-자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](../security/benchmarks/security-controls-v2-governance-strategy.md)을 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](/azure/security/benchmarks/security-controls-v2-governance-strategy)을 참조하세요.
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: 자산 관리 및 데이터 보호 전략 정의 
 
@@ -520,24 +503,24 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 -   수명 주기 전체에서 자산 보안
 
--   조직 데이터 분류에 따른 필수 액세스 제어 전략
+-   조직 데이터 분류에 따라 필요한 액세스 제어 전략
 
 -   Azure 기본 및 타사 데이터 보호 기능 사용
 
--   전송 중 및 저장 사용 사례에 대한 데이터 암호화 요구 사항
+-   전송 중 및 미사용 사용 사례에 대한 데이터 암호화 요구 사항
 
 -   적절한 암호화 표준
 
 자세한 내용은 다음 참조 문서를 참조하세요.
-- [Azure 보안 아키텍처 권장 사항 - 스토리지, 데이터, 암호화](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+- [Azure 보안 아키텍처 권장 사항 - 스토리지, 데이터, 암호화](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
 - [Azure 보안 기본 사항 - Azure 데이터 보안, 암호화, 스토리지](../security/fundamentals/encryption-overview.md)
 
-- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
+- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Azure Security Benchmark - 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Azure Security Benchmark - 자산 관리](/azure/security/benchmarks/security-benchmark-v2-asset-management)
 
-- [Azure Security Benchmark - 데이터 보호](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Azure Security Benchmark - 데이터 보호](/azure/security/benchmarks/security-benchmark-v2-data-protection)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -565,7 +548,7 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 **지침**: 개별 자산과 해당 자산이 호스트되는 환경에 대한 위험을 지속적으로 측정하고 완화합니다. 게시된 애플리케이션, 네트워크 수신 및 송신 지점, 사용자 및 관리자 엔드포인트 등과 같은 고가치 자산과 노출이 많은 공격 노출 영역에 우선 순위를 지정합니다.
 
-- [Azure Security Benchmark - 태세 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - 태세 및 취약성 관리](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -606,7 +589,7 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 자세한 내용은 다음 참조 문서를 참조하세요.
 - [Azure 보안 모범 사례 11 – 아키텍처 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark - 네트워크 보안](/azure/security/benchmarks/security-controls-v2-network-security)
+- [Azure Security Benchmark - 네트워크 보안](/azure/security/benchmarks/security-benchmark-v2-network-security)
 
 - [Azure 네트워크 보안 개요](../security/fundamentals/network-overview.md)
 
@@ -634,9 +617,9 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
-- [Azure Security Benchmark - ID 관리](/azure/security/benchmarks/security-controls-v2-identity-management)
+- [Azure Security Benchmark - ID 관리](/azure/security/benchmarks/security-benchmark-v2-identity-management)
 
-- [Azure Security Benchmark - 권한 있는 액세스](/azure/security/benchmarks/security-controls-v2-privileged-access)
+- [Azure Security Benchmark - 권한 있는 액세스](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
 
 - [Azure 보안 모범 사례 11 – 아키텍처 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -648,9 +631,9 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 ### <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: 로깅 및 위협 대응 전략 정의
 
-**지침**: 로그 및 위협 대응 전략을 수립하여 규정 준수 요구 사항을 충족하면서 위협을 신속하게 탐지하고 수정합니다. 분석가가 통합 및 수동 단계가 아닌 위협에 집중할 수 있도록 분석가에게 고품질 경고와 원활한 환경을 제공하는 데 적용되는 우선 순위를 지정합니다. 
+**지침**: 규정 준수 요구 사항을 충족하면서 신속하게 위협을 탐지하고 수정할 수 있는 로깅 및 위협 대응 전략을 수립합니다. 통합 및 수동 단계가 아닌 위협에 집중할 수 있도록 분석가에게 고품질 경고 및 원활한 환경을 제공하는 것에 우선 순위를 지정합니다. 
 
-이 전략에는 다음 요소에 대한 문서화된 지침, 정책 및 표준이 포함되어야 합니다. 
+이 전략에는 다음 요소에 대한 문서화된 지침, 정책, 표준이 포함되어야 합니다. 
 
 -   보안 운영(SecOps) 조직의 역할 및 책임 
 
@@ -668,9 +651,9 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
-- [Azure Security Benchmark - 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
+- [Azure Security Benchmark - 로깅 및 위협 탐지](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
 
-- [Azure Security Benchmark - 인시던트 응답](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Azure Security Benchmark - 인시던트 응답](/azure/security/benchmarks/security-benchmark-v2-incident-response)
 
 - [Azure 보안 모범 사례 4 - 프로세스 클라우드에 대한 인시던트 응답 프로세스 업데이트](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
@@ -684,5 +667,5 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
-- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
+- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 34accbf218a782b79579d2f9857c101cc8147ab8
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 553c33b3d5ea2e3f1ee81503cb69fe15db387af6
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553748"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745029"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 분류 통찰력
 
@@ -27,7 +27,7 @@ ms.locfileid: "96553748"
 > - 데이터에 대 한 분류 정보 보기
 > - 드릴 다운 하 여 데이터에 대 한 자세한 분류 정보
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 부서의 범위 insights를 시작 하기 전에 다음 단계를 완료 했는지 확인 합니다.
 
@@ -42,6 +42,9 @@ ms.locfileid: "96553748"
 Azure 부서의 범위에서 분류는 subject 태그와 비슷하며 검색 중에 데이터 공간 내에 있는 특정 유형의 데이터를 표시 하 고 식별 하는 데 사용 됩니다.
 
 부서의 범위는 Microsoft 365와 동일한 중요 한 정보 유형을 사용 하 여 기존 보안 정책과 전체 데이터 공간에 대 한 보호를 확장할 수 있습니다.
+
+> [!NOTE]
+> 원본 유형을 검사 한 후에는 새 자산을 반영 하기 위해 **분류 레이블** 지정 정보를 몇 시간에 제공 합니다.
 
 **분류 정보를 보려면:**
 
@@ -76,7 +79,7 @@ Azure 부서의 범위에서 분류는 subject 태그와 비슷하며 검색 중
 - **테이블에 대 한 상위 분류**
 - **분류 작업 > 분류 데이터**
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 :::image type="content" source="media/insights/view-classifications-small.png" alt-text="모든 분류 보기" lightbox="media/insights/view-classifications.png":::
 

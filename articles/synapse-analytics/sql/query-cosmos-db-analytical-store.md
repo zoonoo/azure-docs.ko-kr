@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: a7e9cdb18d109abeef7d7d7237444ac55f9e7da1
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 129534727248ff05b5d38da60dead7903d9a5815
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576352"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744468"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Azure Synapse Link Preview에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB 데이터 쿼리
 
@@ -98,12 +98,13 @@ OPENROWSET(
 
 * [Azure Synapse Link를 사용](../../cosmos-db/configure-synapse-link.md)하는 Azure Cosmos DB 데이터베이스 계정
 * 이라는 Azure Cosmos DB 데이터베이스 `covid` 입니다.
-* `EcdcCases` `Cord19` 앞의 샘플 데이터 집합으로 명명 되 고 로드 된 두 개의 Azure Cosmos DB 컨테이너
+* `Ecdc` `Cord19` 앞의 샘플 데이터 집합으로 명명 되 고 로드 된 두 개의 Azure Cosmos DB 컨테이너
+
+테스트 목적으로 다음 연결 문자열을 사용할 수 있습니다 `Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==` . 이 계정은 Synapse SQL 끝점과 비교 하 여 원격 지역에 있을 수 있으므로이 연결은 성능을 보장 하지 않습니다.
 
 ## <a name="explore-azure-cosmos-db-data-with-automatic-schema-inference"></a>자동 스키마 유추를 사용 하 여 Azure Cosmos DB 데이터 탐색
 
 Azure Cosmos DB에서 데이터를 탐색 하는 가장 쉬운 방법은 자동 스키마 유추 기능을 사용 하는 것입니다. 문에서 절을 생략 하면 서버를 사용 `WITH` `OPENROWSET` 하지 않는 SQL 풀에서 Azure Cosmos DB 컨테이너의 분석 저장소 스키마를 자동으로 검색 (유추) 하도록 지시할 수 있습니다.
-
 
 ### <a name="openrowset-with-key"></a>[키가 있는 OPENROWSET](#tab/openrowset-key)
 
@@ -111,8 +112,8 @@ Azure Cosmos DB에서 데이터를 탐색 하는 가장 쉬운 방법은 자동 
 SELECT TOP 10 *
 FROM OPENROWSET( 
        'CosmosDB',
-       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       EcdcCases) as documents
+       'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
+       Ecdc) as documents
 ```
 
 ### <a name="openrowset-with-credential"></a>[OPENROWSET 및 자격 증명](#tab/openrowset-credential)
@@ -120,20 +121,20 @@ FROM OPENROWSET(
 ```sql
 /*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
     CREATE CREDENTIAL MyCosmosDbAccountCredential
-    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 */
 SELECT TOP 10 *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
-      OBJECT = 'EcdcCases',
+      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      OBJECT = 'Ecdc',
       SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
 ---
 
-앞의 예제에서는 서버를 사용 하지 않는 SQL 풀에서 `covid` `MyCosmosDbAccount` Azure Cosmos DB 키 (위 예제의 더미)를 사용 하 여 인증 된 Azure Cosmos DB 계정에서 데이터베이스에 연결 하도록 지시 했습니다. 그런 다음 해당 `EcdcCases` 지역의 컨테이너 분석 저장소에 액세스 합니다 `West US 2` . 특정 속성의 프로젝션이 없으므로 `OPENROWSET` 함수는 Azure Cosmos DB 항목의 모든 속성을 반환 합니다.
+앞의 예제에서는 서버를 사용 하지 않는 SQL 풀에서 `covid` `MyCosmosDbAccount` Azure Cosmos DB 키 (위 예제의 더미)를 사용 하 여 인증 된 Azure Cosmos DB 계정에서 데이터베이스에 연결 하도록 지시 했습니다. 그런 다음 해당 `Ecdc` 지역의 컨테이너 분석 저장소에 액세스 합니다 `West US 2` . 특정 속성의 프로젝션이 없으므로 `OPENROWSET` 함수는 Azure Cosmos DB 항목의 모든 속성을 반환 합니다.
 
 Azure Cosmos DB 컨테이너의 항목에 `date_rep` , 및 속성이 있다고 가정 하면 `cases` `geo_id` 이 쿼리의 결과는 다음 표에 나와 있습니다.
 
@@ -149,7 +150,7 @@ Azure Cosmos DB 컨테이너의 항목에 `date_rep` , 및 속성이 있다고 �
 SELECT TOP 10 *
 FROM OPENROWSET( 
        'CosmosDB',
-       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
        Cord19) as cord19
 ```
 
@@ -174,21 +175,21 @@ Azure Cosmos DB의 이러한 플랫 JSON 문서를 Synapse SQL의 행 및 열 �
 SELECT TOP 10 *
 FROM OPENROWSET(
       'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       EcdcCases
+      'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
+       Ecdc
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 ### <a name="openrowset-with-credential"></a>[OPENROWSET 및 자격 증명](#tab/openrowset-credential)
 ```sql
 /*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
     CREATE CREDENTIAL MyCosmosDbAccountCredential
-    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 */
 SELECT TOP 10 *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
-      OBJECT = 'EcdcCases',
+      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      OBJECT = 'Ecdc',
       SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
@@ -209,14 +210,14 @@ Azure Cosmos DB 값에 사용 해야 하는 SQL 형식에 대 한 자세한 내�
 
 ```sql
 CREATE CREDENTIAL MyCosmosDbAccountCredential
-WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 GO
-CREATE OR ALTER VIEW EcdcCases
+CREATE OR ALTER VIEW Ecdc
 AS SELECT *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
-      OBJECT = 'EcdcCases',
+      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      OBJECT = 'Ecdc',
       SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
@@ -241,41 +242,28 @@ Azure Cosmos DB를 사용 하면 중첩 된 개체 또는 배열로 작성 하 �
 }
 ```
 
-Azure Cosmos DB의 중첩 된 개체와 배열은 함수에서이를 읽을 때 쿼리 결과에 JSON 문자열로 표시 됩니다 `OPENROWSET` . 이러한 복합 형식의 값을 SQL 열로 읽는 한 가지 옵션은 SQL JSON 함수를 사용 하는 것입니다.
+Azure Cosmos DB의 중첩 된 개체와 배열은 함수에서이를 읽을 때 쿼리 결과에 JSON 문자열로 표시 됩니다 `OPENROWSET` . 절을 사용 하는 경우 개체에서 중첩 된 값의 경로를 지정할 수 있습니다 `WITH` .
 
 ```sql
-SELECT
-    title = JSON_VALUE(metadata, '$.title'),
-    authors = JSON_QUERY(metadata, '$.authors'),
-    first_author_name = JSON_VALUE(metadata, '$.authors[0].first')
-FROM
-    OPENROWSET(
-      'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       Cord19
-    WITH ( metadata varchar(MAX) ) AS docs;
+SELECT TOP 10 *
+FROM OPENROWSET( 
+       'CosmosDB',
+       'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
+       Cord19)
+WITH (  paper_id    varchar(8000),
+        title        varchar(1000) '$.metadata.title',
+        metadata     varchar(max),
+        authors      varchar(max) '$.metadata.authors'
+) AS docs;
 ```
 
 이 쿼리의 결과는 다음 표와 같습니다.
 
-| title | authors | first_autor_name |
+| paper_id | title | metadata | authors |
 | --- | --- | --- |
-| Epidemi에 대 한 보충 정보 ... |   `[{"first":"Julien","last":"Mélade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Julien |  
-
-또 다른 옵션으로 절을 사용할 때 개체에서 중첩 된 값의 경로를 지정할 수도 있습니다 `WITH` .
-
-```sql
-SELECT
-    *
-FROM
-    OPENROWSET(
-      'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       Cord19
-    WITH ( title varchar(1000) '$.metadata.title',
-           authors varchar(max) '$.metadata.authors'
-    ) AS docs;
-```
+| bb11206963e831f... | Epidemi에 대 한 보충 정보 ... | `{"title":"Supplementary Informati…` | `[{"first":"Julien","last":"Mélade","suffix":"","af…`| 
+| bb1206963e831f1... | 면역에 Convalescent 세라를 사용 합니다. | `{"title":"The Use of Convalescent…` | `[{"first":"Antonio","last":"Lavazza","suffix":"", …` |
+| bb378eca9aac649... | Marama (Tylosema esculentum) | `{"title":"Tylosema esculentum (Ma…` | `[{"first":"Walter","last":"Chingwaru","suffix":"",…` | 
 
 Azure Synapse 링크 및 서버를 사용 하지 않는 [SQL 풀의 중첩 된 구조](query-parquet-nested-types.md)에서 [복합 데이터 형식을](../how-to-analyze-complex-schema.md) 분석 하는 방법에 대해 자세히 알아보세요.
 
@@ -315,7 +303,7 @@ SELECT
 FROM
     OPENROWSET(
       'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+      'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
        Cord19
     ) WITH ( title varchar(1000) '$.metadata.title',
              authors varchar(max) '$.metadata.authors' ) AS docs
@@ -365,7 +353,7 @@ SELECT *
 FROM OPENROWSET(
       'CosmosDB',
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       EcdcCases
+       Ecdc
     ) as rows
 ```
 
@@ -400,7 +388,7 @@ SELECT geo_id, cases = SUM(cases)
 FROM OPENROWSET(
       'CosmosDB'
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       EcdcCases
+       Ecdc
     ) WITH ( geo_id VARCHAR(50) '$.geo_id.string',
              cases INT '$.cases.int32'
     ) as rows
@@ -416,7 +404,7 @@ SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
 FROM OPENROWSET(
       'CosmosDB',
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       EcdcCases
+       Ecdc
     ) WITH ( geo_id VARCHAR(50) '$.geo_id.string', 
              cases_int INT '$.cases.int32',
              cases_bigint BIGINT '$.cases.int64',
@@ -430,13 +418,13 @@ GROUP BY geo_id
 ## <a name="known-issues"></a>알려진 문제
 
 - 서버를 사용 하지 않는 SQL 풀에서 [Azure Cosmos DB 전체 충실도 스키마](#full-fidelity-schema) 를 제공 하는 쿼리 환경은 미리 보기 피드백에 따라 변경 되는 임시 동작입니다. `OPENROWSET` `WITH` 사용자 의견을 기반으로 하는 쿼리 환경이 잘 정의 된 스키마와 정렬 될 수 있으므로, 절이 없는 함수가 공개 미리 보기 중에 제공 하는 스키마를 사용 하지 마세요. 사용자 의견을 제공 하려면 [Azure Synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com)에 문의 하세요.
-- 열 데이터 정렬에 UTF-8 인코딩이 없으면 서버를 사용 하지 않는 SQL 풀에서 컴파일 시간 오류가 반환 되지 않습니다 `OPENROWSET` . `OPENROWSET`T-sql 문을 사용 하 여 현재 데이터베이스에서 실행 되는 모든 함수에 대 한 기본 데이터 정렬을 쉽게 변경할 수 있습니다 `alter database current collate Latin1_General_100_CI_AI_SC_UTF8` .
+- 서버를 `OPENROWSET` 사용 하지 않는 SQL 풀은 열 데이터 정렬에 utf-8 인코딩이 없으면 컴파일 시간 경고를 반환 합니다. `OPENROWSET`T-sql 문을 사용 하 여 현재 데이터베이스에서 실행 되는 모든 함수에 대 한 기본 데이터 정렬을 쉽게 변경할 수 있습니다 `alter database current collate Latin1_General_100_CI_AS_SC_UTF8` .
 
 가능한 오류 및 문제 해결 작업은 다음 표에 나와 있습니다.
 
 | 오류 | 근본 원인 |
 | --- | --- |
-| 구문 오류:<br/> -"Openrowset" 근처의 구문이 잘못 되었습니다.<br/> - `...` 은 (는) 인식할 수 없는 대량 OPENROWSET 공급자 옵션입니다.<br/> -근처의 구문이 잘못 되었습니다. `...` | 가능한 근본 원인은 다음과 같습니다.<br/> -첫 번째 매개 변수로 CosmosDB를 사용 하지 않습니다.<br/> -세 번째 매개 변수에서 식별자 대신 문자열 리터럴을 사용 합니다.<br/> -세 번째 매개 변수 (컨테이너 이름)를 지정 하지 않습니다. |
+| 구문 오류:<br/> -근처의 구문이 잘못 되었습니다. `Openrowset`<br/> - `...` 은 (는) 인식할 수 없는 `BULK OPENROWSET` 공급자 옵션입니다.<br/> -근처의 구문이 잘못 되었습니다. `...` | 가능한 근본 원인은 다음과 같습니다.<br/> -첫 번째 매개 변수로 CosmosDB를 사용 하지 않습니다.<br/> -세 번째 매개 변수에서 식별자 대신 문자열 리터럴을 사용 합니다.<br/> -세 번째 매개 변수 (컨테이너 이름)를 지정 하지 않습니다. |
 | CosmosDB 연결 문자열에 오류가 있습니다. | -계정, 데이터베이스 또는 키가 지정 되지 않았습니다. <br/> -인식 되지 않는 연결 문자열에는 몇 가지 옵션이 있습니다.<br/> -세미콜론 ( `;` )은 연결 문자열의 끝에 배치 됩니다. |
 | "잘못 된 계정 이름" 또는 "잘못 된 데이터베이스 이름" 오류로 인해 CosmosDB 경로를 확인 하지 못했습니다. | 지정 된 계정 이름, 데이터베이스 이름 또는 컨테이너를 찾을 수 없거나 지정 된 컬렉션에 대해 분석 저장소를 사용 하도록 설정 하지 않았습니다.|
 | "잘못 된 비밀 값" 또는 "암호가 null 이거나 비어 있습니다." 오류로 인해 CosmosDB 경로를 확인 하지 못했습니다. | 계정 키가 잘못 되었거나 없습니다. |

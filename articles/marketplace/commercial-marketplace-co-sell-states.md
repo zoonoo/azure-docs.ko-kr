@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 09/02/2020
-ms.openlocfilehash: 44f06773eec965fad610da1a4286bdf224e3a88b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 688fabb7138ad71a978051e742dd8397042ffcf1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583104"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744672"
 ---
 # <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Azure Marketplace에서 시/도 코드 공동 판매
 
@@ -115,4 +115,4 @@ ms.locfileid: "96583104"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [파트너 센터의 공동 판매 옵션](./commercial-marketplace-co-sell.md)에 대해 알아봅니다.
+- [상업적 marketplace의 공동 판매 옵션](./commercial-marketplace-co-sell.md)에 대해 알아봅니다.

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: a166a451c405c2321453e02751baad91c2a14c60
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c5b2003a290152533a0a8c0f88fe8eb1a410ccf9
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840020"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744332"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Azure Active Directory에서 사용할 수 있는 인증 및 확인 방법은 무엇인가요?
 
@@ -43,7 +43,7 @@ Azure AD Multi-Factor Authentication는 사용자가 로그인 할 때 암호를
 | FIDO2 보안 키 (미리 보기)   | 높은     | 높은      | 높은         |
 | OATH 하드웨어 토큰(미리 보기) | 중간   | 중간    | 높은         |
 | OATH 소프트웨어 토큰           | 중간   | 중간    | 높은         |
-| sms                            | 중간   | 높음      | 중간       |
+| SMS                            | 중형   | 높음      | 중간       |
 | 음성                          | 중간   | 중간    | 중간       |
 | 암호                       | 낮음      | 높음      | 높은         |
 
@@ -65,7 +65,7 @@ Azure AD Multi-Factor Authentication는 사용자가 로그인 할 때 암호를
 | FIDO2 보안 키 (미리 보기)   | 예                    | MFA                       |
 | OATH 하드웨어 토큰(미리 보기) | 예                     | MFA                       |
 | OATH 소프트웨어 토큰           | 예                     | MFA                       |
-| sms                            | 예(미리 보기)          | MFA 및 SSPR              |
+| SMS                            | 예(미리 보기)          | MFA 및 SSPR              |
 | 음성 통화                     | 예                     | MFA 및 SSPR              |
 | 암호                       | 예                    |                           |
 
@@ -93,7 +93,7 @@ Azure AD Multi-Factor Authentication는 사용자가 로그인 할 때 암호를
 
 ## <a name="next-steps"></a>다음 단계
 
-시작 하려면 [SSPR (셀프 서비스 암호 재설정)][tutorial-sspr] 및 [Azure AD Multi-Factor Authentication][tutorial-azure-mfa]에 대 한 자습서를 참조 하세요.
+시작하려면 [SSPR(셀프 서비스 암호 재설정)에 대한 자습서][tutorial-sspr] 및 [Azure AD Multi-Factor Authentication][tutorial-azure-mfa]을 참조하세요.
 
 SSPR 개념에 대한 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정 작동 방법][concept-sspr]을 참조하세요.
 

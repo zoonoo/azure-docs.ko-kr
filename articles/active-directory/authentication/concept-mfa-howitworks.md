@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9563ed283229eb6f43d036629cfe8b84fcde25fc
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1cc5227cb4b5de02cba65a60dd469da93d3767e5
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839882"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744060"
 ---
 # <a name="how-it-works-azure-ad-multi-factor-authentication"></a>작동 방법: Azure AD Multi-Factor Authentication
 
@@ -26,13 +26,13 @@ ms.locfileid: "94839882"
 
 ![다양한 형식의 다단계 인증에 대한 개념적 이미지](./media/concept-mfa-howitworks/methods.png)
 
-Azure AD Multi-Factor Authentication는 다음 인증 방법을 두 가지 이상 요구 하는 방식으로 작동 합니다.
+Azure AD Multi-Factor Authentication은 다음 인증 방법 중 둘 이상을 요구하여 작동합니다.
 
 * 사용자가 알고 있는 정보(일반적으로 암호)
 * 사용자의 소유물 정보(예: 휴대폰 또는 하드웨어 키와 같이 쉽게 복제되지 않는 신뢰할 수 있는 디바이스)
 * 사용자의 생체 인식 정보(예: 지문 또는 얼굴 스캔)
 
-사용자는 셀프 서비스 암호 재설정 및 Azure AD Multi-Factor Authentication 모두에 등록 하 여 온 보 딩 환경을 간소화할 수 있습니다. 관리자는 사용할 수 있는 보조 인증 형식을 정의할 수 있습니다. 사용자가 셀프 서비스 암호 재설정을 수행 하 여 해당 프로세스를 보다 안전 하 게 보호 하는 경우에도 Azure AD Multi-Factor Authentication 필요할 수 있습니다.
+사용자는 셀프 서비스 암호 재설정 및 Azure AD Multi-Factor Authentication을 모두 한 단계로 등록하여 온보딩 환경을 간소화할 수 있습니다. 관리자는 사용할 수 있는 보조 인증 형식을 정의할 수 있습니다. 사용자가 셀프 서비스 암호 재설정을 수행하여 프로세스를 더 안전하게 보호하는 경우에도 Azure AD Multi-Factor Authentication이 필요할 수 있습니다.
 
 ![로그인 화면에서 사용하는 인증 방법](media/concept-authentication-methods/overview-login.png)
 
@@ -48,7 +48,7 @@ Azure AD Multi-Factor Authentication와 함께 다음과 같은 추가 형태의
 
 * Microsoft Authenticator 앱
 * OATH 하드웨어 토큰
-* sms
+* SMS
 * 음성 통화
 
 ## <a name="how-to-enable-and-use-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication를 사용 하도록 설정 하 고 사용 하는 방법

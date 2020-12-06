@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 63bb235dcebc67b753e01dd8b193ef1a2b66787d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 222106f5838a1eb237987afaa93924f1efe4a1f4
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555167"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746287"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 파일 확장명 정보 
 
@@ -26,7 +26,7 @@ ms.locfileid: "96555167"
 > - 데이터에 대 한 파일 확장명 정보 보기
 > - 데이터에 대 한 자세한 파일 확장명 세부 정보를 드릴 다운 합니다.
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 부서의 범위 insights를 시작 하기 전에 다음 단계를 완료 했는지 확인 합니다.
 
@@ -39,6 +39,9 @@ ms.locfileid: "96555167"
 ## <a name="use-purview-file-extension-insights"></a>부서의 범위 파일 확장명 정보 사용
 
 자산을 스캔할 때 Azure 부서의 범위는 데이터 공간에 있는 파일 형식을 검색 하 고 각 파일 형식에 대 한 자세한 정보를 제공할 수 있습니다. 세부 정보에는 각 형식의 파일 수, 해당 파일의 위치 및 중요 한 데이터에 대해 병렬로 검색 가능 여부 등이 포함 됩니다.
+
+> [!NOTE]
+> 원본 유형을 검사 한 후에는 새 자산을 반영 하는 **파일 확장명** 정보를 몇 시간까지 제공 합니다.
 
 **파일 확장명 정보를 보려면:**
 
@@ -64,7 +67,7 @@ ms.locfileid: "96555167"
 
 데이터 공간에 있는 파일 형식에 대 한 개략적인 정보를 확인 한 후에는 해당 위치에 대 한 자세한 내용 및 중요 한 데이터를 검색할 수 있는지 여부를 드릴 다운 합니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 :::image type="content" source="media/file-extension-insights/file-extension-drilldown-small.png" alt-text="파일 확장명 보고서-드릴 다운" lightbox="media/file-extension-insights/file-extension-drilldown.png":::
 

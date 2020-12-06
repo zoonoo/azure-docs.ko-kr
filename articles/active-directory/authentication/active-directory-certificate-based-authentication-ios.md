@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 04/17/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa6c28eaa75485e0b45bb4404e685b6ee223b46
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ffddac13009b84aa8253955d265f11aefe2ce5dd
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965593"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744417"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>iOS에서 Azure Active Directory 인증서 기반 인증
 
@@ -75,7 +75,7 @@ Azure AD에서 클라이언트 인증서를 해지 하려면 ADFS 토큰에 다�
 
 최신 인증을 사용 하도록 설정 된 일부 Office 앱 `prompt=login` 은 요청 시 AZURE AD로 전송 됩니다. 기본적으로 Azure AD는 adfs `prompt=login` 에 대 한 요청에서 `wauth=usernamepassworduri` (U/P 인증을 수행 하도록 adfs에 요청)을 변환 하 고 `wfresh=0` (adfs는 SSO 상태를 무시 하 고 새 인증을 수행 하도록 요청 함). 이러한 앱에 대해 인증서 기반 인증을 사용 하도록 설정 하려면 기본 Azure AD 동작을 수정 합니다.
 
-기본 동작을 업데이트 하려면 페더레이션된 도메인 설정의 '*PromptLoginBehavior*'을 *사용 안 함*으로 설정 합니다. 다음 예제와 같이 [get-msoldomainfederationsettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet을 사용 하 여이 작업을 수행할 수 있습니다.
+기본 동작을 업데이트 하려면 페더레이션된 도메인 설정의 '*PromptLoginBehavior*'을 *사용 안 함* 으로 설정 합니다. 다음 예제와 같이 [get-msoldomainfederationsettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet을 사용 하 여이 작업을 수행할 수 있습니다.
 
 ```powershell
 Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled

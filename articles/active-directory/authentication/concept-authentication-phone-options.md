@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4510dac833d0576273472b6f925d546b55257614
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c9d3a00491bc0628244a5a7907f0dee03a5f8d3c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886807"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744196"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Azure Active Directory 전화 옵션의 인증 방법
 
@@ -75,7 +75,7 @@ Azure AD에 관한 전화 인증에 문제가 있는 경우 다음 문제 해결
 
 ## <a name="next-steps"></a>다음 단계
 
-시작 하려면 [SSPR (셀프 서비스 암호 재설정)][tutorial-sspr] 및 [Azure AD Multi-Factor Authentication][tutorial-azure-mfa]에 대 한 자습서를 참조 하세요.
+시작하려면 [SSPR(셀프 서비스 암호 재설정)에 대한 자습서][tutorial-sspr] 및 [Azure AD Multi-Factor Authentication][tutorial-azure-mfa]을 참조하세요.
 
 SSPR 개념에 대한 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정 작동 방법][concept-sspr]을 참조하세요.
 

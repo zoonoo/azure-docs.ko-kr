@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 74f4391fcd071ac510fc66b2f8bc36ec4549dc47
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e6a92282d2bcd316a771742048dacd9a7181de4f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575757"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746185"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 민감도 레이블 정보
 
@@ -27,7 +27,7 @@ ms.locfileid: "96575757"
 > - 데이터에 대 한 민감도 레이블 지정 정보 보기
 > - 데이터에 대 한 더 많은 민감도 레이블 지정 정보를 드릴 다운 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 부서의 범위 insights를 시작 하기 전에 다음 단계를 완료 했는지 확인 합니다.
 
@@ -49,6 +49,9 @@ ms.locfileid: "96575757"
 
 부서의 범위는 Microsoft 365 같이 중요 한 정보 형식이 라고도 하는 동일한 분류를 사용 합니다. 이렇게 하면 Azure 부서의 범위 자산에서 기존 민감도 레이블을 확장할 수 있습니다.
 
+> [!NOTE]
+> 원본 유형을 검사 한 후에는 새 자산을 반영 하는 두 시간으로 **민감도 레이블** 지정 정보를 제공 합니다.
+
 **민감도 레이블 지정 정보를 보려면:**
 
 1. **Azure 부서의 범위** 홈 페이지로 이동 합니다.
@@ -66,7 +69,7 @@ ms.locfileid: "96575757"
 
    주요 **민감도 레이블 정보** 페이지에는 다음과 같은 영역이 표시 됩니다.
 
-   |영역  |Description  |
+   |영역  |설명  |
    |---------|---------|
    |**민감도 레이블이 있는 원본 개요**     |다음을 제공 하는 타일을 표시 합니다. <br>-데이터에서 발견 된 구독 수입니다. <br>-데이터에 적용 된 고유 민감도 레이블 수 <br>-민감도 레이블이 적용 된 원본 수 <br>-민감도 레이블이 적용 된 파일 및 테이블의 수|
    |**레이블이 지정 된 데이터를 포함 하는 상위 원본 (지난 30 일)**     | 민감도 레이블이 적용 된 원본 수의 지난 30 일 동안의 추세를 보여 줍니다.       |
@@ -85,13 +88,13 @@ ms.locfileid: "96575757"
 - **테이블에 적용 되는 상위 레이블**
 - **레이블 작업 > 레이블 데이터**
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 :::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="민감도 레이블 드릴 다운" lightbox="media/insights/sensitivity-label-drilldown.png":::
 
 자세한 내용을 보려면 다음 중 하나를 수행 합니다.
 
-|옵션  |Description  |
+|옵션  |설명  |
 |---------|---------|
 |**데이터 필터링**     |  레이블 이름, 구독 이름 또는 원본 유형을 포함 하 여 표시 되는 데이터를 필터링 하려면 표 위의 필터를 사용 합니다. <br><br>정확한 레이블 이름을 잘 모르는 경우 **키워드로 필터링** 상자에 이름의 일부 또는 전체를 입력할 수 있습니다.       |
 |**표 정렬** |해당 열을 기준으로 표를 정렬 하려면 열 머리글을 선택 합니다. | 

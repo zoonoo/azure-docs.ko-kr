@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: b6b3cac51ffd4ccd138994ac65b4f96b07816970
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3a47ba2025bcaba542d2dbec0c89643e0900f233
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368698"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746151"
 ---
 # <a name="how-to-configure-your-saas-offer-listing-details"></a>SaaS 제품 목록 세부 정보를 구성 하는 방법
 
@@ -105,4 +105,4 @@ SaaS (software as a service) 제품에 대 한 **제품 목록** 페이지에 �
 ## <a name="next-steps"></a>다음 단계
 
 - Microsoft를 통해 제품을 판매 하 [는 경우 SaaS 제품에 대 한 미리 보기 대상을 추가 하는 방법](create-new-saas-offer-preview.md)으로 이동 하세요. 
-- 그렇지 않으면 [SaaS 제품을 출시 하는 방법](create-new-saas-offer-marketing.md)으로 이동 합니다.
+- 그렇지 않으면 [SaaS 제품을 판매 하는 방법](create-new-saas-offer-marketing.md)으로 이동 합니다.

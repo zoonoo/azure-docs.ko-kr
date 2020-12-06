@@ -2,14 +2,14 @@
 title: 리소스 공급자 및 리소스 종류
 description: Azure Resource Manager를 지 원하는 리소스 공급자에 대해 설명 합니다. 해당 스키마, 사용 가능한 API 버전 및 리소스를 호스팅할 수 있는 지역을 설명 합니다.
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 12/04/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6413a1279c9c7a995bb144097e3db55d5f3a90d2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6d114fdfae12dd9ee96a23e4dafc3847c6429d0c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452096"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745119"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 리소스 공급자 및 종류
 
@@ -45,20 +45,28 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 �
 
 ## <a name="azure-portal"></a>Azure portal
 
+### <a name="register-resource-provider"></a>리소스 공급자 등록
+
 모든 리소스 공급자와 구독 등록 상태를 보려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure Portal 메뉴에서 **모든 서비스** 를 선택합니다.
+1. Azure Portal 메뉴에서 **구독** 을 검색 합니다. 사용 가능한 옵션에서 선택합니다.
 
-    ![구독 선택](./media/resource-providers-and-types/select-all-services.png)
+   :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="구독 검색":::
 
-3. **모든 서비스** 상자에서 **구독** 을 입력한 다음, **구독** 을 선택합니다.
-4. 구독 목록에서 보려는 구독을 선택합니다.
-5. **리소스 공급자** 를 선택하고 사용 가능한 리소스 공급자의 목록을 봅니다.
+1. 보려는 구독을 선택 합니다.
 
-    ![리소스 공급자 보기](./media/resource-providers-and-types/show-resource-providers.png)
+   :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="구독 선택":::
 
-6. 리소스 공급자를 등록하려면 **등록** 을 선택합니다. 이전 스크린샷에는 **Microsoft.Blueprint** 에 대한 **등록** 링크가 강조 표시되어 있습니다. 구독에서 최소 권한을 유지 하려면 사용할 준비가 된 리소스 공급자만 등록 합니다.
+1. 왼쪽 메뉴의 **설정** 에서 **리소스 공급자** 를 선택합니다.
+
+   :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="리소스 공급자 선택":::
+
+6. 등록할 리소스 공급자를 찾고 **등록** 을 선택 합니다. 구독에서 최소 권한을 유지 하려면 사용할 준비가 된 리소스 공급자만 등록 합니다.
+
+   :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="리소스 공급자 등록":::
+
+### <a name="view-resource-provider"></a>리소스 공급자 보기
 
 특정 리소스 공급자에 대한 정보를 보려면 다음을 수행합니다.
 
