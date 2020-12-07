@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 12/07/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaa8b586b7d1ae073d0746569d61de837eec3b7d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 620b696be0b9a06cf0d68145b06e3cacf2bedff2
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743873"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762553"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방식: Azure AD SSPR(셀프 서비스 암호 재설정)
 
@@ -69,11 +69,8 @@ SSPR을 시작 하려면 다음 자습서를 완료 하세요.
 > [!div class="nextstepaction"]
 > [자습서: 셀프 서비스 암호 재설정 사용 (SSPR)](tutorial-enable-sspr.md)
 
-## <a name="registration-options"></a>등록 옵션
 
-사용자가 SSPR를 사용 하 여 암호를 다시 설정 하거나 변경 하려면 먼저 해당 사용자를 등록 하 고 사용할 인증 방법을 등록 해야 합니다. 이전 섹션에서 설명한 것 처럼 SSPR에 대해 사용자를 등록 하 고 적절 한 라이선스를 적용 해야 합니다.
-
-### <a name="require-users-to-register-when-they-sign-in"></a>사용자가 로그인 시 등록하도록 요구하시겠습니까?
+## <a name="require-users-to-register-when-they-sign-in"></a>사용자가 로그인 시 등록하도록 요구하시겠습니까?
 
 Azure AD를 사용 하 여 응용 프로그램에 로그인 하는 경우 사용자가 SSPR 등록을 완료 하도록 요구 하는 옵션을 사용 하도록 설정할 수 있습니다. 이 워크플로에는 다음 애플리케이션이 포함됩니다.
 
@@ -92,7 +89,7 @@ Azure AD를 사용 하 여 응용 프로그램에 로그인 하는 경우 사용
 >
 > SSPR에 등록 하는이 인터럽트는 이미 로그인 되어 있는 경우 사용자의 연결을 중단 하지 않습니다.
 
-### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>사용자가 인증 정보를 다시 확인하도록 요청받을 때까지의 기간(일) 설정
+## <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>사용자가 인증 정보를 다시 확인하도록 요청받을 때까지의 기간(일) 설정
 
 암호를 재설정 하거나 변경 해야 하는 경우 인증 방법이 올바른지 확인 하려면 일정 기간 후 사용자에 게 정보 등록 정보를 확인 하도록 요구할 수 있습니다. 이 옵션은 **로그인 할 때 사용자가 등록 해야** 함 옵션을 사용 하도록 설정한 경우에만 사용할 수 있습니다.
 
@@ -106,7 +103,7 @@ SSPR에는 다음과 같은 인증 방법을 사용할 수 있습니다.
 
 * 모바일 앱 알림
 * 모바일 앱 코드
-* 전자 메일
+* 메일
 * 휴대폰
 * 사무실 전화
 * 본인 확인 질문

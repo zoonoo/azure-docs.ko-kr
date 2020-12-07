@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 1ab6f5e9c7b602ce124116c02584c5a48a3f597f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7c1b9ad033ade3b577dc4a06e84801dab3b7eb70
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999980"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763964"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Azure Portal에서 App Service 앱 구성
 
@@ -29,7 +29,7 @@ App Service에서 앱 설정은 응용 프로그램 코드에 환경 변수로 �
 
 ![애플리케이션 설정](./media/configure-common/open-ui.png)
 
-ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설정 하는 것은Web.config또는appsettings.js에서 설정 하는 것과 `<appSettings>` 같지만 App Service의 값이Web.config또는 *Web.config* *appsettings.js* 의 값을 재정의 합니다. *Web.config* *appsettings.json* *Web.config* 또는 *appsettings.js* 에서 개발 설정 (예: 로컬 MySQL 암호)을 유지할 수 있지만 프로덕션 비밀 (예: Azure MySQL 데이터베이스 암호)은 App Service에서 안전 합니다. 로컬에서 디버그할 때 동일한 코드가 개발 설정을 사용 하 고 Azure에 배포 될 때 프로덕션 암호를 사용 합니다.
+ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설정 하는 것은Web.config또는appsettings.js에서 설정 하는 것과 `<appSettings>` 같지만 App Service의 값이Web.config또는 *Web.config* *appsettings.js* 의 값을 재정의 합니다. *Web.config* *appsettings.json* App Service에서 안전 하 게 배포 설정 (예: 로컬 MySQL 암호)을 *Web.config* 또는 *appsettings.js* 하 고 프로덕션 암호 (예: Azure MySQL 데이터베이스 암호)를 안전 하 게 유지할 수 있습니다. 로컬에서 디버그할 때 동일한 코드가 개발 설정을 사용 하 고 Azure에 배포 될 때 프로덕션 암호를 사용 합니다.
 
 마찬가지로 다른 언어 스택은 런타임에 환경 변수로 앱 설정을 가져옵니다. 언어 스택 관련 단계는 다음을 참조 하세요.
 

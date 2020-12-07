@@ -4,12 +4,12 @@ description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 404e820168c64bd47b6e94598ad5bb13faf32a86
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 8505e67e3db7460308d208ce4f83d29a1fb4d862
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751345"
+ms.locfileid: "96763199"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -31,7 +31,7 @@ ms.locfileid: "96751345"
 > [!NOTE]
 > ASP.NET Core 3.x에는 [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) 이상이 필요 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 작동 하는 ASP.NET Core 응용 프로그램입니다. ASP.NET Core 응용 프로그램을 만들어야 하는 경우이 [ASP.NET Core 자습서](/aspnet/core/getting-started/)를 따르세요.
 - 유효한 Application Insights 계측 키입니다. Application Insights에 원격 분석을 보내려면이 키가 필요 합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](./create-new-resource.md)를 참조 하세요.
@@ -106,7 +106,7 @@ Mac용 Visual Studio [수동 지침](#enable-application-insights-server-side-te
 
     * `ApplicationInsights:InstrumentationKey`
 
-    다음은 그 예입니다. 
+    예:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -142,7 +142,7 @@ AspNetCore 버전 [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationI
 
 ### <a name="performance-counters"></a>성능 카운터
 
-ASP.NET Core의 [성능 카운터](./web-monitor-performance.md) 에 대 한 지원은 제한 되어 있습니다.
+ASP.NET Core의 [성능 카운터](./performance-counters.md) 에 대 한 지원은 제한 되어 있습니다.
 
 * SDK 버전 2.4.1 이상에서는 애플리케이션이 Azure Web Apps(Windows)에서 실행되는 경우 성능 카운터를 수집합니다.
 * SDK 버전 2.7.1 이상에서는 애플리케이션이 Windows에서 실행되고 `NETSTANDARD2.0` 이상을 대상으로 하는 경우 성능 카운터를 수집합니다.
@@ -390,7 +390,7 @@ using Microsoft.ApplicationInsights.Channel;
 
 위의 경우 자동 수집 모듈이 원격 분석을 수집 하는 것을 방지할 수 없습니다. Application Insights에 대 한 원격 분석 보내기가 위의 방법으로 사용 하지 않도록 설정 됩니다. 특정 자동 수집 모듈을 원하지 않는 경우 [원격 분석 모듈을 제거](#configuring-or-removing-default-telemetrymodules) 하는 것이 좋습니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="does-application-insights-support-aspnet-core-3x"></a>는 ASP.NET Core 3(sp3)을 지원 Application Insights?
 

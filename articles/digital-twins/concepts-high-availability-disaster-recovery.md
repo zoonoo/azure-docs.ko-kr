@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 85fd5a4246e891ef6640438b07e12a9c32ad12fa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ac75a5b0b59a06855b7ee88d971c269ca915e429
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094440"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763168"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digital Twins 고가용성 및 재해 복구
 
@@ -28,7 +28,7 @@ HA/DR 디자인에 대 한 일반적인 Azure 지침에 대 한 [*모범 사례*
 
 ## <a name="intra-region-ha"></a>역내 HA
  
-Azure Digital Twins는 서비스 내에서 중복을 구현 하 여 지역 간 HA를 제공 합니다. **이러한 HA 기능을 활용 하기 위해 Azure Digital Twins 솔루션 개발자가 추가 작업을 수행할 필요는 없습니다.** Azure Digital Twins는 합리적으로 높은 가동 시간을 보장 하지만 모든 분산 컴퓨팅 플랫폼과 마찬가지로 일시적인 오류가 여전히 예상 될 수 있습니다. 일시적인 오류를 처리 하기 위해 클라우드 응용 프로그램과 상호 작용 하는 구성 요소에 적절 한 재시도 정책을 빌드해야 합니다.
+Azure Digital Twins는 서비스 내에서 중복을 구현 하 여 지역 간 HA를 제공 합니다. 이는 작동 시간에 대 한 [서비스 SLA](https://azure.microsoft.com/support/legal/sla/digital-twins) 에 반영 됩니다. **이러한 HA 기능을 활용 하기 위해 Azure Digital Twins 솔루션 개발자가 추가 작업을 수행할 필요는 없습니다.** Azure Digital Twins는 합리적으로 높은 가동 시간을 보장 하지만 모든 분산 컴퓨팅 플랫폼과 마찬가지로 일시적인 오류가 여전히 예상 될 수 있습니다. 일시적인 오류를 처리 하기 위해 클라우드 응용 프로그램과 상호 작용 하는 구성 요소에 적절 한 재시도 정책을 빌드해야 합니다.
 
 ## <a name="cross-region-dr"></a>지역 간 DR
 

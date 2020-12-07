@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 5dbe161af172b65919328fca0b272f3b658f1b32
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: fe79797aeef2b0c148aece0319d6b340b663b184
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600492"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763726"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Postman을 사용 하 여 Azure Digital Twins Api에 요청을 보내는 방법
 
@@ -25,7 +25,7 @@ ms.locfileid: "96600492"
 1. Postman collection을 설정 하 고 전달자 토큰을 사용 하 여 인증을 위해 Postman REST 클라이언트를 구성 합니다.
 1. 구성 된 Postman을 사용 하 여 Azure Digital Twins Api에 요청을 만들고 보냅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Postman을 사용 하 여 Azure Digital Twins Api에 액세스 하는 작업을 계속 하려면 Azure Digital Twins 인스턴스를 설정 하 고 Postman을 다운로드 해야 합니다. 이 섹션의 나머지 부분에서는 이러한 단계를 안내합니다.
 
@@ -130,7 +130,7 @@ Azure Digital Twins Api 중 하나에 대 한 Postman 요청을 만들려면 API
 
 예제 쿼리를 계속 하기 위해이 문서에서는 쿼리 API (및 해당 [참조 설명서](/rest/api/digital-twins/dataplane/query/querytwins))를 사용 하 여 인스턴스의 모든 디지털 쌍을 쿼리 합니다.
 
-1. 참조 설명서에서 요청 URL과 형식을 가져옵니다. 쿼리 API의 경우 *POST `https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31`* 입니다.
+1. 참조 설명서에서 요청 URL과 형식을 가져옵니다. 쿼리 API의 경우 현재 *게시 `https://digitaltwins-hostname/query?api-version=2020-10-31`* 됩니다.
 1. Postman에서 요청에 대 한 형식을 설정 하 고 요청 URL을 입력 하 고 필요에 따라 URL에 자리 표시자를 채웁니다. 여기서는 [*필수 구성 요소*](#prerequisites) 섹션에서 인스턴스의 **호스트 이름을** 사용 합니다.
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="새 요청의 세부 정보에서 참조 설명서의 쿼리 URL은 요청 URL 상자에 채워집니다." lightbox="media/how-to-use-postman/postman-request-url.png":::

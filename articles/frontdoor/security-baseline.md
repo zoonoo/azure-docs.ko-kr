@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 87e7f959dd932c874604df43fa61112d181ac581
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 53324709e2d3dd11160ee0b7837d86d9e9594571
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531703"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763930"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Azure 전면 도어에 대 한 azure 보안 기준
 
@@ -206,7 +206,7 @@ Azure Monitor를 사용 하 여 승인 되지 않은 서비스가 검색 될 때
 
 ### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Azure 네트워크 활동에 대한 로깅 사용
 
-**지침**: Azure 프런트 도어는 가상 네트워크에 배포 하기 위한 것이 아닙니다. 이 고객은 네트워크 보안 그룹 흐름 로깅을 사용 하도록 설정 하거나 방화벽을 통해 트래픽을 라우팅하거나 패킷 캡처를 수행할 수 없습니다.
+**지침**: Azure Front 도어는 가상 네트워크에 배포 하기 위한 것이 아닙니다. 이 고객은 네트워크 보안 그룹 흐름 로깅을 사용 하도록 설정 하거나 방화벽을 통해 트래픽을 라우팅하거나 패킷 캡처를 수행할 수 없습니다.
 
 Azure 전면 도어는 고객 액세스를 위해 처리 하는 모든 네트워크 트래픽을 기록 합니다. 네트워크 흐름 로그 기능을 사용 하도록 설정 하 고 장기 보존 및 감사를 위해 이러한 로그를 저장소 계정에 보내도록 구성 합니다.
 
