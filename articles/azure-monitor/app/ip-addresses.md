@@ -3,12 +3,12 @@ title: Application Insights 및 Log Analytics에서 사용되는 IP 주소 | Mic
 description: Application Insights에 필요한 서버 방화벽 예외
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: c1ccb40a9b8d8080da416aeb920ed016a231f697
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 10328efa9b8b9cdbe1e57e1e982653aea7e39574
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547936"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748878"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에서 사용되는 IP 주소
 [Azure Application Insights](./app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
@@ -46,6 +46,10 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 
 ## <a name="availability-tests"></a>가용성 테스트
 [가용성 웹 테스트](./monitor-web-app-availability.md) 가 실행되는 주소 목록입니다. 앱에서 웹 테스트를 실행하려고 하지만 웹 서버가 특정 클라이언트 서비스를 제공하도록 제한된 경우 가용성 테스트 서버에서 들어오는 트래픽을 허용해야 합니다.
+
+
+> [!NOTE]
+> 공용 Azure의 가용성 테스트 에이전트와의 직접 인바운드 통신을 허용할 수 없는 개인 가상 네트워크 내에 있는 리소스의 경우 유일한 옵션은 [고유한 사용자 지정 가용성 테스트를 만들고 호스트](availability-azure-functions.md)하는 것입니다.
 
 ### <a name="service-tag"></a>서비스 태그
 

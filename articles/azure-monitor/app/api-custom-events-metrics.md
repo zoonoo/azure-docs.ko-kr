@@ -4,12 +4,12 @@ description: 디바이스 또는 데스크톱 앱, 웹 페이지, 서비스에 �
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9f175e2585a5254922c9e859cf5ece2afbbc3e3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d1ed05cd7337a7e82a02b25a2f29d54567b9f9a3
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011350"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748895"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -32,7 +32,7 @@ ms.locfileid: "96011350"
 
 이러한 대부분의 원격 분석 호출에 [속성 및 메트릭을 연결](#properties) 할 수 있습니다.
 
-## <a name="before-you-start"></a><a name="prep"></a>시작 하기 전에
+## <a name="before-you-start"></a><a name="prep"></a>시작하기 전에
 
 Application Insights SDK에 대한 참조가 아직 없는 경우:
 
@@ -437,7 +437,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예들 들어 다음과 같습니다.
+대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예를 들면 다음과 같습니다.
 
 ```kusto
 exceptions
@@ -500,7 +500,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예들 들어 다음과 같습니다.
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
 *C#*
 
@@ -530,6 +530,9 @@ telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties
 ## <a name="trackdependency"></a>TrackDependency
 
 TrackDependency 호출을 사용하여 응답 시간과 외부 코드 부분에 대한 호출의 성공률을 추적합니다. 포털에서 종속성 차트에 결과가 나타납니다. 종속성 호출이 수행 될 때마다 아래 코드 조각을 추가 해야 합니다.
+
+> [!NOTE]
+> .NET 및 .NET Core의 경우 `TelemetryClient.StartOperation` `DependencyTelemetry` , 아래 예제와 같이 사용자 지정 타이머를 만들 필요가 없도록 상관 관계를 지정 하는 데 필요한 속성을 채우는 (확장) 메서드를 사용할 수 있습니다. 자세한 내용은 [나가는 종속성 추적에 대](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking#outgoing-dependencies-tracking)한이 문서의 섹션을 참조 하세요.
 
 *C#*
 
@@ -932,7 +935,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 
 [샘플링](./api-filtering-sampling.md)은 앱에서 포털로 전송되는 데이터의 양을 줄이는 패키지 솔루션입니다. 표시된 메트릭에 영향을 주지 않습니다. 예외, 요청 및 페이지 뷰와 같은 관련된 항목 간을 이동하여 문제를 진단하는 기능에 영향을 주지 않습니다.
 
-[자세한 정보를 알아보세요](./api-filtering-sampling.md).
+[자세히 알아봅니다](./api-filtering-sampling.md).
 
 ## <a name="disabling-telemetry"></a>원격 분석 사용 안 함
 
@@ -1063,7 +1066,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예들 들어 다음과 같습니다.
+TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";

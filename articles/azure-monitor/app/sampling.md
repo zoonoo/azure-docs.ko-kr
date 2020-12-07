@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 87e33940d927fc9116c03345011e21398384d484
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3ec9718d313e7e8d757eb41c230225bdcf9ebd49
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024418"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749048"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -34,7 +34,7 @@ ms.locfileid: "95024418"
 |-|-|-|-|
 | ASP.NET | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
 | ASP.NET Core | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Azure Functions | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | No | 다른 샘플링이 적용 되지 않는 경우에만 |
+| Azure 기능 | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | 아니요 | 다른 샘플링이 적용 되지 않는 경우에만 |
 | Java | 예 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
 | Node.JS | 예 | [예](./nodejs.md#sampling) | 다른 샘플링이 적용 되지 않는 경우에만
 | Python | 예 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
@@ -54,7 +54,7 @@ ms.locfileid: "95024418"
 * 수집 **샘플링** 은 Application Insights 서비스 끝점에서 발생 합니다. 설정한 샘플링 주기에 따라 앱에서 보낸 원격 분석 중 일부를 삭제합니다. 앱에서 보낸 원격 분석 트래픽을 줄이지는 않지만 월별 할당량 내로 유지하는 데 도움이 됩니다. 수집 샘플링의 주요 이점은 앱을 다시 배포 하지 않고도 샘플링 주기를 설정할 수 있다는 것입니다. 수집 샘플링은 모든 서버와 클라이언트에 균일 하 게 작동 하지만 다른 유형의 샘플링이 작동 하는 경우에는 적용 되지 않습니다.
 
 > [!IMPORTANT]
-> 적응 또는 고정 요금 샘플링 방법이 작동 하는 경우 수집 샘플링은 사용 하지 않도록 설정 됩니다.
+> 원격 분석 유형에 적응 또는 고정 요금 샘플링 방법을 사용 하는 경우 해당 원격 분석에 대해 수집 샘플링이 사용 되지 않습니다. 그러나 SDK 수준에서 샘플링에서 제외 된 원격 분석 형식은 여전히 포털에 설정 된 속도에서 수집 샘플링이 적용 됩니다.
 
 ## <a name="adaptive-sampling"></a>적응 샘플링
 
