@@ -152,6 +152,8 @@
           href: node-updates-kured.md
         - name: AKS 클러스터 구성
           href: cluster-configuration.md
+        - name: 사용자 지정 노드 구성(미리 보기)
+          href: custom-node-configuration.md
         - name: ACR을 AKS 클러스터와 통합
           href: cluster-container-registry-integration.md
         - name: 가상 노드 만들기

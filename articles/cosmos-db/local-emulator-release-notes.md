@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 42259b36f1a9bfe243df47cc08b33fe8c46d819d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5d105ad4c2aff03dae52b340037e4c193bf82ca1
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493069"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608438"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Azure Cosmos DB Emulator - 릴리스 정보 및 다운로드 정보
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,6 +26,12 @@ ms.locfileid: "96493069"
 |**시작**|[Azure Cosmos Emulator를 사용하여 로컬로 개발](local-emulator.md)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="2119-3-december-2020"></a>2.11.9(2020년 12월 3일)
+
+ - 이 릴리스는 Azure Cosmos DB의 최신 기능과 개선 사항을 반영하는 일반 콘텐츠 업데이트 외에도 Azure Cosmos DB 에뮬레이터 기능과 관련된 몇 가지 문제를 해결합니다.
+ * 직접 모드 및 Java 클라이언트 애플리케이션을 사용할 때 대량 문서 페이로드 요청이 실패하는 문제를 해결합니다.
+ * .NET 기반 애플리케이션을 대상으로 하는 경우 MongoDB 엔드포인트 버전 3.6의 연결 문제를 해결합니다.
 
 ### <a name="2118-6-november-2020"></a>2.11.8(2020년 11월 6일)
 

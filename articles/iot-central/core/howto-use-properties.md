@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 992fb4422974dad7a48e5fea953ac4530bb52d5c
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: a517f7a796b6543c8d60f0d1ebdba16afa0bc4b7
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122602"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751430"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Azure IoT Central 솔루션에서 속성 사용
 
@@ -45,7 +45,7 @@ Azure IoT Central 응용 프로그램에서 클라우드 속성을 정의할 수
 | 단위            | **입니다**, 또는 C와 같은 속성 값의 단위 **%** 입니다. **&deg;**                                                                                                                                                              |
 | 표시 단위    | 대시보드와 양식에서 사용할 표시 단위입니다.                                                                                                                                                                                    |
 | 의견         | 속성 기능에 대한 주석입니다.                                                                                                                                                                                        |
-| Description     | 속성 기능에 대한 설명입니다.                                                                                                                                                                                          |
+| 설명     | 속성 기능에 대한 설명입니다.                                                                                                                                                                                          |
 
 다음과 같이 장치 템플릿의 인터페이스에서 속성을 정의할 수도 있습니다.
 
@@ -79,7 +79,7 @@ Azure IoT Central 응용 프로그램에서 클라우드 속성을 정의할 수
 
 * `@type` 기능의 유형을 `Property` 지정 합니다. 위의 예제에서는 `Temperature` 두 속성에 대 한 의미 체계 형식을 보여 줍니다.
 * `name` 속성의 경우입니다.
-* `schema` 속성의 데이터 형식을 지정 합니다. 이 값은 double, integer, Boolean 또는 string과 같은 기본 형식일 수 있습니다. 복합 개체 형식, 배열 및 맵도 지원 됩니다.
+* `schema` 속성의 데이터 형식을 지정 합니다. 이 값은 double, integer, Boolean 또는 string과 같은 기본 형식일 수 있습니다. 복합 개체 형식 및 맵도 지원 됩니다.
 * `writable` 기본적으로 속성은 읽기 전용입니다. 이 필드를 사용 하 여 속성을 쓰기 가능으로 표시할 수 있습니다.
 
 표시 이름, 설명 등의 선택적 필드를 사용 하면 인터페이스 및 기능에 더 많은 세부 정보를 추가할 수 있습니다.

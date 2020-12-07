@@ -255,7 +255,7 @@
               href: log-query/query-audit.md
             - name: 쿼리 최적화
               href: log-query/query-optimization.md
-            - name: 함수
+            - name: Functions
               href: log-query/functions.md
             - name: 텍스트 데이터 구문 분석
               href: log-query/parse-text.md
@@ -274,6 +274,8 @@
                   href: log-query/resource-expression.md
                 - name: 애플리케이션 데이터 리소스 통합
                   href: log-query/unify-app-resource-data.md
+                - name: Azure Monitor에서 Azure Data Explorer 쿼리
+                  href: platform/azure-monitor-data-explorer-proxy.md
         - name: 데이터 내보내기
           items:
             - name: 작업 영역 데이터 내보내기
@@ -550,7 +552,7 @@
               href: platform/it-service-management-connector-secure-webhook-connections.md
             - name: Service Manager 웹앱 만들기
               href: platform/itsmc-service-manager-script.md
-            - name: ServiceNow ITSM 동기화 문제 수정
+            - name: ITSM 커넥터의 문제 해결
               href: platform/itsmc-resync-servicenow.md
         - name: 클래식 경고 규칙 마이그레이션
           items:

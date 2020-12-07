@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: aefb33325c1a5bf8e94d47106147d4c7c4f0f1ca
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d157dd6b3347c8fbfd8712fa20d52cedb425f47f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684171"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751481"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -24,41 +24,36 @@ pod, 노드, 클러스터 등의 문제 해결과 관련해서 Microsoft 엔지�
 
  [더 많은 코어를 요청합니다](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
-## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>AKS의 노드당 최대 Pod 설정이란?
-
-노드당 최대 Pod 설정은 Azure Portal에서 AKS 클러스터를 배포하는 경우 기본적으로 30입니다.
-노드당 최대 Pod 설정은 Azure CLI에서 AKS 클러스터를 배포하는 경우 기본적으로 110입니다. Azure CLI의 최신 버전을 사용하도록 합니다. 이 설정은 `az aks create` 명령에서 `–-max-pods` 플래그를 사용하여 변경할 수 있습니다.
-
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>고급 네트워킹을 사용하여 AKS 클러스터를 배포하는 동안 insufficientSubnetSize 오류가 발생합니다. 어떻게 해야 하나요?
 
 이 오류는 리소스를 성공적으로 할당 하기 위해 클러스터에 사용 중인 서브넷의 CIDR 내에 더 이상 사용 가능한 Ip가 없음을 나타냅니다. Kubenet 클러스터의 경우 클러스터의 각 노드에 대 한 충분 한 IP 공간이 요구 사항에 해당 합니다. Azure CNI 클러스터의 경우 클러스터의 각 노드 및 pod에 대해 충분 한 IP 공간이 필요 합니다.
 [Pod에 ip를 할당 하려면 Azure CNI 디자인](configure-azure-cni.md#plan-ip-addressing-for-your-cluster)에 대해 자세히 알아보세요.
 
-이러한 오류는 서브넷 크기 부족 등의 문제를 사전에 표시 하는 [AKS 진단](./concepts-diagnostics.md) 에도 표시 됩니다.
+이러한 오류는 [AKS 진단](concepts-diagnostics.md)에도 표시 되며, 이러한 오류는 서브넷 크기 부족 등의 문제를 사전에 노출 합니다.
 
 다음 3 개의 사례는 서브넷 크기 오류를 초래 합니다.
 
-1. AKS Scale 또는 AKS Nodepool scale
-   1. Kubenet를 사용 하는 경우 `number of free IPs in the subnet` 가 **보다 작은** 경우이 오류가 발생 합니다 `number of new nodes requested` .
-   1. Azure CNI를 사용 하는 경우이 `number of free IPs in the subnet` **보다 작은** 경우에 발생 합니다 `number of nodes requested times (*) the node pool's --max-pod value` .
+1. AKS Scale 또는 AKS 노드 풀 크기 조정
+   1. Kubenet를 사용 하는 경우 `number of free IPs in the subnet` 이 **보다 작은** 경우입니다 `number of new nodes requested` .
+   1. Azure CNI를 사용 하는 경우 `number of free IPs in the subnet` 이 **보다 작은** 경우입니다 `number of nodes requested times (*) the node pool's --max-pod value` .
 
-1. AKS Upgrade 또는 AKS Nodepool 업그레이드
-   1. Kubenet를 사용 하는 경우 `number of free IPs in the subnet` 가 보다 **작은** 경우이 오류가 발생 합니다 `number of buffer nodes needed to upgrade` .
-   1. Azure CNI를 사용 하는 경우이 `number of free IPs in the subnet` **보다 작은** 경우에 발생 합니다 `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
+1. AKS Upgrade 또는 AKS 노드 풀 업그레이드
+   1. Kubenet를 사용 하는 경우 `number of free IPs in the subnet` 이 **보다 작은** 경우입니다 `number of buffer nodes needed to upgrade` .
+   1. Azure CNI를 사용 하는 경우 `number of free IPs in the subnet` 이 **보다 작은** 경우입니다 `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
    
-   기본적으로 AKS 클러스터는 최대 서 수 (업그레이드 버퍼) 값을 1로 설정 하지만이 업그레이드 동작은 업그레이드를 완료 하는 데 필요한 사용 가능한 Ip 수를 늘리는 [노드 풀의 최대 서 수 값](upgrade-cluster.md#customize-node-surge-upgrade) 을 설정 하 여 사용자 지정할 수 있습니다.
+   기본적으로 AKS 클러스터는 최대 서 수 (업그레이드 버퍼) 값을 1로 설정 하지만이 업그레이드 동작은 노드 풀의 최대 서 수 값을 설정 하 여 사용자 지정할 수 있습니다. 그러면 업그레이드를 완료 하는 데 필요한 사용 가능한 Ip 수가 증가 합니다.
 
-1. AKS create 또는 AKS Nodepool 추가
-   1. Kubenet를 사용 하는 경우 `number of free IPs in the subnet` 가 보다 **작은** 경우이 오류가 발생 합니다 `number of nodes requested for the node pool` .
-   1. Azure CNI를 사용 하는 경우이 `number of free IPs in the subnet` **보다 작은** 경우에 발생 합니다 `number of nodes requested times (*) the node pool's --max-pod value` .
+1. AKS create 또는 AKS 노드 풀 추가
+   1. Kubenet를 사용 하는 경우 `number of free IPs in the subnet` 이 **보다 작은** 경우입니다 `number of nodes requested for the node pool` .
+   1. Azure CNI를 사용 하는 경우 `number of free IPs in the subnet` 이 **보다 작은** 경우입니다 `number of nodes requested times (*) the node pool's --max-pod value` .
 
 새 서브넷을 만들어 다음 완화 방법을 수행할 수 있습니다. 새 서브넷을 만들 수 있는 권한은 기존 서브넷의 CIDR 범위를 업데이트할 수 없기 때문에 완화에 필요 합니다.
 
 1. 작업 목표를 위해 더 큰 CIDR 범위를 사용 하 여 새 서브넷을 다시 작성 합니다.
    1. 원하는 겹치지 않는 새 범위를 사용 하 여 새 서브넷을 만듭니다.
-   1. 새 서브넷에 새 nodepool을 만듭니다.
-   1. 이전 서브넷에 상주 하는 이전 nodepool에서 pod을 드레이닝 합니다.
-   1. 이전 서브넷 및 이전 nodepool을 삭제 합니다.
+   1. 새 서브넷에 새 노드 풀을 만듭니다.
+   1. 이전 서브넷에 있는 이전 노드 풀에서 pod을 드레이닝 합니다.
+   1. 이전 서브넷 및 이전 노드 풀을 삭제 합니다.
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>내 Pod가 CrashLoopBackOff 모드에서 중단됩니다. 어떻게 해야 하나요?
 
@@ -90,15 +85,11 @@ AKS에는 Slo (서비스 수준 목표) 및 Sla (서비스 수준 계약)를 보
 
 기존 클러스터에서 Kubernetes (역할 기반 액세스 제어) Kubernetes RBAC (역할 기반 액세스 제어)를 사용 하도록 설정할 수 없습니다. 새 클러스터를 만들 때 설정 해야 합니다. Kubernetes RBAC는 CLI, 포털 또는 이후 버전의 API를 사용할 때 기본적으로 사용 하도록 설정 됩니다 `2020-03-01` .
 
-## <a name="i-created-a-cluster-with-kubernetes-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Kubernetes RBAC를 사용 하는 클러스터를 만들었으며 이제 Kubernetes 대시보드에 많은 경고가 표시 됩니다. 이전에는 대시보드가 경고없이 잘 작동되었습니다. 어떻게 해야 하나요?
-
-경고가 발생 하는 이유는 클러스터에서 Kubernetes RBAC를 사용 하도록 설정 하 고 대시보드에 대 한 액세스는 이제 기본적으로 제한 되어 있기 때문입니다. 일반적으로 클러스터의 모든 사용자에게 기본적으로 대시보드를 노출하면 보안 위협이 초래될 수 있으므로 이렇게 하는 것이 적절합니다. 그래도 대시보드를 사용하도록 설정하려면 [이 블로그 게시물](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/)의 단계를 따르세요.
-
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>kubectl logs를 사용하여 로그를 가져올 수 없고 API 서버에 연결할 수 없습니다. "서버 오류: 백 엔드 전화 접속 오류가 발생했습니다.: dial tcp…"라는 오류가 발생합니다. 어떻게 해야 하나요?
 
 API 서버에 연결하기 위해 22, 9000 및 1194 포트가 열려 있는지 확인합니다. `kubectl get pods --namespace kube-system` 명령을 사용하여 `tunnelfront` 또는 `aks-link` Pod가 *kube-system* 네임스페이스에서 실행되고 있는지 확인합니다. 실행되지 않으면 pod를 강제로 삭제합니다. 그러면 다시 시작됩니다.
 
-## <a name="im-getting-tls-client-offered-only-unsupported-versions-from-my-client-when-connecting-to-aks-api-what-should-i-do"></a>`"tls: client offered only unsupported versions"`AKS API에 연결할 때 내 클라이언트에서 가져옵니다.   어떻게 해야 합니까?
+## <a name="im-getting-tls-client-offered-only-unsupported-versions-from-my-client-when-connecting-to-aks-api-what-should-i-do"></a>`"tls: client offered only unsupported versions"`AKS API에 연결할 때 내 클라이언트에서 가져옵니다. 어떻게 해야 합니까?
 
 AKS에서 지원 되는 최소 TLS 버전은 TLS 1.2입니다.
 
@@ -180,13 +171,13 @@ AKS 클러스터를 만드는 경우 사용자를 대신하여 리소스를 만�
 * 자동화 스크립트를 사용하는 경우 서비스 주체 만들기와 AKS 클러스터 만들기 사이의 시간 지연을 추가합니다.
 * Azure Portal을 사용하는 경우 만드는 중에 클러스터 설정으로 돌아가서 몇 분 후에 유효성 검사 페이지를 다시 시도합니다.
 
-## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>`"AADSTS7000215: Invalid client secret is provided."`AKS API를 사용 하는 경우   어떻게 해야 합니까?
+## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>`"AADSTS7000215: Invalid client secret is provided."`AKS API를 사용 하는 경우 어떻게 해야 합니까?
 
-이는 일반적으로 서비스 주체 자격 증명이 만료 되었기 때문에 발생 합니다. [AKS 클러스터에 대 한 자격 증명을 업데이트 합니다.](update-credentials.md)
+이 문제는 서비스 주체 자격 증명이 만료 되었기 때문에 발생 합니다. [AKS 클러스터에 대 한 자격 증명을 업데이트 합니다.](update-credentials.md)
 
 ## <a name="i-cant-access-my-cluster-api-from-my-automationdev-machinetooling-when-using-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>API server 권한 있는 IP 범위를 사용 하는 경우 automation/dev 컴퓨터/도구에서 내 클러스터 API에 액세스할 수 없습니다. 이 문제를 어떻게 해결하나요?
 
-이렇게 `--api-server-authorized-ip-ranges` 하려면 사용 중인 자동화/개발/도구 시스템의 ip 또는 ip 범위를 포함 해야 합니다. [권한 있는 ip 주소 범위를 사용 하 여 API 서버에 대 한 보안 액세스](api-server-authorized-ip-ranges.md)에서 ' 내 IP를 찾는 방법 ' 섹션을 참조 하세요.
+이 문제를 해결 하려면 `--api-server-authorized-ip-ranges` 사용 중인 자동화/개발/도구 시스템의 ip 또는 ip 범위를 포함 해야 합니다. [권한 있는 ip 주소 범위를 사용 하 여 API 서버에 대 한 보안 액세스](api-server-authorized-ip-ranges.md)에서 ' 내 IP를 찾는 방법 ' 섹션을 참조 하세요.
 
 ## <a name="im-unable-to-view-resources-in-kubernetes-resource-viewer-in-azure-portal-for-my-cluster-configured-with-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>API server 권한 있는 IP 범위로 구성 된 클러스터에 대 한 Azure Portal의 Kubernetes 리소스 뷰어에서 리소스를 볼 수 없습니다. 이 문제를 어떻게 해결하나요?
 
@@ -208,58 +199,25 @@ Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The
 
 이러한 제한 오류는 [여기](../azure-resource-manager/management/request-limits-and-throttling.md) 와 [여기](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md) 에 자세히 설명 되어 있습니다.
 
-AKS 엔지니어링 팀은 많은 기능이 향상 된 버전의 1.18를 실행 하 고 있는지 확인 하는 것이 좋습니다. 자세한 내용은 [여기](https://github.com/Azure/AKS/issues/1413) 및 [여기](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247)에서 향상 된 기능을 참조 하세요.
+AKS 엔지니어링 팀의 권장 사항은 많은 향상 된 기능을 포함 하는 1.18 이상 버전을 실행 하 고 있는지 확인 하는 것입니다. 자세한 내용은 [여기](https://github.com/Azure/AKS/issues/1413) 및 [여기](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247)에서 향상 된 기능을 참조 하세요.
 
 이러한 제한 오류는 구독 수준에서 측정 되며 다음과 같은 경우에도 발생할 수 있습니다.
-- GET 요청을 수행 하는 타사 응용 프로그램 (예: 응용 프로그램을 모니터링 하는 등). 이러한 호출의 빈도를 줄이는 것이 좋습니다.
-- VMSS에는 많은 AKS 클러스터/nodepools 있습니다. 일반적인 권장 사항은 지정 된 구독에서 20-30 미만의 클러스터를 포함 하는 것입니다.
+- GET 요청을 수행 하는 타사 응용 프로그램 (예: 응용 프로그램 모니터링 등)이 있습니다. 이러한 호출의 빈도를 줄이는 것이 좋습니다.
+- Virtual machine scale sets를 사용 하는 다양 한 AKS 클러스터/노드 풀이 있습니다. 클러스터 수를 다른 구독으로 분할 해 보세요. 특히, 활성 클러스터 autoscaler 같이 매우 활성 상태 이거나 여러 클라이언트 (예: rancher, terraform 등)가 있는 경우입니다.
 
-## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>작업을 수행 하거나 사용 하지 않고 클러스터의 프로 비전 상태가 준비에서 실패로 변경 되었습니다.   어떻게 해야 합니까?
+## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>작업을 수행 하거나 사용 하지 않고 클러스터의 프로 비전 상태가 준비에서 실패로 변경 되었습니다. 어떻게 해야 합니까?
 
 작업을 수행 하지 않고 클러스터의 프로 비전 상태가 *준비* 에서 *실패* 로 변경 되 고 클러스터의 응용 프로그램이 계속 실행 되는 경우이 문제는 서비스에서 자동으로 해결할 수 있으며 응용 프로그램에 영향을 주지 않습니다.
 
 클러스터의 프로 비전 상태가 *실패* 로 유지 되거나 클러스터의 응용 프로그램이 작동을 중지 하는 경우 [지원 요청을 제출](https://azure.microsoft.com/support/options/#submit)합니다.
 
+## <a name="my-watch-is-stale-or-azure-ad-pod-identity-nmi-is-returning-status-500"></a>내 watch가 오래 되었거나 Azure AD Pod Id NMI가 상태 500을 반환 합니다.
+
+이 [예에서](limit-egress-traffic.md#restrict-egress-traffic-using-azure-firewall)와 같이 Azure 방화벽을 사용 하는 경우 응용 프로그램 규칙을 사용 하 여 방화벽을 통한 오랜 시간 TCP 연결에 현재 버그가 발생 하 여 (Q1CY21에서 해결 됨) 방화벽에서 이동이 종료 될 수 있으므로이 문제가 발생할 수 있습니다 `keepalives` . 이 문제가 해결 될 때까지 AKS API 서버 IP에 네트워크 규칙 (응용 프로그램 규칙 대신)을 추가 하 여 완화할 수 있습니다.
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Azure Storage 및 AKS 문제 해결
 
-### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-disk"></a>Azure 디스크용으로 추천되는 안정적인 Kubernetes 버전은 무엇인가요? 
-
-| Kubernetes 버전 | 추천 버전 |
-|--|:--:|
-| 1.12 | 1.12.9 이상 |
-| 1.13 | 1.13.6 이상 |
-| 1.14 | 1.14.2 이상 |
-
-
-### <a name="waitforattach-failed-for-azure-disk-parsing-devdiskazurescsi1lun1-invalid-syntax"></a>Azure 디스크에 대해 WaitForAttach가 실패했습니다.: "/dev/disk/azure/scsi1/lun1" 구문 분석 중: 구문이 잘못되었습니다.
-
-Kubernetes 버전 1.10에서 Azure 디스크를 다시 탑재하면 MountVolume.WaitForAttach가 실패할 수 있습니다.
-
-Linux의 경우 잘못된 DevicePath 형식 오류가 표시될 수 있습니다. 다음은 그 예입니다.
-
-```console
-MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
-  Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
-```
-
-Windows의 경우 잘못된 DevicePath(LUN) 번호 오류가 표시될 수 있습니다. 다음은 그 예입니다.
-
-```console
-Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
-1102-dynamic-pvc-6c526c51-4a18-11e8-ab5c-000d3af7b38e) lun:(4)
-```
-
-이 문제는 다음 Kubernetes 버전에서 해결되었습니다.
-
-| Kubernetes 버전 | 수정 버전 |
-|--|:--:|
-| 1.10 | 1.10.2 이상 |
-| 1.11 | 1.11.0 이상 |
-| 1.12 이상 | 해당 없음 |
-
-
-### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>mountOptions에서 Azure 디스크에 대한 uid 및 gid를 설정할 때 오류가 발생했습니다.
+### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>`GID`Azure 디스크에 대해 uid와 mountOptions를 설정 하는 동안 오류가 발생 했습니다.
 
 Azure 디스크는 기본적으로 ext4,xfs 파일 시스템을 사용하며, 탑재 시 mountOptions(예: uid=x,gid=x)를 설정할 수 없습니다. 예를 들어 mountOptions uid=999,gid=999를 설정하려고 하면 다음과 같은 오류가 표시됩니다.
 
@@ -290,7 +248,7 @@ spec:
   >[!NOTE]
   > 이는 gid 및 uid를 기본적으로 root 또는 0으로 탑재하기 때문입니다. gid 또는 uid가 root가 아닌 값(예: 1000)으로 설정된 경우 Kubernetes는 `chown`을 사용하여 해당 디스크 아래의 모든 디렉터리와 파일을 변경합니다. 이 작업을 수행하는 데 시간이 오래 걸릴 수 있으며 디스크를 매우 느리게 탑재할 수 있습니다.
 
-* initContainers에서 `chown`을 사용하여 gid 및 uid를 설정합니다. 다음은 그 예입니다.
+* `chown`InitContainers에서를 사용 하 여 및를 설정 `GID` `UID` 합니다. 다음은 그 예입니다.
 
 ```yaml
 initContainers:
@@ -387,8 +345,8 @@ parameters:
 
 몇 가지 유용한 추가 *mountOptions* 설정은 다음과 같습니다.
 
-* *mfsymlinks* 는 Azure Files 탑재(cifs)에서 심볼 링크를 지원하도록 합니다.
-* *nobrl* 은 바이트 범위 잠금 요청을 서버에 보내지 않도록 방지합니다. 이 설정은 cifs 스타일 필수 바이트 범위 잠금으로 중단되는 특정 애플리케이션에 필요합니다. 대부분의 cifs 서버는 아직 추천 바이트 범위 잠금 요청을 지원하지 않습니다. *nobrl* 을 사용하지 않는 경우 cifs 스타일 필수 바이트 범위 잠금으로 중단되는 애플리케이션에서 다음과 비슷한 오류 메시지가 발생할 수 있습니다.
+* `mfsymlinks` cifs (Azure Files mount)에서 기호화 된 링크를 지원 하는지 확인 합니다.
+* `nobrl` 는 바이트 범위 잠금 요청을 서버로 보내지 못하게 합니다. 이 설정은 cifs 스타일 필수 바이트 범위 잠금으로 중단되는 특정 애플리케이션에 필요합니다. 대부분의 cifs 서버는 아직 추천 바이트 범위 잠금 요청을 지원하지 않습니다. *nobrl* 을 사용하지 않는 경우 cifs 스타일 필수 바이트 범위 잠금으로 중단되는 애플리케이션에서 다음과 비슷한 오류 메시지가 발생할 수 있습니다.
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -404,7 +362,7 @@ fixing permissions on existing directory /var/lib/postgresql/data
 
 이 오류는 cifs/SMB 프로토콜을 사용하는 Azure Files 플러그 인으로 인해 발생합니다. cifs/SMB 프로토콜을 사용하는 경우 탑재 후에 파일 및 디렉터리 권한을 변경할 수 없습니다.
 
-이 문제를 해결하려면 *subPath* 를 Azure 디스크 플러그 인과 함께 사용합니다. 
+이 문제를 해결 하려면 `subPath` Azure Disk plugin과 함께를 사용 합니다. 
 
 > [!NOTE] 
 > ext3/4 디스크 유형의 경우 디스크를 포맷한 후에 lost+found 디렉터리가 있습니다.
@@ -474,7 +432,7 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 
 이 오류는 업스트림 클러스터 자동 크기 조정기 경합 상태로 인해 발생합니다. 이러한 경우 클러스터 자동 크기 조정기는 실제로 클러스터에 있는 값과 다른 값으로 끝납니다. 이 상태를 벗어나려면 [클러스터 자동 크기 조정기][cluster-autoscaler]를 사용하지 않도록 설정했다가 다시 사용하도록 설정합니다.
 
-### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>디스크 연결이 느립니다. GetAzureDiskLun에 10-15분 정도 걸리고 오류가 발생합니다.
+### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>디스크 첨부 속도가 느려서 `GetAzureDiskLun` 10 ~ 15 분 정도 걸리며 오류가 발생 합니다.
 
 **1.15.0 이전** 의 Kubernetes 버전에서 **WaitForAttach에서 디스크에 대한 LUN을 찾을 수 없음 오류** 와 같은 오류가 발생할 수 있습니다.  이 문제를 해결하려면 약 15분 정도 기다렸다가 다시 시도합니다.
 
@@ -483,13 +441,13 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 
 Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) 를 기준으로 [kubernetes.io 접두사를 사용 하 여 정의 된 레이블의 하위 집합만](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) 노드에 적용할 수 있습니다. AKS는 영향을 받는 작업에 가동 중지 시간이 발생할 수 있으므로 동의 없이 사용자를 대신 하 여 활성 레이블을 제거할 수 없습니다.
 
-따라서이를 완화 하기 위해 다음 작업을 수행할 수 있습니다.
+따라서이 문제를 완화 하기 위해 다음 작업을 수행할 수 있습니다.
 
 1. 클러스터 제어 평면을 1.16 이상으로 업그레이드
 2. 지원 되지 않는 kubernetes.io 레이블이 없으면 1.16 이상에서 새 nodepoool를 추가 합니다.
-3. 이전 nodepool 삭제
+3. 이전 노드 풀 삭제
 
-AKS는이 완화를 개선 하기 위해 nodepool에서 활성 레이블을 변경할 수 있는 기능을 조사 하 고 있습니다.
+AKS는이 완화를 개선 하기 위해 노드 풀에서 활성 레이블을 변경할 수 있는 기능을 조사 하 고 있습니다.
 
 
 

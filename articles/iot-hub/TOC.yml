@@ -167,6 +167,12 @@
           href: iot-hub-devguide-sdks.md
         - name: MQTT 지원
           href: iot-hub-mqtt-support.md
+        - name: MQTT 5 지원(미리 보기)
+          items:
+            - name: MQTT 5 개요
+              href: iot-hub-mqtt-5.md
+            - name: MQTT 5 API 참조
+              href: iot-hub-mqtt-5-reference.md
         - name: AMQP 지원
           href: iot-hub-amqp-support.md
         - name: 용어

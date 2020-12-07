@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 8573e45270dfd1ff984eae3dc5fbf1dc5f2fc6da
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504393"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600866"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Azure VM의 SQL Server에 대한 Always On 가용성 그룹
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,7 +39,9 @@ Azure Virtual Machines의 Always On 가용성 그룹은 [온-프레미스의 Alw
 
 중복성 및 고가용성을 강화하려면 SQL Server VM이 동일한 [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) 또는 다른 [가용성 영역](../../../availability-zones/az-overview.md)에 있어야 합니다.
 
-가용성 집합은 동일한 가용성 영역에 두 개의 하위 영역이 없도록 구성된 리소스의 그룹입니다. 이렇게 하면 배포를 롤아웃하는 중에 그룹의 여러 리소스에 영향을 주지 않습니다. 
+동일한 가용성 집합에 VM 세트를 배치하면 장비 장애(가용성 집합 내의 VM은 리소스를 공유하지 않음)로 인한 데이터 센터 내의 운영 중단이나 업데이트(가용성 집합 내의 VM은 동시에 업데이트되지 않음)로부터 보호됩니다. 가용성 영역은 영역 내의 데이터 센터 세트를 나타내는 각 영역으로 전체 데이터 센터의 장애로부터 보호합니다.  리소스를 서로 다른 가용성 영역에 배치하면 데이터 센터 수준의 운영 중단으로 인해 모든 VM이 오프라인 상태가 되지는 않습니다.
+
+Azure VM을 만들 때는 가용성 집합과 가용성 영역 중 하나를 선택하여 구성해야 합니다.  한 Azure VM이 두 가지 모두에 있을 수 없습니다.
 
 
 ## <a name="connectivity"></a>연결 
@@ -81,7 +83,7 @@ DNN 수신기를 사용하여 기존 VNN 수신기를 대체하거나, 두 개�
 |**Windows Server 버전**| 2016 이상 | 2016 이상 | 2016 이상 | 모두|
 |**사용자에 대한 클러스터 만들기**|예|예 | 예 |아니요|
 |**사용자에 대한 가용성 그룹 만들기** |예 |아니요|아니요|예|
-|**독립적으로 수신기 및 부하 분산 장치 만들기** |아니요|아니요|예|예|
+|**독립적으로 수신기 및 부하 분산 장치 만들기** |예|아니요|아니요|예|
 |**이 메서드를 사용하여 DNN 수신기를 만들 수 있는지 여부**|아니요|아니요|아니요|예|
 |**WSFC 쿼럼 구성**|클라우드 감시|클라우드 감시|클라우드 감시|모두|
 |**여러 지역이 포함된 DR** |아니요|아니요|아니요|예|

@@ -5,15 +5,15 @@ description: 이 문서에서는 Application Gateway의 WAF(웹 애플리케이�
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/16/2020
+ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: f15a739904c28361a60210a0cc4606c7048d0f53
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 36f04b02774a01814811ea131388629de27e9f07
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518977"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621028"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Azure Application Gateway의 Azure 웹 애플리케이션 방화벽이란?
 
@@ -143,7 +143,7 @@ OWASP는 트래픽 차단 여부를 결정하는 기존 모드와 변칙 채점 
 변칙 점수가 트래픽을 차단하는 임계값은 5입니다. 따라서 *중요* 규칙 일치 항목이 하나만 있어도 Application Gateway WAF가 방지 모드에서도 요청을 차단합니다. 하지만 *경고* 규칙 일치 항목이 하나 있으면 변칙 점수가 3 증가하므로 트래픽을 차단하기에는 점수가 부족합니다.
 
 > [!NOTE]
-> WAF 규칙이 트래픽과 일치할 때 기록되는 메시지에는 "차단됨" 작업 값이 포함됩니다. 그러나 실제로 트래픽은 변칙 점수가 5 이상인 경우에만 차단됩니다.  
+> WAF 규칙이 트래픽과 일치할 때 기록되는 메시지에는 "차단됨" 작업 값이 포함됩니다. 그러나 실제로 트래픽은 변칙 점수가 5 이상인 경우에만 차단됩니다. 자세한 내용은 [Azure Application Gateway용 WAF(Web Application Firewall) 문제 해결](web-application-firewall-troubleshoot.md#understanding-waf-logs)을 참조하세요. 
 
 ### <a name="waf-monitoring"></a>WAF 모니터링
 

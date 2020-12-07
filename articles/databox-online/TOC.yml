@@ -1,5 +1,5 @@
-- name: Azure Stack Edge Pro 및 Data Box Gateway 설명서
-  href: ./index.yml
+- name: Azure Stack Edge Pro 설명서
+  href: /azure/databox-online/
   expanded: true
 - name: Azure Stack Edge Pro - GPU
   items:
@@ -265,7 +265,7 @@
               href: azure-stack-edge-gpu-prepare-device-failure.md
             - name: 디바이스 오류 복구
               href: azure-stack-edge-gpu-recover-device-failure.md
-        - name: Monitor
+        - name: 모니터
           items:
             - name: 메트릭 차트 사용
               href: azure-stack-edge-monitor.md
@@ -372,15 +372,15 @@
     - name: 릴리스 정보
       items:
         - name: 2007 - 현재
-          href: data-box-gateway-2007-release-notes.md
+          href: ../databox-gateway/data-box-gateway-2007-release-notes.md
         - name: 1911
-          href: data-box-gateway-1911-release-notes.md
+          href: ../databox-gateway/data-box-gateway-1911-release-notes.md
         - name: 1906
-          href: data-box-gateway-1906-release-notes.md
+          href: ../databox-gateway/data-box-gateway-1906-release-notes.md
         - name: 1905
-          href: data-box-gateway-1905-release-notes.md
+          href: ../databox-gateway/data-box-gateway-1905-release-notes.md
         - name: GA(일반 공급)
-          href: data-box-gateway-release-notes.md
+          href: ../databox-gateway/data-box-gateway-release-notes.md
     - name: 참조
       items:
         - name: Azure PowerShell
@@ -389,68 +389,6 @@
           href: /rest/api/databoxedgegateway
         - name: .NET SDK
           href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
-- name: Data Box Gateway
-  items:
-    - name: 개요
-      items:
-        - name: Data Box Gateway란?
-          href: data-box-gateway-overview.md
-    - name: 자습서
-      items:
-        - name: 1 - 준비
-          href: data-box-gateway-deploy-prep.md
-        - name: 2A - Hyper-V에서 프로비전
-          href: data-box-gateway-deploy-provision-hyperv.md
-        - name: 2B - VMware에서 프로비전
-          href: data-box-gateway-deploy-provision-vmware.md
-        - name: '3 - 연결, 설정, 활성화'
-          href: data-box-gateway-deploy-connect-setup-activate.md
-        - name: '4 - 추가, 공유에 연결'
-          href: data-box-gateway-deploy-add-shares.md
-    - name: 개념
-      items:
-        - name: 요구 사항 검토
-          href: data-box-gateway-system-requirements.md
-        - name: 제한 이해
-          href: data-box-gateway-limits.md
-        - name: 보안 개요
-          href: data-box-gateway-security.md
-        - name: 사용 사례 보기
-          href: data-box-gateway-use-cases.md
-    - name: 방법
-      items:
-        - name: 업데이트
-          href: data-box-gateway-apply-updates.md
-        - name: 관리
-          items:
-            - name: 공유
-              href: data-box-gateway-manage-shares.md
-            - name: 사용자
-              href: data-box-gateway-manage-users.md
-            - name: 대역폭 일정
-              href: data-box-gateway-manage-bandwidth-schedules.md
-            - name: '액세스, 전원, 연결'
-              href: data-box-gateway-manage-access-power-connectivity-mode.md
-            - name: PowerShell을 통해
-              href: data-box-gateway-connect-powershell-interface.md
-        - name: 모니터
-          href: data-box-gateway-monitor.md
-        - name: 문제 해결
-          href: data-box-gateway-troubleshoot.md
-        - name: Microsoft 지원에 문의
-          href: azure-stack-edge-contact-microsoft-support.md
-    - name: 릴리스 정보
-      items:
-        - name: 2007 - 현재
-          href: data-box-gateway-2007-release-notes.md
-        - name: 1911
-          href: data-box-gateway-1911-release-notes.md
-        - name: 1906
-          href: data-box-gateway-1906-release-notes.md
-        - name: 1905
-          href: data-box-gateway-1905-release-notes.md
-        - name: GA(일반 공급)
-          href: data-box-gateway-release-notes.md
 - name: 리소스
   items:
     - name: Azure Stack Edge Pro C# 모듈 샘플(.NET)

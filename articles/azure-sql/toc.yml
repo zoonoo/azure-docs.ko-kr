@@ -69,7 +69,7 @@
                   href: database/sql-vulnerability-assessment.md
                 - name: 취약성 평가 규칙
                   href: database/sql-database-vulnerability-assessment-rules.md
-                - name: 스토리지에 취약성 검색 저장
+                - name: 스토리지에 취약성 검사 저장
                   href: database/sql-database-vulnerability-assessment-storage.md
             - name: '로그인, 사용자 계정, 역할 및 사용 권한'
               href: database/logins-create-manage.md
@@ -1055,6 +1055,8 @@
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: 스토리지를 UltraSSD로 마이그레이션
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
+                - name: SQL 취약성 평가 사용
+                  href: virtual-machines/windows/sql-vulnerability-assessment-enable.md
                 - name: SQL IaaS 에이전트 확장 설치
                   displayName: 'resource provider, registration, sql vm rp'
                   items:
@@ -1094,7 +1096,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: 수동으로 구성
                           items:
-                            - name: 사전 요구 사항
+                            - name: 필수 구성 요소
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: 자습서
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

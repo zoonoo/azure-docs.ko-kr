@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate의 마이그레이션 도구 추가
 description: Azure Migrate에서 마이그레이션 도구를 추가 하는 방법에 대해 알아봅니다.
-ms.topic: article
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 5ff5fb54e077896fb6169ad53ce29483cd2c2f89
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 97051e97ec9868f6941b579241e16e62fdd2162b
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545337"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751787"
 ---
 # <a name="add-migration-tools"></a>마이그레이션 도구 추가
 

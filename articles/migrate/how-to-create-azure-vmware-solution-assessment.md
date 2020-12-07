@@ -2,16 +2,16 @@
 title: Azure Migrate Server 평가를 사용 하 여 AVS 평가 만들기 | Microsoft Docs
 description: Azure Migrate Server 평가 도구를 사용 하 여 AVS 평가를 만드는 방법을 설명 합니다.
 author: rashi-ms
-ms.service: azure-migrate
-ms.topic: article
-ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: f9fdff54cbd795c6aeda1708dcae8d00022a6a43
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.manager: abhemraj
+ms.topic: how-to
+ms.date: 06/26/2020
+ms.openlocfilehash: 93d17ec2a4fb5c191ce02c73a7a3532e9c854b00
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483507"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752076"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Azure VMware 솔루션 (AVS) 평가 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "96483507"
 
 - Azure Migrate 프로젝트를 [만들었는지](./create-manage-projects.md) 확인 합니다.
 - 프로젝트를 이미 만든 경우 Azure Migrate: 서버 평가 도구를 [추가](how-to-assess.md) 했는지 확인 합니다.
-- 평가를 만들려면 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 전송 하는 [VMware](how-to-set-up-appliance-vmware.md)에 대 한 Azure Migrate 어플라이언스를 설정 해야 합니다. [자세히 알아보기](migrate-appliance.md).
+- 평가를 만들려면 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 전송 하는 [VMware](how-to-set-up-appliance-vmware.md)에 대 한 Azure Migrate 어플라이언스를 설정 해야 합니다. [자세히 알아봅니다](migrate-appliance.md).
 - 쉼표로 구분 된 값 (CSV) 형식으로 [서버 메타 데이터를 가져올](./tutorial-discover-import.md) 수도 있습니다.
 
 

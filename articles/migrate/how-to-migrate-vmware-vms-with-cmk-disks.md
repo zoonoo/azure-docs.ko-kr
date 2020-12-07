@@ -1,18 +1,17 @@
 ---
 title: Azure Migrate Server 마이그레이션을 사용 하 여 SSE (서버 쪽 암호화) 및 CMK (고객 관리 키)를 사용 하 여 VMware 가상 머신을 Azure로 마이그레이션
 description: Azure Migrate Server 마이그레이션을 사용 하 여 SSE (서버 쪽 암호화) 및 CMK (고객 관리 키)를 사용 하 여 VMware Vm을 Azure로 마이그레이션하는 방법에 대해 알아봅니다.
-author: bsiva
-ms.service: azure-migrate
-ms.manager: carmonm
-ms.topic: article
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 03/12/2020
-ms.author: raynew
-ms.openlocfilehash: 89b795011460ee2803d07d14b9c2abe9c8ffca55
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8a174c3b2bfb390eb7d691ae1bdcb0e28dde9032
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483354"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751090"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>서버 쪽 암호화 및 고객이 관리 하는 키를 사용 하 여 VMware Vm을 Azure Vm으로 마이그레이션
 
@@ -24,7 +23,7 @@ Azure Migrate Server 마이그레이션 포털 환경을 사용 하 여 [에이�
 
 관리 디스크에 대 한 CMK (고객 관리 키)를 사용 하는 SSE (서버 쪽 암호화)에 [대해 자세히 알아보세요](../virtual-machines/disk-encryption.md) .
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - 도구 요구 사항을 이해 하려면 에이전트 없는 복제를 사용 하 여 VMware Vm을 Azure로 마이그레이션하는 방법에 대 한 [자습서를 검토 합니다](tutorial-migrate-vmware.md) .
 - [다음 지침에 따라](./create-manage-projects.md) Azure Migrate 프로젝트를 만들고 **Azure Migrate: 서버 마이그레이션** 도구를 프로젝트에 추가 합니다.

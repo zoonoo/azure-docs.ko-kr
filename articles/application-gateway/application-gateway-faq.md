@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dc262e133f6e91271d7e9848bdca9d3a6062fc66
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95975652"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751719"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대한 질문과 대답입니다.
 
@@ -466,12 +466,9 @@ Application Gateway 액세스 로그에 널리 사용되는 [GoAccess](https://g
 
 일반적으로 애플리케이션 게이트웨이 서브넷에서 NSG(네트워크 보안 그룹), 사용자 지정 DNS 또는 UDR(사용자 정의 라우팅)에 의해 백 엔드 액세스가 차단되는 경우에 알 수 없음 상태로 표시됩니다. 자세한 내용은 [Application Gateway에 대한 백 엔드 상태, 진단 로깅 및 메트릭](application-gateway-diagnostics.md)을 참조하세요.
 
-### <a name="is-there-any-case-where-nsg-flow-logs-wont-show-allowed-traffic"></a>NSG 흐름 로그에 허용된 트래픽이 표시되지 않는 경우가 있나요?
+### <a name="are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet"></a>Application Gateway v2 서브넷에 연결 된 Nsg에서 NSG 흐름 로그가 지원 되나요?
 
-예. 구성이 다음 시나리오와 일치하는 경우 NSG 흐름 로그에 허용된 트래픽이 표시되지 않습니다.
-- Application Gateway v2를 배포했습니다.
-- 애플리케이션 게이트웨이 서브넷에 NSG가 있습니다.
-- 이 NSG에서 NSG 흐름 로그를 사용하도록 설정했습니다.
+현재 플랫폼 제한으로 인해 Application Gateway v2 (Standard_v2, WAF_v2) 서브넷에 NSG가 있고이 서브넷에 NSG 흐름 로그를 사용 하도록 설정한 경우 비결 정적 동작이 표시 되며이 시나리오는 현재 지원 되지 않습니다.
 
 ### <a name="does-application-gateway-store-customer-data"></a>고객 데이터를 저장 Application Gateway 합니까?
 

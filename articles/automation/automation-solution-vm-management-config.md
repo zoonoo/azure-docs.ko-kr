@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3fdb3b2b23d07b79a8e9979450bee653d646196c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 552cac01cd492229a19bdbc297665eb7d3ccb401
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182804"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751294"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>작업 시간 외 VM 시작/중지 구성
 
@@ -48,7 +48,7 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 
 2. **Vmlist** 매개 변수 필드에 쉼표로 구분 된 vm 목록 (공백 없음)을 추가 합니다. 예제 목록은 `vm1,vm2,vm3` 입니다.
 
-3. **WHATIF** 매개 변수 필드를 True로 설정 합니다.
+3. **WHATIF** 매개 변수 필드를 True로 설정 하 여 변경 내용을 미리 봅니다.
 
 4. 쉼표로 `External_ExcludeVMNames` 구분 된 값 사이에 공백이 없는 쉼표로 구분 된 vm 목록 (VM1, v m 2, v m 3)으로 변수를 구성 합니다.
 
@@ -79,7 +79,7 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 
 3. **Vmlist** 매개 변수 필드에 쉼표로 구분 된 vm 목록 (공백 없음)을 추가 합니다. 예제 목록은 `vm1,vm2,vm3` 입니다.
 
-4. **WHATIF** 를 True로 설정 합니다. 
+4. **WHATIF** 를 True로 설정 하 여 변경 내용을 미리 봅니다. 
 
 5. 쉼표로 `External_ExcludeVMNames` 구분 된 값 사이에 공백이 없는 쉼표로 구분 된 vm 목록으로 변수를 구성 합니다.
 

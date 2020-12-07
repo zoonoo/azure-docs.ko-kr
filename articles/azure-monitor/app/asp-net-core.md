@@ -4,12 +4,12 @@ description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 825cd451120f06597922c142dfc6bf8c10f5c700
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 404e820168c64bd47b6e94598ad5bb13faf32a86
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875124"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751345"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -31,7 +31,7 @@ ms.locfileid: "91875124"
 > [!NOTE]
 > ASP.NET Core 3.x에는 [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) 이상이 필요 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - 작동 하는 ASP.NET Core 응용 프로그램입니다. ASP.NET Core 응용 프로그램을 만들어야 하는 경우이 [ASP.NET Core 자습서](/aspnet/core/getting-started/)를 따르세요.
 - 유효한 Application Insights 계측 키입니다. Application Insights에 원격 분석을 보내려면이 키가 필요 합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](./create-new-resource.md)를 참조 하세요.
@@ -40,22 +40,22 @@ ms.locfileid: "91875124"
 
 Mac용 Visual Studio [수동 지침](#enable-application-insights-server-side-telemetry-no-visual-studio)을 사용 합니다. Windows 버전의 Visual Studio 에서만이 프로시저를 지원 합니다.
 
-1. Visual Studio에서 프로젝트를 엽니다.
+1. Visual Studio에서 새 프로젝트를 엽니다.
 
     > [!TIP]
-    > 원할 경우 프로젝트에 대 한 소스 제어를 설정 하 여 Application Insights에서 수행 하는 모든 변경 내용을 추적할 수 있습니다. 소스 제어를 사용 하도록 설정 하려면 **파일**  >  **원본 제어에 추가**를 선택 합니다.
+    > 원할 경우 프로젝트에 대 한 소스 제어를 설정 하 여 Application Insights에서 수행 하는 모든 변경 내용을 추적할 수 있습니다. 소스 제어를 사용 하도록 설정 하려면 **파일**  >  **원본 제어에 추가** 를 선택 합니다.
 
-2. **프로젝트**  >  **Application Insights 원격 분석 추가**를 선택 합니다.
+2. **프로젝트**  >  **Application Insights 원격 분석 추가** 를 선택 합니다.
 
-3. **시작**을 선택합니다. 이 선택의 텍스트는 사용자의 Visual Studio 버전에 따라 다를 수 있습니다. 일부 이전 버전에서는 대신 **시작** 사용 단추를 사용 합니다.
+3. **시작** 을 선택합니다. 이 선택의 텍스트는 사용자의 Visual Studio 버전에 따라 다를 수 있습니다. 일부 이전 버전에서는 대신 **시작** 사용 단추를 사용 합니다.
 
-4. 구독을 선택합니다. 그런 다음 **리소스**  >  **레지스터**를 선택 합니다.
+4. 구독을 선택합니다. 그런 다음 **리소스**  >  **레지스터** 를 선택 합니다.
 
-5. 프로젝트에 Application Insights를 추가한 후 최신 안정적인 SDK 릴리스를 사용 하 고 있는지 확인 합니다. **Project**  >  **NuGet 패키지 관리**  >  **AspNetCore**로 이동 합니다. 필요한 경우 **업데이트**를 선택 합니다.
+5. 프로젝트에 Application Insights를 추가한 후 최신 안정적인 SDK 릴리스를 사용 하 고 있는지 확인 합니다. **Project**  >  **NuGet 패키지 관리**  >  **AspNetCore** 로 이동 합니다. 필요한 경우 **업데이트** 를 선택 합니다.
 
      ![업데이트할 Application Insights 패키지를 선택할 수 있는 위치를 보여 주는 스크린샷](./media/asp-net-core/update-nuget-package.png)
 
-6. 선택적 팁을 따르고 프로젝트를 소스 제어에 추가한 경우 **View**  >  **팀 탐색기**  >  **변경 내용**보기로 이동 합니다. 그런 다음 각 파일을 선택 하 Application Insights 원격 분석에서 변경한 내용에 대 한 차이 보기를 확인 합니다.
+6. 선택적 팁을 따르고 프로젝트를 소스 제어에 추가한 경우 **View**  >  **팀 탐색기**  >  **변경 내용** 보기로 이동 합니다. 그런 다음 각 파일을 선택 하 Application Insights 원격 분석에서 변경한 내용에 대 한 차이 보기를 확인 합니다.
 
 ## <a name="enable-application-insights-server-side-telemetry-no-visual-studio"></a>서버 쪽 원격 분석 Application Insights 사용 (Visual Studio 없음)
 
@@ -106,7 +106,7 @@ Mac용 Visual Studio [수동 지침](#enable-application-insights-server-side-te
 
     * `ApplicationInsights:InstrumentationKey`
 
-    예를 들면 다음과 같습니다.
+    다음은 그 예입니다. 
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -121,7 +121,7 @@ Mac용 Visual Studio [수동 지침](#enable-application-insights-server-side-te
 
 ### <a name="user-secrets-and-other-configuration-providers"></a>사용자 암호 및 기타 구성 공급자
 
-계측 키를 ASP.NET Core 사용자 암호에 저장 하거나 다른 구성 공급자에서 검색 하려면 매개 변수와 함께 오버 로드를 사용할 수 있습니다 `Microsoft.Extensions.Configuration.IConfiguration` . 예들 들어 `services.AddApplicationInsightsTelemetry(Configuration);`입니다.
+계측 키를 ASP.NET Core 사용자 암호에 저장 하거나 다른 구성 공급자에서 검색 하려면 매개 변수와 함께 오버 로드를 사용할 수 있습니다 `Microsoft.Extensions.Configuration.IConfiguration` . 예: `services.AddApplicationInsightsTelemetry(Configuration);`.
 AspNetCore 버전 [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)부터를 호출 하면 `services.AddApplicationInsightsTelemetry()` 응용 프로그램에서 계측 키가 자동으로 읽힙니다 `Microsoft.Extensions.Configuration.IConfiguration` . 를 명시적으로 제공할 필요는 없습니다 `IConfiguration` .
 
 ## <a name="run-your-application"></a>애플리케이션 실행
@@ -261,6 +261,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+> [!NOTE]
+> `services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` 단순 이니셜라이저에 대해 작동 합니다. 다른 경우에는 다음이 필요 합니다. `services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });`
+    
 ### <a name="removing-telemetryinitializers"></a>TelemetryInitializers 제거
 
 원격 분석 이니셜라이저는 기본적으로 제공 됩니다. 모든 또는 특정 원격 분석 이니셜라이저를 제거 하려면를 호출한 *후* 다음 샘플 코드를 사용 `AddApplicationInsightsTelemetry()` 합니다.
@@ -387,7 +390,7 @@ using Microsoft.ApplicationInsights.Channel;
 
 위의 경우 자동 수집 모듈이 원격 분석을 수집 하는 것을 방지할 수 없습니다. Application Insights에 대 한 원격 분석 보내기가 위의 방법으로 사용 하지 않도록 설정 됩니다. 특정 자동 수집 모듈을 원하지 않는 경우 [원격 분석 모듈을 제거](#configuring-or-removing-default-telemetrymodules) 하는 것이 좋습니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="does-application-insights-support-aspnet-core-3x"></a>는 ASP.NET Core 3(sp3)을 지원 Application Insights?
 

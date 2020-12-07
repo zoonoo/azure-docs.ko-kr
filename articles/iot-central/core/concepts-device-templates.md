@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: e82a377d62184c8ae1d2e8f076b228e36005887a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1a352849cb5bb8563a7e09500f081139a24e97ea
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992678"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750699"
 ---
 # <a name="what-are-device-templates"></a>디바이스 템플릿이란?
 
@@ -225,7 +225,7 @@ DTDL을 사용 하면 장치의 기능을 설명할 수 있습니다. 관련 기
 
 - `@type` 기능 유형을 지정 하려면, `Telemetry` `Property` 또는 `Command` 입니다.  일부 경우에는 IoT Central에서 값을 처리 하는 방법에 대 한 몇 가지 가정을 수행할 수 있도록 의미 체계 형식이 포함 되어 있습니다.
 - `name` 원격 분석 값의 경우
-- `schema` 원격 분석 또는 속성의 데이터 형식을 지정 합니다. 이 값은 double, integer, boolean 또는 string과 같은 기본 형식일 수 있습니다. 복합 개체 형식, 배열 및 맵도 지원 됩니다.
+- `schema` 원격 분석 또는 속성의 데이터 형식을 지정 합니다. 이 값은 double, integer, boolean 또는 string과 같은 기본 형식일 수 있습니다. 복합 개체 형식 및 맵도 지원 됩니다.
 
 표시 이름, 설명 등의 선택적 필드를 사용 하면 인터페이스 및 기능에 더 많은 세부 정보를 추가할 수 있습니다.
 

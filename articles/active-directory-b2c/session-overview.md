@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0004c874a2011a78bb5cfe67ff0a840224d47bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e02323df3a12c4a74de1fb62b36762fc739e9e5
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258968"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750444"
 ---
 # <a name="azure-ad-b2c-session"></a>Azure AD B2C 세션
 
@@ -47,7 +47,7 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함 됩니
 
 소셜 또는 엔터프라이즈 id 공급자는 자체 세션을 관리 합니다. 쿠키는 id 공급자의 도메인 이름 (예:)으로 저장 됩니다 `https://login.salesforce.com` . Azure AD B2C 페더레이션된 id 공급자 세션을 제어 하지 않습니다. 대신, 세션 동작은 페더레이션된 id 공급자에 의해 결정 됩니다. 
 
-다음과 같은 시나리오를 고려해 보세요.
+다음 시나리오를 고려하세요.
 
 1. 사용자가 Facebook에 로그인 하 여 피드를 확인 합니다.
 2. 나중에 사용자가 응용 프로그램을 열고 로그인 프로세스를 시작 합니다. 응용 프로그램은 Azure AD B2C 사용자를 리디렉션하여 로그인 프로세스를 완료 합니다.
@@ -96,8 +96,12 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함 됩니
 1. Azure AD B2C 쿠키 기반 세션을 무효화 합니다.
 1. 페더레이션된 id 공급자에서 로그 아웃 하려고 합니다.
    - Openid connect Connect-id 공급자의 잘 알려진 구성 끝점이 위치를 지정 하는 경우 `end_session_endpoint` 입니다.
-   - SAML-id 공급자 메타 데이터에 위치가 포함 된 경우 `SingleLogoutService`
+   - OAuth2- [id 공급자 메타 데이터](oauth2-technical-profile.md#metadata) 에 위치가 포함 된 경우 `end_session_endpoint`
+   - SAML- [id 공급자 메타 데이터](saml-identity-provider-technical-profile.md#metadata) 에 위치가 포함 된 경우 `SingleLogoutService`
 1. 필요에 따라 다른 응용 프로그램에서 로그 아웃 합니다. 자세한 내용은 [Single sign-on](#single-sign-out) 섹션을 참조 하세요.
+
+> [!NOTE]
+> [사용자 지정 정책을](custom-policy-overview.md)사용 하 여 id 공급자 기술 프로필 메타 데이터를로 설정 하 여 페더레이션 id 공급자에서 로그 아웃을 사용 하지 않도록 설정할 수 있습니다 `SingleLogoutEnabled` `false` .
 
 로그 아웃 하면 Azure AD B2C를 사용 하 여 사용자의 Single Sign-On 상태가 지워지므로 사용자의 소셜 id 공급자 세션에서 로그 아웃 하지 못할 수 있습니다. 사용자가 후속 로그인 중에 동일한 id 공급자를 선택 하는 경우 자격 증명을 입력 하지 않고 다시 인증할 수 있습니다. 사용자가 응용 프로그램에서 로그 아웃 하려는 경우 반드시 Facebook 계정에서 로그 아웃 하려는 것은 아닙니다. 그러나 로컬 계정을 사용 하는 경우 사용자의 세션이 제대로 종료 됩니다.
 

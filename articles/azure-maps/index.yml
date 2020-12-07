@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 0038fff540df95f6c6e24275eb39ef6bc1ecbe75
-  ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+  ms.openlocfilehash: 49de6739fe4d084bc119ffeaa0ffb3e8156f935b
+  ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/26/2020
-  ms.locfileid: "96186323"
+  ms.lasthandoff: 12/03/2020
+  ms.locfileid: "96546304"
 landingContent:
 - title: Azure Maps 정보
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
     links:
     - text: Azure Maps 소개
       url: https://sec.ch9.ms/ch9/d498/3d435d2c-ac85-421b-b3a7-5e0c7630d498/IoT_AzureMaps_high.mp4
-- title: 시작하기
+- title: 시작
   linkLists:
   - linkListType: quickstart
     links:
@@ -172,6 +172,16 @@ landingContent:
       url: /rest/api/maps/traffic
     - text: Time Zones Service
       url: /rest/api/maps/timezone
+- title: 권한 상승 서비스를 사용하여 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 권한 상승 데이터를 검색하고 사용하는 방법
+      url: how-to-request-elevation-data.md
+  - linkListType: reference
+    links:
+    - text: 권한 상승 서비스
+      url: /rest/api/maps/elevation/
 - title: Spatial Analytics
   linkLists:
   - linkListType: concept

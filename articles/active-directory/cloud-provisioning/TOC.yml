@@ -52,6 +52,8 @@
       items:
         - name: 변환
           href: how-to-transformation.md
+        - name: MS Graph API와의 인바운드 동기화
+          href: how-to-inbound-synch-ms-graph.md
         - name: Azure AD 동기화 API
           href: /graph/api/resources/synchronization-overview
     - name: 문제 해결

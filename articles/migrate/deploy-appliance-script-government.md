@@ -1,14 +1,17 @@
 ---
 title: Azure Government에서 Azure Migrate 어플라이언스 설정
 description: 에서 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다 Azure Government
-ms.topic: article
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1060bda13cc593980850bc6563555cf5dd4b7fd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f31211c4448ad5bbe8d839b2ec86b0b61970f568
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450033"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752195"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Azure Government에서 어플라이언스 설정 
 
@@ -19,7 +22,7 @@ ms.locfileid: "91450033"
 > 템플릿을 사용 하 여 어플라이언스를 배포 하는 옵션 (VMware Vm 및 Hyper-v Vm의 경우)은 Azure Government 지원 되지 않습니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 스크립트는 기존 물리적 컴퓨터 또는 VM에 Azure Migrate 어플라이언스를 설정 합니다.
 
@@ -33,9 +36,9 @@ VMware에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 zip 
 
 ### <a name="download-the-script"></a>스크립트 다운로드
 
-1.  **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가**에서 **검색**을 클릭합니다.
-2.  **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, VMware vSphere 하이퍼바이저 사용**을 선택합니다.
-3.  **다운로드**를 클릭 하 여 압축 된 파일을 다운로드 합니다. 
+1.  **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가** 에서 **검색** 을 클릭합니다.
+2.  **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, VMware vSphere 하이퍼바이저 사용** 을 선택합니다.
+3.  **다운로드** 를 클릭 하 여 압축 된 파일을 다운로드 합니다. 
 
 
 ### <a name="verify-file-security"></a>파일 보안 확인
@@ -71,12 +74,12 @@ VMware에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 zip 
 1. 어플라이언스를 호스트 하는 컴퓨터의 폴더에 압축 파일 압축을 풉니다. 기존 Azure Migrate 어플라이언스의 머신에서 스크립트를 실행하지 않아야 합니다.
 2. 관리자 권한 (관리자 권한)을 사용 하 여 컴퓨터에서 PowerShell을 시작 합니다.
 3. PowerShell 디렉터리를 다운로드 한 압축 파일에서 추출한 콘텐츠를 포함 하는 폴더로 변경 합니다.
-4. 다음과 같이 스크립트 **AzureMigrateInstaller.ps1**를 실행 합니다. 
+4. 다음과 같이 스크립트 **AzureMigrateInstaller.ps1** 를 실행 합니다. 
     
     ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>.\AzureMigrateInstaller.ps1 ```
 1. 스크립트가 성공적으로 실행 되 면 어플라이언스를 설정할 수 있도록 어플라이언스 웹 응용 프로그램을 시작 합니다. 문제가 발생 하는 경우 C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그를 검토 합니다.
 
-### <a name="verify-access"></a>액세스 권한 확인
+### <a name="verify-access"></a>액세스 확인
 
 어플라이언스를 사용 하 여 [정부 클라우드의](migrate-appliance.md#government-cloud-urls)Azure url에 연결할 수 있는지 확인 합니다.
 
@@ -87,9 +90,9 @@ Hyper-v에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 압
 
 ### <a name="download-the-script"></a>스크립트 다운로드
 
-1.  **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가**에서 **검색**을 클릭합니다.
-2.  **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, Hyper-V 사용**을 선택합니다.
-3.  **다운로드**를 클릭 하 여 압축 된 파일을 다운로드 합니다. 
+1.  **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가** 에서 **검색** 을 클릭합니다.
+2.  **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, Hyper-V 사용** 을 선택합니다.
+3.  **다운로드** 를 클릭 하 여 압축 된 파일을 다운로드 합니다. 
 
 
 ### <a name="verify-file-security"></a>파일 보안 확인
@@ -126,12 +129,12 @@ Hyper-v에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 압
 1. 어플라이언스를 호스트 하는 컴퓨터의 폴더에 압축 파일 압축을 풉니다. 기존 Azure Migrate 어플라이언스의 머신에서 스크립트를 실행하지 않아야 합니다.
 2. 관리자 권한 (관리자 권한)을 사용 하 여 컴퓨터에서 PowerShell을 시작 합니다.
 3. PowerShell 디렉터리를 다운로드 한 압축 파일에서 추출한 콘텐츠를 포함 하는 폴더로 변경 합니다.
-4. 다음과 같이 스크립트 **AzureMigrateInstaller.ps1**를 실행 합니다. 
+4. 다음과 같이 스크립트 **AzureMigrateInstaller.ps1** 를 실행 합니다. 
 
     ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>.\AzureMigrateInstaller.ps1 ``` 
 1. 스크립트가 성공적으로 실행 되 면 어플라이언스를 설정할 수 있도록 어플라이언스 웹 응용 프로그램을 시작 합니다. 문제가 발생 하는 경우 C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그를 검토 합니다.
 
-### <a name="verify-access"></a>액세스 권한 확인
+### <a name="verify-access"></a>액세스 확인
 
 어플라이언스를 사용 하 여 [정부 클라우드의](migrate-appliance.md#government-cloud-urls)Azure url에 연결할 수 있는지 확인 합니다.
 
@@ -142,9 +145,9 @@ VMware에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 zip 
 
 ### <a name="download-the-script"></a>스크립트 다운로드
 
-1.  **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가**에서 **검색**을 클릭합니다.
-2.  컴퓨터가 **Discover machines**  >  **가상화 되어 있습니까?** 에서 **가상화 되지 않음/기타**를 선택 합니다.
-3.  **다운로드**를 클릭 하 여 압축 된 파일을 다운로드 합니다. 
+1.  **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가** 에서 **검색** 을 클릭합니다.
+2.  컴퓨터가 **Discover machines**  >  **가상화 되어 있습니까?** 에서 **가상화 되지 않음/기타** 를 선택 합니다.
+3.  **다운로드** 를 클릭 하 여 압축 된 파일을 다운로드 합니다. 
 
 
 ### <a name="verify-file-security"></a>파일 보안 확인
@@ -158,7 +161,7 @@ VMware에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 zip 
 
 3. 최신 어플라이언스 버전 및 해시 값을 확인 합니다.
 
-    **시나리오** | **다운로드*** | **해시 값**
+    **시나리오** | **다운로드** _ | _ *해시 값**
     --- | --- | ---
     물리적(85MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140338) | cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
           
@@ -180,12 +183,12 @@ VMware에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 zip 
 1. 어플라이언스를 호스트 하는 컴퓨터의 폴더에 압축 파일 압축을 풉니다. 기존 Azure Migrate 어플라이언스의 머신에서 스크립트를 실행하지 않아야 합니다.
 2. 관리자 권한 (관리자 권한)을 사용 하 여 컴퓨터에서 PowerShell을 시작 합니다.
 3. PowerShell 디렉터리를 다운로드 한 압축 파일에서 추출한 콘텐츠를 포함 하는 폴더로 변경 합니다.
-4. 다음과 같이 스크립트 **AzureMigrateInstaller.ps1**를 실행 합니다. 
+4. 다음과 같이 스크립트 **AzureMigrateInstaller.ps1** 를 실행 합니다. 
 
     ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
 1. 스크립트가 성공적으로 실행 되 면 어플라이언스를 설정할 수 있도록 어플라이언스 웹 응용 프로그램을 시작 합니다. 문제가 발생 하는 경우 C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그를 검토 합니다.
 
-### <a name="verify-access"></a>액세스 권한 확인
+### <a name="verify-access"></a>액세스 확인
 
 어플라이언스를 사용 하 여 [정부 클라우드의](migrate-appliance.md#government-cloud-urls)Azure url에 연결할 수 있는지 확인 합니다.
 

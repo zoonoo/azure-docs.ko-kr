@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/20/2020
+ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 98c33d4b9e749e804f70d9dccb7198884c80dfe7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 85030285810433dc77d1f466d160c50d1f89770e
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952705"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750410"
 ---
 # <a name="user-profile-attributes"></a>사용자 프로필 특성
 
@@ -75,16 +75,22 @@ Azure AD(Azure Active Directory) B2C 디렉터리 사용자 프로필에는 이�
 |streetAddress   |String|사용자 사업장의 주소입니다. 최대 길이는 1024입니다.|예|예|지속형, 출력|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|사용자의 보조 전화 번호로, 다단계 인증에 사용됩니다.|예|예|지속형, 출력|
 |strongAuthenticationEmailAddress<sup>1</sup>|String|사용자의 SMTP 주소입니다. 예: “bob@contoso.com” 이 특성은 사용자 이름 정책에서 사용자 주소 메일을 저장하는 데 로그인에 사용됩니다. 메일 주소는 암호 재설정 흐름에서도 사용됩니다.|예|예|지속형, 출력|
-|strongAuthenticationPhoneNumber<sup>1</sup>|String|사용자의 기본 전화 번호로, 다단계 인증에 사용됩니다.|예|예|지속형, 출력|
+|strongAuthenticationPhoneNumber<sup>2</sup>|String|사용자의 기본 전화 번호로, 다단계 인증에 사용됩니다.|예|예|지속형, 출력|
 |surname         |String|사용자의 성입니다(이름 제외). 최대 길이는 64입니다.|예|예|지속형, 출력|
 |telephoneNumber(businessPhones의 첫 번째 항목)|String|사용자 사업장의 기본 전화 번호입니다.|예|예|지속형, 출력|
 |userPrincipalName    |String|사용자의 UPN(사용자 계정 이름)입니다. UPN은 인터넷 표준 RFC 822를 기반으로 하는 사용자의 인터넷 스타일 로그인 이름입니다. 도메인은 테넌트의 확인된 도메인 컬렉션에 있어야 합니다. 이 속성은 계정을 만들 때 필요합니다. 변경 불가|예|예|입력, 지속형, 출력|
 |usageLocation   |String|국가/지역의 서비스 가용성을 확인해야 하는 법적 요구 사항으로 인해 라이선스를 할당받을 사용자에게 필요합니다. Null을 허용하지 않습니다. 두 문자로 된 국가/지역 코드(ISO 표준 3166)입니다. 예제: “US”, “JP”, “GB”.|예|예|지속형, 출력|
 |userType        |String|등 디렉터리의 사용자 유형을 분류하는 데 사용할 수 있는 문자열 값입니다. 값은 멤버여야 합니다. 읽기 전용입니다.|읽기 전용|예|지속형, 출력|
-|userState (externalUserState)<sup>2</sup>|String|Azure AD B2B 계정에서만, 초대가 PendingAcceptance 또는 Accepted인지 나타냅니다.|예|예|지속형, 출력|
+|userState (externalUserState)<sup>3</sup>|String|Azure AD B2B 계정에서만, 초대가 PendingAcceptance 또는 Accepted인지 나타냅니다.|예|예|지속형, 출력|
 |userStateChangedOn(externalUserStateChangeDateTime)<sup>2</sup>|DateTime|UserState 속성의 최신 변경에 대한 타임스탬프를 표시합니다.|예|예|지속형, 출력|
-|<sup>1 </sup>Microsoft Graph에서 지원하지 않음<br><sup>2 </sup>Azure AD B2C와 함께 사용할 수 없음||||||
 
+<sup>1 </sup>Microsoft Graph에서 지원하지 않음<br><sup>2</sup> 자세한 내용은 [MFA 전화 번호 특성](#mfa-phone-number-attribute) 을 참조 하세요.<br><sup>3 </sup> Azure AD B2C와 함께 사용 하면 안 됩니다.
+
+## <a name="mfa-phone-number-attribute"></a>MFA 전화 번호 특성
+
+MFA (multi-factor authentication)에 전화를 사용 하는 경우 휴대폰을 사용 하 여 사용자 id를 확인 합니다. 새 전화 번호를 프로그래밍 방식으로 [추가](https://docs.microsoft.com/graph/api/authentication-post-phonemethods) 하려면 전화 번호를 [업데이트](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update), [가져오기](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)또는 [삭제](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete) 하려면 MS Graph API [전화 인증 방법을](https://docs.microsoft.com/graph/api/resources/phoneauthenticationmethod)사용 합니다.
+
+[사용자 지정 정책](custom-policy-overview.md)Azure AD B2C에서 전화 번호는 클레임 유형을 통해 사용할 수 있습니다 `strongAuthenticationPhoneNumber` .
 
 ## <a name="extension-attributes"></a>확장 특성
 

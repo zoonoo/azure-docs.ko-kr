@@ -134,6 +134,8 @@
           href: how-to-request-real-time-data.md
         - name: 실시간 및 예측 날씨 데이터 요청
           href: how-to-request-weather-data.md
+        - name: 권한 상승 데이터 요청
+          href: how-to-request-elevation-data.md
     - name: 웹 SDK를 사용하여 개발
       items:
         - name: 지도 컨트롤

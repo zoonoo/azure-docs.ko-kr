@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
-ms.openlocfilehash: f9a7623fd27178e8b9c213a1759bb09863d16c72
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7063452d23d2975cf0c26a89e7a08a422de54942
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030699"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751940"
 ---
 # <a name="train-model-module"></a>모델 학습 모듈
 
@@ -63,7 +63,9 @@ Azure Machine Learning에서 기계 학습 모델을 만들고 사용 하는 과
 1.  파이프라인을 제출합니다. 데이터가 많은 경우 다소 시간이 걸릴 수 있습니다.
 
     > [!IMPORTANT] 
-    > 각 행의 ID 인 ID 열이 있는 경우 **학습 모델** 에 "열에 있는 고유 값의 수" {column_name} "이 (가) 허용 되는 값 보다 큽니다."와 같은 오류가 발생할 수 있습니다. ID 열이 고유 값의 임계값에 도달 하 여 메모리가 부족 해질 수 있기 때문입니다. 일반적으로 학습 중에는 ID 열이 의미가 없습니다. [메타 데이터 편집](edit-metadata.md) 을 사용 하 여 해당 열을 **명확한 기능** 으로 표시할 수 있으며 학습에 사용 되지 않습니다. 자세한 오류 정보는 [디자이너 오류 코드](././designer-error-codes.md) 를 참조 하세요.
+    > 각 행의 ID 또는 너무 많은 고유 값이 포함 된 텍스트 열에 ID 열이 있는 경우 **학습 모델** 에는 "열에 있는 고유 값의 수" {column_name} "이 (가) 허용 되는 것 보다 큰 오류가 발생할 수 있습니다.
+    >
+    > 열이 고유 값의 임계값에 도달 하 여 메모리가 부족 해질 수 있기 때문입니다. [메타 데이터 편집](edit-metadata.md) 을 사용 하 여 해당 열을 **명확한 기능** 으로 표시 하 고 학습에 사용 되지 않으며 텍스트 모듈에서 텍스트 열을 전처리 하기 위해 [N-문법 기능을 추출할](extract-n-gram-features-from-text.md) 수 있습니다. 자세한 오류 정보는 [디자이너 오류 코드](././designer-error-codes.md) 를 참조 하세요.
 
 ## <a name="results"></a>결과
 

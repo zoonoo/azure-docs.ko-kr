@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 18979ba8cbc4e68bf79275059c6c1c976578c407
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3e3245053fcc9943814268835fa5ac0f40a6f94c
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953375"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750512"
 ---
 # <a name="secure-your-restful-services"></a>RESTful 서비스 보호 
 
@@ -358,6 +358,69 @@ OAuth2 전달자 토큰을 사용 하 여 REST API 기술 프로필을 구성 �
       </Metadata>
       <CryptographicKeys>
         <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_RestApiBearerToken" />
+      </CryptographicKeys>
+      ...
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
+
+## <a name="api-key-authentication"></a>API 키 인증
+
+API 키는 REST API 끝점에 액세스 하는 사용자를 인증 하는 데 사용 되는 고유 식별자입니다. 키가 사용자 지정 HTTP 헤더에 전송 됩니다. 예를 들어 [AZURE FUNCTIONS http 트리거](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) 는 http 헤더를 사용 하 여 `x-functions-key` 요청자를 식별 합니다.  
+
+### <a name="add-api-key-policy-keys"></a>API 키 정책 키 추가
+
+API 키 인증을 사용 하 여 REST API 기술 프로필을 구성 하려면 다음 암호화 키를 만들어 API 키를 저장 합니다.
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 디렉터리를 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
+1. **정책 키**, **추가** 를 차례로 선택합니다.
+1. **옵션** 에서 **수동** 을 선택합니다.
+1. **이름** 에 **RestApiKey** 를 입력 합니다.
+    *B2C_1A_* 접두사를 자동으로 추가할 수 있습니다.
+1. **비밀** 상자에 REST API 키를 입력 합니다.
+1. **키 사용** 에는 **암호화** 를 선택합니다.
+1. **만들기** 를 선택합니다.
+
+
+### <a name="configure-your-rest-api-technical-profile-to-use-api-key-authentication"></a>API 키 인증을 사용 하도록 REST API 기술 프로필 구성
+
+필요한 키를 만든 후에 REST API 기술 프로필 메타 데이터를 구성 하 여 자격 증명을 참조 합니다.
+
+1. 작업 디렉터리에서 확장 정책 파일(TrustFrameworkExtensions.xml)을 엽니다.
+1. REST API 기술 프로필을 검색합니다. 예: `REST-ValidateProfile` 또는 `REST-GetProfile`
+1. `<Metadata>` 요소를 찾습니다.
+1. *AuthenticationType* 을 `ApiKeyHeader`로 변경합니다.
+1. *AllowInsecureAuthInProduction* 을 `false`로 변경합니다.
+1. `</Metadata>` 요소를 닫은 직후 다음 XML 코드 조각을 추가합니다.
+    ```xml
+    <CryptographicKeys>
+        <Key Id="x-functions-key" StorageReferenceId="B2C_1A_RestApiKey" />
+    </CryptographicKeys>
+    ```
+
+암호화 키의 **Id** 는 HTTP 헤더를 정의 합니다. 이 예제에서는 API 키를 **x-함수 키** 로 보냅니다.
+
+다음은 API 키 인증을 사용 하 여 Azure 함수를 호출 하도록 구성 된 RESTful 기술 프로필의 예입니다.
+
+```xml
+<ClaimsProvider>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="REST-GetProfile">
+      <DisplayName>Get user extended profile Azure Function web hook</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/GetProfile?code=your-code</Item>
+        <Item Key="SendClaimsIn">Body</Item>
+        <Item Key="AuthenticationType">ApiKeyHeader</Item>
+        <Item Key="AllowInsecureAuthInProduction">false</Item>
+      </Metadata>
+      <CryptographicKeys>
+        <Key Id="x-functions-key" StorageReferenceId="B2C_1A_RestApiKey" />
       </CryptographicKeys>
       ...
     </TechnicalProfile>

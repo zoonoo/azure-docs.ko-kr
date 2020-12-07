@@ -1,15 +1,18 @@
 ---
 title: 에이전트 기반 Azure Migrate Server Migration으로 VMware VM 마이그레이션
 description: Azure Migrate를 사용하여 VMware VM의 에이전트 기반 마이그레이션을 실행하는 방법에 대해 알아봅니다.
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 46f23953e6572b752f8773bc9db86be946ccf212
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0c3b86fc823e4b563dc747a5604fcb2e04995fed
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493000"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752654"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMware VM을 Azure로 마이그레이션(에이전트 기반)
 

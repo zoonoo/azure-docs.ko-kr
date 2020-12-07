@@ -2,15 +2,15 @@
 title: Azure Automation 업데이트 관리 문제 해결
 description: 이 문서에서는 Azure Automation 업데이트 관리와 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
-ms.date: 10/14/2020
+ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 8818047dd4fef9c495c46b353e68841f83e9677c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e8fc2a840ce019282625f286a6d54b132a1806c8
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217221"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751260"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
 
@@ -18,6 +18,40 @@ ms.locfileid: "92217221"
 
 >[!NOTE]
 >Windows 컴퓨터에 업데이트 관리를 배포할 때 문제가 발생 하는 경우 Windows 이벤트 뷰어를 열고 로컬 컴퓨터의 **응용 프로그램 및 서비스 로그** 아래에서 **Operations Manager** 이벤트 로그를 확인 합니다. 이벤트 ID가 4502인 이벤트 및 `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`를 포함하는 이벤트 정보를 찾아봅니다.
+
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a>시나리오: 보류 중으로 표시 되 고 설치 된 Linux 업데이트가 변경 됨
+
+### <a name="issue"></a>문제
+
+Linux 컴퓨터의 경우 분류 **보안** 및 **기타** 에서 사용할 수 있는 특정 업데이트가 업데이트 관리 표시 됩니다. 그러나 컴퓨터에서 업데이트 일정을 실행 하는 경우, 예를 들어 **보안** 분류와 일치 하는 업데이트만 설치 하는 경우 설치 된 업데이트는 이전에 해당 분류와 일치 하는 업데이트의 일부 또는과 다릅니다.
+
+### <a name="cause"></a>원인
+
+Linux 컴퓨터에 대 한 OS 업데이트에 대 한 평가가 완료 되 면 업데이트 관리에서 분류를 위해 Linux 배포판 공급 업체에서 제공 하는 [Open 취약성 및 평가 언어](https://oval.mitre.org/) (OVAL) 파일이 사용 됩니다. 분류는 보안 문제나 취약성을 해결 하는 업데이트를 나타내는 OVAL 파일을 기반으로 하 여 Linux 업데이트에 대 한 **보안** 또는 **기타** 방식으로 수행 됩니다. 하지만 업데이트 일정을 실행 하면 해당 패키지 관리자 (예: YUM, APT 또는 ZYPPER)를 사용 하 여 Linux 컴퓨터에서 실행 됩니다. Linux 배포판 패키지 관리자는 업데이트를 분류 하는 다른 메커니즘을 사용할 수 있습니다 .이 경우 결과는 OVAL 업데이트 관리 파일에서 가져온 것과 다를 수 있습니다.
+
+### <a name="resolution"></a>해결 방법
+
+배포판의 패키지 관리자에 따라 Linux 컴퓨터, 해당 업데이트 및 해당 분류를 수동으로 확인할 수 있습니다. 패키지 관리자가 **보안** 으로 분류 되는 업데이트를 이해 하려면 다음 명령을 실행 합니다.
+
+YUM의 경우 다음 명령은 Red Hat의 **보안** 으로 분류 된 업데이트의 0이 아닌 목록을 반환 합니다. CentOS의 경우 항상 빈 목록을 반환 하며 보안 분류가 발생 하지 않습니다.
+
+```bash
+sudo yum -q --security check-update
+```
+
+ZYPPER의 경우 다음 명령은 SUSE에서 **보안** 으로 분류 된 업데이트의 0이 아닌 목록을 반환 합니다.
+
+```bash
+sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
+```
+
+APT의 경우 다음 명령은 Ubuntu Linux 배포판의 정식 **보안** 으로 분류 된 업데이트의 0이 아닌 목록을 반환 합니다.
+
+```bash
+sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
+```
+
+그런 다음이 목록에서 명령을 실행 `grep ^Inst` 하 여 보류 중인 모든 보안 업데이트를 가져옵니다.
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>시나리오: "업데이트 솔루션을 사용하도록 설정하지 못했습니다." 오류가 표시됨
 
@@ -37,7 +71,7 @@ Error details: Failed to enable the Update solution
 
 * 업데이트 관리 대상이 잘못 구성되었으며 머신이 예상대로 업데이트를 받지 못합니다.
 
-* **규정 준수**에서 머신이 `Non-compliant` 상태를 표시하는 것을 확인할 수도 있습니다. 동시에 **에이전트 데스크톱 분석**에서 에이전트를 `Disconnected`로 보고합니다.
+* **규정 준수** 에서 머신이 `Non-compliant` 상태를 표시하는 것을 확인할 수도 있습니다. 동시에 **에이전트 데스크톱 분석** 에서 에이전트를 `Disconnected`로 보고합니다.
 
 ### <a name="resolution"></a>해결 방법
 
@@ -63,13 +97,13 @@ Error details: Failed to enable the Update solution
 
 대체 된 업데이트가 100% 적용할 수 없게 되 면 WSUS에서 해당 업데이트의 승인 상태를로 변경 해야 합니다 `Declined` . 모든 업데이트에 대한 승인 상태를 변경하려면
 
-1. Automation 계정에서 **업데이트 관리**를 선택하여 머신 상태를 확인합니다. [업데이트 평가 보기](../update-management/view-update-assessments.md)를 참조하세요.
+1. Automation 계정에서 **업데이트 관리** 를 선택하여 머신 상태를 확인합니다. [업데이트 평가 보기](../update-management/view-update-assessments.md)를 참조하세요.
 
 2. 대체된 업데이트를 확인하여 100% 적용되지 않는지 확인합니다.
 
 3. 컴퓨터에서 보고 하는 WSUS 서버에서 [업데이트를 거부](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates)합니다.
 
-4. **컴퓨터**를 선택하고 **규정 준수** 열에서 규정 준수를 강제로 다시 검사합니다. [Vm에 대 한 업데이트 관리](../update-management/manage-updates-for-vm.md)를 참조 하세요.
+4. **컴퓨터** 를 선택하고 **규정 준수** 열에서 규정 준수를 강제로 다시 검사합니다. [Vm에 대 한 업데이트 관리](../update-management/manage-updates-for-vm.md)를 참조 하세요.
 
 5. 대체된 다른 업데이트에 대해 위 단계를 반복합니다.
 
@@ -87,7 +121,7 @@ Error details: Failed to enable the Update solution
 
 * Azure Automation 계정의 업데이트 관리 보기에 사용하는 머신이 없습니다.
 
-* 사용하는 머신이 **규정 준수**에서 `Not assessed`로 표시됩니다. 그러나 Hybrid Runbook Worker에 대한 Azure Monitor 로그에는 하트비트 데이터가 표시되지만 업데이트 관리의 경우에는 표시되지 않습니다.
+* 사용하는 머신이 **규정 준수** 에서 `Not assessed`로 표시됩니다. 그러나 Hybrid Runbook Worker에 대한 Azure Monitor 로그에는 하트비트 데이터가 표시되지만 업데이트 관리의 경우에는 표시되지 않습니다.
 
 ### <a name="cause"></a>원인
 
@@ -101,7 +135,7 @@ Error details: Failed to enable the Update solution
 
 1. OS에 따라 [Windows](update-agent-issues.md#troubleshoot-offline) 또는 [Linux](update-agent-issues-linux.md#troubleshoot-offline)에 대한 문제 해결사를 실행합니다.
 
-2. 머신이 올바른 작업 영역에 보고하고 있는지 확인합니다. 이 측면을 확인 하는 방법에 대 한 지침은 [에이전트에서 Azure Monitor에 대 한 연결 확인](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor)을 참조 하세요. 또한 이 작업 영역이 Azure Automation 계정에 연결되어 있는지 확인합니다. 이를 확인하려면 Automation 계정으로 이동하고 **관련 리소스**에서 **연결된 작업 영역**을 선택합니다.
+2. 머신이 올바른 작업 영역에 보고하고 있는지 확인합니다. 이 측면을 확인 하는 방법에 대 한 지침은 [에이전트에서 Azure Monitor에 대 한 연결 확인](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor)을 참조 하세요. 또한 이 작업 영역이 Azure Automation 계정에 연결되어 있는지 확인합니다. 이를 확인하려면 Automation 계정으로 이동하고 **관련 리소스** 에서 **연결된 작업 영역** 을 선택합니다.
 
 3. Automation 계정에 연결된 Log Analytics 작업 영역에 머신이 표시되는지 확인합니다. Log Analytics 작업 영역에서 다음 쿼리를 실행합니다.
 
@@ -124,7 +158,7 @@ Error details: Failed to enable the Update solution
    | sort by TimeGenerated desc
    ```
 
-8. `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` 결과를 얻는 경우 작업 영역에 정의된 할당량에 도달하여 중지된 데이터를 저장하지 못한 것입니다. 작업 영역에서 **사용량 및 예상 비용**에서 **데이터 볼륨 관리**로 이동하고 할당량을 변경하거나 제거합니다.
+8. `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` 결과를 얻는 경우 작업 영역에 정의된 할당량에 도달하여 중지된 데이터를 저장하지 못한 것입니다. 작업 영역에서 **사용량 및 예상 비용** 에서 **데이터 볼륨 관리** 로 이동하고 할당량을 변경하거나 제거합니다.
 
 9. 그래도 문제가 해결되지 않으면 [Windows Hybrid Runbook Worker 배포](../automation-windows-hrw-install.md)의 단계에 따라 Windows용 Hybrid Worker를 다시 설치합니다. Linux의 경우 [Linux Hybrid Runbook Worker 배포](../automation-linux-hrw-install.md)의 단계를 따르세요.
 
@@ -146,11 +180,11 @@ Automation 리소스 공급자가 구독에 등록되어 있지 않습니다.
 
 Automation 리소스 공급자를 등록하려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. 포털의 맨 아래에 있는 Azure 서비스 목록에서 **모든 서비스**를 클릭하고 일반 서비스 그룹에서 **구독**을 선택합니다.
+1. 포털의 맨 아래에 있는 Azure 서비스 목록에서 **모든 서비스** 를 클릭하고 일반 서비스 그룹에서 **구독** 을 선택합니다.
 
 2. 구독을 선택합니다.
 
-3. **설정** 아래에서 **리소스 공급자**를 선택합니다.
+3. **설정** 아래에서 **리소스 공급자** 를 선택합니다.
 
 4. 리소스 공급자 목록에서 Microsoft.Automation 리소스 공급자가 등록되어 있는지 확인합니다.
 
@@ -178,11 +212,11 @@ Automation 리소스 공급자에 대해 구독이 구성되지 않은 경우 �
 
 1. [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)에서 Azure 서비스 목록에 액세스합니다.
 
-2. **모든 서비스**를 선택한 후 일반 서비스 그룹에서 **구독**을 선택합니다.
+2. **모든 서비스** 를 선택한 후 일반 서비스 그룹에서 **구독** 을 선택합니다.
 
 3. 배포 범위에서 정의된 구독을 찾습니다.
 
-4. **설정**에서 **리소스 공급자**를 선택합니다.
+4. **설정** 에서 **리소스 공급자** 를 선택합니다.
 
 5. Microsoft.Automation 리소스 공급자가 등록되어 있는지 확인합니다.
 
@@ -192,7 +226,7 @@ Automation 리소스 공급자에 대해 구독이 구성되지 않은 경우 �
 
 구독이 Automation 리소스 공급자에 대해 구성되어 있지만 지정된 [동적 그룹](../update-management/configure-groups.md)을 사용하여 업데이트 일정을 실행할 경우 일부 머신이 누락되면 다음 절차를 사용합니다.
 
-1. Azure Portal에서 Automation 계정을 열고 **업데이트 관리**를 선택합니다.
+1. Azure Portal에서 Automation 계정을 열고 **업데이트 관리** 를 선택합니다.
 
 2. 업데이트 배포가 실행된 정확한 시간을 확인하려면 [업데이트 관리 기록](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment)를 확인합니다.
 
@@ -259,7 +293,7 @@ Azure Portal에는 지정된 범위에서 쓰기 권한이 있는 머신만 표�
 
 1. Azure Portal에서 올바르게 표시되지 않는 머신에 대한 Automation 계정으로 이동합니다.
 
-2. **프로세스 자동화**에서 **Hybrid Worker 그룹**을 선택합니다.
+2. **프로세스 자동화** 에서 **Hybrid Worker 그룹** 을 선택합니다.
 
 3. **시스템 Hybrid Worker 그룹** 탭을 선택합니다.
 
@@ -313,7 +347,7 @@ VM의 이름을 변경하여 환경에서 고유한 이름을 유지하도록 �
 
 복제된 이미지를 사용하는 경우 다른 컴퓨터 이름의 원본 컴퓨터 ID가 같습니다. 이 경우 다음과 같습니다.
 
-1. Log Analytics 작업 영역의 범위 구성(표시되는 경우) `MicrosoftDefaultScopeConfig-Updates`에 대한 저장된 검색에서 VM을 제거합니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
+1. Log Analytics 작업 영역의 범위 구성(표시되는 경우) `MicrosoftDefaultScopeConfig-Updates`에 대한 저장된 검색에서 VM을 제거합니다. 저장된 검색은 작업 영역의 **일반** 에서 찾을 수 있습니다.
 
 2. 다음 cmdlet을 실행합니다.
 
@@ -357,7 +391,7 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 
 ### <a name="issue"></a>문제
 
-**다시 부팅 제어** 옵션을**다시 부팅 안 함**으로 설정한 경우에도 업데이트가 설치된 후에 머신이 다시 부팅됩니다.
+**다시 부팅 제어** 옵션을 **다시 부팅 안 함** 으로 설정한 경우에도 업데이트가 설치된 후에 머신이 다시 부팅됩니다.
 
 ### <a name="cause"></a>원인
 
@@ -497,7 +531,7 @@ Hybrid Runbook Worker가 자체 서명 인증서를 생성할 수 없습니다.
 
 ### <a name="issue"></a>문제
 
-* 머신이 **규정 준수**에서 `Not assessed`로 표시되며 그 아래에 예외 메시지가 표시됩니다.
+* 머신이 **규정 준수** 에서 `Not assessed`로 표시되며 그 아래에 예외 메시지가 표시됩니다.
 * 포털에 HRESULT 오류 코드가 표시됩니다.
 
 ### <a name="cause"></a>원인
@@ -600,4 +634,4 @@ KB2267602는 [Windows Defender 정의 업데이트](https://www.microsoft.com/wd
 
 * [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가의 답변을 얻습니다.
 * 고객 환경을 개선하기 위한 공식 Microsoft Azure 계정인 [@AzureSupport](https://twitter.com/azuresupport)와 연결합니다.
-* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.
+* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기** 를 선택합니다.
