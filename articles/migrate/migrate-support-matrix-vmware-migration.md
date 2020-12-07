@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate에서 VMware 마이그레이션 지원
 description: Azure Migrate에서 VMware VM 마이그레이션에 대 한 지원에 대해 알아봅니다.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 833d0b15677fe92d9ef4f6d0055f7ce84340ef90
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 0dfb518a22fd84e0280577382715d6e554e914e8
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511902"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753997"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>VMware 마이그레이션을 위한 지원 매트릭스
 
@@ -169,7 +172,7 @@ Azure에 복제 되는 모든 온-프레미스 Vm (에이전트 없는 에이전
 FC 디스크 | 지원 안 됨 
 BitLocker | 지원 안 됨<br/><br/> 컴퓨터를 마이그레이션하기 전에 BitLocker를 사용 하지 않도록 설정 해야 합니다.
 VM 이름 | 1~63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으로 제한됩니다.<br/><br/> 컴퓨터 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. 
-마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/><br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다.<br/><br/> **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> 사이트 간 VPN 액세스의 경우 rdp를 사용 하도록 설정 하 고, **Windows Firewall**  ->  **도메인 및 개인** 네트워크의 Windows 방화벽 **허용 되는 앱 및 기능** 에서 rdp를 허용 합니다.<br/><br/> 또한 운영 체제의 SAN 정책이 **OnlineAll** 으로 설정 되어 있는지 확인 합니다. [자세히 알아보기](prepare-for-migration.md).
+마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/><br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다.<br/><br/> **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> 사이트 간 VPN 액세스의 경우 rdp를 사용 하도록 설정 하 고, **Windows Firewall**  ->  **도메인 및 개인** 네트워크의 Windows 방화벽 **허용 되는 앱 및 기능** 에서 rdp를 허용 합니다.<br/><br/> 또한 운영 체제의 SAN 정책이 **OnlineAll** 으로 설정 되어 있는지 확인 합니다. [자세히 알아봅니다](prepare-for-migration.md).
 마이그레이션 후 연결-Linux | SSH를 사용 하 여 마이그레이션한 후 Azure Vm에 연결 하려면:<br/><br/> 마이그레이션 전에 온-프레미스 컴퓨터에서 Secure Shell 서비스가 시작으로 설정 되어 있고 방화벽 규칙에서 SSH 연결을 허용 하는지 확인 합니다.<br/><br/> 장애 조치 (failover) 후에 Azure VM에서 장애 조치 (failover) 된 VM의 네트워크 보안 그룹 규칙에 대 한 SSH 포트 및 연결 된 Azure 서브넷에 대 한 들어오는 연결을 허용 합니다.<br/><br/> 또한 VM에 대 한 공용 IP 주소를 추가 합니다.  
 
 

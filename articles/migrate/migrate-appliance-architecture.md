@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate 어플라이언스 아키텍처
 description: 서버 평가 및 마이그레이션에 사용되는 Azure Migrate 어플라이언스에 대해 간략히 설명합니다.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: d38796d4c4a1149d096f5bb06f7a11bc71b33cc5
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 42d4a722be25eec4b3e27012350346018fdba0f3
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428157"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754116"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Azure Migrate 어플라이언스 아키텍처
 
@@ -62,14 +65,14 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 
 ## <a name="discovery-and-collection-process"></a>검색 및 수집 프로세스
 
-![Architecture](./media/migrate-appliance-architecture/architecture1.png)
+![아키텍처](./media/migrate-appliance-architecture/architecture1.png)
 
 어플라이언스는 다음 프로세스를 사용 하 여 vCenter 서버 및 Hyper-v 호스트/클러스터와 통신 합니다.
 
 1. **검색 시작**:
     - Hyper-v 어플라이언스에서 검색을 시작 하면 WinRM 포트 5985 (HTTP)에서 Hyper-v 호스트와 통신 합니다.
     - VMware 어플라이언스에서 검색을 시작 하면 기본적으로 TCP 포트 443의 vCenter server와 통신 합니다. VCenter server가 다른 포트에서 수신 대기 하는 경우 어플라이언스 웹 앱에서 구성할 수 있습니다.
-2. **메타 데이터 및 성능 데이터를 수집**합니다.
+2. **메타 데이터 및 성능 데이터를 수집** 합니다.
     - 어플라이언스는 CIM(Common Information Model) (CIM) 세션을 사용 하 여 5985 포트의 Hyper-v 호스트에서 Hyper-v VM 데이터를 수집 합니다.
     - 어플라이언스는 기본적으로 포트 443와 통신 하 여 vCenter Server에서 VMware VM 데이터를 수집 합니다.
 3. **데이터 보내기**: 어플라이언스는 Azure Migrate 서버 평가를 위해 수집 된 데이터를 보내고 SSL 포트 443을 통해 서버 마이그레이션을 Azure Migrate 합니다. 어플라이언스는 인터넷을 통해 또는 Express 경로를 통해 Azure에 연결할 수 있습니다 (Microsoft 피어 링 필요).

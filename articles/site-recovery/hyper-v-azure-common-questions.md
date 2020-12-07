@@ -3,12 +3,12 @@ title: Azure Site Recovery의 Hyper-v 재해 복구에 대 한 일반적인 질�
 description: 이 문서에는 Azure Site Recovery 사이트를 사용하여 온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 설정하는 방법과 관련된 일반적인 질문이 요약되어 있습니다.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: c168ba9ff14e57f238069e8ca5b0c34a8fb58015
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4f5ee71fc56cad247b57f94bf08a68bed8775f9
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87799891"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754354"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>일반적인 질문 - Hyper-V와 Azure 간 재해 복구
 
@@ -94,7 +94,7 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 
 ### <a name="can-i-replicate-vms-located-on-a-hyper-v-cluster"></a>Hyper-V 클러스터에 있는 VM을 복제할 수 있나요?
 
-예, Site Recovery는 클러스터형 Hyper-V 호스트를 지원합니다. 다음 사항에 유의하세요.
+예, Site Recovery는 클러스터형 Hyper-V 호스트를 지원합니다. 다음 사항에 유의합니다.
 
 - 클러스터의 모든 노드는 동일한 자격 증명 모음에 등록되어야 합니다.
 - VMM을 사용하지 않는 경우 클러스터의 모든 Hyper-V 호스트를 동일한Hyper-V 사이트에 추가해야 합니다.
@@ -164,6 +164,10 @@ Azure에 복제 하는 경우 복제 트래픽은 Azure Storage 계정의 공용
 ### <a name="how-often-can-i-replicate-to-azure"></a>Azure에 얼마나 자주 복제할 수 있나요?
 
 Hyper-v Vm은 30 초 마다 (premium storage 제외) 또는 5 분 마다 복제할 수 있습니다.
+
+### <a name="can-azure-site-recovery-and-hyper-v-replica-be-configured-together-on-a-hyper-v-machine"></a>Hyper-v 컴퓨터에서 Hyper-v 복제본을 Azure Site Recovery 하 고 hyper-v 복제본을 함께 구성할 수 있나요?
+
+예, Azure Site Recovery와 Hyper-v 복제본을 모두 컴퓨터에 대해 함께 구성할 수 있습니다. 하지만 컴퓨터는 물리적 컴퓨터로 보호 되어야 하며 구성/프로세스 서버를 사용 하 여 Azure에 복제 됩니다. 물리적 컴퓨터 보호에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/site-recovery/physical-azure-architecture)를 참조 하세요.
 
 ### <a name="can-i-extend-replication"></a>복제를 확장할 수 있나요?
 확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)을 통해 이 기능에 대한 의견을 보내 주세요.

@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate 어플라이언스
 description: Azure Migrate 어플라이언스에 대 한 지원 요약을 제공 합니다.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f3357fcc070ca4ca2212cf0424e4baf8208a3ca1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008704"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754133"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -215,7 +218,7 @@ NIC 쓰기 처리량(MB/초) | net.transmitted.average  |VM 크기 계산
 
 다음은 응용 프로그램 검색에 대해 사용 하도록 설정 된 각 VM에서 기기가 수집 하는 설치 된 응용 프로그램 데이터입니다. 이 데이터는 Azure에 보냅니다.
 
-**Data** | **레지스트리 위치** | **Key**
+**Data** | **레지스트리 위치** | **키**
 --- | --- | ---
 애플리케이션 이름  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 버전  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
@@ -235,7 +238,7 @@ Name  | Get-WindowsFeature  | Name
 
 응용 프로그램 검색에 사용 하도록 설정 된 Microsoft SQL server를 실행 하는 Vm에서 기기가 수집 하는 SQL server 메타 데이터는 다음과 같습니다. 이 데이터는 Azure에 보냅니다.
 
-**Data**  | **레지스트리 위치**  | **Key**
+**Data**  | **레지스트리 위치**  | **키**
 --- | --- | ---
 Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL  | installedInstance
 버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전 

@@ -1,18 +1,17 @@
 ---
 title: Azure Migrate의 평가 및 종속성 시각화 문제 해결
-description: Azure Migrate에서 평가 및 종속성 시각화 문제 해결에 대 한 도움말을 확인 하세요.
-ms.service: azure-migrate
-ms.topic: troubleshooting
-author: musa-57
+description: Azure Migrate에서 평가 및 종속성 시각화에 대 한 도움말을 확인 하세요.
+author: rashi-ms
+ms.author: rajosh
 ms.manager: abhemraj
-ms.author: hamusa
+ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 4da0f40c25d322953fea968396ef33924877c2e1
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: cefcd4ce287eecfe2c764d88d5d2233cc8ac0a5c
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505226"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753448"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>평가/종속성 시각화 문제 해결
 
@@ -92,7 +91,7 @@ Azure Migrate 서버 평가는 평가 유형에 따라 현재 온-프레미스 �
 Azure Migrate Server 평가는 평가 유형에 따라 더 큰 디스크를 권장할 수 있습니다.
 - 서버 평가의 디스크 크기 조정은 두 가지 평가 속성인 크기 조정 조건 및 저장소 유형에 따라 달라 집니다.
 - 크기 조정 기준이 성능에 **따라 결정** 되 고 저장소 유형이 **자동** 으로 설정 된 경우 대상 디스크 유형 (표준 HDD, 표준 SSD 또는 프리미엄)을 식별 하는 경우 디스크의 IOPS 및 처리량 값이 고려 됩니다. 그런 다음 디스크 유형의 디스크 SKU를 권장 하며 권장 사항은 온-프레미스 디스크의 크기 요구 사항을 고려 합니다.
-- 크기 조정 기준이 **성능 기반** 이며 저장소 유형이 **프리미엄** 인 경우 온-프레미스 디스크의 IOPS, 처리량 및 크기 요구 사항에 따라 AZURE의 premium disk SKU를 사용 하는 것이 좋습니다. 크기 조정 기준이 **온-프레미스** 이 고 저장소 유형이 **표준 HDD** , **표준 SSD** 또는 **Premium** 인 경우 동일한 논리를 사용 하 여 디스크 크기를 조정 합니다.
+- 크기 조정 기준이 **성능 기반** 이며 저장소 유형이 **프리미엄** 인 경우 온-프레미스 디스크의 IOPS, 처리량 및 크기 요구 사항에 따라 AZURE의 premium disk SKU를 사용 하는 것이 좋습니다. 크기 조정 기준이 **온-프레미스** 이 고 저장소 유형이 **표준 HDD**, **표준 SSD** 또는 **Premium** 인 경우 동일한 논리를 사용 하 여 디스크 크기를 조정 합니다.
 
 예를 들어 32 GB의 메모리를 포함 하는 온-프레미스 디스크가 있지만 디스크에 대해 집계 된 읽기/쓰기 IOPS가 800 IOPS 인 경우 서버 평가는 프리미엄 디스크 (IOPS 요구 사항)를 권장 하 고 필요한 IOPS 및 크기를 지원할 수 있는 디스크 SKU를 권장 합니다. 이 예제에서 가장 가까운 일치 항목은 P15(256GB, 1100IOPS)입니다. 온-프레미스 디스크에 필요한 크기가 32 GB 이더라도 서버 평가는 온-프레미스 디스크의 높은 IOPS 요구 사항으로 인해 더 큰 디스크를 권장 합니다.
 
@@ -165,8 +164,8 @@ Linux Vm의 경우 MMA 및 종속성 에이전트의 설치 명령이 성공 했
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-- **MMS 에이전트** : 지원 되는 [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)및 [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) 운영 체제를 검토 합니다.
-- **종속성 에이전트** : 지원 되는 [Windows 및 Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) 운영 체제입니다.
+- **MMS 에이전트**: 지원 되는 [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)및 [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) 운영 체제를 검토 합니다.
+- **종속성 에이전트**: 지원 되는 [Windows 및 Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) 운영 체제입니다.
 
 ## <a name="visualize-dependencies-for--hour"></a>> 시간에 대 한 종속성 시각화
 

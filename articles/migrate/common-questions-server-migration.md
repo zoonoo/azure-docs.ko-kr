@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate Server 마이그레이션에 대 한 일반적인 질문
 description: Azure Migrate Server 마이그레이션을 사용 하 여 컴퓨터를 마이그레이션하는 방법에 대 한 일반적인 질문에 대 한 답변을 받으세요.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: b62110e6b2ce97cdd80ed91ee4b1e75d119c7c7d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1f32e9788b2255be373a4db8c159ef2a6b6ccf04
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180696"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753844"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate 서버 마이그레이션: 일반적인 질문
 
@@ -131,7 +134,7 @@ VM에 대 한 복제가 시작 되 면 디스크의 전체 복사본이 복제 �
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>에이전트 없는 VMware 복제에 Azure Migrate 어플라이언스를 사용 하 여에서 복제를 어떻게 할까요? 제한 하 시겠습니까?  
 
-NetQosPolicy를 사용 하 여 제한할 수 있습니다. 예를 들어:
+NetQosPolicy를 사용 하 여 제한할 수 있습니다. 예를 들면 다음과 같습니다.
 
 NetQosPolicy에서 사용할 AppNamePrefix는 "GatewayWindowsService.exe"입니다. Azure Migrate 어플라이언스에서 정책을 만들어 다음과 같은 정책을 만들어 어플라이언스에서 복제 트래픽을 제한할 수 있습니다.
 

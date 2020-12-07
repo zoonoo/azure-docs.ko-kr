@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate FAQ
 description: Azure Migrate 서비스에 대 한 일반적인 질문에 대 한 답변을 받으세요.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: d0877ad0d36e131525a227050cf44321e39e8b30
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b36a4089a15118499b0ce57500f221b74af82242
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494616"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753752"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: 일반적인 질문
 
@@ -19,7 +22,7 @@ ms.locfileid: "96494616"
 
 ## <a name="what-is-azure-migrate"></a>Azure Migrate란?
 
-Azure Migrate은 온-프레미스 앱 및 워크 로드와 Azure에 대 한 사설 및 공용 클라우드 Vm의 검색, 평가 및 마이그레이션을 추적 하는 중앙 허브를 제공 합니다. 허브는 평가 및 마이그레이션과 타사 ISV 제품에 대 한 Azure Migrate 도구를 제공 합니다. [자세히 알아보기](migrate-services-overview.md).
+Azure Migrate은 온-프레미스 앱 및 워크 로드와 Azure에 대 한 사설 및 공용 클라우드 Vm의 검색, 평가 및 마이그레이션을 추적 하는 중앙 허브를 제공 합니다. 허브는 평가 및 마이그레이션과 타사 ISV 제품에 대 한 Azure Migrate 도구를 제공 합니다. [자세히 알아봅니다](migrate-services-overview.md).
 
 ## <a name="what-can-i-do-with-azure-migrate"></a>Azure Migrate로 무엇을 할 수 있나요?
 

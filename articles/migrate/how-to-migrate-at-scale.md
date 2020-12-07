@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate에서 마이그레이션 컴퓨터 마이그레이션 자동화
 description: 스크립트를 사용 하 여 많은 수의 컴퓨터를 마이그레이션하는 방법에 대해 설명 Azure Migrate
-author: snehaamicrosoft
-ms.service: azure-migrate
-ms.topic: article
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 04/01/2019
-ms.author: snehaa
-ms.openlocfilehash: c354c1c9dfacfcb6bf84f1140b58deca60c1874e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01196b23ce5bf9ce842da89d0773a77e6a1d5107
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86109844"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754235"
 ---
 # <a name="scale-migration-of-vms"></a>Vm의 규모 마이그레이션 
 

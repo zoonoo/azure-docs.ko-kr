@@ -1,15 +1,17 @@
 ---
 title: Azure Migrate를 사용하여 마이그레이션을 위한 머신 준비
 description: Azure Migrate를 사용하여 마이그레이션하기 위한 온-프레미스 머신을 준비하는 방법을 알아봅니다.
-ms.topic: tutorial
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 06/08/2020
-ms.custom: MVC
-ms.openlocfilehash: ed5a1b6dc47c91815cc88200ddd1b1246603f806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 979f40e13aab71f02a316e4ddf60306170166845
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275407"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753929"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Azure로 마이그레이션하기 위한 온-프레미스 머신 준비
 
@@ -94,14 +96,14 @@ Azure VM에는 기본적으로 임시 스토리지로 사용할 D 드라이브�
 
 - 이 드라이브 할당으로 인해 다른 모든 스토리지 드라이브 할당이 한 문자씩 증가합니다.
 - 예를 들어 온-프레미스 설치에서 애플리케이션 설치를 위해 D 드라이브에 할당된 데이터 디스크를 사용하는 경우 VM을 Azure로 마이그레이션하면 이 드라이브에 대한 할당이 E 드라이브로 증가합니다. 
-- 이 자동 할당을 방지하고 Azure에서 사용 가능한 다음 드라이브 문자를 임시 볼륨에 할당하도록 하려면 SAN(저장 영역 네트워크) 정책을 **OnlineAll**로 설정합니다.
+- 이 자동 할당을 방지하고 Azure에서 사용 가능한 다음 드라이브 문자를 임시 볼륨에 할당하도록 하려면 SAN(저장 영역 네트워크) 정책을 **OnlineAll** 로 설정합니다.
 
 이 설정을 다음과 같이 수동으로 구성합니다.
 
 1. 온-프레미스 머신(호스트 서버가 아님)에서 관리자 권한 명령 프롬프트를 엽니다.
-2. **diskpart**를 입력합니다.
-3. **SAN**을 입력합니다. 게스트 운영 체제의 드라이브 문자가 유지되지 않으면 **모두 오프라인** 또는 **공유 디스크만 오프라인**이 반환됩니다.
-4. **DISKPART** 프롬프트에서 **SAN Policy=OnlineAll**을 입력합니다. 이 설정을 사용하면 디스크가 온라인 상태가 되고 두 디스크를 모두 읽고 쓸 수 있습니다.
+2. **diskpart** 를 입력합니다.
+3. **SAN** 을 입력합니다. 게스트 운영 체제의 드라이브 문자가 유지되지 않으면 **모두 오프라인** 또는 **공유 디스크만 오프라인** 이 반환됩니다.
+4. **DISKPART** 프롬프트에서 **SAN Policy=OnlineAll** 을 입력합니다. 이 설정을 사용하면 디스크가 온라인 상태가 되고 두 디스크를 모두 읽고 쓸 수 있습니다.
 5. 테스트 마이그레이션 중에 드라이브 문자가 유지되는지 확인할 수 있습니다.
 
 
@@ -137,11 +139,11 @@ Azure VM에는 기본적으로 임시 스토리지로 사용할 D 드라이브�
 |---------------------------------------------|-------------------------------|----------------------------|------------|
 | Hyper\-V Linux Integration Services 설치 | yes                           | 예                        | 필요하지 않음 |
 | Azure 직렬 콘솔 로깅 사용         | yes                           | 예                        | 예         |
-| 디바이스 맵 파일 업데이트                      | 예                           | 예                         | 아니요         |
+| 디바이스 맵 파일 업데이트                      | 예                           | 아니요                         | 아니요         |
 | fstab 항목 업데이트                        | yes                           | 예                        | 예         |
 | udev 규칙 제거                            | yes                           | 예                        | 예         |
 | 네트워크 인터페이스 업데이트                   | yes                           | 예                        | 아니요         |
-| ssh 사용                                  | 아니요                            | 예                         | 아니요         |
+| ssh 사용                                  | 아니요                            | 아니요                         | 아니요         |
 
 [Azure에서 Linux VM 실행](../virtual-machines/linux/create-upload-generic.md) 단계에 대해 자세히 알아보고, 많이 사용되는 Linux 배포판에 대한 지침을 확인합니다.
 

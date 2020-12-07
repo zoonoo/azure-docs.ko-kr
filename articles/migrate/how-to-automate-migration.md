@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate에서 에이전트 없는 VMware 마이그레이션 자동화
 description: 스크립트를 사용 하 여 Azure Migrate에서 많은 수의 VMware Vm을 마이그레이션하는 방법을 설명 합니다.
-author: rahulgup
-ms.service: azure-migrate
-ms.topic: article
-ms.date: 10/30/2020
+author: rahulg1190
 ms.author: rahugup
-ms.openlocfilehash: 4ef4d3989f063e9d31718bc7143662c4f20cc90b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.manager: bsiva
+ms.topic: how-to
+ms.date: 10/30/2020
+ms.openlocfilehash: cdae1fe13f8e08cb6b817f8ec6431c77013020d7
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500821"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754269"
 ---
 # <a name="scale-migration-of-vmware-vms"></a>VMware Vm의 규모 마이그레이션 
 
@@ -23,7 +23,7 @@ Azure Migrate VMware 마이그레이션 자동화 스크립트는 GitHub의 [Azu
 - 이러한 스크립트는 모든 디스크를 사용 하 여 VMware Vm의 마이그레이션을 지원 합니다. VMware VM에 연결 된 디스크를 선택적으로 복제 하려면 스크립트를 업데이트할 수 있습니다. 
 - 스크립트는 평가 권장 사항의 사용을 지원 합니다. 평가 권장 사항을 사용 하지 않으면 VMware VM에 연결 된 모든 디스크가 동일한 관리 디스크 유형 (Standard 또는 Premium)으로 마이그레이션됩니다. 동일한 VM을 사용 하 여 여러 유형의 관리 디스크를 사용 하려는 경우 스크립트를 업데이트할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [검색 자습서를 완료](tutorial-discover-vmware.md)하여 마이그레이션을 위한 Azure 및 VMware를 준비합니다.
 - Azure로 마이그레이션하기 전에 [VMware VM을 평가](./tutorial-assess-vmware-azure-vm.md)하는 두 번째 자습서를 완료하는 것이 좋습니다.

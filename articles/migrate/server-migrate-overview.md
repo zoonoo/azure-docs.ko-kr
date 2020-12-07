@@ -1,14 +1,17 @@
 ---
-title: Azure Migrate Server Migration을 사용 하 여 VMware 마이그레이션 옵션 선택 | Microsoft Docs
+title: Azure Migrate Server Migration을 사용 하 여 VMware 마이그레이션 옵션을 선택 합니다.
 description: Azure Migrate Server Migration을 사용 하 여 VMware Vm을 Azure로 마이그레이션하기 위한 옵션에 대 한 개요를 제공 합니다.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: ac08075212d885a1aca755f94906b50754e23b9d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5e4aaea5b565e126f633b04215bbc3a24faf2cde
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534110"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753606"
 ---
 # <a name="select-a-vmware-migration-option"></a>VMware 마이그레이션 옵션 선택
 
@@ -45,7 +48,7 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 **마이그레이션을 위해 VMware 준비** | VMware 서버 및 Vm에 대 한 설정을 구성 합니다. | 필수 | 필수
 **Vm에 모바일 서비스 설치** | 모바일 서비스는 복제 하려는 각 VM에서 실행 됩니다. | 필요 없음 | 필수
 **복제 어플라이언스 배포** | [복제 어플라이언스](migrate-replication-appliance.md) 는 에이전트 기반 마이그레이션에 사용 됩니다. Vm에서 실행 되는 모바일 서비스와 서버 마이그레이션을 연결 합니다. | 필요 없음 | 필수
-**Vm을 복제** 합니다. VM 복제를 사용하도록 설정. | 복제 설정을 구성 하 고 복제할 Vm을 선택 합니다. | 필수 | 필수
+**Vm을 복제** 합니다. VM 복제를 사용 하도록 설정 합니다. | 복제 설정을 구성 하 고 복제할 Vm을 선택 합니다. | 필수 | 필수
 **테스트 마이그레이션 실행** | 테스트 마이그레이션을 실행하여 모든 것이 예상대로 작동하는지 확인합니다. | 필수 | 필수
 **전체 마이그레이션 실행** | Vm을 마이그레이션합니다. | 필수 | 필수
 
