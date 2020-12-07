@@ -74,7 +74,9 @@
       items:
         - name: Azure Migrate 지원
           href: migrate-support-matrix.md
-        - name: Azure Migrate에 대한 보안 기준
+    - name: 보안
+      items:
+        - name: 보안 기준
           href: security-baseline.md
     - name: 검색
       items:
