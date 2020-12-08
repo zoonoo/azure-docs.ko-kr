@@ -4,18 +4,18 @@ description: 투구 패키징 도구를 사용 하 여 AKS (Azure Kubernetes Ser
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 06/24/2020
+ms.date: 12/07/2020
 ms.author: zarhoads
-ms.openlocfilehash: d05d0166724e586fa79e58e2e74fb583b45d0cc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f12dffe0b538738a8f6dd00cd3d87d44da828f21
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852866"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779170"
 ---
 # <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 투구를 사용 하 여 기존 응용 프로그램 설치
 
-[투구][helm] 는 Kubernetes 응용 프로그램의 수명 주기를 설치 하 고 관리 하는 데 도움이 되는 오픈 소스 패키징 도구입니다. *APT* , *Yum*등의 Linux 패키지 관리자와 마찬가지로, 투구는 미리 구성 된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리 하는 데 사용 됩니다.
+[투구][helm] 는 Kubernetes 응용 프로그램의 수명 주기를 설치 하 고 관리 하는 데 도움이 되는 오픈 소스 패키징 도구입니다. *APT* , *Yum* 등의 Linux 패키지 관리자와 마찬가지로, 투구는 미리 구성 된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리 하는 데 사용 됩니다.
 
 이 아티클에서는 AKS의 Kubernetes 클러스터에서 Helm을 구성하고 사용하는 방법을 보여줍니다.
 
@@ -48,10 +48,9 @@ version.BuildInfo{Version:"v3.0.0", GitCommit:"e29ce2a54e96cd02ccfce88bee4f58bb6
 
 ### <a name="add-helm-repositories"></a>투구 리포지토리 추가
 
-[투구 리포지토리][helm-repo-add] 명령을 사용 하 여 공식 투구 안정적인 차트와 *수신-nginx* 리포지토리를 추가 합니다.
+[투구][helm-repo-add] 리포지토리 명령을 사용 하 여 *nginx* 리포지토리를 추가 합니다.
 
 ```console
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 ```
 
@@ -60,56 +59,16 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 Helm 차트는 Kubernetes 클러스터에 애플리케이션을 배포하는 데 사용됩니다. 미리 만든 투구 차트를 검색 하려면 [투구 검색][helm-search] 명령을 사용 합니다.
 
 ```console
-helm search repo stable
+helm search repo ingress-nginx
 ```
 
 다음 압축된 예제 출력에서는 사용할 Helm 차트의 일부를 보여줍니다.
 
 ```console
-$ helm search repo stable
+$ helm search repo ingress-nginx
 
-NAME                                    CHART VERSION   APP VERSION                     DESCRIPTION                                       
-stable/acs-engine-autoscaler            2.2.2           2.1.1                           DEPRECATED Scales worker nodes within agent pools 
-stable/aerospike                        0.3.1           v4.5.0.5                        A Helm chart for Aerospike in Kubernetes          
-stable/airflow                          4.10.0          1.10.4                          Airflow is a platform to programmatically autho...
-stable/ambassador                       4.4.7           0.85.0                          A Helm chart for Datawire Ambassador              
-stable/anchore-engine                   1.3.7           0.5.2                           Anchore container analysis and policy evaluatio...
-stable/apm-server                       2.1.5           7.0.0                           The server receives data from the Elastic APM a...
-stable/ark                              4.2.2           0.10.2                          DEPRECATED A Helm chart for ark                   
-stable/artifactory                      7.3.1           6.1.0                           DEPRECATED Universal Repository Manager support...
-stable/artifactory-ha                   0.4.1           6.2.0                           DEPRECATED Universal Repository Manager support...
-stable/atlantis                         3.8.4           v0.8.2                          A Helm chart for Atlantis https://www.runatlant...
-stable/auditbeat                        1.1.0           6.7.0                           A lightweight shipper to audit the activities o...
-stable/aws-cluster-autoscaler           0.3.3                                           Scales worker nodes within autoscaling groups.    
-stable/aws-iam-authenticator            0.1.1           1.0                             A Helm chart for aws-iam-authenticator            
-stable/bitcoind                         0.2.2           0.17.1                          Bitcoin is an innovative payment network and a ...
-stable/bookstack                        1.1.2           0.27.4-1                        BookStack is a simple, self-hosted, easy-to-use...
-stable/buildkite                        0.2.4           3                               DEPRECATED Agent for Buildkite                    
-stable/burrow                           1.5.2           0.29.0                          Burrow is a permissionable smart contract machine 
-stable/centrifugo                       3.1.0           2.1.0                           Centrifugo is a real-time messaging server.       
-stable/cerebro                          1.3.1           0.8.5                           A Helm chart for Cerebro - a web admin tool tha...
-stable/cert-manager                     v0.6.7          v0.6.2                          A Helm chart for cert-manager                     
-stable/chaoskube                        3.1.2           0.14.0                          Chaoskube periodically kills random pods in you...
-stable/chartmuseum                      2.4.0           0.8.2                           Host your own Helm Chart Repository               
-stable/chronograf                       1.1.0           1.7.12                          Open-source web application written in Go and R...
-stable/clamav                           1.0.4           1.6                             An Open-Source antivirus engine for detecting t...
-stable/cloudserver                      1.0.3           8.1.5                           An open-source Node.js implementation of the Am...
-stable/cluster-autoscaler               6.2.0           1.14.6                          Scales worker nodes within autoscaling groups.    
-stable/cluster-overprovisioner          0.2.6           1.0                             Installs the a deployment that overprovisions t...
-stable/cockroachdb                      2.1.16          19.1.5                          CockroachDB is a scalable, survivable, strongly...
-stable/collabora-code                   1.0.5           4.0.3.1                         A Helm chart for Collabora Office - CODE-Edition  
-stable/concourse                        8.2.7           5.6.0                           Concourse is a simple and scalable CI system.     
-stable/consul                           3.9.2           1.5.3                           Highly available and distributed service discov...
-stable/contour                          0.1.0           v0.15.0                         Contour Ingress controller for Kubernetes         
-stable/coredns                          1.7.4           1.6.4                           CoreDNS is a DNS server that chains plugins and...
-stable/cosbench                         1.0.1           0.0.6                           A benchmark tool for cloud object storage services
-stable/coscale                          1.0.0           3.16.0                          CoScale Agent                                     
-stable/couchbase-operator               1.0.1           1.2.1                           A Helm chart to deploy the Couchbase Autonomous...
-stable/couchdb                          2.3.0           2.3.1                           DEPRECATED A database featuring seamless multi-...
-stable/dask                             3.1.0           1.1.5                           Distributed computation in Python with task sch...
-stable/dask-distributed                 2.0.2                                           DEPRECATED: Distributed computation in Python     
-stable/datadog                          1.38.3          6.14.0                          DataDog Agent 
-...
+NAME                            CHART VERSION   APP VERSION     DESCRIPTION                                       
+ingress-nginx/ingress-nginx     2.12.0          0.34.1          Ingress controller for Kubernetes using NGINX a...
 ```
 
 차트 목록을 업데이트하려면 [helm repo update][helm-repo-update] 명령을 사용합니다.
@@ -125,7 +84,6 @@ $ helm repo update
 
 Hang tight while we grab the latest from your chart repositories...
 ...Successfully got an update from the "ingress-nginx" chart repository
-...Successfully got an update from the "stable" chart repository
 Update Complete. ⎈ Happy Helming!⎈
 ```
 

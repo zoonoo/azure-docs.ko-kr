@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 620b696be0b9a06cf0d68145b06e3cacf2bedff2
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: e5bcc6503af5f5f685ee589ed7671b4715834fef
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762553"
+ms.locfileid: "96779365"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방식: Azure AD SSPR(셀프 서비스 암호 재설정)
 
@@ -89,7 +89,7 @@ Azure AD를 사용 하 여 응용 프로그램에 로그인 하는 경우 사용
 >
 > SSPR에 등록 하는이 인터럽트는 이미 로그인 되어 있는 경우 사용자의 연결을 중단 하지 않습니다.
 
-## <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>사용자가 인증 정보를 다시 확인하도록 요청받을 때까지의 기간(일) 설정
+## <a name="reconfirm-authentication-information"></a>다시 확인 인증 정보
 
 암호를 재설정 하거나 변경 해야 하는 경우 인증 방법이 올바른지 확인 하려면 일정 기간 후 사용자에 게 정보 등록 정보를 확인 하도록 요구할 수 있습니다. 이 옵션은 **로그인 할 때 사용자가 등록 해야** 함 옵션을 사용 하도록 설정한 경우에만 사용할 수 있습니다.
 

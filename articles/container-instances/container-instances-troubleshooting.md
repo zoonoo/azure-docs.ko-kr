@@ -4,12 +4,12 @@ description: Azure Container Instances 배포, 실행 또는 관리할 때 발�
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ac75fff3b088a7d595de2b27c92126ce592aff47
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d8e7fb85e369f5f278436370944eafeb1fb6a50e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746912"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779518"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
 
@@ -99,7 +99,7 @@ Azure에서 다양한 지역별 리소스 부하로 인해 컨테이너 인스�
 ## <a name="issues-during-container-group-runtime"></a>컨테이너 그룹 런타임 중에 발생 하는 문제
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>컨테이너가 계속 종료되고 다시 시작함(장기 실행 프로세스가 없음)
 
-컨테이너 그룹의 기본 [재시작 정책](container-instances-restart-policy.md)이 **항상** 이므로, 실행 완료 후 컨테이너 그룹의 컨테이너는 항상 다시 시작합니다. 작업 기반 컨테이너를 실행하려면 이를 **실패 시** (OnFailure) 또는 **Never** (안 함)로 변경해야 합니다. **OnFailure** 를 지정해도 컨테이너가 계속 다시 시작되면 컨테이너에서 실행된 애플리케이션이나 스크립트에 문제가 있을 수 있습니다.
+컨테이너 그룹의 기본 [재시작 정책](container-instances-restart-policy.md)이 **항상** 이므로, 실행 완료 후 컨테이너 그룹의 컨테이너는 항상 다시 시작합니다. 작업 기반 컨테이너를 실행하려면 이를 **실패 시**(OnFailure) 또는 **Never**(안 함)로 변경해야 합니다. **OnFailure** 를 지정해도 컨테이너가 계속 다시 시작되면 컨테이너에서 실행된 애플리케이션이나 스크립트에 문제가 있을 수 있습니다.
 
 장기 실행 프로세스가 없는 컨테이너 그룹을 실행하면 Ubuntu 또는 Alpine과 같은 이미지와 함께 종료와 재시작이 반복될 수 있습니다. [EXEC](container-instances-exec.md)을 통해 연결하는 작업은 컨테이너에서 활성 상태로 유지되지 않으므로 작동하지 않습니다. 이 문제를 해결 하려면 컨테이너 그룹 배포에 다음과 같은 시작 명령을 포함 하 여 컨테이너를 계속 실행 합니다.
 
@@ -187,7 +187,7 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 #### <a name="cached-images"></a>캐시 된 이미지
 
-Azure Container Instances는 캐싱 메커니즘을 사용 하 여, 및를 비롯 하 여 일반적인 [Windows 기반 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지에 대 한 컨테이너 시작 시간을 단축할 수 있습니다 `nanoserver:1809` `servercore:ltsc2019` `servercore:1809` . 및와 같은 일반적으로 사용 되는 Linux 이미지 `ubuntu:1604` `alpine:3.6` 도 캐시 됩니다. 캐시 된 이미지 및 태그의 최신 목록을 보려면 [캐시 된 이미지 나열][list-cached-images] API를 사용 합니다.
+Azure Container Instances는 캐싱 메커니즘을 사용 하 여, 및를 비롯 하 여 일반적인 [Windows 기반 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지에 대 한 컨테이너 시작 시간을 단축할 수 있습니다 `nanoserver:1809` `servercore:ltsc2019` `servercore:1809` . 및와 같은 일반적으로 사용 되는 Linux 이미지 `ubuntu:1604` `alpine:3.6` 도 캐시 됩니다. Windows 및 Linux 이미지의 경우 태그를 사용 하지 마십시오 `latest` . 지침에 대 한 Container Registry의 [이미지 태그 모범 사례](../container-registry/container-registry-image-tag-version.md) 를 검토 합니다. 캐시 된 이미지 및 태그의 최신 목록을 보려면 [캐시 된 이미지 나열][list-cached-images] API를 사용 합니다.
 
 > [!NOTE]
 > Azure Container Instances에서 Windows Server 2019 기반 이미지 사용은 미리 보기에 있습니다.

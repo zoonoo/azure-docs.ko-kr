@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/19/2020
-ms.openlocfilehash: 043020abd44bc1f8e671cf386149d6a818136de9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6ee72a25fc8435159ae75ac3296742eda58617b6
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014366"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779943"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 보안 연결을 위한 개인 끝점 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "96014366"
 개인 끝점은 [Azure 개인 링크](../private-link/private-link-overview.md)에서 별도 서비스로 제공 됩니다. 비용에 대 한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/private-link/)를 참조 하세요.
 
 > [!Important]
-> Azure Portal 또는 [관리 REST API 버전 2020-03-13](/rest/api/searchmanagement/)을 사용 하 여 Azure Cognitive Search에 대 한 개인 끝점 지원을 구성할 수 있습니다. 서비스 끝점이 개인 인 경우 일부 포털 기능이 사용 하지 않도록 설정 됩니다. 서비스 수준 정보를 보고 관리할 수 있지만 인덱스, 인덱서 및 기술 정의와 같은 서비스의 다양 한 구성 요소 및 인덱스에 대 한 포털 액세스는 보안상의 이유로 제한 됩니다.
+> Azure Portal 또는 [관리 REST API 버전 2020-03-13](/rest/api/searchmanagement/)을 사용 하 여 Azure Cognitive Search에 대 한 개인 끝점 지원을 구성할 수 있습니다. 서비스 끝점이 개인 인 경우 일부 포털 기능이 사용 하지 않도록 설정 됩니다. 서비스 수준 정보를 보고 관리할 수 있지만 인덱스, 인덱서 및 기술 정의와 같은 서비스의 다양 한 구성 요소 및 인덱스에 대 한 포털 액세스는 보안상의 이유로 제한 됩니다. 포털 대신 [VS Code 확장](https://aka.ms/vscode-search) 을 사용 하 여 서비스의 다양 한 구성 요소와 상호 작용할 수 있습니다.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>보안 액세스에 개인 끝점을 사용 하는 이유
 
@@ -45,8 +45,8 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
     | 설정 | 값 |
     | ------- | ----- |
     | 구독 | 구독 선택|
-    | 리소스 그룹 | **새로 만들기** 를 선택 하 고 *myresourcegroup* 을 입력 한 다음 **확인** 을 선택 합니다. |
-    | Name | *MyVirtualNetwork* 입력 |
+    | Resource group | **새로 만들기** 를 선택 하 고 *myresourcegroup* 을 입력 한 다음 **확인** 을 선택 합니다. |
+    | 이름 | *MyVirtualNetwork* 입력 |
     | 지역 | 원하는 지역 선택 |
     |||
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: d2c9d810fb3bd86d68518e1ad20088a57d538bbe
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 70ebe8ede75935bcc8d8db8729fef165a5616fe7
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500583"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779807"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 시나리오
 
@@ -416,6 +416,7 @@ Azure Disk Encryption는 다음과 같은 Linux 시나리오, 기능 및 기술�
 - [고객이 관리 하는 키를 사용 하 여 서버 쪽 암호화](../disk-encryption.md) 로 암호화 된 디스크를 포함 하는 VM에 ADE 적용 (SSE + cmk). ADE로 암호화 된 VM의 데이터 디스크에 SSE + CMK를 적용 하는 것도 지원 되지 않는 시나리오입니다.
 - ADE로 암호화 되었거나 ADE로 **암호화 된 VM** 을 [고객 관리 키를 사용 하는 서버 쪽 암호화](../disk-encryption.md)로 마이그레이션합니다.
 - [로컬 임시 디스크가 없는 AZURE VM 크기](../azure-vms-no-temp-disk.md) 특히 Dv4, Dsv4, Ev4 및 Esv4입니다.
+- 장애 조치 (failover) 클러스터에서 Vm을 암호화 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

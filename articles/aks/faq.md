@@ -3,12 +3,12 @@ title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대한 답변을 찾아보세요.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 1ca342c1ea4134f4d9d8f1dbcae4e61bf2a75eaf
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 94cbaf417413b3e11071fb8c7237cbb3ac7b9a37
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751397"
+ms.locfileid: "96780351"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -215,7 +215,7 @@ V 1.2.0 Azure CNI는 단일 테 넌 트 Linux CNI 배포에 대해 기본적으�
 
 ### <a name="bridge-mode"></a>브리지 모드
 
-이름에서 알 수 있듯이, "just-in-time" 방식으로 브리지 모드 Azure CNI는 "azure0" 라는 L2 브리지를 만듭니다. 모든 호스트 측 pod `veth` 쌍 인터페이스는이 브리지에 연결 됩니다. 따라서 VM 간 통신은이 브리지를 통해 Pod-Pod 됩니다. 해당 브리지는 하나 이상의 실제 장치를 해당 장치에 바인딩하지 않는 한, 자체를 수신 하거나 전송할 수 없는 계층 2 가상 장치입니다. 이러한 이유로 Linux VM의 eth0를 "azure0" 브리지에 대 한 하위으로 변환 해야 합니다. 이를 통해 Linux VM 내에서 복잡 한 네트워크 토폴로지를 만들고, DNS 서버 업데이트 등의 다른 네트워킹 기능을 처리 해야 하는 증상이 있습니다.
+이름에서 알 수 있듯이, "just-in-time" 방식으로 브리지 모드 Azure CNI는 "azure0" 라는 L2 브리지를 만듭니다. 모든 호스트 측 pod `veth` 쌍 인터페이스는이 브리지에 연결 됩니다. 따라서 VM 통신 내 Pod-Pod 나머지 트래픽은이 브리지를 통과 합니다. 해당 브리지는 하나 이상의 실제 장치를 해당 장치에 바인딩하지 않는 한, 자체를 수신 하거나 전송할 수 없는 계층 2 가상 장치입니다. 이러한 이유로 Linux VM의 eth0를 "azure0" 브리지에 대 한 하위으로 변환 해야 합니다. 이를 통해 Linux VM 내에서 복잡 한 네트워크 토폴로지를 만들고, DNS 서버 업데이트 등의 다른 네트워킹 기능을 처리 해야 하는 증상이 있습니다.
 
 :::image type="content" source="media/faq/bridge-mode.png" alt-text="브리지 모드 토폴로지":::
 
@@ -229,19 +229,11 @@ root@k8s-agentpool1-20465682-1:/#
 ```
 
 ### <a name="transparent-mode"></a>투명 모드
-투명 모드는 Linux 네트워킹을 설정 하는 데 직접적인 접근 방식을 사용 합니다. 이 모드에서 Azure CNI는 Linux VM에서 eth0 인터페이스의 속성을 변경 하지 않습니다. Linux 네트워킹 속성을 변경 하는 최소한의 방식은 클러스터가 브리지 모드에서 직면 했을 수 있는 복잡 한 코너 케이스 문제를 줄이는 데 도움이 됩니다. 투명 모드에서 Azure CNI는 `veth` 호스트 네트워크에 추가 될 호스트 측 pod 쌍 인터페이스를 만들고 추가 합니다. VM Pod-Pod 간 통신은 CNI가 추가 하는 ip 경로를 통해 통신 합니다. 기본적으로 VM에 대 한 Pod-Pod는 계층 3 네트워크 트래픽 보다 낮습니다.
+투명 모드는 Linux 네트워킹을 설정 하는 데 직접적인 접근 방식을 사용 합니다. 이 모드에서 Azure CNI는 Linux VM에서 eth0 인터페이스의 속성을 변경 하지 않습니다. Linux 네트워킹 속성을 변경 하는 최소한의 방식은 클러스터가 브리지 모드에서 직면 했을 수 있는 복잡 한 코너 케이스 문제를 줄이는 데 도움이 됩니다. 투명 모드에서 Azure CNI는 `veth` 호스트 네트워크에 추가 될 호스트 측 pod 쌍 인터페이스를 만들고 추가 합니다. VM Pod-Pod 간 통신은 CNI가 추가 하는 ip 경로를 통해 통신 합니다. 기본적으로 Pod-Pod 통신은 계층 3을 통해, pod 트래픽은 L3 라우팅 규칙에 의해 라우팅됩니다.
 
 :::image type="content" source="media/faq/transparent-mode.png" alt-text="투명 모드 토폴로지":::
 
 다음은 투명 모드의 ip 경로 설정 예제입니다. 각 Pod의 인터페이스는 대상 IP를 사용 하는 트래픽을 pod의 호스트 쪽 쌍 인터페이스로 직접 보내도록 고정 경로를 연결 합니다 `veth` .
-
-### <a name="benefits-of-transparent-mode"></a>투명 모드의 이점
-
-- `conntrack`Dns 병렬 경합 상태를 완화 하 고 노드 로컬 dns를 설정할 필요 없이 5 초 dns 대기 시간 문제를 방지 합니다 (성능상의 이유로 노드 로컬 dns를 계속 사용할 수 있음).
-- 초기 5 초 DNS 대기 시간 CNI 브리지 모드는 "just-in-time" 브리지 설정으로 인해 오늘 도입 됩니다.
-- 브리지 모드의 코너 사례 중 하나는 사용자 지정 DNS 서버 목록에서 사용자가 VNET 또는 NIC에 추가 하는 Azure CNI 업데이트를 유지할 수 없다는 것입니다. 이로 인해 CNI는 DNS 서버 목록의 첫 번째 인스턴스만 선택 합니다. Eth0 속성을 변경 하지 않는 경우 투명 모드에서 CNI로 해결 되었습니다. [여기](https://github.com/Azure/azure-container-networking/issues/713)에서 더 보입니다.
-- ARP 시간 제한이 초과 되 면 udp 트래픽 및 UDP의 장애 완화를 위한 향상 된 처리 기능을 제공 합니다. 브리지 모드에서는 브리지가 VM Pod 간 통신에서 대상 pod의 MAC 주소를 인식 하지 못하는 경우에는 기본적으로 모든 포트에 대 한 패킷의 폭풍이 발생 합니다. 경로에 L2 장치가 없으므로 투명 모드로 해결 됩니다. 자세한 내용은 [여기](https://github.com/Azure/azure-container-networking/issues/704)를 참조 하세요.
-- 투명 모드는 브리지 모드와 비교할 때 처리량 및 대기 시간 측면에서 VM Pod 간 통신에 더 잘 수행 됩니다.
 
 ```bash
 10.240.0.216 dev azv79d05038592 proto static
@@ -254,6 +246,15 @@ root@k8s-agentpool1-20465682-1:/#
 169.254.169.254 via 10.240.0.1 dev eth0 proto dhcp src 10.240.0.4 metric 100
 172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
 ```
+
+### <a name="benefits-of-transparent-mode"></a>투명 모드의 이점
+
+- `conntrack`Dns 병렬 경합 상태를 완화 하 고 노드 로컬 dns를 설정할 필요 없이 5 초 dns 대기 시간 문제를 방지 합니다 (성능상의 이유로 노드 로컬 dns를 계속 사용할 수 있음).
+- 초기 5 초 DNS 대기 시간 CNI 브리지 모드는 "just-in-time" 브리지 설정으로 인해 오늘 도입 됩니다.
+- 브리지 모드의 코너 사례 중 하나는 사용자 지정 DNS 서버 목록에서 사용자가 VNET 또는 NIC에 추가 하는 Azure CNI 업데이트를 유지할 수 없다는 것입니다. 이로 인해 CNI는 DNS 서버 목록의 첫 번째 인스턴스만 선택 합니다. Eth0 속성을 변경 하지 않는 경우 투명 모드에서 CNI로 해결 되었습니다. 자세한 내용은 [여기](https://github.com/Azure/azure-container-networking/issues/713)를 참조 하세요.
+- ARP 시간 제한이 초과 되 면 udp 트래픽 및 UDP의 장애 완화를 위한 향상 된 처리 기능을 제공 합니다. 브리지 모드에서는 브리지가 VM Pod 간 통신에서 대상 pod의 MAC 주소를 인식 하지 못하는 경우에는 기본적으로 모든 포트에 대 한 패킷의 폭풍이 발생 합니다. 경로에 L2 장치가 없으므로 투명 모드로 해결 됩니다. 자세한 내용은 [여기](https://github.com/Azure/azure-container-networking/issues/704)를 참조 하세요.
+- 투명 모드는 브리지 모드와 비교할 때 처리량 및 대기 시간 측면에서 VM Pod 간 통신에 더 잘 수행 됩니다.
+
 
 <!-- LINKS - internal -->
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: ef54c40715c874364beb188d8850a9ce953aa112
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 382c79cf77cb22d3cad1af41d6daa662fb00df4c
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554625"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781167"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Azure 부서의 범위 (미리 보기)에서 데이터 원본 관리
 
@@ -28,6 +28,7 @@ ms.locfileid: "96554625"
 * Azure Synapse Analytics(이전의 SQL DW)
 * Azure Cosmos DB
 * Power BI
+* Teradata(미리 보기)
 
 ## <a name="register-a-new-source"></a>새 원본 등록
 
@@ -80,5 +81,5 @@ Azure 부서의 범위 Studio의 **원본** 탭에서 등록 된 모든 원본�
 다양 한 데이터 원본을 등록 하 고 검색 하는 방법을 알아봅니다.
 
 * [Azure Data Lake Storage Gen 2](register-scan-adls-gen2.md)
-* [Power BI 테넌트](register-scan-power-bi-tenant.md)
+* [Power BI 테 넌 트](register-scan-power-bi-tenant.md)
 * [Azure SQL Database](register-scan-azure-sql-database.md)

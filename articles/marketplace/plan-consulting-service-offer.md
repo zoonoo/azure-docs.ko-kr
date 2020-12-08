@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: c56d83e551265f3fb4de106cb8fa77efd6dcbabc
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7f56ff94c4dcf276accc56e8d1076266099d635d
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452115"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780708"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 컨설팅 서비스 제품을 계획 하는 방법
 
@@ -27,9 +27,23 @@ ms.locfileid: "96452115"
 
 ## <a name="primary-products-and-online-stores"></a>주 제품 및 온라인 스토어
 
-각 컨설팅 서비스 제품은 **주 제품** 이라고 하는 Microsoft 제품에 집중 해야 합니다. 파트너 센터에서 선택 하는 기본 제품에 따라 제품이 Microsoft AppSource에 게시 되는지 아니면 Azure Marketplace에 게시 되는지 결정 됩니다.
+각 컨설팅 서비스는 제품의 **기본 제품** 이라고 하는 이러한 Microsoft 제품 중 하나에 초점을 맞춰야 합니다.
 
-* 컨설팅 서비스의 기본 제품이 Azure 인 경우 제품은 Azure Marketplace 나열 됩니다.
+|기본 제품                               |                   |
+|-------------------------------|-------------------|
+|Azure                          |Dynamics 365 Project Service Automation |
+|Dynamics 365 Business Central  |Dynamics 365 Sales |
+|Dynamics 365 Commerce          |Dynamics 365 Supply Chain Management |
+|Dynamics 365 Customer Insights |Microsoft 365 |
+|Dynamics 365 Customer Service  |Power Apps |
+|Dynamics 365 Field Service     |Power Automate |
+|Dynamics 365 Finance           |Power BI |
+|Dynamics 365 Marketing         |Power Virtual Agents |
+|    |    |
+
+파트너 센터에서 선택 하는 기본 제품에 따라 제품이 Microsoft AppSource에 게시 되는지 아니면 Azure Marketplace에 게시 되는지 결정 됩니다.
+
+* 컨설팅 서비스의 기본 제품이 Azure 인 경우 제품은 Azure Marketplace에 나열 됩니다.
 * 주 제품이 Azure가 아닌 경우 제품이 AppSource에 나열 됩니다.
 
 AppSource와 Azure Marketplace 간의 차이점에 대 한 자세한 내용은 [상용 Marketplace online 스토어](./overview.md#commercial-marketplace-online-stores)를 참조 하세요.
@@ -91,6 +105,7 @@ AppSource와 Azure Marketplace 간의 차이점에 대 한 자세한 내용은 [
 |제조에서 Azure IoT 시작 |제조 IoT: 2일 평가 |
 |스마트 토스터에 대한 워크샵 |Smart Toers: 1 주 워크숍 |
 |Contoso의 마이그레이션 PoC SQL Server |SQL 마이그레이션: 3주 개념 증명 |
+| | |
 
 **검색 결과 요약**: 200 자 이하로 제품의 목적 또는 목표를 설명 합니다. 이 요약은 상용 marketplace에서 검색 결과를 나열 하는 데 사용 됩니다. 제목과 동일 하지 않아야 합니다. 상위 SEO 키워드를 포함 하는 것이 좋습니다.
 
@@ -105,6 +120,7 @@ AppSource와 Azure Marketplace 간의 차이점에 대 한 자세한 내용은 [
 |구현 |하루 이상 구현에 대 한 자세한 의제를 포함 하 고 고객에 게 engagement의 결과로 예측할 수 있는 엔지니어링 변경, 기술 아티팩트 또는 기타 아티팩트에 대해 설명 합니다. |
 |개념 증명 |고객 들이 engagement의 결과로 예측할 수 있는 엔지니어링 변경, 기술 아티팩트 또는 기타 아티팩트에 대해 설명 합니다. |
 |워크샵 |제품의 기간에 따라 자세한 일별, 주별 또는 월별 어 젠더를 포함 합니다. 워크샵에서 다룰 학습 목적 또는 기타 결과물을 결정합니다. |
+| | |
 
 다음은 설명 작성에 대한 몇 가지 팁입니다.
 
@@ -142,6 +158,11 @@ Azure Marketplace 또는 AppSource의 제품 목록 페이지에 많은 로고�
 **Marketplace 미디어 – 스크린샷**: 제품을 설명 하는 하나 이상의 이미지를 하나 이상 추가 합니다. 모든 이미지는 1280 x 720 픽셀 크기 및의 크기 여야 합니다. PNG 형식입니다.
 
 **Marketplace 미디어 – 비디오** (선택 사항): 제품을 설명 하는 최대 4 개의 비디오를 추가할 수 있습니다. 비디오는 YouTube 또는 Vimeo에서 호스트 되 고 미리 보기 (1280 x 720 PNG 파일)가 있어야 합니다.
+
+## <a name="pricing-and-availability"></a>가격 책정 및 가용성
+
+컨설팅 서비스 제품은 하나 이상의 국가 또는 지역에서 사용할 수 있습니다. 파트너 센터에서 선택한 각 시장에 대 한 가격을 결정할 수 있습니다. 지원 되는 시장 및 통화의 전체 목록은 [상용 marketplace에 대 한 지리적 가용성 및 통화 지원](./marketplace-geo-availability-currencies.md)을 참조 하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

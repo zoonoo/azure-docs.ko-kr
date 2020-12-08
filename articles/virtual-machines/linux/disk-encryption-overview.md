@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7079f0b1060be1a260b41e07b9d9299bab57127f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 91ef5ca35cc96aa2028522d370ffbade45ecc2de
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016304"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779773"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux VM용 Azure Disk Encryption 
 
@@ -67,7 +67,7 @@ Azure에서 보증되지 않는 Linux 서버 배포판은 Azure Disk Encryption�
 | Canonical | Ubuntu 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | OS 및 데이터 디스크 |
 | RedHat | RHEL 7.8 | 7.8 | RedHat: RHEL: 7.8: 최신 | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
-| RedHat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
+| RedHat | RHEL 7-LVM | 7-LVM | RedHat: RHEL: 7lvm: 7.8.2020111201 | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.4 | 7.4 | RedHat:RHEL:7.4:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
@@ -77,7 +77,7 @@ Azure에서 보증되지 않는 Linux 서버 배포판은 Azure Disk Encryption�
 | RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | 데이터 디스크(아래 참고 사항 참조) |
 | OpenLogic | CentOS 7.8 | 7.8 | OpenLogic: CentOS: 7_8: 최신 | OS 및 데이터 디스크 |
 | OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | OS 및 데이터 디스크 |
-| OpenLogic | CentOS 7.7 | 7-LVM | OpenLogic:CentOS:7-LVM:latest | OS 및 데이터 디스크 |
+| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic: CentOS-LVM: 7lvm: 7.8.2020111100 | OS 및 데이터 디스크 |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | OS 및 데이터 디스크 |
 | OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | OS 및 데이터 디스크 |
 | OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:latest | OS 및 데이터 디스크 |

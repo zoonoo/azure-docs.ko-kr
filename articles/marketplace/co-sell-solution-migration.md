@@ -4,15 +4,15 @@ description: OCP GTM에서 Microsoft AppSource에 대 한 파트너 센터로 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
-ms.date: 12/04/2020
-ms.openlocfilehash: 6af7095dbb57c5ceb17989b2d6106a42e1d23fb9
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+author: vamahtan
+ms.author: vamahtan
+ms.date: 12/07/2020
+ms.openlocfilehash: 6ad58283ad9078088f241a67426657eb7a538e10
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96772020"
+ms.locfileid: "96781133"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>OCP GTM에서 상업적 marketplace로 공동 판매 솔루션 마이그레이션
 
@@ -79,7 +79,8 @@ OCP GTM에서 솔루션을 가져오기 전에 다음 단계를 수행 합니다
 1. 기존 제품을 식별 합니다.
     1. **이 솔루션을 상업적 marketplace의 유사한 제품으로 병합** 합니다 ( [위의](#beginmigration) **작업 필요** 이미지 참조).
     1. **작업 1** 탭은 OCP GTM 솔루션을 연결할 수 있는 live 상용 marketplace 제품을 보여 줍니다. 목록에서 live 제품을 선택 합니다 (있는 경우). 선택할 제품 목록이 없는 경우 Microsoft AppSource 또는 Azure Marketplace에서 고객 연결 주소 (URL)를 입력 합니다.
-        [![병합 프로세스의 동작 1 탭입니다.](media/co-sell-migrate/action-1-merge.png)](media/co-sell-migrate/action-1-merge.png#lightbox)    1. **계속** 을 선택합니다.
+        [![병합 프로세스의 동작 1 탭입니다.](media/co-sell-migrate/action-1-merge.png)](media/co-sell-migrate/action-1-merge.png#lightbox)
+    1. **계속** 을 선택합니다.
 1. 병합을 요청 합니다.
     1. **작업 2** 탭에서는 식별 한 것과 함께 OCP GTM 솔루션을 병합 하도록 요청 하는 지침을 보여 줍니다. 병합을 요청 하려면 저장을 선택 하 **& 지원 담당자에 게 문의 하세요**. 그러면 브라우저에서 파트너 지원 페이지가 열립니다.
     1. **문제 세부 정보 제공** 을 선택 하 고 [ ![ 병합 프로세스의 동작 2 탭](media/co-sell-migrate/action-2-merge.png)](media/co-sell-migrate/action-2-merge.png#lightbox) 을 입력 합니다.
@@ -93,7 +94,7 @@ OCP GTM에서 솔루션을 가져오기 전에 다음 단계를 수행 합니다
 1. **이 솔루션을 OCP GTM에서 상용 marketplace로 마이그레이션하려는** 경우 ( [위의](#beginmigration) **작업 필수** 이미지 참조) **계속** 을 선택 합니다.
 1. **작업 1** 탭에서 [제안 유형을](publisher-guide-by-offer-type.md)선택 하 고 **계속** 합니다.
 
-    [![마이그레이션 프로세스의 작업 1 탭입니다.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)    1. **계속** 을 선택합니다.
+    [![마이그레이션 프로세스의 작업 1 탭입니다.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)
 
 1. **작업 2** 탭의 제공 된 목록에서 [게시자 프로필](partner-center-portal/create-account.md) 을 선택 합니다. 게시자 계정이 없으면 [파트너 센터](https://partner.microsoft.com/solutions/migration)에서 게시자 계정을 만든 다음 여기에서 선택 합니다.
 

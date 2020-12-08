@@ -9,18 +9,82 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 03825e0f091df01b98355dd6789eb5c9cb2897b0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4998469fa353fef9e8a91d078349150d9f739ac2
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444531"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779416"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 참조 페이지를 참조 하세요.
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
+
+## <a name="2020-12-07"></a>2020-12-07
+
+### <a name="azure-machine-learning-sdk-for-python-v1190"></a>Azure Machine Learning SDK for Python v 1.19.0
++ **버그 수정 및 향상 된 기능**
+  + **azureml-automl-core**
+    + 테스트 데이터에 대 한 실험적 지원이 AutoMLStep에 추가 되었습니다.
+    + 테스트 집합 수집 기능의 초기 핵심 구현이 추가 되었습니다.
+    + Joblib에 직접 종속 되는 참조를 참조로 이동 합니다.
+    + "이미지-인스턴스-분할"의 새로운 AutoML 작업 유형을 소개 합니다.
+  + **azureml-automl-runtime**
+    + 테스트 집합 수집 기능의 초기 핵심 구현이 추가 되었습니다.
+    + 텍스트 열의 모든 문자열 길이가 정확히 1 자인 경우 TfIdf word-영문법 featurizer는 해당 토크가 2 자 미만의 문자열을 무시 하므로 작동 하지 않습니다. 현재 코드를 변경 하면 AutoML이 사용 사례를 처리할 수 있습니다.
+    + "이미지-인스턴스-분할"의 새로운 AutoML 작업 유형을 소개 합니다.
+  + **azureml-자동 dnn-nlp**
+    + New dnn-nlp package의 초기 PR
+  + **azureml-자동 dnn-비전**
+    + "이미지-인스턴스-분할"의 새로운 AutoML 작업 유형을 소개 합니다.
+  + **azureml-자동 ml-파이프라인-단계**
+    + 이 새 패키지는 여러 모델 학습/유추 시나리오에 필요한 단계를 만드는 작업을 담당 합니다. 또한 큐 레이트 환경 릴리스를 통해 향후 수정 사항을 자동으로 사용할 수 있도록 학습/유추 코드를 azureml. 패키지로 이동 합니다.
+  + **azureml-contrib-dataset**
+    + "이미지-인스턴스-분할"의 새로운 AutoML 작업 유형을 소개 합니다.
+  + **azureml-core**
+    + 테스트 집합 수집 기능의 초기 핵심 구현이 추가 되었습니다.
+    + Azureml 코어 패키지의 설명서에 대 한 f 경고 수정
+    + SDK의 명령 지원 기능에 대 한 문서 문자열 수정
+    + RunConfiguration에 명령 속성을 추가 하는 중입니다. 이 기능을 사용 하면 사용자가 AzureML SDK를 통해 계산에서 실제 명령 또는 실행 파일을 실행할 수 있습니다.
+    + 사용자는 해당 실험의 id가 지정 된 경우 빈 실험을 삭제할 수 있습니다.
+  + **azureml-dataprep**
+    + Scala 2.12를 사용 하 여 빌드된 Spark에 대 한 데이터 집합 지원이 추가 되었습니다. 이는 기존 2.11 지원에 추가 됩니다.
+  + **azureml.mlflow**
+    + AzureML-MLflow은 전송 된 실행의 조기 종료를 방지 하기 위해 원격 스크립트에 safe 가드를 추가 합니다.
+  + **azureml-pipeline-core**
+    + UI를 통해 만든 파이프라인 끝점에 대 한 기본 파이프라인 설정에서 버그가 수정 되었습니다.
+  + **azureml-pipeline-steps**
+    + 테스트 데이터에 대 한 실험적 지원이 AutoMLStep에 추가 되었습니다.
+  + **azureml-tensorboard**
+    + Azureml 코어 패키지의 설명서에 대 한 f 경고 수정
+  + **azureml-train-automl-client**
+    + 테스트 데이터에 대 한 실험적 지원이 AutoMLStep에 추가 되었습니다.
+    + 테스트 집합 수집 기능의 초기 핵심 구현이 추가 되었습니다.
+    + "이미지-인스턴스-분할"의 새로운 AutoML 작업 유형을 소개 합니다.
+  + **azureml-train-automl-runtime**
+    + 테스트 집합 수집 기능의 초기 핵심 구현이 추가 되었습니다.
+    + Validation_size 설정을 사용 하 여 AutoML 모델을 학습 하는 경우 최상의 AutoML 모델에 대 한 원시 설명의 계산을 수정 합니다.
+    + Joblib에 직접 종속 되는 참조를 참조로 이동 합니다.
+  + **azureml-train-core**
+    + HyperDriveRun.get_children_sorted_by_primary_metric ()는 지금 보다 빨리 완료 되어야 합니다.
+    + 하이퍼 드라이브 SDK에서 오류 처리가 개선 되었습니다.
+    +  사용 되지 않는 모든 평가기 클래스는 실험 실행을 구성 하기 위해 ScriptRunConfig를 사용 하는 것을 선호 합니다. 사용 되지 않는 클래스는 다음과 같습니다.
+        + MMLBaseEstimator
+        + 평가자
+        + PyTorch 
+        + TensorFlow 
+        + Chainer 
+        + SKLearn
+    + Nccl 및 Gloo를 평가기 클래스에 대 한 유효한 입력 형식으로 사용 하는 것은 PyTorchConfiguration와 ScriptRunConfig를 사용 하는 데 사용 되지 않습니다.
+    + 평가기 클래스에 대 한 유효한 입력 형식으로 Mpi를 사용 하는 것이 더 이상 ScriptRunConfig와 함께 MpiConfiguration를 사용 하는 것을 선호 합니다.
+    + Runconfiguration에 명령 속성을 추가 하는 중입니다. 이 기능을 사용 하면 사용자가 AzureML SDK를 통해 계산에서 실제 명령 또는 실행 파일을 실행할 수 있습니다.
+
+    +  사용 되지 않는 모든 평가기 클래스는 실험 실행을 구성 하기 위해 ScriptRunConfig를 사용 하는 것을 선호 합니다. 사용 되지 않는 클래스에는 다음이 포함 됩니다. + MMLBaseEstimator + 평가기 + PyTorch + TensorFlow + 체 이너 +
+    + Nccl 및 Gloo를 평가기 클래스에 대 한 유효한 입력 형식으로 사용 하는 것은 사용 되지 않으며 ScriptRunConfig와 함께 PyTorchConfiguration를 사용 합니다. 
+    + 평가기 클래스에 대 한 유효한 입력 형식으로 Mpi를 사용 하는 것은 사용 되지 않으며 ScriptRunConfig와 함께 MpiConfiguration를 사용 합니다.
+
 
 
 ## <a name="2020-11-09"></a>2020-11-09
@@ -43,16 +107,10 @@ ms.locfileid: "96444531"
     + `OutputDatasetConfig.register_on_complete`에서 이름이 이미 있는 경우 발생 하는 동작을 포함 하도록에 대 한 설명서를 개선 했습니다.
     + 공통 환경 변수와 충돌할 가능성이 있는 데이터 집합 입력 및 출력 이름을 지정 하면 경고가 발생 합니다.
     + `grant_workspace_access`Datastores를 등록할 때 매개 변수가 재사용 됩니다. `True`Machine Learning Studio에서 가상 네트워크 뒤에 있는 데이터에 액세스 하려면로 설정 합니다.
-      [자세한 정보](./how-to-enable-studio-virtual-network.md)
+      [자세히 알아보기](./how-to-enable-studio-virtual-network.md)
     + 연결 된 서비스 API가 구체화 되었습니다. 리소스 Id를 제공 하는 대신 3 개의 별도 매개 변수 sub_id, rg 및 구성에 정의 된 이름을 갖습니다.
     + 고객이 토큰 손상 문제를 자체 해결할 수 있도록 하려면 작업 영역 토큰 동기화를 공용 메서드로 설정 합니다.
     + 이렇게 변경 하면 빈 문자열을 script_param 값으로 사용할 수 있습니다.
-  + **azureml-pipeline-core**
-    + SynapseCompute type 및 SynapseSparkStep를 지원 하기 위한 SDK입니다. 고객은 synapse spark 풀에서 실험 및 파이프라인 실행을 실행할 수 있습니다.
-  + **azureml-pipeline-steps**
-    + SynapseCompute type 및 SynapseSparkStep를 지원 하기 위한 SDK입니다. 고객은 synapse spark 풀에서 실험 및 파이프라인 실행을 실행할 수 있습니다.
-  + **azureml-synapse**
-    + 사용자 전송 Syanpse 작업을 사용 하도록 설정 하 고 노트북에서 작업 진행률을 확인 하려면 Synapse magic and SparkMonitor를 추가 합니다.
   + **azureml-train-automl-client**
     +  가우스 노이즈를 사용 하 여 안쪽 여백을 허용 하 여 간단한 시계열 처리를 개선 했습니다.
   + **azureml-train-automl-runtime**
@@ -90,7 +148,6 @@ ms.locfileid: "96444531"
     + 모델을 refitting 한 후 VotingRegressor 예측이 정확 하지 않을 수 있는 문제를 해결 했습니다.
   + **azureml-core**
     + AKS 배포 구성 및 Azure Kubernetes 서비스 개념 간의 관계에 대 한 추가 세부 정보입니다.
-    + 고객은 연결 된 서비스 SDK를 사용 하 여 synapse 작업 영역을 AML 작업 영역에 연결할 수 있습니다. CRUD가 지원 됩니다.
     + 환경 클라이언트 레이블 지원. 사용자는 환경에 레이블을 지정할 수 있으며 레이블을 기준으로 참조할 수 있습니다.
   + **azureml-dataprep**
     + Scala 2.12에서 현재 지원 되지 않는 Spark를 사용 하는 경우 더 나은 오류 메시지입니다.

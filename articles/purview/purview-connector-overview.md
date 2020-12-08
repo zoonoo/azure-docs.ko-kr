@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.openlocfilehash: 88fb9c823df6ae5df345911ccce1c579009fba02
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 26efa840bacd3ee542816cf861cf2ef586b0582f
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555142"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780215"
 ---
 # <a name="supported-data-stores"></a>지원되는 데이터 저장소
 
@@ -31,6 +31,7 @@ ms.locfileid: "96555142"
 ||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|예| 예| 아니요| 예| 예| 예|
 ||[Azure Synapse Analytics (이전의 SQL DW)](register-scan-azure-synapse-analytics.md)|예| 예| 아니요| 예| 예| 예|
 |데이터베이스|[SQL Server](register-scan-on-premises-sql-server.md)|예| 예| 아니요| 예| 예| 예|
+||[Teradata(미리 보기)](register-scan-teradata-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
 |Power BI|[Power BI](register-scan-power-bi-tenant.md)|예| 예| 아니요| 아니요| 아니요| 예|
 
 ## <a name="next-steps"></a>다음 단계
