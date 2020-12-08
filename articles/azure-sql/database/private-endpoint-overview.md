@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 088300d4b6f92886310315b67763536e39cbb019
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5109139c7168026c74a475128832fbb0733ce832
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789525"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447130"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에 대한 Azure Private Link
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "92789525"
 Private Link를 사용하면 **프라이빗 엔드포인트** 를 통해 Azure의 다양한 PaaS 서비스에 연결할 수 있습니다. Private Link 기능을 지원하는 PaaS 서비스 목록을 보려면 [Private Link 설명서](../../private-link/index.yml) 페이지로 이동하세요. 프라이빗 엔드포인트는 특정 [VNet](../../virtual-network/virtual-networks-overview.md) 및 서브넷 내의 개인 IP 주소입니다.
 
 > [!IMPORTANT]
-> 이 문서는 Azure SQL Database 및 Azure Synapse Analytics(이전의 SQL Data Warehouse) 모두에 적용됩니다. 편의상 '데이터베이스'라는 용어는 Azure SQL Database 및 Azure Synapse Analytics의 데이터베이스를 모두 나타냅니다. 마찬가지로 '서버'에 대한 모든 참조는 Azure SQL Database 및 Azure Synapse Analytics를 호스트하는 [논리 SQL 서버](logical-servers.md)를 참조하는 것입니다. 이 문서는 **Azure SQL Managed Instance** 에 적용되지 *않습니다* .
+> 이 문서는 Azure SQL Database와 Azure Synapse Analytics 모두에 적용됩니다. 편의상 '데이터베이스'라는 용어는 Azure SQL Database 및 Azure Synapse Analytics의 데이터베이스를 모두 나타냅니다. 마찬가지로 '서버'에 대한 모든 참조는 Azure SQL Database 및 Azure Synapse Analytics를 호스트하는 [논리 SQL 서버](logical-servers.md)를 참조하는 것입니다. 이 문서는 **Azure SQL Managed Instance** 에 적용되지 *않습니다*.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Azure SQL Database용 Private Link를 설정하는 방법 
 
@@ -149,7 +149,7 @@ SQL Database의 데이터베이스에 연결하는 Azure 가상 머신 내에서
 1. VM의 개인 IP 주소를 사용하는 SQL Database의 데이터베이스로의 트래픽만 허용합니다. 자세한 내용은 [서비스 엔드포인트](vnet-service-endpoint-rule-overview.md) 및 [가상 네트워크 방화벽 규칙](firewall-configure.md) 문서를 참조하세요.
 1. Azure VM에서 다음과 같이 [NSG(네트워크 보안 그룹)](../../virtual-network/manage-network-security-group.md) 및 서비스 태그를 사용하여 나가는 연결의 범위를 좁힙니다.
     - 서비스 태그 = SQL.WestUs에 대한 트래픽을 허용하는 NSG 규칙을 지정합니다. 미국 서부에서는 SQL Database에만 연결할 수 있습니다.
-    - 서비스 태그 = SQL에 대한 트래픽을 거부하는 NSG 규칙( **우선 순위가 높음** )을 지정합니다. 모든 지역에서 SQL Database에 대한 연결을 거부합니다.
+    - 서비스 태그 = SQL에 대한 트래픽을 거부하는 NSG 규칙(**우선 순위가 높음**)을 지정합니다. 모든 지역에서 SQL Database에 대한 연결을 거부합니다.
 
 이 설정이 완료되면 Azure VM에서 미국 서부 지역의 SQL Database의 데이터베이스에만 연결할 수 있습니다. 그러나 연결은 단일 SQL Database의 단일 데이터베이스로 제한되지 않습니다. VM은 구독에 속하지 않은 데이터베이스를 포함하여 미국 서부 지역의 모든 데이터베이스에 계속 연결할 수 있습니다. 위의 시나리오에서 데이터 반출의 범위를 특정 지역으로 좁혔지만 완전히 제거하지는 않았습니다.
 

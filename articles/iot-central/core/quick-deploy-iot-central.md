@@ -3,17 +3,17 @@ title: 빠른 시작 - Azure IoT Central 애플리케이션 만들기 | Microsof
 description: 빠른 시작 - 새 Azure IoT Central 애플리케이션을 만듭니다. 무료 가격 책정 플랜 또는 표준 가격 책정 플랜을 사용하여 애플리케이션 만들기
 author: viv-liu
 ms.author: viviali
-ms.date: 11/16/2020
+ms.date: 11/23/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: afe3e9812271f4b8e049fb2a53efd45fe746e514
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a156150c2cd28964658fa8529181a70ef546b78f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992814"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457347"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>빠른 시작 - Azure IoT Central 애플리케이션 만들기
 
@@ -50,7 +50,7 @@ ms.locfileid: "94992814"
 1. 7일 무료 평가판 가격 책정 플랜 또는 표준 가격 책정 플랜을 사용하여 이 애플리케이션을 만들도록 선택합니다.
 
     - *무료* 플랜을 사용하여 만든 애플리케이션은 7일 동안 무료로 제공되며 최대 5개의 디바이스를 지원합니다. 만료되기 전에 언제든지 표준 가격 책정 플랜을 사용하도록 변환할 수 있습니다.
-    - *표준* 플랜을 사용하여 만든 애플리케이션은 디바이스별로 청구되며, 처음 두 디바이스가 무료로 사용 가능한 상태에서 **표준 1** 또는 **표준 2** 가격 책정 플랜을 선택할 수 있습니다. [Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 무료 및 표준 가격 책정 플랜에 대해 자세히 알아보세요. 표준 요금제를 사용하여 애플리케이션을 만드는 경우 *디렉터리*, *Azure 구독* 및 *위치* 를 선택해야 합니다.
+    - *표준* 플랜을 사용하여 만든 애플리케이션은 디바이스별로 청구되며, 처음 두 디바이스가 무료로 사용 가능한 상태에서 **표준 0**, **표준 1** 또는 **표준 2** 가격 책정 플랜을 선택할 수 있습니다. [Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 무료 및 표준 가격 책정 플랜에 대해 자세히 알아보세요. 표준 요금제를 사용하여 애플리케이션을 만드는 경우 *디렉터리*, *Azure 구독* 및 *위치* 를 선택해야 합니다.
         - *디렉터리* 는 애플리케이션을 만드는 Azure Active Directory입니다. Azure Active Directory에는 사용자 ID, 자격 증명 및 기타 조직 정보가 포함됩니다. Azure Active Directory가 없는 경우 Azure 구독을 만들면 자동으로 하나가 생성됩니다.
         - *Azure 구독* 을 사용하여 Azure 서비스 인스턴스를 만들 수 있습니다. IoT Central은 구독에서 리소스를 프로비저닝합니다. Azure 구독이 아직 없는 경우 [Azure 가입 페이지](https://aka.ms/createazuresubscription)에서 무료로 만들 수 있습니다. Azure 구독을 만든 후 다시 **새 애플리케이션** 페이지로 돌아갑니다. 이제 **Azure 구독** 드롭다운에 새 구독이 표시됩니다.
         - *위치* 는 애플리케이션을 만들려는 [지리](https://azure.microsoft.com/global-infrastructure/geographies/)입니다. 일반적으로 최적의 성능을 얻으려면 디바이스와 물리적으로 가장 가까운 위치를 선택해야 합니다. 위치를 선택하면 나중에 다른 위치로 애플리케이션을 이동할 수 없습니다.
@@ -68,4 +68,4 @@ ms.locfileid: "94992814"
 
 디바이스 개발자이고 몇 가지 코드에 대해 자세히 알아보려면 다음 단계를 수행하는 것이 좋습니다.
 > [!div class="nextstepaction"]
-> [클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결](./tutorial-connect-device-nodejs.md)
+> [클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결](./tutorial-connect-device.md)

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 7d96b03598f90b45b7ecf88027be7408d8f161ea
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: f5cf432e3824ca0bb441a458a08fc7353291cf1f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638770"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490060"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Azure Security Center에서 에이전트 및 확장 자동 프로비저닝
 
@@ -138,7 +138,7 @@ Azure Defender는 Windows 보안 이벤트 데이터를 저장하는 데 필요�
 Log Analytics의 데이터를 저장하면 데이터 스토리지에 대한 추가 요금이 발생할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
 ### <a name="information-for-azure-sentinel-users"></a>Azure Sentinel 사용자에 대한 정보 
-Azure Sentinel 사용자: 단일 작업 영역의 컨텍스트 내에서 보안 이벤트 수집은 Azure Security Center 또는 Azure Sentinel에서 구성할 수 있지만 둘 다에서 구성할 수는 없습니다. Azure Security Center에서 이미 Azure Defender 경고를 받고 있고 보안 이벤트를 수집하도록 설정된 작업 영역에 Azure Sentinel을 추가할 계획인 경우 두 가지 옵션이 있습니다.
+Azure Sentinel 사용자: 단일 작업 영역의 컨텍스트 내에서 보안 이벤트 수집은 Azure Security Center 또는 Azure Sentinel에서 구성할 수 있지만 둘 다에서 구성할 수는 없습니다. Azure Security Center에서 이미 경고를 받고 있고 보안 이벤트를 수집하도록 설정된 작업 영역에 Azure Sentinel을 추가할 계획인 경우 두 가지 옵션이 있습니다.
 - Azure Security Center의 보안 이벤트 컬렉션은 그대로 둡니다. Azure Sentinel 및 Azure Defender에서 이러한 이벤트를 쿼리하고 분석할 수 있습니다. 그러나 커넥터의 연결 상태를 모니터링하거나 Azure Sentinel에서 해당 구성을 변경할 수 없습니다. 이것이 중요하다면 두 번째 옵션을 고려합니다.
 - Azure Security Center에서 보안 이벤트 수집을 사용하지 않도록 설정합니다(Log Analytics 에이전트 구성에서 **Windows 보안 이벤트** 를 **없음** 으로 설정). 그런 다음, Azure Sentinel에서 보안 이벤트 커넥터를 추가합니다. 첫 번째 옵션과 마찬가지로 Azure Sentinel 및 Azure Defender/ASC에서 이벤트를 쿼리하고 분석할 수 있지만, 이제 Azure Sentinel에서만 커넥터의 연결 상태를 모니터링하거나 구성을 변경할 수 있습니다.
 
@@ -211,8 +211,8 @@ Log Analytics 에이전트를 수동으로 설치하려면 다음을 수행합�
 
 1. PowerShell을 사용하여 에이전트를 배포하려면 가상 머신 설명서의 지침을 사용하세요.
 
-    - [Windows 컴퓨터의 경우](../virtual-machines/extensions/oms-windows.md?toc=%252fazure%252fazure-monitor%252ftoc.json#powershell-deployment)
-    - [Linux 머신의 경우](../virtual-machines/extensions/oms-linux.md?toc=%252fazure%252fazure-monitor%252ftoc.json#azure-cli-deployment)
+    - [Windows 컴퓨터의 경우](../virtual-machines/extensions/oms-windows.md?toc=%2fazure%2fazure-monitor%2ftoc.json#powershell-deployment)
+    - [Linux 머신의 경우](../virtual-machines/extensions/oms-linux.md?toc=%2fazure%2fazure-monitor%2ftoc.json#azure-cli-deployment)
 
 > [!TIP]
 > PowerShell을 사용하여 Security Center를 온보드하는 방법에 대한 지침은 [PowerShell을 사용하여 Azure Security Center의 온보딩 자동화](security-center-powershell-onboarding.md)를 참조하세요.

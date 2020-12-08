@@ -1,6 +1,6 @@
 ---
 title: Power BI Professional을 사용하여 Synapse SQL에 연결
-description: 이 자습서에서는 Power BI 데스크톱을 서버리스 SQL 풀(미리 보기)에 연결하는 방법을 단계별로 설명합니다.
+description: 이 자습서에서는 Power BI 데스크톱을 서버리스 SQL 풀에 연결하는 방법을 단계별로 설명합니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: c26e2bd27c0c3187768252fd922c31a2cc23d735
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: b33edb99109b7516e1792497a936031cf954bc15
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682091"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451617"
 ---
 # <a name="connect-to-serverless-sql-pool-with-power-bi-professional"></a>Power BI Professional을 사용하여 서버리스 SQL 풀에 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "94682091"
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-이 자습서에서는 Power BI 데스크톱을 서버리스 SQL 풀(미리 보기)에 연결하는 단계를 안내합니다.
+이 자습서에서는 Power BI 데스크톱을 서버리스 SQL 풀에 연결하는 단계를 안내합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

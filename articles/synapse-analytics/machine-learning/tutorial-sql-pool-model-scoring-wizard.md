@@ -9,14 +9,14 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: f5c5edc067b3f7b525fd129462c48ca50fdafc8f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 605a5f2f74ca6fb46d851c41f60001c48a95be95
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314037"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450874"
 ---
-# <a name="tutorial-machine-learning-model-scoring-wizard-for-dedicated-sql-pools"></a>자습서: 전용 SQL 풀을 위한 기계 학습 모델 점수 매기기 마법사
+# <a name="tutorial-machine-learning-model-scoring-wizard-preview-for-dedicated-sql-pools"></a>자습서: 전용 SQL 풀을 위한 기계 학습 모델 점수 매기기 마법사(미리 보기)
 
 예측 기계 학습 모델을 사용하여 전용 SQL 풀에서 데이터를 쉽게 보강하는 방법에 대해 알아봅니다.  현재 데이터 과학자가 만드는 모델은 예측 분석을 위해 데이터 전문가가 손쉽게 액세스할 수 있습니다. Synapse의 데이터 전문가는 Synapse SQL 풀에 배포하는 데 필요한 Azure Machine Learning 모델 레지스트리에서 모델을 선택하고 예측을 실행하여 데이터를 보강할 수 있습니다.
 
@@ -31,8 +31,8 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 기본 스토리지로 구성된 ADLS Gen2 스토리지 계정이 있는 [Synapse Analytics 작업 영역](../get-started-create-workspace.md). 작업하려는 ADLS Gen2 파일 시스템의 **Storage Blob 데이터 기여자** 여야 합니다.
-- Synapse Analytics 작업 영역의 전용 SQL 풀. 자세한 내용은 [전용 SQL 풀 만들기](../quickstart-create-sql-pool-studio.md)를 참조하세요.
-- Synapse Analytics 작업 영역의 Azure Machine Learning 연결된 서비스. 자세한 내용은 [Azure Machine Learning 연결된 서비스 만들기](quickstart-integrate-azure-machine-learning.md)를 참조하세요.
+- Azure Synapse Analytics 작업 영역의 전용 SQL 풀. 자세한 내용은 [전용 SQL 풀 만들기](../quickstart-create-sql-pool-studio.md)를 참조하세요.
+- Azure Synapse Analytics 작업 영역의 Azure Machine Learning 연결 서비스. 자세한 내용은 [Azure Machine Learning 연결된 서비스 만들기](quickstart-integrate-azure-machine-learning.md)를 참조하세요.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -149,4 +149,4 @@ Notebook의 모든 셀을 실행하기 전에 컴퓨팅 인스턴스가 실행 �
 ## <a name="next-steps"></a>다음 단계
 
 - [빠른 시작: Synapse에서 새로운 Azure Machine Learning 연결된 서비스 만들기](quickstart-integrate-azure-machine-learning.md)
-- [Azure Synapse Analytics의 Machine Learning 기능(작업 영역 미리 보기)](what-is-machine-learning.md)
+- [Azure Synapse Analytics의 Machine Learning 기능](what-is-machine-learning.md)

@@ -4,12 +4,12 @@ description: 이 자습서에서는 Intel에서 제공하는 AI 모델 서버를
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: d03737f43ee719b72860e7ffeff076e3f156cade
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: a15984917b854a9f3e2dbc80dd0775989c80bf81
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776343"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483681"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>자습서: OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 라이브 비디오 분석 
 
@@ -78,17 +78,17 @@ Intel® Distribution of [OpenVINO™ 툴킷](https://software.intel.com/content/
 
 필수 구성 요소의 일부로 샘플 코드를 폴더에 다운로드했습니다. 다음 단계에 따라 샘플 파일을 검사하고 편집합니다.
 
-1. Visual Studio Code에서 *src/edge*로 이동합니다. *env* 파일 및 몇 가지 배포 템플릿 파일이 표시됩니다.
+1. Visual Studio Code에서 *src/edge* 로 이동합니다. *env* 파일 및 몇 가지 배포 템플릿 파일이 표시됩니다.
 
     배포 템플릿은 에지 디바이스에 대한 배포 매니페스트를 나타냅니다. 일부 자리 표시자 값을 포함합니다. *.env* 파일에는 이러한 변수에 대한 값이 포함되어 있습니다.
 
 1. *src/cloud-to-device-console-app* 폴더로 이동합니다. 여기에는 *appsettings.json* 파일 및 몇 가지 다른 파일이 표시됩니다.
 
-    * ***c2d-console-app.csproj*** - Visual Studio Code에 대한 프로젝트 파일
-    * ***operations.json*** - 프로그램을 실행하려는 작업의 목록입니다.
-    * ***Program.cs*** - 샘플 프로그램 코드입니다. 이 코드에서는 다음을 수행합니다.
+    * ***c2d-console-app.csproj** _ - Visual Studio Code에 대한 프로젝트 파일입니다.
+    _ ***operations.json** _ - 프로그램을 실행하려는 작업의 목록입니다.
+    _ ***Program.cs** _ - 샘플 프로그램 코드입니다. 이 코드에서는 다음을 수행합니다.
 
-        * 앱 설정을 로드합니다.
+        _ 앱 설정을 로드합니다.
         * Live Video Analytics on IoT Edge 모듈에서 공개하는 직접 메서드를 호출합니다. 모듈을 사용하여 해당 [직접 메서드](direct-methods.md)를 호출하여 라이브 비디오 스트림을 분석할 수 있습니다.
         * **터미널** 창에서 프로그램의 출력을 검사하고, **출력** 창에서 모듈에서 생성된 이벤트를 검사할 수 있도록 일시 중지합니다.
         * 리소스를 정리하는 직접 메서드를 호출합니다.
@@ -109,7 +109,7 @@ Intel® Distribution of [OpenVINO™ 툴킷](https://software.intel.com/content/
 
 ### <a name="generate-and-deploy-the-iot-edge-deployment-manifest"></a>IoT Edge 배포 매니페스트 생성 및 배포
 
-1. *src/edge/deployment.openvino.template.json* 파일을 마우스 오른쪽 단추로 클릭한 다음, **IoT Edge 배포 매니페스트 생성**을 클릭합니다.
+1. *src/edge/deployment.openvino.template.json* 파일을 마우스 오른쪽 단추로 클릭한 다음, **IoT Edge 배포 매니페스트 생성** 을 클릭합니다.
 
     ![IoT Edge 배포 매니페스트 생성](./media/use-intel-openvino-tutorial/generate-deployment-manifest.png)  
 
@@ -117,24 +117,24 @@ Intel® Distribution of [OpenVINO™ 툴킷](https://software.intel.com/content/
 
 1. [동작 감지 및 이벤트 내보내기](detect-motion-emit-events-quickstart.md) 빠른 시작을 완료한 경우 이 단계를 건너뜁니다. 
 
-    그렇지 않으면 왼쪽 아래 모서리의 **Azure IoT Hub** 창 근처에서 **기타 작업** 아이콘을 선택한 다음, **IoT Hub 연결 문자열 설정**을 선택합니다. *appsettings.json* 파일에서 문자열을 복사할 수 있습니다. 또는 Visual Studio Code 내에서 적절한 IoT 허브를 구성했는지 확인하려면 [IoT 허브 선택 명령](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)을 사용합니다.
+    그렇지 않으면 왼쪽 아래 모서리의 **Azure IoT Hub** 창 근처에서 **기타 작업** 아이콘을 선택한 다음, **IoT Hub 연결 문자열 설정** 을 선택합니다. *appsettings.json* 파일에서 문자열을 복사할 수 있습니다. 또는 Visual Studio Code 내에서 적절한 IoT 허브를 구성했는지 확인하려면 [IoT 허브 선택 명령](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)을 사용합니다.
     
     ![IoT Hub 연결 문자열 설정](./media/quickstarts/set-iotconnection-string.png)
 
-1. *src/edge/config/deployment.openvino.amd64.json* 파일을 마우스 오른쪽 단추로 클릭한 다음, **단일 디바이스용 배포 만들기**를 클릭합니다. 
+1. *src/edge/config/deployment.openvino.amd64.json* 파일을 마우스 오른쪽 단추로 클릭한 다음, **단일 디바이스용 배포 만들기** 를 클릭합니다. 
 
     ![단일 디바이스용 배포 만들기](./media/use-intel-openvino-tutorial/deploy-manifest.png)
 
-1. IoT Hub 디바이스를 선택하라는 메시지가 표시되면 **lva-sample-device**를 선택합니다.
+1. IoT Hub 디바이스를 선택하라는 메시지가 표시되면 **lva-sample-device** 를 선택합니다.
 1. 약 30초 후 창의 왼쪽 아래 모서리에서 Azure IoT Hub를 새로 고칩니다. 이제 에지 디바이스에 다음과 같은 배포된 모듈이 표시됩니다.
 
-    * **lvaEdge**라는 이름의 Live Video Analytics 모듈
+    * **lvaEdge** 라는 이름의 Live Video Analytics 모듈
     * **rtspsim** 모듈 - RTSP 서버를 시뮬레이션하고 라이브 비디오 피드의 원본으로 작동합니다.
     * **openvino** 모듈 - OpenVINO™ Model Server – Intel의 AI 확장 모듈입니다. 
 
 ### <a name="prepare-to-monitor-events"></a>이벤트 모니터링 준비
 
-마우스 오른쪽 단추로 Live Video Analytics 디바이스를 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다. 이 단계는 Visual Studio Code의 **출력** 창에서 IoT Hub 이벤트를 모니터링하는 데 필요합니다. 
+마우스 오른쪽 단추로 Live Video Analytics 디바이스를 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작** 을 선택합니다. 이 단계는 Visual Studio Code의 **출력** 창에서 IoT Hub 이벤트를 모니터링하는 데 필요합니다. 
 
 ![모니터링 시작](./media/quickstarts/start-monitoring-iothub-events.png) 
 
@@ -142,14 +142,41 @@ Intel® Distribution of [OpenVINO™ 툴킷](https://software.intel.com/content/
 이 자습서의 [그래프 토폴로지](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtensionOpenVINO/topology.json)를 브라우저에서 열면 `inferencingUrl` 값이 `http://openvino:4000/vehicleDetection`으로 설정된 것이 보입니다. 따라서, 유추 서버가 라이브 비디오에서 차량을 감지하면 결과를 반환합니다.
 
 1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누름) Azure IoT Hub를 검색합니다.
-1. 마우스 오른쪽 단추를 클릭하고 **확장 설정**을 선택합니다.
+1. 마우스 오른쪽 단추를 클릭하고 **확장 설정** 을 선택합니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="개요":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="확장 설정":::
 1. "자세한 정보 메시지 표시"를 검색하고 활성화합니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="개요"
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="자세한 정보 메시지 표시":::
+1. 디버깅 세션을 시작하려면 F5 키를 선택합니다. **터미널** 창에 메시지가 출력되어 표시됩니다.
+1. *operations.json* 코드가 `GraphTopologyList` 및 `GraphInstanceList` 직접 메서드를 호출하여 시작됩니다. 이전 빠른 시작이 완료된 후에 리소스를 정리한 경우 이 프로세스에서 빈 목록을 반환한 다음, 일시 중지합니다. 계속하려면 Enter 키를 선택합니다.
+
+    **터미널** 창에 직접 메서드 호출의 다음 세트가 표시됩니다.
+
+     * 이전 `topologyUrl`을 사용하는 `GraphTopologySet`에 대한 호출
+     * 다음 본문을 사용하는 `GraphInstanceSet`에 대한 호출
+
+         ```
+         {
+           "@apiVersion": "1.0",
+           "name": "Sample-Graph-1",
+           "properties": {
+             "topologyName": "InferencingWithOpenVINO",
+             "description": "Sample graph description",
+             "parameters": [
+               {
+                 "name": "rtspUrl",
+                 "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+               },
+               {
+                 "name": "rtspUserName",
+                 "value": "testuser"
+               },
+               {
+                 "name": "rtspPassword",
+                 "value": "testpassword"
                }
              ]
            }
@@ -365,4 +392,4 @@ Visual Studio Code에서 이전 단계의 `topology.json` 로컬 복사본을 �
 고급 사용자에 대한 추가 문제를 검토합니다.
 
 * RTSP 시뮬레이터를 사용하는 대신 RTSP를 지원하는 [IP 카메라](https://en.wikipedia.org/wiki/IP_camera)를 사용합니다. [ONVIF 규격](https://www.onvif.org/conformant-products/) 제품 페이지에서 RTSP를 지원하는 IP 카메라를 검색할 수 있습니다. G, S 또는 T 프로필을 준수하는 디바이스를 찾습니다.
-* Azure Linux VM 대신 AMD64 또는 x64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge-linux.md)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md)의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.
+* Azure Linux VM 대신 AMD64 또는 x64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge.md)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md)의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.

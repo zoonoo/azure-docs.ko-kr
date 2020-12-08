@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Synapse SQL 풀 만들기 및 쿼리(Azure portal)'
-description: Azure Portal을 사용하여 Synapse SQL 풀 만들기 및 쿼리
+title: '빠른 시작: 전용 SQL 풀 만들기 및 쿼리(Azure Portal)'
+description: Azure Portal을 사용하여 전용 SQL 풀 만들기 및 쿼리
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 470892aa46d3f75ce8e17200f7d0549ae14b0e86
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3d4884fd64c773647f78a98dc7aeb1063d539edf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023789"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456740"
 ---
-# <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Synapse SQL 풀 만들기 및 쿼리
+# <a name="quickstart-create-and-query-a-dedicated-sql-pool-in-azure-synapse-analytics-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Synapse Analytics에서 전용 SQL 풀 만들기 및 쿼리
 
-Azure Portal을 사용하여 Azure Synapse Analytics(이전의 SQL DW)에서Synapse SQL 풀을 신속하게 만들고 쿼리합니다.
+Azure Portal을 사용하여 Azure Synapse Analytics에서 Synapse SQL 풀(데이터 웨어하우스)을 신속하게 만들고 쿼리합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 10/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 028e7f9764cbf75263736471f434e04bc6daca0f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 914581e6610e027d9440495f56f4facfb1fb9a9a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886824"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349438"
 ---
 # <a name="teams-interoperability"></a>Teams 상호 운용성
 
@@ -39,7 +39,8 @@ Communication Services 사용자가 Teams 모임에 참가하면 호출 클라�
 
 [모임 설정](/microsoftteams/meeting-settings-in-teams)에서 익명 참가를 사용하도록 설정되는 한 Communication Services 사용자는 예약된 Teams 모임에 참가할 수 있습니다.
 
-
+## <a name="teams-in-government-clouds-gcc"></a>정부 클라우드(GCC)의 팀
+현재 [Microsoft 365 정부 클라우드(GCC)](https://docs.microsoft.com/MicrosoftTeams/plan-for-government-gcc)를 사용하는 팀 배포에는 Azure Communication Services 상호 운용성이 허용되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

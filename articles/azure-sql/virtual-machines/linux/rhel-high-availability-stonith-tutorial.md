@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 06442e861a247f545ca6f22ecc82e5f5dc910553
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9a6faec2542337eedbe4aafb69f1061582f92cc7
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790239"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531584"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -263,7 +263,7 @@ az vm availability-set create \
 > [!IMPORTANT]
 > 위의 명령으로 만든 기본 이미지는 기본적으로 32GB OS 디스크를 만듭니다. 이 기본 설치를 사용하면 공간이 부족할 수 있습니다. 위의 `az vm create` 명령에 추가된 `--os-disk-size-gb 128` 매개 변수를 사용하여 128GB의 OS 디스크를 만들 수 있습니다.
 >
-> 그런 다음, 적절한 폴더 볼륨을 확장하여 설치를 완료해야 하는 경우 [LVM(논리 볼륨 관리자)을 구성](../../../virtual-machines/linux/configure-lvm.md)할 수 있습니다.
+> 그런 다음, 적절한 폴더 볼륨을 확장하여 설치를 완료해야 하는 경우 [LVM(논리 볼륨 관리자)을 구성](/previous-versions/azure/virtual-machines/linux/configure-lvm)할 수 있습니다.
 
 ### <a name="test-connection-to-the-created-vms"></a>만든 VM에 대한 연결 테스트
 
@@ -488,7 +488,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  2. [Azure Active Directory 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)를 엽니다. 속성으로 이동하여 Directory ID 기록 `tenant ID`입니다.
  3. [**앱 등록**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)을 클릭합니다.
  4. **새 등록** 을 클릭합니다.
- 5. **이름** (예: `<resourceGroupName>-app`)을 입력하고, **이 조직 디렉터리의 계정만** 을 선택합니다.
+ 5. **이름**(예: `<resourceGroupName>-app`)을 입력하고, **이 조직 디렉터리의 계정만** 을 선택합니다.
  6. **웹** 애플리케이션 유형을 선택하고, 로그온 URL(예: http://localhost) )을 입력하고, [추가]를 클릭합니다. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있습니다. 작업이 완료되면 **등록** 을 클릭합니다.
  7. 새 등록에 대해 **인증서 및 비밀** 을 선택한 다음, **새 클라이언트 암호** 를 클릭합니다.
  8. 새 키(클라이언트 암호)에 대한 설명을 입력하고, **만료 기한 제한 없음** 을 선택하고, **추가** 를 클릭합니다.
@@ -1132,6 +1132,34 @@ Daemon Status:
     sudo pcs resource move ag_cluster-clone <VM2> --master
     ```
 
+   리소스를 원하는 노드로 이동하기 위해 만든 임시 제약 조건이 자동으로 비활성화되고 아래의 2단계와 3단계를 수행할 필요가 없도록 추가 옵션을 지정할 수도 있습니다.
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master lifetime=30S
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master lifetime=30S
+    ```
+
+   리소스 이동 명령 자체의 임시 제약 조건을 제거하는 아래의 2단계와 3단계를 자동화하는 또 다른 대안은 여러 명령을 한 줄로 결합하는 것입니다. 
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master && sleep 30 && pcs resource clear ag_cluster-master
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master && sleep 30 && pcs resource clear ag_cluster-clone
+    ```
+    
 2. 제약 조건을 다시 확인하면 수동 장애 조치로 인해 다른 제약 조건이 추가되었음을 알 수 있습니다.
     
     **RHEL 7**

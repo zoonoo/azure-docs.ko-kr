@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 0314f5e55a476cd1cd1f8a31bd918e0ebb64c75f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 611d2163e242d7851398821344c3ed595df364cb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95254241"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460271"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Synapse 지식 센터 살펴보기
 
@@ -55,6 +55,9 @@ Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습�
 1. 새 SQL 스크립트가 표시됩니다.
 1. **실행** 을 클릭합니다.
 1. 그러면 모든 NYC Taxi 데이터에 대해 여러 테이블이 만들어지고, T-SQL COPY 명령을 사용하여 로드됩니다.
+
+    > [!NOTE] 
+    > 전용 SQL 풀(이전의 SQL DW)과 함께 SQL 스크립트용 샘플 갤러리를 사용하는 경우 기존 전용 SQL 풀(이전의 SQL DW)만 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

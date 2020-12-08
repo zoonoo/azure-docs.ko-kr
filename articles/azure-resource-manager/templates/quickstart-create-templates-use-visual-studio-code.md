@@ -1,20 +1,20 @@
 ---
 title: 템플릿 만들기 - Visual Studio Code
-description: Visual Studio Code와 Azure Resource Manager 도구 확장을 사용하여 Resource Manager 템플릿에 대해 작업합니다.
+description: Visual Studio Code 및 Azure Resource Manager 도구 확장을 사용하여 ARM 템플릿(Azure Resource Manager 템플릿)에 대해 작업합니다.
 author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d8fd44a1e4c1ddfd78b2afa3280bb05c8fde91e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88034987"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350146"
 ---
-# <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기
+# <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 ARM 템플릿 만들기
 
-Visual Studio Code용 Azure Resource Manager 도구는 언어 지원, 리소스 코드 조각 및 리소스 자동 완성 기능을 제공합니다. 이러한 도구는 Azure Resource Manager 템플릿을 만들고 유효성을 검사하는 데 도움이 됩니다. 이 빠른 시작에서는 확장 기능을 사용하여 Azure Resource Manager 템플릿을 새로 만듭니다. 이 작업을 수행하는 동안 ARM 템플릿 코드 조각, 유효성 검사, 완성 및 매개 변수 파일 지원과 같은 확장 기능이 제공됩니다.
+Visual Studio Code용 Azure Resource Manager 도구는 언어 지원, 리소스 코드 조각 및 리소스 자동 완성 기능을 제공합니다. 이러한 도구는 ARM 템플릿(Azure Resource Manager 템플릿)을 만들고 유효성을 검사하는 데 도움이 됩니다. 이 빠른 시작에서는 확장을 사용하여 ARM 템플릿을 처음부터 만듭니다. 이 작업을 수행하는 동안 ARM 템플릿 코드 조각, 유효성 검사, 완성 및 매개 변수 파일 지원과 같은 확장 기능이 제공됩니다.
 
 이 빠른 시작을 완료하려면 [Azure Resource Manager 도구 확장](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)이 설치된 [Visual Studio Code](https://code.visualstudio.com/)가 필요합니다. 또한 [Azure CLI](/cli/azure/?view=azure-cli-latest) 또는 [Azure PowerShell 모듈](/powershell/azure/new-azureps-module-az?view=azps-3.7.0)이 설치 및 인증되어 있어야 합니다.
 
@@ -22,7 +22,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-an-arm-template"></a>ARM 템플릿 만들기
 
-*azuredeploy.json*이라는 새 파일을 만들고 Visual Studio Code를 사용하여 엽니다. 코드 편집기에 `arm`을 입력합니다. 그러면 ARM 템플릿을 스캐폴딩하는 Azure Resource Manager 코드 조각이 시작됩니다.
+*azuredeploy.json* 이라는 새 파일을 만들고 Visual Studio Code를 사용하여 엽니다. 코드 편집기에 `arm`을 입력합니다. 그러면 ARM 템플릿을 스캐폴딩하는 Azure Resource Manager 코드 조각이 시작됩니다.
 
 Azure 리소스 그룹 배포로 범위가 지정된 템플릿을 만들려면 `arm!`를 선택합니다.
 
@@ -32,7 +32,7 @@ Azure 리소스 그룹 배포로 범위가 지정된 템플릿을 만들려면 `
 
 ![완전히 스캐폴딩된 ARM 템플릿을 보여주는 이미지](./media/quickstart-create-templates-use-visual-studio-code/2.png)
 
-Visual Studio Code 언어 모드가 *JSON*에서 *Azure Resource Manager 템플릿*으로 변경되었습니다. 이 확장에는 ARM 템플릿별 유효성 검사, 완성 및 기타 언어 서비스를 제공하는 ARM 템플릿과 관련된 언어 서버가 포함됩니다.
+Visual Studio Code 언어 모드가 *JSON* 에서 *Azure Resource Manager 템플릿* 으로 변경되었습니다. 이 확장에는 ARM 템플릿별 유효성 검사, 완성 및 기타 언어 서비스를 제공하는 ARM 템플릿과 관련된 언어 서버가 포함됩니다.
 
 ![Visual Studio Code 언어 모드로 Azure Resource Manager를 보여주는 이미지](./media/quickstart-create-templates-use-visual-studio-code/3.png)
 
@@ -54,7 +54,7 @@ Visual Studio Code 언어 모드가 *JSON*에서 *Azure Resource Manager 템플�
 
 ## <a name="completion-and-validation"></a>완성 및 유효성 검사
 
-이 확장의 가장 강력한 기능 중 하나는 Azure 스키마와의 통합입니다. Azure 스키마는 이 확장에 유효성 검사 및 리소스 인식 완성 기능을 제공합니다. 스토리지 계정을 수정하여 유효성 검사 및 완성이 작동하는 모습을 확인하겠습니다. 
+이 확장의 가장 강력한 기능 중 하나는 Azure 스키마와의 통합입니다. Azure 스키마는 이 확장에 유효성 검사 및 리소스 인식 완성 기능을 제공합니다. 스토리지 계정을 수정하여 유효성 검사 및 완성이 작동하는 모습을 확인하겠습니다.
 
 먼저 스토리지 계정 종류를 `megaStorage`와 같은 잘못된 값으로 업데이트합니다. 이 작업을 수행하면 `megaStorage`가 올바른 값이 아님을 나타내는 경고가 생성됩니다.
 
@@ -80,7 +80,7 @@ Azure 스토리지 계정 이름은 3~24자여야 합니다. `minLength` 및 `ma
 
 ![ARM 템플릿 매개 변수에 추가되는 minLength 및 maxLength를 보여주는 이미지](./media/quickstart-create-templates-use-visual-studio-code/11.png)
 
-이제 스토리지 리소스에서 이 매개 변수를 사용하도록 name 속성을 업데이트합니다. 이렇게 하려면 현재 이름을 제거합니다. ARM 템플릿 함수 목록을 생성하는 큰따옴표와 여는 대괄호 `[`를 입력합니다. 목록에서 *매개 변수*를 선택합니다. 
+이제 스토리지 리소스에서 이 매개 변수를 사용하도록 name 속성을 업데이트합니다. 이렇게 하려면 현재 이름을 제거합니다. ARM 템플릿 함수 목록을 생성하는 큰따옴표와 여는 대괄호 `[`를 입력합니다. 목록에서 *매개 변수* 를 선택합니다.
 
 ![ARM 템플릿 리소스에서 매개 변수를 사용하는 경우 자동 완성을 보여주는 이미지](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 

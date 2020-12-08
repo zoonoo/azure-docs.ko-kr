@@ -1,6 +1,6 @@
 ---
-title: 서버리스 SQL 풀(미리 보기) 자가 진단
-description: 이 섹션에는 서버리스 SQL 풀(미리 보기)의 문제를 해결하는 데 도움이 되는 정보가 포함되어 있습니다.
+title: 서버리스 SQL 풀 자가 진단
+description: 이 섹션에는 서버리스 SQL 풀의 문제를 해결하는 데 도움이 되는 정보가 포함되어 있습니다.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: aefdb90c3e6c8d3abc3924ecebb2aa46739e99ad
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 12ff369cb931eb36014b7c9598b036afdc158750
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682624"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457188"
 ---
-# <a name="self-help-for-serverless-sql-pool-preview"></a>서버리스 SQL 풀(미리 보기)에 대한 자가 진단
+# <a name="self-help-for-serverless-sql-pool"></a>서버리스 SQL 풀에 대한 자가 진단
 
-이 문서에는 Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)의 자주 발생하는 문제를 해결하는 방법에 대한 정보가 포함되어 있습니다.
+이 문서에는 Azure Synapse Analytics에서 서버리스 SQL 풀의 자주 발생하는 문제를 해결하는 방법에 대한 정보가 포함되어 있습니다.
 
 ## <a name="serverless-sql-pool-is-grayed-out-in-synapse-studio"></a>Synapse Studio에서 서버리스 SQL 풀이 회색으로 표시됨
 
@@ -37,7 +37,7 @@ Synapse Studio가 서버리스 SQL 풀에 대한 연결을 설정할 수 없는 
 
 - 적절한 크기의 데이터 형식이 사용되는지 확인합니다. 또한 문자열 열의 Parquet 파일에 대한 스키마를 지정하세요. 기본적으로 VARCHAR(8000)입니다. 
 
-- 쿼리 대상이 CSV 파일인 경우 [통계 만들기](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview)를 고려해 보세요. 
+- 쿼리 대상이 CSV 파일인 경우 [통계 만들기](develop-tables-statistics.md#statistics-in-serverless-sql-pool)를 고려해 보세요. 
 
 - 쿼리를 최적화하려면 [서버리스 SQL 풀의 성능 모범 사례](best-practices-sql-on-demand.md)를 참조하세요.  
 

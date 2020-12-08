@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 7f1acc44a80d5ef70145997698a928e6f9ce0d48
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: a460d77a032f36505c8036bc60aa37017f630e55
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888881"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501144"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT Hub란?
 
@@ -91,6 +91,7 @@ IoT Hub를 다른 Azure 서비스와 통합하여 완전한 엔드투엔드 솔�
 [Azure IoT 디바이스 SDK](./iot-hub-devguide-sdks.md) 라이브러리를 사용하여 디바이스에서 실행되고 IoT Hub와 상호 작용하는 애플리케이션을 빌드합니다. 지원되는 플랫폼에는 여러 Linux 배포판, Windows 및 실시간 운영 체제가 포함됩니다. 지원되는 언어는 다음과 같습니다.
 
 * C
+* 임베디드 C
 * C#
 * Java
 * Python

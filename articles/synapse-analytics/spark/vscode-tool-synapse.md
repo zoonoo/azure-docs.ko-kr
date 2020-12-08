@@ -1,6 +1,6 @@
 ---
 title: 자습서 - VSCode용 Spark & Hive Tools(Spark 애플리케이션)
-description: 자습서 - VSCode용 Spark & Hive Tools를 사용하여 Python으로 작성된 Spark 애플리케이션을 개발하여 서버리스 Apache Spark 풀에 제출합니다(미리 보기).
+description: 자습서 - VSCode용 Spark & Hive Tools를 사용하여 Python으로 작성된 Spark 애플리케이션을 개발하여 서버리스 Apache Spark 풀에 제출합니다.
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
-ms.openlocfilehash: 99b2b04d0f29d92b503cc0bed2460b79cfa6c354
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: eb4a4c2c8d1d52690a07b784640d20d96ff2d600
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315656"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445685"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>자습서: Synapse 작업 영역을 사용하여 VSCode로 Apache Spark 애플리케이션 만들기
 

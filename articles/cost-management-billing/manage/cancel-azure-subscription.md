@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 12/01/2020
 ms.author: banders
-ms.openlocfilehash: f90d1fe22ae2f46fdc6d764ce98db8e0f48b8b35
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3182da0d04d61d5bad4ce3e41f213ecc3be7ecaf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408025"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444446"
 ---
 # <a name="cancel-your-azure-subscription"></a>Azure 구독 취소
 
@@ -38,6 +38,9 @@ ms.locfileid: "94408025"
     ![취소 단추를 보여 주는 스크린샷](./media/cancel-azure-subscription/cancel_ibiza.png)
 1. 메시지에 따라 취소를 완료합니다.
 
+> [!NOTE]
+> 파트너는 고객이 요청하거나 미지불 또는 사기 행위의 경우 구독을 일시 중단하거나 취소할 수 있습니다. 자세한 내용은 [구독 일시 중지 및 취소](/partner-center/create-a-new-subscription#suspend-or-cancel-a-subscription)를 참조하세요.
+
 ## <a name="who-can-cancel-a-subscription"></a>누가 구독을 취소할 수 있나요?
 
 아래 표에서는 구독을 취소하는 데 필요한 사용 권한을 설명합니다.
@@ -48,7 +51,7 @@ ms.locfileid: "94408025"
 |[Microsoft 기업계약](https://azure.microsoft.com/pricing/enterprise-agreement/) 및 [Enterprise 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  계정 소유자 및 구독 소유자       |
 |[Azure 플랜](https://azure.microsoft.com/offers/ms-azr-0017g/) 및 [DevTest용 Azure 플랜](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  구독 소유자      |
 
-## <a name="what-happens-after-i-cancel-my-subscription"></a>구독을 취소한 후에는 어떻게 되나요?
+## <a name="what-happens-after-subscription-cancellation"></a>구독 취소 후에는 어떻게 되나요?
 
 취소하면 청구가 즉시 중지됩니다. 그러나 취소가 포털에 표시되기까지 최대 10분이 걸릴 수 있습니다. 청구 기간 중에 취소하는 경우 기간이 만료된 후 일반적인 청구서 날짜에 최종 청구서를 보냅니다.
 
@@ -65,7 +68,7 @@ ms.locfileid: "94408025"
 1. 삭제할 구독을 선택합니다.
 1. **개요** 를 선택한 다음, **구독 삭제** 를 선택합니다.
 
-## <a name="reactivate-subscription"></a>구독 다시 활성화
+## <a name="reactivate-a-subscription"></a>구독 다시 활성화
 
 종량제 요금을 사용하는 구독을 실수로 취소한 경우 [계정 센터에서 다시 활성화](subscription-disabled.md)할 수 있습니다.
 
@@ -73,7 +76,7 @@ ms.locfileid: "94408025"
 
 ## <a name="why-dont-i-see-the-cancel-subscription-option-on-the-azure-portal"></a>Azure Portal에 구독 취소 옵션이 표시되지 않는 이유는 무엇인가요? 
 
-구독을 취소하는 데 필요한 권한이 없을 수 있습니다. 다양한 유형의 구독을 취소할 수 있는 사용자에 대한 설명은 [누가 구독을 취소할 수 있나요?](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#who-can-cancel-a-subscription)를 참조하세요.
+구독을 취소하는 데 필요한 권한이 없을 수 있습니다. 다양한 유형의 구독을 취소할 수 있는 사용자에 대한 설명은 [누가 구독을 취소할 수 있나요?](#who-can-cancel-a-subscription)를 참조하세요.
 
 ## <a name="how-do-i-delete-my-azure-account"></a>내 Azure 계정을 삭제하려면 어떻게 해야 하나요?
 
@@ -85,7 +88,7 @@ ms.locfileid: "94408025"
 
 ## <a name="how-do-i-cancel-a-visual-studio-professional-account"></a>Visual Studio Professional 계정을 취소하려면 어떻게 해야 하나요?
 
-[갱신 및 취소](https://docs.microsoft.com/visualstudio/subscriptions/faq/admin/renewal-cancellation) 문서를 참조하세요. Visual Studio Azure 구독이 있는 경우 해당 구독도 취소하고 삭제해야 합니다.
+[갱신 및 취소](/visualstudio/subscriptions/faq/admin/renewal-cancellation) 문서를 참조하세요. Visual Studio Azure 구독이 있는 경우 해당 구독도 취소하고 삭제해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.openlocfilehash: 2970bb58bb73d52c75729b00a8209a9c576d4ec0
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c2260cc0d2c6b889b44c738576e33abceebe23f1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427414"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444398"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Synapse 작업 영역 모니터링
 
@@ -47,6 +47,9 @@ Synapse Studio를 열고 **모니터** 허브로 이동합니다. 여기에서 �
 1. 모니터링하려는 **풀** 을 선택합니다. 이제 실행 중이거나 해당 풀의 작업 영역에서 실행되는 모든 SQL 요청을 볼 수 있습니다.
 1. 특정 SQL 요청을 찾아 해당 항목을 마우스로 가리킵니다. 가리키면 SQL 스크립트 아이콘이 표시됩니다.
 1. SQL 스크립트 아이콘을 클릭하여 SQL 요청의 전체 텍스트를 확인합니다.
+
+    > [!NOTE] 
+    > 작업 영역이 활성화된 전용 SQL 풀(이전의 SQL DW)에서 Synapse Studio를 통해 제출된 SQL 요청은 Monitor 허브에서 볼 수 있습니다. 다른 모든 모니터링 활동의 경우 Azure Portal 전용 SQL 풀(이전의 SQL DW) 모니터링으로 이동할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

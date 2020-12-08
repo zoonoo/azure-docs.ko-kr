@@ -1,6 +1,6 @@
 ---
 title: 공유 메타데이터 테이블
-description: Azure Synapse Analytics는 서버리스 Apache Spark 풀에서 테이블을 만들면 데이터를 복제하지 않고 서버리스 SQL 풀(미리 보기) 및 전용 SQL 풀에서 액세스할 수 있는 공유 메타데이터 모델을 제공합니다.
+description: Azure Synapse Analytics는 서버리스 Apache Spark 풀에서 테이블을 만들면 데이터를 복제하지 않고 서버리스 SQL 풀 및 전용 SQL 풀에서 액세스할 수 있는 공유 메타데이터 모델을 제공합니다.
 services: sql-data-warehouse
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,18 +10,17 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f269217908bea4b5e8ef3c0004a9cec9d5d682c7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9ee18edd563d94a85dedf48b7a4d6df394c09707
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314533"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461389"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics 공유 메타데이터 테이블
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Azure Synapse Analytics를 사용하면 서로 다른 작업 영역 컴퓨팅 엔진에서 Apache Spark 풀(미리 보기)과 서버리스 SQL 풀(미리 보기) 간에 데이터베이스와 Parquet 지원 테이블을 공유할 수 있습니다.
+Azure Synapse Analytics를 사용하면 서로 다른 작업 영역 컴퓨팅 엔진에서 Apache Spark 풀과 서버리스 SQL 풀 간에 데이터베이스와 Parquet 지원 테이블을 공유할 수 있습니다.
 
 Spark 작업을 통해 데이터베이스가 만들어지면 Parquet를 스토리지 형식으로 사용하는 Spark를 사용하여 테이블을 이 데이터베이스에 만들 수 있습니다. 이러한 테이블은 모든 Azure Synapse 작업 영역 Spark 풀에서 쿼리하는 데 즉시 사용할 수 있게 됩니다. 권한이 있는 모든 Spark 작업에서도 사용할 수 있습니다.
 

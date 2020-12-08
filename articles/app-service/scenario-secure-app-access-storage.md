@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 250e95b33b985aedcc1b1537f57338d29e848451
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: azureday1
+ms.openlocfilehash: 72b1d4fe864c23c0ac065e47d96ab0c78866defa
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96020214"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435844"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>자습서: 웹앱에서 Azure Storage 액세스
 
@@ -23,7 +24,7 @@ ms.locfileid: "96020214"
 
 :::image type="content" alt-text="스토리지에 액세스하는 방법을 보여주는 다이어그램." source="./media/scenario-secure-app-access-storage/web-app-access-storage.svg" border="false":::
 
-웹앱에서 Azure 데이터 평면(Azure Storage, Azure SQL Database, Azure Key Vault 또는 다른 서비스)에 대한 액세스 권한을 추가하려고 합니다. 공유 키를 사용할 수도 있지만, 그렇게 할 경우 비밀을 만들고 배포하고 관리할 수 있는 사람의 작업 보안을 걱정해야 합니다. 뿐만 아니라 키가 GitHub에 체크 인되어 해커가 키를 검색하는 방법을 알게 될 가능성이 있습니다. 웹앱에 데이터 액세스 권한을 부여하는 보다 안전한 방법은 [관리 ID](/azure/active-directory/managed-identities-azure-resources/overview)를 사용하는 것입니다.
+웹앱에서 Azure 데이터 평면(Azure Storage, Azure SQL Database, Azure Key Vault 또는 다른 서비스)에 대한 액세스 권한을 추가하려고 합니다. 공유 키를 사용할 수도 있지만, 그렇게 할 경우 비밀을 만들고 배포하고 관리할 수 있는 사람의 작업 보안을 걱정해야 합니다. 뿐만 아니라 키가 GitHub에 체크 인되어 해커가 키를 검색하는 방법을 알게 될 가능성이 있습니다. 웹앱에 데이터 액세스 권한을 부여하는 보다 안전한 방법은 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하는 것입니다.
 
 Azure AD(Azure Active Directory)의 관리 ID를 사용하면 앱 자격 증명 없이 App Services가 RBAC(역할 기반 액세스 제어)를 통해 리소스에 액세스할 수 있습니다. 웹앱에 관리 ID를 할당한 후에는 인증서를 만들고 배포하는 작업을 Azure가 처리합니다. 사용자는 비밀 또는 앱 자격 증명 관리에 대해 신경 쓸 필요가 없습니다.
 
@@ -210,6 +211,8 @@ az role assignment create --assignee $spID --role 'Storage Blob Data Contributor
 ## <a name="access-blob-storage-net"></a>Blob Storage에 액세스(.NET)
 
 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스는 Azure Storage에 대한 요청에 권한을 부여하기 위해 코드의 토큰 자격 증명을 가져오는 데 사용됩니다. 관리 ID를 사용하여 토큰을 가져오고 서비스 클라이언트에 연결하는 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스의 인스턴스를 만듭니다. 다음 코드 예제는 인증된 토큰 자격 증명을 가져와서 서비스 클라이언트 개체를 만드는 데 사용합니다. 이 개체는 새 BLOB을 업로드합니다.
+
+이 코드를 샘플 애플리케이션의 일부로 보려면 [GitHub의 샘플](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/1-WebApp-storage-managed-identity)을 참조하세요.
 
 ### <a name="install-client-library-packages"></a>클라이언트 라이브러리 패키지 설치
 

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure Portal을 사용하여 전용 SQL 풀(미리 보기) 만들기'
+title: '빠른 시작: Azure Portal을 사용하여 전용 SQL 풀 만들기'
 description: 이 가이드의 단계에 따라 Azure Portal을 사용하여 새 전용 SQL 풀을 만듭니다.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: b558e34d3f5d224515eee669dfa7b8f2c6bbb3cd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3537b126adf082c8b00a02d999789d8a32b3f51d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541014"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462010"
 ---
-# <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 SQL 풀(미리 보기) 만들기
+# <a name="quickstart-create-a-dedicated-sql-pool-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 SQL 풀 만들기
 
 Azure Synapse Analytics는 데이터를 수집, 변환, 모델링 및 분석하는 데 도움이 되는 다양한 분석 엔진을 제공합니다. 전용 SQL 풀은 T-SQL 기반 컴퓨팅 및 스토리지 기능을 제공합니다. Synapse 작업 영역에서 전용 SQL 풀을 만든 후 보다 빠른 인사이트를 위해 데이터를 로드, 모델링, 처리 및 전달할 수 있습니다.
 

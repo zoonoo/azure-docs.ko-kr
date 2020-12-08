@@ -1,6 +1,6 @@
 ---
-title: 서버리스 SQL 풀에서 OPENROWSET를 사용하는 방법(미리 보기)
-description: 이 문서에서는 서버리스 SQL 풀(미리 보기)의 OPENROWSET 구문을 설명하고 인수를 사용하는 방법을 설명합니다.
+title: 서버리스 SQL 풀에서 OPENROWSET를 사용하는 방법
+description: 이 문서에서는 서버리스 SQL 풀의 OPENROWSET 구문을 설명하고 인수를 사용하는 방법을 설명합니다.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2458b5f3f0c0091bb6ec24e62a1d5614e4e1ecd8
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 97ee6c17d62a924686e3e4f4717d7bb7f4375988
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888592"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446688"
 ---
-# <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 OPENROWSET를 사용하는 방법
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 OPENROWSET를 사용하는 방법
 
-`OPENROWSET(BULK...)` 함수를 사용하여 Azure Storage의 파일에 액세스할 수 있습니다. `OPENROWSET` 함수는 원격 데이터 소스의 콘텐츠(예: 파일)를 읽고 이 콘텐츠를 일련의 행으로 반환합니다. 서버리스 SQL 풀(미리 보기) 리소스 내에서 OPENROWSET 함수를 호출하고 BULK 옵션을 지정하여 OPENROWSET 대량 행 집합 공급자에 액세스합니다.  
+`OPENROWSET(BULK...)` 함수를 사용하여 Azure Storage의 파일에 액세스할 수 있습니다. `OPENROWSET` 함수는 원격 데이터 소스의 콘텐츠(예: 파일)를 읽고 이 콘텐츠를 일련의 행으로 반환합니다. 서버리스 SQL 풀 리소스 내에서 OPENROWSET 함수를 호출하고 BULK 옵션을 지정하여 OPENROWSET 대량 행 집합 공급자에 액세스합니다.  
 
 `OPENROWSET` 함수는 쿼리의 `FROM` 절에서 테이블 이름 `OPENROWSET`인 것처럼 참조될 수 있습니다. 이 함수는 파일의 데이터를 읽어서 행 세트로 반환할 수 있는 기본 제공 BULK 공급자를 통해 대량 작업을 지원합니다.
 
@@ -147,7 +147,7 @@ unstructured_data_path를 폴더로 지정하면 서버리스 SQL 풀 쿼리가 
 
 WITH 절을 사용하여 파일에서 읽을 열을 지정할 수 있습니다.
 
-- CSV 데이터 파일의 경우 모든 열을 읽으려면 열 이름과 해당 데이터 형식을 입력합니다. 열의 하위 세트를 원하는 경우 서수를 사용하여 원본 데이터 파일에서 서수를 기준으로 열을 선택합니다. 열은 서수 지정을 기준으로 바인딩됩니다. 
+- CSV 데이터 파일의 경우 모든 열을 읽으려면 열 이름과 해당 데이터 형식을 입력합니다. 열의 하위 세트를 원하는 경우 서수를 사용하여 원본 데이터 파일에서 서수를 기준으로 열을 선택합니다. 열은 서수 지정을 기준으로 바인딩됩니다. HEADER_ROW = TRUE를 사용하는 경우 열 바인딩은 서수 위치 대신 열 이름으로 수행됩니다.
     > [!TIP]
     > CSV 파일에서도 WITH 절을 생략할 수 있습니다. 데이터 형식은 파일 콘텐츠에서 자동으로 유추됩니다. HEADER_ROW 인수를 사용하여 헤더 행에서 열 이름을 읽을 때 헤더 행의 존재 여부를 지정할 수 있습니다. 자세한 내용은 [자동 스키마 검색](#automatic-schema-discovery)을 참조하세요.
     
@@ -231,7 +231,7 @@ CSV 파서 버전 2.0 세부 정보:
 
 HEADER_ROW = { TRUE | FALSE }
 
-CSV 파일에 헤더 행이 포함되는지 여부를 지정합니다. 기본값은 FALSE입니다. PARSER_VERSION='2.0'에서 지원됩니다. TRUE이면 FIRSTROW 인수에 따라 첫 번째 행에서 열 이름을 읽습니다.
+CSV 파일에 헤더 행이 포함되는지 여부를 지정합니다. 기본값은 FALSE입니다. PARSER_VERSION='2.0'에서 지원됩니다. TRUE이면 FIRSTROW 인수에 따라 첫 번째 행에서 열 이름을 읽습니다. WITH를 사용하여 TRUE와 스키마를 지정한 경우 열 이름 바인딩은 서수 위치가 아닌 열 이름으로 수행됩니다.
 
 DATAFILETYPE = { 'char' | 'widechar' }
 

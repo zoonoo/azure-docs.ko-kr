@@ -1,6 +1,6 @@
 ---
-title: 서버리스 SQL 풀(미리 보기)에 대한 스토리지 계정 액세스 제어
-description: 서버리스 SQL 풀(미리 보기)에서 Azure Storage에 액세스하는 방법과 Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 액세스를 제어하는 방법을 설명합니다.
+title: 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어
+description: 서버리스 SQL 풀에서 Azure Storage에 액세스하는 방법과 Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 액세스를 제어하는 방법을 설명합니다.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 958f371a0018d20331e73d0eabba9354614d121c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 631aaf3c6a99e093f6ed59089f7ce99803f3f054
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315722"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446620"
 ---
-# <a name="control-storage-account-access-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)에 대한 스토리지 계정 액세스 제어
+# <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어
 
 서버리스 SQL 풀 쿼리는 Azure Storage에서 직접 파일을 읽습니다. Azure Storage의 파일에 액세스할 수 있는 권한은 두 가지 수준으로 제어됩니다.
 - **스토리지 수준** - 사용자에게 기본 스토리지 파일에 액세스할 수 있는 권한이 있어야 합니다. 스토리지 관리자가 Azure AD 보안 주체에게 파일 읽기/쓰기를 허용하거나 스토리지에 액세스하는 데 사용할 SAS 키를 생성해야 합니다.
@@ -33,7 +33,7 @@ ms.locfileid: "93315722"
 
 ### <a name="user-identity"></a>[사용자 ID](#tab/user-identity)
 
-**사용자 ID** ("Azure AD 통과"라고도 함)는 서버리스 SQL 풀에 로그인한 Azure AD 사용자의 ID를 사용하여 데이터 액세스 권한을 부여하는 권한 부여 유형입니다. 데이터에 액세스하기 전에 Azure Storage 관리자가 Azure AD 사용자에게 권한을 부여해야 합니다. 아래 표에서 설명한 대로 SQL 사용자 유형에는 지원되지 않습니다.
+**사용자 ID**("Azure AD 통과"라고도 함)는 서버리스 SQL 풀에 로그인한 Azure AD 사용자의 ID를 사용하여 데이터 액세스 권한을 부여하는 권한 부여 유형입니다. 데이터에 액세스하기 전에 Azure Storage 관리자가 Azure AD 사용자에게 권한을 부여해야 합니다. 아래 표에서 설명한 대로 SQL 사용자 유형에는 지원되지 않습니다.
 
 > [!IMPORTANT]
 > 이 ID를 사용하여 데이터에 액세스하려면 Storage Blob 데이터 소유자/기여자/읽기 권한자 역할이 있어야 합니다.
@@ -144,7 +144,7 @@ SQL 사용자는 Azure AD 인증을 사용하여 스토리지에 액세스할 �
 
 다음 스크립트는 `OPENROWSET` 함수가 SAS 토큰을 사용하여 Azure 스토리지의 파일에 액세스하는 데 사용할 수 있는 서버 수준 자격 증명을 만듭니다. 이 자격 증명을 만들면 `OPENROWSET` 함수를 실행하는 SQL 보안 주체가 자격 증명 이름의 URL과 일치하는 Azure 스토리지에서 SAS 키로 보호된 파일을 읽을 수 있습니다.
 
-< *mystorageaccountname* >을 실제 스토리지 계정 이름으로 교환하고, < *mystorageaccountcontainername* >을 실제 컨테이너 이름으로 교환합니다.
+<*mystorageaccountname*>을 실제 스토리지 계정 이름으로 교환하고, <*mystorageaccountcontainername*>을 실제 컨테이너 이름으로 교환합니다.
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]

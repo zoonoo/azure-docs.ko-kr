@@ -1,6 +1,6 @@
 ---
-title: Azure Data Studio를 사용하여 Synapse SQL에 연결(미리 보기)
-description: Azure Data Studio(미리 보기)를 사용하여 Azure Synapse Analytics에서 Synapse SQL에 연결하고 쿼리합니다.
+title: Azure Data Studio를 사용하여 Synapse SQL에 연결
+description: Azure Data Studio를 사용하여 Azure Synapse Analytics에서 Synapse SQL에 연결하고 쿼리합니다.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3af28ef575f770a5b8c3fb73ade1f9c53be66843
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 580dfe779ff0f550524781076d3e27805ffd6689
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685752"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451669"
 ---
-# <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Azure Data Studio를 사용하여 Synapse SQL에 연결(미리 보기)
+# <a name="connect-to-synapse-sql-with-azure-data-studio"></a>Azure Data Studio를 사용하여 Synapse SQL에 연결
 
 > [!div class="op_single_selector"]
 >
@@ -26,7 +26,7 @@ ms.locfileid: "94685752"
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-[Azure Data Studio(미리 보기)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 Azure Synapse Analytics에서 Synapse SQL에 연결하고 쿼리할 수 있습니다. 
+[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 Azure Synapse Analytics에서 Synapse SQL에 연결하고 쿼리할 수 있습니다. 
 
 ## <a name="connect"></a>연결
 
@@ -42,7 +42,7 @@ Synapse SQL에 연결하려면 Azure Data Studio를 열고 **새 연결** 을 �
 * **데이터베이스:** 데이터베이스 이름
 
 > [!NOTE]
-> **서버리스 SQL 풀(미리 보기)** 을 사용하려는 경우 URL은 다음과 같아야 합니다.
+> **서버리스 SQL 풀** 을 사용하려는 경우 URL은 다음과 같아야 합니다.
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >

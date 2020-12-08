@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: b138b3eb52a0bfb6dca2ec6fdf0b855223bab698
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1f4d0d5c2d5442d14d68922c4d0c27b45b2b841e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984450"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324723"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>레이블 지정 프로젝트에서 이미지에 태그 지정 
 
@@ -119,7 +119,7 @@ Azure는 사용자가 각 이미지에 하나 이상의 태그를 적용한 후�
 
 기존 경계 상자는 기본적으로 편집할 수 있습니다. **영역 잠금/잠금 해제** 도구 ![영역 잠금/잠금 해제](./media/how-to-label-images/lock-bounding-boxes-tool.png) 또는 "L"은 해당 동작을 전환합니다. 영역이 잠겨 있으면 새 경계 상자의 모양 또는 위치만 변경할 수 있습니다.
 
-**영역 조작** 도구 ![영역 조작 도구](./media/how-to-label-images/regions-tool.png) 또는 "M"을 사용하여 기존 경계 상자를 조정합니다. 가장자리 또는 모서리를 끌어서 모양을 조정합니다. 내부를 클릭하여 경계 상자 전체를 끌 수 있습니다. 영역을 편집할 수 없는 경우 아마도 **영역 잠금/잠금 해제** 도구를 전환했을 것입니다.
+**영역 조작** 도구를 사용합니다. ![이는 영역 조작 도구 아이콘으로 가운데, 위쪽, 오른쪽, 아래쪽 및 왼쪽에서 바깥쪽을 가리키는 네 개의 화살표입니다.](./media/how-to-label-images/regions-tool.png) 또는 "M"은 기존 경계 상자를 조정합니다. 가장자리 또는 모서리를 끌어서 모양을 조정합니다. 내부를 클릭하여 경계 상자 전체를 끌 수 있습니다. 영역을 편집할 수 없는 경우 아마도 **영역 잠금/잠금 해제** 도구를 전환했을 것입니다.
 
 **템플릿 기반 상자** 도구 ![템플릿 상자 도구](./media/how-to-label-images/template-box-tool.png) 또는 "T"를 사용하여 크기가 같은 경계 상자를 여러 개 만듭니다. 이미지에 경계 상자가 없고 템플릿 기반 상자를 활성화하면 이 도구에서 50x50 픽셀 상자를 생성합니다. 경계 상자를 만든 다음, 템플릿 기반 상자를 활성화하면 새 경계 상자가 마지막으로 만든 경계 상자의 크기가 됩니다. 템플릿 기반 상자는 배치 후 크기를 조정할 수 있습니다. 템플릿 기반 상자의 크기를 조정하면 특정 상자의 크기만 조정됩니다.
 
@@ -143,7 +143,7 @@ Azure는 사용자가 각 이미지에 하나 이상의 태그를 적용한 후�
 
 기존 다각형을 편집할 수 있습니다. **영역 잠금/잠금 해제** 도구 ![영역 잠금/잠금 해제 도구](./media/how-to-label-images/lock-bounding-boxes-tool.png) 또는 "L"을 통해 다각형을 편집하여 해당 동작을 전환합니다. 영역이 잠겨 있으면 새 다각형의 모양 또는 위치만 변경할 수 있습니다.
 
-**다각형 지점 추가 또는 제거** 도구 ![다각형 지점 추가 또는 제거 도구](./media/how-to-label-images/add-remove-points-tool.png) 또는 "U"를 사용하여 기존 다각형을 조정합니다. 지점을 추가하거나 제거하려면 다각형을 클릭합니다. 영역을 편집할 수 없는 경우 아마도 **영역 잠금/잠금 해제** 도구를 전환했을 것입니다.
+**다각형 지점 추가 또는 제거** 도구를 사용합니다. ![이는 다각형 지점 추가 또는 제거 도구 아이콘입니다.](./media/how-to-label-images/add-remove-points-tool.png) 또는 "U"는 기존 다각형을 조정합니다. 지점을 추가하거나 제거하려면 다각형을 클릭합니다. 영역을 편집할 수 없는 경우 아마도 **영역 잠금/잠금 해제** 도구를 전환했을 것입니다.
 
 현재 이미지의 *모든* 다각형을 삭제하려면 **모든 영역 삭제** 도구 ![모든 영역 삭제 도구](./media/how-to-label-images/delete-regions-tool.png)를 선택합니다.
 

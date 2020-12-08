@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 930c1f94446eb145a093bf7a8706485d40eec210
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5258b1eab48f71d8d17f52849b5e57b467e7a2da
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998178"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460386"
 ---
-# <a name="synapse-managed-private-endpoints-preview"></a>Synapse 관리형 프라이빗 엔드포인트(미리 보기)
+# <a name="synapse-managed-private-endpoints"></a>Synapse 관리형 프라이빗 엔드포인트
 
 이 문서에서는 Azure Synapse Analytics의 관리형 프라이빗 엔드포인트에 대해 설명합니다.
 

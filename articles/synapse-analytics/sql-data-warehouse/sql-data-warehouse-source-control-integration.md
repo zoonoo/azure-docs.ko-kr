@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 766837cacb4ef2acf874c2872b347b6d35633faa
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 862fa839c56746042c072ae3100832fb2b78451a
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701000"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296909"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대한 소스 제어 통합
 
@@ -38,11 +38,13 @@ ms.locfileid: "94701000"
    ![연결 관리](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "연결 관리")
 
 3. **연결 관리** 를 선택한 다음, 프 **프로젝트에 연결** 을 선택하여 프로젝트에 연결합니다.
- ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "연결")
+ 
+    ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "연결")
 
 
 4. 1단계에서 만든 프로젝트를 찾고 **연결** 을 선택합니다.
-![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "연결")
+ 
+    ![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "연결")
 
 
 3. 프로젝트에서 로컬 머신으로 Azure DevOps 리포지토리를 복제합니다.
@@ -85,7 +87,7 @@ Visual Studio를 사용하여 프로젝트를 연결하는 방법에 대한 자�
 
    ![Verify](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "변경 내용 확인")
 
-4. (**선택 사항**) 스키마 비교를 사용하고 SSDT를 사용하여 대상 데이터 웨어하우스의 변경 내용을 업데이트하여 Azure Repo 리포지토리 및 로컬 리포지토리의 개체 정의가 데이터 웨어하우스에 반영되도록 합니다.
+4. (**선택 사항**) 스키마 비교를 사용하고 SSDT를 사용하여 대상 전용 SQL 풀에 대한 변경 내용을 업데이트하여 Azure Repo 리포지토리 및 로컬 리포지토리의 개체 정의가 전용 SQL 풀에 반영되도록 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

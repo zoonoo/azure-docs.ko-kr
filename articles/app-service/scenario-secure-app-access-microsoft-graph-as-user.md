@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: d3706c26d9b15e9ea607996ace222b29ccd84458
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: azureday1
+ms.openlocfilehash: e07ec17a4e14f0099d82bd444f2ee8d37abe9908
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999657"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435011"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>자습서: 보안 앱에서 사용자로 Microsoft Graph에 액세스
 
@@ -75,10 +76,12 @@ Azure App Service에서 실행되는 웹앱에서 Microsoft Graph에 액세스�
 
 이제 웹앱에 필요한 권한이 있으며 Microsoft Graph의 클라이언트 ID도 로그인 매개 변수에 추가됩니다. [Microsoft.Identity.Web 라이브러리](https://github.com/AzureAD/microsoft-identity-web/)를 사용하여 웹앱은 Microsoft Graph 인증을 위한 액세스 토큰을 얻습니다. 버전 1.2.0 이상에서 Microsoft.Identity.Web 라이브러리는 App Service 인증/권한 부여 모듈과 통합되며 함께 실행할 수 있습니다. Microsoft.Identity.Web은 웹앱이 App Service에서 호스트되는 것을 감지하고 App Service 인증/권한 부여 모듈에서 액세스 토큰을 가져옵니다. 그런 다음, 액세스 토큰은 Microsoft Graph API를 사용하여 인증된 요청에 전달됩니다.
 
+이 코드를 샘플 애플리케이션의 일부로 보려면 [GitHub의 샘플](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf)을 참조하세요.
+
 > [!NOTE]
 > Microsoft.Identity.Web 라이브러리는 기본 인증/권한 부여를 위해 또는 Microsoft Graph를 사용하여 요청을 인증하기 위해 웹앱에 필요하지 않습니다. App Service 인증/권한 부여 모듈만 사용하도록 설정된 상태에서 [다운스트림 API를 안전하게 호출](tutorial-auth-aad.md#call-api-securely-from-server-code)하는 것이 가능합니다.
 > 
-> 하지만 App Service 인증/권한 부여는 보다 기본적인 인증 시나리오를 위해 설계되었습니다. 더 복잡한 시나리오(예: 사용자 지정 클레임 처리)의 경우 Microsoft.Identity.Web 라이브러리 또는 [Microsoft 인증 라이브러리](/azure/active-directory/develop/msal-overview)가 필요합니다. 처음에는 설정 및 구성 작업이 약간 더 많지만 Microsoft.Identity.Web 라이브러리는 App Service 인증/권한 부여 모듈과 함께 실행할 수 있습니다. 나중에 웹앱에서 더 복잡한 시나리오를 처리해야 하는 경우 App Service 인증/권한 부여 모듈을 사용하지 않도록 설정할 수 있으며 Microsoft.Identity.Web은 이미 앱의 일부입니다.
+> 하지만 App Service 인증/권한 부여는 보다 기본적인 인증 시나리오를 위해 설계되었습니다. 더 복잡한 시나리오(예: 사용자 지정 클레임 처리)의 경우 Microsoft.Identity.Web 라이브러리 또는 [Microsoft 인증 라이브러리](../active-directory/develop/msal-overview.md)가 필요합니다. 처음에는 설정 및 구성 작업이 약간 더 많지만 Microsoft.Identity.Web 라이브러리는 App Service 인증/권한 부여 모듈과 함께 실행할 수 있습니다. 나중에 웹앱에서 더 복잡한 시나리오를 처리해야 하는 경우 App Service 인증/권한 부여 모듈을 사용하지 않도록 설정할 수 있으며 Microsoft.Identity.Web은 이미 앱의 일부입니다.
 
 ### <a name="install-client-library-packages"></a>클라이언트 라이브러리 패키지 설치
 

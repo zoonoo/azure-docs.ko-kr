@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: ae7b15bf2e2efd72184110a105f68815516569ab
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9014469ca063ca52be0965ecbd4e8b21709d10a0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843913"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455162"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>전용 SQL 풀을 사용하여 데이터 분석
 
@@ -94,8 +94,9 @@ Azure Synapse Analytics는 전용 SQL 풀을 사용하여 데이터를 분석하
 
     이 쿼리에서는 총 주행 거리 및 평균 주행 거리와 승객 수 간의 관계를 보여 줍니다.
 1. SQL 스크립트 결과 창에서 결과를 꺾은선형 차트로 시각화하려면 **보기** 를 **차트** 로 변경합니다.
-
-
+    
+    > [!NOTE]
+    > 작업 영역이 활성화된 전용 SQL 풀(이전의 SQL DW)은 데이터 허브의 도구 설명을 통해 식별할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

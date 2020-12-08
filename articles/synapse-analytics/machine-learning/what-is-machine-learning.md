@@ -9,16 +9,14 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 382ba871f95b3b36c3f819de8d582ba2c5dc358a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 20f095a058434c36373c30ed2a633db12643814d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316082"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448272"
 ---
-# <a name="machine-learning-capabilities-in-azure-synapse-analytics-workspaces-preview"></a>Azure Synapse Analytics의 Machine Learning 기능(작업 영역 미리 보기)
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+# <a name="machine-learning-capabilities-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Machine Learning 기능
 
 Azure Synapse Analytics는 다양한 기계 학습 기능을 제공합니다. 이 문서에서는 Azure Synapse의 컨텍스트에서 Machine Learning을 적용하는 방법에 대한 개요를 제공합니다.
 
@@ -48,11 +46,11 @@ Azure Synapse의 고유하게 통합된 부분인 [Azure Data Factory](/azure/da
 
 기계 학습 프로세스의 중요한 부분은 탐색 및 시각화를 통해 데이터를 이해하는 것입니다.
 
-데이터가 저장되는 위치에 따라 Synapse는 분석 및 기계 학습을 위해 탐색하고 준비하는 다양한 도구 세트를 제공합니다. 데이터 탐색을 시작하는 가장 빠른 방법 중 하나는 데이터 레이크의 데이터에 대해 직접 Apache Spark 또는 Synapse SQL 서버리스 풀을 사용하는 것입니다.
+데이터가 저장되는 위치에 따라 Synapse는 분석 및 기계 학습을 위해 탐색하고 준비하는 다양한 도구 세트를 제공합니다. 데이터 탐색을 시작하는 가장 빠른 방법 중 하나는 데이터 레이크의 데이터에 직접 Apache Spark 또는 서버리스 SQL 풀을 사용하는 것입니다.
 
 * [Apache Spark for Azure Synapse](../spark/apache-spark-overview.md)는 대규모로 데이터를 변환, 준비 및 탐색하는 기능을 제공합니다. 이러한 Spark 풀은 데이터를 대규모로 처리하기 위해 PySpark/Python, Scala 및 .NET 등의 도구를 제공합니다. 강력한 시각화 라이브러리를 사용하면 데이터를 더 잘 이해할 수 있도록 데이터 탐색 환경을 향상시킬 수 있습니다. [Spark를 사용하여 Synapse에서 데이터를 탐색하고 시각화하는 방법에 대해 자세히 알아보세요](../get-started-analyze-spark.md).
 
-* [Synapse SQL 서버리스 풀](../sql/on-demand-workspace-overview.md)은 데이터 레이크에서 직접 TSQL을 사용하여 데이터를 탐색하는 방법을 제공합니다. Synapse SQL 서버리스 풀은 Synapse Studio에서 일부 기본 제공 시각화도 제공합니다. [Synapse SQL 서버리스 풀을 사용하여 데이터를 탐색하는 방법에 대해 자세히 알아보세요](../get-started-analyze-sql-on-demand.md).
+* [서버리스 SQL 풀](../sql/on-demand-workspace-overview.md)은 데이터 레이크에서 직접 TSQL을 사용하여 데이터를 탐색하는 방법을 제공합니다. 서버리스 SQL 풀은 Synapse Studio에서 몇 가지 기본 제공 시각화도 제공합니다. [서버리스 SQL 풀을 사용하여 데이터를 탐색하는 방법에 대해 자세히 알아보세요](../get-started-analyze-sql-on-demand.md).
 
 ### <a name="modeling"></a>모델링
 

@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: a7b8ca309bf5710ddbd88413935bef5e97a1ed9f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.custom: azureday1
+ms.openlocfilehash: facc6a4ab8344f9f72fc7abc27433c18ab435504
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999674"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436541"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>자습서: 보안 앱에서 앱으로 Microsoft Graph에 액세스
 
@@ -23,7 +24,7 @@ Azure App Service에서 실행되는 웹앱에서 Microsoft Graph에 액세스�
 
 :::image type="content" alt-text="Microsoft Graph 액세스를 보여주는 다이어그램." source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-웹앱용 Microsoft Graph를 호출하려고 합니다. 웹앱에 데이터 액세스 권한을 부여하는 안전한 방법은 [시스템이 할당한 관리 ID](/azure/active-directory/managed-identities-azure-resources/overview)를 사용하는 것입니다. Azure Active Directory의 관리 ID를 사용하면 앱 자격 증명 없이 App Service가 RBAC(역할 기반 액세스 제어)를 통해 리소스에 액세스할 수 있습니다. 웹앱에 관리 ID를 할당한 후에는 인증서를 만들고 배포하는 작업을 Azure가 처리합니다. 사용자는 비밀 또는 앱 자격 증명 관리에 대해 신경 쓸 필요가 없습니다.
+웹앱용 Microsoft Graph를 호출하려고 합니다. 웹앱에 데이터 액세스 권한을 부여하는 안전한 방법은 [시스템이 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하는 것입니다. Azure Active Directory의 관리 ID를 사용하면 앱 자격 증명 없이 App Service가 RBAC(역할 기반 액세스 제어)를 통해 리소스에 액세스할 수 있습니다. 웹앱에 관리 ID를 할당한 후에는 인증서를 만들고 배포하는 작업을 Azure가 처리합니다. 사용자는 비밀 또는 앱 자격 증명 관리에 대해 신경 쓸 필요가 없습니다.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
@@ -120,6 +121,8 @@ az rest --method post --uri $uri --body $body --headers "Content-Type=applicatio
 ## <a name="call-microsoft-graph-net"></a>Microsoft Graph(.NET) 호출
 
 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스는 Microsoft Graph에 대한 요청에 권한을 부여하기 위해 코드의 토큰 자격 증명을 가져오는 데 사용됩니다. 관리 ID를 사용하여 토큰을 가져오고 서비스 클라이언트에 연결하는 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스의 인스턴스를 만듭니다. 다음 코드 예제에서는 인증된 토큰 자격 증명을 가져와서 서비스 클라이언트 개체를 만드는 데 사용합니다. 이 개체는 그룹의 사용자를 가져옵니다.
+
+이 코드를 샘플 애플리케이션의 일부로 보려면 [GitHub의 샘플](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity)을 참조하세요.
 
 ### <a name="install-the-microsoftgraph-client-library-package"></a>Microsoft.Graph 클라이언트 라이브러리 패키지 설치
 

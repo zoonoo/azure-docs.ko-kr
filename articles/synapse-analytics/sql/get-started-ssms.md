@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4239b5400e919621dfff001ca7e6cb9de1626658
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: da698a1a8d91273321d4633abd683a06cb4cf403
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686211"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451631"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)를 사용하여 Synapse SQL에 연결
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.locfileid: "94686211"
 > 
 > 
 
-[SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 서버리스 SQL 풀(미리 보기) 또는 전용 SQL 풀 리소스를 통해 Azure Synapse Analytics에서 Synapse SQL에 연결하고 쿼리할 수 있습니다. 
+[SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 서버리스 SQL 풀 또는 전용 SQL 풀 리소스를 통해 Azure Synapse Analytics에서 Synapse SQL에 연결하고 쿼리할 수 있습니다. 
 
-### <a name="supported-tools-for-serverless-sql-pool-preview"></a>서버리스 SQL 풀(미리 보기)에 지원되는 도구
+### <a name="supported-tools-for-serverless-sql-pool"></a>서버리스 SQL 풀에 지원되는 도구
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)는 버전 1.18.0부터 완전히 지원됩니다. SSMS는 버전 18.5부터 부분적으로 지원되며, 연결 및 쿼리에만 사용할 수 있습니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "94686211"
     ![AdventureWorksDW 1 탐색](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
-### <a name="serverless-sql-pool-preview"></a>서버리스 SQL 풀(미리 보기)
+### <a name="serverless-sql-pool"></a>서버리스 SQL 풀
 
 서버리스 SQL 풀을 사용하여 Synapse SQL에 연결하려면 다음 단계를 수행합니다. 
 

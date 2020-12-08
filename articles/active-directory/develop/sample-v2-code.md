@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: de25aafcfefee195e8d674c60ebdbaf79cb1ae10
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: a3f2eb8fe3da9b272c5fe61ef5dd66726cf7764d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95406891"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348438"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft ID 플랫폼 코드 샘플(v2.0 엔드포인트)
 
@@ -48,6 +48,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | ![React 로고를 보여 주는 이미지](media/sample-v2-code/logo_react.png) [React(MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)| SPA에서 사용자 지정 웹 API를 호출, 이는 Microsoft Graph 호출  | [ms-identity-javascript-react-spa-dotnetcore-webapi-obo](https://github.com/Azure-Samples/ms-identity-javascript-react-spa-dotnetcore-webapi-obo) |
 | ![JavaScript 로고를 보여 주는 이미지](media/sample-v2-code/logo_js.png) [JavaScript(MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | SPA는 Microsoft Graph를 호출하는 사용자 지정 웹 API를 호출합니다.  | [ms-identity-javascript-tutorial-chapter4-obo](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/4-1-call-api-graph) |
 | ![Angular 로고를 보여 주는 이미지](media/sample-v2-code/logo_angular.png) [Angular(MSAL-Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | SPA에서 앱 역할 및 보안 그룹을 사용하여 사용자 지정 웹 API 호출 |[ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups) |
+| ![이 이미지는 Blazor 로고를 보여줍니다.](media/sample-v2-code/logo-blazor.png) [Blazor WebAssembly(MSAL-JS)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | Azure Active Directory를 사용하여 사용자를 로그인하고 API를 호출하기 위한 Blazor WebAssembly 자습서 |[ms-identity-blazor-wasm](https://github.com/Azure-Samples/ms-identity-blazor-wasm) |
 
 ## <a name="web-applications"></a>웹 애플리케이션
 
@@ -64,7 +65,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | ![이 이미지는 Python 로고를 표시](media/sample-v2-code/logo_python.png)  | [Python Flask 웹앱](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) 로그인 사용자 자습서                   | [Python Flask 웹앱](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) 로그인 사용자 및 호출 그래프 자습서 |
 | ![이 이미지는 Python 로고를 표시](media/sample-v2-code/logo_python.png)  | B2C를 사용하는 [Python Flask 웹앱](https://github.com/Azure-Samples/ms-identity-b2c-python-flask-webapp-authentication/blob/main/README.md) 로그인 사용자                    |  |
 | ![이 이미지는 Ruby 로고를 표시](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
-
+| ![이 이미지는 Blazor 로고를 보여줍니다.](media/sample-v2-code/logo-blazor.png)</p>Blazor 서버 | [Blazor Server 앱 로그인 사용자 자습서](https://github.com/Azure-Samples/ms-identity-blazor-server/tree/main/WebApp-OIDC) | [Blazor Server 앱 호출 Microsoft Graph](https://github.com/Azure-Samples/ms-identity-blazor-server/tree/main/WebApp-graph-user/Call-MSGraph)</p>Chapterwise 자습서: [Azure Active Directory를 사용하여 사용자를 로그인하고 API를 호출하는 Blazor Server 앱](https://github.com/Azure-Samples/ms-identity-blazor-server) |
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>데스크톱 및 모바일 공용 클라이언트 앱
 

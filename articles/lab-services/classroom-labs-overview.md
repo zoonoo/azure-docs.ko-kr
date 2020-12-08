@@ -1,19 +1,19 @@
 ---
-title: Azure Lab Services의 클래스룸 랩 정보 | Microsoft Docs
+title: Azure Lab Services의 랩 정보 | Microsoft Docs
 description: 클라우드에서 클래스룸 랩 환경을 빠르게 설정하는 방법을 알아봅니다. 클래스에 필요한 소프트웨어로 템플릿 VM을 사용하여 랩을 구성하고 클래스의 각 학생이 VM의 복사본을 사용할 수 있도록 합니다.
 ms.topic: overview
 ms.date: 06/26/2020
-ms.openlocfilehash: e6ff56a831282c3abf5eec644573b9a3e88c6543
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 79d6f1cc9f2a6d8d8be872359a4677b36602eea5
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85445630"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434807"
 ---
-# <a name="introduction-to-classroom-labs"></a>클래스룸 랩 소개
+# <a name="introduction-to-labs"></a>랩 소개
 Azure Lab Services를 사용하면 클라우드에서 클래스룸 랩 환경을 빠르게 설정할 수 있습니다. 강사가 클래스룸 랩을 만들고, Windows 또는 Linux 가상 머신을 프로비전하고, 수업에 필요한 소프트웨어 및 도구 랩을 설치하고, 학생들이 사용할 수 있게 합니다. 학생들은 클래스룸 랩에서 랩의 VM(가상 머신)에 연결하여 프로젝트, 과제, 클래스룸 연습에 사용합니다. 
 
-클래스룸 랩은 Azure에서 관리되는 관리형 랩 형식입니다. 서비스 자체는 VM(가상 머신) 가동에서 오류 처리 및 인프라 확장에 이르기까지 관리되는 랩 형식에 대한 모든 인프라 관리를 처리합니다. 필요한 인프라 종류를 지정하고 수업에 필요한 도구 또는 소프트웨어를 설치합니다. 
+랩은 Azure에서 관리되는 관리형 랩 형식입니다. 서비스 자체는 VM(가상 머신) 가동에서 오류 처리 및 인프라 확장에 이르기까지 관리되는 랩 형식에 대한 모든 인프라 관리를 처리합니다. 필요한 인프라 종류를 지정하고 수업에 필요한 도구 또는 소프트웨어를 설치합니다. 
 
 ## <a name="automatic-management-of-azure-infrastructure-and-scale"></a>Azure 인프라 및 규모에 대한 자동 관리 
 Azure Lab Services는 랩의 기본 인프라에 대한 프로비저닝 및 관리가 서비스에 의해 자동으로 처리되는 관리형 서비스입니다. 귀하는 사용자에게 적합한 랩 환경을 준비하는 데만 집중할 수 있습니다. 나머지는 서비스가 처리하도록 맡겨두고 랩의 가상 머신을 대상 그룹에 롤아웃할 수 있습니다. 한 번의 클릭으로 랩을 수백 대의 가상 머신으로 확장할 수 있습니다.

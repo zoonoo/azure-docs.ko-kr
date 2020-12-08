@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: d29fa6454839b0c34830374282b8abb5fa6e4c51
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8df7a2ecd2a6732a011267eb0efe00e8eaf2bef4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313398"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458758"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Azure Synapse Analytics의 Apache Spark 핵심 개념
 
@@ -22,15 +22,15 @@ Apache Spark는 메모리 내 처리를 지원하여 빅 데이터 분석 애플
 
 Azure Synapse를 사용하면 Azure에서 Spark 기능을 쉽게 만들고 구성할 수 있습니다. Azure Synapse는 여기서 설명하는 Spark 기능을 다른 방법으로 구현합니다.
 
-## <a name="spark-pools-preview"></a>Spark 풀(미리 보기)
+## <a name="spark-pools"></a>Spark 풀
 
-서버리스 Apache Spark 풀(미리 보기)은 Azure Portal에서 만듭니다. 이 풀은 인스턴스화하면 데이터를 처리하는 Spark 인스턴스를 만드는 데 사용되는 Spark 풀의 정의입니다. 생성된 Spark 풀은 메타데이터로만 존재하며, 따라서 리소스가 사용되거나, 실행되거나, 요금이 청구되지 않습니다. Spark 풀에는 Spark 인스턴스의 특성을 제어하는 일련의 속성이 있습니다. 이러한 특성은 이름, 크기, 크기 조정 동작, TTL(Time to live)을 포함하지만 이에 제한되지 않습니다.
+서버리스 Apache Spark 풀은 Azure Portal에서 만듭니다. 이 풀은 인스턴스화하면 데이터를 처리하는 Spark 인스턴스를 만드는 데 사용되는 Spark 풀의 정의입니다. 생성된 Spark 풀은 메타데이터로만 존재하며, 따라서 리소스가 사용되거나, 실행되거나, 요금이 청구되지 않습니다. Spark 풀에는 Spark 인스턴스의 특성을 제어하는 일련의 속성이 있습니다. 이러한 특성은 이름, 크기, 크기 조정 동작, TTL(Time to live)을 포함하지만 이에 제한되지 않습니다.
 
 Spark 풀을 만들 때 비용 또는 리소스가 들지 않으므로 원하는 만큼 다양한 구성을 사용하여 원하는 만큼 풀을 만들 수 있습니다. 또한 Spark 풀에 권한을 적용하여 사용자가 일부 풀에만 액세스하도록 설정할 수 있습니다.
 
 가장 좋은 방법은 개발 및 디버깅에 사용할 소규모 Spark 풀을 만든 다음, 프로덕션 워크로드를 실행하기 위한 더 큰 Spark 풀을 만드는 것입니다.
 
-[Synapse Analytics에서 Spark 풀 시작](../quickstart-create-apache-spark-pool-portal.md)에서 Spark 풀을 만드는 방법과 모든 속성을 확인할 수 있습니다.
+[Azure Synapse Analytics에서 Spark 풀 시작](../quickstart-create-apache-spark-pool-portal.md)에서 Spark 풀을 만드는 방법과 모든 속성을 확인할 수 있습니다.
 
 ## <a name="spark-instances"></a>Spark 인스턴스
 

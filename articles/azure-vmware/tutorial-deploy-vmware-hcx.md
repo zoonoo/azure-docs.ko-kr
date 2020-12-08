@@ -2,13 +2,13 @@
 title: 자습서 - VMware HCX 배포 및 구성
 description: Azure VMware Solution 프라이빗 클라우드를 위한 VMware HCX 솔루션을 배포 및 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 11/18/2020
-ms.openlocfilehash: afb5c653ce7c4b4a453a4031c5664042357de6c0
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 11/25/2020
+ms.openlocfilehash: e50454c2299ed0f7e249563eecac1935a29a9c47
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999633"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352469"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>VMware HCX 배포 및 구성
 
@@ -16,8 +16,8 @@ ms.locfileid: "95999633"
 
 VMware HCX 고급 커넥터는 Azure VMware Solution에 미리 배포되어 있습니다. 이 커넥터는 최대 3개의 사이트 연결(온-프레미스에서 클라우드로 연결 또는 클라우드에서 클라우드로 연결)을 지원합니다. 사이트 연결 4개 이상 필요한 경우 [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) 추가 기능을 사용할 수 있도록 [지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 제출하세요. 추가 기능은 현재 미리 보기에 있습니다. 
 
->[!Note]
->VMware 구성 최대 도구는 온-프레미스 커넥터와 클라우드 관리자 간의 최대 25개까지 사이트 쌍을 설명하지만, 라이선스는 이를 다시 3개(Advanced의 경우) 및 10개(Enterprise Edition의 경우)로 제한합니다.
+>[!TIP]
+>VMware 구성 최대 도구는 온-프레미스 커넥터와 클라우드 관리자 간의 최대 25개까지 사이트 쌍을 설명하지만, 라이선스는 이를 3개(Advanced의 경우) 및 10개(Enterprise Edition의 경우)로 제한합니다.
 
 >[!NOTE]
 >VMware HCX Enterprise는 Azure VMware Solution에서 미리 보기 서비스로 사용할 수 있습니다. 무료이며 미리 보기 서비스의 약관이 적용됩니다. VMware HCX Enterprise 서비스가 일반 공급되면 30일 이내에 요금 청구가 변경된다는 알림을 받게 됩니다. 또한 서비스를 해제하거나 옵트아웃하는 옵션이 있습니다. VMware HCX Enterprise에서 VMware HCX Advanced로 다운그레이드하는 간단한 경로가 없습니다. 다운그레이드하도록 결정하는 경우 다시 배포해야 하므로 가동 중지 시간이 발생합니다.
@@ -79,7 +79,7 @@ VMware HCX Enterprise를 사용하려면 Azure VMware Solution 지원 채널을 
 1. **관리** > **ID** 를 차례로 선택하고, **vCenter 관리자 암호** 를 선택하여 암호를 확인합니다.
 
    > [!TIP]
-   > vCenter 암호는 프라이빗 클라우드를 설정할 때 정의되었으며, Azure VMware Solution HCX Manager에 로그인하는 데 사용하는 것과 동일한 암호입니다.
+   > vCenter 암호는 프라이빗 클라우드를 설정할 때 정의되었습니다. Azure VMware Solution HCX Manager에 로그인하는 데 사용하는 것과 동일한 암호입니다.
 
    :::image type="content" source="media/tutorial-vmware-hcx/hcx-admin-password.png" alt-text="HCX 암호 찾기" lightbox="media/tutorial-vmware-hcx/hcx-admin-password.png":::
 
@@ -91,7 +91,7 @@ VMware HCX Enterprise를 사용하려면 Azure VMware Solution 지원 채널을 
 
 ## <a name="deploy-the-vmware-hcx-connector-ova-on-premises"></a>VMware HCX 커넥터 OVA 온-프레미스 배포
 
-1. 온-프레미스 vCenter에서 [OVF 템플릿](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html)을 선택하여 HCX Connector를 온-프레미스 vCenter에 배포합니다. 
+1. 온-프레미스 vCenter에서 [OVF 템플릿](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html)을 선택하여 VMware HCX Connector를 온-프레미스 vCenter에 배포합니다. 
 
    > [!TIP]
    > 이전 섹션에서 다운로드한 OVA 파일을 선택합니다.  
@@ -111,12 +111,12 @@ VMware HCX Enterprise를 사용하려면 Azure VMware Solution 지원 채널을 
 
    :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="템플릿을 사용자 지정하는 상자의 스크린샷" lightbox="media/tutorial-vmware-hcx/customize-template.png":::
 
-1. 구성을 확인한 다음, **마침** 을 선택하여 HCX Connector OVA를 배포합니다.
+1. 구성을 확인한 다음, **마침** 을 선택하여 VMware HCX Connector OVA를 배포합니다.
    
    > [!IMPORTANT]
    > 가상 어플라이언스를 수동으로 설정해야 합니다.  전원을 켜고 10~15분 정도 기다린 후에 다음 단계로 진행하세요.
 
-이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 어플라이언스 배포](https://www.youtube.com/embed/BwSnQeefnso) 비디오를 시청하세요. 
+이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 어플라이언스 배포](https://www.youtube.com/embed/UKmSTYrL6AY) 비디오를 시청하세요. 
 
 
 ## <a name="activate-vmware-hcx"></a>VMware HCX 활성화
@@ -152,7 +152,7 @@ VMware HCX 커넥터 OVA 온-프레미스를 배포하고 어플라이언스를 
 1. **SSO/PSC 구성** 에서, Platform Services Controller의 FQDN 또는 IP 주소를 입력한 다음, **계속** 을 선택합니다.
    
    > [!NOTE]
-   > 일반적으로 이 항목은 vCenter FQDN 또는 IP 주소와 동일합니다.
+   > 일반적으로 vCenter FQDN 또는 IP 주소와 동일합니다.
 
 1. 입력한 정보가 올바른지 확인하고, **다시 시작** 을 선택합니다.
     
@@ -163,7 +163,7 @@ VMware HCX 커넥터 OVA 온-프레미스를 배포하고 어플라이언스를 
 
 :::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="vCenter 상태가 녹색인 대시보드의 스크린샷" lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
 
-이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 활성화](https://www.youtube.com/embed/BkAV_TNYxdE) 비디오를 시청하세요.
+이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 활성화](https://www.youtube.com/embed/jzQZawslF8w) 비디오를 시청하세요.
 
    > [!IMPORTANT]
    > VMware HCX Advanced 또는 VMware HCX Enterprise를 사용하는지 여부에 관계없이 VMware의 [81558 KB 문서](https://kb.vmware.com/s/article/81558)에서 패치를 설치해야 할 수 있습니다. 
@@ -174,7 +174,7 @@ VMware HCX 커넥터 OVA 온-프레미스를 배포하고 어플라이언스를 
 
 ### <a name="add-a-site-pairing"></a>사이트 페어링 추가
 
-Azure VMware Solution의 VMware HCX 커넥터를 데이터 센터의 VMware HCX 커넥터와 연결(페어링)할 수 있습니다. 
+Azure VMware Solution의 VMware HCX Cloud Manager를 데이터 센터의 VMware HCX Connector와 연결하거나 페어링할 수 있습니다. 
 
 1. 온-프레미스 vCenter에 로그인하고, **홈** 에서 **HCX** 를 선택합니다.
 
@@ -183,15 +183,16 @@ Azure VMware Solution의 VMware HCX 커넥터를 데이터 센터의 VMware HCX 
 1. 이전에 기록한 Azure VMware Solution HCX Cloud Manager URL 또는 IP 주소(`https://x.x.x.9`), Azure VMware Solution cloudadmin@vsphere.local 사용자 이름 및 암호를 입력합니다. 그런 다음 **연결** 을 선택합니다.
 
    > [!NOTE]
-   > 사이트 페어링을 성공적으로 설정하려면 HCX Connector에서 443 포트를 통해 HCX Cloud Manager IP로 라우팅할 수 있어야 합니다.
+   > 사이트 쌍을 성공적으로 설정하려면 다음을 수행합니다.
+   > * VMware HCX Connector는 443 포트를 통해 HCX Cloud Manager IP로 라우팅할 수 있어야 합니다.
    >
-   > 암호는 vCenter에 로그인할 때 사용하는 암호와 동일합니다. 초기 배포 화면에서 이 암호를 정의했습니다.
+   > * vCenter에 로그인할 때 사용한 것과 동일한 암호를 사용합니다. 초기 배포 화면에서 이 암호를 정의했습니다.
 
-   Azure VMware Solution의 HCX Cloud Manager와 온-프레미스 HCX 커넥터가 연결(페어링)된 것을 보여주는 화면이 표시됩니다.
+   Azure VMware Solution의 VMware HCX Cloud Manager와 온-프레미스 VMware HCX Connector가 연결(페어링)된 것을 보여주는 화면이 표시됩니다.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Azure VMware Solution의 HCX Manager와 HCX 커넥터의 페어링을 보여주는 스크린샷":::
+   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Azure VMware Solution의 HCX Manager와 VMware HCX Connector의 페어링을 보여주는 스크린샷.":::
 
-이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 사이트 페어링](https://www.youtube.com/embed/sKizDCRHOko) 비디오를 시청하세요.
+이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 사이트 페어링](https://www.youtube.com/embed/iTJtjbiwvsw) 비디오를 시청하세요.
 
 ### <a name="create-network-profiles"></a>네트워크 프로필 만들기
 
@@ -212,7 +213,7 @@ VMware HCX Connector는 여러 IP 세그먼트가 필요한 가상 어플라이�
 
    :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="새 네트워크 프로필에 대한 세부 정보의 스크린샷":::
 
-이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 네트워크 프로필](https://www.youtube.com/embed/NhyEcLco4JY) 비디오를 시청하세요.
+이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 네트워크 프로필](https://www.youtube.com/embed/O0rU4jtXUxc) 비디오를 시청하세요.
 
 
 ### <a name="create-a-compute-profile"></a>컴퓨팅 프로필 만들기
@@ -274,18 +275,20 @@ VMware HCX Connector는 여러 IP 세그먼트가 필요한 가상 어플라이�
 
    :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-done.png" alt-text="컴퓨팅 프로필 정보를 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/compute-profile-done.png":::
 
-이 절차의 엔드투엔드 개요는 [Azure VMware Solution: 컴퓨팅 프로필](https://www.youtube.com/embed/qASXi5xrFzM) 비디오를 시청하세요.
+이 절차의 엔드투엔드 개요는 [Azure VMware Solution: 컴퓨팅 프로필](https://www.youtube.com/embed/e02hsChI3b8) 비디오를 시청하세요.
 
 ### <a name="create-a-service-mesh"></a>서비스 메시 만들기
 
 이제 온-프레미스와 Azure VMware Solution SDDC 간에 서비스 메시를 구성해야 합니다.
 
-   > [!NOTE]
-   > Azure VMware Solution을 사용하여 서비스 메시를 성공적으로 설정하려면 다음을 수행합니다.
-   >
-   > 포트 UDP 500/4500은 온-프레미스 HCX 커넥터 정의 '업링크' 네트워크 프로필 주소와 Azure VMware Solution HCX Cloud '업링크' 네트워크 프로필 주소 사이에서 열립니다.
-   >
-   > [HCX 필수 포트](https://ports.vmware.com/home/VMware-HCX)를 검토하세요.
+
+
+> [!NOTE]
+> Azure VMware Solution을 사용하여 서비스 메시를 성공적으로 설정하려면 다음을 수행합니다.
+>
+> * 포트 UDP 500/4500은 온-프레미스 VMware HCX Connector '업링크' 네트워크 프로필 주소와 Azure VMware Solution HCX Cloud '업링크' 네트워크 프로필 주소 사이에서 열립니다.
+>
+> * [VMware HCX 필수 포트](https://ports.vmware.com/home/VMware-HCX)를 검토하세요.
 
 1. **인프라** 에서 **상호 연결** > **서비스 메시** > **서비스 메시 만들기** 를 선택합니다.    
 
@@ -312,6 +315,10 @@ VMware HCX Connector는 여러 IP 세그먼트가 필요한 가상 어플라이�
   
 1. **고급 구성 - 네트워크 확장 어플라이언스 스케일 아웃** 을 검토하고 **계속** 을 선택합니다. 
 
+   어플라이언스당 최대 8개의 VLAN을 가질 수 있지만 다른 어플라이언스를 배포하여 8개의 VLAN을 추가할 수 있습니다. 또한 추가 어플라이언스를 고려할 수 있는 IP 공간이 있어야 하며, 어플라이언스당 하나의 IP입니다.  자세한 내용은 [VMware HCX 구성 제한](https://configmax.vmware.com/guest?vmwareproduct=VMware%20HCX&release=VMware%20HCX&categories=41-0,42-0,43-0,44-0,45-0)을 참조하세요.
+   
+   :::image type="content" source="media/tutorial-vmware-hcx/extend-networks-increase-vlan.png" alt-text="VLAN 수를 늘릴 위치를 보여주는 스크린샷." lightbox="media/tutorial-vmware-hcx/extend-networks-increase-vlan.png":::
+
 1. **고급 구성 - 트래픽 엔지니어링** 을 검토하고 필요한 대로 수정한 다음, **계속** 를 선택합니다.
 
 1. 토폴로지 미리 보기를 검토하고 **계속** 을 선택합니다.
@@ -332,7 +339,7 @@ VMware HCX Connector는 여러 IP 세그먼트가 필요한 가상 어플라이�
 
    :::image type="content" source="media/tutorial-vmware-hcx/interconnect-appliance-state.png" alt-text="어플라이언스의 상태를 확인하기 위한 선택 항목을 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/interconnect-appliance-state.png":::
 
-이 절차의 엔드투엔드 개요는 [Azure VMware Solution: 서비스 메시](https://www.youtube.com/embed/FyZ0d3P_T24) 비디오를 시청하세요.
+이 절차의 엔드투엔드 개요는 [Azure VMware Solution: 서비스 메시](https://www.youtube.com/embed/COY3oIws108) 비디오를 시청하세요.
 
 ### <a name="optional-create-a-network-extension"></a>(선택 사항) 네트워크 확장 만들기
 
@@ -354,7 +361,7 @@ VMware HCX Connector는 여러 IP 세그먼트가 필요한 가상 어플라이�
 
    :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="[확장 완료] 상태를 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/extension-complete.png":::
 
-이 절차의 엔드투엔드 개요는 [Azure VMware Solution: 네트워크 확장](https://www.youtube.com/embed/cNlp0f_tTr0) 비디오를 시청하세요.
+이 절차의 엔드투엔드 개요는 [Azure VMware Solution: 네트워크 확장](https://www.youtube.com/embed/gYR0nftKui0) 비디오를 시청하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -364,5 +371,5 @@ VMware HCX Connector는 여러 IP 세그먼트가 필요한 가상 어플라이�
 HCX 사용에 대한 자세한 내용은 다음 VMware 기술 문서를 참조하세요.
 
 * [VMware HCX 설명서](https://docs.vmware.com/en/VMware-HCX/index.html)
-* [VMware HCX로 Virtual Machines 마이그레이션](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
+* [VMware HCX를 사용하여 Virtual Machines 마이그레이션](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
 * [HCX 필수 포트](https://ports.vmware.com/home/VMware-HCX)

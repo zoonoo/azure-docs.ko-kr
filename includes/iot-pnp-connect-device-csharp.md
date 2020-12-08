@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 02635c93f9fa7704429a75fad750320f10847cb3
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 13d0bdf82052ff2c61c5b2c6010956c8fb27574d
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511680"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122480"
 ---
 이 빠른 시작에서는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 빌드하고, IoT 허브에 연결하고, Azure IoT 탐색기 도구를 사용하여 전송되는 원격 분석을 확인하는 방법을 보여줍니다. 샘플 애플리케이션은 C#으로 작성되었으며 C#용 Azure IoT 샘플에 포함되어 있습니다. 솔루션 빌더는 디바이스 코드를 볼 필요 없이 Azure IoT 탐색기 도구를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 이해할 수 있습니다.
 
@@ -26,7 +26,7 @@ Windows에서 이 빠른 시작을 완료하려면 개발 머신에 다음과 �
 
 이 빠른 시작에서는 C#용 Azure IoT 샘플 리포지토리를 복제하고 빌드하는 데 사용할 수 있는 개발 환경을 준비합니다.
 
-선택한 폴더에서 명령 프롬프트를 엽니다. 다음 명령을 실행하여 [C#(.NET)용 Microsoft Azure IoT 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub 리포지토리를 다음 위치에 복제합니다.
+선택한 폴더에서 명령 프롬프트를 엽니다. 다음 명령을 실행하여 [C#용 Microsoft Azure IoT 샘플(.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub 리포지토리를 다음 위치에 복제합니다.
 
 ```cmd
 git clone  https://github.com/Azure-Samples/azure-iot-samples-csharp.git

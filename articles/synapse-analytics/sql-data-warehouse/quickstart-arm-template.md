@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager 템플릿을 사용하여 SQL 풀 만들기
+title: Azure Resource Manager 템플릿을 사용하여 전용 SQL 풀(이전의 SQL DW) 만들기
 description: Azure Resource Manager 템플릿을 사용하여 Azure Synapse Analytics SQL 풀을 만드는 방법을 알아봅니다.
 services: azure-resource-manager
 author: julieMSFT
@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.openlocfilehash: 29d4e4d696b34aa493714c870ebb466f491c47fe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 70adb7409c44a79345a192df173a1a073cc9b7dd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88641877"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460735"
 ---
-# <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Synapse Analytics SQL 풀 만들기
+# <a name="quickstart-create-an-azure-synapse-analytics-dedicated-sql-pool-formerly-sql-dw-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Synapse Analytics 전용 SQL 풀(이전의 SQL DW) 만들기
 
-이 ARM 템플릿(Azure Resource Manager 템플릿)은 투명한 데이터 암호화가 활성화된 Azure Synapse Analytics SQL 풀을 만듭니다. Synapse SQL 풀은 Azure Synapse에서 일반적으로 사용할 수 있는 엔터프라이즈 데이터 웨어하우징 기능을 나타냅니다.
+이 ARM 템플릿(Azure Resource Manager 템플릿)은 투명한 데이터 암호화가 활성화된 전용 SQL 풀(이전의 SQL DW)을 만듭니다. 전용 SQL 풀(이전의 SQL DW)은 Azure Synapse에서 일반적으로 사용할 수 있는 엔터프라이즈 데이터 웨어하우징 기능을 나타냅니다.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -41,19 +41,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-1. 다음 이미지를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 이 템플릿은 Synapse SQL 풀을 만듭니다.
+1. 다음 이미지를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 이 템플릿은 전용 SQL 풀(이전의 SQL DW)을 만듭니다.
    
    [![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
 1. 다음 값을 입력하거나 업데이트합니다.
 
    * **구독**: Azure 구독을 선택합니다.
-   * **리소스 그룹**: **새로 만들기**를 선택하고, 리소스 그룹의 고유한 이름을 입력하고, **확인**을 선택합니다. 새 리소스 그룹은 리소스 정리를 용이하게 합니다.
+   * **리소스 그룹**: **새로 만들기** 를 선택하고, 리소스 그룹의 고유한 이름을 입력하고, **확인** 을 선택합니다. 새 리소스 그룹은 리소스 정리를 용이하게 합니다.
    * **지역**: 지역을 선택합니다.  예: **미국 중부**
    * **SQL Server 이름**: 기본 이름을 적용하거나 SQL Server 이름의 이름을 입력합니다.
    * **SQL 관리자 로그인**: SQL Server의 관리자 사용자 이름을 입력합니다.
    * **SQL 관리자 암호**: SQL Server의 관리자 암호를 입력합니다.
-   * **데이터 웨어하우스 이름**: SQL 풀 이름을 입력합니다.
+   * **데이터 웨어하우스 이름**: 전용 SQL 풀 이름을 입력합니다.
    * **투명한 데이터 암호화**: 기본값인 사용을 적용합니다. 
    * **서비스 수준 목표**: 기본값인 DW400c를 적용합니다.
    * **위치**: 리소스 그룹의 기본 위치를 적용합니다.
@@ -67,7 +67,7 @@ Azure Portal을 사용하여 배포된 리소스를 확인하거나 Azure CLI �
 # <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli-interactive
-echo "Enter the resource group where your Synapse SQL pool exists:" &&
+echo "Enter the resource group where your dedicated SQL pool (formerly SQL DW) exists:" &&
 read resourcegroupName &&
 az resource list --resource-group $resourcegroupName 
 ```
@@ -75,7 +75,7 @@ az resource list --resource-group $resourcegroupName
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your SQL pool account exists"
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your dedicated SQL pool (formerly SQL DW) account exists"
 (Get-AzResource -ResourceType "Microsoft.Sql/servers/databases" -ResourceGroupName $resourceGroupName).Name
  Write-Host "Press [ENTER] to continue..."
 ```
@@ -107,7 +107,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 ARM 템플릿을 사용하여 Azure Synapse Analytics SQL 풀을 만들고 배포의 유효성을 검사했습니다. Azure Synapse Analytics 및 Azure Resource Manager에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
+이 빠른 시작에서는 ARM 템플릿을 사용하여 전용 SQL 풀(이전의 SQL DW)을 만들고 배포의 유효성을 검사했습니다. Azure Synapse Analytics 및 Azure Resource Manager에 대해 자세히 알아보려면 아래 문서를 참조하세요.
 
 - [Azure Synapse Analytics 개요](sql-data-warehouse-overview-what-is.md) 읽기
 - [Azure Resource Manager](../../azure-resource-manager/management/overview.md)에 대해 자세히 알아보기

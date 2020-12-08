@@ -4,18 +4,18 @@ description: 이 빠른 시작에서는 azure-messaging-servicebus 패키지를 
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 6a63e907e01174042f679c57e1ef0994ad2a11b9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 011dbfef1155b82daca216e9519db07188260130
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95909580"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489550"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Azure Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지 받기(Java)
 이 빠른 시작에서는 azure-messaging-servicebus 패키지를 통해 Java 코드를 작성하여 Azure Service Bus 토픽에 메시지를 보낸 다음, 해당 토픽에 대한 구독에서 메시지를 받습니다.
 
 > [!IMPORTANT]
-> 이 빠른 시작에서는 **미리 보기** 로 제공되는 새로운 azure-messaging-servicebus 패키지를 사용합니다. 현재 GA(일반 공급) azure-servicebus 패키지를 사용하는 빠른 시작은 [azure-servicebus를 사용하여 메시지를 보내고 받습니다](service-bus-java-how-to-use-topics-subscriptions-legacy.md).
+> 이 빠른 시작에서는 새 azure-messaging-servicebus 패키지를 사용합니다. 이전 azure-servicebus 패키지를 사용하는 빠른 시작은 [azure-servicebus를 사용하여 메시지 보내기 및 받기](service-bus-java-how-to-use-topics-subscriptions-legacy.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -37,7 +37,7 @@ Azure Service Bus 라이브러리에 대한 참조를 추가합니다. Service B
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-messaging-servicebus</artifactId>
-    <version>7.0.0-beta.7</version>
+    <version>7.0.0</version>
 </dependency>
 ```
 
@@ -226,7 +226,7 @@ Azure Portal의 Service Bus 네임스페이스에 대한 **개요** 페이지에
 
 - [Python용 Azure Service Bus 클라이언트 라이브러리 - 추가 정보](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
 - [GitHub 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/servicebus/azure-messaging-servicebus/src/samples)
-- [Java API 참조](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-preview&preserve-view=true)
+- [Java API 참조](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-preview)
 
 
 [Azure SDK for Java]: /java/api/overview/azure/
@@ -235,4 +235,3 @@ Azure Portal의 Service Bus 네임스페이스에 대한 **개요** 페이지에
 [SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
 [SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
-

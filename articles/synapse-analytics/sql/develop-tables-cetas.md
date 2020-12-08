@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: df0198ba77e1661bb18aa72285e100ca070966a8
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 8ffb3a0948267ea40a5d0511de63a80ad23584d1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331739"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454664"
 ---
 # <a name="cetas-with-synapse-sql"></a>Synapse SQL의 CETAS
 
-전용 SQL 풀 또는 서버리스 SQL 풀(미리 보기)에서 CETAS(CREATE EXTERNAL TABLE AS SELECT)를 사용하여 다음 작업을 완료할 수 있습니다.  
+전용 SQL 풀 또는 서버리스 SQL 풀에서 CETAS(CREATE EXTERNAL TABLE AS SELECT)를 사용하여 다음 작업을 완료할 수 있습니다.  
 
 - 외부 테이블 만들기
 - Transact-SQL SELECT 문의 결과를 다음 위치에 병렬로 내보내기:

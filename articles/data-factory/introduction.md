@@ -3,18 +3,18 @@ title: Azure Data Factory 소개
 description: 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 데이터 통합 서비스인 Azure Data Factory에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 730141d22b318d79c8c2b7d995b98ee1c311aaf5
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: d8b6a852ff0aeb287b12d63bfa689a38a56d418f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491276"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485059"
 ---
 # <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
 
@@ -28,7 +28,7 @@ ms.locfileid: "94491276"
 
 이러한 로그를 분석하려면 회사는 온-프레미스 데이터 저장소에 있는 고객 정보, 게임 정보 및 마케팅 캠페인 정보와 같은 참조 데이터를 사용해야 합니다. 회사는 온-프레미스 데이터 저장소에서 이 데이터를 이용하여 클라우드 데이터 저장소에 있는 추가 로그 데이터와 결합하기를 원합니다. 
 
-인사이트를 추출하기 위해 클라우드의 Spark 클러스터를 사용하여 조인한 데이터를 처리하고(Azure HDInsight), 변환된 데이터를 Azure ynapse Analytics(이전의 SQL Data Warehouse)와 같은 클라우드 데이터 웨어하우스에 게시하여 이 데이터를 바탕으로 보고서를 쉽게 작성하려고 합니다. 이 워크플로를 자동화하고 일일 일정으로 모니터링 및 관리하려고 합니다. 또한 파일이 Blob 저장소 컨테이너에 배치될 때 실행하려고 합니다.
+인사이트를 추출하기 위해 클라우드의 Spark 클러스터를 사용하여 조인한 데이터를 처리하고(Azure HDInsight), 변환된 데이터를 Azure Synapse Analytics와 같은 클라우드 데이터 웨어하우스에 게시하여 이 데이터를 바탕으로 보고서를 쉽게 작성하려고 합니다. 이 워크플로를 자동화하고 일일 일정으로 모니터링 및 관리하려고 합니다. 또한 파일이 Blob 저장소 컨테이너에 배치될 때 실행하려고 합니다.
 
 Azure Data Factory는 그러한 데이터 시나리오를 해결하는 플랫폼입니다. 이는 *데이터 이동을 오케스트레이션하고 데이터를 규모에 맞게 변환하는 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 ETL 및 데이터 통합 서비스* 입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소의 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 예약할 수 있습니다. 데이터 흐름을 사용하거나 컴퓨팅 서비스(예: Azure HDInsight Hadoop, Azure Databricks 및 Azure SQL Database)를 사용하여 데이터를 시각적으로 변환하는 복잡한 ETL 프로세스를 작성할 수 있습니다. 
 

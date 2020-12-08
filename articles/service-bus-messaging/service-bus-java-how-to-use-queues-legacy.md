@@ -5,12 +5,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 68d8270c4ca3cff07f3a70c6022b963f750ad4e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 774f9e485c58712ea8648a148c92b6f9ef6a58c0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022111"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452618"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>빠른 시작: Java에서 Azure Service Bus 큐를 사용하여 메시지 보내기 및 받기
 
@@ -18,7 +18,8 @@ ms.locfileid: "96022111"
 이 자습서에서는 Azure Service Bus 큐와 메시지를 주고 받는 Java 애플리케이션을 만드는 방법에 대해 알아봅니다. 
 
 > [!WARNING]
->  이 빠른 시작에서는 현재 GA(일반 공급) azure servicebus 패키지를 사용합니다. **미리 보기** 로 제공하는 새로운 azure-messaging-servicebus 패키지를 사용하는 빠른 시작은 [azure-messaging-servicebus를 사용하여 메시지 보내기 및 받기](service-bus-java-how-to-use-queues.md)를 참조하세요. 
+>  이 빠른 시작에서는 이전 azure-servicebus 패키지를 사용합니다. 최신 azure-messaging-servicebus 패키지를 사용하는 빠른 시작은 [azure-messaging-servicebus를 사용하여 메시지 보내기 및 받기](service-bus-java-how-to-use-queues.md)를 참조하세요. 
+
 
 ## <a name="prerequisites"></a>필수 구성 요소
 1. Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.

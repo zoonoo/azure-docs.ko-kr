@@ -12,20 +12,23 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/27/2020
+ms.date: 12/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30724edafdee0c04f0c8b004ce335072b4ce0fd4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 759781fd61cd42d05f2823d390e99d128dd2fcac
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367451"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512395"
 ---
 # <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>권한 있는 액세스 Azure AD 그룹의 관리 기능(미리 보기)
 
 이제 PIM(Privileged Identity Management)에서 권한 있는 액세스 그룹의 멤버 자격 또는 소유권에 대한 자격을 할당할 수 있습니다. 이 미리 보기부터 클라우드 그룹에 Azure AD(Azure Active Directory) 기본 제공 역할을 할당하고 PIM을 사용하여 그룹 멤버 및 소유자 자격과 활성화를 관리할 수 있습니다. Azure AD의 역할 할당 가능 그룹에 대한 자세한 내용은 [클라우드 그룹을 사용하여 Azure Active Directory의 역할 할당 관리(미리 보기)](../roles/groups-concept.md)를 참조하세요.
+
+>[!Important]
+> Exchange, 보안 및 규정 준수 센터 또는 SharePoint에 대한 관리 액세스 역할에 권한 있는 액세스 그룹을 할당하려면 권한 있는 액세스 그룹 환경이 아닌 Azure AD 포털 **역할 및 관리자** 환경을 사용하여 그룹에 활성화하기에 적합한 사용자 또는 그룹을 만듭니다.
 
 ## <a name="require-different-policies-for-each-role-assignable-group"></a>각 역할 할당 가능 그룹에 서로 다른 정책 필요
 

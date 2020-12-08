@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 846599414c0bca95a3f41e127dc01e06d0fd43f9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: af63eb68ec82a0725befed723298c079e82bdfdb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747100"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327103"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
@@ -18,7 +18,7 @@ ms.locfileid: "92747100"
 
 사용자 지정 Linux 컨테이너에 함수 코드를 배포하려면 [프리미엄 플랜](functions-premium-plan.md#features) 또는 [전용(App Service) 플랜](functions-scale.md#app-service-plan) 호스팅이 필요합니다. 이 자습서를 완료하면 Azure 계정에 몇 달러(미국)의 비용이 발생하며, 이 비용은 완료될 때 [리소스 정리](#clean-up-resources)를 통해 최소화할 수 있습니다.
 
-또한 [Linux에서 호스팅되는 첫 번째 함수 만들기](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python)에서 설명한 대로 기본 Azure App Service 컨테이너를 사용할 수도 있습니다. Azure Functions에 대해 지원되는 기본 이미지는 [Azure Functions 기본 이미지 리포지토리](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다.
+또한 [Linux에서 호스팅되는 첫 번째 함수 만들기](./create-first-function-cli-csharp.md?pivots=programming-language-python)에서 설명한 대로 기본 Azure App Service 컨테이너를 사용할 수도 있습니다. Azure Functions에 대해 지원되는 기본 이미지는 [Azure Functions 기본 이미지 리포지토리](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -54,34 +54,34 @@ ms.locfileid: "92747100"
 터미널 또는 명령 프롬프트에서 선택한 언어에 대해 다음 명령을 실행하여 함수 앱 프로젝트를 `LocalFunctionsProject`라는 폴더에 만듭니다.  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime dotnet --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime node --language javascript --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime powershell --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime python --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime node --language typescript --docker
 ```
 ::: zone-end
 ::: zone pivot="programming-language-java"  
 빈 폴더에서 다음 명령을 실행하여 [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html)으로부터 Functions 프로젝트를 생성합니다.
 
-# <a name="bash"></a>[bash](#tab/bash)
+# <a name="bash"></a>[Bash](#tab/bash)
 ```bash
 mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8 -Ddocker
 ```
@@ -118,41 +118,41 @@ Maven은 이름이 _artifactId_ 인 새 폴더에 프로젝트 파일을 만드�
 
 프로젝트 폴더로 이동합니다.
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-```
+```console
 cd LocalFunctionsProject
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-```
+```console
 cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 다음 명령을 사용하여 함수를 프로젝트에 추가합니다. 여기서 `--name` 인수는 함수의 고유 이름이고, `--template` 인수는 함수의 트리거를 지정합니다. `func new`는 프로젝트의 선택한 언어에 적합한 코드 파일과 *function.json* 이라는 구성 파일을 포함하는 함수 이름과 일치하는 하위 폴더를 만듭니다.
 
-```
+```console
 func new --name HttpExample --template "HTTP trigger"
 ```
 ::: zone-end  
 함수를 로컬로 테스트하려면 프로젝트 폴더의 루트에서 로컬 Azure Functions 런타임 호스트를 시작합니다. 
 ::: zone pivot="programming-language-csharp"  
-```
+```console
 func start --build  
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"   
-```
+```console
 func start  
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-```
+```console
 npm install
 npm start
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-```
+```console
 mvn clean package  
 mvn azure-functions:run
 ```
@@ -167,7 +167,7 @@ mvn azure-functions:run
     
 루트 프로젝트 폴더에서 [docker build](https://docs.docker.com/engine/reference/commandline/build/) 명령을 실행하고 이름(`azurefunctionsimage`) 및 태그(`v1.0.0`)를 입력합니다. `<DOCKER_ID>`를 Docker 허브 계정 ID로 바꿉니다. 이 명령은 컨테이너에 대한 Docker 이미지를 빌드합니다.
 
-```
+```console
 docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
 ```
 
@@ -175,7 +175,7 @@ docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
     
 빌드를 테스트하려면 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 로컬 컨테이너에서 이미지를 실행합니다. 여기서 `<DOCKER_ID`를 Docker ID로 다시 바꾸고, `-p 8080:80` 포트 인수를 추가합니다.
 
-```
+```console
 docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
@@ -197,13 +197,13 @@ Docker Hub는 이미지를 호스팅하고 이미지 및 컨테이너 서비스�
 
 1. 아직 Docker에 로그인하지 않은 경우 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용하여 이 작업을 수행합니다. 여기서 `<docker_id>`를 Docker ID로 바꿉니다. 이 명령은 사용자 이름과 암호를 입력하라는 메시지를 표시합니다. “로그인했습니다.”라는 메시지를 통해 로그인했음을 확인할 수 있습니다.
 
-    ```
+    ```console
     docker login
     ```
     
 1. 로그인했으면 [docker push](https://docs.docker.com/engine/reference/commandline/push/) 명령을 사용하여 이미지를 Docker Hub로 푸시합니다. 여기서 `<docker_id>`를 Docker ID로 다시 바꿉니다.
 
-    ```
+    ```console
     docker push <docker_id>/azurefunctionsimage:v1.0.0
     ```
 
@@ -279,7 +279,7 @@ Azure의 함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. 
 1. 이제 함수에서 이 연결 문자열을 사용하여 스토리지 계정에 액세스할 수 있습니다.
 
     > [!TIP]
-    > bash에서는 클립보드를 사용하는 대신 셸 변수를 사용하여 연결 문자열을 캡처할 수 있습니다. 먼저, 다음 명령을 사용하여 연결 문자열이 포함된 변수를 만듭니다.
+    > Bash에서는 클립보드를 사용하는 대신 셸 변수를 사용하여 연결 문자열을 캡처할 수 있습니다. 먼저, 다음 명령을 사용하여 연결 문자열이 포함된 변수를 만듭니다.
     > 
     > ```bash
     > storageConnectionString=$(az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv)
@@ -419,13 +419,13 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
     
 1. `docker build` 명령을 다시 사용하여 이미지를 다시 빌드합니다. 여기서 `<docker_id>`를 Docker ID로 바꿉니다.
 
-    ```
+    ```console
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.0 .
     ```
     
 1. 업데이트된 이미지를 Docker Hub로 푸시합니다. 이 경우 이미지의 업데이트된 세그먼트만 업로드해야 하는 첫 번째 푸시에 비해 훨씬 더 짧은 시간이 걸립니다.
 
-    ```
+    ```console
     docker push <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
@@ -492,13 +492,13 @@ Azure Functions를 사용하면 고유한 통합 코드를 작성하지 않고�
 
 1. 루트 폴더에서 `docker build`를 다시 실행하고, 이번에는 태그의 버전을 `v1.0.1`로 업데이트합니다. 이전과 같이 `<docker_id>`를 Docker Hub 계정 ID로 바꿉니다.
 
-    ```
+    ```console
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.1 .
     ```
     
 1. `docker push`를 사용하여 업데이트된 이미지를 리포지토리로 다시 푸시합니다.
 
-    ```
+    ```console
     docker push <docker_id>/azurefunctionsimage:v1.0.1
     ```
 

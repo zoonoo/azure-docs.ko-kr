@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory 및 Azure Data Share를 사용하여 데이터 통합
 description: Azure Data Factory 및 Azure Data Share를 사용하여 데이터 복사, 변환 및 공유
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 11f4e7c50acc8256722949a50760c574d3b9d9e9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0a578f1edb51efd5f0905e663d42bf5a6fbfc783
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318244"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489040"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Azure Data Factory 및 Azure Data Share를 사용하여 데이터 통합
 
@@ -22,23 +22,23 @@ ms.locfileid: "93318244"
 
 코드 없는 ETL/ELT 사용부터 데이터에 대한 포괄적인 뷰 만들기까지, 데이터 엔지니어들은 Azure Data Factory의 향상된 기능을 사용하여 안심하고 더 많은 데이터를 가져올 수 있으며, 따라서 기업에 더 많은 가치를 제공할 수 있습니다. Azure Data Share를 사용하면 관리되는 방식으로 B2B 공유를 수행할 수 있습니다.
 
-이 워크샵에서는 ADF(Azure Data Factory)를 사용하여 Azure SQL Database에서 ADLS Gen2(Azure Data Lake Storage Gen2)로 데이터를 수집합니다. 데이터를 레이크로 가져온 후에는 데이터 팩터리의 네이티브 변환 서비스인 매핑 데이터 흐름을 통해 데이터를 변환하고 Azure Synapse Analytics(이전의 SQL DW)로 싱크합니다. 그런 다음, Azure Data Share를 사용하여 일부 추가 데이터와 함께 테이블을 변환된 데이터와 공유합니다. 
+이 워크샵에서는 ADF(Azure Data Factory)를 사용하여 Azure SQL Database에서 ADLS Gen2(Azure Data Lake Storage Gen2)로 데이터를 수집합니다. 데이터를 레이크로 가져온 후에는 데이터 팩터리의 네이티브 변환 서비스인 매핑 데이터 흐름을 통해 데이터를 변환하고 Azure Synapse Analytics로 싱크합니다. 그런 다음, Azure Data Share를 사용하여 일부 추가 데이터와 함께 테이블을 변환된 데이터와 공유합니다. 
 
 이 랩에 사용되는 데이터는 뉴욕시 택시 데이터입니다. 이 데이터를 SQL Database의 데이터베이스로 가져오려면 [taxi-data bacpac 파일](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac)을 다운로드합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* **Azure 구독** : Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-* **Azure SQL Database** : SQL DB가 없는 경우 [SQL DB 계정 만들기](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)를 참조하세요.
+* **Azure SQL Database**: SQL DB가 없는 경우 [SQL DB 계정 만들기](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)를 참조하세요.
 
-* **Azure Data Lake Storage Gen2 스토리지 계정** : ADLS Gen2 스토리지 계정이 없는 경우 [ADLS Gen2 스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
+* **Azure Data Lake Storage Gen2 스토리지 계정**: ADLS Gen2 스토리지 계정이 없는 경우 [ADLS Gen2 스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 
 * **Azure Synapse Analytics(이전의 SQL DW)** : Azure Synapse Analytics(이전의 SQL DW)가 없는 경우 [Azure Synapse Analytics 인스턴스 만들기](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)를 참조하세요.
 
-* **Azure Data Factory** : 아직 데이터 팩터리를 만들지 않은 경우 [데이터 팩터리 만들기](./quickstart-create-data-factory-portal.md)를 참조하세요.
+* **Azure Data Factory**: 아직 데이터 팩터리를 만들지 않은 경우 [데이터 팩터리 만들기](./quickstart-create-data-factory-portal.md)를 참조하세요.
 
-* **Azure Data Share** : 아직 데이터 공유를 만들지 않은 경우 [데이터 공유 만들기](../data-share/share-your-data.md#create-a-data-share-account)를 참조하세요.
+* **Azure Data Share**: 아직 데이터 공유를 만들지 않은 경우 [데이터 공유 만들기](../data-share/share-your-data.md#create-a-data-share-account)를 참조하세요.
 
 ## <a name="set-up-your-azure-data-factory-environment"></a>Azure Data Factory 환경 설정
 
@@ -308,7 +308,7 @@ Azure Data Factory에서 파이프라인은 함께 하나의 작업을 수행하
 
 ## <a name="share-data-using-azure-data-share"></a>Azure Data Share를 사용하여 데이터 공유
 
-이 섹션에서는 Azure Portal을 사용하여 새 데이터 공유를 설정하는 방법을 알아봅니다. 여기에는 Azure Data Lake Store Gen2 및 Azure Synapse Analytics(이전의 SQL Data Warehouse)의 데이터 세트를 포함할 새 데이터 공유를 만드는 작업이 포함됩니다. 그리고 데이터 소비자에게 공유 데이터를 자동으로 새로 고치는 옵션을 제공하는 스냅샷 일정을 구성할 것입니다. 그런 다음, 수신자를 데이터 공유에 추가할 것입니다. 
+이 섹션에서는 Azure Portal을 사용하여 새 데이터 공유를 설정하는 방법을 알아봅니다. 여기에는 Azure Data Lake Store Gen2 및 Azure Synapse Analytics의 데이터 세트를 포함할 새 데이터 공유를 만드는 작업이 포함됩니다. 그리고 데이터 소비자에게 공유 데이터를 자동으로 새로 고치는 옵션을 제공하는 스냅샷 일정을 구성할 것입니다. 그런 다음, 수신자를 데이터 공유에 추가할 것입니다. 
 
 데이터 공유를 만든 후에는 *데이터 소비자* 의 입장이 되어 보겠습니다. 데이터 소비자로서 데이터 공유 초대를 수락하고, 데이터를 받을 위치를 구성하고, 데이터 세트를 다른 스토리지 위치로 매핑하는 흐름을 살펴볼 것입니다. 그런 다음, 데이터 소비자와 공유하는 데이터를 지정된 대상으로 복사하는 스냅샷을 트리거합니다. 
 
@@ -342,7 +342,7 @@ Azure Data Factory에서 파이프라인은 함께 하나의 작업을 수행하
 
     ![데이터 세트 1 추가](media/lab-data-flow-data-share/add-dataset.png)
 
-1. **Azure Synapse Analytics** (이전의 SQL Data Warehouse)를 선택하여 ADF 변환이 배치된 Azure Synapse Analytics에서 테이블을 선택합니다.
+1. **Azure Synapse Analytics** 를 선택하여 ADF 변환이 배치된 Azure Synapse Analytics에서 테이블을 선택합니다.
 
     ![데이터 세트 sql 추가](media/lab-data-flow-data-share/add-dataset-sql.png)
 
@@ -434,7 +434,7 @@ Microsoft Azure 수신함에 Azure 데이터 공유 초대가 도착했을 것�
 
 1. **데이터 공유 계정** 으로 **DataConsumer** 를 선택합니다. 새 데이터 공유 계정을 만들어도 됩니다. 
 
-1. **받은 공유 이름** 옆에는 데이터 공급자가 지정한 이름이 기본 공유 이름으로 표시됩니다. 수신하려는 데이터를 설명하는 식별 이름(예: **TaxiDataShare** )을 공유 이름으로 입력합니다.
+1. **받은 공유 이름** 옆에는 데이터 공급자가 지정한 이름이 기본 공유 이름으로 표시됩니다. 수신하려는 데이터를 설명하는 식별 이름(예: **TaxiDataShare**)을 공유 이름으로 입력합니다.
 
     ![초대 수락](media/lab-data-flow-data-share/consumer-accept.png)
 

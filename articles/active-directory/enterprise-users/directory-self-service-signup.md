@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 846059c5c20255f9bddba59673458e12e1f354d3
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 01de8ab86ff5f511fd5e45c4a6e88febdb4fbb15
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503566"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340869"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Azure Active Directory의 셀프 서비스 등록이란?
 
@@ -76,7 +76,7 @@ Flow 및 PowerApps 평가판 등록에 대한 자세한 내용은 다음 문서�
 
 ![셀프 서비스 등록 제어 순서도](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
-이 설정의 세부 정보는 다음 powershell cmdlet Get-MsolCompanyInformation에서 검색할 수 있습니다. 이에 대한 자세한 정보 [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation?view=azureadps-1.0)을 참조하세요.
+이 설정의 세부 정보는 다음 powershell cmdlet Get-MsolCompanyInformation에서 검색할 수 있습니다. 이에 대한 자세한 내용은 [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation?view=azureadps-1.0)을 참조하세요.
 
 ```powershell
     Get-MsolCompanyInformation | Select AllowEmailVerifiedUsers, AllowAdHocSubscriptions

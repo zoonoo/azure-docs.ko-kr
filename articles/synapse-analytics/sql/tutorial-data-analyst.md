@@ -1,6 +1,6 @@
 ---
-title: '자습서: 서버리스 Synapse SQL로 데이터 레이크 탐색 및 분석'
-description: 이 자습서에서는 서버리스 SQL 풀(미리 보기)을 사용하여 여러 Azure Open Datasets를 결합하여 예비 데이터 분석을 쉽게 수행하고 Azure Synapse Analytics용 Synapse Studio에서 결과를 시각화하는 방법을 보여줍니다.
+title: '자습서: 서버리스 SQL 풀을 사용하여 Azure Synapse Studio에서 Azure Open Datasets 분석'
+description: 이 자습서에서는 서버리스 SQL 풀을 사용하여 여러 Azure Open Datasets를 결합하여 예비 데이터 분석을 쉽게 수행하고 Azure Synapse Studio에서 결과를 시각화하는 방법을 보여줍니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: af6fc75b5de22fc77313932ca17ce695e889dad3
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7b2d4953b3a42c5d66fca4a67b4a6d0f13700a35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237966"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459128"
 ---
-# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool-preview"></a>자습서: 서버리스 SQL 풀(미리 보기)로 데이터 레이크 탐색 및 분석
+# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>자습서: 서버리스 SQL 풀로 데이터 레이크 탐색 및 분석
 
 이 자습서에서는 예비 데이터 분석을 수행하는 방법을 알아봅니다. 서버리스 SQL 풀을 사용하여 여러 Azure Open Datasets를 결합합니다. 그런 다음, Azure Synapse Analytics용 Synapse Studio에서 결과를 시각화합니다.
 

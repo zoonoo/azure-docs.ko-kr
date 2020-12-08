@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure Toolkit for IntelliJ(Spark 애플리케이션)
-description: 자습서 - Azure Toolkit for IntelliJ를 사용하여 Scala로 작성되는 Spark 애플리케이션을 개발하고 서버리스 Apache Spark 풀(미리 보기)에 제출합니다.
+description: 자습서 - Azure Toolkit for IntelliJ를 사용하여 Scala로 작성되는 Spark 애플리케이션을 개발하고 서버리스 Apache Spark 풀에 제출합니다.
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 5a9fcf3e13c2f86a11e9626be486a585ec659044
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 75cc23df41741a95e87ad64d168aea4fa4f45733
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013771"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451045"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>자습서: Synapse 작업 영역을 통해 IntelliJ를 사용하여 Apache Spark 애플리케이션 만들기
 
-이 자습서에서는 Azure Toolkit for IntelliJ 플러그 인을 사용하여 [Scala](https://www.scala-lang.org/)로 작성되는 Apache Spark 애플리케이션을 개발한 다음, IntelliJ IDE(통합 개발 환경)에서 직접 서버리스 Apache Spark 풀(미리 보기)에 제출하는 방법을 보여 줍니다. 다음과 같은 몇 가지 방식으로 플러그 인을 사용할 수 있습니다.
+이 자습서에서는 Azure Toolkit for IntelliJ 플러그 인을 사용하여 [Scala](https://www.scala-lang.org/)로 작성되는 Apache Spark 애플리케이션을 개발한 다음, IntelliJ IDE(통합 개발 환경)에서 직접 서버리스 Apache Spark 풀에 제출하는 방법을 보여줍니다. 다음과 같은 몇 가지 방식으로 플러그 인을 사용할 수 있습니다.
 
 - Spark 풀에서 Scala Spark 애플리케이션을 개발하여 제출합니다.
 - Spark 풀 리소스에 액세스합니다.

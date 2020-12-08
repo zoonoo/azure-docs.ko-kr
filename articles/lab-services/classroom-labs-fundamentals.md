@@ -5,12 +5,12 @@ author: emaher
 ms.topic: overview
 ms.date: 09/16/2020
 ms.author: enewman
-ms.openlocfilehash: ac390fb6624ffc762f77b676c778165e7382f73f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 71d59e8bcf7b4078255d6b119e9d62f366e46033
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334041"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437323"
 ---
 # <a name="architecture-fundamentals-in-azure-lab-services"></a>Azure Lab Services의 아키텍처 기본 사항
 
@@ -20,7 +20,7 @@ Azure Lab Services는 사용자 고유의 리소스를 Lab Services와 함께 �
 
 다음은 교실 랩의 기본 아키텍처입니다.  랩 계정은 구독에 호스팅됩니다. 학생 VM은 VM을 지원하는 데 필요한 리소스와 함께 Lab Services 소유의 구독에 호스팅됩니다. Lab Service 구독에 무엇이 있는지 자세히 알아보겠습니다.
 
-![교실 랩 기본 아키텍처](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
+![랩 기본 아키텍처](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
 
 ## <a name="hosted-resources"></a>호스트되는 리소스
 

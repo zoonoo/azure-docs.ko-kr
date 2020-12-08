@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 08c1b415ac075429a9bc89098233fffb8c25b710
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 69a0272061d8518119114e8fe7b023c889639844
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369259"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171563"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>관리형 HSM 재해 복구
 
@@ -35,7 +35,7 @@ ms.locfileid: "94369259"
 1. 새 HSM에 대한 백업을 수행합니다. HSM이 비어 있는 경우에도 복원하기 전에 백업이 필요합니다. 백업을 통해 쉽게 롤백할 수 있습니다.
 1. 원본 HSM에서 최근 HSM 백업을 복원합니다.
 
-주요 자격 증명 모음의 내용은 지역 내에는 물론 동일한 지리 내에 150마일 이상 떨어진 보조 지역에도 복제됩니다. 이 기능은 키와 비밀의 높은 내구성을 유지합니다. 특정 지역 쌍에 대한 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md) 문서를 참조하세요.
+이러한 단계를 통해 HSM의 콘텐츠를 다른 지역에 수동으로 복제할 수 있습니다. HSM 이름(및 서비스 엔드포인트 URI)이 서로 다르므로 애플리케이션 구성을 변경하여 다른 위치에서 이러한 키를 사용해야 할 수도 있습니다.
 
 ## <a name="create-a-new-managed-hsm"></a>새 관리형 HSM 만들기
 
@@ -60,8 +60,8 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 
 이 명령의 출력에는 만든 관리형 HSM의 속성이 표시됩니다. 가장 중요한 두 개의 속성은 다음과 같습니다.
 
-* **name** : 이 예제에서 이름은 ContosoMHSM입니다. 이 이름은 다른 Key Vault 명령에 사용됩니다.
-* **hsmUri** : 이 예제에서 URI는 'https://contosohsm.managedhsm.azure.net '입니다. REST API를 통해 HSM을 사용하는 애플리케이션은 이 URI를 사용해야 합니다.
+* **name**: 이 예제에서 이름은 ContosoMHSM입니다. 이 이름은 다른 Key Vault 명령에 사용됩니다.
+* **hsmUri**: 이 예제에서 URI는 'https://contosohsm.managedhsm.azure.net '입니다. REST API를 통해 HSM을 사용하는 애플리케이션은 이 URI를 사용해야 합니다.
 
 Azure 계정에는 이제 이 관리형 HSM에서 모든 작업을 수행할 수 있는 권한이 부여됩니다. 아직까지는 권한이 부여된 사용자가 없습니다.
 

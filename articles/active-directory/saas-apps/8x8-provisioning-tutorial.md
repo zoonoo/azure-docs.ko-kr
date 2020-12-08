@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0ed56d200c2b5a472dbf93d45ad25156ea02a884
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 90e3464ac9ddf1e839c3a731f79ac2c0771c37ea
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181155"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532709"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 8x8 구성
 
@@ -50,17 +50,17 @@ ms.locfileid: "96181155"
 
 ### <a name="to-configure-a-user-provisioning-access-token-in-8x8-configuration-manager"></a>8x8 Configuration Manager에서 사용자 프로비저닝 액세스 토큰을 구성하려면
 
-1. [Configuration Manager](https://vo-cm.8x8.com)에 로그인합니다. **ID 관리** 를 선택합니다.
+1. [관리 콘솔](https://admin.8x8.com)에 로그인합니다. **ID 관리** 를 선택합니다.
 
-   ![ID 관리](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
+   ![관리자](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
 
 2. **사용자 프로비저닝 정보 표시** 링크를 클릭하여 토큰을 생성합니다.
 
-   ![사용자 프로비저닝 표시](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
+   ![표시](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
 
 3. **8x8 URL** 및 **8x8 API 토큰** 값을 복사합니다. 이러한 값은 Azure Portal의 8x8 애플리케이션 프로비저닝 탭에서 각각 **테넌트 URL** 및 **비밀 토큰** 필드에 입력됩니다.
 
-   ![URL 및 토큰 복사](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
+   ![토큰](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
 
 ## <a name="step-3-add-8x8-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 8x8 추가
 

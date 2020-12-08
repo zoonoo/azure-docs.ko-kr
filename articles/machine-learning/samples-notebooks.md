@@ -1,5 +1,5 @@
 ---
-title: 예제 Jupyter Notebook
+title: 예제 Jupyter Notebooks
 titleSuffix: Azure Machine Learning
 description: SDK를 살펴보고 자체 기계 학습 프로젝트의 모델로 사용하도록 설계된 Juypter Notebooks를 찾고 사용하는 방법을 알아봅니다.
 services: machine-learning
@@ -11,14 +11,14 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3f5cb2831a58ce9d0d30039b80815e281401e883
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 38d0c350718480506e1267c161a85505ece4b69d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542561"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452257"
 ---
-# <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Jupyter Notebooks를 사용하여 Azure Machine Learning 검색
+# <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Jupyter Notebooks를 사용하여 Azure Machine Learning 탐색
 
 > [!NOTE] 
 > 커뮤니티 기반 예제 리포지토리는 https://github.com/Azure/azureml-examples 에서 찾을 수 있습니다.

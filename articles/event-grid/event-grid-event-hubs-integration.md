@@ -4,15 +4,15 @@ description: '자습서: Azure Event Grid 및 Event Hubs를 사용하여 Azure S
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e6dfcac17d79edd417af07179224fdf922906c4e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 42a2f7fd557970328f6d88b08e296317cecd8c66
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841357"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462155"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>자습서: 데이터 웨어하우스로 빅 데이터 스트림
-Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응답하는 데 사용할 수 있는 인텔리전트 이벤트 라우팅 서비스입니다. 예를 들어 Azure Blob Storage 또는 Azure Data Lake Store로 캡처된 Event Hubs 데이터를 처리하도록 Azure Function을 트리거하고, 다른 데이터 리포지토리에 데이터를 마이그레이션할 수 있습니다. 이 [Event Hubs 및 Event Grid 통합 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)은 Event Grid와 함께 Event Hubs를 사용하여 캡처된 Event Hubs 데이터를 Blob 스토리지에서 Azure Synapse Analytics(이전의 SQL Data Warehouse)로 원활하게 마이그레이션하는 방법을 보여줍니다.
+Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응답하는 데 사용할 수 있는 인텔리전트 이벤트 라우팅 서비스입니다. 예를 들어 Azure Blob Storage 또는 Azure Data Lake Store로 캡처된 Event Hubs 데이터를 처리하도록 Azure Function을 트리거하고, 다른 데이터 리포지토리에 데이터를 마이그레이션할 수 있습니다. 이 [Event Hubs 및 Event Grid 통합 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)은 Event Grid와 함께 Event Hubs를 사용하여 캡처된 Event Hubs 데이터를 Blob 스토리지에서 Azure Synapse Analytics로 원활하게 마이그레이션하는 방법을 보여줍니다.
 
 ![애플리케이션 개요](media/event-grid-event-hubs-integration/overview.png)
 
@@ -27,8 +27,8 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
 이 문서에서는 다음 단계를 수행합니다.
 
 > [!div class="checklist"]
-> * Azure Resource Manager 템플릿을 사용하여 이벤트 허브, 스토리지 계정, 함수 앱, Synapse Analytics 등의 인프라를 배포합니다.
-> * 데이터 웨어하우스에 테이블을 만듭니다.
+> * Azure Resource Manager 템플릿을 사용하여 이벤트 허브, 스토리지 계정, 함수 앱, 전용 SQL 풀 등의 인프라를 배포합니다.
+> * 전용 SQL 풀에 테이블을 만듭니다.
 > * 함수 앱에 코드를 추가합니다.
 > * 이벤트를 구독합니다. 
 > * 이벤트 허브로 데이터를 보내는 앱을 실행합니다.

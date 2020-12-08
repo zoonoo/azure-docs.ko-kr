@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00b4f38f4a2a44b88718224db2b2442033816f83
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3cbd9fd697bbae8779f5b2b9fa4ab817efce30ac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313896"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454641"
 ---
-# <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Azure Synapse Analytics IP 방화벽 규칙(미리 보기)
+# <a name="azure-synapse-analytics-ip-firewall-rules"></a>Azure Synapse Analytics IP 방화벽 규칙
 
 이 문서에서는 IP 방화벽 규칙을 설명하고 Azure Synapse Analytics에서 구성하는 방법을 설명합니다.
 

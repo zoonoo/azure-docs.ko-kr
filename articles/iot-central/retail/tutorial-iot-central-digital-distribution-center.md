@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: a76df67d1ef9d203d5e5d54cb95bb8fc90f70180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d19310dbd54c8bd5f9854ff86af051b68c5cd378
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980744"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463283"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>자습서: 디지털 배포 센터 애플리케이션 템플릿 배포 및 살펴보기
 
@@ -32,24 +32,21 @@ ms.locfileid: "90980744"
 
 다음 단계를 사용하여 애플리케이션을 만들 수 있습니다.
 
-1. Azure IoT Central 애플리케이션 관리자 웹 사이트로 이동합니다. 왼쪽 탐색 모음에서 **빌드**를 선택하고 **소매** 탭을 클릭합니다.
+1. Azure IoT Central 애플리케이션 관리자 웹 사이트로 이동합니다. 왼쪽 탐색 모음에서 **빌드** 를 선택하고 **소매** 탭을 클릭합니다.
 
-    > [!div class="mx-imgBorder"]
-    > ![디지털 유통 센터 애플리케이션 템플릿을 선택하는 방법을 보여주는 스크린샷](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    :::image type="content" source="media/tutorial-iot-central-ddc/iotc-retail-homepage.png" alt-text="디지털 배포 센터 애플리케이션 탬플릿":::
 
-2. **소매** 탭을 선택하고 **디지털 배포 센터 애플리케이션**에서 **앱 만들기**를 선택합니다.
+2. **소매** 탭을 선택하고 **디지털 배포 센터 애플리케이션** 에서 **앱 만들기** 를 선택합니다.
 
-3. **앱 만들기**를 선택하면 아래와 같이 새 애플리케이션 양식이 열리고 요청된 세부 정보가 입력됩니다.
+3. **앱 만들기** 를 선택하면 아래와 같이 새 애플리케이션 양식이 열리고 요청된 세부 정보가 입력됩니다.
    **애플리케이션 이름**: 제안된 기본 이름을 사용하거나 친숙한 애플리케이션 이름을 입력할 수 있습니다.
    **URL**: 제안된 기본 URL을 사용하거나 기억하기 쉬운 고유한 URL을 입력할 수 있습니다. 다음으로, Azure 구독이 이미 있는 경우 기본 설정이 권장됩니다. 7일 무료 평가판 가격 책정 플랜으로 시작하여 평가판이 만료되기 전에 언제든지 표준 가격 책정 플랜으로 전환할 수 있습니다.
    **청구 정보**: 리소스를 프로비저닝하려면 디렉터리, Azure 구독 및 지역 세부 정보가 필요합니다.
    **만들기**: 페이지 맨 아래에서 만들기를 선택하여 애플리케이션을 배포합니다.
 
-    > [!div class="mx-imgBorder"]
-    > ![디지털 유통 센터 애플리케이션 템플릿에서 앱을 만드는 방법을 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-create.png)
+   :::image type="content" source="media/tutorial-iot-central-ddc/ddc-create.png" alt-text="디지털 유통 센터 애플리케이션 템플릿에서 앱을 만드는 방법을 보여주는 스크린샷":::
 
-    > [!div class="mx-imgBorder"]
-    > ![애플리케이션을 만들 때 청구 옵션을 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
+   :::image type="content" source="media/tutorial-iot-central-ddc/ddc-create-billinginfo.png" alt-text="애플리케이션을 만들 때 청구 옵션을 보여주는 스크린샷":::
 
 ## <a name="walk-through-the-application-dashboard"></a>애플리케이션 대시보드 살펴보기 
 
@@ -66,7 +63,7 @@ ms.locfileid: "90980744"
 
 ## <a name="device-template"></a>디바이스 템플릿
 
-디바이스 템플릿 탭을 클릭하면 게이트웨이 기능 모델이 표시됩니다. 기능 모델은 **카메라** 및 **디지털 배포 게이트웨이**의 두 가지 다른 인터페이스로 구성됩니다.
+디바이스 템플릿 탭을 클릭하면 게이트웨이 기능 모델이 표시됩니다. 기능 모델은 **카메라** 및 **디지털 배포 게이트웨이** 의 두 가지 다른 인터페이스로 구성됩니다.
 
 > [!div class="mx-imgBorder"]
 > ![애플리케이션의 디지털 유통 게이트웨이 디바이스 템플릿을 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
@@ -108,7 +105,7 @@ ms.locfileid: "90980744"
 > ![디지털 유통 센터 애플리케이션의 작업 목록을 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-jobs.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
-이 애플리케이션을 계속 사용하지 않으려면 **관리** > **애플리케이션 설정**을 방문하여 애플리케이션 템플릿을 삭제하고 **삭제**를 클릭합니다.
+이 애플리케이션을 계속 사용하지 않으려면 **관리** > **애플리케이션 설정** 을 방문하여 애플리케이션 템플릿을 삭제하고 **삭제** 를 클릭합니다.
 
 > [!div class="mx-imgBorder"]
 > ![작업을 완료했을 때 애플리케이션을 삭제하는 방법을 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-cleanup.png)

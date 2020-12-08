@@ -1,24 +1,24 @@
 ---
-title: '자습서: Azure Spring Cloud의 애플리케이션 크기 조정 | Microsoft Docs'
+title: Azure Spring Cloud의 애플리케이션 크기 조정 | Microsoft Docs
 description: Azure Portal에서 Azure Spring Cloud를 사용하여 애플리케이션 크기를 조정하는 방법에 대해 알아봅니다.
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 33d25edafa9249300406365699930ded1c8ec75b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5632f9a6126615255306cc89425bd08a9ffa9753
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906851"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531805"
 ---
-# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>자습서: Azure Spring Cloud의 애플리케이션 크기 조정
+# <a name="scale-an-application-in-azure-spring-cloud"></a>Azure Spring Cloud의 애플리케이션 크기 조정
 
 **이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
-이 자습서에서는 Azure Portal에서 Azure Spring Cloud 대시보드를 사용하여 마이크로서비스 애플리케이션의 크기를 조정하는 방법을 보여줍니다.
+이 설명서에서는 Azure Portal에서 Azure Spring Cloud 대시보드를 사용하여 마이크로서비스 애플리케이션의 크기를 조정하는 방법을 보여줍니다.
 
 vCPU(가상 CPU) 수와 메모리 양을 수정하여 애플리케이션을 확장하고 축소합니다. 애플리케이션 인스턴스의 수를 수정하여 애플리케이션의 크기를 조정합니다.
 
@@ -42,7 +42,7 @@ vCPU(가상 CPU) 수와 메모리 양을 수정하여 애플리케이션을 확�
 
 1. 페이지의 왼쪽에 있는 메뉴에서 **설정** 아래에 있는 **앱** 탭을 선택합니다.
 
-1. 크기를 조정하려는 애플리케이션을 선택합니다. 이 예제에서는 **account-service**라는 애플리케이션을 선택합니다. 그러면 애플리케이션의 **개요** 페이지가 표시됩니다.
+1. 크기를 조정하려는 애플리케이션을 선택합니다. 이 예제에서는 **account-service** 라는 애플리케이션을 선택합니다. 그러면 애플리케이션의 **개요** 페이지가 표시됩니다.
 
 1. 페이지의 왼쪽에 있는 메뉴에서 **설정** 아래에 있는 **크기 조정** 탭으로 이동합니다. 다음 섹션에 표시된 크기 조정 특성에 대한 옵션이 표시됩니다.
 
@@ -56,7 +56,7 @@ vCPU(가상 CPU) 수와 메모리 양을 수정하여 애플리케이션을 확�
 
 * **앱 인스턴스 수**: 표준 계층에서 최대 20개 인스턴스까지 확장할 수 있습니다. 이 값은 마이크로서비스 애플리케이션의 개별 실행 인스턴스 수를 변경합니다.
 
-**저장**을 선택하여 크기 조정 설정을 적용해야 합니다.
+**저장** 을 선택하여 크기 조정 설정을 적용해야 합니다.
 
 ![Azure Portal의 크기 조정 서비스](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
@@ -67,7 +67,7 @@ vCPU(가상 CPU) 수와 메모리 양을 수정하여 애플리케이션을 확�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Spring Cloud 애플리케이션의 크기를 수동으로 조정하는 방법에 대해 알아보았습니다. 경고를 설정하여 애플리케이션을 모니터링하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
+이 예제에서는 Azure Spring Cloud 애플리케이션의 크기를 수동으로 조정하는 방법을 설명했습니다. 경고를 설정하여 애플리케이션을 모니터링하는 방법을 알아보려면 [자동 크기 조정 설정](spring-cloud-tutorial-setup-autoscale.md)을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [경고를 설정하는 방법 알아보기](spring-cloud-tutorial-alerts-action-groups.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3a523421c128ea26503c0848ad8fcf7d74636a04
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: bd8c5c31579ac22cd6c77dffd31103680e393f69
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341332"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187173"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>빠른 시작: Azure Security Center 설정
 
@@ -63,7 +63,7 @@ Security Center 빠른 시작 및 자습서를 위해 Azure Defender를 사용�
 
 1. Security Center의 사이드바에서 **시작** 을 선택합니다.
 
-    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Security Center 개요 대시보드"::: 
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="시작 페이지의 업그레이드 탭"::: 
 
     **업그레이드** 탭에는 온보딩에 적합한 구독 및 작업 영역이 나열되어 있습니다.
 
@@ -84,7 +84,7 @@ Log Analytics 에이전트의 자동 프로비저닝을 사용하려면 다음�
 1. **데이터 수집** 페이지에서 **자동 프로비저닝** 을 **켜짐** 으로 설정합니다.
 1. **저장** 을 선택합니다.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Security Center 개요 대시보드":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Log Analytics 에이전트의 자동 프로비저닝 사용":::
 
 >[!TIP]
 > 작업 영역을 프로비저닝해야 하는 경우 에이전트 설치에는 최대 25분이 걸릴 수 있습니다.

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: ea8fcb602f49dec61187260e08d3ccd1b148cee8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 791cab369dcbf9cab8d1256377cfee4a433c21b9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918941"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450902"
 ---
 # <a name="tutorial-create-a-power-bi-report-using-apache-spark-and-azure-synapse-analytics"></a>자습서: Apache Spark 및 Azure Synapse Analytics를 사용하여 Power BI 보고서 만들기
 
@@ -69,9 +69,12 @@ ms.locfileid: "95918941"
                                     & (filtered_df.paymentType.isin({"1", "2"})))
     ```
 4. 마지막으로, Apache Spark ```saveAsTable``` 메서드를 사용하여 데이터 프레임을 저장합니다. 그러면 나중에 서버리스 SQL 풀을 사용하여 동일한 테이블을 쿼리하고 연결할 수 있습니다.
+  ```python
+     taxi_df.write.mode("overwrite").saveAsTable("NycTlcTutorial.nyctaxi")
+  ```
    
 ## <a name="query-data-using-serverless-sql-pools"></a>서버리스 SQL 풀을 사용하여 데이터 쿼리
-Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 서버리스 Spark Apache 풀(미리 보기)과 서버리스 SQL 풀(미리 보기) 간에 데이터베이스와 테이블을 공유할 수 있습니다. 이는 Synapse [공유 메타데이터 관리](../metadata/overview.md) 기능을 통해 구동됩니다. 따라서 Spark에서 만든 데이터베이스 및 해당 Parquet 지원 테이블이 작업 영역 서버리스 SQL 풀에 표시됩니다.
+Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 서버리스 Spark Apache 풀과 서버리스 SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다. 이는 Synapse [공유 메타데이터 관리](../metadata/overview.md) 기능을 통해 구동됩니다. 따라서 Spark에서 만든 데이터베이스 및 해당 Parquet 지원 테이블이 작업 영역 서버리스 SQL 풀에 표시됩니다.
 
 서버리스 SQL 풀을 사용하여 Apache Spark 테이블을 쿼리하려면 다음을 수행합니다.
    1. Apache Spark 테이블이 저장되면 **데이터** 탭으로 전환합니다.

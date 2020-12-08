@@ -1,6 +1,6 @@
 ---
 title: sqlcmd를 사용하여 Synapse SQL에 연결
-description: sqlcmd 명령줄 유틸리티를 사용하여 서버리스 SQL 풀(미리 보기) 및 전용 SQL 풀에 연결하고 쿼리합니다.
+description: sqlcmd 명령줄 유틸리티를 사용하여 서버리스 SQL 풀 및 전용 SQL 풀에 연결하고 쿼리합니다.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,23 +9,23 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43fae026f91e4430fbce0d01141a86a913db089d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 88ee95789bdc1c6ee9884a021067318caab203d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686143"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451637"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>sqlcmd를 사용하여 Synapse SQL에 연결
 
 > [!div class="op_single_selector"]
-> * [Azure Data Studio(미리 보기)](get-started-azure-data-studio.md)
+> * [Azure Data Studio)](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-[sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 명령줄 유틸리티를 사용하여 Synapse SQL 내에서 서버리스 SQL 풀(미리 보기) 및 전용 SQL 풀에 연결하고 쿼리할 수 있습니다.  
+[sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 명령줄 유틸리티를 사용하여 Synapse SQL 내에서 서버리스 SQL 풀 및 전용 SQL 풀에 연결하고 쿼리할 수 있습니다.  
 
 ## <a name="1-connect"></a>1. 연결
 [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 시작하려면 명령 프롬프트를 열고 Synapse SQL 데이터베이스에 대한 연결 문자열 뒤에 **sqlcmd** 를 입력합니다. 연결 문자열에는 다음 매개 변수가 필요합니다.

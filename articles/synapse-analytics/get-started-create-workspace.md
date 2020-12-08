@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/21/2020
-ms.openlocfilehash: 42b586062378c59b66ca945880bf723418264071
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 949992418cb19c5c69ed8da92e9c2f0fc5f2f791
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241933"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445430"
 ---
 # <a name="creating-a-synapse-workspace"></a>Synapse 작업 영역 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "95241933"
 ## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Azure Portal에서 Synapse 작업 영역 만들기
 
 1. [Azure Portal](https://portal.azure.com)을 열고, 위쪽에서 **Synapse** 를 검색합니다.
-1. **서비스** 아래의 검색 결과에서 **Azure Synapse Analytics(작업 영역 미리 보기)** 를 선택합니다.
+1. **서비스** 아래의 검색 결과에서 **Azure Synapse Analytics** 를 선택합니다.
 1. **추가** 를 선택하여 작업 영역을 만듭니다.
 1. **기본 사항** 에서 원하는 **구독**, **리소스 그룹**, **지역** 을 입력한 다음, 작업 영역 이름을 선택합니다. 이 자습서에서는 **myworkspace** 를 사용합니다.
 1. **Data Lake Storage Gen 2** 로 이동합니다. 
@@ -36,6 +36,10 @@ ms.locfileid: "95241933"
 1. **파일 시스템** 을 클릭하고 **사용자** 의 이름을 지정합니다. 이렇게 하면 **users** 라는 컨테이너가 생성됩니다.
 1. 작업 영역에서는 이 스토리지 계정을 Spark 테이블 및 Spark 애플리케이션 로그에 대한 "기본" 스토리지 계정으로 사용합니다.
 1. **검토 + 만들기** > **만들기** 를 차례로 선택합니다. 몇 분 안에 작업 영역이 준비됩니다.
+
+> [!NOTE]
+> 기존 전용 SQL 풀(이전의 SQL DW)에서 작업 영역 기능을 사용하도록 설정하려면 [전용 SQL 풀(이전의 SQL DW)에 작업 영역을 사용하도록 설정하는 방법](./sql-data-warehouse/workspace-connected-create.md)을 참조하세요.
+
 
 ## <a name="open-synapse-studio"></a>Synapse Studio 열기
 
@@ -53,6 +57,9 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 1. **검토 + 만들기** > **만들기** 를 차례로 선택합니다. 몇 분 안에 전용 SQL 풀이 준비됩니다. 전용 SQL 풀이 **SQLPOOL1** 이라고도 하는 전용 SQL 풀 데이터베이스와 연결됩니다.
 
 전용 SQL 풀은 활성 상태인 동안 청구 가능한 리소스를 사용합니다. 비용을 줄이기 위해 풀을 일시 중지할 수 있습니다.
+
+> [!NOTE] 
+> 작업 영역에서 새 전용 SQL 풀(이전의 SQL DW)을 만들 때 전용 SQL 풀 프로비저닝 페이지가 열립니다. 프로비저닝은 논리 SQL 서버에서 수행됩니다.
 
 ## <a name="create-a-serverless-apache-spark-pool"></a>서버리스 Apache Spark 풀 만들기
 

@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8d70a45b89142f6f9c6990fdbb4b79751c82275f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 312c57c103bf733bc72c5de1d22ab3239d5b5e96
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237479"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484716"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>빠른 시작: Synapse SQL을 사용하여 대량 로드
 
-Synapse Studio에서 대량 로드 마법사를 사용하는 것보다 더 쉽게 데이터를 로드하는 방법은 없습니다. 이 마법사는 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 사용하여 T-SQL 스크립트를 만드는 방법부터 데이터를 대량으로 로드하는 방법까지 안내합니다. 
+Synapse Studio에서 대량 로드 마법사를 사용하면 데이터를 쉽게 로드할 수 있습니다. 대량 로드 마법사는 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 사용하여 T-SQL 스크립트를 만드는 방법부터 데이터를 대량으로 로드하는 방법까지 안내합니다. 
 
 ## <a name="entry-points-to-the-bulk-load-wizard"></a>대량 로드 마법사의 진입점
 
-이제 Synapse Studio 내에서 다음 영역을 마우스 오른쪽 단추로 클릭하기만 하면 전용 SQL 풀을 사용하여 쉽게 데이터를 대량 로드할 수 있습니다.
+Synapse Studio 내에서 다음 영역을 마우스 오른쪽 단추로 클릭하기만 하면 전용 SQL 풀을 사용하여 쉽게 데이터를 대량 로드할 수 있습니다.
 
 - 작업 영역에 연결된 Azure 스토리지 계정의 파일 또는 폴더 ![스토리지 계정의 파일 또는 폴더를 마우스 오른쪽 단추로 클릭](./sql/media/bulk-load/bulk-load-entry-point-0.png)
 

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 82818c8db326889079948cd2b32b2ed0be6ab50d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: e33f48c9496ffa3cca9d8b1aa71d524be9a311bb
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990757"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122248"
 ---
 # <a name="iot-central-device-development-overview"></a>IoT Central 디바이스 개발 개요
 
@@ -135,7 +135,7 @@ IoT 플러그 앤 플레이 규칙에 대한 자세한 내용은 [IoT 플러그 
 
 디바이스 템플릿의 역할에 대한 자세한 내용은 [디바이스 템플릿이란?](./concepts-device-templates.md)을 참조하세요.
 
-일부 샘플 코드는 [Node.js 클라이언트 애플리케이션 만들기 및 연결](./tutorial-connect-device-nodejs.md) 또는 [Python 클라이언트 애플리케이션 만들기 및 연결](./tutorial-connect-device-python.md)을 참조하세요.
+일부 샘플 코드는 [클라이언트 애플리케이션 만들기 및 연결](./tutorial-connect-device.md)을 참조하세요.
 
 ### <a name="languages-and-sdks"></a>언어 및 SDK
 
@@ -143,6 +143,6 @@ IoT 플러그 앤 플레이 규칙에 대한 자세한 내용은 [IoT 플러그 
 
 ## <a name="next-steps"></a>다음 단계
 
-디바이스 개발자이고 몇 가지 코드에 대해 자세히 알아보려면 다음 단계를 [클라이언트 애플리케이션을 만들고 Azure IoT Central 애플리케이션에 연결](./tutorial-connect-device-nodejs.md)하는 것이 좋습니다.
+디바이스 개발자이고 몇 가지 코드에 대해 자세히 알아보려면 다음 단계를 [클라이언트 애플리케이션을 만들고 Azure IoT Central 애플리케이션에 연결](./tutorial-connect-device.md)하는 것이 좋습니다.
 
 IoT Central 사용에 대해 자세히 알아보려면 [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md)부터 시작하여 빠른 시작을 완료하세요.
