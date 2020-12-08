@@ -17,6 +17,8 @@
       href: quick-create-portal.md
     - name: .NET
       href: quick-create-net.md
+    - name: Node.js
+      href: quick-create-node.md
     - name: Python
       href: quick-create-python.md
 - name: 샘플
@@ -63,7 +65,7 @@
       href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
     - name: Python
       href: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions

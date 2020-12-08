@@ -251,5 +251,7 @@
       items:
         - name: 가격 책정
           href: 'https://azure.microsoft.com/pricing/details/digital-twins'
+        - name: SLA
+          href: 'https://azure.microsoft.com/support/legal/sla/digital-twins'
         - name: 지역 및 가용성
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'

@@ -66,6 +66,8 @@
           href: sap-hana-backup-support-matrix.md
         - name: Azure 파일 공유 백업 지원 매트릭스
           href: azure-file-share-support-matrix.md
+        - name: Active Directory 도메인 컨트롤러
+          href: active-directory-backup-restore.md
         - name: Azure Policy에 지원되는 VM SKU
           href: backup-azure-policy-supported-skus.md
     - name: 질문과 대답(FAQ)

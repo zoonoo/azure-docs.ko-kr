@@ -71,9 +71,9 @@
         - name: 프로비전
           href: provisioning.md
         - name: 공유 이미지 갤러리
-          href: shared-image-galleries.md
+          href: ../shared-image-galleries.md
         - name: 이미지 작성기
-          href: image-builder-overview.md
+          href: ../image-builder-overview.md
     - name: Azure 리소스 관리자
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 영역
