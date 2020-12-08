@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 650ee1fc9e0e1941a7a3655bca1c75950ab878dd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 98cc72f85499481ba3841ce82fe307740d5e9fab
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492117"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842712"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 [Azure Files](storage-files-introduction.md) 는 서버를 사용 하지 않는 azure 파일 공유를 직접 탑재 하거나 Azure File Sync를 사용 하 여 온-프레미스에서 azure 파일 공유를 캐시 하는 두 가지 주요 방법으로 배포할 수 있습니다. 선택 하는 배포 옵션에 따라 배포를 계획할 때 고려해 야 할 사항이 변경 됩니다. 
@@ -114,23 +114,6 @@ Azure Storage에 대 한 ATP (Advanced Threat Protection)는 저장소 계정에
 
 ## <a name="storage-tiers"></a>스토리지 계층
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-일반적으로 Azure Files 기능 및 다른 서비스와의 상호 운용성은 프리미엄 파일 공유와 표준 파일 공유 (트랜잭션 최적화, 핫 및 쿨 파일 공유 포함) 간에 동일 하지만 몇 가지 중요 한 차이점이 있습니다.
-- **청구 모델**
-    - 프리미엄 파일 공유는 프로 비전 된 청구 모델을 사용 하 여 청구 됩니다. 즉, 사용 하는 저장소 크기 보다 프로 비전 하는 저장소 크기에 대 한 고정 가격을 지불 합니다. 트랜잭션 및 미사용 메타 데이터에 대 한 추가 비용은 없습니다.
-    - 표준 파일 공유에는 종 량 제 모델을 사용 하 여 요금이 청구 됩니다. 여기에는 실제로 소비 하는 저장소의 양에 대 한 기본 저장소 비용과 공유 사용 방법에 따라 추가 트랜잭션 비용이 포함 됩니다. 표준 파일 공유를 사용 하는 경우 Azure 파일 공유를 사용 (읽기/쓰기/탑재) 하면 청구서가 증가 합니다.
-- **중복성 옵션**
-    - 프리미엄 파일 공유는 LRS (로컬 중복) 및 ZRS (영역 중복) 저장소에만 사용할 수 있습니다.
-    - 표준 파일 공유는 로컬 중복, 영역 중복, 지역 중복 (GRS) 및 GZRS (지역 영역 중복) 저장소에 사용할 수 있습니다.
-- **파일 공유의 최대 크기**
-    - 프리미엄 파일 공유는 추가 작업 없이 최대 100 TiB 프로 비전 할 수 있습니다.
-    - 기본적으로 최대 5 개의 TiB만 사용할 수 있습니다. 단, 공유 제한은 *크게 파일 공유* 저장소 계정 기능 플래그를 옵트인 하 여 100 TiB로 늘릴 수 있습니다. 표준 파일 공유는 로컬 중복 또는 영역 중복 저장소 계정에 대해 최대 100 TiB 확장할 수 있습니다. 파일 공유 크기를 늘려야 하는 방법에 대 한 자세한 내용은 [large file 공유 사용 및 만들기](./storage-files-how-to-create-large-file-share.md)를 참조 하세요.
-- **국가별 가용성**
-    - 프리미엄 파일 공유는 일부 지역을 제외 하 고 대부분의 Azure 지역에서 사용할 수 있습니다. 영역 중복 지원은 지역 하위 집합에서 사용할 수 있습니다. 현재 지역에서 프리미엄 파일 공유를 사용할 수 있는지 확인 하려면 Azure에 대 한 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage) 페이지를 참조 하세요. ZRS를 지 원하는 지역을 알아보려면 [영역 중복 저장소](../common/storage-redundancy.md#zone-redundant-storage)를 참조 하세요. 새 지역 및 프리미엄 계층 기능의 우선 순위를 지정 하는 데 도움이 되도록이 [설문 조사](https://aka.ms/pfsfeedback)를 작성해 주세요.
-    - 표준 파일 공유는 모든 Azure 지역에서 사용할 수 있습니다.
-- AKS (Azure Kubernetes Service)는 1.13 이상 버전에서 프리미엄 파일 공유를 지원 합니다.
-
-프리미엄 또는 표준 파일 공유로 파일 공유를 만든 후에는 자동으로 다른 계층으로 변환할 수 없습니다. 다른 계층으로 전환 하려는 경우 해당 계층에서 새 파일 공유를 만들고 원래 공유에서 만든 새 공유로 데이터를 수동으로 복사 해야 합니다. `robocopy`Windows 또는 macOS 및 Linux 용을 사용 하 여 해당 복사를 수행 하는 것이 좋습니다 `rsync` .
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>프리미엄 파일 공유에 대 한 프로 비전 이해
 프리미엄 파일 공유는 고정 GiB/IOPS/처리량 비율을 기준으로 프로비전됩니다. 모든 공유 크기는 최소 기준선/처리량으로 제공 되며 버스트에 사용할 수 있습니다. 프로 비전 된 각 GiB에 대 한 공유는 최소 IOPS/처리량 및 1 개의 IOPS 및 0.1 s/s 처리량을 공유 당 최대 제한까지 발급 됩니다. 허용 되는 최소 프로 비전은 100 GiB 최소 IOPS/처리량입니다. 

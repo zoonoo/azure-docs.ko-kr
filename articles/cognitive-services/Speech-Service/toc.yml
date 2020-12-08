@@ -37,6 +37,8 @@
           href: how-to-automatic-language-detection.md
         - name: 일괄 처리 기록 API 사용
           href: batch-transcription.md
+        - name: v2.0에서 v3.0으로 마이그레이션
+          url: migrate-v2-to-v3.md
         - name: 발음 평가
           href: how-to-pronunciation-assessment.md
     - name: 자습서
