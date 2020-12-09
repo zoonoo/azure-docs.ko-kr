@@ -3,17 +3,17 @@ title: Azure Maps 그리기 변환 오류 및 경고
 description: Azure Maps Conversion 서비스를 사용하는 동안 발생할 수 있는 Conversion 오류 및 경고에 대해 알아봅니다. 몇 가지 예와 함께 오류 및 경고를 해결하는 방법에 대한 추천 사항을 참조하세요.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 04a43e3e2fa9ad77e11f82ff38a144a1de3add78
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cecc19f0984ce1801d50e5cbda73e98a01e2825b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895939"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906219"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>그리기 변환 오류 및 경고
 
@@ -159,7 +159,7 @@ Conversion 서비스에서 잘못된 기하 도형이 자동으로 복구되면 
 
 #### <a name="how-to-fix-redundantattribution"></a>*redundantAttribution을 해결하는 방법*
 
-* *redundantAttribution* 경고를 해결하려면 중복되거나 충돌하는 개체 속성을 제거합니다.
+**redundantAttribution* 경고를 해결하려면 중복되거나 충돌하는 개체 속성을 제거합니다.
 
 ### <a name="manifestwarning"></a>**manifestWarning**
 
@@ -330,7 +330,7 @@ Conversion 서비스에서 스토리지의 사용자 데이터 개체를 읽을 
 **invalidUserData** 오류를 해결하려면 다음을 확인합니다.
 
 * 올바른 `udid`를 업로드된 패키지에 제공했습니다.
-* 그리기 패키지를 업로드하는 데 사용한 Azure Maps 계정에 대해 Azure Maps Creator가 사용하도록 설정되었습니다.
+* 그리기 패키지를 업로드 하는 데 사용한 Azure Maps 계정에 대해 Azure Maps 작성자 (미리 보기)를 사용 하도록 설정 했습니다.
 * 그리기 패키지를 업로드하는 데 사용한 Azure Maps 계정에 대한 구독 키가 Conversion 서비스에 대한 API 요청에 포함되어 있습니다.
 
 ### <a name="dwgerror"></a>**dwgError**
@@ -506,4 +506,4 @@ _manifest.json_ 파일이 ZIP 보관 파일에 없으면 **missingManifest** 오
 > [Azure Maps 그리기 오류 시각화 도우미를 사용하는 방법](drawing-error-visualizer.md)
 
 > [!div class="nextstepaction"]
-> [실내 맵용 Creator](creator-indoor-maps.md)
+> [실내 매핑을 위한 작성자 (미리 보기)](creator-indoor-maps.md)

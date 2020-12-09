@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
-ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 88d004836d5311fc3a971df81a3dc6e6ab605ca9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993995"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861394"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전
 이 문서에서는 범위 지정 필터를 사용하여 어떤 사용자를 애플리케이션에 프로비전할지 결정하는 특성 기반 규칙을 정의하는 방법을 설명합니다.
@@ -94,7 +94,7 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
    
    j. **Greater_Than_OR_EQUALS.** 평가 된 특성이 값 보다 크거나 같으면 "true"를 반환 합니다. 범위 지정 필터에 지정 된 값은 정수 여야 하며 사용자의 특성은 [0, 1, 2,...]의 정수 여야 합니다. 
    
-   k. **내용이.** 평가 된 특성이 [여기](/dotnet/api/system.string.contains?view=netframework-4.8)에 설명 된 대로 문자열 값 (대/소문자 구분)을 포함 하면 "true"를 반환 합니다. 
+   k. **내용이.** 평가 된 특성이 [여기](/dotnet/api/system.string.contains)에 설명 된 대로 문자열 값 (대/소문자 구분)을 포함 하면 "true"를 반환 합니다. 
 
 
 >[!IMPORTANT] 

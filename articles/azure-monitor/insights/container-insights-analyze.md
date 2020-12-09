@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 모니
 description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터의 성능을 확인 하 고 분석 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011084"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905709"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터 성능 모니터링
 
@@ -70,17 +70,17 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor 포�
 |-------|-------|-----------------|
 |**사용자 pod**| | |
 | |정상 |100% |
-| |경고 |90-99% |
+| |Warning |90-99% |
 | |위험 |<90% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 |**시스템 pod**| | |
 | |정상 |100% |
-| |경고 |해당 없음 |
+| |Warning |해당 없음 |
 | |위험 |<100% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 |**Node** | | |
 | |정상 |>85% |
-| |경고 |60 - 84% |
+| |Warning |60 - 84% |
 | |위험 |<60% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 
@@ -132,7 +132,7 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor 포�
 
 메트릭을 [분할](../platform/metrics-charts.md#apply-splitting-to-a-chart) 하 여 차원 별로 표시 하 고 서로 다른 세그먼트의 서로 비교 하는 방법을 시각화할 수 있습니다. 노드의 경우 *호스트* 차원에 따라 차트를 분할할 수 있습니다. Pod에서 다음 차원으로 분할할 수 있습니다.
 
-* 컨트롤러
+* Controller
 * Kubernetes 네임 스페이스
 * 노드
 * 단계
@@ -197,7 +197,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 | 최소값, 평균, 50, 90, 95, 최대값 | 선택한 기간 동안 백분위 수를 기준으로 하는 평균 노드 값입니다. Average 값은 노드에 대해 설정 된 CPU/메모리 제한에서 측정 됩니다. Pod 및 컨테이너의 경우 호스트에서 보고 하는 평균 값입니다. |
 | 컨테이너 | 컨테이너의 수입니다. |
 | 작동 시간 | 노드가 시작되었거나 다시 부팅된 이후 경과된 시간을 나타냅니다. |
-| 컨트롤러 | 컨테이너 및 Pod용입니다. 컨트롤러가 있는 컨트롤러를 표시 합니다. 모든 Pod가 컨트롤러에 있는 것은 아니므로 **N/A** 가 표시될 수 있습니다. |
+| Controller | 컨테이너 및 Pod용입니다. 컨트롤러가 있는 컨트롤러를 표시 합니다. 모든 Pod가 컨트롤러에 있는 것은 아니므로 **N/A** 가 표시될 수 있습니다. |
 | 추세 Min &nbsp; %, Avg &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, 최대값&nbsp;% | 컨트롤러의 평균 백분위 메트릭 비율을 나타내는 막대 그래프 추세입니다. |
 
 **다른 프로세스** 라는 노드를 확장 한 후에 작업을 확인할 수 있습니다. 이는 노드에서 실행 되 고 다음을 포함 하는 비 컨테이너 화 된 프로세스를 나타냅니다.
@@ -228,7 +228,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 특정 컨트롤러에 대 한 **노드** 열 아래에서 값을 선택 합니다.
 
-![성능 보기에서 보여 주는 노드에서 컨트롤러로의 드릴다운 예제](./media/container-insights-analyze/drill-down-controller-node.png)
+![성능 보기의 컨트롤러에서 노드로의 예제 드릴 다운](./media/container-insights-analyze/drill-down-controller-node.png)
 
 컨트롤러를 볼 때 표시 되는 정보는 다음 표에 설명 되어 있습니다.
 
@@ -297,31 +297,8 @@ Azure 네트워크 정책 관리자는 네트워크 구성을 모니터링 하 �
 
 ## <a name="workbooks"></a>통합 문서
 
-통합 문서는 텍스트, [로그 쿼리](/azure/data-explorer/kusto/query/), [메트릭](../platform/data-platform-metrics.md)및 매개 변수를 풍부한 대화형 보고서로 결합 합니다. 통합 문서는 동일한 Azure 리소스에 대한 액세스 권한이 있는 다른 팀 멤버에 의해 편집될 수 있습니다.
+통합 문서는 텍스트, 로그 쿼리, 메트릭 및 매개 변수를 다양 한 대화형 보고서에 결합 하 여 클러스터 성능을 분석할 수 있습니다. 컨테이너에 대해 Azure Monitor 사용할 수 있는 통합 문서에 대 한 설명은 [Azure Monitor의 통합 문서](container-insights-reports.md) 를 참조 하세요.
 
-컨테이너에 대 한 Azure Monitor에는 시작 하기 위한 4 개의 통합 문서가 포함 되어 있습니다.
-
-- **디스크 용량**: 다음과 같은 관점에서 컨테이너 내의 노드에 표시 되는 각 디스크에 대 한 대화형 디스크 사용 차트를 표시 합니다.
-
-    - 모든 디스크의 디스크 사용 백분율입니다.
-    - 모든 디스크의 사용 가능한 디스크 공간
-    - 각 노드의 디스크, 사용 된 공간의 백분율, 사용 가능한 디스크 공간 (GiB) 및 사용 가능한 디스크 공간 (GiB)의 추세를 보여 주는 표 테이블에서 행을 선택 하면 사용 된 공간 및 사용 가능한 디스크 공간 (GiB)의 백분율이 행 아래에 표시 됩니다.
-
-- **디스크 IO**: 다음 관점에서 컨테이너 내의 노드에 표시 되는 각 디스크에 대 한 대화형 디스크 사용률 차트를 표시 합니다.
-
-    - 모든 디스크에서 read bytes/sec, write bytes/sec, read 및 write bytes/sec 추세를 기준으로 전체 디스크 i/o를 요약 합니다.
-    - 8 개의 성능 차트는 디스크 i/o 병목 상태를 측정 하 고 식별 하는 데 도움이 되는 핵심 성과 지표를 표시 합니다.
-
-- **Kubelet**: 키 노드 운영 통계를 표시 하는 두 개의 그리드를 포함 합니다.
-
-    - 노드당 개요 그리드는 각 노드에 대 한 백분율 및 추세 별로 총 작업, 총 오류 및 성공한 작업을 요약 합니다.
-    - 작업 유형별 개요 유형별 합계 작업, 총 오류, 성공 작업 (백분율 및 추세)을 요약 합니다.
-
-- **네트워크**: 각 노드의 네트워크 어댑터에 대 한 대화형 네트워크 사용률 차트를 표시 하 고 그리드는 네트워크 어댑터의 성능을 측정 하는 데 도움이 되는 핵심 성과 지표를 제공 합니다.
-
-**통합 문서 보기** 드롭다운 목록에서 각 통합 문서를 선택 하 여 액세스 합니다.
-
-![통합 문서 보기 드롭다운 목록](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
 ## <a name="next-steps"></a>다음 단계
 

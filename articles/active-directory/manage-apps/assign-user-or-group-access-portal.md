@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에서 앱에 대 한 사용자 할당 관리
+title: Azure Active Directory에서 앱에 대한 사용자 할당 관리
 description: Id 관리를 위해 Azure Active Directory를 사용 하 여 앱에 대 한 사용자 및 그룹을 할당 하 고 할당 해제 하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 55934e8c33b74740b7398be1ae18a3ef899aee74
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 22acfc5095b1ffcad382fa2b665a86d382645e7a
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651280"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861680"
 ---
-# <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Azure Active Directory에서 앱에 대 한 사용자 할당 관리
+# <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Azure Active Directory에서 앱에 대한 사용자 할당 관리
 
 이 문서에서는 Azure Portal 내에서 또는 PowerShell을 사용 하 여 Azure Active Directory (Azure AD)에서 엔터프라이즈 응용 프로그램에 사용자 및 그룹을 할당 하는 방법을 보여 줍니다. 응용 프로그램에 사용자를 할당 하면 쉽게 액세스할 수 있도록 사용자의 [내 앱](https://myapps.microsoft.com/) 에 응용 프로그램이 표시 됩니다. 애플리케이션이 역할을 노출하는 경우 사용자에게 특정 역할을 할당할 수도 있습니다.
 
@@ -81,11 +81,11 @@ Graph API를 사용 하 여 앱에 대 한 사용자 및 그룹을 할당 하거
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-애플리케이션 역할에 사용자를 할당하는 방법에 대한 자세한 내용은 [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)에 대한 설명서를 참조하세요.
+애플리케이션 역할에 사용자를 할당하는 방법에 대한 자세한 내용은 [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment)에 대한 설명서를 참조하세요.
 
 그룹을 엔터프라이즈 앱에 할당하려면 `Get-AzureADUser`를 `Get-AzureADGroup`으로 바꾸고 `New-AzureADUserAppRoleAssignment`를 `New-AzureADGroupAppRoleAssignment`로 바꿉어야 합니다.
 
-애플리케이션 역할에 그룹을 할당하는 방법에 대한 자세한 내용은 [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0)에 대한 설명서를 참조하세요.
+애플리케이션 역할에 그룹을 할당하는 방법에 대한 자세한 내용은 [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment)에 대한 설명서를 참조하세요.
 
 ### <a name="example"></a>예제
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9408aaa8fd5b677f012392ef4bd51c8826650eee
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 5b8dd911952a63ba8775f27a6128ff61e849e823
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395158"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861428"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>데이터 보존 정책 사용 및 사용 안 함
 
@@ -88,7 +88,7 @@ where is_data_deletion_filter_column =1
 and object_id = object_id(N'dbo.data_retention_table', N'U')
 ```
 
-## <a name="corelating-db-and-table-data-retention-settings"></a>Corelating DB 및 테이블 데이터 보존 설정
+## <a name="correlating-db-and-table-data-retention-settings"></a>DB 및 테이블 데이터 보존 설정의 상관 관계
 
 데이터베이스 및 테이블에 대 한 데이터 보존 설정은 테이블에서 오래 된 행의 자동 정리가이 실행 되는지 여부를 결정 하는 데 함께 사용 됩니다. 
 

@@ -1,26 +1,30 @@
 ---
-title: Azure Maps 권한 상승 서비스를 사용 하 여 데이터 권한 상승 요청
-description: Azure Maps 권한 상승 서비스를 사용 하 여 권한 상승 데이터를 요청 하는 방법을 알아봅니다.
+title: Azure Maps 권한 상승 서비스를 사용 하 여 데이터 권한 상승 요청 (미리 보기)
+description: Azure Maps 권한 상승 서비스 (미리 보기)를 사용 하 여 권한 상승 데이터를 요청 하는 방법을 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/02/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9937d72b44eb33df8027eddb9a9f500a372c9037
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: af3653d9e4509b1aa31a377dfc22cb6b6b2ff34e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554263"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906066"
 ---
-# <a name="request-elevation-data-using-the-azure-maps-elevation-service"></a>Azure Maps 권한 상승 서비스를 사용 하 여 데이터 권한 상승 요청
+# <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Azure Maps 권한 상승 서비스를 사용 하 여 데이터 권한 상승 요청 (미리 보기)
 
-Azure Maps [권한 상승 서비스](https://docs.microsoft.com/rest/api/maps/elevation) 는 지구에서 위치에 대 한 권한 상승 데이터를 쿼리 하는 api를 제공 합니다. 정의 된 경계 상자 내에서 또는 특정 좌표에서 경로를 따라 샘플링 된 권한 상승 데이터를 요청할 수 있습니다. 또한 [Render V2-맵 가져오기 타일 API](https://docs.microsoft.com/rest/api/maps/renderv2) 를 사용 하 여 타일 형식의 권한 상승을 검색할 수 있습니다. 타일은 GeoTIFF 래스터 형식으로 전달 됩니다. 이 문서에서는 Azure Maps 권한 상승 서비스 및 맵 가져오기 타일 API를 사용 하 여 권한 상승 데이터를 요청 하는 방법을 보여 줍니다. GeoJSON 및 GeoTiff 형식 모두에서 권한 상승 데이터를 요청할 수 있습니다.
+> [!IMPORTANT]
+> Azure Maps 권한 상승 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+Azure Maps [권한 상승 서비스](https://docs.microsoft.com/rest/api/maps/elevation) 는 지구 표면의 모든 위치에서 권한 상승 데이터를 쿼리 하는 api를 제공 합니다. 정의 된 경계 상자 내에서 또는 특정 좌표에서 경로를 따라 샘플링 된 권한 상승 데이터를 요청할 수 있습니다. 또한 [Render V2-맵 가져오기 타일 API](https://docs.microsoft.com/rest/api/maps/renderv2) 를 사용 하 여 타일 형식의 권한 상승을 검색할 수 있습니다. 타일은 GeoTIFF 래스터 형식으로 전달 됩니다. 이 문서에서는 Azure Maps 권한 상승 서비스 및 맵 가져오기 타일 API를 사용 하 여 권한 상승 데이터를 요청 하는 방법을 보여 줍니다. GeoJSON 및 GeoTiff 형식 모두에서 권한 상승 데이터를 요청할 수 있습니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. [S1 가격 책정 계층에서 Azure Maps 계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
@@ -50,7 +54,7 @@ Azure Maps의 인증에 대 한 자세한 내용은 [Azure Maps 인증을 관리
 
 ## <a name="request-elevation-data-in-geojson-format"></a>GeoJSON 형식의 권한 상승 데이터 요청
 
-권한 상승 서비스 Api를 사용 하 여 GeoJSON 형식의 권한 상승 데이터를 요청 합니다. 이 섹션에서는 다음과 같은 세 가지 Api를 각각 보여 줍니다.
+권한 상승 서비스 (미리 보기) Api를 사용 하 여 GeoJSON 형식의 권한 상승 데이터를 요청 합니다. 이 섹션에서는 다음과 같은 세 가지 Api를 각각 보여 줍니다.
 
 * [요소에 대 한 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
 * [점에 대 한 게시 데이터](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates)
@@ -443,7 +447,7 @@ URL의 위도 및 경도는 WGS84 (세계 측 지 System)의 10 진수 수준에
     }
     ```
 
-## <a name="samples-use-elevation-service-apis-in-azure-maps-control"></a>샘플: Azure Maps 컨트롤에서 권한 상승 서비스 Api 사용
+## <a name="samples-use-elevation-service-preview-apis-in-azure-maps-control"></a>샘플: Azure Maps 컨트롤에서 권한 상승 서비스 (미리 보기) Api 사용
 
 ### <a name="get-elevation-data-by-coordinate-position"></a>좌표 위치로 상승 데이터 가져오기
 
@@ -478,16 +482,16 @@ CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/7bee08
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Maps 권한 상승 Api를 추가로 탐색 하려면 다음을 참조 하세요.
+Azure Maps 권한 상승 (미리 보기) Api를 추가로 탐색 하려면 다음을 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [권한 상승-Lat 긴 좌표에 대 한 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
+> [권한 상승 (미리 보기)-Lat 긴 좌표에 대 한 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
 
 > [!div class="nextstepaction"]
-> [권한 상승-경계 상자에 대 한 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
+> [권한 상승 (미리 보기)-경계 상자에 대 한 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
 
 > [!div class="nextstepaction"]
-> [권한 상승-다중선 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
+> [권한 상승 (미리 보기)-폴리라인 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
 
 > [!div class="nextstepaction"]
 > [렌더링 V2 – 맵 타일 가져오기](https://docs.microsoft.com/rest/api/maps/renderv2)

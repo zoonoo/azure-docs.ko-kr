@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 4efd9fd814165755d27de1d269b6319890f7190d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: eb178e38001e54ac39a269c8b8cdef12c77d74cf
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541609"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901952"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>MySQL용 Azure 데이터베이스 서버 방화벽 규칙
 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
@@ -69,6 +69,8 @@ Microsoft Azure Database for MySQL 서버 서비스에 대한 액세스가 예�
 * **허용 되는 IP를 사용 하 여 Azure 리소스에서 연결할 수 없음:** 연결 하려는 서브넷에 대해 **Microsoft Sql** 서비스 끝점을 사용할 수 있는지 여부를 확인 합니다. **Microsoft .sql** 을 사용 하는 경우에는 해당 서브넷에서 [VNet 서비스 끝점 규칙만](concepts-data-access-and-security-vnet.md) 사용 합니다.
 
    예를 들어, **Microsoft Sql server** 를 사용 하지만 해당 VNet 규칙이 없는 서브넷의 Azure VM에서 연결 하는 경우 다음과 같은 오류가 표시 될 수 있습니다.  `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+
+* **방화벽 규칙을 IPv6 형식에 사용할 수 없습니다.** 방화벽 규칙은 IPv4 형식 이어야 합니다. IPv6 형식으로 방화벽 규칙을 지정 하는 경우 유효성 검사 오류가 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
-ms.openlocfilehash: 9c8a911bef5fb92f5bf9aa447e9e810a85317208
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1b8b7b16a354fba482fcefe8f306f949f9a952ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974156"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902649"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -304,7 +304,7 @@ response_type=token            //code or a hybrid flow is also possible here
 
 ### <a name="client-credentials-grant-flow-and-default"></a>클라이언트 자격 증명 부여 흐름 및 기본값
 
-의 또 다른 용도 `./default` 는 [클라이언트 자격 증명](v2-oauth2-client-creds-grant-flow.md) 부여 흐름을 사용 하 여 web API를 호출 하는 디먼 앱 처럼 비 대화형 응용 프로그램에서 응용 프로그램 사용 권한 (또는 *역할*)을 요청 하는 경우입니다.
+의 또 다른 용도 `/.default` 는 [클라이언트 자격 증명](v2-oauth2-client-creds-grant-flow.md) 부여 흐름을 사용 하 여 web API를 호출 하는 디먼 앱 처럼 비 대화형 응용 프로그램에서 응용 프로그램 사용 권한 (또는 *역할*)을 요청 하는 경우입니다.
 
 웹 API에 대 한 응용 프로그램 사용 권한 (역할)을 만들려면 [방법: 응용 프로그램에 앱 역할 추가](howto-add-app-roles-in-azure-ad-apps.md)를 참조 하세요.
 

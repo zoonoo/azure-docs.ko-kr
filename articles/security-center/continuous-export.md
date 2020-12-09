@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 12/08/2020
 ms.author: memildin
-ms.openlocfilehash: 43b66a59062a230aa2fba6909172deb5f1740b28
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: bdca5a753a49c26587db27892b54c2cb88910c83
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122314"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862465"
 ---
 # <a name="continuously-export-security-center-data"></a>Security Center 데이터 연속 내보내기
 
@@ -72,6 +72,7 @@ Log Analytics 작업 영역 또는 Azure Event Hubs에 대 한 연속 내보내�
     - 컴퓨터의 SQL server에 대 한 취약성 평가 결과를 재구성 해야 함 (미리 보기)
     - Azure Container Registry 이미지의 취약성을 수정해야 함(Qualys 제공)
     - 가상 머신의 취약성을 수정해야 함
+    - 시스템 업데이트를 머신에 설치해야 합니다.
 
     이러한 권장 사항을 포함 하는 결과를 포함 하려면 **보안 결과 포함** 옵션을 사용 하도록 설정 합니다.
 

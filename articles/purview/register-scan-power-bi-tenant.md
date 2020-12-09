@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: af394b68a943f4c89358a719c155606c264b9dc4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: ce23119e568347fff2ad270cfea7f8b563cae529
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554507"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904995"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Power BI 테 넌 트 등록 및 검사 (미리 보기)
 
@@ -49,16 +49,12 @@ ms.locfileid: "96554507"
 
 ## <a name="associate-the-security-group-with-the-tenant"></a>보안 그룹을 테 넌 트와 연결
 
-1. [Power BI 관리 포털](https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1)에 로그인 합니다. URI에이 기능 플래그를 추가  `allowServicePrincipalsUseReadAdminAPIsUI=1` 합니다. 이 플래그는 보안 그룹을 연결할 수 있는 기능을 사용 하도록 설정 합니다. 예를 들면 다음과 같습니다.
-
-    ```http
-    https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1
-    ```
+1. [Power BI 관리 포털](https://app.powerbi.com/admin-portal/tenantSettings)에 로그인 합니다.
 
     > [!Important]
     > 테 넌 트 설정 페이지를 보려면 Power BI 관리자 여야 합니다.
 
-1. **개발자 설정**  >  **서비스 사용자가 읽기 전용 Power BI api (미리 보기)를 사용 하도록 허용을** 선택 합니다.
+1. **개발자 설정**  >  **에서 서비스 사용자가 읽기 전용 Power BI 관리 api (미리 보기)를 사용 하도록 허용을** 선택 합니다.
 1. **특정 보안 그룹** 을 선택 합니다.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="서비스 사용자가 읽기 전용 Power BI admin API 권한을 가져오도록 허용 하는 방법을 보여 주는 이미지":::

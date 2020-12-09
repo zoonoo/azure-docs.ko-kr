@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 8735a0d34b9fcf5b86b6592980ffc5c7c3e3073c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377737"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861938"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>클라우드 그룹에 할당된 역할 문제 해결
 
@@ -32,16 +32,16 @@ ms.locfileid: "93377737"
 
 **A:** 기본적으로 권한 있는 역할 관리자와 전역 관리자만 역할 할당 그룹의 멤버 자격을 관리 하지만 그룹 소유자를 추가 하 여 역할 할당 그룹의 관리를 위임할 수 있습니다.
 
-**Q** : 내 조직의 기술 지원팀 관리자 이지만 디렉터리 판독기 인 사용자의 암호를 업데이트할 수 없습니다. 왜 발생 하나요?
+**Q**: 내 조직의 기술 지원팀 관리자 이지만 디렉터리 판독기 인 사용자의 암호를 업데이트할 수 없습니다. 왜 발생 하나요?
 
-**A** : 사용자는 역할 할당 가능 그룹을 통해 디렉터리 판독기를 사용할 수 있습니다. 역할 할당 그룹의 모든 멤버 및 소유자는 보호 됩니다. 권한 있는 인증 관리자 또는 전역 관리자 역할의 사용자만 보호 된 사용자에 대 한 자격 증명을 다시 설정할 수 있습니다.
+**A**: 사용자는 역할 할당 가능 그룹을 통해 디렉터리 판독기를 사용할 수 있습니다. 역할 할당 그룹의 모든 멤버 및 소유자는 보호 됩니다. 권한 있는 인증 관리자 또는 전역 관리자 역할의 사용자만 보호 된 사용자에 대 한 자격 증명을 다시 설정할 수 있습니다.
 
 **Q:** 사용자의 암호를 업데이트할 수 없습니다. 할당 된 높은 권한이 있는 역할이 없습니다. 왜 발생 하나요?
 
 **A:** 사용자는 역할 할당 가능 그룹의 소유자 일 수 있습니다. 권한 상승을 방지 하기 위해 역할 할당 그룹의 소유자를 보호 합니다. 예를 들어 그룹 Contoso_Security_Admins 보안 관리자 역할에 할당 된 경우 (Bob은 그룹 소유자이 고 Alice는 조직의 암호 관리자 인 경우)가 될 수 있습니다. 이 보호가 없는 경우 Alice는 Bob의 자격 증명을 다시 설정 하 고 id를 사용할 수 있습니다. 그런 다음 Alice는 그룹 Contoso_Security_Admins 그룹에 자신 또는 사람을 추가 하 여 조직의 보안 관리자가 될 수 있습니다. 사용자가 그룹 소유자 인지 확인 하려면 해당 사용자의 소유 개체 목록을 가져오고 isAssignableToRole가 true로 설정 된 그룹이 있는지 확인 합니다. 그렇다면 해당 사용자는 보호 되 고 동작은 의도 된 것입니다. 소유 개체를 가져오려면 다음 설명서를 참조 하세요.
 
-- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [OwnedObjects 나열](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject)  
+- [OwnedObjects 나열](/graph/api/user-list-ownedobjects?tabs=http)
 
 **Q:** Azure AD 역할에 할당 될 수 있는 그룹에 대 한 액세스 검토를 만들 수 있습니다 (특히 isAssignableToRole 속성이 true로 설정 된 그룹).  
 
@@ -53,8 +53,8 @@ ms.locfileid: "93377737"
 
 Azure AD 디렉터리 역할 | 자격 관리 역할 | 보안 그룹을 추가할 수 있음\* | Microsoft 365 그룹 추가 가능\* | 앱 추가 가능 | SharePoint Online 사이트 추가 가능
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
-전역 관리자 | 해당 없음 | ✔️ | ✔️ | ✔️  | ✔️
-사용자 관리자  | 해당 없음  | ✔️  | ✔️  | ✔️
+전역 관리자 | N/A | ✔️ | ✔️ | ✔️  | ✔️
+사용자 관리자  | N/A  | ✔️  | ✔️  | ✔️
 Intune 관리자 | 카탈로그 소유자 | ✔️  | ✔️  | &nbsp;  | &nbsp;
 Exchange 관리자  | 카탈로그 소유자  | &nbsp; | ✔️  | &nbsp;  | &nbsp;
 팀 서비스 관리자 | 카탈로그 소유자  | &nbsp; | ✔️  | &nbsp;  | &nbsp;

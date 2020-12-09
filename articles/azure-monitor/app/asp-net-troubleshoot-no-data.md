@@ -4,12 +4,12 @@ description: Azure Application Insights에서 데이터를 볼 수 없나요? �
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: c3f0350152ece32829291012d583be87a90227cf
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 26ba586715c7b76ff8972c6574c3c29b837713a1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748940"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904468"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>데이터 없음 문제 해결 - .NET/.NET Core용 Application Insights
 
@@ -39,6 +39,10 @@ ms.locfileid: "96748940"
 
 * [상태 모니터 문제 해결](./monitor-performance-live-website-now.md#troubleshoot)을 참조하세요.
 
+> [!IMPORTANT]
+> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 사용 **해야** 합니다. [연결 문자열](./sdk-connection-string.md?tabs=net) 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+
+
 ## <a name="filenotfoundexception-could-not-load-file-or-assembly-microsoftaspnet-telemetrycorrelation"></a>System.io.filenotfoundexception: 파일 또는 어셈블리 ' Microsoft. AspNet TelemetryCorrelation을 (를) 로드할 수 없습니다.
 
 이 오류에 대 한 자세한 내용은 [GitHub 문제 1610] ( https://github.com/microsoft/ApplicationInsights-dotnet/issues/1610) 을 참조 하세요.
@@ -64,7 +68,7 @@ ms.locfileid: "96748940"
     </TelemetryModules>
     ```
 
-***제대로 업그레이드 하지 못하면 예기치 않은 예외 또는 원격 분석을 수집 하지 않을 수 있습니다.** _
+**_제대로 업그레이드 하지 못하면 예기치 않은 예외 또는 원격 분석을 수집 하지 않을 수 있습니다._* _
 
 
 ## <a name="no-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Visual Studio에 'Application Insights 추가' 옵션이 없음

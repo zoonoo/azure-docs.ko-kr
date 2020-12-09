@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: e2d87d4322ac6b91a19a4775c23ceec75d528030
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 43c39c40af6e02861211a8666fefa57c34072f32
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325335"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905199"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>콘텐츠 중재 검토, 워크플로 및 작업
 
@@ -42,7 +42,7 @@ Content Moderator은 기계 지원 조정을 사용자의 루프 기능과 결�
 > [!div class="mx-imgBorder"]
 > ![검색 도구 모음이 표시 됩니다. 여기에는 검토 상태 및 태그와 같은 검색 조건을 입력 하는 다양 한 콤보 상자가 있습니다.](./Review-Tool-user-Guide/images/review-search.png)
 
-[검토 도구 가이드](./review-tool-user-guide/review-moderated-images.md) 를 참조 하 여 검토 만들기를 시작 하거나 [REST API 가이드](./try-review-api-review.md) 를 참조 하 여 프로그래밍 방식으로 작업을 수행 하는 방법을 알아보세요.
+[검토 도구 가이드](./review-tool-user-guide/review-moderated-images.md) 를 참조 하 여 검토를 시작 하거나 [API 콘솔 가이드](./try-review-api-review.md) 를 참조 하 여 프로그래밍 방식으로이 작업을 수행 하는 방법을 알아보세요.
 
 ## <a name="workflows"></a>워크플로
 
@@ -80,13 +80,13 @@ Content Moderator은 기계 지원 조정을 사용자의 루프 기능과 결�
 }
 ```
 
-워크플로 만들기 및 사용을 시작 하려면 [검토 도구 가이드](./review-tool-user-guide/workflows.md) 를 참조 하거나 프로그래밍 방식으로 작업을 수행 하는 방법을 알아보려면 [REST API 가이드](./try-review-api-workflow.md) 를 참조 하세요.
+워크플로를 만들고 사용 하는 방법에 대 한 자세한 내용은 [검토 도구 가이드](./review-tool-user-guide/workflows.md) 를 참조 하거나, 프로그래밍 방식으로 작업을 수행 하는 방법에 대해 알아보려면 [API 콘솔 가이드](./try-review-api-workflow.md) 를 참조 하세요.
 
 ## <a name="jobs"></a>작업
 
 중재 작업은 콘텐츠 중재, 워크플로 및 리뷰의 기능에 대 한 일종의 래퍼 역할을 합니다. 작업은 Content Moderator 이미지 조정 API 또는 텍스트 중재 API를 사용 하 여 콘텐츠를 검색 한 다음 지정 된 워크플로를 사용 하 여 확인 합니다. 워크플로 결과에 따라 [검토 도구](./review-tool-user-guide/human-in-the-loop.md)에서 콘텐츠에 대 한 검토가 생성 되거나 생성 되지 않을 수 있습니다. 검토와 워크플로를 각각의 해당 Api를 사용 하 여 만들고 구성할 수 있지만 작업 API를 사용 하면 지정 된 콜백 끝점에 보낼 수 있는 전체 프로세스에 대 한 자세한 보고서를 가져올 수 있습니다.
 
-작업 사용을 시작 하려면 [REST API 가이드](./try-review-api-job.md) 를 참조 하세요.
+작업 사용을 시작 하려면 [API 콘솔 가이드](./try-review-api-job.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

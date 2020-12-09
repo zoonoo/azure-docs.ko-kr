@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6fa9f5d86d3640bf3ae0233e7d6d8a00752f5b6d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 895b8441f340d085932cade513c9f8929491b374
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460800"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904264"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -22,7 +22,7 @@ Key Vault를 사용하면 애플리케이션 내에서 중요한 정보를 안�
 - 키, 암호 및 인증서는 코드를 직접 작성 하지 않고도 보호 되며 응용 프로그램에서 쉽게 사용할 수 있습니다.
 - 고객은 핵심 소프트웨어 기능을 제공 하는 데 집중할 수 있도록 자신의 키, 암호 및 인증서를 소유 하 고 관리할 수 있습니다. 이러한 방식으로 응용 프로그램은 고객의 테 넌 트 키, 암호 및 인증서에 대 한 책임 또는 잠재적인 책임을 소유 하지 않습니다.
 - 응용 프로그램은 서명 및 암호화를 위해 키를 사용할 수 있지만 응용 프로그램 외부에서 키 관리를 유지 합니다. 키에 대 한 자세한 내용은 [키](../keys/about-keys.md) 정보를 참조 하세요.
-- 암호, 액세스 키, Key Vault에 암호를 저장 하는 sas 토큰과 같은 자격 증명을 암호로 관리할 수 있습니다. [비밀 정보](../secrets/about-secrets.md) 를 참조 하세요.
+- 암호, 액세스 키 및 sas 토큰과 같은 자격 증명을 Key Vault에 암호로 저장 하 여 관리할 수 있습니다. 암호 [정보](../secrets/about-secrets.md) 를 참조 하세요.
 - 인증서를 관리 합니다. 자세한 내용은 [인증서 정보](../certificates/about-certificates.md) 를 참조 하세요.
 
 Azure Key Vault에 대한 일반적인 내용은 [Key Vault란?](overview.md)을 참조하세요.

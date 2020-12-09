@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure 맵의 날씨 서비스 개념
-description: Microsoft Azure Maps 날씨 서비스에 적용 되는 개념에 대해 알아봅니다.
+title: Microsoft Azure 맵의 날씨 서비스 (미리 보기) 개념
+description: Microsoft Azure Maps 날씨 서비스 (미리 보기)에 적용 되는 개념에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,22 +8,26 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ea8698b7bf402850e506ec126cd2a7bb6ce05823
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896730"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904740"
 ---
-# <a name="weather-services-in-azure-maps"></a>Azure Maps의 날씨 서비스
+# <a name="weather-services-preview-in-azure-maps"></a>Azure Maps의 날씨 서비스 (미리 보기)
 
-이 문서에서는 [Azure Maps 날씨 서비스](/rest/api/maps/weather)에 적용 되는 개념을 소개 합니다. 날씨 Api를 시작 하기 전에이 문서를 진행 하는 것이 좋습니다.
+> [!IMPORTANT]
+> Azure Maps 날씨 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+이 문서에서는 Azure Maps [날씨 서비스](/rest/api/maps/weather)에 적용 되는 개념을 소개 합니다. 날씨 Api를 시작 하기 전에이 문서를 진행 하는 것이 좋습니다.
 
 ## <a name="unit-types"></a>단위 유형
 
-일부 날씨 서비스 Api를 통해 사용자는 데이터를 메트릭 또는 왕정 단위로 반환 하는지 여부를 지정할 수 있습니다. 이러한 Api에 대해 반환 된 응답에는 단위 번역에 사용할 수 있는 (Unittype.pixel) 및 숫자 값이 포함 됩니다. 이러한 값을 해석 하려면 아래 표를 참조 하세요.
+일부 날씨 서비스 (미리 보기) Api를 사용 하면 사용자가 메트릭이 나 왕정 단위로 데이터가 반환 되는지 여부를 지정할 수 있습니다. 이러한 Api에 대해 반환 된 응답에는 단위 번역에 사용할 수 있는 (Unittype.pixel) 및 숫자 값이 포함 됩니다. 이러한 값을 해석 하려면 아래 표를 참조 하세요.
 
-|(Unittype.pixel)|설명         |
+|(Unittype.pixel)|Description         |
 |--------|--------------------|
 |0       |발                |
 |1       |x              |
@@ -52,7 +56,7 @@ ms.locfileid: "92896730"
 
 ## <a name="weather-icons"></a>날씨 아이콘
 
-일부 날씨 서비스 Api는 응답에서을 반환 합니다 `iconCode` . 는 `iconCode` 아이콘을 정의 하는 데 사용 되는 숫자 값입니다. 응용 프로그램에서 이러한 이미지에 직접 연결 하지 않으면 Url이 변경 될 수 있으며 변경 될 수 있습니다.
+일부 날씨 서비스 (미리 보기) Api는 응답에서을 반환 합니다 `iconCode` . 는 `iconCode` 아이콘을 정의 하는 데 사용 되는 숫자 값입니다. 응용 프로그램에서 이러한 이미지에 직접 연결 하지 않으면 Url이 변경 될 수 있으며 변경 될 수 있습니다.
 
 | 아이콘 번호 |아이콘| 일 | 모드 | 텍스트 |
 |-------------|:----:|-----|-------|------|
@@ -585,7 +589,7 @@ ms.locfileid: "92896730"
   ----------------|--------------|------------
   낮음                |  0         |        1.99
   보통           |  2         |        3.99
-  높음               |  4         |        5.99
+  높은               |  4         |        5.99
   매우 높음          |  6         |        7.99
   극단            |  8         |        10
 
@@ -595,7 +599,7 @@ ms.locfileid: "92896730"
   ----------------|--------------|------------
   낮음                |  0            |      2.99
   보통           |  3            |      4.99
-  높음               |  5            |      6.99
+  높은               |  5            |      6.99
   매우 높음          |  7            |      8.99
   극단            |  9            |      10
 
@@ -626,7 +630,7 @@ ms.locfileid: "92896730"
   많지         |  0     |          2.99
   보기            |  3     |          4.99
   권고         |  5     |          6.99
-  경고          |  7     |          8.99
+  Warning          |  7     |          8.99
   응급        |  9     |          10
 
 ### <a name="beneficial-at-extreme-risk"></a>심각한 위험 Beneficial-At

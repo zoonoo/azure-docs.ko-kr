@@ -1,23 +1,27 @@
 ---
-title: Microsoft Azure Maps 날씨 서비스 FAQ (질문과 대답)
-description: Azure Maps 날씨 서비스 데이터 및 기능에 대 한 일반적인 질문에 대 한 답변을 찾습니다.
+title: Microsoft Azure Maps 날씨 서비스 (미리 보기) FAQ (질문과 대답)
+description: Azure Maps 날씨 서비스 (미리 보기) 데이터 및 기능에 대 한 일반적인 질문에 대 한 답변을 찾습니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/04/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 2a5a58c1515c647bb76bf35f3a5eaade3d00588a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8b7726e4e8fee0044a7865c8c494ef6451425676
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747330"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903873"
 ---
-# <a name="azure-maps-weather-services-frequently-asked-questions-faq"></a>Azure Maps 날씨 서비스 FAQ (질문과 대답)
+# <a name="azure-maps-weather-services-preview-frequently-asked-questions-faq"></a>Azure Maps 날씨 서비스 (미리 보기) FAQ (질문과 대답)
 
-이 문서에서는 [Azure Maps 날씨 서비스](https://docs.microsoft.com/rest/api/maps/weather) 데이터 및 기능에 대 한 일반적인 질문에 답변 합니다. 이 섹션에서 다루는 항목은 다음과 같습니다.
+> [!IMPORTANT]
+> Azure Maps 날씨 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+이 문서에서는 Azure Maps [날씨 서비스](https://docs.microsoft.com/rest/api/maps/weather) 데이터 및 기능에 대 한 일반적인 질문에 답변 합니다. 이 섹션에서 다루는 항목은 다음과 같습니다.
 
 * 데이터 원본 및 데이터 모델
 * 날씨 서비스 범위 및 가용성
@@ -51,7 +55,7 @@ AccuWeather에는 전 세계 어디에서 나 사용할 수 있는 실시간 날
 
 수많은 날씨 예측 지침 시스템을 활용 하 여 글로벌 예측을 작성 합니다. 150 초과 숫자 예측 모델은 매일 외부 및 내부 데이터 집합 모두에 사용 됩니다. 여기에는 유럽 센터 ECMWF 및 미국 GFS (Global 예측 시스템)와 같은 정부 모델이 포함 됩니다. 또한 AccuWeather는 특정 위치 및 전략적 지역 도메인에 대 한 확장 예측을 다운 하는 소유 고해상도 모델을 통합 하 여 더 정확한 정확성으로 일기 예보를 예측 합니다. 몇 년간의 고유한 혼합 및 가중치 알고리즘이 지난 몇 년간 개발 되었습니다. 이러한 알고리즘은 매우 정확한 예측을 제공 하기 위해 다양 한 예측 입력을 최적으로 활용 합니다.
 
-## <a name="weather-services-coverage-and-availability"></a>날씨 서비스 범위 및 가용성
+## <a name="weather-services-preview-coverage-and-availability"></a>날씨 서비스 (미리 보기) 검사 및 가용성
 
 **다른 국가/지역에 대해 어떤 종류의 적용을 받을 수 있나요?**
 
@@ -73,11 +77,11 @@ Azure Maps 예측 Api는 최대 30 분 동안 캐시 됩니다. 캐시 된 응�
 
 ## <a name="developing-with-azure-maps-sdks"></a>Azure Maps Sdk를 사용 하 여 개발
 
-**웹 SDK Azure Maps는 기본적으로 날씨 서비스 통합을 지원 하나요?**
+**웹 SDK Azure Maps는 기본적으로 날씨 서비스 (미리 보기) 통합을 지원 하나요?**
 
 Azure Maps 웹 SDK는 서비스 모듈을 제공 합니다. 서비스 모듈은 웹 또는 Node.js 응용 프로그램에서 Azure Maps REST 서비스를 쉽게 사용할 수 있도록 하는 도우미 라이브러리입니다. JavaScript 또는 TypeScript를 사용 합니다. 시작 하려면 [설명서](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)를 참조 하세요.
 
-**Azure Maps는 기본적으로 날씨 서비스 통합을 지원 Android SDK 하나요?**
+**는 기본적으로 날씨 서비스 (미리 보기) 통합을 지원 Android SDK Azure Maps 합니까?**
 
 Azure Maps Android Sdk는 x/y/zoom 표기법, 쿼드 키 표기법 또는 EPSG 3857 경계 상자 표기법을 사용할 수 있는 Mercator 타일 계층을 지원 합니다.
 
@@ -99,7 +103,7 @@ Azure Maps [날씨 개념 문서](https://docs.microsoft.com/azure/azure-maps/we
 
 **다른 날씨 조건에 대 한 아이콘을 제공 하나요?**
 
-예. [여기](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons)에서 아이콘 및 해당 코드를 찾을 수 있습니다. [현재 조건 가져오기 API](https://aka.ms/azuremapsweathercurrentconditions)와 같은 일부 날씨 서비스 api만 응답의 *iconcode* 를 반환 합니다. 자세한 내용은 현재 WeatherConditions 오픈 소스 [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)을 참조 하세요.
+예. [여기](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons)에서 아이콘 및 해당 코드를 찾을 수 있습니다. [현재 조건 가져오기 api](https://aka.ms/azuremapsweathercurrentconditions)와 같은 일부 날씨 서비스 (미리 보기) api만 응답의 *iconcode* 를 반환 합니다. 자세한 내용은 현재 WeatherConditions 오픈 소스 [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -110,15 +114,15 @@ Azure Maps [날씨 개념 문서](https://docs.microsoft.com/azure/azure-maps/we
 * Microsoft 지원 새 지원 요청을 만들려면 [Azure Portal](https://portal.azure.com/)의 도움말 탭에서 **도움말 +** 지원 단추를 선택한 다음 **새 지원 요청** 을 선택 합니다.
 * [UserVoice를 Azure Maps](https://feedback.azure.com/forums/909172-azure-maps) 하 여 기능 요청을 제출 합니다.
 
-Azure Maps 날씨 서비스를 사용 하 여 실시간 및 예측 날씨 데이터를 요청 하는 방법을 알아봅니다.
+Azure Maps 날씨 서비스 (미리 보기)를 사용 하 여 실시간 및 예측 날씨 데이터를 요청 하는 방법을 알아봅니다.
 > [!div class="nextstepaction"]
 > [실시간 날씨 데이터 요청 ](how-to-request-weather-data.md)
 
-Azure Maps 날씨 서비스 개념 문서:
+Azure Maps 날씨 서비스 (미리 보기) 개념 문서:
 > [!div class="nextstepaction"]
 > [날씨 서비스 개념](weather-coverage.md)
 
-Azure Maps 날씨 서비스 API 설명서를 탐색 합니다.
+Azure Maps 날씨 서비스 (미리 보기) API 설명서를 탐색 합니다.
 
 > [!div class="nextstepaction"]
 > [Azure Maps 날씨 서비스](/rest/api/maps/weather)

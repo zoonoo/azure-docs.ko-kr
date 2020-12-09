@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 96e6b7a672e2967403626cb9ba7db87fc4dd795c
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 0da970724a5d6f0ad42ba64939f316ec1ada855b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980204"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905556"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Azure Storage에 대 한 개인 끝점 사용
 
@@ -80,7 +80,7 @@ VNet에서 스토리지 서비스에 대한 프라이빗 엔드포인트를 만�
 
 위의 예에서는 개인 끝점을 호스트 하는 VNet 외부에서 확인 되는 경우 저장소 계정 ' StorageAccountA '에 대 한 DNS 리소스 레코드는 다음과 같습니다.
 
-| 이름                                                  | Type  | 값                                                 |
+| Name                                                  | Type  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
@@ -90,7 +90,7 @@ VNet에서 스토리지 서비스에 대한 프라이빗 엔드포인트를 만�
 
 StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 VNet의 클라이언트에서 확인 되는 경우 다음과 같습니다.
 
-| 이름                                                  | Type  | 값                                                 |
+| Name                                                  | Type  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
@@ -125,10 +125,6 @@ StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트
 ## <a name="known-issues"></a>알려진 문제
 
 Azure Storage에 대 한 개인 끝점에 대 한 다음과 같은 알려진 문제를 염두에 두어야 합니다.
-
-### <a name="copy-blob-support"></a>Blob 복사 지원
-
-저장소 계정이 방화벽으로 보호 되 고 개인 끝점을 통해 계정에 액세스 하는 경우 해당 계정은 [Blob 복사](/rest/api/storageservices/copy-blob) 작업의 원본으로 사용할 수 없습니다.
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>전용 끝점을 사용 하는 Vnet의 클라이언트에 대 한 저장소 액세스 제약 조건
 

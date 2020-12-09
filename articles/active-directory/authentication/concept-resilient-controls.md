@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b5b83d75df734c667c365f20fad2e1f62f997d7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 95f70005f2c7f53833163dcd5f0d2ee89b3db37c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994284"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861292"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
 
@@ -120,7 +120,7 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 * 하나의 자격 증명 유형 또는 하나의 액세스 제어 메커니즘의 중단으로 인해 앱에 대한 액세스에 영향을 주는 경우 일단의 대체 정책을 구성합니다. 도메인 가입을 제어로 사용 하는 보고서 전용 상태의 정책을 타사 MFA 공급자가 필요한 활성 정책에 대 한 백업으로 구성 합니다.
 * [암호 지침](https://aka.ms/passwordguidance) 백서의 사례에 따라 MFA를 요구하지 않을 때 악의적인 행위자의 암호 추측에 대한 위험을 줄입니다.
 * [Azure AD SSPR(셀프 서비스 암호 재설정)](./tutorial-enable-sspr.md) 및 [Azure AD 암호 보호](./howto-password-ban-bad-on-premises-deploy.md)를 배포하여 사용자가 금지하도록 선택한 일반적인 암호와 용어를 사용하지 못하도록 합니다.
-* 특정 인증 수준에 도달하지 못하는 경우 단순히 전체 액세스로 대체하는 대신 앱 내에서 액세스를 제한하는 정책을 사용합니다. 예들 들어 다음과 같습니다.
+* 특정 인증 수준에 도달하지 못하는 경우 단순히 전체 액세스로 대체하는 대신 앱 내에서 액세스를 제한하는 정책을 사용합니다. 예를 들어:
   * 제한된 세션 클레임을 Exchange 및 SharePoint로 보내는 백업 정책을 구성합니다.
   * 조직에서 MCAS(Microsoft Cloud App Security)를 사용하는 경우 MCAS를 사용하는 정책으로 대체한 다음, MCAS에서 읽기 전용 액세스만 허용하고 업로드는 허용하지 않는 것이 좋습니다.
 * 중단 시 정책을 쉽게 찾을 수 있도록 해당 정책의 이름을 지정합니다. 정책 이름에 포함되는 요소는 다음과 같습니다.
@@ -266,7 +266,7 @@ NPS 확장 사용 안 함:
 3. 중단 중에 수행되고 문서화된 다른 변경을 롤백합니다.
 4. 응급 액세스 계정을 사용한 경우 응급 액세스 계정 절차의 일환으로 자격 증명을 다시 생성하고 새 자격 증명의 세부 정보를 물리적으로 보호합니다.
 5. 의심 스러운 활동의 중단 이후에 [보고 된 모든 위험](../reports-monitoring/concept-sign-ins.md) 검색을 계속 심사 합니다.
-6. [PowerShell을 사용](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)하여 발급된 모든 새로 고침 토큰을 철회하여 일단의 사용자를 대상으로 지정합니다. 모든 새로 고침 토큰을 철회하는 것은 중단 중에 사용되는 권한 있는 계정에 중요합니다. 이를 수행하는 경우 복원된 정책의 제어를 다시 인증하고 충족하도록 강제로 적용합니다.
+6. [PowerShell을 사용](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)하여 발급된 모든 새로 고침 토큰을 철회하여 일단의 사용자를 대상으로 지정합니다. 모든 새로 고침 토큰을 철회하는 것은 중단 중에 사용되는 권한 있는 계정에 중요합니다. 이를 수행하는 경우 복원된 정책의 제어를 다시 인증하고 충족하도록 강제로 적용합니다.
 
 ## <a name="emergency-options"></a>응급 옵션
 
@@ -287,7 +287,7 @@ NPS 확장 사용 안 함:
 * [Azure AD 인증 설명서](./howto-mfaserver-iis.md)
 * [Azure AD에서 응급 액세스 관리 계정 관리](../roles/security-emergency-access.md)
 * [Azure Active Directory에서 명명 된 위치 구성](../reports-monitoring/quickstart-configure-named-locations.md)
-  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
 * [하이브리드 Azure Active Directory 가입 디바이스를 구성하는 방법](../devices/hybrid-azuread-join-plan.md)
 * [비즈니스용 Windows Hello 배포 가이드](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [암호 지침 - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)

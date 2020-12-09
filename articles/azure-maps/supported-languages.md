@@ -1,19 +1,19 @@
 ---
-title: 지역화 지원 | Microsoft Azure Maps
+title: Microsoft Azure 맵을 사용한 지역화 지원
 description: 지도, 검색, 라우팅, 날씨 및 트래픽 인시던트와 같은 서비스를 지 원하는 Azure Maps 지역을 확인 하세요. View 매개 변수를 설정 하는 방법에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50e5d0721eb14d1fcdfad26aaf081bfa370e954e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037697"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904519"
 ---
 # <a name="localization-support-in-azure-maps"></a>Azure Maps의 지역화 지원
 
@@ -22,7 +22,7 @@ Azure Maps는 국가/지역에 따라 다양한 언어와 보기를 지원합니
 
 ## <a name="azure-maps-supported-languages"></a>Azure Maps 지원 언어
 
-Azure Maps는 서비스 전반에 걸쳐 다양한 언어로 지역화되었습니다. 다음 표에서는 각 서비스에 지원되는 언어 코드를 제공합니다.  
+Azure Maps는 서비스 전반에 걸쳐 다양한 언어로 지역화되었습니다. 다음 표에서는 각 서비스에 지원되는 언어 코드를 제공합니다.  
   
 
 | ID         | 속성                   |  지도 | 검색 | 라우팅 | Weather | 트래픽 인시던트 | JS 지도 컨트롤 |
@@ -129,10 +129,10 @@ Azure Maps는 서비스 전반에 걸쳐 다양한 언어로 지역화되었습�
  * Get Search Address Reverse
  * Get Search Address Reverse Cross Street
  * Post Search Inside Geometry
- * Post Search Address Batch Preview
- * Post Search Address Reverse Batch Preview
+ * 사후 검색 주소 일괄 처리
+ * 사후 검색 주소 역방향 일괄 처리
  * Post Search Along Route
- * Post Search Fuzzy Batch Preview
+ * 사후 검색 유사 일괄 처리
 
  
 ### <a name="sdks"></a>SDK
@@ -142,7 +142,7 @@ Azure Maps는 서비스 전반에 걸쳐 다양한 언어로 지역화되었습�
  * Azure Maps 웹 SDK
  * Azure Maps Android SDK
 
-기본적으로 View 매개 변수는 요청에서 정의하지 않은 경우에도 **Unified**로 설정됩니다. 사용자의 위치를 확인합니다. 그런 다음, 해당 위치에 대한 **View** 매개 변수를 올바르게 설정합니다. 또는 'View=Auto'를 설정할 수 있습니다. 이 경우 요청의 IP 주소를 기준으로 지도 데이터를 반환합니다.  Azure Maps의 **View** 매개 변수는 Azure Maps를 통해 사용자에게 액세스 권한이 부여된 지도, 이미지 및 기타 데이터와 타사 콘텐츠를 사용할 수 있는 국가/지역의 지도 관련 법률을 포함하는 해당 법률에 따라 사용해야 합니다.
+기본적으로 View 매개 변수는 요청에서 정의하지 않은 경우에도 **Unified** 로 설정됩니다. 사용자의 위치를 확인합니다. 그런 다음, 해당 위치에 대한 **View** 매개 변수를 올바르게 설정합니다. 또는 'View=Auto'를 설정할 수 있습니다. 이 경우 요청의 IP 주소를 기준으로 지도 데이터를 반환합니다.  Azure Maps의 **View** 매개 변수는 Azure Maps를 통해 사용자에게 액세스 권한이 부여된 지도, 이미지 및 기타 데이터와 타사 콘텐츠를 사용할 수 있는 국가/지역의 지도 관련 법률을 포함하는 해당 법률에 따라 사용해야 합니다.
 
 
 다음 표에서는 지원되는 보기를 제공합니다.

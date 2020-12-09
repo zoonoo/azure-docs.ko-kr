@@ -3,18 +3,18 @@ title: 커뮤니티 오픈 소스 프로젝트 Azure Maps | Microsoft Azure 맵
 description: Microsoft Azure Maps 플랫폼에 맞게 조정 된 오픈 소스 프로젝트입니다.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ebe633bbfa8ec950e7726c127e38adecf0d1872f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 138160eb1515d1443302dbc23bbafa482e2eb905
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896262"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904553"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps community 오픈 소스 프로젝트
 
@@ -24,7 +24,7 @@ ms.locfileid: "92896262"
 
 **봇**
 
-| 프로젝트 이름 | 설명 |
+| 프로젝트 이름 | Description |
 |-|-|
 | [Bot 프레임 워크-관심 지점 기술](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | 관심 지점 기술은 Azure Bot Service 및 봇 프레임 워크와 함께 Azure Maps를 사용 하 여 가상 비서에 게 POI 관련 기능을 제공 합니다. |
 | [BotBuilder 위치](https://github.com/Microsoft/BotBuilder-Location) | Bing 지도 REST 서비스에서 제공 하는 Microsoft Bot Framework에 대 한 오픈 소스 위치 선택 컨트롤입니다. |
@@ -35,7 +35,7 @@ ms.locfileid: "92896262"
 
 다음은 Azure Maps 웹 SDK의 기능을 확장 하는 오픈 소스 프로젝트의 목록입니다.
 
-| 프로젝트 이름 | 설명 |
+| 프로젝트 이름 | Description |
 |-|-|
 | [Azure Maps 애니메이션 모듈](https://github.com/Azure-Samples/azure-maps-animations) | Azure Maps 웹 SDK와 함께 사용 하기 위한 풍부한 애니메이션 라이브러리입니다. |
 | [지리적 위치 제어 모듈 Azure Maps](https://github.com/Azure-Samples/azure-maps-geolocation-control) | 브라우저의 지리적 위치 API를 사용 하 여 맵에서 사용자를 찾는 컨트롤을 제공 하는 Azure Maps 웹 SDK 모듈입니다. |
@@ -48,7 +48,7 @@ ms.locfileid: "92896262"
 
 **샘플**
 
-| 프로젝트 이름 | 설명 |
+| 프로젝트 이름 | Description |
 |-|-|
 | [Azure Maps 코드 샘플](https://github.com/Azure-Samples/AzureMapsCodeSamples) | 웹 기반 앱에서 Azure Maps를 사용 하기 위한 코드 샘플 모음입니다. |
 | [Azure Maps .Gov 클라우드 코드 샘플](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Azure Government 클라우드를 통해 Azure Maps를 사용 하는 코드 샘플 모음입니다. |
@@ -59,10 +59,10 @@ ms.locfileid: "92896262"
 
 **도구 및 리소스**
 
-| 프로젝트 이름 | 설명 |
+| 프로젝트 이름 | Description |
 |-|-|
 | [문서 Azure Maps](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | 모든 Azure Location Based Services 설명서의 원본입니다. |
-| [Azure Maps Creator 도구](https://github.com/Azure-Samples/AzureMapsCreator) | Azure Maps Creator tools 용 Python 도구 |
+| [Azure Maps 작성자 (미리 보기) 도구](https://github.com/Azure-Samples/AzureMapsCreator) | Python tools for Azure Maps Creator (미리 보기) 도구. |
 
 커뮤니티에서 만든 프로젝트를 포함 하는 Azure Maps에 대 한 오픈 소스 프로젝트 목록은 [여기](https://github.com/microsoft/Maps/blob/master/AzureMaps.md) 에서 사용할 수 있습니다.
 

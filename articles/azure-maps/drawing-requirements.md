@@ -1,21 +1,26 @@
 ---
-title: Azure Maps Creator의 그리기 패키지 요구 사항
+title: Microsoft Azure Maps 작성자의 패키지 요구 사항 그리기 (미리 보기)
 description: 기능 디자인 파일을 지도 데이터로 변환 하기 위한 그리기 패키지 요구 사항에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 6/12/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 26b6273b4dd2371790025515e35b71d1fc863ebe
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013125"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903465"
 ---
 # <a name="drawing-package-requirements"></a>그리기 패키지 요구 사항
+
+
+> [!IMPORTANT]
+> Azure Maps 작성자 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 [Azure Maps 변환 서비스](/rest/api/maps/conversion)를 사용 하 여 업로드 된 그리기 패키지를 맵 데이터로 변환할 수 있습니다. 이 문서에서는 Conversion API의 그리기 패키지 요구 사항에 대해 설명합니다. 패키지 샘플을 보려면 [그리기 패키지](https://github.com/Azure-Samples/am-creator-indoor-data-examples) 샘플을 다운로드하면 됩니다.
 
@@ -95,7 +100,7 @@ DWG 레이어에는 단일 클래스의 기능이 포함되어야 합니다. 클
 
 각 수준에 대한 DWG 파일에는 해당 수준의 경계를 정의하는 레이어가 포함되어야 합니다. 이 계층을 *외부* 계층 이라고 합니다. 예를 들어 두 개의 수준이 시설에 포함된 경우 각 파일에 대한 실외 레이어가 포함된 두 개의 DWG 파일이 있어야 합니다.
 
-외부 계층에 있는 엔터티 그리기의 수에 관계 없이 [결과 기능 데이터 집합](tutorial-creator-indoor-maps.md#create-a-feature-stateset) 은 각 DWG 파일에 대해 하나의 수준 기능만 포함 합니다. 또한 다음 작업도 수행해야 합니다.
+외부 계층에 있는 엔터티 그리기의 수에 관계 없이 [결과 기능 데이터 집합](tutorial-creator-indoor-maps.md#create-a-feature-stateset) 은 각 DWG 파일에 대해 하나의 수준 기능만 포함 합니다. 추가 필수 구성 요소:
 
 * Exteriors는 다각형, 폴리라인 (닫힌) 또는 원으로 그려야 합니다.
 * Exteriors은 겹칠 수 있지만 하나의 기 하 도형으로 사라지고 됩니다.
@@ -188,7 +193,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### `directoryInfo`
 
-| 속성  | 형식 | 필수 | Description |
+| 속성  | Type | 필수 | Description |
 |-----------|------|----------|-------------|
 | `name`      | 문자열 | true   |  건물의 이름입니다. |
 | `streetAddress`|    문자열 |    false    | 건물의 주소입니다. |
@@ -209,7 +214,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 `buildingLevels` 개체에는 건물 수준의 JSON 배열이 포함됩니다.
 
-| 속성  | 형식 | 필수 | Description |
+| 속성  | Type | 필수 | Description |
 |-----------|------|----------|-------------|
 |`levelName`    |문자열    |true |    설명이 포함된 수준 이름입니다. 예: 층 1, 로비, Blue 주차장 또는 지하실.|
 |`ordinal` | integer |    true | 수준 세로 순서를 결정 합니다. 모든 시설에는 서수가 0인 수준이 있어야 합니다. |
@@ -219,7 +224,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### `georeference`
 
-| 속성  | 형식 | 필수 | Description |
+| 속성  | Type | 필수 | Description |
 |-----------|------|----------|-------------|
 |`lat`    | numeric |    true |    시설 그리기의 원점에 대한 위도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다.|
 |`lon`    |numeric|    true|    시설 그리기의 원점에 대한 경도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다. |
@@ -227,7 +232,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### `dwgLayers`
 
-| 속성  | 형식 | 필수 | Description |
+| 속성  | Type | 필수 | Description |
 |-----------|------|----------|-------------|
 |`exterior`    |문자열 배열|    true|    외부 빌딩 프로필을 정의 하는 계층의 이름입니다.|
 |`unit`|    문자열 배열|    true|    단위를 정의 하는 레이어의 이름입니다.|
@@ -241,7 +246,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 `unitProperties` 개체에는 단위 속성의 JSON 배열이 포함됩니다.
 
-| 속성  | 형식 | 필수 | Description |
+| 속성  | Type | 필수 | Description |
 |-----------|------|----------|-------------|
 |`unitName`    |문자열    |true    |이 `unitProperty` 레코드와 연결할 단위의 이름입니다. 이 레코드는 계층에서 레이블 일치를 찾은 경우에만 유효 합니다 `unitName` `unitLabel` . |
 |`categoryName`|    문자열|    false    |범주 이름입니다. 전체 범주 목록은 [범주](https://aka.ms/pa-indoor-spacecategories)를 참조하세요. |
@@ -261,7 +266,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 `zoneProperties` 개체에는 영역 속성의 JSON 배열이 포함됩니다.
 
-| 속성  | 형식 | 필수 | Description |
+| 속성  | Type | 필수 | Description |
 |-----------|------|----------|-------------|
 |zoneName        |문자열    |true    |`zoneProperty` 레코드와 연결할 영역의 이름입니다. `zoneName`과 일치하는 레이블이 영역의 `zoneLabel` 레이어에 있는 경우에만 이 레코드가 유효합니다.  |
 |categoryName|    문자열|    false    |범주 이름입니다. 전체 범주 목록은 [범주](https://aka.ms/pa-indoor-spacecategories)를 참조하세요. |
@@ -407,10 +412,10 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 그리기 패키지가 요구 사항을 충족 하는 경우 [Azure Maps 변환 서비스](/rest/api/maps/conversion) 를 사용 하 여 패키지를 맵 데이터 집합으로 변환할 수 있습니다. 그런 다음, 데이터 집합을 사용 하 여 실내 지도 모듈을 통해 실내 지도를 생성할 수 있습니다.
 
 > [!div class="nextstepaction"]
->[실내 맵용 Creator](creator-indoor-maps.md)
+>[실내 지도의 작성자 (미리 보기)](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
-> [자습서: Creator 실내 맵 만들기](tutorial-creator-indoor-maps.md)
+> [자습서: 작성자 (미리 보기) 실내 지도 만들기](tutorial-creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [실내 지도 동적 스타일 지정](indoor-map-dynamic-styling.md)

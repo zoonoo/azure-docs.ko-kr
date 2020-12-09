@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c058f74bb4e390fe7a5003d6ab5d963c56ef2d5
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: dca888bf9e3dc75e80764949a11d95efe3514635
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836379"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861819"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 암호 해시 동기화로 마이그레이션
 
@@ -104,7 +104,7 @@ Azure AD Connect는 기본 설정 또는 사용자 지정 설치를 사용하여
 Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
 ```
 
-예제:
+예:
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
@@ -115,7 +115,7 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 자세한 내용은 다음 문서를 참조하세요.
 
 * [AD FS 프롬프트에서 로그인 매개 변수 지원](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
-* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
+* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication)
 
 > [!NOTE]
 > **SupportsMfa** 가 **True** 로 설정되어 있으면 온-프레미스 다단계 인증 솔루션을 사용하여 사용자 인증 흐름에 2단계 챌린지를 삽입합니다. 이 설정은 페더레이션에서 관리 되는 인증으로 변환 된 후 Azure AD 인증 시나리오에서 더 이상 작동 하지 않습니다. 페더레이션을 사용 하지 않도록 설정한 후 온-프레미스 페더레이션에 대 한 관계를 서버에 연결할 수 있으며 여기에는 온-프레미스 MFA 어댑터가 포함 됩니다. 

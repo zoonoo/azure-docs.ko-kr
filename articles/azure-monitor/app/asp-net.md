@@ -4,12 +4,12 @@ description: Azure 또는 온-프레미스에 호스트되는 ASP.NET 웹 사이
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 861a9f53c2f149268e06005053206a7411e842f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 970971082e684ebcb6efce07bb707ffbb20ed228
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838945"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904179"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트에 대 한 Application Insights 구성
 
@@ -26,19 +26,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 - [Application Insights 작업 영역 기반 리소스](create-workspace-resource.md)를 만듭니다.
 
+> [!IMPORTANT]
+> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 사용 **해야** 합니다. [연결 문자열](./sdk-connection-string.md?tabs=net) 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+
+
 ## <a name="create-a-basic-aspnet-web-app"></a>기본 ASP.NET 웹 앱 만들기
 
 1. Visual Studio 2019를 시작합니다.
-2. **File** > **New** > **Project**를 선택합니다.
+2. **File** > **New** > **Project** 를 선택합니다.
 3. **ASP.NET 웹 응용 프로그램 (.Net Framework) c #** 을 선택 합니다.
-4. 프로젝트 이름을 입력 하 > **만들기를 선택**합니다.
-5. **MVC**  >  **만들기**를 선택 합니다. 
+4. 프로젝트 이름을 입력 하 > **만들기를 선택** 합니다.
+5. **MVC**  >  **만들기** 를 선택 합니다. 
 
 ## <a name="add-application-insights-automatically"></a>자동으로 Application Insights 추가
 
 이 섹션에서는 템플릿 기반 ASP.NET 웹 앱에 Application Insights을 자동으로 추가 하는 과정을 안내 합니다. Visual Studio의 ASP.NET 웹 앱 프로젝트 내에서:
 
-1. **추가 Application Insights 원격 분석**  >  **Application Insights Sdk (로컬)**  >  **다음**  >  **마침**  >  **닫기**를 선택 합니다.
+1. **추가 Application Insights 원격 분석**  >  **Application Insights Sdk (로컬)**  >  **다음**  >  **마침**  >  **닫기** 를 선택 합니다.
 2. `ApplicationInsights.config` 파일을 엽니다. 
 3. 닫는 태그 앞에 `</ApplicationInsights>` Application Insights 리소스에 대 한 계측 키를 포함 하는 줄을 추가 합니다.  이 문서에 대 한 필수 구성 요소의 일부로 만든 새로 만든 Application Insights 리소스의 개요 창에서 계측 키를 찾을 수 있습니다.
 
@@ -46,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     <InstrumentationKey>your-instrumentation-key-goes-here</InstrumentationKey>
     ```
 4. **프로젝트**  >  **nuget 패키지 관리**  >  **업데이트** 를 선택 하 > 각 `Microsoft.ApplicationInsights` nuget 패키지를 안정적인 최신 릴리스로 업데이트 합니다.   
-5. **IIS Express**를 선택 하 여 응용 프로그램을 실행 합니다. 기본 ASP.NET 앱이 시작 됩니다. 탐색할 때 사이트 원격 분석의 페이지는 Application Insights 전송 됩니다.
+5. **IIS Express** 를 선택 하 여 응용 프로그램을 실행 합니다. 기본 ASP.NET 앱이 시작 됩니다. 탐색할 때 사이트 원격 분석의 페이지는 Application Insights 전송 됩니다.
 
 ## <a name="add-application-insights-manually"></a>수동으로 Application Insights 추가
 
@@ -342,7 +346,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이전 섹션에서는 서버 쪽 모니터링을 자동 및 수동으로 구성 하는 방법에 대 한 지침을 제공 했습니다. 클라이언트 쪽 모니터링을 추가 하려면 [클라이언트 쪽 JAVASCRIPT SDK](javascript.md)를 사용 해야 합니다. 페이지 HTML의 닫는 태그 앞에 [JavaScript 코드 조각을](javascript.md#snippet-based-setup) 추가 하 여 웹 페이지의 클라이언트 쪽 트랜잭션을 모니터링할 수 있습니다 `</head>` . 
 
-는 각 HTML 페이지의 헤더에 코드 조각을 수동으로 추가할 수 있지만, 코드 조각을 사이트의 모든 페이지에 삽입 하는 기본 페이지에 코드 조각을 추가 하는 것이 좋습니다. 이 문서에서 템플릿 기반 ASP.NET MVC 앱의 경우 편집 해야 하는 파일을 라고 `_Layout.cshtml` 하며 공유 된 **뷰**아래에 있습니다  >  **Shared**.
+는 각 HTML 페이지의 헤더에 코드 조각을 수동으로 추가할 수 있지만, 코드 조각을 사이트의 모든 페이지에 삽입 하는 기본 페이지에 코드 조각을 추가 하는 것이 좋습니다. 이 문서에서 템플릿 기반 ASP.NET MVC 앱의 경우 편집 해야 하는 파일을 라고 `_Layout.cshtml` 하며 공유 된 **뷰** 아래에 있습니다  >  **Shared**.
 
 클라이언트 쪽 모니터링을 추가 하려면 파일을 열고 `_Layout.cshtml` 클라이언트 쪽 JAVASCRIPT SDK 구성 문서의 [코드 조각 기반 설치 지침](javascript.md#snippet-based-setup) 을 따릅니다.
 

@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 4280932787cfb2220dab1da84dca41ca0c40e302
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cf7c5fa8563544add55a7fad5075848eb5116fe1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485259"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901935"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>네트워킹 개요-Azure Database for PostgreSQL 유연한 서버
 
@@ -33,7 +33,7 @@ Azure Database for PostgreSQL 유연한 서버에 대 한 두 가지 네트워�
    * VPN 또는 ExpressRoute를 사용하여 비 Azure 리소스에서 유연한 서버에 연결
    * 유연한 서버에는 공용 끝점이 없습니다.
 
-* **공용 액세스 (허용 된 IP 주소)** – 유연한 서버는 공용 끝점을 통해 액세스 됩니다. 퍼블릭 엔드포인트는 공개적으로 확인할 수 있는 DNS 주소입니다. "허용되는 IP 주소"라는 말은 선택하는 IP 범위에 서버 액세스 권한을 부여한다는 뜻입니다. 이러한 권한을 **방화벽 규칙**이라고 합니다. 
+* **공용 액세스 (허용 된 IP 주소)** – 유연한 서버는 공용 끝점을 통해 액세스 됩니다. 퍼블릭 엔드포인트는 공개적으로 확인할 수 있는 DNS 주소입니다. "허용되는 IP 주소"라는 말은 선택하는 IP 범위에 서버 액세스 권한을 부여한다는 뜻입니다. 이러한 권한을 **방화벽 규칙** 이라고 합니다. 
 
    다음 기능을 사용 하려면 공용 액세스 방법을 선택 합니다.
    * 가상 네트워크를 지원 하지 않는 Azure 리소스에서 연결
@@ -107,11 +107,12 @@ PostgreSQL용 Microsoft Azure 데이터베이스 서버 서비스로의 연결�
    * ISP(인터넷 서비스 공급자)는 PostgreSQL용 Azure 데이터베이스 서버에 연결될 클라이언트에 할당된 IP 주소 범위를 요청하고, 방화벽 규칙에 따라 IP 주소 범위를 추가합니다.
    * 클라이언트 컴퓨터 대신 고정 IP 지정을 가져온 다음 고정 IP 주소를 방화벽 규칙으로 추가합니다.
 
+* **방화벽 규칙을 IPv6 형식에 사용할 수 없습니다.** 방화벽 규칙은 IPv4 형식 이어야 합니다. IPv6 형식으로 방화벽 규칙을 지정 하는 경우 유효성 검사 오류가 표시 됩니다.
 
-## <a name="hostname"></a>Hostname
+## <a name="hostname"></a>호스트 이름
 선택한 네트워킹 옵션에 관계 없이 유연한 서버에 연결할 때 항상 FQDN (정규화 된 도메인 이름)을 호스트 이름으로 사용 하는 것이 좋습니다. 서버의 IP 주소는 정적으로 유지 되지 않을 수 있습니다. FQDN을 사용 하면 연결 문자열을 변경 하지 않아도 됩니다. 
 
-예제
+예
 * 바람직하지 `hostname = servername.postgres.database.azure.com`
 * 가능 하면 `hostname = 10.0.0.4` (개인 주소) 또는 `hostname = 40.2.45.67` (공용 주소)를 사용 하지 마십시오.
 
