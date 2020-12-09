@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: cb74a799efb6099b55c9da9650d9cca7358ecbed
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 55651b3201676ee5cddb5412e950791afaa4e87a
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554332"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852135"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Azure Data Factory 및 Azure 부서의 범위를 연결 하는 방법
 
@@ -34,10 +34,10 @@ ms.locfileid: "96554332"
     - **연결 끊김**: 데이터 팩터리가 카탈로그에 액세스할 수 있지만 다른 카탈로그에 연결 되어 있습니다. 따라서 데이터 계보는 카탈로그에 자동으로 보고 되지 않습니다.
     - **Cannotaccess**: 현재 사용자에 게 data factory에 대 한 액세스 권한이 없으므로 연결 상태를 알 수 없습니다.
  >[!Note]
- >Data Factory 연결을 보려면 Azure build in 역할 중 하나를 할당 해야 합니다.
+ >Data Factory 연결을 보려면 부서의 범위 역할 중 하나를 할당 해야 합니다.
  >- 참가자
  >- 소유자
- >- Reader
+ >- 읽기 권한자
  >- 사용자 액세스 관리자
 
 ## <a name="create-new-data-factory-connection"></a>새 Data Factory 연결 만들기
@@ -72,9 +72,9 @@ Data factory 연결을 제거 하려면 다음을 수행 합니다.
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="데이터 팩터리를 선택 하 여 연결을 제거 하는 방법을 보여 주는 스크린샷" lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
 >[!Note]
->Data Factory 연결을 추가 하거나 제거 하려면 Azure build in 역할 중 하나를 할당 해야 합니다.
+>Data Factory 연결을 추가 하거나 제거 하려면 부서의 범위 역할 중 하나를 할당 해야 합니다.
 >- 소유자
->- 사용자 액세스 관리자
+>- 사용자 액세스 관리자 외에도 사용자가 data factory의 "소유자" 또는 "참가자" 또는 "Data Factory 참여자" 여야 합니다. 
 
 ## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>자체 호스팅 IR을 구성 하 여 온-프레미스 SQL에서 계보 수집
 
@@ -100,7 +100,7 @@ Data Factory와 부서의 범위 간의 통합은 다음 섹션에 설명 된 �
 | ADLS Gen1 (JSON 지원 안 함) | 예 | 예 (이진이 아닌 복사 전용) |
 | ADLS Gen2 (JSON 지원 안 함) | 예 | 예 |
 | Azure Blob (JSON 지원 안 함) | 예 | 예 |
-| Azure Cosmos DB (SQL API) | 예 | 예 |
+| Azure Cosmos DB(SQL API) | 예 | 예 |
 | Azure Cosmos DB (Mongo API) | 예 | 예 |
 | Azure Cognitive Search | 예 | 예 |
 | Azure Data Explorer | 예 | 예 |

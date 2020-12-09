@@ -10,12 +10,12 @@ metadata:
   author: mingshen-ms
   ms.author: mingshen
   ms.date: 09/02/2020
-  ms.openlocfilehash: d3c1c87f85c048a6572eb48f0d1709fb9f0d21df
-  ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+  ms.openlocfilehash: 95903c1068d64545ae025fb5899a80014b8f26f2
+  ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/03/2020
-  ms.locfileid: "96572748"
+  ms.lasthandoff: 12/06/2020
+  ms.locfileid: "96746389"
 landingContent:
 - title: 상용 마켓플레이스에서 작업
   linkLists:
@@ -45,7 +45,7 @@ landingContent:
     links:
     - text: 마켓플레이스 제품의 잠재 고객
       url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
-    - text: 파트너 센터의 공동 판매 옵션
+    - text: 상업용 마켓플레이스에서 공동 판매 옵션
       url: commercial-marketplace-co-sell.md
     - text: 공동 판매 파트너 참여
       url: ./marketplace-co-sell.md

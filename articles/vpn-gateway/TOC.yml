@@ -8,11 +8,9 @@
   expanded: true
   items:
     - name: VPN 게이트웨이 만들기 및 관리
-      items:
-        - name: Azure portal
-          href: tutorial-create-gateway-portal.md
-        - name: Azure PowerShell
-          href: vpn-gateway-tutorial-create-gateway-powershell.md
+      href: tutorial-create-gateway-portal.md
+    - name: 사이트 간 연결 구성
+      href: tutorial-site-to-site-portal.md
 - name: 샘플
   items:
     - name: Azure PowerShell
@@ -88,7 +86,7 @@
         - name: S2S 연결 구성
           items:
             - name: Azure portal
-              href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
+              href: tutorial-site-to-site-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-create-site-to-site-rm-powershell.md
             - name: Azure CLI

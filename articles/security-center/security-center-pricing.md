@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/24/2020
+ms.date: 12/06/2020
 ms.author: memildin
-ms.openlocfilehash: 6c0e92c566dd69cdea14c9c7d346a5ec65f892bf
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d92047a5b24f04ee7e0d08454867ec9e1a52a8b1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487952"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754381"
 ---
 # <a name="pricing-of-azure-security-center"></a>Azure Security Center 가격 책정
 Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으로 통합 보안 관리 및 고급 위협 보호 기능을 제공합니다. 또한 하이브리드 클라우드 워크로드에 대한 가시성과 제어, 위협에 대한 노출을 줄이는 적극적인 방어 및 빠르게 진화하는 사이버 위험에 보조를 맞추는 데 도움이 되는 인텔리전트 탐지를 제공합니다.
@@ -37,7 +37,9 @@ Security Center는 두 모드로 제공됩니다.
     - **하이브리드 보안** – 모든 온-프레미스 및 클라우드 작업에 걸쳐 보안을 통합 확인할 수 있습니다. 또한 보안 정책을 적용하고 하이브리드 클라우드 작업의 보안을 지속적으로 평가하여 보안 표준을 준수할 수 있습니다. 뿐만 아니라 방화벽 및 기타 파트너 솔루션을 포함한 여러 소스에서 보안 데이터를 수집, 검색 및 분석할 수 있습니다.
     - **위협 방지 경고** - 고급 동작 분석 및 Microsoft Intelligent Security Graph가 갈수록 발전하는 사이버 공격에 효율적으로 대응합니다. 기본 제공 행동 분석 및 기계 학습은 공격 및 제로 데이 익스플로잇을 식별할 수 있습니다. 또한 네트워크, 컴퓨터 및 클라우스 서비스에서 들어오는 공격 및 위반 후 활동을 모니터링할 수 있습니다. 대화형 도구 및 상황에 맞는 위협 인텔리전스를 사용하면 조사를 손쉽게 수행할 수 있습니다.
     - **AAC(액세스 및 애플리케이션 제어)** - 허용 및 거부 목록을 만들기 위해 특정 워크로드에 맞게 조정된 기계 학습 구동 추천 사항을 적용하여 맬웨어 및 기타 원치 않는 애플리케이션을 차단합니다. Azure VM의 관리 포트에 대한 액세스를 JIT(Just-In-Time) 방식으로 제어하여 네트워크 공격 표면을 줄입니다. AAC는 무차별 암호 대입 공격 및 기타 네트워크 공격에 대한 노출을 크게 줄입니다.
-    - **컨테이너 보안 기능** - 컨테이너화된 환경에서 취약성 관리 및 실시간 위협 방지를 활용할 수 있습니다. **Azure Defender를 컨테이너 레지스트리에 사용** 하도록 설정하는 경우 모든 기능이 사용하도록 설정될 때까지 최대 12시간이 걸릴 수 있습니다. 요금은 연결된 레지스트리에 푸시된 고유한 컨테이너 이미지 수를 기반으로 청구됩니다. 한 번 검사한 이미지는 수정하여 한 번 더 푸시하지 않는 한 요금이 다시 청구되지 않습니다. 
+    - **컨테이너 보안 기능** - 컨테이너화된 환경에서 취약성 관리 및 실시간 위협 방지를 활용할 수 있습니다. **Azure Defender를 컨테이너 레지스트리에 사용** 하도록 설정하는 경우 모든 기능이 사용하도록 설정될 때까지 최대 12시간이 걸릴 수 있습니다. 요금은 연결된 레지스트리에 푸시된 고유한 컨테이너 이미지 수를 기반으로 청구됩니다. 한 번 검사한 이미지는 수정하여 한 번 더 푸시하지 않는 한 요금이 다시 청구되지 않습니다.
+    - **Azure 환경에 연결된 리소스에 대한 광범위한 위협 보호** - Azure Defender에는 다음과 같은 모든 리소스에 대한 공통적인 Azure 서비스를 위해 광범위한 Azure 기본 범위 위협 보호가 포함되어 있습니다. Azure Resource Manager, Azure DNS, Azure 네트워크 계층 및 Azure Key Vault. Azure Defender는 Azure 관리 계층과 Azure DNS 계층에 대한 고유한 가시성을 제공하므로 이들 계층에 연결된 클라우드 리소스를 보호할 수 있습니다.
+
 
 ## <a name="try-azure-defender-free-for-30-days"></a>30일 동안 무료로 Azure Defender 사용해 보기
 Azure Defender는 처음 30일 동안 무료입니다. 30일 종료 시 서비스를 계속 사용하기로 선택하는 경우 사용량에 대한 요금이 자동으로 부과되기 시작합니다.

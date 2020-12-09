@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 12aa18c966745b450b3c9aa55e87e576b0c3f99b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 77a795b8f704084b612a2dcbd364b8d5be0a3333
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018531"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852153"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>프로토콜 버퍼를 사용하여 원격 분석 직렬화
 
@@ -32,7 +32,7 @@ Protobuf는 데이터를 직렬화하기 위해 컴파일된 코드가 필요하
 1. Protobuf 클래스 생성
 1. 로컬에서 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드의 단계를 수행하려면 다음이 필요합니다.
 
@@ -174,7 +174,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 1. [GitHub에서 Protobuf 컴파일러를 다운로드](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)합니다.
 
-1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 예들 들어 다음과 같습니다.
+1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 다음은 그 예입니다. 
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -206,7 +206,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 기본적으로 새 장치 모델 JSON 및 JS 파일은 빌드된 솔루션에 복사 되지 않습니다. 명시적으로 포함해야 합니다.
 
-포함하려는 각 파일에 대한 항목을 **services\services.csproj** 에 추가합니다. 예들 들어 다음과 같습니다.
+포함하려는 각 파일에 대한 항목을 **services\services.csproj** 에 추가합니다. 다음은 그 예입니다. 
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -277,4 +277,4 @@ IoT Hub 및 Cosmos DB 인스턴스가 더 이상 필요하지 않은 경우 불�
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Protobuf를 사용하여 원격 분석을 보내는 디바이스 시뮬레이션을 사용자 지정하는 방법을 알아보았으므로, 다음 단계에서는 [사용자 지정 이미지를 클라우드에 배포하는 방법](iot-accelerators-device-simulation-deploy-image.md)을 알아봅니다.
+이제 Protobuf을 사용 하 여 원격 분석을 보내는 장치 시뮬레이션을 사용자 지정 하는 방법을 배웠으므로 다음 단계는 GitHub 리포지토리를 방문 하 여 더 많은 [장치 시뮬레이션](https://github.com/Azure/device-simulation-dotnet)에 대해 알아봅니다.

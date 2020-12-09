@@ -4,12 +4,12 @@ description: 포털에서 Azure 서비스를 사용 하는 방법에 대 한 비
 keywords: ''
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0762174a3207c0620d3b6413d14c817014fc49a0
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 131ec94e321388a3578cd2fd59fdb2fd75339c5e
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745862"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852611"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Azure Portal 방법 비디오 시리즈
 
@@ -17,17 +17,17 @@ Azure Portal 방법 비디오 시리즈는 Azure Portal에서 Azure 서비스를
 
 ## <a name="featured-video"></a>추천 비디오
 
-이 주요 비디오에서는 App Service 도메인을 만들고 관리 하는 방법을 보여 줍니다.
+이 주요 비디오에서는 azure 빠른 시작 센터를 사용 하 여 Azure에서 시작 하는 방법을 보여 줍니다.
 
-> [!VIDEO https://www.youtube.com/embed/b1kDT8-6a3g]
+> [!VIDEO https://www.youtube.com/embed/mb5k9nXMtBM]
 
-[App Service 도메인을 만들고 관리 하는 방법](https://www.youtube.com/watch?v=b1kDT8-6a3g)
+[Azure 빠른 시작 센터를 사용 하 여 Azure에서 시작 하는 방법](https://www.youtube.com/watch?v=mb5k9nXMtBM)
 
 이러한 최신 비디오를 파악 하지 못할 수 있습니다.
 
-| [App Service 웹 앱에서 사용자 지정 도메인을 추가 하 고 보호 하는 방법](https://www.youtube.com/watch?v=bXP6IvNYISw)  | [Linux 가상 머신 환경의 향상 된 기능](https://www.youtube.com/watch?v=obg6Fq2T898)  | [Blob 버전 관리를 사용 하는 방법](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
+| [Azure Kubernetes Service에서 응용 프로그램을 관리 하는 방법](https://www.youtube.com/watch?v=YfARHb52Bp4)  | [로그 및 매개 변수를 사용 하 여 Azure 통합 문서를 빌드하는 방법](https://www.youtube.com/watch?v=EC7n1Oo6D-o)  | [App Service 웹 앱에서 사용자 지정 도메인을 추가 하 고 보호 하는 방법](https://www.youtube.com/watch?v=bXP6IvNYISw) |
 | ------| ------ | ------ |
-| [![App Service 웹 앱에서 사용자 지정 도메인을 추가 하 고 보호 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=bXP6IvNYISw) | [![Linux 가상 머신 환경 개선 사항에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/obg6Fq2T898/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?obg6Fq2T898) | [![Blob 버전 관리를 사용 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) |
+| [![Azure Kubernetes Service에서 응용 프로그램을 관리 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/YfARHb52Bp4/hqdefault.jpg)](https://www.youtube.com/watch?YfARHb52Bp4) | [![로그 및 매개 변수를 사용 하 여 Azure 통합 문서를 빌드하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/EC7n1Oo6D-o/hqdefault.jpg)](http://www.youtube.com/watch?v=EC7n1Oo6D-o) | [![App Service 웹 앱에서 사용자 지정 도메인을 추가 하 고 보호 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg)](http://www.youtube.com/watch?v=bXP6IvNYISw) |
 
 ## <a name="video-playlist"></a>비디오 재생 목록
 

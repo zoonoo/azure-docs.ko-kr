@@ -125,10 +125,12 @@
       items:
         - name: 흐름 만들기
           items:
-            - name: 등록 또는 로그인
-              href: tutorial-create-user-flows.md
+            - name: 사용자 흐름 만들기
+              href: create-user-flow.md
             - name: 리소스 소유자 암호 자격 증명
               href: configure-ropc.md
+            - name: 전화 인증 설정
+              href: phone-authentication-user-flows.md
             - name: 셀프 서비스 암호 재설정 설정
               href: user-flow-self-service-password-reset.md
         - name: 조건부 액세스 추가

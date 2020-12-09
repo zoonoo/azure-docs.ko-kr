@@ -55,6 +55,12 @@
         - name: Key Vault용 Azure Defender
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
+        - name: Azure Defender for Resource Manager
+          displayName: ARM
+          href: defender-for-resource-manager-introduction.md
+        - name: Azure Defender for DNS
+          displayName: domain
+          href: defender-for-dns-introduction.md
         - name: Kubernetes용 Azure Defender
           displayName: 'clusters, k8s, aks'
           href: defender-for-kubernetes-introduction.md
@@ -253,6 +259,11 @@
         - name: Key Vault용 Azure Defender 경고에 응답
           displayName: 'akv, kv'
           href: defender-for-key-vault-usage.md
+        - name: Azure Defender for DNS 경고에 대한 대응
+          href: defender-for-dns-usage.md
+        - name: Azure Defender for Resource Manager 경고에 대한 대응
+          displayName: arm
+          href: defender-for-resource-manager-usage.md
         - name: 보안 인시던트 관리
           href: security-center-incident.md
         - name: 위협 인텔리전스 보고서 생성

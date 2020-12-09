@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 031b3bfd30e0272589c5c7ee2c546b9459767b33
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5e5c59d611cb7f4b5333b9919488e6fc083611cd
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183195"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779246"
 ---
 # <a name="tutorial-monitor-published-apis"></a>자습서: 게시된 API 모니터링
 
@@ -27,10 +27,12 @@ Azure Monitor를 통해 Azure API Management 서비스의 메트릭 또는 로�
 > * 활동 로그 보기
 > * 리소스 로그 사용 및 보기
 
+API Management의 기본 제공 [분석](howto-use-analytics.md)을 사용하여 API의 사용 및 성능을 모니터링할 수도 있습니다.
+
 ## <a name="prerequisites"></a>필수 구성 요소
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
-+ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
++ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 + 또한 [첫 번째 API 가져오기 및 게시](import-and-publish.md) 자습서를 완료합니다.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2020
+ms.date: 12/07/2020
 ms.author: memildin
-ms.openlocfilehash: 0dbd208cea64a3b2dc22f7603f654127e5b46294
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d8b690201ea4349f9577377ff24c91bd75ecd58b
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511766"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751872"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -37,6 +37,7 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 
 - [머신의 SQL 서버용 Azure Defender를 일반적으로 사용할 수 있습니다.](#azure-defender-for-sql-servers-on-machines-is-generally-available)
 - [Azure Synapse Analytics 전용 SQL 풀에 대한 Azure Defender for SQL 지원이 일반적으로 제공됩니다.](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+- [새로운 두 가지 Azure Defender 계획: Azure Defender for DNS 및 Azure Defender for Resource Manager(미리 보기)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
 
 ### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>머신의 SQL 서버용 Azure Defender를 일반적으로 사용할 수 있습니다.
 
@@ -68,6 +69,24 @@ Azure Defender for SQL은 다음을 통해 전용 SQL 풀을 보호합니다.
 Azure Synapse Analytics SQL 풀에 대한 Azure Defender for SQL의 지원은 Azure Security Center의 Azure SQL 데이터베이스 번들에 자동으로 추가됩니다. Azure Portal의 Synapse 작업 영역 페이지에 새로운 "Azure Defender for SQL" 탭을 찾을 수 있습니다.
 
 [Azure Defender for SQL](defender-for-sql-introduction.md)에 대해 자세히 알아봅니다.
+
+
+### <a name="two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview"></a>새로운 두 가지 Azure Defender 계획: Azure Defender for DNS 및 Azure Defender for Resource Manager(미리 보기)
+
+Azure 환경을 위한 새로운 두 가지 클라우드 네이티브 너비 위협 방지 기능이 추가되었습니다.
+
+이러한 새로운 보호 기능은 위협 행위자의 공격에 대한 복원력을 크게 향상시키고 Azure Defender로 보호되는 Azure 리소스의 수를 크게 늘립니다.
+
+- **Azure Defender for Resource Manager** - 조직에서 수행되는 모든 리소스 관리 작업을 자동으로 모니터링합니다. 자세한 내용은 다음을 참조하세요.
+    - [Azure Defender for Resource Manager 소개](defender-for-resource-manager-introduction.md)
+    - [Azure Defender for Resource Manager 경고에 대한 대응](defender-for-resource-manager-usage.md)
+    - [Azure Defender for Resource Manager에서 제공하는 경고 목록](alerts-reference.md#alerts-resourcemanager)
+
+- **Azure Defender for DNS** - Azure 리소스의 모든 DNS 쿼리를 지속적으로 모니터링합니다. 자세한 내용은 다음을 참조하세요.
+    - [Azure Defender for DNS 소개](defender-for-dns-introduction.md)
+    - [Azure Defender for DNS 경고에 대한 대응](defender-for-dns-usage.md)
+    - [Azure Defender for DNS에서 제공하는 경고 목록](alerts-reference.md#alerts-dns)
+
 
 ## <a name="november-2020"></a>2020년 11월
 
@@ -124,7 +143,7 @@ NIST SP 800-171 R2 표준은 이제 Azure Security Center의 규정 준수 대�
 
 이제 일련의 조건에 따라 보안 추천 목록을 필터링할 수 있습니다. 다음 예에서는 다음과 같은 추천을 보여주기 위해 추천 목록이 필터링되었습니다.
 
-- **일반적으로 사용 가능한** 추천(예: 미리 보기가 아님)
+- **일반 공급**(즉, 미리 보기 아님)
 - **스토리지 계정** 에 대한 추천
 - **빠른 수정** 수정을 지원하는 추천
 
@@ -148,7 +167,7 @@ Azure Security Center가 성장함에 따라 더 많은 확장이 개발되었�
 
 ### <a name="secure-score-is-now-available-in-continuous-export-preview"></a>이제 연속 내보내기(미리 보기)에서 보안 점수를 사용할 수 있습니다.
 
-보안 점수를 지속적으로 내보내면 점수 변경 사항을 Azure Event Hubs 또는 Log Analytics 작업 영역에 실시간으로 스트리밍할 수 있습니다. 이 기능을 사용하여 다음을 수행할 수 있습니다.
+보안 점수를 연속적으로 내보내면 점수 변경 내용을 Azure Event Hubs 또는 Log Analytics 작업 영역에 실시간으로 스트리밍할 수 있습니다. 이 기능을 사용하여 다음을 수행할 수 있습니다.
 
 - 동적 보고서로 시간 경과에 따른 보안 점수 추적
 - 보안 점수 데이터를 Azure Sentinel(또는 기타 SIEM)로 내보내기
@@ -226,7 +245,7 @@ Azure Firewall을 통해 모든 가상 네트워크를 보호하기 위해 새�
 
 **Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함** 권장 사항은 이제 빠른 픽스 옵션을 제공합니다.
 
-이 권장 사항 및 그 밖의 모든 Security Center 권장 사항에 대한 자세한 내용은 [보안 권장 사항 - 참조 가이드](recommendations-reference.md)를 확인하세요.
+이 권장 사항 및 기타 모든 Security Center 권장 사항에 대한 자세한 내용은 [보안 권장 사항 - 참조 가이드](recommendations-reference.md)를 참조하세요.
 
 :::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="빠른 픽스 옵션을 제공하는 [Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항":::
 
