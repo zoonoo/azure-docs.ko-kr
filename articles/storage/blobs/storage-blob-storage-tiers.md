@@ -3,17 +3,17 @@ title: Azure Blob Storage 핫, 쿨 및 보관에 대 한 액세스 계층
 description: Azure Blob Storage에 대 한 핫, 쿨 및 보관 액세스 계층에 대해 읽어 보세요. 계층화를 지 원하는 저장소 계정을 검토 합니다. 블록 blob 저장소 옵션을 비교 합니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/29/2020
+ms.date: 12/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 87106cce018a2b2663de2a9abbb43b31ab58c125
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 51998c159018b614ab519766c54fdddf7437e95b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96007327"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96923988"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Azure Blob Storage 핫, 쿨 및 보관에 대 한 액세스 계층
 
@@ -111,6 +111,11 @@ Blob이 핫 계층으로 이동 하면 (archive->쿨, archive->핫 또는 쿨 >�
 ### <a name="cool-and-archive-early-deletion"></a>쿨 및 보관 초기 삭제
 
 쿨 계층으로 이동 하는 모든 blob (GPv2 계정에만 해당)은 쿨 초기 삭제 기간인 30 일의 영향을 받습니다. 보관 계층으로 이동 하는 모든 blob에는 보관 초기 삭제 기간인 180 일이 적용 됩니다. 요금이 비례하여 배분됩니다. 예를 들어 blob가 보관으로 이동 된 다음 45 일 후에 삭제 되거나 핫 계층으로 이동 되 면 보관에 해당 blob을 저장 하는 135 (180-45) 일에 해당 하는 초기 삭제 요금이 청구 됩니다.
+
+쿨 및 archive 계층 간에 이동할 때는 다음과 같은 몇 가지 세부 정보가 있습니다.
+
+1. Blob이 저장소 계정의 기본 액세스 계층을 기반으로 쿨로 유추 되 고 blob이 보관으로 이동 되 면 초기 삭제 요금이 발생 하지 않습니다.
+1. Blob을 명시적으로 쿨 계층으로 이동한 다음 보관으로 이동 하면 초기 삭제 요금이 적용 됩니다.
 
 액세스 계층이 변경 되지 않은 경우에는 **마지막으로 수정한** blob 속성을 사용 하 여 초기 삭제를 계산할 수 있습니다. 그렇지 않으면 blob 속성: **액세스 계층 변경 시간** 을 확인 하 여 액세스 계층이 쿨 또는 보관으로 마지막으로 수정 된 시간을 사용할 수 있습니다. Blob 속성에 대한 자세한 내용은 [Blob 속성 가져오기](/rest/api/storageservices/get-blob-properties)를 참조하세요.
 

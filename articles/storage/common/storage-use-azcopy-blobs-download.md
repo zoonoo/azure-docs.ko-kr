@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f09e30d6bf68cfb11d9bf808838f6cc029ed942a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 0a2490a104d18f77a0ec326933f463eb4ebb4339
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907647"
+ms.locfileid: "96923962"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy-v10"></a>AzCopy v10를 사용 하 여 Azure Blob storage에서 blob 다운로드
 
@@ -139,13 +139,18 @@ AzCopy v10 명령줄 유틸리티를 사용 하 여 Blob 저장소에서 blob �
 
 그런 다음 옵션을 사용 하 여 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용 `--list-of-versions` 합니다. 버전 목록이 포함 된 텍스트 파일의 위치를 지정 합니다 (예: `D:\\list-of-versions.txt` ).  
 
+#### <a name="download-a-blob-snapshot"></a>Blob 스냅샷 다운로드
+
+Blob 스냅숏의 **날짜/시간** 값을 참조 하 여 [blob 스냅숏을](/azure/storage/blobs/snapshots-overview.md) 다운로드할 수 있습니다. 
+
 |    |     |
 |--------|-----------|
-| **구문** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-directory-path>' --list-of-versions '<list-of-versions-file>'`|
-| **예제** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt' --list-of-versions 'D:\\list-of-versions.txt'` |
-| **예** (계층적 네임 스페이스) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt' --list-of-versions 'D:\\list-of-versions.txt'` |
+| **구문** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>?sharesnapshot=<DateTime-of-snapshot>' '<local-file-path>'` |
+| **예제** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'` |
+| **예** (계층적 네임 스페이스) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt?sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'` |
 
-다운로드 한 각 파일의 이름은 버전 ID와 blob 이름으로 시작 합니다. 
+> [!NOTE]
+> SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 SAS 토큰 뒤에 스냅숏 **날짜/시간** 을 추가 합니다. 예를 들어 `'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z'`을 참조하십시오.
 
 ## <a name="download-with-optional-flags"></a>선택적 플래그로 다운로드
 
