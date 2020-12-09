@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1257c783ffeae68bf338b21a5d2f6bba72ea25b3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a10c4c0e6e40636e4803e054155d6fdaa12a9366
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997769"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858555"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 통과 인증으로 마이그레이션
 
@@ -92,7 +92,7 @@ Azure AD Connect를 업데이트 하려면 [Azure AD Connect: 최신 버전으�
 Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
 ```
 
-예제:
+예:
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
@@ -103,7 +103,7 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 자세한 내용은 다음 문서를 참조하세요.
 
 * [AD FS 프롬프트에서 로그인 매개 변수 지원](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
-* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
+* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication)
 
 > [!NOTE]
 > **SupportsMfa** 가 **True** 로 설정되어 있으면 온-프레미스 다단계 인증 솔루션을 사용하여 사용자 인증 흐름에 2단계 챌린지를 삽입합니다. 이 설정은 Azure AD 인증 시나리오에서 더 이상 작동하지 않습니다. 

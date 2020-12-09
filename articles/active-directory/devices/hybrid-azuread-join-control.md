@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66b216e5e511d2d80378ee7e2d124dccbc7abcb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38754b9e349e27afcff58dac27a616e3e4fb5319
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85252715"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860935"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인의 제어된 유효성 검사
 
@@ -63,8 +63,8 @@ ADSI 편집 (Active Directory Services 인터페이스 편집기)을 사용 하 
       1. 키 경로: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. 값 이름: **TenantId**
       1. 값 형식: **REG_SZ**
-      1. 값 데이터: Azure AD 인스턴스의 GUID 또는 **디렉터리 id** 입니다 .이 값은 **Azure Portal**  >  **Azure Active Directory**  >  **속성**  >  **디렉터리 id**에서 찾을 수 있습니다.
-   1. **확인**을 클릭합니다.
+      1. 값 데이터: Azure AD 인스턴스의 GUID 또는 **디렉터리 id** 입니다 .이 값은 **Azure Portal**  >  **Azure Active Directory**  >  **속성**  >  **디렉터리 id** 에서 찾을 수 있습니다.
+   1. **확인** 을 클릭합니다.
 1. 레지스트리를 마우스 오른쪽 단추로 클릭 하 고 **새**  >  **레지스트리 항목** 을 선택 합니다.
    1. **일반** 탭에서 다음을 구성 합니다.
       1. 작업: **업데이트**
@@ -73,7 +73,7 @@ ADSI 편집 (Active Directory Services 인터페이스 편집기)을 사용 하 
       1. 값 이름: **Tenantname**
       1. 값 형식: **REG_SZ**
       1. 값 데이터: AD FS와 같은 페더레이션된 환경을 사용 하는 경우 확인 된 **도메인 이름** 입니다. 예를 들어 관리 되는 환경을 사용 하는 경우 확인 된 **도메인 이름** 또는 onmicrosoft.com 도메인 이름 `contoso.onmicrosoft.com`
-   1. **확인**을 클릭합니다.
+   1. **확인** 을 클릭합니다.
 1. 새로 만든 GPO에 대 한 편집기를 닫습니다.
 1. 사용자가 제어 하는 출시 모집단에 속한 도메인 가입 컴퓨터를 포함 하는 원하는 OU에 새로 만든 GPO를 연결 합니다.
 
@@ -82,7 +82,7 @@ ADSI 편집 (Active Directory Services 인터페이스 편집기)을 사용 하 
 AD FS를 사용 하는 경우 먼저 AD FS 서버에 GPO를 연결 하 여 위에서 설명한 지침을 사용 하 여 클라이언트 쪽 SCP를 구성 해야 합니다. SCP 개체는 장치 개체에 대 한 기관의 원본을 정의 합니다. 온-프레미스 또는 Azure AD 일 수 있습니다. 클라이언트 쪽 SCP가 AD FS에 대해 구성 된 경우 장치 개체의 원본은 Azure AD로 설정 됩니다.
 
 > [!NOTE]
-> AD FS 서버에서 클라이언트 쪽 SCP를 구성 하지 않은 경우 장치 id의 원본은 온-프레미스로 간주 됩니다. 그러면 adfs는 ADFS 장치 등록의 특성 "MaximumInactiveDays"에 정의 된 규정 된 기간 후 온-프레미스 디렉터리에서 장치 개체 삭제를 시작 합니다. ADFS 장치 등록 개체는 [합니다. cmdlet](/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps)을 사용 하 여 찾을 수 있습니다.
+> AD FS 서버에서 클라이언트 쪽 SCP를 구성 하지 않은 경우 장치 id의 원본은 온-프레미스로 간주 됩니다. 그러면 adfs는 ADFS 장치 등록의 특성 "MaximumInactiveDays"에 정의 된 규정 된 기간 후 온-프레미스 디렉터리에서 장치 개체 삭제를 시작 합니다. ADFS 장치 등록 개체는 [합니다. cmdlet](/powershell/module/adfs/get-adfsdeviceregistration)을 사용 하 여 찾을 수 있습니다.
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Windows 하위 수준 장치에서 하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사
 

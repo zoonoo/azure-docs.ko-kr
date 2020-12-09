@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: ef38c5364a0df1df63be825e2c46009174840b72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e9a03c82fd4bd79e7a47fa34ff7a69870c52f018
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658131"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858385"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 
@@ -111,7 +111,7 @@ SSL 인증서를 업로드 한 후에는 포털에서 "잘못 된 인증서, 잘
 ### <a name="can-i-configure-application-proxy-to-add-the-hsts-header"></a>HSTS 헤더를 추가 하도록 응용 프로그램 프록시를 구성할 수 있나요?
 응용 프로그램 프록시는 HTTPS 응답에 HTTP Strict-Transport-보안 헤더를 자동으로 추가 하지 않지만 게시 된 응용 프로그램에서 보낸 원래 응답에 있으면 헤더를 유지 관리 합니다. 이 기능을 사용 하도록 설정 하는 설정을 증명 하는 것은 로드맵에 있습니다. 이를 응답에 추가할 수 있는 미리 보기에 관심이 있는 경우에는에 aadapfeedback@microsoft.com 대 한 자세한 내용을 확인 하세요.
 
-## <a name="integrated-windows-authentication"></a>Windows 통합 인증
+## <a name="integrated-windows-authentication"></a>통합 Windows 인증
 
 ### <a name="when-should-i-use-the-principalsallowedtodelegatetoaccount-method-when-setting-up-kerberos-constrained-delegation-kcd"></a>KCD (Kerberos 제한 위임)를 설정할 때 PrincipalsAllowedToDelegateToAccount 메서드를 사용 해야 하는 경우는 언제 인가요?
 
@@ -204,5 +204,5 @@ Windows 관리 센터 (WAC) 또는 원격 데스크톱 웹 클라이언트 (HTML
 1. HTTP 및 HTTPS Url 모두 와일드 카드를 사용 하 여 별도의 응용 프로그램으로 게시 하지만 각 응용 프로그램에 서로 다른 사용자 지정 도메인을 제공 합니다. 이 구성은 외부 URL이 다르기 때문에 작동 합니다.
 
 2. 와일드 카드 응용 프로그램을 통해 HTTPS URL을 게시 합니다. 이러한 응용 프로그램 프록시 PowerShell cmdlet을 사용 하 여 HTTP 응용 프로그램을 별도로 게시 합니다.
-   - [응용 프로그램 프록시 응용 프로그램 관리](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
-   - [응용 프로그램 프록시 커넥터 관리](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)
+   - [응용 프로그램 프록시 응용 프로그램 관리](/powershell/module/azuread/#application_proxy_application_management&preserve-view=true)
+   - [응용 프로그램 프록시 커넥터 관리](/powershell/module/azuread/#application_proxy_connector_management&preserve-view=true)

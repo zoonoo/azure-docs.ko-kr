@@ -4,12 +4,12 @@ description: Azure Event Grid에서 이벤트에 CloudEvents 스키마를 사용
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d794996a699bdd1bb63e7a894346128aa108e95c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: baac7311a23bb4de032a8ab8b2e99a5ad9cae786
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504376"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858283"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Event Grid에서 CloudEvents v1.0 스키마 사용
 [기본 이벤트 스키마](event-schema.md) 외에, Azure Event Grid는 기본적으로 [CloudEvents v1.0의 JSON 구현](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) 및 [HTTP 프로토콜 바인딩](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)의 이벤트를 지원합니다. [CloudEvents](https://cloudevents.io/)는 이벤트 데이터를 설명하는 [공개 사양](https://github.com/cloudevents/spec/blob/v1.0/spec.md)입니다.
@@ -62,16 +62,20 @@ CloudEvents v1.0에서 사용 가능한 필드, 해당 유형 및 정의에 대�
 
 ## <a name="configure-event-grid-for-cloudevents"></a>CloudEvents에 대한 Event Grid 구성
 
-CloudEvents 스키마에서 이벤트의 입출력 둘 다에 Event Grid를 사용할 수 있습니다. Blob Storage 이벤트 및 IoT Hub 이벤트와 같은 시스템 이벤트와 사용자 지정 이벤트에 CloudEvents를 사용할 수 있습니다. 또한 온라인 상태에서 이러한 이벤트를 변환할 수도 있습니다.
+CloudEvents 스키마에서 이벤트의 입력 및 출력 모두에 Event Grid를 사용할 수 있습니다. 다음 표에서는 가능한 변환에 대해 설명 합니다.
+
+ Event Grid 리소스 | 입력 스키마       | 배달 스키마
+|---------------------|-------------------|---------------------
+| 시스템 항목       | Event Grid 스키마 | Event Grid 스키마 또는 CloudEvent 스키마
+| 사용자 토픽/도메인 | Event Grid 스키마 | Event Grid 스키마
+| 사용자 토픽/도메인 | CloudEvent 스키마 | CloudEvent 스키마
+| 사용자 토픽/도메인 | 사용자 지정 스키마     | 사용자 지정 스키마 또는 Event Grid 스키마 또는 CloudEvent 스키마
+| 항목 항목       | CloudEvent 스키마 | CloudEvent 스키마
 
 
-| 입력 스키마       | 출력 스키마입니다.
-|--------------------|---------------------
-| CloudEvents 형식 | CloudEvents 형식
-| Event Grid 형식  | CloudEvents 형식
-| Event Grid 형식  | Event Grid 형식
+모든 이벤트 스키마의 경우 Event Grid 항목에 게시할 때 및 이벤트 구독을 만들 때 유효성 검사가 필요 Event Grid.
 
-모든 이벤트 스키마에 대해, Event Grid는 Event Grid 토픽에 게시할 때와 이벤트 구독을 만들 때 유효성 검사를 요구합니다. 자세한 내용은 [Event Grid 보안 및 인증](security-authentication.md)을 참조하세요.
+자세한 내용은 [Event Grid 보안 및 인증](security-authentication.md)을 참조하세요.
 
 ### <a name="input-schema"></a>입력 스키마
 

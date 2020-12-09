@@ -11,17 +11,17 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b797bf5c7e69990a29f0d14c31586d0e85b42426
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: f308f46fc021a1d08f4065d48558a6dd71786c7c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96737986"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860358"
 ---
 # <a name="inbound-synchronization-for-cloud-provisioning-using-ms-graph-api"></a>MS Graph API를 사용한 클라우드 프로 비전에 대 한 인바운드 동기화
 
 다음 문서에서는 MSGraph Api만 사용 하 여 동기화 프로필을 처음부터 복제 하는 방법을 설명 합니다.  
-이 작업을 수행 하는 방법의 구조는 다음 단계로 구성 됩니다.  아래에 이 계정과 키의 예제가 나와 있습니다.
+이 작업을 수행 하는 방법의 구조는 다음 단계로 구성 됩니다.  관련 토폴로지는 다음과 같습니다.
 
 - [기본 설정](#basic-setup)
 - [서비스 사용자 만들기](#create-service-principals)
@@ -30,7 +30,7 @@ ms.locfileid: "96737986"
 - [동기화 작업 시작](#start-sync-job)
 - [상태 검토](#review-status)
 
-이러한 [Windows PowerShell용 Microsoft Azure Active Directory 모듈](https://docs.microsoft.com/powershell/module/msonline/?view=azureadps-1.0) 명령을 사용 하 여 해당 테 넌 트에 대 한 관리 웹 서비스를 호출 하기 위한 필수 구성 요소인 프로덕션 테 넌 트에 대해 동기화를 사용 하도록 설정할 수 있습니다.
+이러한 [Windows PowerShell용 Microsoft Azure Active Directory 모듈](https://docs.microsoft.com/powershell/module/msonline/) 명령을 사용 하 여 해당 테 넌 트에 대 한 관리 웹 서비스를 호출 하기 위한 필수 구성 요소인 프로덕션 테 넌 트에 대해 동기화를 사용 하도록 설정할 수 있습니다.
 
 ## <a name="basic-setup"></a>기본 설정
 

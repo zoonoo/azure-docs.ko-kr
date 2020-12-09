@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2999fb8b3c3687c68e7eb38a60f128e24028871f
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: fed7123d916c1dc0facab3bd22e6b3f03d39684f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779705"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858963"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -279,7 +279,7 @@ Azure Active Directory는 2021 년 3 월 31 일까 지 다음 프로토콜을 �
 
 영향을 받는 환경은 다음과 같습니다.
 - Azure US Gov
-- [Office 365 GCC High & DoD](/microsoft-365/compliance/tls-1-2-in-office-365-gcc?view=o365-worldwide)
+- [Office 365 GCC High & DoD](/microsoft-365/compliance/tls-1-2-in-office-365-gcc)
  
 ---
 
@@ -354,7 +354,7 @@ Azure AD 액세스 검토에서 검토를 만드는 관리자는 이제 검토�
 
 이제 Azure Portal에서 각 Azure AD 역할의 템플릿 ID를 볼 수 있습니다. Azure AD에서 선택한 역할에 대 한  **설명** 을 선택 합니다. 
 
-고객은 표시 이름 대신 PowerShell 스크립트 및 코드에서 역할 템플릿 Id를 사용 하는 것이 좋습니다. 역할 템플릿 ID는 역할 및 [Roledefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) 개체를 [directoryroles](/graph/api/resources/directoryrole?view=graph-rest-1.0) 에 사용할 수 있도록 지원 됩니다. 역할 템플릿 Id에 대 한 자세한 내용은 [역할 템플릿 id](../roles/permissions-reference.md#role-template-ids)를 참조 하십시오.
+고객은 표시 이름 대신 PowerShell 스크립트 및 코드에서 역할 템플릿 Id를 사용 하는 것이 좋습니다. 역할 템플릿 ID는 역할 및 [Roledefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) 개체를 [directoryroles](/graph/api/resources/directoryrole) 에 사용할 수 있도록 지원 됩니다. 역할 템플릿 Id에 대 한 자세한 내용은 [역할 템플릿 id](../roles/permissions-reference.md#role-template-ids)를 참조 하십시오.
 
 ---
 
@@ -678,7 +678,7 @@ PIM에 등록 하면 테 넌 트에 직접적인 부정적인 영향을 주지 �
 **유형:** 변경 계획  
 **서비스 범주:** Id 보호 **제품 기능:** id 보안 & 보호
 
-Microsoft 보안 점수의 [새로운 릴리스에](/microsoft-365/security/mtp/microsoft-secure-score-whats-new?view=o365-worldwide)도입 된 변경 내용에 맞게 Id 보안 점수 포털을 업데이트 하 고 있습니다. 
+Microsoft 보안 점수의 [새로운 릴리스에](/microsoft-365/security/mtp/microsoft-secure-score-whats-new)도입 된 변경 내용에 맞게 Id 보안 점수 포털을 업데이트 하 고 있습니다. 
 
 변경 내용이 포함 된 미리 보기 버전은 9 월부터 사용할 수 있습니다. 미리 보기 버전의 변경 내용은 다음과 같습니다.
 - Microsoft 보안 점수를 사용 하 여 브랜드 맞춤을 위해 "id 보안 점수"의 이름을 "Id 보안 점수"로 바꿨습니다.
@@ -1057,7 +1057,7 @@ B2B 공동 작업 기능을 사용 하는 테 넌 트가 이제 Microsoft 또는
 **제품 기능:** B2B/B2C
  
 
-ExternalUserState 및 externalUserStateChangedDateTime 속성을 사용 하 여 초대를 수락 하지 않은 초대 된 B2B 게스트 뿐만 아니라 며칠 후에 초대를 수락 하지 않은 사용자를 삭제 하는 등의 빌드 자동화를 찾을 수 있습니다. 이제 MS Graph v1에서 이러한 속성을 사용할 수 있습니다. 이러한 속성을 사용 하는 방법에 대 한 지침은 [사용자 리소스 종류](/graph/api/resources/user?view=graph-rest-1.0)를 참조 하세요.
+ExternalUserState 및 externalUserStateChangedDateTime 속성을 사용 하 여 초대를 수락 하지 않은 초대 된 B2B 게스트 뿐만 아니라 며칠 후에 초대를 수락 하지 않은 사용자를 삭제 하는 등의 빌드 자동화를 찾을 수 있습니다. 이제 MS Graph v1에서 이러한 속성을 사용할 수 있습니다. 이러한 속성을 사용 하는 방법에 대 한 지침은 [사용자 리소스 종류](/graph/api/resources/user)를 참조 하세요.
  
 ---
 
@@ -1131,7 +1131,7 @@ Azure AD 프로 비전 서비스는 현재 순환 방식으로 작동 합니다.
 **서비스 범주:** Id 보호  
 **제품 기능:** Id 보안 & 보호
  
-RiskyUsers 및 riskDetections Microsoft Graph Api는 이제 일반 공급 됩니다. 이제 v2.0 끝점에서 사용할 수 있으므로 프로덕션 환경에서 사용할 수 있도록 초대 합니다. 자세한 내용은 [Microsoft Graph 문서](/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)를 확인 하세요.
+RiskyUsers 및 riskDetections Microsoft Graph Api는 이제 일반 공급 됩니다. 이제 v2.0 끝점에서 사용할 수 있으므로 프로덕션 환경에서 사용할 수 있도록 초대 합니다. 자세한 내용은 [Microsoft Graph 문서](/graph/api/resources/identityprotectionroot)를 확인 하세요.
  
 ---
 

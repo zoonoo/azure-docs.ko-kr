@@ -13,12 +13,12 @@ ms.date: 12/01/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 0e37065e6fa61f3784d1a6165bd88c515bdfc29f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1f6fd0160988802e198ff9388cfeb3232b34b100
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484110"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861122"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>애플리케이션을 Azure AD에 추가하는 방법 및 이유
 
@@ -104,7 +104,7 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
   * 클레임 변환 규칙
   * 특성 매핑(사용자 프로비전)
 * 서비스 주체 및 응용 프로그램 개체에 대 한 자세한 내용은 Microsoft Graph API 참조 설명서를 참조 하세요.
-  * [애플리케이션](/graph/api/resources/application?view=graph-rest-1.0)
+  * [애플리케이션](/graph/api/resources/application)
   * Service Principal
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>애플리케이션이 Azure AD와 통합되는 이유는 무엇일까요?

@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b683eaaf4c93ef0dcf74680e1e174e0f867a7041
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8be41f3fcf4d32ee81d1290c6a50a27f2cd45ee7
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173399"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860969"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>MSAL.NET를 사용 하 여 소셜 id로 사용자 로그인
 
@@ -74,7 +74,7 @@ AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
                                            .ExecuteAsync();
 ```
 
-위의 코드 조각에서 다음을 수행 합니다.
+앞의 코드 조각에서 다음을 확인할 수 있습니다.
 
 - `policy` Azure AD B2C 사용자 흐름 또는 사용자 지정 정책 (예:)의 이름을 포함 하는 문자열입니다 `PolicySignUpSignIn` .
 - `ParentActivityOrWindow` 는 Android (활동)에 필요 하며 iOS의 Microsoft Windows 및 UIViewController와 같은 부모 UI를 지 원하는 다른 플랫폼의 경우 선택 사항입니다. UI 대화 상자에 대 한 자세한 내용은 MSAL Wiki의 [Withparentactivityorwindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) 를 참조 하십시오.
@@ -165,7 +165,7 @@ Google을 id 공급자로 사용 하는 경우 Google [에서 포함 된 웹 보
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Azure AD B2C의 알려진 문제
 
-MSAL.NET는 [토큰 캐시](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet)를 지원 합니다. 토큰 캐싱 키는 IdP (id 공급자)에서 반환 하는 클레임을 기반으로 합니다.
+MSAL.NET는 [토큰 캐시](/dotnet/api/microsoft.identity.client.tokencache)를 지원 합니다. 토큰 캐싱 키는 IdP (id 공급자)에서 반환 하는 클레임을 기반으로 합니다.
 
 현재 MSAL.NET는 토큰 캐시 키를 작성 하는 데 두 가지 클레임이 필요 합니다.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85f36f1b970a4848ee132fe37bd1b0f4f4fdc82
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: d8bc1a96109eda9cc2ee1f86cec892cc5ce9308d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489525"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860323"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>방법: 조건부 액세스를 사용하여 Azure AD에 대한 레거시 인증 차단   
 
@@ -119,7 +119,7 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 ### <a name="sharepoint-online-and-b2b-guest-users"></a>SharePoint Online 및 B2B 게스트 사용자
 
-레거시 인증을 통해 SharePoint Online에 대 한 B2B 사용자 액세스를 차단 하려면 조직에서 PowerShell 명령을 사용 하 `Set-SPOTenant` 고 매개 변수를로 설정 하 여 sharepoint에서 레거시 인증을 사용 하지 않도록 설정 해야 합니다 `-LegacyAuthProtocolsEnabled` `$false` . 이 매개 변수를 설정 하는 방법에 대 한 자세한 내용은 [set-spotenant](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps) 에 대 한 SharePoint PowerShell 참조 문서에서 찾을 수 있습니다.
+레거시 인증을 통해 SharePoint Online에 대 한 B2B 사용자 액세스를 차단 하려면 조직에서 PowerShell 명령을 사용 하 `Set-SPOTenant` 고 매개 변수를로 설정 하 여 sharepoint에서 레거시 인증을 사용 하지 않도록 설정 해야 합니다 `-LegacyAuthProtocolsEnabled` `$false` . 이 매개 변수를 설정 하는 방법에 대 한 자세한 내용은 [set-spotenant](/powershell/module/sharepoint-online/set-spotenant) 에 대 한 SharePoint PowerShell 참조 문서에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

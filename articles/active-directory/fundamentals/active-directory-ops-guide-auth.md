@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 5f529e6148463ae384791985659378cb9d0a5046
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 90e215ea445c8c700e351149e9c7a91d9a595252
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168868"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859524"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 인증 관리 작업 참조 가이드
 
@@ -31,7 +31,7 @@ ms.locfileid: "96168868"
 
 Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되지 않을 수 있는 주요 운영 작업 및 프로세스를 지속적으로 실행 해야 합니다. 환경 최적화를 위해 이러한 작업을 설정 하는 것도 중요 합니다. 핵심 작업과 권장 소유자는 다음과 같습니다.
 
-| Task | 소유자 |
+| 작업 | 소유자 |
 | :- | :- |
 | Azure AD에서 SSO (Single Sign-On) 구성의 수명 주기 관리 | IAM 운영 팀 |
 | Azure AD 응용 프로그램에 대 한 조건부 액세스 정책 디자인 | InfoSec 아키텍처 팀 |
@@ -288,7 +288,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 
 #### <a name="legacy-authentication-recommended-reading"></a>레거시 인증 권장 읽기
 
-- [Exchange Server의 사서함에 POP3 또는 IMAP4 액세스를 사용 하거나 사용 하지 않도록 설정](/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
+- [Exchange Server의 사서함에 POP3 또는 IMAP4 액세스를 사용 하거나 사용 하지 않도록 설정](/exchange/clients/pop3-and-imap4/configure-mailbox-access)
 
 ### <a name="consent-grants"></a>승인 허가
 

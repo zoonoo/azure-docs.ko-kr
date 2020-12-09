@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7edafd8a4a85e00a02486c646c77ddff5ff3e6b
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 47d7d541ed7d9805641ffdfde381d482c8700006
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737101"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858742"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
@@ -53,10 +53,10 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 
 1. 2분마다 AD Connect 서버의 암호 해시 동기화 에이전트는 DC에서 저장된 암호 해시(unicodePwd 특성)를 요청합니다.  이 요청은 DC 간 데이터를 동기화하는 데 사용된 표준 [MS-DRSR](/openspecs/windows_protocols/ms-drsr/f977faaa-673e-4f66-b9bf-48c640241d47) 복제 프로토콜을 통해 전송됩니다. 암호 해시를 얻으려면 서비스 계정에 디렉터리 변경 내용 복제 및 모든 디렉터리 변경 내용 복제 AD 권한(설치 시 기본적으로 부여)이 있어야 합니다.
 2. 전송하기 전에 DC는 RPC 세션 키의 [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) 해시인 키와 솔트를 사용하여 MD4 암호 해시를 암호화합니다. 그런 다음, RPC를 통해 암호 해시 동기화 에이전트에 결과를 전송합니다. 또한 DC는 DC 복제 프로토콜을 사용하여 동기화 에이전트에 솔트를 전달하고, 따라서 에이전트는 봉투(Envelope)를 해독할 수 있게 됩니다.
-3. 암호 해시 동기화 에이전트는 봉투(Envelope)를 암호화한 후 [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider?view=netcore-3.1)와 솔트를 사용하여 수신한 데이터를 원래 MD4 형식으로 해독하는 키를 생성합니다. 암호 해시 동기화 에이전트는 절대 일반 텍스트 암호에 액세스할 수 없습니다. 암호 해시 동기화 에이전트의 MD5 사용은 DC와의 복제 프로토콜 호환성에 엄격 하 게 사용 되며 DC와 암호 해시 동기화 에이전트 간의 온-프레미스 에서만 사용 됩니다.
+3. 암호 해시 동기화 에이전트는 봉투(Envelope)를 암호화한 후 [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider)와 솔트를 사용하여 수신한 데이터를 원래 MD4 형식으로 해독하는 키를 생성합니다. 암호 해시 동기화 에이전트는 절대 일반 텍스트 암호에 액세스할 수 없습니다. 암호 해시 동기화 에이전트의 MD5 사용은 DC와의 복제 프로토콜 호환성에 엄격 하 게 사용 되며 DC와 암호 해시 동기화 에이전트 간의 온-프레미스 에서만 사용 됩니다.
 4. 암호 해시 동기화 에이전트는 해시를 32바이트 16진수 문자열로 변환한 후 UTF-16 인코딩을 사용하여 이 문자열을 다시 이진으로 변환하는 방법으로 16바이트 이진 암호 해시를 64바이트로 확장합니다.
 5. 암호 해시 동기화 에이전트는 10바이트 길이 솔트로 구성된 사용자별 솔트를 64비트 이진 파일에 추가하여 원래 해시의 보안을 강화합니다.
-6. 그런 다음, 암호 해시 동기화 에이전트는 MD4 해시와 사용자별 솔트를 결합하고 [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) 함수에 입력합니다. [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1) 키 지정 해시 알고리즘이 1000번 반복됩니다. 
+6. 그런 다음, 암호 해시 동기화 에이전트는 MD4 해시와 사용자별 솔트를 결합하고 [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) 함수에 입력합니다. [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256) 키 지정 해시 알고리즘이 1000번 반복됩니다. 
 7. 암호 해시 동기화 에이전트는 결과 32 바이트 해시를 사용 하 여 사용자별 솔트와 SHA256 반복 횟수를 모두 연결 하 고 (Azure AD에서 사용), TLS를 통해 Azure AD Connect에서 Azure AD로 문자열을 전송 합니다.</br> 
 8. 사용자가 Azure AD에 로그인을 시도하고 암호를 입력하면 암호가 동일한 MD4+salt+PBKDF2+HMAC-SHA256 프로세스를 통해 실행됩니다. 결과 해시가 Azure AD에 저장된 해시와 일치하고 사용자가 올바른 암호를 입력하면 해당 사용자가 인증됩니다.
 
@@ -142,7 +142,7 @@ Azure AD에서 동기화 된 사용자에 대 한 임시 암호를 지원 하려
 
 #### <a name="account-expiration"></a>계정 만료
 
-조직에서 사용자 계정 관리의 일부로 accountExpires 특성을 사용하는 경우 이 특성은 Azure AD와 동기화되지 않습니다. 결과적으로 암호 해시 동기화를 위해 구성된 환경의 만료된 Active Directory 계정은 Azure AD에서 계속 활성 상태입니다. 계정이 만료되면 워크플로 작업에서 사용자의 Azure AD 계정을 비활성화하는 PowerShell 스크립트를 트리거하는([Set-AzureADUser](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0) cmdlet를 사용하는) 것이 좋습니다. 반대로 계정이 켜지면 Azure AD 인스턴스도 켜져야 합니다.
+조직에서 사용자 계정 관리의 일부로 accountExpires 특성을 사용하는 경우 이 특성은 Azure AD와 동기화되지 않습니다. 결과적으로 암호 해시 동기화를 위해 구성된 환경의 만료된 Active Directory 계정은 Azure AD에서 계속 활성 상태입니다. 계정이 만료되면 워크플로 작업에서 사용자의 Azure AD 계정을 비활성화하는 PowerShell 스크립트를 트리거하는([Set-AzureADUser](/powershell/module/azuread/set-azureaduser) cmdlet를 사용하는) 것이 좋습니다. 반대로 계정이 켜지면 Azure AD 인스턴스도 켜져야 합니다.
 
 ### <a name="overwrite-synchronized-passwords"></a>동기화된 암호 덮어쓰기
 

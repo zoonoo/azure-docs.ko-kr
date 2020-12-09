@@ -11,16 +11,16 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59b304505c29f424d85d5b1e16dc83c060ac2ac1
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 19e40d135316c1c7cd270d2804fff1f487937685
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744601"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858538"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Azure Active Directory에서 사용자 계정 이름 변경 계획 및 문제 해결
 
-UPN (사용자 계정 이름)은 사용자 계정에 대 한 인터넷 통신 표준인 특성입니다. UPN은 UPN 접두사(사용자 계정 이름) 및 UPN 접미사(DNS 도메인 이름)으로 구성됩니다. 접두사는 "" 기호를 사용 하 여 접미사를 조인 합니다 \@ . 예들 들어 someone@example.com입니다. UPN은 디렉터리 포리스트 내의 모든 보안 주체 개체 사이에서 고유해야 합니다. 
+UPN (사용자 계정 이름)은 사용자 계정에 대 한 인터넷 통신 표준인 특성입니다. UPN은 UPN 접두사(사용자 계정 이름) 및 UPN 접미사(DNS 도메인 이름)으로 구성됩니다. 접두사는 "" 기호를 사용 하 여 접미사를 조인 합니다 \@ . someone@example.com)을 입력합니다. UPN은 디렉터리 포리스트 내의 모든 보안 주체 개체 사이에서 고유해야 합니다. 
 
 **이 문서에서는 사용자가 UPN을 사용 하 고 있다고 가정 합니다. UPN 변경에 대 한 계획을 수립 하 고 UPN 변경으로 인해 발생할 수 있는 문제를 해결 합니다.**
 
@@ -135,7 +135,7 @@ UserPrincipalName 특성의 값이 Azure AD의 확인 된 도메인에 해당 �
 이 섹션에서 설명 하는 문제는 Windows 10 2020 업데이트 (2004)에서 해결 되었습니다.
 
 **해결 방법** <br>
-UPN 변경 내용이 Azure AD로 동기화 될 때까지 충분 한 시간을 허용 합니다. 새 UPN이 Azure AD 포털에 반영 되는지 확인 한 후 사용자에 게 "기타 사용자" 타일을 선택 하 여 새 UPN으로 로그인 하도록 요청 합니다. [PowerShell](/powershell/module/azuread/get-azureaduser?view=azureadps-2.0)을 통해 확인할 수도 있습니다. 새 UPN을 사용 하 여 로그인 한 후에는 이전 UPN에 대 한 참조가 "회사 또는 학교 액세스" 창 설정에 계속 나타날 수 있습니다.
+UPN 변경 내용이 Azure AD로 동기화 될 때까지 충분 한 시간을 허용 합니다. 새 UPN이 Azure AD 포털에 반영 되는지 확인 한 후 사용자에 게 "기타 사용자" 타일을 선택 하 여 새 UPN으로 로그인 하도록 요청 합니다. [PowerShell](/powershell/module/azuread/get-azureaduser)을 통해 확인할 수도 있습니다. 새 UPN을 사용 하 여 로그인 한 후에는 이전 UPN에 대 한 참조가 "회사 또는 학교 액세스" 창 설정에 계속 나타날 수 있습니다.
 
 ![확인 된 도메인의 스크린샷](./media/howto-troubleshoot-upn-changes/other-user.png)
 

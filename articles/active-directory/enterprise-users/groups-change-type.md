@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9298c5762e54faa7721973136408e14bd8d17d81
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1a46cc3f4a0f2fb25fc693103a64a319dcec0324
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547664"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860884"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Azure Active Directory에서 정적 그룹 멤버 자격을 동적으로 변경
 
@@ -57,7 +57,7 @@ ms.locfileid: "96547664"
 ## <a name="change-membership-type-for-a-group-powershell"></a>그룹에 대한 멤버 자격 유형 변경(PowerShell)
 
 > [!NOTE]
-> 동적 그룹 속성을 변경하려면 **Azure AD PowerShell 버전 2의** [미리 보기 버전](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)에서 cmdlet을 사용해야 합니다. [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureADPreview)에서 미리 보기를 설치할 수 있습니다.
+> 동적 그룹 속성을 변경하려면 **Azure AD PowerShell 버전 2의** [미리 보기 버전](/powershell/azure/active-directory/install-adv2)에서 cmdlet을 사용해야 합니다. [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureADPreview)에서 미리 보기를 설치할 수 있습니다.
 
 기존 그룹에서 멤버 자격 관리를 전환하는 기능의 예는 다음과 같습니다. 이 예제에서는 GroupTypes 속성을 정확하게 조작하고 동적 멤버 자격과 무관한 다른 기존 값을 그대로 유지하기 위해 주의가 필요합니다.
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4931006ba690ff7e059da5de8b0bc816271af30c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3b40171d87ccffa7c5c4fb72d2e79af015b1d16f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547902"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859966"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Azure Active Directory의 Microsoft 365 그룹에 민감도 레이블 할당
 
@@ -68,7 +68,7 @@ Azure Active Directory (Azure AD)는 [Microsoft 365 준수 센터](https://sip.p
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-또한 민감도 레이블을 Azure AD와 동기화 해야 합니다. 자세한 지침은 [컨테이너의 민감도 레이블을 사용 하도록 설정 하 고 레이블 동기화를](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels)참조 하세요.
+또한 민감도 레이블을 Azure AD와 동기화 해야 합니다. 자세한 지침은 [컨테이너의 민감도 레이블을 사용 하도록 설정 하 고 레이블 동기화를](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels)참조 하세요.
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Azure Portal에서 새 그룹에 레이블 할당
 

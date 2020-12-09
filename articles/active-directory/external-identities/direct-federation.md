@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a23056445331c82aded878a77d1e0e730e4e2ceb
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5beae56a5d38c4620481c27c3f42c52602984e6b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339475"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860629"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>게스트 사용자를 위한 AD FS 및 타사 공급자와의 직접 페더레이션(미리 보기)
 
@@ -66,7 +66,7 @@ ms.locfileid: "96339475"
 ID 공급자 설정에서 메타데이터 URL을 지정하는 경우 Azure AD에서 만료되는 서명 인증서를 자동으로 갱신합니다. 그러나 어떤 이유로든 인증서를 만료 시간 전에 회전하거나 메타데이터 URL을 제공하지 않으면 Azure AD에서 인증서를 갱신할 수 없습니다. 이 경우 서명 인증서를 수동으로 업데이트해야 합니다.
 
 ### <a name="limit-on-federation-relationships"></a>페더레이션 관계에 대한 제한
-현재 최대 1,000개의 페더레이션 관계가 지원됩니다. 이 제한에는 [내부 페더레이션](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) 및 직접 페더레이션이 모두 포함됩니다.
+현재 최대 1,000개의 페더레이션 관계가 지원됩니다. 이 제한에는 [내부 페더레이션](/powershell/module/msonline/set-msoldomainfederationsettings) 및 직접 페더레이션이 모두 포함됩니다.
 
 ### <a name="limit-on-multiple-domains"></a>여러 도메인에 대한 제한
 현재 동일한 테넌트의 여러 도메인과의 직접 페더레이션을 지원하지 않습니다.

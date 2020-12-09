@@ -12,18 +12,18 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0a103ac9b8e6d29830b5ecd6732cd19547014b0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ef1abd1d72e4435aa59bbb9a99f3cc423f11268e
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659066"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858301"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Azure Active Directory에서 최종 사용자의 엔터프라이즈 응용 프로그램 숨기기
 
 최종 사용자의 MyApps 패널 또는 Microsoft 365 시작 관리자에서 응용 프로그램을 숨기는 방법에 대 한 지침입니다. 애플리케이션을 숨겨도 애플리케이션에 대한 사용자의 권한은 계속 유지됩니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 MyApps 패널 및 Microsoft 365 시작 관리자에서 응용 프로그램을 숨기려면 응용 프로그램 관리자 권한이 필요 합니다.
 
@@ -47,7 +47,7 @@ MyApps 패널 및 Microsoft 365 응용 프로그램 시작 관리자에서 응�
 
 ## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Azure AD PowerShell을 사용 하 여 응용 프로그램 숨기기
 
-MyApps 패널에서 응용 프로그램을 숨기려면 응용 프로그램의 서비스 주체에 HideApp 태그를 수동으로 추가할 수 있습니다. 다음 [AzureAD PowerShell](/powershell/module/azuread/?view=azureadps-2.0#service_principals) 명령을 실행 하 여 **사용자에 게 표시 되** 는 응용 프로그램을 설정 합니다. 속성을 **아니요** 로 설정 합니다. 
+MyApps 패널에서 응용 프로그램을 숨기려면 응용 프로그램의 서비스 주체에 HideApp 태그를 수동으로 추가할 수 있습니다. 다음 [AzureAD PowerShell](/powershell/module/azuread/#service_principals) 명령을 실행 하 여 **사용자에 게 표시 되** 는 응용 프로그램을 설정 합니다. 속성을 **아니요** 로 설정 합니다. 
 
 ```PowerShell
 Connect-AzureAD

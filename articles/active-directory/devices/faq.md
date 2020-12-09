@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77ecc23e2969ce4ce26eef7b9a3a485389d08ce0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: dd438a09b929274808984322981f6d21da0bf68f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837110"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860952"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
@@ -25,7 +25,7 @@ ms.locfileid: "94837110"
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>Q: 최근에 디바이스를 등록했습니다. Azure Portal에서 내 사용자 정보 아래에 장치가 표시 되지 않는 이유는 무엇 인가요? 또는 하이브리드 Azure AD(Azure Active Directory) 조인 디바이스의 디바이스 소유자가 N/A로 표시되는 이유는 무엇인가요?
 
 **A:** 하이브리드 Azure AD에 가입 된 Windows 10 장치는 **사용자 장치** 아래에 표시 되지 않습니다.
-Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet을 사용할 수도 있습니다.
+Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice) cmdlet을 사용할 수도 있습니다.
 
 다음 디바이스만 **사용자 디바이스** 아래에 나열됩니다.
 
@@ -69,7 +69,7 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 ---
 
-### <a name="q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do"></a>Q: Azure Portal에서 또는 Windows PowerShell을 사용 하 여 장치를 사용 하지 않도록 설정 하거나 삭제 했습니다. 하지만 디바이스의 로컬 상태는 여전히 등록된 것으로 표시됩니다.   어떻게 해야 합니까?
+### <a name="q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do"></a>Q: Azure Portal에서 또는 Windows PowerShell을 사용 하 여 장치를 사용 하지 않도록 설정 하거나 삭제 했습니다. 하지만 디바이스의 로컬 상태는 여전히 등록된 것으로 표시됩니다. 어떻게 해야 합니까?
 
 **A:** 이 작업은 의도 된 것입니다. 이 경우 장치는 클라우드의 리소스에 액세스할 수 없습니다. 관리자는 부실 하거나 분실 하거나 도난당 한 장치에 대해이 작업을 수행 하 여 무단 액세스를 방지할 수 있습니다. 이 작업을 실수로 수행한 경우 아래 설명 된 대로 장치를 다시 사용 하도록 설정 하거나 다시 등록 해야 합니다.
 

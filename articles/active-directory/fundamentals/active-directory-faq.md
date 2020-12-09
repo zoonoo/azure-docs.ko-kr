@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8774d6868d55c7d040b1894c4a14d989cb2702
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4a8fcb14ac397791822c3a9065275dbfb2b3b7dd
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371871"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860425"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Azure Active Directory에 대해 자주 묻는 질문과 대답
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -130,7 +130,7 @@ Microsoft 365 사용자의 경우 관리자는 [사용자 암호 다시 설정](
 Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호를 재설정할 수 있습니다.
 
 - [Azure Portal에서 계정 재설정](active-directory-users-reset-password-azure-portal.md)
-- [PowerShell 사용](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
+- [PowerShell 사용](/powershell/module/msonline/set-msoluserpassword)
 
 
 ---

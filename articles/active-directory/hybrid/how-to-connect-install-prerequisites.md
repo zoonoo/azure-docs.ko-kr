@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 032b1ca945cf729f8a6682cf71d26a716b1e8863
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: edace0298514d1fc3cfd3afcff73fa0d29e18f0c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172350"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858776"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 문서에서는 Azure AD (Azure Active Directory) 연결에 대 한 필수 구성 요소 및 하드웨어 요구 사항을 설명 합니다.
@@ -52,7 +52,7 @@ Azure Active Directory Connect는 설치의 일부로 서명 된 PowerShell 스�
 
 설치 중에 권장 되는 실행 정책은 "RemoteSigned"입니다.
 
-PowerShell 실행 정책 설정에 대 한 자세한 내용은 [set-executionpolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7)를 참조 하세요.
+PowerShell 실행 정책 설정에 대 한 자세한 내용은 [set-executionpolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy)를 참조 하세요.
 
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect 서버

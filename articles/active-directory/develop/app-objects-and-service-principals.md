@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 7fe48cf28ab3004087e2b022d7a9eca69a1e58e2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e4325303f5a10fa1df670495dd6d8190167182e8
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169633"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861105"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션 및 서비스 주체 개체
 
@@ -49,7 +49,7 @@ Azure AD 테넌트에 의해 보안이 유지되는 리소스에 액세스하려
 
 서비스 사용자는 단일 테 넌 트 또는 디렉터리에 있는 전역 응용 프로그램 개체의 로컬 표현 또는 응용 프로그램 인스턴스입니다. 서비스 주체는 응용 프로그램 개체에서 만든 구체적인 인스턴스이고 해당 응용 프로그램 개체의 특정 속성을 상속 합니다.  응용 프로그램이 사용 되는 각 테 넌 트에 서비스 주체가 만들어지고 전역적으로 고유한 앱 개체를 참조 합니다.  서비스 주체 개체는 앱이 특정 테 넌 트에서 실제로 수행할 수 있는 작업, 앱에 액세스할 수 있는 사용자 및 앱이 액세스할 수 있는 리소스를 정의 합니다.
 
-애플리케이션이 테넌트의 리소스에 액세스하기 위한 권한을 받으면(등록 또는 [동의](developer-glossary.md#consent) 시) 서비스 주체 개체가 만들어집니다. [Azure PowerShell](howto-authenticate-service-principal-powershell.md), [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal]및 기타 도구를 사용 하 여 테 넌 트에서 서비스 사용자 개체를 만들 수도 있습니다.  포털을 사용 하는 경우 응용 프로그램을 등록할 때 서비스 주체가 자동으로 생성 됩니다.
+애플리케이션이 테넌트의 리소스에 액세스하기 위한 권한을 받으면(등록 또는 [동의](developer-glossary.md#consent) 시) 서비스 주체 개체가 만들어집니다. [Azure PowerShell](howto-authenticate-service-principal-powershell.md), [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?tabs=http), [Azure Portal][AZURE-Portal]및 기타 도구를 사용 하 여 테 넌 트에서 서비스 사용자 개체를 만들 수도 있습니다.  포털을 사용 하는 경우 응용 프로그램을 등록할 때 서비스 주체가 자동으로 생성 됩니다.
 
 포털의 **엔터프라이즈 응용 프로그램** 블레이드는 테 넌 트에서 서비스 사용자를 나열 하 고 관리 하는 데 사용 됩니다. 서비스 사용자의 권한, 사용자 동의한 권한, 해당 동의를 수행한 사용자 및 로그인 정보 등을 볼 수 있습니다.
 
@@ -70,7 +70,7 @@ Microsoft Graph [serviceprincipal 엔터티][MS-Graph-Sp-Entity] 는 서비스 �
 >
 > 또한 기본적으로 네이티브 애플리케이션이 다중 테넌트로 등록됩니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음 다이어그램은 **HR 앱** 이라는 샘플 다중 테넌트 애플리케이션의 컨텍스트에서 애플리케이션의 애플리케이션 개체와 해당 서비스 주체 개체를 보여 줍니다. 이 예제 시나리오에는 다음 세 가지 Azure AD 테넌트가 있습니다.
 
@@ -91,8 +91,8 @@ Microsoft Graph [serviceprincipal 엔터티][MS-Graph-Sp-Entity] 는 서비스 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer) 를 사용 하 여 응용 프로그램 및 서비스 주체 개체를 모두 쿼리할 수 있습니다.
-- OData [응용 프로그램 엔터티로][MS-Graph-App-Entity]표시 되는 Microsoft Graph API, [Azure Portal의][AZURE-Portal] 응용 프로그램 매니페스트 편집기 또는 [Azure AD PowerShell cmdlet](/powershell/azure/?view=azureadps-2.0)을 사용 하 여 응용 프로그램의 응용 프로그램 개체에 액세스할 수 있습니다.
-- OData [serviceprincipal 엔터티][MS-Graph-Sp-Entity]를 통해 표시 된 대로 Microsoft Graph API 또는 [Azure AD PowerShell cmdlet](/powershell/azure/?view=azureadps-2.0)을 통해 응용 프로그램의 서비스 주체 개체에 액세스할 수 있습니다.
+- OData [응용 프로그램 엔터티로][MS-Graph-App-Entity]표시 되는 Microsoft Graph API, [Azure Portal의][AZURE-Portal] 응용 프로그램 매니페스트 편집기 또는 [Azure AD PowerShell cmdlet](/powershell/azure/)을 사용 하 여 응용 프로그램의 응용 프로그램 개체에 액세스할 수 있습니다.
+- OData [serviceprincipal 엔터티][MS-Graph-Sp-Entity]를 통해 표시 된 대로 Microsoft Graph API 또는 [Azure AD PowerShell cmdlet](/powershell/azure/)을 통해 응용 프로그램의 서비스 주체 개체에 액세스할 수 있습니다.
 
 <!--Image references-->
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b51fe1349b2ece89b97cf9436ad3374374ad309
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ed93944c2a94370250fb75a679c1ac37a2a8418c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741578"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861156"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Azure Active Directory 셀프 서비스 암호 재설정에 대 한 사용자 인증 연락처 정보 미리 채우기 (SSPR)
 
@@ -125,7 +125,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>PowerShell 버전 2 사용
 
-시작 하려면 [AZURE AD 버전 2 PowerShell 모듈을 다운로드](/powershell/module/azuread/?view=azureadps-2.0)하 여 설치 합니다.
+시작 하려면 [AZURE AD 버전 2 PowerShell 모듈을 다운로드](/powershell/module/azuread/)하 여 설치 합니다.
 
 를 지 원하는 최신 버전의 PowerShell에서 빠르게 설치 하려면 `Install-Module` 다음 명령을 실행 합니다. 첫 번째 줄은 모듈이 이미 설치 되어 있는지 확인 합니다.
 

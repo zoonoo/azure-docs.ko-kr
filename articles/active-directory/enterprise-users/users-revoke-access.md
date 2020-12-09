@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 12/02/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d808b920ddc6ff6f1d44252c27d67edd9c0dc353
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 826ca9fc20d8bbcf9a5f90ccc895b9f9867a6be1
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575519"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860578"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Azure Active Directory에서 사용자 액세스 취소
 
@@ -60,13 +60,13 @@ ms.locfileid: "96575519"
 
 Active Directory 관리자는 온-프레미스 네트워크에 연결 하 고 PowerShell을 연 후 다음 작업을 수행 합니다.
 
-1. Active Directory에서 사용자를 사용 하지 않도록 설정 합니다. [사용 안 함-ADAccount](/powershell/module/addsadministration/disable-adaccount?view=win10-ps)를 참조 하세요.
+1. Active Directory에서 사용자를 사용 하지 않도록 설정 합니다. [사용 안 함-ADAccount](/powershell/module/addsadministration/disable-adaccount)를 참조 하세요.
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-1. Active Directory에서 사용자의 암호를 두 번 다시 설정 합니다. [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps)를 참조 하세요.
+1. Active Directory에서 사용자의 암호를 두 번 다시 설정 합니다. [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword)를 참조 하세요.
 
     > [!NOTE]
     > 사용자 암호를 두 번 변경 하는 이유는 특히 온-프레미스 암호 복제에서 지연이 발생 하는 경우 해시 패스의 위험을 완화 하는 것입니다. 안전 하 게이 계정이 손상 되었다고 가정할 수 있는 경우 암호를 한 번만 다시 설정할 수 있습니다.
@@ -83,18 +83,18 @@ Active Directory 관리자는 온-프레미스 네트워크에 연결 하 고 Po
 
 Azure Active Directory 관리자 권한으로 PowerShell을 열고를 실행 ``Connect-AzureAD`` 하 고 다음 작업을 수행 합니다.
 
-1. Azure AD에서 사용자를 사용 하지 않도록 설정 합니다. [Get-azureaduser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0)를 참조 하세요.
+1. Azure AD에서 사용자를 사용 하지 않도록 설정 합니다. [Get-azureaduser](/powershell/module/azuread/Set-AzureADUser)를 참조 하세요.
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
-1. 사용자의 Azure AD 새로 고침 토큰을 해지 합니다. [AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)를 참조 하세요.
+1. 사용자의 Azure AD 새로 고침 토큰을 해지 합니다. [AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)를 참조 하세요.
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-1. 사용자의 장치를 사용 하지 않도록 설정 합니다. [AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0)를 참조 하세요.
+1. 사용자의 장치를 사용 하지 않도록 설정 합니다. [AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice)를 참조 하세요.
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
