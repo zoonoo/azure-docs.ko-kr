@@ -1,25 +1,23 @@
 ---
-title: Azure Portal에서 Kubernetes 리소스에 액세스 (미리 보기)
+title: Azure Portal에서 Kubernetes 리소스에 액세스
 description: Kubernetes 리소스와 상호 작용 하 여 Azure Portal에서 AKS (Azure Kubernetes Service) 클러스터를 관리 하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 09/21/2020
-ms.openlocfilehash: cfd09e469de68a1eee7440773347e9fe58bf8619
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/09/2020
+ms.openlocfilehash: 8e31c41573ced403a034999de71a5595a54281df
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571626"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921580"
 ---
-# <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Azure Portal에서 Kubernetes 리소스에 액세스 (미리 보기)
+# <a name="access-kubernetes-resources-from-the-azure-portal"></a>Azure Portal에서 Kubernetes 리소스에 액세스
 
-Azure Portal에는 AKS (Azure Kubernetes Service) 클러스터의 Kubernetes 리소스에 쉽게 액세스할 수 있는 Kubernetes 리소스 뷰어 (미리 보기)가 포함 되어 있습니다. Azure Portal에서 Kubernetes 리소스를 보면 Azure Portal와 명령줄 도구 간의 컨텍스트 전환이 줄어들어 `kubectl` Kubernetes 리소스를 보고 편집 하는 환경이 간소화 됩니다. 리소스 뷰어에는 현재 여러 리소스 유형 (예: 배포, pod 및 복제본 집합)이 포함 되어 있습니다.
+Azure Portal에는 AKS (Azure Kubernetes Service) 클러스터의 Kubernetes 리소스에 쉽게 액세스할 수 있는 Kubernetes 리소스 뷰가 포함 되어 있습니다. Azure Portal에서 Kubernetes 리소스를 보면 Azure Portal와 명령줄 도구 간의 컨텍스트 전환이 줄어들어 `kubectl` Kubernetes 리소스를 보고 편집 하는 환경이 간소화 됩니다. 리소스 뷰어에는 현재 여러 리소스 유형 (예: 배포, pod 및 복제본 집합)이 포함 되어 있습니다.
 
 Azure Portal의 Kubernetes 리소스 뷰가 사용 되지 않는 [AKS dashboard 추가 기능][kubernetes-dashboard]을 대체 합니다.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Portal에서 Kubernetes 리소스를 보려면 AKS 클러스터가 필요 합니다. 모든 클러스터가 지원 되지만 Azure Active Directory (Azure AD) 통합을 사용 하는 경우 클러스터에서 [AKS로 관리 되는 AZURE ad 통합][aks-managed-aad]을 사용 해야 합니다. 클러스터에서 레거시 Azure AD를 사용 하는 경우 포털에서 또는 [Azure CLI][cli-aad-upgrade]를 사용 하 여 클러스터를 업그레이드할 수 있습니다.
 

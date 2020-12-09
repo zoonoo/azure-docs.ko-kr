@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: a807c76a08bf075973cd0f358c67b61b10b40ba0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 9003366ec0d64057ca7426d5b6b99986bc21fc9d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554521"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920296"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>온-프레미스 SQL server 등록 및 검사
 
@@ -32,7 +32,11 @@ SQL server 온-프레미스 데이터 원본은 다음을 지원 합니다.
 
 - 인증 방법: SQL 인증
 
-## <a name="prerequisites"></a>필수 조건
+### <a name="known-limitations"></a>알려진 제한 사항
+
+Azure 부서의 범위는 SQL Server의 [뷰](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) 검색을 지원 하지 않습니다. 
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 데이터 원본을 등록 하기 전에 Azure 부서의 범위 계정을 만듭니다. 부서의 범위 계정을 만드는 방법에 대 한 자세한 내용은 [빠른 시작: Azure 부서의 범위 계정 만들기](create-catalog-portal.md)를 참조 하세요.
 

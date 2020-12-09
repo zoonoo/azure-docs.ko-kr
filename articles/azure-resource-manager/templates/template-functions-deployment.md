@@ -1,18 +1,18 @@
 ---
 title: 템플릿 함수-배포
-description: Azure Resource Manager 템플릿에서 배포 정보를 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
+description: 배포 정보를 검색 하기 위해 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용할 수 있는 함수에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 9d6a1783bcd6d84c181edae84063ed7c0964c3d8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e63caef669a2c28d29cd0bbd649b0997cea14ee1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004571"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920515"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>ARM 템플릿에 대 한 배포 함수
 
-리소스 관리자는 ARM (Azure Resource Manager) 템플릿의 현재 배포와 관련 된 값을 가져오기 위한 다음 함수를 제공 합니다.
+리소스 관리자는 Azure Resource Manager 템플릿 (ARM 템플릿)의 현재 배포와 관련 된 값을 가져오기 위한 다음 함수를 제공 합니다.
 
 * [배포가](#deployment)
 * [environment](#environment)(환경)
@@ -430,11 +430,11 @@ output crossOutput string = crossParameter
 | ---- | ---- | ----- |
 | stringOutput | String | 옵션 1 |
 | intOutput | Int | 1 |
-| objectOutput | Object | {“one”: “a”, “two”: “b”} |
+| objectOutput | 개체 | {“one”: “a”, “two”: “b”} |
 | arrayOutput | 배열 | [1, 2, 3] |
 | crossOutput | String | 옵션 1 |
 
-매개 변수 사용에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 매개 변수](template-parameters.md)를 참조 하세요.
+매개 변수 사용에 대 한 자세한 내용은 [ARM 템플릿의 매개 변수](template-parameters.md)를 참조 하세요.
 
 ## <a name="variables"></a>variables
 
@@ -569,10 +569,10 @@ output exampleOutput4 object = var4
 | exampleOutput1 | String | myVariable |
 | exampleOutput2 | 배열 | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
-| exampleOutput4 |  Object | {“property1”: “value1”, “property2”: “value2”} |
+| exampleOutput4 |  개체 | {“property1”: “value1”, “property2”: “value2”} |
 
-변수를 사용 하는 방법에 대 한 자세한 내용은 [Azure Resource Manager 템플릿에서 변수](template-variables.md)를 참조 하세요.
+변수를 사용 하는 방법에 대 한 자세한 내용은 [ARM 템플릿의 변수](template-variables.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Resource Manager 템플릿의 섹션에 대 한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.

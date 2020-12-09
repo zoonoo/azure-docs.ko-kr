@@ -4,12 +4,12 @@ description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: b109aaea1ae5e751f40b55a3c703f0739661e10d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: f5f81fe5d3f7f7d24e5e6618ba3956b80451570c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876212"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921865"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -19,8 +19,11 @@ Application Insights는 다른 웹 페이지와 함께 사용할 수 있습니�
 
 ## <a name="adding-the-javascript-sdk"></a>JavaScript SDK 추가
 
+> [!IMPORTANT]
+> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 사용 **해야** 합니다. [연결 문자열](./sdk-connection-string.md?tabs=js) 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+
 1. 먼저 Application Insights 리소스가 필요 합니다. 리소스 및 계측 키가 아직 없는 경우 [새 리소스 만들기 지침](create-new-resource.md)을 따르세요.
-2. 1 단계에서 JavaScript 원격 분석을 전송 하려는 리소스에 대 한 _계측 키_ ("ikey" 라고도 함)를 복사 합니다. `instrumentationKey` Application Insights JAVASCRIPT SDK의 설정에 추가 합니다.
+2. 1 단계에서 JavaScript 원격 분석을 전송 하려는 리소스에 대 한 [연결 문자열](#connection-string-setup) 또는 _계측 키_ ("ikey" 라고도 함)를 복사 합니다. `instrumentationKey` `connectionString` APPLICATION INSIGHTS JavaScript SDK의 또는 설정에 추가 합니다.
 3. 다음 두 옵션 중 하나를 통해 웹 페이지 또는 앱에 Application Insights JavaScript SDK를 추가 합니다.
     * [npm 설정](#npm-based-setup)
     * [JavaScript 코드 조각](#snippet-based-setup)
@@ -40,7 +43,7 @@ npm i --save @microsoft/applicationinsights-web
 ```
 
 > [!Note]
-> **이 패키지에는 제공이 포함 되어**있으므로 별도의 제공 패키지를 설치할 필요가 **없습니다** .
+> **이 패키지에는 제공이 포함 되어** 있으므로 별도의 제공 패키지를 설치할 필요가 **없습니다** .
     
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -102,9 +105,9 @@ SDK 로드 오류에 대 한 보고는 특히 IE 8에서 지원 되지 않습니
 
 각 구성 옵션은 위에 표시 된 항목의 기본값을 [옵션]으로 재정의 하지 않으려는 경우 반환 된 페이지의 결과 크기를 최소화 하기 위해 해당 줄을 제거할 수 있습니다.
 
-사용 가능한 구성 옵션은 
+사용 가능한 구성 옵션은
 
-| Name | 유형 | 설명
+| 이름 | Type | Description
 |------|------|----------------
 | src | 문자열 **[필수]** | SDK를 로드할 위치의 전체 URL입니다. 이 값은 동적으로 추가 된 스크립트/태그의 "src" 특성에 사용 됩니다 &lt; &gt; . 공용 CDN 위치나 개인적으로 호스트 된 항목을 사용할 수 있습니다.
 | name | 문자열 *[선택 사항]* | 초기화 된 SDK에 대 한 전역 이름 `appInsights` 입니다. 기본값은입니다. 는 ```window.appInsights``` 초기화 된 인스턴스에 대 한 참조입니다. 참고: 이름 값을 제공 하거나 이전 인스턴스가 할당 된 것으로 나타나는 경우 (전역 이름 appInsightsSDK을 통해)이 이름 값도 전역 네임 스페이스에 정의 됩니다 .이 이름 값은 ```window.appInsightsSDK=<name value>``` SDK 초기화 코드에서 올바른 코드 조각 구조 및 프록시 메서드를 초기화 하 고 업데이트 하는 데 필요 합니다.
@@ -113,9 +116,23 @@ SDK 로드 오류에 대 한 보고는 특히 IE 8에서 지원 되지 않습니
 | 위치 원점 | 문자열 *[선택 사항]* | 이 설정을 포함 하 여 SDK를 다운로드 하는 데 추가 된 스크립트 태그에는이 문자열 값을 포함 하는 간 원본 특성이 포함 됩니다. 정의 되지 않은 경우 (기본값) 간 원본 특성이 추가 되지 않습니다. 권장 값은 정의 되지 않습니다 (기본값). ""; 또는 "anonymous" (모든 유효한 값의 경우 [HTML 특성: `crossorigin` ](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) 문서 참조)
 | cfg | 개체 **[필수]** | 초기화 하는 동안 Application Insights SDK에 전달 되는 구성입니다.
 
+### <a name="connection-string-setup"></a>연결 문자열 설정
+
+NPM 또는 코드 조각 설치의 경우 연결 문자열을 사용 하 여 Application Insights 인스턴스를 구성할 수도 있습니다. 필드를 필드로 대체 하기만 하면 됩니다 `instrumentationKey` `connectionString` .
+```js
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+const appInsights = new ApplicationInsights({ config: {
+  connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE'
+  /* ...Other Configuration Options... */
+} });
+appInsights.loadAppInsights();
+appInsights.trackPageView();
+```
+
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Azure Portal 원격 분석 보내기
 
-기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 내용은 다음과 같습니다.
+기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 여기에는 다음이 포함됩니다.
 
 - 에 대 한 정보를 포함 하 여 앱의 Catch 되지 않은 **예외**
     - 스택 추적
@@ -153,7 +170,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>구성
 대부분의 구성 필드의 이름은 기본적으로 false로 설정 될 수 있습니다. 을 제외한 모든 필드는 선택 사항 `instrumentationKey` 입니다.
 
-| 속성 | 기본값 | 설명 |
+| 속성 | 기본값 | Description |
 |------|---------|-------------|
 | instrumentationKey | null | **필수**<br>Azure Portal에서 가져온 계측 키입니다. |
 | accountId | null | 앱이 사용자를 계정으로 그룹화 하는 경우 계정 ID (선택 사항)입니다. 공백, 쉼표, 세미콜론, 같음 또는 세로 막대가 없습니다. |
@@ -163,8 +180,8 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | maxBatchInterval | 15000 | 보내기 전에 원격 분석을 일괄 처리 하는 시간 (밀리초) |
 | disableExceptionTracking | false | True 이면 예외가 자동으로 수집 되지 않습니다. 기본값은 false입니다. |
 | disableTelemetry | false | True 이면 원격 분석이 수집 되거나 전송 되지 않습니다. 기본값은 false입니다. |
-| enableDebug | false | True 이면 SDK 로깅 설정에 관계 없이 **내부** 디버깅 데이터가 기록 되는 **대신** 예외로 throw 됩니다. 기본값은 false입니다. <br>***참고:*** 이 설정을 사용 하도록 설정 하면 내부 오류가 발생할 때마다 원격 분석이 삭제 됩니다. 이는 SDK의 구성 또는 사용과 관련 된 문제를 신속 하 게 식별 하는 데 유용할 수 있습니다. 디버깅 하는 동안 원격 분석을 잃지 않으려면 대신 또는를 사용 하는 것이 좋습니다 `consoleLoggingLevel` `telemetryLoggingLevel` `enableDebug` . |
-| loggingLevelConsole | 0 | **내부** Application Insights 오류를 콘솔에 기록 합니다. <br>0: off, <br>1: 심각한 오류만, <br>2: 모든 항목 (오류 & 경고) |
+| enableDebug | false | True 이면 SDK 로깅 설정에 관계 없이 **내부** 디버깅 데이터가 기록 되는 **대신** 예외로 throw 됩니다. 기본값은 false입니다. <br>**_참고:_* _이 설정을 사용 하도록 설정 하면 내부 오류가 발생할 때마다 원격 분석이 삭제 됩니다. 이는 SDK의 구성 또는 사용과 관련 된 문제를 신속 하 게 식별 하는 데 유용할 수 있습니다. 디버깅 하는 동안 원격 분석을 잃지 않으려면 대신 또는를 사용 하는 것이 좋습니다 `consoleLoggingLevel` `telemetryLoggingLevel` `enableDebug` . |
+| loggingLevelConsole | 0 | _ *내부** Application Insights 오류를 콘솔에 기록 합니다. <br>0: off, <br>1: 심각한 오류만, <br>2: 모든 항목 (오류 & 경고) |
 | loggingLevelTelemetry | 1 | **내부** Application Insights 오류를 원격 분석으로 보냅니다. <br>0: off, <br>1: 심각한 오류만, <br>2: 모든 항목 (오류 & 경고) |
 | diagnosticLogInterval | 10000 | 사내 내부 로깅 큐의 폴링 간격 (밀리초) |
 | samplingPercentage | 100 | 전송 될 이벤트의 백분율입니다. 기본값은 100입니다. 즉, 모든 이벤트가 전송 됩니다. 대규모 응용 프로그램에 대 한 데이터 캡을 유지 하려는 경우에 설정 합니다. |
@@ -259,7 +276,7 @@ cfg: { // Application Insights Configuration
 
 포털의 브라우저 경험을 통해 JavaScript SDK에서 데이터를 볼 수도 있습니다.
 
-**브라우저** 를 선택한 다음 **실패** 또는 **성능**을 선택 합니다.
+**브라우저** 를 선택한 다음 **실패** 또는 **성능** 을 선택 합니다.
 
 ![웹 응용 프로그램에 대해 볼 수 있는 메트릭에 브라우저 오류 또는 브라우저 성능을 추가 하는 방법을 보여 주는 Application Insights 브라우저 페이지의 스크린샷](./media/javascript/browser.png)
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/19/2020
-ms.openlocfilehash: dc09edee08e97e354ef006416e2d5c0a333a3980
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 12/07/2020
+ms.openlocfilehash: 154be7e4340c798ba1d014b210361f666864797e
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917820"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921514"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -19,7 +19,7 @@ ms.locfileid: "94917820"
 
 <a name="definition-limits"></a>
 
-## <a name="definition-limits"></a>정의 한도
+## <a name="logic-app-definition-limits"></a>논리 앱 정의 제한
 
 다음은 단일 논리 앱 정의에 대한 제한 사항입니다.
 
@@ -37,7 +37,9 @@ ms.locfileid: "94917820"
 | 최대 수 `parameters` | 50 | |
 | 최대 수 `outputs` | 10 | |
 | `trackedProperties`에 대한 최대 크기 | 16,000자 |
-| 인라인 코드 작업-최대 코드 문자 수 | 1024 문자 <p>10만 문자 제한의 경우 Visual Studio Code 및 [미리 보기 **Azure Logic Apps** 확장](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)을 사용 하 여 논리 앱을 만듭니다. |
+| 인라인 코드 작업-최대 코드 문자 수 | 1024 문자 | 이 제한을 10만 자로 확장 하려면 [Azure Portal를 사용](create-stateful-stateless-workflows-azure-portal.md) 하거나 [Visual Studio Code 및 **Azure Logic Apps (미리 보기)** 확장을 사용](create-stateful-stateless-workflows-visual-studio-code.md)하 여 **논리 앱 (미리 보기)** 리소스 형식으로 논리 앱을 만듭니다. |
+| 인라인 코드 작업-코드 실행에 대 한 최대 기간 | 5초 | 이 제한을 15 초로 확장 하려면 [Azure Portal를 사용](create-stateful-stateless-workflows-azure-portal.md) 하거나 [Visual Studio Code 및 **Azure Logic Apps (미리 보기)** 확장을 사용](create-stateful-stateless-workflows-visual-studio-code.md)하 여 **논리 앱 (미리 보기)** 리소스 형식으로 논리 앱을 만듭니다. |
+||||
 
 <a name="run-duration-retention-limits"></a>
 
@@ -211,21 +213,23 @@ ms.locfileid: "94917820"
 
 Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯한 쓰기 작업을 지원합니다. 그러나 이러한 작업의 [페이로드 크기에 대한 제한](/data-integration/gateway/service-gateway-onprem#considerations)이 있습니다.
 
-<a name="request-limits"></a>
+<a name="http-limits"></a>
 
 ## <a name="http-limits"></a>HTTP 한도
 
-다음은 들어오거나 나가는 단일 HTTP 호출에 대한 제한입니다.
+단일 인바운드 또는 아웃 바운드 호출에 대 한 한도는 다음과 같습니다.
 
-#### <a name="timeout"></a>시간 제한
+<a name="http-timeout-limits"></a>
+
+#### <a name="timeout-duration"></a>시간 제한 기간
 
 일부 커넥터 작업은 비동기 호출을 하거나 웹후크 요청을 수신하므로 이 작업에 대한 시간 제한이 이 제한보다 길 수 있습니다. 자세한 내용은 특정 커넥터에 대한 기술 정보 및 [워크플로 트리거 및 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)을 참조하세요.
 
-| 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 메모 |
-|------|--------------------|---------------------------------------|-------|
-| 아웃바운드 요청 | 120초 <br>(2분) | 240초 <br>(4분) | 아웃바운드 요청의 예로는 HTTP 트리거가 수행한 호출을 들 수 있습니다. <p><p>**팁**: 더 오래 걸리는 작업의 경우, [비동기 폴링 패턴](../logic-apps/logic-apps-create-api-app.md#async-pattern) 또는 [until 루프](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)를 사용합니다. [호출 가능 엔드포인트](logic-apps-http-endpoint.md)가 있는 또 다른 논리 앱을 호출할 때 시간 제한을 피하려면 기본 제공 Azure Logic Apps 작업을 대신 사용하면 됩니다. 이 작업은 **기본 제공** 아래의 커넥터 선택에서 찾을 수 있습니다. |
-| 인바운드 요청 | 120초 <br>(2분) | 240초 <br>(4분) | 인바운드 요청의 예로는 요청 트리거와 웹후크 트리거가 수신한 호출을 들 수 있습니다. <p><p>**참고**: 원래 호출자가 응답을 받으려면 또 다른 논리 앱을 중첩된 워크플로로 호출하지 않는 한 응답의 모든 단계가 제한 내에서 완료되어야 합니다. 자세한 내용은 [논리 앱 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요. |
-|||||
+| 속성 | Logic Apps (다중 테 넌 트) | Logic Apps (미리 보기) | 통합 서비스 환경 | 메모 |
+|------|---------------------------|----------------------|---------------------------------|-------|
+| 아웃바운드 요청 | 120초 <br>(2분) | 230초 <br>(3.9 분) | 240초 <br>(4분) | 아웃 바운드 요청의 예에는 HTTP 트리거 또는 작업으로 인 한 호출이 포함 됩니다. 미리 보기 버전에 대 한 자세한 내용은 [Azure Logic Apps preview](logic-apps-overview-preview.md)를 참조 하세요. <p><p>**팁**: 더 오래 걸리는 작업의 경우, [비동기 폴링 패턴](../logic-apps/logic-apps-create-api-app.md#async-pattern) 또는 [until 루프](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)를 사용합니다. [호출 가능 엔드포인트](logic-apps-http-endpoint.md)가 있는 또 다른 논리 앱을 호출할 때 시간 제한을 피하려면 기본 제공 Azure Logic Apps 작업을 대신 사용하면 됩니다. 이 작업은 **기본 제공** 아래의 커넥터 선택에서 찾을 수 있습니다. |
+| 인바운드 요청 | 120초 <br>(2분) | 230초 <br>(3.9 분) | 240초 <br>(4분) | 인바운드 요청의 예로는 요청 트리거, HTTP 웹 후크 트리거 및 HTTP 웹 후크 작업에서 받은 호출이 있습니다. 미리 보기 버전에 대 한 자세한 내용은 [Azure Logic Apps preview](logic-apps-overview-preview.md)를 참조 하세요. <p><p>**참고**: 원래 호출자가 응답을 받으려면 또 다른 논리 앱을 중첩된 워크플로로 호출하지 않는 한 응답의 모든 단계가 제한 내에서 완료되어야 합니다. 자세한 내용은 [논리 앱 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요. |
+||||||
 
 <a name="message-size-limits"></a>
 
@@ -266,6 +270,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 | ---- | ----- | ----- |
 | Azure AD 권한 부여 정책 | 5 | |
 | 권한 부여 정책당 클레임 | 10 | |
+| 클레임 값-최대 문자 수 | 150 |
 ||||
 
 <a name="custom-connector-limits"></a>
@@ -338,7 +343,7 @@ ISE의 통합 계정 제한을 초과하여 추가하는 통합 계정마다 추
 | 아티팩트 | 제한 | 메모 |
 | -------- | ----- | ----- |
 | 어셈블리 | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure 스토리지 계정 및 Blob 컨테이너](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용합니다. |
-| 맵(XSLT 파일) | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate)를 사용합니다. <p><p>**참고**: 맵이 성공적으로 처리할 수 있는 데이터 또는 레코드의 양은 Azure Logic Apps의 메시지 크기와 작업 시간 제한에 따라 달라집니다. 예를 들어 [HTTP 메시지 크기 및 시간 제한](#request-limits)을 기준으로 HTTP 작업을 사용하는 경우 작업이 HTTP 시간 제한 내에 완료된다면 맵은 HTTP 메시지 크기 제한까지 데이터를 처리할 수 있습니다. |
+| 맵(XSLT 파일) | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate)를 사용합니다. <p><p>**참고**: 맵이 성공적으로 처리할 수 있는 데이터 또는 레코드의 양은 Azure Logic Apps의 메시지 크기와 작업 시간 제한에 따라 달라집니다. 예를 들어 [HTTP 메시지 크기 및 시간 제한](#http-limits)을 기준으로 HTTP 작업을 사용하는 경우 작업이 HTTP 시간 제한 내에 완료된다면 맵은 HTTP 메시지 크기 제한까지 데이터를 처리할 수 있습니다. |
 | 스키마 | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure 스토리지 계정 및 Blob 컨테이너](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용합니다. |
 ||||
 
@@ -379,7 +384,7 @@ ISE의 통합 계정 제한을 초과하여 추가하는 통합 계정마다 추
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>방화벽 구성: IP 주소 및 서비스 태그
 
-Azure Logic Apps가 들어오고 나가는 호출에 사용하는 IP 주소는 논리 앱이 있는 지역에 따라 달라집니다. 동일한 지역의 *모든* 논리 앱은 동일한 IP 주소 범위를 사용합니다. **HTTP** 및 **HTTP + OpenAPI** 요청 같은 일부 [Power Automate](/power-automate/getting-started) 호출은 Azure Logic Apps 서비스를 바로 통과하여 여기에 나열된 IP 주소로 들어옵니다. Power Automate에서 사용하는 IP 주소에 대한 자세한 내용은 [Power Automate의 제한 및 구성](/flow/limits-and-config#ip-address-configuration)을 참조하세요.
+인바운드 및 아웃 바운드 호출에 사용 하는 Azure Logic Apps IP 주소는 논리 앱이 있는 지역에 따라 달라 집니다. 동일한 지역의 *모든* 논리 앱은 동일한 IP 주소 범위를 사용합니다. **HTTP** 및 **HTTP + OpenAPI** 요청 같은 일부 [Power Automate](/power-automate/getting-started) 호출은 Azure Logic Apps 서비스를 바로 통과하여 여기에 나열된 IP 주소로 들어옵니다. Power Automate에서 사용하는 IP 주소에 대한 자세한 내용은 [Power Automate의 제한 및 구성](/flow/limits-and-config#ip-address-configuration)을 참조하세요.
 
 > [!TIP]
 > 보안 규칙을 만들 때 지역마다 Logic Apps IP 주소를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md)를 사용하면 복잡성을 줄일 수 있으며, 자세한 방법은 이 섹션의 뒷부분에서 설명합니다.

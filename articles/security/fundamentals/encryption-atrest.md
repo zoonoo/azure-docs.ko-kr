@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 092320db9b7fe2b1f3fe142f84ad201d40dc6e2e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1318aaf50d4f05b8a999e5661318dc83997a2f02
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492287"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920790"
 ---
 # <a name="azure-data-encryption-at-rest"></a>미사용 Azure 데이터 암호화
 
@@ -33,7 +33,7 @@ Microsoft Azure에는 회사의 보안 및 규정 준수 요구 사항에 따라
 
 ## <a name="what-is-encryption-at-rest"></a>미사용 데이터 암호화란?
 
-미사용 데이터 암호화는 데이터가 유지될 때의 인코딩(암호화)을 나타냅니다. Azure의 미사용 데이터 암호화 디자인에서는 다음과 같이 대칭 암호화를 사용하여 간단한 개념적 모델에 따라 많은 양의 데이터를 빠르게 암호화하고 암호 해독합니다.
+암호화는 데이터의 기밀성을 보호 하는 데 사용 되는 데이터의 보안 인코딩입니다. Azure의 미사용 데이터 암호화 디자인에서는 다음과 같이 대칭 암호화를 사용하여 간단한 개념적 모델에 따라 많은 양의 데이터를 빠르게 암호화하고 암호 해독합니다.
 
 - 데이터가 스토리지에 쓰여질 때 대칭 암호화 키를 사용하여 데이터를 암호화합니다.
 - 동일한 암호화 키를 사용하여 메모리에서 사용하도록 준비된 데이터를 암호 해독합니다.

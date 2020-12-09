@@ -87,10 +87,12 @@
       href: supported-map-styles.md
     - name: 확대/축소 수준 및 타일 그리드
       href: zoom-levels-and-tile-grid.md
-    - name: Mobility Service 데이터 구조
+    - name: 모바일 서비스
       href: mobility-service-data-structure.md
     - name: Weather Service 개념
       href: weather-services-concepts.md
+    - name: Weather Services FAQ
+      href: weather-services-faq.md
 - name: 방법 가이드
   items:
     - name: Maps 계정 관리

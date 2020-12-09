@@ -1,18 +1,18 @@
 ---
 title: 템플릿 함수-날짜
-description: Azure Resource Manager 템플릿에서 날짜 작업에 사용할 함수에 대해 설명 합니다.
+description: 날짜 작업에 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용할 수 있는 함수에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 83e601adb649098f7a4e19cb71170b96a3287d9b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 58d865f109ecca2629b89eeb55e554743824c195
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004588"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920503"
 ---
 # <a name="date-functions-for-arm-templates"></a>ARM 템플릿에 대 한 날짜 함수
 
-리소스 관리자는 ARM (Azure Resource Manager) 템플릿에서 날짜를 사용 하기 위한 다음 함수를 제공 합니다.
+리소스 관리자는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 날짜를 사용 하기 위한 다음 함수를 제공 합니다.
 
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
@@ -94,7 +94,7 @@ output add1HourOutput string = add1Hour
 
 위의 템플릿이 기본 시간을 사용 하 여 배포 된 경우 `2020-04-07 14:53:14Z` 출력은 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | add3YearsOutput | String | 오후 4/7/2023 2:53:14 |
 | subtract9DaysOutput | String | 오후 3/29/2020 2:53:14 |
@@ -182,7 +182,7 @@ resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31
 
 `utcNow(format)`
 
-지정 된 형식의 현재 (UTC) datetime 값을 반환 합니다. 형식이 제공 되지 않으면 ISO 8601 (yyyyMMddTHHmmssZ) 형식이 사용 됩니다. **이 함수는 매개 변수의 기본값에만 사용할 수 있습니다.**
+지정 된 형식의 현재 (UTC) datetime 값을 반환 합니다. 형식이 제공 되지 않으면 ISO 8601 ( `yyyyMMddTHHmmssZ` ) 형식이 사용 됩니다. **이 함수는 매개 변수의 기본값에만 사용할 수 있습니다.**
 
 ### <a name="parameters"></a>매개 변수
 
@@ -261,7 +261,7 @@ output utcCustomOutput string = utcCustomValue
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | utcOutput | 문자열 | 20190305T175318Z |
 | utcShortOutput | 문자열 | 2019/03/05 |
@@ -326,4 +326,4 @@ output utcShortOutput string = utcShort
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Resource Manager 템플릿의 섹션에 대 한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.

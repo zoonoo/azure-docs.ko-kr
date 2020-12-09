@@ -1,18 +1,18 @@
 ---
 title: 템플릿 함수-개체
-description: 개체 작업을 위해 Azure Resource Manager 템플릿에서 사용할 함수에 대해 설명 합니다.
+description: 개체 작업을 위해 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용할 함수에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 7ed317b3506f00e71bbf97d5564cacec05032744
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004520"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920452"
 ---
 # <a name="object-functions-for-arm-templates"></a>ARM 템플릿에 대 한 개체 함수
 
-리소스 관리자는 ARM (Azure Resource Manager) 템플릿의 개체 작업을 위한 여러 함수를 제공 합니다.
+리소스 관리자는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 개체를 사용 하기 위한 몇 가지 함수를 제공 합니다.
 
 * [contains](#contains)
 * [createObject](#createobject)
@@ -35,8 +35,8 @@ ms.locfileid: "96004520"
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| container |Yes |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
-| itemToFind |Yes |문자열 또는 int |찾을 값입니다. |
+| container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
+| itemToFind |예 |문자열 또는 int |찾을 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -131,11 +131,11 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
-| stringFalse | Bool | False |
+| stringFalse | Bool | 거짓 |
 | objectTrue | Bool | True |
-| objectFalse | Bool | False |
+| objectFalse | Bool | 거짓 |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | False |
+| arrayFalse | Bool | 거짓 |
 
 ## <a name="createobject"></a>createObject
 
@@ -148,9 +148,9 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | key1 |예 |문자열 |키의 이름입니다. |
-| value1 |No |int, boolean, string, object 또는 array |키의 값입니다. |
+| value1 |아니요 |int, boolean, string, object 또는 array |키의 값입니다. |
 | 추가 키 |예 |문자열 |키의 추가 이름입니다. |
-| 추가 값 |No |int, boolean, string, object 또는 array |키의 추가 값입니다. |
+| 추가 값 |아니요 |int, boolean, string, object 또는 array |키의 추가 값입니다. |
 
 함수는 짝수 개수의 매개 변수만 허용 합니다. 각 키에는 일치 하는 값이 있어야 합니다.
 
@@ -221,7 +221,7 @@ output newObject object = {
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
+| itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -394,7 +394,7 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| objectOutput | Object | {"one": "a", "three": "c"} |
+| objectOutput | 개체 | {"one": "a", "three": "c"} |
 | arrayOutput | 배열 | ["two", "three"] |
 
 <a id="json"></a>
@@ -523,12 +523,12 @@ output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | emptyObjectOutput | 부울 | True |
-| objectOutput | Object | {"a": "b"} |
+| objectOutput | 개체 | {"a": "b"} |
 | stringOutput | String | test |
 | booleanOutput | 부울 | True |
 | intOutput | 정수 | 3 |
 | arrayOutput | 배열 | [ 1, 2, 3 ] |
-| concatObjectOutput | Object | {"a": "demo 값"} |
+| concatObjectOutput | 개체 | {"a": "demo 값"} |
 
 ## <a name="length"></a>length
 
@@ -540,7 +540,7 @@ output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
+| arg1 |예 |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -678,7 +678,7 @@ output emptyOutput bool = empty(null)
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | emptyOutput | Bool | True |
 
@@ -787,9 +787,9 @@ output arrayOutput array = union(firstArray, secondArray)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
+| objectOutput | 개체 | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | 배열 | ["one", "two", "three", "four"] |
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Resource Manager 템플릿의 섹션에 대 한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.

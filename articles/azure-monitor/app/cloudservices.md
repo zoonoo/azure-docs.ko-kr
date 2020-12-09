@@ -4,19 +4,19 @@ description: Application Insights를 사용하여 웹 및 작업자 역할을 �
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 29482403358936b95fc5e814b68238cc8c25f7a8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ccd863db55ef0ff9f4051947321321c8b01430c4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186357"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920677"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
 [Application Insights][start]는 Application Insights SDK의 데이터와 Cloud Services의 [Azure Diagnostics](../platform/diagnostics-extension-overview.md) 데이터를 결합하여 [Azure Cloud Services 앱](https://azure.microsoft.com/services/cloud-services/)의 가용성, 성능, 오류 및 사용량을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
 
 ![개요 대시보드](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 작업을 시작하려면 다음이 필요합니다.
 
 * [Azure](https://azure.com) 구독. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 Microsoft 계정으로 로그인합니다. 
@@ -110,15 +110,14 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 
     b. [Windows 서버용 Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)를 추가합니다.
 
-    !["Application Insights" 검색](./media/cloudservices/04-ai-nuget.png)
-
 1. Application Insights 리소스에 데이터를 보내도록 SDK를 구성하려면
 
     a. 적합한 시작 함수에서 .cscfg 파일의 구성 설정에서 계측 키를 설정합니다.
  
     ```csharp
-   
-     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
+        TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+        configuration.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
+        var telemetryClient = new TelemetryClient(configuration);
     ```
    
     b. 앱의 각 역할에 대해 "단계 a"를 반복합니다. 예제 참조:

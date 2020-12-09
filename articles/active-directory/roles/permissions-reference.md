@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf91c9e081bff9860153b342648fedc0990b68b9
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 1d634978333e2b833324228fb0908cfba61a786d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862060"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919741"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -1016,6 +1016,7 @@ Azure AD Connect에서만 사용됩니다.
 | microsoft.directory/users/appRoleAssignments/update | Azure Active Directory에서 users.appRoleAssignments 속성을 업데이트합니다. |
 | microsoft.directory/users/assignLicense | Azure Active Directory에서 사용자의 라이선스를 관리합니다. |
 | microsoft.directory/users/basic/update | Azure Active Directory에서 사용자의 기본 속성을 업데이트합니다. |
+| microsoft.directory/users/create | Azure Active Directory에서 사용자를 만듭니다. |
 | microsoft. 디렉터리/사용자/사용 안 함 | Azure Active Directory에서 사용자 계정을 사용 하지 않도록 설정 합니다. |
 | microsoft. 디렉터리/사용자/사용 | Azure Active Directory에서 사용자 계정 사용 |
 | microsoft.directory/users/invalidateAllRefreshTokens | 사용자가 다음 번에 로그인 할 때 다시 인증 하도록 요구 하는 Azure Active Directory의 모든 사용자 새로 고침 토큰을 무효화 합니다. |

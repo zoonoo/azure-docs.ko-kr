@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: b8f95e7e173dd6d1ad43301aab8ff3ec7cf78018
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981003"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920824"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Azure Logic Apps에서 인바운드 HTTPS 요청 수신 및 응답
 
@@ -42,7 +42,7 @@ ms.locfileid: "94981003"
 
 이 기본 제공 트리거는 HTTPS를 *통한 인바운드 요청만* 처리할 수 있는 수동으로 호출할 수 있는 끝점을 만듭니다. 호출자가이 끝점에 요청을 보내면 [요청 트리거가](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) 발생 하 고 논리 앱이 실행 됩니다. 이 트리거를 호출 하는 방법에 대 한 자세한 내용은 [Azure Logic Apps에서 HTTPS 끝점을 사용 하 여 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조 하세요.
 
-논리 앱은 [제한 된 시간](../logic-apps/logic-apps-limits-and-config.md#request-limits)동안만 인바운드 요청을 열어 둡니다. 논리 앱이 [응답 작업](#add-response)을 포함 하 고 있다고 가정 하면 논리 앱이이 시간이 지난 후에 호출자에 게 응답을 보내지 않는 경우 논리 앱 `504 GATEWAY TIMEOUT` 은 호출자에 게 상태를 반환 합니다. 논리 앱에 응답 작업이 포함 되어 있지 않으면 논리 앱은 즉시 `202 ACCEPTED` 호출자에 게 상태를 반환 합니다.
+논리 앱은 [제한 된 시간](../logic-apps/logic-apps-limits-and-config.md#http-limits)동안만 인바운드 요청을 열어 둡니다. 논리 앱이 [응답 작업](#add-response)을 포함 하 고 있다고 가정 하면 논리 앱이이 시간이 지난 후에 호출자에 게 응답을 보내지 않는 경우 논리 앱 `504 GATEWAY TIMEOUT` 은 호출자에 게 상태를 반환 합니다. 논리 앱에 응답 작업이 포함 되어 있지 않으면 논리 앱은 즉시 `202 ACCEPTED` 호출자에 게 상태를 반환 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 빈 논리 앱을 만듭니다.
 
@@ -179,7 +179,7 @@ ms.locfileid: "94981003"
 
    예를 들어 사용자 지정된 응답을 반환하는 데 사용할 수 있으며 이 토픽의 뒷부분에서 설명하는 [응답 작업을 추가](#add-response)하여 요청에 응답할 수 있습니다.
 
-   논리 앱은 [제한된 시간](../logic-apps/logic-apps-limits-and-config.md#request-limits) 동안만 들어오는 요청을 열어 둡니다. 논리 앱 워크플로에 응답 작업이 포함되어 있다고 가정하면 논리 앱이 이 시간 경과 후 응답을 반환하지 않는 경우 논리 앱은 호출자에게 `504 GATEWAY TIMEOUT`을 반환합니다. 그렇지 않은 경우 논리 앱에 응답 작업이 포함되어 있지 않으면 논리 앱은 즉시 호출자에게 `202 ACCEPTED` 응답을 반환합니다.
+   논리 앱은 [제한된 시간](../logic-apps/logic-apps-limits-and-config.md#http-limits) 동안만 들어오는 요청을 열어 둡니다. 논리 앱 워크플로에 응답 작업이 포함되어 있다고 가정하면 논리 앱이 이 시간 경과 후 응답을 반환하지 않는 경우 논리 앱은 호출자에게 `504 GATEWAY TIMEOUT`을 반환합니다. 그렇지 않은 경우 논리 앱에 응답 작업이 포함되어 있지 않으면 논리 앱은 즉시 호출자에게 `202 ACCEPTED` 응답을 반환합니다.
 
 1. 완료되면 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 96bdfc513023cafb2d94a68c06f1065cf20c3ba8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f20405add698c64ecedfd7375063ba934a98e158
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130173"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922433"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Dynamics 365 for Customer Engagement 및 PowerApps 제품 만들기
 
@@ -133,12 +133,12 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 로고
-2. 제품
+2. Products
 3. 범주
 4. 지원 주소 (링크)
 5. 사용 약관 주소 (링크)
 6. Offer name
-7. 설명
+7. Description
 8. 스크린샷/비디오
 
 ### <a name="name"></a>속성
@@ -240,7 +240,7 @@ PDF 형식의 백서, 브로슈어, 검사 목록, 프레젠테이션 등의 관
 
 ### <a name="preview-audience"></a>미리 보기 대상 그룹
 
-제품을 광범위한 Marketplace 제품에 라이브로 게시하기 전에 먼저 제한된 **미리 보기 대상 그룹** 에서 사용할 수 있도록 해야 합니다. 여기에서 **숨기기 키** (소문자 및/또는 숫자만 사용하는 임의의 문자열)를 입력합니다. 미리 보기 대상 그룹의 멤버는 이 숨기기 키를 토큰으로 사용하여 Marketplace에서 제품의 미리 보기를 볼 수 있습니다.
+제품을 광범위한 Marketplace 제품에 라이브로 게시하기 전에 먼저 제한된 **미리 보기 대상 그룹** 에서 사용할 수 있도록 해야 합니다. 여기에서 **숨기기 키**(소문자 및/또는 숫자만 사용하는 임의의 문자열)를 입력합니다. 미리 보기 대상 그룹의 멤버는 이 숨기기 키를 토큰으로 사용하여 Marketplace에서 제품의 미리 보기를 볼 수 있습니다.
 
 그런 다음, 제품을 출시하고 미리 보기 제한을 제거할 준비가 되면 **숨기기 키** 를 제거하고 다시 게시합니다.
 
@@ -260,7 +260,7 @@ CRM 보안 저장소 또는 S2S(서버 간) 아웃바운드 액세스 구성을 
 
 ### <a name="application-configuration-url"></a>애플리케이션 구성 URL
 
-고객이 앱을 구성할 수 있는 구성 웹 페이지의 URL을 제공합니다.
+이 필드가 비어 있는 상태로 유지 되는지 확인 합니다. 나중에 사용 하기 위해 사용 됩니다. 
 
 ### <a name="crm-package"></a>CRM 패키지
 

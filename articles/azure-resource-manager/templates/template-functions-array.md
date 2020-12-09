@@ -1,18 +1,18 @@
 ---
 title: 템플릿 함수-배열
-description: 배열 작업을 위해 Azure Resource Manager 템플릿에서 사용할 함수에 대해 설명 합니다.
+description: 배열 작업을 위해 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용할 함수에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 85f910f6143fd16f996a200172d0efd852897d8c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 40a6815bb10ce9725405d68498b9a554706f3af8
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004622"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920546"
 ---
 # <a name="array-functions-for-arm-templates"></a>ARM 템플릿에 대 한 배열 함수
 
-리소스 관리자는 ARM (Azure Resource Manager) 템플릿에서 배열을 사용 하기 위한 여러 함수를 제공 합니다.
+리소스 관리자는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 배열을 사용 하기 위한 몇 가지 함수를 제공 합니다.
 
 * [array](#array)
 * [concat](#concat)
@@ -44,7 +44,7 @@ ms.locfileid: "96004622"
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Yes |int, 문자열, 배열 또는 개체 |배열로 변환할 값입니다. |
+| convertToArray |예 |int, 문자열, 배열 또는 개체 |배열로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -131,7 +131,7 @@ output objectOutput array = array(objectToConvert)
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |배열 또는 문자열 |연결을 위한 첫 번째 배열 또는 문자열입니다. |
+| arg1 |예 |배열 또는 문자열 |연결을 위한 첫 번째 배열 또는 문자열입니다. |
 | 추가 인수 |예 |배열 또는 문자열 |연결 순서로 나타낸 추가 배열 또는 문자열입니다. |
 
 이 함수는 인수를 개수에 관계없이 사용할 수 있으며 매개 변수에 대한 문자열이나 배열 중 하나를 사용할 수 있습니다. 그러나 매개 변수에 대 한 배열과 문자열을 둘 다 제공할 수는 없습니다. 배열은 다른 배열과만 연결 됩니다.
@@ -254,8 +254,8 @@ output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| container |Yes |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
-| itemToFind |Yes |문자열 또는 int |찾을 값입니다. |
+| container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
+| itemToFind |예 |문자열 또는 int |찾을 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -350,11 +350,11 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
-| stringFalse | Bool | False |
+| stringFalse | Bool | 거짓 |
 | objectTrue | Bool | True |
-| objectFalse | Bool | False |
+| objectFalse | Bool | 거짓 |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | False |
+| arrayFalse | Bool | 거짓 |
 
 ## <a name="createarray"></a>createArray
 
@@ -366,7 +366,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| args |No |문자열, 정수, 배열 또는 개체 |배열의 값입니다. |
+| args |아니요 |문자열, 정수, 배열 또는 개체 |배열의 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -450,7 +450,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
+| itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -531,7 +531,7 @@ output stringEmpty bool = empty(testString)
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
+| arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -695,7 +695,7 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| objectOutput | Object | {"one": "a", "three": "c"} |
+| objectOutput | 개체 | {"one": "a", "three": "c"} |
 | arrayOutput | 배열 | ["two", "three"] |
 
 ## <a name="last"></a>last
@@ -708,7 +708,7 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
+| arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -777,7 +777,7 @@ output stringOutput string = last('One Two three')
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
+| arg1 |예 |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -889,7 +889,7 @@ output objectLength int = length(objectToTest)
 
 ---
 
-배열과 함께 이 함수를 사용하는 방법의 예제는 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조하세요.
+배열과 함께이 함수를 사용 하는 방법에 대 한 자세한 내용은 [ARM 템플릿에서 리소스 반복](copy-resources.md)을 참조 하세요.
 
 ## <a name="max"></a>max
 
@@ -901,7 +901,7 @@ output objectLength int = length(objectToTest)
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
+| arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -971,7 +971,7 @@ output intOutput int = max(0,3,2,5,4)
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
+| arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1105,7 +1105,7 @@ output rangeOutput array = range(startingInt, numberOfElements)
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Yes |배열 또는 문자열 |건너뛰는 데 사용할 배열 또는 문자열입니다. |
+| originalValue |예 |배열 또는 문자열 |건너뛰는 데 사용할 배열 또는 문자열입니다. |
 | numberToSkip |예 |int |건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 값의 모든 요소 또는 문자가 반환됩니다. 이 값이 배열 또는 문자열의 길이보다 크면 빈 배열 또는 문자열이 반환됩니다. |
 
 ### <a name="return-value"></a>반환 값
@@ -1193,7 +1193,7 @@ output stringOutput string = skip(testString, charactersToSkip)
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Yes |배열 또는 문자열 |요소를 가져올 배열 또는 문자열입니다. |
+| originalValue |예 |배열 또는 문자열 |요소를 가져올 배열 또는 문자열입니다. |
 | numberToTake |예 |int |수락할 요소 또는 문자의 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정된 배열 또는 문자열의 길이보다 크면 배열 또는 문자열의 모든 요소가 반환됩니다. |
 
 ### <a name="return-value"></a>반환 값
@@ -1376,9 +1376,9 @@ output arrayOutput array = union(firstArray, secondArray)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
+| objectOutput | 개체 | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | 배열 | ["one", "two", "three", "four"] |
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Resource Manager 템플릿의 섹션에 대 한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.

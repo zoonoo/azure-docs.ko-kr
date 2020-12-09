@@ -7,13 +7,13 @@ ms.author: jingwang
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: ecf3c3954bd77962e56ee289b623806efb352410
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: e1bd5852ca12ca03e7202cf9cfb89372d076bad9
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461263"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920424"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>파일에서 데이터베이스로 대량 복사
 
@@ -55,7 +55,7 @@ ms.locfileid: "96461263"
     ![파이프라인 검토](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > 위에서 설명한 **2 단계** 에서 **azure Synapse ANALYTICS (이전의 SQL DW)** 를 데이터 대상으로 선택한 경우 azure Synapse analytics Polybase에서 필요에 따라 스테이징을 위해 azure Blob 저장소에 대 한 연결을 입력 해야 합니다. 다음 스크린샷에 표시된 것처럼 템플릿은 Blob 스토리지에 대한 *스토리지 경로* 를 자동으로 생성합니다. 파이프라인이 실행된 후 컨테이너를 만들었는지 확인합니다.
+    > 위에서 설명한 **2 단계** 에서 **azure Synapse Analytics** 를 데이터 대상으로 선택한 경우 azure Synapse analytics Polybase에서 필요에 따라 스테이징을 위해 azure Blob 저장소에 대 한 연결을 입력 해야 합니다. 다음 스크린샷에 표시된 것처럼 템플릿은 Blob 스토리지에 대한 *스토리지 경로* 를 자동으로 생성합니다. 파이프라인이 실행된 후 컨테이너를 만들었는지 확인합니다.
         
     ![Polybase 설정](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 

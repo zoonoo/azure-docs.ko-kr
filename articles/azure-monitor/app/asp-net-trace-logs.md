@@ -4,19 +4,19 @@ description: 추적, NLog 또는 Log4Net에서 생성된 로그를 검색합니�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: ab3b12bf0401c4060823c6ed1d20dd6385cc397f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90777da4d0b67587afebaa7111e3503af2afcb9a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973847"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920336"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Application Insights에서 .NET/.NET Core 및 Python 추적 로그 검색
 
 ILogger, NLog, log4Net 또는 System.Diagnostics.Trace의 ASP.NET/ASP.NET Core 애플리케이션에 대한 진단 추적 로그를 [Azure 애플리케이션 Insights][start]로 보냅니다. Python 애플리케이션의 경우 Azure Monitor용 OpenCensus Python에서 AzureLogHandler를 사용하여 진단 추적 로그를 보냅니다. 그런 다음, 탐색하고 검색할 수 있습니다. 해당 로그가 애플리케이션의 다른 로그 파일과 병합되므로 각 사용자 요청과 연결된 추적을 식별하고 다른 이벤트 및 예외 보고서와 상호 연결할 수 있습니다.
 
 > [!NOTE]
-> 로그 캡처 모듈이 필요한가요? 타사 로거에 대한 유용한 어댑터입니다. 그러나 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하지 않는 경우 [**Application Insights TrackTrace()** ](./api-custom-events-metrics.md#tracktrace)를 직접 호출하는 것이 좋습니다.
+> 로그 캡처 모듈이 필요한가요? 타사 로거에 대한 유용한 어댑터입니다. 그러나 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하지 않는 경우 [**Application Insights TrackTrace()**](./api-custom-events-metrics.md#tracktrace)를 직접 호출하는 것이 좋습니다.
 >
 >
 ## <a name="install-logging-on-your-app"></a>앱에 대한 로깅 설치
@@ -37,7 +37,7 @@ ILogger, NLog, log4Net 또는 System.Diagnostics.Trace의 ASP.NET/ASP.NET Core �
 ## <a name="configure-application-insights-to-collect-logs"></a>로그를 수집하도록 Application Insights 구성
 [프로젝트에 Application Insights를 추가](./asp-net.md)하지 않은 경우 지금 추가합니다. 로그 수집기를 포함하는 옵션이 나타납니다.
 
-또는 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하여 **Application Insights를 구성**합니다. **추적 컬렉션 구성** 옵션을 선택합니다.
+또는 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하여 **Application Insights를 구성** 합니다. **추적 컬렉션 구성** 옵션을 선택합니다.
 
 > [!NOTE]
 > Application Insights 메뉴 또는 로그 수집기 옵션이 없습니까? [문제 해결](#troubleshooting)을 시도해 보세요.
@@ -46,7 +46,7 @@ ILogger, NLog, log4Net 또는 System.Diagnostics.Trace의 ASP.NET/ASP.NET Core �
 프로젝트 형식이 Application Insights 설치 관리자에서 지원되지 않는 경우(예: Windows 데스크톱 프로젝트) 이 방법을 사용합니다.
 
 1. Log4Net 또는 NLog를 사용하려는 경우 프로젝트에 설치합니다.
-2. 솔루션 탐색기에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리**를 선택합니다.
+2. 솔루션 탐색기에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리** 를 선택합니다.
 3. "Application Insights"를 검색합니다.
 4. 다음 패키지 중 하나를 선택합니다.
 
@@ -96,8 +96,8 @@ Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSou
 ```
 
 각 원본에 대해 다음 매개 변수를 설정할 수 있습니다.
- * **Name**은 수집할 EventSource의 이름을 지정합니다.
- * **Level**은 수집할 로깅 수준을 지정합니다. *Critical*, *Error*, *Informational*, *LogAlways*, *Verbose* 또는 *Warning*
+ * **Name** 은 수집할 EventSource의 이름을 지정합니다.
+ * **Level** 은 수집할 로깅 수준을 지정합니다. *Critical*, *Error*, *Informational*, *LogAlways*, *Verbose* 또는 *Warning*
  * **Keywords**(선택 사항)는 사용할 키워드 정수 값 조합을 지정합니다.
 
 ## <a name="use-diagnosticsource-events"></a>DiagnosticSource 이벤트 사용
@@ -128,9 +128,9 @@ Application Insights에 추적으로 보낼 [System.Diagnostics.DiagnosticSource
 ```
 
 각 원본에 대해 다음 매개 변수를 설정할 수 있습니다.
- * **ProviderName**은 수집할 ETW 공급자의 이름입니다.
- * **ProviderGuid**는 수집할 ETW 공급자의 GUID를 지정합니다. `ProviderName` 대신 사용할 수 있습니다.
- * **Level**은 수집할 로깅 수준을 설정합니다. *Critical*, *Error*, *Informational*, *LogAlways*, *Verbose* 또는 *Warning*일 수 있습니다.
+ * **ProviderName** 은 수집할 ETW 공급자의 이름입니다.
+ * **ProviderGuid** 는 수집할 ETW 공급자의 GUID를 지정합니다. `ProviderName` 대신 사용할 수 있습니다.
+ * **Level** 은 수집할 로깅 수준을 설정합니다. *Critical*, *Error*, *Informational*, *LogAlways*, *Verbose* 또는 *Warning* 일 수 있습니다.
  * **Keywords**(선택 사항)는 사용할 키워드 정수 값 조합을 설정합니다.
 
 ## <a name="use-the-trace-api-directly"></a>직접 추적 API 사용
@@ -139,7 +139,8 @@ Application Insights 추적 API를 직접 호출할 수 있습니다. 로깅 어
 다음은 그 예입니다.
 
 ```csharp
-var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+var telemetryClient = new TelemetryClient(configuration);
 telemetry.TrackTrace("Slow response - database01");
 ```
 
@@ -148,10 +149,11 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
 메시지에 심각도 수준을 추가할 수도 있습니다. 또한 다른 원격 분석처럼, 다른 추적 세트에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 다음은 그 예입니다.
 
   ```csharp
-  var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-  telemetry.TrackTrace("Slow database response",
-                 SeverityLevel.Warning,
-                 new Dictionary<string,string> { {"database", db.ID} });
+  TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+  var telemetryClient = new TelemetryClient(configuration);
+  telemetryClient.TrackTrace("Slow database response",
+                              SeverityLevel.Warning,
+                              new Dictionary<string, string> { { "database", "db.ID" } });
   ```
 
 이를 통해 [Search][diagnostic]에서 특정 데이터베이스와 관련된 특정 심각도 수준의 모든 메시지를 쉽게 필터링할 수 있습니다.
@@ -196,16 +198,16 @@ Java 코드리스 계측(권장)에서 로그는 기본적으로 수집되고 [J
 Java SDK를 사용하는 경우 [Java 로그 어댑터](./java-trace-logs.md)를 사용합니다.
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>프로젝트 상황에 맞는 메뉴에 Application Insights 옵션이 없습니다.
-* Developer Analytics Tools가 개발 머신에 설치되어 있는지 확인합니다. Visual Studio **도구** > **확장 및 업데이트**에서 **Developer Analytics Tools**를 찾습니다. **설치됨** 탭에 없는 경우 **온라인** 탭을 열고 설치합니다.
+* Developer Analytics Tools가 개발 머신에 설치되어 있는지 확인합니다. Visual Studio **도구** > **확장 및 업데이트** 에서 **Developer Analytics Tools** 를 찾습니다. **설치됨** 탭에 없는 경우 **온라인** 탭을 열고 설치합니다.
 * Developer Analytics Tools에서 지원하지 않는 프로젝트 형식일 수 있습니다. [수동 설치](#manual-installation)를 사용합니다.
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>구성 도구에 로그 어댑터 옵션이 없습니다.
 * 먼저 로깅 프레임워크를 설치합니다.
-* System.Diagnostics.Trace를 사용하는 경우 [*web.config*에서 구성](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1)했는지 확인합니다.
-* 최신 버전의 Application Insights가 설치되어 있는지 확인합니다. Visual Studio에서 **도구** > **확장 및 업데이트**로 이동하고, **업데이트** 탭을 엽니다. **Developer Analytics Tools**가 있으면 선택하여 업데이트합니다.
+* System.Diagnostics.Trace를 사용하는 경우 [*web.config* 에서 구성](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1)했는지 확인합니다.
+* 최신 버전의 Application Insights가 설치되어 있는지 확인합니다. Visual Studio에서 **도구** > **확장 및 업데이트** 로 이동하고, **업데이트** 탭을 엽니다. **Developer Analytics Tools** 가 있으면 선택하여 업데이트합니다.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류 메시지가 표시됨
-Application Insights를 설치 하지 않고 로깅 어댑터 NuGet 패키지를 설치 했을 수 있습니다. 솔루션 탐색기에서 *ApplicationInsights.config*를 마우스 오른쪽 단추로 클릭하고, **Application Insights 업데이트**를 선택합니다. Azure에 로그인하고 Application Insights 리소스를 만들거나 기존 리소스를 다시 사용하라는 메시지가 표시됩니다. 이렇게 하면 문제가 해결됩니다.
+Application Insights를 설치 하지 않고 로깅 어댑터 NuGet 패키지를 설치 했을 수 있습니다. 솔루션 탐색기에서 *ApplicationInsights.config* 를 마우스 오른쪽 단추로 클릭하고, **Application Insights 업데이트** 를 선택합니다. Azure에 로그인하고 Application Insights 리소스를 만들거나 기존 리소스를 다시 사용하라는 메시지가 표시됩니다. 이렇게 하면 문제가 해결됩니다.
 
 ### <a name="i-can-see-traces-but-not-other-events-in-diagnostic-search"></a>진단 검색에 추적은 보이지만 다른 이벤트가 보이지 않음
 모든 이벤트와 요청이 파이프라인을 통과할 때까지 시간이 걸릴 수 있습니다.

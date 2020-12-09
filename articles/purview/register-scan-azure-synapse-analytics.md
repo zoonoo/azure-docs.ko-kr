@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: a0b0dc8c29bcdb51f7b348dd62e3d27796819a7d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: e0a1d8dba9ea284322584de3b4be2ae390d15fdf
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554570"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920262"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Azure Synapse Analytics 등록 및 검사
 
@@ -22,7 +22,11 @@ ms.locfileid: "96554570"
 
 Azure Synapse Analytics (이전의 SQL DW)는 메타 데이터 및 스키마를 캡처하기 위한 전체 및 증분 검색을 지원 합니다. 또한 검색은 시스템 및 사용자 지정 분류 규칙을 기반으로 데이터를 자동으로 분류 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+### <a name="known-limitations"></a>알려진 제한 사항
+
+Azure 부서의 범위는 Azure Synapse Analytics에서 [보기](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) 의 검색을 지원 하지 않습니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 데이터 원본을 등록 하기 전에 Azure 부서의 범위 계정을 만듭니다. 부서의 범위 계정을 만드는 방법에 대 한 자세한 내용은 [빠른 시작: Azure 부서의 범위 계정 만들기](create-catalog-portal.md)를 참조 하세요.
 - Azure 부서의 범위 데이터 원본 관리자 여야 합니다.

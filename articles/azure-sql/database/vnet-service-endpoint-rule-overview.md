@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: c5839589c35ea5a9c52303801a8767fc598434fc
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 96030f0e74c29848f675ae2e0867eefa2e79a8a7
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905879"
+ms.locfileid: "96920418"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Azure SQL Database의 서버에 대 한 가상 네트워크 서비스 끝점 및 규칙 사용
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -52,8 +52,8 @@ ms.locfileid: "96905879"
 
 Virtual Network 서비스 엔드포인트 관리에는 보안 역할 분리가 있습니다. 다음과 같은 각 역할의 작업이 필요합니다.
 
-- **네트워크 관리자:** &nbsp; 엔드포인트를 켭니다.
-- **데이터베이스 관리자:** &nbsp; ACL (액세스 제어 목록)을 업데이트 하 여 지정 된 서브넷을 서버에 추가 합니다.
+- **네트워크 관리자 ([네트워크 참가자](../../role-based-access-control/built-in-roles.md#network-contributor) 역할):** &nbsp; 끝점을 켭니다.
+- **데이터베이스 관리자 ([SQL Server 참가자](../../role-based-access-control/built-in-roles.md#sql-server-contributor) 역할):** &nbsp; ACL (액세스 제어 목록)을 업데이트 하 여 지정 된 서브넷을 서버에 추가 합니다.
 
 *Azure RBAC 대안:*
 

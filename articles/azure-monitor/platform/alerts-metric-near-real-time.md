@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 12/3/2020
 ms.subservice: alerts
-ms.openlocfilehash: dfcc1f15ebec1337cfa7d484319c7b942ff052b2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 0e4674c9e0513a0b8dae29f5868b1da79da8ab84
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548242"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920569"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor의 메트릭 경고에 대해 지원되는 리소스
 
@@ -60,7 +60,7 @@ ms.locfileid: "96548242"
 |Microsoft.DBforPostgreSQL/flexibleServers | 예 | 예 | |
 |Microsoft.DBforPostgreSQL/servers | 아니요 | 아니요 | [PostgreSQL용 DB](./metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.DBforPostgreSQL/serversv2 | 아니요 | 아니요 | [PostgreSQL V2 용 DB](./metrics-supported.md#microsoftdbforpostgresqlserversv2)|
-|DBforPostgreSQL/singleservers | 아니요 | 아니요 | [PostgreSQL 용 DB (단일 서버)](./metrics-supported.md#microsoftdbforpostgresqlsingleservers)|
+|DBforPostgreSQL/유연한 | 아니요 | 아니요 | [PostgreSQL 용 DB (flexiable servers)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft.Devices/IotHubs | 예 | 아니요 |[IoT Hub](./metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft.Devices/provisioningServices| 예 | 아니요 | [장치 프로 비전 서비스](./metrics-supported.md#microsoftdevicesprovisioningservices) |
 |DigitalTwins/digitalTwinsInstances | 예 | 예 | |
@@ -115,7 +115,7 @@ ms.locfileid: "96548242"
 |Microsoft.Web/hostingEnvironments/multiRolePools | 예 | 아니요 | [App Service Environment 다중 역할 풀](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | 예 | 아니요 | [App Service Environment 작업자 풀](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | 예 | 아니요 | [App Service 계획](./metrics-supported.md#microsoftwebserverfarms)|
-|Microsoft.Web/sites | 예 | 아니요 | [App Services](./metrics-supported.md#microsoftwebsites-excluding-functions) 및 [Functions](./metrics-supported.md#microsoftwebsites-functions)|
+|Microsoft.Web/sites | 예 | 아니요 | [App Services 및 Functions](./metrics-supported.md#microsoftwebsites)|
 |Microsoft.Web/sites/slots | 예 | 아니요 | [App Service 슬롯](./metrics-supported.md#microsoftwebsitesslots)|
 
 <sup>1</sup> 가상 컴퓨터 네트워크 메트릭 (총 네트워크, 총 네트워크, 인바운드 흐름, 아웃 바운드 흐름, 인바운드 흐름 최대 생성 비율, 아웃 바운드 흐름 최대 생성 비율) 및 사용자 지정 메트릭은 지원 되지 않습니다.

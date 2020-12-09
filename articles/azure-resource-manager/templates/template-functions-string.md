@@ -1,18 +1,18 @@
 ---
 title: 템플릿 함수-문자열
-description: Azure Resource Manager 템플릿에서 문자열 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다.
+description: 문자열 작업에 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용할 함수에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: e94037b40f4937a40e00215aa7a3f99fd3280b49
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a70aaff91f701c0ba8d26db2488b82e052dd905d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96005999"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920014"
 ---
 # <a name="string-functions-for-arm-templates"></a>ARM 템플릿에 대 한 문자열 함수
 
-리소스 관리자는 ARM (Azure Resource Manager) 템플릿의 문자열을 사용 하기 위한 다음 함수를 제공 합니다.
+리소스 관리자는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 문자열을 사용 하기 위한 다음 함수를 제공 합니다.
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
@@ -131,7 +131,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
-| toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
+| toJsonOutput | 개체 | {“one”: “a”, “two”: “b”} |
 
 ## <a name="base64tojson"></a>base64ToJson
 
@@ -215,7 +215,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
-| toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
+| toJsonOutput | 개체 | {“one”: “a”, “two”: “b”} |
 
 ## <a name="base64tostring"></a>base64ToString
 
@@ -298,7 +298,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
-| toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
+| toJsonOutput | 개체 | {“one”: “a”, “two”: “b”} |
 
 ## <a name="concat"></a>concat
 
@@ -433,8 +433,8 @@ output return array = concat(firstArray, secondArray)
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| container |Yes |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
-| itemToFind |Yes |문자열 또는 int |찾을 값입니다. |
+| container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
+| itemToFind |예 |문자열 또는 int |찾을 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -529,11 +529,11 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
-| stringFalse | Bool | False |
+| stringFalse | Bool | 거짓 |
 | objectTrue | Bool | True |
-| objectFalse | Bool | False |
+| objectFalse | Bool | 거짓 |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | False |
+| arrayFalse | Bool | 거짓 |
 
 ## <a name="datauri"></a>dataUri
 
@@ -683,7 +683,7 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
+| itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -830,10 +830,10 @@ output endsFalse bool = endsWith('abcdef', 'e')
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
-| startsFalse | Bool | False |
+| startsFalse | Bool | 거짓 |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
-| endsFalse | Bool | False |
+| endsFalse | Bool | 거짓 |
 
 ## <a name="first"></a>first
 
@@ -845,7 +845,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
+| arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -915,7 +915,7 @@ output stringOutput string = first('One Two Three')
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | formatString | 예 | 문자열 | 합성 형식 문자열입니다. |
-| arg1 | Yes | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 값입니다. |
+| arg1 | 예 | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 값입니다. |
 | 추가 인수 | 예 | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 추가 값입니다. |
 
 ### <a name="remarks"></a>설명
@@ -1181,7 +1181,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
+| arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1325,7 +1325,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
+| arg1 |예 |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1482,7 +1482,7 @@ output guidOutput string = guidValue
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | guidOutput | 문자열 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -1549,7 +1549,7 @@ output nameOutput string = storageName
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | nameOutput | 문자열 | storagenziwvyru7uxie |
 
@@ -1563,9 +1563,9 @@ output nameOutput string = storageName
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| valueToPad |Yes |문자열 또는 int |오른쪽으로 맞출 값입니다. |
+| valueToPad |예 |문자열 또는 int |오른쪽으로 맞출 값입니다. |
 | totalLength |예 |int |반환된 문자열에서 문자의 총수입니다. |
-| paddingCharacter |No |단일 문자 |총 길이에 도달할 때까지 왼쪽 여백에 사용되는 문자입니다. 기본값은 공백입니다. |
+| paddingCharacter |아니요 |단일 문자 |총 길이에 도달할 때까지 왼쪽 여백에 사용되는 문자입니다. 기본값은 공백입니다. |
 
 원래 문자열이 채울 문자 수보다 긴 경우 문자가 추가되지 않습니다.
 
@@ -1691,7 +1691,7 @@ output secondOutput string = replace(testString, '1234', 'xxxx')
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Yes |배열 또는 문자열 |건너뛰는 데 사용할 배열 또는 문자열입니다. |
+| originalValue |예 |배열 또는 문자열 |건너뛰는 데 사용할 배열 또는 문자열입니다. |
 | numberToSkip |예 |int |건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 값의 모든 요소 또는 문자가 반환됩니다. 배열이 나 문자열의 길이 보다 크면 빈 배열 또는 문자열이 반환 됩니다. |
 
 ### <a name="return-value"></a>반환 값
@@ -1780,7 +1780,7 @@ output stringOutput string = skip(testString, charactersToSkip)
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputString |예 |문자열 |분할할 문자열입니다. |
-| 구분 기호 |Yes |문자열 또는 문자열 배열 |문자열 분할에 사용할 구분 기호입니다. |
+| 구분 기호 |예 |문자열 또는 문자열 배열 |문자열 분할에 사용할 구분 기호입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1923,7 +1923,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
-| startsFalse | Bool | False |
+| startsFalse | Bool | 거짓 |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
@@ -2033,8 +2033,8 @@ output intOutput string = string(testInt)
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToParse |예 |문자열 |부분 문자열을 추출할 원래 문자열입니다. |
-| startIndex |No |int |부분 문자열의 0부터 시작하는 문자 위치입니다. |
-| length |No |int |부분 문자열에 대한 문자 수입니다. 문자열 내 위치를 참조해야 합니다. 0 이상이어야 합니다. |
+| startIndex |아니요 |int |부분 문자열의 0부터 시작하는 문자 위치입니다. |
+| length |아니요 |int |부분 문자열에 대한 문자 수입니다. 문자열 내 위치를 참조해야 합니다. 0 이상이어야 합니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -2118,7 +2118,7 @@ output substringOutput string = substring(testString, 4, 3)
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Yes |배열 또는 문자열 |요소를 가져올 배열 또는 문자열입니다. |
+| originalValue |예 |배열 또는 문자열 |요소를 가져올 배열 또는 문자열입니다. |
 | numberToTake |예 |int |수락할 요소 또는 문자의 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정 된 배열 또는 문자열의 길이 보다 크면 배열 또는 문자열의 모든 요소가 반환 됩니다. |
 
 ### <a name="return-value"></a>반환 값
@@ -2535,7 +2535,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
    * **Baseuri** 에 슬래시가 있지만 슬래시가 끝나지 않는 경우 마지막 슬래시의 모든 항목은 **baseuri** 에서 제거 되 고 **결과는** **relativeUri**.
 
-다음은 몇 가지 예입니다.
+몇 가지 예제는 다음과 같습니다.
 
 ```
 uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh
@@ -2761,7 +2761,7 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](template-syntax.md)을 참조하세요.
-* 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](linked-templates.md)을 참조하세요.
-* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조하세요.
-* 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 애플리케이션 배포](deploy-powershell.md)를 참조하세요.
+* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 여러 템플릿을 병합 하려면 [Azure 리소스를 배포할 때 연결 된 템플릿 및 중첩 된 템플릿 사용](linked-templates.md)을 참조 하세요.
+* 리소스 형식을 만들 때 지정 된 횟수 만큼 반복 하려면 [ARM 템플릿에서 리소스 반복](copy-resources.md)을 참조 하세요.
+* 만든 템플릿을 배포 하는 방법에 대 한 자세한 내용은 [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure PowerShell](deploy-powershell.md)을 참조 하세요.

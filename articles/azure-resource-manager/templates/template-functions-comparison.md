@@ -1,18 +1,18 @@
 ---
 title: 템플릿 함수-비교
-description: Azure Resource Manager 템플릿에서 값을 비교하는 데 사용할 수 있는 함수에 대해 설명합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 값을 비교 하는 데 사용 하는 함수에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: c5ffcfe7688935da6ea5602cdb2c66a8b86a8d88
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1b7192db361f510e0246a737de47930534a1cb9d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004605"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920528"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>ARM 템플릿의 비교 함수
 
-리소스 관리자는 ARM (Azure Resource Manager) 템플릿에서 비교를 수행 하기 위한 여러 함수를 제공 합니다.
+리소스 관리자는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 비교를 수행 하기 위한 몇 가지 함수를 제공 합니다.
 
 * [coalesce](#coalesce)
 * [equals](#equals)
@@ -33,8 +33,8 @@ ms.locfileid: "96004605"
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int, 문자열, 배열 또는 개체 |null인지 테스트할 첫 번째 값입니다. |
-| 추가 인수 |No |int, 문자열, 배열 또는 개체 |null인지 테스트할 추가 값입니다. |
+| arg1 |예 |int, 문자열, 배열 또는 개체 |null인지 테스트할 첫 번째 값입니다. |
+| 추가 인수 |아니요 |int, 문자열, 배열 또는 개체 |null인지 테스트할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -119,9 +119,9 @@ output emptyOutput bool =empty(coalesce(objectToTest.null1, objectToTest.null2))
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| stringOutput | String | default |
+| stringOutput | String | 기본값 |
 | intOutput | Int | 1 |
-| objectOutput | Object | {"first": "default"} |
+| objectOutput | 개체 | {"first": "default"} |
 | arrayOutput | 배열 |  [1] |
 | emptyOutput | Bool | True |
 
@@ -135,8 +135,8 @@ output emptyOutput bool =empty(coalesce(objectToTest.null1, objectToTest.null2))
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int, 문자열, 배열 또는 개체 |같은지 확인할 첫 번째 값입니다. |
-| arg2 |Yes |int, 문자열, 배열 또는 개체 |같은지 확인할 두 번째 값입니다. |
+| arg1 |예 |int, 문자열, 배열 또는 개체 |같은지 확인할 첫 번째 값입니다. |
+| arg2 |예 |int, 문자열, 배열 또는 개체 |같은지 확인할 두 번째 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -305,7 +305,7 @@ output checkNotEquals bool = ! (1 == 2)
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -319,8 +319,8 @@ output checkNotEquals bool = ! (1 == 2)
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int 또는 문자열 |greater 비교에 사용할 첫 번째 값입니다. |
-| arg2 |Yes |int 또는 문자열 |greater 비교에 사용할 두 번째 값입니다. |
+| arg1 |예 |int 또는 문자열 |greater 비교에 사용할 첫 번째 값입니다. |
+| arg2 |예 |int 또는 문자열 |greater 비교에 사용할 두 번째 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -387,7 +387,7 @@ output checkStrings bool = firstString > secondString
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| checkInts | Bool | False |
+| checkInts | Bool | 거짓 |
 | checkStrings | Bool | True |
 
 ## <a name="greaterorequals"></a>greaterOrEquals
@@ -400,8 +400,8 @@ output checkStrings bool = firstString > secondString
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int 또는 문자열 |greater 또는 equal 비교에 사용할 첫 번째 값입니다. |
-| arg2 |Yes |int 또는 문자열 |greater 또는 equal 비교에 사용할 두 번째 값입니다. |
+| arg1 |예 |int 또는 문자열 |greater 또는 equal 비교에 사용할 첫 번째 값입니다. |
+| arg2 |예 |int 또는 문자열 |greater 또는 equal 비교에 사용할 두 번째 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -468,7 +468,7 @@ output checkStrings bool = firstString >= secondString
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| checkInts | Bool | False |
+| checkInts | Bool | 거짓 |
 | checkStrings | Bool | True |
 
 ## <a name="less"></a>less
@@ -481,8 +481,8 @@ output checkStrings bool = firstString >= secondString
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int 또는 문자열 |less 비교에 사용할 첫 번째 값입니다. |
-| arg2 |Yes |int 또는 문자열 |less 비교에 사용할 두 번째 값입니다. |
+| arg1 |예 |int 또는 문자열 |less 비교에 사용할 첫 번째 값입니다. |
+| arg2 |예 |int 또는 문자열 |less 비교에 사용할 두 번째 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -550,7 +550,7 @@ output checkStrings bool = firstString < secondString
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
-| checkStrings | Bool | False |
+| checkStrings | Bool | 거짓 |
 
 ## <a name="lessorequals"></a>lessOrEquals
 
@@ -562,8 +562,8 @@ output checkStrings bool = firstString < secondString
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int 또는 문자열 |less 또는 equals 비교에 사용할 첫 번째 값입니다. |
-| arg2 |Yes |int 또는 문자열 |less 또는 equals 비교에 사용할 두 번째 값입니다. |
+| arg1 |예 |int 또는 문자열 |less 또는 equals 비교에 사용할 첫 번째 값입니다. |
+| arg2 |예 |int 또는 문자열 |less 또는 equals 비교에 사용할 두 번째 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -631,8 +631,8 @@ output checkStrings bool = firstString <= secondString
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
-| checkStrings | Bool | False |
+| checkStrings | Bool | 거짓 |
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Resource Manager 템플릿의 섹션에 대 한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.

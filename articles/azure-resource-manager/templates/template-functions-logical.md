@@ -1,18 +1,18 @@
 ---
 title: 템플릿 함수-논리적
-description: Azure Resource Manager 템플릿에서 논리 값을 확인하는 데 사용할 수 있는 함수에 대해 설명합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 논리 값을 확인 하는 데 사용 하는 함수에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: b54c104c8af5bb742b2c82d8a075515b8696501b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 27d94f10374daf0b9a351469579a5eb659cf5445
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004554"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920480"
 ---
 # <a name="logical-functions-for-arm-templates"></a>ARM 템플릿에 대 한 논리 함수
 
-리소스 관리자는 ARM (Azure Resource Manager) 템플릿에서 비교를 수행 하기 위한 여러 함수를 제공 합니다.
+리소스 관리자는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 비교를 수행 하기 위한 몇 가지 함수를 제공 합니다.
 
 * [and](#and)
 * [bool](#bool)
@@ -82,11 +82,11 @@ output notExampleOutput bool = !(bool('true'))
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | 거짓 |
 
 ## <a name="bool"></a>bool
 
@@ -98,7 +98,7 @@ output notExampleOutput bool = !(bool('true'))
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |문자열 또는 int |부울로 변환할 값입니다. |
+| arg1 |예 |문자열 또는 int |부울로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -155,9 +155,9 @@ output falseInt bool = bool(0)
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
-| falseString | Bool | False |
+| falseString | Bool | 거짓 |
 | trueInt | Bool | True |
-| falseInt | Bool | False |
+| falseInt | Bool | 거짓 |
 
 ## <a name="false"></a>false
 
@@ -203,9 +203,9 @@ output falseOutput bool = false
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
-| falseOutput | Bool | False |
+| falseOutput | Bool | 거짓 |
 
 ## <a name="if"></a>if
 
@@ -218,8 +218,8 @@ output falseOutput bool = false
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | condition(조건) |예 |boolean |True 인지 false 인지 확인 하는 값입니다. |
-| trueValue |Yes | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
-| falseValue |Yes | 문자열, 정수, 개체 또는 배열 |조건이 false이면 반환할 값입니다. |
+| trueValue |예 | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
+| falseValue |예 | 문자열, 정수, 개체 또는 배열 |조건이 false이면 반환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -227,7 +227,7 @@ output falseOutput bool = false
 
 ### <a name="remarks"></a>설명
 
-조건이 **true** 이면 true 값만 평가 됩니다. 조건이 **false** 이면 false 값만 평가 됩니다. **If** 함수를 사용 하 여 조건적 으로만 유효한 식을 포함할 수 있습니다. 예를 들어 한 조건에 있는 리소스를 참조할 수 있지만 다른 조건에는 없는 리소스를 참조할 수 있습니다. 조건에 따라 식을 평가 하는 예는 다음 섹션에 나와 있습니다.
+조건이 **true** 이면 true 값만 평가 됩니다. 조건이 **false** 이면 false 값만 평가 됩니다. 함수를 사용 하 여 `if` 조건적 으로만 유효한 식을 포함할 수 있습니다. 예를 들어 한 조건에 있는 리소스를 참조할 수 있지만 다른 조건에는 없는 리소스를 참조할 수 있습니다. 조건에 따라 식을 평가 하는 예는 다음 섹션에 나와 있습니다.
 
 ### <a name="examples"></a>예제
 
@@ -270,11 +270,11 @@ output objectOutput object = 'a' == 'a' ? json('{"test": "value1"}') : json('nul
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | yesOutput | String | 예 |
 | noOutput | String | no |
-| objectOutput | Object | { "test": "value1" } |
+| objectOutput | 개체 | { "test": "value1" } |
 
 다음 [예제 템플릿에서는](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) 조건부로 유효한 식으로이 함수를 사용 하는 방법을 보여 줍니다.
 
@@ -389,11 +389,11 @@ output notExampleOutput bool = !(bool('true'))
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | 거짓 |
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)에서는 [equals](template-functions-comparison.md#equals)에 **not** 을 사용합니다.
 
@@ -424,7 +424,7 @@ output checkNotEquals bool = !(1 == 2)
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -486,11 +486,11 @@ output notExampleOutput bool = !(bool('true'))
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | 거짓 |
 
 ## <a name="true"></a>true
 
@@ -536,10 +536,10 @@ output trueOutput bool = true
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | trueOutput | Bool | True |
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Resource Manager 템플릿의 섹션에 대 한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.

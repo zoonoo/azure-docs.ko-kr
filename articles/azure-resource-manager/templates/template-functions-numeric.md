@@ -1,18 +1,18 @@
 ---
 title: 템플릿 함수-numeric
-description: Azure Resource Manager 템플릿에서 숫자 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 숫자를 사용 하는 데 사용 하는 함수에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 26f4b846c67ee7b926ea984ceefd84bf9ea56952
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1484826b2377fe2adb2ac6ae2ab3ee6243b26c2c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004537"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920455"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>ARM 템플릿에 대 한 숫자 함수
 
-리소스 관리자는 ARM (Azure Resource Manager) 템플릿에서 정수를 사용 하기 위한 다음 함수를 제공 합니다.
+리소스 관리자는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 정수를 사용 하기 위한 다음 함수를 제공 합니다.
 
 * [add](#add)
 * [copyIndex](#copyindex)
@@ -109,7 +109,7 @@ output addResult int = first + second
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | loopName | 예 | 문자열 | 반복을 가져오기 위한 루프의 이름입니다. |
-| offset |No |int |0부터 시작하는 반복 값에 더할 숫자입니다. |
+| offset |아니요 |int |0부터 시작하는 반복 값에 더할 숫자입니다. |
 
 ### <a name="remarks"></a>설명
 
@@ -253,7 +253,7 @@ output addResult int = first / second
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |문자열 또는 int |부동 소수점 숫자로 변환할 값입니다. |
+| arg1 |예 |문자열 또는 int |부동 소수점 숫자로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -296,7 +296,7 @@ output addResult int = first / second
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Yes |문자열 또는 int |정수로 변환할 값입니다. |
+| valueToConvert |예 |문자열 또는 int |정수로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -355,7 +355,7 @@ output inResult int = int(stringToConvert)
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
+| arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -425,7 +425,7 @@ output intOutput int = max(0,3,2,5,4)
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
+| arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -700,5 +700,5 @@ output subResult int = first - second
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Resource Manager 템플릿의 섹션에 대 한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
-* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조하세요.
+* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 리소스 형식을 만들 때 지정 된 횟수 만큼 반복 하려면 [ARM 템플릿에서 리소스 반복](copy-resources.md)을 참조 하세요.

@@ -4,12 +4,12 @@ description: Azure 리소스 로그에 대해 지원 되는 서비스 및 이벤
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: 1fd6f07151c93b64c150f01e5c0b5c7f4cffed85
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 463b1d9d9c3ed1d94728874ba814554deb4f97c6
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593011"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920832"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Azure 리소스 로그에 대해 지원 되는 범주
 
@@ -20,6 +20,11 @@ ms.locfileid: "94593011"
 
 리소스 종류(`resourceId` 속성에 제공) 및 `category`가 조합되어 스키마를 고유하게 식별합니다. 서비스 관련 필드를 포함 하는 모든 리소스 로그에 대 한 공통 스키마가 있으며, 다른 로그 범주에 대해 추가 됩니다. 자세한 내용은 [Azure 리소스 로그에 대 한 일반 및 서비스별 스키마]() 를 참조 하세요.
 
+
+## <a name="costs"></a>비용
+
+ Log Analytics 및/또는 이벤트 허브에 데이터를 보내고 저장 하는 것과 관련 된 비용이 있습니다. 리소스 로그는 이러한 위치에 보낼 수 있는 데이터의 한 가지 유형입니다. [리소스 로그의 일부 범주를 내보내기 위한 추가 비용이](https://azure.microsoft.com/pricing/details/monitor/)발생 합니다. 다른 방법으로는 내보내기 비용이 없습니다. 구체적인 내용은 아래 표에 나와 있습니다.
+
 ## <a name="supported-log-categories-per-resource-type"></a>각 리소스 유형별 지원되는 로그 범주
 
 다음은 각 리소스 종류에 사용할 수 있는 로그의 유형 목록입니다. 
@@ -27,17 +32,11 @@ ms.locfileid: "94593011"
 일부 범주는 특정 유형의 리소스에 대해서만 지원 될 수 있습니다. 리소스가 누락 된 것으로 생각 되는 경우 리소스 관련 설명서를 참조 하세요. 예를 들어, 모든 유형의 데이터베이스에는 Microsoft .Sql/servers/databases 범주를 사용할 수 없습니다. 자세한 내용은 [SQL Database 진단 로깅에 대 한 정보](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md)를 참조 하세요. 
 
 그래도 문제가 없는 경우이 문서의 맨 아래에 있는 GitHub 주석을 열 수 있습니다.
-
-## <a name="microsoftaadiamtenants"></a>microsoft.aadiam/tenants
-
-|범주|범주 표시 이름|
-|---|---|
-|로그인|로그인|
-
-
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |엔진|엔진|
 |서비스|서비스|
@@ -45,14 +44,18 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |GatewayLogs|ApiManagement 게이트웨이 관련 로그|
 
 
 ## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |ApplicationConsole|응용 프로그램 콘솔|
 |SystemLogs|시스템 로그|
@@ -60,23 +63,29 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
+|DscNodeStatus|디스크 노드 상태|
 |JobLogs|작업 로그|
 |JobStreams|작업 스트림|
-|DscNodeStatus|디스크 노드 상태|
 
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |ServiceLog|서비스 로그|
 
 
 ## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/workspaces
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |BaiClusterEvent|BaiClusterEvent|
 |BaiClusterNodeEvent|BaiClusterNodeEvent|
@@ -85,58 +94,77 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |BlockchainApplication|블록 체인 응용 프로그램|
+|FabricOrderer|패브릭 Orderer|
+|FabricPeer|패브릭 피어|
 |Proxy (프록시)|Proxy (프록시)|
 
 
 ## <a name="microsoftblockchaincordamembers"></a>Microsoft Blockchain/cordaMembers
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |BlockchainApplication|블록 체인 응용 프로그램|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft Cdn/cdnwebapplicationfirewallpolicies
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
-|WebApplicationFirewallLogs|웹 응용 프로그램 방화벽 로그|
+|WebApplicationFirewallLogs|웹 시작할지 방화벽 로그|
 
 
 ## <a name="microsoftcdnprofiles"></a>Microsoft.Cdn/profiles
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |AzureCdnAccessLog|Azure Cdn 액세스 로그|
 
 
 ## <a name="microsoftcdnprofilesendpoints"></a>Microsoft.Cdn/profiles/endpoints
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
-|CoreAnalytics|끝점의 메트릭 (예: 대역폭, 송신 등)을 가져옵니다.|
+|CoreAnalytics|엔드포인트의 메트릭(예: 대역폭, 송신 등)을 가져옵니다.|
 
 
 ## <a name="microsoftclassicnetworknetworksecuritygroups"></a>Microsoft.ClassicNetwork/networksecuritygroups
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |네트워크 보안 그룹 규칙 흐름 이벤트|네트워크 보안 그룹 규칙 흐름 이벤트|
 
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |감사|감사 로그|
 |RequestResponse|요청 및 응답 로그|
+|추적|추적 로그|
 
 
 ## <a name="microsoftcontainerregistryregistries"></a>Microsoft.ContainerRegistry/registries
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |ContainerRegistryLoginEvents|로그인 이벤트|
 |ContainerRegistryRepositoryEvents|RepositoryEvent 로그|
@@ -144,7 +172,9 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |cluster-autoscaler|Kubernetes 클러스터 자동 크기 조정기|
 |kube-apiserver|Kubernetes API 서버|
@@ -155,14 +185,18 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft CustomProviders/resourceproviders
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |AuditLogs|MiniRP 호출에 대 한 감사 로그|
 
 
 ## <a name="microsoftdatabricksworkspaces"></a>Databricks/작업 영역
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |계정|Databricks 계정|
 |clusters|Databricks 클러스터|
@@ -176,16 +210,11 @@ ms.locfileid: "94593011"
 |작업 영역|Databricks 작업 영역|
 
 
-## <a name="microsoftdatacatalogdatacatalogs"></a>Microsoft.datacatalog/datacatalogs
-
-|범주|범주 표시 이름|
-|---|---|
-|ScanStatusLogEvent|ScanStatus|
-
-
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |ActivityRuns|파이프라인 작업 실행 로그|
 |PipelineRuns|파이프라인 실행 로그|
@@ -194,31 +223,70 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |감사|감사 로그|
 |요청|요청 로그|
 
 
+## <a name="microsoftdatashareaccounts"></a>Microsoft.DataShare/accounts
+
+비용: 무료 
+
+|범주 |범주 표시 이름|
+|---|---|
+|ReceivedShareSnapshots|받은 공유 스냅숏|
+|SentShareSnapshots|전송 공유 스냅숏|
+|공유|공유|
+|ShareSubscriptions|구독 공유|
+
+
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |MySqlAuditLogs|MariaDB 감사 로그|
 |MySqlSlowLogs|MariaDB 서버 로그|
 
 
+## <a name="microsoftdbformysqlflexibleservers"></a>Microsoft.DBforMySQL/flexibleServers
+
+비용: 무료 
+
+|범주 |범주 표시 이름|
+|---|---|
+|MySqlAuditLogs|MySQL 감사 로그|
+|MySqlSlowLogs|MySQL 저속 로그|
+
+
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |MySqlAuditLogs|MySQL 감사 로그|
 |MySqlSlowLogs|MySQL Server 로그|
 
 
+## <a name="microsoftdbforpostgresqlflexibleservers"></a>Microsoft.DBforPostgreSQL/flexibleServers
+
+비용: 무료 
+
+|범주 |범주 표시 이름|
+|---|---|
+|PostgreSQLLogs|PostgreSQL 서버 로그|
+
+
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |PostgreSQLLogs|PostgreSQL 서버 로그|
 |QueryStoreRuntimeStatistics|PostgreSQL 쿼리 저장소 런타임 통계|
@@ -227,21 +295,18 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftdbforpostgresqlserversv2"></a>Microsoft.DBforPostgreSQL/serversv2
 
-|범주|범주 표시 이름|
-|---|---|
-|PostgreSQLLogs|PostgreSQL 서버 로그|
+비용: 무료 
 
-
-## <a name="microsoftdbforpostgresqlsingleservers"></a>DBforPostgreSQL/singleservers
-
-|범주|범주 표시 이름|
+|범주 |범주 표시 이름|
 |---|---|
 |PostgreSQLLogs|PostgreSQL 서버 로그|
 
 
 ## <a name="microsoftdesktopvirtualizationapplicationgroups"></a>Microsoft DesktopVirtualization/applicationgroups
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |검사점|검사점|
 |Error|Error|
@@ -250,7 +315,9 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftdesktopvirtualizationhostpools"></a>Microsoft DesktopVirtualization/hostpools
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |검사점|검사점|
 |연결|연결|
@@ -261,7 +328,9 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftdesktopvirtualizationworkspaces"></a>Microsoft DesktopVirtualization/작업 영역
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |검사점|검사점|
 |Error|Error|
@@ -271,7 +340,9 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |C2DCommands|C2D 명령|
 |C2DTwinOperations|C2D 쌍 작업|
@@ -291,7 +362,9 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |DeviceOperations|디바이스 작업|
 |ServiceOperations|서비스 작업|
@@ -299,28 +372,25 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |CassandraRequests|CassandraRequests|
 |ControlPlaneRequests|ControlPlaneRequests|
 |DataPlaneRequests|DataPlaneRequests|
+|GremlinRequests|GremlinRequests|
 |MongoRequests|MongoRequests|
 |파티션 사용|파티션 사용|
 |파티션 파티션|파티션 파티션|
 |QueryRuntimeStatistics|QueryRuntimeStatistics|
 
 
-## <a name="microsoftenterpriseknowledgegraphservices"></a>Microsoft.EnterpriseKnowledgeGraph/services
-
-|범주|범주 표시 이름|
-|---|---|
-|AuditEvent|AuditEvent 로그|
-|DataIssue|DataIssue 로그|
-|요청|구성 로그|
-
 ## <a name="microsofteventgriddomains"></a>Microsoft.EventGrid/domains
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |DeliveryFailures|배달 실패 로그|
 |오류가 발생 했습니다.|실패 로그 게시|
@@ -328,14 +398,18 @@ ms.locfileid: "94593011"
 
 ## <a name="microsofteventgridsystemtopics"></a>Microsoft EventGrid/systemTopics
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |DeliveryFailures|배달 실패 로그|
 
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |DeliveryFailures|배달 실패 로그|
 |오류가 발생 했습니다.|실패 로그 게시|
@@ -343,11 +417,13 @@ ms.locfileid: "94593011"
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |ArchiveLogs|보관 로그|
 |AutoScaleLogs|자동 크기 조정 로그|
-|CustomerManagedKeyUserLogs|키 로그 Customer-Managed|
+|CustomerManagedKeyUserLogs|고객 관리 키 로그|
 |EventHubVNetConnectionEvent|VNet/IP 필터링 연결 로그|
 |KafkaCoordinatorLogs|Kafka 코디네이터 로그|
 |KafkaUserErrorLogs|Kafka 사용자 오류 로그|
@@ -356,14 +432,18 @@ ms.locfileid: "94593011"
 
 ## <a name="microsofthealthcareapisservices"></a>Microsoft.HealthcareApis/services
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |AuditLogs|감사 로그|
 
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |AutoscaleEvaluations|자동 크기 조정 평가|
 |AutoscaleScaleActions|자동 크기 조정 크기 조정 작업|
@@ -371,7 +451,9 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |AppAvailabilityResults|가용성 결과|
 |AppBrowserTimings|브라우저 타이밍|
@@ -386,50 +468,53 @@ ms.locfileid: "94593011"
 |AppTraces|추적|
 
 
-## <a name="microsoftiotspacesgraph"></a>Microsoft.IoTSpaces/Graph
-
-|범주|범주 표시 이름|
-|---|---|
-|감사|감사|
-|송신|송신|
-|수신|수신|
-|작동|작동|
-|추적|추적|
-|UserDefinedFunction|UserDefinedFunction|
-
-
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |AuditEvent|감사 로그|
 
 
 ## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
+|명령|명령|
 |FailedIngestion|실패 한 수집 작업|
+|IngestionBatching|수집 일괄 처리|
+|쿼리|쿼리|
 |SucceededIngestion|수집 작업 성공|
+|TableDetails|테이블 세부 정보|
+|TableUsageStatistics|테이블 사용 통계|
 
 
 ## <a name="microsoftlogicintegrationaccounts"></a>Microsoft.Logic/integrationAccounts
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |IntegrationAccountTrackingEvents|통합 계정 이벤트 추적|
 
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |WorkflowRuntime|워크플로 런타임 진단 이벤트|
 
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |AmlComputeClusterEvent|AmlComputeClusterEvent|
 |AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|
@@ -440,14 +525,18 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |KeyDeliveryRequests|키 배달 요청|
 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |ApplicationGatewayAccessLog|Application Gateway 액세스 로그|
 |ApplicationGatewayFirewallLog|Application Gateway 방화벽 로그|
@@ -456,7 +545,9 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftnetworkazurefirewalls"></a>Microsoft.Network/azurefirewalls
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |AzureFirewallApplicationRule|Azure Firewall 애플리케이션 규칙|
 |AzureFirewallNetworkRule|Azure Firewall 네트워크 규칙|
@@ -464,21 +555,27 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftnetworkbastionhosts"></a>Microsoft. Network/bastionHosts
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |BastionAuditLogs|요새 감사 로그|
 
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |PeeringRouteLog|피어링 경로 테이블 로그|
 
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |FrontdoorAccessLog|Frontdoor 액세스 로그|
 |FrontdoorWebApplicationFirewallLog|Frontdoor 웹 애플리케이션 방화벽 로그|
@@ -486,7 +583,9 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |LoadBalancerAlertEvent|부하 분산 장치 경고 이벤트|
 |LoadBalancerProbeHealthStatus|부하 분산 장치 프로브 상태|
@@ -494,15 +593,20 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftnetworknetworksecuritygroups"></a>Microsoft.Network/networksecuritygroups
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |NetworkSecurityGroupEvent|네트워크 보안 그룹 이벤트|
+|NetworkSecurityGroupFlowEvent|네트워크 보안 그룹 규칙 흐름 이벤트|
 |NetworkSecurityGroupRuleCounter|네트워크 보안 그룹 규칙 카운터|
 
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |DDoSMitigationFlowLogs|DDoS 완화 결정의 흐름 로그|
 |DDoSMitigationReports|DDoS 완화의 보고서|
@@ -511,14 +615,18 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.Network/trafficManagerProfiles
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |ProbeHealthStatusEvents|Traffic Manager 프로브 상태 결과 이벤트|
 
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |GatewayDiagnosticLog|게이트웨이 진단 로그|
 |IKEDiagnosticLog|IKE 진단 로그|
@@ -529,21 +637,27 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |VMProtectionAlerts|VM 보호 경고|
 
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |엔진|엔진|
 
 
 ## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/Vaults
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |AddonAzureBackupAlerts|추가 기능 Azure Backup 경고 데이터|
 |AddonAzureBackupJobs|Addon Azure Backup 작업 데이터|
@@ -563,35 +677,45 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |HybridConnectionsEvent|HybridConnections 이벤트|
 
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |OperationLogs|작업 로그|
 
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |OperationalLogs|작업 로그|
 
 
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |Alllogs.csv|Azure SignalR Service 로그.|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |DevOpsOperationsAudit|Devops 작업 감사 로그|
 |ResourceUsageStats|리소스 사용량 통계|
@@ -600,7 +724,9 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft.Sql/managedInstances/databases
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |오류|오류|
 |QueryStoreRuntimeStatistics|쿼리 저장소 런타임 통계|
@@ -610,7 +736,9 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |AutomaticTuning|자동 조정|
 |블록|블록|
@@ -632,7 +760,9 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-|범주|범주 표시 이름|
+비용: [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 의 플랫폼 로그 섹션에 설명 된 대로 지불 합니다. 
+
+|범주 |범주 표시 이름|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -641,7 +771,9 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
-|범주|범주 표시 이름|
+비용: [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 의 플랫폼 로그 섹션에 설명 된 대로 지불 합니다. 
+
+|범주 |범주 표시 이름|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -650,7 +782,9 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
-|범주|범주 표시 이름|
+비용: [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 의 플랫폼 로그 섹션에 설명 된 대로 지불 합니다. 
+ 
+|범주 |범주 표시 이름|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -659,7 +793,9 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
-|범주|범주 표시 이름|
+비용: [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 의 플랫폼 로그 섹션에 설명 된 대로 지불 합니다. 
+ 
+|범주 |범주 표시 이름|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -668,22 +804,64 @@ ms.locfileid: "94593011"
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |작성|작성|
 |실행|실행|
 
 
+## <a name="microsoftsynapseworkspaces"></a>Microsoft.Synapse/workspaces
+
+비용: 무료 
+
+|범주 |범주 표시 이름|
+|---|---|
+|BuiltinSqlReqsEnded|기본 제공 Sql 풀 요청이 종료 되었습니다.|
+|게이트웨이 Apirequests|Synapse Gateway Api 요청|
+|SQLSecurityAuditEvents|SQL 보안 감사 이벤트|
+|SynapseRbacOperations|Synapse RBAC 작업|
+
+
+## <a name="microsoftsynapseworkspacesbigdatapools"></a>Synapse/작업 영역/bigDataPools
+
+비용: 무료 
+
+|범주 |범주 표시 이름|
+|---|---|
+|BigDataPoolAppsEnded|빅 데이터 풀 응용 프로그램이 종료 됨|
+
+
+## <a name="microsoftsynapseworkspacessqlpools"></a>Synapse/workspaces/sqlPools
+
+비용: 무료 
+
+|범주 |범주 표시 이름|
+|---|---|
+|DmsWorkers|DMS 작업자|
+|ExecRequests|실행 요청|
+|RequestSteps|요청 단계|
+|SqlRequests|SQL 요청|
+|SQLSecurityAuditEvents|Sql 보안 감사 이벤트|
+|대기|대기|
+
+
 ## <a name="microsoftwebhostingenvironments"></a>microsoft.web/hostingenvironments
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+|범주 |범주 표시 이름|
 |---|---|
 |Appservice환경 Platformlogs|App Service Environment 플랫폼 로그|
 
 
 ## <a name="microsoftwebsites"></a>microsoft.web/sites
 
-|범주|범주 표시 이름|
+비용: 무료 
+
+
+|범주 |범주 표시 이름|
 |---|---|
 |AppServiceAppLogs|응용 프로그램 로그 App Service|
 |AppServiceAuditLogs|감사 로그 액세스|
@@ -691,13 +869,14 @@ ms.locfileid: "94593011"
 |AppServiceFileAuditLogs|사이트 콘텐츠 변경 감사 로그|
 |AppServiceHTTPLogs|HTTP 로그|
 |FunctionAppLogs|함수 응용 프로그램 로그|
-|ScanLogs|바이러스 검사 로그|
 
 
 ## <a name="microsoftwebsitesslots"></a>microsoft.web/sites/slots
 
+비용: 무료 
 
-|범주|범주 표시 이름|
+
+|범주 |범주 표시 이름|
 |---|---|
 |AppServiceAppLogs|응용 프로그램 로그 App Service|
 |AppServiceAuditLogs|감사 로그 액세스|
@@ -705,7 +884,6 @@ ms.locfileid: "94593011"
 |AppServiceFileAuditLogs|사이트 콘텐츠 변경 감사 로그|
 |AppServiceHTTPLogs|HTTP 로그|
 |FunctionAppLogs|함수 응용 프로그램 로그|
-|ScanLogs|바이러스 검사 로그|
 
 
 ## <a name="next-steps"></a>다음 단계

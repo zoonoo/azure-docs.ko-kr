@@ -4,15 +4,15 @@ description: Azure Monitor의 각 리소스 유형별로 사용 가능한 메트
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 07/16/2020
+ms.date: 10/01/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 1741331c57427c57507376afdb878edc18259b72
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3e5dd5c83468e867c746393642a1e40ff07763c4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306839"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921507"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
@@ -38,7 +38,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 - **일부 내보낼 수 없음** -모든 메트릭은 REST API를 사용 하 여 내보낼 수 있지만 일부 메트릭은 Azure Monitor 백 엔드에서 복잡 하지 않기 때문에 진단 설정을 사용 하 여 내보낼 수 없습니다. 아래 표에서 *진단 설정을 통해 내보낼* 수 있는 열은 이러한 방식으로 내보낼 수 있는 메트릭을 나열 합니다.  
 
-- **다차원 메트릭** -진단 설정을 통해 여러 차원 메트릭을 다른 위치로 보내는 것은 현재 지원 되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다. *예* : Event Hub의 '들어오는 메시지' 메트릭은 큐 수준별로 탐색하고 차트화할 수 있습니다. 하지만 진단 설정을 통해 내보내면 메트릭은 Event Hub의 모든 큐에서 모두 수신되는 메시지로 표시됩니다.
+- **다차원 메트릭** -진단 설정을 통해 여러 차원 메트릭을 다른 위치로 보내는 것은 현재 지원 되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다. *예*: Event Hub의 '들어오는 메시지' 메트릭은 큐 수준별로 탐색하고 차트화할 수 있습니다. 하지만 진단 설정을 통해 내보내면 메트릭은 Event Hub의 모든 큐에서 모두 수신되는 메시지로 표시됩니다.
 
 ## <a name="guest-os-and-host-os-metrics"></a>게스트 OS 및 호스트 OS 메트릭
 
@@ -50,17 +50,16 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 > [!TIP]
 > 모범 사례는 [Azure 진단 확장](diagnostics-extension-overview.md) 을 사용 및 구성 하 여 플랫폼 메트릭이 저장 된 것과 동일한 Azure Monitor 메트릭 데이터베이스에 게스트 OS 성능 메트릭을 전송 하는 것입니다. 확장은 [사용자 지정 메트릭](metrics-custom-overview.md) API를 통해 게스트 OS 메트릭을 라우팅합니다. 그런 다음 플랫폼 메트릭과 같은 게스트 OS 메트릭을 차트로 만들고, 경고 하 고, 사용할 수 있습니다. 또는 Log Analytics 에이전트를 사용 하 여 게스트 OS 메트릭을 Azure Monitor Logs/Log Analytics로 보낼 수도 있습니다. 이 경우 메트릭이 아닌 데이터와 함께 이러한 메트릭을 쿼리할 수 있습니다. 
 
-중요 한 추가 정보는 [모니터링 에이전트 개요](agents-overview.md)를 참조 하세요.    
+중요 한 추가 정보는 [모니터링 에이전트 개요](agents-overview.md)를 참조 하세요.
 
 ## <a name="table-formatting"></a>테이블 서식 지정
 
 > [!IMPORTANT] 
 > 이 최신 업데이트는 새 열을 추가 하 고 메트릭을 사전순으로 다시 정렬 합니다. 추가 정보는 아래 표에 브라우저 창의 너비에 따라 아래쪽에 가로 스크롤 막대가 있을 수 있음을 의미 합니다. 누락 된 정보가 있다고 생각 되는 경우 스크롤 막대를 사용 하 여 테이블 전체를 확인 합니다.
 
-
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |CleanerCurrentPrice|예|메모리: 클리너 현재 가격|개수|평균|현재 메모리 가격, $/바이트/시간, 1000으로 일반화됩니다.|ServerResourceType|
 |CleanerMemoryNonshrinkable|예|메모리: 클리너 메모리 축소 불가능|바이트|평균|메모리 양, 바이트 단위, 백그라운드 클리너에 의해 제거되는 대상이 아닙니다.|ServerResourceType|
@@ -113,11 +112,11 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |BackendDuration|예|백 엔드 요청 지속 시간|밀리초|평균|백 엔드 요청 기간 (밀리초)|위치, 호스트 이름|
 |용량|예|용량|백분율|평균|ApiManagement 서비스에 대한 사용률 메트릭|위치|
-|Duration|예|게이트웨이 요청의 전체 기간|밀리초|평균|게이트웨이 요청의 전체 기간(밀리초)|위치, 호스트 이름|
+|기간|예|게이트웨이 요청의 전체 기간|밀리초|평균|게이트웨이 요청의 전체 기간(밀리초)|위치, 호스트 이름|
 |EventHubDroppedEvents|예|삭제된 EventHub 이벤트|개수|합계|큐 크기 제한에 도달 하 여 건너뛴 이벤트 수|위치|
 |EventHubRejectedEvents|예|거부된 EventHub 이벤트|개수|합계|거부 된 EventHub 이벤트 수 (잘못 된 구성 또는 권한 없음)|위치|
 |EventHubSuccessfulEvents|예|성공한 EventHub 이벤트|개수|합계|성공한 EventHub 이벤트 수|위치|
@@ -137,7 +136,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |HttpIncomingRequestCount|예|HttpIncomingRequestCount|개수|개수|들어오는 http 요청의 총 수입니다.|StatusCode, 인증|
 |HttpIncomingRequestDuration|예|HttpIncomingRequestDuration|개수|평균|Http 요청에 대 한 대기 시간입니다.|StatusCode, 인증|
@@ -146,7 +145,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |jvm. 데이터 크기|예|jvm. 데이터 크기|바이트|평균|전체 GC 후의 이전 세대 메모리 풀 크기|배포, AppName, Pod|
 |jvm. 최대 데이터 크기|예|jvm. 최대 데이터 크기|바이트|평균|이전 세대 메모리 풀의 최대 크기|배포, AppName, Pod|
@@ -157,8 +156,8 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |jvm. 메모리 커밋|예|jvm. 메모리 커밋|바이트|평균|JVM에 할당 된 메모리 (바이트)|배포, AppName, Pod|
 |jvm. memory. max|예|jvm. memory. max|바이트|최대|메모리 관리에 사용할 수 있는 최대 메모리 양 (바이트)입니다.|배포, AppName, Pod|
 |jvm. memory. 사용 됨|예|jvm. memory. 사용 됨|바이트|평균|사용 되는 앱 메모리 (바이트)|배포, AppName, Pod|
-|프로세스. cpu 사용량|예|프로세스. cpu 사용량|백분율|평균|앱 JVM CPU 사용량 비율|배포, AppName, Pod|
-|시스템 cpu 사용량|예|시스템 cpu 사용량|백분율|평균|전체 시스템의 최근 cpu 사용량|배포, AppName, Pod|
+|프로세스. cpu 사용량|예|프로세스. cpu 사용량|백분율|평균|JVM 프로세스에 대 한 최근 CPU 사용량|배포, AppName, Pod|
+|시스템 cpu 사용량|예|시스템 cpu 사용량|백분율|평균|전체 시스템의 최근 CPU 사용량|배포, AppName, Pod|
 |tomcat|예|tomcat|개수|합계|Tomcat 전역 오류|배포, AppName, Pod|
 |tomcat|예|tomcat|바이트|합계|Tomcat 총 수신 바이트|배포, AppName, Pod|
 |tomcat-평균 시간|예|tomcat-평균 시간|밀리초|평균|Tomcat 요청 평균 시간|배포, AppName, Pod|
@@ -178,7 +177,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |TotalJob|예|총 작업 수|개수|합계|총 작업 수|Runbook, 상태|
 |TotalUpdateDeploymentMachineRuns|예|총 업데이트 배포 머신 실행|개수|합계|소프트웨어 업데이트 배포 실행 시 총 소프트웨어 업데이트 배포 컴퓨터 실행|SoftwareUpdateConfigurationName, Status, TargetComputer, SoftwareUpdateConfigurationRunId|
@@ -187,7 +186,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |CoreCount|아니요|전용된 코어 수|개수|합계|배치 계정의 총 전용 코어 수|차원 없음|
 |CreatingNodeCount|아니요|노드 수 만들기|개수|합계|만든 노드 수|차원 없음|
@@ -224,7 +223,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/workspaces
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |활성 코어|예|활성 코어|개수|평균|활성 코어 수|시나리오, ClusterName|
 |활성 노드|예|활성 노드|개수|평균|실행 중인 노드의 수|시나리오, ClusterName|
@@ -245,21 +244,21 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|BroadcastProcessedCount|예|처리 된 브로드캐스트 수|개수|평균|처리 된 트랜잭션 수|노드, 채널, 유형, 상태|
+|BroadcastProcessedCount|예|BroadcastProcessedCountDisplayName|개수|평균|처리 된 트랜잭션 수입니다.|노드, 채널, 유형, 상태|
 |ConnectionAccepted|예|수락된 연결|개수|합계|수락된 연결|노드|
 |ConnectionActive|예|활성 연결 수|개수|평균|활성 연결 수|노드|
 |ConnectionHandled|예|처리된 연결|개수|합계|처리된 연결|노드|
-|ConsensusEtcdraftCommittedBlockNumber|예|합의 Etccdraft 커밋된 블록 번호|개수|평균|커밋된 최신 블록의 블록 번호|노드, 채널|
+|ConsensusEtcdraftCommittedBlockNumber|예|ConsensusEtcdraftCommittedBlockNumberDisplayName|개수|평균|커밋된 최신 블록의 블록 번호입니다.|노드, 채널|
 |CpuUsagePercentageInDouble|예|CPU 사용 백분율|백분율|최대|CPU 사용 백분율|노드|
-|EndorserEndorsementFailures|예|Endorser 인증 실패|개수|평균|실패 한 인증 수입니다.|Node, channel, chaincode, chaincodeerror|
-|GossipLeaderElectionLeader|예|십 리더 선거 지도자|개수|합계|피어가 리더 (1) 또는 종동체 (0)입니다.|노드, 채널|
-|GossipMembershipTotalPeersKnown|예|십 멤버 자격이 알려진 총 피어|개수|평균|알려진 총 피어|노드, 채널|
-|GossipStateHeight|예|십 상태 높이|개수|평균|현재 원장 높이|노드, 채널|
+|EndorserEndorsementFailures|예|EndorserEndorsementFailuresDisplayName|개수|평균|실패 한 인증 수입니다.|Node, channel, chaincode, chaincodeerror|
+|GossipLeaderElectionLeader|예|GossipLeaderElectionLeaderDisplayName|개수|평균|피어가 리더 (1) 또는 종동체 (0)입니다.|노드, 채널|
+|GossipMembershipTotalPeersKnown|예|GossipMembershipTotalPeersKnownDisplayName|개수|평균|알려진 총 피어입니다.|노드, 채널|
+|GossipStateHeight|예|GossipStateHeightDisplayName|개수|평균|현재 원장 높이입니다.|노드, 채널|
 |IOReadBytes|예|IO 읽기 바이트|바이트|합계|IO 읽기 바이트|노드|
 |IOWriteBytes|예|IO 쓰기 바이트|바이트|합계|IO 쓰기 바이트|노드|
-|LedgerTransactionCount|예|원장 트랜잭션 수|개수|평균|처리 된 트랜잭션 수|Node, channel, transaction_type, chaincode, validation_code|
+|LedgerTransactionCount|예|LedgerTransactionCountDisplayName|개수|평균|처리 된 트랜잭션 수입니다.|Node, channel, transaction_type, chaincode, validation_code|
 |MemoryLimit|예|메모리 제한|바이트|평균|메모리 제한|노드|
 |MemoryUsage|예|메모리 사용량|바이트|평균|메모리 사용량|노드|
 |MemoryUsagePercentageInDouble|예|메모리 사용 백분율|백분율|평균|메모리 사용 백분율|노드|
@@ -273,8 +272,24 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
+|allcachehits|예|캐시 적중 (인스턴스 기반)|개수|합계||ShardId, 포트, 기본|
+|allcachemisses|예|캐시 누락 (인스턴스 기반)|개수|합계||ShardId, 포트, 기본|
+|allcacheRead|예|캐시 읽기 (인스턴스 기반)|초당 바이트 수|최대||ShardId, 포트, 기본|
+|allcacheWrite|예|캐시 쓰기 (인스턴스 기반)|초당 바이트 수|최대||ShardId, 포트, 기본|
+|allconnectedclients|예|연결 된 클라이언트 (인스턴스 기반)|개수|최대||ShardId, 포트, 기본|
+|allevictedkeys|예|제거 되는 키 (인스턴스 기반)|개수|합계||ShardId, 포트, 기본|
+|allexpiredkeys|예|만료 된 키 (인스턴스 기반)|개수|합계||ShardId, 포트, 기본|
+|allgetcommands|예|(인스턴스 기반)을 가져옵니다.|개수|합계||ShardId, 포트, 기본|
+|alloperationsPerSecond|예|초당 작업 (인스턴스 기반)|개수|최대||ShardId, 포트, 기본|
+|allserverLoad|예|서버 부하 (인스턴스 기반)|백분율|최대||ShardId, 포트, 기본|
+|allsetcommands|예|집합 (인스턴스 기반)|개수|합계||ShardId, 포트, 기본|
+|alltotalcommandsprocessed|예|총 작업 (인스턴스 기반)|개수|합계||ShardId, 포트, 기본|
+|alltotalkeys|예|총 키 (인스턴스 기반)|개수|최대||ShardId, 포트, 기본|
+|allusedmemory|예|사용 되는 메모리 (인스턴스 기반)|바이트|최대||ShardId, 포트, 기본|
+|allusedmemorypercentage|예|사용 되는 메모리 백분율 (인스턴스 기반)|백분율|최대||ShardId, 포트, 기본|
+|allusedmemoryRss|예|사용 되는 메모리 RSS (인스턴스 기반)|바이트|최대||ShardId, 포트, 기본|
 |cachehits|예|캐시 적중|개수|합계||ShardId|
 |cachehits0|예|캐시 적중(분할 0)|개수|합계||차원 없음|
 |cachehits1|예|캐시 적중(분할 1)|개수|합계||차원 없음|
@@ -459,14 +474,14 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft Cdn/cdnwebapplicationfirewallpolicies
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |WebApplicationFirewallRequestCount|예|웹 애플리케이션 방화벽 요청 수|개수|합계|웹 애플리케이션 방화벽에서 처리된 클라이언트 요청 수|PolicyName, RuleName, Action|
 
 
 ## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |디스크 읽기 바이트/초|아니요|디스크 읽기|초당 바이트 수|평균|모니터링 기간 동안 디스크에서 읽은 평균 바이트.|RoleInstanceId|
 |디스크 읽기 작업/초|예|디스크 읽기 작업/초|초당 개수|평균|디스크 읽기 IOPS.|RoleInstanceId|
@@ -474,12 +489,12 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |디스크 쓰기 작업/초|예|디스크 쓰기 작업/초|초당 개수|평균|디스크 쓰기 IOPS.|RoleInstanceId|
 |네트워크 인|예|네트워크 인|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수.|RoleInstanceId|
 |네트워크 아웃|예|네트워크 아웃|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수.|RoleInstanceId|
-|CPU 사용률|예|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율.|RoleInstanceId|
+|백분율 CPU|예|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율.|RoleInstanceId|
 
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |디스크 읽기 바이트/초|아니요|디스크 읽기|초당 바이트 수|평균|모니터링 기간 동안 디스크에서 읽은 평균 바이트.|차원 없음|
 |디스크 읽기 작업/초|예|디스크 읽기 작업/초|초당 개수|평균|디스크 읽기 IOPS.|차원 없음|
@@ -487,12 +502,12 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |디스크 쓰기 작업/초|예|디스크 쓰기 작업/초|초당 개수|평균|디스크 쓰기 IOPS.|차원 없음|
 |네트워크 인|예|네트워크 인|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수.|차원 없음|
 |네트워크 아웃|예|네트워크 아웃|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수.|차원 없음|
-|CPU 사용률|예|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율.|차원 없음|
+|백분율 CPU|예|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율.|차원 없음|
 
 
 ## <a name="microsoftclassicstoragestorageaccounts"></a>Microsoft.ClassicStorage/storageAccounts
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |가용성|예|가용성|백분율|평균|스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 |송신|예|송신|바이트|합계|송신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
@@ -505,7 +520,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftclassicstoragestorageaccountsblobservices"></a>Microsoft.ClassicStorage/storageAccounts/blobServices
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |가용성|예|가용성|백분율|평균|스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 |BlobCapacity|아니요|Blob 용량|바이트|평균|스토리지 계정의 Blob service가 사용하는 스토리지의 양(바이트)입니다.|BlobType, 계층|
@@ -521,7 +536,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftclassicstoragestorageaccountsfileservices"></a>Microsoft.ClassicStorage/storageAccounts/fileServices
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |가용성|예|가용성|백분율|평균|스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication, 파일 공유|
 |송신|예|송신|바이트|합계|송신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication, 파일 공유|
@@ -539,7 +554,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftclassicstoragestorageaccountsqueueservices"></a>Microsoft.ClassicStorage/storageAccounts/queueServices
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |가용성|예|가용성|백분율|평균|스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 |송신|예|송신|바이트|합계|송신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
@@ -554,7 +569,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftclassicstoragestorageaccountstableservices"></a>Microsoft.ClassicStorage/storageAccounts/tableServices
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |가용성|예|가용성|백분율|평균|스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 |송신|예|송신|바이트|합계|송신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
@@ -569,7 +584,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |BlockedCalls|예|차단된 호출|개수|합계|요금 또는 할당량 한도를 초과한 호출 수입니다.|ApiName, OperationName, 지역|
 |CharactersTrained|예|학습된 문자|개수|합계|학습 된 총 문자 수입니다.|ApiName, OperationName, 지역|
@@ -578,7 +593,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |DataIn|예|데이터 입력|바이트|합계|들어오는 데이터 크기(바이트)입니다.|ApiName, OperationName, 지역|
 |DataOut|예|데이터 출력|바이트|합계|나가는 데이터 크기(바이트)입니다.|ApiName, OperationName, 지역|
 |대기 시간|예|대기 시간|밀리초|평균|대기 시간(밀리초)입니다.|ApiName, OperationName, 지역|
-|Processeages|예|처리 된 이미지|개수|합계| 이미지 처리에 대 한 트랜잭션 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
+|Processeages|예|처리 된 이미지|개수|합계|이미지 처리에 대 한 트랜잭션 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
 |ServerErrors|예|서버 오류|개수|합계|서비스 내부 오류(HTTP 응답 코드 5xx)가 있는 호출 수입니다.|ApiName, OperationName, 지역|
 |SpeechSessionDuration|예|음성 세션 기간|초|합계|음성 세션의 총 기간(초)입니다.|ApiName, OperationName, 지역|
 |SuccessfulCalls|예|성공한 호출|개수|합계|성공한 호출 수입니다.|ApiName, OperationName, 지역|
@@ -588,12 +603,25 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |TotalTransactions|예|총 트랜잭션|개수|합계|총 트랜잭션 수|차원 없음|
 
 
+## <a name="microsoftcomputecloudservices"></a>Microsoft. Compute/cloudServices
+
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
+|---|---|---|---|---|---|---|
+|디스크 읽기 바이트|예|디스크 읽기 바이트|바이트|합계|모니터링 기간 동안 디스크에서 읽은 바이트 수|RoleInstanceId|
+|디스크 읽기 작업/초|예|디스크 읽기 작업/초|초당 개수|평균|디스크 읽기 IOPS|RoleInstanceId|
+|디스크 쓰기 바이트|예|디스크 쓰기 바이트|바이트|합계|모니터링 기간 동안 디스크에 쓴 바이트 수|RoleInstanceId|
+|디스크 쓰기 작업/초|예|디스크 쓰기 작업/초|초당 개수|평균|디스크 쓰기 IOPS|RoleInstanceId|
+|백분율 CPU|예|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율|RoleInstanceId|
+
+
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |사용된 CPU 크레딧|예|사용된 CPU 크레딧|개수|평균|Virtual Machine에서 사용하는 총 크레딧 수|차원 없음|
 |남은 CPU 크레딧|예|남은 CPU 크레딧|개수|평균|버스트에 사용할 수 있는 총 크레딧 수|차원 없음|
+|사용 된 데이터 디스크 대역폭 (%)|예|사용 된 데이터 디스크 대역폭 (%)|백분율|평균|분당 사용 된 데이터 디스크 대역폭 비율|LUN|
+|데이터 디스크 IOPS 사용 비율|예|데이터 디스크 IOPS 사용 비율|백분율|평균|분당 소비 된 데이터 디스크 i/o 비율|LUN|
 |데이터 디스크 큐 크기|예|데이터 디스크 큐 크기(미리 보기)|개수|평균|데이터 디스크 큐 깊이(또는 큐 길이)|LUN|
 |데이터 디스크 읽기 바이트/초|예|데이터 디스크 읽기 바이트/초(미리 보기)|초당 개수|평균|모니터링 기간에 단일 디스크에서 읽은 바이트/초|LUN|
 |데이터 디스크 읽기 작업/초|예|데이터 디스크 읽기 작업/초(미리 보기)|초당 개수|평균|모니터링 기간에 단일 디스크에서 IOPS 읽기|LUN|
@@ -609,6 +637,8 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |전체 네트워크 입력|예|전체 네트워크 입력|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수|차원 없음|
 |네트워크 아웃|예|청구 가능 네트워크 출력(사용되지 않음)|바이트|합계|가상 컴퓨터의 모든 네트워크 인터페이스에서 청구 가능한 바이트 수 (나가는 트래픽) (사용 되지 않음)|차원 없음|
 |전체 네트워크 출력|예|전체 네트워크 출력|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수|차원 없음|
+|사용 된 OS 디스크 대역폭 비율|예|사용 된 OS 디스크 대역폭 비율|백분율|평균|분당 사용 된 운영 체제 디스크 대역폭 비율|LUN|
+|OS 디스크 IOPS 사용 비율|예|OS 디스크 IOPS 사용 비율|백분율|평균|분당 사용 된 운영 체제 디스크 i/o의 백분율|LUN|
 |OS 디스크 큐 크기|예|OS 디스크 큐 크기(미리 보기)|개수|평균|OS 디스크 큐 깊이(또는 큐 길이)|차원 없음|
 |OS 디스크 읽기 바이트/초|예|OS 디스크 읽기 바이트/초(미리 보기)|초당 개수|평균|OS 디스크의 모니터링 기간에 단일 디스크에서 읽은 바이트/초|차원 없음|
 |OS 디스크 읽기 작업/초|예|OS 디스크 읽기 작업/초(미리 보기)|초당 개수|평균|OS 디스크의 모니터링 기간에 단일 디스크에서 IOPS 읽기|차원 없음|
@@ -626,16 +656,20 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |디스크당 읽기 작업/초|예|데이터 디스크 읽기 작업/초(사용되지 않음)|초당 개수|평균|모니터링 기간에 단일 디스크에서 IOPS 읽기|SlotId|
 |디스크당 쓰기 바이트/초|예|데이터 디스크 쓰기 바이트/초(사용되지 않음)|초당 개수|평균|모니터링 기간 동안 단일 디스크에 쓴 바이트/초|SlotId|
 |디스크당 쓰기 작업/초|예|데이터 디스크 쓰기 작업/초(사용되지 않음)|초당 개수|평균|모니터링 기간 동안 단일 디스크의 쓰기 IOPS|SlotId|
-|CPU 사용률|예|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율|차원 없음|
+|백분율 CPU|예|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율|차원 없음|
 |프리미엄 데이터 디스크 캐시 읽기 적중|예|프리미엄 데이터 디스크 캐시 읽기 적중(미리 보기)|백분율|평균|프리미엄 데이터 디스크 캐시 읽기 적중|LUN|
 |프리미엄 데이터 디스크 캐시 읽기 누락|예|프리미엄 데이터 디스크 캐시 읽기 누락(미리 보기)|백분율|평균|프리미엄 데이터 디스크 캐시 읽기 누락|LUN|
 |프리미엄 OS 디스크 캐시 읽기 적중|예|프리미엄 OS 디스크 캐시 읽기 적중(미리 보기)|백분율|평균|프리미엄 OS 디스크 캐시 읽기 적중|차원 없음|
 |프리미엄 OS 디스크 캐시 읽기 누락|예|프리미엄 OS 디스크 캐시 읽기 누락(미리 보기)|백분율|평균|프리미엄 OS 디스크 캐시 읽기 누락|차원 없음|
+|사용 된 VM 캐시 된 대역폭 비율|예|사용 된 VM 캐시 된 대역폭 비율|백분율|평균|VM에서 사용 하는 캐시 된 디스크 대역폭 비율|차원 없음|
+|VM 캐시 된 IOPS 사용 비율|예|VM 캐시 된 IOPS 사용 비율|백분율|평균|VM에서 사용 하는 캐시 된 디스크 IOPS의 백분율|차원 없음|
+|VM 캐시 되지 않은 사용 된 대역폭 비율|예|VM 캐시 되지 않은 사용 된 대역폭 비율|백분율|평균|VM에서 사용 하는 캐시 되지 않은 디스크 대역폭의 백분율|차원 없음|
+|VM 캐시 되지 않은 IOPS 사용 백분율|예|VM 캐시 되지 않은 IOPS 사용 백분율|백분율|평균|VM에서 사용 하는 캐시 되지 않은 disk IOPS의 백분율|차원 없음|
 
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |사용된 CPU 크레딧|예|사용된 CPU 크레딧|개수|평균|Virtual Machine에서 사용하는 총 크레딧 수|차원 없음|
 |남은 CPU 크레딧|예|남은 CPU 크레딧|개수|평균|버스트에 사용할 수 있는 총 크레딧 수|차원 없음|
@@ -671,7 +705,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |디스크당 읽기 작업/초|예|데이터 디스크 읽기 작업/초(사용되지 않음)|초당 개수|평균|모니터링 기간에 단일 디스크에서 IOPS 읽기|SlotId|
 |디스크당 쓰기 바이트/초|예|데이터 디스크 쓰기 바이트/초(사용되지 않음)|초당 개수|평균|모니터링 기간 동안 단일 디스크에 쓴 바이트/초|SlotId|
 |디스크당 쓰기 작업/초|예|데이터 디스크 쓰기 작업/초(사용되지 않음)|초당 개수|평균|모니터링 기간 동안 단일 디스크의 쓰기 IOPS|SlotId|
-|CPU 사용률|예|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율|VMName|
+|백분율 CPU|예|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율|VMName|
 |프리미엄 데이터 디스크 캐시 읽기 적중|예|프리미엄 데이터 디스크 캐시 읽기 적중(미리 보기)|백분율|평균|프리미엄 데이터 디스크 캐시 읽기 적중|LUN, VMName|
 |프리미엄 데이터 디스크 캐시 읽기 누락|예|프리미엄 데이터 디스크 캐시 읽기 누락(미리 보기)|백분율|평균|프리미엄 데이터 디스크 캐시 읽기 누락|LUN, VMName|
 |프리미엄 OS 디스크 캐시 읽기 적중|예|프리미엄 OS 디스크 캐시 읽기 적중(미리 보기)|백분율|평균|프리미엄 OS 디스크 캐시 읽기 적중|VMName|
@@ -680,7 +714,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |사용된 CPU 크레딧|예|사용된 CPU 크레딧|개수|평균|Virtual Machine에서 사용하는 총 크레딧 수|차원 없음|
 |남은 CPU 크레딧|예|남은 CPU 크레딧|개수|평균|버스트에 사용할 수 있는 총 크레딧 수|차원 없음|
@@ -716,7 +750,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |디스크당 읽기 작업/초|예|데이터 디스크 읽기 작업/초(사용되지 않음)|초당 개수|평균|모니터링 기간에 단일 디스크에서 IOPS 읽기|SlotId|
 |디스크당 쓰기 바이트/초|예|데이터 디스크 쓰기 바이트/초(사용되지 않음)|초당 개수|평균|모니터링 기간 동안 단일 디스크에 쓴 바이트/초|SlotId|
 |디스크당 쓰기 작업/초|예|데이터 디스크 쓰기 작업/초(사용되지 않음)|초당 개수|평균|모니터링 기간 동안 단일 디스크의 쓰기 IOPS|SlotId|
-|CPU 사용률|예|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율|차원 없음|
+|백분율 CPU|예|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율|차원 없음|
 |프리미엄 데이터 디스크 캐시 읽기 적중|예|프리미엄 데이터 디스크 캐시 읽기 적중(미리 보기)|백분율|평균|프리미엄 데이터 디스크 캐시 읽기 적중|LUN|
 |프리미엄 데이터 디스크 캐시 읽기 누락|예|프리미엄 데이터 디스크 캐시 읽기 누락(미리 보기)|백분율|평균|프리미엄 데이터 디스크 캐시 읽기 누락|LUN|
 |프리미엄 OS 디스크 캐시 읽기 적중|예|프리미엄 OS 디스크 캐시 읽기 적중(미리 보기)|백분율|평균|프리미엄 OS 디스크 캐시 읽기 적중|차원 없음|
@@ -725,7 +759,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |CpuUsage|예|CPU 사용량|개수|평균|모든 코어의 CPU 사용량(밀리코어)|containerName|
 |MemoryUsage|예|메모리 사용량|바이트|평균|총 메모리 사용량(바이트)|containerName|
@@ -735,7 +769,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftcontainerregistryregistries"></a>Microsoft.ContainerRegistry/registries
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |AgentPoolCPUTime|예|AgentPool CPU 시간|초|합계|AgentPool CPU 시간 (초)|차원 없음|
 |RunDuration|예|실행 기간|밀리초|합계|실행 지속 시간 (밀리초)|차원 없음|
@@ -747,18 +781,18 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |kube_node_status_allocatable_cpu_cores|아니요|관리 클러스터에서 사용 가능한 cpu 코어의 총 수|개수|평균|관리 클러스터에서 사용 가능한 cpu 코어의 총 수|차원 없음|
 |kube_node_status_allocatable_memory_bytes|아니요|관리 클러스터에서 사용 가능한 총 메모리 양|바이트|평균|관리 클러스터에서 사용 가능한 총 메모리 양|차원 없음|
 |kube_node_status_condition|아니요|다양한 노드 조건에 대한 상태|개수|평균|다양한 노드 조건에 대한 상태|조건, 상태, status2, 노드|
 |kube_pod_status_phase|아니요|단계별 Pod 수|개수|평균|단계별 Pod 수|단계, 네임스페이스, Pod|
-|kube_pod_status_ready|아니요|준비 상태인 Pod 수|개수|평균|준비 상태인 Pod 수|네임스페이스, Pod|
+|kube_pod_status_ready|아니요|준비 상태인 Pod 수|개수|평균|준비 상태인 Pod 수|namespace, pod, condition|
 
 
 ## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft CustomProviders/resourceproviders
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |FailedRequests|예|실패한 요청|개수|합계|사용자 지정 리소스 공급자에 대해 사용 가능한 로그를 가져옵니다.|HttpMethod, CallPath, StatusCode|
 |SuccessfullRequests|예|성공한 요청|개수|합계|사용자 지정 공급자가 수행한 성공한 요청|HttpMethod, CallPath, StatusCode|
@@ -766,7 +800,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftdataboxedgedataboxedgedevices"></a>Microsoft.DataBoxEdge/dataBoxEdgeDevices
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |AvailableCapacity|예|사용 가능한 용량|바이트|평균|보고 기간 동안 사용 가능한 용량 (바이트)입니다.|차원 없음|
 |BytesUploadedToCloud|예|업로드된 클라우드 바이트(디바이스)|바이트|평균|보고 기간 동안 장치에서 Azure로 업로드 되는 총 바이트 수입니다.|차원 없음|
@@ -784,7 +818,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |FailedRuns|예|실패한 실행|개수|합계||pipelineName, activityName|
 |SuccessfulRuns|예|성공한 실행|개수|합계||pipelineName, activityName|
@@ -792,7 +826,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |ActivityCancelledRuns|예|취소된 활동 실행 메트릭|개수|합계||ActivityType, PipelineName, FailureType, Name|
 |ActivityFailedRuns|예|실패한 활동 실행 메트릭|개수|합계||ActivityType, PipelineName, FailureType, Name|
@@ -816,7 +850,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |DataRead|예|데이터 읽기|바이트|합계|계정에서 읽어 온 총 데이터 양.|차원 없음|
 |DataWritten|예|기록된 데이터|바이트|합계|계정에 기록된 총 데이터 양.|차원 없음|
@@ -827,7 +861,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |active_connections|예|활성 연결 수|개수|평균|활성 연결 수|차원 없음|
 |backup_storage_used|예|사용된 백업 스토리지|바이트|평균|사용된 백업 스토리지|차원 없음|
@@ -848,7 +882,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |active_connections|예|활성 연결 수|개수|평균|활성 연결 수|차원 없음|
 |backup_storage_used|예|사용된 백업 스토리지|바이트|평균|사용된 백업 스토리지|차원 없음|
@@ -867,9 +901,36 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |storage_used|예|스토리지 사용됨|바이트|평균|스토리지 사용됨|차원 없음|
 
 
+## <a name="microsoftdbforpostgresqlflexibleservers"></a>Microsoft.DBforPostgreSQL/flexibleServers
+
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
+|---|---|---|---|---|---|---|
+|active_connections|예|활성 연결 수|개수|평균|활성 연결 수|차원 없음|
+|backup_storage_used|예|사용된 백업 스토리지|바이트|평균|사용된 백업 스토리지|차원 없음|
+|connections_failed|예|실패한 연결|개수|합계|실패한 연결|차원 없음|
+|connections_succeeded|예|성공한 연결|개수|합계|성공한 연결|차원 없음|
+|cpu_credits_consumed|예|사용된 CPU 크레딧|개수|평균|데이터베이스 서버에서 사용 하는 총 크레딧 수|차원 없음|
+|cpu_credits_remaining|예|남은 CPU 크레딧|개수|평균|버스트에 사용할 수 있는 총 크레딧 수|차원 없음|
+|cpu_percent|예|CPU 백분율|백분율|평균|CPU 백분율|차원 없음|
+|disk_queue_depth|예|디스크 큐 크기|개수|평균|데이터 디스크에 대 한 미해결 i/o 작업 수|차원 없음|
+|IOPS|예|IOPS|개수|평균|초당 IO 작업 수|차원 없음|
+|maximum_used_transactionIDs|예|사용 되는 최대 트랜잭션 Id|개수|평균|사용 되는 최대 트랜잭션 Id|차원 없음|
+|memory_percent|예|메모리 백분율|백분율|평균|메모리 백분율|차원 없음|
+|network_bytes_egress|예|네트워크 아웃|바이트|합계|활성 연결에서 네트워크 출력|차원 없음|
+|network_bytes_ingress|예|네트워크 인|바이트|합계|활성 연결에서 네트워크 입력|차원 없음|
+|read_iops|예|읽기 IOPS|개수|평균|초당 데이터 디스크 i/o 읽기 작업 수|차원 없음|
+|read_throughput|예|읽기 처리량 바이트/초|개수|평균|모니터링 기간 동안 데이터 디스크에서 초당 읽은 바이트 수|차원 없음|
+|storage_free|예|저장소 여유 공간|바이트|평균|저장소 여유 공간|차원 없음|
+|storage_percent|예|스토리지 비율|백분율|평균|스토리지 비율|차원 없음|
+|storage_used|예|스토리지 사용됨|바이트|평균|스토리지 사용됨|차원 없음|
+|txlogs_storage_used|예|사용 되는 트랜잭션 로그 저장소|바이트|평균|사용 되는 트랜잭션 로그 저장소|차원 없음|
+|write_iops|예|쓰기 IOPS|개수|평균|초당 데이터 디스크 i/o 쓰기 작업 수입니다.|차원 없음|
+|write_throughput|예|쓰기 처리량 바이트/초|개수|평균|모니터링 기간 동안 데이터 디스크에 초당 쓴 바이트 수|차원 없음|
+
+
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |active_connections|예|활성 연결 수|개수|평균|활성 연결 수|차원 없음|
 |backup_storage_used|예|사용된 백업 스토리지|바이트|평균|사용된 백업 스토리지|차원 없음|
@@ -891,28 +952,11 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftdbforpostgresqlserversv2"></a>Microsoft.DBforPostgreSQL/serversv2
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |active_connections|예|활성 연결 수|개수|평균|활성 연결 수|차원 없음|
 |cpu_percent|예|CPU 백분율|백분율|평균|CPU 백분율|차원 없음|
 |IOPS|예|IOPS|개수|평균|초당 IO 작업 수|차원 없음|
-|memory_percent|예|메모리 백분율|백분율|평균|메모리 백분율|차원 없음|
-|network_bytes_egress|예|네트워크 아웃|바이트|합계|활성 연결에서 네트워크 출력|차원 없음|
-|network_bytes_ingress|예|네트워크 인|바이트|합계|활성 연결에서 네트워크 입력|차원 없음|
-|storage_percent|예|스토리지 비율|백분율|평균|스토리지 비율|차원 없음|
-|storage_used|예|스토리지 사용됨|바이트|평균|스토리지 사용됨|차원 없음|
-
-
-## <a name="microsoftdbforpostgresqlsingleservers"></a>DBforPostgreSQL/singleservers
-
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
-|---|---|---|---|---|---|---|
-|active_connections|예|활성 연결 수|개수|평균|활성 연결 수|차원 없음|
-|connections_failed|예|실패한 연결|개수|합계|실패한 연결|차원 없음|
-|connections_succeeded|예|성공한 연결|개수|합계|성공한 연결|차원 없음|
-|cpu_percent|예|CPU 백분율|백분율|평균|CPU 백분율|차원 없음|
-|IOPS|예|IOPS|개수|평균|초당 IO 작업 수|차원 없음|
-|maximum_used_transactionIDs|예|사용 되는 최대 트랜잭션 Id|개수|평균|사용 되는 최대 트랜잭션 Id|차원 없음|
 |memory_percent|예|메모리 백분율|백분율|평균|메모리 백분율|차원 없음|
 |network_bytes_egress|예|네트워크 아웃|바이트|합계|활성 연결에서 네트워크 출력|차원 없음|
 |network_bytes_ingress|예|네트워크 인|바이트|합계|활성 연결에서 네트워크 입력|차원 없음|
@@ -922,7 +966,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |c2d.commands.egress.abandon.success|예|중단된 C2D 메시지|개수|합계|장치에서 중단 한 클라우드-장치 메시지 수|차원 없음|
 |c2d.commands.egress.complete.success|예|C2D 메시지 배달 완료|개수|합계|장치에서 성공적으로 완료 한 클라우드-장치 메시지 배달 수|차원 없음|
@@ -937,9 +981,9 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |c2d.twin.update.failure|예|백 엔드에서의 실패한 쌍 업데이트|개수|합계|실패한 모든 백 엔드 시작 쌍 업데이트 수입니다.|차원 없음|
 |c2d.twin.update.size|예|백 엔드에서의 쌍 업데이트 크기|바이트|평균|성공한 모든 백 엔드 시작 쌍 업데이트 수의 평균, 최소 및 최대 크기입니다.|차원 없음|
 |c2d.twin.update.success|예|백 엔드에서의 성공한 쌍 업데이트|개수|합계|성공한 모든 백 엔드 시작 쌍 업데이트 수입니다.|차원 없음|
-|C2DMessagesExpired|예|만료된 C2D 메시지(미리 보기)|개수|합계|만료 된 클라우드-장치 메시지 수|차원 없음|
+|C2DMessagesExpired|예|C2D 메시지 만료 됨|개수|합계|만료 된 클라우드-장치 메시지 수|차원 없음|
 |구성|예|구성 메트릭|개수|합계|구성 작업에 대한 메트릭|차원 없음|
-|connectedDeviceCount|아니요|연결된 디바이스(미리 보기)|개수|평균|IoT 허브에 연결된 디바이스 수|차원 없음|
+|connectedDeviceCount|아니요|연결된 디바이스|개수|평균|IoT 허브에 연결된 디바이스 수|차원 없음|
 |d2c.endpoints.egress.builtIn.events|예|라우팅: 메시지/이벤트에 배달된 메시지|개수|합계|IoT Hub 라우팅에서 기본 제공 엔드포인트(메시지/이벤트)에 메시지를 성공적으로 배달한 횟수입니다.|차원 없음|
 |d2c.endpoints.egress.eventHubs|예|라우팅: 이벤트 허브에 배달된 메시지|개수|합계|IoT Hub 라우팅에서 이벤트 허브 엔드포인트에 메시지를 성공적으로 배달한 횟수입니다.|차원 없음|
 |d2c.endpoints.egress.serviceBusQueues|예|라우팅: Service Bus 큐에 배달된 메시지|개수|합계|IoT Hub 라우팅에서 Service Bus 큐 엔드포인트에 메시지를 성공적으로 배달한 횟수입니다.|차원 없음|
@@ -971,8 +1015,8 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |deviceDataUsageV2|예|총 디바이스 데이터 사용량(미리 보기)|바이트|합계|IotHub에 연결된 모든 디바이스에서 전송된 바이트|차원 없음|
 |devices.connectedDevices.allProtocol|예|연결된 디바이스(사용되지 않음) |개수|합계|IoT 허브에 연결된 디바이스 수|차원 없음|
 |devices.totalDevices|예|총 디바이스(사용되지 않음)|개수|합계|IoT 허브에 등록된 디바이스 수|차원 없음|
-|EventGridDeliveries|예|Event Grid 배달 (미리 보기)|개수|합계|Event Grid에 게시 된 IoT Hub 이벤트 수입니다. 성공 및 실패 한 요청의 수에 대해 결과 차원을 사용 합니다. EventType dimension 이벤트 유형 ()을 표시 합니다 https://aka.ms/ioteventgrid) .|Result, EventType|
-|EventGridLatency|예|Event Grid 대기 시간(미리 보기)|밀리초|평균|Event Grid에 이벤트가 게시 될 때 Iot Hub 이벤트가 생성 된 시간에 대 한 평균 대기 시간 (밀리초)입니다. 이 숫자는 모든 이벤트 유형 사이의 평균입니다. 특정 유형의 이벤트에 대 한 대기 시간을 확인 하려면 EventType 차원을 사용 합니다.|EventType|
+|EventGridDeliveries|예|Event Grid 배달|개수|합계|Event Grid에 게시 된 IoT Hub 이벤트 수입니다. 성공 및 실패 한 요청의 수에 대해 결과 차원을 사용 합니다. EventType dimension 이벤트 유형 ()을 표시 합니다 https://aka.ms/ioteventgrid) .|Result, EventType|
+|EventGridLatency|예|Event Grid 대기 시간|밀리초|평균|Event Grid에 이벤트가 게시 될 때 Iot Hub 이벤트가 생성 된 시간에 대 한 평균 대기 시간 (밀리초)입니다. 이 숫자는 모든 이벤트 유형 사이의 평균입니다. 특정 유형의 이벤트에 대 한 대기 시간을 확인 하려면 EventType 차원을 사용 합니다.|EventType|
 |jobs.cancelJob.failure|예|실패한 작업 취소|개수|합계|작업 취소에 대한 실패한 모든 호출 수입니다.|차원 없음|
 |jobs.cancelJob.success|예|성공한 작업 취소|개수|합계|작업 취소에 대한 성공한 모든 호출 수입니다.|차원 없음|
 |jobs.completed|예|완료된 작업|개수|합계|완료된 모든 작업의 수입니다.|차원 없음|
@@ -988,7 +1032,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |RoutingDataSizeInBytesDelivered|예|라우팅 배달 메시지 크기 (바이트) (미리 보기)|바이트|합계|IoT hub에서 끝점으로 배달 된 메시지의 총 크기 (바이트)입니다. EndpointName 및 EndpointType 차원을 사용 하 여 다른 끝점에 배달 된 메시지의 크기 (바이트)를 볼 수 있습니다. 메시지를 여러 끝점으로 배달 하는 경우 또는 메시지가 동일한 끝점으로 여러 번 전달 되는 경우를 포함 하 여 전달 된 모든 메시지에 대해 메트릭 값이 늘어납니다.|EndpointType, EndpointName, RoutingSource|
 |RoutingDeliveries|예|라우팅 배달 (미리 보기)|개수|합계|라우팅을 사용 하 여 모든 끝점에 메시지를 배달 하려고 시도 IoT Hub 횟수입니다. 성공 또는 실패 횟수를 확인 하려면 결과 차원을 사용 합니다. 잘못 됨, 삭제 됨 또는 분리 됨과 같은 실패의 원인을 확인 하려면 FailureReasonCategory 차원을 사용 합니다. EndpointName 및 EndpointType 차원을 사용 하 여 여러 끝점에 배달 된 메시지 수를 이해할 수도 있습니다. 메시지를 여러 끝점으로 배달 하거나 메시지가 동일한 끝점으로 여러 번 배달 되는 경우를 포함 하 여 각 배달 시도에 대해 메트릭 값이 하나씩 늘어납니다.|EndpointType, EndpointName, FailureReasonCategory, Result, RoutingSource|
 |RoutingDeliveryLatency|예|라우팅 배달 대기 시간 (미리 보기)|밀리초|평균|IoT Hub에 대 한 메시지 수신 간의 평균 대기 시간 (밀리초) 및 끝점에 대 한 원격 분석 메시지 수신입니다. EndpointName 및 EndpointType 차원을 사용 하 여 다른 끝점에 대 한 대기 시간을 파악할 수 있습니다.|EndpointType, EndpointName, RoutingSource|
-|totalDeviceCount|아니요|총 디바이스(미리 보기)|개수|평균|IoT 허브에 등록된 디바이스 수|차원 없음|
+|totalDeviceCount|아니요|총 디바이스|개수|평균|IoT 허브에 등록된 디바이스 수|차원 없음|
 |twinQueries.failure|예|실패한 쌍 쿼리|개수|합계|실패한 모든 쌍 쿼리의 수입니다.|차원 없음|
 |twinQueries.resultSize|예|쌍 쿼리 결과 크기|바이트|평균|성공한 모든 쌍 쿼리 결과 크기의 평균, 최소값 및 최대값입니다.|차원 없음|
 |twinQueries.success|예|성공한 쌍 쿼리|개수|합계|성공한 모든 쌍 쿼리의 수입니다.|차원 없음|
@@ -996,7 +1040,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |AttestationAttempts|예|증명 시도|개수|합계|디바이스 증명 시도 수|ProvisioningServiceName, 상태, 프로토콜|
 |DeviceAssignments|예|할당된 디바이스|개수|합계|IoT Hub에 할당된 디바이스 수|ProvisioningServiceName, IotHubName|
@@ -1005,11 +1049,11 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|AddRegion|예|추가 된 지역|개수|개수|추가 된 지역|Azure 지역|
+|AddRegion|예|추가 된 지역|개수|개수|추가 된 지역|지역|
 |AutoscaleMaxThroughput|아니요|자동 크기 조정 최대 처리량|개수|최대|자동 크기 조정 최대 처리량|DatabaseName, CollectionName|
-|AvailableStorage|아니요|mapi 사용 가능한 저장소|바이트|합계|9 월 2020 일 말에 Azure Monitor에서 "사용 가능한 저장소"가 제거 됩니다. Cosmos DB 컬렉션 저장소 크기는 이제 제한 되지 않습니다. 유일한 제한 사항은 각 논리 파티션 키의 저장소 크기가 20GB는 것입니다. 진단 로그에서 분할 키 통계를 사용 하도록 설정 하 여 상위 파티션 키에 대 한 저장소 사용량을 파악할 수 있습니다. Cosmos DB 저장소 할당량에 대 한 자세한 내용은이 문서를 확인 하세요 https://docs.microsoft.com/azure/cosmos-db/concepts-limits . 사용 중단 후 더 이상 사용 되지 않는 메트릭에 아직 정의 된 나머지 경고 규칙은 사용 중단 날짜 후에도 자동으로 비활성화 됩니다.|CollectionName, DatabaseName, Region|
+|AvailableStorage|아니요|mapi 사용 가능한 저장소|바이트|합계|9 월 2023 일 말에 Azure Monitor에서 "사용 가능한 저장소"가 제거 됩니다. Cosmos DB 컬렉션 저장소 크기는 이제 제한 되지 않습니다. 유일한 제한 사항은 각 논리 파티션 키의 저장소 크기가 20GB는 것입니다. 진단 로그에서 분할 키 통계를 사용 하도록 설정 하 여 상위 파티션 키에 대 한 저장소 사용량을 파악할 수 있습니다. Cosmos DB 저장소 할당량에 대 한 자세한 내용은이 문서를 확인 하세요 https://docs.microsoft.com/azure/cosmos-db/concepts-limits . 사용 중단 후 더 이상 사용 되지 않는 메트릭에 아직 정의 된 나머지 경고 규칙은 사용 중단 날짜 후에도 자동으로 비활성화 됩니다.|CollectionName, DatabaseName, Region|
 |CassandraConnectionClosures|아니요|Cassandra 연결 차단|개수|합계|1 분 세분성으로 보고 된 Cassandra 연결의 수입니다.|지역, ClosureReason|
 |CassandraConnectorAvgReplicationLatency|아니요|Cassandra 커넥터 평균 ReplicationLatency|밀리초|평균|Cassandra 커넥터 평균 ReplicationLatency|차원 없음|
 |CassandraConnectorReplicationHealthStatus|아니요|Cassandra 커넥터 복제 상태|개수|개수|Cassandra 커넥터 복제 상태|NotStarted, ReplicationInProgress, 오류|
@@ -1046,17 +1090,11 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |MongoDatabaseThroughputUpdate|아니요|Mongo 데이터베이스 처리량이 업데이트 됨|개수|개수|Mongo 데이터베이스 처리량이 업데이트 됨|ResourceName |
 |MongoDBDatabaseCreate|아니요|Mongo 데이터베이스를 만들었습니다.|개수|개수|Mongo 데이터베이스를 만들었습니다.|ResourceName |
 |MongoDBDatabaseUpdate|아니요|Mongo 데이터베이스 업데이트 됨|개수|개수|Mongo 데이터베이스 업데이트 됨|ResourceName |
-|MongoRequestCharge|예|Mongo 요청 요금|개수|합계|사용된 Mongo 요청 단위|DatabaseName, CollectionName, Region, CommandName, ErrorCode, Status|
 |MongoRequests|예|Mongo 요청|개수|개수|생성된 Mongo 요청 수|DatabaseName, CollectionName, Region, CommandName, ErrorCode, Status|
-|MongoRequestsCount|아니요|Mongo 요청 속도|초당 개수|평균|초당 mongo 요청 수|DatabaseName, CollectionName, Region, ErrorCode|
-|MongoRequestsDelete|아니요|Mongo 삭제 요청 속도|초당 개수|평균|초당 mongo 삭제 요청 수|DatabaseName, CollectionName, Region, ErrorCode|
-|MongoRequestsInsert|아니요|Mongo 삽입 요청 속도|초당 개수|평균|초당 mongo 삽입 수|DatabaseName, CollectionName, Region, ErrorCode|
-|MongoRequestsQuery|아니요|Mongo 쿼리 요청 속도|초당 개수|평균|Mongo 쿼리 요청 수/초|DatabaseName, CollectionName, Region, ErrorCode|
-|MongoRequestsUpdate|아니요|Mongo 업데이트 요청 속도|초당 개수|평균|Mongo 업데이트 요청 수/초|DatabaseName, CollectionName, Region, ErrorCode|
 |NormalizedRUConsumption|아니요|정규화 된 과도 소비|백분율|최대|분당 최대 r 소비 비율|CollectionName, DatabaseName, Region, PartitionKeyRangeId|
 |ProvisionedThroughput|아니요|프로비전된 처리량|개수|최대|프로비전된 처리량|DatabaseName, CollectionName|
 |지역 장애 조치 (failover)|예|지역 장애 조치|개수|개수|지역 장애 조치|차원 없음|
-|RemoveRegion|예|지역이 제거 됨|개수|개수|지역이 제거 됨|Azure 지역|
+|RemoveRegion|예|지역이 제거 됨|개수|개수|지역이 제거 됨|지역|
 |ReplicationLatency|예|P99 복제 대기 시간|밀리초|평균|지역 사용 계정에 대한 원본 및 대상 지역의 P99 복제 대기 시간|SourceRegion, TargetRegion|
 |ServerSideLatency|아니요|서버 쪽 대기 시간|밀리초|평균|서버 쪽 대기 시간|DatabaseName, CollectionName, Region, ConnectionMode, OperationType, PublicAPIType|
 |ServiceAvailability|아니요|서비스 가용성|백분율|평균|1 시간, 일 또는 월 세분성의 계정 요청 가용성|차원 없음|
@@ -1082,7 +1120,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsofteventgriddomains"></a>Microsoft.EventGrid/domains
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |DeadLetteredCount|예|배달 못한 편지 이벤트|개수|합계|이 이벤트 구독에 일치하는 총 배달 못한 이벤트|토픽, EventSubscriptionName, DomainEventSubscriptionName, DeadLetterReason|
 |DeliveryAttemptFailCount|아니요|배달 실패 이벤트|개수|합계|이 이벤트 구독에 배달하지 못한 총 이벤트|토픽, EventSubscriptionName, DomainEventSubscriptionName, Error, ErrorType|
@@ -1091,13 +1129,13 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |DroppedEventCount|예|삭제된 이벤트|개수|합계|이 이벤트 구독에 일치하는 총 삭제된 이벤트|토픽, EventSubscriptionName, DomainEventSubscriptionName, DropReason|
 |MatchedEventCount|예|일치하는 이벤트|개수|합계|이 이벤트 구독에 일치하는 총 이벤트|토픽, EventSubscriptionName, DomainEventSubscriptionName|
 |PublishFailCount|예|실패한 이벤트 게시|개수|합계|이 토픽에 게시하지 못한 총 이벤트|토픽, ErrorType, 오류|
-|PublishSuccessCount|예|게시된 이벤트|개수|합계|이 토픽에 게시된 총 이벤트|토픽|
+|PublishSuccessCount|예|게시된 이벤트|개수|합계|이 토픽에 게시된 총 이벤트|항목|
 |PublishSuccessLatencyInMs|예|게시 성공 대기 시간|밀리초|합계|게시 성공 대기 시간 (밀리초)|차원 없음|
 
 
 ## <a name="microsofteventgrideventsubscriptions"></a>Microsoft.EventGrid/eventSubscriptions
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |DeadLetteredCount|예|배달 못한 편지 이벤트|개수|합계|이 이벤트 구독에 일치하는 총 배달 못한 이벤트|DeadLetterReason|
 |DeliveryAttemptFailCount|아니요|배달 실패 이벤트|개수|합계|이 이벤트 구독에 배달하지 못한 총 이벤트|Error, ErrorType|
@@ -1109,7 +1147,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsofteventgridextensiontopics"></a>Microsoft.EventGrid/extensionTopics
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |PublishFailCount|예|실패한 이벤트 게시|개수|합계|이 토픽에 게시하지 못한 총 이벤트|ErrorType, Error|
 |PublishSuccessCount|예|게시된 이벤트|개수|합계|이 토픽에 게시된 총 이벤트|차원 없음|
@@ -1119,7 +1157,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsofteventgridsystemtopics"></a>Microsoft EventGrid/systemTopics
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |DeadLetteredCount|예|배달 못한 편지 이벤트|개수|합계|이 이벤트 구독에 일치하는 총 배달 못한 이벤트|DeadLetterReason, EventSubscriptionName|
 |DeliveryAttemptFailCount|아니요|배달 실패 이벤트|개수|합계|이 이벤트 구독에 배달하지 못한 총 이벤트|오류, ErrorType, EventSubscriptionName|
@@ -1135,7 +1173,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |DeadLetteredCount|예|배달 못한 편지 이벤트|개수|합계|이 이벤트 구독에 일치하는 총 배달 못한 이벤트|DeadLetterReason, EventSubscriptionName|
 |DeliveryAttemptFailCount|아니요|배달 실패 이벤트|개수|합계|이 이벤트 구독에 배달하지 못한 총 이벤트|오류, ErrorType, EventSubscriptionName|
@@ -1151,7 +1189,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsofteventhubclusters"></a>Microsoft.EventHub/clusters
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |ActiveConnections|아니요|ActiveConnections|개수|평균|Microsoft.EventHub에 대한 총 활성 연결.|차원 없음|
 |AvailableMemory|아니요|사용 가능한 메모리|백분율|최대|총 메모리의 백분율로 나타낸 이벤트 허브 클러스터에 사용할 수 있는 메모리입니다.|역할|
@@ -1176,7 +1214,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |ActiveConnections|아니요|ActiveConnections|개수|평균|Microsoft.EventHub에 대한 총 활성 연결.|차원 없음|
 |CaptureBacklog|아니요|캡처 백로그.|개수|합계|Microsoft.EventHub에 대한 캡처 백로그.|EntityName|
@@ -1216,7 +1254,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |CategorizedGatewayRequests|예|분류된 게이트웨이 요청|개수|합계|범주별 게이트웨이 요청 수(1xx/2xx/3xx/4xx/5xx)|HttpStatus|
 |GatewayRequests|예|게이트웨이 요청|개수|합계|게이트웨이 요청 수|HttpStatus|
@@ -1225,7 +1263,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |MetricThreshold|예|메트릭 임계값|개수|평균|자동 크기 조정이 실행되었을 때 구성된 자동 크기 조정 임계값입니다.|MetricTriggerRule|
 |ObservedCapacity|예|관찰된 용량|개수|평균|실행될 때 자동 크기 조정을 위해 보고된 용량입니다.|차원 없음|
@@ -1235,7 +1273,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |availabilityResults/availabilityPercentage|예|가용성|백분율|평균|성공적으로 완료 된 가용성 테스트 비율|availabilityResult/name, availabilityResult/location|
 |availabilityResults/count|아니요|가용성 테스트|개수|개수|가용성 테스트 수|availabilityResult/name, availabilityResult/location, availabilityResult/success|
@@ -1268,9 +1306,10 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |요청/속도|아니요|서버 요청 속도|초당 개수|평균|초당 서버 요청 수|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
 |traces/count|예|Traces|개수|개수|문서 개수 추적|trace/severityLevel, operation/synthetic, cloud/roleName, cloud/roleInstance|
 
+
 ## <a name="microsoftiotcentraliotapps"></a>Microsoft 응용 프로그램
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |c2d.|예|IoT Central에서 장치 속성 읽기가 실패 했습니다.|개수|합계|IoT Central에서 시작 된 모든 실패 한 속성 읽기 수|차원 없음|
 |c2d. 성공|예|IoT Central에서 장치 속성 읽기가 성공 했습니다.|개수|합계|IoT Central에서 시작 된 모든 성공한 속성 읽기 수|차원 없음|
@@ -1285,7 +1324,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |가용성|예|전체 자격 증명 모음 가용성|백분율|평균|자격 증명 모음 요청 가용성|ActivityType, ActivityName, StatusCode, StatusCodeClass|
 |SaturationShoebox|아니요|전체 자격 증명 모음 채도|백분율|평균|사용 되는 자격 증명 모음 용량|ActivityType, ActivityName, TransactionType|
@@ -1296,27 +1335,39 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |BatchBlobCount|예|일괄 처리 Blob 수|개수|평균|수집을 위해 집계 된 일괄 처리의 데이터 원본 수입니다.|데이터베이스|
 |BatchDuration|예|일괄 처리 기간|초|평균|수집 흐름의 집계 단계 기간입니다.|데이터베이스|
-|BatchesProcessed 됨|예|일괄 처리|개수|평균|수집을 위해 집계 된 일괄 처리의 수입니다. 일괄 처리 완료 이유: 일괄 처리가 일괄 처리 시간, 데이터 크기 또는 일괄 처리 정책에 의해 설정 된 파일 수 제한에 도달 했는지 여부|데이터베이스, SealReason|
+|BatchesProcessed 됨|예|일괄 처리|개수|평균|수집을 위해 집계 된 일괄 처리의 수입니다. 일괄 처리 유형: 일괄 처리가 일괄 처리 시간, 데이터 크기 또는 일괄 처리 정책에 의해 설정 된 파일 수 제한에 도달 했는지 여부|데이터베이스, SealReason|
 |BatchSize|예|Batch 크기|바이트|평균|수집을 위해 집계 된 일괄 처리에서 압축 되지 않은 예상 데이터 크기입니다.|데이터베이스|
+|BlobsProcessed 됨|예|처리 된 blob|개수|평균|구성 요소에서 처리 한 blob 수입니다.|데이터베이스, ComponentType, ComponentName|
+|BlobsReceived|예|받은 blob|개수|평균|구성 요소에 의해 입력 스트림에서 받은 blob 수입니다.|데이터베이스, ComponentType, ComponentName|
+|BlobsRejected 됨|예|Blob 거부 됨|개수|평균|구성 요소에서 영구적으로 거부 한 blob 수입니다.|데이터베이스, ComponentType, ComponentName|
 |CacheUtilization|예|캐시 사용률|백분율|평균|클러스터 범위의 사용률 수준|차원 없음|
 |ContinuousExportMaxLatenessMinutes|예|연속 내보내기 최대 지연|개수|최대|클러스터의 연속 내보내기 작업에서 보고 한 지연 (분)입니다.|차원 없음|
 |ContinuousExportNumOfRecordsExported|예|연속 내보내기 – 내보낸 레코드의 개수|개수|합계|내보내기 작업 중에 작성 된 모든 저장소 아티팩트에 대해 발생 된 내보낸 레코드 수입니다.|ContinuousExportName, 데이터베이스|
 |ContinuousExportPendingCount|예|보류 중인 연속 내보내기 수|개수|최대|실행 준비가 완료 된 보류 중인 연속 내보내기 작업의 수입니다.|차원 없음|
 |ContinuousExportResult|예|연속 내보내기 결과|개수|개수|연속 내보내기가 성공 또는 실패 여부를 나타냅니다.|ContinuousExportName, 결과, 데이터베이스|
 |CPU|예|CPU|백분율|평균|CPU 사용률 수준|차원 없음|
+|CumulativeLatency|예|누적 대기 시간|초|평균|처리를 위해 보고 구성 요소에서 메시지를 받을 때까지 (검색 시간이 설정 됨) 수집 큐에 대 한 메시지를 큐에 넣을 때 또는 데이터 연결에서 검색 된 경우)의 누적 시간입니다.|데이터베이스, ComponentType|
+|검색 대기 시간|예|검색 대기 시간|초|평균|데이터 연결 (있는 경우)에서 보고 됩니다. 메시지를 큐에 넣은 후의 시간 (초) 이거나, 데이터 연결에서 검색 될 때까지 이벤트가 생성 되는 시간 (초)입니다. 이 시간은 Azure 데이터 탐색기 총 수집 기간에 포함 되지 않습니다.|ComponentType, ComponentName|
 |EventsProcessedForEventHubs|예|이벤트 처리됨(Event/IoT Hubs의 경우)|개수|합계|수집 때 클러스터에서 처리 한 이벤트 수/IoT Hub|EventStatus|
 |ExportUtilization|예|내보내기 사용률|백분율|최대|사용률 내보내기|차원 없음|
-|IngestionLatencyInSeconds|예|수집 대기 시간(초)|초|평균|원본(예: EventHub에 있는 메시지)에서 클러스터로 수집 시간(초)|차원 없음|
+|IngestionLatencyInSeconds|예|수집 대기 시간|초|평균|원본(예: EventHub에 있는 메시지)에서 클러스터로 수집 시간(초)|차원 없음|
 |IngestionResult|예|수집 결과|개수|개수|수집 작업 수|IngestionResultDetails|
 |IngestionUtilization|예|수집 사용률|백분율|평균|클러스터에서 사용되는 수집 슬롯의 비율|차원 없음|
-|IngestionVolumeInMB|예|수집 볼륨(MB)|개수|합계|클러스터에 수집된 데이터의 전체 볼륨(MB)|차원 없음|
+|IngestionVolumeInMB|예|수집 볼륨(MB)|바이트|합계|클러스터에 수집된 데이터의 전체 볼륨(MB)|차원 없음|
 |InstanceCount|예|인스턴스 수|개수|평균|총 인스턴스 수|차원 없음|
 |KeepAlive|예|연결 유지|개수|평균|온전성 검사는 쿼리에 대한 클러스터 응답을 나타냅니다.|차원 없음|
+|MaterializedViewAgeMinutes|예|구체화 된 뷰 사용 기간|개수|평균|구체화 된 뷰 사용 기간 (분)입니다.|데이터베이스, MaterializedViewName|
+|MaterializedViewDataLoss|예|구체화 된 뷰 데이터 손실|개수|최대|구체화 된 뷰에서 잠재적 데이터 손실을 나타냅니다.|Database, MaterializedViewName, Kind|
+|MaterializedViewExtentsRebuild|예|구체화 된 뷰 익스텐트 다시 빌드|개수|평균|익스텐트 다시 빌드 수|데이터베이스, MaterializedViewName|
+|MaterializedViewHealth|예|구체화 된 뷰 상태|개수|평균|구체화 된 뷰의 상태 (정상의 경우 1, 정상이 아닌 경우 0)|데이터베이스, MaterializedViewName|
+|MaterializedViewRecordsInDelta|예|델타에서 구체화 된 뷰 레코드|개수|평균|뷰의 구체화 되지 않은 부분에 있는 레코드 수입니다.|데이터베이스, MaterializedViewName|
+|MaterializedViewResult|예|구체화 된 뷰 결과|개수|평균|구체화 프로세스의 결과입니다.|데이터베이스, MaterializedViewName, 결과|
 |QueryDuration|예|쿼리 기간|밀리초|평균|쿼리 기간(초)|QueryStatus|
+|QueryResult|아니요|쿼리 결과|개수|개수|총 쿼리 수입니다.|상태|
 |SteamingIngestRequestRate|예|스트리밍 수집 요청 속도|개수|RateRequestsPerSecond|스트리밍 수집 요청 률 (초당 요청 수)|차원 없음|
 |StreamingIngestDataRate|예|스트리밍 수집 데이터 속도|개수|평균|스트리밍 수집 데이터 전송률 (초당 MB)|차원 없음|
 |StreamingIngestDuration|예|스트리밍 수집 지속 시간|밀리초|평균|스트리밍 수집 기간 (밀리초)|차원 없음|
@@ -1329,7 +1380,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftlogicintegrationserviceenvironments"></a>Microsoft.Logic/integrationServiceEnvironments
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |ActionLatency|예|작업 대기 시간 |초|평균|완료된 워크플로 작업 대기 시간|차원 없음|
 |ActionsCompleted|예|작업 완료됨 |개수|합계|완료된 워크플로 작업 수|차원 없음|
@@ -1367,7 +1418,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |ActionLatency|예|작업 대기 시간 |초|평균|완료된 워크플로 작업 대기 시간|차원 없음|
 |ActionsCompleted|예|작업 완료됨 |개수|합계|완료된 워크플로 작업 수|차원 없음|
@@ -1407,18 +1458,18 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |활성 코어|예|활성 코어|개수|평균|활성 코어 수|시나리오, ClusterName|
 |활성 노드|예|활성 노드|개수|평균|활성 노드 수입니다. 작업을 적극적으로 실행 중인 노드입니다.|시나리오, ClusterName|
-|요청 된 실행 취소|예|요청 된 실행 취소|개수|합계|이 작업 영역에 대해 취소가 요청 된 실행 수입니다. 실행에 대 한 취소 요청을 받으면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
-|취소 실행|예|취소 실행|개수|합계|이 작업 영역에 대해 취소 된 실행 수입니다. 실행이 성공적으로 취소 되 면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
-|완료된 실행|예|완료된 실행|개수|합계|이 작업 영역에 대 한 실행 수가 성공적으로 완료 되었습니다. 실행이 완료 되 고 출력이 수집 되 면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
-|CpuUtilization|예|CpuUtilization|개수|평균|CPU 노드의 메모리 사용률 비율입니다. 사용률은 1 분 간격으로 보고 됩니다.|시나리오, runId, NodeId, ClusterName|
+|요청 된 실행 취소|예|요청 된 실행 취소|개수|합계|이 작업 영역에 대해 취소가 요청 된 실행 수입니다. 실행에 대 한 취소 요청을 받으면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType, ExperimentName|
+|취소 실행|예|취소 실행|개수|합계|이 작업 영역에 대해 취소 된 실행 수입니다. 실행이 성공적으로 취소 되 면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType, ExperimentName|
+|완료된 실행|예|완료된 실행|개수|합계|이 작업 영역에 대 한 실행 수가 성공적으로 완료 되었습니다. 실행이 완료 되 고 출력이 수집 되 면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType, ExperimentName|
+|CpuUtilization|예|CpuUtilization|개수|평균|CPU 노드의 사용률 비율입니다. 사용률은 1 분 간격으로 보고 됩니다.|시나리오, runId, NodeId, ClusterName|
 |오류|예|오류|개수|합계|이 작업 영역에 있는 실행 오류 수입니다. 실행 시 오류가 발생할 때마다 개수가 업데이트 됩니다.|시나리오|
-|실패한 실행|예|실패한 실행|개수|합계|이 작업 영역에 대 한 실행 수가 실패 했습니다. 실행이 실패 하면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
-|실행 완료 중|예|실행 완료 중|개수|합계|이 작업 영역의 상태를 완료 하는 동안 입력 한 실행 수입니다. Count는 실행이 완료 되었지만 출력 수집이 아직 진행 중일 때 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
-|GpuUtilization|예|GpuUtilization|개수|평균|GPU 노드의 메모리 사용률 비율입니다. 사용률은 1 분 간격으로 보고 됩니다.|시나리오, runId, NodeId, DeviceId, ClusterName|
+|실패한 실행|예|실패한 실행|개수|합계|이 작업 영역에 대 한 실행 수가 실패 했습니다. 실행이 실패 하면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType, ExperimentName|
+|실행 완료 중|예|실행 완료 중|개수|합계|이 작업 영역의 상태를 완료 하는 동안 입력 한 실행 수입니다. Count는 실행이 완료 되었지만 출력 수집이 아직 진행 중일 때 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType, ExperimentName|
+|GpuUtilization|예|GpuUtilization|개수|평균|GPU 노드의 사용률 비율입니다. 사용률은 1 분 간격으로 보고 됩니다.|시나리오, runId, NodeId, DeviceId, ClusterName|
 |유휴 코어|예|유휴 코어|개수|평균|유휴 코어 수|시나리오, ClusterName|
 |유휴 노드|예|유휴 노드|개수|평균|유휴 노드의 수입니다. 유휴 노드는 작업을 실행 하지 않지만 사용 가능한 경우 새 작업을 허용할 수 있는 노드입니다.|시나리오, ClusterName|
 |나가는 코어|예|나가는 코어|개수|평균|종료 된 코어 수|시나리오, ClusterName|
@@ -1428,18 +1479,18 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |모델 배포 성공|예|모델 배포 성공|개수|합계|이 작업 영역에서 성공한 모델 배포 수|시나리오|
 |모델 레지스터 실패|예|모델 레지스터 실패|개수|합계|이 작업 영역에서 실패 한 모델 등록 수|시나리오, StatusCode|
 |모델 레지스터 성공|예|모델 레지스터 성공|개수|합계|이 작업 영역에서 성공한 모델 등록 수|시나리오|
-|응답 하지 않음|예|응답 하지 않음|개수|합계|이 작업 영역에 대해 응답 하지 않는 실행 수입니다. 실행이 응답 하지 않는 상태로 전환 되 면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
-|시작 되지 않음 실행|예|시작 되지 않음 실행|개수|합계|이 작업 영역에 대해 시작 되지 않음 상태의 실행 수입니다. 실행을 만들기 위해 요청을 받았지만 실행 정보는 아직 채워지지 않은 경우 수가 업데이트 됩니다. |Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
+|응답 하지 않음|예|응답 하지 않음|개수|합계|이 작업 영역에 대해 응답 하지 않는 실행 수입니다. 실행이 응답 하지 않는 상태로 전환 되 면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType, ExperimentName|
+|시작 되지 않음 실행|예|시작 되지 않음 실행|개수|합계|이 작업 영역에 대해 시작 되지 않음 상태의 실행 수입니다. 실행을 만들기 위해 요청을 받았지만 실행 정보는 아직 채워지지 않은 경우 수가 업데이트 됩니다. |Scenario, RunType, PublishedPipelineId, PipelineStepType, ExperimentName|
 |선점된 코어|예|선점된 코어|개수|평균|선점 된 코어 수|시나리오, ClusterName|
 |선점된 노드|예|선점된 노드|개수|평균|선점 된 노드 수입니다. 이러한 노드는 사용 가능한 노드 풀에서 멀리 떨어져 있는 낮은 우선 순위 노드입니다.|시나리오, ClusterName|
-|실행 준비|예|실행 준비|개수|합계|이 작업 영역에 대해 준비 중인 실행 수입니다. 실행 환경을 준비 하는 동안 실행이 준비 상태에 들어가면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
-|프로 비전 실행|예|프로 비전 실행|개수|합계|이 작업 영역에 대해 프로 비전 되는 실행 수입니다. 실행이 계산 대상 생성 또는 프로 비전을 기다리는 경우 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
-|대기 중인 실행|예|대기 중인 실행|개수|합계|이 작업 영역에 대해 큐에 대기 중인 실행의 수입니다. 계산 대상에서 실행이 큐에 대기 하면 개수가 업데이트 됩니다. 는 필수 계산 노드가 준비 될 때까지 대기 하는 경우에 발생할 수 있습니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
+|실행 준비|예|실행 준비|개수|합계|이 작업 영역에 대해 준비 중인 실행 수입니다. 실행 환경을 준비 하는 동안 실행이 준비 상태에 들어가면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType, ExperimentName|
+|프로 비전 실행|예|프로 비전 실행|개수|합계|이 작업 영역에 대해 프로 비전 되는 실행 수입니다. 실행이 계산 대상 생성 또는 프로 비전을 기다리는 경우 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType, ExperimentName|
+|대기 중인 실행|예|대기 중인 실행|개수|합계|이 작업 영역에 대해 큐에 대기 중인 실행의 수입니다. 계산 대상에서 실행이 큐에 대기 하면 개수가 업데이트 됩니다. 필수 계산 노드가 준비 될 때까지 대기 하는 경우 occure 수 있습니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType, ExperimentName|
 |할당량 사용률|예|할당량 사용률|개수|평균|사용한 할당량 백분율|시나리오, ClusterName, VmFamilyName, VmPriority|
-|실행 시작|예|실행 시작|개수|합계|이 작업 영역에 대해 실행 중인 실행 수입니다. 실행이 필요한 리소스에서 실행 되기 시작 하면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
-|실행 시작|예|실행 시작|개수|합계|이 작업 영역에 대해 시작 된 실행 수입니다. 실행 Id와 같은 실행 및 실행 정보에 대 한 요청을 채운 후에 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
+|실행 시작|예|실행 시작|개수|합계|이 작업 영역에 대해 실행 중인 실행 수입니다. 실행이 필요한 리소스에서 실행 되기 시작 하면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType, ExperimentName|
+|실행 시작|예|실행 시작|개수|합계|이 작업 영역에 대해 시작 된 실행 수입니다. 실행 Id와 같은 실행 및 실행 정보에 대 한 요청을 채운 후에 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType, ExperimentName|
 |총 코어 수|예|총 코어 수|개수|평균|총 코어 수|시나리오, ClusterName|
-|총 노드 수|예|총 노드 수|개수|평균|총 노드 수입니다. 이 합계에는 활성 노드, 유휴 노드, 사용할 수 없는 노드, 선점 된 노드, 노드가 남아 있습니다.|시나리오, ClusterName|
+|총 노드 수|예|총 노드 수|개수|평균|총 노드 수입니다. 이 합계에는 활성 노드, 유휴 노드, 사용할 수 없는 노드, Premepted 노드, 노드가 남아 있습니다.|시나리오, ClusterName|
 |사용 불가 코어|예|사용 불가 코어|개수|평균|사용할 수 없는 코어 수|시나리오, ClusterName|
 |사용 불가 노드|예|사용 불가 노드|개수|평균|사용할 수 없는 노드 수입니다. 확인할 수 없는 노드는 확인할 수 없는 문제 때문에 작동 하지 않습니다. Azure는 이러한 노드를 재활용 합니다.|시나리오, ClusterName|
 |경고|예|경고|개수|합계|이 작업 영역에 있는 실행 경고 수입니다. 실행에 경고가 발생할 때마다 개수가 업데이트 됩니다.|시나리오|
@@ -1447,7 +1498,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftmapsaccounts"></a>Microsoft.Maps/accounts
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |가용성|예|가용성|백분율|평균|Api의 가용성|ApiCategory, ApiName|
 |사용량|아니요|사용|개수|개수|API 호출 수|ApiCategory, ApiName, ResultType, ResponseCode|
@@ -1455,7 +1506,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |AssetCount|예|자산 수|개수|평균|현재 미디어 서비스 계정에 이미 생성 된 자산 수|차원 없음|
 |AssetQuota|예|자산 할당량|개수|평균|현재 미디어 서비스 계정에 대해 허용 되는 자산 수|차원 없음|
@@ -1470,7 +1521,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftmediamediaservicesstreamingendpoints"></a>Microsoft.Media/mediaservices/streamingEndpoints
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |송신|예|송신|바이트|합계|송신 데이터의 양 (바이트)입니다.|OutputFormat|
 |요청|예|요청|개수|합계|스트리밍 끝점에 대 한 요청입니다.|OutputFormat, HttpStatusCode, ErrorCode|
@@ -1479,7 +1530,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftnetappnetappaccountscapacitypools"></a>Microsoft.NetApp/netAppAccounts/capacityPools
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |VolumePoolAllocatedSize|예|풀 할당 크기|바이트|평균|이 풀의 프로 비전 된 크기|차원 없음|
 |VolumePoolAllocatedUsed|예|볼륨 크기에 할당 된 풀|바이트|평균|풀의 사용되는 할당된 크기|차원 없음|
@@ -1489,7 +1540,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftnetappnetappaccountscapacitypoolsvolumes"></a>Microsoft.NetApp/netAppAccounts/capacityPools/volumes
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |AverageReadLatency|예|평균 읽기 대기 시간|밀리초|평균|작업당 평균 읽기 대기 시간(밀리초)|차원 없음|
 |AverageWriteLatency|예|평균 쓰기 대기 시간|밀리초|평균|작업당 평균 쓰기 대기 시간(밀리초)|차원 없음|
@@ -1514,7 +1565,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |ApplicationGatewayTotalTime|아니요|Application Gateway 총 시간|밀리초|평균|요청을 처리 하는 데 걸리는 평균 시간 및 응답을 보내는 데 걸리는 시간입니다. 이는 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 수신 하는 시점부터 응답 전송 작업이 완료 되는 시간 까지의 평균 간격으로 계산 됩니다. 일반적으로 처리 시간, 요청 및 응답 패킷이 네트워크를 통해 이동 하는 시간 및 백 엔드 서버에서 응답 하는 데 걸린 시간을 Application Gateway 포함 하는 것이 중요 합니다.|수신기|
 |AvgRequestCountPerHealthyHost|아니요|분당 요청 수/정상 호스트|개수|평균|풀의 정상 백 엔드 호스트 당 분당 평균 요청 수|BackendSettingsPool|
@@ -1546,7 +1597,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftnetworkazurefirewalls"></a>Microsoft.Network/azurefirewalls
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |ApplicationRuleHit|예|애플리케이션 규칙 적중 횟수|개수|합계|응용 프로그램 규칙이 적중 된 횟수|상태, 이유, 프로토콜|
 |DataProcessed|예|처리된 데이터|바이트|합계|이 방화벽에서 처리 한 총 데이터 양입니다.|차원 없음|
@@ -1558,15 +1609,15 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/connections
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|BitsInPerSecond|예|BitsInPerSecond|초당 개수|평균|초당 Azure 수신 비트|차원 없음|
-|BitsOutPerSecond|예|BitsOutPerSecond|초당 개수|평균|초당 Azure 송신 비트|차원 없음|
+|BitsInPerSecond|예|BitsInPerSecond|BitsPerSecond|평균|초당 Azure 수신 비트|차원 없음|
+|BitsOutPerSecond|예|BitsOutPerSecond|BitsPerSecond|평균|초당 Azure 송신 비트|차원 없음|
 
 
 ## <a name="microsoftnetworkdnszones"></a>Microsoft.Network/dnszones
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |QueryVolume|예|쿼리 볼륨|개수|합계|DNS 영역에 대해 제공된 쿼리 수|차원 없음|
 |RecordSetCapacityUtilization|아니요|레코드 집합 용량 사용률|백분율|최대|DNS 영역에서 사용된 레코드 집합 용량 백분율|차원 없음|
@@ -1575,49 +1626,49 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |ArpAvailability|예|Arp 가용성|백분율|평균|M의 ARP 가용성 모든 피어를 확인 합니다.|PeeringType, 피어|
 |BgpAvailability|예|Bgp 가용성|백분율|평균|모든 피어에 대 한 MSEE의 BGP 가용성|PeeringType, 피어|
-|BitsInPerSecond|아니요|BitsInPerSecond|초당 개수|평균|초당 Azure 수신 비트|PeeringType|
-|BitsOutPerSecond|아니요|BitsOutPerSecond|초당 개수|평균|초당 Azure 송신 비트|PeeringType|
-|GlobalReachBitsInPerSecond|아니요|GlobalReachBitsInPerSecond|초당 개수|평균|초당 Azure 수신 비트|PeeredCircuitSKey|
-|GlobalReachBitsOutPerSecond|아니요|GlobalReachBitsOutPerSecond|초당 개수|평균|초당 Azure 송신 비트|PeeredCircuitSKey|
-|QosDropBitsInPerSecond|아니요|DroppedInBitsPerSecond|초당 개수|평균|초당 삭제 된 데이터의 수신 비트 수|차원 없음|
-|QosDropBitsOutPerSecond|아니요|DroppedOutBitsPerSecond|초당 개수|평균|초당 삭제 된 데이터의 송신 비트 수|차원 없음|
+|BitsInPerSecond|아니요|BitsInPerSecond|BitsPerSecond|평균|초당 Azure 수신 비트|PeeringType, DeviceRole|
+|BitsOutPerSecond|아니요|BitsOutPerSecond|BitsPerSecond|평균|초당 Azure 송신 비트|PeeringType, DeviceRole|
+|GlobalReachBitsInPerSecond|아니요|GlobalReachBitsInPerSecond|BitsPerSecond|평균|초당 Azure 수신 비트|PeeredCircuitSKey|
+|GlobalReachBitsOutPerSecond|아니요|GlobalReachBitsOutPerSecond|BitsPerSecond|평균|초당 Azure 송신 비트|PeeredCircuitSKey|
+|QosDropBitsInPerSecond|예|DroppedInBitsPerSecond|BitsPerSecond|평균|초당 삭제 된 데이터의 수신 비트 수|차원 없음|
+|QosDropBitsOutPerSecond|예|DroppedOutBitsPerSecond|BitsPerSecond|평균|초당 삭제 된 데이터의 송신 비트 수|차원 없음|
 
 
 ## <a name="microsoftnetworkexpressroutecircuitspeerings"></a>Microsoft.Network/expressRouteCircuits/peerings
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|BitsInPerSecond|예|BitsInPerSecond|초당 개수|평균|초당 Azure 수신 비트|차원 없음|
-|BitsOutPerSecond|예|BitsOutPerSecond|초당 개수|평균|초당 Azure 송신 비트|차원 없음|
+|BitsInPerSecond|예|BitsInPerSecond|BitsPerSecond|평균|초당 Azure 수신 비트|차원 없음|
+|BitsOutPerSecond|예|BitsOutPerSecond|BitsPerSecond|평균|초당 Azure 송신 비트|차원 없음|
 
 
 ## <a name="microsoftnetworkexpressroutegateways"></a>Microsoft.Network/expressRouteGateways
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|ErGatewayConnectionBitsInPerSecond|아니요|BitsInPerSecond|초당 개수|평균|초당 Azure 수신 비트|연결 이름|
-|ErGatewayConnectionBitsOutPerSecond|아니요|BitsOutPerSecond|초당 개수|평균|초당 Azure 송신 비트|연결 이름|
+|ErGatewayConnectionBitsInPerSecond|아니요|BitsInPerSecond|BitsPerSecond|평균|초당 Azure 수신 비트|연결 이름|
+|ErGatewayConnectionBitsOutPerSecond|아니요|BitsOutPerSecond|BitsPerSecond|평균|초당 Azure 송신 비트|연결 이름|
 
 
 ## <a name="microsoftnetworkexpressrouteports"></a>Microsoft.Network/expressRoutePorts
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |AdminState|예|AdminState|개수|평균|포트의 관리 상태|링크|
 |LineProtocol|예|LineProtocol|개수|평균|포트의 선 프로토콜 상태|링크|
-|PortBitsInPerSecond|예|BitsInPerSecond|초당 개수|평균|초당 Azure 수신 비트|링크|
-|PortBitsOutPerSecond|예|BitsOutPerSecond|초당 개수|평균|초당 Azure 송신 비트|링크|
+|PortBitsInPerSecond|예|BitsInPerSecond|BitsPerSecond|평균|초당 Azure 수신 비트|링크|
+|PortBitsOutPerSecond|예|BitsOutPerSecond|BitsPerSecond|평균|초당 Azure 송신 비트|링크|
 |RxLightLevel|예|RxLightLevel|개수|평균|DBm 광원 수준 (dBm)|링크, 레인|
 |TxLightLevel|예|TxLightLevel|개수|평균|Tx 라이트 수준 (dBm)|링크, 레인|
 
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |BackendHealthPercentage|예|백 엔드 상태 비율|백분율|평균|HTTP/S 프록시에서 백 엔드로 성공한 상태 프로브의 비율|Backend, BackendPool|
 |BackendRequestCount|예|백 엔드 요청 수|개수|합계|HTTP/S 프록시에서 백 엔드로 전송된 요청 수|HttpStatus, HttpStatusGroup, Backend|
@@ -1632,10 +1683,10 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |AllocatedSnatPorts|아니요|할당 된 SNAT 포트|개수|평균|기간 내에 할당된 총 SNAT 포트 수|FrontendIPAddress, BackendIPAddress, ProtocolType, |
-|ByteCount|예|바이트 수|개수|합계|기간 내에 전송된 총 바이트 수|FrontendIPAddress, FrontendPort, Direction|
+|ByteCount|예|바이트 수|바이트|합계|기간 내에 전송된 총 바이트 수|FrontendIPAddress, FrontendPort, Direction|
 |DipAvailability|예|상태 프로브 상태|개수|평균|기간당 평균 Load Balancer 상태 프로브 상태|ProtocolType, BackendPort, FrontendIPAddress, FrontendPort, BackendIPAddress|
 |PacketCount|예|패킷 수|개수|합계|기간 내에 전송된 총 패킷 수|FrontendIPAddress, FrontendPort, Direction|
 |SnatConnectionCount|예|SNAT 연결 수|개수|합계|기간 내에 만들어진 새 SNAT 연결의 총 수|FrontendIPAddress, BackendIPAddress, ConnectionState|
@@ -1646,7 +1697,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |BytesReceivedRate|예|수신된 바이트|바이트|합계|네트워크 인터페이스가 수신한 바이트 수|차원 없음|
 |BytesSentRate|예|보낸 바이트|바이트|합계|네트워크 인터페이스가 보낸 바이트 수|차원 없음|
@@ -1656,19 +1707,19 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftnetworknetworkwatchersconnectionmonitors"></a>Microsoft.Network/networkWatchers/connectionMonitors
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |AverageRoundtripMs|예|평균 왕복 시간(ms)|밀리초|평균|원본과 대상 간에 전송된 연결 모니터링 프로브의 평균 네트워크 왕복 시간(ms)|차원 없음|
-|ChecksFailedPercent|예|검사 실패 백분율(미리 보기)|백분율|평균|%의 연결 모니터링 검사가 실패 했습니다.|SourceAddress, SourceName, Sourceresourceid 여야, SourceType, Protocol, DestinationAddress, Destinationaddress, Destinationaddress, DestinationType, Destinationaddress, TestGroupName, Testgroupname|
+|ChecksFailedPercent|예|검사 실패 백분율(미리 보기)|백분율|평균|%의 연결 모니터링 검사가 실패 했습니다.|SourceAddress, SourceName, Sourceresourceid 여야, SourceType, Protocol, DestinationAddress, Destinationaddress, Destinationaddress, DestinationType, Destinationaddress, TestGroupName, Testgroupname, SourceIP, Destinationaddress, SourceSubnet, Destinationaddress|
 |ProbesFailedPercent|예|실패한 프로브 %|백분율|평균|실패한 연결 모니터링 프로브 %|차원 없음|
-|RoundTripTimeMs|예|왕복 시간(밀리초)(미리 보기)|밀리초|평균|연결 모니터링 검사의 왕복 시간 (밀리초)|SourceAddress, SourceName, Sourceresourceid 여야, SourceType, Protocol, DestinationAddress, Destinationaddress, Destinationaddress, DestinationType, Destinationaddress, TestGroupName, Testgroupname|
+|RoundTripTimeMs|예|왕복 시간(밀리초)(미리 보기)|밀리초|평균|연결 모니터링 검사의 왕복 시간 (밀리초)|SourceAddress, SourceName, Sourceresourceid 여야, SourceType, Protocol, DestinationAddress, Destinationaddress, Destinationaddress, DestinationType, Destinationaddress, TestGroupName, Testgroupname, SourceIP, Destinationaddress, SourceSubnet, Destinationaddress|
 
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|ByteCount|예|바이트 수|개수|합계|기간 내에 전송된 총 바이트 수|포트, 방향|
+|ByteCount|예|바이트 수|바이트|합계|기간 내에 전송된 총 바이트 수|포트, 방향|
 |BytesDroppedDDoS|예|인바운드 바이트가 삭제된 DDoS|초당 바이트 수|최대|인바운드 바이트가 삭제된 DDoS|차원 없음|
 |BytesForwardedDDoS|예|인바운드 바이트가 전달된 DDoS|초당 바이트 수|최대|인바운드 바이트가 전달된 DDoS|차원 없음|
 |BytesInDDoS|예|인바운드 바이트 DDoS|초당 바이트 수|최대|인바운드 바이트 DDoS|차원 없음|
@@ -1698,7 +1749,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.Network/trafficManagerProfiles
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |ProbeAgentCurrentEndpointStateByProfileResourceId|예|엔드포인트별 엔드포인트 상태|개수|최대|엔드포인트의 프로브 상태가 "사용"이면 1이고 그렇지 않으면 0입니다.|EndpointName|
 |QpsByEndpoint|예|반환된 엔드포인트별 쿼리|개수|합계|Traffic Manager 엔드포인트가 주어진 시간 내에 반환된 횟수|EndpointName|
@@ -1706,7 +1757,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |AverageBandwidth|예|게이트웨이 S2S 대역폭|초당 바이트 수|평균|초당 게이트웨이의 평균 사이트 간 대역폭(바이트)|차원 없음|
 |P2SBandwidth|예|게이트웨이 P2S 대역폭|초당 바이트 수|평균|초당 게이트웨이의 평균 지점 및 사이트 간 대역폭(바이트)|차원 없음|
@@ -1722,7 +1773,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |PingMeshAverageRoundtripMs|예|VM에 대한 Ping 왕복 시간|밀리초|평균|대상 VM에 전송 된 Ping에 대 한 왕복 시간|SourceCustomerAddress, DestinationCustomerAddress|
 |PingMeshProbesFailedPercent|예|VM에 대한 Ping 실패|백분율|평균|대상 VM의 총 전송 된 Ping에 대 한 실패 한 Ping 수의 백분율|SourceCustomerAddress, DestinationCustomerAddress|
@@ -1730,7 +1781,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |incoming|예|들어오는 메시지|개수|합계|성공한 모든 API 호출 전송의 수입니다. |차원 없음|
 |incoming.all.failedrequests|예|들어오는 모든 실패한 요청|개수|합계|알림 허브에 대해 들어오는 실패한 전체 요청|차원 없음|
@@ -1798,7 +1849,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |Average_% Available Memory|예|% 사용 가능한 메모리|개수|평균|Average_% Available Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% Available Swap Space|예|% 사용 가능한 스왑 공간|개수|평균|Average_% Available Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1867,24 +1918,22 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftpeeringpeerings"></a>Microsoft 피어 링/피어 링
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|EgressTrafficRate|예|송신 트래픽 요금|BitsPerSecond|평균|초당 송신 트래픽 전송률 (비트)|ConnectionId|
-|IngressTrafficRate|예|수신 트래픽 율|BitsPerSecond|평균|수신 트래픽 전송률 (비트/초)|ConnectionId|
-|SessionAvailabilityV4|예|세션 가용성 V4|백분율|평균|V4 세션의 가용성|ConnectionId|
-|SessionAvailabilityV6|예|세션 가용성 V6|백분율|평균|V6 세션의 가용성|ConnectionId|
+|EgressTrafficRate|예|송신 트래픽 요금|BitsPerSecond|평균|초당 송신 트래픽 전송률 (비트)|ConnectionId, SessionIp, TrafficClass|
+|IngressTrafficRate|예|수신 트래픽 율|BitsPerSecond|평균|수신 트래픽 전송률 (비트/초)|ConnectionId, SessionIp, TrafficClass|
 
 
 ## <a name="microsoftpeeringpeeringservices"></a>Microsoft 피어 링/peeringServices
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |PrefixLatency|예|접두사 대기 시간|밀리초|평균|중앙값 전위 대기 시간|PrefixName|
 
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |memory_metric|예|메모리|바이트|평균|메모리. A1은 0-3GB, A2는 0-5GB, A3는 0-10GB, A4는 0-25GB, A5는 0-50GB, A6는 0-100GB 범위|차원 없음|
 |memory_thrashing_metric|예|메모리 쓰래싱(데이터 세트)|백분율|평균|평균 메모리 쓰래싱입니다.|차원 없음|
@@ -1895,11 +1944,11 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |ActiveConnections|아니요|ActiveConnections|개수|합계|Microsoft.Relay의 총 ActiveConnections.|EntityName|
 |ActiveListeners|아니요|ActiveListeners|개수|합계|Microsoft.Relay의 총 ActiveListeners.|EntityName|
-|BytesTransferred|예|BytesTransferred|개수|합계|Microsoft.Relay의 총 BytesTransferred.|EntityName|
+|BytesTransferred|예|BytesTransferred|바이트|합계|Microsoft.Relay의 총 BytesTransferred.|EntityName|
 |ListenerConnections-ClientError|아니요|ListenerConnections-ClientError|개수|합계|Microsoft.Relay의 총 ListenerConnections에서의 ClientError.|EntityName, |
 |ListenerConnections-ServerError|아니요|ListenerConnections-ServerError|개수|합계|Microsoft.Relay의 ListenerConnections에서의 ServerError.|EntityName, |
 |ListenerConnections-Success|아니요|ListenerConnections-Success|개수|합계|Microsoft.Relay의 성공적인 ListenerConnections.|EntityName, |
@@ -1914,7 +1963,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |SearchLatency|예|검색 대기 시간|초|평균|검색 서비스에 대한 평균 검색 대기 시간|차원 없음|
 |SearchQueriesPerSecond|예|초당 검색 쿼리 수|초당 개수|평균|Search 서비스에 대한 초당 검색 쿼리|차원 없음|
@@ -1923,13 +1972,13 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |ActiveConnections|아니요|ActiveConnections|개수|합계|Microsoft.ServiceBus에 대한 총 활성 연결.|차원 없음|
 |ActiveMessages|아니요|큐/토픽에 있는 활성 메시지 수|개수|평균|큐/토픽에 있는 활성 메시지 수|EntityName|
 |ConnectionsClosed|아니요|끊어진 연결.|개수|평균|Microsoft.ServiceBus에 대한 끊어진 연결.|EntityName|
 |ConnectionsOpened|아니요|열린 연결.|개수|평균|Microsoft.ServiceBus에 대한 열린 연결.|EntityName|
-|CPUXNS|아니요|CPU(사용되지 않음)|백분율|최대|Service bus 프리미엄 네임 스페이스 CPU 사용량 메트릭 이 메트릭은 사용되지 않습니다. 대신 CPU 메트릭 (NamespaceCpuUsage)을 사용 하세요.|차원 없음|
+|CPUXNS|아니요|CPU(사용되지 않음)|백분율|최대|Service bus 프리미엄 네임 스페이스 CPU 사용량 메트릭 이 메트릭은 depricated입니다. 대신 CPU 메트릭 (NamespaceCpuUsage)을 사용 하세요.|차원 없음|
 |DeadletteredMessages|아니요|큐/토픽에서 배달 못한 메시지 수입니다.|개수|평균|큐/토픽에서 배달 못한 메시지 수입니다.|EntityName|
 |IncomingMessages|예|들어오는 메시지|개수|합계|Microsoft.ServiceBus에 대한 들어오는 메시지.|EntityName|
 |IncomingRequests|예|들어오는 요청|개수|합계|Microsoft.ServiceBus에 대한 들어오는 요청.|EntityName|
@@ -1948,7 +1997,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |ActualCpu|아니요|ActualCpu|개수|평균|밀리초 코어의 실제 CPU 사용량|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ActualMemory|아니요|ActualMemory|바이트|평균|실제 메모리 사용량 (MB)|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
@@ -1965,7 +2014,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |ConnectionCount|예|연결 수|개수|최대|사용자 연결의 양.|엔드포인트|
 |InboundTraffic|예|인바운드 트래픽|바이트|합계|서비스의 인바운드 트래픽|차원 없음|
@@ -1977,7 +2026,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |avg_cpu_percent|예|평균 CPU 비율|백분율|평균|평균 CPU 비율|차원 없음|
 |io_bytes_read|예|읽은 IO 바이트|바이트|평균|읽은 IO 바이트|차원 없음|
@@ -1990,7 +2039,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |active_queries|예|활성 쿼리|개수|합계|모든 작업 그룹에 걸쳐 활성 쿼리 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
 |allocated_data_storage|예|할당된 데이터 공간|바이트|평균|할당 된 데이터 저장소입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
@@ -2011,9 +2060,6 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |dtu_consumption_percent|예|DTU 비율|백분율|평균|DTU 백분율. DTU 기반 데이터베이스에 적용 됩니다.|차원 없음|
 |dtu_limit|예|DTU 제한|개수|평균|DTU 한도입니다. DTU 기반 데이터베이스에 적용 됩니다.|차원 없음|
 |dtu_used|예|DTU 사용됨|개수|평균|DTU를 사용 했습니다. DTU 기반 데이터베이스에 적용 됩니다.|차원 없음|
-|dw_backup_size_gb|예|데이터 스토리지 크기(GB)|개수|합계|데이터 저장소 크기는 데이터의 크기 및 트랜잭션 로그로 구성 됩니다. 메트릭은 청구서의 ' 저장소 ' 부분으로 계산 됩니다. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
-|dw_geosnapshot_size_gb|예|재해 복구 저장소 크기 (GB)|개수|합계|재해 복구 저장소 크기는 청구서에 ' 재해 복구 저장소 '로 반영 됩니다. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
-|dw_snapshot_size_gb|예|스냅숏 저장소 크기 (GB)|개수|합계|스냅숏 저장소 크기는 사용자 정의 및 자동 복원 점수를 만들기 위해 스냅숏에서 캡처한 증분 변경 내용의 크기입니다. 메트릭은 청구서의 ' 저장소 ' 부분으로 계산 됩니다. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
 |dwu_consumption_percent|예|DWU 백분율|백분율|최대|DWU 백분율. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
 |dwu_limit|예|DWU 제한|개수|최대|DWU 제한. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
 |dwu_used|예|DWU 사용됨|개수|최대|DWU를 사용 했습니다. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
@@ -2030,9 +2076,9 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |sqlserver_process_memory_percent|예|SQL Server 프로세스 메모리 비율|백분율|최대|SQL DB 프로세스의 백분율로 나타낸 메모리 사용량입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
 |스토리지|예|사용된 데이터 공간|바이트|최대|사용 되는 데이터 공간. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
 |storage_percent|예|사용된 데이터 공간 백분율|백분율|최대|사용 되는 데이터 공간 (%)입니다. 데이터 웨어하우스 또는 대규모 데이터베이스에는 적용 되지 않습니다.|차원 없음|
-|tempdb_data_size|예|Tempdb 데이터 파일 크기(KB)|개수|최대|Tempdb 데이터 파일 크기 (Kb)입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
-|tempdb_log_size|예|Tempdb 로그 파일 크기(KB)|개수|최대|Tempdb 로그 파일 크기 (Kb)입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
-|tempdb_log_used_percent|예|로그가 사용된 Tempdb 백분율|백분율|최대|Tempdb 백분율 로그가 사용 되었습니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
+|tempdb_data_size|예|Tempdb 데이터 파일 크기(KB)|개수|최대|Tempdb 데이터 파일에 사용 되는 공간 (kb)입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
+|tempdb_log_size|예|Tempdb 로그 파일 크기(KB)|개수|최대|Tempdb 트랜잭션 로그 파일에 사용 되는 공간 (kb)입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
+|tempdb_log_used_percent|예|로그가 사용된 Tempdb 백분율|백분율|최대|Tempdb 트랜잭션 로그 파일의 사용 중인 공간 비율입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
 |wlg_active_queries|예|작업 그룹 활성 쿼리|개수|합계|작업 그룹 내의 활성 쿼리입니다. 데이터 웨어하우스에만 적용 됩니다.|WorkloadGroupName, IsUserDefined|
 |wlg_active_queries_timeouts|예|작업 그룹 쿼리 시간 제한|개수|합계|작업 그룹에 대해 시간이 초과 된 쿼리입니다. 데이터 웨어하우스에만 적용 됩니다.|WorkloadGroupName, IsUserDefined|
 |wlg_allocation_relative_to_system_percent|예|시스템 비율별 작업 그룹 할당|백분율|최대|작업 그룹당 전체 시스템을 기준으로 할당 된 리소스 비율입니다. 데이터 웨어하우스에만 적용 됩니다.|WorkloadGroupName, IsUserDefined|
@@ -2046,7 +2092,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |allocated_data_storage|예|할당된 데이터 공간|바이트|평균|할당된 데이터 공간|차원 없음|
 |allocated_data_storage_percent|예|데이터 공간 할당 백분율|백분율|최대|데이터 공간 할당 백분율|차원 없음|
@@ -2075,16 +2121,16 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |storage_limit|예|데이터 최대 크기|바이트|평균|데이터 최대 크기|차원 없음|
 |storage_percent|예|사용된 데이터 공간 백분율|백분율|평균|사용된 데이터 공간 백분율|차원 없음|
 |storage_used|예|사용된 데이터 공간|바이트|평균|사용된 데이터 공간|차원 없음|
-|tempdb_data_size|예|Tempdb 데이터 파일 크기(KB)|개수|최대|Tempdb 데이터 파일 크기(KB)|차원 없음|
-|tempdb_log_size|예|Tempdb 로그 파일 크기(KB)|개수|최대|Tempdb 로그 파일 크기(KB)|차원 없음|
-|tempdb_log_used_percent|예|로그가 사용된 Tempdb 백분율|백분율|최대|로그가 사용된 Tempdb 백분율|차원 없음|
+|tempdb_data_size|예|Tempdb 데이터 파일 크기(KB)|개수|최대|Tempdb 데이터 파일에 사용 되는 공간 (kb)입니다.|차원 없음|
+|tempdb_log_size|예|Tempdb 로그 파일 크기(KB)|개수|최대|Tempdb 트랜잭션 로그 파일에 사용 되는 공간 (kb)입니다.|차원 없음|
+|tempdb_log_used_percent|예|로그가 사용된 Tempdb 백분율|백분율|최대|Tempdb 트랜잭션 로그 파일의 사용 중인 공간 비율|차원 없음|
 |workers_percent|예|작업자 백분율|백분율|평균|작업자 백분율|차원 없음|
 |xtp_storage_percent|예|메모리 내 OLTP 스토리지 백분율|백분율|평균|메모리 내 OLTP 스토리지 백분율|차원 없음|
 
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |가용성|예|가용성|백분율|평균|스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 |송신|예|송신|바이트|합계|송신 데이터 양입니다. 이 수는 Azure Storage에서 외부 클라이언트로의 송신 및 Azure 내에서의 송신을 포함 합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
@@ -2097,7 +2143,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |가용성|예|가용성|백분율|평균|스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 |BlobCapacity|아니요|Blob 용량|바이트|평균|스토리지 계정의 Blob service가 사용하는 스토리지의 양(바이트)입니다.|BlobType, 계층|
@@ -2114,7 +2160,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |가용성|예|가용성|백분율|평균|스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication, 파일 공유|
 |송신|예|송신|바이트|합계|송신 데이터 양입니다. 이 수는 Azure Storage에서 외부 클라이언트로의 송신 및 Azure 내에서의 송신을 포함 합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication, 파일 공유|
@@ -2133,7 +2179,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |가용성|예|가용성|백분율|평균|스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 |송신|예|송신|바이트|합계|송신 데이터 양입니다. 이 수는 Azure Storage에서 외부 클라이언트로의 송신 및 Azure 내에서의 송신을 포함 합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
@@ -2148,7 +2194,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |가용성|예|가용성|백분율|평균|스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 |송신|예|송신|바이트|합계|송신 데이터 양입니다. 이 수는 Azure Storage에서 외부 클라이언트로의 송신 및 Azure 내에서의 송신을 포함 합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
@@ -2163,7 +2209,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftstoragesyncstoragesyncservices"></a>microsoft.storagesync/storageSyncServices
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |ServerSyncSessionResult|예|동기화 세션 결과|개수|평균|서버 끝점이 클라우드 끝점과 동기화 세션을 성공적으로 완료할 때마다 1 값을 기록 하는 메트릭입니다.|SyncGroupName, ServerEndpointName, Syncgroupname|
 |StorageSyncBatchTransferredFileBytes|예|동기화되는 바이트 수|바이트|합계|동기화 세션에 대해 전송 된 총 파일 크기|SyncGroupName, ServerEndpointName, Syncgroupname|
@@ -2171,22 +2217,22 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |StorageSyncRecalledTotalNetworkBytes|예|클라우드 계층화 회수 크기|바이트|합계|회수되는 데이터 크기|SyncGroupName, ServerName|
 |StorageSyncRecallIOTotalSizeBytes|예|클라우드 계층화 회수|바이트|합계|서버에서 회수 한 데이터의 총 크기|ServerName|
 |StorageSyncRecallThroughputBytesPerSecond|예|클라우드 계층화 회수 처리량|초당 바이트 수|평균|데이터 회수 처리량 크기|SyncGroupName, ServerName|
-|StorageSyncServerHeartbeat|예|서버 온라인 상태|개수|최대|등록 된 서버가 클라우드 끝점과 하트 비트를 성공적으로 기록할 때마다 1 값을 기록 하는 메트릭입니다.|ServerName|
+|StorageSyncServerHeartbeat|예|서버 온라인 상태|개수|최대|Resigtered 서버가 클라우드 끝점과 하트 비트를 성공적으로 기록할 때마다 값 1을 기록 하는 메트릭입니다.|ServerName|
 |StorageSyncSyncSessionAppliedFilesCount|예|동기화된 파일 수|개수|합계|동기화 된 파일 수|SyncGroupName, ServerEndpointName, Syncgroupname|
 |StorageSyncSyncSessionPerItemErrorsCount|예|동기화 상태가 아닌 파일|개수|합계|동기화 하지 못한 파일 수|SyncGroupName, ServerEndpointName, Syncgroupname|
 
 
 ## <a name="microsoftstoragesyncstoragesyncservicesregisteredservers"></a>microsoft.storagesync/storageSyncServices/registeredServers
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|ServerHeartbeat|예|서버 온라인 상태|개수|최대|등록 된 서버가 클라우드 끝점과 하트 비트를 성공적으로 기록할 때마다 1 값을 기록 하는 메트릭입니다.|ServerResourceId, ServerName|
+|ServerHeartbeat|예|서버 온라인 상태|개수|최대|Resigtered 서버가 클라우드 끝점과 하트 비트를 성공적으로 기록할 때마다 값 1을 기록 하는 메트릭입니다.|ServerResourceId, ServerName|
 |ServerRecallIOTotalSizeBytes|예|클라우드 계층화 회수|바이트|합계|서버에서 회수 한 데이터의 총 크기|ServerResourceId, ServerName|
 
 
 ## <a name="microsoftstoragesyncstoragesyncservicessyncgroups"></a>microsoft.storagesync/storageSyncServices/syncGroups
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |SyncGroupBatchTransferredFileBytes|예|동기화되는 바이트 수|바이트|합계|동기화 세션에 대해 전송 된 총 파일 크기|SyncGroupName, ServerEndpointName, Syncgroupname|
 |SyncGroupSyncSessionAppliedFilesCount|예|동기화된 파일 수|개수|합계|동기화 된 파일 수|SyncGroupName, ServerEndpointName, Syncgroupname|
@@ -2195,7 +2241,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftstoragesyncstoragesyncservicessyncgroupsserverendpoints"></a>microsoft.storagesync/storageSyncServices/syncGroups/serverEndpoints
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |ServerEndpointBatchTransferredFileBytes|예|동기화되는 바이트 수|바이트|합계|동기화 세션에 대해 전송 된 총 파일 크기|ServerEndpointName, SyncDirection|
 |ServerEndpointSyncSessionAppliedFilesCount|예|동기화된 파일 수|개수|합계|동기화 된 파일 수|ServerEndpointName, SyncDirection|
@@ -2204,7 +2250,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |AMLCalloutFailedRequests|예|실패한 기능 요청|개수|합계|실패한 기능 요청|LogicalName, PartitionId|
 |AMLCalloutInputEvents|예|함수 이벤트|개수|합계|함수 이벤트|LogicalName, PartitionId|
@@ -2226,50 +2272,54 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftsynapseworkspaces"></a>Microsoft.Synapse/workspaces
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|OrchestrationActivityRunsEnded|아니요|작업 실행 종료 됨|개수|합계|성공, 실패 또는 취소 된 오케스트레이션 작업 수|Result, FailureType, Activity, ActivityType, 파이프라인|
-|OrchestrationPipelineRunsEnded|아니요|파이프라인 실행이 종료 되었습니다.|개수|합계|성공, 실패 또는 취소 된 오케스트레이션 파이프라인 실행 수|결과, FailureType, 파이프라인|
-|OrchestrationTriggersEnded|아니요|트리거 종료|개수|합계|성공, 실패 또는 취소 된 오케스트레이션 트리거의 수입니다.|Result, FailureType, Trigger|
-|SQLOnDemandLoginAttempts|아니요|로그인 시도|개수|합계|성공 또는 실패 한 로그인 시도 횟수|결과|
-|SQLOnDemandQueriesEnded|아니요|쿼리 종료|개수|합계|성공, 실패 또는 취소 된 쿼리 수|결과|
-|SQLOnDemandQueryProcessedBytes|아니요|처리된 데이터|바이트|합계|쿼리에서 처리 하는 데이터 양|차원 없음|
+|BuiltinSqlPoolDataProcessedBytes|아니요|처리 된 데이터 (바이트)|바이트|합계|쿼리에서 처리 하는 데이터 양|차원 없음|
+|BuiltinSqlPoolLoginAttempts|아니요|로그인 시도|개수|합계|성공 또는 실패 한 로그인 시도 횟수|결과|
+|BuiltinSqlPoolRequestsEnded|아니요|종료 된 요청|개수|합계|성공, 실패 또는 취소 된 요청 수|결과|
+|IntegrationActivityRunsEnded|아니요|작업 실행 종료 됨|개수|합계|성공, 실패 또는 취소 된 통합 작업 수|Result, FailureType, Activity, ActivityType, 파이프라인|
+|IntegrationPipelineRunsEnded|아니요|파이프라인 실행이 종료 되었습니다.|개수|합계|성공, 실패 또는 취소 된 통합 파이프라인 실행 수|결과, FailureType, 파이프라인|
+|IntegrationTriggerRunsEnded|아니요|트리거 실행 종료|개수|합계|성공, 실패 또는 취소 된 통합 트리거의 수입니다.|Result, FailureType, Trigger|
 
 
 ## <a name="microsoftsynapseworkspacesbigdatapools"></a>Synapse/작업 영역/bigDataPools
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|CoresCapacity|아니요|코어 용량|개수|최대|코어 용량|차원 없음|
-|MemoryCapacityGB|아니요|메모리 용량 (GB)|개수|최대|메모리 용량 (GB)|차원 없음|
-|SparkJobsEnded|예|종료 된 응용 프로그램|개수|합계|종료 된 응용 프로그램 수|JobType, JobResult|
+|BigDataPoolAllocatedCores|아니요|할당 된 vCores|개수|최대|Apache Spark 풀에 할당 된 vCores|SubmitterId|
+|BigDataPoolAllocatedMemory|아니요|할당 된 메모리 (GB)|개수|최대|Apach Spark 풀에 할당 된 메모리 (GB)|SubmitterId|
+|BigDataPoolApplicationsActive|아니요|활성 Apache Spark 응용 프로그램|개수|개수|총 활성 Apache Spark 풀 응용 프로그램|JobState|
+|BigDataPoolApplicationsEnded|아니요|Apache Spark 응용 프로그램 종료|개수|개수|종료 된 Apache Spark 풀 응용 프로그램 수|JobType, JobResult|
 
 
 ## <a name="microsoftsynapseworkspacessqlpools"></a>Synapse/workspaces/sqlPools
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
+|ActiveQueries|아니요|활성 쿼리|개수|합계|활성 쿼리입니다. 필터링 되지 않은이 메트릭과 분할 되지 않은 메트릭을 사용 하 여 시스템에서 실행 중인 모든 활성 쿼리를 표시 합니다.|IsUserDefined 대 한 정의|
 |AdaptiveCacheHitPercent|아니요|적응 캐시 적중률|백분율|최대|워크 로드가 적응 캐시를 얼마나 잘 활용 하 고 있는 지를 측정 합니다. 캐시 적중률 메트릭과 함께이 메트릭을 사용 하 여 추가 용량을 조정 하거나 작업을 다시 실행 하 여 캐시를 하이드레이션 하며 나중 여부를 결정 합니다.|차원 없음|
 |AdaptiveCacheUsedPercent|아니요|적응 캐시 사용 백분율|백분율|최대|워크 로드가 적응 캐시를 얼마나 잘 활용 하 고 있는 지를 측정 합니다. 캐시 사용 백분율 메트릭에이 메트릭을 사용 하 여 추가 용량에 대해 크기를 조정할지 또는 작업을 다시 실행 하 여 캐시를 하이드레이션 하며 나중 여부를 결정 합니다.|차원 없음|
-|Connections|예|Connections|개수|합계|전용 SQL 풀에 대 한 총 로그인 수|결과|
-|ConnectionsBlockedByFirewall|아니요|방화벽에 의해 차단 된 연결|개수|합계|방화벽 규칙에 의해 차단 된 연결 수입니다. 전용 SQL 풀에 대 한 액세스 제어 정책을 다시 방문 하 고, 수가 높으면 이러한 연결을 모니터링 합니다.|차원 없음|
-|DWULimit|아니요|DWU 제한|개수|최대|전용 SQL 풀의 서비스 수준 목표|차원 없음|
-|DWUUsed|아니요|DWU 사용됨|개수|최대|전용 SQL 풀에서의 사용에 대 한 상위 수준 표현을 나타냅니다. DWU 제한 * DWU 백분율로 측정 됩니다.|차원 없음|
-|DWUUsedPercent|아니요|DWU 사용 백분율|백분율|최대|전용 SQL 풀에서의 사용에 대 한 상위 수준 표현을 나타냅니다. CPU 비율과 데이터 IO 비율의 최대값을 취하여 측정 됩니다.|차원 없음|
+|Connections|예|Connections|개수|합계|SQL 풀에 대 한 총 로그인 수|결과|
+|ConnectionsBlockedByFirewall|아니요|방화벽에 의해 차단 된 연결|개수|합계|방화벽 규칙에 의해 차단 된 연결 수입니다. SQL 풀에 대 한 액세스 제어 정책을 다시 방문 하 고, 수가 높으면 이러한 연결을 모니터링 합니다.|차원 없음|
+|CPUPercent|아니요|사용 되는 CPU 비율|백분율|최대|SQL 풀의 모든 노드에 걸친 CPU 사용률|차원 없음|
+|DWULimit|아니요|DWU 제한|개수|최대|SQL 풀의 서비스 수준 목표|차원 없음|
+|DWUUsed|아니요|DWU 사용됨|개수|최대|SQL 풀에서의 사용에 대 한 상위 수준 표시를 나타냅니다. DWU 제한 * DWU 백분율로 측정 됩니다.|차원 없음|
+|DWUUsedPercent|아니요|DWU 사용 백분율|백분율|최대|SQL 풀에서의 사용에 대 한 상위 수준 표시를 나타냅니다. CPU 비율과 데이터 IO 비율의 최대값을 취하여 측정 됩니다.|차원 없음|
 |LocalTempDBUsedPercent|아니요|로컬 tempdb 사용 백분율|백분율|최대|모든 계산 노드의 로컬 tempdb 사용률-5 분 마다 값이 내보내집니다.|차원 없음|
-|MemoryUsedPercent|아니요|사용 되는 메모리 백분율|백분율|최대|전용 SQL 풀의 모든 노드에 대 한 메모리 사용률|차원 없음|
+|MemoryUsedPercent|아니요|사용 되는 메모리 백분율|백분율|최대|SQL 풀의 모든 노드에 대 한 메모리 사용률|차원 없음|
+|QueuedQueries|아니요|대기 중인 쿼리|개수|합계|최대 동시성 제한에 도달한 후 큐에 대기 중인 총 요청 수|IsUserDefined 대 한 정의|
 |wlg_effective_min_resource_percent|예|유효 최소 리소스 비율|백분율|최소|서비스 수준 및 작업 그룹 설정을 고려 하 여 유효 min 리소스 비율 설정이 허용 됩니다. 낮은 서비스 수준에서 효과적인 min_percentage_resource을 더 높은 수준으로 조정할 수 있습니다.|IsUserDefined,|
 |WLGActiveQueries|아니요|작업 그룹 활성 쿼리|개수|합계|작업 그룹 내의 활성 쿼리입니다. 필터링 되지 않은이 메트릭과 분할 되지 않은 메트릭을 사용 하 여 시스템에서 실행 중인 모든 활성 쿼리를 표시 합니다.|IsUserDefined,|
 |WLGActiveQueriesTimeouts|아니요|작업 그룹 쿼리 시간 제한|개수|합계|시간이 초과 된 작업 그룹에 대 한 쿼리입니다. 이 메트릭에 의해 보고 된 쿼리 시간 제한은 쿼리가 실행을 시작한 후에만 수행 됩니다 (잠금 또는 리소스 대기로 인 한 대기 시간을 포함 하지 않음).|IsUserDefined,|
 |WLGAllocationByMaxResourcePercent|아니요|최대 리소스 비율별 작업 그룹 할당|백분율|최대|작업 그룹당 유효 캡 리소스 비율을 기준으로 하는 리소스의 백분율 할당을 표시 합니다. 이 메트릭은 작업 그룹의 효과적인 사용률을 제공 합니다.|IsUserDefined,|
 |WLGAllocationBySystemPercent|아니요|시스템 비율별 작업 그룹 할당|백분율|최대|전체 시스템에 상대적인 리소스 할당 비율|IsUserDefined,|
-|WLGEffectiveCapResourcePercent|예|유효 상한 리소스 비율|백분율|최대|작업 그룹에 대 한 유효 상한 리소스 비율입니다. Min_percentage_resource > 0 인 다른 작업 그룹이 있는 경우 effective_cap_percentage_resource 비례적으로 줄어듭니다.|IsUserDefined,|
+|WLGEffectiveCapResourcePercent|아니요|유효 상한 리소스 비율|백분율|최대|작업 그룹에 대 한 유효 상한 리소스 비율입니다. Min_percentage_resource > 0 인 다른 작업 그룹이 있는 경우 effective_cap_percentage_resource 비례적으로 줄어듭니다.|IsUserDefined,|
 |WLGQueuedQueries|아니요|작업 그룹 큐에 대기 중인 쿼리|개수|합계|최대 동시성 제한에 도달한 후 큐에 대기 중인 총 요청 수|IsUserDefined,|
 
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |IngressReceivedBytes|예|수신된 바이트|바이트|합계|모든 이벤트 원본에서 읽은 바이트 수입니다.|차원 없음|
 |IngressReceivedInvalidMessages|예|수신된 잘못된 메시지|개수|합계|모든 이벤트 허브 또는 IoT 허브 이벤트 원본에서 읽은 잘못된 메시지 수입니다.|차원 없음|
@@ -2284,7 +2334,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/environments/eventsources
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |IngressReceivedBytes|예|수신된 바이트|바이트|합계|이벤트 원본에서 읽은 바이트 수|차원 없음|
 |IngressReceivedInvalidMessages|예|수신된 잘못된 메시지|개수|합계|이벤트 원본에서 읽은 잘못된 메시지 수|차원 없음|
@@ -2299,7 +2349,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftvmwarecloudsimplevirtualmachines"></a>Microsoft.VMwareCloudSimple/virtualMachines
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |디스크 읽기 바이트|예|디스크 읽기 바이트|바이트|합계|샘플 기간 동안 읽기 작업으로 인 한 총 디스크 처리량입니다.|차원 없음|
 |디스크 읽기 작업/초|예|디스크 읽기 작업/초|초당 개수|평균|이전 샘플 기간의 평균 IO 읽기 작업 수입니다. 이러한 작업에는 가변 크기를 사용할 수 있습니다.|차원 없음|
@@ -2318,44 +2368,44 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |네트워크 아웃|예|네트워크 아웃|바이트|합계|전송 된 트래픽에 대 한 총 네트워크 처리량입니다.|차원 없음|
 |NetworkInBytesPerSecond|예|네트워크 입력 바이트/초|초당 바이트 수|평균|수신 되는 트래픽에 대 한 평균 네트워크 처리량입니다.|차원 없음|
 |NetworkOutBytesPerSecond|예|네트워크 출력 바이트/초|초당 바이트 수|평균|전송 된 트래픽에 대 한 평균 네트워크 처리량입니다.|차원 없음|
-|CPU 사용률|예|백분율 CPU|백분율|평균|CPU 사용률입니다. 이 값은 시스템의 모든 프로세서 코어를 나타내는 100%로 보고 됩니다. 예를 들어 4 코어 시스템의 50%를 사용 하는 양방향 VM은 2 개의 코어를 완전히 사용 합니다.|차원 없음|
+|백분율 CPU|예|백분율 CPU|백분율|평균|CPU 사용률입니다. 이 값은 시스템의 모든 프로세서 코어를 나타내는 100%로 보고 됩니다. 예를 들어 4 코어 시스템의 50%를 사용 하는 양방향 VM은 2 개의 코어를 완전히 사용 합니다.|차원 없음|
 |PercentageCpuReady|예|CPU 준비 백분율|밀리초|합계|준비 시간은 CPU를 과거 업데이트 간격으로 사용할 수 있을 때까지 기다리는 데 걸리는 시간입니다.|차원 없음|
 
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|ActiveRequests|예|활성 요청|개수|합계|활성 요청|인스턴스|
-|AverageResponseTime|예|평균 응답 시간|초|평균|평균 응답 시간|인스턴스|
-|BytesReceived|예|데이터 입력|바이트|합계|데이터 입력|인스턴스|
-|BytesSent|예|데이터 출력|바이트|합계|데이터 출력|인스턴스|
-|CpuPercentage|예|CPU 비율|백분율|평균|CPU 비율|인스턴스|
-|DiskQueueLength|예|디스크 큐 길이|개수|평균|디스크 큐 길이|인스턴스|
-|Http101|예|Http 101|개수|합계|Http 101|인스턴스|
-|Http2xx|예|Http 2xx|개수|합계|Http 2xx|인스턴스|
-|Http3xx|예|Http 3xx|개수|합계|Http 3xx|인스턴스|
-|Http401|예|Http 401|개수|합계|Http 401|인스턴스|
-|Http403|예|Http 403|개수|합계|Http 403|인스턴스|
-|Http404|예|Http 404|개수|합계|Http 404|인스턴스|
-|Http406|예|Http 406|개수|합계|Http 406|인스턴스|
-|Http4xx|예|Http 4xx|개수|합계|Http 4xx|인스턴스|
-|Http5xx|예|Http 서버 오류|개수|합계|Http 서버 오류|인스턴스|
-|HttpQueueLength|예|Http 큐 길이|개수|평균|Http 큐 길이|인스턴스|
+|ActiveRequests|예|활성 요청 (사용 되지 않음)|개수|합계|활성 요청|인스턴스|
+|AverageResponseTime|예|평균 응답 시간 (사용 되지 않음)|초|평균|프런트 엔드에서 요청을 처리 하는 데 걸린 평균 시간 (초)입니다.|인스턴스|
+|BytesReceived|예|데이터 입력|바이트|합계|MiB의 모든 front end에서 사용 되는 평균 수신 대역폭입니다.|인스턴스|
+|BytesSent|예|데이터 출력|바이트|합계|MiB의 모든 프런트 엔드에서 사용 되는 평균 수신 대역폭입니다.|인스턴스|
+|CpuPercentage|예|CPU 비율|백분율|평균|프런트 엔드의 모든 인스턴스에 사용 되는 평균 CPU입니다.|인스턴스|
+|DiskQueueLength|예|디스크 큐 길이|개수|평균|스토리지에 대기 중인 평균 읽기 및 쓰기 요청 수입니다. 디스크 큐 길이가 높으면 과도 한 디스크 i/o로 인해 속도가 저하 될 수 있는 앱을 나타냅니다.|인스턴스|
+|Http101|예|Http 101|개수|합계|HTTP 상태 코드 101가 발생 하는 요청 수입니다.|인스턴스|
+|Http2xx|예|Http 2xx|개수|합계|발생 한 요청 수는 HTTP 상태 코드 = 200 이지만 < 300입니다.|인스턴스|
+|Http3xx|예|Http 3xx|개수|합계|발생 한 요청 수는 HTTP 상태 코드 = 300 이지만 < 400입니다.|인스턴스|
+|Http401|예|Http 401|개수|합계|결과로 HTTP 401 상태 코드가 나타나는 요청의 수입니다.|인스턴스|
+|Http403|예|Http 403|개수|합계|결과로 HTTP 403 상태 코드가 나타나는 요청의 수입니다.|인스턴스|
+|Http404|예|Http 404|개수|합계|결과로 HTTP 404 상태 코드가 나타나는 요청의 수입니다.|인스턴스|
+|Http406|예|Http 406|개수|합계|결과로 HTTP 406 상태 코드가 나타나는 요청의 수입니다.|인스턴스|
+|Http4xx|예|Http 4xx|개수|합계|발생 한 요청 수는 HTTP 상태 코드 = 400 이지만 < 500입니다.|인스턴스|
+|Http5xx|예|Http 서버 오류|개수|합계|발생 한 요청 수는 HTTP 상태 코드 = 500 이지만 < 600입니다.|인스턴스|
+|HttpQueueLength|예|Http 큐 길이|개수|평균|처리하기 전에 큐에 배치해야 하는 평균 HTTP 요청 수입니다. HTTP 큐 길이 값이 높거나 증가하면 계획이 과부하 상태에 있음을 나타냅니다.|인스턴스|
 |LargeAppServicePlanInstances|예|대형 App Service 계획 작업자|개수|평균|대형 App Service 계획 작업자|차원 없음|
 |MediumAppServicePlanInstances|예|중형 App Service 계획 작업자|개수|평균|중형 App Service 계획 작업자|차원 없음|
-|MemoryPercentage|예|메모리 비율|백분율|평균|메모리 비율|인스턴스|
-|요청|예|요청|개수|합계|요청|인스턴스|
+|MemoryPercentage|예|메모리 비율|백분율|평균|프런트 엔드의 모든 인스턴스에 사용 되는 평균 메모리입니다.|인스턴스|
+|요청|예|요청|개수|합계|결과 HTTP 상태 코드에 관계 없이 총 요청 수입니다.|인스턴스|
 |SmallAppServicePlanInstances|예|소형 App Service 계획 작업자|개수|평균|소형 App Service 계획 작업자|차원 없음|
 |TotalFrontEnds|예|총 프런트 엔드|개수|평균|총 프런트 엔드|차원 없음|
 
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|CpuPercentage|예|CPU 비율|백분율|평균|CPU 비율|인스턴스|
-|MemoryPercentage|예|메모리 비율|백분율|평균|메모리 비율|인스턴스|
+|CpuPercentage|예|CPU 비율|백분율|평균|작업자 풀의 모든 인스턴스에 사용 되는 평균 CPU입니다.|인스턴스|
+|MemoryPercentage|예|메모리 비율|백분율|평균|작업자 풀의 모든 인스턴스에 사용 되는 평균 메모리입니다.|인스턴스|
 |WorkersAvailable|예|사용 가능한 작업자|개수|평균|사용 가능한 작업자|차원 없음|
 |WorkersTotal|예|총 작업자|개수|평균|총 작업자|차원 없음|
 |WorkersUsed|예|사용된 작업자|개수|평균|사용된 작업자|차원 없음|
@@ -2363,14 +2413,14 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|BytesReceived|예|데이터 입력|바이트|합계|데이터 입력|인스턴스|
-|BytesSent|예|데이터 출력|바이트|합계|데이터 출력|인스턴스|
-|CpuPercentage|예|CPU 비율|백분율|평균|CPU 비율|인스턴스|
-|DiskQueueLength|예|디스크 큐 길이|개수|평균|디스크 큐 길이|인스턴스|
-|HttpQueueLength|예|Http 큐 길이|개수|평균|Http 큐 길이|인스턴스|
-|MemoryPercentage|예|메모리 비율|백분율|평균|메모리 비율|인스턴스|
+|BytesReceived|예|데이터 입력|바이트|합계|계획의 모든 인스턴스 간에 사용된 평균 들어오는 대역폭입니다.|인스턴스|
+|BytesSent|예|데이터 출력|바이트|합계|계획의 모든 인스턴스 간에 사용된 평균 나가는 대역폭입니다.|인스턴스|
+|CpuPercentage|예|CPU 비율|백분율|평균|계획의 모든 인스턴스 간에 사용된 평균 CPU입니다.|인스턴스|
+|DiskQueueLength|예|디스크 큐 길이|개수|평균|스토리지에 대기 중인 평균 읽기 및 쓰기 요청 수입니다. 디스크 큐 길이가 높으면 과도 한 디스크 i/o로 인해 속도가 저하 될 수 있는 앱을 나타냅니다.|인스턴스|
+|HttpQueueLength|예|Http 큐 길이|개수|평균|처리하기 전에 큐에 배치해야 하는 평균 HTTP 요청 수입니다. HTTP 큐 길이 값이 높거나 증가하면 계획이 과부하 상태에 있음을 나타냅니다.|인스턴스|
+|MemoryPercentage|예|메모리 비율|백분율|평균|계획의 모든 인스턴스 간에 사용된 평균 메모리입니다.|인스턴스|
 |SocketInboundAll|예|SocketInboundAll|개수|평균|SocketInboundAll|인스턴스|
 |SocketLoopback|예|SocketLoopback|개수|평균|SocketLoopback|인스턴스|
 |SocketOutboundAll|예|SocketOutboundAll|개수|평균|SocketOutboundAll|인스턴스|
@@ -2386,129 +2436,97 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |TcpSynSent|예|TCP SYN 보냄|개수|평균|TCP SYN 보냄|인스턴스|
 |TcpTimeWait|예|TCP 시간 대기|개수|평균|TCP 시간 대기|인스턴스|
 
-## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites(Functions 제외) 
 
-> [!NOTE]
-> **파일 시스템 사용량** 은 전역적으로 롤아웃 되는 새 메트릭입니다. 비공개 미리 보기에 대해 허용 목록 않은 경우에는 데이터가 필요 하지 않습니다.
+## <a name="microsoftwebsites"></a>Microsoft.Web/sites
 
-> [!IMPORTANT]
-> 메트릭 집계와의 혼동을 피하기 위해 **평균 응답 시간은** 사용 되지 않습니다. **응답 시간** 을 대체 항목으로 사용 합니다.
-
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|AppConnections|예|Connections|개수|평균|Connections|인스턴스|
-|AverageMemoryWorkingSet|예|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|인스턴스|
-|AverageResponseTime|예|평균 응답 시간 **(사용 되지 않음)**|초|평균|평균 응답 시간|인스턴스|
-|BytesReceived|예|데이터 입력|바이트|합계|데이터 입력|인스턴스|
-|BytesSent|예|데이터 출력|바이트|합계|데이터 출력|인스턴스|
-|CpuTime|예|CPU 시간|초|합계|CPU 시간|인스턴스|
-|CurrentAssemblies|예|현재 어셈블리|개수|평균|현재 어셈블리|인스턴스|
-|FileSystemUsage|예|파일 시스템 사용량|바이트|평균|파일 시스템 사용량|차원 없음|
-|Gen0Collections|예|Gen 0 가비지 수집|개수|합계|Gen 0 가비지 수집|인스턴스|
-|Gen1Collections|예|Gen 1 가비지 수집|개수|합계|Gen 1 가비지 수집|인스턴스|
-|Gen2Collections|예|Gen 2 가비지 수집|개수|합계|Gen 2 가비지 수집|인스턴스|
-|핸들|예|핸들 개수|개수|평균|핸들 개수|인스턴스|
-|HealthCheckStatus|예|상태 검사 상태|개수|평균|상태 검사 상태|인스턴스|
-|Http101|예|Http 101|개수|합계|Http 101|인스턴스|
-|Http2xx|예|Http 2xx|개수|합계|Http 2xx|인스턴스|
-|Http3xx|Http 3xx|개수|합계|Http 3xx|인스턴스|
-|Http401|예|Http 401|개수|합계|Http 401|인스턴스|
-|Http403|예|Http 403|개수|합계|Http 403|인스턴스|
-|Http404|예|Http 404|개수|합계|Http 404|인스턴스|
-|Http406|예|Http 406|개수|합계|Http 406|인스턴스|
-|Http4xx|예|Http 4xx|개수|합계|Http 4xx|인스턴스|
-|Http5xx|예|Http 서버 오류|개수|합계|Http 서버 오류|인스턴스|
-|HttpResponseTime|예|응답 시간|초|평균|응답 시간|인스턴스|
-|IoOtherBytesPerSecond|예|초당 IO 기타 바이트 수|초당 바이트 수|합계|초당 IO 기타 바이트 수|인스턴스|
-|IoOtherOperationsPerSecond|예|초당 IO 기타 작업 수|초당 바이트 수|합계|초당 IO 기타 작업 수|인스턴스|
-|IoReadBytesPerSecond|예|초당 IO 읽기 바이트 수|초당 바이트 수|합계|초당 IO 읽기 바이트 수|인스턴스|
-|IoReadOperationsPerSecond|예|초당 IO 읽기 작업 수|초당 바이트 수|합계|초당 IO 읽기 작업 수|인스턴스|
-|IoWriteBytesPerSecond|예|초당 IO 쓰기 바이트 수|초당 바이트 수|합계|초당 IO 쓰기 바이트 수|인스턴스|
-|IoWriteOperationsPerSecond|예|초당 IO 쓰기 작업 수|초당 바이트 수|합계|초당 IO 쓰기 작업 수|인스턴스|
-|MemoryWorkingSet|예|메모리 작업 집합|바이트|평균|메모리 작업 집합|인스턴스|
-|PrivateBytes|예|프라이빗 바이트|바이트|평균|프라이빗 바이트|인스턴스|
-|요청|예|요청|개수|합계|요청|인스턴스|
-|RequestsInApplicationQueue|예|애플리케이션 큐의 요청 수|개수|평균|애플리케이션 큐의 요청 수|인스턴스|
-|스레드|예|스레드 개수|개수|평균|스레드 개수|인스턴스|
-|TotalAppDomains|예|총 앱 도메인|개수|평균|총 앱 도메인|인스턴스|
-|TotalAppDomainsUnloaded|예|언로드된 총 앱 도메인|개수|평균|언로드된 총 앱 도메인|인스턴스|
-
-## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites(functions)
-
-> [!NOTE]
-> **파일 시스템 사용량** 은 전역적으로 롤아웃 되는 새 메트릭입니다. 비공개 미리 보기에 대해 허용 목록 않은 경우에는 데이터가 필요 하지 않습니다.
-
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
-|---|---|---|---|---|---|---|
-|AverageMemoryWorkingSet|예|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|인스턴스|
-|BytesReceived|예|데이터 입력|바이트|합계|데이터 입력|인스턴스|
-|BytesSent|예|데이터 출력|바이트|합계|데이터 출력|인스턴스|
-|CurrentAssemblies|예|현재 어셈블리|개수|평균|현재 어셈블리|인스턴스|
-|FileSystemUsage|예|파일 시스템 사용량|바이트|평균|파일 시스템 사용량|차원 없음|
+|AppConnections|예|Connections|개수|평균|샌드박스(w3wp.exe 및 해당 자식 프로세스)에 있는 바인딩된 소켓의 수입니다. 바인딩된 소켓은 bind()/connect() API를 호출하여 만들어지며, 해당 소켓이 CloseHandle()/closesocket()으로 닫힐 때까지 유지됩니다.|인스턴스|
+|AverageMemoryWorkingSet|예|평균 메모리 작업 집합|바이트|평균|앱에 사용된 메가바이트(MiB) 크기의 평균 메모리 양입니다.|인스턴스|
+|AverageResponseTime|예|평균 응답 시간 (사용 되지 않음)|초|평균|앱에서 요청을 처리 하는 데 걸린 평균 시간 (초)입니다.|인스턴스|
+|BytesReceived|예|데이터 입력|바이트|합계|앱에서 사용한 들어오는 대역폭 양(MiB)입니다.|인스턴스|
+|BytesSent|예|데이터 출력|바이트|합계|앱에서 사용한 나가는 대역폭 양(MiB)입니다.|인스턴스|
+|CpuTime|예|CPU 시간|초|합계|앱에서 사용한 CPU의 양(초)입니다. 이 메트릭에 대 한 자세한 내용은을 (를). 자세한 내용은 https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage cpu 시간 및 cpu 비율을 참조 하세요.|인스턴스|
+|CurrentAssemblies|예|현재 어셈블리|개수|평균|이 애플리케이션의 모든 AppDomains에 로드된 어셈블리의 현재 개수입니다.|인스턴스|
+|FileSystemUsage|예|파일 시스템 사용량|바이트|평균|앱에서 사용 하는 파일 시스템 할당량의 백분율입니다.|차원 없음|
 |FunctionExecutionCount|예|함수 실행 횟수|개수|합계|함수 실행 횟수|인스턴스|
-|FunctionExecutionUnits|예|함수 실행 단위|개수|합계|[함수 실행 단위](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|인스턴스|
-|Gen0Collections|예|Gen 0 가비지 수집|개수|합계|Gen 0 가비지 수집|인스턴스|
-|Gen1Collections|예|Gen 1 가비지 수집|개수|합계|Gen 1 가비지 수집|인스턴스|
-|Gen2Collections|예|Gen 2 가비지 수집|개수|합계|Gen 2 가비지 수집|인스턴스|
+|FunctionExecutionUnits|예|함수 실행 단위|개수|합계|함수 실행 단위|인스턴스|
+|Gen0Collections|예|Gen 0 가비지 수집|개수|합계|앱 프로세스가 시작된 이후 0세대 개체가 가비지 수집된 횟수입니다. 상위 세대 GC에는 모든 하위 세대 GC가 포함됩니다.|인스턴스|
+|Gen1Collections|예|Gen 1 가비지 수집|개수|합계|앱 프로세스가 시작된 이후 1세대 개체가 가비지 수집된 횟수입니다. 상위 세대 GC에는 모든 하위 세대 GC가 포함됩니다.|인스턴스|
+|Gen2Collections|예|Gen 2 가비지 수집|개수|합계|앱 프로세스가 시작된 이후 2세대 개체가 가비지 수집된 횟수입니다.|인스턴스|
+|핸들|예|핸들 개수|개수|평균|앱 프로세스에서 현재 열려 있는 총 핸들 수입니다.|인스턴스|
 |HealthCheckStatus|예|상태 검사 상태|개수|평균|상태 검사 상태|인스턴스|
-|Http5xx|예|Http 서버 오류|개수|합계|Http 서버 오류|인스턴스|
-|IoOtherBytesPerSecond|예|초당 IO 기타 바이트 수|초당 바이트 수|합계|초당 IO 기타 바이트 수|인스턴스|
-|IoOtherOperationsPerSecond|예|초당 IO 기타 작업 수|초당 바이트 수|합계|초당 IO 기타 작업 수|인스턴스|
-|IoReadBytesPerSecond|예|초당 IO 읽기 바이트 수|초당 바이트 수|합계|초당 IO 읽기 바이트 수|인스턴스|
-|IoReadOperationsPerSecond|예|초당 IO 읽기 작업 수|초당 바이트 수|합계|초당 IO 읽기 작업 수|인스턴스|
-|IoWriteBytesPerSecond|예|초당 IO 쓰기 바이트 수|초당 바이트 수|합계|초당 IO 쓰기 바이트 수|인스턴스|
-|IoWriteOperationsPerSecond|예|초당 IO 쓰기 작업 수|초당 바이트 수|합계|초당 IO 쓰기 작업 수|인스턴스|
-|MemoryWorkingSet|예|메모리 작업 집합|바이트|평균|메모리 작업 집합|인스턴스|
-|PrivateBytes|예|프라이빗 바이트|바이트|평균|프라이빗 바이트|인스턴스|
-|RequestsInApplicationQueue|예|애플리케이션 큐의 요청 수|개수|평균|애플리케이션 큐의 요청 수|인스턴스|
-|TotalAppDomains|예|총 앱 도메인|개수|평균|총 앱 도메인|인스턴스|
-|TotalAppDomainsUnloaded|예|언로드된 총 앱 도메인|개수|평균|언로드된 총 앱 도메인|인스턴스|
+|Http101|예|Http 101|개수|합계|HTTP 상태 코드 101가 발생 하는 요청 수입니다.|인스턴스|
+|Http2xx|예|Http 2xx|개수|합계|발생 한 요청 수는 HTTP 상태 코드 = 200 이지만 < 300입니다.|인스턴스|
+|Http3xx|예|Http 3xx|개수|합계|발생 한 요청 수는 HTTP 상태 코드 = 300 이지만 < 400입니다.|인스턴스|
+|Http401|예|Http 401|개수|합계|결과로 HTTP 401 상태 코드가 나타나는 요청의 수입니다.|인스턴스|
+|Http403|예|Http 403|개수|합계|결과로 HTTP 403 상태 코드가 나타나는 요청의 수입니다.|인스턴스|
+|Http404|예|Http 404|개수|합계|결과로 HTTP 404 상태 코드가 나타나는 요청의 수입니다.|인스턴스|
+|Http406|예|Http 406|개수|합계|결과로 HTTP 406 상태 코드가 나타나는 요청의 수입니다.|인스턴스|
+|Http4xx|예|Http 4xx|개수|합계|발생 한 요청 수는 HTTP 상태 코드 = 400 이지만 < 500입니다.|인스턴스|
+|Http5xx|예|Http 서버 오류|개수|합계|발생 한 요청 수는 HTTP 상태 코드 = 500 이지만 < 600입니다.|인스턴스|
+|HttpResponseTime|예|응답 시간|초|평균|앱에서 요청을 처리 하는 데 걸린 시간 (초)입니다.|인스턴스|
+|IoOtherBytesPerSecond|예|초당 IO 기타 바이트 수|초당 바이트 수|합계|응용 프로그램 프로세스가 데이터를 포함 하지 않는 i/o 작업 (예: 제어 작업)에 바이트를 발급 하는 속도입니다.|인스턴스|
+|IoOtherOperationsPerSecond|예|초당 IO 기타 작업 수|초당 바이트 수|합계|앱 프로세스가 읽기 또는 쓰기 작업이 아닌 i/o 작업을 실행 하는 속도입니다.|인스턴스|
+|IoReadBytesPerSecond|예|초당 IO 읽기 바이트 수|초당 바이트 수|합계|앱 프로세스에서 I/O 작업의 바이트를 읽는 속도입니다.|인스턴스|
+|IoReadOperationsPerSecond|예|초당 IO 읽기 작업 수|초당 바이트 수|합계|앱 프로세스에서 읽기 I/O 작업을 실행하는 속도입니다.|인스턴스|
+|IoWriteBytesPerSecond|예|초당 IO 쓰기 바이트 수|초당 바이트 수|합계|앱 프로세스에서 I/O 작업에 바이트를 쓰는 속도입니다.|인스턴스|
+|IoWriteOperationsPerSecond|예|초당 IO 쓰기 작업 수|초당 바이트 수|합계|앱 프로세스에서 쓰기 I/O 작업을 실행하는 속도입니다.|인스턴스|
+|MemoryWorkingSet|예|메모리 작업 집합|바이트|평균|현재 앱에 사용된 메모리 양(MiB)입니다.|인스턴스|
+|PrivateBytes|예|프라이빗 바이트|바이트|평균|Private Bytes는 앱 프로세스가 할당 하 여 다른 프로세스와 공유할 수 없는 메모리의 현재 크기 (바이트)입니다.|인스턴스|
+|요청|예|요청|개수|합계|결과 HTTP 상태 코드에 관계 없이 총 요청 수입니다.|인스턴스|
+|RequestsInApplicationQueue|예|애플리케이션 큐의 요청 수|개수|평균|애플리케이션 요청 큐의 요청 수입니다.|인스턴스|
+|스레드|예|스레드 개수|개수|평균|앱 프로세스에서 현재 활성 상태인 스레드의 수입니다.|인스턴스|
+|TotalAppDomains|예|총 앱 도메인|개수|평균|이 애플리케이션에 로드된 AppDomains의 현재 수입니다.|인스턴스|
+|TotalAppDomainsUnloaded|예|언로드된 총 앱 도메인|개수|평균|애플리케이션이 시작된 이후 언로드된 총 AppDomains 수입니다.|인스턴스|
+
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
-|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|AppConnections|예|Connections|개수|평균|Connections|인스턴스|
-|AverageMemoryWorkingSet|예|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|인스턴스|
-|AverageResponseTime|예|평균 응답 시간|초|평균|평균 응답 시간|인스턴스|
-|BytesReceived|예|데이터 입력|바이트|합계|데이터 입력|인스턴스|
-|BytesSent|예|데이터 출력|바이트|합계|데이터 출력|인스턴스|
-|CpuTime|예|CPU 시간|초|합계|CPU 시간|인스턴스|
-|CurrentAssemblies|예|현재 어셈블리|개수|평균|현재 어셈블리|인스턴스|
-|FileSystemUsage|예|파일 시스템 사용량|바이트|평균|파일 시스템 사용량|차원 없음|
+|AppConnections|예|Connections|개수|평균|샌드박스(w3wp.exe 및 해당 자식 프로세스)에 있는 바인딩된 소켓의 수입니다. 바인딩된 소켓은 bind()/connect() API를 호출하여 만들어지며, 해당 소켓이 CloseHandle()/closesocket()으로 닫힐 때까지 유지됩니다.|인스턴스|
+|AverageMemoryWorkingSet|예|평균 메모리 작업 집합|바이트|평균|앱에 사용된 메가바이트(MiB) 크기의 평균 메모리 양입니다.|인스턴스|
+|AverageResponseTime|예|평균 응답 시간 (사용 되지 않음)|초|평균|앱에서 요청을 처리 하는 데 걸린 평균 시간 (초)입니다.|인스턴스|
+|BytesReceived|예|데이터 입력|바이트|합계|앱에서 사용한 들어오는 대역폭 양(MiB)입니다.|인스턴스|
+|BytesSent|예|데이터 출력|바이트|합계|앱에서 사용한 나가는 대역폭 양(MiB)입니다.|인스턴스|
+|CpuTime|예|CPU 시간|초|합계|앱에서 사용한 CPU의 양(초)입니다. 이 메트릭에 대 한 자세한 내용은을 (를). 자세한 내용은 https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage cpu 시간 및 cpu 비율을 참조 하세요.|인스턴스|
+|CurrentAssemblies|예|현재 어셈블리|개수|평균|이 애플리케이션의 모든 AppDomains에 로드된 어셈블리의 현재 개수입니다.|인스턴스|
+|FileSystemUsage|예|파일 시스템 사용량|바이트|평균|앱에서 사용 하는 파일 시스템 할당량의 백분율입니다.|차원 없음|
 |FunctionExecutionCount|예|함수 실행 횟수|개수|합계|함수 실행 횟수|인스턴스|
 |FunctionExecutionUnits|예|함수 실행 단위|개수|합계|함수 실행 단위|인스턴스|
-|Gen0Collections|예|Gen 0 가비지 수집|개수|합계|Gen 0 가비지 수집|인스턴스|
-|Gen1Collections|예|Gen 1 가비지 수집|개수|합계|Gen 1 가비지 수집|인스턴스|
-|Gen2Collections|예|Gen 2 가비지 수집|개수|합계|Gen 2 가비지 수집|인스턴스|
-|핸들|예|핸들 개수|개수|평균|핸들 개수|인스턴스|
+|Gen0Collections|예|Gen 0 가비지 수집|개수|합계|앱 프로세스가 시작된 이후 0세대 개체가 가비지 수집된 횟수입니다. 상위 세대 GC에는 모든 하위 세대 GC가 포함됩니다.|인스턴스|
+|Gen1Collections|예|Gen 1 가비지 수집|개수|합계|앱 프로세스가 시작된 이후 1세대 개체가 가비지 수집된 횟수입니다. 상위 세대 GC에는 모든 하위 세대 GC가 포함됩니다.|인스턴스|
+|Gen2Collections|예|Gen 2 가비지 수집|개수|합계|앱 프로세스가 시작된 이후 2세대 개체가 가비지 수집된 횟수입니다.|인스턴스|
+|핸들|예|핸들 개수|개수|평균|앱 프로세스에서 현재 열려 있는 총 핸들 수입니다.|인스턴스|
 |HealthCheckStatus|예|상태 검사 상태|개수|평균|상태 검사 상태|인스턴스|
-|Http101|예|Http 101|개수|합계|Http 101|인스턴스|
-|Http2xx|예|Http 2xx|개수|합계|Http 2xx|인스턴스|
-|Http3xx|예|Http 3xx|개수|합계|Http 3xx|인스턴스|
-|Http401|예|Http 401|개수|합계|Http 401|인스턴스|
-|Http403|예|Http 403|개수|합계|Http 403|인스턴스|
-|Http404|예|Http 404|개수|합계|Http 404|인스턴스|
-|Http406|예|Http 406|개수|합계|Http 406|인스턴스|
-|Http4xx|예|Http 4xx|개수|합계|Http 4xx|인스턴스|
-|Http5xx|예|Http 서버 오류|개수|합계|Http 서버 오류|인스턴스|
-|HttpResponseTime|예|응답 시간|초|평균|응답 시간|인스턴스|
-|IoOtherBytesPerSecond|예|초당 IO 기타 바이트 수|초당 바이트 수|합계|초당 IO 기타 바이트 수|인스턴스|
-|IoOtherOperationsPerSecond|예|초당 IO 기타 작업 수|초당 바이트 수|합계|초당 IO 기타 작업 수|인스턴스|
-|IoReadBytesPerSecond|예|초당 IO 읽기 바이트 수|초당 바이트 수|합계|초당 IO 읽기 바이트 수|인스턴스|
-|IoReadOperationsPerSecond|예|초당 IO 읽기 작업 수|초당 바이트 수|합계|초당 IO 읽기 작업 수|인스턴스|
-|IoWriteBytesPerSecond|예|초당 IO 쓰기 바이트 수|초당 바이트 수|합계|초당 IO 쓰기 바이트 수|인스턴스|
-|IoWriteOperationsPerSecond|예|초당 IO 쓰기 작업 수|초당 바이트 수|합계|초당 IO 쓰기 작업 수|인스턴스|
-|MemoryWorkingSet|예|메모리 작업 집합|바이트|평균|메모리 작업 집합|인스턴스|
-|PrivateBytes|예|프라이빗 바이트|바이트|평균|프라이빗 바이트|인스턴스|
-|요청|예|요청|개수|합계|요청|인스턴스|
-|RequestsInApplicationQueue|예|애플리케이션 큐의 요청 수|개수|평균|애플리케이션 큐의 요청 수|인스턴스|
-|스레드|예|스레드 개수|개수|평균|스레드 개수|인스턴스|
-|TotalAppDomains|예|총 앱 도메인|개수|평균|총 앱 도메인|인스턴스|
-|TotalAppDomainsUnloaded|예|언로드된 총 앱 도메인|개수|평균|언로드된 총 앱 도메인|인스턴스|
+|Http101|예|Http 101|개수|합계|HTTP 상태 코드 101가 발생 하는 요청 수입니다.|인스턴스|
+|Http2xx|예|Http 2xx|개수|합계|발생 한 요청 수는 HTTP 상태 코드 = 200 이지만 < 300입니다.|인스턴스|
+|Http3xx|예|Http 3xx|개수|합계|발생 한 요청 수는 HTTP 상태 코드 = 300 이지만 < 400입니다.|인스턴스|
+|Http401|예|Http 401|개수|합계|결과로 HTTP 401 상태 코드가 나타나는 요청의 수입니다.|인스턴스|
+|Http403|예|Http 403|개수|합계|결과로 HTTP 403 상태 코드가 나타나는 요청의 수입니다.|인스턴스|
+|Http404|예|Http 404|개수|합계|결과로 HTTP 404 상태 코드가 나타나는 요청의 수입니다.|인스턴스|
+|Http406|예|Http 406|개수|합계|결과로 HTTP 406 상태 코드가 나타나는 요청의 수입니다.|인스턴스|
+|Http4xx|예|Http 4xx|개수|합계|발생 한 요청 수는 HTTP 상태 코드 = 400 이지만 < 500입니다.|인스턴스|
+|Http5xx|예|Http 서버 오류|개수|합계|발생 한 요청 수는 HTTP 상태 코드 = 500 이지만 < 600입니다.|인스턴스|
+|HttpResponseTime|예|응답 시간|초|평균|앱에서 요청을 처리 하는 데 걸린 시간 (초)입니다.|인스턴스|
+|IoOtherBytesPerSecond|예|초당 IO 기타 바이트 수|초당 바이트 수|합계|응용 프로그램 프로세스가 데이터를 포함 하지 않는 i/o 작업 (예: 제어 작업)에 바이트를 발급 하는 속도입니다.|인스턴스|
+|IoOtherOperationsPerSecond|예|초당 IO 기타 작업 수|초당 바이트 수|합계|앱 프로세스가 읽기 또는 쓰기 작업이 아닌 i/o 작업을 실행 하는 속도입니다.|인스턴스|
+|IoReadBytesPerSecond|예|초당 IO 읽기 바이트 수|초당 바이트 수|합계|앱 프로세스에서 I/O 작업의 바이트를 읽는 속도입니다.|인스턴스|
+|IoReadOperationsPerSecond|예|초당 IO 읽기 작업 수|초당 바이트 수|합계|앱 프로세스에서 읽기 I/O 작업을 실행하는 속도입니다.|인스턴스|
+|IoWriteBytesPerSecond|예|초당 IO 쓰기 바이트 수|초당 바이트 수|합계|앱 프로세스에서 I/O 작업에 바이트를 쓰는 속도입니다.|인스턴스|
+|IoWriteOperationsPerSecond|예|초당 IO 쓰기 작업 수|초당 바이트 수|합계|앱 프로세스에서 쓰기 I/O 작업을 실행하는 속도입니다.|인스턴스|
+|MemoryWorkingSet|예|메모리 작업 집합|바이트|평균|현재 앱에 사용된 메모리 양(MiB)입니다.|인스턴스|
+|PrivateBytes|예|프라이빗 바이트|바이트|평균|Private Bytes는 앱 프로세스가 할당 하 여 다른 프로세스와 공유할 수 없는 메모리의 현재 크기 (바이트)입니다.|인스턴스|
+|요청|예|요청|개수|합계|결과 HTTP 상태 코드에 관계 없이 총 요청 수입니다.|인스턴스|
+|RequestsInApplicationQueue|예|애플리케이션 큐의 요청 수|개수|평균|애플리케이션 요청 큐의 요청 수입니다.|인스턴스|
+|스레드|예|스레드 개수|개수|평균|앱 프로세스에서 현재 활성 상태인 스레드의 수입니다.|인스턴스|
+|TotalAppDomains|예|총 앱 도메인|개수|평균|이 애플리케이션에 로드된 AppDomains의 현재 수입니다.|인스턴스|
+|TotalAppDomainsUnloaded|예|언로드된 총 앱 도메인|개수|평균|애플리케이션이 시작된 이후 언로드된 총 AppDomains 수입니다.|인스턴스|
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Monitor의 메트릭에 대해 읽기](data-platform.md)
-* [메트릭에 대한 경고 만들기](alerts-overview.md)
-* [스토리지, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](platform-logs-overview.md)
+
+- [Azure Monitor의 메트릭에 대해 읽기](data-platform.md)
+- [메트릭에 대한 경고 만들기](alerts-overview.md)
+- [스토리지, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](platform-logs-overview.md)

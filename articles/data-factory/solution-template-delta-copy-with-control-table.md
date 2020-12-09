@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/24/2018
-ms.openlocfilehash: e7b7acb7e67d809229825b3d393fe49af12b3642
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: 3f15ffd6f7ed784cce398d419e013a69c60289d8
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461209"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921804"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>컨트롤 테이블이 있는 데이터베이스에서 델타 복사
 
@@ -45,7 +45,7 @@ ms.locfileid: "96461209"
 - *Data_Source_WaterMarkColumn* 는 새 행 또는 업데이트 된 행을 식별 하는 데 사용 되는 원본 테이블의 열 이름입니다. 이 열의 형식은 일반적으로 *datetime*, *INT* 또는 유사 합니다.
 - *Data_Destination_Container* 은 대상 저장소에서 데이터가 복사 되는 위치의 루트 경로입니다.
 - *Data_Destination_Directory* 은 대상 저장소에서 데이터가 복사 되는 위치의 루트 아래에 있는 디렉터리 경로입니다.
-- *Data_Destination_Table_Name* 대상 저장소의 데이터가 복사 되는 위치입니다. "Azure Synapse Analytics (이전의 SQL DW)"가 데이터 대상으로 선택 된 경우에 해당 합니다.
+- *Data_Destination_Table_Name* 대상 저장소의 데이터가 복사 되는 위치입니다. "Azure Synapse Analytics"가 데이터 대상으로 선택 된 경우에 해당 합니다.
 - *Data_Destination_Folder_Path* 대상 저장소의 데이터가 복사 되는 위치입니다. "파일 시스템" 또는 "Azure Data Lake Storage Gen1"를 데이터 대상으로 선택한 경우에 해당 합니다.
 - *Control_Table_Table_Name* 는 상위 워터 마크 값을 저장 하는 외부 컨트롤 테이블입니다.
 - *Control_Table_Column_Name* 은 상위 워터 마크 값을 저장 하는 외부 컨트롤 테이블의 열입니다.
