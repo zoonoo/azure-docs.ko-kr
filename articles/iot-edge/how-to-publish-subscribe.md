@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: acde6f401404596212b713f248bb6d11c25b4671
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 005830575ba7f45d30fed71a73e7a419e4d98220
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461420"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922580"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Azure IoT Edge 게시 및 구독
 
@@ -177,7 +177,6 @@ IoT hub에 대 한 권한 부여 항목은 사용자 정의 항목과 약간 다
 
 - Azure IoT 장치 또는 모듈에는 IoT Edge hub MQTT broker에 연결 하기 위한 명시적인 권한 부여 규칙이 필요 합니다. 기본 연결 권한 부여 정책은 아래에 제공 됩니다.
 - Azure IoT 장치 또는 모듈은 명시적 권한 부여 규칙 없이 기본적으로 고유한 IoT hub 토픽에 액세스할 수 있습니다. 그러나이 경우 부모/자식 관계에서 권한 부여가 생기고 이러한 관계를 설정 해야 합니다. IoT Edge 모듈은 자동으로 IoT Edge 장치의 자식으로 설정 되지만 장치는 명시적으로 IoT Edge 게이트웨이의 자식으로 설정 해야 합니다.
-- Azure IoT 장치 또는 모듈은 적절 한 명시적인 권한 부여 규칙을 정의 하는 다른 장치 또는 모듈의 IoT hub 토픽을 비롯 한 토픽에 액세스할 수 있습니다.
 
 다음은 모든 Azure IoT 장치 또는 모듈을 broker에 **연결** 하도록 설정 하는 데 사용할 수 있는 기본 권한 부여 정책입니다.
 
@@ -275,7 +274,7 @@ IoT Hub에 두 IoT 장치를 만들고 암호를 가져옵니다. 터미널에�
                },
                {
                   "identities": [
-                     "sub_client"
+                     "<iot_hub_name>.azure-devices.net/sub_client"
                   ],
                   "allow":[
                      {
@@ -284,13 +283,13 @@ IoT Hub에 두 IoT 장치를 만들고 암호를 가져옵니다. 터미널에�
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
                   ],
                },
                {
                   "identities": [
-                     "pub_client"
+                     "<iot_hub_name>.azure-devices.net/pub_client"
                   ],
                   "allow":[
                      {
@@ -299,9 +298,9 @@ IoT Hub에 두 IoT 장치를 만들고 암호를 가져옵니다. 터미널에�
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
-                  ],
+                  ]
                }
             ]
          }
