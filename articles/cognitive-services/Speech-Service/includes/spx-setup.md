@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 6f80d41001d11c52a00454ea2a593f3f1fce32db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: da88b8554d6c3214da9a386613538c237a318f73
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025624"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546909"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -53,15 +53,19 @@ x64 CPU에서 Linux에 Speech CLI를 설치하려면 다음 단계를 수행합�
 
 `spx`를 입력하여 Speech CLI에 대한 도움말을 표시합니다.
 
-#### <a name="docker-install"></a>[Docker 설치](#tab/dockerinstall)
+#### <a name="docker-install-windows-linux-macos"></a>[Docker 설치(Windows, Linux, macOS)](#tab/dockerinstall)
 
-> [!NOTE]
-> <a href="https://www.docker.com/get-started" target="_blank">플랫폼에 대한 Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a>이 설치되어 있어야 합니다.
+Docker 컨테이너에서 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 
-Docker 컨테이너 내에서 Speech CLI를 설치하려면 다음 단계를 수행합니다.
-
-1. 새 명령 프롬프트 또는 터미널에서 다음 명령을 입력합니다. `docker pull msftspeech/spx`
-2. 다음 명령을 입력합니다. Speech CLI에 대한 도움말 정보가 표시되어야 합니다. `docker run -it --rm msftspeech/spx help`
+1. 아직 설치되지 않은 경우 플랫폼에 <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop을 설치<span class="docon docon-navigate-external x-hidden-focus"></span></a>합니다.
+2. 새 명령 프롬프트 또는 터미널에서 다음 명령을 입력합니다. 
+   ```shell   
+   docker pull msftspeech/spx
+   ```
+3. 다음 명령을 입력합니다. Speech CLI에 대한 도움말 정보가 표시되어야 합니다. 
+   ```shell 
+   docker run -it --rm msftspeech/spx help
+   ```
 
 ### <a name="mount-a-directory-in-the-container"></a>컨테이너에 디렉터리 탑재
 
@@ -72,7 +76,7 @@ Windows에서 다음 명령을 입력하여 컨테이너 내에서 사용할 수
 
 `mkdir c:\spx-data`
 
-또는 Linux 또는 Mac에서 터미널에 다음 명령을 입력하여 디렉터리를 만들고 절대 경로를 확인합니다.
+또는 Linux 또는 macOS에서 터미널에 다음 명령을 입력하여 디렉터리를 만들고 절대 경로를 확인합니다.
 
 ```bash
 mkdir ~/spx-data
@@ -86,13 +90,17 @@ Speech CLI를 호출할 때 절대 경로를 사용합니다.
 
 이 설명서에서는 비 Docker 설치에서 사용되는 Speech CLI `spx` 명령을 보여 줍니다.
 Docker 컨테이너에서 `spx` 명령을 호출하는 경우, Speech CLI에서 구성 값을 저장하고 찾고 파일을 읽고 쓸 수 있는 파일 시스템에 컨테이너의 디렉터리를 탑재해야 합니다.
+
 Windows에서 명령은 다음과 같이 시작됩니다.
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx
+```
 
-Linux 또는 Mac에서 명령은 다음과 유사하게 시작됩니다.
-
-`sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
+Linux 또는 macOS에서 명령은 다음과 유사하게 시작됩니다.
+```shell   
+sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+```
 
 > [!NOTE]
 > `/ABSOLUTE_PATH`를 위 섹션의 `pwd` 명령에 표시된 절대 경로로 바꿉니다.
@@ -100,12 +108,43 @@ Linux 또는 Mac에서 명령은 다음과 유사하게 시작됩니다.
 컨테이너에 설치된 `spx` 명령을 사용하려면 항상 위에 표시된 전체 명령과 요청의 매개 변수를 차례로 입력합니다.
 예를 들어 Windows에서 이 명령은 키를 설정합니다.
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+```
 
-> [!NOTE]
-> Docker 컨테이너 내에서 Speech CLI를 실행하는 경우에는 컴퓨터의 마이크 또는 스피커를 사용할 수 없습니다.
-> 이러한 디바이스를 사용하려면 Docker 컨테이너 외부에서 기록/재생을 위해 오디오 파일을 Speech CLI로 전달합니다.
-> Speech CLI 도구는 위 단계에서 설정한 로컬 디렉터리에 액세스할 수 있습니다.
+> [!WARNING]
+> Docker 컨테이너 내에서 Speech CLI를 실행하는 경우에는 컴퓨터의 마이크를 사용할 수 없습니다. 그러나 로컬에 탑재된 디렉터리에서는 오디오 파일을 읽고 저장할 수 있습니다. 
+
+### <a name="optional-create-a-command-line-shortcut"></a>선택 사항: 명령줄 바로 가기 만들기
+
+Linux 또는 macOS의 Docker 컨테이너에서 음성 CLI를 실행하는 경우 바로 가기를 만들 수 있습니다. 
+
+바로 가기를 만들려면 이 지침을 수행합니다.
+1. 원하는 텍스트 편집기로 `.bash_profile`을 엽니다. 다음은 그 예입니다.
+   ```shell
+   nano ~/.bash_profile
+   ```
+2. 그런 다음, 이 함수를 `.bash_profile`에 추가합니다. 탑재된 디렉터리에 대한 올바른 경로로 이 함수를 업데이트해야 합니다.
+   ```shell   
+   spx(){
+       sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+   }
+   ```
+3. 프로필 소싱:
+   ```shell
+   source ~/.bash_profile
+   ```
+4. 이제 `sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`를 실행하는 대신 `spx` 다음에 인수를 입력하기만 하면 됩니다. 다음은 그 예입니다. 
+   ```shell
+   // Get some help
+   spx help recognize
+
+   // Recognize speech from an audio file 
+   spx recognize --file /mounted/directory/file.wav
+   ```
+
+> [!WARNING]
+> Docker가 참조하는 탑재된 디렉터리를 변경하는 경우 `.bash_profile`에서 함수를 업데이트해야 합니다.
 
 ***
 

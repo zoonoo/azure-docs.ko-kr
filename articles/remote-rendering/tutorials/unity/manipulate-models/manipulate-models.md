@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 003203ef1a25102f9fd3c50001603dbd5d33ce5a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 48c835070329b5cb0892b10760d37708e46bfa1d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565973"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559136"
 ---
 # <a name="tutorial-manipulating-models"></a>자습서: 모델 조작
 
@@ -176,7 +176,7 @@ ms.locfileid: "94565973"
 1. Unity의 Play(재생) 단추를 눌러 장면을 재생하고, **AppMenu** 내에서 **Model Tools(모델 도구)** 메뉴를 엽니다.
 ![보기 컨트롤러](./media/model-with-view-controller.png)
 
-**AppMenu** 에는 모델과 바인딩하기 위한 보기 컨트롤러를 구현하는 **Model Tools(모델 도구)** 라는 하위 메뉴가 있습니다. **RemoteBounds** 구성 요소가 GameObject에 포함되어 있으면 보기 컨트롤러에서 [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html) 구성 요소를 추가합니다. 이는 **BoxCollider** 를 사용하여 경계 상자를 개체 주위에 렌더링하는 MRTK 구성 요소입니다. [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/api/Microsoft.MixedReality.Toolkit.Experimental.UI.ObjectManipulator.html?q=ObjectManipulator)는 손 상호 작용을 담당합니다. 이러한 스크립트를 결합하면 원격으로 렌더링된 모델을 이동, 회전 및 크기 조정할 수 있습니다.
+**AppMenu** 에는 모델과 바인딩하기 위한 보기 컨트롤러를 구현하는 **Model Tools(모델 도구)** 라는 하위 메뉴가 있습니다. **RemoteBounds** 구성 요소가 GameObject에 포함되어 있으면 보기 컨트롤러에서 [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html) 구성 요소를 추가합니다. 이는 **BoxCollider** 를 사용하여 경계 상자를 개체 주위에 렌더링하는 MRTK 구성 요소입니다. [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/api/Microsoft.MixedReality.Toolkit.UI.ObjectManipulator.html)는 손 상호 작용을 담당합니다. 이러한 스크립트를 결합하면 원격으로 렌더링된 모델을 이동, 회전 및 크기 조정할 수 있습니다.
 
 1. 마우스를 게임 패널로 이동하고, 이 패널 내부를 클릭하여 포커스를 맞춥니다.
 1. [MRTK의 손 시뮬레이션](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/InputSimulation/InputSimulationService.html#hand-simulation)을 사용하여 왼쪽 Shift 키를 길게 누릅니다.

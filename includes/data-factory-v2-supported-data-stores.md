@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 12/08/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 2b1e9527b5f876b1509422cc19b63db29c35c5a2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 39f232a9bd92da6560989b39a811afc44224e375
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96500083"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902167"
 ---
 | 범주 | 데이터 저장소 | 소스로 지원 | 싱크로 지원 | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime)에서 지원 | [자체 호스팅 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime)에서 지원 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -73,7 +73,7 @@ ms.locfileid: "96500083"
 | **일반 프로토콜** |[일반 HTTP](../articles/data-factory/connector-http.md) |✓ | |✓ |✓  |
 | &nbsp; |[일반 OData](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[일반 ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
-| &nbsp; |[일반 REST](../articles/data-factory/connector-rest.md) |✓ | |✓ |✓  |
+| &nbsp; |[일반 REST](../articles/data-factory/connector-rest.md) |✓ | ✓ |✓ |✓  |
 | **서비스 및 앱** |[Amazon Marketplace 웹 서비스](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[Common Data Service](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur(미리 보기)](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  |
