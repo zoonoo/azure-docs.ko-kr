@@ -1,23 +1,23 @@
 ---
 title: Azure 앱 Configuration REST API-HMAC 인증
 description: HMAC를 사용 하 여 Azure 앱 구성에 인증 REST API
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: bd1667f6c17922b6c0b0bfba7a7329a3fc96b62e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f761d86bd7dbe54b687e8db75ecb3df2dbba3384
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182634"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932713"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>HMAC 인증-REST API 참조
 
 HMAC-SHA256 인증 체계를 사용 하 여 HTTP 요청을 인증할 수 있습니다. HMAC는 해시 기반 메시지 인증 코드를 나타냅니다. 이러한 요청은 TLS를 통해 전송 되어야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - **증명서** - \<Access Key ID\>
 - **비밀** -Base64 디코딩된 액세스 키 값입니다. ``base64_decode(<Access Key Value>)``
@@ -45,7 +45,7 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 ## <a name="authorization-header"></a>권한 부여 헤더
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>구문
 
 ``Authorization``: **HMAC-SHA256**```Credential```=\<value\>&```SignedHeaders```=\<value\>&```Signature```=\<value\>
 
@@ -54,7 +54,7 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 | **HMAC-SHA256** | 권한 부여 체계. _하다_ |
 | **자격 증명** | 서명을 계산 하는 데 사용 되는 선택 키의 ID입니다. _하다_ |
 | **서명 헤더** | 서명에 추가 된 HTTP 요청 헤더입니다. _하다_ |
-| **서명과** | 문자열을 서명 하는 b a s e 64로 인코딩된 HMACSHA256. _하다_|
+| **서명** | 문자열을 서명 하는 b a s e 64로 인코딩된 HMACSHA256. _하다_|
 
 ### <a name="credential"></a>자격 증명
 

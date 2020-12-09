@@ -1,17 +1,17 @@
 ---
 title: Azure 앱 구성 REST API-키
 description: Azure 앱 구성을 사용 하 여 키 작업을 위한 참조 페이지 REST API
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: f44ecdf571791d54a78d25dde514d57053b59160
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 65ca190d7fbd6d8d4df473fbe2112eafbd031fde
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424315"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932543"
 ---
 # <a name="keys"></a>구성
 
@@ -33,7 +33,7 @@ api-version: 1.0
 
 모든 작업에 `name` 는 선택적 필터 매개 변수가 있습니다. 생략 하는 경우 *모든* 키를 의미 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 

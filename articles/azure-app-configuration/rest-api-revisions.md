@@ -1,17 +1,17 @@
 ---
 title: Azure 앱 구성 REST API-키-값 수정 버전
 description: Azure 앱 구성을 사용 하 여 키-값 수정 버전으로 작업 하기 위한 참조 페이지 REST API
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 668345da8bb89412f7b1dd36975c5bed6f229580
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: cfa117d1ed017170c279b7c4e0a146ae4edac108
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95246387"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932475"
 ---
 # <a name="key-value-revisions"></a>키-값 수정 버전
 
@@ -23,7 +23,7 @@ ms.locfileid: "95246387"
 
 이 문서는 API 버전 1.0에 적용 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
@@ -113,7 +113,7 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 ### <a name="supported-filters"></a>지원되는 필터
 
-|키 필터|영향|
+|키 필터|효과|
 |--|--|
 |`key`은 생략 또는 `key=*`|**모든** 키를 찾습니다.|
 |`key=abc`|**Abc** 라는 키를 찾습니다.|
@@ -122,7 +122,7 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 |`key=*abc*`|**Abc** 를 포함 하는 키 이름과 일치|
 |`key=abc,xyz`|키 이름 **abc** 또는 **xyz** (CSV 5 개로 제한 됨)를 찾습니다.|
 
-|레이블 필터|영향|
+|레이블 필터|효과|
 |--|--|
 |`label`은 생략 또는 `label=`|레이블이 없는 항목과 일치|
 |`label=*`|**모든** 레이블과 일치|

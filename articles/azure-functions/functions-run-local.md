@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 3cf495ca0687e6fa37f619615fb1529659a462dc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: efb91c7b26c67a3672abb3f9cc8992fd45971a25
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020366"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932458"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -39,7 +39,7 @@ Azure Functions Core Tools에는 세 가지 버전이 있습니다. 사용 되�
 
 지정 된 컴퓨터에는 하나의 핵심 도구 버전만 설치할 수 있습니다. 별도로 언급 하지 않는 한이 문서의 예는 버전 2.x에 대 한 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Functions Core Tools 현재 Azure 계정으로 인증 하는 Azure CLI에 따라 달라 집니다. 즉, Azure Functions Core Tools에서 [Azure에 게시할](#publish) 수 있도록 [Azure CLI를 로컬로 설치](/cli/azure/install-azure-cli) 해야 합니다. 
 
@@ -155,7 +155,7 @@ Azure Functions Core Tools 현재 Azure 계정으로 인증 하는 Azure CLI에 
 
 ## <a name="create-a-local-functions-project"></a>로컬 Functions 프로젝트 만들기
 
-함수 프로젝트 디렉터리에는 개별 함수에 대한 코드가 포함된 하위 폴더와 함께 [host.json](functions-host-json.md) 및 [local.settings.json](#local-settings-file) 파일이 포함됩니다. 이 디렉터리는 Azure의 함수 앱에 해당합니다. Functions 폴더 구조에 대한 자세한 내용은 [Azure Functions 개발자 가이드](functions-reference.md#folder-structure)를 참조하세요.
+함수 프로젝트 디렉터리는 개별 함수에 대 한 코드를 포함 하는 하위 폴더와 함께 [host.json](functions-host-json.md) 및 [local.settings.js에](#local-settings-file)대 한 파일을 포함 합니다. 이 디렉터리는 Azure의 함수 앱에 해당합니다. Functions 폴더 구조에 대한 자세한 내용은 [Azure Functions 개발자 가이드](functions-reference.md#folder-structure)를 참조하세요.
 
 버전 3.x/2.x의 경우 프로젝트를 초기화할 때 프로젝트에 대 한 기본 언어를 선택 해야 합니다. 버전 3.x/2.x에서 추가 된 모든 함수는 기본 언어 템플릿을 사용 합니다. 버전 1.x에서는 함수를 만들 때마다 언어를 지정합니다.
 
@@ -543,7 +543,7 @@ func azure functionapp publish <FunctionAppName>
 | **`--nozip`** | 기본 `Run-From-Package` 모드를 끕니다. |
 | **`--build-native-deps`** | Python 함수 앱을 게시할 때 생성 되는 원반 폴더를 건너뜁니다. |
 | **`--build`**, **`-b`** | Linux 함수 앱에 배포할 때 빌드 작업을 수행 합니다. 수락: `remote` 및 `local` . |
-| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예: `python3-dev libevent-dev` |
+| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예를 들어 `python3-dev libevent-dev`을 참조하십시오. |
 | **`--force`** | 특정 시나리오에서 게시 전 확인을 무시합니다. |
 | **`--csx`** | C# 스크립트(.csx) 프로젝트를 게시합니다. |
 | **`--no-build`** | 게시 하는 동안 프로젝트가 빌드되지 않습니다. Python의 경우가 `pip install` 수행 되지 않습니다. |

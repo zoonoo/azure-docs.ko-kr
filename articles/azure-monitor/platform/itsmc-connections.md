@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 410281ce67faf345539701389d4b03351d403b99
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 502d5a5c4b3d13d32fece648ce1de6763d012096
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186068"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932288"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](./itsmc-overview.md)를 참조하세요.
@@ -25,8 +25,7 @@ ms.locfileid: "96186068"
 
 > [!NOTE]
 > 
-> 1-10 월-2020 Cherwell 및 Azure 경고와 Provance ITSM 통합은 더 이상 새 고객에 대해 사용 하도록 설정 되지 않습니다. 새 ITSM 연결은 지원 되지 않습니다. 
-> 기존 ITSM 연결이 지원 됩니다.
+> Cherwell 및 Provance 고객에 게 웹 후크 [작업](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) 을 사용 하 여 Cherwell 및 Provance 끝점을 통합에 대 한 다른 솔루션으로 제안 합니다.
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>System Center Service Manager를 Azure의 IT 서비스 관리 커넥터에 연결
 

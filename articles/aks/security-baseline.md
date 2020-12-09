@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6612e6982ae4826869134dfa46b35a3f202d4bbb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 29bcf2fdd3e20b28b1f2cb014137cfba37ccaf2e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183246"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931812"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 azure 보안 기준
 
@@ -178,7 +178,7 @@ AKS 클러스터의 노드 풀에 Azure 태그를 적용 합니다. 이러한 �
 
 네트워크 정책을 사용 하 여 네임 스페이스 및 레이블 선택기에 따라 클러스터 내의 특정 네트워크 경로를 허용 하거나 거부 하도록 선택 합니다. 이러한 네임 스페이스 및 레이블을 트래픽 구성 규칙에 대 한 설명자로 사용 합니다. Azure PowerShell 또는 Azure CLI (명령줄 인터페이스)를 사용 하 여 태그를 기준으로 리소스에 대 한 작업을 조회 하거나 수행할 수 있습니다.
 
-- [CLI를 사용 하 여 Azure Policy](/cli/azure/policy?view=azure-cli-latest)
+- [CLI를 사용 하 여 Azure Policy](/cli/azure/policy)
 
 - [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -382,7 +382,7 @@ Coredns-custom ConfigMap에 문서화 된 구성을 적용 하 여 DNS 쿼리 �
 
 - [Azure AD와 AKS를 통합 하는 방법](./azure-ad-integration-cli.md)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Azure Security Center를 사용 하 여 id 및 액세스를 모니터링 하는 방법](../security-center/security-center-identity-access.md)
 
@@ -735,7 +735,7 @@ Windows server 노드를 최신 상태로 유지 하는 프로세스는 windows 
 
 PowerShell cmdlet "AzSecurityTask"를 사용 하 여 보안 상태 및 수정 취약점 검색 결과를 강화 하기 위해 수행할 것 Security Center 권장 하는 보안 작업의 검색을 자동화 합니다.
 
-- [PowerShell을 사용 하 여 Azure Security Center에서 검색 된 취약성을 확인 하는 방법](/powershell/module/az.security/get-azsecuritytask?view=azps-3.3.0)
+- [PowerShell을 사용 하 여 Azure Security Center에서 검색 된 취약성을 확인 하는 방법](/powershell/module/az.security/get-azsecuritytask)
 
 **Azure Security Center 모니터링**: 예
 
@@ -763,7 +763,7 @@ Azure에서 제공 하는 기본 제공 취약점 평가 도구 (예: Qualys 또
 
 - [Azure Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -927,15 +927,15 @@ Azure AD 통합을 사용 하 여 네임 스페이스 내에서 또는 클러스
 
 Azure AD PowerShell 모듈을 사용 하 여 AKS 관리 그룹의 멤버인 계정을 검색 하 고이를 사용 하 여 정기적으로 액세스를 조정 하는 임시 쿼리를 수행할 수 있습니다. ' 관리 되는 Kubernetes 클러스터에 대 한 액세스 자격 증명 가져오기 '와 같은 작업에 Azure CLI를 사용 합니다. Security Center Id 및 액세스 관리 권장 사항을 구현 합니다.
 
-- [Azure CLI를 사용 하 여 AKS 관리](/cli/azure/aks?view=azure-cli-latest)
+- [Azure CLI를 사용 하 여 AKS 관리](/cli/azure/aks)
 
 - [AKS 및 Azure AD 통합 이해](concepts-identity.md)
 
 - [Azure AD와 AKS를 통합 하는 방법](./azure-ad-integration-cli.md)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Azure Security Center를 사용 하 여 id 및 액세스를 모니터링 하는 방법](../security-center/security-center-identity-access.md)
 
@@ -1055,7 +1055,7 @@ AKS 에이전트 노드 호스트 OS에 대 한 보안 강화
 
 security-hardened-vm-host-image.md
 
-- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1235,7 +1235,7 @@ AKS 클러스터에서 서비스 주체를 사용할 수도 있습니다. 그러
 
 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호에 대 한 정기적으로 자동화 된 백업을 수행 합니다. 
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
@@ -1259,7 +1259,7 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호의 데이터 복원을 정기적으로 수행 합니다. 
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: f8ec80d178af274c285371b4f53820eb9e41ccf7
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 0d1c2304f68f5e24c45390dca2cc0deb6e8dede2
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96519164"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931948"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>AKS(Azure Kubernetes Service) 작동 시간 SLA
 
@@ -42,7 +42,7 @@ ms.locfileid: "96519164"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 버전 2.8.0 이상을 설치 합니다.
+* [Azure CLI](/cli/azure/install-azure-cli) 버전 2.8.0 이상을 설치 합니다.
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>작동 시간 SLA를 사용 하 여 새 클러스터 만들기
 
@@ -139,9 +139,9 @@ az group delete --name myResourceGroup --yes --no-wait
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-create]: /cli/azure/aks?#az-aks-create
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?#az-aks-nodepool-update
 [az-group-delete]: /cli/azure/group#az-group-delete

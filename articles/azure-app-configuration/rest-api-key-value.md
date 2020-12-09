@@ -1,17 +1,17 @@
 ---
 title: Azure 앱 구성 REST API-키-값
 description: Azure 앱 구성을 사용 하 여 키-값 작업을 위한 참조 페이지 REST API
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: f89b3f2fa4805eeb2fd9f9d511c8f228b98139ac
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 95081d6f8c2770d01f7836e08b6851860bf47ba8
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241032"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932560"
 ---
 # <a name="key-values"></a>키-값
 
@@ -26,11 +26,11 @@ ms.locfileid: "95241032"
 - 설정
 - 삭제
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 ```json
 {
@@ -163,14 +163,14 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 
 ### <a name="supported-filters"></a>지원되는 필터
 
-|키 필터|영향|
+|키 필터|효과|
 |--|--|
 |`key`은 생략 또는 `key=*`|**모든** 키를 찾습니다.|
 |`key=abc`|**Abc** 라는 키를 찾습니다.|
 |`key=abc*`|**Abc** 로 시작 하는 키 이름과 일치|
 |`key=abc,xyz`|키 이름 **abc** 또는 **xyz** (CSV 5 개로 제한 됨)를 찾습니다.|
 
-|레이블 필터|영향|
+|레이블 필터|효과|
 |--|--|
 |`label`은 생략 또는 `label=*`|**모든** 레이블과 일치|
 |`label=%00`|레이블 없이 KV 일치|
