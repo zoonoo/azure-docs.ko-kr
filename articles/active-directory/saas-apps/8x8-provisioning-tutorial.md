@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 90e3464ac9ddf1e839c3a731f79ac2c0771c37ea
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a6aa4ad009d037e6ea0d1ade3cc9735351bd634a
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532709"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558864"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 8x8 구성
 
-이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 8x8 Configuration Manager 및 Azure AD(Azure Active Directory)에서 수행해야 하는 단계를 설명합니다. 구성된 경우 Azure AD는 Azure AD 프로비저닝 서비스를 사용하여 사용자 및 그룹을 [8x8](https://www.8x8.com)로 자동으로 프로비저닝 및 프로비저닝 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요. 
+이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 8x8 관리 콘솔 및 Azure AD(Azure Active Directory) 모두에서 수행해야 하는 단계에 대해 설명합니다. 구성된 경우 Azure AD는 Azure AD 프로비저닝 서비스를 사용하여 사용자 및 그룹을 [8x8](https://www.8x8.com)로 자동으로 프로비저닝 및 프로비저닝 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요. 
 
 ## <a name="capabilities-supported"></a>지원되는 기능
 > [!div class="checklist"]
@@ -36,7 +36,7 @@ ms.locfileid: "96532709"
 * [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md) 
 * 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자).
 * 모든 수준의 8x8 X 시리즈 구독입니다.
-* [Configuration Manager](https://vo-cm.8x8.com)에서 관리자 권한이 있는 8x8 사용자 계정
+* [관리 콘솔](https://vo-cm.8x8.com)에서 관리자 권한이 있는 8x8 사용자 계정
 * [Azure AD로 Single Sign-On](./8x8virtualoffice-tutorial.md)이 이미 구성되어 있습니다.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
@@ -48,7 +48,7 @@ ms.locfileid: "96532709"
 
 이 섹션에서는 Azure AD로 프로비저닝을 지원하도록 8x8을 구성하는 단계를 안내합니다.
 
-### <a name="to-configure-a-user-provisioning-access-token-in-8x8-configuration-manager"></a>8x8 Configuration Manager에서 사용자 프로비저닝 액세스 토큰을 구성하려면
+### <a name="to-configure-a-user-provisioning-access-token-in-8x8-admin-console"></a>8x8 관리 콘솔에서 사용자 프로비저닝 액세스 토큰을 구성하려면 다음을 수행합니다.
 
 1. [관리 콘솔](https://admin.8x8.com)에 로그인합니다. **ID 관리** 를 선택합니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "96532709"
 
 ## <a name="step-3-add-8x8-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 8x8 추가
 
-Azure AD 애플리케이션 갤러리에서 8x8을 추가하여 8x8로의 프로비저닝 관리를 시작합니다. 이전에 SSO용 8x8을 설정했다면 동일한 애플리케이션을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다.
+Azure AD 애플리케이션 갤러리에서 8x8을 추가하여 8x8로의 프로비저닝 관리를 시작합니다. 이전에 SSO를 8x8에 사용하도록 설정한 경우 동일한 애플리케이션을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다.
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>4단계. 프로비저닝 범위에 있는 사용자 정의
 
@@ -102,7 +102,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![자동 옵션이 호출된 프로비저닝 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션에서 Configuration Manager의 **8x8 URL** 을 **테넌트 URL** 로 복사합니다. Configuration Manager의 **8x8 API 토큰** 을 **비밀 토큰** 으로 복사합니다. **연결 테스트** 를 클릭하여 Azure AD가 8x8에 연결할 수 있는지 확인합니다. 연결이 실패하면 8x8 계정에 관리자 권한이 있는지 확인한 후 다시 시도합니다.
+5. **관리자 자격 증명** 섹션 아래에서 관리 콘솔의 **8x8 URL** 을 **테넌트 URL** 에 복사합니다. 관리 콘솔의 **8x8 API Token(API 토큰)** 을 **비밀 토큰** 에 복사합니다. **연결 테스트** 를 클릭하여 Azure AD가 8x8에 연결할 수 있는지 확인합니다. 연결이 실패하면 8x8 계정에 관리자 권한이 있는지 확인한 후 다시 시도합니다.
 
     ![스크린샷은 테넌트 URL 및 비밀 토큰을 입력할 수 있는 관리자 자격 증명 대화 상자를 보여 줍니다.](./media/8x8-provisioning-tutorial/provisioning.png)
 
