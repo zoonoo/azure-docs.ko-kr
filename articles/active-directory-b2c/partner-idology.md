@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 07a8f785cf2b9a64f3acb9f44c4fca5023c4fcf3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2b6001932b6f53a60eda76b6136611a10011391a
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953749"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928684"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 IDology 구성에 대 한 자습서 
 
@@ -67,7 +67,7 @@ IDology 통합에는 다음 구성 요소가 포함 됩니다.
 
 ### <a name="part-1---deploy-the-api"></a>1 부-API 배포
 
-제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) 를 Azure 서비스에 배포 합니다. 이러한 [지침](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
+제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) 를 Azure 서비스에 배포 합니다. 이러한 [지침](/visualstudio/deployment/quickstart-deploy-to-azure)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
 
 필요한 설정을 사용 하 여 Azure AD를 구성 하려면 배포 된 서비스의 URL이 필요 합니다.
 

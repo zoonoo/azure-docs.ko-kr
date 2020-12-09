@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: c734c0ceb9c4d5418edc51a2c3ad3c052637ad31
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: fa99920c8e9d8cd532bb6230d6a337a038ee3e31
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696985"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929330"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
@@ -308,7 +308,7 @@ principalId는 Azure AD 관리에 사용되는 ID의 고유 식별자입니다. 
 애플리케이션의 액세스를 허용하도록 대상 리소스를 구성해야 할 수도 있습니다. 예를 들어 Key Vault에 액세스하는 토큰을 요청할 때에는 애플리케이션의 ID를 포함하는 액세스 정책을 추가했는지 확인해야 합니다. 그렇지 않으면 토큰이 포함되어 있더라도 Key Vault 호출이 거부됩니다. Azure Active Directory 토큰을 지원하는 리소스에 대한 자세한 내용은 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
 
 > [!IMPORTANT]
-> 관리 ID에 대한 백 엔드 서비스는 약 8시간 동안 리소스 URI당 캐시를 유지 관리합니다. 특정 대상 리소스의 액세스 정책을 업데이트하고 해당 리소스에 대한 토큰을 즉시 검색하는 경우 토큰이 만료될 때까지 오래된 권한으로 캐시된 토큰을 계속 가져올 수 있습니다. 현재 토큰 새로 고침을 강제로 적용할 수 있는 방법은 없습니다.
+> 관리 id에 대 한 백 엔드 서비스는 약 24 시간 동안 리소스 URI 당 캐시를 유지 관리 합니다. 특정 대상 리소스의 액세스 정책을 업데이트하고 해당 리소스에 대한 토큰을 즉시 검색하는 경우 토큰이 만료될 때까지 오래된 권한으로 캐시된 토큰을 계속 가져올 수 있습니다. 현재 토큰 새로 고침을 강제로 적용할 수 있는 방법은 없습니다.
 
 App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프로토콜이 있습니다. 이는 모든 애플리케이션 및 언어에 사용할 수 있습니다. .NET 및 Java의 경우 Azure SDK는 이 프로토콜에 대한 추상화를 제공하여 로컬 개발 환경을 지원합니다.
 

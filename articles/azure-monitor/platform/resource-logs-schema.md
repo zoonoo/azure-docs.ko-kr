@@ -4,12 +4,12 @@ description: Azure 리소스 로그에 대해 지원 되는 서비스 및 이벤
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 1f8754245e394ecdffbb045d7f4cc96ec8a3ff78
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6a76d642863a0baac8021a3da196ad5a2db48126
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184504"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931166"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Azure 리소스 로그의 공통 및 서비스별 스키마
 
@@ -38,7 +38,7 @@ ms.locfileid: "96184504"
 | callerIpAddress | 선택 사항 | 작업이 공용 IP 주소를 사용하는 엔터티에서 시작되는 API 호출에 해당하는 경우 호출자 IP 주소입니다. |
 | correlationId | 선택 사항 | 관련 이벤트 집합을 그룹화하는 데 사용되는 GUID입니다. 일반적으로 두 이벤트에 동일한 operationName이 있지만 두 개의 다른 상태 (예: "Started" 및 "Succeeded")가 있는 경우 동일한 상관 관계 ID를 공유 합니다. 이벤트 간의 다른 관계를 나타낼 수도 있습니다. |
 | identity | 선택 사항 | 작업을 수행한 사용자 또는 애플리케이션의 ID를 설명하는 JSON Blob입니다. 일반적으로이 필드에는 active directory의 권한 부여 및 클레임/JWT 토큰이 포함 됩니다. |
-| Level | 선택 사항 | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| 수준 | 선택 사항 | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
 | 위치 | 선택 사항 | 이벤트를 내보내는 리소스의 지역 (예: "미국 동부" 또는 "프랑스 남부") |
 | properties | 선택 사항 | 이 특정 범주의 이벤트와 관련된 확장 속성입니다. 모든 custom/unique 속성은 스키마의이 "파트 B" 안에 배치 해야 합니다. |
 
@@ -51,6 +51,7 @@ ms.locfileid: "96184504"
 | Azure Active Directory | [개요](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [감사 로그 스키마](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) 및 [로그인 스키마](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | [Azure Analysis Services-진단 로깅 설정](../../analysis-services/analysis-services-logging.md) |
 | API Management | [API Management 리소스 로그](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
+| App Service | [App Service 로그](../../app-service/troubleshoot-diagnostic-logs.md)
 | Application Gateway |[Application Gateway에 대 한 로깅](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Azure Automation에 대 한 Log analytics](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 로깅](../../batch/batch-diagnostics.md) |

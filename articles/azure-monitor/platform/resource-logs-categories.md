@@ -3,13 +3,13 @@ title: Azure Monitor 리소스 로그에서 지원 되는 서비스 및 범주
 description: Azure 리소스 로그에 대해 지원 되는 서비스 및 이벤트 스키마를 이해 하는 Azure Monitor에 대 한 참조입니다.
 ms.subservice: logs
 ms.topic: reference
-ms.date: 06/03/2020
-ms.openlocfilehash: 463b1d9d9c3ed1d94728874ba814554deb4f97c6
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 12/09/2020
+ms.openlocfilehash: c7b2d48b40843930bba78f54d2294769d952daf6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920832"
+ms.locfileid: "96931232"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Azure 리소스 로그에 대해 지원 되는 범주
 
@@ -23,7 +23,7 @@ ms.locfileid: "96920832"
 
 ## <a name="costs"></a>비용
 
- Log Analytics 및/또는 이벤트 허브에 데이터를 보내고 저장 하는 것과 관련 된 비용이 있습니다. 리소스 로그는 이러한 위치에 보낼 수 있는 데이터의 한 가지 유형입니다. [리소스 로그의 일부 범주를 내보내기 위한 추가 비용이](https://azure.microsoft.com/pricing/details/monitor/)발생 합니다. 다른 방법으로는 내보내기 비용이 없습니다. 구체적인 내용은 아래 표에 나와 있습니다.
+Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내고 저장 하는 것과 관련 된 비용이 있습니다. 이러한 위치에 데이터를 보관 하 고 유지 하기 위해 비용을 지불할 수 있습니다.  리소스 로그는 이러한 위치에 보낼 수 있는 데이터의 한 가지 유형입니다. [리소스 로그의 일부 범주](https://azure.microsoft.com/pricing/details/monitor/) 를 이러한 위치로 내보내기 위한 추가 비용이 있으며, 다른 일부는 내보내기 비용이 없습니다. 내보내기 비용 세부 정보는 아래 표에 나열 되어 있습니다.
 
 ## <a name="supported-log-categories-per-resource-type"></a>각 리소스 유형별 지원되는 로그 범주
 

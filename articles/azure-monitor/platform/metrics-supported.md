@@ -4,26 +4,26 @@ description: Azure Monitor의 각 리소스 유형별로 사용 가능한 메트
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 10/01/2020
+ms.date: 12/09/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3e5dd5c83468e867c746393642a1e40ff07763c4
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 04f6cdae8a7601f94251516cf5c3c1fab07994a6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921507"
+ms.locfileid: "96929109"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
 > [!NOTE]
-> 이 목록은 Azure Monitor 메트릭 REST API에서 대부분 자동으로 생성 됩니다. GitHub를 통해이 목록에 대 한 모든 수정 내용이 경고 없이 기록 될 수 있습니다. 영구적 업데이트를 수행 하는 방법에 대 한 자세한 내용은이 문서의 작성자에 게 문의 하세요.
+> 이 목록은 대부분 자동으로 생성 됩니다. GitHub를 통해이 목록에 대 한 모든 수정 내용이 경고 없이 기록 될 수 있습니다. 영구적 업데이트를 수행 하는 방법에 대 한 자세한 내용은이 문서의 작성자에 게 문의 하세요.
 
 Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 
 
-이 문서는 Azure Monitor의 통합 된 메트릭 파이프라인에서 현재 사용할 수 있는 모든 플랫폼 (즉, 자동으로 수집 된) 메트릭의 전체 목록입니다. 이 목록은 3 월 27 일 2020에 마지막으로 업데이트 되었습니다. 이 날짜 이후에 변경 되거나 추가 된 메트릭은 아래에 표시 되지 않을 수 있습니다. 프로그래밍 방식으로 메트릭 목록을 쿼리하고 액세스 하려면 [2018-01-01 api-version](/rest/api/monitor/metricdefinitions)을 사용 하세요. 이 목록에 없는 다른 메트릭은 포털에서 또는 레거시 Api를 사용 하 여 사용할 수 있습니다.
+이 문서는 Azure Monitor의 통합 된 메트릭 파이프라인에서 현재 사용할 수 있는 모든 플랫폼 (즉, 자동으로 수집 된) 메트릭의 전체 목록입니다. 이 문서의 맨 위에 있는 날짜 이후에 변경 되거나 추가 된 메트릭은 아직 아래에 표시 되지 않을 수 있습니다. 프로그래밍 방식으로 메트릭 목록을 쿼리하고 액세스 하려면 [2018-01-01 api-version](/rest/api/monitor/metricdefinitions)을 사용 하세요. 이 목록에 없는 다른 메트릭은 포털에서 또는 레거시 Api를 사용 하 여 사용할 수 있습니다.
 
-메트릭은 리소스 공급자와 리소스 종류별로 구성 됩니다. 서비스 및 해당 서비스에 속한 리소스 공급자 목록은 [Azure 서비스에 대 한 리소스 공급자](../../azure-resource-manager/management/azure-services-resource-providers.md)를 참조 하세요. 
+메트릭은 리소스 공급자와 리소스 종류별로 구성 됩니다. 서비스 및 해당 서비스에 속한 리소스 공급자 및 형식 목록은 [Azure 서비스에 대 한 리소스 공급자](../../azure-resource-manager/management/azure-services-resource-providers.md)를 참조 하세요.  
 
 ## <a name="exporting-platform-metrics-to-other-locations"></a>플랫폼 메트릭을 다른 위치로 내보내기
 

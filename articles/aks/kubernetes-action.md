@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 11/06/2020
 ms.author: atulmal
 ms.custom: github-actions-azure
-ms.openlocfilehash: a0f64b0d19dd3f65d883237e9ead2c9f1303adaf
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 716cf4f4bfaed31dcbd756ae9494e1ddc8e475ad
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95794782"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929883"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Kubernetes service에 배포 하는 GitHub 작업
 
 [GitHub Actions](https://help.github.com/en/articles/about-github-actions)를 사용하면 자동화된 소프트웨어 개발 수명 주기 워크플로를 유연성 있게 빌드할 수 있습니다. 여러 Kubernetes 작업을 사용 하 여 GitHub 작업을 통해 Azure Container Registry에서 Azure Kubernetes Service로 컨테이너에 배포할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요.  
@@ -41,7 +41,7 @@ AKS를 대상으로 하는 워크플로의 경우 파일에는 다음 세 개의
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
-[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) 명령을 사용하여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 이 명령을 실행할 수 있습니다.
+[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용하여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 이 명령을 실행할 수 있습니다.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
@@ -68,7 +68,7 @@ GitHub에서 인증하는 데 사용할 수 있는 이 JSON 개체를 복사합�
 
     ![리포지토리에 대 한 새 비밀 추가 링크를 보여 주는 스크린샷](media/kubernetes-action/secrets.png)
 
-2. 위의 `az cli` 명령 내용을 secret 변수의 값으로 붙여넣습니다. `AZURE_CREDENTIALS`)을 입력합니다.
+2. 위의 `az cli` 명령 내용을 secret 변수의 값으로 붙여넣습니다. 예: `AZURE_CREDENTIALS`.
 
 3. 마찬가지로 컨테이너 레지스트리 자격 증명에 대해 다음과 같은 추가 암호를 정의 하 고 Docker 로그인 작업에서 설정 합니다. 
 

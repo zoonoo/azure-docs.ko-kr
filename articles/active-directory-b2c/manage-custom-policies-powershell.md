@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29db2214ddabeb6df2aa937c4ccd1f9938143969
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: fcc482e215e646fec20516f35641bd05398d2f2d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949448"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928718"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure AD B2C 사용자 지정 정책 관리
 
@@ -31,7 +31,7 @@ Azure PowerShell은 Azure AD B2C 테 넌 트에서 명령줄 및 스크립트 �
 
 * [B2C IEF 정책 관리자](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) 역할을 사용 하 여 디렉터리의 사용자에 대 한 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md)및 자격 증명
 * 테 넌 트에 업로드 된 [사용자 지정 정책](custom-policy-get-started.md)
-* [Graph **preview 모듈인** Azure AD PowerShell](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+* [Graph **preview 모듈인** Azure AD PowerShell](/powershell/azure/active-directory/install-adv2)
 
 ## <a name="connect-powershell-session-to-b2c-tenant"></a>B2C 테 넌 트에 PowerShell 세션 연결
 

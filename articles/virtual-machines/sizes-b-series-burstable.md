@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 819654ef88584cb91d6032e46256258aaed524fd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ea812df825288eae3822cce01b24ebc82534c541
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500311"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928820"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B-시리즈 버스터블 가상 머신 크기
 
@@ -132,7 +132,7 @@ Azure에 대한 메트릭 데이터에 액세스하는 방법에 대한 자세�
 
 ### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>Q: redepoy 또는 중지/시작 후에 남은 크레딧이 0으로 설정되는 이유는 무엇인가요?
 
-**A** : VM이 "REDPLOYED" 상태이고 VM이 다른 노드로 이동한 경우 누적된 크레딧은 손실됩니다. VM이 중지/시작했지만 동일한 노드에 남아 있는 경우 VM은 누적된 크레딧을 유지합니다. VM이 노드에서 새로 시작 될 때마다 초기 크레딧을 가져옵니다. Standard_B8ms에 대 한 내용은 240입니다.
+**A** : vm을 다시 배포 하 고 vm을 다른 노드로 이동 하면 누적 크레딧이 손실 됩니다. VM이 중지/시작했지만 동일한 노드에 남아 있는 경우 VM은 누적된 크레딧을 유지합니다. VM이 노드에서 새로 시작 될 때마다 초기 크레딧을 가져옵니다. Standard_B8ms에 대 한 내용은 240입니다.
 
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>Q: B1ls에 지원 되지 않는 OS 이미지를 배포 하면 어떻게 되나요?
 

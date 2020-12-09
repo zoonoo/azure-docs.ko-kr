@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 48fc8533ee1fd206e69e16d4c03e4b4acf047135
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 46c6eac80ddbff73d99e05c070e66aa1700da174
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953692"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928633"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Onfido 구성에 대 한 자습서
 
@@ -74,7 +74,7 @@ Onfido에 대 한 자세한 내용은 [ONFIDO API 설명서](https://documentati
 
 ### <a name="part-1---deploy-the-api"></a>1 부-API 배포
 
-- 제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) 를 Azure 서비스에 배포 합니다. 이러한 [지침](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
+- 제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) 를 Azure 서비스에 배포 합니다. 이러한 [지침](/visualstudio/deployment/quickstart-deploy-to-azure)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
 - CORS를 설정 하 고 **허용 된 원본을** https://{your_tenant_name}. b2clogin로 추가 합니다.
 
 >[!NOTE]
@@ -126,7 +126,7 @@ Onfido에 대 한 자세한 내용은 [ONFIDO API 설명서](https://documentati
 
 제공 된 [사용자 지정 정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/Policies)에서 다음 자리 표시자를 찾고를 인스턴스의 해당 값으로 바꿉니다.
 
-| 자리표시자 | 대체할 값 | 예  |
+| 자리표시자 | 대체할 값 | 예제  |
 |:---------------|:----------------|:-------------------|
 | {your_tenant_name}  | 테 넌 트 약식 이름 |  yourtenant.onmicrosoft.com의 "모든 테 넌 트" |
 | {your_tenantID} | Azure AD B2C 테 넌 트의 TenantID | 01234567-89ab-cdef-0123-456789abcdef           |
@@ -159,7 +159,7 @@ Azure AD B2C 테 넌 트를 설정 하 고 정책을 구성 하는 방법에 대
 
    b. **회신 url**: **리디렉션 url** 을 선택 합니다.
 
-   c. **사용자 흐름 실행** 을 선택합니다.
+   다. **사용자 흐름 실행** 을 선택합니다.
 
 4. 등록 흐름으로 이동 하 여 계정 만들기
 

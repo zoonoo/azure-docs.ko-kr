@@ -2,18 +2,18 @@
 title: Azure Data Factory와의 차이점
 description: Azure Synapse Analytics의 데이터 통합 기능이와 어떻게 Azure Data Factory 다른 지 알아보세요.
 services: synapse-analytics
-author: djpmsft
+author: shirleywangmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.author: daperlov
+ms.author: shwang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 10f5336dd4c8a02acf623b1b14226ca676006953
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: db5d05e1a211ce14926ee4031054669fff5110d9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357652"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930214"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Azure Synapse Analytics의 데이터 통합 및 Azure Data Factory
 
@@ -42,7 +42,6 @@ Azure Data Factory 기능이 나 아티클이 Azure Synapse에 적용 되는지 
 
 * **랭 글 링 데이터 흐름:** 랭 글 링 데이터 흐름 작업은 현재 Azure Data Factory 에서만 사용할 수 있습니다.
 * **솔루션 템플릿 갤러리:** Azure Data Factory에서 사용자는 솔루션 템플릿 갤러리에서 파이프라인 템플릿을 찾을 수 있습니다. Synapse 작업 영역에서 기술 센터는 추가 데이터 집합 및 SQL 스크립트와 함께 다른 템플릿 집합을 포함 합니다. 
-* **Git 통합 및 기본 CI/CD 솔루션:** 현재 Synapse 작업 영역은 Git 리포지토리에 연결할 수 없으며 Azure Data Factory와 동일한 연속 통합 및 배달 프로세스를 따르지 않습니다.
 * **Azure monitor와 통합:** Synapse 작업 영역은 Azure Data Factory 처럼 Azure Monitor와 통합 되지 않습니다.
 * **하이브리드 통합 런타임 구성:** Synapse 작업 영역 내에서 사용자에 게 관리 되는 VNet IR 및 Azure IR 모두 있을 수는 없습니다. 이 기능은 Azure Data Factory에서 지원 됩니다.
 * **Integration runtime 공유:** 자체 호스팅 통합 런타임을 Synapse 작업 영역 간에 공유할 수 없습니다. 이 기능은 Azure Data Factory에서 지원 됩니다.

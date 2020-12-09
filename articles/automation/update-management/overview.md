@@ -3,14 +3,14 @@ title: Azure Automation - 업데이트 관리 개요
 description: 이 문서에서는 Windows 및 Linux 머신의 업데이트를 구현하는 업데이트 관리 기능의 개요를 살펴봅니다.
 services: automation
 ms.subservice: update-management
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 37ab05ce7e963ab7fdc4d2b02e254adaa205446c
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 4b557c9772e76b6b61cdf01799ee30ba6bc11807
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327494"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928429"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -224,7 +224,7 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결 하는 것�
 >
 > Linux 업데이트 분류는 없으며 **다른 업데이트** 범주에 보고 됩니다. 업데이트 관리은 지원 되는 배포판, 특히 릴리스된 [OVAL](https://oval.mitre.org/) (개방형 취약성 및 평가 언어) 파일에 의해 게시 된 데이터를 사용 합니다. 인터넷 액세스는 이러한 국가별 클라우드에서 제한 되기 때문에 이러한 파일에 액세스 하 고 사용할 수 업데이트 관리.
 
-Linux의 경우 클라우드의 풍부한 데이터로 인해 평가 데이터가 표시되면서, 업데이트 관리가 클라우드에서 중요 업데이트와 보안 업데이트를 구분할 수 있습니다. 패치의 경우, 업데이트 관리는 컴퓨터에서 사용할 수 있는 분류 데이터에 의존합니다. 다른 배포판과 달리, CentOS에서는 RTM 버전에서 이 정보를 사용할 수 없습니다. CentOS 머신이 다음 명령에 대해 보안 데이터를 반환하도록 구성된 경우 업데이트 관리에서는 분류에 따라 패치를 수행할 수 있습니다.
+업데이트 관리 Linux의 경우 클라우드의 데이터 보강 때문에 평가 데이터를 표시 하는 동시에 클라우드의 중요 업데이트와 보안 업데이트를 분류 **보안** 및 **기타** 에서 구분할 수 있습니다. 패치의 경우, 업데이트 관리는 컴퓨터에서 사용할 수 있는 분류 데이터에 의존합니다. 다른 배포판과 달리, CentOS에서는 RTM 버전에서 이 정보를 사용할 수 없습니다. CentOS 머신이 다음 명령에 대해 보안 데이터를 반환하도록 구성된 경우 업데이트 관리에서는 분류에 따라 패치를 수행할 수 있습니다.
 
 ```bash
 sudo yum -q --security check-update
@@ -233,6 +233,10 @@ sudo yum -q --security check-update
 현재는 CentOS에서 네이티브 분류 데이터 가용성을 지원하는 메서드가 없습니다. 현재이 기능을 사용 하도록 설정 했을 수 있는 고객에 게는 제한 된 지원이 제공 됩니다.
 
 Red Hat Enterprise 버전 6의 업데이트를 분류하려면 yum-보안 플러그인을 설치해야 합니다. Red Hat Enterprise Linux 7에서는 플러그인이 이미 yum 자체에 포함되어 있으므로 아무것도 설치할 필요가 없습니다. 자세한 내용은 다음 Red Hat [기술 항목](https://access.redhat.com/solutions/10021)을 참조하세요.
+
+Linux 컴퓨터에서 실행 되도록 업데이트를 예약 하는 경우 예를 들어 **보안** 분류와 일치 하는 업데이트만 설치 하도록 구성 된 경우, 설치 된 업데이트는이 분류와 일치 하는 업데이트의 하위 집합일 수 있습니다. Linux 컴퓨터에 대해 보류 중인 OS 업데이트의 평가를 수행 하는 경우 업데이트 관리에서 분류를 위해 Linux 배포판 공급 업체에서 제공 하는 [Open 취약성 및 평가 언어](https://oval.mitre.org/) (OVAL) 파일이 사용 됩니다.
+
+분류 **는 보안 문제나** 취약성을 해결 하는 업데이트를 포함 하는 OVAL 파일 **을 기반으로** 하는 Linux 업데이트에 대해 수행 됩니다. 하지만 업데이트 일정을 실행 하면 해당 패키지 관리자 (예: YUM, APT 또는 ZYPPER)를 사용 하 여 Linux 컴퓨터에서 실행 됩니다. Linux 배포판 패키지 관리자는 업데이트를 분류 하는 다른 메커니즘을 사용할 수 있습니다 .이 경우 결과는 OVAL 업데이트 관리 파일에서 가져온 것과 다를 수 있습니다. 컴퓨터를 수동으로 확인 하 고 패키지 관리자의 보안 관련 업데이트를 이해 하려면 [Linux 업데이트 배포 문제 해결](../troubleshoot/update-management.md#updates-linux-installed-different)을 참조 하세요.
 
 ## <a name="integrate-update-management-with-configuration-manager"></a>Configuration Manager와 업데이트 관리 통합
 

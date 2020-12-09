@@ -1,23 +1,23 @@
 ---
 title: Azure Active Directory REST API-인증
 description: Azure Active Directory를 사용 하 여 REST API를 통해 Azure 앱 구성에 인증 합니다.
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 73d951b3e85c170cf068693bb9b374349516ca8f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cbf05245768a663e324e9bb6e1ad422eeee3ab1a
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183484"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930520"
 ---
 # <a name="azure-active-directory-authentication"></a>Azure Active Directory 인증
 
 `Bearer`Azure Active Directory (AZURE AD)에서 획득 한 토큰으로 인증 체계를 사용 하 여 HTTP 요청을 인증할 수 있습니다. TLS (전송 계층 보안)를 통해 이러한 요청을 전송 해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 해당 하는 [Azure 앱 구성 역할](./rest-api-authorization-azure-ad.md)중 하나에 Azure AD 토큰을 요청 하는 데 사용 되는 보안 주체를 할당 해야 합니다.
 

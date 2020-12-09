@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: a8cd6386ed6004935b0a1e45a53c01668166c0e4
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1b3ab569666ea413ba36da0dc00f6c37336c4443
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902258"
+ms.locfileid: "96931308"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 REST 끝점에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -43,7 +43,7 @@ REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 > [!TIP]
 > Data Factory에서 REST 커넥터를 구성하기 전에 데이터 검색을 위한 요청을 테스트하려면 헤더 및 본문 요구 사항의 API 사양을 알아봅니다. Postman 또는 웹 브라우저와 같은 도구를 사용하여 유효성을 검사할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -303,12 +303,19 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 | requestMethod | HTTP 메서드입니다. 허용 되는 값은 **POST** (기본값), **PUT** 및 **PATCH** 입니다. | 아니요 |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 예 |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 데이터를 쓸 수 있는 시간 제한이 아니라 응답을 가져오기 위한 제한 시간입니다. 기본값은 **00:01:40** 입니다.  | 아니요 |
-| requestInterval | Milisecond의 서로 다른 요청 간 간격 시간입니다. 요청 간격 값은 [10, 6만] 사이의 숫자 여야 합니다. |  아니요 |
+| requestInterval | 여러 요청 간의 간격 시간 (밀리초)입니다. 요청 간격 값은 [10, 6만] 사이의 숫자 여야 합니다. |  아니요 |
 | httpCompressionType | 최적의 압축 수준으로 데이터를 전송 하는 동안 사용할 HTTP 압축 유형입니다. 허용 되는 값은 **none** 및 **gzip** 입니다. | 예 |
 | writeBatchSize | 일괄 처리당 REST 싱크에 쓸 레코드 수입니다. 기본값은 10000입니다. | 아니요 |
 
->[!NOTE]
->Sink로 REST 커넥터는 JSON을 허용 하는 REST 끝점에서 작동 합니다. 데이터는 JSON 으로만 전송 됩니다.
+싱크로 사용 되는 REST 커넥터는 JSON을 허용 하는 REST Api와 함께 작동 합니다. 데이터는 다음 패턴을 사용 하 여 JSON으로 전송 됩니다. 필요에 따라 복사 작업 [스키마 매핑을](copy-activity-schema-and-type-mapping.md#schema-mapping) 사용 하 여 REST API에서 필요한 페이로드를 따르도록 원본 데이터의 모양을 변경할 수 있습니다.
+
+```json
+[
+    { <data object> },
+    { <data object> },
+    ...
+]
+```
 
 **예:**
 
@@ -348,7 +355,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 ## <a name="pagination-support"></a>페이지 매김 지원
 
-일반적으로 REST API은 적절 한 수의 단일 요청에 대 한 응답 페이로드 크기를 제한 합니다. 많은 양의 데이터를 반환 하는 경우 결과를 여러 페이지로 분할 하 고 호출자가 다음 결과 페이지를 가져오기 위해 연속 요청을 보내야 합니다. 보통 한 페이지에 대한 요청은 동적이고 이전 페이지의 응답에서 반환된 정보로 구성됩니다.
+일반적으로 REST Api에서 데이터를 복사 하는 경우 REST API은 적절 한 수의 단일 요청에 대 한 응답 페이로드 크기를 제한 합니다. 많은 양의 데이터를 반환 하는 경우 결과를 여러 페이지로 분할 하 고 호출자가 다음 결과 페이지를 가져오기 위해 연속 요청을 보내야 합니다. 보통 한 페이지에 대한 요청은 동적이고 이전 페이지의 응답에서 반환된 정보로 구성됩니다.
 
 이 일반 REST 커넥터는 다음 페이지 매김 패턴을 지원합니다. 
 

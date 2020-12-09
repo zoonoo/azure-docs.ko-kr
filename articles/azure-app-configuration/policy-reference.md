@@ -3,16 +3,16 @@ title: Azure App Configuration에 대한 기본 제공 정책 정의
 description: Azure App Configuration에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
 ms.date: 11/20/2020
 ms.topic: reference
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 6af0b094e6401dfbc20b27c2fd67258d9263b0c3
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: f3114a8585ab8b5e7fd67246ca7cbcd86232ff37
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94986290"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930750"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-app-configuration"></a>Azure App Configuration에 대한 Azure Policy 기본 제공 정의
 

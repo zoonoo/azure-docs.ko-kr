@@ -3,14 +3,14 @@ title: Azure Automation 업데이트 관리에 대 한 업데이트 배포를 �
 description: 이 문서에서는 업데이트 배포를 예약 하 고 해당 상태를 검토 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 10/27/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41ccecfb844f11a0d234271bcddc1851d3c02fda
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ec0d6d618edad87b76861ea834adb2f29531e6f5
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742290"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929670"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>업데이트를 배포 하 고 결과를 검토 하는 방법
 
@@ -133,7 +133,7 @@ REST API를 사용하여 업데이트 배포를 만드는 방법은 [소프트�
 
 사용 가능한 값은
 
-* **시도 안 함** : 정의된 유지 관리 기간에 따라 사용할 수 있는 시간이 충분하지 않기 때문에 업데이트가 설치되지 않았습니다.
+* **시도 안 함**: 정의된 유지 관리 기간에 따라 사용할 수 있는 시간이 충분하지 않기 때문에 업데이트가 설치되지 않았습니다.
 * **선택 안 함** - 배포할 업데이트를 선택하지 않았습니다.
 * **성공** - 업데이트했습니다.
 * **실패** - 업데이트하지 못했습니다.

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: f3a8881b9fe44727caf07b3cc0d5ee19f0444e98
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 66ec0d4b09dc983eb898d63d45b3dd7cab291c4c
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953664"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928667"
 ---
 # <a name="tutorial-for-configuring-jumio-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Jumio 구성에 대 한 자습서
 
@@ -65,7 +65,7 @@ Jumio 계정을 만든 후에는 계정을 사용 하 여 Azure AD B2C를 구성
 
 ### <a name="deploy-the-api"></a>API 배포
 
-제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) 를 Azure 서비스에 배포 합니다. 다음 [지침](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
+제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) 를 Azure 서비스에 배포 합니다. 다음 [지침](/visualstudio/deployment/quickstart-deploy-to-azure)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
 
 >[!NOTE]
 >필요한 설정을 사용 하 여 Azure AD를 구성 하려면 배포 된 서비스의 URL이 필요 합니다.
@@ -158,7 +158,7 @@ Jumio 계정을 만든 후에는 계정을 사용 하 여 Azure AD B2C를 구성
 
    b. **회신 url** 에 대해 **리디렉션 url** 을 선택 합니다.
 
-   c. **사용자 흐름 실행** 을 선택합니다.
+   다. **사용자 흐름 실행** 을 선택합니다.
 
 4. 등록 흐름을 진행 하 고 계정을 만듭니다.
 

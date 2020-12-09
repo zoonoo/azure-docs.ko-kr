@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: 0ca2d7ccc863e2208db1212ef3d3f10fa709d069
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2c4e39ae664c89e4f6d49f2941115e5a7d44cf7b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006647"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929176"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>빠른 시작: 투구를 사용 하 여 AKS (Azure Kubernetes Service)에서 개발
 
@@ -19,10 +19,10 @@ ms.locfileid: "96006647"
 
 이 문서에서는 AKS에서 응용 프로그램을 패키지 하 고 실행 하는 데 투구를 사용 하는 방법을 보여 줍니다. 투구를 사용 하 여 기존 응용 프로그램을 설치 하는 방법에 대 한 자세한 내용은 [AKS에서 투구로 기존 응용 프로그램 설치][helm-existing]를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
-* [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI 설치](/cli/azure/install-azure-cli)
 * [투구 v3이 설치][helm-install]되었습니다.
 
 ## <a name="create-an-azure-container-registry"></a>Azure Container Registry 만들기
@@ -134,7 +134,7 @@ helm create webfrontend
 * `image.repository`를 `<loginServer>/webfrontend`로 변경
 * `service.type`를 `LoadBalancer`로 변경
 
-예들 들어 다음과 같습니다.
+예를 들면 다음과 같습니다.
 
 ```yml
 # Default values for webfrontend.

@@ -3,34 +3,34 @@ title: 환경별 구성 사용
 titleSuffix: Azure App Configuration
 description: 레이블을 사용하여 환경별 구성 값을 제공합니다.
 ms.service: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 3/12/2020
-ms.author: lcozzens
-ms.openlocfilehash: 689fdbd444aa4b20f5bef225faa259788c47cf9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: alkemper
+ms.openlocfilehash: 84286df063994f3def15079cb9b190550d5bd977
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206661"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929619"
 ---
 # <a name="use-labels-to-enable-configurations-for-different-environments"></a>레이블을 사용하여 다양한 환경에 대한 구성을 사용할 수 있도록 설정
 
 많은 애플리케이션은 환경마다 다른 구성을 사용해야 합니다. 애플리케이션에 백 엔드 데이터베이스에 사용할 연결 문자열을 정의하는 구성 값이 있다고 가정합니다. 애플리케이션 개발자는 프로덕션 환경에서 사용하는 것과 다른 데이터베이스를 사용합니다. 애플리케이션이 개발 환경에서 프로덕션 환경으로 이동할 때 애플리케이션에서 사용하는 데이터베이스 연결 문자열을 변경해야 합니다.
 
-Azure App Configuration에서는 *레이블*을 사용하여 동일한 키에 대해 서로 다른 값을 정의할 수 있습니다. 예를 들어 개발 및 프로덕션에 대해 다른 값을 사용하여 단일 키를 정의할 수 있습니다. App Configuration에 연결할 때 로드할 레이블을 지정할 수 있습니다.
+Azure App Configuration에서는 *레이블* 을 사용하여 동일한 키에 대해 서로 다른 값을 정의할 수 있습니다. 예를 들어 개발 및 프로덕션에 대해 다른 값을 사용하여 단일 키를 정의할 수 있습니다. App Configuration에 연결할 때 로드할 레이블을 지정할 수 있습니다.
 
 이 기능을 설명하기 위해 [빠른 시작: Azure App Configuration을 사용하여 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md)에서 만든 웹앱을 수정하여 개발 및 프로덕션 간 다른 구성 설정을 사용합니다. 계속하기 전에 빠른 시작을 완료합니다.
 
 ## <a name="specify-a-label-when-adding-a-configuration-value"></a>구성 값을 추가할 때 레이블 지정
 
-Azure Portal에서 **구성 탐색기**로 이동하고 빠른 시작에서 만든 *TestApp:Settings:FontColor* 키를 찾습니다. 상황에 맞는 메뉴를 선택한 다음, **값 추가**를 선택합니다.
+Azure Portal에서 **구성 탐색기** 로 이동하고 빠른 시작에서 만든 *TestApp:Settings:FontColor* 키를 찾습니다. 상황에 맞는 메뉴를 선택한 다음, **값 추가** 를 선택합니다.
 
 > [!div class="mx-imgBorder"]
 > ![값 추가 메뉴 항목](media/labels-add-value.png)
 
-**값 추가** 화면에서 **값**에 **빨간색**, **레이블**에 **개발**을 입력합니다. **콘텐츠 형식**은 비워 둡니다. **적용**을 선택합니다.
+**값 추가** 화면에서 **값** 에 **빨간색**, **레이블** 에 **개발** 을 입력합니다. **콘텐츠 형식** 은 비워 둡니다. **적용** 을 선택합니다.
 
 ## <a name="load-configuration-values-with-a-specified-label"></a>지정된 레이블을 사용하여 구성 값 로드
 

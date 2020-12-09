@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: e0a77e1e4757c8951756c3e41479628c293dfd8f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b8bdb216cbe8d359f35c758ae89f4267ab223483
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174835"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928752"
 ---
 # <a name="known-issues-application-provisioning"></a>알려진 문제: 응용 프로그램 프로 비전
 앱 프로 비전을 사용 하는 경우 알고 있어야 하는 알려진 문제입니다. UserVoice의 응용 프로그램 프로 비전 서비스에 대 한 피드백을 제공할 수 있습니다. [AZURE AD 응용 프로그램 프로 비전 uservoice](https://aka.ms/appprovisioningfeaturerequest)를 참조 하세요. 서비스를 개선할 수 있도록 UserVoice를 면밀 하 게 감시 합니다. 
@@ -56,6 +56,10 @@ Azure AD는 현재 null 특성을 프로 비전 할 수 없습니다. 사용자 
 **특성 매핑 식의 최대 문자**
 
 특성 매핑 식에는 최대 1만 문자를 사용할 수 있습니다. 
+
+**지원 되지 않는 범위 지정 필터**
+
+디렉터리 확장, appRoleAssignments, userType 및 accountExpires는 범위 지정 필터로 지원 되지 않습니다.
 
 
 ## <a name="service-issues"></a>서비스 문제 

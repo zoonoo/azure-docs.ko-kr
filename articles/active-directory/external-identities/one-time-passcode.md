@@ -12,14 +12,14 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15debb69172dba00163950fdd301826c903e5307
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: b9bc7d94cff46b54b81615cf064ed63927b3ec60
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548324"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929296"
 ---
-# <a name="email-one-time-passcode-authentication"></a>일회용 암호 인증 전자 메일
+# <a name="email-one-time-passcode-authentication-preview"></a>일회용 암호 인증 (미리 보기) 전자 메일
 
 이 문서에서는 B2B 게스트 사용자에 게 전자 메일 일회용 암호 인증을 사용 하도록 설정 하는 방법을 설명 합니다. 전자 메일 일회용 암호 기능은 Azure AD, Microsoft 계정 (MSA) 또는 Google 페더레이션과 같은 다른 방법으로 인증 될 수 없는 B2B 게스트 사용자를 인증 합니다. 일회성 암호 인증을 사용하면 Microsoft 계정을 만들 필요가 없습니다. 게스트 사용자는 초대를 사용하거나 공유 리소스에 액세스할 때 메일 주소로 전송되는 임시 코드를 요청할 수 있습니다. 그런 다음, 이 코드를 입력하여 로그인을 계속합니다.
 

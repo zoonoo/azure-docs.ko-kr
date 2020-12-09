@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 29116d880a51444eb45a351e2118a07d13873043
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2058e5362a65b6cd5f3e5b7cb9c20ce32d020d30
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953851"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928701"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Experian 구성에 대 한 자습서
 
@@ -77,7 +77,7 @@ Experian 통합에는 다음 구성 요소가 포함 됩니다.
 
 ### <a name="part-1---deploy-the-api"></a>1 부-API 배포
 
-제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) 를 Azure 서비스에 배포 합니다. 이러한 [지침](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
+제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) 를 Azure 서비스에 배포 합니다. 이러한 [지침](/visualstudio/deployment/quickstart-deploy-to-azure)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
 
 >[!NOTE]
 >필요한 설정을 사용 하 여 Azure AD를 구성 하려면 배포 된 서비스의 URL이 필요 합니다.
@@ -119,7 +119,7 @@ Experian API 호출은 클라이언트 인증서로 보호 됩니다. 이 클라
 
 제공 된 [사용자 지정 정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Experian/policy)에서 다음 자리 표시자를 찾고를 인스턴스의 해당 값으로 바꿉니다.
 
-|                      자리표시자                       |                                   대체할 값                                 |                   예                    |
+|                      자리표시자                       |                                   대체할 값                                 |                   예제                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |
 | {your_tenant_name}                                     | 테 넌 트 약식 이름                                                           | yourtenant.onmicrosoft.com의 "모든 테 넌 트" |
 | {your_trustframeworkbase_policy}                       | Trustframeworkbase.xml 정책의 Azure AD B2C 이름                  | B2C_1A_experian_TrustFrameworkBase           |
@@ -153,7 +153,7 @@ Azure AD B2C 테 넌 트를 설정 하 고 정책을 구성 하는 방법에 대
 
    b. **회신 url**: **리디렉션 url** 을 선택 합니다.
 
-   c. **사용자 흐름 실행** 을 선택합니다.
+   다. **사용자 흐름 실행** 을 선택합니다.
 
 4. 등록 흐름으로 이동 하 여 계정 만들기
 

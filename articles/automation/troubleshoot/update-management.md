@@ -5,12 +5,12 @@ services: automation
 ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: e8fc2a840ce019282625f286a6d54b132a1806c8
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: c6d0f38eaa25f2fe033a5e2cf48ee6daa51fcbe6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751260"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929279"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
 
@@ -19,7 +19,7 @@ ms.locfileid: "96751260"
 >[!NOTE]
 >Windows 컴퓨터에 업데이트 관리를 배포할 때 문제가 발생 하는 경우 Windows 이벤트 뷰어를 열고 로컬 컴퓨터의 **응용 프로그램 및 서비스 로그** 아래에서 **Operations Manager** 이벤트 로그를 확인 합니다. 이벤트 ID가 4502인 이벤트 및 `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`를 포함하는 이벤트 정보를 찾아봅니다.
 
-## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a>시나리오: 보류 중으로 표시 되 고 설치 된 Linux 업데이트가 변경 됨
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>시나리오: 보류 중으로 표시 되 고 설치 된 Linux 업데이트가 변경 됨
 
 ### <a name="issue"></a>문제
 
