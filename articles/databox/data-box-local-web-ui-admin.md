@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/03/2020
+ms.date: 12/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 90869af032a381cecd3e65f5d5b367156dd047c5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 859eb6abd138f0660407618bba4550daf9158ab9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576868"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855008"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용 하 여 Data Box를 관리 하 고 Data Box Heavy
 
@@ -37,7 +37,7 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 
     ![지원 패키지 만들기 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-    지원 패키지가 수집됩니다. 시스템 로그만 포함 하는 경우이 작업은 몇 분 정도 걸립니다. 메모리 덤프를 포함 하는 경우 훨씬 더 오래 걸립니다.
+    지원 패키지가 수집됩니다. 시스템 로그만 포함 하는 경우이 작업은 몇 분 정도 걸립니다. 메모리 덤프를 포함 하는 경우 더 오랜 시간이 걸립니다.
 
     ![지원 패키지 만들기 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
@@ -124,8 +124,8 @@ BOM 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 �
     |utSAC1_202006051000_BlockBlob-BOM.txt     |블록 Blob         |SMB/NFS         |
     |utSAC1_202006051000_PageBlob-BOM.txt     |페이지 Blob         |SMB/NFS         |
     |utSAC1_202006051000_AzFile-BOM.txt    |Azure 파일         |SMB/NFS         |
-    |utsac1_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST        |
-    |utsac1_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST         |
+    |utsac1_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST (영문)        |
+    |utsac1_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST (영문)         |
 
 이 목록을 사용하여 Data Box가 Azure 데이터 센터로 반환된 후 Azure Storage 계정에 업로드된 파일을 확인합니다. 샘플 매니페스트 파일은 아래에 표시되어 있습니다.
 

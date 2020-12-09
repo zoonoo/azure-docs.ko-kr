@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 5be6a2d73be35b3d637df9364364784d373dabb3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 08d30fb72398c4b43422eb21f132d5fddd5502b7
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186697"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853149"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 
@@ -120,7 +120,7 @@ ms.locfileid: "96186697"
 |IoT Hub | 예 | 예 | 예 |  |
 |Key Vault | 예 | 예 | [예](./insights/key-vault-insights-overview.md) |  |
 |AKS(Azure Kubernetes Service) | 예 | 예 | [예](insights/container-insights-overview.md)  |  |
-|Load Balancer | 예 | 예 | 예 |  |
+|Load Balancer | 예 | 아니요 | 예 |  |
 |Logic Apps | 예 | 예 | 예 |  |
 |Machine Learning Service | 예 | 예 | 예 |  |
 |Managed Applications  | 예 | 예 | 예 |  |
@@ -130,10 +130,10 @@ ms.locfileid: "96186697"
 |Microsoft PowerApps | 예 | 예 | 예 |  |
 |Microsoft 소셜 참여 | 예 | 예 | 예 |  |
 |Microsoft Stream | 예 | 예 | 예 |  |
-|마이그레이션 | 예 | 예 | 예 |  |
+|마이그레이션 | 예 | 아니요 | 예 |  |
 |Multi-Factor Authentication | 예 | 예 | 예 |  |
 |Network Watcher | 예 | 예 | 예 |  |
-|Notification Hubs | 예 | 예 | 예 |  |
+|Notification Hubs | 예 | 아니요 | 예 |  |
 |공개 데이터 세트 | 예 | 예 | 예 |  |
 |정책 | 예 | 예 | 예 |  |
 |Power Automate | 예 | 예 | 예 |  |
@@ -142,7 +142,7 @@ ms.locfileid: "96186697"
 |프로젝트 Spool 통신 플랫폼 | 예 | 예 | 예 |  |
 |Red Hat OpenShift | 예 | 예 | 예 |  |
 |Redis Cache | 예 | 예 | [예](insights/redis-cache-insights-overview.md) | |
-|Resource Graph | 예 | 예 | 예 |  |
+|Resource Graph | 예 | 아니요 | 예 |  |
 |리소스 관리자 | 예 | 예 | 예 |  |
 |소매점 검색 – Bing에서 | 예 | 예 | 예 |  |
 |검색 | 예 | 예 | 예 |  |
@@ -150,25 +150,25 @@ ms.locfileid: "96186697"
 |Service Fabric | 예 | 예 | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.  |
 |등록 포털 | 예 | 예 | 예 |  |
 |Site Recovery | 예 | 예 | 예 |  |
-|Spring Cloud Service | 예 | 예 | 예 |  |
+|Spring Cloud Service | 예 | 아니요 | 예 |  |
 |Azure Synapse Analytics | 예 | 예 | 예 |  |
 |SQL Database | 예 | 예 | 예 |  |
 |SQL Server Stretch Database | 예 | 예 | 예 |  |
-|스택 | 예 | 예 | 예 |  |
+|스택 | 예 | 아니요 | 예 |  |
 |스토리지 | 예 | 예 | [예](insights/storage-insights-overview.md) |  |
 |스토리지 캐시 | 예 | 예 | 예 |  |
 |스토리지 동기화 서비스 | 예 | 예 | 예 |  |
 |Stream Analytics | 예 | 예 | 예 |  |
 |Time Series Insights | 예 | 예 | 예 |  |
-|TINA | 예 | 예 | 예 |  |
+|TINA | 예 | 아니요 | 예 |  |
 |Traffic Manager | 예 | 예 | 예 |  |
-|유니버설 인쇄 | 예 | 예 | 예 |  |
+|유니버설 인쇄 | 예 | 아니요 | 예 |  |
 |Virtual Machine Scale Sets | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Machines | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Network | 예 | 예 | [예](insights/network-insights-overview.md) |  |
 |Virtual Network - NSG 흐름 로그 | 예 | 예 | 예 |  |
 |VPN Gateway | 예 | 예 | 예 |  |
-|Windows Virtual Desktop | 예 | 예 | 예 |  |
+|Windows Virtual Desktop | 예 | 아니요 | 예 |  |
 
 ## <a name="virtual-machine-agents"></a>가상 머신 에이전트
 다음 표에는 가상 컴퓨터의 게스트 운영 체제에서 데이터를 수집 하 고 모니터에 데이터를 보낼 수 있는 에이전트가 나열 되어 있습니다. 각 에이전트는 서로 다른 데이터를 수집 하 여 Azure Monitor의 메트릭 또는 로그에 보낼 수 있습니다. 
@@ -177,11 +177,11 @@ ms.locfileid: "96186697"
 
 | 에이전트 |  메트릭 | 로그 |
 |:---|:---|:---|:---|
-| [Azure Monitor 에이전트 (미리 보기)](platform/azure-monitor-agent-overview.md) | 예 | 예 |
-| [Log Analytics 에이전트](platform/log-analytics-agent.md) | 예 | 예|
-| [진단 확장](platform/diagnostics-extension-overview.md) | 예 | 예 |
-| [Telegraf 에이전트](platform/collect-custom-metrics-linux-telegraf.md) | 예 | 예 |
-| [종속성 에이전트](insights/vminsights-enable-overview.md) | 예 | 예 |
+| [Azure Monitor 에이전트(미리 보기)](platform/azure-monitor-agent-overview.md) | 예 | 예 |
+| [Log Analytics 에이전트](platform/log-analytics-agent.md) | 아니요 | 예|
+| [진단 확장](platform/diagnostics-extension-overview.md) | 예 | 아니요 |
+| [Telegraf 에이전트](platform/collect-custom-metrics-linux-telegraf.md) | 예 | 아니요 |
+| [종속성 에이전트](insights/vminsights-enable-overview.md) | 아니요 | 예 |
 
 
 ## <a name="product-integrations"></a>제품 통합
@@ -194,7 +194,7 @@ ms.locfileid: "96186697"
 | [Azure Security Center](../security-center/index.yml) | 보안 이벤트를 수집 및 분석하고 위협 분석을 수행합니다. [Azure Security Center에서 데이터 수집](../security-center/security-center-enable-data-collection.md)을 참조하세요. |
 | [Azure Sentinel](../sentinel/index.yml) | Office 365 및 Amazon Web Services 클라우드 내역을 비롯한 다양한 원본에 연결합니다. [데이터 원본에 연결](../sentinel/connect-data-sources.md)을 참조하세요. |
 | [Microsoft Intune](/intune/) | Azure Monitor로 로그를 보낼 진단 설정을 만듭니다. [Intune에서 스토리지, 이벤트 허브 또는 로그 분석으로 로그 데이터 전송(미리 보기)](/intune/fundamentals/review-logs-using-azure-monitor)을 참조하세요.  |
-| 네트워크  | [네트워크 성능 모니터](insights/network-performance-monitor.md) - 서비스 및 애플리케이션 엔드포인트에 대한 네트워크 연결 및 성능을 모니터링합니다.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) - Azure Application Gateway에서 로그 및 메트릭을 분석합니다.<br>[트래픽 분석](../network-watcher/traffic-analytics.md) - NSG(Network Watcher 네트워크 보안 그룹) 흐름 로그를 분석하여 Azure 클라우드 내 트래픽 흐름에 대한 정보를 제공합니다. |
+| 네트워크  | [네트워크 성능 모니터](insights/network-performance-monitor.md) - 서비스 및 애플리케이션 엔드포인트에 대한 네트워크 연결 및 성능을 모니터링합니다.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics) - Azure Application Gateway에서 로그 및 메트릭을 분석합니다.<br>[트래픽 분석](../network-watcher/traffic-analytics.md) - NSG(Network Watcher 네트워크 보안 그룹) 흐름 로그를 분석하여 Azure 클라우드 내 트래픽 흐름에 대한 정보를 제공합니다. |
 | [Office 365](insights/solution-office-365.md) | Office 365 환경을 모니터링합니다. Azure Sentinel을 통해 향상된 온보딩이 제공되는 업데이트된 버전입니다. |
 | [SQL Analytics](insights/azure-sql.md) | 여러 구독에서 규모에 상관 없이 Azure SQL Database 및 SQL 관리 되는 인스턴스의 성능을 모니터링 합니다. |
 | [Surface Hub](insights/surface-hubs.md) | Surface Hub 디바이스의 상태와 사용 현황을 추적합니다. |

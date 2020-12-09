@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 06885e3f6a1ceeebc7c0bb1053e36e9e95a0043e
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: ee5e1230acd059d69648144b84a8fbfa652ef6e7
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888779"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854056"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 이중 프로토콜 (NFSv3 및 SMB) 볼륨 만들기
 
-Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로토콜을 사용 하 여 볼륨을 만들 수 있습니다. 이 문서에서는 LDAP 사용자 매핑을 지 원하는 NFSv3 및 SMB의 이중 프로토콜을 사용 하는 볼륨을 만드는 방법을 보여 줍니다.  
+Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMB3 또는 이중 프로토콜을 사용 하 여 볼륨을 만들 수 있습니다. 이 문서에서는 LDAP 사용자 매핑을 지 원하는 NFSv3 및 SMB의 이중 프로토콜을 사용 하는 볼륨을 만드는 방법을 보여 줍니다.  
 
 
 ## <a name="before-you-begin"></a>시작하기 전에 

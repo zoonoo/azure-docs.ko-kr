@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: e88cf0c063b3ba42dadd72c19c23be8fcf919b86
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2cc9d3e0fb711a0662852ce4f2c5a08dc626f246
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006613"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854736"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 볼륨 만들기
 
-Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로토콜 (NFSv3 및 SMB)을 사용 하 여 볼륨을 만들 수 있습니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 이 문서에서는 NFS 볼륨을 만드는 방법을 보여 줍니다. 
+Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMB3 또는 이중 프로토콜 (NFSv3 및 SMB)을 사용 하 여 볼륨을 만들 수 있습니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 이 문서에서는 NFS 볼륨을 만드는 방법을 보여 줍니다. 
 
 ## <a name="before-you-begin"></a>시작하기 전에 
 * 용량 풀을 설정해야 합니다.  

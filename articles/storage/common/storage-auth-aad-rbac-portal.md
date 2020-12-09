@@ -10,12 +10,12 @@ ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 96f316b1ca6a7684630c1ab14d722651c1f3ffbc
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 40003db9c3bd2c736f9cedd73b8b7a31a77f625f
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778907"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854583"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.
 
@@ -47,8 +47,6 @@ Azure AD 보안 주체에 azure 역할을 할당 하는 경우 Azure는 해당 �
 > Azure Storage 계정을 만들면 Azure AD를 통해 데이터에 액세스할 수 있는 권한이 자동으로 할당 되지 않습니다. Azure Storage에 대 한 Azure 역할을 명시적으로 할당 해야 합니다. 구독, 리소스 그룹, 스토리지 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.
 >
 > 사용자가 데이터 액세스에 대 한 역할을 할당 하기 전에 Azure Portal을 통해 저장소 계정의 데이터에 액세스할 수 있습니다. 또한 Azure Portal는 데이터 액세스를 위해 계정 키를 사용할 수 있기 때문입니다. 자세한 내용은 [Azure Portal에서 blob 데이터에 대 한 액세스 권한을 부여 하는 방법 선택](../blobs/authorize-data-operations-portal.md)을 참조 하세요.
->
-> 저장소 계정에 계층 네임 스페이스가 사용 하도록 설정 된 경우 컨테이너 또는 큐에 범위가 지정 된 역할을 할당할 수 없습니다.
 
 ### <a name="assign-an-azure-built-in-role"></a>Azure 기본 제공 역할 할당
 

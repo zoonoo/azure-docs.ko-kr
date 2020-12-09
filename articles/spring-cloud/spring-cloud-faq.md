@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 268862d6e868342a252ca9d5eb08b9753142e8b1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 99246ecee27f7ded693e2a797f8e98480e350983
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750750"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854532"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 스프링 클라우드 FAQ
 
@@ -37,7 +37,7 @@ Azure 스프링 클라우드는 Azure Monitor, Application Insights 및 Log Anal
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>Azure 스프링 클라우드를 사용할 수 있는 지역은 어디 인가요?
 
-미국 동부, 미국 동부 2, 미국 중부, 미국 중 북부, 미국 서 부 2, 유럽 서부, 유럽 서 부, 영국 남부, 동남 아시아 및 오스트레일리아 동부.
+미국 동부, 미국 동부 2, 미국 중부, 미국 중 북부, 미국 중 북부, 미국 서 부, 미국 서 부 2, 유럽 서부, 북부, 영국 남부, 동남 아시아, 오스트레일리아 동부, 캐나다 중부 및 아랍에미리트 북부
 
 ### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>지정 된 지역 외부에 저장 된 고객 데이터는 무엇 인가요?
 

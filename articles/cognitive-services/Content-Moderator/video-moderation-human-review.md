@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 079d5ea0259a436100b81489043b71a81ec1a330
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 05ece4d8ea24fb9da106ec3daa2cc1a63706dab9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327222"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853501"
 ---
 # <a name="video-moderation-with-the-review-tool"></a>검토 도구를 사용한 비디오 조정
 
@@ -103,4 +103,3 @@ Content Moderator의 기계 지원 [비디오](video-moderation-api.md) 조정 �
 - [비디오 조정 빠른 시작](video-moderation-api.md)을 시작합니다.
 - 조정된 출력에서 사용자 검토자의 [비디오 검토](video-reviews-quickstart-dotnet.md)를 생성하는 방법을 알아봅니다.
 - [비디오 대본 검토](video-transcript-reviews-quickstart-dotnet.md)를 비디오 검토에 추가합니다.
-- [완전한 비디오 조정 솔루션](video-transcript-moderation-review-tutorial-dotnet.md)을 개발하는 방법에 대한 자세한 자습서를 살펴봅니다.

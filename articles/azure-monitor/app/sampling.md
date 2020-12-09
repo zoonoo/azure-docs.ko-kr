@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3ec9718d313e7e8d757eb41c230225bdcf9ebd49
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: e9334d222d443679362514481ecd83b90bbda0ac
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749048"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855076"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -34,11 +34,11 @@ ms.locfileid: "96749048"
 |-|-|-|-|
 | ASP.NET | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
 | ASP.NET Core | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Azure 기능 | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | 아니요 | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Java | 예 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Node.JS | 예 | [예](./nodejs.md#sampling) | 다른 샘플링이 적용 되지 않는 경우에만
-| Python | 예 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| 나머지 | 아니요 | 예 | [예](#ingestion-sampling) |
+| Azure Functions | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | 아니요 | 다른 샘플링이 적용 되지 않는 경우에만 |
+| Java | 아니요 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
+| Node.JS | 아니요 | [예](./nodejs.md#sampling) | 다른 샘플링이 적용 되지 않는 경우에만
+| Python | 아니요 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
+| 나머지 | 아니요 | 아니요 | [예](#ingestion-sampling) |
 
 > [!NOTE]
 > 이 페이지의 대부분에 대 한 정보는 Application Insights Sdk의 현재 버전에 적용 됩니다. 이전 버전의 Sdk에 대 한 자세한 내용은 [아래 섹션을 참조](#older-sdk-versions)하세요.
@@ -315,18 +315,12 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 1. [Applicationinsights-agent-3.0.0-PREVIEW. 5. j m a를](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar) 다운로드 합니다.
 
-1. 샘플링을 사용 하도록 설정 하려면 파일에 다음을 추가 합니다 `ApplicationInsights.json` .
+1. 샘플링을 사용 하도록 설정 하려면 파일에 다음을 추가 합니다 `applicationinsights.json` .
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "sampling": {
-        "fixedRate": {
-          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
-        }
-      }
-    }
+  "sampling": {
+    "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
   }
 }
 ```
@@ -559,7 +553,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 * SDK가 샘플링을 수행하지 않는 경우 특정 볼륨을 초과하는 모든 원격 분석에 대해 자동으로 수집 샘플링이 발생할 수 있습니다. 예를 들어 이전 버전의 ASP.NET SDK 또는 Java SDK를 사용 하는 경우이 구성이 작동 합니다.
 * 현재 ASP.NET 또는 ASP.NET Core Sdk를 사용 하는 경우 (Azure 또는 사용자의 서버에서 호스트 되는 경우) 기본적으로 적응 샘플링을 사용 하지만 위에서 설명한 대로 고정 비율로 전환할 수 있습니다. 고정 비율 샘플링을 사용하면 SDK 브라우저는 자동으로 관련 이벤트를 샘플링하도록 동기화합니다. 
-* 현재 Java 에이전트를 사용 하는 경우 `ApplicationInsights.json` (JAVA SDK의 경우)를 구성 하 여 `ApplicationInsights.xml` 고정 요금 샘플링을 켤 수 있습니다. 샘플링은 기본적으로 꺼져 있습니다. 고정 률 샘플링을 사용 하 여 브라우저 SDK 및 서버는 관련 된 샘플 이벤트를 자동으로 동기화 합니다.
+* 현재 Java 에이전트를 사용 하는 경우 `applicationinsights.json` (JAVA SDK의 경우)를 구성 하 여 `ApplicationInsights.xml` 고정 요금 샘플링을 켤 수 있습니다. 샘플링은 기본적으로 꺼져 있습니다. 고정 률 샘플링을 사용 하 여 브라우저 SDK 및 서버는 관련 된 샘플 이벤트를 자동으로 동기화 합니다.
 
 *항상 보고 싶은 확실히 드문 이벤트가 있습니다. 이전의 샘플링 모듈에서 그 이벤트를 어떻게 가져올 수 있습니까?*
 

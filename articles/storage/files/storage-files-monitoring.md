@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: a190120e969959807911503f4c2ccf99e7135dd4
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: d756567e471fe4b29590f8a3efbaf49b56edd4f4
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781184"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853053"
 ---
 # <a name="monitoring-azure-files"></a>모니터링 Azure Files
 
@@ -96,6 +96,8 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 
 #### <a name="archive-logs-to-a-storage-account"></a>저장소 계정에 로그 보관
 
+저장소 계정에 로그를 보관 하도록 선택 하는 경우 저장소 계정으로 전송 되는 로그의 양에 대 한 비용을 지불 하 게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조 하세요.
+
 1. **저장소 계정에 보관** 확인란을 선택 하 고 **구성** 단추를 클릭 합니다.
 
    > [!div class="mx-imgBorder"]   
@@ -107,6 +109,8 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
    > 저장소 계정을 내보내기 대상으로 선택 하기 전에 저장소 계정에 대 한 필수 구성 요소를 이해 하기 위해 [Azure 리소스 로그 보관](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) 을 참조 하세요.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Azure Event Hubs로 로그 스트림
+
+로그를 이벤트 허브로 스트리밍하려면 이벤트 허브로 전송 되는 로그의 양에 대 한 비용을 지불 합니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조 하세요.
 
 1. **이벤트 허브로 스트림** 확인란을 선택 하 고 **구성** 단추를 클릭 합니다.
 
@@ -140,6 +144,8 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 
 #### <a name="archive-logs-to-a-storage-account"></a>저장소 계정에 로그 보관
 
+저장소 계정에 로그를 보관 하도록 선택 하는 경우 저장소 계정으로 전송 되는 로그의 양에 대 한 비용을 지불 하 게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조 하세요.
+
 매개 변수와 함께 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet을 사용 하 여 로그를 사용 하도록 설정 `StorageAccountId` 합니다.
 
 ```powershell
@@ -157,6 +163,8 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccoun
 각 매개 변수에 대 한 설명은 [Azure PowerShell를 통해 Azure 리소스 로그 보관](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage)을 참조 하세요.
 
 #### <a name="stream-logs-to-an-event-hub"></a>이벤트 허브에 로그 스트림
+
+로그를 이벤트 허브로 스트리밍하려면 이벤트 허브로 전송 되는 로그의 양에 대 한 비용을 지불 합니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조 하세요.
 
 매개 변수와 함께 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet을 사용 하 여 로그를 사용 하도록 설정 `EventHubAuthorizationRuleId` 합니다.
 
@@ -198,6 +206,8 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <
 
 #### <a name="archive-logs-to-a-storage-account"></a>저장소 계정에 로그 보관
 
+저장소 계정에 로그를 보관 하도록 선택 하는 경우 저장소 계정으로 전송 되는 로그의 양에 대 한 비용을 지불 하 게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조 하세요.
+
 [Az monitor 진단-설정 create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용 하 여 로그를 사용 하도록 설정 합니다.
 
 ```azurecli-interactive
@@ -215,6 +225,8 @@ az monitor diagnostic-settings create --name <setting-name> --storage-account <s
 각 매개 변수에 대 한 설명은 [Azure CLI를 통해 보관 리소스 로그](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage)를 참조 하세요.
 
 #### <a name="stream-logs-to-an-event-hub"></a>이벤트 허브에 로그 스트림
+
+로그를 이벤트 허브로 스트리밍하려면 이벤트 허브로 전송 되는 로그의 양에 대 한 비용을 지불 합니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조 하세요.
 
 [Az monitor 진단-설정 create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용 하 여 로그를 사용 하도록 설정 합니다.
 

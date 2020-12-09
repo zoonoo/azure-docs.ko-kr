@@ -1,18 +1,18 @@
 ---
-title: Microsoft 상업용 마켓플레이스의 지리적 가용성 및 통화 지원
+title: Microsoft 상업적 marketplace에 대 한 지리적 가용성 및 통화 지원
 description: 상업용 마켓플레이스의 트랜잭션에 대한 지리적 가용성 및 통화 지원
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 07/29/2020
-ms.openlocfilehash: bdb746c75a175d906301bcfca0b1472383fceff9
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 12/07/2020
+ms.openlocfilehash: 118fe70abf52a6c96f4f2dc47e3ad23a388f3598
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778073"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853750"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 지리적 가용성 및 통화 지원
 
@@ -46,22 +46,22 @@ ms.locfileid: "96778073"
 | 브루나이                              | BN        | USD          | BND, EUR, SGD, USD |
 | 불가리아                            | BG        | EUR          | BGN, EUR, USD |
 | 카보베르데                          | CV        | USD          | CVE, EUR, USD |
-| 카메룬                            | CM        | USD          | XAF, EUR, USD |
-| Canada                              | CA        | CAD          | CAD, EUR, USD  |
-| 케이맨 제도                      | KY        | USD          | KYD, EUR, USD |
+| 카메룬                            | CM        | USD          | EUR, USD, XAF |
+| Canada                              | CA        | CAD          | CAD, EUR, USD |
+| 케이맨 제도                      | KY        | USD          | EUR, KYD, USD |
 | 칠레                               | CL        | USD          | CLP, EUR, USD |
 | 중국\**                            | CN        | 해당 없음          | 해당 없음 |
 | 콜롬비아                            | CO        | USD          | 복사, EUR, USD |
 | 코스타리카                          | CR        | USD          | CRC, EUR, USD |
-| 코트디부아르                       | CI        | USD          | XOF, EUR, USD |
-| 크로아티아                             | HR        | EUR          | HRK, EUR, USD |
+| 코트디부아르                       | CI        | USD          | EUR, USD, XOF |
+| 크로아티아                             | HR        | EUR          | EUR, HRK, USD |
 | 퀴라소                             | CW        | USD          | ANG, EUR, USD |
 | 키프로스                              | CY        | EUR          | EUR, USD  |
-| 체코                             | CZ        | EUR          | EUR, USD, CZK |
+| 체코                             | CZ        | EUR          | CZK, EUR, USD |
 | 덴마크                             | DK        | DKK          | DKK, EUR, USD |
 | 도미니카 공화국                  | DO        | USD          | DOP, EUR, USD |
 | 에콰도르                             | EC        | USD          | EUR, USD |
-| 이집트                               | EG        | USD          | EUR, USD 및 P |
+| 이집트                               | EG        | USD          | 안 면, EUR, USD |
 | 엘살바도르                         | SV        | USD          | EUR, USD |
 | 에스토니아                             | EE        | EUR          | EUR, USD |
 | 에티오피아                            | ET        | USD          | ETB, EUR, USD |
@@ -91,7 +91,7 @@ ms.locfileid: "96778073"
 | 케냐                               | KE        | USD          | EUR, KES, USD |
 | 한국(남부)                       | KR        | KRW          | EUR, KRW, USD |
 | 쿠웨이트                              | KW        | USD          | EUR, KWD, USD |
-| 키르기스스탄                          | KG        | USD          | USD, EUR, KGS |
+| 키르기스스탄                          | KG        | USD          | EUR, KGS, USD |
 | 라트비아                              | LV        | EUR          | EUR, USD |
 | 레바논                             | LB        | USD          | EUR, LBP, USD |
 | 리비아                               | LY        | USD          | EUR, LYD, USD |
@@ -139,8 +139,8 @@ ms.locfileid: "96778073"
 | 슬로베니아                            | SI        | EUR          | EUR, USD |
 | 남아프리카                        | ZA        | USD          | EUR, USD, ZAR |
 | 스페인                               | ES        | EUR          | EUR, USD |
-| 스리랑카                           | LK        | USD          | EUR, USD, LKR |
-| 스웨덴                              | SE        | SEK          | EUR, USD, SEK |
+| 스리랑카                           | LK        | USD          | EUR, LKR, USD |
+| 스웨덴                              | SE        | SEK          | EUR, SEK, USD  |
 | 스위스                         | CH        | CHF          | CHF, EUR, USD |
 | 대만                              | TW        | TWD          | EUR, TWD, USD |
 | 타지키스탄                          | TJ        | USD          | EUR, TJS, USD |
@@ -151,7 +151,7 @@ ms.locfileid: "96778073"
 | 터키                              | TR        | USD          | EUR, 시도, USD |
 | 투르크메니스탄                        | TM        | USD          | EUR, TMT, USD |
 | 우간다                              | UG        | USD          | EUR, UGX, USD |
-| 우크라이나                             | UA        | USD          | EUR, UAH, 된다는, USD |
+| 우크라이나                             | UA        | USD          | EUR, 된다는, UAH, USD |
 | 아랍에미리트                | AE        | USD          | AED, EUR, USD |
 | United Kingdom                      | GB        | GBP          | EUR, GBP, USD |
 | 미국                       | US        | USD          | EUR, USD |

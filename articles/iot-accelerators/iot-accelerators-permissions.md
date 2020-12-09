@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: 6585718a549c0e0a6eac1ab50788798e1021fef9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b05ed6e1239721bcf3c1cf33d3ee63a992fd9843
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446813"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853233"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>azureiotsolutions.com 사이트를 사용하여 솔루션 가속기 배포
 
@@ -22,7 +22,7 @@ ms.locfileid: "96446813"
 ![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 
 > [!TIP]
-> 배포 프로세스에 더 많은 제어가 필요한 경우 [CLI를 사용하여 솔루션 가속기를 배포](iot-accelerators-remote-monitoring-deploy-cli.md)할 수 있습니다.
+> 배포 프로세스에 더 많은 제어가 필요한 경우 CLI를 사용하여 솔루션 가속기를 배포할 수 있습니다.
 
 다음 구성으로 솔루션 가속기를 배포할 수 있습니다.
 
@@ -64,9 +64,4 @@ AzureIoTSolutions.com 사이트는 [IoT용 Azure Certified 디바이스 카탈�
 
 ## <a name="next-steps"></a>다음 단계
 
-IoT 솔루션 가속기 중 하나를 사용해 보려면 다음 빠른 시작을 확인하세요.
-
-* [원격 모니터링 솔루션 사용](quickstart-remote-monitoring-deploy.md)
-* [연결된 팩터리 솔루션 사용](quickstart-connected-factory-deploy.md)
-* [예측 유지 관리 솔루션 사용](quickstart-predictive-maintenance-deploy.md)
-* [디바이스 시뮬레이션 솔루션 사용](quickstart-device-simulation-deploy.md)
+IoT 솔루션 가속기 중 하나를 사용해 보려면 빠른 시작: [연결 된 팩터리 솔루션 사용해 보기](quickstart-connected-factory-deploy.md)를 확인 하세요.

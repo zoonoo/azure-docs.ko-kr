@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 5409f9177116add1fd794ec1e72f276daf34e029
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1537a87999f9a8eecf83a2431b2f53d3ceaedacb
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659151"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854702"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -60,7 +60,7 @@ ms.locfileid: "94659151"
 
 NFSv 4.1 클라이언트와 Azure NetApp Files 볼륨 간의 데이터 트래픽은 AES-256 암호화를 사용 하는 Kerberos를 사용 하 여 암호화할 수 있습니다. 자세한 내용은 [nfsv 4.1 Kerberos 암호화 구성 Azure NetApp Files을](configure-kerberos-encryption.md) 참조 하세요.   
 
-NFSv3 또는 SMBv3 클라이언트 간의 데이터 트래픽이 Azure NetApp Files 볼륨으로 암호화 되지 않습니다. 그러나 Azure VM (NFS 또는 SMB 클라이언트를 실행 하는)에서 Azure NetApp Files로의 트래픽은 다른 Azure VM 간 트래픽과도 안전 합니다. 이 트래픽은 Azure 데이터 센터 네트워크에 대 한 로컬 트래픽입니다. 
+NFSv3 또는 SMB3 클라이언트 간의 데이터 트래픽이 Azure NetApp Files 볼륨으로 암호화 되지 않습니다. 그러나 Azure VM (NFS 또는 SMB 클라이언트를 실행 하는)에서 Azure NetApp Files로의 트래픽은 다른 Azure VM 간 트래픽과도 안전 합니다. 이 트래픽은 Azure 데이터 센터 네트워크에 대 한 로컬 트래픽입니다. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>미사용 저장소를 암호화할 수 있나요?
 
@@ -168,7 +168,7 @@ Azure NetApp Files는 Windows Server 2008 R2sp1-2019 버전의 Active Directory 
 
 SMB 클라이언트에서 보고 하는 볼륨 크기는 Azure NetApp Files 볼륨의 크기를 늘릴 수 있는 최대 크기입니다. SMB 클라이언트에 표시 되는 Azure NetApp Files 볼륨의 크기는 볼륨의 할당량 또는 크기를 반영 하지 않습니다. Azure Portal 또는 API를 통해 Azure NetApp Files 볼륨 크기 또는 할당량을 가져올 수 있습니다.
 
-### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>내 SMB 공유에 연결 하는 데 문제가 있습니다.   어떻게 해야 합니까?
+### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>내 SMB 공유에 연결 하는 데 문제가 있습니다. 어떻게 해야 합니까?
 
 컴퓨터 클록 동기화에 대 한 최대 허용 오차를 5 분으로 설정 하는 것이 가장 좋습니다. 자세한 내용은 [컴퓨터 클록 동기화에 대 한 최대 허용 오차](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11))를 참조 하세요. 
 
@@ -194,7 +194,7 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 320 디렉터리의 경우 블록 수는 655360 이며 각 블록 크기는 512 바이트입니다.  (즉, 320x1024x1024/512)  
 
-예:
+예제:
 
 ```console
 [makam@cycrh6rtp07 ~]$ stat bin

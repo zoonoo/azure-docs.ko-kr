@@ -1,17 +1,17 @@
 ---
 title: Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결
 description: Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결
-author: nkiest
-ms.author: nikiest
+author: noakup
+ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 8633aba2f7cda5dec4a48e9f7132283f8235f746
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: a85619b4947808ba1c13df3c1543102eea7273fd
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317523"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853931"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결
 
@@ -43,7 +43,7 @@ Azure Monitor Private Link 범위는 하나 이상의 프라이빗 엔드포인�
 AMPLS 리소스를 설정하기 전에 네트워크 격리 요구 사항을 고려합니다. 퍼블릭 인터넷에 대한 가상 네트워크 액세스 및 각 Azure Monitor 리소스(즉, Application Insights 구성 요소 및 Log Analytics 작업 영역)의 액세스 제한을 평가합니다.
 
 > [!NOTE]
-> 허브 및 스포크 네트워크 또는 피어 링 네트워크의 다른 토폴로지는 각 VNet 및 모든 VNet에 개인 링크를 설정 하는 대신 허브 (주) VNet과 관련 Azure Monitor 리소스 간에 개인 링크를 설정할 수 있습니다. 특히 이러한 네트워크에서 사용 하는 Azure Monitor 리소스를 공유 하는 경우에 적합 합니다. 그러나 각 VNet에서 별도의 모니터링 리소스 집합에 액세스 하도록 허용 하려면 각 네트워크에 대 한 전용 AMPLS 개인 링크를 만듭니다.
+> 허브-스포크 네트워크 또는 피어 링 네트워크의 다른 토폴로지는 각 VNet에 개인 링크를 설정 하는 대신 허브 (주) VNet과 관련 Azure Monitor 리소스 간에 개인 링크를 설정할 수 있습니다. 특히 이러한 네트워크에서 사용 하는 Azure Monitor 리소스를 공유 하는 경우에 적합 합니다. 그러나 각 VNet에서 별도의 모니터링 리소스 집합에 액세스 하도록 허용 하려면 각 네트워크에 대 한 전용 AMPLS 개인 링크를 만듭니다.
 
 ### <a name="evaluate-which-virtual-networks-should-connect-to-a-private-link"></a>Private Link에 연결할 가상 네트워크 평가
 
@@ -85,6 +85,11 @@ AMPLS 리소스를 설정하기 전에 네트워크 격리 요구 사항을 고�
 * Workspace2는 2/5 (40%)를 사용 하 여 AMPLS A 및 AMPLS B에 연결 합니다. 가능한 AMPLS 연결입니다.
 
 ![AMPLS 제한 다이어그램](./media/private-link-security/ampls-limits.png)
+
+> [!NOTE]
+> 일부 네트워크 토폴로지에서 (주로 허브-스포크) 단일 AMPLS에 대해 10 개의 Vnet 한도에 빠르게 도달할 수 있습니다. 이러한 경우 별도의 연결 대신 공유 개인 링크 연결을 사용 하는 것이 좋습니다. 허브 네트워크에서 단일 개인 끝점을 만들고, AMPLS에 연결 하 고, 관련 네트워크를 허브 네트워크에 피어 링 합니다.
+
+![허브 및 스포크-단일 PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint.png)
 
 ## <a name="example-connection"></a>연결 예
 

@@ -1,6 +1,6 @@
 ---
 title: Azure NetApp Files에 대한 SMB 볼륨 만들기 | Microsoft Docs
-description: 이 문서에서는 Azure NetApp Files에서 SMBv3 볼륨을 만드는 방법을 보여 줍니다. Active Directory 연결 및 도메인 서비스에 대 한 요구 사항에 대해 알아봅니다.
+description: 이 문서에서는 Azure NetApp Files에서 SMB3 볼륨을 만드는 방법을 보여 줍니다. Active Directory 연결 및 도메인 서비스에 대 한 요구 사항에 대해 알아봅니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 682a97738e94c2a8188b4976a229d6a850a5b6ac
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: cd2a293ebcc35d4884211f50783738a502dcc7de
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512004"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854828"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
-Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로토콜 (NFSv3 및 SMB)을 사용 하 여 볼륨을 만들 수 있습니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 이 문서에서는 SMBv3 볼륨을 만드는 방법을 보여줍니다.
+Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMB3 또는 이중 프로토콜 (NFSv3 및 SMB)을 사용 하 여 볼륨을 만들 수 있습니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 이 문서에서는 SMB3 볼륨을 만드는 방법을 보여 줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에 
 용량 풀을 설정해야 합니다.   
