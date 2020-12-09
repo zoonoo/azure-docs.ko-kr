@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cdf89fa3281e070d6b1ac762d30d7c391f4126f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bf91c9e081bff9860153b342648fedc0990b68b9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963643"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862060"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -142,7 +142,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="compliance-data-administrator"></a>[규정 준수 데이터 관리자](#compliance-data-administrator-permissions)
 
-이 역할이 있는 사용자는 Microsoft 365 규정 준수 센터, Microsoft 365 관리 센터 및 Azure에서 데이터를 추적할 수 있는 권한이 있습니다. 또한 사용자는 Exchange 관리 센터, Compliance Manager, Teams 및 비즈니스용 Skype 관리 센터 내에서 규정 준수 데이터를 추적하고 Azure 및 Microsoft 365의 지원 티켓을 만들 수 있습니다. [이 설명서](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center) 에서는 준수 관리자와 규정 준수 데이터 관리자의 차이점에 대해 자세히 설명 합니다.
+이 역할이 있는 사용자는 Microsoft 365 규정 준수 센터, Microsoft 365 관리 센터 및 Azure에서 데이터를 추적할 수 있는 권한이 있습니다. 또한 사용자는 Exchange 관리 센터, Compliance Manager, Teams 및 비즈니스용 Skype 관리 센터 내에서 규정 준수 데이터를 추적하고 Azure 및 Microsoft 365의 지원 티켓을 만들 수 있습니다. [이 설명서](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) 에서는 준수 관리자와 규정 준수 데이터 관리자의 차이점에 대해 자세히 설명 합니다.
 
 그런 다음 | 가능한 작업
 ----- | ----------
@@ -307,7 +307,7 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 이 역할의 사용자는 Exchange, Intune 및 Microsoft 팀과 같은 구성 된 서비스에서 조직의 [메시지 센터](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) 에서 알림 및 자문 상태 업데이트를 모니터링할 수 있습니다. 메시지 센터 독자는 게시, 업데이트 및 Microsoft 365의 메시지 센터 게시물을 공유할 수 있는 주간 전자 메일 다이제스트를 수신 합니다. Azure AD에서 이 역할에 할당된 사용자는 Azure AD 서비스에서 사용자 및 그룹처럼 읽기 전용 권한만 있습니다. 이 역할에는 지원 티켓 보기, 생성 또는 관리 권한은 없습니다.
 
-### <a name="modern-commerce-user"></a>[최신 상거래 사용자](#modern-commerce-user-permissions)
+### <a name="modern-commerce-user"></a>[최신 Commerce 사용자](#modern-commerce-user-permissions)
 
 사용하지 마십시오. 이 역할은 상거래에서 자동으로 할당되며 다른 용도로 사용하기에 적합하거나 지원되지 않습니다. 아래에서 자세한 내용을 참조하세요.
 
@@ -317,7 +317,7 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 **최신 상거래 사용자 역할은 언제 할당 되나요?**
 
-* **Microsoft 365 관리 센터에서 셀프 서비스 구매** – 사용자는 셀프 서비스 구매를 통해 제품을 직접 구매하거나 가입하여 신제품을 사용해 볼 수 있습니다. 이러한 제품은 관리 센터에서 관리됩니다. 셀프 서비스 구매를 수행 하는 사용자에 게는 상거래 시스템의 역할과 최신 상거래 사용자 역할이 할당 되므로 관리 센터에서 해당 구매를 관리할 수 있습니다. 관리자는 [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide)을 통해(Power BI, Power Apps 및 Power Automate에 대한) 셀프 서비스 구매를 차단할 수 있습니다. 자세한 내용은 [셀프 서비스 구매 질문과 대답](/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide)을 참조하세요.  
+* **Microsoft 365 관리 센터에서 셀프 서비스 구매** – 사용자는 셀프 서비스 구매를 통해 제품을 직접 구매하거나 가입하여 신제품을 사용해 볼 수 있습니다. 이러한 제품은 관리 센터에서 관리됩니다. 셀프 서비스 구매를 수행 하는 사용자에 게는 상거래 시스템의 역할과 최신 상거래 사용자 역할이 할당 되므로 관리 센터에서 해당 구매를 관리할 수 있습니다. 관리자는 [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell)을 통해(Power BI, Power Apps 및 Power Automate에 대한) 셀프 서비스 구매를 차단할 수 있습니다. 자세한 내용은 [셀프 서비스 구매 질문과 대답](/microsoft-365/commerce/subscriptions/self-service-purchase-faq)을 참조하세요.  
 * **Microsoft 상업적 marketplace에서 구매**  – 사용자가 Microsoft AppSource 또는 Azure Marketplace에서 제품이 나 서비스를 구입 하는 경우에는 전역 관리자 또는 청구 관리자 역할이 없는 경우 최신 상거래 사용자 역할이 할당 됩니다. 경우에 따라 사용자가 제품을 구매하지 못하게 차단될 수도 있습니다. 자세한 내용은 [Microsoft 상업용 마켓플레이스](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase)를 참조하세요.
 * **Microsoft의 제안** – 제안은 조직에 Microsoft 제품 및 서비스를 구매할 것을 권유하는 Microsoft의 공식 제안입니다. 제안을 수락 하는 사용자에 게 Azure AD의 전역 관리자 또는 청구 관리자 역할이 없는 경우, 관리자 센터에 액세스 하려면 제안서를 완료 하 고 최신 상거래 사용자 역할을 모두 할당 합니다. 이 사람은 관리 센터에 액세스할 때 자신의 상거래 관련 역할에 의해 권한이 부여된 기능만 사용할 수 있습니다.
 * **상거래 관련 역할** - 일부 사용자에게 상거래 관련 역할이 할당됩니다. 사용자가 전역 또는 대금 청구 관리자가 아니면 관리 센터에 액세스할 수 있도록 최신 상거래 사용자 역할을 받게 됩니다.  
@@ -481,7 +481,7 @@ Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 �
 
 이 역할의 사용자는 Microsoft Teams 및 비즈니스용 Skype 관리 센터에서 사용자 호출 문제 해결 도구를 사용하여 Microsoft Teams 및 비즈니스용 Skype 내에서 통신 문제를 해결할 수 있습니다. 이 역할의 사용자는 조회하는 특정 사용자에 대한 호출에서 사용자 세부 정보를 보기만 할 수 있습니다. 이 역할에는 지원 티켓 보기, 생성 또는 관리 권한은 없습니다.
 
-### <a name="teams-devices-administrator"></a>[팀 장치 관리자](#teams-devices-administrator-permissions)
+### <a name="teams-devices-administrator"></a>[Teams 디바이스 관리자](#teams-devices-administrator-permissions)
 
 이 역할을 가진 사용자는 팀 관리 센터에서 [팀 인증 장치](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) 를 관리할 수 있습니다. 이 역할을 사용 하면 장치를 검색 하 고 필터링 할 수 있는 기능을 통해 모든 장치를 한 눈에 볼 수 있습니다. 사용자는 장치의 로그인 된 계정, 제조업체 및 모델을 포함 하 여 각 장치에 대 한 세부 정보를 확인할 수 있습니다. 사용자는 장치에서 설정을 변경 하 고 소프트웨어 버전을 업데이트할 수 있습니다. 이 역할은 팀 활동을 확인 하 고 장치의 품질을 호출할 수 있는 권한을 부여 하지 않습니다. 
 
@@ -1943,7 +1943,7 @@ Kaizala 관리자 | Kaizala 관리자 | 74ef975b-6605-40af-a5d2-b9539d836353
 Lync 서비스 관리자 | 비즈니스용 Skype 관리자 | 75941009-915a-4869-abe7-691bff18279e
 메시지 센터 개인 정보 읽기 권한자 | 메시지 센터 개인 정보 읽기 권한자 | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 메시지 센터 읽기 권한자 | 메시지 센터 읽기 권한자 | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
-최신 상거래 사용자 | 최신 상거래 사용자 | d24aef57-1500-4070-84db-2666f29cf966
+최신 Commerce 사용자 | 최신 Commerce 사용자 | d24aef57-1500-4070-84db-2666f29cf966
 네트워크 관리자 | 네트워크 관리자 | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Office 앱 관리자 | Office 앱 관리자 | 2b745bdf-0803-4d80-aa65-822c4493daac
 파트너 계층1 지원 | 사용하면 안되므로 표시되지 않습니다. | 4ba39ca4-527c-499a-b93d-d9b492c50246
@@ -1966,7 +1966,7 @@ SharePoint 서비스 관리자 | SharePoint 관리자 | f28a1f50-f6e7-4571-818b-
 Teams 통신 관리자 | Teams 통신 관리자 | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Teams 통신 지원 엔지니어 | Teams 통신 지원 엔지니어 | f70938a0-fc10-4177-9e90-2178f8765737
 Teams 통신 지원 전문가 | Teams 통신 지원 전문가 | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
-팀 장치 관리자 | 팀 장치 관리자 | 3d762c5a-1b6c-493f-843e-55a3b42923d4
+Teams 디바이스 관리자 | Teams 디바이스 관리자 | 3d762c5a-1b6c-493f-843e-55a3b42923d4
 Teams 서비스 관리자 | Teams 서비스 관리자 | 69091246-20e8-4a56-aa4d-066075b2a7a8
 사용자 | 사용하면 안되므로 표시되지 않습니다. | a0b1b346-4d3e-4e8b-98f8-753987be4970
 사용자 계정 관리자 | 사용자 관리자 | fe930be7-5e62-47db-91af-98c3a49a38b1

@@ -4,18 +4,18 @@ titleSuffix: Azure Maps
 description: Azure Maps에서 요청을 인증 하는 두 가지 방법, 즉 공유 키 인증 및 Azure Active Directory (Azure AD) 인증에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/27/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: dc3792b5eff1b0ba51f5d7938e52e6914660109a
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d47e98273e696a4b6e827d8ebbc71a297f2861cb
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889887"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905318"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
 
@@ -90,7 +90,7 @@ Azure RBAC를 구성 하는 경우 보안 주체를 선택 하 여 역할 할당
 
 응용 프로그램 시나리오를 지원 하기 위해 다음 역할 정의 형식이 있습니다.
 
-| Azure 역할 정의       | 설명                                                                                              |
+| Azure 역할 정의       | Description                                                                                              |
 | :-------------------------- | :------------------------------------------------------------------------------------------------------- |
 | Azure Maps 데이터 읽기 권한자      | 변경할 수 없는 Azure Maps REST Api에 대 한 액세스를 제공 합니다.                                                       |
 | Azure Maps 데이터 기여자 | 변경 가능한 Azure Maps REST Api에 대 한 액세스를 제공 합니다. 가변성는 write 및 delete 작업으로 정의 됩니다. |

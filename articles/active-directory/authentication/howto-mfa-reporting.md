@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e2a02ae7bd89e99dc2eee013394a1f85139c1c00
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 5f78b70599d6d0ae8825accf4cc55cdc1c01d9ce
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742779"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861241"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-ad-multi-factor-authentication-events"></a>로그인 보고서를 사용 하 여 Azure AD Multi-Factor Authentication 이벤트를 검토 합니다.
 
@@ -91,7 +91,7 @@ Azure AD Multi-Factor Authentication 이벤트를 검토 하 고 이해 하려�
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>MFA에 등록된 사용자에 대한 PowerShell 보고
 
-먼저 [MSOnline V1 PowerShell 모듈](/powershell/azure/active-directory/overview?view=azureadps-1.0)이 설치되어 있는지 확인합니다.
+먼저 [MSOnline V1 PowerShell 모듈](/powershell/azure/active-directory/overview)이 설치되어 있는지 확인합니다.
 
 다음에 나오는 PowerShell을 사용하여 MFA에 등록한 사용자를 식별합니다. 이 명령 집합은 비활성화된 사용자를 제외합니다. 이러한 계정은 Azure AD에 인증할 수 없기 때문입니다.
 

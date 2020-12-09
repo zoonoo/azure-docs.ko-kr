@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c208da657d30d4a0f5b6f171693c5c6abc2b358b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0671d3dec963c0b475133881b00224cfe11e8370
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649184"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861647"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱에 대한 사용자 로그인 비활성화
 
@@ -39,7 +39,7 @@ ms.locfileid: "94649184"
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Azure AD PowerShell을 사용 하 여 목록에 없는 앱을 사용 하지 않도록 설정
 
-엔터프라이즈 앱 목록에 표시 되지 않는 앱의 AppId를 알고 있는 경우 (예: 앱을 삭제 했거나 Microsoft에서 사전 인증 하는 앱으로 인해 서비스 주체를 아직 만들지 않은 경우) 앱에 대 한 서비스 주체를 수동으로 만든 다음 [AzureAD PowerShell cmdlet](/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0)을 사용 하 여 사용 하지 않도록 설정할 수 있습니다.
+엔터프라이즈 앱 목록에 표시 되지 않는 앱의 AppId를 알고 있는 경우 (예: 앱을 삭제 했거나 Microsoft에서 사전 인증 하는 앱으로 인해 서비스 주체를 아직 만들지 않은 경우) 앱에 대 한 서비스 주체를 수동으로 만든 다음 [AzureAD PowerShell cmdlet](/powershell/module/azuread/New-AzureADServicePrincipal)을 사용 하 여 사용 하지 않도록 설정할 수 있습니다.
 
 ```PowerShell
 # The AppId of the app to be disabled

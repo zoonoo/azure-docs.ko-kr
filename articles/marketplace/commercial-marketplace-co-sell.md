@@ -6,27 +6,31 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 12/04/2020
-ms.openlocfilehash: 7b335c3db5fb52c4323b797556d48e3ed9ae410a
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.date: 12/08/2020
+ms.openlocfilehash: b5001898fa18834ce7c04403de70879084df85f1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621623"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904911"
 ---
 # <a name="co-sell-option-in-the-commercial-marketplace"></a>상업적 marketplace의 공동 판매 옵션
 
 **Microsoft와 공동 판매** 탭에 대 한 정보를 제공 하는 것은 모두 선택 사항입니다. [공동 판매 준비 및 IP 공동 판매 Incentivized 상태](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)를 구현 해야 합니다. Microsoft 영업 팀에서 제공 하는 정보를 사용 하 여 고객의 요구에 맞게 제품을 평가할 때 제품에 대해 자세히 알아볼 수 있습니다. 고객에게 직접 제공되지 않습니다. 자세한 내용은 [Microsoft와 공동 판매](https://partner.microsoft.com/membership/co-sell-with-microsoft)를 참조 하세요.
 
-파트너 센터의 공동 판매 옵션은 현재 다음 제품 유형에 서 사용할 수 있습니다.
+파트너 센터의 공동 판매 옵션은 다음과 같은 제안 유형에 사용할 수 있습니다.
 
 - Azure 애플리케이션
+- Azure 컨테이너
+- Azure Virtual Machine
+- 컨설팅 서비스
 - 고객 Engagement & PowerApps의 Dynamics 365
-- Dynamics 365 for Operations
-- Dynamics 365 Business Central
+- 운영을 위한 Dynamics 365
+- Dynamics 365 비즈니스 중부
+- IoT Edge 모듈
+- 관리형 서비스
+- Power BI App
 - SaaS(Software as a Service)
-
-추가 제품 유형에 대 한 지원은 시간이 지남에 따라 사용할 수 있게 됩니다.
 
 ## <a name="listing"></a>목록
 

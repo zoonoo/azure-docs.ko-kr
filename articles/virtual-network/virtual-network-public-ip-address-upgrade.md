@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/07/2020
+ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 0c248149694c2bf66b8c94e9c0a29a8f7da9f4e4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9ea29c47349fd7ccee469188f8929a864cf7bbef
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843743"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905794"
 ---
 # <a name="upgrade-public-ip-addresses"></a>공용 IP 주소 업그레이드
 
@@ -159,6 +159,7 @@ US DoD 중부<br>
 
 * 기본 공용 IP를 업그레이드 하기 위해 Azure 리소스에 연결할 수 없습니다.  공용 Ip의 연관을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) 를 참조 하세요.  마찬가지로 예약된 IP 마이그레이션하기 위해 클라우드 서비스에 연결할 수 없습니다.  예약 된 Ip의 연관을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) 를 참조 하세요.  
 * 기본에서 표준 SKU로 업그레이드 된 공용 Ip는 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) 을 계속 갖지 않으므로 영역 중복 또는 영역 인 Azure 리소스에 연결할 수 없습니다.  참고이는 가용성 영역을 제공 하는 지역에만 적용 됩니다.
+* 표준에서 기본으로 다운 그레이드할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 978f404aa9b99819460e46ea89df19d27431b8b8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: c9ee81abd7cd0268a7cbd6b16aa6065ec7b54bef
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743142"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861309"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Azure AD Multi-Factor Authentication 배포 계획
 
@@ -165,7 +165,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱은 30초마다 새로운 OAT
 2. 조건부 액세스를 사용하여 모든 리소스에 액세스할 수 있도록 이 그룹에 대해 다단계 인증을 적용합니다.
 3. 정기적으로 그룹 멤버 자격을 다시 평가하고 등록한 사용자를 그룹에서 제거합니다.
 
-[Msonline powershell 모듈](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)을 사용 하는 powershell 명령을 사용 하 여 등록 및 등록 되지 않은 AZURE AD MFA 사용자를 식별할 수 있습니다.
+[Msonline powershell 모듈](/powershell/azure/active-directory/install-msonlinev1)을 사용 하는 powershell 명령을 사용 하 여 등록 및 등록 되지 않은 AZURE AD MFA 사용자를 식별할 수 있습니다.
 
 #### <a name="identify-registered-users"></a>등록된 사용자 파악
 

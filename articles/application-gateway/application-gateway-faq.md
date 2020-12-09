@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: dc262e133f6e91271d7e9848bdca9d3a6062fc66
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: d46c1d8efb5234d47c80ca4256c2f56d56ccf805
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751719"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862176"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대한 질문과 대답입니다.
 
@@ -133,7 +133,7 @@ v2 SKU를 사용하는 대부분의 배포는 프로비저닝하는 데 약 6분
 
 ### <a name="does-application-gateway-v2-support-proxying-requests-with-ntlm-authentication"></a>Application Gateway V2는 NTLM 인증을 사용한 프록시 요청을 지원하나요?
 
-아니요. Application Gateway V2는 아직 NTLM 인증을 사용한 프록시 요청을 지원하지 않습니다.
+아니요. Application Gateway V2는 NTLM 인증을 사용 하는 프록시 요청을 지원 하지 않습니다.
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Application Gateway 선호도 쿠키는 SameSite 특성을 지원하나요?
 예, [Chromium 브라우저](https://www.chromium.org/Home) [v80 업데이트](https://chromiumdash.appspot.com/schedule)에서는 SameSite 특성이 없는 HTTP 쿠키를 SameSite=Lax로 처리해 달라는 요구를 수락했습니다. 즉, 타사 컨텍스트에서는 브라우저가 Application Gateway 선호도 쿠키를 보내지 않습니다. 

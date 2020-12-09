@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 2ff8f6134f74e0eda355342a7282e8be81a3d8df
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c5839589c35ea5a9c52303801a8767fc598434fc
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450234"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905879"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Azure SQL Database의 서버에 대 한 가상 네트워크 서비스 끝점 및 규칙 사용
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "96450234"
 *가상 네트워크 규칙* 은 데이터베이스에 대 한 서버 및 [Azure SQL Database](sql-database-paas-overview.md) 의 탄력적 풀 또는 [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 의 데이터베이스에 대 한 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락 하는지 여부를 제어 하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 가상 네트워크 규칙 기능이 때때로 Azure SQL Database 및 Azure Synapse Analytics의 데이터베이스와 안전 하 게 통신 하는 데 가장 적합 한 옵션을 설명 합니다.
 
 > [!NOTE]
-> 이 문서는 Azure SQL Database 및 Azure Synapse 분석 모두에 적용 됩니다. 편의상 '데이터베이스'라는 용어는 Azure SQL Database 및 Azure Synapse Analytics의 데이터베이스를 모두 나타냅니다. 마찬가지로 '서버'에 대한 모든 참조는 Azure SQL Database 및 Azure Synapse Analytics를 호스트하는 [논리 SQL 서버](logical-servers.md)를 참조하는 것입니다.
+> 이 문서는 Azure SQL Database와 Azure Synapse Analytics 모두에 적용됩니다. 편의상 '데이터베이스'라는 용어는 Azure SQL Database 및 Azure Synapse Analytics의 데이터베이스를 모두 나타냅니다. 마찬가지로 '서버'에 대한 모든 참조는 Azure SQL Database 및 Azure Synapse Analytics를 호스트하는 [논리 SQL 서버](logical-servers.md)를 참조하는 것입니다.
 
 가상 네트워크 규칙을 만들려면 먼저 참조할 규칙에 대한 [가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]가 있어야 합니다.
 
@@ -95,7 +95,7 @@ Azure SQL Database에 대해 서비스 엔드포인트를 사용하는 경우 �
 ### <a name="expressroute"></a>ExpressRoute
 
 공용 피어링 또는 Microsoft 피어링을 위해 온-프레미스에서 [ExpressRoute](../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하는 경우 사용되는 NAT IP 주소를 식별해야 합니다. 공용 피어링의 경우 기본적으로 각 ExpressRoute 회로는 트래픽이 Microsoft Azure 네트워크 백본으로 들어갈 때 Azure 서비스 트래픽에 적용되는 두 개의 NAT IP 주소를 사용합니다. Microsoft 피어링의 경우 사용되는 NAT IP 주소는 고객이 제공하거나 서비스 공급자가 제공합니다. 서비스 리소스에 대한 액세스를 허용하려면 리소스 IP 방화벽 설정에서 이러한 공용 IP 주소를 허용해야 합니다. ExpressRoute 회로 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). [ExpressRoute 공용 및 Microsoft 피어링을 위한 NAT](../../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)에 대해 자세히 알아보세요.
-  
+
 회로에서 Azure SQL Database로의 통신을 허용하려면 NAT의 공용 IP 주소에 대한 IP 네트워크 규칙을 만들어야 합니다.
 
 <!--
@@ -111,7 +111,7 @@ Azure Storage는 사용자가 Azure Storage 계정에 대한 연결성을 제한
 
 PolyBase와 COPY 문은 일반적으로 처리량이 높은 데이터 수집을 위해 Azure Storage 계정에서 Azure Synapse Analytics로 데이터를 로드 하는 데 사용 됩니다. 데이터를 로드 하는 Azure Storage 계정에서 VNet 서브넷 집합 으로만 액세스를 제한 하는 경우 PolyBase를 사용 하는 경우 연결이 중단 되 고 저장소 계정에 대 한 COPY 문이 중단 됩니다. VNet에 보안이 설정 된 Azure Storage에 연결 하는 Azure Synapse Analytics에서 복사 및 PolyBase를 사용 하 여 가져오기 및 내보내기 시나리오를 사용 하도록 설정 하려면 아래에 나와 있는 단계를 따르세요.
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>필수 구성 요소
 
 - [이 가이드](/powershell/azure/install-az-ps)를 사용하여 Azure PowerShell을 설치합니다.
 - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](../../storage/common/storage-account-upgrade.md)를 사용하여 범용 v2로 업그레이드해야 합니다.
@@ -122,7 +122,7 @@ PolyBase와 COPY 문은 일반적으로 처리량이 높은 데이터 수집을 
 
 #### <a name="steps"></a>단계
 
-1. PowerShell에서 AAD (Azure Active Directory를 사용 하 여 Azure Synapse를 호스트 하는 **서버를 등록** 합니다.
+1. 독립 실행형 전용 SQL 풀을 사용 하는 경우 PowerShell을 사용 하 여 Azure Active Directory (AAD)를 사용 하 여 SQL server를 등록 합니다. 
 
    ```powershell
    Connect-AzAccount
@@ -130,6 +130,14 @@ PolyBase와 COPY 문은 일반적으로 처리량이 높은 데이터 수집을 
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
+   Synapse 작업 영역 내의 전용 SQL 풀에는이 단계가 필요 하지 않습니다.
+
+1. Synapse 작업 영역이 있는 경우 작업 영역의 시스템 관리 id를 등록 합니다.
+
+   1. Azure Portal에서 Synapse 작업 영역으로 이동 합니다.
+   2. 관리 되는 id 블레이드로 이동 합니다. 
+   3. "파이프라인 허용" 옵션을 사용 하도록 설정 했는지 확인 합니다.
+   
 1. 이 [가이드](../../storage/common/storage-account-create.md)를 사용하여 **범용 v2 스토리지 계정** 을 만듭니다.
 
    > [!NOTE]
@@ -137,7 +145,7 @@ PolyBase와 COPY 문은 일반적으로 처리량이 높은 데이터 수집을 
    > - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](../../storage/common/storage-account-upgrade.md)를 사용하여 **v2로 업그레이드** 해야 합니다.
    > - Azure Data Lake Storage Gen2의 알려진 문제에 대해서는 이 [가이드](../../storage/blobs/data-lake-storage-known-issues.md)를 참조하세요.
 
-1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가** 를 선택합니다. #1 단계에서와 같이 AAD (Azure Active Directory를 사용 하 여 등록 한 Azure Synapse Analytics를 호스트 하는 서버에 **저장소 Blob 데이터 참가자** azure 역할을 할당 합니다.
+1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가** 를 선택합니다. AAD (Azure Active Directory를 사용 하 여 등록 한 전용 SQL 풀을 호스트 하는 서버 또는 작업 영역에 **저장소 Blob 데이터 참가자** Azure 역할을 할당 합니다.
 
    > [!NOTE]
    > 저장소 계정에 대 한 소유자 권한이 있는 멤버만이 단계를 수행할 수 있습니다. Azure 기본 제공 역할에 대한 자세한 내용은 이 [가이드](../../role-based-access-control/built-in-roles.md)를 참조하세요.
@@ -228,7 +236,7 @@ PowerShell을 사용하여 **IgnoreMissingVNetServiceEndpoint** 플래그를 설
 
 - [가상 네트워크 규칙: 작업][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure SQL Database에 관련된 특정 Virtual Network 서비스 엔드포인트 *형식 이름* 으로 태그가 지정된 서브넷이 있어야 합니다.
 

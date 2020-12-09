@@ -1,18 +1,18 @@
 ---
 title: 템플릿을 사용한 조건부 배포
-description: Azure Resource Manager 템플릿에서 리소스를 조건부로 배포 하는 방법을 설명 합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 리소스를 조건부로 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: effa7fe6ee1393e44a124bc087609da5d4898210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a31bd1fbf755046f331542b4d5952b27a793360
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84259323"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905998"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>ARM 템플릿의 조건부 배포
 
-경우에 따라 ARM (Azure Resource Manager) 템플릿에 리소스를 배포 해야 합니다. 요소를 사용 `condition` 하 여 리소스 배포 여부를 지정 합니다. 이 요소 값은 true 또는 false로 확인됩니다. 값이 true이면 리소스가 만들어집니다. 값이 false이면 리소스가 만들어지지 않습니다. 값은 전체 리소스에만 적용할 수 있습니다.
+경우에 따라 Azure Resource Manager 템플릿 (ARM 템플릿)에서 리소스를 배포 해야 합니다. 요소를 사용 `condition` 하 여 리소스 배포 여부를 지정 합니다. 이 요소 값은 true 또는 false로 확인됩니다. 값이 true이면 리소스가 만들어집니다. 값이 false이면 리소스가 만들어지지 않습니다. 값은 전체 리소스에만 적용할 수 있습니다.
 
 > [!NOTE]
 > 조건부 배포는 [자식 리소스](child-resource-name-type.md)에 종속 되지 않습니다. 리소스 및 해당 자식 리소스를 조건부로 배포 하려면 각 리소스 종류에 동일한 조건을 적용 해야 합니다.
@@ -36,7 +36,7 @@ ms.locfileid: "84259323"
 }
 ```
 
-**Neworexisting** 매개 변수가 **new**로 설정 된 경우 조건은 true로 평가 됩니다. 저장소 계정이 배포 됩니다. 그러나 **Neworexisting** 이 **기존**으로 설정 된 경우 조건이 false로 평가 되 고 저장소 계정이 배포 되지 않습니다.
+**Neworexisting** 매개 변수가 **new** 로 설정 된 경우 조건은 true로 평가 됩니다. 저장소 계정이 배포 됩니다. 그러나 **Neworexisting** 이 **기존** 으로 설정 된 경우 조건이 false로 평가 되 고 저장소 계정이 배포 되지 않습니다.
 
 `condition` 요소를 사용하는 전체 예제 템플릿은 [신규 또는 기존 가상 네트워크, 스토리지 및 공용 IP를 사용하는 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)을 참조하세요.
 

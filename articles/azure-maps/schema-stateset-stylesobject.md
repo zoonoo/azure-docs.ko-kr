@@ -3,21 +3,25 @@ title: 동적 Azure Maps StylesObject 스키마 참조 가이드
 description: 동적 Azure Maps StylesObject 스키마 및 구문에 대 한 참조 가이드입니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2020
+ms.date: 12/07/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f6bc4c62febf24dee790ac6136b1661426d4d619
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 08379e66c97d34eea53410190475e90e156a58e2
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536951"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903346"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>동적 맵에 대 한 StylesObject 스키마 참조 가이드
 
- 는 `StylesObject` `StyleObject` stateset 스타일을 나타내는 배열입니다. Azure Maps Creator [기능 상태 서비스](/rest/api/maps/featurestate) 를 사용 하 여 stateset 스타일을 실내 지도 데이터 기능에 적용 합니다. Stateset 스타일을 만들고 실내 지도 기능과 연결한 후에는이 스타일을 사용 하 여 동적 실내 지도를 만들 수 있습니다. 동적 실내 지도를 만드는 방법에 대 한 자세한 내용은 [Creator 실내 맵에 대 한 동적 스타일 지정 구현](indoor-map-dynamic-styling.md)을 참조 하세요.
+> [!IMPORTANT]
+> Azure Maps 작성자 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+ 는 `StylesObject` `StyleObject` stateset 스타일을 나타내는 배열입니다. Azure Maps Creator (미리 보기) [기능 상태 서비스](/rest/api/maps/featurestate) 를 사용 하 여 stateset 스타일을 실내 지도 데이터 기능에 적용 합니다. Stateset 스타일을 만들고 실내 지도 기능과 연결한 후에는이 스타일을 사용 하 여 동적 실내 지도를 만들 수 있습니다. 동적 실내 지도를 만드는 방법에 대 한 자세한 내용은 [Creator 실내 맵에 대 한 동적 스타일 지정 구현](indoor-map-dynamic-styling.md)을 참조 하세요.
 
 ## <a name="styleobject"></a>StyleObject
 
@@ -82,7 +86,7 @@ ms.locfileid: "95536951"
 
  는 이며 `NumericTypeStyleRule`  [`StyleObject`](#styleobject) 다음과 같은 속성으로 구성 됩니다.
 
-| 속성 | 유형 | 설명 | 필수 |
+| 속성 | Type | Description | 필수 |
 |-----------|----------|-------------|-------------|
 | `keyName` | 문자열 | *상태* 또는 동적 속성 이름입니다. 는 `keyName` 배열 내에서 고유 해야 합니다 `StyleObject` .| 예 |
 | `type` | 문자열 | 값은 "numeric"입니다. | 예 |
@@ -119,7 +123,7 @@ ms.locfileid: "95536951"
 ]
 ```
 
-| 속성 | 유형 | 설명 | 필수 |
+| 속성 | Type | Description | 필수 |
 |-----------|----------|-------------|-------------|
 | `range` | [범위 개체](#rangeobject) | 범위 [개체](#rangeobject) 는 논리 범위 조건 집합을 정의 합니다 .이 경우에는 `true` *상태* 표시 색을 속성에 지정 된 색으로 변경 합니다 `color` . `range`가 지정 되지 않은 경우 속성에 정의 된 색은 `color` 항상 사용 됩니다.   | 예 |
 | `color` | 문자열 | 상태 값이 범위를 벗어날 때 사용할 색입니다. `color`속성은 다음 형식 중 하나에 해당 하는 JSON 문자열입니다. <ul><li> HTML 스타일의 16 진수 값 </li><li> RGB ("#ff0", "#ffff00", "rgb (255, 255, 0)")</li><li> RGBA ("rgba (255, 255, 0, 1)")</li><li> HSL ("hsl (100, 50%, 50%")</li><li> HSLA ("hsla (100, 50%, 50%, 1)")</li><li> 노랑, 파랑 등의 미리 정의 된 HTML 색 이름입니다.</li></ul> | 예 |
@@ -128,7 +132,7 @@ ms.locfileid: "95536951"
 
 는 `RangeObject` 의 숫자 범위 값을 정의 합니다 [`NumberRuleObject`](#numberruleobject) . *상태* 값이 범위에 포함 되 게 하려면 정의 된 모든 조건이 true 여야 합니다.
 
-| 속성 | 유형 | 설명 | 필수 |
+| 속성 | Type | Description | 필수 |
 |-----------|----------|-------------|-------------|
 | `minimum` | double | X가 ≥ 모든 숫자 x입니다 `minimum` .| 아니요 |
 | `maximum` | double | X가 ≤ 인 모든 숫자 x입니다 `maximum` . | 아니요 |
@@ -166,7 +170,7 @@ ms.locfileid: "95536951"
 
 는 이며 `StringTypeStyleRule` [`StyleObject`](#styleobject) 다음과 같은 속성으로 구성 됩니다.
 
-| 속성 | 유형 | 설명 | 필수 |
+| 속성 | Type | Description | 필수 |
 |-----------|----------|-------------|-------------|
 | `keyName` | 문자열 |  *상태* 또는 동적 속성 이름입니다.  는 `keyName` 배열 내에서 고유 해야 합니다  `StyleObject` .| 예 |
 | `type` | 문자열 |값은 "string"입니다. | 예 |
@@ -178,7 +182,7 @@ ms.locfileid: "95536951"
 
 문자열 값 일치는 대/소문자를 구분 합니다.
 
-| 속성 | 유형 | 설명 | 필수 |
+| 속성 | Type | Description | 필수 |
 |-----------|----------|-------------|-------------|
 | `stateValue1` | 문자열 | 값 문자열이 stateValue1 색입니다. | 예 |
 | `stateValue2` | 문자열 | 값 문자열이 stateValue 인 경우의 색입니다. | 예 |
@@ -208,7 +212,7 @@ ms.locfileid: "95536951"
 
 는 이며 `BooleanTypeStyleRule` [`StyleObject`](#styleobject) 다음과 같은 속성으로 구성 됩니다.
 
-| 속성 | 유형 | 설명 | 필수 |
+| 속성 | Type | Description | 필수 |
 |-----------|----------|-------------|-------------|
 | `keyName` | 문자열 |  *상태* 또는 동적 속성 이름입니다.  는 `keyName` 배열 내에서 고유 해야 합니다 `StyleObject`  .| 예 |
 | `type` | 문자열 |값은 "boolean"입니다. | 예 |
@@ -218,7 +222,7 @@ ms.locfileid: "95536951"
 
 는 `BooleanRuleObject` 및 값에 대 한 색을 정의 `true` `false` 합니다.
 
-| 속성 | 유형 | 설명 | 필수 |
+| 속성 | Type | Description | 필수 |
 |-----------|----------|-------------|-------------|
 | `true` | 문자열 | *상태* 값이 인 경우 사용할 색 `true` 입니다. `color`속성은 다음 형식 중 하나에 해당 하는 JSON 문자열입니다. <ul><li> HTML 스타일의 16 진수 값 </li><li> RGB ("#ff0", "#ffff00", "rgb (255, 255, 0)")</li><li> RGBA ("rgba (255, 255, 0, 1)")</li><li> HSL ("hsl (100, 50%, 50%")</li><li> HSLA ("hsla (100, 50%, 50%, 1)")</li><li> 노랑, 파랑 등의 미리 정의 된 HTML 색 이름입니다.</li></ul>| 예 |
 | `false` | 문자열 | *상태* 값이 인 경우 사용할 색 `false` 입니다. | 예 |

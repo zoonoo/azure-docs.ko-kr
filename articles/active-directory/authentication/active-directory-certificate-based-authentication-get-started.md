@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6db7037cbcad335db77784ecfa624f08e88b1e83
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 3ba84bb3ee38981217e72f8372a836b03647083d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744434"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861343"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory에서 인증서 기반 인증 시작
 
@@ -93,7 +93,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
     }
 ```
 
-구성에는 [Azure Active Directory PowerShell 버전 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)를 사용할 수 있습니다.
+구성에는 [Azure Active Directory PowerShell 버전 2](/powershell/azure/active-directory/install-adv2)를 사용할 수 있습니다.
 
 1. 관리자 권한으로 Windows PowerShell을 시작합니다.
 2. Azure AD 모듈 버전 [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) 이상을 설치합니다.
@@ -106,7 +106,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 ### <a name="connect"></a>연결
 
-테넌트와 연결을 설정하려면 [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) cmdlet을 사용합니다.
+테넌트와 연결을 설정하려면 [Connect-AzureAD](/powershell/module/azuread/connect-azuread) cmdlet을 사용합니다.
 
 ```azurepowershell
     Connect-AzureAD
@@ -114,7 +114,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 ### <a name="retrieve"></a>장치
 
-디렉터리에 정의된 신뢰할 수 있는 인증 기관을 검색하려면 [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet을 사용합니다.
+디렉터리에 정의된 신뢰할 수 있는 인증 기관을 검색하려면 [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority) cmdlet을 사용합니다.
 
 ```azurepowershell
     Get-AzureADTrustedCertificateAuthority
@@ -122,7 +122,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 ### <a name="add"></a>추가
 
-신뢰할 수 있는 인증 기관을 만들려면 [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet을 사용하고 **crlDistributionPoint** 특성을 올바른 값으로 설정합니다.
+신뢰할 수 있는 인증 기관을 만들려면 [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority) cmdlet을 사용하고 **crlDistributionPoint** 특성을 올바른 값으로 설정합니다.
 
 ```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"
@@ -135,7 +135,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 ### <a name="remove"></a>제거
 
-신뢰할 수 있는 인증 기관을 제거하려면 [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet을 사용합니다.
+신뢰할 수 있는 인증 기관을 제거하려면 [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority) cmdlet을 사용합니다.
 
 ```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
@@ -144,7 +144,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 ### <a name="modify"></a>수정
 
-신뢰할 수 있는 인증 기관을 수정하려면 [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet을 사용합니다.
+신뢰할 수 있는 인증 기관을 수정하려면 [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet을 사용합니다.
 
 ```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority

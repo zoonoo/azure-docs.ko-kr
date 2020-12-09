@@ -3,12 +3,12 @@ title: 프로덕션 준비 및 모범 사례-Azure
 description: 이 문서에서는 프로덕션 환경의 IoT Edge 모듈에서 라이브 비디오 분석을 구성 하 고 배포 하는 방법에 대 한 지침을 제공 합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 215427e3524861a842349b197668d92167960e5c
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87071941"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906338"
 ---
 # <a name="production-readiness-and-best-practices"></a>프로덕션 준비 및 모범 사례
 
@@ -62,7 +62,7 @@ sudo adduser --home /home/edgeuser --uid 1010 -gid 1010 edgeuser
 
 IoT Edge 모듈의 Live Video Analytics에는 다음과 같은 경우 로컬 파일 시스템에 파일을 쓸 수 있는 기능이 필요 합니다.
 
-* 모듈 쌍 속성 [[Applicationdatadirectory](module-twin-configuration-schema.md#module-twin-properties)]를 사용 하 여 구성 데이터를 저장할 로컬 파일 시스템의 디렉터리를 지정 해야 합니다.
+* 모듈 쌍 속성을 사용 합니다 [`applicationDataDirectory`](module-twin-configuration-schema.md#module-twin-properties) . 여기서는 구성 데이터를 저장 하기 위해 로컬 파일 시스템의 디렉터리를 지정 해야 합니다.
 * 미디어 그래프를 사용 하 여 클라우드에 비디오를 기록 하려면 모듈에서에 지 장치의 디렉터리를 캐시로 사용 해야 합니다 (자세한 내용은 [연속 비디오 녹화](continuous-video-recording-concept.md) 문서 참조).
 * 기록 된 비디오에 대 한 파일 경로를 지정 해야 하는 [로컬 파일에 기록](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources)합니다.
 
@@ -124,7 +124,7 @@ sudo chown -R edgeuser /var/local/mediaservices
 동일한 그래프의 여러 인스턴스를 실행 하는 경우 그래프 토폴로지 이름 및 인스턴스 이름을 사용 하 여 구분할 수 있습니다. 예를 들어 다음과 같이 자산 싱크에 대해 assetNamePattern를 설정할 수 있습니다.
 
 ```
-"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName} -${System.DateTime}"
+"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName}-${System.DateTime}"
 ```
 
 에 지에 대 한 이벤트 기반 비디오 레코딩 생성 mp4 비디오 클립의 경우 권장 되는 명명 패턴에는 DateTime을 포함 해야 하며, 동일한 그래프의 여러 인스턴스에 대해 GraphTopologyName 및 GraphInstanceName을 사용 하는 것이 좋습니다. 예를 들어 다음과 같이 파일 싱크에 filePathPattern을 설정할 수 있습니다. 

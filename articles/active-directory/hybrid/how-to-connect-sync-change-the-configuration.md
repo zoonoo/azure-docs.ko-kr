@@ -12,12 +12,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a2036086cfb6da0d7807d4752a5911a358d3c47
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 2044653673da10de59d5ff125da44ac1f89e22f9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420651"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861853"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경
 이 문서의 목적은 Azure AD(Active Directory) Connect 동기화에서 기본 구성 변경 방법을 안내하는 것입니다. 몇 가지 일반적인 시나리오를 위한 단계를 제공합니다. 이러한 지식을 바탕으로 사용자의 고유한 비즈니스 규칙에 따라 자체 구성에 대해 간단한 내용을 변경할 수 있습니다.
@@ -56,13 +56,13 @@ ms.locfileid: "93420651"
 1. **새 규칙 추가** 를 클릭합니다.
 2. **설명** 페이지에서 다음을 입력합니다.  
    ![인바운드 규칙 필터링](./media/how-to-connect-sync-change-the-configuration/description2.png)  
-   * **Name** : 규칙에 설명이 포함된 이름을 지정합니다.
-   * **설명** : 다른 사용자가 어떤 규칙인지 이해할 수 있도록 간단한 설명을 제공합니다.
-   * **연결된 시스템** : 개체를 찾을 수 있는 시스템입니다. 이 경우 **Active Directory Connector** 를 선택합니다.
-   * **연결된 시스템/메타버스 개체 유형** : **사용자** 및 **개인** 을 각각 선택합니다.
-   * **링크 형식** : 이 값을 **조인** 으로 변경합니다.
-   * **우선 순위** : 시스템에서 고유한 값을 제공합니다. 숫자 값이 낮을수록 높은 우선 순위를 나타냅니다.
-   * **태그** : 이 항목은 비워 둡니다. Microsoft의 기본 규칙으로만 이 상자에 값을 채워야 합니다.
+   * **Name**: 규칙에 설명이 포함된 이름을 지정합니다.
+   * **설명**: 다른 사용자가 어떤 규칙인지 이해할 수 있도록 간단한 설명을 제공합니다.
+   * **연결된 시스템**: 개체를 찾을 수 있는 시스템입니다. 이 경우 **Active Directory Connector** 를 선택합니다.
+   * **연결된 시스템/메타버스 개체 유형**: **사용자** 및 **개인** 을 각각 선택합니다.
+   * **링크 형식**: 이 값을 **조인** 으로 변경합니다.
+   * **우선 순위**: 시스템에서 고유한 값을 제공합니다. 숫자 값이 낮을수록 높은 우선 순위를 나타냅니다.
+   * **태그**: 이 항목은 비워 둡니다. Microsoft의 기본 규칙으로만 이 상자에 값을 채워야 합니다.
 3. **범위 지정 필터** 페이지에서 **givenName ISNOTNULL** 을 입력합니다.  
    ![인바운드 규칙 범위 지정 필터](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
    이 섹션은 규칙을 적용해야 개체를 정의하는 데 사용됩니다. 비워 두면 규칙은 모든 사용자 개체에 적용됩니다. 하지만 여기에는 회의실, 서비스 계정 및 기타 사람이 아닌 사용자 개체가 포함됩니다.
@@ -139,7 +139,7 @@ ms.locfileid: "93420651"
 `attributeName` <- `Left([attributeName],448)`를 참조하세요.
 
 ### <a name="changing-the-userprincipalsuffix"></a>userPrincipalSuffix 변경
-Active Directory의 userPrincipalName 특성을 항상 사용자가 알 수 있는 것은 아니며 로그인 ID로 적절하지 않을 수도 있습니다. Azure AD Connect 동기화 설치 마법사를 통해 다른 특성을 선택할 수 있습니다(예: *mail* ). 하지만 일부 경우에는 특성을 계산해야 합니다.
+Active Directory의 userPrincipalName 특성을 항상 사용자가 알 수 있는 것은 아니며 로그인 ID로 적절하지 않을 수도 있습니다. Azure AD Connect 동기화 설치 마법사를 통해 다른 특성을 선택할 수 있습니다(예: *mail*). 하지만 일부 경우에는 특성을 계산해야 합니다.
 
 예를 들어 회사 Contoso에는 2개의 Azure AD 디렉터리가 있습니다. 하나는 프로덕션용이고 하나는 테스트용입니다. 테스트 테넌트의 사용자가 로그인 ID에 다른 접미사를 사용하도록 할 수 있습니다.  
 `userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`를 참조하세요.
@@ -150,7 +150,7 @@ Active Directory의 userPrincipalName 특성을 항상 사용자가 알 수 있�
 Active Directory 내의 일부 특성은 Active Directory 사용자 및 컴퓨터에서 단일 값으로 보이더라도 스키마에서는 다중 값입니다. 설명 특성이 한 예입니다.  
 `description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`를 참조하세요.
 
-이 식에서 특성에 값이 있는 경우 해당 특성 내 첫 번째 항목( *Item* )에서 선행 및 후행 공백을 제거한 다음( *트리밍* ), 문자열에 처음 448개의 문자( *왼쪽* )를 유지합니다.
+이 식에서 특성에 값이 있는 경우 해당 특성 내 첫 번째 항목(*Item*)에서 선행 및 후행 공백을 제거한 다음(*트리밍*), 문자열에 처음 448개의 문자(*왼쪽*)를 유지합니다.
 
 ### <a name="do-not-flow-an-attribute"></a>특성을 전달하지 않습니다.
 이 섹션에 대한 시나리오의 배경은 [특성 흐름 프로세스 제어](concept-azure-ad-connect-sync-declarative-provisioning.md#control-the-attribute-flow-process)를 참조하세요.
@@ -164,7 +164,7 @@ Active Directory 내의 일부 특성은 Active Directory 사용자 및 컴퓨�
 
 1. 새 인바운드 동기화 규칙 만들기 및 설명
   ![설명](./media/how-to-connect-sync-change-the-configuration/syncruledescription.png)
-2. **FlowType** 이 **Expression** , **Source** 가 **AuthoritativeNull** 인 특성 흐름을 만듭니다. 리터럴 **AuthoritativeNull** 은 우선 순위가 더 낮은 동기화 규칙이 그 값을 채우려고 해도 메타 버스에서 그 값이 비어 있어야 함을 나타냅니다.
+2. **FlowType** 이 **Expression**, **Source** 가 **AuthoritativeNull** 인 특성 흐름을 만듭니다. 리터럴 **AuthoritativeNull** 은 우선 순위가 더 낮은 동기화 규칙이 그 값을 채우려고 해도 메타 버스에서 그 값이 비어 있어야 함을 나타냅니다.
   ![확장 특성에 대한 변환](./media/how-to-connect-sync-change-the-configuration/syncruletransformations.png)
 3. 동기화 규칙을 저장합니다. **동기화 서비스** 를 시작하여 커넥터를 찾고 **실행** 을 선택한 다음, **전체 동기화** 를 선택합니다. 이 단계는 모든 특성 흐름을 다시 계산합니다.
 4. 의도한 변경 내용을 커넥터 공간을 검색하여 내보낼 수 있는지 확인합니다.
@@ -181,7 +181,7 @@ Active Directory 내의 일부 특성은 Active Directory 사용자 및 컴퓨�
 
 기본 규칙 앞에 추가 규칙을 삽입하겠다고 동기화 엔진에 지시할 수 있습니다. 이 동작을 가져오려면 다음 단계를 따르십시오.
 
-1. 동기화 규칙 편집기에서 첫 번째 기본 동기화 규칙( **In from AD-User Join** )을 표시하고 **내보내기** 를 선택합니다. SR 식별자 값을 복사합니다.  
+1. 동기화 규칙 편집기에서 첫 번째 기본 동기화 규칙(**In from AD-User Join**)을 표시하고 **내보내기** 를 선택합니다. SR 식별자 값을 복사합니다.  
 ![변경 전 PowerShell](./media/how-to-connect-sync-change-the-configuration/powershell1.png)  
 2. 새 동기화 규칙을 만듭니다. 동기화 규칙 편집기를 사용하여 규칙을 만들 수 있습니다. 규칙을 PowerShell 스크립트로 내보냅니다.
 3. **PrecedenceBefore** 속성에서 기본 규칙의 식별자 값을 삽입합니다. **우선 순위** 를 **0** 으로 설정합니다. 식별자 특성은 고유한지 그리고 다른 규칙의 GUID를 다시 사용하고 있지 않은지 확인합니다. **ImmutableTag** 속성이 설정되지 않았는지도 확인합니다. 이 속성은 기본 규칙에 대해서만 설정해야 합니다.
@@ -200,7 +200,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **UserT
 
 - Azure AD는 UserType 특성에 대해 **멤버** 및 **게스트** 두 값만 허용합니다.
 - Azure AD Connect에서 UserType 특성이 동기화에 대해 사용하도록 설정되어 있지 않은 경우 디렉터리 동기화를 통해 만든 Azure AD 사용자는 UserType 특성이 **멤버** 로 설정되었을 것입니다.
-- 버전 1.5.30.0 이전에 Azure AD에서는 Azure AD Connect에 의해 변경될 기존 Azure AD 사용자에 대해 UserType 특성을 허용하지 않았습니다. 이전 버전에서는 Azure AD 사용자를 만들고 [PowerShell을 통해 변경](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0)하는 동안에만 설정할 수 있었습니다.
+- 버전 1.5.30.0 이전에 Azure AD에서는 Azure AD Connect에 의해 변경될 기존 Azure AD 사용자에 대해 UserType 특성을 허용하지 않았습니다. 이전 버전에서는 Azure AD 사용자를 만들고 [PowerShell을 통해 변경](/powershell/module/azuread/set-azureaduser)하는 동안에만 설정할 수 있었습니다.
 
 UserType 특성의 동기화를 사용하도록 설정하기 전에 먼저 이 특성이 온-프레미스 Active Directory에서 파생되는 방법을 결정해야 합니다. 다음은 가장 일반적인 방식입니다.
 
@@ -372,7 +372,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
    2. **커넥터 공간 검색** 팝업 대화 상자에서
 
       - **범위** 를 **보류 중인 내보내기** 로 설정합니다.
-      - 세 개의 확인란( **추가** , **수정** 및 **삭제** )을 모두 선택합니다.
+      - 세 개의 확인란(**추가**, **수정** 및 **삭제**)을 모두 선택합니다.
       - **검색** 단추를 클릭하여 내보낼 변경 내용이 있는 개체의 목록을 가져옵니다. 지정된 개체에 대한 변경 내용을 검사하려면 해당 개체를 두 번 클릭합니다.
       - 필요한 변경 내용인지 확인합니다.
 

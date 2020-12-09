@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: a7d392412aa481d9541cd4987cfb4c18d04dafa0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 84e156074d6db837556ba4ed9febdb43bcdf3318
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500158"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902326"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -235,7 +235,7 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
       * `-` 는 매개 변수의 기본값을 유지 하지 않음을 의미 합니다.
       * `|` 는 연결 문자열이 나 키에 대 한 Azure Key Vault의 비밀에 대 한 특별 한 사례입니다.
    * `<name>`은 매개 변수의 이름입니다. 비어 있는 경우 속성의 이름을 사용합니다. 값이 `-` 문자로 시작하는 경우에는 이름이 짧아집니다. 예를 들어 `AzureStorage1_properties_typeProperties_connectionString`에서 `AzureStorage1_connectionString`으로 줄어듭니다.
-   * `<stype>` 매개 변수의 형식입니다. `<stype>`가 비어 있으면 기본 형식은 `string` 입니다. 지원되는 값은 `string`, `bool`, `number`, `object`, `securestring`입니다.
+   * `<stype>` 매개 변수의 형식입니다. `<stype>`가 비어 있으면 기본 형식은 `string` 입니다. 지원 되는 값은 `string` , `securestring` , `int` ,, `bool` `object` `secureobject` 및 `array` 입니다.
 * 정의 파일에서 배열을 지정하면 템플릿의 일치하는 속성이 배열임을 나타냅니다. Data Factory는 배열의 Integration Runtime 개체에 지정된 정의를 사용하여 배열에 있는 모든 개체를 반복합니다. 두 번째 개체, 문자열은 각 반복에 대한 매개 변수의 이름으로 사용되는 속성의 이름이 됩니다.
 * 정의는 리소스 인스턴스와 관련될 수 없습니다. 모든 정의는 해당 형식의 모든 리소스에 적용됩니다.
 * 기본적으로 Key Vault 비밀과 같은 모든 보안 문자열과 연결 문자열, 키, 토큰 등의 보안 문자열은 매개 변수화됩니다.
@@ -250,7 +250,7 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
         "properties": {
             "activities": [{
                 "typeProperties": {
-                    "waitTimeInSeconds": "-::number",
+                    "waitTimeInSeconds": "-::int",
                     "headers": "=::object"
                 }
             }]
@@ -268,7 +268,7 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
             "typeProperties": {
                 "recurrence": {
                     "*": "=",
-                    "interval": "=:triggerSuffix:number",
+                    "interval": "=:triggerSuffix:int",
                     "frequency": "=:-freq"
                 },
                 "maxConcurrency": "="
@@ -317,7 +317,7 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
 #### <a name="triggers"></a>트리거
 
 * `typeProperties`에서 두 개의 속성은 매개 변수화됩니다. 첫 번째 값은 기본값을 갖도록 지정된 `maxConcurrency`이며 `string` 형식입니다. 이 값은 기본 매개 변수 이름 `<entityName>_properties_typeProperties_maxConcurrency`를 갖습니다.
-* `recurrence` 속성도 매개 변수화됩니다. 이 속성 아래 수준의 모든 속성은 문자열로 매개 변수화되어 기본값 및 매개 변수 이름으로 지정됩니다. 단, `number` 형식으로 매개 변수화되는 `interval` 속성은 예외입니다. 매개 변수 이름에는 `<entityName>_properties_typeProperties_recurrence_triggerSuffix`가 접미사로 붙습니다. 마찬가지로 `freq` 속성은 문자열이며 문자열로 매개 변수화됩니다. 그러나 `freq` 속성은 기본값 없이 매개 변수화됩니다. 이름이 단축되고 접미사가 붙습니다. `<entityName>_freq`)을 입력합니다.
+* `recurrence` 속성도 매개 변수화됩니다. 이 속성 아래 수준의 모든 속성은 문자열로 매개 변수화되어 기본값 및 매개 변수 이름으로 지정됩니다. 단, `int` 형식으로 매개 변수화되는 `interval` 속성은 예외입니다. 매개 변수 이름에는 `<entityName>_properties_typeProperties_recurrence_triggerSuffix`가 접미사로 붙습니다. 마찬가지로 `freq` 속성은 문자열이며 문자열로 매개 변수화됩니다. 그러나 `freq` 속성은 기본값 없이 매개 변수화됩니다. 이름이 단축되고 접미사가 붙습니다. `<entityName>_freq`)을 입력합니다.
 
 #### <a name="linkedservices"></a>LinkedServices
 
@@ -668,7 +668,7 @@ Data Factory를 통해 Git 통합을 사용할 때 개발에서 테스트, 프�
     - Data Factory 엔터티는 서로 종속됩니다. 예를 들어, 트리거는 파이프라인에 종속되고, 파이프라인은 데이터 세트 및 다른 파이프라인에 종속됩니다. 리소스 하위 집합을 선택적으로 게시하면 예기치 않은 동작 및 오류가 발생할 수 있습니다.
     - 선택적으로 게시해야 하는 경우 핫픽스를 사용하는 것이 좋습니다. 자세한 내용은 [핫픽스 프로덕션 환경](#hotfix-production-environment)을 참조 하세요.
 
-- Azure Data Factory 팀은 Data Factory에서 개별 엔터티 (파이프라인, 데이터 집합 등)에 Azure RBAC 컨트롤을 할당 하지 않는 것이 좋습니다. 예를 들어 개발자가 파이프라인 또는 데이터 집합에 액세스할 수 있는 경우 데이터 팩터리의 모든 파이프라인 또는 데이터 집합에 액세스할 수 있어야 합니다. 데이터 팩터리 내에서 많은 Azure 역할을 구현 해야 하는 경우 두 번째 데이터 팩터리 배포를 살펴보세요.
+- Azure Data Factory 팀은 Data Factory에서 개별 엔터티 (파이프라인, 데이터 집합 등)에 Azure RBAC 컨트롤을 할당 하지 않는 것이 좋습니다. 예를 들어 개발자가 파이프라인 또는 데이터 세트에 액세스할 수 있는 경우 데이터 팩터리의 모든 파이프라인 또는 데이터 세트에 액세스할 수 있어야 합니다. 데이터 팩터리 내에서 많은 Azure 역할을 구현 해야 하는 경우 두 번째 데이터 팩터리 배포를 살펴보세요.
 
 -   프라이빗 분기에서 게시할 수 없습니다.
 

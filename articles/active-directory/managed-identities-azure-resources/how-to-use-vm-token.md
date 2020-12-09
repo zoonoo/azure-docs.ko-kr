@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0769366ad56e1b7431dbfa7c95f1256c509d24fa
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: bed64df921326ad4d219f934f7a7bc6860bfc7d8
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358170"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861904"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하여 액세스 토큰을 획득하는 방법 
 
@@ -30,7 +30,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 이 문서에서는 토큰 획득을 위한 다양한 코드 및 스크립트 예제뿐만 아니라 토큰 만료 및 HTTP 오류를 처리하는 등 중요한 항목에 대한 지침을 제공합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -64,7 +64,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 액세스 토큰을 획득할 기본 인터페이스는 REST 기반으로 하며 HTTP REST를 호출할 수 있는 VM에서 실행되는 모든 클라이언트 애플리케이션에 액세스할 수 있도록 합니다. 클라이언트가 가상 머신(및 Azure AD 끝점)에서 엔드포인트를 사용하는 점을 제외하고 Azure AD 프로그래밍 모델과 유사합니다.
 
-IMDS(Instance Metadata Service) 엔드포인트를 사용하는 요청 샘플 *(권장됨)* :
+IMDS(Instance Metadata Service) 엔드포인트를 사용하는 요청 샘플 *(권장됨)*:
 
 ```
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
@@ -81,7 +81,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `client_id` | (선택 사항) 토큰을 원하는 관리 ID의 client_id를 나타내는 쿼리 문자열 매개 변수입니다. VM에 여러 사용자 할당 관리 ID가 있는 경우 필수입니다.|
 | `mi_res_id` | 필드 토큰을 원하는 관리 id의 mi_res_id (Azure 리소스 ID)을 나타내는 쿼리 문자열 매개 변수입니다. VM에 여러 사용자 할당 관리 ID가 있는 경우 필수입니다. |
 
-Azure 리소스에 대한 관리 ID VM 확장 엔드포인트를 사용하는 요청 샘플 *(2019년 1월에 사용 중단될 예정)* :
+Azure 리소스에 대한 관리 ID VM 확장 엔드포인트를 사용하는 요청 샘플 *(2019년 1월에 사용 중단될 예정)*:
 
 ```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -125,7 +125,7 @@ Content-Type: application/json
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>.NET용 Microsoft.Azure.Services.AppAuthentication 라이브러리를 사용하여 토큰 가져오기
 
-.NET 애플리케이션 및 함수의 경우 Azure 리소스에 대한 관리 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지입니다. 또한 이 라이브러리는 개발 머신에서 Visual Studio, [Azure CLI](/cli/azure?view=azure-cli-latest) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 이 라이브러를 통한 로컬 개발 옵션에 대한 자세한 내용은[Microsoft.Azure.Services.AppAuthentication 참조](../../key-vault/general/service-to-service-authentication.md)를 참조하세요. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
+.NET 애플리케이션 및 함수의 경우 Azure 리소스에 대한 관리 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지입니다. 또한 이 라이브러리는 개발 머신에서 Visual Studio, [Azure CLI](/cli/azure) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 이 라이브러를 통한 로컬 개발 옵션에 대한 자세한 내용은[Microsoft.Azure.Services.AppAuthentication 참조](../../key-vault/general/service-to-service-authentication.md)를 참조하세요. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
 
 1. 애플리케이션에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 패키지의 참조를 추가합니다.
 

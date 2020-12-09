@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a62aafd8073b5f1a35ba340c48c80f498be2c2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3a7304ffbb7718205ead48e27989d4a169375997
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834458"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861989"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -93,7 +93,7 @@ Azure AD Privileged Identity Management가 설정되면 다음 Azure AD 역할�
 * Exchange 관리자
 * SharePoint 관리자
 
-조직에 Azure AD Privileged Identity Management가 없으면 [PowerShell API](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)를 사용할 수 있습니다. 전역 관리자에게는 조직에서 가입한 모든 클라우드 서비스에 걸쳐 동일한 권한이 있으므로 전역 관리자 역할부터 시작합니다. 이러한 권한은 할당된 위치에 관계없이, 즉 Microsoft 365 관리 센터, Azure Portal 또는 Microsoft PowerShell용 Azure AD 모듈에서 부여됩니다.
+조직에 Azure AD Privileged Identity Management가 없으면 [PowerShell API](/powershell/module/azuread/get-azureaddirectoryrolemember)를 사용할 수 있습니다. 전역 관리자에게는 조직에서 가입한 모든 클라우드 서비스에 걸쳐 동일한 권한이 있으므로 전역 관리자 역할부터 시작합니다. 이러한 권한은 할당된 위치에 관계없이, 즉 Microsoft 365 관리 센터, Azure Portal 또는 Microsoft PowerShell용 Azure AD 모듈에서 부여됩니다.
 
 이러한 역할에 더 이상 필요하지 않은 계정을 모두 제거합니다. 그런 다음, 관리자 역할에 할당된 나머지 계정을 분류합니다.
 

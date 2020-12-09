@@ -1,27 +1,27 @@
 ---
-title: 지도의 데이터 원본 만들기 | Microsoft Azure 맵
+title: Microsoft Azure 맵에서 지도의 데이터 원본 만들기
 description: 지도의 데이터 원본을 만드는 방법에 대해 알아보세요. Azure Maps 웹 SDK에서 사용 하는 데이터 원본에 대해 알아봅니다. GeoJSON 원본 및 벡터 타일.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/08/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9c82b74ffdc8672dc3d84a98a036c6083bc6c309
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d09dddbceed773cd723897cc9730198b68be0ff7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895922"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903618"
 ---
 # <a name="create-a-data-source"></a>데이터 소스 만들기
 
 Azure Maps 웹 SDK는 데이터 원본에 데이터를 저장 합니다. 데이터 원본을 사용 하 여 쿼리 및 렌더링을 위한 데이터 작업을 최적화 합니다. 현재 다음과 같은 두 가지 유형의 데이터 원본이 있습니다.
 
-- **GeoJSON source** : 로컬에서 GeoJSON 형식의 원시 위치 데이터를 관리 합니다. 중소 규모의 데이터 집합에 적합 합니다 (수천 개의 셰이프).
-- **벡터 타일 원본** : 지도 바둑판식 배열 시스템을 기반으로 현재 지도 보기의 벡터 타일로 형식이 지정 된 데이터를 로드 합니다. 대규모 데이터 집합 (수백만 또는 수십억 개의 도형)에 이상적입니다.
+- **GeoJSON source**: 로컬에서 GeoJSON 형식의 원시 위치 데이터를 관리 합니다. 중소 규모의 데이터 집합에 적합 합니다 (수천 개의 셰이프).
+- **벡터 타일 원본**: 지도 바둑판식 배열 시스템을 기반으로 현재 지도 보기의 벡터 타일로 형식이 지정 된 데이터를 로드 합니다. 대규모 데이터 집합 (수백만 또는 수십억 개의 도형)에 이상적입니다.
 
 ## <a name="geojson-data-source"></a>GeoJSON 데이터 원본
 
@@ -86,7 +86,7 @@ Azure Maps는 [Mapbox Vector 타일 사양](https://github.com/mapbox/vector-til
 - 도로 타일 [설명서](/rest/api/maps/renderv2/getmaptilepreview)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
 - 트래픽 인시던트 [설명서](/rest/api/maps/traffic/gettrafficincidenttile)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
 - 트래픽 흐름 [설명서](/rest/api/maps/traffic/gettrafficflowtile)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- Azure Maps 작성자는 또한 [Get 타일 렌더링 V2](/rest/api/maps/renderv2/getmaptilepreview) 를 통해 사용자 지정 벡터 타일을 만들고 액세스할 수 있습니다.
+- Azure Maps Creator (미리 보기)를 사용 하 여 사용자 지정 벡터 타일을 만들고, [Get 타일 렌더링 V2](/rest/api/maps/renderv2/getmaptilepreview) 를 통해 액세스할 수도 있습니다.
 
 > [!TIP]
 > 웹 SDK를 사용 하 여 Azure Maps render service에서 벡터 또는 래스터 이미지 타일을 사용 하는 경우를 `atlas.microsoft.com` 자리 표시자로 바꿀 수 있습니다 `{azMapsDomain}` . 이 자리 표시자는 맵에 사용 되는 동일한 도메인으로 바뀌고 동일한 인증 세부 정보도 자동으로 추가 됩니다. 이렇게 하면 Azure Active Directory 인증을 사용 하는 경우 렌더링 서비스에 대 한 인증이 매우 간단해 집니다.

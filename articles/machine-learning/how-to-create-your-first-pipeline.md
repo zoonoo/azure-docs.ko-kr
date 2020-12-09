@@ -11,16 +11,14 @@ author: NilsPohlmann
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 57806ecaf4b0e295457c78faaff6033126ddb2c8
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2b534f82aeda438b1d2bd5d60eeb4871acffc54a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463017"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902020"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
-
-
 
 이 문서에서는 [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용 하 여 [기계 학습 파이프라인](concept-ml-pipelines.md) 을 만들고 실행 하는 방법에 대해 알아봅니다. **Ml 파이프라인** 을 사용 하 여 다양 한 ml 단계를 함께 연결 하는 워크플로를 만듭니다. 그런 다음 나중에 액세스 하거나 다른 사용자와 공유 하기 위해 해당 파이프라인을 게시 합니다. ML 파이프라인을 추적 하 여 모델을 실제 세계에서 어떻게 수행 하 고 있는지 확인 하 고 데이터 드리프트를 검색 합니다. ML 파이프라인은 다양 한 계산을 사용 하 여 일괄 처리를 다시 실행 하는 대신 단계를 다시 사용 하 고 ML 워크플로를 다른 사람들과 공유 하는 일괄 처리 점수 매기기 시나리오에 적합 합니다.
 
@@ -32,7 +30,7 @@ ML 파이프라인은 계산 대상에서 실행 됩니다 ( [Azure Machine Lear
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
@@ -106,6 +104,9 @@ output_data1 = PipelineData(
 
 > [!TIP]
 > 공개 미리 보기 클래스인를 사용 하 여 파이프라인 단계 사이에 중간 데이터를 유지할 수도 [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) 있습니다. 클래스를 사용 하는 코드 예제는 `OutputFileDatasetConfig` [2 단계 ML 파이프라인을 빌드하](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)는 방법을 참조 하세요.
+
+> [!TIP]
+> 현재 작업과 관련 된 파일만 업로드 합니다. 데이터 디렉터리 내에서 파일을 변경 하면 다시 사용이 지정 된 경우에도 다음에 파이프라인이 실행 될 때 단계를 다시 실행 하는 이유를 볼 수 있습니다. 
 
 ## <a name="set-up-a-compute-target"></a>컴퓨팅 대상 설정
 

@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fed7123d916c1dc0facab3bd22e6b3f03d39684f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 710e31c18338243f9405a071b8fa544fe44044be
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858963"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903159"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -57,6 +57,8 @@ Azure Active Directory은 전 세계 지역 Azure Active Directory에서 2021 �
 - Office 365 GCC 및 WW
 
 관련 공지 모든 클라이언트 서버와 브라우저 서버 조합은 TLS 1.2 및 최신 암호 그룹을 사용 하 여 Azure, Office 365 및 Microsoft 365 서비스에 대 한 Azure Active Directory에 대 한 보안 연결을 유지 해야 합니다. 이 변경 [내용은 US Gov 클라우드에서 AZURE ACTIVE DIRECTORY TLS 1.0 & 1.1 및 3Des 암호 모음](whats-new.md#azure-active-directory-tls-10-tls-11-and-3des-deprecation-in-us-gov-cloud)사용 중단에 관련 되어 있습니다.
+
+---
 
 ### <a name="new-federated-apps-available-in-azure-ad-application-gallery---november-2020"></a>Azure AD 응용 프로그램 갤러리에서 사용할 수 있는 새로운 페더레이션된 앱-11 월 2020
 

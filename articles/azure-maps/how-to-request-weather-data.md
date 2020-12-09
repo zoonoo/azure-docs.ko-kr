@@ -1,24 +1,28 @@
 ---
-title: Azure Maps 날씨 서비스를 사용 하 여 실시간 및 예측 날씨 데이터 요청
-description: Microsoft Azure Maps 날씨 서비스를 사용 하 여 실시간 (현재) 및 예상 (분, 시간별, 일별) 날씨 데이터를 요청 하는 방법을 알아봅니다.
+title: Azure Maps 날씨 서비스를 사용 하 여 실시간 및 예측 날씨 데이터 요청 (미리 보기)
+description: Microsoft Azure Maps 날씨 서비스 (미리 보기)를 사용 하 여 실시간 (현재) 및 예상 (분, 시간별, 일별) 날씨 데이터를 요청 하는 방법을 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 10/27/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: c11f20286c514056d14b8faa941315345fea71f2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a5ae262d2882bd76e31666f058fa9a7a703a9e1e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186340"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906015"
 ---
-# <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Azure Maps 날씨 서비스를 사용 하 여 실시간 및 예측 날씨 데이터 요청
+# <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services-preview"></a>Azure Maps 날씨 서비스를 사용 하 여 실시간 및 예측 날씨 데이터 요청 (미리 보기) 
 
-Azure Maps [날씨 서비스](/rest/api/maps/weather) 는 개발자가 매우 동적인 기록, 실시간 및 예측 날씨 데이터와 시각화를 솔루션에 통합할 수 있도록 하는 RESTful api 집합입니다. 이 문서에서는 실시간 및 예측 날씨 데이터를 요청 하는 방법을 보여 줍니다.
+> [!IMPORTANT]
+> Azure Maps 날씨 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+Azure Maps [날씨 서비스](/rest/api/maps/weather) 는 개발자가 매우 동적인 기록, 실시간 및 예측 날씨 데이터와 시각화를 솔루션에 통합할 수 있도록 하는 RESTful api의 집합입니다. 이 문서에서는 실시간 및 예측 날씨 데이터를 요청 하는 방법을 보여 줍니다.
 
 이 문서에서는 다음 방법에 대해 알아봅니다.
 
@@ -28,7 +32,7 @@ Azure Maps [날씨 서비스](/rest/api/maps/weather) 는 개발자가 매우 �
 * [시간별 예측 API](/rest/api/maps/weather/gethourlyforecastpreview)를 사용 하 여 시간별 예측을 요청 합니다.
 * [Get Minute 예측 API](/rest/api/maps/weather/getminuteforecastpreview)를 사용 하 여 분 단위로 예측을 요청 합니다.
 
-이 비디오는 Azure Maps REST 호출 예제에서 날씨 서비스의 개요를 제공 합니다.
+이 비디오는 Azure Maps 날씨 서비스에 대 한 REST 호출을 수행 하는 예제를 제공 합니다.
 
 <br/>
 
@@ -751,8 +755,7 @@ Azure Maps [날씨 서비스](/rest/api/maps/weather) 는 개발자가 매우 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure Maps 날씨 서비스 개념](./weather-services-concepts.md)
+> [Azure Maps 날씨 서비스 (미리 보기) 개념](./weather-services-concepts.md)
 
 > [!div class="nextstepaction"]
-> [Azure Maps 날씨 서비스 REST API](/rest/api/maps/weather
-)
+> [Azure Maps 날씨 서비스 (미리 보기) REST API](/rest/api/maps/weather)

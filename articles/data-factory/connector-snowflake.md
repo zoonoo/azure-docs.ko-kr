@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
-ms.openlocfilehash: c0d0e3154360d787bfc2072c5ae1fe878fa1d138
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.date: 12/08/2020
+ms.openlocfilehash: 49e4a6f7f8c268669a94796257d5740ec6f4e6ff
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96003663"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902088"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 눈송이에서 데이터 복사 및 변환
 
@@ -148,18 +148,18 @@ ms.locfileid: "96003663"
 | 속성                     | Description                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 복사 작업 원본의 type 속성은 **SnowflakeSource** 로 설정 해야 합니다. | 예      |
-| Query          | 눈송이에서 데이터를 읽는 SQL 쿼리를 지정 합니다. 스키마 이름, 테이블 및 열에 소문자가 포함 된 경우 쿼리의 개체 식별자 (예:)를 인용 합니다 `select * from "schema"."myTable"` .<br>저장 프로시저 실행은 지원 되지 않습니다. | No       |
-| exportSettings | 눈송이에서 데이터를 검색 하는 데 사용 되는 고급 설정입니다. COPY into 명령에서 지원 되는 항목을 구성 하 여 문이 호출 될 때 Data Factory 전달 하 게 됩니다. | No       |
+| Query          | 눈송이에서 데이터를 읽는 SQL 쿼리를 지정 합니다. 스키마 이름, 테이블 및 열에 소문자가 포함 된 경우 쿼리의 개체 식별자 (예:)를 인용 합니다 `select * from "schema"."myTable"` .<br>저장 프로시저 실행은 지원 되지 않습니다. | 아니요       |
+| exportSettings | 눈송이에서 데이터를 검색 하는 데 사용 되는 고급 설정입니다. COPY into 명령에서 지원 되는 항목을 구성 하 여 문이 호출 될 때 Data Factory 전달 하 게 됩니다. | 아니요       |
 | ***`exportSettings` :** _ |  |  |
-| 형식 | 내보내기 명령의 유형으로 _ * SnowflakeExportCopyCommand * *로 설정 합니다. | Yes |
-| additionalCopyOptions | 키-값 쌍의 사전으로 제공 되는 추가 복사 옵션입니다. 예: MAX_FILE_SIZE, 덮어쓰기 자세한 내용은 [눈송이 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions)을 참조 하세요. | No |
-| additionalFormatOptions | 키-값 쌍의 사전으로 명령을 복사 하기 위해 제공 되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [눈송이 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions)을 참조 하세요. | No |
+| 형식 | 내보내기 명령의 유형으로 _ * SnowflakeExportCopyCommand * *로 설정 합니다. | 예 |
+| additionalCopyOptions | 키-값 쌍의 사전으로 제공 되는 추가 복사 옵션입니다. 예: MAX_FILE_SIZE, 덮어쓰기 자세한 내용은 [눈송이 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions)을 참조 하세요. | 아니요 |
+| additionalFormatOptions | 키-값 쌍의 사전으로 명령을 복사 하기 위해 제공 되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [눈송이 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions)을 참조 하세요. | 아니요 |
 
 #### <a name="direct-copy-from-snowflake"></a>눈송이에서 직접 복사
 
 싱크 데이터 저장소 및 형식이이 섹션에 설명 된 조건을 충족 하는 경우 복사 작업을 사용 하 여 눈송이에서 싱크로 직접 복사할 수 있습니다. Data Factory는 설정을 확인 하 고 다음 조건이 충족 되지 않으면 복사 작업 실행에 실패 합니다.
 
-- **싱크 연결 된 서비스** 는 **공유 액세스 서명** 인증을 사용 하는 [**Azure Blob storage**](connector-azure-blob-storage.md) 입니다.
+- **싱크 연결 된 서비스** 는 **공유 액세스 서명** 인증을 사용 하는 [**Azure Blob storage**](connector-azure-blob-storage.md) 입니다. 다음의 지원 되는 형식으로 Azure Data Lake Storage Gen2에 직접 데이터를 복사 하려면 [눈송이에서 준비 된 복사본](#staged-copy-from-snowflake)을 사용 하지 않도록 ADLS Gen2 계정에 대해 SAS 인증을 사용 하 여 Azure Blob 연결 된 서비스를 만들 수 있습니다.
 
 - **싱크 데이터 형식은** 다음과 같은 구성 **으로 Parquet**, **구분 된 텍스트** 또는 **JSON** 입니다.
 
@@ -173,7 +173,6 @@ ms.locfileid: "96003663"
         - `compression`압축, **gzip**, **bzip2** 또는 **deflate** 일 수 **없습니다**.
         - `encodingName`는 기본값으로 남아 있거나 **utf-8** 로 설정됩니다.
         - `filePattern` 복사 활동 싱크에서 기본값 또는 **Setofobjects** 로 설정 됩니다.
-
 - 복사 활동 원본에서 `additionalColumns` 가 지정 되지 않았습니다.
 - 열 매핑이 지정 되지 않았습니다.
 
@@ -278,19 +277,19 @@ ms.locfileid: "96003663"
 
 | 속성          | Description                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| type              | 복사 작업 싱크의 type 속성은 **SnowflakeSink** 로 설정 됩니다. | Yes                                           |
+| type              | 복사 작업 싱크의 type 속성은 **SnowflakeSink** 로 설정 됩니다. | 예                                           |
 | preCopyScript     | 각 실행 시 눈송이에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 예                                            |
-| importSettings | 데이터를 눈송이에 쓰는 데 사용 되는 고급 설정입니다. COPY into 명령에서 지원 되는 항목을 구성 하 여 문이 호출 될 때 Data Factory 전달 하 게 됩니다. | No |
+| importSettings | 데이터를 눈송이에 쓰는 데 사용 되는 고급 설정입니다. COPY into 명령에서 지원 되는 항목을 구성 하 여 문이 호출 될 때 Data Factory 전달 하 게 됩니다. | 아니요 |
 | **_`importSettings` :_* _ |                                                              |  |
-| 형식 | Import 명령의 유형으로 _ * SnowflakeImportCopyCommand * *로 설정 합니다. | Yes |
-| additionalCopyOptions | 키-값 쌍의 사전으로 제공 되는 추가 복사 옵션입니다. 예: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. 자세한 내용은 [눈송이 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions)을 참조 하세요. | No |
-| additionalFormatOptions | 키-값 쌍의 사전으로 제공 된 복사 명령에 제공 되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [눈송이 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions)을 참조 하세요. | No |
+| 형식 | Import 명령의 유형으로 _ * SnowflakeImportCopyCommand * *로 설정 합니다. | 예 |
+| additionalCopyOptions | 키-값 쌍의 사전으로 제공 되는 추가 복사 옵션입니다. 예: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. 자세한 내용은 [눈송이 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions)을 참조 하세요. | 아니요 |
+| additionalFormatOptions | 키-값 쌍의 사전으로 제공 된 복사 명령에 제공 되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [눈송이 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions)을 참조 하세요. | 아니요 |
 
 #### <a name="direct-copy-to-snowflake"></a>눈송이로 직접 복사
 
 원본 데이터 저장소 및 형식이이 섹션에 설명 된 조건을 충족 하는 경우 복사 작업을 사용 하 여 원본에서 눈송이로 직접 복사할 수 있습니다. Azure Data Factory는 설정을 확인 하 고 다음 조건이 충족 되지 않으면 복사 작업 실행에 실패 합니다.
 
-- **원본 연결 된 서비스** 는 **공유 액세스 서명** 인증을 사용 하는 [**Azure Blob storage**](connector-azure-blob-storage.md) 입니다.
+- **원본 연결 된 서비스** 는 **공유 액세스 서명** 인증을 사용 하는 [**Azure Blob storage**](connector-azure-blob-storage.md) 입니다. 다음의 지원 되는 형식으로 Azure Data Lake Storage Gen2에서 데이터를 직접 복사 하려는 경우에는 ADLS Gen2 계정에 대해 SAS 인증을 사용 하 여 Azure Blob 연결 된 서비스를 만들어  [눈송이로의 준비 된 복사](#staged-copy-to-snowflake)를 사용 하지 않도록 할 수 있습니다.
 
 - **원본 데이터 형식은** 다음과 같은 구성을 사용 하는 **Parquet**, **구분 된 텍스트** 또는 **JSON** 입니다.
 
@@ -411,7 +410,7 @@ ms.locfileid: "96003663"
 
 | Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 테이블 | 테이블을 입력으로 선택 하는 경우 데이터 흐름은 인라인 데이터 집합을 사용할 때 눈송이 데이터 집합 또는 원본 옵션에 지정 된 테이블의 모든 데이터를 가져옵니다. | 예 | String | *(인라인 데이터 집합에만 해당)*<br>tableName<br>schemaName |
+| 표 | 테이블을 입력으로 선택 하는 경우 데이터 흐름은 인라인 데이터 집합을 사용할 때 눈송이 데이터 집합 또는 원본 옵션에 지정 된 테이블의 모든 데이터를 가져옵니다. | 예 | String | *(인라인 데이터 집합에만 해당)*<br>tableName<br>schemaName |
 | 쿼리 | 쿼리를 입력으로 선택 하는 경우 눈송이에서 데이터를 인출 하는 쿼리를 입력 합니다. 이 설정은 데이터 집합에서 선택한 테이블을 재정의 합니다.<br>스키마 이름, 테이블 및 열에 소문자가 포함 된 경우 쿼리의 개체 식별자 (예:)를 인용 합니다 `select * from "schema"."myTable"` . | 예 | String | Query |
 
 #### <a name="snowflake-source-script-examples"></a>눈송이 원본 스크립트 예제
@@ -441,9 +440,9 @@ source(allowSchemaDrift: true,
 
 | Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Update 메서드 | 눈송이 대상에서 허용 되는 작업을 지정 합니다.<br>행을 업데이트, upsert 또는 삭제 하려면 해당 작업에 대 한 행의 태그를 변경 하는 [행 변환이](data-flow-alter-row.md) 필요 합니다. | Yes | `true` 또는 `false` | 삭제할 <br/>삽입 가능한 <br/>있는 <br/>upsertable |
-| 키 열 | 업데이트, upsert 및 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다. | No | 배열 | 키 |
-| 테이블 작업 | 쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지를 결정 합니다.<br>- **없음**: 테이블에 대 한 작업이 수행 되지 않습니다.<br>- **다시 만들기**: 테이블이 삭제 되 고 다시 생성 됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거 됩니다. | No | `true` 또는 `false` | 다시<br/>truncate |
+| Update 메서드 | 눈송이 대상에서 허용 되는 작업을 지정 합니다.<br>행을 업데이트, upsert 또는 삭제 하려면 해당 작업에 대 한 행의 태그를 변경 하는 [행 변환이](data-flow-alter-row.md) 필요 합니다. | 예 | `true` 또는 `false` | 삭제할 <br/>삽입 가능한 <br/>있는 <br/>upsertable |
+| 키 열 | 업데이트, upsert 및 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다. | 아니요 | 배열 | 키 |
+| 테이블 작업 | 쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지를 결정 합니다.<br>- **없음**: 테이블에 대 한 작업이 수행 되지 않습니다.<br>- **다시 만들기**: 테이블이 삭제 되 고 다시 생성 됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거 됩니다. | 아니요 | `true` 또는 `false` | 다시<br/>truncate |
 
 #### <a name="snowflake-sink-script-examples"></a>눈송이 싱크 스크립트 예제
 

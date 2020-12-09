@@ -4,12 +4,12 @@ description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 �
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: dikamath
-ms.openlocfilehash: 0bc3e0ab5b3017c2d051113a57d79214ffce0836
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3033df2021a8d1780caf9b0b7cd4dbe8de2a6050
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967349"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861411"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -188,7 +188,7 @@ Azure Portal에서 프라이빗 클라우드에 인터넷 연결을 사용하도
 
 #### <a name="do-i-need-to-restrict-access-from-the-internet-to-vms-on-logical-networks-in-a-private-cloud"></a>프라이빗 클라우드의 논리 네트워크에 있는 VM에 대한 인터넷 액세스를 제한해야 하나요?
 
-아니요. 인터넷에서 프라이빗 클라우드로 직접 들어오는 네트워크 트래픽은 허용되지 않습니다.
+아니요. 인터넷에서 사설 클라우드로 직접 들어오는 네트워크 트래픽은 기본적으로 허용 되지 않습니다.  그러나 Azure VMware 솔루션 사설 클라우드의 Azure Portal에서 [공용 IP](public-ip-usage.md) 옵션을 통해 Azure Vmware 솔루션 Vm을 인터넷에 노출할 수 있습니다.
 
 #### <a name="do-i-need-to-restrict-internet-access-from-vms-on-logical-networks-to-the-internet"></a>논리 네트워크의 VM에서 인터넷으로 액세스하는 것을 제한해야 하나요?
 

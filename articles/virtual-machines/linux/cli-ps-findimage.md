@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 34f43d51bf0df488e04605f7f7c77e9c6dcfe9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56d2aa9f7aa36808774876ac0f5cfc596887ff26
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374085"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906389"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Marketplace에서 Linux VM 이미지 찾기
 
@@ -23,6 +23,45 @@ ms.locfileid: "87374085"
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
+
+## <a name="deploy-from-a-vhd-using-purchase-plan-parameters"></a>구매 계획 매개 변수를 사용 하 여 VHD에서 배포
+
+유료 Azure Marketplace 이미지를 사용 하 여 만든 기존 VHD가 있는 경우 해당 VHD에서 새 VM을 만들 때 구매 계획 정보를 제공 해야 할 수 있습니다. 
+
+원래 VM 또는 동일한 marketplace 이미지를 사용 하 여 만든 다른 VM이 있는 경우 [az VM get instance-view](/cli/azure/vm#az_vm_get_instance_view)를 사용 하 여 계획 이름, 게시자 및 제품 정보를 가져올 수 있습니다. 이 예제에서는 *Myvm* 리소스 그룹에서 *MYVM* 이라는 vm을 가져온 다음 구매 계획 정보를 표시 합니다.
+
+```azurepowershell-interactive
+az vm get-instance-view -g myResourceGroup -n myVM --query plan
+```
+
+원본 VM을 삭제 하기 전에 계획 정보를 가져오지 못한 경우 [지원 요청](https://ms.portal.azure.com/#create/Microsoft.Support)을 받을 수 있습니다. VM 이름, 구독 Id 및 삭제 작업의 타임 스탬프가 필요 합니다.
+
+계획 정보를 받은 후에는 매개 변수를 사용 하 여 VHD를 지정 하는 새 VM을 만들 수 있습니다 `--attach-os-disk` .
+
+```azurecli-interactive
+az vm create \
+   --resource-group myResourceGroup \
+  --name myNewVM \
+  --nics myNic \
+  --size Standard_DS1_v2 --os-type Linux \
+  --attach-os-disk myVHD \
+  --plan-name planName \
+  --plan-publisher planPublisher \
+  --plan-product planProduct 
+```
+
+## <a name="deploy-a-new-vm-using-purchase-plan-parameters"></a>구매 계획 매개 변수를 사용 하 여 새 VM 배포
+
+이미지에 대 한 정보가 이미 있는 경우 명령을 사용 하 여 배포할 수 있습니다 `az vm create` . 이 예제에서는 RabbitMQ 인증 된 Bitnami 이미지를 사용 하 여 VM을 배포 합니다.
+
+```azurecli
+az group create --name myResourceGroupVM --location westus
+
+az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
+```
+
+이미지 약관을 수락 하는 방법에 대 한 메시지가 표시 되는 경우이 문서 뒷부분의 [약관에 동의](#accept-the-terms) 섹션을 참조 하세요.
+
 ## <a name="list-popular-images"></a>인기 있는 이미지 나열
 
 `--all` 옵션을 사용하지 않고 [az vm image list](/cli/azure/vm/image) 명령을 실행하여 Azure Marketplace에서 인기있는 VM 이미지의 목록을 확인합니다. 예를 들어, 다음 명령을 실행하여 테이블 형식으로 캐시된 인기있는 이미지 목록을 표시합니다.
@@ -31,7 +70,7 @@ ms.locfileid: "87374085"
 az vm image list --output table
 ```
 
-출력에는 이미지 URN(*Urn* 열의 값)이 포함됩니다. 또한 인기있는 Marketplace 이미지 중 하나를 사용하여 VM을 만드는 경우 *UbuntuLTS*와 같이 축소된 형식으로 *UrnAlias*를 지정할 수도 있습니다.
+출력에는 이미지 URN(*Urn* 열의 값)이 포함됩니다. 또한 인기있는 Marketplace 이미지 중 하나를 사용하여 VM을 만드는 경우 *UbuntuLTS* 와 같이 축소된 형식으로 *UrnAlias* 를 지정할 수도 있습니다.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -325,9 +364,9 @@ az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 }
 ```
 
-### <a name="accept-the-terms"></a>약관에 동의
+## <a name="accept-the-terms"></a>약관에 동의
 
-사용 조건을 확인하고 동의하려면 [az vm image accept-terms](/cli/azure/vm/image?) 명령을 사용합니다. 약관에 동의하면 구독에서 프로그래밍 방식 배포를 사용하도록 설정됩니다. 이미지의 구독마다 약관에 한 번만 동의하면 됩니다. 예를 들면 다음과 같습니다.
+사용 조건을 확인하고 동의하려면 [az vm image accept-terms](/cli/azure/vm/image?) 명령을 사용합니다. 약관에 동의하면 구독에서 프로그래밍 방식 배포를 사용하도록 설정됩니다. 이미지의 구독마다 약관에 한 번만 동의하면 됩니다. 예를 들어:
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
@@ -350,16 +389,6 @@ az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
   "signature": "XXXXXXLAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNXXXXXX",
   "type": "Microsoft.MarketplaceOrdering/offertypes"
 }
-```
-
-### <a name="deploy-using-purchase-plan-parameters"></a>구매 플랜 매개 변수를 사용하여 배포
-
-이미지에 대한 약관에 동의한 후에는 구독에 VM을 배포할 수 있습니다. `az vm create` 명령을 사용하여 이미지를 배포하려면 이미지에 대한 URN 외에 구매 플랜에 대한 매개 변수를 제공합니다. 예를 들어 RabbitMQ Certified by Bitnami 이미지가 있는 VM을 배포하려면 다음 명령을 실행합니다.
-
-```azurecli
-az group create --name myResourceGroupVM --location westus
-
-az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -9,19 +9,19 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 78455659d76d259c626745c93770428c25042b2d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b4146f11804dd11f7dd0f5536bc040cb30e25b03
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908815"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902734"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Azure Blob storage에서 NFS (네트워크 파일 시스템) 3.0 프로토콜 지원 (미리 보기)
 
 이제 Blob storage는 NFS (네트워크 파일 시스템) 3.0 프로토콜을 지원 합니다. 이 지원을 통해 Windows 또는 Linux 클라이언트는 Azure VM (가상 머신) 또는 온-프레미스 컴퓨터에서 Blob 저장소에 컨테이너를 탑재할 수 있습니다. 
 
 > [!NOTE]
-> NFS 3.0 Azure Blob storage의 프로토콜 지원은 공개 미리 보기로 제공 되며 미국 동부, 미국 중부, 미국 서 부 중부, 오스트레일리아 남동쪽, 서유럽, 영국 서부, 대한민국 중부, 한국 남부 및 캐나다 중부 지역에서 사용할 수 있습니다.
+> NFS 3.0 Azure Blob storage의 프로토콜 지원은 공개 미리 보기 상태입니다. 오스트레일리아 동부, 대한민국 중부 및 미국 서 부 지역에서 표준 계층 성능을 갖춘 GPV2 storage 계정을 지원 합니다. 또한 미리 보기는 모든 공용 지역에서 프리미엄 성능 계층으로 blob 블록을 suppports 합니다.
 
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>일반 워크플로: 저장소 계정 컨테이너 탑재
 

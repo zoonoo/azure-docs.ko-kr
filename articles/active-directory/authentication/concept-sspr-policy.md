@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 344fee9482cd935375d25fab80b1f365d72586f8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a53b193d16a2cefbde7877fd930e5fa73b0c6a36
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743669"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861275"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Azure Active Directory의 암호 정책 및 계정 제한
 
@@ -95,7 +95,7 @@ Azure AD에서 직접 만들고 관리 하는 모든 사용자 계정에 암호 
 * Azure AD 테 넌 트에 대해 사용자 지정 도메인 (예: *contoso.com*;)이 구성 되었습니다. 디스크나
 * Azure AD Connect가 온-프레미스 디렉터리에서 ID를 동기화하는 경우
 
-[Set-msolcompanysettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) PowerShell cmdlet을 사용 하 여 관리자 계정에 SSPR를 사용 하지 않도록 설정할 수 있습니다. `-SelfServePasswordResetEnabled $False`매개 변수는 관리자에 대해 SSPR를 사용 하지 않도록 설정 합니다.
+[Set-msolcompanysettings](/powershell/module/msonline/set-msolcompanysettings) PowerShell cmdlet을 사용 하 여 관리자 계정에 SSPR를 사용 하지 않도록 설정할 수 있습니다. `-SelfServePasswordResetEnabled $False`매개 변수는 관리자에 대해 SSPR를 사용 하지 않도록 설정 합니다.
 
 ### <a name="exceptions"></a>예외
 
@@ -107,7 +107,7 @@ Azure AD에서 직접 만들고 관리 하는 모든 사용자 계정에 암호 
 
 ## <a name="password-expiration-policies"></a><a name="set-password-expiration-policies-in-azure-ad"></a>암호 만료 정책
 
-*전역 관리자* 또는 *사용자 관리자* 는 [Windows PowerShell용 Microsoft Azure AD 모듈](/powershell/module/Azuread/?view=azureadps-2.0) 을 사용 하 여 만료 되지 않는 사용자 암호를 설정할 수 있습니다.
+*전역 관리자* 또는 *사용자 관리자* 는 [Windows PowerShell용 Microsoft Azure AD 모듈](/powershell/module/Azuread/) 을 사용 하 여 만료 되지 않는 사용자 암호를 설정할 수 있습니다.
 
 PowerShell cmdlet을 사용 하 여 만료 되지 않는 구성을 제거 하거나 어떤 사용자 암호가 만료 되지 않도록 설정 되어 있는지 확인할 수도 있습니다.
 
@@ -118,13 +118,13 @@ PowerShell cmdlet을 사용 하 여 만료 되지 않는 구성을 제거 하거
 
 ### <a name="set-or-check-the-password-policies-by-using-powershell"></a>PowerShell을 사용하여 암호 정책 설정 또는 확인
 
-시작 하려면 [AZURE Ad PowerShell 모듈을 다운로드](/powershell/module/Azuread/?view=azureadps-2.0) 하 여 설치 하 고 [azure ad 테 넌 트에 연결](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples)합니다.
+시작 하려면 [AZURE Ad PowerShell 모듈을 다운로드](/powershell/module/Azuread/) 하 여 설치 하 고 [azure ad 테 넌 트에 연결](/powershell/module/azuread/connect-azuread#examples)합니다.
 
 모듈을 설치한 후에는 다음 단계를 사용 하 여 필요에 따라 각 작업을 완료 합니다.
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>암호에 대한 만료 정책 확인
 
-1. PowerShell 프롬프트를 열고 *전역 관리자* 또는 *사용자 관리자* 계정을 사용 하 여 [Azure AD 테 넌 트에 연결](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) 합니다.
+1. PowerShell 프롬프트를 열고 *전역 관리자* 또는 *사용자 관리자* 계정을 사용 하 여 [Azure AD 테 넌 트에 연결](/powershell/module/azuread/connect-azuread#examples) 합니다.
 1. 개별 사용자 또는 모든 사용자에 대해 다음 명령 중 하나를 실행 합니다.
 
    * 단일 사용자의 암호가 만료 되지 않도록 설정 되어 있는지 확인 하려면 다음 cmdlet을 실행 합니다. 을 `<user ID>` 확인 하려는 사용자의 사용자 ID (예: *driley \@ contoso.onmicrosoft.com*)로 바꿉니다.
@@ -141,7 +141,7 @@ PowerShell cmdlet을 사용 하 여 만료 되지 않는 구성을 제거 하거
 
 ### <a name="set-a-password-to-expire"></a>암호가 만료되도록 설정
 
-1. PowerShell 프롬프트를 열고 *전역 관리자* 또는 *사용자 관리자* 계정을 사용 하 여 [Azure AD 테 넌 트에 연결](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) 합니다.
+1. PowerShell 프롬프트를 열고 *전역 관리자* 또는 *사용자 관리자* 계정을 사용 하 여 [Azure AD 테 넌 트에 연결](/powershell/module/azuread/connect-azuread#examples) 합니다.
 1. 개별 사용자 또는 모든 사용자에 대해 다음 명령 중 하나를 실행 합니다.
 
    * 암호가 만료 되도록 한 사용자의 암호를 설정 하려면 다음 cmdlet을 실행 합니다. 을 `<user ID>` 확인 하려는 사용자의 사용자 ID (예: *driley \@ contoso.onmicrosoft.com* )로 바꿉니다.
@@ -158,7 +158,7 @@ PowerShell cmdlet을 사용 하 여 만료 되지 않는 구성을 제거 하거
 
 ### <a name="set-a-password-to-never-expire"></a>암호가 만료되지 않도록 설정
 
-1. PowerShell 프롬프트를 열고 *전역 관리자* 또는 *사용자 관리자* 계정을 사용 하 여 [Azure AD 테 넌 트에 연결](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) 합니다.
+1. PowerShell 프롬프트를 열고 *전역 관리자* 또는 *사용자 관리자* 계정을 사용 하 여 [Azure AD 테 넌 트에 연결](/powershell/module/azuread/connect-azuread#examples) 합니다.
 1. 개별 사용자 또는 모든 사용자에 대해 다음 명령 중 하나를 실행 합니다.
 
    * 한 사용자의 암호를 만료 되지 않도록 설정 하려면 다음 cmdlet을 실행 합니다. 을 `<user ID>` 확인 하려는 사용자의 사용자 ID (예: *driley \@ contoso.onmicrosoft.com* )로 바꿉니다.
