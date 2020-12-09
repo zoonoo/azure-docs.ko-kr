@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: a156150c2cd28964658fa8529181a70ef546b78f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a2d48a6f4e451e2a9b4140618c7c590293cb5ef5
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457347"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548531"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>빠른 시작 - Azure IoT Central 애플리케이션 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "96457347"
 
 1. **빌드** 페이지로 이동합니다.
 
-    ![IoT 애플리케이션 빌드 페이지](media/quick-deploy-iot-central/iotcentralcreate-new-application.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-new-application.png" alt-text="IoT 애플리케이션 빌드 페이지":::
 
 1. **사용자 지정 앱** 을 선택하고 **사용자 지정 애플리케이션** 템플릿이 선택되어 있는지 확인합니다.
 
@@ -37,9 +37,9 @@ ms.locfileid: "96457347"
 
 1. 또한 Azure IoT Central은 애플리케이션 이름에 따라 고유한 **애플리케이션 URL** 접두사를 생성합니다. 이 URL을 사용하여 애플리케이션에 액세스합니다. 원하는 경우 이 URL 접두사를 더욱 기억하기 쉬운 것으로 자유롭게 변경할 수 있습니다.
 
-    ![Azure IoT Central 애플리케이션 만들기 페이지](media/quick-deploy-iot-central/iotcentralcreate-custom.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-custom.png" alt-text="Azure IoT Central 애플리케이션 만들기 페이지":::
 
-    ![Azure IoT Central 청구 정보](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png" alt-text="Azure IoT Central 청구 정보":::
 
     > [!NOTE]
     > 이전 페이지에서 **사용자 지정 앱** 을 선택한 경우 **애플리케이션 템플릿** 드롭다운이 표시됩니다. 조직에서 제공하는 다른 템플릿이 드롭다운에 표시될 수 있습니다.
@@ -57,7 +57,7 @@ ms.locfileid: "96457347"
 
 1. 사용 약관을 검토하고, 페이지 맨 아래에서 **만들기** 를 선택합니다. 몇 분 후에 IoT Central 애플리케이션을 사용할 준비가 됩니다.
 
-    ![Azure IoT Central 애플리케이션](media/quick-deploy-iot-central/iotcentral-application.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentral-application.png" alt-text="Azure IoT Central 애플리케이션":::
 
 ## <a name="next-steps"></a>다음 단계
 

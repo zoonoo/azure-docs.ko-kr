@@ -3,12 +3,12 @@ title: Azure Service Bus 메시지 개요 | Microsoft Docs
 description: 이 문서에서는 완전 관리형 엔터프라이즈 통합 메시지 브로커인 Azure Service Bus에 대한 간략한 개요를 제공합니다.
 ms.topic: overview
 ms.date: 11/20/2020
-ms.openlocfilehash: ca04b4a41489fba61e7c0ee2bb3f4f7f0b8b80f4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b795d0c5b429a812d90e0759fbcde3d348b86e22
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489482"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602719"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
 Microsoft Azure Service Bus는 메시지 큐와 공용 구독 토픽을 제공하는 완전 관리형 엔터프라이즈 메시지 broker입니다. Service Bus는 애플리케이션과 서비스를 서로 분리하는 데 사용되며, 다음과 같은 이점을 제공합니다.
@@ -32,7 +32,7 @@ Microsoft Azure Service Bus는 메시지 큐와 공용 구독 토픽을 제공�
     2. 처리 결과를 하나 이상의 서로 다른 큐에 게시합니다.
     3. 원래 큐의 입력 메시지를 이동합니다. 
     
-    입력 메시지가 성공적으로 확인되는 경우를 포함하여 성공할 때만 다운스트림 소비자에게 결과가 표시되므로, 일회성 처리 의미 체계를 허용합니다. 이 트랜잭션 모델은 더 큰 솔루션 컨텍스트에서 [보정 트랜잭션](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction.md) 패턴을 구현하기 위한 강력한 기반입니다. 
+    입력 메시지가 성공적으로 확인되는 경우를 포함하여 성공할 때만 다운스트림 소비자에게 결과가 표시되므로, 일회성 처리 의미 체계를 허용합니다. 이 트랜잭션 모델은 더 큰 솔루션 컨텍스트에서 [보정 트랜잭션](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction) 패턴을 구현하기 위한 강력한 기반입니다. 
 * *메시지 세션*. 엄격한 메시지 정렬 또는 메시지 지연이 필요한 워크플로 및 멀티플렉싱 전송의 대규모 조정을 구현합니다.
 
 Apache ActiveMQ와 같은 다른 메시지 broker에 익숙한 분들에게는 Service Bus의 개념이 알고 있는 지식과 비슷할 것입니다. Service Bus는 PaaS(platform-as-a-service) 제품이므로 다음 작업에 대해 신경 쓸 필요가 없다는 점이 결정적인 차이점입니다. Azure가 이러한 작업을 알아서 처리합니다. 

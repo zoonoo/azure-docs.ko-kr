@@ -6,18 +6,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
 ms.author: rohink
-ms.openlocfilehash: 5df2c2f686a1993dcd25d5391d5b553f2b42d937
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7c3aa5505ca15238b2f9e84069de58ab6b700521
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965649"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608490"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS란?
 
 Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. Azure에 도메인을 호스트하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다.
 
-Azure DNS를 사용하여 도메인 이름을 구매할 수 없습니다. 연간 요금의 경우 [App Service 도메인](../app-service/manage-custom-dns-buy-domain.md#buy-the-domain) 또는 타사 도메인 이름 등록자를 사용하여 도메인 이름을 구매할 수 있습니다. 그러면 Azure DNS에 도메인을 호스트하여 레코드 관리에 사용할 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md)을 참조하세요.
+Azure DNS를 사용하여 도메인 이름을 구매할 수 없습니다. 연간 요금의 경우 [App Service 도메인](../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain) 또는 타사 도메인 이름 등록자를 사용하여 도메인 이름을 구매할 수 있습니다. 그러면 Azure DNS에 도메인을 호스트하여 레코드 관리에 사용할 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md)을 참조하세요.
 
 다음 기능이 Azure DNS에 포함됩니다.
 

@@ -1,20 +1,15 @@
 ---
-title: Azure Portal 개요 | Microsoft Docs
+title: Azure 포털 개요
 description: Azure Portal은 Azure 서비스를 관리하는 데 사용할 수 있는 그래픽 사용자 인터페이스입니다. Azure Portal에서 리소스를 탐색하고 찾는 방법을 알아봅니다.
-services: azure-portal
 keywords: portal
-author: mgblythe
-ms.author: mblythe
 ms.date: 12/20/2019
 ms.topic: overview
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 4a00c1dcf973098895e80d5e3d656efd4a35d0d0
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 1e9cf1a9609b9d4f30e51094f1d0542335ead0e2
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147048"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745930"
 ---
 # <a name="azure-portal-overview"></a>Azure 포털 개요
 

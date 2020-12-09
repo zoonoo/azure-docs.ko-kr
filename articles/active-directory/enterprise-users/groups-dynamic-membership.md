@@ -6,19 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5a06cf906084e3f87d5f56748476a26587ff17
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: c60d54a905f460eb5c26c2f183cd22b175a5b3c4
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95490734"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860816"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -340,7 +341,7 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>확장 속성 및 사용자 지정 확장 속성
 
-확장 특성 및 사용자 지정 확장 속성은 동적 멤버 자격 규칙에서 문자열 속성으로 지원됩니다. [확장 특성](/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0)은 온-프레미스 Windows Server AD에서 동기화되고 "ExtensionAttributeX" 형식을 사용하며 여기서 X는 1 - 15입니다. 확장 특성을 속성으로 사용하는 규칙의 예제는 다음과 같습니다.
+확장 특성 및 사용자 지정 확장 속성은 동적 멤버 자격 규칙에서 문자열 속성으로 지원됩니다. [확장 특성](/graph/api/resources/onpremisesextensionattributes)은 온-프레미스 Windows Server AD에서 동기화되고 "ExtensionAttributeX" 형식을 사용하며 여기서 X는 1 - 15입니다. 확장 특성을 속성으로 사용하는 규칙의 예제는 다음과 같습니다.
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
