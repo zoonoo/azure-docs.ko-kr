@@ -3,12 +3,12 @@ title: Azure Service Fabric에서 지원 되는 클러스터 버전
 description: Service Fabric 팀 블로그의 최신 릴리스에 대 한 링크를 포함 하 여 Azure Service Fabric의 클러스터 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: d6469ada7fcb46c732cc7fbe081059ef41d89a40
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 46b1a7845a0da1ede30ed450f1e673f40e450105
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626778"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905386"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
@@ -54,6 +54,7 @@ ms.locfileid: "94626778"
 | 7.2.413.* | 7.0.470.* |버전 4.2 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
 | 7.2.432.* | 7.0.470.* |버전 4.2 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
 | 7.2.433.* | 7.0.470.* |버전 4.2 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
+| 7.2.445.* | 7.0.470.* |버전 4.2 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -129,8 +130,9 @@ ms.locfileid: "94626778"
 | 7.1 CU3 | 7.1.456.9590 | 7.1.452.1 |
 | 7.1 CU5 | 7.1.458.9590 | 7.1.454.1 |
 | 7.1 CU6 | 7.1.459.9590 | 7.1.455.1 |
-| 7.1 CU8 | 7.1.503.9590 | 해당 없음 |
+| 7.1 CU8 | 7.1.503.9590 | 7.1.508.1 |
 | 7.2 RTO | 7.2.413.9590 | 해당 없음 |
 | 7.2 CU2 | 7.2.432.9590 | 7.2.431.1 |
 | 7.2 CU3 | 7.2.433.9590 | 해당 없음 |
+| 7.2 CU4 | 7.2.445.9590 | 7.2.447.1 |
 
