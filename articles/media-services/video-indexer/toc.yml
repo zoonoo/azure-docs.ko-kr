@@ -73,7 +73,7 @@
     - name: 콘텐츠 모델 사용자 지정
       items:
         - name: 애니메이션 문자
-          href: animated-characters-recognition.md
+          href: animated-characters-recognition-how-to.md
         - name: Person
           items:
             - name: Video Indexer 웹 사이트 사용

@@ -158,7 +158,7 @@
     - name: 질문과 대답
       href: spring-cloud-faq.md
     - name: REST API 참조
-      href: /rest/api/azurespringclould/
+      href: /rest/api/azurespringcloud/
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

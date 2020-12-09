@@ -28,6 +28,10 @@
           href: resource-network-topologies.md
         - name: 사용자 지정 역할
           href: resource-custom-roles-sql-db-managed-instance.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 자습서
   expanded: true
   items:

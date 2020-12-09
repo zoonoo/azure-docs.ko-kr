@@ -280,7 +280,7 @@
     - name: Microsoft 인증 라이브러리 작업
       displayName: MSAL
       items:
-        - Name: 모든 플랫폼
+        - name: 모든 플랫폼
           items:
             - name: 지원되는 인증 흐름
               href: msal-authentication-flows.md

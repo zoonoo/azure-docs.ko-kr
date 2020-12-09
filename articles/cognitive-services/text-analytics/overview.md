@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 keywords: 텍스트 마이닝, 감정 분석, 텍스트 분석
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 68f892fea01582b16dad5efd8c86dbf0b578e50f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 0f5e6a2327f5d952f92009b0c9e408ab8188d6d7
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353054"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558779"
 ---
 # <a name="what-is-the-text-analytics-api"></a>텍스트 분석 API란?
 
@@ -25,7 +25,7 @@ Text Analytics API는 감성 분석, 오피니언 마이닝, 핵심 구 추출, 
 
 이 API는 개발 프로젝트를 위한 클라우드의 기계 학습 및 AI 알고리즘 모음인 [Azure Cognitive Services](../index.yml)의 일부입니다. [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) 또는 [클라이언트 라이브러리](quickstarts/text-analytics-sdk.md)에서 이러한 기능을 사용할 수 있습니다.
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
 ## <a name="sentiment-analysis"></a>정서 분석
 

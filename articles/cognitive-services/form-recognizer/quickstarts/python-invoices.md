@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/12/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 7c6b5406728817c3dd700ec285d9af77c9d3cf60
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 2ed8bdd167814ea21fced89042bdcf80fd3a73df
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96009316"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602651"
 ---
 # <a name="quickstart-extract-invoice-data-using-the-form-recognizer-rest-api-with-python"></a>빠른 시작: Python과 Form Recognizer REST API를 사용하여 청구서 데이터 추출
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - 청구서 문서입니다. 이 빠른 시작에서는 [샘플 청구서](../media/sample-invoice.jpg)를 사용할 수 있습니다.
 
 > [!NOTE]
-> 이 빠른 시작에서는 로컬 파일을 사용합니다. URL로 액세스하는 청구서 문서를 대신 사용하려면 [참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync)를 확인하세요.
+> 이 빠른 시작에서는 로컬 파일을 사용합니다. URL로 액세스하는 청구서 문서를 대신 사용하려면 [참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)를 확인하세요.
 
 ## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
 
@@ -290,6 +290,6 @@ if __name__ == '__main__':
 이 빠른 시작에서는 Python과 Form Recognizer REST API를 사용하여 청구서의 콘텐츠를 추출했습니다. 다음으로, 참조 설명서를 통해 Form Recognizer API에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync)
+> [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)
 
    
