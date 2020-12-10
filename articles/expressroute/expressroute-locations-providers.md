@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: duau
-ms.openlocfilehash: c49a3da5bef6059ff5c59cc271cfa58a80153312
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: f514e158e0914475bfe0b7b7ee2c1bf6a63396fe
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762757"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008404"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -161,10 +161,10 @@ Azure 국가별 클라우드는 서로 격리되며 전 세계 상용 Azure에�
 | **시카고** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | 해당 없음 | 10G, 100G | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **댈러스** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | 해당 없음 | 10G, 100G | Equinix, Megaport, Verizon |
 | **뉴욕** | [Equinix NY5](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny5/) | 해당 없음 | 10G, 100G | Equinix, CenturyLink Cloud Connect, Verizon |
-| **Phoenix** | [CyrusOne Chandler](https://cyrusone.com/locations/arizona/phoenix-arizona-chandler/) | US Gov 애리조나 | 해당 없음 | AT&T NetBond, CenturyLink Cloud Connect, Megaport |
+| **Phoenix** | [CyrusOne Chandler](https://cyrusone.com/locations/arizona/phoenix-arizona-chandler/) | US Gov 애리조나 | 10G, 100G | AT&T NetBond, CenturyLink Cloud Connect, Megaport |
 | **샌안토니오** | [CyrusOne SA2](https://cyrusone.com/locations/texas/san-antonio-texas-ii/) | US Gov 텍사스 | 해당 없음 | CenturyLink Cloud Connect, Megaport |
 | **실리콘밸리** | [Equinix SV4](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv4/) | 해당 없음 | 10G, 100G | AT&T, Equinix, Level 3 Communications, Verizon |
-| **시애틀** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 해당 없음 | 해당 없음 | Equinix, Megaport |
+| **시애틀** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 해당 없음 | 10G, 100G | Equinix, Megaport |
 | **워싱턴 DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | US DoD East, US Gov 버지니아 | 10G, 100G | AT&T NetBond, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Verizon |
 
 ### <a name="china"></a>중국

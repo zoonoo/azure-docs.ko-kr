@@ -8,16 +8,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/13/2020
-ms.openlocfilehash: fd7499bd5e216f2a625d87ea13996da851a1889e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/07/2020
+ms.openlocfilehash: a58bcff4e39c4a4a907cd8567b47b074ff299bd5
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019214"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008455"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Language Understanding(LUIS) Cognitive Services의 데이터 스토리지 및 제거
-LUIS는 키를 통해 지정된 지역에 해당하는 Azure 데이터 저장소에 암호화된 데이터를 저장합니다. 이 데이터는 30일 동안 저장됩니다. 
+
+LUIS는 키로 지정 된 [지역](luis-reference-regions.md) 에 해당 하는 Azure 데이터 저장소에 암호화 된 데이터를 저장 합니다. 
+
+* 엔터티, 의도 및 길이 발언 같은 모델을 학습 하는 데 사용 되는 데이터는 응용 프로그램의 수명 동안 LUIS에 저장 됩니다. 소유자 또는 참가자가 앱을 삭제 하는 경우이 데이터는 삭제 됩니다. 응용 프로그램이 90 일 이내에 사용 되지 않은 경우 삭제 됩니다. 
+
+* 응용 프로그램 작성자는 게시 된 응용 프로그램으로 전송 되는 길이 발언에 대해 [로깅을 사용](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning) 하도록 선택할 수 있습니다. 사용 하도록 설정 된 경우 길이 발언는 30 일 동안 저장 되며 응용 프로그램 작성자가 볼 수 있습니다. 응용 프로그램을 게시할 때 로깅을 사용 하도록 설정 하지 않은 경우에는이 데이터가 저장 되지 않습니다.
 
 ## <a name="export-and-delete-app"></a>앱 내보내기 및 삭제
 사용자는 앱 [내보내기](luis-how-to-start-new-app.md#export-app) 및 [삭제](luis-how-to-start-new-app.md#delete-app) 작업을 완전히 제어할 수 있습니다. 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: 73fea1e1928cf4e1bd5342aa0a4c885ccb5cf137
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: e4fffe0efa9f6900ef8d83c0a1b150b4249c22b3
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548174"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008574"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Microsoft.applicationinsights.snapshotcollector에 대 한 릴리스 정보입니다.
 
@@ -21,6 +21,11 @@ ms.locfileid: "96548174"
 버그 보고서 및 피드백의 경우 GitHub에서 문제를 엽니다. https://github.com/microsoft/ApplicationInsights-dotnet
 
 ## <a name="release-notes"></a>릴리스 정보
+
+## <a name="1375"></a>[1.3.7.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.5)
+1.4.0에서 픽스를 백 포트로 이식할 시점 릴리스입니다.
+### <a name="bug-fixes"></a>버그 수정
+- [종료 시 ObjectDisposedException을](https://github.com/microsoft/ApplicationInsights-dotnet/issues/2097)수정 합니다.
 
 ## <a name="1374"></a>[1.3.7.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.4)
 Azure App Service의 코드 없는 attach 시나리오 테스트에서 발견 된 문제를 해결 하기 위한 지점 릴리스입니다.
@@ -36,7 +41,7 @@ Azure App Service의 코드 없는 attach 시나리오 테스트에서 발견 �
 ## <a name="137"></a>[1.3.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7)
 ### <a name="changes"></a>변경
 - Microsoft.applicationinsights.snapshotcollector의 netcoreapp1.0 2.0 대상은 AspNetCore >= 2.1.1 (다시)에 따라 달라 집니다. 이렇게 하면 1.3.5 전의 동작으로 되돌아갑니다. 1.3.6에서 업그레이드 하려고 했지만 일부 Azure App Service 시나리오는 중단 되었습니다.
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 - Snapshot Collector는 APPLICATIONINSIGHTS_CONNECTION_STRING 환경 변수 또는 TelemetryConfiguration에서 ConnectionString을 읽고 구문 분석 합니다. 주로이는 스냅숏 서비스에 연결 하기 위한 끝점을 설정 하는 데 사용 됩니다. 자세한 내용은 [연결 문자열 설명서](./sdk-connection-string.md)를 참조 하세요.
 ### <a name="bug-fixes"></a>버그 수정
 - 호환 되지 않는 SecurityProtocol (TLS 1.2 필요)으로 인해 일부 환경에서 WebRequest가 실패 했기 때문에 net45를 제외한 모든 대상에 대해 HttpClient를 사용 하도록 전환 되었습니다.
@@ -47,7 +52,7 @@ Azure App Service의 코드 없는 attach 시나리오 테스트에서 발견 �
 - 스냅숏 업 로더에서 TLS 1.0 및 1.1에 대 한 지원을 제거 합니다.
 - 이제 PDB 검색 기간에는 15 분이 아닌 24 시간이 기본값으로 설정 됩니다. SnapshotCollectorConfiguration의 PdbRescanInterval를 통해 구성할 수 있습니다.
 - PDB 검색은 재귀적이 아닌 최상위 폴더만 검색 합니다. 기호가 이진 폴더의 하위 폴더에 있는 경우에는이 변경 내용이 크게 바뀔 수 있습니다.
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 - 로그 폴더를 오래 된 파일로 채우지 않도록 SnapshotUploader의 로그 회전
 - .NET Core 3.0 응용 프로그램에 대 한 최적화 지원 (ReJIT on attach를 통해)
 - NuGet 패키지에 기호를 추가 합니다.
