@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 15e5d257259bb4dfc98528cb726dbd2cc1f9a903
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f55af61a061bf3a3897569058aace728f7465b64
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498730"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862125"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(.NET)
 이 자습서에서는 **Azure.Messaging.ServiceBus** 패키지를 사용하여 Azure Service Bus 큐에서 메시지를 보내고 받는 .NET Core 콘솔 애플리케이션을 만듭니다. 
@@ -55,26 +55,9 @@ Visual Studio를 시작하고, C#용 새 **콘솔 앱(.NET Core)** 프로젝트�
         static string queueName = "<QUEUE NAME>";
     ```
 
-    네임스페이스에 대한 연결 문자열을 `ServiceBusConnectionString` 변수로 입력합니다. 큐 이름을 입력합니다.
+    네임스페이스에 대한 연결 문자열을 `connectionString` 변수로 입력합니다. 큐 이름을 입력합니다.
 
-1. `Main()` 메서드를 다음 **async** `Main` 메서드로 바꿉니다. 메시지를 큐에 보내기 위해 다음 단계에서 추가할 `SendMessagesAsync()` 메서드를 호출합니다. 
-
-    ```csharp
-    public static async Task Main(string[] args)
-    {    
-        const int numberOfMessages = 10;
-        
-        Console.WriteLine("======================================================");
-        Console.WriteLine("Press ENTER key to exit after sending all the messages.");
-        Console.WriteLine("======================================================");
-
-        // Send messages.
-        await SendMessagesAsync(numberOfMessages);
-
-        Console.ReadKey();
-    }
-    ```
-1. `numberOfMessagesToSend`에서 지정된 메시지 수(현재 10으로 설정되어 있음)를 보내는 작업을 수행하는 다음 `SendMessagesAsync()` 메서드를 `Main()` 메서드의 바로 뒤에 추가합니다.
+1. `Main()` 메서드 바로 뒤에 메시지 전송 작업을 수행하는 다음 `SendMessagesAsync()` 메서드를 추가합니다.
 
     ```csharp
         static async Task SendMessageAsync()
@@ -101,9 +84,9 @@ Visual Studio를 시작하고, C#용 새 **콘솔 앱(.NET Core)** 프로젝트�
         {
             // create a queue containing the messages and return it to the caller
             Queue<ServiceBusMessage> messages = new Queue<ServiceBusMessage>();
-            messages.Enqueue(new ServiceBusMessage("First message"));
-            messages.Enqueue(new ServiceBusMessage("Second message"));
-            messages.Enqueue(new ServiceBusMessage("Third message"));
+            messages.Enqueue(new ServiceBusMessage("First message in the batch"));
+            messages.Enqueue(new ServiceBusMessage("Second message in the batch"));
+            messages.Enqueue(new ServiceBusMessage("Third message in the batch"));
             return messages;
         }
     ```

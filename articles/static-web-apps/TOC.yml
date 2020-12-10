@@ -66,9 +66,13 @@
   items:
     - name: Microsoft Learn을 통해 기술 쌓기
       items:
-        - name: 'Angular, React, Svelte 또는 Vue JavaScript 앱 및 API 게시'
+        - name: 'Angular, React, Svelte 또는 Vue JavaScript 앱'
           href: /learn/modules/publish-app-service-static-web-app-api
+        - name: API 게시
+          href: /learn/modules/publish-static-web-app-api-preview-url
         - name: Gatsby를 사용하여 정적 웹앱 생성 및 게시
           href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+        - name: Blazor를 사용하여 정적 웹앱 생성 및 게시
+          href: /learn/modules/publish-app-service-static-web-app-api-dotnet
     - name: 할당량
       href: quotas.md

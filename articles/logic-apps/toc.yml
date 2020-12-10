@@ -346,6 +346,8 @@
           href: monitor-logic-apps.md
         - name: Azure Monitor 로그를 사용하여 논리 앱 모니터링
           href: monitor-logic-apps-log-analytics.md
+        - name: Azure Security Center에서 논리 앱 모니터링
+          href: healthy-unhealthy-resource.md
         - name: Azure Monitor 로그를 사용하여 B2B 메시지 모니터링
           href: monitor-b2b-messages-log-analytics.md
         - name: 모니터링 및 추적 쿼리 만들기

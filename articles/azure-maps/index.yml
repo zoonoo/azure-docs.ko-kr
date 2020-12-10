@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 49de6739fe4d084bc119ffeaa0ffb3e8156f935b
-  ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+  ms.openlocfilehash: fa4db97e2aefe48e792f7d43dbb782e7a0967716
+  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/03/2020
-  ms.locfileid: "96546304"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96905267"
 landingContent:
 - title: Azure Maps 정보
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
     links:
     - text: Azure Maps 소개
       url: https://sec.ch9.ms/ch9/d498/3d435d2c-ac85-421b-b3a7-5e0c7630d498/IoT_AzureMaps_high.mp4
-- title: 시작
+- title: 시작하기
   linkLists:
   - linkListType: quickstart
     links:
@@ -214,7 +214,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Mobility Service 데이터 구조
+    - text: 모바일 서비스
       url: mobility-service-data-structure.md
   - linkListType: how-to-guide
     links:
@@ -224,7 +224,7 @@ landingContent:
       url: how-to-request-real-time-data.md
   - linkListType: reference
     links:
-    - text: Mobility Service
+    - text: 모바일 서비스
       url: /rest/api/maps/mobility
 - title: Weather Service로 개발
   linkLists:
@@ -232,6 +232,8 @@ landingContent:
     links:
     - text: Weather Service 개념
       url: weather-services-concepts.md
+    - text: Weather Services FAQ
+      url: weather-services-faq.md
   - linkListType: tutorial
     links:
     - text: Azure Notebooks(Python)를 사용한 날씨 데이터 분석

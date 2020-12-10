@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: da88b8554d6c3214da9a386613538c237a318f73
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6011bf90d5a97dcc027f8a9a0916c28226c5c354
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546909"
+ms.locfileid: "96584475"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -97,13 +97,12 @@ Windows에서 명령은 다음과 같이 시작됩니다.
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
-Linux 또는 macOS에서 명령은 다음과 유사하게 시작됩니다.
-```shell   
-sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
-```
+Linux 또는 macOS에서 명령은 아래 샘플과 같습니다. `ABSOLUTE_PATH`를 탑재된 디렉터리의 절대 경로로 바꿉니다. 이 경로는 이전 섹션의 `pwd` 명령에 의해 반환되었습니다. 
 
-> [!NOTE]
-> `/ABSOLUTE_PATH`를 위 섹션의 `pwd` 명령에 표시된 절대 경로로 바꿉니다.
+키와 지역을 설정하기 전에 이 명령을 실행하면 키와 지역을 설정하라는 오류 메시지가 표시됩니다.
+```shell   
+sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
+```
 
 컨테이너에 설치된 `spx` 명령을 사용하려면 항상 위에 표시된 전체 명령과 요청의 매개 변수를 차례로 입력합니다.
 예를 들어 Windows에서 이 명령은 키를 설정합니다.
@@ -115,26 +114,28 @@ docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCR
 > [!WARNING]
 > Docker 컨테이너 내에서 Speech CLI를 실행하는 경우에는 컴퓨터의 마이크를 사용할 수 없습니다. 그러나 로컬에 탑재된 디렉터리에서는 오디오 파일을 읽고 저장할 수 있습니다. 
 
-### <a name="optional-create-a-command-line-shortcut"></a>선택 사항: 명령줄 바로 가기 만들기
+<!-- Need to troubleshoot issues with docker pull image
 
-Linux 또는 macOS의 Docker 컨테이너에서 음성 CLI를 실행하는 경우 바로 가기를 만들 수 있습니다. 
+### Optional: Create a command line shortcut
 
-바로 가기를 만들려면 이 지침을 수행합니다.
-1. 원하는 텍스트 편집기로 `.bash_profile`을 엽니다. 다음은 그 예입니다.
+If you're running the the Speech CLI from a Docker container on Linux or macOS you can create a shortcut. 
+
+Follow these instructions to create a shortcut:
+1. Open `.bash_profile` with your favorite text editor. For example:
    ```shell
    nano ~/.bash_profile
    ```
-2. 그런 다음, 이 함수를 `.bash_profile`에 추가합니다. 탑재된 디렉터리에 대한 올바른 경로로 이 함수를 업데이트해야 합니다.
+2. Next, add this function to your `.bash_profile`. Make sure you update this function with the correct path to your mounted directory:
    ```shell   
    spx(){
-       sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+       sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
    }
    ```
-3. 프로필 소싱:
+3. Source your profile:
    ```shell
    source ~/.bash_profile
    ```
-4. 이제 `sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`를 실행하는 대신 `spx` 다음에 인수를 입력하기만 하면 됩니다. 다음은 그 예입니다. 
+4. Now instead of running `sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx`, you can just type `spx` followed by arguments. For example: 
    ```shell
    // Get some help
    spx help recognize
@@ -144,8 +145,8 @@ Linux 또는 macOS의 Docker 컨테이너에서 음성 CLI를 실행하는 경�
    ```
 
 > [!WARNING]
-> Docker가 참조하는 탑재된 디렉터리를 변경하는 경우 `.bash_profile`에서 함수를 업데이트해야 합니다.
-
+> If you change the mounted directory that Docker is referencing, you need to update the function in `.bash_profile`.
+--->
 ***
 
 ## <a name="create-subscription-config"></a>구독 구성 만들기

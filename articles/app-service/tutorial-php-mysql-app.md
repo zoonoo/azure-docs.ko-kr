@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 1053eb9772650dce040570bda04addf93df49178
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b321985bf7920934193723b60abb7bfb28482e6d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998043"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862244"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>자습서: Azure App Service에서 PHP 및 MySQL 앱 빌드
 
@@ -46,11 +46,12 @@ ms.locfileid: "95998043"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Git 설치](https://git-scm.com/)
-* [PHP 5.6.4 이상 설치](https://php.net/downloads.php)
-* [작성기 설치](https://getcomposer.org/doc/00-intro.md)
-* Laravel에 필요한 OpenSSL, PDO-MySQL, Mbstring, 토크나이저, XML 등의 PHP 확장 사용
-* [MySQL 설치 및 시작](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+- [Git 설치](https://git-scm.com/)
+- [PHP 5.6.4 이상 설치](https://php.net/downloads.php)
+- [작성기 설치](https://getcomposer.org/doc/00-intro.md)
+- Laravel에 필요한 OpenSSL, PDO-MySQL, Mbstring, 토크나이저, XML 등의 PHP 확장 사용
+- [MySQL 설치 및 시작](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)] 
 
 ## <a name="prepare-local-mysql"></a>로컬 MySQL 준비
 
@@ -148,8 +149,6 @@ php artisan serve
 ![PHP가 MySQL 연결에 성공](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
 PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-mysql-in-azure"></a>Azure에서 MySQL 만들기
 
@@ -452,7 +451,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -483,7 +482,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -635,7 +634,7 @@ Git에서 모든 변경 내용을 커밋한 다음 Azure에 코드 변경 내용
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 `git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트합니다.

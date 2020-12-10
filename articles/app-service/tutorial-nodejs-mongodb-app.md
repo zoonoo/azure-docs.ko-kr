@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 9c204a07e3c5edff028342af1c88b15ebac0754b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 25d5aa3961ad5dabd29ab4501d8f5076362d9df8
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012223"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862273"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>자습서: Azure에서 Node.js 및 MongoDB 앱 빌드
 
@@ -47,11 +47,12 @@ ms.locfileid: "96012223"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-1. [Git 설치](https://git-scm.com/)
-2. [Node.js 및 NPM 설치](https://nodejs.org/)
-3. [ 설치](https://bower.io/)([MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started)에 필요)
-4. [Gulp.js 설치](https://gulpjs.com/)([MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started)에 필요)
-5. [MongoDB Community Edition 설치 및 실행](https://docs.mongodb.com/manual/administration/install-community/) 
+- [Git 설치](https://git-scm.com/)
+- [Node.js 및 NPM 설치](https://nodejs.org/)
+- [ 설치](https://bower.io/)([MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started)에 필요)
+- [Gulp.js 설치](https://gulpjs.com/)([MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started)에 필요)
+- [MongoDB Community Edition 설치 및 실행](https://docs.mongodb.com/manual/administration/install-community/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)] 
 
 ## <a name="test-local-mongodb"></a>로컬 MongoDB 테스트
 
@@ -111,8 +112,6 @@ MEAN.js 샘플 애플리케이션은 데이터베이스에 사용자 데이터�
 **관리자 > 문서 관리** 를 선택하여 문서를 추가합니다.
 
 언제든지 Node.js를 중지하려면 터미널에서 `Ctrl+C`를 입력합니다. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-production-mongodb"></a>프로덕션 MongoDB 만들기
 
@@ -306,7 +305,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (5/5), done.
 Writing objects: 100% (5/5), 489 bytes | 0 bytes/s, done.
 Total 5 (delta 3), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id '6c7c716eee'.
 remote: Running custom deployment command...
@@ -317,7 +316,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      main -> main
 </pre>
 
 배포 프로세스에서 `npm install` 후에 [Gulp](https://gulpjs.com/)를 실행하는 것을 알 수 있습니다. App Service는 배포 중에 Gulp 또는 Grunt 작업을 실행하지 않으므로 이 샘플 리포지토리는 사용 설정에 사용되는 추가 파일 두 개가 루트 디렉터리에 들어 있습니다. 
@@ -468,7 +467,7 @@ node server.js
 
 ```bash
 git commit -am "added article comment"
-git push azure master
+git push azure main
 ```
 
 `git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트해 봅니다.

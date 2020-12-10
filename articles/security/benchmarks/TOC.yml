@@ -95,6 +95,8 @@
       href: ../../mysql/security-baseline.md
     - name: Azure Database for MariaDB 보안 기준
       href: ../../mariadb/security-baseline.md
+    - name: Azure Database Migration Service 보안 기준
+      href: ../../dms/security-baseline.md
     - name: Azure Database for PostgreSQL - 하이퍼스케일 보안 기준
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Azure Database for PostgreSQL - 단일 서버 보안 기준
@@ -133,7 +135,7 @@
       href: ../../azure-resource-manager/managed-applications/security-baseline.md
     - name: Azure Monitor 보안 기준
       href: ../../azure-monitor/security-baseline.md
-    - name: Azure Migrate Learning 보안 기준
+    - name: Azure Migrate 보안 기준
       href: ../../migrate/security-baseline.md
     - name: Azure Policy 보안 기준
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md

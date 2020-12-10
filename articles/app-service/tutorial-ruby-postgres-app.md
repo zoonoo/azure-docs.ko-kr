@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: 7d6c0d13e440beb9a934adba3908cc9a08f396f1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b3c172584c42e1ed1d7ca94b6cd51bedd4e49dae
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997939"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862295"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Ruby 및 Postgres 앱 빌드
 
@@ -34,10 +34,11 @@ ms.locfileid: "95997939"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Git 설치](https://git-scm.com/)
-* [Ruby 2.6 설치](https://www.ruby-lang.org/en/documentation/installation/)
-* [Ruby on Rails 5.1 설치](https://guides.rubyonrails.org/v5.1/getting_started.html)
-* [PostgreSQL 설치 및 실행](https://www.postgresql.org/download/)
+- [Git 설치](https://git-scm.com/)
+- [Ruby 2.6 설치](https://www.ruby-lang.org/en/documentation/installation/)
+- [Ruby on Rails 5.1 설치](https://guides.rubyonrails.org/v5.1/getting_started.html)
+- [PostgreSQL 설치 및 실행](https://www.postgresql.org/download/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="prepare-local-postgres"></a>로컬 Postgres 준비
 
@@ -103,8 +104,6 @@ rails server
 ![Ruby on Rails가 Postgres에 성공적으로 연결됩니다.](./media/tutorial-ruby-postgres-app/postgres-connect-success.png)
 
 Rails 서버를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-postgres-in-azure"></a>Azure에서 Postgres 만들기
 
@@ -292,7 +291,7 @@ git remote add azure <paste-copied-url-here>
 Azure 원격 위치에 푸시하여 Ruby on Rails 애플리케이션을 배포합니다. 배포 사용자를 만드는 작업의 일부로 이전에 제공한 암호를 묻는 메시지가 표시됩니다.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 배포하는 동안 Azure App Service는 진행 상황을 Git에 전합니다.
@@ -303,7 +302,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -422,7 +421,7 @@ Git에서 모든 변경 내용을 커밋한 다음 Azure에 코드 변경 내용
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 `git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트합니다.

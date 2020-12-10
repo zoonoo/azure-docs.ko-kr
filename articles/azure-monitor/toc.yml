@@ -29,10 +29,6 @@
           href: learn/quick-collect-windows-computer.md
     - name: 애플리케이션 모니터링
       items:
-        - name: .NET 애플리케이션
-          href: learn/quick-monitor-portal.md
-        - name: .NET Core 애플리케이션
-          href: learn/dotnetcore-quick-start.md
         - name: Node.js 애플리케이션
           href: learn/nodejs-quick-start.md
         - name: 모바일 애플리케이션
@@ -255,7 +251,7 @@
               href: log-query/query-audit.md
             - name: 쿼리 최적화
               href: log-query/query-optimization.md
-            - name: Functions
+            - name: 함수
               href: log-query/functions.md
             - name: 텍스트 데이터 구문 분석
               href: log-query/parse-text.md
@@ -274,6 +270,8 @@
                   href: log-query/resource-expression.md
                 - name: 애플리케이션 데이터 리소스 통합
                   href: log-query/unify-app-resource-data.md
+                - name: Azure Monitor와 Azure Data Explorer 간의 교차 서비스 쿼리 개요
+                  href: platform/azure-data-explorer-monitor-cross-service-query.md
                 - name: Azure Monitor에서 Azure Data Explorer 쿼리
                   href: platform/azure-monitor-data-explorer-proxy.md
         - name: 데이터 내보내기
@@ -678,8 +676,10 @@
                       href: app/java-standalone-telemetry-processors.md
                     - name: JVM 인수 설정
                       href: app/java-standalone-arguments.md
-                    - name: 2.x에서 업그레이드
+                    - name: 2.x SDK에서 업그레이드
                       href: app/java-standalone-upgrade-from-2x.md
+                    - name: 문제 해결
+                      href: app/java-standalone-troubleshoot.md
             - name: 온-프레미스 서버
               items:
                 - name: ASP.NET
@@ -888,8 +888,6 @@
               items:
                 - name: 웹앱 및 서비스 심층 진단
                   href: app/devops.md
-                - name: 웹 애플리케이션의 성능 모니터링
-                  href: app/web-monitor-performance.md
                 - name: '개발, 테스트 및 프로덕션 구분'
                   href: app/separate-resources.md
                 - name: Application Insights에서 어떻게 할까요?
@@ -1014,6 +1012,8 @@
           href: insights/container-insights-deployment-hpa-metrics.md
         - name: 영구 볼륨(PV) 모니터링
           href: insights/container-insights-persistent-volumes.md
+        - name: 보고서 탭
+          href: insights/container-insights-reports.md
         - name: 라이브 데이터 보기
           items:
             - name: 라이브 데이터(미리 보기) 개요
