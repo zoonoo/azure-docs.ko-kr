@@ -1,25 +1,22 @@
 ---
-title: Azure Stack 허브 (미리 보기)에서 Blob Storage를 검사점 저장소로 사용
-description: 이 문서에서는 Azure Stack 허브 (미리 보기)의 Event Hubs에서 Blob Storage을 검사점 저장소로 사용 하는 방법을 설명 합니다.
+title: Azure Stack Hub에서 Blob Storage를 검사점 저장소로 사용
+description: 이 문서에서는 Azure Stack 허브의 Event Hubs에서 Blob Storage을 검사점 저장소로 사용 하는 방법을 설명 합니다.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: 9da525decfb7b972f05af17c259836d0b17bb21e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/09/2020
+ms.openlocfilehash: 07d7cf844480a9a88468c17cecc7ca38cca5d176
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021238"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007826"
 ---
-# <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Blob Storage를 검사점 저장소로 사용-Azure Stack 허브 (미리 보기)에서 Event Hubs
+# <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub"></a>Blob Storage를 검사점 저장소로 사용-Azure Stack 허브에서 Event Hubs
 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지 원하는 환경에서 검사점 저장소로 Azure Blob Storage을 사용 하는 경우, 코드를 사용 하 여 저장소 서비스 API 버전을 해당 환경에서 지 원하는 특정 버전으로 변경 해야 합니다. 예를 들어 [Azure Stack 허브 버전 2002에서 Event Hubs](/azure-stack/user/event-hubs-overview)를 실행 하는 경우 저장소 서비스에 사용할 수 있는 가장 높은 버전은 2017-11-09입니다. 이 경우에는 코드를 사용 하 여 저장소 서비스 API 버전을 2017-11-09로 대상으로 해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 GitHub의 다음 샘플을 참조 하세요. 
 
 - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/)
 - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java). 
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) 또는  [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) 
 - Python- [동기](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [비동기](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
-
-> [!IMPORTANT]
-> Azure Stack Hub의 Event Hubs는 현재 [미리 보기로](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 제공 되며 무료입니다. 
 
 Azure Stack 허브가 지 원하는 버전을 대상으로 하지 않고 Blob Storage를 검사점 저장소로 사용 하는 Event Hubs 수신자를 실행 하는 경우 다음 오류 메시지가 표시 됩니다.
 

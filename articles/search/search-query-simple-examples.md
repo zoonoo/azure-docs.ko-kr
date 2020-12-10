@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 834e4fe8c7b3923f40a07c02c0310200db222308
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 12/09/2020
+ms.openlocfilehash: 027852216b3f2055a5a381d00aff94526953b898
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697257"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007877"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Azure Cognitive Search에서 간단한 쿼리 만들기
 
@@ -22,6 +22,14 @@ Azure Cognitive Search에서는 [단순 쿼리 구문이](query-simple-syntax.md
 이 문서에서는 예제를 사용 하 여 간단한 구문을 보여 주고 `search=` [문서 검색](/rest/api/searchservice/search-documents) 작업의 매개 변수를 채웁니다.
 
 대체 쿼리 구문은 [전체 Lucene](query-lucene-syntax.md)이며 유사 항목 및 와일드 카드 검색과 같은 보다 복잡 한 쿼리 구조를 지원 합니다 .이를 처리 하는 데 시간이 더 걸릴 수 있습니다. 전체 구문에 대 한 자세한 내용 및 예제는 [Full Lucene 구문 사용](search-query-lucene-examples.md)을 참조 하세요.
+
+쿼리를 제출 하려면 다음 도구 및 Api 중에서 선택 합니다.
+
+| 방법 | Description |
+|-------------|-------------|
+| [검색 탐색기 (포털)](search-explorer.md) | 검색 표시줄 및 인덱스와 api-version 선택을 위한 옵션을 제공합니다. 결과는 JSON 문서로 반환됩니다. 탐색, 테스트 및 유효성 검사에 권장 됩니다. <br/>[자세한 정보](search-get-started-portal.md#query-index) | 
+| [Postman 또는 Visual Studio Code](search-get-started-rest.md) | 웹 테스트 도구는 [검색 문서](/rest/api/searchservice/search-documents) REST 호출을 작성 하는 데 매우 적합 합니다. REST API는 Azure Cognitive Search의 모든 프로그래밍 방식 작업을 지원 하므로 대화형으로 요청을 실행 하 여 특정 작업에 대 한 탐색에 집중할 수 있습니다.  |
+| [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Azure Cognitive Search 인덱스를 쿼리 하는 데 사용할 수 있는 클라이언트입니다.  <br/>[자세한 정보](search-howto-dotnet-sdk.md)  |
 
 ## <a name="formulate-requests-in-postman"></a>Postman에서 요청 작성
 

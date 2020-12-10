@@ -8,23 +8,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 11/19/2019
-ms.openlocfilehash: 60b100e1100b8a4925a967f8b7265f1612e5beb7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/08/2020
+ms.openlocfilehash: d4bde21dd13b562ffbb51b27ef083ee53685397a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018908"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007972"
 ---
 # <a name="add-contributors-to-your-app"></a>앱에 참가자 추가
 
-앱 소유자는 앱에 참가자를 추가할 수 있습니다. 이러한 협력자는 모델을 수정하고, 앱을 학습시키고, 게시할 수 있습니다.
-
-[!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
+앱 소유자는 앱에 참가자를 추가할 수 있습니다. 이러한 참가자는 모델을 수정 하 고, 학습 하 고, 게시할 수 있습니다. 계정을 [마이그레이션한](luis-migration-authoring.md) 후에는 **액세스 제어 (IAM)** 페이지를 사용 하 여 제작 리소스에 대 한 Azure Portal에서 _참가자_ 가 관리 됩니다. 협력자의 이메일 주소 및 _참가자_ 역할을 사용 하 여 사용자를 추가 합니다.
 
 ## <a name="add-contributor-to-azure-authoring-resource"></a>Azure 제작 리소스에 참가자 추가
-
-다음 절차는 Azure authoring resource를 사용 하도록 **마이그레이션한** 모든 사용자를 위한 것입니다.
 
 LUIS authoring experience가 LUIS 포털의 **관리-> Azure 리소스** 페이지에서 제작 리소스와 연결 된 경우 마이그레이션 되었습니다.
 
@@ -41,26 +37,15 @@ LUIS authoring experience가 LUIS 포털의 **관리-> Azure 리소스** 페이�
 
     이 역할 할당에 문제가 있는 경우 [azure 역할 할당](../../role-based-access-control/role-assignments-portal.md) 및 [azure access control 문제 해결](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments)을 검토 하세요.
 
-## <a name="add-collaborator-to-luis-app"></a>LUIS 앱에 협력자 추가
+## <a name="view-the-app-as-a-contributor"></a>앱을 참가자로 표시
 
-다음 절차는 Azure 제작 리소스를 사용 하도록 **마이그레이션되지** 않은 모든 사용자를 위한 것입니다.
+참가자로 추가 된 후에 [는 LUIS 포털에 로그인](sign-in-luis-portal.md)합니다.
 
-LUIS authoring experience가 LUIS 포털의 **관리-> Azure 리소스** 페이지에서 제작 리소스와 연결 되지 않은 경우 마이그레이션되지 않았습니다.
-
-앱의 작성자, 소유자는 한 명이지만 협력자는 많을 수 있습니다. 협력자가 LUIS 앱을 편집하도록 허용하려면 LUIS 호털에 액세스하는 데 사용되는 이메일을 협력자 목록에 추가해야 합니다. 추가되면 앱이 LUIS 포털에 표시됩니다.
-
-1. 맨 위 오른쪽 메뉴에서 **관리** 를 선택한 다음, 왼쪽 메뉴에서 **협력자** 를 선택합니다.
-
-1. 도구 모음에서 **협력자 추가** 를 선택합니다.
-
-1. 협력자가 LUIS 포털에 로그인할 때 사용하는 이메일 주소를 입력합니다.
-
-    ![협력자의 이메일 주소를 추가합니다.](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
-
+[!INCLUDE [switch azure directories](includes/switch-azure-directories.md)]
 
 ### <a name="users-with-multiple-emails"></a>여러 전자 메일을 사용 하는 사용자
 
-LUIS 앱에 기여자/협력자를 추가 하는 경우 정확한 전자 메일 주소를 지정 하 게 됩니다. Azure Active Directory (Azure AD)를 사용 하 여 단일 사용자가 두 개 이상의 전자 메일 계정을 여러 개 사용할 수 있도록 허용 하는 한편, LUIS에서는 참가자/협력자를 추가할 때 지정 된 전자 메일 주소를 사용 하 여 로그인 해야 합니다.
+LUIS 앱에 참가자를 추가 하는 경우 정확한 전자 메일 주소를 지정 하 게 됩니다. Azure Active Directory (Azure AD)를 사용 하 여 단일 사용자가 두 개 이상의 전자 메일 계정을 여러 개 사용할 수 있도록 허용 하는 한편, LUIS에서는 참가자를 추가할 때 지정 된 전자 메일 주소로 로그인 해야 합니다.
 
 <a name="owner-and-collaborators"></a>
 

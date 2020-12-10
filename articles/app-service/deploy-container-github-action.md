@@ -7,12 +7,12 @@ ms.date: 12/04/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 76d82695f0f43638e840589c52d6713ae36c1608
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: ae587b9501c9c68600ff880744d311ba966923ed
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607809"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008030"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>GitHub Actions를 사용하여 App Service에 사용자 지정 컨테이너 배포
 
@@ -28,7 +28,7 @@ Azure App Service 컨테이너 워크플로의 경우 파일에는 다음과 같
 |**빌드** | 1. 환경을 만듭니다. <br /> 2. 컨테이너 이미지를 빌드합니다. |
 |**배포** | 1. 컨테이너 이미지를 배포 합니다. |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [무료 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요. Azure App Service에 배포 하려면 GitHub 리포지토리에 코드가 있어야 합니다. 
@@ -56,7 +56,7 @@ Azure를 인증 하기 위해 게시 프로필 자격 증명 또는 서비스 �
 
 # <a name="service-principal"></a>[서비스 주체](#tab/service-principal)
 
-[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) 명령을 사용하여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
+[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용하여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -88,7 +88,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
 
 [앱 수준 자격 증명](#generate-deployment-credentials)을 사용 하려면 다운로드 한 게시 프로필 파일의 내용을 비밀의 값 필드에 붙여넣습니다. 비밀의 이름을로 `AZURE_WEBAPP_PUBLISH_PROFILE` 합니다.
 
-GitHub 워크플로를 구성 하는 경우 `AZURE_WEBAPP_PUBLISH_PROFILE` Azure 웹 앱 배포 작업에서를 사용 합니다. 예를 들면 다음과 같습니다.
+GitHub 워크플로를 구성 하는 경우 `AZURE_WEBAPP_PUBLISH_PROFILE` Azure 웹 앱 배포 작업에서를 사용 합니다. 예를 들어:
     
 ```yaml
 - uses: azure/webapps-deploy@v2
@@ -116,7 +116,7 @@ GitHub 워크플로를 구성 하는 경우 `AZURE_WEBAPP_PUBLISH_PROFILE` Azure
 
 Docker 로그인 작업에 사용할 암호를 정의 합니다. 이 문서의 예제는 컨테이너 레지스트리에 대 한 Azure Container Registry를 사용 합니다. 
 
-1. Azure Portal 또는 Docker의 컨테이너로 이동 하 여 사용자 이름 및 암호를 복사 합니다. **Settings**  >  레지스트리에 대 한 설정 **액세스 키** 아래의 Azure Portal에서 Azure Container Registry 사용자 이름 및 암호를 찾을 수 있습니다. 
+1. Azure Portal 또는 Docker의 컨테이너로 이동 하 여 사용자 이름 및 암호를 복사 합니다.   >  레지스트리에 대 한 설정 **액세스 키** 아래의 Azure Portal에서 Azure Container Registry 사용자 이름 및 암호를 찾을 수 있습니다. 
 
 2. 라는 레지스트리 사용자 이름에 대해 새 암호를 정의 `REGISTRY_USERNAME` 합니다. 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 5dbd49312b58dc656e2239e8a0a4acea614023de
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: d38c57a8c8504e1e03406f7cd8a0b61725cb0511
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317139"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008091"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Azure Synapse 작업 영역에 대 한 지속적인 통합 및 전달
 
@@ -25,7 +25,7 @@ Azure Synapse 작업 영역의 경우 CI/CD (지속적인 통합 및 배달)는 
 
 이 문서에서는 Azure 릴리스 파이프라인을 사용 하 여 여러 환경에 Synapse 작업 영역의 배포를 자동화 하는 방법을 간략하게 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 -   개발에 사용 되는 작업 영역이 스튜디오에서 Git 리포지토리로 구성 되었습니다. [Synapse Studio의 소스 제어](source-control.md)를 참조 하세요.
 -   Azure DevOps 프로젝트가 릴리스 파이프라인을 실행할 준비가 되었습니다.
@@ -107,7 +107,13 @@ Azure Synapse 작업 영역의 경우 CI/CD (지속적인 통합 및 배달)는 
 
      ![확장 추가](media/add-extension-task.png)
 
-1.  작업에서 **workspace_publish** 관련 git 리포지토리 정보를 제공 하 고 대상 작업 영역에 대 한 리소스 그룹, 지역, 이름 및 클라우드 환경을 선택 합니다. 필요한 경우 매개 변수 및 값을 제공 합니다.
+1.  작업 **에서 ...를 선택 합니다** . **템플릿 상자 옆** 의 템플릿 파일을 선택 합니다.
+
+1. **템플릿 매개 변수 재정의** 필드 **템플릿 매개 변수** 상자 옆에서 매개 변수 파일을 선택합니다.
+
+1. 연결, 리소스 그룹 및 대상 작업 영역의 이름을 선택 합니다. 
+
+1. **템플릿 매개 변수 재정의** 필드 **템플릿 매개 변수 재정의** 상자 옆에 대상 작업 영역에 대 한 원하는 매개 변수 값을 입력 합니다. 
 
     ![Synapse 작업 영역 배포](media/create-release-artifacts-deployment.png)
 

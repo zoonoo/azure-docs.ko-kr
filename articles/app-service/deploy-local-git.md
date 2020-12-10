@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 84e257111e8da0546cf104e0cc5d3ac95a9294ba
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 5ed3e858168ce5ad9a7f089b723bb75ca8a49fca
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558677"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007520"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service에 대 한 로컬 Git 배포
 
 이 방법 가이드에서는 로컬 컴퓨터의 Git 리포지토리에서 [Azure App Service](overview.md) 에 앱을 배포 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드의 단계를 수행하려면
 
@@ -45,7 +45,7 @@ Kudu App Service 빌드 서버를 사용 하 여 앱에 대 한 로컬 Git 배�
 
 ### <a name="get-the-deployment-url"></a>배포 URL 가져오기
 
-기존 앱에 대 한 로컬 Git 배포를 사용 하도록 URL을 가져오려면 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) Cloud Shell에서를 실행 합니다. \<app-name>및를 \<group-name> 앱 및 해당 Azure 리소스 그룹의 이름으로 바꿉니다.
+기존 앱에 대 한 로컬 Git 배포를 사용 하도록 URL을 가져오려면 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git) Cloud Shell에서를 실행 합니다. \<app-name>및를 \<group-name> 앱 및 해당 Azure 리소스 그룹의 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
@@ -54,7 +54,7 @@ az webapp deployment source config-local-git --name <app-name> --resource-group 
 > Linux app service 계획을 사용 하는 경우 다음 매개 변수를 추가 해야 합니다.--runtime python | 3.7
 
 
-또는 새 Git 사용 앱을 만들려면 매개 변수를 사용 하 여 Cloud Shell에서를 실행 합니다 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) `--deployment-local-git` . \<app-name>, \<group-name> 및를 \<plan-name> 새 Git 앱, 해당 Azure 리소스 그룹 및 해당 Azure App Service 계획의 이름으로 바꿉니다.
+또는 새 Git 사용 앱을 만들려면 매개 변수를 사용 하 여 Cloud Shell에서를 실행 합니다 [`az webapp create`](/cli/azure/webapp#az-webapp-create) `--deployment-local-git` . \<app-name>, \<group-name> 및를 \<plan-name> 새 Git 앱, 해당 Azure 리소스 그룹 및 해당 Azure App Service 계획의 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
@@ -154,9 +154,9 @@ Git를 사용 하 여 Azure에서 App Service 앱에 게시 하는 경우 다음
 |`RPC failed; result=22, HTTP code = 5xx.`|이 오류는 HTTPS를 통해 큰 git 리포지토리를 푸시하려고 시도하는 경우 발생할 수 있습니다.|로컬 컴퓨터에서 git 구성을 변경 하 여 `postBuffer` 더 크게 만듭니다. 예를 들어 `git config --global http.postBuffer 524288000`을 참조하십시오.|
 |`Error - Changes committed to remote repository but your web app not updated.`|추가 필수 모듈을 지정 하는 파일 _에package.js_ 를 사용 하 여 Node.js 앱을 배포 했습니다.|오류 `npm ERR!` 에 대 한 추가 컨텍스트를 위해이 오류 이전의 오류 메시지를 검토 합니다. 이 오류의 알려진 원인과 해당 메시지는 다음과 같습니다 `npm ERR!` .<br /><br />**파일의 package.js형식이 잘못** 되었습니다. `npm ERR! Couldn't read dependencies.`<br /><br />**네이티브 모듈에는 Windows 용 이진 배포가** 없습니다.<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />또는 <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - [프로젝트 Kudu 설명서](https://github.com/projectkudu/kudu/wiki)
-- [Azure App Service에 대 한 연속 배포](deploy-continuous-deployment.md)
+- [Azure App Service 연속 배포](deploy-continuous-deployment.md)
 - [샘플: 웹 앱 만들기 및 로컬 Git 리포지토리의 코드 배포 (Azure CLI)](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
 - [샘플: 웹 앱 만들기 및 로컬 Git 리포지토리의 코드 배포 (PowerShell)](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

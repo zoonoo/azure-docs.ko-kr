@@ -11,24 +11,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 5c3bfbdf133777f0bc219d1306f80bd4d38b56ea
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 0a59c748dba87765537fc7c9d6382c7d2b726f43
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746270"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008064"
 ---
 # <a name="configure-ddos-attack-mitigation-reports-and-flow-logs"></a>DDoS 공격 완화 보고서 및 흐름 로그 구성 
 
 Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 인사이트와 시각화를 제공합니다. DDoS 공격으로부터 자신의 가상 네트워크를 보호하는 고객은 공격 완화 보고서 및 완화 흐름 로그를 통해 공격 트래픽 및 공격을 완화하는 데 수행된 작업에 대해 자세히 파악할 수 있습니다. 다양 한 원격 분석은 DDoS 공격 기간 동안 상세 메트릭을 포함 하 여 Azure Monitor를 통해 노출 됩니다. DDoS Protection에서 노출하는 Azure Monitor 메트릭에 대한 경고를 구성할 수 있습니다. 로깅은 Azure Monitor 진단 인터페이스를 통한 고급 분석을 위해 [Azure 센티널](../sentinel/connect-azure-ddos-protection.md), Splunk (azure Event Hubs), OMS Log Analytics 및 Azure Storage와 추가로 통합 될 수 있습니다.
 
-이 자습서에서 학습할 방법은 다음과 같습니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * DDoS 공격 완화 보고서 보기 및 구성
 > * DDoS 공격 완화 흐름 로그 보기 및 구성
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 이 자습서의 단계를 완료 하기 전에 먼저 [Azure DDoS Standard 보호 계획](manage-ddos-protection.md)을 만들어야 합니다.
@@ -80,9 +80,15 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 
 ### <a name="azure-ddos-protection-workbook"></a>Azure DDoS Protection 통합 문서
 
-Azure 분석 대시보드에서 흐름 로그 데이터를 보려면 https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20DDoS%20Protection%20Workbook에서 샘플 대시보드를 가져올 수 있습니다.
+이 Azure Resource Manager (ARM) 템플릿을 사용 하 여 공격 분석 통합 문서를 배포할 수 있습니다. 이 통합 문서는 항상 stake의 기능을 쉽게 이해 하기 위해 여러 개의 필터링 가능한 패널에서 공격 데이터를 시각화 합니다. 이 ARM 템플릿을 배포할 때 다음 사항을 입력 해야 합니다.
 
-흐름 로그에 포함된 필드는 다음과 같습니다. 
+* 작업 영역 이름
+* 작업 영역 ResourceGroup
+* 작업 영역 구독 ID
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
+
+흐름 로그에는 다음 필드가 포함 됩니다. 
 - 원본 IP
 - 대상 IP
 - 원본 포트 
@@ -112,7 +118,7 @@ Azure 분석 대시보드에서 흐름 로그 데이터를 보려면 https://git
 
 ## <a name="next-steps"></a>다음 단계
 
-본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 - DDoS 공격 완화 보고서 보기 및 구성
 - DDoS 공격 완화 흐름 로그 보기 및 구성

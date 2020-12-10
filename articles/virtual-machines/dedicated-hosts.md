@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 07/28/2020
+ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: a42b07254deaf19d253f7523631018bfe7166a57
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4e29bb0fee496af6a8c0fd30d5559bf865123c39
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339594"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007894"
 ---
 # <a name="azure-dedicated-hosts"></a>Azure 전용 호스트
 
@@ -67,11 +67,6 @@ Azure Dedicated Host는 하나의 Azure 구독 전용 물리적 서버(하나 �
 
 ## <a name="manual-vs-automatic-placement"></a>수동 및 자동 배치 
 
-> [!IMPORTANT]
-> 자동 배치는 현재 공개 미리 보기로 제공 됩니다.
-> 미리 보기에 참여 하려면에서 미리 보기 온 보 딩 설문 조사를 완료 [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) 합니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 Azure에서 VM을 만들 때 사용할 전용 호스트를 선택할 수 있습니다. 또한 옵션을 사용 하 여 호스트 그룹 내의 기존 호스트에 Vm을 자동으로 추가할 수 있습니다. 
 
 새 호스트 그룹을 만들 때 자동 VM 배치 설정이 선택 되어 있는지 확인 합니다. VM을 만들 때 호스트 그룹을 선택 하 고 Azure에서 VM에 가장 적합 한 호스트를 선택 하도록 합니다. 
@@ -91,11 +86,6 @@ Azure에서 VM을 만들 때 사용할 전용 호스트를 선택할 수 있습�
 
 가상 머신 확장 집합을 사용 하면 가상 머신 그룹을 단일 리소스로 처리 하 고, 가용성, 관리, 크기 조정 및 오케스트레이션 정책을 그룹으로 적용할 수 있습니다. 기존 전용 호스트는 가상 머신 확장 집합에도 사용할 수 있습니다. 
 
-> [!IMPORTANT]
-> 전용 호스트의 Virtual Machine Scale Sets는 현재 공개 미리 보기로 제공 됩니다.
-> 미리 보기에 참여 하려면에서 미리 보기 온 보 딩 설문 조사를 완료 [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) 합니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 가상 머신 확장 집합을 만들 때 전용 호스트에 모든 VM 인스턴스를 만들도록 기존 호스트 그룹을 지정할 수 있습니다.
 
 전용 호스트 그룹에서 가상 머신 확장 집합을 만들 때 다음과 같은 요구 사항이 적용 됩니다.
@@ -109,7 +99,7 @@ Azure에서 VM을 만들 때 사용할 전용 호스트를 선택할 수 있습�
 - 전용 호스트에 대해 지원 되는 VM 크기는 확장 집합에 사용 된 것과 일치 해야 합니다.
 
 모든 규모 집합 오케스트레이션 및 최적화 설정이 전용 호스트에서 지원 되는 것은 아닙니다. 확장 집합에 다음 설정을 적용 합니다. 
-- 과도 한 프로 비전을 사용 하지 않습니다.
+- 과도 한 프로 비전은 권장 되지 않으며 기본적으로 사용 하지 않도록 설정 됩니다. 과도 한 프로 비전을 사용 하도록 설정할 수 있지만 호스트 그룹에 과도 하 게 프로 비전 된 인스턴스를 포함 하 여 모든 Vm에 대 한 용량이 없는 경우 확장 집합 할당이 실패 합니다. 
 - ScaleSetVM 오케스트레이션 모드 사용 
 - 공동 배치에 근접 배치 그룹을 사용 하지 마십시오.
 
@@ -173,7 +163,7 @@ SKU는 호스트에 대해 정의 되며 VM 크기 계열과 유형을 나타냅
 
 Azure는 호스트의 상태를 모니터링 하 고 관리 합니다. 호스트를 쿼리할 때 반환 되는 상태는 다음과 같습니다.
 
-| 성능 상태   | 설명       |
+| 성능 상태   | Description       |
 |----------|----------------|
 | 호스트 사용 가능     | 호스트와 관련 하 여 알려진 문제가 없습니다.   |
 | 확인 중인 호스트  | Microsoft에서 찾고 있는 호스트에 몇 가지 문제가 있습니다. 이는 Azure에서 식별 된 문제의 범위 및 근본 원인을 파악 하는 데 필요한 전환 상태입니다. 호스트에서 실행 중인 가상 컴퓨터에 영향을 줄 수 있습니다. |

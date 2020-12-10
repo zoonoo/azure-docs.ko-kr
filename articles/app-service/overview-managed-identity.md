@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: fa99920c8e9d8cd532bb6230d6a337a038ee3e31
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 8e1f7bb2faaf9d2c706e63ae73b9e265eb95d09b
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929330"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007214"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
@@ -109,7 +109,7 @@ Azure CLI를 사용하여 관리 ID를 설정하려면 기존 애플리케이션
 
 1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzAccount`를 실행하여 Azure에 연결합니다.
 
-2. Azure PowerShell를 사용 하 여 함수 앱을 만듭니다. Azure Functions에서 Azure PowerShell를 사용 하는 방법에 대 한 자세한 예제를 보려면 [Az. 함수 참조](/powershell/module/az.functions/?view=azps-4.1.0#functions):
+2. Azure PowerShell를 사용 하 여 함수 앱을 만듭니다. Azure Functions에서 Azure PowerShell를 사용 하는 방법에 대 한 자세한 예제를 보려면 [Az. 함수 참조](/powershell/module/az.functions/#functions):
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -219,7 +219,7 @@ tenantId 속성은 ID가 속한 Azure AD 테넌트를 식별합니다. principal
 
 1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzAccount`를 실행하여 Azure에 연결합니다.
 
-2. Azure PowerShell를 사용 하 여 함수 앱을 만듭니다. Azure Functions에서 Azure PowerShell를 사용 하는 방법에 대 한 자세한 예제는 [Az. 함수 참조](/powershell/module/az.functions/?view=azps-4.1.0#functions)를 참조 하세요. 또한 아래 스크립트는 `New-AzUserAssignedIdentity` [Azure PowerShell 사용 하 여 사용자 할당 관리 Id를 만들기, 나열 또는 삭제 하는 방법](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)으로 별도로 설치 해야 하는를 사용 합니다.
+2. Azure PowerShell를 사용 하 여 함수 앱을 만듭니다. Azure Functions에서 Azure PowerShell를 사용 하는 방법에 대 한 자세한 예제는 [Az. 함수 참조](/powershell/module/az.functions/#functions)를 참조 하세요. 또한 아래 스크립트는 `New-AzUserAssignedIdentity` [Azure PowerShell 사용 하 여 사용자 할당 관리 Id를 만들기, 나열 또는 삭제 하는 방법](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)으로 별도로 설치 해야 하는를 사용 합니다.
 
     ```azurepowershell-interactive
     # Create a resource group.

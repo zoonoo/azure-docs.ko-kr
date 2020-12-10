@@ -3,12 +3,12 @@ title: ZIP 패키지에서 앱 실행
 description: 원자성을 사용 하 여 앱의 ZIP 패키지를 배포 합니다. ZIP 배포 프로세스 중에 앱의 동작에 대 한 예측 가능성과 안정성을 향상 시킵니다.
 ms.topic: article
 ms.date: 01/14/2020
-ms.openlocfilehash: 5cc909d79b3f5ea2b4c6a3da12bc7250addbe00c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3440653455626af4e3705d89349a66d6bf2fbfc0
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77920725"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008132"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>ZIP 패키지에서 직접 Azure App Service에서 앱 실행
 
@@ -41,13 +41,13 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 ## <a name="run-the-package"></a>패키지 실행
 
-App Service에서 패키지를 실행 하는 가장 쉬운 방법은 Azure CLI [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) command를 사용 하는 것입니다. 예를 들면 다음과 같습니다.
+App Service에서 패키지를 실행 하는 가장 쉬운 방법은 Azure CLI [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip) command를 사용 하는 것입니다. 예를 들어:
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
 ```
 
-`WEBSITE_RUN_FROM_PACKAGE`앱 설정이 설정 되어 있으므로이 명령은 패키지 콘텐츠를 앱의 *D:\home\site\wwwroot* 디렉터리에 추출 하지 않습니다. 대신 ZIP 파일을 있는 그대로 *D:\home\data\SitePackages*에 업로드 하 고, 런타임에 로드할 zip 패키지의 이름을 포함 하는 동일한 디렉터리에 *packagename.txt* 를 만듭니다. [FTP](deploy-ftp.md)와 같은 다른 방식으로 ZIP 패키지를 업로드 하는 경우 *D:\home\data\SitePackages* 디렉터리와 *packagename.txt* 파일을 수동으로 만들어야 합니다.
+`WEBSITE_RUN_FROM_PACKAGE`앱 설정이 설정 되어 있으므로이 명령은 패키지 콘텐츠를 앱의 *D:\home\site\wwwroot* 디렉터리에 추출 하지 않습니다. 대신 ZIP 파일을 있는 그대로 *D:\home\data\SitePackages* 에 업로드 하 고, 런타임에 로드할 zip 패키지의 이름을 포함 하는 동일한 디렉터리에 *packagename.txt* 를 만듭니다. [FTP](deploy-ftp.md)와 같은 다른 방식으로 ZIP 패키지를 업로드 하는 경우 *D:\home\data\SitePackages* 디렉터리와 *packagename.txt* 파일을 수동으로 만들어야 합니다.
 
 또한이 명령은 앱을 다시 시작 합니다. 가 설정 되었기 때문에 `WEBSITE_RUN_FROM_PACKAGE` App Service는 업로드 된 패키지를 읽기 전용 *wwwroot* 디렉터리로 탑재 하 고 탑재 된 해당 디렉터리에서 직접 앱을 실행 합니다.
 
@@ -70,7 +70,7 @@ Blob storage에 동일한 이름의 업데이트 된 패키지를 게시 하는 
 - 이 기능은 [로컬 캐시](overview-local-cache.md)와 호환 되지 않습니다.
 - 콜드 부팅 성능이 개선 되도록 하려면 로컬 Zip 옵션 ( `WEBSITE_RUN_FROM_PACKAGE` = 1)을 사용 합니다.
 
-## <a name="more-resources"></a>추가 리소스
+## <a name="more-resources"></a>기타 참고 자료
 
 - [Azure App Service에 대 한 연속 배포](deploy-continuous-deployment.md)
 - [ZIP 또는 WAR 파일을 사용 하 여 코드 배포](deploy-zip.md)

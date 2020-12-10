@@ -4,12 +4,12 @@ description: Azure App Service에서 사용자 지정 컨테이너를 구성 하
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 2aece0550d7b78ac4312e71b2671de4a64e4b86b
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: a7582bbb866a63820abbd959e06628eda5d57e29
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557929"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007639"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Azure App Service에 대한 사용자 지정 컨테이너 구성
 
@@ -345,7 +345,7 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
 
 WordPress 같은 다중 컨테이너 앱은 영구적 저장소가 제대로 작동 해야 합니다. 이 기능을 사용 하도록 설정 하려면 Docker Compose 구성이 컨테이너 *외부* 의 저장소 위치를 가리켜야 합니다. 컨테이너 내부의 저장소 위치는 앱을 다시 시작 하는 이후 변경 내용을 유지 하지 않습니다.
 
-`WEBSITES_ENABLE_APP_SERVICE_STORAGE` [Cloud Shell](https://shell.azure.com)에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용 하 여 앱 설정을 설정 하 여 영구 저장소를 사용 하도록 설정 합니다.
+`WEBSITES_ENABLE_APP_SERVICE_STORAGE` [Cloud Shell](https://shell.azure.com)에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 명령을 사용 하 여 앱 설정을 설정 하 여 영구 저장소를 사용 하도록 설정 합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
@@ -353,7 +353,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 *Docker-compose.ci.build.yml* 파일에서 `volumes` 옵션을에 매핑합니다 `${WEBAPP_STORAGE_HOME}` . 
 
-`WEBAPP_STORAGE_HOME`은 앱의 영구 스토리지에 매핑되는 App Service의 환경 변수입니다. 다음은 그 예입니다. 
+`WEBAPP_STORAGE_HOME`은 앱의 영구 스토리지에 매핑되는 App Service의 환경 변수입니다. 예를 들어:
 
 ```yaml
 wordpress:

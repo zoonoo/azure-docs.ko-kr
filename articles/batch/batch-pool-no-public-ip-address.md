@@ -3,15 +3,15 @@ title: 공용 IP 주소가 없는 Azure Batch 풀 만들기
 description: 공용 IP 주소가 없는 풀을 만드는 방법에 대해 알아봅니다.
 author: pkshultz
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 12/9/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 09a5632f969117e69e68bbe0df2bfbab9a8a102b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 806e85fca0a509d56e248fc7779fba0f0a59a61d
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842138"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007673"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>공용 IP 주소가 없는 Azure Batch 풀 만들기
 
@@ -25,7 +25,8 @@ Azure Batch 풀을 만들 때 공용 IP 주소를 사용 하지 않고 가상 �
 
 > [!IMPORTANT]
 > Azure Batch 공용 IP 주소가 없는 풀에 대 한 지원은 현재 프랑스 중부, 동아시아, 미국 서 부, 미국 중 북부, 미국 서 부 2, 미국 동부, 북부 유럽, 미국 동부 2, 미국 중부, 유럽 서부, 미국 중 북부, 미국 서 부, 오스트레일리아 동부, 일본 동부, 일본 서 부에 대 한 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

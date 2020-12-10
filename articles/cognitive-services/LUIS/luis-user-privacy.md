@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 04/02/2019
-ms.openlocfilehash: 868443e52b7159e6ee9478f64b7b2f376a10f604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/08/2020
+ms.openlocfilehash: cd9b353300b88c69efb0c458245a86963c579064
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541009"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007741"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Cognitive Services의 LUIS(Language Understanding)에서 고객 데이터 내보내기 및 삭제
 
@@ -50,7 +50,7 @@ LUIS 사용자에 게는 포털에서 데이터를 볼 수 있는 모든 권한�
 
 ## <a name="location-of-active-learning"></a>활성 학습 위치
 
-[활성 학습](luis-how-to-review-endpoint-utterances.md#enable-active-learning)을 사용 하도록 설정 하기 위해 게시 된 LUIS 끝점에서 받은 사용자의 로깅된 길이 발언는 다음 Azure 지역에 저장 됩니다.
+[활성 학습](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning)을 사용 하도록 설정 하기 위해 게시 된 LUIS 끝점에서 받은 사용자의 로깅된 길이 발언는 다음 Azure 지역에 저장 됩니다.
 
 * [유럽](#europe)
 * [오스트레일리아](#australia)

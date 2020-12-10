@@ -4,12 +4,12 @@ description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 70a81b42ad2fb417902a627afb1651d572844648
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: be0c576da6e38233423a79f562f767de806d7640
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548514"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008370"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -67,7 +67,7 @@ Azure VM을 백업하려는 경우 지원되는 사항은 다음과 같습니다
 
 **머신** | **백업 대상** | **위치** | **기능**
 --- | --- | --- | ---
-**VM 확장을 사용한 Azure VM 백업** | 전체 VM | 자격 증명 모음에 백업합니다. | VM에 백업을 사용하도록 설정할 때 설치된 확장<br/><br/> 하루에 한 번 백업합니다.<br/><br/> Windows VM의 경우 앱 인식 백업이고, Linux VM의 경우 파일 일치 백업입니다. 사용자 지정 스크립트를 사용하여 Linux 머신에 대한 앱 일관성을 구성할 수 있습니다.<br/><br/> VM 또는 디스크를 복원합니다.<br/><br/> 온-프레미스 위치에 Azure VM을 백업할 수 없습니다.
+**VM 확장을 사용한 Azure VM 백업** | 전체 VM | 자격 증명 모음에 백업합니다. | VM에 백업을 사용하도록 설정할 때 설치된 확장<br/><br/> 하루에 한 번 백업합니다.<br/><br/> Windows VM의 경우 앱 인식 백업이고, Linux VM의 경우 파일 일치 백업입니다. 사용자 지정 스크립트를 사용하여 Linux 머신에 대한 앱 일관성을 구성할 수 있습니다.<br/><br/> VM 또는 디스크를 복원합니다.<br/><br/>[Active Directory 도메인 컨트롤러의 백업 및 복원이](active-directory-backup-restore.md) 지원 됩니다.<br><br> 온-프레미스 위치에 Azure VM을 백업할 수 없습니다.
 **MARS 에이전트를 사용한 Azure VM 백업** | 파일, 폴더, 시스템 상태 | 자격 증명 모음에 백업합니다. | 하루에 세 번 백업합니다.<br/><br/> 전체 VM이 아닌 특정 파일 또는 폴더를 백업하려는 경우 MARS 에이전트는 VM 확장을 실행할 수 있습니다.
 **Azure VM(DPM 사용)** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | DPM을 실행하는 Azure VM의 로컬 스토리지에 백업합니다. 그런 다음, DPM에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대한 전체 세분성<br/><br/> Linux는 VM(Hyper-V/VMware)에 지원됨<br/><br/> Oracle은 지원되지 않음
 **Azure VM(MABS 사용)** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | MABS를 실행하는 Azure VM의 로컬 스토리지에 백업합니다. 그런 다음, MABS에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대한 전체 세분성<br/><br/> Linux는 VM(Hyper-V/VMware)에 지원됨<br/><br/> Oracle은 지원되지 않음
@@ -153,7 +153,7 @@ Azure Backup는 데이터 가용성 및 복원 력 기능을 강화 하기 위�
 | Azure VM               | 예.   4TB 미만의 디스크를 사용하는 암호화된 VM 및 VM 지원됨 | 모든 Azure 공용 지역입니다.  |
 | SQL/SAP HANA | 예                                                          | 프랑스를 제외한 모든 공용 지역 |
 | MARS 에이전트/온-프레미스  | 예                                                           | 해당 없음               |
-| AFS (Azure 파일 공유)                 | 아니요                                                           | 해당 없음               |
+| AFS (Azure 파일 공유)                 | 예                                                           | 해당 없음               |
 
 ## <a name="next-steps"></a>다음 단계
 

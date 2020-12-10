@@ -1,15 +1,14 @@
 ---
 title: FAQ-Azure Vm 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure Vm을 백업 하는 방법에 대 한 일반적인 질문에 대 한 답변을 검색 합니다.
-ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 0f4f990654cc23fde7cf1ad2e37ba1ada76d94e3
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ba2779305302e91f68cb2664c90f53fdf9a9ca55
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324791"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008353"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -163,11 +162,20 @@ PowerShell에서 이 작업을 수행하는 방법을 [자세히 알아보세요
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>도메인 컨트롤러와의 관계가 손상 된 VM으로 인해 복원 된 VM에 액세스할 수 있나요?
 
-예, 도메인 컨트롤러와의 관계가 손상 된 VM으로 인해 복원 된 VM에 액세스 합니다. 자세한 내용은 관련 [문서](./backup-azure-arm-restore-vms.md#post-restore-steps)를 참조하세요.
+예, 도메인 컨트롤러와의 관계가 손상 된 VM으로 인해 복원 된 VM에 액세스 합니다. 자세한 내용은 [이 문서](./backup-azure-arm-restore-vms.md#post-restore-steps)를 참조하세요.
+
+### <a name="can-i-cancel-an-in-progress-restore-job"></a>진행 중인 복원 작업을 취소할 수 있나요?
+아니요, 진행 중인 복원 작업을 취소할 수 없습니다.
 
 ### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>복원 작업을 완료하는 데 시간이 오래 걸리는 이유는 무엇인가요?
 
 총 복원 시간은 IOPS (초당 입/출력 작업 수) 및 저장소 계정의 처리량에 따라 달라 집니다. 대상 저장소 계정이 다른 응용 프로그램 읽기 및 쓰기 작업과 함께 로드 되는 경우 총 복원 시간이 영향을 받을 수 있습니다. 복원 작업을 향상 시키려면 다른 응용 프로그램 데이터와 함께 로드 되지 않는 저장소 계정을 선택 합니다.
+
+### <a name="how-do-we-handle-create-new-virtual-machine-restore-type-conflicts-with-governance-policies"></a>"새 가상 머신 만들기"를 어떻게 처리 하나요? 거 버 넌 스 정책과의 복원 유형 충돌?
+
+Azure Backup는 복구 지점의 "연결" 디스크를 사용 하 고 이미지 참조 또는 갤러리를 확인 하지 않습니다. 따라서 정책에서 "storageProfile. osDisk 옵션을 Attach"로 확인 하 고 스크립트 조건을 다음과 같이 지정할 수 있습니다.
+
+`if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
 
 ## <a name="manage-vm-backups"></a>VM 백업 관리
 
