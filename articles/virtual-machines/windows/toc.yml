@@ -55,7 +55,7 @@
   items:
     - name: 이미지
       href: ../shared-image-galleries.md
-    - name: Azure 리소스 관리자
+    - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
         - name: 리소스 관리자 템플릿
@@ -74,7 +74,7 @@
         - name: 가용성
           href: ../availability.md
         - name: 공동 배치
-          href: co-location.md
+          href: ../co-location.md
         - name: 네트워크 성능
           href: ../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: VM 유형 및 크기
