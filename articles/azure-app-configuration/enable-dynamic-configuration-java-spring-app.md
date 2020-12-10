@@ -3,18 +3,18 @@ title: Spring Boot 앱에서 동적 구성 사용
 titleSuffix: Azure App Configuration
 description: Spring Boot 앱에 대한 구성 데이터를 동적으로 업데이트하는 방법을 알아봅니다.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 3/5/2020
+ms.date: 08/06/2020
 ms.custom: devx-track-java
-ms.author: lcozzens
-ms.openlocfilehash: 653fcb6f6590fd503a97800ec8196025cf14a3b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: alkemper
+ms.openlocfilehash: c32e928bd4a83b4884c99e3ec3a9c647f5433e87
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121564"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929160"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>자습서: Java Spring 앱에서 동적 구성 사용
 
@@ -61,13 +61,13 @@ App Configuration Spring Boot 클라이언트 라이브러리는 애플리케이
 
 1. 새 브라우저 창을 열고 URL(`http://localhost:8080`)로 이동합니다.  키와 연결된 메시지가 표시됩니다. 
 
-    *curl*을 사용하여 애플리케이션을 테스트할 수도 있습니다. 예를 들면 다음과 같습니다. 
+    *curl* 을 사용하여 애플리케이션을 테스트할 수도 있습니다. 예를 들면 다음과 같습니다. 
     
     ```cmd
     curl -X GET http://localhost:8080/
     ```
 
-1. 동적 구성을 테스트하려면 애플리케이션과 연결된 Azure App Configuration 포털을 엽니다. **구성 탐색기**를 선택하고 표시되는 키의 값을 업데이트합니다. 예를 들면 다음과 같습니다.
+1. 동적 구성을 테스트하려면 애플리케이션과 연결된 Azure App Configuration 포털을 엽니다. **구성 탐색기** 를 선택하고 표시되는 키의 값을 업데이트합니다. 예를 들면 다음과 같습니다.
     | 키 | 값 |
     |---|---|
     | application/config.message | Hello - 업데이트됨 |

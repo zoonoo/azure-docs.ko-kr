@@ -3,18 +3,18 @@ title: Azure CLI 스크립트 샘플 - Azure App Configuration 저장소 만들�
 titleSuffix: Azure App Configuration
 description: 샘플 Azure CLI 스크립트를 사용하여 Azure App Configuration 저장소를 만듭니다. 스크립트에 사용되는 명령에 대한 참조 문서 링크를 참조하세요.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 01/24/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 13b8e88d10d66f96db6b50e505d4e579cb1f2f2b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 4554ca64dccaa69e3a6fb63e5c28a6bcbb1a32e4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566914"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930843"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Azure App Configuration 저장소 만들기
 

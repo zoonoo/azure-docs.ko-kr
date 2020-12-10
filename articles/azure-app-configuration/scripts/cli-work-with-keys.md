@@ -3,19 +3,19 @@ title: Azure CLI 스크립트 샘플 - App Configuration 저장소에서 키 값
 titleSuffix: Azure App Configuration
 description: Azure CLI 스크립트를 사용하여 App Configuration 저장소에서 키 값을 만들고, 보고, 업데이트하고, 삭제합니다.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/19/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2610d0ee448e274b9bdeb7396393ce47e27e65ef
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 54ad9f389070e1d5d280517a2f6c41e9a0f8f33e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565758"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929993"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Azure App Configuration 저장소에서 키 값 사용
 

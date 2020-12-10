@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.custom: automl
-ms.openlocfilehash: 866be6a2449f3b10d200968782b90653e1363906
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4b2769139e74289c4760b5c398c80380afea351f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359802"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921889"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>자습서: Azure Machine Learning에서 자동화된 ML을 사용하여 분류 모델 만들기
 
@@ -241,7 +241,7 @@ Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, �
 > [웹 서비스 사용](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + [자동화된 기계 학습](concept-automated-ml.md)에 대한 자세한 정보
-+ 분류 메트릭 및 차트에 대한 자세한 내용은 [자동화된 기계 학습 결과 이해](how-to-understand-automated-ml.md#classification) 문서를 참조하세요.
++ 분류 메트릭 및 차트에 대한 자세한 내용은 [자동화된 기계 학습 결과 이해](how-to-understand-automated-ml.md) 문서를 참조하세요.
 + [기능화](how-to-configure-auto-features.md#featurization)에 대해 자세히 알아보세요.
 + [데이터 프로파일링](how-to-connect-data-ui.md#profile)에 대한 자세한 정보
 
