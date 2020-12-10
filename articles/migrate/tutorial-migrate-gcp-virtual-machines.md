@@ -1,15 +1,18 @@
 ---
 title: Azure로 마이그레이션할 GCP(Google Cloud Platform) VM 인스턴스 검색, 평가 및 마이그레이션
 description: 이 문서에서는 Azure Migrate를 사용하여 GCP VM을 Azure로 마이그레이션하는 방법을 설명합니다.
+author: deseelam
+ms.author: deseelam
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 0093bb453131eb87172021a976b8019a23e445f1
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: ddde352df5fc6063dbe04aa05fe01fca9747f8fa
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302585"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752841"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Azure로 마이그레이션할 GCP(Google Cloud Platform) VM 검색, 평가 및 마이그레이션
 

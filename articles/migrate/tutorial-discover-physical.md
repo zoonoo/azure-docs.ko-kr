@@ -1,15 +1,18 @@
 ---
 title: Azure Migrate 서버 평가를 사용하여 물리적 서버 검색
 description: Azure Migrate 서버 평가를 사용하여 온-프레미스 물리적 서버를 검색하는 방법을 알아봅니다.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 83ff63392c6cbcaa6a2ea011eb60199f61844bb1
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 1263bc3ffe18aa951b3e5b61747c889d36acbab1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148340"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752815"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>자습서: 서버 평가를 사용하여 물리적 서버 검색
 

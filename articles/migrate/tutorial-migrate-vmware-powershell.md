@@ -1,18 +1,17 @@
 ---
 title: VMware VM을 Azure로 마이그레이션(에이전트 없음) - PowerShell
 description: Azure Migrate를 사용하여 PowerShell을 통해 VMware VM을 에이전트 없이 마이그레이션하는 방법에 대해 알아봅니다.
-services: ''
-author: rahugup
+author: rahulg1190
+ms.author: rahugup
 manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
-ms.author: rahugup
-ms.openlocfilehash: 3cd8d29a498a6a00fa8fff679afc969b339934b1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 187e17bcf385ba6b3c17566fc00e5ee77cf009fe
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494344"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752484"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음) - PowerShell
 

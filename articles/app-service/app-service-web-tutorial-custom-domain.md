@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a74a3b7542a8d683e9bbf16f99c9b2646d95e00d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b45e1fbaf912cc045ba51a79db434baecbabdf43
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95986550"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608268"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -206,7 +206,7 @@ A 레코드를 앱(일반적으로 루트 도메인)에 매핑하려면 두 개�
 > | 레코드 형식 | 호스트 | 값 |
 > | - | - | - |
 > | A | `www` | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 |
-> | TXT | `asuid.www` | `<app-name>.azurewebsites.net` |
+> | TXT | `asuid.www` | [이전에 가져온 확인 ID](#get-a-domain-verification-id) |
 >
 
 레코드를 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니다.

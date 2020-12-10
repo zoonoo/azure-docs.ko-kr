@@ -2,20 +2,20 @@
 title: 템플릿을 사용하여 Azure DS Domain Services를 사용하도록 설정 | Microsoft Docs
 description: Azure Resource Manager 템플릿을 사용하여 Azure Active Directory Domain Services를 구성하고 사용하도록 설정하는 방법 알아보기
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: 30fc6b0b7eae6b3dd3477944a5d9ddacf83c677a
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.author: justinha
+ms.openlocfilehash: e18825da64d0d200f55ce72985ac843b93b1e612
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041680"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618793"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Active Directory Domain Services 관리형 도메인 만들기
 

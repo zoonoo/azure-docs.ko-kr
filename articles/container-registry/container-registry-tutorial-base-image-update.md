@@ -4,12 +4,12 @@ description: 이 자습서에서는 기본 이미지가 동일한 레지스트�
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 32b4dbe2563731664030dbc32c2b570ccc3e1d12
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 342f7fc37edb3a1623b72c57e8766b1a484d0e8d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030648"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559153"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>자습서: Azure Container Registry에서 기본 이미지가 업데이트될 때 컨테이너 이미지 빌드 자동화 
 
@@ -32,10 +32,10 @@ ms.locfileid: "96030648"
 
 이 자습서에서는 사용자가 이미 환경을 구성했고 시리즈의 처음 두 자습서의 단계를 이미 완료했다고 가정합니다.
 
-* Azure 컨테이너 레지스트리 만들기
-* 샘플 리포지토리 포크
-* 샘플 리포지토리 복제
-* GitHub 개인용 액세스 토큰 만들기
+- Azure 컨테이너 레지스트리 만들기
+- 샘플 리포지토리 포크
+- 샘플 리포지토리 복제
+- GitHub 개인용 액세스 토큰 만들기
 
 아직 수행하지 않은 경우 계속하기 전에 다음 자습서를 완료하세요.
 
@@ -44,6 +44,9 @@ ms.locfileid: "96030648"
 [Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 자동화](container-registry-tutorial-build-task.md)
 
 ### <a name="configure-the-environment"></a>환경 구성
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+- 이 문서에는 Azure CLI 버전 2.0.46 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 이러한 셸 환경 변수를 사용자 환경에 적합한 값으로 채웁니다. 이 단계는 반드시 필요한 것이 아니지만, 여러 줄로 된 Azure CLI 명령을 이 자습서에서 좀 더 쉽게 실행할 수 있게 합니다. 이러한 환경 변수를 채우지 않는 경우 명령 예제에 나타나는 각 값을 수동으로 바꿔야 합니다.
 

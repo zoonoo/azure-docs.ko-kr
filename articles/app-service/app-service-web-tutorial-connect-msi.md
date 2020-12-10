@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 7b6f762dd04244f430f08894cc06991796a11229
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: e5587c4826fea780c1e379ee1599440b2865dd50
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96004928"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862227"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -47,7 +47,9 @@ ms.locfileid: "96004928"
 
 SQL Database를 백 엔드로 사용하여 앱을 디버깅하려면 컴퓨터에서 클라이언트 연결을 허용했는지 확인합니다. 그렇지 않은 경우 [Azure Portal를 사용하여 서버 수준 IP 방화벽 규칙 관리](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)의 단계에 따라 클라이언트 IP를 추가합니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Azure CLI에 대한 환경을 준비합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="grant-database-access-to-azure-ad-user"></a>Azure AD 사용자에 데이터베이스 액세스 권한 부여
 
@@ -87,7 +89,7 @@ Mac용 Visual Studio는 Azure AD 인증과 통합되지 않습니다. 그러나 
 
 로컬 머신에 Azure CLI를 설치했으면 다음 명령을 사용하여 Azure AD 사용자로 Azure CLI에 로그인합니다.
 
-```bash
+```azurecli
 az login --allow-no-subscriptions
 ```
 이제 백 엔드 SQL Database에서 Azure AD 인증을 사용하여 앱을 개발하고 디버그할 준비가 되었습니다.
@@ -206,7 +208,7 @@ az webapp identity assign --resource-group myResourceGroup --name <app-name>
 
 Cloud Shell에서 SQLCMD 명령을 사용하여 SQL Database에 로그인합니다. _\<server-name>_ 를 서버 이름으로, _\<db-name>_ 을 앱에서 사용하는 데이터베이스 이름으로, _\<aad-user-name>_ 및 _\<aad-password>_ 를 Azure AD 사용자의 자격 증명으로 바꿉니다.
 
-```azurecli-interactive
+```bash
 sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
 ```
 
@@ -249,7 +251,7 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 
 ```bash
 git commit -am "configure managed identity"
-git push azure master
+git push azure main
 ```
 
 새 웹 페이지에 할 일 목록이 표시되면 앱이 관리 ID를 사용하여 데이터베이스에 연결합니다.

@@ -1,15 +1,18 @@
 ---
 title: AWS(Amazon Web Services) EC2 VM 검색, 평가 및 Azure로 마이그레이션
 description: 이 문서에서는 Azure Migrate를 사용하여 AWS VM을 Azure로 마이그레이션하는 방법을 설명합니다.
+author: deseelam
+ms.author: deseelam
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 12785d1e65caf11b24102d2a9c186fe0adcb1fd3
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 10b5f84677deb221bf763870b188ef30ee87e9c2
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302659"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752858"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services) VM 검색, 평가 및 Azure로 마이그레이션
 

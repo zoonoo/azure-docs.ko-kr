@@ -1,15 +1,18 @@
 ---
 title: Azure Migrate 서버 평가를 사용하여 VMware VM 검색
 description: Azure Migrate 서버 평가 도구를 사용하여 온-프레미스 VMware VM을 검색하는 방법을 알아봅니다.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 8a09f4583bd5cdae977b927be9649897a2d24ee6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ff82b90189e134db7d39b259c2c135489d14595d
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832656"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752790"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>자습서: 서버 평가를 사용하여 VMware VM 검색
 

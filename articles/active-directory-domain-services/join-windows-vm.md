@@ -1,20 +1,20 @@
 ---
 title: Windows Server VM을 Azure AD Domain Services 관리되는 도메인에 조인 | Microsoft Docs
 description: 이 자습서에서는 Windows Server 가상 머신을 Azure Active Directory Domain Services 관리형 도메인에 조인하는 방법을 알아봅니다.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 5481dbfe1f7b185e87ee13f26f23ea563350b0fa
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.author: justinha
+ms.openlocfilehash: 869c827485d9b7a6baf68d2619af98d4c2ee82b9
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96171792"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619575"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Windows Server 가상 머신을 Azure Active Directory Domain Services 관리되는 도메인에 조인
 

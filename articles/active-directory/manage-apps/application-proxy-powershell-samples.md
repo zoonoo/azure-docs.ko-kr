@@ -12,19 +12,19 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10e2b0aa5c7e178ae6b58805703fcb1b0ff3e2b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8b0955e67c5a35cbea96490a0395522fa145dad1
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352493"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858368"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에 대한 Azure AD PowerShell 예제
 
-다음 표에서는 Azure AD 애플리케이션 프록시의 PowerShell 스크립트 예제에 대한 링크를 포함합니다. 이러한 샘플에는 별도로 지정되지 않은 경우 [그래프 모듈에 대한 AzureAD V2 PowerShell](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) 또는 [그래프 모듈에 대한 AzureAD V2 PowerShell 미리 보기 버전](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview)이 필요합니다.
+다음 표에서는 Azure AD 애플리케이션 프록시의 PowerShell 스크립트 예제에 대한 링크를 포함합니다. 이러한 샘플에는 별도로 지정되지 않은 경우 [그래프 모듈에 대한 AzureAD V2 PowerShell](/powershell/azure/active-directory/install-adv2) 또는 [그래프 모듈에 대한 AzureAD V2 PowerShell 미리 보기 버전](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview)이 필요합니다.
 
 
-이러한 샘플에 사용된 cmdlet에 대한 자세한 내용은 [애플리케이션 프록시 애플리케이션 관리](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) 및 [애플리케이션 프록시 커넥터 관리](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)를 참조하세요.
+이러한 샘플에 사용된 cmdlet에 대한 자세한 내용은 [애플리케이션 프록시 애플리케이션 관리](/powershell/module/azuread/#application_proxy_application_management) 및 [애플리케이션 프록시 커넥터 관리](/powershell/module/azuread/#application_proxy_connector_management)를 참조하세요.
 
 | 링크 | Description |
 |---|---|

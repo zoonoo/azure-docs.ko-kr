@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 1a52fc28d99e0f072323e5042257baec9bf98ecb
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a693b22c609829f3bf6e76637eac5793d73703e6
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518385"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862312"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-sharepoint-on-premises"></a>자습서: SharePoint 온-프레미스와 Azure Active Directory Single Sign-On 통합
 
@@ -133,7 +133,7 @@ SharePoint 온-프레미스에서 Azure AD SSO를 구성하려면 다음을 수�
     다음 명령을 실행하여 신뢰할 수 있는 새 ID 공급자를 구성합니다.
 
     > [!TIP]
-    > PowerShell을 처음 사용하거나 PowerShell 작동 방법에 대해 자세히 알아보려면 [SharePoint PowerShell](/powershell/sharepoint/overview?view=sharepoint-ps)을 참조하세요.
+    > PowerShell을 처음 사용하거나 PowerShell 작동 방법에 대해 자세히 알아보려면 [SharePoint PowerShell](/powershell/sharepoint/overview)을 참조하세요.
 
 
     ```
@@ -186,7 +186,7 @@ SharePoint 온-프레미스에서 Azure AD SSO를 구성하려면 다음을 수�
 
 1. **새 그룹** 을 선택합니다.
 
-1. **그룹 유형** , **그룹 이름** , **그룹 설명** , **멤버 자격 유형** 상자를 작성합니다. 화살표를 선택하여 멤버를 선택한 다음, 그룹에 추가하려는 멤버를 검색하거나 선택합니다. **선택** 을 선택하여 선택한 멤버를 추가한 다음, **만들기** 를 선택합니다.
+1. **그룹 유형**, **그룹 이름**, **그룹 설명**, **멤버 자격 유형** 상자를 작성합니다. 화살표를 선택하여 멤버를 선택한 다음, 그룹에 추가하려는 멤버를 검색하거나 선택합니다. **선택** 을 선택하여 선택한 멤버를 추가한 다음, **만들기** 를 선택합니다.
 
 ![Azure AD 보안 그룹 만들기](./media/sharepoint-on-premises-tutorial/new-group.png)
 
@@ -220,7 +220,7 @@ Azure AD 보안 그룹을 SharePoint 온-프레미스에 할당하려면 SharePo
 
 1. **그룹 클레임 추가** 를 선택합니다.
 
-1. 클레임에서 반환되어야 하는 사용자와 연결된 그룹을 선택합니다. 이 경우 **모든 그룹** 을 선택합니다. **원본 특성** 섹션에서 **그룹 ID** , **저장** 을 차례로 선택합니다.
+1. 클레임에서 반환되어야 하는 사용자와 연결된 그룹을 선택합니다. 이 경우 **모든 그룹** 을 선택합니다. **원본 특성** 섹션에서 **그룹 ID**, **저장** 을 차례로 선택합니다.
 
 SharePoint 온-프레미스에서 액세스 권한을 Azure AD 보안 그룹에 부여하려면 사이트 모음을 공유하거나 Azure AD 사용자를 사이트 모음 그룹 중 하나에 추가합니다.
 

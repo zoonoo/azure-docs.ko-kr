@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 45f990e5426516db5537319d07c11aa705e462e7
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 5b5d60a014cf63bd28f3097ac3131ad4c7018208
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534843"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621249"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure Functions 배포
 
@@ -237,7 +237,7 @@ Azure Portal을 사용하여 빠른 시작에서 수행한 것처럼 IoT Edge �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 IoT Edge 디바이스에서 생성한 원시 데이터를 필터링하는 코드가 포함된 Azure 함수 모듈을 만들었습니다. 고유한 모듈을 빌드할 준비가 되면 [Visual Studio Code에 대한 Azure IoT Edge를 개발](how-to-vs-code-develop-module.md)하는 방법에 대해 자세히 알아볼 수 있습니다.
+이 자습서에서는 IoT Edge 디바이스에서 생성한 원시 데이터를 필터링하는 코드가 포함된 Azure 함수 모듈을 만들었습니다.
 
 Azure IoT Edge에서 데이터를 통해 비즈니스 통찰력을 얻는 데 도움이 되는 다른 방법을 알아보려면 다음 자습서를 진행합니다.
 

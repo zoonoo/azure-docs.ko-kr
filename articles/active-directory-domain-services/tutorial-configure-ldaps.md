@@ -1,20 +1,20 @@
 ---
 title: 자습서 - Azure Active Directory Domain Services에 대한 LDAPS 구성 | Microsoft Docs
 description: 이 자습서에서는 Azure Active Directory Domain Services 관리되는 도메인에 대해 LDAPS(보안 Lightweight Directory Access Protocol)를 구성하는 방법을 알아봅니다.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: f5ebe594f1f50c7b7490e5ead8cb3fe7636f0ce7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.author: justinha
+ms.openlocfilehash: d5dbb7b71e2d67ed5b3f624c93c3c143d6c98e5d
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994029"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618538"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 보안 LDAP 구성
 

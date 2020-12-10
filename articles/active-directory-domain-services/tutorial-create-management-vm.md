@@ -1,20 +1,20 @@
 ---
 title: 자습서 - Azure Active Directory Domain Services에 대한 관리 VM 만들기 | Microsoft Docs
 description: 이 자습서에서는 Azure Active Directory Domain Services 관리되는 도메인을 관리하는 데 사용하는 Windows 가상 머신을 만들고 구성하는 방법을 알아봅니다.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 52a97b824824d8e9eaf79cfa4a447494bf1525cf
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.author: justinha
+ms.openlocfilehash: d017fc3fc53c9f89978893670df10ecd731da904
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175154"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618181"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>자습서: 관리 VM을 만들어 Azure Active Directory Domain Services 관리되는 도메인 구성 및 관리
 

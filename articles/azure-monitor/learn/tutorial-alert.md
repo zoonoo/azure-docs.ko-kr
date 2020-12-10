@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 706f3913e25eca6240c186e45709faf6c77620bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1aa3ae5be3e9f3fb50909cb5311d167bbeee647
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324576"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904230"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Azure Application Insights를 사용하여 애플리케이션 상태에 대한 모니터링 및 경고
 
@@ -28,7 +28,7 @@ Azure Application Insights를 사용하여 애플리케이션을 모니터링하
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-[Application Insights 리소스](./dotnetcore-quick-start.md#enable-application-insights)를 만듭니다.
+[Application Insights 리소스](../app/create-new-resource.md)를 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -38,15 +38,15 @@ Azure Application Insights를 사용하여 애플리케이션을 모니터링하
 
 Application Insights에서 가용성 테스트를 사용하여 전 세계 여러 위치에서 애플리케이션을 자동으로 테스트할 수 있습니다.   이 자습서에서는 웹 애플리케이션을 사용할 수 있는지 확인하기 위한 url 테스트를 수행합니다.  또한 해당 세부 작업을 테스트하는 전체 연습을 만들 수도 있습니다. 
 
-1. **Application Insights**를 선택한 다음, 구독을 선택합니다.  
+1. **Application Insights** 를 선택한 다음, 구독을 선택합니다.  
 
-2. **조사** 메뉴 아래에서 **가용성**을 선택한 다음, **테스트 만들기**를 클릭합니다.
+2. **조사** 메뉴 아래에서 **가용성** 을 선택한 다음, **테스트 만들기** 를 클릭합니다.
 
     ![가용성 테스트 추가](media/tutorial-alert/add-test-001.png)
 
 3. 테스트에 대한 이름을 입력하고 다른 기본값을 그대로 둡니다.  이렇게 하면 5분마다 다른 지리적 위치 5군데의 애플리케이션 url에 대한 요청이 트리거됩니다.
 
-4. **경고**를 선택하여 테스트가 실패하는 경우 대처 방법에 대한 세부 정보를 정의할 수 있는 **경고** 드롭다운을 엽니다. **근 실시간**을 선택하고 상태를 **사용**으로 설정합니다.
+4. **경고** 를 선택하여 테스트가 실패하는 경우 대처 방법에 대한 세부 정보를 정의할 수 있는 **경고** 드롭다운을 엽니다. **근 실시간** 을 선택하고 상태를 **사용** 으로 설정합니다.
 
     경고 조건이 충족할 때 전송할 전자 메일 주소를 입력합니다.  경고 조건이 충족할 때 호출할 웹후크의 주소에 선택적으로 입력할 수 있습니다.
 
