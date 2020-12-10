@@ -9,12 +9,12 @@ ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 07ad0714d0294ad90150acb9df14f17bfc1f5f0d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c2074402225c8134329e00003e4fbdfd95b5dba6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905369"
+ms.locfileid: "96938412"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -64,7 +64,7 @@ Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 �
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **Firewall 및 Virtual Network** 이라는 설정 메뉴를 클릭합니다.
+1. **네트워킹** 이라고 하는 설정 메뉴를 클릭 합니다.
 
 1. 기본적으로 액세스를 거부하려면 **선택한 네트워크** 에서 액세스를 허용하도록 선택합니다. 모든 네트워크의 트래픽을 허용하려면 **모든 네트워크** 에서 액세스를 허용하도록 선택합니다.
 
@@ -148,7 +148,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 �
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **Firewall 및 Virtual Network** 이라는 설정 메뉴를 클릭합니다.
+1. **네트워킹** 이라고 하는 설정 메뉴를 클릭 합니다.
 
 1. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
 
@@ -272,7 +272,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **Firewall 및 Virtual Network** 이라는 설정 메뉴를 클릭합니다.
+1. **네트워킹** 이라고 하는 설정 메뉴를 클릭 합니다.
 
 1. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
 
@@ -415,7 +415,7 @@ Azure Portal, PowerShell 또는 Azure CLI v2를 통해 네트워크 규칙 예�
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **Firewall 및 Virtual Network** 이라는 설정 메뉴를 클릭합니다.
+1. **네트워킹** 이라고 하는 설정 메뉴를 클릭 합니다.
 
 1. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
 

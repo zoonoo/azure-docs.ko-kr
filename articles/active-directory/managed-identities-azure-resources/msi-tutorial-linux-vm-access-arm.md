@@ -12,20 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 12/01/2020
 ms.author: barclayn
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f899a6c1b4f359f7e8d6e1e05389aa697b4f1bd7
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 247b3c1b4341eff11069a6af324fff5cf1fba62c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359700"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546593"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>자습서: Linux VM에서 사용자 할당 관리 ID를 사용하여 Azure Resource Manager에 액세스
-
-[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 이 자습서에서는 사용자 할당 관리 ID를 만들어서, Linux VM(가상 머신)에 할당한 다음, 이 ID를 사용하여 Azure Resource Manager API에 액세스하는 방법을 설명합니다. Azure 리소스에 대한 관리 ID는 Azure에서 자동으로 관리됩니다. 그러면 코드에 자격 증명을 포함할 필요 없이 Azure AD 인증을 지원하는 서비스에 인증할 수 있습니다. 
 

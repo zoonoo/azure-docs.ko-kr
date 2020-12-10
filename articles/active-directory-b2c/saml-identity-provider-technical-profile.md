@@ -11,18 +11,18 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30f110c3955315f560eef9972b1e3e4a956bdd8a
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 572d6964384c711a7d2b98b0fa27852a7d28951f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750529"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936712"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 SAML id 공급자 기술 프로필 정의
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C)는 SAML 2.0 id 공급자에 대 한 지원을 제공 합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다. SAML 기술 프로필을 사용하여 [ADFS](identity-provider-adfs2016-custom.md) 및 [Salesforce](identity-provider-salesforce-custom.md)와 같은 SAML 기반 ID 공급자를 페더레이션할 수 있습니다. 이 페더레이션을 사용하여 기존 소셜 또는 엔터프라이즈 ID로 로그인할 수 있습니다.
+Azure Active Directory B2C (Azure AD B2C)는 SAML 2.0 id 공급자에 대 한 지원을 제공 합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다. SAML 기술 프로필을 사용하여 [ADFS](identity-provider-adfs2016-custom.md) 및 [Salesforce](identity-provider-salesforce.md)와 같은 SAML 기반 ID 공급자를 페더레이션할 수 있습니다. 이 페더레이션을 사용하여 기존 소셜 또는 엔터프라이즈 ID로 로그인할 수 있습니다.
 
 ## <a name="metadata-exchange"></a>메타데이터 교환
 
@@ -102,7 +102,7 @@ Protocol 요소의 **Name** 특성은 `SAML2`로 설정해야 합니다.
 
 ### <a name="subject-name-output-claim"></a>주체 이름 출력 클레임
 
-**주체의** SAML assertion **NameId** 를 정규화 된 클레임으로 **읽으려면 클레임** 특성 값을 특성 값으로 설정 `SPNameQualifier` 합니다. `SPNameQualifier`특성이 표시 되지 않으면 특성의 값으로 클레임을 **PartnerClaimType** 설정 합니다 `NameQualifier` . 
+**주체의** SAML assertion **NameId** 를 정규화 된 클레임으로 **읽으려면 클레임** 특성 값을 특성 값으로 설정 `SPNameQualifier` 합니다. `SPNameQualifier`특성이 표시 되지 않으면 특성의 값으로 클레임을  설정 합니다 `NameQualifier` . 
 
 
 SAML 어설션: 
@@ -174,7 +174,7 @@ SAML 어설션:
 
 **CryptographicKeys** 요소는 다음 특성을 포함 합니다.
 
-| attribute |필수 | 설명 |
+| attribute |필수 | Description |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |예 | SAML 메시지에 서명을 하는 데 사용할 X509 인증서(RSA 키 집합)입니다. Azure AD B2C는 이 키를 사용해 요청에 서명을 한 다음 ID 공급자에 요청을 전송합니다. |
 | SamlAssertionDecryption |아니요 | X509 인증서 (RSA 키 집합)입니다. SAML id 공급자는 인증서의 공개 부분을 사용 하 여 SAML 응답의 어설션을 암호화 합니다. Azure AD B2C는 인증서의 비공개 부분을 사용 하 여 어설션을 해독 합니다. |
@@ -216,5 +216,5 @@ SAML 어설션:
 
 Azure AD B2C에서 SAML id 공급자를 사용 하는 예제는 다음 문서를 참조 하세요.
 
-- [사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가](identity-provider-adfs2016-custom.md)
-- [SAML을 통해 Salesforce 계정을 사용하여 로그인](identity-provider-salesforce-custom.md)
+- [사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가](identity-provider-adfs.md)
+- [SAML을 통해 Salesforce 계정을 사용하여 로그인](identity-provider-salesforce.md)

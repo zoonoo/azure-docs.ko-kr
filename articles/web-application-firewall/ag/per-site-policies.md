@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 12/09/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: bf6bfd02610e92825d96255e0ee914fada091805
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: ef4337b187500695d9ef1c0b896d6ae8b5663ca6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932101"
+ms.locfileid: "96938854"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 사이트별 WAF 정책 구성
 
@@ -296,6 +296,8 @@ Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $AppGw `
 
 이 예제에서는 애플리케이션 게이트웨이에서 백 엔드 풀에 대한 서버를 제공하도록 가상 머신 확장 집합을 만듭니다. IP 설정을 구성할 때 확장 집합을 백 엔드 풀에 할당합니다.
 
+및에 대 한 고유한 값을 바꿉니다 `-AdminUsername` `-AdminPassword` .
+
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
@@ -328,8 +330,8 @@ Set-AzVmssStorageProfile $vmssConfig `
   -OsDiskCreateOption FromImage
 
 Set-AzVmssOsProfile $vmssConfig `
-  -AdminUsername azureuser `
-  -AdminPassword "Azure123456!" `
+  -AdminUsername <username> `
+  -AdminPassword <password> `
   -ComputerNamePrefix myvmss
 
 Add-AzVmssNetworkInterfaceConfiguration `

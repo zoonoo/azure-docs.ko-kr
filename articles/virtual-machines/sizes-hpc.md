@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 12/03/2020
+ms.date: 12/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 21b1004a347dec3a7f2a6460d8b853350bf36ff0
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5559e491be15f8f848329405736fc977267c70cc
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571048"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938599"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>고성능 컴퓨팅 VM 크기
 
@@ -29,6 +29,9 @@ HBv2 Vm 기능 200 g b/초 Mellanox HDR InfiniBand이 고, HB 및 HC 시리즈 V
 [HC 시리즈](hc-series.md) Vm은 암시적 유한 요소 분석, 분자 dynamics 및 계산 연금술과 같이 조밀한 계산으로 구동 되는 응용 프로그램에 최적화 되어 있습니다. HC Vm 기능 44 Intel Xeon 플래티넘 8168 프로세서 코어, CPU 코어 당 8gb RAM, 하이퍼스레딩을 없음 Intel Xeon Platinum 플랫폼은 intel 수학 커널 라이브러리와 같은 소프트웨어 도구에 대 한 다양 한 소프트웨어 에코 시스템을 지원 합니다.
 
 [H 시리즈](h-series.md) Vm은 높은 CPU 주파수 또는 핵심 요구 사항 당 대용량 메모리를 기반으로 하는 응용 프로그램에 최적화 되어 있습니다. H 시리즈 Vm은 8 또는 16 Intel Xeon E5 2667 v3 프로세서 코어, 7 개 또는 14gb의 RAM 및 CPU 코어 당 RAM이 없으며 하이퍼스레딩을 갖지 않습니다. H 시리즈 기능은 일관 된 RDMA 성능을 위해 비 블로킹 된 fat 트리 구성에서 56 g b/초 Mellanox Mellanox DR InfiniBand을 제공 합니다. H 시리즈 Vm은 Intel MPI 5.x 및 MS MPI를 지원 합니다.
+
+> [!NOTE]
+> 모든 HBv2, HB 및 HC 시리즈 Vm은 물리적 서버에 단독으로 액세스할 수 있습니다. 물리적 서버당 VM은 1 개만 있으며 이러한 VM 크기에 대 한 다른 vm과 공유 되는 다중 테 넌 트가 없습니다.
 
 > [!NOTE]
 > [A8 – A11 vm](./sizes-previous-gen.md#a-series---compute-intensive-instances) 은 3/2021에서 사용 중지 될 예정입니다. 자세한 내용은 [HPC 마이그레이션 가이드](https://azure.microsoft.com/resources/hpc-migration-guide/)를 참조하세요.

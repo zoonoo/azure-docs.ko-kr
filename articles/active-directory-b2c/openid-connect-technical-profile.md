@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2010f55a28d393086aad544cbec3f5c009801872
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: ad9d3adacf36f0d224e2915836356c5a24e6256a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750495"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936678"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에 Openid connect Connect 기술 프로필 정의
 
@@ -112,7 +112,7 @@ Azure Active Directory B2C (Azure AD B2C)는 [Openid connect Connect](https://op
  
 다음 설정을 사용 하 여 오류 발생 시 표시 되는 오류 메시지를 구성할 수 있습니다. 메타 데이터는 Openid connect Connect 기술 프로필에서 구성 해야 합니다. 오류 메시지는 [지역화](localization-string-ids.md#sign-up-or-sign-in-error-messages)될 수 있습니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | UserMessageIfClaimsPrincipalDoesNotExist | 아니요 | 제공 된 사용자 이름을 가진 계정이 디렉터리에 없는 경우 사용자에 게 표시할 메시지입니다. |
 | UserMessageIfInvalidPassword | 아니요 | 암호가 잘못 된 경우 사용자에 게 표시할 메시지입니다. |
@@ -122,7 +122,7 @@ Azure Active Directory B2C (Azure AD B2C)는 [Openid connect Connect](https://op
 
 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다. 암호화 키는 **response_types** 메타데이터가 `code`로 설정된 경우에만 필요합니다. 이 경우 Azure AD B2C는 액세스 토큰에 대한 인증 코드를 교환하는 다른 호출을 수행합니다. 메타데이터가 `id_token`으로 설정된 경우 암호화 키를 생략할 수 있습니다.  |
 
@@ -130,8 +130,8 @@ Azure Active Directory B2C (Azure AD B2C)는 [Openid connect Connect](https://op
 
 ID 공급자의 리디렉션 URI를 구성할 때 `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`를 입력합니다. 을 `{your-tenant-name}` 테 넌 트의 이름으로 바꾸어야 합니다. 리디렉션 URI는 모두 소문자여야 합니다.
 
-예:
+예제:
 
-- [사용자 지정 정책을 사용하여 MSA(Microsoft 계정)를 ID 공급자로 추가](identity-provider-microsoft-account-custom.md)
-- [Azure AD 계정을 사용하여 로그인](identity-provider-azure-ad-single-tenant-custom.md)
-- [사용자 지정 정책을 사용하여 사용자가 다중 테넌트 Azure AD ID 공급자에 로그인하도록 허용](identity-provider-azure-ad-multi-tenant-custom.md)
+- [사용자 지정 정책을 사용하여 MSA(Microsoft 계정)를 ID 공급자로 추가](identity-provider-microsoft-account.md)
+- [Azure AD 계정을 사용하여 로그인](identity-provider-azure-ad-single-tenant.md)
+- [사용자 지정 정책을 사용하여 사용자가 다중 테넌트 Azure AD ID 공급자에 로그인하도록 허용](identity-provider-azure-ad-multi-tenant.md)

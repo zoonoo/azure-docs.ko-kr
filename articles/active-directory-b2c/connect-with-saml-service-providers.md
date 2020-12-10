@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7c6ba79a82fe3d291008f3317ddce7df4adcda0a
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: ad7fe062d30f6858296ad4a2638b62c190862365
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309650"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936440"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에 SAML 애플리케이션 등록
 
@@ -39,7 +39,7 @@ SAML을 사용하는 두 가지 비독점 핵심 시나리오 요약:
 | 시나리오 | Azure AD B2C 역할 | 방법 |
 | -------- | ----------------- | ------- |
 | 애플리케이션은 인증을 완료하는 데 SAML 어설션이 필요합니다. | **Azure AD B2C가 IdP(ID 공급자)로 사용됨**<br />Azure AD B2C가 애플리케이션의 SAML IdP로 사용됩니다. | 이 문서의 내용: |
-| 사용자는 ADFS, Salesforce 또는 Shibboleth와 같은 SAML 규격 ID 공급자를 사용하는 Single Sign-On이 필요합니다.  | **Azure AD B2C가 SP(서비스 공급자)로 사용됨**<br />Azure AD B2C가 SAML ID 공급자에 연결할 때 서비스 공급자로 사용됩니다. 애플리케이션과 SAML ID 공급자 간 페더레이션 프록시입니다.  | <ul><li>[사용자 지정 정책을 통해 ADFS를 SAML IdP로 사용하여 로그인 설정](identity-provider-adfs2016-custom.md)</li><li>[사용자 지정 정책을 사용하여 Salesforce SAML 공급자로 로그인 설정](identity-provider-salesforce-custom.md)</li></ul> |
+| 사용자는 ADFS, Salesforce 또는 Shibboleth와 같은 SAML 규격 ID 공급자를 사용하는 Single Sign-On이 필요합니다.  | **Azure AD B2C가 SP(서비스 공급자)로 사용됨**<br />Azure AD B2C가 SAML ID 공급자에 연결할 때 서비스 공급자로 사용됩니다. 애플리케이션과 SAML ID 공급자 간 페더레이션 프록시입니다.  | <ul><li>[사용자 지정 정책을 통해 ADFS를 SAML IdP로 사용하여 로그인 설정](identity-provider-adfs.md)</li><li>[사용자 지정 정책을 사용하여 Salesforce SAML 공급자로 로그인 설정](identity-provider-salesforce.md)</li></ul> |
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -375,7 +375,7 @@ SAML 테스트 애플리케이션을 사용하는 이 자습서에서는 `logout
 </KeyDescriptor>
 ```
 
-Azure AD B2C에서 암호화 된 어설션을 보내도록 설정 하려면 신뢰 당사자 **WantsEncryptedAssertion** `true` [기술 프로필](relyingparty.md#technicalprofile)에서 WantsEncryptedAssertion 메타 데이터 항목을로 설정 합니다. SAML 어설션을 암호화 하는 데 사용 되는 알고리즘을 구성할 수도 있습니다. 자세한 내용은 [신뢰 당사자 기술 프로필 메타 데이터](relyingparty.md#metadata)를 참조 하세요. 
+Azure AD B2C에서 암호화 된 어설션을 보내도록 설정 하려면 신뢰 당사자  `true` [기술 프로필](relyingparty.md#technicalprofile)에서 WantsEncryptedAssertion 메타 데이터 항목을로 설정 합니다. SAML 어설션을 암호화 하는 데 사용 되는 알고리즘을 구성할 수도 있습니다. 자세한 내용은 [신뢰 당사자 기술 프로필 메타 데이터](relyingparty.md#metadata)를 참조 하세요. 
 
 ```xml
 <RelyingParty>
@@ -393,9 +393,9 @@ Azure AD B2C에서 암호화 된 어설션을 보내도록 설정 하려면 신�
 
 ## <a name="enable-identity-provider-initiated-flow-optional"></a>Id 공급자가 시작한 흐름 사용 (선택 사항)
 
-Id 공급자가 시작한 흐름에서 로그인 프로세스는 서비스 공급자 (신뢰 당사자 응용 프로그램)에 게 원치 않는 SAML 응답을 보내는 id 공급자 (Azure AD B2C)에 의해 시작 됩니다. 현재 시작 id 공급자는 외부 id 공급자 (예: [AD FS](identity-provider-adfs2016-custom.md)또는 [Salesforce](identity-provider-salesforce-custom.md)) 인 시나리오를 지원 하지 않습니다.
+Id 공급자가 시작한 흐름에서 로그인 프로세스는 서비스 공급자 (신뢰 당사자 응용 프로그램)에 게 원치 않는 SAML 응답을 보내는 id 공급자 (Azure AD B2C)에 의해 시작 됩니다. 현재 시작 id 공급자는 외부 id 공급자 (예: [AD FS](identity-provider-adfs.md)또는 [Salesforce](identity-provider-salesforce.md)) 인 시나리오를 지원 하지 않습니다.
 
-Id 공급자 (Azure AD B2C)에서 시작 된 흐름을 사용 하도록 **IdpInitiatedProfileEnabled** 설정 하려면 신뢰 당사자 `true` [기술 프로필](relyingparty.md#technicalprofile)에서 IdpInitiatedProfileEnabled 메타 데이터 항목을로 설정 합니다.
+Id 공급자 (Azure AD B2C)에서 시작 된 흐름을 사용 하도록  설정 하려면 신뢰 당사자 `true` [기술 프로필](relyingparty.md#technicalprofile)에서 IdpInitiatedProfileEnabled 메타 데이터 항목을로 설정 합니다.
 
 ```xml
 <RelyingParty>
@@ -443,7 +443,7 @@ Microsoft에서는 SAML 테스트 앱을 사용하여 테스트하는 데 사용
 
 SAML 토큰은 성공적으로 로그인 한 후 Azure AD B2C에서 발급 하는 보안 토큰입니다. 사용자에 대 한 정보, 토큰을 사용 하는 서비스 공급자, 서명 및 유효 시간에 대 한 정보를 포함 합니다. 다음 표에서는 Azure AD B2C에서 발급 한 SAML 토큰에서 사용할 수 있는 클레임 및 속성을 나열 합니다.
 
-|요소  |속성  |참고  |
+|요소  |속성  |메모  |
 |---------|---------|---------|
 |`<Response>`| `ID` | 자동으로 생성 된 응답의 고유 식별자입니다. | 
 |`<Response>`| `InResponseTo` | 이 메시지가 응답 하는 SAML 요청의 ID입니다. | 

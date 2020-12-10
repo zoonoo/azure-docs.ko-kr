@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: f12a899d3b6daa3b233e6a799871afca1e24d046
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 179e60a41a9cd6a2277959b3cd31159c796d845d
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533753"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937290"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 차단
 
@@ -287,6 +287,23 @@ Azure Policy는 Azure 리소스가 요구 사항 및 표준을 준수 하도록 
 다음 이미지는 거부 효과가 있는 정책에서 공용 액세스가 허용 되지 않는 경우 공용 액세스를 허용 하는 저장소 계정 (새 계정에 대 한 기본값)을 만들려고 할 때 발생 하는 오류를 보여 줍니다.
 
 :::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="정책을 위반 하 여 저장소 계정을 만들 때 발생 하는 오류를 보여 주는 스크린샷":::
+
+## <a name="permissions-for-allowing-or-disallowing-public-access"></a>공용 액세스를 허용 하거나 허용 하지 않는 권한
+
+저장소 계정에 대해 **Allowblobpublicaccess** 속성을 설정 하려면 사용자에 게 저장소 계정을 만들고 관리할 수 있는 권한이 있어야 합니다. 이러한 권한을 제공 하는 azure RBAC (역할 기반 access control) 역할은 **Microsoft storage/storageAccounts/write** 또는 **Microsoft Storage/storageaccounts/ \** _ 동작을 포함 합니다. 이 작업을 사용 하는 기본 제공 역할은 다음과 같습니다.
+
+- Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할
+- Azure Resource Manager [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할
+- [저장소 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor) 역할
+
+이러한 역할은 Azure Active Directory (Azure AD)를 통해 저장소 계정의 데이터에 대 한 액세스를 제공 하지 않습니다. 그러나 여기에는 계정 액세스 키에 대 한 액세스 권한을 부여 하는 _ * Microsoft Storage/storageAccounts/listkeys/action * *이 포함 됩니다. 이 사용 권한을 사용 하는 경우 사용자는 계정 액세스 키를 사용 하 여 저장소 계정의 모든 데이터에 액세스할 수 있습니다.
+
+사용자가 저장소 계정에 대 한 공용 액세스를 허용 하거나 허용 하지 않도록 허용 하려면 역할 할당의 범위를 저장소 계정 이상으로 지정 해야 합니다. 역할 범위에 대 한 자세한 내용은 [AZURE RBAC의 범위 이해](../../role-based-access-control/scope-overview.md)를 참조 하세요.
+
+이러한 역할에 대 한 할당은 저장소 계정을 만들거나 해당 속성을 업데이트 하는 기능을 필요로 하는 사용자 에게만 제한 해야 합니다. 최소 권한의 원칙을 사용 하 여 사용자에 게 작업을 수행 하는 데 필요한 최소 권한을 부여 합니다. Azure RBAC를 사용 하 여 액세스를 관리 하는 방법에 대 한 자세한 내용은 [AZURE rbac의 모범 사례](../../role-based-access-control/best-practices.md)를 참조 하세요.
+
+> [!NOTE]
+> 클래식 구독 관리자 역할 서비스 관리자 및 Co-Administrator에는 Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할에 해당 하는 항목이 포함 됩니다. **소유자** 역할은 모든 동작을 포함 하므로 이러한 관리 역할 중 하나가 있는 사용자는 저장소 계정을 만들고 관리할 수도 있습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

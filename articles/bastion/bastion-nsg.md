@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 822a90aa2bd3a19cf3459924e6b577cc416aa3a5
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: afb751e08faea6dabde72b192d246b48735cff53
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616827"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938695"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>NSG 액세스 및 Azure 방호 작업
 
@@ -34,7 +34,7 @@ Azure 방호에서 작업 하는 경우 NSGs (네트워크 보안 그룹)를 사
 
 ### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-Azure 방호는 특별히 * **AzureBastionSubnet** _에 배포 됩니다.
+Azure 방호는 특별히 ***AzureBastionSubnet** _에 배포 됩니다.
 
 **수신 트래픽 (** %):
 

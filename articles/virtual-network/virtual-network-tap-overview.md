@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: ceafbacb4cfc99b5327423ff1a50b82292030893
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c468f289c9dbfe949890c5462dd7c9be3e548d5a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479258"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938763"
 ---
 # <a name="virtual-network-tap"></a>가상 네트워크 TAP
 > [!IMPORTANT]
@@ -38,7 +38,7 @@ Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트
 
 네트워크 인터페이스에 TAP 구성을 적용하는 데 사용하는 계정은 다음 표에서 필요한 작업이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 할당되어야 합니다.
 
-| 작업 | 이름 |
+| 작업 | Name |
 |---|---|
 | Microsoft.Network/virtualNetworkTaps/* | 가상 네트워크 TAP 리소스를 만들고,업데이트하고, 읽고, 삭제해야 함 |
 | Microsoft.Network/networkInterfaces/read | TAP이 구성될 네트워크 인터페이스 리소스를 읽어야 함 |

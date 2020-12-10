@@ -5,18 +5,15 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2020
-ms.openlocfilehash: cda305ac705b728e0d2e129d7d42d53ea0251d86
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 12/09/2020
+ms.openlocfilehash: 0ea58050c5dc952392df56b4fb556a0998eef165
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591532"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938905"
 ---
 # <a name="logical-decoding"></a>논리 디코딩
- 
-> [!NOTE]
-> 논리적 디코딩은 Azure Database for PostgreSQL 단일 서버에서 공개 미리 보기로 제공 됩니다.
 
 [PostgreSQL의 논리적 디코딩을](https://www.postgresql.org/docs/current/logicaldecoding.html) 통해 외부 소비자에 게 데이터 변경 내용을 스트리밍할 수 있습니다. 논리적 디코딩은 이벤트 스트리밍 및 변경 데이터 캡처 시나리오에 사용 되는 많이입니다.
 

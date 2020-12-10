@@ -4,12 +4,12 @@ description: Azure에서 리소스 웹앱, 클라우드 서비스, 가상 머신
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 95f94bd1e80c05658d9033047950d4b49fca4643
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: bf0194e82acde0406cfeb57af027831f92a90c92
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920670"
+ms.locfileid: "96938310"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
@@ -136,9 +136,11 @@ ARM 템플릿을 사용 하 여 기능을 사용 하도록 설정 하려면 `hea
 > [!NOTE]
 > App Service 요금제는 2 개 이상의 인스턴스로 규모를 확장 해야 하며 부하 분산 장치 제외를 발생 시킬 **기본 계층 이상** 이어야 합니다. 인스턴스가 1 개만 있는 경우 비정상 인 경우에도 부하 분산 장치에서 제거 되지 않습니다. 
 
-나머지 정상 인스턴스는 부하가 증가할 수 있습니다. 나머지 인스턴스가 과도 하 게 사용 되지 않도록 하려면 인스턴스 중 절반이 제외 됩니다. 예를 들어 App Service 계획을 4 개의 인스턴스로 확장 하 고 비정상 상태에서 3 개를 확장 하는 경우 최대 2 개는 loadbalancer 순환에서 제외 됩니다. 다른 두 인스턴스 (정상 및 비정상 1 개)는 계속 해 서 요청을 받습니다. 모든 인스턴스가 비정상 인 최악의 시나리오에서는 none이 제외 됩니다. 이 동작을 재정의 하려면 `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` 앱 설정을 및 사이의 값으로 설정 하면 `0` `100` 됩니다. 이 값을 큰 값으로 설정 하면 더 비정상 인스턴스가 제거 됩니다 (기본값은 50).
+또한 확장 작업 중, 수동으로 다시 시작 하거나 SCM 사이트를 통해 코드를 배포 하는 경우와 같이 인스턴스를 추가 하거나 다시 시작할 때 상태 검사 경로를 ping 할 수 있습니다. 이러한 작업 중에 상태 검사가 실패 하는 경우 실패 한 인스턴스는 부하 분산 장치에 추가 되지 않습니다. 이렇게 하면 이러한 작업이 응용 프로그램의 가용성에 부정적인 영향을 주지 않습니다.
 
-인스턴스가 1 시간 동안 비정상 상태로 유지 되 면 새 인스턴스로 바뀝니다. 최대 하나의 인스턴스만 시간당 교체 되며 App Service 요금제 당 최대 3 개의 인스턴스가 있습니다.
+Healthcheck를 사용 하는 경우 남아 있는 정상적인 인스턴스의 부하가 증가할 수 있습니다. 나머지 인스턴스가 과도 하 게 사용 되지 않도록 하려면 인스턴스 중 절반이 제외 됩니다. 예를 들어 App Service 계획을 4 개의 인스턴스로 확장 하 고 비정상 상태에서 3 개를 확장 하는 경우 최대 2 개는 loadbalancer 순환에서 제외 됩니다. 다른 두 인스턴스 (정상 및 비정상 1 개)는 계속 해 서 요청을 받습니다. 모든 인스턴스가 비정상 인 최악의 시나리오에서는 none이 제외 됩니다. 이 동작을 재정의 하려면 `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` 앱 설정을 및 사이의 값으로 설정 하면 `0` `100` 됩니다. 이 값을 큰 값으로 설정 하면 더 비정상 인스턴스가 제거 됩니다 (기본값은 50).
+
+1 시간 동안 인스턴스의 모든 앱에 대 한 상태 검사가 실패 하는 경우 인스턴스가 대체 됩니다. 최대 하나의 인스턴스만 시간당 교체 되며 App Service 요금제 당 최대 3 개의 인스턴스가 있습니다.
 
 ### <a name="monitoring"></a>모니터링
 

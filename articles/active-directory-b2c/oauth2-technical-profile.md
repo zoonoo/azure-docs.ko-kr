@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 486622b37f02ab8b2a53a273a6eaea4cb5add3a5
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f9bb53f62c5edf055e17f198b7adb45a36bcb2f8
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750453"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936644"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth2 기술 프로필 정의
 
@@ -106,7 +106,7 @@ Azure Active Directory B2C (Azure AD B2C)는 OAuth2 프로토콜 id 공급자에
 
 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다. 암호화 키는 **response_types** 메타데이터가 `code`로 설정된 경우에만 필요합니다. 이 경우 Azure AD B2C는 액세스 토큰에 대한 인증 코드를 교환하는 다른 호출을 수행합니다. 메타 데이터가로 설정 된 경우 `id_token` 암호화 키를 생략할 수 있습니다. |
 
@@ -114,6 +114,6 @@ Azure Active Directory B2C (Azure AD B2C)는 OAuth2 프로토콜 id 공급자에
 
 ID 공급자의 리디렉션 URI를 구성할 때 `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/oauth2/authresp`를 입력합니다. 을 `{tenant-name}` 테 넌 트의 이름 (예: contosob2c)으로 바꾸어야 합니다. 리디렉션 URI는 모두 소문자여야 합니다.
 
-예:
+예제:
 
-- [사용자 지정 정책을 사용하여 OAuth2 ID 공급자로 Google+ 추가](identity-provider-google-custom.md)
+- [사용자 지정 정책을 사용하여 OAuth2 ID 공급자로 Google+ 추가](identity-provider-google.md)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6e50fe1f5b1658458a2d561f8157f04d1cbceb41
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 6cf0e77657175449b126eeca02a12c164478e568
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341246"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548072"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB SQL API 계정으로 데이터 대량 가져오기
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -175,7 +175,7 @@ Azure Cosmos DB 에뮬레이터를 사용하는 경우 [이 문서에서 에뮬�
 
 이 자습서의 단계를 완료할 시간이 없거나 코드 샘플만 다운로드하려는 경우 [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer)에서 가져올 수 있습니다.
 
-프로젝트를 복제한 후 [Program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/master/src/Program.cs#L25) 내에서 원하는 자격 증명을 업데이트해야 합니다.
+프로젝트를 복제한 후 [Program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/main/src/Program.cs#L25) 내에서 원하는 자격 증명을 업데이트해야 합니다.
 
 리포지토리 디렉터리로 변경하고 `dotnet`을 사용하여 샘플을 실행할 수 있습니다.
 

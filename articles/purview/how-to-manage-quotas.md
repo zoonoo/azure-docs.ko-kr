@@ -8,22 +8,22 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 3b0a413db304b4f9d2c50a3d221c480f1e9dc37a
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 57cb1c405e00acb346421d64190a71e9211d21ff
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553712"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938837"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-purview"></a>Azure 부서의 범위를 사용 하 여 리소스에 대 한 할당량 관리 및 늘리기
  
 Azure 부서의 범위는 데이터 사용자가 사용할 수 있는 클라우드 서비스입니다. Azure 부서의 범위를 사용 하 여 클라우드 및 온-프레미스 환경에 걸친 데이터 공간 전체의 데이터 관리를 중앙에서 관리 합니다. 비즈니스 분석가는이 서비스를 통해 의미 있는 비즈니스 용어를 사용 하 여 관련 데이터를 검색할 수 있습니다. 구독에 대한 최대 제한 값을 높이려면 고객 지원에 문의하세요.
  
-## <a name="azure-purview-limits"></a>Azure 부서의 범위 제한
+## <a name="azure-purview-limits"></a>Azure Purview 제한
  
 |**리소스**|  **기본 제한**  |**최대 제한**|
 |---|---|---|
-|테 넌 트 당 부서의 범위 계정 (모든 구독 결합)|3|지원에 문의|
+|부서의 범위 계정, 테 넌 트 당 계정 (모든 구독 결합)|3|지원에 문의|
 |계정 당 검색에 사용할 수 있는 vCores *|160|160|
 |지정 된 지점에 있는 계정 당 동시 검색. 이 제한은 검색 된 데이터 원본의 유형에 따라 달라 집니다.|5 | 10 |
 |검색을 실행할 수 있는 최대 시간|7 일|7 일|

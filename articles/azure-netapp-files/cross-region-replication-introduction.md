@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/09/2020
 ms.author: b-juche
-ms.openlocfilehash: db1e8ce2e4fe9ae81bc2299ae70e9ff83941b5b4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7c78d5fa89d6d4f3c73bdd1fe9b6d2fdae97c011
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95245877"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937477"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Azure NetApp Files 볼륨의 지역 간 복제
 
@@ -38,14 +38,15 @@ Azure NetApp Files 복제 기능은 지역 간 볼륨 복제를 통해 데이터
 * 미국 남부 중부 및 미국 동부
 * 미국 남부 중부 및 미국 동부 2 
 * 미국 동부 2와 미국 중부 
-* 북유럽 및 서유럽
-* 영국 남부 및 영국 서부
 * 오스트레일리아 동부 및 오스트레일리아 남동쪽
 * 캐나다 중부 및 캐나다 동부
-* 일본 동부 및 일본 서 부
-* 영국 남부 및 독일 중서부
-* 동남 아시아 및 오스트레일리아 동부
 * 인도 중부 및 인도 남부
+* 독일 중서부 및 독일 북부
+* 일본 동부 및 일본 서 부
+* 북유럽 및 서유럽
+* 동남 아시아 및 오스트레일리아 동부
+* 영국 남부 및 독일 중서부
+* 영국 남부 및 영국 서부
 
 ## <a name="service-level-objectives"></a>서비스 수준 목표
 

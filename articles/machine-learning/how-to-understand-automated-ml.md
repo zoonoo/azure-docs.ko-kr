@@ -8,15 +8,15 @@ ms.author: chgrego
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2, automl
-ms.openlocfilehash: 43ce1c4865b3458ccd9c0ac17589f8ca5d77d92f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a3b3640922daf84357354efc389e20afea78d216
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922030"
+ms.locfileid: "96937715"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>자동화 된 machine learning 실험 결과 평가
 
@@ -34,7 +34,7 @@ ms.locfileid: "96922030"
 | [보정 곡선](#calibration-curve)                     |                     
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 Azure 구독이 없는 경우 시작 하기 전에 [무료 계정을 만듭니다](https://aka.ms/AMLFree) .
 - 다음 중 하나를 사용 하 여 만든 Azure Machine Learning 실험
@@ -81,7 +81,7 @@ balanced_accuracy|Balanced accuracy(균형 정확도)는 각 클래스 재현율
 f1_score|F1 score(F1 점수)는 정밀도 및 재현율의 조화 평균입니다. 거짓 긍정 및 거짓 네거티브를 모두 적절 하 게 분산 하 여 측정 합니다. 그러나이 경우에는 진정한 부정이 적용 되지 않습니다. <br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원 되는 메트릭 이름에는 다음이 포함 됩니다.<li>  `f1_score_macro`: 각 클래스에 대 한 F1 점수의 산술 평균입니다. <li> `f1_score_micro`: 총 참 긍정, 거짓 부정 및 가양성을 계산 하 여 계산 합니다. <li> `f1_score_weighted`: 각 클래스에 대 한 F1 점수의 클래스 빈도로 가중치가 적용 된 평균입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|
 log_loss|이 함수는 확률 분류자의 예측이 지정 된 경우 진정한 레이블의 부정적 로그 가능성으로 정의 된 신경망 등의 다항 () 로지스틱 회귀 및 확장에서 사용 되는 손실 함수입니다. <br><br> **목표:** 0에 가까울수록 좋음 <br> **범위:** [0, inf)|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|
 norm_macro_recall| 정규화 된 매크로 회수는 정규화 되 고 정규화 된 매크로 회수로, 임의 성능의 점수는 0이 고 완벽 한 성능은 1입니다. <br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1] |`(recall_score_macro - R)`&nbsp;/&nbsp;`(1 - R)` <br><br>여기서 `R` 는 `recall_score_macro` 임의 예측에 대해 예상 되는 값입니다.<br><br>`R = 0.5`&nbsp;&nbsp;이진 분류의 경우 &nbsp; . <br>`R = (1 / C)` C 클래스 분류 문제의 경우.|
-Matthews 상관 계수 | Matthews 상관 계수는 한 클래스에 다른 샘플이 포함 된 경우에도 사용할 수 있는 정확도의 균형 있는 측정값입니다. 계수 1은 완벽 한 예측, 0 무작위 예측 및-1 역 예측을 나타냅니다.<br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [-1, 1]|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
+matthews_correlation | Matthews 상관 계수는 한 클래스에 다른 샘플이 포함 된 경우에도 사용할 수 있는 정확도의 균형 있는 측정값입니다. 계수 1은 완벽 한 예측, 0 무작위 예측 및-1 역 예측을 나타냅니다.<br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [-1, 1]|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
 정밀도|정밀도는 음수 샘플을 양수로 지정 하지 않는 모델의 기능입니다. <br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원 되는 메트릭 이름에는 다음이 포함 됩니다. <li> `precision_score_macro`-각 클래스에 대 한 전체 자릿수의 산술 평균입니다. <li> `precision_score_micro`총 참 긍정 및 거짓 긍정을 계산 하 여 전역적으로 계산 됩니다. <li> `precision_score_weighted`각 클래스에 대 한 전체 자릿수의 산술 평균은 각 클래스의 실제 인스턴스 수로 가중치가 지정 됩니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|
 재현율| 회수는 모든 긍정 샘플을 검색 하는 모델의 기능입니다. <br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원 되는 메트릭 이름에는 다음이 포함 됩니다. <li>`recall_score_macro`: 각 클래스에 대 한 회수의 산술 평균입니다. <li> `recall_score_micro`: 총 참 긍정, 거짓 부정 및 거짓 긍정을 계산 하 여 전역적으로 계산 합니다.<li> `recall_score_weighted`: 각 클래스에 대 한 각 클래스의 실제 인스턴스 수로 가중치가 적용 되는 각 클래스에 대 한 회수의 산술 평균입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
 weighted_accuracy|가중치가 적용 된 정확도는 각 샘플이 동일한 클래스에 속하는 총 샘플 수로 가중치가 적용 되는 정확도입니다. <br><br>**목표:** 1에 가까울수록 좋음 <br>**범위:** [0, 1]|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
@@ -182,7 +182,7 @@ weighted_accuracy|가중치가 적용 된 정확도는 각 샘플이 동일한 �
 
 ## <a name="regressionforecasting-metrics"></a>회귀/예측 메트릭
 
-자동 ML은 회귀 인지 예측 실험 인지에 관계 없이 생성 된 각 모델에 대해 동일한 성능 메트릭을 계산 합니다. 이러한 메트릭은 정규화를 사용 하 여 서로 다른 범위의 데이터에 대해 학습 된 모델을 비교할 수 있습니다. 자세히 알아보려면 [메트릭 정규화](#metric-normalization) 를 참조 하세요.  
+자동 ML은 회귀 인지 예측 실험 인지에 관계 없이 생성 된 각 모델에 대해 동일한 성능 메트릭을 계산 합니다. 이러한 메트릭은 정규화를 사용 하 여 서로 다른 범위의 데이터에 대해 학습 된 모델을 비교할 수 있습니다. 자세히 알아보려면 [메트릭 정규화](#metric-normalization)를 참조 하세요.  
 
 다음 표에서는 회귀 및 예측 실험에 대해 생성 된 모델 성능 메트릭을 요약 합니다. 이러한 메트릭은 분류 메트릭과 마찬가지로 scikit 배우기 구현을 기반으로 합니다. 적절 한 scikit 학습 설명서는 **계산** 필드에서 적절 하 게 연결 됩니다.
 

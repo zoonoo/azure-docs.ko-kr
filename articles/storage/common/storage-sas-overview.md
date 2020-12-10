@@ -10,16 +10,16 @@ ms.date: 11/20/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 118aaa368f48838a33d130d8dddc89bb8dce3f3e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d435ced4c8ec56fae5081ede367b593d2b66ef0f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498186"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936542"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여
 
-SAS (공유 액세스 서명)는 저장소 계정의 리소스에 대 한 안전한 위임 된 액세스를 제공 합니다. SAS를 사용 하면 클라이언트가 데이터에 액세스 하는 방법을 세부적으로 제어할 수 있습니다. 다음은 그 예입니다. 
+SAS (공유 액세스 서명)는 저장소 계정의 리소스에 대 한 안전한 위임 된 액세스를 제공 합니다. SAS를 사용 하면 클라이언트가 데이터에 액세스 하는 방법을 세부적으로 제어할 수 있습니다. 예를 들면 다음과 같습니다.
  
 - 클라이언트에서 액세스할 수 있는 리소스
 
@@ -76,6 +76,9 @@ Azure Storage는 다음과 같은 세 가지 유형의 공유 액세스 서명�
 ## <a name="how-a-shared-access-signature-works"></a>공유 액세스 서명 사용 방법
 
 공유 액세스 서명은 하나 이상의 저장소 리소스를 가리키는 서명 된 URI입니다. URI에는 특별 한 쿼리 매개 변수 집합을 포함 하는 토큰이 포함 되어 있습니다. 토큰은 클라이언트가 리소스를 액세스하는 방식을 나타냅니다. 쿼리 매개 변수 중 하나인 서명은 SAS 매개 변수에서 생성 되 고 SAS를 만드는 데 사용 된 키로 서명 됩니다. 이 서명은 Azure Storage에서 스토리지 리소스에 대한 액세스 권한을 부여하는 데 사용됩니다.
+
+> [!NOTE]
+> SAS 토큰의 생성을 감사할 수 없습니다. 계정 키를 사용 하 여 또는 Azure RBAC 역할 할당을 통해 SAS 토큰을 생성할 수 있는 권한이 있는 모든 사용자는 저장소 계정의 소유자에 대 한 지식 없이이 작업을 수행할 수 있습니다. 사용자가 SAS 토큰을 생성할 수 있도록 허용 하는 사용 권한을 제한 해야 합니다. 사용자가 blob 및 큐 작업에 대 한 계정 키로 서명 된 SAS를 생성 하는 것을 방지 하기 위해 저장소 계정에 대 한 공유 키 액세스를 허용 하지 않을 수 있습니다. 자세한 내용은 [공유 키로 권한 부여 방지](shared-key-authorization-prevent.md)를 참조 하세요.
 
 ### <a name="sas-signature-and-authorization"></a>SAS 서명 및 권한 부여
 

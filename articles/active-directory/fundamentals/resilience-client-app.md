@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: 9189d4d8cda5f9fcfce7e6ac2097414aa29f0a68
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: fc15176318dcfae99434f50a0b4370f371cec05a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317472"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938242"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-client-applications-you-develop"></a>개발 하는 클라이언트 응용 프로그램에서 인증 및 권한 부여의 복원 력 향상
 
@@ -30,7 +30,9 @@ MSAL은 토큰을 캐시 하 고 자동 토큰 획득 패턴을 사용 합니다
 
 ![MSAL을 사용 하 여 Microsoft Id를 호출 하는 및 응용 프로그램을 사용 하는 장치 이미지](media/resilience-client-app/resilience-with-microsoft-authentication-library.png)
 
-MSAL을 사용 하는 경우 다음 패턴을 사용 하 여 토큰 캐싱, 새로 고침 및 자동 토큰 가져오기를 가져옵니다.
+MSAL을 사용 하는 경우 토큰 캐싱, 새로 고침 및 자동 획득이 자동으로 지원 됩니다. 간단한 패턴을 사용 하 여 최신 인증에 필요한 토큰을 가져올 수 있습니다. 여러 언어를 지원 하 고 [샘플](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code) 페이지에서 언어 및 시나리오와 일치 하는 샘플을 찾을 수 있습니다.
+
+## <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 try
@@ -42,6 +44,28 @@ catch(MsalUiRequiredException ex)
     result = await app.AcquireToken(scopes).WithClaims(ex.Claims).ExecuteAsync()
 }
 ```
+
+## <a name="javascript"></a>[Javascript](#tab/javascript)
+
+```javascript
+return myMSALObj.acquireTokenSilent(request).catch(error => {
+    console.warn("silent token acquisition fails. acquiring token using redirect");
+    if (error instanceof msal.InteractionRequiredAuthError) {
+        // fallback to interaction when silent call fails
+        return myMSALObj.acquireTokenPopup(request).then(tokenResponse => {
+            console.log(tokenResponse);
+
+            return tokenResponse;
+        }).catch(error => {
+            console.error(error);
+        });
+    } else {
+        console.warn(error);
+    }
+});
+```
+
+---
 
 MSAL은 경우에 따라 사전에 토큰을 새로 고칠 수 있습니다. Microsoft Id가 수명이 긴 토큰을 발급 하는 경우 토큰을 새로 고치는 최적의 시간 ("새로 고침")으로 정보를 클라이언트에 보낼 수 있습니다 \_ . MSAL은이 정보에 따라 토큰을 사전에 새로 고칩니다. 이전 토큰이 올바르지만 응용 프로그램은 계속 실행 되지만 토큰을 획득 하는 데는 시간이 더 오래 걸립니다.
 
@@ -65,7 +89,9 @@ MSAL은 경우에 따라 사전에 토큰을 새로 고칠 수 있습니다. Mic
 
 [최신 Microsoft. Identity. 웹 버전 및 릴리스 정보를 확인 합니다.](https://github.com/AzureAD/microsoft-identity-web/releases)
 
-## <a name="if-not-using-msal-use-these-resilient-patterns-for-token-handling"></a>MSAL을 사용 하지 않는 경우 토큰 처리에 이러한 복원 력 패턴을 사용 합니다.
+## <a name="use-resilient-patterns-for-token-handling"></a>토큰 처리를 위해 복원 력 패턴 사용
+
+MSAL을 사용 하지 않는 경우 이러한 복원 력 패턴을 토큰 처리에 사용할 수 있습니다. 이러한 모범 사례는 MSAL 라이브러리에 의해 자동으로 구현 됩니다. 
 
 일반적으로 최신 인증을 사용 하는 응용 프로그램은 끝점을 호출 하 여 사용자를 인증 하는 토큰을 검색 하거나 응용 프로그램에 보호 된 Api를 호출 하는 권한을 부여 합니다. MSAL은 인증의 세부 정보를 처리 하 고이 프로세스의 복원 력을 향상 시키기 위해 여러 패턴을 구현 하는 것을 의미 합니다. MSAL 이외의 라이브러리를 사용 하도록 선택 하는 경우이 섹션의 지침을 사용 하 여 모범 사례를 구현 합니다. MSAL을 사용 하는 경우 MSAL이 자동으로 구현 하므로 이러한 모범 사례를 모두 무료로 활용할 수 있습니다.
 

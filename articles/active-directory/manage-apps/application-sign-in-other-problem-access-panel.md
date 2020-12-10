@@ -12,12 +12,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 8cbc683f06b809ec4d9c63a61d73a0c731a92cd7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 14b49c531ae11c056f9b6970e1ac00adcd68b296
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651621"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937171"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Azure AD 내 앱에서 응용 프로그램에 로그인 하는 문제 해결
 
@@ -61,6 +61,7 @@ ms.locfileid: "94651621"
 -   [사용자의 Multi-Factor Authentication 상태 확인](#check-a-users-multi-factor-authentication-status)
 -   [사용자의 인증 연락처 정보 확인](#check-a-users-authentication-contact-info)
 -   [사용자의 그룹 구성원 자격 확인](#check-a-users-group-memberships)
+-   [사용자에 게 앱 역할 할당을 999 개 이상 포함 하는지 확인 합니다.](#check-if-a-user-has-more-than-999-app-role-assignments)
 -   [사용자의 할당된 라이선스 확인](#check-a-users-assigned-licenses)
 -   [사용자에 게 라이선스 할당](#assign-a-user-a-license)
 
@@ -139,6 +140,16 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 6.  관심이 있는 사용자를 **검색** 하 고 선택할 **행을 선택** 합니다.
 7.  **그룹** 을 선택 하 여 사용자가 구성원으로 속해 있는 그룹을 확인 합니다.
 
+### <a name="check-if-a-user-has-more-than-999-app-role-assignments"></a>사용자에 게 앱 역할 할당을 999 개 이상 포함 하는지 확인 합니다.
+사용자에 게 할당 된 앱 역할 할당 수가 999 개를 초과 하면 앱에서 해당 앱이 모두 표시 되지 않을 수 있습니다.
+
+이는 현재 내 앱이 사용자가 할당 된 앱을 확인 하는 데 최대 999 앱 역할 할당을 읽어 들이는 것입니다. 사용자가 999 개 이상의 앱에 할당 된 경우 내 앱 포털에 표시 되는 앱을 제어할 수 없습니다.
+
+사용자에 게 부여 된 앱 역할 할당 수를 확인 하려면 다음 단계를 수행 합니다.
+1. [**Microsoft Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell) PowerShell 모듈을 설치 합니다.
+2. `Connect-MgGraph -Scopes "Directory.Read.All"`를 실행 하 고 **전역 관리자로 인증 합니다.**
+3. `$m = Get-MgUserAppRoleAssignment -UserId "<userId>" | Measure; $m.Count`을 실행 하 여 현재 사용자에 게 부여 된 앱 역할 할당의 수를 확인 합니다.
+
 ### <a name="check-a-users-assigned-licenses"></a>사용자의 할당된 라이선스 확인
 사용자의 할당된 라이선스를 확인하려면 다음 단계를 수행합니다.
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
@@ -172,14 +183,14 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 2. 왼쪽의 왼쪽 탐색 메뉴 맨 위에 있는 **모든 서비스** 를 선택 하 여 **Azure Active Directory 확장** 을 엽니다.
 3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
-4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램** 을 선택 합니다.
-5. 모든 **응용 프로그램을 선택 하** 여 모든 응용 프로그램의 목록을 봅니다.
+4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션** 을 선택합니다.
+5. **모든 애플리케이션** 을 선택하여 모든 애플리케이션 목록을 봅니다.
    * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록** 의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션** 으로 설정합니다.
 6. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 7. 왼쪽의 왼쪽 탐색 메뉴 맨 위에 있는 **모든 서비스** 를 선택 하 여 **Azure Active Directory 확장** 을 엽니다.
 8. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
-9. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램** 을 선택 합니다.
-10. 모든 **응용 프로그램을 선택 하** 여 모든 응용 프로그램의 목록을 봅니다.
+9. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션** 을 선택합니다.
+10. **모든 애플리케이션** 을 선택하여 모든 애플리케이션 목록을 봅니다.
     * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록** 의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션** 으로 설정합니다.
 11. 딥 링크를 확인 하려는 응용 프로그램을 선택 합니다.
 12. **사용자 액세스 URL** 레이블을 찾습니다. 딥 링크가이 URL과 일치 해야 합니다.

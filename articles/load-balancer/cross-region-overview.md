@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: f0630599c7c52f11a4cf3153bae38ad2d515b6bc
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 8a2ad6cea4ab97742261b1cfd84975b243a46e87
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029764"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938718"
 ---
 # <a name="cross-region-load-balancer-preview"></a>영역 간 부하 분산 장치 (미리 보기)
 
@@ -35,7 +35,7 @@ Azure 표준 Load Balancer는 다음과 같은 지역 중복 HA 시나리오를 
 * 학습 곡선이 없는 [기존 부하 분산 장치 솔루션에 빌드](#build-cross-region-solution-on-existing-azure-load-balancer)
 
 > [!IMPORTANT]
-> 영역 간 부하 분산 장치는 현재 미리 보기 상태 이며 미리 보기 포털에서 숨겨집니다. 에 로그인 하 여 **https://preview.portal.azure.com/?feature.globallb=true** 기능을 확인 하 고 배포 합니다. </br> </br>
+> 지역 간 부하 분산 장치는 현재 미리 보기 상태이며 미리 보기 포털에서 숨겨집니다. 에 로그인 하 여 **https://preview.portal.azure.com** 기능을 확인 하 고 배포 합니다. </br> </br>
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 지역 간 부하 분산은 지역 표준 부하 분산 장치 처럼 고성능 및 짧은 대기 시간으로 동일한 이점을 제공 합니다. 
@@ -51,7 +51,7 @@ Azure 표준 Load Balancer는 다음과 같은 지역 중복 HA 시나리오를 
 
 전역 프런트 엔드 공용 IP 주소를 기존 부하 분산 장치에 추가 하 여 지역별 중복성을 구성 합니다. 
 
-한 지역이 실패 하는 경우 트래픽이 가장 가까운 다음으로 정상적인 지역 부하 분산 장치로 라우팅됩니다.  
+한 지역이 실패하는 경우 트래픽이 다음의 가장 가까운 정상적인 지역 부하 분산 장치로 라우팅됩니다.  
 
 지역 간 부하 분산 장치의 상태 프로브는 20 초 마다 가용성에 대 한 정보를 수집 합니다. 한 지역 부하 분산 장치에서 가용성을 0으로 설정 하면 지역 간 부하 분산 장치에서 오류를 검색 합니다. 그러면 지역 부하 분산 장치는 순환에서 제외 됩니다. 
 

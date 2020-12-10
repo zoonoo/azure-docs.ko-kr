@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 8c13dc0854fb29467b0fe8a1ce5f2dfc1c19bd78
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c7bb79cbd67ba2fb151641ddeeb31b54e399b906
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352340"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938259"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>기술 자료 만들기 및 설정 관리
 
@@ -46,7 +46,7 @@ QnA Maker를 사용 하면 기술 자료 설정 및 데이터 원본에 대 한 
     |--|--|
     |**URL, .pdf 또는 .docx 파일에서 다중 턴 추출을 사용하도록 설정합니다.**|선택|
     |**기본 답변 텍스트**| `Quickstart - default answer not found.`|
-    |**+ URL 추가**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ URL 추가**|`https://azure.microsoft.com/en-us/support/faq/`|
     |**잡담**|**Professional** 선택|
 
 1. **5단계** 에서는 **KB 만들기** 를 선택합니다.

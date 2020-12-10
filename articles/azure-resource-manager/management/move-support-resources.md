@@ -3,12 +3,12 @@ title: 리소스 종류별 이동 작업 지원
 description: 새 리소스 그룹이나 구독으로 이동할 수 있는 Azure 리소스 종류를 소개합니다.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 226686e51c8b59b6963609a95a2cb3c2cc03d621
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 0b1304b273523d42ad62f4e392fb803e1c174b69
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780997"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937528"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 

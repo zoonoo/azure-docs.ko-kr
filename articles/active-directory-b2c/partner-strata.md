@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: bddc4c64feb31f78bed482bbd729ab1c4b8e676e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c7f7f162355b919c395dd0ee6d03b2bc5526e3da
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96171418"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936695"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>층를 사용 하 여 온-프레미스 응용 프로그램을 보호 하기 위한 Azure AD B2C 확장을 위한 자습서
 
@@ -29,7 +29,7 @@ Maverics Id Orchestrator는 온-프레미스 응용 프로그램을 보호 하�
 
 - **간편한 구성**: Azure AD B2C는 Maverics ID Orchestrator SAML 또는 oidc 커넥터를 Azure AD B2C에 연결 하는 간단한 단계별 사용자 인터페이스를 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
@@ -83,7 +83,7 @@ Maverics Id Orchestrator는 온-프레미스 응용 프로그램을 보호 하�
 
    다. 응용 프로그램에 대 한 리디렉션 URI를 추가 합니다. 이 URI는 오 케 스트레이 터 `oauthRedirectURL` Azure AD B2C 커넥터 구성의 매개 변수와 일치 합니다 (예:) `https://example.com/oidc-endpoint` .
 
-2. **사용자 흐름 만들기**: [서명 및 로그인 사용자 흐름](./tutorial-create-user-flows.md)을 만듭니다.
+2. **사용자 흐름 만들기**: [등록 및 로그인 사용자 흐름](./tutorial-create-user-flows.md)을 만듭니다.
 
 3. **IdP 추가**: 로컬 계정이 나 소셜 또는 enterprise [IdP](./tutorial-add-identity-providers.md)를 사용 하 여 사용자를 로그인 하도록 선택 합니다.
 
@@ -259,7 +259,7 @@ appgateways:
 
 Orchestrator가 Azure AD B2C 및 기타 id 시스템에 연결 하는 데 사용 하는 암호를 보호 하는 것이 중요 합니다. Maverics는 기본적으로 암호를 일반 텍스트로 로드 하지만 `maverics.yaml` 이 자습서에서는 Azure Key Vault를 암호 공급자로 사용 합니다.
 
-지침에 따라 Orchestrator 인스턴스에서 암호 공급자로 사용할 [새 Key Vault를 만듭니다](../key-vault/secrets/quick-create-portal.md) . 자격 증명 모음에 비밀을 추가 하 고 지정 된를 `SECRET NAME` 각 비밀에 기록해 둡니다. 예들 들어 `AzureADB2CClientSecret`입니다.
+지침에 따라 Orchestrator 인스턴스에서 암호 공급자로 사용할 [새 Key Vault를 만듭니다](../key-vault/secrets/quick-create-portal.md) . 자격 증명 모음에 비밀을 추가 하 고 지정 된를 `SECRET NAME` 각 비밀에 기록해 둡니다. 예: `AzureADB2CClientSecret`.
 
 `maverics.yaml` 구성 파일에서 값을 비밀로 선언하려면 비밀을 꺾쇠 괄호로 묶습니다.
 

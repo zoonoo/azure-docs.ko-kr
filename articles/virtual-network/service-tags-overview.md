@@ -7,18 +7,18 @@ documentationcenter: na
 author: allegradomel
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: d99ed9304612d5c1d3cbdc56a76cee751f2a4d3f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ece6dfb5277e7ca363548c8d90021835a96a61ba
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017936"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937358"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -63,7 +63,7 @@ ms.locfileid: "96017936"
 | **AzureDatabricks** | Azure Databricks입니다. | 모두 | 예 | 예 |
 | **AzureDataExplorerManagement** | Azure Data Explorer 관리 기능입니다. | 인바운드 | 예 | 예 |
 | **AzureDataLake** | Azure Data Lake Storage Gen1입니다. | 아웃바운드 | 예 | 예 |
-| **AzureDevSpaces** | Azure Dev Spaces입니다. | 아웃바운드 | 예 | 예 |
+| **AzureDevSpaces** | Azure Dev Spaces입니다. | 아웃바운드 | 예 | 아니요 |
 | **AzureDevOps** | Azure Dev Ops.<br/><br/>*참고:이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.*| 인바운드 | 예 | 예 |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*참고:* 이 태그 또는이 태그에 포함 된 IP 주소는 이벤트 경로에 대해 구성 된 끝점에 대 한 액세스를 제한 하는 데 사용할 수 있습니다. *이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 인바운드 | 예 | 예 |
 | **AzureEventGrid** | Azure Event Grid. | 모두 | 예 | 예 |

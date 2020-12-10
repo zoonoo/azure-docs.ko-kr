@@ -9,17 +9,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/03/2020
 ms.author: amjads
-ms.openlocfilehash: b1dd26fce2e0a761ceed211933cb79ce518905e2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dd3b713a027df80908e1a8a3ae53e8dc526d7d6e
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965887"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936950"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 가상 머신 확장 및 기능
 확장은 Azure Vm에서 배포 후 구성 및 자동화를 제공 하는 작은 응용 프로그램입니다. Azure 플랫폼은 VM 구성, 모니터링, 보안 및 유틸리티 응용 프로그램을 다루는 많은 확장을 호스팅합니다. 게시자는 응용 프로그램을 사용 하 여 확장으로 래핑하고 설치를 간소화 합니다. 필수 매개 변수만 제공 하기만 하면 됩니다. 
 
-## <a name="how-can-i-find-what-extensions-are-available"></a>사용할 수 있는 확장을 찾으려면 어떻게 할까요?
+## <a name="how-can-i-find-what-extensions-are-available"></a>사용 가능한 확장을 찾으려면 어떻게 해야 하나요?
 왼쪽 메뉴에서 **확장** 을 선택 하 여 VM을 선택 하 여 사용 가능한 확장을 볼 수 있습니다. 확장의 전체 목록을 꺼내려면 [Linux 용 Vm 확장 검색](features-linux.md) 및 [Windows 용 vm 확장 검색](features-windows.md)을 참조 하세요.
 
 ## <a name="how-can-i-install-an-extension"></a>확장을 설치하려면 어떻게 해야 할까요?

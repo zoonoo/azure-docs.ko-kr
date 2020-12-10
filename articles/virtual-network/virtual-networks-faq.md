@@ -8,17 +8,17 @@ author: KumudD
 manager: twooley
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 00ef685c755c0fa6f5217d567bfa255ea940d72a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3ee9e165ce9c24968b072d19367e0285f5438259
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015972"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938803"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -44,7 +44,7 @@ VNet을 다음에 사용합니다.
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>VNet 간 또는 VNet과 온-프레미스 데이터 센터 간에 WAN 최적화를 수행할 수 있습니까?
 예. Azure Marketplace를 통해 여러 공급업체에서 [WAN 최적화 네트워크 가상 어플라이언스](https://azuremarketplace.microsoft.com/en-us/marketplace/?term=wan%20optimization)를 배포할 수 있습니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>VNet을 만들려면 어떤 도구를 사용합니까?
 다음 도구를 사용하여 VNet을 만들거나 구성할 수 있습니다.
@@ -95,7 +95,7 @@ VNet을 다음에 사용합니다.
 아니요. 멀티캐스트와 브로드캐스트는 지원되지 않습니다.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>VNet 내에서 사용할 수 있는 프로토콜은 무엇입니까?
-VNet 내에서 TCP, UDP 및 ICMP TCP/IP 프로토콜을 사용할 수 있습니다. 유니캐스트는 Vnet 내에서 지원 됩니다 .이는 유니캐스트 (원본 포트 UDP/68/대상 포트 UDP/67) 및 UDP 원본 포트 65330 (호스트에 예약 됨)를 통한 DHCP (Dynamic Host Configuration Protocol)를 제외 합니다. 멀티 캐스트, 브로드캐스트, IP-IP 캡슐화 패킷 및 GRE(일반 라우팅 캡슐화) 패킷은 VNet 내에서 차단됩니다. 
+VNet 내에서 TCP, UDP 및 ICMP TCP/IP 프로토콜을 사용할 수 있습니다. 유니캐스트는 유니캐스트(원본 포트 UDP/68/대상 포트 UDP/67)를 통한 DHCP(Dynamic Host Configuration Protocol) 및 호스트용으로 예약된 UDP 원본 포트 65330을 제외하고 VNet 내에서 지원됩니다. 멀티 캐스트, 브로드캐스트, IP-IP 캡슐화 패킷 및 GRE(일반 라우팅 캡슐화) 패킷은 VNet 내에서 차단됩니다. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>내 기본 라우터를 VNet 내에서 ping할 수 있습니까?
 아니요.

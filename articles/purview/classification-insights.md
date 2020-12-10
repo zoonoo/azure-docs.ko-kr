@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 553c33b3d5ea2e3f1ee81503cb69fe15db387af6
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bb3c7cc3f51eae90c5b712d224407e639b232fbc
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745029"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938888"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 분류 통찰력
 
@@ -27,7 +27,7 @@ ms.locfileid: "96745029"
 > - 데이터에 대 한 분류 정보 보기
 > - 드릴 다운 하 여 데이터에 대 한 자세한 분류 정보
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 부서의 범위 insights를 시작 하기 전에 다음 단계를 완료 했는지 확인 합니다.
 
@@ -44,7 +44,7 @@ Azure 부서의 범위에서 분류는 subject 태그와 비슷하며 검색 중
 부서의 범위는 Microsoft 365와 동일한 중요 한 정보 유형을 사용 하 여 기존 보안 정책과 전체 데이터 공간에 대 한 보호를 확장할 수 있습니다.
 
 > [!NOTE]
-> 원본 유형을 검사 한 후에는 새 자산을 반영 하기 위해 **분류 레이블** 지정 정보를 몇 시간에 제공 합니다.
+> 원본 유형을 검사 한 후에는 새 자산을 반영 하는 데 몇 시간 정도 **분류** 정보를 제공 합니다.
 
 **분류 정보를 보려면:**
 
@@ -60,7 +60,7 @@ Azure 부서의 범위에서 분류는 subject 태그와 비슷하며 검색 중
 
    기본 **분류 정보** 페이지에는 다음과 같은 영역이 표시 됩니다.
 
-   |영역  |설명  |
+   |영역  |Description  |
    |---------|---------|
    |**분류가 포함 된 원본 개요**     |다음을 제공 하는 타일을 표시 합니다. <br>-데이터에서 발견 된 구독 수 <br>-데이터에서 발견 된 고유 분류의 수 <br>-검색 된 분류 된 소스 수 <br>-검색 된 분류 된 파일 수 <br>-검색 된 분류 테이블 수         |
    |**분류 된 데이터를 포함 하는 상위 원본 (지난 30 일)**     |지난 30 일 동안의 추세를 분류 된 데이터로 찾은 원본 수의 추세를 보여 줍니다.            |
@@ -85,7 +85,7 @@ Azure 부서의 범위에서 분류는 subject 태그와 비슷하며 검색 중
 
 자세한 내용을 보려면 다음 중 하나를 수행 합니다.
 
-|옵션  |설명  |
+|옵션  |Description  |
 |---------|---------|
 |**데이터 필터링**     |  표 위의 필터를 사용 하 여 분류 이름, 구독 이름 또는 원본 유형을 포함 하 여 표시 된 데이터를 필터링 합니다. <br><br>정확한 분류 이름을 잘 모르는 경우 **키워드로 필터링** 상자에 이름의 일부 또는 전체를 입력할 수 있습니다.       |
 |**표 정렬** |해당 열을 기준으로 표를 정렬 하려면 열 머리글을 선택 합니다. | 

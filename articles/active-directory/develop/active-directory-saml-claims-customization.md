@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f462a78790e73f3e0f67f55b6417589c7826a75d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1c88b9f77513021609b99c81ea572c2b5b3d365b
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173671"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936797"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -60,7 +60,6 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Mic
 | **Persistent** | Microsoft id 플랫폼은 NameID 형식으로 영구를 사용 합니다. |
 | **EmailAddress** | Microsoft id 플랫폼은 EmailAddress를 NameID 형식으로 사용 합니다. |
 | **Unspecified** | Microsoft id 플랫폼은 지정 되지 않은를 NameID 형식으로 사용 합니다. |
-| **Windows 도메인의 정규화된 이름** | Microsoft id 플랫폼은 WindowsDomainQualifiedName를 NameID 형식으로 사용 합니다. |
 
 임시 NameID도 지원되지만 이 형식은 드롭다운에서 사용할 수 없으며 Azure 쪽에서 구성할 수 없습니다. NameIDPolicy 특성에 대한 자세한 내용은 [Single Sign-on SAML 프로토콜](single-sign-on-saml-protocol.md)을 참조하세요.
 

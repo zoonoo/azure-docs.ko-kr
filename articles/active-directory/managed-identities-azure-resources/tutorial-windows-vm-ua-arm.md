@@ -12,19 +12,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2020
+ms.date: 12/02/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d26c7f544c9754f455b67aadf9e923344cda3fdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9757a322922524f181b1fa3f48850efbb7a18dd
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968697"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546780"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>자습서: Windows VM에서 사용자 할당 관리 ID를 사용하여 Azure Resource Manager에 액세스
-
-[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 이 자습서에서는 사용자 할당 ID를 만들어서, Windows VM(가상 머신)에 할당한 다음, 이 ID를 사용하여 Azure Resource Manager API에 액세스하는 방법을 설명합니다. 관리 서비스 ID는 Azure에서 자동으로 관리됩니다. 그러면 코드에 자격 증명을 포함할 필요 없이 Azure AD 인증을 지원하는 서비스에 인증할 수 있습니다. 
 
@@ -154,11 +152,11 @@ CanDelegate: False
 
 1. [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
-2. Portal에서 **Virtual Machines** -> Windows 가상 머신으로 이동한 다음, **개요**에서 **연결**을 클릭합니다.
+2. Portal에서 **Virtual Machines** -> Windows 가상 머신으로 이동한 다음, **개요** 에서 **연결** 을 클릭합니다.
 
-3. Windows VM을 만들 때 사용한 **사용자 이름**과 **암호**를 입력합니다.
+3. Windows VM을 만들 때 사용한 **사용자 이름** 과 **암호** 를 입력합니다.
 
-4. 이제 가상 머신에 대한 **원격 데스크톱 연결**을 만들었으므로 원격 세션에서 **PowerShell**을 엽니다.
+4. 이제 가상 머신에 대한 **원격 데스크톱 연결** 을 만들었으므로 원격 세션에서 **PowerShell** 을 엽니다.
 
 5. PowerShell의 `Invoke-WebRequest`를 사용하여 Azure Resource Manager에 대한 액세스 토큰을 가져오도록 Azure 리소스 엔드포인트의 로컬 관리 ID에 요청합니다.  `client_id` 값은 사용자 할당 관리 ID를 만들 때 반환되는 값입니다.
 
