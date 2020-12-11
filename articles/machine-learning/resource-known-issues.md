@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.custom: troubleshooting, contperfq4
+ms.custom: troubleshooting, contperf-fy20q4
 ms.date: 11/09/2020
-ms.openlocfilehash: 55ac11b7888a8e351b52554f76fb44af35633c16
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e383ac260a67c7334b806612325ed0b6a9fbbef9
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780980"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030980"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -61,7 +61,7 @@ ms.locfileid: "96780980"
      
 * **Azureml-자동 ml-클라이언트를 설치 하는 경우 설명 패키지가 설치 되어 있지 않을 수 있습니다.** 
    
-   모델 설명이 설정 된 원격 AutoML run을 실행 하는 경우 "모델 설명을 위한 azureml (azureml) 모델 패키지를 설치 하세요." 라는 오류 메시지가 표시 됩니다. 이것은 알려진 문제이며 해결 방법으로 다음 단계 중 하나를 수행 합니다.
+   모델 설명이 설정 된 원격 AutoML run을 실행 하는 경우 "모델 설명을 위한 azureml (azureml) 모델 패키지를 설치 하세요." 라는 오류 메시지가 표시 됩니다. 이것은 알려진 문제입니다. 해결 방법으로 다음 단계 중 하나를 수행 합니다.
   
   1. Azureml를 로컬로 설치 합니다.
    ```
@@ -426,7 +426,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 다음 오류에 대해이 작업을 수행 합니다.
 
-|Error  | 해결 방법  |
+|오류  | 해결 방법  |
 |---------|---------|
 |웹 서비스 배포 시 이미지 작성 오류     |  이미지 구성을 위해 "pConda acl = = 1.2.1"을 파일에 대 한 pip 종속성으로 추가 합니다.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   배포에 사용 되는 Vm의 SKU를 메모리를 더 많이 포함 하는 Vm으로 변경 합니다. |

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 7df04bd75f3fd11b1caa702655cbd204fc2b4fda
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 9e2210cdbcc2916723c8c2e2ed1ef514d427c9d6
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854885"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032187"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 Azure 네트워킹 모니터링 솔루션
 
@@ -120,6 +120,8 @@ Application insights는 Application Gateway 리소스 내에서 insights 탭을 
 * 작업 영역에서 Azure Gateway analytics 솔루션을 정리 하려면 솔루션 리소스 페이지에서 솔루션을 삭제할 수 있습니다.
 
 [![Azure 애플리케이션 Gateway analytics 솔루션에 대 한 삭제 옵션의 스크린샷](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
+
+새 통합 문서 솔루션의 기능에 대 한 자세한 정보를 보려면 [통합 문서 체크 아웃-개요](../platform/workbooks-overview.md) 를 참조 하세요.
 
 ## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Azure Monitor의 Azure 네트워크 보안 그룹 분석 솔루션
 

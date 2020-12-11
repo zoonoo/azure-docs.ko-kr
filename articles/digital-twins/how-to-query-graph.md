@@ -7,13 +7,13 @@ ms.author: baanders
 ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.custom: contperfq2
-ms.openlocfilehash: 45b177bd35af9748ff80ecc38f2d1c803c10546e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 966b87dfb3111d7a112ea99f37dee730495d491f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452819"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032833"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
@@ -239,7 +239,7 @@ WHERE Factory.$dtId = 'ABC'
 AND IS_PRIMITIVE(Consumer.name)
 ```
 
-프로젝션을 사용 하 여 관계의 속성을 반환할 수도 있습니다. 이전 예제와 마찬가지로 다음 쿼리는 팩터리의 ID를 사용 하 여 *팩터리에* 관련 된 *소비자* 의 *Name* 속성을 투영 *합니다.* *ABC* 그러나 이제 해당 관계의 두 속성 ( *prop1* 및 *prop2*)도 반환 합니다. 관계에 *지* 의 이름을 지정 하 고 해당 속성을 수집 하 여이를 수행 합니다.  
+프로젝션을 사용 하 여 관계의 속성을 반환할 수도 있습니다. 이전 예제와 마찬가지로 다음 쿼리는 팩터리의 ID를 사용 하 여 *팩터리에* 관련 된 *소비자* 의 *Name* 속성을 투영 *합니다.*  그러나 이제 해당 관계의 두 속성 ( *prop1* 및 *prop2*)도 반환 합니다. 관계에 *지* 의 이름을 지정 하 고 해당 속성을 수집 하 여이를 수행 합니다.  
 
 ```sql
 SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area
@@ -311,7 +311,7 @@ AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name)
 
 조합 연산자를 사용 하 여 위의 쿼리 유형을 조합 하 여 단일 쿼리에 자세한 정보를 **포함할 수 있습니다** . 다음은 한 번에 둘 이상의 쌍 설명자 유형을 쿼리 하는 복합 쿼리의 몇 가지 추가 예입니다.
 
-| 설명 | 쿼리 |
+| Description | 쿼리 |
 | --- | --- |
 | *공간 123* 가 있는 장치에서 운영자 역할을 하는 MxChip 장치를 반환 합니다. | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contoso:com:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | ID가 *id1* 인 다른 쌍이 *포함* 된 relationship 이라는 관계가 있는 쌍을 가져옵니다. | `SELECT Room`<br>`FROM DIGITALTWINS Room`<br>`JOIN Thermostat RELATED Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |

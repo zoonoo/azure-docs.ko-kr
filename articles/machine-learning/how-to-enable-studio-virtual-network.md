@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: a90b98e8be976da9ee2669ab3b5fed4a890f0fb2
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.custom: contperf-fy20q4, tracking-python
+ms.openlocfilehash: 8dc8446ecbc203622ce7c2163136c1c26aac1cc7
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576627"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032731"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning studio 사용
 
@@ -40,7 +40,7 @@ ms.locfileid: "96576627"
 > 작업 영역이 Azure Government 또는 Azure 중국 21Vianet과 같은 __소 버린 클라우드에__ 있는 경우 통합 된 노트북은 가상 네트워크에 있는 저장소 사용을 지원 _하지 않습니다_ . 대신 컴퓨팅 인스턴스에서 Jupyter Notebook을 사용할 수 있습니다. 자세한 내용은 [Compute Instance 노트북의 데이터 액세스](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) 섹션을 참조 하세요.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 + 일반적인 가상 네트워크 시나리오 및 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 를 참조 하세요.
 
@@ -93,7 +93,7 @@ Azure Machine Learning는 데이터 저장소를 사용 [하 여 저장소](conc
 
 다음 표에서는 작업 영역 기본 저장소 계정에 대해 관리 id 인증을 사용 하도록 설정 해야 하는 이유에 대해 설명 합니다.
 
-|스토리지 계정  | 메모  |
+|스토리지 계정  | 참고  |
 |---------|---------|
 |작업 영역 기본 blob storage| 디자이너에서 모델 자산을 저장 합니다. 디자이너에서 모델을 배포 하려면이 저장소 계정에서 관리 되는 id 인증을 사용 하도록 설정 해야 합니다. <br> <br> 관리 id를 사용 하도록 구성 된 기본이 아닌 데이터 저장소를 사용 하는 경우 디자이너 파이프라인을 시각화 하 고 실행할 수 있습니다. 그러나 기본 데이터 저장소에서 관리 id를 사용 하도록 설정 하지 않고 학습 된 모델을 배포 하려고 하면 사용 중인 다른 데이터 저장소에 관계 없이 배포가 실패 합니다.|
 |작업 영역 기본 파일 저장소| AutoML 실험 자산을 저장 합니다. AutoML 실험을 제출 하려면이 저장소 계정에서 관리 되는 id 인증을 사용 하도록 설정 해야 합니다. |

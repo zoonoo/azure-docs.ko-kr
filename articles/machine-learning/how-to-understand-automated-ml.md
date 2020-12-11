@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2, automl
-ms.openlocfilehash: a3b3640922daf84357354efc389e20afea78d216
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.custom: how-to, contperf-fy21q2, automl
+ms.openlocfilehash: 747cc88cdea59017483245b59e4b2c56c4b06a40
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937715"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032935"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>자동화 된 machine learning 실험 결과 평가
 
@@ -34,7 +34,7 @@ ms.locfileid: "96937715"
 | [보정 곡선](#calibration-curve)                     |                     
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 Azure 구독이 없는 경우 시작 하기 전에 [무료 계정을 만듭니다](https://aka.ms/AMLFree) .
 - 다음 중 하나를 사용 하 여 만든 Azure Machine Learning 실험
@@ -190,6 +190,7 @@ weighted_accuracy|가중치가 적용 된 정확도는 각 샘플이 동일한 �
 --|--|--|
 explained_variance|설명 된 분산은 모델에서 대상 변수의 변형에 대해 설명 하는 범위를 측정 합니다. 오차 분산에 대한 원래 데이터의 분산 감소율입니다. 오류의 평균은 0 인 경우 결정 계수와 같습니다 (아래 r2_score 참조). <br> <br> **목표:** 1에 가까울수록 좋음 <br> **범위:** (-inf, 1]|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|
 mean_absolute_error|절대 평균 오차는 대상과 예측의 절대값의 예상 값입니다.<br><br> **목표:** 0에 가까울수록 좋음 <br> **범위:** [0, inf) <br><br> 종류 <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`mean_absolute_error 데이터의 범위로 구분 됩니다. | [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
+mean_absolute_percentage_error|평균 절대 백분율 오차 (MAPE)는 예측 값과 실제 값 간의 평균 차이를 측정 한 값입니다.<br><br> **목표:** 0에 가까울수록 좋음 <br> **범위:** [0, inf) ||
 median_absolute_error|Median absolute error(중앙값 절대 오차)는 목표와 예측 간 모든 절대 차이의 중앙값입니다. 이 손실은 이상값보다 강력합니다.<br><br> **목표:** 0에 가까울수록 좋음 <br> **범위:** [0, inf)<br><br>종류 <br> `median_absolute_error`<br> `normalized_median_absolute_error`: median_absolute_error 데이터의 범위로 구분 됩니다. |[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
 r2_score|R ^ 2는 평균을 출력 하는 기준선 모델과 비교 했을 때의 결정 계수 또는 백분율 감소입니다. <br> <br> **목표:** 1에 가까울수록 좋음 <br> **범위:** (-inf, 1]|[계산](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |RMSE (제곱 평균 제곱 오차)는 대상과 예측 간의 예상 제곱의 제곱근입니다. 비편향 평가기의 경우 RMSE는 표준 편차와 같습니다.<br> <br> **목표:** 0에 가까울수록 좋음 <br> **범위:** [0, inf)<br><br>종류<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: root_mean_squared_error 데이터의 범위로 구분 됩니다. |[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|

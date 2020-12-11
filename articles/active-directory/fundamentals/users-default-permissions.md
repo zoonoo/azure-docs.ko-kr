@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: ajburnle
 ms.reviewer: vincesm
-ms.custom: it-pro, seodec18, contperfq1
+ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8825dcb2d8dbcf4a1296d8bace84b3d2716687f
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 2c556940ace02f2e7bf0354e67d32df7c5c6714e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602034"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032765"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한이란?
 Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집합이 부여됩니다. 사용자 액세스는 사용자 유형, [역할 할당](active-directory-users-assign-role-azure-portal.md) 및 개별 개체의 소유권으로 구성됩니다. 이 문서에서는 이 기본 권한을 설명하며 멤버와 게스트 사용자 기본값을 비교합니다. 기본 사용자 권한은 Azure AD의 사용자 설정에서만 변경할 수 있습니다.
@@ -38,7 +38,7 @@ Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집�
 디바이스</li></ul> | <ul><li>모든 장치의 목록 열거<li>모든 디바이스 속성 읽기<li>소유한 디바이스의 모든 속성 읽기</li></ul> | 사용 권한 없음 | 사용 권한 없음
 디렉터리 | <ul><li>모든 회사 정보 읽기<li>모든 도메인 읽기<li>모든 파트너 계약 읽기</li></ul> | <ul><li>회사 표시 이름 읽기<li>모든 도메인 읽기</li></ul> | <ul><li>회사 표시 이름 읽기<li>모든 도메인 읽기</li></ul>
 역할 및 범위 | <ul><li>모든 관리 역할 및 멤버 자격 읽기<li>관리 단위의 모든 속성 및 멤버 자격 읽기</li></ul> | 사용 권한 없음 | 사용 권한 없음
-구독 | <ul><li>모든 구독 읽기<li>서비스 계획 멤버를 사용하도록 설정</li></ul> | 사용 권한 없음 | 사용 권한 없음
+Subscriptions | <ul><li>모든 구독 읽기<li>서비스 계획 멤버를 사용하도록 설정</li></ul> | 사용 권한 없음 | 사용 권한 없음
 정책 | <ul><li>모든 정책 속성 읽기<li>소유한 정책의 모든 속성 읽기</li></ul> | 사용 권한 없음 | 사용 권한 없음
 
 ## <a name="restrict-member-users-default-permissions"></a>구성원 사용자의 기본 권한 제한 

@@ -10,19 +10,19 @@ ms.author: gopalv
 ms.reviewer: jmartens
 ms.date: 11/25/2020
 ms.topic: troubleshooting
-ms.custom: contperfq4, devx-track-python, deploy, contperfq2
-ms.openlocfilehash: 0b8da0be16adc79b606b59f394b223b001453607
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
+ms.openlocfilehash: 92cd70e864ae0490ce3f9e7435d9518241f93c8e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185065"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031507"
 ---
 # <a name="troubleshoot-model-deployment"></a>모델 배포 문제 해결
 
 Azure Machine Learning를 사용 하 여 Azure Container Instances (ACI) 및 Azure Kubernetes 서비스 (AKS)와 함께 일반적인 원격 Docker 배포 오류를 해결 하 고 해결 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)

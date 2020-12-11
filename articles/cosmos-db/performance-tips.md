@@ -7,13 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
-ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: f2da2047469f342814ff349cfa059ed61e3adc25
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: 962b95307b440c3bafde019b5b2b630461718073
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339685"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029008"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Azure Cosmos DB 및 .NET SDK v2에 대한 성능 팁
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -46,9 +46,9 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 - 실행 응용 프로그램의 경우 **프로젝트 속성** 창의 **빌드** 탭에서 [플랫폼 대상](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) 을 x **64** 로 설정 하 여 호스트 처리를 변경할 수 있습니다.
 
-- Vstest.console.exe 기반 테스트 프로젝트의 경우 **Test**  >  Visual Studio 테스트 메뉴에서 테스트 **테스트 설정**  >  **기본 프로세서 아키텍처 x 64** **Test** 를 선택 하 여 호스트 처리를 변경할 수 있습니다.
+- Vstest.console.exe 기반 테스트 프로젝트의 경우   >  Visual Studio 테스트 메뉴에서 테스트 **테스트 설정**  >  **기본 프로세서 아키텍처 x 64**  를 선택 하 여 호스트 처리를 변경할 수 있습니다.
 
-- 로컬로 배포 된 ASP.NET 웹 응용 프로그램의 경우 **도구** 옵션 프로젝트 및 솔루션 **웹 프로젝트에서 웹 사이트 및 프로젝트에 64 비트 버전의 IIS Express 사용** 을 선택 하 여 호스트 처리를 변경할 수 있습니다  >  **Options**  >  **Projects and Solutions**  >  **Web Projects**.
+- 로컬로 배포 된 ASP.NET 웹 응용 프로그램의 경우 **도구** 옵션 프로젝트 및 솔루션 **웹 프로젝트에서 웹 사이트 및 프로젝트에 64 비트 버전의 IIS Express 사용** 을 선택 하 여 호스트 처리를 변경할 수 있습니다  >    >    >  .
 
 - Azure에 배포 된 ASP.NET 웹 응용 프로그램의 경우 Azure Portal의 **응용 프로그램 설정** 에서 **64 비트** 플랫폼을 선택 하 여 호스트 처리를 변경할 수 있습니다.
 
@@ -217,7 +217,7 @@ Azure Cosmos DB는 다양 한 데이터베이스 작업 집합을 제공 합니�
 
 쿼리의 복잡성은 작업에 사용 되는 요청 단위 수에 영향을 줍니다. 조건자의 수, 조건자의 특성, Udf 수 및 원본 데이터 집합의 크기는 모두 쿼리 작업의 비용에 영향을 줍니다.
 
-모든 작업 (만들기, 업데이트 또는 삭제)의 오버 헤드를 측정 하려면 [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) `RequestCharge` `ResourceResponse\<T>` `FeedResponse\<T>` 작업에서 사용 하는 요청 단위 수를 측정 하려면 X-Y 요청 (또는 .net SDK의 또는 해당 하는 속성)을 검사 합니다.
+모든 작업 (만들기, 업데이트 또는 삭제)의 오버 헤드를 측정 하려면 [](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) `RequestCharge` `ResourceResponse\<T>` `FeedResponse\<T>` 작업에서 사용 하는 요청 단위 수를 측정 하려면 X-Y 요청 (또는 .net SDK의 또는 해당 하는 속성)을 검사 합니다.
 
 ```csharp
 // Measure the performance (Request Units) of writes

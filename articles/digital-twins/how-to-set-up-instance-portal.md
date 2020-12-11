@@ -7,13 +7,13 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperfq2
-ms.openlocfilehash: bd8fec0ae5b6ece1626049953b1f4afd3a581d97
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 90a425fe64424c946a02f3c113889b62b58fbeb4
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280599"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032323"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Azure Digital Twins 인스턴스 및 인증 설정 (포털)
 
@@ -41,10 +41,10 @@ ms.locfileid: "93280599"
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Azure Digital Twins 서비스 페이지에서 ' 만들기 ' 선택":::
 
 다음 *리소스 만들기* 페이지에서 아래 지정 된 값을 입력 합니다.
-* **구독** : 사용 중인 Azure 구독
-  - **리소스 그룹** : 인스턴스를 배포할 리소스 그룹입니다. 기존 리소스 그룹이 아직 없는 경우 *새로* 만들기 링크를 선택 하 고 새 리소스 그룹의 이름을 입력 하 여 여기에서 하나를 만들 수 있습니다.
-* **Location** : 배포를 위한 Azure Digital twins 지원 지역입니다. 지역별 지원에 대 한 자세한 내용은 [*지역별 사용 가능한 azure 제품 (Azure Digital Twins)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)을 참조 하세요.
-* **리소스 이름** : Azure Digital twins 인스턴스의 이름입니다. 새 인스턴스의 이름은 구독에 대 한 지역 내에서 고유 해야 합니다. 즉, 사용자가 선택한 이름을 이미 사용 하 고 있는 지역에 다른 Azure 디지털 Twins 인스턴스가 있는 경우 다른 이름을 선택 하 라는 메시지가 표시 됩니다.
+* **구독**: 사용 중인 Azure 구독
+  - **리소스 그룹**: 인스턴스를 배포할 리소스 그룹입니다. 기존 리소스 그룹이 아직 없는 경우 *새로* 만들기 링크를 선택 하 고 새 리소스 그룹의 이름을 입력 하 여 여기에서 하나를 만들 수 있습니다.
+* **Location**: 배포를 위한 Azure Digital twins 지원 지역입니다. 지역별 지원에 대 한 자세한 내용은 [*지역별 사용 가능한 azure 제품 (Azure Digital Twins)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)을 참조 하세요.
+* **리소스 이름**: Azure Digital twins 인스턴스의 이름입니다. 새 인스턴스의 이름은 구독에 대 한 지역 내에서 고유 해야 합니다. 즉, 사용자가 선택한 이름을 이미 사용 하 고 있는 지역에 다른 Azure 디지털 Twins 인스턴스가 있는 경우 다른 이름을 선택 하 라는 메시지가 표시 됩니다.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="설명 된 값을 입력 하 여 Azure Digital Twins 리소스 만들기":::
 
@@ -61,7 +61,7 @@ ms.locfileid: "93280599"
 >[!TIP]
 >인스턴스를 만든 후에는 Azure Portal 검색 표시줄에서 인스턴스 이름을 검색 하 여 언제 든 지 페이지로 돌아갈 수 있습니다.
 
-인스턴스의 *개요* 페이지에서 *이름* , *리소스 그룹* 및 *호스트 이름을* 확인 합니다. 이러한 값은 Azure Digital Twins 인스턴스 작업을 계속할 때 필요할 수 있는 모든 중요 한 값입니다. 다른 사용자가 인스턴스에 대 한 프로그래밍을 수행 하는 경우 이러한 값을 공유 해야 합니다.
+인스턴스의 *개요* 페이지에서 *이름*, *리소스 그룹* 및 *호스트 이름을* 확인 합니다. 이러한 값은 Azure Digital Twins 인스턴스 작업을 계속할 때 필요할 수 있는 모든 중요 한 값입니다. 다른 사용자가 인스턴스에 대 한 프로그래밍을 수행 하는 경우 이러한 값을 공유 해야 합니다.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="인스턴스의 개요 페이지에서 중요 한 값 강조 표시":::
 
@@ -76,9 +76,9 @@ ms.locfileid: "93280599"
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="' Access control (IAM) ' 페이지에서 역할 할당을 추가 하려면 선택 합니다.":::
 
 다음 *역할 할당 추가* 페이지에서 값을 입력 합니다 (Azure 구독에서 [충분 한 권한이](#prerequisites-permission-requirements) 있는 사용자가 완료 해야 함).
-* **역할** : 드롭다운 메뉴에서 *Azure Digital Twins 데이터 소유자* 를 선택 합니다.
-* **액세스 권한 할당** : 드롭다운 메뉴에서 *Azure AD 사용자, 그룹 또는 서비스 사용자를* 선택 합니다.
-* **선택** : 할당할 사용자의 이름 또는 전자 메일 주소를 검색 합니다. 결과를 선택 하면 사용자가 *선택한 구성원* 섹션에 표시 됩니다.
+* **역할**: 드롭다운 메뉴에서 *Azure Digital Twins 데이터 소유자* 를 선택 합니다.
+* **액세스 권한 할당**: 드롭다운 메뉴에서 *Azure AD 사용자, 그룹 또는 서비스 사용자를* 선택 합니다.
+* **선택**: 할당할 사용자의 이름 또는 전자 메일 주소를 검색 합니다. 결과를 선택 하면 사용자가 *선택한 구성원* 섹션에 표시 됩니다.
 
 :::row:::
     :::column:::

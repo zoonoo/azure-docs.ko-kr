@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 00b5d220cdbc511a309d55cfca2049508049fa30
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 0895e84363d40bdbf30408f2b2a0d95f951eb303
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549007"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032561"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 릴리스 정보
 
@@ -29,7 +29,7 @@ Azure HDInsight는 Azure에서 오픈 소스 분석을 위해 기업 고객들 �
 
 이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-## <a name="new-features"></a>새로운 기능
+## <a name="new-features"></a>새 기능
 ### <a name="auto-key-rotation-for-customer-managed-key-encryption-at-rest"></a>미사용 고객 관리 키 암호화에 대 한 자동 키 회전
 이 릴리스부터는 고객이 휴지 상태의 고객이 관리 하는 키 암호화를 위해 Azure KeyValut 버전 감소 암호화 키 Url을 사용할 수 있습니다. HDInsight는 키가 만료 되거나 새 버전으로 바뀔 때 자동으로 키를 회전 합니다. 자세한 내용은 [여기](./disk-encryption.md)를 참조하세요.
 
@@ -64,3 +64,18 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 
 ## <a name="component-version-change"></a>구성 요소 버전 변경
 이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](./hdinsight-component-versioning.md)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
+
+## <a name="known-issues"></a>알려진 문제
+### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>HDInsight 클러스터 Vm이 주기적으로 재부팅 되지 않도록 방지
+
+2020 년 11 월부터 시작 하 여 HDInsight 클러스터 Vm을 정기적으로 다시 부팅 하는 것을 알 수 있습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
+
+1.  Clamav는 클러스터에서 사용 하도록 설정 됩니다. 새 azsec-clamav 패키지는 노드 다시 부팅을 트리거하는 많은 양의 메모리를 사용 합니다. 
+2.  CRON 작업은 Azure 서비스에서 사용 하는 Ca (인증 기관)의 목록에 대 한 변경 내용을 모니터링 하는 매일 예약 됩니다. 새 CA 인증서를 사용할 수 있는 경우이 스크립트는 인증서를 JDK 신뢰 저장소에 추가 하 고 재부팅을 예약 합니다.
+
+HDInsight는 실행 중인 모든 클러스터에 대해 수정 사항을 배포 하 고 패치를 적용 하 여 두 문제를 해결 합니다. 수정 사항을 즉시 적용 하 고 예기치 않은 Vm 재부팅을 방지 하려면 모든 클러스터 노드에서 다음 스크립트 작업을 영구 스크립트 작업으로 실행할 수 있습니다. 수정 및 패치 완료 후 HDInsight에서 다른 알림을 게시 합니다.
+```
+https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
+https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
+```
+

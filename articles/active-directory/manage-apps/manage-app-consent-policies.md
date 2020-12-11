@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperfq2
-ms.openlocfilehash: 4368f20171da0c1896e642361578580b1d958296
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 3587beaeb788665c68c1fcb6376af40566b6c35e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659049"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032782"
 ---
 # <a name="manage-app-consent-policies"></a>앱 동의 정책 관리
 
@@ -130,7 +130,7 @@ ID가 "microsoft-"로 시작 하는 앱 승인 정책은 기본 제공 정책입
 
 다음 표에서는 앱 승인 정책에 대해 지원 되는 조건 목록을 제공 합니다.
 
-| 조건 | 설명|
+| 조건 | Description|
 |:---------------|:----------|
 | 대 여 분류 | 부여 되는 권한에 대 한 [사용 권한 분류](configure-permission-classifications.md) 이거나, 사용 권한 분류 (분류 되지 않은 사용 권한 포함)와 일치 하는 "모두"입니다. 기본값은 "all"입니다. |
 | 고 유형 | 부여 되는 사용 권한의 사용 권한 유형입니다. 응용 프로그램 사용 권한 (예: 앱 역할) 또는 위임 된 권한에 대해 "위임 됨"에 "응용 프로그램"을 사용 합니다. <br><br>**참고**: "delegatedUserConsentable" 값은 관리자 동의를 요구 하도록 API 게시자에서 구성 되지 않은 위임 된 사용 권한을 나타냅니다 .이 값은 기본 제공 권한 부여 정책에 사용 될 수 있지만 사용자 지정 권한 부여 정책에서는 사용할 수 없습니다. 필수 요소. |
