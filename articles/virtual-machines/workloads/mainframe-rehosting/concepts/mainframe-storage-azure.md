@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 9a3a7cad8399146834eed0282e0655a551bc083a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8f57210ff6b65ee3a893fb344a48629466e90004
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977275"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095358"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>메인프레임 저장소를 Azure로 이동
 
@@ -51,7 +51,7 @@ Azure storage는 다음 표에 요약 된 것 처럼 azure [디스크](../../../
 
 <table>
 <thead>
-    <tr><th>유형</th><th>Description</th><th>다음을 수행 하려는 경우를 사용 합니다.</th></tr>
+    <tr><th>형식</th><th>Description</th><th>다음을 수행 하려는 경우를 사용 합니다.</th></tr>
 </thead>
 <tbody>
 <tr><td>Azure 파일
@@ -94,7 +94,7 @@ Azure storage는 다음 표에 요약 된 것 처럼 azure [디스크](../../../
 
 Ssd는 Azure에서 가장 높은 저장소 성능을 제공 합니다. 이 문서를 작성할 때 사용할 수 있는 옵션은 다음과 같습니다.
 
-| 유형         | 크기           | IOPS                  |
+| 형식         | 크기           | IOPS                  |
 |--------------|----------------|-----------------------|
 | 울트라 SSD    | 4gb ~ 64 TB  | 1200 ~ 16만 IOPS |
 | 프리미엄 SSD  | 32 g b-32 TB | 12 ~ 15000 IOPS     |
@@ -127,4 +127,4 @@ Blob 저장소는 Azure에서 가장 큰 저장소 용량을 제공 합니다. �
 ### <a name="more-migration-resources"></a>추가 마이그레이션 리소스
 
 - [Azure Virtual Data Center 리프트 앤 시프트 가이드](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
-- [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)
+- [GlusterFS iSCSI](https://glusterdocs.readthedocs.io/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

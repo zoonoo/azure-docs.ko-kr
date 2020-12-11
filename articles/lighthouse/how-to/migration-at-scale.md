@@ -3,12 +3,12 @@ title: Azure Migrate를 사용 하 여 대규모 마이그레이션 프로젝트
 description: 위임 된 고객 리소스에 대 한 Azure Migrate를 효과적으로 사용 하는 방법을 알아봅니다.
 ms.date: 12/4/2020
 ms.topic: how-to
-ms.openlocfilehash: d1a01149c80b30f279f7d68551946c3ffe404d5e
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 16b92f3aa4dc3bfcb71eb232170c4df30348f8db
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621572"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095392"
 ---
 # <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Azure Migrate를 사용 하 여 대규모 마이그레이션 프로젝트 관리
 
@@ -39,7 +39,7 @@ Azure Lighthouse를 사용할 때 한 가지 옵션은 고객 테 넌 트에 Azu
 이 모델에 대 한 워크플로는 다음과 유사 합니다.
 
 1. 고객은 [Azure Lighthouse로 등록](onboard-customer.md)됩니다. Azure Migrate와 함께 사용 될 id에는 참가자 기본 제공 역할이 필요 합니다. 이 역할을 사용 하는 예제는 [위임 된 azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) 샘플 템플릿을 참조 하세요.
-1. 지정 된 사용자가 Azure Portal에서 관리 하는 테 넌 트에 로그인 한 다음 Azure Migrate로 이동 합니다. 이 사용자는 적절 한 위임 된 고객 구독을 선택 하 여 [Azure Migrate 프로젝트를 만듭니다](/migrate/create-manage-projects.md).
+1. 지정 된 사용자가 Azure Portal에서 관리 하는 테 넌 트에 로그인 한 다음 Azure Migrate로 이동 합니다. 이 사용자는 적절 한 위임 된 고객 구독을 선택 하 여 [Azure Migrate 프로젝트를 만듭니다](/azure/migrate/create-manage-projects).
 1. 사용자는 [검색 및 평가를 위한 단계를 수행](../../migrate/tutorial-discover-vmware.md)합니다.
 
    VMware Vm의 경우 어플라이언스를 구성 하기 전에 검색을 vCenter Server 데이터 센터, 클러스터, 클러스터, 호스트, 호스트 폴더 또는 개별 Vm으로 제한할 수 있습니다. 범위를 설정 하려면 어플라이언스에서 vCenter Server 액세스 하는 데 사용 하는 계정에 대 한 사용 권한을 할당 합니다. 이는 여러 고객의 Vm이 하이퍼바이저에서 호스트 되는 경우에 유용 합니다. Hyper-v의 검색 범위는 제한할 수 없습니다.
@@ -61,7 +61,7 @@ Azure Lighthouse를 사용할 때 한 가지 옵션은 고객 테 넌 트에 Azu
 이 모델에 대 한 워크플로는 다음과 유사 합니다.
 
 1. 고객은 [Azure Lighthouse로 등록](onboard-customer.md)됩니다. Azure Migrate와 함께 사용 될 id에는 참가자 기본 제공 역할이 필요 합니다. 이 역할을 사용 하는 예제는 [위임 된 azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) 샘플 템플릿을 참조 하세요.
-1. 지정 된 사용자가 Azure Portal에서 관리 하는 테 넌 트에 로그인 한 다음 Azure Migrate로 이동 합니다. 이 사용자는 관리 테 넌 트에 속하는 구독에 [Azure Migrate 프로젝트를 만듭니다](/migrate/create-manage-projects.md) .
+1. 지정 된 사용자가 Azure Portal에서 관리 하는 테 넌 트에 로그인 한 다음 Azure Migrate로 이동 합니다. 이 사용자는 관리 테 넌 트에 속하는 구독에 [Azure Migrate 프로젝트를 만듭니다](/azure/migrate/create-manage-projects) .
 1. 사용자는 [검색 및 평가를 위한 단계를 수행](../../migrate/tutorial-discover-vmware.md)합니다. 온-프레미스 Vm은 관리 테 넌 트에서 생성 된 마이그레이션 프로젝트 내에서 검색 되 고 평가 된 후 여기에서 마이그레이션됩니다.
 
    동일한 Hyper-v 호스트에서 여러 고객을 관리 하는 경우 모든 워크 로드를 한 번에 검색할 수 있습니다. 특정 고객의 Vm을 동일한 그룹에서 선택할 수 있으며, 평가를 만들 수 있으며, 적절 한 고객의 구독을 대상 대상으로 선택 하 여 마이그레이션을 수행할 수 있습니다. 검색 범위를 제한 하지 않아도 되며, 하나의 마이그레이션 프로젝트에서 모든 고객 작업에 대 한 전체 개요를 유지할 수 있습니다.

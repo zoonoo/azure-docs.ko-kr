@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2cff67dde7cfe9e015cd25b26811410ce6e686e9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e9c18a50a95b98fe7907fb244acbb11c666104a6
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462543"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094933"
 ---
 # <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server의 성능 지침
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,7 +42,7 @@ Azure Virtual Machines에서 SQL Server를 실행 하는 동안 온-프레미스
 
 | 영역 | 최적화 |
 | --- | --- |
-| [VM 크기](#vm-size-guidance) | - [Standard_M8-4ms](/../../virtual-machines/m-series), [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series), [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) 이상 등 4 개 이상의 vcpu가 포함 된 VM 크기를 사용 합니다. <br/><br/> -메모리 액세스에 [최적화](../../../virtual-machines/sizes-memory.md) 된 가상 머신 크기를 사용 하 여 SQL Server 워크 로드의 성능을 극대화 합니다. <br/><br/> - [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) 시리즈, [M-](../../../virtual-machines/m-series.md)및 [Mv2](../../../virtual-machines/mv2-series.md) 시리즈는 OLTP 워크 로드에 필요한 최적의 메모리-vcore 비율을 제공 합니다. M 시리즈 Vm은 업무에 중요 한 워크 로드에 필요한 메모리-vCore의 최고 비율을 제공 하며, 데이터 웨어하우스 워크 로드에도 적합 합니다. <br/><br/> -중요 업무용 및 데이터 웨어하우스 워크 로드에 대해 더 높은 메모리-vCore 비율이 필요할 수 있습니다. <br/><br/> -SQL Server 설정 및 저장소 옵션이 최적의 SQL Server 성능을 위해 구성 되어 있으므로 Azure Virtual Machine marketplace 이미지를 활용 합니다. <br/><br/> -대상 워크 로드의 성능 특성을 수집 하 고이를 사용 하 여 비즈니스에 적합 한 VM 크기를 결정 합니다.|
+| [VM 크기](#vm-size-guidance) | - [Standard_M8-4ms](/azure/virtual-machines/m-series), [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series), [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) 이상 등 4 개 이상의 vcpu가 포함 된 VM 크기를 사용 합니다. <br/><br/> -메모리 액세스에 [최적화](../../../virtual-machines/sizes-memory.md) 된 가상 머신 크기를 사용 하 여 SQL Server 워크 로드의 성능을 극대화 합니다. <br/><br/> - [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) 시리즈, [M-](/azure/virtual-machines/m-series)및 [Mv2](../../../virtual-machines/mv2-series.md) 시리즈는 OLTP 워크 로드에 필요한 최적의 메모리-vcore 비율을 제공 합니다. M 시리즈 Vm은 업무에 중요 한 워크 로드에 필요한 메모리-vCore의 최고 비율을 제공 하며, 데이터 웨어하우스 워크 로드에도 적합 합니다. <br/><br/> -중요 업무용 및 데이터 웨어하우스 워크 로드에 대해 더 높은 메모리-vCore 비율이 필요할 수 있습니다. <br/><br/> -SQL Server 설정 및 저장소 옵션이 최적의 SQL Server 성능을 위해 구성 되어 있으므로 Azure Virtual Machine marketplace 이미지를 활용 합니다. <br/><br/> -대상 워크 로드의 성능 특성을 수집 하 고이를 사용 하 여 비즈니스에 적합 한 VM 크기를 결정 합니다.|
 | [스토리지](#storage-guidance) | -Azure Virtual Machines에서 SQL Server 성능에 대 한 자세한 테스트 및 TPC_C 벤치 마크에 대 한 자세한 내용은 [OLTP 성능 최적화](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794)블로그를 참조 하세요. <br/><br/> - 최고의 가격/성능 이점을 위해 [프리미엄 SSD](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794)를 사용합니다. 데이터 파일에 대 한 [읽기 전용 캐시](../../../virtual-machines/premium-storage-performance.md#disk-caching) 를 구성 하 고 로그 파일에 대 한 캐시는 구성 하지 않습니다. <br/><br/> -작업에 1 밀리초 미만의 저장소 대기 시간이 필요한 경우에는 [Ultra Disks](../../../virtual-machines/disks-types.md#ultra-disk) 를 사용 합니다. 자세히 알아보려면 [ultra 디스크로 마이그레이션](storage-migrate-to-ultradisk.md) 을 참조 하세요. <br/><br/> - 디스크 유형을 선택하기 전에 [애플리케이션을 모니터링](../../../virtual-machines/premium-storage-performance.md#application-performance-requirements-checklist)하여 SQL Server 데이터, 로그 및 임시 DB 파일의 스토리지 대기 시간 요구 사항을 수집합니다. 1 밀리초의 저장소 대기 시간이 필요한 < 경우에는 울트라 디스크를 사용 하 고 그렇지 않으면 프리미엄 SSD를 사용 합니다. 짧은 대기 시간이 로그 파일에만 필요하고 데이터 파일에는 필요하지 않은 경우 로그 파일에 대해서만 필요한 IOPS 및 처리량 수준에서 [Ultra Disk를 프로비저닝](../../../virtual-machines/disks-enable-ultra-ssd.md)합니다. <br/><br/>  - 표준 스토리지는 개발 및 테스트 용도나 백업 파일에만 권장되며 프로덕션 워크로드에는 사용하면 안 됩니다. <br/><br/> - [스토리지 계정](../../../storage/common/storage-account-create.md)과 SQL Server VM을 동일한 Azure 지역에 유지합니다.<br/><br/> - 스토리지 계정의 Azure [지역 중복 스토리지](../../../storage/common/storage-redundancy.md)(지역에서 복제)를 사용하지 않도록 설정합니다.  |
 | [디스크](#disks-guidance) | - 최소 2개의 [프리미엄 SSD 디스크](../../../virtual-machines/disks-types.md#premium-ssd)를 사용합니다(로그 파일용 1개 및 데이터 파일용 1개). <br/><br/> -1 밀리초 IO 대기 시간 < 필요한 워크 로드의 경우 M 시리즈에 대해 write accelerator를 사용 하도록 설정 하 고 Es 및 DS 시리즈에 대해 울트라 SSD 디스크를 사용 하는 것이 좋습니다 <br/><br/> - 데이터 파일을 호스트하는 디스크에서 [읽기 전용 캐싱](../../../virtual-machines/premium-storage-performance.md#disk-caching)을 사용하도록 설정합니다.<br/><br/> - [SQL Server 데이터, 로그 및 TempDB 파일에 대 한 저장소를 구성할](storage-configuration.md) 때 워크 로드에 필요한 것 보다 20% 프리미엄 IOPS/처리량 용량을 추가 합니다. <br/><br/> - 운영 체제 또는 임시 디스크를 데이터베이스 저장 또는 로깅에 사용하지 마세요.<br/><br/> - 로그 파일을 호스팅하는 디스크에서 캐싱을 사용하지 마세요.  **중요**: Azure Virtual Machines 디스크에 대 한 캐시 설정을 변경 하는 경우 SQL Server 서비스를 중지 합니다.<br/><br/> - 스토리지 처리량이 증가하도록 여러 Azure 데이터 디스크를 스트라이프합니다.<br/><br/> - 문서화된 할당 크기로 포맷합니다. <br/><br/> - TempDB는 중요 업무를 위한 SQL Server 워크로드용 로컬 SSD `D:\` 드라이브에 넣습니다(올바른 VM 크기를 선택한 후). Azure Portal 또는 Azure 빠른 시작 템플릿에서 VM을 만들고 [임시 DB를 로컬 디스크에 저장](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583)하는 경우에는 추가 작업이 필요 하지 않습니다. 다른 모든 경우에는를 다시 시작한 후 오류를 방지 하기 위해  [ssd를 사용 하 여 TempDB를 저장](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-TempDB-and-buffer-pool-extensions/) 하기 위한 블로그의 단계를 따르세요. 로컬 드라이브의 용량이 임시 DB 크기에 충분하지 않은 경우 [읽기 전용 캐싱](../../../virtual-machines/premium-storage-performance.md#disk-caching)을 사용하여 프리미엄 SSD 디스크에 [스트라이프된](../../../virtual-machines/premium-storage-performance.md) 스토리지 풀에 임시 DB를 넣습니다. |
 | [I/O](#io-guidance) |- 데이터베이스 페이지 압축을 사용하도록 설정합니다.<br/><br/> - 데이터 파일에 즉시 파일 초기화를 사용하도록 설정합니다.<br/><br/> - 데이터베이스의 자동 확장을 제한합니다.<br/><br/> - 데이터베이스의 자동 축소를 해제합니다.<br/><br/> - 시스템 데이터베이스를 포함하여 모든 데이터베이스를 데이터 디스크로 이동합니다.<br/><br/> - SQL Server 오류 로그 및 추적 파일 디렉터리를 데이터 디스크로 이동합니다.<br/><br/> - 기본 백업 및 데이터베이스 파일 위치를 구성합니다.<br/><br/> - [메모리에 잠긴 페이지를 사용하도록 설정합니다](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows).<br/><br/> -설치 된 SQL Server 버전에 대 한 [최신 누적 업데이트](/sql/database-engine/install-windows/latest-updates-for-microsoft-sql-server) 를 평가 하 고 적용 합니다. |
@@ -82,11 +82,11 @@ Azure VM에 새 SQL Server를 만들고 현재 원본 시스템을 마이그레�
 
 #### <a name="m-and-mv2-series"></a>M 및 Mv2 시리즈
 
-[M 시리즈](../../../virtual-machines/m-series.md) 는 가장 큰 SQL Server 워크 로드 중 일부에 대 한 vcore 개수와 메모리를 제공 합니다.  
+[M 시리즈](/azure/virtual-machines/m-series) 는 가장 큰 SQL Server 워크 로드 중 일부에 대 한 vcore 개수와 메모리를 제공 합니다.  
 
 [Mv2 시리즈](../../../virtual-machines/mv2-series.md) 는 최고 vcore 수 및 메모리를 포함 하 고 있으며 중요 업무용 및 데이터 웨어하우스 워크 로드에 권장 됩니다. Mv2 시리즈 인스턴스는 관계형 데이터베이스 서버, 큰 캐시 및 메모리 내 분석에 적합 한 메모리 내 대규모 데이터베이스와 워크 로드에 대 한 높은 메모리와 CPU의 비율을 지원 하기 위해 뛰어난 계산 성능을 제공 하는 메모리 액세스에 최적화 된 VM 크기입니다.
 
-예를 들어 [Standard_M64ms](../../../virtual-machines/m-series.md) 는 28 메모리-vcore 비율을 갖습니다.
+예를 들어 [Standard_M64ms](/azure/virtual-machines/m-series) 는 28 메모리-vcore 비율을 갖습니다.
 
 M 및 Mv2 SQL Server 시리즈의 기능 중 일부에는 [premium storage](../../../virtual-machines/premium-storage-performance.md) 및 [premium storage 캐싱](../../../virtual-machines/premium-storage-performance.md#disk-caching) 지원, [울트라 디스크](../../../virtual-machines/disks-enable-ultra-ssd.md) 지원 및 [쓰기 가속이](../../../virtual-machines/how-to-enable-write-accelerator.md)포함 됩니다.
 
@@ -192,7 +192,7 @@ VCPU 수는 원래 VM 크기의 1/2 ~ 1 사분기로 제한 될 수 있습니다
 
 이러한 새 VM 크기에는 더 쉽게 식별할 수 있도록 활성 vCPUs 수를 지정 하는 접미사가 있습니다. 
 
-예를 들어 [M64](../../../virtual-machines/constrained-vcpu.md) 에는 [M64ms](../../../virtual-machines/m-series.md) 의 메모리, IO 및 처리량을 포함 하는 vcores 32 SQL Server vcores가 필요 하 고 [M64-16ms](../../../virtual-machines/constrained-vcpu.md) 에는 16 개 vcores만 라이선스를 요구 합니다.  [M64-16ms](../../../virtual-machines/constrained-vcpu.md) 에는 M64ms의 SQL Server 라이선스 비용에 대 한 분기가 있지만 가상 머신의 계산 비용은 동일 합니다.
+예를 들어 [M64](../../../virtual-machines/constrained-vcpu.md) 에는 [M64ms](/azure/virtual-machines/m-series) 의 메모리, IO 및 처리량을 포함 하는 vcores 32 SQL Server vcores가 필요 하 고 [M64-16ms](../../../virtual-machines/constrained-vcpu.md) 에는 16 개 vcores만 라이선스를 요구 합니다.  [M64-16ms](../../../virtual-machines/constrained-vcpu.md) 에는 M64ms의 SQL Server 라이선스 비용에 대 한 분기가 있지만 가상 머신의 계산 비용은 동일 합니다.
 
 > [!NOTE] 
 > - 중간에서 대규모 데이터 웨어하우스 워크 로드는 제약이 있는 [vCore vm](../../../virtual-machines/constrained-vcpu.md)을 활용할 수 있지만, 데이터 웨어하우스 워크 로드는 병렬 실행 되는 쿼리 계획을 통해 더 많은 양의 데이터를 처리 하는 더 작은 사용자 및 프로세스에 의해 일반적으로 특징을 갖습니다. 

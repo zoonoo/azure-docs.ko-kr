@@ -944,8 +944,6 @@
               href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: 디스크 벤치마크
               href: disks-benchmarks.md
-            - name: 성능 최적화
-              href: optimization.md
         - name: 연결되지 않은 디스크 찾기 - CLI
           href: find-unattached-disks.md
         - name: 연결되지 않은 디스크 찾기 - 포털

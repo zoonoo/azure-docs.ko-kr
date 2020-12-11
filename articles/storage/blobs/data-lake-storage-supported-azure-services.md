@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 66efc02990c958ba056b6e678cdbf2815f10078c
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3d3fb983f5e55f8b262be0925c2138b465413fc3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600390"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095409"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2를 지원하는 Azure 서비스
 
@@ -41,10 +41,10 @@ Azure 서비스를 사용 하 여 데이터를 수집 하 고 분석을 수행 �
 |Power BI|일반 공급|예|예|[Power BI를 사용 하 여 Data Lake Storage Gen2 데이터 분석](/power-query/connectors/datalakestorage)|
 |Azure Synapse Analytics(이전의 SQL Data Warehouse)|일반 공급|예|예|[Azure Synapse Analytics와 함께 사용](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |SSIS(SQL Server Integration Services)|일반 공급|예|예|[Azure Storage 연결 관리자](/sql/integration-services/connection-manager/azure-storage-connection-manager)|
-|Azure Data Explorer|일반 공급|예|예|[Azure 데이터 탐색기를 사용 하 여 Azure Data Lake에서 데이터 쿼리](/azure/data-explorer/data-lake-query-data)|
+|Azure Data Explorer|일반 공급|예|예|[Azure Data Lake에서 Azure Data Explorer를 사용하여 데이터 쿼리](/azure/data-explorer/data-lake-query-data)|
 |Azure Cognitive Search|미리 보기|예|예|[문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](../../search/search-howto-index-azure-data-lake-storage.md)|
-|Azure Content Delivery Network|아직 지원되지 않음|해당 사항 없음|해당 사항 없음|[문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](../../cdn/cdn-overview.md)|
-|Azure SQL Database|아직 지원되지 않음|해당 사항 없음|해당 사항 없음|[Azure SQL Database란?](/azure/azure-sql/database/sql-database-paas-overview.md)|
+|Azure Content Delivery Network|아직 지원되지 않음|해당 없음|해당 없음|[문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](../../cdn/cdn-overview.md)|
+|Azure SQL Database|아직 지원되지 않음|해당 없음|해당 없음|[Azure SQL Database란?](/azure/azure-sql/database/sql-database-paas-overview)|
 
 ## <a name="see-also"></a>참고 항목
 

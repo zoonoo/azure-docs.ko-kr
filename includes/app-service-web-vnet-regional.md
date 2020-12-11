@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 963f0698b921caa413c61059ad69284c41b4f265
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 86d4eb68866e35300738a15cbd3549485c3cbafb
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999449"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97096349"
 ---
 지역 VNet 통합을 사용 하면 앱이 다음에 액세스할 수 있습니다.
 
@@ -96,7 +96,17 @@ BGP (Border Gateway Protocol) 경로도 앱 트래픽에 영향을 줍니다. Ex
 
 ### <a name="azure-dns-private-zones"></a>Azure DNS Private Zones 
 
-앱이 VNet과 통합 되 면 VNet이 구성 된 것과 동일한 DNS 서버를 사용 합니다. 원하는 DNS 서버의 주소를 사용 하 여 앱 설정을 WEBSITE_DNS_SERVER 구성 하 여 앱에서이 동작을 재정의할 수 있습니다. VNet을 사용 하 여 구성 된 사용자 지정 DNS 서버가 있지만 앱에서 전용 영역 Azure DNS 사용 하 게 하려는 경우에는 168.63.129.16 값을 사용 하 여 WEBSITE_DNS_SERVER를 설정 해야 합니다. 
+앱이 VNet과 통합 되 면 VNet이 구성 된 것과 동일한 DNS 서버를 사용 합니다. 기본적으로 앱은 Azure DNS Private Zones에서 작동 하지 않습니다. Azure DNS Private Zones를 사용 하려면 다음 앱 설정을 추가 해야 합니다.
+
+
+1. 값 168.63.129.16 1을 사용 하 여 WEBSITE_DNS_SERVER 합니다. WEBSITE_DNS_SERVER 값 168.63.129.16
+1. 값 1 1를 사용 하 여 WEBSITE_VNET_ROUTE_ALL 합니다. 값 1로 WEBSITE_VNET_ROUTE_ALL
+
+
+이러한 설정은 앱에서 Azure DNS 전용 영역을 사용 하도록 설정 하는 것 외에도 앱의 모든 아웃 바운드 호출을 VNet으로 보냅니다.   이러한 설정은 앱에서 VNet으로 모든 아웃 바운드 호출을 보냅니다. 또한 작업자 수준에서 사설 DNS 영역을 쿼리하여 앱이 Azure DNS를 사용할 수 있도록 합니다. 이 기능은 실행 중인 응용 프로그램이 사설 DNS 영역에 액세스할 때 사용 됩니다.
+
+> [!NOTE]
+>VNET 통합 사설 DNS 영역을 사용 하 여 웹 앱에 사용자 지정 도메인을 추가 하려는 시도는 불가능 합니다. 사용자 지정 도메인 유효성 검사는 작업자 수준이 아니라 컨트롤러 수준에서 수행 되며,이로 인해 DNS 레코드가 표시 되지 않습니다. 사설 DNS 영역에서 사용자 지정 도메인을 사용 하려면 Application Gateway 또는 ILB App Service Environment를 사용 하 여 유효성 검사를 무시 해야 합니다.
 
 ### <a name="private-endpoints"></a>프라이빗 엔드포인트
 

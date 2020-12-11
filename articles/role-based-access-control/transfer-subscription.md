@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/06/2020
+ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: ad0ba3c63f6f0ef6e7e02051031cf215c2e72cce
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 92b27690ab1f2ca8d98eb2231c5a27bc508613f8
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648245"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095426"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Azure 구독을 다른 Azure AD 디렉터리에 전송
 
@@ -53,7 +53,12 @@ ms.locfileid: "94648245"
 - 비즈니스의 일부가 별도의 회사로 분할 되었으며 일부 리소스를 다른 Azure AD 디렉터리로 이동 해야 합니다.
 - 보안 격리를 위해 다른 Azure AD 디렉터리에서 일부 리소스를 관리 하려고 합니다.
 
-구독을 전송 하려면 프로세스가 완료 될 때까지 가동 중지 시간이 필요 합니다. 시나리오에 따라 리소스를 다시 만들고 대상 디렉터리 및 구독에 데이터를 복사 하는 것이 더 좋을 수 있습니다.
+### <a name="alternate-approaches"></a>대체 방법
+
+구독을 전송 하려면 프로세스가 완료 될 때까지 가동 중지 시간이 필요 합니다. 시나리오에 따라 다음과 같은 대체 방법을 고려할 수 있습니다.
+
+- 리소스를 다시 만들고 대상 디렉터리 및 구독에 데이터를 복사 합니다.
+- 다중 디렉터리 아키텍처를 채택 하 고 원본 디렉터리에 구독을 유지 합니다. 대상 디렉터리의 사용자가 원본 디렉터리의 구독에 액세스할 수 있도록 Azure Lighthouse를 사용 하 여 리소스를 위임 합니다. 자세한 내용은 [엔터프라이즈 시나리오의 Azure Lighthouse](../lighthouse/concepts/enterprise.md)를 참조 하세요.
 
 ### <a name="understand-the-impact-of-transferring-a-subscription"></a>구독 전송의 영향 이해
 
@@ -83,7 +88,7 @@ ms.locfileid: "94648245"
 > [!WARNING]
 > 전송 중인 동일한 구독에 **없는** key vault에 대 한 종속성이 있는 리소스 (예: 저장소 계정 또는 SQL 데이터베이스)에 미사용 암호화를 사용 하는 경우 복구할 수 없는 시나리오가 발생할 수 있습니다. 이러한 상황이 발생 하는 경우 다른 키 자격 증명 모음을 사용 하거나 고객이 관리 하는 키를 일시적으로 사용 하지 않도록 설정 하 여이 복구할 수 없는 시나리오를 방지 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 단계를 완료 하려면 다음이 필요 합니다.
 
@@ -314,7 +319,7 @@ ms.locfileid: "94648245"
 
 1. 시스템 할당 관리 id를 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 합니다.
 
-    | Azure 서비스 | 추가 정보 | 
+    | Azure 서비스 | 자세한 정보 | 
     | --- | --- |
     | 가상 머신 | [Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#system-assigned-managed-identity) |
     | 가상 머신 크기 집합 | [Azure CLI를 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
@@ -330,7 +335,7 @@ ms.locfileid: "94648245"
 
 1. 사용자 할당 관리 id를 삭제 하 고, 다시 만들고, 연결 합니다.
 
-    | Azure 서비스 | 추가 정보 | 
+    | Azure 서비스 | 자세한 정보 | 
     | --- | --- |
     | 가상 머신 | [Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) |
     | 가상 머신 크기 집합 | [Azure CLI를 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
@@ -383,3 +388,4 @@ ms.locfileid: "94648245"
 - [Azure 구독의 청구 소유권을 다른 계정에 양도](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [구독자와 CSP 간에 Azure 구독 전송](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)
 - [Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [엔터프라이즈 시나리오의 Azure Lighthouse](../lighthouse/concepts/enterprise.md)

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: 1dd40756c05370d32b26c0a97ba23d0d7d7f1208
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c13f3e2e4e5ee6fb60f6691abe8164e9e7a03712
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902377"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094661"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage에서 데이터 복사 및 변환
 
@@ -284,7 +284,7 @@ Azure Storage 인증에 대 한 일반 정보는 [Azure Active Directory를 사�
     - **싱크로** **액세스 제어 (IAM)** 에서 적어도 **저장소 Blob 데이터 참가자** 역할을 부여 합니다.
 
 >[!IMPORTANT]
->PolyBase 또는 COPY 문을 사용 하 여 Blob 저장소 (원본 또는 스테이징)에서 Azure Synapse Analytics로 데이터를 로드 하는 경우 Blob storage에 관리 되는 id 인증을 사용 하는 경우 [이 가이드](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)의 1 ~ 3 단계를 수행 해야 합니다. 이러한 단계에서는 서버를 Azure AD에 등록 하 고 저장소 Blob 데이터 참가자 역할을 서버에 할당 합니다. Data Factory 나머지를 처리 합니다. Azure Virtual Network 끝점을 사용 하 여 Blob storage를 구성 하는 경우 Synapse에서 요구 하는 Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **이 저장소 계정에 액세스할 수 있도록 신뢰할 수 있는 Microsoft 서비스가** 설정 되어 있어야 합니다.
+>PolyBase 또는 COPY 문을 사용 하 여 Blob 저장소 (원본 또는 스테이징)에서 Azure Synapse Analytics로 데이터를 로드 하는 경우 Blob storage에 관리 되는 id 인증을 사용 하는 경우 [이 가이드](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)의 1 ~ 3 단계를 수행 해야 합니다. 이러한 단계에서는 서버를 Azure AD에 등록 하 고 저장소 Blob 데이터 참가자 역할을 서버에 할당 합니다. Data Factory 나머지를 처리 합니다. Azure Virtual Network 끝점을 사용 하 여 Blob storage를 구성 하는 경우 Synapse에서 요구 하는 Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **이 저장소 계정에 액세스할 수 있도록 신뢰할 수 있는 Microsoft 서비스가** 설정 되어 있어야 합니다.
 
 Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 

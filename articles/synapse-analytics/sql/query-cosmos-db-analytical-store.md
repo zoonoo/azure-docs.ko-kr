@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 129534727248ff05b5d38da60dead7903d9a5815
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 22103ad580fa474f44eaf42c696d19bbbd137c8e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744468"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095103"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Azure Synapse Link Preview에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB 데이터 쿼리
 
@@ -222,7 +222,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-`OPENROWSET`성능에 영향을 줄 수 있으므로 명시적으로 정의 하지 않은 스키마를 사용 하지 마세요. 열에 사용할 수 있는 최소 크기를 사용 해야 합니다 (예: 기본 VARCHAR (8000) 대신 VARCHAR (100)). Utf-8 [변환 문제](/troubleshoot/reading-utf8-text)를 방지 하려면 utf-8 데이터 정렬을 기본 데이터베이스 데이터 정렬로 사용 하거나 명시적 열 데이터 정렬로 설정 해야 합니다. `Latin1_General_100_BIN2_UTF8`데이터 정렬은 yu에서 일부 문자열 열을 사용 하 여 데이터를 필터링 할 때 최상의 성능을 제공 합니다.
+`OPENROWSET`성능에 영향을 줄 수 있으므로 명시적으로 정의 하지 않은 스키마를 사용 하지 마세요. 열에 사용할 수 있는 최소 크기를 사용 해야 합니다 (예: 기본 VARCHAR (8000) 대신 VARCHAR (100)). Utf-8 [변환 문제](/azure/synapse-analytics/troubleshoot/reading-utf8-text)를 방지 하려면 utf-8 데이터 정렬을 기본 데이터베이스 데이터 정렬로 사용 하거나 명시적 열 데이터 정렬로 설정 해야 합니다. `Latin1_General_100_BIN2_UTF8`데이터 정렬은 yu에서 일부 문자열 열을 사용 하 여 데이터를 필터링 할 때 최상의 성능을 제공 합니다.
 
 ## <a name="query-nested-objects-and-arrays"></a>중첩 된 개체 및 배열 쿼리
 

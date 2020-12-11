@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: d889c82142cda60b920f7b29bd91755cbc34f525
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 48ff32655b107958a3e8e42dbd7de0f405a6fffa
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701452"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094865"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 액세스 제어
 
@@ -33,8 +33,6 @@ Azure Data Lake Storage Gen1은 HDFS에서 파생된 액세스 제어 모델을 
 
 
 액세스 ACL 및 기본 ACL은 모두 구조가 동일합니다.
-
-
 
 > [!NOTE]
 > 부모 항목에서 기본 ACL을 변경하면 이미 존재하는 자식 항목의 액세스 ACL 또는 기본 ACL에 적용되지 않습니다.
@@ -71,10 +69,10 @@ Data Lake Storage Gen1에서 사용하는 POSIX 스타일 모델에서 항목에
 
 Data Lake Storage Gen1 계정에서 특정 작업을 수행하는 데 필요한 권한을 이해하는 데 도움이 되는 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
-| 작업(Operation) | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
+| 연산 | 개체              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | 읽기      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| 추가 | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| 추가 | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `-W-`          |
 | 삭제    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | 만들기    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | 목록      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
@@ -301,6 +299,6 @@ Azure Portal에서 **Azure Active Directory > 엔터프라이즈 응용 프로�
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Linux에서 액세스 제어 목록을 사용 하는 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)

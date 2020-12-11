@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 11/05/2020
 ms.author: alkohli
-ms.openlocfilehash: 0aaad18ba5bf98ca2ad53bd86605dfc6cce3e52c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cf70b24dae70ad2e64f3443e4c4d959d46fb4ea4
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467149"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095035"
 ---
 # <a name="use-compute-acceleration-on-azure-stack-edge-pro-gpu-for-kubernetes-deployment"></a>Kubernetes 배포에 대 한 Azure Stack Edge Pro GPU에서 계산 가속 사용
 
@@ -28,8 +28,8 @@ CPU (중앙 처리 장치)는 컴퓨터에서 실행 되는 대부분의 프로�
 
 이 문서에서는 다음 장치에 대해 GPU 또는 VPU를 사용 하는 경우에만 계산 가속을 설명 합니다.
 
-- **Azure Stack Edge PRO gpu** -이러한 장치는 1 또는 2 Nvidia T4 텐서 Core GPU를 사용할 수 있습니다. 자세한 내용은 [NVIDIA T4](https://www.nvidia.com/data-center/tesla-t4/)를 참조 하세요.
-- **Azure Stack Edge Pro r** -이러한 장치에는 1 개의 Nvidia T4 텐서 Core GPU가 있습니다. 자세한 내용은 [NVIDIA T4](https://www.nvidia.com/data-center/tesla-t4/)를 참조 하세요.
+- **Azure Stack Edge PRO gpu** -이러한 장치는 1 또는 2 Nvidia T4 텐서 Core GPU를 사용할 수 있습니다. 자세한 내용은 [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/)를 참조 하세요.
+- **Azure Stack Edge Pro r** -이러한 장치에는 1 개의 Nvidia T4 텐서 Core GPU가 있습니다. 자세한 내용은 [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/)를 참조 하세요.
 - **Azure Stack Edge 미니 R** -이러한 장치에는 하나의 Intel Movidius 방대한 X VPU이 있습니다. 자세한 내용은 [Intel Movidius 방대한 X VPU](https://www.movidius.com/MyriadX)를 참조 하세요.
 
 

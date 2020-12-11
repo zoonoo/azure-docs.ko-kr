@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 4f1aceed7e6a41a8ad4f3a062f23a796e31e34ad
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 1b95b1e96dc26fb72338518fc969c69b035d5f68
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601682"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095239"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure App Service 및 Azure Functions의 인증 및 권한 부여
 
@@ -150,8 +150,9 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 > [!NOTE]
 > 기본적으로 Azure AD 테 넌 트의 모든 사용자는 Azure AD에서 응용 프로그램에 대 한 토큰을 요청할 수 있습니다. 앱에 대 한 액세스를 정의 된 사용자 집합으로 제한 하려는 경우 [AZURE AD에서 응용 프로그램을 구성할](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) 수 있습니다.
 
-## <a name="more-resources"></a>추가 리소스
+## <a name="more-resources"></a>기타 참고 자료
 
+* [자습서: Azure Storage 및 Microsoft Graph에 액세스 하는 웹 앱에서 사용자 인증 및 권한 부여](scenario-secure-app-authentication-app-service.md)
 * [자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여(Windows)](tutorial-auth-aad.md)  
 * [자습서: Azure App Service에서 Linux용 엔드투엔드 사용자 인증 및 권한 부여](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
 * [App Service의 인증 및 권한 부여 사용자 지정](app-service-authentication-how-to.md)

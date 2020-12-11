@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: f424a2c3102f7b270a64c612a91d645ab71461fc
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f221237bee441ec78d726dabf476d1085a27071d
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184096"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095307"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics에서 고객이 관리 하는 저장소 계정 사용
 
@@ -22,7 +22,7 @@ Log Analytics은 다양 한 시나리오에서 Azure Storage에 의존 합니다
 
 ## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>수집 Azure 진단 확장 로그 (WAD/꼬마)
 Azure 진단 확장 에이전트 (Windows 및 Linux 에이전트에 대 한 WAD이 라고도 하는)는 다양 한 운영 체제 로그를 수집 하 여 고객 관리 저장소 계정에 저장 합니다. 그런 다음 이러한 로그를 Log Analytics으로 수집 하 여 검토 하 고 분석할 수 있습니다.
-저장소 계정에서 Azure 진단 확장 로그를 수집 하는 방법 저장소 계정을 [Azure Portal](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) 사용 하 여 저장소 데이터 원본으로 Log Analytics 작업 영역에 연결 하거나 [storage Insights API](/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate)를 호출 하 여 연결 합니다.
+저장소 계정에서 Azure 진단 확장 로그를 수집 하는 방법 저장소 계정을 [Azure Portal](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) 사용 하 여 저장소 데이터 원본으로 Log Analytics 작업 영역에 연결 하거나 [storage Insights API](/rest/api/loganalytics/storage%20insights/createorupdate)를 호출 하 여 연결 합니다.
 
 지원되는 데이터 형식은
 * syslog

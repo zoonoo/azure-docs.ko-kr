@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 45393f116149f6cf16763d2d7033f8425df235bf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fd33ca4c5d637e31230d8c124fdb9ec7c71d2ba7
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998846"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094848"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Blob storage 트리거
 
@@ -69,7 +69,7 @@ blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-다음 예에서는 바인딩을 사용 하는 파일 및 코드 *의function.js* 에 있는 blob 트리거 바인딩을 보여 줍니다. 함수는 컨테이너에서 blob을 추가 하거나 업데이트할 때 로그를 기록 합니다 `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+다음 예에서는 바인딩을 사용 하는 파일 및 코드 *의function.js* 에 있는 blob 트리거 바인딩을 보여 줍니다. 함수는 컨테이너에서 blob을 추가 하거나 업데이트할 때 로그를 기록 합니다 `samples-workitems` [](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -150,7 +150,7 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [Python 코드](functions-reference-python.md)의 Blob 트리거 바인딩을 보여 줍니다. 함수는 컨테이너에서 blob을 추가 하거나 업데이트할 때 로그를 기록 합니다 `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [Python 코드](functions-reference-python.md)의 Blob 트리거 바인딩을 보여 줍니다. 함수는 컨테이너에서 blob을 추가 하거나 업데이트할 때 로그를 기록 합니다 `samples-workitems` [](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -322,6 +322,9 @@ Where를 사용 하 여 blob 데이터 `context.bindings.<NAME>` `<NAME>` 에 �
 ## <a name="blob-name-patterns"></a>Blob 이름 패턴
 
 *function.json* 의 `path` 속성 또는 `BlobTrigger` 특성 생성자에서 Blob 이름 패턴을 지정할 수 있습니다. 이름 패턴은 [필터 또는 바인딩 식](./functions-bindings-expressions-patterns.md)일 수 있습니다. 다음 섹션에서는 예제를 제공합니다.
+
+> [!TIP]
+> 컨테이너 이름은 이름 패턴에 확인자를 포함할 수 없습니다.
 
 ### <a name="get-file-name-and-extension"></a>파일 이름 및 확장명 가져오기
 

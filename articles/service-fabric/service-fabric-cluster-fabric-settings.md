@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 설정 변경
 description: 이 문서에서는 사용자 지정할 수 있는 패브릭 설정 및 패브릭 업그레이드 정책에 대해 설명합니다.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 1f16e89dd1131f6aea64e5e72a342b3b737f3728
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c055ad1dad8b9574c8d811284a34619ee3648a10
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187224"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095273"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -877,7 +877,7 @@ ms.locfileid: "96187224"
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(60)|정적|시간 간격은 초 단위로 지정합니다. 들어오는 쪽과 수락하는 쪽 모두에 대한 연결 설정 시간 제한(보안 모드의 보안 협상 포함)입니다. |
 |FrameHeaderErrorCheckingEnabled|bool, 기본값: TRUE|정적|안전하지 않은 모드에서 프레임 헤더에 대한 오류 검사를 위한 기본 설정입니다. 구성 요소 설정은 이를 재정의합니다. |
-|MessageErrorCheckingEnabled|bool, 기본값: FALSE|정적|안전하지 않은 모드에서 메시지 헤더 및 본문에 대한 오류 검사를 위한 기본 설정입니다. 구성 요소 설정은 이를 재정의합니다. |
+|MessageErrorCheckingEnabled|bool, 기본값: true|정적|안전하지 않은 모드에서 메시지 헤더 및 본문에 대한 오류 검사를 위한 기본 설정입니다. 구성 요소 설정은 이를 재정의합니다. |
 |ResolveOption|string, 기본값: "unspecified"|정적|FQDN을 확인하는 방법을 결정합니다.  유효한 값: "unspecified/ipv4/ipv6" |
 |SendTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(300)|동적|시간 간격은 초 단위로 지정합니다. 중단된 연결 검색에 대한 제한 시간을 보냅니다. TCP 오류 보고서는 일부 환경에는 안정적이지 않습니다. 사용 가능한 네트워크 대역폭 및 아웃바운드 데이터의 크기에 따라 조정해야 할 수 있습니다(\*MaxMessageSize\/\*SendQueueSizeLimit). |
 
