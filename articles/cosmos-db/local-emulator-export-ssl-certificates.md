@@ -6,13 +6,13 @@ ms.topic: how-to
 ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
-ms.custom: devx-track-python, devx-track-java, contperfq1
-ms.openlocfilehash: 1825dd34855b356367722eefbfb5eb6dd9c78ae3
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.custom: devx-track-python, devx-track-java, contperf-fy21q1
+ms.openlocfilehash: 1c111ca23ce7cf749dc4a7d5ad2ad39756236ab1
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029186"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028209"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Java, Python 및 Node.js 앱에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +31,7 @@ Azure Cosmos DB 로컬 에뮬레이터의 인증서는 에뮬레이터를 처음
 
 Windows 인증서 저장소와 통합 되지 않는 언어 및 런타임 환경의 에뮬레이터 끝점을 성공적으로 사용 하려면 에뮬레이터 인증서를 내보내야 합니다. Windows 인증서 관리자를 사용 하 여 인증서를 내보낼 수 있습니다. 다음 단계별 지침을 사용 하 여 "DocumentDBEmulatorCertificate" 인증서를 64 인코딩된 x.509 (.cer) 파일로 내보냅니다.
 
-1. DocumentDbEmulatorCertificate를 실행 하 여 Windows 인증서 관리자를 시작 하 고 개인->인증서 폴더로 이동 하 여 이름이 **DocumentDbEmulatorCertificate** 인 인증서를 엽니다.
+1. DocumentDbEmulatorCertificate를 실행 하 여 Windows 인증서 관리자를 시작 하 고 개인->인증서 폴더로 이동 하 여 이름이 인 인증서를 엽니다.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 

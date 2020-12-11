@@ -10,19 +10,19 @@ ms.author: gopalv
 ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
-ms.custom: devx-track-python, deploy, contperfq2
-ms.openlocfilehash: 18de43cb170ccdede8f7fe13dc0c6c0c2fa4e7a3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: devx-track-python, deploy, contperf-fy21q2
+ms.openlocfilehash: 4f70978e7b7c2315aff4c51d8b019933df78e7e8
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188635"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028804"
 ---
 # <a name="troubleshoot-model-deployment-locally"></a>로컬로 모델 배포 문제 해결
 
 일반적인 Azure Machine Learning Docker 웹 서비스 배포 오류를 해결 하 고 해결 하거나 해결 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)

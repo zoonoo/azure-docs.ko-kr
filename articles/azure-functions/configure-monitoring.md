@@ -3,13 +3,13 @@ title: Azure Functions에 대 한 모니터링 구성
 description: 모니터링을 위해 함수 앱을 Application Insights에 연결 하 고 데이터 수집을 구성 하는 방법에 대해 알아봅니다.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: contperfq2, devx-track-azurecli
-ms.openlocfilehash: 02d5ad2e9697c14818a985325267d7caea80f65e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.custom: contperf-fy21q2, devx-track-azurecli
+ms.openlocfilehash: 5c4e9795109a9b4b5a6e9ceeec6b22e0168eb28f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607129"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027631"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Azure Functions에 대 한 모니터링을 구성 하는 방법
 
@@ -28,7 +28,7 @@ Azure Functions 로거에는 모든 로그에 대한 *범주* 가 포함되어 �
 
 # <a name="v2x"></a>[v2. x +](#tab/v2)
 
-| 범주 | 테이블 | 설명 |
+| 범주 | 테이블 | Description |
 | ----- | ----- | ----- |
 | **`Function.<YOUR_FUNCTION_NAME>`** | **관계도**| 일부 서비스의 경우 종속성 데이터가 자동으로 수집 됩니다. 성공적인 실행의 경우 이러한 로그는 수준에 있습니다 `Information` . 자세히 알아보려면 [종속성](functions-monitoring.md#dependencies)을 참조 하세요. 예외는 수준에서 기록 됩니다 `Error` . 또한 런타임은 `Warning` 큐 메시지가 [포이즌 큐](functions-bindings-storage-queue-trigger.md#poison-messages)로 전송 되는 경우와 같은 수준 로그를 만듭니다. | 
 | **`Function.<YOUR_FUNCTION_NAME>`** | **customMetrics**<br/>**customEvents** | C # 및 JavaScript Sdk를 사용 하면 사용자 지정 메트릭을 수집 하 고 사용자 지정 이벤트를 로그할 수 있습니다. 자세히 알아보려면 [사용자 지정 원격 분석 데이터](functions-monitoring.md#custom-telemetry-data)를 참조 하세요.|

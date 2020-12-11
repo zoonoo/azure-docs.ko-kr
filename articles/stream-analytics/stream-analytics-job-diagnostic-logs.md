@@ -6,14 +6,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: 0e7777cba93706baea815521757b495209431ce6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b29e0f99cb4549370be49dc5a1b11d367e30d8c0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006475"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029144"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>리소스 로그를 사용하여 Azure Stream Analytics 문제 해결
 
@@ -66,7 +66,7 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
     ![리소스 로그에 대 한 블레이드 탐색](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  **진단 설정 이름** 에 **이름을** 입력 하 고, **로그** 에서 **실행** 및 **제작** 확인란을 선택 하 고, 메트릭 아래의 **allmetrics** 확인란을 선택 합니다. **AllMetrics** 그런 다음 **Log Analytics 보내기를** 선택 하 고 작업 영역을 선택 합니다. **저장** 을 클릭합니다.
+2.  **진단 설정 이름** 에 **이름을** 입력 하 고, **로그** 에서 **실행** 및 **제작** 확인란을 선택 하 고, 메트릭 아래의 **allmetrics** 확인란을 선택 합니다.  그런 다음 **Log Analytics 보내기를** 선택 하 고 작업 영역을 선택 합니다. **저장** 을 클릭합니다.
 
     ![리소스 로그 설정](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 

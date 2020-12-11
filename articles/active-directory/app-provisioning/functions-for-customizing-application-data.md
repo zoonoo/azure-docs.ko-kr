@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
-ms.custom: contperfq2
-ms.openlocfilehash: a1d83f91ad82bddacb7e806e31151b8e4a7ab612
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: fe18513bbfc69fb63f8b1b248b7cf02ad55b467d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344932"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027376"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Azure AD에서 특성 매핑에 대 한 식 작성에 대 한 참조
 
@@ -38,7 +38,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 ## <a name="list-of-functions"></a>함수 목록
 
-[Append](#append) &nbsp; &nbsp; 추가 &nbsp; &nbsp; [BitAnd](#bitand) &nbsp; &nbsp; Bitand &nbsp; &nbsp; [CBool](#cbool) &nbsp; &nbsp; Cbool &nbsp; &nbsp; [Coalesce](#coalesce) &nbsp; &nbsp; 병합 &nbsp; &nbsp; [ConvertToBase64](#converttobase64) &nbsp; &nbsp; ConvertToBase64 &nbsp; &nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp; &nbsp; ConvertToUTF8Hex &nbsp; &nbsp; [Count](#count) &nbsp; &nbsp; 개수 &nbsp; &nbsp; [CStr](#cstr) &nbsp; &nbsp; CStr &nbsp; &nbsp; [DateFromNum](#datefromnum) &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; Formatdatetime &nbsp; &nbsp; [Guid](#guid) &nbsp; &nbsp; Guid &nbsp; &nbsp; [IIF](#iif) &nbsp; &nbsp; IIF &nbsp; &nbsp; [InStr](#instr) &nbsp; &nbsp; InStr &nbsp; &nbsp; [IsNull](#isnull) &nbsp; &nbsp; IsNull &nbsp; &nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp; &nbsp; IsNullOrEmpty &nbsp; &nbsp; [IsPresent](#ispresent) &nbsp; &nbsp; IsPresent &nbsp; &nbsp; [IsString](#isstring) &nbsp; &nbsp; Isstring &nbsp; &nbsp; [Item](#item) &nbsp; &nbsp; 항목 &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; 조인 &nbsp; &nbsp; [Left](#left) &nbsp; &nbsp; 왼쪽 &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp; &nbsp; &nbsp; &nbsp; [removeduplicates](#removeduplicates) &nbsp; &nbsp; &nbsp; &nbsp; [Replace](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [singleapproleassignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [분할](#split) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper) &nbsp; &nbsp; &nbsp; &nbsp; [Word](#word)
+[](#append) &nbsp; &nbsp; 추가 &nbsp; &nbsp; [](#bitand) &nbsp; &nbsp; Bitand &nbsp; &nbsp; [](#cbool) &nbsp; &nbsp; Cbool &nbsp; &nbsp; [](#coalesce) &nbsp; &nbsp; 병합 &nbsp; &nbsp; [](#converttobase64) &nbsp; &nbsp; ConvertToBase64 &nbsp; &nbsp; [](#converttoutf8hex) &nbsp; &nbsp; ConvertToUTF8Hex &nbsp; &nbsp; [](#count) &nbsp; &nbsp; 개수 &nbsp; &nbsp; [](#cstr) &nbsp; &nbsp; CStr &nbsp; &nbsp; [DateFromNum](#datefromnum) &nbsp; [](#formatdatetime) &nbsp; &nbsp; Formatdatetime &nbsp; &nbsp; [](#guid) &nbsp; &nbsp; Guid &nbsp; &nbsp; [](#iif) &nbsp; &nbsp; IIF &nbsp; &nbsp; [](#instr) &nbsp; &nbsp; InStr &nbsp; &nbsp; [](#isnull) &nbsp; &nbsp; IsNull &nbsp; &nbsp; [](#isnullorempty) &nbsp; &nbsp; IsNullOrEmpty &nbsp; &nbsp; [](#ispresent) &nbsp; &nbsp; IsPresent &nbsp; &nbsp; [](#isstring) &nbsp; &nbsp; Isstring &nbsp; &nbsp; [](#item) &nbsp; &nbsp; 항목 &nbsp; &nbsp; [](#join) &nbsp; &nbsp; 조인 &nbsp; &nbsp; [](#left) &nbsp; &nbsp; 왼쪽 &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp; &nbsp; &nbsp; &nbsp; [removeduplicates](#removeduplicates) &nbsp; &nbsp; &nbsp; &nbsp; [](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [singleapproleassignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [분할](#split) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper) &nbsp; &nbsp; &nbsp; &nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>Append
@@ -181,7 +181,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 | Name | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
-| **value** |필수 | Date | DateTime 형식으로 변환 될 광고 날짜 |
+| **value** |필수 | 날짜 | DateTime 형식으로 변환 될 광고 날짜 |
 
 **예 들어**
 `DateFromNum([lastLogonTimestamp])`
@@ -205,7 +205,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 | **outputFormat** |필수 |String |출력 날짜의 형식입니다. |
 
 ---
-### <a name="guid"></a>GUID
+### <a name="guid"></a>Guid
 **함수:** Guid ()
 
 **설명:** 함수 Guid는 새 임의 GUID를 생성 합니다.
@@ -240,7 +240,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 | **value1** |필수 |String |검색할 문자열입니다. |
 | **value2** |필수 |String |찾을 문자열 |
 | **start** |선택 |정수 |하위 문자열을 찾을 시작 위치입니다.|
-| **compareType** |선택 사항 |열거형 |VbTextCompare 또는 Vbtextcompare 일 수 있습니다. |
+| **compareType** |Optional |열거형 |VbTextCompare 또는 Vbtextcompare 일 수 있습니다. |
 
 **예 들어**
 `InStr("The quick brown fox","quick")`
@@ -600,7 +600,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 ---
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 ### <a name="strip-known-domain-name"></a>알려진 도메인 이름 제거
 사용자 이름을 가져오려면 사용자의 전자 메일에서 알려진 도메인 이름을 제거해야 합니다.  예를 들어, 도메인이 "contoso.com"인 경우 다음 식을 사용할 수 있습니다.
 

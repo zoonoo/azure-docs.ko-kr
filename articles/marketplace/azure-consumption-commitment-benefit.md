@@ -7,13 +7,13 @@ ms.topic: article
 author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
-ms.custom: contperfq2
-ms.openlocfilehash: c4fdf8e986b9c98588689a57bde8ca9464667abe
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: aeee13152364c31d82f674df784a27114035a041
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129544"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028549"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Azure 사용량 약정 혜택
 
@@ -45,10 +45,10 @@ Microsoft 상업적 marketplace 제품의 선택 집합은 조직에 다음 계�
  
 3. 이 제품과 관련 된 소프트웨어/IP 비용이 조직에 청구 되는 Azure 서비스를 기반으로 조직의 Azure 사용량 약정에 기여 한다는 것을 **azure 혜택** 으로 직장 배지가 달린 수 있습니다.
 
-    :::image type="content" source="media/azure-benefit/azure-benefit-eligible-badge.png" alt-text="Azure 혜택 적격 배지.&quot;:::
+    :::image type="content" source="media/azure-benefit/azure-benefit-eligible-badge.png" alt-text="Azure 혜택 적격 배지.":::
 
    > [!NOTE]
-   > Azure Marketplace 배포를 통해 조직에 청구 되는 Microsoft Azure 서비스는 본질적으로 조직의 약정에 기여 합니다. &quot;Azure 혜택 적격" 혜택에 추가 된 혜택은 타사 공급 업체에 의해 전달 되는 소프트웨어/i p 비용은 Azure Marketplace 청구서의 100%에도 기여 한다는 것입니다.
+   > Azure Marketplace 배포를 통해 조직에 청구 되는 Microsoft Azure 서비스는 본질적으로 조직의 약정에 기여 합니다. "Azure 혜택 적격" 혜택에 추가 된 혜택은 타사 공급 업체에 의해 전달 되는 소프트웨어/i p 비용은 Azure Marketplace 청구서의 100%에도 기여 한다는 것입니다.
 
 4. Azure Marketplace를 통해 제품을 직접 구입/만드세요. Microsoft는 소프트웨어/i p 비용을 포함 하 여 각 청구서에서 조직의 Azure 사용량 약정에 대해 100%의 적격 제품 구매를 제공 합니다.
 

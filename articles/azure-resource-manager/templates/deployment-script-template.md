@@ -5,18 +5,18 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 12/10/2020
 ms.author: jgao
-ms.openlocfilehash: dcc968353edf0e9cf3d63408d02baf94c6cabd9f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ec6796cd0ed91987c1ef52fb5e9494a3142e00e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95902454"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030453"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용(미리 보기)
 
-Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대해 알아봅니다. `Microsoft.Resources/deploymentScripts`라는 새 리소스 종류를 사용하여 사용자는 템플릿 배포에서 배포 스크립트를 실행하고 실행 결과를 검토할 수 있습니다. 이러한 스크립트는 다음과 같은 사용자 지정 단계를 수행하는 데 사용할 수 있습니다.
+Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대해 알아봅니다. 이라는 새 리소스 유형을 사용 하면 `Microsoft.Resources/deploymentScripts` 사용자가 템플릿 배포에서 스크립트를 실행 하 고 실행 결과를 검토할 수 있습니다. 이러한 스크립트는 다음과 같은 사용자 지정 단계를 수행하는 데 사용할 수 있습니다.
 
 - 디렉터리에 사용자 추가
 - 데이터 평면 작업 수행(예: BLOB 또는 시드 데이터베이스 복사)
@@ -29,7 +29,6 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 
 - 쉽게 코딩하고, 사용하고, 디버그할 수 있습니다. 원하는 개발 환경에서 배포 스크립트를 개발할 수 있습니다. 스크립트는 템플릿 또는 외부 스크립트 파일에 포함될 수 있습니다.
 - 스크립트 언어 및 플랫폼을 지정할 수 있습니다. 현재 Linux 환경에서 Azure PowerShell 및 Azure CLI 배포 스크립트가 지원됩니다.
-- 스크립트를 실행하는 데 사용되는 ID를 지정할 수 있습니다. 현재 [Azure 사용자 할당 관리 ID](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)만 지원됩니다.
 - 스크립트에 명령줄 인수를 전달할 수 있습니다.
 - 스크립트 출력을 지정하고 이를 배포에 다시 전달할 수 있습니다.
 
@@ -38,12 +37,13 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 > [!IMPORTANT]
 > 스크립트를 실행하고 문제를 해결하려면 스토리지 계정 및 컨테이너 인스턴스가 필요합니다. 기존 스토리지 계정을 지정할 수 있습니다. 그러지 않으면 컨테이너 인스턴스와 함께 스토리지 계정이 스크립트 서비스에 의해 자동으로 생성됩니다. 자동으로 생성된 두 리소스는 일반적으로 배포 스크립트 실행이 터미널 상태가 되면 스크립트 서비스에 의해 삭제됩니다. 리소스가 삭제될 때까지 해당 리소스에 대한 요금이 청구됩니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+> [!IMPORTANT]
+> DeploymentScripts 리소스 API 버전 2020-10-01은 [OBO (OnBehalfofTokens)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)를 지원 합니다. 배포 스크립트 서비스는 OBO를 사용 하 여 배포 주체의 토큰을 사용 하 여 배포 스크립트를 실행 하기 위한 기본 리소스를 만듭니다. 여기에는 Azure Container instance, Azure storage 계정 및 관리 되는 id에 대 한 역할 할당이 포함 됩니다. 이전 API 버전에서 관리 id를 사용 하 여 이러한 리소스를 만듭니다.
+> 이제 Azure 로그인에 대 한 재시도 논리가 래퍼 스크립트에 기본 제공 됩니다. 배포 스크립트를 실행 하는 동일한 템플릿에서 사용 권한을 부여 하는 경우  배포 스크립트 서비스는 관리 되는 id 역할 할당이 복제 될 때까지 10 초 간격으로 10 분 동안 로그인을 다시 시도 합니다.
 
-- **대상 리소스 그룹에 대한 기여자 역할이 있는 사용자가 할당한 관리 ID**. 이 ID는 배포 스크립트를 실행하는 데 사용됩니다. 리소스 그룹 외부에서 작업을 수행하려면 추가 권한을 부여해야 합니다. 예를 들어 새 리소스 그룹을 만들려면 구독 수준에 ID를 할당합니다.
+## <a name="prerequisites"></a>필수 구성 요소
 
-  > [!NOTE]
-  > 스크립트 서비스는 백그라운드에서 스토리지 계정(기존 스토리지 계정을 지정하지 않는 경우) 및 컨테이너 인스턴스를 만듭니다.  구독에서 Azure Storage 계정(Microsoft.Storage) 및 Azure 컨테이너 인스턴스(Microsoft.ContainerInstance) 리소스 공급자를 등록하지 않은 경우 구독 수준에서 기여자 역할이 있는 사용자가 할당한 관리 ID가 필요합니다.
+- **(선택 사항) 스크립트에서 작업을 수행 하는 데 필요한 권한이 있는 사용자 할당 관리 id** 입니다. 배포 스크립트 API 버전 2020-10-01 이상에서는 배포 주체를 사용 하 여 기본 리소스를 만듭니다. 스크립트가 Azure에 인증 하 고 Azure 특정 작업을 수행 해야 하는 경우에는 사용자 할당 관리 id를 사용 하 여 스크립트를 제공 하는 것이 좋습니다. 스크립트에서 작업을 완료 하려면 관리 되는 id에 대상 리소스 그룹에 대 한 필수 액세스 권한이 있어야 합니다. 배포 스크립트에서 Azure에 로그인 할 수도 있습니다. 리소스 그룹 외부에서 작업을 수행하려면 추가 권한을 부여해야 합니다. 예를 들어 새 리소스 그룹을 만들려면 구독 수준에 ID를 할당합니다. 
 
   ID를 만들려면 [Azure Portal을 사용하여 사용자가 할당한 관리 ID 만들기](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure CLI를 사용하여 사용자가 할당한 관리 ID 만들기](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) 또는 [Azure PowerShell을 사용하여 사용자가 할당한 관리 ID 만들기](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)를 참조하세요. 이 ID는 템플릿을 배포할 때 필요합니다. ID의 형식은 다음과 같습니다.
 
@@ -135,7 +135,7 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 
 속성 값 세부 정보:
 
-- **ID**: 배포 스크립트 서비스는 사용자가 할당한 관리 ID를 사용하여 스크립트를 실행합니다. 현재 사용자가 할당한 관리 ID만 지원됩니다.
+- **Id**: 배포 스크립트 API 버전 2020-10-01 이상에서는 스크립트에서 Azure 특정 작업을 수행 해야 하는 경우가 아니면 사용자 할당 관리 id가 선택 사항입니다.  API 버전 2019-10-01-미리 보기의 경우 배포 스크립트 서비스에서 스크립트를 실행 하는 데 사용 하므로 관리 되는 id가 필요 합니다. 현재 사용자가 할당한 관리 ID만 지원됩니다.
 - **kind**: 스크립트 유형을 지정합니다. 현재 Azure PowerShell 및 Azure CLI 스크립트가 지원 됩니다. 값은 **AzurePowerShell** 및 **AzureCLI** 입니다.
 - **forceUpdateTag**: 템플릿 배포 간에 이 값을 변경하면 배포 스크립트가 강제로 다시 실행됩니다. NewGuid () 또는 utcNow () 함수를 사용 하는 경우 두 함수는 모두 매개 변수의 기본값 에서만 사용할 수 있습니다. 자세한 내용은 [스크립트를 두 번 이상 실행](#run-script-more-than-once)을 참조하세요.
 - **containerSettings**: Azure Container Instance를 사용자 지정하려면 설정을 지정합니다.  **containerGroupName** 은 컨테이너 그룹 이름을 지정하기 위한 것입니다.  지정 하지 않으면 그룹 이름이 자동으로 생성 됩니다.
@@ -147,7 +147,7 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 
     인수에 이스케이프 된 문자가 포함 된 경우 [JsonEscaper](https://www.jsonescaper.com/) 를 사용 하 여 문자를 두 번 이스케이프 합니다. 원래 이스케이프 된 문자열을 도구에 붙여넣은 다음, **이스케이프** 를 선택 합니다.  이 도구는 이중 이스케이프 된 문자열을 출력 합니다. 예를 들어 이전 샘플 템플릿에서 인수는 **-name \\ "John dole \\ "** 입니다.  이스케이프 된 문자열은 **-name \\ \\ \\ "John dole \\ \\ \\ "** 입니다.
 
-    Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 **\\ "** into **\\ \\ \\ "** 를 바꿉니다. 예를 들면 다음과 같습니다.
+    Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 **\\ "** into **\\ \\ \\ "** 를 바꿉니다. 예를 들어:
 
     ```json
     replace(string(parameters('tables')), '\"', '\\\"')
@@ -169,14 +169,11 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 - [샘플 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): 구독 수준에서 리소스 그룹을 만들고 리소스 그룹에 주요 자격 증명 모음을 만든 다음 배포 스크립트를 사용 하 여 키 자격 증명 모음에 인증서를 할당 합니다.
 - [샘플 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): 사용자 할당 관리 id를 만들고, 리소스 그룹 수준에서 id에 참가자 역할을 할당 하 고, 주요 자격 증명 모음을 만든 다음, 배포 스크립트를 사용 하 여 키 자격 증명 모음에 인증서를 할당 합니다.
 
-> [!NOTE]
-> 사용자가 할당한 ID를 만들고 사용 권한을 미리 부여하는 것이 좋습니다. 배포 스크립트를 실행하는 동일한 템플릿에서 ID를 만들고 사용 권한을 부여하는 경우 로그인 및 사용 권한 관련 오류가 발생할 수 있습니다. 사용 권한이 적용되려면 약간의 시간이 걸립니다.
-
 ## <a name="use-inline-scripts"></a>인라인 스크립트 사용
 
 다음 템플릿에는 `Microsoft.Resources/deploymentScripts` 유형을 사용하여 정의된 리소스가 하나 있습니다. 강조 표시된 부분이 인라인 스크립트입니다.
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-44" highlight="24-30":::
 
 > [!NOTE]
 > 인라인 배포 스크립트는 큰따옴표로 묶여 있으므로 배포 스크립트 내의 문자열은 **&#92;** 를 사용 하거나 작은따옴표로 묶어서 이스케이프 처리 해야 합니다. 이전 JSON 샘플에 표시된 대로 문자열 대체를 사용할 수도 있습니다.
@@ -188,11 +185,10 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$id = Read-Host -Prompt "Enter the user-assigned managed identity ID"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json" -identity $id
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json"
 
 Write-Host "Press [ENTER] to continue ..."
 ```
@@ -239,7 +235,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 다음 템플릿에서는 두 deploymentScripts 리소스 간에 값을 전달하는 방법을 보여 줍니다.
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-84" highlight="39-40,66":::
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-68" highlight="30-31,50":::
 
 첫 번째 리소스에서는 **$DeploymentScriptOutputs** 라는 변수를 정의하고 이 변수를 사용하여 출력 값을 저장합니다. 템플릿 내의 다른 리소스에서 출력 값에 액세스하려면 다음을 사용합니다.
 
@@ -276,7 +272,7 @@ PowerShell 배포 스크립트와는 달리 CLI/Bash 지원은 스크립트 출�
 
     이러한 조합은 파일 공유를 지원 합니다.  자세한 내용은 [Azure 파일 공유](../../storage/files/storage-how-to-create-file-share.md) 및 [저장소 계정 유형](../../storage/common/storage-account-overview.md)만들기를 참조 하세요.
 - 스토리지 계정 방화벽 규칙은 아직 지원되지 않습니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../../storage/common/storage-network-security.md)을 참조하세요.
-- 배포 스크립트의 사용자 할당 관리 ID에는 스토리지 계정을 관리할 수 있는 사용 권한이 있어야 합니다. 여기에는 파일 공유 읽기, 만들기, 삭제가 포함됩니다.
+- 배포 주체에는 저장소 계정을 관리할 수 있는 권한이 있어야 합니다. 여기에는 파일 공유 읽기, 만들기, 삭제 등이 포함 됩니다.
 
 기존 스토리지 계정을 지정하려면 `Microsoft.Resources/deploymentScripts`의 property 요소에 다음 json을 추가합니다.
 
@@ -539,6 +535,8 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
 > [!NOTE]
 > 스크립트 서비스에 의해 생성되는 스토리지 계정 및 컨테이너 인스턴스는 다른 용도로 사용하지 않는 것이 좋습니다. 스크립트 수명 주기에 따라 두 리소스가 제거될 수 있습니다.
+
+문제 해결을 위해 컨테이너 인스턴스와 저장소 계정을 유지 하려면 스크립트에 sleep 명령을 추가 하면 됩니다.  예를 들어 [시작-절전 모드](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep)입니다.
 
 ## <a name="run-script-more-than-once"></a>스크립트를 두 번 이상 실행
 

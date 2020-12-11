@@ -10,13 +10,13 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 11/16/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 03d10f71b585090157eff164cc98246f50608fe1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: 6fe43c39b17e574e1913cd9e7b4292a71f1e418d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018786"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031762"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Python 개발 환경 설정
 
@@ -37,7 +37,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 
 * Visual Studio Code: Visual Studio Code를 사용 하는 경우 [Azure Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) 에는 Python에 대 한 광범위 한 언어 지원 뿐만 아니라 Azure Machine Learning 훨씬 더 편리 하 고 생산적으로 작업할 수 있는 기능이 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Machine Learning 작업 영역입니다. 없는 경우 [Azure Portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace)및 [Azure Resource Manager 템플릿을](how-to-create-workspace-template.md)통해 Azure Machine Learning 작업 영역을 만들 수 있습니다.
 
@@ -104,7 +104,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 
 로컬 환경이 설정 되었으므로 이제 Azure Machine Learning 작업을 시작할 준비가 되었습니다. 시작 하려면 [Python 시작 가이드 Azure Machine Learning](tutorial-1st-experiment-sdk-setup-local.md) 를 참조 하세요.
 
-### <a name="jupyter-notebooks"></a><a id="jupyter"></a>Jupyter 노트북
+### <a name="jupyter-notebooks"></a><a id="jupyter"></a>Jupyter Notebook
 
 로컬 Jupyter Notebook 서버를 실행 하는 경우 Python 가상 환경에 대 한 IPython 커널을 만드는 것이 좋습니다. 이는 예상 되는 커널 및 패키지 가져오기 동작을 보장 하는 데 도움이 됩니다.
 

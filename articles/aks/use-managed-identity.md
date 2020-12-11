@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 관리 id를 사용 하는 �
 services: container-service
 ms.topic: article
 ms.date: 12/06/2020
-ms.openlocfilehash: e2a80ea869e17665e8a6d4fbd6960c3ccc8c1042
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 68d8111da5ec10f23d14b375a18229bca075da84
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751277"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97026832"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 관리 되는 id 사용
 
@@ -17,7 +17,7 @@ ms.locfileid: "96751277"
 
 *관리 id* 는 기본적으로 서비스 사용자를 중심으로 하는 래퍼로, 관리를 단순화 합니다. MI에 대 한 자격 증명 회전은 기본값 Azure Active Directory 따라 46 일 마다 자동으로 발생 합니다. AKS는 시스템 할당 및 사용자 할당 관리 id 유형을 모두 사용 합니다. 이러한 id는 현재 변경할 수 없습니다. 자세한 내용은 [Azure 리소스에 대 한 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md)를 참조 하세요.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 다음 리소스를 설치 해야 합니다.
 
@@ -119,7 +119,7 @@ az feature register --namespace Microsoft.ContainerService -n MigrateToMSICluste
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 
-사용자 할당 id를 업데이트 합니다.
+사용자 할당 id에 대 한 기능 플래그를 등록 합니다.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview

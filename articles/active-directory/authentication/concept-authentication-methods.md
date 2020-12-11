@@ -10,13 +10,13 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: c5b2003a290152533a0a8c0f88fe8eb1a410ccf9
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: e239d9da4a083b50460ef746f9c538aa3081a577
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744332"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027325"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Azure Active Directory에서 사용할 수 있는 인증 및 확인 방법은 무엇인가요?
 
@@ -38,14 +38,14 @@ Azure AD Multi-Factor Authentication는 사용자가 로그인 할 때 암호를
 
 | 인증 방법          | 보안 | 사용 편의성 | 가용성 |
 |--------------------------------|:--------:|:---------:|:------------:|
-| 비즈니스용 Windows Hello     | 높은     | 높은      | 높은         |
-| Microsoft Authenticator 앱    | 높은     | 높은      | 높은         |
-| FIDO2 보안 키 (미리 보기)   | 높은     | 높은      | 높은         |
-| OATH 하드웨어 토큰(미리 보기) | 중간   | 중간    | 높은         |
-| OATH 소프트웨어 토큰           | 중간   | 중간    | 높은         |
-| SMS                            | 중형   | 높음      | 중간       |
+| 비즈니스용 Windows Hello     | 높음     | 높음      | 높음         |
+| Microsoft Authenticator 앱    | 높음     | 높음      | 높음         |
+| FIDO2 보안 키 (미리 보기)   | 높음     | 높음      | 높음         |
+| OATH 하드웨어 토큰(미리 보기) | 중간   | 중간    | 높음         |
+| OATH 소프트웨어 토큰           | 중간   | 중간    | 높음         |
+| SMS                            | 중간   | 높음      | 중간       |
 | 음성                          | 중간   | 중간    | 중간       |
-| 암호                       | 낮음      | 높음      | 높은         |
+| 암호                       | 낮음      | 높음      | 높음         |
 
 보안에 대 한 자세한 내용은 [인증 취약성 및 공격 벡터](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124)를 참조 하세요.
 

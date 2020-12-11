@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.custom: contperfq2
-ms.openlocfilehash: 39a9b363c847b615bfbe049b4b47628e8688c607
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: d88e2b18d4e4f9df0606832356e383aaaf51cf73
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458121"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028447"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
@@ -145,7 +145,7 @@ Cloud 파트너 포털 계정이 있는 경우 파트너 센터로 이동 했습
 조직에는 상업적 marketplace 계정과 연결 된 여러 게시자가 있을 수 있습니다. 기존 사용자는 **설정**  >  **계정 설정**  >  **조직 프로필**  >  **식별자**  >  **게시자 추가** 를 선택 하 여 파트너 센터에 로그인 한 후 더 많은 게시자를 추가할 수 있습니다.
 
 >[!NOTE]
->새 게시자를 추가 하기 전에 파트너 센터에 로그인 하 고 **계정 설정** 게시자를 선택 하 여 기존 게시자의 목록을 검토  >  **Publishers** 합니다.
+>새 게시자를 추가 하기 전에 파트너 센터에 로그인 하 고 **계정 설정** 게시자를 선택 하 여 기존 게시자의 목록을 검토  >  합니다.
 
 동일한 Azure Active Directory 테 넌 트의 추가 사용자는 다음 단계를 사용 하 여 새 게시자를 추가할 수 있습니다.
 
