@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperfq2
-ms.openlocfilehash: 1617015d6d4a026d5dadda667dcd03447a20c288
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: c279b7f4ec2d70e7eb6a97abf02cfbf4f2ef87f0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649503"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033615"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>최종 사용자가 애플리케이션에 동의하는 방법 구성
 
@@ -81,7 +81,7 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
 
 을 `{consent-policy-id}` 적용할 정책의 ID로 바꿉니다. 만든 [사용자 지정 앱 동의 정책을](manage-app-consent-policies.md#create-a-custom-app-consent-policy) 선택 하거나 다음 기본 제공 정책 중에서 선택할 수 있습니다.
 
-| ID | 설명 |
+| ID | Description |
 |:---|:------------|
 | microsoft-사용자-기본-낮음 | **선택한 권한에 대해 확인 된 게시자의 앱에 대 한 사용자 동의 허용**<br /> 사용자가 테 넌 트에 등록 된 앱 및 앱에 대 한 제한 된 사용자 동의가 허용 되며, "낮은 영향"으로 분류 한 사용 권한에 대해서만 허용 됩니다. 사용자가 동의할 수 있는 권한을 선택 하려면 [사용 권한을 분류](configure-permission-classifications.md) 해야 합니다. |
 | microsoft-사용자-기본-레거시 | **앱에 대 한 사용자 동의 허용**<br /> 이 옵션을 사용 하면 모든 사용자가 모든 응용 프로그램에 대해 관리자 동의가 필요 하지 않은 모든 사용 권한에 동의할 수 있습니다. |

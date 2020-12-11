@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 0d1c2304f68f5e24c45390dca2cc0deb6e8dede2
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 51430a37f34600d3191a646df7c1890b6d94f481
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931948"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033020"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>AKS(Azure Kubernetes Service) 작동 시간 SLA
 
@@ -28,13 +28,6 @@ ms.locfileid: "96931948"
 작동 시간 SLA는 [AKS가 지원](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)되는 지역 및 Azure Government 지역에서 사용할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
-
-개인 클러스터는 다음 지역 에서만 지원 됩니다.
- *  미국 동부
- *  미국 서부
- *  미국 서부2
- *  미국 중북부
- *  미국 중서부
 
 ## <a name="sla-terms-and-conditions"></a>SLA 사용 약관
 

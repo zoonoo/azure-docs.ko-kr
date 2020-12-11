@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 110a25fca0b0e764650665635dbe545de7a350cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b53c0002af3680567aabf0955f6bb4e0d99c2ab1
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653999"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093437"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례
 
@@ -49,7 +49,7 @@ AKS 지역 가용성 및 쌍을 이루는 지역은 공동 고려 사항입니�
 
 ![Traffic Manager AKS](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
-단일 AKS 클러스터가 있는 고객은 일반적으로 지정 된 응용 프로그램의 서비스 IP 또는 DNS 이름에 연결 합니다. Multicluster 배포에서 고객은 각 AKS 클러스터의 서비스를 가리키는 Traffic Manager DNS 이름에 연결 해야 합니다. Traffic Manager 끝점을 사용 하 여 이러한 서비스를 정의 합니다. 각 끝점은 *서비스 부하 분산 장치 IP*입니다. 이 구성을 사용 하 여 한 지역의 Traffic Manager 끝점에서 다른 지역의 끝점으로의 네트워크 트래픽을 보낼 수 있습니다.
+단일 AKS 클러스터가 있는 고객은 일반적으로 지정 된 응용 프로그램의 서비스 IP 또는 DNS 이름에 연결 합니다. Multicluster 배포에서 고객은 각 AKS 클러스터의 서비스를 가리키는 Traffic Manager DNS 이름에 연결 해야 합니다. Traffic Manager 끝점을 사용 하 여 이러한 서비스를 정의 합니다. 각 끝점은 *서비스 부하 분산 장치 IP* 입니다. 이 구성을 사용 하 여 한 지역의 Traffic Manager 끝점에서 다른 지역의 끝점으로의 네트워크 트래픽을 보낼 수 있습니다.
 
 ![Traffic Manager를 통한 지리적 라우팅](media/operator-best-practices-bc-dr/traffic-manager-geographic-routing.png)
 
@@ -81,7 +81,7 @@ Container Registry 지역에서 복제를 사용 하 여 동일한 지역에서 
 
 * **더 빠름**: 동일한 Azure 지역 내에서 고속의 대기 시간이 짧은 네트워크 연결에서 이미지를 끌어옵니다.
 * **더 안정적**: 지역을 사용할 수 없는 경우 AKS 클러스터는 사용 가능한 컨테이너 레지스트리에서 이미지를 가져옵니다.
-* **비용**절감: 데이터 센터 간에 네트워크 송신 비용이 없습니다.
+* **비용** 절감: 데이터 센터 간에 네트워크 송신 비용이 없습니다.
 
 지역에서 복제는 *프리미엄* SKU 컨테이너 레지스트리 기능입니다. 지역에서 복제를 구성 하는 방법에 대 한 자세한 내용은 [Container Registry 지역에서 복제](../container-registry/container-registry-geo-replication.md)를 참조 하세요.
 
@@ -113,7 +113,7 @@ Container Registry 지역에서 복제를 사용 하 여 동일한 지역에서 
 
 Pod를 삭제 한 후에도 응용 프로그램에 영구적 저장소가 필요할 수 있습니다. Kubernetes에서 영구적 볼륨을 사용 하 여 데이터 저장소를 유지할 수 있습니다. 영구적 볼륨은 노드 VM에 탑재 된 다음 pod에 노출 됩니다. Pod가 동일한 클러스터 내의 다른 노드로 이동 하는 경우에도 영구 볼륨이 pod를 따릅니다.
 
-사용 하는 복제 전략은 저장소 솔루션에 따라 달라 집니다. [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html)및 [portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) 와 같은 일반적인 저장소 솔루션은 재해 복구 및 복제에 대 한 자체 지침을 제공 합니다.
+사용 하는 복제 전략은 저장소 솔루션에 따라 달라 집니다. [Gluster](https://docs.gluster.org/en/latest/Administrator-Guide/Geo-Replication/), [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html)및 [portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) 와 같은 일반적인 저장소 솔루션은 재해 복구 및 복제에 대 한 자체 지침을 제공 합니다.
 
 일반적인 전략은 응용 프로그램이 데이터를 쓸 수 있는 일반적인 저장소 지점을 제공 하는 것입니다. 이 데이터는 여러 Azure 지역에 복제된 후 로컬로 액세스됩니다.
 

@@ -11,12 +11,12 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ce77a169e28e21aa37be2a49997a58ee42c93807
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: b1a2e802f66132a88060fb74831781055897b077
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510831"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093658"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>PREDICT를 사용 하 여 기계 학습 모델 점수 매기기
 
@@ -35,7 +35,7 @@ ms.locfileid: "96510831"
 
 - 전용 SQL 풀은 ONNX 형식 모델만 지원 합니다. ONNX는 다양 한 프레임 워크 간에 모델을 교환 하 여 상호 운용성을 가능 하 게 해 주는 오픈 소스 모델 형식입니다. 기본적으로 지원 하거나 패키지를 사용 가능 하 게 변환 하는 프레임 워크를 사용 하 여 기존 모델을 ONNX 형식으로 변환할 수 있습니다. 예를 들어, 비 [기능 학습-onnx](https://github.com/onnx/sklearn-onnx) 패키지 convert scikit-모델을 onnx로 변환 합니다. [Onnx GitHub 리포지토리](https://github.com/onnx/tutorials#converting-to-onnx-format) 는 지원 되는 프레임 워크 및 예제 목록을 제공 합니다.
 
-   학습에 [자동 ML](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) 을 사용 하는 경우에는 *enable_onnx_compatible_models* 매개 변수를 TRUE로 설정 하 여 onnx 형식 모델을 생성 해야 합니다. [자동화 된 Machine Learning 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) 에서는 automl을 사용 하 여 onnx 형식의 기계 학습 모델을 만드는 방법의 예를 보여 줍니다.
+   학습에 [자동 ML](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) 을 사용 하는 경우에는 *enable_onnx_compatible_models* 매개 변수를 TRUE로 설정 하 여 onnx 형식 모델을 생성 해야 합니다. [자동화 된 Machine Learning 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) 은 자동 ML을 사용 하 여 onnx 형식의 기계 학습 모델을 만드는 방법의 예를 보여 줍니다.
 
 - 입력 데이터에 대해 지원 되는 데이터 형식은 다음과 같습니다.
     - int, bigint, real, float

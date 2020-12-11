@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom:
-- contperfq1
+- contperf-fy21q1
 - device-developer
-ms.openlocfilehash: f5b3e461408242553822024bc59c56a3feb29c44
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9e5e96d97494f4ba9aa28e84b046cd057fe8eba7
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999521"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033411"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 새 IoT 디바이스 유형 정의
 
@@ -208,7 +208,7 @@ IoT Central에서 디바이스 명령을 호출할 수 있습니다. 선택적�
 
 ## <a name="add-customizations"></a>사용자 지정 추가
 
-가져온 구성 요소를 수정 하거나 기능에 IoT Central 관련 기능을 추가 해야 하는 경우 사용자 지정을 사용 합니다. 구성 요소 호환성이 중단 되지 않는 필드만 사용자 지정할 수 있습니다. 예를 들어 다음 작업을 할 수 있습니다.
+가져온 구성 요소를 수정 하거나 기능에 IoT Central 관련 기능을 추가 해야 하는 경우 사용자 지정을 사용 합니다. 구성 요소 호환성이 중단 되지 않는 필드만 사용자 지정할 수 있습니다. 예를 들어, 다음을 수행할 수 있습니다.
 
 - 기능의 표시 이름과 단위를 사용자 지정합니다.
 - 값이 차트에 표시될 때 사용할 기본 색을 추가합니다.

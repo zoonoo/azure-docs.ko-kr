@@ -90,6 +90,8 @@
               href: data-box-local-web-ui-admin.md
             - name: 자체 관리형 배송 사용
               href: data-box-portal-customer-managed-shipping.md
+            - name: 사용자 고유의 인증서 가져오기
+              href: data-box-bring-your-own-certificates.md
             - name: 고객 관리형 키 사용
               href: data-box-customer-managed-encryption-key-portal.md
             - name: 고객 Lockbox 사용

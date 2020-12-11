@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: e4fffe0efa9f6900ef8d83c0a1b150b4249c22b3
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 4a787c6e2a9b59874f965a2bbcebea9ce02d8082
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008574"
+ms.locfileid: "97093263"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Microsoft.applicationinsights.snapshotcollector에 대 한 릴리스 정보입니다.
 
@@ -18,7 +18,7 @@ ms.locfileid: "97008574"
 
 .NET 응용 프로그램에 대 한 Application Insights 스냅숏 디버거에 대해 [자세히 알아보세요](./snapshot-debugger.md) .
 
-버그 보고서 및 피드백의 경우 GitHub에서 문제를 엽니다. https://github.com/microsoft/ApplicationInsights-dotnet
+버그 보고서 및 피드백의 경우 GitHub에서 문제를 엽니다. https://github.com/microsoft/ApplicationInsights-SnapshotCollector
 
 ## <a name="release-notes"></a>릴리스 정보
 

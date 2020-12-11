@@ -4,13 +4,13 @@ description: Azure Application Insights를 Azure Functions와 함께 사용하�
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.custom: devx-track-csharp, fasttrack-edit, contperfq2, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: b27fb14341e07683d66418485158a94c18e7a997
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
+ms.openlocfilehash: 7dbaa8712e09de9084e2bcb66d43f2181af292a0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748150"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033037"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -95,15 +95,15 @@ Application Insights은 수집 된 종속성 데이터의 _응용 프로그램 �
 
 함수 실행에 의해 생성 되는 로그 데이터의 스트림을 확인 하는 방법에는 두 가지가 있습니다.
 
-* **기본 제공 로그 스트리밍** : App Service 플랫폼을 사용하여 애플리케이션 로그 파일의 스트림을 볼 수 있습니다. 이 스트림은 [로컬 개발](functions-develop-local.md) 중 및 포털에서 **테스트** 탭을 사용할 때 표시 되는 출력에 해당 합니다. 모든 로그 기반 정보가 표시됩니다. 자세한 내용은 [로그 스트리밍](../app-service/troubleshoot-diagnostic-logs.md#stream-logs)을 참조하세요. 이 스트리밍 방법은 단일 인스턴스만 지원하며, 사용 계획을 사용하는 Linux에서 실행되는 앱에는 사용할 수 없습니다.
+* **기본 제공 로그 스트리밍**: App Service 플랫폼을 사용하여 애플리케이션 로그 파일의 스트림을 볼 수 있습니다. 이 스트림은 [로컬 개발](functions-develop-local.md) 중 및 포털에서 **테스트** 탭을 사용할 때 표시 되는 출력에 해당 합니다. 모든 로그 기반 정보가 표시됩니다. 자세한 내용은 [로그 스트리밍](../app-service/troubleshoot-diagnostic-logs.md#stream-logs)을 참조하세요. 이 스트리밍 방법은 단일 인스턴스만 지원하며, 사용 계획을 사용하는 Linux에서 실행되는 앱에는 사용할 수 없습니다.
 
-* **라이브 메트릭 스트림** : 함수 앱이 [Application Insights에 연결](configure-monitoring.md#enable-application-insights-integration)된 경우 [라이브 메트릭 스트림](../azure-monitor/app/live-stream.md)를 사용 하 여 Azure Portal에서 거의 실시간으로 로그 데이터 및 기타 메트릭을 볼 수 있습니다. 사용 계획을 사용하는 여러 인스턴스 또는 Linux에서 실행되는 함수를 모니터링할 때 이 방법을 사용합니다. 이 방법은 [샘플링된 데이터](configure-monitoring.md#configure-sampling)를 사용합니다.
+* **라이브 메트릭 스트림**: 함수 앱이 [Application Insights에 연결](configure-monitoring.md#enable-application-insights-integration)된 경우 [라이브 메트릭 스트림](../azure-monitor/app/live-stream.md)를 사용 하 여 Azure Portal에서 거의 실시간으로 로그 데이터 및 기타 메트릭을 볼 수 있습니다. 사용 계획을 사용하는 여러 인스턴스 또는 Linux에서 실행되는 함수를 모니터링할 때 이 방법을 사용합니다. 이 방법은 [샘플링된 데이터](configure-monitoring.md#configure-sampling)를 사용합니다.
 
 로그 스트림은 포털과 대부분의 로컬 개발 환경에서 볼 수 있습니다. 로그 스트림을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Azure Functions에서 스트리밍 실행 로그 사용](streaming-logs.md)을 참조 하세요.
 
 ## <a name="diagnostic-logs"></a>진단 로그
 
-_이 기능은 미리 보기 상태입니다._ 
+‘이 기능은 미리 보기로 제공됩니다.’ 
 
 Application Insights를 사용 하 여 원격 분석 데이터를 장기 저장소 또는 다른 analysis services로 내보낼 수 있습니다.  
 
@@ -111,7 +111,7 @@ Application Insights를 사용 하 여 원격 분석 데이터를 장기 저장�
 
 ## <a name="scale-controller-logs"></a>컨트롤러 로그 크기 조정
 
-_이 기능은 미리 보기 상태입니다._ 
+‘이 기능은 미리 보기로 제공됩니다.’ 
 
 [Azure Functions 크기 조정 컨트롤러](./functions-scale.md#runtime-scaling) 는 앱이 실행 되는 Azure Functions 호스트의 인스턴스를 모니터링 합니다. 이 컨트롤러는 현재 성능에 따라 인스턴스를 추가 하거나 제거할 시기에 대 한 결정을 내립니다. 크기 조정 컨트롤러는 함수 앱에 대 한 크기 조정 컨트롤러의 결정을 보다 잘 이해 하기 위해 Application Insights 하기 위해 로그를 내보낼 수 있습니다. 다른 서비스에서 분석을 위해 생성 된 로그를 Blob 저장소에 저장할 수도 있습니다. 
 

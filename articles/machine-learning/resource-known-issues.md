@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperf-fy20q4
 ms.date: 11/09/2020
-ms.openlocfilehash: e383ac260a67c7334b806612325ed0b6a9fbbef9
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 010d37baff76a046bef2da877262f6427cb3d5c9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030980"
+ms.locfileid: "97094440"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -358,7 +358,14 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade pandas==0.23.4
     pip install --upgrade scikit-learn==0.20.3
   ```
- 
+
+* **실패 한 배포**: SDK의 버전 <= 1.18.0 인 경우 배포를 위해 생성 된 기본 이미지가 실패 하 고 "ImportError: 이름을 가져올 수 없습니다. `cached_property` " 라는 오류 메시지가 나타납니다 `werkzeug` . 
+
+  다음 단계를 통해이 문제를 해결할 수 있습니다.
+  1. 모델 패키지 다운로드
+  2. 패키지의 압축을 해제 합니다.
+  3. 압축 되지 않은 자산을 사용 하 여 배포
+
 * **예측 R2 점수는 항상 0입니다**. 제공 된 학습 데이터에 마지막 `n_cv_splits`  +  데이터 요소에 대해 동일한 값을 포함 하는 시계열이 있는 경우이 문제가 발생 `forecasting_horizon` 합니다. 시계열에서이 패턴이 예상 되는 경우 기본 메트릭을 정규화 된 근본 제곱 오차로 전환할 수 있습니다.
  
 * **TensorFlow**: SDK 버전 1.5.0을 기준으로 자동화 된 machine learning은 기본적으로 TensorFlow 모델을 설치 하지 않습니다. TensorFlow를 설치 하 고 자동 ML 실험에서 사용 하려면 TensorFlow = = 1.12.0 via CondaDependecies를 설치 합니다. 

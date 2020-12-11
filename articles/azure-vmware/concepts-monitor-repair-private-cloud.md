@@ -2,14 +2,14 @@
 title: 개념-Azure VMware 솔루션 사설 클라우드 모니터링 및 복구
 description: Azure vmware 솔루션 사설 클라우드에서 VMware ESXi 서버를 모니터링 하 고 복구 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ms.date: 11/20/2020
-ms.openlocfilehash: 6c37ff6cc0715182453669f67306094af2f00cdf
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7f367a6ef9b86f235a16a698735cfb58a11f6862
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024350"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033598"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Azure VMware 솔루션 사설 클라우드 모니터링 및 복구
 

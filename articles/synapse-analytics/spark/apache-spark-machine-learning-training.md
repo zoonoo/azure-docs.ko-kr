@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 09/13/2020
-ms.openlocfilehash: 8250f7154cfb2739d065980284da67a200680d89
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 805bc2aecda37599234c81dd928868d8c14aea4e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920136"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97091992"
 ---
 # <a name="train-machine-learning-models"></a>기계 학습 모델 학습
 Azure Synapse Analytics에서 Apache Spark는 빅 데이터를 사용 하 여 기계 학습을 가능 하 게 하 고, 대량의 구조화 되 고 구조화 되지 않은 데이터 및 빠른 이동 데이터에서 중요 한 통찰력을 얻을 수 있는 기능을 제공 합니다. Azure Synapse Analytics에서 Azure Spark를 사용 하 여 기계 학습 모델을 학습 하는 경우 Apache Spark MLlib, Azure Machine Learning 및 기타 다양 한 오픈 소스 라이브러리가 있습니다. 
@@ -44,13 +44,13 @@ Azure Synapse Analytics의 모든 Apache Spark 풀에는 미리 로드 되 고 �
 MMLSpark는 확장 가능한 ML 모델(예: 인덱싱 문자열)을 작성하고, 데이터를 기계 학습 알고리즘에 필요한 레이아웃으로 강제 변환하고, 기능 벡터를 어셈블할 때 SparkML의 하위 수준 API에 기반한 계층을 제공합니다. MMLSpark 라이브러리는 PySpark에서 모델을 작성하기 위한 이러한 일반적인 작업을 간소화합니다.
 
 ## <a name="automated-ml-in-azure-machine-learning"></a>Azure Machine Learning의 자동화 된 ML 
-Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관리 및 추적할 수 있는 클라우드 기반 환경입니다. Azure Machine Learning의 자동 ml (AutoML)은 학습 데이터 및 구성 설정을 수락 하 고, 최상의 모델에 도달할 수 있도록 다양 한 기능 정규화/표준화 방법, 모델 및 하이퍼 매개 변수 설정의 조합을 자동으로 반복 합니다. 
+Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관리 및 추적할 수 있는 클라우드 기반 환경입니다. Azure Machine Learning 자동화 된 ML은 학습 데이터 및 구성 설정을 수락 하 고, 최상의 모델에 도달할 수 있도록 다양 한 기능 정규화/표준화 방법, 모델 및 하이퍼 매개 변수 설정의 조합을 자동으로 반복 합니다. 
 
-Azure Synapse Analytics 내에서 AutoML을 사용 하는 경우 다양 한 서비스 간의 긴밀 한 통합을 활용 하 여 인증 & 모델 교육을 간소화할 수 있습니다. 
+Azure Synapse Analytics 내에서 자동화 된 ML을 사용 하는 경우 다양 한 서비스 간의 긴밀 한 통합을 활용 하 여 인증 & 모델 교육을 간소화할 수 있습니다. 
 
 > [!NOTE]
 > 
-> 이 [자습서](./spark/../apache-spark-azure-machine-learning-tutorial.md)를 수행 하 여 Azure Machine Learning automl 실험을 만드는 방법에 대해 자세히 알아볼 수 있습니다.
+> 이 [자습서](./spark/../apache-spark-azure-machine-learning-tutorial.md)를 수행 하 여 Azure Machine Learning 자동화 된 ML 실험을 만드는 방법에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="azure-cognitive-services"></a>Azure Cognitive Services
 [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/what-are-cognitive-services) 는 감정적 감정의 텍스트 분석 또는 개체나 얼굴을 인식 하기 위해 이미지 분석과 같은 일반적인 문제를 해결 하는 기계 학습 기능을 제공 합니다. 이 서비스를 사용하기 위해 특별한 기계 학습 또는 데이터 과학 지식이 필요하지 않습니다. 인식 서비스는 machine learning 솔루션 (데이터, 알고리즘 및 학습 된 모델)의 구성 요소 중 일부 또는 전부를 제공 합니다. 이러한 서비스는 기계 학습 또는 데이터 과학을 사용 하지 않고도 데이터에 대 한 일반적인 지식이 필요 합니다. Azure Synapse Analytics 내에서 이러한 미리 학습 된 Cognitive Services를 자동으로 활용할 수 있습니다.
@@ -58,6 +58,6 @@ Azure Synapse Analytics 내에서 AutoML을 사용 하는 경우 다양 한 서�
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Synapse Analytics의 Apache Spark 풀 내에서 기계 학습 모델을 학습 하는 다양 한 옵션에 대 한 개요를 제공 합니다. 아래 자습서에 따라 모델 학습에 대해 자세히 알아볼 수 있습니다.
 
-- Azure Machine Learning 및 Azure Synapse Analytics를 사용 하 여 자동화 된 ML 실험 실행: [Automl 자습서](./spark/../apache-spark-autoscale.md) 
+- Azure Machine Learning 및 Azure Synapse Analytics를 사용 하 여 자동화 된 ML 실험 실행: [자동화 된 Ml 자습서](./spark/../apache-spark-autoscale.md) 
 - SparkML 실험 실행: [Apache SparkML 자습서](../spark/apache-spark-azure-machine-learning-tutorial.md)
 - 기본 라이브러리 보기: [Azure Synapse Analytics 런타임](../spark/apache-spark-version-support.md)

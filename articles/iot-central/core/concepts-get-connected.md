@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 1a050daa3a4b3ae9be5ef40961c40adaa90dc72b
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 90246459663980de25e301817f651e7719e8f380
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96121805"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033184"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -178,11 +178,21 @@ IoT Central 응용 프로그램으로 많은 수의 장치를 등록 하려면 C
 
 ## <a name="associate-a-device-with-a-device-template"></a>장치 템플릿과 장치 연결
 
-장치를 연결할 때 장치가 장치 템플릿에 자동으로 연결 IoT Central. 장치는 연결 될 때 모델 ID를 보냅니다. IoT Central는 모델 ID를 사용 하 여 특정 장치 모델에 대 한 장치 템플릿을 식별 합니다. 검색 프로세스는 다음과 같이 작동 합니다.
+장치를 연결할 때 장치가 장치 템플릿에 자동으로 연결 IoT Central. 장치는 연결 될 때 [모델 ID](../../iot-pnp/iot-plug-and-play-glossary.md#model-id) 를 보냅니다. IoT Central는 모델 ID를 사용 하 여 특정 장치 모델에 대 한 장치 템플릿을 식별 합니다. 검색 프로세스는 다음과 같이 작동 합니다.
 
 1. 장치 템플릿이 IoT Central 응용 프로그램에 이미 게시 된 경우 장치는 장치 템플릿과 연결 됩니다.
-1. 장치 템플릿이 IoT Central 응용 프로그램에 아직 게시 되지 않은 경우 IoT Central는 공용 모델 리포지토리에서 장치 모델을 찾습니다. IoT Central 모델을 찾은 경우이 모델을 사용 하 여 기본 장치 템플릿을 생성 합니다.
+1. 장치 템플릿이 IoT Central 응용 프로그램에 아직 게시 되지 않은 경우 IoT Central는 [공용 모델 리포지토리에서](https://github.com/Azure/iot-plugandplay-models)장치 모델을 찾습니다. IoT Central 모델을 찾은 경우이 모델을 사용 하 여 기본 장치 템플릿을 생성 합니다.
 1. IoT Central 공용 모델 리포지토리에서 모델을 찾을 수 없는 경우 장치가 연결 되지 않은 것으로 표시 **됩니다.** 운영자는 장치에 대 한 장치 템플릿을 만든 다음 연결 되지 않은 장치를 새 장치 템플릿으로 마이그레이션할 수 있습니다.
+
+다음 스크린샷은 IoT Central에서 장치 템플릿의 모델 ID를 보는 방법을 보여 줍니다. 장치 템플릿에서 구성 요소를 선택한 다음, **Id 보기** 를 선택 합니다.
+
+:::image type="content" source="media/concepts-get-connected/model-id.png" alt-text="자동 온도 조절기 장치 템플릿의 모델 ID를 보여 주는 스크린샷":::
+
+공용 모델 리포지토리에서 [자동 온도 조절기 모델](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-1.json) 을 볼 수 있습니다. 모델 ID 정의는 다음과 같습니다.
+
+```json
+"@id": "dtmi:com:example:Thermostat;1"
+```
 
 ## <a name="device-status-values"></a>장치 상태 값
 

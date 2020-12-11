@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: d5d182276cd77493be5184503a1afc47934bf8ea
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 43d7a697b3cb013a73a0b14db8ec1758244ae3b9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344196"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092196"
 ---
 # <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Jupyter Notebook를 사용 하 여 보안 위협 구하기
 
@@ -23,7 +23,7 @@ Azure 센티널의 기반은 데이터 저장소입니다. 고성능 쿼리, 동
 
 ![예제 Notebook](./media/notebooks/sentinel-notebooks-map.png)
 
-Jupyter 환경이 Azure Portal에 통합되어 있어서 Notebook을 쉽게 만들고 실행하여 데이터를 분석할 수 있습니다. *Kqlmagic* 라이브러리는 Azure Sentinel에서 쿼리를 가져와서 Notebook 내에서 직접 실행할 수 있는 수단을 제공합니다. 쿼리는 [Kusto 쿼리 언어](https://kusto.azurewebsites.net/docs/query/index.html)를 사용합니다. 일부 Microsoft 보안 분석가가 개발한 몇 가지 Notebook이 Azure Sentinel에 패키징되어 있습니다. 이러한 Notebook 중 일부는 특정 시나리오에 맞게 빌드되어 있어서 그대로 사용할 수 있습니다. 그 외 Notebook은 기술과 기능을 설명하는 샘플로 제공되며, 사용자가 Notebook에서 사용하기 적합하게 수정하거나 복사할 수 있습니다. 다른 전자 필기장은 Azure 센티널 커뮤니티 GitHub 에서도 가져올 수 있습니다.
+Jupyter 환경이 Azure Portal에 통합되어 있어서 Notebook을 쉽게 만들고 실행하여 데이터를 분석할 수 있습니다. *Kqlmagic* 라이브러리는 Azure Sentinel에서 쿼리를 가져와서 Notebook 내에서 직접 실행할 수 있는 수단을 제공합니다. 쿼리는 [Kusto 쿼리 언어](https://kusto.azurewebsites.net/docs/kusto/query/index.html)를 사용합니다. 일부 Microsoft 보안 분석가가 개발한 몇 가지 Notebook이 Azure Sentinel에 패키징되어 있습니다. 이러한 Notebook 중 일부는 특정 시나리오에 맞게 빌드되어 있어서 그대로 사용할 수 있습니다. 그 외 Notebook은 기술과 기능을 설명하는 샘플로 제공되며, 사용자가 Notebook에서 사용하기 적합하게 수정하거나 복사할 수 있습니다. 다른 전자 필기장은 Azure 센티널 커뮤니티 GitHub 에서도 가져올 수 있습니다.
 
 통합 Jupyter 환경에서는 [Azure Notebooks](https://notebooks.azure.com/)를 사용하여 Notebook을 저장, 공유 및 실행합니다. 컴퓨터에 Python 환경과 Jupyter가 있거나 Azure Databricks와 같은 기타 JupterHub 환경인 경우에는 이러한 Notebook을 로컬에서 실행할 수도 있습니다.
 
@@ -61,12 +61,12 @@ Azure Sentinel Notebook은 pandas, matplotlib, bokeh 등 널리 사용되는 다
 
 1. **Machine Learning** 페이지에서 다음 정보를 입력 한 다음 **검토 + 만들기** 를 선택 합니다.
 
-    |필드|설명|
+    |필드|Description|
     |--|--|
-    |Subscription|사용할 Azure 구독을 선택합니다.|
+    |구독|사용할 Azure 구독을 선택합니다.|
     |Resource group|구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다. 이 예제에서는 **AzureMLRG** 를 사용 합니다.|
     |작업 영역 이름|작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **testworkspace1** 를 사용 합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요.|
-    |Azure 지역|사용자 및 데이터 리소스와 가장 가까운 위치를 선택하여 작업 영역을 만듭니다.|
+    |지역|사용자 및 데이터 리소스와 가장 가까운 위치를 선택하여 작업 영역을 만듭니다.|
     |Workspace Edition|이 예제에서 작업 영역 형식으로 **기본** 을 선택 합니다. 작업 영역 유형 (Basic & Enterprise)에는 액세스 및 가격 책정을 사용할 수 있는 기능이 결정 됩니다.|
 
     > [!div class="mx-imgBorder"]

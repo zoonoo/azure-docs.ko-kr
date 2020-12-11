@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b6f66813ea23f6c9d4b47a3733d0c72c683d0676
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 03ef75f43d8c8c854c3803ceb30f31b292d566c3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493987"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033428"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -48,7 +48,7 @@ Nsg ( [네트워크 보안 그룹](../virtual-network/network-security-groups-ov
 **키 속성**
 
 - 흐름 로그는 [계층 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) 에서 작동 하 고 nsg에서 들어오고 나가는 모든 IP 흐름을 기록 합니다.
-- 로그는 Azure 플랫폼을 통해 수집 되며 고객 리소스나 네트워크 성능에 영향을 주지 않습니다.
+- 로그는 Azure 플랫폼을 통해 **1 분 간격** 으로 수집 되며 고객 리소스나 네트워크 성능에 영향을 주지 않습니다.
 - 로그는 JSON 형식으로 작성 되며, NSG 규칙에 따라 아웃 바운드 및 인바운드 흐름을 표시 합니다.
 - 각 로그 레코드에는 흐름이 적용 되는 NIC (네트워크 인터페이스), 5 튜플 정보, 트래픽 결정 & (버전 2에만 해당) 처리량 정보가 포함 됩니다. 전체 세부 정보는 아래 _로그 형식_ 을 참조 하세요.
 - 흐름 로그에는 생성 후 최대 1 년까지 로그를 자동으로 삭제할 수 있는 보존 기능이 있습니다. 
@@ -361,17 +361,23 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **인터넷 ip에서 공용 ip가 없는 vm으로 로그온 하는 인바운드 흐름**: 인스턴스 수준 공용 IP로 NIC와 연결 된 공용 ip 주소를 통해 할당 되거나 기본 부하 분산 장치 백 엔드 풀의 일부인 vm은 [기본 SNAT](../load-balancer/load-balancer-outbound-connections.md) 를 사용 하 고 AZURE에서 할당 된 IP 주소를 사용 하 여 아웃 바운드 연결을 용이 하 게 합니다. 따라서 흐름이 SNAT에 할당 된 포트 범위의 포트를 대상으로 하는 경우 인터넷 IP 주소에서 흐름에 대 한 흐름 로그 항목이 표시 될 수 있습니다. Azure는 VM에 대 한 이러한 흐름을 허용 하지 않지만, 시도는 기록 되 고 Network Watcher의 NSG 흐름 로그에 설계상 표시 됩니다. 원치 않는 인바운드 인터넷 트래픽이 NSG를 사용 하 여 명시적으로 차단 되도록 하는 것이 좋습니다.
 
+**Application Gateway V2 서브넷 NSG** 에 대 한 문제: Application Gateway V2 서브넷의 흐름 로깅이 현재 [지원 되지](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) 않습니다. 이 문제는 V1 Application Gateway에는 영향을 주지 않습니다.
+
 **호환 되지 않는 서비스**: 현재 플랫폼 제한으로 인해 Azure 서비스의 작은 집합이 Nsg 흐름 로그에서 지원 되지 않습니다. 호환 되지 않는 서비스의 현재 목록은
 - [AKS(Azure Kubernetes Service)](https://azure.microsoft.com/services/kubernetes-service/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 **중요 한 vnet/서브넷에 대해 설정**: 흐름 로그는 감사 기능 및 보안 모범 사례로 서 구독의 모든 중요 한 vnet/서브넷에서 사용 하도록 설정 되어야 합니다. 
 
 **리소스에 연결 된 모든 nsg에 대해 Nsg 흐름 로깅을 사용 하도록 설정**: Azure의 흐름 로깅은 nsg 리소스에 구성 됩니다. 하나의 흐름은 하나의 NSG 규칙에만 연결됩니다. 여러 NSGs를 사용 하는 시나리오에서 리소스의 서브넷 또는 네트워크 인터페이스를 적용 한 모든 NSGs에 대해 NSGS 흐름 로그를 사용 하도록 설정 하 여 모든 트래픽이 기록 되도록 하는 것이 좋습니다. 자세한 내용은 네트워크 보안 그룹에서 [트래픽 평가 방법](../virtual-network/network-security-group-how-it-works.md) 을 참조 하세요.
 
+**Nic 및 서브넷 수준에서 NSG** 를 사용 하도록 설정: nsg가 Nic 및 서브넷 수준에서 구성 된 경우에는 두 nsg에서 흐름 로깅을 사용 하도록 설정 해야 합니다. 
+
 **저장소 프로 비전**: 저장소는 예상 흐름 로그 볼륨이 포함 된 튜닝에서 프로 비전 되어야 합니다.
+
+**이름 지정**: nsg 이름은 80 자이 하 여야 하 고 nsg 규칙 이름은 65 자까지 사용할 수 있습니다. 이름이 문자 제한을 초과 하는 경우 로깅 중에 잘릴 수 있습니다.
 
 ## <a name="troubleshooting-common-issues"></a>일반적인 문제 해결
 

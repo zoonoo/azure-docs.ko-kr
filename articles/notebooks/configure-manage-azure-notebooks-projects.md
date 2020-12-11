@@ -4,14 +4,14 @@ description: Azure Notebooks UI와 직접 터미널 액세스를 통해 프로�
 ms.topic: how-to
 ms.date: 02/28/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb106132cf0dfb14dc41c1d4b480fd3a1d7fd7fe
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852806"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093539"
 ---
-# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Azure Notebooks 미리 보기에서 프로젝트 관리 및 구성
+# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a>Azure Notebooks 미리 보기에서 프로젝트 관리 및 구성
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
@@ -36,7 +36,7 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 ## <a name="edit-project-metadata"></a>프로젝트 메타데이터 편집
 
-프로젝트 대시보드에서 **프로젝트 설정**를 선택하고, 다음 표에 설명된 것처럼 프로젝트의 메타데이터를 포함하고 있는 **정보** 탭을 선택합니다. 언제든지 프로젝트 메타데이터를 변경할 수 있습니다.
+프로젝트 대시보드에서 **프로젝트 설정** 를 선택하고, 다음 표에 설명된 것처럼 프로젝트의 메타데이터를 포함하고 있는 **정보** 탭을 선택합니다. 언제든지 프로젝트 메타데이터를 변경할 수 있습니다.
 
 | 설정 | Description |
 | --- | --- |
@@ -83,7 +83,7 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 | 파일 편집 | i | 편집할 파일을 엽니다. |
 | 다운로드 | 일 | 폴더의 파일 또는 콘텐츠를 포함하고 있는 Zip 파일을 다운로드합니다. |
 | 이름 바꾸기 | a | 파일 또는 폴더의 새 이름을 요청합니다. |
-| DELETE | x | 확인을 요청한 다음, 프로젝트에서 파일을 영구적으로 제거합니다. 삭제 작업은 실행 취소할 수 없습니다. |
+| 삭제 | x | 확인을 요청한 다음, 프로젝트에서 파일을 영구적으로 제거합니다. 삭제 작업은 실행 취소할 수 없습니다. |
 | 이동 | 분 | 파일을 같은 프로젝트의 다른 폴더로 이동합니다. |
 
 #### <a name="preview"></a>미리 보기
@@ -111,17 +111,17 @@ Notebook이 실행되는 기본 가상 머신의 환경을 구성하는 세 가�
 
 ### <a name="one-time-initialization-script"></a>일회용 초기화 스크립트
 
-처음 Azure Notebooks 프로젝트에 대 한 서버를 만들 때 *aznbsetup.sh*이라는 프로젝트에서 파일을 찾습니다. 이 파일이 있는 경우 Azure Notebooks 실행 합니다. 스크립트의 출력은 프로젝트 폴더에 *. aznbsetup.log*로 저장됩니다.
+처음 Azure Notebooks 프로젝트에 대 한 서버를 만들 때 *aznbsetup.sh* 이라는 프로젝트에서 파일을 찾습니다. 이 파일이 있는 경우 Azure Notebooks 실행 합니다. 스크립트의 출력은 프로젝트 폴더에 *. aznbsetup.log* 로 저장됩니다.
 
 ### <a name="environment-setup-steps"></a>환경 설정 단계
 
 프로젝트의 환경 설정을 사용하여 환경을 구성하는 개별 단계를 만들 수 있습니다.
 
-프로젝트 대시보드에서 **프로젝트 설정**을 선택한 다음, 프로젝트의 설정 단계를 추가, 제거 및 수정하는 **환경** 탭을 선택합니다.
+프로젝트 대시보드에서 **프로젝트 설정** 을 선택한 다음, 프로젝트의 설정 단계를 추가, 제거 및 수정하는 **환경** 탭을 선택합니다.
 
 ![환경 탭이 선택된 프로젝트 설정 팝업](media/project-settings-environment-steps.png)
 
-단계를 추가하려면 **+ 추가**를 선택한 다음, **작업** 드롭다운 목록에서 단계 형식을 선택합니다.
+단계를 추가하려면 **+ 추가** 를 선택한 다음, **작업** 드롭다운 목록에서 단계 형식을 선택합니다.
 
 ![새로운 환경 설정 단계에 대한 작업 선택기](media/project-settings-environment-details.png)
 
@@ -136,7 +136,7 @@ Notebook이 실행되는 기본 가상 머신의 환경을 구성하는 세 가�
    > [!WARNING]
    > 이는 개발 중인 미리 보기 서비스이므로 현재는 `Environment.yml` 설정이 프로젝트에 예상대로 적용되지 않는 알려진 문제가 있습니다. 프로젝트와 Jupyter 노트북은 현재 지정된 환경 파일을 로드하지 않습니다.
 
-단계 추가를 마쳤으면 **저장**을 선택합니다.
+단계 추가를 마쳤으면 **저장** 을 선택합니다.
 
 ### <a name="use-the-terminal"></a>터미널 사용
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: af3653d9e4509b1aa31a377dfc22cb6b6b2ff34e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 76232a917e8856a06645fabc0ab4716195c5c0e1
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906066"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094202"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Azure Maps 권한 상승 서비스를 사용 하 여 데이터 권한 상승 요청 (미리 보기)
 
@@ -56,8 +56,8 @@ Azure Maps의 인증에 대 한 자세한 내용은 [Azure Maps 인증을 관리
 
 권한 상승 서비스 (미리 보기) Api를 사용 하 여 GeoJSON 형식의 권한 상승 데이터를 요청 합니다. 이 섹션에서는 다음과 같은 세 가지 Api를 각각 보여 줍니다.
 
-* [요소에 대 한 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
-* [점에 대 한 게시 데이터](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates)
+* [요소에 대 한 데이터 가져오기](/rest/api/maps/elevation/getdataforpoints)
+* [점에 대 한 게시 데이터](/rest/api/maps/elevation/postdataforpoints)
 * [다중선 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
 * [다중선의 게시 데이터](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline)
 * [경계 상자에 대 한 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
@@ -67,7 +67,7 @@ Azure Maps의 인증에 대 한 자세한 내용은 [Azure Maps 인증을 관리
 
 ### <a name="request-elevation-data-for-points"></a>요소에 대 한 권한 상승 데이터 요청
 
-이 예제에서는 [요소에 대 한 데이터 가져오기 API](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) 를 사용 하 여 Mt에서 데이터 상승 데이터를 요청 합니다. Everest 및 Chamlang 산. 그런 다음, [요소에 대 한 게시 데이터 API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) 를 사용 하 여 동일한 두 개의 요소를 사용 하 여 권한 상승 데이터를 요청 합니다. URL의 위도 및 경도는 WGS84 (세계 측 지 System)의 10 진수 수준에 있어야 합니다.
+이 예제에서는 [요소에 대 한 데이터 가져오기 API](/rest/api/maps/elevation/getdataforpoints) 를 사용 하 여 Mt에서 데이터 상승 데이터를 요청 합니다. Everest 및 Chamlang 산. 그런 다음, [요소에 대 한 게시 데이터 API](/rest/api/maps/elevation/postdataforpoints) 를 사용 하 여 동일한 두 개의 요소를 사용 하 여 권한 상승 데이터를 요청 합니다. URL의 위도 및 경도는 WGS84 (세계 측 지 System)의 10 진수 수준에 있어야 합니다.
 
  >[!IMPORTANT]
  >URL 문자 길이 제한이 2048 이므로 URL GET 요청에서 100 이상의 좌표를 파이프라인으로 구분 된 문자열로 전달할 수 없습니다. 100 개 이상의 좌표를 파이프라인으로 구분 된 문자열로 전달 하려는 경우에는 점에 대 한 게시 데이터를 사용 합니다.
@@ -103,7 +103,7 @@ Azure Maps의 인증에 대 한 자세한 내용은 [Azure Maps 인증을 관리
     }
     ```
 
-4. 이제는 요소에 대 한 [게시 데이터 API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) 를 호출 하 여 동일한 두 점에 대 한 권한 상승 데이터를 가져옵니다. 작성기 탭에서 **POST** HTTP 메서드를 선택 하 고 다음 URL을 입력 합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+4. 이제는 요소에 대 한 [게시 데이터 API](/rest/api/maps/elevation/postdataforpoints) 를 호출 하 여 동일한 두 점에 대 한 권한 상승 데이터를 가져옵니다. 작성기 탭에서 **POST** HTTP 메서드를 선택 하 고 다음 URL을 입력 합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
@@ -456,7 +456,7 @@ URL의 위도 및 경도는 WGS84 (세계 측 지 System)의 10 진수 수준에
 <br/>
 
 <iframe height="500" style="width:100%;" scrolling="no" title="위치에서 권한 상승 가져오기" src="https://codepen.io/azuremaps/embed/c840b510e113ba7cb32809591d5f96a2?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/c840b510e113ba7cb32809591d5f96a2'>가져오기 권한 상승</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
+CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/c840b510e113ba7cb32809591d5f96a2'>가져오기 권한 상승</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'></a>.
 </iframe>
 
 ### <a name="get-elevation-data-by-bounding-box"></a>경계 상자를 기준으로 데이터 상승 가져오기
@@ -466,7 +466,7 @@ CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/c840b5
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="경계 상자 별 권한 상승" src="https://codepen.io/azuremaps/embed/619c888c70089c3350a3e95d499f3e48?height=500&theme-id=default&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen에서 ()를 Azure Maps 하 여 <a href='https://codepen.io/azuremaps/pen/619c888c70089c3350a3e95d499f3e48'>경계 상자</a> 에의 한 펜 권한 상승을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+CodePen에서 ()를 Azure Maps 하 여 <a href='https://codepen.io/azuremaps/pen/619c888c70089c3350a3e95d499f3e48'>경계 상자</a> 에의 한 펜 권한 상승을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 ### <a name="get-elevation-data-by-polyline-path"></a>다중선 경로를 기준으로 데이터 상승 가져오기
@@ -476,7 +476,7 @@ CodePen에서 ()를 Azure Maps 하 여 <a href='https://codepen.io/azuremaps/pen
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="상승 경로 그라데이션" src="https://codepen.io/azuremaps/embed/7bee08e5cb13d05cb0a11636b60f14ca?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/7bee08e5cb13d05cb0a11636b60f14ca'>상승 경로 그라데이션을</a> 확인 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
+CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/7bee08e5cb13d05cb0a11636b60f14ca'>상승 경로 그라데이션을</a> 확인 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'></a>.
 </iframe>
 
 
@@ -485,7 +485,7 @@ CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/7bee08
 Azure Maps 권한 상승 (미리 보기) Api를 추가로 탐색 하려면 다음을 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [권한 상승 (미리 보기)-Lat 긴 좌표에 대 한 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
+> [권한 상승 (미리 보기)-Lat 긴 좌표에 대 한 데이터 가져오기](/rest/api/maps/elevation/getdataforpoints)
 
 > [!div class="nextstepaction"]
 > [권한 상승 (미리 보기)-경계 상자에 대 한 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)

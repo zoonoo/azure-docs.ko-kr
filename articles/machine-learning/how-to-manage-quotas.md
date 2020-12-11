@@ -10,13 +10,13 @@ author: nishankgu
 ms.author: nigup
 ms.date: 12/1/2020
 ms.topic: conceptual
-ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 30859593e240c4143dc298cff446ce8bc116a993
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
+ms.openlocfilehash: 58dacc9e65da6502d083446cb7202c222cb7e795
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780589"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97034040"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning 사용 하 여 리소스에 대 한 할당량 관리 및 늘리기
 
@@ -194,7 +194,7 @@ Azure Machine Learning는 (고객) 구독에 리소스를 만들지만 일부 �
 
 1. [Azure 지원 요청을 만들고](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) __기본 사항__ 섹션에서 다음 옵션을 선택 합니다.
 
-    | 필드 | 선택 영역 |
+    | 필드 | 선택 |
     | ----- | ----- |
     | 문제 유형 | **기술** |
     | 서비스 | **내 서비스**. 그런 다음 드롭다운 목록에서 __Machine Learning__ 을 선택 합니다. |

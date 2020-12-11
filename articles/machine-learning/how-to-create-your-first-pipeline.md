@@ -10,13 +10,13 @@ ms.author: nilsp
 author: NilsPohlmann
 ms.date: 10/21/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 2b534f82aeda438b1d2bd5d60eeb4871acffc54a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.openlocfilehash: fe36b7789be6e885f3fbe0fa4ede044c0593f5ef
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902020"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033394"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -306,7 +306,7 @@ ws = Run.get_context().experiment.workspace
 ## <a name="caching--reuse"></a>캐싱 & 재사용  
 
 파이프라인의 동작을 최적화 하 고 사용자 지정 하기 위해 캐싱 및 다시 사용에 대 한 몇 가지 작업을 수행할 수 있습니다. 예를 들어 다음을 선택할 수 있습니다.
-+ 단계 정의 중에를 설정 하 여 **단계의 기본 재사용을 해제** 합니다 `allow_reuse=False` [step definition](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py). 불필요 한 실행을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 재사용할 수 있습니다. 그러나 재사용을 옵트아웃 (opt out) 할 수 있습니다.
++ 단계 정의 중에를 설정 하 여 **단계의 기본 재사용을 해제** 합니다 `allow_reuse=False` [](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py). 불필요 한 실행을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 재사용할 수 있습니다. 그러나 재사용을 옵트아웃 (opt out) 할 수 있습니다.
 + 를 사용 하 여 **실행의 모든 단계에 대해 출력 다시 생성**`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
 기본적으로 `allow_reuse` 단계를 사용 하 고 `source_directory` 단계 정의에 지정 된를 해시 합니다. 따라서 지정 된 단계에 대 한 스크립트는 동일 하 게 유지 `script_name` 되 고, 입력 및 매개 변수를 그대로 유지 하 고,의 다른 모든 항목이 변경 되지 않은 경우에는 ` source_directory` 이전 단계 실행의 출력이 다시 사용 되 고, 작업이 계산에 전송 되지 않고, 이전 실행의 결과를 다음 단계에서 즉시 사용할 수 있습니다.

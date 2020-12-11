@@ -10,18 +10,18 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: f5d58f89aa87a39d12b2d6f6a3a91254a653a088
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8a1f3b5e80152fb0fb9458aef0d3524dd2d6f5eb
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784663"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092332"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Key Vault에 사용할 HSM 보호 키 가져오기(nCipher)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-보안을 강화하기 위해 Azure Key Vault 사용 시 HSM 경계를 절대로 벗어나지 않고 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. 이 시나리오를 흔히 BYOK( *Bring Your Own Key* )라고 합니다. Azure Key Vault는 HSM(FIPS 140-2 Level 2 유효성 검사 통과)의 nCipher nShield 제품군을 사용하여 키를 보호합니다.
+보안을 강화하기 위해 Azure Key Vault 사용 시 HSM 경계를 절대로 벗어나지 않고 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. 이 시나리오를 흔히 BYOK( *Bring Your Own Key*)라고 합니다. Azure Key Vault는 HSM(FIPS 140-2 Level 2 유효성 검사 통과)의 nCipher nShield 제품군을 사용하여 키를 보호합니다.
 
 > [!NOTE]
 > 이 문서에서 설명하는 HSM 키 가져오기 방법은 HSM의 nCipher nShield 제품군에서만 작동합니다. 다른 HSM에서 HSM 키를 가져오려면 [여기](hsm-protected-keys-byok.md)를 참조하세요.
@@ -61,7 +61,7 @@ Azure Key Vault에 대해 BYOK(Bring Your Own Key)를 위한 필수 조건 목�
 | --- | --- |
 | Azure 구독 |Azure Key Vault를 만들려면 Azure 구독이 필요합니다([무료 평가판 가입](https://azure.microsoft.com/pricing/free-trial/)). |
 | HSM 보호 키를 지원하는 Azure Key Vault 프리미엄 서비스 계층 |Azure Key Vault에 대한 서비스 계층 및 기능에 대한 자세한 내용은 [Azure Key Vault 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/) 웹 사이트를 참조하세요. |
-| nCipher nShield HSM, 스마트카드 및 지원 소프트웨어 |nCipher 하드웨어 보안 모듈에 대한 액세스 권한과 nCipher nShield HSM의 기본 운영 지식이 있어야 합니다. 호환되는 모델 목록을 보거나, HSM이 없는 경우 구매하려면 [nCipher nShield 하드웨어 보안 모듈](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/how-to-buy)을 참조하세요. |
+| nCipher nShield HSM, 스마트카드 및 지원 소프트웨어 |nCipher 하드웨어 보안 모듈에 대한 액세스 권한과 nCipher nShield HSM의 기본 운영 지식이 있어야 합니다. 호환되는 모델 목록을 보거나, HSM이 없는 경우 구매하려면 [nCipher nShield 하드웨어 보안 모듈](https://go.ncipher.com/rs/104-QOX-775/images/nCipher_nShield_Family_Brochure.pdf?_ga=2.106120835.1607422418.1590478092-577009923.1587131206)을 참조하세요. |
 | 다음 하드웨어 및 소프트웨어:<ol><li>Windows 운영 체제 Windows 7 이상 및 nCipher nShield 소프트웨어 버전 11.50 이상이 설치된 오프라인 x64 워크스테이션.<br/><br/>이 워크스테이션에서 Windows 7을 실행하는 경우 [Microsoft.NET Framework 4.5를 설치](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe)해야 합니다.</li><li>인터넷에 연결되어 있으며 Windows 7 이상의 Windows 운영 체제 및 [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) **최소 버전 1.1.0** 이 설치된 워크스테이션</li><li>여유 공간이 16MB 이상인 USB 드라이브 또는 기타 휴대용 스토리지 디바이스</li></ol> |보안상의 이유로 첫 번째 워크스테이션은 네트워크에 연결하지 않는 것이 좋습니다. 그러나 이 권고는 프로그램 방식으로 강제 적용되지는 않습니다.<br/><br/>이후의 지침에서는 이 워크스테이션을 분리된 워크스테이션이라고 합니다.</p></blockquote><br/>또한 테넌트 키가 프로덕션 네트워크용인 경우 별도의 두 번째 워크스테이션을 사용하여 도구 세트를 다운로드하고 테넌트 키를 업로드하는 것이 좋습니다. 그러나 테스트 목적인 경우에는 첫 번째와 동일한 워크스테이션을 사용할 수 있습니다.<br/><br/>이후의 지침에서는 이 두 번째 워크스테이션을 인터넷에 연결된 워크스테이션이라고 합니다.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>키 생성 및 Azure Key Vault에 전송
@@ -255,7 +255,7 @@ USB 드라이브 또는 기타 휴대용 스토리지에 패키지를 복사합�
 
 Windows 컴퓨터에 nCipher 지원 소프트웨어를 설치한 다음, nCipher nShield HSM을 해당 컴퓨터에 연결합니다.
 
-nCipher 도구가 해당 경로( **%nfast_home%\bin** )에 있는지 확인합니다. 예를 들어 다음을 입력합니다.
+nCipher 도구가 해당 경로( **%nfast_home%\bin**)에 있는지 확인합니다. 예를 들어 다음을 입력합니다.
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
@@ -416,7 +416,7 @@ nCipher nShield Edge를 사용하는 경우 다음과 같이 모드를 변경합
      >
 2. 다음 내용이 표시되는지 확인합니다. 이는 유효성 검사가 성공했다는 것입니다. **Result: SUCCESS**
 
-이 스크립트는 nShield 루트 키까지 서명자 체인의 유효성을 검사합니다. 이 루트 키의 해시는 스크립트에 포함되어 있으며 해당 값은 **59178a47 de508c3f 291277ee 184f46c4 f1d9c639** 여야 합니다. [nCipher 웹 사이트](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation)에서 이 값을 개별적으로 확인할 수도 있습니다.
+이 스크립트는 nShield 루트 키까지 서명자 체인의 유효성을 검사합니다. 이 루트 키의 해시는 스크립트에 포함되어 있으며 해당 값은 **59178a47 de508c3f 291277ee 184f46c4 f1d9c639** 여야 합니다. [nCipher 웹 사이트](https://www.ncipher.com)에서 이 값을 개별적으로 확인할 수도 있습니다.
 
 이제 새 키를 만들 준비가 되었습니다.
 
@@ -434,7 +434,7 @@ generatekey --generate simple type=RSA size=2048 protect=module ident=contosokey
 
 * 매개 변수 *보호* 는 다음과 같이 값 **모듈** 에 설정되어야 합니다. 이렇게 하면 모듈 보호 키가 만들어집니다. BYOK 도구 집합은 OCS 보호 키를 지원하지 않습니다.
 * **ident** 및 **plainname** 의 *contosokey* 값을 임의의 문자열 값으로 바꿉니다. 관리 오버헤드를 최소화하고 오류 위험성을 줄이려면 두 가지에 동일한 값을 사용하는 것이 좋습니다. **ident** 값에는 숫자, 대시 및 소문자만 사용할 수 있습니다.
-* pubexp는 이 예에서 비어 있지만(기본값) 특정 값을 지정할 수 있습니다. 자세한 내용은 [nCipher 설명서](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based)를 참조하세요.
+* pubexp는 이 예에서 비어 있지만(기본값) 특정 값을 지정할 수 있습니다. 자세한 내용은 [nCipher 설명서](https://www.entrust.com/-/media/documentation/brochures/entrust-nshield-general-purpose-hsms-br-a4.pdf)를 참조하세요.
 
 이 명령은 %NFAST_KMDATA%\local 폴더에 토큰화된 키 파일을 만듭니다. 이 파일은 이름이 **key_simple_** 로 시작하며 명령에서 지정한 **ident** 가 뒤에 붙습니다. 예들 들어 **key_simple_contosokey** 입니다. 이 파일은 암호화된 키를 포함합니다.
 
@@ -668,7 +668,7 @@ nCipher nShield 유틸리티에서 다음 명령을 사용하여 ACLS를 검사�
 * *SubscriptionID* 를 주요 자격 증명 모음이 포함된 Azure 구독 ID로 바꿉니다. **인터넷에 연결된 워크스테이션 준비** 단계의 [1.2단계: Azure 구독 ID 가져오기](#step-1-prepare-your-internet-connected-workstation) 에서 이 값을 검색했습니다.
 * *ContosoFirstHSMKey* 를 출력 파일 이름에 사용할 레이블로 바꿉니다.
 
-이 작업이 성공적으로 완료되면 **Result: SUCCESS** 가 표시되고 현재 폴더에 KeyTransferPackage- *ContosoFirstHSMkey* .byok라는 이름의 새 파일이 생성됩니다.
+이 작업이 성공적으로 완료되면 **Result: SUCCESS** 가 표시되고 현재 폴더에 KeyTransferPackage-*ContosoFirstHSMkey*.byok라는 이름의 새 파일이 생성됩니다.
 
 ### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>4.3단계: 인터넷에 연결된 워크스테이션에 키 전송 패키지 복사
 

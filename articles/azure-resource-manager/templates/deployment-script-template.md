@@ -7,16 +7,16 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: jgao
-ms.openlocfilehash: 4ec6796cd0ed91987c1ef52fb5e9494a3142e00e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 3a229d1e6752eabd099a5bc60ef93f1d4e85a26b
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030453"
+ms.locfileid: "97092757"
 ---
-# <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용(미리 보기)
+# <a name="use-deployment-scripts-in-arm-templates-preview"></a>ARM 템플릿에서 배포 스크립트 사용 (미리 보기)
 
-Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대해 알아봅니다. 이라는 새 리소스 유형을 사용 하면 `Microsoft.Resources/deploymentScripts` 사용자가 템플릿 배포에서 스크립트를 실행 하 고 실행 결과를 검토할 수 있습니다. 이러한 스크립트는 다음과 같은 사용자 지정 단계를 수행하는 데 사용할 수 있습니다.
+Azure 리소스 템플릿 (ARM 템플릿)에서 배포 스크립트를 사용 하는 방법에 대해 알아봅니다. 이라는 새 리소스 유형을 사용 하면 `Microsoft.Resources/deploymentScripts` 사용자가 템플릿 배포에서 스크립트를 실행 하 고 실행 결과를 검토할 수 있습니다. 이러한 스크립트는 다음과 같은 사용자 지정 단계를 수행하는 데 사용할 수 있습니다.
 
 - 디렉터리에 사용자 추가
 - 데이터 평면 작업 수행(예: BLOB 또는 시드 데이터베이스 복사)
@@ -43,7 +43,7 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- **(선택 사항) 스크립트에서 작업을 수행 하는 데 필요한 권한이 있는 사용자 할당 관리 id** 입니다. 배포 스크립트 API 버전 2020-10-01 이상에서는 배포 주체를 사용 하 여 기본 리소스를 만듭니다. 스크립트가 Azure에 인증 하 고 Azure 특정 작업을 수행 해야 하는 경우에는 사용자 할당 관리 id를 사용 하 여 스크립트를 제공 하는 것이 좋습니다. 스크립트에서 작업을 완료 하려면 관리 되는 id에 대상 리소스 그룹에 대 한 필수 액세스 권한이 있어야 합니다. 배포 스크립트에서 Azure에 로그인 할 수도 있습니다. 리소스 그룹 외부에서 작업을 수행하려면 추가 권한을 부여해야 합니다. 예를 들어 새 리소스 그룹을 만들려면 구독 수준에 ID를 할당합니다. 
+- **(선택 사항) 스크립트에서 작업을 수행 하는 데 필요한 권한이 있는 사용자 할당 관리 id** 입니다. 배포 스크립트 API 버전 2020-10-01 이상에서는 배포 주체를 사용 하 여 기본 리소스를 만듭니다. 스크립트가 Azure에 인증 하 고 Azure 관련 작업을 수행 해야 하는 경우에는 사용자 할당 관리 id를 사용 하 여 스크립트를 제공 하는 것이 좋습니다. 스크립트에서 작업을 완료 하려면 관리 되는 id에 대상 리소스 그룹에 대 한 필수 액세스 권한이 있어야 합니다. 배포 스크립트에서 Azure에 로그인 할 수도 있습니다. 리소스 그룹 외부에서 작업을 수행하려면 추가 권한을 부여해야 합니다. 예를 들어 새 리소스 그룹을 만들려면 구독 수준에 ID를 할당합니다. 
 
   ID를 만들려면 [Azure Portal을 사용하여 사용자가 할당한 관리 ID 만들기](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure CLI를 사용하여 사용자가 할당한 관리 ID 만들기](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) 또는 [Azure PowerShell을 사용하여 사용자가 할당한 관리 ID 만들기](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)를 참조하세요. 이 ID는 템플릿을 배포할 때 필요합니다. ID의 형식은 다음과 같습니다.
 
@@ -135,7 +135,7 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 
 속성 값 세부 정보:
 
-- **Id**: 배포 스크립트 API 버전 2020-10-01 이상에서는 스크립트에서 Azure 특정 작업을 수행 해야 하는 경우가 아니면 사용자 할당 관리 id가 선택 사항입니다.  API 버전 2019-10-01-미리 보기의 경우 배포 스크립트 서비스에서 스크립트를 실행 하는 데 사용 하므로 관리 되는 id가 필요 합니다. 현재 사용자가 할당한 관리 ID만 지원됩니다.
+- **Id**: 배포 스크립트 API 버전 2020-10-01 이상에서는 스크립트에서 Azure 관련 작업을 수행 해야 하는 경우가 아니면 사용자 할당 관리 id는 선택 사항입니다.  API 버전 2019-10-01-미리 보기의 경우 배포 스크립트 서비스에서 스크립트를 실행 하는 데 사용 하므로 관리 되는 id가 필요 합니다. 현재 사용자가 할당한 관리 ID만 지원됩니다.
 - **kind**: 스크립트 유형을 지정합니다. 현재 Azure PowerShell 및 Azure CLI 스크립트가 지원 됩니다. 값은 **AzurePowerShell** 및 **AzureCLI** 입니다.
 - **forceUpdateTag**: 템플릿 배포 간에 이 값을 변경하면 배포 스크립트가 강제로 다시 실행됩니다. NewGuid () 또는 utcNow () 함수를 사용 하는 경우 두 함수는 모두 매개 변수의 기본값 에서만 사용할 수 있습니다. 자세한 내용은 [스크립트를 두 번 이상 실행](#run-script-more-than-once)을 참조하세요.
 - **containerSettings**: Azure Container Instance를 사용자 지정하려면 설정을 지정합니다.  **containerGroupName** 은 컨테이너 그룹 이름을 지정하기 위한 것입니다.  지정 하지 않으면 그룹 이름이 자동으로 생성 됩니다.
@@ -143,7 +143,7 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 - **azPowerShellVersion**/**azCliVersion**: 사용할 모듈 버전을 지정합니다. 지원되는 PowerShell 및 CLI 버전 목록은 [필수 구성 요소](#prerequisites)를 참조하세요.
 - **arguments**: 매개 변수의 값을 지정합니다. 값은 공백으로 구분됩니다.
 
-    배포 스크립트는 [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) 시스템 호출을 호출 하 여 인수를 문자열 배열로 분할 합니다. 인수가 [명령 속성](/rest/api/container-instances/containergroups/createorupdate#containerexec) 으로 Azure Container Instance에 전달 되 고 command 속성이 문자열 배열인 경우이 작업이 필요 합니다.
+    배포 스크립트는 [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) 시스템 호출을 호출 하 여 인수를 문자열 배열로 분할 합니다. 인수가 [명령 속성](/rest/api/container-instances/containergroups/createorupdate#containerexec) 으로 Azure Container Instance에 전달 되 고 command 속성이 문자열 배열인 경우이 단계가 필요 합니다.
 
     인수에 이스케이프 된 문자가 포함 된 경우 [JsonEscaper](https://www.jsonescaper.com/) 를 사용 하 여 문자를 두 번 이스케이프 합니다. 원래 이스케이프 된 문자열을 도구에 붙여넣은 다음, **이스케이프** 를 선택 합니다.  이 도구는 이중 이스케이프 된 문자열을 출력 합니다. 예를 들어 이전 샘플 템플릿에서 인수는 **-name \\ "John dole \\ "** 입니다.  이스케이프 된 문자열은 **-name \\ \\ \\ "John dole \\ \\ \\ "** 입니다.
 
@@ -161,7 +161,7 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 - **supportingScriptUris**: `ScriptContent` 또는 `PrimaryScriptUri`에서 호출되는 지원 파일에 공개적으로 액세스할 수 있는 Url 배열을 지정합니다.
 - **timeout**: [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)에 지정된 최대 허용 스크립트 실행 시간을 지정합니다. 기본값은 **P1D** 입니다.
 - **cleanupPreference**. 스크립트 실행이 터미널 상태가 되면 배포 리소스를 정리하는 기본 설정을 지정합니다. 기본 설정은 **항상** 이며 이는 터미널 상태(성공, 실패, 취소됨)에도 불구하고 리소스를 삭제함을 의미합니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
-- **retentionInterval**: 배포 스크립트 실행이 터미널 상태에 도달하면 서비스에서 배포 스크립트 리소스를 유지하는 간격을 지정합니다. 이 기간이 만료되면 배포 스크립트 리소스가 삭제됩니다. 기간은 [ISO 8601 패턴](https://en.wikipedia.org/wiki/ISO_8601)을 기반으로 합니다. 보존 간격이 1 ~ 007e; 26 시간 (PT26H)입니다. 이 속성은 cleanupPreference가 *OnExpiration* 으로 설정된 경우에 사용됩니다. *OnExpiration* 속성은 현재 사용하도록 설정되어 있지 않습니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
+- **retentionInterval**: 배포 스크립트 실행이 터미널 상태에 도달하면 서비스에서 배포 스크립트 리소스를 유지하는 간격을 지정합니다. 이 기간이 만료되면 배포 스크립트 리소스가 삭제됩니다. 기간은 [ISO 8601 패턴](https://en.wikipedia.org/wiki/ISO_8601)을 기반으로 합니다. 보존 간격이 1 ~ 007e; 26 시간 (PT26H)입니다. 이 속성은 cleanupPreference가 *OnExpiration* 으로 설정된 경우에 사용됩니다. *Onexpiration* 속성은 현재 활성화 되어 있지 않습니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
 
 ### <a name="additional-samples"></a>추가 샘플
 
@@ -209,7 +209,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 외부 스크립트 파일에 액세스할 수 있어야 합니다.  Azure Storage 계정에 저장된 스크립트 파일의 보안을 유지하려면 [SAS 토큰을 사용하여 개인 ARM 템플릿 배포](./secure-template-with-sas-token.md)를 참조하세요.
 
-배포 스크립트에서 참조하는 스크립트 **PrimaryScriptUri** 또는 **SupportingScriptUris** 의 무결성을 확인해야 합니다.  신뢰하는 스크립트만 참조하세요.
+배포 스크립트에서 참조 하는 스크립트의 무결성을 보장 하는 것은 **PrimaryScriptUri** 또는 **supporting스크립트** 의 경우입니다.  신뢰하는 스크립트만 참조하세요.
 
 ## <a name="use-supporting-scripts"></a>지원 스크립트 사용
 
@@ -229,7 +229,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 지원 스크립트 파일은 인라인 스크립트 및 기본 스크립트 파일 모두에서 호출할 수 있습니다. 지원 스크립트 파일에는 파일 확장명에 대한 제한이 없습니다.
 
-지원 파일은 런타임 시 azscripts/azscriptinput에 복사됩니다. 인라인 스크립트 및 기본 스크립트 파일에서 지원 파일을 참조하려면 상대 경로를 사용합니다.
+런타임에 지원 파일이에 복사 됩니다 `azscripts/azscriptinput` . 인라인 스크립트 및 기본 스크립트 파일에서 지원 파일을 참조하려면 상대 경로를 사용합니다.
 
 ## <a name="work-with-outputs-from-powershell-script"></a>PowerShell 스크립트에서 출력 작업
 
@@ -245,7 +245,7 @@ reference('<ResourceName>').output.text
 
 ## <a name="work-with-outputs-from-cli-script"></a>CLI 스크립트에서 출력 작업
 
-PowerShell 배포 스크립트와는 달리 CLI/Bash 지원은 스크립트 출력을 저장하는 공통 변수를 노출하지 않으며, 대신 스크립트 출력 파일이 있는 위치를 저장하는 **AZ_SCRIPTS_OUTPUT_PATH** 라는 환경 변수가 있습니다. Resource Manager 템플릿에서 배포 스크립트를 실행하는 경우 이 환경 변수는 Bash 셸에서 자동으로 설정됩니다.
+PowerShell 배포 스크립트와 달리 CLI/bash 지원은 스크립트 출력을 저장 하는 공통 변수를 노출 하지 않으며, 대신 스크립트 출력 파일이 있는 위치를 저장 하는 **AZ_SCRIPTS_OUTPUT_PATH** 라는 환경 변수가 있습니다. Resource Manager 템플릿에서 배포 스크립트를 실행하는 경우 이 환경 변수는 Bash 셸에서 자동으로 설정됩니다.
 
 배포 스크립트 출력은 AZ_SCRIPTS_OUTPUT_PATH 위치에 저장해야 하며 출력은 유효한 JSON 문자열 개체여야 합니다. 파일의 내용은 키-값 쌍으로 저장해야 합니다. 예를 들어 문자열의 배열은 { "MyResult": [ "foo", "bar"] }로 저장됩니다.  배열 결과만 저장하는 것은 유효하지 않습니다(예: [ "foo", "bar" ]).
 
@@ -271,7 +271,7 @@ PowerShell 배포 스크립트와는 달리 CLI/Bash 지원은 스크립트 출�
     | Standard_ZRS    | StorageV2          |
 
     이러한 조합은 파일 공유를 지원 합니다.  자세한 내용은 [Azure 파일 공유](../../storage/files/storage-how-to-create-file-share.md) 및 [저장소 계정 유형](../../storage/common/storage-account-overview.md)만들기를 참조 하세요.
-- 스토리지 계정 방화벽 규칙은 아직 지원되지 않습니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../../storage/common/storage-network-security.md)을 참조하세요.
+- 저장소 계정 방화벽 규칙은 아직 지원 되지 않습니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../../storage/common/storage-network-security.md)을 참조하세요.
 - 배포 주체에는 저장소 계정을 관리할 수 있는 권한이 있어야 합니다. 여기에는 파일 공유 읽기, 만들기, 삭제 등이 포함 됩니다.
 
 기존 스토리지 계정을 지정하려면 `Microsoft.Resources/deploymentScripts`의 property 요소에 다음 json을 추가합니다.
@@ -309,15 +309,15 @@ $ErrorActionPreference 설정에도 불구 하 고 스크립트에서 오류가 
 
 컨테이너 인스턴스에서 환경 변수(EnvironmentVariable)를 설정하면 컨테이너가 실행하는 애플리케이션 또는 스크립트의 동적 구성을 제공할 수 있습니다. 배포 스크립트는 Azure Container Instance와 동일한 방식으로 비보안 환경 변수 및 보안 환경 변수를 처리합니다. 자세한 내용은 [컨테이너 인스턴스에서 환경 변수 설정](../../container-instances/container-instances-environment-variables.md#secure-values)을 참조하세요.
 
-환경 변수에 대해 허용되는 최대 크기는 64KB입니다.
+환경 변수에 대해 허용 되는 최대 크기는 64 KB입니다.
 
 ## <a name="monitor-and-troubleshoot-deployment-scripts"></a>배포 스크립트 모니터링 및 문제 해결
 
-스크립트 서비스는 스크립트 실행을 위한 [스토리지 계정](../../storage/common/storage-account-overview.md)(기존 스토리지 계정을 지정하지 않는 경우) 및 [컨테이너 인스턴스](../../container-instances/container-instances-overview.md)를 만듭니다. 이러한 리소스는 스크립트 서비스에서 자동으로 생성되는 경우 리소스 이름에 **azscripts** 접미사가 붙습니다.
+스크립트 서비스는 스크립트 실행을 위한 [스토리지 계정](../../storage/common/storage-account-overview.md)(기존 스토리지 계정을 지정하지 않는 경우) 및 [컨테이너 인스턴스](../../container-instances/container-instances-overview.md)를 만듭니다. 이러한 리소스는 스크립트 서비스에서 자동으로 생성 되는 경우 `azscripts` 리소스 이름에 접미사가 있습니다.
 
 ![Resource Manager 템플릿 배포 스크립트 리소스 이름](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
-사용자 스크립트, 실행 결과 및 stdout 파일은 스토리지 계정의 파일 공유에 저장됩니다. **azscripts** 라는 폴더가 있습니다. 이 폴더에는 입력 및 출력 파일용 두 개의 폴더 **azscriptinput** 및 **azscriptoutput** 이 있습니다.
+사용자 스크립트, 실행 결과 및 stdout 파일은 스토리지 계정의 파일 공유에 저장됩니다. 라는 폴더가 있습니다 `azscripts` . 폴더에는 입력 및 출력 파일에 대 한 두 개의 폴더 (및)가 `azscriptinput` 있습니다 `azscriptoutput` .
 
 출력 폴더에는 **executionresult.json** 및 스크립트 출력 파일이 포함되어 있습니다. **executionresult.json** 에서 스크립트 실행 오류 메시지를 볼 수 있습니다. 출력 파일은 스크립트가 성공적으로 실행되는 경우에만 생성됩니다. 입력 폴더에는 시스템 PowerShell 스크립트 파일과 사용자 배포 스크립트 파일이 포함되어 있습니다. 사용자 배포 스크립트 파일을 수정된 파일로 바꾸고 Azure 컨테이너 인스턴스에서 배포 스크립트를 다시 실행할 수 있습니다.
 
@@ -521,7 +521,7 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
 ## <a name="clean-up-deployment-script-resources"></a>배포 스크립트 리소스 정리
 
-스크립트를 실행하고 문제를 해결하려면 스토리지 계정 및 컨테이너 인스턴스가 필요합니다. 기존 스토리지 계정을 지정할 수 있습니다. 그러지 않으면 컨테이너 인스턴스와 함께 스토리지 계정이 스크립트 서비스에 의해 자동으로 생성됩니다. 자동으로 생성된 두 리소스는 배포 스크립트 실행이 터미널 상태가 되면 스크립트 서비스에 의해 삭제됩니다. 리소스가 삭제될 때까지 해당 리소스에 대한 요금이 청구됩니다. 가격 정보는 [Container Instances 가격 책정](https://azure.microsoft.com/pricing/details/container-instances/) 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
+스크립트를 실행하고 문제를 해결하려면 스토리지 계정 및 컨테이너 인스턴스가 필요합니다. 기존 스토리지 계정을 지정할 수 있습니다. 그러지 않으면 컨테이너 인스턴스와 함께 스토리지 계정이 스크립트 서비스에 의해 자동으로 생성됩니다. 자동으로 생성된 두 리소스는 배포 스크립트 실행이 터미널 상태가 되면 스크립트 서비스에 의해 삭제됩니다. 리소스가 삭제 될 때까지 리소스에 대 한 요금이 청구 됩니다. 가격 정보는 [Container Instances 가격 책정](https://azure.microsoft.com/pricing/details/container-instances/) 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
 이러한 리소스의 수명 주기는 템플릿의 다음 속성에 의해 제어됩니다.
 
@@ -536,13 +536,13 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 > [!NOTE]
 > 스크립트 서비스에 의해 생성되는 스토리지 계정 및 컨테이너 인스턴스는 다른 용도로 사용하지 않는 것이 좋습니다. 스크립트 수명 주기에 따라 두 리소스가 제거될 수 있습니다.
 
-문제 해결을 위해 컨테이너 인스턴스와 저장소 계정을 유지 하려면 스크립트에 sleep 명령을 추가 하면 됩니다.  예를 들어 [시작-절전 모드](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep)입니다.
+문제 해결을 위해 컨테이너 인스턴스와 저장소 계정을 유지 하려면 스크립트에 sleep 명령을 추가 하면 됩니다.  예를 들어 [시작-절전 모드](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep)를 사용 합니다.
 
 ## <a name="run-script-more-than-once"></a>스크립트를 두 번 이상 실행
 
-배포 스크립트 실행은 idempotent 작업입니다. deploymentScripts 리소스 속성(인라인 스크립트 포함)이 변경되지 않은 경우 템플릿을 다시 배포할 때 스크립트가 실행되지 않습니다. 배포 스크립트 서비스는 템플릿의 리소스 이름을 같은 리소스 그룹에 있는 기존 리소스와 비교합니다. 동일한 배포 스크립트를 여러 번 실행하려는 경우 다음 두 가지 옵션이 있습니다.
+배포 스크립트 실행은 idempotent 작업입니다. 모든 deploymentScripts 리소스 속성 (인라인 스크립트 포함)이 변경 되지 않은 경우 템플릿을 다시 배포할 때 스크립트가 실행 되지 않습니다. 배포 스크립트 서비스는 템플릿의 리소스 이름을 같은 리소스 그룹에 있는 기존 리소스와 비교합니다. 동일한 배포 스크립트를 여러 번 실행하려는 경우 다음 두 가지 옵션이 있습니다.
 
-- deploymentScripts 리소스의 이름을 변경합니다. 예를 들어 리소스 이름 또는 리소스 이름의 일부로 [utcNow](./template-functions-date.md#utcnow) 템플릿 함수를 사용합니다. 리소스 이름을 변경하면 새 deploymentScripts 리소스가 생성됩니다. 스크립트 실행 기록을 보관하는 것이 좋습니다.
+- deploymentScripts 리소스의 이름을 변경합니다. 예를 들어 리소스 이름 또는 리소스 이름의 일부로 [utcNow](./template-functions-date.md#utcnow) 템플릿 함수를 사용합니다. 리소스 이름을 변경하면 새 deploymentScripts 리소스가 생성됩니다. 스크립트 실행 기록을 유지 하는 것이 좋습니다.
 
     > [!NOTE]
     > utcNow 함수는 매개 변수의 기본값에만 사용할 수 있습니다.
@@ -563,7 +563,7 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 | 오류 코드 | Description |
 |------------|-------------|
 | DeploymentScriptInvalidOperation | 템플릿의 배포 스크립트 리소스 정의에 잘못 된 속성 이름이 있습니다. |
-| DeploymentScriptResourceConflict | 터미널 상태가 아닌 상태에 있는 배포 스크립트 리소스를 삭제할 수 없으며 실행이 1 시간을 초과 하지 않았습니다. 또는 동일한 리소스 식별자 (동일한 구독, 리소스 그룹 이름 및 리소스 이름)를 사용 하 여 동일한 배포 스크립트를 다시 실행할 수는 없으며, 동시에 다른 스크립트 본문 콘텐츠가 있습니다. |
+| DeploymentScriptResourceConflict | 터미널 상태가 아닌 상태에 있는 배포 스크립트 리소스를 삭제할 수 없으며 실행이 1 시간을 초과 하지 않았습니다. 또는 동일한 리소스 식별자 (동일한 구독, 리소스 그룹 이름 및 리소스 이름)를 사용 하는 동일한 배포 스크립트를 다시 실행할 수는 없으며, 동시에 다른 스크립트 본문 콘텐츠가 있습니다. |
 | DeploymentScriptOperationFailed | 배포 스크립트 작업이 내부적으로 실패 했습니다. Microsoft 지원에 문의 하세요. |
 | DeploymentScriptStorageAccountAccessKeyNotSpecified | 기존 저장소 계정에 대 한 액세스 키를 지정 하지 않았습니다.|
 | DeploymentScriptContainerGroupContainsInvalidContainers | 배포 스크립트 서비스에서 만든 컨테이너 그룹은 외부에서 수정 되 고 잘못 된 컨테이너가 추가 되었습니다. |
@@ -576,7 +576,7 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 | DeploymentScriptStorageAccountInvalidAccessKeyFormat | 저장소 계정 키 형식이 잘못 되었습니다. [저장소 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조 하세요. |
 | DeploymentScriptExceededMaxAllowedTime | 배포 스크립트 실행 시간이 배포 스크립트 리소스 정의에 지정 된 시간 제한 값을 초과 했습니다. |
 | DeploymentScriptInvalidOutputs | 배포 스크립트 출력은 올바른 JSON 개체가 아닙니다. |
-| DeploymentScriptContainerInstancesServiceLoginFailure | 1 분 간격으로 10 번 시도 하면 사용자 할당 관리 id가 로그인 할 수 없습니다. |
+| DeploymentScriptContainerInstancesServiceLoginFailure | 사용자 할당 관리 id는 1 분 간격으로 10 번 시도 하 고 나면 로그인 할 수 없습니다. |
 | DeploymentScriptContainerGroupNotFound | 배포 스크립트 서비스에서 만든 컨테이너 그룹은 외부 도구나 프로세스에 의해 삭제 되었습니다. |
 | DeploymentScriptDownloadFailure | 지원 스크립트를 다운로드 하지 못했습니다. [지원 스크립트 사용](#use-supporting-scripts)을 참조 하세요.|
 | DeploymentScriptError | 사용자 스크립트에서 오류가 발생 했습니다. |

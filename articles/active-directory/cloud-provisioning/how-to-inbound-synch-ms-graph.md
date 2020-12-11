@@ -11,12 +11,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f308f46fc021a1d08f4065d48558a6dd71786c7c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 5c6ed106462d7dcac3f31a2ab157e5b634391006
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860358"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093454"
 ---
 # <a name="inbound-synchronization-for-cloud-provisioning-using-ms-graph-api"></a>MS Graph API를 사용한 클라우드 프로 비전에 대 한 인바운드 동기화
 
@@ -43,7 +43,7 @@ ms.locfileid: "96860358"
 이러한 두 명령의 첫 번째 명령에는 Azure Active Directory 자격 증명이 필요 합니다. 이러한 commandlet 테 넌 트를 암시적으로 식별 하 고 동기화에 사용 하도록 설정할 수 있습니다.
 
 ## <a name="create-service-principals"></a>서비스 주체 만들기
-다음으로 [AD2AAD 응용 프로그램/서비스 주체](https://docs.microsoft.com/graph/apiapplicationtemplate-instantiate?view=graph-rest-beta&tabs=http) 를 만들어야 합니다.
+다음으로 [AD2AAD 응용 프로그램/서비스 주체](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) 를 만들어야 합니다.
 
 이 응용 프로그램 ID 1a4721b3-e57f-4451-ae87-ef078703ec94를 사용 해야 합니다. DisplayName은 AD 도메인 url 이며 (예: contoso.com) 포털에서 사용 되는 경우 다른 이름으로 지정할 수 있습니다.
 

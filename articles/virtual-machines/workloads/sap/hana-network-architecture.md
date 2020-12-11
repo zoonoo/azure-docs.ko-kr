@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf9fd361dea43b1cfa6ae45710a3a7bbf4e4de03
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b18e1cd20a4b0a886258fd56003cd273d92381fa
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006288"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093981"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA(대규모 인스턴스) 네트워크 아키텍처
 
@@ -149,7 +149,7 @@ Azure (Large Instances)의 SAP HANA에 연결 하기 위해 여러 SAP 시스템
 이러한 시나리오에서 전이적 라우팅을 사용 하도록 설정 하는 방법에는 세 가지가 있습니다.
 
 - 데이터를 라우팅하는 역방향 프록시를 사용합니다. 예를 들어, NGINX는 Azure 가상 네트워크에 배포 되 고 HANA 큰 인스턴스 및 온-프레미스에 가상 방화벽/트래픽 라우팅 솔루션으로 연결 되는 Azure 가상 네트워크에 배포 된 Traffic Manager.
-- Linux VM에서 [IPTables 규칙](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ)을 사용하여 온-프레미스 위치와 HANA 대규모 인스턴스 장치 간 또는 다른 지역의 HANA 대규모 인스턴스 장치 간에 라우팅을 사용하도록 설정합니다. IPTables를 실행 하는 VM은 HANA Large Instances 및 온-프레미스에 연결 하는 Azure 가상 네트워크에 배포 해야 합니다. VM의 크기를 적절 하 게 조정 해야 하므로 VM의 네트워크 처리량이 예상 네트워크 트래픽에 충분 합니다. VM 네트워크 대역폭에 대 한 자세한 내용은 [Azure에서 Linux 가상 머신의 크기](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)문서를 참조 하세요.
+- Linux VM에서 IPTables 규칙을 사용하여 온-프레미스 위치와 HANA 대규모 인스턴스 장치 간 또는 다른 지역의 HANA 대규모 인스턴스 장치 간에 라우팅을 사용하도록 설정합니다. IPTables를 실행 하는 VM은 HANA Large Instances 및 온-프레미스에 연결 하는 Azure 가상 네트워크에 배포 해야 합니다. VM의 크기를 적절 하 게 조정 해야 하므로 VM의 네트워크 처리량이 예상 네트워크 트래픽에 충분 합니다. VM 네트워크 대역폭에 대 한 자세한 내용은 [Azure에서 Linux 가상 머신의 크기](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)문서를 참조 하세요.
 - [Azure 방화벽](https://azure.microsoft.com/services/azure-firewall/) 은 온-프레미스와 HANA Large instance 단위 간의 직접 트래픽을 허용 하는 다른 솔루션입니다. 
 
 이러한 솔루션의 모든 트래픽은 Azure 가상 네트워크를 통해 라우팅됩니다. 따라서 사용 하는 소프트 어플라이언스 또는 Azure 네트워크 보안 그룹에 의해 트래픽을 추가로 제한할 수 있으므로 온-프레미스의 특정 IP 주소 또는 IP 주소 범위를 차단 하거나 명시적으로 HANA Large Instances에 액세스할 수 있습니다. 

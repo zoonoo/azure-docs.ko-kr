@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 11/13/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: ced78955c71f37a5a6f5231f61e5327428834f00
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ca55186a53b228aa97cc82d33a09aa3ffe455eee
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919800"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092009"
 ---
 # <a name="machine-learning-with-apache-spark"></a>Apache Spark를 사용한 기계 학습
 
@@ -43,8 +43,8 @@ Azure Synapse Analytics에서 Azure Spark를 사용 하 여 기계 학습 모델
 ### <a name="sparkml-and-mllib"></a>SparkML 및 MLlib
 Spark는 메모리 내 분산형 계산 기능을 지원하여 기계 학습 및 그래프 계산에 사용된 반복 알고리즘에 적합합니다. ```spark.ml``` 는 사용자가 기계 학습 파이프라인을 만들고 조정 하는 데 도움이 되는 통일 된 고급 Api 집합을 제공 합니다. 에 대해 자세히 알아보려면 ```spark.ml``` [Apache Spark ML 프로그래밍 가이드](https://spark.apache.org/docs/1.2.2/ml-guide.html)를 참조 하세요.
 
-### <a name="azure-machine-learning-automl"></a>Azure Machine Learning AutoML
-[AutoML](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) (자동화 된 machine learning)을 Azure Machine Learning 하 여 기계 학습 모델을 개발 하는 프로세스를 자동화할 수 있습니다. 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지하면서 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다. AutoML SDK Azure Machine Learning를 실행 하는 구성 요소는 Synapse 런타임으로 직접 빌드됩니다.
+### <a name="azure-machine-learning-automated-ml"></a>Azure Machine Learning 자동화 된 ML
+자동화 된 ML (자동화 된 기계 학습) [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) 기계 학습 모델을 개발 하는 프로세스를 자동화 하는 데 도움이 됩니다. 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지하면서 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다. Azure Machine Learning 자동화 된 ML SDK를 실행 하는 구성 요소는 Synapse 런타임으로 직접 빌드됩니다.
 
 ### <a name="open-source-libraries"></a>오픈 소스 라이브러리
 Azure Synapse Analytics의 모든 Apache Spark 풀에는 미리 로드 되 고 인기 있는 기계 학습 라이브러리 집합이 제공 됩니다.  기본적으로 포함 된 관련 기계 학습 라이브러리 중 일부는 다음과 같습니다.
@@ -68,7 +68,7 @@ Azure Synapse Analytics의 모든 Apache Spark 풀에는 미리 로드 되 고 �
 Azure Synapse Analytics에서 기계 학습을 시작 하려면 다음 자습서를 확인 하세요.
 - [Azure Synapse 노트북을 사용 하 여 데이터 분석](../spark/apache-spark-data-visualization-tutorial.md)
 
-- [AutoML을 사용 하 여 기계 학습 모델 학습](../spark/apache-spark-azure-machine-learning-tutorial.md)
+- [자동화 된 ML을 사용 하 여 기계 학습 모델 학습](../spark/apache-spark-azure-machine-learning-tutorial.md)
 
 - [Apache Spark MLlib를 사용 하 여 기계 학습 모델 학습](../spark/apache-spark-machine-learning-mllib-notebook.md)
   

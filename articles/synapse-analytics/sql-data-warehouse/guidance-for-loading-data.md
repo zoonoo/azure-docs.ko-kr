@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 39625914f179dfc8d5511b9a3d386cc8332b7efa
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a96d49a029eb83e24c1fb86954406693aa9c33a3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456309"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093964"
 ---
 # <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 데이터를 로드 하는 모범 사례
 
@@ -71,6 +71,9 @@ ORC 파일 형식으로 데이터를 내보낼 때 큰 텍스트 열이 있으�
        ,MEMBERNAME = 'loader'
    );
 ```
+<br><br>
+>[!IMPORTANT] 
+>이는 단일 부하에 SQL 풀의 100% 리소스를 할당 하는 극단적인 예입니다. 그러면 최대 동시성 1이 제공 됩니다. 이는 작업 전반에서 리소스를 mdsn 하는 고유한 구성을 사용 하 여 추가 작업 그룹을 만들어야 하는 초기 로드에만 사용 해야 합니다. 
 
 로드 작업 그룹에 대 한 리소스를 사용 하 여 부하를 실행 하려면 로더에 로그인 하 고 부하를 실행 합니다.
 

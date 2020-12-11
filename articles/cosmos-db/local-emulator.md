@@ -6,13 +6,13 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
-ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: bfab099c3b81164e0d9ffaa009ea13f42aefb875
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.custom: devx-track-csharp, contperf-fy21q1
+ms.openlocfilehash: 89e82e210dbf7c404ebd5978d87bf391d8565ee2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608625"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033972"
 ---
 # <a name="install-and-use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트를 위해 Azure Cosmos DB 에뮬레이터 설치 및 사용
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -314,7 +314,7 @@ SSL 유효성 검사를 사용 하지 않도록 설정 하는 것은 개발 목�
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
 
-# <a name="nodejs"></a>[Node.JS](#tab/ssl-nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/ssl-nodejs)
 
 Node.js 응용 프로그램의 경우 `package.json` `NODE_TLS_REJECT_UNAUTHORIZED` 응용 프로그램을 시작 하는 동안를 설정 하도록 파일을 수정할 수 있습니다.
 
@@ -333,7 +333,7 @@ Node.js 응용 프로그램의 경우 `package.json` `NODE_TLS_REJECT_UNAUTHORIZ
 
 ## <a name="authenticate-connections-when-using-emulator"></a><a id="authenticate-requests"></a>에뮬레이터를 사용 하는 경우 연결 인증
 
-클라우드의 Azure Cosmos DB와 마찬가지로 Azure Cosmos DB 에뮬레이터에 대한 모든 요청을 인증해야 합니다. Azure Cosmos DB 에뮬레이터는 TLS를 통한 보안 통신만 지원 합니다. Azure Cosmos DB 에뮬레이터는 단일 고정 계정과 기본 키 인증에 대 한 잘 알려진 인증 키를 지원 합니다. Azure Cosmos DB 에뮬레이터에서 사용할 수 있는 자격 증명은 이 계정과 키뿐입니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+클라우드의 Azure Cosmos DB와 마찬가지로 Azure Cosmos DB 에뮬레이터에 대한 모든 요청을 인증해야 합니다. Azure Cosmos DB 에뮬레이터는 TLS를 통한 보안 통신만 지원 합니다. Azure Cosmos DB 에뮬레이터는 단일 고정 계정과 기본 키 인증에 대 한 잘 알려진 인증 키를 지원 합니다. Azure Cosmos DB 에뮬레이터에서 사용할 수 있는 자격 증명은 이 계정과 키뿐입니다. 관련 토폴로지는 다음과 같습니다.
 
 ```bash
 Account name: localhost:<port>

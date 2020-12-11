@@ -3,12 +3,12 @@ title: 위임 업데이트
 description: 이전에 Azure Lighthouse에 등록 한 고객에 대 한 위임을 업데이트 하는 방법에 대해 알아봅니다.
 ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 90827281ac9b05105700298494af0b60b0fa511f
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e204d1f3546e6e978f91c7e808065a388a4af4b3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96610903"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093420"
 ---
 # <a name="update-a-delegation"></a>위임 업데이트
 
@@ -17,7 +17,7 @@ ms.locfileid: "96610903"
 > [!TIP]
 > 이 항목의 서비스 공급자 및 고객을 참조 하지만 [여러 테 넌 트를 관리](../concepts/enterprise.md) 하는 기업은 동일한 프로세스를 사용 하 여 Azure Lighthouse를 설정 하 고 관리 환경을 통합할 수 있습니다.
 
-[ARM (Azure Resource Manager) 템플릿을 통해 고객을 등록](onboard-customer.md)하는 경우 해당 고객에 대 한 새 배포를 수행 해야 합니다. 변경 하는 내용에 따라 원래 제안을 업데이트 하거나 원래 제품을 제거 하 고 새 제품을 만들 수 있습니다.
+[Azure Resource Manager 템플릿 (ARM 템플릿)을 통해 고객을 등록](onboard-customer.md)하는 경우 해당 고객에 대 한 새 배포를 수행 해야 합니다. 변경 하는 내용에 따라 원래 제안을 업데이트 하거나 원래 제품을 제거 하 고 새 제품을 만들 수 있습니다.
 
 - **권한 부여를 변경 하는 경우**: ARM 템플릿의 **권한 부여** 섹션만 변경 하 여 위임을 업데이트할 수 있습니다.
 - **관리 테 넌 트를 변경 하는 경우**: 이전 제품과 다른 **mspOfferName** 을 사용 하 여 새 ARM 템플릿을 만들어야 합니다.
