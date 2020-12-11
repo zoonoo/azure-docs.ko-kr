@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 333bb42643539cedec04d37680749c749a003536
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cf0437b985865248393e9f68da264fcae5af7f12
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994063"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108555"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 Arkose Labs를 구성 하기 위한 자습서
 
 이 자습서에서는 Arkose Labs를 사용 하 여 Azure AD B2C 인증을 통합 하는 방법에 대해 알아봅니다. Arkose Labs는 봇 공격, 계정 인수 공격 및 사기성 계정 입구에 대해 조직을 지원 합니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "95994063"
 
 7. 스토리지 계정의 위치를 선택하거나 기본 위치를 적용합니다.
 
-8. 다른 모든 기본값을 적용 하 고   **검토 &** 만들기를 선택  >  **Create** 합니다.
+8. 다른 모든 기본값을 적용 하 고  **검토 &** 만들기를 선택  >  합니다.
 
 9. 스토리지 계정을 만든 후  **리소스로 이동** 을 선택합니다.
 
@@ -147,7 +147,7 @@ Git Bash를 다운로드 하 고 다음 단계를 수행 합니다.
 
 1. [여기](tutorial-create-user-flows.md)에서 정보에 따라 사용자 흐름을 만듭니다. **사용자 흐름 테스트** 섹션에 도달 하면 중지 합니다.
 
-2. [사용자 흐름](user-flow-javascript-overview.md)에서 JavaScript를 사용 하도록 설정 합니다.
+2. [사용자 흐름](javascript-and-page-layout.md)에서 JavaScript를 사용 하도록 설정 합니다.
 
 3. 동일한 사용자 흐름 페이지에서 사용자 지정 페이지 url을 사용 하도록 설정 합니다. **사용자 흐름**  >  **페이지 레이아웃**  >  **사용 사용자 지정 페이지 내용 사용**  =  **예**  >  **사용자 지정 페이지 url 삽입** 을 참조 하세요.
 이 사용자 지정 페이지 URL은 blob 저장소 내의 index.html 파일 위치에서 가져옵니다.  

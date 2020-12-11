@@ -13,12 +13,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: da79a74121318993f807ec3bde101b652a8b49da
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 34cdaa42f3a41ae04c73c570bb4fede01a786af2
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628138"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107841"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리)을 사용 하 여 토큰 가져오기 및 캐시
 
@@ -122,6 +122,8 @@ MSAL은 토큰 캐시 (또는 기밀 클라이언트 응용 프로그램에 대 
 
 ## <a name="next-steps"></a>다음 단계
 
-Java 용 MSAL을 사용 하는 경우 [java 용 msal의 사용자 지정 토큰 캐시 serialization](msal-java-token-cache-serialization.md)에 대해 알아봅니다.
-
-[오류 및 예외 처리](msal-handling-exceptions.md)에 대해 알아봅니다.
+MSAL에서 지 원하는 여러 플랫폼에는 해당 플랫폼 라이브러리에 대 한 설명서에 추가 토큰 캐시 관련 정보가 있습니다. 예를 들면 다음과 같습니다.
+- [MSAL.NET를 사용 하 여 토큰 캐시에서 토큰 가져오기](msal-net-acquire-token-silently.md)
+- [MSAL.js를 사용한 Single Sign-On](msal-js-sso.md)
+- [Python 용 MSAL의 사용자 지정 토큰 캐시 serialization](msal-python-token-cache-serialization.md)
+- [Java 용 MSAL의 사용자 지정 토큰 캐시 serialization](msal-java-token-cache-serialization.md)

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fd2f7d46df09085d19b19709c7f45cd3d6566988
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 018d90db06948f3fd6a34b56c65088641a9ca874
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628663"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108980"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -63,7 +63,7 @@ ms.locfileid: "92628663"
 
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| Id | 예 | 콘텐츠 정의의 식별자입니다. 값은 이 페이지의 뒷부분에 있는 **콘텐츠 정의 ID** 섹션에서 지정된 값입니다. |
+| Id | Yes | 콘텐츠 정의의 식별자입니다. 값은 이 페이지의 뒷부분에 있는 **콘텐츠 정의 ID** 섹션에서 지정된 값입니다. |
 
 **ContentDefinition** 요소에는 다음 요소가 포함됩니다.
 
@@ -90,7 +90,7 @@ ms.locfileid: "92628663"
 
 ### <a name="select-a-page-layout"></a>페이지 레이아웃 선택
 
-와 페이지 형식을 삽입 하 여 [JavaScript 클라이언트 쪽 코드](javascript-samples.md) 를 사용 하도록 설정할 수 있습니다 `contract` `elements` . `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`)을 입력합니다.
+와 페이지 형식을 삽입 하 여 [JavaScript 클라이언트 쪽 코드](javascript-and-page-layout.md) 를 사용 하도록 설정할 수 있습니다 `contract` `elements` . 예들 들어 `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`입니다.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -111,7 +111,7 @@ ms.locfileid: "92628663"
 
 #### <a name="migrating-to-page-layout"></a>페이지 레이아웃으로 마이그레이션
 
-값 형식에는 `contract` _urn: com: microsoft: aad: b2c: elements: **contract** :p age-name: version_ 이라는 단어가 포함 되어야 합니다. 이전 **Datauri** 값을 사용 하는 사용자 지정 정책에서 페이지 레이아웃을 지정 하려면 다음 표를 사용 하 여 새 형식으로 마이그레이션합니다.
+값 형식에는 `contract` _urn: com: microsoft: aad: b2c: elements:**contract**:p age-name: version_ 이라는 단어가 포함 되어야 합니다. 이전 **Datauri** 값을 사용 하는 사용자 지정 정책에서 페이지 레이아웃을 지정 하려면 다음 표를 사용 하 여 새 형식으로 마이그레이션합니다.
 
 | 이전 DataUri 값 | 새 DataUri 값 |
 | ----------------- | ----------------- |
@@ -172,7 +172,7 @@ ms.locfileid: "92628663"
 
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| 키 | 예 | 메타데이터 키입니다.  |
+| 키 | Yes | 메타데이터 키입니다.  |
 
 #### <a name="metadata-keys"></a>메타 데이터 키
 
@@ -180,7 +180,7 @@ ms.locfileid: "92628663"
 
 | 키 | 필수 | Description |
 | --------- | -------- | ----------- |
-| DisplayName | 아니요 | 콘텐츠 정의의 이름을 포함 하는 문자열입니다. |
+| DisplayName | No | 콘텐츠 정의의 이름을 포함 하는 문자열입니다. |
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 
@@ -192,10 +192,10 @@ ms.locfileid: "92628663"
 
 **LocalizedResourcesReference** 요소는 다음 특성을 포함 합니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 언어 | 예 | RFC 5646 - 언어 식별 태그를 기준으로 정책에 대해 지원되는 언어를 포함하는 문자열입니다. |
-| LocalizedResourcesReferenceId | 예 | **LocalizedResources** 요소의 식별자입니다. |
+| Language | Yes | RFC 5646 - 언어 식별 태그를 기준으로 정책에 대해 지원되는 언어를 포함하는 문자열입니다. |
+| LocalizedResourcesReferenceId | Yes | **LocalizedResources** 요소의 식별자입니다. |
 
 다음 예제는 영어, 프랑스어 및 스페인어 지역화 참조와 함께 등록 또는 로그인 콘텐츠 정의를 보여 줍니다.
 
@@ -238,4 +238,4 @@ ms.locfileid: "92628663"
 
 콘텐츠 정의를 사용 하 여 사용자 인터페이스를 사용자 지정 하는 방법에 대 한 예는 다음을 참조 하세요.
 
-[사용자 지정 정책을 사용 하 여 응용 프로그램의 사용자 인터페이스 사용자 지정](custom-policy-ui-customization.md)
+[사용자 지정 정책을 사용 하 여 응용 프로그램의 사용자 인터페이스 사용자 지정](customize-ui-with-html.md)

@@ -3,22 +3,16 @@ title: Azure Event Grid 스키마에 사용자 지정 필드 매핑
 description: 이 문서에서는 이벤트 데이터가 Event Grid 스키마와 일치 하지 않는 경우 사용자 지정 스키마를 Azure Event Grid 스키마로 변환 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 836e7b340c5c89100207e2f9409710b8dfa5e3bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34381782c9337631b0aa04e47eb5897a8071139a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105526"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109201"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Event Grid 스키마에 사용자 지정 필드 매핑
 
 이벤트 데이터가 예상되는 [Event Grid 스키마](event-schema.md)와 일치하지 않는 경우 계속 Event Grid를 사용하여 구독자에 이벤트를 라우팅할 수 있습니다. 이 문서에서는 Event Grid 스키마로 사용자의 스키마를 매핑하는 방법을 설명합니다.
-
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
-## <a name="install-preview-feature"></a>미리 보기 기능 설치
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="original-event-schema"></a>원래 이벤트 스키마
 
@@ -40,19 +34,15 @@ ms.locfileid: "86105526"
 
 사용자 지정 토픽을 만들 때 Event Grid 스키마로 사용자의 원래 이벤트의 필드를 매핑하는 방법을 지정합니다. 매핑을 사용자 지정하는 데 사용하는 값은 다음 세 가지입니다.
 
-* **입력 스키마** 값은 스키마 유형을 지정합니다. 사용 가능한 옵션은 CloudEvents 스키마, 사용자 지정 이벤트 스키마 또는 Event Grid 스키마입니다. 기본값은 Event Grid 스키마입니다. 사용자의 스키마와 Event Grid 스키마 간 사용자 지정 매핑을 만들 때는 사용자 지정 이벤트 스키마를 사용합니다. 이벤트가 CloudEvents 스키마에 있는 경우 Cloudevents 스키마를 사용합니다.
+* **입력 스키마** 값은 스키마 유형을 지정합니다. 사용 가능한 옵션은 CloudEvents 스키마, 사용자 지정 이벤트 스키마 또는 Event Grid 스키마입니다. 기본값은 Event Grid 스키마입니다. 사용자의 스키마와 Event Grid 스키마 간 사용자 지정 매핑을 만들 때는 사용자 지정 이벤트 스키마를 사용합니다. 이벤트가 CloudEvents 형식인 경우 CloudEvents 스키마를 사용 합니다.
 
-* **매핑 기본값** 속성은 Event Grid 스키마의 필드에 대한 기본값을 지정합니다. `subject`, `eventtype` 및 `dataversion`의 기본값을 설정할 수 있습니다. 일반적으로 사용자 지정 스키마가 이 세 필드 중 하나에 해당하는 필드를 포함하지 않는 경우에 이 매개 변수를 사용합니다. 예를 들어 해당 데이터 버전은 항상 **1.0**으로 설정됩니다.
+* **매핑 기본값** 속성은 Event Grid 스키마의 필드에 대한 기본값을 지정합니다. `subject`, `eventtype` 및 `dataversion`의 기본값을 설정할 수 있습니다. 일반적으로 사용자 지정 스키마가 이 세 필드 중 하나에 해당하는 필드를 포함하지 않는 경우에 이 매개 변수를 사용합니다. 예를 들어 해당 데이터 버전은 항상 **1.0** 으로 설정됩니다.
 
 * **매핑 필드** 값은 스키마의 필드를 Event Grid 스키마에 매핑합니다. 공백으로 구분된 키/값 쌍의 값을 지정합니다. 키 이름의 경우 Event Grid 필드의 이름을 사용합니다. 값의 경우 사용자의 필드 이름을 사용합니다. `id`, `topic`, `eventtime`, `subject`, `eventtype` 및 `dataversion`의 키 이름을 사용할 수 있습니다.
 
 Azure CLI로 사용자 지정 토픽을 만들려면 다음을 사용합니다.
 
 ```azurecli-interactive
-# If you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
@@ -65,11 +55,7 @@ az eventgrid topic create \
 PowerShell의 경우 다음을 사용합니다.
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
-New-AzureRmEventGridTopic `
+New-AzEventGridTopic `
   -ResourceGroupName myResourceGroup `
   -Name demotopic `
   -Location eastus2 `
@@ -107,9 +93,9 @@ az eventgrid event-subscription create \
 다음 예제에서는 Event Grid 토픽을 구독하고 Event Grid 스키마를 사용합니다. PowerShell의 경우 다음을 사용합니다.
 
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName eventsub1 `
   -EndpointType webhook `
@@ -120,7 +106,7 @@ New-AzureRmEventGridSubscription `
 다음 예제에서는 이벤트의 입력 스키마를 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName eventsub2 `
   -EndpointType webhook `
@@ -146,8 +132,8 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 PowerShell의 경우 다음을 사용합니다.
 
 ```azurepowershell-interactive
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
+$endpoint = (Get-AzEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
+$keys = Get-AzEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
 
 $htbody = @{
     myEventTypeField="Created"
@@ -184,7 +170,7 @@ Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-ke
 }
 ```
 
-이러한 필드에는 사용자 지정 토픽에 나온 매핑을 포함합니다. **myEventTypeField**는 **EventType**에 매핑됩니다. **DataVersion** 및 **Subject**에 대한 기본값이 사용됩니다. **Data** 개체에는 원래 이벤트 스키마 필드가 포함됩니다.
+이러한 필드에는 사용자 지정 토픽에 나온 매핑을 포함합니다. **myEventTypeField** 는 **EventType** 에 매핑됩니다. **DataVersion** 및 **Subject** 에 대한 기본값이 사용됩니다. **Data** 개체에는 원래 이벤트 스키마 필드가 포함됩니다.
 
 두 번째 구독은 입력 이벤트 스키마를 사용합니다. 전달된 이벤트의 형식은 다음과 같습니다.
 

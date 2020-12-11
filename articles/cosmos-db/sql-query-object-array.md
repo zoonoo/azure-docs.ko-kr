@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/08/2020
 ms.author: tisande
-ms.openlocfilehash: 80d158e209943d65b9934d5425ccce7d69422bc4
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: f65d179baa2c0a08e2c1dca1716c9691797fc242
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93338363"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106313"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Azure Cosmos DB에서 배열 및 개체 작업
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -143,7 +143,7 @@ WHERE c.grade = 8
 배열 반복의 결과를 집계할 수도 있습니다. 예를 들어 다음 쿼리는 모든 패밀리에서 자식의 수를 계산 합니다.
 
 ```sql
-SELECT COUNT(child)
+SELECT COUNT(1) AS Count
 FROM child IN Families.children
 ```
 
@@ -152,7 +152,7 @@ FROM child IN Families.children
 ```json
 [
   {
-    "$1": 3
+    "Count": 3
   }
 ]
 ```

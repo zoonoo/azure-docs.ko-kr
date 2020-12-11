@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e71ab0293dade56c14dce7318fc96021a040b102
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 3fd91bb86b32a958344dc366cfcd142bff369c1f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433313"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108147"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>방법: 앱에 선택적 클레임 제공
 
@@ -76,7 +76,7 @@ ms.locfileid: "96433313"
 
 **표 3: v2.0 전용 선택적 클레임**
 
-| JWT 클레임     | 속성                            | 설명                                | 메모 |
+| JWT 클레임     | Name                            | Description                                | 메모 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |
@@ -139,7 +139,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 1. **추가** 를 선택합니다.
 
 > [!NOTE]
-> 현재 Azure AD B2C 테 넌 트에 등록 된 앱에는 UI 옵션 **토큰 구성** 블레이드를 사용할 수 없습니다. B2C 테 넌 트에 등록 된 응용 프로그램의 경우 응용 프로그램 매니페스트를 수정 하 여 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 [Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용 하 여 사용자 입력 사용자 지정](../../active-directory-b2c/custom-policy-configure-user-input.md) 을 참조 하세요. 
+> 현재 Azure AD B2C 테 넌 트에 등록 된 앱에는 UI 옵션 **토큰 구성** 블레이드를 사용할 수 없습니다. B2C 테 넌 트에 등록 된 응용 프로그램의 경우 응용 프로그램 매니페스트를 수정 하 여 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 [Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용 하 여 사용자 입력 사용자 지정](../../active-directory-b2c/configure-user-input.md) 을 참조 하세요. 
 
 **애플리케이션 매니페스트를 통해 선택적 클레임 구성:**
 
@@ -186,7 +186,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 5: OptionalClaims 형식 속성**
 
-| 속성          | Type                       | Description                                           |
+| Name          | 유형                       | Description                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다.     |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -199,7 +199,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 6: OptionalClaim 형식 속성**
 
-| 속성                   | Type                    | Description                                                                                                                                                                                                                                                                                                   |
+| Name                   | 유형                    | Description                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 4befcaf6b8c6b6bc4fddacb179883551609f7e19
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928650"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108436"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 LexisNexis 구성에 대 한 자습서
 
@@ -82,7 +82,7 @@ ThreatMetrix 통합에는 다음 구성 요소가 포함 됩니다.
 
 응용 프로그램 설정은 [Azure의 App service에서 구성할](../app-service/configure-common.md#configure-app-settings)수 있습니다.  이 방법을 사용 하면 설정을 리포지토리로 체크 인하지 않고도 안전 하 게 구성할 수 있습니다. Rest API에 대 한 다음 설정을 제공 해야 합니다.
 
-| 애플리케이션 설정 | 원본 | 메모 |
+| 애플리케이션 설정 | 원본 | 참고 |
 | :-------- | :------------| :-----------|
 |ThreatMetrix: Url | ThreatMetrix 계정 구성 |     |
 |ThreatMetrix: OrgId | ThreatMetrix 계정 구성 |     |
@@ -95,7 +95,7 @@ ThreatMetrix 통합에는 다음 구성 요소가 포함 됩니다.
 
 이 솔루션은 Azure AD B2C에서 로드 하는 사용자 지정 UI 템플릿을 사용 합니다. 이러한 UI 템플릿은 ThreatMetrix 서비스로 직접 전송 되는 프로 파일링을 수행 합니다.
 
-이러한 [지침](./custom-policy-ui-customization.md#custom-page-content-walkthrough) 을 참조 하 여 포함 된 [UI 파일](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) 을 blob storage 계정에 배포 합니다. 이러한 지침에는 blob storage 계정 설정, CORS 구성 및 공용 액세스 사용이 포함 됩니다.
+이러한 [지침](./customize-ui-with-html.md#custom-page-content-walkthrough) 을 참조 하 여 포함 된 [UI 파일](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) 을 blob storage 계정에 배포 합니다. 이러한 지침에는 blob storage 계정 설정, CORS 구성 및 공용 액세스 사용이 포함 됩니다.
 
 UI는 [대양 blue 템플릿을](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue)기반으로 합니다. 배포 된 위치를 참조 하도록 UI 내의 모든 링크를 업데이트 해야 합니다. UI 폴더에서을 찾아를 배포 된 https://yourblobstorage/blobcontainer 위치로 바꿉니다.
 

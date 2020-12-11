@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: uc-msft
 ms.author: umajay
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: c420652a6385be2cade9723c20cff7c32a4a60b0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7b683029b7fd05078755d4e8cd027f55c805f991
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127236"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107263"
 ---
 # <a name="storage-configuration"></a>스토리지 구성
 
@@ -28,13 +28,13 @@ Kubernetes은 저장소 인프라 공급자가 Kubernetes를 확장 하는 드�
 
 다음 명령을 실행 하 여 Kubernetes 클러스터에 구성 된 저장소 클래스를 볼 수 있습니다.
 
-``` terminal
+```console
 kubectl get storageclass
 ```
 
 Azure Kubernetes 서비스 (AKS) 클러스터의 예제 출력:
 
-``` terminal
+```console
 NAME                PROVISIONER                AGE
 azurefile           kubernetes.io/azure-file   15d
 azurefile-premium   kubernetes.io/azure-file   15d
@@ -44,13 +44,13 @@ managed-premium     kubernetes.io/azure-disk   4d3h
 
 다음 명령을 실행 하 여 저장소 클래스에 대 한 세부 정보를 가져올 수 있습니다.
 
-``` terminal
-kubectl describe storageclass\<storage class name>
+```console
+kubectl describe storageclass/<storage class name>
 ```
 
 예제:
 
-``` terminal
+```console
 kubectl describe storageclass/azurefile
 
 Name:            azurefile
@@ -69,7 +69,7 @@ Events:                <none>
 
 다음 명령을 실행 하 여 현재 프로 비전 된 영구적 볼륨 및 영구적 볼륨 클레임을 볼 수 있습니다.
 
-``` terminal
+```console
 kubectl get persistentvolumes -n <namespace>
 
 kubectl get persistentvolumeclaims -n <namespace>
@@ -77,7 +77,7 @@ kubectl get persistentvolumeclaims -n <namespace>
 
 영구 볼륨을 표시 하는 예제:
 
-``` terminal
+```console
 
 kubectl get persistentvolumes -n arc
 
@@ -98,7 +98,7 @@ pvc-ecd7d07f-2c2c-421d-98d7-711ec5d4a0cd   15Gi       RWO            Delete     
 
 영구적 볼륨 클레임을 표시 하는 예제:
 
-``` terminal
+```console
 
 kubectl get persistentvolumeclaims -n arc
 
@@ -120,12 +120,12 @@ sqldemo11-logs-claim   Bound    pvc-41b33bbd-debb-4153-9a41-02ce2bf9c665   10Gi 
 
 ## <a name="factors-to-consider-when-choosing-your-storage-configuration"></a>저장소 구성을 선택할 때 고려해 야 할 요소
 
-올바른 저장소 클래스를 선택 하는 것은 데이터 복원 력 및 성능에 매우 중요 합니다. 잘못 된 저장소 클래스를 선택 하면 하드웨어 오류가 발생 하는 경우 데이터 손실이 발생할 수 있는 위험이 발생 하거나 성능이 저하 될 수 있습니다.
+올바른 저장소 클래스를 선택 하는 것은 데이터 복원 력 및 성능에 중요 합니다. 잘못 된 저장소 클래스를 선택 하면 하드웨어 오류가 발생 하는 경우 데이터 손실이 발생할 수 있는 위험이 발생 하거나 성능이 저하 될 수 있습니다.
 
 일반적으로 다음과 같은 두 가지 유형의 저장소가 있습니다.
 
-- **로컬 저장소** 저장소-지정 된 노드의 로컬 하드 드라이브에 프로 비전 됩니다. 이러한 종류의 저장소는 성능 측면에서 이상적 이지만 여러 노드에 걸쳐 데이터를 복제 하 여 데이터 중복성을 위해 특별히 설계 해야 합니다.
-- **원격, 공유 저장소** -일부 원격 저장 장치 (예: EBS 또는 Azure Files와 같은 SAN, NAS 또는 클라우드 저장소 서비스)에서 프로 비전 되는 저장소 저장소입니다. 이러한 종류의 저장소는 일반적으로 데이터 중복성을 자동으로 제공 하지만 일반적으로 로컬 저장소가 될 수 만큼 빠르지는 않습니다.
+- **로컬 저장소** -지정 된 노드의 로컬 하드 드라이브에서 프로 비전 된 저장소입니다. 이러한 종류의 저장소는 성능 측면에서 이상적 이지만 여러 노드에 걸쳐 데이터를 복제 하 여 데이터 중복성을 위해 특별히 설계 해야 합니다.
+- **원격 공유 저장소** -일부 원격 저장 장치에 프로 비전 된 저장소 (예: EBS 또는 AZURE FILES 같은 SAN, NAS 또는 클라우드 저장소 서비스). 이러한 종류의 저장소는 일반적으로 데이터 중복성을 자동으로 제공 하지만 로컬 저장소가 될 수 만큼 빠르지는 않습니다.
 
 > [!NOTE]
 > 지금은 NFS를 사용 하는 경우 Azure Arc 데이터 컨트롤러를 배포 하기 전에 배포 프로필 파일에서 allowRunAsRoot를 true로 설정 해야 합니다.
@@ -143,7 +143,7 @@ sqldemo11-logs-claim   Bound    pvc-41b33bbd-debb-4153-9a41-02ce2bf9c665   10Gi 
 
 데이터 컨트롤러를 프로 비전 할 때 이러한 각 영구적 볼륨에 사용할 저장소 클래스는--저장소 클래스를 전달 하 여 지정 됩니다. -sc 매개 변수를 `azdata arc dc create` 명령에 사용 하거나, 사용 되는 배포 템플릿 파일에 control.js의 저장소 클래스를 설정 하 여 사용 합니다.
 
-기본적으로 제공 되는 배포 템플릿에는 대상 환경에 적합 한 기본 저장소 클래스가 지정 되어 있지만 배포 시에는이를 재정의할 수 있습니다. 배포 시 pod 데이터 컨트롤러의 저장소 클래스 구성을 변경 하려면 [배포 프로필](create-data-controller.md) 을 변경 하는 자세한 단계를 참조 하세요.
+기본적으로 제공 되는 배포 템플릿에는 대상 환경에 적합 한 기본 저장소 클래스가 지정 되어 있지만 배포 중에 재정의 될 수 있습니다. 배포 시 pod 데이터 컨트롤러의 저장소 클래스 구성을 변경 하려면 [배포 프로필](create-data-controller.md) 을 변경 하는 자세한 단계를 참조 하세요.
 
 --저장소 클래스를 사용 하 여 저장소 클래스를 설정 하는 경우 -sc 매개 변수 저장소 클래스는 로그 및 데이터 저장소 클래스 모두에 사용 됩니다. 배포 템플릿 파일에서 저장소 클래스를 설정 하는 경우 로그 및 데이터에 대해 서로 다른 저장소 클래스를 지정할 수 있습니다.
 
@@ -151,8 +151,8 @@ sqldemo11-logs-claim   Bound    pvc-41b33bbd-debb-4153-9a41-02ce2bf9c665   10Gi 
 
 - 데이터 내 구성을 보장 하기 위해 원격 공유 저장소 클래스를 사용 **해야** 하며 pod가 백업 될 때 pod 또는 노드가 영구 볼륨에 다시 연결할 수 있습니다.
 - 컨트롤러 SQL 인스턴스, 메트릭 DB 및 로그 DB에 기록 되는 데이터는 일반적으로 매우 낮은 볼륨 이며 대기 시간을 구분 하지 않으므로 ultra fast 성능 저장소는 중요 하지 않습니다. Grafana 및 Kibana 인터페이스를 자주 사용 하는 사용자가 있고 많은 수의 데이터베이스 인스턴스를 사용 하는 경우 사용자는 더 빠르게 수행 하는 저장소의 이점을 누릴 수 있습니다.
-- 필요한 저장소 용량은 각 데이터베이스 인스턴스에 대해 로그 및 메트릭이 수집 되기 때문에 배포 된 데이터베이스 인스턴스 수에 대 한 변수입니다. 데이터는 삭제 되기 전에 2 주 동안 로그 및 메트릭 DB에 보존 됩니다. 
-- 배포 후 저장소 클래스를 변경 하는 것은 문서화 되지 않고 매우 어렵고 지원 되지 않습니다. 배포 시 저장소 클래스를 올바르게 선택 해야 합니다.
+- 필요한 저장소 용량은 각 데이터베이스 인스턴스에 대해 로그 및 메트릭이 수집 되기 때문에 배포 된 데이터베이스 인스턴스 수에 대 한 변수입니다. 데이터는 삭제 되기 전에 2 주 동안 로그와 메트릭 DB에 보존 됩니다. 
+- 저장소 클래스 배포 후에는 문서화 되지 않으며 지원 되지 않습니다. 배포 시 저장소 클래스를 올바르게 선택 해야 합니다.
 
 > [!NOTE]
 > 저장소 클래스를 지정 하지 않으면 기본 저장소 클래스가 사용 됩니다. Kubernetes 클러스터당 기본 저장소 클래스는 하나만 있을 수 있습니다. [기본 저장소 클래스를 변경할](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/)수 있습니다.
@@ -161,12 +161,12 @@ sqldemo11-logs-claim   Bound    pvc-41b33bbd-debb-4153-9a41-02ce2bf9c665   10Gi 
 
 각 데이터베이스 인스턴스에는 데이터, 로그 및 백업 영구 볼륨이 있습니다. 이러한 영구 볼륨의 저장소 클래스는 배포 시 지정할 수 있습니다. 저장소 클래스를 지정 하지 않으면 기본 저장소 클래스가 사용 됩니다.
 
-또는 명령을 사용 하 여 인스턴스를 만들 때 `azdata arc sql mi create` `azdata arc postgres server create` 저장소 클래스를 설정 하는 데 사용할 수 있는 두 가지 매개 변수가 있습니다.
+또는 중 하나를 사용 하 여 인스턴스를 만들 때 `azdata arc sql mi create` `azdata arc postgres server create` 저장소 클래스를 설정 하는 데 사용할 수 있는 두 가지 매개 변수는 다음과 같습니다.
 
 > [!NOTE]
 > 이러한 매개 변수 중 일부는 개발 중 이며 향후 릴리스에서 사용할 수 있게 될 예정 `azdata arc sql mi create` `azdata arc postgres server create` 입니다.
 
-|매개 변수 이름, 짧은 이름|사용 대상|
+|매개 변수 이름, 짧은 이름|사용 목적|
 |---|---|
 |`--storage-class-data`, `-scd`|트랜잭션 로그 파일을 포함 하 여 모든 데이터 파일의 저장소 클래스를 지정 하는 데 사용 됩니다.|
 |`--storage-class-logs`, `-scl`|모든 로그 파일에 대 한 저장소 클래스를 지정 하는 데 사용 됩니다.|
@@ -199,9 +199,9 @@ sqldemo11-logs-claim   Bound    pvc-41b33bbd-debb-4153-9a41-02ce2bf9c665   10Gi 
 
 데이터베이스 인스턴스 pod 저장소 클래스를 선택할 때 고려해 야 할 중요 한 요소는 다음과 같습니다.
 
-- 데이터베이스 인스턴스는 단일 pod 패턴 또는 여러 pod 패턴으로 배포할 수 있습니다. 단일 pod 패턴의 예로는 Azure SQL 관리 되는 인스턴스 또는 범용 가격 책정 계층 Azure SQL 관리 되는 인스턴스의 개발자 인스턴스가 있습니다. 여러 pod 패턴의 예로는 고가용성의 비즈니스에 중요 한 가격 책정 계층 Azure SQL 관리 되는 인스턴스가 있습니다. (참고: 가격 책정 계층은 개발 중 이며 아직 고객에 게 제공 되지 않습니다.)  단일 pod 패턴으로 배포 된 데이터베이스 인스턴스는 데이터 내 구성을 보장 하기 위해 원격 공유 저장소 클래스를 사용 **해야 합니다** . 따라서 pod가 백업 될 때 pod 또는 노드가 영구 볼륨에 다시 연결할 수 있습니다. 이와 대조적으로 항상 사용 가능한 Azure SQL 관리 되는 인스턴스는 Always On 가용성 그룹을 사용 하 여 한 인스턴스에서 다른 인스턴스로 데이터를 동기식 또는 비동기식으로 복제 합니다. 특히 데이터가 동기적으로 복제 되는 경우 항상 데이터의 여러 복사본 (일반적으로 3 개의 복사본)이 있습니다. 이 때문에 데이터 및 로그 파일에 대 한 로컬 저장소 또는 원격 공유 저장소 클래스를 사용할 수 있습니다. 로컬 저장소를 사용 하는 경우 실패 한 pod, 노드 또는 저장소 하드웨어의 경우에도 데이터가 계속 유지 됩니다. 이러한 유연성을 제공 하는 경우 더 나은 성능을 위해 로컬 저장소를 사용 하도록 선택할 수 있습니다.
-- 데이터베이스 성능은 주로 지정 된 저장 장치에 대 한 i/o 처리량의 기능입니다. 데이터베이스의 읽기 또는 쓰기 작업이 많은 경우 해당 유형의 작업을 위해 설계 된 아래 하드웨어를 포함 하는 저장소 클래스를 선택 해야 합니다. 예를 들어 데이터베이스가 쓰기에 주로 사용 되는 경우 RAID 0에서 로컬 저장소를 선택할 수 있습니다. 데이터베이스가 적은 양의 "핫 데이터"에 대 한 읽기에 주로 사용 되지만 콜드 데이터의 전체 저장소 볼륨이 많은 경우 계층화 된 저장소를 지 원하는 SAN 장치를 선택할 수 있습니다. 올바른 저장소 클래스를 선택 하는 것은 데이터베이스에 사용할 저장소 유형을 선택 하는 것과 크게 다르지 않습니다.
-- 로컬 저장소 볼륨 provisioner를 사용 하는 경우 디스크 i/o의 경합을 방지 하기 위해 데이터, 로그 및 백업에 대해 프로 비전 된 로컬 볼륨이 각각 서로 다른 기본 저장소 장치에 있는지 확인 해야 합니다. 또한 OS는 별도의 디스크에 탑재 된 볼륨에 있어야 합니다. 이는 기본적으로 실제 하드웨어의 데이터베이스 인스턴스에 대해 수행 되는 것과 동일한 지침을 따릅니다.
+- 데이터베이스 인스턴스는 단일 pod 패턴 또는 여러 pod 패턴으로 배포할 수 있습니다. 단일 pod 패턴의 예로는 Azure SQL 관리 되는 인스턴스 또는 범용 가격 책정 계층 Azure SQL 관리 되는 인스턴스의 개발자 인스턴스가 있습니다. 여러 pod 패턴의 예로는 고가용성의 비즈니스에 중요 한 가격 책정 계층 Azure SQL 관리 되는 인스턴스가 있습니다. (참고: 가격 책정 계층은 개발 중 이며 아직 고객에 게 제공 되지 않습니다.)  단일 pod 패턴으로 배포 된 데이터베이스 인스턴스는 데이터 내 구성을 보장 하기 위해 원격 공유 저장소 클래스를 사용 **해야 합니다** . 따라서 pod가 백업 될 때 pod 또는 노드가 영구 볼륨에 다시 연결할 수 있습니다. 이와 대조적으로 항상 사용 가능한 Azure SQL 관리 되는 인스턴스는 Always On 가용성 그룹을 사용 하 여 한 인스턴스에서 다른 인스턴스로 데이터를 동기식 또는 비동기식으로 복제 합니다. 특히 데이터가 동기적으로 복제 되는 경우 항상 데이터의 여러 복사본 (일반적으로 3 개의 복사본)이 있습니다. 이 때문에 데이터 및 로그 파일에 대 한 로컬 저장소 또는 원격 공유 저장소 클래스를 사용할 수 있습니다. 로컬 저장소를 활용 하는 경우 실패 한 pod, 노드 또는 저장소 하드웨어의 경우에도 데이터가 계속 유지 됩니다. 이러한 유연성을 제공 하는 경우 더 나은 성능을 위해 로컬 저장소를 사용 하도록 선택할 수 있습니다.
+- 데이터베이스 성능은 주로 지정 된 저장 장치에 대 한 i/o 처리량의 기능입니다. 데이터베이스의 읽기 또는 쓰기 작업이 많은 경우 해당 유형의 작업을 위해 설계 된 하드웨어가 있는 저장소 클래스를 선택 해야 합니다. 예를 들어 데이터베이스가 쓰기에 주로 사용 되는 경우 RAID 0에서 로컬 저장소를 선택할 수 있습니다. 데이터베이스가 적은 양의 "핫 데이터"에 대 한 읽기에 주로 사용 되지만 콜드 데이터의 전체 저장소 볼륨이 많은 경우 계층화 된 저장소를 지 원하는 SAN 장치를 선택할 수 있습니다. 올바른 저장소 클래스를 선택 하는 것은 데이터베이스에 사용할 저장소 유형을 선택 하는 것과 크게 다르지 않습니다.
+- 로컬 저장소 볼륨 provisioner를 사용 하는 경우 디스크 i/o의 경합을 방지 하기 위해 데이터, 로그 및 백업에 대해 프로 비전 된 로컬 볼륨이 각각 서로 다른 기본 저장소 장치에 있는지 확인 합니다. 또한 OS는 별도의 디스크에 탑재 된 볼륨에 있어야 합니다. 이는 기본적으로 실제 하드웨어의 데이터베이스 인스턴스에 대해 수행 되는 것과 동일한 지침을 따릅니다.
 - 지정 된 인스턴스의 모든 데이터베이스가 영구적 볼륨 클레임 및 영구적 볼륨을 공유 하기 때문에 동일한 데이터베이스 인스턴스에서 사용 중인 데이터베이스 인스턴스를 배치 하지 않아야 합니다. 가능 하면 i/o 경합을 방지 하기 위해 사용 중인 데이터베이스를 자체 데이터베이스 인스턴스로 분리 합니다. 또한 노드 레이블 대상 지정을 사용 하 여 여러 노드에 걸친 전체 i/o 트래픽을 분산 하기 위해 데이터베이스 인스턴스를 별도의 노드에 배치할 수 있습니다. 가상화를 사용 하는 경우 노드 수준 뿐만 아니라 지정 된 실제 호스트의 모든 노드 Vm에서 발생 하는 결합 된 i/o 작업을 분산 하는 것을 고려해 야 합니다.
 
 ## <a name="estimating-storage-requirements"></a>저장소 요구 사항 예상
@@ -222,9 +222,9 @@ sqldemo11-logs-claim   Bound    pvc-41b33bbd-debb-4153-9a41-02ce2bf9c665   10Gi 
 |Azure SQL Managed Instance|5|5 * 2 = 10|
 |Azure Database for PostgreSQL 인스턴스|5| 5 * 2 = 10|
 |Azure PostgreSQL HyperScale|2 (작업자 수 = 인스턴스당 4)|2 * 2 * (1 + 4) = 20|
-|***영구적 볼륨의 총 수***||8 + 10 + 10 + 20 = 48|
+|***총 영구 볼륨 수** _||8 + 10 + 10 + 20 = 48|
 
-이 계산은 저장소 provisioner 또는 환경을 기반으로 Kubernetes 클러스터에 대 한 저장소를 계획 하는 데 사용할 수 있습니다. 예를 들어 5 개의 노드가 있는 Kubernetes 클러스터에 로컬 저장소 provisioner를 사용 하는 경우 모든 노드 위의 샘플 배포에는 10 개의 영구적 볼륨에 대 한 저장소 이상이 필요 합니다. 마찬가지로 노드 5 개를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터를 프로 비전 할 때 10 개의 데이터 디스크를 연결할 수 있는 노드 풀에 적절 한 VM 크기를 선택 하는 것이 중요 합니다. AKS 노드의 저장소 요구에 맞게 노드 크기를 조정 하는 방법에 대 한 자세한 내용은 [여기](../../aks/operator-best-practices-storage.md#size-the-nodes-for-storage-needs)에서 찾을 수 있습니다.
+이 계산은 저장소 provisioner 또는 환경을 기반으로 Kubernetes 클러스터에 대 한 저장소를 계획 하는 데 사용할 수 있습니다. 예를 들어 5 개 노드를 포함 하는 Kubernetes 클러스터에 로컬 저장소 provisioner를 사용 하는 경우 모든 노드 위의 샘플 배포에 대해 10 개의 영구적 볼륨에 대해 최소한의 저장소가 필요 합니다. 마찬가지로 5 개의 노드가 있는 AKS (Azure Kubernetes Service) 클러스터를 프로 비전 하는 경우 10 개의 데이터 디스크를 연결할 수 있도록 노드 풀에 적절 한 VM 크기를 선택 하는 것이 중요 합니다. AKS 노드의 저장소 요구에 맞게 노드 크기를 조정 하는 방법에 대 한 자세한 내용은 [여기](../../aks/operator-best-practices-storage.md#size-the-nodes-for-storage-needs)에서 찾을 수 있습니다.
 
 ## <a name="choosing-the-right-storage-class"></a>올바른 저장소 클래스 선택
 
@@ -238,6 +238,6 @@ Microsoft와 해당 OEM, OS 및 Kubernetes 파트너는 Azure Arc data services�
 
 |공용 클라우드 서비스|권장|
 |---|---|
-|**AKS(Azure Kubernetes Service)**|AKS (azure Kubernetes Service)에는 두 가지 유형의 저장소 Azure Files 및 Azure Managed Disks 있습니다. 각 유형의 저장소에는 표준 (HDD) 및 프리미엄 (SSD)의 두 가지 가격 책정/성능 계층이 있습니다. 따라서 AKS에서 제공 되는 네 개의 저장소 클래스는 `azurefile` (Azure Files 표준 계층), ( `azurefile-premium` Azure Files 프리미엄 계층), `default` (azure 디스크 표준 계층) 및 `managed-premium` (azure 디스크 프리미엄 계층)입니다. 기본 저장소 클래스는 `default` (Azure 디스크 표준 계층)입니다. 의사 결정에 고려해 야 하는 유형과 계층 간에는 상당한 **[가격 차이가](https://azure.microsoft.com/en-us/pricing/details/storage/)** 있습니다. 고성능 요구 사항이 있는 프로덕션 워크 로드의 경우 `managed-premium` 모든 저장소 클래스에를 사용 하는 것이 좋습니다. 개발/테스트 워크 로드, 개념 증명 등의 경우 비용을 고려 하는 `azurefile` 것이 가장 저렴 한 옵션입니다. Azure의 네트워크에 연결 된 모든 저장소 장치인 원격 공유 저장소가 필요한 상황에는 네 가지 옵션을 모두 사용할 수 있습니다. [AKS 저장소](../../aks/concepts-storage.md)에 대해 자세히 알아보세요.|
+|_ *Azure Kubernetes 서비스 (AKS)**|AKS (azure Kubernetes Service)에는 두 가지 유형의 저장소 Azure Files 및 Azure Managed Disks 있습니다. 각 유형의 저장소에는 표준 (HDD) 및 프리미엄 (SSD)의 두 가지 가격 책정/성능 계층이 있습니다. 따라서 AKS에서 제공 되는 네 개의 저장소 클래스는 `azurefile` (Azure Files 표준 계층), ( `azurefile-premium` Azure Files 프리미엄 계층), `default` (azure 디스크 표준 계층) 및 `managed-premium` (azure 디스크 프리미엄 계층)입니다. 기본 저장소 클래스는 `default` (Azure 디스크 표준 계층)입니다. 의사 결정에 고려해 야 하는 유형과 계층 간에는 상당한 **[가격 차이가](https://azure.microsoft.com/en-us/pricing/details/storage/)** 있습니다. 고성능 요구 사항이 있는 프로덕션 워크 로드의 경우 `managed-premium` 모든 저장소 클래스에를 사용 하는 것이 좋습니다. 개발/테스트 워크 로드, 개념 증명 등의 경우 비용을 고려 하는 `azurefile` 것이 가장 저렴 한 옵션입니다. Azure의 네트워크에 연결 된 모든 저장 장치 이므로 원격 공유 저장소가 필요한 경우 네 가지 옵션을 모두 사용할 수 있습니다. [AKS 저장소](../../aks/concepts-storage.md)에 대해 자세히 알아보세요.|
 |**AWS EKS(Elastic Kubernetes Service)**| Amazon의 탄력적 Kubernetes 서비스에는 [EBS CSI storage 드라이버](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html)를 기반으로 하는 하나의 기본 저장소 클래스가 있습니다. 프로덕션 작업에 권장 됩니다. EKS 클러스터에 추가할 수 있는 새로운 저장소 드라이버- [EFS CSI 저장소 드라이버가](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) 있지만 현재는 베타 단계 이며 변경 될 수 있습니다. 이 저장소 드라이버가 프로덕션에 대해 지원 되는 것을 AWS 하지만 베타 버전에서 변경 될 수 있으므로 사용 하지 않는 것이 좋습니다. EBS 저장소 클래스는 기본값이 며를 호출 `gp2` 합니다. [EKS 저장소](https://docs.aws.amazon.com/eks/latest/userguide/storage-classes.html)에 대해 자세히 알아보세요.|
-|**GKE(Google Kubernetes Engine)**|GKE (Google Kubernetes Engine)에는 `standard` [gke 영구 디스크](https://kubernetes.io/docs/concepts/storage/volumes/#gcepersistentdisk)에 사용 되는 라는 저장소 클래스가 하나 뿐입니다. 유일한 경우 이며 기본값 이기도 합니다. 직접 연결 된 Ssd와 함께 사용할 수 있는 GKE에 대 한 [로컬 정적 볼륨 provisioner](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd#run-local-volume-static-provisioner) 있지만 Google에서 유지 관리 또는 지원 되지 않으므로 사용 하지 않는 것이 좋습니다. [Gke 저장소](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes)에 대해 자세히 알아보세요.
+|**GKE(Google Kubernetes Engine)**|GKE (Google Kubernetes Engine)에는 `standard` [gke 영구 디스크](https://kubernetes.io/docs/concepts/storage/volumes/#gcepersistentdisk)에 사용 되는 이라는 저장소 클래스가 하나 뿐입니다. 유일한 경우 이며 기본값 이기도 합니다. 직접 연결 된 Ssd와 함께 사용할 수 있는 GKE에 대 한 [로컬 정적 볼륨 provisioner](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd#run-local-volume-static-provisioner) 있지만 Google에서 유지 관리 또는 지원 되지 않으므로 사용 하지 않는 것이 좋습니다. [Gke 저장소](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes)에 대해 자세히 알아보세요.

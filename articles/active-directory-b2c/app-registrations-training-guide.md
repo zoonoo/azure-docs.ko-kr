@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7bb38b382add2a0ea3506c31c5e6e76a985df6a1
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 7c9e3344ed819f607feeab88ac43a9dc286a61e0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936474"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109099"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 새로운 앱 등록 환경
 
@@ -97,7 +97,7 @@ Azure AD B2C 앱 등록 환경은 모든 Azure AD 테 넌 트에 대 한 일반 
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Azure AD B2C 테 넌 트에 해당 되지 않는 기능
 다음 Azure AD 앱 등록 기능은 Azure AD B2C 테 넌 트에서 적용 되지 않거나 사용할 수 없습니다.
 - **역할 및 관리자** -현재 Azure AD B2C에서 사용할 수 없습니다.
-- **브랜딩** -UI/UX 사용자 지정은 **회사 브랜딩** 환경 또는 사용자 흐름의 일부로 구성 됩니다. [Azure Active Directory B2C에서 사용자 인터페이스를 사용자 지정 하는](customize-ui-overview.md)방법을 알아봅니다.
+- **브랜딩** -UI/UX 사용자 지정은 **회사 브랜딩** 환경 또는 사용자 흐름의 일부로 구성 됩니다. [Azure Active Directory B2C에서 사용자 인터페이스를 사용자 지정 하는](customize-ui-with-html.md)방법을 알아봅니다.
 - **게시자 도메인 확인** -앱이 확인 된 도메인이 아닌 onmicrosoft.com에 등록 되어 *있습니다*. 또한 게시자 도메인은 사용자 동의를 부여 하는 데 주로 사용 되며, 사용자 인증을 위해 Azure AD B2C 앱에는 적용 되지 않습니다. [게시자 도메인에 대해 자세히 알아보세요](../active-directory/develop/howto-configure-publisher-domain.md).
 - **토큰 구성** -토큰이 앱이 아닌 사용자 흐름의 일부로 구성 됩니다.
 - 현재 Azure AD B2C 테 넌 **트에 대해 빠른 시작 환경을 사용할** 수 없습니다.

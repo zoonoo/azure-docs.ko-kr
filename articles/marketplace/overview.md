@@ -3,16 +3,15 @@ title: Microsoft 상업용 마켓플레이스란?
 description: Microsoft 상업용 마켓플레이스에서 솔루션을 나열하는 Microsoft 파트너의 혜택과 옵션에 대해 간략히 설명합니다.
 author: mingshen-ms
 ms.author: mingshen
-ms.reviewer: dsindona
 ms.service: marketplace
 ms.topic: overview
 ms.date: 10/15/2020
-ms.openlocfilehash: a559c8613af97251ea6e85ef2a16121a89ffb6ad
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 099515eb1160b131f2d56fd02f300999d5ddfd16
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94739771"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780317"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스란?
 
@@ -30,7 +29,7 @@ Microsoft 상업용 마켓플레이스에는 [Microsoft AppSource](https://appso
 
 [Microsoft AppSource](https://appsource.microsoft.com/)는 SaaS(Software as a Service) 애플리케이션과 같은 비즈니스 솔루션과 Dynamics 365, Microsoft 365 및 Microsoft Power Platform으로 직접 확장되는 앱을 위한 스토어입니다. AppSource 컨설팅 서비스는 고객이 Dynamics 365 및 Power BI 사용을 시작하거나 가속화하도록 도와주는 전문 서비스 제품입니다.
 
-AppSource의 제안 목록 페이지에 대한 예는 다음과 같습니다.
+AppSource의 제품 목록 페이지에 대한 예는 다음과 같습니다.
 
 :::image type="content" source="media/overview/example-appsource.png" alt-text="Microsoft AppSource의 제안 목록 페이지를 보여 줍니다.":::
 
@@ -48,7 +47,7 @@ AppSource의 제안 목록 페이지에 대한 예는 다음과 같습니다.
 
 [Azure Marketplace](https://azuremarketplace.microsoft.com/)는 IT 전문가 및 개발자를 위해 Azure를 기반으로 하거나 이를 위해 구축된 솔루션을 위한 스토어입니다. 여기에는 컨설팅 및 관리형 서비스 목록이 포함됩니다. Azure Marketplace 컨설팅 서비스는 고객이 Azure 사용을 시작하거나 가속화하는 데 도움이 되는 전문 서비스 제품입니다.
 
-Azure Marketplace의 제안 목록 페이지에 대한 예는 다음과 같습니다.
+Azure Marketplace의 제품 목록 페이지에 대한 예는 다음과 같습니다.
 
 :::image type="content" source="media/overview/example-marketplace.png" alt-text="Azure Marketplace의 제안 목록 페이지를 보여 줍니다."::: 
 

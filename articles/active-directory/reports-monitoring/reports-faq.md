@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1984e2f0bb55115c7d700b91f564d9f01c145151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c274424641ee0173d68f0de9061415815b0df588
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015333"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107433"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Azure Active Directory 보고서 관련 자주 묻는 질문
 
@@ -37,7 +37,7 @@ ms.locfileid: "90015333"
 
 **Q: 현재는 `https://graph.windows.net/<tenant-name>/reports/` 끝점 api를 사용 하 여 AZURE AD 보안 보고서 (특정 유형의 검색 (예: 누출 된 자격 증명 또는 익명 IP 주소에서의 로그인)를 프로그래밍 방식으로 보고 시스템으로 끌어옵니다. 어떻게 전환 해야 하나요?**
 
-**A:**  [Id 보호 위험 검색 API](../identity-protection/howto-identity-protection-graph-api.md)   를 사용 하 여 Microsoft Graph 통해 보안 검색에 액세스할 수 있습니다. 이 새로운 형식을 사용 하면 고급 필터링, 필드 선택 등을 통해 데이터를 쿼리 하는 방법에 더 많은 유연성을 제공 하 고, SIEMs 및 기타 데이터 수집 도구와 쉽게 통합 하기 위해 위험 검색을 한 가지 유형으로 표준화할 수 있습니다. 데이터가 다른 형식으로 되어 있으므로 이전 쿼리를 새 쿼리로 대체할 수 없습니다. 그러나 [새 api는](/graph/api/resources/identityriskevent?view=graph-rest-beta)Microsoft 365 또는 Azure AD와 같은 api에 대 한 Microsoft 표준인 Microsoft Graph를 사용 합니다. 따라서 필요한 작업을 통해 현재 Microsoft Graph 투자를 연장 하거나이 새로운 표준 플랫폼으로의 전환을 시작할 수 있습니다.
+**A:** [Id 보호 위험 검색 API](../identity-protection/howto-identity-protection-graph-api.md) 를 사용 하 여 Microsoft Graph 통해 보안 검색에 액세스할 수 있습니다. 이 새로운 형식을 사용 하면 고급 필터링, 필드 선택 등을 통해 데이터를 쿼리 하는 방법에 더 많은 유연성을 제공 하 고, SIEMs 및 기타 데이터 수집 도구와 쉽게 통합 하기 위해 위험 검색을 한 가지 유형으로 표준화할 수 있습니다. 데이터가 다른 형식으로 되어 있으므로 이전 쿼리를 새 쿼리로 대체할 수 없습니다. 그러나 [새 api는](/graph/api/resources/identityriskevent?view=graph-rest-beta)Microsoft 365 또는 Azure AD와 같은 api에 대 한 Microsoft 표준인 Microsoft Graph를 사용 합니다. 따라서 필요한 작업을 통해 현재 Microsoft Graph 투자를 연장 하거나이 새로운 표준 플랫폼으로의 전환을 시작할 수 있습니다.
 
 ---
 
@@ -49,7 +49,7 @@ ms.locfileid: "90015333"
 
 **Q: Premium 라이선스를 받은 후 활동 데이터를 보는 데 얼마나 걸리나요?**
 
-**A:** 기존에 무료 라이선스를 통해 수집한 활동 데이터가 있는 경우에는 해당 데이터를 즉시 볼 수 있습니다. 데이터가 없는 경우에는 보고서에 데이터가 나타나기까지 1~2일 정도 걸립니다.
+**A:** 기존에 무료 라이선스를 통해 수집한 활동 데이터가 있는 경우에는 해당 데이터를 즉시 볼 수 있습니다. 데이터가 없으면 보고서에 데이터가 표시 되는 데 최대 3 일이 소요 됩니다.
 
 ---
 
@@ -61,7 +61,7 @@ ms.locfileid: "90015333"
 
 **Q: Azure Portal의 활동 로그인을 보거나 API를 통해 데이터를 가져오려면 전역 관리자 권한이 필요한가요?**
 
-**A:** 아니요. 테넌트의 **보안 읽기 권한자** 또는 **보안 관리자**도 포털 또는 API를 통해 보고 데이터에 액세스할 수 있습니다. **전역 관리자**도 물론 이 데이터에 접근할 수 있습니다.
+**A:** 아니요. 테넌트의 **보안 읽기 권한자** 또는 **보안 관리자** 도 포털 또는 API를 통해 보고 데이터에 액세스할 수 있습니다. **전역 관리자** 도 물론 이 데이터에 접근할 수 있습니다.
 
 ---
 

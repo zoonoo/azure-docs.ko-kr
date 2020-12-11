@@ -3,12 +3,12 @@ title: Azure Functions의 스토리지 고려 사항
 description: Azure Functions의 스토리지 요구 사항 및 저장된 데이터 암호화에 관해 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: aefd9a35235a09d94973f383603349f6862bbdd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67ff822208f065041e479fc484173d9f06a773ba
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318184"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107246"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Azure Functions의 스토리지 고려 사항
 
@@ -27,15 +27,19 @@ ms.locfileid: "87318184"
 
 ## <a name="storage-account-requirements"></a>Storage 계정 요구 사항
 
-함수 앱을 만들 때 Blob, Queue 및 Table 스토리지를 지원하는 범용 Azure Storage 계정을 만들거나 해당 계정에 연결해야 합니다. 이는 Functions가 트리거 관리 및 함수 실행 기록 등의 작업에 Azure Storage를 사용하기 때문입니다. 일부 스토리지 계정은 큐 및 테이블을 지원하지 않습니다. 해당 계정에는 Blob 전용 스토리지 계정, Azure Premium Storage 및 ZRS 복제를 포함한 범용 스토리지 계정이 포함됩니다. 이 지원되지 않는 계정은 함수 앱을 만들 때 스토리지 계정 블레이드에서 필터링됩니다.
+함수 앱을 만들 때 Blob, Queue 및 Table 스토리지를 지원하는 범용 Azure Storage 계정을 만들거나 해당 계정에 연결해야 합니다. 이는 Functions가 트리거 관리 및 함수 실행 기록 등의 작업에 Azure Storage를 사용하기 때문입니다. 일부 스토리지 계정은 큐 및 테이블을 지원하지 않습니다. 해당 계정에는 Blob 전용 스토리지 계정, Azure Premium Storage 및 ZRS 복제를 포함한 범용 스토리지 계정이 포함됩니다.
 
 스토리지 계정 유형에 대해 자세히 알아보려면 [Azure Storage 서비스 소개](../storage/common/storage-introduction.md#core-storage-services)를 참조하세요. 
 
-함수 앱에서 기존 스토리지 계정을 사용할 수 있지만 관련 요구 사항을 충족하는지 확인해야 합니다. 함수 앱 만들기 흐름의 일부로 생성된 스토리지 계정은 관련 스토리지 계정 요구 사항을 충족합니다.  
+함수 앱에서 기존 스토리지 계정을 사용할 수 있지만 관련 요구 사항을 충족하는지 확인해야 합니다. Azure Portal에서 함수 앱 만들기 흐름의 일부로 만들어진 저장소 계정은 이러한 저장소 계정 요구 사항을 충족 하도록 보장 됩니다. 포털에서 함수 앱을 만드는 동안 기존 저장소 계정을 선택 하면 지원 되지 않는 계정이 필터링 됩니다. 이 흐름에서는 만들려는 함수 앱과 동일한 지역에 있는 기존 저장소 계정만 선택할 수 있습니다. 자세히 알아보려면 [저장소 계정 위치](#storage-account-location)를 참조 하세요.
 
 ## <a name="storage-account-guidance"></a>스토리지 계정 지침
 
 모든 함수 앱은 스토리지 계정이 있어야 작동합니다. 해당 계정이 삭제되면 함수 앱이 실행되지 않습니다. 스토리지 관련 문제를 해결하려면 [스토리지 관련 문제를 해결하는 방법](functions-recover-storage-account.md)을 참조하세요. 함수 앱에서 사용하는 스토리지 계정에는 다음 추가 고려 사항이 적용됩니다.
+
+### <a name="storage-account-location"></a>스토리지 계정 위치
+
+최상의 성능을 위해 함수 앱은 동일한 지역에서 저장소 계정을 사용 해야 하므로 대기 시간이 줄어듭니다. Azure Portal는이 모범 사례를 적용 합니다. 어떤 이유로 든 함수 앱과 다른 지역에서 저장소 계정을 사용 해야 하는 경우 포털 외부에서 함수 앱을 만들어야 합니다. 
 
 ### <a name="storage-account-connection-setting"></a>스토리지 계정 연결 설정
 

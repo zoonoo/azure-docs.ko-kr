@@ -839,7 +839,7 @@
               href: ../data-factory/connector-presto.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: QuickBooks Online
               href: ../data-factory/connector-quickbooks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: REST
+            - name: REST (영문)
               href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Salesforce
               href: ../data-factory/connector-salesforce.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -1095,9 +1095,9 @@
         - name: 전용 SQL 풀에 채점 마법사 사용
           href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
           displayname: machine learning
-        - name: 코드 없이 Azure AutoML을 사용하여 모델 학습
+        - name: 자동화된 ML을 사용하여 코드 없이 모델 학습
           href: ./machine-learning/tutorial-automl.md
-        - name: Python에서 Azure AutoML을 사용하여 모델 학습
+        - name: 자동화된 ML을 사용하여 Python에서 모델 학습
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
           displayname: machine learning
         - name: Apache Spark MLlib를 사용하여 모델 만들기

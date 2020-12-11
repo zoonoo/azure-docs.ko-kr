@@ -3,12 +3,12 @@ title: Azure Arc 사용 서버 에이전트 관리
 description: 이 문서에서는 Azure Arc 사용 서버 연결 된 컴퓨터 에이전트의 수명 주기 동안 일반적으로 수행 하는 다양 한 관리 작업에 대해 설명 합니다.
 ms.date: 10/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 63db1177b193cad66208964ec377fab0779f23ba
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9e17bf58d1e94b64d1cdc6ff0b57b1b6a81be180
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130972"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107195"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Connected Machine 에이전트 관리 및 유지 관리
 
@@ -160,7 +160,7 @@ Azcmagent 도구 (Azcmagent.exe)는 설치 중에 Azure Arc 사용 서버 연결
 
 * **-h 또는 --help** - 사용 가능한 명령줄 매개 변수를 표시합니다.
 
-    예를 들어 **Reconnect** 매개 변수에 대한 자세한 도움말을 보려면 `azcmagent reconnect -h`를 입력합니다. 
+    예를 들어 **Connect** 매개 변수에 대 한 자세한 도움말을 보려면을 입력 `azcmagent connect -h` 합니다. 
 
 * **-v 또는 --verbose** - 자세한 정보 로깅을 사용합니다.
 
@@ -220,7 +220,7 @@ Azcmagent 도구 (Azcmagent.exe)는 설치 중에 Azure Arc 사용 서버 연결
 
     a. 관리자 권한이 있는 계정으로 컴퓨터에 로그인합니다.  
     b. **제어판** 에서 **프로그램 및 기능** 을 선택합니다.  
-    다. **프로그램 및 기능** 에서 **Azure Connected Machine 에이전트** ,  **제거** , **예** 를 차례로 선택합니다.  
+    다. **프로그램 및 기능** 에서 **Azure Connected Machine 에이전트**,  **제거**, **예** 를 차례로 선택합니다.  
 
     >[!NOTE]
     > **AzureConnectedMachineAgent.msi** 설치 관리자 패키지를 두 번 클릭하여 에이전트 설정 마법사를 실행할 수도 있습니다.

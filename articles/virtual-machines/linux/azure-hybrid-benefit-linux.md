@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: f4dce87533927eebef792987b87d148e6a5268b4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5b565a3e653d05ffcecfbc5718c74d07d8f45373
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500617"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109167"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Azure 하이브리드 혜택 – Linux Virtual Machines에 적용 되는 방법
 
 ## <a name="overview"></a>개요
 
-Azure 하이브리드 혜택를 사용 하면 기존 Red Hat 또는 SUSE software 구독을 직접 사용 하 여 온-프레미스 Red Hat Enterprise Linux (RHEL) SUSE Linux Enterprise Server 및 SLES (가상 머신) Vm (가상 머신)을 Azure로 보다 쉽게 마이그레이션할 수 있습니다. 이 혜택을 통해 소프트웨어 요금은 RHEL 또는 SLES 구독에 포함 되므로 VM의 인프라 비용에 대해서만 비용을 지불 하면 됩니다. 이 혜택은 모든 RHEL 및 SLES Marketplace 종 량 제 (PAYG) 이미지에 적용 됩니다.
+Azure 하이브리드 혜택는 클라우드에서 Red Hat Enterprise Linux (RHEL) 및 SUSE Linux Enterprise Server (SLES) 가상 머신을 실행 하는 비용을 대폭 줄일 수 있는 라이선스 혜택입니다. 이 혜택을 통해 소프트웨어 요금은 RHEL 또는 SLES 구독에 포함 되므로 VM의 인프라 비용에 대해서만 비용을 지불 하면 됩니다. 이 혜택은 모든 RHEL 및 SLES Marketplace 종 량 제 (PAYG) 이미지에 적용 됩니다.
 
 > [!IMPORTANT]
 > 이제 Linux Vm에 대 한 Azure 하이브리드 혜택를 공용에서 사용할 수 있습니다.

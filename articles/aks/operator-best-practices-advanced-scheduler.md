@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)의 taint/toleration, 노드 선택기
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: c0c1f587b4e52607e9466300f976a52874c9e5ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1a8138b4b2fdab2cdef8d2cb4c27de8d12ef38cd
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993706"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107349"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
 
@@ -131,7 +131,7 @@ spec:
 
 ### <a name="node-affinity"></a>노드 선호도
 
-노드 선택기는 지정된 노드에 Pod를 할당하는 기본 방법입니다. *노드 선호도* 를 사용하여 유연성을 높일 수 있습니다. 노드 선호도를 사용하여 Pod가 노드와 일치될 수 없는 경우 발생하는 상황을 정의합니다. Kubernetes 스케줄러가 Pod를 레이블이 지정된 호스트와 일치시키도록 ‘요구’할 수 있습니다. 또는 일치를 ‘선호’할 수 있지만 일치 항목이 없는 경우 다른 호스트에서 Pod을 예약할 수 있습니다.
+노드 선택기는 지정된 노드에 Pod를 할당하는 기본 방법입니다. *노드 선호도* 를 사용하여 유연성을 높일 수 있습니다. 노드 선호도를 사용하여 Pod가 노드와 일치될 수 없는 경우 발생하는 상황을 정의합니다. Kubernetes 스케줄러가 Pod를 레이블이 지정된 호스트와 일치시키도록 ‘요구’할 수 있습니다. 또는 일치 *하는 항목* 을 사용할 수 있지만, 일치 하는 항목이 없는 경우 pod를 다른 호스트에서 예약할 수 있습니다.
 
 다음 예제는 노드 선호도를 *requiredDuringSchedulingIgnoredDuringExecution* 으로 설정합니다. 이 선호도를 사용하려면 일치하는 레이블을 가진 노드를 사용하기 위한 Kubernetes 일정이 필요합니다. 사용 가능한 노드가 없는 경우 Pod는 예약이 계속될 때까지 기다려야 합니다. Pod가 다른 노드에서 예약 되도록 하려면 값을 *preferredDuringSchedulingIgnoreDuringExecution* 로 설정 하면 됩니다.
 

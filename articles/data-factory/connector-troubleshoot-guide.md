@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/02/2020
+ms.date: 12/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: c90b7ce86e06669696a4b9f7e0b2f5287e9dd97e
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a7a81a742922d45be965c7f73e3cb910d0ef989a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533199"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109296"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
 
@@ -46,6 +46,15 @@ ms.locfileid: "96533199"
 ### <a name="error-code--azurestorageoperationfailedconcurrentwrite"></a>오류 코드:  AzureStorageOperationFailedConcurrentWrite
 
 - **메시지**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+
+
+### <a name="invalid-property-during-copy-activity"></a>복사 작업 중에 속성이 잘못 되었습니다.
+
+- **메시지**:  `Copy activity <Activity Name> has an invalid "source" property. The source type is not compatible with the dataset <Dataset Name> and its linked service <Linked Service Name>. Please verify your input against.`
+
+- **원인**: 데이터 집합에 정의 된 형식이 복사 활동에 정의 된 소스/싱크 유형과 일치 하지 않습니다.
+
+- **해결** 방법: 데이터 집합 또는 파이프라인 JSON 정의를 편집 하 여 형식을 일관성 있게 만들고 배포를 다시 실행 합니다.
 
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
@@ -159,6 +168,32 @@ ms.locfileid: "96533199"
 ### <a name="error-code-adlsgen2timeouterror"></a>오류 코드: AdlsGen2TimeoutError
 
 - **메시지**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
+
+
+### <a name="request-to-adls-gen2-account-met-timeout-error"></a>ADLS Gen2 계정에 대 한 요청 시간 초과 오류가 발생 했습니다.
+
+- **메시지**: 오류 코드 = `UserErrorFailedBlobFSOperation` , 오류 메시지 = `BlobFS operation failed for: A task was canceled` .
+
+- **원인**:이 문제는 일반적으로 자체 호스팅 IR 컴퓨터에서 발생 하는 ADLS Gen2 싱크 시간 제한 오류로 인해 발생 합니다.
+
+- **권장 사항**: 
+
+    1. 가능 하면 자체 호스팅 IR 컴퓨터와 대상 ADLS Gen2 계정을 동일한 지역에 두십시오. 이렇게 하면 임의 시간 초과 오류가 발생 하지 않고 성능이 향상 됩니다.
+
+    1. Express 경로와 같은 특수 한 네트워크 설정이 있는지 확인 하 고 네트워크에 충분 한 대역폭이 있는지 확인 합니다. 전체 대역폭이 낮을 때 자체 호스팅 IR 동시 작업 설정을 낮추는 것이 좋습니다 .이 경우를 통해 여러 동시 작업에서 네트워크 리소스 경쟁을 방지할 수 있습니다.
+
+    1. 파일 크기가 보통 또는 작은 경우 이진이 아닌 복사에 작은 블록 크기를 사용 하 여 이러한 시간 제한 오류를 완화할 수 있습니다. [Blob Storage Put 블록](https://docs.microsoft.com/rest/api/storageservices/put-block)을 참조 하세요.
+
+       사용자 지정 블록 크기를 지정 하려면 다음을 수행 합니다. json 편집기에서 속성을 편집할 수 있습니다.
+    ```
+    "sink": {
+        "type": "DelimitedTextSink",
+        "storeSettings": {
+            "type": "AzureBlobFSWriteSettings",
+            "blockSizeInMB": 8
+        }
+    }
+    ```
 
 
 ## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
@@ -372,6 +407,7 @@ ms.locfileid: "96533199"
 
 - **해결 방법**: 복사 작업 싱크의 Polybase 설정에서 "**형식 기본값 사용**" 옵션을 false로 설정합니다.
 
+
 ### <a name="error-message-expected-data-type-decimalxx-offending-value"></a>오류 메시지: 필요한 데이터 형식: DECIMAL(x,x), 잘못된 값
 
 - **증상**: 준비 된 복사 및 PolyBase를 사용 하 여 테이블 형식 데이터 원본 (예: SQL Server)에서 Azure Synapse Analytics로 데이터를 복사 하는 경우 다음 오류가 발생 합니다.
@@ -387,6 +423,7 @@ ms.locfileid: "96533199"
 - **원인**: Azure Synapse Analytics Polybase에서 10 진수 열에 빈 문자열 (null 값)을 삽입할 수 없습니다.
 
 - **해결 방법**: 복사 작업 싱크의 Polybase 설정에서 "**형식 기본값 사용**" 옵션을 false로 설정합니다.
+
 
 ### <a name="error-message-java-exception-message-hdfsbridgecreaterecordreader"></a>오류 메시지: Java 예외 메시지: HdfsBridge:: CreateRecordReader
 
@@ -421,6 +458,7 @@ ms.locfileid: "96533199"
 
 - 또는 Polybase를 사용하지 않도록 설정하여 대량 삽입 방법을 사용합니다.
 
+
 ### <a name="error-message-the-condition-specified-using-http-conditional-headers-is-not-met"></a>오류 메시지: HTTP 조건부 헤더를 사용하여 지정한 조건이 충족되지 않습니다.
 
 - **증상**: SQL 쿼리를 사용 하 여 Azure Synapse Analytics에서 데이터를 가져오고 다음 오류를 적중 합니다.
@@ -433,6 +471,58 @@ ms.locfileid: "96533199"
 
 - **해결 방법**: SSMS에서 동일한 쿼리를 실행하고 동일한 결과가 표시되는지 확인합니다. 그렇다면 Azure Synapse Analytics에 대 한 지원 티켓을 열고 Azure Synapse 분석 서버 및 데이터베이스 이름을 제공 하 여 추가로 문제를 해결 합니다.
             
+
+### <a name="low-performance-when-load-data-into-azure-sql"></a>Azure SQL로 데이터를 로드할 때 성능이 낮습니다.
+
+- **증상**: Azure SQL에 데이터를 복사 하는 속도가 느립니다.
+
+- **원인**: 문제의 근본 원인은 주로 Azure SQL 측의 병목 현상에 의해 트리거됩니다. 몇 가지 가능한 원인은 다음과 같습니다.
+
+    1. Azure DB 계층이 충분히 크지 않습니다.
+
+    1. Azure DB DTU 사용량이 100%에 가깝습니다. [성능을 모니터링](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) 하 고 DB 계층을 업그레이드할 수 있습니다.
+
+    1. 인덱스가 올바르게 설정 되지 않았습니다. 데이터를 로드 하기 전에 모든 인덱스를 제거 하 고 로드가 완료 된 후에 다시 만드십시오.
+
+    1. WriteBatchSize가 스키마 행 크기에 맞게 크지 않습니다. 문제에 대 한 속성을 확장 해 보세요.
+
+    1. 대량 삽입 대신 저장 프로시저를 사용 하 여 성능이 저하 될 것으로 예상 됩니다. 
+
+- **해결** 방법: [복사 작업 성능](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting) 에 대 한 TSG을 참조 하세요.
+
+
+### <a name="performance-tier-is-low-and-leads-to-copy-failure"></a>성능 계층이 적고 복사 실패가 발생 합니다.
+
+- **증상**: Azure SQL로 데이터를 복사 하는 동안 다음 오류 메시지가 발생 했습니다. `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
+
+- **원인**: Azure SQL s1이 사용 되며, 이러한 경우 IO 제한에 도달 합니다.
+
+- **해결** 방법: 문제를 해결 하려면 Azure SQL 성능 계층을 업그레이드 하세요. 
+
+
+### <a name="sql-table-cannot-be-found"></a>SQL 테이블을 찾을 수 없습니다. 
+
+- **증상**: 하이브리드에서 온-프레미스 SQL Server 테이블로 데이터를 복사 하는 동안 오류가 발생 했습니다.`Cannot find the object "dbo.Contoso" because it does not exist or you do not have permissions.`
+
+- **원인**: 현재 SQL 계정에 .net SqlBulkCopy에서 발급 한 요청을 실행할 수 있는 권한이 없습니다. WriteToServer.
+
+- **해결** 방법: 더 많은 권한 있는 SQL 계정으로 전환 하세요.
+
+
+### <a name="string-or-binary-data-would-be-truncated"></a>문자열 또는 이진 데이터가 잘립니다.
+
+- **증상**: 온-프레미스/Azure SQL Server 테이블로 데이터를 복사 하는 동안 오류가 발생 했습니다. 
+
+- **원인**: Cx Sql 테이블 스키마 정의에 예상 보다 길이가 작은 열이 하나 이상 있습니다.
+
+- **해결** 방법: 다음 단계를 수행 하 여 문제를 해결 하십시오.
+
+    1. 오류가 발생 한 행의 문제를 해결 하기 위해 특히 "redirectIncompatibleRowSettings" [내결함성](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance)을 적용 합니다.
+
+    1. SQL 테이블 스키마 열 길이를 사용 하 여 리디렉션된 데이터를 다시 확인 하 여 업데이트 해야 하는 열을 확인 합니다.
+
+    1. 테이블 스키마를 적절 하 게 업데이트 합니다.
+
 
 ## <a name="delimited-text-format"></a>구분된 텍스트 형식
 
@@ -453,7 +543,7 @@ ms.locfileid: "96533199"
 
 - **권장 사항**: 오류 메시지에서 행 개수를 가져오고 행의 열을 확인 하 고 데이터를 수정 합니다.
 
-- **원인**: 예상 열 개수가 오류 메시지에 "1"로 표시되면 잘못된 압축 또는 형식 설정을 지정했기 때문에 ADF에서 파일을 잘못 구문 분석하게 되는 것일 수 있습니다.
+- **원인**: 오류 메시지에서 예상 열 개수가 "1" 이면 잘못 된 압축 또는 형식 설정을 지정 했을 수 있습니다. 따라서 ADF에서 파일을 잘못 구문 분석 했습니다.
 
 - **권장 사항**:  형식 설정이 원본 파일과 일치하는지 확인합니다.
 
@@ -488,6 +578,16 @@ ms.locfileid: "96533199"
 
 - **권장 사항**:  파이프라인을 다시 실행합니다. 계속 실패하는 경우 병렬 처리를 줄입니다. 그래도 실패하면 dynamics 지원 서비스에 문의하세요.
 
+
+### <a name="columns-are-missing-when-previewingimporting-schema"></a>스키마를 미리 보거나 가져올 때 열이 누락 되었습니다.
+
+- **증상**: 스키마를 가져오거나 데이터를 미리 볼 때 일부 열이 누락 될 수 있습니다. 오류 메시지: `The valid structure information (column name and type) are required for Dynamics source.`
+
+- **원인**:이 문제는 기본적으로 설계 되어 있습니다. ADF는 처음 10 개 레코드에 값이 없는 열을 표시할 수 없기 때문입니다. 추가한 열이 올바른 형식 인지 확인 하세요. 
+
+- **권장 사항**: 매핑 탭에서 수동으로 열을 추가 합니다.
+
+
 ## <a name="excel-format"></a>Excel 형식
 
 ### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>대량 Excel 파일을 구문 분석할 때 시간 초과 또는 성능 저하
@@ -495,7 +595,8 @@ ms.locfileid: "96533199"
 - **증상**:
 
     1. Excel 데이터 집합을 만들고 연결/저장소에서 스키마를 가져오거나 데이터를 미리 보거나 워크시트를 새로 고칠 때 excel 파일 크기가 큰 경우 시간 초과 오류가 발생할 수 있습니다.
-    2. 복사 작업을 사용 하 여 대량 Excel 파일 (>= 100MB)에서 다른 데이터 저장소로 데이터를 복사 하는 경우 성능이 저하 되거나 OOM 문제가 발생할 수 있습니다.
+
+    1. 복사 작업을 사용 하 여 대량 Excel 파일 (>= 100MB)에서 다른 데이터 저장소로 데이터를 복사 하는 경우 성능이 저하 되거나 OOM 문제가 발생할 수 있습니다.
 
 - **원인**: 
 
@@ -507,9 +608,23 @@ ms.locfileid: "96533199"
 
     1. 스키마를 가져올 때 원본 파일의 하위 집합인 작은 샘플 파일을 생성 하 고 "연결/저장소에서 스키마 가져오기" 대신 "샘플 파일에서 스키마 가져오기"를 선택할 수 있습니다.
 
-    2. 워크시트 드롭다운 목록에서 "편집"을 클릭 하 고 시트 이름/인덱스를 입력할 수 있습니다.
+    2. 목록 워크시트의 경우 워크시트 드롭다운에서 "편집"을 클릭 하 고 시트 이름/인덱스를 대신 입력할 수 있습니다.
 
     3. 대량 excel 파일 (>100MB)을 다른 저장소로 복사 하려면 스포츠 스트리밍이 읽고 수행 하는 데이터 흐름 Excel 원본을 사용할 수 있습니다.
+
+
+## <a name="hdinsight"></a>HDInsight
+
+### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>HDInsight ESP 클러스터를 사용 하 여 ADF 연결 된 서비스에 대 한 SSL 오류
+
+- **메시지**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+
+- **원인**:이 문제는 시스템 신뢰 저장소와 관련 된 것일 수 있습니다.
+
+- **해결** 방법: **Microsoft Integration RUNTIME\4.0\SHARED\ODBC Drivers\Microsoft Hive ODBC Driver\lib** 경로로 이동 하 고 DriverConfiguration64.exe를 열어 설정을 변경할 수 있습니다.
+
+    ![시스템 신뢰 저장소 사용 선택을 취소 합니다.](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+
 
 ## <a name="json-format"></a>JSON 형식
 
@@ -548,6 +663,20 @@ ms.locfileid: "96533199"
 - **메시지**: `Error occurred when deserializing source JSON file '%fileName;'. The JSON format doesn't allow mixed arrays and objects.`
 
 
+## <a name="oracle"></a>Oracle
+
+### <a name="error-code-argumentoutofrangeexception"></a>오류 코드: ArgumentOutOfRangeException
+
+- **메시지**: `Hour, Minute, and Second parameters describe an un-representable DateTime.`
+
+- **원인**: ADF에서 DateTime 값은 0001-01-01 00:00:00에서 9999-12-31 23:59:59 사이의 범위에서 지원 됩니다. 그러나 Oracle은 더 광범위 한 범위의 DateTime 값 (예: BC 세기 또는 min/sec>59)을 지원 하므로 ADF에서 오류가 발생 합니다.
+
+- **권장 사항**: 
+
+    `select dump(<column name>)`Oracle의 값이 ADF의 범위에 있는지 확인 하려면를 실행 하세요. 
+
+    결과에서 바이트 시퀀스를 확인 하려는 경우를 확인 하세요 https://stackoverflow.com/questions/13568193/how-are-dates-stored-in-oracle .
+
 
 ## <a name="parquet-format"></a>Parquet 형식
 
@@ -570,18 +699,18 @@ ms.locfileid: "96533199"
 
 ### <a name="error-code--parquetinvalidfile"></a>오류 코드:  ParquetInvalidFile
 
-- **메시지**: `File is not a valid parquet file.`
+- **메시지**: `File is not a valid Parquet file.`
 
 - **원인**: Parquet 파일 문제입니다.
 
-- **권장 사항**:  입력이 유효한 parquet 파일인지 확인합니다.
+- **권장 사항**: 입력이 올바른 Parquet 파일 인지 확인 합니다.
 
 
 ### <a name="error-code--parquetnotsupportedtype"></a>오류 코드:  ParquetNotSupportedType
 
 - **메시지**: `Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
 
-- **원인**: Parquet 형식은 Azure Data Factory에서 지원되지 않습니다.
+- **원인**: Azure Data Factory에서는 Parquet 형식이 지원 되지 않습니다.
 
 - **권장 사항**:  원본 데이터를 한번 더 확인합니다. https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs 문서를 참조하세요.
 
@@ -651,7 +780,7 @@ ms.locfileid: "96533199"
 
 ### <a name="error-code--parquetunsupportedinterpretation"></a>오류 코드:  ParquetUnsupportedInterpretation
 
-- **메시지**: `The given interpretation '%interpretation;' of parquet format is not supported.`
+- **메시지**: `The given interpretation '%interpretation;' of Parquet format is not supported.`
 
 - **원인**: 지원되지 않는 시나리오
 
@@ -667,7 +796,46 @@ ms.locfileid: "96533199"
 - **권장 사항**:  페이로드에서 'CompressionType'을 제거합니다.
 
 
-## <a name="rest"></a>REST
+### <a name="error-code--usererrorjniexception"></a>오류 코드: UserErrorJniException
+
+- **메시지**: `Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]`
+
+- **원인**: 일부 잘못 된 (전역) 인수가 설정 되었으므로 JVM을 만들 수 없습니다.
+
+- **권장 사항**: 자체 호스팅 IR의 **각 노드** 를 호스트 하는 컴퓨터에 로그인 합니다. 시스템 변수가 다음과 같이 올바르게 설정 되었는지 확인 `_JAVA_OPTIONS "-Xms256m -Xmx16g" with memory bigger than 8 G` 합니다. 모든 IR 노드를 다시 시작한 다음 파이프라인을 다시 실행 합니다.
+
+
+### <a name="arithmetic-overflow"></a>산술 연산 오버플로
+
+- **증상**: Parquet 파일을 복사할 때 오류 메시지가 발생 했습니다. `Message = Arithmetic Overflow., Source = Microsoft.DataTransfer.Common`
+
+- **원인**: Oracle에서 Parquet로 파일을 복사 하는 경우에는 현재 정밀도 <= 38 및 정수 부분 <= 20의 길이가 10 진수로만 지원 됩니다. 
+
+- **해결** 방법: 이러한 문제를 해결 하는 열을 VARCHAR2로 변환할 수 있습니다.
+
+
+### <a name="no-enum-constant"></a>열거형 상수 없음
+
+- **증상**: Parquet 형식으로 데이터를 복사할 때 오류 메시지가 발생 했습니다. `java.lang.IllegalArgumentException:field ended by &apos;;&apos;` 또는: `java.lang.IllegalArgumentException:No enum constant org.apache.parquet.schema.OriginalType.test` .
+
+- **원인**: 
+
+    이 문제는 공백이 나 지원 되지 않는 문자 (예:,)로 인해 발생할 수 있습니다. {} Parquet는 이러한 형식을 지원 하지 않으므로 열 이름에 () \n\t =)를 지정 합니다. 
+
+    예를 들어 *contoso (test)* 와 같은 열 이름은 [코드](https://github.com/apache/parquet-mr/blob/master/parquet-column/src/main/java/org/apache/parquet/schema/MessageTypeParser.java) 에서 대괄호로 형식을 구문 분석 합니다 `Tokenizer st = new Tokenizer(schemaString, " ;{}()\n\t");` . 이러한 "test" 형식이 없기 때문에 오류가 발생 합니다.
+
+    지원 되는 형식을 확인 하려면 [여기](https://github.com/apache/parquet-mr/blob/master/parquet-column/src/main/java/org/apache/parquet/schema/OriginalType.java)에서 확인할 수 있습니다.
+
+- **해결 방법**: 
+
+    1. 싱크 열 이름에 공백이 있는지 다시 한 번 확인 합니다.
+
+    1. 공백이 포함 된 첫 번째 행을 열 이름으로 사용 하는지 여부를 다시 확인 합니다.
+
+    1. OriginalType 형식이 지원 되는지 두 번 확인 합니다. 이러한 특수 기호를 사용 하지 마십시오 `,;{}()\n\t=` . 
+
+
+## <a name="rest"></a>REST (영문)
 
 ### <a name="unexpected-network-response-from-rest-connector"></a>REST 커넥터에서 예기치 않은 네트워크 응답
 
@@ -689,6 +857,114 @@ ms.locfileid: "96533199"
     - ' A s s '는 SSL 인증서 유효성 검사 문제를 재현 하는 데 적합 하지 않을 수 있습니다. 일부 시나리오에서는 SSL 인증서 유효성 검사 문제를 해결 하지 않고 ' 말아 ' 명령이 성공적으로 실행 되었습니다. 그러나 동일한 URL이 브라우저에서 실행 되는 경우 클라이언트에서 서버와의 트러스트를 설정 하기 위해 처음에는 SSL 인증서가 실제로 반환 되지 않습니다.
 
       위의 경우에는 **Postman** 및 **Fiddler** 와 같은 도구를 권장 합니다.
+
+
+## <a name="sftp"></a>SFTP
+
+### <a name="invalid-sftp-credential-provided-for-sshpublickey-authentication-type"></a>' SSHPublicKey ' 인증 유형에 대해 제공 된 SFTP 자격 증명이 잘못 되었습니다.
+
+- **증상**: ' SshPublicKey ' 인증 유형에 잘못 된 SFTP 자격 증명이 제공 된 상태에서 SSH 공개 키 인증을 사용 하 고 있습니다.
+
+- **원인**:이 오류는 세 가지 원인으로 인해 발생할 수 있습니다.
+
+    1. 개인 키 콘텐츠는 AKV/SDK에서 인출 되지만 올바르게 인코딩되지 않습니다.
+
+    1. 잘못 된 키 콘텐츠 형식을 선택 했습니다.
+
+    1. 자격 증명 또는 개인 키 콘텐츠가 잘못 되었습니다.
+
+- **해결 방법**: 
+
+    1. **원인 1**:
+
+       개인 키 콘텐츠가 AKV에서 온 것이 고 고객이 SFTP 연결 된 서비스에 직접 업로드 하는 경우 원래 키 파일이 작동 하는 경우
+
+       을 참조 하세요 https://docs.microsoft.com/azure/data-factory/connector-sftp#using-ssh-public-key-authentication . privateKey 콘텐츠는 Base64 인코딩 SSH 개인 키 콘텐츠입니다.
+
+       Base64 인코딩을 사용 하 여 **원래 개인 키 파일의 전체 콘텐츠를** 인코딩하고 인코딩된 문자열을 AKV에 저장 하세요. 원본 개인 키 파일은 파일에서 업로드를 클릭 한 경우 SFTP 연결 된 서비스에서 사용할 수 있는 파일입니다.
+
+       문자열을 생성 하는 데 사용 되는 몇 가지 샘플은 다음과 같습니다.
+
+       - C # 코드 사용:
+       ```
+       byte[] keyContentBytes = File.ReadAllBytes(Private Key Path);
+       string keyContent = Convert.ToBase64String(keyContentBytes, Base64FormattingOptions.None);
+       ```
+
+       - Python 코드 사용:
+       ```
+       import base64
+       rfd = open(r'{Private Key Path}', 'rb')
+       keyContent = rfd.read()
+       rfd.close()
+       print base64.b64encode(Key Content)
+       ```
+
+       - 타사 base64 변환 도구 사용
+
+         와 같은 도구 https://www.base64encode.org/ 를 권장 합니다.
+
+    1. **원인 2**:
+
+       PKCS # 8 형식 SSH 개인 키를 사용 하는 경우
+
+       PKCS # 8 형식 SSH 개인 키 ("-----시작 암호화 된 개인 키-----")는 현재 ADF의 SFTP 서버에 액세스 하는 데 지원 되지 않습니다. 
+
+       아래 명령을 실행 하 여 키를 기존 SSH 키 형식으로 변환 합니다 ("-----시작 RSA 개인 키-----"로 시작).
+
+       ```
+       openssl pkcs8 -in pkcs8_format_key_file -out traditional_format_key_file
+       chmod 600 traditional_format_key_file
+       ssh-keygen -f traditional_format_key_file -p
+       ```
+    1. **원인 3**:
+
+       WinSCP와 같은 도구를 사용 하 여 키 파일 또는 암호가 올바른지 확인 하세요.
+
+
+### <a name="incorrect-linked-service-type-is-used"></a>잘못 된 연결 된 서비스 유형이 사용 되었습니다.
+
+- **증상**: FTP/SFTP 서버에 연결할 수 없습니다.
+
+- **원인**: ftp 연결 된 서비스를 사용 하 여 sftp 서버에 연결 하거나 역방향으로 연결 하는 것과 같이 FTP 또는 SFTP 서버에 잘못 된 연결 된 서비스 유형이 사용 됩니다.
+
+- **해결** 방법: 대상 서버의 포트를 확인 하세요. 기본적으로 FTP에서는 포트 21을 사용 하 고 SFTP는 포트 22를 사용 합니다.
+
+
+### <a name="sftp-copy-activity-failed"></a>SFTP 복사 작업이 실패 했습니다.
+
+- **증상**: 오류 코드: UserErrorInvalidColumnMappingColumnNotFound. 오류 메시지: `Column &apos;AccMngr&apos; specified in column mapping cannot be found in source data.`
+
+- **원인**: 원본에 "AccMngr" 라는 열이 포함 되어 있지 않습니다.
+
+- **해결** 방법: "AccMngr" 열이 있는지 확인 하기 위해 대상 데이터 집합 열을 매핑하여 구성 된 데이터 집합을 두 번 확인 합니다.
+
+
+### <a name="sftp-server-connection-throttling"></a>SFTP 서버 연결 제한
+
+- **증상**: 서버 응답에 SSH 프로토콜 id가 포함 되어 있지 않으며 복사 하지 못했습니다.
+
+- **원인**: ADF는 sftp 서버에서 동시에 다운로드 하기 위해 여러 연결을 만들며 때로는 sftp 서버 제한에 도달 하는 경우도 있습니다. 실제로 다른 서버는 제한에 도달 하는 경우 다른 오류를 반환 합니다.
+
+- **해결 방법**: 
+
+    SFTP 데이터 집합의 최대 동시 연결 수를 1로 지정 하 고 복사를 다시 실행 하세요. 성공 하면 제한이 원인 임을 확인할 수 있습니다.
+
+    낮은 처리량을 승격 하려면 SFTP 관리자에 게 동시 연결 수 한도를 늘리거나 허용 목록에 다음 IP를 추가 하도록 요청 하세요.
+
+    - 관리 IR을 사용 하는 경우 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 추가 하세요.
+      또는 많은 IP 범위 목록을 SFTP 서버 허용 목록에 추가 하지 않으려는 경우 자체 호스팅 IR을 설치할 수 있습니다.
+
+    - 자체 호스팅 IR을 사용 하는 경우 허용 목록에 SHIR을 설치한 컴퓨터 IP를 추가 하세요.
+
+
+### <a name="error-code-sftprenameoperationfail"></a>오류 코드: SftpRenameOperationFail
+
+- **증상**: 다음 오류가 발생 하 여 파이프라인이 BLOB에서 SFTP로 데이터를 복사 하지 못했습니다. `Operation on target Copy_5xe failed: Failure happened on 'Sink' side. ErrorCode=SftpRenameOperationFail,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException` .
+
+- **원인**: useTempFileRename 옵션은 데이터를 복사할 때 True로 설정 되었습니다. 이렇게 하면 프로세스에서 임시 파일을 사용할 수 있습니다. 전체 데이터를 복사 하기 전에 하나 이상의 임시 파일이 삭제 된 경우이 오류가 트리거됩니다.
+
+- **해결** 방법: useTempFileName의 옵션을 False로 설정 합니다.
 
 
 ## <a name="general-copy-activity-error"></a>일반 복사 작업 오류

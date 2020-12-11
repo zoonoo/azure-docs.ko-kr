@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4fa0f4d87567bd77faacfd2373dba0d2b8996446
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 81a1263d0eacbffa77e2e35e4594e23235394183
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873372"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108674"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -547,5 +547,5 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 
 지역화 예제는 다음 문서를 참조 하세요.
 
-- [Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 언어 사용자 지정](custom-policy-localization.md)
-- [Azure Active Directory B2C에서 사용자 흐름을 사용 하 여 언어 사용자 지정](user-flow-language-customization.md)
+- [Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 언어 사용자 지정](language-customization.md)
+- [Azure Active Directory B2C에서 사용자 흐름을 사용 하 여 언어 사용자 지정](language-customization.md)

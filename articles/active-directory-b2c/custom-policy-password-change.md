@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1c942d52bbcdad711115d81a78395979c507784b
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: a471f510f60eeb6428c5c4e8ec7cccd1e0804d10
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131754"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108861"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 변경 구성
 
@@ -30,7 +30,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 로컬 계정을 사용 하 여 
 
 ## <a name="add-the-elements"></a>요소 추가
 
-1. TrustframeworkExtensions.xml 파일을 열고 `oldPassword` 식별자를 사용하여 다음 **ClaimType** 요소를 [ClaimsSchema](claimsschema.md) 요소에 추가합니다.**
+1. TrustframeworkExtensions.xml 파일을 열고 `oldPassword` 식별자를 사용하여 다음 **ClaimType** 요소를 [ClaimsSchema](claimsschema.md) 요소에 추가합니다.
 
     ```xml
     <BuildingBlocks>
@@ -124,7 +124,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 로컬 계정을 사용 하 여 
 
     `IdentityExperienceFrameworkAppId`를 필수 구성 요소 자습서에서 만든 IdentityExperienceFramework 애플리케이션의 애플리케이션 ID로 바꿉니다. `ProxyIdentityExperienceFrameworkAppId`를 이전에 만든 ProxyIdentityExperienceFramework 애플리케이션의 애플리케이션 ID로 바꿉니다.
 
-3. [UserJourney](userjourneys.md) 요소는 애플리케이션을 조작할 때 사용자가 사용하는 경로를 정의합니다. `PasswordChange`로 식별된 **UserJourney**에 이 요소가 없는 경우 **UserJourneys** 요소를 추가합니다.
+3. [UserJourney](userjourneys.md) 요소는 애플리케이션을 조작할 때 사용자가 사용하는 경로를 정의합니다. `PasswordChange`로 식별된 **UserJourney** 에 이 요소가 없는 경우 **UserJourneys** 요소를 추가합니다.
 
     ```xml
     <UserJourneys>
@@ -153,9 +153,9 @@ Azure Active Directory B2C (Azure AD B2C)에서 로컬 계정을 사용 하 여 
     ```
 
 4. *TrustFrameworkExtensions.xml* 정책 파일을 저장합니다.
-5. 시작 팩과 함께 다운로드한 *ProfileEdit.xml* 파일을 복사하고 이름을 *ProfileEditPasswordChange.xml*로 변경합니다.
-6. 새 파일을 열고 **PolicyId** 특성을 고유한 값으로 업데이트합니다. 이 값은 정책 이름입니다. 예를 들면, *B2C_1A_profile_edit_password_change*입니다.
-7. 만든 새 사용자 경험의 ID와 일치하도록 `<DefaultUserJourney>`의 **ReferenceId** 특성을 수정합니다. 예를 들면, *PasswordChange*입니다.
+5. 시작 팩과 함께 다운로드한 *ProfileEdit.xml* 파일을 복사하고 이름을 *ProfileEditPasswordChange.xml* 로 변경합니다.
+6. 새 파일을 열고 **PolicyId** 특성을 고유한 값으로 업데이트합니다. 이 값은 정책 이름입니다. 예를 들면, *B2C_1A_profile_edit_password_change* 입니다.
+7. 만든 새 사용자 경험의 ID와 일치하도록 `<DefaultUserJourney>`의 **ReferenceId** 특성을 수정합니다. 예를 들면, *PasswordChange* 입니다.
 8. 변경 내용을 저장합니다.
 
 [여기](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change)에서 샘플 정책을 찾을 수 있습니다.
@@ -168,19 +168,19 @@ Azure AD B2C에서 애플리케이션을 테스트하는 경우 포함된 클레
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-4. **ID 경험 프레임워크**를 선택합니다.
-5. 사용자 지정 정책 페이지에서 **정책 업로드**를 클릭합니다.
-6. **정책이 있는 경우 덮어쓰기**를 선택한 후 TrustFrameworkExtensions.xml 파일을 찾아서 선택합니다.**
-7. **업로드**를 클릭합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+4. **ID 경험 프레임워크** 를 선택합니다.
+5. 사용자 지정 정책 페이지에서 **정책 업로드** 를 클릭합니다.
+6. **정책이 있는 경우 덮어쓰기** 를 선택한 후 TrustFrameworkExtensions.xml 파일을 찾아서 선택합니다.
+7. **업로드** 를 클릭합니다.
 8. 신뢰 당사자 파일(예: *ProfileEditPasswordChange.xml*)에 대해 5~7단계를 반복합니다.
 
 ### <a name="run-the-policy"></a>정책 실행
 
-1. 변경한 정책을 엽니다. 예를 들면, *B2C_1A_profile_edit_password_change*입니다.
-2. **애플리케이션**은 이전에 등록한 애플리케이션을 선택합니다. 토큰을 보려면 **회신 URL**에 `https://jwt.ms`가 표시되어야 합니다.
-3. **지금 실행**을 클릭합니다. 이전에 만든 계정으로 로그인 합니다. 이제 암호를 변경할 수 있습니다.
+1. 변경한 정책을 엽니다. 예를 들면, *B2C_1A_profile_edit_password_change* 입니다.
+2. **애플리케이션** 은 이전에 등록한 애플리케이션을 선택합니다. 토큰을 보려면 **회신 URL** 에 `https://jwt.ms`가 표시되어야 합니다.
+3. **지금 실행** 을 클릭합니다. 이전에 만든 계정으로 로그인 합니다. 이제 암호를 변경할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 복잡성을 구성](custom-policy-password-complexity.md)하는 방법을 알아봅니다.
+- [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 복잡성을 구성](password-complexity.md)하는 방법을 알아봅니다.

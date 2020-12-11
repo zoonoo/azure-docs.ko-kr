@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: jgao
-ms.openlocfilehash: 3a229d1e6752eabd099a5bc60ef93f1d4e85a26b
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 7566235cf92965d5d3de1ec7f40353430ec7e0c6
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092757"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107144"
 ---
 # <a name="use-deployment-scripts-in-arm-templates-preview"></a>ARM 템플릿에서 배포 스크립트 사용 (미리 보기)
 
@@ -41,7 +41,7 @@ Azure 리소스 템플릿 (ARM 템플릿)에서 배포 스크립트를 사용 �
 > DeploymentScripts 리소스 API 버전 2020-10-01은 [OBO (OnBehalfofTokens)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)를 지원 합니다. 배포 스크립트 서비스는 OBO를 사용 하 여 배포 주체의 토큰을 사용 하 여 배포 스크립트를 실행 하기 위한 기본 리소스를 만듭니다. 여기에는 Azure Container instance, Azure storage 계정 및 관리 되는 id에 대 한 역할 할당이 포함 됩니다. 이전 API 버전에서 관리 id를 사용 하 여 이러한 리소스를 만듭니다.
 > 이제 Azure 로그인에 대 한 재시도 논리가 래퍼 스크립트에 기본 제공 됩니다. 배포 스크립트를 실행 하는 동일한 템플릿에서 사용 권한을 부여 하는 경우  배포 스크립트 서비스는 관리 되는 id 역할 할당이 복제 될 때까지 10 초 간격으로 10 분 동안 로그인을 다시 시도 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - **(선택 사항) 스크립트에서 작업을 수행 하는 데 필요한 권한이 있는 사용자 할당 관리 id** 입니다. 배포 스크립트 API 버전 2020-10-01 이상에서는 배포 주체를 사용 하 여 기본 리소스를 만듭니다. 스크립트가 Azure에 인증 하 고 Azure 관련 작업을 수행 해야 하는 경우에는 사용자 할당 관리 id를 사용 하 여 스크립트를 제공 하는 것이 좋습니다. 스크립트에서 작업을 완료 하려면 관리 되는 id에 대상 리소스 그룹에 대 한 필수 액세스 권한이 있어야 합니다. 배포 스크립트에서 Azure에 로그인 할 수도 있습니다. 리소스 그룹 외부에서 작업을 수행하려면 추가 권한을 부여해야 합니다. 예를 들어 새 리소스 그룹을 만들려면 구독 수준에 ID를 할당합니다. 
 
@@ -147,7 +147,7 @@ Azure 리소스 템플릿 (ARM 템플릿)에서 배포 스크립트를 사용 �
 
     인수에 이스케이프 된 문자가 포함 된 경우 [JsonEscaper](https://www.jsonescaper.com/) 를 사용 하 여 문자를 두 번 이스케이프 합니다. 원래 이스케이프 된 문자열을 도구에 붙여넣은 다음, **이스케이프** 를 선택 합니다.  이 도구는 이중 이스케이프 된 문자열을 출력 합니다. 예를 들어 이전 샘플 템플릿에서 인수는 **-name \\ "John dole \\ "** 입니다.  이스케이프 된 문자열은 **-name \\ \\ \\ "John dole \\ \\ \\ "** 입니다.
 
-    Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 **\\ "** into **\\ \\ \\ "** 를 바꿉니다. 예를 들어:
+    Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 **\\ "** into **\\ \\ \\ "** 를 바꿉니다. 예를 들면 다음과 같습니다.
 
     ```json
     replace(string(parameters('tables')), '\"', '\\\"')
@@ -529,14 +529,14 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
   - **항상**: 스크립트 실행이 터미널 상태가 되면 자동으로 생성된 리소스를 삭제합니다. 기존 스토리지 계정이 사용되는 경우 스크립트 서비스는 스토리지 계정에 생성된 파일 공유를 삭제합니다. 리소스를 정리 하 고 나면 deploymentScripts 리소스가 계속 존재할 수 있기 때문에 스크립트 서비스는 리소스를 삭제 하기 전에 스크립트 실행 결과 (예: stdout, output, return value 등)를 유지 합니다.
   - **OnSuccess**: 스크립트가 성공적으로 실행되는 경우에만 자동으로 생성된 리소스를 삭제합니다. 기존 스토리지 계정이 사용되는 경우 스크립트 서비스는 스크립트 실행에 성공한 경우에만 파일 공유를 제거합니다. 여전히 리소스에 액세스하여 디버그 정보를 찾을 수 있습니다.
-  - **Onexpiration**: 자동으로 생성 된 리소스는 **보존 기간** 설정이 만료 된 경우에만 삭제 합니다. 기존 스토리지 계정이 사용되는 경우 스크립트 서비스는 파일 공유를 제거하지만 스토리지 계정은 유지합니다.
+  - **Onexpiration**: 자동으로 생성 된 리소스는 **보존 기간** 설정이 만료 된 경우에만 삭제 합니다. 기존 저장소 계정이 사용 되는 경우 스크립트 서비스는 파일 공유를 제거 하지만 저장소 계정은 유지 합니다.
 
 - **retentionInterval**: 스크립트 리소스가 유지되고 만료 및 삭제되기 전까지의 시간 간격을 지정합니다.
 
 > [!NOTE]
 > 스크립트 서비스에 의해 생성되는 스토리지 계정 및 컨테이너 인스턴스는 다른 용도로 사용하지 않는 것이 좋습니다. 스크립트 수명 주기에 따라 두 리소스가 제거될 수 있습니다.
 
-문제 해결을 위해 컨테이너 인스턴스와 저장소 계정을 유지 하려면 스크립트에 sleep 명령을 추가 하면 됩니다.  예를 들어 [시작-절전 모드](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep)를 사용 합니다.
+컨테이너 인스턴스 및 저장소 계정은 **Cleanuppreference 설정** 에 따라 삭제 됩니다. 그러나 스크립트가 실패 하 고 **Cleanuppreference 설정이** **Always** 로 설정 되지 않은 경우 배포 프로세스에서 자동으로 1 시간 동안 컨테이너가 실행 되도록 유지 합니다. 이 시간을 사용 하 여 스크립트 문제를 해결할 수 있습니다. 성공적으로 배포 된 후 컨테이너를 계속 실행 하려면 스크립트에 절전 단계를 추가 합니다. 예를 들어 스크립트 끝에 [시작-절전 모드](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) 를 추가 합니다. 절전 단계를 추가 하지 않으면 컨테이너는 터미널 상태로 설정 되며 아직 삭제 되지 않은 경우에도 액세스할 수 없습니다.
 
 ## <a name="run-script-more-than-once"></a>스크립트를 두 번 이상 실행
 

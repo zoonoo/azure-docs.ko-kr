@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 04b70e593e8b1bee8beb72ac88bc8441bc38bb9a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fb0928c75b8fee567e9d0f03489794bd9f65e91e
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963247"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109439"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Azure 가상 머신의 성능 진단
 
@@ -48,12 +48,12 @@ ms.locfileid: "91963247"
 
     | 배포               | 버전                                         |
     |----------------------------|-------------------------------------------------|
-    | Oracle Linux 서버        | 6.10 [ `*` ], 7.3, 7.6, 7.5 |
-    | CentOS                     | 6.5 [ `*` ], 7.6                                    |
-    | RHEL                       | 7.2, 7.5, 8.0 [ `*` ]                               |
+    | Oracle Linux 서버        | 6.10 [ `*` ], 7.3, 7.5, 7.6, 7.7, 7.8 |
+    | CentOS                     | 6.5 [ `*` ], 7.6, 7.7, 7.8                                    |
+    | RHEL                       | 7.2, 7.5, 8.0 [ `*` ], 8.1, 8.2                               |
     | Ubuntu                     | 14.04, 16.04, 18.04, 20.04                               |
     | Debian                     | 8, 9, 10 [ `*` ]                                    |
-    | SLES                       | 12 SP4 [ `*` ]                                      |
+    | SLES                       | 12 SP4 [ `*` ], 12 SP5 [ `*` ], 15 [ `*` ], 15 SP1 [ `*` ], 15 SP2 [ `*` ]                                      |
     |                            |                                                   |
 
 >[!Note]
@@ -63,9 +63,9 @@ ms.locfileid: "91963247"
 
 성능 진단은 PerfInsights라는 진단 도구를 실행하는 VM 확장을 설치합니다. PerfInsights는 [Windows](./how-to-use-perfinsights.md) 및 [Linux](./how-to-use-perfinsights-linux.md)에서 사용할 수 있습니다. 성능 진단을 설치하고 실행하려면 다음과 같은 단계를 따릅니다.
 
-1. 명령의 왼쪽 열에서 **가상 머신**을 선택합니다.
+1. 명령의 왼쪽 열에서 **가상 머신** 을 선택합니다.
 1. VM 이름 목록에서 진단을 실행하려는 VM을 선택합니다.
-1. 명령의 오른쪽 열에서 **성능 진단**을 선택합니다.
+1. 명령의 오른쪽 열에서 **성능 진단** 을 선택합니다.
 
     ![성능 진단 설치 단추가 강조 표시된 Azure Portal의 스크린샷](media/performance-diagnostics/performance-diagnostics-install.png)
 
@@ -194,12 +194,12 @@ Microsoft에서 지원 티켓을 여는 경우 성능 진단 보고서를 공유
 공유 액세스 서명을 사용하여 보고서 압축 파일에 대한 링크를 공유할 수 있습니다. 이렇게 하려면 다음 단계를 수행하세요.
 
 1. Azure Portal에서 진단 데이터 저장되는 스토리지 계정으로 이동합니다.
-1. **Blob 서비스** 섹션에서 **Blob**을 선택합니다.
+1. **Blob 서비스** 섹션에서 **Blob** 을 선택합니다.
 1. **azdiagextnresults** 컨테이너를 선택합니다.
 1. 공유하려는 성능 진단 출력 압축 파일을 선택합니다.
 1. **SAS 생성** 탭에서 공유 조건을 선택합니다.
-1. **URL 및 Blob SAS 토큰 생성**을 클릭합니다.
-1. **Blob SAS URL**을 복사하여 지원 엔지니어와 공유합니다.
+1. **URL 및 Blob SAS 토큰 생성** 을 클릭합니다.
+1. **Blob SAS URL** 을 복사하여 지원 엔지니어와 공유합니다.
 
 **옵션 3:** 스토리지 계정에서 보고서를 다운로드
 
@@ -218,4 +218,4 @@ Microsoft에서 지원 티켓을 여는 경우 성능 진단 보고서를 공유
 
 성능 진단 정보 및 보고서를 검토한 후에도 여전히 문제의 원인을 확인할 수 없고 도움이 더 필요한 경우 Microsoft 고객 지원팀에서 지원 티켓을 열 수 있습니다.
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동 하 여 **지원 받기**를 선택 합니다. Azure 지원 사용에 대 한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조 하세요.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동 하 여 **지원 받기** 를 선택 합니다. Azure 지원 사용에 대 한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조 하세요.
