@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d9805c45b7c0af0cfe6410defaab7ea7725691d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17fc2db8c51c06601852037c38b9cfc2096c811f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907200"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109758"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 Blob 저장소 및 Azure Data Lake Gen2 출력
 
@@ -30,7 +30,7 @@ Azure Blob Storage는 클라우드에서 대량의 비정형 데이터를 저장
 | 스토리지 계정     | 출력을 보내는 스토리지 계정의 이름입니다.               |
 | Storage 계정 키 | 스토리지 계정과 연결된 비밀 키입니다.                              |
 | 스토리지 컨테이너   | Azure Blob service에 저장된 Blob에 대한 논리적 그룹화입니다. Blob service에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다. |
-| 경로 패턴 | (선택 사항) 지정된 컨테이너 내에서 Blob을 작성하는 데 사용되는 파일 경로 패턴입니다. <br /><br /> 경로 패턴에서 하나 이상의 날짜 및 시간 변수를 사용하여 Blob이 작성되는 빈도를 지정하도록 선택할 수 있습니다. <br /> {date}, {time} <br /><br />사용자 지정 Blob 분할을 사용하여 이벤트 데이터에서 파티션 Blob까지 하나의 사용자 지정 {field} 이름을 지정할 수 있습니다. 필드 이름은 영숫자이며 공백, 하이픈 및 밑줄을 포함할 수 있습니다. 사용자 지정 필드에 대한 제한은 다음을 포함합니다. <ul><li>필드 이름은 대/소문자를 구분하지 않습니다. 예를 들어 서비스는 "ID" 열과 "id" 열을 구분할 수 없습니다.</li><li>중첩 필드는 허용되지 않습니다. 대신 작업 쿼리에서 별칭을 사용하여 필드를 "평면화"합니다.</li><li>식은 필드 이름으로 사용할 수 없습니다.</li></ul> <br />이 기능을 사용하면 경로에 사용자 지정 날짜/시간 형식 지정자 구성을 사용할 수 있습니다. 사용자 지정 날짜 및 시간 형식은 {datetime:} 키워드로 묶어 한 번에 하나씩 지정 해야 합니다 \<specifier> . 에 허용 \<specifier> 되는 입력은 yyyy, MM, M, dd, d, HH, H, MM, M, ss 또는 s입니다. {Datetime: \<specifier> } 키워드는 경로에서 여러 번 사용 하 여 사용자 지정 날짜/시간 구성을 구성할 수 있습니다. <br /><br />예제: <ul><li>예제 1: cluster1/logs/{date}/{time}</li><li>예제 2: cluster1/logs/{date}</li><li>예제 3: cluster1/{client_id}/{date}/{time}</li><li>예제 4: cluster1/{datetime:ss}/{myField} where the query is: SELECT data.myField AS myField FROM 입력</li><li>예제 5: cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br />만든 폴더 구조의 타임스탬프는 현지 시간이 아닌 UTC를 따릅니다.<br /><br />파일 명명에서 사용되는 규칙은 다음과 같습니다. <br /><br />{경로 접두사 패턴}/schemaHashcode_Guid_Number.extension<br /><br />예제 출력 파일:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />이 기능에 대한 자세한 내용은 [Azure Stream Analytics 사용자 지정 Blob 출력 분할](stream-analytics-custom-path-patterns-blob-storage-output.md)을 참조하세요. |
+| 경로 패턴 | (선택 사항) 지정된 컨테이너 내에서 Blob을 작성하는 데 사용되는 파일 경로 패턴입니다. <br /><br /> 경로 패턴에서 하나 이상의 날짜 및 시간 변수를 사용하여 Blob이 작성되는 빈도를 지정하도록 선택할 수 있습니다. <br /> {date}, {time} <br /><br />사용자 지정 Blob 분할을 사용하여 이벤트 데이터에서 파티션 Blob까지 하나의 사용자 지정 {field} 이름을 지정할 수 있습니다. 필드 이름은 영숫자이며 공백, 하이픈 및 밑줄을 포함할 수 있습니다. 사용자 지정 필드에 대한 제한은 다음을 포함합니다. <ul><li>필드 이름은 대/소문자를 구분하지 않습니다. 예를 들어 서비스는 "ID" 열과 "id" 열을 구분할 수 없습니다.</li><li>중첩 필드는 허용되지 않습니다. 대신 작업 쿼리에서 별칭을 사용하여 필드를 "평면화"합니다.</li><li>식은 필드 이름으로 사용할 수 없습니다.</li></ul> <br />이 기능을 사용하면 경로에 사용자 지정 날짜/시간 형식 지정자 구성을 사용할 수 있습니다. 사용자 지정 날짜 및 시간 형식은 {datetime:} 키워드로 묶어 한 번에 하나씩 지정 해야 합니다 \<specifier> . 에 허용 \<specifier> 되는 입력은 yyyy, MM, M, dd, d, HH, H, MM, M, ss 또는 s입니다. {Datetime: \<specifier> } 키워드는 경로에서 여러 번 사용 하 여 사용자 지정 날짜/시간 구성을 구성할 수 있습니다. <br /><br />예제: <ul><li>예제 1: cluster1/logs/{date}/{time}</li><li>예제 2: cluster1/logs/{date}</li><li>예제 3: cluster1/{client_id}/{date}/{time}</li><li>예제 4: cluster1/{datetime:ss}/{myField} where the query is: SELECT data.myField AS myField FROM 입력</li><li>예제 5: cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br />만든 폴더 구조의 타임스탬프는 현지 시간이 아닌 UTC를 따릅니다. [시스템 타임 스탬프](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-time-handling#choose-the-best-starting-time) 는 모든 시간 기반 분할에 사용 되는 시간입니다.<br /><br />파일 명명에서 사용되는 규칙은 다음과 같습니다. <br /><br />{경로 접두사 패턴}/schemaHashcode_Guid_Number.extension<br /><br /> 여기서 Guid는 blob 파일에 쓰도록 만들어진 내부 작성기에 할당 된 고유 식별자를 나타냅니다. Blob 블록의 인덱스를 나타내는 숫자입니다. <br /><br /> 예제 출력 파일:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />이 기능에 대한 자세한 내용은 [Azure Stream Analytics 사용자 지정 Blob 출력 분할](stream-analytics-custom-path-patterns-blob-storage-output.md)을 참조하세요. |
 | 날짜 형식 | (선택 사항) 접두사 경로에 날짜 토큰을 사용하는 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다. 예제: YYYY/MM/DD |
 | 시간 형식 | (선택 사항) 접두사 경로에 시간 토큰을 사용하는 경우 파일을 구성하는 시간 형식을 지정합니다. 현재 지원되는 유일한 값은 HH입니다. |
 | 이벤트 직렬화 형식 | 출력 데이터에 대한 직렬화 형식입니다. JSON, CSV, Avro 및 Parquet가 지원됩니다. |
@@ -38,7 +38,7 @@ Azure Blob Storage는 클라우드에서 대량의 비정형 데이터를 저장
 |최대 시간 |일괄 처리당 최대 대기 시간입니다. 이 시간이 지나면 최소 행 수 요구 사항이 충족되지 않는 경우에도 일괄 처리가 출력에 기록됩니다. 현재 기본값은 1분이고, 허용되는 최댓값은 2시간입니다. Blob 출력에 경로 패턴 빈도가 있는 경우 대기 시간은 파티션 시간 범위보다 클 수 없습니다.|
 | Encoding    | CSV 또는 JSON 형식을 사용하는 경우 인코딩을 지정해야 합니다. 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다. |
 | 구분 기호   | CSV 직렬화에만 적용됩니다. Stream Analytics는 CSV 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다. |
-| 형식      | JSON 직렬화에만 적용됩니다. **줄로 구분됨**은 각 JSON 개체를 새 줄로 구분된 형식의 출력이 되도록 지정합니다. **줄로 구분됨**을 선택하는 경우 JSON에서 한 번에 하나의 개체를 읽습니다. 전체 콘텐츠 자체는 유효한 JSON이 아닙니다. **배열**은 JSON 개체 배열 형식의 출력이 되도록 지정합니다. 이 배열은 작업이 중지되거나 Stream Analytics가 다음 시간 범위로 이동되었을 때만 닫힙니다. 일반적으로 출력 파일을 쓰는 동안 특별한 처리가 필요하지 않으므로 줄로 구분된 JSON을 사용하는 것이 좋습니다. |
+| 형식      | JSON 직렬화에만 적용됩니다. **줄로 구분됨** 은 각 JSON 개체를 새 줄로 구분된 형식의 출력이 되도록 지정합니다. **줄로 구분됨** 을 선택하는 경우 JSON에서 한 번에 하나의 개체를 읽습니다. 전체 콘텐츠 자체는 유효한 JSON이 아닙니다. **배열** 은 JSON 개체 배열 형식의 출력이 되도록 지정합니다. 이 배열은 작업이 중지되거나 Stream Analytics가 다음 시간 범위로 이동되었을 때만 닫힙니다. 일반적으로 출력 파일을 쓰는 동안 특별한 처리가 필요하지 않으므로 줄로 구분된 JSON을 사용하는 것이 좋습니다. |
 
 ## <a name="blob-output-files"></a>Blob 출력 파일
 

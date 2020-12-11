@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 배포 계획
 description: Azure에 대 한 프로덕션 Service Fabric 클러스터 배포를 계획 하 고 준비 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281330"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109626"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>클러스터 배포 계획 및 준비
 
@@ -89,8 +89,6 @@ Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는
 
 > [!NOTE]
 > Os를 업그레이드 하는 경우 os 디스크가 손실 되므로 사용자 응용 프로그램에는 OS 디스크에 대 한 종속성/파일/아티팩트가 없어야 합니다.
-> 따라서 임시 디스크에 [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) 를 사용 하지 않는 것이 좋습니다.
->
 
 > [!NOTE]
 > 임시 디스크를 사용 하기 위해 현재 사용 되지 않는 기존 VMSS를 업그레이드할 수 없습니다.
