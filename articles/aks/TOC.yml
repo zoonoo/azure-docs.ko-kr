@@ -179,7 +179,7 @@
         - name: Terraform을 사용하여 AKS 배포
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
-        - name: Kubernetes 리소스 뷰어 사용(미리 보기)
+        - name: Azure Portal Kubernetes 리소스 뷰
           href: kubernetes-portal.md
         - name: Kubernetes 대시보드 사용
           href: kubernetes-dashboard.md
@@ -393,7 +393,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/aks
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/aks
     - name: PowerShell
       href: /powershell/module/az.aks#aks

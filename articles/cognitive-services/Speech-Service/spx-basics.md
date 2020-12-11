@@ -10,16 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bead348e64fcee4cc5b790f975c9da5200ee796b
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: acc19d9a04909dcf0e79c93e0c8a3fb8225ee1b4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422402"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546910"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Speech CLI의 기본 사항 알아보기
 
-이 문서에서는 코드를 작성하지 않고 Speech Service를 사용하는 명령줄 도구인 Speech CLI의 기본 사용 패턴을 알아봅니다. 개발 환경을 만들거나 코드를 작성하지 않고도 Speech Service의 주요 기능을 신속하게 테스트하여 해당 사용 사례를 적절히 충족할 수 있는지 확인할 수 있습니다. 또한 Speech CLI는 프로덕션 환경에 즉시 사용할 수 있으며, `.bat` 또는 셸 스크립트를 사용하여 Speech Service에서 간단한 워크플로를 자동화할 수 있습니다.
+이 문서에서는 코드를 작성하지 않고 Speech Service를 사용하는 명령줄 도구인 Speech CLI의 기본 사용 패턴을 알아봅니다. 개발 환경을 만들거나 코드를 작성하지 않고도 Speech Service의 주요 기능을 신속하게 테스트하여 해당 사용 사례를 적절히 충족할 수 있는지 확인할 수 있습니다. Speech CLI는 프로덕션 환경에 즉시 사용할 수 있으며, `.bat` 또는 셸 스크립트를 사용하여 Speech Service에서 간단한 워크플로를 자동화할 수 있습니다.
+
+이 문서에서는 사용자가 명령 프롬프트, 터미널 또는 PowerShell에 대한 실무 지식이 있다고 가정합니다.
 
 [!INCLUDE [](includes/spx-setup.md)]
 
@@ -45,11 +47,24 @@ spx help find --topics "examples"
 spx help recognize
 ```
 
-이제 Speech Service를 통해 다음 명령을 실행하여 기본 마이크를 사용하는 일부 음성 인식을 수행합니다.
+이제는 Speech CLI를 사용하여 시스템의 기본 마이크를 사용하여 음성 인식을 수행하겠습니다. 
+
+>[!WARNING]
+> Docker 컨테이너를 사용하는 경우에는 이 명령이 작동하지 않습니다.
+
+다음 명령을 실행합니다.
 
 ```shell
 spx recognize --microphone
 ```
+
+Speech CLI를 사용하면 오디오 파일에서 음성을 인식할 수도 있습니다.
+
+```shell
+spx recognize --file /path/to/file.wav
+```
+> [!TIP]
+> Docker 컨테이너의 오디오 파일에서 음성을 인식하는 경우 오디오 파일이 이전 단계에서 탑재한 디렉터리에 있는지 확인합니다.
 
 명령을 입력하면 SPX는 현재 활성 입력 디바이스에서 오디오 수신 대기를 시작하고, `ENTER`를 누르면 중지됩니다. 그러면 기록된 음성이 인식되고 콘솔 출력의 텍스트로 변환됩니다. 텍스트 음성 변환 합성 역시 Speech CLI를 사용하여 쉽게 수행할 수 있습니다. 
 
@@ -65,7 +80,7 @@ spx synthesize --text "Testing synthesis using the Speech CLI" --speakers
 spx translate --microphone --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
 ```
 
-이 명령에서는 원본( **원래** 언어)과 대상( **번역되는** 언어)을 모두 지정합니다. `--microphone` 인수를 사용하면 현재 활성 입력 디바이스에서 오디오를 수신 대기하고, `ENTER`를 누르면 중지됩니다. 출력은 텍스트 파일에 대상 언어로 작성된 텍스트 번역입니다.
+이 명령에서는 원본(**원래** 언어)과 대상(**번역되는** 언어)을 모두 지정합니다. `--microphone` 인수를 사용하면 현재 활성 입력 디바이스에서 오디오를 수신 대기하고, `ENTER`를 누르면 중지됩니다. 출력은 텍스트 파일에 대상 언어로 작성된 텍스트 번역입니다.
 
 > [!NOTE]
 > 지원되는 언어와 해당 로캘 코드 목록은 [언어 및 로캘 문서](language-support.md)를 참조하세요.

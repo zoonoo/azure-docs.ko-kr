@@ -10,14 +10,19 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f4f922ccf4cd33c5e72c3ebd9182eb9868008d0f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3821e0a38c2eefca2ad82731387487974748270b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95096841"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96912204"
 ---
 <a name="HOLTop"></a>
+
+Computer Vision 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
+
+* 태그, 텍스트 설명, 얼굴, 성인 콘텐츠 등에 대한 이미지를 분석합니다.
+* 읽기 API를 사용하여 인쇄 및 필기 텍스트를 읽습니다.
 
 [참조 설명서](/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -100,6 +105,9 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttextinmain)]
 
+> [!div class="nextstepaction"]
+> [클라이언트를 설정했습니다.](?success=set-up-client#object-model) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+
 ## <a name="object-model"></a>개체 모델
 
 Computer Vision .NET SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
@@ -127,7 +135,8 @@ Computer Vision .NET SDK의 주요 기능 중 일부를 처리하는 클래스�
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
-
+> [!div class="nextstepaction"]
+> [클라이언트를 인증했습니다.](?success=authenticate-client#analyze-an-image) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## <a name="analyze-an-image"></a>이미지 분석
 
@@ -228,6 +237,9 @@ Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분�
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_type)]
 
+> [!div class="nextstepaction"]
+> [이미지를 분석했습니다.](?success=analyze-image#read-printed-and-handwritten-text) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## <a name="read-printed-and-handwritten-text"></a>인쇄 텍스트 및 필기 텍스트 읽기
 
 Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 텍스트 인식에 대한 자세한 내용은 [OCR(광학 문자 인식)](../../concept-recognizing-text.md#read-api) 개념 문서를 참조하세요. 이 섹션의 코드는 최신 [Read 3.0용 Computer Vision SDK 릴리스](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1)를 사용하고, 클라이언트 개체를 사용하여 이미지의 텍스트를 감지하고 추출하는 `BatchReadFileUrl` 메서드를 정의합니다.
@@ -259,6 +271,9 @@ Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트�
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_display)]
 
+> [!div class="nextstepaction"]
+> [텍스트를 읽었습니다.](?success=read-printed-handwritten-text#run-the-application) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+
 ## <a name="run-the-application"></a>애플리케이션 실행
 
 #### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
@@ -274,6 +289,8 @@ dotnet run
 ```
 
 ---
+> [!div class="nextstepaction"]
+> [애플리케이션을 실행했습니다.](?success=run-the-application#clean-up-resources) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=run-the-application)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -282,10 +299,14 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 * [포털](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [리소스를 정리했습니다.](?success=clean-up-resources#next-steps) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=clean-up-resources) 
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 >[Computer Vision API 참조(.NET)](/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
+
 
 * [Computer Vision이란?](../../overview.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs)에서 확인할 수 있습니다.

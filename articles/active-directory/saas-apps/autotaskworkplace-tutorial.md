@@ -149,7 +149,7 @@ Autotask Workplace에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
     ![Autotask Single Sign-On 승인 구성](./media/autotaskworkplace-tutorial/tutorial_autotaskssoconfig2.png)
 
-    다. **I confirm this information is correct and I trust this IdP** 확인란을 선택합니다.
+    다. **I confirm this information is correct and I trust this IdP(이 정보가 정확한지 확인하고, 이 IdP를 신뢰합니다)** 확인란을 선택합니다.
 
     d. **승인** 을 클릭합니다.
 
@@ -160,7 +160,7 @@ Autotask Workplace에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 

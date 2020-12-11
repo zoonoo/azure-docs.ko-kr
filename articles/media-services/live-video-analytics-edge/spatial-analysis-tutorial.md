@@ -44,7 +44,7 @@ ms.locfileid: "92015688"
 * GPU 가속 기능이 있는 [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/).  
     GPU 가속 기능이 있는 Azure Stack Edge를 사용하는 것이 좋지만 [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/)가 있는 다른 모든 디바이스에서 컨테이너가 실행됩니다. 
 * 공간 분석을 위한 [Azure Cognitive Service Computer Vision 컨테이너](https://azure.microsoft.com/services/cognitive-services/computer-vision/).  
-    이 컨테이너를 사용하려면 연결된 **API 키** 및 **엔드포인트 URI**를 가져오기 위한 Computer Vision 리소스가 있어야 합니다. API 키는 Azure Portal의 Computer Vision 개요 및 키 페이지에서 확인할 수 있습니다. 컨테이너를 시작하려면 키와 엔드포인트가 필요합니다.
+    이 컨테이너를 사용하려면 연결된 **API 키** 및 **엔드포인트 URI** 를 가져오기 위한 Computer Vision 리소스가 있어야 합니다. API 키는 Azure Portal의 Computer Vision 개요 및 키 페이지에서 확인할 수 있습니다. 컨테이너를 시작하려면 키와 엔드포인트가 필요합니다.
 
 ## <a name="overview"></a>개요
 
@@ -53,14 +53,14 @@ ms.locfileid: "92015688"
  
 이 다이어그램에서는 이 자습서의 신호 흐름을 보여 줍니다. [에지 모듈](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)은 RTSP(Real-Time Streaming Protocol) 서버를 호스팅하는 IP 카메라를 시뮬레이션합니다. [RTSP 원본](media-graph-concept.md#rtsp-source) 노드는 이 서버에서 비디오 피드를 가져와서 비디오 프레임을 [프레임 속도 필터 프로세서](media-graph-concept.md#frame-rate-filter-processor) 노드로 보냅니다. 이 프로세서는 MediaGraphCognitiveServicesVisionExtension 프로세서 노드에 도달하는 비디오 스트림의 프레임 속도를 제한합니다.
 
-MediaGraphCognitiveServicesVisionExtension 노드는 프록시의 역할을 수행합니다. 비디오 프레임을 지정된 이미지 형식으로 변환합니다. 그런 다음 **공유 메모리**를 통해 이미지를 gRPC 엔드포인트 뒤에서 AI 작업을 실행하는 다른 에지 모듈에 릴레이합니다. 이 예에서 에지 모듈은 공간 분석 모듈입니다. MediaGraphCognitiveServicesVisionExtension 프로세서 노드는 다음 두 가지 작업을 수행합니다.
+MediaGraphCognitiveServicesVisionExtension 노드는 프록시의 역할을 수행합니다. 비디오 프레임을 지정된 이미지 형식으로 변환합니다. 그런 다음 **공유 메모리** 를 통해 이미지를 gRPC 엔드포인트 뒤에서 AI 작업을 실행하는 다른 에지 모듈에 릴레이합니다. 이 예에서 에지 모듈은 공간 분석 모듈입니다. MediaGraphCognitiveServicesVisionExtension 프로세서 노드는 다음 두 가지 작업을 수행합니다.
 
 * 결과를 수집하고 [IoT Hub 싱크](media-graph-concept.md#iot-hub-message-sink) 노드에 이벤트를 게시합니다. 그런 다음, 노드에서 이러한 이벤트를 [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub)에 보냅니다. 
 * 또한 [신호 게이트 프로세서](media-graph-concept.md#signal-gate-processor)를 사용하여 RTSP 원본에서 30초 비디오 클립을 캡처하여 Media Services 자산으로 저장합니다.
 
 ## <a name="create-the-computer-vision-resource"></a>Computer Vision 리소스 만들기
 
-[Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) 또는 Azure CLI를 통해 Computer Vision 유형의 Azure 리소스를 만들어야 합니다. 컨테이너에 대한 액세스 요청을 승인하고 Azure 구독 ID를 등록한 후에 리소스를 만들 수 있습니다. https://aka.ms/csgate 로 이동하여 사용 사례와 Azure 구독 ID를 제출합니다.  액세스 양식 요청에서 제공된 것과 동일한 Azure 구독을 사용하여 Azure 리소스를 만들어야 합니다.
+[Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) 또는 Azure CLI를 통해 Computer Vision 유형의 Azure 리소스를 만들어야 합니다. 컨테이너에 대한 액세스 요청을 승인하고 Azure 구독 ID를 등록한 후에 리소스를 만들 수 있습니다.  https://aka.ms/csgate 로 이동하여 사용 사례와 Azure 구독 ID를 제출합니다.  액세스 양식 요청에서 제공된 것과 동일한 Azure 구독을 사용하여 Azure 리소스를 만들어야 합니다.
 
 ### <a name="gathering-required-parameters"></a>필수 매개 변수 수집
 
@@ -71,7 +71,7 @@ MediaGraphCognitiveServicesVisionExtension 노드는 프록시의 역할을 수�
 키는 공간 분석 컨테이너를 시작하는 데 사용되며 해당하는 Cognitive Service 리소스의 Azure Portal `Keys and Endpoint` 페이지에서 확인할 수 있습니다. 이 페이지로 이동하여 키와 엔드포인트 URI를 찾습니다.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="공간 분석 개요":::
+> :::image type="content" source="./media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="엔드포인트 URI":::
 
 ## <a name="set-up-azure-stack-edge"></a>Azure Stack Edge 설정
 
@@ -169,17 +169,17 @@ MediaGraphCognitiveServicesVisionExtension 노드는 프록시의 역할을 수�
 1. AZURE IOT HUB 창 옆에 있는 추가 작업 아이콘을 선택하여 IoT Hub 연결 문자열을 설정합니다. src/cloud-to-device-console-app/appsettings.json 파일에서 문자열을 복사할 수 있습니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="공간 분석 개요":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="공간 분석: 연결 문자열":::
 1. `src/edge/deployment.spatialAnalysis.template.json`을 마우스 오른쪽 단추로 클릭하고 [IoT Edge 배포 매니페스트 생성]을 선택합니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="공간 분석 개요":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="공간 분석: 배포 amd64 json":::
     
     이렇게 하면 src/edge/config 폴더에 deployment.amd64.json이라는 매니페스트 파일이 생성됩니다.
 1. `src/edge/config/deployment.spatialAnalysis.amd64.json`을 마우스 오른쪽 단추로 클릭하고 [단일 디바이스용 배포 만들기]를 선택한 다음, 에지 디바이스의 이름을 선택합니다.
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="공간 분석 개요":::   
+    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="공간 분석: 배포 템플릿 json":::   
 1. IoT Hub 디바이스를 선택하라는 메시지가 표시되면 드롭다운 메뉴에서 Azure Stack Edge 이름을 선택합니다.
 1. 약 30초 후 창의 왼쪽 아래 모서리에서 Azure IoT Hub를 새로 고칩니다. 이제 에지 디바이스에 다음과 같은 배포된 모듈이 표시됩니다.
     
@@ -201,20 +201,20 @@ MediaGraphCognitiveServicesVisionExtension 노드는 프록시의 역할을 수�
 이러한 이벤트를 보려면 다음 단계를 수행합니다.
 
 1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누르고) Azure IoT Hub를 검색합니다.
-1. 마우스 오른쪽 단추를 클릭하고 **확장 설정**을 선택합니다.
+1. 마우스 오른쪽 단추를 클릭하고 **확장 설정** 을 선택합니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="공간 분석 개요":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="확장 설정":::
 1. "자세한 정보 메시지 표시"를 검색하고 활성화합니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="공간 분석 개요":::
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="자세한 정보 메시지 표시":::
 1. 탐색기 창을 열고, 왼쪽 아래 모서리에서 Azure IoT Hub를 찾습니다.
 1. 디바이스 노드를 확장합니다.
 1. Azure Stack Edge를 마우스 오른쪽 단추로 클릭하고 기본 제공 이벤트 엔드포인트 모니터링 시작을 선택합니다.
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/start-monitoring.png" alt-text="공간 분석 개요":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/start-monitoring.png" alt-text="공간 분석: 모니터링 시작":::
      
 ## <a name="run-the-program"></a>프로그램 실행
 
@@ -265,11 +265,11 @@ operations.json:
 
 `topologyUrl` : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/lva-spatial-analysis/topology.json"
 
-**GraphInstanceSet**에서 이전 링크의 값과 일치하도록 그래프 토폴로지의 이름을 편집합니다.
+**GraphInstanceSet** 에서 이전 링크의 값과 일치하도록 그래프 토폴로지의 이름을 편집합니다.
 
 `topologyName`: InferencingWithCVExtension
 
-**GraphTopologyDelete**에서 이름을 편집합니다.
+**GraphTopologyDelete** 에서 이름을 편집합니다.
 
 `name`: InferencingWithCVExtension
 
@@ -382,4 +382,4 @@ personZoneEvent에 대한 샘플 출력(cognitiveservices.vision.spatialanalysis
 > 프레임에 두 명 이상이 있는 [샘플 비디오 파일](https://lvamedia.blob.core.windows.net/public/2018-03-07.16-50-00.16-55-00.school.G421.mkv)을 사용합니다.
 
 > [!NOTE]
-> 작업은 한 번에 하나만 실행할 수 있습니다. 따라서 하나의 플래그만 **true**로 설정하고 다른 플래그는 **false**로 설정하세요.
+> 작업은 한 번에 하나만 실행할 수 있습니다. 따라서 하나의 플래그만 **true** 로 설정하고 다른 플래그는 **false** 로 설정하세요.

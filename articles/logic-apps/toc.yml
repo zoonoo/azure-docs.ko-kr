@@ -67,8 +67,14 @@
           href: logic-apps-move-from-mabs.md
         - name: Power Automate에서 흐름을 내보내고 Azure Logic Apps에 배포
           href: export-from-microsoft-flow-logic-app-template.md
-        - name: Visual Studio Code에서 상태 저장 또는 상태 비저장 워크플로 만들기
-          href: create-stateful-stateless-workflows-visual-studio-code.md
+        - name: Azure Logic Apps 미리 보기
+          items:
+            - name: Azure Logic Apps 미리 보기 개요
+              href: logic-apps-overview-preview.md
+            - name: 상태 저장 및 상태 비저장 워크플로 만들기 - Azure Portal
+              href: create-stateful-stateless-workflows-azure-portal.md
+            - name: 상태 저장 및 상태 비저장 워크플로 만들기 - Visual Studio Code
+              href: create-stateful-stateless-workflows-visual-studio-code.md
         - name: Power Automate 및 Power Apps에서 논리 앱 호출
           href: call-from-power-automate-power-apps.md
         - name: 워크플로 실행 제어

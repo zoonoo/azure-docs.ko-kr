@@ -10,14 +10,19 @@ ms.topic: include
 ms.date: 10/13/2019
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 4a82b5550c9105a81bdee9b0f0a5846f93938ab0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5661e0e3a1978735ae9e4313ac9aa78a88e81f19
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95095242"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96912406"
 ---
 <a name="HOLTop"></a>
+
+Computer Vision 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
+
+* 태그, 텍스트 설명, 얼굴, 성인 콘텐츠 등에 대한 이미지를 분석합니다.
+* 읽기 API를 사용하여 인쇄 및 필기 텍스트를 읽습니다.
 
 [참조 설명서](/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-computervision) |[아티팩트(Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -99,6 +104,8 @@ mkdir -p src/main/java
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_maincalls)]
 
+> [!div class="nextstepaction"]
+> [클라이언트를 설정했습니다.](?success=set-up-client#object-model) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=set-up-client)
 
 ## <a name="object-model"></a>개체 모델
 
@@ -120,11 +127,12 @@ Computer Vision Java SDK의 주요 기능 중 일부를 처리하는 클래스�
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-
 새 메서드에서 엔드포인트와 키를 사용하여 [ComputerVisionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) 개체를 인스턴스화합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
+> [!div class="nextstepaction"]
+> [클라이언트를 인증했습니다.](?success=authenticate-client#analyze-an-image) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## <a name="analyze-an-image"></a>이미지 분석
 
@@ -206,6 +214,9 @@ Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분�
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
+> [!div class="nextstepaction"]
+> [이미지를 분석했습니다.](?success=analyze-image#read-printed-and-handwritten-text) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## <a name="read-printed-and-handwritten-text"></a>인쇄 텍스트 및 필기 텍스트 읽기
 
 Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 이 섹션에서는 로컬 파일 경로를 사용하고 이미지의 텍스트를 콘솔에 인쇄하는 `ReadFromFile` 메서드를 정의합니다.
@@ -226,7 +237,6 @@ Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트�
 그런 후, 다음 코드를 추가하여 지정된 이미지에 대해 **readInStreamWithServiceResponseAsync** 메서드를 호출합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_call)]
-
 
 다음 코드 블록은 읽기 호출의 응답에서 작업 ID를 추출합니다. 이 ID를 도우미 메서드와 함께 사용하여 텍스트 읽기 결과를 콘솔에 인쇄합니다. 
 
@@ -250,6 +260,9 @@ try/catch 블록과 메서드 정의를 닫습니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_opid_extract)]
 
+> [!div class="nextstepaction"]
+> [텍스트를 읽었습니다.](?success=read-printed-handwritten-text#run-the-application) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+
 ## <a name="run-the-application"></a>애플리케이션 실행
 
 다음을 사용하여 앱을 빌드할 수 있습니다.
@@ -264,6 +277,9 @@ gradle build
 gradle run
 ```
 
+> [!div class="nextstepaction"]
+> [애플리케이션을 실행했습니다.](?success=run-the-application#clean-up-resources) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다.
@@ -271,12 +287,16 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 * [포털](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [리소스를 정리했습니다.](?success=clean-up-resources#next-steps) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 Computer Vision Java 라이브러리를 사용하여 기본 작업을 수행하는 방법을 알아보았습니다. 다음으로 라이브러리에 대해 자세히 알아보려면 참조 설명서를 살펴보세요.
 
 > [!div class="nextstepaction"]
 >[Computer Vision 참조(Java)](/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)
+
 
 * [Computer Vision이란?](../../overview.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java)에서 확인할 수 있습니다.

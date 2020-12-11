@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 52ed0af9d678f93c5b91dbee9a44b754725c2120
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4e5e23c578d3c8ab72ae4b1483dc14c2161b9451
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94482725"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912326"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -90,7 +90,7 @@ function fromMic() {
 fromMic();
 ```
 
-*특정* 오디오 입력 디바이스를 사용하려면 `AudioConfig`에서 디바이스 ID를 지정해야 합니다. 오디오 입력 디바이스의 [디바이스 ID를 가져오는 방법](../../../how-to-select-audio-input-devices.md)을 알아봅니다.
+*특정* 오디오 입력 디바이스를 사용하려면 `AudioConfig`에서 디바이스 ID를 지정해야 합니다. 오디오 입력 디바이스에 대한 [디바이스 ID를 가져오는 방법](../../../how-to-select-audio-input-devices.md)을 알아보세요.
 
 ## <a name="recognize-from-file"></a>파일에서 인식 
 
@@ -148,13 +148,13 @@ fromFile();
 ```
 
 푸시 스트림을 입력으로 사용하면 오디오 데이터가 원시 PCM이라고 가정합니다(예: 헤더 건너뛰기).
-헤더를 건너뛰지 않는 경우에도 API는 특정 경우에 계속 작동하지만, 최상의 결과를 위해 `fs`가 *오디오 데이터의 시작* 에서 시작되도록 헤더를 읽는 논리를 구현하는 것이 좋습니다.
+헤더를 건너뛰지 않는 경우에도 API는 특정 사례에서 계속 작동하지만, 최상의 결과를 위해 `fs`가 *오디오 데이터의 시작* 에서 시작되도록 헤더를 읽는 논리를 구현하는 것이 좋습니다.
 
 ---
 
 ## <a name="error-handling"></a>오류 처리
 
-이전 예제에서는 단순히 `result.text`에서 인식된 텍스트를 가져오지만 오류 및 기타 응답을 처리하려면 결과를 처리하는 코드를 작성해야 합니다. 다음 코드는 [`result.reason`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognitionresult?preserve-view=true&view=azure-node-latest#reason) 속성을 평가합니다.
+이전 예제에서는 단순히 `result.text`에서 인식된 텍스트를 가져오지만 오류 및 기타 응답을 처리하려면 결과를 처리하는 코드를 작성해야 합니다. 다음 코드에서는 [`result.reason`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognitionresult?preserve-view=true&view=azure-node-latest#reason) 속성을 평가하여 다음을 수행합니다.
 
 * 인식 결과 `ResultReason.RecognizedSpeech`를 출력합니다.
 * 일치하는 인식이 없는 경우 사용자에게 `ResultReason.NoMatch`를 알립니다.
@@ -185,7 +185,7 @@ switch (result.reason) {
 
 이전 예제에서는 단일 발화를 인식하는 단일 샷 인식을 사용합니다. 단일 발화의 끝은 끝에서 무음을 수신하거나 최대 15초의 오디오가 처리될 때까지 대기하여 결정됩니다.
 
-이와 대조적으로, 인식을 중지할 때 **제어** 하려는 경우에는 연속 인식이 사용됩니다. `Recognizing`, `Recognized` 및 `Canceled` 이벤트를 구독하여 인식 결과를 얻어야 합니다. 인식을 중지하려면 [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?preserve-view=true&view=azure-node-latest#stopcontinuousrecognitionasync)를 호출해야 합니다. 다음은 오디오 입력 파일에서 연속 인식이 수행되는 방식을 보여주는 예입니다.
+이와 반대로 인식을 중지하는 시점을 **제어** 하려는 경우 연속 인식이 사용됩니다. `Recognizing`, `Recognized` 및 `Canceled` 이벤트를 구독하여 인식 결과를 얻어야 합니다. 인식을 중지하려면 [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?preserve-view=true&view=azure-node-latest#stopcontinuousrecognitionasync)를 호출해야 합니다. 다음은 오디오 입력 파일에서 연속 인식이 수행되는 방식을 보여주는 예입니다.
 
 입력을 정의하고 [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?preserve-view=true&view=azure-node-latest)를 초기화하여 시작합니다.
 
@@ -263,10 +263,14 @@ speechConfig.speechRecognitionLanguage = "it-IT";
 
 ## <a name="improve-recognition-accuracy"></a>인식 정확도 향상
 
-음성을 사용하여 인식 정확도를 향상하는 몇 가지 방법이 있습니다. 구 목록을 살펴보겠습니다. 구 목록은 오디오 데이터에서 사람의 이름이나 특정 위치처럼 알려진 문구를 식별하는 데 사용됩니다. 단일 단어 또는 전체 구를 구 목록에 추가할 수 있습니다. 인식 중에 전체 구와 정확히 일치하는 항목이 오디오에 포함된 경우 구 목록의 항목이 사용됩니다. 구와 정확히 일치하는 항목을 찾을 수 없는 경우 인식이 지원되지 않습니다.
+구 목록은 오디오 데이터에서 사람의 이름이나 특정 위치처럼 알려진 문구를 식별하는 데 사용됩니다. 구 목록을 제공함으로써 음성 인식의 정확성을 향상시킬 수 있습니다.
+
+예를 들어, "Move to"라는 명령과 "Ward"라는 대상을 말하면 "Move to Ward" 항목을 추가할 수 있습니다. 구를 추가하면 오디오를 인식할 때 "Move toward" 대신 "Move to Ward"가 인식될 확률이 높아집니다.
+
+단일 단어 또는 전체 구를 구 목록에 추가할 수 있습니다. 인식 중에 구 목록의 항목은 항목이 발화 중간에 나타나더라도 목록의 단어와 구문의 인식률을 높이는 데 사용됩니다. 
 
 > [!IMPORTANT]
-> 구 목록 기능은 영어로만 제공됩니다.
+> 구 목록 기능은 en-US, de-DE, en-AU, en-CA, en-GB, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN의 언어로 제공됩니다.
 
 구 목록을 사용하려면 [`PhraseListGrammar`](/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar?preserve-view=true&view=azure-node-latest) 개체를 만든 다음, [`addPhrase`](/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar?preserve-view=true&view=azure-node-latest#addphrase-string-)를 사용하여 특정 단어와 구를 추가합니다.
 
@@ -287,5 +291,5 @@ phraseList.clear();
 
 구 목록은 인식 정확도를 높이는 여러 옵션 중 하나일 뿐입니다. 다음도 가능합니다. 
 
-* [Custom Speech를 사용하여 정확도 향상](../../../how-to-custom-speech.md)
+* [Custom Speech를 사용하여 정확도 향상](../../../custom-speech-overview.md)
 * [테넌트 모델을 사용하여 정확도 향상](../../../tutorial-tenant-model.md)

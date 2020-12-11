@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 11/11/2020
+ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 2c592a959dfb9d4e93f97488a9ac1b1f6683c23e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0437704709e863cdbc62321c8a4b79015564e362
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968274"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558762"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>방법: 감정 분석 및 오피니언 마이닝
 
-Text Analytics API의 감정 분석 기능은 긍정 및 부정 감정을 검색하는 두 가지 방법을 제공합니다. 감정 분석 요청을 보내면 API가 감정 레이블(예: "부정적", "중립적" 및 "긍정적")과 문장 및 문서 수준의 신뢰도 점수를 반환합니다. 또한 감정 분석 엔드포인트를 사용하여 오피니언 마이닝 요청을 보내어 양상과 관련된 의견에 대한 더 세부적인 정보(예: 제품 또는 서비스의 특성)를 텍스트 형식으로 제공합니다.
+Text Analytics API의 감정 분석 기능은 긍정 및 부정 감정을 검색하는 두 가지 방법을 제공합니다. 감정 분석 요청을 보내면 API가 감정 레이블(예: "부정적", "중립적" 및 "긍정적")과 문장 및 문서 수준의 신뢰도 점수를 반환합니다. 또한 감정 분석 엔드포인트를 사용하여 오피니언 마이닝 요청을 보내어 양상과 관련된 의견에 대한 더 세부적인 정보(예: 제품 또는 서비스의 특성)를 텍스트 형식으로 제공합니다. 
 
 API에서 사용하는 AI 모델은 서비스를 통해 제공되며, 분석 용도로만 콘텐츠를 전송해야 합니다.
 
@@ -51,13 +51,14 @@ API에서 사용하는 AI 모델은 서비스를 통해 제공되며, 분석 용
 
 ## <a name="opinion-mining"></a>오피니언 마이닝
 
-오피니언 마이닝은 버전 3.1-preview.1부터 감정 분석에 도입된 기능입니다. NLP(자연어 처리)의 양상 기반 감정 분석이라고도 하는 이 기능은 양상과 관련된 의견에 대한 더 세부적인 정보(예: 제품 또는 서비스의 특성)를 텍스트 형식으로 제공합니다.
+오피니언 마이닝은 버전 3.1-preview.1부터 감정 분석에 도입된 기능입니다. NLP(자연어 처리)의 양상 기반 감정 분석이라고도 하는 이 기능은 양상과 관련된 의견에 대한 더 세부적인 정보(예: 제품 또는 서비스의 특성)를 텍스트 형식으로 제공합니다. 
 
 예를 들어 고객이 호텔에 대한 피드백을 "객실은 훌륭했어요. 그런데 직원이 불친절했어요"라고 남기면 오피니언 마이닝이 텍스트의 양상과 관련 의견 및 감정을 찾습니다. 감정 분석은 부정적인 감정만 보고할 수 있습니다.
 
 :::image type="content" source="../media/how-tos/opinion-mining.png" alt-text="오피니언 마이닝 다이어그램 예" lightbox="../media/how-tos/opinion-mining.png":::
 
-결과에서 오피니언 마이닝을 가져오려면 감정 분석 요청에 `opinionMining=true` 플래그를 포함해야 합니다. 오피니언 마이닝 결과는 감정 분석 응답에 포함됩니다.
+결과에서 오피니언 마이닝을 가져오려면 감정 분석 요청에 `opinionMining=true` 플래그를 포함해야 합니다. 오피니언 마이닝 결과는 감정 분석 응답에 포함됩니다. 의견 마이닝은 감정 분석의 확장이며 현재 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)에 포함됩니다.
+
 
 ## <a name="sending-a-rest-api-request"></a>REST API 요청 보내기 
 

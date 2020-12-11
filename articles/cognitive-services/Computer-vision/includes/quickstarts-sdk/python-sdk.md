@@ -9,14 +9,19 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 0fd094b7364263acb2abbe7bed2d65392155a930
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 91bc9def06b7b9844e32dbc0d2654d03c5b72389
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95098127"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96912214"
 ---
 <a name="HOLTop"></a>
+
+Computer Vision 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
+
+* 태그, 텍스트 설명, 얼굴, 성인 콘텐츠 등에 대한 이미지를 분석합니다.
+* 읽기 API를 사용하여 인쇄 및 필기 텍스트를 읽습니다.
 
 [참조 설명서](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-computervision) | [패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-computervision/) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -29,7 +34,7 @@ ms.locfileid: "95098127"
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
 ## <a name="setting-up"></a>설치
- 
+
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
 다음을 사용하여 클라이언트 라이브러리를 설치할 수 있습니다.
@@ -56,6 +61,8 @@ pip install --upgrade azure-cognitiveservices-vision-computervision
 >
 > 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 예를 들어 [Azure Key Vault](../../../../key-vault/general/overview.md)입니다.
 
+> [!div class="nextstepaction"]
+> [클라이언트를 설정했습니다.](?success=set-up-client#object-model) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=set-up-client)
 
 ## <a name="object-model"></a>개체 모델
 
@@ -80,6 +87,9 @@ Computer Vision Python SDK의 주요 기능 중 일부를 처리하는 클래스
 엔드포인트 및 키를 사용하여 클라이언트를 인스턴스화합니다. 키를 사용하여 [CognitiveServicesCredentials](/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) 개체를 만든 다음, 엔드포인트에 사용하여 [ComputerVisionClient](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) 개체를 만듭니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_client)]
+
+> [!div class="nextstepaction"]
+> [클라이언트를 인증했습니다.](?success=authenticate-client#analyze-an-image) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## <a name="analyze-an-image"></a>이미지 분석
 
@@ -156,6 +166,9 @@ Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분�
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_type)]
 
+> [!div class="nextstepaction"]
+> [이미지를 분석했습니다.](?success=analyze-image#read-printed-and-handwritten-text) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## <a name="read-printed-and-handwritten-text"></a>인쇄 텍스트 및 필기 텍스트 읽기
 
 Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 이 작업을 두 부분에서 수행합니다.
@@ -175,6 +188,9 @@ Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트�
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_response)]
 
+> [!div class="nextstepaction"]
+> [텍스트를 읽었습니다.](?success=read-printed-handwritten-text#run-the-application) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+
 ## <a name="run-the-application"></a>애플리케이션 실행
 
 quickstart 파일의 `python` 명령을 사용하여 애플리케이션을 실행합니다.
@@ -183,6 +199,9 @@ quickstart 파일의 `python` 명령을 사용하여 애플리케이션을 실�
 python quickstart-file.py
 ```
 
+> [!div class="nextstepaction"]
+> [애플리케이션을 실행했습니다.](?success=run-the-application#clean-up-resources) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다.
@@ -190,11 +209,12 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 * [포털](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [리소스를 정리했습니다.](?success=clean-up-resources#next-steps) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
 
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 Python용 Computer Vision 라이브러리를 사용하여 기본 작업을 수행하는 방법을 알아보았습니다. 다음으로 라이브러리에 대해 자세히 알아보려면 참조 설명서를 살펴보세요.
-
 
 > [!div class="nextstepaction"]
 >[Computer Vision API 참조(Python)](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)

@@ -15,27 +15,30 @@ ms.custom:
 - devx-track-js
 - devx-track-csharp
 - cog-serv-seo-aug-2020
-zone_pivot_groups: programming-languages-set-one
+zone_pivot_groups: programming-languages-computer-vision
 keywords: 컴퓨터 비전, 컴퓨터 비전 서비스
-ms.openlocfilehash: c0ed1d534ce76f870b34c626b1b21f7745aa3247
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 20378eff09abed0eb4d7587211f576de6313ea1d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91309826"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533306"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>빠른 시작: Computer Vision 클라이언트 라이브러리 사용
 
-Computer Vision 클라이언트 라이브러리를 시작합니다. Computer Vision 서비스는 이미지를 처리하고 시각적 기능에 대한 정보를 반환하는 AI 알고리즘을 제공합니다. 다음 단계에 따라 애플리케이션에 패키지를 설치하고 기본 작업에 대한 샘플 코드를 사용해 보세요.
+Computer Vision REST API 또는 클라이언트 라이브러리를 시작합니다. Computer Vision 서비스는 이미지를 처리하고 시각적 기능에 대한 정보를 반환하는 AI 알고리즘을 제공합니다. 다음 단계에 따라 애플리케이션에 패키지를 설치하고 기본 작업에 대한 샘플 코드를 사용해 보세요.
 
-Computer Vision 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
-* 태그, 텍스트 설명, 얼굴, 성인 콘텐츠 등에 대한 이미지를 분석합니다.
-* 읽기 API를 사용하여 인쇄 및 필기 텍스트를 읽습니다.
 
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# SDK quickstart](../includes/quickstarts-sdk/csharp-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python SDK quickstart](../includes/quickstarts-sdk/python-sdk.md)]
 
 ::: zone-end
 
@@ -51,14 +54,14 @@ Computer Vision 클라이언트 라이브러리를 사용하여 다음을 수행
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python SDK quickstart](../includes/quickstarts-sdk/python-sdk.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-go"
 
 [!INCLUDE [Go SDK quickstart](../includes/quickstarts-sdk/go-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-rest-api"
+
+[!INCLUDE [REST API quickstart](../includes/curl-quickstart.md)]
 
 ::: zone-end

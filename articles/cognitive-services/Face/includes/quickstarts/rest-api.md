@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 12/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 0f668f3a9ec4e158dfddd15f9c5d744fb0a5a847
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: be942f73ee0a3d5a8850141c937754bad330db90
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763662"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912397"
 ---
 Face REST API를 사용하여 얼굴 인식을 시작합니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -23,7 +23,10 @@ Face REST API를 사용하여 다음을 수행합니다.
 * [이미지에서 얼굴 감지](#detect-faces-in-an-image)
 * [유사 얼굴 찾기](#find-similar-faces)
 
-## <a name="prerequisites"></a>사전 요구 사항
+> [!NOTE]
+> 이 빠른 시작에서는 cURL 명령을 사용하여 REST API를 호출합니다. 프로그래밍 언어를 사용하여 REST API를 호출할 수도 있습니다. [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Face/rest), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Face/rest), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/Face/rest), [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Face/rest), [Go](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/go/Face/rest)의 예는 GitHub 샘플을 참조하세요.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.

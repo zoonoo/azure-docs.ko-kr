@@ -55,6 +55,8 @@
               href: manage-vm-extensions-powershell.md
             - name: ARM 템플릿을 사용하여 확장 배포
               href: manage-vm-extensions-template.md
+        - name: 서버에서 사용된 관리 ID
+          href: managed-identity-authentication.md
         - name: 에이전트 관리
           href: manage-agent.md
     - name: 시나리오

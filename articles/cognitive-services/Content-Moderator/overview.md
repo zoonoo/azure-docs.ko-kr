@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 콘텐츠 중재자, azure 콘텐츠 중재자, 온라인 중재자, 콘텐츠 필터링 소프트웨어, 콘텐츠 조정 서비스, 콘텐츠 조정
-ms.openlocfilehash: aa1f4c1fab9b3d8a1b5db0e965f1608e694646b2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c7c996ae49bdf7aa72873322f11af754843fd835
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596852"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905250"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator란?
 
@@ -81,4 +81,4 @@ Content Moderator 서비스에는 웹 기반 [검토 도구](Review-Tool-User-Gu
 
 ## <a name="next-steps"></a>다음 단계
 
-웹 포털에서 Content Moderator 사용을 시작하려면 [웹에서 Content Moderator 사용해 보기](quick-start.md)를 수행합니다. 또는 [클라이언트 라이브러리 빠른 시작](client-libraries.md)을 완료하여 코드에서 기본 시나리오를 구현합니다.
+웹 포털에서 Content Moderator 사용을 시작하려면 [웹에서 Content Moderator 사용해 보기](quick-start.md)를 수행합니다. 또는 [클라이언트 라이브러리 또는 REST API 빠른 시작](client-libraries.md)을 완료하여 코드에서 기본 시나리오를 구현합니다.

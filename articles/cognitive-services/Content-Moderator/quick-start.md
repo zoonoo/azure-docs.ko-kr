@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 콘텐츠 조정자, 콘텐츠 조정
-ms.openlocfilehash: d1d9315986f7a6c57c1da012b9034e4f1a3730bc
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c026c42fe3c7a7f3f0d6b80e3123904077c104cf
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143745"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905216"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>빠른 시작: 웹에서 Content Moderator 사용해 보기
 
@@ -49,7 +49,7 @@ CMK(고객 관리형 키)를 사용하여 데이터를 암호화하도록 선택
 
 ## <a name="upload-sample-content"></a>샘플 콘텐츠 업로드
 
-이제 샘플 콘텐츠를 업로드할 준비가 완료되었습니다. **시도 > 이미지** , **시도 > 텍스트** 또는 **시도 > 비디오** 를 선택합니다.
+이제 샘플 콘텐츠를 업로드할 준비가 완료되었습니다. **시도 > 이미지**, **시도 > 텍스트** 또는 **시도 > 비디오** 를 선택합니다.
 
 > [!div class="mx-imgBorder"]
 > ![이미지 또는 텍스트 조정 시도](images/tryimagesortext.png)
@@ -88,6 +88,6 @@ Content Moderator 검토 도구를 사용하는 방법에 대해 자세히 알�
 ## <a name="next-steps"></a>다음 단계
 
 앱에서 Moderation API 자체를 사용하는 방법을 알아봅니다.
-- 이미지 조정을 구현합니다. [API 콘솔](try-image-api.md)을 사용하거나 [클라이언트 라이브러리 빠른 시작](client-libraries.md)에 따라 이미지를 검사하고 태그, 신뢰도 점수 및 기타 추출된 정보를 사용하여 잠재적인 성인 및 외설 콘텐츠를 검색합니다.
-- 텍스트 조정을 구현합니다. [API 콘솔](try-text-api.md) 또는 [클라이언트 라이브러리 빠른 시작](client-libraries.md)을 사용하여 텍스트 콘텐츠에 욕설, 원치 않는 머신 지원 텍스트 분류(미리 보기) 및 개인 데이터가 있는지 검사합니다.
+- 이미지 조정을 구현합니다. [API 콘솔](try-image-api.md)을 사용하거나 [클라이언트 라이브러리 또는 REST API 빠른 시작](client-libraries.md)에 따라 이미지를 검사하고 태그, 신뢰도 점수 및 기타 추출된 정보를 사용하여 잠재적인 성인 및 외설 콘텐츠를 검색합니다.
+- 텍스트 조정을 구현합니다. [API 콘솔](try-text-api.md)을 사용하거나 [클라이언트 라이브러리 또는 REST API 빠른 시작](client-libraries.md)에 따라 텍스트 콘텐츠에 욕설, 원치 않는 머신 지원 텍스트 분류(미리 보기) 및 개인 데이터가 있는지 검사합니다.
 - 비디오 조정을 구현합니다. [C#의 비디오 조정 방법 가이드](video-moderation-api.md)에 따라 비디오를 검사하고 성인/외설 콘텐츠를 검색합니다. 

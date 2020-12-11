@@ -13,13 +13,14 @@ ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
+- contperfq2
 keywords: 컴퓨터 비전, 컴퓨터 비전 애플리케이션, 컴퓨터 비전 서비스
-ms.openlocfilehash: 1b4768781c45733590639b4a382fecfdb02adf48
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 09c3d10425e7688e84be7ddd845648def3e5cc39
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95532293"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852866"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -114,4 +115,4 @@ Computer Vision에서 이미지를 분석하는 데 충족되어야 하는 요�
 
 선호하는 개발 언어로 된 빠른 시작 가이드에 따라 Computer Vision을 시작하세요.
 
-- [빠른 시작: Computer Vision 클라이언트 라이브러리](./quickstarts-sdk/client-library.md)
+- [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md)

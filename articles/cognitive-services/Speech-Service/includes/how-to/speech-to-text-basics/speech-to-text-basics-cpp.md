@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: 434548d7d00468605ad0f1a52af99fbc4278adc1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: de1266d9086cd3b2472db2552210f24d9a51add7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94482653"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912152"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -64,7 +64,7 @@ auto result = recognizer->RecognizeOnceAsync().get();
 cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 ```
 
-*특정* 오디오 입력 디바이스를 사용하려면 `AudioConfig`에서 디바이스 ID를 지정해야 합니다. 오디오 입력 디바이스의 [디바이스 ID를 가져오는 방법](../../../how-to-select-audio-input-devices.md)을 알아봅니다.
+*특정* 오디오 입력 디바이스를 사용하려면 `AudioConfig`에서 디바이스 ID를 지정해야 합니다. 오디오 입력 디바이스에 대한 [디바이스 ID를 가져오는 방법](../../../how-to-select-audio-input-devices.md)을 알아보세요.
 
 ## <a name="recognize-from-file"></a>파일에서 인식
 
@@ -222,10 +222,14 @@ config->SetSpeechRecognitionLanguage("de-DE");
 
 ## <a name="improve-recognition-accuracy"></a>인식 정확도 향상
 
-음성 SDK를 사용하여 인식 정확도를 향상하는 몇 가지 방법이 있습니다. 구 목록을 살펴보겠습니다. 구 목록은 오디오 데이터에서 사람의 이름이나 특정 위치처럼 알려진 문구를 식별하는 데 사용됩니다. 단일 단어 또는 전체 구를 구 목록에 추가할 수 있습니다. 인식 중에 전체 구와 정확히 일치하는 항목이 오디오에 포함된 경우 구 목록의 항목이 사용됩니다. 구와 정확히 일치하는 항목을 찾을 수 없는 경우 인식이 지원되지 않습니다.
+구 목록은 오디오 데이터에서 사람의 이름이나 특정 위치처럼 알려진 문구를 식별하는 데 사용됩니다. 구 목록을 제공함으로써 음성 인식의 정확성을 향상시킬 수 있습니다.
+
+예를 들어, "Move to"라는 명령과 "Ward"라는 대상을 말하면 "Move to Ward" 항목을 추가할 수 있습니다. 구를 추가하면 오디오를 인식할 때 "Move toward" 대신 "Move to Ward"가 인식될 확률이 높아집니다.
+
+단일 단어 또는 전체 구를 구 목록에 추가할 수 있습니다. 인식 중에 구 목록의 항목은 항목이 발화 중간에 나타나더라도 목록의 단어와 구문의 인식률을 높이는 데 사용됩니다. 
 
 > [!IMPORTANT]
-> 구 목록 기능은 영어로만 제공됩니다.
+> 구 목록 기능은 en-US, de-DE, en-AU, en-CA, en-GB, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN의 언어로 제공됩니다.
 
 구 목록을 사용하려면 [`PhraseListGrammar`](/cpp/cognitive-services/speech/phraselistgrammar) 개체를 만든 다음, [`AddPhrase`](/cpp/cognitive-services/speech/phraselistgrammar#addphrase)를 사용하여 특정 단어와 구를 추가합니다.
 
@@ -246,5 +250,5 @@ phraseListGrammar->Clear();
 
 구 목록은 인식 정확도를 높이는 여러 옵션 중 하나일 뿐입니다. 다음도 가능합니다. 
 
-* [Custom Speech를 사용하여 정확도 향상](../../../how-to-custom-speech.md)
+* [Custom Speech를 사용하여 정확도 향상](../../../custom-speech-overview.md)
 * [테넌트 모델을 사용하여 정확도 향상](../../../tutorial-tenant-model.md)

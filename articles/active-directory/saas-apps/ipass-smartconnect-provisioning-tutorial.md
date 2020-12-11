@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: fa9723b466045ebe7b932f837e0fa7c45c898b6b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 405a7bc3b653ca7bca026d3318763a4922244e88
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353887"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093709"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 iPass SmartConnect 구성
 
@@ -82,7 +82,7 @@ Azure AD를 사용하여 자동 사용자 프로비저닝을 수행하도록 iPa
 이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 iPass SmartConnect에서 사용자 및/또는 그룹을 만들고, 업데이트하고, 사용 해제하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
 
 > [!TIP]
->  [iPass SmartConnect Single Sign-On 자습서](ipasssmartconnect-tutorial.md)에서 제공하는 지침에 따라 SAML 기반 Single Sign-On을 iPass SmartConnect에 사용하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
+>  [iPass SmartConnect Single Sign-On 자습서](ipasssmartconnect-tutorial.md)에서 제공하는 지침에 따라 iPass SmartConnect에 대해 SAML 기반 Single Sign-On을 사용하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-ipass-smartconnect-in-azure-ad"></a>Azure AD에서 iPass SmartConnect에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 

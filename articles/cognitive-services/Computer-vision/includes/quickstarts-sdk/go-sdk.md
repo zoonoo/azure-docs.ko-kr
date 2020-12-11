@@ -10,14 +10,19 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 4eb92e499a1381516ae6bbc33383963155df371f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 996ffdeb56d41e2c05fd402714876cb16e126021
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95098225"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96912277"
 ---
 <a name="HOLTop"></a>
+
+Computer Vision 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
+
+* 태그, 텍스트 설명, 얼굴, 성인 콘텐츠 등에 대한 이미지를 분석합니다.
+* 읽기 API를 사용하여 인쇄 및 필기 텍스트를 읽습니다.
 
 [참조 설명서](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [패키지](https://github.com/Azure/azure-sdk-for-go)
 
@@ -64,7 +69,7 @@ dep를 사용하는 경우에는 리포지토리 내에서 다음을 실행합�
 dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision
 ```
 
-### <a name="create-a-go-application"></a>Go 애플리케이션 빌드
+### <a name="create-a-go-application"></a>Go 애플리케이션 빌드 
 
 다음으로, **src** 디렉터리에 `sample-app.go`라는 파일을 만듭니다.
 
@@ -82,6 +87,9 @@ touch sample-app.go
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_context)]
 
 다음으로, 다른 Computer Vision 작업을 수행하는 코드를 추가합니다.
+
+> [!div class="nextstepaction"]
+> [클라이언트를 설정했습니다.](?success=set-up-client#object-model) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=set-up-client)
 
 ## <a name="object-model"></a>개체 모델
 
@@ -110,6 +118,9 @@ touch sample-app.go
 클라이언트를 엔드포인트 및 키로 인스턴스화하도록 `main` 함수를 만들고 다음 코드를 이 함수에 추가합니다.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_client)]
+
+> [!div class="nextstepaction"]
+> [클라이언트를 인증했습니다.](?success=authenticate-client#analyze-an-image) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## <a name="analyze-an-image"></a>이미지 분석
 
@@ -202,6 +213,9 @@ Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분�
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_type)]
 
+> [!div class="nextstepaction"]
+> [이미지를 분석했습니다.](?success=analyze-image#read-printed-and-handwritten-text) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## <a name="read-printed-and-handwritten-text"></a>인쇄 텍스트 및 필기 텍스트 읽기
 
 Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 이 단원의 코드는 클라이언트 개체를 사용하여 이미지의 인쇄 텍스트 또는 필기 텍스트를 감지하고 추출하는 `RecognizeTextReadAPIRemoteImage` 함수를 정의합니다.
@@ -231,6 +245,9 @@ Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트�
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_display)]
 
+> [!div class="nextstepaction"]
+> [텍스트를 읽었습니다.](?success=read-printed-handwritten-text#run-the-application) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+
 ## <a name="run-the-application"></a>애플리케이션 실행
 
 `go run` 명령을 사용하여 애플리케이션 디렉터리에서 애플리케이션을 실행합니다.
@@ -239,6 +256,9 @@ Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트�
 go run sample-app.go
 ```
 
+> [!div class="nextstepaction"]
+> [애플리케이션을 실행했습니다.](?success=run-the-application#clean-up-resources) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다.
@@ -246,10 +266,14 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 * [포털](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [리소스를 정리했습니다.](?success=clean-up-resources#next-steps) [문제가 발생했습니다.](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [Computer Vision API 참조(Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
+
 
 * [Computer Vision이란?](../../overview.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go)에서 확인할 수 있습니다.
