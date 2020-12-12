@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 858343b6c5081b52d9e93909f9d52eaccd88a584
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c5613dda7adbbc47f989bc2a772777e716620b3c
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660273"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348036"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Azure 방화벽 SNAT 개인 IP 주소 범위
 
@@ -35,9 +35,22 @@ Azure PowerShell를 사용 하 여 방화벽에 대 한 개인 IP 주소 범위�
 
 ### <a name="new-firewall"></a>새 방화벽
 
-새 방화벽의 경우 Azure PowerShell 명령은 다음과 같습니다.
+새 방화벽의 경우 Azure PowerShell cmdlet은 다음과 같습니다.
 
-`New-AzFirewall -Name $GatewayName -ResourceGroupName $RG -Location $Location -VirtualNetworkName $vnet.Name -PublicIpName $LBPip.Name -PrivateRange @("IANAPrivateRanges","IPRange1", "IPRange2")`
+```azurepowershell
+$azFw = @{
+    Name               = '<fw-name>'
+    ResourceGroupName  = '<resourcegroup-name>'
+    Location           = '<location>'
+    VirtualNetworkName = '<vnet-name>'
+    PublicIpName       = '<public-ip-name>'
+    PrivateRange       = @("IANAPrivateRanges", "192.168.1.0/24", "192.168.1.10")
+}
+
+New-AzFirewall @azFw
+```
+> [!NOTE]
+> 을 사용 하 여 Azure 방화벽 `New-AzFirewall` 을 배포 하려면 기존 VNet 및 공용 IP 주소가 필요 합니다. 전체 배포 가이드는 [Azure PowerShell을 사용 하 여 Azure 방화벽 배포 및 구성](deploy-ps.md) 을 참조 하세요.
 
 > [!NOTE]
 > IANAPrivateRanges는 Azure 방화벽의 현재 기본값으로 확장 되 고 다른 범위는 추가 됩니다. Private 범위 사양에 IANAPrivateRanges 기본값을 유지 하려면 `PrivateRange` 다음 예에 표시 된 것 처럼 사양에 유지 되어야 합니다.
@@ -46,22 +59,54 @@ Azure PowerShell를 사용 하 여 방화벽에 대 한 개인 IP 주소 범위�
 
 ### <a name="existing-firewall"></a>기존 방화벽
 
-기존 방화벽을 구성 하려면 다음 Azure PowerShell 명령을 사용 합니다.
+기존 방화벽을 구성 하려면 다음 Azure PowerShell cmdlet을 사용 합니다.
 
 ```azurepowershell
-$azfw = Get-AzFirewall -ResourceGroupName "Firewall Resource Group name"
-$azfw.PrivateRange = @("IANAPrivateRanges","IPRange1", "IPRange2")
+$azfw = Get-AzFirewall -Name '<fw-name>' -ResourceGroupName '<resourcegroup-name>'
+$azfw.PrivateRange = @("IANAPrivateRanges","192.168.1.0/24", "192.168.1.10")
 Set-AzFirewall -AzureFirewall $azfw
 ```
 
-### <a name="templates"></a>템플릿
+## <a name="configure-snat-private-ip-address-ranges---azure-cli"></a>SNAT 개인 IP 주소 범위 구성-Azure CLI
 
-섹션에 다음을 추가할 수 있습니다 `additionalProperties` .
+Azure CLI를 사용 하 여 방화벽에 대 한 개인 IP 주소 범위를 지정할 수 있습니다.
 
+### <a name="new-firewall"></a>새 방화벽
+
+새 방화벽의 경우 Azure CLI 명령은 다음과 같습니다.
+
+```azurecli-interactive
+az network firewall create \
+-n <fw-name> \
+-g <resourcegroup-name> \
+--private-ranges 192.168.1.0/24 192.168.1.10 IANAPrivateRanges
 ```
+
+> [!NOTE]
+> Azure CLI 명령을 사용 하 여 Azure 방화벽을 배포 `az network firewall create` 하려면 추가 구성 단계를 수행 하 여 공용 ip 주소 및 ip 구성을 만들어야 합니다. 전체 배포 가이드는 [Azure CLI을 사용 하 여 Azure 방화벽 배포 및 구성](deploy-cli.md) 을 참조 하세요.
+
+> [!NOTE]
+> IANAPrivateRanges는 Azure 방화벽의 현재 기본값으로 확장 되 고 다른 범위는 추가 됩니다. Private 범위 사양에 IANAPrivateRanges 기본값을 유지 하려면 `PrivateRange` 다음 예에 표시 된 것 처럼 사양에 유지 되어야 합니다.
+
+### <a name="existing-firewall"></a>기존 방화벽
+
+기존 방화벽을 구성 하려면 Azure CLI 명령은 다음과 같습니다.
+
+```azurecli-interactive
+az network firewall update \
+-n <fw-name> \
+-g <resourcegroup-name> \
+--private-ranges 192.168.1.0/24 192.168.1.10 IANAPrivateRanges
+```
+
+## <a name="configure-snat-private-ip-address-ranges---arm-template"></a>SNAT 개인 IP 주소 범위 구성-ARM 템플릿
+
+ARM 템플릿 배포 중에 SNAT를 구성 하려면 다음을 속성에 추가 하면 됩니다 `additionalProperties` .
+
+```json
 "additionalProperties": {
-                    "Network.SNAT.PrivateRanges": "IANAPrivateRanges , IPRange1, IPRange2"
-                },
+   "Network.SNAT.PrivateRanges": "IANAPrivateRanges , IPRange1, IPRange2"
+},
 ```
 
 ## <a name="configure-snat-private-ip-address-ranges---azure-portal"></a>SNAT 개인 IP 주소 범위 구성-Azure Portal

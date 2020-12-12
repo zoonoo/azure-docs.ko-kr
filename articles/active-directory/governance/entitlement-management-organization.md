@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/28/2020
+ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1cdf983dc8fed64c7d283ac216eb803746add95
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 6299f9ad660252ae39903401672d493b1c1ad52c
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029373"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347492"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 연결 된 조직 추가
 
@@ -29,7 +29,13 @@ Azure Active Directory (Azure AD) 자격 관리를 통해 조직 외부 사용�
 
 ## <a name="what-is-a-connected-organization"></a>연결 된 조직 이란?
 
-연결 된 조직은 외부 Azure AD 디렉터리 또는 관계가 있는 도메인입니다.
+연결 된 조직은와 관계가 있는 다른 조직입니다.  해당 조직의 사용자가 SharePoint Online 사이트 또는 앱과 같은 리소스에 액세스할 수 있도록 하려면 해당 조직의 사용자에 게 해당 디렉터리에 대 한 표현이 필요 합니다.  대부분의 경우 해당 조직의 사용자가 이미 Azure AD 디렉터리에 있지 않기 때문에 필요에 따라 자격 관리를 사용 하 여 Azure AD 디렉터리에 가져올 수 있습니다.  
+
+세 가지 방법으로 자격 관리를 통해 연결 된 조직을 형성 하는 사용자를 지정할 수 있습니다.  다음이 될 수 있습니다.
+
+* 다른 Azure AD 디렉터리의 사용자
+* 직접 페더레이션을 위해 구성 된 다른 비 Azure AD 디렉터리의 사용자 또는
+* 다른 비 Azure AD 디렉터리의 사용자는 모두 공통 된 동일한 도메인 이름을 포함 하는 전자 메일 주소입니다.
 
 예를 들어, Woodgrove Bank에서 작업 하 고 두 개의 외부 조직과 공동 작업 하려는 경우를 가정해 보겠습니다. 이러한 두 조직의 구성은 다음과 같이 다릅니다.
 

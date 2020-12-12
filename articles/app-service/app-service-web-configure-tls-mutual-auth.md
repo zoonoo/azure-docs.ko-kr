@@ -3,14 +3,14 @@ title: TLS 상호 인증 구성
 description: TLS에서 클라이언트 인증서를 인증 하는 방법에 대해 알아봅니다. Azure App Service를 사용 하면 인증을 위해 응용 프로그램 코드에서 클라이언트 인증서를 사용할 수 있습니다.
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 12/11/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 145b999d7bf8597c06d6e3d4a36d01b182c8ae68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ceeb3d31652c04eb9a69c1c8bb4b114e6f38d52
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213647"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347743"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Azure App Service에 대 한 TLS 상호 인증 구성
 
@@ -24,20 +24,33 @@ ms.locfileid: "88213647"
 
 ## <a name="enable-client-certificates"></a>클라이언트 인증서 사용하도록 설정
 
-클라이언트 인증서를 요구 하도록 앱을 설정 하려면 Azure Portal에서 **구성**일반 설정을 선택 **하 여 들어오는** 인증서 요구를 전환  >  **General Settings** 하거나 `clientCertEnabled` 앱에 대 한 설정을로 설정 해야 `true` 합니다. 설정을 설정 하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행 합니다.
+클라이언트 인증서를 요구 하도록 앱을 설정 하려면:
+
+1. 앱 관리 페이지의 왼쪽 탐색 영역에서 **구성**  >  **일반 설정** 을 선택 합니다.
+
+1. **클라이언트 인증서 모드** 를 **필수** 로 설정 합니다. 페이지 위쪽에서 **저장** 을 클릭합니다.
+
+Azure CLI와 동일 하 게 수행 하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
-az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
+az webapp update --set clientCertEnabled=true --name <app-name> --resource-group <group-name>
 ```
 
 ## <a name="exclude-paths-from-requiring-authentication"></a>인증 요청에서 경로 제외
 
-응용 프로그램에 대해 상호 인증을 사용 하도록 설정 하면 앱의 루트에 있는 모든 경로에 액세스 하기 위한 클라이언트 인증서가 필요 합니다. 익명 액세스를 위해 특정 경로를 열어 둘 수 있도록 허용 하려면 응용 프로그램 구성의 일부로 제외 경로를 정의할 수 있습니다.
+응용 프로그램에 대해 상호 인증을 사용 하도록 설정 하면 앱의 루트에 있는 모든 경로에 액세스 하기 위한 클라이언트 인증서가 필요 합니다. 특정 경로에 대 한이 요구 사항을 제거 하려면 응용 프로그램 구성의 일부로 제외 경로를 정의 합니다.
 
-제외 경로는 **구성**  >  **일반 설정** 을 선택 하 고 제외 경로를 정의 하 여 구성할 수 있습니다. 이 예제에서 응용 프로그램의 경로 아래에 있는 모든 항목 `/public` 은 클라이언트 인증서를 요청 하지 않습니다.
+1. 앱 관리 페이지의 왼쪽 탐색 영역에서 **구성**  >  **일반 설정** 을 선택 합니다.
+
+1. **클라이언트 제외 경로** 옆에 있는 편집 아이콘을 클릭 합니다.
+
+1. **새 경로** 를 클릭 하 고 경로를 지정 하 고 **확인** 을 클릭 합니다.
+
+1. 페이지 위쪽에서 **저장** 을 클릭합니다.
+
+다음 스크린샷에서 앱 경로 아래에 있는 모든 항목은 `/public` 클라이언트 인증서를 요청 하지 않습니다.
 
 ![인증서 제외 경로][exclusion-paths]
-
 
 ## <a name="access-client-certificate"></a>클라이언트 인증서 액세스
 

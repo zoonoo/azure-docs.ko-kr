@@ -1,21 +1,21 @@
 ---
 title: 포털에서 앱 구성
-description: Azure Portal에서 App Service 앱에 대 한 일반 설정을 구성 하는 방법을 알아봅니다. 앱 설정, 연결 문자열, 플랫폼, 언어 스택, 컨테이너 등
+description: Azure Portal에서 App Service 앱에 대 한 일반 설정을 구성 하는 방법을 알아봅니다. 앱 설정, 앱 구성, 연결 문자열, 플랫폼, 언어 스택, 컨테이너 등
 keywords: azure app service, 웹 앱, 앱 설정, 환경 변수
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 12/07/2020
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 76cfefa3f104ecef69e28fecd1c37fc336b0ce8c
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 4594a3a7ac7af7acf75fa5c47e2eab3246fc00e7
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854651"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346764"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Azure Portal에서 App Service 앱 구성
 
-이 항목에서는 [Azure Portal]를 사용 하 여 웹 앱, 모바일 백 엔드 또는 API 앱에 대 한 일반 설정을 구성 하는 방법에 대해 설명 합니다.
+이 문서에서는 [Azure Portal]를 사용 하 여 웹 앱, 모바일 백 엔드 또는 API 앱에 대 한 일반 설정을 구성 하는 방법을 설명 합니다.
 
 ## <a name="configure-app-settings"></a>앱 설정 구성
 
@@ -29,7 +29,7 @@ App Service에서 앱 설정은 응용 프로그램 코드에 환경 변수로 �
 
 ![애플리케이션 설정](./media/configure-common/open-ui.png)
 
-ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설정 하는 것은Web.config또는appsettings.js에서 설정 하는 것과 `<appSettings>` 같지만 App Service의 값이Web.config또는 *Web.config* *appsettings.js* 의 값을 재정의 합니다. *Web.config* *appsettings.json* App Service에서 안전 하 게 배포 설정 (예: 로컬 MySQL 암호)을 *Web.config* 또는 *appsettings.js* 하 고 프로덕션 암호 (예: Azure MySQL 데이터베이스 암호)를 안전 하 게 유지할 수 있습니다. 로컬에서 디버그할 때 동일한 코드가 개발 설정을 사용 하 고 Azure에 배포 될 때 프로덕션 암호를 사용 합니다.
+ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설정 하는 것은Web.config또는appsettings.js에서 설정 하는 것과 `<appSettings>` 같지만 App Service의 값이Web.config또는  *appsettings.js* 의 값을 재정의 합니다.   App Service에서 안전 하 게 배포 설정 (예: 로컬 MySQL 암호)을 *Web.config* 또는 *appsettings.js* 하 고 프로덕션 암호 (예: Azure MySQL 데이터베이스 암호)를 안전 하 게 유지할 수 있습니다. 로컬에서 디버그할 때 동일한 코드가 개발 설정을 사용 하 고 Azure에 배포 될 때 프로덕션 암호를 사용 합니다.
 
 마찬가지로 다른 언어 스택은 런타임에 환경 변수로 앱 설정을 가져옵니다. 언어 스택 관련 단계는 다음을 참조 하세요.
 
@@ -118,7 +118,10 @@ Azure CLI를 사용 하 여 명령줄에서 설정을 만들고 관리할 수 �
 
 ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열을 설정 하는 것은Web.config에서에서 설정 하는 것과 `<connectionStrings>` 같지만 App Service에서 설정한 값은 *Web.config* 의 연결 문자열을 재정의 합니다. ** App Service에서 안전 하 게 *Web.config* 및 프로덕션 비밀 (예: SQL Database 자격 증명)의 개발 설정 (예: 데이터베이스 파일)을 유지할 수 있습니다. 로컬에서 디버그할 때 동일한 코드가 개발 설정을 사용 하 고 Azure에 배포 될 때 프로덕션 암호를 사용 합니다.
 
-다른 언어 스택에서는 값에 액세스 하기 위해 연결 문자열에 변수 키에 대 한 특수 형식이 필요 하기 때문에 [앱 설정을](#configure-app-settings) 대신 사용 하는 것이 좋습니다. 단, 응용 프로그램에서 연결 문자열을 구성 하는 경우 특정 Azure 데이터베이스 형식이 앱과 함께 백업 됩니다. 자세한 내용은 백업 되는 [항목](manage-backup.md#what-gets-backed-up)을 참조 하세요. 이 자동화 된 백업이 필요 하지 않은 경우 앱 설정을 사용 합니다.
+다른 언어 스택에서는 값에 액세스 하기 위해 연결 문자열에 변수 키에 대 한 특수 형식이 필요 하기 때문에 [앱 설정을](#configure-app-settings) 대신 사용 하는 것이 좋습니다. 
+
+> [!NOTE]
+> Non-.NET 언어에 대 한 앱 설정 대신 연결 문자열을 사용 하는 경우는 한 가지입니다. 특정 Azure 데이터베이스 유형은 App Service 앱에서 데이터베이스에 대 한 연결 문자열을 구성 하는 경우에 _만_ 앱과 함께 백업 됩니다. 자세한 내용은 백업 되는 [항목](manage-backup.md#what-gets-backed-up)을 참조 하세요. 이 자동화 된 백업이 필요 하지 않은 경우 앱 설정을 사용 합니다.
 
 런타임에 연결 문자열은 환경 변수로 사용할 수 있으며, 다음 연결 형식이 접두사로 사용 됩니다.
 
@@ -228,21 +231,27 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열�
 
 ![경로 매핑](./media/configure-common/open-path.png)
 
-**경로 매핑** 페이지에는 OS 유형에 따라 다양 한 항목이 표시 됩니다.
+> [!NOTE] 
+> **경로 매핑** 탭에는 여기에 표시 된 예제와 다른 OS 관련 설정이 표시 될 수 있습니다.
 
 ### <a name="windows-apps-uncontainerized"></a>Windows 앱 (uncontainerized)
 
 Windows 앱의 경우 IIS 처리기 매핑과 가상 응용 프로그램 및 디렉터리를 사용자 지정할 수 있습니다.
 
-처리기 매핑을 사용 하면 특정 파일 확장명에 대 한 요청을 처리 하는 사용자 지정 스크립트 프로세서를 추가할 수 있습니다. 사용자 지정 처리기를 추가 하려면 **새 처리기** 를 클릭 합니다. 다음과 같이 처리기를 구성 합니다.
+처리기 매핑을 사용 하면 특정 파일 확장명에 대 한 요청을 처리 하는 사용자 지정 스크립트 프로세서를 추가할 수 있습니다. 사용자 지정 처리기를 추가 하려면 **새 처리기 매핑** 을 클릭 합니다. 다음과 같이 처리기를 구성 합니다.
 
 - **확장**. Php 또는 *handler* 와 같이 처리 하려는 파일 확장명 *\* 입니다* .
 - **스크립트 프로세서**. 스크립트 프로세서의 절대 경로입니다. 파일 확장명과 일치 하는 파일에 대 한 요청은 스크립트 프로세서에 의해 처리 됩니다. 경로 `D:\home\site\wwwroot` 를 사용하여 앱의 루트 디렉터리를 참조합니다.
 - **인수**. 스크립트 프로세서에 대 한 선택적인 명령줄 인수입니다.
 
-각 앱에는에 매핑되는 기본 루트 경로 ()가 있습니다 `/` `D:\home\site\wwwroot` . 여기서 코드는 기본적으로 배포 됩니다. 앱 루트가 다른 폴더에 있거나 리포지토리에 둘 이상의 응용 프로그램이 있는 경우 여기에서 가상 응용 프로그램 및 디렉터리를 편집 하거나 추가할 수 있습니다. **새 가상 응용 프로그램 또는 디렉터리** 를 클릭 합니다.
+각 앱에는에 매핑되는 기본 루트 경로 ()가 있습니다 `/` `D:\home\site\wwwroot` . 여기서 코드는 기본적으로 배포 됩니다. 앱 루트가 다른 폴더에 있거나 리포지토리에 둘 이상의 응용 프로그램이 있는 경우 여기에서 가상 응용 프로그램 및 디렉터리를 편집 하거나 추가할 수 있습니다. 
 
-가상 응용 프로그램 및 디렉터리를 구성 하려면 각 가상 디렉터리와 웹 사이트 루트 ()에 상대적인 해당 실제 경로를 지정 `D:\home` 합니다. 경우에 따라 **애플리케이션** 확인란을 선택하여 가상 디렉터리를 애플리케이션으로 표시할 수 있습니다.
+**경로 매핑** 탭에서 **새 가상 응용 프로그램 또는 디렉터리** 를 클릭 합니다. 
+
+- 가상 디렉터리를 실제 경로에 매핑하려면 **디렉터리** 확인란을 선택 된 상태로 둡니다. 가상 디렉터리 및 웹 사이트 루트에 대 한 해당 상대 (실제) 경로 ()를 지정 `D:\home` 합니다.
+- 가상 디렉터리를 웹 응용 프로그램으로 표시 하려면 **디렉터리** 확인란의 선택을 취소 합니다.
+  
+  ![디렉터리 확인란](./media/configure-common/directory-check-box.png)
 
 ### <a name="containerized-apps"></a>컨테이너 화 된 앱
 

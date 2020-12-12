@@ -4,12 +4,12 @@ description: 이 문서에서는 컨테이너에 Azure Monitor kubectl을 사용
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: a97d7ed5fe513798f4265498f4efa60098ea15c6
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 3bfc9aa0f0238d99d9336abe592fa721459f4220
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920728"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346834"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Kubernetes 로그, 이벤트 및 pod 메트릭을 실시간으로 보는 방법
 
@@ -35,7 +35,7 @@ ms.locfileid: "96920728"
 
 5. Pod를 선택 하 여 라이브 데이터 수집을 시작 합니다.
 
-    ![배포 라이브 로그](./media/container-insights-livedata-overview/live-data-deployment.png)
+    [![배포 라이브 로그](./media/container-insights-livedata-overview/live-data-deployment.png)](./media/container-insights-livedata-overview/live-data-deployment.png#lightbox)
 
 ## <a name="view-logs"></a>로그 보기
 
@@ -112,11 +112,17 @@ ms.locfileid: "96920728"
 
 ![라이브 데이터 콘솔 창 필터 예](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
+![배포에 대 한 라이브 데이터 콘솔 창 필터 예제](./media/container-insights-livedata-overview/live-data-deployment-search.png)
+
 ### <a name="scroll-lock-and-pause"></a>Scroll Lock 및 Pause
 
 자동 스크롤를 일시 중단 하 고 창의 동작을 제어 하 여 새 데이터 읽기를 수동으로 스크롤할 수 있도록 **스크롤** 옵션을 사용할 수 있습니다. 자동 스크롤를 다시 사용 하도록 설정 하려면 **스크롤** 옵션을 다시 선택 하면 됩니다. **일시 중지** 옵션을 선택 하 여 로그 나 이벤트 데이터의 검색을 일시 중지 하 고, 다시 시작할 준비가 되 면 **Play** 를 선택 하면 됩니다.
 
 ![라이브 데이터 콘솔 창 일시 중지 라이브 보기](./media/container-insights-livedata-overview/livedata-pane-scroll-pause-example.png)
+
+![라이브 데이터 콘솔 창 배포용 라이브 보기 일시 중지](./media/container-insights-livedata-overview/live-data-deployment-pause.png)
+
+
 
 >[!IMPORTANT]
 >문제를 해결 하는 동안 짧은 시간 동안 자동 스크롤 일시 중단 하거나 일시 중지 하는 것이 좋습니다. 이러한 요청은 클러스터의 Kubernetes API에 대 한 가용성 및 제한에 영향을 줄 수 있습니다.

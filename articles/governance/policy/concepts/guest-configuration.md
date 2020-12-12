@@ -3,12 +3,12 @@ title: 가상 머신의 콘텐츠를 감사하는 방법 알아보기
 description: Azure Policy가 게스트 구성 에이전트를 사용하여 가상 머신 내에서 설정을 감사하는 방법에 대해 알아봅니다.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2fd1f17d38b0a58fbf64670849a8d5e13bb00cf8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7d7aa14038c834747240d17441c61d000ac6bb74
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032714"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347883"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -84,7 +84,7 @@ Azure Arc 컴퓨터는 온-프레미스 네트워크 인프라를 사용 하 여
 
 ### <a name="communicate-over-private-link-in-azure"></a>Azure에서 개인 링크를 통해 통신
 
-가상 머신은 게스트 구성 서비스에 대 한 통신에 [개인 링크](../../../private-link/private-link-overview.md) 를 사용할 수 있습니다. `EnablePrivateNetworkGC`이 기능을 사용 하도록 설정 하려면 이름과 값을 사용 하 여 태그를 적용 `TRUE` 합니다. 태그는 게스트 구성 정책 정의가 컴퓨터에 적용 되기 전이나 후에 적용할 수 있습니다.
+가상 머신은 게스트 구성 서비스에 대 한 통신에 [개인 링크](../../../private-link/private-link-overview.md) 를 사용할 수 있습니다. `EnablePrivateNeworkGC`이 기능을 사용 하도록 설정 하려면 이름에 "t"가 없는 태그를 적용 하 고 값을 `TRUE` 사용 합니다. 태그는 게스트 구성 정책 정의가 컴퓨터에 적용 되기 전이나 후에 적용할 수 있습니다.
 
 Azure platform 리소스를 사용 하 여 안전 하 고 인증 된 채널을 설정 하기 위해 Azure [가상 공용 IP 주소](../../../virtual-network/what-is-ip-address-168-63-129-16.md) 를 사용 하 여 트래픽을 라우팅합니다.
 

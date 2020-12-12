@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a3044127aacb5910a270d40d94d3255031a71a2
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 4d6bf4df1499d919cead0a184054e5ba0db9c06e
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741306"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346603"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 암호 재설정 쓰기 저장 문제 해결
 
@@ -42,6 +42,11 @@ Azure AD Connect 버전 *1.1.443.0* 이상에서는 다음 주소에 *아웃 바
 
 * *\*. passwordreset.microsoftonline.com*
 * *\*. servicebus.windows.net*
+
+Azure [.gov 끝점](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers):
+
+* *\*. passwordreset.microsoftonline.us*
+* *\*. servicebus.usgovcloudapi.net*
 
 더 많은 세분성이 필요한 경우 [Microsoft Azure 데이터 센터 IP 범위 목록을](https://www.microsoft.com/download/details.aspx?id=41653)참조 하세요. 이 목록은 수요일 마다 업데이트 되며 다음 월요일에 적용 됩니다.
 

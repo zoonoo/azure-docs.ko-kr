@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: 7256f94b8e8376cf98a279d085a131a4ce84826f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2b1b68b32ccd5a4dda0b71736da4e2d1e2566b6b
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658625"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348019"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>SQL FQDN을 사용하여 Azure Firewall 애플리케이션 규칙 구성
 
@@ -35,19 +35,56 @@ SQL IaaS 트래픽에 기본 포트가 아닌 포트를 사용하는 경우 방�
    > [!NOTE]
    > SQL *프록시* 모드는 *리디렉션* 에 비해 더 많은 대기 시간이 발생할 수 있습니다. Azure 내에서 연결하는 클라이언트의 기본값인 리디렉션 모드를 계속 사용하려면 방화벽 [네트워크 규칙](tutorial-firewall-deploy-portal.md#configure-a-network-rule)의 [SQL 서비스](service-tags.md) 태그를 사용하여 액세스를 필터링하면 됩니다.
 
-3. SQL FQDN을 사용하여 SQL 서버에 액세스할 수 있도록 애플리케이션 규칙을 구성합니다.
+3. Sql FQDN을 사용 하 여 SQL server에 대 한 액세스를 허용 하는 응용 프로그램 규칙을 사용 하 여 새 규칙 컬렉션을 만듭니다.
 
    ```azurecli
-   az extension add -n azure-firewall
+    az extension add -n azure-firewall
+    
+    az network firewall application-rule create \ 
+    -g FWRG \
+    --f azfirewall \ 
+    --c sqlRuleCollection \
+    --priority 1000 \
+    --action Allow \
+    --name sqlRule \
+    --protocols mssql=1433 \
+    --source-addresses 10.0.0.0/24 \
+    --target-fqdns sql-serv1.database.windows.net
+   ```
 
-   az network firewall application-rule create \
-   -g FWRG \
-   -f azfirewall \
-   -c FWAppRules \
-   -n srule \
-   --protocols mssql=1433 \
-   --source-addresses 10.0.0.0/24 \
-   --target-fqdns sql-serv1.database.windows.net
+## <a name="configure-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 구성
+
+1. Azure PowerShell를 [사용 하 여 Azure 방화벽](deploy-ps.md)을 배포 합니다.
+2. Azure SQL Database, Azure Synapse Analytics 또는 SQL Managed Instance에 대 한 트래픽을 필터링 하는 경우 SQL 연결 모드가 **프록시** 로 설정 되었는지 확인 합니다. SQL 연결 모드를 전환하는 방법에 대해 알아보려면 [Azure SQL 연결 설정](../azure-sql/database/connectivity-settings.md#change-the-connection-policy-via-the-azure-cli)을 참조하세요.
+
+   > [!NOTE]
+   > SQL *프록시* 모드는 *리디렉션* 에 비해 더 많은 대기 시간이 발생할 수 있습니다. Azure 내에서 연결하는 클라이언트의 기본값인 리디렉션 모드를 계속 사용하려면 방화벽 [네트워크 규칙](tutorial-firewall-deploy-portal.md#configure-a-network-rule)의 [SQL 서비스](service-tags.md) 태그를 사용하여 액세스를 필터링하면 됩니다.
+
+3. Sql FQDN을 사용 하 여 SQL server에 대 한 액세스를 허용 하는 응용 프로그램 규칙을 사용 하 여 새 규칙 컬렉션을 만듭니다.
+
+   ```azurepowershell
+   $AzFw = Get-AzFirewall -Name "azfirewall" -ResourceGroupName "FWRG"
+    
+   $sqlRule = @{
+      Name          = "sqlRule"
+      Protocol      = "mssql:1433" 
+      TargetFqdn    = "sql-serv1.database.windows.net"
+      SourceAddress = "10.0.0.0/24"
+   }
+    
+   $rule = New-AzFirewallApplicationRule @sqlRule
+    
+   $sqlRuleCollection = @{
+      Name       = "sqlRuleCollection" 
+      Priority   = 1000 
+      Rule       = $rule
+      ActionType = "Allow"
+   }
+    
+   $ruleCollection = New-AzFirewallApplicationRuleCollection @sqlRuleCollection
+    
+   $Azfw.ApplicationRuleCollections.Add($ruleCollection)    
+   Set-AzFirewall -AzureFirewall $AzFw    
    ```
 
 ## <a name="configure-using-the-azure-portal"></a>Azure Portal을 사용하여 구성

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 134148fa3ea73212d85393cc433d60f7ddeecd17
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8644040565bd46800b888a32653b6c8bbf89f096
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837127"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347441"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -125,7 +125,7 @@ az vm create \
 > [!NOTE]
 > Azure AD 로그인 VM 확장을 설치 하기 전에 가상 머신에서 시스템 할당 관리 id를 사용 하도록 설정 해야 합니다.
 
-VM과 지원 리소스를 만드는 데 몇 분이 걸립니다.
+VM 및 지원 리소스를 만드는 데 몇 분이 걸립니다.
 
 마지막으로, Azure AD 로그인 VM 확장을 설치 하 여 Windows VM에 대 한 Azure AD 로그인을 사용 하도록 설정 합니다. VM 확장은 Azure 가상 머신에서 배포 후 구성 및 Automation 작업을 제공하는 작은 애플리케이션입니다. [Az vm extension](/cli/azure/vm/extension#az-vm-extension-set) set을 사용 하 여 myvm 리소스 그룹에서 myvm 이라는 Vm에 AADLoginForWindows 확장을 설치 합니다.
 
@@ -157,6 +157,9 @@ VM에 대 한 역할 할당을 구성 하는 방법에는 여러 가지가 있�
 - Azure AD 포털 환경 사용
 - Azure Cloud Shell 환경 사용
 
+> [!NOTE]
+> 가상 컴퓨터 관리자 로그인 및 가상 컴퓨터 사용자 로그인 역할은 dataActions를 사용 하므로 관리 그룹 범위에서 할당할 수 없습니다. 현재 이러한 역할은 구독 범위 에서만 할당 될 수 있습니다.
+
 ### <a name="using-azure-ad-portal-experience"></a>Azure AD 포털 환경 사용
 
 Azure AD 사용 Windows Server 2019 Datacenter Vm에 대 한 역할 할당을 구성 하려면:
@@ -177,8 +180,8 @@ Azure AD 사용 Windows Server 2019 Datacenter Vm에 대 한 역할 할당을 �
 다음 예제에서는 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)를 사용하여 현재 Azure 사용자의 VM에 대한 가상 머신 관리자 로그인 역할을 할당합니다. 활성 Azure 계정의 사용자 이름은 [az account show](/cli/azure/account#az-account-show)를 사용하여 가져옵니다. 또한 범위는 [az vm show](/cli/azure/vm#az-vm-show)를 사용하여 이전 단계에서 만든 VM으로 설정됩니다. 범위는 리소스 그룹 또는 구독 수준에서 할당 될 수도 있으며, 일반 Azure RBAC 상속 권한이 적용 됩니다. 자세한 내용은 [Azure Active Directory 인증을 사용 하 여 Azure에서 Linux 가상 머신에 로그인](../../virtual-machines/linux/login-using-aad.md)을 참조 하세요.
 
 ```   AzureCLI
-username=$(az account show --query user.name --output tsv)
-vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
+$username=$(az account show --query user.name --output tsv)
+$vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
 
 az role assignment create \
     --role "Virtual Machine Administrator Login" \

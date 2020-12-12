@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: 10859423d90f7ea55dded00522de34d94493eec1
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 925a0270c50d20790c093eaf193d66e0acd4cd11
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902296"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347407"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Amazon Simple Storage 서비스에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -63,7 +63,7 @@ Amazon S3 사용 권한의 전체 목록은 AWS 사이트의 [정책에서 사�
 
 Amazon S3 연결 된 서비스에 대해 지원 되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **Type** 속성은 **AmazonS3** 로 설정 해야 합니다. | 예 |
 | authenticationType | Amazon S3에 연결 하는 데 사용 되는 인증 유형을 지정 합니다. AWS Id 및 액세스 관리 (IAM) 계정 또는 [임시 보안 자격 증명](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)에 대 한 액세스 키를 사용 하도록 선택할 수 있습니다.<br>허용 되는 값은 `AccessKey` (기본값) 및 `TemporarySecurityCredentials` 입니다. |아니요 |
@@ -133,7 +133,7 @@ Amazon S3 연결 된 서비스에 대해 지원 되는 속성은 다음과 같�
 
 형식 기반 데이터 집합의 설정에서 Amazon S3에 대해 지원 되는 속성은 `location` 다음과 같습니다.
 
-| 속성   | Description                                                  | 필수 |
+| 속성   | 설명                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 집합의 아래에 있는 **type** 속성은 `location` **AmazonS3Location** 로 설정 해야 합니다. | 예      |
 | bucketName | S3 버킷 이름입니다.                                          | 예      |
@@ -178,14 +178,14 @@ Amazon S3 연결 된 서비스에 대해 지원 되는 속성은 다음과 같�
 
 형식 기반 복사 원본의 설정에서 Amazon S3에 대해 지원 되는 속성은 `storeSettings` 다음과 같습니다.
 
-| 속성                 | Description                                                  | 필수                                                    |
+| 속성                 | 설명                                                  | 필수                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | 아래의 **type** 속성은 `storeSettings` **AmazonS3ReadSettings** 로 설정 해야 합니다. | 예                                                         |
 | **_복사할 파일 찾기:_* _ |  |  |
 | 옵션 1: 고정 경로<br> | 지정된 버킷 또는 데이터 세트에 지정된 폴더/파일 경로에서 복사합니다. 버킷 또는 폴더의 모든 파일을 복사 하려면을 `wildcardFileName` 로 지정 `_` 합니다. |  |
 | 옵션 2: S3 접두사<br>- 접두사 | 원본 S3 파일을 필터링 하기 위해 데이터 집합에 구성 된 지정 된 버킷의 S3 키 이름에 대 한 접두사입니다. 이름이로 시작 하는 S3 키 `bucket_in_dataset/this_prefix` 가 선택 됩니다. S3's 서비스 쪽 필터를 활용 하 여 와일드 카드 필터 보다 더 나은 성능을 제공 합니다.<br/><br/>접두사를 사용 하 고 유지 계층 구조를 유지 하는 파일 기반 싱크로 복사를 선택 하는 경우 접두사에서 마지막 "/" 이후의 하위 경로를 유지 합니다. 예를 들어 소스가 있고  `bucket/folder/subfolder/file.txt` 접두사를로 구성한 후에 `folder/sub` 는 유지 되는 파일 경로가 `subfolder/file.txt` 입니다. | 예 |
 | 옵션 3: 와일드카드<br>- wildcardFolderPath | 원본 폴더를 필터링 하기 위해 데이터 집합에 구성 된 지정 된 버킷 아래에 와일드 카드 문자가 있는 폴더 경로입니다. <br>허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다. `^`폴더 이름에 와일드 카드나이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예                                            |
-| 옵션 3: 와일드카드<br>- wildcardFileName | 소스 파일을 필터링 하기 위해 지정 된 버킷 및 폴더 경로 (또는 와일드 카드 폴더 경로) 아래에 와일드 카드 문자가 있는 파일 이름입니다. <br>허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다. `^`폴더 이름에 와일드 카드나이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다.  더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예 |
+| 옵션 3: 와일드카드<br>- wildcardFileName | 소스 파일을 필터링 하기 위해 지정 된 버킷 및 폴더 경로 (또는 와일드 카드 폴더 경로) 아래에 와일드 카드 문자가 있는 파일 이름입니다. <br>허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다. `^`파일 이름에 와일드 카드 또는이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다.  더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예 |
 | 옵션 4: 파일 목록<br>- fileListPath | 지정된 파일 집합을 복사하도록 지정합니다. 복사할 파일 목록이 포함 된 텍스트 파일을 가리키고, 데이터 집합에 구성 된 경로에 대 한 상대 경로인 한 줄에 하나씩 파일을 표시 합니다.<br/>이 옵션을 사용 하는 경우 데이터 집합에서 파일 이름을 지정 하지 마십시오. [파일 목록 예](#file-list-examples)에서 더 많은 예를 참조하세요. |예 |
 | ***추가 설정:** _ |  | |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. _ *Recursive**를 **true** 로 설정 하 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다. <br>허용되는 값은 **true**(기본값) 및 **false** 입니다.<br>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. |예 |
@@ -281,7 +281,7 @@ Amazon s 3에서 Azure Data Lake Storage Gen2 또는 Azure Blob Storage로 파�
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 **type** 속성은 **AmazonS3Object** 로 설정 해야 합니다. |예 |
 | bucketName | S3 버킷 이름입니다. 와일드 카드 필터는 지원 되지 않습니다. |복사 또는 조회 작업의 경우 예, GetMetadata 작업의 경우 아니요 |
@@ -361,7 +361,7 @@ Amazon s 3에서 Azure Data Lake Storage Gen2 또는 Azure Blob Storage로 파�
 
 ### <a name="legacy-source-model-for-the-copy-activity"></a>복사 작업에 대 한 레거시 원본 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **FileSystemSource** 로 설정 해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. **Recursive** 를 **true** 로 설정 하 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다.<br/>허용되는 값은 **true**(기본값) 및 **false** 입니다. | 예 |

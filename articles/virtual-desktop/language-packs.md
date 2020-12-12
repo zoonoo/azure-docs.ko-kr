@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ca4b5486b54de28497ea41765337bfa19f12e3d7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 780324d1a6f7d9edfb552377c3e966e6a186c231
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573122"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347934"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Windows 10 다중 세션 이미지에 언어 팩 추가
 
@@ -24,7 +24,7 @@ Windows 가상 데스크톱은 사용자가 언제 어디서 나 배포할 수 �
 
 후자의 방법은 훨씬 효율적이 고 비용 효율적입니다. 그러나 사용자의 요구에 가장 적합 한 방법을 결정 하는 것은 사용자의 결정입니다. 이 문서에서는 이미지에 대 한 언어를 사용자 지정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 여러 언어를 추가 하려면 Windows 10 Enterprise 다중 세션 이미지를 사용자 지정 하려면 다음 항목이 필요 합니다.
 
@@ -52,6 +52,7 @@ Windows 가상 데스크톱은 사용자가 언제 어디서 나 배포할 수 �
           - [Windows 10, 버전 2004 또는 20H2 **9b 했으면** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
           - [Windows 10, 버전 2004 또는 20H2 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
           - [Windows 10, 버전 2004 또는 20H2 **10Clxp** ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
+          - [Windows 10, 버전 2004 또는 20H2 **11C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
 
 - Windows 파일 서버 가상 컴퓨터의 Azure Files 공유 또는 파일 공유
 

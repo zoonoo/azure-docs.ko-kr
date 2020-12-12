@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: 70ce1807ea6080e3efc0cf3266a9940c9ddb9cd3
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 71b9c96c1855180106f7dfa9a31f0ee8b06ceb67
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489355"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347866"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Azure Table 스토리지를 사용하여 상업용 Marketplace 잠재 고객 관리
 
@@ -55,7 +55,7 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 
     ![Azure 테이블](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    [Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) 또는 다른 도구를 사용하여 스토리지 테이블의 데이터를 확인할 수 있습니다. Azure 테이블의 데이터를 내보낼 수도 있습니다.
+    [Azure Storage Explorer](https://www.storageexplorer.com) 또는 다른 도구를 사용하여 스토리지 테이블의 데이터를 확인할 수 있습니다. Azure 테이블의 데이터를 내보낼 수도 있습니다.
 
 ## <a name="optional-use-power-automate-to-get-lead-notifications"></a>(선택 사항) Power Automate를 사용하여 잠재 고객 알림 받기
 
@@ -100,19 +100,19 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 1. **작업** 아래에서 **엔터티 가져오기(Azure Table Storage)** 를 선택합니다.
 1. **Azure Table Storage** 창에서 다음 상자에 정보를 지정하고 **만들기** 를 선택합니다.
 
-    * **연결 이름** : 이 흐름과 테이블 사이에 설정하는 연결에 의미 있는 이름을 지정합니다.
-    * **스토리지 계정 이름** : 테이블에 대한 스토리지 계정의 이름을 지정합니다. 이 이름은 스토리지 계정의 **액세스 키** 페이지에서 찾을 수 있습니다.
-    * **공유 스토리지 키** : 테이블에 대한 스토리지 계정의 키 값을 지정합니다. 이 값은 스토리지 계정의 **액세스 키** 페이지에서 찾을 수 있습니다.
+    * **연결 이름**: 이 흐름과 테이블 사이에 설정하는 연결에 의미 있는 이름을 지정합니다.
+    * **스토리지 계정 이름**: 테이블에 대한 스토리지 계정의 이름을 지정합니다. 이 이름은 스토리지 계정의 **액세스 키** 페이지에서 찾을 수 있습니다.
+    * **공유 스토리지 키**: 테이블에 대한 스토리지 계정의 키 값을 지정합니다. 이 값은 스토리지 계정의 **액세스 키** 페이지에서 찾을 수 있습니다.
 
       ![Azure Table Storage 창](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
    **만들기** 를 선택하면 **엔터티 가져오기** 창이 표시됩니다. 여기에서 **고급 옵션 표시** 를 선택하고 다음 상자에 정보를 지정합니다.
 
-   * **테이블** : 테이블의 이름( [테이블 만들기](#create-a-table-in-your-storage-account)에서 지정한 이름)을 선택합니다. 다음 그림에서는 `marketplaceleads` 이 예제에 대해 테이블을 선택 하는 경우의 프롬프트를 보여 줍니다.
+   * **테이블**: 테이블의 이름([테이블 만들기](#create-a-table-in-your-storage-account)에서 지정한 이름)을 선택합니다. 다음 그림에서는 `marketplaceleads` 이 예제에 대해 테이블을 선택 하는 경우의 프롬프트를 보여 줍니다.
 
      ![엔터티 가져오기 창](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-   * **필터 쿼리** : 이 상자를 선택하고 상자에 `Timestamp gt datetime'@{body('Get_past_time')}'` 함수를 붙여넣습니다.
+   * **필터 쿼리**: 이 상자를 선택하고 상자에 `Timestamp gt datetime'@{body('Get_past_time')}'` 함수를 붙여넣습니다.
 
      ![엔터티 가져오기, 필터 쿼리 상자](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
@@ -150,9 +150,9 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 
 1. Office 365 Outlook 창에서 다음 상자에 정보를 지정합니다.
 
-    1. **받는 사람** : 이 알림을 받을 모든 사람의 메일 주소를 입력합니다.
-    1. **주체** : 메일의 제목을 입력합니다. 예: **새로운 잠재 고객!**
-    1. **본문** : 각 메일에 추가할 텍스트를 추가한 다음 `body('Get_entities')?['value']`에 붙여넣습니다.
+    1. **받는 사람**: 이 알림을 받을 모든 사람의 메일 주소를 입력합니다.
+    1. **주체**: 메일의 제목을 입력합니다. 예: **새로운 잠재 고객!**
+    1. **본문**: 각 메일에 추가할 텍스트를 추가한 다음 `body('Get_entities')?['value']`에 붙여넣습니다.
 
     >[!NOTE]
     >이 이메일의 본문에 정적 또는 동적 추가 데이터 요소를 삽입할 수 있습니다.
@@ -193,7 +193,7 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 1. 앞 단계에서 Azure Storage 계정을 만들 때 생성된 연결 문자열을 **스토리지 계정 연결 문자열** 상자에 붙여넣습니다.
      ![잠재 고객 관리, 연결 세부 정보 스토리지 계정](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
 
-1. **연락처 메일** : 새 잠재 고객이 수신되었을 때 메일 알림을 받을 회사 사용자의 메일을 입력합니다. 세미콜론으로 구분하여 여러 메일을 입력할 수 있습니다.
+1. **연락처 메일**: 새 잠재 고객이 수신되었을 때 메일 알림을 받을 회사 사용자의 메일을 입력합니다. 세미콜론으로 구분하여 여러 메일을 입력할 수 있습니다.
 
 1. **확인** 을 선택합니다.
 

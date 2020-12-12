@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a71c1a0df1a72e3831fa54a041539f62b38a0aca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 19c27dc80f9af013c458663c9c7afb0033683acd
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999912"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348070"
 ---
 # <a name="create-luis-resources"></a>LUIS 리소스 만들기
 
@@ -51,16 +51,13 @@ LUIS 리소스와 같은 Azure 리소스는 리소스를 포함 하는 구독이
 * 구독의 [소유권](../../cost-management-billing/manage/billing-subscription-transfer.md) 을 양도 합니다.
 * LUIS 앱을 파일로 내보낸 다음 다른 구독에서 앱을 가져옵니다. 내보내기는 LUIS 포털의 **내 앱** 페이지에서 사용할 수 있습니다.
 
-
-## <a name="resource-limits"></a>리소스 제한
+## <a name="resource-limits"></a>리소스 한계
 
 ### <a name="authoring-key-creation-limits"></a>작성 키 생성 제한
 
-구독 당 지역별 제작 키를 최대 10 개까지 만들 수 있습니다.
+구독 당 지역별 제작 키를 최대 10 개까지 만들 수 있습니다. 게시 지역은 작성 지역과 다릅니다. 클라이언트 응용 프로그램을 배치할 게시 영역에 해당 하는 제작 지역에서 앱을 만들어야 합니다. 제작 지역이 게시 영역에 매핑되는 방법에 대 한 자세한 내용은 [지역 제작 및 게시](luis-reference-regions.md)를 참조 하세요. 
 
-자세한 내용은 [키 제한](luis-limits.md#key-limits) 및 [Azure 지역](luis-reference-regions.md)을 참조 하세요.
-
-게시 지역은 작성 지역과 다릅니다. 클라이언트 응용 프로그램을 배치할 게시 영역에 해당 하는 제작 지역에서 앱을 만들어야 합니다.
+키 제한에 대 한 자세한 내용은 [키 제한](luis-limits.md#key-limits)을 참조 하세요.
 
 ### <a name="errors-for-key-usage-limits"></a>키 사용 제한에 대 한 오류
 
@@ -204,7 +201,7 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI를 사용 
     ```
 
     > [!Note]
-    > 이러한 키는 **Manage**  >  LUIS 포털의 **Azure 리소스** 관리 페이지에서 할당 될 때까지 LUIS 포털에서 사용 되지 않습니다.
+    > 이러한 키는   >  LUIS 포털의 **Azure 리소스** 관리 페이지에서 할당 될 때까지 LUIS 포털에서 사용 되지 않습니다.
 
 <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>
 
@@ -224,7 +221,7 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI를 사용 
 이 절차를 사용 하 여 제작 또는 예측 리소스를 만들거나 응용 프로그램에 하나를 할당할 수 있습니다. 
 
 1. [LUIS 포털](https://www.luis.ai)에 로그인합니다. **내 앱** 목록에서 앱을 선택합니다.
-1. Azure 리소스 **관리** 로 이동 합니다  >  **Azure Resources**.
+1. Azure 리소스 **관리** 로 이동 합니다  >  .
 
     ![Azure 리소스 페이지를 보여 주는 스크린샷](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
 
@@ -269,7 +266,7 @@ CI/CD 파이프라인과 같은 자동화 된 프로세스의 경우 LUIS 런타
 ## <a name="unassign-a-resource"></a>리소스 할당 해제
 
 1. [LUIS 포털](https://www.luis.ai)에 로그인 한 다음 **내 앱** 목록에서 앱을 선택 합니다.
-1. **Manage**  >  **Azure 리소스** 관리로 이동 합니다.
+1.   >  **Azure 리소스** 관리로 이동 합니다.
 1. **예측 리소스** 또는 **제작 리소스** 탭에서 리소스에 대 한 **리소스 할당** 해제 단추를 선택 합니다.
 
 리소스 할당을 취소 하면 Azure에서 삭제 되지 않습니다. LUIS에서 연결 되지 않습니다.

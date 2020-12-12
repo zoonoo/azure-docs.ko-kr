@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5b689ef15c247cea1887948ae271802294bbd0fc
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 4b72bb8bac8f9949c83d0bbc85a0995f790c437d
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763251"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347900"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Azure Digital Twins 문제 해결: 메트릭
 
@@ -48,6 +48,17 @@ ms.locfileid: "96763251"
 Azure Digital Twins는 인스턴스 상태와 연결 된 리소스의 상태에 대 한 개요를 제공 하는 몇 가지 메트릭을 제공 합니다. 여러 메트릭의 정보를 결합 하 여 인스턴스의 상태를 더 크게 파악할 수도 있습니다. 
 
 다음 표에서는 각 Azure Digital Twins 인스턴스가 추적 하는 메트릭과 각 메트릭이 인스턴스의 전체 상태와 어떻게 관련 되는지를 설명 합니다.
+
+#### <a name="metrics-for-tracking-service-limits"></a>추적 서비스 제한에 대 한 메트릭
+
+이러한 메트릭은 솔루션의 일부 측면에 대해 [게시 된 서비스 제한](reference-service-limits.md#functional-limits) 에 도달 하는 시기를 추적 하도록 구성할 수 있습니다. 
+
+이를 설정 하려면 Azure Monitor의 [경고](troubleshoot-alerts.md) 기능을 사용 합니다. 메트릭이 게시 된 한도의 특정 비율에 도달 하면 경고를 받도록 이러한 메트릭에 대 한 임계값을 정의할 수 있습니다.
+
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
+| --- | --- | --- | --- | --- | --- |
+| TwinCount | 쌍 개수 (미리 보기) | 개수 | 합계 | Azure Digital 쌍 인스턴스의 총 쌍 수입니다. 이 메트릭을 사용 하 여 인스턴스당 허용 되는 최대 수에 대 한 [서비스 제한](reference-service-limits.md#functional-limits) 에 근접 하 고 있는지 여부를 확인 합니다. |  없음 |
+| ModelCount | 모델 수 (미리 보기) | 개수 | 합계 | Azure Digital Twins 인스턴스의 총 모델 수입니다. 이 메트릭을 사용 하 여 인스턴스당 허용 되는 최대 모델 수에 대 한 [서비스 제한](reference-service-limits.md#functional-limits) 에 근접 하 고 있는지 여부를 확인 합니다. | 없음 |
 
 #### <a name="api-request-metrics"></a>API 요청 메트릭
 

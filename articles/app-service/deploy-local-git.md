@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 5ed3e858168ce5ad9a7f089b723bb75ca8a49fca
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 26fd8bc73fad3ea313641fc4b1e0f454ee2c0813
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007520"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347781"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service에 대 한 로컬 Git 배포
 
@@ -80,7 +80,7 @@ az webapp deployment list-publishing-credentials --name <app-name> --resource-gr
    git remote add azure <url>
    ```
    
-1. 를 사용 하 여 Azure 원격에 푸시합니다 `git push azure main` . 
+1. 를 사용 하 여 Azure 원격에 푸시합니다 `git push azure master` . 
    
 1. **Git 자격 증명 관리자** 창에서 Azure 로그인 암호가 아닌 [배포 사용자 암호](#configure-a-deployment-user)를 입력 합니다.
    
@@ -131,7 +131,7 @@ Azure Pipelines (미리 보기)를 사용 하 여 앱에 대 한 로컬 Git 배�
    git remote add azure <url>
    ```
    
-1. 를 사용 하 여 Azure 원격에 푸시합니다 `git push azure main` . 
+1. 를 사용 하 여 Azure 원격에 푸시합니다 `git push azure master` . 
    
 1. **Git 자격 증명 관리자** 페이지에서 visualstudio.com username을 사용 하 여 로그인 합니다. 다른 인증 방법은 [Azure DevOps Services 인증 개요](/vsts/git/auth-overview?view=vsts)를 참조 하세요.
    
@@ -149,8 +149,8 @@ Git를 사용 하 여 Azure에서 App Service 앱에 게시 하는 경우 다음
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|앱이 실행 되 고 있지 않습니다.|Azure Portal에서 앱을 시작합니다. 웹 앱이 중지 되 면 Git 배포를 사용할 수 없습니다.|
 |`Couldn't resolve host 'hostname'`|' Azure ' 원격에 대 한 주소 정보가 잘못 되었습니다.|`git remote -v` 명령을 사용하여 모든 원격을 관련 URL과 함께 나열합니다. 'azure' 원격의 URL이 올바른지 확인합니다. 필요한 경우 제거하고 올바른 URL을 사용하여 이 원격을 다시 만드세요.|
-|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|중에 분기를 지정 하지 `git push` 않았거나에서 값을 설정 하지 않았습니다 `push.default` `.gitconfig` .|`git push`주 분기를 지정 하 여를 다시 실행 `git push azure main` 합니다.|
-|`src refspec [branchname] does not match any.`|' Azure ' 원격에서 main 이외의 분기로 푸시 하려고 했습니다.|`git push`주 분기를 지정 하 여를 다시 실행 `git push azure main` 합니다.|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|중에 분기를 지정 하지 `git push` 않았거나에서 값을 설정 하지 않았습니다 `push.default` `.gitconfig` .|`git push`주 분기를 지정 하 여를 다시 실행 `git push azure master` 합니다.|
+|`src refspec [branchname] does not match any.`|' Azure ' 원격에서 main 이외의 분기로 푸시 하려고 했습니다.|`git push`마스터 분기를 지정 하 여를 다시 실행 `git push azure master` 합니다.|
 |`RPC failed; result=22, HTTP code = 5xx.`|이 오류는 HTTPS를 통해 큰 git 리포지토리를 푸시하려고 시도하는 경우 발생할 수 있습니다.|로컬 컴퓨터에서 git 구성을 변경 하 여 `postBuffer` 더 크게 만듭니다. 예를 들어 `git config --global http.postBuffer 524288000`을 참조하십시오.|
 |`Error - Changes committed to remote repository but your web app not updated.`|추가 필수 모듈을 지정 하는 파일 _에package.js_ 를 사용 하 여 Node.js 앱을 배포 했습니다.|오류 `npm ERR!` 에 대 한 추가 컨텍스트를 위해이 오류 이전의 오류 메시지를 검토 합니다. 이 오류의 알려진 원인과 해당 메시지는 다음과 같습니다 `npm ERR!` .<br /><br />**파일의 package.js형식이 잘못** 되었습니다. `npm ERR! Couldn't read dependencies.`<br /><br />**네이티브 모듈에는 Windows 용 이진 배포가** 없습니다.<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />또는 <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
