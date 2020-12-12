@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: c113a252363d3b94131ac423f795f6efb13b1975
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 14b6d6ecc6523199102fd3ef9370fe901c4ff51d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029552"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355701"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -89,7 +89,7 @@ OIDC 범위와 토큰을 요청 하면 사용자 [정보 끝점](userinfo.md)을
 [ `offline_access` 범위](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) 는 확장 된 시간 동안 사용자를 대신 하 여 리소스에 대 한 액세스 권한을 앱에 부여 합니다. 동의 페이지에서 이 범위는 "액세스 권한을 부여한 데이터에 대한 액세스 권한 유지" 권한으로 나타납니다. 사용자가 범위를 승인 하면 `offline_access` 앱은 Microsoft id 플랫폼 토큰 끝점에서 새로 고침 토큰을 받을 수 있습니다. 새로 고침 토큰은 장기적으로 존재합니다. 오래된 액세스 토큰이 만료되면 앱에서 새 액세스 토큰을 가져올 수 있습니다.
 
 > [!NOTE]
-> 이 권한은 새로 고침 토큰 ( [암시적 흐름](v2-oauth2-implicit-grant-flow.md))을 제공 하지 않는 흐름의 경우에도 현재 모든 동의 화면에 표시 됩니다.  이는 클라이언트가 암시적 흐름 내에서 시작 하 여 새로 고침 토큰이 필요한 코드 흐름으로 이동할 수 있는 시나리오를 다루는 것입니다.
+> 이 권한은 새로 고침 토큰 ( [암시적 흐름](v2-oauth2-implicit-grant-flow.md))을 제공 하지 않는 흐름의 경우에도 현재 모든 동의 화면에 표시 됩니다. 이는 클라이언트가 암시적 흐름 내에서 시작 하 여 새로 고침 토큰이 필요한 코드 흐름으로 이동할 수 있는 시나리오를 다루는 것입니다.
 
 Microsoft id 플랫폼 (v2.0 끝점에 대 한 요청)에서 앱은 `offline_access` 새로 고침 토큰을 받기 위해 범위를 명시적으로 요청 해야 합니다. 즉, [OAuth 2.0 권한 부여 코드 흐름](active-directory-v2-protocols.md)에서 권한 부여 코드를 교환하는 경우 `/token` 엔드포인트에서 액세스 토큰만 받게 됩니다. 액세스 토큰은 짧은 시간 동안 유효합니다. 액세스 토큰은 일반적으로 1시간 후에 만료됩니다. 이 시점에 앱은 사용자를 `/authorize` 엔드포인트로 다시 리디렉션하여 새 권한 부여 코드를 가져와야 합니다. 이 리디렉션 중에 앱 형식에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수 있습니다.
 
@@ -193,7 +193,7 @@ https://graph.microsoft.com/mail.send
 ```
 
 
-| 매개 변수        | 조건        | Description                                                                                |
+| 매개 변수        | 조건        | 설명                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. 는 GUID 또는 친숙 한 이름 형식으로 제공 하거나 예에 표시 된 대로 조직에서 일반적으로 참조할 수 있습니다. 개인 계정에서는 테 넌 트의 컨텍스트를 제외 하 고 관리자 동의를 제공할 수 없으므로 ' 공통 '을 사용 하지 마세요. 테 넌 트를 관리 하는 개인 계정과 가장 잘 호환 되도록 하려면 가능 하면 테 넌 트 ID를 사용 합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다. |
@@ -212,7 +212,7 @@ https://graph.microsoft.com/mail.send
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `tenant` | 디렉터리 테넌트는 GUID 형식으로 요청한 권한을 애플리케이션에 부여합니다. |
 | `state` | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |

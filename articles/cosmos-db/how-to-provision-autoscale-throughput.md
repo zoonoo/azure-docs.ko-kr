@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 615ce7da3ec480b766ceaeb307c50f7cb759fd4a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 52904296df77d9097a6180345388e8e702e2bca0
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100119"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357630"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Azure Cosmos DB SQL API에서 데이터베이스 또는 컨테이너에 자동 크기 조정 처리량 프로 비전
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -51,7 +51,7 @@ ms.locfileid: "93100119"
 
 1. **크기 조정** 에서 **자동 크기 조정** 옵션, **저장** 을 선택합니다.
 
-   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="컨테이너 만들기 및 자동 크기 조정 프로비전된 처리량 구성":::
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="기존 컨테이너에서 자동 크기 조정 사용":::
 
 > [!NOTE]
 > 기존 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용하도록 설정하면 현재의 수동 프로비전된 처리량 설정 및 스토리지에 따라 최대 RU/s의 시작 값이 시스템에 의해 결정됩니다. 작업이 완료된 후 필요하면 최대 RU/s를 변경할 수 있습니다. [자세한 정보](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
@@ -128,7 +128,7 @@ SQL API용 Azure Cosmos DB Java SDK의 [버전 4.0 이상](https://mvnrepository
 // Create instance of CosmosClient
 CosmosAsyncClient client = new CosmosClientBuilder()
     .setEndpoint(HOST)
-    .setKey(MASTER)
+    .setKey(PRIMARYKEY)
     .setConnectionPolicy(CONNECTIONPOLICY)
     .buildAsyncClient();
 
@@ -145,7 +145,7 @@ CosmosAsyncDatabase database = client.createDatabase(databaseName, autoscaleThro
 // Create instance of CosmosClient
 CosmosClient client = new CosmosClientBuilder()
     .setEndpoint(HOST)
-    .setKey(MASTER)
+    .setKey(PRIMARYKEY)
     .setConnectionPolicy(CONNECTIONPOLICY)
     .buildClient();
 

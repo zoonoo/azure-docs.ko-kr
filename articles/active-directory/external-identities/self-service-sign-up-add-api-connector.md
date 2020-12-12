@@ -11,16 +11,19 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d121e6280b83265a742736f9b8dd3aee96a8b32e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f34ca47d5ff6c809eef40f89ee0049285cfd7d42
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351762"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355396"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>사용자 흐름에 API 커넥터 추가
 
 [Api 커넥터](api-connectors-overview.md)를 사용 하려면 먼저 api 커넥터를 만든 다음 사용자 흐름에서 사용 하도록 설정 합니다.
+
+> [!IMPORTANT]
+>Google은 **2021 년 1 월 4 일부 터** [사용 중단 웹 보기 로그인을 지원](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail을 사용 하 여 Google 페더레이션 또는 셀프 서비스 등록을 사용 하는 경우 lob ( [기간 업무) 네이티브 응용 프로그램의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
 
 ## <a name="create-an-api-connector"></a>API 커넥터 만들기
 
@@ -248,8 +251,8 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 버전                                            | String            | 예      | API 버전입니다.                                                                                                                                                                                                                                                                |
 | action                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | 예       | API 커넥터 구성에서 *를 *수신할 _ 클레임* 으로 선택 하 고 사용자 흐름의 **사용자 특성** 을 선택 하는 경우 디렉터리에 값을 저장할 수 있습니다. **응용 프로그램 클레임** 으로 선택한 경우 토큰에서 값을 반환할 수 있습니다.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 예       | 반환 된 클레임에는를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 값이 디렉터리에 저장 됩니다. 사용자 지정 특성은 토큰으로 다시 보낼 수 없습니다. |
+| \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | API 커넥터 구성에서 *를 *수신할 _ 클레임* 으로 선택 하 고 사용자 흐름의 **사용자 특성** 을 선택 하는 경우 디렉터리에 값을 저장할 수 있습니다. **응용 프로그램 클레임** 으로 선택한 경우 토큰에서 값을 반환할 수 있습니다.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 아니요       | 반환 된 클레임에는를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 값이 디렉터리에 저장 됩니다. 사용자 지정 특성은 토큰으로 다시 보낼 수 없습니다. |
 
 ### <a name="example-of-a-blocking-response"></a>차단 응답의 예
 
@@ -271,7 +274,7 @@ Content-type: application/json
 | 버전     | String | 예      | API 버전입니다.                                                    |
 | action      | String | 예      | 값은 이어야 합니다. `ShowBlockPage`                                              |
 | userMessage | String | 예      | 사용자에게 표시할 메시지입니다.                                            |
-| code        | String | 예       | 오류 코드 디버깅을 위해 사용할 수 있습니다. 사용자에 게 표시 되지 않습니다. |
+| code        | String | 아니요       | 오류 코드 디버깅을 위해 사용할 수 있습니다. 사용자에 게 표시 되지 않습니다. |
 
 **차단 응답이 있는 최종 사용자 환경**
 
@@ -296,9 +299,9 @@ Content-type: application/json
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | 버전     | String  | 예      | API 버전입니다.                                                    |
 | action      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |
-| 상태      | 정수 | Yes      | `400`ValidationError 응답의 값 이어야 합니다.                        |
+| 상태      | 정수 | 예      | `400`ValidationError 응답의 값 이어야 합니다.                        |
 | userMessage | String  | 예      | 사용자에게 표시할 메시지입니다.                                            |
-| code        | String  | 예       | 오류 코드 디버깅을 위해 사용할 수 있습니다. 사용자에 게 표시 되지 않습니다. |
+| code        | String  | 아니요       | 오류 코드 디버깅을 위해 사용할 수 있습니다. 사용자에 게 표시 되지 않습니다. |
 
 **유효성 검사 오류 응답과 함께 최종 사용자 환경**
 

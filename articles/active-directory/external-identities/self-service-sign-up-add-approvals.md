@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82f0408b7e46493f6c3ec62d48a992e87f196f78
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 3165bc28e6d6283bf8578d9c10b11f7b19981002
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860612"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355242"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>셀프 서비스 등록에 사용자 지정 승인 워크플로 추가
 
@@ -26,6 +26,9 @@ ms.locfileid: "96860612"
 
 - 사용자를 자동으로 승인 하 고 Azure AD에서 사용자 계정을 만들도록 허용 합니다.
 - 수동 검토를 트리거합니다. 요청이 승인 되 면 승인 시스템은 Microsoft Graph를 사용 하 여 사용자 계정을 프로 비전 합니다. 승인 시스템은 사용자에 게 계정이 생성 되었음을 알릴 수도 있습니다.
+
+> [!IMPORTANT]
+>Google은 **2021 년 1 월 4 일부 터** [사용 중단 웹 보기 로그인을 지원](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail을 사용 하 여 Google 페더레이션 또는 셀프 서비스 등록을 사용 하는 경우 lob ( [기간 업무) 네이티브 응용 프로그램의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
 
 ## <a name="register-an-application-for-your-approval-system"></a>승인 시스템용 응용 프로그램 등록
 
@@ -318,7 +321,7 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수                                           | 필수 | Description                                                                                                                                                            |
+| 매개 변수                                           | 필수 | 설명                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userPrincipalName                                   | 예      | `email`API에 전송 된 클레임을 사용 하 여를 생성 하 고, `@` 문자를로 바꾸고 `_` ,을로 미리 보류할 수 있습니다 `#EXT@<tenant-name>.onmicrosoft.com` . |
 | accountEnabled                                      | 예      | `true`로 설정해야 합니다.                                                                                                                                                 |

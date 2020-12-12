@@ -8,12 +8,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: 73d6fe0233eccea9ebf1d82beb509c56fb45f4da
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e84b80233d87ac4ae5e2281b506e225c4ab1bd9d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339515"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357605"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>CouchBase에서 Azure Cosmos DB SQL API로 마이그레이션
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,7 +39,7 @@ Azure Cosmos DB는 확장 가능하고 전 세계적으로 분산되고 완전�
 
 * Azure Cosmos DB에서는 컬렉션 이름이 이미 존재하기 때문에 최상위 계층 구조에서 컬렉션을 표시할 필요가 없습니다. 이 기능 덕분에 JSON 구조가 훨씬 간단해집니다. 다음은 데이터 모델에서 Couchbase와 Azure Cosmos DB 간 차이점을 보여 주는 예제입니다.
 
-   **Couchbase** : 문서 ID =  "99FF4444"
+   **Couchbase**: 문서 ID =  "99FF4444"
 
     ```json
     {
@@ -69,7 +69,7 @@ Azure Cosmos DB는 확장 가능하고 전 세계적으로 분산되고 완전�
     }
    ```
 
-   **Azure Cosmos DB** : 아래와 같이 문서 내에서 "ID"를 참조합니다.
+   **Azure Cosmos DB**: 아래와 같이 문서 내에서 "ID"를 참조합니다.
 
     ```json
     {
@@ -181,7 +181,7 @@ Azure Cosmos DB에는 다양한 Java 프레임워크를 지원하는 다음과 �
 * ```_repo.findByIdAndName(objDoc.getId(),objDoc.getName());```
 * ```_repo.findAllByStatus(objDoc.getStatus());```
 
-이것으로 끝입니다. 이제 Azure Cosmos DB에서 애플리케이션을 사용할 수 있습니다. 이 문서에서 설명하는 예제에 대한 전체 코드 샘플은 [CouchbaseToCosmosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/SpringCosmos) GitHub 리포지토리에서 사용할 수 있습니다.
+이것으로 끝입니다. 이제 Azure Cosmos DB에서 애플리케이션을 사용할 수 있습니다. 이 문서에서 설명하는 예제에 대한 전체 코드 샘플은 [CouchbaseToCosmosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/SpringCosmos) GitHub 리포지토리에서 사용할 수 있습니다.
 
 ## <a name="couchbase-as-a-document-repository--using-n1ql-queries"></a>문서 리포지토리로서의 Couchbase 및 N1QL 쿼리 사용
 
@@ -222,9 +222,9 @@ N1QL 쿼리에서 다음과 같이 변경된 내용을 확인할 수 있습니�
     
    if(client==null)
     client= CosmosClient.builder()
-        .endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
+        .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
         .connectionPolicy(cp)
-        .key(MasterKey)
+        .key(PrimaryKey)
         .consistencyLevel(ConsistencyLevel.EVENTUAL)
         .build();   
    
@@ -305,7 +305,7 @@ CosmosItem objItem= container.getItem(doc.Id, doc.Tenant);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-그런 다음 Mono를 구독합니다. 삽입 작업에서 Mono 구독 코드 조각을 참조하세요. 전체 코드 샘플은 [CouchbaseToCosmosDB-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncInSpring) GitHub 리포지토리에서 사용할 수 있습니다.
+그런 다음 Mono를 구독합니다. 삽입 작업에서 Mono 구독 코드 조각을 참조하세요. 전체 코드 샘플은 [CouchbaseToCosmosDB-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/AsyncInSpring) GitHub 리포지토리에서 사용할 수 있습니다.
 
 ## <a name="couchbase-as-a-keyvalue-pair"></a>키/값 쌍으로서의 Couchbase
 
@@ -351,9 +351,9 @@ Mono<CosmosItemResponse> objMono = objItem.delete(ro);
    
    if(client==null)
     client= CosmosClient.builder()
-        .endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
+        .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
         .connectionPolicy(cp)
-        .key(MasterKey)
+        .key(PrimaryKey)
         .consistencyLevel(ConsistencyLevel.EVENTUAL)
         .build();
     
@@ -427,7 +427,7 @@ CosmosItem objItem= container.getItem(id, id);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-그런 다음 Mono를 구독합니다. 삽입 작업에서 Mono 구독 코드 조각을 참조하세요. 전체 코드 샘플은 [CouchbaseToCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncKeyValue) GitHub 리포지토리에서 사용할 수 있습니다.
+그런 다음 Mono를 구독합니다. 삽입 작업에서 Mono 구독 코드 조각을 참조하세요. 전체 코드 샘플은 [CouchbaseToCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/AsyncKeyValue) GitHub 리포지토리에서 사용할 수 있습니다.
 
 ## <a name="data-migration"></a>데이터 마이그레이션
 

@@ -8,18 +8,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 81a5b5d8b9cb56b41d051de52f1496e30fb4900f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: feab48f32396bcc89621433930c9a9f4689d8286
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790069"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355446"
 ---
 # <a name="tutorial-manually-configure-an-availability-group-sql-server-on-azure-vms"></a>자습서: 가용성 그룹(Azure VM의 SQL Server) 수동 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +30,7 @@ ms.locfileid: "92790069"
 이 문서에서는 가용성 그룹 환경을 수동으로 구성하지만, [Azure Portal](availability-group-azure-portal-configure.md), [PowerShell 또는 Azure CLI](availability-group-az-commandline-configure.md) 또는 [Azure 빠른 시작 템플릿](availability-group-quickstart-template-configure.md)도 사용하여 구성할 수 있습니다. 
 
 
-**예상 시간** : [필수 구성 요소](availability-group-manually-configure-prerequisites-tutorial.md)가 충족되면 완료하는 데 약 30분 정도 걸립니다.
+**예상 시간**: [필수 구성 요소](availability-group-manually-configure-prerequisites-tutorial.md)가 충족되면 완료하는 데 약 30분 정도 걸립니다.
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -79,7 +80,7 @@ ms.locfileid: "92790069"
    | 시작하기 전에 |기본값 사용 |
    | 서버 선택 |**서버 이름 입력** 에서 첫 번째 SQL Server 이름을 입력하고, **추가** 를 선택합니다. |
    | 유효성 검사 경고 |**아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. [다음]을 선택하면 클러스터 만들기를 계속합니다.** 를 선택합니다. |
-   | 클러스터 관리를 위한 액세스 지점 |클러스터 이름(예: **SQLAGCluster1** )을 **클러스터 이름** 에 입력합니다.|
+   | 클러스터 관리를 위한 액세스 지점 |클러스터 이름(예: **SQLAGCluster1**)을 **클러스터 이름** 에 입력합니다.|
    | 확인 |스토리지 공간을 사용하지 않는 경우 기본값을 사용합니다. 이 표 다음의 참고 사항을 참조하세요. |
 
 ### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Windows Server 장애 조치(Failover) 클러스터 IP 주소 설정
@@ -107,7 +108,7 @@ ms.locfileid: "92790069"
 
 1. **노드 추가 마법사** 에서 **다음** 을 선택합니다. **서버 선택** 페이지에서 두 번째 SQL Server를 추가합니다. **서버 이름 입력** 에서 서버 이름을 입력한 다음, **추가** 를 선택합니다. 완료되면 **다음** 을 선택합니다.
 
-1. **유효성 검사 경고** 페이지에서 **아니요** (유효성 검사 테스트를 수행할 프로덕션 시나리오에서)를 선택합니다. 그다음에 **다음** 을 선택합니다.
+1. **유효성 검사 경고** 페이지에서 **아니요**(유효성 검사 테스트를 수행할 프로덕션 시나리오에서)를 선택합니다. 그다음에 **다음** 을 선택합니다.
 
 8. 스토리지 공간을 사용 중인 경우 **확인** 페이지에서 **클러스터에 사용할 수 있는 모든 스토리지를 추가하세요.** 확인란을 선택 취소합니다.
 
@@ -275,7 +276,7 @@ Repeat these steps on the second SQL Server.
 * 첫 번째 SQL Server에서 데이터베이스를 만듭니다.
 * 데이터베이스의 전체 백업 및 트랜잭션 로그 백업을 수행합니다.
 * **NORECOVERY** 옵션을 사용하여 전체 및 로그 백업을 두 번째 SQL Server로 복원합니다.
-* 동기 커밋, 자동 장애 조치(failover) 및 읽을 수 있는 보조 복제본으로 가용성 그룹( **AG1** )을 만듭니다.
+* 동기 커밋, 자동 장애 조치(failover) 및 읽을 수 있는 보조 복제본으로 가용성 그룹(**AG1**)을 만듭니다.
 
 ### <a name="create-the-availability-group"></a>가용성 그룹 만들기:
 
@@ -332,7 +333,7 @@ Repeat these steps on the second SQL Server.
 
 ### <a name="check-the-availability-group"></a>가용성 그룹 확인
 
-1. **개체 탐색기** 에서 **AlwaysOn 고가용성** , **가용성 그룹** 을 차례로 펼칩니다. 이 컨테이너에 새 가용성 그룹이 표시됩니다. 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **대시보드 표시** 를 선택합니다.
+1. **개체 탐색기** 에서 **AlwaysOn 고가용성**, **가용성 그룹** 을 차례로 펼칩니다. 이 컨테이너에 새 가용성 그룹이 표시됩니다. 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **대시보드 표시** 를 선택합니다.
 
    ![가용성 그룹 대시보드 표시](./media/availability-group-manually-configure-tutorial/76-showdashboard.png)
 
@@ -395,7 +396,7 @@ Azure의 부하 분산 장치는 표준 Load Balancer 또는 기본 Load Balance
 
    ![리소스 그룹의 부하 분산 장치 찾기](./media/availability-group-manually-configure-tutorial/86-findloadbalancer.png)
 
-1. 부하 분산 장치를 선택하고, **백 엔드 풀** , **+ 추가** 를 차례로 선택합니다.
+1. 부하 분산 장치를 선택하고, **백 엔드 풀**, **+ 추가** 를 차례로 선택합니다.
 
 1. 백 엔드 풀의 이름을 입력합니다.
 
@@ -410,11 +411,11 @@ Azure의 부하 분산 장치는 표준 Load Balancer 또는 기본 Load Balance
 
 ### <a name="set-the-probe"></a>프로브 설정
 
-1. 부하 분산 장치를 선택하고, **상태 프로브** , **+ 추가** 를 차례로 선택합니다.
+1. 부하 분산 장치를 선택하고, **상태 프로브**, **+ 추가** 를 차례로 선택합니다.
 
 1. 다음과 같이 수신기 상태 프로브를 설정합니다.
 
-   | 설정 | Description | 예제
+   | 설정 | 설명 | 예제
    | --- | --- |---
    | **이름** | 텍스트 | SQLAlwaysOnEndPointProbe |
    | **프로토콜** | TCP 선택 | TCP |
@@ -426,11 +427,11 @@ Azure의 부하 분산 장치는 표준 Load Balancer 또는 기본 Load Balance
 
 ### <a name="set-the-load-balancing-rules"></a>부하 분산 규칙 설정
 
-1. 부하 분산 장치를 선택하고, **부하 분산 규칙** , **+ 추가** 를 차례로 선택합니다.
+1. 부하 분산 장치를 선택하고, **부하 분산 규칙**, **+ 추가** 를 차례로 선택합니다.
 
 1. 수신기 부하 분산 규칙을 다음과 같이 설정합니다.
 
-   | 설정 | Description | 예제
+   | 설정 | 설명 | 예제
    | --- | --- |---
    | **이름** | 텍스트 | SQLAlwaysOnEndPointListener |
    | **프런트 엔드 IP 주소** | 주소 선택 |부하 분산 장치를 만들 때 생성된 주소를 사용합니다. |
@@ -452,13 +453,13 @@ Azure의 부하 분산 장치는 표준 Load Balancer 또는 기본 Load Balance
 
 WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
 
-1. Azure Portal에서 동일한 Azure 부하 분산 장치로 이동합니다. **프런트 엔드 IP 구성** , **+ 추가** 를 차례로 선택합니다. 클러스터 코어 리소스에서 WSFC에 대해 구성한 IP 주소를 사용합니다. IP 주소를 고정으로 설정합니다.
+1. Azure Portal에서 동일한 Azure 부하 분산 장치로 이동합니다. **프런트 엔드 IP 구성**, **+ 추가** 를 차례로 선택합니다. 클러스터 코어 리소스에서 WSFC에 대해 구성한 IP 주소를 사용합니다. IP 주소를 고정으로 설정합니다.
 
-1. 부하 분산 장치에서 **상태 프로브** , **+ 추가** 를 차례로 선택합니다.
+1. 부하 분산 장치에서 **상태 프로브**, **+ 추가** 를 차례로 선택합니다.
 
 1. WSFC 클러스터 코어 IP 주소 상태 프로브를 다음과 같이 설정합니다.
 
-   | 설정 | Description | 예제
+   | 설정 | 설명 | 예제
    | --- | --- |---
    | **이름** | 텍스트 | WSFCEndPointProbe |
    | **프로토콜** | TCP 선택 | TCP |
@@ -468,11 +469,11 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
 
 1. **확인** 을 선택하여 상태 프로브를 설정합니다.
 
-1. 부하 분산 규칙을 설정합니다. **부하 분산 규칙** , **+ 추가** 를 차례로 선택합니다.
+1. 부하 분산 규칙을 설정합니다. **부하 분산 규칙**, **+ 추가** 를 차례로 선택합니다.
 
 1. 클러스터 코어 IP 주소 부하 분산 규칙을 다음과 같이 설정합니다.
 
-   | 설정 | Description | 예제
+   | 설정 | 설명 | 예제
    | --- | --- |---
    | **이름** | 텍스트 | WSFCEndPoint |
    | **프런트 엔드 IP 주소** | 주소 선택 |WSFC IP 주소를 구성할 때 생성된 주소를 사용합니다. 수신기 IP 주소와는 다릅니다. |

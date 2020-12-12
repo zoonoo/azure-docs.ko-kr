@@ -14,16 +14,16 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 2059c473c8429e7498992e26c0a2c90ea835c537
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 784f1cc7b7e063166dc1f24851ab217cef8d831a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89646593"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355650"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft id 플랫폼 ID 토큰
 
-`id_tokens` 는 oidc ( [Openid connect Connect](v2-protocols-oidc.md) ) 흐름의 일부로 클라이언트 응용 프로그램으로 전송 됩니다. 액세스 토큰과 함께 또는 액세스 토큰 대신 보낼 수 있고 클라이언트가 사용자를 인증하는 데 사용됩니다.
+`id_tokens` 는 oidc ( [Openid connect Connect](v2-protocols-oidc.md) ) 흐름의 일부로 클라이언트 응용 프로그램으로 전송 됩니다. 사용자를 인증 하는 데 사용 되는 액세스 토큰 대신 또는와 함께 전송할 수 있습니다.
 
 ## <a name="using-the-id_token"></a>id_token 사용
 
@@ -96,7 +96,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 
 ### <a name="using-claims-to-reliably-identify-a-user-subject-and-object-id"></a>클레임을 사용 하 여 사용자를 안정적으로 식별 (주체 및 개체 ID)
 
-사용자를 식별 하는 경우 (예를 들어 데이터베이스에서 조회 하거나 해당 사용자가 보유 한 권한을 결정 하는 경우)에는 일정 시간에 걸쳐 일정 하 게 유지 되는 정보를 사용 하는 것이 중요 합니다.  레거시 응용 프로그램은 전자 메일 주소, 전화 번호 또는 UPN과 같은 필드를 사용 하는 경우도 있습니다.  이러한 모든 항목은 시간이 지남에 따라 변경 될 수 있으며 시간이 지남에 따라 다시 사용 될 수도 있습니다. 직원의 이름을 변경 하거나 직원에 게 이전에는 직원을 더 이상 표시 하지 않는 전자 메일 주소를 지정 합니다. 따라서 사용자가 읽을 수 있는 사용자를 식별 하기 위해 응용 프로그램에서 사람이 읽을 수 있는 데이터를 사용 하지 않는 것이 **중요** 합니다.  대신 OIDC 표준에서 제공 하는 클레임 또는 Microsoft에서 제공 하는 확장 클레임 (및 클레임)을 사용 `sub` `oid` 합니다.
+사용자를 식별 하는 경우 (예를 들어 데이터베이스에서 조회 하거나 해당 사용자가 보유 한 권한을 결정 하는 경우)에는 일정 시간에 걸쳐 일정 하 게 유지 되는 정보를 사용 하는 것이 중요 합니다. 레거시 응용 프로그램은 전자 메일 주소, 전화 번호 또는 UPN과 같은 필드를 사용 하는 경우도 있습니다.  이러한 모든 항목은 시간이 지남에 따라 변경 될 수 있으며 시간이 지남에 따라 다시 사용 될 수도 있습니다. 직원의 이름을 변경 하거나 직원에 게 이전에는 직원을 더 이상 표시 하지 않는 전자 메일 주소를 지정 합니다. 따라서 사용자가 읽을 수 있는 사용자를 식별 하기 위해 응용 프로그램에서 사람이 읽을 수 있는 데이터를 사용 하지 않는 것이 **중요** 합니다. 대신 OIDC 표준에서 제공 하는 클레임 또는 Microsoft에서 제공 하는 확장 클레임 (및 클레임)을 사용 `sub` `oid` 합니다.
 
 사용자 단위 정보를 정확 하 게 저장 하려면 `sub` `oid` `tid` 필요한 경우 라우팅 또는 분할에 사용 되는 또는 단독 (guid가 고유 함)을 사용 합니다.  서비스 간에 데이터를 공유 해야 하는 경우 `oid` + `tid` 모든 앱이 `oid` 지정 된 사용자에 대해 동일 하 고 클레임을 얻게 되는 것이 가장 좋습니다 `tid` .  `sub`Microsoft id 플랫폼의 클레임은 "페어링" 이며 토큰 수신자, 테 넌 트 및 사용자의 조합에 따라 고유 합니다.  따라서 지정 된 사용자에 대 한 ID 토큰을 요청 하는 두 개의 앱은 다른 `sub` 클레임을 수신 하지만 `oid` 해당 사용자에 대 한 클레임은 동일 합니다.
 

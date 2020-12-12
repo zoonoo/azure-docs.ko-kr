@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 12/11/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40751b7864cc62d17836ab6d57cd106f6904f64a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 788512db242bf1a1c6f18ffc0ee773bd3372aa42
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744111"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355873"
 ---
 # <a name="data-residency-and-customer-data-for-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication 데이터 상주 및 고객 데이터
 
@@ -57,7 +57,7 @@ Azure B2C 인증, NPS 확장 및 Windows Server 2016 또는 2019 AD FS 어댑터
 | Microsoft Authenticator 알림 | Multi-Factor Authentication 로그에서<br />Multi-Factor Authentication 작업 보고서 데이터 저장소<br />사기 행위를 보고한 경우 차단된 사용자<br />Microsoft Authenticator 디바이스 토큰이 변경될 때 변경 요청 |
 
 > [!NOTE]
-> Multi-Factor Authentication 작업 보고서 데이터 저장소는 인증 요청을 처리하는 지역과 관계 없이 모든 클라우드의 미국에 저장됩니다. Microsoft Azure 독일, 21Vianet에서 운영하는 Microsoft Azure 및 Microsoft Government 클라우드는 퍼블릭 클라우드 지역 데이터 저장소와 별도의 독립적인 데이터 저장소를 가지고 있지만 이 데이터는 항상 미국에 저장됩니다.
+> Multi-Factor Authentication 작업 보고서 데이터 저장소는 인증 요청을 처리하는 지역과 관계 없이 모든 클라우드의 미국에 저장됩니다. Microsoft Azure 독일, 21Vianet에서 운영하는 Microsoft Azure 및 Microsoft Government 클라우드는 퍼블릭 클라우드 지역 데이터 저장소와 별도의 독립적인 데이터 저장소를 가지고 있지만 이 데이터는 항상 미국에 저장됩니다. 이러한 데이터 저장소는 UPN (사용자 계정 이름) 및 전체 전화 번호와 같은 PII (개인 식별이 가능한 정보)를 포함 합니다. 
 
 Microsoft Azure Government, Microsoft Azure 독일, 21Vianet에서 운영하는 Microsoft Azure, Azure B2C 인증, NPS 확장 및 Windows Server 2016 또는 2019 AD FS 어댑터의 경우 다음 개인 데이터가 저장됩니다.
 

@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -13,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 208df7ad53049598255ce358f2db128ba84fea9a
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 558daede55f6563155d3f54e97d77c0a3ca4de59
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557783"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357231"
 ---
 # <a name="register-multiple-sql-vms-in-azure-with-the-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 사용 하 여 Azure에 여러 SQL Vm 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,12 +35,12 @@ ms.locfileid: "94557783"
 
 등록 프로세스에는 위험이 없으며, 가동 중지 시간이 없으며, SQL Server 서비스 또는 가상 머신을 다시 시작 하지 않습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 확장을 사용 하 여 SQL Server VM를 등록 하려면 다음이 필요 합니다. 
 
 - [ **SqlVirtualMachine** 공급자에 등록](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-rp) 되었으며 등록 되지 않은 SQL Server 가상 컴퓨터를 포함 하는 [Azure 구독](https://azure.microsoft.com/free/) 입니다. 
-- 가상 컴퓨터를 등록 하는 데 사용 되는 클라이언트 자격 증명은 Azure 역할 ( **가상 컴퓨터 참가자** , **참가자** 또는 **소유자** ) 중 하나에 존재 합니다. 
+- 가상 컴퓨터를 등록 하는 데 사용 되는 클라이언트 자격 증명은 Azure 역할 ( **가상 컴퓨터 참가자**, **참가자** 또는 **소유자**) 중 하나에 존재 합니다. 
 - Az PowerShell의 최신 버전 [(5.0 이상)](/powershell/azure/new-azureps-module-az) 
 
 

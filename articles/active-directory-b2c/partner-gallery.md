@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bbcb3367f4a1b99ae6689a5d9fa33b7629145ead
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 4592742b99d7c3e915c31ca5a202355d32e76d68
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092575"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356126"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>ISV 파트너 Azure Active Directory B2C
 
@@ -51,6 +51,7 @@ Microsoft는 MFA 및 암호 없는 인증을 위해 다음 Isv와 파트너를 �
 |:-------------------------|:--------------|
 | ![Hypr 로고의 스크린샷](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) 는 암호를 공개 키 암호화로 바꿔서 사기 행위, 피싱 및 자격 증명 재사용을 제거 하는 암호 없는 인증 공급자입니다. |
 | ![Itsme 로고의 스크린샷](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) 는 전자 Id, 인증 및 신뢰 서비스 (eidas) 호환 디지털 ID 솔루션으로, 사용자가 카드 판독기, 암호, 2 단계 인증 및 여러 PIN 코드 없이 안전 하 게 로그인 할 수 있도록 합니다. |
+| ![네비스 로고 스크린샷](./media/partner-gallery/nevis-logo.png) | [네비스](./partner-nevis.md) 는 암호 없는 인증을 가능 하 게 하며, 강력한 고객 인증을 위해 네비스 Access 앱을 통해 모바일 중심의 완전 한 최종 사용자 환경을 제공 하 고 PSD2 트랜잭션 요구 사항을 준수 합니다. |
 | ![Trusona 로고의 스크린샷](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) 통합을 사용 하면 안전 하 게 로그인 하 고 암호 없는 인증, MFA 및 디지털 라이선스 검색을 사용할 수 있습니다. |
 | ![Twilio 로고의 스크린샷](./media/partner-gallery/twilio-logo.png) | [Twilio Verify 앱](./partner-twilio.md) 은 여러 솔루션을 제공 하 여 SMS OTP (일회성 암호), 시간 기반 일회용 암호 (totp) 및 푸시 알림을 통해 MFA를 사용 하도록 설정 하 고, PSD2에 대 한 SCA 요구 사항을 준수 합니다. |
 | ![TypingDNA 로고의 스크린샷](./media/partner-gallery/typingdna-logo.png) | [Typingdna](./partner-twilio.md) 는 사용자의 입력 패턴을 분석 하 여 강력한 고객 인증을 가능 하 게 합니다. 이를 통해 기업은 자동 MFA를 사용 하도록 설정 하 고 PSD2에 대 한 SCA 요구 사항을 준수할 수 있습니다. |

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a61eca3340985886ef782b28a59a1283c5f473ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ead05598c6ca4d096e1a68c8d640938ecd771c2
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265717"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355514"
 ---
 # <a name="identity-providers-for-external-identities"></a>외부 ID용 ID 공급자
 
@@ -25,6 +25,9 @@ ms.locfileid: "91265717"
 그러나 사용자가 다양한 ID 공급자를 사용하여 로그인하도록 설정할 수 있습니다.
 
 - **Google**: Google 페더레이션을 통해 외부 사용자는 자신의 Gmail 계정으로 앱에 로그인하여 초대를 사용할 수 있습니다. 셀프 서비스 등록 사용자 흐름에서 Google 페더레이션을 사용할 수도 있습니다.
+   > [!IMPORTANT]
+   > Google은 **2021 년 1 월 4 일부 터** [사용 중단 웹 보기 로그인을 지원](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail을 사용 하 여 Google 페더레이션 또는 셀프 서비스 등록을 사용 하는 경우 lob ( [기간 업무) 네이티브 응용 프로그램의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
+
    > [!NOTE]
    > 현재 셀프 서비스 등록 미리 보기에서 사용자 흐름이 앱과 연결되어 있고 사용자에게 해당 앱에 대한 초대를 보내는 경우 사용자는 Gmail 계정으로 초대를 사용할 수 없습니다. 이 문제를 해결하기 위해 사용자는 셀프 서비스 등록 프로세스를 진행할 수 있습니다. 또는 다른 앱에 액세스하거나 https://myapps.microsoft.com 에서 내 앱 포털을 통해 초대를 사용할 수 있습니다.
 

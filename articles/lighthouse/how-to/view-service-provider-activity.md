@@ -1,14 +1,14 @@
 ---
 title: 서비스 공급자 작업 보기
 description: 고객은 Azure 위임 된 리소스 관리를 통해 서비스 공급자가 수행한 작업을 확인 하기 위해 기록 된 활동을 볼 수 있습니다.
-ms.date: 10/12/2020
+ms.date: 12/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 56c8b88274909aa55e19a4b364aaa3ace2a0c26d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dcf177cc41dac846d096607445ff4c3d433620ca
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371089"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356381"
 ---
 # <a name="view-service-provider-activity"></a>서비스 공급자 작업 보기
 
@@ -42,6 +42,12 @@ Azure Portal의 **모니터** 메뉴에서 [활동 로그를 볼](../../azure-mo
 쿼리를 만들어 로깅 작업을 분석 하거나 특정 항목에 초점을 맞출 수 있습니다. 예를 들어 감사를 사용 하려면 구독에 대해 수행 된 모든 관리 수준 작업에 대해 보고 해야 합니다. 이러한 작업만 필터링 하 고 사용자, 날짜 또는 다른 값을 기준으로 결과를 정렬 하는 쿼리를 만들 수 있습니다.
 
 자세한 내용은 [Azure Monitor의 로그 쿼리 개요](../../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+
+## <a name="view-user-activity-across-domains"></a>도메인 간 사용자 활동 보기
+
+도메인 샘플 통합 문서 [에서 활동 로그](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) 를 사용 하 여 여러 도메인에서 개별 사용자의 활동을 볼 수 있습니다.
+
+도메인 이름을 기준으로 결과를 필터링 할 수 있습니다. 범주, 수준 또는 리소스 그룹과 같은 추가 필터를 적용할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

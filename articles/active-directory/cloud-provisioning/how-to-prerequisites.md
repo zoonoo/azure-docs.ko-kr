@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eb8de2424012d12f216f154eb077028a8f82d76
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a89a456b5d9ee36909d5d742a7880d72e5ed86fd
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173705"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355865"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 클라우드 프로비저닝에 대한 필수 조건
 이 문서에서는 ID 솔루션으로 Azure AD(Azure Active Directory) Connect 클라우드 프로비저닝을 선택하고 사용하는 방법에 대한 지침을 제공합니다.
@@ -51,11 +51,23 @@ GMSA 계정을 사용 하도록 기존 에이전트를 업그레이드 하는 �
 
 ### <a name="in-your-on-premises-environment"></a>온-프레미스 환경에서
 
-1. 4GB 이상의 RAM 및 .NET 4.7.1 이상의 런타임을 사용하여 Windows Server 2012 R2 이상을 실행하는 도메인 조인 호스트 서버를 식별합니다.
+ 1. 4GB 이상의 RAM 및 .NET 4.7.1 이상의 런타임을 사용하여 Windows Server 2012 R2 이상을 실행하는 도메인 조인 호스트 서버를 식별합니다.
 
-1. 로컬 서버에 대한 PowerShell 실행 정책을 Undefined 또는 RemoteSigned로 설정해야 합니다.
+ >[!NOTE]
+ > 범위 지정 필터를 정의 하면 호스트 서버에서 메모리 비용이 발생 합니다.  범위 지정 필터를 사용 하지 않으면 추가 메모리 비용이 발생 하지 않습니다. 최소 4GB는 범위 지정 필터에 정의 된 최대 12 개의 조직 구성 단위에 대 한 동기화를 지원 합니다. 추가 Ou를 동기화 해야 하는 경우 최소 메모리 양을 늘려야 합니다. 다음 표를 가이드로 사용 합니다.
+ >
+ >  
+ >  | 범위 지정 필터의 Ou 수| 필요한 최소 메모리|
+ >  | --- | --- |
+ >  | 12| 4GB|
+ >  | 18|5.5 GB|
+ >  | 28|10 + GB|
+ >
+ > 
 
-1. 서버와 Azure AD 사이에 방화벽이 있는 경우 다음 항목을 구성합니다.
+ 2. 로컬 서버에 대한 PowerShell 실행 정책을 Undefined 또는 RemoteSigned로 설정해야 합니다.
+
+ 3. 서버와 Azure AD 사이에 방화벽이 있는 경우 다음 항목을 구성합니다.
    - 에이전트에서 다음 포트를 통해 Azure AD에 대한 *아웃바운드* 요청을 수행할 수 있는지 확인합니다.
 
         | 포트 번호 | 사용 방법 |
@@ -100,7 +112,20 @@ TLS 1.2를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 1. 서버를 다시 시작합니다.
 
+## <a name="known-limitations"></a>알려진 제한 사항
+알려진 제한 사항은 다음과 같습니다.
 
+### <a name="delta-synchronization"></a>델타 동기화
+
+- 델타 동기화에 대 한 그룹 범위 필터링은 1500 개 이상의 멤버를 지원 하지 않습니다.
+- 그룹 범위 지정 필터의 일부로 사용 되는 그룹을 삭제 하는 경우 그룹의 멤버인 사용자는 삭제 되지 않습니다. 
+- 범위에 있는 OU 또는 그룹의 이름을 바꾸면 델타 동기화가 사용자를 제거 하지 않습니다.
+
+### <a name="provisioning-logs"></a>프로비저닝 로그
+- 프로 비전 로그는 생성 및 업데이트 작업을 명확 하 게 구분 하지 않습니다.  만들기에 대 한 업데이트 및 업데이트 작업에 대 한 만들기 작업이 표시 될 수 있습니다.
+
+### <a name="group-re-naming-or-ou-re-naming"></a>그룹 이름 다시 지정 또는 OU 다시 명명
+- 지정 된 구성의 범위에 속하는 그룹 또는 OU의 이름을 지정 하는 경우 클라우드 프로 비전 작업에서 AD의 이름 변경을 인식할 수 없습니다. 작업은 격리로 이동 하지 않으며 정상 상태로 유지 됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계 

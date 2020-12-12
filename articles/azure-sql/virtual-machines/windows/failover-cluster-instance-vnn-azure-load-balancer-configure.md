@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8f8513746271fff0ab52603e31b75304d5ebc1bf
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 5670a29e86eb201a707e5ceef28043aafe4839d9
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168989"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357979"
 ---
 # <a name="configure-azure-load-balancer-for-failover-cluster-instance-vnn"></a>장애 조치 (failover) 클러스터 인스턴스 VNN에 대 한 Azure Load Balancer 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,9 +47,9 @@ SQL Server 2019 CU2 이상에 대 한 대체 연결 옵션은 간소화 된 구�
 
 1. Azure Portal에서 가상 머신이 포함된 리소스 그룹으로 이동합니다.
 
-1. **추가**를 선택합니다. **Load Balancer**에 대 한 Azure Marketplace를 검색 합니다. **부하 분산 장치**를 선택합니다.
+1. **추가** 를 선택합니다. **Load Balancer** 에 대 한 Azure Marketplace를 검색 합니다. **부하 분산 장치** 를 선택합니다.
 
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 1. 다음 값을 사용하여 부하 분산 장치를 설정합니다.
 
@@ -71,21 +72,21 @@ SQL Server 2019 CU2 이상에 대 한 대체 연결 옵션은 간소화 된 구�
 
 1. 가상 머신이 포함된 Azure 리소스 그룹으로 돌아가고 새 부하 분산 장치를 찾습니다. 리소스 그룹 보기를 새로 고쳐야 할 수도 있습니다. 부하 분산 장치를 선택합니다.
 
-1. **백 엔드 풀**을 선택한 다음 **추가**를 선택합니다.
+1. **백 엔드 풀** 을 선택한 다음 **추가** 를 선택합니다.
 
 1. VM이 포함된 가용성 집합과 백 엔드 풀을 연결합니다.
 
-1. **대상 네트워크 IP 구성**에서 **가상 머신**을 선택하고 클러스터 노드로 참여하는 가상 머신을 선택합니다. FCI 또는 가용성 그룹을 호스트 하는 모든 가상 컴퓨터를 포함 해야 합니다.
+1. **대상 네트워크 IP 구성** 에서 **가상 머신** 을 선택하고 클러스터 노드로 참여하는 가상 머신을 선택합니다. FCI 또는 가용성 그룹을 호스트 하는 모든 가상 컴퓨터를 포함 해야 합니다.
 
-1. **확인**을 선택하여 백엔드 풀을 만듭니다.
+1. **확인** 을 선택하여 백엔드 풀을 만듭니다.
 
 ## <a name="configure-health-probe"></a>상태 프로브 구성
 
-1. 부하 분산 장치 창에서 **상태 프로브**를 선택 합니다.
+1. 부하 분산 장치 창에서 **상태 프로브** 를 선택 합니다.
 
-1. **추가**를 선택합니다.
+1. **추가** 를 선택합니다.
 
-1. **상태 프로브 추가** 창에서 다음 상태 <span id="probe"> </span> 프로브 매개 변수를 설정 합니다.
+1. **상태 프로브 추가** 창에서 다음 상태 <span id="probe"></span> 프로브 매개 변수를 설정 합니다.
 
    - **Name**: 상태 프로브의 이름입니다.
    - **프로토콜**: TCP입니다.
@@ -93,13 +94,13 @@ SQL Server 2019 CU2 이상에 대 한 대체 연결 옵션은 간소화 된 구�
    - **간격**: 5초입니다.
    - **비정상 임계값**: 2번 연속 실패입니다.
 
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 
 ## <a name="set-load-balancing-rules"></a>부하 분산 규칙 설정
 
-1. 부하 분산 장치 창에서 **부하 분산 규칙**을 선택 합니다.
+1. 부하 분산 장치 창에서 **부하 분산 규칙** 을 선택 합니다.
 
-1. **추가**를 선택합니다.
+1. **추가** 를 선택합니다.
 
 1. 부하 분산 규칙 매개 변수를 설정 합니다.
 
@@ -113,7 +114,7 @@ SQL Server 2019 CU2 이상에 대 한 대체 연결 옵션은 간소화 된 구�
    - **유휴 제한 시간(분)** : 4.
    - **부동 IP(Direct Server Return)** : 사용
 
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 
 ## <a name="configure-cluster-probe"></a>클러스터 프로브 구성
 
@@ -137,9 +138,9 @@ Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"
 
 |**값**|**설명**|
 |---------|---------|
-|`Cluster Network Name`| 네트워크에 대 한 Windows Server 장애 조치 (Failover) 클러스터 이름입니다. **장애 조치(failover) 클러스터 관리자** > **네트워크**에서 네트워크를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다.|
-|`SQL Server FCI/AG listener IP Address Resource Name`|SQL Server FCI의 또는 AG 수신기의 IP 주소에 대 한 리소스 이름입니다. **장애 조치(failover) 클러스터 관리자** > **역할**의 SQL Server FCI 역할 아래에 있는 **서버 이름**에서 IP 주소 리소스를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다.|
-|`ILBIP`|ILB (내부 부하 분산 장치)의 IP 주소입니다. 이 주소는 Azure Portal에서 ILB의 프런트 엔드 주소로 구성 됩니다. 이는 SQL Server FCI의 IP 주소 이기도 합니다. 이 주소는 `<SQL Server FCI/AG listener IP Address Resource Name>`이 있는 동일한 속성 페이지의 **장애 조치(Failover) 클러스터 관리자**에서 확인할 수 있습니다.|
+|`Cluster Network Name`| 네트워크에 대 한 Windows Server 장애 조치 (Failover) 클러스터 이름입니다. **장애 조치(failover) 클러스터 관리자** > **네트워크** 에서 네트워크를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다.|
+|`SQL Server FCI/AG listener IP Address Resource Name`|SQL Server FCI의 또는 AG 수신기의 IP 주소에 대 한 리소스 이름입니다. **장애 조치(failover) 클러스터 관리자** > **역할** 의 SQL Server FCI 역할 아래에 있는 **서버 이름** 에서 IP 주소 리소스를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다.|
+|`ILBIP`|ILB (내부 부하 분산 장치)의 IP 주소입니다. 이 주소는 Azure Portal에서 ILB의 프런트 엔드 주소로 구성 됩니다. 이는 SQL Server FCI의 IP 주소 이기도 합니다. 이 주소는 `<SQL Server FCI/AG listener IP Address Resource Name>`이 있는 동일한 속성 페이지의 **장애 조치(Failover) 클러스터 관리자** 에서 확인할 수 있습니다.|
 |`nnnnn`|부하 분산 장치의 상태 프로브에서 구성 된 프로브 포트입니다. 사용하지 않는 모든 TCP 포트는 유효합니다.|
 |SubnetMask| 클러스터 매개 변수의 서브넷 마스크입니다. TCP IP 브로드캐스트 주소 여야 `255.255.255.255` 합니다.| 
 
@@ -159,16 +160,16 @@ Get-ClusterResource $IPResourceName | Get-ClusterParameter
 다음 단계를 수행합니다.
 
 1. RDP를 사용 하 여 SQL Server 클러스터 노드 중 하나에 연결 합니다.
-1. **장애 조치(Failover) 클러스터 관리자**를 엽니다. **역할**을 선택합니다. SQL Server FCI 역할을 소유하는 노드를 살펴봅니다.
+1. **장애 조치(Failover) 클러스터 관리자** 를 엽니다. **역할** 을 선택합니다. SQL Server FCI 역할을 소유하는 노드를 살펴봅니다.
 1. SQL Server FCI 역할을 마우스 오른쪽 단추로 클릭합니다. 
-1. **이동**을 선택한 다음 **가장 적합한 노드**를 선택합니다.
+1. **이동** 을 선택한 다음 **가장 적합한 노드** 를 선택합니다.
 
-**장애 조치(failover) 클러스터 관리자**는 역할을 보여 주며 해당 리소스는 오프라인으로 전환됩니다. 그런 다음 리소스가 이동하고 다른 노드에서 온라인 상태로 다시 전환됩니다.
+**장애 조치(failover) 클러스터 관리자** 는 역할을 보여 주며 해당 리소스는 오프라인으로 전환됩니다. 그런 다음 리소스가 이동하고 다른 노드에서 온라인 상태로 다시 전환됩니다.
 
 
 ## <a name="test-connectivity"></a>연결 테스트
 
-연결을 테스트하려면 동일한 가상 네트워크의 다른 가상 머신에 로그인합니다. **SQL Server Management Studio**를 열고 SQL Server FCI 이름에 연결합니다. 
+연결을 테스트하려면 동일한 가상 네트워크의 다른 가상 머신에 로그인합니다. **SQL Server Management Studio** 를 열고 SQL Server FCI 이름에 연결합니다. 
 
 >[!NOTE]
 >필요한 경우 [SQL Server Management Studio를 다운로드](/sql/ssms/download-sql-server-management-studio-ssms)할 수 있습니다.

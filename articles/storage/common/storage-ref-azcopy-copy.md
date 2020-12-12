@@ -4,16 +4,16 @@ description: 이 문서에서는 azcopy copy 명령에 대 한 참조 정보를 
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: fd71f4eb56974b93637c23eddc81e5f33ce788b8
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 6390aafca4937a480e4d92ff04003a294b9c0e20
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512157"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356177"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -59,7 +59,7 @@ Windows에서는 레지스트리에서 MIME 형식이 추출 됩니다. 플래�
 azcopy copy [source] [destination] [flags]
 ```
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 OAuth 인증을 사용 하 여 단일 파일을 업로드 합니다. AzCopy에 아직 로그인 하지 않은 경우 `azcopy login` 다음 명령을 실행 하기 전에 명령을 실행 합니다.
 
@@ -276,13 +276,15 @@ azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.n
 
 **--include-after** 문자열에는 지정 된 날짜/시간 이후에 수정 된 파일만 포함 됩니다. 값은 ISO8601 형식 이어야 합니다. 표준 시간대가 지정 되지 않은 경우이 값은 AzCopy를 실행 하는 컴퓨터의 로컬 표준 시간대에 있는 것으로 간주 됩니다. 예를 들어 `2020-08-19T15:04:00Z` UTC 시간 또는 `2020-08-19` 현지 표준 시간대의 자정 (00:00)에 대 한입니다. AzCopy 10.5에서와 같이이 플래그는 폴더가 아닌 파일에만 적용 되므로 또는와 함께이 플래그를 사용 하는 경우 폴더 속성이 복사 되지 않습니다 `--preserve-smb-info` `--preserve-smb-permissions` .
 
+ **--include-before** 문자열에는 지정 된 날짜/시간 이전에 수정 된 파일만 포함 됩니다. 값은 ISO8601 형식 이어야 합니다. 표준 시간대가 지정 되지 않은 경우이 값은 AzCopy를 실행 하는 컴퓨터의 로컬 표준 시간대에 있는 것으로 간주 됩니다. 예를 들어 `2020-08-19T15:04:00Z` UTC 시간 또는 `2020-08-19` 현지 표준 시간대의 자정 (00:00)에 대 한입니다. AzCopy 10.7부터이 플래그는 폴더가 아닌 파일에만 적용 되므로 또는와 함께이 플래그를 사용 하는 경우 폴더 속성이 복사 되지 않습니다 `--preserve-smb-info` `--preserve-smb-permissions` .
+
 **--include** 특성 문자열 (Windows에만 해당)은 특성 목록과 일치 하는 특성을 가진 파일을 포함 합니다. 예: A; 삭제 &
 
 **--include-path** 문자열은 복사할 때 이러한 경로만 포함 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 하지 않습니다. 상대 경로 접두사 (예:)를 확인 `myFolder;myFolder/subDirName/file.pdf` 합니다.
 
 **--include-패턴** 문자열은 복사할 때 이러한 파일만 포함 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 합니다. 를 사용 하 여 파일을 구분 `;` 합니다.
 
-**--버전 목록** 문자열은 각 버전 id가 별도의 줄에 나열 되는 파일을 지정 합니다. 원본이 단일 blob을 가리켜야 하며이 플래그를 사용 하 여 파일에 지정 된 모든 버전 id가 원본 blob에만 속해야 합니다. AzCopy는 제공 된 대상 폴더에 지정 된 버전을 다운로드 합니다. 자세한 내용은 [이전 버전의 Blob 다운로드](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob)를 참조 하세요.
+**--버전 목록** 문자열은 각 버전 ID가 별도의 줄에 나열 되는 파일을 지정 합니다. 원본이 단일 blob을 가리켜야 하며이 플래그를 사용 하 여 파일에 지정 된 모든 버전 Id가 원본 blob에만 속해야 합니다. AzCopy는 제공 된 대상 폴더에 지정 된 버전을 다운로드 합니다. 자세한 내용은 [이전 버전의 Blob 다운로드](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob)를 참조 하세요.
 
 **--로그 수준** 문자열은 로그 파일에 대 한 로그의 자세한 정도, 사용 가능한 수준: 정보 (모든 요청/응답), 경고 (저속 응답), 오류 (실패 한 요청만) 및 없음 (출력 로그 없음)을 정의 합니다. (기본값 `INFO` ). 
 

@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: d219ff8469c471a37deb47e0f217292d70e8f0f9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 75073cd2f0dae9cac12175677427671101813a90
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497115"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355225"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "96497115"
 작성 환경을 개선하기 위해 Azure Data Factory를 사용하면 Azure Repos 또는 GitHub를 사용하여 Git 리포지토리를 구성할 수 있습니다. Git는 변경 내용 추적과 협업 환경을 개선할 수 있는 버전 제어 시스템입니다. 이 문서에서는 모범 사례 및 문제 해결 가이드를 강조 표시 하 여 git 리포지토리를 구성 하 고 사용 하는 방법을 간략하게 설명 합니다.
 
 > [!NOTE]
-> Azure Data Factory git 통합은 Azure Government 클라우드에서 사용할 수 없습니다.
+> Azure Data Factory git 통합은 Azure Government 클라우드의 GitHub Enterprise 에서만 사용할 수 있습니다.
 
 Azure Data Factory와 Git를 통합 하는 방법에 대 한 자세한 내용은 아래의 15 분 자습서 비디오를 참조 하세요.
 

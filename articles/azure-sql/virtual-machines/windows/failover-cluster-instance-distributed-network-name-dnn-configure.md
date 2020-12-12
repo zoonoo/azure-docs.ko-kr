@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: dff6d69a107091a0ce030065da0f70a3d68c5841
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8549592ace00e712929ebc76045a32531b9db659
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168910"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358319"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>장애 조치 (failover) 클러스터 인스턴스에 대 한 DNN 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -125,15 +126,15 @@ Start-ClusterResource -Name dnn-demo
 가능한 소유자를 업데이트 하려면 다음 단계를 수행 합니다.
 
 1. 장애 조치(Failover) 클러스터 관리자에서 DNN 리소스로 이동 합니다. 
-1. DNN 리소스를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다. 
+1. DNN 리소스를 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택 합니다. 
 
    :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/fci-dnn-properties.png" alt-text="속성 명령이 강조 표시 된 DNN 리소스에 대 한 바로 가기 메뉴입니다.":::
 
 1. 장애 조치 (failover) 클러스터 인스턴스에 참여 하지 않는 노드에 대 한 확인란의 선택을 취소 합니다. DNN 리소스에 대 한 가능한 소유자 목록은 SQL Server 인스턴스 리소스에 대 한 가능한 소유자 목록과 일치 해야 합니다. 예를 들어 Data3이 FCI에 참여 하지 않는다고 가정할 경우 다음 이미지는 DNN 리소스의 가능한 소유자 목록에서 Data3를 제거 하는 예제입니다. 
 
-   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="속성 명령이 강조 표시 된 DNN 리소스에 대 한 바로 가기 메뉴입니다.":::
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="DNN 리소스의 가능한 소유자에 대해 FCI에 참여 하지 않는 노드 옆의 확인란을 선택 취소 합니다.":::
 
-1. **확인**을 선택하여 설정을 저장합니다. 
+1. **확인** 을 선택하여 설정을 저장합니다. 
 
 
 ## <a name="restart-sql-server-instance"></a>SQL Server 인스턴스 다시 시작 
@@ -159,11 +160,11 @@ Start-ClusterResource -Name dnn-demo
 장애 조치 (failover)를 테스트 하려면 다음 단계를 수행 합니다. 
 
 1. RDP를 사용 하 여 SQL Server 클러스터 노드 중 하나에 연결 합니다.
-1. **장애 조치(Failover) 클러스터 관리자**를 엽니다. **역할**을 선택합니다. SQL Server FCI 역할을 소유하는 노드를 살펴봅니다.
+1. **장애 조치(Failover) 클러스터 관리자** 를 엽니다. **역할** 을 선택합니다. SQL Server FCI 역할을 소유하는 노드를 살펴봅니다.
 1. SQL Server FCI 역할을 마우스 오른쪽 단추로 클릭합니다. 
-1. **이동**을 선택한 다음 **가장 적합한 노드**를 선택합니다.
+1. **이동** 을 선택한 다음 **가장 적합한 노드** 를 선택합니다.
 
-**장애 조치(failover) 클러스터 관리자**는 역할을 보여 주며 해당 리소스는 오프라인으로 전환됩니다. 그런 다음 리소스가 이동하고 다른 노드에서 온라인 상태로 다시 전환됩니다.
+**장애 조치(failover) 클러스터 관리자** 는 역할을 보여 주며 해당 리소스는 오프라인으로 전환됩니다. 그런 다음 리소스가 이동하고 다른 노드에서 온라인 상태로 다시 전환됩니다.
 
 ## <a name="test-connectivity"></a>연결 테스트
 
