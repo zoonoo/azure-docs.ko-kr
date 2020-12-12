@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 79cf0ef059d96ac66f5918605e999d3936d589d2
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 168dcf994d00ba1cb2070665ada5a55cf86cfa4a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95486520"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359815"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>양식 인식기 모델 백업 및 복구
 
@@ -69,7 +69,7 @@ POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/cust
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
-요청 본문은 다음과 같은 형식 이어야 합니다. 대상 리소스의 리소스 ID 및 지역 이름을 입력 해야 합니다. 이전 단계에서 복사한 모델 ID, 액세스 토큰 및 만료 값도 필요 합니다.
+요청 본문은 다음과 같은 형식 이어야 합니다. 대상 리소스의 리소스 ID 및 지역 이름을 입력 해야 합니다. Azure Portal에서 리소스의 **속성** 탭에 있는 리소스 ID를 찾을 수 있으며 **키 및 끝점** 탭에서 지역 이름을 찾을 수 있습니다. 이전 단계에서 복사한 모델 ID, 액세스 토큰 및 만료 값도 필요 합니다.
 
 ```json
 {
@@ -89,9 +89,9 @@ HTTP/1.1 202 Accepted
 Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1
 ```
 
-### <a name="common-errors"></a>일반 오류
+### <a name="common-errors"></a>일반적인 오류
 
-|Error|해결 방법|
+|오류|해결 방법|
 |:--|:--|
 | 400/잘못 된 요청 `"code:" "1002"` | 유효성 검사 오류 또는 잘못 된 형식의 복사 요청을 나타냅니다. 일반적인 문제는 다음과 같습니다. a) 잘못 되었거나 수정 된 `copyAuthorization` 페이로드입니다. b) 토큰에 대 한 만료 `expirationDateTimeTicks` 된 값 ( `copyAuhtorization` 페이로드는 24 시간 동안 유효). c)가 잘못 되었거나 지원 되지 않습니다 `targetResourceRegion` . d) 잘못 되었거나 형식이 잘못 된 `targetResourceId` 문자열입니다.
 |
@@ -113,9 +113,9 @@ Content-Type: application/json; charset=utf-8
 {"status":"succeeded","createdDateTime":"2020-04-23T18:18:01.0275043Z","lastUpdatedDateTime":"2020-04-23T18:18:01.0275048Z","copyResult":{}}
 ```
 
-### <a name="common-errors"></a>일반 오류
+### <a name="common-errors"></a>일반적인 오류
 
-|Error|해결 방법|
+|오류|해결 방법|
 |:--|:--|
 |"errors": [{"code": "AuthorizationError",<br>"message": "다음으로 인 한 인증 실패 <br>권한 부여 클레임이 없거나 잘못 되었습니다. "}]   | `copyAuthorization`API에서 반환 된 내용 으로부터 페이로드 또는 콘텐츠를 수정할 때 발생 합니다 `copyAuthorization` . 페이로드가 이전 호출에서 반환 된 것과 동일한 정확한 콘텐츠 인지 확인 `copyAuthorization` 합니다.|
 |"errors": [{"code": "AuthorizationError",<br>"메시지": "권한 부여를 검색할 수 없습니다. <br>메타. 이 문제가 지속 되 면 다른를 사용 하십시오. <br>복사할 대상 모델입니다. "}] | `copyAuthorization`페이로드가 복사 요청에 다시 사용 됨을 나타냅니다. 성공 하는 복사 요청은 동일한 페이로드를 사용 하는 추가 요청을 허용 하지 않습니다 `copyAuthorization` . 아래에 나와 있는 것 처럼 별도의 오류를 발생 시키고 이후에 동일한 권한 부여 페이로드를 사용 하 여 복사본을 다시 시도 하면이 오류가 발생 합니다. 해결 방법은 새 페이로드를 생성 한 다음 복사 요청을 다시 실행 하는 것입니다 `copyAuthorization` .|

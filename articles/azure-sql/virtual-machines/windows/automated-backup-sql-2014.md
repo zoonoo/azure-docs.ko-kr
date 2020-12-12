@@ -7,18 +7,19 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
 ms.service: virtual-machines-sql
+ms.subservice: backup
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ccd998bc2f6e2771ff4dd1bedfa2213af7573102
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 41add54ce767413982ab0503f7263c58aed4d4e2
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556587"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359288"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 가상 머신에서 자동화된 백업(Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,11 +36,11 @@ ms.locfileid: "94556587"
 자동화된 Backup을 사용하려면 다음 필수 조건을 고려하세요.
 
 
-**운영 체제** :
+**운영 체제**:
 
 - Windows Server 2012 이상 
 
-**SQL Server 버전** :
+**SQL Server 버전**:
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
@@ -47,7 +48,7 @@ ms.locfileid: "94556587"
 > [!NOTE]
 > SQL 2016 이상에 대 한 [SQL Server 2016의 자동화 된 백업](automated-backup.md)을 참조 하세요.
 
-**데이터베이스 구성** :
+**데이터베이스 구성**:
 
 - 대상 _사용자_ 데이터베이스는 전체 복구 모델을 사용 해야 합니다. 시스템 데이터베이스는 전체 복구 모델을 사용할 필요가 없습니다. 그러나 Model 또는 MSDB에 대해 로그 백업을 수행해야 할 경우 전체 복구 모델을 사용해야 합니다. 전체 복구 모델이 백업에 미치는 영향에 대한 자세한 내용은 [전체 복구 모델에서의 백업](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105))을 참조하세요. 
 - SQL Server VM는 SQL IaaS 에이전트 확장을 사용 하 여 [전체 관리 모드로](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full)등록 되었습니다. 
@@ -112,7 +113,7 @@ $resourcegroupname = "resourcegroupname"
 
 SQL Server IaaS 에이전트 확장이 설치되어 있는 경우 "SqlIaaSAgent" 또는 "SQLIaaSExtension"으로 표시됩니다. 확장에 대한 **ProvisioningState** 가 "Succeeded"로 표시되어야 합니다.
 
-설치되지 않았거나 프로비저닝되지 못한 경우 다음 명령을 사용하여 설치할 수 있습니다. VM 이름 및 리소스 그룹 외에, VM이 있는 하위 지역( **$region** )도 지정해야 합니다. SQL Server VM에 맞는 라이선스 유형을 지정하고 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 통해 종량제 또는 BYOL 중 하나를 선택합니다. 라이선스에 대한 자세한 내용은 [라이선싱 모델](licensing-model-azure-hybrid-benefit-ahb-change.md)을 참조하세요. 
+설치되지 않았거나 프로비저닝되지 못한 경우 다음 명령을 사용하여 설치할 수 있습니다. VM 이름 및 리소스 그룹 외에, VM이 있는 하위 지역( **$region**)도 지정해야 합니다. SQL Server VM에 맞는 라이선스 유형을 지정하고 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 통해 종량제 또는 BYOL 중 하나를 선택합니다. 라이선스에 대한 자세한 내용은 [라이선싱 모델](licensing-model-azure-hybrid-benefit-ahb-change.md)을 참조하세요. 
 
 ```powershell
 New-AzSqlVM  -Name $vmname `
@@ -186,7 +187,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 SQL Server IaaS 에이전트를 설치하고 구성하는 데는 몇 분 정도 걸릴 수 있습니다.
 
 > [!NOTE]
-> SQL Server 2016 및 자동화된 Backup v2에만 적용되는 **New-AzVMSqlServerAutoBackupConfig** 에 대한 다른 설정이 있습니다. SQL Server 2014에서는 **BackupSystemDbs** , **BackupScheduleType** , **FullBackupFrequency** , **FullBackupStartHour** , **FullBackupWindowInHours** 및 **LogBackupFrequencyInMinutes** 설정을 지원하지 않습니다. SQL Server 2014 가상 머신에서 이러한 설정을 구성하려고 하면 오류는 발생하지 않지만 설정이 적용되지 않습니다. SQL Server 2016 가상 머신에서 이러한 설정을 사용하려면 [SQL Server 2016 Azure Virtual Machines용 자동화된 백업 v2](automated-backup.md)을 참조하세요.
+> SQL Server 2016 및 자동화된 Backup v2에만 적용되는 **New-AzVMSqlServerAutoBackupConfig** 에 대한 다른 설정이 있습니다. SQL Server 2014에서는 **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours** 및 **LogBackupFrequencyInMinutes** 설정을 지원하지 않습니다. SQL Server 2014 가상 머신에서 이러한 설정을 구성하려고 하면 오류는 발생하지 않지만 설정이 적용되지 않습니다. SQL Server 2016 가상 머신에서 이러한 설정을 사용하려면 [SQL Server 2016 Azure Virtual Machines용 자동화된 백업 v2](automated-backup.md)을 참조하세요.
 
 암호화를 사용하려면 **CertificatePassword** 매개 변수에 대 한 암호(보안 문자열)와 함께 **EnableEncryption** 매개 변수를 전달 하도록 이전 스크립트를 수정합니다. 다음 스크립트를 사용하면 이전 예제의 자동화된 Backup 설정을 사용하고 암호화를 추가할 수 있습니다.
 

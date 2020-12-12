@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: b6c75bc13bf26510ee72968c5a27407b6b7bfee6
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 558f4792a055fc491f15600ecc5502c3a114a94b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937494"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360223"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>저장소 계정에 대 한 요청에 필요한 최소 버전의 TLS (Transport Layer Security)를 적용 합니다.
 
@@ -86,6 +86,9 @@ StorageBlobLogs
 ## <a name="remediate-security-risks-with-a-minimum-version-of-tls"></a>최소 버전의 TLS로 보안 위험 해결
 
 이전 버전의 TLS를 사용 하는 클라이언트의 트래픽이 최소화 되거나 이전 버전의 TLS로 생성 된 요청에 실패할 경우 저장소 계정에 최소 TLS 버전 적용을 시작할 수 있습니다. 클라이언트에서 저장소 계정에 대 한 요청을 수행 하기 위해 최소 버전의 TLS를 사용 하도록 요구 하는 것은 데이터에 대 한 보안 위험을 최소화 하기 위한 전략의 일부입니다.
+
+> [!IMPORTANT]
+> Azure Storage에 연결 하는 서비스를 사용 하는 경우 저장소 계정에 필요한 최소 버전을 설정 하기 전에 해당 서비스에서 적절 한 버전의 TLS를 사용 하 여 Azure Storage에 요청을 보내는 지 확인 합니다.
 
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>저장소 계정에 대 한 최소 TLS 버전 구성
 

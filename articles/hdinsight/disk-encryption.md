@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: a9a90fbb2eedd6db2873d4ac2a5fea94c05c7eed
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4e895cdba1bfc16eac0450bd05271f0e41985b7b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005659"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359762"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대 한 Azure HDInsight 이중 암호화
 
@@ -101,7 +101,7 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 1. **액세스 정책 추가** 페이지에서 다음 정보를 제공 합니다.
 
-    |속성 |Description|
+    |속성 |설명|
     |---|---|
     |키 권한|**가져오기**, **키 래핑** 및 **키 래핑** 을 선택 합니다.|
     |비밀 권한|**가져오기**, **설정** 및 **삭제** 를 선택 합니다.|
@@ -119,15 +119,24 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 이제 HDInsight 클러스터를 만들 준비가 되었습니다. 고객 관리 키는 클러스터를 만드는 동안 새 클러스터에만 적용할 수 있습니다. 고객 관리 키 클러스터에서 암호화를 제거할 수 없으며 기존 클러스터에는 고객 관리 키를 추가할 수 없습니다.
 
+[11 월 2020 릴리스부터](hdinsight-release-notes.md#release-date-11182020)HDInsight는 버전이 지정 된 키 uri와 버전이 없는 키 uri를 모두 사용 하 여 클러스터를 만들 수 있도록 지원 합니다. 버전 없는 키 URI를 사용 하 여 클러스터를 만드는 경우 HDInsight 클러스터는 Azure Key Vault에서 키가 업데이트 될 때 키 자동 회전을 수행 하려고 합니다. 버전 지정 키 URI를 사용 하 여 클러스터를 만드는 경우 [암호화 키 회전](#rotating-the-encryption-key)에 설명 된 대로 수동 키 회전을 수행 해야 합니다.
+
+11 월 2020 릴리스 이전에 만든 클러스터의 경우 버전 키 URI를 사용 하 여 수동으로 키 회전을 수행 해야 합니다.
+
 #### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-클러스터를 만드는 동안 키 버전을 포함 하 여 전체 **키 식별자** 를 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
+클러스터를 만드는 동안 다음과 같은 방법으로 버전이 지정 된 키를 사용 하거나 versionless 키를 사용할 수 있습니다.
+
+- **버전 관리** -클러스터를 만드는 동안 키 버전을 포함 한 전체 **키 식별자** 를 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`.
+- **Versionless** -클러스터를 만드는 동안 **키 식별자** 만 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey`.
+
+또한 관리 되는 id를 클러스터에 할당 해야 합니다.
 
 ![새 클러스터 만들기](./media/disk-encryption/create-cluster-portal.png)
 
 #### <a name="using-azure-cli"></a>Azure CLI 사용
 
-다음 예에서는 Azure CLI를 사용 하 여 디스크 암호화를 사용 하는 새 Apache Spark 클러스터를 만드는 방법을 보여 줍니다. 자세한 내용은 [Azure CLI az hdinsight create](/cli/azure/hdinsight#az-hdinsight-create)를 참조 하세요.
+다음 예에서는 Azure CLI를 사용 하 여 디스크 암호화를 사용 하는 새 Apache Spark 클러스터를 만드는 방법을 보여 줍니다. 자세한 내용은 [Azure CLI az hdinsight create](/cli/azure/hdinsight#az-hdinsight-create)를 참조 하세요. 매개 변수는 `encryption-key-version` 선택 사항입니다.
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -141,7 +150,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 #### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
 
-다음 예제에서는 Azure Resource Manager 템플릿을 사용 하 여 디스크 암호화를 사용 하도록 설정 된 새 Apache Spark 클러스터를 만드는 방법을 보여 줍니다. 자세한 내용은 [ARM 템플릿 이란?](../azure-resource-manager/templates/overview.md)을 참조 하세요.
+다음 예제에서는 Azure Resource Manager 템플릿을 사용 하 여 디스크 암호화를 사용 하도록 설정 된 새 Apache Spark 클러스터를 만드는 방법을 보여 줍니다. 자세한 내용은 [ARM 템플릿 이란?](../azure-resource-manager/templates/overview.md)을 참조 하세요. 리소스 관리자 템플릿 속성 `diskEncryptionKeyVersion` 은 선택 사항입니다.
 
 이 예제에서는 PowerShell을 사용 하 여 템플릿을 호출 합니다.
 
@@ -355,7 +364,7 @@ New-AzResourceGroupDeployment `
 
 ### <a name="rotating-the-encryption-key"></a>암호화 키 회전
 
-HDInsight 클러스터를 만든 후에 사용 되는 암호화 키를 변경 해야 하는 경우가 있을 수 있습니다. 이는 포털을 통해 쉽게 수행할 수 있습니다. 이 작업의 경우 클러스터는 현재 키와 원래 새 키 모두에 대 한 액세스 권한이 있어야 합니다. 그렇지 않으면 키 회전 작업이 실패 합니다.
+Azure Portal 또는 Azure CLI를 사용 하 여 실행 중인 클러스터에서 사용 되는 암호화 키를 변경할 수 있습니다. 이 작업의 경우 클러스터는 현재 키와 원래 새 키 모두에 대 한 액세스 권한이 있어야 합니다. 그렇지 않으면 키 회전 작업이 실패 합니다. 11 월 2020 릴리스 후에 생성 된 클러스터의 경우 새 키에 버전을 포함 시킬 것인지 여부를 선택할 수 있습니다. 11 월 2020 릴리스 이전에 만든 클러스터의 경우 암호화 키를 회전할 때 버전이 지정 된 키를 사용 해야 합니다.
 
 #### <a name="using-the-azure-portal"></a>Azure Portal 사용
 

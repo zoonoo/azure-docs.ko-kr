@@ -7,6 +7,7 @@ author: ramakoni1
 manager: ramakoni1
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -14,12 +15,12 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b9223ffc564620804b36f6f0e71602b3888a9f42
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5dbd5725c666afe04d57d4432f0a4798fcb34c03
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025381"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358846"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Azure VM에서 SQL Server 버전의 현재 위치의 변경
 
@@ -27,7 +28,7 @@ ms.locfileid: "95025381"
 
 이 문서에서는 Microsoft Azure의 Windows VM (가상 머신)에서 Microsoft SQL Server 버전을 변경 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 SQL Server에 대 한 전체 업그레이드를 수행 하려면 다음 조건이 적용 됩니다.
 

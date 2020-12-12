@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 8d17528728c5519244210217b35d6cd6a3afe715
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 004c84387c51233542b1bbbf11d33cdff42259af
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449022"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359152"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU 업데이트 
 
@@ -22,9 +22,14 @@ ms.locfileid: "96449022"
 이 문서에서 설명 하는 절차는 다른 버전의 소프트웨어를 사용 하 여 수행 되었지만 프로세스는 현재 소프트웨어 버전에 대해서도 동일 하 게 유지 됩니다.
 
 > [!IMPORTANT]
-> - 업데이트 **2011** 가 현재 업데이트입니다. <!--and corresponds to **2.1.1377.2170** software version on your device.--> 이 업데이트에 대 한 자세한 내용은 [릴리스 정보](azure-stack-edge-gpu-2011-release-notes.md)를 참조 하세요.
->
-> - 업데이트 또는 핫픽스를 설치하면 디바이스가 다시 시작됩니다. 이 업데이트에는 장치 소프트웨어 업데이트 및 Kubernetes 업데이트가 포함 되어 있습니다. Azure Stack Edge Pro가 단일 노드 장치인 경우 진행 중인 모든 i/o가 중단 되 고 장치에서 업데이트에 대해 최대 30 분의 가동 중지 시간이 발생 합니다.
+> - 업데이트 **2012** 은 현재 업데이트 이며 다음에 해당 합니다.
+>   - 장치 소프트웨어 버전- **2.2.1438.2470**
+>   - Kubernetes server 버전- **v 1.17.3**
+>   - IoT Edge 버전: **0.1.0-beta10**
+>    
+>    이 업데이트의 새로운 기능에 대 한 자세한 내용은 [릴리스 정보](azure-stack-edge-gpu-2012-release-notes.md)를 참조 하세요.
+> - 2012 업데이트를 적용 하려면 장치에서 2010를 실행 해야 합니다.
+> - 업데이트 또는 핫픽스를 설치하면 디바이스가 다시 시작됩니다. 이 업데이트에는 장치 소프트웨어 업데이트 및 Kubernetes 업데이트가 포함 되어 있습니다. Azure Stack Edge Pro가 단일 노드 장치인 경우 진행 중인 모든 i/o가 중단 되 고 장치에 업데이트를 위한 최대 1.5 시간 동안 가동 중지 시간이 발생 합니다.
 
 장치에 업데이트를 설치 하려면 먼저 업데이트 서버의 위치를 구성 해야 합니다. 업데이트 서버를 구성한 후 Azure Portal UI 또는 로컬 웹 UI를 통해 업데이트를 적용할 수 있습니다.
 
@@ -161,7 +166,7 @@ Microsoft 업데이트 카탈로그에서 업데이트를 다운로드 하려면
 
 2. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드 하려는 업데이트에 대 한 기술 자료 (KB) 번호 (KB)를 입력 합니다. 예를 들어 **Azure Stack Edge Pro** 를 입력 한 다음 **검색** 을 클릭 합니다.
    
-    업데이트 목록은 **Azure Stack Edge 업데이트 2011** 으로 표시 됩니다.
+    업데이트 목록은 **Azure Stack Edge 업데이트 2012** 으로 표시 됩니다.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)-->
 
@@ -196,7 +201,7 @@ Microsoft 업데이트 카탈로그에서 업데이트를 다운로드 하려면
 
 5. 업데이트가 시작됩니다. 디바이스가 성공적으로 업데이트된 후 다시 시작됩니다. 이 시간 동안 로컬 UI에 액세스할 수 없습니다.
    
-6. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 장치 소프트웨어가 업데이트 되었는지 확인 하려면 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트** 로 이동 합니다. 최신 버전의 경우 표시 된 소프트웨어 버전은 **Edge 2011 Azure Stack** 되어야 합니다.
+6. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 장치 소프트웨어가 업데이트 되었는지 확인 하려면 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트** 로 이동 합니다. 최신 버전의 경우 표시 된 소프트웨어 버전은 **Edge 2012 Azure Stack** 되어야 합니다.
 
    <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)--> 
 

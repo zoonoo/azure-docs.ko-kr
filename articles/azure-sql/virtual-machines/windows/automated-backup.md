@@ -7,18 +7,19 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
+ms.subservice: backup
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 78b422cd41f4cea72b74257fe70c09471e9d2d5b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f41614d54dc4320f683f406b2882a7b388bb4c3d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556583"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358421"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines의 자동화된 백업 v2(Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,18 +35,18 @@ ms.locfileid: "94556583"
 ## <a name="prerequisites"></a>필수 구성 요소
 자동화된 Backup v2를 사용하려면 다음 필수 조건을 고려하세요.
 
-**운영 체제** :
+**운영 체제**:
 
 - Windows Server 2012 R2 이상
 
-**SQL Server 버전** :
+**SQL Server 버전**:
 
 - SQL Server 2016 이상: Developer, Standard 또는 Enterprise
 
 > [!NOTE]
 > SQL Server 2014의 경우 [SQL Server 2014에 대 한 자동화 된 백업](automated-backup-sql-2014.md)을 참조 하세요.
 
-**데이터베이스 구성** :
+**데이터베이스 구성**:
 
 - 대상 _사용자_ 데이터베이스는 전체 복구 모델을 사용 해야 합니다. 시스템 데이터베이스는 전체 복구 모델을 사용할 필요가 없습니다. 그러나 Model 또는 MSDB에 대해 로그 백업을 수행해야 할 경우 전체 복구 모델을 사용해야 합니다. 전체 복구 모델이 백업에 미치는 영향에 대한 자세한 내용은 [전체 복구 모델에서의 백업](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105))을 참조하세요. 
 - SQL Server VM는 SQL IaaS 에이전트 확장을 사용 하 여 [전체 관리 모드로](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full)등록 되었습니다. 
@@ -158,7 +159,7 @@ $resourcegroupname = "resourcegroupname"
 
 SQL Server IaaS 에이전트 확장이 설치되어 있는 경우 "SqlIaaSAgent" 또는 "SQLIaaSExtension"으로 표시됩니다. 확장에 대한 **ProvisioningState** 가 "Succeeded"로 표시되어야 합니다. 
 
-설치되지 않았거나 프로비저닝되지 못한 경우 다음 명령을 사용하여 설치할 수 있습니다. VM 이름 및 리소스 그룹 외에, VM이 있는 하위 지역( **$region** )도 지정해야 합니다.
+설치되지 않았거나 프로비저닝되지 못한 경우 다음 명령을 사용하여 설치할 수 있습니다. VM 이름 및 리소스 그룹 외에, VM이 있는 하위 지역( **$region**)도 지정해야 합니다.
 
 ```powershell
 $region = "EASTUS2"

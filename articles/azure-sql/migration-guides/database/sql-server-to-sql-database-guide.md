@@ -1,5 +1,5 @@
 ---
-title: SQL Database로 SQL Server-마이그레이션 가이드
+title: 'SQL Server SQL Database: 마이그레이션 가이드'
 description: 이 가이드에 따라 SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션합니다.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: ee4abaf3c9f6aa70ba14920711c8917994254649
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: f4f54aa02fb56ba5bf5ae9fcec2dae07c7dc0a27
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326984"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358982"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>마이그레이션 가이드: SQL Database SQL Server
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "96326984"
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 SQL Server을 Azure SQL Database로 마이그레이션하려면 다음 필수 구성 요소가 있는지 확인 합니다. 
 
@@ -43,7 +43,7 @@ SQL Server을 Azure SQL Database로 마이그레이션하려면 다음 필수 �
 - 대상 [Azure SQL Database](../../database/single-database-create-quickstart.md)
 
 
-## <a name="pre-migration"></a>마이그레이션 전 단계
+## <a name="pre-migration"></a>마이그레이션 전
 
 원본 환경이 지원 되는지 확인 한 후에는 마이그레이션 전 단계부터 시작 합니다. 모든 기존 데이터 원본을 검색 하 고, 마이그레이션 가능성을 평가 하 고, 마이그레이션을 방해할 수 있는 차단 문제를 식별 합니다. 
 
@@ -135,7 +135,7 @@ DMS를 사용 하 여 SQL Server에서 Azure SQL Database로 데이터베이스�
 1. 아직 등록 하지 않은 경우 구독에 **microsoft.datamigration** 리소스 공급자를 등록 합니다. 
 1. 원하는 위치 (대상 Azure SQL Database와 동일한 지역)에 Azure Database Migration Service 인스턴스를 만듭니다. 기존 가상 네트워크를 선택 하거나 DMS 인스턴스를 호스트할 새 가상 네트워크를 만듭니다.
 1. DMS 인스턴스를 만든 후 새 마이그레이션 프로젝트를 만들고 원본 서버 유형을 **SQL Server** 로 지정 하 고 대상 서버 유형을 **Azure SQL Database** 으로 지정 합니다. 마이그레이션 프로젝트 만들기 블레이드에서 작업 유형으로 **오프 라인 데이터 마이그레이션** 을 선택 합니다.
-1. 마이그레이션 **대상** 세부 정보 페이지에서 원본 **Migration source** SQL Server 세부 정보를 지정 하 고 대상 Azure SQL Database 세부 정보를 지정 합니다.
+1. 마이그레이션 **대상** 세부 정보 페이지에서 원본  SQL Server 세부 정보를 지정 하 고 대상 Azure SQL Database 세부 정보를 지정 합니다.
 1. 마이그레이션을 위해 원본 및 대상 데이터베이스를 매핑한 다음 마이그레이션할 테이블을 선택 합니다.
 1. 마이그레이션 요약을 검토 하 고 **마이그레이션 실행** 을 선택 합니다. 그런 다음 마이그레이션 작업을 모니터링 하 고 데이터베이스 마이그레이션의 진행률을 확인할 수 있습니다.
 
@@ -151,7 +151,7 @@ DMS를 사용 하 여 SQL Server에서 Azure SQL Database로 데이터베이스�
 > DMS를 사용 하 여 마이그레이션의 일부로 수행 하는 것과 관련 된 특정 단계에 대 한 자세한 내용은 [마이그레이션](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover)시작을 참조 하세요.
 
 
-## <a name="post-migration"></a>마이그레이션 후 작업
+## <a name="post-migration"></a>마이그레이션 후
 
 마이그레이션 단계를 성공적으로 완료 한 후에는 일련의 마이그레이션 후 작업을 진행 하 여 모든 것이 원활 하 고 효율적으로 기능 하는지 확인 합니다. 
 

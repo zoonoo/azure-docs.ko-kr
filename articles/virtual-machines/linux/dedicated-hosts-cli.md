@@ -6,19 +6,19 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 11/12/2020
 ms.author: cynthn
-ms.openlocfilehash: d2cf78d328017f96552bd51794ac997c394d18f1
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: ef0c8d53d885f11acdcf578db155de3d7848887e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008421"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360070"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Azure CLI를 사용 하 여 전용 호스트에 배포
  
 
 이 문서에서는 VM(가상 머신)을 호스팅하는 Azure [전용 호스트](../dedicated-hosts.md)를 만드는 방법을 안내합니다. 
 
-Azure CLI 2.0.70 이상 버전을 설치했고 `az login`을 사용하여 Azure 계정에 로그인했는지 확인합니다. 
+Azure CLI 버전 2.16.0 이상을 설치 하 고를 사용 하 여 Azure 계정에 로그인 했는지 확인 `az login` 합니다. 
 
 
 ## <a name="limitations"></a>제한 사항

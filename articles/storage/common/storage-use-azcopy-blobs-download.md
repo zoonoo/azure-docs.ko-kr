@@ -4,16 +4,16 @@ description: 이 문서에는 Azure Blob storage에서 blob을 다운로드 하�
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 0a2490a104d18f77a0ec326933f463eb4ebb4339
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: ea8300447b9aa596e8678038982771263a4c76f6
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96923962"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358778"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy-v10"></a>AzCopy v10를 사용 하 여 Azure Blob storage에서 blob 다운로드
 
@@ -113,9 +113,11 @@ AzCopy v10 명령줄 유틸리티를 사용 하 여 Blob 저장소에서 blob �
 
 `--include-pattern`및 `--exclude-pattern` 옵션은 blob 이름에만 적용 되 고 경로에는 적용 되지 않습니다.  디렉터리 트리에 있는 모든 텍스트 파일 (blob)을 복사 하려면 옵션을 사용 `–recursive` 하 여 전체 디렉터리 트리를 가져온 다음를 사용 하 여 `–include-pattern` `*.txt` 모든 텍스트 파일을 가져오도록 지정 합니다.
 
-#### <a name="download-blobs-that-were-modified-after-a-date-and-time"></a>날짜 및 시간 이후 수정 된 blob 다운로드 
+#### <a name="download-blobs-that-were-modified-before-or-after-a-date-and-time"></a>날짜 및 시간 이전 또는 이후 수정 된 blob 다운로드 
 
-옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용 합니다 `--include-after` . ISO-8601 형식으로 날짜 및 시간을 지정 합니다 (예: `2020-08-19T15:04:00Z` ). 
+또는 옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용 `--include-before` 합니다 `--include-after` . ISO-8601 형식으로 날짜 및 시간을 지정 합니다 (예: `2020-08-19T15:04:00Z` ). 
+
+다음 예에서는 지정한 날짜 또는 그 이후에 수정 된 파일을 다운로드 합니다.
 
 |    |     |
 |--------|-----------|
@@ -168,10 +170,10 @@ Blob 스냅숏의 **날짜/시간** 값을 참조 하 여 [blob 스냅숏을](/a
 
 다음 문서에서 더 많은 예제를 찾아보세요.
 
-- [예: 업로드](storage-use-azcopy-blobs-upload.md)
+- [예제: 업로드](storage-use-azcopy-blobs-upload.md)
 - [예: 계정 간 복사](storage-use-azcopy-blobs-copy.md)
-- [예: 동기화](storage-use-azcopy-blobs-synchronize.md)
-- [예: Amazon S3 버킷](storage-use-azcopy-s3.md)
+- [예제: 동기화](storage-use-azcopy-blobs-synchronize.md)
+- [예제: Amazon S3 버킷](storage-use-azcopy-s3.md)
 - [예: Azure Files](storage-use-azcopy-files.md)
 - [자습서: AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션](storage-use-azcopy-migrate-on-premises-data.md)
 - [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)

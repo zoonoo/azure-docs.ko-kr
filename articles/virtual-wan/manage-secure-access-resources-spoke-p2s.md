@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 12/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: d4257e5ade1e32ec971bb77f9d5a686d30195735
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: b0937bbd72460b1d46ce0394af1933e858424966
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111541"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360325"
 ---
 # <a name="manage-secure-access-to-resources-in-spoke-vnets-for-user-vpn-clients"></a>사용자 VPN 클라이언트용 스포크 Vnet의 리소스에 대 한 보안 액세스 관리
 
@@ -41,7 +41,11 @@ ms.locfileid: "97111541"
 
 인증 방법을 선택 하는 경우 세 가지 옵션을 선택할 수 있습니다. 각 메서드에는 특정 요구 사항이 있습니다. 다음 방법 중 하나를 선택 하 고 단계를 완료 합니다.
 
-* **Azure Active Directory 인증:** Azure AD 테 넌 트, [발급자](https://sts.windows.net/your-Directory-ID/)및 [azure ad 테 넌 트](https://login.microsoftonline.com/your-Directory-ID)에 등록 된 azure VPN Enterprise 응용 프로그램의 응용 프로그램 ID를 가져옵니다.
+* **Azure Active Directory 인증:** 다음을 가져옵니다.
+
+   * Azure AD 테 넌 트에 등록 된 Azure VPN 엔터프라이즈 응용 프로그램의 **응용 프로그램 ID** 입니다.
+   * **발급자** 입니다. 예: `https://sts.windows.net/your-Directory-ID`.
+   * **AZURE AD 테 넌 트**. 예: `https://login.microsoftonline.com/your-Directory-ID`.
 
 * **Radius 기반 인증:** Radius 서버 IP, Radius 서버 비밀 및 인증서 정보를 가져옵니다.
 

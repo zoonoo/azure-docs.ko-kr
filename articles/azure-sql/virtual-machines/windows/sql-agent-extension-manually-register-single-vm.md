@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 48c996b6c7d0024b256908565c57032fe3e18514
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: bb7331747db301be5db00d550eec211f75257e29
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545641"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360036"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 사용 하 여 SQL Server VM 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,11 +41,11 @@ SQL IaaS 에이전트 확장을 사용 하려면 먼저 [ **SqlVirtualMachine** 
 > [!IMPORTANT]
 > SQL IaaS 에이전트 확장은 Azure Virtual Machines 내에서 SQL Server를 사용 하는 경우 고객에 게 선택적 혜택을 제공 하기 위한 express 용도의 데이터를 수집 합니다. Microsoft는 고객의 사전 동의가 없는 라이선스 감사에는이 데이터를 사용 하지 않습니다. 자세한 내용은 [SQL Server 개인 정보 취급 방침](/sql/sql-server/sql-server-privacy#non-personal-data) 을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 확장을 사용 하 여 SQL Server VM를 등록 하려면 다음이 필요 합니다. 
 
-- [Azure 구독](https://azure.microsoft.com/free/).
+- [Azure 구독](https://azure.microsoft.com/free/)
 - [SQL Server 2008](https://www.microsoft.com/sql-server/sql-server-downloads) 이상이 있는 Azure 리소스 모델 [Windows Server 2008 이상 가상 컴퓨터](../../../virtual-machines/windows/quick-create-portal.md) (또는 그 이상)가 공용 또는 Azure Government 클라우드에 배포 되었습니다. 
 - [Azure CLI](/cli/azure/install-azure-cli) 또는 Azure PowerShell의 최신 버전 [(5.0 이상)](/powershell/azure/install-az-ps) 
 

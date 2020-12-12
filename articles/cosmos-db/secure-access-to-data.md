@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7d50185169b22a136ce81bd3aebae235cf49498b
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6dd95fc8fd0ab0099ac7404d4ca4e4b1851f650f
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436626"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359611"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 액세스 보호
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -95,7 +95,7 @@ Cosmos DB 리소스 토큰은 사용자가 부여한 권한에 따라 기본 또
 
 리소스 토큰 생성 및 관리는 네이티브 Cosmos DB 클라이언트 라이브러리에 의해 처리 됩니다. 그러나 REST를 사용 하는 경우 요청/인증 헤더를 구성 해야 합니다. REST에 대 한 인증 헤더를 만드는 방법에 대 한 자세한 내용은 [Cosmos DB 리소스에](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) 대 한 Access Control 또는 [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) 또는 [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts)의 소스 코드를 참조 하세요.
 
-리소스 토큰을 생성하거나 broker하는 데 사용되는 중간 계층 서비스의 예는 [ResourceTokenBroker 앱](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers)을 참조하세요.
+리소스 토큰을 생성하거나 broker하는 데 사용되는 중간 계층 서비스의 예는 [ResourceTokenBroker 앱](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers)을 참조하세요.
 
 ## <a name="users"></a>사용자<a id="users"></a>
 

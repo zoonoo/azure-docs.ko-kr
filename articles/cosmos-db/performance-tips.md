@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet, contperf-fy21q2
-ms.openlocfilehash: 962b95307b440c3bafde019b5b2b630461718073
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 47e20e89c8eaef59b9acd6cf7e31244afd4bcf60
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029008"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359050"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Azure Cosmos DB 및 .NET SDK v2에 대한 성능 팁
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -133,7 +133,7 @@ Azure Cosmos DB 요청은 게이트웨이 모드를 사용 하는 경우 HTTPS/R
 
 **분할 된 컬렉션에 대 한 병렬 쿼리 조정**
 
-SQL .NET SDK 1.9.0 이상에서는 병렬 쿼리를 지원 하므로 분할 된 컬렉션을 병렬로 쿼리할 수 있습니다. 자세한 내용은 SDK 사용과 관련된 [코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)을 참조하세요. 병렬 쿼리는 일련의 대응 보다 더 나은 쿼리 대기 시간 및 처리량을 제공 하도록 설계 되었습니다. 병렬 쿼리는 요구 사항에 맞게 튜닝할 수 있는 두 가지 매개 변수를 제공 합니다. 
+SQL .NET SDK 1.9.0 이상에서는 병렬 쿼리를 지원 하므로 분할 된 컬렉션을 병렬로 쿼리할 수 있습니다. 자세한 내용은 SDK 사용과 관련된 [코드 샘플](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs)을 참조하세요. 병렬 쿼리는 일련의 대응 보다 더 나은 쿼리 대기 시간 및 처리량을 제공 하도록 설계 되었습니다. 병렬 쿼리는 요구 사항에 맞게 튜닝할 수 있는 두 가지 매개 변수를 제공 합니다. 
 - `MaxDegreeOfParallelism` 병렬로 쿼리할 수 있는 최대 파티션 수를 제어 합니다. 
 - `MaxBufferedItemCount` 미리 인출 된 결과의 수를 제어 합니다.
 

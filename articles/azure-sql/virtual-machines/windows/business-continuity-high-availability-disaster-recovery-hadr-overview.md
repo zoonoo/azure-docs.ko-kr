@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 194c6a5cead400e1bac78ba42cb7238b64bd3b7b
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: dbe5fba838e7c4ad9487a29889eab11d4e42671f
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327477"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358933"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server에 대 한 비즈니스 연속성 및 HADR
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -84,9 +85,20 @@ Always On 가용성 그룹를 사용 하 여 데이터베이스 수준에서 SQL
 
 [소프트웨어 보증이](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3)있는 경우 수동 재해 복구 인스턴스에 대 한 추가 라이선스 비용 없이 SQL Server를 사용 하 여 DR (하이브리드 재해 복구) 계획을 구현할 수 있습니다.
 
-다음 이미지에서 설치 프로그램은 12 개 코어를 사용 하는 온-프레미스 SQL Server 배포에 대 한 재해 복구 복제본으로 12 개 코어를 사용 하는 Azure 가상 머신에서 실행 되는 SQL Server을 사용 합니다. 과거에는 온-프레미스 배포 및 Azure Virtual Machines 배포에 대 한 SQL Server의 12 개 코어에 대 한 라이선스가 필요 합니다. 새 혜택은 Azure 가상 머신에서 실행 하기 위한 수동 복제본 혜택을 제공 합니다. 이제 Azure Virtual Machines의 수동 복제본에 대 한 재해 복구 기준이 충족 되는 한, 온-프레미스에서 실행 되는 SQL Server의 12 개 코어만 라이선스를 받아야 합니다.
+예를 들어 Azure에서 활성 기본 온-프레미스 및 DR에 대 한 무료 수동 보조를 사용할 수 있습니다. 
 
-![Azure에서 무료 재해 복구 복제본](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/free-dr-replica-azure.png)
+![Azure의 무료 보조 수동](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-secondary-in-azure.png)
+
+위의 그림에서 설치 프로그램은 12 개 코어를 사용 하는 온-프레미스 SQL Server 배포에 대 한 재해 복구 복제본으로 12 개 코어를 사용 하는 Azure 가상 머신에서 실행 되는 SQL Server을 사용 합니다. 과거에는 온-프레미스 배포 및 Azure Virtual Machines 배포에 대 한 SQL Server의 12 개 코어에 대 한 라이선스가 필요 합니다. 새 혜택은 Azure 가상 머신에서 실행 하기 위한 수동 복제본 혜택을 제공 합니다. 이제 Azure Virtual Machines의 수동 복제본에 대 한 재해 복구 기준이 충족 되는 한, 온-프레미스에서 실행 되는 SQL Server의 12 개 코어만 라이선스를 받아야 합니다.
+
+또한 세 개의 복제본이 모두 Azure에 호스트 되는 경우 두 개의 무료 수동 보조 데이터베이스를 사용할 수 있습니다. 
+
+![Azure의 모든 항목을 사용 하는 경우 두 개의 무료 passives](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-primary-in-azure.png)
+
+또는 사용이 허가 된 기본 온-프레미스로 하이브리드 장애 조치 (failover) 환경을 구성 하 고, HA에 대 한 무료 passive와 DR에 대 한 두 개의 무료 passives을 구성할 수 있습니다. 
+
+![환경이 하나의 기본 온-프레미스 복제본과 하이브리드 인 경우 세 개의 무료 passives](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-with-primary-on-prem.png)
+
 
 자세한 내용은 [제품 라이선스 약관](https://www.microsoft.com/licensing/product-licensing/products)을 참조하세요. 
 

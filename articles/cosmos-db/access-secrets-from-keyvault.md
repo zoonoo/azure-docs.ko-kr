@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6c5ef4f0ee0d68e2eae755f000423db4620b834d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a9bea0664f99a21ac734de666c802e9875ff00b5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341385"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359327"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 키 보호 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -37,7 +37,7 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 2. **[리소스 만들기] > [보안] > [Key Vault]** 를 선택합니다.  
 3. **Key Vault 만들기** 섹션에서 다음 정보를 제공합니다.  
    * **이름:** Key Vault의 고유한 이름을 제공합니다.  
-   * **구독** : 사용할 구독을 선택합니다.  
+   * **구독**: 사용할 구독을 선택합니다.  
    * **리소스 그룹** 아래에서 **새로 만들기** 를 선택 하 고 리소스 그룹 이름을 입력 합니다.  
    * 위치 풀 다운 메뉴에서 위치를 선택합니다.  
    * 다른 옵션은 기본값으로 그대로 둡니다.  
@@ -59,7 +59,7 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 
 ## <a name="create-an-azure-web-application"></a>Azure 웹 애플리케이션 만들기
 
-1. Azure 웹 애플리케이션을 만들거나 [GitHub 리포지토리](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo)에서 앱을 다운로드할 수 있습니다. 간단한 MVC 애플리케이션입니다.  
+1. Azure 웹 애플리케이션을 만들거나 [GitHub 리포지토리](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/Demo/keyvaultdemo)에서 앱을 다운로드할 수 있습니다. 간단한 MVC 애플리케이션입니다.  
 
 2. 다운로드한 애플리케이션의 압축을 풀고 **HomeController.cs** 파일을 엽니다. 다음 줄에서 비밀 ID를 업데이트합니다.
 

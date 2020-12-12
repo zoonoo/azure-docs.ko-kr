@@ -4,15 +4,15 @@ description: Azure Active Directory (Azure AD)를 사용 하 여 AzCopy 작업�
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b13b5e1e27e9717066ff8f1aa8e245e8d9f54bbb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 43002fdfbdce146b52774aa4182445bf34dd7199
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498118"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360291"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>AzCopy 및 Azure Active Directory를 사용 하 여 blob에 대 한 액세스 권한 부여 (Azure AD)
 
@@ -73,7 +73,7 @@ azcopy login --tenant-id=<tenant-id>
 
 로그인 창이 나타납니다. 이 창에서 Azure 계정 자격 증명을 사용하여 Azure 계정에 로그인합니다. 로그인에 성공하면 브라우저 창을 닫고 AzCopy를 사용할 수 있습니다.
 
-<a id="service-principal"></a>
+<a id="managed-identity"></a>
 
 ## <a name="authorize-a-managed-identity"></a>관리 ID 권한 부여
 
@@ -116,6 +116,8 @@ azcopy login --identity --identity-resource-id "<resource-id>"
 ```
 
 `<resource-id>`자리 표시자를 사용자 할당 관리 id의 리소스 ID로 바꿉니다.
+
+<a id="service-principal"></a>
 
 ## <a name="authorize-a-service-principal"></a>서비스 사용자 권한 부여
 
@@ -181,8 +183,113 @@ azcopy login --service-principal --certificate-path <path-to-certificate-file> -
 > [!NOTE]
 > 이 예제에 나와 있는 것 처럼 프롬프트를 사용 하는 것이 좋습니다. 이렇게 하면 사용자의 암호가 콘솔의 명령 기록에 표시 되지 않습니다. 
 
-<a id="managed-identity"></a>
+## <a name="authorize-without-a-keyring-linux"></a>키를 사용 하지 않고 권한 부여 (Linux)
 
+운영 체제에 인증 *키와 같은* 비밀 저장소가 없는 경우 `azcopy login` 명령이 작동 하지 않습니다. 대신 각 작업을 실행 하기 전에 메모리 내 환경 변수를 설정할 수 있습니다. 이러한 값은 작업이 완료 된 후 메모리에서 사라지지만 azcopy 명령을 실행할 때마다 이러한 변수를 설정 해야 합니다.
+
+### <a name="authorize-a-user-identity"></a>사용자 id 권한 부여
+
+사용자 id에 필요한 권한 부여 수준이 지정 되었는지 확인 한 후 다음 명령을 입력 하 고 ENTER 키를 누릅니다.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=DEVICE
+```
+
+그런 다음 azcopy 명령을 실행 합니다 (예: `azcopy list https://contoso.blob.core.windows.net` ).
+
+이 명령은 웹 사이트의 인증 코드와 URL을 반환합니다. 웹 사이트를 열고, 코드를 입력하고, **다음** 단추를 선택합니다.
+
+![컨테이너 만들기](media/storage-use-azcopy-v10/azcopy-login.png)
+
+로그인 창이 나타납니다. 이 창에서 Azure 계정 자격 증명을 사용하여 Azure 계정에 로그인합니다. 성공적으로 로그인 하면 작업을 완료할 수 있습니다.
+
+### <a name="authorize-by-using-a-system-wide-managed-identity"></a>시스템 차원의 관리 되는 id를 사용 하 여 권한 부여
+
+먼저 VM에서 시스템 차원의 관리 되는 id를 사용 하도록 설정 했는지 확인 합니다. [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity)를 참조 하십시오.
+
+다음 명령을 입력 한 다음 ENTER 키를 누릅니다.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=MSI
+```
+
+그런 다음 azcopy 명령을 실행 합니다 (예: `azcopy list https://contoso.blob.core.windows.net` ).
+
+### <a name="authorize-by-using-a-user-assigned-managed-identity"></a>사용자 할당 관리 id를 사용 하 여 권한 부여
+
+먼저 VM에서 사용자 할당 관리 id를 사용 하도록 설정 했는지 확인 합니다. [사용자 할당 관리 id](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity)를 참조 하십시오.
+
+다음 명령을 입력 한 다음 ENTER 키를 누릅니다.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=MSI
+```
+
+그런 다음, 다음 명령 중 하나를 입력 하 고 ENTER 키를 누릅니다.
+
+```bash
+export AZCOPY_MSI_CLIENT_ID=<client-id>
+```
+
+`<client-id>`자리 표시자를 사용자 할당 관리 id의 클라이언트 ID로 바꿉니다.
+
+```bash
+export AZCOPY_MSI_OBJECT_ID=<object-id>
+```
+
+`<object-id>`자리 표시자를 사용자 할당 관리 id의 개체 ID로 바꿉니다.
+
+```bash
+export AZCOPY_MSI_RESOURCE_STRING=<resource-id>
+```
+
+`<resource-id>`자리 표시자를 사용자 할당 관리 id의 리소스 ID로 바꿉니다.
+
+이러한 변수를 설정한 후에는 azcopy 명령을 실행할 수 있습니다 (예: `azcopy list https://contoso.blob.core.windows.net` ).
+
+### <a name="authorize-a-service-principal"></a>서비스 사용자 권한 부여
+
+스크립트를 실행 하기 전에 AzCopy에 서비스 주체의 자격 증명을 제공할 수 있도록 대화형으로 한 번 이상 로그인 해야 합니다.  이러한 자격 증명은 스크립트가 중요 한 정보를 제공할 필요가 없도록 보안 및 암호화 된 파일에 저장 됩니다.
+
+클라이언트 암호를 사용 하거나 서비스 주체의 앱 등록과 연결 된 인증서의 암호를 사용 하 여 계정에 로그인 할 수 있습니다.
+
+#### <a name="authorize-a-service-principal-by-using-a-client-secret"></a>클라이언트 암호를 사용 하 여 서비스 사용자 권한 부여
+
+다음 명령을 입력 한 다음 ENTER 키를 누릅니다.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=SPN
+export AZCOPY_SPA_APPLICATION_ID=<application-id>
+export AZCOPY_SPA_CLIENT_SECRET=<client-secret>
+```
+
+`<application-id>`자리 표시자를 서비스 사용자의 앱 등록의 응용 프로그램 ID로 바꿉니다. `<client-secret>`자리 표시자를 클라이언트 암호로 바꿉니다.
+
+> [!NOTE]
+> 프롬프트를 사용 하 여 사용자의 암호를 수집 하는 것이 좋습니다. 이렇게 하면 암호가 명령 기록에 표시 되지 않습니다. 
+
+그런 다음 azcopy 명령을 실행 합니다 (예: `azcopy list https://contoso.blob.core.windows.net` ).
+
+#### <a name="authorize-a-service-principal-by-using-a-certificate"></a>인증서를 사용 하 여 서비스 주체 권한 부여
+
+권한 부여를 위해 자체 자격 증명을 사용 하려는 경우 앱 등록에 인증서를 업로드 한 다음 해당 인증서를 사용 하 여 로그인 할 수 있습니다.
+
+앱 등록에 인증서를 업로드 하는 것 외에도 AzCopy가 실행 되는 컴퓨터 또는 VM에 인증서 복사본을 저장 해야 합니다. 인증서 복사본은에 있어야 합니다. PFX 또는. PEM 형식 및에는 개인 키가 포함 되어야 합니다. 개인 키는 암호로 보호 되어야 합니다. 
+
+다음 명령을 입력 한 다음 ENTER 키를 누릅니다.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=SPN
+export AZCOPY_SPA_CERT_PATH=<path-to-certificate-file>
+export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
+```
+
+`<path-to-certificate-file>`자리 표시자를 인증서 파일의 상대 경로 또는 정규화 된 경로로 바꿉니다. AzCopy는이 인증서에 대 한 경로를 저장 하지만 인증서 복사본을 저장 하지 않으므로 해당 인증서를 그대로 유지 해야 합니다. `<certificate-password>`자리 표시자를 인증서의 암호로 바꿉니다.
+
+> [!NOTE]
+> 프롬프트를 사용 하 여 사용자의 암호를 수집 하는 것이 좋습니다. 이렇게 하면 암호가 명령 기록에 표시 되지 않습니다. 
+
+그런 다음 azcopy 명령을 실행 합니다 (예: `azcopy list https://contoso.blob.core.windows.net` ).
 
 ## <a name="next-steps"></a>다음 단계
 

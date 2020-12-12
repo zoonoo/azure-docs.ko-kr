@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: df50583e650d3d44e702c0f7d1596f2a733a4445
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 244fae9f8611acd21f2ee6cd7dafa45b88606456
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556389"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359356"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Azure 공유 디스크를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,12 +28,12 @@ ms.locfileid: "94556389"
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 이 문서의 지침을 완료 하기 전에 다음이 이미 있어야 합니다.
 
 - Azure 구독 [무료로](https://azure.microsoft.com/free/)시작 하세요. 
-- [두 개 이상의 Windows Azure 가상 컴퓨터](failover-cluster-instance-prepare-vm.md). [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md) 및 ppgs ( [근접 배치 그룹](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) )는 모두 지원 됩니다. PPG를 사용 하는 경우 모든 노드가 동일한 그룹에 있어야 합니다.
+- [두 개 이상의 Windows Azure 가상 컴퓨터](failover-cluster-instance-prepare-vm.md). 프리미엄 SSD 및 [가용성 영역](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) 에 대해 지원 되는 (ppgs) [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md) 및 [근접 배치 그룹](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) 은 Ultra Disks에 대해 지원 됩니다. PPG를 사용 하는 경우 모든 노드가 동일한 그룹에 있어야 합니다.
 - Azure 가상 머신과 Active Directory 모두에서 개체를 만들 수 있는 권한이 있는 계정
 - 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)입니다. 
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: abc8cffa3d5b9dffb55beabc90cdaecb3adc647f
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 985f9e741a1491a812c1d2b20de96381f8af3fa4
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852526"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359849"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 배포
 
@@ -86,7 +86,7 @@ Azure Portal를 사용 하 여 새 리소스를 만들려면 다음 단계를 �
    * 서버 URL-로 설정 합니다. `https://mcr.microsoft.com`
    * Username (선택 사항)-사용자 이름을 만듭니다. 
    * 암호 (선택 사항)-기억할 보안 암호를 만듭니다.
-   * 이미지 및 태그-로 설정 합니다. `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
+   * 이미지 및 태그-로 설정 합니다. `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
    * 연속 배포-개발 팀이 샘플 레이블 지정 도구를 변경할 때 자동 업데이트를 받으려면이를 **On** 으로 설정 합니다.
    * 시작 명령-이를로 설정 합니다. `./run.sh eula=accept`
     

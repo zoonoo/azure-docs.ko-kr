@@ -1,5 +1,5 @@
 ---
-title: '마이그레이션 가이드: DB2에서 SQL로 Managed Instance'
+title: 'DB2에서 SQL Managed Instance로: 마이그레이션 가이드'
 description: 이 가이드에 따라 DB2 데이터베이스를 Azure SQL Managed Instance로 마이그레이션합니다.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: c31187e87f18f0ec84cd5b80ccab997d0ba381c3
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 3902661553bbb390e6e999e0f67cd043eee8df09
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324757"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359186"
 ---
 # <a name="migration-guide-db2-to-sql-managed-instance"></a>마이그레이션 가이드: DB2에서 SQL로 Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "96324757"
 
 다른 시나리오는 [데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 DB2 데이터베이스를 SQL Managed Instance 마이그레이션하려면 다음이 필요 합니다.
 

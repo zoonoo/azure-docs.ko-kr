@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: rosouz
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 46164a5cd96941609c8a6484470fff863680f9d3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9a4e35a235fe6ee6950bd1b4c35cbf9e72ac2893
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096600"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359237"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB에서 변경 스트림
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -67,7 +67,7 @@ enumerator.Dispose();
 
 # <a name="java"></a>[Java](#tab/java)
 
-다음 예제에서는 Java에서 스트림 변경 기능을 사용 하는 방법을 보여 줍니다. 전체 예제는이 [GitHub 리포지토리](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/master/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java)를 참조 하세요. 또한이 예제에서는 메서드를 사용 하 여 `resumeAfter` 마지막 읽기부터 모든 변경 내용을 검색 하는 방법을 보여 줍니다. 
+다음 예제에서는 Java에서 스트림 변경 기능을 사용 하는 방법을 보여 줍니다. 전체 예제는이 [GitHub 리포지토리](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/main/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java)를 참조 하세요. 또한이 예제에서는 메서드를 사용 하 여 `resumeAfter` 마지막 읽기부터 모든 변경 내용을 검색 하는 방법을 보여 줍니다. 
 
 ```java
 Bson match = Aggregates.match(Filters.in("operationType", asList("update", "replace", "insert")));
@@ -149,7 +149,7 @@ Azure Cosmos DB의 SQL API에 있는 변경 피드와 달리, 변경 스트림�
 
 * **HTTP 오류 코드 16500** - 변경 스트림이 제한되면 빈 페이지를 반환합니다.
 
-* **NamespaceNotFound** (OperationType 무효화) - 존재하지 않는 컬렉션에서 변경 스트림을 실행하거나 컬렉션을 삭제하면 `NamespaceNotFound` 오류가 반환됩니다. `operationType` 속성은 `operationType Invalidate` 오류 대신 출력 문서에서 반환될 수 없으므로 `NamespaceNotFound` 오류가 반환됩니다.
+* **NamespaceNotFound**(OperationType 무효화) - 존재하지 않는 컬렉션에서 변경 스트림을 실행하거나 컬렉션을 삭제하면 `NamespaceNotFound` 오류가 반환됩니다. `operationType` 속성은 `operationType Invalidate` 오류 대신 출력 문서에서 반환될 수 없으므로 `NamespaceNotFound` 오류가 반환됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

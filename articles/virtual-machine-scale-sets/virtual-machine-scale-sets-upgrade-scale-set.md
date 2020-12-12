@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 7577c8510746d1140c1f8b70081f600d992ae512
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c255a3d68b1a24e25c1c0e308faa3fd364a15861
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016678"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358744"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
 
@@ -350,12 +350,12 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 
 - **singlePlacementGroup** - singlePlacementGroup이 true이면 false로 수정할 수 있습니다. 그러나 singlePlacementGroup이 false인 경우, true로 수정하지 **못할 수 있습니다**.
 - **서브넷** - 확장 집합의 서브넷은 원래 서브넷과 새 서브넷이 동일한 가상 네트워크에 있는 경우 수정할 수 있습니다.
+- **imageReferenceSku** -보증 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)배포판, Windows server/client 이미지 및 [계획 정보가](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage#view-plan-properties)없는 이미지에 대해 이미지 참조 SKU를 업데이트할 수 있습니다. 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>변경하기 위해 할당을 취소해야 하는 속성
 일부 속성은 확장 집합의 VM을 할당 취소해야만 특정 값으로 변경할 수 있습니다. 이러한 속성은 다음과 같습니다.
 
-- **SKU 이름** - 새 VM SKU가 현재 확장 집합이 있는 하드웨어에서 지원되지 않을 경우, SKU 이름을 수정하기 전에 확장 집합에서 VM 할당을 취소해야 합니다. 자세한 내용은 [Azure VM의 크기를 조정하는 방법](../virtual-machines/windows/resize-vm.md)을 참조하세요.
-
+- **Sku 이름**-확장 집합이 현재 있는 하드웨어에서 새 VM SKU가 지원 되지 않는 경우 sku 이름을 수정 하기 전에 확장 집합에서 vm의 할당을 취소 해야 합니다. 자세한 내용은 [Azure VM의 크기를 조정하는 방법](../virtual-machines/windows/resize-vm.md)을 참조하세요. 
 
 ## <a name="vm-specific-updates"></a>VM 관련 업데이트
 특정 수정 내용은 전역 확장 집합 속성 대신 특정 VM에 적용될 수 있습니다. 현재 지원되는 유일한 VM 관련 업데이트는 확장 집합의 VM에서 데이터 디스크 연결/분리 작업입니다. 이 기능은 미리 보기 상태입니다. 자세한 내용은 [미리 보기 설명서](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk)를 참조하세요.

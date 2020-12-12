@@ -3,12 +3,12 @@ title: 템플릿 함수-numeric
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 숫자를 사용 하는 데 사용 하는 함수에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 1484826b2377fe2adb2ac6ae2ab3ee6243b26c2c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: f3687581d94f80cc923614a0655da1813bd5c97b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920455"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359713"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>ARM 템플릿에 대 한 숫자 함수
 
@@ -35,7 +35,7 @@ ms.locfileid: "96920455"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 |operand1 |예 |int |더할 첫 번째 숫자입니다. |
 |operand2 |예 |int |더할 두 번째 숫자입니다. |
@@ -94,7 +94,7 @@ output addResult int = first + second
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | addResult | Int | 8 |
 
@@ -106,7 +106,7 @@ output addResult int = first + second
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | loopName | 예 | 문자열 | 반복을 가져오기 위한 루프의 이름입니다. |
 | offset |아니요 |int |0부터 시작하는 반복 값에 더할 숫자입니다. |
@@ -180,7 +180,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |나누어지는 수입니다. |
 | operand2 |예 |int |나누는 데 사용되는 정수입니다. 0 일 수 없습니다. |
@@ -239,7 +239,7 @@ output addResult int = first / second
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | divResult | Int | 2 |
 
@@ -247,11 +247,11 @@ output addResult int = first / second
 
 `float(arg1)`
 
-값을 부동 소수점 숫자로 변환합니다. 논리 앱과 같은 애플리케이션에 사용자 지정 매개 변수를 전달할 때만 이 함수를 사용합니다. `float`함수는 Becip에서 지원 되지 않습니다.  [32 비트 정수가 아닌 숫자 형식 지원](https://github.com/Azure/bicep/issues/486)을 참조 하세요.
+값을 부동 소수점 숫자로 변환합니다. 논리 앱과 같은 애플리케이션에 사용자 지정 매개 변수를 전달할 때만 이 함수를 사용합니다. `float`함수는 Bicep에서 지원 되지 않습니다.  [32 비트 정수가 아닌 숫자 형식 지원](https://github.com/Azure/bicep/issues/486)을 참조 하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 int |부동 소수점 숫자로 변환할 값입니다. |
 
@@ -294,7 +294,7 @@ output addResult int = first / second
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |예 |문자열 또는 int |정수로 변환할 값입니다. |
 
@@ -341,7 +341,7 @@ output inResult int = int(stringToConvert)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | intResult | Int | 4 |
 
@@ -353,7 +353,7 @@ output inResult int = int(stringToConvert)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
@@ -410,7 +410,7 @@ output intOutput int = max(0,3,2,5,4)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -423,7 +423,7 @@ output intOutput int = max(0,3,2,5,4)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
@@ -480,7 +480,7 @@ output intOutput int = min(0,3,2,5,4)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -493,7 +493,7 @@ output intOutput int = min(0,3,2,5,4)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |나누어지는 수입니다. |
 | operand2 |예 |int |나누는 데 사용 되는 숫자는 0 일 수 없습니다. |
@@ -552,7 +552,7 @@ output modResult int = first % second
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | modResult | Int | 1 |
 
@@ -564,7 +564,7 @@ output modResult int = first % second
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |곱할 첫 번째 숫자입니다. |
 | operand2 |예 |int |곱할 두 번째 숫자입니다. |
@@ -623,7 +623,7 @@ output mulResult int = first * second
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | mulResult | Int | 15 |
 
@@ -635,7 +635,7 @@ output mulResult int = first * second
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |빼는 피감수입니다. |
 | operand2 |예 |int |빼는 감수입니다. |
@@ -694,7 +694,7 @@ output subResult int = first - second
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | subResult | Int | 4 |
 

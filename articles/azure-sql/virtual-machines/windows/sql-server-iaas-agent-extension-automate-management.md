@@ -8,6 +8,7 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -16,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 572363f429cb828d44c9dd12ba2424930c94fefe
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: e8268630b2c108dc95ded059ce41866a14fadd0e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553536"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359254"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용 하 여 관리 자동화
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,13 +36,13 @@ SQL Server IaaS 에이전트 확장 (SqlIaasExtension)은 Azure Virtual Machines
 
 SQL Server IaaS 에이전트 확장은 Azure Vm의 SQL Server에 대 한 다양 한 이점을 제공 합니다. 
 
-- **기능 이점** : 확장이 포털 관리, 라이선스 유연성, 자동화 된 백업, 자동화 된 패치 등의 다양 한 자동화 기능 혜택을 해제 합니다. 자세한 내용은이 문서의 뒷부분에 나오는 [기능 이점](#feature-benefits) 을 참조 하세요. 
+- **기능 이점**: 확장이 포털 관리, 라이선스 유연성, 자동화 된 백업, 자동화 된 패치 등의 다양 한 자동화 기능 혜택을 해제 합니다. 자세한 내용은이 문서의 뒷부분에 나오는 [기능 이점](#feature-benefits) 을 참조 하세요. 
 
-- **규정 준수** : 확장은 제품 약관에 지정 된 대로 Azure 하이브리드 혜택 사용 하도록 설정 되었음을 Microsoft에 알리기 위한 간단한 방법을 제공 합니다. 이 프로세스로 각 리소스마다 라이선스 등록 양식을 관리할 필요가 없습니다.  
+- **규정 준수**: 확장은 제품 약관에 지정 된 대로 Azure 하이브리드 혜택 사용 하도록 설정 되었음을 Microsoft에 알리기 위한 간단한 방법을 제공 합니다. 이 프로세스로 각 리소스마다 라이선스 등록 양식을 관리할 필요가 없습니다.  
 
-- **무료** : 세 가지 관리 효율성 모드 모두에서 확장은 완전히 무료로 제공 됩니다. 확장과 관련 된 추가 비용이 나 관리 모드를 변경 하는 것은 없습니다. 
+- **무료**: 세 가지 관리 효율성 모드 모두에서 확장은 완전히 무료로 제공 됩니다. 확장과 관련 된 추가 비용이 나 관리 모드를 변경 하는 것은 없습니다. 
 
-- **간소화 된 라이선스 관리** : 확장 SQL Server 라이선스 관리를 간소화 하 고 [Azure Portal](manage-sql-vm-portal.md), Azure CLI 또는 PowerShell을 사용 하 여 Azure 하이브리드 혜택 사용 하도록 설정 된 SQL Server vm을 빠르게 식별할 수 있습니다. 
+- **간소화 된 라이선스 관리**: 확장 SQL Server 라이선스 관리를 간소화 하 고 [Azure Portal](manage-sql-vm-portal.md), Azure CLI 또는 PowerShell을 사용 하 여 Azure 하이브리드 혜택 사용 하도록 설정 된 SQL Server vm을 빠르게 식별할 수 있습니다. 
 
    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -70,7 +71,7 @@ SQL Server IaaS 에이전트 확장은 SQL Server VM 관리에 대 한 다양 �
 다음 표에서는 이러한 이점에 대해 자세히 설명 합니다. 
 
 
-| 기능 | Description |
+| 기능 | 설명 |
 | --- | --- |
 | **포털 관리** | [포털에서 관리](manage-sql-vm-portal.md)의 잠금을 해제 하 여 모든 SQL Server vm을 한 곳에서 볼 수 있으므로 포털에서 직접 SQL 특정 기능을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 
 | **자동화 된 백업** |VM에 있는 SQL Server의 기본 인스턴스나 [제대로 설치된](frequently-asked-questions-faq.md#administration) 명명된 인스턴스에 대한 모든 데이터베이스 백업 예약을 자동화합니다. 자세한 내용은 [Azure 가상 머신에서 SQL Server에 대한 자동화된 백업(Resource Manager)](automated-backup-sql-2014.md)을 참조하세요. |
