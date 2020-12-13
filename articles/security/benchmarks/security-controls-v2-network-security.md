@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 38ab16fbadee245810a4486170dd54922c0c38f9
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 4c87dd905ae842647e7ec2e365abf450caf352b0
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558915"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369330"
 ---
 # <a name="security-control-v2-network-security"></a>보안 제어 V2: 네트워크 보안
 
@@ -20,7 +20,7 @@ ms.locfileid: "96558915"
 
 ## <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: 내부 트래픽에 대 한 보안 구현
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | NS-1 | 9.2, 9.4, 14.1, 14.2, 14.3 | AC-4, 캐나다-3, SC-7 |
 
@@ -52,9 +52,9 @@ Azure 센티널을 사용 하 여 SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, 서명 �
 
 ## <a name="ns-2-connect-private-networks-together"></a>NS-2: 개인 네트워크를 함께 연결
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
-| NS-2 | N/A | CA-3, AC-17, MA-4 |
+| NS-2 | 해당 없음 | CA-3, AC-17, MA-4 |
 
 Azure Express 경로 또는 Azure VPN (가상 사설망)을 사용 하 여 공동 배치 환경의 온-프레미스 인프라와 Azure 데이터 센터 간에 개인 연결을 만듭니다. Express 경로 연결은 공용 인터넷을 통해 이동 하지 않으며 일반적인 인터넷 연결 보다 안정적이 고 속도가 빠르며 대기 시간이 짧습니다. 지점 및 사이트 간 VPN 및 사이트 간 VPN의 경우 이러한 VPN 옵션과 Azure Express 경로를 조합 하 여 온-프레미스 장치 또는 네트워크를 가상 네트워크에 연결할 수 있습니다.
 
@@ -80,7 +80,7 @@ Azure에서 둘 이상의 가상 네트워크를 함께 연결 하려면 가상 
 
 ## <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: Azure 서비스에 대한 프라이빗 네트워크 액세스 설정
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | NS-3 | 14.1 | AC-4, 캐나다-3, SC-7 |
 
@@ -104,7 +104,7 @@ Azure 개인 링크를 사용 하 여 인터넷을 거치지 않고 가상 네�
 
 ## <a name="ns-4-protect-applications-and-services-from-external-network-attacks"></a>NS-4: 외부 네트워크 공격 으로부터 응용 프로그램 및 서비스 보호
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | NS-4 | 9.5, 12.3, 12.9 | SC-5, SC-7 |
 
@@ -134,7 +134,7 @@ DDoS (분산 서비스 거부) 공격, 응용 프로그램별 공격, 원치 않
 
 ## <a name="ns-5-deploy-intrusion-detectionintrusion-prevention-systems-idsips"></a>NS-5: 침입 감지/침입 방지 시스템 (IDS/IPS) 배포
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | NS-5 | 12.6, 12.7 | SI-4 |
 
@@ -160,7 +160,7 @@ Azure 방화벽 위협 인텔리전스 기반 필터링을 사용 하 여 알려
 
 ## <a name="ns-6-simplify-network-security-rules"></a>NS-6: 네트워크 보안 규칙 단순화
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | NS-6 | 1.5 | IA-4 |
 
@@ -186,9 +186,9 @@ Virtual Network 서비스 태그를 사용 하 여 네트워크 보안 그룹 �
 
 ## <a name="ns-7-secure-domain-name-service-dns"></a>NS-7: 보안 DNS (Domain Name Service)
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
-| NS-7 | N/A | SC-20, SC-21 |
+| NS-7 | 해당 없음 | SC-20, SC-21 |
 
 DNS 보안에 대 한 모범 사례에 따라 현 DNS, DNS amplifications 공격, DNS 포 이즈 및 스푸핑 등의 일반적인 공격을 완화 합니다. 
 
