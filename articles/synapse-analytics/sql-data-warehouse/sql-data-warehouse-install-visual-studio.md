@@ -12,12 +12,12 @@ ms.subservice: sql-dw
 ms.date: 05/11/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ab0188fa44eeb09e3981b8e1809832948963d47
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 456d7eb0cabd7ebede6415e3ce92d7403ecef7ef
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511644"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368757"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Visual Studio 2019 시작
 
@@ -45,7 +45,7 @@ Synapse SQL의 기능 릴리스에 SSDT에 대한 지원이 포함되지 않는 
   - 지원되는 기능을 가져오려면 [지원 티켓 또는 투표](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking)를 제출합니다.
 - [Id 열](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15) 이 있는 테이블
 - 특정 T-sql 기능 (예:
-   - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql?view=sqlallproducts-allversions) STRING 함수의 *GROUP 절 내* 에 있습니다.
+   - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql) STRING 함수의 *GROUP 절 내* 에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

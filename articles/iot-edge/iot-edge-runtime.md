@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: 133be436853ee8c2b04df2f943368513108b226b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: c0c3a452c93b88483ac7027405665c26ceab8183
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444310"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368514"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IoT Edge 런타임 및 해당 아키텍처 이해
 
@@ -81,7 +81,7 @@ IoT Edge 허브는 로컬에서 실행 되는 IoT Hub의 전체 버전이 아닙
 
 IoT Edge 솔루션에서 사용 하는 대역폭을 줄이기 위해 IoT Edge 허브는 클라우드에 대 한 실제 연결 수를 최적화 합니다. IoT Edge 허브는 모듈 또는 다운스트림 장치에서 논리적 연결을 사용 하 여 클라우드로의 단일 실제 연결에 대 한 연결을 결합 합니다. 이 프로세스의 세부 정보는 솔루션의 나머지 부분에 투명합니다. 클라이언트는 모두 동일한 연결을 통해 전송되는 경우에도 클라우드에 대한 자체 연결이 있다고 생각하면 됩니다. IoT Edge 허브는 AMQP 또는 MQTT 프로토콜을 사용 하 여 다운스트림 장치에서 사용 하는 프로토콜과 독립적으로 클라우드와 업스트림 통신할 수 있습니다. 그러나 IoT Edge 허브는 현재 업스트림 프로토콜 및 해당 멀티플렉싱 기능으로 AMQP를 사용 하 여 논리적 연결을 단일 물리적 연결로 결합 하는 것만 지원 합니다. AMQP는 기본 업스트림 프로토콜입니다.
 
-![IoT Edge 허브는 물리적 디바이스와 IoT Hub 간의 게이트웨이입니다.](./media/iot-edge-runtime/Gateway.png)
+![IoT Edge 허브는 물리적 디바이스와 IoT Hub 간의 게이트웨이입니다.](./media/iot-edge-runtime/gateway-communication.png)
 
 IoT Edge 허브는 IoT Hub에 연결되어 있는지 여부를 결정할 수 있습니다. 연결이 끊어진 경우 IoT Edge 허브는 메시지 또는 쌍 업데이트를 로컬로 저장합니다. 연결이 다시 설정되면 모든 데이터가 동기화됩니다. 이 임시 캐시에 사용 되는 위치는 IoT Edge 허브 모듈 쌍의 속성에 의해 결정 됩니다. 캐시의 크기는 제한되지 않으며, 디바이스에 스토리지 용량이 있는 동안에는 증가합니다. 자세한 내용은 [오프 라인 기능](offline-capabilities.md)을 참조 하세요.
 
@@ -112,7 +112,7 @@ ModuleClient 클래스 및 해당 통신 방법에 대 한 자세한 내용은 [
 
 솔루션 개발자는 IoT Edge 허브에서 모듈 간에 메시지를 전달하는 방식을 결정하는 규칙을 지정합니다. 라우팅 규칙은 클라우드에서 정의 되며 모듈 쌍의 IoT Edge 허브로 푸시됩니다. IoT Hub 경로에 대한 동일한 구문이 Azure IoT Edge의 모듈 간 경로를 정의하는 데 사용됩니다. 자세한 내용은 [IoT Edge에서 모듈 배포 및 경로를 설정하는 방법 알아보기](module-composition.md)을 참조하세요.
 
-![모듈 간 경로는 IoT Edge 허브를 통과합니다.](./media/iot-edge-runtime/module-endpoints-with-routes.png)
+![모듈 간 경로는 IoT Edge 허브를 통과합니다.](./media/iot-edge-runtime/module-endpoints-routing.png)
 ::: moniker-end
 
 <!-- <1.2> -->
@@ -134,7 +134,7 @@ IoT Edge 허브는 두 가지 중개 메커니즘을 지원 합니다.
 
 첫 번째 중개 메커니즘은 IoT Hub와 동일한 라우팅 기능을 활용 하 여 장치 또는 모듈 간에 메시지를 전달 하는 방법을 지정 합니다. 첫 번째 장치 또는 모듈은 메시지를 수락 하는 입력과 메시지를 작성 하는 출력을 지정 합니다. 그런 다음, 솔루션 개발자가 소스 (예: 출력)와 대상 (예: 입력) 간에 메시지를 라우팅할 수 있습니다.
 
-![모듈 간 경로는 IoT Edge 허브를 통과합니다.](./media/iot-edge-runtime/module-endpoints-with-routes.png)
+![모듈 간 경로는 IoT Edge 허브를 통과합니다.](./media/iot-edge-runtime/module-endpoints-routing.png)
 
 라우팅은 AMQP 또는 MQTT 프로토콜을 통해 Azure IoT 장치 Sdk로 빌드된 장치 또는 모듈에서 사용할 수 있습니다. 모든 메시징 IoT Hub 기본 형식 (예: 원격 분석, 직접 메서드, C2D, twins)은 지원 되지만 사용자 정의 항목을 통한 통신은 지원 되지 않습니다.
 

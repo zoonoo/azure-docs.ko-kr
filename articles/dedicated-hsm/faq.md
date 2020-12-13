@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: keithp
-ms.openlocfilehash: 61a9fcc5490c20383a2ae7d5c57b7fda7567c643
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 1f349931fb479be3b3ba936b3d0a665427357f29
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095154"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369041"
 ---
 # <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
@@ -217,7 +217,7 @@ Thales HSM 클라이언트 소프트웨어는 Hsm 및 파티션을 관리 하는
 
 16 HA 그룹의 멤버는 뛰어난 결과를 포함 하는 낮은 수준의 전체 스로틀 테스트를 포함 합니다.
 
-## <a name="support"></a>Support(지원)
+## <a name="support"></a>지원
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>Q: Dedicated HSM 서비스에 대한 SLA는 어떻게 되나요?
 
@@ -277,8 +277,8 @@ HSM에는 명령줄 다시 부팅 옵션이 있지만, 다시 부팅이 간헐�
   * RC5
   * CAST
   * 해시/메시지 다이제스트/HMAC: SHA-1, SHA-2, SM3
-  * 키 파생: SP800 108 Counter 모드
-  * 키 래핑: SP800-38F
+  * 키 파생: SP 800-108 카운터 모드
+  * 키 래핑: SP 800-38F
   * 난수 생성: FIPS 140-2 승인 DRBG(SP 800-90 CTR 모드) - BSI DRG.4 준수
 
 ### <a name="q-is-dedicated-hsm-fips-140-2-level-3-validated"></a>Q: Dedicated HSM은 FIPS 140-2 수준 3으로 검증되었나요?

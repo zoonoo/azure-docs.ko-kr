@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 610ab649d64351b0897ef7358cdaf9280fe3ba55
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c18ee43eefe9c6cf9cba7f4e8f6c3fd3f55bba5a
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684922"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368701"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -396,9 +396,9 @@ SQL Server에서 사용 하도록 설정 된 문서화 되지 않은 DBCC 문은
 
 SQL Managed Instance의 연결 된 서버는 제한 된 수의 대상을 지원 합니다.
 
-- 지원 되는 대상은 SQL Managed Instance, SQL Database, Azure Synapse SQL 및 SQL Server 인스턴스입니다. 
+- 지원 되는 대상은 SQL Managed Instance, SQL Database, Azure Synapse [SQL server](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) 를 사용 하지 않으며 전용 풀 및 SQL Server 인스턴스입니다. 
 - 연결된 서버는 분산 쓰기 가능 트랜잭션(MS DTC)을 지원하지 않습니다.
-- 지원되지 않는 대상은 파일, Analysis Services 및 기타 RDBMS입니다. 파일 가져오기의 대안으로 `BULK INSERT` 또는 `OPENROWSET`를 사용하여 Azure Blob Storage에서 기본 CSV 가져오기를 사용합니다.
+- 지원되지 않는 대상은 파일, Analysis Services 및 기타 RDBMS입니다. `BULK INSERT`또는 파일 가져오기에 대 한 대체 방법으로 또는를 사용 하 여 Azure Blob Storage에서 네이티브 CSV 가져오기를 사용 `OPENROWSET` 하거나 [Azure Synapse Analytics에서 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)를 사용 하지 않는 SQL 풀을 사용 하 여 파일을 로드 하십시오.
 
 작업: 
 
@@ -406,11 +406,12 @@ SQL Managed Instance의 연결 된 서버는 제한 된 수의 대상을 지원 
 - `sp_dropserver`는 연결된 서버를 삭제하는 데 지원됩니다. [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)를 참조하세요.
 - `OPENROWSET` 함수는 SQL Server 인스턴스에서만 쿼리를 실행하는 데 사용할 수 있습니다. 관리되는 컴퓨터, 온-프레미스 컴퓨터 또는 가상 머신 중 하나일 수 있습니다. [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)를 참조하세요.
 - `OPENDATASOURCE` 함수는 SQL Server 인스턴스에서만 쿼리를 실행하는 데 사용할 수 있습니다. 관리되는 컴퓨터, 온-프레미스 컴퓨터 또는 가상 머신 중 하나일 수 있습니다. `SQLNCLI`, `SQLNCLI11` 및 `SQLOLEDB` 값만 공급자로 지원됩니다. 예제는 `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`입니다. [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql)를 참조하세요.
-- 연결된 서버를 네트워크 공유에서 파일(Excel, CSV)을 읽는 데 사용할 수 없습니다. Azure Blob Storage에서 CSV 파일을 읽는 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) 또는 [ OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file)을 사용해 보세요. [SQL Managed Instance 피드백 항목](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources) 에서이 요청 추적|
+- 연결된 서버를 네트워크 공유에서 파일(Excel, CSV)을 읽는 데 사용할 수 없습니다. Azure Blob Storage에서 CSV 파일을 읽는 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file)또는 [Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 참조 하는 연결 된 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)를 사용 하십시오. [](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) [SQL Managed Instance 피드백 항목](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources) 에서이 요청 추적|
 
 ### <a name="polybase"></a>PolyBase
 
-유일 하 게 지원 되는 외부 소스 유형은 RDBMS, Azure SQL Database 및 기타 Azure SQL Managed Instance입니다. PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/polybase/polybase-guide)를 참조하세요.
+Azure SQL database, Azure SQL 관리 되는 인스턴스 및 Azure Synapse 풀에는 RDBMS (공개 미리 보기의 경우)만 사용할 수 있습니다. [Synapse Analytics에서 서버 리스 SQL 풀을 참조 하는 외부 테이블](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) 을 Azure storage에서 직접 읽는 Polybase 외부 테이블에 대 한 해결 방법으로 사용할 수 있습니다. Azure SQL 관리 되는 인스턴스에서 연결 된 서버를 [Synapse Analytics의 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) 를 사용 하지 않는 sql 풀에 사용 하거나 SQL Server 하 여 azure storage 데이터를 읽을 수 있습니다.
+PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/polybase/polybase-guide)를 참조하세요.
 
 ### <a name="replication"></a>복제
 

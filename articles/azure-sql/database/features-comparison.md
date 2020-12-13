@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 11/10/2020
-ms.openlocfilehash: 65ef118fde57a7b72903d502a06644024939923f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: b40f618b65af6fd7a6d283431aaf63c2cc1dcd1a
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506025"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368463"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>기능 비교: Azure SQL Database 및 Azure SQL Managed Instance
 
@@ -49,7 +49,7 @@ Azure는 데이터베이스를 관리 하 고 고가용성을 보장 합니다. 
 | [인증서 및 비대칭 키](/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | 예 `BACKUP` . 및 작업에 대 한 파일 시스템에 액세스 하지 않습니다 `CREATE` . | 예. 및 작업용 파일 시스템에 대 한 액세스 권한이 없는 경우 `BACKUP` `CREATE` [인증서 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#certificates)을 참조 하세요. |
 | [변경 데이터 캡처-CDC](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | 아니요 | 예 |
 | [데이터 정렬 - 서버/인스턴스](/sql/relational-databases/collations/set-or-change-the-server-collation) | 아니요, 기본 서버 데이터 정렬이 `SQL_Latin1_General_CP1_CI_AS` 항상 사용 됩니다. | 예. [인스턴스를 만들](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md) 때 설정할 수 있으며 나중에 업데이트할 수 없습니다. |
-| [columnstore 인덱스](/sql/relational-databases/indexes/columnstore-indexes-overview) | 예- [프리미엄 계층, 표준 계층-S3 이상, 범용 계층, 중요 비즈니스용 및 HyperScale 계층](/sql/relational-databases/indexes/columnstore-indexes-overview) |Yes |
+| [columnstore 인덱스](/sql/relational-databases/indexes/columnstore-indexes-overview) | 예- [프리미엄 계층, 표준 계층-S3 이상, 범용 계층, 중요 비즈니스용 및 HyperScale 계층](/sql/relational-databases/indexes/columnstore-indexes-overview) |예 |
 | [CLR (공용 언어 런타임)](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | 아니요 | 예, 하지만 문에서 파일 시스템에 액세스 하지 않습니다. `CREATE ASSEMBLY` [CLR 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) 을 참조 하세요. |
 | [자격 증명](/sql/relational-databases/security/authentication-access/credentials-database-engine) | 예, 하지만 [데이터베이스 범위 자격 증명만](/sql/t-sql/statements/create-database-scoped-credential-transact-sql) | 예, 하지만 **Azure Key Vault** 만 `SHARED ACCESS SIGNATURE` 지원 됩니다. [자세한](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) 내용은 |
 | [데이터베이스 간/세 부분으로 구성 되는 이름 쿼리](/sql/relational-databases/linked-servers/linked-servers-database-engine) | 아니요 - [탄력적 쿼리](elastic-query-overview.md) 참조 | 예. 추가적으로 [탄력적 쿼리](elastic-query-overview.md) |
@@ -59,16 +59,16 @@ Azure는 데이터베이스를 관리 하 고 고가용성을 보장 합니다. 
 | [데이터베이스 스냅샷](/sql/relational-databases/databases/database-snapshots-sql-server) | 아니요 | 아니요 |
 | [DBCC 문](/sql/t-sql/database-console-commands/dbcc-transact-sql) | 대부분 - 개별 문 참조 | 예 - [DBCC 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#dbcc) 참조 |
 | [DDL 문](/sql/t-sql/statements/statements) | 대부분 - 개별 문 참조 | 예 - [T-SQL 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md) 참조 |
-| [DDL 트리거](/sql/relational-databases/triggers/ddl-triggers) | 데이터베이스에만 해당 |  Yes |
+| [DDL 트리거](/sql/relational-databases/triggers/ddl-triggers) | 데이터베이스에만 해당 |  예 |
 | [분산된 파티션 뷰](/sql/t-sql/statements/create-view-transact-sql#partitioned-views) | 아니요 | 예 |
 | [분산된 트랜잭션 - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | 아니요 - [탄력적 트랜잭션](elastic-transactions-overview.md) 참조 |  아니요- [연결 된 서버 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers)을 참조 하세요. 마이그레이션하는 동안 여러 분산 SQL Server 인스턴스에서 데이터베이스를 하나의 SQL Managed Instance 통합 해 보세요. |
-| [DML 트리거](/sql/relational-databases/triggers/create-dml-triggers) | 대부분 - 개별 문 참조 |  Yes |
+| [DML 트리거](/sql/relational-databases/triggers/create-dml-triggers) | 대부분 - 개별 문 참조 |  예 |
 | [DMV](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | 대부분 - 개별 DMV 참조 |  예 - [T-SQL 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md) 참조 |
 | [이벤트 알림](/sql/relational-databases/service-broker/event-notifications) | 아니요 - [경고](alerts-insights-configure-portal.md) 참조 | 아니요 |
 | [식](/sql/t-sql/language-elements/expressions-transact-sql) |예 | 예 |
 | [확장 이벤트 (XEvent)](/sql/relational-databases/extended-events/extended-events) | 일부 - [SQL Database의 확장 이벤트](xevent-db-diff-from-svr.md) 참조 | 예 - [확장 이벤트 차이](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) 참조 |
 | [확장된 저장 프로시저](/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | 아니요 | 아니요 |
-| [파일 및 파일 그룹](/sql/relational-databases/databases/database-files-and-filegroups) | 기본 파일 그룹만 해당 | 예. 파일 경로는 자동으로 할당 되며 문에서 파일 위치를 지정할 수 없습니다 `ALTER DATABASE ADD FILE` [statement](../managed-instance/transact-sql-tsql-differences-sql-server.md#alter-database-statement).  |
+| [파일 및 파일 그룹](/sql/relational-databases/databases/database-files-and-filegroups) | 기본 파일 그룹만 해당 | 예. 파일 경로는 자동으로 할당 되며 문에서 파일 위치를 지정할 수 없습니다 `ALTER DATABASE ADD FILE` [](../managed-instance/transact-sql-tsql-differences-sql-server.md#alter-database-statement).  |
 | [Filestream](/sql/relational-databases/blob/filestream-sql-server) | 아니요 | [아니요](../managed-instance/transact-sql-tsql-differences-sql-server.md#filestream-and-filetable) |
 | [전체 텍스트 검색 (FT)](/sql/relational-databases/search/full-text-search) |  예, 하지만 타사 단어 분리기는 지원 되지 않습니다. | 예, 하지만 [타사 단어 분리기는 지원 되지 않습니다](../managed-instance/transact-sql-tsql-differences-sql-server.md#full-text-semantic-search) . |
 | [함수](/sql/t-sql/functions/functions) | 대부분 - 개별 함수 참조 | 예- [저장 프로시저, 함수, 트리거 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) 참조 |
@@ -85,9 +85,9 @@ Azure는 데이터베이스를 관리 하 고 고가용성을 보장 합니다. 
 | [OPENQUERY](/sql/t-sql/functions/openquery-transact-sql)|아니요|예, SQL Database, SQL Managed Instance 및 SQL Server에만 해당 합니다. [T-sql 차이점을](../managed-instance/transact-sql-tsql-differences-sql-server.md) 참조 하세요.|
 | [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)|예, Azure Blob 저장소에서 가져옵니다. |예, SQL Database, SQL Managed Instance 및 SQL Server 뿐 아니라 Azure Blob 저장소에서 가져옵니다. [T-sql 차이점을](../managed-instance/transact-sql-tsql-differences-sql-server.md) 참조 하세요.|
 | [연산자](/sql/t-sql/language-elements/operators-transact-sql) | 대부분 - 개별 연산자 참조 |예 - [T-SQL 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md) 참조 |
-| [Polybase](/sql/relational-databases/polybase/polybase-guide) | 아니요. 함수를 사용 하 여 Azure Blob Storage에 배치 된 파일의 데이터를 쿼리할 수 있습니다 `OPENROWSET` . | 아니요. 함수를 사용 하 여 Azure Blob Storage에 배치 된 파일의 데이터를 쿼리할 수 있습니다 `OPENROWSET` . |
+| [Polybase](/sql/relational-databases/polybase/polybase-guide) | 아니요. 함수를 사용 하 Azure Blob Storage에 저장 된 파일의 데이터를 쿼리하거나 `OPENROWSET` [Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 참조 하는 외부 테이블](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/)을 사용할 수 있습니다. | 아니요. 함수를 사용 하 여 Azure Blob Storage에 배치 된 파일 `OPENROWSET` , [Synapse Analytics에서 서버를 사용 하지 않는 sql 풀을 참조 하는 연결 된 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)또는 Synapse analytics 또는 SQL Server의 서버를 사용 하지 않는 [sql 풀을](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) 참조 하는 외부 테이블 (공개 미리 보기)의 데이터를 쿼리할 수 있습니다. |
 | [쿼리 알림](/sql/relational-databases/native-client/features/working-with-query-notifications) | 아니요 | 예 |
-| [Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning)( _이전의 R Services_ )| 예, [공개 미리 보기 상태](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | 아니요 |
+| [Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning)(_이전의 R Services_)| 예, [공개 미리 보기 상태](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | 아니요 |
 | [복구 모델](/sql/relational-databases/backup-restore/recovery-models-sql-server) | 고가용성을 보장 하는 전체 복구만 지원 됩니다. 단순 및 대량 로그 복구 모델을 사용할 수 없습니다. | 고가용성을 보장 하는 전체 복구만 지원 됩니다. 단순 및 대량 로그 복구 모델을 사용할 수 없습니다. |
 | [리소스 관리자](/sql/relational-databases/resource-governor/resource-governor) | 아니요 | 예 |
 | [RESTORE 문](/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | 아니요 | 예, `FROM URL` Azure Blob Storage에 배치 된 백업 파일에 대 한 필수 옵션을 사용 합니다. [복원 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#restore-statement) 을 참조 하세요. |
@@ -164,9 +164,9 @@ Azure SQL Database 및 Azure SQL Managed Instance는 데이터를 관리 하는 
 | [MDS(Master Data Services)](/sql/master-data-services/master-data-services-overview-mds) | 아니요 | 아니요 |
 | [SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [예](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) | 예 [버전 150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) |
 | [SSDT(SQL Server Data Tools)](/sql/ssdt/download-sql-server-data-tools-ssdt) | 예 | 예 |
-| [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) | Yes | 예 [버전 18.0 이상](/sql/ssms/download-sql-server-management-studio-ssms) |
+| [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) | 예 | 예 [버전 18.0 이상](/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | 예 | 예 |
-| [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | 아니요 - [확장 이벤트](xevent-db-diff-from-svr.md) 참조 | Yes |
+| [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | 아니요 - [확장 이벤트](xevent-db-diff-from-svr.md) 참조 | 예 |
 | [System Center Operations Manager (SCOM)](/system-center/scom/welcome) | [예](https://www.microsoft.com/download/details.aspx?id=38829) | 예, [미리 보기](https://www.microsoft.com/download/details.aspx?id=38829) |
 
 ## <a name="migration-methods"></a>마이그레이션 방법
@@ -177,7 +177,7 @@ Azure SQL Database 및 Azure SQL Managed Instance는 데이터를 관리 하는 
 | --- | --- | --- |
 | SQL Server (온-프레미스, Add-azurevm, Amazon RDS) | **온라인:** [DMS (데이터 마이그레이션 서비스](/sql/dma/dma-overview)), [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) <br/> **오프 라인:** [BACPAC 파일 (가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **온라인:** [DMS (데이터 마이그레이션 서비스](/sql/dma/dma-overview)), [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) <br/> **오프 라인:** 네이티브 백업/복원, [BACPAC 파일 (가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [스냅숏 복제](../managed-instance/replication-transactional-overview.md) |
 | 단일 데이터베이스 | **오프 라인:** [BACPAC 파일 (가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **오프 라인:** [BACPAC 파일 (가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP |
-| SQL Managed Instance | **온라인:** [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) <br/> **오프 라인:** [BACPAC 파일 (가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [스냅숏 복제](../managed-instance/replication-transactional-overview.md) | **온라인:** [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) <br/> **오프 라인:** 인스턴스 간 지정 시간 복원 ( [Azure PowerShell](/powershell/module/az.sql/restore-azsqlinstancedatabase#examples) 또는 [Azure CLI](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [네이티브 백업/복원](../managed-instance/restore-sample-database-quickstart.md), [BACPAC 파일 (가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [스냅숏 복제](../managed-instance/replication-transactional-overview.md) |
+| SQL Managed Instance | **온라인:** [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) <br/> **오프 라인:** [BACPAC 파일 (가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [스냅숏 복제](../managed-instance/replication-transactional-overview.md) | **온라인:** [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) <br/> **오프 라인:** 인스턴스 간 지정 시간 복원 ([Azure PowerShell](/powershell/module/az.sql/restore-azsqlinstancedatabase#examples) 또는 [Azure CLI](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [네이티브 백업/복원](../managed-instance/restore-sample-database-quickstart.md), [BACPAC 파일 (가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [스냅숏 복제](../managed-instance/replication-transactional-overview.md) |
 
 ## <a name="next-steps"></a>다음 단계
 

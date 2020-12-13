@@ -7,26 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: d1ea2d0ba8ed5850e5d4cd9c06a0b016c4059ca7
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.date: 12/11/2020
+ms.openlocfilehash: 9cac0a0026a7007e227607e04e03a77e4df99ecd
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007860"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368124"
 ---
-# <a name="query-types-in-azure-cognitive-search"></a>Azure Cognitive Search의 쿼리 유형
+# <a name="querying-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리
 
-Azure Cognitive Search에서 쿼리는 쿼리 실행을 제어 하는 매개 변수와 응답을 반환 하는 매개 변수를 사용 하 여 라운드트립 작업을 전체적으로 지정 하는 것입니다.
+Azure Cognitive Search은 자유 형식 검색에서 항상 지정 된 쿼리 패턴에 이르기까지 광범위 한 시나리오를 지 원하는 광범위 한 쿼리 언어를 제공 합니다. 이 문서에서는 만들 수 있는 쿼리 종류를 요약 합니다.
 
-## <a name="elements-of-a-request"></a>요청 요소
-
-다음 예는 [REST API 문서 검색](/rest/api/searchservice/search-documents)을 사용 하 여 생성 된 대표적인 쿼리입니다. 이 예에서는 [호텔 데모 인덱스](search-get-started-portal.md) 를 대상으로 하 고 쿼리 형태에 대 한 아이디어를 얻을 수 있도록 공통 매개 변수를 포함 합니다.
+Cognitive Search 쿼리는 **`search`** 쿼리 실행을 알리고 응답의 모양을 지정 하는 매개 변수를 사용 하 여 라운드트립 작업을 전체적으로 지정 합니다. 매개 변수 및 파서는 쿼리 요청 유형을 결정 합니다. 다음 쿼리 예에서는 [호텔 데모 인덱스](search-get-started-portal.md)를 대상으로 하는 [문서 검색 (REST API)](/rest/api/searchservice/search-documents)을 사용 합니다.
 
 ```http
-POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=[api-version]
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple" 
+    "queryType": "simple"
     "search": "`New York` +restaurant",
     "searchFields": "Description, Address/City, Tags",
     "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
@@ -36,15 +34,15 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
 }
 ```
 
-쿼리는 항상 단일 인덱스의 documents 컬렉션으로 전달 됩니다. 인덱스를 조인할 수도 없고 사용자 지정 또는 임시 데이터 구조를 쿼리 대상으로 만들 수도 없습니다.
+쿼리 실행 중에 사용 되는 매개 변수:
 
 + **`queryType`**[기본 단순 쿼리 파서](search-query-simple-examples.md) (전체 텍스트 검색에 최적) 인 파서 또는 정규식, 근접 검색, 유사 항목 및 와일드 카드 검색 등의 고급 쿼리 구문에 사용 되는 [전체 Lucene 쿼리 파서](search-query-lucene-examples.md) 를 설정 합니다.
 
-+ **`search`** 일치 조건, 일반적으로 전체 용어 또는 문구를 제공 하지만 종종 부울 연산자와 함께 사용 됩니다. 독립형 단일 용어는 용어 쿼리입니다. 따옴표 안에 포함 된 다중 파트 쿼리는 *구* 쿼리입니다. 검색은에서와 같이 정의 되지 않을 수 **`search=*`** 있지만, 일치 하는 조건이 없는 경우 결과 집합은 임의로 선택 된 문서로 구성 됩니다.
++ **`search`** 연산자를 사용 하거나 사용 하지 않고 일치 조건, 일반적으로 전체 용어 또는 문구를 제공 합니다. 인덱스 스키마에서 *검색* 가능으로 특성을 지정 하는 모든 필드는이 매개 변수에 대 한 후보입니다. 
 
-+ **`searchFields`** 쿼리 실행을 특정 필드로 제한 합니다. 인덱스 스키마에서 *검색* 가능으로 특성을 지정 하는 모든 필드는이 매개 변수에 대 한 후보입니다.
++ **`searchFields`** 쿼리 실행을 검색 가능한 특정 필드로 제한 합니다.
 
-쿼리에 포함 하는 매개 변수도 응답 합니다.
+응답을 셰이핑 하는 데 사용 되는 매개 변수:
 
 + **`select`** 응답에 반환할 필드를 지정 합니다. 인덱스에서 *검색할* 수 있는 것으로 표시 된 필드만 select 문에서 사용할 수 있습니다.
 
@@ -52,68 +50,70 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
 
 + **`count`** 전체 인덱스의 문서 수가 전체적으로 일치 하는지 여부를 알려 줍니다 .이는 반환 되는 것 보다 많을 수 있습니다. 
 
-+ **`orderby`** 등급 또는 위치와 같은 값을 기준으로 결과를 정렬 하려는 경우에 사용 됩니다. 그렇지 않으면 기본값은 관련성 점수를 사용 하 여 결과의 순위를 결정 하는 것입니다.
++ **`orderby`** 등급 또는 위치와 같은 값을 기준으로 결과를 정렬 하려는 경우에 사용 됩니다. 그렇지 않으면 기본값은 관련성 점수를 사용 하 여 결과의 순위를 결정 하는 것입니다. 필드는이 매개 변수에 대 한 후보가 되도록 *정렬* 가능한 것으로 특성을 지정 해야 합니다.
 
-> [!Tip]
-> 코드를 작성 하기 전에 쿼리 도구를 사용 하 여 구문을 학습 하 고 다른 매개 변수를 사용 하 여 시험해 볼 수 있습니다. 가장 빠른 방법은 기본 제공 포털 도구인 [검색 탐색기](search-explorer.md)입니다.
->
-> 이 [빠른 시작을 수행 하 여 호텔 데모 인덱스를 만든](search-get-started-portal.md)경우이 쿼리 문자열을 탐색기의 검색 창에 붙여넣어 첫 번째 쿼리를 실행할 수 있습니다. `search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
-
-### <a name="how-field-attributes-in-an-index-determine-query-behaviors"></a>인덱스의 필드 특성이 쿼리 동작을 결정 하는 방법
-
-인덱스 디자인 및 쿼리 디자인은 Azure Cognitive Search와 긴밀 하 게 연관 되어 있습니다. 먼저 알아야 하는 중요한 사실은 각 필드의 특성과 함께 인덱스 스키마에 의해 빌드할 수 있는 쿼리의 종류가 결정된다는 것입니다. 
-
-필드의 인덱스 특성은 허용된 작업(예: 인덱스에서 필드를 검색할 수 있는지(*searchable*), 결과에서 검색이 가능한지(*retrievable*), 정렬이 가능한지(*sortable*), 필터링이 가능한지(*filterable*) 등)을 설정합니다. 예제 쿼리 문자열에서는 `"$orderby": "Rating"` 등급 필드가 인덱스 스키마에서 *정렬할* 수 있는 것으로 표시 되기 때문에만 작동 합니다. 
-
-![호텔 샘플에 대 한 인덱스 정의](./media/search-query-overview/hotel-sample-index-definition.png "호텔 샘플에 대 한 인덱스 정의")
-
-위의 스크린샷은 호텔 샘플에 대 한 인덱스 특성의 부분 목록입니다. 전체 인덱스 스키마는 포털에서 볼 수 있습니다. 인덱스 특성에 대한 자세한 내용은 [인덱스 REST API 만들기](/rest/api/searchservice/create-index)를 참조하세요.
-
-> [!Note]
-> 일부 쿼리 기능은 필드별로 활성화되기 보다는 인덱스 전체에서 사용하도록 설정됩니다. 이러한 기능에는 [동의어 맵](search-synonyms.md), [사용자 지정 분석기](index-add-custom-analyzers.md), [확인 기 구문 (자동 완성 및 제안 된 쿼리)](index-add-suggesters.md), [결과 순위 지정을 위한 점수 매기기 논리가](index-add-scoring-profiles.md)포함 됩니다.
-
-## <a name="choose-a-parser-simple--full"></a>파서 선택: 단순 | 전체
-
-Azure Cognitive Search는 일반적인 쿼리 및 특수 쿼리를 처리 하기 위해 두 개의 쿼리 파서 사이에서 선택할 수 있습니다. 단순 파서를 사용하는 요청은 [단순 쿼리 구문](query-simple-syntax.md)을 사용하여 형성되며 자유 형식 텍스트 쿼리에서 속도와 효율성의 기본값으로 선택됩니다. 이 구문은 AND, OR, NOT, 구, 접미사 및 우선 순위 연산자를 포함한 여러 일반 검색 연산자를 지원합니다.
-
-요청에 `queryType=full`을 추가하면 사용되도록 설정되는 [전체 Lucene 쿼리 구문](query-Lucene-syntax.md#bkmk_syntax)은 [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)의 일부로 개발된 널리 채택되고 표현적인 쿼리 언어를 공개합니다. 전체 구문은 단순 구문을 확장합니다. 단순 구문에 대해 작성한 쿼리는 전체 Lucene 파서에서 실행됩니다. 
-
-다음 예제는 이런 점을 보여줍니다. 동일한 쿼리이지만 다른 queryType 설정을 사용하면 다른 결과가 나타납니다. 첫 번째 쿼리에서 `^3` after는 `historic` 검색 용어의 일부로 처리 됩니다. 이 쿼리에 대해 가장 순위가 높은 결과는 "Plaza & 도구 모음" 이며, 해당 설명에는 *바다* 가 있습니다.
-
-```http
-queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
-```
-
-전체 Lucene 파서를 사용 하는 동일한 쿼리는 `^3` 필드 내 용어 부스터로 해석 됩니다. 파서를 전환 하면 순위가 변경 되 고 맨 *위로 이동 하* 는 용어를 포함 하는 결과가 변경 됩니다.
-
-```http
-queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
-```
+위의 목록은 전체 지원 이지만 완전 하지는 않습니다. 쿼리 요청에 대 한 전체 매개 변수 목록을 보려면 [문서 검색 (REST API)](/rest/api/searchservice/search-documents)을 참조 하세요.
 
 <a name="types-of-queries"></a>
 
 ## <a name="types-of-queries"></a>쿼리 유형
 
-Azure Cognitive Search는 광범위 한 쿼리 유형을 지원 합니다. 
+몇 가지 주목할 만한 예외를 제외 하 고 쿼리 요청은 빠른 검색을 위해 구조화 된 반전 된 인덱스를 반복 합니다. 이러한 인덱스는 검색 문서 수에 관계 없이 잠재적으로 모든 필드에서 일치 항목을 찾을 수 있습니다. Cognitive Search에서 일치 항목을 찾기 위한 기본 방법은 전체 텍스트 검색 또는 필터 중 하나 이지만 자동 완성, 지리적 위치 검색 등의 기타 잘 알려진 검색 환경을 구현할 수도 있습니다. 이 문서의 나머지 부분에서는 Cognitive Search의 쿼리를 요약 하 고 추가 정보 및 예제에 대 한 링크를 제공 합니다.
+
+## <a name="full-text-search"></a>전체 텍스트 검색
+
+검색 앱에서 용어 입력을 수집 하는 검색 상자를 포함 하는 경우 전체 텍스트 검색은 해당 환경을 지 원하는 쿼리 작업 일 것입니다. 전체 텍스트 검색은 **`search`** 인덱스의 모든 *검색* 가능 필드에서 매개 변수에 전달 된 용어 또는 구를 허용 합니다. 쿼리 문자열의 선택적 부울 연산자는 포함 또는 제외 조건을 지정할 수 있습니다. 단순 파서와 전체 파서는 전체 텍스트 검색을 지원 합니다.
+
+Cognitive Search에서 전체 텍스트 검색은 Apache Lucene 쿼리 엔진을 기반으로 합니다. 전체 텍스트 검색의 쿼리 문자열은 검색을 보다 효율적으로 수행 하기 위해 어휘 분석을 수행 합니다. 분석에는 대/소문자를 모두 포함 하 고, "the"와 같은 중지 단어를 제거 하 고, 용어를 기본 루트 형식으로 축소 기본 분석기는 표준 Lucene입니다.
+
+일치 하는 단어가 발견 되 면 쿼리 엔진은 일치 항목을 포함 하는 검색 문서를 다시 구성 하 고, 관련성이 높은 순서로 문서 순위를 결정 하 고, 응답에서 상위 50 (기본적으로)을 반환 합니다.
+
+전체 텍스트 검색을 구현 하는 경우 콘텐츠가 토큰화 되는 방법을 이해 하면 모든 쿼리 변칙을 디버그 하는 데 도움이 됩니다. 하이픈을 넣은 문자열이 나 특수 문자를 쿼리하면 인덱스에 올바른 토큰이 포함 되어 있는지 확인 하기 위해 기본 표준 Lucene 이외의 분석기를 사용 하는 것이 필요할 수 있습니다. 어휘 분석을 수정 하는 [언어 분석기](index-add-language-analyzers.md#language-analyzer-list) 또는 [특수 분석기](index-add-custom-analyzers.md#AnalyzerTable) 를 사용 하 여 기본값을 재정의할 수 있습니다. 한 가지 예는 필드의 전체 내용을 단일 토큰으로 처리 하는 [키워드](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) 입니다. 우편 번호, ID 및 일부 제품 이름과 같은 데이터에 유용합니다. 자세한 내용은 [부분 용어 검색 및 특수 문자가 포함 된 패턴](search-query-partial-matching.md)을 참조 하세요.
+
+큰 텍스트 블록 (내용 필드 또는 긴 설명)이 포함 된 인덱스에서 많은 부울 연산자를 많이 사용 하는 경우에는 매개 변수를 사용 하 여 쿼리를 테스트 하 여 **`searchMode=Any|All`** 해당 설정이 부울 검색에 미치는 영향을 평가 해야 합니다.
+
+## <a name="autocomplete-and-suggested-queries"></a>자동 완성 및 제안 된 쿼리
+
+[자동 완성 또는 제안 된 결과](search-autocomplete-tutorial.md) 는 **`search`** 검색 시 검색 환경에서 부분 문자열 입력 (각 문자 이후)을 기반으로 연속 쿼리 요청을 발생 시키는 대체 방법입니다. **`autocomplete`** **`suggestions`** [이 자습서](tutorial-csharp-type-ahead-and-suggestions.md)에 설명 된 대로 및 매개 변수를 함께 사용 하거나 개별적으로 사용할 수 있지만에서는 사용할 수 없습니다 **`search`** . 완료 된 용어와 제안 된 쿼리는 모두 인덱스 콘텐츠에서 파생 됩니다. 엔진은 인덱스에 존재 하지 않는 문자열 또는 제안을 반환 하지 않습니다. 자세한 내용은 [자동 완성 (REST API)](/rest/api/searchservice/autocomplete) 및 [제안 (REST API)](/rest/api/searchservice/suggestions)을 참조 하세요.
+
+## <a name="filter-search"></a>필터 검색
+
+필터는 Cognitive Search 포함 된 앱에서 널리 사용 됩니다. 응용 프로그램 페이지에서 필터는 사용자가 직접 필터링 할 수 있도록 링크 탐색 구조에서 패싯으로 시각화 되는 경우가 많습니다. 또한 필터는 인덱싱된 콘텐츠의 조각을 노출 하기 위해 내부적으로 사용 됩니다. 예를 들어 인덱스에 영어와 프랑스어의 필드가 모두 포함 되어 있으면 언어를 필터링 할 수 있습니다. 
+
+다음 표에서 설명 하는 것 처럼 특수 쿼리 양식을 호출 하는 필터가 필요할 수도 있습니다. 지정 되지 않은 검색 ( **`search=*`** ) 또는 용어, 구, 연산자 및 패턴이 포함 된 쿼리 문자열을 사용 하 여 필터를 사용할 수 있습니다.
+
+| 필터 시나리오 | 설명 |
+|-----------------|-------------|
+| 범위 필터 | Azure Cognitive Search에서는 필터 매개 변수를 사용 하 여 범위 쿼리를 작성 합니다. 자세한 내용 및 예제는 [범위 필터 예](search-query-simple-examples.md#example-4-range-filters)를 참조 하세요. |
+| 지리적 위치 검색 | 검색 가능한 필드가 [GeographyPoint](/rest/api/searchservice/supported-data-types)인 경우 "주변 찾기" 또는 맵 기반 검색 컨트롤에 대 한 필터 식을 만들 수 있습니다. 지리적 검색을 구동 하는 필드에는 좌표가 포함 됩니다. 자세한 내용 및 예제는 [지역 검색 예제](search-query-simple-examples.md#example-5-geo-search)를 참조 하세요. |
+| 패싯 탐색 | 패싯의 이벤트에 대 한 응답으로 필터를 호출 하면 패싯 탐색 구조가 사용자에 게 전달 되는 탐색에 사용 됩니다 `onclick` . 따라서 패싯 및 필터는 직접 이동 합니다. 패싯 탐색을 추가 하는 경우에는 환경을 완료 하는 필터가 필요 합니다. 자세한 내용은 [패싯 필터를 작성 하는 방법](search-filters-facets.md)을 참조 하세요. |
+
+> [!NOTE]
+> 필터 식에 사용 되는 텍스트는 쿼리를 처리 하는 동안 분석 되지 않습니다. 텍스트 입력은 일치에 성공 하거나 실패 하는 대/소문자를 구분 하는 문자 패턴으로 가정 됩니다. 필터 식은 [OData 구문을](query-odata-filter-orderby-syntax.md) 사용 하 여 생성 되 고 **`filter`** 인덱스의 *필터링* 가능한 모든 필드에서 매개 변수로 전달 됩니다. 자세한 내용은 [Azure Cognitive Search의 필터](search-filters.md)를 참조 하세요.
+
+## <a name="document-look-up"></a>문서 조회
+
+앞에서 설명한 쿼리 양식과 달리이 쿼리는 [ID로 단일 검색 문서](/rest/api/searchservice/lookup-document)를 검색 하 고 해당 인덱스 검색 또는 검색은 검색 하지 않습니다. 하나의 문서만 요청 되 고 반환 됩니다. 사용자가 검색 결과에서 항목을 선택 하는 경우 문서를 검색 하 고 필드를 사용 하 여 세부 정보 페이지를 채우면 일반적인 응답이 되며 문서 조회는이를 지 원하는 작업입니다.
+
+## <a name="advanced-search-fuzzy-wildcard-proximity-regex"></a>고급 검색: 유사 항목, 와일드 카드, 근접, regex
+
+고급 쿼리 형태는 전체 Lucene 파서 및 특정 쿼리 동작을 트리거하는 연산자에 따라 달라 집니다.
 
 | 쿼리 유형 | 사용 | 예제 및 자세한 정보 |
-|------------|--------|-------------------------------|
-| 자유 형식 텍스트 검색 | 매개 변수와 파서 중 하나를 검색| 전체 텍스트 검색은 인덱스의 *검색 가능한* 모든 필드에서 하나 이상의 단어를 검색하고 Google 또는 Bing과 같은 검색 엔진이 작동할 것으로 예상되는 방식으로 작동합니다. 소개의 예는 전체 텍스트 검색입니다.<br/><br/>전체 텍스트 검색은 표준 Lucene 분석기 (기본적으로)를 사용 하 여 어휘 분석을 수행 하 여 모든 용어를 소문자로, "the"와 같은 중지 단어를 제거 합니다. [영어가 아닌 분석기](index-add-language-analyzers.md#language-analyzer-list) 또는 어휘 분석을 수정 하는 [특수 한 언어 관련 분석기](index-add-custom-analyzers.md#AnalyzerTable) 를 사용 하 여 기본값을 재정의할 수 있습니다. 필드의 전체 내용을 단일 토큰으로 취급하는 [키워드](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)가 예입니다. 우편 번호, ID 및 일부 제품 이름과 같은 데이터에 유용합니다. | 
-| 필터링된 검색 | [OData 필터 식](query-odata-filter-orderby-syntax.md)과 파서 중 하나 | 필터 쿼리는 인덱스의 *필터링 가능한* 모든 필드에 걸쳐 부울 식을 계산합니다. 검색과 달리 필터 쿼리는 문자열 필드에서 대/소문자 구분을 포함하여 필드의 정확한 내용을 검색합니다. 또 다른 차이점은 필터 쿼리는 OData 구문으로 표현된다는 점입니다. <br/>[필터 식 예제](search-query-simple-examples.md#example-3-filter-queries) |
-| 지리적 검색 | 필드, 필터 식 및 파서 중 하나에 [Edm.GeographyPoint 유형](/rest/api/searchservice/supported-data-types) | Edm.GeographyPoint가 있는 필드에 저장된 좌표는 "내 주변 찾기"또는 지도 기반 검색 컨트롤에 사용됩니다. <br/>[지리적 검색 예제](search-query-simple-examples.md#example-5-geo-search)|
-| 범위 검색 | 필터 식 및 단순 파서 | Azure Cognitive Search에서는 필터 매개 변수를 사용 하 여 범위 쿼리를 작성 합니다. <br/>[범위 필터 예제](search-query-simple-examples.md#example-4-range-filters) | 
-| [필드 지정 검색](query-lucene-syntax.md#bkmk_fields) | 매개 변수와 전체 파서 검색 | 단일 필드를 대상으로 복합 쿼리 식을 작성합니다. <br/>[필드 지정 검색 예제](search-query-lucene-examples.md#example-2-fielded-search) |
-| [자동 완성 또는 제안 된 결과](search-autocomplete-tutorial.md) | 자동 완성 또는 제안 매개 변수 | 검색 형식 환경에서 부분 문자열을 기반으로 실행 되는 대체 쿼리 폼입니다. 자동 완성 및 제안을 함께 또는 별도로 사용할 수 있습니다. |
-| [유사 항목 검색](query-lucene-syntax.md#bkmk_fuzzy) | 매개 변수와 전체 파서 검색 | 유사한 구조 또는 철자가 포함된 용어를 검색합니다. <br/>[유사 항목 검색 예제](search-query-lucene-examples.md#example-3-fuzzy-search) |
-| [근접 검색](query-lucene-syntax.md#bkmk_proximity) | 매개 변수와 전체 파서 검색 | 문서에서 서로 가까이 있는 용어를 찾습니다. <br/>[근접 검색 예제](search-query-lucene-examples.md#example-4-proximity-search) |
-| [용어 상승](query-lucene-syntax.md#bkmk_termboost) | 매개 변수와 전체 파서 검색 | 승격된 용어가 포함된 문서는 그렇지 않은 다른 문서보다 상대적으로 높은 순위를 매깁니다. <br/>[용어 상승 예제](search-query-lucene-examples.md#example-5-term-boosting) |
-| [정규식 검색](query-lucene-syntax.md#bkmk_regex) | 매개 변수와 전체 파서 검색 | 정규식의 콘텐츠를 기반으로 검색합니다. <br/>[정규식 예제](search-query-lucene-examples.md#example-6-regex) |
-|  [와일드 카드 또는 접두사 검색](query-lucene-syntax.md#bkmk_wildcard) | 매개 변수와 전체 파서 검색 | 접두사와 물결표(`~`) 또는 단일 문자(`?`)를 기반으로 검색합니다. <br/>[와일드카드 검색 예제](search-query-lucene-examples.md#example-7-wildcard-search) |
+|------------|--------|------------------------------|
+| [필드 지정 검색](query-lucene-syntax.md#bkmk_fields) | **`search`**  변수에 **`queryType=full`**  | 단일 필드를 대상으로 복합 쿼리 식을 작성합니다. <br/>[필드 지정 검색 예제](search-query-lucene-examples.md#example-2-fielded-search) |
+| [유사 항목 검색](query-lucene-syntax.md#bkmk_fuzzy) | **`search`** 변수에 **`queryType=full`** | 유사한 구조 또는 철자가 포함된 용어를 검색합니다. <br/>[유사 항목 검색 예제](search-query-lucene-examples.md#example-3-fuzzy-search) |
+| [근접 검색](query-lucene-syntax.md#bkmk_proximity) | **`search`** 변수에 **`queryType=full`** | 문서에서 서로 가까이 있는 용어를 찾습니다. <br/>[근접 검색 예제](search-query-lucene-examples.md#example-4-proximity-search) |
+| [용어 상승](query-lucene-syntax.md#bkmk_termboost) | **`search`** 변수에 **`queryType=full`** | 승격된 용어가 포함된 문서는 그렇지 않은 다른 문서보다 상대적으로 높은 순위를 매깁니다. <br/>[용어 상승 예제](search-query-lucene-examples.md#example-5-term-boosting) |
+| [정규식 검색](query-lucene-syntax.md#bkmk_regex) | **`search`** 변수에 **`queryType=full`** | 정규식의 콘텐츠를 기반으로 검색합니다. <br/>[정규식 예제](search-query-lucene-examples.md#example-6-regex) |
+|  [와일드 카드 또는 접두사 검색](query-lucene-syntax.md#bkmk_wildcard) | **`search`** 매개 변수를 *_`~`_* 사용 **`?`** 합니다. **`queryType=full`**| 접두사와 물결표(`~`) 또는 단일 문자(`?`)를 기반으로 검색합니다. <br/>[와일드카드 검색 예제](search-query-lucene-examples.md#example-7-wildcard-search) |
 
 ## <a name="next-steps"></a>다음 단계
 
 포털 또는 Postman 또는 Visual Studio Code와 같은 다른 도구 또는 Sdk 중 하나를 사용 하 여 쿼리를 보다 자세히 탐색할 수 있습니다. 다음 링크를 통해 시작 해 볼 수 있습니다.
 
 + [검색 탐색기](search-explorer.md)
-+ [.NET에서 쿼리를 수행하는 방법](./search-get-started-dotnet.md)
-+ [REST에서 쿼리를 수행하는 방법](./search-get-started-powershell.md)
++ [REST에서 쿼리를 수행하는 방법](search-get-started-rest.md)
++ [.NET에서 쿼리를 수행하는 방법](search-get-started-dotnet.md)
++ [Python에서 쿼리 하는 방법](search-get-started-python.md)
++ [JavaScript에서 쿼리 하는 방법](search-get-started-javascript.md)

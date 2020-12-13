@@ -501,7 +501,7 @@
           href: template-functions-resource.md
         - name: 문자열 함수
           href: template-functions-string.md
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources
@@ -515,6 +515,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: 리소스
   items:
+    - name: Microsoft Learn을 통해 기술 쌓기
+      href: /learn/paths/deploy-manage-resource-manager-templates/
     - name: Azure 빠른 시작 템플릿
       href: 'https://azure.microsoft.com/resources/templates/'
     - name: Azure 로드맵

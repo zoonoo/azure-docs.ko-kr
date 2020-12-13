@@ -9,14 +9,16 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: nitinme
 author: nitinme
-ms.openlocfilehash: 3235f6285edb99776b42014678cd2b6c60d17f62
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: b8382b76496976054ebb452e39866765d986ccbb
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763848"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368184"
 ---
 # <a name="sign-in-to-luis-portal"></a>LUIS 포털에 로그인
+
+[!INCLUDE [LUIS Free account](includes/luis-portal-note.md)]
 
 이 문서를 사용 하 여 LUIS 포털을 시작 하 고 제작 리소스를 만들 수 있습니다. 이 문서의 단계를 완료 한 후에는 LUIS apps를 만들고 게시할 수 있습니다.
 

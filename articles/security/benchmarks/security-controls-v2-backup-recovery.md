@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1ed477c6cf069dbb402e5bda9c1f48f7bc208f18
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 089cf521a7c5428833be340001c88b870c568a8f
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698804"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368888"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>보안 제어 V2: 백업 및 복구
 
@@ -20,7 +20,7 @@ ms.locfileid: "94698804"
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1: 정기적으로 자동 백업 확인
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | BR-1 | 10.1 | CP-2, CP4, CP-6, CP-9 |
 
@@ -34,7 +34,7 @@ Azure Backup를 사용 하도록 설정 하 고, 원하는 빈도 및 보존 기
 
 - [Azure Backup를 사용 하도록 설정 하는 방법](../../backup/index.yml)
 
-- [지역 간 복원을 사용 하도록 설정 하는 방법](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
+- [지역 간 복원을 사용하도록 설정하는 방법](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
 
 **책임**: Customer
 
@@ -50,7 +50,7 @@ Azure Backup를 사용 하도록 설정 하 고, 원하는 빈도 및 보존 기
 
 ## <a name="br-2-encrypt-backup-data"></a>BR-2: 백업 데이터 암호화
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | BR-2 | 10.2 | CP-9 |
 
@@ -78,9 +78,9 @@ Azure Backup, Azure Key Vault 또는 기타 리소스의 Azure 역할 기반 액
 
 - [인시던트 준비](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
-## <a name="br-3-validate-all-backups-including-customer-managed-keys"></a>BR-3: 고객이 관리 하는 키를 포함 한 모든 백업 유효성 검사
+## <a name="br-3-validate-all-backups-including-customer-managed-keys"></a>BR-3: 고객 관리형 키를 비롯한 모든 백업 유효성 검사
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | BR-3 | 10.3 | CP-4, CP-9 |
 
@@ -98,15 +98,15 @@ Azure Backup, Azure Key Vault 또는 기타 리소스의 Azure 역할 기반 액
 
 - [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-## <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: 분실 한 키의 위험 완화
+## <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: 분실한 키의 위험 완화
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | BR-4 | 10.4 | CP-9 |
 
-키의 손실을 방지 하 고 복구할 수 있는 측정값이 있는지 확인 합니다. Azure Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다.  
+키의 손실을 방지 하 고 복구할 수 있는 측정값이 있는지 확인 합니다. Azure Key Vault에서 일시 삭제 및 제거 보호를 사용하도록 설정하여 실수로 또는 악의적으로 삭제되지 않도록 키를 보호합니다.  
 
-- [Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하는 방법](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Key Vault에서 일시 삭제 및 제거 보호를 사용하도록 설정하는 방법](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **책임**: Customer
 
