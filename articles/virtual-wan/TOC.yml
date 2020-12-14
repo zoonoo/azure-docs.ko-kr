@@ -141,6 +141,8 @@
           href: howto-firewall.md
         - name: Private Link 연결 구성
           href: howto-private-link.md
+        - name: 리소스에 대한 액세스 관리 - Spoke VNet P2S
+          href: manage-secure-access-resources-spoke-p2s.md
     - name: 모니터링
       items:
         - name: 로그 및 메트릭

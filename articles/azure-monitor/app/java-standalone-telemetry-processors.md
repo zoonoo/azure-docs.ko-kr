@@ -1,19 +1,19 @@
 ---
-title: 원격 분석 프로세서 (미리 보기)-Azure Monitor Application Insights Java
-description: Azure Monitor Application Insights Java 용 원격 분석 프로세서
+title: 원격 분석 프로세서 (미리 보기)-Java 용 Azure Monitor Application Insights
+description: Java 용 Azure Monitor Application Insights에서 원격 분석 프로세서를 구성 하는 방법
 ms.topic: conceptual
 ms.date: 10/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 316243e130345ce1b009e065cf9d8250c501ee84
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 7fd53c77b64e028ffad25c8fa7a9eefd95439513
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601036"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387159"
 ---
-# <a name="telemetry-processors-preview-for-azure-monitor-application-insights-java"></a>Azure Monitor Application Insights Java 용 원격 분석 프로세서 (미리 보기)
+# <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>원격 분석 프로세서 (미리 보기)-Java 용 Azure Monitor Application Insights
 
 > [!NOTE]
 > 이 기능은 아직 미리 보기 상태입니다.

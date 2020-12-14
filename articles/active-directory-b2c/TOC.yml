@@ -155,6 +155,25 @@
           href: identity-provider-wechat.md
         - name: Weibo
           href: identity-provider-weibo.md
+    - name: UX 사용자 지정
+      items:
+        - name: 사용자 입력 구성
+          href: configure-user-input.md
+        - name: 회사 브랜딩을 사용하여 UI 사용자 지정
+          href: company-branding.md
+        - name: HTML 템플릿을 사용하여 UI 사용자 지정
+          href: customize-ui-with-html.md
+        - name: JavaScript 및 페이지 레이아웃
+          href: javascript-and-page-layout.md
+        - name: 언어 사용자 지정
+          href: language-customization.md
+        - name: 암호 복잡성
+          href: password-complexity.md
+        - name: 메일 확인을 사용하지 않도록 설정
+          href: disable-email-verification.md
+        - name: MFA 사용
+          href: multi-factor-authentication.md
+          displayName: multi-factor auth
     - name: 사용자 흐름
       items:
         - name: 흐름 만들기
@@ -167,21 +186,6 @@
               href: user-flow-self-service-password-reset.md
         - name: 조건부 액세스 추가
           href: conditional-access-user-flow.md
-        - name: UX 사용자 지정
-          items:
-            - name: UI 사용자 지정
-              href: customize-ui-overview.md
-            - name: JavaScript 및 페이지 레이아웃
-              href: user-flow-javascript-overview.md
-            - name: 언어 사용자 지정
-              href: user-flow-language-customization.md
-            - name: 암호 복잡성
-              href: user-flow-password-complexity.md
-            - name: 메일 확인을 사용하지 않도록 설정
-              href: user-flow-disable-email-verification.md
-            - name: MFA 사용
-              href: custom-policy-multi-factor-authentication.md
-              displayName: multi-factor auth
         - name: 토큰 및 세션 관리
           items:
             - name: 토큰 구성
@@ -219,29 +223,13 @@
             - name: 휴대폰 등록 및 로그인
               href: phone-authentication.md
               displayName: 'otp, passwordless, phone number'
-        - name: UX 사용자 지정
+        - name: 사용자 지정 이메일 확인
           items:
-            - name: 사용자 입력 구성
-              href: custom-policy-configure-user-input.md
-              displayName: 'ui, ux'
-            - name: UI 사용자 지정
-              href: custom-policy-ui-customization.md
-              displayName: 'ux, input, cors, html, css'
-            - name: 언어 사용자 지정
-              href: custom-policy-localization.md
-            - name: 사용자 지정 이메일 확인
-              items:
-                - name: Mailjet
-                  href: custom-email-mailjet.md
-                - name: SendGrid
-                  href: custom-email-sendgrid.md
-              displayName: verification
-            - name: 메일 확인을 사용하지 않도록 설정
-              href: custom-policy-disable-email-verification.md
-            - name: JavaScript 사용
-              href: javascript-samples.md
-            - name: 암호 복잡성
-              href: custom-policy-password-complexity.md
+            - name: Mailjet
+              href: custom-email-mailjet.md
+            - name: SendGrid
+              href: custom-email-sendgrid.md
+          displayName: verification
         - name: 토큰 및 세션 관리
           items:
             - name: 토큰 사용자 지정

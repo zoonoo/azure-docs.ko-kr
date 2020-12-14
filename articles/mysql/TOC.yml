@@ -12,6 +12,10 @@
           href: concepts-certificate-rotation.md
 - name: 공유 설명서
   items:
+    - name: 데이터베이스 배포
+      items:
+        - name: GitHub 작업
+          href: quickstart-mysql-github-actions.md
     - name: 마이그레이션
       items:
         - name: mysqldump 또는 phpmyadmin을 사용하여 데이터 마이그레이션
@@ -88,8 +92,6 @@
               href: connect-cpp.md
             - name: Go
               href: connect-go.md
-            - name: GitHub 작업
-              href: quickstart-mysql-github-actions.md
     - name: 자습서
       items:
         - name: 데이터베이스 설계

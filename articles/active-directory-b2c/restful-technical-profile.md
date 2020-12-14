@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/25/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e5aca04a649dfa5228d12737b21ef2ee2b14013b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 891991fa938ad3dcfacae6d02e40efd6d6e9689e
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750456"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97386853"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 RESTful 기술 프로필 정의
 
@@ -122,14 +122,14 @@ REST API 기술 프로필을 사용 하면 복잡 한 JSON 페이로드를 끝�
 | ClaimUsedForRequestPayload| 아니요 | REST API 전송 될 페이로드를 포함 하는 문자열 클레임의 이름입니다. |
 | DebugMode | 아니요 | 디버그 모드에서 기술 프로필을 실행합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 디버그 모드에서 REST API는 자세한 정보를 반환할 수 있습니다. [오류 메시지 반환](#returning-validation-error-message) 섹션을 참조 하세요. |
 | IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
-| ResolveJsonPathsInJsonTokens  | 아니요 | 기술 프로필이 JSON 경로를 확인 하는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 이 메타 데이터를 사용 하 여 중첩 된 JSON 요소에서 데이터를 읽습니다. [Outputclaim](technicalprofiles.md#outputclaims)에서을 `PartnerClaimType` 출력 하려는 JSON 경로 요소로 설정 합니다. 예를 들면 `firstName.localized` , 또는 `data.0.to.0.email` 입니다.|
+| ResolveJsonPathsInJsonTokens  | 아니요 | 기술 프로필이 JSON 경로를 확인 하는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 이 메타 데이터를 사용 하 여 중첩 된 JSON 요소에서 데이터를 읽습니다. [Outputclaim](technicalprofiles.md#output-claims)에서을 `PartnerClaimType` 출력 하려는 JSON 경로 요소로 설정 합니다. 예를 들면 `firstName.localized` , 또는 `data.0.to.0.email` 입니다.|
 | UseClaimAsBearerToken| 아니요| 전달자 토큰이 포함 된 클레임의 이름입니다.|
 
 ## <a name="error-handling"></a>오류 처리
 
 다음 메타 데이터를 사용 하 여 REST API 실패 시 표시 되는 오류 메시지를 구성할 수 있습니다. 오류 메시지는 [지역화](localization-string-ids.md#restful-service-error-messages)될 수 있습니다.
 
-| attribute | 필수 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | DefaultUserMessageIfRequestFailed | 아니요 | 모든 REST API 예외에 대 한 기본 사용자 지정 오류 메시지입니다.|
 | UserMessageIfCircuitOpen | 아니요 | REST API에 연결할 수 없는 경우의 오류 메시지입니다. 지정 하지 않으면 DefaultUserMessageIfRequestFailed이 반환 됩니다. |
@@ -154,7 +154,7 @@ REST API 기술 프로필을 사용 하면 복잡 한 JSON 페이로드를 끝�
 
 인증 형식이 `Basic`으로 설정된 경우 **CryptographicKeys** 요소에 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | 예 | 인증에 사용되는 사용자 이름입니다. |
 | BasicAuthenticationPassword | 예 | 인증에 사용되는 암호입니다. |
@@ -179,7 +179,7 @@ REST API 기술 프로필을 사용 하면 복잡 한 JSON 페이로드를 끝�
 
 인증 형식이 `ClientCertificate`으로 설정된 경우 **CryptographicKeys** 요소에 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClientCertificate | 예 | 인증에 사용할 X509 인증서(RSA 키 집합)입니다. |
 
@@ -200,7 +200,7 @@ REST API 기술 프로필을 사용 하면 복잡 한 JSON 페이로드를 끝�
 
 인증 형식이 `Bearer`으로 설정된 경우 **CryptographicKeys** 요소에 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | BearerAuthenticationToken | 아니요 | OAuth 2.0 전달자 토큰입니다. |
 
@@ -221,7 +221,7 @@ REST API 기술 프로필을 사용 하면 복잡 한 JSON 페이로드를 끝�
 
 인증 형식이 `ApiKeyHeader`으로 설정된 경우 **CryptographicKeys** 요소에 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | HTTP 헤더의 이름 (예: 또는)입니다 `x-functions-key` `x-api-key` . | 예 | 인증에 사용 되는 키입니다. |
 
@@ -256,7 +256,7 @@ REST API가 'CRM 시스템에서 사용자를 찾을 수 없습니다.'와 같�
 }
 ```
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | 버전 | 예 | REST API 버전입니다. 예: 1.0.1 |
 | 상태 | 예 | 409 이어야 함 |

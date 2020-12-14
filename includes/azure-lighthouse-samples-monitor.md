@@ -5,15 +5,15 @@ services: lighthouse
 author: JnHs
 ms.service: lighthouse
 ms.topic: include
-ms.date: 03/30/2020
+ms.date: 12/11/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: be8aae6308e712449402b002576974743bc125ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0056e18b6cb3aad2a4504bbe20b3b3421793489e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80986718"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356273"
 ---
 이러한 샘플은 Azure Monitor를 사용하여 Azure 위임 리소스 관리를 위해 온보드된 구독에 대한 경고를 만드는 방법을 보여 줍니다.
 
@@ -23,3 +23,4 @@ ms.locfileid: "80986718"
 | [alert-using-actiongroup](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/alert-using-actiongroup) | 이 템플릿은 Azure 경고를 만들고 기존 작업 그룹에 연결합니다.|
 | [multiple-loganalytics-alerts](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/multiple-loganalytics-alerts) | Kusto 쿼리를 기반으로 여러 로그 경고를 만듭니다.|
 | [delegation-alert-for-customer](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegation-alert-for-customer) | 사용자가 관리 테넌트에 구독을 위임하면 테넌트에 경고를 배포합니다.|
+| [workbook-activitylogs-by-domain](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) | 도메인 이름으로 필터링하는 옵션을 사용하여 구독 간에 Azure 활동 로그를 표시합니다. |

@@ -8,18 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: b05ed6e1239721bcf3c1cf33d3ee63a992fd9843
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 5a088cb07fa74b65e497de54be8c97bd51d31c16
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853233"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387839"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>azureiotsolutions.com 사이트를 사용하여 솔루션 가속기 배포
 
 [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators)에서 Azure IoT 솔루션 가속기를 Azure 구독에 배포할 수 있습니다. AzureIoTSolutions.com에서 Microsoft 오픈 소스 및 파트너 솔루션 가속기를 모두 호스트합니다. 이 솔루션 가속기는 [Azure IoT 참조 아키텍처](/azure/architecture/reference-architectures/iot)와 맞습니다. 사이트를 사용하여 솔루션 가속기를 데모 또는 프로덕션 환경으로 빠르게 배포할 수 있습니다.
 
-![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
+:::image type="content" source="media/iot-accelerators-permissions/iotsolutionscom.png" alt-text="IoT 솔루션 홈 페이지":::
 
 > [!TIP]
 > 배포 프로세스에 더 많은 제어가 필요한 경우 CLI를 사용하여 솔루션 가속기를 배포할 수 있습니다.

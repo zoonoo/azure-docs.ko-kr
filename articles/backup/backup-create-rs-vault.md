@@ -4,12 +4,12 @@ description: 이 문서에서는 백업과 복구 지점이 저장 되는 Recove
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: ef3d464c051f15d656a4a60937bb05ac496ee52d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3ba9f47da4a4c9719c313ba196ca121f8cde54ad
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548429"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387737"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기 및 구성
 
@@ -77,8 +77,9 @@ GRS 중복성으로 만든 자격 증명 모음에는 지역 간 복원 기능�
 
  ![백업 구성 배너](./media/backup-azure-arm-restore-vms/banner.png)
 
-1. 포털에서 Recovery Services 자격 증명 모음 > 설정 > 속성으로 이동 합니다.
-2. **이 자격 증명 모음에서 지역 간 복원 사용** 을 선택 하 여 기능을 사용 하도록 설정 합니다.
+1. 포털에서 Recovery Services 자격 증명 모음 > **속성** ( **설정** 아래)으로 이동 합니다.
+1. **백업 구성** 에서 **업데이트** 를 선택 합니다.
+1. **이 자격 증명 모음에서 지역 간 복원 사용** 을 선택 하 여 기능을 사용 하도록 설정 합니다.
 
    ![지역 간 복원 사용](./media/backup-azure-arm-restore-vms/backup-configuration.png)
 

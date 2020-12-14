@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: d5bd2fc150ee1d35127eeb9dbf3dc1eeffdc9659
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 33be57832d9364b859042cd38349c2437bcfcb18
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685939"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358149"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,9 +51,9 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 |---------|---------|---------|---------|
 |**최소 OS 버전**| 모두 |Windows Server 2012|Windows Server 2016|
 |**최소 SQL Server 버전**|모두|SQL Server 2012|SQL Server 2016|
-|**지원되는 VM 가용성** |근접 배치 그룹을 사용하는 가용성 집합 |가용성 집합 및 가용성 영역|가용성 집합 |
-|**FileStream 지원**|예|예|예 |
-|**Azure Blob 캐시**|예|예|예|
+|**지원되는 VM 가용성** |근접 배치 그룹을 사용하는 가용성 집합(프리미엄 SSD용) </br> 동일한 가용성 영역(울트라 SSD) |가용성 집합 및 가용성 영역|가용성 집합 |
+|**FileStream 지원**|예|아니요|예 |
+|**Azure Blob 캐시**|예|아니요|예|
 
 이 섹션의 나머지 부분에서는 Azure VM의 SQL Server에 사용할 수 있는 각 스토리지 옵션의 이점과 제한 사항을 나열합니다. 
 
@@ -69,12 +70,16 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 - 공유 Azure 프리미엄 SSD 및 Azure Ultra Disk Storage를 지원합니다.
 - 단일 공유 디스크를 사용하거나 여러 공유 디스크를 스트라이프하여 공유 스토리지 풀을 생성할 수 있습니다. 
 - Filestream을 지원합니다.
+- 프리미엄 SSD는 가용성 집합을 지원합니다. 
 
 
 **단점**: 
-- 가상 머신은 동일한 가용성 집합 및 근접 배치 그룹에 배치되어야 합니다.
-- 가용성 영역이 지원되지 않습니다.
+- 가상 머신은 동일한 가용성 집합 및 근접 배치 그룹에 배치하는 것이 좋습니다.
+- Ultra 디스크는 가용성 집합을 지원하지 않습니다. 
+- Ultra Disks에 가용성 영역이 지원되지만 VM이 동일한 가용성 영역에 있어야 하므로 가상 머신의 가용성이 줄어듭니다. 
+- Azure 공유 디스크를 사용하는 경우 선택한 하드웨어 가용성 솔루션에 관계없이 장애 조치(failover) 클러스터의 가용성이 항상 99.9%입니다. 
 - 프리미엄 SSD 디스크 캐싱이 지원되지 않습니다.
+
  
 시작하려면 [Azure 공유 디스크를 사용하는 SQL Server 장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-azure-shared-disks-manually-configure.md)를 참조하세요. 
 

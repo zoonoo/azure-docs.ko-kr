@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2020
-ms.openlocfilehash: 9cac0a0026a7007e227607e04e03a77e4df99ecd
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 9ce0ab34aac1a3dda823c9270f4eacebfb99166f
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368124"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387669"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리
 
-Azure Cognitive Search은 자유 형식 검색에서 항상 지정 된 쿼리 패턴에 이르기까지 광범위 한 시나리오를 지 원하는 광범위 한 쿼리 언어를 제공 합니다. 이 문서에서는 만들 수 있는 쿼리 종류를 요약 합니다.
+Azure Cognitive Search는 자유 텍스트 검색에서 항상 지정 된 쿼리 패턴에 이르기까지 광범위 한 시나리오를 지 원하는 풍부한 쿼리 언어를 제공 합니다. 이 문서에서는 만들 수 있는 쿼리 종류를 요약 합니다.
 
 Cognitive Search 쿼리는 **`search`** 쿼리 실행을 알리고 응답의 모양을 지정 하는 매개 변수를 사용 하 여 라운드트립 작업을 전체적으로 지정 합니다. 매개 변수 및 파서는 쿼리 요청 유형을 결정 합니다. 다음 쿼리 예에서는 [호텔 데모 인덱스](search-get-started-portal.md)를 대상으로 하는 [문서 검색 (REST API)](/rest/api/searchservice/search-documents)을 사용 합니다.
 
@@ -38,7 +38,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 + **`queryType`**[기본 단순 쿼리 파서](search-query-simple-examples.md) (전체 텍스트 검색에 최적) 인 파서 또는 정규식, 근접 검색, 유사 항목 및 와일드 카드 검색 등의 고급 쿼리 구문에 사용 되는 [전체 Lucene 쿼리 파서](search-query-lucene-examples.md) 를 설정 합니다.
 
-+ **`search`** 연산자를 사용 하거나 사용 하지 않고 일치 조건, 일반적으로 전체 용어 또는 문구를 제공 합니다. 인덱스 스키마에서 *검색* 가능으로 특성을 지정 하는 모든 필드는이 매개 변수에 대 한 후보입니다. 
++ **`search`** 연산자를 사용 하거나 사용 하지 않고 일치 조건, 일반적으로 전체 용어 또는 문구를 제공 합니다. 인덱스 스키마에서 *검색* 가능으로 특성을 지정 하는 모든 필드는이 매개 변수에 대 한 후보입니다.
 
 + **`searchFields`** 쿼리 실행을 검색 가능한 특정 필드로 제한 합니다.
 
@@ -99,7 +99,7 @@ Cognitive Search에서 전체 텍스트 검색은 Apache Lucene 쿼리 엔진을
 
 고급 쿼리 형태는 전체 Lucene 파서 및 특정 쿼리 동작을 트리거하는 연산자에 따라 달라 집니다.
 
-| 쿼리 유형 | 사용 | 예제 및 자세한 정보 |
+| 쿼리 유형 | 사용량 | 예제 및 자세한 정보 |
 |------------|--------|------------------------------|
 | [필드 지정 검색](query-lucene-syntax.md#bkmk_fields) | **`search`**  변수에 **`queryType=full`**  | 단일 필드를 대상으로 복합 쿼리 식을 작성합니다. <br/>[필드 지정 검색 예제](search-query-lucene-examples.md#example-2-fielded-search) |
 | [유사 항목 검색](query-lucene-syntax.md#bkmk_fuzzy) | **`search`** 변수에 **`queryType=full`** | 유사한 구조 또는 철자가 포함된 용어를 검색합니다. <br/>[유사 항목 검색 예제](search-query-lucene-examples.md#example-3-fuzzy-search) |
@@ -110,10 +110,8 @@ Cognitive Search에서 전체 텍스트 검색은 Apache Lucene 쿼리 엔진을
 
 ## <a name="next-steps"></a>다음 단계
 
-포털 또는 Postman 또는 Visual Studio Code와 같은 다른 도구 또는 Sdk 중 하나를 사용 하 여 쿼리를 보다 자세히 탐색할 수 있습니다. 다음 링크를 통해 시작 해 볼 수 있습니다.
+쿼리 구현에 대 한 자세한 내용을 보려면 각 구문에 대 한 예를 검토 하세요. 전체 텍스트 검색을 처음 접하는 경우 쿼리 엔진의 기능을 좀 더 잘 선택할 수 있습니다.
 
-+ [검색 탐색기](search-explorer.md)
-+ [REST에서 쿼리를 수행하는 방법](search-get-started-rest.md)
-+ [.NET에서 쿼리를 수행하는 방법](search-get-started-dotnet.md)
-+ [Python에서 쿼리 하는 방법](search-get-started-python.md)
-+ [JavaScript에서 쿼리 하는 방법](search-get-started-javascript.md)
++ [단순 쿼리 예제](search-query-simple-examples.md)
++ [고급 쿼리를 작성하기 위한 Lucene 구문 퀴리 예제](search-query-lucene-examples.md)
++ [Azure Cognitive Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)

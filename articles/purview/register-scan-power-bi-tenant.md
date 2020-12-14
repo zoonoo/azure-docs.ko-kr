@@ -7,19 +7,19 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: ce23119e568347fff2ad270cfea7f8b563cae529
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1f08bfd6b7c0439dd08a3091b5ea927781af9b84
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904995"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387584"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Power BI 테 넌 트 등록 및 검사 (미리 보기)
 
 이 문서에서는 Azure 부서의 범위 포털을 사용 하 여 Power BI 테 넌 트를 등록 하 고 검색 하는 방법을 보여 줍니다.
 
 > [!Note]
-> 부서의 범위 인스턴스와 Power BI 테 넌 트가 동일한 Azure 테 넌 트에 있는 경우 관리 되는 id (MSI) 인증만 사용 하 여 Power BI 테 넌 트의 검색을 설정할 수 있습니다. 부서의 범위 인스턴스와 Power BI 테 넌 트가 다른 Azure 테 넌 트에 있는 경우 위임 된 인증을 사용 하 여 인증 해야 하며 PowerShell을 사용 하 여 검색을 설정 해야 합니다. [PowerShell을 사용 하 여 Power BI 등록 및 검색을](powershell-register-scan-power-bi.md)참조 하세요.
+> 부서의 범위 인스턴스와 Power BI 테 넌 트가 동일한 Azure 테 넌 트에 있는 경우 관리 되는 id (MSI) 인증만 사용 하 여 Power BI 테 넌 트의 검색을 설정할 수 있습니다. 
 
 ## <a name="create-a-security-group-for-permissions"></a>사용 권한에 대 한 보안 그룹 만들기
 

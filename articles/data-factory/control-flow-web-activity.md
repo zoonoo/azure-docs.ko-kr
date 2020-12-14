@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 8ee23adf569a6afafc57dac786cd907a3481abde
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fbe37152f4ff1ce24754bc2d7b968c8e1c76ca10
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485810"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387720"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory에서 웹 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,6 +26,9 @@ ms.locfileid: "96485810"
 
 > [!NOTE]
 > 웹 작업은 자체 호스팅 통합 런타임을 활용하여 프라이빗 가상 네트워크에서 호스트되는 URL을 호출하는 경우에도 지원됩니다. 통합 런타임에서 URL 엔드포인트를 직접 확인할 수 있어야 합니다. 
+
+> [!NOTE]
+> 지원 되는 최대 출력 응답 페이로드 크기는 4mb입니다.  
 
 ## <a name="syntax"></a>구문
 
@@ -165,7 +168,7 @@ POST/PUT 메서드를 사용하는 경우 body 속성은 엔드포인트에 전�
 }
 ```
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 이 예제에서 파이프라인의 웹 작업은 REST 끝점을 호출하고 Azure SQL 연결된 서비스 및 Azure SQL 데이터 세트를 엔드포인트에 전달합니다. REST 끝점은 Azure SQL 연결 문자열을 사용 하 여 논리 SQL server에 연결 하 고 SQL server 인스턴스의 이름을 반환 합니다.
 
 ### <a name="pipeline-definition"></a>파이프라인 정의
