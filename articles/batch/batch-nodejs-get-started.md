@@ -1,44 +1,45 @@
 ---
-title: 자습서 - Node.js용 Azure Batch 클라이언트 라이브러리 사용
+title: Node.js용 Azure Batch 클라이언트 라이브러리 사용
 description: Azure Batch의 기본 개념을 알아보고 Node.js를 사용하여 간단한 솔루션을 빌드합니다.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: 33ca65421802cdbe31497f3a19ba5992961daa12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d34d5bbb302e3781aabdd697de11d3d492b879a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850611"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106702"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js용 Batch SDK 시작
 
 [Azure Batch Node.js SDK](/javascript/api/overview/azure/batch)를 사용하여 Node.js로 Batch 클라이언트를 빌드하는 기본 사항을 알아봅니다. 일괄 처리 애플리케이션에 대한 시나리오를 단계별로 이해한 다음 Node.js 클라이언트를 사용하여 설정해 보겠습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
+
 이 문서에서는 사용자가 Node.js에 대한 작업 지식을 갖고 있으며 Linux에 익숙하다고 가정합니다. 또한 Batch 및 Storage 서비스를 만들 액세스 권한이 있는 Azure 계정을 갖고 있다고 가정합니다.
 
 이 문서에 설명된 단계를 진행하기 전에 [Azure Batch 기술 개요](batch-technical-overview.md)를 읽어 보시기 바랍니다.
 
-## <a name="the-tutorial-scenario"></a>자습서 시나리오
-일괄 처리 워크플로 시나리오를 살펴보겠습니다. Azure Blob Storage 컨테이너에서 모든 csv 파일을 다운로드하여 JSON으로 변환하는 Python으로 작성된 간단한 스크립트가 있습니다. 여러 스토리지 계정 컨테이너를 병렬로 처리하려면 스크립트를 Azure Batch 작업으로 배포하면 됩니다.
+## <a name="understand-the-scenario"></a>시나리오 이해
+
+여기에는 Azure Blob Storage 컨테이너에서 모든 csv 파일을 다운로드하여 JSON으로 변환하는 Python으로 작성된 간단한 스크립트가 있습니다. 여러 스토리지 계정 컨테이너를 병렬로 처리하려면 스크립트를 Azure Batch 작업으로 배포하면 됩니다.
 
 ## <a name="azure-batch-architecture"></a>Azure Batch 아키텍처
+
 다음 다이어그램은 Azure Batch 및 Node.js 클라이언트를 사용하여 Python 스크립트를 확장하는 방법을 보여 줍니다.
 
-![Azure Batch 시나리오](./media/batch-nodejs-get-started/BatchScenario.png)
+![시나리오 아키텍처를 보여 주는 다이어그램.](./media/batch-nodejs-get-started/BatchScenario.png)
 
 Node.js 클라이언트는 스토리지 계정에 있는 컨테이너의 수에 따라 준비 작업(나중에 자세히 설명)과 작업 집합을 사용하여 일괄 처리 작업을 배포합니다. GitHub 리포지토리에서 스크립트를 다운로드할 수 있습니다.
 
-* [Node.js 클라이언트](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
-* [준비 작업 셸 스크립트](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
-* [Python csv-JSON 프로세서](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
+- [Node.js 클라이언트](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
+- [준비 작업 셸 스크립트](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
+- [Python csv-JSON 프로세서](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
 
 > [!TIP]
 > 지정된 링크의 Node.js 클라이언트는 Azure 함수 앱으로 배포될 특정 코드를 포함하고 있지 않습니다. 만드는 방법에 대한 지침은 다음 링크를 참조하세요.
 > - [함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md)
 > - [타이머 트리거 함수 만들기](../azure-functions/functions-bindings-timer.md)
->
->
 
 ## <a name="build-the-application"></a>애플리케이션 빌드
 
@@ -54,8 +55,6 @@ npm install 명령을 사용하여 Node.js용 Azure Batch SDK를 설치할 수 �
 
 >[!Tip]
 > Azure 함수 앱의 Azure 함수 설정 탭에서 "Kudu 콘솔"로 이동하여 npm install 명령을 실행합니다. 이 예에서는 Node.js용 Azure Batch SDK를 설치합니다.
->
->
 
 ### <a name="step-2-create-an-azure-batch-account"></a>2단계: Azure Batch 계정 만들기
 
@@ -78,6 +77,7 @@ Batch 계정을 만들 리소스가 이미 있는 경우 리소스 그룹을 만
 후속 단계에서 사용할 키를 복사하여 저장합니다.
 
 ### <a name="step-3-create-an-azure-batch-service-client"></a>3단계: Azure Batch 서비스 클라이언트 만들기
+
 다음 코드 조각은 azure-batch Node.js 모듈을 가져온 후 Batch 서비스 클라이언트를 만듭니다. 먼저 이전 단계에서 복사한 Batch 계정 키로 SharedKeyCredentials 개체를 만들어야 합니다.
 
 ```nodejs
@@ -109,19 +109,16 @@ Azure Batch URI는 Azure Portal의 개요 탭에서 찾을 수 있습니다. 다
 
 ![Azure batch uri](./media/batch-nodejs-get-started/azurebatchuri.png)
 
-
-
 ### <a name="step-4-create-an-azure-batch-pool"></a>4단계: Azure Batch 풀 만들기
+
 Azure Batch 풀은 여러 VM(Batch 노드라고도 함)으로 구성됩니다. Azure Batch 서비스는 이러한 노드에 작업을 배포하고 관리합니다. 풀에 대해 다음 구성 매개 변수를 정의할 수 있습니다.
 
-* Virtual Machine 이미지의 유형
-* Virtual Machine 노드의 크기
-* Virtual Machine 노드의 수
+- Virtual Machine 이미지의 유형
+- Virtual Machine 노드의 크기
+- Virtual Machine 노드의 수
 
-> [!Tip]
+> [!TIP]
 > Virtual Machine 노드의 크기와 수는 병렬로 실행하려는 작업의 수와 작업 자체에 따라 크게 달라집니다. 테스트를 통해 이상적인 수와 크기를 결정하는 것이 좋습니다.
->
->
 
 다음은 구성 매개 변수 개체를 만드는 코드 조각입니다.
 
@@ -139,10 +136,8 @@ var vmSize = "STANDARD_F4"
 var numVMs = 4
 ```
 
-> [!Tip]
+> [!TIP]
 > Azure Batch 및 SKU ID에 사용할 수 있는 Linux VM 이미지 목록은 [가상 머신 이미지 목록](batch-linux-nodes.md#list-of-virtual-machine-images)을 참조하세요.
->
->
 
 풀 구성이 정의되면 Azure Batch 풀을 만들 수 있습니다. Batch 풀 명령은 Azure Virtual Machine 노드를 만들고, 실행할 작업을 수신할 수 있도록 노드를 준비합니다. 각 풀에는 후속 단계에서 참조할 고유 ID가 있어야 합니다.
 
@@ -245,40 +240,37 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
   taskSchedulingPolicy: { nodeFillType: 'Spread' } }
 ```
 
-
 ### <a name="step-4-submit-an-azure-batch-job"></a>4단계: Azure Batch 작업 제출
+
 Azure Batch 작업은 유사한 작업의 논리적 그룹입니다. 이 시나리오에서는 "csv를 JSON으로 처리"입니다. 여기의 각 작업은 각 Azure Storage 컨테이너에 있는 csv 파일을 처리할 수 있습니다.
 
 이러한 작업은 Azure Batch 서비스를 통해 병렬로 실행되어 여러 노드에 배포되고 조정됩니다.
 
-> [!Tip]
+> [!TIP]
 > [taskSlotsPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 속성을 사용하여 단일 노드에서 동시에 실행할 수 있는 최대 작업 수를 지정할 수 있습니다.
->
->
 
 #### <a name="preparation-task"></a>준비 작업
 
 생성된 VM 노드는 빈 Ubuntu 노드입니다. 필수 구성 요소로 프로그램 집합을 설치해야 하는 경우가 자주 있습니다.
 일반적으로 Linux 노드의 경우 실제 작업이 실행되기 전에 필수 구성 요소를 설치하는 셸 스크립트를 사용할 수 있습니다. 그러나 프로그래밍 방식의 실행 파일일 수 있습니다.
+
 이 예제의 [셸 스크립트](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/startup_prereq.sh)는 Python-pip 및 Python용 Azure Storage SDK를 설치합니다.
 
 Azure Storage 계정에 스크립트를 업로드하고 해당 스크립트에 액세스하는 SAS URI를 생성할 수 있습니다. Azure Storage Node.js SDK를 사용하여 이 프로세스를 자동화할 수도 있습니다.
 
-> [!Tip]
+> [!TIP]
 > 작업에 대한 준비 작업은 특정 작업을 실행해야 하는 VM 노드에서만 실행됩니다. 노드에서 실행되는 태스크와 관계없이 모든 노드에 필수 구성 요소를 설치하도록 하려면 풀을 추가하는 동안 [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 속성을 사용하면 됩니다. 다음 준비 작업 정의를 참조에 사용할 수 있습니다.
->
->
 
 준비 작업은 Azure Batch 작업이 제출되는 동안 지정됩니다. 다음은 준비 작업 구성 매개 변수입니다.
 
-* **ID**: 준비 작업의 고유 식별자
-* **commandLine**: 작업 실행 파일을 실행하는 명령줄
-* **resourceFiles**: 이 작업을 실행하려면 다운로드해야 하는 파일의 세부 정보를 제공하는 개체 배열.  다음은 해당 옵션입니다.
-    - blobSource: 파일의 SAS URI
-    - filePath: 파일을 다운로드하여 저장할 로컬 경로
-    - fileMode: Linux 노드에만 적용되는 fileMode는 8진수 형식이며 기본값은 0770
-* **waitForSuccess**: true로 설정하면 준비 작업이 실패할 경우 작업이 실행되지 않음
-* **runElevated**: 작업을 실행하려면 상승된 권한이 필요한 경우 true로 설정.
+- **ID**: 준비 작업의 고유 식별자
+- **commandLine**: 작업 실행 파일을 실행하는 명령줄
+- **resourceFiles**: 이 작업을 실행하려면 다운로드해야 하는 파일의 세부 정보를 제공하는 개체 배열.  다음은 해당 옵션입니다.
+  - blobSource: 파일의 SAS URI
+  - filePath: 파일을 다운로드하여 저장할 로컬 경로
+  - fileMode: Linux 노드에만 적용되는 fileMode는 8진수 형식이며 기본값은 0770
+- **waitForSuccess**: true로 설정하면 준비 작업이 실패할 경우 작업이 실행되지 않음
+- **runElevated**: 작업을 실행하려면 상승된 권한이 필요한 경우 true로 설정.
 
 다음 코드 조각은 준비 작업 스크립트 구성 샘플을 보여 줍니다.
 
@@ -302,15 +294,14 @@ var job_prep_task_config = {id:"installprereq",commandLine:"sudo sh startup_prer
      }});
 ```
 
-
 ### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>5단계: 작업에 대한 Azure Batch 작업 제출
 
 csv 처리 작업을 만들었으니, 해당 작업에 대한 작업을 만들겠습니다. 컨테이너가 4개 있다고 가정하고, 각 컨테이너에 하나씩 총 4개의 작업을 만들어야 합니다.
 
 [Python 스크립트](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py)를 살펴보면, 두 개의 매개 변수가 허용됩니다.
 
-* 컨테이너 이름: 파일을 다운로드할 Storage 컨테이너
-* 패턴: 파일 이름 패턴의 선택적 매개 변수
+- 컨테이너 이름: 파일을 다운로드할 Storage 컨테이너
+- 패턴: 파일 이름 패턴의 선택적 매개 변수
 
 "con1", "con2", "con3", "con4" 총 4개의 컨테이너가 있다고 가정할 때, 다음 코드는 앞에서 만든 Azure 일괄 처리 작업 "csv 처리"에 작업을 제출하는 방법을 보여 줍니다.
 
@@ -347,4 +338,3 @@ var container_list = ["con1","con2","con3","con4"]
 
 - 풀, 노드, 작업 및 태스크와 같은 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)에 대해 알아봅니다.
 - Batch API에 대한 내용은 [Batch Node.js 참조](/javascript/api/overview/azure/batch)를 살펴보세요.
-
