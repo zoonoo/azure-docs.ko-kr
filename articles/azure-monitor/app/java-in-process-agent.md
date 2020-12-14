@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 4b29e5375c10fc3c1aaa203df720fdd24090d11e
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3cab22c2271fd5874b4b094be65c36f5b5f3a22d
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601138"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371886"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights
 
@@ -143,12 +143,12 @@ Application Insights Java 3.0은 이러한 Api를 통해 전송 되는 원격 �
 
 |                     | 마이크로미터 | Log4j, logback, 7 월 | 2.x SDK |
 |---------------------|------------|---------------------|---------|
-| **사용자 지정 이벤트**   |            |                     |  Yes    |
+| **사용자 지정 이벤트**   |            |                     |  예    |
 | **사용자 지정 메트릭**  |  예       |                     |  yes    |
-| **종속성**    |            |                     |  Yes    |
+| **종속성**    |            |                     |  예    |
 | **예외**      |            |  예                |  예    |
-| **페이지 보기**      |            |                     |  Yes    |
-| **요청**        |            |                     |  Yes    |
+| **페이지 보기**      |            |                     |  예    |
+| **요청**        |            |                     |  예    |
 | **추적**          |            |  예                |  예    |
 
 현재 Application Insights 3.0를 사용 하 여 SDK를 릴리스할 계획은 아닙니다.
@@ -186,17 +186,17 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 기본적으로 로깅은 정보 수준 이상에서 수행 되는 경우에만 수집 됩니다.
 이 수준을 변경 하는 방법에 대 한 [구성 옵션](./java-standalone-config.md#auto-collected-logging) 을 참조 하십시오.
 
-로그에 사용자 지정 차원을 연결 하려면 [Log4j 1 mdc](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4j 2 Mdc](https://logging.apache.org/log4j/2.x/manual/thread-context.html)또는 [logback MDC](http://logback.qos.ch/manual/mdc.html)Application Insights를 사용 하면 됩니다. 그러면 Java 3.0에서 이러한 mdc 속성을 추적 및 예외 원격 분석에서 사용자 지정 차원으로 자동으로 캡처합니다.
+로그에 사용자 지정 차원을 연결 하려면 [Log4j 1.2 mdc](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4j 2 Mdc](https://logging.apache.org/log4j/2.x/manual/thread-context.html)또는 [logback MDC](http://logback.qos.ch/manual/mdc.html)Application Insights를 사용 하면 됩니다. 그러면 Java 3.0에서 이러한 mdc 속성을 추적 및 예외 원격 분석에서 사용자 지정 차원으로 자동으로 캡처합니다.
 
 ### <a name="send-custom-telemetry-using-application-insights-java-2x-sdk"></a>Application Insights Java 2.x SDK를 사용 하 여 사용자 지정 원격 분석 보내기
 
-`applicationinsights-core-2.6.0.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
+`applicationinsights-core-2.6.2.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-core</artifactId>
-  <version>2.6.0</version>
+  <version>2.6.2</version>
 </dependency>
 ```
 

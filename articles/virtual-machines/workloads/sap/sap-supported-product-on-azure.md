@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/21/2020
+ms.date: 12/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a02c30423ab3c6de87eac7d34b5f0004e54a8d5d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 28d47b61bce7e154da6c6adb4b74e2b5cf1f3f3d
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957812"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371852"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Azure 배포를 지원하는 SAP 소프트웨어
 이 문서에서는 Azure 배포에 대해 지원 되는 SAP 소프트웨어 및 필요한 운영 체제 릴리스 또는 DBMS 릴리스가 무엇 인지 확인 하는 방법을 설명 합니다.
@@ -82,6 +82,12 @@ Azure에서 지원 되는 운영 체제, Oracle DBMS 릴리스 및 Oracle 기능
 - 유니코드가 아닌 SAP 시스템은 Windows 게스트 OS에서 실행 되는 응용 프로그램 서버 에서만 지원 됩니다. DBMS의 게스트 운영 체제는 Oracle Linux 또는 Windows 일 수 있습니다. 이 제한에 대 한 이유는 SAP PAM (제품 가용성 매트릭스)을 확인할 때 드러납니다. Oracle Linux의 경우 SAP에서 유니코드가 아닌 SAP 커널을 릴리스되지 않았습니다.
 
 대상 Azure 인프라에서 지원 되는 DBMS 릴리스를 알고 있어야 합니다. OS 릴리스 및 DBMS가 실행 하려는 SAP 제품 릴리스에서 지원 되는지 여부에 대 한 SAP 제품 가용성 매트릭스를 확인 해야 합니다. 
+
+## <a name="oracle-linux"></a>Oracle Linux
+Oracle Linux에 대 한 가장 중요 한 질문은 SAP에서 Oracle Linux의 필수적인 부분인 Red Hat 커널을 지원 하는지 여부입니다. 자세한 내용은 [SAP 지원 참고 #1565179](https://launchpad.support.sap.com/#/notes/1565179)를 참조 하세요.
+
+## <a name="other-database-than-sap-hana"></a>다른 데이터베이스 SAP HANA
+Sap 워크 로드에 대 한 비 HANA 데이터베이스 지원은 [sap support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)에 설명 되어 있습니다.
 
 
 ## <a name="sap-hana-support"></a>지원 SAP HANA

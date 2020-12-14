@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/26/2020
+ms.date: 12/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e07876f9e28e7f3245f2524b5ef5da08de085ec1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 75ea3eec50516c9ba08504dd149d4bd08f8abbb6
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486473"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371937"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -47,6 +47,8 @@ Azure의 SAP 워크로드 섹션의 문서에 대한 변경 내용은 이 문서
 - 여러 Azure 지역에서 사용할 수 있는 Azure 서비스, Azure VM 유형 및 Azure 스토리지 서비스에 대한 정보는 [지역별 제공 제품](https://azure.microsoft.com/global-infrastructure/services/) 사이트에서 확인할 수 있습니다. 
 - 타사 HA 프레임은 Windows 및 Pacemaker 지원 되는 것 외에도 작동 하나요? [SAP support note](https://launchpad.support.sap.com/#/notes/1928533) 의 아래쪽 부분을 확인 #1928533
 - 시나리오에 가장 적합 한 Azure storage는 무엇 인가요? [SAP 워크 로드에 대 한 Azure Storage 형식](./planning-guide-storage.md) 읽기
+- SAP에서 지 원하는 Oracle Enterprise Linux의 Red Hat 커널이 있나요? SAP [sap 지원 정보](https://launchpad.support.sap.com/#/notes/1565179) 를 참조 하십시오 #1565179
+- Azure [Da v4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series) / [Ea](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series) VM 제품군 SAP HANA에 대해 인증 되지 않는 이유는 무엇 인가요? Azure Das/Eas VM 제품군은 AMD 프로세서 기반 하드웨어를 기반으로 합니다. SAP HANA는 가상화 된 시나리오 뿐만 아니라 AMD 프로세서를 지원 하지 않습니다.
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)에서 SAP HANA 사용
@@ -74,12 +76,13 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 
 
 ## <a name="documentation-on-integration-of-azure-services-into-sap-components"></a>SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 설명서
-이 섹션에서는 SAP 데이터 원본에 대 한 PowerBI 통합 관련 문서와 SAP BW에 Azure Data Factory 통합에 대 한 문서를 찾을 수 있습니다.
+이 섹션에서는 Microsoft Power BI SAP 데이터 원본에 통합에 대 한 문서와 SAP BW에 Azure Data Factory 통합에 대 한 문서를 찾을 수 있습니다.
 
 
 
 ## <a name="change-log"></a>로그 변경
 
+- 12/12/2020: sap 메모에 대 한 포인터 추가 sap에서 [Azure 배포에 대해 지원 되는 sap 소프트웨어](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#oracle-dbms-support) 에 대 한 자세한 정보를 제공 합니다.
 - 11/26/2020: [SAP 워크 로드에 대 한](./planning-guide-storage.md) [Azure 가상 머신 저장소 구성](./hana-vm-operations-storage.md) 및 Azure Storage 유형을 변경 하 여 단일 [VM sla](https://azure.microsoft.com/support/legal/sla/virtual-machines) 를 변경 SAP HANA
 - 11/05/2020: [Azure virtual machine 저장소 구성 SAP HANA](./hana-vm-operations-storage.md) 에서 HANA 지원 파일 시스템 형식에 대 한 새 SAP 메모에 대 한 링크를 변경 하 고 있습니다. 
 - 10/26/2020: azure [가상 머신 저장소 구성 SAP HANA](./hana-vm-operations-storage.md) 에서 프로 비전 된 처리량과 버스트 처리량을 명확 하 게 하기 위해 azure premium storage 구성의 일부 테이블을 변경 합니다.
