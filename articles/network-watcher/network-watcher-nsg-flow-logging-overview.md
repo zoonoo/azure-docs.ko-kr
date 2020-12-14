@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 03ef75f43d8c8c854c3803ceb30f31b292d566c3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 79f442c5ab7db92e69f5396f3f9205212bdf4d4d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033428"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399250"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -371,9 +371,11 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **중요 한 vnet/서브넷에 대해 설정**: 흐름 로그는 감사 기능 및 보안 모범 사례로 서 구독의 모든 중요 한 vnet/서브넷에서 사용 하도록 설정 되어야 합니다. 
 
-**리소스에 연결 된 모든 nsg에 대해 Nsg 흐름 로깅을 사용 하도록 설정**: Azure의 흐름 로깅은 nsg 리소스에 구성 됩니다. 하나의 흐름은 하나의 NSG 규칙에만 연결됩니다. 여러 NSGs를 사용 하는 시나리오에서 리소스의 서브넷 또는 네트워크 인터페이스를 적용 한 모든 NSGs에 대해 NSGS 흐름 로그를 사용 하도록 설정 하 여 모든 트래픽이 기록 되도록 하는 것이 좋습니다. 자세한 내용은 네트워크 보안 그룹에서 [트래픽 평가 방법](../virtual-network/network-security-group-how-it-works.md) 을 참조 하세요.
+**리소스에 연결 된 모든 nsg에 대해 Nsg 흐름 로깅을 사용 하도록 설정**: Azure의 흐름 로깅은 nsg 리소스에 구성 됩니다. 하나의 흐름은 하나의 NSG 규칙에만 연결됩니다. 여러 NSGs를 사용 하는 시나리오에서는 모든 트래픽이 기록 되도록 리소스의 서브넷 또는 네트워크 인터페이스에 적용 된 모든 NSGs에 대해 NSGS 흐름 로그를 사용 하도록 설정 하는 것이 좋습니다. 자세한 내용은 네트워크 보안 그룹에서 [트래픽 평가 방법](../virtual-network/network-security-group-how-it-works.md) 을 참조 하세요. 
 
-**Nic 및 서브넷 수준에서 NSG** 를 사용 하도록 설정: nsg가 Nic 및 서브넷 수준에서 구성 된 경우에는 두 nsg에서 흐름 로깅을 사용 하도록 설정 해야 합니다. 
+몇 가지 일반적인 시나리오는 다음과 같습니다.
+1. **Nic에서 여러 NSG: 여러 nsg** 가 nic에 연결 되는 경우 모든 nsg가 nic에 연결 되어 있어야 합니다.
+1. **Nic 및 서브넷 수준에서 NSG** 를 사용 하도록 설정: nsg가 Nic 및 서브넷 수준에서 구성 된 경우에는 두 nsg에서 흐름 로깅을 사용 하도록 설정 해야 합니다. 
 
 **저장소 프로 비전**: 저장소는 예상 흐름 로그 볼륨이 포함 된 튜닝에서 프로 비전 되어야 합니다.
 

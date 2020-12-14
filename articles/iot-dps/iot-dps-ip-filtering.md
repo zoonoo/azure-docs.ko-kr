@@ -6,13 +6,13 @@ ms.author: wesmc
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 03/12/2020
-ms.openlocfilehash: 4067d157a13618b008e2cb1a5fee31259bfd43a9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.date: 12/14/2020
+ms.openlocfilehash: 6ff5731e7d346c954253ec4186357595461b7678
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094355"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400259"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Azure IoT DPS IP 연결 필터 사용
 
@@ -58,7 +58,7 @@ IP 필터 규칙을 추가하려면 **+ IP 필터 규칙 추가** 를 선택합�
 
 ![IP 필터 규칙 저장에 대한 알림](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
 
-최대 10개의 IP 필터 규칙에 도달하면 **추가** 옵션이 비활성화됩니다.
+최대 100 IP 필터 규칙에 도달 하면 **추가** 옵션을 사용할 수 없습니다.
 
 기존 규칙을 편집하려면 변경하려는 데이터를 선택하고 변경 내용을 적용한 다음, **저장** 을 선택하여 편집 내용을 저장합니다.
 

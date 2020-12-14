@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/02/2020
+ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 396d6f69673f8758d8d1302f8d10b8a92e5f50b4
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 37d9c24d58e0dd9fb10db607ef1b96de0a44eb78
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530755"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399369"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에 앱 게시
 
@@ -95,8 +95,8 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 지원 되�
 | 웹 기반 single sign-on| √| √ |
 | 모바일 기반 Single Sign-On| √| √* |
 | 모바일 기반 single sign-on| √| √* |
-| 모바일 응용 프로그램에 대 한 조건부 액세스 정책| √| X |
-| 모바일 응용 프로그램에 대 한 원활한 MFA 환경| √| X |
+| 모바일 응용 프로그램에 대 한 조건부 액세스 정책| √| √* |
+| 모바일 응용 프로그램에 대 한 원활한 MFA 환경| √| √* |
 | SCIM 프로비저닝| √| √ |
 | Microsoft Graph 액세스| √| X |
 
@@ -178,7 +178,7 @@ HTML 로그인 페이지가 있는 웹 응용 프로그램을 만듭니다. 응�
 Azure AD SCIM 구현에 대해 자세히 알아보려면 [scim 끝점 빌드 및 AZURE ad를 사용 하 여 사용자 프로 비전 구성](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups)을 참조 하세요.
 
 ### <a name="implement-scim"></a>SCIM 구현
-Azure AD는 SCIM 끝점을 빌드하는 데 도움이 되는 [참조 코드](https://aka.ms/scimoverview) 를 제공 합니다. Github에서 찾을 수 있는 많은 타사 라이브러리/참조도 있습니다.  
+Azure AD는 SCIM 끝점을 빌드하는 데 도움이 되는 [참조 코드](https://aka.ms/scimoverview) 를 제공 합니다. GitHub에서 찾을 수 있는 많은 타사 라이브러리/참조도 있습니다.  
 
 ## <a name="step-4---create-your-azure-tenant-and-test-your-app"></a>4 단계-Azure 테 넌 트 만들기 및 앱 테스트
 

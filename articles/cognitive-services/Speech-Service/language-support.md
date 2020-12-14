@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 9ef585d83c0606bedaf4c0a05c6c87fd52423b9a
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 12c9777449d3f360b8f08d99aca7b916856139d4
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575536"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400185"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -141,73 +141,119 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 언어 | 로캘 | 성별 | 음성 이름 | 스타일 지원 |
 |---|---|---|---|---|
 | 아랍어(이집트) | `ar-EG` | Female | `ar-EG-SalmaNeural` | 일반 |
+| 아랍어(이집트) | `ar-EG` | Male | `ar-EG-ShakirNeural`<sup>새</sup> | 일반 |
 | 아랍어(사우디아라비아) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | 일반 |
-| 불가리아어 (Bulgary) | `bg-BG` | Female | `bg-BG-KalinaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 아랍어(사우디아라비아) | `ar-SA` | Male | `ar-SA-HamedNeural`<sup>새</sup> | 일반 |
+| 불가리아어 (Bulgary) | `bg-BG` | Female | `bg-BG-KalinaNeural` | 일반 |
+| 불가리아어 (Bulgary) | `bg-BG` | Male | `bg-BG-BorislavNeural`<sup>새</sup> | 일반 |
 | 카탈로니아어(스페인) | `ca-ES` | Female | `ca-ES-AlbaNeural` | 일반 |
+| 카탈로니아어(스페인) | `ca-ES` | Female | `ca-ES-JoanaNeural`<sup>새</sup> | 일반 |
+| 카탈로니아어(스페인) | `ca-ES` | Male | `ca-ES-EnricNeural`<sup>새</sup> | 일반 |
 | 중국어(광둥어, 번체) | `zh-HK` | Female | `zh-HK-HiuGaaiNeural` | 일반 |
-| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoxiaoNeural` | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일 |
+| 중국어(광둥어, 번체) | `zh-HK` | Female | `zh-HK-HiuMaanNeural`<sup>새</sup> | 일반 |
+| 중국어(광둥어, 번체) | `zh-HK` | Male | `zh-HK-WanLungNeural`<sup>새</sup> | 일반 |
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoxiaoNeural` | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일  |
 | 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoyouNeural` | 어린이 음성, 이야기 내레이션에 최적화 |
-| 중국어 (북경어, 간체) | `zh-CN` | Male   | `zh-CN-YunyangNeural` | 뉴스 읽기에 최적화 됨<br /> [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일 |
-| 중국어 (북경어, 간체) | `zh-CN` | Male   | `zh-CN-YunyeNeural` | 이야기 내레이션에 최적화 |
+| 중국어 (북경어, 간체) | `zh-CN` | Male | `zh-CN-YunyangNeural` | 뉴스 읽기에 최적화 됨<br /> [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일 |
+| 중국어 (북경어, 간체) | `zh-CN` | Male | `zh-CN-YunyeNeural` | 이야기 내레이션에 최적화  |
+| 중국어(대만어) | `zh-TW` | Female | `zh-TW-HsiaoChenNeural`<sup>새</sup> | 일반 |
 | 중국어(대만어) | `zh-TW` | Female | `zh-TW-HsiaoYuNeural` | 일반 |
-| 크로아티아어(크로아티아) | `hr-HR` | Female | `hr-HR-GabrijelaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 체코어 (체코) | `cs-CZ` | Female | `cs-CZ-VlastaNeural` <sup>단추를 사용하여 새</sup>    | 일반 |
+| 중국어(대만어) | `zh-TW` | Male | `zh-TW-YunJheNeural`<sup>새</sup> | 일반 |
+| 크로아티아어(크로아티아) | `hr-HR` | Female | `hr-HR-GabrijelaNeural` | 일반 |
+| 크로아티아어(크로아티아) | `hr-HR` | Male | `hr-HR-SreckoNeural`<sup>새</sup> | 일반 |
+| 체코어 (체코) | `cs-CZ` | Female | `cs-CZ-VlastaNeural` | 일반 |
+| 체코어 (체코) | `cs-CZ` | Male | `cs-CZ-AntoninNeural`<sup>새</sup> | 일반 |
 | 덴마크어(덴마크) | `da-DK` | Female | `da-DK-ChristelNeural` | 일반 |
+| 덴마크어(덴마크) | `da-DK` | Male | `da-DK-JeppeNeural`<sup>새</sup> | 일반 |
 | 네덜란드어(네덜란드) | `nl-NL` | Female | `nl-NL-ColetteNeural` | 일반 |
+| 네덜란드어(네덜란드) | `nl-NL` | Female | `nl-NL-FennaNeural`<sup>새</sup> | 일반 |
+| 네덜란드어(네덜란드) | `nl-NL` | Male | `nl-NL-MaartenNeural`<sup>새</sup> | 일반 |
 | 영어(오스트레일리아) | `en-AU` | Female | `en-AU-NatashaNeural` | 일반 |
-| 영어(오스트레일리아) | `en-AU` | Male   | `en-AU-WilliamNeural` <sup>단추를 사용하여 새</sup>  | 일반 |
+| 영어(오스트레일리아) | `en-AU` | Male | `en-AU-WilliamNeural` | 일반 |
 | 영어(캐나다) | `en-CA` | Female | `en-CA-ClaraNeural` | 일반 |
+| 영어(캐나다) | `en-CA` | Male | `en-CA-LiamNeural`<sup>새</sup> | 일반 |
 | 영어(인도) | `en-IN` | Female | `en-IN-NeerjaNeural` | 일반 |
-| 영어(아일랜드) | `en-IE` | Female | `en-IE-EmilyNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 영어(인도) | `en-IN` | Male | `en-IN-PrabhatNeural`<sup>새</sup> | 일반 |
+| 영어(아일랜드) | `en-IE` | Female | `en-IE-EmilyNeural` | 일반 |
+| 영어(아일랜드) | `en-IE` | Male | `en-IE-ConnorNeural`<sup>새</sup> | 일반 |
 | 영어(영국) | `en-GB` | Female | `en-GB-LibbyNeural` | 일반 |
 | 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural` | 일반 |
-| 영어(영국) | `en-GB` | Male | `en-GB-RyanNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 영어(미국) | `en-US` | Female | `en-US-AriaNeural` | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일 |
+| 영어(영국) | `en-GB` | Male | `en-GB-RyanNeural` | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-AriaNeural` | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일  |
+| 영어(미국) | `en-US` | Female | `en-US-JennyNeural` | 일반 |
 | 영어(미국) | `en-US` | Male | `en-US-GuyNeural` | 일반 |
-| 영어(미국) | `en-US` | Female | `en-US-JennyNeural` <sup>단추를 사용하여 새</sup> | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일 |
 | 핀란드어(핀란드) | `fi-FI` | Female | `fi-FI-NooraNeural` | 일반 |
+| 핀란드어(핀란드) | `fi-FI` | Female | `fi-FI-SelmaNeural`<sup>새</sup> | 일반 |
+| 핀란드어(핀란드) | `fi-FI` | Male | `fi-FI-HarriNeural`<sup>새</sup> | 일반 |
 | 프랑스어(캐나다) | `fr-CA` | Female | `fr-CA-SylvieNeural` | 일반 |
-| 프랑스어(캐나다) | `fr-CA` | Male | `fr-CA-JeanNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 프랑스어(캐나다) | `fr-CA` | Male | `fr-CA-JeanNeural` | 일반 |
 | 프랑스어(프랑스) | `fr-FR` | Female | `fr-FR-DeniseNeural` | 일반 |
-| 프랑스어(프랑스) | `fr-FR` | Male | `fr-FR-HenriNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 프랑스어(스위스) | `fr-CH` | Female | `fr-CH-ArianeNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 독일어(오스트리아) | `de-AT` | Female | `de-AT-IngridNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 프랑스어(프랑스) | `fr-FR` | Male | `fr-FR-HenriNeural` | 일반 |
+| 프랑스어(스위스) | `fr-CH` | Female | `fr-CH-ArianeNeural` | 일반 |
+| 프랑스어(스위스) | `fr-CH` | Male | `fr-CH-FabriceNeural`<sup>새</sup> | 일반 |
+| 독일어(오스트리아) | `de-AT` | Female | `de-AT-IngridNeural` | 일반 |
+| 독일어(오스트리아) | `de-AT` | Male | `de-AT-JonasNeural`<sup>새</sup> | 일반 |
 | 독일어(독일) | `de-DE` | Female | `de-DE-KatjaNeural` | 일반 |
-| 독일어 (독일) | `de-DE` | Male | `de-DE-ConradNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 독일어(스위스) | `de-CH` | Female | `de-CH-LeniNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 그리스어(그리스) | `el-GR` | Female | `el-GR-AthinaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 히브리어(이스라엘) | `he-IL` | Female | `he-IL-HilaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 독일어 (독일) | `de-DE` | Male | `de-DE-ConradNeural` | 일반 |
+| 독일어(스위스) | `de-CH` | Female | `de-CH-LeniNeural` | 일반 |
+| 독일어(스위스) | `de-CH` | Male | `de-CH-JanNeural`<sup>새</sup> | 일반 |
+| 그리스어(그리스) | `el-GR` | Female | `el-GR-AthinaNeural` | 일반 |
+| 그리스어(그리스) | `el-GR` | Male | `el-GR-NestorasNeural`<sup>새</sup> | 일반 |
+| 히브리어(이스라엘) | `he-IL` | Female | `he-IL-HilaNeural` | 일반 |
+| 히브리어(이스라엘) | `he-IL` | Male | `he-IL-AvriNeural`<sup>새</sup> | 일반 |
 | 힌디어(인도) | `hi-IN` | Female | `hi-IN-SwaraNeural` | 일반 |
-| 헝가리어(헝가리) | `hu-HU` | Female | `hu-HU-NoemiNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 인도네시아어(인도네시아) | `id-ID` | Male | `id-ID-ArdiNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 힌디어(인도) | `hi-IN` | Male | `hi-IN-MadhurNeural`<sup>새</sup> | 일반 |
+| 헝가리어(헝가리) | `hu-HU` | Female | `hu-HU-NoemiNeural` | 일반 |
+| 헝가리어(헝가리) | `hu-HU` | Male | `hu-HU-TamasNeural`<sup>새</sup> | 일반 |
+| 인도네시아어(인도네시아) | `id-ID` | Female | `id-ID-GadisNeural`<sup>새</sup> | 일반 |
+| 인도네시아어(인도네시아) | `id-ID` | Male | `id-ID-ArdiNeural` | 일반 |
 | 이탈리아어(이탈리아) | `it-IT` | Female | `it-IT-ElsaNeural` | 일반 |
-| 이탈리아어(이탈리아) | `it-IT` | Female | `it-IT-IsabellaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 이탈리아어(이탈리아) | `it-IT` | Male | `it-IT-DiegoNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 이탈리아어(이탈리아) | `it-IT` | Female | `it-IT-IsabellaNeural` | 일반 |
+| 이탈리아어(이탈리아) | `it-IT` | Male | `it-IT-DiegoNeural` | 일반 |
 | 일본어(일본) | `ja-JP` | Female | `ja-JP-NanamiNeural` | 일반 |
-| 일본어(일본) | `ja-JP` | Male | `ja-JP-KeitaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 일본어(일본) | `ja-JP` | Male | `ja-JP-KeitaNeural` | 일반 |
 | 한국어(한국) | `ko-KR` | Female | `ko-KR-SunHiNeural` | 일반 |
-| 한국어(한국) | `ko-KR` | Male | `ko-KR-InJoonNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 말레이어(말레이시아) | `ms-MY` | Female | `ms-MY-YasminNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 한국어(한국) | `ko-KR` | Male | `ko-KR-InJoonNeural` | 일반 |
+| 말레이어(말레이시아) | `ms-MY` | Female | `ms-MY-YasminNeural` | 일반 |
+| 말레이어(말레이시아) | `ms-MY` | Male | `ms-MY-OsmanNeural`<sup>새</sup> | 일반 |
 | 노르웨이어(복말)(노르웨이) | `nb-NO` | Female | `nb-NO-IselinNeural` | 일반 |
+| 노르웨이어(복말)(노르웨이) | `nb-NO` | Female | `nb-NO-PernilleNeural`<sup>새</sup> | 일반 |
+| 노르웨이어(복말)(노르웨이) | `nb-NO` | Male | `nb-NO-FinnNeural`<sup>새</sup> | 일반 |
+| 폴란드어(폴란드) | `pl-PL` | Female | `pl-PL-AgnieszkaNeural`<sup>새</sup> | 일반 |
 | 폴란드어(폴란드) | `pl-PL` | Female | `pl-PL-ZofiaNeural` | 일반 |
-| 포르투갈어(브라질) | `pt-BR` | Female | `pt-BR-FranciscaNeural` | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일 |
-| 포르투갈어(브라질) | `pt-BR` | Male | `pt-BR-AntonioNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 폴란드어(폴란드) | `pl-PL` | Male | `pl-PL-MarekNeural`<sup>새</sup> | 일반 |
+| 포르투갈어(브라질) | `pt-BR` | Female | `pt-BR-FranciscaNeural` | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일  |
+| 포르투갈어(브라질) | `pt-BR` | Male | `pt-BR-AntonioNeural` | 일반 |
 | 포르투갈어(포르투갈) | `pt-PT` | Female | `pt-PT-FernandaNeural` | 일반 |
-| 루마니아어(루마니아) | `ro-RO` | Female | `ro-RO-AlinaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 포르투갈어(포르투갈) | `pt-PT` | Female | `pt-PT-RaquelNeural`<sup>새</sup> | 일반 |
+| 포르투갈어(포르투갈) | `pt-PT` | Male | `pt-PT-DuarteNeural`<sup>새</sup> | 일반 |
+| 루마니아어(루마니아) | `ro-RO` | Female | `ro-RO-AlinaNeural` | 일반 |
+| 루마니아어(루마니아) | `ro-RO` | Male | `ro-RO-EmilNeural`<sup>새</sup> | 일반 |
 | 러시아어(러시아) | `ru-RU` | Female | `ru-RU-DariyaNeural` | 일반 |
-| 슬로바키아어(슬로바키아) | `sk-SK` | Female | `sk-SK-ViktoriaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 슬로베니아어(슬로베니아) | `sl-SI` | Female | `sl-SI-PetraNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 러시아어(러시아) | `ru-RU` | Female | `ru-RU-SvetlanaNeural`<sup>새</sup> | 일반 |
+| 러시아어(러시아) | `ru-RU` | Male | `ru-RU-DmitryNeural`<sup>새</sup> | 일반 |
+| 슬로바키아어(슬로바키아) | `sk-SK` | Female | `sk-SK-ViktoriaNeural` | 일반 |
+| 슬로바키아어(슬로바키아) | `sk-SK` | Male | `sk-SK-LukasNeural`<sup>새</sup> | 일반 |
+| 슬로베니아어(슬로베니아) | `sl-SI` | Female | `sl-SI-PetraNeural` | 일반 |
+| 슬로베니아어(슬로베니아) | `sl-SI` | Male | `sl-SI-RokNeural`<sup>새</sup> | 일반 |
 | 스페인어(멕시코) | `es-MX` | Female | `es-MX-DaliaNeural` | 일반 |
-| 스페인어(멕시코) | `es-MX` | Male | `es-MX-JorgeNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 스페인어(멕시코) | `es-MX` | Male | `es-MX-JorgeNeural` | 일반 |
 | 스페인어(스페인) | `es-ES` | Female | `es-ES-ElviraNeural` | 일반 |
-| 스페인어(스페인) | `es-ES` | Male | `es-ES-AlvaroNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 스페인어(스페인) | `es-ES` | Male | `es-ES-AlvaroNeural` | 일반 |
 | 스웨덴어(스웨덴) | `sv-SE` | Female | `sv-SE-HilleviNeural` | 일반 |
-| 타밀어(인도) | `ta-IN` | Female | `ta-IN-PallaviNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 텔루구어(인도) | `te-IN` | Female | `te-IN-ShrutiNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 스웨덴어(스웨덴) | `sv-SE` | Female | `sv-SE-SofieNeural`<sup>새</sup> | 일반 |
+| 스웨덴어(스웨덴) | `sv-SE` | Male | `sv-SE-MattiasNeural`<sup>새</sup> | 일반 |
+| 타밀어(인도) | `ta-IN` | Female | `ta-IN-PallaviNeural` | 일반 |
+| 타밀어(인도) | `ta-IN` | Male | `ta-IN-ValluvarNeural`<sup>새</sup> | 일반 |
+| 텔루구어(인도) | `te-IN` | Female | `te-IN-ShrutiNeural` | 일반 |
+| 텔루구어(인도) | `te-IN` | Male | `te-IN-MohanNeural`<sup>새</sup> | 일반 |
 | 태국어(태국) | `th-TH` | Female | `th-TH-AcharaNeural` | 일반 |
-| 태국어(태국) | `th-TH` | Female | `th-TH-PremwadeeNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 태국어(태국) | `th-TH` | Female | `th-TH-PremwadeeNeural` | 일반 |
+| 태국어(태국) | `th-TH` | Male | `th-TH-NiwatNeural`<sup>새</sup> | 일반 |
 | 터키어(터키) | `tr-TR` | Female | `tr-TR-EmelNeural` | 일반 |
-| 베트남어(베트남) | `vi-VN` <sup>단추를 사용하여 새</sup> | Female | `vi-VN-HoaiMyNeural` | 일반|
+| 터키어(터키) | `tr-TR` | Male | `tr-TR-AhmetNeural`<sup>새</sup> | 일반 |
+| 베트남어(베트남) | `vi-VN` | Female | `vi-VN-HoaiMyNeural` | 일반 |
+| 베트남어(베트남) | `vi-VN` | Male | `vi-VN-NamMinhNeural`<sup>새</sup> | 일반 |
 
 #### <a name="neural-voices-in-preview"></a>미리 보기의 신경망
 
@@ -215,16 +261,21 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 | 언어                         | 로캘  | 성별 | 음성 이름                             | 스타일 지원 |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| 중국어 (북경어, 간체) | `zh-CN` | Male   | `zh-CN-YunxiNeural` <sup>단추를 사용하여 새</sup> | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 스타일 |
-| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaohanNeural` <sup>단추를 사용하여 새</sup> | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 스타일 |
-| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` <sup>단추를 사용하여 새</sup> | 일반적으로 [SSML을 사용 하 여 사용할 수 있는](speech-synthesis-markup.md#adjust-speaking-styles) 여러 역할 재생 및 스타일 |
-| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaomoNeural` <sup>단추를 사용하여 새</sup> | 일반적으로 [SSML을 사용 하 여 사용할 수 있는](speech-synthesis-markup.md#adjust-speaking-styles) 여러 역할 재생 및 스타일 |
-| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` <sup>단추를 사용하여 새</sup> | [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 여러 스타일을 사용할 수 있는 선임 음성 |
-| 에스토니아어(에스토니아) | `et-EE` | Female | `et-EE-AnuNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 게일어 (아일랜드) | `ga-IE` | Female | `ga-IE-OrlaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 리투아니아어(리투아니아) | `lt-LT` | Female | `lt-LT-OnaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 라트비아어(라트비아) | `lv-LV` | Female | `lv-LV-EveritaNeural` <sup>단추를 사용하여 새</sup> | 일반 |
-| 몰타어(몰타) | `mt-MT` | Female | `mt-MT-GraceNeural` <sup>단추를 사용하여 새</sup> | 일반 |
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaohanNeural` | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 스타일 |
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaomoNeural` | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 역할 재생 및 스타일 |
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` | [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 여러 스타일을 사용할 수 있는 선임 음성 |
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 역할 재생 및 스타일 |
+| 중국어 (북경어, 간체) | `zh-CN` | Male   | `zh-CN-YunxiNeural` | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 스타일 |
+| 에스토니아어(에스토니아) | `et-EE` | Female | `et-EE-AnuNeural` | 일반 |
+| 에스토니아어(에스토니아) | `et-EE` | Male | `et-EE-KertNeural`<sup>새</sup> | 일반 |
+| 아일랜드어(아일랜드) | `ga-IE` | Female | `ga-IE-OrlaNeural` | 일반 |
+| 아일랜드어(아일랜드) | `ga-IE` | Male | `ga-IE-ColmNeural`<sup>새</sup> | 일반 |
+| 라트비아어(라트비아) | `lv-LV` | Female | `lv-LV-EveritaNeural` | 일반 |
+| 라트비아어(라트비아) | `lv-LV` | Male | `lv-LV-NilsNeural`<sup>새</sup> | 일반 |
+| 리투아니아어(리투아니아) | `lt-LT` | Female | `lt-LT-OnaNeural` | 일반 |
+| 리투아니아어(리투아니아) | `lt-LT` | Male | `lt-LT-LeonasNeural`<sup>새</sup> | 일반 |
+| 몰타어(몰타) | `mt-MT` | Female | `mt-MT-GraceNeural` | 일반 |
+| 몰타어(몰타) | `mt-MT` | Male | `mt-MT-JosephNeural`<sup>새</sup> | 일반 |
 
 > [!IMPORTANT]
 > 공개 미리 보기의 음성은 미국 동부, 유럽 서부 및 동남 아시아의 세 가지 서비스 지역 에서만 사용할 수 있습니다.

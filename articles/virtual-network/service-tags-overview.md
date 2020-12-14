@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: ece6dfb5277e7ca363548c8d90021835a96a61ba
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: d01136ea4377bd7d35a2e11b4bcf654bcf677fbe
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937358"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401562"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -43,7 +43,7 @@ ms.locfileid: "96937358"
 기본적으로 서비스 태그는 전체 클라우드의 범위를 반영합니다. 일부 서비스 태그는 해당 IP 범위를 지정된 지역으로 제한하여 보다 자세히 제어할 수 있습니다. 예를 들어, 서비스 태그 **Storage** 는 전체 클라우드의 Azure Storage를 나타내지만 **Storage.WestUS** 는 범위를 WestUS 지역의 스토리지 IP 주소 범위로 좁힙니다. 다음 표에서는 각 서비스 태그가 이러한 지역 범위를 지원하는지 여부를 나타냅니다.  
 
 | 태그 | 목적 | 인바운드 또는 아웃바운드를 사용할 수 있나요? | 지역 범위를 지원할 수 있나요? | Azure Firewall에서 사용할 수 있나요? |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| --- | -------- |:---:|:---:|:---:|
 | **ActionGroup** | 작업 그룹입니다. | 인바운드 | 예 | 예 |
 | **ApiManagement** | Azure API Management 전용 배포에 대한 관리 트래픽입니다. <br/><br/>*참고:* 이 태그는 지역별 제어 평면에 대한 Azure API Management 서비스 엔드포인트를 나타냅니다. 이렇게 하면 고객이 API Management 서비스에 구성된 API, 작업, 정책, 명명된 값에 대해 관리 작업을 수행할 수 있습니다.  | 인바운드 | 예 | 예 |
 | **ApplicationInsightsAvailability** | Application Insights 가용성입니다. | 인바운드 | 예 | 예 |
@@ -63,7 +63,7 @@ ms.locfileid: "96937358"
 | **AzureDatabricks** | Azure Databricks입니다. | 모두 | 예 | 예 |
 | **AzureDataExplorerManagement** | Azure Data Explorer 관리 기능입니다. | 인바운드 | 예 | 예 |
 | **AzureDataLake** | Azure Data Lake Storage Gen1입니다. | 아웃바운드 | 예 | 예 |
-| **AzureDevSpaces** | Azure Dev Spaces입니다. | 아웃바운드 | 예 | 아니요 |
+| **AzureDevSpaces** | Azure Dev Spaces입니다. | 아웃바운드 | 예 | 예 |
 | **AzureDevOps** | Azure Dev Ops.<br/><br/>*참고:이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.*| 인바운드 | 예 | 예 |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*참고:* 이 태그 또는이 태그에 포함 된 IP 주소는 이벤트 경로에 대해 구성 된 끝점에 대 한 액세스를 제한 하는 데 사용할 수 있습니다. *이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 인바운드 | 예 | 예 |
 | **AzureEventGrid** | Azure Event Grid. | 모두 | 예 | 예 |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: b685f716688cfbe732fa7d3566e1af97cc81272a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 390d2c8488fd2b35c775eabe43677b9349b547a1
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652113"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401647"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>자습서: 위협 검색을 위한 사용자 지정 분석 규칙 만들기
 
@@ -145,7 +145,13 @@ ms.locfileid: "94652113"
 
 ## <a name="troubleshooting"></a>문제 해결
 
-### <a name="a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>예약 된 규칙을 실행 하지 못했거나 이름에 자동 사용 안 함이 추가 된 상태로 표시 됩니다.
+### <a name="issue-no-events-appear-in-query-results"></a>문제: 쿼리 결과에 이벤트가 표시 되지 않습니다.
+
+**이벤트 그룹화** 가 **각 이벤트에 대 한 경고를 트리거하기** 로 설정 된 경우 특정 시나리오에서 나중에 쿼리 결과를 볼 때 (예: 인시던트의 경고를 다시 피벗 하는 경우) 쿼리 결과가 나타나지 않을 수 있습니다. 경고에 대 한 이벤트의 연결은 특정 이벤트 정보를 해시 하 고 쿼리에 해시를 포함 하 여 수행 되기 때문입니다. 경고가 생성 된 후 쿼리 결과가 변경 된 경우 해시가 더 이상 유효 하지 않으며 결과가 표시 되지 않습니다. 
+
+이벤트를 보려면 규칙의 쿼리에서 해시가 포함 된 줄을 수동으로 제거 하 고 쿼리를 실행 합니다.
+
+### <a name="issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>문제: 예약 된 규칙을 실행 하지 못했거나 이름에 자동 사용 안 함이 추가 된 상태로 표시 됩니다.
 
 예약 된 쿼리 규칙이 실행 되지 않지만 발생할 수 있는 드문 경우입니다. Azure 센티널은 실패의 특정 유형과 그 원인이 되는 상황을 기반으로 하 여 일시적 또는 영구적으로 오류를 분류 합니다.
 

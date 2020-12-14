@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d8e4a9201c14e71520bd58ff1017b700ca47fa21
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 73a3be62e57991b63525372f008e15d8e4f36a74
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109823"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401732"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>가용성 영역에서 Azure Service Fabric 클러스터 배포
 Azure의 가용성 영역는 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내에서 독립적인 전원, 냉각 및 네트워킹을 갖춘 고유한 물리적 위치입니다.
@@ -407,12 +407,12 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 >[!NOTE]
 > * 공용 IP 및 Load Balancer 리소스는 문서의 앞부분에서 설명한 대로 표준 SKU를 사용 해야 합니다.
 > * nodeType의 "multipleAvailabilityZones" 속성은 nodeType을 만들 때만 정의할 수 있으며 나중에 수정할 수 없습니다. 따라서이 속성을 사용 하 여 기존 nodeTypes를 구성할 수 없습니다.
-> * "HierarchicalUpgradeDomain"이 생략 되거나 true로 설정 된 경우 클러스터에 업그레이드 도메인이 더 있으므로 클러스터 및 응용 프로그램 배포 속도가 느려집니다. 업그레이드 정책 시간 제한을 올바르게 조정 하 여 15 개의 업그레이드 도메인에 대 한 업그레이드 기간을 통합 하는 것이 중요 합니다.
+> * "SfZonalUpgradeMode"이 생략 되거나 "계층 구조"로 설정 된 경우 클러스터에 업그레이드 도메인이 더 있으므로 클러스터 및 응용 프로그램 배포 속도가 느려집니다. 업그레이드 정책 시간 제한을 올바르게 조정 하 여 15 개의 업그레이드 도메인에 대 한 업그레이드 기간을 통합 하는 것이 중요 합니다.
 > * 클러스터가 한 영역 다운 시나리오와 생존 되도록 클러스터 안정성 수준을 Platinum으로 설정 하는 것이 좋습니다.
 
 >[!NOTE]
-> 모범 사례를 위해 hierarchicalUpgradeDomain를 true로 설정 하거나 생략 하는 것이 좋습니다. 배포는 더 적은 양의 복제본 및/또는 인스턴스에 영향을 주는 Vm의 영역 배포를 따라 더 안전 하 게 만듭니다.
-> 배포 속도가 우선 순위 이거나 여러 AZ가 있는 노드 유형에 서 상태 비저장 워크 로드만 실행 되는 경우 hierarchicalUpgradeDomain을 false로 설정 합니다. 이로 인해 UD가 모든 AZ의에서 병렬로 발생 합니다.
+> 모범 사례를 위해 sfZonalUpgradeMode를 계층적으로 설정 하거나 생략 하는 것이 좋습니다. 배포는 더 적은 양의 복제본 및/또는 인스턴스에 영향을 주는 Vm의 영역 배포를 따라 더 안전 하 게 만듭니다.
+> 배포 속도가 우선 순위 이거나 여러 AZ를 사용 하는 노드 유형에 서 상태 비저장 워크 로드만 실행 되는 경우 sfZonalUpgradeMode을 Parallel으로 설정 합니다. 이로 인해 UD가 모든 AZ의에서 병렬로 발생 합니다.
 
 ### <a name="migration-to-the-node-type-with-multiple-availability-zones"></a>여러 가용성 영역를 사용 하 여 노드 형식으로 마이그레이션
 모든 마이그레이션 시나리오의 경우 여러 가용성 영역이 지원 되는 새 nodeType을 추가 해야 합니다. 기존 nodeType은 여러 영역을 지원 하도록 마이그레이션할 수 없습니다.

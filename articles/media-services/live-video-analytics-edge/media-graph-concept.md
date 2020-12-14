@@ -3,12 +3,12 @@ title: 미디어 그래프 개념-Azure
 description: 미디어 그래프를 사용 하 여 미디어를 캡처할 위치, 처리 방법 및 결과를 전달 해야 하는 위치를 정의할 수 있습니다. 이 문서에서는 미디어 그래프 개념에 대 한 자세한 설명을 제공 합니다.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 5efb62440b52d6219373d15ba3d19ddac1a2a834
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007843"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401103"
 ---
 # <a name="media-graph"></a>미디어 그래프
 
@@ -87,6 +87,8 @@ RTSP 원본 노드를 사용 하면 [rtsp](https://tools.ietf.org/html/rfc2326) 
 #### <a name="frame-rate-filter-processor"></a>프레임 속도로 필터 프로세서  
 
 프레임 속도 필터 프로세서 노드를 사용 하면 지정 된 속도에서 들어오는 비디오 스트림의 프레임을 샘플링할 수 있습니다. 그러면 추가 처리를 위해 다운 스트림 구성 요소 (예: HTTP 확장 프로세서 노드)로 전송 되는 프레임 수를 줄일 수 있습니다.
+>[!WARNING]
+> 이 프로세서는 IoT Edge 모듈에서 최신 비디오 분석의 최신 릴리스에서 **더 이상 사용 되지** 않습니다. 이제 graph 확장 프로세서 자체 내에서 프레임 주기 관리가 지원 됩니다.
 
 #### <a name="http-extension-processor"></a>HTTP 확장 프로세서
 
@@ -108,8 +110,9 @@ GRPC 확장 프로세서 노드는 디코딩된 비디오 프레임을 입력으
 
 #### <a name="file-sink"></a>파일 싱크  
 
-파일 싱크 노드를 사용 하면 미디어 (비디오 및/또는 오디오) 데이터를 IoT Edge 장치의 로컬 파일 시스템 위치에 쓸 수 있습니다. 미디어 그래프에는 파일 싱크 노드가 하나만 있을 수 있으며 신호 게이트 프로세서 노드의 다운스트림 이어야 합니다. 그러면 출력 파일의 지속 시간이 신호 게이트 프로세서 노드 속성에 지정 된 값으로 제한 됩니다.
-
+파일 싱크 노드를 사용 하면 미디어 (비디오 및/또는 오디오) 데이터를 IoT Edge 장치의 로컬 파일 시스템 위치에 쓸 수 있습니다. 미디어 그래프에는 파일 싱크 노드가 하나만 있을 수 있으며 신호 게이트 프로세서 노드의 다운스트림 이어야 합니다. 그러면 출력 파일의 지속 시간이 신호 게이트 프로세서 노드 속성에 지정 된 값으로 제한 됩니다. Edge 장치의 디스크 공간이 부족 하지 않도록 하려면 IoT Edge 모듈의 Live Video Analytics에서 데이터를 저장 하는 데 사용할 수 있는 최대 크기를 설정할 수도 있습니다.  
+> [!NOTE]
+파일 싱크가 가득 차면 IoT Edge 모듈의 Live Video Analytics는 가장 오래 된 데이터를 삭제 하 고 새 데이터를 대체 합니다.
 #### <a name="iot-hub-message-sink"></a>IoT Hub 메시지 싱크  
 
 IoT Hub 메시지 싱크 노드를 사용 하 여 IoT Edge 허브에 이벤트를 게시할 수 있습니다. 그런 다음 IoT Edge 허브는 데이터를에 지 장치의 다른 모듈 또는 앱으로 라우팅하거나 배포 매니페스트에 지정 된 경로 마다 클라우드에서 IoT Hub 수 있습니다. IoT Hub 메시지 싱크 노드는 동작 감지 프로세서 노드와 같은 업스트림 프로세서 또는 HTTP 확장 프로세서 노드를 통해 외부 유추 서비스에서 발생 한 이벤트를 허용할 수 있습니다.

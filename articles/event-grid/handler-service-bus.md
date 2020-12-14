@@ -3,12 +3,12 @@ title: Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 Service
 description: Service Bus 큐 및 토픽을 Azure Event Grid 이벤트에 대한 이벤트 처리기로 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 2b18009f8fb31f1a5f057c7395781f63f182847f
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 12b72420e3475b46a4cd61ce5032b478af740dde
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "96024217"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399862"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 Service Bus 큐 및 토픽
 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리하기 위한 추가 작업을 수행합니다. 이벤트를 처리하도록 여러 Azure 서비스가 자동으로 구성되며, **Azure Service Bus** 는 그 중 하나입니다. 
@@ -40,7 +40,7 @@ Azure Portal에서 이벤트 구독을 만들 때 **Service Bus 토픽** 을 엔
 
 ### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>CLI를 사용하여 Service Bus 토픽 처리기 추가
 
-Azure CLI의 경우 다음 예제에서는 Event Grid 토픽을 구독하고 Service Bus 큐에 연결합니다.
+Azure CLI의 경우 다음 예제에서는 event grid 토픽을 구독 하 고 Service Bus 토픽에 연결 합니다.
 
 ```azurecli-interactive
 az eventgrid event-subscription create \

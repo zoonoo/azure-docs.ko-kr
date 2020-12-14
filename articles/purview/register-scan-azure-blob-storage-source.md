@@ -1,20 +1,20 @@
 ---
 title: Azure storage blob을 검색 하는 방법
 description: Azure 부서의 범위 data catalog에서 Azure blob storage를 검색 하는 방법을 알아봅니다.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 6d2e2316525465c1ef9f58e7b83b8d0e99d46bd4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1bcd8390a298d7fc46f9c04633f610eb4492d33d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555022"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400712"
 ---
-# <a name="register-and-scan-azure-blob-storage"></a>Azure Blob Storage 등록 및 검색
+# <a name="register-and-scan-azure-blob-storage"></a>Azure Blob Storage 등록 및 검사
 
 이 문서에서는 부서의 범위에 Azure Blob Storage 계정을 등록 하 고 검색을 설정 하는 방법을 설명 합니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "96555022"
 
 Azure Blob Storage는 메타 데이터 및 스키마를 캡처하기 위한 전체 및 증분 검색을 지원 합니다. 또한 시스템 및 사용자 지정 분류 규칙을 기반으로 데이터를 자동으로 분류 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 데이터 원본을 등록 하기 전에 Azure 부서의 범위 계정을 만듭니다. 부서의 범위 계정을 만드는 방법에 대 한 자세한 내용은 [빠른 시작: Azure 부서의 범위 계정 만들기](create-catalog-portal.md)를 참조 하세요.
 - Azure 부서의 범위 데이터 원본 관리자 여야 합니다.
