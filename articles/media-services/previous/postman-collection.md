@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3927133b9cbd59a5d085e7406d9dceb177a47637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fe42948ee02170fb7718db5395a7e23480184a7
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268641"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511759"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>주문형 스트리밍 작업으로 Postman 컬렉션 가져오기
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-이 문서에는 Azure Media Services REST API를 호출하는 그룹화된 HTTP 요청이 포함된 **Postman** 컬렉션 정의가 포함되어 있습니다. Media Services REST API를 호출하는 데 사용할 수 있도록 **Postman**을 구성하는 방법에 대해 자세히 알아보려면 [Media Services REST API 호출에 대해 Postman 구성](media-rest-apis-with-postman.md) 자습서를 참조하세요.
+이 문서에는 Azure Media Services REST API를 호출하는 그룹화된 HTTP 요청이 포함된 **Postman** 컬렉션 정의가 포함되어 있습니다. Media Services REST API를 호출하는 데 사용할 수 있도록 **Postman** 을 구성하는 방법에 대해 자세히 알아보려면 [Media Services REST API 호출에 대해 Postman 구성](media-rest-apis-with-postman.md) 자습서를 참조하세요.
 
 ```json
 {
@@ -3253,7 +3253,7 @@ ms.locfileid: "91268641"
                                     "key": "access-control-expose-headers",
                                     "value": "request-id, x-ms-request-id",
                                     "name": "access-control-expose-headers",
-                                    "description": "Lets a server whitelist headers that browsers are allowed to access."
+                                    "description": "Lets a server allowlist headers that browsers are allowed to access."
                                 },
                                 {
                                     "key": "request-id",
@@ -3456,7 +3456,7 @@ ms.locfileid: "91268641"
                                     "key": "access-control-expose-headers",
                                     "value": "request-id, x-ms-request-id",
                                     "name": "access-control-expose-headers",
-                                    "description": "Lets a server whitelist headers that browsers are allowed to access."
+                                    "description": "Lets a server allowlist headers that browsers are allowed to access."
                                 },
                                 {
                                     "key": "request-id",
@@ -5591,3 +5591,4 @@ ms.locfileid: "91268641"
     ]
 }
 ```
+

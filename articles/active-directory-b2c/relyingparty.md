@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8b33c7f76cc2ac7a2012dc9d8c854a1dde46c3ea
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 9c50bd71f4e2e5bbe12518f5a5d1cd486af9723a
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399131"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509754"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -91,7 +91,7 @@ ms.locfileid: "97399131"
 
 **Endpoint** 요소는 다음 특성을 포함 합니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 끝점의 고유 식별자입니다.|
 | UserJourneyReferenceId | 예 | 정책의 사용자 경험 식별자입니다. 자세한 내용은 [사용자 경험](userjourneys.md)을 참조하세요.  | 
@@ -129,7 +129,7 @@ ms.locfileid: "97399131"
 
 **DefaultUserJourney** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 참조 | 예 | 정책의 사용자 경험 식별자입니다. 자세한 내용은 [사용자 경험](userjourneys.md)을 참조하세요. |
 
@@ -150,10 +150,10 @@ ms.locfileid: "97399131"
 
 **SingleSignOn** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 범위 | 예 | Single Sign-On 동작의 범위입니다. 가능한 값은 `Suppressed`, `Tenant`, `Application` 또는 `Policy`입니다. 이 `Suppressed` 값은 동작이 억제 되 고 사용자에 게 id 공급자를 선택 하 라는 메시지가 항상 표시 됨을 나타냅니다.  `Tenant` 값은 테넌트의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 테넌트의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Application` 값은 요청을 수행하는 애플리케이션의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 애플리케이션의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Policy` 값은 동작이 한 정책에만 적용됨을 나타냅니다. 예를 들어 보안 프레임워크의 두 공용 경험 간을 이동하는 사용자가 정책 간을 전환할 때 ID 공급자를 선택하라는 메시지가 표시됩니다. |
-| KeepAliveInDays | 예 | 사용자가 로그인 상태로 유지되는 기간을 제어합니다. 값을 0으로 설정하면 KMSI 기능이 해제됩니다. 자세한 내용은 [로그인 유지](custom-policy-keep-me-signed-in.md)를 참조하세요. |
+| Scope | 예 | Single Sign-On 동작의 범위입니다. 가능한 값은 `Suppressed`, `Tenant`, `Application` 또는 `Policy`입니다. 이 `Suppressed` 값은 동작이 억제 되 고 사용자에 게 id 공급자를 선택 하 라는 메시지가 항상 표시 됨을 나타냅니다.  `Tenant` 값은 테넌트의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 테넌트의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Application` 값은 요청을 수행하는 애플리케이션의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 애플리케이션의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Policy` 값은 동작이 한 정책에만 적용됨을 나타냅니다. 예를 들어 보안 프레임워크의 두 공용 경험 간을 이동하는 사용자가 정책 간을 전환할 때 ID 공급자를 선택하라는 메시지가 표시됩니다. |
+| KeepAliveInDays | 예 | 사용자가 로그인 상태로 유지되는 기간을 제어합니다. 값을 0으로 설정하면 KMSI 기능이 해제됩니다. 자세한 내용은 [로그인 유지](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi)를 참조하세요. |
 |EnforceIdTokenHintOnLogout| 예|  를 사용 하 여 이전에 발급 된 ID 토큰을 클라이언트와 최종 사용자의 현재 인증 된 세션에 대 한 힌트로 로그 아웃 끝점에 전달 합니다. 가능한 값은 `false`(기본값) 또는 `true`입니다. 자세한 내용은 [Openid connect Connect를 사용 하 여 웹 로그인](openid-connect.md)을 참조 하세요.  |
 
 
@@ -161,7 +161,7 @@ ms.locfileid: "97399131"
 
 **JourneyInsights** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | TelemetryEngine | 예 | 값은 `ApplicationInsights`여야 합니다. |
 | InstrumentationKey | 예 | Application Insights 요소의 계측 키를 포함하는 문자열입니다. |
@@ -188,7 +188,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **ContentDefinitionParameter** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 이름 | 예 | 키 값 쌍의 이름입니다. |
 
@@ -198,7 +198,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **TechnicalProfile** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 값은 `PolicyProfile`여야 합니다. |
 
@@ -215,7 +215,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **Protocol** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 이름 | 예 | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OpenIdConnect` 또는 `SAML2`입니다. `OpenIdConnect` 값은 OpenID Foundation 사양에 따른 OpenID Connect 1.0 프로토콜 표준을 나타냅니다. `SAML2`는 OASIS 사양에 따른 SAML 2.0 프로토콜 표준을 나타냅니다. |
 
@@ -223,7 +223,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 프로토콜이 인 경우 `SAML` 메타 데이터 요소에는 다음 요소가 포함 됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | IdpInitiatedProfileEnabled | 예 | IDP 시작 흐름이 지원 되는지 여부를 나타냅니다. 가능한 값: `true` 또는 `false` (기본값) | 
 | XmlSignatureAlgorithm | 예 | Azure AD B2C에서 SAML 응답에 서명 하는 데 사용 하는 메서드입니다. 가능한 값은 `Sha256`, `Sha384`, `Sha512` 또는 `Sha1`입니다. 양쪽의 서명 알고리즘을 같은 값으로 구성해야 합니다. 인증서가 지원하는 알고리즘만 사용하세요. SAML 어설션을 구성 하려면 [saml 발급자 기술 프로필 메타 데이터](saml-issuer-technical-profile.md#metadata)를 참조 하세요. |
@@ -242,7 +242,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **OutputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 정책 파일의 **ClaimsSchema** 섹션에 이미 정의되어 있는 **ClaimType** 에 대한 참조입니다. |
 | DefaultValue | 예 | 클레임 값이 비어 있는 경우 사용할 수 있는 기본값입니다. |
@@ -256,7 +256,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **SubjectNamingInfo** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimType | 예 | 출력 클레임의 **PartnerClaimType** 에 대한 참조입니다. 신뢰 당사자 정책 **OutputClaims** 컬렉션에서 출력 클레임을 정의해야 합니다. |
 | 서식 | 예 | Saml 어설션에 반환 된 **NameId 형식을** 설정 하는 saml 신뢰 당사자에 사용 됩니다. |

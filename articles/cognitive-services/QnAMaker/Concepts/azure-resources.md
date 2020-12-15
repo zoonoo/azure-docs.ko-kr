@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: cd64c19e7e9af05becd7a6978ceb4d0306112170
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e2c71e028225c22ab0355ff4cda77dacadf94095
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351898"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512048"
 ---
 # <a name="azure-resources-for-qna-maker"></a>QnA Maker에 대 한 Azure 리소스
 
@@ -93,7 +93,7 @@ QnA Maker 관리 되는 기술 자료를 처음으로 개발 하는 경우에는
 |                            |Azure Cognitive Search | 제한 사항                      |
 | -------------------------- |------------ | -------------------------------- |
 | **실험**        |체험 계층    | KB 최대 2개, 50MB 크기까지 게시  |
-| **개발/테스트 환경**   |기본        | 최대 14KB, 2GB 크기까지 게시    |
+| **개발/테스트 환경**   |Basic        | 최대 14KB, 2GB 크기까지 게시    |
 | **프로덕션 환경** |Standard     | KB 최대 49개, 25GB 크기까지 게시 |
 
 ---
@@ -104,11 +104,11 @@ QnA Maker 관리 되는 기술 자료를 처음으로 개발 하는 경우에는
 
 |대상 QPS | App Service | Azure Cognitive Search |
 | -------------------- | ----------- | ------------ |
-| 3             | S1, 인스턴스 1 개   | S1, 인스턴스 1 개    |
-| 50         | S3, 10 개 인스턴스       | S1, 12 개 인스턴스         |
-| 80         | S3, 10 개 인스턴스      |  S3, 12 개 인스턴스  |
-| 100         | P3V2가, 10 개 인스턴스  | S3, 12 개 인스턴스, 3 개 파티션   |
-| 200 ~ 250         | P3V2가, 20 개 인스턴스 | S3, 12 개 인스턴스, 3 개 파티션    |
+| 3             | S1, 1 개 복제본   | S1, 1 개 복제본    |
+| 50         | S3, 10 개 복제본       | S1, 12 개 복제본         |
+| 80         | S3, 10 개 복제본      |  S3, 12 개 복제본  |
+| 100         | P3V2가, 10 개 복제본  | S3, 12 개 복제본, 3 개 파티션   |
+| 200 ~ 250         | P3V2가, 20 개의 복제본 | S3, 12 개 복제본, 3 개 파티션    |
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 

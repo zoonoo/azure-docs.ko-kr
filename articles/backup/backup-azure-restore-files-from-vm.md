@@ -2,14 +2,14 @@
 title: Azure VM 백업에서 파일 및 폴더 복구
 description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 및 폴더를 복구하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: b9d5c90634dac3229e756ad93c10db91b268080c
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d34fc48e5d16275d0225a1cef4b5fa63f0b66d6
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841165"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511657"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -156,7 +156,7 @@ Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' �
 
    ![연결 된 복구 볼륨](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
-**디스크가 많은 백업 된 Vm의 경우 (Windows)**
+#### <a name="for-backed-up-vms-with-large-disks-windows"></a>디스크가 많은 백업 된 Vm의 경우 (Windows)
 
 파일 복원 스크립트를 실행 한 후 파일 복구 프로세스가 중지 되 면 (예: 디스크가 탑재 되지 않았거나 볼륨이 탑재 되었지만 볼륨이 나타나지 않는 경우) 다음 단계를 수행 합니다.
   
@@ -182,7 +182,7 @@ Linux에서 복구 지점의 볼륨은 스크립트가 실행되는 폴더에 �
   ![Linux 파일 복구 메뉴](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
 
 
-**디스크가 많은 백업 된 Vm의 경우 (Linux)**
+#### <a name="for-backed-up-vms-with-large-disks-linux"></a>디스크가 많은 백업 된 Vm의 경우 (Linux) * *
 
 파일 복원 스크립트를 실행 한 후 파일 복구 프로세스가 중지 되 면 (예: 디스크가 탑재 되지 않았거나 볼륨이 탑재 되었지만 볼륨이 나타나지 않는 경우) 다음 단계를 수행 합니다.
 

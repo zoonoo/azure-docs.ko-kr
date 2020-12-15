@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 7fe788677a084575d41f2f28154b74b28ea9d3d8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5254d83c18ddc9f2a5518ed4f711d4cd73ab6de7
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955738"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510943"
 ---
 # <a name="powershell-dsc-extension"></a>Powershell DSC 확장
 
@@ -27,7 +27,7 @@ ms.locfileid: "94955738"
 
 Microsoft는 Windows용 Powershell DSC 확장을 게시하고 지원합니다. 확장은 PowerShell DSC 구성을 Azure VM에 업로드하고 적용합니다. DSC 확장은 PowerShell DSC를 호출하여 VM에서 받은 DSC 구성을 적용합니다. 이 문서에서는 Windows용 DSC 가상 머신 확장에 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -74,7 +74,7 @@ Windows 용 DSC 확장을 사용 하려면 대상 가상 머신이 azure와 통�
         "advancedOptions": {
             "forcePullAndApply": false,
             "downloadMappings": {
-                "specificDependencyKey": "https://myCustomDependencyLocation"
+             "specificDependencyKey": "https://myCustomDependencyLocation"
             }
         } 
     },
@@ -121,7 +121,7 @@ Windows 용 DSC 확장을 사용 하려면 대상 가상 머신이 azure와 통�
 
 ### <a name="protected-settings-property-values"></a>protectedSettings(보호된 설정) 속성 값
 
-| Name | 데이터 형식 | Description
+| Name | 데이터 형식 | 설명
 | ---- | ---- | ---- |
 | protectedSettings.configurationArguments | 문자열 | DSC 구성을 전달하려는 매개 변수를 정의합니다. 이 속성은 암호화됩니다. |
 | protectedSettings.configurationUrlSasToken | 문자열 | configuration.url에서 정의한 URL에 액세스하기 위해 SAS 토큰을 지정합니다. 이 속성은 암호화됩니다. |

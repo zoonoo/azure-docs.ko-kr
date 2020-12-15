@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: a02d51d66b9d2b8bf3c08d4515713ecb062e0c8e
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: db36a77d93735b151ad893b7e25ba86f104e7b90
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400219"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510467"
 ---
 # <a name="create-a-query-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리 만들기
 
@@ -63,7 +63,7 @@ POST https://myservice.search.windows.net/indexes/hotels-sample-index/docs/searc
 
 Azure SDK를 사용 하는 경우 코드에서 클라이언트를 만듭니다. 모든 Sdk는 상태를 유지할 수 있는 검색 클라이언트를 제공 하 여 연결을 다시 사용할 수 있도록 합니다. 쿼리 작업의 경우를 인스턴스화하고 **`SearchClient`** 끝점, 키, 인덱스의 속성에 대 한 값을 제공 합니다. 그런 다음를 호출 **`Search method`** 하 여 쿼리 문자열을 전달할 수 있습니다. 
 
-| 언어 | 클라이언트 | 예 |
+| 언어 | 클라이언트 | 예제 |
 |----------|--------|---------|
 | C # 및 .NET | [SearchClient](/dotnet/api/azure.search.documents.searchclient) | [첫 번째 검색 쿼리를 C로 보냅니다. #](/dotnet/api/overview/azure/search.documents-readme#send-your-first-search-query) |
 | Python      | [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) | [Python에서 첫 번째 검색 쿼리 보내기](/python/api/overview/azure/search-documents-readme#send-your-first-search-request) |
@@ -76,31 +76,7 @@ Azure SDK를 사용 하는 경우 코드에서 클라이언트를 만듭니다. 
 
 요청에 추가할 때 사용 되는 [전체 Lucene 쿼리 구문은](query-Lucene-syntax.md#bkmk_syntax) `queryType=full` [Apache Lucene 파서](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)를 기반으로 합니다.
 
-전체 구문은 유사 항목 검색, 와일드 카드 검색, 근접 검색, 정규식 등의 고급 쿼리를 생성할 수 있도록 추가 연산자가 포함 된 간단한 구문의 확장입니다. 다음 예에서는 동일한 쿼리를 보여 주지만 다른 설정을 사용 하 **`queryType`** 는 경우 다른 결과를 생성 합니다. 첫 번째 단순 쿼리에서 `^3` after는 `historic` 검색 용어의 일부로 처리 됩니다. 이 쿼리에 대해 가장 순위가 높은 결과는 "Plaza & 도구 모음" 이며, 해당 설명에는 *바다* 가 있습니다.
-
-```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "simple",
-    "search": "ocean historic^3",
-    "searchFields": "Description",
-    "select": "HotelId, HotelName, Tags, Description",
-}
-```
-
-전체 Lucene 파서를 사용 하는 동일한 쿼리는 `^3` 필드 내 용어 부스터로 해석 됩니다. 파서를 전환 하면 순위가 변경 되 고 맨 *위로 이동 하* 는 용어를 포함 하는 결과가 변경 됩니다.
-
-```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "ocean historic^3",
-    "searchFields": "Description",
-    "select": "HotelId, HotelName, Tags, Description",
-}
-```
+전체 구문 및 단순 구문은 둘 다 동일한 접두사 및 부울 연산을 지 원하는 범위와 중복 되지만 전체 구문은 더 많은 연산자를 제공 합니다. 전체에는 부울 식에 대 한 추가 연산자와 유사 항목 검색, 와일드 카드 검색, 근접 검색, 정규식 등 고급 쿼리에 대 한 추가 연산자가 있습니다.
 
 ## <a name="choose-query-methods"></a>쿼리 메서드 선택
 

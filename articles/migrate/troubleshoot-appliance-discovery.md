@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 26bb61e0c5a473a56c57391b53009419453956fd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 90abe6bf680f6a186b970631dcd0a42d6d36bf94
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753419"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511589"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Azure Migrate 어플라이언스 및 검색 문제 해결
 
@@ -27,7 +27,7 @@ ms.locfileid: "96753419"
 
 "제공 된 매니페스트 파일이 잘못 되었습니다. 잘못 된 위치 매니페스트 항목입니다." 오류가 표시 되 면 다음을 수행 합니다.
 
-1. 해당 해시 값을 확인 하 여 Azure Migrate 어플라이언스 OVA 파일이 올바르게 다운로드 되었는지 확인 합니다. [자세히 알아봅니다](./tutorial-discover-vmware.md). 해시 값이 일치 하지 않으면 OVA 파일을 다시 다운로드 하 고 배포를 다시 시도 합니다.
+1. 해당 해시 값을 확인 하 여 Azure Migrate 어플라이언스 OVA 파일이 올바르게 다운로드 되었는지 확인 합니다. [자세히 알아보기](./tutorial-discover-vmware.md). 해시 값이 일치 하지 않으면 OVA 파일을 다시 다운로드 하 고 배포를 다시 시도 합니다.
 2. 그래도 배포가 실패 하 고 VMware vSphere 클라이언트를 사용 하 여 파일을 배포 하는 경우 vSphere 웹 클라이언트를 통해 배포 해 보세요. 그래도 배포가 실패 하면 다른 웹 브라우저를 사용해 보세요.
 3. VSphere 웹 클라이언트를 사용 하 고 vCenter Server 6.5 또는 6.7에 배포 하려는 경우 ESXi 호스트에 직접 OVA를 배포 해 보세요.
    - 웹 클라이언트를 사용 하 여 (vCenter Server 대신) ESXi 호스트에 직접 연결 합니다 (https://<*호스트 IP 주소*>/uis).
@@ -41,6 +41,13 @@ ms.locfileid: "96753419"
 - 프록시에 필요한 경우 권한 부여 자격 증명을 제공해야 합니다.
 - URL 기반 방화벽 프록시를 사용 하 여 아웃 바운드 연결을 제어 하는 경우 [이러한 url](migrate-appliance.md#url-access) 을 허용 목록에 추가 합니다.
 - 가로채기 프록시를 사용 하 여 인터넷에 연결 하는 경우 [다음 단계](./migrate-appliance.md)를 사용 하 여 프록시 인증서를 어플라이언스 VM으로 가져옵니다.
+
+
+## <a name="clicking-on-login-button-opens-a-new-tab-with-no-device-code"></a>' 로그인 ' 단추를 클릭 하면 장치 코드가 없는 새 탭이 열립니다.
+
+어플라이언스 구성 관리자에서 ' 로그인 ' '를 클릭 한 후에는 새 탭이 코드 없이 열리고 어플라이언스 구성 관리자 탭으로 돌아가서 아래 스크린샷에 표시 된 것 처럼 ' 로그인 ' ' 단추 아래에 있는 굵은 글꼴로 장치 코드를 찾을 수 있습니다. 코드를 복사 하 여 로그인 탭에 붙여넣어 Azure를 인증 합니다.
+
+![디바이스 코드](./media/troubleshoot-appliance-discovery/code.png)
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>어플라이언스 웹 앱에서 Azure에 로그인 할 수 없습니다.
 
@@ -98,7 +105,7 @@ Azure에 로그인 하는 데 잘못 된 Azure 계정을 사용 하는 경우 "�
 - 유효성 검사 오류가 있는 경우 수정 지침을 검토 하 여 오류를 수정 하 고 **검색 저장 및 시작** 옵션을 다시 시도 합니다.
 
 ## <a name="error-60025-azure-ad-operation-failed"></a>오류 60025: Azure AD 작업이 실패 했습니다. 
-오류 60025: "Azure AD 작업이 실패 했습니다. Azure AD 응용 프로그램을 만들거나 업데이트 하는 동안 발생 한 오류는 검색을 시작 하는 데 사용 되는 Azure 사용자 계정이 어플라이언스를 등록 하는 데 사용 된 계정과 다를 때 발생 합니다. 다음 작업 중 하나를 수행합니다.
+오류 60025: "Azure AD 작업이 실패 했습니다. Azure AD 응용 프로그램을 만들거나 업데이트 하는 동안 발생 한 오류는 검색을 시작 하는 데 사용 되는 Azure 사용자 계정이 어플라이언스를 등록 하는 데 사용 된 계정과 다를 때 발생 합니다. 다음 중 하나를 수행합니다.
 
 - 검색을 시작 하는 사용자 계정이 어플라이언스를 등록 하는 데 사용한 것과 동일한 지 확인 합니다.
 - 검색 작업이 실패 하는 사용자 계정에 Azure Active Directory 응용 프로그램 액세스 권한을 제공 합니다.
@@ -157,7 +164,7 @@ Azure에 로그인 하는 데 잘못 된 Azure 계정을 사용 하는 경우 "�
 
 검색 된 Vm이 포털에 표시 되지 않거나 VM 데이터가 오래 된 경우 몇 분 정도 기다립니다. 검색 된 VM 구성 데이터의 변경 내용이 포털에 표시 되는 데 최대 30 분이 걸립니다. 응용 프로그램 데이터의 변경 내용이 나타날 때까지 몇 시간이 걸릴 수 있습니다. 이 시간 이후 데이터가 없으면 다음과 같이 새로 고쳐 보세요.
 
-1. 서버 **Servers**  >  **Azure Migrate 서버 평가** 에서 **개요** 를 선택 합니다.
+1. 서버   >  **Azure Migrate 서버 평가** 에서 **개요** 를 선택 합니다.
 2. **관리** 에서 **에이전트 상태** 를 선택 합니다.
 3. **에이전트 새로 고침** 을 선택 합니다.
 4. 새로 고침 작업이 완료 될 때까지 기다립니다. 이제 최신 정보가 표시 됩니다.
@@ -179,7 +186,7 @@ Vm을 삭제 하 고 포털에 계속 표시 되는 경우 30 분 동안 기다�
 ## <a name="do-not-see-application-details-even-after-updating-guest-credentials"></a>게스트 자격 증명을 업데이트 한 후에도 응용 프로그램 세부 정보 표시 안 함
 응용 프로그램 검색은 24 시간 마다 한 번씩 실행 됩니다. 세부 정보를 즉시 보려면 다음과 같이 새로 고칩니다. 아니요에 따라 몇 분 정도 걸릴 수 있습니다. 검색 된 Vm입니다.
 
-1. 서버 **Servers**  >  **Azure Migrate 서버 평가** 에서 **개요** 를 선택 합니다.
+1. 서버   >  **Azure Migrate 서버 평가** 에서 **개요** 를 선택 합니다.
 2. **관리** 에서 **에이전트 상태** 를 선택 합니다.
 3. **에이전트 새로 고침** 을 선택 합니다.
 4. 새로 고침 작업이 완료 될 때까지 기다립니다. 이제 최신 정보가 표시 됩니다.

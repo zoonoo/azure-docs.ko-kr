@@ -3,12 +3,12 @@ title: 모범 사례
 description: Azure Batch 솔루션을 개발 하는 데 유용한 모범 사례 및 유용한 팁을 알아보세요.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6aaed76ad398b5278850dd66ce1da6d5bd33807f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 1eaa34e02a4c505691662e9fc29334cb823a3185
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95254666"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511215"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -140,6 +140,10 @@ Batch는 태스크를 자동으로 다시 시도할 수 있습니다. 사용자 
 ### <a name="idempotent-start-tasks"></a>idempotent 시작 태스크
 
 다른 태스크와 마찬가지로 노드가 부팅될 때마다 다시 실행되므로 노드 [시작 태스크](jobs-and-tasks.md#start-task)도 idempotent여야 합니다. idempotent 태스크는 여러 번 실행될 때 일관된 결과를 생성하는 태스크일 뿐입니다.
+
+### <a name="isolated-nodes"></a>격리 된 노드
+
+규정 준수 또는 규정 요구 사항을 준수 하는 워크 로드에 대해 격리 된 VM 크기 사용을 고려 합니다. 가상 컴퓨터 구성 모드에서 지원 되는 격리 된 크기는 `Standard_E64i_v3` ,,,, `Standard_E80ids_v4` `Standard_F72s_v2` `Standard_G5` `Standard_GS5` 및 `Standard_M128ms` 입니다. 격리 된 VM 크기에 대 한 자세한 내용은 [Azure의 가상 머신 격리](https://docs.microsoft.com/azure/virtual-machines/isolation)를 참조 하세요.
 
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>운영 체제 서비스 인터페이스를 통해 장기 실행 서비스 관리
 

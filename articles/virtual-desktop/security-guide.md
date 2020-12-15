@@ -3,15 +3,15 @@ title: Windows 가상 데스크톱 보안 모범 사례-Azure
 description: Windows 가상 데스크톱 환경을 안전 하 게 유지 하기 위한 모범 사례입니다.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d3033af32229be238831740c11a1112513259a43
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8cf5504e44239fed6a4a4b82d0064d49f5c5a99f
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023159"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511538"
 ---
 # <a name="security-best-practices"></a>보안 모범 사례
 
@@ -29,16 +29,16 @@ Windows 가상 데스크톱 배포에서 담당 하는 보안 요구 사항은 �
 
 | 보안 요구 | 고객이이를 담당 하나요? |
 |---------------|:-------------------------:|
-|ID|Yes|
-|사용자 장치 (모바일 및 PC)|Yes|
-|앱 보안|Yes|
-|세션 호스트 OS|Yes|
-|배포 구성|Yes|
-|네트워크 컨트롤|Yes|
-|가상화 제어 평면|No|
-|물리적 호스트|No|
-|실제 네트워크|No|
-|물리적 데이터 센터|No|
+|ID|예|
+|사용자 장치 (모바일 및 PC)|예|
+|앱 보안|예|
+|세션 호스트 OS|예|
+|배포 구성|예|
+|네트워크 컨트롤|예|
+|가상화 제어 평면|예|
+|물리적 호스트|예|
+|실제 네트워크|예|
+|물리적 데이터 센터|예|
 
 고객이 책임을 지지 않는 보안 요구는 Microsoft에서 처리 합니다.
 
@@ -98,6 +98,25 @@ Windows 가상 데스크톱의 모든 사용자 및 관리자에 대해 multi-fa
 ## <a name="session-host-security-best-practices"></a>세션 호스트 보안 모범 사례
 
 세션 호스트는 Azure 구독 및 가상 네트워크 내에서 실행 되는 가상 머신입니다. Windows 가상 데스크톱 배포의 전반적인 보안은 세션 호스트에 배치 하는 보안 제어에 따라 달라 집니다. 이 섹션에서는 세션 호스트를 안전 하 게 유지 하기 위한 모범 사례를 설명 합니다.
+
+### <a name="enable-screen-capture-protection-preview"></a>화면 캡처 보호 사용 (미리 보기)
+
+화면 캡처 보호 기능은 중요 한 정보가 클라이언트 끝점에서 캡처되지 않도록 합니다. 이 기능을 사용 하는 경우 스크린샷 및 화면 공유에서 원격 콘텐츠가 자동으로 차단 되거나 숨겨집니다. 또한 화면 콘텐츠를 지속적으로 캡처할 수 있는 악성 소프트웨어에서 숨겨집니다.
+
+이 정책은 레지스트리 키를 구성 하 여 호스트 수준에서 적용 됩니다. 이 정책을 사용 하도록 설정 하려면 PowerShell을 열고 다음 cmdlet을 실행 하 여 **fEnableScreenCaptureProtection** 레지스트리 키를 설정 합니다.
+
+```powershell
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableScreenCaptureProtection /t REG_DWORD /d 1
+```
+
+이 새로운 기능을 테스트 하려면:
+
+- 호스트 풀이 유효성 검사 환경에 프로 비전 되었는지 확인 합니다.
+- Windows 데스크톱 클라이언트 버전 1.2.1526 이상을 다운로드 하 여 설치 했는지 확인 합니다.
+
+>[!NOTE]
+>미리 보기 중에는 Windows 10 끝점에서 전체 데스크톱 연결만이 기능을 지원 합니다.
+
 
 ### <a name="enable-endpoint-protection"></a>Endpoint protection 사용
 

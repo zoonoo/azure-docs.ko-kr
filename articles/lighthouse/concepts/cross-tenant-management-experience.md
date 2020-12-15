@@ -3,12 +3,12 @@ title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
 ms.date: 11/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 95b9bcf6bb9530afc9f6a23c323b6931e8975ad1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4550921fdefdca440b6757e7a3b7a03337599d16
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905126"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510654"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -90,7 +90,7 @@ Azure REST API의 [구독-Get](/rest/api/resources/subscriptions/get) 및 [subsc
 
 [Azure Monitor](../../azure-monitor/index.yml):
 
-- 모든 구독에서 경고를 볼 수 있는 기능을 사용하여 위임된 구독에 대한 경고를 봅니다.
+- 모든 구독에서 경고를 보고 새로 고치는 기능을 사용 하 여 위임 된 구독에 대 한 경고 보기
 - 위임된 구독의 활동 로그 세부 정보를 봅니다.
 - Log analytics: 여러 테 넌 트의 원격 작업 영역에서 데이터 쿼리
 - 웹 후크를 통해 테 넌 트 관리에서 Azure Automation runbook 또는 Azure Functions와 같이 자동화를 트리거하는 고객 테 넌 트에 경고를 만듭니다.

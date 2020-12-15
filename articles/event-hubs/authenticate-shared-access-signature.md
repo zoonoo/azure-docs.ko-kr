@@ -4,12 +4,12 @@ description: 이 문서에서는 공유 액세스 서명을 사용 하 여 Event
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e5d52b82ad6bbcb8dc7c028d3eba25a584590840
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 26c921213168e1028f311eabaa417efdb76f5c97
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332436"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510093"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>SAS (공유 액세스 서명)를 사용 하 여 Event Hubs 리소스에 대 한 액세스 인증
 공유 액세스 서명 (SAS)은 공유 액세스 서명을 보유 한 클라이언트에 부여 하는 액세스 유형에 대 한 세부적인 제어를 제공 합니다. 다음은 SAS에서 설정할 수 있는 몇 가지 컨트롤입니다. 
@@ -212,7 +212,7 @@ private static string createToken(string resourceUri, string keyName, string key
 >
 > 클라이언트는 이벤트 허브로 데이터를 보낼 때 해당 요청에 토큰을 태그 합니다. 공격자가 도청 및 토큰 가로채기를 하지 못하도록 방지하려면 클라이언트와 이벤트 허브 간의 통신은 암호화된 채널을 통해 이루어져야 합니다.
 > 
-> 토큰이 공격자에 의해 도난당한 경우 공격자가 토큰을 도난당한 클라이언트로 가장할 수 있습니다. 게시자를 나열 하면 다른 게시자를 사용 하는 새 토큰을 받을 때까지 해당 클라이언트를 사용할 수 없도록 렌더링 합니다.
+> 토큰이 공격자에 의해 도난당한 경우 공격자가 토큰을 도난당한 클라이언트로 가장할 수 있습니다. 블록 게시자를 나열 하면 다른 게시자를 사용 하는 새 토큰을 받을 때까지 해당 클라이언트를 사용할 수 없도록 렌더링 합니다.
 
 
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>SAS를 사용 하 여 Event Hubs 소비자 인증 

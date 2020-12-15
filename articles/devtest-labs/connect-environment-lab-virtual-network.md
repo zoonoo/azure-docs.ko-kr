@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 랩의 vnet에 환경 연결 Microsoft Docs
 description: '환경 (예: Service Fabric 클러스터)을의 랩 가상 네트워크에 연결 하는 방법을 알아봅니다 Azure DevTest Labs'
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 31f924a4b6d7cbe1b6f71c7e34d43fd9c135bac9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 980c6317ded70db374c2b948075f060754168b0f
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483774"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511963"
 ---
 # <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩의 가상 네트워크에 환경 연결
 Azure DevTest Labs를 사용 하면 [기본 제공 네트워킹](devtest-lab-configure-vnet.md)을 통해 랩에서 vm을 쉽게 만들 수 있습니다. [다중 VM 환경을 만드는](devtest-lab-test-env.md)기능을 통해 상당한 유연성을 제공 합니다. 이 문서에서는 환경의 Vm을 랩 가상 네트워크에 연결 하는 방법을 보여 줍니다. 이 기능을 사용 하는 한 가지 시나리오는 랩 VNet에 연결 된 SQL Server 데이터 계층을 사용 하 여 N 계층 앱을 설정 하는 것입니다. 랩 VNet에 연결 하 여 랩에 액세스 하는 테스트 Vm을 허용 합니다.  

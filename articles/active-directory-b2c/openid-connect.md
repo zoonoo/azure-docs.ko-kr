@@ -11,12 +11,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dbfeefc14059785ba82cbf245a60e5e72759db76
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 48c60878a6a58b2f4629768b81af894a741dab1c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840409"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509804"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OpenID Connect로 웹 로그인
 
@@ -53,10 +53,10 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | nonce | 예 | 응용 프로그램에 의해 생성 된 요청에 포함 된 값으로, 결과 ID 토큰에 클레임으로 포함 됩니다. 그러면 응용 프로그램에서이 값을 확인 하 여 토큰 재생 공격을 완화할 수 있습니다. 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
 | response_type | 예 | Openid connect Connect에 대 한 ID 토큰을 포함 해야 합니다. 웹 응용 프로그램에 웹 API를 호출 하는 데 필요한 토큰만 있으면를 사용할 수 있습니다 `code+id_token` . |
 | scope | 예 | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 ID 토큰 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. `offline_access`범위는 웹 응용 프로그램에 대 한 선택 사항입니다. 응용 프로그램에 리소스에 대 한 확장 액세스를 위한 *새로 고침 토큰이* 필요 함을 나타냅니다. |
-| prompt | 아니요 | 필요한 사용자 상호 작용의 형식입니다. 현재 유효한 값은 `login`뿐이며, 이는 사용자가 해당 요청에 대한 자격 증명을 입력하도록 합니다. |
-| redirect_uri | 아니요 | 응용 프로그램 `redirect_uri` 에서 인증 응답을 보내고 받을 수 있는 응용 프로그램의 매개 변수입니다. `redirect_uri`URL로 인코딩해야 한다는 점을 제외 하 고 Azure Portal에 등록 한 매개 변수 중 하 나와 정확 하 게 일치 해야 합니다. |
-| response_mode | 아니요 | 결과 권한 부여 코드를 응용 프로그램에 다시 보내는 데 사용 되는 메서드입니다. `query`, `form_post` 또는 `fragment` 중 하나일 수 있습니다.  최상의 보안을 위해 `form_post` 응답 모드를 사용하는 것이 좋습니다. |
-| state | 아니요 | 토큰 응답에도 반환 되는 요청에 포함 된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 교차 사이트 요청 위조 공격을 방지하기 위해 임의로 생성된 고유 값이 사용됩니다. 상태는 인증 요청이 발생 하기 전에 응용 프로그램에서 사용자의 상태에 대 한 정보를 인코딩하는 데에도 사용 됩니다 (예: 설정 된 페이지). |
+| prompt | 예 | 필요한 사용자 상호 작용의 형식입니다. 현재 유효한 값은 `login`뿐이며, 이는 사용자가 해당 요청에 대한 자격 증명을 입력하도록 합니다. |
+| redirect_uri | 예 | 응용 프로그램 `redirect_uri` 에서 인증 응답을 보내고 받을 수 있는 응용 프로그램의 매개 변수입니다. `redirect_uri`URL로 인코딩해야 한다는 점을 제외 하 고 Azure Portal에 등록 한 매개 변수 중 하 나와 정확 하 게 일치 해야 합니다. |
+| response_mode | 예 | 결과 권한 부여 코드를 응용 프로그램에 다시 보내는 데 사용 되는 메서드입니다. `query`, `form_post` 또는 `fragment` 중 하나일 수 있습니다.  최상의 보안을 위해 `form_post` 응답 모드를 사용하는 것이 좋습니다. |
+| state | 예 | 토큰 응답에도 반환 되는 요청에 포함 된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 교차 사이트 요청 위조 공격을 방지하기 위해 임의로 생성된 고유 값이 사용됩니다. 상태는 인증 요청이 발생 하기 전에 응용 프로그램에서 사용자의 상태에 대 한 정보를 인코딩하는 데에도 사용 됩니다 (예: 설정 된 페이지). |
 
 이 시점에서 사용자에 게 워크플로를 완료 하 라는 메시지가 표시 됩니다. 사용자는 사용자 이름 및 암호를 입력 하거나, 소셜 id로 로그인 하거나, 디렉터리에 등록 해야 할 수 있습니다. 사용자 흐름이 정의 된 방법에 따라 다른 수의 단계가 있을 수 있습니다.
 
@@ -153,7 +153,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | code | 예 | 사용자 흐름의 시작 부분에서 얻은 인증 코드입니다. |
 | grant_type | 예 | 권한 유형입니다. 인증 코드 흐름의 경우 `authorization_code`이어야 합니다. |
 | redirect_uri | 예 | 권한 부여 코드를 받은 애플리케이션의 `redirect_uri` 매개 변수입니다. |
-| scope | 아니요 | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 id_token 매개 변수의 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. 클라이언트와 동일한 응용 프로그램 ID로 표시 되는 응용 프로그램 자체 백 엔드 웹 API에 대 한 토큰을 가져오는 데 사용할 수 있습니다. `offline_access`범위는 리소스에 대 한 확장 된 액세스를 위해 응용 프로그램에 새로 고침 토큰이 필요 함을 나타냅니다. |
+| scope | 예 | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 id_token 매개 변수의 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. 클라이언트와 동일한 응용 프로그램 ID로 표시 되는 응용 프로그램 자체 백 엔드 웹 API에 대 한 토큰을 가져오는 데 사용할 수 있습니다. `offline_access`범위는 리소스에 대 한 확장 된 액세스를 위해 응용 프로그램에 새로 고침 토큰이 필요 함을 나타냅니다. |
 
 성공적인 토큰 응답은 다음과 같습니다.
 
@@ -221,8 +221,8 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | client_secret | 예, Web Apps | [Azure Portal](https://portal.azure.com/)에서 생성 된 응용 프로그램 암호입니다. 클라이언트 암호는 클라이언트 암호를 안전 하 게 저장할 수 있는 웹 앱 시나리오에 대해이 흐름에 사용 됩니다. 네이티브 앱 (공용 클라이언트) 시나리오의 경우 클라이언트 암호를 안전 하 게 저장할 수 없으므로이 호출에서 사용 되지 않습니다. 클라이언트 암호를 사용 하는 경우 주기적으로 변경 하십시오. |
 | grant_type | 예 | `refresh_token`권한 부여 코드 흐름의이 부분에 대 한 권한 부여 형식입니다. |
 | refresh_token | 예 | 흐름의 두 번째 부분에서 획득 한 원래 새로 고침 토큰입니다. 이 `offline_access` 범위는 새로 고침 토큰을 수신 하기 위해 권한 부여 및 토큰 요청에서 모두 사용 해야 합니다. |
-| redirect_uri | 아니요 | 권한 부여 코드를 받은 애플리케이션의 `redirect_uri` 매개 변수입니다. |
-| scope | 아니요 | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 ID 토큰 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. 클라이언트와 동일한 응용 프로그램 ID로 표시 되는 응용 프로그램 자체 백 엔드 웹 API에 토큰을 보내는 데 사용할 수 있습니다. `offline_access`범위는 리소스에 대 한 확장 된 액세스를 위해 응용 프로그램에 새로 고침 토큰이 필요 함을 나타냅니다. |
+| redirect_uri | 예 | 권한 부여 코드를 받은 애플리케이션의 `redirect_uri` 매개 변수입니다. |
+| scope | 예 | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 ID 토큰 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. 클라이언트와 동일한 응용 프로그램 ID로 표시 되는 응용 프로그램 자체 백 엔드 웹 API에 토큰을 보내는 데 사용할 수 있습니다. `offline_access`범위는 리소스에 대 한 확장 된 액세스를 위해 응용 프로그램에 새로 고침 토큰이 필요 함을 나타냅니다. |
 
 성공적인 토큰 응답은 다음과 같습니다.
 
@@ -262,7 +262,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 ## <a name="send-a-sign-out-request"></a>로그아웃 요청 보내기
 
-응용 프로그램에서 사용자를 로그 아웃 하려는 경우 응용 프로그램의 쿠키를 지우거 나 사용자를 사용 하 여 세션을 종료 하는 것 만으로는 충분 하지 않습니다. 로그 아웃 Azure AD B2C 사용자를 리디렉션합니다. 그렇게 하지 않으면 사용자가 자격 증명을 다시 입력 하지 않고도 응용 프로그램에 다시 인증할 수 있습니다. 자세한 내용은 [Azure AD B2C 세션](session-overview.md)을 참조 하세요.
+응용 프로그램에서 사용자를 로그 아웃 하려는 경우 응용 프로그램의 쿠키를 지우거 나 사용자를 사용 하 여 세션을 종료 하는 것 만으로는 충분 하지 않습니다. 로그 아웃 Azure AD B2C 사용자를 리디렉션합니다. 그렇게 하지 않으면 사용자가 자격 증명을 다시 입력 하지 않고도 응용 프로그램에 다시 인증할 수 있습니다. 자세한 내용은 [Azure AD B2C 세션](session-behavior.md)을 참조 하세요.
 
 사용자를 로그 아웃 하려면 `end_session` 앞에서 설명한 Openid connect Connect 메타 데이터 문서에 나열 된 끝점으로 사용자를 리디렉션합니다.
 
@@ -274,17 +274,17 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | --------- | -------- | ----------- |
 | 넌 | 예 | Azure AD B2C 테 넌 트의 이름 |
 | policy | 예 | 애플리케이션에서 사용자를 로그아웃하는 데 사용하려는 사용자 흐름입니다. |
-| id_token_hint| 아니요 | 이전에 발급 된 ID 토큰으로, 로그 아웃 끝점에 클라이언트에 대 한 최종 사용자의 현재 인증 된 세션에 대 한 힌트로 전달 됩니다. 는 `id_token_hint` `post_logout_redirect_uri` Azure AD B2C 응용 프로그램 설정에서가 등록 된 회신 URL 인지 확인 합니다. 자세한 내용은 [로그 아웃 리디렉션 보안](#secure-your-logout-redirect)을 참조 하세요. |
+| id_token_hint| 예 | 이전에 발급 된 ID 토큰으로, 로그 아웃 끝점에 클라이언트에 대 한 최종 사용자의 현재 인증 된 세션에 대 한 힌트로 전달 됩니다. 는 `id_token_hint` `post_logout_redirect_uri` Azure AD B2C 응용 프로그램 설정에서가 등록 된 회신 URL 인지 확인 합니다. 자세한 내용은 [로그 아웃 리디렉션 보안](#secure-your-logout-redirect)을 참조 하세요. |
 | client_id | 아니요* | [Azure Portal](https://portal.azure.com/) 응용 프로그램에 할당 된 응용 프로그램 ID입니다.<br><br>\**이는 `Application` 격리 SSO 구성을 사용할 때 필요 하며, 로그 아웃 요청에 _ID 토큰이 필요한_ 경우로 설정 됩니다 `No` .* |
-| post_logout_redirect_uri | 아니요 | 성공적으로 로그 아웃 한 후에 사용자가 리디렉션되는 URL입니다. 포함 되어 있지 않으면 Azure AD B2C 사용자에 게 일반 메시지를 표시 합니다. 를 제공 하지 않는 한 `id_token_hint` Azure AD B2C 응용 프로그램 설정에서이 url을 회신 url로 등록 하면 안 됩니다. |
-| state | 아니요 | `state` 매개 변수가 요청에 포함된 경우 동일한 값이 응답에 표시됩니다. 응용 프로그램은 `state` 요청 및 응답의 값이 동일한 지 확인 해야 합니다. |
+| post_logout_redirect_uri | 예 | 성공적으로 로그 아웃 한 후에 사용자가 리디렉션되는 URL입니다. 포함 되어 있지 않으면 Azure AD B2C 사용자에 게 일반 메시지를 표시 합니다. 를 제공 하지 않는 한 `id_token_hint` Azure AD B2C 응용 프로그램 설정에서이 url을 회신 url로 등록 하면 안 됩니다. |
+| state | 예 | `state` 매개 변수가 요청에 포함된 경우 동일한 값이 응답에 표시됩니다. 응용 프로그램은 `state` 요청 및 응답의 값이 동일한 지 확인 해야 합니다. |
 
 ### <a name="secure-your-logout-redirect"></a>로그 아웃 리디렉션 보안
 
 로그 아웃 한 후에는 `post_logout_redirect_uri` 응용 프로그램에 대해 지정 된 회신 url에 관계 없이 사용자가 매개 변수에 지정 된 URI로 리디렉션됩니다. 그러나 유효한를 전달 하 `id_token_hint` 고 **로그 아웃 요청에 ID 토큰 필요** 를 설정 하는 경우 Azure AD B2C는 `post_logout_redirect_uri` 리디렉션을 수행 하기 전에의 값이 응용 프로그램의 구성 된 리디렉션 uri 중 하 나와 일치 하는지 확인 합니다. 응용 프로그램에 대해 일치 하는 회신 URL이 구성 되지 않은 경우 오류 메시지가 표시 되 고 사용자가 리디렉션되지 않습니다.
 
-로그 아웃 요청에 필요한 ID 토큰을 설정 하려면 [Azure Active Directory B2C에서 세션 동작 구성](session-behavior-custom-policy.md#secure-your-logout-redirect)및 [Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 세션 동작 구성](session-behavior-custom-policy.md#secure-your-logout-redirect)을 참조 하세요.
+로그 아웃 요청에 필요한 ID 토큰을 설정 하려면 [Azure Active Directory B2C에서 세션 동작 구성](session-behavior.md#secure-your-logout-redirect)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD B2C 세션](session-overview.md)에 대해 자세히 알아보세요.
+- [Azure AD B2C 세션](session-behavior.md)에 대해 자세히 알아보세요.

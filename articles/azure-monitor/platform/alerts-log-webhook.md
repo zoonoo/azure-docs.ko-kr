@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 9a074be9bcc62d8c20635400f462f52fb796d2fe
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 97c3ead4dbdf0608c6b7cd1be6a9edf242ecd2b5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012325"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510766"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 
@@ -30,7 +30,7 @@ ms.locfileid: "96012325"
 
 기본 webhook 작업 속성 및 해당 사용자 지정 JSON 매개 변수 이름:
 
-| 매개 변수 | 변수 | Description |
+| 매개 변수 | 변수 | 설명 |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |경고 규칙의 이름입니다. |
 | *심각도* |#severity |실행된 로그 경고에 대해 설정된 심각도입니다. |
@@ -316,7 +316,6 @@ ms.locfileid: "96012325"
         }
     }
 ```
-
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure alerts의 로그 경고](alerts-unified-log.md)에 대해 알아봅니다.

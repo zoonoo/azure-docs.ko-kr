@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cd4c70354920655507f987f43a542e4b474803e1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e4463b932c95e224981b74093effbb355de24f6b
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170942"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509821"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Azure AD B2C에 사용할 수 있는 Microsoft Graph 작업
 
@@ -38,8 +38,8 @@ Microsoft Graph API를 사용 하 여 Azure AD B2C 사용자 계정을 관리 �
 
 - [추가](/graph/api/authentication-post-phonemethods)
 - [가져오기](/graph/api/b2cauthenticationmethodspolicy-get)
-- [Update](/graph/api/b2cauthenticationmethodspolicy-update)
-- [Delete](/graph/api/phoneauthenticationmethod-delete)
+- [업데이트](/graph/api/b2cauthenticationmethodspolicy-update)
+- [삭제](/graph/api/phoneauthenticationmethod-delete)
 
 Microsoft Graph API를 사용 하 여 사용자의 로그인 전화 번호를 관리 하는 방법에 대 한 자세한 내용은 [B2C 인증 방법](/graph/api/resources/b2cauthenticationmethodspolicy)을 참조 하세요.
 
@@ -107,7 +107,7 @@ Microsoft Graph API의 정책 키에 대 한 최상위 리소스는 [신뢰할 �
 
 - [확장 속성 나열](/graph/api/application-list-extensionproperty)
 
-Azure AD B2C는 사용자당 100개의 사용자 지정 특성을 보유할 수 있는 디렉터리를 제공합니다. 사용자 흐름의 경우 이러한 확장 속성은 [Azure Portal를 사용 하 여 관리](custom-policy-custom-attributes.md)됩니다. 사용자 지정 정책의 경우 정책에서 확장 속성에 값을 처음으로 쓸 때 Azure AD B2C에서 속성을 만듭니다.
+Azure AD B2C는 사용자당 100개의 사용자 지정 특성을 보유할 수 있는 디렉터리를 제공합니다. 사용자 흐름의 경우 이러한 확장 속성은 [Azure Portal를 사용 하 여 관리](user-flow-custom-attributes.md)됩니다. 사용자 지정 정책의 경우 정책에서 확장 속성에 값을 처음으로 쓸 때 Azure AD B2C에서 속성을 만듭니다.
 
 ## <a name="audit-logs"></a>감사 로그
 
