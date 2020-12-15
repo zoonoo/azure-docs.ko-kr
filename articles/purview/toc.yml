@@ -104,8 +104,6 @@ items:
                 href: register-scan-on-premises-sql-server.md
               - name: Power BI 테넌트 - Portal
                 href: register-scan-power-bi-tenant.md
-              - name: Power BI 테넌트 - PowerShell
-                href: powershell-register-scan-power-bi.md
       - name: 비즈니스 용어집
         items:
           - name: '용어집 만들기, 가져오기 및 내보내기'

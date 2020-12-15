@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: b5c1ab7db818daa91497728299d2247f612fe21b
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 73e3d8834fcb41f863fe2e3d686b812bb6174e70
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387754"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507662"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션-Java 용 Azure Monitor Application Insights
 
@@ -184,9 +184,9 @@ ms.locfileid: "97387754"
 
 Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임 워크를 통해 수행 된 로깅은 자동으로 수집 됩니다.
 
-기본적으로 로깅은 수준 이상에서 수행 되는 경우에만 수집 됩니다 `INFO` .
+로깅은 먼저 로깅 프레임 워크의 구성 된 임계값을 충족 하 고 두 번째는 구성 된 Application Insights 임계값을 충족 하는 경우에만 캡처됩니다.
 
-이 컬렉션 수준을 변경 하려면 다음을 수행 합니다.
+기본 Application Insights 임계값은 `INFO` 입니다. 이 수준을 변경 하려면 다음을 수행 합니다.
 
 ```json
 {

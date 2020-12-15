@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 12/14/2020
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2815041f32ebd7c2dae235229d1ca19aad253f7d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: e663cdd3846e804d1dcf96076c07b9a3db84272c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503624"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507747"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>토큰 수명 정책 구성 (미리 보기)
 앱, 서비스 주체 및 전체 조직의 토큰 수명을 만들고 관리할 수 있다면 Azure AD에서 다양한 시나리오가 가능합니다.  
 
 > [!IMPORTANT]
-> 2021 년 1 월 30 일 후에는 테 넌 트가 더 이상 새로 고침 및 세션 토큰 수명을 구성할 수 없으며, Azure AD는 해당 날짜 이후에 정책에서 기존 새로 고침 및 세션 토큰 구성을 다시 설정 하는 것을 중지 합니다. 사용 중단 후에도 액세스 토큰 수명을 구성할 수 있습니다.  자세히 알아보려면 [Microsoft id 플랫폼에서 구성 가능한 토큰 수명](active-directory-configurable-token-lifetimes.md)을 참조 하세요.
+> 2020 년 5 월 이후에는 더 이상 새로 고침 및 세션 토큰 수명을 구성할 수 없습니다.  Azure Active Directory은 2021 년 1 월 30 일 이후에 정책에서 기존 새로 고침 및 세션 토큰 구성을 다시 설정 하는 것을 중지 합니다. 사용 중단 후에도 액세스 토큰 수명을 구성할 수 있습니다.  자세히 알아보려면 [Microsoft id 플랫폼에서 구성 가능한 토큰 수명](active-directory-configurable-token-lifetimes.md)을 참조 하세요.
 > Azure AD 조건부 액세스에서 [인증 세션 관리 기능](../conditional-access/howto-conditional-access-session-lifetime.md)   을 구현 했습니다. 이 새로운 기능을 사용 하 여 로그인 빈도를 설정 하 여 새로 고침 토큰 수명을 구성할 수 있습니다.
 
 
@@ -41,7 +41,7 @@ ms.locfileid: "92503624"
 * web API를 호출하는 네이티브 앱에 대한 정책 만들기
 * 고급 정책 관리
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 다음 예제에서는 앱, 서비스 주체 및 조직 전체에 대한 정책을 만들고, 업데이트하고, 연결하고, 삭제해 보겠습니다. Azure AD를 처음 사용 하는 경우 이러한 예제를 진행 하기 전에 [AZURE ad 테 넌 트를 가져오는 방법](quickstart-create-new-tenant.md) 에 대해 알아보는 것이 좋습니다.  
 
 시작하려면 다음 단계를 수행합니다.
@@ -88,7 +88,7 @@ ms.locfileid: "92503624"
         Get-AzureADPolicy -id | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id ).Replace(" ","")))
         ```
 
-    1. 새 정책을 보고 정책의 **ObjectId**를 가져오려면 다음 명령을 실행합니다.
+    1. 새 정책을 보고 정책의 **ObjectId** 를 가져오려면 다음 명령을 실행합니다.
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
@@ -116,7 +116,7 @@ ms.locfileid: "92503624"
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    1. 새 정책을 보고 정책 **ObjectId**를 가져오려면 [new-azureadpolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet을 실행 합니다.
+    1. 새 정책을 보고 정책 **ObjectId** 를 가져오려면 [new-azureadpolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet을 실행 합니다.
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
@@ -153,7 +153,7 @@ ms.locfileid: "92503624"
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-1. web API에 정책을 할당합니다. 애플리케이션의 **ObjectId**도 가져와야 합니다. [Azureadapplication.applicationid](/powershell/module/azuread/get-azureadapplication) cmdlet을 사용 하 여 앱의 **ObjectId**를 찾거나 [Azure Portal](https://portal.azure.com/)를 사용 합니다.
+1. web API에 정책을 할당합니다. 애플리케이션의 **ObjectId** 도 가져와야 합니다. [Azureadapplication.applicationid](/powershell/module/azuread/get-azureadapplication) cmdlet을 사용 하 여 앱의 **ObjectId** 를 찾거나 [Azure Portal](https://portal.azure.com/)를 사용 합니다.
 
     앱의 **ObjectId** 를 가져오고 정책을 할당 합니다.
 

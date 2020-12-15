@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6c9e5b6466d3da675975dbf2c532602561e820c9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 417306e09a9424b302bb226aea5dd2c1debe96f5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495075"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508427"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
 
@@ -51,7 +51,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 * Storage 연결된 서비스를 참조하는 데이터 세트를 만듭니다. 현재 생성 중인 출력이 없더라도 작업의 출력 데이터 세트를 지정해야 합니다.
 * 만든 HDInsight 연결된 서비스를 참조하는 Spark 작업이 있는 파이프라인을 만듭니다. 이 작업은 이전 단계에서 출력 데이터 세트로 만든 데이터 세트를 통해 구성됩니다. 출력 데이터 세트는 일정(매시간, 매일)을 구동하는 것입니다. 따라서 작업에서 실제로 출력을 생성하지 않더라도 출력 데이터 세트를 지정해야 합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 1. [스토리지 계정 만들기](../../storage/common/storage-account-create.md)의 지침에 따라 범용 스토리지 계정을 만듭니다.
 
 1. [HDInsight에서 Spark 클러스터 만들기](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)의 지침에 따라 HDInsight에서 Spark 클러스터를 만듭니다. 1단계에서 만든 스토리지 계정을 이 클러스터와 연결합니다.
@@ -118,13 +118,13 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
 1. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 편집기에서 다음 단계를 수행합니다.
 
-    a. HDInsight Spark 클러스터에 대한 URI를 지정합니다. 예를 들어 `https://<sparkclustername>.azurehdinsight.net/`을 참조하십시오.
+    1. HDInsight Spark 클러스터에 대한 URI를 지정합니다. 예: `https://<sparkclustername>.azurehdinsight.net/`
 
-    b. Spark 클러스터에 액세스할 수 있는 사용자의 이름을 지정합니다.
+    1. Spark 클러스터에 액세스할 수 있는 사용자의 이름을 지정합니다.
 
-    c. 사용자의 암호를 지정합니다.
+    1. 사용자의 암호를 지정합니다.
 
-    d. HDInsight Spark 클러스터와 연결되는 Storage 연결된 서비스를 지정합니다. 이 예제에서는 AzureStorageLinkedService입니다.
+    1. HDInsight Spark 클러스터와 연결되는 Storage 연결된 서비스를 지정합니다. 이 예제에서는 AzureStorageLinkedService입니다.
 
     ```json
     {
@@ -213,20 +213,21 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
         }
     }
     ```
+
     다음 사항에 유의하세요.
 
-    a. **Type** 속성은 **HDInsightSpark** 로 설정 됩니다.
+    1. **Type** 속성은 **HDInsightSpark** 로 설정 됩니다.
 
-    b. **rootPath** 속성은 **adfspark\\pyFiles** 로 설정되며, 여기서 adfspark는 Blob 컨테이너이고, pyFiles는 해당 컨테이너의 파일 폴더입니다. 이 예제에서 Blob Storage는 Spark 클러스터와 연결된 스토리지입니다. 파일은 다른 스토리지 계정에 업로드할 수 있습니다. 이렇게 하면 Storage 연결된 서비스를 만들어 해당 스토리지 계정을 데이터 팩터리에 연결합니다. 그런 다음 **sparkJobLinkedService** 속성에 대 한 값으로 연결 된 서비스의 이름을 지정 합니다. 이 속성과 Spark 작업에서 지원하는 다른 속성에 대한 자세한 내용은 [Spark 작업 속성](#spark-activity-properties)을 참조하세요.
+    1. **rootPath** 속성은 **adfspark\\pyFiles** 로 설정되며, 여기서 adfspark는 Blob 컨테이너이고, pyFiles는 해당 컨테이너의 파일 폴더입니다. 이 예제에서 Blob Storage는 Spark 클러스터와 연결된 스토리지입니다. 파일은 다른 스토리지 계정에 업로드할 수 있습니다. 이렇게 하면 Storage 연결된 서비스를 만들어 해당 스토리지 계정을 데이터 팩터리에 연결합니다. 그런 다음 **sparkJobLinkedService** 속성에 대 한 값으로 연결 된 서비스의 이름을 지정 합니다. 이 속성과 Spark 작업에서 지원하는 다른 속성에 대한 자세한 내용은 [Spark 작업 속성](#spark-activity-properties)을 참조하세요.
 
-    c. **entryFilePath** 속성은 Python 파일인 **test.py** 로 설정됩니다.
+    1. **entryFilePath** 속성은 Python 파일인 **test.py** 로 설정됩니다.
 
-    d. **GetDebugInfo** 속성은 **항상** 로 설정 됩니다. 즉, 로그 파일이 항상 생성 됩니다 (성공 또는 실패).
+    1. **GetDebugInfo** 속성은 **항상** 로 설정 됩니다. 즉, 로그 파일이 항상 생성 됩니다 (성공 또는 실패).
 
-    > [!IMPORTANT]
-    > 문제를 해결하지 않는 한 프로덕션 환경에서는 이 속성을 `Always`로 설정하지 않는 것이 좋습니다.
+       > [!IMPORTANT]
+       > `Always`문제를 해결 하는 경우를 제외 하 고는 프로덕션 환경에서이 속성을로 설정 하지 않는 것이 좋습니다.
 
-    e. 출력 **섹션에는 하나의** 출력 데이터 집합이 있습니다. Spark 프로그램에서 출력을 생성하지 않더라도 출력 데이터 세트를 지정해야 합니다. 출력 데이터 세트는 파이프라인에 대한 일정(매시간, 매일)을 구동합니다.
+    1. 출력 **섹션에는 하나의** 출력 데이터 집합이 있습니다. Spark 프로그램에서 출력을 생성하지 않더라도 출력 데이터 세트를 지정해야 합니다. 출력 데이터 세트는 파이프라인에 대한 일정(매시간, 매일)을 구동합니다.
 
     Spark 작업에서 지원하는 속성에 대한 자세한 내용은 [Spark 작업 속성](#spark-activity-properties) 섹션을 참조하세요.
 
@@ -249,7 +250,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
 1. 으로 이동 하 여 HDInsight Spark 클러스터에 대 한 Jupyter Notebook를 시작 `https://CLUSTERNAME.azurehdinsight.net/jupyter` 합니다. 또한 HDInsight Spark 클러스터에 대한 클러스터 대시보드를 연 다음, Jupyter Notebook을 시작할 수도 있습니다.
 
-1. 새 **New**  >  **PySpark** 를 선택 하 여 새 노트북을 시작 합니다.
+1. 새   >  **PySpark** 를 선택 하 여 새 노트북을 시작 합니다.
 
     ![새 Jupyter 노트북](media/data-factory-spark/jupyter-new-book.png)
 
@@ -273,7 +274,7 @@ getDebugInfo를 **Always** 로 설정했으므로 Blob 컨테이너의 pyFiles �
 문제를 추가로 해결하려면 다음 단계를 수행합니다.
 
 
-1. [https://editor.swagger.io](`https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`) 로 이동합니다.
+1. `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster` 으로 이동합니다.
 
     ![YARN UI 애플리케이션](media/data-factory-spark/yarnui-application.png)
 
@@ -336,7 +337,7 @@ getDebugInfo를 **Always** 로 설정했으므로 Blob 컨테이너의 pyFiles �
 | 인수 | Spark 프로그램에 대한 명령줄 인수 목록입니다. | 예 |
 | proxyUser | Spark 프로그램을 실행하기 위해 가장하는 사용자 계정입니다. | 예 |
 | sparkConfig | [Spark 구성: 애플리케이션 속성](https://spark.apache.org/docs/latest/configuration.html#available-properties)에 나열된 Spark 구성 속성에 대한 값을 지정합니다. | 예 |
-| getDebugInfo | HDInsight 클러스터에서 사용되거나 sparkJobLinkedService에서 지정된 스토리지에 Spark 로그 파일을 복사하는 시기를 지정합니다. 허용되는 값은 None, Always 또는 Failure입니다. 기본값은 None입니다. | 아니요 |
+| getDebugInfo | HDInsight 클러스터에서 사용되거나 sparkJobLinkedService에서 지정된 스토리지에 Spark 로그 파일을 복사하는 시기를 지정합니다. 허용되는 값은 None, Always 또는 Failure입니다. 기본값은 None입니다. | 예 |
 | sparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Storage 연결된 서비스입니다. 이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 스토리지가 사용됩니다. | 예 |
 
 ## <a name="folder-structure"></a>폴더 구조
@@ -348,11 +349,11 @@ HDInsight 연결된 서비스에서 참조하는 Blob Storage에 다음 폴더 �
 | ---- | ----------- | -------- | ---- |
 | . | 스토리지 연결된 서비스의 Spark 작업에 대한 루트 경로입니다. | 예 | 폴더 |
 | &lt;사용자 정의 &gt; | Spark 작업의 입력 파일을 가리키는 경로입니다. | 예 | 파일 |
-| ./jars | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 Java classpath에 배치됩니다. | 아니요 | 폴더 |
-| ./pyFiles | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 PYTHONPATH에 배치됩니다. | 아니요 | 폴더 |
-| ./files | 이 폴더 아래의 모든 파일이 업로드되고, 실행기 작업 디렉터리에 배치됩니다. | 아니요 | 폴더 |
-| ./archives | 이 폴더 아래의 모든 파일이 압축 해제됩니다. | 아니요 | 폴더 |
-| ./logs | Spark 클러스터의 로그가 저장되는 폴더| 아니요 | 폴더 |
+| ./jars | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 Java classpath에 배치됩니다. | 예 | 폴더 |
+| ./pyFiles | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 PYTHONPATH에 배치됩니다. | 예 | 폴더 |
+| ./files | 이 폴더 아래의 모든 파일이 업로드되고, 실행기 작업 디렉터리에 배치됩니다. | 예 | 폴더 |
+| ./archives | 이 폴더 아래의 모든 파일이 압축 해제됩니다. | 예 | 폴더 |
+| ./logs | Spark 클러스터의 로그가 저장되는 폴더| 예 | 폴더 |
 
 HDInsight 연결된 서비스에서 참조하는 Blob Storage에 있는 두 개의 Spark 작업 파일이 포함된 스토리지에 대한 예제는 다음과 같습니다.
 

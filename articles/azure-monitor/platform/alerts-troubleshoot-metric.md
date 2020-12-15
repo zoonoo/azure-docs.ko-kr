@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 11/25/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5a57e8b7f3bf2c3e820a3befee0ee69c48a2afa9
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: ef8a07f0360338aeb659942967169b0605b08e51
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029879"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507220"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -122,17 +122,17 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
     "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
         "allOf": [
             {
-                    "name" : "condition1",
-                        "metricName": "myCustomMetric",
+                "name" : "condition1",
+                "metricName": "myCustomMetric",
                 "metricNamespace": "myCustomMetricNamespace",
-                        "dimensions":[],
-                        "operator": "GreaterThan",
-                        "threshold" : 10,
-                        "timeAggregation": "Average",
-                    "skipMetricValidation": true
-        }
-              ]
-        }
+                "dimensions":[],
+                "operator": "GreaterThan",
+                "threshold" : 10,
+                "timeAggregation": "Average",
+                "skipMetricValidation": true
+            }
+        ]
+    }
 ```
 
 ## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Azure Portal를 통해 메트릭 경고 규칙의 Azure Resource Manager 템플릿을 내보냅니다.
@@ -252,7 +252,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 - 각 조건 내에서 차원 당 하나의 값만 선택할 수 있습니다.
 - "현재 및 미래 값 모두 선택" (Select) 옵션을 사용할 수 없습니다 \* .
 - 서로 다른 조건에서 구성 된 메트릭이 동일한 차원을 지 원하는 경우 구성 된 차원 값은 해당 하는 모든 메트릭에 대해 동일한 방식으로 명시적으로 설정 되어야 합니다 (관련 조건).
-예들 들어 다음과 같습니다.
+예:
     - 저장소 계정에 정의 된 메트릭 경고 규칙을 고려 하 고 두 가지 조건을 모니터링 합니다.
         * 총 **트랜잭션** > 5
         * 평균 **SuccessE2ELatency** > 250 밀리초

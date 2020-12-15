@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bdfb1ca21860f1dc338f85a82caf643f9f7be6d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 31bdfc7e3eca2a2678b75b80973a1680448737d1
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973204"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507679"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -72,7 +72,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
      | **8080**(선택 사항) | 인증 에이전트는 포트 443을 사용할 수 없는 경우 포트 8080을 통해 10분마다 해당 상태를 보고합니다. 이 상태는 Azure AD 포털에 표시됩니다. 포트 8080은 사용자 로그인에 사용되지 _않습니다_. |
      
      방화벽이 원래 사용자에 따라 규칙에 적용되는 경우 네트워크 서비스로 실행하는 Windows 서비스의 트래픽에 대해 이러한 포트를 엽니다.
-   - 방화벽이 나 프록시가 DNS 허용 목록을 허용 하는 경우 **\* msappproxy.net** 및 **\* servicebus.windows.net** 에 연결을 추가 합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다.
+   - 방화벽이 나 프록시를 사용 하 여 allowlist에 DNS 항목을 추가할 수 있는 경우 **\* msappproxy.net** 및 **\* servicebus.windows.net** 에 연결을 추가 합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다.
    - 인증 에이전트는 초기 등록을 위해 **login.windows.net** 및 **login.microsoftonline.com** 에 액세스해야 합니다. 이러한 URL에 대한 방화벽도 엽니다.
     - 인증서 유효성을 검사 하려면 다음 Url을 차단 해제 합니다. **crl3.digicert.com:80**, **crl4.digicert.com:80**, **ocsp.digicert.com:80**, **www \. d-trust.net:80**, **root-c3-ca2-2009.ocsp.d-trust.net:80** **, crl.microsoft.com:80** **, oneocsp.microsoft.com:80 및** **ocsp.msocsp.com:80**. 이러한 URL은 다른 Microsoft 제품과의 인증서 유효성 검사에 사용되므로 이러한 URL을 이미 차단 해제했을 수 있습니다.
 

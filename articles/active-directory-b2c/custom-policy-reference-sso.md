@@ -11,22 +11,22 @@ ms.topic: reference
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e47eda29b0ad1c47edad08195b2ffd0fe3835af
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 453042766c427b05ec1ee1090a0702f64065542d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750478"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508053"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Single Sign-On 세션 관리
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[Sso (Single sign-on) 세션](session-overview.md) 관리에서는 사용자 지정 정책에서 다른 기술 프로필과 동일한 의미 체계를 사용 합니다. 오케스트레이션 단계를 실행하면 이 단계와 관련된 기술 프로필을 `UseTechnicalProfileForSessionManagement` 참조에 대해 쿼리합니다. 참조된 SSO 세션 공급자가 있는 경우 사용자가 세션 참가자인지를 확인합니다. 그렇다면 SSO 세션 공급자를 사용하여 세션을 다시 채웁니다. 마찬가지로 오케스트레이션 단계의 실행이 완료되면 SSO 세션 공급자가 지정된 경우 이 공급자를 사용하여 세션에서 정보를 저장합니다.
+[Sso (Single sign-on) 세션](session-behavior.md) 관리에서는 사용자 지정 정책에서 다른 기술 프로필과 동일한 의미 체계를 사용 합니다. 오케스트레이션 단계를 실행하면 이 단계와 관련된 기술 프로필을 `UseTechnicalProfileForSessionManagement` 참조에 대해 쿼리합니다. 참조된 SSO 세션 공급자가 있는 경우 사용자가 세션 참가자인지를 확인합니다. 그렇다면 SSO 세션 공급자를 사용하여 세션을 다시 채웁니다. 마찬가지로 오케스트레이션 단계의 실행이 완료되면 SSO 세션 공급자가 지정된 경우 이 공급자를 사용하여 세션에서 정보를 저장합니다.
 
 Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다.
 
-|세션 공급자  |범위  |
+|세션 공급자  |Scope  |
 |---------|---------|
 |[NoopSSOSessionProvider](#noopssosessionprovider)     |  없음       |       
 |[DefaultSSOSessionProvider](#defaultssosessionprovider)    | 내부 세션 관리자를 Azure AD B2C 합니다.      |       
@@ -120,7 +120,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 
 | attribute | 필수 | 설명|
 | --- | --- | --- |
-| AlwaysFetchClaimsFromProvider | 아니요 | 현재 사용 되지 않습니다 .를 무시할 수 있습니다. |
+| AlwaysFetchClaimsFromProvider | 예 | 현재 사용 되지 않습니다 .를 무시할 수 있습니다. |
 
 ### <a name="oauthssosessionprovider"></a>OAuthSSOSessionProvider
 
@@ -162,11 +162,10 @@ B2C SAML 세션을 저장 하는 데 공급자를 사용 하는 경우은 `Regis
 
 | attribute | 필수 | 설명|
 | --- | --- | --- |
-| IncludeSessionIndex | 아니요 | 현재 사용 되지 않습니다 .를 무시할 수 있습니다.|
-| RegisterServiceProviders | 아니요 | 공급자가 어설션을 발급한 모든 SAML 서비스 공급자를 등록해야 함을 의미합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다.|
+| IncludeSessionIndex | 예 | 현재 사용 되지 않습니다 .를 무시할 수 있습니다.|
+| RegisterServiceProviders | 예 | 공급자가 어설션을 발급한 모든 SAML 서비스 공급자를 등록해야 함을 의미합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다.|
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD B2C 세션](session-overview.md)에 대해 자세히 알아보세요.
-- [사용자 지정 정책에서 세션 동작을 구성](session-behavior-custom-policy.md)하는 방법에 대해 알아봅니다.
+[세션 동작을 구성](session-behavior.md)하는 방법을 알아봅니다.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85030285810433dc77d1f466d160c50d1f89770e
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 31926653950594b986aca19e2db2877cd655ca24
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750410"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509600"
 ---
 # <a name="user-profile-attributes"></a>사용자 프로필 특성
 
@@ -52,8 +52,8 @@ Azure AD(Azure Active Directory) B2C 디렉터리 사용자 프로필에는 이�
 |facsimileTelephoneNumber<sup>1</sup>|String|사용자의 회사 팩스 전화 번호입니다.|예|예|지속형, 출력|
 |givenName       |String|사용자의 이름(성 제외)입니다. 최대 길이는 64입니다.|예|예|지속형, 출력|
 |jobTitle        |String|사용자의 직위입니다. 최대 길이는 128입니다.|예|예|지속형, 출력|
-|immutableId     |String|일반적으로 온-프레미스 Active Directory에서 마이그레이션된 사용자에게 사용되는 식별자입니다.|예|예|지속형, 출력|
-|legalAgeGroupClassification|String|법적 연령 그룹 분류입니다. ageGroup 및 consentProvidedForMinor 속성을 기준으로 계산되는 읽기 전용 값입니다. 허용되는 값: Null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult 및 adult.|예|예|지속형, 출력|
+|immutableId     |String|온-프레미스 Active Directory에서 마이그레이션되는 사용자에 게 일반적으로 사용 되는 식별자입니다.|예|예|지속형, 출력|
+|legalAgeGroupClassification|String|법적 연령 그룹 분류입니다. ageGroup 및 consentProvidedForMinor 속성을 기준으로 계산되는 읽기 전용 값입니다. 허용 되는 값: null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult 및 성인.|예|예|지속형, 출력|
 |legalCountry<sup>1</sup>  |String|법적 목적을 위한 국가/지역입니다.|예|예|지속형, 출력|
 |mail            |String|사용자의 SMTP 주소입니다(예: “bob@contoso.com”). 읽기 전용입니다.|예|예|지속형, 출력|
 |mailNickName    |String|사용자의 메일 별칭입니다. 최대 길이는 64입니다.|예|예|지속형, 출력|
@@ -62,15 +62,15 @@ Azure AD(Azure Active Directory) B2C 디렉터리 사용자 프로필에는 이�
 |objectId        |String|사용자의 고유 식별자인 GUID(Globally Unique Identifier)입니다. 예제: 12345678-9abc-def0-1234-56789abcde. 읽기 전용, 변경 불가.|읽기 전용|예|입력, 지속형, 출력|
 |otherMails      |문자열 컬렉션|사용자의 추가 메일 주소 목록입니다. 예: [“bob@contoso.com”, “Robert@fabrikam.com”].|예(대체 메일)|예|지속형, 출력|
 |password        |String|사용자자 생성 중 만든 로컬 계정의 암호입니다.|예|예|지속됨|
-|passwordPolicies     |String|암호의 정책입니다. 쉼표로 구분된 여러 정책 이름으로 구성된 문자열입니다. 즉, “DisablePasswordExpiration, DisableStrongPassword”.|예|예|지속형, 출력|
+|passwordPolicies     |String|암호의 정책입니다. 쉼표로 구분된 여러 정책 이름으로 구성된 문자열입니다. 예를 들면 "DisablePasswordExpiration, DisableStrongPassword"입니다.|예|예|지속형, 출력|
 |physicalDeliveryOfficeName(officeLocation)|String|사용자 사업장의 사무실 위치입니다. 최대 길이는 128입니다.|예|예|지속형, 출력|
 |postalCode      |String|사용자의 우편 주소에 대한 우편 번호입니다. 우편 번호는 사용자의 해당 국가/지역에 따라 다릅니다. 미국의 경우 이 특성은 우편 번호를 포함합니다. 최대 길이는 40입니다.|예|예|지속형, 출력|
 |preferredLanguage    |String|사용자의 기본 설정 언어입니다. ISO 639-1 코드를 따라야 합니다. 예: “en-US”.|예|예|지속형, 출력|
 |refreshTokensValidFromDateTime|DateTime|이 시간 이전에 발급된 모든 새로 고침 토큰은 유효하지 않으며, 유효하지 않은 새로 고침 토큰을 사용하여 새 액세스 토큰을 가져오면 애플리케이션에서 오류가 발생합니다. 이 경우 애플리케이션이 권한 부여 엔드포인트에 요청을 제출하여 새 새로 고침 토큰을 가져와야 합니다. 읽기 전용입니다.|예|예|출력|
-|signInNames([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|디렉터리에 있는 임의 유형의 로컬 계정 사용자의 고유한 로그인 이름입니다. 이 특성을 사용하여 로컬 계정 유형을 지정하지 않고 로그인 값으로 사용자를 가져올 수 있습니다.|예|예|입력|
-|signInNames.userName([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|디렉터리에 있는 로컬 계정 사용자의 고유한 사용자 이름입니다. 이 특성을 사용하여 특정 로그인 사용자 이름을 갖는 사용자를 만들거나 가져올 수 있습니다. 패치 작업 중에 이 특성을 PersistedClaims에 단독으로 지정하면 다른 유형의 signInNames가 제거됩니다. 새로운 유형의 signInNames를 추가하려면 기존 signInNames를 지속 처리해야 합니다.|예|예|입력, 지속형, 출력|
-|signInNames.phoneNumber([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|디렉터리에 있는 로컬 계정 사용자의 고유한 전화 번호입니다. 이 특성을 사용하여 특정 로그인 전화 번호를 갖는 사용자를 만들거나 가져올 수 있습니다. 패치 작업 중에 이 특성을 PersistedClaims에 단독으로 지정하면 다른 유형의 signInNames가 제거됩니다. 새로운 유형의 signInNames를 추가하려면 기존 signInNames를 지속 처리해야 합니다.|예|예|입력, 지속형, 출력|
-|signInNames.emailAddress([Identities](manage-user-accounts-graph-api.md#identities-property))|String|디렉터리에 있는 로컬 계정 사용자의 고유한 메일 주소입니다. 이 특성을 사용하여 특정 로그인 메일 주소를 갖는 사용자를 만들거나 가져올 수 있습니다. 패치 작업 중에 이 특성을 PersistedClaims에 단독으로 지정하면 다른 유형의 signInNames가 제거됩니다. 새로운 유형의 signInNames를 추가하려면 기존 signInNames를 지속 처리해야 합니다.|예|예|입력, 지속형, 출력|
+|signInNames([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|디렉터리에 있는 임의 유형의 로컬 계정 사용자의 고유한 로그인 이름입니다. 이 특성을 사용 하 여 로컬 계정 유형을 지정 하지 않고 로그인 값이 있는 사용자를 가져옵니다.|예|예|입력|
+|signInNames.userName([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|디렉터리에 있는 로컬 계정 사용자의 고유한 사용자 이름입니다. 이 특성을 사용 하 여 특정 로그인 사용자 이름을 가진 사용자를 만들거나 가져올 수 있습니다. 패치 작업 중에 이 특성을 PersistedClaims에 단독으로 지정하면 다른 유형의 signInNames가 제거됩니다. 새로운 유형의 signInNames를 추가하려면 기존 signInNames를 지속 처리해야 합니다.|예|예|입력, 지속형, 출력|
+|signInNames.phoneNumber([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|디렉터리에 있는 로컬 계정 사용자의 고유한 전화 번호입니다. 이 특성을 사용 하 여 특정 로그인 전화 번호로 사용자를 만들거나 가져올 수 있습니다. 패치 작업 중에 PersistedClaims 단독으로이 특성을 지정 하면 다른 유형의 signInNames 제거 됩니다. 새로운 유형의 signInNames를 추가하려면 기존 signInNames를 지속 처리해야 합니다.|예|예|입력, 지속형, 출력|
+|signInNames.emailAddress([Identities](manage-user-accounts-graph-api.md#identities-property))|String|디렉터리에 있는 로컬 계정 사용자의 고유한 메일 주소입니다. 이 특성을 사용하여 특정 로그인 메일 주소를 갖는 사용자를 만들거나 가져올 수 있습니다. 패치 작업 중에 PersistedClaims 단독으로이 특성을 지정 하면 다른 유형의 signInNames 제거 됩니다. 새로운 유형의 signInNames를 추가하려면 기존 signInNames를 지속 처리해야 합니다.|예|예|입력, 지속형, 출력|
 |state           |String|사용자 주소의 시/도입니다. 최대 길이는 128입니다.|예|예|지속형, 출력|
 |streetAddress   |String|사용자 사업장의 주소입니다. 최대 길이는 1024입니다.|예|예|지속형, 출력|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|사용자의 보조 전화 번호로, 다단계 인증에 사용됩니다.|예|예|지속형, 출력|
@@ -120,5 +120,4 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
 ## <a name="next-steps"></a>다음 단계
 확장 특성에 대한 자세한 정보:
 - [스키마 확장](/graph/extensibility-overview#schema-extensions)
-- [사용자 흐름으로 사용자 지정 특성 정의](user-flow-custom-attributes.md)
-- [사용자 지정 정책으로 사용자 지정 특성 정의](custom-policy-custom-attributes.md)
+- [사용자 지정 특성 정의](user-flow-custom-attributes.md)

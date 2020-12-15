@@ -503,7 +503,7 @@
       displayName: pipelines
       items:
         - name: ML 파이프라인 만들기(Python)
-          href: how-to-create-your-first-pipeline.md
+          href: how-to-create-machine-learning-pipelines.md
         - name: ML 파이프라인 단계로/단계 간에 데이터 이동(Python)
           href: how-to-move-data-in-out-of-pipelines.md
         - name: ML 파이프라인 배포(Python)

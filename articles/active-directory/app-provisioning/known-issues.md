@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 12/14/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: b8bdb216cbe8d359f35c758ae89f4267ab223483
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 78e9d7355b8c96295456f8aa9cb80b1d3bdd2fab
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928752"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509549"
 ---
 # <a name="known-issues-application-provisioning"></a>알려진 문제: 응용 프로그램 프로 비전
 앱 프로 비전을 사용 하는 경우 알고 있어야 하는 알려진 문제입니다. UserVoice의 응용 프로그램 프로 비전 서비스에 대 한 피드백을 제공할 수 있습니다. [AZURE AD 응용 프로그램 프로 비전 uservoice](https://aka.ms/appprovisioningfeaturerequest)를 참조 하세요. 서비스를 개선할 수 있도록 UserVoice를 면밀 하 게 감시 합니다. 
@@ -68,7 +68,8 @@ Azure AD는 현재 null 특성을 프로 비전 할 수 없습니다. 사용자 
 
 - 프로 비전 암호는 지원 되지 않습니다. 
 - 중첩 그룹 프로 비전은 지원 되지 않습니다. 
-- 테 넌 트의 크기 때문에 B2C 테 넌 트에 프로 비전이 지원 되지 않습니다. 
+- 테 넌 트의 크기 때문에 B2C 테 넌 트에 프로 비전이 지원 되지 않습니다.
+- 모든 클라우드에서 프로 비전 앱을 모두 사용할 수 있는 것은 아닙니다. 예를 들어 정부 클라우드에서는 아직 Atlassian를 사용할 수 없습니다. 앱 개발자와 협력 하 여 앱을 모든 클라우드에 등록 합니다.
 
 **내 OIDC 기반 응용 프로그램에서 자동 프로비저닝을 사용할 수 없음**
 

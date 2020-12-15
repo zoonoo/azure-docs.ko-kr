@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8644040565bd46800b888a32653b6c8bbf89f096
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 3c42495ceab7108d20b0f0dedbf0cf94f5f9352d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347441"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509311"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -158,7 +158,7 @@ VM에 대 한 역할 할당을 구성 하는 방법에는 여러 가지가 있�
 - Azure Cloud Shell 환경 사용
 
 > [!NOTE]
-> 가상 컴퓨터 관리자 로그인 및 가상 컴퓨터 사용자 로그인 역할은 dataActions를 사용 하므로 관리 그룹 범위에서 할당할 수 없습니다. 현재 이러한 역할은 구독 범위 에서만 할당 될 수 있습니다.
+> 가상 컴퓨터 관리자 로그인 및 가상 컴퓨터 사용자 로그인 역할은 dataActions를 사용 하므로 관리 그룹 범위에서 할당할 수 없습니다. 현재 이러한 역할은 구독, 리소스 그룹 또는 리소스 범위에만 할당할 수 있습니다.
 
 ### <a name="using-azure-ad-portal-experience"></a>Azure AD 포털 환경 사용
 

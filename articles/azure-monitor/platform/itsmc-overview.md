@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 6c9e2ae420e56c5ef99ff79cdcb49592bc7e049e
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 3d4e5ad0b24b7163072d7e3110a523dad9608923
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97371988"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507374"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 ITSM 도구에 Azure 연결
 
@@ -152,12 +152,12 @@ ITSM 연결을 만든 후에는 Azure 경고를 기반으로 ITSM 도구에서 �
 
 9. **각 구성 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 구성 항목에 자체 작업 항목이 포함 됩니다. 구성 항목 마다 작업 항목이 하나씩 있습니다. 생성 되는 경고에 따라 업데이트 됩니다.
 
-   * 작업 항목 드롭다운에서 "인시던트" 또는 "경고"를 선택 하는 경우: **각 구성 항목에 대 한 개별 작업 항목 만들기** 확인란의 선택을 취소 하면 모든 경고에서 새 작업 항목을 만듭니다. 구성 항목 마다 경고가 여러 개 있을 수 있습니다.
+    * 작업 항목 드롭다운에서 "인시던트" 또는 "경고"를 선택 하는 경우: **각 구성 항목에 대 한 개별 작업 항목 만들기** 확인란의 선택을 취소 하면 모든 경고에서 새 작업 항목을 만듭니다. 구성 항목 마다 경고가 여러 개 있을 수 있습니다.
 
-   ![ITSM 티켓 창을 보여 주는 스크린샷](media/itsmc-overview/itsm-action-configuration.png)
-   
-   * 작업 항목 드롭다운에서 "이벤트"를 선택 하는 경우: 라디오 단추 선택에서 **각 로그 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 경고에서 새 작업 항목이 생성 됩니다. 라디오 단추 선택에서 **각 구성 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 구성 항목에 고유한 작업 항목이 포함 됩니다.
-   ![ITSM 티켓 창을 보여 주는 스크린샷](media/itsmc-overview/itsm-action-configuration-event.png)
+       ![ITSM 인시던트 창을 보여 주는 스크린샷](media/itsmc-overview/itsm-action-configuration.png)
+
+    * 작업 항목 드롭다운에서 "이벤트"를 선택 하는 경우: 라디오 단추 선택에서 **각 로그 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 경고에서 새 작업 항목이 생성 됩니다. 라디오 단추 선택에서 **각 구성 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 구성 항목에 고유한 작업 항목이 포함 됩니다.
+   ![ITSM 이벤트 창을 보여 주는 스크린샷](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. **확인** 을 선택합니다.
 
@@ -169,26 +169,6 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 >
 >
 >- ITSM 작업을 사용 하 여 보낼 때 경고 규칙 정의의 간단한 설명 필드는 40 자로 제한 됩니다.
-
-
-## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>인시던트 및 변경 요청 데이터 시각화 및 분석
-
-연결을 설정할 때의 구성에 따라 ITSMC는 최대 120 일의 인시던트 및 변경 요청 데이터를 동기화 할 수 있습니다. 이 데이터에 대 한 로그 레코드 스키마는이 문서의 [다음 섹션](#additional-information) 에 제공 됩니다.
-
-ITSMC 대시보드를 사용 하 여 인시던트 및 변경 요청 데이터를 시각화할 수 있습니다.
-
-![ITSMC 대시보드를 보여 주는 스크린샷](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
-
-또한 대시보드는 연결 문제를 분석 하기 위한 시작 지점으로 사용할 수 있는 커넥터 상태에 대 한 정보를 제공 합니다.
-
-서비스 맵에서 영향을 받는 컴퓨터에 대해 동기화 된 인시던트를 시각화할 수도 있습니다.
-
-서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 이를 통해 중요 한 서비스를 제공 하는 상호 연결 된 시스템으로 생각 되는 서버를 볼 수 있습니다. 서비스 맵는 모든 TCP 연결 아키텍처에서 서버, 프로세스 및 포트 간의 연결을 보여 줍니다. 에이전트를 설치 하는 것 외에는 구성이 필요 하지 않습니다. 자세한 내용은 [서비스 맵 사용](../insights/service-map.md)을 참조 하세요.
-
-서비스 맵를 사용 하는 경우 다음과 같이 ITSM 솔루션에서 만들어진 서비스 데스크 항목을 볼 수 있습니다.
-
-![Log Analytics 화면을 보여 주는 스크린샷](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
-
 
 ## <a name="additional-information"></a>추가 정보
 
@@ -299,32 +279,12 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Impact_s| 영향|
 | RequestedDate_t  | 요청한 날짜 |
 | ClosedDate_t | 종결한 날짜 |
-| PlannedStartDate_t  |     예상된 시작 날짜 |
-| PlannedEndDate_t  |   예상된 종료 날짜 |
+| PlannedStartDate_t  | 예상된 시작 날짜 |
+| PlannedEndDate_t  | 예상된 종료 날짜 |
 | WorkStartDate_t  | 실제 시작 날짜 |
 | WorkEndDate_t | 실제 종료 날짜|
 | Description_s | Description |
 | Computer  | 구성 항목 |
-
-
-## <a name="troubleshoot-itsm-connections"></a>ITSM 연결 문제 해결
-- 연결 된 원본의 UI에서 연결에 실패 하 고 연결 메시지를 저장 하는 **동안 오류가 발생** 하는 경우 다음 단계를 수행 합니다.
-   - ServiceNow, Cherwell 및 Provance 연결의 경우:  
-     - 각 연결에 대 한 사용자 이름, 암호, 클라이언트 ID 및 클라이언트 암호를 올바르게 입력 했는지 확인 합니다.  
-     - 해당 ITSM 제품에 연결을 설정 하는 데 충분 한 권한이 있는지 확인 합니다.  
-   - Service Manager 연결의 경우:  
-     - 웹 앱이 성공적으로 배포 되 고 하이브리드 연결이 만들어졌는지 확인 합니다. 온-프레미스 Service Manager 컴퓨터에서 연결이 성공적으로 설정 되었는지 확인 하려면 [하이브리드 연결](./itsmc-connections.md#configure-the-hybrid-connection)에 대 한 설명서에 설명 된 대로 웹 앱 URL로 이동 합니다.  
-
-- ServiceNow의 데이터가 Log Analytics와 동기화 되지 않으면 ServiceNow 인스턴스가 절전 모드에 있지 않은지 확인 합니다. ServiceNow dev 인스턴스는 오랜 시간 동안 유휴 상태일 때 절전 모드로 전환 되는 경우가 있습니다. 문제가 발생 하지 않는 경우 문제를 보고 합니다.
-- Log Analytics 경고가 발생 했지만 작업 항목이 ITSM 제품에 생성 되지 않은 경우, 구성 항목이 작업 항목에 생성/연결 되지 않거나 기타 정보에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
-   -  ITSMC: 솔루션은 연결, 작업 항목, 컴퓨터 등에 대 한 요약을 보여 줍니다. **커넥터 상태** 레이블이 있는 타일을 선택 합니다. 이렇게 하면 관련 쿼리를 사용 하 여 **로그 검색** 으로 이동 합니다. 자세한 내용은의를 사용 하 여 로그 레코드를 살펴보세요 `LogType_S` `ERROR` .
-   - **로그 검색** 페이지: 쿼리를 사용 하 여 오류 및 관련 정보를 직접 확인 합니다 `*ServiceDeskLog_CL*` .
-
-## <a name="troubleshoot-service-manager-web-app-deployment"></a>웹 앱 배포 Service Manager 문제 해결
--   웹 앱 배포에 문제가 있는 경우 구독에서 리소스를 만들거나 배포할 수 있는 권한이 있는지 확인 합니다.
--   [스크립트](itsmc-service-manager-script.md)를 실행할 때 개체 **참조를 개체의 인스턴스로 설정 하지** 않으면 **사용자 구성** 섹션에서 올바른 값을 입력 했는지 확인 합니다.
--   Service bus relay 네임 스페이스를 만들지 못한 경우 필요한 리소스 공급자가 구독에 등록 되어 있는지 확인 합니다. 등록 되지 않은 경우 Azure Portal에서 service bus relay 네임 스페이스를 수동으로 만듭니다. Azure Portal에서 [하이브리드 연결을 만들](./itsmc-connections.md#configure-the-hybrid-connection) 때도 만들 수 있습니다.
-
 
 ## <a name="contact-us"></a>문의처
 

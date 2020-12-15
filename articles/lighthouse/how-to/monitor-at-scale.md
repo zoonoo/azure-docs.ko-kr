@@ -1,14 +1,14 @@
 ---
 title: 대규모로 위임 된 리소스 모니터링
 description: 관리 중인 고객 테 넌 트에서 확장 가능한 방식으로 Azure Monitor 로그를 효과적으로 사용 하는 방법을 알아봅니다.
-ms.date: 10/26/2020
+ms.date: 12/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 96ca05faf2b3da8f214c14ae57eb186c7b71e1b3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6c1cbde696ccf9131797a05db33553b8505216a4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461527"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509277"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>대규모로 위임 된 리소스 모니터링
 
@@ -40,7 +40,25 @@ Log Analytics 작업 영역을 만든 후에는 각 테 넌 트의 적절 한 �
 
 ## <a name="analyze-the-gathered-data"></a>수집 된 데이터 분석
 
-정책을 배포한 후에는 각 고객 테 넌 트에서 만든 Log Analytics 작업 영역에 데이터가 로깅됩니다. 모든 관리 되는 고객에 대 한 통찰력을 얻기 위해 [Azure Monitor 통합 문서](../../azure-monitor/platform/workbooks-overview.md) 와 같은 도구를 사용 하 여 여러 데이터 원본의 정보를 수집 하 고 분석할 수 있습니다. 
+정책을 배포한 후에는 각 고객 테 넌 트에서 만든 Log Analytics 작업 영역에 데이터가 로깅됩니다. 모든 관리 되는 고객에 대 한 통찰력을 얻기 위해 [Azure Monitor 통합 문서](../../azure-monitor/platform/workbooks-overview.md) 와 같은 도구를 사용 하 여 여러 데이터 원본의 정보를 수집 하 고 분석할 수 있습니다.
+
+## <a name="view-alerts-across-customers"></a>고객 간에 경고 보기
+
+사용자가 관리 하는 고객 테 넌 트에서 위임 된 구독에 대 한 [경고](../../azure-monitor/platform/alerts-overview.md) 를 볼 수 있습니다.
+
+여러 고객에 대해 경고를 자동으로 새로 고치려면 [Azure 리소스 그래프](../../governance/resource-graph/overview.md) 쿼리를 사용 하 여 경고를 필터링 합니다. 대시보드에 쿼리를 고정 하 고 해당 하는 모든 고객 및 구독을 선택할 수 있습니다.
+
+다음 예제 쿼리는 심각도 0 및 경고 1 개를 표시 하 고 60 분 마다 새로 고칩니다.
+
+```kusto
+alertsmanagementresources
+| where type == "microsoft.alertsmanagement/alerts"
+| where properties.essentials.severity =~ "Sev0" or properties.essentials.severity =~ "Sev1"
+| where properties.essentials.monitorCondition == "Fired"
+| where properties.essentials.startDateTime > ago(60m)
+| project StartTime=properties.essentials.startDateTime,name,Description=properties.essentials.description, Severity=properties.essentials.severity, subscriptionId
+| sort by tostring(StartTime)
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,12 +4,12 @@ description: Azure Monitor에 대 한 Java 에이전트 문제를 해결 하는 
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1ccfd583b58d129268af2a94e3072200e58308cd
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 14644f76b7de53b2b6ee3f04131daaf59267a5ff
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347833"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507645"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>문제 해결 가이드: Java 용 Azure Monitor Application Insights
 
@@ -34,6 +34,14 @@ Java 3.0 Preview 에이전트에서 업그레이드 하는 경우 모든 [구성
 -  구성 파일 이름이에서로 변경 되었습니다 `ApplicationInsights.json` `applicationinsights.json` .
 -  `instrumentationSettings`노드가 더 이상 존재 하지 않습니다. 의 모든 콘텐츠 `instrumentationSettings` 는 루트 수준으로 이동 됩니다. 
 -  ,, 및와 같은 구성 노드 `sampling` `jmxMetrics` `instrumentation` `heartbeat` 는 `preview` 루트 수준으로 이동 됩니다.
+
+## <a name="some-logging-is-not-auto-collected"></a>일부 로깅은 자동으로 수집 되지 않습니다.
+
+로깅은 먼저 로깅 프레임 워크의 구성 된 임계값을 충족 하 고 두 번째는 구성 된 Application Insights 임계값을 충족 하는 경우에만 캡처됩니다.
+
+특정 로깅 문이 로깅 프레임 워크의 구성 된 임계값을 충족 하는지 확인 하는 가장 좋은 방법은 일반 응용 프로그램 로그 (예: 파일 또는 콘솔)에 표시 되는지 확인 하는 것입니다.
+
+자세한 내용은 [자동 수집 된 로깅 구성](./java-standalone-config.md#auto-collected-logging) 을 참조 하세요.
 
 ## <a name="import-ssl-certificates"></a>SSL 인증서 가져오기
 

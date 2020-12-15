@@ -11,12 +11,12 @@ ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 62f2869bfe1110dd5bf8459c9f6f6b21701dc934
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 95f41283b78c39ed2cf3b4abb75275902d8cf7bd
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425838"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509583"
 ---
 # <a name="userinfo-endpoint"></a>UserInfo 엔드포인트
 
@@ -103,7 +103,7 @@ ms.locfileid: "97425838"
 
 1. UserInfoIssuer 기술 프로필 내의 outputClaims 섹션은 반환 하려는 특성을 지정 합니다. UserInfoIssuer 기술 프로필은 사용자 경험의 끝에서 호출 됩니다. 
 1. UserInfoAuthorization 기술 프로필은 서명, 발급자 이름 및 토큰 대상의 유효성을 검사 하 고 인바운드 토큰에서 클레임을 추출 합니다. 다음 메타 데이터를 변경 하 여 환경을 반영 합니다.
-    1. **issuer** -이 값은 `iss` 액세스 토큰 클레임 내의 클레임과 동일 해야 합니다. Azure AD B2C에서 발급 한 토큰은 형식의 발급자를 사용 `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/` 합니다. [토큰 사용자 지정](configure-tokens-custom-policy.md)에 대해 자세히 알아보세요.
+    1. **issuer** -이 값은 `iss` 액세스 토큰 클레임 내의 클레임과 동일 해야 합니다. Azure AD B2C에서 발급 한 토큰은 형식의 발급자를 사용 `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/` 합니다. [토큰 사용자 지정](configure-tokens.md)에 대해 자세히 알아보세요.
     1. **Idtokenaudience** - `aud` 액세스 토큰 클레임 내의 클레임과 동일 해야 합니다. Azure AD B2C 클레임은 `aud` 신뢰 당사자 응용 프로그램의 ID입니다. 이 값은 컬렉션 이며 쉼표 구분 기호를 사용 하 여 여러 값을 지원 합니다.
 
 다음 액세스 토큰에서 `iss` 클레임 값은 `https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/` 입니다. `aud`클레임 값이 인 경우 `22222222-2222-2222-2222-222222222222`

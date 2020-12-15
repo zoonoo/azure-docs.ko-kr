@@ -12,12 +12,12 @@ ms.date: 12/10/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 698864a4dc1081cb8cad9036ff1cfc737a17473c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 53f5346030e3c5a247d1ad2a73b23882e83ed41a
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111481"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508121"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 특성 추가 및 사용자 입력 사용자 지정
 
@@ -31,7 +31,7 @@ ms.locfileid: "97111481"
 
 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 등록 과정 중에 새 특성을 수집 합니다. 사용자의 도시를 가져오고, 드롭다운으로 구성 하 고, 제공 해야 하는지 여부를 정의 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -129,7 +129,7 @@ City 특성에 대 한 값의 집합 목록을 제공 하려면:
 ::: zone pivot="b2c-custom-policy"
 
 > [!NOTE]
-> 이 샘플에서는 기본 제공 클레임 ' city '를 사용 합니다. 대신 지원 되는 [Azure AD B2C 기본 제공 특성](user-profile-attributes.md) 또는 사용자 지정 특성 중 하나를 선택할 수 있습니다. 사용자 지정 특성을 사용 하려면 [정책에서 사용자 지정 특성을 사용 하도록 설정](custom-policy-custom-attributes.md)합니다. 다른 기본 제공 또는 사용자 지정 특성을 사용 하려면 ' city '를 선택한 특성 (예: 기본 제공 특성 *jobTitle* 또는 *extension_loyaltyId* 같은 사용자 지정 특성)으로 바꿉니다.  
+> 이 샘플에서는 기본 제공 클레임 ' city '를 사용 합니다. 대신 지원 되는 [Azure AD B2C 기본 제공 특성](user-profile-attributes.md) 또는 사용자 지정 특성 중 하나를 선택할 수 있습니다. 사용자 지정 특성을 사용 하려면 [사용자 지정 특성](user-flow-custom-attributes.md)을 사용 하도록 설정 합니다. 다른 기본 제공 또는 사용자 지정 특성을 사용 하려면 ' city '를 선택한 특성 (예: 기본 제공 특성 *jobTitle* 또는 *extension_loyaltyId* 같은 사용자 지정 특성)으로 바꿉니다.  
 
 등록 또는 로그인 사용자 경험을 사용 하 여 사용자의 초기 데이터를 수집할 수 있습니다. 나중에 프로필 편집 사용자 경험을 통해 추가 클레임을 수집할 수 있습니다. 언제 든 지 사용자가 대화형으로 정보를 수집 Azure AD B2C Id 경험 프레임 워크는 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)을 사용 합니다. 이 샘플에서는 다음을 수행 합니다.
 
@@ -342,6 +342,6 @@ City 특성에 대 한 값의 집합 목록을 제공 하려면:
 ## <a name="next-steps"></a>다음 단계
 
 - IEF 참조에서 [ClaimsSchema](claimsschema.md) 요소에 대해 자세히 알아보세요.
-- [사용자 지정 프로필 편집 정책에서 사용자 지정 특성을 사용](custom-policy-custom-attributes.md)하는 방법에 대해 알아봅니다.
+- [Azure AD B2C에서 사용자 지정 특성을 사용](user-flow-custom-attributes.md)하는 방법을 알아봅니다.
 
 ::: zone-end
