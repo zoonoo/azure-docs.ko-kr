@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 6011bf90d5a97dcc027f8a9a0916c28226c5c354
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 327dce053c38fdb7b03e7ceb0d7a62ec8b8e7248
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96584475"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96992992"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -109,6 +109,12 @@ sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
 
 ```shell
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+```
+
+명령줄 도구와의 보다 확장된 상호 작용을 위해 entrypoint 매개 변수를 추가하여 대화형 bash 셸로 컨테이너를 시작할 수 있습니다.
+Windows에서 다음 명령을 입력하여 여러 `spx` 명령을 입력할 수 있는 대화형 명령줄 인터페이스를 표시하는 컨테이너를 시작합니다.
+```shell
+docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
 > [!WARNING]

@@ -3,17 +3,17 @@ title: Azure Defender for SQL - 이점 및 특징
 description: Azure Defender for SQL의 이점 및 특징에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 11/30/2020
+ms.date: 12/13/2020
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: c2fc1bf065bce3ca844c5284168d8ff96fa065bf
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: e9a2259f1e15a94ad1f2a9eabf7d3a2f3ed419f1
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512242"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387805"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Azure Defender for SQL 소개
 
@@ -28,7 +28,7 @@ SQL용 Azure Defender에는 Azure Security Center의 [데이터 보안 패키지
 |릴리스 상태:|**Azure SQL 데이터베이스 서버용 Azure Defender** - 일반 공급(GA)<br>**머신의 SQL 서버용 Azure Defender** - 일반 공급(GA) |
 |가격 책정:|**Azure Defender for SQL** 을 구성하는 두 요금제는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 청구됩니다.|
 |보호되는 SQL 버전:|[Azure 가상 머신의 SQL](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Azure Arc 지원 SQL Server](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)<br>Azure Arc를 사용하지 않는 Windows 머신의 온-프레미스 SQL Server<br>Azure SQL [단일 데이터베이스](../azure-sql/database/single-database-overview.md) 및 [탄력적 풀](../azure-sql/database/elastic-pool-overview.md)<br>[Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics(이전의 SQL DW) 전용 SQL 풀](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/yes-icon.png) China Gov(**일부**: SQL Server에 대한 경고 및 취약성 평가의 하위 집합입니다. 동작 위협 보호를 사용할 수 없습니다.)|
 |||
 
 ## <a name="what-does-azure-defender-for-sql-protect"></a>Azure Defender for SQL은 무엇을 보호하나요?

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 2ce5ac43af57b82f912b10eeacf285a688888e9d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4851dfb4a96ab2ca19ba6ea67139772f9c091a69
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180883"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504579"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 G Suite 구성
 
@@ -31,6 +31,9 @@ ms.locfileid: "96180883"
 > * 추가 G Suite 사용자 및 그룹 특성에 대한 지원이 추가되었습니다.
 > * [여기](https://developers.google.com/admin-sdk/directory)에 정의된 것과 일치하도록 G Suite 대상 특성 이름이 업데이트되었습니다.
 > * 기본 특성 매핑이 업데이트되었습니다.
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *허용 목록* 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 ## <a name="capabilities-supported"></a>지원되는 기능
 > [!div class="checklist"]

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2020
+ms.date: 12/13/2020
 ms.author: memildin
-ms.openlocfilehash: d92047a5b24f04ee7e0d08454867ec9e1a52a8b1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: d3492685efbf70b69e5bafba919d38a4f06fb666
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754381"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387473"
 ---
 # <a name="pricing-of-azure-security-center"></a>Azure Security Center 가격 책정
 Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으로 통합 보안 관리 및 고급 위협 보호 기능을 제공합니다. 또한 하이브리드 클라우드 워크로드에 대한 가시성과 제어, 위협에 대한 노출을 줄이는 적극적인 방어 및 빠르게 진화하는 사이버 위험에 보조를 맞추는 데 도움이 되는 인텔리전트 탐지를 제공합니다.
@@ -68,12 +68,24 @@ Azure Defender를 사용하도록 설정하려면 다음을 수행합니다.
 
 ## <a name="faq---pricing-and-billing"></a>FAQ - 가격 책정 및 요금 청구 
 
-### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-azure-security-center"></a>Azure Security Center에서 Azure Defender를 변경하도록 설정한 내 조직의 사용자를 추적하려면 어떻게 해야 하나요?
+- [Azure Security Center에서 Azure Defender를 변경하도록 설정한 내 조직의 사용자를 추적하려면 어떻게 해야 하나요?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+- [Security Center에서 제공하는 요금제는 무엇인가요?](#what-are-the-plans-offered-by-security-center)
+- [내 구독에 Azure Defender를 사용하도록 설정하려면 어떻게 해야 하나요?](#how-do-i-enable-azure-defender-for-my-subscription)
+- [내 구독의 서버 하위 집합에서 서버에 대해 Azure Defender를 사용하도록 설정할 수 있나요?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+- [Azure Defender를 내 구독의 서버에 사용하도록 설정했습니다. 실행되지 않는 서버에 대해 비용을 지불하나요?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+- [Log Analytics 에이전트가 설치되지 않은 컴퓨터에 대해 요금이 청구되나요?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
+- [Log Analytics 에이전트에서 여러 작업 영역에 보고하는 경우 요금이 두 번 청구되나요?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
+- [Log Analytics 에이전트에서 여러 작업 영역에 보고하는 경우 모든 작업 영역에서 500MB의 무료 데이터 수집을 사용할 수 있나요?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
+- [500MB의 무료 데이터 수집이 전체 작업 영역에 계산됩니까, 아니면 머신별로 계산됩니까?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+
+### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Security Center에서 Azure Defender를 변경하도록 설정한 내 조직의 사용자를 추적하려면 어떻게 해야 하나요?
 Azure 구독에는 가격 책정 설정을 변경할 수 있는 권한이 있는 여러 관리자가 있을 수 있습니다. 변경한 사용자를 확인하려면 Azure 활동 로그를 사용합니다.
 
-사용자 정보가 **이벤트를 시작한 사람** 열에 나열되지 않는 경우 이벤트에서 관련 세부 정보를 검색합니다.
+:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="가격 책정 변경 이벤트를 보여 주는 Azure 활동 로그":::
 
-:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="가격 책정 변경 이벤트를 보여 주는 Azure 이벤트 로그":::
+사용자 정보가 **이벤트를 시작한 사람** 열에 나열되지 않는 경우 관련 세부 정보를 보려면 이벤트의 JSON을 살펴봅니다.
+
+:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Azure 활동 로그 JSON 탐색기":::
 
 
 ### <a name="what-are-the-plans-offered-by-security-center"></a>Security Center에서 제공하는 요금제는 무엇인가요? 
@@ -115,6 +127,10 @@ Security Center에는 다음 두 가지 제품이 있습니다.
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them"></a>Log Analytics 에이전트에서 여러 작업 영역에 보고하는 경우 모든 작업 영역에서 500MB의 무료 데이터 수집을 사용할 수 있나요?
 예. 데이터를 둘 이상의 서로 다른 Log Analytics 작업 영역에 보내도록(멀티호밍) Log Analytics 에이전트를 구성한 경우 500MB의 데이터를 무료로 수집할 수 있습니다. 노드, 보고된 작업 영역 및 하루 단위로 계산되며, '보안' 또는 '맬웨어 방지' 솔루션이 설치된 모든 작업 영역에서 사용할 수 있습니다. 500MB를 초과하여 수집되는 데이터에 대해서는 요금이 청구됩니다.
 
+### <a name="is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine"></a>500MB의 무료 데이터 수집이 전체 작업 영역에 계산됩니까, 아니면 머신별로 계산됩니까?
+작업 영역에 연결된 모든 머신에 대해 매일 500MB의 무료 데이터 수집이 가능합니다. 특히 Azure Security Center에서 직접 수집하는 보안 데이터 유형에 적합합니다.
+
+이 데이터는 모든 노드에서 일일 평균 속도입니다. 따라서 일부 머신이 100MB를 보내고 다른 머신이 800MB를 보내더라도 총계가 **[머신 수] x 500MB** 사용 가능 제한을 초과하지 않으면 추가 요금이 부과되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Security Center의 가격 책정 옵션에 대해 설명했습니다. 관련 자료는 다음을 참조하세요.

@@ -30,6 +30,8 @@
   items:
     - name: 데이터에서 변칙 식별
       href: how-to/identify-anomalies.md
+    - name: IoT Edge에 배포
+      href: how-to/deploy-anomaly-detection-on-iot-edge.md
     - name: 컨테이너 사용
       items:
         - name: 컨테이너 설치 및 실행

@@ -54,6 +54,8 @@ items:
         href: concept-business-glossary.md
       - name: 데이터 인사이트
         href: concept-insights.md
+      - name: 지원되는 브라우저
+        href: supported-browsers.md
       - name: 질문과 대답
         href: frequently-asked-questions.md
   - name: 방법 가이드
@@ -110,6 +112,8 @@ items:
             href: how-to-create-import-export-glossary.md
           - name: 용어 템플릿 관리
             href: how-to-manage-term-templates.md
+          - name: 자산을 대량 편집하여 용어집 할당
+            href: how-to-bulk-edit-assets.md
       - name: 분류
         items:
           - name: 사용자 지정 분류 및 분류 규칙 만들기

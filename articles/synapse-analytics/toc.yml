@@ -564,7 +564,7 @@
           href: ./spark/apache-spark-delta-lake-overview.md
         - name: 라이브러리 관리
           href: ./spark/apache-spark-azure-portal-add-libraries.md
-        - name: Notebooks 사용
+        - name: Notebooks 및 IDE 도구 사용
           items:
             - name: Notebooks 관리
               href: ./spark/apache-spark-development-using-notebooks.md

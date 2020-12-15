@@ -1175,6 +1175,8 @@
               href: platform/workbooks-automate.md
             - name: 그룹
               href: platform/workbooks-groups.md
+            - name: 사용자 고유의 스토리지 가져오기
+              href: platform/workbooks-bring-your-own-storage.md
             - name: JSONPath를 사용하여 JSON 데이터 변환
               href: platform/workbooks-jsonpath.md
             - name: 다른 지역으로 통합 문서 이동

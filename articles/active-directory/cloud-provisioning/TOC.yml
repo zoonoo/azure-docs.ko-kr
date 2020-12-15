@@ -48,6 +48,8 @@
       items:
         - name: 에이전트 자동 업그레이드
           href: how-to-automatic-upgrade.md
+        - name: 에이전트 레지스트리 옵션
+          href: how-to-manage-registry-options.md
     - name: 개발
       items:
         - name: 변환

@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 86d4eb68866e35300738a15cbd3549485c3cbafb
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 57b2955f8cec059cd20d353eba31dc39ad992d50
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97096349"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97506345"
 ---
 지역 VNet 통합을 사용 하면 앱이 다음에 액세스할 수 있습니다.
 
@@ -99,8 +99,8 @@ BGP (Border Gateway Protocol) 경로도 앱 트래픽에 영향을 줍니다. Ex
 앱이 VNet과 통합 되 면 VNet이 구성 된 것과 동일한 DNS 서버를 사용 합니다. 기본적으로 앱은 Azure DNS Private Zones에서 작동 하지 않습니다. Azure DNS Private Zones를 사용 하려면 다음 앱 설정을 추가 해야 합니다.
 
 
-1. 값 168.63.129.16 1을 사용 하 여 WEBSITE_DNS_SERVER 합니다. WEBSITE_DNS_SERVER 값 168.63.129.16
-1. 값 1 1를 사용 하 여 WEBSITE_VNET_ROUTE_ALL 합니다. 값 1로 WEBSITE_VNET_ROUTE_ALL
+1. WEBSITE_DNS_SERVER 값 168.63.129.16
+1. 값 1로 WEBSITE_VNET_ROUTE_ALL
 
 
 이러한 설정은 앱에서 Azure DNS 전용 영역을 사용 하도록 설정 하는 것 외에도 앱의 모든 아웃 바운드 호출을 VNet으로 보냅니다.   이러한 설정은 앱에서 VNet으로 모든 아웃 바운드 호출을 보냅니다. 또한 작업자 수준에서 사설 DNS 영역을 쿼리하여 앱이 Azure DNS를 사용할 수 있도록 합니다. 이 기능은 실행 중인 응용 프로그램이 사설 DNS 영역에 액세스할 때 사용 됩니다.

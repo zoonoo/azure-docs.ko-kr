@@ -256,9 +256,11 @@
       items:
         - name: 쿼리 형식 및 컴퍼지션
           href: search-query-overview.md
-        - name: 간단한 쿼리 만들기
+        - name: 기본 쿼리 만들기
+          href: search-query-create.md
+        - name: 간단한 구문 사용(예제)
           href: search-query-simple-examples.md
-        - name: 전체 Lucene 구문 사용
+        - name: 전체 Lucene 사용(예제)
           href: search-query-lucene-examples.md
         - name: 부분 용어 및 특수 문자
           href: search-query-partial-matching.md
@@ -536,6 +538,8 @@
           href: 'https://wolterskluwereap.azurewebsites.net/'
         - name: JFK 파일 데모
           href: 'https://www.microsoft.com/en-us/ai/ai-lab-jfk-files'
+        - name: NYC 작업 데모
+          href: 'https://azjobsdemo.azurewebsites.net/'
     - name: 학습
       items:
         - name: 소개(Microsoft Learn)
