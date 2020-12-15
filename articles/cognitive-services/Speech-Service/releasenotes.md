@@ -11,14 +11,57 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: c6cc033e4814553020957310224a8ed4cdacbc8e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2db93ec6806d4b9cc8c8ac17cfb2c15458bf4dc9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483957"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401154"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
+
+## <a name="text-to-speech-2020-december-release"></a>텍스트 음성 변환 2020-12 월 릴리스
+
+**GA 및 미리 보기의 새로운 신경망**
+
+54 언어/로캘에서 전체 129 신경망에 대해 51 새로운 음성이 발표 되었습니다.
+
+- **46 GA 로캘의 새 음성**: Shakir `ar-EG` (이집트), Hamed `ar-SA` 아랍어 (사우디아라비아), Borislav의 `bg-BG` 불가리아어 (불가리아), Joana의 ( `ca-ES` 스페인), `cs-CZ` 체코어 (체코 공화국) 덴마크어 (덴마크)의 Jeppe, `da-DK` `de-AT` 독일어 (오스트리아), 1 월 `de-CH` 독일어 (스위스), nestoras 그리스어 (그리스), `el-GR` Liam (영어, `en-CA` 캐나다), Jonas 또는 영어 (아일랜드), Madhur (인도)의, 인도 (인도)의 `en-IE` `en-IN` Monabhat (인도) `en-IN` `en-IN` 타밀어 (인도)의 valluvar, `en-IN` Enric `es-ES` (스페인), 에스토니아어 (에스토니아)의 Kert, 핀란드의 Harri, 핀란드 `et-EE` `fi-FI` `fi-FI` (핀란드), 핀란드에서 Fabrice `fr-CH` (스위스),의 colm ( `ga-IE` 아일랜드), Avri In `he-IL` 히브리어 (이스라엘), `hr-HR` 크로아티아어 (크로아티아어), 크로아티아어 (크로아티아어), 헝가리 (Tamas), 헝가리의 Gadis, 인도네시아 (인도네시아), Joseph의 `hu-HU` `id-ID` `lt-LT` nils, `lv-LV` 라트비아 (라트비아), Osman의 ( `ms-MY` 말레이시아),의 `mt-MT` (몰타) , 노르웨이어, 복말 (노르웨이), Pernille 노르웨이어, 복말 (노르웨이), 네덜란드어 (네덜란드), 네덜란드어 (네덜란드), 네덜란드어 (네덜란드), 폴란드어 (네덜란드), 폴란드어 (폴란드어)의 Fenna, 폴란드어 (폴란드어)의 `nb-NO` `nb-NO` `nl-NL` `nl-NL` `pl-PL` Marek, `pl-PL` 포르투갈어 (브라질)의 dute, 포르투갈어 ( `pt-BR` 브라질)의 Raquel `pt-PT` `ro-RO` `ru-RU` 러시아 (러시아)의 Svetlana, 슬로바키아어 (슬로바키아)의 Rok (슬로바키아), 슬로베니아어 (슬로베니아)의 Mattias, 스웨덴어 (스웨덴), 스웨덴어 (스웨덴), `ru-RU` `sk-SK` `sl-SI` `sv-SE` Sofie의 Niwat (태국), `sv-SE` Ahmet ( `th-TH` 터키) `tr-TR` ), NamMinh에서 `vi-VN` 베트남어 (베트남), HsiaoChen `zh-TW` 대만 북경어 (대만), yunjhe In 대만 북경어 (대만), 중국어 (홍콩) in 중국어 광둥어 (홍콩) `zh-TW` `zh-HK` , WanLung in `zh-HK` 중국어 광둥어 (홍콩)
+
+- **미리 보기 로캘에서 새로** 제공 되는 새 음성: `et-EE` 에스토니아어 (에스토니아)의 Kert, 아일랜드의 Colm `ga-IE` (아일랜드), 아일랜드의 nils ( `lv-LV` 라트비아), 리투아니아어 (리투아니아)의 leonas ( `lt-LT` 리투아니아), `mt-MT` 몰타어 (몰타) Joseph).
+
+이번 릴리스에서는 54 언어/로캘에서 전체 129 신경망을 지원 합니다. 또한 70 이상의 표준 음성이 49 언어/로캘에서 제공 됩니다. 전체 목록에 대 한 [언어 지원](language-support.md#text-to-speech) 을 방문 하세요.
+
+**오디오 콘텐츠 만들기에 대 한 업데이트**
+- 음성 범주 및 자세한 음성 설명이 포함 된 음성 선택 UI가 개선 되었습니다. 
+- 여러 언어의 모든 신경망에 대해 intonation 튜닝을 사용 하도록 설정 했습니다.
+- 브라우저의 언어에 따라 UI localizaiton를 자동화 합니다.
+- `StyleDegree`모든 신경망에 대해 컨트롤을 사용할 수 `zh-CN` 있습니다.
+[오디오 콘텐츠 만들기 도구](https://speech.microsoft.com/audiocontentcreation) 를 방문 하 여 새로운 기능을 확인 하세요. 
+
+**Zh-cn에 대 한 업데이트-CN 음성**
+- `zh-CN`영어 말하기를 지원 하도록 모든 신경망을 업데이트 했습니다.
+- `zh-CN`Intonation 조정을 지원 하도록 모든 신경망을 사용 하도록 설정 했습니다. SSML 또는 오디오 콘텐츠 생성 도구를 사용 하 여 가장 적합 한 intonation를 조정할 수 있습니다.
+- 모든 `zh-CN` 다중 스타일의 신경망이 컨트롤을 지원 하도록 업데이트 되었습니다 `StyleDegree` . Emotion 강도 (soft 또는 strong)를 조정할 수 있습니다.
+- `zh-CN-YunyeNeural`다른 감정을를 수행할 수 있는 여러 스타일을 지원 하도록 업데이트 되었습니다.
+
+## <a name="text-to-speech-2020-november-release"></a>텍스트 음성 변환 2020-11 월 릴리스
+
+**새 로캘 및 미리 보기의 음성**
+- 신경망 **5 개의 새 음성 및 언어가** 신경망에 도입 되었습니다. 이러한 작업은 몰타어 (몰타)의 유예, 리투아니아 (리투아니아),로 마이그레이션의 Anu, 에스토니아어 (에스토니아), 아일랜드의 Orla (아일랜드) 및 Everita (라트비아)의입니다.
+- **`zh-CN` 여러 스타일 및 역할이 있는 새 음성 5** 개 (Xiaohan, Xiaomo, Xiaorui, Xiaoxuan 및 yunxi)를 지원 합니다.
+
+> 이러한 음성은 SouthEastAsia 및 WestEurope의 세 가지 Azure 지역에서 공개 미리 보기로 제공 됩니다.
+
+**신경망 컨테이너 GA**
+- 신경망 컨테이너를 사용 하면 개발자는 특정 보안 및 데이터 관리 요구 사항에 맞게 자신의 환경에서 가장 자연 스러운 디지털 음성이 포함 된 음성 합성을 실행할 수 있습니다. [음성 컨테이너를 설치 하는 방법을](speech-container-howto.md)확인 합니다. 
+
+**새로운 기능**
+- **사용자 지정 음성**: 한 지역에서 다른 지역으로 음성 모델을 복사 하는 enabed 사용자 끝점 일시 중단 및 다시 시작이 지원 됩니다. 여기에서 [포털로](https://speech.microsoft.com/customvoice) 이동 합니다.
+- [SSML 대기 태그](speech-synthesis-markup.md#add-silence) 지원. 
+- 일반 TTS 음성 품질 향상: nb에서 향상 된 단어 수준 발음 정확도입니다. 53%의 발음 오류가 감소 했습니다.
+
+> [이 기술 블로그에서](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-previews-five-new-languages-with/ba-p/1907604)자세한 내용을 알아보세요.
 
 ## <a name="text-to-speech-2020-october-release"></a>텍스트 음성 변환 2020-10 월 릴리스
 
@@ -93,7 +136,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 ## <a name="text-to-speech-2020-september-release"></a>텍스트 음성 변환 2020-9 월 릴리스
 
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 
 * **신경망** 
     * **18 개의 새로운 언어/로캘을 지원 하도록 확장 되었습니다.** 불가리아어, 체코어, 독일어 (오스트리아), 독일어 (스위스), 그리스어, 영어 (아일랜드), 프랑스어 (스위스), 히브리어, 크로아티아어, 헝가리어, 인도네시아어, 말레이어, 루마니아어, 슬로바키아어, 슬로베니아어, 타밀어, 텔루구어 및 베트남어입니다. 
@@ -106,7 +149,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 ## <a name="text-to-speech-2020-august-release"></a>텍스트 음성 변환 2020-8 월 릴리스
 
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 
 * **신경망: 새 말하기 스타일 `en-US` Aria 음성**. 뉴스는 뉴스를 읽을 때 AriaNeural 수 있습니다. ' Newscast-공식 ' 스타일은 더 심각 하 게 들리지만 ' newscast-일반 ' 스타일은 더 낮은 수준에서 비공식적입니다. [SSML에서 말하는 스타일을 사용 하는 방법을](speech-synthesis-markup.md)참조 하세요.
 
@@ -155,7 +198,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 | 로캘  | 언어                          |
 |---------|-----------------------------------|
-| `cs-CZ` | 체코어(체코 공화국)            | 
+| `cs-CZ` | 체코어(체코)            | 
 | `en-HK` | 영어 (홍콩)               | 
 | `en-IE` | 영어(아일랜드)                 | 
 | `en-PH` | 영어(필리핀)             | 
@@ -214,7 +257,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 ## <a name="text-to-speech-2020-july-release"></a>텍스트 음성 변환 2020-7 월 릴리스
 
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 
 * **신경망, 15 개의 새로운 신경망**: 신경망에 추가 된 새 음성: 신경망 `ar-EG` (이집트), Zariyah (아랍어), Salma `ar-SA` `ca-ES` (스페인), 카탈로니아어 (스페인), Christel `da-DK` (덴마크), Neerja ( `es-IN` 영어 (인도)) Noora `fi-FI` (핀란드), 힌디어 (인도), Swara의 `hi-IN` Colette, 네덜란드어 (네덜란드), 폴란드어 (폴란드어) `nl-NL` `pl-PL` `pt-PT` `ru-RU` `sv-SE` `th-TH` `zh-HK` `zh-TW` , Fernanda In 러시아어 (폴란드어), Dariya in 러시아어 (러시아), Hillevi in 태국어 (태국), Achara in 스웨덴어 (HiuGaai, 번체) 및 광둥어 in 중국어 (HsiaoYu 대만) [지원 되](./language-support.md#neural-voices)는 모든 언어를 확인 합니다.  
 
@@ -321,7 +364,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 - **Java**: SWIG 없이 direct JNI 구현을 사용 하 여 바인딩을 리팩터링 했습니다. 이 변경은 Windows, Android, Linux 및 Mac에 사용 되는 모든 Java 패키지에 대 한 바인딩 크기를 10 배 하 고, 음성 SDK Java 구현에 대 한 추가 개발을 용이 하 게 합니다.
 - **Linux**: 최신 RHEL 7 관련 정보를 사용 하 여 지원 [설명서](./speech-sdk.md?tabs=linux) 를 업데이트 했습니다.
 - 서비스 및 네트워크 오류가 발생할 때 여러 번 연결을 시도 하는 연결 논리가 개선 되었습니다.
-- 개발자가 Azure Speech portal.azure.com의 다음 단계를 수행 하는 데 도움이 되는 [portal.azure.com](https://portal.azure.com) Speech 빠른 시작 페이지가 업데이트 되었습니다.
+- 개발자가 Azure Speech portal.azure.com의 다음 단계를 수행 하는 데 도움이 되는 [](https://portal.azure.com) Speech 빠른 시작 페이지가 업데이트 되었습니다.
 
 **버그 수정**
 - **C #, Java**: Linux ARM (32 비트 및 64 비트 모두)에서 SDK 라이브러리를 로드 하는 [문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/587) 를 해결 했습니다.

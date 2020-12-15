@@ -1,18 +1,18 @@
 ---
 title: 배포 모범 사례
 description: 이 문서에서는 Azure 부서의 범위 배포에 대 한 모범 사례를 제공 합니다. Azure 부서의 범위를 사용 하면 모든 사용자가 데이터 원본을 등록, 검색, 이해 및 소비할 수 있습니다.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: cae4904d0b3dacc608c7b41b638dc507b3cda6b5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1b2841f69ebe91dac748a4b2e24dc0c33756b1da
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554178"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400695"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Azure 부서의 범위 배포 모범 사례
 
@@ -24,7 +24,7 @@ ms.locfileid: "96554178"
 - 분석 공동 작업 개선
 - 투자 수익률을 최대화 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 개발 또는 프로덕션 구독을 사용 하 여 Microsoft Azure에 대 한 액세스
 * 부서의 범위를 포함 하 여 Azure 리소스를 만드는 기능
@@ -53,7 +53,7 @@ ms.locfileid: "96554178"
 |---------|---------|
 |검색|관리자 사용자는 Azure 및 비 Azure 데이터 원본 (온-프레미스 원본 포함)을 검색 하 여 데이터 자산에 대 한 정보를 자동으로 수집할 수 있습니다.|
 |분류|플랫폼은 데이터 샘플링을 기반으로 데이터를 자동으로 분류 하 고 사용자 지정 분류를 사용 하 여 수동 재정의를 허용 해야 합니다.|
-|사용량|비즈니스 사용자는 비즈니스 및 기술 메타 데이터에 대 한 각 자산에 대 한 정보를 찾을 수 있어야 합니다.|
+|Consumption|비즈니스 사용자는 비즈니스 및 기술 메타 데이터에 대 한 각 자산에 대 한 정보를 찾을 수 있어야 합니다.|
 |계보|각 자산은 원래 원본 및 변경 내용을 이해 하도록 기본 데이터 집합의 그래픽 보기를 표시 해야 합니다.|
 |협업|플랫폼에서는 사용자가 각 데이터 자산에 대 한 추가 정보를 제공 하 여 공동 작업을 수행할 수 있도록 해야 합니다.|
 |보고|사용자는 중요 한 데이터 및 추가 보강 필요한 데이터를 포함 하 여 데이터 공간에 대 한 보고를 볼 수 있어야 합니다.|

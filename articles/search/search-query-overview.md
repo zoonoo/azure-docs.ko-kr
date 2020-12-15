@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/11/2020
-ms.openlocfilehash: 9ce0ab34aac1a3dda823c9270f4eacebfb99166f
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.date: 12/14/2020
+ms.openlocfilehash: 7277ad060c57b44d633054c4fc4d29d151bd7192
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387669"
+ms.locfileid: "97400814"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리
 
-Azure Cognitive Search는 자유 텍스트 검색에서 항상 지정 된 쿼리 패턴에 이르기까지 광범위 한 시나리오를 지 원하는 풍부한 쿼리 언어를 제공 합니다. 이 문서에서는 만들 수 있는 쿼리 종류를 요약 합니다.
+Azure Cognitive Search는 자유 텍스트 검색에서 항상 지정 된 쿼리 패턴에 이르기까지 광범위 한 시나리오를 지 원하는 풍부한 쿼리 언어를 제공 합니다. 이 문서에서는 쿼리 요청 및 만들 수 있는 쿼리의 종류에 대해 설명 합니다.
 
-Cognitive Search 쿼리는 **`search`** 쿼리 실행을 알리고 응답의 모양을 지정 하는 매개 변수를 사용 하 여 라운드트립 작업을 전체적으로 지정 합니다. 매개 변수 및 파서는 쿼리 요청 유형을 결정 합니다. 다음 쿼리 예에서는 [호텔 데모 인덱스](search-get-started-portal.md)를 대상으로 하는 [문서 검색 (REST API)](/rest/api/searchservice/search-documents)을 사용 합니다.
+Cognitive Search 쿼리는 **`search`** 쿼리 실행을 알리고 응답의 모양을 지정 하는 매개 변수를 사용 하 여 라운드트립 작업을 전체적으로 지정 합니다. 매개 변수 및 파서는 쿼리 요청 유형을 결정 합니다. 다음 쿼리 예제는 [호텔-샘플 인덱스](search-get-started-portal.md) 문서 컬렉션을 대상으로 하는 [검색 문서 (REST API)](/rest/api/searchservice/search-documents)를 사용 하 여 부울 연산자를 사용 하는 자유 텍스트 쿼리입니다.
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -34,7 +34,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 }
 ```
 
-쿼리 실행 중에 사용 되는 매개 변수:
+쿼리 실행 중에 사용 되는 매개 변수는 다음과 같습니다.
 
 + **`queryType`**[기본 단순 쿼리 파서](search-query-simple-examples.md) (전체 텍스트 검색에 최적) 인 파서 또는 정규식, 근접 검색, 유사 항목 및 와일드 카드 검색 등의 고급 쿼리 구문에 사용 되는 [전체 Lucene 쿼리 파서](search-query-lucene-examples.md) 를 설정 합니다.
 
@@ -66,7 +66,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 Cognitive Search에서 전체 텍스트 검색은 Apache Lucene 쿼리 엔진을 기반으로 합니다. 전체 텍스트 검색의 쿼리 문자열은 검색을 보다 효율적으로 수행 하기 위해 어휘 분석을 수행 합니다. 분석에는 대/소문자를 모두 포함 하 고, "the"와 같은 중지 단어를 제거 하 고, 용어를 기본 루트 형식으로 축소 기본 분석기는 표준 Lucene입니다.
 
-일치 하는 단어가 발견 되 면 쿼리 엔진은 일치 항목을 포함 하는 검색 문서를 다시 구성 하 고, 관련성이 높은 순서로 문서 순위를 결정 하 고, 응답에서 상위 50 (기본적으로)을 반환 합니다.
+일치 용어를 찾을 때 쿼리 엔진은 문서 키 또는 ID를 사용 하 여 일치 항목이 포함 된 검색 문서를 다시 구성 하 여 필드 값을 조합 하 고, 관련성 순서로 문서 순위를 지정 하 고, 지정 된 경우 응답에 상위 50 (기본값)을 반환 합니다 **`top`** .
 
 전체 텍스트 검색을 구현 하는 경우 콘텐츠가 토큰화 되는 방법을 이해 하면 모든 쿼리 변칙을 디버그 하는 데 도움이 됩니다. 하이픈을 넣은 문자열이 나 특수 문자를 쿼리하면 인덱스에 올바른 토큰이 포함 되어 있는지 확인 하기 위해 기본 표준 Lucene 이외의 분석기를 사용 하는 것이 필요할 수 있습니다. 어휘 분석을 수정 하는 [언어 분석기](index-add-language-analyzers.md#language-analyzer-list) 또는 [특수 분석기](index-add-custom-analyzers.md#AnalyzerTable) 를 사용 하 여 기본값을 재정의할 수 있습니다. 한 가지 예는 필드의 전체 내용을 단일 토큰으로 처리 하는 [키워드](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) 입니다. 우편 번호, ID 및 일부 제품 이름과 같은 데이터에 유용합니다. 자세한 내용은 [부분 용어 검색 및 특수 문자가 포함 된 패턴](search-query-partial-matching.md)을 참조 하세요.
 
@@ -78,7 +78,7 @@ Cognitive Search에서 전체 텍스트 검색은 Apache Lucene 쿼리 엔진을
 
 ## <a name="filter-search"></a>필터 검색
 
-필터는 Cognitive Search 포함 된 앱에서 널리 사용 됩니다. 응용 프로그램 페이지에서 필터는 사용자가 직접 필터링 할 수 있도록 링크 탐색 구조에서 패싯으로 시각화 되는 경우가 많습니다. 또한 필터는 인덱싱된 콘텐츠의 조각을 노출 하기 위해 내부적으로 사용 됩니다. 예를 들어 인덱스에 영어와 프랑스어의 필드가 모두 포함 되어 있으면 언어를 필터링 할 수 있습니다. 
+필터는 Cognitive Search 포함 된 앱에서 널리 사용 됩니다. 응용 프로그램 페이지에서 필터는 사용자가 직접 필터링 할 수 있도록 링크 탐색 구조에서 패싯으로 시각화 되는 경우가 많습니다. 또한 필터는 인덱싱된 콘텐츠의 조각을 노출 하기 위해 내부적으로 사용 됩니다. 예를 들어 제품 범주에 대 한 필터를 사용 하 여 검색 페이지를 초기화 하거나 인덱스에 영어와 프랑스어의 필드가 모두 포함 된 경우 언어를 초기화할 수 있습니다.
 
 다음 표에서 설명 하는 것 처럼 특수 쿼리 양식을 호출 하는 필터가 필요할 수도 있습니다. 지정 되지 않은 검색 ( **`search=*`** ) 또는 용어, 구, 연산자 및 패턴이 포함 된 쿼리 문자열을 사용 하 여 필터를 사용할 수 있습니다.
 

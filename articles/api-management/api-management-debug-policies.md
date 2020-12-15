@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 4eb32243df219d721d7baae80984c45d0fc4cf25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8ed834c9ab093ae063e386978bca4d73fa46543
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343021"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400729"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Visual Studio Code에서 Azure API Management 정책 디버그
 
@@ -30,9 +30,11 @@ Azure API Management [정책은](api-management-policies.md) API 게시자가 �
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 [자습서](get-started-create-service-instance.md) 를 먼저 따라 API Management 개발자 계층 인스턴스를 만듭니다.
+* 이 [빠른](get-started-create-service-instance.md) 시작을 먼저 따라 API Management 개발자 계층 인스턴스를 만듭니다.
 
-[Visual Studio Code에 대 한 Azure API Management 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement)의 [Visual Studio Code](https://code.visualstudio.com/) 및 최신 버전을 설치 합니다. 
+* [Visual Studio Code에 대 한 Azure API Management 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement)의 [Visual Studio Code](https://code.visualstudio.com/) 및 최신 버전을 설치 합니다. 
+
+* API Management 인스턴스로 API를 가져옵니다. 예제 단계는 [자습서: Visual Studio Code에 대 한 API Management 확장을 사용 하 여 api 가져오기 및 관리를](visual-studio-code-tutorial.md)참조 하세요.
 
 ## <a name="restrictions-and-limitations"></a>제한 사항
 
