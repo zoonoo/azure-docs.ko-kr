@@ -5,16 +5,16 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: 232a1ae5d125a2ea1d5723e85073fb3dd02420cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a7f21410bb97db0a7974870efb812c9954ac241
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87294221"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503559"
 ---
-# <a name="configure-development-environment-for-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트에 대 한 개발 환경 구성 (미리 보기)
+# <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>템플릿에서 배포 스크립트에 대 한 개발 환경 구성
 
 배포 스크립트 이미지를 사용 하 여 배포 스크립트를 개발 하 고 테스트 하기 위한 개발 환경을 만드는 방법에 대해 알아봅니다. [Azure container instance](../../container-instances/container-instances-overview.md) 를 만들거나 [Docker](https://docs.docker.com/get-docker/)를 사용할 수 있습니다. 이 문서에서는 둘 다 설명 합니다.
 
@@ -153,7 +153,7 @@ $DeploymentScriptOutputs['text'] = $output
   ]
 }
 ```
-탑재 경로의 기본값은 **Deploymentscript**입니다.  이 경로는 컨테이너 인스턴스에서 파일 공유에 탑재 된 경로입니다.
+탑재 경로의 기본값은 **Deploymentscript** 입니다.  이 경로는 컨테이너 인스턴스에서 파일 공유에 탑재 된 경로입니다.
 
 템플릿에 지정 된 기본 컨테이너 이미지는 **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3 "** 입니다.  지원 되는 Azure PowerShell 버전 및 Azure CLI 버전 목록은 [Azure PowerShell 또는 Azure CLI](./deployment-script-template.md#prerequisites)를 참조 하세요.
 
@@ -197,7 +197,7 @@ Azure Portal 및 Azure CLI를 사용 하 여 파일을 업로드할 수도 있�
 
     ![배포 스크립트 연결 컨테이너 인스턴스](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
 
-1. **연결**을 선택한 다음 **연결**을 선택 합니다. 컨테이너 인스턴스에 연결할 수 없는 경우 컨테이너 그룹을 다시 시작 하 고 다시 시도 하세요.
+1. **연결** 을 선택한 다음 **연결** 을 선택 합니다. 컨테이너 인스턴스에 연결할 수 없는 경우 컨테이너 그룹을 다시 시작 하 고 다시 시도 하세요.
 1. 콘솔 창에서 다음 명령을 실행 합니다.
 
     ```
@@ -206,7 +206,7 @@ Azure Portal 및 Azure CLI를 사용 하 여 파일을 업로드할 수도 있�
     pwsh ./hello.ps1 "John Dole"
     ```
 
-    **Hello John Dole**출력입니다.
+    **Hello John Dole** 출력입니다.
 
     ![배포 스크립트 컨테이너 인스턴스 테스트](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png)
 
@@ -243,7 +243,7 @@ Azure Portal 및 Azure CLI를 사용 하 여 파일을 업로드할 수도 있�
     docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
-    **-it**는 컨테이너 이미지를 활성 상태로 유지하는 것을 의미합니다.
+    **-it** 는 컨테이너 이미지를 활성 상태로 유지하는 것을 의미합니다.
 
     CLI 예:
 

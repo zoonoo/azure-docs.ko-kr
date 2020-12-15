@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: b5a3ec1d6e33c08b460088c9aeb4fd18f6bf29ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 410b73d3f9011f9384fafa18394d9318e3eafa67
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88864731"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504494"
 ---
 ## <a name="authentication"></a>인증
 
@@ -17,7 +17,7 @@ ms.locfileid: "88864731"
 
 | 지원되는 인증 헤더 | 음성 텍스트 변환 | 텍스트 음성 변환 |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | 예 | 아니요 |
+| Ocp-Apim-Subscription-Key | 예 | 예 |
 | Authorization: Bearer | 예 | 예 |
 
 `Ocp-Apim-Subscription-Key` 헤더를 사용하는 경우 구독 키만 제공하면 됩니다. 예를 들면 다음과 같습니다.
@@ -151,7 +151,7 @@ def get_token(subscription_key):
 
 액세스 토큰은 `Authorization: Bearer <TOKEN>` 헤더로 서비스에 전송되어야 합니다. 각 액세스 토큰은 10분 동안 유효합니다. 언제든지 새 토큰을 가져올 수 있지만, 네트워크 트래픽 및 대기 시간을 최소화하려면 동일한 토큰을 9분 동안 사용하는 것이 좋습니다.
 
-다음은 Text-to-Speech REST API에 대한 샘플 HTTP 요청입니다.
+다음은 짧은 오디오의 음성 텍스트 REST API에 대 한 샘플 HTTP 요청입니다.
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1

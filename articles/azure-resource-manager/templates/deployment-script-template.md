@@ -5,16 +5,16 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: 7566235cf92965d5d3de1ec7f40353430ec7e0c6
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: c6d171717865fe4bdf3dfb30a6d24badd4fe29ca
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107144"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505565"
 ---
-# <a name="use-deployment-scripts-in-arm-templates-preview"></a>ARM 템플릿에서 배포 스크립트 사용 (미리 보기)
+# <a name="use-deployment-scripts-in-arm-templates"></a>ARM 템플릿에서 배포 스크립트 사용
 
 Azure 리소스 템플릿 (ARM 템플릿)에서 배포 스크립트를 사용 하는 방법에 대해 알아봅니다. 이라는 새 리소스 유형을 사용 하면 `Microsoft.Resources/deploymentScripts` 사용자가 템플릿 배포에서 스크립트를 실행 하 고 실행 결과를 검토할 수 있습니다. 이러한 스크립트는 다음과 같은 사용자 지정 단계를 수행하는 데 사용할 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure 리소스 템플릿 (ARM 템플릿)에서 배포 스크립트를 사용 �
 > DeploymentScripts 리소스 API 버전 2020-10-01은 [OBO (OnBehalfofTokens)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)를 지원 합니다. 배포 스크립트 서비스는 OBO를 사용 하 여 배포 주체의 토큰을 사용 하 여 배포 스크립트를 실행 하기 위한 기본 리소스를 만듭니다. 여기에는 Azure Container instance, Azure storage 계정 및 관리 되는 id에 대 한 역할 할당이 포함 됩니다. 이전 API 버전에서 관리 id를 사용 하 여 이러한 리소스를 만듭니다.
 > 이제 Azure 로그인에 대 한 재시도 논리가 래퍼 스크립트에 기본 제공 됩니다. 배포 스크립트를 실행 하는 동일한 템플릿에서 사용 권한을 부여 하는 경우  배포 스크립트 서비스는 관리 되는 id 역할 할당이 복제 될 때까지 10 초 간격으로 10 분 동안 로그인을 다시 시도 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - **(선택 사항) 스크립트에서 작업을 수행 하는 데 필요한 권한이 있는 사용자 할당 관리 id** 입니다. 배포 스크립트 API 버전 2020-10-01 이상에서는 배포 주체를 사용 하 여 기본 리소스를 만듭니다. 스크립트가 Azure에 인증 하 고 Azure 관련 작업을 수행 해야 하는 경우에는 사용자 할당 관리 id를 사용 하 여 스크립트를 제공 하는 것이 좋습니다. 스크립트에서 작업을 완료 하려면 관리 되는 id에 대상 리소스 그룹에 대 한 필수 액세스 권한이 있어야 합니다. 배포 스크립트에서 Azure에 로그인 할 수도 있습니다. 리소스 그룹 외부에서 작업을 수행하려면 추가 권한을 부여해야 합니다. 예를 들어 새 리소스 그룹을 만들려면 구독 수준에 ID를 할당합니다. 
 
@@ -88,7 +88,7 @@ Azure 리소스 템플릿 (ARM 템플릿)에서 배포 스크립트를 사용 �
 ```json
 {
   "type": "Microsoft.Resources/deploymentScripts",
-  "apiVersion": "2019-10-01-preview",
+  "apiVersion": "2020-10-01",
   "name": "runPowerShellInline",
   "location": "[resourceGroup().location]",
   "kind": "AzurePowerShell", // or "AzureCLI"
@@ -441,18 +441,18 @@ List 명령 출력은 다음과 유사 합니다.
 REST API를 사용하여 리소스 그룹 수준 및 구독 수준에서 배포 스크립트 리소스 배포 정보를 가져올 수 있습니다.
 
 ```rest
-/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>?api-version=2019-10-01-preview
+/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>?api-version=2020-10-01
 ```
 
 ```rest
-/subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2019-10-01-preview
+/subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2020-10-01
 ```
 
 다음 예에서는 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용합니다.
 
 ```azurepowershell
 armclient login
-armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2019-10-01-preview
+armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2020-10-01
 ```
 
 다음과 유사하게 출력됩니다.
@@ -510,7 +510,7 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 다음 REST API는 로그를 반환합니다.
 
 ```rest
-/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>/logs?api-version=2019-10-01-preview
+/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>/logs?api-version=2020-10-01
 ```
 
 배포 스크립트 리소스를 삭제하기 전에만 작동합니다.

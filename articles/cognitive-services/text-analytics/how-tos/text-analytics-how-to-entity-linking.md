@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: 804d739efa5ac96c0b2d7228573f031f324e590e
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 5b064365a6f0bd8a544f57d67cd6e4beb98bb404
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558983"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505242"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법
 
@@ -37,7 +37,7 @@ PII 기능은 NER의 일부 이며, 전화 번호, 전자 메일 주소, 우편 
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| 특징                                                         | NER v 3.0 | NER v 3.1-preview. 3 |
+| 기능                                                         | NER v 3.0 | NER v 3.1-preview. 3 |
 |-----------------------------------------------------------------|--------|----------|
 | 단일 및 일괄 처리 요청을 위한 메서드                          | X      | X        |
 | 여러 범주에서 확장 된 엔터티 인식           | X      | X        |
@@ -309,5 +309,5 @@ PII 응답의 예:
 ## <a name="next-steps"></a>다음 단계
 
 * [Text Analytics 개요](../overview.md)
-* [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/text-analytics-sdk.md)
+* [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/client-libraries-rest-api.md)
 * [새로운 기능](../whats-new.md)

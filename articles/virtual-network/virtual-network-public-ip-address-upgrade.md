@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 9ea29c47349fd7ccee469188f8929a864cf7bbef
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 6cabc340c0be347165a3e506703a6277f7eb1cea
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905794"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503936"
 ---
 # <a name="upgrade-public-ip-addresses"></a>공용 IP 주소 업그레이드
 
@@ -32,9 +32,6 @@ Azure 공용 IP 주소는 SKU (기본 또는 표준)를 사용 하 여 생성 �
 * 클래식 Azure 예약된 IP Azure Resource Manager 기본 SKU 공용 IP로 마이그레이션하는 방법
 
 ## <a name="upgrade-public-ip-address-from-basic-to-standard-sku"></a>기본에서 표준 SKU로 공용 IP 주소 업그레이드
-
->[!NOTE]
->공용 Ip를 Basic에서 Standard로 업그레이드 하는 기능은 일부 지역에서 사용할 수 없습니다.  자세한 내용은 [**제한 사항을**](#limitations) 참조 하세요.
 
 공용 IP를 업그레이드 하려면 리소스와 연결 되지 않아야 합니다. 공용 IP의 연결을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) 를 참조 하세요.
 
@@ -147,15 +144,6 @@ Azure Resource Manager의 새 리소스 그룹은 마이그레이션된 예약�
 ---
 
 ## <a name="limitations"></a>제한 사항
-
-* 이 기능은 현재 다음 지역에서 사용할 수 없습니다.<br>
-US Gov 버지니아<br>
-US DoD 동부<br>
-US DoD 중부<br>
-중국 동부<br>
-중국 동부 2<br>
-중국 북부<br>
-중국 북부 2
 
 * 기본 공용 IP를 업그레이드 하기 위해 Azure 리소스에 연결할 수 없습니다.  공용 Ip의 연관을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) 를 참조 하세요.  마찬가지로 예약된 IP 마이그레이션하기 위해 클라우드 서비스에 연결할 수 없습니다.  예약 된 Ip의 연관을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) 를 참조 하세요.  
 * 기본에서 표준 SKU로 업그레이드 된 공용 Ip는 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) 을 계속 갖지 않으므로 영역 중복 또는 영역 인 Azure 리소스에 연결할 수 없습니다.  참고이는 가용성 영역을 제공 하는 지역에만 적용 됩니다.

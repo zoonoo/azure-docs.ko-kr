@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 157bef31b375db54f294284ca0a5d97cd7035b17
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: c304c2aad3ba40d7b3a044f0e3222e31bb013648
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558966"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503984"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
 텍스트 분석 API는 지속적으로 업데이트 됩니다. 최신 개발을 최신 상태로 유지 하기 위해이 문서에서는 새로운 릴리스 및 기능에 대 한 정보를 제공 합니다.
 
-## <a name="december-2020"></a>12 월 2020
+## <a name="december-2020"></a>2020년 12월
 
 * 텍스트 분석 API에 대 한 [업데이트 된 가격](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) 정보
 
@@ -61,7 +61,7 @@ ms.locfileid: "96558966"
     * v. 3.0-preview. 1
     
 > [!div class="nextstepaction"]
-> [텍스트 분석 API v 3.1-미리 보기에 대해 자세히 알아보세요. 2](quickstarts/text-analytics-sdk.md)
+> [텍스트 분석 API v 3.1-미리 보기에 대해 자세히 알아보세요. 2](quickstarts/client-libraries-rest-api.md)
 
 ### <a name="text-analytics-for-health-container-updates"></a>상태 컨테이너 업데이트에 대 한 Text Analytics
 
@@ -178,21 +178,21 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 ### <a name="sdk-support-for-text-analytics-api-v3-public-preview"></a>텍스트 분석 API v3 공개 미리 보기에 대 한 SDK 지원
 
 [통합 된 AZURE sdk 릴리스의](https://techcommunity.microsoft.com/t5/azure-sdk/january-2020-unified-azure-sdk-release/ba-p/1097290)일부로 텍스트 분석 API v3 SDK는 이제 다음과 같은 프로그래밍 언어에 대 한 공개 미리 보기로 제공 됩니다.
-   * [C#](./quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp&tabs=version-3)
-   * [Python](./quickstarts/text-analytics-sdk.md?pivots=programming-language-python&tabs=version-3)
-   * [JavaScript(Node.js)](./quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript&tabs=version-3)
-   * [Java](./quickstarts/text-analytics-sdk.md?pivots=programming-language-java&tabs=version-3)
+   * [C#](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-csharp&tabs=version-3)
+   * [Python](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-python&tabs=version-3)
+   * [JavaScript(Node.js)](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-javascript&tabs=version-3)
+   * [Java](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-java&tabs=version-3)
    
 > [!div class="nextstepaction"]
-> [텍스트 분석 API v3 SDK에 대해 자세히 알아보기](./quickstarts/text-analytics-sdk.md?tabs=version-3)
+> [텍스트 분석 API v3 SDK에 대해 자세히 알아보기](./quickstarts/client-libraries-rest-api.md?tabs=version-3)
 
 ### <a name="named-entity-recognition-v3-public-preview"></a>명명 된 엔터티 인식 v3 공개 미리 보기
 
-이제 추가 엔터티 형식은 텍스트에 있는 일반 및 개인 정보 엔터티 검색을 확장할 때 NER (명명 된 엔터티 인식) v3 공개 미리 보기 서비스에서 사용할 수 있습니다. 이 업데이트 [model version](concepts/model-versioning.md) `2020-02-01` 에서는 다음을 포함 하는 모델 버전을 소개 합니다.
+이제 추가 엔터티 형식은 텍스트에 있는 일반 및 개인 정보 엔터티 검색을 확장할 때 NER (명명 된 엔터티 인식) v3 공개 미리 보기 서비스에서 사용할 수 있습니다. 이 업데이트 [](concepts/model-versioning.md) `2020-02-01` 에서는 다음을 포함 하는 모델 버전을 소개 합니다.
 
 * 다음과 같은 일반 엔터티 형식 인식 (영어만 해당):
     * PersonType
-    * 제품
+    * Product
     * 이벤트
     * 지정 학적 엔터티 (GPE)를 위치 아래의 하위 형식으로
     * 기술
@@ -202,7 +202,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
     * 조직
     * 수량 아래의 하위 형식으로 사용 기간
     * DateTime 아래의 하위 형식으로 날짜
-    * 전자 메일 
+    * 메일 
     * 전화 번호 (미국에만 해당)
     * URL
     * IP 주소
@@ -215,7 +215,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 * [엔터티 인식](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral) 및 [엔터티 링크](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)를 위한 별도의 끝점.
 
-* [Model version](concepts/model-versioning.md) `2019-10-01` 다음을 포함 하는 모델 버전:
+* [](concepts/model-versioning.md) `2019-10-01` 다음을 포함 하는 모델 버전:
     * 텍스트에 있는 엔터티의 확장 된 검색 및 분류 
     * 다음과 같은 새로운 엔터티 유형을 인식 합니다.
         * 전화 번호
@@ -226,7 +226,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 #### <a name="sentiment-analysis-v3-public-preview"></a>감정 분석 v3 공개 미리 보기
 
 * 감정 분석을 위한 [새 끝점](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Sentiment) 입니다.
-* [Model version](concepts/model-versioning.md) `2019-10-01` 다음을 포함 하는 모델 버전:
+* [](concepts/model-versioning.md) `2019-10-01` 다음을 포함 하는 모델 버전:
 
     * API의 텍스트 분류 및 점수 매기기의 정확성과 세부 정보에 상당한 기능이 향상 되었습니다.
     * 텍스트의 다른 정서에 대 한 자동 레이블 지정
@@ -239,7 +239,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [텍스트 분석 API 이란?](overview.md)  
+* [텍스트 분석 API란?](overview.md)  
 * [사용자 시나리오 예](text-analytics-user-scenarios.md)
 * [감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [언어 감지](how-tos/text-analytics-how-to-language-detection.md)

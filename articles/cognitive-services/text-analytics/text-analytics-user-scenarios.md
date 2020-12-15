@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 4f540c7e853efe370c84b7c4d0a7d74911b8cd6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4c551a6e9b8d79fdeb7b5219f311c7c7c969757
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823940"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505361"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Text Analytics API의 예제 사용자 시나리오
 
@@ -61,4 +61,4 @@ Text Analytics API는 텍스트에 대한 고급 자연어 처리를 제공하�
 ## <a name="next-steps"></a>다음 단계
 
 * [텍스트 분석 API란?](overview.md)
-* [클라이언트 라이브러리를 사용하여 Text Analytics API로 요청 보내기](quickstarts/text-analytics-sdk.md)
+* [클라이언트 라이브러리를 사용하여 Text Analytics API로 요청 보내기](quickstarts/client-libraries-rest-api.md)

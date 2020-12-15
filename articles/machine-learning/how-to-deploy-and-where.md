@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 11/02/2020
+ms.date: 12/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: fa8d40e4817b6adb42da6daa3035bd1c4a67c5d8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f273902aee47a22bcf29bdf507f617efe242f5a4
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325285"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505140"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 배포
 
@@ -314,12 +314,12 @@ print(service.state)
 
 다음 표에서는 다양 한 서비스 상태에 대해 설명 합니다.
 
-| 웹 서비스 상태 | 설명 | 최종 상태?
+| 웹 서비스 상태 | Description | 최종 상태?
 | ----- | ----- | ----- |
-| 변환은 | 서비스의 배포를 진행 중입니다. | 아니요 |
-| Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 아니요 |
-| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 아니요 |
-| 실패 | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
+| 변환은 | 서비스의 배포를 진행 중입니다. | 예 |
+| Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 예 |
+| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 예 |
+| Failed | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
 | 정상 | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | 예 |
 
 

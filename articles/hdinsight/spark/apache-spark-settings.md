@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 231ab5cc93d98d7356d47472b7e160ddd3ade790
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c2e2daf6d8c9afa6ffef03b088ec9a7dc144cf47
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545942"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504936"
 ---
 # <a name="configure-apache-spark-settings"></a>Apache Spark 설정 구성
 
@@ -110,7 +110,7 @@ Spark 워크로드에 따라 기본이 아닌 Spark 구성을 사용하여 보�
 
 다음 목록에서는 핵심 Spark 실행기 메모리 매개 변수를 보여 줍니다.
 
-|매개 변수 |설명|
+|매개 변수 |Description|
 |---|---|
 |spark.executor.memory|실행자에 사용할 수 있는 총 메모리 양을 정의 합니다.|
 |spark. 저장소. memoryFraction|(기본 ~60%)은 지속된 RDD를 저장하는 데 사용할 수 있는 메모리 양을 정의합니다.|
@@ -121,11 +121,11 @@ YARN은 각 Spark 노드의 컨테이너에서 사용되는 메모리의 최대 
 
 ![YARN Spark 메모리 관리](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
 
-## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Jupyter 노트에서 실행 중인 애플리케이션에 대한 매개 변수 변경
+## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Jupyter Notebook에서 실행 되는 응용 프로그램에 대 한 매개 변수 변경
 
 기본적으로 HDInsight의 Spark 클러스터에는 다양한 구성 요소가 포함되어 있습니다. 이러한 각 구성 요소에는 필요에 따라 재정의될 수 있는 기본 구성 값이 포함되어 있습니다.
 
-|구성 요소 |설명|
+|구성 요소 |Description|
 |---|---|
 |Spark 코어|Spark Core, Spark SQL, Spark 스트리밍 Api, GraphX 및 Apache Spark MLlib.|
 |Anaconda|Python 패키지 관리자입니다.|
@@ -133,12 +133,12 @@ YARN은 각 Spark 노드의 컨테이너에서 사용되는 메모리의 최대 
 |Jupyter 및 Apache Zeppelin 노트북|Spark 클러스터와 상호 작용 하기 위한 대화형 브라우저 기반 UI입니다.|
 |ODBC 드라이버|HDInsight의 Spark 클러스터를 Microsoft Power BI 및 Tableau와 같은 BI (비즈니스 인텔리전스) 도구에 연결 합니다.|
 
-Jupyter 노트에서 실행되는 애플리케이션의 경우 `%%configure` 명령을 사용하여 노트 자체에서 구성을 변경합니다. 이러한 구성 변경 내용은 노트 인스턴스에서 실행되는 Spark 작업에 적용됩니다. 첫 번째 코드 셀을 실행 하기 전에 응용 프로그램의 시작 부분에서 이러한 변경을 수행 합니다. 변경된 구성은 생성된 Livy 세션에 적용됩니다.
+Jupyter Notebook에서 실행 되는 응용 프로그램의 경우 `%%configure` 명령을 사용 하 여 노트북 자체 내에서 구성을 변경할 수 있습니다. 이러한 구성 변경 내용은 노트 인스턴스에서 실행되는 Spark 작업에 적용됩니다. 첫 번째 코드 셀을 실행 하기 전에 응용 프로그램의 시작 부분에서 이러한 변경을 수행 합니다. 변경된 구성은 생성된 Livy 세션에 적용됩니다.
 
 > [!NOTE]  
 > 애플리케이션의 이후 단계에서 구성을 변경하려면 `-f`(force) 매개 변수를 사용합니다. 그러나 애플리케이션의 모든 진행 상태는 손실됩니다.
 
-다음 코드는 Jupyter 노트에서 실행 중인 애플리케이션에 대한 구성을 변경하는 방법을 보여 줍니다.
+아래 코드는 Jupyter Notebook에서 실행 되는 응용 프로그램에 대 한 구성을 변경 하는 방법을 보여 줍니다.
 
 ```
 %%configure

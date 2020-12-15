@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: 46c219a82d45129ed0856d22d88be819938e5240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fefa16a39545c0c4094db8dbd18b46fb94ef5025
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325307"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504035"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>자동화 스크립트를 사용하여 Service Manager 웹앱 만들기
 
@@ -26,13 +26,16 @@ ms.locfileid: "87325307"
 - 웹앱에 대한 사이트 이름 접두사
 - ServiceBus 네임스페이스.
 
-이 스크립트는 사용자가 지정한 이름(및 웹앱을 고유하게 만드는 몇 가지 추가 설정)을 사용하여 웹앱을 만듭니다. **웹 앱 URL**, **클라이언트 ID**및 **클라이언트 암호**를 생성 합니다.
+이 스크립트는 사용자가 지정한 이름(및 웹앱을 고유하게 만드는 몇 가지 추가 설정)을 사용하여 웹앱을 만듭니다. **웹 앱 URL**, **클라이언트 ID** 및 **클라이언트 암호** 를 생성 합니다.
 
 이러한 값은 IT Service Management Cconnector와의 연결을 만들 때 필요하므로 저장합니다.
 
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 *허용 목록* 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
+
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
  Windows Management Framework 5.0 이상
 Windows 10에는 기본적으로 5.1 버전이 있습니다. [여기](https://www.microsoft.com/download/details.aspx?id=50395)에서 이 Framework를 다운로드할 수도 있습니다.

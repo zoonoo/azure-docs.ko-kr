@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7bd9560399a2b2b377cb543a4f829883bcbdf7c8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7feac3ccb94cd8b4b0fab509477d4dbf772df2ae
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183773"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505531"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Hybrid Runbook Worker 개요
 
@@ -92,7 +92,7 @@ Azure Automation Hybrid Runbook Worker를 Azure Government에서 사용 하 여 
 
 * [격리 된 가상 컴퓨터](../azure-government/documentation-government-impact-level-5.md#isolated-virtual-machines). 배포 되 면 해당 컴퓨터에 대 한 전체 실제 호스트를 사용 하 여 IL5 워크 로드를 지 원하는 데 필요한 수준의 격리를 제공 합니다.
 
-* 하나 이상의 가상 컴퓨터를 호스트할 수 있는 물리적 서버를 제공 하는 [Azure 전용 호스트](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-hosts)는 하나의 azure 구독 전용입니다.
+* 하나 이상의 가상 컴퓨터를 호스트할 수 있는 물리적 서버를 제공 하는 [Azure 전용 호스트](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-host)는 하나의 azure 구독 전용입니다.
 
 >[!NOTE]
 >Hybrid Runbook Worker 역할을 통한 계산 격리는 Azure 상용 및 미국 정부 클라우드에서 사용할 수 있습니다. 

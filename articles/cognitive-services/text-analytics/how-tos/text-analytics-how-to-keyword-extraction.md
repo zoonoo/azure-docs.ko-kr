@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 68da6a134f2410ca81ae16b8e00c40d0a9c8f22c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 39823792a438e533134f38c04e72f2c314c57678
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965020"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505191"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>예: Text Analytics을 사용 하 여 키 구를 추출 하는 방법
 
@@ -33,7 +33,7 @@ ms.locfileid: "94965020"
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-핵심 구 추출은 사용할 텍스트를 더 많이 제공할 때 가장 적합합니다. 이는 작은 양의 텍스트에서 더 효율적으로 수행되는 감정 분석과는 반대입니다. 두 작업 모두에서 최상의 결과를 얻으려면 적절하게 입력을 재구성하는 것을 고려해보세요.
+핵심 구 추출은 사용할 텍스트를 더 많이 제공할 때 가장 적합합니다. 이는 작은 양의 텍스트에서 더 효율적으로 수행되는 감정 분석과는 반대입니다. 두 작업에서 최상의 결과를 얻으려면 이에 따라 입력을 다시 구성하는 것이 좋습니다.
 
 ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 
@@ -177,5 +177,5 @@ V 3.1-preview. 2 끝점에서 키 구 추출에 대 한 출력의 예는 다음�
 ## <a name="next-steps"></a>다음 단계
 
 * [Text Analytics 개요](../overview.md)
-* [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/text-analytics-sdk.md)
+* [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/client-libraries-rest-api.md)
 * [새로운 기능](../whats-new.md)

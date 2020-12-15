@@ -4,13 +4,13 @@ description: 지원 요청을 보고, 메시지를 보내고, 요청 심각도 �
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 06/30/2020
-ms.openlocfilehash: 882dfaa802638efd98eaf6f12a33a77a9727adc2
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.date: 12/14/2020
+ms.openlocfilehash: 8110f87401da1352309fb55615093d49981c754d
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359067"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504817"
 ---
 # <a name="manage-an-azure-support-request"></a>Azure 지원 요청 관리
 
@@ -119,9 +119,17 @@ ms.locfileid: "97359067"
 | -           | -     | -           | -     | -        | -          | .zix    |
 | -           | -     | -           | -     | -        | -          | .zzz    |
 
+## <a name="close-a-support-request"></a>지원 요청 종결
+
+지원 요청을 종결 해야 하는 경우 요청을 닫을지 묻는 [메시지를 보냅니다](#send-a-message) .
+
 ## <a name="reopen-a-closed-request"></a>닫힌 요청 다시 열기
 
 종결 된 지원 요청을 다시 열어야 하는 경우 [새 메시지](#send-a-message)를 만들면 요청이 자동으로 다시 열립니다.
+
+## <a name="cancel-a-support-plan"></a>지원 플랜 취소
+
+지원 계획을 취소 해야 하는 경우 [지원 계획 취소](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

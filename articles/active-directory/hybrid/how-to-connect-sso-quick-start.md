@@ -16,18 +16,21 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40d77f4ebb897884f03377e6d9f1243a6d436766
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: eadb20bc570545356508d82c05e1746424a14b71
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500209"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504392"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>원활한 Single Sign-on Azure Active Directory: 빠른 시작
 
 ## <a name="deploy-seamless-single-sign-on"></a>Seamless Single Sign-On 배포
 
 Azure AD(Active Directory) Seamless SSO(Seamless Single Sign-On)는 회사 네트워크에 연결된 회사 데스크톱에 있을 때 사용자를 자동으로 서명합니다. Seamless SSO는 추가 온-프레미스 구성 요소가 없어도 사용자가 클라우드 기반 애플리케이션에 쉽게 액세스할 수 있습니다.
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 *허용 목록* 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
 
 Seamless SSO를 배포하려면 다음 단계를 수행합니다.
 
@@ -168,7 +171,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
  
      !["새 레지스트리 속성" 창을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso16.png)
  
-     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>브라우저 고려 사항
 

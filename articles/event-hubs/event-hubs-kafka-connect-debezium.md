@@ -5,18 +5,21 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: a13713f01a6bdb0ffcd787ef9c1d2f9a0336f63c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ae3ef2e1f35be432558769c512845543867ef27a
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369559"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505412"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>변경 데이터 캡처에 대 한 Debezium를 사용 하 여 Azure Event Hubs (미리 보기)에 Apache Kafka 연결 지원 통합
 
 **CDC (변경 데이터 캡처)** 는 만들기, 업데이트 및 삭제 작업에 대 한 응답으로 데이터베이스 테이블의 행 수준 변경 내용을 추적 하는 데 사용 되는 기술입니다. [Debezium](https://debezium.io/) 는 다양 한 데이터베이스 (예: [PostgreSQL의 논리적 디코딩](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html))에서 사용할 수 있는 변경 데이터 캡처 기능을 기반으로 구축 되는 분산 플랫폼입니다. 데이터베이스 테이블에서 행 수준 변경 내용을 탭 하 고이를 이벤트 스트림으로 변환한 후 [Apache Kafka](https://kafka.apache.org/)으로 전송 하는 [Kafka Connect 커넥터](https://debezium.io/documentation/reference/1.2/connectors/index.html) 집합을 제공 합니다.
 
 이 자습서에서는 azure [Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (Kafka 용), [Azure DB (PostgreSQL](../postgresql/overview.md) 및 Debezium)를 사용 하 여 azure에서 변경 데이터 캡처 기반 시스템을 설정 하는 방법을 안내 합니다. [Debezium PostgreSQL 커넥터](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) 를 사용 하 여 PostgreSQL의 데이터베이스 수정 내용을 Event Hubs Azure의 Kafka 토픽으로 스트리밍합니다.
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 *허용 목록* 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -100,7 +103,7 @@ plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka
 ```
 
 > [!IMPORTANT]
-> `{YOUR.EVENTHUBS.CONNECTION.STRING}`을 Event Hubs 네임스페이스의 연결 문자열로 바꿉니다. 연결 문자열을 가져오는 방법에 대 한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조 하세요. 구성 예는 다음과 같습니다. `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+> `{YOUR.EVENTHUBS.CONNECTION.STRING}`을 Event Hubs 네임스페이스의 연결 문자열로 바꿉니다. 연결 문자열을 가져오는 방법에 대한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조하세요. `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";` 구성의 예는 다음과 같습니다.
 
 
 ### <a name="run-kafka-connect"></a>Kafka Connect 실행

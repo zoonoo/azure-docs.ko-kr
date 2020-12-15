@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad03942a2200c57475cf8a81d0fb08d475ec6964
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 57d74272d77183baa2284265aee298967f641250
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973221"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504885"
 ---
 # <a name="risky-ip-report-public-preview"></a>위험한 IP 보고서 (공개 미리 보기)
 AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사용자가 Microsoft 365 같은 SaaS 응용 프로그램에 액세스할 수 있도록 인증 서비스를 제공할 수 있습니다. 이 경우 악의적 행위자가 AD FS 시스템에 대한 로그인을 시도하여 사용자의 암호를 추측하고 종료하고 애플리케이션 리소스에 액세스할 수 있습니다. Windows Server 2012 R2의 AD FS 이후부터 AD FS에서는 이러한 유형의 공격을 방지하기 위해 엑스트라넷 계정 잠금 기능을 제공합니다. 더 낮은 버전을 사용하는 경우 AD FS 시스템을 Windows Server 2016으로 업그레이드하는 것이 좋습니다. <br />
@@ -36,7 +36,10 @@ AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사�
 > [!NOTE]
 > 이 보고서를 사용하려면 AD FS 감사를 사용하도록 설정해야 합니다. 자세한 내용은 [AD FS 감사 사용](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs)을 참조하십시오. <br />
 > 미리 보기에 액세스하려면 전역 관리자 또는 [보안 읽기 권한자](../../role-based-access-control/built-in-roles.md#security-reader) 권한이 필요합니다.  
-> 
+>
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 *허용 목록* 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
 
 ## <a name="what-is-in-the-report"></a>보고서에는 무엇이 있나요?
 실패 한 로그인 활동 클라이언트 IP 주소는 웹 응용 프로그램 프록시 서버를 통해 집계 됩니다. 위험한 IP 보고서의 각 항목에는 지정된 임계값을 초과하는 실패한 AD FS 로그인 활동에 대한 집계 정보가 표시됩니다. 다음 정보를 제공 합니다. ![ 열 머리글이 강조 표시 된 위험한 IP 보고서를 보여 주는 스크린샷](./media/how-to-connect-health-adfs/report4a.png)

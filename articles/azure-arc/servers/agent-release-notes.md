@@ -2,13 +2,13 @@
 title: Azure Arc 사용 서버 에이전트의 새로운 기능
 description: 이 문서에는 Azure Arc 사용 서버 에이전트에 대 한 릴리스 정보가 포함 되어 있습니다. 요약 된 많은 문제에 대 한 자세한 내용은 추가 정보를 참조 하세요.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 5322a92bfc67d9f80c2271a3ef9b5626455e9ad7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 12/14/2020
+ms.openlocfilehash: 3a01113d0d6416fb050f5c66191d5c420b7ac137
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445288"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505650"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트의 새로운 기능
 
@@ -17,6 +17,16 @@ Azure Arc 사용 서버 연결 된 컴퓨터 에이전트는 지속적으로 향
 - 최신 릴리스
 - 알려진 문제
 - 버그 수정
+
+## <a name="december-2020"></a>2020년 12월
+
+### <a name="new-feature"></a>새로운 기능
+
+Windows Server 2008 r 2에 대 한 지원 추가
+
+### <a name="fixed"></a>고정
+
+Linux에서 사용자 지정 스크립트 확장을 설치 하지 못하게 하는 문제가 해결 되었습니다.
 
 ## <a name="november-2020"></a>2020년 11월
 
@@ -71,7 +81,7 @@ RPM 기반 배포에서 업그레이드 한 후 프록시 구성이 손실 될 �
 
 ### <a name="known-issues"></a>알려진 문제
 
-이전 버전의 Linux 에이전트를 사용 하 고 프록시 서버를 사용 하도록 구성한 경우 업그레이드 후 프록시 서버 설정을 다시 구성 해야 합니다. 이 위해 실행 `sudo azcmagent_proxy add http://proxyserver.local:83`합니다.
+이전 버전의 Linux 에이전트를 사용 하 고 있고 프록시 서버를 사용 하도록 구성 된 경우 업그레이드 후 프록시 서버 설정을 다시 구성 해야 합니다. 이 위해 실행 `sudo azcmagent_proxy add http://proxyserver.local:83`합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
